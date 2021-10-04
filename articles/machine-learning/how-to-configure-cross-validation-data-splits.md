@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: 자동화된 Machine Learning 실험의 데이터 세트 분할 및 교차 유효성 검사를 구성하는 방법 알아보기
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.topic: how-to
 ms.custom: automl
 ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 02/23/2021
-ms.openlocfilehash: 82ea26a5522d44bb39adc30f388f996688cb1ad5
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: e6a5893fd6c6fab3dc1631065d63315fe2c6fd84
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122529931"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427650"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>자동화된 Machine Learning에서 데이터 분할 및 교차 유효성 검사 구성
 

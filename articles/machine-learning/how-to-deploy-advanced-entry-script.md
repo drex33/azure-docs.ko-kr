@@ -4,17 +4,17 @@ titleSuffix: Azure Machine Learning entry script authoring
 description: 배포하는 동안 전처리 및 후처리에 대한 Azure Machine Learning 입력 스크립트를 작성하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 ms.date: 09/17/2020
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: acdb9a371a6a49bc8d4c5475748f60d9c589d80e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 614eb783276bc120bed536ede53dc4930867431a
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128591542"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129423579"
 ---
 # <a name="advanced-entry-script-authoring"></a>고급 항목 스크립트 작성
 

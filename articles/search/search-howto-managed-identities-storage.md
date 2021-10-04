@@ -6,13 +6,13 @@ author: markheff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/02/2021
-ms.openlocfilehash: 7dd06e48d6d610b99f6c52affcd1d6101e04c9ba
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.date: 10/01/2021
+ms.openlocfilehash: 139fa020459804571129d63819a0e82e3f1737e2
+ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122567740"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129418654"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>관리 ID를 사용하여 Azure Storage 계정에 대한 연결 설정
 
@@ -20,7 +20,8 @@ ms.locfileid: "122567740"
 
 시스템이 할당한 관리 ID나 사용자가 할당한 관리 ID(미리 보기)를 사용할 수 있습니다.
 
-이 기능을 학습하기 전에 인덱서가 무엇인지와 데이터 원본에 대해 인덱서를 설정하는 방법을 이해하는 것이 좋습니다. 자세한 내용은 다음 링크에서 확인할 수 있습니다.
+이 문서에서는 인덱서 개념 및 구성에 익숙하다고 가정합니다. 인덱서가 익숙하지 않으면 다음 링크로 시작합니다.
+
 * [인덱서 개요](search-indexer-overview.md)
 * [Azure Blob 인덱서](search-howto-indexing-azure-blob-storage.md)
 * [Azure Data Lake Storage Gen2 인덱서](search-howto-index-azure-data-lake-storage.md)
@@ -28,7 +29,9 @@ ms.locfileid: "122567740"
 
 ## <a name="1---set-up-a-managed-identity"></a>1 - 관리 ID 설정
 
-다음 옵션 중 하나를 사용하여 [관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 설정합니다.
+다음 옵션 중 하나를 사용하여 Azure Cognitive Search 서비스에 대한 [관리 ID를](../active-directory/managed-identities-azure-resources/overview.md) 설정합니다. 
+
+검색 서비스는 기본 계층 이상이어야 합니다.
 
 ### <a name="option-1---turn-on-system-assigned-managed-identity"></a>옵션 1 - 시스템이 할당한 관리 ID 켜기
 
@@ -39,26 +42,32 @@ ms.locfileid: "122567740"
 **저장** 을 선택한 후 검색 서비스에 할당된 개체 ID가 표시됩니다.
 
 ![개체 ID](./media/search-managed-identities/system-assigned-identity-object-id.png "개체 ID입니다.")
- 
+
 ### <a name="option-2---assign-a-user-assigned-managed-identity-to-the-search-service-preview"></a>옵션 2 - 사용자가 할당한 관리 ID를 검색 서비스(미리 보기)에 할당
 
 사용자가 할당한 관리 ID를 아직 만들지 않은 경우 새로 만들어야 합니다. 사용자가 할당한 관리 ID는 Azure 리소스입니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+
 1. **+ 리소스 만들기** 를 선택합니다.
+
 1. “검색 서비스 및 마켓플레이스” 검색 창에서 “사용자가 할당한 관리 ID”를 검색한 다음, **만들기** 를 선택합니다.
+
 1. ID에 설명이 포함된 이름을 지정합니다.
 
 그런 다음, 사용자가 할당한 관리 ID를 검색 서비스에 할당합니다. 이 작업은 [2021-04-01-preview 관리 API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update)를 사용하여 수행할 수 있습니다.
 
 ID 속성은 유형과 하나 이상의 정규화된 사용자 할당 ID를 사용합니다.
 
-* **type** 은 ID 유형입니다. 유효한 값은 “SystemAssigned”, “UserAssigned” 또는 둘 다 사용하려는 경우 “SystemAssigned, UserAssigned”입니다. “None” 값은 검색 서비스에서 이전에 할당한 ID를 모두 지웁니다.
-* **userAssignedIdentities** 에는 사용자가 할당한 관리 ID의 세부 정보가 포함됩니다.
-    * 사용자가 할당한 관리 ID 형식: 
-        * /subscriptions/**구독 ID**/resourcegroups/**리소스 그룹 이름**/providers/Microsoft.ManagedIdentity/userAssignedIdentities/**관리 ID 이름**
+* **type** 은 ID 유형입니다. 유효한 값은 둘 다에 대해 "SystemAssigned", "UserAssigned" 또는 "SystemAssigned, UserAssigned"입니다. “None” 값은 검색 서비스에서 이전에 할당한 ID를 모두 지웁니다.
 
-사용자가 할당한 관리 ID를 검색 서비스에 할당하는 방법 예제:
+* **userAssignedIdentities** 에는 사용자가 할당한 관리 ID의 세부 정보가 포함됩니다. 형식:
+
+  ```bash
+    /subscriptions/<your-subscription-ID>/resourcegroups/<your-resource-group-name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<your-managed-identity-name>
+  ```
+
+사용자 할당 관리 ID 할당의 예:
 
 ```http
 PUT https://management.azure.com/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Search/searchServices/[search service name]?api-version=2021-04-01-preview
@@ -85,20 +94,25 @@ Content-Type: application/json
 
 ## <a name="2---add-a-role-assignment"></a>2 - 역할 할당 추가
 
-이 단계에서는 스토리지 계정에서 데이터를 읽는 권한을 Azure Cognitive Search Service나 사용자가 할당한 관리 ID에 부여합니다.
+이 단계에서는 스토리지 계정에서 데이터를 읽을 수 있는 Azure Cognitive Search 서비스 또는 사용자 할당 관리 ID 권한을 부여합니다.
 
 1. Azure Portal에서 인덱싱하려는 데이터가 포함된 스토리지 계정으로 이동합니다.
+
 2. **액세스 제어(IAM)** 를 선택합니다.
+
 3. **추가** 를 선택한 다음 **역할 할당 추가** 를 선택합니다.
 
     ![역할 할당 추가](./media/search-managed-identities/add-role-assignment-storage.png "역할 할당 추가")
 
 4. 인덱싱할 스토리지 계정 유형에 따라 적절한 역할을 선택합니다.
-    1. Azure Blob Storage를 사용하려면 **Storage Blob 데이터 읽기 권한자** 역할에 검색 서비스를 추가해야 합니다.
-    1. Azure Data Lake Storage Gen2를 사용하려면 **Storage Blob Data 읽기 권한자** 역할에 검색 서비스를 추가해야 합니다.
-    1. Azure Table Storage를 사용하려면 **읽기 권한자 및 데이터 액세스** 역할에 검색 서비스를 추가해야 합니다.
-5.  **액세스 할당** 을 **Azure AD 사용자, 그룹 또는 서비스 보안 주체** 로 둡니다.
-6.  시스템이 할당한 관리 ID를 사용하는 경우 검색 서비스를 검색하여 선택합니다. 사용자가 할당한 관리 ID를 사용하는 경우 사용자가 할당한 관리 ID의 이름을 검색하여 선택합니다. **저장** 을 선택합니다.
+
+    * Azure Blob Storage를 사용하려면 **Storage Blob 데이터 읽기 권한자** 역할에 검색 서비스를 추가해야 합니다.
+    * Azure Data Lake Storage Gen2를 사용하려면 **Storage Blob Data 읽기 권한자** 역할에 검색 서비스를 추가해야 합니다.
+    * Azure Table Storage를 사용하려면 **읽기 권한자 및 데이터 액세스** 역할에 검색 서비스를 추가해야 합니다.
+
+5. **액세스 할당** 을 **Azure AD 사용자, 그룹 또는 서비스 보안 주체** 로 둡니다.
+
+6. 시스템이 할당한 관리 ID를 사용하는 경우 검색 서비스를 검색하여 선택합니다. 사용자가 할당한 관리 ID를 사용하는 경우 사용자가 할당한 관리 ID의 이름을 검색하여 선택합니다. **저장** 을 선택합니다.
 
     시스템이 할당한 관리 ID를 사용하는 Azure Blob Storage 및 Azure Data Lake Storage Gen2에 대한 예제:
 
@@ -107,6 +121,8 @@ Content-Type: application/json
     시스템이 할당한 관리 ID를 사용하는 Azure Table Storage에 대한 예제:
 
     ![읽기 및 데이터 액세스 역할 할당 추가](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "읽기 및 데이터 액세스 역할 할당 추가")
+
+C#의 코드 예제는 GitHub [Azure AD를 사용하여 Data Lake Gen2 인덱스를](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md) 참조하세요.
 
 ## <a name="3---create-the-data-source"></a>3 - 데이터 원본 만들기
 
@@ -241,14 +257,13 @@ Blob 인덱서에 대한 인덱서 정의 예:
 
 인덱서 일정을 정의하는 방법에 대한 자세한 내용은 [Azure Cognitive Search에 대한 인덱서 일정 지정 방법](search-howto-schedule-indexers.md)을 참조하세요.
 
-## <a name="accessing-secure-data-in-storage-accounts"></a>스토리지 계정의 보안 데이터 액세스
+## <a name="accessing-network-secured-data-in-storage-accounts"></a>저장소 계정에서 네트워크 보안 데이터 액세스
 
 Azure 스토리지 계정은 방화벽 및 가상 네트워크를 사용하여 추가로 보호할 수 있습니다. 방화벽이나 가상 네트워크를 사용하여 보호되는 Blob Storage 계정 또는 Data Lake Gen2 스토리지 계정의 콘텐츠를 인덱싱하려면 [신뢰할 수 있는 서비스 예외를 통해 스토리지 계정의 데이터에 안전하게 액세스](search-indexer-howto-access-trusted-service-exception.md) 지침을 따르세요.
 
 ## <a name="see-also"></a>참고 항목
 
-Azure Storage 인덱서에 대한 자세한 정보:
-
 * [Azure Blob 인덱서](search-howto-indexing-azure-blob-storage.md)
 * [Azure Data Lake Storage Gen2 인덱서](search-howto-index-azure-data-lake-storage.md)
 * [Azure 테이블 인덱서](search-howto-indexing-azure-tables.md)
+* [C # 예제: Azure AD를 사용 하 여 인덱스 Data Lake Gen2 (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md)

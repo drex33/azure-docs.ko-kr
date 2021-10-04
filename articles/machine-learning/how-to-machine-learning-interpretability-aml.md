@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: 기계 학습 모델이 기능 중요도를 결정하고 Azure Machine Learning SDK를 사용할 때 예측하는 방법에 대한 설명을 가져오는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: how-to
 ms.custom: devx-track-python, responsible-ml
-ms.openlocfilehash: b033b37532bffa92bcc8f427abe4508c5b93aefc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 803a70b01a39d20080a9724b6ab1780c9a81d354
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528832"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129425414"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>해석력 패키지를 사용하여 Python의 ML 모델 및 예측 설명(미리 보기)
 
@@ -341,7 +341,7 @@ X, Y 및 색 축을 따라 다른 필터를 선택함으로써 데이터 세트 
 
 설명 탭의 네 번째 탭에서는 개별 데이터 요소 및 개별 기능 중요도를 자세히 살펴볼 수 있습니다. 주 산점도의 개별 데이터 요소를 클릭하거나 오른쪽의 패널 마법사에서 특정 데이터 요소를 선택하여 모든 데이터 요소에 대한 개별 기능 중요도 플롯을 로드할 수 있습니다.
 
-|그림|설명|
+|그림|Description|
 |----|-----------|
 |개별 기능 중요도|개별 예측에 대한 상위 K개의 중요 기능을 보여 줍니다. 특정 데이터 요소에 대한 기본 모델의 로컬 동작을 설명하는 데 도움이 됩니다.|
 |가상 분석|선택한 실제 데이터 요소의 기능 값에 대한 변경 내용을 허용하고 새 기능 값을 사용하는 가상 데이터 요소를 생성하여 예측 값의 변경 결과를 관찰할 수 있습니다.|

@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Azure Synapse 및 Azure Machine Learning 작업 영역을 연결하고 통합 데이터 랭글링 환경을 위해 Apache Spark 풀을 연결하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
 ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/08/2021
 ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4
-ms.openlocfilehash: 7652f1562050b3253b0df7ee16c4eff5dd6f8e85
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
-ms.translationtype: HT
+ms.openlocfilehash: 812475b1a3b3029971dcc440ca6e26af95fdd389
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112376867"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129425357"
 ---
 # <a name="link-azure-synapse-analytics-and-azure-machine-learning-workspaces-and-attach-apache-spark-poolspreview"></a>Azure Synapse Analytics 및 Azure Machine Learning 작업 영역을 연결하고 Apache Spark 풀 연결(미리 보기)
 
@@ -104,7 +104,7 @@ linked_service.unregister()
 1. **통합 추가** 를 선택합니다.
 1. **작업 영역 연결** 양식에서 필드를 작성합니다.
 
-    |필드| 설명    
+    |필드| Description    
     |---|---
     |이름| 연결된 서비스의 이름을 제공합니다. 이 이름은 이 특정 연결된 서비스를 참조하는 데 사용됩니다.
     |구독 이름 | 기계 학습 작업 영역과 연결된 구독의 이름을 선택합니다. 

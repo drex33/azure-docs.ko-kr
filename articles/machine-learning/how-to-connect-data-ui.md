@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: 데이터 저장소 및 데이터 세트를 만들어 Azure Machine Learning 스튜디오를 사용하여 Azure에서 스토리지 서비스의 데이터에 안전하게 연결합니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 07/06/2021
 ms.custom: data4ml
-ms.openlocfilehash: 8764f237d3e5304df95357cb770738e32d8395dd
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 9453e2894f833fbedb1022d2326bd3423e78d94a
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114441885"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129423636"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Azure Machine Learning 스튜디오를 사용하여 데이터에 연결
 
@@ -24,7 +24,7 @@ ms.locfileid: "114441885"
 
 다음 표에서는 데이터 저장소 및 데이터 세트의 이점을 정의하고 요약합니다. 
 
-|Object|설명| 이점|   
+|Object|Description| 이점|   
 |---|---|---|
 |데이터 저장소| 구독 ID 및 토큰 권한 부여 같은 연결 정보를 작업 영역과 연결된 [Key Vault](https://azure.microsoft.com/services/key-vault/)에 저장하여 Azure의 스토리지 서비스에 안전하게 연결합니다. | 정보가 안전하게 저장되므로 다음과 같은 이점이 있습니다. <br><br> <li> 인증 자격 증명 또는 원래 데이터 원본을 위험에 노출하지 않습니다. <li> 더 이상 스크립트에서 관련 정보를 하드 코딩할 필요가 없습니다.
 |데이터 세트| 데이터 세트를 만들면 데이터 원본 위치에 대한 참조와 해당 메타데이터의 복사본을 만듭니다. 데이터 세트를 사용하여 다음을 수행할 수 있습니다. <br><br><li> 모델 학습 중에 데이터에 액세스합니다.<li> 데이터를 공유하고 다른 사용자와 협업합니다.<li> 데이터 검색을 위해 pandas 같은 오픈 소스 라이브러리를 이용합니다. | 데이터 세트는 지연 평가되고 데이터는 기존 위치에 남아 있기 때문에 <br><br><li>데이터의 단일 복사본을 스토리지에 보관합니다.<li> 추가 스토리지 비용이 발생하지 않습니다. <li> 실수로 데이터 원본을 변경할 위험이 없습니다.<li>ML 워크플로 성능 속도를 향상합니다. 

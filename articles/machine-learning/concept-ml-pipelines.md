@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: 기계 학습 파이프라인이 기계 학습 워크플로의 빌드, 최적화 및 관리에 어떻게 도움이 되는지 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 02/26/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: caa9d95d57cb8ef6bfe6223a09376614bd254336
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
-ms.translationtype: HT
+ms.openlocfilehash: 3eca5b1b70661ef47dfc156a4e4925b45aca1c9b
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122604034"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429189"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인이란?
 
@@ -145,7 +145,7 @@ pipeline_run.wait_for_completion()
 
 기계 학습 워크플로에서 파이프라인을 사용하여 얻을 수 있는 주요 장점은 다음과 같습니다.
 
-|주요 장점|설명|
+|주요 장점|Description|
 |:-------:|-----------|
 |**무인&nbsp;실행**|안정적인 무인 방식을 통해 병렬로 또는 순차적으로 실행되도록 단계를 예약합니다. 데이터 준비 및 모델링은 며칠 또는 몇 주 동안 지속될 수 있으며 프로세스가 실행 중인 동안 파이프라인을 통해 다른 작업에 집중할 수 있습니다. |
 |**이종 컴퓨팅**|확장성 있는 이종 컴퓨팅 리소스 및 스토리지 위치에서 안정적으로 조정되는 여러 파이프라인을 사용합니다. 개별 파이프라인 단계를 HDInsight, GPU Data Science VM, Databricks 등의 서로 다른 컴퓨팅 대상에서 실행하여 가용 컴퓨팅 리소스를 효율적으로 사용합니다.|

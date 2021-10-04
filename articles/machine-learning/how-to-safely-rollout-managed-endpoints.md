@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: 최신 버전의 ML 모델을 중단 없이 롤아웃합니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
 ms.date: 08/05/2021
 ms.topic: how-to
 ms.custom: how-to, devplatv2
-ms.openlocfilehash: 5fe647fba68150f45c450d71f208cf6a53dd0b98
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
-ms.translationtype: HT
+ms.openlocfilehash: 3be025d57553bd56088cdc15a75cae25d5b9e15c
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122568101"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427346"
 ---
 # <a name="safe-rollout-for-online-endpoints-preview"></a>온라인 엔드포인트에 대한 안전한 롤아웃(미리 보기)
 

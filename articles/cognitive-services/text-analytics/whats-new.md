@@ -8,23 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/21/2021
+ms.date: 09/30/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 35b4d70ae5e1b7e93b08c7ebe16e5707172ed792
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 64ac913bb8f3e29dd3a99ab5abde5db3326a1a29
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128672346"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129423861"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Text Analytics API의 새로운 기능
 
 Text Analytics API는 지속적으로 업데이트됩니다. 최신 개발 정보를 항상 파악할 수 있게 이 문서에서는 새 릴리스 및 기능 관련 정보를 제공합니다.
 
+## <a name="october-2021"></a>2021년 10월
+
+* 모델 버전의 [Extractive 요약](how-tos/extractive-summarization.md) 기능의 품질 향상 `2021-08-01`
+
 ## <a name="september-2021"></a>2021년 9월
 
-* `3.0.017010001-onprem-amd64`버전부터는 이제 클라이언트 라이브러리를 사용하여 상태 컨테이너에 대한 Text Analytics 호출할 수 있습니다. 자세한 내용은 [Text Analytics 컨테이너를 설치하고 실행하는 방법을 참조하세요.](how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare#run-the-container-with-client-library-support)
+* 버전부터 `3.0.017010001-onprem-amd64` 상태 컨테이너에 대 한 Text Analytics는 이제 클라이언트 라이브러리를 사용 하 여 호출할 수 있습니다. 자세한 내용은 [Text Analytics 컨테이너를 설치 하 고 실행 하는 방법을](how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare#run-the-container-with-client-library-support) 참조 하세요.
 
 
 ## <a name="august-2021"></a>2021년 8월

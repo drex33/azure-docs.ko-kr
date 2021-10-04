@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: 이 문서에서는 Azure Machine Learning을 사용하여 GPU 사용 TensorFlow 딥 러닝 모델을 웹 서비스로 배포하고 유추 요청을 채점하는 방법을 설명합니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: how-to
 ms.custom: devx-track-python, deploy
-ms.openlocfilehash: 58518d921ac728901258e5335d045dfd4262dd0e
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: eec009303938195fffe6c2ddb0ad6d44a2e1a8b0
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114446600"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129425395"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>GPU를 사용하여 유추를 위한 딥 러닝 모델 배포
 

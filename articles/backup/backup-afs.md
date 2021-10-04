@@ -3,12 +3,12 @@ title: Azure Portal의 Azure 파일 공유 백업
 description: Azure Portal를 사용하여 Recovery Services 자격 증명 모음에 Azure 파일 공유를 백업하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/07/2021
-ms.openlocfilehash: e236980310889e84fe905861c5843f5a7b7039a2
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
-ms.translationtype: HT
+ms.openlocfilehash: 807a173112d0bb85c008403028ab76000a3096db
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109516761"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427973"
 ---
 # <a name="back-up-azure-file-shares"></a>Azure 파일 공유 백업
 
@@ -60,6 +60,9 @@ ms.locfileid: "109516761"
 1. 검색된 스토리지 계정 목록에서 계정을 선택한 다음 **확인** 을 선택합니다.
 
    ![검색된 스토리지 계정에서 선택](./media/backup-afs/select-discovered-storage-account.png)
+   
+   >[!NOTE]
+   > 저장소 계정이 자격 증명 모음과 다른 지역에 있으면 검색 된 저장소 계정 목록에 표시 되지 않습니다.
 
 1. 다음 단계는 백업할 파일 공유를 선택하는 것입니다. **백업할 파일 공유** 섹션에서 **추가** 단추를 선택합니다.
 
@@ -100,8 +103,6 @@ ms.locfileid: "109516761"
 
 백업 정책을 설정하면 예약된 시간에 파일 공유 스냅샷이 생성됩니다. 또한 복구 지점이 선택한 기간 동안 보존됩니다.
 
->[!NOTE]
->이제 Azure Backup에서 Azure 파일 공유 백업 정책을 매일/매주/매월/매년 보존 기간으로 지원합니다.
 
 ## <a name="configure-backup-from-the-file-share-pane"></a>파일 공유 창에서 백업 구성
 

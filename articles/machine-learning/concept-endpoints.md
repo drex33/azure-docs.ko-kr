@@ -1,22 +1,22 @@
 ---
-title: 엔드포인트(미리 보기)란
+title: 엔드포인트(미리 보기)란?
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning 엔드포인트(미리 보기)을 통해 기계 학습 배포를 단순화하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: conceptual
 ms.author: seramasu
 author: rsethur
 ms.reviewer: laobri
 ms.custom: devplatv2
 ms.date: 06/17/2021
-ms.openlocfilehash: 8ce9241e11bd9aa259c8b7a1bf3114be677a01bd
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 4a4cc34b3f3bb77e0c2405d3b0a29b40fa1cd616
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114447655"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427004"
 ---
 # <a name="what-are-azure-machine-learning-endpoints-preview"></a>Azure Machine Learning 엔드포인트(미리 보기)란? 
 
@@ -39,7 +39,7 @@ Azure Machine Learning 엔드포인트(미리 보기)를 사용하여 실시간 
 :::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="트래픽을 두 배포로 분할하는 엔드포인트를 보여주는 다이어그램":::
 
 **엔드포인트** 는 클라이언트가 학습된 모델의 유추(채점) 출력을 수신하기 위해 호출할 수 있는 HTTPS 엔드포인트입니다. 이 콘솔은 다음과 같은 기능을 제공합니다. 
-- '키 및 토큰 기반' 기반 인증을 사용하여 인증 
+- "키 & 토큰" 기반 인증을 사용한 인증 
 - SSL 종료 
 - 배포 간 트래픽 할당 
 - 안정적인 채점 URI(endpoint-name.region.inference.ml.azure.com)

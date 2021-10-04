@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: 격리된 Azure Virtual Network를 사용하여 Azure Machine Learning 작업 영역 및 관련 리소스를 보호합니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
 ms.date: 09/22/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
-ms.openlocfilehash: 10cd246d0a60184616facb799f9dc079cb5cf30d
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 7200c13d5ad4157afeb2c0dd1d7ab7445670609d
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129216786"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129425338"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>가상 네트워크를 사용하여 Azure Machine Learning 작업 영역 보호
 
@@ -178,7 +178,7 @@ Azure Key Vault에서 개인 끝점을 사용 하는 방법에 대 한 자세한
 
     :::image type="content" source="./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png" alt-text="Key Vault 창의 방화벽 및 가상 네트워크 섹션":::
 
-자세한 내용은 [Azure Key Vault 네트워크 설정 구성을 참조하세요.](/azure/key-vault/general/how-to-azure-key-vault-network-security)
+자세한 내용은 [Configure Azure Key Vault network settings](/azure/key-vault/general/how-to-azure-key-vault-network-security)항목을 참조 하세요.
 
 ---
 
@@ -187,7 +187,7 @@ Azure Key Vault에서 개인 끝점을 사용 하는 방법에 대 한 자세한
 > [!TIP]
 > 작업 영역을 만들 때 기존 Azure Container Registry를 사용하지 않았다면 없을 수 있습니다. 기본적으로 작업 영역은 ACR 인스턴스가 필요할 때까지 만들지 않습니다. 인스턴스를 강제로 만들도록 하려면 이 섹션의 단계를 사용하기 전에 작업 영역을 사용하여 모델을 학습하거나 배포합니다.
 
-Azure Container Registry 프라이빗 엔드포인트를 사용하도록 구성할 수 있습니다. 가상 네트워크에 있는 ACR를 사용하도록 작업 영역을 구성하려면 다음 단계를 따릅니다.
+개인 끝점을 사용 하도록 Azure Container Registry를 구성할 수 있습니다. 가상 네트워크에 있는 ACR를 사용하도록 작업 영역을 구성하려면 다음 단계를 따릅니다.
 
 1. 작업 영역에 대한 Azure Container Registry 이름을 찾아 다음 방법 중 하나를 사용합니다.
 
@@ -207,7 +207,7 @@ Azure Container Registry 프라이빗 엔드포인트를 사용하도록 구성�
 
     이 명령은 `"/subscriptions/{GUID}/resourceGroups/{resourcegroupname}/providers/Microsoft.ContainerRegistry/registries/{ACRname}"`와 비슷한 값을 반환합니다. 문자열의 마지막 부분은 작업 영역에 대한 Azure Container Registry의 이름입니다.
 
-1. Azure Container Registry [비공개로 커넥트](../container-registry/container-registry-private-link.md)단계를 사용하여 가상 네트워크에 대한 액세스를 제한합니다. 가상 네트워크를 추가할 때 Azure Machine Learning 리소스에 대한 가상 네트워크와 서브넷을 선택합니다.
+1. 커넥트의 단계를 [Azure Container Registry 전용으로](../container-registry/container-registry-private-link.md)사용 하 여 가상 네트워크에 대 한 액세스를 제한 합니다. 가상 네트워크를 추가할 때 Azure Machine Learning 리소스에 대한 가상 네트워크와 서브넷을 선택합니다.
 
 1. 작업 영역에 대한 ACR을 구성하여 [신뢰할 수 있는 서비스에 의한 액세스를 허용](../container-registry/allow-access-trusted-services.md)합니다.
 

@@ -4,22 +4,22 @@ titleSuffix: Azure Machine Learning
 description: Application Insights를 사용하여 관리형 온라인 엔드포인트를 모니터링하고 경고를 만듭니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.date: 05/03/2021
 ms.topic: conceptual
 ms.custom: how-to, devplatv2
-ms.openlocfilehash: c6b370d568b7448ae6417f050cbc902378571151
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 44cfdcdd5d40aaac2eb97b9a3268a9b376f71560
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128548168"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129425376"
 ---
 # <a name="monitor-managed-online-endpoints-preview"></a>관리형 온라인 엔드포인트 모니터링(미리 보기)
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-이 문서에서는 [Azure Machine Learning 관리형 온라인 엔드포인트(미리 보기)](concept-endpoints.md)를 모니터링하는 방법을 알아봅니다. Application Insights를 사용하여 메트릭을 보고 경고를 만들어 관리형 온라인 엔드포인트를 최신 상태로 유지합니다.
+이 문서에서는 [관리되는 온라인 엔드포인트(미리 보기)Azure Machine Learning 모니터링하는](concept-endpoints.md)방법에 대해 알아봅니다. Application Insights를 사용하여 메트릭을 보고 경고를 만들어 관리형 온라인 엔드포인트를 최신 상태로 유지합니다.
 
 이 문서에서는 다음 방법을 알아봅니다.
 

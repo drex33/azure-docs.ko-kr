@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Azure RBAC(역할 기반 액세스 제어)를 사용하여 Azure Machine Learning 작업 영역에 액세스하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.reviewer: Blackmist
 ms.author: johwu
 author: johnwu0604
 ms.date: 03/26/2021
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
-ms.openlocfilehash: 51846db6f54baaec89a6a9a1164e2d5001c9dbb9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1089589dabd91d9f273b71f0b89bbf0ad3488e95
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128679636"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427783"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대한 액세스 관리
 
@@ -176,7 +176,7 @@ az role definition update --role-definition update_def.json --subscription <sub-
 
 Azure Machine Learning 작업 영역에서 MLflow 작업을 수행하려면 사용자 지정 역할의 다음 범위를 사용합니다.
 
-| MLflow 작업 | Scope |
+| MLflow 작업 | 범위 |
 | --- | --- |
 | 작업 영역 추적 저장소의 모든 실험 나열, ID로 실험 가져오기, 이름으로 실험 가져오기 | `Microsoft.MachineLearningServices/workspaces/experiments/read` |
 | 이름으로 실험을 만들기, 실험에서 태그 설정, 삭제하도록 표시된 실험 복원| `Microsoft.MachineLearningServices/workspaces/experiments/write` | 

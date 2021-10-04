@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: 기계 학습 공정성과 Fairlearn Python 패키지가 불공정성을 평가하고 완화하는 데 어떻게 도움이 되는지 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 04/02/2021
 ms.custom: responsible-ml
-ms.openlocfilehash: 45c63780eac021301e5b01c0ff8abea7d704a4cf
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
-ms.translationtype: HT
+ms.openlocfilehash: 34c8a18d842ac9e362bd81a522522ea9e845b06e
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220524"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129426890"
 ---
 # <a name="machine-learning-fairness-preview"></a>기계 학습 공정성(미리 보기)
 

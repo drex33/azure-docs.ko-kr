@@ -1,7 +1,7 @@
 ---
 title: Azure Databricks ML 실험에 대한 MLflow 추적
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning을 사용하여 MLflow를 설정하여 Azure Databricks Ml 실험에서 메트릭 및 아티팩트를 로깅합니다.
+description: Azure Machine Learning를 사용 하 여 mlflow를 설정 하 여 Azure Databricks ML 실험에서 메트릭 및 아티팩트를 로깅합니다.
 services: machine-learning
 author: nibaccam
 ms.author: nibaccam
@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: 9f5fae1fb1a4afaca021eddd8b04625d87b9b2d9
-ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.openlocfilehash: 62e87c2c63ade98be48977e7a8377ad66530af5d
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128708000"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428828"
 ---
 # <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning"></a>MLflow 및 Azure Machine Learning을 사용하여 Azure Databricks ML 실험 추적
 
@@ -214,9 +214,9 @@ display(preds)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Azure Databricks 작업 영역을 유지하지만 더 이상 Azure ML 작업 영역이 필요하지 않은 경우 Azure ML 작업 영역을 삭제할 수 있습니다. 이 작업을 수행하면 Azure Databricks 작업 영역과 Azure ML 작업 영역의 연결이 해제됩니다. 
+Azure Databricks 작업 영역을 유지 하지만 azure ML 작업 영역이 더 이상 필요 하지 않은 경우 azure ML 작업 영역을 삭제할 수 있습니다. 이 작업을 수행 하면 Azure Databricks 작업 영역 및 Azure ML 작업 영역 연결 해제가 발생 합니다. 
 
-작업 영역에서 기록된 메트릭 및 아티팩트 사용을 계획하지 않는 경우 이 시점에서 개별적으로 삭제하는 기능을 사용할 수 없습니다. 대신, 스토리지 계정 및 작업 영역을 포함하는 리소스 그룹을 삭제하여 요금이 발생하지 않도록 합니다.
+작업 영역에서 기록 된 메트릭과 아티팩트를 사용 하지 않으려는 경우에는이를 개별적으로 삭제 하는 기능을 사용할 수 없습니다. 대신, 스토리지 계정 및 작업 영역을 포함하는 리소스 그룹을 삭제하여 요금이 발생하지 않도록 합니다.
 
 1. Azure Portal의 맨 왼쪽에서 **리소스 그룹** 을 선택합니다.
 

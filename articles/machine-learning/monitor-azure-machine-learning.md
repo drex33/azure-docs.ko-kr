@@ -3,19 +3,19 @@ title: Azure Machine Learning 모니터링 | Microsoft Docs
 description: Azure Monitor를 사용하여 Azure Machine Learning의 메트릭에 대한 경고를 보고 분석하고 만드는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
 ms.date: 10/01/2020
-ms.openlocfilehash: c0f35290aa653d5b9e9be9f1a9a0184854509889
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: 9c6cb28bd55038f06992d6423785d03ecf30205f
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537383"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424958"
 ---
 # <a name="monitor-azure-machine-learning"></a>Azure Machine Learning 모니터링
 
@@ -69,7 +69,7 @@ Azure Portal, Azure CLI 또는 PowerShell을 사용하여 진단 설정을 만�
 
 Azure Machine Learning에 대해 다음 로그를 구성할 수 있습니다.
 
-| 범주 | 설명 |
+| 범주 | Description |
 |:---|:---|
 | AmlComputeClusterEvent | Azure Machine Learning 컴퓨팅 클러스터에서 발생한 이벤트입니다. |
 | AmlComputeClusterNodeEvent | Azure Machine Learning 컴퓨팅 클러스터 내의 노드에서 발생한 이벤트입니다. |
@@ -110,7 +110,7 @@ Azure Monitor Log Analytics를 사용하려면 진단 구성을 만들고 __Log 
 
 Azure Monitor 로그의 데이터는 각 테이블에 고유한 속성 집합이 있는 테이블에 저장됩니다. Azure Machine Learning은 다음 테이블에 데이터를 저장합니다.
 
-| 테이블 | 설명 |
+| 테이블 | Description |
 |:---|:---|
 | AmlComputeClusterEvent | Azure Machine Learning 컴퓨팅 클러스터에서 발생한 이벤트입니다.|
 | AmlComputeClusterNodeEvent | Azure Machine Learning 컴퓨팅 클러스터 내의 노드에서 발생한 이벤트입니다. |
@@ -188,7 +188,7 @@ Azure Monitor 로그의 데이터는 각 테이블에 고유한 속성 집합이
 
 다음 표에서는 Azure Machine Learning에 대한 일반적인 메트릭 경고 규칙과 권장 메트릭 경고 규칙을 보여 줍니다.
 
-| 경고 유형 | 조건 | 설명 |
+| 경고 유형 | 조건 | Description |
 |:---|:---|:---|
 | 모델 배포 실패 | 집계 유형: 합계, 연산자: 보다 큼, 임계값: 0 | 하나 이상의 모델 배포가 실패한 경우 |
 | 할당량 사용률 | 집계 유형: 평균, 연산자: 보다 큼, 임계값: 90| 할당량 사용률이 90%보다 큰 경우 |

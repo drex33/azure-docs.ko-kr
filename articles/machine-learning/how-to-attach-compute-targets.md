@@ -1,7 +1,7 @@
 ---
 title: 학습 및 추론 컴퓨팅 대상 설정
 titleSuffix: Azure Machine Learning
-description: 머신 러닝 학습 및 추론에 사용할 컴퓨팅 리소스(컴퓨팅 대상)를 작업 영역에 추가합니다.
+description: 기계 학습 교육 및 유추에 사용할 계산 리소스 (계산 대상)를 작업 영역에 추가 합니다.
 services: machine-learning
 author: sdgilley
 ms.author: sgilley
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/18/2021
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 8d9910755162ea1da593f2e9ee50183c0a3eaa60
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: af5d5914d0a90c2c142582e5cdf2105982205f04
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529116"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427688"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>모델 학습 및 배포를 위한 컴퓨팅 대상 설정
 

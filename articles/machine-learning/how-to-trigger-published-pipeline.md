@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: 트리거된 파이프라인을 사용하여 데이터 처리, 학습 및 모니터링과 같은 시간이 많이 드는 일상적인 작업을 자동화할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: laobri
 author: lobrien
 ms.date: 01/29/2021
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: 473c6bde1e75070e0103137d9e24849f38c6d684
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
-ms.translationtype: HT
+ms.openlocfilehash: 3c9343cad720ca240b4bed29e8ad9a265c07ee8e
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112466702"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129426021"
 ---
 # <a name="trigger-machine-learning-pipelines"></a>기계 학습 파이프라인 트리거
 

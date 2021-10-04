@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Azure Synapse Analytics 및 Azure Machine Learning에서의 데이터 랭글링을 위해 Apache Spark 풀을 연결하고 시작하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
 ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
 ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4
-ms.openlocfilehash: 2447b6d63441a3372cebaec38a863f5cdc0898d4
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 927b672aa4bd17efcfa491b0ec0092db9a2118c0
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129349993"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429797"
 ---
 # <a name="data-wrangling-with-apache-spark-pools-preview"></a>Apache Spark 풀을 사용한 데이터 랭글링(미리 보기) 
 

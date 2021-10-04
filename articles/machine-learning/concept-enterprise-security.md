@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: 'Azure Machine Learning: 인증, 권한 부여, 네트워크 보안, 데이터 암호화 및 모니터링을 안전하게 사용합니다.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: conceptual
-ms.author: jmartens
+ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/22/2021
-ms.openlocfilehash: 80416dd97f60935a221226cb50eb0a81c669658f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5a6ee4c0e1a73642323dab67efbfc4b0efe1f1aa
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128611361"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129426966"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Azure Machine Learning의 Enterprise 보안 및 거버넌스
 

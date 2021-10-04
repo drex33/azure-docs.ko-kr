@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: 작업 영역에서 사용하는 Azure Storage 계정의 액세스 키를 변경하는 방법을 알아봅니다. Azure Machine Learning은 Azure Storage 계정을 사용하여 데이터 및 모델을 저장합니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: 039baa02a9504d0df9681370f31fef45f6c2ed99
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 4108c905148eba0bb718fe372be87e5ec6a342d2
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114291011"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129425661"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>스토리지 계정 액세스 키 다시 생성
 

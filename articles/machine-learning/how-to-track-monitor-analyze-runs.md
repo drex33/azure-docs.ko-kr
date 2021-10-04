@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Azure Machine Learning Python SDK를 사용하여 기계 학습 실험 실행을 시작, 모니터링 및 추적하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 author: swinner95
 ms.author: shwinne
 ms.reviewer: sgilley
 ms.date: 04/19/2021
 ms.topic: how-to
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: e51e537beb44271d5a1c63e8bc1952455f9a35d9
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: 96f66914c22ddb107ab10ec49965e0f5ce8c6e4a
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530682"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424353"
 ---
 # <a name="start-monitor-and-track-run-history"></a>실행 기록 시작, 모니터링 및 추적
 

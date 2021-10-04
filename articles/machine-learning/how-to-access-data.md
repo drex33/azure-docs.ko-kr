@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Azure Machine Learning으로 학습하는 동안 데이터 저장소를 사용하여 Azure 스토리지 서비스에 안전하게 연결하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 07/06/2021
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: a164fb60dde8ba8e652bab3c99b87ffa84ec8596
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: 7a009cdebf686a79679b7987b3a9071ae3c9421c
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567478"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427821"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Azure에서 스토리지 서비스에 연결
 

@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Azure Machine Learning 컴퓨팅 및 데이터 저장소가 미사용 암호화와 전송 중 암호화를 제공하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 08/02/2021
-ms.openlocfilehash: 8f4bb5279442abb10a9b19e5cb3e3666a1319bb2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e367f6685e73cb6cdfd9e777e6cb554c186c616c
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128621601"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429227"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 데이터 암호화
 

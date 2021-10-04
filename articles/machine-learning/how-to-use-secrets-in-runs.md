@@ -7,18 +7,17 @@ author: rastala
 ms.author: roastala
 ms.reviewer: larryfr
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.date: 08/24/2021
 ms.topic: how-to
-ms.openlocfilehash: 397f22711eadc38c82625a8b6a899f6485d798cf
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
-ms.translationtype: HT
+ms.openlocfilehash: 0966d85fcab33752359c5174f6205c5556f2a137
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122778236"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427935"
 ---
 # <a name="use-authentication-credential-secrets-in-azure-machine-learning-training-runs"></a>Azure Machine Learning 학습 실행에서 인증 자격 증명 비밀 사용
-
 
 이 문서에서는 학습 실행 시 안전하게 비밀을 사용하는 방법에 대해 알아봅니다. 사용자 이름 및 암호와 같은 인증 정보는 비밀입니다. 예를 들어 학습 데이터를 쿼리하기 위해 외부 데이터베이스에 연결하는 경우 사용자 이름 및 암호를 원격 실행 컨텍스트에 전달해야 합니다. 이러한 값을 일반 텍스트의 학습 스크립트에 코딩하는 것은 비밀을 노출하므로 안전하지 않습니다. 
 

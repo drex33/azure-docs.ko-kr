@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/01/2021
 ms.author: danlep
-ms.openlocfilehash: d5f15b6d3ba1b006c3495c6c7db693814f68a823
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f63a8e9f083256cb68a23d69e49d44d9bbfd57de
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128601048"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429474"
 ---
 # <a name="api-management-cross-domain-policies"></a>도메인 정책 간 API Management
 이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](./api-management-policies.md)을 참조하세요.
@@ -37,7 +37,7 @@ ms.locfileid: "128601048"
 ```xml
 <cross-domain>
     <!-Policy configuration is in the Adobe cross-domain policy file format,
-        see https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html-->
+        see https://www.adobe.com/devnet-docs/acrobatetk/tools/AppSec/CrossDomain_PolicyFile_Specification.pdf-->
 </cross-domain>
 ```
 
@@ -53,7 +53,7 @@ ms.locfileid: "128601048"
 
 |이름|Description|필수|
 |----------|-----------------|--------------|
-|cross-domain|루트 요소입니다. 자식 요소는 [Adobe 도메인 간 정책 파일 사양](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)을 준수해야 합니다.|예|
+|cross-domain|루트 요소입니다. 자식 요소는 [Adobe 도메인 간 정책 파일 사양](https://www.adobe.com/devnet-docs/acrobatetk/tools/AppSec/CrossDomain_PolicyFile_Specification.pdf)을 준수해야 합니다.|예|
 
 ### <a name="usage"></a>사용량
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
@@ -125,7 +125,7 @@ CORS를 통해 브라우저와 서버가 상호 작용하여 특정 원본 간 �
 
 ### <a name="elements"></a>요소
 
-|이름|Description|필수|기본값|
+|이름|설명|필수|기본값|
 |----------|-----------------|--------------|-------------|
 |cors|루트 요소입니다.|예|해당 없음|
 |allowed-origins|도메인 간 요청에 대해 허용되는 원본을 설명하는 `origin` 요소를 포함합니다. `allowed-origins`는 모든 원본을 허용하도록 `*`를 지정하는 단일 `origin` 요소 또는 URI를 포함하는 하나 이상의 `origin` 요소를 포함할 수 있습니다.|예|해당 없음|
@@ -177,7 +177,7 @@ CORS를 통해 브라우저와 서버가 상호 작용하여 특정 원본 간 �
 
 ### <a name="attributes"></a>특성
 
-|Name|Description|필수|기본값|
+|Name|설명|필수|기본값|
 |----------|-----------------|--------------|-------------|
 |callback-parameter-name|함수가 상주하는 정규화된 도메인 이름이 접두사로 지정된 도메인 간 JavaScript 함수 호출|예|해당 없음|
 

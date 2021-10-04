@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: 보안 가상 네트워크 내에서 Azure Machine Learning 작업 영역 및 필수 Azure 서비스를 만듭니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.reviewer: jhirono
 ms.author: larryfr
 author: blackmist
 ms.date: 09/15/2021
 ms.topic: how-to
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 2d748401d4284b56243a371e1bd4d258e579cc25
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: ad81535a8287a4b89f978c4c2523b664375d23d6
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129362017"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428733"
 ---
 # <a name="how-to-create-a-secure-workspace"></a>보안 작업 영역을 만드는 방법
 
@@ -37,8 +37,8 @@ ms.locfileid: "129362017"
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 'Azure에 배포' 단추를 선택하여 이 자습서의 처음 5단계를 완료할 수도 있습니다. [작업 영역에 연결](#connect-to-the-workspace)부터 계속 읽을 수 있습니다.
 
-[![Azure에 배포](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-advanced%2Fazuredeploy.json)
-[![Azure US Gov에 배포](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazuregov.svg?sanitize=true)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-advanced%2Fazuredeploy.json)
+[![Azure에 배포](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-workspace-vnet%2Fazuredeploy.json)
+[![Azure US Gov에 배포](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazuregov.svg?sanitize=true)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-workspace-vnet%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -88,7 +88,7 @@ ms.locfileid: "129362017"
         > * __Microsoft.KeyVault__
         > * __Microsoft.ContainerRegistry__
         >
-        > _프라이빗 엔드포인트를_ 사용하여 이러한 서비스를 VNet에 추가하려는 경우 이러한 항목을 선택할 필요가 없습니다. 이 문서의 단계에서는 이러한 서비스에 프라이빗 엔드포인트를 사용하므로 이러한 단계를 수행할 때 선택할 필요가 없습니다.
+        > _프라이빗 엔드포인트를_ 사용하여 이러한 서비스를 VNet에 추가하려는 경우 이러한 항목을 선택할 필요가 없습니다. 이 문서의 단계에서는 이러한 서비스에 대한 프라이빗 엔드포인트를 사용하므로 이러한 단계를 수행할 때 선택할 필요가 없습니다.
 
     1. 모델 점수를 매기는 데 사용되는 컴퓨팅 리소스에 대한 서브넷을 만들려면 __+서브넷 추가__ 를 다시 선택하고 다음 값을 사용합니다.
         * __서브넷 이름__: 점수 매기기
@@ -102,7 +102,7 @@ ms.locfileid: "129362017"
         > * __Microsoft.KeyVault__
         > * __Microsoft.ContainerRegistry__
         >
-        > _프라이빗 엔드포인트를_ 사용하여 이러한 서비스를 VNet에 추가하려는 경우 이러한 항목을 선택할 필요가 없습니다. 이 문서의 단계에서는 이러한 서비스에 프라이빗 엔드포인트를 사용하므로 이러한 단계를 수행할 때 선택할 필요가 없습니다.
+        > _프라이빗 엔드포인트를_ 사용하여 이러한 서비스를 VNet에 추가하려는 경우 이러한 항목을 선택할 필요가 없습니다. 이 문서의 단계에서는 이러한 서비스에 대한 프라이빗 엔드포인트를 사용하므로 이러한 단계를 수행할 때 선택할 필요가 없습니다.
 
 1. __보안__ 을 선택합니다. __BastionHost__ 에서 __사용__ 을 선택합니다. [Azure Bastion](../bastion/bastion-overview.md)은 이후 단계에서 VNet 내부에서 만들 VM 점프 상자에 액세스하는 안전한 방법을 제공합니다. 나머지 필드에 대해 다음 값을 사용합니다.
 

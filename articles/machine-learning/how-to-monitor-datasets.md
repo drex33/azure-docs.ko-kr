@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Azure Learning에서 데이터 드리프트 검색을 설정하는 방법을 알아봅니다. 데이터 세트 모니터(미리 보기)를 만들고, 데이터 드리프트를 모니터링하고, 경고를 설정합니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.reviewer: sgilley
 ms.author: wibuchan
 author: buchananwp
 ms.date: 06/25/2020
 ms.topic: how-to
 ms.custom: data4ml, contperf-fy21q2
-ms.openlocfilehash: 5d4c3974bdd1ef90556d19e3ca49cc613d36923d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 66a1b4bf2db3a5840734faed5593114b3ba063b7
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566492"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129425490"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>데이터 세트에서 데이터 드리프트(미리 보기) 검색
 

@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Azure Machine Learning Python SDK를 사용하여 학습 및 추론하는 동안 기계 학습 모델이 예측하는 방법을 이해하고 설명하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.custom: responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 02/25/2021
-ms.openlocfilehash: 2adbeb66229f180963eb7d2e235db5e7bebb3ef9
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
-ms.translationtype: HT
+ms.openlocfilehash: c439b6473ad41b47ebf2c962f036f070a38fe9a2
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889019"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129426078"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Azure Machine Learning의 모델 해석력(미리 보기)
 

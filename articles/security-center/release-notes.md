@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 10/03/2021
 ms.author: memildin
-ms.openlocfilehash: a45f402f71dca67ecc87938ff6fc3a89918e58b0
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.openlocfilehash: c0ae5cc8d3dee5a09916194418345c1602a19e4b
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407934"
+ms.locfileid: "129424787"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -30,17 +30,17 @@ Security Center는 현재 개발 중이며 지속적으로 향상된 기능을 �
 
 10월의 업데이트는 다음과 같습니다.
 
-- [일부 경고 유형의 접두사 "ARM_"에서 "VM_"로 변경](#changed-prefix-of-some-alert-types-from-arm_-to-vm_)
+- [일부 경고 형식의 접두사가 "ARM_"에서 "VM_" (으)로 변경 되었습니다.](#changed-prefix-of-some-alert-types-from-arm_-to-vm_)
 
-### <a name="changed-prefix-of-some-alert-types-from-arm_-to-vm_"></a>일부 경고 유형의 접두사 "ARM_"에서 "VM_"로 변경 
+### <a name="changed-prefix-of-some-alert-types-from-arm_-to-vm_"></a>일부 경고 형식의 접두사가 "ARM_"에서 "VM_" (으)로 변경 되었습니다. 
 
-2021년 7월에 Resource Manager [경고에 대한 Azure Defender 논리적 재구성을 발표했습니다.](release-notes.md#logical-reorganization-of-azure-defender-for-resource-manager-alerts) 
+7 월 2021에는 [Azure Defender의 논리적 재구성을 리소스 관리자 경고에 대해](release-notes.md#logical-reorganization-of-azure-defender-for-resource-manager-alerts) 발표 했습니다. 
 
 일부 Azure Defender 플랜에 대한 논리적 재구성의 일환으로 [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)에서 [서버용 Azure Defender](defender-for-servers-introduction.md)로 21개의 경고를 이동했습니다.
 
-이 업데이트에서는 이 재할당과 일치하도록 이러한 경고의 접두사 변경하고 다음 표와 같이 "ARM_"을 "VM_"로 바꿨습니다.
+이 업데이트를 사용 하 여 다음 표에 나와 있는 것 처럼이 재할당에 일치 하도록 이러한 경고의 접두사를 변경 하 고 "ARM_"을 "VM_"로 바꿉니다.
 
-| 원래 이름                                  | 이 변경에서                              |
+| 원래 이름                                  | 이 변경 내용에서                              |
 |------------------------------------------------|-----------------------------------------------|
 | ARM_AmBroadFilesExclusion                      | VM_AmBroadFilesExclusion                      |
 | ARM_AmDisablementAndCodeExecution              | VM_AmDisablementAndCodeExecution              |
@@ -69,17 +69,18 @@ Security Center는 현재 개발 중이며 지속적으로 향상된 기능을 �
 
 ## <a name="september-2021"></a>2021년 9월
 
-9월에는 다음 업데이트가 릴리스되었습니다.
+9 월에는 다음 업데이트가 릴리스 되었습니다.
 
-### <a name="two-new-recommendations-to-audit-os-configurations-for-azure-security-baseline-compliance"></a>Azure 보안 기준 준수에 대한 OS 구성을 감사하기 위한 두 가지 새로운 권장 사항
+### <a name="two-new-recommendations-to-audit-os-configurations-for-azure-security-baseline-compliance"></a>Azure 보안 기준 준수에 대 한 OS 구성을 감사 하기 위한 두 가지 새로운 권장 사항
 
-Windows 보안 기준 및 [Linux](../governance/policy/samples/guest-configuration-baseline-linux.md) [보안 기준을](../governance/policy/samples/guest-configuration-baseline-windows.md) 사용하여 머신의 규정 준수를 평가하기 위해 다음 두 가지 권장 사항이 릴리스되었습니다.
+다음 두 가지 권장 사항은 [Windows 보안 기준](../governance/policy/samples/guest-configuration-baseline-windows.md) 및 [Linux 보안 기준](../governance/policy/samples/guest-configuration-baseline-linux.md)으로 컴퓨터의 호환성을 평가 하기 위해 릴리스 되었습니다.
 
-- Windows 컴퓨터의 경우 Windows 컴퓨터의 보안 구성 취약성을 [수정해야 합니다(게스트 구성에서 구동).](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1f655fb7-63ca-4980-91a3-56dbc2b715c6)
-- Linux 머신의 경우 [Linux 머신의 보안 구성 취약성을 수정해야 합니다(게스트 구성에서 구동).](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8c3d9ad0-3639-4686-9cd2-2b2ab2609bda)
+- Windows 컴퓨터의 경우 [Windows 컴퓨터에서 보안 구성의 취약성을 재구성 해야 합니다 (게스트 구성에서 구동 됨)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1f655fb7-63ca-4980-91a3-56dbc2b715c6) .
+- Linux 컴퓨터의 경우 [linux 컴퓨터에서 보안 구성의 취약성을 재구성 해야 합니다 (게스트 구성에서 구동)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8c3d9ad0-3639-4686-9cd2-2b2ab2609bda) .
 
-이러한 권장 사항은 Azure Policy 게스트 구성 기능을 사용하여 컴퓨터의 OS 구성을 [Azure Security Benchmark](/security/benchmark/azure/overview)에 정의된 기준과 비교합니다.
+이러한 권장 사항은 Azure Policy의 게스트 구성 기능을 사용 하 여 컴퓨터의 OS 구성을 [Azure 보안 벤치 마크](/security/benchmark/azure/overview)에 정의 된 기준선과 비교 합니다.
 
+[게스트 구성을 사용 하 여 컴퓨터의 OS 구성 강화](apply-security-baseline.md)에서 이러한 권장 사항을 사용 하는 방법에 대해 자세히 알아보세요.
 
 ## <a name="august-2021"></a>2021년 8월
 

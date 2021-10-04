@@ -1,24 +1,24 @@
 ---
 title: 이미지 및 텍스트 문서에 레이블 지정
 title.suffix: Azure Machine Learning
-description: 데이터 레이블 지정 도구를 사용 하 여 데이터 레이블 지정 프로젝트의 Machine Learning에 대 한 텍스트 또는 레이블 이미지의 레이블을 신속 하 게 지정할 수 있습니다.
+description: 데이터 레이블 지정 도구를 사용하여 데이터 레이블 지정 프로젝트의 Machine Learning 텍스트 또는 레이블 이미지에 레이블을 빠르게 지정합니다.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
 ms.date: 09/24/2021
 ms.custom: data4ml
-ms.openlocfilehash: 19b773fa305b328926d28b383a8fee81bfb8ee40
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: d07a48267effa51a721d1b64c79bc0a6ba7d439f
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129357639"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429645"
 ---
 # <a name="labeling-images-and-text-documents"></a>이미지 및 텍스트 문서에 레이블 지정
 
-프로젝트 관리자가 Azure Machine Learning에서 [이미지 데이터 레이블 지정 프로젝트](./how-to-create-image-labeling-projects.md) 또는 [텍스트 데이터 레이블 지정 프로젝트](./how-to-create-text-labeling-projects.md) 를 만든 후에는 레이블 지정 도구를 사용 하 여 Machine Learning 프로젝트에 대 한 데이터를 신속 하 게 준비할 수 있습니다. 이 문서에서는 다음을 설명합니다.
+프로젝트 관리자가 Azure Machine Learning [이미지 데이터 레이블 지정 프로젝트](./how-to-create-image-labeling-projects.md) 또는 텍스트 데이터 레이블 지정 [프로젝트를](./how-to-create-text-labeling-projects.md) 만든 후 레이블 지정 도구를 사용하여 Machine Learning 프로젝트에 대한 데이터를 신속하게 준비할 수 있습니다. 이 문서에서는 다음을 설명합니다.
 
 > [!div class="checklist"]
 > * 레이블 지정 프로젝트에 액세스하는 방법

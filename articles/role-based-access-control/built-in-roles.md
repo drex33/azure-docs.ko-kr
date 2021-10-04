@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 09/28/2021
 ms.custom: generated
-ms.openlocfilehash: 68a9517416b7cce2bcad37773703515aa1a0117a
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 02fbc7d0ec30181ccfbd44a2a80c70084a23e4d9
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129356204"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427916"
 ---
 # <a name="azure-built-in-roles"></a>Azure 기본 제공 역할
 
@@ -27,7 +27,7 @@ ms.locfileid: "129356204"
 ## <a name="all"></a>모두
 
 > [!div class="mx-tableFixed"]
-> | 기본 제공 역할 | Description | ID |
+> | 기본 제공 역할 | 설명 | ID |
 > | --- | --- | --- |
 > | **일반** |  |  |
 > | [기여자](#contributor) | 모든 리소스를 관리할 수 있는 모든 권한을 부여하지만, Azure RBAC에서 역할 할당, Azure Blueprints에서 할당 관리 또는 이미지 갤러리 공유를 허용하지 않습니다. | b24988ac-6180-42a0-ab88-20f7382dd24c |
@@ -79,11 +79,11 @@ ms.locfileid: "129356204"
 > | **Web** |  |  |
 > | [Azure Maps 데이터 기여자](#azure-maps-data-contributor) | Azure Maps 계정에서 지도 관련 데이터를 읽고, 쓰고, 삭제할 수 있는 액세스 권한을 부여합니다. | 8f5e0ce6-4f7b-4dcf-bddf-e6f48634a204 |
 > | [Azure Maps 데이터 읽기 권한자](#azure-maps-data-reader) | Azure 맵 계정에서 맵 관련 데이터를 읽을 수 있는 액세스 권한을 부여합니다. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
-> | [Azure Spring Cloud Config Server 기여자](#azure-spring-cloud-config-server-contributor) | Azure Spring Cloud Config Server 대한 읽기, 쓰기 및 삭제 액세스 허용 | a06f5c24-21a7-4e1a-aa2b-f19eb6684f5b |
-> | [Azure Spring Cloud 구성 서버 읽기 권한자](#azure-spring-cloud-config-server-reader) | Azure Spring Cloud Config Server 대한 읽기 액세스 허용 | d04c6db6-4947-4782-9e91-30a88feb7be7 |
+> | [Azure Spring Cloud Config Server 기여자](#azure-spring-cloud-config-server-contributor) | Azure 스프링 클라우드 구성 서버에 대 한 읽기, 쓰기 및 삭제 액세스 허용 | a06f5c24-21a7-4e1a-aa2b-f19eb6684f5b |
+> | [Azure Spring Cloud 구성 서버 읽기 권한자](#azure-spring-cloud-config-server-reader) | Azure 스프링 클라우드 구성 서버에 대 한 읽기 액세스 허용 | d04c6db6-4947-4782-9e91-30a88feb7be7 |
 > | [Azure Spring Cloud 데이터 판독기](#azure-spring-cloud-data-reader) | Azure Spring Cloud 데이터에 대한 읽기 권한 허용 | b5537268-8956-4941-a8f0-646150406f0c |
-> | [Azure Spring Cloud Service Registry 기여자](#azure-spring-cloud-service-registry-contributor) | Azure Spring Cloud Service Registry에 대한 읽기, 쓰기 및 삭제 액세스 허용 | f5880b48-c26d-48be-b172-7927bfa1c8f1 |
-> | [Azure Spring Cloud Service Registry 읽기 권한자](#azure-spring-cloud-service-registry-reader) | Azure Spring Cloud Service Registry에 대한 읽기 액세스 허용 | cff1b556-2399-4e7e-856d-a8f754be7b65 |
+> | [Azure Spring Cloud Service Registry 기여자](#azure-spring-cloud-service-registry-contributor) | Azure 스프링 클라우드 서비스 레지스트리에 대 한 읽기, 쓰기 및 삭제 액세스 허용 | f5880b48-c26d-48be-b172-7927bfa1c8f1 |
+> | [Azure Spring Cloud Service Registry 읽기 권한자](#azure-spring-cloud-service-registry-reader) | Azure 스프링 클라우드 서비스 레지스트리에 대 한 읽기 액세스 허용 | cff1b556-2399-4e7e-856d-a8f754be7b65 |
 > | [Media Services 계정 관리자](#media-services-account-administrator) | Media Services 계정을 생성하고, 읽고, 수정하고, 삭제합니다. 이는 다른 Media Services 리소스에 대한 읽기 전용 액세스입니다. | 054126f8-9a2b-4f1c-a9ad-eca461f08466 |
 > | [Media Services 라이브 이벤트 관리자](#media-services-live-events-administrator) | 라이브 이벤트, 자산, 자산 필터, 스트리밍 로케이터를 만들고, 읽고, 수정하고, 삭제합니다. 이는 다른 Media Services 리소스에 대한 읽기 전용 액세스입니다. | 532bc159-b25e-42c0-969e-a1d439f60d77 |
 > | [Media Services 미디어 운영자](#media-services-media-operator) | 자산, 자산 필터, 스트리밍 로케이터, 작업을 만들고, 읽고, 수정하고, 삭제합니다. 이는 다른 Media Services 리소스에 대한 읽기 전용 액세스입니다. | e4395492-1534-4db2-bedf-88c14621589c |
@@ -95,9 +95,9 @@ ms.locfileid: "129356204"
 > | [SignalR AccessKey 읽기 권한자](#signalr-accesskey-reader) | SignalR 서비스 액세스 키 읽기 | 04165923-9d83-45d5-8227-78b77b0a687e |
 > | [SignalR 앱 서버(미리 보기)](#signalr-app-server-preview) | 앱 서버에서 AAD 인증 옵션을 사용하여 SignalR Service에 액세스할 수 있습니다. | 420fcaa2-552c-430f-98ca-3264be4806c7 |
 > | [SignalR REST API 소유자](#signalr-rest-api-owner) | Azure SignalR Service REST API에 대한 모든 권한 | fd53cd77-2268-407a-8f46-7e7863d0f521 |
-> | [SignalR REST API Reader](#signalr-rest-api-reader) | Azure SignalR Service REST API에 대한 읽기 전용 권한 | ddde6b66-c0df-4114-a159-3618637b3035 |
+> | [SignalR REST API 판독기](#signalr-rest-api-reader) | Azure SignalR Service REST API에 대한 읽기 전용 권한 | ddde6b66-c0df-4114-a159-3618637b3035 |
 > | [SignalR Service 소유자](#signalr-service-owner) | Azure SignalR Service REST API에 대한 모든 권한 | 7e4f1700-ea5a-4f59-8f37-079cfe29dce3 |
-> | [SignalR/Web PubSub 기여자](#signalrweb-pubsub-contributor) | SignalR Service 리소스 만들기, 읽기, 업데이트, 삭제 | 8cf5e20a-e4b2-4e9d-b3a1-5ceb692c2761 |
+> | [SignalR/웹 PubSub 기여자](#signalrweb-pubsub-contributor) | SignalR Service 리소스 만들기, 읽기, 업데이트, 삭제 | 8cf5e20a-e4b2-4e9d-b3a1-5ceb692c2761 |
 > | [웹 계획 참가자](#web-plan-contributor) | 웹 사이트의 웹 계획을 관리할 수 있지만 액세스할 수는 없습니다. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 > | [웹 사이트 기여자](#website-contributor) | 웹 사이트(웹 계획은 제외)를 관리할 수 있지만 액세스할 수는 없습니다. | de139f84-1756-47ae-9be6-808fbbe84772 |
 > | **컨테이너** |  |  |
@@ -136,9 +136,9 @@ ms.locfileid: "129356204"
 > | [HDInsight 도메인 서비스 기여자](#hdinsight-domain-services-contributor) | HDInsight Enterprise Security Package에 필요한 도메인 서비스 관련 작업을 읽고, 만들고, 수정하고, 삭제할 수 있음 | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
 > | [Log Analytics 기여자](#log-analytics-contributor) | Log Analytics 참가자는 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 스토리지 계정 키 읽기, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다. | 92aaf0da-9dab-42b6-94a3-d43ce8d16293 |
 > | [Log Analytics 독자](#log-analytics-reader) | Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 보기를 비롯하여 모니터링 설정 보기 및 모든 모니터링 데이터를 보고 검색할 수 있습니다. | 73c42c96-874c-492b-b04d-ab87d138a893 |
-> | [부서의 범위 Data 큐레이터 (레거시)](#purview-data-curator-legacy) | 부서의 범위 data 큐레이터는 카탈로그 데이터 개체를 만들고, 읽고, 수정 하 고, 삭제 하 고, 개체 간의 관계를 설정할 수 있는 레거시 역할입니다. 최근 Azure 역할 기반 액세스에서이 역할을 사용 하지 않고 Azure 부서의 범위 데이터 평면 내에 새 데이터 큐레이터를 도입 했습니다. [Azure 부서의 범위의 액세스 제어를](../purview/catalog-permissions.md#roles) 참조 하세요. | 8a3c2885-9b38-4fd2-9d99-91af537c1347 |
-> | [부서의 범위 데이터 판독기 (레거시)](#purview-data-reader-legacy) | 부서의 범위 데이터 판독기는 카탈로그 데이터 개체를 읽을 수 있는 레거시 역할입니다. 최근 Azure 역할 기반 액세스에서이 역할을 사용 하지 않고 Azure 부서의 범위 데이터 평면 내에 새로운 데이터 판독기를 도입 했습니다. [Azure 부서의 범위의 액세스 제어를](../purview/catalog-permissions.md#roles) 참조 하세요. | ff100721-1b9d-43d8-af52-42b69c1272db |
-> | [부서의 범위 데이터 원본 관리자 (레거시)](#purview-data-source-administrator-legacy) | 부서의 범위 데이터 원본 관리자는 데이터 원본 및 데이터 검색을 관리할 수 있는 레거시 역할입니다. 최근 Azure 역할 기반 액세스에서이 역할을 사용 하지 않고 Azure 부서의 범위 데이터 평면 내에 새로운 데이터 원본 관리자를 도입 했습니다. [Azure 부서의 범위의 액세스 제어를](../purview/catalog-permissions.md#roles) 참조 하세요. | 200bba9e-f0c8-430f-892b-6f0794863803 |
+> | [Purview 데이터 보존자(레거시)](#purview-data-curator-legacy) | Microsoft.Purview 데이터 동료는 카탈로그 데이터 개체를 생성, 읽기, 수정 및 삭제하고 개체 간의 관계를 설정할 수 있는 레거시 역할입니다. 최근에 Azure 역할 기반 액세스에서 이 역할을 더 이상 사용되지 않으며 Azure Purview 데이터 평면 내에 새로운 데이터 경계선이 도입되었습니다. [Azure Purview의 액세스 제어 - 역할을](../purview/catalog-permissions.md#roles) 참조하세요. | 8a3c2885-9b38-4fd2-9d99-91af537c1347 |
+> | [Purview 데이터 판독기(레거시)](#purview-data-reader-legacy) | Microsoft.Purview 데이터 판독기는 카탈로그 데이터 개체를 읽을 수 있는 레거시 역할입니다. 최근에 Azure 역할 기반 액세스에서 이 역할을 더 이상 사용되지 않으며 Azure Purview 데이터 평면 내에 새 데이터 판독기를 도입했습니다. [Azure Purview의 액세스 제어 - 역할을](../purview/catalog-permissions.md#roles) 참조하세요. | ff100721-1b9d-43d8-af52-42b69c1272db |
+> | [Purview 데이터 원본 관리자(레거시)](#purview-data-source-administrator-legacy) | Microsoft.Purview 데이터 원본 관리자는 데이터 원본 및 데이터 검색을 관리할 수 있는 레거시 역할입니다. 최근에 Azure 역할 기반 액세스에서 이 역할을 더 이상 사용되지 않으며 Azure Purview 데이터 평면 내에 새 데이터 원본 관리자를 도입했습니다. [Azure Purview의 액세스 제어 - 역할을](../purview/catalog-permissions.md#roles) 참조하세요. | 200bba9e-f0c8-430f-892b-6f0794863803 |
 > | [스키마 레지스트리 기여자(미리 보기)](#schema-registry-contributor-preview) | 스키마 레지스트리 그룹 및 스키마를 읽고, 쓰고, 삭제합니다. | 5dffeca3-4936-4216-b2bc-10343a5abb25 |
 > | [스키마 레지스트리 판독기(미리 보기)](#schema-registry-reader-preview) | 스키마 레지스트리 그룹 및 스키마를 읽고 나열합니다. | 2c56ea50-c6b3-40a6-83c0-9d98858bc7d2 |
 > | **블록체인** |  |  |
@@ -608,6 +608,7 @@ Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다. [�
 > | --- | --- |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | 역할 및 역할 할당 읽기 |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/availabilitySets/* | 컴퓨팅 가용성 집합 만들기 및 관리 |
+> | [Microsoft. Compute](resource-provider-operations.md#microsoftcompute)/Cloudary/* | Cloud Services 만들기 및 관리 (확장 지원) |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/locations/* | 컴퓨팅 위치 만들기 및 관리 |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/* | 가상 머신 만들기, 업데이트, 삭제, 시작, 다시 시작, 전원 끄기 등을 비롯한 모든 가상 머신 작업을 수행합니다. 가상 머신에서 스크립트를 실행합니다. |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachineScaleSets/* | 가상 머신 확장 집합 만들기 및 관리 |
@@ -3008,9 +3009,9 @@ Azure 스프링 클라우드 구성 서버에 대 한 읽기, 쓰기 및 삭제 
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |
-> | [Microsoft AppPlatform](resource-provider-operations.md#microsoftappplatform)/Spring/configService/read | 특정 Azure Spring Cloud 서비스 인스턴스에 대한 구성 콘텐츠(예: 애플리케이션)를 읽습니다. |
-> | [Microsoft AppPlatform](resource-provider-operations.md#microsoftappplatform)/Spring/configService/write | 특정 Azure 스프링 클라우드 서비스 인스턴스에 대 한 구성 서버 콘텐츠 작성 |
-> | [Microsoft AppPlatform](resource-provider-operations.md#microsoftappplatform)/Spring/configService/delete | 특정 Azure 스프링 클라우드 서비스 인스턴스에 대 한 구성 서버 콘텐츠 삭제 |
+> | [Microsoft.AppPlatform](resource-provider-operations.md#microsoftappplatform)/Spring/configService/read | 특정 Azure Spring Cloud 서비스 인스턴스에 대한 구성 콘텐츠(예: 애플리케이션)를 읽습니다. |
+> | [Microsoft.AppPlatform](resource-provider-operations.md#microsoftappplatform)/Spring/configService/write | 특정 Azure Spring Cloud 서비스 인스턴스에 대한 구성 서버 콘텐츠 작성 |
+> | [Microsoft.AppPlatform](resource-provider-operations.md#microsoftappplatform)/Spring/configService/delete | 특정 Azure Spring Cloud 서비스 인스턴스에 대한 구성 서버 콘텐츠 삭제 |
 > | **NotDataActions** |  |
 > | *없음* |  |
 
@@ -3042,7 +3043,7 @@ Azure 스프링 클라우드 구성 서버에 대 한 읽기, 쓰기 및 삭제 
 
 ### <a name="azure-spring-cloud-config-server-reader"></a>Azure Spring Cloud 구성 서버 읽기 권한자
 
-Azure 스프링 클라우드 구성 서버에 대 한 읽기 액세스 허용 자세히 [알아보기](../spring-cloud/how-to-access-data-plane-azure-ad-rbac.md)
+Azure Spring Cloud Config Server 읽기 액세스 허용 [자세히 알아보기](../spring-cloud/how-to-access-data-plane-azure-ad-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -3051,7 +3052,7 @@ Azure 스프링 클라우드 구성 서버에 대 한 읽기 액세스 허용 �
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |
-> | [Microsoft AppPlatform](resource-provider-operations.md#microsoftappplatform)/Spring/configService/read | 특정 Azure Spring Cloud 서비스 인스턴스에 대한 구성 콘텐츠(예: 애플리케이션)를 읽습니다. |
+> | [Microsoft.AppPlatform](resource-provider-operations.md#microsoftappplatform)/Spring/configService/read | 특정 Azure Spring Cloud 서비스 인스턴스에 대한 구성 콘텐츠(예: 애플리케이션)를 읽습니다. |
 > | **NotDataActions** |  |
 > | *없음* |  |
 
@@ -3120,7 +3121,7 @@ Azure Spring Cloud 데이터에 대한 읽기 권한 허용
 
 ### <a name="azure-spring-cloud-service-registry-contributor"></a>Azure Spring Cloud Service Registry 기여자
 
-Azure 스프링 클라우드 서비스 레지스트리에 대 한 읽기, 쓰기 및 삭제 액세스 허용 [자세한 정보](../spring-cloud/how-to-access-data-plane-azure-ad-rbac.md)
+Azure Spring Cloud Service Registry에 대한 읽기, 쓰기 및 삭제 액세스 허용 [자세한 정보](../spring-cloud/how-to-access-data-plane-azure-ad-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -3129,9 +3130,9 @@ Azure 스프링 클라우드 서비스 레지스트리에 대 한 읽기, 쓰기
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |
-> | [Microsoft AppPlatform](resource-provider-operations.md#microsoftappplatform)/Spring/eurekaService/read | 특정 Azure Spring Cloud 서비스 인스턴스에 대한 사용자 앱 등록 정보를 읽습니다. |
-> | [Microsoft AppPlatform](resource-provider-operations.md#microsoftappplatform)/Spring/eurekaService/write | 특정 Azure Spring Cloud 서비스 인스턴스에 대한 사용자 앱 등록 정보를 씁니다. |
-> | [Microsoft AppPlatform](resource-provider-operations.md#microsoftappplatform)/Spring/eurekaService/delete | 특정 Azure Spring Cloud 서비스 인스턴스에 대한 사용자 앱 등록 정보를 삭제합니다. |
+> | [Microsoft.AppPlatform](resource-provider-operations.md#microsoftappplatform)/Spring/eurekaService/read | 특정 Azure Spring Cloud 서비스 인스턴스에 대한 사용자 앱 등록 정보를 읽습니다. |
+> | [Microsoft.AppPlatform](resource-provider-operations.md#microsoftappplatform)/Spring/eurekaService/write | 특정 Azure Spring Cloud 서비스 인스턴스에 대한 사용자 앱 등록 정보를 씁니다. |
+> | [Microsoft.AppPlatform](resource-provider-operations.md#microsoftappplatform)/Spring/eurekaService/delete | 특정 Azure Spring Cloud 서비스 인스턴스에 대한 사용자 앱 등록 정보를 삭제합니다. |
 > | **NotDataActions** |  |
 > | *없음* |  |
 
@@ -3163,7 +3164,7 @@ Azure 스프링 클라우드 서비스 레지스트리에 대 한 읽기, 쓰기
 
 ### <a name="azure-spring-cloud-service-registry-reader"></a>Azure Spring Cloud Service Registry 읽기 권한자
 
-Azure 스프링 클라우드 서비스 레지스트리에 대 한 읽기 액세스 허용 [자세한 정보](../spring-cloud/how-to-access-data-plane-azure-ad-rbac.md)
+Azure Spring Cloud Service Registry에 대한 읽기 액세스 허용 [자세한 정보](../spring-cloud/how-to-access-data-plane-azure-ad-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -3172,7 +3173,7 @@ Azure 스프링 클라우드 서비스 레지스트리에 대 한 읽기 액세�
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |
-> | [Microsoft AppPlatform](resource-provider-operations.md#microsoftappplatform)/Spring/eurekaService/read | 특정 Azure Spring Cloud 서비스 인스턴스에 대한 사용자 앱 등록 정보를 읽습니다. |
+> | [Microsoft.AppPlatform](resource-provider-operations.md#microsoftappplatform)/Spring/eurekaService/read | 특정 Azure Spring Cloud 서비스 인스턴스에 대한 사용자 앱 등록 정보를 읽습니다. |
 > | **NotDataActions** |  |
 > | *없음* |  |
 
@@ -3797,7 +3798,7 @@ Azure SignalR Service REST API에 대한 모든 권한
 }
 ```
 
-### <a name="signalr-rest-api-reader"></a>SignalR REST API 판독기
+### <a name="signalr-rest-api-reader"></a>SignalR REST API Reader
 
 Azure SignalR Service REST API에 대한 읽기 전용 권한
 
@@ -3903,7 +3904,7 @@ Azure SignalR Service REST API에 대한 모든 권한
 }
 ```
 
-### <a name="signalrweb-pubsub-contributor"></a>SignalR/웹 PubSub 기여자
+### <a name="signalrweb-pubsub-contributor"></a>SignalR/Web PubSub 기여자
 
 SignalR Service 리소스 만들기, 읽기, 업데이트, 삭제
 
@@ -4783,15 +4784,15 @@ Azure Kubernetes Service 클러스터를 읽고 쓸 수 있는 액세스 권한�
 ## <a name="databases"></a>데이터베이스
 
 
-### <a name="azure-connected-sql-server-onboarding"></a>Azure 연결 SQL Server 온 보 딩
+### <a name="azure-connected-sql-server-onboarding"></a>Azure 연결된 SQL Server 온보딩
 
 Arc 지원 서버에서 SQL Server용 Azure 리소스에 대한 읽기 및 쓰기 권한을 허용합니다. [자세히 알아보기](/sql/sql-server/azure-arc/connect)
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
 > | --- | --- |
-> | Microsoft.AzureArcData/sqlServerInstances/read | SQL Server 인스턴스 리소스를 검색 합니다. |
-> | Microsoft.AzureArcData/sqlServerInstances/write | SQL Server 인스턴스 리소스를 업데이트 합니다. |
+> | Microsoft.AzureArcData/sqlServerInstances/read | SQL Server 인스턴스 리소스를 검색합니다. |
+> | Microsoft.AzureArcData/sqlServerInstances/write | SQL Server 인스턴스 리소스 업데이트 |
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |
@@ -5992,9 +5993,9 @@ Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 
 }
 ```
 
-### <a name="purview-data-curator-legacy"></a>부서의 범위 Data 큐레이터 (레거시)
+### <a name="purview-data-curator-legacy"></a>Purview 데이터 보존자(레거시)
 
-부서의 범위 data 큐레이터는 카탈로그 데이터 개체를 만들고, 읽고, 수정 하 고, 삭제 하 고, 개체 간의 관계를 설정할 수 있는 레거시 역할입니다. 최근 Azure 역할 기반 액세스에서이 역할을 사용 하지 않고 Azure 부서의 범위 데이터 평면 내에 새 데이터 큐레이터를 도입 했습니다. [Azure 부서의 범위의 액세스 제어를](../purview/catalog-permissions.md#roles) 참조 하세요.
+Microsoft.Purview 데이터 보존은 카탈로그 데이터 개체를 생성, 읽기, 수정 및 삭제하고 개체 간의 관계를 설정할 수 있는 레거시 역할입니다. 최근에 Azure 역할 기반 액세스에서 이 역할을 더 이상 사용되지 않으며 Azure Purview 데이터 평면 내에 새로운 데이터 경계선이 도입되었습니다. [Azure Purview의 액세스 제어 - 역할을](../purview/catalog-permissions.md#roles) 참조하세요.
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -6035,9 +6036,9 @@ Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 
 }
 ```
 
-### <a name="purview-data-reader-legacy"></a>부서의 범위 데이터 판독기 (레거시)
+### <a name="purview-data-reader-legacy"></a>Purview 데이터 판독기(레거시)
 
-부서의 범위 데이터 판독기는 카탈로그 데이터 개체를 읽을 수 있는 레거시 역할입니다. 최근 Azure 역할 기반 액세스에서이 역할을 사용 하지 않고 Azure 부서의 범위 데이터 평면 내에 새로운 데이터 판독기를 도입 했습니다. [Azure 부서의 범위의 액세스 제어를](../purview/catalog-permissions.md#roles) 참조 하세요.
+Microsoft.Purview 데이터 판독기는 카탈로그 데이터 개체를 읽을 수 있는 레거시 역할입니다. 최근에 Azure 역할 기반 액세스에서 이 역할을 더 이상 사용되지 않으며 Azure Purview 데이터 평면 내에 새 데이터 판독기를 도입했습니다. [Azure Purview의 액세스 제어 - 역할을](../purview/catalog-permissions.md#roles) 참조하세요.
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -6076,9 +6077,9 @@ Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 
 }
 ```
 
-### <a name="purview-data-source-administrator-legacy"></a>부서의 범위 데이터 원본 관리자 (레거시)
+### <a name="purview-data-source-administrator-legacy"></a>Purview 데이터 원본 관리자(레거시)
 
-부서의 범위 데이터 원본 관리자는 데이터 원본 및 데이터 검색을 관리할 수 있는 레거시 역할입니다. 최근 Azure 역할 기반 액세스에서이 역할을 사용 하지 않고 Azure 부서의 범위 데이터 평면 내에 새로운 데이터 원본 관리자를 도입 했습니다. [Azure 부서의 범위의 액세스 제어를](../purview/catalog-permissions.md#roles) 참조 하세요.
+Microsoft.Purview 데이터 원본 관리자는 데이터 원본 및 데이터 검색을 관리할 수 있는 레거시 역할입니다. 최근에 Azure 역할 기반 액세스에서 이 역할을 더 이상 사용되지 않으며 Azure Purview 데이터 평면 내에 새 데이터 원본 관리자를 도입했습니다. [Azure Purview의 액세스 제어 - 역할을](../purview/catalog-permissions.md#roles) 참조하세요.
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |
@@ -6253,7 +6254,7 @@ Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 
 컴퓨팅 리소스를 만들거나 삭제하고 작업 영역 자체를 수정하는 것을 제외하고 Azure Machine Learning 작업 영역에서 모든 작업을 수행할 수 있습니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/*/read |  |
 > | [Microsoft.MachineLearningServices](resource-provider-operations.md#microsoftmachinelearningservices)/workspaces/*/action |  |
@@ -8044,7 +8045,7 @@ Azure Relay 리소스에 대한 수신 대기 액세스 권한을 허용합니�
 Azure Relay 리소스에 대한 전체 액세스 권한을 허용합니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft.Relay](resource-provider-operations.md#microsoftrelay)/* |  |
 > | **NotActions** |  |
@@ -8085,7 +8086,7 @@ Azure Relay 리소스에 대한 전체 액세스 권한을 허용합니다.
 Azure Relay 리소스에 대한 보내기 액세스 권한을 허용합니다.
 
 > [!div class="mx-tableFixed"]
-> | 동작 | Description |
+> | 동작 | 설명 |
 > | --- | --- |
 > | [Microsoft.Relay](resource-provider-operations.md#microsoftrelay)/*/wcfRelays/read |  |
 > | [Microsoft.Relay](resource-provider-operations.md#microsoftrelay)/*/hybridConnections/read |  |
@@ -12570,7 +12571,7 @@ New Relic Application Performance Management 계정 및 애플리케이션을 �
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/replicationRecoveryPlans/testFailover/action | 테스트 장애 조치(failover) 복구 계획 |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/replicationRecoveryPlans/testFailoverCleanup/action | 테스트 장애 조치(failover) 정리 복구 계획 |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/replicationRecoveryPlans/unplannedFailover/action | 장애 조치(Failover) 복구 계획 |
-> | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/replicationVaultSettings/read | 모든 항목을 읽습니다.  |
+> | [Microsoft RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/vaults/replicationVaultSettings/read | 모든 항목을 읽습니다.  |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/monitoringAlerts/* | Recovery Services 자격 증명 모음에 대한 경고 읽기 |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/monitoringConfigurations/notificationConfiguration/read |  |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/storageConfig/read |  |
@@ -13612,9 +13613,9 @@ BizTalk Services를 관리할 수 있지만 액세스할 수는 없습니다.
 }
 ```
 
-### <a name="disk-pool-operator"></a>Disk Pool 연산자
+### <a name="disk-pool-operator"></a>디스크 풀 연산자
 
-디스크 풀에 추가 된 디스크를 관리할 수 있도록 StoragePool 리소스 공급자에 대 한 권한을 제공 합니다.
+StoragePool 리소스 공급자에게 디스크 풀에 추가된 디스크를 관리할 수 있는 권한을 제공합니다.
 
 > [!div class="mx-tableFixed"]
 > | 동작 | Description |

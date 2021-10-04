@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Azure Machine Learning 데이터 스토리지 및 데이터 세트를 사용하여 Azure에서 데이터 스토리지에 안전하게 연결하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: bc5a0a9c3099274c843b786b69442c7d1f3e25bb
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 1b439f65f2807d2d076363938169631651b85d20
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129362588"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129430158"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 액세스 보호
 
@@ -117,7 +117,7 @@ Azure Machine Learning 데이터 세트는 데이터의 복사본이 아닙니�
 
 Azure Machine Learning은 레이블 지정 프로젝트를 만들고, 관리하고, 모니터링할 수 있는 중앙 위치를 제공합니다. 레이블 지정 프로젝트를 사용하면 데이터, 레이블 및 팀 멤버를 조정하여 레이블 지정 작업을 더 효율적으로 관리할 수 있습니다. 현재 지원되는 작업은 이미지 분류(다중 레이블 또는 다중 클래스) 및 경계 상자를 사용하는 개체 식별입니다.
 
-이미지 [레이블 지정 프로젝트](how-to-create-image-labeling-projects.md) 또는 [텍스트 레이블 지정 프로젝트](how-to-create-text-labeling-projects.md)를 만들고 기계 학습 실험에 사용할 데이터 세트를 출력합니다.
+[이미지 레이블](how-to-create-image-labeling-projects.md) 지정 프로젝트 또는 [텍스트 레이블 지정 프로젝트](how-to-create-text-labeling-projects.md)를 만들고 기계 학습 실험에서 사용할 데이터 집합을 출력 합니다.
 
 <a name="drift"></a>
 

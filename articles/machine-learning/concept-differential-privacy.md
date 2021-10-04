@@ -7,15 +7,15 @@ ms.author: luquinta
 ms.date: 01/21/2020
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.custom: responsible-ml
-ms.openlocfilehash: de85c8184e05c9d662a2854e6138f3a61bfba8de
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
-ms.translationtype: HT
+ms.openlocfilehash: 3d28a2f9d18b143013ee89d7d1911b50905bc625
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106062457"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424638"
 ---
 # <a name="what-is-differential-privacy-in-machine-learning-preview"></a>Azure Machine Learning에서 차등 프라이버시 정의(미리 보기)
 

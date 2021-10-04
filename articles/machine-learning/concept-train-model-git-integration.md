@@ -4,17 +4,17 @@ titleSuffix: Azure Machine Learning
 description: Azure Machine Learning이 학습 실행의 일부로 리포지토리, 분기 및 현재 커밋 정보를 추적하기 위해 로컬 Git 리포지토리와 통합하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 04/08/2021
-ms.openlocfilehash: 37c7d94bfb645e444b4fb937823dcb8d56bcb9c7
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
-ms.translationtype: HT
+ms.openlocfilehash: 3ff019488bff9d2e1088aae37902bb274f77470b
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112457736"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424600"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Azure Machine Learning에 대한 Git 통합
 

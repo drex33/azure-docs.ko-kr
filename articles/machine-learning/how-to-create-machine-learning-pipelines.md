@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: 기계 학습 파이프라인을 만들고 실행하여 ML(기계 학습) 단계를 연결하는 워크플로를 만들고 관리합니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.reviewer: sgilley
 ms.author: nilsp
 author: NilsPohlmann
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1
-ms.openlocfilehash: 39cf70fa6a709e35d9e1821ae270ec397407d30c
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 643b02c6fec056bd676db36a125901dd44da0949
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123437439"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129425623"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 

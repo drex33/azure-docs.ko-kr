@@ -6,13 +6,14 @@ ms.author: larryfr
 author: BlackMist
 ms.topic: reference
 ms.service: machine-learning
+ms.subservice: enterprise-readiness
 ms.custom: subject-policy-reference
-ms.openlocfilehash: bc8fe53e1a536beb1de7bd9aee6a4d56fa6e5f84
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: cccc14cafea6e5934ad51bb43a78be88778ca93d
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128614634"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129423880"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-machine-learning"></a>Azure Machine Learning을 위한 Azure Policy 기본 제공 정책 정의
 

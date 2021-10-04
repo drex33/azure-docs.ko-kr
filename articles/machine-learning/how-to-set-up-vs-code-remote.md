@@ -9,18 +9,18 @@ ms.topic: how-to
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 07/15/2021
-ms.openlocfilehash: b3e30a4914ac52c9d9661d3b6d6e07f54f0afdc6
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
-ms.translationtype: HT
+ms.openlocfilehash: b7f3ce1bdb295dfd4bd14b28b45bccf470e377b3
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114230418"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129423541"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Visual Studio Code에서 Azure Machine Learning 컴퓨팅 인스턴스에 연결(미리 보기)
 
 이 문서에서는 Visual Studio Code를 사용하여 Azure Machine Learning 컴퓨팅 인스턴스에 연결하는 방법을 알아봅니다.
 
-[Azure Machine Learning 컴퓨팅 인스턴스](concept-compute-instance.md)는 데이터 과학자를 위한 완전히 관리되는 클라우드 기반 워크스테이션이며 IT 관리자를 위해 관리 및 엔터프라이즈 준비 기능을 제공합니다.
+[Azure Machine Learning 계산 인스턴스](concept-compute-instance.md) 는 데이터 과학자 완전히 관리 되는 클라우드 기반 워크스테이션 이며 IT 관리자에 게 관리 및 엔터프라이즈 준비 기능을 제공 합니다.
 
 Visual Studio Code에서 컴퓨팅 인스턴스에 연결하는 방법에는 두 가지가 있습니다.
 
@@ -47,7 +47,7 @@ Visual Studio Code에서 컴퓨팅 인스턴스에 연결하는 방법에는 두
 > [!IMPORTANT]
 > Visual Studio Code에서 원격 컴퓨팅 인스턴스에 연결하려면 Azure Machine Learning 스튜디오에서 로그인한 계정이 Visual Studio Code에서 사용하는 계정과 동일한지 확인합니다.
 
-### <a name="compute"></a>Compute
+### <a name="compute"></a>컴퓨팅
 
 1. **컴퓨팅** 탭을 선택합니다.
 1. *애플리케이션 URI* 열에서 연결하려는 컴퓨팅 인스턴스에 대한 **VS Code** 를 선택합니다.

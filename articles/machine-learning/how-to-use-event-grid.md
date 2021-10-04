@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Azure Machine Learning에서 이벤트 중심 애플리케이션, 프로세스 또는 CI/CD 기계 학습 워크플로를 설정합니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.author: cgronlun
 author: cjgronlund
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 0f5cdc9acd68f67c57027d6b68e6c79a8ab1a24e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 2ffeb5c5b369ed99042635342a59d6e19721ee15
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124767302"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424183"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Azure Machine Learning 이벤트(미리 보기)를 기반으로 애플리케이션, 프로세스 또는 CI/CD 워크플로 트리거
 
@@ -39,7 +39,7 @@ Azure Event Grid는 Azure Machine Learning이나 기타 Azure 서비스 같은 �
 
 ![Azure Event Grid 기능 모델](./media/concept-event-grid-integration/azure-event-grid-functional-model.png)
 
-이벤트 원본과 이벤트 처리기에 대한 자세한 내용은 [Event Grid란?](../event-grid/overview.md)을 참조하세요.
+이벤트 원본 및 이벤트 처리기에 대 한 자세한 내용은 [Event Grid?](../event-grid/overview.md) 을 참조 하세요.
 
 ### <a name="event-types-for-azure-machine-learning"></a>Azure Machine Learning의 이벤트 유형
 

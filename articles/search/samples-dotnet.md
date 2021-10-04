@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/27/2021
-ms.openlocfilehash: 32fbdae5719e2f8e379b39076f8557b3db0d61ca
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
-ms.translationtype: HT
+ms.date: 10/01/2021
+ms.openlocfilehash: 0f4ce35a43702f958656b1ad077e6c0f84bc88bb
+ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112020028"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129418711"
 ---
 # <a name="net-c-code-samples-for-azure-cognitive-search"></a>Azure Cognitive Search용 .NET(C#) 코드 샘플
 
@@ -66,6 +66,7 @@ Cognitive Search 팀의 코드 샘플은 기능 및 워크플로를 보여줍니
 
 | 샘플 | Description |
 |---------|-------------|
+| [Azure AD를 사용하여 Data Lake Gen2 인덱싱](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md) | Azure AD 및 역할 기반 액세스 제어를 통해 보호되는 Azure Data Lake Gen2 파일 및 폴더의 인덱서 연결 및 인덱싱을 보여 주는 소스 코드입니다. |
 | [azure-search-power-skills](https://github.com/Azure-Samples/azure-search-power-skills)  | 사용자 고유의 솔루션에 통합할 수 있는 사용 가능한 사용자 지정 기술에 대한 소스 코드입니다.  |
 | [지식 마이닝 솔루션 가속기](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) | 엔드투엔드 지식 마이닝 솔루션을 프로토타이핑하는 데 도움이 되는 템플릿, 지원 파일 및 분석 보고서를 포함합니다.  |
 | [코로나19 검색 앱 리포지토리](https://github.com/liamca/covid19search) | Cognitive Search 기반 [코로나19 검색 앱](https://covid19search.azurewebsites.net/)에 대한 소스 코드 리포지토리입니다. |

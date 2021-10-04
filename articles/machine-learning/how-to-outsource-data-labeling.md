@@ -1,85 +1,85 @@
 ---
-title: 데이터 레이블 지정 공급업체 회사와 협력하여 데이터에 레이블을 지정합니다.
+title: 데이터 레이블 공급 업체 회사
 titleSuffix: Azure Machine Learning
-description: 데이터 레이블 지정 공급업체 회사를 사용하여 데이터 레이블 지정 프로젝트의 데이터 레이블 지정 지원
+description: 데이터 레이블 지정 공급 업체 회사를 사용 하 여 데이터 레이블 지정 프로젝트의 데이터에 레이블을 지정할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.reviewer: sgilley
 author: kvijaykannan
 ms.author: vkann
 ms.date: 09/30/2021
 ms.topic: how-to
-ms.openlocfilehash: bffdeb76f3fc7a8c740fd090b41b674ba71c8f19
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 2937be805d82abde1125c8c8b23162d7eedec015
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129372845"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429550"
 ---
-# <a name="work-with-a-data-labeling-vendor-company"></a>데이터 레이블 지정 공급업체 회사에서 작업
+# <a name="work-with-a-data-labeling-vendor-company"></a>데이터 레이블 공급 업체 회사에 대 한 작업
 
-데이터 레이블 지정 공급업체 회사에 참여하여 데이터에 레이블을 지정하는 방법을 알아봅니다. 이러한 회사와 해당 회사에서 제공하는 레이블 지정 서비스에 대한 자세한 내용은 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services?page=1&search=AzureMLVend)목록 페이지에서 확인할 수 있습니다.
+데이터 레이블을 지정 하는 데 도움이 되는 데이터 레이블 공급 업체 회사에 참여 하는 방법을 알아봅니다. 이러한 회사와 이러한 회사에서 제공 하는 레이블 지정 서비스에 대 한 자세한 내용은 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services?page=1&search=AzureMLVend)의 목록 페이지에서 확인할 수 있습니다.
 
 
 ## <a name="workflow-summary"></a>워크플로 요약
 
-데이터 레이블 지정 프로젝트를 만들기 전에 다음을 수행합니다.
+데이터 레이블 지정 프로젝트를 만들기 전에 다음을 수행 합니다.
 
-1. 레이블 지정 서비스 공급자를 선택합니다.  Azure Marketplace 공급자를 찾으려면 다음을 수행합니다.
-    1. 이러한 [공급업체 레이블 지정 회사의 목록 세부 정보를 검토합니다.](https://azuremarketplace.microsoft.com/marketplace/consulting-services?page=1&search=AzureMLVend)
-    1. 공급업체 레이블 지정 회사가 요구 사항을 충족하는 경우 Azure Marketplace **연락처** 옵션을 선택합니다. Azure Marketplace 문의를 공급업체 레이블 지정 회사로 라우팅합니다. 최종 회사를 선택하기 전에 여러 공급업체 레이블 지정 회사에 문의할 수 있습니다.
+1. 레이블 지정 서비스 공급자를 선택 합니다.  Azure Marketplace에서 공급자를 찾으려면 다음을 수행 합니다.
+    1. [이러한 공급 업체 레이블 지정 회사에 대 한 세부 정보](https://azuremarketplace.microsoft.com/marketplace/consulting-services?page=1&search=AzureMLVend)를 검토 합니다.
+    1. 공급 업체 레이블 지정 회사가 사용자의 요구 사항을 충족 하는 경우 Azure Marketplace에서 **연락처** 옵션을 선택 합니다. Azure Marketplace는 해당 조회를 공급 업체 레이블 회사로 라우팅합니다. 최종 회사를 선택 하기 전에 여러 공급 업체 레이블 회사에 문의할 수 있습니다.
 
-1. 에 문의하고 레이블 지정 서비스 공급자와 계약을 맺습니다.
+1. 에 문의 하 고 레이블 지정 서비스 공급자를 사용 하 여 계약에 입력 합니다.
 
-공급업체 레이블 지정 회사와의 계약이 완료되면 다음을 수행합니다.
+공급 업체 레이블 회사의 계약이 준비 되 면 다음을 수행 합니다.
 
-1. [Azure Machine Learning Studio에서](https://ml.azure.com)레이블 지정 프로젝트를 만듭니다. 프로젝트 만들기에 대한 자세한 내용은 이미지 [레이블](how-to-create-image-labeling-projects.md) 지정 프로젝트 또는 텍스트 레이블 지정 [프로젝트를](how-to-create-text-labeling-projects.md)만드는 방법을 참조하세요.
-1. Azure Marketplace 데이터 레이블 지정 공급자를 사용하는 것으로 제한되지 않습니다.  그러나 Azure Marketplace 공급자를 사용하는 경우:
-    1. 직원 단계에서 **Azure Marketplace 공급업체 레이블 지정 회사 사용을** 선택합니다.
-    1. 드롭다운에서 적절한 데이터 레이블 지정 회사를 선택합니다.
+1. [Azure Machine Learning studio](https://ml.azure.com)에서 레이블 지정 프로젝트를 만듭니다. 프로젝트를 만드는 방법에 대 한 자세한 내용은 [이미지 레이블 지정 프로젝트](how-to-create-image-labeling-projects.md) 또는 [텍스트 레이블 지정 프로젝트](how-to-create-text-labeling-projects.md)를 만드는 방법을 참조 하세요.
+1. Azure Marketplace의 데이터 레이블 지정 공급자를 사용 하는 것으로 제한 되지 않습니다.  그러나 Azure Marketplace 공급자를 사용 하는 경우:
+    1. 직원 단계의 **Azure Marketplace에서 공급 업체 레이블 지정 회사를 사용** 합니다 .를 선택 합니다.
+    1. 드롭다운에서 적절 한 데이터 레이블 지정 회사를 선택 합니다.
 
     > [!NOTE]
-    > 레이블 지정 프로젝트를 만든 후에는 공급업체 레이블 지정 회사 이름을 변경할 수 없습니다.
+    > 레이블 지정 프로젝트를 만든 후에는 회사 이름을 지정 하는 공급 업체 이름을 변경할 수 없습니다.
 
-1. Azure Marketplace 통해 찾은 공급자의 경우 `labeler` `techlead` RBAC(Azure 역할 기반 액세스)를 사용하여 공급업체 레이블 지정 회사에 대한 액세스(역할, 역할)를 사용하도록 설정합니다. 이러한 역할을 통해 회사는 리소스에 액세스하여 데이터에 주석을 추가합니다.
+1. Azure Marketplace 또는 다른 위치에 있는지 여부에 관계 없이 모든 공급자의 경우 `labeler` `techlead` Azure RBAC (역할 기반 액세스)를 사용 하 여 공급 업체 레이블 회사에 대 한 액세스 (역할, 역할)를 사용 하도록 설정 합니다. 이러한 역할을 통해 회사는 리소스에 액세스 하 여 데이터에 주석을 달 수 있습니다.
 
 ## <a name="select-a-company"></a><a name="review"></a> 회사 선택
 
-Microsoft는 요구 사항을 충족할 수 있는 지식과 경험이 있는 일부 레이블 지정 서비스 공급자를 확인했습니다. 레이블 지정 서비스 공급자에 대해 알아보고 Azure Marketplace 목록 페이지에서 프로젝트의 요구 사항과 요구 사항을 고려하여 공급자를 선택할 수 [있습니다.](https://azuremarketplace.microsoft.com/marketplace/consulting-services?page=1&search=AzureMLVend)
+Microsoft는 사용자의 요구를 충족할 수 있는 지식과 경험을 제공 하는 몇 가지 레이블 지정 서비스 공급자를 식별 했습니다. 레이블 지정 서비스 공급자에 대해 알아보고 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services?page=1&search=AzureMLVend)의 목록 페이지에 있는 프로젝트 요구 사항 및 요구 사항을 고려 하 여 공급자를 선택할 수 있습니다.
 
 > [!IMPORTANT]
-> 이러한 회사와 해당 회사가 제공하는 레이블 지정 서비스에 대한 자세한 내용은 Azure Marketplace 목록 페이지에서 확인할 수 있습니다. 귀하는 Azure Marketplace 통해 서비스를 제공하는 레이블 지정 회사를 사용할 책임이 있으며 레이블 지정 회사와 해당 환경, 서비스, 인력, 사용 약관 등이 프로젝트 요구 사항을 충족하는지 여부를 독립적으로 평가해야 합니다. Azure Marketplace **연락처** 옵션을 사용하여 Azure Marketplace 통해 서비스를 제공하는 레이블 지정 회사에 문의할 수 있으며 영업일 3일 이내에 연락한 회사의 의견을 받을 수 있습니다. 과 계약을 체결하고 레이블 지정 회사에 직접 결제합니다.
+> 이러한 회사와 이러한 회사에서 제공 하는 레이블 지정 서비스에 대 한 자세한 내용은 Azure Marketplace의 목록 페이지에서 확인할 수 있습니다. Azure Marketplace를 통해 서비스를 제공 하는 레이블 지정 회사를 사용 하는 모든 결정에 대 한 책임은 사용자가 레이블 지정 회사와 해당 환경, 서비스, 인력 관리, 약관 등이 프로젝트 요구 사항에 맞는지 독립적으로 평가 해야 합니다. Azure Marketplace에서 **연락처** 옵션을 사용 하 여 Azure Marketplace 통해 서비스를 제공 하는 레이블 지정 회사에 문의할 수 있으며 영업일 3 일 이내에 연결 된 회사에서이를 듣게 될 수 있습니다. 를 사용 하 여 계약을 체결 하 고 레이블 회사에 직접 지불 합니다.
 
-Microsoft는 Azure Marketplace 잠재적 레이블 지정 서비스 공급자 목록을 정기적으로 검토하고 언제든지 목록에서 공급자를 추가하거나 제거할 수 있습니다.  
+Microsoft는 Azure Marketplace에서 잠재적 레이블 지정 서비스 공급자 목록을 정기적으로 검토 하 고 언제 든 지 목록에서 공급자를 추가 하거나 제거할 수 있습니다.  
 
-* 공급자가 제거되면 기존 프로젝트 또는 해당 프로젝트에 대한 해당 회사의 액세스에 영향을 주지 않습니다.
-* 더 이상 Azure Marketplace 나열되지 않는 공급자를 사용하는 경우 새 프로젝트에서 **Azure Marketplace 공급업체 레이블 지정 회사 사용** 옵션을 선택하지 마세요.
-* 제거된 공급자는 더 이상 Azure Marketplace 목록을 갖지 않습니다.
-* 제거된 공급자는 더 이상 Azure Marketplace 통해 연결할 수 없습니다.
+* 공급자가 제거 되 면 기존 프로젝트 또는 해당 프로젝트에 대 한 해당 회사의 액세스에 영향을 주지 않습니다.
+* 더 이상 Azure Marketplace에 나열 되지 않은 공급자를 사용 하는 경우 새 프로젝트에서 **공급 업체 레이블 지정 회사 Azure Marketplace** 옵션을 선택 하지 마세요.
+* 제거 된 공급자는 더 이상 Azure Marketplace에 나열 되지 않습니다.
+* 제거 된 공급자는 Azure Marketplace를 통해 더 이상 연결할 수 없게 됩니다.
 
-다양한 레이블 지정 프로젝트 요구 사항에 대해 여러 공급업체 레이블 지정 회사에 참여할 수 있습니다. 각 프로젝트는 하나의 공급업체 레이블 지정 회사에 연결됩니다.
+다양 한 레이블 지정 프로젝트 요구 사항에 따라 여러 공급 업체 레이블 지정 회사에 참여할 수 있습니다. 각 프로젝트는 하나의 공급 업체 레이블 회사에 연결 됩니다.
 
-다음은 Azure Machine Learning 데이터 레이블 지정 서비스를 사용하여 레이블이 지정되는 데이터를 얻는 데 도움이 될 수 있는 공급업체 레이블 지정 회사입니다. 공급업체 [회사 목록을 봅니다.](https://azuremarketplace.microsoft.com/marketplace/consulting-services?page=1&search=AzureMLVend)
+다음은 Azure Machine Learning 데이터 레이블 서비스를 사용 하 여 레이블이 지정 된 데이터를 가져오는 데 도움이 될 수 있는 공급 업체 레이블 회사입니다. [공급 업체 회사의 목록을](https://azuremarketplace.microsoft.com/marketplace/consulting-services?page=1&search=AzureMLVend)봅니다.
 
-* [iSoftStone](https://azuremarketplace.microsoft.com/marketplace/consulting-services/isoftstoneinc1614950352893.20210527) 
+* [I부드러운 석재](https://azuremarketplace.microsoft.com/marketplace/consulting-services/isoftstoneinc1614950352893.20210527) 
 
 * [사분면 리소스](https://azuremarketplace.microsoft.com/marketplace/consulting-services/quadrantresourcellc1587325810226.quadrant_resource_data_labeling)
 
-## <a name="enter-into-a-contract"></a>계약 입력 
+## <a name="enter-into-a-contract"></a>계약에 들어가기 
 
-작업하려는 레이블 지정 회사를 선택한 후에는 계약조건에 따라 레이블 지정 회사 설정을 사용하여 직접 계약을 체결해야 합니다. Microsoft는 본 계약의 당사자가 아니며 약관을 결정하거나 협상하는 데 아무런 역할도 하지 않습니다. 이 계약에 따라 지불되는 금액은 레이블 지정 회사에 직접 지급됩니다.
+작업할 레이블 지정 회사를 선택한 후 참여 약관에 따라 레이블 지정 회사 설정을 사용 하 여 직접 계약을 입력 해야 합니다. Microsoft는 본 계약에 대 한 파티가 아닙니다. 해당 약관을 결정 하거나 협상할 때 역할을 수행 하지 않습니다. 본 계약의 지불 금액은 레이블 지정 회사에 직접 지불 됩니다.
 
-레이블 지정 프로젝트에서 ML 지원 레이블 지정을 사용하도록 설정하면 Microsoft는 이 서비스와 관련하여 사용하는 컴퓨팅 리소스에 대해 별도로 요금을 청구합니다. Azure Machine Learning 사용과 관련된 기타 모든 요금(예: Azure Machine Learning 작업 영역에서 사용되는 데이터 스토리지)은 Microsoft와의 계약 조건에 따라 적용됩니다.
+레이블 지정 프로젝트에서 ML 보조 레이블 지정을 사용 하도록 설정 하는 경우 Microsoft는이 서비스와의 연결에 사용 되는 계산 리소스에 대해 별도로 요금을 청구 합니다. Azure Machine Learning 사용과 관련 된 기타 모든 요금 (예: Azure Machine Learning 작업 영역에서 사용 되는 데이터의 저장소)은 Microsoft와 계약 조건에 따라 적용 됩니다.
 
 ## <a name="enable-access"></a>액세스 사용
 
-공급업체 레이블 지정 회사에서 프로젝트에 액세스할 수 있도록 작업 영역 수준에서 [Azure RBAC(역할 기반 액세스)를 ](how-to-assign-roles.md#manage-workspace-access) 통해 프로젝트에 액세스할 수 있도록 합니다.  여러 레이블 지정 프로젝트에 여러 공급업체 레이블 지정 회사를 사용하려는 경우 각 회사에 대해 별도의 작업 영역을 만드는 것이 좋습니다.
+공급 업체 레이블 지정 회사에서 프로젝트에 액세스할 수 있도록 하려면 작업 영역 수준에서 [AZURE RBAC (역할 기반 액세스) ](how-to-assign-roles.md#manage-workspace-access) 를 통해 액세스할 수 있도록 설정 합니다.  여러 개의 레이블 지정 프로젝트에 여러 공급 업체 레이블 지정 회사를 사용 하려는 경우 각 회사에 대 한 별도의 작업 영역을 만드는 것이 좋습니다.
 
 > [!IMPORTANT]
-> Microsoft가 아닌 귀하는 범위, 품질, 일정 및 가격 책정과 관련된 문제를 포함하지만 이에 국한되지 않는 레이블 지정 회사와의 계약에서 모든 측면을 담당합니다.
+> Microsoft가 아닌 사용자는 범위 지정 회사의 모든 측면 (범위, 품질, 일정 및 가격 책정과 관련 된 문제를 포함 하 여이에 국한 되지 않음)을 담당 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [이미지 레이블 지정 프로젝트 만들기 및 레이블 내보내기](how-to-create-image-labeling-projects.md)
-* [텍스트 레이블 지정 프로젝트 만들기 및 레이블 내보내기(미리 보기)](how-to-create-text-labeling-projects.md)
+* [텍스트 레이블 지정 프로젝트 및 레이블 내보내기 (미리 보기)](how-to-create-text-labeling-projects.md)

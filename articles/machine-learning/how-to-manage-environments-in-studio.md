@@ -1,5 +1,5 @@
 ---
-title: 스튜디오에서 환경 관리(미리 보기)
+title: Studio에서 환경 관리
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning 스튜디오에서 환경을 만들고 관리하는 방법에 대해 알아봅니다.
 services: machine-learning
@@ -10,14 +10,14 @@ ms.author: sagopal
 ms.date: 5/25/2021
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: 8015152a7888df86128aaff31d4b8c6dd9179cf2
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
-ms.translationtype: HT
+ms.openlocfilehash: afa72add9b4fe6014b03331e8ee520669edb29b1
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112460597"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129426059"
 ---
-# <a name="manage-software-environments-in-azure-machine-learning-studio-preview"></a>Azure Machine Learning 스튜디오에서 소프트웨어 환경 관리(미리 보기)
+# <a name="manage-software-environments-in-azure-machine-learning-studio"></a>Azure Machine Learning studio에서 소프트웨어 환경 관리
 
 이 문서에서는 Azure Machine Learning 스튜디오에서 Azure Machine Learning [환경](/python/api/azureml-core/azureml.core.environment.environment)을 만들고 관리하는 방법에 대해 알아봅니다. 환경을 사용하면 프로젝트의 소프트웨어 종속성이 진화함에 따라 추적하고 재현할 수 있습니다.
 
@@ -37,7 +37,7 @@ Azure Machine Learning에서 환경이 작동하는 방식에 대한 개요는 [
 
 ## <a name="browse-curated-environments"></a>큐레이팅된 환경 찾아보기
 
-큐레이팅된 환경에는 Python 패키지 컬렉션이 포함되며, 기본적으로 작업 영역에서 사용할 수 있습니다. 이러한 환경은 캐시된 Docker 이미지로 지원되므로 실행 준비 비용이 줄어듭니다. 
+큐레이팅된 환경에는 Python 패키지 컬렉션이 포함되며, 기본적으로 작업 영역에서 사용할 수 있습니다. 이러한 환경은 캐시 된 Docker 이미지로 지원 되므로 실행 준비 비용 및 지원 교육 및 추론 시나리오를 줄일 수 있습니다. 
 
 환경을 클릭하여 해당 콘텐츠에 대한 자세한 정보를 확인합니다. 자세한 내용은 [Azure Machine Learning 큐레이팅된 환경](resource-curated-environments.md)을 참조하세요. 
 

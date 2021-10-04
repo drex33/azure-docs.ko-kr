@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Azure Machine Learning 데이터 세트를 사용하여 모델 학습용으로 로컬 또는 원격 컴퓨팅에서 데이터를 사용할 수 있게 만드는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.author: yogipandey
 author: ynpandey
 manager: cgronlun
@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: how-to
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 191c76c6ec67112df71d8d5525b2c5938627b3d6
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 1aa47d7dfbc4a4d43702522a133ae86c8bdbdd1a
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114458541"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427270"
 ---
 # <a name="train-models-with-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 세트를 사용하여 모델 학습 
 

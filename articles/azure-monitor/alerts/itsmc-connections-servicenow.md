@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 441ed0072eee17ee6250bb7de39442ecfd669cf3
-ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
-ms.translationtype: HT
+ms.openlocfilehash: e3d696580acd995a2396d56c404e2f904611ccac
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113687788"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129430139"
 ---
 # <a name="connect-servicenow-with-it-service-management-connector"></a>ServiceNow를 IT 서비스 관리 커넥터에 연결
 
@@ -35,12 +35,11 @@ ServiceNow 관리자는 ServiceNow 인스턴스의 클라이언트 ID와 클라�
 - [Quebec에 대해 OAuth 설정](https://docs.servicenow.com/bundle/quebec-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Paris에 대해 OAuth 설정](https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Orlando에 대해 OAuth 설정](https://docs.servicenow.com/bundle/orlando-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
-- [New York에 대해 OAuth 설정](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [London에 대해 OAuth 설정](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 
 OAuth 설정의 일부로 다음을 수행하는 것이 좋습니다.
 
-1. [클라이언트 엔드포인트를 만들어 인스턴스에 액세스합니다](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_CreateEndpointforExternalClients.html).
+1. [클라이언트 엔드포인트를 만들어 인스턴스에 액세스합니다](https://docs.servicenow.com/bundle/rome-platform-administration/page/administer/security/task/t_CreateEndpointforExternalClients.html).
 
 1. 새로 고침 토큰의 수명을 업데이트합니다.
 

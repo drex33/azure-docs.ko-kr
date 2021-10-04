@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Azure Machine Learning의 자동화된 기계 학습 솔루션을 사용하여 ML 모델의 일반적인 문제를 식별하고 관리합니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: 8945a5766865f4df6175e7330d3bf9c947e1fa0d
-ms.sourcegitcommit: 9caa850a2b26773e238f8ba6f4ca151c47260915
-ms.translationtype: HT
+ms.openlocfilehash: b942cbb0ada2419dadd71e93a39d069d29225f35
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2021
-ms.locfileid: "113600499"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129426725"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>자동화된 기계 학습으로 과잉 맞춤 및 불균형 데이터 방지
 

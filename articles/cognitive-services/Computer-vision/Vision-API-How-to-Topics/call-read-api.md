@@ -10,18 +10,49 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 03/31/2021
 ms.author: pafarley
-ms.openlocfilehash: d5a1da6bbe251e6200cd3a64117748e9ebbfae2a
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: ed19ddae799a743d3bc8e51c550e4a054ad42cf7
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112298118"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129426754"
 ---
 # <a name="call-the-read-api"></a>읽기 API 호출
 
 이 가이드에서는 Read API를 호출하여 이미지에서 텍스트를 추출하는 방법을 알아봅니다. 사용자 요구에 맞게 이 API의 동작을 구성할 수 있는 다양한 방법을 알아봅니다.
 
 이 가이드에서는 사용자가 이미 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Computer Vision 리소스를 생성"  target="_blank">Computer Vision 리소스를 생성했으며 </a> 구독 키와 엔드포인트 URL을 획득했다고 가정합니다. 아직 시작하지 않았다면 [빠른 시작](../quickstarts-sdk/client-library.md)을 따라 시작하세요.
+
+## <a name="determine-how-to-process-the-data-optional"></a>데이터를 처리하는 방법 결정(선택 사항)
+
+### <a name="specify-the-ocr-model"></a>OCR 모델 지정
+
+기본적으로 서비스는 최신 GA 모델을 사용하여 텍스트를 추출합니다. Read 3.2부터 `model-version` 매개 변수를 사용하면 지정된 API 버전에 대한 GA 모델과 미리 보기 모델 중에서 선택할 수 있습니다. 지정한 모델은 읽기 작업으로 텍스트를 추출하는 데 사용됩니다.
+
+읽기 작업을 사용하는 경우 선택적 매개 변수에 다음 값을 `model-version` 사용합니다.
+
+|값| 사용된 모델 |
+|:-----|:----|
+| 제공되지 않음 | 최신 GA 모델 및 언어 |
+| 최신 | 최신 GA 모델 및 언어|
+| 2021-09-30-preview | 추가 미리 보기 언어 및 기능이 있는 미리 보기 모델 이전 GA 모델의 향상된 기능을 포함합니다.
+| 2021-04-12 | 날짜별 GA( 현재 최신과 동일) |
+
+### <a name="input-language"></a>입력 언어
+
+기본적으로 서비스는 혼합 언어를 포함하여 이미지 또는 문서에서 모든 텍스트를 추출합니다. [읽기 작업에는](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) 언어에 대한 선택적 요청 매개 변수가 있습니다. 문서를 특정 언어로 강제로 처리하려는 경우에만 언어 코드를 제공합니다. 그렇지 않으면 서비스가 불완전하고 잘못된 텍스트를 반환할 수 있습니다.
+
+### <a name="natural-reading-order-output-latin-languages-only"></a>자연스러운 읽기 순서 출력(라틴어만 해당)
+
+기본적으로 서비스는 왼쪽에서 오른쪽 순서로 텍스트 줄을 출력합니다. 필요에 따라 `readingOrder` 요청 매개 변수를 사용하여 다음 `natural` 예제와 같이 보다 인간 친화적인 읽기 순서 출력에 를 사용합니다. 이 기능은 라틴어에 대해서만 지원됩니다.
+
+:::image type="content" source="../Images/ocr-reading-order-example.png" alt-text="OCR 읽기 순서 예" border="true" :::
+
+### <a name="select-pages-or-page-ranges-for-text-extraction"></a>텍스트 추출을 위한 페이지 또는 페이지 범위 선택
+
+기본적으로 서비스는 문서의 모든 페이지에서 텍스트를 추출합니다. 필요에 따라 요청 매개 변수를 사용하여 `pages` 페이지 번호 또는 페이지 범위를 지정하여 해당 페이지에서만 텍스트를 추출합니다. 다음 예제에서는 모든 페이지(1-10) 및 선택한 페이지(3-6) 모두에 대한 텍스트를 포함하는 10개의 페이지가 있는 문서를 보여줍니다.
+
+:::image type="content" source="../Images/ocr-select-pages.png" alt-text="선택한 페이지 출력" border="true" :::
 
 ## <a name="submit-data-to-the-service"></a>서비스에 데이터 제출
 
@@ -42,23 +73,6 @@ Read API의 [Read 호출](https://centraluseuap.dev.cognitive.microsoft.com/docs
 >
 > [Computer Vision 가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) 페이지에는 읽기에 대한 가격 책정 계층이 포함되어 있습니다. 분석된 각 이미지 또는 페이지는 하나의 트랜잭션입니다. 100페이지가 포함된 PDF 또는 TIFF 문서를 사용하여 작업을 호출하면 읽기 작업은 100개의 트랜잭션으로 계산되며 100개의 트랜잭션에 대해 요금이 청구됩니다. 작업을 50번 호출하고 각 호출에서 100페이지의 문서를 제출한 경우 50 X 100 = 5000 트랜잭션에 대한 요금이 청구됩니다.
 
-## <a name="determine-how-to-process-the-data"></a>데이터 처리 방법 결정
-
-### <a name="language-specification"></a>언어 사양
-
-[읽기](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) 호출에는 언어에 대한 선택적 요청 매개 변수가 있습니다. 읽기는 자동 언어 식별 및 다국어 문서를 지원하므로 문서를 특정 언어로 강제 처리하려는 경우에만 언어 코드를 제공합니다.
-
-### <a name="natural-reading-order-output-latin-languages-only"></a>자연스러운 읽기 순서 출력(라틴어만 해당)
-
-`readingOrder` 쿼리 매개 변수를 사용하여 텍스트 줄이 출력되는 순서를 지정합니다. 다음 예제와 같이 인간 친화적인 읽기 순서 출력을 위해 `natural`을 사용합니다. 이 기능은 라틴어에 대해서만 지원됩니다.
-
-:::image type="content" source="../Images/ocr-reading-order-example.png" alt-text="OCR 읽기 순서 예" border="true" :::
-
-### <a name="select-pages-or-page-ranges-for-text-extraction"></a>텍스트 추출을 위한 페이지 또는 페이지 범위 선택
-
-큰 다중 페이지 문서의 경우 `pages` 쿼리 매개 변수를 통해 페이지 번호 또는 페이지 범위를 지정하여 해당 페이지에서만 텍스트를 추출합니다. 다음 예제에서는 모든 페이지(1-10) 및 선택한 페이지(3-6) 모두에 대한 텍스트를 포함하는 10개의 페이지가 있는 문서를 보여줍니다.
-
-:::image type="content" source="../Images/ocr-select-pages.png" alt-text="선택한 페이지 출력" border="true" :::
 
 ## <a name="get-results-from-the-service"></a>서비스에서 결과 가져오기
 
@@ -168,4 +182,5 @@ Read API의 [Read 호출](https://centraluseuap.dev.cognitive.microsoft.com/docs
 
 ## <a name="next-steps"></a>다음 단계
 
-REST API를 사용해 보려면 [Read API 참조](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)로 이동하세요.
+- [OCR(Read) REST API 또는 클라이언트 라이브러리 빠른 시작](../quickstarts-sdk/client-library.md)을 시작하세요.
+- [Read 3.2 REST API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)에 대해 알아봅니다.

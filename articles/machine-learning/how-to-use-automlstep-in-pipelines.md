@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: AutoMLStep을 사용하면 파이프라인에서 자동화된 Machine Learning을 사용할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.author: laobri
 author: lobrien
 manager: cgronlun
 ms.date: 02/28/2020
 ms.topic: how-to
 ms.custom: devx-track-python, automl
-ms.openlocfilehash: 821661a225591e4f92aa15855da6259f2eb3735b
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
-ms.translationtype: HT
+ms.openlocfilehash: bb110a12c3ca84905ea7907675fc10261c641f39
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112462706"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428809"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Python의 Azure Machine Learning 파이프라인에서 자동화된 ML 사용
 

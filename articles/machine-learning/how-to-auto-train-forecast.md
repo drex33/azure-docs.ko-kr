@@ -6,16 +6,16 @@ services: machine-learning
 author: nibaccam
 ms.author: nibaccam
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.topic: how-to
 ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack
 ms.date: 06/11/2021
-ms.openlocfilehash: 26a83b28fd6e1fdaded9884deb0d7197e0a59a6f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f8e036a77603c1e0833117a4562ad9dfd93c7ac9
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124784908"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427194"
 ---
 # <a name="set-up-automl-to-train-a-time-series-forecasting-model-with-python"></a>Python으로 시계열 예측 모델을 학습시키도록 AutoML 설정
 
@@ -147,7 +147,7 @@ ForecastTCN(미리 보기)| ForecastTCN은 가장 까다로운 예측 작업을 
 |`forecast_horizon`|앞으로 어느 정도의 기간에 대해 예측할 것인지 정의합니다. 구간은 시계열 빈도의 단위입니다. 단위는 예측자가 예측해야 하는 학습 데이터의 시간 간격(예: 매월, 매주)을 기준으로 합니다.|✓|
 |`enable_dnn`|[예측 DNN을 사용하도록 설정]()합니다.||
 |`time_series_id_column_names`|타임스탬프가 동일한 여러 행이 있는 데이터에서 시계열을 고유하게 식별하는 데 사용되는 열 이름입니다. 시계열 식별자가 정의되지 않은 경우 데이터 세트는 하나의 시계열로 간주됩니다. 단일 시계열에 대한 자세한 내용은 [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand)을 참조하세요.||
-|`freq`| 시계열 데이터 세트 빈도입니다. 이 매개 변수는 매일, 매주, 매년 등 이벤트가 발생할 것으로 예상되는 기간을 나타냅니다. 빈도는 [pandas 오프셋 별칭](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects)이어야 합니다. [frequency]에 대해 자세히 알아보세요. (#frequency-target-data-aggregation)||
+|`freq`| 시계열 데이터 세트 빈도입니다. 이 매개 변수는 매일, 매주, 매년 등 이벤트가 발생할 것으로 예상되는 기간을 나타냅니다. 빈도는 [pandas 오프셋 별칭](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects)이어야 합니다. [Frequency]에 대해 자세히 알아보세요. (#frequency-대상-데이터 집계)||
 |`target_lags`|데이터의 빈도에 따라 대상 값을 지연시킬 행 수입니다. 지연은 목록 또는 단일 정수로 표시됩니다. 지연은 독립 변수와 종속 변수 간 관계가 일치하지 않거나 기본적으로 상관 관계가 없는 경우에 사용해야 합니다. ||
 |`feature_lags`| 지연에 대한 기능은 `target_lags`가 설정되고 `feature_lags`가 `auto`로 설정된 경우 자동화된 ML에 의해 자동으로 결정됩니다. 기능 지연을 사용하도록 설정하면 정확도를 향상시키는 데 도움이 될 수 있습니다. 기능 지연은 기본적으로 사용하지 않도록 설정되어 있습니다. ||
 |`target_rolling_window_size`|예측 값(학습 세트 크기 이하)을 생성하는 데 사용할 *n* 개 기록 기간입니다. 생략하면 *n* 은 전체 학습 세트 크기입니다. 모델을 학습시킬 때 특정한 양의 기록만 고려하려는 경우 이 매개 변수를 지정합니다. [대상 이동 기간 집계](#target-rolling-window-aggregation)에 대해 자세히 알아봅니다.||
@@ -422,7 +422,7 @@ day_datetime,store,week_of_year
 
 ### <a name="many-models"></a>많은 모델
 
-자동화된 기계 학습을 Azure Machine Learning 많은 모델 솔루션을 사용하면 수백만 개의 모델을 병렬로 학습시키고 관리할 수 있습니다. 많은 모델 솔루션 가속기는 Azure Machine Learning 파이프라인을 활용하여 모델을 [학습합니다.](concept-ml-pipelines.md) 특히 [Pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29) 개체 및 [ParalleRunStep이](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep) 사용되며 [ParallelRunConfig](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig)를 통해 설정된 특정 구성 매개 변수가 필요합니다. 
+자동화된 기계 학습을 사용하여 많은 모델 솔루션을 Azure Machine Learning 사용자는 수백만 개의 모델을 병렬로 학습시키고 관리할 수 있습니다. 많은 모델 솔루션 가속기는 Azure Machine Learning 파이프라인을 활용하여 모델을 [학습합니다.](concept-ml-pipelines.md) 특히 [Pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29) 개체 및 [ParalleRunStep이](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep) 사용되며 [ParallelRunConfig](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig)를 통해 설정된 특정 구성 매개 변수가 필요합니다. 
 
 
 다음 다이어그램은 여러 모델 솔루션에 대한 워크플로를 보여 주는 다이어그램입니다. 
@@ -451,7 +451,7 @@ mm_paramters = ManyModelsTrainParameters(automl_settings=automl_settings, partit
 
 ```
 
-### <a name="hierarchical-time-series-forecasting"></a>계층적 시간 계열 예측
+### <a name="hierarchical-time-series-forecasting"></a>계층적 Time Series 예측
 
 대부분의 애플리케이션에서 고객은 비즈니스의 매크로 및 마이크로 수준에서 예측을 이해해야 합니다. 서로 다른 지리적 위치에서 제품의 판매를 예측하는지 또는 회사의 여러 조직에 대한 예상 인력 수요를 이해하는지 여부입니다. 계층 데이터를 지능적으로 예측하도록 기계 학습 모델을 학습시키는 기능은 필수적입니다. 
 

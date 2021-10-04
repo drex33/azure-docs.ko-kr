@@ -4,17 +4,17 @@ titleSuffix: Azure Machine Learning
 description: Visual Studio Code를 사용하여 Azure Machine Learning 코드, 파이프라인 및 배포를 대화형으로 디버그합니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/16/2021
-ms.openlocfilehash: 78726daeb82b652bb162eb1d9b165521cccb62c0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 88d7d9976e5b0eeecd656f5aaf68fa603425c3a9
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128591618"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424410"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Visual Studio Code를 사용한 대화형 디버깅
 
@@ -29,7 +29,7 @@ Azure Machine Learning 확장을 사용하여 기계 학습 실험을 클라우�
 * Azure Machine Learning VS Code 확장(미리 보기). 자세한 내용은 [Azure Machine Learning VS Code 확장 설정](how-to-setup-vs-code.md)을 참조하세요.
 
     > [!IMPORTANT]
-    > Azure Machine Learning VS Code 확장은 기본적으로 CLI(v2)를 사용합니다. 이 가이드의 지침에서는 1.0 CLI를 사용합니다. 1\.0 CLI로 전환하려면 Visual Studio Code의 `azureML.CLI Compatibility Mode` 설정을 `1.0`으로 설정합니다. Visual Studio Code에서 설정을 수정 하는 방법에 대 한 자세한 내용은 [사용자 및 작업 영역 설정 설명서](https://code.visualstudio.com/docs/getstarted/settings)를 참조 하세요.
+    > Azure Machine Learning VS Code 확장은 기본적으로 CLI(v2)를 사용합니다. 이 가이드의 지침에서는 1.0 CLI를 사용합니다. 1\.0 CLI로 전환하려면 Visual Studio Code의 `azureML.CLI Compatibility Mode` 설정을 `1.0`으로 설정합니다. Visual Studio Code 설정을 수정하는 자세한 내용은 사용자 및 [작업 영역 설정 설명서를 참조하세요.](https://code.visualstudio.com/docs/getstarted/settings)
 
 * [Docker](https://www.docker.com/get-started)
   * Mac 및 Windows용 Docker Desktop
@@ -46,10 +46,10 @@ Azure Machine Learning 확장을 사용하여 기계 학습 실험을 클라우�
 ### <a name="debug-experiment-locally"></a>로컬로 실험 디버그
 
 > [!IMPORTANT]
-> 실험을 로컬로 실행 하기 전에 다음을 확인 합니다.
+> 실험을 로컬로 실행하기 전에 다음을 확인합니다.
 >
-> * Docker가 실행 중입니다.
-> * `azureML.CLI Compatibility Mode`Visual Studio Code의 설정은 `1.0` 필수 구성 요소에 지정 된 대로로 설정 됩니다.
+> * Docker가 실행되고 있습니다.
+> * `azureML.CLI Compatibility Mode`Visual Studio Code 설정은 `1.0` 필수 구성에 지정된 대로 로 설정됩니다.
 
 1. VS Code에서 Azure Machine Learning 확장 보기를 엽니다.
 1. 작업 영역이 포함된 구독 노드를 펼칩니다. 아직 없는 경우 확장을 사용하여 [Azure Machine Learning 작업 영역을 만들](how-to-manage-resources-vscode.md#create-a-workspace) 수 있습니다.

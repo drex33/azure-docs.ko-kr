@@ -3,21 +3,23 @@ title: Azure Functions에서 프록시 사용
 description: Azure Functions 프록시를 사용하는 방법의 개요
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: fb263239f99bcb4ec4c893b700d5c1cce078659f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 34873d3d7e0200d2c6ee58096af880f26c428732
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96601376"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429607"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure Functions 프록시 사용
 
 이 문서에서는 Azure Functions 프록시를 구성하고 사용하는 방법을 설명합니다. 이 기능을 사용하면 다른 리소스에서 구현된 함수 앱에 엔드포인트를 지정할 수 있습니다. 이러한 프록시를 사용하면 클라이언트에 대해 단일 API 화면을 계속 제공하면서 큰 API를 여러 개의 함수 앱으로 나눌 수 있습니다(마이크로 서비스 아키텍처 참조).
 
+프록시 실행에는 표준 함수 요금이 적용됩니다. 자세한 내용은 [Azure Functions 가격 책정](https://azure.microsoft.com/pricing/details/functions/)을 참조하세요.
+
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE] 
-> 프록시 실행에는 표준 함수 요금이 적용됩니다. 자세한 내용은 [Azure Functions 가격 책정](https://azure.microsoft.com/pricing/details/functions/)을 참조하세요.
+> 또한 애플리케이션에 [Azure API Management](../api-management/api-management-key-concepts.md) 사용하는 것도 고려해야 합니다. OpenAPI 통합, 속도 제한 및 고급 정책과 같은 API를 빌드하고 유지 관리하기 위한 다른 도구뿐만 아니라 Functions 프록시와 동일한 기능을 제공합니다. 
 
 ## <a name="create-a-proxy"></a><a name="create"></a>프록시 만들기
 

@@ -4,22 +4,22 @@ titleSuffix: Azure Machine Learning
 description: Azure Machine Learning 파이프라인에서 데이터를 수집하는 방법과 파이프라인 단계 간 데이터를 관리하고 이동하는 방법에 관해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.author: laobri
 author: lobrien
 ms.date: 02/26/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: 86bdbd1588c14ad03cca6544e341599a446c35e9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: cfbb7d9d5144c0e91b9bf68e332300317dc2f76f
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124767264"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129425945"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>ML 파이프라인 단계로/단계 간에 데이터 이동(Python)
 
-이 문서에서는 Azure Machine Learning 파이프라인의 단계 간 데이터를 가져오고, 변환하고, 이동하는 코드를 제공합니다. Azure Machine Learning에서 데이터의 작동 방식에 대한 개요는 [Azure Storage 서비스에서 데이터 액세스](how-to-access-data.md)를 참조하세요. Azure Machine Learning 파이프라인의 이점과 구조는 [Azure Machine Learning 파이프라인이란?](concept-ml-pipelines.md)을 참조하세요.
+이 문서에서는 Azure Machine Learning 파이프라인의 단계 간 데이터를 가져오고, 변환하고, 이동하는 코드를 제공합니다. Azure Machine Learning에서 데이터의 작동 방식에 대한 개요는 [Azure Storage 서비스에서 데이터 액세스](how-to-access-data.md)를 참조하세요. Azure Machine Learning 파이프라인의 이점과 구조는 Azure Machine Learning [파이프라인이란?을 참조하세요.](concept-ml-pipelines.md)
 
 이 문서에서 설명하는 방법:
 

@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Azure Machine Learning 데이터 세트 및 데이터 가져오기 모듈을 사용하여 Azure Machine Learning 디자이너로 데이터를 가져오는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 author: likebupt
 ms.author: keli19
 ms.date: 06/13/2021
 ms.topic: how-to
 ms.custom: designer
-ms.openlocfilehash: 6e0cdbb7511132d4ecd3399e0ef5be7c2541d34b
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
-ms.translationtype: HT
+ms.openlocfilehash: 5a08ff4a0fc98ae6c12ef4b4ecab9785b6298af0
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112235908"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424372"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너로 데이터 가져오기
 

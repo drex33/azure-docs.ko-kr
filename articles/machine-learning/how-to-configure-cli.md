@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Machine Learning용 Azure CLI 확장을 설치하고 설정하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 author: lostmygithubaccount
 ms.author: copeters
 ms.date: 05/25/2021
 ms.reviewer: laobri
 ms.custom: devx-track-azurecli, devplatv2
-ms.openlocfilehash: 8034b9e6027f85d9dd5385fda18f81523830944f
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: d3b21575b1e0e7e8e5c049cdf692ea261b8173c6
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772711"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129423899"
 ---
 # <a name="install-and-set-up-the-cli-v2"></a>CLI(v2) 설치 및 설정
 

@@ -3,19 +3,19 @@ title: Azure Machine Learning 데이터 참조 모니터링 | Microsoft Docs
 description: Azure Machine Learning 모니터링에 대한 참조 설명서입니다. Azure Monitor에서 수집하여 사용할 수 있는 데이터 및 리소스에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: reference
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
 ms.date: 04/07/2021
-ms.openlocfilehash: 124b8679ad11eb9a39881cdcf39969360e3275a6
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
-ms.translationtype: HT
+ms.openlocfilehash: 099da6c4e3906b118bdfb5df80cf44ad3814660d
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114227814"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427156"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Azure 기계 학습 데이터 참조 모니터링
 
@@ -265,7 +265,7 @@ Azure Machine Learning에서 다음 스키마를 사용하고 있음
 
 ### <a name="amlcomputeinstanceevent-table"></a>AmlComputeInstanceEvent 테이블
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | 형식 | 로그 이벤트의 이름, AmlComputeInstanceEvent |
 | TimeGenerated | 로그 항목이 생성된 시간(UTC) |
@@ -279,7 +279,7 @@ Azure Machine Learning에서 다음 스키마를 사용하고 있음
 
 ### <a name="amldatalabelevent-table"></a>AmlDataLabelEvent 테이블
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | 형식 | 로그 이벤트의 이름, AmlDataLabelEvent |
 | TimeGenerated | 로그 항목이 생성된 시간(UTC) |
@@ -296,7 +296,7 @@ Azure Machine Learning에서 다음 스키마를 사용하고 있음
 
 ### <a name="amldatasetevent-table"></a>AmlDataSetEvent 테이블
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | 형식 | 로그 이벤트의 이름, AmlDataSetEvent |
 | TimeGenerated | 로그 항목이 생성된 시간(UTC) |
@@ -311,7 +311,7 @@ Azure Machine Learning에서 다음 스키마를 사용하고 있음
 
 ### <a name="amldatastoreevent-table"></a>AmlDataStoreEvent 테이블
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | 형식 | 로그 이벤트의 이름, AmlDataStoreEvent |
 | TimeGenerated | 로그 항목이 생성된 시간(UTC) |
@@ -325,7 +325,7 @@ Azure Machine Learning에서 다음 스키마를 사용하고 있음
 
 ### <a name="amldeploymentevent-table"></a>AmlDeploymentEvent 테이블
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | 형식 | 로그 이벤트의 이름, AmlDeploymentEvent |
 | TimeGenerated | 로그 항목이 생성된 시간(UTC) |
@@ -338,7 +338,7 @@ Azure Machine Learning에서 다음 스키마를 사용하고 있음
 
 ### <a name="amlinferencingevent-table"></a>AmlInferencingEvent 테이블
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | 형식 | 로그 이벤트의 이름, AmlInferencingEvent |
 | TimeGenerated | 로그 항목이 생성된 시간(UTC) |
@@ -351,7 +351,7 @@ Azure Machine Learning에서 다음 스키마를 사용하고 있음
 
 ### <a name="amlmodelsevent-table"></a>AmlModelsEvent 테이블
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | 형식 | 로그 이벤트의 이름, AmlModelsEvent |
 | TimeGenerated | 로그 항목이 생성된 시간(UTC) |
@@ -365,7 +365,7 @@ Azure Machine Learning에서 다음 스키마를 사용하고 있음
 
 ### <a name="amlpipelineevent-table"></a>AmlPipelineEvent 테이블
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | 형식 | 로그 이벤트의 이름, AmlPipelineEvent |
 | TimeGenerated | 로그 항목이 생성된 시간(UTC) |
@@ -388,7 +388,7 @@ Azure Machine Learning에서 다음 스키마를 사용하고 있음
 
 ### <a name="amlrunevent-table"></a>AmlRunEvent 테이블
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | 형식 | 로그 이벤트의 이름, AmlRunEvent |
 | TimeGenerated | 로그 항목이 생성된 시간(UTC) |
@@ -402,7 +402,7 @@ Azure Machine Learning에서 다음 스키마를 사용하고 있음
 
 ### <a name="amlenvironmentevent--table"></a>AmlEnvironmentEvent 테이블
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | 형식 | 로그 이벤트의 이름, AmlEnvironmentEvent |
 | TimeGenerated | 로그 항목이 생성된 시간(UTC) |

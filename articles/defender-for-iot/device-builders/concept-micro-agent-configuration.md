@@ -1,14 +1,14 @@
 ---
 title: 마이크로 에이전트 구성(미리 보기)
 description: 수집기는 구성 변경을 수행한 후에 즉시 모든 현재 데이터를 보냅니다. 그런 다음, 변경 내용이 적용됩니다.
-ms.date: 08/18/2021
+ms.date: 10/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: 432cf82f436e0a70b52d33d77c9002b549f96398
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
-ms.translationtype: HT
+ms.openlocfilehash: 43a26a73f97c9d424998a4ff35d1304c0baf6fc0
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122538962"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428448"
 ---
 # <a name="micro-agent-configurations-preview"></a>마이크로 에이전트 구성(미리 보기)
 
@@ -19,7 +19,7 @@ ms.locfileid: "122538962"
 구성이 변경된 후 수집기는 전송되지 않은 모든 이벤트 데이터를 즉시 보냅니다. 데이터를 보낸 후에는 변경 내용이 적용되고 모든 수집기가 다시 시작됩니다.
 
 > [!Note]
-> 집계 모드, 캐시 크기, 빈도 설정은 지원되지만 구성할 수 없습니다.
+> 집계 모드에 대한 설정 지원되지만 구성할 수 없습니다.
 
 ## <a name="event-based-collectors-configurations"></a>이벤트 기반 수집기 구성
 

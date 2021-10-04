@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: 기계 학습 파이프라인 실행 중 오류가 발생하는 경우 문제를 해결하는 방법입니다. 원격 실행 전과 도중에 스크립트를 디버그할 때 발생하는 일반적인 문제와 이때 도움이 되는 팁입니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 author: lobrien
 ms.author: laobri
 ms.date: 10/22/2020
 ms.topic: troubleshooting
 ms.custom: troubleshooting, devx-track-python, contperf-fy21q2
-ms.openlocfilehash: 195942d1787cdef51ee480fa5c5595db99bc7c78
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: f6fc3ad230c4da9f44c536ec61d8c840374c3ed6
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102522090"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429037"
 ---
 # <a name="troubleshooting-machine-learning-pipelines"></a>기계 학습 파이프라인 문제 해결
 
@@ -33,7 +33,7 @@ ms.locfileid: "102522090"
 | 파이프라인이 단계를 다시 사용하지 않음 | 단계 다시 사용은 기본적으로 사용 설정되어 있지만, 파이프라인 단계에서 이를 사용하지 않도록 설정하지 않았는지 확인합니다. 다시 사용이 사용하지 않도록 설정된 경우 단계의 `allow_reuse` 매개 변수는 `False`로 설정됩니다. |
 | 파이프라인이 불필요하게 다시 실행됨 | 기본 데이터 또는 스크립트가 변경될 때만 단계가 다시 실행되도록 하려면 각 단계에 대한 소스 코드 디렉터리를 분리합니다. 여러 단계에 동일한 원본 디렉터리를 사용하는 경우 단계가 불필요하게 다시 실행될 수 있습니다. 파이프라인 단계 개체에서 `source_directory` 매개 변수를 사용하여 해당 단계에 대한 격리된 디렉터리를 가리키고, 여러 단계에 대해 동일한 `source_directory` 경로를 사용하고 있지 않은지 확인합니다. |
 | 학습 epoch 또는 기타 반복 동작에서 단계의 속도가 저하됨 | 로깅을 비롯한 파일 쓰기를 `as_mount()`에서 `as_upload()`로 전환해 보세요. **탑재** 모드는 원격 가상화된 파일 시스템을 사용하며 파일이 추가될 때마다 전체 파일을 업로드합니다. |
-| 컴퓨팅 대상을 시작하는 데 오래 걸림 | 컴퓨팅 대상에 대한 Docker 이미지는 Azure Container Registry(ACR)에서 로드됩니다. 기본적으로 Azure Machine Learning은 ‘기본’ 서비스 계층을 사용하는 ACR을 만듭니다. 작업 영역에 대한 ACR을 표준 또는 프리미엄 계층으로 변경하면 이미지를 빌드하고 로드하는 데 걸리는 시간을 절약할 수 있습니다. 자세한 내용은 [Azure Container Registry 서비스 계층](../container-registry/container-registry-skus.md)을 참조하세요. |
+| 컴퓨팅 대상을 시작하는 데 오래 걸림 | 컴퓨팅 대상에 대한 Docker 이미지는 Azure Container Registry(ACR)에서 로드됩니다. 기본적으로 Azure Machine Learning은 ‘기본’ 서비스 계층을 사용하는 ACR을 만듭니다. 작업 영역에 대한 ACR을 표준 또는 프리미엄 계층으로 변경하면 이미지를 빌드하고 로드하는 데 걸리는 시간을 줄일 수 있습니다. 자세한 내용은 [Azure Container Registry 서비스 계층](../container-registry/container-registry-skus.md)을 참조하세요. |
 
 ### <a name="authentication-errors"></a>인증 오류
 
@@ -192,8 +192,8 @@ parallelrun_step = ParallelRunStep(
 
 | 라이브러리                    | Type   | 예제                                                          | 대상                                  | 리소스                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure Machine Learning SDK | 메트릭 | `run.log(name, val)`                                             | Azure Machine Learning 포털 UI             | [실험 추적 방법](how-to-track-experiments.md)<br>[azureml.core.Run class](/python/api/azureml-core/azureml.core.run%28class%29)                                                                                                                                                 |
-| Python 인쇄/로깅    | 로그    | `print(val)`<br>`logging.info(message)`                          | 드라이버 로그, Azure Machine Learning 디자이너 | [실험 추적 방법](how-to-track-experiments.md)<br><br>[Python 로깅](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
+| Azure Machine Learning SDK | 메트릭 | `run.log(name, val)`                                             | Azure Machine Learning 포털 UI             | [실험 추적 방법](how-to-log-view-metrics.md)<br>[azureml.core.Run class](/python/api/azureml-core/azureml.core.run%28class%29)                                                                                                                                                 |
+| Python 인쇄/로깅    | 로그    | `print(val)`<br>`logging.info(message)`                          | 드라이버 로그, Azure Machine Learning 디자이너 | [실험 추적 방법](how-to-log-view-metrics.md)<br><br>[Python 로깅](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
 | OpenCensus Python          | 로그    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights - 추적                | [Application Insights에서 파이프라인 디버깅](./how-to-log-pipelines-application-insights.md)<br><br>[OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Python 로깅 Cookbook](https://docs.python.org/3/howto/logging-cookbook.html) |
 
 #### <a name="logging-options-example"></a>로깅 옵션 예제

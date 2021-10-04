@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/31/2021
 author: palma21
-ms.openlocfilehash: 7fe0aa073cf1ecb959bc7999ba59a2486c65b7e1
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 0f941b612c76811ba750a06036faf48c7359bedd
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123429013"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429854"
 ---
 # <a name="enable-container-storage-interface-csi-drivers-for-azure-disks-and-azure-files-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure 디스크와 Azure Files용 CSI(Container Storage Interface) 드라이버 사용
 
@@ -66,14 +66,54 @@ $ echo $(kubectl get CSINode <NODE NAME> -o jsonpath="{.spec.drivers[1].allocata
 8
 ```
 
+## <a name="migrating-custom-in-tree-storage-classes-to-csi"></a>사용자 지정 트리 내 스토리지 클래스를 CSI로 마이그레이션
+트리 내 스토리지 드라이버를 기반으로 사용자 지정 스토리지 클래스를 만든 경우 클러스터를 1.21.x로 업그레이드할 때 마이그레이션해야 합니다.
+
+스토리지 클래스가 여전히 유효하려면 CSI 공급자로의 명시적 마이그레이션이 필요하지 않지만 CSI 기능(스냅샷 등)을 사용하려면 마이그레이션을 수행해야 합니다.
+
+이러한 스토리지 클래스의 마이그레이션에는 기존 스토리지 클래스를 삭제하고, Azure 디스크를 사용하는 경우 **disk.csi.azure.com** 로 설정된 프로비저닝기를 사용하여 다시 프로비전하고, Azure Files 사용하는 경우 **files.csi.azure.com.**  Azure 디스크의 예:
+
+### <a name="original-in-tree-storage-class-definition"></a>원래 트리 내 스토리지 클래스 정의
+
+```yaml
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: managed-premium-retain
+provisioner: kubernetes.io/azure-disk
+reclaimPolicy: Retain
+parameters:
+  storageaccounttype: Premium_LRS
+  kind: Managed
+```
+
+### <a name="csi-storage-class-definition"></a>CSI 스토리지 클래스 정의
+
+```yaml
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: managed-premium-retain
+provisioner: disk.csi.azure.com
+reclaimPolicy: Retain
+parameters:
+  storageaccounttype: Premium_LRS
+  kind: Managed
+```
+
+CSI 스토리지 시스템은 트리 내 드라이버와 동일한 기능을 지원하므로 프로비전자만 변경하면 됩니다.
+
+
 ## <a name="next-steps"></a>다음 단계
 
 - Azure 디스크에 CSI 드라이브를 사용하려면 [CSI 드라이버에서 Azure 디스크 사용](azure-disk-csi.md)을 참조하세요.
 - Azure Files에 CSI 드라이브를 사용하려면 [CSI 드라이버에서 Azure Files 사용](azure-files-csi.md)을 참조하세요.
 - 스토리지 모범 사례에 대한 자세한 내용은 [Azure Kubernetes Service의 스토리지 및 백업 모범 사례][operator-best-practices-storage]를 참조하세요.
+- CSI 마이그레이션에 대한 자세한 내용은 [Kubernetes In-Tree CSI 볼륨 마이그레이션을 참조하세요.][csi-migration-community]
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
+[csi-migration-community]: https://kubernetes.io/blog/2019/12/09/kubernetes-1-17-feature-csi-migration-beta
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/

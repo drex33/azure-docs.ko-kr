@@ -5,15 +5,15 @@ titleSuffix: Azure Machine Learning
 author: luisquintanilla
 ms.author: luquinta
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.date: 06/18/2021
 ms.topic: how-to
-ms.openlocfilehash: 4a588c2668fee342da074c911ce99fe29a7aa06a
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
-ms.translationtype: HT
+ms.openlocfilehash: 9ce41f22fd90acd8ef7e41ec07bce1d7758ab452
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122606182"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427707"
 ---
 # <a name="configure-azure-arc-enabled-machine-learning-preview"></a>Azure Arc 지원 기계 학습 구성(미리 보기)
 
@@ -316,4 +316,4 @@ else:
 - [TensorFlow 모델 학습](how-to-train-tensorflow.md)
 - [PyTorch 모델 학습](how-to-train-pytorch.md)
 - [Azure Machine Learning 파이프라인을 사용하여 학습](how-to-create-machine-learning-pipelines.md)
-- [아웃바운드 프록시 서버를 사용하여 온-프레미스 모델 학습](../azure-arc/kubernetes/quickstart-connect-cluster.md#5-connect-using-an-outbound-proxy-server)
+- [아웃바운드 프록시 서버를 사용하여 온-프레미스 모델 학습](../azure-arc/kubernetes/quickstart-connect-cluster.md#4a-connect-using-an-outbound-proxy-server)

@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: 45b9fa1fb96f45b5b24d7a0b823b11f89a471bd4
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
-ms.translationtype: HT
+ms.openlocfilehash: d17f370739acf5280850beb1eb14ad8cdc0268a6
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111752318"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424939"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Azure Synapse 전용 SQL 풀에서 백업 및 복원
 
@@ -74,7 +74,7 @@ order by run_id desc
 전용 SQL 풀에 대한 지역 백업이 필요하지 않은 경우 사용하지 않도록 설정하고 재해 복구 스토리지 비용을 절감할 수 있습니다. 지역 백업을 사용하지 않도록 설정하려면 [방법 가이드: 전용 SQL 풀(이전의 SQL DW)에 대해 지역 백업 비활성화](disable-geo-backup.md)를 참조하세요. 지역 백업을 사용하지 않도록 설정하면 기본 Azure 데이터 센터를 사용할 수 없는 경우 전용 SQL 풀을 쌍을 이루는 Azure 지역으로 복구할 수 없습니다. 
 
 > [!NOTE]
-> 지역 백업에 더 짧은 RPO가 필요한 경우 [여기에서](https://feedback.azure.com/forums/307516-sql-data-warehouse) 이 기능에 대해 투표해 주세요. 또한 사용자 정의 복원 지점을 만들어 새로 만든 복원 지점에서 다른 지역의 새 데이터 웨어하우스로 복원할 수 있습니다. 복원되면 데이터 웨어하우스가 온라인 상태가 되며, 이를 무기한 일시 중지하여 컴퓨팅 비용을 절감할 수 있습니다. 일시 중지된 데이터베이스에는 Azure Premium Storage 요금으로 스토리지 비용이 부과됩니다. 데이터 웨어하우스의 활성 복사본이 필요한 경우 몇 분 만에 다시 시작할 수 있습니다.
+> 지역 백업에 더 짧은 RPO가 필요한 경우 [여기에서](https://feedback.azure.com/forums/307516-sql-data-warehouse) 이 기능에 대해 투표해 주세요. 또한 사용자 정의 복원 지점을 만들어 새로 만든 복원 지점에서 다른 지역의 새 데이터 웨어하우스로 복원할 수 있습니다. 복원한 후에는 데이터 웨어하우스가 온라인 상태 이며 계산 비용을 절약 하기 위해 무기한 일시 중지할 수 있습니다. 일시 중지된 데이터베이스에는 Azure Premium Storage 요금으로 스토리지 비용이 부과됩니다. 더 짧은 복구 지점에 대 한 또 다른 일반적인 패턴은 데이터 웨어하우스의 기본 및 보조 인스턴스로 데이터를 병렬로 수집 하는 것입니다. 이 시나리오에서 데이터는 원본 (또는 원본)에서 수집 데이터 웨어하우스의 두 개의 개별 인스턴스 (기본 및 보조)로 유지 됩니다. 계산 비용을 절약 하기 위해 웨어하우스의 보조 인스턴스를 일시 중지할 수 있습니다. 데이터 웨어하우스의 활성 복사본이 필요한 경우 몇 분만 소요 되는 다시 시작할 수 있습니다.
 
 ## <a name="data-residency"></a>데이터 상주 
 

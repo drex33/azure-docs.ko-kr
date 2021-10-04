@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2021
-ms.openlocfilehash: 32d5602a4f71b1e66e135fe2478f2d9b10b8424d
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 01ad9aaa69d0034daacf559bc5d909c27bfa6a01
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129219195"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429151"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역이란?
 
@@ -115,12 +115,12 @@ ms.locfileid: "129219195"
 
   기존 Azure Storage 계정을 사용하는 경우에는 계정이 BlobStorage나 프리미엄 계정(Premium_LRS 및 Premium_GRS)이어서는 안 됩니다. 또한 (Azure Data Lake Storage Gen2와 함께 사용하는) 계층 구조 네임스페이스를 가져서도 안 됩니다. Premium Storage 또는 계층 구조 네임스페이스는 모두 작업 영역의 _기본_ 스토리지 계정에서 지원되지 않습니다. 기본이 아닌 스토리지 계정으로 Premium Storage 또는 계층 구조 네임스페이스를 사용할 수 있습니다.
   
-+ [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): 다음 구성 요소에 사용 되는 docker 컨테이너를 등록 합니다.
-    * 모델 학습 및 배포 시 [Azure Machine Learning 환경](concept-environments.md)
-    * 배포할 때 [Automl](concept-automated-ml.md)
++ [Azure Container Registry:](https://azure.microsoft.com/services/container-registry/)다음 구성 요소에 사용되는 docker 컨테이너를 등록합니다.
+    * 모델 학습 및 배포 [시 환경 Azure Machine Learning](concept-environments.md)
+    * 배포 시 [AutoML](concept-automated-ml.md)
     * [데이터 프로파일링](how-to-connect-data-ui.md#data-profile-and-preview)
 
-    비용을 최소화 하기 위해 ACR은 이미지가 필요할 때까지 **지연 로드** 됩니다.
+    비용을 최소화하기 위해 이미지가 필요할 때까지 ACR이 **지연 로드됩니다.**
 
     > [!NOTE]
     > 구독 설정에 따라 리소스에 태그를 추가해야 하는 경우 태그를 ACR로 설정할 수 없으므로 Azure Machine Learning에서 만들어진 ACR(Azure Container Registry)가 실패합니다.

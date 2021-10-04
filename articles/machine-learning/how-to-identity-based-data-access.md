@@ -4,19 +4,19 @@ titleSuffix: Machine Learning
 description: ID 기반 데이터 액세스를 사용하여 Azure Machine Learning 데이터 저장소 및 Machine Learning Python SDK로 Azure의 스토리지 서비스에 연결하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 09/28/2021
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: 081f08ea13fddde88133a14789b4e800969413df
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 1455402a00d8e67a75337c890d10a6c14b98eca2
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129214278"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424261"
 ---
 # <a name="connect-to-storage-by-using-identity-based-data-access"></a>ID 기반 데이터 액세스를 사용하여 스토리지에 커넥트
 

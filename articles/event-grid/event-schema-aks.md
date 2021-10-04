@@ -3,14 +3,14 @@ title: Event Grid 원본으로서의 Azure Kubernetes Service(미리 보기)
 description: 이 문서에서는 Event Grid 이벤트 원본으로 Azure Kubernetes Service를 사용하는 방법을 설명합니다. 스키마와 자습서 및 방법 문서 링크를 제공합니다.
 author: zr-msft
 ms.topic: conceptual
-ms.date: 07/12/2021
+ms.date: 10/04/2021
 ms.author: zarhoads
-ms.openlocfilehash: 16b82ea59e69457475966fecfb8a0ca8d7dd20ce
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
-ms.translationtype: HT
+ms.openlocfilehash: 84eb67d9df14efefe753fe40da938e0a7f4f2c6c
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113734115"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129423918"
 ---
 # <a name="azure-kubernetes-service-aks-as-an-event-grid-source-preview"></a>Event Grid 원본으로서의 AKS(Azure Kubernetes Service)(미리 보기)
 
@@ -80,10 +80,7 @@ AKS는 다음과 같은 이벤트 유형을 내보냅니다.
     },
     "dataVersion": "1",
     "metadataVersion": "1",
-    "eventTime": "2021-07-01T04:52:57.0000000Z",
-    "EventProcessedUtcTime": "2021-07-02T04:40:04.1049205Z",
-    "PartitionId": 1,
-    "EventEnqueuedUtcTime": "2021-07-01T04:52:58.8650000Z"
+    "eventTime": "2021-07-01T04:52:57.0000000Z"
 }
 ```
 # <a name="cloud-event-schema"></a>[클라우드 이벤트 스키마](#tab/cloud-event-schema)
@@ -102,10 +99,7 @@ AKS는 다음과 같은 이벤트 유형을 내보냅니다.
       "latestPreviewKubernetesVersion": "1.21.1"
     },
     "specversion": "1.0",
-    "time": "2021-07-01T04:52:57.0000000Z",
-    "EventProcessedUtcTime": "2021-07-02T04:40:04.1049205Z",
-    "PartitionId": 1,
-    "EventEnqueuedUtcTime": "2021-07-01T04:52:58.8650000Z"
+    "time": "2021-07-01T04:52:57.0000000Z"
 }
 ```
 

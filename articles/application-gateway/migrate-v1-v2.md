@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 4da514a012f99c8148cd712b285bab4a7d1b3a9e
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: 000daf7c60d0bc823aacdab85de42af3b6cbbf55
+ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129403025"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129419053"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Azure Application Gateway와 Web Application Firewall을 v1에서 v2로 마이그레이션
 
@@ -102,9 +102,9 @@ Azure Az 모듈이 설치되어 있는지 확인하려면 `Get-InstalledModule -
      $appgw.Id
      ```
 
-   * **subnetAddressRange: [String]: 필수** - 새 v2 게이트웨이를 포함하는 새 서브넷에 할당했거나 할당하려는 IP 주소 공간입니다. 이 IP 주소 공간은 CIDR 표기법으로 지정해야 합니다. 예를 들어 10.0.0.0/24입니다. 이 서브넷을 미리 만들 필요는 없지만 CIDR은 VNET 주소 공간의 일부여야 합니다. 스크립트는 존재하지 않는 경우 만들고, 존재하는 경우 기존 IP를 사용합니다(서브넷이 비어 있고 v2 게이트웨이만 포함하며 사용 가능한 IP가 충분한지 확인).
+   * **subnetAddressRange: [String]: 필수** - 새 v2 게이트웨이를 포함하는 새 서브넷에 할당했거나 할당하려는 IP 주소 공간입니다. 이 IP 주소 공간은 CIDR 표기법으로 지정해야 합니다. 예를 들어 10.0.0.0/24입니다. 이 서브넷은 미리 만들 필요가 없지만 CIDR은 VNET 주소 공간의 일부 여야 합니다. 스크립트가 존재 하지 않는 경우 새로 만들고, 존재 하는 경우 기존 항목을 사용 합니다. 즉, 서브넷이 비어 있고, 해당 하는 경우 v2 Gateway만 포함 하 고, 사용 가능한 Ip가 충분 한지 확인 합니다.
    * **appgwName: [String]: 선택 사항**. 새 Standard_v2 또는 WAF_v2 게이트웨이의 이름으로 사용하도록 지정하는 문자열입니다. 이 매개 변수를 제공하지 않으면 접미사 *_v2* 가 추가된 기존 v1 게이트웨이의 이름이 사용됩니다.
-   * **AppGwResourceGroupName: [String]: 선택 사항입니다.** v2 Application Gateway 리소스를 만들려는 리소스 그룹의 이름입니다(기본값은 v1-app-gw-rgname> <).
+   * **AppGwResourceGroupName: [String]: 선택 사항** 입니다. V2 Application Gateway 리소스를 만들 리소스 그룹의 이름 (기본값은 `<v1-app-gw-rgname>` )
    * **sslCertificates: [PSApplicationGatewaySslCertificate]: 선택 사항**.  v1 게이트웨이에서 TLS/SSL 인증서를 나타내기 위해 만드는 PSApplicationGatewaySslCertificate 개체의 쉼표로 구분된 목록은 새 v2 게이트웨이에 업로드해야 합니다. 여기에 표시된 `New-AzApplicationGatewaySslCertificate` 명령을 통해 표준 v1 또는 WAF v1 게이트웨이에 대해 구성된 각 TLS/SSL 인증서에 새 PSApplicationGatewaySslCertificate 개체를 만들 수 있습니다. TLS/SSL 인증서 파일의 경로와 암호를 입력해야 합니다.
 
      이 매개 변수는 v1 게이트웨이 또는 WAF에 대해 구성된 HTTPS 수신기가 없는 경우에만 선택 사항입니다. 하나 이상의 HTTPS 수신기가 설정된 이 매개 변수를 지정해야 합니다.

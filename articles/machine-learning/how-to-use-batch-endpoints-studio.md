@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: 이 문서에서는 Azure Machine Learning 스튜디오에서 일괄 처리 엔드포인트를 만드는 방법을 알아봅니다. 일괄 처리 엔드포인트는 대량 데이터를 지속해서 일괄 채점할 때 사용됩니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 author: shivanissambare
 ms.author: ssambare
 ms.reviewer: larryfr
 ms.date: 08/16/2021
 ms.custom: how-to, studio, managed-batch-endpoints
-ms.openlocfilehash: f5f5d71b22c505580ed4e6b339f5b9c30e19eb89
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: 290d13c050a624c660174e3d8e272c67e90a9207
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122773132"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424145"
 ---
 # <a name="how-to-use-batch-endpoints-preview-in-azure-machine-learning-studio"></a>Azure Machine Learning 스튜디오에서 일괄 처리 엔드포인트(미리 보기)를 사용하는 방법
 

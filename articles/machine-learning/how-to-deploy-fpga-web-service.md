@@ -4,25 +4,26 @@ titleSuffix: Azure Machine Learning
 description: 필드 프로그래머블 게이트 어레이에 대해 알아봅니다. 대기 시간이 매우 짧은 추론을 위해 Azure Machine Learning을 사용하여 FPGA에서 웹 서비스를 배포할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.reviewer: larryfr
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2, devx-track-python, deploy
-ms.openlocfilehash: bfb29a00dbef95007eba6ca69f9a38d0f23d2da2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: bfebb2dd7a73684887a2fa78d8d82ac26f2b7e50
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528711"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129425528"
 ---
 # <a name="deploy-ml-models-to-field-programmable-gate-arrays-fpgas-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 ML 모델을 FPGA(필드 프로그래머블 게이트 어레이)에 배포 
 
 이 문서에서는 [Azure Machine Learning](overview-what-is-azure-machine-learning.md)에서 [하드웨어 가속 모델 Python 패키지](/python/api/azureml-accel-models/azureml.accel)를 사용하여 Azure FPGA에 ML 모델을 배포하는 방법 및 FPGA에 대해 알아봅니다.
 
 ## <a name="what-are-fpgas"></a>FPGA란?
+
 FPGA는 프로그래밍 가능한 논리 블록 배열과 재구성 가능한 상호 연결 계층 구조를 포함하고 있습니다. 제조 후 상호 연결을 통해 이러한 블록을 다양한 방법으로 구성할 수 있습니다. 다른 칩과 비교해서, FPGA는 프로그래밍 기능 및 성능 조합을 제공합니다. 
 
 FPGA를 사용하면 실시간 유추(또는 모델 채점) 요청을 위한 짧은 대기 시간을 달성할 수 있습니다. 비동기 요청(일괄 처리)이 필요하지 않습니다. 일괄 처리를 사용하면 더 많은 데이터를 처리해야 하므로 대기 시간이 길어질 수 있습니다. 인공신경망 장치 구현에는 일괄 처리가 필요 없으며, 따라서 CPU 및 GPU 프로세서에 비해 대기 시간을 몇 배나 줄일 수 있습니다.
@@ -31,7 +32,7 @@ FPGA를 사용하면 실시간 유추(또는 모델 채점) 요청을 위한 짧
 
 ![Azure Machine Learning FPGA 비교 다이어그램](./media/how-to-deploy-fpga-web-service/azure-machine-learning-fpga-comparison.png)
 
-|프로세서| 약어 |설명|
+|프로세서| 약어 |Description|
 |---|:-------:|------|
 |애플리케이션 관련 집적 회로|ASIC|Google의 TPU(Tensor Processor Units) 같은 사용자 지정 회로는 가장 높은 효율성을 제공합니다. 이러한 회로는 변하는 요구 사항에 따라 재구성할 수 없습니다.|
 |Field-programmable Gate Arrays|FPGA|Azure에서 사용할 수 있는 것과 같은 FPGA는 ASIC에 가까운 성능을 제공합니다. 또한 유연하고, 시간 경과에 따라 새 논리를 구현하기 위해 다시 구성할 수 있습니다.|

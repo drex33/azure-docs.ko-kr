@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: 격리된 Azure Virtual Network를 사용하여 Azure Machine Learning 추론 환경을 보호합니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
 ms.date: 07/13/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 1899f2ff3492bc53957aa31f2cbf9eaa2bf3de0d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d16c42f7f50d8b9270cabf136a0c3080e678f862
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124740842"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129425319"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>가상 네트워크에서 Azure Machine Learning 추론 환경 보호
 
@@ -62,7 +62,7 @@ ms.locfileid: "124740842"
 
 ### <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 
-* 작업 영역에 프라이빗 __엔드포인트__ 가 있는 경우 Azure Kubernetes Service 클러스터는 작업 영역과 동일한 Azure 지역에 있어야 합니다.
+* 작업 영역에 __개인 끝점이__ 있는 경우 Azure Kubernetes Service 클러스터는 작업 영역과 동일한 azure 지역에 있어야 합니다.
 
 <a id="aksvnet"></a>
 

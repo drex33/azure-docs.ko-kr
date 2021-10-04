@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: 기계 학습 파이프라인과 Python용 Azure Machine Learning SDK를 사용하여 기계 학습 워크플로를 실행합니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.reviewer: sgilley
 ms.author: laobri
 author: lobrien
 ms.date: 8/25/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: d5cfd3e6df8b42789462447b552c49137c12e2cf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: be7c64940466d3e1379c407970e5bd71645d882b
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537187"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429626"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>기계 학습 파이프라인 게시 및 추적
 

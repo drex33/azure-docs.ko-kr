@@ -7,15 +7,15 @@ ms.author: luquinta
 ms.date: 07/09/2020
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.custom: devx-track-python, deploy, responsible-ml
-ms.openlocfilehash: c9e59835b674b1b6a8ea3da838a008938ea0a885
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
-ms.translationtype: HT
+ms.openlocfilehash: 2c7f6df02ab0bba7964c0821dde733e166cceeff
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889235"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129423598"
 ---
 # <a name="how-to-deploy-an-encrypted-inferencing-web-service-preview"></a>암호화된 추론 웹 서비스 배포 방법(미리 보기)
 

@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: 책임 있는 기계 학습이란 무엇이며, Azure Machine Learning과 함께 사용하여 모델을 이해하고 데이터를 보호하고 모델 수명 주기를 제어하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 02/25/2021
 ms.custom: responsible-ml
-ms.openlocfilehash: aeff928c14bd61a374f8b2610f35c0347a7cfc39
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
-ms.translationtype: HT
+ms.openlocfilehash: aea475773ce7b283a0c11333f01f4228a1bcbe30
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106062423"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424657"
 ---
 # <a name="what-is-responsible-machine-learning-preview"></a>책임 있는 기계 학습이란? (미리 보기)
 

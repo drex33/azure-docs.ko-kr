@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Azure Machine Learning에 대한 재해 복구를 계획하고 비즈니스 연속성을 유지 관리하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 05/05/2021
-ms.openlocfilehash: ba8904713f9623cf80f259ad096a4dbfaddad393
-ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
-ms.translationtype: HT
+ms.openlocfilehash: a25cfb69b0de9561de2093a8e9e91bf4e9f8cb98
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112552913"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424286"
 ---
 # <a name="failover-for-business-continuity-and-disaster-recovery"></a>비즈니스 연속성 및 재해 복구를 위한 장애 조치(failover)
 

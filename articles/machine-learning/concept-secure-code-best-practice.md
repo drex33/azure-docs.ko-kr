@@ -4,17 +4,17 @@ titleSuffix: Azure Machine Learning
 description: Azure Machine Learning, 완화 및 모범 사례를 위해 개발할 때 있을 수 있는 잠재적인 보안 위협에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.author: cgronlun
 author: cjgronlund
 ms.date: 11/12/2019
-ms.openlocfilehash: 37cb70bdbd1e3c87eeb994e0959c6214822d22ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: db0696afe7a3b6ba0f28abd4c68f677e90e894b5
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "93322974"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129430025"
 ---
 # <a name="secure-code-best-practices-with-azure-machine-learning"></a>Azure Machine Learning 관련 보안 코드 모범 사례
 

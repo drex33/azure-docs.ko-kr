@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Azure Machine Learning에서 모델을 배포할 때 생성된 웹 서비스 엔드포인트를 호출하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.custom: devx-track-python,devx-track-csharp
-ms.openlocfilehash: 7c95844bf9a639a89fdd39b702c7d6327a9f6fe8
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 1c55a73735300b0dae9dd495677725979534d528
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124740742"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428350"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
 

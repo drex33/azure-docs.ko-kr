@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: 기계 학습 파이프라인에서 ParallelRunStep을 사용할 때 오류가 발생하는 경우 문제를 해결하는 방법에 대한 팁입니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: troubleshooting
 ms.custom: troubleshooting
 ms.reviewer: larryfr, vaidyas, laobri, tracych
 ms.author: pansav
 author: psavdekar
 ms.date: 09/23/2020
-ms.openlocfilehash: 3150ad022ddde1b72d0941d552351715920a161e
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 30a23150fc3d3de18cdde48c9ab07743613c5a15
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129217810"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129426267"
 ---
 # <a name="troubleshooting-the-parallelrunstep"></a>ParallelRunStep 문제 해결
 

@@ -4,23 +4,23 @@ titleSuffix: Azure Machine Learning
 description: 이 문서에서는 일괄 처리 엔드포인트를 만들어 대량의 데이터를 지속적으로 일괄 처리 채점하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: conceptual
 author: tracych
 ms.author: tracych
 ms.reviewer: laobri
 ms.date: 8/11/2021
 ms.custom: how-to, devplatv2
-ms.openlocfilehash: b68ba3f0221aa97307e746d192de65b2915d2e4b
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
-ms.translationtype: HT
+ms.openlocfilehash: e113fdebb7c6cf11b486bb958ab04af8e37a5e89
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122568110"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428049"
 ---
 # <a name="use-batch-endpoints-preview-for-batch-scoring"></a>일괄 처리 채점에 일괄 처리 엔드포인트(미리 보기) 사용
 
-이 문서에서는 일괄 처리 엔드포인트(미리 보기)를 사용하여 일괄 처리 채점을 수행하는 방법을 알아봅니다. 일괄 처리 엔드포인트는 일괄 처리 채점을 위해 모델을 호스트하는 프로세스를 간소화하므로 인프라가 아닌 기계 학습에 집중할 수 있습니다. 일괄 처리 엔드포인트를 만든 후 HTTP 라이브러리 및 REST API를 사용하여 Azure CLI 또는 모든 플랫폼에서 일괄 처리 채점 작업을 트리거할 수 있습니다. 자세한 내용은 [Azure Machine Learning 엔드포인트(미리 보기)란?](concept-endpoints.md)을 참조하세요.
+이 문서에서는 일괄 처리 엔드포인트(미리 보기)를 사용하여 일괄 처리 채점을 수행하는 방법을 알아봅니다. 일괄 처리 엔드포인트는 일괄 처리 채점을 위해 모델을 호스트하는 프로세스를 간소화하므로 인프라가 아닌 기계 학습에 집중할 수 있습니다. 일괄 처리 엔드포인트를 만든 후 HTTP 라이브러리 및 REST API를 사용하여 Azure CLI 또는 모든 플랫폼에서 일괄 처리 채점 작업을 트리거할 수 있습니다. 자세한 내용은 [Azure Machine Learning 끝점 (미리 보기) 이란?](concept-endpoints.md) 을 참조 하세요.
 
 이 문서에서는 다음 작업을 수행하는 방법을 알아봅니다.
 
@@ -90,7 +90,7 @@ MLflow 모델을 사용하는 경우 코드 없는 일괄 처리 엔드포인트
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/create-batch-endpoint.yml":::
 
-| 키 | 설명 |
+| 키 | Description |
 | --- | ----------- |
 | $schema | [선택 사항] YAML 스키마입니다. 위 예제의 스키마를 브라우저에서 보면 일괄 처리 엔드포인트 YAML 파일에서 사용할 수 있는 모든 옵션을 볼 수 있습니다. |
 | name | 일괄 처리 엔드포인트의 이름으로, 영역 전체에서 고유해야 합니다. `name` 값은 채점 URI의 일부로 사용됩니다. 값은 영어 문자로 시작하고 숫자, 문자 및 `-` 기호를 혼합하여 사용해야 하며 숫자나 문자로 끝나야 합니다. 3자 이상이어야 합니다. 검증 정규식: `^[a-zA-Z][-a-zA-Z0-9]+[a-zA-Z0-9]$`|
@@ -101,7 +101,7 @@ MLflow 모델을 사용하는 경우 코드 없는 일괄 처리 엔드포인트
 
 배포 특성:
 
-| 키 | 설명 |
+| 키 | Description |
 | --- | ----------- |
 | name | 배포의 이름입니다. |
 | model | 일괄 처리 채점에 사용할 모델입니다. `name`, `version` 및 `local_path`를 사용하여 로컬 컴퓨터에서 모델을 업로드합니다. `azureml:` 접두사를 사용하여 작업 영역에서 기존 모델 리소스를 참조합니다. 예를 들어 `azureml: autolog:1`은 이름이 `autolog`인 모델의 버전 1을 가리킵니다. |

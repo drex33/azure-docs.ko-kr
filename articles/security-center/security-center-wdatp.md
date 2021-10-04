@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 08/16/2021
 ms.author: memildin
-ms.openlocfilehash: 8a2cc866a1e9ea8adb17ba42c795c30dcf07e281
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.openlocfilehash: 25b7e8250359cf33c1cbd14663829259fcee2bcb
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407288"
+ms.locfileid: "129428505"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Security Center의 통합 EDR 솔루션인 엔드포인트용 Microsoft Defender로 엔드포인트 보호
 

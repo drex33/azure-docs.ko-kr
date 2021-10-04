@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: 기계 학습 실험 실행용으로 데이터에 액세스하기 위해 Azure Machine Learning 데이터 세트를 만드는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
 ms.custom: contperf-fy21q1, data4ml
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 07/06/2021
-ms.openlocfilehash: b6aaa3f636df1df894a557491905d16703cac10c
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: f640165420f06a85633d4db30d6338f4bfa205c4
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129349850"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428372"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 세트 만들기
 

@@ -3,12 +3,12 @@ title: Azure 파일 공유 백업 문제 해결
 description: 이 문서에서는 Azure 파일 공유를 보호할 때 발생하는 문제를 해결하는 방법에 대한 내용을 설명합니다.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 86324c80f0df70713c6ea76a43e4b9da50c1fae6
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
-ms.translationtype: HT
+ms.openlocfilehash: eb3e1eadbf83e5a7eb1facc9e67ad707d1cf07f4
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111555023"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129430196"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Azure 파일 공유를 백업하는 동안 발생하는 문제 해결
 
@@ -25,6 +25,7 @@ ms.locfileid: "111555023"
   >스토리지 계정의 모든 파일 공유를 Recovery Services 자격 증명 모음 하나로 보호할 수 있습니다. [이 스크립트](scripts/backup-powershell-script-find-recovery-services-vault.md)를 사용하여 스토리지 계정이 등록된 Recovery Services 자격 증명 모음을 찾을 수 있습니다.
 
 - 지원되지 않는 스토리지 계정에 파일 공유가 있지 않도록 주의해야 합니다. [Azure 파일 공유 백업에 대한 지원 매트릭스](azure-file-share-support-matrix.md)를 참조하여 지원되는 스토리지 계정을 찾을 수 있습니다.
+- 스토리지 계정 및 복구 서비스 자격 증명 모음이 동일한 지역에 있는지 확인합니다.
 - 스토리지 계정 이름과 리소스 그룹 이름의 결합 길이가 새 스토리지 계정의 경우 84자, 클래식 스토리지 계정의 경우 77자를 초과하지 않는지 확인합니다.
 - 스토리지 계정의 방화벽 설정을 확인하여 신뢰할 수 있는 Microsoft 서비스가 스토리지 계정에 액세스하도록 허용하는 옵션이 사용하도록 설정되어 있는지 확인합니다.
 

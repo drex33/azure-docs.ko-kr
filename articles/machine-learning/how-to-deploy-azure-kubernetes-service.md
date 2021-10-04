@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Azure Kubernetes Service를 사용하여 Azure Machine Learning 모델을 웹 서비스로 배포하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 ms.custom: contperf-fy21q1, deploy
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/28/2021
-ms.openlocfilehash: 67d28d7f218debde1bd29abf0e4bbdaa0c7c49dd
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: fbacf4317defe999563a936b6c263ea2619f1eab
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867600"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428410"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터에 모델 배포
 
@@ -60,9 +60,6 @@ Azure Kubernetes Service에 배포하는 경우 __작업 영역에 연결__ 된 
 - 작업 영역에 연결된 Azure Kubernetes Service 클러스터입니다. 자세한 내용은 [Azure Kubernetes Service 클러스터 만들기 및 연결](how-to-create-attach-kubernetes.md)을 참조하세요.
 
     - GPU 노드나 FPGA 노드(또는 특정 SKU)에 모델을 배포하려면 특정 SKU를 사용하여 클러스터를 만들어야 합니다. 기존 클러스터에 보조 노드 풀을 만들고 보조 노드 풀에 모델을 배포하는 것은 지원되지 않습니다.
-
-> [!IMPORTANT]
-> 현재 Azure Machine Learning은 AKS 버전 **1.21.x** 에 대한 모델 배포를 지원하지 않습니다.
 
 ## <a name="understand-the-deployment-processes"></a>배포 프로세스 이해
 

@@ -7,16 +7,16 @@ author: gregorybchris
 ms.author: chgrego
 ms.reviewer: nibaccam
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.date: 12/09/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2, automl
-ms.openlocfilehash: d104ad879919b11152d56a2c9b6b6fd8652c3ddc
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
-ms.translationtype: HT
+ms.openlocfilehash: db8d9a8130db868a53fefd4e72967657f272f8fe
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903797"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129423465"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>자동화된 Machine Learning 실험 결과 평가
 
@@ -36,7 +36,7 @@ ms.locfileid: "107903797"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- Azure 구독 (Azure를 구독하고 있지 않은 경우 시작하기 전에 [체험 계정을 만듭니다](https://aka.ms/AMLFree).)
+- Azure 구독 (Azure를 구독하고 있지 않은 경우 시작하기 전에 [체험 계정을 만듭니다](https://azure.microsoft.com/free/).)
 - Azure Machine Learning 실험은 다음 중 하나를 사용하여 만듭니다.
   - [Azure Machine Learning 스튜디오](how-to-use-automated-ml-for-ml-models.md)(코드 필요 없음)
   - [Azure Machine Learning Python SDK](how-to-configure-auto-train.md)

@@ -7,16 +7,16 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.date: 09/27/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack, contperf-fy22q1
-ms.openlocfilehash: c445ee7d2567595d1602e2e895f0c3203f16dff6
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 340c558d695a9a63bc5fe818e48b6f6ed76df144
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129079621"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429170"
 ---
 # <a name="set-up-automl-training-with-python"></a>Python을 사용하여 AutoML 학습 설정
 
@@ -379,7 +379,7 @@ run = experiment.submit(automl_config, show_output=True)
 자식 실행 및 수행 가능한 시기를 관리하는 데 도움이 되도록 실험당 전용 클러스터를 만들고 실험의 `max_concurrent_iterations` 수를 클러스터의 노드 수와 일치시키는 것이 좋습니다. 이러한 방식으로 클러스터의 모든 노드를 동시에 사용하여 원하는 동시 자식 실행/반복 횟수를 지정할 수 있습니다.
 
 `AutoMLConfig` 개체에서 `max_concurrent_iterations`를 구성합니다. 구성되지 않은 경우에는 기본적으로 실험당 하나의 동시 자식 실행/반복만 허용됩니다.
-컴퓨팅 인스턴스의 경우 을 `max_concurrent_iterations` 컴퓨팅 인스턴스 VM의 코어 수와 동일하게 설정할 수 있습니다.
+계산 인스턴스의 경우 `max_concurrent_iterations` 계산 인스턴스 VM의 코어 수와 동일 하 게 설정할 수 있습니다.
 
 ## <a name="explore-models-and-metrics"></a>모델 및 메트릭 탐색
 
@@ -417,7 +417,7 @@ def print_model(model, prefix=""):
             print()   
 ```
 
-동일한 실험 Notebook 내에서 제출되고 학습된 로컬 또는 원격 실행의 경우 메서드를 사용하여 최상의 모델을 전달할 수 `get_output()` 있습니다. 
+동일한 실험 노트북 내에서 제출 및 학습 된 로컬 또는 원격 실행의 경우, 메서드를 사용 하 여 최상의 모델을 전달할 수 있습니다 `get_output()` . 
 
 ```python
 best_run, fitted_model = run.get_output()
@@ -533,9 +533,9 @@ model = run.register_model(model_name = model_name,
 
 모델 해석력을 통해 모델이 예측을 수행한 이유와 기본 기능 중요도 값을 이해할 수 있습니다. SDK에는 로컬 모델과 배포된 모델의 학습 및 유추 시간에 모델 해석력 기능을 사용할 수 있도록 다양한 패키지가 포함되어 있습니다.
 
-특히 자동화된 ML 실험 내에서 [해석 기능 기능을 사용하도록 설정하는](how-to-machine-learning-interpretability-automl.md) 방법을 참조하세요.
+자동화 된 ML 실험 내에서 특히 [interpretability 기능을 사용 하도록 설정](how-to-machine-learning-interpretability-automl.md) 하는 방법을 참조 하세요.
 
-자동화된 기계 학습 이외의 SDK의 다른 영역에서 모델 설명 및 기능 중요도를 사용하도록 설정하는 방법에 대한 일반적인 내용은 [해석력에 대한 개념 문서를 참조하세요.](how-to-machine-learning-interpretability.md)
+자동화 된 machine learning 외부에서 SDK의 다른 영역에 모델 설명과 기능 중요도를 사용 하도록 설정 하는 방법에 대 한 일반적인 내용은 [interpretability의 개념 문서](how-to-machine-learning-interpretability.md) 를 참조 하세요.
 
 > [!NOTE]
 > ForecastTCN 모델은 현재 설명 클라이언트에서 지원되지 않습니다. 이 모델은 최상의 모델로 반환되고 주문형 설명 실행을 지원하지 않는 경우 설명 대시보드를 반환하지 않습니다.

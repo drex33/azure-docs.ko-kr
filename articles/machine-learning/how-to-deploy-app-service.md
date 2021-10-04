@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Azure App Service를 사용하여 학습된 ML 모델을 웹앱에 배포하기 위해 Azure Machine Learning을 사용하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: how-to
 ms.custom: devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 23c0c58fbf7748421444e723c455b4b8828c07a8
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
-ms.translationtype: HT
+ms.openlocfilehash: ac882fff79148744f2c05b48113961f5cd830996
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889703"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429721"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Azure App Service에 기계 학습 모델 배포(미리 보기)
 
@@ -47,8 +47,8 @@ Azure App Service에서 제공하는 기능에 대한 자세한 내용은 [App S
     > 이 문서의 코드 조각에서는 다음 변수가 설정되었다고 가정합니다.
     >
     > * `ws` - Azure Machine Learning 작업 영역입니다.
-    > * `model` - 배포하도록 등록된 모델입니다.
-    > * `inference_config` - 모델의 추론 구성입니다.
+    > * `model` - 배포될 등록된 모델입니다.
+    > * `inference_config` - 모델의 유추 구성입니다.
     >
     > 이러한 변수를 설정하는 방법에 대한 자세한 내용은 [Azure Machine Learning을 사용하여 모델 배포](how-to-deploy-and-where.md)를 참조하세요.
 
@@ -72,10 +72,10 @@ Azure App Service에서 제공하는 기능에 대한 자세한 내용은 [App S
 
 * 항목 스크립트나 모델을 실행하는 데 필요한 도우미 스크립트 또는 Python/Conda 패키지 같은 **종속성**.
 
-이러한 엔터티는 __추론 구성__ 에 캡슐화됩니다. 추론 구성은 항목 스크립트 및 기타 종속성을 참조합니다.
+이러한 엔터티는 __유추 구성__ 에 캡슐화됩니다. 추론 구성은 항목 스크립트 및 기타 종속성을 참조합니다.
 
 > [!IMPORTANT]
-> Azure App Service에 사용할 추론 구성을 만들 때는 [환경](/python/api/azureml-core/azureml.core.environment(class)) 개체를 사용해야 합니다. 사용자 지정 환경을 정의하는 경우 pip 종속성으로 버전이 1.0.45 이상인 azureml-defaults를 추가해야 합니다. 이 패키지에는 모델을 웹 서비스로 호스팅하는 데 필요한 기능이 포함되어 있습니다. 다음 예제에서는 환경 개체를 만들고 추론 구성에서 사용하는 방법을 보여줍니다.
+> Azure App Service에 사용할 추론 구성을 만들 때는 [환경](/python/api/azureml-core/azureml.core.environment(class)) 개체를 사용해야 합니다. 사용자 지정 환경을 정의하는 경우 pip 종속성으로 버전이 1.0.45 이상인 azureml-defaults를 추가해야 합니다. 이 패키지에는 모델을 웹 서비스로 호스팅하는 데 필요한 기능이 포함되어 있습니다. 다음 예제에서는 환경 개체를 만들고 유추 구성에서 사용하는 방법을 보여 줍니다.
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -115,7 +115,7 @@ package.wait_for_creation(show_output=True)
 print(package.location)
 ```
 
-`show_output=True`인 경우 Docker 빌드 프로세스의 출력이 표시됩니다. 프로세스가 완료되면 Azure Container Registry에 작업 영역에 대한 이미지가 생성됩니다. 이미지가 빌드되면 Azure Container Registry의 위치가 표시됩니다. 반환되는 위치는 `<acrinstance>.azurecr.io/package@sha256:<imagename>` 형식입니다. 예들 들어 `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`입니다.
+`show_output=True`인 경우 Docker 빌드 프로세스의 출력이 표시됩니다. 프로세스가 완료되면 Azure Container Registry에 작업 영역에 대한 이미지가 생성됩니다. 이미지가 빌드되면 Azure Container Registry상의 위치가 표시됩니다. 반환되는 위치는 `<acrinstance>.azurecr.io/package@sha256:<imagename>` 형식입니다. 예들 들어 `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`입니다.
 
 > [!IMPORTANT]
 > 이미지를 배포할 때 사용되는 위치 정보를 저장합니다.
@@ -146,7 +146,7 @@ print(package.location)
     }
     ```
 
-    __사용자 이름__ 과 __암호__ 중 하나에 대한 값을 저장합니다.
+    __사용자 이름__ 및 __암호__ 중 하나의 값을 저장합니다.
 
 1. 서비스를 배포하기 위한 리소스 그룹 또는 App Service 요금제가 아직 없는 경우, 다음 명령에서 두 가지 모두를 만드는 방법을 보여줍니다.
 

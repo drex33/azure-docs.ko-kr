@@ -4,23 +4,23 @@ titleSuffix: Azure Machine Learning
 description: 프라이빗 엔드포인트를 사용하여 가상 네트워크에서 Azure Machine Learning 작업 영역에 안전하게 액세스할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/07/2021
-ms.openlocfilehash: df1f492824503c6ab8c63091c93e3d048107cb48
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 9bb40b02df8de4bbd5fc7e59f55c7f31052b3480
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129052142"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429892"
 ---
 # <a name="configure-a-private-endpoint-for-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역용 프라이빗 엔드포인트 구성
 
-이 문서에서는 Azure Machine Learning 작업 영역용 프라이빗 엔드포인트를 구성하는 방법을 알아봅니다. Azure Machine Learning용 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [가상 네트워크 격리 및 개인 정보 개요](how-to-network-security-overview.md)를 참조하세요.
+이 문서에서는 Azure Machine Learning 작업 영역용 프라이빗 엔드포인트를 구성하는 방법을 알아봅니다. Azure Machine Learning에 대 한 가상 네트워크를 만드는 방법에 대 한 자세한 내용은 [가상 네트워크 격리 및 개인 정보 개요](how-to-network-security-overview.md)를 참조 하세요.
 
 Azure Private Link를 사용하면 프라이빗 엔드포인트를 사용하여 작업 영역에 연결할 수 있습니다. 프라이빗 엔드포인트는 가상 네트워크 내에 있는 일련의 개인 IP 주소입니다. 그런 다음, 작업 영역에 대한 액세스를 개인 IP 주소를 통해서만 발생하도록 제한할 수 있습니다. 프라이빗 엔드포인트를 사용하면 데이터 반출 위험을 줄이는 데 도움이 됩니다. 프라이빗 엔드포인트에 대한 자세한 내용은 [Azure Private Link](../private-link/private-link-overview.md) 문서를 참조하세요.
 

@@ -1,7 +1,7 @@
 ---
 title: 프라이빗 Python 패키지 사용
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 환경에서 프라이빗 Python 패키지를 사용하여 안전하게 작업하는 방법을 알아봅니다.
+description: Azure Machine Learning 환경에서 프라이빗 Python 패키지를 안전하게 작업하는 방법을 알아봅니다.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: 2ca004902a6d574348846ba2ee4829a099db8b39
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: f9767fd35241804c511c3e3fa19051b04ad7c098
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129094655"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428752"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>Azure Machine Learning에서 프라이빗 Python 패키지 사용
 

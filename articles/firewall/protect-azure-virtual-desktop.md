@@ -7,12 +7,12 @@ services: firewall
 ms.topic: how-to
 ms.date: 08/09/2021
 ms.author: victorh
-ms.openlocfilehash: 254a81e9fe5f3f0d3e98d7db6a7f70778f9746a3
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5c165dc8f00bb21894de06e541c02788bd7b51e5
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128634255"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424996"
 ---
 # <a name="use-azure-firewall-to-protect-azure-virtual-desktop-deployments"></a>Azure Firewall을 사용하여 Azure Virtual Desktop 배포 보호
 
@@ -24,9 +24,8 @@ Azure Virtual Desktop은 Azure에서 실행되는 데스크톱 및 앱 가상화
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-
  - 배포된 Azure Virtual Desktop 환경 및 호스트 풀.
- - 하나 이상의 Firewall Manager 정책을 사용하여 Azure Firewall 배포 
+ - 하나 이상의 Firewall Manager 정책을 사용하여 Azure Firewall 배포
 
    자세한 내용은 [자습서: Azure Portal을 사용하여 호스트 풀 만들기](../virtual-desktop/create-host-pools-azure-marketplace.md)를 참조하세요.
 
@@ -36,39 +35,38 @@ Azure Virtual Desktop 환경에 대해 자세히 알아보려면 [Azure Virtual 
 
 Azure Virtual Desktop에 대해 만든 Azure 가상 머신이 제대로 작동하려면 여러 FQDN(정규화된 도메인 이름)에 액세스할 수 있어야 합니다. Azure Firewall은 이 구성을 간소화하기 위해 Azure Virtual Desktop FQDN 태그를 제공합니다. 다음 단계를 사용하여 아웃바운드 Azure Virtual Desktop 플랫폼 트래픽을 허용합니다.
 
-Azure Firewall 정책을 만들고 네트워크 규칙 및 애플리케이션 규칙에 대한 규칙 컬렉션을 만들어야 합니다. 규칙 컬렉션에 우선 순위와 허용 또는 거부 작업을 지정합니다. 
+Azure Firewall 정책을 만들고 네트워크 규칙 및 애플리케이션 규칙에 대한 규칙 컬렉션을 만들어야 합니다. 규칙 컬렉션에 우선 순위와 허용 또는 거부 작업을 지정합니다.
 
 ### <a name="create-network-rules"></a>네트워크 규칙 만들기
 
-| 이름 | 소스 형식 | 원본 | 프로토콜 | 대상 포트 | 대상 형식 | 대상 |
-| --- | --- | --- | --- | --- | --- | --- |
-| 규칙 이름 | IP 주소 | VNet 또는 서브넷 IP 주소 | 80 | TCP |  IP 주소 | 169.254.169.254, 168.63.129.16 |
-| 규칙 이름 | IP 주소 | VNet 또는 서브넷 IP 주소 | 443 | TCP | 서비스 태그 | AzureCloud, WindowsVirtualDesktop |
-| 규칙 이름 | IP 주소 | VNet 또는 서브넷 IP 주소 | 53 | TCP, UDP | IP 주소 | * |
+| 이름      | 소스 형식 | 원본                    | 프로토콜 | 대상 포트 | 대상 형식 | 대상                       |
+| --------- | ----------- | ------------------------- | -------- | ----------------- | ---------------- | --------------------------------- |
+| 규칙 이름 | IP 주소  | VNet 또는 서브넷 IP 주소 | TCP      | 80                | IP 주소       | 169.254.169.254, 168.63.129.16    |
+| 규칙 이름 | IP 주소  | VNet 또는 서브넷 IP 주소 | TCP      | 443               | 서비스 태그      | AzureCloud, WindowsVirtualDesktop |
+| 규칙 이름 | IP 주소  | VNet 또는 서브넷 IP 주소 | TCP, UDP | 53                | IP 주소       | *                                 |
 
 > [!NOTE]
 > 일부 배포에는 DNS 규칙이 필요하지 않을 수 있습니다. 예를 들어, Azure Active Directory Domain 컨트롤러는 DNS 쿼리를 168.63.129.16에서 Azure DNS로 전달합니다.
 
-### <a name="create-application-rules"></a>애플리케이션 규칙 만들기 
+### <a name="create-application-rules"></a>애플리케이션 규칙 만들기
 
-| 이름 | 소스 형식 | 원본 | 프로토콜 | 대상 형식 | 대상|
-| --- | --- | --- | --- | --- | --- |
-| 규칙 이름 | IP 주소 | VNet 또는 서브넷 IP 주소 | Https:443 | FQDN 태그 | WindowsVirtualDesktop, WindowsUpdate, Windows Diagnostics, MicrosoftActiveProtectionService |
-| 규칙 이름 | IP 주소 | VNet 또는 서브넷 IP 주소 | Https:1688 | FQDN | kms.core.windows.net |
-
+| 이름      | 소스 형식 | 원본                    | 프로토콜   | 대상 형식 | 대상                                                                                 |
+| --------- | ----------- | ------------------------- | ---------- | ---------------- | ------------------------------------------------------------------------------------------- |
+| 규칙 이름 | IP 주소  | VNet 또는 서브넷 IP 주소 | Https:443  | FQDN 태그         | WindowsVirtualDesktop, WindowsUpdate, Windows Diagnostics, MicrosoftActiveProtectionService |
+| 규칙 이름 | IP 주소  | VNet 또는 서브넷 IP 주소 | Https:1688 | FQDN             | kms.core.windows.net                                                                        |
 
 > [!IMPORTANT]
-> Azure Virtual Desktop에서는 TLS 검사를 사용하지 않는 것이 좋습니다. 자세한 내용은 프록시 서버 지침 를 [참조하세요.](../virtual-desktop/proxy-server-support.md#dont-use-ssl-termination-on-the-proxy-server)
+> Azure 가상 데스크톱에는 TLS 검사를 사용 하지 않는 것이 좋습니다. 자세한 내용은 [프록시 서버 지침](../virtual-desktop/proxy-server-support.md#dont-use-ssl-termination-on-the-proxy-server)을 참조 하세요.
 
 ## <a name="host-pool-outbound-access-to-the-internet"></a>인터넷에 대한 호스트 풀 아웃바운드 액세스
 
 조직의 요구 사항에 따라 최종 사용자에 대한 보안 아웃바운드 인터넷 액세스를 사용하도록 설정할 수 있습니다. 허용되는 대상 목록이 잘 정의된 경우(예: [Microsoft 365 액세스](/microsoft-365/enterprise/microsoft-365-ip-web-service)) Azure Firewall 애플리케이션 및 네트워크 규칙을 사용하여 필요한 액세스를 구성할 수 있습니다. 그러면 최상의 성능을 위해 최종 사용자 트래픽을 인터넷으로 직접 라우팅합니다. Windows 365 또는 intune에 대한 네트워크 연결을 허용해야 하는 경우 [Windows 365에 대한 네트워크 요구 사항](/windows-365/requirements-network#allow-network-connectivity) 및 [intune의 네트워크 엔드포인트](/mem/intune/fundamentals/intune-endpoints)를 참조하세요.
 
-기존 온-프레미스 보안 웹 게이트웨이를 사용하여 아웃바운드 사용자 인터넷 트래픽을 필터링하려는 경우 명시적 프록시 구성을 사용하여 Azure Virtual Desktop 호스트 풀에서 실행되는 웹 브라우저 또는 다른 애플리케이션을 구성할 수 있습니다. 예를 들어 [Microsoft Edge 명령줄 옵션을 사용하여 프록시 설정을 구성하는 방법](/deployedge/edge-learnmore-cmdline-options-proxy-settings)을 참조하세요. 이러한 프록시 설정은 최종 사용자 인터넷 액세스에만 영향을 미치며, Azure Firewall을 통해 직접 Azure Virtual Desktop 플랫폼 아웃바운드 트래픽을 허용합니다. 
+기존 온-프레미스 보안 웹 게이트웨이를 사용하여 아웃바운드 사용자 인터넷 트래픽을 필터링하려는 경우 명시적 프록시 구성을 사용하여 Azure Virtual Desktop 호스트 풀에서 실행되는 웹 브라우저 또는 다른 애플리케이션을 구성할 수 있습니다. 예를 들어 [Microsoft Edge 명령줄 옵션을 사용하여 프록시 설정을 구성하는 방법](/deployedge/edge-learnmore-cmdline-options-proxy-settings)을 참조하세요. 이러한 프록시 설정은 최종 사용자 인터넷 액세스에만 영향을 미치며, Azure Firewall을 통해 직접 Azure Virtual Desktop 플랫폼 아웃바운드 트래픽을 허용합니다.
 
 ## <a name="control-user-access-to-the-web"></a>웹에 대한 사용자 액세스 제어
 
-관리자는 다른 웹 사이트 범주에 대한 사용자 액세스를 허용하거나 거부할 수 있습니다. 특정 IP 주소에서 웹 범주로 허용하거나 거부할 애플리케이션 컬렉션에 대한 규칙을 추가합니다. 모든 [웹 범주](web-categories.md)를 검토합니다. 
+관리자는 다른 웹 사이트 범주에 대한 사용자 액세스를 허용하거나 거부할 수 있습니다. 특정 IP 주소에서 웹 범주로 허용하거나 거부할 애플리케이션 컬렉션에 대한 규칙을 추가합니다. 모든 [웹 범주](web-categories.md)를 검토합니다.
 
 ## <a name="additional-considerations"></a>기타 고려 사항
 

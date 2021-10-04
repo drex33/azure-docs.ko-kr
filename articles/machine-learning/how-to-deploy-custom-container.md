@@ -1,20 +1,20 @@
 ---
 title: 관리형 온라인 엔드포인트로 사용자 지정 컨테이너 배포
 titleSuffix: Azure Machine Learning
-description: 사용자 지정 컨테이너를 사용하여 Azure Machine Learning에서 오픈 소스 서버를 사용하는 방법을 알아봅니다.
+description: 사용자 지정 컨테이너를 사용 하 여 Azure Machine Learning에서 오픈 소스 서버를 사용 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.reviewer: larryfr
 ms.date: 06/16/2021
 ms.topic: how-to
 ms.custom: deploy, devplatv2
-ms.openlocfilehash: b5438ccfcd84a9574e7e65eb9d0342f947f4d03b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4aa55ee69b1092b7a2cb8dd207faf577ac532e32
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128599471"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428258"
 ---
 # <a name="deploy-a-tensorflow-model-served-with-tf-serving-using-a-custom-container-in-a-managed-online-endpoint-preview"></a>관리형 온라인 엔드포인트(미리 보기)에서 사용자 지정 컨테이너를 사용하여 TF 서비스 제공에 제공되는 TensorFlow 모델 배포
 

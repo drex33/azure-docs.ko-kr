@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Fairlearn 및 Azure Machine Learning Python SDK를 사용하여 기계 학습 모델의 공정성을 평가하고 완화하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
 ms.date: 11/16/2020
 ms.topic: how-to
 ms.custom: devx-track-python, responsible-ml
-ms.openlocfilehash: 86916a14c79e9e2432dc5fb03da66081d4bab737
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
-ms.translationtype: HT
+ms.openlocfilehash: fa55476edb7e286fece50e0310dba95787c2b569
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529560"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129426153"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Fairlearn 오픈 소스 패키지와 함께 Azure Machine Learning을 사용하여 ML 모델의 공정성 평가(미리 보기)
 

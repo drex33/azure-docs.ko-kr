@@ -4,13 +4,13 @@ description: Azure Functions를 사용하여 Azure SQL Database에 연결하여 
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 10/02/2019
-ms.openlocfilehash: 0b5e255d7d108eb063ece4e5489a8762261a0bed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 10/04/2021
+ms.openlocfilehash: d1e98f180579ec7dd070fcbb9adf2e7ede7b15fe
+ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88207254"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129418831"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Azure Functions를 사용하여 Azure SQL Database에 연결
 
@@ -44,9 +44,15 @@ C# 함수를 처음 사용하는 경우 [Azure Functions C# 개발자 참조](fu
 
 이전에 Azure에 앱을 게시했어야 합니다. 아직 이렇게 수행하지 않은 경우 [함수 앱을 Azure에 게시](functions-develop-vs.md#publish-to-azure)합니다.
 
-1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 버튼으로 클릭하고 **게시** > **Azure App Service 설정 편집** 을 선택합니다. **설정 추가** 를 선택하고, **새 앱 설정 이름** 에서 `sqldb_connection`을 입력하고, **확인** 을 선택합니다.
+1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **게시** 를 선택 합니다.
 
-    ![함수 앱에 대한 애플리케이션 설정입니다.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
+1. **게시** 페이지의 `...` **호스팅** 영역에서 줄임표 ()를 선택 하 고 **Azure App Service 설정 관리** 를 선택 합니다. 
+
+    ![함수 앱에 대 한 App Service 설정을 관리 합니다.](./media/functions-scenario-database-table-cleanup/publish-new-resource.png)
+
+1. **응용 프로그램 설정** 에서 **설정 추가** 를 선택 하 고 **새 앱 설정 이름** 에 `sqldb_connection` 를 입력 한 다음 **확인** 을 선택 합니다.
+
+    ![함수 앱에 대 한 앱 설정을 추가 합니다.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 
 1. 새로운 **sqldb_connection** 설정에서는 이전 섹션에서 복사한 연결 문자열을 **로컬** 필드에 붙여넣고, `{your_username}` 및 `{your_password}` 자리 표시자를 실제 값으로 바꿉니다. **로컬에서 값 삽입** 을 선택하여 업데이트된 값을 **원격** 필드에 복사한 다음, **확인** 을 선택합니다.
 
@@ -54,7 +60,7 @@ C# 함수를 처음 사용하는 경우 [Azure Functions C# 개발자 참조](fu
 
     연결 문자열은 Azure에 암호화되어 저장됩니다(**원격**). 비밀 유출을 방지하기 위해 local.settings.json 프로젝트 파일(**로컬**)은 .gitignore 파일을 사용하는 등 원본 제어에서 제외되어야 합니다.
 
-## <a name="add-the-sqlclient-package-to-the-project&quot;></a>프로젝트에 SqlClient 패키지 추가
+## <a name="add-the-sqlclient-package-to-the-project"></a>프로젝트에 SqlClient 패키지 추가
 
 SqlClient 라이브러리를 포함하는 NuGet 패키지를 추가해야 합니다. 이 데이터 액세스 라이브러리는 SQL 데이터베이스에 연결하는 데 필요합니다.
 
@@ -72,7 +78,7 @@ SqlClient 라이브러리를 포함하는 NuGet 패키지를 추가해야 합니
 
 이제 SQL Database와 연결하는 C# 함수 코드를 추가할 수 있습니다.
 
-## <a name=&quot;add-a-timer-triggered-function&quot;></a>타이머 트리거 함수 추가
+## <a name="add-a-timer-triggered-function"></a>타이머 트리거 함수 추가
 
 1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고, **추가** > **새 Azure 함수** 를 선택합니다.
 
@@ -90,7 +96,7 @@ SqlClient 라이브러리를 포함하는 NuGet 패키지를 추가해야 합니
 1. 기존 `Run` 함수를 다음 코드로 바꿉니다.
 
     ```cs
-    [FunctionName(&quot;DatabaseCleanup")]
+    [FunctionName("DatabaseCleanup")]
     public static async Task Run([TimerTrigger("*/15 * * * * *")]TimerInfo myTimer, ILogger log)
     {
         // Get the connection string from app settings and use it to create a connection.

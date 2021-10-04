@@ -1,7 +1,7 @@
 ---
-title: 보충 학습 모델 학습 및 배포(미리 보기)
+title: 보충 learning 모델 학습 및 배포 (미리 보기)
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning(미리 보기)을 사용하여 RL 에이전트에서 Pong을 재생하도록 학습하는 방법을 알아봅니다.
+description: Azure Machine Learning 보충 Learning (미리 보기)을 사용 하 여 ping를 재생 하는 RL 에이전트를 학습 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,19 +10,19 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q2
-ms.openlocfilehash: 84fbea3d7d38e16a2069c40a459d5f86e7412a09
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: ca8f0349692b8a72d8a8b5953723249934a6f672
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108739046"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428619"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Azure Machine Learning을 사용하는 보충 학습(미리 보기)
 
 
 
 > [!NOTE]
-> Azure Machine Learning 보충 학습은 현재 미리 보기 기능입니다. 현재 Ray 및 RLlib 프레임워크만 지원됩니다.
+> Azure Machine Learning 보충 Learning은 현재 미리 보기 기능입니다. 현재 Ray 및 RLlib 프레임워크만 지원됩니다.
 
 이 문서에서는 Pong 비디오 게임을 재생하도록 RL(보충 학습) 에이전트를 학습시키는 방법에 대해 알아봅니다. Azure Machine Learning에서 오픈 소스 Python 라이브러리인 [Ray RLlib](https://ray.readthedocs.io/en/master/rllib.html)를 사용하여 분산된 RL의 복잡성을 관리합니다.
 
@@ -214,6 +214,7 @@ else:
 ```
 
 ## <a name="create-a-reinforcement-learning-estimator"></a>보충 학습 예측 도구 만들기
+
 [ReinforcementLearningEstimator](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator)를 사용하여 학습 작업을 Azure Machine Learning에 제출합니다.
 
 Azure Machine Learning은 예측 도구 클래스를 사용하여 실행 구성 정보를 캡슐화합니다. 이렇게 하면 스크립트 실행을 구성하는 방법을 지정할 수 있습니다. 

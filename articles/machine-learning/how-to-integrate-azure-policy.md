@@ -7,15 +7,15 @@ ms.author: aashishb
 ms.date: 05/10/2021
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.openlocfilehash: e26fbf9168d0c94666969721af70dde30f3e7ef9
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: e9a532ca4a4bf87bfb4569c03d367cb4d3d2ea2d
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129058864"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428239"
 ---
 # <a name="audit-and-manage-azure-machine-learning"></a>Azure Machine Learning 감사 및 관리
 
@@ -128,4 +128,4 @@ Azure Machine Learning 컴퓨팅 클러스터 또는 인스턴스 만들기 요�
 * [Azure Security Center로 보안 정책 작업](../security-center/tutorial-security-policy.md)
 * [데이터 관리 및 분석에 대한 클라우드 채택 프레임워크 시나리오에서는](/azure/cloud-adoption-framework/scenarios/data-management/) 클라우드에서 데이터 및 분석 워크로드를 실행할 때 고려해야 할 사항을 간략하게 설명합니다.
 * [클라우드 채택 프레임워크 데이터 랜딩 존은](https://github.com/Azure/data-landing-zone) Azure에서 데이터 및 분석 워크로드를 관리하기 위한 참조 구현을 제공합니다.
-* [정책을 사용하여 Azure 프라이빗 DNS 영역 과 Azure Private Link 통합하여](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale)작업 영역 및 종속 리소스에 대한 프라이빗 링크 구성을 관리하는 방법을 알아봅니다.
+* [정책을 사용하여 azure 프라이빗 DNS 영역 과 Azure Private Link 통합하여](/azure/cloud-adoption-framework/ready/azure-best-practices/private-link-and-dns-integration-at-scale)작업 영역 및 종속 리소스에 대한 프라이빗 링크 구성을 관리하는 방법을 알아봅니다.

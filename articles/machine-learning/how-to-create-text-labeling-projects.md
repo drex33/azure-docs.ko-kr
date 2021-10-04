@@ -1,48 +1,48 @@
 ---
 title: 텍스트 레이블 지정 프로젝트 설정
 titleSuffix: Azure Machine Learning
-description: 데이터 레이블 지정 도구를 사용 하 여 텍스트에 레이블을 지정 하는 프로젝트를 만듭니다. 텍스트의 각 부분에 적용 될 레이블 하나 또는 여러 개를 지정 합니다.
+description: 데이터 레이블 지정 도구를 사용하여 텍스트에 레이블을 지정하는 프로젝트를 만듭니다. 텍스트의 각 부분에 적용할 단일 레이블 또는 여러 레이블을 지정합니다.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
 ms.date: 09/24/2021
 ms.custom: data4ml
-ms.openlocfilehash: 4194a771014ec0e05b588d0d9f4ca64734c54d92
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: e4d227cf215ab5d37af8a25e6e44e811f739f25b
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129372823"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129423712"
 ---
-# <a name="create-a-text-labeling-project-and-export-labels-preview"></a>텍스트 레이블 지정 프로젝트 및 레이블 내보내기 (미리 보기)
+# <a name="create-a-text-labeling-project-and-export-labels-preview"></a>텍스트 레이블 지정 프로젝트 만들기 및 레이블 내보내기(미리 보기)
 
-데이터 레이블 지정 프로젝트를 만들고 실행 하 여 Azure Machine Learning에서 텍스트 데이터에 레이블을 지정 하는 방법에 대해 알아봅니다.  텍스트의 각 부분에 적용 될 레이블 하나 또는 여러 개를 지정 합니다.
+데이터 레이블 지정 프로젝트를 만들고 실행하여 Azure Machine Learning 텍스트 데이터에 레이블을 지정하는 방법을 알아봅니다.  텍스트의 각 부분에 적용할 단일 레이블 또는 여러 레이블을 지정합니다.
 
-또한 데이터 레이블 지정 도구를 사용 하 여 [이미지 레이블 지정 프로젝트를 만들](how-to-create-image-labeling-projects.md)수 있습니다.
+데이터 레이블 지정 도구를 사용하여 [이미지 레이블 지정 프로젝트 를 만들](how-to-create-image-labeling-projects.md)수도 있습니다.
 
 > [!IMPORTANT]
 > 텍스트 레이블 지정은 현재 공개 미리 보기로 제공됩니다.
 > 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="text-labeling-capabilities"></a>텍스트 레이블 기능
+## <a name="text-labeling-capabilities"></a>텍스트 레이블 지정 기능
 
-Azure Machine Learning 데이터 레이블 지정은 데이터 레이블 지정 프로젝트를 만들고 관리 하 고 모니터링 하는 중앙 위치입니다.
+Azure Machine Learning 데이터 레이블 지정은 데이터 레이블 지정 프로젝트를 만들고, 관리하고, 모니터링하는 중앙 위치입니다.
 
 - 데이터, 레이블 및 팀 멤버를 조정하여 레이블 지정 작업을 효율적으로 관리합니다. 
 - 진행 상황을 추적하고 불완전한 레이블 지정 작업의 큐를 유지 관리합니다.
 - 프로젝트를 시작 및 중지하고 레이블 지정 진행률을 제어합니다.
-- 레이블이 지정 된 데이터를 검토 하 고 Azure Machine Learning 데이터 집합으로 레이블을 내보냅니다.
+- 레이블이 지정한 데이터를 검토하고 Azure Machine Learning 데이터 세트로 레이블이 지정되어 있는 내보내기
 
 > [!Important]
-> Azure blob 데이터 저장소에서 텍스트 데이터를 사용할 수 있어야 합니다. (기존 데이터 저장소가 없는 경우 프로젝트를 만드는 동안 파일을 업로드할 수 있습니다.)
+> 텍스트 데이터는 Azure Blob 데이터 저장소에서 사용할 수 있어야 합니다. (기존 데이터 저장소가 없는 경우 프로젝트를 만드는 동안 파일을 업로드할 수 있습니다.)
 
 텍스트 데이터는 ".txt" 또는 ".csv" 파일일 수 있습니다.
 
 * ".txt" 파일의 경우 각 파일은 레이블이 지정될 하나의 항목을 나타냅니다.
-* ".csv" 파일의 경우 각 행은 labeler에 제공 된 하나의 항목을 나타냅니다.  해당 행의 레이블을 지정할 때 사용할 하나 이상의 열을 표시할 수 있습니다.
+* ".csv" 파일의 경우 각 행은 레이블 지정자에게 표시되는 하나의 항목을 나타냅니다.  해당 행에 레이블을 지정할 때 사용할 하나 이상의 열을 표시할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -52,7 +52,7 @@ Azure Machine Learning 데이터 레이블 지정은 데이터 레이블 지정 
 
 [!INCLUDE [start](../../includes/machine-learning-data-labeling-start.md)]
 
-1. 프로젝트를 만들려면 **프로젝트 추가** 를 선택합니다. 프로젝트에 적절 한 이름을 지정 합니다. 나중에 프로젝트를 삭제하더라도 프로젝트 이름을 다시 사용할 수 없습니다.
+1. 프로젝트를 만들려면 **프로젝트 추가** 를 선택합니다. 프로젝트에 적절한 이름을 지정합니다. 나중에 프로젝트를 삭제하더라도 프로젝트 이름을 다시 사용할 수 없습니다.
 
 1. **텍스트** 를 선택하여 텍스트 레이블 지정 프로젝트를 만듭니다.
 
@@ -63,7 +63,7 @@ Azure Machine Learning 데이터 레이블 지정은 데이터 레이블 지정 
 
 1. 계속할 준비가 되면 **다음** 을 선택합니다.
 
-## <a name="add-workforce-optional"></a>직원 추가 (선택 사항)
+## <a name="add-workforce-optional"></a>인력 추가(선택 사항)
 
 [!INCLUDE [outsource](../../includes/machine-learning-data-labeling-outsource.md)]
 
@@ -82,10 +82,10 @@ Azure Blob 스토리지에 이미 저장한 데이터에서 데이터 세트를 
 
 1. **데이터 세트 만들기** > **데이터 저장소에서** 를 차례로 선택합니다.
 1. **이름** 을 데이터 세트에 할당합니다.
-1. **데이터 집합 유형을** 선택 합니다.
-    * .csv 파일을 사용 하는 경우 **테이블 형식** 을 선택 합니다. 각 행에는 응답이 포함 됩니다.
+1. 데이터 **세트 형식** 을 선택합니다.
+    * 각 행에 응답이 포함된 .csv 파일을 사용하는 경우 **테이블 형식을** 선택합니다.
     * 각 응답에 별도의 .txt 파일을 사용하는 경우 **파일** 을 선택합니다.
-1. 필드 데이터 집합에 대 한 설명을 제공 합니다.
+1. (선택 사항) 데이터 세트에 대한 설명을 제공합니다.
 1. **다음** 을 선택합니다.
 1. 데이터 저장소를 선택합니다.
 1. 데이터가 Blob 스토리지 내의 하위 폴더에 있으면 **찾아보기** 를 선택하여 경로를 선택합니다.
@@ -103,14 +103,14 @@ Azure Blob 스토리지에 이미 저장한 데이터에서 데이터 세트를 
 1. **데이터 세트 형식** 을 선택합니다.
     * 각 행이 응답인 .csv 파일을 사용하는 경우 **테이블 형식** 을 선택합니다.
     * 각 응답에 별도의 .txt 파일을 사용하는 경우 **파일** 을 선택합니다.
-1. 필드 데이터 집합에 대 한 설명을 제공 합니다.
+1. (선택 사항) 데이터 세트에 대한 설명을 제공합니다.
 1. **다음** 을 선택합니다.
-1. 필드 데이터 저장소를 선택 하거나 만듭니다. 또는 Machine Learning 작업 영역의 기본 blob 저장소 ("workspaceblobstore")에 업로드 하도록 기본값을 유지 합니다.
-1. 업로드할 로컬 파일 또는 폴더를 선택 하려면 **업로드** 을 선택 합니다.
+1. (선택 사항) 데이터 저장소를 선택하거나 만듭니다. 또는 기본값을 유지하여 Machine Learning 작업 영역의 기본 Blob 저장소("workspaceblobstore")에 업로드합니다.
+1. **업로드** 선택하여 업로드할 로컬 파일 또는 폴더를 선택합니다.
 1. **다음** 을 선택합니다.
-1. .csv 파일을 업로드 하는 경우:
-    * 설정 및 미리 보기를 확인 하 고 **다음** 을 선택 합니다.
-    * 해당 행을 분류할 때 labeler에서 보려는 텍스트의 모든 열을 포함 합니다.
+1. .csv 파일을 업로드하는 경우:
+    * 설정 및 미리 보기를 확인하고 **다음을** 선택합니다.
+    * 해당 행을 분류할 때 레이블 지정자가 보려는 텍스트의 모든 열을 포함합니다.
     * **다음** 을 선택합니다.
 1.  세부 정보를 확인합니다. **뒤로** 를 선택하여 설정을 수정하거나, **만들기** 를 선택하여 데이터 세트를 만듭니다.
 
@@ -123,7 +123,7 @@ Azure Blob 스토리지에 이미 저장한 데이터에서 데이터 세트를 
 
 [!INCLUDE [classes](../../includes/machine-learning-data-labeling-classes.md)]
 
-## <a name="describe-the-text-labeling-task"></a>텍스트 레이블 지정 태스크 설명
+## <a name="describe-the-text-labeling-task"></a>텍스트 레이블 지정 작업 설명
 
 [!INCLUDE [describe](../../includes/machine-learning-data-labeling-describe.md)]
 
@@ -131,7 +131,7 @@ Azure Blob 스토리지에 이미 저장한 데이터에서 데이터 세트를 
 > 레이블 지정자는 1-9 숫자 키를 사용하여 처음 9개의 레이블을 선택할 수 있습니다.
 
 
-## <a name="initialize-the-text-labeling-project"></a>텍스트 레이블 지정 프로젝트를 초기화 합니다.
+## <a name="initialize-the-text-labeling-project"></a>텍스트 레이블 지정 프로젝트 초기화
 
 [!INCLUDE [initialize](../../includes/machine-learning-data-labeling-initialize.md)]
 
@@ -147,7 +147,7 @@ Azure Blob 스토리지에 이미 저장한 데이터에서 데이터 세트를 
 :::image type="content" source="./media/how-to-create-labeling-projects/text-labeling-dashboard.png" alt-text="텍스트 데이터 레이블 지정 대시보드":::
 
 
-진행률 차트에는 표시 된 항목의 수, 건너뛴 항목, 검토 필요 또는 아직 완료 되지 않은 항목이 표시 됩니다.  각 섹션의 항목 수를 보려면 차트를 마우스로 가리킵니다.
+진행률 차트는 레이블이 지정되었거나 건너뛰거나 검토가 필요하거나 아직 완료되지 않은 항목 수를 표시합니다.  차트를 마우스로 가리키면 각 섹션의 항목 수가 표시됩니다.
 
 가운데 섹션에는 아직 할당되지 않은 작업 큐가 표시됩니다. 
 
@@ -156,7 +156,7 @@ Azure Blob 스토리지에 이미 저장한 데이터에서 데이터 세트를 
 
 ### <a name="data-tab"></a>데이터 탭
 
-**데이터** 탭에서 데이터 세트를 보고, 레이블이 지정된 데이터를 검토할 수 있습니다. 레이블이 지정 된 데이터를 스크롤하여 레이블을 확인 합니다. 잘못된 레이블이 지정된 데이터가 표시되면 이를 선택하고 **거부** 를 선택합니다. 그러면 해당 레이블이 제거되고, 해당 데이터를 레이블이 지정되지 않은 큐에 다시 넣습니다.
+**데이터** 탭에서 데이터 세트를 보고, 레이블이 지정된 데이터를 검토할 수 있습니다. 레이블이 있는 데이터를 스크롤하여 레이블을 확인합니다. 잘못된 레이블이 지정된 데이터가 표시되면 이를 선택하고 **거부** 를 선택합니다. 그러면 해당 레이블이 제거되고, 해당 데이터를 레이블이 지정되지 않은 큐에 다시 넣습니다.
 
 ### <a name="details-tab"></a>자세히 탭
 

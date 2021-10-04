@@ -1,21 +1,21 @@
 ---
-title: 디자이너에서 파이프라인 매개 변수를 사용하여 다양한 파이프라인 빌드
+title: 파이프라인 매개 변수를 사용 하 여 다양 한 파이프라인 작성
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning 디자이너에서 파이프라인 매개 변수를 사용하는 방법입니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: keli19
 author: likebupt
 ms.date: 04/09/2020
 ms.topic: how-to
 ms.custom: designer
-ms.openlocfilehash: ba5af77022c3f230fdaf77d115a1c1a4b2151c3e
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
-ms.translationtype: HT
+ms.openlocfilehash: b3ef6f684123c863fd2bdfb5a5ec953b3b20cc6f
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107888155"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428068"
 ---
 # <a name="use-pipeline-parameters-in-the-designer-to-build-versatile-pipelines"></a>디자이너에서 파이프라인 매개 변수를 사용하여 다양한 파이프라인 빌드
 

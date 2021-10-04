@@ -2,13 +2,13 @@
 title: VMware Site Recovery Manager로 재해 복구 배포
 description: Azure VMware Solution 프라이빗 클라우드에서 VMware SRM(Site Recovery Manager)을 사용하여 재해 복구를 배포합니다.
 ms.topic: how-to
-ms.date: 08/18/2021
-ms.openlocfilehash: d9a224f0aba33420359d50441fe44e6602df7fb0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/04/2021
+ms.openlocfilehash: 2cefe85f71c770ce29a14fb4aad7a91efd91651c
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128668926"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129430101"
 ---
 # <a name="deploy-disaster-recovery-with-vmware-site-recovery-manager"></a>VMware Site Recovery Manager로 재해 복구 배포
 
@@ -59,6 +59,8 @@ SRM을 사용하여 다음과 같은 다양한 유형의 복구를 구현할 수
 :::image type="content" source="media/vmware-srm-vsphere-replication/site-recovery-manager-workflow.png" alt-text="Azure VMware Solution에서 VMware Site Recovery Manager의 배포 워크플로를 보여 주는 다이어그램." border="false":::
 
 ## <a name="prerequisites"></a>필수 구성 요소
+
+원격 vCenter의 VRM 관리자 및 SRM 관리자 역할을 원격 사용자에 게 명시적으로 제공 했는지 확인 합니다.
 
 ### <a name="scenario-on-premises-to-azure-vmware-solution"></a>시나리오: 온-프레미스에서 Azure VMware Solution으로 
 

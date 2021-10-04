@@ -4,17 +4,17 @@ titleSuffix: Azure Machine Learning
 description: TLS 버전 1.2로 HTTPS를 사용하도록 설정하여 Azure Machine Learning을 통해 배포된 웹 서비스를 보호하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.author: jhirono
 author: jhirono
 ms.date: 07/07/2021
 ms.topic: how-to
-ms.openlocfilehash: 10eb9d57b19968737077a595030bb2a986ec6c7b
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
-ms.translationtype: HT
+ms.openlocfilehash: 8194b5c170186c5498e181e00f27c91156ae4ada
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113564791"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428182"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호
 
@@ -156,7 +156,7 @@ aci_config = AciWebservice.deploy_configuration(
 > AKS 배포를 위해 Microsoft의 인증서를 사용하는 경우 클러스터에 대해 DNS 값을 수동으로 업데이트할 필요가 없습니다. 값이 자동으로 설정됩니다.
 
 다음 단계에 따라 사용자 지정 도메인 이름에 대해 DNS 레코드를 업데이트할 수 있습니다.
-1. 엔드포인트 점수 매기기 URI에서 엔드포인트 점수 매기기 IP 주소를 가져옵니다. 일반적으로 *http://104.214.29.152:80/api/v1/service/<service-name>/score* 형식입니다. 이 예제에서 IP 주소는 104.214.29.152.입니다.
+1. 엔드포인트 점수 매기기 URI에서 엔드포인트 점수 매기기 IP 주소를 가져옵니다. 일반적으로 `http://104.214.29.152:80/api/v1/service/<service-name>/score` 형식입니다. 이 예제에서 IP 주소는 104.214.29.152.입니다.
 1. 도메인 이름 등록자의 도구를 사용하여 도메인 이름에 대해 DNS 레코드를 업데이트합니다. 레코드는 FQDN(예: www\.contoso.com)을 IP 주소에 매핑합니다. 레코드는 엔드포인트 점수 매기기의 IP 주소를 가리켜야 합니다.
 
     > [!TIP]

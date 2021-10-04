@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Azure Machine Learning에서 모델을 학습하는 GitHub Actions 워크플로를 만드는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 author: juliakm
 ms.author: jukullam
 ms.date: 10/19/2020
 ms.topic: how-to
 ms.custom: github-actions-azure
-ms.openlocfilehash: 9bc12c74043deea4e9c9ec9bcc457b0b82f09cbc
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
-ms.translationtype: HT
+ms.openlocfilehash: ba3ac45c04ef359db56086ff8ddf75b428574062
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889307"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427460"
 ---
 # <a name="use-github-actions-with-azure-machine-learning"></a>Azure Machine Learning에서 GitHub Actions 사용
 

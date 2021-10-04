@@ -4,12 +4,12 @@ description: Azure Application Insights에서 데이터를 볼 수 없나요? �
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: 828eab154c09e3e623b5cfb84d6fc72d2bd480f5
-ms.sourcegitcommit: 8154d7f8642d783f637cf6d857b4abbe28033f53
-ms.translationtype: HT
+ms.openlocfilehash: 3565ca98f61099fb4b2cf2f0c9bf69dbeaa721b5
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2021
-ms.locfileid: "113616148"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429398"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>데이터 없음 문제 해결 - .NET/.NET Core용 Application Insights
 
@@ -221,9 +221,10 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 
 ### <a name="net-framework"></a>.NET Framework
 
-1. NuGet에서 [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) 패키지를 설치합니다. 설치한 버전이 현재 설치된 `Microsoft.ApplicationInsighs` 버전과 같아야 합니다.
+> [!NOTE]
+> 2.14 버전부터 [HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) 패키지는 더 이상 필요 하지 않습니다. 이제 SDK 로그가 [microsoft applicationinsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) 패키지를 사용 하 여 수집 됩니다. 추가 패키지는 필요 하지 않습니다.
 
-2. 다음을 포함하도록 applicationinsights.config 파일을 수정합니다.
+1. 다음을 포함하도록 applicationinsights.config 파일을 수정합니다.
 
     ```xml
     <TelemetryModules>
@@ -236,9 +237,9 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
     ```
     애플리케이션에는 구성된 위치에 대한 쓰기 권한이 있어야 합니다.
 
-3. SDK를 통해 이러한 새 설정이 선택되도록 프로세스를 다시 시작
+2. SDK를 통해 이러한 새 설정이 선택되도록 프로세스를 다시 시작
 
-4. 완료되면 이러한 변경 내용을 되돌립니다.
+3. 완료되면 이러한 변경 내용을 되돌립니다.
 
 ### <a name="net-core"></a>.NET Core
 
@@ -295,7 +296,7 @@ dotnet-trace collect --process-id <PID> --providers Microsoft-ApplicationInsight
 
 ## <a name="how-to-remove-application-insights"></a>Application Insights 제거 방법
 
-제거 [문서](./remove-application-insights.md)에서 제공하는 단계를 수행하여 Visual Studio에서 Application Insights를 제거하는 방법에 대해 알아봅니다.
+[Application Insights 제거 문서](./remove-application-insights.md)에 제공 된 단계를 수행 하 여 Visual Studio에서 Application Insights를 제거 하는 방법에 대해 알아봅니다.
 
 ## <a name="still-not-working"></a>여전히 작동하지 않습니다.
 * [Application Insights에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-monitor.html)

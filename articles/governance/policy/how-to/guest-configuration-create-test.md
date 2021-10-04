@@ -3,12 +3,12 @@ title: 게스트 구성 패키지 아티팩트를 테스트하는 방법
 description: 구성을 감사하거나 머신에 적용하는 패키지를 만들고 테스트합니다.
 ms.date: 07/20/2021
 ms.topic: how-to
-ms.openlocfilehash: 216cd207033b3bddd4960b85d8943e3842f8041f
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: efa2fbd49509b323cbf0cf442cb0a29bbc51c8b7
+ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129080654"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129418730"
 ---
 # <a name="how-to-test-guest-configuration-package-artifacts"></a>게스트 구성 패키지 아티팩트를 테스트하는 방법
 
@@ -35,7 +35,7 @@ PowerShell을 Linux에서 “루트”로 실행하려면 [Su 명령](https://ma
 
 ## <a name="validate-the-configuration-package-meets-requirements"></a>구성 패키지가 요구 사항을 충족하는지 확인
 
-우선 `Get-GuestConfigurationPacakgeComplianceStatus `를 사용하여 구성 패키지가 기본 요구 사항을 충족하는지 테스트합니다. 명령은 다음 패키지 요구 사항을 확인합니다.
+우선 `Get-GuestConfigurationPackageComplianceStatus `를 사용하여 구성 패키지가 기본 요구 사항을 충족하는지 테스트합니다. 명령은 다음 패키지 요구 사항을 확인합니다.
 
 - MOF는 올바른 위치에 있으며 유효합니다.
 - 필요한 모듈/종속성은 중복 없이 올바른 버전으로 존재합니다.
@@ -44,7 +44,7 @@ PowerShell을 Linux에서 “루트”로 실행하려면 [Su 명령](https://ma
 
 `Get-GuestConfigurationPackageComplianceStatus ` cmdlet의 매개 변수는 다음과 같습니다.
 
-- **경로**: 게스트 구성 패키지의 파일 경로 또는 URI입니다.
+- **경로:** 게스트 구성 패키지의 파일 경로 또는 URI입니다.
 - **Parameter**: hashtable 형식으로 제공되는 정책 매개 변수입니다.
 
 이 명령을 처음 실행하는 경우 게스트 구성 에이전트는 Windows의 `c:\programdata\GuestConfig\bin` 및 Linux의 `/var/lib/GuestConfig/bin` 경로에 있는 테스트 머신에 설치됩니다. 이 경로는 사용자 계정에서 액세스할 수 없으므로 명령에 권한 상승이 필요합니다.

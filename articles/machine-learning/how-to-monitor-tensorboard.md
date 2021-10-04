@@ -1,20 +1,20 @@
 ---
 title: TensorBoard로 실험 시각화
 titleSuffix: Azure Machine Learning
-description: TensorBoard를 시작하여 실험 실행 기록을 시각화하고 하이퍼 매개 변수 조정과 재학습을 위한 잠재적 영역을 식별합니다.
+description: TensorBoard를 시작 하 여 실험 실행 기록을 시각화 하 고 하이퍼 매개 변수 조정 및 재 학습을 위한 잠재적 영역을 식별 합니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 author: minxia
 ms.author: minxia
 ms.date: 02/27/2020
 ms.topic: how-to
-ms.openlocfilehash: a8e1c85bf2284eb2dd5a2bc87c2a60b89478e928
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: 29c79d53ded02ab4648359210b8b18ea04f5965b
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108760610"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429018"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>TensorBoard 및 Azure Machine Learning을 사용한 실험 실행 및 메트릭 시각화
 

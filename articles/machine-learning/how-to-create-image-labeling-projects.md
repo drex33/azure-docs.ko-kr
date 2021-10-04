@@ -5,16 +5,16 @@ description: 데이터 레이블 지정 도구를 사용하여 이미지에 레�
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
 ms.date: 09/24/2021
 ms.custom: data4ml
-ms.openlocfilehash: b2f3a0a4f669c180469a2c24a760aceb30d744df
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: e600c5d6d880a5aba0a714173897660e306aa853
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129372892"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424562"
 ---
 # <a name="create-an-image-labeling-project-and-export-labels"></a>이미지 레이블 지정 프로젝트 만들기 및 레이블 내보내기
 
@@ -31,7 +31,7 @@ Azure Machine Learning 데이터 레이블 지정은 데이터 레이블 지정 
 - 데이터, 레이블 및 팀 멤버를 조정하여 레이블 지정 작업을 효율적으로 관리합니다.
 - 진행 상황을 추적하고 불완전한 레이블 지정 작업의 큐를 유지 관리합니다.
 - 프로젝트를 시작 및 중지하고 레이블 지정 진행률을 제어합니다.
-- 레이블이 지정한 데이터를 검토하고 Azure Machine Learning 데이터 세트로 레이블이 지정되어 있는 내보내기
+- 레이블이 지정한 데이터를 검토하고 Azure Machine Learning 데이터 세트로 레이블이 지정되어 있는 데이터를 내보냅니다.
 
 > [!Important]
 > 데이터 이미지는 Azure Blob 데이터 저장소에서 사용할 수 있는 파일이어야 합니다. (기존 데이터 저장소가 없는 경우 프로젝트를 만드는 동안 파일을 업로드할 수 있습니다.)

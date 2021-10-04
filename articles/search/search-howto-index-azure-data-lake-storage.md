@@ -6,13 +6,13 @@ author: markheff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/17/2021
-ms.openlocfilehash: e07af94015194b2074bf1d99e46dc24d3c596e36
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.date: 10/01/2021
+ms.openlocfilehash: a0ad2bcbccac87d19a5026ae72416f6d793bad90
+ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129272513"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129418749"
 ---
 # <a name="index-data-from-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 데이터 인덱싱
 
@@ -20,13 +20,19 @@ ms.locfileid: "129272513"
 
 Azure Data Lake Storage Gen2는 Azure Storage를 통해 사용할 수 있습니다. Azure Storage 계정을 설정할 때 [계층 구조 네임스페이스](../storage/blobs/data-lake-storage-namespace.md)를 사용하도록 설정할 수 있습니다. 이를 통해 계정의 콘텐츠 컬렉션을 디렉터리 및 중첩된 하위 디렉터리의 계층 구조로 구성할 수 있습니다. 계층 구조 네임스페이스를 사용하도록 설정하여 [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)를 활성화합니다.
 
+이 문서의 예제에서는 포털 및 REST API를 사용합니다. C#의 예제는 GitHub [Azure AD를 사용하여 Data Lake Gen2 인덱스를](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md) 참조하세요.
+
 ## <a name="supported-access-tiers"></a>지원되는 액세스 계층
 
 Data Lake Storage Gen2 [액세스 계층](../storage/blobs/access-tiers-overview.md)에는 핫, 쿨 및 보관이 포함됩니다. 인덱서는 핫 및 쿨만 액세스할 수 있습니다.
 
 ## <a name="access-control"></a>Access Control
 
-Data Lake Storage Gen2는 Azure RBAC(Azure 역할 기반 액세스 제어)와 POSIX 같은 ACL(액세스 제어 목록)을 모두 지원하는 [액세스 제어 모델](../storage/blobs/data-lake-storage-access-control.md)을 구현합니다. Data Lake Storage Gen2에서 콘텐츠를 인덱싱할 때 Azure Cognitive Search는 콘텐츠에서 Azure RBAC 및 ACL 정보를 추출하지 않습니다. 따라서 이 정보는 Azure Cognitive Search 인덱스에 포함되지 않습니다.
+Data Lake Storage Gen2는 Azure RBAC(Azure 역할 기반 액세스 제어)와 POSIX 같은 ACL(액세스 제어 목록)을 모두 지원하는 [액세스 제어 모델](../storage/blobs/data-lake-storage-access-control.md)을 구현합니다. 액세스 제어 목록은 Azure Cognitive Search 시나리오에서 부분적으로 지원됩니다.
+
++ Data Lake Storage Gen2의 콘텐츠에 대한 인덱서 액세스에서 액세스 제어를 지원합니다. 시스템 또는 사용자 할당 관리 ID가 있는 검색 서비스의 경우 Azure Storage 특정 파일 및 폴더에 대한 인덱서 액세스를 결정하는 역할 할당을 정의할 수 있습니다.
+
++ 인덱스에 대한 문서 수준 권한은 지원되지 않습니다. 액세스 제어가 사용자별로 액세스 수준을 변경하면 해당 사용 권한을 검색 서비스의 검색 인덱스로 전달할 수 없습니다. 모든 사용자는 인덱스의 검색 가능하고 검색 가능한 모든 콘텐츠에 대해 동일한 수준의 액세스 권한을 갖습니다.
 
 인덱스의 각 문서에 대한 액세스 제어를 유지하는 것이 중요한 경우에는 애플리케이션 개발자가 [보안 조정](./search-security-trimming-for-azure-search.md)을 구현하는 것이 중요합니다.
 
@@ -38,11 +44,11 @@ Azure Cognitive Search Blob 인덱서는 다음 문서 형식에서 텍스트를
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
-## <a name="getting-started-with-the-azure-portal"></a>Azure Portal 시작
+## <a name="indexing-through-the-azure-portal"></a>Azure Portal 통해 인덱싱
 
 Azure Portal은 Azure Data Lake Storage Gen2에서 데이터 가져오기를 지원합니다. Data Lake Storage Gen2에서 데이터를 가져오려면 Azure Portal에서 Azure Cognitive Search 서비스 페이지로 이동하여 **데이터 가져오기** 를 선택하고 **Azure Data Lake Storage Gen2** 를 선택한 다음 계속해서 데이터 가져오기 흐름을 따라 데이터 원본, 기술 세트, 인덱스 및 인덱서를 만듭니다.
 
-## <a name="getting-started-with-the-rest-api"></a>REST API 시작
+## <a name="indexing-with-the-rest-api"></a>REST API 인덱싱
 
 Data Lake Storage Gen2 인덱서는 REST API에서 지원됩니다. 데이터 원본, 인덱스 및 인덱서를 설정하려면 아래 지침을 따르세요.
 
@@ -93,7 +99,7 @@ SAS에 컨테이너에 대한 읽기 권한 및 목록이 있어야 합니다. �
 
 ### <a name="step-2---create-an-index"></a>2단계: 인덱스 만들기
 
-인덱스는 문서의 필드, 특성 및 검색 경험을 형성하는 기타 항목을 지정합니다. 모든 인덱서에서는 검색 인덱스 정의를 대상으로 지정해야 합니다. 다음 예제에서는 [인덱스 만들기(REST API)](/rest/api/searchservice/create-index)를 사용하여 단순 인덱스를 만듭니다. 
+인덱스는 문서의 필드, 특성 및 검색 경험을 형성하는 기타 항목을 지정합니다. 모든 인덱서에서는 검색 인덱스 정의를 대상으로 지정해야 합니다. 다음 예제에서는 [인덱스 만들기(REST API)](/rest/api/searchservice/create-index)를 사용합니다. 
 
 ```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
@@ -117,7 +123,7 @@ SAS에 컨테이너에 대한 읽기 권한 및 목록이 있어야 합니다. �
 
 ### <a name="step-3---configure-and-run-the-indexer"></a>3단계 - 인덱서 구성 및 실행
 
-인덱스와 데이터 원본이 만들어지면 인덱서를 만들 준비가 된 것입니다.
+인덱스 및 데이터 원본이 만들어지면 [인덱서](/rest/api/searchservice/create-indexer)를 만들 준비가 된 것입니다.
 
 ```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
@@ -134,11 +140,7 @@ SAS에 컨테이너에 대한 읽기 권한 및 목록이 있어야 합니다. �
     }
 ```
 
-이 인덱서는 2시간 간격으로 실행됩니다(일정 간격이 "PT2H"로 설정됨). 인덱서를 30분 간격으로 실행하려면 간격을 "PT30M"으로 설정합니다. 지원되는 가장 짧은 간격은 5분입니다. 일정은 선택 사항입니다. 생략하는 경우 인덱서는 만들어질 때 한 번만 실행됩니다. 그러나 언제든지 필요할 때 인덱서를 실행할 수 있습니다.   
-
-인덱서 만들기 API에 대한 자세한 내용은 [인덱서 만들기](/rest/api/searchservice/create-indexer)를 확인하세요.
-
-인덱서 일정을 정의하는 방법에 대한 자세한 내용은 [Azure Cognitive Search에 대한 인덱서를 예약하는 방법](search-howto-schedule-indexers.md)을 참조하세요.
+이 인덱서가 즉시 실행된 다음 2시간마다 [일정에](search-howto-schedule-indexers.md) 따라 실행됩니다(일정 간격은 "PT2H"로 설정). 인덱서를 30분 간격으로 실행하려면 간격을 "PT30M"으로 설정합니다. 지원되는 가장 짧은 간격은 5분입니다. 일정은 선택 사항입니다. 생략하는 경우 인덱서는 만들어질 때 한 번만 실행됩니다. 그러나 언제든지 필요할 때 인덱서를 실행할 수 있습니다.
 
 <a name="DocumentKeys"></a>
 
@@ -265,7 +267,11 @@ api-key: [admin key]
 
 ## <a name="how-to-control-which-blobs-are-indexed"></a>인덱싱할 Blob을 제어하는 방법
 
-Blob의 파일 형식에 따라 인덱싱할 Blob 및 건너뛸 Blob을 제어하거나, Blob 자체에서 해당 속성을 설정하여 인덱서에서 이러한 과정을 건너뛰기 할 수 있습니다.
+역할 할당, blob의 파일 형식을 설정 하거나 blob 자체의 속성을 설정 하 여 인덱서를 건너뛰고 인덱서를 건너뛸 blob을 제어할 수 있습니다.
+
+### <a name="use-access-controls-and-role-assignments"></a>액세스 제어 및 역할 할당 사용
+
+시스템 또는 사용자 할당 관리 id에서 실행 되는 인덱서는 특정 파일 및 폴더에 대 한 읽기 권한을 부여 하는 판독기 또는 Storage Blob 데이터 판독기 역할의 멤버 자격이 있을 수 있습니다.
 
 ### <a name="include-specific-file-extensions"></a>특정 파일 확장명 포함
 
@@ -381,6 +387,7 @@ api-key: [admin key]
 
 ## <a name="see-also"></a>참고 항목
 
++ [C# 샘플: Azure AD를 사용하여 Data Lake Gen2 인덱싱](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md)
 + [Azure Cognitive Search의 인덱서](search-indexer-overview.md)
 + [인덱서 만들기](search-howto-create-indexers.md)
 + [Blob에 대한 AI 보강 개요](search-blob-ai-integration.md)

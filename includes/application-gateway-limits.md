@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 09/09/2021
 ms.author: victorh
-ms.openlocfilehash: 377c87473239078ab99d8fba064ff1067517c7a4
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f106ca51487e1c4c306d51161110062ad3582fcd
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124778876"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129439978"
 ---
 | 리소스 | 제한 | 참고 |
 | --- | --- | --- |
@@ -18,7 +18,7 @@ ms.locfileid: "124778876"
 | 프런트 엔드 포트 |100<sup>1</sup> | |
 | 백 엔드 주소 풀 |100<sup>1</sup> | |
 | 풀당 백 엔드 서버 |1,200 | |
-| HTTP 수신기 |200<sup>1</sup> |트래픽을 라우팅하는 100개의 활성 수신기로 제한됩니다. 활성 수신기 수 = 총 수신기 수 - 비활성 수신기 수입니다.<br>라우팅 규칙 내의 기본 구성이 트래픽을 라우팅하도록 설정된 경우(예: 수신기, 백 엔드 풀 및 HTTP 설정을 사용하는 경우) 이러한 설정은 수신기로도 간주됩니다.|
+| HTTP 수신기 |200<sup>1</sup> |트래픽을 라우팅하는 100개의 활성 수신기로 제한됩니다. 활성 수신기 수 = 총 수신기 수 - 비활성 수신기 수입니다.<br>라우팅 규칙 내의 기본 구성이 트래픽을 라우팅하도록 설정된 경우(예: 수신기, 백 엔드 풀 및 HTTP 설정을 사용하는 경우) 이러한 설정은 수신기로도 간주됩니다. 자세한 내용은 [Application Gateway에 대 한 질문과 대답](../articles/application-gateway/application-gateway-faq.yml#what-is-considered-an-active-listener-versus-inactive-listener) 을 참조 하세요.|
 | HTTP 부하 분산 규칙 |400<sup>1</sup> | |
 | 백 엔드 HTTP 설정 |100<sup>1</sup> | |
 | 게이트웨이당 인스턴스 |V1 SKU - 32<br>V2 SKU - 125 | |

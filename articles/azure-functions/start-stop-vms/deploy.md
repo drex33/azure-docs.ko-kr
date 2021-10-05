@@ -5,19 +5,16 @@ services: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 06/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: 51488a6694b843821110127640281a2da9986862
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: dc44fc58b8832c30ed1b740eb6637f1fc8ed1413
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124744759"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129454965"
 ---
 # <a name="deploy-startstop-vms-v2-preview"></a>VM v2 시작/중지(미리 보기) 배포
 
 VM v2 시작/중지(미리 보기) 기능을 설치하려면 순서대로 이 항목의 단계를 수행합니다. 설치 프로세스를 완료한 후 일정을 구성하여 요구 사항에 맞게 사용자 지정합니다.
-
-> [!NOTE]
-> 배포 중에 문제가 발생하면 VM v2 시작/중지(미리 보기)를 사용할 때 문제가 발생하거나 관련 질문이 있는 경우 [GitHub](https://github.com/microsoft/startstopv2-deployments/issues)에서 문제를 제출할 수 있습니다. 이 미리 보기 버전에서는 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)에서 Azure 지원 인시던트를 제출할 수 없습니다. 
 
 ## <a name="permissions-considerations"></a>사용 권한 고려 사항
 배포 전과 배포 중에 다음에 유의하세요.

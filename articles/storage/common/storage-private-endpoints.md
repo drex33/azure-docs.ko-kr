@@ -10,16 +10,16 @@ ms.date: 03/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: a52460db452d519c51fb7a1b191766b21da67f88
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 908c313da4343798faedf614e8356e511ab0b4dd
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128592283"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458646"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Azure Storage에 프라이빗 엔드포인트 사용
 
-Azure Storage 계정에 [프라이빗 엔드포인트](../../private-link/private-endpoint-overview.md)를 사용하여 VNet(가상 네트워크)의 클라이언트가 [프라이빗 링크](../../private-link/private-link-overview.md)를 통해 안전하게 데이터에 액세스하도록 할 수 있습니다. 프라이빗 엔드포인트는 스토리지 계정 서비스용 VNet 주소 공간의 IP 주소를 사용합니다. VNet에 있는 클라이언트와 스토리지 계정 사이의 네트워크 트래픽은 VNet과 Microsoft 백본 네트워크의 프라이빗 링크를 가로지르며 퍼블릭 인터넷 노출을 방지합니다.
+Azure Storage 계정에 [프라이빗 엔드포인트](../../private-link/private-endpoint-overview.md)를 사용하여 VNet(가상 네트워크)의 클라이언트가 [프라이빗 링크](../../private-link/private-link-overview.md)를 통해 안전하게 데이터에 액세스하도록 할 수 있습니다. 프라이빗 엔드포인트는 각 스토리지 계정 서비스에 대해 VNet 주소 공간에서 별도의 IP 주소를 사용합니다. VNet에 있는 클라이언트와 스토리지 계정 사이의 네트워크 트래픽은 VNet과 Microsoft 백본 네트워크의 프라이빗 링크를 가로지르며 퍼블릭 인터넷 노출을 방지합니다.
 
 스토리지 계정에 대해 프라이빗 엔드포인트를 사용하면 다음 작업을 수행할 수 있습니다.
 

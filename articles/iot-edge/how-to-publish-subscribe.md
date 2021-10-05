@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: f798f8be2989140711cb9122c9d59e7b91248f61
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 899a6c1f0e5f2eb7441ea2035cdb12bed13a4b85
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128600383"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457319"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge-preview"></a>Azure IoT Edge를 사용한 게시 및 구독(미리 보기)
 
@@ -417,7 +417,7 @@ TLS를 사용하도록 설정하려면 포트를 1883(MQTT)에서 8883(MQTTS)으
 
 ### <a name="send-direct-methods"></a>직접 메서드 보내기
 
-직접 메서드 보내기는 HTTP 호출이므로 MQTT broker를 통해 이동하지 않습니다. 직접 메서드를 IoT 허브에 보내려면 [직접 메서드 이해 및 호출](../iot-hub/iot-hub-devguide-direct-methods.md)을 참조하세요. 직접 메서드를 로컬로 다른 모듈에 보내려면 이 [Azure IOT C# SDK 직접 메서드 호출 예제](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/ModuleClient.cs#L597)를 참조하세요.
+직접 메서드 보내기는 HTTP 호출이므로 MQTT broker를 통해 이동하지 않습니다. 직접 메서드를 IoT 허브에 보내려면 [직접 메서드 이해 및 호출](../iot-hub/iot-hub-devguide-direct-methods.md)을 참조하세요. 직접 메서드를 로컬로 다른 모듈에 보내려면 이 [Azure IOT C# SDK 직접 메서드 호출 예제](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/device/src/ModuleClient.cs#L597)를 참조하세요.
 
 ## <a name="publish-and-subscribe-between-mqtt-brokers"></a>MQTT broker를 게시하고 구독합니다.
 

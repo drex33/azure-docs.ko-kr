@@ -1,21 +1,24 @@
 ---
 title: Azure에서 사용 가능한 Red Hat Enterprise Linux 이미지
 description: Microsoft Azure의 Red Hat Enterprise Linux 이미지에 알아봅니다.
-author: asinn826
+author: mamccrea
 ms.service: virtual-machines
 ms.subservice: redhat
 ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
-ms.author: alsin
-ms.openlocfilehash: b34f4c70e572aade6e37c55d67801423602430cc
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.author: mamccrea
+ms.openlocfilehash: f349e525d8fa16e7c218a248cb8e2c1fb4e21762
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114450777"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129455117"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Azure에서 사용 가능한 RHEL(Red Hat Enterprise Linux) 이미지
+
+**적용 대상:** :heavy_check_mark: Linux VM 
+
 Azure는 다양한 사용 사례에 대해 다양한 RHEL 이미지를 제공합니다.
 
 > [!NOTE]

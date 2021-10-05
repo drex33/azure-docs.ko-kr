@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: normesta
 ms.reviewer: klaasl
 ms.subservice: blobs
-ms.openlocfilehash: 67bd943028ba321aa4fa3a5acca30e80cfc36a32
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ace430aa1e48d7e769f82d7258da241a0716a16d
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128615570"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129455648"
 ---
 # <a name="enable-azure-storage-blob-inventory-reports"></a>Azure Storage Blob 인벤토리 보고서 사용
 
@@ -63,7 +63,7 @@ Blob 인벤토리 보고서에 대해 자세히 알아보려면 [Azure Storage B
 
 <a id="powershell"></a>
 
-Azure PowerShell 모듈을 사용하여 정적 웹 사이트 호스팅을 사용하도록 설정할 수 있습니다.
+Azure PowerShell 모듈을 사용 하 여 정책을 추가, 편집 또는 제거할 수 있습니다.
 
 1. Windows PowerShell 명령 창을 엽니다.
 
@@ -75,7 +75,7 @@ Azure PowerShell 모듈을 사용하여 정적 웹 사이트 호스팅을 사용
    Connect-AzAccount
    ```
 
-4. ID가 둘 이상의 구독과 연결된 경우 정적 웹 사이트를 호스트하는 스토리지 계정의 구독으로 활성 구독을 설정합니다.
+4. ID가 둘 이상의 구독과 연결되어 있으면 활성 구독을 설정합니다.
 
    ```powershell
    $context = Get-AzSubscription -SubscriptionId <subscription-id>
@@ -123,11 +123,11 @@ Azure PowerShell 모듈을 사용하여 정적 웹 사이트 호스팅을 사용
 
 <a id="cli"></a>
 
-CLI([Azure 명령줄 인터페이스)](/cli/azure/)를 사용하여 정적 웹 사이트 호스팅을 사용하도록 설정할 수 있습니다.
+[AZURE CLI (Command-Line 인터페이스)](/cli/azure/)를 사용 하 여 정책을 추가, 편집 또는 제거할 수 있습니다.
 
 1. 먼저 [Azure Cloud Shell](../../cloud-shell/overview.md)을 열거나 Azure CLI를 로컬로 [설치](/cli/azure/install-azure-cli)한 경우 Windows PowerShell과 같은 명령 콘솔 애플리케이션을 엽니다.
 
-2. ID가 둘 이상의 구독과 연결된 경우 정적 웹 사이트를 호스트하는 스토리지 계정의 구독으로 활성 구독을 설정합니다.
+2. ID가 둘 이상의 구독과 연결되어 있으면 활성 구독을 설정합니다.
 
    ```azurecli
       az account set --subscription <subscription-id>

@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: ba31710e13ef786f2e4ede68541f1a5884306669
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 4803ddf4c3d570e9bd52832ec4120c42972003eb
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535843"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458210"
 ---
 # <a name="enable-and-work-with-bastion-resource-logs"></a>Bastion 리소스 로그 사용 및 작업
 
@@ -48,7 +48,7 @@ ms.locfileid: "122535843"
    ![스토리지 위치 선택](./media/diagnostic-logs/3-resource-location.png)
 4. 탐색한 기간의 진단 로그 데이터가 포함된, Azure Bastion에서 만든 json 파일을 찾습니다.
 
-5. 스토리지 Blob 컨테이너에서 json 파일을 다운로드합니다. 아래에는 json 파일의 예제 항목이 참조용으로 나와 있습니다.
+5. 스토리지 Blob 컨테이너에서 json 파일을 다운로드합니다. Json 파일의 성공한 로그인에 대 한 예제 항목은 참조용으로 다음과 같이 표시 됩니다.
 
    ```json
    { 
@@ -69,6 +69,7 @@ ms.locfileid: "122535843"
       "message":"Successfully Connected.",
       "resourceType":"VM",
       "targetVMIPAddress":"172.16.1.5",
+      "userEmail":"<userAzureAccountEmailAddress>"
       "tunnelId":"<tunnelID>"
    },
    "FluentdIngestTimestamp":"2019-10-03T16:03:34.0000000Z",
@@ -76,7 +77,37 @@ ms.locfileid: "122535843"
    "CustomerSubscriptionId":"<subscripionID>"
    }
    ```
-
+   
+   다음은 json 파일에서 실패 한 로그인 (예: 잘못 된 사용자 이름/암호로 인 한)의 예제 항목입니다.
+   
+   ```json
+   { 
+   "time":"2019-10-03T16:03:34.776Z",
+   "resourceId":"/SUBSCRIPTIONS/<subscripionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.NETWORK/BASTIONHOSTS/MYBASTION-BASTION",
+   "operationName":"Microsoft.Network/BastionHost/connect",
+   "category":"BastionAuditLogs",
+   "level":"Informational",
+   "location":"eastus",
+   "properties":{ 
+      "userName":"<username>",
+      "userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36",
+      "clientIpAddress":"131.107.159.86",
+      "clientPort":24039,
+      "protocol":"ssh",
+      "targetResourceId":"/SUBSCRIPTIONS/<subscripionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/LINUX-KEY",
+      "subscriptionId":"<subscripionID>",
+      "message":"Login Failed",
+      "resourceType":"VM",
+      "targetVMIPAddress":"172.16.1.5",
+      "userEmail":"<userAzureAccountEmailAddress>"
+      "tunnelId":"<tunnelID>"
+   },
+   "FluentdIngestTimestamp":"2019-10-03T16:03:34.0000000Z",
+   "Region":"eastus",
+   "CustomerSubscriptionId":"<subscripionID>"
+   }
+   ```
+   
 ## <a name="next-steps"></a>다음 단계
 
 [Bastion FAQ](bastion-faq.md)를 참조하세요.

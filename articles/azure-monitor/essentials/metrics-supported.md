@@ -6,55 +6,58 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 09/10/2021
 ms.author: robb
-ms.openlocfilehash: 8239421e20d955770e355abc78cfda69fda1cc42
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 15e8ea8c1622ec846d9ab36452d8982c1a64a084
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129350570"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458153"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 
 > [!NOTE]
-> 이 목록은 대부분 자동으로 생성됩니다. GitHub를 통해 수정된 내용이 경고 없이 적용될 수 있습니다. 영구적으로 업데이트하는 방법에 대한 자세한 내용은 이 문서의 작성자에게 문의하세요.
+> 이 목록은 대부분 자동으로 생성됩니다. GitHub를 통해이 목록에 대 한 수정 내용은 경고 없이 기록 될 수 있습니다. 영구적으로 업데이트하는 방법에 대한 자세한 내용은 이 문서의 작성자에게 문의하세요.
 
-Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세스, PowerShell이나 CLI를 통한 쿼리 등, 메트릭과 상호 작용하는 몇 가지 방법을 제공합니다. 
+Azure Monitor은 Azure Portal에서 차트를 작성 하거나 REST API를 통해 액세스 하거나 PowerShell 또는 Azure CLI를 사용 하 여 쿼리 하는 등 메트릭과 상호 작용 하는 여러 가지 방법을 제공 합니다. 
 
-이 문서는 Azure Monitor의 통합 메트릭 파이프라인에서 현재 사용할 수 있는 모든 플랫폼(즉, 자동으로 수집된) 메트릭의 전체 목록입니다. 이 문서의 맨 위에 있는 날짜 이후에 변경되거나 추가된 메트릭은 아직 아래에 표시되지 않을 수 있습니다. 메트릭 목록을 프로그래밍 방식으로 쿼리하고 액세스하려면 [2018-01-01 API 버전](/rest/api/monitor/metricdefinitions)을 사용하세요. 이 목록에 없는 다른 메트릭은 포털에서 또는 레거시 API를 통해 사용할 수 있습니다.
+이 문서는 Azure Monitor의 통합 메트릭 파이프라인에서 현재 사용할 수 있는 모든 플랫폼 (즉, 자동으로 수집 된) 메트릭의 전체 목록입니다. 이 문서 맨 위에 있는 날짜 이후에 변경 되거나 추가 된 메트릭은 목록에 아직 표시 되지 않을 수 있습니다. 프로그래밍 방식으로 메트릭 목록을 쿼리하고 액세스 하려면 [2018-01-01 api 버전](/rest/api/monitor/metricdefinitions)을 사용 합니다. 이 목록에 없는 다른 메트릭은 포털에서 또는 레거시 Api를 통해 사용할 수 있습니다.
 
-메트릭은 리소스 공급자와 리소스 종류별로 구성됩니다. 서비스와 해당 서비스에 속한 리소스 공급자 및 리소스 종류 목록은 [Azure 서비스의 리소스 공급자](../../azure-resource-manager/management/azure-services-resource-providers.md)를 참조하세요.  
+메트릭은 리소스 공급자와 리소스 종류별로 구성 됩니다. 서비스와 해당 서비스에 속한 리소스 공급자 및 리소스 종류 목록은 [Azure 서비스의 리소스 공급자](../../azure-resource-manager/management/azure-services-resource-providers.md)를 참조하세요.  
 
 ## <a name="exporting-platform-metrics-to-other-locations"></a>플랫폼 메트릭을 다른 위치로 내보내기
 
-Azure Monitor 파이프라인에서 다른 위치로 플랫폼 메트릭을 내보내는 방법은 두 가지입니다.
-1. [메트릭 REST API](/rest/api/monitor/metrics/list)를 사용합니다.
-2. [진단 설정](../essentials/diagnostic-settings.md)을 사용하여 플랫폼 메트릭 라우팅 
-    - Azure Storage
-    - Azure Monitor Logs(따라서 Log Analytics도 함께)
-    - 이벤트 허브: Microsoft가 아닌 시스템으로 플랫폼 메트릭을 가져올 때 사용 
+다음 두 가지 방법 중 하나로 플랫폼 메트릭을 Azure monitor 파이프라인에서 다른 위치로 내보낼 수 있습니다.
+
+- [REST API 메트릭을](/rest/api/monitor/metrics/list)사용 합니다.
+- [진단 설정을](../essentials/diagnostic-settings.md) 사용 하 여 플랫폼 메트릭을 다음과 같이 라우팅합니다. 
+    - Azure Storage.
+    - Azure Monitor 로그 (따라서 Log Analytics).
+    - Microsoft 이외의 시스템으로 가져오는 방법 인 Event hubs 
 
 메트릭을 라우팅하는 가장 쉬운 방법은 진단 설정을 사용하는 것이지만 몇 가지 제한 사항이 있습니다. 
 
-- **일부는 내보낼 수 없음** - 모든 메트릭은 REST API를 사용하여 내보낼 수 있지만 일부 메트릭은 Azure Monitor 백 엔드의 복잡성 진단 설정을 사용하여 내보낼 수 없습니다. 아래 표의 *진단 설정을 통해 내보낼 수 있는* 열에는 이 방법으로 내보낼 수 있는 메트릭이 나열되어 있습니다.  
+- **내보내기**. 모든 메트릭은 REST API를 통해 내보낼 수 있지만 일부는 Azure Monitor 백 엔드에서 복잡 하지 않기 때문에 진단 설정을 통해 내보낼 수 없습니다. 다음 표의 "내보낼 수 있는 진단 설정" 열은 이러한 방식으로 내보낼 수 있는 메트릭을 나열 합니다.  
 
-- **다차원 메트릭** - 진단 설정을 통해 다차원 메트릭을 다른 위치로 보내는 것은 현재 지원되지 않습니다. 차원이 있는 메트릭은 차원 값 전체에서 집계된 플랫 단일 차원 메트릭으로 내보내집니다. *예*: Event Hub의 '들어오는 메시지' 메트릭은 큐 수준별로 탐색하고 차트화할 수 있습니다. 하지만 진단 설정을 통해 내보내면 메트릭은 Event Hub의 모든 큐에서 모두 수신되는 메시지로 표시됩니다.
+- **다차원 메트릭**. 진단 설정을 통해 여러 차원 메트릭을 다른 위치로 보내는 것은 현재 지원 되지 않습니다. 차원이 포함 된 메트릭은 차원 값에 걸쳐 집계 된 평면화 된 단일 차원 메트릭으로 내보내집니다. 
+
+  예를 들어 이벤트 허브에서 *들어오는 메시지* 메트릭은 큐 별 수준에서 탐색 하 고 차트로 표시할 수 있습니다. 그러나 진단 설정을 통해 메트릭을 내보내면 이벤트 허브의 모든 큐에서 들어오는 모든 메시지로 표시 됩니다.
 
 ## <a name="guest-os-and-host-os-metrics"></a>게스트 OS 및 호스트 OS 메트릭
 
-> [!WARNING]
-> Azure Virtual Machines, Service Fabric 및 Cloud Services에서 실행되는 게스트 OS(게스트 운영 체제)에 대한 메트릭은 여기에 나열되지 **않았습니다**. 게스트 OS 메트릭은 게스트 운영 체제 위에서 또는 게스트 운영 체제의 일부로 실행되는 하나 이상의 에이전트를 통해 수집해야 합니다.  게스트 OS 메트릭에는 게스트 CPU 백분율 또는 메모리 사용량을 추적하는 성능 카운터가 포함되어 있으며, 둘 다 자동 스케일링 또는 경고에 자주 사용됩니다. 
->
-> **호스트 OS 메트릭 ARE를 사용할 수 있으며 아래에 나열되어 있습니다.** 이러한 메트릭은 서로 다릅니다. 호스트 OS 메트릭은 게스트 OS 세션을 호스트하는 Hyper-V 세션과 관련이 있습니다. 
+Azure Virtual Machines, Service Fabric 및 Cloud Services에서 실행 되는 게스트 운영 체제 (게스트 OS)에 대 한 메트릭은 여기에 나열 *되지 않습니다* . 게스트 OS 메트릭은 게스트 운영 체제의 일부로 또는에서 실행 되는 하나 이상의 에이전트를 통해 수집 되어야 합니다. 게스트 OS 메트릭에는 게스트 CPU 비율 또는 메모리 사용량을 추적 하는 성능 카운터가 포함 되어 있으며, 둘 다 자동 크기 조정 또는 경고에 자주 사용 됩니다. 
+
+호스트 *OS 메트릭은 표에 나와 있습니다.* 호스트 OS 메트릭은 게스트 OS 세션을 호스트 하는 Hyper-v 세션과 관련이 있습니다. 
 
 > [!TIP]
-> Azure Monitor Agent를 사용 및 구성하여 플랫폼 메트릭이 저장된 Azure Monitor 메트릭 데이터베이스에 게스트 OS 성능 메트릭을 전송하는 것이 가장 좋은 방법입니다. 에이전트는 [사용자 지정 메트릭](../essentials/metrics-custom-overview.md) API를 통해 게스트 OS 메트릭을 라우팅합니다. 그 후 차트로 만들고 경고하거나, 플랫폼 메트릭과 같은 게스트 OS 메트릭을 사용할 수 있습니다. 또는 동일한 에이전트를 사용하여 게스트 OS 메트릭을 Azure Monitor Logs에 보낼 수도 있습니다. Log Analytics를 사용하여 메트릭이 아닌 데이터와 함께 이러한 메트릭을 쿼리할 수 있습니다. 
+> 모범 사례는 Azure Monitor 에이전트를 사용 하 고 구성 하 여 플랫폼 메트릭이 저장 된 것과 동일한 Azure Monitor 메트릭 데이터베이스에 게스트 OS 성능 메트릭을 전송 하는 것입니다. 에이전트는 [사용자 지정 메트릭](../essentials/metrics-custom-overview.md) API를 통해 게스트 OS 메트릭을 라우팅합니다. 그런 다음 플랫폼 메트릭과 같은 게스트 OS 메트릭을 차트로 표시 하 고, 경고 하 고, 사용할 수 있습니다. 
+>
+> 또는 동일한 에이전트를 사용 하 여 게스트 OS 메트릭을 Azure Monitor 로그에 보낼 수도 있습니다. Log Analytics를 사용 하 여 메트릭이 아닌 데이터와 함께 이러한 메트릭에 대해 쿼리할 수 있습니다. 
 
-Azure Monitor Agent는 이 라우팅에 이전에 사용된 Azure Diagnostics 확장 및 Log Analytics 에이전트를 대체합니다. 중요한 추가 정보는 [모니터링 에이전트 개요](../agents/agents-overview.md)를 참조하세요.
+Azure Monitor 에이전트는 게스트 OS 라우팅에 이전에 사용 된 Azure 진단 확장 및 Log Analytics 에이전트를 대체 합니다. 중요 한 추가 정보는 [Azure Monitor 에이전트 개요](../agents/agents-overview.md)를 참조 하세요.
 
 ## <a name="table-formatting"></a>테이블 서식 지정
 
-> [!IMPORTANT] 
-> 이 최신 업데이트에서는 새 열을 추가되고 메트릭을 사전순으로 다시 정렬했습니다. 추가 정보는 브라우저 창의 너비에 따라 아래쪽에 가로 스크롤 막대가 있을 수 있다는 것을 의미합니다. 누락된 정보가 있다고 생각되는 경우 스크롤 막대를 사용하여 테이블 전체를 확인하세요.
+이 최신 업데이트는 새 열을 추가 하 고 메트릭을 사전순으로 다시 정렬 합니다. 추가 정보는 브라우저 창의 너비에 따라 테이블의 아래쪽에 가로 스크롤 막대가 있을 수 있음을 의미 합니다. 누락 된 정보를 보이는 경우 스크롤 막대를 사용 하 여 테이블 전체를 확인 합니다.
 
 
 ## <a name="microsoftaadiamazureadmetrics"></a>microsoft.aadiam/azureADMetrics
@@ -227,7 +230,7 @@ Azure Monitor Agent는 이 라우팅에 이전에 사용된 Azure Diagnostics �
 |TotalUpdateDeploymentRuns|예|총 업데이트 배포 실행|개수|합계|총 소프트웨어 업데이트 배포 실행 횟수|SoftwareUpdateConfigurationName, 상태|
 
 
-## <a name="microsoftavsprivateclouds"></a>microsoft avs/privateClouds
+## <a name="microsoftavsprivateclouds"></a>microsoft.avs/privateClouds
 
 |메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
@@ -819,18 +822,18 @@ Azure Monitor Agent는 이 라우팅에 이전에 사용된 Azure Diagnostics �
 |CustomVisionTransactions|예|Custom Vision 트랜잭션|개수|합계|Custom Vision 예측 트랜잭션 수|ApiName, FeatureName, UsageChannel, 지역|
 |DataIn|예|데이터 입력|바이트|합계|들어오는 데이터 크기(바이트)입니다.|ApiName, OperationName, 지역|
 |DataOut|예|데이터 출력|바이트|합계|나가는 데이터 크기(바이트)입니다.|ApiName, OperationName, 지역|
-|DocumentCharactersTranslated|예|번역된 문서 문자|개수|합계|문서 번역 요청의 문자 수입니다.|ApiName, FeatureName, UsageChannel, 지역|
-|DocumentCustomCharactersTranslated|예|번역된 문서 사용자 지정 문자|개수|합계|사용자 지정 문서 번역 요청의 문자 수입니다.|ApiName, FeatureName, UsageChannel, 지역|
-|FaceImagesTrained|예|Face Images Trained|개수|합계|학습된 이미지 수입니다. 트랜잭션당 학습된 이미지 1,000개|ApiName, FeatureName, UsageChannel, 지역|
-|FacesStored|예|저장된 얼굴|개수|합계|저장된 얼굴 수, 비례 배분된 일별 얼굴 수입니다. 저장된 얼굴 수는 매일 보고됩니다.|ApiName, FeatureName, UsageChannel, 지역|
-|FaceTransactions|예|얼굴 트랜잭션|개수|합계|Face 서비스에 대한 API 호출 수|ApiName, FeatureName, UsageChannel, 지역|
-|ImagesStored|예|저장된 이미지|개수|합계|저장된 Custom Vision 이미지 수입니다.|ApiName, FeatureName, UsageChannel, 지역|
+|DocumentCharactersTranslated|예|번역 된 문서 문자|개수|합계|문서 변환 요청의 문자 수입니다.|ApiName, FeatureName, UsageChannel, 지역|
+|DocumentCustomCharactersTranslated|예|번역 된 문서 사용자 지정 문자|개수|합계|사용자 지정 문서 번역 요청의 문자 수입니다.|ApiName, FeatureName, UsageChannel, 지역|
+|FaceImagesTrained|예|학습 된 얼굴 이미지|개수|합계|학습 된 이미지 수입니다. 1000 트랜잭션 별로 학습 된 이미지|ApiName, FeatureName, UsageChannel, 지역|
+|FacesStored|예|얼굴 저장|개수|합계|저장 된 얼굴 수 이며 매일 비례 합니다. 저장 된 얼굴 수는 매일 보고 됩니다.|ApiName, FeatureName, UsageChannel, 지역|
+|FaceTransactions|예|Face 트랜잭션|개수|합계|얼굴 서비스에 대 한 API 호출 수|ApiName, FeatureName, UsageChannel, 지역|
+|ImagesStored|예|저장 된 이미지|개수|합계|저장 된 Custom Vision 이미지 수입니다.|ApiName, FeatureName, UsageChannel, 지역|
 |대기 시간|예|대기 시간|밀리초|평균|대기 시간(밀리초)입니다.|ApiName, OperationName, 지역|
 |LearnedEvents|예|학습한 이벤트 수|개수|합계|학습한 이벤트 수|IsMatchBaseline, 모드, RunId|
-|LUISSpeechRequests|예|LUIS 음성 요청|개수|합계|의도 이해 요청에 대한 LUIS 음성 수|ApiName, FeatureName, UsageChannel, 지역|
+|LUISSpeechRequests|예|LUIS 음성 요청|개수|합계|LUIS 음성에서 요청을 이해 하는 횟수|ApiName, FeatureName, UsageChannel, 지역|
 |LUISTextRequests|예|LUIS 텍스트 요청|개수|합계|LUIS 텍스트 요청 수|ApiName, FeatureName, UsageChannel, 지역|
 |MatchedRewards|예|일치하는 보상 수|개수|합계|일치하는 보상 수|Mode, RunId|
-|NumberofSpeakerProfiles|예|화자 프로필 수|개수|합계|등록된 화자 프로필 수입니다. 시간별 비례 배분.|ApiName, FeatureName, UsageChannel, 지역|
+|NumberofSpeakerProfiles|예|스피커 프로필 수|개수|합계|등록 된 스피커 프로필 수입니다. 시간당 비례 합니다.|ApiName, FeatureName, UsageChannel, 지역|
 |ObservedRewards|예|관찰된 보상 수|개수|합계|관찰된 보상 수|Mode, RunId|
 |ProcessedCharacters|예|처리된 문자 수|개수|합계|몰입형 리더 처리한 문자 수입니다.|ApiName, FeatureName, UsageChannel, 지역|
 |ProcessedHealthTextRecords|예|처리된 상태 텍스트 레코드|개수|합계|처리된 상태 텍스트 레코드 수|ApiName, FeatureName, UsageChannel, 지역|
@@ -849,7 +852,7 @@ Azure Monitor Agent는 이 라우팅에 이전에 사용된 Azure Diagnostics �
 |TotalCalls|예|총 호출|개수|합계|총 호출 수.|ApiName, OperationName, 지역|
 |TotalErrors|예|총 오류|개수|합계|오류 응답(HTTP 응답 코드 4xx 또는 5xx)이 있는 총 호출 수입니다.|ApiName, OperationName, 지역|
 |TotalTokenCalls|예|총 토큰 호출|개수|합계|총 토큰 호출 수입니다.|ApiName, OperationName, 지역|
-|TotalTransactions|예|총 트랜잭션 수(사용되지 않습니다.)|개수|합계|총 트랜잭션 수|차원 없음|
+|TotalTransactions|예|총 트랜잭션 (사용 되지 않음)|개수|합계|총 트랜잭션 수|차원 없음|
 |VoiceModelHostingHours|예|음성 모델 호스팅 시간|개수|합계|시간(시)|ApiName, FeatureName, UsageChannel, 지역|
 |VoiceModelTrainingMinutes|예|음성 모델 학습(분)|개수|합계|시간(분)|ApiName, FeatureName, UsageChannel, 지역|
 
@@ -860,7 +863,7 @@ Azure Monitor Agent는 이 라우팅에 이전에 사용된 Azure Diagnostics �
 |---|---|---|---|---|---|---|
 |APIRequestAuthentication|예|인증 API 요청 수|개수|개수|Communication Services 인증 엔드포인트에 대한 모든 요청 수|작업, StatusCode, StatusCodeClass|
 |APIRequestChat|예|채팅 API 요청 수|개수|개수|Communication Services 채팅 엔드포인트에 대한 모든 요청 수|작업, StatusCode, StatusCodeClass|
-|APIRequestSMS|예|SMS API 요청 수|개수|개수|Communication Services SMS 엔드포인트에 대한 모든 요청 수|작업, StatusCode, StatusCodeClass, ErrorCode|
+|APIRequestSMS|예|SMS API 요청 수|개수|개수|Communication Services SMS 엔드포인트에 대한 모든 요청 수|Operation, StatusCode, StatusCodeClass, ErrorCode|
 
 
 ## <a name="microsoftcomputecloudservices"></a>Microsoft.Compute/cloudServices
@@ -1925,7 +1928,7 @@ Azure Monitor Agent는 이 라우팅에 이전에 사용된 Azure Diagnostics �
 |exceptions/server|예|서버 예외|개수|개수|서버 애플리케이션에서 발생된 확인할 수 없는 예외의 수입니다.|cloud/roleName, cloud/roleInstance|
 |pageViews/count|예|페이지 보기|개수|개수|페이지 보기 수입니다.|operation/synthetic, cloud/roleName|
 |pageViews/duration|예|페이지 보기 로드 시간|밀리초|평균|페이지 보기 로드 시간|operation/synthetic, cloud/roleName|
-|performanceCounters/exceptionsPerSecond|예|예외 속도|초당 개수|평균|.net 예외 및 .net 예외로 변환 된 관리 되지 않는 예외를 포함 하 여 Windows에 보고 된 처리 된 예외 및 처리 되지 않은 예외 수입니다.|cloud/roleInstance|
+|performanceCounters/exceptionsPerSecond|예|예외 속도|초당 개수|평균|.NET 예외 및 .NET 예외로 변환되는 관리되지 않는 예외를 포함하여 Windows 보고되는 처리된 예외 및 처리되지 않은 예외 수입니다.|cloud/roleInstance|
 |performanceCounters/memoryAvailableBytes|예|사용 가능한 메모리|바이트|평균|프로세스에 할당하거나 시스템에서 사용할 수 있는 실제 메모리입니다.|cloud/roleInstance|
 |performanceCounters/processCpuPercentage|예|CPU 프로세스|백분율|평균|모든 프로세스 스레드가 명령을 실행하기 위해 프로세서를 사용한 경과된 시간의 백분율입니다. 0~100 사이로 달라질 수 있습니다. 이 메트릭은 w3wp 프로세스만의 성능을 나타냅니다.|cloud/roleInstance|
 |performanceCounters/processIOBytesPerSecond|예|프로세스 IO 속도|초당 바이트 수|평균|파일, 네트워크 및 디바이스에서 읽고 쓴 초당 총 바이트 수입니다.|cloud/roleInstance|
@@ -2231,11 +2234,11 @@ Azure Monitor Agent는 이 라우팅에 이전에 사용된 Azure Diagnostics �
 |SuccessE2ELatency|예|성공 엔드투엔드 대기 시간|밀리초|평균|성공한 요청의 평균 대기 시간(밀리초)|OutputFormat|
 
 
-## <a name="microsoftmediavideoanalyzers"></a>Microsoft.Media/videoanalyzers
+## <a name="microsoftmediavideoanalyzers"></a>Microsoft. 미디어/비디오 분석기
 
 |메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
-|ReceivedBytes|예|받은 바이트|바이트|합계|파이프라인 노드에서 받은 바이트 수입니다.|PipelineTopology, Pipeline, Node|
+|ReceivedBytes|예|받은 바이트|바이트|합계|파이프라인 노드에서 받은 바이트 수입니다.|PipelineTopology, 파이프라인, 노드|
 
 
 ## <a name="microsoftmixedrealityremoterenderingaccounts"></a>Microsoft.MixedReality/remoteRenderingAccounts
@@ -2905,7 +2908,7 @@ Azure Monitor Agent는 이 라우팅에 이전에 사용된 Azure Diagnostics �
 |메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |BackupHealthEvent|예|백업 상태 이벤트(미리 보기)|개수|개수|백업 작업 상태와 관련된 상태 이벤트의 수|dataSourceURL, backupInstanceUrl, dataSourceType, healthStatus, backupInstanceName|
-|RestoreHealthEvent|예|상태 이벤트 복원(미리 보기)|개수|개수|복원 작업 상태와 관련된 상태 이벤트의 수|dataSourceURL, backupInstanceUrl, dataSourceType, healthStatus, backupInstanceName|
+|RestoreHealthEvent|예|상태 이벤트 복원(미리 보기)|개수|개수|복원 작업 상태와 관련된 상태 이벤트 수|dataSourceURL, backupInstanceUrl, dataSourceType, healthStatus, backupInstanceName|
 
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
@@ -2932,7 +2935,7 @@ Azure Monitor Agent는 이 라우팅에 이전에 사용된 Azure Diagnostics �
 |메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
 |대기 시간|No|대기 시간|초|평균|Azure Resource Manager에 대 한 모든 요청에 대 한 대기 시간 데이터|IsCustomerOriginated, Method, Namespace, RequestRegion, ResourceType, StatusCode, StatusCodeClass, Microsoft. SubscriptionId|
-|트래픽|예|트래픽|개수|개수|Azure Resource Manager에 대 한 모든 요청에 대 한 트래픽 데이터|IsCustomerOriginated, Method, Namespace, RequestRegion, ResourceType, StatusCode, StatusCodeClass, Microsoft. SubscriptionId|
+|트래픽|아니요|트래픽|개수|개수|Azure Resource Manager에 대 한 모든 요청에 대 한 트래픽 데이터|IsCustomerOriginated, Method, Namespace, RequestRegion, ResourceType, StatusCode, StatusCodeClass, Microsoft. SubscriptionId|
 
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
@@ -3491,7 +3494,7 @@ Azure Monitor Agent는 이 라우팅에 이전에 사용된 Azure Diagnostics �
 |AverageResponseTime|예|평균 응답 시간(사용 되지 않음)|초|평균|앱에서 요청을 처리하는 데 걸린 평균 소요 시간(초) WebApps 및 FunctionApps용.|인스턴스|
 |BytesReceived|예|데이터 입력|바이트|합계|앱에서 사용한 들어오는 대역폭 양(MiB)입니다. WebApps 및 FunctionApps용.|인스턴스|
 |BytesSent|예|데이터 출력|바이트|합계|앱에서 사용한 나가는 대역폭 양(MiB)입니다. WebApps 및 FunctionApps용.|인스턴스|
-|CpuTime|예|CPU 시간|초|합계|앱에서 사용한 CPU의 양(초)입니다. 이 메트릭에 대한 자세한 내용은 https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (CPU 시간 및 CPU 비율)에서 확인할 수 있습니다. WebApps에만 해당 합니다.|인스턴스|
+|CpuTime|예|CPU 시간|초|합계|앱에서 사용한 CPU의 양(초)입니다. 이 메트릭에 대한 자세한 내용은 https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (CPU 시간 및 CPU 비율)에서 확인할 수 있습니다. WebApps에만 해당합니다.|인스턴스|
 |CurrentAssemblies|예|현재 어셈블리|개수|평균|이 애플리케이션의 모든 AppDomains에 로드된 어셈블리의 현재 개수입니다. WebApps 및 FunctionApps용.|인스턴스|
 |FileSystemUsage|예|파일 시스템 사용량|바이트|평균|앱에서 사용하는 파일 시스템 할당량(백분율) WebApps 및 FunctionApps용.|차원 없음|
 |FunctionExecutionCount|예|함수 실행 횟수|개수|합계|함수 실행 횟수. FunctionApps 전용.|인스턴스|
@@ -3581,7 +3584,7 @@ Azure Monitor Agent는 이 라우팅에 이전에 사용된 Azure Diagnostics �
 |SiteHits|예|SiteHits|개수|합계|SiteHits|인스턴스|
 
 
-## <a name="wandiscofusionmigrators"></a>Wandisco/migrators
+## <a name="wandiscofusionmigrators"></a>Wandisco.Fusion/migrators
 
 |메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|

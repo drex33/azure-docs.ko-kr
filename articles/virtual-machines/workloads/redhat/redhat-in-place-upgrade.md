@@ -1,19 +1,19 @@
 ---
 title: Azure에서 Red Hat Enterprise Linux 이미지의 현재 위치 업그레이드
 description: Red Hat Enterprise 7.x 이미지를 현재 위치에서 최신 8.x 버전으로 업그레이드하는 방법을 알아봅니다.
-author: mathapli
+author: mamccrea
 ms.service: virtual-machines
 ms.subservice: redhat
 ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
-ms.author: alsin
-ms.openlocfilehash: ccd3e58babc6627a384636dbea28ef82969be9fc
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.author: mamccrea
+ms.openlocfilehash: e127ec753a6db0556c901aff737656da47883c7a
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696747"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129454870"
 ---
 # <a name="red-hat-enterprise-linux-in-place-upgrades"></a>현재 위치의 Red Hat Enterprise Linux 업그레이드
 

@@ -4,12 +4,12 @@ description: 이 문서에서는 하이브리드 환경에서 호스트되는 �
 ms.date: 09/30/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ecd9b019896b4c9a9d4df577868c4cbc9f81dde4
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 36dc64a28cd0199e7fba3ab2b5f3f6765eef489d
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129357731"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129455610"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Azure Arc 지원 서버 에이전트 개요
 
@@ -97,9 +97,8 @@ Azure Connected Machine 에이전트를 공식적으로 지원하는 Windows 및
 
 > [!NOTE]
 > Azure Arc 지원 서버는 Amazon Linux를 지원하지만 다음에서는 이 배포를 지원하지 않습니다.
-> * Azure Monitor가 사용하는 에이전트(즉, Log Analytics 및 종속성 에이전트)
+> * Azure Monitor VM 인사이트에서 사용하는 종속성 에이전트
 > * Azure Automation 업데이트 관리
-> * VM 인사이트
 
 ### <a name="software-requirements"></a>소프트웨어 요구 사항
 
@@ -323,13 +322,13 @@ Linux용 Connected Machine 에이전트를 설치하면 다음과 같은 시스�
 
 ### <a name="agent-resource-governance"></a>에이전트 리소스 거버넌스
 
-Azure Arc 사용 서버 연결 된 컴퓨터 에이전트는 에이전트 및 시스템 리소스 소비를 관리 하도록 설계 되었습니다. 에이전트는 다음과 같은 경우에 리소스 거버넌스에 접근합니다.
+Azure Arc 지원 서버 Connected Machine 에이전트는 에이전트 및 시스템 리소스 사용을 관리하도록 설계되었습니다. 에이전트는 다음과 같은 경우에 리소스 거버넌스에 접근합니다.
 
 - 게스트 구성 에이전트는 정책을 평가하기 위해 CPU를 최대 5% 제한합니다.
 - 확장 서비스 에이전트는 CPU의 최대 5%를 사용하도록 제한됩니다.
 
    - 이 제한은 설치/설치 제거/업그레이드 작업에만 적용됩니다. 설치되고 나면 확장에서 자체 리소스 사용률을 담당하며 5% CPU 제한은 적용되지 않습니다.
-   - Log Analytics 에이전트 및 Azure Monitor 에이전트는 Red Hat Linux, CentOS 및 기타 엔터프라이즈 Linux 변형에서 설치/업그레이드/제거 작업을 수행 하는 동안 최대 60%의 CPU를 사용할 수 있습니다. 해당 시스템에 미치는 [SELinux](https://www.redhat.com/en/topics/linux/what-is-selinux)의 성능 영향을 수용하기 위해 확장 프로그램과 운영 체제 조합의 경우 한도는 더 높습니다.
+   - Log Analytics 에이전트 및 Azure Monitor 에이전트는 Red Hat Linux, CentOS 및 기타 엔터프라이즈 Linux 변형에서 설치/업그레이드/제거 작업 중에 CPU의 최대 60%를 사용할 수 있습니다. 해당 시스템에 미치는 [SELinux](https://www.redhat.com/en/topics/linux/what-is-selinux)의 성능 영향을 수용하기 위해 확장 프로그램과 운영 체제 조합의 경우 한도는 더 높습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

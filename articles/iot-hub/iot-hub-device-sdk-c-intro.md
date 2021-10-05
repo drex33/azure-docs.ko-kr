@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: ffb7d708921c96f57a617f82fc54d7f462fb4282
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
-ms.translationtype: HT
+ms.openlocfilehash: 4da2e985e2d8f3fbc00fe9fcf3d31d42463bb4c1
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168759"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129455478"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>C용 Azure IoT 디바이스 SDK
 
@@ -93,7 +93,7 @@ IoT Hub를 관리하는 데 도움이 되는 몇 가지 오픈 소스 도구가 
 
 디바이스 탐색기 도구에 익숙하지 않은 경우 다음 절차에서 이 도구를 사용하여 디바이스를 추가하고 디바이스 연결 문자열을 얻는 방법에 대해 설명합니다.
 
-1. 디바이스 탐색기 도구를 설치하려면 [IoT Hub 디바이스용 디바이스 탐색기를 사용하는 방법](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/)(영문)을 참조하세요.
+1. 디바이스 탐색기 도구를 설치하려면 [IoT Hub 디바이스용 디바이스 탐색기를 사용하는 방법](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/tools/)(영문)을 참조하세요.
 
 1. 프로그램을 실행하면 다음 인터페이스가 표시됩니다.
 

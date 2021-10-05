@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 14a235337a1b3bf26874cffe8893f0c21f2ed9f7
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
-ms.translationtype: HT
+ms.openlocfilehash: 814ed1001c39b48a5aa93162cb54ec520050eb66
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517877"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457566"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT Hub 메시지 라우팅 쿼리 구문
 
@@ -53,7 +53,7 @@ IoT Hub는 프로토콜 전체에서의 상호 운용성을 위해 모든 디바
 
 시스템 속성을 사용하면 메시지의 콘텐츠 및 소스를 식별할 수 있습니다. 
 
-| 속성 | 유형 | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | contentType | 문자열 | 사용자가 메시지의 콘텐츠 형식을 지정합니다. 메시지 본문에 대한 쿼리를 허용하려면 이 값이 application/JSON으로 설정되어야 합니다. |
 | contentEncoding | 문자열 | 사용자가 메시지의 인코딩 형식을 지정합니다. 허용되는 값은 contentType이 application/JSON으로 설정된 경우 UTF-8, UTF-16, UTF-32입니다. |
@@ -147,7 +147,7 @@ deviceClient.sendEvent(message, (err, res) => {
 ```
 
 > [!NOTE] 
-> javascript에서 본문 인코딩을 처리하는 방법을 보여 줍니다. C#에서 샘플을 보려는 경우 [Azure IoT C# 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)을 다운로드합니다. master.zip 파일의 압축을 풉니다. Visual Studio solution *SimulatedDevice* 의 Program.cs 파일은 메시지를 인코딩하여 IoT Hub로 제출하는 방법을 보여 줍니다. [메시지 라우팅 자습서](tutorial-routing.md)에 설명된 것처럼 메시지 라우팅을 테스트하는 데 사용되는 것과 동일한 샘플입니다. 또한 Program.cs의 맨 아래에는 인코딩된 파일 중 하나에서 읽고 디코드하고 ASCII로 다시 작성하여 읽을 수 있도록 하는 메서드가 있습니다. 
+> javascript에서 본문 인코딩을 처리하는 방법을 보여 줍니다. C#에서 샘플을 보려는 경우 [Azure IoT C# 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip)을 다운로드합니다. master.zip 파일의 압축을 풉니다. Visual Studio solution *SimulatedDevice* 의 Program.cs 파일은 메시지를 인코딩하여 IoT Hub로 제출하는 방법을 보여 줍니다. [메시지 라우팅 자습서](tutorial-routing.md)에 설명된 것처럼 메시지 라우팅을 테스트하는 데 사용되는 것과 동일한 샘플입니다. 또한 Program.cs의 맨 아래에는 인코딩된 파일 중 하나에서 읽고 디코드하고 ASCII로 다시 작성하여 읽을 수 있도록 하는 메서드가 있습니다. 
 
 
 ### <a name="query-expressions"></a>쿼리 식

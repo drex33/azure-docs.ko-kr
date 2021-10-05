@@ -1,19 +1,17 @@
 ---
 title: 일반적인 Azure Automanage 온보딩 오류 문제 해결
 description: 일반적인 Automanage 온보딩 오류와 문제 해결 방법
-author: asinn826
 ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 01/14/2021
-ms.author: alsin
-ms.openlocfilehash: 7acca746acf17a6ef6dd837907a159cddb20be10
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: 95d2f429c1ecb308d65aa01be0a6f3fa226b6168
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113004199"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458172"
 ---
 # <a name="troubleshoot-common-automanage-onboarding-errors"></a>일반적인 Automanage 온보딩 오류 문제 해결
 Automanage에서 컴퓨터를 서비스에 온보딩하지 못할 수 있습니다. 이 문서에서는 배포 실패 문제를 해결하는 방법, 배포가 실패할 수 있는 몇 가지 일반적인 이유, 잠재적인 완화 단계를 설명합니다.

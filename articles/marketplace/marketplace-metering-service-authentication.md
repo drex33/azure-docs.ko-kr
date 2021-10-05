@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/01/2021
-author: mingshen-ms
-ms.author: mingshen
-ms.openlocfilehash: fe2439a18d97d5d8eb970796c0389a9c6b96bd23
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
-ms.translationtype: HT
+author: saasguide
+ms.author: souchak
+ms.openlocfilehash: 93c9f1f3b2d02ad6737e7323bd2227ffcd8580ca
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542980"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457085"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Marketplace 계량 서비스 인증 전략
 

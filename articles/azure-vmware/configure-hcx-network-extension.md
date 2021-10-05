@@ -1,14 +1,14 @@
 ---
 title: HCX 네트워크 확장 만들기
-description: 온-프레미스 환경에서 Azure VMware 솔루션으로 네트워크를 확장 하는 방법을 알아봅니다.
+description: 온-프레미스 환경에서 Azure VMware Solution 모든 네트워크를 확장하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 09/07/2021
-ms.openlocfilehash: fd58285ab7e2999c758e818020e39799a19f6c53
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 81e984975712e76033102c030093fc94abb2796f
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124838682"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129456198"
 ---
 # <a name="create-a-hcx-network-extension"></a>HCX 네트워크 확장 만들기
 
@@ -30,4 +30,8 @@ ms.locfileid: "124838682"
 
    :::image type="content" source="media/tutorial-vmware-hcx/extension-complete.png" alt-text="[확장 완료] 상태를 보여주는 스크린샷":::
 
+## <a name="next-steps"></a>다음 단계
 
+이제 HCX 네트워크 확장을 구성했으므로 다음을 알아볼 수도 있습니다.
+
+- [VMware HCX MON(Mobility Optimized Networking) 지침](vmware-hcx-mon-guidance.md)

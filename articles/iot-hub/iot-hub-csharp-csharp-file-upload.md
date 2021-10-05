@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/24/2021
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: 18055232714914456ec2db51891edc70ac89057e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 91637d6f508eb198345add5ad40fed52a67ec952
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124779638"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457718"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>IoT Hub를 사용하여 디바이스에서 클라우드로 파일 업로드(.NET)
 
@@ -59,7 +59,7 @@ ms.locfileid: "124779638"
     dotnet --version
     ```
 
-* [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)에서 Azure IoT C# 샘플을 다운로드하고 ZIP 보관 파일을 추출합니다.
+* [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip)에서 Azure IoT C# 샘플을 다운로드하고 ZIP 보관 파일을 추출합니다.
 
 * 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 문서의 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 
@@ -77,7 +77,7 @@ ms.locfileid: "124779638"
 
 이 문서에서는 이전에 디바이스 앱으로서 다운로드한 Azure IoT C# 샘플 리포지토리에 있는 샘플을 사용합니다. Visual Studio, Visual Studio Code 또는 원하는 텍스트 편집기를 사용하여 아래 파일을 열 수 있습니다.  
 
-샘플은 Azure IoT C# 샘플을 추출한 폴더의 **azure-iot-samples-csharp-master\iot-hub\Samples\device\FileUploadSample** 에 있습니다.
+샘플은 Azure IoT C# 샘플을 추출한 폴더 아래의 **azure-iot-samples-csharp-main\iot-hub\Samples\device\FileUploadSample에** 있습니다.
 
 **FileUpLoadSample.cs** 에 있는 코드를 검사합니다. 이 파일에는 기본 샘플 논리가 포함되어 있습니다. 생성된 IoT Hub 디바이스 클라이언트는 디바이스의 파일을 업로드하는 표준 3단계 절차를 따릅니다.
 
@@ -225,7 +225,7 @@ ms.locfileid: "124779638"
 
 
 
-1. 디바이스 앱을 실행하여 Azure Storage에 파일을 업로드합니다. Azure IoT C# 샘플을 확장한 폴더에서 새 명령 프롬프트를 열고 폴더를 **azure-iot-samples-csharp-master\iot-hub\Samples\device\FileUploadSample** 로 변경합니다. 다음 명령을 실행합니다. 두 번째 명령의 `{Your device connection string}` 자리 표시자 값을 이전에 [IoT 허브에서 새 디바이스 등록](#register-a-new-device-in-the-iot-hub)에서 복사한 디바이스 연결 문자열로 바꿉니다.
+1. 디바이스 앱을 실행하여 Azure Storage에 파일을 업로드합니다. 새 명령 프롬프트를 열고 폴더를 Azure IoT C# 샘플을 확장한 폴더 아래의 **azure-iot-samples-csharp-main\iot-hub\Samples\device\FileUploadSample로** 변경합니다. 다음 명령을 실행합니다. 두 번째 명령의 `{Your device connection string}` 자리 표시자 값을 이전에 [IoT 허브에서 새 디바이스 등록](#register-a-new-device-in-the-iot-hub)에서 복사한 디바이스 연결 문자열로 바꿉니다.
 
     ```cmd/sh
     dotnet restore

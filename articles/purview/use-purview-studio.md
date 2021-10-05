@@ -6,12 +6,12 @@ ms.author: nayenama
 ms.service: purview
 ms.topic: conceptual
 ms.date: 09/27/2021
-ms.openlocfilehash: 8c2628922391f3b8f6570c011dbc2220b1e7f815
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 2e3bcd7e51226f437f42f03fa43b144bee434f33
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129212864"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129456141"
 ---
 # <a name="use-purview-studio"></a>Purview Studio 사용
 
@@ -59,7 +59,7 @@ ms.locfileid: "129212864"
    > Azure 부서의 범위 역할에 대 한 자세한 내용은 [Azure 부서의 범위의 Access control](catalog-permissions.md)을 참조 하세요.
 
 5. 왼쪽 탐색 모음을 사용하여 애플리케이션의 기본 페이지를 찾을 수 있습니다.   
-6. **최근에 액세스한 항목** 탭에는 최근에 액세스한 데이터 자산 목록이 표시됩니다. 자산 액세스에 관한 자세한 내용은 [Data Catalog 검색](how-to-search-catalog.md) 및 [자산 유형별 찾아보기](how-to-browse-catalog.md#browse-experience)를 참조하세요.  **내 항목** 탭은 로그온한 사용자가 소유한 데이터 자산 목록입니다.
+6. **최근에 액세스한 항목** 탭에는 최근에 액세스한 데이터 자산 목록이 표시됩니다. 자산 액세스에 관한 자세한 내용은 [Data Catalog 검색](how-to-search-catalog.md) 및 [자산 유형별 찾아보기](how-to-browse-catalog.md)를 참조하세요.  **내 항목** 탭은 로그온한 사용자가 소유한 데이터 자산 목록입니다.
 7. **링크** 에는 지역 상태, 설명서, 가격 책정, 개요 및 부서의 범위 상태에 대 한 링크가 포함 되어 있습니다.
 8. 위쪽 탐색 모음에는 릴리스 정보/업데이트, Purview 계정 변경, 알림, 도움말, 피드백 섹션에 관한 정보가 포함됩니다.
 

@@ -4,14 +4,14 @@ description: 상업용 마켓플레이스에서 Azure 애플리케이션에 대�
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 04/12/2021
+ms.date: 10/04/2021
 ms.custom: devx-track-terraform, devx-track-azurepowershell
-ms.openlocfilehash: 9536002cb5c3e30f32479b74e761d7128090af26
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 4c6eaf47035d78a283b4e27bf86e1550ad7279d1
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528436"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457053"
 ---
 # <a name="azure-customer-usage-attribution"></a>Azure 고객 사용량 특성
 
@@ -263,7 +263,7 @@ provider "azurerm" {
 Microsoft 파트너 기술 컨설턴트로부터 요구 사항의 범위를 확인하는 전화 약속을 잡기 위한 연락을 받게 됩니다.
 
 ## <a name="report"></a>보고서
-현재 ISV 파트너의 경우 고객 사용량 특성을 통해 추적되는 Azure 사용량에 대한 보고를 사용할 수 없습니다. 고객 사용량 특성을 다루는 상업용 마켓플레이스 프로그램에 보고 기능을 추가하는 것은 2021년 하반기 목표입니다.
+현재 ISV 파트너의 경우 고객 사용량 특성을 통해 추적되는 Azure 사용량에 대한 보고를 사용할 수 없습니다. 고객 사용 특성을 다루는 상용 Marketplace 프로그램에 보고 기능을 추가 하는 것은 2022의 두 번째 절반을 대상으로 합니다.
 
 ## <a name="faq"></a>FAQ
 

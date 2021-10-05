@@ -11,12 +11,12 @@ ms.custom:
 - mqtt
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-ms.openlocfilehash: 823cb1ae9afb6af8b8ed0446e58930fa62ee7f07
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: e8bfc95d80aa58b9781258c1b87902c2e8d0c37f
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536347"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458589"
 ---
 # <a name="azure-iot-hub-sdks"></a>Azure IoT Hub SDK
 
@@ -41,7 +41,7 @@ Azure IoT 서비스 SDK에는 디바이스와 보안을 관리하기 위해 IoT 
 | 플랫폼  | 패키지 | 코드 리포지토리 | 샘플 |  참조 |
 |---|---|---|---|---|
 | .NET | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices ) | [GitHub](https://github.com/Azure/azure-iot-sdk-csharp) | [샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp) | [참조](/dotnet/api/microsoft.azure.devices) |
-| Java | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-service-client) | [GitHub](https://github.com/Azure/azure-iot-sdk-java) | [샘플](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples/pnp-service-sample) | [참조](/java/api/com.microsoft.azure.sdk.iot.service) |
+| Java | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-service-client) | [GitHub](https://github.com/Azure/azure-iot-sdk-java) | [샘플](https://github.com/Azure/azure-iot-sdk-java/tree/main/service/iot-service-samples/pnp-service-sample) | [참조](/java/api/com.microsoft.azure.sdk.iot.service) |
 | 노드 | [npm](https://www.npmjs.com/package/azure-iothub) | [GitHub](https://github.com/Azure/azure-iot-sdk-node) | [샘플](https://github.com/Azure/azure-iot-sdk-node/tree/master/service/samples) | [참조](/javascript/api/azure-iothub/) |
 | Python | [pip](https://pypi.org/project/azure-iot-hub) | [GitHub](https://github.com/Azure/azure-iot-sdk-python) | [샘플](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-hub/samples) | [참조](/python/api/azure-iot-hub) |
 | Node.js | [npm](https://www.npmjs.com/package/azure-iot-common) | [GitHub](https://github.com/Azure/azure-iot-sdk-node) | [샘플](https://github.com/Azure/azure-iot-sdk-node/tree/master/service/samples/javascript) | [참조](/javascript/api/azure-iothub/) |
@@ -59,7 +59,7 @@ iOS용 Azure IoT Hub 서비스 SDK:
 | -----|-----|-----|-----|
 | .NET|[디바이스 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Client/), [서비스 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) |[GitHub](https://github.com/Azure/azure-iot-sdk-csharp/)|[참조](/dotnet/api/microsoft.azure.devices.provisioning.client) |
 | C|[apt-get, MBED, Arduino IDE 또는 iOS](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md#packages-and-libraries)|[GitHub](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning\_client)|[참조](/azure/iot-hub/iot-c-sdk-ref/) |
-| Java|[Maven](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-service-sdk)|[GitHub](https://github.com/Azure/azure-iot-sdk-java/blob/master/provisioning)|[참조](/java/api/com.microsoft.azure.sdk.iot.provisioning.device) |
+| Java|[Maven](https://github.com/Azure/azure-iot-sdk-java/blob/main/doc/java-devbox-setup.md#for-the-service-sdk)|[GitHub](https://github.com/Azure/azure-iot-sdk-java/blob/main/provisioning)|[참조](/java/api/com.microsoft.azure.sdk.iot.provisioning.device) |
 | Node.js|[디바이스 SDK](https://badge.fury.io/js/azure-iot-provisioning-device), [서비스 SDK](https://badge.fury.io/js/azure-iot-provisioning-service) |[GitHub](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning)|[참조](/javascript/api/overview/azure/iothubdeviceprovisioning) |
 | Python|[디바이스 SDK](https://pypi.org/project/azure-iot-device/), [서비스 SDK](https://pypi.org/project/azure-iothub-provisioningserviceclient/)|[GitHub](https://github.com/Azure/azure-iot-sdk-python)|[디바이스 참조](/python/api/azure-iot-device/azure.iot.device.provisioningdeviceclient), [서비스 참조](/python/api/azure-mgmt-iothubprovisioningservices) |
 

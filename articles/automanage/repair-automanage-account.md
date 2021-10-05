@@ -1,20 +1,18 @@
 ---
 title: 손상된 Azure Automanage 계정 복구
 description: Automanage 계정을 포함하는 구독을 최근에 새 테넌트로 이동한 경우 다시 구성해야 합니다. 이 문서에서는 다음을 수행하는 방법을 알아봅니다.
-author: asinn826
 ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.author: alsin
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e6bf5404a33e0b4e57c2ff8d82d8791eda3d0f06
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
-ms.translationtype: HT
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 2ce8bc5c26eb99ed19578a036a4569829bc44879
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107834195"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458305"
 ---
 # <a name="repair-an-automanage-account"></a>Automanage 계정 복구하기
 [Azure Automanage 계정](./automanage-virtual-machines.md#automanage-account)은 자동화된 작업이 수행되는 ID 또는 보안 컨텍스트입니다. Automanage 계정을 포함하는 구독을 최근에 새 테넌트로 이동한 경우 계정을 다시 구성해야 합니다. 다시 구성하려면 ID 유형을 다시 설정하고 계정에 적절한 역할을 할당해야 합니다.

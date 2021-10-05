@@ -1,18 +1,16 @@
 ---
 title: Azure의 GPU 컴퓨팅 워크로드 마이그레이션 가이드
 description: NC, ND, NCv2 시리즈 마이그레이션 가이드입니다.
-author: iafinder
 ms.service: virtual-machines
 ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 08/15/2020
-ms.author: iafinder
-ms.openlocfilehash: 574118d9bd8c400eccb48ed551d6059c0dfc7bf2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1f148ad07137f6384a9752d2321836601a6bd996
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128551684"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458778"
 ---
 # <a name="migration-guide-for-gpu-compute-workloads-in-azure"></a>Azure의 GPU 컴퓨팅 워크로드 마이그레이션 가이드
 
@@ -30,7 +28,7 @@ Azure는 고객이 GPU 아키텍처 고려 사항, 상호 연결, TCO, 솔루션
 
 동시에 GPU 가속은 새롭고 빠르게 진화하는 영역입니다.
 
-따라서이 제품 영역에 대 한 모든 지침은 진정한 1 크기에 적합 하지 않습니다. 마이그레이션은 클러스터 된 배포 모델에서 단일 용량의 8 GPU VM으로 이동 하는 것과 같은 작업을 수행 하는 것과 같은 작업을 수행 하 고, 축소 된 전체 자릿수 데이터 형식을 활용 하 고, 다중 인스턴스 GPU와 같은 기능을 채택 하는 등의 작업을 수행 하는 것과 같은 작업
+따라서 이 제품 영역에 적합한 진정한 지침은 없으며, 마이그레이션은 클러스터형 배포 모델에서 단일 대형 8-GPU VM으로 이동하거나, 축소된 전체 자릿수 데이터 형식을 활용하고, 다중 인스턴스 GPU와 같은 기능을 채택하는 등 워크로드에 대한 잠재적으로 큰 변화를 다시 평가할 수 있는 완벽한 시간입니다.
 
 TensorCore 추가와 같은 기능이 중요도의 순서에 따라 성능을 높일 수 있는 이미 극적인 세대별 GPU 성능 향상의 컨텍스트에서 볼 때 이러한 종류의 고려 사항은 워크로드에 따라 크게 다릅니다.
 
@@ -112,7 +110,7 @@ NC v2 시리즈 가상 머신은 원래 AI 및 Deep Learning 워크로드용으�
 
 #### <a name="resize-the-current-virtual-machine"></a>현재 가상 머신 크기 조정
 
-[가상 컴퓨터의 크기를 조정할](resize-vm.md)수 있습니다. 
+가상 [머신 의 크기를 변경할](resize-vm.md)수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

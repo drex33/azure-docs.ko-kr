@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 06/10/2020
-author: mingshen-ms
-ms.author: mingshen
-ms.openlocfilehash: 0a5ad3a5fb542476eb4cdeb1ffe67907a7209d0c
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
-ms.translationtype: HT
+author: saasguide
+ms.author: souchak
+ms.openlocfilehash: 194d9465d43de33f1f05e9587d2e166e9d2831f1
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112232560"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129455136"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>상업용 Marketplace의 SaaS 처리 API 버전 2
 

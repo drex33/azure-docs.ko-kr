@@ -6,13 +6,13 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/06/2021
-ms.openlocfilehash: 03d29f6f6265c214427e208de4bc9177659bb473
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
-ms.translationtype: HT
+ms.date: 10/04/2021
+ms.openlocfilehash: 57ff7e6dd0d87115e171123d4e268edadb56b227
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122823906"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129456369"
 ---
 # <a name="tips-for-better-performance-in-azure-cognitive-search"></a>Azure Cognitive Search의 성능 향상을 위한 팁
 
@@ -140,3 +140,4 @@ search.in(userid, '123,234,345,456,567', ',')
 + [성능 분석](search-performance-analysis.md)
 + [서비스 계층 선택](search-sku-tier.md)
 + [용량(복제본 및 파티션) 추가](search-capacity-planning.md#adjust-capacity)
++ [사례 연구: 복잡 한 AI 시나리오를 지원 하기 위해 Cognitive Search 사용](https://techcommunity.microsoft.com/t5/azure-ai/case-study-effectively-using-cognitive-search-to-support-complex/ba-p/2804078)

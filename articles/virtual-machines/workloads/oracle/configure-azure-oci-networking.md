@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: article
 ms.date: 03/16/2020
 ms.author: rogardle
-ms.openlocfilehash: 9c785be73e424d4669b24600c353a14127e9279a
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: c8c35abc680a37c3226872698d85be8853dd892d
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696026"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129456407"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Azure 및 Oracle Cloud Infrastructure 간 직접 상호 연결 설정  
 
@@ -32,6 +32,10 @@ ms.locfileid: "122696026"
 다음 이미지는 상호 연결에 대한 간략한 개요를 보여줍니다.
 
 ![클라우드 간 네트워크 연결](https://user-images.githubusercontent.com/37556655/115093592-bced0180-9ecf-11eb-976d-9d4c7a1be2a8.png)
+
+> [!NOTE]
+> 다이어그램에 표시 되는 Express 경로 연결은 일반적인 [express 경로 회로](../../../expressroute/expressroute-introduction.md) 이며 Global Reach와 같은 모든 fuctionalities을 지원 합니다.
+> 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

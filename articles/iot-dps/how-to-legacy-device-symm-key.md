@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: lizross
-ms.openlocfilehash: 1c8a4359b706d98c4269d9d728adc99bc7fc3125
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: c2330203ce2617bf7cc42b8c7549d11a73185f12
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129275205"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458248"
 ---
 # <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>대칭 키 등록 그룹을 사용하여 디바이스를 프로비전하는 방법
 
-이 문서에서는 등록 그룹을 사용하여 시뮬레이션된 여러 대칭 키 디바이스를 단일 IoT Hub 안전하게 프로비전하는 방법을 보여줍니다.
+이 문서에서는 등록 그룹을 사용 하 여 여러 시뮬레이션 된 대칭 키 장치를 단일 IoT Hub에 안전 하 게 프로 비전 하는 방법을 보여 줍니다.
 
 일부 디바이스에는 디바이스를 안전하게 식별하는 데 사용할 수 있는 인증서, TPM 또는 다른 보안 기능이 없을 수 있습니다. 디바이스 프로비저닝 서비스는 [대칭 키 증명](concepts-symmetric-key-attestation.md)을 포함합니다. MAC 주소 또는 일련 번호와 같은 고유 정보 기반 디바이스를 식별하는 데 대칭 키 증명을 사용할 수 있습니다.
 
@@ -28,9 +28,9 @@ ms.locfileid: "129275205"
 이 문서는 Windows 기반 워크스테이션에 적용됩니다. 그러나 Linux에서 절차를 수행할 수 있습니다. Linux 예제는 [다중 테넌트를 지원하기 위해 장치를 프로비전하는 방법](how-to-provision-multitenant.md)을 참조하세요.
 
 > [!NOTE]
-> 이 문서에서 사용되는 샘플은 C 언어로 작성됩니다. 또한 [C# 디바이스 프로비저닝 대칭 키 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample)을 사용할 수도 있습니다. 이 샘플을 사용하려면 [azure-iot-samples-csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) 리포지토리를 다운로드하거나 복제하고 샘플 코드의 인라인 지침을 따르세요. 이 문서의 지침을 따라 포털을 사용하여 대칭 키 등록 그룹을 만들고 샘플 실행에 필요한 ID 범위 및 등록 그룹 기본 및 보조 키를 찾을 수 있습니다. 또한 샘플을 사용하여 개별 등록을 만들 수도 있습니다.
+> 이 문서에서 사용되는 샘플은 C 언어로 작성됩니다. 또한 [C# 디바이스 프로비저닝 대칭 키 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/main/provisioning/Samples/device/SymmetricKeySample)을 사용할 수도 있습니다. 이 샘플을 사용하려면 [azure-iot-samples-csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) 리포지토리를 다운로드하거나 복제하고 샘플 코드의 인라인 지침을 따르세요. 이 문서의 지침을 따라 포털을 사용하여 대칭 키 등록 그룹을 만들고 샘플 실행에 필요한 ID 범위 및 등록 그룹 기본 및 보조 키를 찾을 수 있습니다. 또한 샘플을 사용하여 개별 등록을 만들 수도 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md) 빠른 시작을 완료해야 합니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "129275205"
 
 [대칭 키 증명](concepts-symmetric-key-attestation.md)을 사용하는 등록 그룹은 디바이스 프로비저닝 서비스를 사용하여 만들어집니다. 등록 그룹은 그룹 마스터 키를 포함합니다. 각 디바이스에 대한 고유한 디바이스 키를 생성하기 위해 각 고유 등록 ID를 해시하는 데 마스터 키가 사용됩니다. 디바이스는 해당 고유한 등록 ID로 파생된 디바이스 키를 사용하여 디바이스 프로비저닝 서비스로 증명되고 IoT 허브에 할당됩니다.
 
-이 문서에 설명된 디바이스 코드는 [빠른 시작: 시뮬레이션된 대칭 키 디바이스 프로비전과](quick-create-simulated-device-symm-key.md)동일한 패턴을 따릅니다. 코드에서는 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)의 샘플을 사용하여 디바이스를 시뮬레이션합니다. 시뮬레이션된 디바이스는 빠른 시작에서 설명된 것처럼 개별 등록 대신 등록 그룹으로 증명됩니다.
+이 문서에서 설명 하는 장치 코드는 [퀵 스타트: 시뮬레이션 된 대칭 키 장치 프로 비전](quick-create-simulated-device-symm-key.md)과 동일한 패턴을 따릅니다. 코드에서는 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)의 샘플을 사용하여 디바이스를 시뮬레이션합니다. 시뮬레이션된 디바이스는 빠른 시작에서 설명된 것처럼 개별 등록 대신 등록 그룹으로 증명됩니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -222,7 +222,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 이 샘플 코드는 프로비저닝 요청을 Device Provisioning Service 인스턴스에 보내는 디바이스 부팅 시퀀스를 시뮬레이트합니다. 부팅 시퀀스를 통해 디바이스가 인식되고 등록 그룹에서 구성한 IoT 허브에 할당됩니다. 이는 등록 그룹을 사용하여 프로비전되는 각 디바이스에 대해 완료됩니다.
 
-1. Azure Portal에서 장치 프로 비전 서비스에 대 한 **개요** 탭을 선택 하 고 **_ID 범위_** 값을 적어 둡니다.
+1. Azure Portal Device Provisioning Service에 대한 **개요** 탭을 선택하고 ID **_범위_** 값을 적어 둡다.
 
     ![포털 블레이드에서 디바이스 프로비저닝 서비스 엔드포인트 정보 추출](./media/quick-create-simulated-device-x509/copy-id-scope.png) 
 
@@ -305,7 +305,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 > [IoT Hub 디바이스 다시 프로비전 개념](concepts-device-reprovision.md)
 
 > [!div class="nextstepaction"]
-> [빠른 시작: 시뮬레이션 된 대칭 키 장치 프로 비전](quick-create-simulated-device-symm-key.md)
+> [빠른 시작: 시뮬레이션된 대칭 키 디바이스 프로비전](quick-create-simulated-device-symm-key.md)
 
 * 프로비전 해제에 대한 자세한 내용은 다음을 참조하세요.
 

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 10/01/2021
-ms.openlocfilehash: 098f955894762908d802862fe91b5cfa9e2595ec
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: 9c5eea702e740c1a437dc96b84a186036e1b1958
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129401886"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458457"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Azure Database for PostgreSQL - 하이퍼스케일(Citus)의 PostgreSQL 확장
 
@@ -42,7 +42,7 @@ Azure Database for PostgreSQL - 하이퍼스케일(Citus)은 현재 여기에 �
 > [!div class="mx-tableFixed"]
 > | **내선 번호** | **설명** | **PG 11** | **PG 12** | **PG 13** | **PG 14** |
 > |---|---|---|---|---|
-> | [citus](https://github.com/citusdata/citus) | Citus 분산 데이터베이스입니다. | 9.5-2 | 10.0-3 | 10.1-1 | 10.2-2 |
+> | [citus](https://github.com/citusdata/citus) | Citus 분산 데이터베이스입니다. | 9.5 | 10.0.5 | 10.2.1 | 10.2.1 |
 
 ### <a name="data-types-extensions"></a>데이터 형식 확장
 

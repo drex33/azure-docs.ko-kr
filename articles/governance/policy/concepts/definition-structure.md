@@ -3,12 +3,12 @@ title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용하여 조직에서 Azure 리소스에 대한 규칙을 설정하는 방법을 설명합니다.
 ms.date: 09/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: e285ca8c47d73f8b9a23c005be8c8b88d38db879
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 7665d2b3855765c0d3c60cdb9c7181720835a963
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123436107"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129456977"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -105,7 +105,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 
 다음 리소스 공급자 모드는 완전히 지원됩니다.
 
-- `Microsoft.Kubernetes.Data`는 Azure 온/오프 Kubernetes 클러스터를 관리하는 데 사용됩니다. 해당 리소스 공급자 모드를 사용하는 정의 파일은 _감사_, _거부_ 및 _사용 안 함_ 효과를 사용합니다. 이 모드는 사용자 지정 정의를 _공개 미리 보기로_ 지원 합니다. 기존 opa ( [Open Policy Agent](https://www.openpolicyagent.org/) ) 게이트 키퍼 v3 [제약 조건 템플릿에서](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates)사용자 지정 정의를 만들려면 [제약 조건 템플릿에서 정책 정의 만들기](../how-to/extension-for-vscode.md) 를 참조 하세요. [EnforceOPAConstraint](./effects.md#enforceopaconstraint) 효과는 _사용되지 않습니다_.
+- `Microsoft.Kubernetes.Data`는 Azure 온/오프 Kubernetes 클러스터를 관리하는 데 사용됩니다. 해당 리소스 공급자 모드를 사용하는 정의 파일은 _감사_, _거부_ 및 _사용 안 함_ 효과를 사용합니다. 이 모드는 사용자 지정 정의를 _공개 미리 보기_ 로 지원합니다. 기존 OPA(Open [Policy Agent)](https://www.openpolicyagent.org/) GateKeeper v3 제약 조건 템플릿에서 사용자 지정 정의를 만들려면 제약 조건 [템플릿에서](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates)정책 [정의 만들기를](../how-to/extension-for-vscode.md) 참조하세요. [EnforceOPAConstraint](./effects.md#enforceopaconstraint) 효과는 _사용되지 않습니다_.
 
 다음 리소스 공급자 모드는 현재 **미리 보기** 로 지원됩니다.
 
@@ -113,7 +113,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 - `Microsoft.KeyVault.Data`는 [Azure Key Vault](../../../key-vault/general/overview.md)에서 자격 증명 모음 및 인증서를 관리하는 데 사용됩니다. 이러한 정책 정의에 대한 자세한 내용은 [Azure Key Vault와 Azure Policy 통합](../../../key-vault/general/azure-policy.md)을 참조하세요.
 
 > [!NOTE]
-> 리소스 공급자 모드는 기본 제공 정책 정의만 지원 하 고 명시적으로 명시 되지 않은 경우에는 [예외](./exemption-structure.md) 를 지원 하지 않습니다.
+> 리소스 공급자 모드는 기본 제공 정책 정의만 지원하며 명시적으로 명시되지 않은 경우 [예외를](./exemption-structure.md) 지원하지 않습니다.
 
 ## <a name="metadata"></a>메타데이터
 
@@ -188,7 +188,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 
 ### <a name="strongtype"></a>strongType
 
-`metadata` 속성 안에 **strongType** 을 사용하여 Azure Portal 내에서 다중 선택 옵션 목록을 제공할 수 있습니다. **strongType** 은 지원되는 리소스 유형이거나 허용되는 값일 수 있습니다. _리소스 유형_ 이 **strongType** 에 유효한지 여부를 확인하려면 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)를 사용합니다. _리소스 종류_ **strongType** 의 형식은 `<Resource Provider>/<Resource Type>`입니다. 예들 들어 `Microsoft.Network/virtualNetworks/subnets`입니다.
+`metadata` 속성 안에 **strongType** 을 사용하여 Azure Portal 내에서 다중 선택 옵션 목록을 제공할 수 있습니다. **strongType** 은 지원되는 리소스 유형이거나 허용되는 값일 수 있습니다. _리소스 유형_ 이 **strongType** 에 유효한지 여부를 확인하려면 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)를 사용합니다. _리소스 종류_ **strongType** 의 형식은 `<Resource Provider>/<Resource Type>`입니다. 예: `Microsoft.Network/virtualNetworks/subnets`.
 
 **Get-AzResourceProvider** 에서 반환하지 않는 일부 리소스 유형이 지원됩니다. 이러한 형식은 다음과 같습니다.
 
@@ -508,9 +508,9 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 
 **필드 수 사용량**
 
-- `current(<the array alias defined in count.field>)`. 예들 들어 `current('Microsoft.Test/resource/enumeratedArray[*]')`입니다.
+- `current(<the array alias defined in count.field>)`. 예: `current('Microsoft.Test/resource/enumeratedArray[*]')`.
 - `current()`. **field count** 식이 다른 **count** 식의 자식이 아닌 경우에만 허용됩니다. 위와 동일한 값을 반환합니다.
-- `current(<alias of a property of the array member>)`. 예들 들어 `current('Microsoft.Test/resource/enumeratedArray[*].property')`입니다.
+- `current(<alias of a property of the array member>)`. 예: `current('Microsoft.Test/resource/enumeratedArray[*].property')`.
 
 #### <a name="field-count-examples"></a>필드 수 예제
 
@@ -774,6 +774,8 @@ Azure Policy는 다음과 같은 유형의 효과를 지원합니다.
 각 효과, 평가 순서, 속성 및 예제에 대한 자세한 내용은 [Azure Policy 효과 이해](effects.md)를 참조하세요.
 
 ### <a name="policy-functions"></a>정책 함수
+
+함수를 사용하여 정책 규칙에 추가 논리를 도입할 수 있습니다. 정책 정의의 [정책 규칙](#policy-rule) 내에서 그리고 [이니셔티브의 정책 정의에 할당된 매개 변수 값 내에서 확인됩니다.](initiative-definition-structure.md#passing-a-parameter-value-to-a-policy-definition)
 
 다음 함수와 사용자 정의 함수를 제외하고 모든 [Resource Manager 템플릿 함수](../../../azure-resource-manager/templates/template-functions.md)를 정책 규칙 내에서 사용할 수 있습니다.
 

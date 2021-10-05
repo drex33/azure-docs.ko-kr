@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.custom: mqtt, devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 7b64236c27063ad7aab2e22cd2d6fbf9bc534714
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: c11c15c5dd206a201c9f535bb49b571c5807514e
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529033"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458627"
 ---
 # <a name="get-started-with-device-management-java"></a>디바이스 관리 시작(Java)
 
@@ -261,7 +261,7 @@ ms.locfileid: "122529033"
     > [!NOTE]
     > [Maven 검색](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)을 사용하여 **iot-device-client** 의 최신 버전을 확인할 수 있습니다.
 
-4. **종속성** 노드에 다음 종속성을 추가합니다. 이 종속성은 디바이스 클라이언트 SDK에서 로깅을 구현하는 데 사용하는 Apache [SLF4J](https://www.slf4j.org/) 로깅 외관에 맞게 NOP를 구성합니다. 이 구성은 선택 사항이지만, 건너뛰면 앱을 실행할 때 콘솔에 경고가 표시될 수 있습니다. 디바이스 클라이언트 SDK에 로그인하는 방법에 대한 자세한 내용은 *Java용 Azure IoT 디바이스 SDK 샘플* 추가 정보 파일에서 [로깅](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging)을 참조하세요.
+4. **종속성** 노드에 다음 종속성을 추가합니다. 이 종속성은 디바이스 클라이언트 SDK에서 로깅을 구현하는 데 사용하는 Apache [SLF4J](https://www.slf4j.org/) 로깅 외관에 맞게 NOP를 구성합니다. 이 구성은 선택 사항이지만, 건너뛰면 앱을 실행할 때 콘솔에 경고가 표시될 수 있습니다. 디바이스 클라이언트 SDK에 로그인하는 방법에 대한 자세한 내용은 *Java용 Azure IoT 디바이스 SDK 샘플* 추가 정보 파일에서 [로깅](https://github.com/Azure/azure-iot-sdk-java/blob/main/device/iot-device-samples/readme.md#logging)을 참조하세요.
 
     ```xml
     <dependency>

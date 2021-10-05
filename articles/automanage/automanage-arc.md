@@ -1,20 +1,18 @@
 ---
 title: Arc 지원 서버용 Azure Automanage
 description: Arc 지원 서버용 Azure Automanage에 관해 알아봅니다.
-author: asinn826
 ms.service: virtual-machines
 ms.subservice: automanage
 ms.collection: linux
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 06/24/2021
-ms.author: alsin
-ms.openlocfilehash: 990cca45c41eef57f1971c866cdbe1e9efd62f6c
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: ce12689548884d4c57363851f7de99b5fb067ef6
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772612"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129456236"
 ---
 # <a name="azure-automanage-for-machines-best-practices---arc-enabled-servers"></a>머신용 Azure Automanage 모범 사례 - Arc 지원 서버
 

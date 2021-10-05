@@ -1,39 +1,39 @@
 ---
-title: Azure Monitor 리소스 로그 지원 서비스 및 범주
-description: Azure Monitor 참조. Azure 리소스 로그에 대해 지원되는 서비스 및 이벤트 스키마를 이해합니다.
+title: Azure Monitor 리소스 로그에 대해 지원 되는 범주
+description: Azure Monitor 리소스 로그에 대해 지원 되는 서비스 및 이벤트 스키마를 이해 합니다.
 ms.topic: reference
 ms.date: 09/10/2021
-ms.openlocfilehash: c92f20d4a757ef69d334345619bdc2d585648d5d
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 9c41c714d2913247a6b0d00e3b242da9c59e038e
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129211255"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457756"
 ---
-# <a name="supported-categories-for-azure-resource-logs"></a>Azure 리소스 로그에 대해 지원되는 범주
+# <a name="supported-categories-for-azure-monitor-resource-logs"></a>Azure Monitor 리소스 로그에 대해 지원 되는 범주
 
 > [!NOTE]
-> 이 목록은 대부분 자동으로 생성됩니다. GitHub를 통해 수정된 내용이 경고 없이 적용될 수 있습니다. 영구적으로 업데이트하는 방법에 대한 자세한 내용은 이 문서의 작성자에게 문의하세요.
+> 이 목록은 대부분 자동으로 생성됩니다. GitHub를 통해이 목록에 대 한 수정 내용은 경고 없이 기록 될 수 있습니다. 영구적으로 업데이트하는 방법에 대한 자세한 내용은 이 문서의 작성자에게 문의하세요.
 
-[Azure Monitor 리소스 로그](../essentials/platform-logs-overview.md)는 해당 서비스 또는 리소스의 작업을 설명하는 Azure 서비스에서 내보낸 로그입니다. Azure Monitor를 통해 사용할 수 있는 모든 리소스 로그는 최상위 공통 스키마를 공유하며, 각 서비스가 자체 이벤트에 대한 고유한 속성을 유연하게 내보낼 수 있습니다.
+[Azure Monitor 리소스 로그](../essentials/platform-logs-overview.md)는 해당 서비스 또는 리소스의 작업을 설명하는 Azure 서비스에서 내보낸 로그입니다. Azure Monitor를 통해 사용할 수 있는 모든 리소스 로그는 공통 최상위 스키마를 공유 합니다. 각 서비스에는 고유한 이벤트의 고유한 속성을 내보낼 수 있는 유연성이 있습니다.
 
 이전에는 리소스 로그를 진단 로그라고 했습니다. Azure Monitor에서 수집하는 로그 유형이 Azure 리소스 이상을 포함하도록 전환하면서 2019년 10월에 이름이 변경되었습니다.
 
-리소스 종류(`resourceId` 속성에 제공) 및 `category`가 조합되어 스키마를 고유하게 식별합니다. 이때 다른 로그 범주에 대해 추가된 서비스별 필드를 포함하는 모든 리소스 로그에 대한 공통 스키마가 있습니다. 자세한 내용은 [Azure 리소스 로그에 대한 공통 및 서비스별 스키마](/azure/azure-monitor/essentials/resource-logs-schema)를 참조하세요.
+리소스 종류 (속성에서 사용 가능 `resourceId` )와 범주에서 스키마를 고유 하 게 식별 하는 조합입니다. 서비스 관련 필드를 포함 하는 모든 리소스 로그에 대 한 공통 스키마가 있으며, 다른 로그 범주에 대해 추가 되었습니다. 자세한 내용은 [Azure 리소스 로그의 일반 및 서비스별 스키마](/azure/azure-monitor/essentials/resource-logs-schema)를 참조 하세요.
 
 ## <a name="costs"></a>비용
 
-[Azure Monitor Log Analytics](https://azure.microsoft.com/pricing/details/monitor/), [Azure Storage](https://azure.microsoft.com/product-categories/storage/), [이벤트 허브](https://azure.microsoft.com/pricing/details/event-hubs/) 및 Azure Monitor와 직접 통합되는 파트너(예: [Datadog](../../partner-solutions/datadog/overview.md))에는 데이터 수집 및 데이터 저장과 관련된 비용이 있습니다. 이러한 비용을 파악하려면 해당 서비스에 대한 가격 책정 페이지의 이전 링크를 확인하세요. 리소스 로그는 해당 위치에 보낼 수 있는 데이터의 유형 중 하나일 뿐입니다. 
+[Azure Monitor Log Analytics](https://azure.microsoft.com/pricing/details/monitor/), [Azure Storage](https://azure.microsoft.com/product-categories/storage/), [Azure Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/)및 Azure Monitor와 직접 통합 하는 파트너 (예: [Datadog](../../partner-solutions/datadog/overview.md))에는 수집 데이터와 관련 된 비용이 있으며 데이터를 저장 합니다. 이전 문장에 연결 된 가격 책정 페이지를 확인 하 여 해당 서비스에 대 한 비용을 파악 합니다. 리소스 로그는 해당 위치로 전송할 수 있는 데이터의 한 가지 유형입니다. 
 
-또한 리소스 로그의 일부 범주를 해당 위치로 내보내는 데 비용이 발생할 수 있습니다. 내보내기 비용이 포함된 로그는 아래 표에 나열되어 있습니다. 내보내기 가격 책정에 대한 자세한 내용은 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)의 *플랫폼 로그* 섹션을 참조하세요.
+또한 리소스 로그의 일부 범주를 해당 위치로 내보내는 비용이 있을 수 있습니다. 다음 섹션의 표에는 가능한 내보내기 비용이 포함 된 로그가 나열 되어 있습니다. 내보내기 가격에 대 한 자세한 내용은 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에서 **플랫폼 로그** 섹션을 참조 하세요.
 
 ## <a name="supported-log-categories-per-resource-type"></a>각 리소스 유형별 지원되는 로그 범주
 
 다음은 각 리소스 종류에 사용할 수 있는 로그의 유형 목록입니다. 
 
-일부 범주는 특정 리소스 종류만 지원할 수 있습니다. 리소스가 누락된 것으로 생각되는 경우 리소스 관련 설명서를 참조하세요. 예를 들어 일부 유형의 데이터베이스에서는 Microsoft.Sql/servers/databases 범주를 사용할 수 없습니다. 자세한 내용은 [SQL Database 진단 로깅에 대한 정보](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md)를 참조하세요. 
+일부 범주는 특정 유형의 리소스에 대해서만 지원 될 수 있습니다. 리소스가 누락 된 것으로 생각 되는 경우 리소스 관련 설명서를 참조 하세요. 예를 들어 일부 유형의 데이터베이스에서는 Microsoft.Sql/servers/databases 범주를 사용할 수 없습니다. 자세한 내용은 [SQL Database 진단 로깅에 대한 정보](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md)를 참조하세요. 
 
-누락된 내용이 있다고 생각되는 경우 이 문서의 맨 아래에 있는 GitHub 주석을 열 수 있습니다.
+누락 된 내용이 있다고 생각 되는 경우이 문서의 맨 아래에 GitHub 주석을 열 수 있습니다.
 
 
 ## <a name="microsoftaaddomainservices"></a>Microsoft.AAD/DomainServices
@@ -58,15 +58,15 @@ ms.locfileid: "129211255"
 |로그인|로그인|Yes|
 
 
-## <a name="microsoftagfoodplatformfarmbeats"></a>Microsoft.AgFoodPlatform/farmBeats
+## <a name="microsoftagfoodplatformfarmbeats"></a>AgFoodPlatform/farmBeats
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|ApplicationAuditLogs|애플리케이션 감사 로그|Yes|
-|FarmManagementLogs|팜 관리 로그|Yes|
-|FarmOperationLogs|팜 작업 로그|Yes|
-|ProviderAuthLogs|공급자 인증 로그|Yes|
-|SatelliteLogs|위성 로그|Yes|
+|ApplicationAuditLogs|응용 프로그램 감사 로그|예|
+|FarmManagementLogs|팜 관리 로그|예|
+|FarmOperationLogs|팜 작업 로그|예|
+|ProviderAuthLogs|공급자 인증 로그|예|
+|SatelliteLogs|위성 로그|예|
 |WeatherLogs|날씨 로그|Yes|
 
 
@@ -83,7 +83,7 @@ ms.locfileid: "129211255"
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
 |GatewayLogs|ApiManagement 게이트웨이 관련 로그|No|
-|WebSocketConnectionLogs|Websocket 연결과 관련 된 로그|Yes|
+|WebSocketConnectionLogs|Websocket 연결과 관련 된 로그|예|
 
 
 ## <a name="microsoftappconfigurationconfigurationstores"></a>Microsoft.AppConfiguration/configurationStores
@@ -99,7 +99,7 @@ ms.locfileid: "129211255"
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
 |ApplicationConsole|애플리케이션 콘솔|No|
-|IngressLogs|수신 로그|Yes|
+|IngressLogs|수신 로그|예|
 |SystemLogs|시스템 로그|No|
 
 
@@ -117,7 +117,7 @@ ms.locfileid: "129211255"
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|AuditEvent|AuditEvent|Yes|
+|AuditEvent|AuditEvent|예|
 |DscNodeStatus|DscNodeStatus|No|
 |JobLogs|JobLogs|No|
 |JobStreams|JobStreams|No|
@@ -175,14 +175,14 @@ ms.locfileid: "129211255"
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|BotRequest|채널에서 봇으로 요청|No|
+|BotRequest|채널에서 봇으로 요청|예|
 
 
 ## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|ConnectedClientList|연결된 클라이언트 목록|Yes|
+|ConnectedClientList|연결 된 클라이언트 목록|예|
 
 
 ## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft.Cdn/cdnwebapplicationfirewallpolicies
@@ -437,7 +437,7 @@ ms.locfileid: "129211255"
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|자동 확장|자동 조정 로그|Yes|
+|자동 확장|자동 조정 로그|예|
 
 
 ## <a name="microsoftdesktopvirtualizationworkspaces"></a>Microsoft.DesktopVirtualization/workspaces
@@ -588,7 +588,7 @@ ms.locfileid: "129211255"
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
 |AuditLogs|감사 로그|No|
-|DiagnosticLogs|진단 로그|Yes|
+|DiagnosticLogs|진단 로그|예|
 
 
 ## <a name="microsofthealthcareapisworkspacesdicomservices"></a>Microsoft.HealthcareApis/workspaces/dicomservices
@@ -712,11 +712,11 @@ ms.locfileid: "129211255"
 |MediaAccount|미디어 계정 상태|Yes|
 
 
-## <a name="microsoftmediavideoanalyzers"></a>Microsoft. 미디어/비디오 분석기
+## <a name="microsoftmediavideoanalyzers"></a>Microsoft.Media/videoanalyzers
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|PipelineDiagnostics|파이프라인 진단 로그|Yes|
+|PipelineDiagnostics|파이프라인 진단 로그|예|
 |PipelineOperational|파이프라인 작업 로그|Yes|
 
 
@@ -827,14 +827,14 @@ ms.locfileid: "129211255"
 |GatewayDiagnosticLog|게이트웨이 진단 로그|No|
 |IKEDiagnosticLog|IKE 진단 로그|No|
 |RouteDiagnosticLog|경로 진단 로그|No|
-|TunnelDiagnosticLog|터널 진단 로그|No|
+|TunnelDiagnosticLog|터널 진단 로그|예|
 
 
 ## <a name="microsoftnetworkfunctionazuretrafficcollectors"></a>Microsoft NetworkFunction/azureTrafficCollectors
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|ExpressRouteCircuitIpfix|Express 경로 회로 ipfix Flow 레코드|Yes|
+|ExpressRouteCircuitIpfix|Express 경로 회로 ipfix Flow 레코드|예|
 
 
 ## <a name="microsoftnotificationhubsnamespaces"></a>Microsoft.NotificationHubs/namespaces
@@ -878,7 +878,7 @@ ms.locfileid: "129211255"
 |---|---|---|
 |DataSensitivityLogEvent|DataSensitivity|Yes|
 |ScanStatusLogEvent|ScanStatus|No|
-|보안|PurviewAccountAuditEvents|Yes|
+|보안|PurviewAccountAuditEvents|예|
 
 
 ## <a name="microsoftrecoveryservicesvaults"></a>Microsoft.RecoveryServices/Vaults
@@ -916,12 +916,12 @@ ms.locfileid: "129211255"
 |OperationLogs|작업 로그|예|
 
 
-## <a name="microsoftsecurityinsightssettings"></a>microsoft securityinsights/설정
+## <a name="microsoftsecurityinsightssettings"></a>microsoft.securityinsights/settings
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|분석|분석|Yes|
-|DataConnectors|데이터 수집 – 커넥터|Yes|
+|분석|분석|예|
+|DataConnectors|데이터 수집 – 커넥터|예|
 
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
@@ -942,8 +942,8 @@ ms.locfileid: "129211255"
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|ConnectivityLogs|Azure 웹 PubSub 서비스에 대 한 연결 로그입니다.|Yes|
-|HttpRequestLogs|Azure Web PubSub 서비스에 대한 Http 요청 로그입니다.|Yes|
+|ConnectivityLogs|Azure Web PubSub 서비스에 대한 연결 로그.|예|
+|HttpRequestLogs|Azure Web PubSub 서비스에 대한 Http 요청 로그입니다.|예|
 |MessagingLogs|Azure Web PubSub 서비스에 대한 메시징 로그.|Yes|
 
 

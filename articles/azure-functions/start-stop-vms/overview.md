@@ -5,21 +5,18 @@ ms.topic: conceptual
 ms.service: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 06/25/2021
-ms.openlocfilehash: 3e2946bf493da2570106fdb554704ef7f286b7cb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 24872e96333aeb67661c462e54acebc62b32c8aa
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566877"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129455421"
 ---
 # <a name="startstop-vms-v2-preview-overview"></a>VM v2 시작/중지(미리 보기) 개요
 
 VM v2 시작/중지(미리 보기) 기능은 여러 구독에서 Azure VM(가상 머신)을 시작하거나 중지합니다. 사용자 정의 일정에 따라 Azure VM을 시작 또는 중지하고, [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)를 통해 인사이트를 제공하고, [작업 그룹](../../azure-monitor/alerts/action-groups.md)을 사용하여 선택적 알림을 전송합니다. 이 기능은 대부분의 시나리오에서 Azure Resource Manager VM 및 클래식 VM을 관리할 수 있습니다.
 
 이 새 버전의 VM v2 시작/중지(미리 보기)는 VM 비용을 최적화하려는 고객에게 분산된 저렴한 자동화 옵션을 제공합니다. Azure Automation에서 사용할 수 있는 [원래 버전](../../automation/automation-solution-vm-management.md)과 동일한 기능을 모두 제공하지만 Azure에서 최신 기술을 활용하도록 설계되었습니다.
-
-> [!NOTE]
-> 배포 중에 문제가 발생하면 VM v2 시작/중지(미리 보기)를 사용할 때 문제가 발생하거나 관련 질문이 있는 경우 [GitHub](https://github.com/microsoft/startstopv2-deployments/issues)에서 문제를 제출할 수 있습니다. 이 미리 보기 버전에서는 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)에서 Azure 지원 인시던트를 제출할 수 없습니다. 
 
 ## <a name="overview"></a>개요
 

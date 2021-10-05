@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/10/2020
-author: mingshen-ms
-ms.author: mingshen
-ms.openlocfilehash: 1c769cdac870c7384495d41158bd7ad516608575
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+author: saasguide
+ms.author: souchak
+ms.openlocfilehash: 3e2c92d5fed23480f102f1c96631c3a8c9a2e2c8
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128632959"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129456502"
 ---
 # <a name="register-a-saas-application"></a>SaaS 애플리케이션 등록
 
@@ -111,7 +111,7 @@ Azure AD의 기능을 사용하려는 모든 애플리케이션이 먼저 Azure 
 
 | 요소 | Description |
 | ------- | ----------- |
-| `access_token` | 이 요소는 `<access_token>` 모든 SaaS 처리 및 Marketplace 계량 API를 호출할 때 권한 부여 매개 변수로 전달하는 입니다. 보안이 설정된 REST API를 호출할 때 토큰은 호출자를 인증하는 API를 허용하는 "전달자" 토큰으로 `Authorization` 요청 헤더 필드에 포함됩니다. | 
+| `access_token` | 이 요소는 `<access_token>` 모든 SaaS 행 및 마켓플레이스 계량 api를 호출할 때 권한 부여 매개 변수로 전달 되는입니다. 보안이 설정된 REST API를 호출할 때 토큰은 호출자를 인증하는 API를 허용하는 "전달자" 토큰으로 `Authorization` 요청 헤더 필드에 포함됩니다. | 
 | `expires_in` | 액세스 토큰의 발급 시간부터 만료 이전까지 계속 유효한 시간(초)입니다. 발급 시간은 토큰의 `iat` 클레임에서 확인할 수 있습니다. |
 | `expires_on` | 액세스 토큰이 만료되는 시간 범위입니다. 날짜는 "1970-01-01T0:0:0Z UTC"부터 시간(초)으로 표시됩니다(토큰의 `exp` 클레임에 해당함). |
 | `not_before` | 액세스 토큰이 적용되고 허용될 수 있는 시간 범위입니다. 날짜는 "1970-01-01T0:0:0Z UTC"부터 시간(초)으로 표시됩니다(토큰의 `nbf` 클레임에 해당함). |

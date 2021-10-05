@@ -1,19 +1,19 @@
 ---
 title: Red Hat Enterprise Linux의 BYOS(사용자 구독 필요) Azure 이미지 | Microsoft Docs
 description: Azure에서 제공되는 Red Hat Enterprise Linux의 BYOS(사용자 구독 필요) 이미지에 대해 알아봅니다.
-author: asinn826
+author: mamccrea
 ms.service: virtual-machines
 ms.subservice: redhat
 ms.collection: linux
 ms.topic: article
 ms.date: 06/10/2020
-ms.author: alsin
-ms.openlocfilehash: 93557e5fb32a6f5100bdc99cdfbeed3375fcc379
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.author: mamccrea
+ms.openlocfilehash: 59a89c069c332d4d0346e0f3c795763818c601de
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691964"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457110"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Azure에서 제공되는 Red Hat Enterprise Linux의 BYOS(사용자 구독 필요) 골드 이미지
 

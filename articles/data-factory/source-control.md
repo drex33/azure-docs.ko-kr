@@ -8,12 +8,12 @@ ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/22/2021
-ms.openlocfilehash: fe2f270bce436b0a35a2f36c3f413115facbe4b1
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: 24e6157ce585914229a3b65a20feba4640ca272a
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129400499"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458816"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Azure Data Factory의 소스 제어
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "129400499"
 작성 환경을 개선하기 위해 Azure Data Factory를 사용하면 Azure Repos 또는 GitHub를 사용하여 Git 리포지토리를 구성할 수 있습니다. Git는 변경 내용 추적과 협업 환경을 개선할 수 있는 버전 제어 시스템입니다. 본 문서에서는 git 리포지토리에서 구성하고 작업하는 방법과 함께 모범 사례 및 문제 해결 가이드를 간략하게 설명합니다.
 
 > [!NOTE]
-> azure .gov, azure 중국에서 공개 지원을 GitHub 추가 했습니다. [알림 블로그](https://techcommunity.microsoft.com/t5/azure-data-factory/cicd-improvements-with-github-support-in-azure-government-and/ba-p/2686918)를 참조 하세요.
+> Azure 중국 Azure Gov에 GitHub 공개 지원을 추가했습니다. [공지 블로그를](https://techcommunity.microsoft.com/t5/azure-data-factory/cicd-improvements-with-github-support-in-azure-government-and/ba-p/2686918)참조하세요.
 
 Azure Data Factory와 Git를 통합하는 방법에 대한 자세한 내용은 아래의 15분 자습서 비디오를 참조하세요.
 
@@ -102,6 +102,7 @@ Azure Repos Git 통합을 통한 시각적 작성은 데이터 팩터리 파이�
 | **ProjectName** | Azure Repos 프로젝트 이름입니다. Azure Repos 프로젝트 이름은 `https://{organization name}.visualstudio.com/{project name}`에서 확인할 수 있습니다. | `<your Azure Repos project name>` |
 | **RepositoryName** | Azure Repos 코드 리포지토리 이름입니다. Azure Repos 프로젝트는 프로젝트가 확장됨에 따라 소스 코드를 관리하기 위한 Git 리포지토리를 포함합니다. 새 리포지토리를 만들거나 프로젝트에 이미 있는 기존 리포지토리를 사용할 수 있습니다. | `<your Azure Repos code repository name>` |
 | **협업 분기** | 게시에 사용되는 Azure Repos 협업 분기입니다. 기본적으로 `main`입니다. 다른 분기에서 리소스를 게시하려는 경우 이 설정을 변경합니다. | `<your collaboration branch name>` |
+| **분기 게시** | 게시 분기는 게시 관련 ARM 템플릿이 저장 및 업데이트되는 리포지토리의 분기입니다. 기본적으로 `adf_publish`입니다. | `<your publish branch name>` |
 | **루트 폴더** | Azure Repos 협업 분기의 루트 폴더입니다. | `<your root folder name>` |
 | **리포지토리로 기존 Data Factory 리소스 가져오기** | UX **제작 캔버스** 에서 기존 데이터 팩터리 리소스를 Azure Repos Git 리포지토리로 가져올 것인지를 지정합니다. JSON 형식의 연결된 Git 리포지토리로 데이터 팩터리 리소스를 가져오려면 상자를 선택합니다. 이 작업은 각 리소스를 개별적으로 내보냅니다(즉, 연결된 서비스 및 데이터 세트를 별도 JSON으로 내보냄). 이 상자를 선택하지 않으면 기존 리소스를 가져오지 않습니다. | 선택됨(기본값) |
 | **리소스를 가져올 분기** | 데이터 팩터리 리소스(파이프라인, 데이터 세트, 연결된 서비스 등)를 가져올 분기를 지정합니다. 다음 분기 중 하나로 리소스를 가져올 수 있습니다. a. 협업 b. 새로 만들기 c. 기존 리소스 사용 |  |
@@ -299,7 +300,7 @@ Key Vault 또는 MSI 인증을 사용해도 연속 통합과 배포가 쉬워집
 
 ### <a name="all-resources-showing-as-new-on-publish"></a>게시할 때 새 리소스로 표시되는 모든 리소스
 
-게시하는 동안 모든 리소스는 이전에 게시된 경우에도 새 리소스로 표시될 수 있습니다. 이 문제는 공장 ARM 템플릿을 다시 배포하거나 PowerShell 또는 REST API 통해 팩터리 *repoConfiguration* 속성을 업데이트하여 Factory의 *repoConfiguration* 속성에서 *lastCommitId* 속성이 다시 설정되는 경우에 발생할 수 있습니다. 리소스를 계속 게시하면 문제가 해결되지만 다시 발생하지 않도록 하려면 *팩터리 repoConfiguration* 속성을 업데이트하지 마십시오. 
+게시하는 동안 모든 리소스는 이전에 게시된 경우에도 새 리소스로 표시될 수 있습니다. 이 문제는 팩터리 ARM 템플릿을 다시 배포하거나 PowerShell 또는 REST API 통해 팩터리 *repoConfiguration* 속성을 업데이트하여 Factory의 *repoConfiguration* 속성에서 *lastCommitId* 속성이 다시 설정되는 경우에 발생할 수 있습니다. 리소스를 계속 게시하면 문제가 해결되지만 다시 발생하지 않도록 하려면 *팩터리 repoConfiguration* 속성을 업데이트하지 마십시오. 
 
 
 

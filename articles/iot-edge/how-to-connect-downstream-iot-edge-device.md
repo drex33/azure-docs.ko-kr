@@ -11,12 +11,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 2fbb03ae08d1146b51a4a73f1b2260443c1609d7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 08e68fc4a5aa2de2c2b0e0bbd326620fadc11022
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535476"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129455840"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway"></a>다운스트림 IoT Edge 디바이스를 Azure IoT Edge 게이트웨이에 연결
 
@@ -90,7 +90,7 @@ Azure CLI에 대한 [azure-iot](/cli/azure/iot) 확장은 IoT 리소스를 관�
 >[!NOTE]
 >프로그래밍 방식으로 상위-하위 관계를 설정하려는 경우 C#, Java 또는 Node.js [IoT Hub 서비스 SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용할 수 있습니다.
 >
->다음은 C# SDK를 사용하여 [자식 디바이스를 할당하는 예](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/e2e/test/iothub/service/RegistryManagerE2ETests.cs)입니다. `RegistryManager_AddAndRemoveDeviceWithScope()` 작업은 프로그래밍 방식으로 3-계층 구조를 작성하는 방법을 보여 줍니다. IoT Edge 디바이스는 부모로 계층 1에 있습니다. 또 다른 IoT Edge 디바이스는 계층 2에 있으며 자식 및 부모 역할을 합니다. 마지막으로, IoT 디바이스는 가장 낮은 계층 자식 디바이스로 계층 3에 있습니다.
+>다음은 C# SDK를 사용하여 [자식 디바이스를 할당하는 예](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/e2e/test/iothub/service/RegistryManagerE2ETests.cs)입니다. `RegistryManager_AddAndRemoveDeviceWithScope()` 작업은 프로그래밍 방식으로 3-계층 구조를 작성하는 방법을 보여 줍니다. IoT Edge 디바이스는 부모로 계층 1에 있습니다. 또 다른 IoT Edge 디바이스는 계층 2에 있으며 자식 및 부모 역할을 합니다. 마지막으로, IoT 디바이스는 가장 낮은 계층 자식 디바이스로 계층 3에 있습니다.
 
 ## <a name="prepare-certificates"></a>인증서 준비
 

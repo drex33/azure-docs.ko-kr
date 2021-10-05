@@ -319,8 +319,6 @@
           href: 'https://github.com/Azure/digital-twin-model-identifier'
     - name: '학습: Azure Digital Twins로 개발'
       href: /learn/paths/develop-azure-digital-twins/
-    - name: Channel 9 동영상
-      href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22'
     - name: 고객 사례
       href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc'
     - name: Azure 도구

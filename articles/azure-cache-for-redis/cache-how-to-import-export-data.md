@@ -1,17 +1,17 @@
 ---
 title: Azure Cache for Redis에서 데이터 가져오기 및 내보내기
 description: 프리미엄 Azure Cache for Redis 인스턴스를 사용하여 Blob 스토리지에서 데이터를 가져오고 내보내는 방법을 알아봅니다.
-author: yegu-ms
+author: curib
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
-ms.author: yegu
-ms.openlocfilehash: 91991be65e132ebdcdc06fa5e3a7729debec7062
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.author: cauribeg
+ms.openlocfilehash: 8616280ee6884c176069d98764614d61faaef444
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124836951"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538451"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Azure Cache for Redis에서 데이터 가져오기 및 내보내기
 

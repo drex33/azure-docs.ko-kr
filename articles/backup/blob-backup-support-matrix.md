@@ -2,14 +2,14 @@
 title: Azure Blob 백업의 지원 매트릭스
 description: Azure Blob을 백업할 경우의 지원 설정 및 제한 사항에 대한 요약입니다.
 ms.topic: conceptual
-ms.date: 07/07/2021
+ms.date: 10/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: 0d9dbcb9bb4497de4c8355ca42597b8e9eecd0e9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 921f08a80511766f55e179fccde38a061800061e
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124799247"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533175"
 ---
 # <a name="support-matrix-for-azure-blobs-backup"></a>Azure Blob 백업의 지원 매트릭스
 
@@ -17,7 +17,7 @@ ms.locfileid: "124799247"
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-Blob에 대한 운영 백업은 현재 다음 지역에서 사용할 수 있습니다. 오스트레일리아 중부, 오스트레일리아 중부 2, 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 브라질 남동부, 캐나다 중부, 캐나다 동부, 인도 중부, 미국 중부, 동아시아, 미국 동부, 미국 동부 2, 프랑스 중부, 독일 북부, 독일 중서부, 일본 동부, 일본 서부, 한국 중부, 한국 남부, 미국 중북부, 북유럽 , 노르웨이 동부, 노르웨이 서부, 남아프리카 공화국 북부, 미국 중남부, 동남 아시아, 인도 남부, 스위스 북부, 스위스 서부, 아랍에미리트 중부, 아랍에미리트 북부, 영국 남부 영국 서부, 미국 중서부, 서유럽, 인도 서부, 미국 서부, 미국 서부 2.
+Blob에 대한 운영 백업은 프랑스 남부 및 남아프리카 서부를 제외한 모든 퍼블릭 클라우드 지역에서 사용할 수 있습니다. 소버린 클라우드 지역( 모든 Azure 정부 지역 및 중국 지역(중국 동부 제외)에서도 사용할 수 있습니다.
 
 ## <a name="limitations"></a>제한 사항
 

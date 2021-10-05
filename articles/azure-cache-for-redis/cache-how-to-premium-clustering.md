@@ -1,17 +1,17 @@
 ---
 title: Redis 클러스터링 구성 - 프리미엄 Azure Cache for Redis
 description: 프리미엄 계층 Azure Cache for Redis 인스턴스에 대한 Redis 클러스터링을 만들고 관리하는 방법을 알아봅니다.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: c4812bb6b352ad57fa07ad766329644ef6af9c57
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: be90a868ca4ef738f0275b06fb49abec761c7a0c
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122567962"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538190"
 ---
 # <a name="configure-redis-clustering-for-a-premium-azure-cache-for-redis-instance"></a>프리미엄 Azure Cache for Redis 인스턴스에 대한 Redis 클러스터링 구성
 
@@ -40,7 +40,7 @@ Azure에서 Redis 클러스터는 주/복제본 모델로 제공됩니다. 이 �
 
 3. **새 Redis Cache** 페이지에서 새 프리미엄 캐시의 설정을 구성합니다.
 
-   | 설정      | 제안 값  | 설명 |
+   | 설정      | 제안 값  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
    | **DNS 이름** | 전역적으로 고유한 이름을 입력합니다. | 이 캐시 이름은 1~63자 사이의 문자열이어야 합니다. 문자열에는 숫자, 문자 또는 하이픈만 사용할 수 있습니다. 이름은 숫자 또는 문자로 시작하고 끝나야 하며 연속 하이픈을 포함할 수 없습니다. 캐시 인스턴스의 *호스트 이름* 은 *\<DNS name>.redis.cache.windows.net* 입니다. |
    | **구독** | 드롭다운하여 구독을 선택합니다. | 이 구독 아래에 새 Azure Cache for Redis 인스턴스가 만들어집니다. |

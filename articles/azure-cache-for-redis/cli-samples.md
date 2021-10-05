@@ -1,19 +1,19 @@
 ---
 title: Azure CLI를 사용하여 Azure Cache for Redis 관리
 description: 'Azure Cache for Redis를 관리하기 위한 Azure CLI 샘플: 캐시 만들기, 캐시 삭제, 캐시 세부 정보, 호스트 이름, 포트 및 키 가져오기, 웹 앱 연결'
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/14/2017
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 32530982bc2a9d1b5deb31b3bc71460462352258
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: f6a3b1701a73c4b71ee07b0110761566a4b2e93d
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92536422"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129535811"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-cli"></a>Azure CLI를 사용하여 Azure Cache for Redis 관리
 

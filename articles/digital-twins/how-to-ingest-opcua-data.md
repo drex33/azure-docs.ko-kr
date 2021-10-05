@@ -1,5 +1,5 @@
 ---
-title: Azure Digital Twins를 사용하여 OPC UA 데이터 수집
+title: Azure Digital Twins OPC UA 데이터 수집
 titleSuffix: Azure Digital Twins
 description: Azure OPC UA 데이터를 Azure Digital Twins로 가져오는 단계
 author: danhellem
@@ -7,12 +7,12 @@ ms.author: dahellem
 ms.date: 8/27/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b93e9a16e7ea083f5117ebff4883a50db28e134a
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: be6d4dd328d3b8cd0f02bede7bcba7b6a4e32ae9
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224598"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534538"
 ---
 # <a name="ingesting-opc-ua-data-with-azure-digital-twins"></a>Azure Digital Twins를 사용하여 OPC UA 데이터 수집
 
@@ -334,7 +334,7 @@ OPC UA 서버에서 Azure IoT Hub로 이동하는 데이터를 만들었으므�
 
 항목에 대한 스키마는 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | NodeId | OPC UA 노드의 값입니다. 예: ns=3;i={value} | ✔ |
 | TwinId | 원격 분석 값을 저장하려는 트윈의 TwinId($dtId)입니다. | ✔ |
@@ -377,7 +377,7 @@ OPC UA 서버에서 Azure IoT Hub로 이동하는 데이터를 만들었으므�
 
 세 가지 애플리케이션 설정을 만들어야 합니다.
 
-| 설정 | 설명 | 필수 |
+| 설정 | Description | 필수 |
 | --- | --- | --- |
 | ADT_SERVICE_URL | Azure Digital Twins 인스턴스에 대한 URL입니다. 예: `https://example.api.eus.digitaltwins.azure.net` | ✔ |
 | JSON_MAPPINGFILE_URL | opcua-mapping.json에 대한 공유 액세스 서명의 URL | ✔ |

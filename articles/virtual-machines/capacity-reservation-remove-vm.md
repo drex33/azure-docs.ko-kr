@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: 546215d70341402fcc66d2865d291211960cb4a1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0ac1f38d65542ac6c8a892a6469cd8c9301dd463
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128557065"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129532601"
 ---
 # <a name="remove-a-vm-association-from-a-capacity-reservation-group-preview"></a>용량 예약 그룹에서 VM 연결 제거(미리 보기)
 
@@ -28,11 +28,6 @@ VM과 기본 용량 예약은 모두 논리적으로 용량을 차지하므로 A
 > [!IMPORTANT]
 > 용량 예약은 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
-## <a name="register-for-capacity-reservation"></a>용량 예약 등록 
-
-용량 예약 기능을 사용하려면 먼저 [미리 보기에 대한 구독을 등록](capacity-reservation-overview.md#register-for-capacity-reservation)해야 합니다. 등록을 완료하는 데 몇 분 정도 걸릴 수 있습니다. Azure CLI 또는 PowerShell을 사용하여 기능 등록을 완료할 수 있습니다.
-
 
 ## <a name="deallocate-the-vm"></a>VM 할당을 취소합니다.
 
@@ -51,7 +46,7 @@ VM과 기본 용량 예약은 모두 논리적으로 용량을 차지하므로 A
     ```rest
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}/update?api-version=2021-04-01
     ```
-    요청 본문에서 `capacityReservationGroup` 속성을 null로 설정 하 여 그룹에 대 한 VM 연결을 제거 합니다.
+    요청 본문에서 `capacityReservationGroup` 속성을 null로 설정하여 그룹에 대한 VM 연결을 제거합니다.
 
     ```json
      {
@@ -91,7 +86,7 @@ VM과 기본 용량 예약은 모두 논리적으로 용량을 차지하므로 A
 
     상태가 **중지됨(할당 취소됨)** 으로 변경되면 가상 머신이 할당 취소됩니다.
 
-1. 속성을 null로 설정 하 여 용량 예약 그룹과의 연결을 제거 하도록 VM을 업데이트 합니다 `CapacityReservationGroupId` .
+1. 속성을 null로 설정하여 용량 예약 그룹과의 연결을 제거하도록 VM을 업데이트합니다. `CapacityReservationGroupId`
 
     ```powershell-interactive
     $VirtualMachine =
@@ -144,7 +139,7 @@ VM과 기본 용량 예약은 모두 논리적으로 용량을 차지하므로 A
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{VirtualMachineName}/update?api-version=2021-04-01
     ```
 
-    요청 본문에서 `capacityReservationGroup` 속성을 null로 설정 하 여 연결을 제거 합니다.
+    요청 본문에서 `capacityReservationGroup` 속성을 null로 설정하여 연결을 제거합니다.
     
     ```json
     {
@@ -186,7 +181,7 @@ VM과 기본 용량 예약은 모두 논리적으로 용량을 차지하므로 A
     -CapacityToReserve 0
     ```
 
-1. 속성을 null로 설정 하 여 용량 예약 그룹과의 연결을 제거 하도록 VM을 업데이트 합니다 `CapacityReservationGroupId` .
+1. 속성을 null로 설정하여 용량 예약 그룹과의 연결을 제거하도록 VM을 업데이트합니다. `CapacityReservationGroupId`
 
     ```powershell-interactive
     $VirtualMachine =

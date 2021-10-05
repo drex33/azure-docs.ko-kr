@@ -141,7 +141,7 @@ items:
       - name: 지역 간 이동
         items:
           - name: 공용 IP
-            href: /resource-mover/tutorial-move-region-virtual-machines?toc=/azure/virtual-network/toc.json
+            href: /azure/resource-mover/tutorial-move-region-virtual-machines?toc=/azure/virtual-network/ip-services/toc.json
   - name: 참조
     items:
       - name: Azure CLI

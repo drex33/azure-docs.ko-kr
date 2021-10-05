@@ -4,12 +4,12 @@ description: Azure Backup를 PowerShell과 함께 사용하여 Azure VM을 백�
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 89514bad58633727b5189c7d0daecccf5372efea
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
-ms.translationtype: HT
+ms.openlocfilehash: 6f669a7382cfe7dad4c1a58186ce3c6a30f49063
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123214977"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533970"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>PowerShell을 사용하여 Azure VM 백업 및 복원
 
@@ -529,6 +529,12 @@ Wait-AzRecoveryServicesBackupJob -Job $restorejob -Timeout 43200
 $restorejob = Get-AzRecoveryServicesBackupJob -Job $restorejob -VaultId $targetVault.ID
 $details = Get-AzRecoveryServicesBackupJobDetail -Job $restorejob -VaultId $targetVault.ID
 ```
+
+#### <a name="using-managed-identity-to-restore-disks"></a>관리 ID를 사용하여 디스크 복원
+
+또한 Azure Backup 복원 작업 중에 MSI(관리 ID)를 사용하여 디스크를 복원해야 하는 스토리지 계정에 액세스할 수 있습니다. 이 옵션은 현재 관리 디스크 복원에 대해서만 지원됩니다.
+
+자격 증명 모음의 시스템 할당 관리 ID를 사용하여 디스크를 복원하려면 추가 플래그 ***-UseSystemAssignedIdentity** _를 Restore-AzRecoveryServicesBackupItem 명령에 전달합니다. 사용자 할당 관리 ID를 사용하려면 자격 증명 모음 관리 ID의 ARM ID를 매개 변수 값으로 사용하여 _*_ 매개 변수 -UserAssignedIdentityId_**를 전달합니다. 자격 증명 모음에 관리 ID를 사용하도록 설정하는 방법을 알아보려면 [이 문서를](encryption-at-rest-with-cmk.md#enable-managed-identity-for-your-recovery-services-vault) 참조하세요. 
 
 #### <a name="restore-selective-disks"></a>선택적 디스크 복원
 

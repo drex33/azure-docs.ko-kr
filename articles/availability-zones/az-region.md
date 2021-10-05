@@ -4,16 +4,16 @@ description: Azure에서 가용성과 복원력이 높은 애플리케이션을 
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 09/16/2021
+ms.date: 10/05/2021
 ms.author: prsandhu
 ms.reviewer: cnthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 26d4464d67634d5660796ce24dc9b9dc2505e0ef
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 22b6f4570736d891b7cbcb9c0d2c10d6847ee83f
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129218245"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533653"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>가용성 영역을 지원하는 Azure 서비스
 
@@ -49,13 +49,13 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 
 | 아메리카           | 유럽               | 아프리카              | 아시아 태평양   |
 |--------------------|----------------------|---------------------|----------------|
-| 브라질 남부       | 프랑스 중부       | 남아프리카 북부* | 오스트레일리아 동부 |
+| 브라질 남부       | 프랑스 중부       | 남아프리카 북부  | 오스트레일리아 동부 |
 | 캐나다 중부     | 독일 중서부 |                     | 인도 중부* |
 | 미국 중부         | 북유럽         |                     | 일본 동부     |
-| 미국 동부            | 노르웨이 동부          |                     | 한국 중부* |
+| 미국 동부            | 노르웨이 동부          |                     | 한국 중부  |
 | 미국 동부 2          | 영국 남부             |                     | 동남아시아 |
 | 미국 중남부   | 서유럽          |                     |                |
-| US Gov 버지니아    |                      |                     |                |
+| US Gov 버지니아    | 스웨덴              |                     |                |
 | 미국 서부 2          |                      |                     |                |
 | 미국 서부 3          |                      |                     |                |
 

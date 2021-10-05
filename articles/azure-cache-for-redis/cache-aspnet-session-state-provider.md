@@ -1,18 +1,18 @@
 ---
 title: 캐시 ASP.NET 세션 상태 제공자
 description: Azure Cache for Redis를 사용하여 메모리 내 ASP.NET 세션 상태를 저장하는 방법을 알아봅니다.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 05/01/2017
-ms.openlocfilehash: 78610123c984196740d39cb209d1eff5ca380f06
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: b1bf95295fbaaa72df50b1aa7c42a6e954ef6ee2
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112284369"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538810"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 ASP.NET 세션 상태 제공자
 

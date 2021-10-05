@@ -7,12 +7,13 @@ ms.author: baanders
 ms.date: 8/25/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: bfcaa516485b5ab1320db859f00a6f1709b7ef79
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 792ddf3f3ca57b16112de78a6ecf2c2d887494ef
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224886"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129535857"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Understand twin models in Azure Digital Twins(Azure Digital Twins의 트윈 모델 이해)
 
@@ -114,7 +115,7 @@ Azure Digital Twins API에서 원격 분석 이벤트를 게시할 수도 있습
 
 ### <a name="schema"></a>스키마
 
-DTDL에 따라 **속성** 및 **원격 분석** 특성의 스키마는 표준 기본 형식(`integer`, `double`, `string` 및 `Boolean`) 및 기타 형식(`DateTime` 및 `Duration`)이 될 수 있습니다. 
+DTDL에 따라 **속성** 및 **원격 분석** 특성의 스키마는 표준 기본 형식(`integer`, `double`, `string` 및 `boolean`) 및 기타 형식(`dateTime` 및 `duration`)이 될 수 있습니다. 
 
 기본 형식 외에도 속성 및 원격 분석 필드에는 다음과 같은 [복합 형식](#complex-object-type-example)이 있을 수 있습니다.
 * `Object`

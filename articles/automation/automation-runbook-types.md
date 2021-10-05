@@ -3,15 +3,15 @@ title: Azure Automation Runbook 형식
 description: 이 문서에서는 Azure Automation에서 사용할 수 있는 Runbook의 유형 및 사용할 형식을 결정하기 위한 고려 사항을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/25/2021
+ms.date: 10/05/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 91149dc4c477d3734427cf3a7b95ec9d22868eb7
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 58bc105a088e2ed06fb710d9a2e38e406e375bd9
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129357388"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534332"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation Runbook 형식
 
@@ -69,8 +69,8 @@ PowerShell Runbook은 Windows PowerShell을 기반으로 합니다. Azure 포털
 * PowerShell 스크립팅에 대해 잘 알아야 합니다.
 * Runbook에서는 [병렬 처리](automation-powershell-workflow.md#use-parallel-processing)를 사용하여 여러 작업을 병렬로 실행할 수 없습니다.
 * Runbook에서는 오류 발생 시 [검사점](automation-powershell-workflow.md#use-checkpoints-in-a-workflow)을 사용하여 Runbook을 다시 시작할 수 없습니다.
-* 새 작업을 만드는 [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) cmdlet을 사용하여 자식 Runbook으로서의 PowerShell 워크플로 Runbook 및 그래픽 Runbook만 포함할 수 있습니다.
-* Runbook은 PowerShell [#Requires](/powershell/module/microsoft.powershell.core/about/about_requires) 문을 사용할 수 없으며, Azure 샌드박스 또는 Hybrid Runbook Workers에서 지원되지 않으며 작업이 실패합니다.
+* 새 작업을 만드는 [AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) cmdlet을 사용 하 여 PowerShell, powershell 워크플로 runbook 및 그래픽 runbook만 자식 runbook으로 포함할 수 있습니다.
+* Runbook은 PowerShell [#Requires](/powershell/module/microsoft.powershell.core/about/about_requires) 문을 사용할 수 없습니다. Azure Sandbox 또는 Hybrid Runbook worker에서 지원 되지 않으므로 작업이 실패할 수 있습니다.
 
 ### <a name="known-issues"></a>알려진 문제
 

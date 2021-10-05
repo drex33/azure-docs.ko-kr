@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: 2d8f9c7c73b4cb5d0f617893a7d981b94d30b344
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 03b89b1b8c0221795f58ff28addd4fdeaad5053e
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128553100"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129532581"
 ---
 # <a name="remove-a-virtual-machine-scale-set-association-from-a-capacity-reservation-group"></a>용량 예약 그룹에서 가상 머신 확장 집합 연결 제거 
 
@@ -28,14 +28,6 @@ VM과 기본 용량 예약은 모두 논리적으로 용량을 차지하므로 A
 > [!IMPORTANT]
 > 용량 예약은 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
-## <a name="register-for-capacity-reservation"></a>용량 예약 등록 
-
-용량 예약 기능을 사용하려면 먼저 [미리 보기에 대한 구독을 등록](capacity-reservation-overview.md#register-for-capacity-reservation)해야 합니다. 등록을 완료하는 데 몇 분 정도 걸릴 수 있습니다. Azure CLI 또는 PowerShell을 사용하여 기능 등록을 완료할 수 있습니다.
-
-> [!NOTE]
-> 주문형 용량 예약은 선택 지역에서만 균일한 오케스트레이션 모드의 가상 머신 확장 집합에 사용할 수 있습니다. 지역이 지원되는지 확인하려면 [균일한 가상 머신 확장 집합 배포 추적기](https://aka.ms/vmssuniformdeploymenttracker)로 이동합니다.
-
 
 ## <a name="deallocate-the-virtual-machine-scale-set"></a>가상 머신 확장 집합 할당 취소
 
@@ -56,7 +48,7 @@ VM과 기본 용량 예약은 모두 논리적으로 용량을 차지하므로 A
     ```rest
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{VMScaleSetName}/update?api-version=2021-04-01
     ```
-    요청 본문에서 `capacityReservationGroup` 속성을 null로 설정 하 여 해당 그룹에 대 한 가상 머신 확장 집합 연결을 제거 합니다.
+    요청 본문에서 `capacityReservationGroup` 속성을 null로 설정하여 그룹에 대한 가상 머신 확장 집합 연결을 제거합니다.
 
     ```json
     {
@@ -83,7 +75,7 @@ VM과 기본 용량 예약은 모두 논리적으로 용량을 차지하므로 A
     -VMScaleSetName "myVmss"
     ```
 
-1. 용량 예약 그룹과의 연결을 제거하도록 확장 집합을 업데이트합니다. 속성을 `CapacityReservationGroupId` null로 설정 하면 확장 집합과 용량 예약 그룹의 연결이 제거 됩니다. 
+1. 용량 예약 그룹과의 연결을 제거하도록 확장 집합을 업데이트합니다. 속성을 `CapacityReservationGroupId` null로 설정해도 확장 집합이 용량 예약 그룹에 연결됩니다. 
 
     ```powershell-interactive
     $vmss =
@@ -139,7 +131,7 @@ VM과 기본 용량 예약은 모두 논리적으로 용량을 차지하므로 A
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{VMScaleSetName}/update?api-version=2021-04-01
     ```
 
-    요청 본문에서 `capacityReservationGroup` 속성을 null로 설정 하 여 연결을 제거 합니다.
+    요청 본문에서 `capacityReservationGroup` 속성을 null로 설정하여 연결을 제거합니다.
     
     ```json
     {
@@ -168,7 +160,7 @@ VM과 기본 용량 예약은 모두 논리적으로 용량을 차지하므로 A
     -CapacityToReserve 0
     ```
 
-2. 속성을 null로 설정 하 여 용량 예약 그룹과의 연결을 제거 하도록 확장 집합을 업데이트 합니다 `CapacityReservationGroupId` . 
+2. 속성을 null로 설정하여 용량 예약 그룹과의 연결을 제거하도록 확장 집합을 업데이트합니다. `CapacityReservationGroupId` 
 
     ```powershell-interactive
     $vmss =

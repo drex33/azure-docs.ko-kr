@@ -1,17 +1,17 @@
 ---
 title: Azure Cache for Redis의 고가용성
 description: Azure Cache for Redis의 고가용성 기능 및 옵션에 대해 알아보기
-author: yegu-ms
+author: curib
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.author: yegu
-ms.openlocfilehash: 8796dd088df0ff297cd7ac99271bfe410fdb506b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.author: cauribeg
+ms.openlocfilehash: 2fb0440ed6946f9595f1c78c5528fdb3c627de0b
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128620847"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538548"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Azure Cache for Redis의 고가용성
 

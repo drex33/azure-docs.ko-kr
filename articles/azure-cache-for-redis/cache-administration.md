@@ -1,18 +1,18 @@
 ---
 title: Azure Cache for Redis를 관리하는 방법
 description: Azure Cache for Redis 다시 부팅 및 업데이트 예약과 같은 관리 작업을 수행하는 방법을 알아봅니다.
-author: yegu-ms
+author: curib
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/05/2017
-ms.author: yegu
+ms.author: cauribeg
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c2006c71a9ba9ff24662f27a9f2e4015786197e7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d4532b13389e85be2b506bdc433cf3dc650fdb38
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567037"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538883"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Azure Cache for Redis를 관리하는 방법
 

@@ -1,17 +1,17 @@
 ---
 title: Azure Cache for Redis 모니터링
 description: Azure Cache for Redis 인스턴스의 상태와 성능을 모니터링하는 방법을 알아봅니다.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: cd83f62f031c263d8930937b9a4783e8c6855936
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 64234292051c5f780c33fd55fabf3305f45b756d
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129358877"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538406"
 ---
 # <a name="monitor-azure-cache-for-redis"></a>Azure Cache for Redis 모니터링
 

@@ -2,18 +2,18 @@
 title: Azure Cache for Redis가 포함된 웹앱 프로비전
 description: Azure Resource Manager 템플릿을 사용하여 Azure Cache for Redis가 포함된 웹앱을 배포합니다.
 services: app-service
-author: yegu-ms
+author: curib
 ms.service: app-service
 ms.topic: conceptual
 ms.date: 01/06/2017
-ms.author: yegu
+ms.author: cauribeg
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 26eedd9ecbd88b20d80752f379b8a6d1874217a4
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
-ms.translationtype: HT
+ms.openlocfilehash: 71648781edd8d202add7ce2a7cc6584173f0451b
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112379711"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537466"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>템플릿을 사용하여 Azure Cache for Redis가 포함된 웹앱 만들기
 

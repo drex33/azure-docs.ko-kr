@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6d4d0f355d48532c43e9180f2c819e45d45737b4
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
-ms.translationtype: HT
+ms.openlocfilehash: dc516c9631eda2904ff311af6ca779872d9802f0
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572200"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537185"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>여러 Azure 지역에서 SQL Server Always On 가용성 그룹 구성
 
@@ -150,6 +150,8 @@ ms.locfileid: "111572200"
 
 1. 새 SQL Server의 SQL Server 구성 관리자에서 [Always On 가용성 그룹을 사용하도록 설정합니다](/sql/database-engine/availability-groups/windows/enable-and-disable-always-on-availability-groups-sql-server).
 
+1. SQL Server Management Studio 새 SQL Server 시스템 계정 권한을 [구성합니다.](availability-group-manually-configure-prerequisites-tutorial.md#configure-system-account-permissions)
+
 1. [새 SQL Server에서 방화벽 포트를 엽니다](availability-group-manually-configure-prerequisites-tutorial.md#endpoint-firewall).
 
    열어야 하는 포트 번호는 사용자의 환경에 따라 달라집니다. 미러링 엔드포인트 및 Azure Load Balancer 상태 프로브에 대한 포트를 엽니다.
@@ -158,12 +160,13 @@ ms.locfileid: "111572200"
 1. [새 SQL Server에서 가용성 그룹에 복제본을 추가합니다](/sql/database-engine/availability-groups/windows/use-the-add-replica-to-availability-group-wizard-sql-server-management-studio).
 
    원격 Azure 지역에 있는 복제본의 경우 수동 장애 조치를 사용한 비동기 복제에 대해 설정합니다.  
+   
 
 ## <a name="set-connection-for-multiple-subnets"></a>여러 서브넷에 대한 연결 설정
 
 원격 데이터 센터의 복제본은 가용성 그룹의 일부이지만 다른 서브넷에 있습니다. 이 복제본이 주 복제본이 되면 애플리케이션 연결 시간 초과가 발생할 수 있습니다. 이 동작은 다중 서브넷 배포의 온-프레미스 가용성 그룹과 동일합니다. 클라이언트 애플리케이션에서의 연결을 허용하려면 클라이언트 연결을 업데이트하거나 클러스터 네트워크 이름 리소스에 대해 이름 확인 캐시를 구성합니다.
 
-가급적 클라이언트 연결 문자열을 업데이트하여 `MultiSubnetFailover=Yes`를 설정합니다. [MultiSubnetFailover로 연결](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#Anchor_0)을 참조하세요.
+가급적 설정할 클러스터 구성과 를 `RegisterAllProvidersIP=1` 설정할 클라이언트 연결 문자열을 업데이트합니다. `MultiSubnetFailover=Yes` [MultiSubnetFailover로 연결](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#Anchor_0)을 참조하세요.
 
 연결 문자열을 수정할 수 없는 경우 이름 확인 캐시를 구성할 수 있습니다. [시간 제한 오류 및 다중 서브넷 환경에서 SQL Server 2012 AlwaysOn 가용성 그룹 수신기에 연결할 수 없음](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av)을 참조하세요.
 

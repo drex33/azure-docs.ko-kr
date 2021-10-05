@@ -3,12 +3,12 @@ title: Azure 파일 공유 백업 관리
 description: 이 문서에서는 Azure Backup에 의해 백업된 Azure 파일 공유를 관리하고 모니터링하는 일반적인 작업에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 784b22f11b57fb025f6d9401e10d527c83751898
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 973c28b2c8caac4d2acda9e2cd976f9ceb8c387c
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88757628"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534032"
 ---
 # <a name="manage-azure-file-share-backups"></a>Azure 파일 공유 백업 관리
 
@@ -27,6 +27,10 @@ ms.locfileid: "88757628"
 1. **확인** 을 선택하면 **백업 작업** 창에 모든 작업의 상태가 나열됩니다. 모니터링할 파일 공유에 해당하는 워크로드 이름을 선택합니다.
 
    ![워크로드 이름](./media/manage-afs-backup/workload-name.png)
+
+## <a name="monitor-using-azure-backup-reports"></a>Azure Backup 보고서를 사용 하 여 모니터링
+
+Azure Backup [Azure Monitor 로그](../azure-monitor/logs/log-analytics-tutorial.md) 및 [Azure 통합 문서](../azure-monitor/visualize/workbooks-overview.md)를 사용 하는 보고 솔루션을 제공 합니다. 이러한 리소스는 백업에 대 한 풍부한 통찰력을 얻는 데 도움이 됩니다. 이러한 보고서를 활용 하 여 Azure Files 백업 항목, 항목 수준의 작업 및 활성 정책의 세부 정보를 파악할 수 있습니다. 백업 보고서에서 사용할 수 있는 전자 메일 보고서 기능을 사용 하면 자동화 된 작업을 만들어 전자 메일을 통해 정기적으로 보고서를 받을 수 있습니다. Azure Backup 보고서를 구성 하 고 보는 방법에 [대해 알아봅니다](/azure/backup/configure-reports#get-started) .
 
 ## <a name="create-a-new-policy"></a>새 정책 만들기
 

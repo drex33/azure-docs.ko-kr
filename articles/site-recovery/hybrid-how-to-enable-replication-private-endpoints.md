@@ -6,12 +6,12 @@ ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
-ms.openlocfilehash: 7f10654e1c96f1756e5864d20fa2a6817385e994
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: a90d9a82ff26c62423651d8d1b16173300147a1c
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98629796"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536770"
 ---
 # <a name="replicate-on-premises-machines-by-using-private-endpoints"></a>프라이빗 엔드포인트를 사용하여 온-프레미스 머신 복제
 
@@ -39,6 +39,9 @@ Azure Site Recovery를 사용하면 [Azure Private Link](../private-link/private
   해당하는 경우 네트워크 보안 그룹 태그 "Azure Active Directory" 및 Azure Firewall 태그를 사용하여 Azure Active Directory에 대한 액세스를 허용할 수도 있습니다.
 - 프라이빗 엔드포인트를 만드는 바이패스 네트워크에는 5개의 IP 주소가 필요합니다. 자격 증명 모음에 대한 프라이빗 엔드포인트를 만들 때 Site Recovery는 마이크로 서비스에 액세스하기 위해 5개의 프라이빗 링크를 만듭니다.
 - 캐시 스토리지 계정에 대한 프라이빗 엔드포인트 연결을 위해 바이패스 네트워크에서 하나의 추가 IP 주소가 필요합니다. 온-프레미스와 스토리지 계정 엔드포인트 간에 어떤 연결 방법도 사용할 수 있습니다. 예를 들어, 인터넷 또는 Azure [ExpressRoute](../expressroute/index.yml)를 사용할 수 있습니다. 프라이빗 링크 설정은 선택 사항입니다. 범용 v2 계정에서만 스토리지에 대한 프라이빗 엔드포인트를 만들 수 있습니다. 범용 v2 계정의 데이터 전송 가격 책정에 대한 자세한 내용은 [Azure 페이지 Blob 가격 책정](https://azure.microsoft.com/pricing/details/storage/page-blobs/)을 참조하세요.
+
+> [!NOTE]
+> VMware 및 물리적 컴퓨터를 보호하기 위해 프라이빗 엔드포인트를 설정하는 동안 구성 서버에 MySQL을 수동으로 설치해야 합니다. 수동 설치를 수행하려면 [여기의](https://docs.microsoft.com/azure/site-recovery/vmware-azure-deploy-configuration-server#configure-settings) 단계를 따르세요. 
 
  ## <a name="create-and-use-private-endpoints-for-site-recovery"></a>사이트 복구를 위한 프라이빗 엔드포인트 만들기 및 사용
 

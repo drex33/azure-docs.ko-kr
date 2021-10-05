@@ -1,18 +1,18 @@
 ---
 title: Azure Cache for Redis에서 redis-cli 사용
 description: '*redis-cli.exe* 를 명령줄 도구로 사용하여 Azure Cache for Redis 클라이언트와 상호 작용하는 방법을 알아봅니다.'
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1f3b99e7b1db248a09cf20e42391c1bf36584dcb
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4e753f23a5dce895260c4b1daea0ae33947cc8f6
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128668871"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538204"
 ---
 # <a name="use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Azure Cache for Redis에서 Redis 명령줄 도구 사용
 

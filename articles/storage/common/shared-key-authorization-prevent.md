@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 10/01/2021
 ms.author: tamram
-ms.reviewer: dineshm
+ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5e38cfeae5ad8593e5ee69059f4bdb903b04aa42
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 566c538e0864f11dad0a642dd18f711c7cf00886
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122537683"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129532853"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account"></a>Azure Storage 계정에 대한 공유 키 권한 부여 방지
 
@@ -122,7 +122,7 @@ Azure Portal에서 스토리지 계정에 대한 공유 키 권한 부여를 허
 
 1. Azure Portal의 스토리지 계정으로 이동합니다.
 1. **설정** 에서 **구성** 설정을 찾습니다.
-1. **공유 키 액세스 허용** 을 **사용 안 함** 으로 설정합니다.
+1. **스토리지 계정 키 액세스 허용을** 사용 안 **함으로** 설정합니다.
 
     :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="계정에 대한 공유 키 액세스를 허용하지 않는 방법을 보여주는 스크린샷":::
 

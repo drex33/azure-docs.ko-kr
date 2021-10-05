@@ -1,18 +1,18 @@
 ---
 title: Azure Cache for Redis 인스턴스 스케일링
 description: 이 문서에서는 Azure Portal과 Azure PowerShell 및 Azure CLI와 같은 도구를 사용하여 Azure Cache for Redis 인스턴스를 스케일링하는 방법을 보여 줍니다.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: a1144cd0ccfe6857b88a29ea0f577d760f3addc6
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 5c8bf3839c7bae9b1c93b201bb52a4e7be371904
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123431677"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538164"
 ---
 # <a name="scale-an-azure-cache-for-redis-instance"></a>Azure Cache for Redis 인스턴스 스케일링
 
@@ -42,11 +42,11 @@ Azure Cache for Redis의 [모니터링](cache-how-to-monitor.md) 기능을 사�
 
 ## <a name="scale-a-cache"></a>캐시 크기 조정
 
-캐시 크기를 조정하려면 [Azure Portal](https://portal.azure.com) [캐시로 이동한](cache-configure.md#configure-azure-cache-for-redis-settings) 다음 왼쪽에서 **크기 조정을** 선택합니다.
+캐시 크기를 조정 하려면 [Azure Portal](https://portal.azure.com) [캐시를 찾아](cache-configure.md#configure-azure-cache-for-redis-settings) 왼쪽에서 **크기 조정** 을 선택 합니다.
 
-:::image type="content" source="media/cache-how-to-scale/scale-a-cache.png" alt-text="리소스 메뉴의 크기 조정":::
+:::image type="content" source="media/cache-how-to-scale/scale-a-cache.png" alt-text="리소스 메뉴에서 크기 조정":::
 
-오른쪽에서 가격 책정 계층을 선택한 다음, **선택을 선택합니다.**
+오른쪽에서 가격 책정 계층을 선택한 다음 **선택** 을 선택 합니다.
 
 :::image type="content" source="media/cache-how-to-scale/select-a-tier.png" alt-text="Azure Cache for Redis 계층":::
 
@@ -59,7 +59,7 @@ Azure Cache for Redis의 [모니터링](cache-how-to-monitor.md) 기능을 사�
 - **기본** 캐시에서 바로 **프리미엄** 캐시로 확장할 수 없습니다. 먼저 크기 조정 작업을 통해 **기본** 에서 **표준** 으로 확장한 다음, 이후 크기 조정 작업을 통해 **표준** 에서 **프리미엄** 으로 확장합니다.
 - 더 큰 크기에서 **C0(250MB)** 크기로 축소할 수 없습니다. 단, 동일한 가격 책정 계층 내에서는 다른 크기로 스케일 다운할 수 있습니다. 예를 들어 C5 Standard에서 C1 Standard로 스케일 다운할 수 있습니다.
 
-캐시가 새 계층으로 크기 조정되는 동안 **크기 조정 Redis Cache** 알림이 표시됩니다.
+캐시가 새 계층으로 크기 조정 되는 동안 **크기 조정 Redis Cache** 알림이 표시 됩니다.
 
 :::image type="content" source="media/cache-how-to-scale/scaling-notification.png" alt-text="크기 조정 알림":::
 

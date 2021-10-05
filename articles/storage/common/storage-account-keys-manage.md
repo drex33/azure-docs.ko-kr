@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/29/2021
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cfea2bd15bceb7d1478059d9ef80f4eb33337dc6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 29a7cfeedb7b87d53c362776fd14f8c39e0350eb
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128664754"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536737"
 ---
 # <a name="manage-storage-account-access-keys"></a>스토리지 계정 액세스 키 관리
 
@@ -32,15 +32,17 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용하여 계정 액세스 키�
 
 Azure Portal에서 스토리지 계정 액세스 키 또는 연결 문자열을 보고 복사하는 방법은 다음과 같습니다:
 
-1. [Azure Portal](https://portal.azure.com)의 스토리지 계정으로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에서 스토리지 계정으로 이동합니다.
 
-2. **설정** 에서 **액세스 키** 를 선택합니다. 계정 액세스 키는 물론 각 키의 전체 연결 문자열이 나타납니다.
+2. **보안 + 네트워킹** 에서 **액세스 키** 를 선택합니다. 액세스 키 창에는 각 키에 대 한 액세스 키 및 전체 연결 문자열이 표시 됩니다. 값은 기본적으로 숨겨집니다.
 
-3. **key1** 아래에서 **키** 값을 찾고, **복사** 단추를 클릭하여 계정 키를 복사합니다.
+3. **키 표시** 를 선택 하 여 액세스 키 및 연결 문자열을 표시 하 고 단추를 사용 하 여 값을 복사 합니다.
 
-4. 또는 전체 연결 문자열을 복사할 수 있습니다. **key1** 아래에서 **연결 문자열** 값을 찾고, **복사** 단추를 클릭하여 연결 문자열을 복사합니다.
+4. **Key1** 에서 **키** 값을 찾습니다. **복사** 단추를 선택 하 여 계정 키를 복사 합니다.
 
-    :::image type="content" source="media/storage-account-keys-manage/portal-connection-string.png" alt-text="Azure Portal에서 액세스 키를 확인하는 방법을 보여 주는 스크린 샷":::
+5. 또는 전체 연결 문자열을 복사할 수 있습니다. **Key1** 에서 **연결 문자열** 값을 찾습니다. **복사** 단추를 선택 하 여 연결 문자열을 복사 합니다.
+
+    :::image type="content" source="./media/storage-account-keys-manage/portal-connection-string.png" alt-text="Azure Portal에서 액세스 키를 확인하는 방법을 보여 주는 스크린 샷":::
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -50,7 +52,7 @@ PowerShell을 사용하여 계정 액세스 키를 검색하려면 [Get-AzStorag
 
 ```powershell
 $storageAccountKey = `
-    (Get-AzStorageAccountKey `
+    (Get-AzStorageAccountKey
     -ResourceGroupName <resource-group> `
     -Name <storage-account>).Value[0]
 ```

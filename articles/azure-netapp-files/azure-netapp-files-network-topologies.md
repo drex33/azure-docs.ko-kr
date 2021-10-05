@@ -14,18 +14,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/28/2021
 ms.author: ramakk
-ms.openlocfilehash: 6d82310eea944d91124025c3d894f543448f82e1
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 9bdccf811b36fb696b5094ec495c51f24409188d
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129218682"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533948"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Azure NetApp Files 네트워크 계획 지침
 
 네트워크 아키텍처 계획은 모든 애플리케이션 인프라 설계의 핵심 요소입니다. 이 문서는 Azure NetApp Files의 다양한 기능을 활용하기 위해 워크로드에 대한 효과적인 네트워크 아키텍처를 설계하는 데 도움이 됩니다.
 
-Azure NetApp Files 볼륨은 Microsoft Azure Virtual Network 내에서 [위임된 서브넷](../virtual-network/virtual-network-manage-subnet.md)이라는 특수 용도의 서브넷에 포함되도록 설계되었습니다. 따라서 필요에 따라 Virtual Network 게이트웨이(ExpressRoute 또는 VPN Gateway)를 통해 VNet, 같은 지역의 피어링된 VNet 또는 온-프레미스에서 볼륨에 직접 액세스할 수 있습니다. 서브넷은 Azure NetApp Files 전용이며 다른 Azure 서비스나 인터넷에 연결되어 있지 않습니다.
+Azure NetApp Files 볼륨은 Microsoft Azure Virtual Network 내에서 [위임된 서브넷](../virtual-network/virtual-network-manage-subnet.md)이라는 특수 용도의 서브넷에 포함되도록 설계되었습니다. 따라서 필요에 따라 VNet 피어 링을 통해 또는 Virtual Network 게이트웨이 (Express 경로 또는 VPN Gateway)를 통해 온-프레미스에서 직접 볼륨에 액세스할 수 있습니다. 서브넷은 Azure NetApp Files 전용 이며 인터넷에 연결 되지 않습니다. 
+
+## <a name="configurable-network-features"></a>구성 가능한 네트워크 기능  
+
+ Azure NetApp Files에 대 한 [**표준 네트워크 기능**](configure-network-features.md) 구성은 공개 미리 보기에서 사용할 수 있습니다. 구독과 함께이 기능을 등록 한 후에는 지원 되는 지역에서 *표준* 또는 *기본* 네트워크 기능을 선택 하 여 새 볼륨을 만들 수 있습니다. 표준 네트워크 기능이 지원 되지 않는 지역에서 볼륨은 기본적으로 기본 네트워크 기능을 사용 합니다.  
+
+* ***Standard***  
+    이 설정을 선택 하면 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md) 및 위임 된 서브넷의 [사용자 정의 경로](../virtual-network/virtual-networks-udr-overview.md#user-defined) 와 같은 표준 VNet 기능 및이 문서에 표시 된 것 처럼 추가 연결 패턴이 사용 됩니다.
+
+* ***기본***  
+    이 설정을 선택 하면 [고려 사항](#considerations) 섹션에 설명 된 대로 선택적 연결 패턴 및 제한 된 IP 소수 자릿수가 사용 됩니다. 이 설정에는 모든 [제약 조건이](#constraints) 적용 됩니다. 
 
 ## <a name="considerations"></a>고려 사항  
 
@@ -33,37 +43,38 @@ Azure NetApp Files 네트워크를 계획하는 경우 몇 가지 고려 사항�
 
 ### <a name="constraints"></a>제약 조건
 
-아래 기능은 현재 Azure NetApp Files에 대해 지원되지 않습니다. 
+다음 표에서는 각 네트워크 기능 구성에 대해 지원 되는 기능을 설명 합니다.
 
-* 위임된 서브넷에 적용된 NSG(네트워크 보안 그룹)
-* 위임된 서브넷에 적용된 UDR(사용자 정의 경로)
-* Azure NetApp Files 인터페이스의 사용자 지정 Azure 정책 (예: 사용자 지정 명명 정책)
-* Azure NetApp Files 트래픽의 부하 분산 장치
-* Azure 가상 WAN 
-* 영역 중복 Virtual Network 게이트웨이(Az를 포함한 게이트웨이 SKU) 
-* 활성/활성 Virtual Network GW 
-* 이중 스택(IPv4 및 IPv6) VNet
-
-Azure NetApp Files에는 다음과 같은 네트워크 제한이 적용됩니다.
-
-* Azure NetApp Files(*즉시* 피어링된 VNet 포함)와 함께 VNet에 사용 중인 IP 수는 1000개를 초과할 수 없습니다. 고객 규모의 수요를 충족하기 위해 이 한도를 늘리고자 노력하고 있습니다. 
-* 각 Azure Virtual Network(VNet)에서 하나의 서브넷만 Azure NetApp Files에 위임할 수 있습니다.
-
+|      기능     |      표준 네트워크 기능     |      기본 네트워크 기능     |
+|---|---|---|
+|     Azure NetApp Files 있는 VNet에서 사용 중인 Ip 수 (즉시 피어 링 Vnet 포함)    |     [Vm으로 표준 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)    |     1000    |
+|     VNet 당 ANF 위임 서브넷    |     1    |     1    |
+|     Azure NetApp Files 위임 된 서브넷의 nsgs ( [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md) )    |     Yes    |     아니요    |
+|     Azure NetApp Files 위임 된 서브넷의 udrs ( [사용자 정의 경로](../virtual-network/virtual-networks-udr-overview.md#user-defined) )    |     Yes    |     아니요    |
+|     [전용 끝점](../private-link/private-endpoint-overview.md) 에 대 한 연결    |     아니요    |     아니요    |
+|     [서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md) 에 대 한 연결    |     아니요    |     아니요    |
+|     Azure NetApp Files 인터페이스의 Azure 정책 (예: 사용자 지정 명명 정책)    |     아니요    |     아니요    |
+|     Azure NetApp Files 트래픽에 대 한 부하 분산 장치    |     아니요    |     아니요    |
+|     이중 스택 (IPv4 및 IPv6) VNet    |     No <br> (IPv4만 지원 됨)    |     No <br> (IPv4만 지원 됨)    |
 
 ### <a name="supported-network-topologies"></a>지원되는 네트워크 토폴로지
 
-다음 표에서는 Azure NetApp Files에서 지원하는 네트워크 토폴로지에 대해 설명합니다.  지원되지 않는 토폴로지의 해결 방법에 대해서도 설명합니다. 
+다음 표에서는 Azure NetApp Files의 각 네트워크 기능 구성에서 지 원하는 네트워크 토폴로지에 대해 설명 합니다. 
 
-|    토폴로지    |    지원됨    |     해결 방법    |
-|-------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------------------------------------------------------------------|
-|    로컬 VNet의 볼륨에 연결    |    예    |         |
-|    피어링된 VNet의 볼륨에 연결(동일한 지역)    |    예    |         |
-|    피어링된 VNet의 볼륨에 연결(지역 간 또는 글로벌 피어링)    |    예    |    None    |
-|    ExpressRoute 게이트웨이를 통해 볼륨에 연결    |    예    |         |
-|    게이트웨이 전송과 함께 ExpressRoute 게이트웨이 및 VNet 피어링을 통해 온-프레미스에서 스포크 VNet의 볼륨에 연결    |    예    |        |
-|    VPN 게이트웨이를 통해 온-프레미스에서 스포크 VNet의 볼륨에 연결    |    예    |         |
-|    게이트웨이 전송과 함께 VPN 게이트웨이 및 VNet 피어링을 통해 온-프레미스에서 스포크 VNet의 볼륨에 연결    |    예    |         |
-
+|      토폴로지     |      표준 네트워크 기능     |      기본 네트워크 기능     |
+|---|---|---|
+|     로컬 VNet의 볼륨에 연결    |     예    |     예    |
+|     피어링된 VNet의 볼륨에 연결(동일한 지역)    |     예    |     예    |
+|     피어 링 VNet (교차 지역 또는 전역 피어 링)의 볼륨에 연결    |     아니요    |     아니요    |
+|     ExpressRoute 게이트웨이를 통해 볼륨에 연결    |     예    |     예    |
+|     Express 경로 (ER) FastPath    |     Yes    |     아니요    |
+|     Express 경로 게이트웨이 및 게이트웨이 전송으로 VNet 피어 링을 통해 스포크 VNet의 볼륨에서 온-프레미스로의 연결    |     예    |     예    |
+|     VPN gateway를 통해 온-프레미스에서 스포크 VNet의 볼륨으로의 연결    |     예    |     예    |
+|     온-프레미스에서 VPN gateway를 통해 스포크 VNet의 볼륨에 대 한 연결 및 게이트웨이 전송으로 VNet 피어 링    |     예    |     예    |
+|     능동/수동 VPN 게이트웨이를 통한 연결    |     예    |     예    |
+|     활성/활성 VPN 게이트웨이를 통한 연결    |     Yes    |     아니요    |
+|     활성/활성 영역 중복 게이트웨이를 통한 연결    |     아니요    |     아니요    |
+|     가상 WAN (VWAN)을 통한 연결    |     아니요    |     아니요    |
 
 ## <a name="virtual-network-for-azure-netapp-files-volumes"></a>Azure NetApp Files 볼륨용 가상 네트워크
 
@@ -85,10 +96,14 @@ VNet이 다른 VNet과 피어링되는 경우 VNet 주소 공간을 확장할 �
 
 ### <a name="udrs-and-nsgs"></a>UDR 및 NSG
 
-UDR(사용자 정의 경로)와 NSG(네트워크 보안 그룹)는 Azure NetApp Files에 대한 위임된 서브넷에서 지원되지 않습니다. 그러나 Azure NetApp Files에 위임된 서브넷과 동일한 VNet 내 에서도 UDR와 NSG를 다른 서브넷에 적용할 수 있습니다.
+UDRs (사용자 정의 경로) 및 NSGs (네트워크 보안 그룹)는 표준 네트워크 기능을 사용 하 여 만든 볼륨이 하나 이상 있는 Azure NetApp Files 위임 된 서브넷 에서만 지원 됩니다.  
 
-* 그러면 UDR에 의해 다른 서브넷에서 Azure NetApp Files 위임된 서브넷으로의 트래픽 흐름이 정의됩니다. 이를 통해 시스템 경로를 사용하여 Azure NetApp Files에서 다른 서브넷으로의 트래픽 흐름에 맞춰 조정할 수 있습니다.  
-* 그런 다음, NSG는 Azure NetApp Files 위임된 서브넷과의 트래픽을 허용하거나 거부합니다. 
+> [!NOTE]
+> 네트워크 인터페이스 수준에서 NSGs를 연결 하는 것은 Azure NetApp Files 네트워크 인터페이스에 대해 지원 되지 않습니다. 
+
+서브넷에 표준 및 기본 네트워크 기능 (또는 기능 미리 보기에 등록 되지 않은 기존 볼륨)의 조합이 있는 경우 위임 된 서브넷에 적용 된 UDRs와 NSGs는 표준 네트워크 기능을 가진 볼륨에만 적용 됩니다.
+
+기본 네트워크 기능을 사용 하는 볼륨에 대해서는 기본 네트워크 기능을 사용 하는 볼륨에 대해 주소 접두사가 위임 된 서브넷 및 다음 홉 인 원본 VM 서브넷에서 UDRs (사용자 정의 경로)를 구성할 수 없습니다. 이러한 설정은 연결 문제를 발생 시킵니다.
 
 ## <a name="azure-native-environments"></a>Azure 네이티브 환경
 
@@ -125,7 +140,7 @@ UDR(사용자 정의 경로)와 NSG(네트워크 보안 그룹)는 Azure NetApp 
 위에 나와 있는 토폴로지에서 온-프레미스 네트워크는 Azure의 허브 VNet에 연결되어 있으며 허브 VNet과 피어링되는 동일한 지역의 스포크 VNet이 2개 있습니다.  이 시나리오에서 Azure NetApp Files 볼륨에 대해 지원되는 연결 옵션은 다음과 같습니다.
 
 * 온-프레미스 리소스 VM 1과 VM 2는 사이트 간 VPN 또는 ExpressRoute 회로를 통해 허브의 볼륨 1에 연결할 수 있습니다. 
-* 온-프레미스 리소스 VM 1과 VM 2는 사이트 간 VPN 및 지역 VNet 피어링을 통해 볼륨 2 또는 볼륨 3에 연결할 수 있습니다.
+* 온-프레미스 리소스 VM 1과 VM 2는 사이트 간 VPN 및 지역 VNet 피어 링을 통해 볼륨 2 또는 볼륨 3에 연결할 수 있습니다.
 * 허브 VNet의 VM 3은 스포크 VNet 1의 볼륨 2와 스포크 VNet 2의 볼륨 3에 연결할 수 있습니다.
 * 스포크 VNet 1의 VM 4와 스포크 VNet 2의 VM 5는 허브 VNet의 볼륨 1에 연결할 수 있습니다.
 * 스포크 VNet 1의 VM 4는 스포크 VNet 2의 볼륨 3에 연결할 수 없습니다. 또한 스포크 VNet2의 VM 5는 스포크 VNet 1의 볼륨 2에 연결할 수 없습니다. 스포크 VNet이 피어링되지 않고 _전송 라우팅이 VNet 피어링을 통해 지원되지 않기_ 때문입니다.
@@ -133,4 +148,5 @@ UDR(사용자 정의 경로)와 NSG(네트워크 보안 그룹)는 Azure NetApp 
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure NetApp Files에 서브넷 위임](azure-netapp-files-delegate-subnet.md)
+* [Azure NetApp Files에 서브넷 위임](azure-netapp-files-delegate-subnet.md)
+* [Azure NetApp Files 볼륨의 네트워크 기능 구성](configure-network-features.md) 

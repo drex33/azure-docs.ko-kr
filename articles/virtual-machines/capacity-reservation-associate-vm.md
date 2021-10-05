@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: 6253039c2c256e421815cad30f06780bc6c89694
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: c4aa31c94accf9aad13c54cf3680298476bf016d
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124774351"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129532678"
 ---
 # <a name="associate-a-vm-to-a-capacity-reservation-group-preview"></a>VM을 용량 예약 그룹에 연결(미리 보기) 
 
@@ -22,11 +22,6 @@ ms.locfileid: "124774351"
 > [!IMPORTANT]
 > 용량 예약은 현재 공개 미리 보기 상태입니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
-
-## <a name="register-for-capacity-reservation"></a>용량 예약 등록 
-
-용량 예약 기능을 사용하려면 먼저 [미리 보기에 대한 구독을 등록](capacity-reservation-overview.md#register-for-capacity-reservation)해야 합니다. 등록을 완료하는 데 몇 분 정도 걸릴 수 있습니다. Azure CLI 또는 PowerShell을 사용하여 기능 등록을 완료할 수 있습니다.
 
 ## <a name="associate-a-new-vm"></a>새 VM 연결
 

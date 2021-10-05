@@ -1,18 +1,18 @@
 ---
 title: Azure Cache for Redis 시간 제한 문제 해결
 description: Redis 서버 패치, StackExchange.Redis 시간 제한 예외 등 Azure Cache for Redis의 일반적인 시간 제한 문제를 해결하는 방법을 알아봅니다.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 10/18/2019
-ms.openlocfilehash: b4549978925f2e7016b54ce3004eabadaa8e985f
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
-ms.translationtype: HT
+ms.openlocfilehash: fab4587cc6320cc020a1d92eb1c6fc2f8fa3e3af
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113134351"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537392"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Azure Cache for Redis 시간 제한 문제 해결
 

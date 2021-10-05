@@ -6,13 +6,13 @@ ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 08/26/2021
-ms.openlocfilehash: b862c2ca21f83fc70e8fcaf88119061dc1411a58
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.date: 10/04/2021
+ms.openlocfilehash: 58ea7624b32b7730863fe3d29f6d9245c4199d25
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129275053"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129535308"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-net-sdk-v3"></a>Azure Cosmos DB .NET SDK v3를 사용하도록 애플리케이션 마이그레이션
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -195,7 +195,7 @@ catch (CosmosException cosmosException) {
 | .NET v2 SDK | .NET v3 SDK |
 |-------------|-------------|
 |`EnableEndpointRediscovery`|`LimitToEndpoint` - 이제 값이 반전됩니다. `EnableEndpointRediscovery`가 `true`로 설정되어 있으면 `LimitToEndpoint`는 `false`로 설정되어야 합니다. 이 설정을 사용하기 전에 [클라이언트에 미치는 영향](troubleshoot-sdk-availability.md)을 이해해야 합니다.|
-|`ConnectionProtocol`|제거됩니다. 프로토콜은 게이트웨이(HTTPS) 또는 직접(TCP) 모드에 연결됩니다.|
+|`ConnectionProtocol`|제거됩니다. 프로토콜은 게이트웨이(HTTPS) 또는 직접(TCP) 모드에 연결됩니다. HTTPS 프로토콜을 사용 하는 직접 모드는 V3 SDK에서 더 이상 지원 되지 않으며 TCP 프로토콜을 사용 하는 것이 좋습니다. |
 |`MediaRequestTimeout`|제거됩니다. 첨부 파일은 더 이상 지원되지 않습니다.|
 
 ### <a name="session-token"></a>세션 토큰

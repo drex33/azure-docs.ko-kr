@@ -3,13 +3,13 @@ title: MARS 에이전트 백업 관리 및 모니터링
 description: Azure Backup 서비스를 사용하여 MARS(Microsoft Azure Recovery Services) 에이전트 백업을 관리하고 모니터링하는 방법에 대해 알아봅니다.
 ms.reviewer: srinathv
 ms.topic: conceptual
-ms.date: 06/08/2021
-ms.openlocfilehash: c7a696c4059ebc7cc28a34a299060039ac1c0c62
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
-ms.translationtype: HT
+ms.date: 10/05/2021
+ms.openlocfilehash: 525bdff82c224b02b941354983276747b483ae56
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111902933"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129535124"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Azure Backup 서비스를 사용하여 MARS(Microsoft Azure Recovery Services) 에이전트 백업 관리
 
@@ -94,7 +94,7 @@ ms.locfileid: "111902933"
   - 만료되지 않은 복구 지점의 백업 데이터를 복원할 수 있습니다.
   - 보호를 계속하기로 결정한 경우 *백업 일정 다시 사용* 옵션을 사용할 수 있습니다. 그 후에는 데이터가 새 보존 정책에 따라 보존됩니다.
 - **보호를 중지하고 백업 데이터 삭제**.
-  - 이 옵션은 데이터를 보호하는 이후의 모든 백업 작업을 중지합니다. 자격 증명 모음 보안 기능을 사용하도록 설정하지 않으면 모든 복구 지점이 즉시 삭제됩니다.<br>보안 기능이 활성화된 경우 삭제가 14일 지연되고 *이 백업 항목에 대한 데이터가 삭제되었습니다. 이 데이터는 14일 동안 일시적으로 사용할 수 있으며 이후에는 영구적으로 삭제됩니다.* 라는 메시지와 *데이터를 복구하려면 14일 이내에 백업 항목을 다시 보호하세요.* 권장 작업을 포함하는 백업 경고 이메일을 받게 됩니다.<br>이 상태에서 보존 정책은 계속 적용되며 백업 데이터는 청구 가능 상태로 유지됩니다. 자격 증명 모음 보안 기능을 사용하는 방법에 대해 [자세히 알아봅니다](backup-azure-security-feature.md#enable-security-features).
+  - 이 옵션은 데이터를 보호하는 이후의 모든 백업 작업을 중지합니다. 자격 증명 모음 보안 기능을 사용하도록 설정하지 않으면 모든 복구 지점이 즉시 삭제됩니다.<br>보안 기능을 사용 하는 경우 삭제는 14 일 지연 되며, *이 백업 항목에 대 한 데이터를 삭제 했습니다. 메시지가 포함 된 경고 전자 메일을 받게 됩니다. 이 데이터는 14 일 동안 일시적으로 사용할 수 있으며, 그 후에는 영구적으로 삭제* 되 고 권장 조치는 *14 일 이내에 백업 항목을 다시 보호 하 여 데이터를 복구 합니다.*<br>이 상태에서 보존 정책은 계속 적용되며 백업 데이터는 청구 가능 상태로 유지됩니다. 자격 증명 모음 보안 기능을 사용하는 방법에 대해 [자세히 알아봅니다](backup-azure-security-feature.md#enable-security-features).
   - 보호를 재개하려면 삭제 작업 후 14일 이내에 서버를 다시 보호합니다. 이 기간 동안 대체 서버로 데이터를 복원할 수도 있습니다.
 
 ### <a name="stop-protection-and-retain-backup-data"></a>보호 중지 및 백업 데이터 보존
@@ -167,6 +167,62 @@ ms.locfileid: "111902933"
 
     ![보안 PIN 붙여넣기](./media/backup-azure-manage-mars/passphrase2.png)
 1. 암호를 원본 컴퓨터가 아닌 대체 위치(Azure Key Vault 권장)에 안전하게 저장하는 것이 좋습니다. MARS 에이전트를 사용하여 여러 컴퓨터를 백업하는 경우 모든 암호를 추적하세요.
+
+## <a name="validate-passphrase"></a>암호 유효성 검사
+
+MARS 에이전트 버전 2.0.9190.0 이상에서는 암호의 유효성을 검사하여 [업데이트된 요구 사항을](/azure/backup/backup-azure-file-folder-backup-faq#what-characters-are-allowed-for-the-passphrase-)충족하는지 확인해야 합니다.
+
+암호의 유효성을 검사하려면 다음 단계를 수행합니다.
+
+1. MARS 콘솔을 엽니다.
+
+   암호의 유효성을 검사하라는 메시지가 맨 위에 표시됩니다. 
+
+1. **유효성 검사** 를 클릭합니다.
+
+   :::image type="content" source="./media/backup-azure-manage-mars/validate-passphrase-prompt-inline.png" alt-text="암호 유효성 검사 프롬프트를 보여주는 스크린샷." lightbox="./media/backup-azure-manage-mars/validate-passphrase-prompt-expanded.png":::
+
+   암호 유효성 검사기가 열리고 현재 암호를 묻는 메시지가 표시됩니다. 암호가 업데이트된 요구 사항을 충족하지 않는 경우 암호를 다시 생성할 수 있는 옵션이 나타납니다.
+
+1. 다음 세부 정보를 통해 암호를 생성합니다.
+
+   - 요구 사항을 충족하는 새 암호입니다.
+   - 보안 [PIN(보안 PIN을 생성하는 단계](#generate-security-pin)참조)
+   - 새로 생성된 암호를 저장할 서버의 안전한 위치입니다.
+
+   :::image type="content" source="./media/backup-azure-manage-mars/generate-passphrase.png" alt-text="필요한 세부 정보가 있는 암호를 생성하는 프로세스를 보여주는 스크린샷.":::
+
+### <a name="validate-passphrase-for-dpmmabs-agent"></a>DPM/MABS 에이전트에 대한 암호 유효성 검사
+
+DPM/MABS의 경우 관리자 권한 명령 프롬프트에서 암호 유효성 검사 도구를 실행합니다.
+   
+다음 위치 중 하나에서 도구를 찾을 수 있습니다.
+
+- **System Center Data Protection Manager**
+     
+  %ProgramFiles%\Microsoft Azure Recovery Services Agent\bin\PassphraseValidator.exe
+
+- **Microsoft Azure Backup 서버**
+      
+  %ProgramFiles%\Microsoft Azure Backup Server\DPM\MARS\Microsoft Azure Recovery Services Agent\bin\PassphraseValidator.exe
+
+암호 유효성 검사기가 열리고 현재 암호를 묻는 메시지가 표시됩니다. 암호가 업데이트된 요구 사항을 충족하지 않는 경우 암호를 다시 생성합니다.
+   
+:::image type="content" source="./media/backup-azure-manage-mars/passphrase-validator-prompts-for-current-passphrase.png" alt-text="현재 암호에 대한 암호 유효성 검사기 프롬프트를 보여주는 스크린샷":::
+
+다음 단계를 사용합니다.
+
+1. 관리 콘솔에서 **관리** 탭으로 이동하고 **온라인**  ->  **구성을** 선택합니다.
+1. 구독 **구성 설정 마법사** 에 따라 **암호화 설정** 단계에서 업데이트된 암호를 제공합니다.
+
+:::image type="content" source="./media/backup-azure-manage-mars/configure-subscription-settings-wizard.png" alt-text="구독 구성 설정 마법사에 따라 암호를 제공하는 프로세스를 보여주는 스크린샷.":::
+
+## <a name="generate-security-pin"></a>보안 PIN 생성
+
+1. **Recovery Services 자격 증명 모음** -> **설정** -> **속성** 으로 이동합니다.
+1. **보안 PIN** 에서 **생성** 을 선택합니다.
+ 
+PIN을 복사합니다. PIN은 5 분 동안만 유효합니다.
 
 ## <a name="managing-backup-data-for-unavailable-machines"></a>사용할 수 없는 컴퓨터의 백업 데이터 관리
 

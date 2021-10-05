@@ -1,18 +1,18 @@
 ---
 title: Azure Resource Manager 템플릿을 사용하여 Azure Cache for Redis 배포
 description: Azure Resource Manager 템플릿(ARM 템플릿)을 사용하여 Azure Cache for Redis 리소스를 배포하는 방법을 알아봅니다. 일반적인 시나리오를 위한 템플릿이 제공됩니다.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 04/28/2021
-ms.openlocfilehash: e9c804868c64d84b8cbe98093f75c4a45d568ec3
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
-ms.translationtype: HT
+ms.openlocfilehash: 1f284169387209f3783a9621419bf17ea8240619
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112458761"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537715"
 ---
 # <a name="quickstart-create-an-azure-cache-for-redis-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Cache for Redis 만들기
 
@@ -43,7 +43,7 @@ Azure Cache for Redis를 배포하는 ARM 템플릿(Azure Resource Manager 템�
 새 [프리미엄 계층](cache-overview.md#service-tiers)을 위한 Resource Manager 템플릿을 사용할 수 있습니다.
 
 * [클러스터링이 있는 프리미엄 Azure Cache for Redis 만들기](https://azure.microsoft.com/resources/templates/redis-premium-cluster-diagnostics/)
-* [데이터 지속성이 있는 프리미엄 Azure Cache for Redis 만들기](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
+* [데이터 지속성이 있는 프리미엄 Azure Cache for Redis 만들기](https://azure.microsoft.com/resources/templates/redis-premium-persistence/)
 * [Virtual Network에 배포된 프리미엄 Redis Cache 만들기](https://azure.microsoft.com/resources/templates/redis-premium-vnet/)
 
 최신 템플릿을 확인하려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)을 참조하고 _Azure Cache for Redis_ 를 검색하세요.

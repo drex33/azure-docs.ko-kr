@@ -14,12 +14,12 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 060d09d17bf622af5ca5c062e00d2961a0a2b566
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
-ms.translationtype: HT
+ms.openlocfilehash: ffb9ac3874ae3eb1ab3ec883a8094c57d03b86a8
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572470"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534574"
 ---
 # <a name="use-powershell-or-az-cli-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>PowerShell 또는 Azure CLI를 사용하여 Azure VM에 SQL Server에 대한 가용성 그룹 구성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -77,11 +77,11 @@ az storage account create -n <name> -g <resource group name> -l <region> `
 # Create the storage account
 # example: New-AzStorageAccount -ResourceGroupName SQLVM-RG -Name cloudwitness `
 #    -SkuName Standard_LRS -Location West US -Kind StorageV2 `
-#    -AccessTier Hot -EnableHttpsTrafficOnly
+#    -AccessTier Hot -EnableHttpsTrafficOnly $true
 
 New-AzStorageAccount -ResourceGroupName <resource group name> -Name <name> `
     -SkuName Standard_LRS -Location <region> -Kind StorageV2 `
-    -AccessTier Hot -EnableHttpsTrafficOnly
+    -AccessTier Hot -EnableHttpsTrafficOnly $true
 ```
 
 ---
@@ -121,12 +121,13 @@ az sql vm group create -n <cluster name> -l <region ex:eastus> -g <resource grou
 #  -StorageAccountUrl '<ex:https://cloudwitness.blob.core.windows.net/>' `
 #  -StorageAccountPrimaryKey '4Z4/i1Dn8/bpbseyWX'
 
+$storageAccountPrimaryKey = ConvertTo-SecureString -String "<PublicKey>" -AsPlainText -Force
 $group = New-AzSqlVMGroup -Name <name> -Location <regio> 
   -ResourceGroupName <resource group name> -Offer <SQL201?-WS201?> 
   -Sku Enterprise -DomainFqdn <FQDN> -ClusterOperatorAccount <domain account> 
   -ClusterBootstrapAccount <domain account>  -SqlServiceAccount <service account> 
   -StorageAccountUrl '<ex:StorageAccountUrl>' `
-  -StorageAccountPrimaryKey '<PublicKey>'
+  -StorageAccountPrimaryKey $storageAccountPrimaryKey
 ```
 
 ---
@@ -194,7 +195,7 @@ Update-AzSqlVM -ResourceId $sqlvm2.ResourceId -SqlVM $sqlvmconfig2
 
 디스크 감시는 가장 탄력적으로 수행되는 쿼럼 옵션이지만 가용성 그룹에 몇 가지 제한을 적용하는 Azure 공유 디스크가 필요합니다. 따라서 클라우드 감시는 Azure VM의 SQL Server에 대한 가용성 그룹을 호스트하는 클러스터에 권장되는 쿼럼 솔루션입니다. 
 
-클러스터에 짝수의 투표가 있는 경우 비즈니스 요구 사항에 가장 적합한 [쿼럼 솔루션](hadr-cluster-quorum-configure-how-to.md)을 구성합니다. 자세한 내용은 [SQL Server VM에 대한 쿼럼](hadr-windows-server-failover-cluster-overview.md#quorum)을 참조하세요. 
+클러스터에 짝수 투표가 있는 경우 비즈니스 요구에 가장 적합한 [쿼럼 솔루션](hadr-cluster-quorum-configure-how-to.md)을 구성합니다. 자세한 내용은 [SQL Server VM에 대한 쿼럼](hadr-windows-server-failover-cluster-overview.md#quorum)을 참조하세요. 
 
 
 ## <a name="validate-cluster"></a>클러스터 유효성 검사 

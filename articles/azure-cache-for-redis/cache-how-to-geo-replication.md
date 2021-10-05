@@ -1,17 +1,17 @@
 ---
 title: 프리미엄 Azure Cache for Redis 인스턴스에 대한 지역에서 복제 구성
 description: Azure 지역 간에 Azure Cache for Redis 프리미엄 인스턴스를 복제하는 방법을 알아봅니다.
-author: yegu-ms
+author: curib
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.author: yegu
-ms.openlocfilehash: c1d6d7fbac720a6a0f8793e75d08733ce01e0707
-ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
-ms.translationtype: HT
+ms.author: cauribeg
+ms.openlocfilehash: d6381556703c704eb0e8b24ea2f1a809bf864735
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112322353"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538513"
 ---
 # <a name="configure-geo-replication-for-premium-azure-cache-for-redis-instances"></a>프리미엄 Azure Cache for Redis 인스턴스에 대한 지역에서 복제 구성
 

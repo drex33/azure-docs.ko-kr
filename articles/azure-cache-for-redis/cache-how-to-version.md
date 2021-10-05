@@ -1,17 +1,17 @@
 ---
 title: Azure Cache for Redis의 Redis 버전 설정(미리 보기)
 description: Redis 버전을 구성하는 방법 알아보기
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: d1dda6c4c414c79daf8223794c7d89846fad418f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 4bcd5b98011c5e65714c3690f90a1c1bcb52ede1
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536307"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538078"
 ---
 # <a name="set-redis-version-for-azure-cache-for-redis-preview"></a>Azure Cache for Redis의 Redis 버전 설정(미리 보기)
 이 문서에서는 캐시 인스턴스와 함께 사용할 Redis 소프트웨어 버전을 구성하는 방법을 알아봅니다. Azure Cache for Redis는 Redis의 최신 주 버전과 하나 이상의 이전 버전을 제공합니다. 최신 Redis 소프트웨어가 출시되면 이러한 버전이 정기적으로 업데이트됩니다. 사용 가능한 두 버전 중에서 선택할 수 있습니다. 현재 사용 중인 버전이 더 이상 지원되지 않는 경우 캐시가 다음 버전으로 자동 업그레이드된다는 점을 기억하십시오.
@@ -38,7 +38,7 @@ ms.locfileid: "122536307"
    
 1. **기본 사항** 페이지에서 새 캐시의 설정을 구성합니다.
    
-    | 설정      | 제안 값  | 설명 |
+    | 설정      | 제안 값  | Description |
     | ------------ |  ------- | -------------------------------------------------- |
     | **구독** | 구독을 선택합니다. | 이 구독 아래에 새 Azure Cache for Redis 인스턴스가 만들어집니다. | 
     | **리소스 그룹** | 리소스 그룹을 선택하거나 **새로 만들기** 를 선택하고 새 리소스 그룹 이름을 입력합니다. | 캐시 및 기타 리소스를 만들 새 리소스 그룹의 이름입니다. 모든 앱 리소스를 하나의 리소스 그룹에 배치하면 앱 리소스를 쉽게 관리하거나 삭제할 수 있습니다. | 

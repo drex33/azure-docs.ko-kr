@@ -6,12 +6,12 @@ ms.author: athenadsouza
 ms.service: purview
 ms.topic: conceptual
 ms.date: 10/03/2021
-ms.openlocfilehash: 66e494a8d8ca114c6e3f9d9a2bcf42c56bd4ba6f
-ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
+ms.openlocfilehash: 393414ad1d2c50f2a3bb76ce045614e19b50f928
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129421446"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534059"
 ---
 # <a name="azure-purview-pricing"></a>Azure Purview 가격 책정   
 
@@ -52,14 +52,14 @@ Azure Purview 가격 책정에 영향을 미치는 직접 비용은 다음 세 �
 
 - 데이터 맵에서 수행되는 만들기, 읽기, 업데이트, 삭제 작업을 기반으로 하는 이벤트 기반 요소
 - 데이터 맵 작업의 몇 가지 예는 다음과 같습니다. - 데이터 맵 자산 만들기 - 소유자, 관리자, 부모, 계보와 같은 자산에 관계 추가 - 자산 편집에서 설명, 용어집 용어와 같은 비즈니스 메타데이터 추가 - 검색 결과에 결과를 반환하는 키워드 검색 - API를 사용하여 정보 가져오기 또는 내보내기
-- 데이터 맵 실행된 쿼리가 여러 개 있는 경우 I/O 작업 수도 증가하여 데이터 맵이 확장됩니다.
+- 데이터 맵 여러 쿼리가 실행된 경우 I/O 작업 수도 증가하여 데이터 맵이 확장됩니다.
 - 또한 동시 사용자 수는 데이터 맵 용량 단위를 제어하는 요인을 형성합니다.
 - 고려해야 할 다른 요소는 검색 쿼리의 유형, API 상호 작용, 워크플로, 승인 등입니다.
 - 데이터 버스트 수준
     - 더 많은 작업/초 처리량이 필요한 경우 데이터 맵은 탄력성 창 내에서 자동 크기 조정하여 변경된 부하를 충족할 수 있습니다.
     - 이는 예측하고 계획해야 하는 **버스트 특성을** 구성합니다.
     - 버스트 특성은 **버스트 수준과 버스트가** 존재하는 **버스트 기간으로** 구성됩니다.
-        - **버스트 수준은** 안정적인 상태에서 예상되는 일관된 탄력성의 곱하기 인덱스입니다.
+        - **버스트 수준은** 안정적인 상태에서 예상되는 일관성 탄력성의 곱하기 인덱스입니다.
         - **버스트 기간은** 메타데이터 증가 또는 데이터 맵의 작업 수 증가로 인해 이러한 버스트(탄력성)가 예상되는 월의 백분율입니다.
 
 
@@ -80,11 +80,11 @@ Azure Purview 가격 책정에 영향을 미치는 직접 비용은 다음 세 �
 
 - 데이터 원본에 대한 **"세부 정보 보기"** 링크를 사용하면 사용자가 전체 검사를 실행할 수 있습니다. 그러나 검색 규칙 집합(분류/파일 형식)이 변경된 경우를 제외하고 최적화된 검사를 위해 전체 검색 후 증분 검색을 실행하는 것이 좋습니다.
 
-- 중복 검색 비용이 발생하지 않도록 **부모 컬렉션에 데이터 원본을 등록하고** **자식 컬렉션의 범위 검색을** 다른 액세스 제어로 등록하는 것이 좋습니다.
+- 중복 검색 비용이 발생하지 않도록 **부모 컬렉션에 데이터 원본을 등록하고** 다른 액세스 제어를 사용하여 **자식 컬렉션의 범위** 검색을 등록하는 것이 좋습니다.
 
 - [컬렉션 권한 부여를](./catalog-permissions.md)사용하여 **세분화된 액세스 제어** 및 데이터 원본 관리자 역할을 통해 검사를 위해 데이터 **원본을** 등록할 수 있는 사용자를 비추는 것이 좋습니다. 이렇게 하면 유효한 데이터 원본만 등록할 수 있고 v 코어 시간 검사가 제어되어 검사 비용이 절감됩니다.
 
-- 검사 중인 **데이터 원본의 유형과** **자산 수가** 검색 기간에 영향을 주는 것을 고려합니다.
+- 검사 중인 **데이터 원본의 유형과** **자산 수가** 검사 기간에 영향을 주는 것을 고려합니다.
 
 - 스캐너의 최적 사용을 보장하기 위해 비즈니스 요구 사항과 관련된 데이터 자산 및 **분류에서** 사용할 수 있는 **파일 형식의** 하위 집합만 포함하도록 **사용자 지정 검사 규칙 집합을 만드는** 것이 좋습니다.
 
@@ -127,7 +127,7 @@ Azure Purview 가격 책정에 영향을 미치는 직접 비용은 다음 세 �
         - SAP와 같은 특정 데이터 원본은 검사를 위해 SHIR 머신에 추가 메모리가 필요합니다.
 
 
-- [Virtual Machine 크기 조정](https://docs.microsoft.com/azure/virtual-machines/sizes)
+- [Virtual Machine 크기 조정](../virtual-machines/sizes.md)
     - 검색 워크로드를 VM에 분산하여 검색을 실행하는 동안 활용되는 V 코어를 최적화하기 위해 가상 머신 크기 조정을 계획합니다.
 
 - [Microsoft 365 라이선스](./create-sensitivity-label.md) 
@@ -135,13 +135,13 @@ Azure Purview 가격 책정에 영향을 미치는 직접 비용은 다음 세 �
     - MIP 민감도 레이블은 Microsoft 365 보안 및 규정 준수 센터에서 생성됩니다.
     - Azure Purview에서 사용할 민감도 레이블을 만들려면 자동 레이블 지정의 이점을 제공하는 활성 Microsoft 365 라이선스가 있어야 합니다. 라이선스의 전체 목록은 Azure Purview FAQ의 민감도 레이블을 참조하세요. 
 
-- [Azure Alerts](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-overview)
+- [Azure Alerts](../azure-monitor/alerts/alerts-overview.md)
     - Azure Alerts는 Azure Monitor 모니터링 데이터를 사용하여 인프라 또는 애플리케이션에서 발견된 문제를 고객에게 알릴 수 있습니다.
     - Azure Alerts에 대한 추가 가격 책정은 [여기에서](https://azure.microsoft.com/pricing/details/monitor/) 확인할 수 있습니다.
 
-- [Cost Management 예산 & 경고](https://docs.microsoft.com/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending)
+- [Cost Management 예산 & 경고](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md)
     - 자동으로 생성된 비용 경고는 Azure에서 Azure 리소스가 사용되는 시기에 따라 Azure 사용량 및 지출을 모니터링하는 데 사용됩니다.
-    - Azure를 사용하면 Azure 예산을 만들고 관리할 수 있습니다. [자습서](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-acm-create-budgets) 참조
+    - Azure를 사용하면 Azure 예산을 만들고 관리할 수 있습니다. [자습서](../cost-management-billing/costs/tutorial-acm-create-budgets.md) 참조
 
 - 다중 클라우드 송신 요금
     - S3 및 RDS 원본을 제외한 네이티브 서비스를 실행하는 다중 클라우드(예: AWS, Google) 데이터 원본 검사와 관련된 송신 요금(다중 클라우드 구독의 일부로 추가된 최소 요금)을 고려합니다.

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/17/2020
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 614eb783276bc120bed536ede53dc4930867431a
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 446b6bc0ba715106dc6a727e5b5e5b7e07528e01
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129423579"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129535940"
 ---
 # <a name="advanced-entry-script-authoring"></a>고급 항목 스크립트 작성
 
@@ -166,7 +166,7 @@ import requests
 uri = service.scoring_uri
 image_path = 'test.jpg'
 files = {'image': open(image_path, 'rb').read()}
-response = requests.post(url, files=files)
+response = requests.post(uri, files=files)
 
 print(response.json)
 ```

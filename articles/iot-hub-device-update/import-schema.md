@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 2/25/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 5b70d59f83280eda416736e9fd02a2ff417dcc34
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9d3cc8cb8ed36179e2297da7c057851345e1c02e
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128556349"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536922"
 ---
 # <a name="importing-updates-into-device-update-for-iot-hub---schema-and-other-information"></a>Device Update for IoT Hub로 업데이트 가져오기 - 스키마 및 기타 정보
 Device Update for IoT Hub로 업데이트를 가져오려면 먼저 [개념](import-concepts.md) 및 [방법 가이드](import-update.md)를 검토해야 합니다. 가져오기 매니페스트를 구성할 때 사용되는 스키마의 세부 정보 및 관련 개체에 대한 자세한 내용은 아래를 참조하세요.
@@ -41,7 +41,7 @@ Device Update for IoT Hub로 업데이트를 가져오려면 먼저 [개념](imp
 | 이름 | 유형 | 설명 | 제한 |
 | --------- | --------- | --------- | --------- |
 | 파일 이름 | 문자열 | 파일 이름 | 255자 이하여야 합니다. 업데이트 내에서 고유해야 합니다. |
-| SizeInBytes | Int64 | 파일 크기(바이트)입니다. | 개별 파일 당 최대 2gb 또는 업데이트 당 2 GB |
+| SizeInBytes | Int64 | 파일 크기(바이트)입니다. | 개별 파일당 최대 크기에 대 한 [장치 업데이트 제한](./device-update-limits.md) 및 집합적으로 업데이트를 참조 하세요. |
 | 해시 | `Hashes` 개체의  멤버의 부모에 대해 SQL Server 인스턴스 이름을 표시합니다. | 파일의 해시를 포함하는 JSON 개체 |
 
 ## <a name="compatibilityinfo-object"></a>CompatibilityInfo 개체

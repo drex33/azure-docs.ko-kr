@@ -1,18 +1,18 @@
 ---
 title: Azure Cache for Redis를 구성하는 방법
 description: Azure Cache for Redis에 대한 기본 Redis 구성을 이해하고 Azure Cache for Redis 인스턴스를 구성하는 방법을 알아봅니다.
-author: yegu-ms
+author: curib
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
-ms.author: yegu
+ms.author: cauribeg
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a182d86485a8ca934b3ed94b5251e12b456edabd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8da09266624321483b5fb5628bc29981022dd484
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128558678"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538907"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure Cache for Redis를 구성하는 방법
 
@@ -317,7 +317,7 @@ Redis keyspace 알림은 왼쪽의 **고급 설정** 에서 구성됩니다. Key
 
 왼쪽의 **다시 부팅** 에서는 캐시 노드를 다시 부팅할 수 있습니다. 이 다시 부팅 기능을 사용하면 캐시 노드에 오류가 발생하는 경우 애플리케이션의 복원력을 테스트할 수 있습니다.
 
-![Reboot](./media/cache-configure/redis-cache-reboot.png)
+![다시 부팅](./media/cache-configure/redis-cache-reboot.png)
 
 클러스터링이 설정된 프리미엄 캐시를 사용하는 경우 재부팅할 캐시 분할을 선택할 수 있습니다.
 

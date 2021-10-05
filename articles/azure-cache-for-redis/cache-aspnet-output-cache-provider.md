@@ -1,18 +1,18 @@
 ---
 title: Azure Cache for Redis에 대한 ASP.NET 출력 캐시 공급자
 description: Azure Cache for Redis를 사용하여 ASP.NET 페이지 출력을 캐시하는 방법을 알아봅니다. Redis 출력 캐시 공급자는 출력 캐시 데이터에 대한 out-of-process 스토리지 메커니즘입니다.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 04/22/2018
-ms.openlocfilehash: 78b84e7a08e0c889defad0676ba84a6504900b02
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: 7354f0504197742a8c8acf2d0c555a524fef95d9
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479534"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538845"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 ASP.NET 출력 캐시 공급자
 

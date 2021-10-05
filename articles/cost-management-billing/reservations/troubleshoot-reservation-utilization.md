@@ -8,12 +8,12 @@ ms.author: banders
 ms.reviewer: yashar
 ms.topic: troubleshooting
 ms.date: 09/15/2021
-ms.openlocfilehash: 3bade2b547db3b76bde02731807d4e6ef3539711
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4c758dfdc40e23197128bc08cccc5748f08f7ed4
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128649609"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534890"
 ---
 # <a name="troubleshoot-reservation-utilization"></a>예약 사용률 문제 해결
 
@@ -39,6 +39,14 @@ Azure Portal의 **사용률(%)** 열에는 현재 날짜의 값이 표시됩니�
 ## <a name="solution"></a>해결 방법
 
 사용률 값이 예상 값과 일치하지 않으면 그래프를 검토하여 실제 사용률을 최대한 많이 확인합니다. 2일보다 더 오래된 요소 값은 정확해야 합니다. 7~30일의 장기 평균은 정확해야 합니다.
+
+## <a name="other-common-scenarios"></a>기타 일반적인 시나리오
+- 리소스 A의 실행을 중지 했을 수 있으며, 리소스 B 실행을 시작 했을 수 있습니다 .이는에 대해 구매한 예약에는 적용 되지 않습니다. 이를 해결 하려면 적절 한 리소스와 일치 하도록 예약을 교환 해야 할 수 있습니다. 
+- 한 구독 또는 리소스 그룹에서 다른 구독 또는 리소스 그룹으로 리소스를 이동 했을 수 있습니다. 반면, 예약의 범위는 리소스를 이동 하는 위치와 다릅니다. 이 문제를 해결 하려면 예약의 범위를 변경 해야 할 수 있습니다.
+- 동일한 범위에 대 한 혜택을 적용 한 다른 예약을 구매 했을 수 있으며, 그 결과, 기존 예약 인스턴스가 혜택을 적용 하지 않았습니다. 이를 해결 하려면 예약 중 하나를 교환/환불 해야 할 수 있습니다.
+- 특정 리소스의 실행을 중지 했을 수 있으며, 결과적으로 사용 내보내기가 중지 되 고 혜택이 적용 되지 않습니다. 이를 해결 하려면 적절 한 리소스와 일치 하도록 예약을 교환 해야 할 수 있습니다. 
+- 예약의 범위를 변경 하 여 리소스에 대 한 혜택을 적용 하지 않을 수 있습니다. 이를 해결 하려면 리소스를 동일한 범위에 배포 하기 위해 예약의 범위를 다시 변경 해야 할 수 있습니다.
+- 예약이 범위가 지정 된 구독이 삭제 되거나 이동 되었으므로 리소스에 적용 되지 않습니다. 이를 해결 하려면 예약의 범위를 변경 해야 할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

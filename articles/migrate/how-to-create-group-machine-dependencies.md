@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 757a10473c2f6776ef3a84310b42209ddd12ed45
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1ad8f9496bd781d6ed33927b4056073a50e0b5a2
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128643653"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129535046"
 ---
 # <a name="set-up-dependency-visualization"></a>종속성 시각화 설정
 
@@ -65,9 +65,13 @@ ms.locfileid: "128643653"
 > System Center Operations Manager 2012 R2 이상에서 모니터링하는 서버의 경우 MMA 에이전트를 설치할 필요가 없습니다. 서비스 맵은 Operations Manager와 통합됩니다. 통합 지침을 [따릅니다](../azure-monitor/vm/service-map-scom.md#prerequisites).
 
 1. **Azure Migrate: 검색 및 평가** 에서 **검색된 서버** 를 클릭합니다.
-2. 종속성 시각화를 사용하여 분석하려는 각 서버에 대해 **종속성** 열에서 **에이전트 설치 필요** 를 클릭합니다.
-3. **종속성** 페이지에서 Windows 또는 LINUX용 MMA 및 종속성 에이전트를 다운로드합니다.
-4. **MMA 에이전트 구성** 에서 작업 영역 ID 및 키를 복사합니다. MMA 에이전트를 설치할 때 필요합니다.
+1. **열 을** 클릭하여 **Dependencies(에이전트 기반)를** 선택하여 검색된 서버 페이지의 열을 확인합니다.
+
+    :::image type="content" source="./media/how-to-create-group-machine-dependencies/columns-inline.png" alt-text="열을 클릭한 후의 결과를 보여주는 스크린샷." lightbox="./media/how-to-create-group-machine-dependencies/columns-expanded.png":::
+
+1. 종속성 시각화를 사용하여 분석하려는 각 서버에 대해 **종속성** 열에서 **에이전트 설치 필요** 를 클릭합니다.
+1. **종속성** 페이지에서 Windows 또는 LINUX용 MMA 및 종속성 에이전트를 다운로드합니다.
+1. **MMA 에이전트 구성** 에서 작업 영역 ID 및 키를 복사합니다. MMA 에이전트를 설치할 때 필요합니다.
 
     ![에이전트 설치](./media/how-to-create-group-machine-dependencies/dependencies-install.png)
 

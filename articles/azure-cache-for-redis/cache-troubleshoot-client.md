@@ -1,17 +1,17 @@
 ---
 title: Azure Cache for Redis 클라이언트 쪽 문제 해결
 description: Redis 클라이언트 메모리 압력, 트래픽 버스트, 높은 CPU, 제한된 대역폭, 크기가 큰 요청 또는 응답 등 Azure Cache for Redis와 관련된 일반적인 클라이언트 쪽 문제를 해결하는 방법을 알아봅니다.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
-ms.openlocfilehash: da61064fb65db85ebb41b441c228e9c77a1db6fc
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
-ms.translationtype: HT
+ms.openlocfilehash: a41329da9171014b0495498f8757007dbef008ef
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113136529"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537426"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Azure Cache for Redis 클라이언트 쪽 문제 해결
 

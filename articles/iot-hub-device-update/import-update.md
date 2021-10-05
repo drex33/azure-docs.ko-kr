@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 4/19/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 790d363a3bd0e961b184cc2511c39833f0eac3d7
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
-ms.translationtype: HT
+ms.openlocfilehash: f616fee894c1eb436770cdafbab7b60d7a1417db
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122567861"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537143"
 ---
 # <a name="add-an-update-to-device-update-for-iot-hub"></a>Device Update for IoT Hub에 업데이트 추가
 Device Update for IoT Hub에 새 업데이트를 추가하는 방법을 알아봅니다.
@@ -162,18 +162,15 @@ OEM 또는 솔루션 통합자에서 디바이스를 구매한 경우 해당 조
 
    :::image type="content" source="media/import-update/update-ready.png" alt-text="작업 상태" lightbox="media/import-update/update-ready.png":::
 
-## <a name="if-youre-importing-via-apis-instead"></a>대신 API를 통해 가져오는 경우
-
-위의 단계를 사용하여 Azure Portal을 통해 가져오기를 완료한 경우 아래의 다음 단계로 건너뜁니다.
-
-Azure Portal을 통해 가져오는 대신 [Device Update for IoT Hub 업데이트 API](/rest/api/deviceupdate/updates)를 사용하여 업데이트를 가져오려면 다음을 참고하세요.
-  - 업데이트 API를 호출하기 전에 Azure Blob Storage 위치에 업데이트 파일을 업로드해야 합니다.
-  - 위에서 만든 가져오기 매니페스트를 사용하는 이 [샘플 API 호출](import-schema.md#example-import-request-body)을 참조할 수 있습니다.
-  - 테스트하는 동안 동일한 SAS URL을 다시 사용하는 경우 토큰이 만료되면 오류가 발생할 수 있습니다. 이는 가져오기 매니페스트 뿐만 아니라 업데이트 콘텐츠 자체를 제출하는 경우입니다.
-
-
 ## <a name="next-steps"></a>다음 단계
 
 [그룹 만들기](create-update-group.md)
 
 [가져오기 개념에 관해 알아보기](import-concepts.md)
+
+## <a name="if-youre-importing-via-apis-instead"></a>대신 API를 통해 가져오는 경우
+
+Azure Portal을 통해 가져오는 대신 [Device Update for IoT Hub 업데이트 API](/rest/api/deviceupdate/updates)를 사용하여 업데이트를 가져오려면 다음을 참고하세요.
+  - 업데이트 API를 호출하기 전에 Azure Blob Storage 위치에 업데이트 파일을 업로드해야 합니다.
+  - 위에서 만든 가져오기 매니페스트를 사용하는 이 [샘플 API 호출](import-schema.md#example-import-request-body)을 참조할 수 있습니다.
+  - 테스트하는 동안 동일한 SAS URL을 다시 사용하는 경우 토큰이 만료되면 오류가 발생할 수 있습니다. 이는 가져오기 매니페스트 뿐만 아니라 업데이트 콘텐츠 자체를 제출하는 경우입니다.

@@ -1,23 +1,23 @@
 ---
 title: Enterprise Azure Cache for Redis 인스턴스에 대해 활성 지역 복제 구성
 description: Azure 지역 간에 Azure Cache for Redis Enterprise 인스턴스를 복제하는 방법을 알아봅니다.
-author: yegu-ms
+author: curib
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.author: yegu
-ms.openlocfilehash: 928df9823560f2c5f301c3dd575e5519e2fe2ece
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.author: cauribeg
+ms.openlocfilehash: 99169aaacf0ddd39fb4213ee6c1d83c05a71d532
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129359555"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538476"
 ---
 # <a name="configure-active-geo-replication-for-enterprise-azure-cache-for-redis-instances-preview"></a>Enterprise Azure Cache for Redis 인스턴스에 대해 활성 지역 복제 구성(미리 보기)
 
 이 문서에서는 Azure Portal을 사용하여 활성 지역 복제 Azure Cache를 구성하는 방법에 대해 설명합니다.
 
-활성 지역 복제는 Redis 인스턴스에 대 한 azure 캐시를 최대 5 Enterprise 개까지 azure 지역에 걸쳐 있는 단일 캐시로 확장 합니다. 모든 인스턴스는 로컬 기본 역할을 합니다. 응용 프로그램은 읽기 및 쓰기 요청에 사용할 인스턴스 또는 인스턴스를 결정 합니다.
+활성 지역 복제는 최대 5개의 Enterprise Azure Cache for Redis 인스턴스를 Azure 지역에 걸쳐 있는 단일 캐시로 그룹화합니다. 모든 인스턴스는 로컬 주 데이터베이스 역할을 합니다. 애플리케이션은 읽기 및 쓰기 요청에 사용할 인스턴스를 결정합니다.
 
 > [!NOTE]
 > Azure 지역 간 데이터 전송은 표준 [대역폭 요금](https://azure.microsoft.com/pricing/details/bandwidth/)으로 청구됩니다.
@@ -47,7 +47,7 @@ ms.locfileid: "129359555"
 
 ## <a name="remove-from-an-active-geo-replication-group"></a>활성 지역 복제 그룹에서 제거
 
-활성 지역 복제 그룹에서 캐시 인스턴스를 제거 하려면 인스턴스를 삭제 하기만 하면 됩니다. 나머지 인스턴스는 자동으로 다시 구성됩니다.
+활성 지역 복제 그룹에서 캐시 인스턴스를 제거하려면 인스턴스를 삭제하기만 하면 됩니다. 나머지 인스턴스는 자동으로 다시 구성됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

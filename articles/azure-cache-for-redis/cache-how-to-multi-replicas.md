@@ -1,17 +1,17 @@
 ---
 title: Azure Cache for Redis에 복제본 추가
 description: 프리미엄 계층 Azure Cache for Redis 인스턴스에 복제본을 추가하는 방법을 알아봅니다.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: 373928398595beb7e6564e3d290fa1ec9f702691
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ca535f7f30db66bf527c00b737dc43ee1a7f1603
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124828935"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538231"
 ---
 # <a name="add-replicas-to-azure-cache-for-redis"></a>Azure Cache for Redis에 복제본 추가
 
@@ -35,7 +35,7 @@ Azure Cache for Redis 표준 및 프리미엄 계층은 두 개의 전용 VM(가
 
 1. **기본 사항** 페이지에서 새 캐시의 설정을 구성합니다.
 
-    | 설정      | 제안 값  | 설명 |
+    | 설정      | 제안 값  | Description |
     | ------------ |  ------- | -------------------------------------------------- |
     | **구독** | 구독을 선택합니다. | 이 구독 아래에 새 Azure Cache for Redis 인스턴스가 만들어집니다. |
     | **리소스 그룹** | 리소스 그룹을 선택하거나 **새로 만들기** 를 선택하고 새 리소스 그룹 이름을 입력합니다. | 캐시 및 기타 리소스를 만들 새 리소스 그룹의 이름입니다. 모든 앱 리소스를 하나의 리소스 그룹에 배치하면 앱 리소스를 쉽게 관리하거나 삭제할 수 있습니다. |

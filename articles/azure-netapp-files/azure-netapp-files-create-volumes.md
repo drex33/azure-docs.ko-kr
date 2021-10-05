@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/06/2021
+ms.date: 10/04/2021
 ms.author: b-juche
-ms.openlocfilehash: 773262cdf4716eeb54bec135f9996d21ae008e43
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.openlocfilehash: d1aafd863e35d8cb19f529928c22645496fff671
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407630"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536268"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFS 볼륨 만들기
 
@@ -93,6 +93,9 @@ Azure NetApp Files에서는 NFS(NFSv3 또는 NFSv4.1), SMB3 또는 이중 프로
         ![볼륨 만들기](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![서브넷 만들기](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+
+    * **네트워크 기능**  
+        지원 되는 지역에서는 볼륨에 대 한 **기본** 또는 **표준** 네트워크 기능을 사용할지 여부를 지정할 수 있습니다. 자세한 내용은 [볼륨의 네트워크 기능 구성](configure-network-features.md) 및 [Azure NetApp Files 네트워크 계획에 대 한 지침](azure-netapp-files-network-topologies.md) 을 참조 하세요.
 
     * 볼륨에 기존 스냅샷 정책을 적용하려면 **고급 섹션 표시** 를 클릭하여 확장하고, 스냅샷 경로를 숨길지 여부를 지정하고, 풀 다운 메뉴에서 스냅샷 정책을 선택합니다. 
 

@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 08/16/2021
 ms.author: memildin
-ms.openlocfilehash: 25b7e8250359cf33c1cbd14663829259fcee2bcb
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: a57a94b8ee0bb91deb0b15a3da0265af15dbc3a3
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129428505"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536304"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Security Center의 통합 EDR 솔루션인 엔드포인트용 Microsoft Defender로 엔드포인트 보호
 
@@ -37,7 +37,7 @@ Microsoft Defender for Endpoint는 클라우드에서 제공하는 전체적인 
 |----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 릴리스 상태:                               | • 엔드포인트용 Defender(Windows)와 통합 - GA(일반 공급)<br> • 엔드포인트용 Defender(Linux)와 통합 - 미리 보기                                                                                                                                     |
 | 가격 책정:                                     | [서버용 Azure Defender](defender-for-servers-introduction.md) 필요                                                                                                                                                                                                           |
-| 지원되는 환경:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Windows/Linux를 실행하는 Azure Arc 머신<br>:::image type="icon" source="./media/icons/yes-icon.png":::Linux([지원되는 버전](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux))를 실행하는 Azure VM<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Windows Server 2019, 2016, 2012 R2, 2008 R2 SP1, [WVD(Windows Virtual Desktop)](../virtual-desktop/overview.md), [Windows 10 Enterprise 다중 세션](../virtual-desktop/windows-10-multisession-faq.yml)(이전에는 EVD(Enterprise for Virtual Desktops)을 실행하는 Azure VM<br>:::image type="icon" source="./media/icons/no-icon.png"::: Windows 10(EVD 또는 WVD 제외)을 실행하는 Azure VM           |
+| 지원되는 환경:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Windows/Linux를 실행하는 Azure Arc 머신<br>:::image type="icon" source="./media/icons/yes-icon.png":::Linux([지원되는 버전](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux))를 실행하는 Azure VM<br>:::image type="icon" source="./media/icons/yes-icon.png":::Windows Server 2022, 2019, 2016, 2012 R2, 2008 R2 SP1, [Windows WVD(Virtual Desktop)](../virtual-desktop/overview.md), [Windows 10 Enterprise 다중 세션(이전의](../virtual-desktop/windows-10-multisession-faq.yml) EVD(가상 데스크톱용 Enterprise)을 실행하는 Azure VM<br>:::image type="icon" source="./media/icons/no-icon.png"::: Windows 10(EVD 또는 WVD 제외)을 실행하는 Azure VM           |
 | 필요한 역할 및 권한:              | • 통합을 사용하거나 사용하지 않도록 설정하려는 경우: **보안 관리자** 또는 **소유자**<br>• Security Center에서 엔드포인트용 Defender 경고를 보려는 경우: **보안 읽기 권한자**, **읽기 권한자**, **리소스 그룹 기여자**, **리소스 그룹 소유자**, **보안 관리자**, **구독 소유자** 또는 **구독 기여자** |
 | 클라우드:                                      | :::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure 중국 21Vianet                                                         |
 |                                              |                                                                                                                                                                                                                                                                                       |

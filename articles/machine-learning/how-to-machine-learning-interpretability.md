@@ -11,12 +11,12 @@ ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 02/25/2021
-ms.openlocfilehash: c439b6473ad41b47ebf2c962f036f070a38fe9a2
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: e4298daf41d63ee9d0f90c171c29502806681070
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129426078"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534787"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Azure Machine Learning의 모델 해석력(미리 보기)
 
@@ -52,7 +52,7 @@ SDK에서 클래스 및 메서드를 사용하여 다음을 수행할 수 있습
 + 학습 및 유추 중에 실제 데이터 세트에서 모델 해석력을 대규모로 달성합니다.
 + 대화형 시각화 대시보드를 사용하여 학습 시간에 데이터 및 설명의 패턴을 발견합니다.
 
-기계 학습에서 **기능** 은 대상 데이터 요소를 예측하는 데 사용되는 데이터 필드입니다. 예를 들어 신용 위험을 예측하려면 나이, 계정 규모, 계정 사용 기간에 대한 데이터 필드를 사용할 수 있습니다. 이 경우에는 나이, 계정 규모, 계정 사용 기간이 **기능** 이 됩니다. 기능 중요도는 각 데이터 필드가 모델의 예측에 어떻게 영향을 주는지 알려줍니다. 예를 들어 예측 시 나이 필드가 많이 사용되지만 계정 규모와 나이는 예측 값에 큰 영향을 주지 않을 수 있습니다. 데이터 과학자는 이 프로세스를 통해 예측되는 결과를 설명할 수 있으므로 관련자는 모델에서 가장 중요한 기능이 무엇인지 알 수 있습니다.
+기계 학습에서 **기능** 은 대상 데이터 요소를 예측하는 데 사용되는 데이터 필드입니다. 예를 들어 신용 위험을 예측하려면 나이, 계정 규모, 계정 사용 기간에 대한 데이터 필드를 사용할 수 있습니다. 이 경우에는 나이, 계정 규모, 계정 사용 기간이 **기능** 이 됩니다. 기능 중요도는 각 데이터 필드가 모델의 예측에 어떻게 영향을 주는지 알려줍니다. 예를 들어, 계정 크기와 계정 나이가 예측 값에 크게 영향을 주지 않는 동안에는 기간을 예측에 많이 사용할 수 있습니다. 데이터 과학자는 이 프로세스를 통해 예측되는 결과를 설명할 수 있으므로 관련자는 모델에서 가장 중요한 기능이 무엇인지 알 수 있습니다.
 
 ## <a name="supported-interpretability-techniques"></a>지원되는 해석력 기술
 

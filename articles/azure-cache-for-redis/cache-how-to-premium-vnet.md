@@ -1,17 +1,17 @@
 ---
 title: 가상 네트워크 구성 - 프리미엄 계층 Azure Cache for Redis 인스턴스
 description: 프리미엄 계층 Azure Cache for Redis 인스턴스에 대한 가상 네트워크 지원을 만들고 관리하는 방법을 알아봅니다.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: 618fc8258c2e34c482b6c11cac469de503fa0179
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 0e231920a7aee35edd7a5913987ac37f0902b5fe
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536471"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538134"
 ---
 # <a name="configure-virtual-network-support-for-a-premium-azure-cache-for-redis-instance"></a>프리미엄 Azure Cache for Redis 인스턴스에 대한 가상 네트워크 지원 구성
 
@@ -39,7 +39,7 @@ ms.locfileid: "122536471"
 
 1. **새 Redis Cache** 페이지에서 새 프리미엄 계층 캐시의 설정을 구성합니다.
 
-   | 설정      | 제안 값  | 설명 |
+   | 설정      | 제안 값  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
    | **DNS 이름** | 전역적으로 고유한 이름을 입력합니다. | 캐시 이름은 1~63자의 문자열이어야 하며 숫자, 문자, 하이픈만 포함할 수 있습니다. 이름은 숫자 또는 문자로 시작하고 끝나야 하며 연속 하이픈을 포함할 수 없습니다. 캐시 인스턴스의 *호스트 이름* 은 *\<DNS name>.redis.cache.windows.net* 입니다. |
    | **구독** | 드롭다운 목록에서 구독을 선택합니다. | 이 구독 아래에 새 Azure Cache for Redis 인스턴스가 만들어집니다. |
@@ -56,7 +56,7 @@ ms.locfileid: "122536471"
    >
    >
 
-   | 설정      | 제안 값  | 설명 |
+   | 설정      | 제안 값  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
    | **가상 네트워크** | 드롭다운 목록에서 가상 네트워크를 선택합니다. | 캐시와 동일한 구독 및 위치에 있는 가상 네트워크를 선택합니다. |
    | **서브넷** | 드롭다운 목록에서 서브넷을 선택합니다. | 서브넷의 주소 범위는 CIDR 표기법을 따라야 합니다(예: 192.168.1.0/24). 가상 네트워크의 주소 공간에 포함되어야 합니다. |
@@ -130,7 +130,7 @@ Azure Cache for Redis가 가상 네트워크에 호스트되는 경우 사용되
 
 9가지 아웃바운드 포트 요구 사항이 있습니다. 이러한 범위의 아웃바운드 요청은 a) 캐시가 작동하는 데 필요한 다른 서비스로 아웃바운드되거나 b) 노드 간 통신을 위한 Redis 서브넷 내부로 아웃바운드됩니다. 지역 복제의 경우 기본 캐시와 복제본 캐시의 서브넷 간의 통신에 대한 기타 아웃바운드 요구 사항이 있습니다.
 
-| 포트 | Direction | 전송 프로토콜 | 목적 | 로컬 IP | 원격 IP |
+| 포트 | 방향 | 전송 프로토콜 | 목적 | 로컬 IP | 원격 IP |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |아웃바운드 |TCP |Azure Storage/PKI(인터넷)에 대한 Redis 종속성 | (Redis 서브넷) |* <sup>4</sup> |
 | 443 | 아웃바운드 | TCP | Azure Key Vault 및 Azure Monitor에 대한 Redis 종속성 | (Redis 서브넷) | AzureKeyVault, AzureMonitor <sup>1</sup> |
@@ -158,7 +158,7 @@ Azure 가상 네트워크에서 캐시 간의 지역 복제를 사용하는 경�
 
 8개의 인바운드 포트 범위 요구 사항이 있습니다. 이러한 범위의 인바운드 요청은 동일한 가상 네트워크에서 호스트되는 다른 서비스로부터 인바운드됩니다. 또는 Redis 서브넷 통신 내부에 있습니다.
 
-| 포트 | Direction | 전송 프로토콜 | 목적 | 로컬 IP | 원격 IP |
+| 포트 | 방향 | 전송 프로토콜 | 목적 | 로컬 IP | 원격 IP |
 | --- | --- | --- | --- | --- | --- |
 | 6379, 6380 |인바운드 |TCP |Redis에 대한 클라이언트 통신, Azure 부하 분산 | (Redis 서브넷) | (Redis 서브넷), (클라이언트 서브넷), AzureLoadBalancer <sup>1</sup> |
 | 8443 |인바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |

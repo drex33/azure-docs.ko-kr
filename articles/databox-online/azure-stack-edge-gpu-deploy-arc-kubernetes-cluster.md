@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/11/2021
+ms.date: 10/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 1f3ecf919337c17514af7d9e0d3d83b2dc75bf1d
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: 44716cea30df107d3e966ce39e941bcbe385ebb8
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769258"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129535686"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 디바이스의 Kubernetes 클러스터에 Azure Arc 사용
 
@@ -140,20 +140,21 @@ Azure Arc 관리를 위해 Kubernetes 클러스터를 구성하려면 다음 단
 
 1. 유형:
 
-    `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>" -ClientSecret "<Password of service principal>"`
+    `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>"` 
+    
+    이 명령을 실행하면 를 입력하라는 후속 메시지가 `ClientSecret` 표시됩니다. `ClientSecret`은 보안 문자열입니다.
 
-    Azure 퍼블릭이 아닌 다른 클라우드를 사용하는 경우 `CloudEnvironment` 매개 변수를 추가합니다. 이 매개 변수를 `AZUREPUBLICCLOUD`, `AZURECHINACLOUD`, `AZUREGERMANCLOUD`, `AZUREUSGOVERNMENTCLOUD`로 설정할 수 있습니다.
+    Azure 퍼블릭이 아닌 다른 클라우드를 사용하는 경우 `CloudEnvironment` 매개 변수를 추가합니다. 이 매개 변수를 , , 및 로 설정할 수 `AZUREPUBLICCLOUD` `AZURECHINACLOUD` `AZUREGERMANCLOUD` `AZUREUSGOVERNMENTCLOUD` 있습니다.
 
     > [!NOTE]
     > - 디바이스에 Azure Arc를 배포하려면 [Azure Arc의 지원되는 지역](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)을 사용해야 합니다. 
     > - `az account list-locations` 명령을 사용하여 `Set-HcsKubernetesAzureArcAgent` cmdlet에 전달할 정확한 위치 이름을 파악합니다. 위치 이름 형식은 일반적으로 공백이 없습니다.
-    > - `ClientId`와 `ClientSecret`은 필수 매개 변수입니다. `ClientSecret`은 보안 문자열입니다.
+    > - `ClientId` 및 `ClientSecret` 가 필요합니다. 
     
     예를 들면 다음과 같습니다.
    
     ```powershell
-    [10.128.44.240]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed&quot; -ResourceGroupName &quot;myaserg1&quot; -ResourceName &quot;myasetestresarc&quot; -Location &quot;westeurope&quot; -TenantId &quot;72f988bf-86f1-41af-91ab-2d7cd011db47&quot; -ClientId &quot;aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b&quot; -ClientSecret &quot;<password>"
-    [10.128.44.240]: PS>
+    [10.128.44.240]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed&quot; -ResourceGroupName &quot;myaserg1&quot; -ResourceName &quot;myasetestresarc&quot; -Location &quot;westeurope&quot; -TenantId &quot;72f988bf-86f1-41af-91ab-2d7cd011db47&quot; -ClientId &quot;aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b"
     ```
     
     Azure Portal에서는 이전 명령에 제공했던 이름으로 리소스를 만들어야 합니다.

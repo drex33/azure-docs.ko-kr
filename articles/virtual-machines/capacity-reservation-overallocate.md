@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: 0486263551246a794f90867621be0e87d42747c6
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
-ms.translationtype: HT
+ms.openlocfilehash: 90f7c99aa82dfc91c9910309b66246439e513c88
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123273406"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129532656"
 ---
 # <a name="overallocating-capacity-reservation-preview"></a>용량 예약 초과 할당(미리 보기)
 
@@ -27,9 +27,6 @@ Azure는 예약된 용량 한도를 관리하는 오버헤드 없이 버스트 �
 > 용량 예약은 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 
 
-## <a name="register-for-capacity-reservation"></a>용량 예약 등록 
-
-용량 예약 기능을 사용하려면 먼저 [미리 보기에 대한 구독을 등록](capacity-reservation-overview.md#register-for-capacity-reservation)해야 합니다. 등록을 완료하는 데 몇 분 정도 걸릴 수 있습니다. Azure CLI 또는 PowerShell을 사용하여 기능 등록을 완료할 수 있습니다.
 
 ## <a name="instance-view-for-capacity-reservation-group"></a>용량 예약 그룹에 대한 인스턴스 보기 
 

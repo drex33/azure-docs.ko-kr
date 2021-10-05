@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 07/07/2021
+ms.date: 10/05/2021
 ms.author: memildin
-ms.openlocfilehash: 1d8feb49be378abed2a63030c6329e9e8a13d48a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: e2b1b238e7f893df5eb56818f256eb324c5be6aa
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529366"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536040"
 ---
 # <a name="continuously-export-security-center-data"></a>Security Center 데이터 연속 내보내기
 
@@ -209,6 +209,9 @@ Azure Monitor에서 Security Center의 경고 및 권장 사항을 보려면 Log
 ## <a name="manual-one-time-export-of-alerts-and-recommendations"></a>경고 및 권장 사항을 수동으로 한 번 내보내기
 
 경고 또는 권장 사항에 대한 CSV 보고서를 다운로드하려면 **보안 경고** 또는 **권장 사항** 페이지를 열고 **CSV 보고서 다운로드** 단추를 선택합니다.
+
+> [!TIP]
+> Azure 리소스 Graph 제한으로 인해 보고서는 13k 행의 파일 크기로 제한 됩니다. 내보내는 데이터와 관련 된 오류가 표시 되는 경우 내보낼 구독 집합을 더 적게 선택 하 여 출력을 제한 해 보세요.
 
 :::image type="content" source="./media/continuous-export/download-alerts-csv.png" alt-text="CSV 파일로 경고 데이터 다운로드" lightbox="./media/continuous-export/download-alerts-csv.png":::
 

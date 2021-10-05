@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: bf0a9a6e56f6826b9abac18a969a3f6fb1957d96
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 5053bda835eba508fb84f20a7a8607bf40e37134
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129427042"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129535591"
 ---
 # <a name="language-support-for-computer-vision"></a>Computer Vision에 대한 언어 지원
 
@@ -28,9 +28,9 @@ Computer Vision의 OCR API는 여러 언어를 지원합니다. 읽기는 언어
 > [!NOTE]
 > **선택적 언어 매개 변수**
 >
-> Read API는 범용 스크립트 모델을 사용하여 혼합된 언어 텍스트 줄을 포함하여 이미지 또는 문서에서 모든 다국어 텍스트를 추출합니다. 이미지 또는 문서에 언어가 하나만 있다고 확신하는 경우가 아니면 언어 매개 변수를 제공하지 마십시오. 그렇지 않으면 서비스에서 불완전하고 잘못된 텍스트를 반환할 수 있습니다.
+> Read API는 범용 스크립트 모델을 사용하여 혼합된 언어 텍스트 줄을 포함하여 이미지 또는 문서에서 모든 다국어 텍스트를 추출합니다. 이미지 또는 문서에 언어가 하나만 있다고 확신하는 경우가 아니면 언어 매개 변수를 제공하지 마십시오. 그렇지 않으면 서비스가 불완전하고 잘못된 텍스트를 반환할 수 있습니다.
 
-미리 보기 언어를 사용하도록 [모델 버전을 지정하는 방법을](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) 참조하세요. 미리 보기 모델에는 현재 GA 언어에 대한 향상된 기능이 포함되어 있습니다.
+미리 보기 언어 및 기능을 사용하도록 [모델 버전을 지정하는 방법을](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) 참조하세요. 미리 보기 모델에는 현재 GA 버전에 대한 향상된 기능이 포함되어 있습니다.
 
 ### <a name="handwritten-text"></a>필기 텍스트
 |언어| 언어 코드(선택 사항) | 읽기 |
@@ -103,64 +103,64 @@ Computer Vision의 OCR API는 여러 언어를 지원합니다. 읽기는 언어
 |키체어  | `quc` |✅ | |
 |Kabuverdianu | `kea` |✅ | |
 |카친어(라틴어) | `kac` |✅ | |
-|Kara-Kalpak(라틴어) | `kaa` | ✅ | |
-|Kara-Kalpak(키릴자위치) | `kaa-cyrl` | ✅(미리 보기) | |
+|Kara-Kalpak (라틴어) | `kaa` | ✅ | |
+|Kara-Kalpak (키릴 자모) | `kaa-cyrl` | ✅(미리 보기) | |
 |Karachay-Balkar |`krc`|✅(미리 보기) | |
 |카슈비아어 | `csb` |✅ | |
-|카자흐어(키릴 자식) |`kk-cyrl`|✅(미리 보기) | |
-|카자흐어(라틴어) |`kk-latn`|✅(미리 보기) | |
+|카자흐어 (키릴 자모) |`kk-cyrl`|✅(미리 보기) | |
+|카자흐어 (라틴 문자) |`kk-latn`|✅(미리 보기) | |
 |카시어  | `kha` | ✅ | |
 |한국어 | `ko` |✅ |✅ |
 |Koryak |`kpy`|✅(미리 보기) | |
-|Kosra |`kos`|✅(미리 보기) | |
-|Kumyk(키릴자모) |`kum`|✅(미리 보기) | |
+|Kosraean |`kos`|✅(미리 보기) | |
+|Kumyk (키릴 자모) |`kum`|✅(미리 보기) | |
 |쿠르드어(라틴 문자)| `kur` |✅ | |
-|Kyrgyz(키릴자위치) |`ky`|✅(미리 보기) | |
+|키르기스어 (키릴 자모) |`ky`|✅(미리 보기) | |
 |Lakota |`lkt`|✅(미리 보기) | |
 |라틴어|`la`|✅(미리 보기) | |
 |리투아니아어|`lt`|✅(미리 보기) | |
-|Lower Sorbian|`dsb`|✅(미리 보기) | |
-|Lule Sami|`smj`|✅(미리 보기) | |
+|소문자 슬라브어|`dsb`|✅(미리 보기) | |
+|룰레 라프어|`smj`|✅(미리 보기) | |
 |룩셈부르크어  | `lb` | ✅ | |
 |말레이어(라틴 문자) | `ms` | ✅ | |
 |몰타어|`mt`|✅(미리 보기) | |
 |맹크스어  | `gv` | ✅ | |
 |마오리어|`mi`|✅(미리 보기) | |
-|브론어(키릴자크)|`mn`|✅(미리 보기) | |
-|몬테네그린어(키릴자위치)|`cnr-cyrl`|✅(미리 보기) | |
-|몬테네그린어(라틴어)|`cnr-latn`|✅(미리 보기) | |
+|몽골어 (키릴 자모)|`mn`|✅(미리 보기) | |
+|Montenegrin (키릴 자모)|`cnr-cyrl`|✅(미리 보기) | |
+|Montenegrin (라틴 문자)|`cnr-latn`|✅(미리 보기) | |
 |나폴리어   | `nap` | ✅ | |
 |Niuean|`niu`|✅(미리 보기) | |
 |Nogay|`nog`|✅(미리 보기) | |
-|북부 사미어(라틴어)|`sme`|✅(미리 보기) | |
+|북부 라프어 (라틴 문자)|`sme`|✅(미리 보기) | |
 |노르웨이어 | `no` | ✅ | |
 |오크어 | `oc` | ✅ | |
-|Ossetic|`os`|✅(미리 보기) | |
+|어|`os`|✅(미리 보기) | |
 |폴란드어 | `pl` | ✅ |✅ |
 |포르투갈어 | `pt` |✅ |✅ |
-|Ripu도구|`ksh`|✅(미리 보기) | |
+|Ripuarian|`ksh`|✅(미리 보기) | |
 |루마니아어 | `ro` | ✅(미리 보기)| ✅|
 |로망슈어  | `rm` | ✅ | |
 |러시아어 | `ru` |✅(미리 보기) |✅ |
-|라틴어(라틴어)|`sm`|✅(미리 보기) | |
+|Samoan (라틴 문자)|`sm`|✅(미리 보기) | |
 |스코틀랜드어  | `sco` | ✅ | |
 |스코틀랜드 게일어  | `gd` |✅ | |
 |세르비아어(키릴 자모) | `sr-cyrl` | |✅ |
 |세르비아어(라틴 문자) | `sr-latn` | ✅(미리 보기) |✅ |
-|Skolt Sami|`sms`|✅(미리 보기) | |
+|스콜트 라프어|`sms`|✅(미리 보기) | |
 |슬로바키아어 | `sk` | ✅(미리 보기) |✅ |
 |슬로베니아어  | `slv` | ✅ ||
-|남부 사미|`sma`|✅(미리 보기) | |
+|남부 라프어|`sma`|✅(미리 보기) | |
 |스페인어 | `es` |✅ |✅ |
 |스와힐리어(라틴어)  | `sw` |✅ | |
 |스웨덴어 | `sv` |✅ |✅ |
-|타지키어(키릴자크)|`tg`|✅(미리 보기) | |
+|타지키스탄어 (키릴 자모)|`tg`|✅(미리 보기) | |
 |타타르어 (라틴어)  | `tat` | ✅ |
 |테툼어    | `tet` |✅ |  |
 |통가어|`to`|✅(미리 보기) | |
 |터키어 | `tr` |✅ | ✅ |
-|라틴어(라틴어)|`tk`|✅(미리 보기) | |
-|튜바|`tyv`|✅(미리 보기) | |
+|투르크멘어 (라틴 문자)|`tk`|✅(미리 보기) | |
+|고 van|`tyv`|✅(미리 보기) | |
 |고지대 슬라브어  | `hsb` |✅ |  |
 |우즈베크어(키릴 자모)  | `uz-cyrl` |✅ |  |
 |우즈베크어(라틴 문자)     | `uz` |✅ |  |

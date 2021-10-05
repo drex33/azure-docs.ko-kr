@@ -10,12 +10,12 @@ ms.date: 09/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 395b3d14571b9cf8ab2080c77aadf686dc8aea29
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7f0c0928a32807844d57eb91a903994a0264e460
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128599282"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534388"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>블록 Blob에 대한 개체 복제 구성
 
@@ -23,7 +23,7 @@ ms.locfileid: "128599282"
 
 이 문서에서는 Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 개체 복제 정책을 구성 하는 방법을 설명 합니다. Azure Storage 리소스 공급자 클라이언트 라이브러리 중 하나를 사용하여 개체 복제를 구성할 수도 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 개체 복제를 구성하기 전에 원본 및 대상 스토리지 계정이 아직 없는 경우 만듭니다. 원본 및 대상 계정은 범용 v2 저장소 계정 또는 프리미엄 블록 blob 계정 (미리 보기) 중 하나일 수 있습니다. 자세한 내용은 [Azure Storage 계정 만들기](../common/storage-account-create.md)를 참조하세요.
 
@@ -45,7 +45,7 @@ Azure Portal에서 개체 복제를 구성 하는 경우 원본 계정에 대해
 Azure Portal에서 복제 정책을 만들려면 다음 단계를 수행합니다.
 
 1. Azure Portal의 원본 스토리지 계정으로 이동합니다.
-1. **Blob service** 아래에서 **개체 복제** 를 선택합니다.
+1. **데이터 관리** 에서 **개체 복제** 를 선택 합니다.
 1. **복제 규칙 설정** 을 선택합니다.
 1. 대상 구독 및 스토리지 계정을 선택합니다.
 1. **컨테이너 쌍** 섹션에서 원본 계정에서 원본 컨테이너를 선택하고 대상 계정에서 대상 컨테이너를 선택합니다. 복제 정책에 따라 최대 10개의 컨테이너 쌍을 만들 수 있습니다.
@@ -276,7 +276,7 @@ $destPolicy | ConvertTo-Json -Depth 5 > c:\temp\json.txt
 
 JSON 파일을 사용하여 PowerShell에서 원본 계정에 대한 복제 정책을 정의하려면 로컬 파일을 검색하고 JSON에서 개체로 변환합니다. 그런 다음, 다음 예제와 같이 [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) 명령을 호출하여 원본 계정에 대한 정책을 구성합니다.
 
-예제를 실행 하는 경우 `-ResourceGroupName` 매개 변수를 원본 계정에 대 한 리소스 그룹으로 설정 하 고 `-StorageAccountName` 매개 변수를 원본 계정 이름으로 설정 해야 합니다. 또한 대괄호와 파일 경로의 값을 사용자 고유의 값으로 바꿔야 합니다.
+예제를 실행 하는 경우 `-ResourceGroupName` 매개 변수를 원본 계정에 대 한 리소스 그룹으로 설정 하 고 `-StorageAccountName` 매개 변수를 원본 계정 이름으로 설정 해야 합니다. 또한 대괄호와 파일 경로의 값을 고유한 값으로 바꿔야 합니다.
 
 ```powershell
 $object = Get-Content -Path C:\temp\json.txt | ConvertFrom-Json

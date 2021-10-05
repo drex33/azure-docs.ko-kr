@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 7/14/2020
 author: Sharmistha-Rai
 ms.author: sharrai
-ms.openlocfilehash: 7c64aee5177adf7ee1d5f5d47ba80c5e25a53002
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.openlocfilehash: b8771e26f51dd54595ebefdb5ad5230c7257907a
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539250"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536669"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -146,7 +146,7 @@ Standard Storage | 예 | 예
 방화벽이 사용되는 Azure Storage 계정 | 예. 대상 스토리지 및 캐시 | 예. 대상 스토리지 및 캐시
 저장소 계정 수정 | 아니요. 복제를 사용하도록 설정한 후에는 대상 Azure Storage 계정을 수정할 수 없습니다. 수정하려면 재해 복구를 사용하지 않도록 설정했다가 다시 사용하도록 설정합니다. | 예
 보안 전송 옵션 | 예 | 예
-
+UEFI 보안 부팅 | 아니요 | 아니요
 
 ## <a name="azure-compute-features"></a>Azure 컴퓨팅 기능
 

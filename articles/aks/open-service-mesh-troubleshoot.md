@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 8/26/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
-ms.openlocfilehash: 865c4a99293582af1cc054cf0c4fd27eec3cf226
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 397a1ff24152bf0496842971e545b3eb65e779a3
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129057798"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533998"
 ---
 # <a name="open-service-mesh-osm-aks-add-on-troubleshooting-guides"></a>OSM(Open Service Mesh) AKS 추가 기능 문제 해결 가이드 열기
 
@@ -207,7 +207,7 @@ kubectl get MutatingWebhookConfiguration aks-osm-webhook-osm -o json | jq -r '.w
 1845
 ```
 
-이 숫자는 CA 번들의 바이트 수 또는 크기를 나타냅니다. 이 값이 비어 있거나, 0 또는 1000보다 작은 숫자이면 CA 번들이 올바르게 프로비저닝되지 않았음을 나타내는 것입니다. 올바른 CA 번들을 사용할 수 없으면 Webhook 유효성 검사에서 오류가 발생하며 사용자가 kube-system 네임스페이스에서 osm-config ConfigMap을 변경하는 것을 금지합니다.
+이 숫자는 CA 번들의 바이트 수 또는 크기를 나타냅니다. 이 값이 비어 있거나, 0 또는 1000보다 작은 숫자이면 CA 번들이 올바르게 프로비저닝되지 않았음을 나타내는 것입니다. 올바른 CA 번들 없이 Webhook 유효성 검사에서 오류가 발생하며 사용자가 kube-system 네임스페이스에서 osm-config ConfigMap을 변경하는 것을 금지합니다.
 
 CA 번들이 잘못된 경우의 샘플 오류:
 
@@ -303,7 +303,7 @@ spec:
 
 `osm-mesh-config` 리소스 값:
 
-| 키 | 유형 | 기본값 | Kubectl Patch 명령 예제 |
+| 키 | 형식 | 기본값 | Kubectl Patch 명령 예제 |
 |-----|------|---------------|--------------------------------|
 | spec.traffic.enableEgress | bool | `false` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"traffic":{"enableEgress":true}}}'  --type=merge` |
 | spec.traffic.enablePermissiveTrafficPolicyMode | bool | `false` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"traffic":{"enablePermissiveTrafficPolicyMode":true}}}'  --type=merge` |
@@ -362,7 +362,7 @@ kubectl get namespace bookbuyer -o json | jq '.metadata.labels'
 네임스페이스에 주석이 `"openservicemesh.io/sidecar-injection": "enabled"`로 지정되어 있지 않거나 레이블이 `"openservicemesh.io/monitored-by": "osm"`으로 지정되지 않은 경우 OSM 인젝터는 Envoy 사이드카를 추가하지 않습니다.
 
 > [!NOTE]
-> `osm namespace add`가 호출된 후에는 **새** Pod만 Envoy 사이드카와 함께 삽입됩니다. 기존 Pod는 `kubectl rollout restart deployment ...`로 다시 시작해야 합니다.
+> `osm namespace add`가 호출 된 후 **new** pod는 엔보이 사이드카로 삽입 됩니다. 기존 Pod는 `kubectl rollout restart deployment ...`로 다시 시작해야 합니다.
 
 ### <a name="verify-the-smi-crds"></a>SMI CRD를 확인합니다.
 
@@ -452,4 +452,8 @@ kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/v0.8.2/ch
 
 ### <a name="certificate-management"></a>인증서 관리
 
-OSM 제어 평면을 통해 Envoy 프록시에 인증서를 발급하고 관리하는 방법에 대한 정보는 [OpenServiceMesh 문서 사이트에서](https://docs.openservicemesh.io/docs/guides/certificates/)찾을 수 있습니다.
+Application pod에서 실행 되는 엔보이 프록시에 대 한 인증서를 발급 하 고 관리 하는 방법에 대 한 정보는 [OpenServiceMesh docs 사이트](https://docs.openservicemesh.io/docs/guides/certificates/)에서 찾을 수 있습니다 OSM.
+
+### <a name="upgrading-envoy"></a>엔보이 업그레이드
+
+추가 기능을 통해 모니터링 되는 네임 스페이스에 새 pod가 만들어지면 OSM는 해당 pod에 [엔보이 프록시 사이드카](https://docs.openservicemesh.io/docs/guides/app_onboarding/sidecar_injection/) 을 삽입 합니다. 엔보이 버전을 업데이트 하는 방법에 대 한 정보는 OpenServiceMesh docs 사이트의 [업그레이드 가이드](https://docs.openservicemesh.io/docs/getting_started/upgrade/#envoy) 에서 찾을 수 있습니다.

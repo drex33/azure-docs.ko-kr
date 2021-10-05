@@ -1,18 +1,18 @@
 ---
 title: Azure 클래식 CLI를 사용하여 Azure Cache for Redis 관리
 description: 모든 플랫폼에 Azure 클래식 CLI를 설치하고, 이를 사용하여 Azure 계정에 연결하고, 이 클래식 CLI에서 Cache for Redis를 만들고 관리하는 방법을 알아봅니다.
-author: yegu-ms
+author: curib
 ms.service: cache
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.author: yegu
+ms.author: cauribeg
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1f1be7c257cfd99849fdec21d2731a0a6a1c2b85
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
-ms.translationtype: HT
+ms.openlocfilehash: 58ddd016546a6acfd799ada24fe3e2d2a55bbd78
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110653582"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538003"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 Azure Cache for Redis를 만들고 관리하는 방법
 

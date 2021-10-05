@@ -6,12 +6,12 @@ ms.date: 04/16/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: c5092cd0faee39259dff1ea9ae4a29d6b357ca2e
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
-ms.translationtype: HT
+ms.openlocfilehash: f3655c0087930735bd6c176c275908960df6aa72
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112027878"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129535730"
 ---
 # <a name="adding-the-jvm-arg---azure-monitor-application-insights-for-java"></a>JVM 인수 추가 - Java용 Azure Monitor Application Insights
 
@@ -94,7 +94,7 @@ set "CATALINA_OPTS=%CATALINA_OPTS% -javaagent:path/to/applicationinsights-agent-
 파일 `JBOSS_HOME/bin/standalone.conf`(Linux) 또는 `JBOSS_HOME/bin/standalone.conf.bat`(Windows)의 기존 `JAVA_OPTS` 환경 변수에 `-javaagent:path/to/applicationinsights-agent-3.1.1.jar`을 추가합니다.
 
 ```java    ...
-    JAVA_OPTS="<b>-javaagent:path/to/applicationinsights-agent-3.1.1.jar</b> -Xms1303m -Xmx1303m ..."
+    JAVA_OPTS="-javaagent:path/to/applicationinsights-agent-3.1.1.jar -Xms1303m -Xmx1303m ..."
     ...
 ```
 

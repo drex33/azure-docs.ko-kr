@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 10/04/2021
 ms.author: b-juche
-ms.openlocfilehash: 81fc3ad96af65a408119f3bf790e5215b581b9ad
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.openlocfilehash: 4fc34329ec7f318d79dd04e271db7b37b7e1cc59
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407041"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533628"
 ---
 # <a name="create-a-dual-protocol-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 이중 프로토콜 볼륨 만들기
 
@@ -30,7 +30,7 @@ NFS 볼륨을 만들려면 [NFS 볼륨 만들기](azure-netapp-files-create-volu
 ## <a name="before-you-begin"></a>시작하기 전에 
 
 * 용량 풀이 이미 만들어져 있어야 합니다.  
-    [용량 풀 만들기를](azure-netapp-files-set-up-capacity-pool.md)참조하세요.   
+    [용량 풀 만들기를](azure-netapp-files-set-up-capacity-pool.md)참조 하세요.   
 * Azure NetApp Files에 서브넷을 위임해야 합니다.  
     [Azure NetApp Files에 서브넷 위임](azure-netapp-files-delegate-subnet.md)을 참조하세요.
 
@@ -109,6 +109,9 @@ NFS 볼륨을 만들려면 [NFS 볼륨 만들기](azure-netapp-files-create-volu
         ![볼륨 만들기](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![서브넷 만들기](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+
+    * **네트워크 기능**  
+        지원되는 지역에서는 볼륨에 **기본** 또는 **표준** 네트워크 기능을 사용할지 여부를 지정할 수 있습니다. 자세한 내용은 [볼륨에 대한 네트워크 기능 구성](configure-network-features.md) 및 Azure NetApp Files 네트워크 계획에 대한 [지침을](azure-netapp-files-network-topologies.md) 참조하세요.
 
     * 볼륨에 기존 스냅샷 정책을 적용하려면 **고급 섹션 표시** 를 클릭하여 확장하고, 스냅샷 경로를 숨길지 여부를 지정하고, 풀 다운 메뉴에서 스냅샷 정책을 선택합니다. 
 

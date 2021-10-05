@@ -1,17 +1,17 @@
 ---
 title: 장애 조치(failover) 및 패치 - Azure Cache for Redis
 description: Azure Cache for Redis를 위한 장애 조치(failover), 패치 및 업데이트 프로세스에 대해 알아봅니다.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: 7eb1855717817da1f7b46e512c1a14268ce1a937
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 3ede36ef718fbe4ef535e9999edf55a0381cfd2e
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123478485"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538565"
 ---
 # <a name="failover-and-patching-for-azure-cache-for-redis"></a>Azure Cache for Redis를 위한 장애 조치(failover) 및 패치
 
@@ -104,13 +104,13 @@ Azure Cache for Redis 계획된 업데이트 약 30초 전에 [AzureRedisEvents�
 
 대부분의 경우 애플리케이션은 알림을 구독하거나 응답할 필요가 `AzureRedisEvents` 없습니다. 대신 [복원력에서 빌드를](#build-in-resiliency)구현하는 것이 좋습니다.
 
-충분한 복원력을 통해 애플리케이션은 노드 유지 관리 중에 발생한 것과 같이 짧은 연결 손실 또는 캐시 사용 불가를 정상적으로 처리합니다. 네트워크 오류 또는 기타 이벤트로 인해 애플리케이션에서 경고 없이 캐시에 대한 연결이 예기치 않게 손실될 수도 `AzureRedisEvents` 있습니다.
+충분 한 복원 력이 있으면 응용 프로그램은 노드 유지 관리 중에 발생 하는 것 처럼 간단한 연결 손실 또는 캐시 사용 불가를 정상적으로 처리 합니다. 또한 `AzureRedisEvents` 네트워크 오류나 기타 이벤트 때문에 응용 프로그램이 경고 없이 캐시에 대 한 연결을 갑자기 손실할 수 있습니다.
 
-몇 가지 주목할 만한 경우에만 구독하는 것이 `AzureRedisEvents` 좋습니다.
+`AzureRedisEvents`몇 가지 주목할 만한 사례에서를 구독 하는 것이 좋습니다.
 
-- 약간의 지연도 피해야 하는 극단적인 성능 요구 사항이 있는 애플리케이션. 이러한 시나리오에서는 현재 캐시에서 유지 관리가 시작되기 전에 트래픽을 백업 캐시로 원활하게 다시 배포할 수 있습니다.
-- 주 노드가 아닌 복제본에서 데이터를 명시적으로 읽는 애플리케이션입니다. 복제본 노드에서 유지 관리 중에 애플리케이션이 일시적으로 주 노드에서 데이터를 읽도록 전환할 수 있습니다.
-- 쓰기 작업이 자동으로 실패하거나 확인 없이 성공하는 위험을 감수할 수 없는 애플리케이션은 유지 관리를 위해 연결을 닫을 때 발생할 수 있습니다. 이러한 경우 위험한 데이터 손실이 발생할 경우 유지 관리를 시작하기 전에 애플리케이션에서 쓰기 명령을 사전에 일시 중지하거나 리디렉션할 수 있습니다.
+- 성능 요구 사항이 매우 적은 응용 프로그램 이러한 시나리오에서는 유지 관리가 현재 캐시에서 시작 되기 전에 트래픽이 백업 캐시로 원활 하 게 다시 라우팅될 수 있습니다.
+- 주 노드가 아닌 복제본에서 데이터를 명시적으로 읽는 응용 프로그램입니다. 복제본 노드에서 유지 관리를 수행 하는 동안 응용 프로그램은 일시적으로 기본 노드에서 데이터를 읽도록 전환할 수 있습니다.
+- 유지 관리를 위해 연결을 닫을 때 발생 하는 문제를 해결 하지 않고 자동으로 또는 성공 하 게 만들 수 있는 응용 프로그램입니다. 이러한 경우에 위험한 데이터 손실이 발생 하는 경우 응용 프로그램은 유지 관리를 시작 하도록 예약 하기 전에 쓰기 명령을 사전에 일시 중지 하거나 리디렉션할 수 있습니다.
 
 ### <a name="client-network-configuration-changes"></a>클라이언트 네트워크 구성 변경 사항
 
@@ -137,7 +137,7 @@ Azure Cache for Redis 계획된 업데이트 약 30초 전에 [AzureRedisEvents�
 
 또한 특정 주별 기간 중에 Redis 런타임 패치를 적용하도록 캐시에서 [업데이트를 예약](cache-administration.md#schedule-updates)하는 것이 좋습니다. 이러한 기간은 일반적으로 잠재적인 인시던트 방지를 위해 클라이언트 애플리케이션 트래픽이 낮은 기간입니다.
 
-자세한 내용은 [연결 복원력을 참조하세요.](cache-best-practices-connection.md)
+자세한 내용은 [연결 복원 력](cache-best-practices-connection.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

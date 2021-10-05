@@ -91,6 +91,8 @@
 - name: 참조
   expanded: true
   items:
+    - name: 로그인 로그의 기본 정보 식별자
+      href: reference-basic-info-identifiers.md
     - name: 보고용 Azure AD PowerShell cmdlet
       href: reference-powershell-reporting.md
     - name: 감사 로그 API 참조

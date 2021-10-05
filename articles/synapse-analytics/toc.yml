@@ -279,7 +279,7 @@ items:
             items:
               - name: 개요
                 href: ./sql-data-warehouse/design-elt-data-loading.md?context=/azure/synapse-analytics/context/context
-              - name: 최선의 구현 방법
+              - name: 모범 사례
                 href: sql/data-loading-best-practices.md
               - name: Columnstore 압축
                 href: sql/data-load-columnstore-compression.md
@@ -464,6 +464,8 @@ items:
                     href: ./sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md?context=/azure/synapse-analytics/context/context
                   - name: 리소스 클래스를 작업 그룹으로 변환
                     href: ./sql-data-warehouse/sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md?context=/azure/synapse-analytics/context/context
+                  - name: 누락된 분류 문제 해결
+                    href: ./sql-data-warehouse/sql-data-warehouse-how-to-troubleshoot-missed-classification.md?context=/azure/synapse-analytics/context/context
           - name: 데이터 수집 및 준비
             items:
               - name: 데이터 웨어하우스에
@@ -951,7 +953,7 @@ items:
                 href: ../data-factory/connector-presto.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: QuickBooks Online
                 href: ../data-factory/connector-quickbooks.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
-              - name: REST
+              - name: REST (영문)
                 href: ../data-factory/connector-rest.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&tabs=synapse-analytics
               - name: Salesforce
                 href: ../data-factory/connector-salesforce.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
@@ -1163,6 +1165,8 @@ items:
             items:
               - name: 파이프라인 실행
                 href: monitoring/how-to-monitor-pipeline-runs.md
+              - name: Microsoft Teams 알림을 통해 파이프라인 모니터링
+                href: ../data-factory/how-to-send-notifications-to-teams.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
           - name: 통합 런타임 만들기
             items:
               - name: Azure 통합 런타임
@@ -1184,7 +1188,44 @@ items:
               - name: 작업 문제 해결
                 href: ../data-factory/data-factory-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: 커넥터 문제 해결
-                href: ../data-factory/connector-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                items:
+                  - name: 개요 및 일반 복사 작업 오류
+                    href: ../data-factory/connector-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                    displayName: 'polybase, timeout'
+                  - name: Azure Blob Storage
+                    href: ../data-factory/connector-troubleshoot-azure-blob-storage.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                  - name: Azure Cosmos DB(SQL API 포함)
+                    href: ../data-factory/connector-troubleshoot-azure-cosmos-db.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                  - name: Azure Data Lake(Gen1 및 Gen2)
+                    href: ../data-factory/connector-troubleshoot-azure-data-lake.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                  - name: Azure Database for PostgreSQL
+                    href: ../data-factory/connector-troubleshoot-postgresql.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                  - name: Azure Files
+                    href: ../data-factory/connector-troubleshoot-azure-files.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                  - name: 'Azure Synapse Analytics, Azure SQL Database 및 SQL Server'
+                    href: ../data-factory/connector-troubleshoot-synapse-sql.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                  - name: Azure Table Storage
+                    href: ../data-factory/connector-troubleshoot-azure-table-storage.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                  - name: DB2
+                    href: ../data-factory/connector-troubleshoot-db2.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                  - name: 구분된 텍스트 형식
+                    href: ../data-factory/connector-troubleshoot-delimited-text.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                  - name: 'Dynamics 365, Dataverse(Common Data Service) 및 Dynamics CRM'
+                    href: ../data-factory/connector-troubleshoot-dynamics-dataverse.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                  - name: 'FTP, SFTP 및 HTTP'
+                    href: ../data-factory/connector-troubleshoot-ftp-sftp-http.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                  - name: Oracle
+                    href: ../data-factory/connector-troubleshoot-oracle.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                  - name: ORC 형식
+                    href: ../data-factory/connector-troubleshoot-orc.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                  - name: Parquet 형식
+                    href: ../data-factory/connector-troubleshoot-parquet.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                  - name: REST (영문)
+                    href: ../data-factory/connector-troubleshoot-rest.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                  - name: SharePoint Online 목록
+                    href: ../data-factory/connector-troubleshoot-sharepoint-online-list.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                  - name: XML 형식
+                    href: ../data-factory/connector-troubleshoot-xml.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: 연속 통합 및 배포
                 href: ../data-factory/ci-cd-github-troubleshoot-guide.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: 보안 및 액세스 제어

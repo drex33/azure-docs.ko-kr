@@ -1,0 +1,185 @@
+items:
+  - name: Virtual Network IP 서비스 설명서
+    href: index.yml
+  - name: 개요
+    items:
+      - name: Azure Virtual Network IP 서비스란?
+        href: ip-services-overview.md
+  - name: 빠른 시작
+    items:
+      - name: 공용 IP 주소 만들기 - 포털
+        href: create-public-ip-portal.md
+      - name: 공용 IP 주소 만들기 - PowerShell
+        href: create-public-ip-powershell.md
+      - name: 공용 IP 주소 만들기 - Azure CLI
+        href: create-public-ip-cli.md
+      - name: 공용 IP 주소 만들기 - ARM 템플릿
+        href: create-public-ip-template.md
+      - name: 공용 IP 접두사 만들기 - 포털
+        href: create-public-ip-prefix-portal.md
+      - name: 공용 IP 접두사 만들기 - PowerShell
+        href: create-public-ip-prefix-powershell.md
+      - name: 공용 IP 접두사 만들기 - Azure CLI
+        href: create-public-ip-prefix-cli.md
+    expanded: true
+  - name: 자습서
+    items:
+      - name: 인터넷 라우팅 기본 설정을 사용하여 VM 구성
+        items:
+          - name: Azure portal
+            href: tutorial-routing-preference-virtual-machine-portal.md
+          - name: Azure PowerShell
+            href: configure-routing-preference-virtual-machine-powershell.md
+          - name: Azure CLI
+            href: configure-routing-preference-virtual-machine-cli.md
+      - name: VM에 대한 혼합 라우팅 기본 설정 구성
+        href: routing-preference-mixed-network-adapter-portal.md
+      - name: AKS 클러스터에 대한 라우팅 기본 설정 구성
+        href: routing-preference-azure-kubernetes-service-cli.md
+  - name: 개념
+    items:
+      - name: 공용 IP
+        href: public-ip-addresses.md
+      - name: 개인 IP
+        href: private-ip-addresses.md
+      - name: 공용 IP 접두사
+        href: public-ip-address-prefix.md
+      - name: 공용 IP 주소 관리
+        href: virtual-network-public-ip-address.md
+      - name: 공용 IP 접두사 관리
+        href: manage-public-ip-address-prefix.md
+      - name: Azure VNET의 IPv6
+        href: ipv6-overview.md
+      - name: 기본 아웃바운드 액세스
+        href: default-outbound-access.md
+      - name: 라우팅 기본 설정
+        href: routing-preference-overview.md
+      - name: 라우팅 기본 설정 무제한
+        href: routing-preference-unmetered.md
+      - name: 보안
+        items:
+          - name: 공용 IP 보안 기준
+        href: /security/benchmark/azure/baselines/public-ip-security-baseline?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json
+  - name: 방법
+    items:
+      - name: Azure 네트워크 인터페이스용 IP 주소 구성
+        href: virtual-network-network-interface-addresses.md
+      - name: 리소스 관리
+        items:
+          - name: 부하 분산 장치
+            href: configure-public-ip-load-balancer.md
+          - name: NAT 게이트웨이
+            href: configure-public-ip-nat-gateway.md
+          - name: 가상 머신
+            href: configure-public-ip-vm.md
+          - name: 방화벽
+            href: configure-public-ip-firewall.md
+          - name: VPN 게이트웨이
+            href: configure-public-ip-vpn-gateway.md
+          - name: 프런트 엔드
+            href: configure-public-ip-application-gateway.md
+          - name: Bastion
+            href: configure-public-ip-bastion.md
+      - name: 공용 IP 주소 업그레이드
+        items:
+          - name: 공용 IP 주소 업그레이드 - 포털
+            href: public-ip-upgrade-portal.md
+          - name: 공용 IP 주소 업그레이드 - PowerShell
+            href: public-ip-upgrade-powershell.md
+          - name: 공용 IP 주소 업그레이드 - Azure CLI
+            href: public-ip-upgrade-cli.md
+          - name: 예약된 클래식 IP 마이그레이션
+            href: public-ip-upgrade-classic.md
+      - name: 가상 머신
+        items:
+          - name: 기존 VM에 공용 IP 주소 추가
+            href: associate-public-ip-address-vm.md
+          - name: VM에서 공용 IP 주소 분리
+            href: remove-public-ip-address-vm.md
+          - name: VM 만들기 - 고정 공용 IP
+            items:
+              - name: Azure portal
+                href: virtual-network-deploy-static-pip-arm-portal.md
+              - name: Azure PowerShell
+                href: virtual-network-deploy-static-pip-arm-ps.md
+              - name: Azure CLI
+                href: virtual-network-deploy-static-pip-arm-cli.md
+          - name: VM 만들기 - 고정 개인 IP
+            items:
+              - name: Azure portal
+                href: virtual-networks-static-private-ip-arm-pportal.md
+              - name: Azure PowerShell
+                href: virtual-networks-static-private-ip-arm-ps.md
+              - name: Azure CLI
+                href: virtual-networks-static-private-ip-arm-cli.md
+          - name: VM 만들기 - 여러 IP
+            items:
+              - name: Azure portal
+                href: virtual-network-multiple-ip-addresses-portal.md
+              - name: Azure PowerShell
+                href: virtual-network-multiple-ip-addresses-powershell.md
+              - name: Azure CLI
+                href: virtual-network-multiple-ip-addresses-cli.md
+          - name: VM 만들기 - 고정 개인 IP(클래식)
+            items:
+              - name: Azure portal
+                href: virtual-networks-static-private-ip-classic-pportal.md
+              - name: Azure PowerShell
+                href: virtual-networks-static-private-ip-classic-ps.md
+          - name: IPv6을 사용하는 가상 머신 확장 집합
+            href: ipv6-virtual-machine-scale-set.md
+      - name: 라우팅 기본 설정
+        items:
+          - name: 공용 IP 주소 만들기
+            items:
+              - name: Azure portal
+                href: routing-preference-portal.md
+              - name: Azure PowerShell
+                href: routing-preference-powershell.md
+              - name: Azure CLI
+                href: routing-preference-cli.md
+      - name: 지역 간 이동
+        items:
+          - name: 공용 IP
+            href: /resource-mover/tutorial-move-region-virtual-machines?toc=/azure/virtual-network/toc.json
+  - name: 참조
+    items:
+      - name: Azure CLI
+        href: /cli/azure/azure-cli-reference-for-network
+      - name: Azure PowerShell
+        href: /powershell/module/az.network
+      - name: .NET
+        href: /dotnet/api/overview/azure/virtual-network
+      - name: Java
+        href: /java/api/
+      - name: Node.js
+        href: /javascript/azure#azure-sdk
+      - name: Python
+        href: 'https://azure.microsoft.com/develop/python/'
+      - name: REST (영문)
+        href: /rest/api/virtual-network
+      - name: Resource Manager 템플릿
+        href: /azure/templates/microsoft.network/allversions
+      - name: 코드 샘플
+        href: 'https://azure.microsoft.com/resources/samples/?service=virtual-network'
+      - name: Azure Policy 기본 제공 기능
+        displayName: 'samples, policies, definitions'
+        href: ../policy-reference.md
+  - name: 리소스
+    items:
+      - name: Microsoft Learn을 통해 기술 쌓기
+        href: /learn/browse/
+      - name: Azure 로드맵
+        href: 'https://azure.microsoft.com/roadmap/?category=networking'
+      - name: 네트워킹 블로그
+        href: 'https://azure.microsoft.com/blog/topics/networking'
+      - name: 네트워킹에 대한 Microsoft Q&A 질문 페이지
+        href: /answers/topics/azure-virtual-network.html
+      - name: 네트워킹 피드백
+        href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
+      - name: 가격 책정
+        href: 'https://azure.microsoft.com/pricing/details/virtual-network'
+      - name: 요금 계산기
+        href: 'https://azure.microsoft.com/pricing/calculator/'
+      - name: Stack Overflow
+        href: 'https://stackoverflow.com/questions/tagged/azure-virtual-network'

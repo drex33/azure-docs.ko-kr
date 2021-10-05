@@ -148,6 +148,8 @@
           href: access-app-virtual-network.md
         - name: 애플리케이션을 인터넷에 노출
           href: expose-apps-gateway-azure-firewall.md
+        - name: Palo Alto 구성
+          href: how-to-configure-palo-alto.md
         - name: VNET에서 Azure Spring Cloud를 실행하는 고객의 책임
           href: vnet-customer-responsibilities.md
         - name: 가상 네트워크에서 Azure Spring Cloud 문제 해결
@@ -188,7 +190,7 @@
           href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
           href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
-- name: 아키텍처
+- name: Architecture
   items:
     - name: 참조 아키텍처
       href: reference-architecture.md

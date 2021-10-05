@@ -170,6 +170,32 @@
       href: howto-load-balancer-imds.md
     - name: 아웃바운드 전용 부하 분산 장치 구성
       href: egress-only.md
+    - name: IPv6
+      items:
+        - name: 표준 공용
+          items:
+            - name: IPv6를 사용하는 표준 공용 Load Balancer - PowerShell
+              href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+            - name: IPv6를 사용하는 표준 공용 Load Balancer - Azure CLI
+              href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
+            - name: IPv6를 사용하는 표준 공용 Load Balancer - ARM 템플릿
+              href: ipv6-configure-standard-load-balancer-template-json.md
+        - name: 표준 내부
+          items:
+            - name: IPv6를 사용하는 표준 내부 Load Balancer - PowerShell
+              href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
+        - name: 기본 공용
+          items:
+            - name: 기본 부하 분산 장치를 사용하여 IPv6 이중 스택 애플리케이션 배포 - PowerShell
+              href: virtual-network-ipv4-ipv6-dual-stack-powershell.md
+            - name: 기본 Load Balancer를 사용하여 IPv6 이중 스택 애플리케이션 배포 - Azure CLI
+              href: virtual-network-ipv4-ipv6-dual-stack-cli.md
+            - name: 기본 Load Balancer를 사용하여 IPv6 이중 스택 애플리케이션 배포 - ARM 템플릿
+              href: ipv6-configure-template-json.md
+        - name: IPv4 애플리케이션에 IPv6 추가 - PowerShell
+          href: ipv6-add-to-existing-vnet-powershell.md
+        - name: IPv4 애플리케이션에 IPv6 추가 - Azure CLI
+          href: ipv6-add-to-existing-vnet-cli.md
     - name: 문제 해결
       items:
         - name: Azure Load Balancer 문제 해결
@@ -200,7 +226,7 @@
       href: 'https://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2020_03_01/LoadBalancers'
     - name: Python
       href: /python/api/azure-mgmt-network/azure.mgmt.network.v2019_02_01.operations.loadbalancersoperations
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/load-balancer/loadbalancers
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.network/loadbalancers

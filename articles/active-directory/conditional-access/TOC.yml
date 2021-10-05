@@ -78,6 +78,8 @@
           href: howto-conditional-access-policy-compliant-device.md
         - name: 액세스 차단
           href: howto-conditional-access-policy-block-access.md
+    - name: 복원력 기본값 구성
+      href: resilience-defaults.md
     - name: 레거시 인증 차단
       href: block-legacy-authentication.md
     - name: 보고서 전용 모드 구성

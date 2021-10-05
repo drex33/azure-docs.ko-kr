@@ -25,6 +25,8 @@
   items:
     - name: Azure Defender for IoT 평가판 설치
       href: tutorial-onboarding.md
+    - name: CyberArk 통합
+      href: tutorial-cyberark.md
     - name: Forescout 통합
       href: tutorial-forescout.md
     - name: Fortinet 통합

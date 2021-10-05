@@ -363,12 +363,17 @@
       items:
         - name: 레이블 데이터
           items:
-            - name: 레이블이 지정된 데이터 가져오기
-              displayName: 'data, dataset, labeling'
-              href: how-to-create-labeling-projects.md
+            - name: 이미지 레이블 지정 설정
+              displayName: 'data, dataset'
+              href: how-to-create-image-labeling-projects.md
+            - name: 텍스트 레이블 지정 설정
+              displayName: 'data, dataset'
+              href: how-to-create-text-labeling-projects.md
             - name: 레이블 이미지 및 텍스트
               displayName: 'data, dataset, labeling'
               href: how-to-label-data.md
+            - name: 레이블 지정 작업 아웃소싱
+              href: how-to-outsource-data-labeling.md
             - name: 레이블로 데이터 세트 만들기
               displayName: 'data, labels, torchvision'
               href: how-to-use-labeled-dataset.md

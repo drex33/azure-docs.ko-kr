@@ -64,6 +64,8 @@
       href: multiple-public-ip-powershell.md
     - name: 규칙 계층 정의
       href: rule-hierarchy.md
+    - name: DDoS Protection 계획 구성
+      href: configure-ddos.md
 - name: 참조
   items:
     - name: Azure CLI
@@ -78,9 +80,9 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/virtualnetwork/firewallpolicies
-    - name: Azure Resource Manager
+    - name: Azure 리소스 관리자
       href: ../azure-resource-manager/management/overview.md
 - name: 리소스
   items:

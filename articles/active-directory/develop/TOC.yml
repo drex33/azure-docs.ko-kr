@@ -320,6 +320,12 @@
               href: scenario-mobile-call-api.md
             - name: 프로덕션 환경으로 이동
               href: scenario-mobile-production.md
+    - name: 앱 테스트 및 배포
+      items:
+        - name: 테스트 환경 설정
+          href: test-setup-environment.md
+        - name: 제한 및 서비스 제한
+          href: test-throttle-service-limits.md
     - name: Microsoft 인증 라이브러리 작업
       displayName: MSAL
       items:

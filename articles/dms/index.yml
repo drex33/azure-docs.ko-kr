@@ -10,12 +10,12 @@ metadata:
   ms.service: dms
   ms.topic: landing-page
   ms.custom: seo-azure-migrate
-  ms.openlocfilehash: 2c154a084f91a988231dd46d22ca51611dabcec9
-  ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+  ms.openlocfilehash: 4793cc6e8dba6e8091b6039e1f7085d7024319d8
+  ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/31/2021
-  ms.locfileid: "123305371"
+  ms.lasthandoff: 10/01/2021
+  ms.locfileid: "129363888"
 landingContent:
 - title: Azure Database Migration Service 정보
   linkLists:
@@ -61,10 +61,10 @@ landingContent:
     links:
     - text: Azure SQL Database로 마이그레이션
       url: tutorial-sql-server-to-azure-sql.md
-    - text: Azure SQL Managed Instance로 마이그레이션(온라인)
-      url: tutorial-sql-server-managed-instance-online.md
-    - text: SQL Managed Instance로 마이그레이션(오프라인)
-      url: tutorial-sql-server-to-managed-instance.md
+    - text: Azure Data Studio를 사용하여 Azure SQL Managed Instance(온라인)로 마이그레이션
+      url: tutorial-sql-server-managed-instance-online-ads.md
+    - text: Azure Data Studio를 사용하여 SQL Managed Instance(오프라인)로 마이그레이션
+      url: tutorial-sql-server-managed-instance-offline-ads.md
   - linkListType: reference
     links:
     - text: 알려진 문제 - SQL Managed Instance로 온라인 마이그레이션

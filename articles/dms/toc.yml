@@ -41,6 +41,14 @@
       items:
         - name: Azure SQL Database로
           href: tutorial-sql-server-to-azure-sql.md
+        - name: Azure Data Studio를 사용하여 Azure SQL Managed Instance(온라인)로
+          href: tutorial-sql-server-managed-instance-online-ads.md
+        - name: Azure Data Studio를 사용하여 Azure SQL Managed Instance(오프라인)로
+          href: tutorial-sql-server-managed-instance-offline-ads.md
+        - name: Azure Data Studio를 사용하여 Azure SQL VM(온라인)으로
+          href: tutorial-sql-server-to-virtual-machine-online-ads.md
+        - name: Azure Data Studio 사용하여 Azure SQL VM(오프라인)으로
+          href: tutorial-sql-server-to-virtual-machine-offline-ads.md
         - name: Azure SQL Managed Instance로(오프라인)
           href: tutorial-sql-server-to-managed-instance.md
         - name: Azure SQL Managed Instance로(온라인)

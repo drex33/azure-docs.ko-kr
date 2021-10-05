@@ -210,6 +210,9 @@
           href: /security/benchmark/azure/baselines/event-grid-security-baseline?toc=/azure/event-grid/toc.json
         - name: Azure Policy의 보안 컨트롤
           href: ./security-controls-policy.md
+        - name: Azure Policy 기본 제공 기능
+          displayName: 'samples, policies, definitions'
+          href: ./policy-reference.md
         - name: 이벤트 처리기에 대한 이벤트 전달 인증
           href: security-authentication.md
         - name: 클라이언트 게시 인증
@@ -252,7 +255,7 @@
           href: auth0-how-to.md
     - name: 토픽 또는 도메인에 대한 액세스 키 가져오기
       href: get-access-keys.md
-    - name: 액세스 키를 사용하여 사용자 지정 항목에 게시
+    - name: 액세스 키를 사용하여 사용자 지정 토픽에 이벤트 게시
       href: post-to-custom-topic.md
     - name: HTTP 엔드포인트에서 이벤트 받기
       href: receive-events.md
@@ -348,9 +351,6 @@
           href: /azure/templates/microsoft.eventgrid/topics
     - name: SDK
       href: sdk-overview.md
-    - name: Azure Policy 기본 제공 기능
-      displayName: 'samples, policies, definitions'
-      href: ./policy-reference.md
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기

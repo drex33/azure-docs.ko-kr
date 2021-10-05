@@ -1,397 +1,410 @@
-- name: LUIS(Language Understanding) 설명서
-  href: index.yml
-- name: 개요
-  expanded: true
-  items:
-    - name: LUIS(Language Understanding)란?
-      href: what-is-luis.md
-    - name: 언어 지원
-      href: luis-language-support.md
-    - name: 가격 책정
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/'
-    - name: 새로운 기능
-      href: whats-new.md
-    - name: LUIS FAQ
-      href: troubleshooting.yml
-      displayName: 'Troubleshooting, import'
-- name: LUIS 빠른 시작
-  items:
-    - name: LUIS 포털 사용
-      href: luis-get-started-create-app.md
-    - name: 클라이언트 라이브러리 및 REST API 사용
-      href: client-libraries-rest-api.md
-- name: 샘플
-  href: 'https://github.com/Azure-Samples/cognitive-services-language-understanding'
-- name: 방법 가이드
-  items:
-    - name: LUIS 포털에 로그인
-      href: sign-in-luis-portal.md
-    - name: 새 앱 시작
-      href: luis-how-to-start-new-app.md
-      displayName: 'import, export, container'
-    - name: 모델 빌드
-      items:
-        - name: 의도 추가
-          href: luis-how-to-add-intents.md
-        - name: 엔터티를 추가하여 데이터 추출
-          href: luis-how-to-add-entities.md
-          displayName: 'roles, import'
-        - name: 미리 작성된 모델 사용
-          href: howto-add-prebuilt-models.md
-        - name: 발화의 레이블 예제
-          href: label-entity-example-utterance.md
-        - name: 기능 추가
-          displayName: 'synonym, interchange, phrase list, descriptor, feature'
-          href: luis-how-to-add-features.md
-        - name: REST API를 사용하여 의도 가져오기
-          href: luis-get-started-get-intent-from-rest.md
-        - name: REST API를 사용하여 모델 변경
-          href: get-started-get-model-rest-apis.md
-    - name: 앱 통합
-      items:
-        - name: Bing Spell Check v7 사용
-          href: luis-tutorial-bing-spellcheck.md
-        - name: 음성 서비스 사용
-          href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
-    - name: 예측 정확도 개선
-      items:
-        - name: 대시보드 사용
-          displayName: 'dashboard, analytics, charts, data, unclear predictions, incorrect predictions, imbalance, endpoint hits, status, evaluation, accuracy, active version, problematic intents, nearest rival, usage'
-          href: luis-how-to-use-dashboard.md
-        - name: 엔드포인트 utterances 검토
-          displayName: active learning
-          href: luis-how-to-review-endpoint-utterances.md
-        - name: 패턴 추가
-          displayName: 'syntax, template, roles'
-          href: luis-how-to-model-intent-pattern.md
-    - name: 앱 학습 및 테스트
-      items:
-        - name: 앱 학습
-          href: luis-how-to-train.md
-          displayName: 'negative sampling, nondeterministic, non-deterministic, UseAllTrainingData'
-        - name: 대화형 테스트
-          href: luis-interactive-test.md
-        - name: 일괄 테스트
-          href: luis-how-to-batch-test.md
-          displayName: 'import, export'
-    - name: 게시
-      href: luis-how-to-publish-app.md
-    - name: 예측 런타임 쿼리
-      href: luis-get-started-get-intent-from-browser.md
-    - name: 마이그레이션
-      items:
-        - name: V3 제작 API로 마이그레이션
-          href: luis-migration-authoring-entities.md
-        - name: V3 예측 API로 마이그레이션
-          href: luis-migration-api-v3.md
-        - name: 복합 엔터티에서 마이그레이션
-          href: migrate-from-composite-entity.md
-        - name: 작성 리소스로 마이그레이션
-          href: luis-migration-authoring.md
-        - name: V2 API로 마이그레이션
-          href: luis-migration-api-v1-to-v2.md
-    - name: 앱 관리
-      items:
-        - name: Azure 리소스
-          displayName: 'azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription, authoring, endpoint, prediction'
-          href: luis-how-to-azure-subscription.md
-        - name: 앱 및 버전 설정
-          href: how-to-application-settings-portal.md
-        - name: 작성자 및 기여자
-          displayName: 'access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import'
-          href: luis-how-to-collaborate.md
-        - name: 버전 포함
-          href: luis-how-to-manage-versions.md
-          diplayName: 'import, export, container'
-        - name: Traffic Manager 포함
-          href: luis-traffic-manager.md
-    - name: 컨테이너 사용
-      items:
-        - name: 컨테이너 설치 및 실행
-          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, export to container'
-          href: luis-container-howto.md
-        - name: 컨테이너 구성
-          href: luis-container-configuration.md
-        - name: 컨테이너 인스턴스 사용
-          href: ../containers/azure-container-instance-recipe.md
-        - name: 컨테이너 제한 사항
-          href: luis-container-limitations.md
-          displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
-        - name: 모든 Cognitive Services 컨테이너 설명서
-          href: ../containers/index.yml
-          maintainContext: true
-    - name: 엔터프라이즈 준비
-      items:
-        - name: 가상 네트워크 설정
-          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/luis/context/context
-        - name: 고객 관리형 키 사용
-          href: encrypt-data-at-rest.md
-- name: 개념
-  items:
-    - name: 인공 지능
-      href: artificial-intelligence.md
-    - name: 개발 수명 주기
-      href: luis-concept-app-iteration.md
-    - name: 모범 사례
-      href: luis-concept-best-practices.md
-      displayName: 'phrase list, pattern, intent, utterance, version, do, don''t, example utterances, iteration, cycle, correct, right'
-    - name: 앱 계획
-      displayName: 'simple, composite, prebuilt, list, regex, regular expression'
-      href: luis-how-plan-your-app.md
-    - name: 앱 모델
-      items:
-        - name: 유형
-          href: luis-concept-model.md
-        - name: 의도가 발화 분류
-          href: luis-concept-intent.md
-        - name: 엔터티가 데이터 추출
-          displayName: 'prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, machine-learn, exact, mixed, roles'
-          href: luis-concept-entity-types.md
-        - name: 예제 발화
-          href: luis-concept-utterance.md
-        - name: 미리 작성된 모델
-          href: luis-concept-prebuilt-model.md
-        - name: 패턴
-          href: luis-concept-patterns.md
-          displayName: roles
-        - name: 기능
-          href: luis-concept-feature.md
-          displayName: 'descriptor, phrase list, feature'
-        - name: 런타임에 앱 확장
-          href: schema-change-prediction-runtime.md
-    - name: 예측 점수
-      href: luis-concept-prediction-score.md
-    - name: 앱 성능 향상
-      items:
-        - name: 엔드포인트 utterances 검토
-          href: luis-concept-review-endpoint-utterances.md
-    - name: 데이터 관리
-      items:
-        - name: 데이터 수집
-          href: data-collection.md
-        - name: 데이터 변경
-          href: luis-concept-data-alteration.md
-        - name: 데이터 변환
-          href: luis-concept-data-conversion.md
-        - name: 데이터 추출
-          href: luis-concept-data-extraction.md
-          displayName: roles
-        - name: 데이터 스토리지
-          href: luis-concept-data-storage.md
-    - name: LUIS 및 QnA Maker 사용
-      href: choose-natural-language-processing-service.md
-      displayName: 'nlp, qna maker'
-    - name: 엔터프라이즈 디자인 전략
-      href: luis-concept-enterprise.md
-      displayName: import
-    - name: LUIS를 사용하여 DevOps 사례 적용
-      items:
-        - name: CI/CD(연속 통합 및 지속적인 업데이트) 워크플로
-          href: luis-concept-devops-automation.md
-        - name: LUIS에 대한 소스 제어 및 분기 전략
-          href: luis-concept-devops-sourcecontrol.md
-        - name: DevOps 테스트
-          href: luis-concept-devops-testing.md
-- name: 자습서
-  items:
-    - name: 분해 가능한 앱 빌드
-      items:
-        - name: 1. 사용자 의도 확인
-          href: tutorial-intents-only.md
-        - name: 2. 사용자 데이터 내보내기
-          href: tutorial-machine-learned-entity.md
-          displayName: 'n-depth, constraint, descriptor, phrase list, entity, feature'
-    - name: 앱 개선
-      items:
-        - name: 알 수 없는 예측 수정
-          href: luis-tutorial-review-endpoint-utterances.md
-        - name: 패턴을 추가하여 예측 개선
-          href: luis-tutorial-pattern.md
-    - name: 봇으로 사용
-      items:
-        - name: C# 사용
-          href: luis-csharp-tutorial-bf-v4.md
-          displayName: 'bot framework, framework, sdk, abs'
-        - name: Node.js 사용
-          displayName: 'bot framework, framework, sdk, abs'
-          href: luis-nodejs-tutorial-bf-v4.md
-    - name: Node.js를 사용하여 프로그래밍 방식으로 앱 빌드
-      href: luis-tutorial-node-import-utterances-csv.md
-- name: 참조
-  items:
-    - name: 개발자 참조
-      items:
-        - name: 개요
-          href: developer-reference-resource.md
-          displayName: 'SDK, API, quickstart, REST, cli, powershell, azure, rm, resource manager, samples, package, module, tool, dispatch, bot'
-        - name: 앱 스키마
-          href: app-schema-definition.md
-        - name: Azure CLI
-          href: /cli/azure/cognitiveservices#az_cognitiveservices_list
-        - name: Azure RM PowerShell
-          href: /powershell/module/azurerm.cognitiveservices/#cognitive_services
-        - name: REST API
-          items:
-            - name: V3 제작 REST API(미리 보기)
-              href: 'https://aka.ms/luis-apim-v3-authoring'
-            - name: V3 예측 REST API
-              href: 'https://aka.ms/luis-apim-v3-prediction'
-            - name: V2 제작 REST API
-              href: 'https://go.microsoft.com/fwlink/?linkid=2092087'
-            - name: V2 예측 REST API
-              href: 'https://go.microsoft.com/fwlink/?linkid=2092356'
-            - name: HTTP 코드
-              displayName: '400, 401, 403, 409, 410, 414, 429'
-              href: luis-reference-response-codes.md
-        - name: SDK
-          items:
-            - name: C#
-              items:
-                - name: NuGet - 작성
-                  href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/'
-                - name: NuGet - 런타임
-                  href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/'
-                - name: 참조
-                  href: /dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding
-                - name: 샘플
-                  href: 'https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS'
-            - name: Go
-              items:
-                - name: SDK - 작성
-                  href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis/authoring'
-                - name: SDK - 런타임
-                  href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis/runtime'
-                - name: 참조
-                  href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis/'
-            - name: Java
-              items:
-                - name: Maven - 제작
-                  href: 'https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring'
-                - name: Maven - 런타임
-                  href: 'https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime'
-                - name: 참조
-                  href: /java/api/overview/azure/cognitiveservices/client/languageunderstanding
-                - name: 샘플
-                  href: 'https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Language/LanguageUnderstanding'
-            - name: Node.js
-              items:
-                - name: NPM - 제작
-                  href: 'https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring'
-                - name: NPM - 런타임
-                  href: 'https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime'
-                - name: 샘플
-                  href: 'https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/tree/master/Samples/luis'
-            - name: Python
-              items:
-                - name: Pip SDK
-                  href: 'https://pypi.org/project/azure-cognitiveservices-language-luis/'
-                - name: 참조
-                  href: /python/api/azure-cognitiveservices-language-luis/index
-                - name: 샘플
-                  href: 'https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/language/luis'
-    - name: 사용자 개인 정보
-      href: luis-user-privacy.md
-    - name: 작성 및 게시 지역
-      href: luis-reference-regions.md
-      displayName: 'failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr'
-    - name: 제한
-      href: luis-limits.md
-    - name: 앱 및 버전 설정
-      href: luis-reference-application-settings.md
-    - name: EntityReference
-      items:
-        - name: 미리 빌드됨
-          items:
-            - name: 미리 작성된 도메인 참조
-              href: luis-reference-prebuilt-domains.md
-            - name: 문화권별 엔터티
-              href: luis-reference-prebuilt-entities.md
-            - name: Age 엔터티
-              href: luis-reference-prebuilt-age.md
-            - name: Currency 엔터티
-              href: luis-reference-prebuilt-currency.md
-            - name: datetimeV2 엔터티
-              href: luis-reference-prebuilt-datetimev2.md
-              displayName: timex
-            - name: Dimension 엔터티
-              href: luis-reference-prebuilt-dimension.md
-            - name: 사용되지 않는 엔터티
-              href: luis-reference-prebuilt-deprecated.md
-            - name: 이메일 엔터티
-              href: luis-reference-prebuilt-email.md
-            - name: GeographyV2 엔터티
-              href: luis-reference-prebuilt-geographyV2.md
-            - name: KeyPhrase 엔터티
-              href: luis-reference-prebuilt-keyphrase.md
-            - name: Number 엔터티
-              href: luis-reference-prebuilt-number.md
-            - name: Ordinal 엔터티
-              href: luis-reference-prebuilt-ordinal.md
-            - name: Ordinal V2 엔터티
-              href: luis-reference-prebuilt-ordinal-v2.md
-            - name: Percentage 엔터티
-              href: luis-reference-prebuilt-percentage.md
-            - name: PersonName 엔터티
-              href: luis-reference-prebuilt-person.md
-            - name: Phonenumber 엔터티
-              href: luis-reference-prebuilt-phonenumber.md
-            - name: 온도 엔터티
-              href: luis-reference-prebuilt-temperature.md
-            - name: URL 엔터티
-              href: luis-reference-prebuilt-url.md
-          displayName: 'Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web'
-        - name: 사용자 지정
-          items:
-            - name: 기계 학습 엔터티
-              href: reference-entity-machine-learned-entity.md
-            - name: 목록 엔터티
-              href: reference-entity-list.md
-            - name: Pattern.any 엔터티
-              href: reference-entity-pattern-any.md
-            - name: 정규식 엔터티
-              href: reference-entity-regular-expression.md
-            - name: 단순 엔터티
-              href: reference-entity-simple.md
-    - name: 패턴 구문
-      href: reference-pattern-syntax.md
-    - name: 감정 참조
-      href: luis-reference-prebuilt-sentiment.md
-- name: 리소스
-  items:
-    - name: 엔터프라이즈 준비
-      items:
-        - name: 지역 지원
-          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-          displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, German, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
-        - name: 규정 준수 및 인증
-          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: 지원 및 도움말 옵션
-      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/luis/context/context
-    - name: LUIS 포털
-      href: 'https://www.luis.ai'
-    - name: Azure 로드맵
-      href: 'https://go.microsoft.com/fwlink/?linkid=2092089'
-    - name: 용어
-      href: luis-glossary.md
-    - name: 검색
-      href: /search/index?search=LUIS
-    - name: 블로그
-      href: 'https://blog.botframework.com/category/luis/'
-    - name: 관련 서비스
-      items:
-        - name: Azure Bot Service
-          href: 'https://dev.botframework.com/'
-        - name: 봇 작성기 4.x SDK C#
-          href: 'https://github.com/Microsoft/botbuilder-dotnet'
-        - name: QnA Maker
-          href: 'https://qnamaker.ai/'
-        - name: Bing Speech API
-          href: 'https://azure.microsoft.com/services/cognitive-services/speech/'
-        - name: Bing Spell Check API
-          href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
-        - name: Text Analytics
-          href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'
-        - name: 인식기-텍스트
-          href: 'https://github.com/Microsoft/Recognizers-Text'
-        - name: 인텔리전트 키오스크
-          href: 'https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk'
+items:
+  - name: LUIS(Language Understanding) 설명서
+    href: index.yml
+  - name: 개요
+    expanded: true
+    items:
+      - name: LUIS(Language Understanding)란?
+        href: what-is-luis.md
+      - name: 언어 지원
+        href: luis-language-support.md
+      - name: 가격 책정
+        href: 'https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/'
+      - name: 새로운 기능
+        href: whats-new.md
+      - name: LUIS FAQ
+        href: troubleshooting.yml
+        displayName: 'Troubleshooting, import'
+  - name: LUIS 빠른 시작
+    items:
+      - name: LUIS 포털 사용
+        href: luis-get-started-create-app.md
+      - name: 클라이언트 라이브러리 및 REST API 사용
+        href: client-libraries-rest-api.md
+  - name: 샘플
+    href: 'https://github.com/Azure-Samples/cognitive-services-language-understanding'
+  - name: AI의 책임 있는 사용
+    items:
+      - name: 투명성 메모
+        items:
+          - name: LUIS 사용 사례
+            href: /legal/cognitive-services/luis/luis-transparency-note?context=/azure/cognitive-services/LUIS/context/context
+          - name: 특성 및 제한 사항
+            href: /legal/cognitive-services/luis/characteristics-and-limitations?context=/azure/cognitive-services/LUIS/context/context
+      - name: 윤리 및 책임 있는 사용
+        href: /legal/cognitive-services/luis/guidance-integration-responsible-use?context=/azure/cognitive-services/LUIS/context/context
+      - name: '데이터, 개인 정보 및 보안'
+        href: /legal/cognitive-services/luis/data-privacy-security?context=/azure/cognitive-services/LUIS/context/context
+  - name: 방법 가이드
+    items:
+      - name: LUIS 포털에 로그인
+        href: sign-in-luis-portal.md
+      - name: 새 앱 시작
+        href: luis-how-to-start-new-app.md
+        displayName: 'import, export, container'
+      - name: 모델 빌드
+        items:
+          - name: 의도 추가
+            href: luis-how-to-add-intents.md
+          - name: 엔터티를 추가하여 데이터 추출
+            href: luis-how-to-add-entities.md
+            displayName: 'roles, import'
+          - name: 미리 작성된 모델 사용
+            href: howto-add-prebuilt-models.md
+          - name: 발화의 레이블 예제
+            href: label-entity-example-utterance.md
+          - name: 기능 추가
+            displayName: 'synonym, interchange, phrase list, descriptor, feature'
+            href: luis-how-to-add-features.md
+          - name: REST API를 사용하여 의도 가져오기
+            href: luis-get-started-get-intent-from-rest.md
+          - name: REST API를 사용하여 모델 변경
+            href: get-started-get-model-rest-apis.md
+      - name: 앱 통합
+        items:
+          - name: Bing Spell Check v7 사용
+            href: luis-tutorial-bing-spellcheck.md
+          - name: 음성 서비스 사용
+            href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
+      - name: 예측 정확도 개선
+        items:
+          - name: 대시보드 사용
+            displayName: 'dashboard, analytics, charts, data, unclear predictions, incorrect predictions, imbalance, endpoint hits, status, evaluation, accuracy, active version, problematic intents, nearest rival, usage'
+            href: luis-how-to-use-dashboard.md
+          - name: 엔드포인트 utterances 검토
+            displayName: active learning
+            href: luis-how-to-review-endpoint-utterances.md
+          - name: 패턴 추가
+            displayName: 'syntax, template, roles'
+            href: luis-how-to-model-intent-pattern.md
+      - name: 앱 학습 및 테스트
+        items:
+          - name: 앱 학습
+            href: luis-how-to-train.md
+            displayName: 'negative sampling, nondeterministic, non-deterministic, UseAllTrainingData'
+          - name: 대화형 테스트
+            href: luis-interactive-test.md
+          - name: 일괄 테스트
+            href: luis-how-to-batch-test.md
+            displayName: 'import, export'
+      - name: 게시
+        href: luis-how-to-publish-app.md
+      - name: 예측 런타임 쿼리
+        href: luis-get-started-get-intent-from-browser.md
+      - name: 마이그레이션
+        items:
+          - name: V3 제작 API로 마이그레이션
+            href: luis-migration-authoring-entities.md
+          - name: V3 예측 API로 마이그레이션
+            href: luis-migration-api-v3.md
+          - name: 복합 엔터티에서 마이그레이션
+            href: migrate-from-composite-entity.md
+          - name: 작성 리소스로 마이그레이션
+            href: luis-migration-authoring.md
+          - name: V2 API로 마이그레이션
+            href: luis-migration-api-v1-to-v2.md
+      - name: 앱 관리
+        items:
+          - name: Azure 리소스
+            displayName: 'azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription, authoring, endpoint, prediction'
+            href: luis-how-to-azure-subscription.md
+          - name: 앱 및 버전 설정
+            href: how-to-application-settings-portal.md
+          - name: 작성자 및 기여자
+            displayName: 'access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import'
+            href: luis-how-to-collaborate.md
+          - name: 버전 포함
+            href: luis-how-to-manage-versions.md
+            diplayName: 'import, export, container'
+          - name: Traffic Manager 포함
+            href: luis-traffic-manager.md
+      - name: 컨테이너 사용
+        items:
+          - name: 컨테이너 설치 및 실행
+            displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, export to container'
+            href: luis-container-howto.md
+          - name: 컨테이너 구성
+            href: luis-container-configuration.md
+          - name: 컨테이너 인스턴스 사용
+            href: ../containers/azure-container-instance-recipe.md
+          - name: 컨테이너 제한 사항
+            href: luis-container-limitations.md
+            displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
+          - name: 모든 Cognitive Services 컨테이너 설명서
+            href: ../containers/index.yml
+            maintainContext: true
+      - name: 엔터프라이즈 준비
+        items:
+          - name: 가상 네트워크 설정
+            href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/luis/context/context
+          - name: 고객 관리형 키 사용
+            href: encrypt-data-at-rest.md
+  - name: 개념
+    items:
+      - name: 인공 지능
+        href: artificial-intelligence.md
+      - name: 개발 수명 주기
+        href: luis-concept-app-iteration.md
+      - name: 모범 사례
+        href: luis-concept-best-practices.md
+        displayName: 'phrase list, pattern, intent, utterance, version, do, don''t, example utterances, iteration, cycle, correct, right'
+      - name: 앱 계획
+        displayName: 'simple, composite, prebuilt, list, regex, regular expression'
+        href: luis-how-plan-your-app.md
+      - name: 앱 모델
+        items:
+          - name: 유형
+            href: luis-concept-model.md
+          - name: 의도가 발화 분류
+            href: luis-concept-intent.md
+          - name: 엔터티가 데이터 추출
+            displayName: 'prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, machine-learn, exact, mixed, roles'
+            href: luis-concept-entity-types.md
+          - name: 예제 발화
+            href: luis-concept-utterance.md
+          - name: 미리 작성된 모델
+            href: luis-concept-prebuilt-model.md
+          - name: 패턴
+            href: luis-concept-patterns.md
+            displayName: roles
+          - name: 기능
+            href: luis-concept-feature.md
+            displayName: 'descriptor, phrase list, feature'
+          - name: 런타임에 앱 확장
+            href: schema-change-prediction-runtime.md
+      - name: 예측 점수
+        href: luis-concept-prediction-score.md
+      - name: 앱 성능 향상
+        items:
+          - name: 엔드포인트 utterances 검토
+            href: luis-concept-review-endpoint-utterances.md
+      - name: 데이터 관리
+        items:
+          - name: 데이터 수집
+            href: data-collection.md
+          - name: 데이터 변경
+            href: luis-concept-data-alteration.md
+          - name: 데이터 변환
+            href: luis-concept-data-conversion.md
+          - name: 데이터 추출
+            href: luis-concept-data-extraction.md
+            displayName: roles
+          - name: 데이터 스토리지
+            href: luis-concept-data-storage.md
+      - name: LUIS 및 QnA Maker 사용
+        href: choose-natural-language-processing-service.md
+        displayName: 'nlp, qna maker'
+      - name: 엔터프라이즈 디자인 전략
+        href: luis-concept-enterprise.md
+        displayName: import
+      - name: LUIS를 사용하여 DevOps 사례 적용
+        items:
+          - name: CI/CD(연속 통합 및 지속적인 업데이트) 워크플로
+            href: luis-concept-devops-automation.md
+          - name: LUIS에 대한 소스 제어 및 분기 전략
+            href: luis-concept-devops-sourcecontrol.md
+          - name: DevOps 테스트
+            href: luis-concept-devops-testing.md
+  - name: 자습서
+    items:
+      - name: 분해 가능한 앱 빌드
+        items:
+          - name: 1. 사용자 의도 확인
+            href: tutorial-intents-only.md
+          - name: 2. 사용자 데이터 내보내기
+            href: tutorial-machine-learned-entity.md
+            displayName: 'n-depth, constraint, descriptor, phrase list, entity, feature'
+      - name: 앱 개선
+        items:
+          - name: 알 수 없는 예측 수정
+            href: luis-tutorial-review-endpoint-utterances.md
+          - name: 패턴을 추가하여 예측 개선
+            href: luis-tutorial-pattern.md
+      - name: 봇으로 사용
+        items:
+          - name: C# 사용
+            href: luis-csharp-tutorial-bf-v4.md
+            displayName: 'bot framework, framework, sdk, abs'
+          - name: Node.js 사용
+            displayName: 'bot framework, framework, sdk, abs'
+            href: luis-nodejs-tutorial-bf-v4.md
+      - name: Node.js를 사용하여 프로그래밍 방식으로 앱 빌드
+        href: luis-tutorial-node-import-utterances-csv.md
+  - name: 참조
+    items:
+      - name: 개발자 참조
+        items:
+          - name: 개요
+            href: developer-reference-resource.md
+            displayName: 'SDK, API, quickstart, REST, cli, powershell, azure, rm, resource manager, samples, package, module, tool, dispatch, bot'
+          - name: 앱 스키마
+            href: app-schema-definition.md
+          - name: Azure CLI
+            href: /cli/azure/cognitiveservices#az_cognitiveservices_list
+          - name: Azure RM PowerShell
+            href: /powershell/module/azurerm.cognitiveservices/#cognitive_services
+          - name: REST API
+            items:
+              - name: V3 제작 REST API(미리 보기)
+                href: 'https://aka.ms/luis-apim-v3-authoring'
+              - name: V3 예측 REST API
+                href: 'https://aka.ms/luis-apim-v3-prediction'
+              - name: V2 제작 REST API
+                href: 'https://go.microsoft.com/fwlink/?linkid=2092087'
+              - name: V2 예측 REST API
+                href: 'https://go.microsoft.com/fwlink/?linkid=2092356'
+              - name: HTTP 코드
+                displayName: '400, 401, 403, 409, 410, 414, 429'
+                href: luis-reference-response-codes.md
+          - name: SDK
+            items:
+              - name: C#
+                items:
+                  - name: NuGet - 작성
+                    href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/'
+                  - name: NuGet - 런타임
+                    href: 'https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/'
+                  - name: 참조
+                    href: /dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding
+                  - name: 샘플
+                    href: 'https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS'
+              - name: Go
+                items:
+                  - name: SDK - 작성
+                    href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis/authoring'
+                  - name: SDK - 런타임
+                    href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis/runtime'
+                  - name: 참조
+                    href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis/'
+              - name: Java
+                items:
+                  - name: Maven - 제작
+                    href: 'https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring'
+                  - name: Maven - 런타임
+                    href: 'https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime'
+                  - name: 참조
+                    href: /java/api/overview/azure/cognitiveservices/client/languageunderstanding
+                  - name: 샘플
+                    href: 'https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Language/LanguageUnderstanding'
+              - name: Node.js
+                items:
+                  - name: NPM - 제작
+                    href: 'https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring'
+                  - name: NPM - 런타임
+                    href: 'https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime'
+                  - name: 샘플
+                    href: 'https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/tree/master/Samples/luis'
+              - name: Python
+                items:
+                  - name: Pip SDK
+                    href: 'https://pypi.org/project/azure-cognitiveservices-language-luis/'
+                  - name: 참조
+                    href: /python/api/azure-cognitiveservices-language-luis/index
+                  - name: 샘플
+                    href: 'https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/language/luis'
+      - name: 사용자 개인 정보
+        href: luis-user-privacy.md
+      - name: 작성 및 게시 지역
+        href: luis-reference-regions.md
+        displayName: 'failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr'
+      - name: 제한
+        href: luis-limits.md
+      - name: 앱 및 버전 설정
+        href: luis-reference-application-settings.md
+      - name: EntityReference
+        items:
+          - name: 미리 빌드됨
+            items:
+              - name: 미리 작성된 도메인 참조
+                href: luis-reference-prebuilt-domains.md
+              - name: 문화권별 엔터티
+                href: luis-reference-prebuilt-entities.md
+              - name: Age 엔터티
+                href: luis-reference-prebuilt-age.md
+              - name: Currency 엔터티
+                href: luis-reference-prebuilt-currency.md
+              - name: datetimeV2 엔터티
+                href: luis-reference-prebuilt-datetimev2.md
+                displayName: timex
+              - name: Dimension 엔터티
+                href: luis-reference-prebuilt-dimension.md
+              - name: 사용되지 않는 엔터티
+                href: luis-reference-prebuilt-deprecated.md
+              - name: 이메일 엔터티
+                href: luis-reference-prebuilt-email.md
+              - name: GeographyV2 엔터티
+                href: luis-reference-prebuilt-geographyV2.md
+              - name: KeyPhrase 엔터티
+                href: luis-reference-prebuilt-keyphrase.md
+              - name: Number 엔터티
+                href: luis-reference-prebuilt-number.md
+              - name: Ordinal 엔터티
+                href: luis-reference-prebuilt-ordinal.md
+              - name: Ordinal V2 엔터티
+                href: luis-reference-prebuilt-ordinal-v2.md
+              - name: Percentage 엔터티
+                href: luis-reference-prebuilt-percentage.md
+              - name: PersonName 엔터티
+                href: luis-reference-prebuilt-person.md
+              - name: Phonenumber 엔터티
+                href: luis-reference-prebuilt-phonenumber.md
+              - name: 온도 엔터티
+                href: luis-reference-prebuilt-temperature.md
+              - name: URL 엔터티
+                href: luis-reference-prebuilt-url.md
+            displayName: 'Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web'
+          - name: 사용자 지정
+            items:
+              - name: 기계 학습 엔터티
+                href: reference-entity-machine-learned-entity.md
+              - name: 목록 엔터티
+                href: reference-entity-list.md
+              - name: Pattern.any 엔터티
+                href: reference-entity-pattern-any.md
+              - name: 정규식 엔터티
+                href: reference-entity-regular-expression.md
+              - name: 단순 엔터티
+                href: reference-entity-simple.md
+      - name: 패턴 구문
+        href: reference-pattern-syntax.md
+      - name: 감정 참조
+        href: luis-reference-prebuilt-sentiment.md
+  - name: 리소스
+    items:
+      - name: 엔터프라이즈 준비
+        items:
+          - name: 지역 지원
+            href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+            displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, German, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
+          - name: 규정 준수 및 인증
+            href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+      - name: 지원 및 도움말 옵션
+        href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/luis/context/context
+      - name: LUIS 포털
+        href: 'https://www.luis.ai'
+      - name: Azure 로드맵
+        href: 'https://go.microsoft.com/fwlink/?linkid=2092089'
+      - name: 용어
+        href: luis-glossary.md
+      - name: 검색
+        href: /search/index?search=LUIS
+      - name: 블로그
+        href: 'https://blog.botframework.com/category/luis/'
+      - name: 관련 서비스
+        items:
+          - name: Azure Bot Service
+            href: 'https://dev.botframework.com/'
+          - name: 봇 작성기 4.x SDK C#
+            href: 'https://github.com/Microsoft/botbuilder-dotnet'
+          - name: QnA Maker
+            href: 'https://qnamaker.ai/'
+          - name: Bing Speech API
+            href: 'https://azure.microsoft.com/services/cognitive-services/speech/'
+          - name: Bing Spell Check API
+            href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
+          - name: Text Analytics
+            href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'
+          - name: 인식기-텍스트
+            href: 'https://github.com/Microsoft/Recognizers-Text'
+          - name: 인텔리전트 키오스크
+            href: 'https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk'

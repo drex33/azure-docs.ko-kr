@@ -154,6 +154,8 @@
           items:
             - name: Azure VM의 SAP HANA 데이터 백업 정보
               href: ../../../backup/sap-hana-db-about.md?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
+            - name: SAP HANA 백업에 대한 Azure Backup 아키텍처
+              href: ../../../backup/azure-backup-architecture-for-sap-hana-backup.md?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
             - name: 자습서 - Azure VM에서 SAP HANA 데이터베이스 백업
               href: ../../../backup/tutorial-backup-sap-hana-db.md?toc=/azure/virtual-machines/workloads/sap/toc.json&bc=/azure/virtual-machines/workloads/sap/breadcrumb/toc.json
             - name: 데이터베이스 백업에 대한 FAQ

@@ -1,0 +1,85 @@
+### YamlMime:Landing
+title: Virtual Network IP 서비스 설명서
+summary: Azure Virtual Network IP 서비스를 사용하는 방법을 알아봅니다. 빠른 시작, 자습서, 샘플 등을 통해 Azure에서 IP 서비스를 사용하는 방법을 보여 줍니다.
+metadata:
+  title: Azure Virtual Network IP 서비스 설명서 - 자습서, 빠른 시작, API 참조
+  description: Azure Virtual Network IP 서비스를 사용하는 방법을 알아봅니다. 빠른 시작, 자습서, 샘플 등에서는 NAT 게이트웨이를 배포하는 방법을 보여 줍니다.
+  services: virtual-network
+  ms.service: virtual-network
+  ms.subservice: ip-services
+  ms.topic: landing-page
+  ms.collection: collection
+  author: asudbring
+  ms.author: allensu
+  ms.date: 10/01/2021
+  ms.openlocfilehash: 39bfb032451dad44aaf8c7faa634115776cc66d4
+  ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 10/01/2021
+  ms.locfileid: "129367251"
+landingContent:
+- title: Virtual Network IP 서비스 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Virtual Network IP 서비스란?
+      url: ip-services-overview.md
+  - linkListType: concept
+    links:
+    - text: Azure의 공용 IP 주소
+      url: public-ip-addresses.md
+    - text: 공용 IP 주소 접두사
+      url: public-ip-address-prefix.md
+    - text: Azure의 개인 IP 주소
+      url: private-ip-addresses.md
+- title: 시작하기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 공용 IP 주소 만들기
+      url: create-public-ip-portal.md
+    - text: 공용 IP 주소 접두사 만들기
+      url: create-public-ip-prefix-portal.md
+  - linkListType: tutorial
+    links:
+    - text: VM에 대한 라우팅 기본 설정 구성
+      url: tutorial-routing-preference-virtual-machine-portal.md
+    - text: 가상 머신의 라우팅 기본 설정 옵션 두 가지를 모두 구성하기
+      url: routing-preference-mixed-network-adapter-portal.md
+    - text: Azure Kubernetes 서비스에 대한 라우팅 기본 설정 구성
+      url: routing-preference-azure-kubernetes-service-cli.md
+- title: 기능 및 옵션 관리
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Azure 공용 IP 주소 만들기, 변경 또는 삭제
+      url: virtual-network-public-ip-address.md
+    - text: Azure 공용 IP 주소 접두사 만들기, 변경 또는 삭제
+      url: manage-public-ip-address-prefix.md
+    - text: Azure 가상 네트워크용 IPv6란?
+      url: ipv6-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: 공용 IP 주소에 대한 라우팅 기본 설정 구성
+      url: routing-preference-portal.md
+    - text: 공용 IP 주소 업그레이드
+      url: public-ip-upgrade-portal.md
+    - text: 클래식 예약된 IP 주소를 공용 IP 주소로 마이그레이션
+      url: public-ip-upgrade-classic.md
+- title: 가상 머신
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Azure의 기본 아웃 바운드 액세스
+      url: default-outbound-access.md
+    - text: 라우팅 기본 설정이란?
+      url: routing-preference-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: 고정 공용 IP 주소를 사용하여 가상 머신 만들기
+      url: virtual-network-deploy-static-pip-arm-portal.md
+    - text: 가상 머신에 대한 개인 IP 주소 구성
+      url: virtual-networks-static-private-ip-arm-pportal.md
+    - text: 가상 머신에 여러 IP 주소 할당
+      url: virtual-network-multiple-ip-addresses-portal.md

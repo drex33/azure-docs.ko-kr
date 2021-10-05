@@ -28,7 +28,7 @@
           href: add-api.md
         - name: 사용자 고유 함수 가져오기
           href: functions-bring-your-own.md
-    - name: Configuration
+    - name: 구성
       items:
         - name: 구성 개요
           href: configuration-overview.md
@@ -106,6 +106,8 @@
       href: publish-devops.md
     - name: ARM 템플릿으로 게시
       href: publish-azure-resource-manager.md
+    - name: Azure Front Door 추가
+      href: front-door-manual.md
 - name: 참조
   items:
     - name: Azure CLI

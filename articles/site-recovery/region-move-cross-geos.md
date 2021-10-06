@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: a76ebf95b92b6e1251a04daa9ffb48a9abe15b50
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 24f3d5bfa5883477b436956d90b7af70142311aa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89425350"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587749"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Azure Government와 공용 Azure 지역 간에 Azure VM 이동 
 
@@ -79,7 +79,7 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
 
 - 도메인 또는 로컬 계정을 사용할 수 있습니다.
 - Windows VM에서는 도메인 계정을 사용하지 않는 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정합니다. 그러려면 레지스터의 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** 에서 값이 1인 **LocalAccountTokenFilterPolicy** DWORD 항목을 추가합니다.
-- CLI에서 설정을 사용하지 않도록 설정하기 위한 레지스트리 항목을 추가하려면 다음을 입력합니다. ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
+- CLI에서 설정을 사용하지 않도록 설정하기 위한 레지스트리 항목을 추가하려면 `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.`을 입력합니다.
 - Linux에서 계정은 원본 Linux 서버의 루트여야 합니다.
 
 

@@ -7,21 +7,21 @@ ms.topic: include
 ms.date: 04/28/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: f01d02fb2d11f6d2ec7e068d8f8aea5191734371
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 3fb812a15aa1670404fe8a5d403f99acf522f3a5
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114712951"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129516674"
 ---
-[![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/pnp-device-sample)
+[![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples/pnp-device-sample)
 
 이 빠른 시작에서는 기본 Azure IoT 애플리케이션 개발 워크플로에 대해 알아봅니다. 먼저 디바이스 호스트를 위한 Azure IoT Central 애플리케이션을 만듭니다. 그런 다음 Azure IoT 디바이스 SDK 샘플을 사용하여 시뮬레이션된 온도 조절기를 실행하고 IoT Central에 안전하게 연결하고 원격 분석을 전송합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 - Java SE Development Kit 8 이상이 포함된 개발 머신. 여러 플랫폼용 Java 8(LTS) JDK는 [OpenJDK의 Zulu 빌드 다운로드](https://www.azul.com/downloads/zulu-community/)에서 다운로드할 수 있습니다. 설치 프로그램에서 **경로에 추가** 옵션을 선택합니다.
 - [Apache Maven 3](https://maven.apache.org/download.cgi). 로컬 폴더로 다운로드를 추출한 후 Maven */bin* 폴더의 전체 경로를 Windows PATH 변수에 추가합니다.
-- [Java용 Microsoft Azure IoT SDK](https://github.com/Azure/azure-iot-sdk-java) GitHub 리포지토리의 로컬 복사본입니다. [ZIP 다운로드](https://github.com/Azure/azure-iot-sdk-java/archive/refs/heads/master.zip)를 통해 리포지토리의 복사본을 다운로드하고 추출합니다.
+- [Java용 Microsoft Azure IoT SDK](https://github.com/Azure/azure-iot-sdk-java) GitHub 리포지토리의 로컬 복사본입니다. [ZIP 다운로드](https://github.com/Azure/azure-iot-sdk-java/archive/refs/heads/main.zip)를 통해 리포지토리의 복사본을 다운로드하고 추출합니다.
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
@@ -30,7 +30,7 @@ ms.locfileid: "114712951"
 
 ### <a name="configure-your-environment"></a>환경 구성
 
-1. Windows CMD, PowerShell 또는 Bash를 사용하여 콘솔을 엽니다.
+1. Windows CMD, PowerShell 또는 Bash와 같은 콘솔을 엽니다.
 
 1. 콘솔에 적합한 명령을 사용하여 다음 환경 변수를 설정합니다. 시뮬레이션된 디바이스는 이 값을 사용하여 IoT Central에 연결합니다. `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY` 및 `IOTHUB_DEVICE_DPS_DEVICE_ID`의 경우 이전에 저장한 디바이스 연결 값을 사용합니다.
 

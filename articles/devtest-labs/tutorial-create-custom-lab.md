@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs를 사용하여 랩 만들기 | Microsoft Docs
+title: 랩 자습서 만들기
 description: 이 자습서에서는 Azure Portal을 사용하여 Azure DevTest Labs에서 랩을 만듭니다. 랩 관리자는 랩을 설정하고, 랩에 VM을 만들고, 정책을 구성합니다.
 ms.topic: tutorial
 ms.date: 06/26/2020
-ms.openlocfilehash: 4b59edd4ab1204d6683cf95a02070d10b1abe061
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 52640469ff02fd167b0add4210ddec11db05af97
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91324283"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128655603"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>자습서: Azure DevTest Labs를 사용하여 랩 설정
 이 자습서에서는 Azure Portal을 사용하여 랩을 만듭니다. 랩 관리자는 조직에 랩을 설정하고, 랩에 VM을 만들고, 정책을 구성합니다. 랩 사용자(예: 개발자 및 테스터)는 랩에서 VM을 클레임하고 연결하여 사용합니다. 
@@ -103,4 +103,3 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 > [!div class="nextstepaction"]
 > [자습서: 랩에 액세스](tutorial-use-custom-lab.md)
-

@@ -5,12 +5,12 @@ ms.date: 02/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6737e2500b96d1c1872432c39761f8578de0ba02
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 9450a140d6c2fec93ccd836309690e15337b588b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319740"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638808"
 ---
 # <a name="tutorial-deploy-a-local-arm-template"></a>자습서: 로컬 ARM 템플릿 배포
 
@@ -44,7 +44,7 @@ Azure PowerShell 또는 Azure CLI가 설치되면 처음으로 로그인해야 �
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
 
 > [!IMPORTANT]
-> Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 사용해야 합니다. 이름은 고유해야 합니다. 템플릿에서 스토리지 계정 이름은 **store** 가 추가된 프로젝트 이름이며, 프로젝트 이름은 3-11자 사이여야 합니다. 따라서 프로젝트 이름은 스토리지 계정 이름 요구 사항을 충족해야 하며 11자 미만이어야 합니다.
+> 스토리지 계정 이름은 3자에서 24자 사이의 고유한 이름이어야 하고 **숫자** 와 **소문자** 만 사용해야 합니다. 샘플 템플릿의 `storageAccountName` 변수는 `projectName` 매개 변수의 최대 11자를 [uniqueString](./template-functions-string.md#uniquestring) 값 13자로 결합합니다.
 
 확장명이 _.json_ 인 템플릿 _(예: azuredeploy.json_)의 복사본을 로컬 컴퓨터에 저장합니다. 이 템플릿은 자습서의 뒷부분에서 배포합니다.
 

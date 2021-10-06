@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 11/26/2019
-ms.author: hahamil
+ms.author: marsma
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40, has-adal-ref
-ms.openlocfilehash: 3bb6f374ee1d9720fd3c8646ef22aad6c4f86737
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 0c79ad939a28913a13193b2743c6fda98f553663
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122428955"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587084"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-application"></a>자습서: Android 애플리케이션에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -75,7 +75,7 @@ MSAL은 자동으로 토큰을 갱신하고, 디바이스의 다른 앱 간에 S
 ### <a name="register-your-application"></a>애플리케이션 등록
 
 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
-1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트로 전환합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
 1. 애플리케이션의 **이름** 을 입력합니다. 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.

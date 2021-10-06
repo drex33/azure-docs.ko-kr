@@ -1,20 +1,20 @@
 ---
 title: 클러스터링이 있는 프리미엄 Azure Cache for Redis 만들기 - Azure CLI
 description: 이 Azure CLI 코드 샘플에서는 활성화된 클러스터링 및 두 개의 분할이 있는 6GB 프리미엄 계층 Azure Cache for Redis를 만드는 방법을 보여줍니다.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 tags: azure-service-management
 ms.service: cache
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9a7dd571e0d2fc27238293ff5776bda6bdc64185
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d992a3550832baf023906c9a68b5b593d755993a
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128583221"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129532693"
 ---
 # <a name="create-a-premium-azure-cache-for-redis-with-clustering"></a>클러스터링이 있는 프리미엄 Azure Cache for Redis 만들기
 

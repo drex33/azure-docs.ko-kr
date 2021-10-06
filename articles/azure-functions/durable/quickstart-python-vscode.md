@@ -5,12 +5,12 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 12/23/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: d84bc4977593a379fda817db67aaccd71793a787
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 235fa649245e973e934e0930b4490f4e4701c94b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121752310"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128571505"
 ---
 # <a name="create-your-first-durable-function-in-python"></a>Python에서 첫 번째 지속성 함수 만들기
 
@@ -144,7 +144,7 @@ ms.locfileid: "121752310"
     | prompt | 값 | Description |
     | ------ | ----- | ----------- |
     | 함수의 템플릿 선택 | Durable Functions HTTP 스타터 | HTTP 스타터 함수 만들기 |
-    | 함수 이름 제공 | DurableFunctionsHttpStart | 작업 함수의 이름 |
+    | 함수 이름 제공 | DurableFunctionsHttpStart | 클라이언트 함수의 이름 |
     | 권한 부여 수준 | 익명 | 데모용으로 인증 없이 함수를 호출할 수 있도록 허용합니다. |
 
 오케스트레이션을 시작하는 HTTP 트리거 함수를 추가했습니다. *DurableFunctionsHttpStart/\_\_init__.py* 를 열어 `client.start_new`를 사용하여 새 오케스트레이션을 시작하는지 확인합니다. `client.create_check_status_response`를 사용하여 새 오케스트레이션을 모니터링하고 관리하는 데 사용할 수 있는 URL이 포함된 HTTP 응답이 반환되는 것을 볼 수 있습니다.

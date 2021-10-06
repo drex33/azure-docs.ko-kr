@@ -6,15 +6,14 @@ ms.author: v-stharr
 ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
-services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: 8d429785c87b7dbbbd4ea8eb4c6a24fea021b214
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: f3eba06b40ef9f96dc5b94b6d21b43e6fecccce1
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123439563"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129358076"
 ---
 # <a name="tutorial-migrate-a-web-app-from-google-maps"></a>자습서: Google Maps에서 웹앱 마이그레이션
 
@@ -1030,7 +1029,7 @@ MarkerCluster 라이브러리를 사용하여 표식을 클러스터링합니다
 
 클러스터링을 사용하도록 설정하면 데이터 원본이 클러스터형 및 비클러스터형 데이터 요소를 렌더링하기 위해 레이어로 보냅니다. 데이터 원본은 수십만 개의 데이터 요소를 클러스터링할 수 있습니다. 클러스터링된 데이터 요소에는 다음과 같은 속성이 있습니다.
 
-| 속성 이름             | Type    | 설명   |
+| 속성 이름             | Type    | Description   |
 |---------------------------|---------|---------------|
 | `cluster`                 | boolean | 기능이 클러스터를 표시하는지 여부를 나타냅니다. |
 | `cluster_id`              | 문자열  | DataSource `getClusterExpansionZoom`, `getClusterChildren` 및 `getClusterLeaves` 메서드에 사용할 수 있는 클러스터의 고유 ID입니다. |
@@ -1675,7 +1674,7 @@ Azure Maps에서는 GeoJSON이 웹 SDK에 사용되는 기본 데이터 형식�
 |---------------|-------------|
 | `google.maps.Map` | [atlas.Map](/javascript/api/azure-maps-control/atlas.map)  |
 | `google.maps.InfoWindow` | [atlas.Popup](/javascript/api/azure-maps-control/atlas.popup)  |
-| `google.maps.InfoWindowOptions` | [atlas.PopupOptions](https://docs.microsoft.com/) |
+| `google.maps.InfoWindowOptions` | [atlas.PopupOptions](/javascript/api/azure-maps-control/atlas.popupoptions) |
 | `google.maps.LatLng`  | [atlas.data.Position](/javascript/api/azure-maps-control/atlas.data.position)  |
 | `google.maps.LatLngBounds` | [atlas.data.BoundingBox](/javascript/api/azure-maps-control/atlas.data.boundingbox) |
 | `google.maps.MapOptions`  | [atlas.CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions)<br/>[atlas.CameraBoundsOptions](/javascript/api/azure-maps-control/atlas.cameraboundsoptions)<br/>[atlas.ServiceOptions](/javascript/api/azure-maps-control/atlas.serviceoptions)<br/>[atlas.StyleOptions](/javascript/api/azure-maps-control/atlas.styleoptions)<br/>[atlas.UserInteractionOptions](/javascript/api/azure-maps-control/atlas.userinteractionoptions) |

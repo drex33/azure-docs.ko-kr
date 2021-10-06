@@ -1,7 +1,6 @@
 ---
-title: '자습서: AD 및 Azure AD에서 SuccessFactors 인바운드 프로비저닝 구성 | Microsoft Docs'
+title: '자습서: AD 및 Azure AD에서 SuccessFactors 인바운드 프로비저닝 구성'
 description: SuccessFactors로부터의 인바운드 프로비저닝을 구성하는 방법을 알아봅니다.
-services: active-directory
 author: cmmdesai
 manager: CelesteDG
 ms.service: active-directory
@@ -10,12 +9,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: 7b59e0ae2fbb73f341d5254fd2804d50ad141a19
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d4a1350999258b47db4a5188fa9eab92aa56e567
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98953804"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128604949"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>자습서: SAP SuccessFactors에서 Active Directory로 사용자 프로비저닝 구성 
 이 자습서에서는 사용자를 SuccessFactors Employe Central에서 AD(Active Directory) 및 Azure AD로 프로비저닝하기 위해 수행해야 하는 단계를 보여 주며, 선택적으로 이메일 주소가 SuccessFactors에 쓰기 저장됩니다. 
@@ -199,7 +198,7 @@ Active Directory 온-프레미스에 프로비저닝하려면 원하는 Active D
 
    * **관리자 암호 –** SuccessFactors API 사용자 계정의 암호를 입력합니다. 
 
-   * **테넌트 URL –** SuccessFactors OData API 서비스 엔드포인트의 이름을 입력합니다. http 또는 https 없이 서버의 호스트 이름만 입력합니다. 이 값은 **<api-server-name>.successfactors.com** 과 같습니다.
+   * **테넌트 URL –** SuccessFactors OData API 서비스 엔드포인트의 이름을 입력합니다. http 또는 https 없이 서버의 호스트 이름만 입력합니다. 이 값은 **\<api-server-name\>.successfactors.com** 과 같습니다.
 
    * **Active Directory 포리스트 -** 에이전트에 등록된 Active Directory 도메인의 “이름”입니다. 드롭다운에서 프로비전을 위한 대상 도메인을 선택합니다. 이 값은 일반적으로 *contoso.com* 형태의 문자열입니다.
 

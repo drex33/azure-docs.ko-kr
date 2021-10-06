@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/09/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: d10ff0f9ca4fde80557341c0b5d29b3f7c26c970
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: d1e3f0b9b7d61a2984914cbbbe0b9d3b2832f7b1
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982831"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124780398"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-solarwinds-service-desk-previously-samanage"></a>자습서: SolarWinds Service Desk(이전의 Samanage)와 Azure Active Directory 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "111982831"
 * 사용자가 자신의 Azure AD 계정으로 SolarWinds에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -41,6 +41,7 @@ ms.locfileid: "111982831"
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
 * SolarWinds에서 **SP** 시작 SSO를 지원합니다.
+* SolarWinds에서 [자동화된 사용자 프로비저닝](samanage-provisioning-tutorial.md)을 지원합니다.
 
 ## <a name="add-solarwinds-from-the-gallery"></a>갤러리에서 SolarWinds 추가
 
@@ -179,6 +180,9 @@ SolarWinds의 경우 프로비저닝은 수동 작업입니다.
    >[!NOTE]
    >Azure Active Directory 계정 보유자는 활성화되기 전에 전자 메일을 받고 링크를 따라 계정을 확인합니다. SolarWinds에서 제공하는 다른 SolarWinds 사용자 계정 생성 도구 또는 API를 사용하여 Azure Active Directory 사용자 계정을 프로비저닝할 수 있습니다.
 
+> [!NOTE]
+> SolarWinds는 자동 사용자 프로비저닝도 지원합니다. 자동 사용자 프로비저닝 구성 방법에 대한 자세한 내용은 [여기](./samanage-provisioning-tutorial.md)에서 제공합니다.
+
 ## <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
@@ -187,7 +191,7 @@ SolarWinds의 경우 프로비저닝은 수동 작업입니다.
 
 * SolarWinds 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 SolarWinds 타일을 클릭하면 SolarWinds 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 SolarWinds 타일을 클릭하면 SolarWinds 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

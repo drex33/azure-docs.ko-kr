@@ -6,12 +6,12 @@ ms.author: v-condav
 ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 6/16/2021
-ms.openlocfilehash: 4ab409c067d83e44cb22c3a22589eca0a4a7785a
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 4abf1d9236d236f9d19d9336bb3173ca14bb3c61
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114291287"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665172"
 ---
 # <a name="tutorial-using-industrial-iot-to-pull-data-into-azure-data-explorer"></a>자습서: 산업용 IoT를 사용하여 데이터를 Azure Data Explorer로 끌어오기
 
@@ -165,7 +165,7 @@ opcua_telemetry
 
 ## <a name="create-line-graph-of-the-data"></a>데이터의 꺾은선형 그래프 만들기
 
-이제 데이터를 모두 부동 소수점 숫자로 캐스팅하여 데이터의 꺾은선형 그래프를 만들어 보겠습니다. 캐스트에 실패하면 데이터가 무시됩니다. 호스트된 Azure Data Explorer 대시보드를 이 작업에 사용합니다. **웹 UI에서 열기** 를 클릭하고 새 창에서 **대시보드** 를 클릭한 다음, **새 대시보드 만들기**, **타일 추가** 를 차례로 선택합니다. **데이터 원본** 을 선택하고 Azure Data Explorer 인스턴스의 이름을 https://<YourInstanceName>.<Your RegionName>.kusto.windows.net 형식으로 입력합니다. 데이터베이스를 선택하고 **적용** 을 누릅니다. 다음 쿼리를 입력합니다.
+이제 데이터를 모두 부동 소수점 숫자로 캐스팅하여 데이터의 꺾은선형 그래프를 만들어 보겠습니다. 캐스트에 실패하면 데이터가 무시됩니다. 호스트된 Azure Data Explorer 대시보드를 이 작업에 사용합니다. **웹 UI에서 열기** 를 클릭하고 새 창에서 **대시보드** 를 클릭한 다음, **새 대시보드 만들기**, **타일 추가** 를 차례로 선택합니다. 그런 다음, **데이터 원본** 을 선택하고 Azure Data Explorer 인스턴스의 이름을 `https://<YourInstanceName>.<Your RegionName>.kusto.windows.net` 형식으로 입력합니다. 데이터베이스를 선택하고 **적용** 을 누릅니다. 다음 쿼리를 입력합니다.
 
 ```
 opcua_telemetry

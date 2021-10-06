@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.devlang: php
 ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3a2f51d0d15ebd00335f7685d3983e527a3e8b7d
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 8e85133b8c476f2de046a8396ba171d563751bd7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643600"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "128579768"
 ---
 # <a name="tutorial-build-a-php-laravel-and-mysql-flexible-server-preview-app-in-azure-app-service"></a>자습서: Azure App Service에서 PHP(Laravel) 및 MySQL 유연한 서버(미리 보기) 앱 빌드
 
@@ -33,9 +33,10 @@ ms.locfileid: "122643600"
 > * 데이터 모델 업데이트 및 앱 다시 배포
 > * Azure Portal에서 앱 관리
 
-[Azure 구독](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+[!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -284,7 +285,7 @@ FTP 및 로컬 Git는 배포 사용자를 통해 Azure 웹앱에 배포할 수 �
 
 배포 사용자를 구성하려면 Azure Cloud Shell에서 [az webapp deployment user set](/cli/azure/webapp/deployment/user#az_webapp_deployment_user_set) 명령을 실행합니다. _&lt;username>_ 및 _&lt;password>_ 를 배포 사용자 이름 및 암호로 바꿉니다.
 
-사용자 이름은 Azure 내에서 고유해야 하고, 로컬 Git 푸시의경우 ' @' 기호를 포함하면 안 됩니다.
+사용자 이름은 Azure 내에서 고유해야 하고, 로컬 Git 푸시의경우 ‘@’ 기호를 포함하면 안 됩니다.
 암호는 글자, 숫자, 기호의 세 가지 요소 중 두 가지를 사용하고 8자 이상이어야 합니다.
 
 ```bash
@@ -332,7 +333,7 @@ Local git is configured with url of 'https://<username>@<app-name>.scm.azurewebs
 git 배포를 활성화하여 새 빈 웹앱을 만들었습니다.
 
 > [!NOTE]
-> Git 원격의 URL은 deploymentLocalGitUrl 속성에 표시되며 https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git 형식입니다. 나중에 필요하므로 이 URL을 저장합니다.
+> Git 원격의 URL은 `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git` 형식으로 deploymentLocalGitUrl 속성에 표시됩니다. 나중에 필요하므로 이 URL을 저장합니다.
 
 ### <a name="configure-database-settings"></a>데이터베이스 설정 구성
 

@@ -6,12 +6,12 @@ ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 2c1340e41471ab25f00d7ad0a9e678dfeb65470f
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: be6dbd899f91df5a19878d0491f14b3eb636f8eb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122970264"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128671674"
 ---
 이 빠른 시작에서는 iOS용 Azure Communication Services Calling SDK를 사용하여 통화를 시작하는 방법에 대해 알아봅니다.
 
@@ -38,8 +38,11 @@ Xcode에서 새 iOS 프로젝트를 만들고 **단일 보기 앱** 템플릿을
 
 ### <a name="install-the-package-and-dependencies-with-cocoapods"></a>CocoaPods를 사용하여 패키지 및 종속성 설치
 
-1. 애플리케이션에 대한 Podfile을 만들려면 터미널을 열고 프로젝트 폴더로 이동한 후 ```pod init```를 실행합니다.
-3. Podfile에 다음 코드를 추가하고 저장합니다. "target"이 프로젝트 이름과 일치하는지 확인합니다.
+1. 애플리케이션에 대한 Podfile을 만들려면 터미널을 열고 프로젝트 폴더로 이동하여 다음을 실행합니다.
+
+   `pod init`
+
+1. Podfile에 다음 코드를 추가하고 저장합니다. "target"이 프로젝트 이름과 일치하는지 확인합니다.
 
    ```
    platform :ios, '13.0'
@@ -50,8 +53,9 @@ Xcode에서 새 iOS 프로젝트를 만들고 **단일 보기 앱** 템플릿을
    end
    ```
 
-3. `pod install`을 실행합니다.
-3. Xcode로 `.xcworkspace`를 엽니다.
+1. `pod install`을 실행합니다.
+
+1. Xcode로 `.xcworkspace`를 엽니다.
 
 ### <a name="request-access-to-the-microphone"></a>마이크에 대한 액세스 요청
 

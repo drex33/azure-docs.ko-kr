@@ -6,14 +6,14 @@ author: IngridAtMicrosoft
 manager: femila
 ms.service: media-services
 ms.topic: tutorial
-ms.date: 05/18/2021
+ms.date: 09/13/2021
 ms.author: inhenkel
-ms.openlocfilehash: 6352c86581da356f4b2bab1a80dd463d502a9ae3
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: dc05d6488978004eebee68b901214ab71f0fffd4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110481790"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656648"
 ---
 # <a name="tutorial-give-an-azure-function-app-access-to-a-media-services-account"></a>자습서: Azure Function 앱에 Media Services 계정에 대한 액세스 권한 부여
 
@@ -117,34 +117,35 @@ func new --name OnAir --template "HTTP trigger" --authlevel "anonymous"
 
 ## <a name="configure-the-functions-project"></a>함수 프로젝트 구성
 
-### <a name="add-items-to-the-csproj-file"></a>.csproj 파일에 항목 추가
+### <a name="install-media-services-and-other-extensions"></a>Media Services 및 기타 확장 설치
 
-자동 생성된 ".csproj" 파일에서 첫 번째 `<ItemGroup>`에 다음 줄을 추가합니다.
+터미널 창에서 dotnet add package 명령을 실행하여 프로젝트에 필요한 확장 패키지를 설치합니다. 다음 명령은 Media Services 및 Azure ID 패키지를 설치합니다.
 
-```xml
-<PackageReference Include="Microsoft.Azure.Management.Fluent" Version="1.37.0" />
-<PackageReference Include="Microsoft.Azure.Management.Media" Version="3.0.4" />
+```bash
+dotnet add package Microsoft.Azure.Management.Media
+dotnet add package Azure.Identity
 ```
 
 ### <a name="edit-the-onaircs-code"></a>OnAir.cs 코드 편집
 
 `OnAir.cs` 파일을 변경합니다. `subscriptionId`, `resourceGroup` 및 `mediaServicesAccountName` 변수를 이전에 결정한 값으로 변경합니다.
 
-```aspx-csharp
-using System.Threading.Tasks;
+```csharp
+using Azure.Core;
+using Azure.Identity;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.Management.Media;
+using Microsoft.Azure.Management.Media.Models;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Microsoft.Azure.Management.Media;
-using Microsoft.Azure.Management.ResourceManager.Fluent.Authentication;
-using Microsoft.Azure.Management.ResourceManager.Fluent;
-using Microsoft.Azure.Management.Media.Models;
+using Microsoft.Rest;
+using System.Threading.Tasks;
 
 namespace MediaServicesLiveMonitor
 {
-    public static class LatestAsset
+    public static class OnAir
     {
         [FunctionName("OnAir")]
         public static async Task<IActionResult> Run(
@@ -159,14 +160,18 @@ namespace MediaServicesLiveMonitor
             {
                 return new BadRequestObjectResult("Missing 'name' URL parameter");
             }
-            
-            var credentials = SdkContext.AzureCredentialsFactory.FromSystemAssignedManagedServiceIdentity(
-                MSIResourceType.AppService,
-                AzureEnvironment.AzureGlobalCloud);
 
-            var subscriptionId = "00000000-0000-0000-000000000000";    // Update
-            var resourceGroup = "<your-resource-group-name>";                                    // Update
-            var mediaServicesAccountName = "<your-media-services-account-name>";                    // Update
+            var credential = new ManagedIdentityCredential();
+            var accessTokenRequest = await credential.GetTokenAsync(
+                new TokenRequestContext(
+                    scopes: new string[] { "https://management.core.windows.net" + "/.default" }
+                    )
+                );
+            ServiceClientCredentials credentials = new TokenCredentials(accessTokenRequest.Token, "Bearer");
+
+            var subscriptionId = "00000000-0000-0000-000000000000";                 // Update
+            var resourceGroup = "<your-resource-group-name>";                       // Update
+            var mediaServicesAccountName = "<your-media-services-account-name>";    // Update
 
             var mediaServices = new AzureMediaServicesClient(credentials)
             {
@@ -179,7 +184,7 @@ namespace MediaServicesLiveMonitor
             {
                 return new NotFoundResult();
             }
-            
+
             return new OkObjectResult(liveEvent.ResourceState == LiveEventResourceState.Running ? "On air" : "Off air");
         }
     }

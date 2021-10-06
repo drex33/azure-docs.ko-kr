@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, has-adal-ref
-ms.openlocfilehash: b752339d854123f39d50e0cd475c5a63eb1ea584
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: bb5b6068b935be2f437b10e4fcbccf7c6a86219d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122428941"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128637991"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>자습서: Microsoft ID 플랫폼을 사용하는 다중 테넌트 디먼 빌드
 
@@ -94,7 +94,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
 ### <a name="choose-the-azure-ad-tenant"></a>Azure AD 테넌트 선택
 
 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
-1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트로 전환합니다.
 
 
 ### <a name="register-the-client-app-dotnet-web-daemon-v2"></a>클라이언트 앱(dotnet-web-daemon-v2) 등록

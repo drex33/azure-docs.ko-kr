@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: 7b415b161dd719dabd02ccde4bf0a57da6485c09
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 690991f637c33ec4b66fd2bc591deb5474900d57
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730724"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657354"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>자습서: 관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호
 
@@ -141,7 +141,7 @@ Active Directory 관리자를 추가하는 방법에 대한 자세한 내용은 
 > [!NOTE]
 > **Microsoft.Azure.Services.AppAuthentication** 은 더 이상 새 Azure SDK에서 사용하지 않는 것이 좋습니다. .NET, Java, TypeScript 및 Python에서 사용할 수 있는 새 **Azure ID 클라이언트 라이브러리** 로 대체되며 모든 새로운 개발에 사용해야 합니다. 마이그레이션하는 방법에 대한 정보는 `Azure Identity`[AppAuthentication to Azure.Identity 마이그레이션 지침](/dotnet/api/overview/azure/app-auth-migration)에서 찾을 수 있습니다.
 
-1. Visual Studio에서 패키지 관리자 콘솔을 열고, [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) NuGet 패키지를 추가합니다.
+1. Visual Studio에서 패키지 관리자 콘솔을 열고, [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) NuGet 패키지를 추가합니다.
 
     ```powershell
     Install-Package Microsoft.Data.SqlClient -Version 2.1.2

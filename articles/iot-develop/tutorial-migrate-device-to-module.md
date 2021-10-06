@@ -1,18 +1,18 @@
 ---
 title: 자습서 - 일반 Azure IoT 플러그 앤 플레이 모듈 연결 | Microsoft Docs
 description: 자습서 - 일반 모듈에서 샘플 C# IoT 플러그 앤 플레이 디바이스 코드를 사용합니다.
-author: lizross
-ms.author: lizross
+author: RamIoTMalhotra
+ms.author: ramal
 ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-develop
 services: iot-develop
-ms.openlocfilehash: 3ff845e1ef74e8bf1f98da519d8d2d9657755e96
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 44dca3cd3cd7803271fba6abae72de5c54782c1f
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129091125"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457414"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>자습서: IoT 플러그 앤 플레이 모듈 연결(C#)
 
@@ -108,7 +108,7 @@ git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     | IOTHUB_DEVICE_SECURITY_TYPE | connectionString |
     | IOTHUB_MODULE_CONNECTION_STRING | 이전에 기록해 둔 모듈 연결 문자열입니다. |
 
-    샘플 구성에 대해 자세히 알아보려면 [샘플 추가 정보](https://github.com/Azure-Samples/azure-iot-samples-csharp/blob/master/iot-hub/Samples/device/PnpDeviceSamples/readme.md)를 참조하세요.
+    샘플 구성에 대해 자세히 알아보려면 [샘플 추가 정보](https://github.com/Azure-Samples/azure-iot-samples-csharp/blob/main/iot-hub/Samples/device/PnpDeviceSamples/readme.md)를 참조하세요.
 
 ## <a name="modify-the-code"></a>코드 수정
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sandeo, ravenn, spunukol, jogro, jploegert
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76c997cc1f4ed2be18e06838f6c30864456f7539
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4b689e27e6b65f5ace628d1f7cf12b246e6e516d
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128588241"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354803"
 ---
 # <a name="what-is-a-device-identity"></a>디바이스 ID란?
 
@@ -39,7 +39,7 @@ ms.locfileid: "128588241"
 - [Azure AD 등록](concept-azure-ad-register.md) 
    - BYOD(Bring Your Own Device)
    - 모바일 디바이스(휴대폰 및 태블릿)
-- [Azure AD 조인](concept-azure-ad-register.md)
+- [Azure AD 조인](concept-azure-ad-join.md)
    - 조직이 소유한 Windows 10 디바이스
    - [Azure에서 VM에서 실행되는 조직의 Windows Server 2019 이상 서버](howto-vm-sign-in-azure-ad-windows.md)
 

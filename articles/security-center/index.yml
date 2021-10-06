@@ -11,12 +11,12 @@ metadata:
   author: memildin
   ms.author: memildin
   ms.date: 05/12/2021
-  ms.openlocfilehash: 6559d16fc9314ff134eb92f540e4b6ff4acd1f96
-  ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
+  ms.openlocfilehash: e8f2db04945768b1c89eb09f02f6c248053dedaa
+  ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/05/2021
-  ms.locfileid: "113297517"
+  ms.lasthandoff: 10/04/2021
+  ms.locfileid: "129425110"
 landingContent:
 - title: Security Center 정보
   linkLists:
@@ -34,8 +34,8 @@ landingContent:
     links:
     - text: Security Center에 대한 릴리스 정보
       url: release-notes.md
-    - text: 개요 대시보드 살펴보기
-      url: overview-page.md
+    - text: 컴퓨터에 Azure 보안 기준 적용
+      url: apply-security-baseline.md
     - text: 통합된 통합 문서 보고서 사용
       url: custom-dashboards-azure-workbooks.md
     - text: 하이브리드 및 다중 클라우드 Kubernetes 클러스터 보호

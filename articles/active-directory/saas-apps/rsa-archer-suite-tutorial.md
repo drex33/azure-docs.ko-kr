@@ -1,5 +1,5 @@
 ---
-title: '자습서: RSA Archer Suite와 Azure Active Directory SSO(Single Sign-On) 연결 | Microsoft Docs'
+title: '자습서: RSA Archer Suite와 Azure AD SSO 통합'
 description: Azure Active Directory와 RSA Archer Suite 간에 Single Sign-On을 구성하는 방법을 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/02/2021
+ms.date: 09/14/2021
 ms.author: jeedes
-ms.openlocfilehash: d96f1e0413dac8477e2fc40bf84e88318abf3f9d
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 38694ff8bdbe041d582af3b8bfb9d0c9fffe9e62
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284987"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656591"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-rsa-archer-suite"></a>자습서: RSA Archer Suite와 Azure Active Directory SSO(Single Sign-On) 연결
+# <a name="tutorial-azure-ad-sso-integration-with-rsa-archer-suite"></a>자습서: RSA Archer Suite와 Azure AD SSO 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 RSA Archer Suite를 연결하는 방법에 대해 알아봅니다. RSA Archer Suite를 Azure AD와 연결하면 다음을 수행할 수 있습니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "106284987"
 * 사용자가 해당 Azure AD 계정으로 RSA Archer Suite에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -77,11 +77,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
+1. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    a. **로그온 URL** 텍스트 상자에서 `https://<BASE_URL>/default.aspx?IDP=<REALM_NAME>` 패턴을 사용하는 URL을 입력합니다.
+    a. **식별자(엔터티 ID)** 텍스트 상자에 값을 `RSAArcherSuite_TENANT_STRING`로 입력합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에 값을 `RSAArcherSuite_TENANT_STRING`로 입력합니다.
+    b. **로그온 URL** 텍스트 상자에서 `https://<BASE_URL>/default.aspx?IDP=<REALM_NAME>` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
     > 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [RSA Archer Suite 클라이언트 지원 팀](mailto:archersupport@rsa.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -140,7 +140,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 다음 페이지에서 다음 단계를 수행합니다.
 
-    ![RSA Archer Suite SSO 구성](./media/rsa-archer-suite-tutorial/configuration.png)
+    ![RSA Archer Suite SSO를 구성합니다.](./media/rsa-archer-suite-tutorial/configuration.png)
 
     a. **Single Sign-On** 탭으로 이동하고 드롭다운 목록에서 **Single Sign-On 모드** 로 **SAML** 을 선택합니다.
 
@@ -162,12 +162,12 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-1. Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 RSA Archer Suite 로그온 URL로 리디렉션됩니다. 
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 RSA Archer Suite 로그온 URL로 리디렉션됩니다. 
 
-2. RSA Archer Suite 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
+* RSA Archer Suite 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-3. Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 RSA Archer Suite 타일을 클릭하면 SSO를 설정한 RSA Archer Suite에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 RSA Archer Suite 타일을 클릭하면 RSA Archer Suite 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
- RSA Archer Suite가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+RSA Archer Suite가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

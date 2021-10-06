@@ -1,15 +1,16 @@
 ---
-title: Azure CLI 스크립트 예제 - Batch 계정 만들기 - 사용자 구독
-description: 이 스크립트는 사용자 구독 모드에서 Batch 계정을 만듭니다. 이 계정은 컴퓨팅 노드를 구독에 할당합니다.
+title: Azure CLI 스크립트 예제 - Batch 계정 만들기 - 사용자 구독 | Microsoft Docs
+description: 사용자 구독 모드에서 Azure Batch 계정을 만드는 방법을 알아봅니다. 이 계정은 컴퓨팅 노드를 구독에 할당합니다.
 ms.topic: sample
-ms.date: 08/31/2021
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7758707d8825e297e6bb90e51ab402d815d9e8cb
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.date: 09/17/2021
+ms.custom: devx-track-azurecli, seo-azure-cli
+keywords: batch, azure cli 샘플, azure cli 예제, azure cli 코드 샘플
+ms.openlocfilehash: 087ba199787e36dccba58f37dd1ebb83c715d729
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123256047"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658662"
 ---
 # <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>CLI 예제: 사용자 구독 모드에서 Batch 계정 만들기
 

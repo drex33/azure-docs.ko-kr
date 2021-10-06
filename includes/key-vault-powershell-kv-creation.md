@@ -4,19 +4,19 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 07/20/2020
 ms.author: msmbaldwin
-ms.openlocfilehash: d19c656946817b06cd620d8a48073bed8299af7d
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 26e4a9e8ba849bb25bad904934a434e92c633acd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502262"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128659850"
 ---
 Azure PowerShell [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault) cmdlet을 사용하여 이전 단계에서 리소스 그룹에 Key Vault를 만듭니다. 몇 가지 정보를 제공해야 합니다.
 
 - 키 자격 증명 모음 이름: 숫자(0-9), 문자(a-z, A-Z) 및 하이픈(-)만 포함할 수 있는 3~24자의 문자열
 
   > [!Important]
-  > 각 Key Vault마다 고유한 이름이 있어야 합니다. 다음 예제에서는 <your-unique-keyvault-name>을 Key Vault의 이름으로 바꿉니다.
+  > 각 Key Vault마다 고유한 이름이 있어야 합니다. 다음 예제에서 \<your-unique-keyvault-name\>을 키 자격 증명 모음의 이름으로 바꿉니다.
 
 - 리소스 그룹 이름: **myResourceGroup**
 - 위치: **EastUS**

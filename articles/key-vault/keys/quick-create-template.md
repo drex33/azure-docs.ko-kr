@@ -10,26 +10,24 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs, devx-track-azurepowershell
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: 4994e345b55e5b7fe77e116475fa2e5a29a9751f
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 8e8a0e931a2c33883bf18ad92a367110d9be093e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110669999"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128572966"
 ---
 # <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure 키 자격 증명 모음 및 키 만들기 
 
 [Azure Key Vault](../general/overview.md)는 키, 암호, 인증서 및 기타 비밀 등, 비밀에 안전한 자격 증명을 제공하는 클라우드 서비스입니다. 이 빠른 시작에서는 키 자격 증명 모음 및 키를 만들기 위해 ARM 플랫폼(Azure Resource Manager 템플릿)을 배포하는 과정을 다루고 있습니다.
 
-> [!NOTE]
-> 이 기능은 Azure Government에 제공되지는 않습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료하려면 다음이 필요합니다.
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-- 사용자는 예를 들어 Azure 기본 제공 역할을 할당해야 합니다. 기여자. [여기서 자세히 알아보세요.](../../role-based-access-control/role-assignments-portal.md)
+- 사용자에게 할당된 Azure 기본 제공 역할, 권장 역할 **기여자** 가 있어야 합니다. [여기서 자세히 알아보세요.](../../role-based-access-control/role-assignments-portal.md)
 - 권한을 구성하려면 템플릿에 Azure AD 사용자 개체 ID가 필요합니다. 다음 절차는 개체 ID(GUID)를 가져옵니다.
 
     1. **사용해 보세요** 를 선택하여 다음 Azure PowerShell 또는 Azure CLI 명령을 수행한 다음, 스크립트를 셸 창에 붙여넣습니다. 스크립트를 붙여넣으려면 셸을 마우스 오른쪽 단추로 클릭하고 **붙여넣기** 를 선택합니다.
@@ -171,7 +169,7 @@ ms.locfileid: "110669999"
 
 |매개 변수  |정의  |
 |---------|---------|
-|**Keysize**  | 키를 사용하여 수행할 수 있는 작업을 지정합니다. 이 매개 변수를 지정하지 않으면 모든 작업을 수행할 수 있습니다. 이 매개 변수에 허용되는 값은 [JWK(JSON Web Key) 사양](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41)에 정의된 쉼표로 구분된 키 작업 목록입니다. <br> `["sign", "verify", "encrypt", "decrypt", " wrapKey", "unwrapKey"]` |
+|**keyOps**  | 키를 사용하여 수행할 수 있는 작업을 지정합니다. 이 매개 변수를 지정하지 않으면 모든 작업을 수행할 수 있습니다. 이 매개 변수에 허용되는 값은 [JWK(JSON Web Key) 사양](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41)에 정의된 쉼표로 구분된 키 작업 목록입니다. <br> `["sign", "verify", "encrypt", "decrypt", " wrapKey", "unwrapKey"]` |
 |**CurveName**  |  EC 키 형식의 타원 곡선 이름입니다. [JsonWebKeyCurveName](/rest/api/keyvault/createkey/createkey#jsonwebkeycurvename)을 참조하세요. |
 |**Kty**  |  만들 키의 유형입니다. 유효한 값은 [JsonWebKeyType](/rest/api/keyvault/createkey/createkey#jsonwebkeytype)을 참조하세요. |
 |**태그** | 키/값 쌍 형식의 애플리케이션 특정 메타데이터입니다.  |

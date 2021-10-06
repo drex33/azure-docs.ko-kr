@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/10/2021
 ms.author: duau
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 0c93edf2d7d017ea857e4e8ac915818a3b7f1d02
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 366426ee04bd13239a734bbc721cbd6822a34ddd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123311370"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650024"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit"></a>자습서: Virtual Network를 ExpressRoute 회로에 연결
 > [!div class="op_single_selector"]
@@ -68,6 +68,9 @@ $connection = New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -Resour
 
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>다른 구독에 있는 가상 네트워크를 회로에 연결
 여러 구독에서 ExpressRoute 회로를 공유할 수 있습니다. 아래 그림에는 여러 구독에서 ExpressRoute 회로에 대한 작업을 공유하는 방법의 간단한 계통도가 나와 있습니다.
+
+> [!NOTE]
+> Azure 소버린 클라우드와 퍼블릭 Azure 클라우드 간의 가상 네트워크 연결은 지원되지 않습니다. 동일한 클라우드에 있는 다른 구독의 가상 네트워크만 연결할 수 있습니다.
 
 큰 구름 안에 있는 각각의 작은 구름은 한 조직 내의 여러 부서에 속하는 구독을 나타내는 데 사용됩니다. 조직 내의 각 부서에서 자체 구독을 사용하여 서비스를 배포하지만, 단일 ExpressRoute 회로를 공유하여 온-프레미스 네트워크에 다시 연결할 수 있습니다. 단일 부서(이 예제에서는 IT)가 ExpressRoute 회로를 소유할 수 있습니다. 조직 내의 다른 구독은 ExpressRoute 회로를 사용할 수 있습니다.
 

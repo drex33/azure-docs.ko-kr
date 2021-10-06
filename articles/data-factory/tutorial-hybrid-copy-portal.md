@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 07/05/2021
-ms.openlocfilehash: 55b0d4246616dd862cfcf9fb15069f13f130e857
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ae3b89391a4932ac4e77287185c761b4c4e31cea
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638307"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798297"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>SQL Server 데이터베이스에서 Azure Blob 스토리지로 데이터 복사
 
@@ -79,7 +79,7 @@ ms.locfileid: "122638307"
 
 1. 왼쪽 창에서 **모든 서비스** 를 선택합니다. **스토리지** 키워드를 사용하여 필터링한 다음, **스토리지 계정** 을 선택합니다.
 
-    ![Storage 계정 검색](media/doc-common-process/search-storage-account.png)
+    :::image type="content" source="media/doc-common-process/search-storage-account.png" alt-text="Storage 계정 검색":::
 
 1. 필요한 경우 스토리지 계정 목록에서 스토리지 계정을 필터링합니다. 그런 후 스토리지 계정을 선택합니다.
 
@@ -92,7 +92,7 @@ ms.locfileid: "122638307"
 
 1. **스토리지 계정** 창에서 **개요** 로 이동한 다음, **컨테이너** 를 선택합니다.
 
-    ![Blob 옵션 선택](media/tutorial-hybrid-copy-powershell/select-blobs.png)
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/select-blobs.png" alt-text="Blob 옵션 선택":::
 
 1. **컨테이너** 창에서 **+ 컨테이너** 를 선택하여 새 항목을 만듭니다.
 
@@ -108,7 +108,7 @@ ms.locfileid: "122638307"
 1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 엽니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
 1. 왼쪽 메뉴에서 **리소스 만들기** > **통합** > **Data Factory** 를 선택합니다.
 
-   !["새로 만들기" 창에서 데이터 팩터리 선택](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="&quot;새로 만들기&quot; 창에서 Data Factory 선택":::
 
 1. **새 데이터 팩터리** 페이지의 **이름** 아래에서 **ADFTutorialDataFactory** 를 입력합니다.
 
@@ -139,7 +139,7 @@ ms.locfileid: "122638307"
 
 1. Azure Data Factory 홈페이지에서 **오케스트레이션** 을 선택합니다. 파이프라인이 자동으로 만들어집니다. 파이프라인이 트리 뷰에 표시되고 편집기가 열립니다.
 
-   ![Azure Data Factory 홈페이지를 보여주는 스크린샷.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Azure Data Factory 홈페이지를 보여주는 스크린샷.":::
 
 1. **속성** 아래의 일반 패널에서 **이름** 에 **SQLServerToBlobPipeline** 을 지정합니다. 그런 다음, 오른쪽 위 모서리에 있는 속성 아이콘을 클릭하여 패널을 축소합니다.
 
@@ -148,7 +148,7 @@ ms.locfileid: "122638307"
 1. **속성** 창에서 **원본** 탭으로 이동하고 **+ 새로 만들기** 를 클릭합니다.
 
 1. **새 데이터 세트** 대화 상자에서 **SQL Server** 를 검색합니다. **SQL Server** 를 선택한 다음, **계속** 을 선택합니다.
-    ![새 SqlServer 데이터 세트](./media/tutorial-hybrid-copy-portal/create-sqlserver-dataset.png)
+    :::image type="content" source="./media/tutorial-hybrid-copy-portal/create-sqlserver-dataset.png" alt-text="새 SqlServer 데이터 세트":::
 
 1. **속성 설정** 대화 상자의 **이름** 아래에 **SqlServerDataset** 를 입력합니다. **연결된 서비스** 에서 **+ 새로 만들기** 를 선택합니다. 이 단계에서는 원본 데이터 저장소(SQL Server 데이터베이스)에 대한 연결을 만듭니다.
 
@@ -159,11 +159,11 @@ ms.locfileid: "122638307"
 1. 이름 아래에 **TutorialIntegrationRuntime** 을 입력합니다. 그런 다음 **만들기** 를 선택합니다.
 
 1. 설정에서 **이 컴퓨터에 대한 빠른 설치를 시작하려면 여기를 클릭하십시오** 를 선택합니다. 이 작업은 통합 런타임을 컴퓨터에 설치하고 Data Factory에 등록합니다. 또는 수동 설치 옵션을 사용하여 설치 파일을 다운로드하고, 실행하고, 키를 사용하여 통합 런타임을 등록할 수 있습니다.
-    ![통합 런타임 설정](./media/tutorial-hybrid-copy-portal/intergration-runtime-setup.png)
+    :::image type="content" source="./media/tutorial-hybrid-copy-portal/intergration-runtime-setup.png" alt-text="통합 런타임 설정":::
 
 1. **Integration Runtime(자체 호스팅) 빠른 설치** 창에서 프로세스가 완료되면 **닫기** 를 선택합니다.
 
-    ![Integration Runtime(자체 호스팅) 빠른 설치](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
+    :::image type="content" source="./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png" alt-text="Integration Runtime(자체 호스팅) 빠른 설치":::
 
 1. **새로 연결된 서비스(SQL Server)** 대화 상자에서 **통합 런타임을 통해 연결** 에 **TutorialIntegrationRuntime** 이 선택되어 있는지 확인합니다. 그런 다음, 다음 단계를 수행합니다.
 
@@ -181,7 +181,7 @@ ms.locfileid: "122638307"
 
     g. 연결된 서비스를 저장하려면 **만들기** 를 선택합니다.
  
-    ![새로 연결된 서비스(SQL Server)](./media/tutorial-hybrid-copy-portal/new-sqlserver-linked-service.png)
+    :::image type="content" source="./media/tutorial-hybrid-copy-portal/new-sqlserver-linked-service.png" alt-text="새로 연결된 서비스(SQL Server)":::
 
 1. 연결된 서비스가 생성되면 SqlServerDataset에 대한 **속성 설정** 페이지로 다시 이동합니다. 다음과 같은 단계를 수행합니다.
 
@@ -199,7 +199,7 @@ ms.locfileid: "122638307"
 
 1. **형식 선택** 대화 상자에서 데이터의 형식 유형을 선택합니다. 그런 다음, **계속** 을 선택합니다.
 
-    ![데이터 형식 선택 영역](./media/doc-common-process/select-data-format.png)
+    :::image type="content" source="./media/doc-common-process/select-data-format.png" alt-text="데이터 형식 선택 영역":::
 
 1. **속성 설정** 대화 상자에서 이름에 **AzureBlobDataset** 를 입력합니다. **연결된 서비스** 텍스트 상자 옆에 있는 **+ 새로 만들기** 를 선택합니다.
 
@@ -214,14 +214,14 @@ ms.locfileid: "122638307"
     b. **파일 경로** 에서 **컨테이너/디렉터리** 부분에 대해 **adftutorial/fromonprem** 을 입력합니다. 출력 폴더가 adftutorial 컨테이너에 없으면 Data Factory에서 출력 폴더를 자동으로 만듭니다.
 
     다. **파일** 부분의 경우 **동적 콘텐츠 추가** 를 선택합니다.
-    ![파일 이름을 확인하기 위한 동적 식](./media/tutorial-hybrid-copy-portal/file-name.png)
+    :::image type="content" source="./media/tutorial-hybrid-copy-portal/file-name.png" alt-text="파일 이름을 확인하기 위한 동적 식":::
 
     d. `@CONCAT(pipeline().RunId, '.txt')`를 추가한 다음, **마침** 을 선택합니다. 그러면 PipelineRunID.txt로 파일 이름이 변경됩니다.
 
 1. 파이프라인이 열려 있는 탭으로 이동하거나 트리 뷰에서 파이프라인을 선택합니다. **싱크 데이터 세트** 에서 **AzureBlobDataset** 가 선택되어 있는지 확인합니다.
 
 1. 파이프라인 설정에 대한 유효성을 검사하려면 파이프라인에 대한 도구 모음에서 **유효성 검사** 를 선택합니다. **파이프 유효성 검사 출력** 을 닫으려면 **>>** 아이콘을 선택합니다.
-    ![파이프라인 유효성 검사](./media/tutorial-hybrid-copy-portal/validate-pipeline.png)
+    :::image type="content" source="./media/tutorial-hybrid-copy-portal/validate-pipeline.png" alt-text="파이프라인 유효성 검사":::
     
 
 1. 만든 엔터티를 Data Factory에 게시하려면 **모두 게시** 를 선택합니다.
@@ -237,7 +237,7 @@ ms.locfileid: "122638307"
 1. **모니터** 탭으로 이동합니다. 이전 단계에서 수동으로 트리거한 파이프라인이 표시됩니다.
 
 1. 파이프라인 실행과 관련된 활동 실행을 보려면 *파이프라인 이름* 에서 **SQLServerToBlobPipeline** 링크를 선택합니다. 
-    ![파이프라인 실행 모니터링](./media/tutorial-hybrid-copy-portal/pipeline-runs.png)
+    :::image type="content" source="./media/tutorial-hybrid-copy-portal/pipeline-runs.png" alt-text="파이프라인 실행 모니터링":::
 
 1. **활동 실행** 페이지에서 세부 정보(안경 이미지) 링크를 선택하면 복사 작업에 대한 세부 정보를 볼 수 있습니다. 파이프라인 실행 보기로 돌아가려면 위쪽의 **모든 파이프라인 실행** 을 선택합니다.
 

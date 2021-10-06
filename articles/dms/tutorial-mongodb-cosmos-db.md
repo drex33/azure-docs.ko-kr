@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
-ms.date: 08/26/2021
-ms.openlocfilehash: 87f211976f74fef5ed2c0cef992d82099e141a29
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.date: 09/21/2021
+ms.openlocfilehash: 6714446d42a256f6948b8e0f6e69b6bc2be60b6e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123038174"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664355"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-db-api-for-mongodb-offline"></a>자습서: 오프라인에서 MongoDB를 Azure Cosmos DB API for MongoDB로 마이그레이션
 [!INCLUDE[appliesto-mongodb-api](../cosmos-db/includes/appliesto-mongodb-api.md)]
@@ -50,6 +50,10 @@ Azure Database Migration Service를 사용하여 오프라인 일회성 데이�
 
 * 처리량 추정 및 파티션 키 선택과 같은 [사전 마이그레이션 단계를 완료](../cosmos-db/mongodb-pre-migration.md)합니다.
 * [Azure Cosmos DB API for MongoDB에 대한 계정을 만듭니다](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
+
+  > [!NOTE]
+  > 서버리스 모드로 프로비전된 API for MongoDB 계정으로 마이그레이션하는 경우 현재 DMS가 지원되지 않습니다.
+
 * Azure Resource Manager를 사용하여 Azure Database Migration Service에 대한 Microsoft Azure Virtual Network를 만듭니다. 이 배포 모델은 [Azure ExpressRoute](../expressroute/expressroute-introduction.md) 또는 [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)을 사용하여 온-프레미스 원본 서버에 대한 사이트 간 연결을 제공합니다. 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Azure Virtual Network 설명서](../virtual-network/index.yml), 특히 단계별 세부 정보가 있는 "빠른 시작" 문서를 참조하세요.
 
     > [!NOTE]
@@ -236,7 +240,7 @@ MongoDB 데이터베이스에 저장된 데이터가 Azure Cosmos DB API for Mon
 ## <a name="additional-resources"></a>추가 리소스
 
 * Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하나요?
-    * 기존 데이터베이스 클러스터의 vcore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](../cosmos-db/convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
+    * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](../cosmos-db/convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
     * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](../cosmos-db/mongodb/estimate-ru-capacity-planner.md)에 대해 읽어보세요.
 
 ## <a name="next-steps"></a>다음 단계

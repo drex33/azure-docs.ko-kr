@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/14/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: bfa5149cb9aea3ae8deea572abd86f5fb776e252
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: 9de7b8c91b1dfdbf10b4e8f5e61e9c8cd9f68abf
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114671208"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129300260"
 ---
 이 섹션에서는 [Azure Portal](https://portal.azure.com)을 사용하여 IoT Hub를 만드는 방법에 대해 설명합니다.
 
@@ -70,4 +70,4 @@ ms.locfileid: "114671208"
 
     :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-review-and-create.png" alt-text="새 허브를 만들기 위한 정보를 검토합니다.":::
 
-1. **만들기** 를 선택하여 새 허브의 배포를 시작합니다. 허브가 만들어지는 몇 분 동안 배포가 진행됩니다. 배포가 완료되면 **리소스로 이동** 을 클릭하여 새 허브를 엽니다.
+1. **만들기** 를 선택하여 새 허브의 배포를 시작합니다. 허브가 만들어지는 몇 분 동안 배포가 진행됩니다. 배포가 완료되면 **리소스로 이동** 을 선택하여 새 허브를 엽니다.

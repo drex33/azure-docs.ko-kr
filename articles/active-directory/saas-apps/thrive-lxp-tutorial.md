@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/10/2021
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 31a653df08108bc4f5d75e6dbbc6f31144be8b7e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa73892fb74e329b8d02abf90f149595686bcf37
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104956029"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124738048"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-thrive-lxp"></a>자습서: Thrive LXP와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -38,6 +38,7 @@ ms.locfileid: "104956029"
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 * Thrive LXP에서 **SP** 시작 SSO를 지원합니다.
+* Thrive LXP에서 [자동화된 사용자 프로비저닝](thrive-lxp-provisioning-tutorial.md)을 지원합니다.
 
 ## <a name="adding-thrive-lxp-from-the-gallery"></a>갤러리에서 Thrive LXP 추가
 
@@ -49,7 +50,6 @@ Thrive LXP의 Azure AD 통합을 구성하려면 갤러리의 Thrive LXP를 관�
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에 **Thrive LXP** 를 입력합니다.
 1. 결과 패널에서 **Thrive LXP** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-thrive-lxp"></a>Thrive LXP에 대한 Azure AD SSO 구성 및 테스트
 
@@ -92,6 +92,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **Thrive LXP 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
@@ -124,6 +125,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Thrive LXP에서 Britta Simon이라는 사용자를 만듭니다. [Thrive LXP 지원 팀](mailto:support@thrivelearning.com)과 협력하여 사용자를 Thrive LXP 플랫폼에 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
+Thrive LXP는 자동 사용자 프로비저닝도 지원합니다. 자동 사용자 프로비저닝 구성 방법에 대한 자세한 내용은 [여기](./thrive-lxp-provisioning-tutorial.md)에서 제공합니다.
+
 ## <a name="test-sso"></a>SSO 테스트 
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
@@ -132,7 +135,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * Thrive LXP 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Thrive LXP 타일을 클릭하면 Thrive LXP 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Thrive LXP 타일을 클릭하면 Thrive LXP 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

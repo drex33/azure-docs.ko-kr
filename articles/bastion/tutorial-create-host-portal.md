@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 08/30/2021
+ms.date: 09/07/2021
 ms.author: cherylmc
-ms.openlocfilehash: cd6f2de9d440309662ef47a950f6c1331e30d5fb
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 0aa2efb84c207592131d3b7c3060aebc22cc49f6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123221099"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128668902"
 ---
 # <a name="tutorial-configure-bastion-and-connect-to-a-windows-vm"></a>자습서: Bastion을 구성하고 Windows VM에 연결
 
@@ -29,7 +29,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* 가상 네트워크
+* [가상 네트워크](../virtual-network/quick-create-portal.md).
 * 가상 네트워크의 Windows 가상 머신 VM이 없는 경우 [빠른 시작: VM 만들기](../virtual-machines/windows/quick-create-portal.md)를 참조하여 하나 만듭니다.
 * 리소스에 필요한 역할은 다음과 같습니다.
    * 필요한 VM 역할:
@@ -94,7 +94,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 * **이름**: 새 Bastion 리소스의 이름입니다.
 
-* **지역:** 리소스가 만들어질 Azure 퍼블릭 지역입니다.
+* **지역:** 리소스가 만들어질 Azure 퍼블릭 지역입니다. 가상 네트워크가 있는 지역을 선택합니다.
 
 * **계층:** : 계층은 **SKU** 라고도 합니다. 이 자습서에서는 드롭다운에서 **표준** SKU를 선택합니다. 표준 SKU를 선택하면 호스트 크기 조정에 대한 인스턴스 수를 구성할 수 있습니다. 기본 SKU는 호스트 크기 조정을 지원하지 않습니다. 자세한 내용은 [구성 설정 - SKU](configuration-settings.md#skus)를 참조하세요. 표준 SKU는 미리 보기에 있습니다.
 
@@ -104,9 +104,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 * **가상 네트워크**: Bastion 리소스를 만들 가상 네트워크입니다. 이 과정에서 포털에서 새 가상 네트워크를 만들어도 되고, 아니면 기존 가상 네트워크를 사용해도 됩니다. 기존 가상 네트워크를 사용하는 경우 기존 가상 네트워크에 Bastion 서브넷 요구 사항을 수용하기에 충분한 여유 주소 공간이 있는지 확인합니다. 드롭다운에 가상 네트워크가 보이지 않는 경우 올바른 리소스 그룹을 선택했는지 확인합니다.
 
-* **서브넷**: 가상 네트워크를 만들거나 선택하면 서브넷 필드가 페이지에 표시됩니다. 이는 Bastion 인스턴스가 배포될 서브넷입니다. 
+* **서브넷**: 가상 네트워크를 만들거나 선택하면 서브넷 필드가 페이지에 표시됩니다. 이는 Bastion 인스턴스가 배포될 서브넷입니다. 이름은 **AzureBastionSubnet** 이어야 합니다. 서브넷을 추가하려면 다음 단계를 참조하세요.
 
-#### <a name="add-the-azurebastionsubnet"></a>AzureBastionSubnet 추가
+#### <a name="manage-subnet-configuration"></a>서브넷 구성 관리
 
 대부분의 경우 AzureBastionSubnet이 아직 구성되어 있지 않습니다. 베스천 서브넷을 구성하려면 다음을 수행합니다. 
 

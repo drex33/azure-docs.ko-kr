@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: thwimmer
-ms.openlocfilehash: 1dd3f9d7462dc8594cf8b6e37db6df725196b899
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 9e8385faadc4c3c9d34471741cc238e964ed67a2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113760075"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589172"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 RingCentral 구성
 
@@ -47,6 +47,10 @@ ms.locfileid: "113760075"
 ## <a name="step-2-configure-ringcentral-to-support-provisioning-with-azure-ad"></a>2단계. Azure AD에서 프로비저닝을 지원하도록 RingCentral 구성
 
 5단계의 관리자 자격 증명 섹션에서 권한을 부여하려면 [RingCentral](https://www.ringcentral.com/office/plansandpricing.html) 관리자 계정이 필요합니다.
+
+RingCentral 관리 포털의 계정 설정 -> 디렉터리 통합에서 *디렉터리 공급자* 설정을 *SCIM*
+![이미지](https://user-images.githubusercontent.com/49566142/134523440-20320d8e-3c25-4358-9ace-d4888ce8e4ea.png)로 설정합니다.
+
 
 > [!NOTE]
 > 사용자에게 라이선스를 할당하려면 [여기](https://support.ringcentral.com/s/article/5-10-Adding-Extensions-via-Web?language)의 비디오 링크를 참조하세요.

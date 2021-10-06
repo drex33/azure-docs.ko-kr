@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 0d6c90120d050b6896161f50332faf447c3ed67b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: aca884ebbfc10cc847bade34ea1a9bd73ada18c9
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107788874"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458400"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>자습서: Azure IoT Hub 메시지 보강 사용
 
@@ -48,7 +48,7 @@ ms.locfileid: "107788874"
 
 ## <a name="retrieve-the-iot-c-samples-repository"></a>IoT C# 샘플 리포지토리 검색
 
-GitHub에서 [IoT C# 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)을 다운로드하여 압축을 풉니다. 이 리포지토리에는 여러 애플리케이션, 스크립트 및 Resource Manager 템플릿이 들어 있습니다. 이 자습서에 사용할 항목은 다음과 같습니다.
+GitHub에서 [IoT C# 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip)을 다운로드하여 압축을 풉니다. 이 리포지토리에는 여러 애플리케이션, 스크립트 및 Resource Manager 템플릿이 들어 있습니다. 이 자습서에 사용할 항목은 다음과 같습니다.
 
 * 수동 방법의 경우 리소스를 만드는 데 사용되는 CLI 스크립트가 있습니다. 이 스크립트는 /azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli.azcli에 있습니다. 이 스크립트는 리소스를 만들고 메시지 라우팅을 구성합니다. 이 스크립트를 실행한 후 [Azure Portal](https://portal.azure.com)을 사용하여 수동으로 메시지 보강을 만듭니다.
 * 자동화된 방법의 경우 Azure Resource Manager 템플릿이 있습니다. 이 템플릿은 /azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/template_msgenrichments.json에 있습니다. 이 템플릿은 리소스를 만들고 메시지 라우팅을 구성한 다음, 메시지 보강을 구성합니다.

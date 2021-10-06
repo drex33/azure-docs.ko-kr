@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.date: 03/04/2020
-ms.openlocfilehash: fdcc56bb60622c6dec587be8ad7be63efdd08015
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: dfca5613659969485a97b0c9ff50c7739821df5d
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114732222"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129516659"
 ---
 빠른 시작은 두 가지 미리 작성된 .NET 애플리케이션을 사용합니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "114732222"
     ```cmd/sh
     dotnet --version
     ```
-* 아직 그렇게 하지 않았다면 https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip에서 Azure IoT C# 샘플을 다운로드하고 ZIP 보관 파일을 추출합니다.
+* 아직 그렇게 하지 않았다면 https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip에서 Azure IoT C# 샘플을 다운로드하고 ZIP 보관 파일을 추출합니다.
 
 * 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 빠른 시작의 디바이스 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](../articles/iot-hub/iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 

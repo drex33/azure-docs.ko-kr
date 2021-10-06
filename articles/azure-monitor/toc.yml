@@ -324,8 +324,6 @@
               href: logs/azure-data-explorer-query-storage.md
             - name: Excel로 보내기
               href: logs/log-excel.md
-            - name: Power BI로 보내기
-              href: logs/log-powerbi.md
     - name: 플랫폼 로그
       items:
         - name: 개요
@@ -1347,7 +1345,7 @@
         - name: Power BI
           items:
             - name: 로그 데이터 내보내기
-              href: visualize/powerbi.md
+              href: logs/log-powerbi.md
             - name: 애플리케이션 데이터 내보내기
               href: app/export-power-bi.md
         - name: 대시보드

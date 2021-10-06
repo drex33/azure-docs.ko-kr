@@ -8,15 +8,15 @@ ms.topic: tutorial
 ms.date: 05/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ea75273694eb5c13b5cd8c4812aa58508fa9f62
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: c6a9b193983d58bb8e9cc2964e3ae45160056c4c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130683"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128592853"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>자습서: 페더레이션 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -192,6 +192,8 @@ Windows 하위 수준 디바이스를 등록하려면 조직에서는 [비 Windo
 2. `dsregcmd /status`를 입력합니다.
 3. **AzureAdJoined** 및 **DomainJoined** 가 모두 **예** 로 설정되어 있는지 확인합니다.
 4. **DeviceId** 를 사용하고 Azure Portal 또는 PowerShell을 사용하여 서비스의 상태를 비교할 수 있습니다.
+
+하위 수준 디바이스의 경우 [하위 수준 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결](troubleshoot-hybrid-join-windows-legacy.md#step-1-retrieve-the-registration-status) 문서를 참조하세요.
 
 ### <a name="using-the-azure-portal"></a>Azure Portal 사용
 

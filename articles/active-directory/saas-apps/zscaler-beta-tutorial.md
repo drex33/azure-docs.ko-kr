@@ -9,37 +9,38 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 080217c511470422d563b64f7609d71a4f9a6594
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 7670be8fa34a304d0c7bce3f6a6f3d456d2be397
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108802741"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124800326"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>자습서: Azure Active Directory와 Zscaler Beta 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Zscaler Beta를 통합하는 방법에 대해 알아봅니다.
 Azure AD와 Zscaler Beta를 통합하는 경우 다음을 수행할 수 있습니다.
 
-- Zscaler Beta에 액세스할 수 있는 사용자를 Azure AD에서 제어합니다.
-- 사용자가 자신의 Azure AD 계정으로 Zscaler Beta에 자동으로 로그인되도록 허용합니다. 이 액세스 제어를 SSO(Single Sign-On)라고 합니다.
-- Azure Portal을 사용하여 중앙의 한 위치에서 계정을 관리합니다.
+* Zscaler Beta에 액세스할 수 있는 사용자를 Azure AD에서 제어합니다.
+* 사용자가 자신의 Azure AD 계정으로 Zscaler Beta에 자동으로 로그인되도록 허용합니다. 이 액세스 제어를 SSO(Single Sign-On)라고 합니다.
+* Azure Portal을 사용하여 중앙의 한 위치에서 계정을 관리합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 Zscaler Beta와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
-- Azure AD 구독 Azure AD 환경이 없으면 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-- Single Sign-On을 사용하는 Zscaler Beta 구독
+* Azure AD 구독 Azure AD 환경이 없으면 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
+* Single Sign-On을 사용하는 Zscaler Beta 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
 
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
-- Zscaler Beta는 **SP** 시작 SSO를 지원합니다.
-- Zscaler Beta는 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
+* Zscaler Beta는 **SP** 시작 SSO를 지원합니다.
+* Zscaler Beta는 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
+* Zscaler Beta는 [자동 사용자 프로비저닝](zscaler-beta-provisioning-tutorial.md)을 지원합니다.
 
 ## <a name="adding-zscaler-beta-from-the-gallery"></a>갤러리에서 Zscaler Beta 추가
 
@@ -155,13 +156,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. **관리** > **인증** > **인증 설정** 으로 이동하여 다음 단계를 수행합니다.
 
-   ![관리](./media/zscaler-beta-tutorial/ic800206.png "관리")
+   ![관리](./media/zscaler-beta-tutorial/settings.png "관리")
 
    a. **인증 형식** 에서 **SAML** 을 선택합니다.
 
    b. **SAML 구성** 을 선택합니다.
 
-5. **SAML 편집** 창에서 다음 ![사용자 및 인증 관리](./media/zscaler-beta-tutorial/ic800208.png "사용자 & 인증 관리") 단계를 수행합니다.
+5. **SAML 편집** 창에서 다음 ![사용자 및 인증 관리](./media/zscaler-beta-tutorial/certificate.png "사용자 & 인증 관리") 단계를 수행합니다.
 
    a. **SAML 포털 URL** 상자에 Azure Portal에서 복사한 **로그인 URL** 을 붙여넣습니다.
 
@@ -181,7 +182,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 6. **사용자 인증 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
-   ![활성화 메뉴 및 활성화 단추](./media/zscaler-beta-tutorial/ic800207.png)
+   ![활성화 메뉴 및 활성화 단추](./media/zscaler-beta-tutorial/status.png)
 
    a. 왼쪽 아래에 있는 **활성화** 메뉴를 마우스로 가리킵니다.
 
@@ -195,17 +196,17 @@ Internet Explorer에서 프록시 설정을 구성하려면 다음 단계를 수
 
 2. **도구** 메뉴에서 **인터넷 옵션** 을 선택하여 **인터넷 옵션** 대화 상자를 엽니다.
 
-   ![인터넷 옵션 대화 상자](./media/zscaler-beta-tutorial/ic769492.png &quot;인터넷 옵션")
+   ![인터넷 옵션 대화 상자](./media/zscaler-beta-tutorial/connection.png &quot;인터넷 옵션")
 
 3. **연결** 탭을 선택합니다.
 
-   ![연결 탭](./media/zscaler-beta-tutorial/ic769493.png "Connections")
+   ![연결 탭](./media/zscaler-beta-tutorial/server.png "Connections")
 
 4. **LAN 설정** 을 선택하여 **LAN 설정** 대화 상자를 엽니다.
 
 5. **프록시 서버** 섹션에서 다음 단계를 수행합니다.
 
-   ![프록시 서버 섹션](./media/zscaler-beta-tutorial/ic769494.png "프록시 서버")
+   ![프록시 서버 섹션](./media/zscaler-beta-tutorial/network.png "프록시 서버")
 
    a. **사용자 LAN의 프록시 서버 사용** 확인란을 선택합니다.
 
@@ -226,15 +227,18 @@ Internet Explorer에서 프록시 설정을 구성하려면 다음 단계를 수
 > [!Note]
 > 사용자를 수동으로 만들려면 [Zscaler Beta 지원 팀](https://www.zscaler.com/company/contact)에 문의하세요.
 
+> [!NOTE]
+> Zscaler Beta는 자동 사용자 프로비저닝도 지원합니다. 자동 사용자 프로비저닝 구성 방법에 대한 자세한 내용은 [여기](./zscaler-beta-provisioning-tutorial.md)에서 제공합니다.
+
 ## <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-- Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Zscaler Beta 로그온 URL로 리디렉션됩니다.
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Zscaler Beta 로그온 URL로 리디렉션됩니다.
 
-- Zscaler Beta 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
+* Zscaler Beta 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-- Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Zscaler Beta 타일을 클릭하면 Zscaler Beta 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Zscaler Beta 타일을 클릭하면 Zscaler Beta 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -127,6 +127,9 @@
         - name: 서버용 Azure Defender 개요
           displayName: VM
           href: defender-for-servers-introduction.md
+        - name: Azure 보안 기준 적용
+          displayName: 'VM, guest configuration, vulnerabilities, ASB, benchmark'
+          href: apply-security-baseline.md
         - name: 취약성 검색
           items:
             - name: 통합 VA 스캐너로 머신 검사

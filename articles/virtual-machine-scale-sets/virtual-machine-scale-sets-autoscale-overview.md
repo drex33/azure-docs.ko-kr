@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 4fde975c0649a0ba9da32ed53983e3632d5535ca
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 9b41b546b80106956221b39274501d33cc5fdaf9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122690529"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603888"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합을 사용한 자동 크기 조정 개요
 
@@ -106,7 +106,7 @@ VM 인스턴스에서 기본 제공 호스트 메트릭을 사용할 수 있는 
 | 다음을 기준으로 백분율 늘이기 | 백분율 기준에 따라 VM 인스턴스가 증가합니다. 고정된 증가에 따라 성능이 눈에 띄게 향상되지 않는 대규모 확장 집합에 적합합니다. |
 | 다음으로 개수 늘이기   | 원하는 최대 크기에 도달하는 데 필요한 만큼의 VM 인스턴스를 만듭니다.                                                            |
 | 다음을 기준으로 개수 줄이기   | 제거할 VM 인스턴스의 고정된 수입니다. VM 수가 적은 확장 집합에 유용합니다.                                           |
-| 다음을 기준으로 백분율 줄이기 | 백분율 기준에 따라 VM 인스턴스가 감소합니다. 고정된 증가에 따라 리소스 사용량 및 비용이 눈에 띄게 줄어들지 않는 대규모 확장 집합에 적합합니다. |
+| 다음을 기준으로 백분율 줄이기 | 백분율 기준에 따라 VM 인스턴스가 감소합니다. 고정된 감소에 따라 리소스 사용량 및 비용이 눈에 띄게 줄어들지 않는 대규모 확장 집합에 적합합니다. |
 | 다음으로 개수 줄이기   | 원하는 최소 크기에 도달하는 데 필요한 만큼의 VM 인스턴스를 제거합니다.                                                            |
 
 

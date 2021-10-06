@@ -1,15 +1,16 @@
 ---
-title: Azure CLI 스크립트 예제 - Batch로 애플리케이션 추가
-description: 이 샘플 스크립트는 Azure Batch 풀 또는 작업에 사용할 애플리케이션을 추가하는 방법을 보여줍니다.
+title: Azure CLI 스크립트 예제 - Batch로 애플리케이션 추가 | Microsoft Docs
+description: Azure CLI 사용하여 Azure Batch 풀 또는 작업에 사용할 애플리케이션을 추가하는 방법을 알아봅니다.
 ms.topic: sample
-ms.date: 01/29/2018
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 06afb59a76e763c25e943c3be1531372a6bd2aa1
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 09/17/2021
+ms.custom: devx-track-azurecli, seo-azure-cli
+keywords: batch, azure cli 샘플, azure cli 코드 샘플, azure cli 스크립트 샘플
+ms.openlocfilehash: 1c20adef86e30df79a5de2d6229ca099875c98f0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765272"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595202"
 ---
 # <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>CLI 예제: Azure Batch 계정에 애플리케이션 추가
 

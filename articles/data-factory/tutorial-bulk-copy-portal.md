@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 07/06/2021
-ms.openlocfilehash: 89414731ca230a2753a2c3e426e453a647d2de8d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 30b7bdc80de2b6623d7eb2c285c477cc35bc7b5a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638338"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124737058"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Azure Portal에서 Azure Data Factory를 사용하여 여러 테이블 대량 복사
 
@@ -39,14 +39,14 @@ ms.locfileid: "122638338"
 ## <a name="end-to-end-workflow"></a>엔드투엔드 워크플로
 이 시나리오에서는 Azure Synapse Analytics에 복사하려는 여러 테이블이 Azure SQL Database에 있습니다. 다음은 파이프라인에서 발생하는 워크플로 단계의 논리적 시퀀스입니다.
 
-![워크플로](media/tutorial-bulk-copy-portal/tutorial-copy-multiple-tables.png)
+:::image type="content" source="media/tutorial-bulk-copy-portal/tutorial-copy-multiple-tables.png" alt-text="Workflow":::
 
 * 첫 번째 파이프라인은 싱크 데이터 저장소로 복사해야 하는 테이블의 목록을 찾습니다.  또는 싱크 데이터 저장소에 복사할 모든 테이블을 나열하는 메타데이터 테이블을 유지할 수 있습니다. 그런 다음 파이프라인에서 다른 파이프라인을 트리거하여 데이터베이스의 각 테이블을 반복하고 데이터 복사 작업을 수행합니다.
 * 두 번째 파이프라인은 실제 복사를 수행하며, 테이블 목록을 매개 변수로 사용합니다. 최상의 성능을 위해 목록의 각 테이블에 대해 [Blob 스토리지 및 PolyBase를 통해 스테이징되는 복사](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics)를 사용하여 Azure SQL Database의 특정 테이블을 Azure Synapse Analytics의 해당 테이블에 복사합니다. 이 예제에서 첫 번째 파이프라인은 테이블의 목록을 매개 변수의 값으로 전달합니다. 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 * **Azure Storage 계정**. Azure Storage 계정은 대량 복사 작업에서 스테이징 Blob 스토리지로 사용됩니다. 
 * **Azure SQL Database**. 이 데이터베이스에는 원본 데이터가 포함되어 있습니다. [Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md) 문서를 참조하여 Adventure Works LT 샘플 데이터를 사용하여 SQL Database에 데이터베이스를 만듭니다. 이 자습서에서는 이 샘플 데이터베이스의 모든 테이블을 Azure Synapse Analytics로 복사합니다.
 * **Azure Synapse Analytics**. 이 데이터 웨어하우스에는 SQL Database에서 복사된 데이터를 보관하고 있습니다. Azure Synapse Analytics 작업 영역이 없는 경우 [Azure Synapse Analytics 시작](..\synapse-analytics\get-started.md) 문서에서 만드는 단계를 참조하세요.
@@ -63,7 +63,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 1. [Azure 포털](https://portal.azure.com)로 이동합니다. 
 1. Azure Portal 메뉴의 왼쪽에서 **리소스 만들기** > **통합** > **Data Factory** 를 차례로 선택합니다. 
 
-   !["새로 만들기" 창에서 데이터 팩터리 선택](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="&quot;새로 만들기&quot; 창에서 Data Factory 선택":::
 1. **새 데이터 팩터리** 페이지에서 **이름** 에 대해 **ADFTutorialBulkCopyDF** 를 입력합니다. 
  
    Azure Data Factory의 이름은 **전역적으로 고유** 해야 합니다. 이름 필드에 대해 다음과 같은 오류가 표시되면 데이터 팩터리의 이름을 변경합니다(예: yournameADFTutorialBulkCopyDF). Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory - 명명 규칙](naming-rules.md) 문서를 참조하세요.
@@ -164,7 +164,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 
 1. 왼쪽 창에서 **+** (더하기)를 선택한 다음, **데이터 세트** 를 선택합니다. 
 
-    ![새 데이터 세트 메뉴](./media/tutorial-bulk-copy-portal/new-dataset-menu.png)
+    :::image type="content" source="./media/tutorial-bulk-copy-portal/new-dataset-menu.png" alt-text="새 데이터 세트 메뉴":::
 1. **새 데이터 세트** 창에서 **Azure SQL Database** 를 선택한 다음, **계속** 을 클릭합니다. 
     
 1. **속성 설정** 창의 **이름** 아래에 **AzureSqlDatabaseDataset** 를 입력합니다. **연결된 서비스** 아래에서 **AzureSqlDatabaseLinkedService** 를 선택합니다. 그런 후 **OK** 를 클릭합니다.
@@ -182,7 +182,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 
     1. **테이블** 에 대한 **편집** 옵션을 선택합니다. 첫 번째 입력 상자를 선택하고, 아래의 **동적 콘텐츠 추가** 링크를 클릭합니다. **동적 콘텐츠 추가** 페이지의 **매개 변수** 아래에서 **DWSchema** 를 클릭합니다. 위쪽 식 텍스트 상자에 `@dataset().DWSchema`가 자동으로 채워지면 **마침** 을 클릭합니다.  
     
-        ![데이터 세트 연결 테이블 이름](./media/tutorial-bulk-copy-portal/dataset-connection-tablename.png)
+        :::image type="content" source="./media/tutorial-bulk-copy-portal/dataset-connection-tablename.png" alt-text="데이터 세트 연결 테이블 이름":::
 
     1. 두 번째 입력 상자를 선택하고, 아래의 **동적 콘텐츠 추가** 링크를 클릭합니다. **동적 콘텐츠 추가** 페이지의 **매개 변수** 아래에서 **DWTAbleName** 을 클릭합니다. 위쪽 식 텍스트 상자에 `@dataset().DWTableName`이 자동으로 채워지면 **마침** 을 클릭합니다. 
     
@@ -203,7 +203,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 
 1. 왼쪽 창에서 **+(더하기)** , **파이프라인** 을 차례로 클릭합니다.
 
-    ![새 파이프라인 메뉴](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
+    :::image type="content" source="./media/tutorial-bulk-copy-portal/new-pipeline-menu.png" alt-text="새 파이프라인 메뉴":::
  
 1. **속성** 아래의 일반 패널에서 **이름** 에 대해 **IterateAndCopySQLTables** 를 지정합니다. 그런 다음, 오른쪽 위 모서리에 있는 속성 아이콘을 클릭하여 패널을 축소합니다.
 
@@ -223,15 +223,15 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 
     다. **동적 콘텐츠 추가** 페이지에서 **시스템 변수** 및 **함수** 섹션을 축소하고, **매개 변수** 에서 **tableList** 를 클릭합니다. 그러면 위쪽 식 텍스트 상자가 자동으로 `@pipeline().parameter.tableList`로 채워집니다. **마침** 을 클릭합니다. 
 
-    ![Foreach 매개 변수 작성기](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
+    :::image type="content" source="./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png" alt-text="Foreach 매개 변수 작성기":::
     
     d. **활동** 탭으로 전환하고, **연필 아이콘** 을 클릭하여 자식 활동을 **ForEach** 활동에 추가합니다.
     
-    ![Foreach 활동 작성기](./media/tutorial-bulk-copy-portal/for-each-activity-builder.png)
+    :::image type="content" source="./media/tutorial-bulk-copy-portal/for-each-activity-builder.png" alt-text="Foreach 활동 작성기":::
 
 1. **활동** 도구 상자에서 **이동 및 전송** 을 펼치고, **데이터 복사** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 위쪽의 이동 경로 탐색 메뉴를 확인합니다. **IterateAndCopySQLTable** 은 파이프라인 이름이고 **IterateSQLTables** 는 ForEach 작업 이름입니다. 디자이너가 활동 범위에 있습니다. ForEach 편집기에서 파이프라인 편집기로 다시 전환하려면 이동 경로 탐색 메뉴에서 링크를 클릭합니다. 
 
-    ![ForEach의 복사](./media/tutorial-bulk-copy-portal/copy-in-for-each.png)
+    :::image type="content" source="./media/tutorial-bulk-copy-portal/copy-in-for-each.png" alt-text="ForEach의 복사":::
 
 1. **원본** 탭으로 전환하고 다음 단계를 수행합니다.
 
@@ -257,7 +257,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
         IF EXISTS (SELECT * FROM [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]) TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ```
 
-        ![싱크 복사 설정](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)
+        :::image type="content" source="./media/tutorial-bulk-copy-portal/copy-sink-settings.png" alt-text="싱크 복사 설정":::
 
 1. **설정** 탭으로 전환하고 다음 단계를 수행합니다. 
 
@@ -294,12 +294,12 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
         ```
     1. **First row only**(첫 번째 행만) 필드의 확인란 선택을 취소합니다.
 
-        ![조회 활동 - 설정 페이지](./media/tutorial-bulk-copy-portal/lookup-settings-page.png)
+        :::image type="content" source="./media/tutorial-bulk-copy-portal/lookup-settings-page.png" alt-text="조회 활동 - 설정 페이지":::
 1. **파이프라인 실행** 활동을 활동 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓고, 이름을 **TriggerCopy** 로 설정합니다.
 
 1. 조회 활동에 붙어 있는 **녹색 상자** 를 파이프라인 실행 활동의 왼쪽으로 끌어서 **조회** 활동을 **파이프라인 실행** 활동에 **연결** 합니다.
 
-    ![조회 활동 및 파이프라인 실행 활동 연결](./media/tutorial-bulk-copy-portal/connect-lookup-execute-pipeline.png)
+    :::image type="content" source="./media/tutorial-bulk-copy-portal/connect-lookup-execute-pipeline.png" alt-text="조회 활동 및 파이프라인 실행 활동 연결":::
 
 1. **파이프라인 실행** 활동의 **설정** 탭으로 전환하고, 다음 단계를 수행합니다. 
 
@@ -307,7 +307,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
     1. **Wait on completion**(완료 대기) 확인란의 선택을 취소합니다.
     1. **매개 변수** 섹션에서 VALUE 아래 입력란을 클릭하고 아래에서 **동적 콘텐츠 추가** 를 선택하고 테이블 이름 값으로 `@activity('LookupTableList').output.value`를 입력하고 **마침** 을 선택합니다. 조회 활동의 결과 목록을 두 번째 파이프라인의 입력으로 설정합니다. 결과 목록에는 데이터를 대상에 복사해야 하는 테이블 목록이 포함됩니다. 
 
-        ![파이프라인 실행 활동 -설정 페이지](./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png)
+        :::image type="content" source="./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png" alt-text="파이프라인 실행 활동 -설정 페이지":::
 
 1. 파이프라인에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사** 를 클릭합니다. 유효성 검사 오류가 없는지 확인합니다. **파이프라인 유효성 검사 보고서** 를 닫으려면 **>>** 를 클릭합니다.
 
@@ -324,7 +324,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 1. **모니터** 탭으로 전환합니다. 솔루션에서 두 파이프라인 모두에 대한 실행이 표시될 때까지 **새로 고침** 을 클릭합니다. **성공** 상태가 표시될 때까지 목록 새로 고침을 계속합니다. 
 
 1. **GetTableListAndTriggerCopyData** 파이프라인과 연결된 활동 실행을 보려면 파이프라인의 파이프라인 이름 링크를 클릭합니다. 이 파이프라인 실행에 대한 두 개의 활동 실행이 표시됩니다. 
-    ![파이프라인 실행 모니터링](./media/tutorial-bulk-copy-portal/monitor-pipeline.png)
+    :::image type="content" source="./media/tutorial-bulk-copy-portal/monitor-pipeline.png" alt-text="파이프라인 실행 모니터링":::
 1. **조회** 활동의 출력을 보려면 **활동 이름** 열 아래의 활동 옆에 있는 **출력** 링크를 클릭합니다. **출력** 창을 최대화하고 복원할 수 있습니다. 검토한 후에 **X** 를 클릭하여 **출력** 창을 닫습니다.
 
     ```json

@@ -4,14 +4,14 @@ description: 이 자습서에서는 가상 머신에서 가상 센서를 통해 
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 09/06/2021
+ms.date: 09/23/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 66d95f5700cb3445aa5e2facabe12ea7c70ef92e
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: cd62dfaa3a90c6efde1f758bec3e7062ce3e858c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123544798"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642152"
 ---
 # <a name="tutorial-azure-defender-for-iot-trial-setup"></a>자습서: Azure Defender for IoT 평가판 설정
 
@@ -247,6 +247,8 @@ ESXi 또는 Hyper-V를 사용하여 가상 센서 소프트웨어를 설치할 �
 ## <a name="configure-a-span-port"></a>SPAN 포트 구성
 
 vSwitch에는 미러링 기능이 없지만 SPAN 포트를 구현하기 위한 해결 방법을 사용할 수 있습니다. 해결 방법은 ESXi 또는 Hyper-V를 사용하여 구현할 수 있습니다.
+
+:::image type="content" source="media/tutorial-onboarding/purdue-model.png" alt-text="아키텍처에서 센서를 배치해야 하는 위치의 스크린샷.":::
 
 ### <a name="configure-a-span-port-with-esxi"></a>ESXi를 사용하여 SPAN 포트 구성
 

@@ -1,14 +1,14 @@
 ---
 title: 고급 쿼리 샘플
 description: Azure Resource Graph를 사용하여 열 작업, 사용된 태그 나열 및 정규식과 일치하는 리소스를 비롯한 일부 고급 쿼리를 실행합니다.
-ms.date: 07/07/2021
+ms.date: 10/01/2021
 ms.topic: sample
-ms.openlocfilehash: 6e63715f51e256759da30fac1e40c29edfe2e218
-ms.sourcegitcommit: 0fd913b67ba3535b5085ba38831badc5a9e3b48f
+ms.openlocfilehash: 7c24a3c660587e1ff70c9d208e6bf87c84c5bf1e
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113485926"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355235"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>고급 Resource Graph 쿼리 샘플
 
@@ -195,7 +195,7 @@ Resources
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az graph query -q "Resources | where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
+az graph query -q "Resources | where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+\$' | project name | order by name asc"
 ```
 
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
@@ -399,7 +399,7 @@ Resources
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az graph query -q "Resources | where type == 'microsoft.compute/virtualmachines' | extend JoinID = toupper(id), OSName = tostring(properties.osProfile.computerName), OSType = tostring(properties.storageProfile.osDisk.osType), VMSize = tostring(properties.hardwareProfile.vmSize) | join kind=leftouter( Resources | where type == 'microsoft.compute/virtualmachines/extensions' | extend VMId = toupper(substring(id, 0, indexof(id, '/extensions'))), ExtensionName = name ) on $left.JoinID == $right.VMId | summarize Extensions = make_list(ExtensionName) by id, OSName, OSType, VMSize | order by tolower(OSName) asc"
+az graph query -q "Resources | where type == 'microsoft.compute/virtualmachines' | extend JoinID = toupper(id), OSName = tostring(properties.osProfile.computerName), OSType = tostring(properties.storageProfile.osDisk.osType), VMSize = tostring(properties.hardwareProfile.vmSize) | join kind=leftouter( Resources | where type == 'microsoft.compute/virtualmachines/extensions' | extend VMId = toupper(substring(id, 0, indexof(id, '/extensions'))), ExtensionName = name ) on \$left.JoinID == \$right.VMId | summarize Extensions = make_list(ExtensionName) by id, OSName, OSType, VMSize | order by tolower(OSName) asc"
 ```
 
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)

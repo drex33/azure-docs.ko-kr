@@ -12,12 +12,12 @@ ms.date: 08/27/2021
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 541c9f29e18f3972bf0f9e2a717457fa4fe07a70
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: fb8cf19f3b266d2cc7c3a1569f964acdc934ba7b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123102095"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124786772"
 ---
 # <a name="microsoft-identity-platform-code-samples"></a>Microsoft ID 플랫폼 코드 샘플
 
@@ -88,7 +88,7 @@ Microsoft에서 빌드하고 유지 관리하는 이 코드 샘플은 여러 [�
 > | Node.js | [사용자 로그인](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-desktop) | MSAL 노드 | PKCE가 있는 권한 부여 코드 |
 > | PowerShell | [사용자 이름/암호를 통한 사용자 로그인으로 Microsoft Graph 호출](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) | MSAL.NET | 리소스 소유자 암호 자격 증명 |
 > | Python | [사용자 로그인](https://github.com/Azure-Samples/ms-identity-python-desktop) | MSAL Python | PKCE가 있는 권한 부여 코드 |
-> | UWP(유니버설 Windows 플랫폼) | [Microsoft Graph 호출](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) | 웹 계정 관리자 API | Windows 통합 인증 |
+> | UWP(유니버설 Windows 플랫폼) | [Microsoft Graph 호출](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/main/2-With-broker) | MSAL.NET | 웹 계정 관리자 |
 > | WPF(Windows Presentation Foundation) | [사용자 로그인 및 Microsoft Graph 호출](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | MSAL.NET | PKCE가 있는 권한 부여 코드 |
 > | XAML | &#8226; [사용자 로그인 및 ASP.NET 핵심 웹 API 호출](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/1.%20Desktop%20app%20calls%20Web%20API) <br/> &#8226; [사용자 로그인 및 Microsoft Graph 호출](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | MSAL.NET | PKCE가 있는 권한 부여 코드 |
 

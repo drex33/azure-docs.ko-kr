@@ -9,12 +9,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–393165–A/B–Docs/PythonQuickstart–CLIvsPortal–FY21Q4
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-python-portal
-ms.openlocfilehash: aad4765dbfeeec7c0be6f7565573937a092864b1
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a148cf813ff2a3fcf5e9815dff01ef836d725ef9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "122643260"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128577333"
 ---
 # <a name="quickstart-create-a-python-app-using-azure-app-service-on-linux"></a>빠른 시작: Azure App Service on Linux에서 Python 앱 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "122643260"
 
 1. 활성 구독이 포함된 Azure 계정이 있어야 합니다. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 1. <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 이상</a>을 설치합니다.
-1. <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.0.80 이상을 설치합니다. 이를 통해 셸에서 명령을 실행하여 Azure 리소스를 프로비저닝하고 구성할 수 있습니다.
+1. <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>를 설치합니다. 이를 통해 셸에서 명령을 실행하여 Azure 리소스를 프로비전하고 구성할 수 있습니다.
 
 터미널 창을 열고 Python 버전이 3.6 이상인지 확인합니다.
 

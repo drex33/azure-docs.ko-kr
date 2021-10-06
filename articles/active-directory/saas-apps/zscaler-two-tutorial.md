@@ -9,37 +9,39 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/06/2021
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: d440a765ba9504ecae351477c1583a45f293b967
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 8e8395fc16d4228969d8fd90eccbc50ceeddfc36
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108804416"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124794826"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>자습서: Azure Active Directory와 Zscaler Two 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Zscaler Two를 통합하는 방법에 대해 알아보겠습니다. Azure AD와 Zscaler Two를 연결하는 경우 다음을 수행할 수 있습니다.
 
-- Zscaler Two에 액세스할 수 있는 사용자를 Azure AD에서 제어합니다.
-- 사용자가 자신의 Azure AD 계정으로 Zscaler Two에 자동으로 로그인되도록 설정할 수 있습니다.
-- 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
+* Zscaler Two에 액세스할 수 있는 사용자를 Azure AD에서 제어합니다.
+* 사용자가 자신의 Azure AD 계정으로 Zscaler Two에 자동으로 로그인되도록 설정할 수 있습니다.
+* 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 Zscaler Two와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
-- Azure AD 구독 Azure AD 환경이 없으면 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-- Zscaler Two Single Sign-On을 사용하도록 설정된 구독.
+* Azure AD 구독 Azure AD 환경이 없으면 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
+* Zscaler Two Single Sign-On을 사용하도록 설정된 구독.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
-- Zscaler Two에서 **SP** 시작 SSO를 지원합니다.
+* Zscaler Two에서 **SP** 시작 SSO를 지원합니다.
 
-- Zscaler Two에서 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
+* Zscaler Two에서 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
+
+* Zscaler Two에서 [자동화된 사용자 프로비저닝](zscaler-two-provisioning-tutorial.md)을 지원합니다.
 
 > [!NOTE]
 > 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
@@ -233,15 +235,18 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 > [!Note]
 > 사용자를 수동으로 만들어야 하는 경우 [Zscaler Two 지원 팀](https://www.zscaler.com/company/contact)에 문의해야 합니다.
 
+> [!NOTE]
+> Zscaler Two는 자동 사용자 프로비저닝도 지원합니다. 자동 사용자 프로비저닝 구성 방법에 대한 자세한 내용은 [여기](./zscaler-two-provisioning-tutorial.md)에서 제공합니다.
+
 ## <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-- Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Zscaler Two 로그온 URL로 리디렉션됩니다.
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Zscaler Two 로그온 URL로 리디렉션됩니다.
 
-- Zscaler Two 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
+* Zscaler Two 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-- Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Zscaler Two 타일을 클릭하면 Zscaler Two 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Zscaler Two 타일을 클릭하면 Zscaler Two 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

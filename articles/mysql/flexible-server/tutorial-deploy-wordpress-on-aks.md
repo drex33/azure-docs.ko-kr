@@ -7,12 +7,12 @@ ms.author: sumuth
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.custom: vc, devx-track-azurecli
-ms.openlocfilehash: 5f5b3da3c42ff4a6e7e5f66c0c93cf04d9446bb9
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 749137187b7fffe111f854860517dc608ae44c8a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643603"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582420"
 ---
 # <a name="tutorial-deploy-wordpress-app-on-aks-with-azure-database-for-mysql---flexible-server"></a>자습서: Azure Database for MySQL - 유연한 서버를 사용하여 AKS에 WordPress 앱 배포
 
@@ -26,7 +26,7 @@ ms.locfileid: "122643603"
 > - Azure Database for MySQL 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 > - 이 빠른 시작에서는 Kubernetes 개념, WordPress 및 MySQL에 대한 기본 지식이 있다고 가정합니다.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 

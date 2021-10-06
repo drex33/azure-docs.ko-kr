@@ -7,12 +7,12 @@ ms.date: 04/27/2021
 ms.service: confidential-ledger
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: 552e8a4565710cb22f65ee5abf493c5471d89f3c
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: 1fd69155a6131565b81ba9684e5c2c077a5420d9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113585522"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128671529"
 ---
 # <a name="quickstart-microsoft-azure-confidential-ledger-client-library-for-python"></a>빠른 시작: Python용 Microsoft Azure Confidential Ledger 클라이언트 라이브러리
 
@@ -99,7 +99,7 @@ credential = DefaultAzureCredential()
 애플리케이션에서 사용할 몇 가지 변수를 설정하여 설치를 완료합니다. 리소스 그룹(myResourceGroup), 만들려는 원장 이름 및 데이터 평면 클라이언트 라이브러리에서 사용할 두 개의 url을 설정합니다.
 
   > [!Important]
-  > 각 원장에는 전역적으로 고유한 이름이 있어야 합니다. 다음 예제에서는 <your-unique-keyvault-name>을 원장의 이름으로 바꿉니다.
+  > 각 원장에는 전역적으로 고유한 이름이 있어야 합니다. 다음 예제에서 \<your-unique-keyvault-name\>을 원장 이름으로 바꿉니다.
 
 ```python
 resource_group = "myResourceGroup"

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/15/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: fb8b12cdb8fd9ed37ac4086d213183e800d6febc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c45c00354d0bc60b5a9656c24dd998e324294b2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101651761"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128581611"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshservice"></a>자습서: Freshservice와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "101651761"
 * 사용자가 해당 Azure AD 계정으로 Freshservice에 자동으로 로그인되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -41,6 +41,7 @@ ms.locfileid: "101651761"
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 * Freshservice에서 **SP** 시작 SSO를 지원합니다.
+* Freshservice에서 [자동화된 사용자 프로비저닝](freshservice-provisioning-tutorial.md)을 지원합니다.
 
 ## <a name="add-freshservice-from-the-gallery"></a>갤러리에서 Freshservice 추가
 
@@ -187,6 +188,9 @@ Azure AD 사용자가 FreshService에 로그인할 수 있도록 하려면 Fresh
 
     > [!NOTE]
     > 다른 FreshService 사용자 계정 생성 도구 또는 FreshService가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
+   
+> [!NOTE]
+>Freshservice는 자동 사용자 프로비저닝도 지원합니다. 자동 사용자 프로비저닝 구성 방법에 대한 자세한 내용은 [여기](./freshservice-provisioning-tutorial.md)에서 제공합니다.
 
 ## <a name="test-sso"></a>SSO 테스트
 
@@ -196,7 +200,7 @@ Azure AD 사용자가 FreshService에 로그인할 수 있도록 하려면 Fresh
 
 * Freshservice 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Freshservice 타일을 클릭하면 SSO를 설정한 Freshservice에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Freshservice 타일을 클릭하면 SSO를 설정한 Freshservice에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

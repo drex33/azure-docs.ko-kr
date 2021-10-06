@@ -9,12 +9,12 @@ ms.workload: ''
 ms.topic: quickstart
 ms.date: 5/21/2021
 ms.author: inhenkel
-ms.openlocfilehash: c9cb10722e618c4476ed11d66b95e509030c38de
-ms.sourcegitcommit: a2540262e05ffd4a4b059df0976940d60fabd125
+ms.openlocfilehash: 198009abab7e1c5f663a454eb23debc55c81d7f3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113138966"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124730806"
 ---
 # <a name="event-based-face-redaction"></a>이벤트 기반 얼굴 편집
 
@@ -28,12 +28,12 @@ ms.locfileid: "113138966"
 
 빠른 시작이 끝나면 비디오에서 얼굴을 편집할 수 있습니다.
 
-<img src="./media/face-redaction-event-based-python-quickstart/output-redacted.gif" alt="Example output" style="border: 1px solid #C3C3C3;" /> 
+:::image type="content" source="./media/face-redaction-event-based-python-quickstart/output-redacted.gif" alt-text="예제 출력":::
 
 ## <a name="solution-overview"></a>솔루션 개요
 
-<img src="./media/face-redaction-event-based-python-quickstart/architecture.png" alt="Architecture overview of solution" style="border: 1px solid #C3C3C3;" /> 
-          
+:::image type="content" source="./media/face-redaction-event-based-python-quickstart/architecture.png" alt-text="솔루션 아키텍처 개요":::
+
 이 빠른 시작에서는 위 솔루션 개요에서 찾을 수 있는 솔루션을 배포하는 방법을 보여 줍니다. 스토리지 계정(Azure Data Lake Storage Gen2)과 여기에 연결되어 새 .mp4 파일이 스토리지 계정에 업로드될 때 Azure 함수를 트리거하는 이벤트 수신기(Event Grid)로 시작합니다. Azure 함수는 Azure Media Services의 미리 구성된 변환에 작업을 제출합니다. 결과 편집된 비디오는 Blob Storage 계정에 저장됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -131,9 +131,8 @@ Azure 리소스를 성공적으로 프로비저닝한 후 Python 코드를 Azure
  
 ## <a name="enable-github-actions-pipeline"></a>GitHub Actions 파이프라인 사용
  이 리포지토리의 워크플로 파일에는 이 솔루션의 배포를 실행하는 단계가 포함됩니다. 워크플로를 시작하려면 고유한 리포지토리에 대해 사용하도록 설정해야 합니다. 워크플로를 사용하도록 설정하려면 리포지토리의 작업 탭으로 이동하고, ‘내 워크플로를 이해합니다. 계속 진행하여 사용하도록 설정합니다.’를 선택합니다.
- 
- <img src="./media/face-redaction-event-based-python-quickstart/activate-workflow.png" alt="Enable workflow" style="border: 1px solid #C3C3C3;" /> 
- 
+:::image type="content" source="./media/face-redaction-event-based-python-quickstart/activate-workflow.png" alt-text="워크플로 사용":::
+
 GitHub Actions를 사용하도록 설정한 후 [.github/workflows/main.yml](https://github.com/Azure-Samples/media-services-v3-python/blob/main/.github/workflows/main.yml)에서 워크로드 파일을 찾을 수 있습니다.  트리거 외에도 몇 단계가 포함된 빌드 작업이 있습니다. 다음 단계가 포함됩니다.
 - **환경**: 여기에서 이전에 추가한 GitHub 비밀을 참조하는 여러 환경 파일이 정의됩니다.
 - **환경 파일 읽기**: 빌드 작업에 대한 환경 파일을 읽습니다.
@@ -141,30 +140,31 @@ GitHub Actions를 사용하도록 설정한 후 [.github/workflows/main.yml](htt
 - **Azure 로그인**: 이 단계에서는 서비스 주체 세부 정보를 통해 Azure CLI에 로그인하는 데 GitHub 비밀을 사용합니다.
 - **Azure CLI 스크립트 파일을 사용하여 Azure 리소스 배포**: Azure 리소스를 프로비저닝하기 위한 배포 스크립트를 실행합니다.
 - **Azure 함수 코드 배포**: 이 단계에서는 ‘./azure-function’ 디렉터리에서 Azure 함수를 패키지하고 배포합니다. Azure 함수가 성공적으로 배포되면 ‘EventGrid_AMSJob’이라는 이름으로 Azure Portal에 표시됩니다.
-<img src="./media/face-redaction-event-based-python-quickstart/azurefunction.png" alt="Azure Function visible in Azure Portal" style="border: 1px solid #C3C3C3;" /> 
+
+:::image type="content" source="./media/face-redaction-event-based-python-quickstart/azurefunction.png" alt-text="Azure Portal에 표시되는 Azure Function":::
 
 - **Azure CLI 스크립트 파일을 사용하여 Azure 리소스 구성**: 모두 올바른 경우 마지막 단계에서는 이벤트 수신기를 활성화하도록 배포된 Azure 서비스를 구성합니다.
 
 워크플로를 사용하도록 설정한 후 ‘Azure Media Service FaceRedaction 솔루션 배포’ 워크플로를 선택하고 ‘워크플로 실행’을 선택합니다. 이제 솔루션은 이전 단계에서 추가된 변수를 사용하여 배포됩니다. 몇 분 정도 기다렸다가 워크플로가 성공적으로 실행되었는지 확인합니다.
 
-<img src="./media/face-redaction-event-based-python-quickstart/run-workflow.png" alt="Run workflow" style="border: 1px solid #C3C3C3;" /> 
+:::image type="content" source="./media/face-redaction-event-based-python-quickstart/run-workflow.png" alt-text="실행 워크플로":::
 
 ## <a name="test-your-solution"></a>솔루션 테스트
 Azure Portal에서 ADLS Gen2의 스토리지 탐색기로 이동합니다. Raw 컨테이너에 비디오를 업로드합니다. 테스트 비디오를 검색할 경우 [이 웹 사이트](https://www.pexels.com/search/videos/group/)에서 다운로드합니다. ADLS Gen2 스토리지 계정에 비디오를 업로드하는 방법에 관한 지침은 아래 이미지를 참조하세요.
 
-<img src="./media/face-redaction-event-based-python-quickstart/upload-test-data.png" alt="Uploading Video" style="border: 1px solid #C3C3C3;" /> 
+:::image type="content" source="./media/face-redaction-event-based-python-quickstart/upload-test-data.png" alt-text="비디오 업로드":::
 
 Azure Media Services 계정으로 이동하여 작업이 생성되는 Azure Media Services 인스턴스가 있는지 확인하고 메뉴에서 변환 + 작업을 선택합니다. 그런 다음, Face Redactor 변환을 선택합니다.
 
-<img src="./media/face-redaction-event-based-python-quickstart/ams-transform.png" alt="AMS Transform" style="border: 1px solid #C3C3C3;" /> 
+:::image type="content" source="./media/face-redaction-event-based-python-quickstart/ams-transform.png" alt-text="AMS 변환":::
 
 이 페이지에는 Azure 함수에서 실행된 작업이 표시됩니다. 작업이 완료되거나 계속 처리 중일 수 있습니다.
 
-<img src="./media/face-redaction-event-based-python-quickstart/ams-job.png" alt="AMS Job" style="border: 1px solid #C3C3C3;" />  
+:::image type="content" source="./media/face-redaction-event-based-python-quickstart/ams-job.png" alt-text="AMS 작업":::
 
 작업을 선택하여 특정 작업에 관한 몇 가지 세부 정보를 볼 수 있습니다. 출력 자산 이름을 선택하고 여기에 연결된 스토리지 컨테이너의 링크를 사용하는 경우 작업이 완료되면 처리된 비디오를 볼 수 있습니다.
 
-<img src="./media/face-redaction-event-based-python-quickstart/ams-output.png" alt="AMS Output" style="border: 1px solid #C3C3C3;" />  
+:::image type="content" source="./media/face-redaction-event-based-python-quickstart/ams-output.png" alt-text="AMS 출력":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

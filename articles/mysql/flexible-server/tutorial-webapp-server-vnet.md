@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 03/18/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1131b42b58e1ed751a7563b4c59e71981b722305
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 0d95def7048b3077232bb728a97c28107ec80313
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643597"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "128654468"
 ---
 # <a name="tutorial-create-an-azure-database-for-mysql---flexible-server-preview-with-app-services-web-app-in-virtual-network"></a>자습서: App Services 웹앱을 사용하여 가상 네트워크에 Azure Database for MySQL - 유연한 서버(미리 보기) 만들기
 
@@ -36,7 +36,7 @@ ms.locfileid: "122643597"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+[!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
 이 문서에서는 Azure CLI 버전 2.0 이상을 로컬로 실행해야 합니다. 설치된 버전을 확인하려면 `az --version` 명령을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
@@ -89,7 +89,7 @@ az webapp up --resource-group myresourcegroup --location westus2 --plan testapps
 
 > [!NOTE]
 > - --location 인수의 경우 이전 섹션의 데이터베이스에 사용한 것과 동일한 위치를 사용합니다.
-> - _&lt;app-name>_ 을 모든 Azure에서 고유한 이름으로 바꿉니다(서버 엔드포인트는 https://\<app-name>.azurewebsites.net). <app-name>에 허용되는 문자는 A-Z, 0-9 및 -입니다. 회사 이름과 앱 식별자를 조합하여 사용하는 것이 좋습니다.
+> - _\<app-name\>_ 을 모든 Azure에서 고유한 이름으로 바꿉니다(서버 엔드포인트는 `https://\<app-name>.azurewebsites.net`임). \<app-name\>에 허용되는 문자는 A-Z, 0-9 및 -입니다. 회사 이름과 앱 식별자를 조합하여 사용하는 것이 좋습니다.
 > - App Service 기본 계층에서는 VNET 통합이 지원되지 않습니다. 표준 또는 프리미엄을 사용하세요. 
 
 이 명령은 다음 작업을 수행하며 몇 분 정도 걸릴 수 있습니다.

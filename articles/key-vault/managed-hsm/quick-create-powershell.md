@@ -1,7 +1,6 @@
 ---
 title: Azure Key Vault에서 관리형 키 특성 만들기 및 검색 - Azure PowerShell
 description: Azure PowerShell을 사용하여 Azure Key Vault에서 관리형 키를 설정하고 검색하는 방법을 보여주는 빠른 시작
-services: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 01/26/2021
@@ -11,12 +10,12 @@ ms.subservice: keys
 tags:
 - azure-resource-manager
 ms.custom: devx-track-azurepowershell - mode-api
-ms.openlocfilehash: 6f2588ce3dc2add87b845d5c4ff6255171b6af08
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 0658d715c7d7b2e7a34cd8fbd9ec3f76d9a67d10
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110670017"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128550462"
 ---
 # <a name="quickstart-set-and-retrieve-a-managed-key-from-azure-key-vault-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Key Vault에서 관리형 키 설정 및 검색
 
@@ -56,7 +55,7 @@ Azure PowerShell [New-AzKeyVaultManagedHsm](/powershell/module/az.keyvault/new-a
 - 관리형 HSM 이름: 숫자(0-9), 문자(a-z, A-Z) 및 하이픈(-)만 포함할 수 있는 3~24자의 문자열
 
   > [!Important]
-  > 각 관리형 HSM에는 고유한 이름이 있어야 합니다. 다음 예제에서는 <your-unique-managed-hsm-name>을 관리형 HSM의 이름으로 바꿉니다.
+  > 각 관리형 HSM에는 고유한 이름이 있어야 합니다. 다음 예제에서 \<your-unique-managed-hsm-name\>을 관리형 HSM 이름으로 바꿉니다.
 
 - 리소스 그룹 이름: **myResourceGroup**
 - 위치: **EastUS**

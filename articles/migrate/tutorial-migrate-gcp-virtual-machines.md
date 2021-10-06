@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: aa51a489fd1dc7a3e7188239ea200b6fb95b3ed1
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 534ea1a7a4e1356f44c97dc69e1a6dabbf9cae12
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123271974"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128637145"
 ---
 # <a name="discover-assess-and-migrate-google-cloud-platform-gcp-vms-to-azure"></a>Azure로 마이그레이션할 GCP(Google Cloud Platform) VM 검색, 평가 및 마이그레이션
 
@@ -138,7 +138,7 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
 
 2. **머신 검색** > **머신이 가상화되어 있습니까?** 에서 **가상화되지 않음/기타** 를 클릭합니다.
 3. **대상 지역** 에서 머신을 마이그레이션하려는 Azure 지역을 선택합니다.
-4. **마이그레이션의 대상 지역이 <region-name>인지 확인합니다.** 를 선택합니다.
+4. **마이그레이션의 대상 지역이 \<region-name\>인지 확인** 을 선택합니다.
 5. **리소스 만들기** 를 클릭합니다. 그러면 Azure Site Recovery 자격 증명 모음이 백그라운드에서 만들어집니다.
     - 이미 Azure Migrate 서버 마이그레이션을 사용하여 마이그레이션을 설정한 경우 이전에 리소스가 설정되었으므로 대상 옵션을 구성할 수 없습니다.
     - 이 단추를 클릭한 후에는 이 프로젝트의 대상 지역을 변경할 수 없습니다.

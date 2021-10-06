@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/12/2021
 ms.reviewer: sngun
 ms.custom: synapse-cosmos-db
-ms.openlocfilehash: 41aa8efe93970205faad1bc621061aa8cdf9adaa
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
-ms.translationtype: HT
+ms.openlocfilehash: a051b2ebd49155f921ca76a851ef0a684f3f74bd
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122530978"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129545720"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db"></a>Microsoft Azure Cosmos DB용 Synapse Link란?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -122,8 +122,6 @@ Synapse Link는 다음과 같은 경우에 권장됩니다.
 * 현재, 분석 저장소가 설정된 컨테이너의 경우 분석 저장소에서 데이터의 자동 백업 및 복원이 지원되지 않습니다. 데이터베이스 계정에서 Synapse Link를 사용하도록 설정하면 Azure Cosmos DB는 항상 예약된 백업 간격에 따라 컨테이너의 트랜잭션 저장소(전용)에 있는 데이터의 [백업](./online-backup-and-restore.md)을 계속해서 자동으로 수행합니다. 분석 저장소가 설정된 컨테이너가 새 계정으로 복원되면 컨테이너는 트랜잭션 저장소로만 복원되고 분석 저장소는 사용하도록 설정되지 않습니다.
 
 * Azure Synapse Dedicated SQL 풀을 사용하여 Azure Cosmos DB 분석 저장소에 액세스하는 것은 현재 지원되지 않습니다.
-
-* 현재 Azure Cosmos DB 서버리스 계정은 지원되지 않습니다.
 
 ## <a name="security"></a>보안
 

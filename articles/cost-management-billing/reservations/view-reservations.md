@@ -6,14 +6,14 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 08/11/2021
+ms.date: 10/05/2021
 ms.author: banders
-ms.openlocfilehash: ca68392e82e045bde0c5b1dd8704b70b1684ed3d
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 797aff6fed0cf2eda46bcf5371e57e18df466f00
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129390276"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546965"
 ---
 # <a name="permissions-to-view-and-manage-azure-reservations"></a>Azure 예약을 보고 관리할 수 있는 권한
 
@@ -30,6 +30,8 @@ ms.locfileid: "129390276"
 - 모든 Azure 구독과 관리 그룹을 관리할 수 있는 높은 액세스 권한이 있는 사용자
 - Azure Active Directory(Azure AD) 테넌트(디렉터리)의 예약을 위한 예약 관리자
 - 예약 읽기 권한자는 Azure Active Directory 테넌트(디렉터리)의 예약에 대한 읽기 전용 액세스 권한을 가집니다.
+
+현재, 예약 관리자 및 예약 판독기 역할은 PowerShell을 사용 하 여 할당 하는 데만 사용할 수 있습니다. Azure Portal에서 보거나 할당할 수 없습니다. 자세한 내용은 [PowerShell을 사용 하 여 액세스 권한 부여](#grant-access-with-powershell)를 참조 하세요.
 
 예약 수명 주기는 Azure 구독과 독립적이므로 예약은 Azure 구독에 있는 리소스가 아닙니다. 대신 구독과 분리된 자체 Azure RBAC 권한이 있는 테넌트 수준 리소스입니다. 예약은 구매 후 구독에서 권한을 상속하지 않습니다.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: d97df947309f9ccc9886e45878cfc91ea6423b23
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5fc2fbf2b0f55f356f6a2f5c4a3eb0fd2c527449
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128590369"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129545625"
 ---
 # <a name="use-azure-storage-explorer-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Azure Storage Explorer를 사용하여 Azure Data Lake Storage Gen2에서 ACL 관리
 
@@ -30,6 +30,12 @@ Storage Explorer를 사용하여 디렉터리 및 파일의 ACL을 확인한 다
 - HNS(계층 구조 네임스페이스)를 사용하도록 설정된 스토리지 계정입니다. 만들려면 [다음 지침](../common/storage-account-create.md)을 수행합니다.
 
 - Azure Storage Explorer가 로컬 컴퓨터에 설치되었습니다. Windows, Macintosh 또는 Linux용 Azure Storage Explorer를 설치하려면 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 참조하세요.
+
+- 다음 보안 권한 중 하나가 있어야 합니다.
+
+  - 사용자 ID에 대상 컨테이너, 스토리지 계정, 부모 리소스 그룹 또는 구독의 범위에서 [Storage Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 역할이 할당되었습니다.
+
+  - ACL 설정을 적용하려는 대상 컨테이너, 디렉터리 또는 Blob을 소유하는 사용자입니다.
 
 > [!NOTE]
 > Storage Explorer는 Azure Data Lake Storage Gen2와 작업할 때 Blob(blob)과 Data Lake Storage Gen2(dfs) 양쪽의 [엔드포인트](../common/storage-private-endpoints.md#private-endpoints-for-azure-storage)를 모두 사용합니다. 프라이빗 엔드포인트를 사용하여 Azure Data Lake Storage Gen2에 대한 액세스를 구성하는 경우, 스토리지 계정에 두 개의 프라이빗 엔드포인트를 만듭니다. 여기서 하나는 대상 하위 리소스 `blob`이고 다른 하나는 대상 하위 리소스 `dfs`입니다.

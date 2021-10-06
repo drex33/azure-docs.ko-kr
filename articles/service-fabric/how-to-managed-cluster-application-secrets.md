@@ -3,12 +3,12 @@ title: Service Fabric 관리형 클러스터에 애플리케이션 비밀 배포
 description: Azure Service Fabric 애플리케이션 비밀 및 이를 관리형 클러스터에 배포하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 8/23/2021
-ms.openlocfilehash: 81fbd254f6aee216661e720a73c97e89351a9fad
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: 5b31e06b88d38ab0d5500e69b6733e739e2b3dae
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867348"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129544738"
 ---
 # <a name="deploy-application-secrets-to-a-service-fabric-managed-cluster"></a>Service Fabric 관리형 클러스터에 애플리케이션 비밀 배포
 
@@ -62,26 +62,25 @@ Service Fabric 관리형 클러스터는 노드에 버전별 비밀을 추가하
 
 ```json
 {
-    "apiVersion": "2021-05-01",
-    "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-    "properties": {
-        "vmSecrets": [
+  "apiVersion": "2021-05-01",
+  "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+  "properties": {
+    "vmSecrets": [
+      {
+        "sourceVault": {
+          "id": "/subscriptions/{subscriptionid}/resourceGroups/myrg1/providers/Microsoft.KeyVault/vaults/mykeyvault1"
+        },
+        "vaultCertificates": [
           {
-            "sourceVault": {
-              "id": "/subscriptions/{subscriptionid}/resourceGroups/myrg1/providers/Microsoft.KeyVault/vaults/mykeyvault1"
-            },
-            "vaultCertificates": [
-              {
-                "certificateStore": "MY",
-                "certificateUrl": "https://mykeyvault1.vault.azure.net/certificates/{certificatename}/{secret-version}"
-              }
-            ]
+            "certificateStore": "MY",
+            "certificateUrl": "https://mykeyvault1.vault.azure.net/certificates/{certificatename}/{secret-version}"
           }
         ]
-    }    
+      }
+    ]
+  }
 }
 ```
-
 
 <!-- Links -->
 [key-vault-get-started]:../key-vault/general/overview.md

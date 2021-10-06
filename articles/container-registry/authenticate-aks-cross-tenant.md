@@ -4,17 +4,20 @@ description: 다른 AD 테넌트의 Azure Container Registry에 액세스할 수
 ms.topic: article
 author: dlepow
 ms.author: danlep
-ms.date: 05/21/2021
-ms.openlocfilehash: 154ef93ca89c6d117d23a80986fe30ef2e14a426
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
-ms.translationtype: HT
+ms.date: 09/13/2021
+ms.openlocfilehash: da7a03e1f46523b67666a4a0ab7ab53fba909720
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111442220"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129545475"
 ---
 # <a name="pull-images-from-a-container-registry-to-an-aks-cluster-in-a-different-azure-ad-tenant"></a>컨테이너 레지스트리에서 다른 Azure AD 테넌트에서 AKS 클러스터로 이미지 끌어오기
 
 경우에 따라 하나의 Azure AD(Azure Active Directory) 테넌트에서 Azure AKS 클러스터를 사용하고 다른 테넌트에서 Azure Container Registry를 가질 수 있습니다. 이 문서에서는 AKS 서비스 주체 자격 증명을 사용하여 컨테이너 레지스트리에서 끌어오기 위해 테넌트 간 인증을 사용하도록 설정하는 단계를 안내합니다.
+
+> [!NOTE]
+> 클러스터와 컨테이너 레지스트리가 다른 테 넌 트에 있는 경우 레지스트리를 연결 하 고 AKS 관리 id를 사용 하 여 인증할 수 없습니다.
 
 ## <a name="scenario-overview"></a>시나리오 개요
 이 예는 다음과 같은 가정을 전제로 합니다.
@@ -79,5 +82,6 @@ AKS 클러스터의 구독에서 기여자 역할 이상이 필요하고 컨테�
 * [서비스 주체를 사용한 Azure Container Registry 인증](container-registry-auth-service-principal.md)에 대해 자세히 알아보기
 * [Kubernetes 설명서](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod)에서 이미지 끌어오기 비밀에 대한 자세한 정보
 - [Azure Active Directory의 애플리케이션 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md)에 대해 알아보기
+- Kubernetes 클러스터에서 [Azure Container Registry를 사용 하 여 인증 하는 시나리오](authenticate-kubernetes-options.md) 에 대 한 자세한 정보
 
 

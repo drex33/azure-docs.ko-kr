@@ -8,12 +8,12 @@ ms.date: 07/29/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.custom: references_regions
-ms.openlocfilehash: a8862f0b71a6b3f8bba21bdd4ab40290a00d0959
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: e7d46d1680e11307eb873383e91e6e682f545549
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122567949"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546561"
 ---
 # <a name="continuous-backup-with-point-in-time-restore-in-azure-cosmos-db"></a>Azure Cosmos DB의 특정 시점 복원을 사용한 지속적인 백업
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -111,7 +111,9 @@ Azure Cosmos DB를 사용하면 지속적인 백업 계정에 대한 복원 권�
 
 * 다중 지역 쓰기 계정은 지원되지 않습니다.
 
-* Azure Synapse Link 사용 계정의 경우 분석 저장소 데이터는 백업 및 복원에 포함되지 않습니다. Synapse Link를 사용하도록 설정하면 Azure Cosmos DB는 예약된 백업 간격에 따라 컨테이너의 트랜잭션 저장소에 있는 데이터를 자동으로 계속 백업합니다. 현재, 분석 저장소의 데이터 자동 백업 및 복원이 지원되지 않습니다.
+* Azure Synapse 링크 및 주기적 백업 모드는 동일한 데이터베이스 계정에 공존할 수 있습니다. 그러나 분석 저장소 데이터는 백업 및 복원에 포함되지 않습니다. Synapse Link를 사용하도록 설정하면 Azure Cosmos DB는 예약된 백업 간격에 따라 컨테이너의 트랜잭션 저장소에 있는 데이터를 자동으로 계속 백업합니다. 
+
+* Azure Synapse 링크 및 연속 백업 모드는 동일한 데이터베이스 계정에 공존할 수 없습니다. 현재 Synapse Link 사용하도록 설정된 데이터베이스 계정은 연속 백업 모드를 사용할 수 없으며 그 반대의 경우도 마찬가지입니다.
 
 * 복원된 계정은 원본 계정이 있는 동일한 지역에 만들어집니다. 원본 계정이 존재하지 않는 지역으로 계정을 복원할 수는 없습니다.
 

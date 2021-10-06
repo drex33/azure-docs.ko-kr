@@ -3,12 +3,12 @@ title: Azure Stack Edge에 Azure Video Analyzer 배포
 description: 이 문서에서는 Azure Stack Edge에 Azure Video Analyzer를 배포하는 데 도움이 되는 단계를 나열합니다.
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: 1cfcd7956cd14d0c687c8619732523a5d7bba4c0
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
-ms.translationtype: HT
+ms.openlocfilehash: da14368846cd87d5d4e231933cec0068a4e558f9
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114605210"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546626"
 ---
 # <a name="deploy-azure-video-analyzer-on-azure-stack-edge"></a>Azure Stack Edge에 Azure Video Analyzer 배포
 
@@ -175,6 +175,40 @@ Azure Portal에서는 배포 매니페스트를 만들고 IoT Edge 디바이스�
     "allowUnsecuredEndpoints": true,
     "telemetryOptOut": false
     ```
+1. **추가** 를 선택합니다.  
+
+RTSP 시뮬레이터 에지 모듈 추가
+
+1. 페이지의 **IoT Edge 모듈** 섹션에서 **추가** 드롭다운을 클릭하고 **IoT Edge 모듈** 을 선택하면 **IoT Edge 모듈 추가** 페이지가 표시됩니다.
+1. **모듈 설정** 탭에서 모듈의 이름을 입력한 다음, 컨테이너 이미지 URI를 지정합니다.   
+    예:
+    
+    * **IoT Edge 모듈 이름:** rtspsim
+    * **이미지 URI:** mcr.microsoft.com/lva-utilities/rtspsim-live555:1.2  
+
+
+1. **컨테이너 만들기 옵션** 탭을 엽니다.
+ 
+    다음 JSON을 복사하여 상자에 붙여넣습니다.
+    
+    ```
+    {
+        "HostConfig": {
+            "Binds": [
+               "/home/localedgeuser/samples/input/:/live/mediaServer/media/"
+            ],
+            "PortBindings": {
+                    "554/tcp": [
+                        {
+                        "HostPort": "554"
+                        }
+                    ]
+            }
+        }
+    }
+    ```
+1. **추가** 를 선택합니다.  
+
 1. **다음: 경로** 를 선택하여 경로 섹션으로 이동합니다. 경로를 지정합니다.
 
     NAME에 **AVAToHub** 를 입력하고, VALUE에 **FROM /messages/modules/avaedge/outputs/ INTO $upstream** 을 입력합니다.
@@ -193,6 +227,8 @@ Azure Portal에서는 배포 매니페스트를 만들고 IoT Edge 디바이스�
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/deploy-on-stack-edge/copy-provisioning-token.png" alt-text="토큰 복사":::
+
+
 
 #### <a name="optional-setup-docker-volume-mounts"></a>(선택 사항)Docker 볼륨 탑재 설정
 
@@ -268,7 +304,7 @@ Azure Portal에서는 배포 매니페스트를 만들고 IoT Edge 디바이스�
                     "Mounts": 
                     [
                         {
-                            "Target": "/var/media",
+                            "Target": "/live/mediaServer/media",
                             "Source": "media",
                             "Type": "volume"
                         }

@@ -3,12 +3,12 @@ title: Service Fabric 관리형 클러스터 노드에 대한 관리형 디스�
 description: Service Fabric 관리형 클러스터 노드에 대한 관리형 디스크 유형을 선택하고 ARM 템플릿에서 구성하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 5/10/2021
-ms.openlocfilehash: 054f2b68bfc2a8177e792824dd3c507bf6b4523b
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: c9daef02b9249d44d5d202f5066bac40f807ec58
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111961046"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546333"
 ---
 # <a name="select-managed-disk-types-for-service-fabric-managed-cluster-nodes"></a>Service Fabric 관리형 클러스터 노드에 대한 관리형 디스크 유형 선택
 
@@ -42,10 +42,9 @@ Service Fabric 관리형 클러스터 디스크 유형을 지정하려면 관리
 
 ```json
 {
-    "apiVersion": "2021-05-01",
-    "type": "Microsoft.ServiceFabric/managedclusters",
-    "dataDiskType": "StandardSSD_LRS"
-    
+  "apiVersion": "2021-05-01",
+  "type": "Microsoft.ServiceFabric/managedclusters",
+  "dataDiskType": "StandardSSD_LRS"
 }
 ```
 

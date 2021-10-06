@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)에 대한 일반적인 질문에 대�
 ms.topic: conceptual
 ms.date: 05/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: 612493d55adddea82e3e8d1e3d169eee963bfda2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: fdccee2795a4e1b2c967c53dc17d15a6520f4402
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535572"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546523"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -289,8 +289,7 @@ FIPS 사용 노드는 현재 Linux 기반 노드 풀에서 미리 보기로 제�
 
 ## <a name="can-i-configure-nsgs-with-aks"></a>AKS를 통해 NSG를 구성할 수 있나요?
 
-자체 서브넷을 제공하는 경우 해당 서브넷과 연결된 NSG(네트워크 보안 그룹)를 관리해야 합니다. AKS는 NIC 수준에서만 NSG를 수정하고 해당 서브넷과 연결된 NSG는 수정하지 않습니다. CNI를 사용하는 경우 NSG의 보안 규칙이 노드와 Pod CIDR 범위 간의 트래픽을 허용하는지 확인해야 합니다. kubenet을 사용하는 경우 NSG의 보안 규칙이 노드와 Pod CIDR 간의 트래픽을 허용하는지 확인해야 합니다.
-
+AKS는 서브넷에 NSGs (네트워크 보안 그룹)를 적용 하지 않으며 해당 서브넷과 연결 된 NSGs를 수정 하지 않습니다. AKS는 NIC 수준에서 NSGs만 수정 합니다. CNI를 사용하는 경우 NSG의 보안 규칙이 노드와 Pod CIDR 범위 간의 트래픽을 허용하는지 확인해야 합니다. kubenet을 사용하는 경우 NSG의 보안 규칙이 노드와 Pod CIDR 간의 트래픽을 허용하는지 확인해야 합니다. 자세한 내용은 [네트워크 보안 그룹](concepts-network.md#network-security-groups)을 참조 하세요.
 
 <!-- LINKS - internal -->
 

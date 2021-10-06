@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: pafarley
 ms.custom: references_regions
-ms.openlocfilehash: 5ff7a5966c5ec5019048e532915efc2f51f00c96
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 7937ce57cc432143d449f398a0a433686a6671ed
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129353695"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129547041"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -217,7 +217,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 영어(남아프리카 공화국) | `en-ZA` | Male | `en-ZA-LukeNeural` <sup>새로 생성</sup> | 일반 |
 | 영어(영국) | `en-GB` | Female | `en-GB-LibbyNeural` | 일반 |
 | 영어(영국) | `en-GB` | Female | `en-GB-SoniaNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(영국) | `en-GB` | Female | `en-GB-MiaNeural`<sup>10월 30일 사용이 사용되었습니다. 아래 참조</sup> | 일반 |
+| 영어(영국) | `en-GB` | Female | `en-GB-MiaNeural`<sup>받아볼 10 월 30 일, 아래 참조</sup> | 일반 |
 | 영어(영국) | `en-GB` | Male | `en-GB-RyanNeural` | 일반 |
 | 영어(미국) | `en-US` | Female | `en-US-AriaNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 일반, 여러 음성 스타일 |
 | 영어(미국) | `en-US` | Female | `en-US-JennyNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 일반, 여러 음성 스타일 |
@@ -504,83 +504,103 @@ Custom Voice는 인공신경망 계층(즉, 사용자 지정 신경망 음성)�
 
 ## <a name="speech-translation"></a>음성 번역
 
-**Speech Translation** API는 음성 간 음성 및 음성을 텍스트로 번역에 대해 다른 언어를 지원합니다. 원본 언어는 항상 음성 텍스트 변환 언어 테이블에 나와 있는 것이어야 합니다. 사용 가능한 대상 언어는 번역 대상이 음성인지 또는 텍스트인지에 따라 달라집니다. 들어오는 음성을 [60개 언어](https://www.microsoft.com/translator/business/languages/) 이상으로 변환할 수 있습니다. [음성 합성](language-support.md#text-languages)에 언어의 하위 집합을 사용할 수 있습니다.
+**Speech Translation** API는 음성 간 음성 및 음성을 텍스트로 번역에 대해 다른 언어를 지원합니다. 원본 언어는 항상 음성 텍스트 변환 언어 테이블에 나와 있는 것이어야 합니다. 사용 가능한 대상 언어는 번역 대상이 음성인지 또는 텍스트인지에 따라 달라집니다. 들어오는 음성을  [지원 되는 언어](https://www.microsoft.com/translator/business/languages/)중 하나로 변환할 수 있습니다. [음성 합성](language-support.md#text-languages)에 언어의 하위 집합을 사용할 수 있습니다.
 
 ### <a name="text-languages"></a>텍스트 언어
 
 | 텍스트 언어           | 언어 코드 |
 |:------------------------|:-------------:|
-| 아프리칸스어               | `af`          |
-| 아랍어                  | `ar`          |
-| 벵골어                  | `bn`          |
-| 보스니아어(라틴 문자)         | `bs`          |
-| 불가리아어               | `bg`          |
-| 광둥어(번체) | `yue`         |
-| 카탈로니아어                 | `ca`          |
-| 중국어 간체      | `zh-Hans`     |
-| 중국어 번체     | `zh-Hant`     |
-| 크로아티아어                | `hr`          |
-| 체코어                   | `cs`          |
-| 덴마크어                  | `da`          |
-| 네덜란드어                   | `nl`          |
-| 영어                 | `en`          |
-| 에스토니아어                | `et`          |
-| 피지어                  | `fj`          |
-| 필리핀어                | `fil`         |
-| 핀란드어                 | `fi`          |
-| 프랑스어                  | `fr`          |
-| 독일어                  | `de`          |
-| 그리스어                   | `el`          |
-| 구자라트어                | `gu`          |
-| 아이티 크리올          | `ht`          |
-| 히브리어                  | `he`          |
-| 힌디어                   | `hi`          |
-| 몽 다오어               | `mww`         |
-| 헝가리어               | `hu`          |
-| 인도네시아어              | `id`          |
-| 아일랜드어                   | `ga`          |
-| 이탈리아어                 | `it`          |
-| 일본어                | `ja`          |
-| 칸나다어                 | `kn`          |
-| 스와힐리어               | `sw`          |
-| 클링곤어                 | `tlh-Latn`    |
-| 클링곤어(plqaD)         | `tlh-Piqd`    |
-| 한국어                  | `ko`          |
-| 라트비아어                 | `lv`          |
-| 리투아니아어              | `lt`          |
-| 마다가스카르어                | `mg`          |
-| 말레이어                   | `ms`          |
-| 말라얄람어               | `ml`          |
-| 몰타어                 | `mt`          |
-| 마오리어                   | `mi`          |
-| 마라티어                 | `mr`          |
-| 노르웨이어               | `nb`          |
-| 페르시아어                 | `fa`          |
-| 폴란드어                  | `pl`          |
-| 포르투갈어(브라질)     | `pt-br`       |
-| 포르투갈어(포르투갈)   | `pt-pt`       |
-| 펀잡어                 | `pa`          |
-| 케레타로 오토미어         | `otq`         |
-| 루마니아어                | `ro`          |
-| 러시아어                 | `ru`          |
-| 사모아어                  | `sm`          |
-| 세르비아어(키릴 자모)      | `sr-Cyrl`     |
-| 세르비아어(라틴 문자)         | `sr-Latn`     |
-| 슬로바키아어                  | `sk`          |
-| 슬로베니아어               | `sl`          |
-| 스페인어                 | `es`          |
-| 스웨덴어                 | `sv`          |
-| 타히티어                | `ty`          |
-| 타밀어                   | `ta`          |
-| 텔루구어                  | `te`          |
-| 태국어                    | `th`          |
-| 통가어                  | `to`          |
-| 터키어                 | `tr`          |
-| 우크라이나어               | `uk`          |
-| 우르두어                    | `ur`          |
-| 베트남어              | `vi`          |
-| 웨일스어                   | `cy`          |
-| 유카텍 마야어            | `yua`         |
+| 아프리칸스어 | `af` |
+| 알바니아어 | `sq` |
+| 암하라어 | `am` |
+| 아랍어 | `ar` |
+| 아르메니아어 | `hy` |
+| 아삼어 | `as` |
+| 아제르바이잔어 | `az` |
+| 벵골어 | `bn` |
+| 보스니아어(라틴 문자) | `bs` |
+| 불가리아어 | `bg` |
+| 광둥어(번체) | `yue` |
+| 카탈로니아어 | `ca` |
+| 중국어(문어체) | `lzh` |
+| 중국어 간체 | `zh-Hans` |
+| 중국어 번체 | `zh-Hant` |
+| 크로아티아어 | `hr` |
+| 체코어 | `cs` |
+| 덴마크어 | `da` |
+| 다리어 | `prs` |
+| 네덜란드어 | `nl` |
+| 영어 | `en` |
+| 에스토니아어 | `et` |
+| 피지어 | `fj` |
+| 필리핀어 | `fil` |
+| 핀란드어 | `fi` |
+| 프랑스어 | `fr` |
+| 프랑스어(캐나다) | `fr-ca` |
+| 독일어 | `de` |
+| 그리스어 | `el` |
+| 구자라트어 | `gu` |
+| 아이티 크리올 | `ht` |
+| 히브리어 | `he` |
+| 힌디어 | `hi` |
+| 몽 다오어 | `mww` |
+| 헝가리어 | `hu` |
+| 아이슬란드어 | `is` |
+| 인도네시아어 | `id` |
+| 이눅티투트어 | `iu` |
+| 아일랜드어 | `ga` |
+| 이탈리아어 | `it` |
+| 일본어 | `ja` |
+| 칸나다어 | `kn` |
+| 카자흐어 | `kk` |
+| 크메르어 | `km` |
+| 클링곤어 | `tlh-Latn` |
+| 클링곤어(plqaD) | `tlh-Piqd` |
+| 한국어 | `ko` |
+| 쿠르드어(중부) | `ku` |
+| 쿠르드어(북부) | `kmr` |
+| 라오어 | `lo` |
+| 라트비아어 | `lv` |
+| 리투아니아어 | `lt` |
+| 마다가스카르어 | `mg` |
+| 말레이어 | `ms` |
+| 말라얄람어 | `ml` |
+| 몰타어 | `mt` |
+| 마오리어 | `mi` |
+| 마라티어 | `mr` |
+| 미얀마 | `my` |
+| 네팔어 | `ne` |
+| 노르웨이어 | `nb` |
+| 오리야어 | `or` |
+| 파슈토어 | `ps` |
+| 페르시아어 | `fa` |
+| 폴란드어 | `pl` |
+| 포르투갈어(브라질) | `pt` |
+| 포르투갈어(포르투갈) | `pt-pt` |
+| 펀잡어 | `pa` |
+| 케레타로 오토미어 | `otq` |
+| 루마니아어 | `ro` |
+| 러시아어 | `ru` |
+| 사모아어 | `sm` |
+| 세르비아어(키릴 자모) | `sr-Cyrl` |
+| 세르비아어(라틴 문자) | `sr-Latn` |
+| 슬로바키아어 | `sk` |
+| 슬로베니아어 | `sl` |
+| 스페인어 | `es` |
+| 스와힐리어 | `sw` |
+| 스웨덴어 | `sv` |
+| 타히티어 | `ty` |
+| 타밀어 | `ta` |
+| 텔루구어 | `te` |
+| 태국어 | `th` |
+| 티그리냐어 | `ti` |
+| 통가어 | `to` |
+| 터키어 | `tr` |
+| 우크라이나어 | `uk` |
+| 우르두어 | `ur` |
+| 베트남어 | `vi` |
+| 웨일스어 | `cy` |
+| 유카텍 마야어 | `yua` |
 
 ## <a name="speaker-recognition"></a>Speaker Recognition
 

@@ -3,12 +3,12 @@ title: Service Fabric 관리형 클러스터 노드 형식에 가상 머신 확�
 description: Service Fabric 관리형 클러스터 노드 형식에 가상 머신 확장 집합 확장을 추가하는 방법은 다음과 같습니다.
 ms.topic: article
 ms.date: 8/02/2021
-ms.openlocfilehash: 8755eb7551dd7f7e572632ee50eb57467f675822
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: 3b0f15f2f83ddad0b8251642fc63db79581a5a97
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866394"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129547060"
 ---
 # <a name="virtual-machine-scale-set-extension-support-on-service-fabric-managed-cluster-node-types"></a>Service Fabric 관리형 클러스터 노드 형식에 가상 머신 확장 집합 확장 지원
 
@@ -21,34 +21,36 @@ Service Fabric 관리형 클러스터의 각 노드 형식은 가상 머신 확�
 
 ```json
 {
-    "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-    "apiVersion": "[variables('sfApiVersion')]",
-    "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
-    "dependsOn": [
-        "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
-    ],
-    "location": "[resourceGroup().location]",
-    "properties": {
-        "isPrimary": true,
-        "vmInstanceCount": 3,
-        "dataDiskSizeGB": 100,
-        "vmSize": "Standard_D2",
-        "vmImagePublisher": "MicrosoftWindowsServer",
-        "vmImageOffer": "WindowsServer",
-        "vmImageSku": "2019-Datacenter",
-        "vmImageVersion": "latest",
-        "vmExtensions": [{
-            "name": "ExtensionA",
-            "properties": {
-                "publisher": "ExtensionA.Publisher",
-                "type": "KeyVaultForWindows",
-                "typeHandlerVersion": "1.0",
-                "autoUpgradeMinorVersion": true,
-                "settings": {
-                }
-            }
-        }]
-    }
+  "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+  "apiVersion": "[variables('sfApiVersion')]",
+  "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+  "dependsOn": [
+    "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
+  ],
+  "location": "[resourceGroup().location]",
+  "properties": {
+    "isPrimary": true,
+    "vmInstanceCount": 3,
+    "dataDiskSizeGB": 100,
+    "vmSize": "Standard_D2",
+    "vmImagePublisher": "MicrosoftWindowsServer",
+    "vmImageOffer": "WindowsServer",
+    "vmImageSku": "2019-Datacenter",
+    "vmImageVersion": "latest",
+    "vmExtensions": [
+      {
+        "name": "ExtensionA",
+        "properties": {
+          "publisher": "ExtensionA.Publisher",
+          "type": "KeyVaultForWindows",
+          "typeHandlerVersion": "1.0",
+          "autoUpgradeMinorVersion": true,
+          "settings": {
+          }
+        }
+      }
+    ]
+  }
 }
 ```
 

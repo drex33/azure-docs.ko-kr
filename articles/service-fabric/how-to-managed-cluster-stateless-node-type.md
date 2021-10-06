@@ -3,12 +3,12 @@ title: 상태 비저장 노드 유형을 사용하여 Service Fabric 관리형 �
 description: Service Fabric 관리형 클러스터에서 상태 비저장 노드 유형을 만들고 배포하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 8/23/2021
-ms.openlocfilehash: 1d6cd328a195e35bd2523fa24aed9153267bd83e
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: a18c09e92cd8d78e314969fe15a802e4b7e2cc67
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867339"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546371"
 ---
 # <a name="deploy-a-service-fabric-managed-cluster-with-stateless-node-types"></a>상태 비저장 노드 유형을 사용하여 Service Fabric 관리형 클러스터 배포
 
@@ -27,26 +27,25 @@ Service Fabric 노드 유형은 특정 시점에 상태 저장 서비스가 노�
 * Service Fabric 관리형 클러스터 리소스 apiVersion은 **2021-05-01** 이상이어야 합니다.
 
 ```json
-     {
-            "apiVersion": "[variables('sfApiVersion')]",
-            "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-            "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
-            "location": "[resourcegroup().location]",
-            "dependsOn": [
-              "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
-            ],
-            "properties": {
-                "isStateless": true,
-                "isPrimary": false,
-                "vmImagePublisher": "[parameters('vmImagePublisher')]",
-                "vmImageOffer": "[parameters('vmImageOffer')]",
-                "vmImageSku": "[parameters('vmImageSku')]",
-                "vmImageVersion": "[parameters('vmImageVersion')]",
-                "vmSize": "[parameters('nodeTypeSize')]",
-                "vmInstanceCount": "[parameters('nodeTypeVmInstanceCount')]",
-                "dataDiskSizeGB": "[parameters('nodeTypeDataDiskSizeGB')]"
-            }
-        }
+{
+  "apiVersion": "[variables('sfApiVersion')]",
+  "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+  "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+  "location": "[resourcegroup().location]",
+  "dependsOn": [
+    "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
+  ],
+  "properties": {
+    "isStateless": true,
+    "isPrimary": false,
+    "vmImagePublisher": "[parameters('vmImagePublisher')]",
+    "vmImageOffer": "[parameters('vmImageOffer')]",
+    "vmImageSku": "[parameters('vmImageSku')]",
+    "vmImageVersion": "[parameters('vmImageVersion')]",
+    "vmSize": "[parameters('nodeTypeSize')]",
+    "vmInstanceCount": "[parameters('nodeTypeVmInstanceCount')]",
+    "dataDiskSizeGB": "[parameters('nodeTypeDataDiskSizeGB')]"
+  }
 }
 ```
 

@@ -6,12 +6,12 @@ ms.service: virtual-wan
 ms.topic: troubleshooting
 ms.date: 08/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: 1529d46faa67b1c6ee38682829785096b4d7b902
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: eaeefcfc48492686abc88215e80bc6d74a836f4f
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129358157"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129545042"
 ---
 # <a name="virtual-wan-faq"></a>가상 WAN FAQ
 
@@ -33,9 +33,9 @@ Virtual WAN은 다음 두 가지 버전으로 제공됩니다. 기본 및 표준
 
 ### <a name="how-are-availability-zones-and-resiliency-handled-in-virtual-wan"></a>Virtual WAN에서 가용성 영역 및 복원력은 어떻게 처리되나요?
 
-Virtual WAN은 허브 내에서 사용할 수 있는 허브 및 서비스 컬렉션입니다. 사용자는 Virtual WAN을 필요한 만큼 사용할 수 있습니다. Virtual WAN 허브에는 VPN, ExpressRoute 등과 같은 여러 서비스가 있습니다. 지역에서 가용성 영역 지원하는 경우 이러한 각 서비스는 가용성 영역(Azure Firewall 제외)에 자동으로 배포됩니다. 허브에 처음 배포한 후 지역이 가용성 영역으로 되면 사용자는 게이트웨이를 다시 만들 수 있으며, 이 경우 가용성 영역 배포가 트리거됩니다. 모든 게이트웨이는 허브에 활성-활성으로 프로비저닝되며, 이는 허브 내에서 복원력이 기본 제공된다는 의미입니다. 사용자는 여러 지역에서 복원력이 필요한 경우 여러 허브에 연결하면 됩니다. 
+Virtual WAN은 허브 내에서 사용할 수 있는 허브 및 서비스 컬렉션입니다. 사용자는 Virtual WAN을 필요한 만큼 사용할 수 있습니다. 가상 WAN 허브에는 VPN, Express 경로 등과 같은 여러 서비스가 있습니다. 이러한 각 서비스는 지역에서 가용성 영역을 지 원하는 경우 Azure 방화벽을 제외 하 고 가용성 영역에 자동으로 배포 됩니다. 허브에 처음 배포한 후 지역이 가용성 영역으로 되면 사용자는 게이트웨이를 다시 만들 수 있으며, 이 경우 가용성 영역 배포가 트리거됩니다. 모든 게이트웨이는 허브에 활성-활성으로 프로비저닝되며, 이는 허브 내에서 복원력이 기본 제공된다는 의미입니다. 사용자는 여러 지역에서 복원력이 필요한 경우 여러 허브에 연결하면 됩니다. 
 
-현재 Azure Firewall Manager Portal,  [PowerShell](/powershell/module/az.network/new-azfirewall#example-6--create-a-firewall-with-no-rules-and-with-availability-zones) 또는 CLI를 사용하여 가용성 영역 지원하도록 Azure Firewall 배포할 수 있습니다. 현재 가용성 영역에 배포할 기존 방화벽을 구성할 수 있는 방법은 없습니다. Azure Firewall 삭제하고 다시 배포해야 합니다. 
+현재 azure 방화벽 관리자 포털,  [PowerShell](/powershell/module/az.network/new-azfirewall#example-6--create-a-firewall-with-no-rules-and-with-availability-zones) 또는 CLI를 사용 하 여 가용성 영역을 지원 하도록 azure 방화벽을 배포할 수 있습니다. 현재는 가용성 영역 간에 배포 되도록 기존 방화벽을 구성할 수 있는 방법이 없습니다. Azure 방화벽을 삭제 하 고 다시 배포 해야 합니다. 
 
 Virtual WAN은 개념적으로는 글로벌이지만, 실제 Virtual WAN 리소스는 Resource Manager 기반이며 지역 단위로 배포됩니다. 가상 WAN 지역 자체에 문제가 있는 경우 해당 가상 WAN의 모든 허브는 계속해서 있는 그대로 작동하지만, 사용자는 가상 WAN 지역을 사용할 수 있을 때까지 새 허브를 만들 수 없게 됩니다.
 
@@ -252,10 +252,10 @@ VPN 사이트는 허브에 연결할 때 연결을 사용합니다. Virtual WAN�
 가상 허브는 여러 원격 허브의 동일한 경로를 학습할 때 다음과 같은 순서로 결정합니다.
 
 1. 가장 긴 접두사 일치
-1. Interhub를 통한 로컬 경로(가상 허브는 interhub AS에 65520-65520을 할당)
+1. interhub를 통한 로컬 경로
 1. BGP를 통한 고정 경로 이는 가상 허브 라우터에서 결정하는 내용에 따라 좌우됩니다. 그러나 BGP를 통해 경로를 보급하거나 고정 주소 접두사를 제공하는 VPN 게이트웨이가 결정권자인 경우 BGP 경로를 통해 고정 경로를 사용하는 방법이 더 좋을 수 있습니다.
 1. VPN을 통한 ER(ExpressRoute): 컨텍스트가 로컬 허브인 경우 VPN을 통한 ER이 선호됩니다. ExpressRoute 회로 간의 전송 연결은 Global Reach를 통해서만 사용할 수 있습니다. 따라서 ExpressRoute 회로가 한 허브에 연결되고 또 다른 ExpressRoute 회로가 VPN 연결을 통해 다른 허브에 연결되는 시나리오에서는 허브 간 시나리오에 VPN을 사용하는 것이 더 좋을 수 있습니다.
-1. AS 경로 길이
+1. AS 경로 길이(가상 허브는 경로를 서로 보급할 때 AS 경로 65520-65520을 사용하여 경로를 추가합니다.)
 
 ### <a name="does-the-virtual-wan-hub-allow-connectivity-between-expressroute-circuits"></a>Virtual WAN 허브는 ExpressRoute 회로 간 연결을 허용하나요?
 

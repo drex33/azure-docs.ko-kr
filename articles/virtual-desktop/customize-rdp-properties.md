@@ -7,12 +7,12 @@ ms.date: 10/09/2020
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: d3583a702e22ab3f0af6b37278ec746843c71c71
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 282044d0ee3d07ae4eaa2c63d8d0bcebae0251aa
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/05/2021
-ms.locfileid: "129538985"
+ms.locfileid: "129544492"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>호스트 풀의 원격 데스크톱 프로토콜(RDP) 속성 사용자 지정
 
@@ -38,7 +38,7 @@ RDP 파일에는 기본적으로 다음과 같은 속성이 있습니다.
 >[!NOTE]
 >- 다중 모니터 모드는 데스크톱 앱 그룹에 대해서만 사용하도록 설정되며 RemoteApp 앱 그룹에 대해서는 무시됩니다.
 >- 모든 기본 RDP 파일 속성은 Azure Portal에 노출됩니다.
->- 기본적으로 Azure Portal에서는 CustomRdpProperty 필드가 비어 있습니다. PowerShell 또는 REST API를 사용 하 여 RDP 속성을 구성 하는 경우 빈 CustomRdpProperty 필드가 구성에 모든 기본 RDP 속성을 적용 합니다.
+>- 기본적으로 CustomRdpProperty 필드는 Azure Portal null입니다. null CustomRdpProperty 필드는 호스트 풀에 모든 기본 RDP 속성을 적용합니다. 빈 CustomRdpProperty 필드는 호스트 풀에 기본 RDP 속성을 적용하지 않습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

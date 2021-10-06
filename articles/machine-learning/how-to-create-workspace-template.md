@@ -10,12 +10,12 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 04/21/2021
-ms.openlocfilehash: 799db2b4c08edaf8f5953f48f4f4b0c41aff7fff
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: c0220070d6b377212099a67c4328bc080afc1648
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424486"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129544624"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning에 대한 작업 영역을 만듭니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "129424486"
 
 ## <a name="workspace-resource-manager-template"></a>작업 영역 Resource Manager 템플릿
 
-이 문서에서 사용하는 Azure Resource Manager 템플릿은 Azure 빠른 시작 템플릿 GitHub 리포지토리의 [기계-학습-고급](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json) 디렉터리에서 찾을 수 있습니다.
+이 문서 전체에서 사용되는 Azure Resource Manager 템플릿은 Azure 빠른 시작 템플릿 GitHub 리포지토리의 [microsoft.machineleaerningservices/machine-learning-workspace-vnet](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json) 디렉터리에서 찾을 수 있습니다.
 
 이 템플릿은 다음과 같은 Azure 서비스를 만듭니다.
 

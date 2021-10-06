@@ -5,15 +5,15 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 07/20/2021
+ms.date: 10/05/2021
 ms.author: rogarana
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cb66ed6c1a00c049c2fff6d9fccb22acbcb9fbee
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 7a7082005cc2a8154670abfae120d94015b2135c
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114462509"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129545815"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>1부: Azure 파일 공유에 대한 AD DS 인증 사용 설정 
 
@@ -36,7 +36,7 @@ AzFilesHybrid PowerShell 모듈의 cmdlet은 필요한 수정 작업을 수행�
 
 ### <a name="download-azfileshybrid-module"></a>AzFilesHybrid 모듈 다운로드
 
-- [.Net Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472)가 설치되어 있지 않으면 지금 설치합니다. 모듈을 성공적으로 가져오기 위해 필요합니다.
+- [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472) 가 설치 되어 있지 않은 경우 지금 설치 합니다. 모듈을 성공적으로 가져오기 위해 필요합니다.
 - [AzFilesHybrid 모듈(GA 모듈: v0.2.0+)을 다운로드하고 압축을 풉니다.](https://github.com/Azure-Samples/azure-files-samples/releases) 참고로 AES 256 Kerberos 암호화는 v0.2.2 이상에서만 지원됩니다. v0.2.2 미만의 AzFilesHybrid 버전에서 기능을 사용하도록 설정하고 AES 256 Kerberos 암호화를 지원하도록 업데이트하려는 경우 [이 문서](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption)를 참조하세요.
 - 대상 AD에서 서비스 로그온 계정 또는 컴퓨터 계정을 만들 수 있는 권한이 있는 AD DS 자격 증명을 사용하여 온-프레미스 AD DS에 도메인 가입된 디바이스에 모듈을 설치하고 실행합니다.
 -  Azure AD에 동기화된 온-프레미스 AD DS 자격 증명을 사용하여 스크립트를 실행합니다. 온-프레미스 AD DS 자격 증명에는 스토리지 계정에 **소유자** 또는 **기여자** Azure 역할이 있어야 합니다.
@@ -104,11 +104,11 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 
 위의 `Join-AzStorageAccountForAuth` 스크립트를 이미 실행한 경우 [기능을 사용하도록 설정되었는지 확인](#confirm-the-feature-is-enabled) 섹션으로 이동합니다. 이 경우 다음 수동 단계를 수행할 필요가 없습니다.
 
-### <a name="checking-environment"></a>환경 확인
+### <a name="check-the-environment"></a>환경 확인
 
 먼저, 환경의 상태를 확인해야 합니다. 특히 [Active Directory PowerShell](/powershell/module/activedirectory/)이 설치되어 있고 셸이 관리자 권한으로 실행되고 있는지 확인해야 합니다. 그런 다음, [Az.Storage 2.0 모듈(또는 이상)](https://www.powershellgallery.com/packages/Az.Storage/2.0.0)이 설치되어 있는지 확인하고, 그렇지 않으면 설치합니다. 해당 검사를 완료한 후 AD DS를 확인하여 이미 SPN/UPN을 사용하여 “cifs/your-storage-account-name-here.file.core.windows.net”으로 생성된 [컴퓨터 계정](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory)(기본값) 또는 [서비스 로그온 계정](/windows/win32/ad/about-service-logon-accounts)이 있는지 확인합니다. 계정이 존재하지 않는 경우 다음 섹션에 설명된 대로 계정을 만듭니다.
 
-### <a name="creating-an-identity-representing-the-storage-account-in-your-ad-manually"></a>수동으로 AD에서 스토리지 계정을 나타내는 ID 만들기
+### <a name="create-an-identity-representing-the-storage-account-in-your-ad-manually"></a>수동으로 AD의 저장소 계정을 나타내는 id 만들기
 
 수동으로 해당 계정을 만들려면 스토리지 계정에 대한 새 Kerberos 키를 만듭니다. 그런 다음 아래의 PowerShell cmdlet을 사용하여 해당 Kerberos 키를 계정의 암호로 사용합니다. 해당 키는 설치 중에만 사용되며 스토리지 계정에 대한 모든 제어 또는 데이터 평면 작업에는 사용할 수 없습니다. 
 
@@ -129,9 +129,37 @@ OU에서 암호 만료를 적용하는 경우 Azure 파일 공유에 액세스�
 
 새로 만든 ID의 SID를 유지합니다. SID는 다음 단계에 필요합니다. 스토리지 계정을 나타내는 ID를 Azure AD에 동기화할 필요는 없습니다.
 
+#### <a name="optional-enable-aes256-encryption"></a>필드 AES256 암호화 사용
+
+AES 256 암호화를 사용 하려면이 섹션의 단계를 따르세요. RC4를 사용할 계획인 경우이 섹션을 건너뛸 수 있습니다.
+
+저장소 계정을 나타내는 도메인 개체는 다음 요구 사항을 충족 해야 합니다.
+- 저장소 계정 이름은 15 자를 초과할 수 없습니다.
+- 도메인 개체를 온-프레미스 AD 도메인에 컴퓨터 개체로 만들어야 합니다.
+- 후행 ' $ '를 제외 하 고 저장소 계정 이름은 컴퓨터 개체의 SamAccountName과 동일 해야 합니다.
+
+도메인 개체가 이러한 요구 사항을 충족 하지 않는 경우 삭제 하 고 수행 하는 새 도메인 개체를 만듭니다.
+
+및을 사용자의 값으로 바꾼 `<domain-object-identity>` `<domain-name>` 후 다음 명령을 사용 하 여 AES256 지원을 구성 합니다. 
+
+```powershell
+Set-ADComputer -Identity <domain-object-identity> -Server <domain-name> -KerberosEncryptionType "AES256"
+```
+
+이 명령을 실행 한 후 `<domain-object-identity>` 다음 스크립트의를 값으로 바꾸고 스크립트를 실행 하 여 도메인 개체 암호를 새로 고칩니다.
+
+```powershell
+$KeyName = "kerb1" # Could be either the first or second kerberos key, this script assumes we're refreshing the first
+$KerbKeys = New-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -KeyName $KeyName
+$KerbKey = $KerbKeys | Where-Object {$_.KeyName -eq $KeyName} | Select-Object -ExpandProperty Value
+$NewPassword = Convert-ToSecureString -String $KerbKey -AsPlainText -Force
+
+Set-ADAccountPassword -Identity <domain-object-identity> -Reset -NewPassword $NewPassword
+```
+
 ### <a name="enable-the-feature-on-your-storage-account"></a>스토리지 계정에서 기능을 사용하도록 설정
 
-이제 스토리지 계정에서 기능을 사용하도록 설정할 수 있습니다. 다음 명령에서 도메인 속성에 대한 구성 세부 정보를 제공하고 실행합니다. 다음 명령에 필요한 스토리지 계정 SID는 [이전 섹션](#creating-an-identity-representing-the-storage-account-in-your-ad-manually)의 AD DS에서 만든 ID의 SID입니다.
+이제 스토리지 계정에서 기능을 사용하도록 설정할 수 있습니다. 다음 명령에서 도메인 속성에 대한 구성 세부 정보를 제공하고 실행합니다. 다음 명령에 필요한 스토리지 계정 SID는 [이전 섹션](#create-an-identity-representing-the-storage-account-in-your-ad-manually)의 AD DS에서 만든 ID의 SID입니다.
 
 ```PowerShell
 # Set the feature flag on the target storage account and provide the required AD domain information

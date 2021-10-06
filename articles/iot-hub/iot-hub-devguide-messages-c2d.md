@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt, devx-track-azurecli
-ms.openlocfilehash: cc681d843d1fc68b3da6918724c7ad3e3ca5e37e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 3901f624f5df8770a235c6cd184aca4a3409c26b
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528331"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129547136"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>IoT Hub에서 클라우드-디바이스 메시지 보내기
 
@@ -94,14 +94,14 @@ IoT Hub의 **최대 배달 횟수** 속성은 *큐에 넣음* 및 *숨김* 상�
 
 본문은 각각 다음과 같은 속성이 있는 레코드의 JSON으로 직렬화된 배열입니다.
 
-| 속성           | 설명 |
+| 속성           | Description |
 | ------------------ | ----------- |
-| EnqueuedTimeUtc    | 메시지의 결과가 발생한 시간을 나타내는 타임스탬프입니다(예를 들어 허브에서 피드백 메시지를 받았거나 원래 메시지가 만료됨). |
+| enqueuedTimeUtc    | 메시지의 결과가 발생한 시간을 나타내는 타임스탬프입니다(예를 들어 허브에서 피드백 메시지를 받았거나 원래 메시지가 만료됨). |
 | OriginalMessageId  | 이 피드백 정보와 관련된 클라우드-디바이스 메시지의 *MessageId* 입니다. |
-| StatusCode         | IoT Hub에서 생성된 피드백 메시지에 사용되는 다음과 같은 필수 문자열입니다. <br/> *Success* <br/> *만료됨* <br/> *DeliveryCountExceeded* <br/> *거부됨* <br/> *Purged* |
-| Description        | *StatusCode* 에 대한 문자열 값입니다. |
-| DeviceId           | 피드백의 해당 부분과 관련된 클라우드-디바이스 메시지에서 대상 디바이스의 *DeviceId* 입니다. |
-| DeviceGenerationId | 피드백의 해당 부분과 관련된 클라우드-디바이스 메시지에서 대상 디바이스의 *DeviceGenerationId* 입니다. |
+| statusCode         | IoT Hub에서 생성된 피드백 메시지에 사용되는 다음과 같은 필수 문자열입니다. <br/> *Success* <br/> *만료됨* <br/> *DeliveryCountExceeded* <br/> *거부됨* <br/> *Purged* |
+| description        | *StatusCode* 에 대한 문자열 값입니다. |
+| deviceId           | 피드백의 해당 부분과 관련된 클라우드-디바이스 메시지에서 대상 디바이스의 *DeviceId* 입니다. |
+| deviceGenerationId | 피드백의 해당 부분과 관련된 클라우드-디바이스 메시지에서 대상 디바이스의 *DeviceGenerationId* 입니다. |
 
 서비스는 원본 메시지와 해당 피드백을 상호 연결하기 위해 클라우드-디바이스 메시지에 대한 *MessageId* 를 지정해야 합니다.
 
@@ -110,12 +110,12 @@ IoT Hub의 **최대 배달 횟수** 속성은 *큐에 넣음* 및 *숨김* 상�
 ```json
 [
   {
-    "OriginalMessageId": "0987654321",
-    "EnqueuedTimeUtc": "2015-07-28T16:24:48.789Z",
-    "StatusCode": 0,
-    "Description": "Success",
-    "DeviceId": "123",
-    "DeviceGenerationId": "abcdefghijklmnopqrstuvwxyz"
+    "originalMessageId": "0987654321",
+    "enqueuedTimeUtc": "2015-07-28T16:24:48.789Z",
+    "statusCode": "Success",
+    "description": "Success",
+    "deviceId": "123",
+    "deviceGenerationId": "abcdefghijklmnopqrstuvwxyz"
   },
   {
     ...
@@ -134,7 +134,7 @@ IoT Hub의 **최대 배달 횟수** 속성은 *큐에 넣음* 및 *숨김* 상�
 
 각 IoT Hub는 클라우드-디바이스 메시징에 다음 구성 옵션을 노출합니다.
 
-| 속성                  | 설명 | 범위 및 기본값 |
+| 속성                  | Description | 범위 및 기본값 |
 | ------------------------- | ----------- | ----------------- |
 | defaultTtlAsIso8601       | 클라우드-디바이스 메시지에 대한 기본 TTL | ISO_8601 간격은 최대 2일(최소 1분)입니다. 기본값: 1시간 |
 | maxDeliveryCount          | 클라우드-디바이스 디바이스 단위 큐에 대한 최대 전달 수입니다. | 1~100, 기본값: 10 |

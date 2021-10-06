@@ -3,12 +3,12 @@ title: 가용성 영역에 Service Fabric 관리형 클러스터 배포
 description: 가용성 영역에 Service Fabric 관리형 클러스터를 배포하는 방법과 ARM 템플릿에서 구성하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 5/10/2021
-ms.openlocfilehash: 5278ea170e0a60907813b9a79b151dde44ab4a12
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: b3c4e01ea66aa3a69b14806f2701020f1f529a5e
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111956785"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129544378"
 ---
 # <a name="deploy-a-service-fabric-managed-cluster-across-availability-zones"></a>가용성 영역에 Service Fabric 관리형 클러스터 배포
 
@@ -58,10 +58,9 @@ Azure Service Fabric 가용성 영역 아키텍처 ![Azure Service Fabric 가용
 
 ```json
 {
-    "apiVersion": "2021-05-01",
-    "type": "Microsoft.ServiceFabric/managedclusters",
-    "ZonalResiliency": "true"
-    
+  "apiVersion": "2021-05-01",
+  "type": "Microsoft.ServiceFabric/managedclusters",
+  "zonalResiliency": "true"
 }
 ```
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png

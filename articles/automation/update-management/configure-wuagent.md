@@ -3,14 +3,14 @@ title: Azure Automation 업데이트 관리를 위한 Windows 업데이트 설�
 description: 이 문서에서는 Azure Automation 업데이트 관리를 사용하도록 Windows 업데이트 설정을 구성하는 방법을 설명합니다.
 services: automation
 ms.subservice: update-management
-ms.date: 05/04/2020
+ms.date: 10/05/2021
 ms.topic: conceptual
-ms.openlocfilehash: a1f95ca856223628974a9519b7c4811bde43965e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 2d9d95c826af2d9448b296a69a815af26ab4fda4
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92222421"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546663"
 ---
 # <a name="configure-windows-update-settings-for-azure-automation-update-management"></a>Azure Automation 업데이트 관리를 위한 Windows 업데이트 설정 구성
 
@@ -23,17 +23,22 @@ Azure Automation 업데이트 관리는 [Windows 업데이트 클라이언트](/
 
 업데이트 관리는 Windows 업데이트 클라이언트를 제어하기 위해 지정된 대부분의 설정을 따릅니다. 설정을 사용하여 비 Windows 업데이트를 사용하도록 설정하는 경우 업데이트 관리는 해당 업데이트도 관리합니다. 업데이트 배포를 수행하기 전에 업데이트 다운로드를 사용하도록 설정하면 업데이트 배포가 더 빠르고 효율적이며 유지 관리 기간을 초과할 가능성이 줄어듭니다.
 
-Azure 구독에서 WSUS를 설정하고 Windows 가상 머신을 최신 상태로 안전하게 유지하는 방법에 대한 추가 권장 사항은 [WSUS를 사용하여 Azure에서 Windows 가상 머신을 업데이트하기 위한 배포 계획](/azure/architecture/example-scenario/wsus/)을 참조하세요.
+Azure 구독에서 WSUS를 설정하고 Windows 가상 머신을 안전하게 최신 상태로 유지하는 다른 권장 사항은 [WSUS를 사용하여 Azure에서 Windows 가상 머신을 업데이트하기 위한 배포 계획을 검토하세요.](/azure/architecture/example-scenario/wsus/)
 
 ## <a name="pre-download-updates"></a>업데이트 사전 다운로드
 
-업데이트 자동 다운로드를 구성하지만 자동으로 설치하지 않으려면 그룹 정책을 사용하여 [자동 업데이트 구성 설정](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates)을 3으로 설정할 수 있습니다. 이 설정을 사용하면 백그라운드에서 필요한 업데이트를 다운로드할 수 있으며 업데이트를 설치할 준비가 되었음을 알려줍니다. 이러한 방식으로 업데이트 관리 일정을 제어할 수 있지만, 업데이트 관리 유지 관리 기간 이후에도 업데이트를 다운로드할 수 있습니다. 이 동작은 업데이트 관리에서 `Maintenance window exceeded` 오류를 방지합니다.
+업데이트를 자동으로 설치하지 않고 자동 다운로드를 구성하려면 그룹 정책 사용하여 자동 [업데이트 설정을 구성할](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates)수 있습니다. 운영 체제 버전에 따라 두 가지 권장 값이 있습니다.
+
+* Windows Server 2016 이상에서는 **를 7** 값으로 설정합니다.
+* Windows Server 2012 R2 및 이전의 값은 **3으로** 설정되었습니다.
+
+이 설정을 사용하면 백그라운드에서 필요한 업데이트를 다운로드할 수 있으며 업데이트를 설치할 준비가 되었음을 알려줍니다. 이러한 방식으로 업데이트 관리 일정을 제어할 수 있지만, 업데이트 관리 유지 관리 기간 이후에도 업데이트를 다운로드할 수 있습니다. 이 동작은 업데이트 관리에서 `Maintenance window exceeded` 오류를 방지합니다.
 
 PowerShell에서 이 설정을 사용하도록 설정할 수 있습니다.
 
 ```powershell
 $WUSettings = (New-Object -com "Microsoft.Update.AutoUpdate").Settings
-$WUSettings.NotificationLevel = 3
+$WUSettings.NotificationLevel = <3 or 7>
 $WUSettings.Save()
 ```
 

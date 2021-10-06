@@ -3,12 +3,12 @@ title: Service Fabric 관리형 클러스터에 대한 네트워크 설정 구�
 description: NSG 규칙, RDP 포트 액세스, 부하 분산 규칙 등에 대해 Service Fabric 관리형 클러스터를 구성하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 8/23/2021
-ms.openlocfilehash: 432246ca0550e4fab678a3a190221de88ce04478
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0299118a7715a566cccc0dd1fb7bc83aa9c5e06c
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128638446"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129545663"
 ---
 # <a name="configure-network-settings-for-service-fabric-managed-clusters"></a>Service Fabric 관리형 클러스터에 대한 네트워크 설정 구성
 
@@ -38,62 +38,62 @@ Service Fabric 관리형 클러스터를 사용하여 배포 템플릿의 클러
 *Microsoft.ServiceFabric/managedclusters* 리소스(버전 `2021-05-01` 이상)의 [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedclusters#managedclusterproperties-object) 속성을 사용하여 NSG 규칙을 할당합니다. 예를 들면 다음과 같습니다.
 
 ```json
-            "apiVersion": "2021-05-01",
-            "type": "Microsoft.ServiceFabric/managedclusters",
-            ...
-            "properties": {
-                ...
-                "networkSecurityRules" : [
-                    {
-                        "name": "AllowCustomers",
-                        "protocol": "*",
-                        "sourcePortRange": "*",
-                        "sourceAddressPrefix": "Internet",
-                        "destinationAddressPrefix": "*",
-                        "destinationPortRange": "33000-33499",
-                        "access": "Allow",
-                        "priority": 2001,
-                        "direction": "Inbound"
-                    },
-                    {
-                        "name": "AllowARM",
-                        "protocol": "*",
-                        "sourcePortRange": "*",
-                        "sourceAddressPrefix": "AzureResourceManager",
-                        "destinationAddressPrefix": "*",
-                        "destinationPortRange": "33500-33699",
-                        "access": "Allow",
-                        "priority": 2002,
-                        "direction": "Inbound"
-                    },
-                    {
-                        "name": "DenyCustomers",
-                        "protocol": "*",
-                        "sourcePortRange": "*",
-                        "sourceAddressPrefix": "Internet",
-                        "destinationAddressPrefix": "*",
-                        "destinationPortRange": "33700-33799",
-                        "access": "Deny",
-                        "priority": 2003,
-                        "direction": "Outbound"
-                    },
-                    {
-                        "name": "DenyRDP",
-                        "protocol": "*",
-                        "sourcePortRange": "*",
-                        "sourceAddressPrefix": "*",
-                        "destinationAddressPrefix": "VirtualNetwork",
-                        "destinationPortRange": "3389",
-                        "access": "Deny",
-                        "priority": 2004,
-                        "direction": "Inbound",
-                        "description": "Override for optional SFMC_AllowRdpPort rule. This is required in tests to avoid Sev2 incident for security policy violation."
-                    }
-                ],
-                "fabricSettings": [
-                ...
-                ]
-            }
+{
+  "apiVersion": "2021-05-01",
+  "type": "Microsoft.ServiceFabric/managedclusters",
+  "properties": {
+    "networkSecurityRules": [
+      {
+        "name": "AllowCustomers",
+        "protocol": "*",
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "Internet",
+        "destinationAddressPrefix": "*",
+        "destinationPortRange": "33000-33499",
+        "access": "Allow",
+        "priority": 2001,
+        "direction": "Inbound"
+      },
+      {
+        "name": "AllowARM",
+        "protocol": "*",
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "AzureResourceManager",
+        "destinationAddressPrefix": "*",
+        "destinationPortRange": "33500-33699",
+        "access": "Allow",
+        "priority": 2002,
+        "direction": "Inbound"
+      },
+      {
+        "name": "DenyCustomers",
+        "protocol": "*",
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "Internet",
+        "destinationAddressPrefix": "*",
+        "destinationPortRange": "33700-33799",
+        "access": "Deny",
+        "priority": 2003,
+        "direction": "Outbound"
+      },
+      {
+        "name": "DenyRDP",
+        "protocol": "*",
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "*",
+        "destinationAddressPrefix": "VirtualNetwork",
+        "destinationPortRange": "3389",
+        "access": "Deny",
+        "priority": 2004,
+        "direction": "Inbound",
+        "description": "Override for optional SFMC_AllowRdpPort rule. This is required in tests to avoid Sev2 incident for security policy violation."
+      }
+    ],
+    "fabricSettings": [
+      "..."
+    ]
+  }
+}
 ```
 
 ## <a name="clientconnection-and-httpgatewayconnection-default-and-optional-rules"></a>ClientConnection 및 HttpGatewayConnection 기본값 및 선택적 규칙
@@ -199,9 +199,9 @@ Azure Portal을 사용하여 RDP(원격 데스크톱 프로토콜)에 대한 인
 
    ![인바운드 NAT 규칙][Inbound-NAT-Rules]
 
-   기본적으로 Windows 클러스터의 경우 프런트 엔드 포트 할당은 5만에서 시작 하 고 대상 포트는 포트 3389 이며, 대상 노드의 RDP 서비스에 매핑됩니다.
+   기본적으로 Windows 클러스터의 경우 프런트 엔드 포트 할당은 50000에서 시작되고 대상 포트는 대상 노드의 RDP 서비스에 매핑되는 포트 3389입니다.
    >[!NOTE]
-   > BYOLB 기능을 사용 하 고 RDP를 사용 하려는 경우에는 별도로 NAT 풀을 구성 해야 합니다. 이러한 노드 유형에 대 한 NAT 규칙을 자동으로 만들지 않습니다.
+   > BYOLB 기능을 사용하고 RDP를 원하는 경우 NAT 풀을 별도로 구성해야 합니다. 이렇게 하면 해당 노드 형식에 대한 NAT 규칙이 자동으로 생성되지 않습니다.
 
 4. 특정 노드(확장 집합 인스턴스)에 원격으로 연결합니다. 클러스터를 만들 때 설정한 사용자 이름 및 암호 또는 구성한 다른 자격 증명을 사용할 수 있습니다.
 

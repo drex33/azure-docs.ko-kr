@@ -3,12 +3,12 @@ title: Service Fabric 관리형 클러스터에서 대규모 가상 머신 확�
 description: 이 문서에서는 보조 노드 형식을 대규모 가상 머신 확장 집합으로 구성하는 방법을 안내합니다.
 ms.topic: how-to
 ms.date: 8/23/2021
-ms.openlocfilehash: 5b4601c347abcecb06e394f645c21141994681fc
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: 05177b519caa504ac9d931b07b9f6126a3851c0b
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867808"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129545099"
 ---
 # <a name="service-fabric-managed-cluster-node-type-scaling"></a>Service Fabric 관리형 클러스터 노드 형식 크기 조정
 
@@ -27,26 +27,25 @@ Azure Service Fabric 관리형 클러스터 리소스 공급자는 크기를 조
 * Service Fabric 관리형 클러스터 리소스 apiVersion은 **2021-05-01** 이상이어야 합니다.
 
 ```json
-     {
-            "apiVersion": "[variables('sfApiVersion')]",
-            "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-            "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
-            "location": "[resourcegroup().location]",
-            "dependsOn": [
-              "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
-            ],
-            "properties": {
-                "multiplePlacementGroups": true,
-                "isPrimary": false,
-                "vmImagePublisher": "[parameters('vmImagePublisher')]",
-                "vmImageOffer": "[parameters('vmImageOffer')]",
-                "vmImageSku": "[parameters('vmImageSku')]",
-                "vmImageVersion": "[parameters('vmImageVersion')]",
-                "vmSize": "[parameters('nodeTypeSize')]",
-                "vmInstanceCount": "[parameters('nodeTypeVmInstanceCount')]",
-                "dataDiskSizeGB": "[parameters('nodeTypeDataDiskSizeGB')]"
-            }
-        }
+{
+  "apiVersion": "[variables('sfApiVersion')]",
+  "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+  "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+  "location": "[resourcegroup().location]",
+  "dependsOn": [
+    "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
+  ],
+  "properties": {
+    "multiplePlacementGroups": true,
+    "isPrimary": false,
+    "vmImagePublisher": "[parameters('vmImagePublisher')]",
+    "vmImageOffer": "[parameters('vmImageOffer')]",
+    "vmImageSku": "[parameters('vmImageSku')]",
+    "vmImageVersion": "[parameters('vmImageVersion')]",
+    "vmSize": "[parameters('nodeTypeSize')]",
+    "vmInstanceCount": "[parameters('nodeTypeVmInstanceCount')]",
+    "dataDiskSizeGB": "[parameters('nodeTypeDataDiskSizeGB')]"
+  }
 }
 ```
 

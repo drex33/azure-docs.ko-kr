@@ -4,16 +4,16 @@ description: Azure Cosmos DB는 현재 정기적 백업 모드에서 지속적�
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 08/26/2021
+ms.date: 10/04/2021
 ms.author: sngun
 ms.topic: how-to
 ms.reviewer: sngun
-ms.openlocfilehash: 270c0fd585c2232b86011673e460737173106b09
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: b6821435f2f6ce04f1b8ba4b3af8b8f47097c2fa
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123479079"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546018"
 ---
 # <a name="migrate-an-azure-cosmos-db-account-from-periodic-to-continuous-backup-mode"></a>정기적 백업 모드에서 지속적인 백업 모드로 Azure Cosmos DB 계정 마이그레이션
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -78,6 +78,24 @@ ms.locfileid: "123479079"
      -Name "myAccount" `
      -BackupPolicyType Continuous
    ```
+
+### <a name="check-the-migration-status"></a>마이그레이션 상태 확인
+
+다음 명령을 실행 하 고 **Backuppolicy** 개체의 **status**, **targetType** 속성을 확인 합니다. 마이그레이션이 시작 된 후 상태에 진행 중이 표시 됩니다.
+
+```azurepowershell-interactive
+az cosmosdb show -n "myAccount" -g "myrg"
+```
+
+:::image type="content" source="./media/migrate-continuous-backup/migration-status-started-powershell.png" alt-text="PowerShell 명령을 사용 하 여 마이그레이션 상태 확인":::
+
+마이그레이션이 완료 되 면 백업 유형이 **연속** 으로 변경 됩니다. 동일한 명령을 다시 실행 하 여 상태를 확인 합니다.
+
+```azurepowershell-interactive
+az cosmosdb show -n "myAccount" -g "myrg"
+```
+
+:::image type="content" source="./media/migrate-continuous-backup/migration-status-complete-powershell.png" alt-text="마이그레이션이 완료 된 후 백업 유형이 연속으로 변경 됨":::
 
 ## <a name="migrate-using-cli"></a><a id="cli"></a>CLI를 사용하여 마이그레이션
 
@@ -175,7 +193,7 @@ t1에서 마이그레이션을 시작하고 t5에서 완료했다고 가정할 �
 t1 이전 시간으로 복원하려면 일반적으로 정기적 백업 계정으로 수행하는 것처럼 지원 티켓을 열 수 있습니다. 마이그레이션 후 주기적 복원을 수행하는 데 최대 30일의 여유 기간이 있습니다.  이러한 30일 동안에는 마이그레이션 전에 계정의 백업 보존/간격에 따라 복원할 수 있습니다.  예를 들어, 백업 구성이 1시간 간격으로 24개의 복사본을 유지해야 하는 경우 [t1 – 24시간]과 [t1] 사이에 언제로든 복원할 수 있습니다.
 
 #### <a name="which-account-level-control-plane-operations-are-blocked-during-migration"></a>마이그레이션하는 동안 차단되는 계정 수준 컨트롤 플레인 작업은 무엇인가요?
-지역 추가/제거, 장애 조치(failover), 백업 정책 변경, 데이터 이동으로 인한 처리량 변경 등의 작업은 마이그레이션 중에 차단됩니다.
+영역 추가/제거, 장애 조치 (failover), 백업 정책 변경, 데이터 이동에 따른 처리량 변경 등의 작업은 마이그레이션 중에 차단 됩니다.
 
 #### <a name="if-the-migration-fails-for-some-underlying-issue-would-it-still-block-the-control-plane-operation-until-it-is-retried-and-completed-successfully"></a>기본적인 일부 문제로 인해 마이그레이션이 실패하는 경우 다시 시도한 후 성공적으로 완료될 때까지 컨트롤 플레인 작업이 계속 차단되나요?
 실패한 마이그레이션은 컨트롤 플레인 작업을 차단하지 않습니다. 마이그레이션이 실패하면 다른 컨트롤 플레인 작업을 수행하기 전에 성공할 때까지 다시 시도하는 것이 좋습니다.

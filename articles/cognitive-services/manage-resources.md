@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/02/2021
 ms.author: nitinme
-ms.openlocfilehash: 90071be491fa16d483d1348feabb7a1180c333e8
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 4dce35c1713a4dcb4880080d1f28ed124a2209be
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114297414"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546080"
 ---
 # <a name="recover-deleted-cognitive-services-resources"></a>삭제된 Cognitive Services 리소스 복구
 
@@ -66,7 +66,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 다음 명령을 사용하려면 리소스를 복원합니다. 
 
 ```powershell
-New-AzResource -Location {location}-Properties @{restore=$true} -ResourceId /subscriptions/{subscriptionID}/resourceGroups/{resourceGroup}/providers/Microsoft.CognitiveServices/accounts/{resourceName}   -ApiVersion 2021-04-30 
+New-AzResource -Location {location} -Properties @{restore=$true} -ResourceId /subscriptions/{subscriptionID}/resourceGroups/{resourceGroup}/providers/Microsoft.CognitiveServices/accounts/{resourceName}   -ApiVersion 2021-04-30 
 ```
 
 삭제된 리소스의 이름을 찾아야 하는 경우 다음 명령을 사용하여 삭제된 리소스 이름 목록을 가져올 수 있습니다. 

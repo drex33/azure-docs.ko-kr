@@ -9,12 +9,12 @@ ms.date: 10/16/2020
 ms.custom: subject-armqs
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f0412b6e67ff62247feb3f8643553c5a6101ad73
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 7d6111a68be8bc195b7268a778a77facdd944772
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111892673"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129084135"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 App Service 앱 만들기
 
@@ -106,7 +106,7 @@ ms.locfileid: "111892673"
 ::: zone pivot="platform-windows"
 Azure CLI를 사용하여 아래 코드를 실행하고 Windows에 .NET Framework 앱을 배포합니다. 
 
-바꾸기 <abbr title="유효한 문자는 `a-z`, `0-9`, `-`입니다.">`<app-name>`</abbr> 전역적으로 고유한 앱 이름으로 기타 정보 알아보기 <abbr title="Azure Portal, Azure PowerShell 및 REST API를 사용할 수도 있습니다.">배포 방법</abbr>, [템플릿 배포](../azure-resource-manager/templates/deploy-powershell.md)를 참조하세요. 자세한 내용은 [Azure App Service 템플릿 샘플](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sites)에서 확인할 수 있습니다.
+바꾸기 <abbr title="유효한 문자는 `a-z`, `0-9`, `-`입니다."> \<app-name> </abbr> 전역적으로 고유한 앱 이름으로 기타 정보 알아보기 <abbr title="Azure Portal, Azure PowerShell 및 REST API를 사용할 수도 있습니다.">배포 방법</abbr>, [템플릿 배포](../azure-resource-manager/templates/deploy-powershell.md)를 참조하세요. 자세한 내용은 [Azure App Service 템플릿 샘플](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sites)에서 확인할 수 있습니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
@@ -118,7 +118,7 @@ az deployment group create --resource-group myResourceGroup \
 ::: zone pivot="platform-linux"
 아래 코드를 실행하여 Linux에서 Python 앱을 만듭니다. 
 
-바꾸기 <abbr title="유효한 문자는 `a-z`, `0-9`, `-`입니다.">`<app-name>`</abbr> 전역적으로 고유한 앱 이름으로
+\<app-name\>을 전역적으로 고유한 앱 이름으로 바꿉니다. 유효한 문자는 `a-z`, `0-9`, `-`입니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
@@ -142,7 +142,7 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 <summary>다른 언어 스택은 어떻게 배포하나요?</summary>
 다른 언어 스택을 배포하려면 - 업데이트: <abbr title="이 템플릿은 .NET Core, .NET Framework, PHP, Node.js 및 정적 HTML 앱과 호환됩니다.">언어 매개 변수</abbr> 적절한 값으로. Java의 경우 <a href="/azure/app-service/quickstart-java-uiex">Java 앱 만들기</a>를 참조하세요.
 
-| 매개 변수 | Type    | 기본값                | Description |
+| 매개 변수 | Type    | 기본값                | 설명 |
 |------------|---------|------------------------------|-------------|
 | 언어   | 문자열  | ".net"                       | 프로그래밍 언어 스택(.net, php, node, html) |
 
@@ -153,6 +153,7 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 ::: zone pivot="platform-linux"
 <details>
 <summary>다른 언어 스택은 어떻게 배포하나요?</summary>
+ 
 다른 언어 스택을 배포하려면 `linuxFxVersion`을 적절한 값으로 업데이트합니다. 샘플은 다음과 같습니다. 최신 버전을 표시하려면 Cloud Shell에서 다음 명령어를 실행합니다. `az webapp config show --resource-group myResourceGroup --name <app-name> --query linuxFxVersion`
 
 | 언어    | 예제:                                               |

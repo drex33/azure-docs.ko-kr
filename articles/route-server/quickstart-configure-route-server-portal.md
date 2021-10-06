@@ -5,20 +5,23 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: quickstart
-ms.date: 09/01/2021
+ms.date: 09/08/2021
 ms.author: duau
-ms.openlocfilehash: 36be075345dcacdf8246f46462a2665718f27e7e
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: a6714867b5b863f608e3282c5e6f3bb0d2425969
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123424801"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091486"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Route Server 만들기 및 구성
 
 이 문서는 Azure Portal을 사용하여 가상 네트워크에서 NVA(네트워크 가상 어플라이언스)와 피어링하도록 Azure Route Server를 구성하는 데 도움이 됩니다. Azure Route Server는 NVA에서 경로를 학습하고 가상 네트워크의 가상 머신에 대해 프로그래밍합니다. 또한 Azure Route Server는 NVA에 가상 네트워크 경로를 보급합니다. 자세한 내용은 [Azure Route Server](overview.md)를 읽어보세요.
 
 :::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Azure Portal을 사용하는 Route Server 배포 환경의 다이어그램." border="false":::
+
+> [!IMPORTANT]
+> 9월 1일 이전에 만든 Azure Route Server가 있고 공용 IP 주소가 분리되지 않은 경우 관리 목적으로 IP 주소를 가져올 수 있도록 Route Server를 다시 만들어야 합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -33,7 +36,7 @@ ms.locfileid: "123424801"
 
 ### <a name="create-a-route-server"></a>Route Server 만들기
 
-1. https://aka.ms/routeserver로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하여 **Route Server** 를 검색 및 선택합니다.
 
 1. **+ 새 Route Server 만들기** 를 선택합니다.
 

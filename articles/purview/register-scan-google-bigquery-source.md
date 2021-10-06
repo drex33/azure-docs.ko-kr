@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Purview에서 Google BigQuery 프로젝�
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 7/15/2021
-ms.openlocfilehash: d88df617e994f4a609b12dff0419fd673f8207d1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: caaf78e14669d67f525e5756efd8e2fd301f9b38
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121721929"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218543"
 ---
 # <a name="register-and-scan-google-bigquery-source-preview"></a>Google BigQuery 원본 등록 및 검사(미리 보기)
 
@@ -56,14 +56,14 @@ BigQuery 원본은 BigQuery 프로젝트에서 메타데이터를 추출하고 �
 
 3.  컬렉션을 선택하거나 새로 만듭니다(선택 사항).
 
-4.  **등록** 을 클릭합니다.
+4.  **등록** 을 선택합니다.
     :::image type="content" source="media/register-scan-google-bigquery-source/configure-sources.png" alt-text="BigQuery 원본 구성" border="true":::
 
 ## <a name="creating-and-running-a-scan"></a>검사 만들기 및 실행
 
 새 검색을 만들고 실행하려면 다음을 수행합니다.
 
-1.  관리 센터에서 통합 런타임을 클릭합니다. 자체 호스팅 통합 런타임이 설정되어 있는지 확인합니다. 설정되지 않은 경우 [여기](./manage-integration-runtimes.md)에 언급된 단계를 사용하여 자체 호스팅 통합 런타임을 설정할 수 있습니다.
+1.  관리 센터에서 통합 런타임을 선택합니다. 자체 호스팅 통합 런타임이 설정되어 있는지 확인합니다. 설정되지 않은 경우 [여기](./manage-integration-runtimes.md)에 언급된 단계를 사용하여 자체 호스팅 통합 런타임을 설정할 수 있습니다.
 
 2.  **원본** 으로 이동합니다.
 
@@ -83,7 +83,7 @@ BigQuery 원본은 BigQuery 프로젝트에서 메타데이터를 추출하고 �
     - 사용자 이름 필드에서 서비스 계정의 이메일 ID를 제공합니다. 예를 들어 xyz\@developer.gserviceaccount.com입니다.
     - 서비스 계정의 프라이빗 키 파일을 키 자격 증명 모음의 비밀에 JSON 형식으로 저장합니다.
 
-    Google 클라우드 플랫폼에서 새 프라이빗 키를 만들려면 탐색 메뉴에서 [IAM 및 관리자 -\> 서비스 계정]을 차례로 클릭하고, 프로젝트를 선택하고, 키를 만들려는 서비스 계정의 이메일 주소를 클릭하고, **키** 탭을 클릭하고, **키 추가** 드롭다운 메뉴를 클릭한 다음, [새 키 만들기]를 선택합니다. 이제 JSON 형식을 선택합니다.
+    Google 클라우드 플랫폼에서 새 프라이빗 키를 만들려면 탐색 메뉴에서 IAM 및 관리자, \> 서비스 계정을 차례대로 선택하고 \> 프로젝트를 선택하고 \> 키를 만들려는 서비스 계정의 이메일 주소를 선택하고 \> **키** 탭을 선택하고 \> **키 추가** 드롭다운 메뉴를 선택한 다음, 새 키 만들기를 선택합니다. 이제 JSON 형식을 선택합니다.
 
       > [!Note]
       > 검사 프로세스가 실행되면 프라이빗 키의 콘텐츠가 VM의 임시 파일에 저장됩니다. 검사가 성공적으로 완료되면 이 임시 파일이 삭제됩니다. 검사 오류가 발생하는 경우 시스템에서 성공할 때까지 계속 다시 시도합니다. SHIR이 실행되는 VM에서 액세스가 적절하게 제한되는지 확인하세요.**
@@ -107,13 +107,13 @@ NOT 및 특수 문자는 허용되지 않습니다.
     f.  **사용 가능한 최대 메모리**: 고객의 VM에서 검사 프로세스를 수행하는 데 사용할 수 있는 최대 메모리(GB)입니다. 이는 검사할 Google BigQuery 프로젝트의 크기에 따라 달라집니다.
         :::image type="content" source="media/register-scan-google-bigquery-source/scan.png" alt-text="scan BigQuery 원본" border="true":::
 
-6.  **연결 테스트** 를 클릭합니다.
+6.  **연결 테스트** 를 선택합니다.
 
-7.  **계속** 을 클릭합니다.
+7.  **계속** 을 선택합니다.
 
 8.  **검사 트리거** 를 선택합니다. 예약을 설정하거나 검사를 한 번 실행할 수 있습니다.
 
-9.  검사를 검토하고, **저장 및 실행** 을 클릭합니다.
+9.  검사를 검토하고 **저장 및 실행** 을 선택합니다.
 
 ## <a name="viewing-your-scans-and-scan-runs"></a>검사 및 검사 실행 보기
 

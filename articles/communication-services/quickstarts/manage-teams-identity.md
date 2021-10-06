@@ -9,17 +9,18 @@ ms.author: tchladek
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 8718573de0742e69bee723f34ff94fcb20656be4
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.subservice: identity
+ms.openlocfilehash: 5fb6632fa31143c26d3cad84d42d1417aaf97496
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123251128"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081342"
 ---
 # <a name="quickstart-set-up-and-manage-teams-access-tokens"></a>빠른 시작: Teams 액세스 토큰 설정 및 관리
 
 > [!IMPORTANT]
-> 사용자 지정 Teams 엔드포인트 환경을 사용하거나 사용하지 않도록 설정하려면 [이 양식을 작성하여 제출](https://forms.office.com/r/B8p5KqCH19)합니다.
+> 이 기능은 미리 보기에서만 사용할 수 있습니다. 사용자 지정 Teams 엔드포인트 환경을 사용하거나 사용하지 않도록 설정하려면 [이 양식을 작성하여 제출](https://forms.office.com/r/B8p5KqCH19)합니다.
 
 이 빠른 시작에서 MSAL(Microsoft 인증 라이브러리)를 사용하고 Azure AD(Azure Active Directory) 사용자 토큰을 검색하여 Microsoft 365 사용자를 인증하기 위해 .NET 콘솔 애플리케이션을 빌드합니다. 그런 다음 이 토큰을 Azure Communication Services ID SDK를 통해 Teams 액세스 토큰으로 교환합니다. 그러면 Communication Services Calling SDK에서 Teams 액세스 토큰을 사용하여 사용자 지정 Teams 엔드포인트를 빌드할 수 있습니다.
 
@@ -191,6 +192,9 @@ dotnet build
 dotnet add package Azure.Communication.Identity
 dotnet add package Microsoft.Identity.Client
 ```
+
+> [!NOTE]
+> 프라이빗 미리 보기용 패키지는 NPM 또는 NuGet.org와 같은 공식 패키지 리포지토리에서 사용할 수 없습니다. 다음 패키지 리포지토리 [.net](https://dev.azure.com/azure-sdk/public/_packaging?_a=package&feed=azure-sdk-for-net&package=Azure.Communication.Identity&protocolType=NuGet&version=1.1.0-alpha.20210531.2) 및 [javascript](https://www.npmjs.com/package/@azure/communication-identity/v/1.1.0-alpha.20210531.1)에서 SDK를 찾을 수 있습니다.
 
 #### <a name="set-up-the-app-framework"></a>앱 프레임워크 설정
 

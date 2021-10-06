@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Purview에서 Oracle 원본을 등록하�
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 2/25/2021
-ms.openlocfilehash: a9234a2bcce6a754a96d1f323af9f08a9697ff03
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 1a8956971e48529c75f07db54c196867a6c5955e
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725233"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129216950"
 ---
 # <a name="register-and-scan-oracle-source"></a>Oracle 원본 등록 및 검사
 
@@ -104,7 +104,7 @@ Oracle 원본에 대해 유일하게 지원되는 인증은 **기본 인증** �
 
 새 검색을 만들고 실행하려면 다음을 수행합니다.
 
-1.  관리 센터에서 통합 런타임을 클릭합니다. 자체 호스팅 통합 런타임이 설정되어 있는지 확인합니다. 설정되지 않은 경우 [여기](./manage-integration-runtimes.md)에 언급된 단계를 사용하여 자체 호스팅 통합 런타임을 만들 수 있습니다.
+1.  관리 센터에서 통합 런타임을 선택합니다. 자체 호스팅 통합 런타임이 설정되어 있는지 확인합니다. 설정되지 않은 경우 [여기](./manage-integration-runtimes.md)에 언급된 단계를 사용하여 자체 호스팅 통합 런타임을 만들 수 있습니다.
 
 2.  **원본** 으로 이동합니다.
 
@@ -143,11 +143,11 @@ Oracle 원본에 대해 유일하게 지원되는 인증은 **기본 인증** �
 
     :::image type="content" source="media/register-scan-oracle-source/scan.png" alt-text="Oracle 검사" border="true":::
 
-8.  **계속** 을 클릭합니다.
+8.  **계속** 을 선택합니다.
 
 9.  **검사 트리거** 를 선택합니다. 예약을 설정하거나 검사를 한 번 실행할 수 있습니다.
 
-10.  검사를 검토하고, **저장 및 실행** 을 클릭합니다.
+10.  검사를 검토하고 **저장 및 실행** 을 선택합니다.
 
 ## <a name="viewing-your-scans-and-scan-runs"></a>검사 및 검사 실행 보기
 

@@ -1,18 +1,18 @@
 ---
 title: '빠른 시작: Redis Enterprise 캐시 만들기'
 description: 이 빠른 시작에서는 엔터프라이즈 계층에서 Azure Cache for Redis의 인스턴스를 만드는 방법을 알아봅니다.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/08/2021
-ms.openlocfilehash: 97d87ab28b4b2b000fe0e9b1517e43c79984e74e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7733f9df7f314dfdc0369075b96477e301825ce6
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128563658"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537322"
 ---
 # <a name="quickstart-create-a-redis-enterprise-cache"></a>빠른 시작: Redis Enterprise 캐시 만들기
 
@@ -35,7 +35,7 @@ Azure Cache for Redis Enterprise 계층은 Azure에서 완전히 통합되고 �
 
 1. **새 Redis Cache** 페이지에서 새 캐시의 설정을 구성합니다.
 
-   | 설정      |  값 선택  | 설명 |
+   | 설정      |  값 선택  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
    | **구독** | 드롭다운하여 구독을 선택합니다. | 이 구독 아래에 새 Azure Cache for Redis 인스턴스가 만들어집니다. |
    | **리소스 그룹** | 드롭다운하여 리소스 그룹을 선택하거나, **새로 만들기** 를 선택하고 새 리소스 그룹 이름을 입력합니다. | 캐시 및 기타 리소스를 만들 새 리소스 그룹의 이름입니다. 모든 앱 리소스를 하나의 리소스 그룹에 배치하면 앱 리소스를 쉽게 관리하거나 삭제할 수 있습니다. |

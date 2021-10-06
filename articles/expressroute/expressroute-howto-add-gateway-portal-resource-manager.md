@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/03/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 0ab04c21cb904baf7ede72fd69f6d6b8375b07cc
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 872f6efb6cc8df8ed63fec23af3807a18dde6201
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114289885"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708488"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
 > [!div class="op_single_selector"]
@@ -87,9 +87,10 @@ ms.locfileid: "114289885"
     | 가상 네트워크 | *TestVNet* 을 선택합니다. |
     | 공용 IP 주소 | **새로 만들기** 를 선택합니다.|
     | 공용 IP 주소 이름 | 공용 IP 주소의 이름을 입력합니다. |
+    | 공용 IP 주소 SKU | 공용 IP 주소에 대한 SKU를 제공합니다. 이중 스택 게이트웨이의 경우 *표준* 을 선택합니다. |
 
     > [!IMPORTANT]
-    > ExpressRoute를 통해 IPv6 기반 프라이빗 피어링을 사용할 계획인 경우 표준, 정적 형식의 공용 IP 주소를 사용하여 게이트웨이를 만드는 방법에 대한 [PowerShell 설명서](./expressroute-howto-add-gateway-resource-manager.md)를 참조하세요.
+    > ExpressRoute를 통해 IPv6 기반 개인 피어링을 사용할 계획인 경우 표준, 정적 형식의 공용 IP 주소를 사용하여 게이트웨이를 만드세요.
     > 
     > 
 

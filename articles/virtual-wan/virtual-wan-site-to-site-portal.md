@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 08/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: 544275ce4c9ab31fa65fe17351eed495895569e2
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: ece8300ee9d44699dfcce8fd89b1e07b94d99df9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123432165"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823282"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용하여 사이트 간 연결 만들기
 
@@ -53,25 +53,25 @@ ms.locfileid: "123432165"
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-s2s-hub-include.md)]
 
-## <a name="create-site-to-site-vpn-gateway"></a><a name="gateway">사이트 간 VPN 게이트웨이 만들기</a>
+## <a name="configure-a-site-to-site-gateway"></a><a name="gateway"></a>사이트 간 게이트웨이 구성
 
-이 섹션에서는 사이트 간 연결 설정을 구성한 다음, 허브 및 S2S VPN 게이트웨이 만들기를 진행합니다. 허브와 게이트웨이를 만드는 데 약 30분 정도 걸릴 수 있습니다.
+이 섹션에서는 사이트 간 연결 설정을 구성한 다음, 허브 및 사이트 간 VPN 게이트웨이 만들기를 진행합니다. 허브와 게이트웨이를 만드는 데 약 30분 정도 걸릴 수 있습니다.
 
 [!INCLUDE [Create a gateway](../../includes/virtual-wan-tutorial-s2s-gateway-include.md)]
 
-## <a name="create-site"></a><a name="site">사이트 만들기</a>
+## <a name="create-a-site"></a><a name="site"></a>사이트 만들기
 
 이 섹션에서는 사이트를 만듭니다. 사이트는 실제 위치에 해당합니다. 필요한 만큼 사이트를 만듭니다. 예를 들어 NY에 지사가 있고, 런던에 지사가 있고, LA에 지사가 있는 경우 3개의 사이트를 별도로 만들 수 있습니다. 이 사이트에는 온-프레미스 VPN 디바이스 엔드포인트가 포함됩니다. 가상 WAN에서 가상 허브당 최대 1000개의 사이트를 만들 수 있습니다. 허브가 여러 개 있는 경우 해당 허브당 1,000개의 사이트를 만들 수 있습니다. Virtual WAN 파트너 CPE 디바이스가 있는 경우 Azure에 대한 자동화에 대해 알아보려면 해당 파트너에게 문의하세요. 일반적으로 자동화는 대규모 분기 정보를 Azure로 내보내고 CPE에서 Azure Virtual WAN VPN 게이트웨이로의 연결을 설정하는 간단한 클릭 환경을 의미합니다. 자세한 내용은 [Azure에서 CPE 파트너로의 Automation 지침](virtual-wan-configure-automation-providers.md)을 참조하세요.
 
 [!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 
-## <a name="connect-vpn-site-to-hub"></a><a name="connectsites">VPN 사이트를 허브에 연결</a>
+## <a name="connect-the-vpn-site-to-a-hub"></a><a name="connectsites"></a>허브에 VPN 사이트 연결
 
 이 섹션에서는 VPN 사이트를 허브에 연결합니다.
 
 [!INCLUDE [Connect VPN sites](../../includes/virtual-wan-tutorial-s2s-connect-vpn-site-include.md)]
 
-## <a name="connect-vnet-to-hub"></a><a name="vnet"></a>허브에 VNet 연결
+## <a name="connect-a-vnet-to-the-hub"></a><a name="vnet"></a>허브에 VNet 연결
 
 이 섹션에서는 허브와 VNet 사이에 연결을 만듭니다.
 

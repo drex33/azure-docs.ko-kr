@@ -12,18 +12,28 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/18/2021
+ms.date: 09/27/2021
 ms.author: b-juche
-ms.openlocfilehash: 0bf972cd5b597d4cf0fb608eee8481cb72080425
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: cae4e16f42d9031040060a33bb8a5795f7695f56
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769344"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092132"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Azure NetApp Files의 새로운 기능
 
 Azure NetApp Files는 정기적으로 업데이트됩니다. 이 문서에서는 새로운 최신 기능과 향상된 기능에 대한 요약을 제공합니다. 
+
+## <a name="september-2021"></a>2021년 9월
+
+* [Azure NetApp Files 백업](backup-introduction.md)(미리 보기)
+
+    Azure NetApp Files 온라인 스냅샷은 이제 스냅샷 백업으로 향상되었습니다. 이 새로운 백업 기능을 사용하면 Azure NetApp Files 스냅샷을 비용 효율적인 ZRS 사용 Azure 스토리지로 빠르고 비용 효율적인 방식으로 보관할 수 있으며, 데이터가 실수로 삭제되지 않도록 방지할 수 있습니다. Azure NetApp Files 백업은 ONTAP의 기본 제공 스냅샷 기술을 확장합니다. 스냅샷이 Azure 스토리지에 보관되면 이전에 보관된 스냅샷을 기준으로 변경된 블록만 효율적인 형식으로 복사하고 저장합니다. 그러나 보관된 스냅샷은 여전히 ​​전체적으로 표시되며 개별적으로 직접 새 볼륨으로 복원할 수 있으므로 반복적인 전체 증분 복구 프로세스가 필요하지 않습니다. 이 고급 기술은 Azure 스토리지에서 저장하고 검색하는 데 필요한 데이터의 양을 최소화하므로 데이터 전송 및 스토리지 비용을 절약할 수 있습니다. 또한 백업 보관 시간이 단축되어 더 작은 RPO(복원 지점 목표)를 달성할 수 있습니다. 이제 가장 즉각적이고 거의 즉각적인 데이터 복구 요구 사항을 위해 Azure NetApp Files 서비스에서 최소 수의 스냅샷을 온라인 상태로 유지하고, Azure NetApp Files 백업 자격 증명 모음에서 장기 보존을 위해 더 적은 비용으로 더 긴 스냅샷 기록을 구축하도록 선택할 수 있습니다. 자세한 내용은 [Azure NetApp Files 스냅샷 작동 방식](snapshots-introduction.md)을 참조하세요.
+
+* Active Directory 연결의 [**관리자**](create-active-directory-connections.md#create-an-active-directory-connection) 옵션(미리 보기)
+
+    이제 Active Directory 연결 페이지에는 **관리자** 필드가 포함됩니다. 볼륨에 대한 관리자 권한이 부여되는 사용자 또는 그룹을 지정할 수 있습니다.
 
 ## <a name="august-2021"></a>2021년 8월
 
@@ -31,7 +41,7 @@ Azure NetApp Files는 정기적으로 업데이트됩니다. 이 문서에서는
 
     이미 [새 SMB 볼륨을 만들](azure-netapp-files-create-volumes-smb.md#continuous-availability) 때 SMB CA(지속적인 가용성) 기능을 사용하도록 설정할 수 있습니다. 이제는 기존 SMB 볼륨에서 SMB CA를 사용하도록 설정할 수도 있습니다. [기존 SMB 볼륨에서 지속적인 가용성 사용](enable-continuous-availability-existing-SMB.md)을 참조하세요.
 
-* [스냅샷 정책](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)이 이제 GA(일반 공급) 방식으로 제공됨  
+* [스냅샷 정책](snapshots-manage-policy.md)이 이제 GA(일반 공급) 방식으로 제공됨  
 
     이제 스냅샷 정책 기능이 일반 제공됩니다. 이 기능을 사용하기 전에 더 이상 등록할 필요가 없습니다.
 
@@ -148,7 +158,7 @@ Azure NetApp Files는 정기적으로 업데이트됩니다. 이 문서에서는
 
 ## <a name="november-2020"></a>2020년 11월
 
-* [스냅샷 되돌리기](azure-netapp-files-manage-snapshots.md#revert-a-volume-using-snapshot-revert)
+* [스냅샷 되돌리기](snapshots-revert-volume.md)
 
     스냅샷 되돌리기 기능을 사용하면 볼륨을 특정 스냅샷을 만들 때의 상태로 신속하게 되돌릴 수 있습니다. 대부분의 경우 볼륨을 되돌리는 것이 스냅샷에서 활성 파일 시스템으로 개별 파일을 복원하는 것보다 훨씬 빠릅니다. 또한 스냅샷을 새 볼륨으로 복원하는 것에 비해 공간 효율성이 더 높습니다.
 
@@ -192,15 +202,15 @@ Azure NetApp Files는 정기적으로 업데이트됩니다. 이 문서에서는
 
     클라우드는 IT 지출의 유연성을 보장합니다. 이제 볼륨에 대해 원하는 서비스 수준을 사용하는 다른 용량 풀로 볼륨을 이동하여 기존 Azure NetApp Files 볼륨의 서비스 수준을 변경할 수 있습니다. 볼륨에 대한 이러한 내부 서비스 수준 변경에서는 데이터를 마이그레이션할 필요가 없습니다. 또한 볼륨에 대한 데이터 평면 액세스에도 영향을 주지 않습니다. 더 높은 서비스 수준을 사용하여 성능을 향상시키거나 더 낮은 서비스 수준을 사용하여 비용을 최적화하도록 기존 볼륨을 변경할 수 있습니다. 이 기능은 무료입니다(일반 [Azure NetApp Files 스토리지 비용](https://azure.microsoft.com/pricing/details/netapp/)은 계속 적용됨). 현재 미리 보기로 제공되고 있습니다. [동적 볼륨 서비스 수준 변경 설명서](dynamic-change-volume-service-level.md)에 따라 기능 미리 보기에 등록할 수 있습니다.
 
-* [볼륨 스냅샷 정책](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)(미리 보기) 
+* [볼륨 스냅샷 정책](snapshots-manage-policy.md)(미리 보기) 
 
-    Azure NetApp Files를 사용하면 볼륨의 특정 시점 스냅샷을 만들 수 있습니다. 이제 Azure NetApp Files에서 볼륨 스냅샷을 선택한 빈도로 자동으로 만들도록 하는 스냅샷 정책을 만들 수 있습니다. 스냅샷을 매시간, 매일, 매주 또는 매월 주기로 수행하도록 예약할 수 있습니다. 또한 스냅샷 정책의 일부로 유지할 최대 스냅샷 수를 지정할 수도 있습니다. 이 기능은 무료이며(일반 [Azure NetApp Files 스토리지 비용](https://azure.microsoft.com/pricing/details/netapp/)은 계속 적용됨) 현재 미리 보기 상태입니다. [볼륨 스냅샷 정책 설명서](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)에 따라 기능 미리 보기에 등록할 수 있습니다.
+    Azure NetApp Files를 사용하면 볼륨의 특정 시점 스냅샷을 만들 수 있습니다. 이제 Azure NetApp Files에서 볼륨 스냅샷을 선택한 빈도로 자동으로 만들도록 하는 스냅샷 정책을 만들 수 있습니다. 스냅샷을 매시간, 매일, 매주 또는 매월 주기로 수행하도록 예약할 수 있습니다. 또한 스냅샷 정책의 일부로 유지할 최대 스냅샷 수를 지정할 수도 있습니다. 이 기능은 무료이며(일반 [Azure NetApp Files 스토리지 비용](https://azure.microsoft.com/pricing/details/netapp/)은 계속 적용됨) 현재 미리 보기 상태입니다. [볼륨 스냅샷 정책 설명서](snapshots-manage-policy.md)에 따라 기능 미리 보기에 등록할 수 있습니다.
 
 * [NFS 루트 액세스 내보내기 정책](azure-netapp-files-configure-export-policy.md)
 
     이제 Azure NetApp Files를 사용하면 루트 계정에서 볼륨에 액세스할 수 있는지 여부를 지정할 수 있습니다. 
 
-* [스냅샷 경로 숨기기](azure-netapp-files-manage-snapshots.md#restore-a-file-from-a-snapshot-using-a-client)
+* [스냅샷 경로 숨기기](snapshots-edit-hide-path.md)
 
     이제 Azure NetApp Files를 사용하면 사용자가 탑재된 볼륨에서 `.snapshot` 디렉터리(NFS 클라이언트) 또는 `~snapshot` 폴더(SMB 클라이언트)를 보고 액세스할 수 있는지 여부를 지정할 수 있습니다.
 

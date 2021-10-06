@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 08/16/2021
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: e315542d8d58a58fa4e2cea8bbab4768af0596eb
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: b84ff908404c2d18f86ddd63fa14a9854fdf72d6
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122252393"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129079336"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-net"></a>Azure Service Bus 큐에서 메시지 보내기 및 받기(.NET)
 이 빠른 시작에서는 [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/) .NET 라이브러리를 사용하여 Service Bus 큐에 메시지를 보내고 받는 방법을 보여 줍니다.
@@ -25,7 +25,7 @@ ms.locfileid: "122252393"
 - **Service Bus 네임스페이스 및 큐 만들기**. [Azure Portal을 사용하여 Service Bus 큐 만들기](service-bus-quickstart-portal.md) 문서의 단계에 따라 Service Bus 네임스페이스 및 큐를 만듭니다. 
 
     > [!IMPORTANT]
-    > Service Bus 네임스페이스에 대한 **연결 문자열** 및 사용자가 만든 **큐** 의 이름을 적어둡니다. 이 자습서의 뒷부분에서 사용됩니다. 
+    > Service Bus 네임스페이스에 대한 [**기본 연결 문자열**](./service-bus-quickstart-topics-subscriptions-portal.md#get-the-connection-string) 및 만든 **큐** 의 이름을 적어 둡니다. 이 자습서의 뒷부분에서 사용됩니다. 
 
 
 ## <a name="send-messages"></a>메시지 보내기
@@ -59,7 +59,7 @@ ms.locfileid: "122252393"
 ### <a name="add-code-to-send-messages-to-the-queue"></a>메시지를 큐에 보내는 코드 추가
 
 1. **Program.cs** 의 코드를 다음 코드로 바꿉니다. 다음은 코드의 중요한 단계입니다.  
-    1. 네임스페이스에 대한 연결 문자열을 사용하여 [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) 개체를 만듭니다. 
+    1. 네임스페이스에 대한 기본 연결 문자열을 사용하여 [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) 개체를 만듭니다. 
     1. [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) 개체에서 [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) 메서드를 호출하여 특정 Service Bus 큐에 대한 [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) 개체를 만듭니다.     
     1. [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync) 메서드를 사용하여 [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) 개체를 만듭니다.
     1. [ServiceBusMessageBatch.TryAddMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch.tryaddmessage)를 사용하여 일괄 처리에 메시지를 추가합니다. 
@@ -134,7 +134,7 @@ ms.locfileid: "122252393"
             }
         }   
         ``` 
-1. `<NAMESPACE CONNECTION STRING>`을 Service Bus 네임스페이스에 대한 연결 문자열로 바꿉니다. 그런 후 `<QUEUE NAME>`을 큐의 이름으로 바꿉니다.
+1. `<NAMESPACE CONNECTION STRING>`을 Service Bus 네임스페이스에 대한 기본 연결 문자열로 바꿉니다. 그런 후 `<QUEUE NAME>`을 큐의 이름으로 바꿉니다.
 1. 프로그램을 빌드하고 오류가 없는지 확인합니다. 
 1. 프로그램을 실행하고 확인 메시지가 나타날 때까지 기다립니다.
     
@@ -182,7 +182,7 @@ ms.locfileid: "122252393"
 
 1. **Program.cs** 의 코드를 다음 코드로 바꿉니다. 다음은 코드의 중요한 단계입니다.
     다음은 코드의 중요한 단계입니다.
-    1. 네임스페이스에 대한 연결 문자열을 사용하여 [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) 개체를 만듭니다. 
+    1. 네임스페이스에 대한 기본 연결 문자열을 사용하여 [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) 개체를 만듭니다. 
     1. [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) 개체에서 [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) 메서드를 호출하여 지정된 Service Bus 큐에 대한 [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) 개체를 만듭니다. 
     1. [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) 개체의 [ProcessMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) 및 [ProcessErrorAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processerrorasync) 이벤트에 대한 처리기를 지정합니다. 
     1. [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) 개체에서 [StartProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.startprocessingasync)를 호출하여 메시지 처리를 시작합니다. 
@@ -272,7 +272,7 @@ ms.locfileid: "122252393"
             }
         }
         ```
-1. `<NAMESPACE CONNECTION STRING>`을 Service Bus 네임스페이스에 대한 연결 문자열로 바꿉니다. 그런 후 `<QUEUE NAME>`을 큐의 이름으로 바꿉니다. 
+1. `<NAMESPACE CONNECTION STRING>`을 Service Bus 네임스페이스에 대한 기본 연결 문자열로 바꿉니다. 그런 후 `<QUEUE NAME>`을 큐의 이름으로 바꿉니다. 
 1. 프로그램을 빌드하고 오류가 없는지 확인합니다.
 1. 수신기 애플리케이션을 실행합니다. 받은 메시지가 표시됩니다. 아무 키나 눌러 수신기와 애플리케이션을 중지합니다. 
 

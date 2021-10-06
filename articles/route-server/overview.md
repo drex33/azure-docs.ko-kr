@@ -5,18 +5,21 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: overview
-ms.date: 09/01/2021
+ms.date: 09/27/2021
 ms.author: duau
-ms.openlocfilehash: f2c4a31f4c1c0ec53e76ffaf6f4670d9179e9505
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 34835f8f3e536b875c7eb4afd176ab00fb1f417c
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123436791"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091429"
 ---
 # <a name="what-is-azure-route-server"></a>Azure Route Server란? 
 
 Azure Route Server는 NVA(네트워크 가상 어플라이언스)와 가상 네트워크 간의 동적 라우팅을 간소화합니다. 이를 통해 경로 테이블을 수동으로 구성하거나 유지 관리할 필요없이 BGP(Border Gateway Protocol) 라우팅 프로토콜을 지원하는 NVA와 Azure VNET(Virtual Network)의 Azure SDN(소프트웨어 정의 네트워크) 사이에서 BGP 라우팅 프로토콜을 통해 직접 라우팅 정보를 교환할 수 있습니다. Azure Route Server는 완전 관리형 서비스이며 고가용성으로 구성되어 있습니다.
+
+> [!IMPORTANT]
+> 9월 1일 이전에 만든 Azure Route Server가 있고 공용 IP 주소가 분리되지 않은 경우 관리 목적으로 IP 주소를 가져올 수 있도록 Route Server를 다시 만들어야 합니다.
 
 ## <a name="how-does-it-work"></a>작동 원리
 

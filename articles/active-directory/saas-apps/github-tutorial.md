@@ -1,5 +1,5 @@
 ---
-title: '자습서: GitHub Enterprise Cloud Organization과 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: GitHub Enterprise Cloud Organization과 Azure AD SSO 통합 | Microsoft Docs'
 description: Azure Active Directory와 GitHub Enterprise Cloud Organization 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/24/2020
+ms.date: 09/08/2021
 ms.author: jeedes
-ms.openlocfilehash: 12d80ee98ceef33221b7713703e8106bada6470c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fdd62a5acdc0c470b8b675d650b88839093dcbf4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750430"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124834221"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-a-github-enterprise-cloud-organization"></a>자습서: GitHub Enterprise Cloud Organization과 Azure Active Directory SSO(Single Sign-On) 통합
+# <a name="tutorial-azure-ad-sso-integration-with-a-github-enterprise-cloud-organization"></a>자습서: GitHub Enterprise Cloud Organization과 Azure AD SSO 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 GitHub Enterprise Cloud **Organization** 을 통합하는 방법에 대해 알아봅니다. GitHub Enterprise Cloud Organization을 Azure AD와 통합하면 다음을 수행할 수 있습니다.
 
@@ -27,10 +27,10 @@ ms.locfileid: "121750430"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-GitHub Enterprise Cloud Organization과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
+시작하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 Azure AD 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 구할 수 있습니다.
-* [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise)에서 만든 GitHub 조직. 여기에는 [GitHub Enterprise 요금제](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)가 필요합니다.
+* Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
+* [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise)에서 만든 GitHub 조직. 여기에는 [GitHub Enterprise 청구 플랜](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)이 필요합니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -38,8 +38,7 @@ GitHub Enterprise Cloud Organization과 Azure AD 통합을 구성하려면 다�
 
 * GitHub에서 **SP** 시작 SSO를 지원합니다.
 
-* GitHub에서 [**자동** 사용자 프로비저닝(조직 초대)](github-provisioning-tutorial.md)을 지원합니다.
-
+* GitHub에서 [**자동화된** 사용자 프로비저닝(조직 초대)](github-provisioning-tutorial.md)을 지원합니다.
 
 ## <a name="adding-github-from-the-gallery"></a>갤러리에서 GitHub 추가
 
@@ -83,9 +82,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     다. **로그온 URL** 텍스트 상자에서 `https://github.com/orgs/<Organization ID>/sso` 패턴을 사용하는 URL을 입력합니다.
 
-
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 이러한 값을 업데이트해야 합니다. 식별자에는 고유한 문자열 값을 사용하는 것이 좋습니다. GitHub 관리자 섹션으로 이동하여 이러한 값을 검색합니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL로 이러한 값을 업데이트해야 합니다. 식별자에는 고유한 문자열 값을 사용하는 것이 좋습니다. GitHub 관리자 섹션으로 이동하여 이러한 값을 검색합니다.
 
 5. GitHub 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며 이는 GitHub 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷에서는 **고유 사용자 식별자(이름 ID)** 가 **user.userprincipalname** 과 매핑되는 기본 특성 목록을 보여줍니다. GitHub 애플리케이션에서는 **고유 사용자 식별자(이름 ID)** 가 **user.mail** 과 매핑되므로 특성 매핑을 변경하려면 **편집** 아이콘을 클릭하고 특성 매핑을 편집해야 합니다.
 
@@ -99,7 +97,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
-
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
@@ -108,7 +105,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -137,7 +134,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 3. Single Sign-On 구성 필드가 표시된 **SAML 인증 사용** 상자를 선택하여 다음 단계를 수행합니다.
 
-    ![URL 텍스트 상자가 강조 표시된 "SAML 인증 사용"이 있는 "SAML Single Sign-On" 섹션을 보여주는 스크린샷.](./media/github-tutorial/saml-sso.png)
+    ![URL 텍스트 상자가 강조 표시된 "SAML 인증 사용"이 있는 "SAML Single Sign-On" 섹션을 보여주는 스크린샷.](./media/github-tutorial/authentication.png)
 
     a. **Single Sign-On URL** 값을 복사하고 이 값을 Azure Portal의 **기본 SAML 구성** 에 있는 **로그온 URL** 텍스트 상자에 붙여넣습니다.
     
@@ -157,11 +154,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     
     e. GitHub의 URL이 Azure 앱 등록의 URL과 일치하도록 기본 URL에서 **Assertion Consumer Service URL(회신 URL)** 을 업데이트합니다.
 
-    ![이미지](./media/github-tutorial/tutorial_github_sha.png)
+    ![이미지를 보여주는 스크린샷](./media/github-tutorial/certificate.png)
 
 5. **SAML 구성 테스트** 를 클릭하여 SSO 동안 유효성 검사 실패 또는 오류가 없는지 확인합니다.
 
-    ![설정](./media/github-tutorial/test.png)
+    ![설정을 보여주는 스크린샷](./media/github-tutorial/test.png)
 
 6. 페이지 맨 아래에 있는 **저장**
 
@@ -182,13 +179,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 3. **멤버 초대** 를 클릭합니다.
 
-    ![사용자 초대](./media/github-tutorial/invite-member.png "사용자 초대")
+    ![사용자 초대를 보여주는 스크린샷](./media/github-tutorial/invite-member.png "사용자 초대")
 
 4. **멤버 초대** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
     a. **전자 메일** 텍스트 상자에 Britta Simon 계정의 전자 메일 주소를 입력합니다.
 
-    ![피플 초대](./media/github-tutorial/email-box.png "피플 초대")
+    ![사람 초대를 보여주는 스크린샷](./media/github-tutorial/email-box.png "피플 초대")
 
     b. **초대 보내기** 를 클릭합니다.
 
@@ -205,7 +202,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * GitHub 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 GitHub 타일을 클릭하면 GitHub 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 GitHub 타일을 클릭하면 GitHub 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

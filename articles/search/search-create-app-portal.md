@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 08/24/2021
-ms.openlocfilehash: f9ce6f3c7898a492400f6a8cec62e65ab8777e15
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 129c0af62663fcc37621db0d2f37e5fdee55d05c
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770868"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209645"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>빠른 시작: 포털에서 데모 앱 만들기(Azure Cognitive Search)
 
@@ -133,7 +133,7 @@ Azure Cognitive Search에서 패싯 탐색은 누적 필터링 환경입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-JavaScript 또는 프런트 엔드 코드를 작성하지 않고도 최종 사용자 환경을 시뮬레이션할 수 있으므로 데모 앱은 프로토타입 작성에 유용합니다. 프런트 엔드 기능에 대한 자세한 내용은 패싯 탐색으로 시작하세요.
+데모 앱은 JavaScript 또는 프런트 엔드 코드를 작성하지 않고도 최종 사용자 환경을 시뮬레이트할 수 있지만 자체 프로젝트에서 개념 증명에 가까워지면 실제 단어 앱과 더 가까운 엔드투엔드 코드 샘플 중 하나를 검토하기 때문에 프로토타이핑에 유용합니다.
 
 > [!div class="nextstepaction"]
-> [패싯 필터를 빌드하는 방법](search-filters-facets.md)
+> [웹앱에 검색 추가](tutorial-csharp-overview.md)

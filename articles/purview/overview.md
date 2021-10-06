@@ -1,29 +1,25 @@
 ---
-title: Azure Purview(미리 보기) 소개
+title: Azure Purview 소개
 description: 이 문서에서는 해당 기능 및 이를 통해 해결하는 문제를 포함하여 Azure Purview에 대한 개요를 제공합니다. Azure Purview를 사용하면 모든 사용자가 데이터 원본을 등록, 검색, 이해 및 사용할 수 있습니다.
 author: hophanms
 ms.author: hophan
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 11/30/2020
-ms.openlocfilehash: a4ca7c318dc1ac9d135c43c6d063a0f8a45276fe
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: ff8acfc01999a25079da5928f6e0642b6c5793c3
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114729763"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218701"
 ---
 # <a name="what-is-azure-purview"></a>Azure Purview란?
-
-> [!IMPORTANT]
-> Azure Purview는 현재 미리 보기에 있습니다. [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타 또는 미리 보기에 있거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관이 포함되어 있습니다.
 
 Azure Purview는 온-프레미스, 다중 클라우드 및 SaaS(Software-as-a-Service) 데이터를 관리하고 제어하는 데 도움이 되는 통합 데이터 거버넌스 서비스입니다. 자동화된 데이터 검색, 중요한 데이터 분류 및 엔드투엔드 데이터 계보를 통해 데이터 환경에 대한 전체적인 최신 맵을 쉽게 만들 수 있습니다. 데이터 소비자가 중요하고 신뢰할 수 있는 데이터를 찾을 수 있도록 합니다.
 
 Azure Purview 데이터 맵은 데이터 검색 및 효과적인 데이터 거버넌스를 위한 기반을 제공합니다. Purview 데이터 맵은 온-프레미스 및 클라우드의 분석 및 운영 체제에 있는 엔터프라이즈 데이터에 대한 메타데이터를 캡처하는 클라우드 네이티브 PaaS 서비스입니다. Purview 데이터 맵은 기본적으로 제공되는 자동화된 검사 및 분류 시스템을 통해 자동으로 최신 상태로 유지됩니다. 비즈니스 사용자는 직관적인 UI를 통해 Purview 데이터 맵을 구성하고 사용할 수 있으며, 개발자는 오픈 소스 Apache Atlas 2.0 API를 사용하여 데이터 맵과 프로그래밍 방식으로 상호 작용할 수 있습니다.
 
-Azure Purview 데이터 맵은 Purview Studio 내에서 통합된 환경으로 Purview Data Catalog 및 Purview 데이터 인사이트를 제공합니다.
+Azure Purview 데이터 맵은 [Purview Studio](https://web.purview.azure.com/resource/) 내에서 통합된 환경으로 Purview Data Catalog 및 Purview 데이터 인사이트를 제공합니다.
  
 Purview Data Catalog를 사용하면 비즈니스 및 기술 사용자가 용어집 용어, 분류, 민감도 레이블 등과 같은 다양한 렌즈를 기반으로 하는 필터가 있는 검색 환경을 통해 관련 데이터를 빠르고 쉽게 찾을 수 있습니다. Purview Data Catalog는 실무 전문가, 데이터 관리자 및 책임자를 위해 비즈니스 용어집 관리와 같은 데이터 큐레이션 기능 및 용어집 용어를 사용하여 데이터 자산의 태그 지정을 자동화하는 기능을 제공합니다. 또한 데이터 소비자와 생산자는 온-프레미스 운영 시스템에서 클라우드의 다양한 데이터 스토리지 및 처리 시스템을 통한 이동, 변환 및 보강을 거쳐 Power BI와 같은 분석 시스템의 사용에 이르기까지 데이터 자산의 계보를 시각적으로 추적할 수 있습니다.
 

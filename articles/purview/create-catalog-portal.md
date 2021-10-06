@@ -1,34 +1,29 @@
 ---
-title: '빠른 시작: Azure Portal에서 Azure Purview 계정 만들기'
+title: '빠른 시작: Azure Portal에 Purview 계정 만들기'
 description: 이 빠른 시작에서는 Azure Purview 계정을 만들고, 사용을 시작할 수 있는 권한을 구성하는 방법을 설명합니다.
 author: nayenama
 ms.author: nayenama
-ms.date: 08/18/2021
+ms.date: 09/27/2021
 ms.topic: quickstart
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 4f0ef5010a0862b1fa5514d83f6570eefa2c4e10
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: c1a8b47df487cb3159ee1ac7492cf5eb04c1dec6
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123102536"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217432"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Purview 계정 만들기
 
-Azure Purview는 데이터 환경을 관리하는 데 도움이 되는 통합 데이터 거버넌스 도구입니다. 이 빠른 시작에서는 Azure Portal에서 Azure Purview 계정을 만들고 Purview에서 데이터 분류, 보안 및 검색 프로세스를 시작하기 위한 단계에 대해 설명합니다.
+이 빠른 시작에서는 Azure Portal에서 Azure Purview 계정을 만들고 Purview에서 데이터 분류, 보안 및 검색 프로세스를 시작하기 위한 단계에 대해 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+Azure Purview는 데이터 환경을 관리하고 제어하는 데 도움이 되는 데이터 거버넌스 서비스입니다. 온-프레미스, 다중 클라우드 및 SaaS(Software as a Service) 원본에서 데이터에 연결하면 Purview에서 최신 정보 맵을 만듭니다. 중요한 데이터를 식별 및 분류하고 엔드투엔드 계보를 제공합니다. 데이터 소비자는 조직 전체에서 데이터를 검색할 수 있으며, 데이터 관리자는 데이터의 올바른 사용을 감사, 보호 및 보장할 수 있습니다.
 
-* 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Purview에 대한 자세한 내용은 [개요 페이지를 참조](overview.md)하세요. Purview를 조직 전체에 배포하는 방법에 대한 자세한 내용은 [배포 모범 사례를 참조](deployment-best-practices.md)하세요.
 
-* Azure 로그인에 사용되는 사용자 계정은 Azure 구독의 기여자, 소유자 또는 관리자여야 합니다.
-
-* 사용자 고유의 [Azure Active Directory 테넌트](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
-
-* **스토리지 계정** 또는 **이벤트 허브 네임스페이스** 만들기를 방해하는 [Azure 정책](../governance/policy/overview.md)이 없습니다. Purview는 생성될 때 관리형 스토리지 계정 및 이벤트 허브를 배포합니다. 차단 정책이 존재하고, 이를 유지해야 하는 경우, [Purview 예외 태그 가이드](create-purview-portal-faq.md)에 따라 환경을 준비합니다
+[!INCLUDE [purview-quickstart-prerequisites](includes/purview-quickstart-prerequisites.md)]
 
 ## <a name="create-an-azure-purview-account"></a>Azure Purview 계정 만들기
 
@@ -42,7 +37,7 @@ Azure Purview는 데이터 환경을 관리하는 데 도움이 되는 통합 �
   
       또는 대신 마켓플레이스로 이동하고 **Azure Purview** 를 검색하고 **만들기** 를 선택합니다.
 
-     :::image type="content" source="media/create-catalog-portal/search-marketplace.png" alt-text="Azure 마켓플레이스에서 만들기 단추가 강조 표시된 Azure Purview를 보여주는 스크린샷입니다.":::
+     :::image type="content" source="media/create-catalog-portal/search-marketplace.png" alt-text="Azure Marketplace에서 만들기 단추가 강조 표시된 Azure Purview를 보여주는 스크린샷":::
 
 1. 새로운 Purview 계정 만들기 페이지의 **기본** 탭에서 Purview 계정을 만들려는 Azure 구독을 선택합니다.
 

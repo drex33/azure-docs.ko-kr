@@ -5,22 +5,24 @@ author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.topic: include
-ms.date: 07/31/2021
-ms.openlocfilehash: bc0ff303fff0906c8d54c2c4992a0bdf18535e6d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/17/2021
+ms.openlocfilehash: 92a81cc28b605c715e2522c6ad78e5732a379c8f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121744303"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128610301"
 ---
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 이 섹션에서는 Azure CLI를 사용하여 IoT 허브 및 리소스 그룹을 만듭니다.  Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. IoT 허브는 IoT 애플리케이션과 디바이스 간의 양방향 통신을 위한 중앙 메시지 허브 역할을 합니다.
 
 IoT 허브 및 리소스 그룹을 만들려면 다음을 수행합니다.
 
-1. CLI 앱을 시작합니다.  이 빠른 시작의 나머지 부분에서 CLI 명령을 실행하려면 명령 구문을 복사하고 CLI 애플리케이션에 붙여넣은 후 변수 값을 편집하고 Enter 키를 누릅니다.
+1. Azure CLI를 시작합니다. 
     - Cloud Shell을 사용하려면 CLI 명령에서 **사용해 보기** 단추를 선택하여 분할 브라우저 창에서 Cloud Shell을 시작합니다. 또는 별도의 브라우저 탭에서 [Cloud Shell](https://shell.azure.com/bash)을 열 수 있습니다.
-    - Azure CLI를 로컬에서 사용하고 있는 경우 CLI 콘솔 앱을 시작하고 Azure CLI에 로그인합니다.
+    - Azure CLI를 로컬로 사용하는 경우 Windows CMD, PowerShell 또는 Bash와 같은 콘솔을 열고 [Azure CLI에 로그인](/cli/azure/authenticate-azure-cli)합니다.
+    
+    이 빠른 시작의 나머지 부분에서 CLI 명령을 실행하려면 명령 구문을 복사하고 Cloud Shell 창이나 CLI 콘솔에 붙여넣고 변수 값을 편집한 다음, Enter 키를 누릅니다.
 
 1. [az extension add](/cli/azure/extension#az_extension_add)를 실행하여 *azure-iot* 확장을 현재 버전으로 설치하거나 업그레이드합니다.
 
@@ -28,7 +30,7 @@ IoT 허브 및 리소스 그룹을 만들려면 다음을 수행합니다.
     az extension add --upgrade --name azure-iot
     ```
 
-1. CLI 앱에서 [az group create](/cli/azure/group#az_group_create)를 실행하여 리소스 그룹을 만듭니다. 다음 명령은 *eastus* 위치에 *MyResourceGroup* 이라는 리소스 그룹을 만듭니다. 
+1. [az group create](/cli/azure/group#az_group_create)를 실행하여 리소스 그룹을 만듭니다. 다음 명령은 *eastus* 위치에 *MyResourceGroup* 이라는 리소스 그룹을 만듭니다. 
     >[!NOTE]
     > 선택적으로 대체 위치를 설정할 수 있습니다. 사용 가능한 위치를 보려면 `az account list-locations`를 실행합니다. 이 자습서에서는 예제 명령에 표시된 대로 *eastus* 를 사용합니다. 
 
@@ -50,9 +52,12 @@ IoT 허브 및 리소스 그룹을 만들려면 다음을 수행합니다.
 
 이 빠른 시작의 나머지 부분에서는 IoT Explorer를 사용하여 IoT Hub에 디바이스를 등록하고 디바이스 원격 분석을 봅니다. 이 섹션에서는 방금 만든 IoT Hub에 연결하고 퍼블릭 모델 리포지토리에서 플러그 앤 플레이 모델을 읽도록 IoT Explorer를 구성합니다. 
 
+> [!NOTE]
+> 또한 Azure CLI를 사용하여 디바이스를 등록할 수 있습니다. *[az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) --device-id mydevice --hub-name {YourIoTHubName}* 명령을 사용하여 새 디바이스를 등록하고 *[az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az_iot_hub_device_identity_connection_string_show) --device-id mydevice --hub-name {YourIoTHubName}* 명령을 사용하여 디바이스의 기본 연결 문자열을 가져옵니다. 디바이스 연결 문자열을 기록해 두면 [시뮬레이션된 디바이스 실행](#run-a-simulated-device)으로 건너뛸 수 있습니다.
+
 IoT Hub에 대한 연결을 추가하려면
 
-1. CLI 앱에서 [az iot hub connection-string show](/cli/azure/iot/hub/connection-string#az_iot_hub_connection_string_show) 명령을 실행하여 IoT Hub에 대한 연결 문자열을 가져옵니다.
+1. [az iot hub connection-string show](/cli/azure/iot/hub/connection-string#az_iot_hub_connection_string_show) 명령을 실행하여 IoT 허브에 대한 연결 문자열을 가져옵니다.
 
     ```azurecli
     az iot hub connection-string  show --hub-name {YourIoTHubName}
@@ -91,6 +96,3 @@ IoT Hub에 대한 연결을 추가하려면
     :::image type="content" source="media/iot-hub-include-create-hub-iot-explorer/iot-explorer-device-created.png" alt-text="Azure IoT Explorer 디바이스 ID의 스크린샷":::
 
 1. 복사 단추를 사용하여 **기본 연결 문자열** 필드를 복사하고 기록해 둡니다. 이 연결 문자열은 나중에 필요합니다.
-
-> [!NOTE]
-> Azure CLI 사용을 선호하는 경우 *[az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) --device-id mydevice --hub-name {YourIoTHubName}* 명령을 사용하여 새 디바이스를 등록할 수 있으며 *[az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az_iot_hub_device_identity_connection_string_show) --device-id mydevice --hub-name {YourIoTHubName}* 명령을 사용하여 디바이스의 기본 연결 문자열을 가져올 수 있습니다.

@@ -1,18 +1,18 @@
 ---
 title: Azure SQL Database Managed Instance 등록 및 검사
-description: 이 자습서에서는 Azure SQL Database Managed Instance를 검사하는 방법을 설명합니다.
+description: 이 자습서에서는 Azure Purview에서 Azure SQL Database Managed Instance를 검사하는 방법을 설명합니다.
 author: hophanms
 ms.author: hophan
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: tutorial
 ms.date: 05/08/2021
-ms.openlocfilehash: 06f3ee8b820d732c0f605adc3201cff57fa70b42
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c633d95c615298876a8bedd76ecbd9c96a4f54da
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739087"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209696"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance 등록 및 검사
 
@@ -31,8 +31,9 @@ Azure SQL Database Managed Instance 데이터 원본에서 지원하는 기능�
 - 아직 Purview 계정이 없는 경우 새로 만듭니다.
 
 - [Azure SQL Managed Instance에서 퍼블릭 엔드포인트 구성](../azure-sql/managed-instance/public-endpoint-configure.md)
+
     > [!Note]
-    > Purview에서 **프라이빗 엔드포인트를 아직 지원하지 않으므로** 조직에서 퍼블릭 엔드포인트를 허용할 수 있어야 합니다. 따라서 프라이빗 엔드포인트를 사용하면 검사가 성공하지 않습니다.
+    > 이제 Azure Purview 데이터 수집 프라이빗 엔드포인트와 자체 호스팅 통합 런타임 VM을 사용하여 프라이빗 엔드포인트로 구성된 Azure SQL Database Managed Instance를 검사할 수 있습니다. 필수 구성 요소와 관련된 자세한 내용은 [Azure Purview에 연결 및 데이터 원본을 비공개로 안전하게 검사](./catalog-private-link-end-to-end.md)를 참조하세요.
 
 ### <a name="setting-up-authentication-for-a-scan"></a>검사 인증 설정
 

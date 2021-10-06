@@ -1,28 +1,28 @@
 ---
 title: '빠른 시작: 컬렉션 만들기'
-description: 이 문서에서는 Azure Purview에서 컬렉션을 만들고 권한 및 원본을 추가하는 방법을 설명합니다.
+description: 컬렉션은 Azure Purview의 액세스 제어와 자산 구성에 사용됩니다. 이 문서에서는 컬렉션을 만들고 권한을 추가하고 원본을 등록하고 자산을 컬렉션에 등록하는 방법을 설명합니다.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: quickstart
-ms.date: 08/18/2021
+ms.date: 09/27/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: a1a62bb6253aa2788d8dad41d506ca898a049283
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 47db60e99048d5be58eb1aae6707caa6ae9c4d6e
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123475695"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218774"
 ---
 # <a name="quickstart-create-a-collection-and-assign-permissions-in-purview"></a>빠른 시작: Purview에서 컬렉션 만들기 및 권한 할당
 
 > [!NOTE]
-> 현재 이 빠른 시작은 2021년 8월 18일 이후에 만들어진 Purview인스턴스에만 적용됩니다. 8월 18일 전에 만든 인스턴스는 컬렉션을 만들 수 있지만, 해당 컬렉션을 통해 사용 권한을 관리하지는 않습니다. 8월 18일 전에 만든 Purview 인스턴스에 대한 컬렉션 만들기의 자세한 내용은 페이지 맨 아래에 있는 [**레거시 컬렉션 가이드**](#legacy-collection-guide)를 참조하세요.
+> 현재 이 빠른 시작은 2021년 8월 18일 이후에 생성된 Azure Purview 인스턴스에만 적용됩니다. 8월 18일 전에 만든 인스턴스는 컬렉션을 만들 수 있지만, 해당 컬렉션을 통해 사용 권한을 관리하지는 않습니다. 8월 18일 전에 만든 Purview 인스턴스에 대한 컬렉션 만들기의 자세한 내용은 페이지 맨 아래에 있는 [**레거시 컬렉션 가이드**](#legacy-collection-guide)를 참조하세요.
 > 
 > 모든 레거시 계정은 향후 몇 주 동안 자동으로 업그레이드됩니다. Purview 계정이 업그레이드되면 메일 알림을 받게 됩니다. 계정이 업그레이드되면 변경되는 사항에 대한 자세한 내용은 [업그레이드된 계정 가이드](concept-account-upgrade.md)를 참조하세요.
 
-컬렉션은 자산, 원본 및 정보에 대한 소유권과 액세스 제어를 관리하는 데 사용되는 Purview의 도구입니다. 또한 컬렉션은 고객의 관리 환경이 고객의 데이터와 일치하도록 사용자 지정된 범주로 원본 및 자산을 구성합니다. 이 가이드에서는 첫 번째 컬렉션 및 컬렉션 관리자를 설정하여 조직의 Purview 환경을 준비하는 과정을 안내합니다.
+컬렉션은 자산, 원본 및 정보에 대한 소유권과 액세스 제어를 관리하는 데 사용되는 Azure Purview 도구입니다. 또한 컬렉션은 고객의 관리 환경이 고객의 데이터와 일치하도록 사용자 지정된 범주로 원본 및 자산을 구성합니다. 이 가이드에서는 첫 번째 컬렉션 및 컬렉션 관리자를 설정하여 조직의 Purview 환경을 준비하는 과정을 안내합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -38,7 +38,7 @@ Purview에서 컬렉션을 만들고 관리하려면 Purview에서 **컬렉션 �
 
 1. 왼쪽 창에서 데이터 맵 > 컬렉션을 선택하여 컬렉션 관리 페이지를 엽니다.
 
-    :::image type="content" source="./media/quickstart-create-collection/find-collections.png" alt-text="데이터 맵이 열리고 컬렉션 탭이 선택된 Purview Studio 창의 스크린샷" border="true":::
+    :::image type="content" source="./media/quickstart-create-collection/find-collections.png" alt-text="데이터 맵이 열리고 컬렉션 탭이 선택된 Purview 스튜디오 창의 스크린샷" border="true":::
 
 1. 루트 컬렉션을 선택합니다. 루트 컬렉션은 컬렉션 목록의 최상위 컬렉션이며 Purview 리소스와 동일한 이름을 사용합니다. 아래 예제에서는 루트 컬렉션의 이름이 Contoso Purview입니다.
 
@@ -58,9 +58,12 @@ Purview에서 컬렉션을 만들고 관리하려면 Purview에서 **컬렉션 �
 
 1. 왼쪽 창에서 데이터 맵 > 컬렉션을 선택하여 컬렉션 관리 페이지를 엽니다.
 
-    :::image type="content" source="./media/quickstart-create-collection/find-collections.png" alt-text="데이터 맵이 열리고 [컬렉션] 탭이 선택된 Purview Studio 창의 스크린샷" border="true":::
+    :::image type="content" source="./media/quickstart-create-collection/find-collections-2.png" alt-text="데이터 맵이 열리고 [컬렉션] 탭이 선택된 Purview Studio 창의 스크린샷" border="true":::
 
 1. **+ 컬렉션 추가** 를 선택합니다.
+
+    :::image type="content" source="./media/quickstart-create-collection/select-add-collection.png" alt-text="데이터 맵이 열리고 컬렉션 탭이 선택된 상태에서 컬렉션 추가가 강조 표시된 Purview 스튜디오 창의 스크린샷" border="true":::
+
 1. 오른쪽 패널에서 컬렉션 이름과 설명을 입력하고, 컬렉션 관리자로 추가할 사용자를 검색합니다.
 
     :::image type="content" source="./media/quickstart-create-collection/create-collection.png" alt-text="표시 이름 및 컬렉션 관리자를 선택하고 [만들기] 단추가 강조 표시된 새 컬렉션 창을 보여주는 Purview Studio 창의 스크린샷" border="true":::

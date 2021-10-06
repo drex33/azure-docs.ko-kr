@@ -14,32 +14,32 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/16/2020
+ms.date: 08/23/2021
 ms.author: yelevin
-ms.openlocfilehash: 105f3e55999d433f4d9a160ef93d789b23200dfe
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 0c782c7cb301a88e54213f18d702ed1f81baabf2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123251924"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563099"
 ---
 # <a name="what-is-azure-sentinel"></a>Azure Sentinel이란?
 
-Microsoft Azure Sentinel은 확장 가능한 클라우드 네이티브, **SIEM(보안 정보 이벤트 관리)** 및 **SOAR(보안 오케스트레이션 자동화 응답)** 솔루션입니다. Azure Sentinel은 엔터프라이즈 전반에 지능적인 보안 분석 및 위협 인텔리전스를 제공하며, 경고 검색, 위협 가시성, 주도적 헌팅 및 위협 대응을 위한 단일 솔루션을 제공합니다. 
+Microsoft Azure Sentinel은 확장 가능한 클라우드 네이티브, **SIEM(보안 정보 이벤트 관리)** 및 **SOAR(보안 오케스트레이션 자동화 응답)** 솔루션입니다. Azure Sentinel은 엔터프라이즈 전반에 지능적인 보안 분석 및 위협 인텔리전스를 제공하며, 경고 검색, 위협 가시성, 주도적 헌팅 및 위협 대응을 위한 단일 솔루션을 제공합니다.
 
 Azure Sentinel은 점점 더 정교해지는 공격, 점점 늘어나는 경고의 양과 긴 해결 기간이라는 문제를 완화하기 위해 엔터프라이즈 전체를 폭넓은 시각으로 모니터링합니다.
 
-- 온-프레미스와 여러 클라우드의 모든 사용자, 디바이스, 애플리케이션 및 인프라에서 **클라우드 규모로 데이터를 수집** 합니다. 
+- 온-프레미스와 여러 클라우드의 모든 사용자, 디바이스, 애플리케이션 및 인프라에서 **클라우드 규모로 데이터를 수집** 합니다.
 
-- Microsoft의 분석 및 업계 최고의 위협 인텔리전스를 사용하여 **이전에 미검사된 위협을 탐지** 하고 [가양성을 최소화](false-positives.md)합니다. 
+- Microsoft의 분석 및 업계 최고의 위협 인텔리전스를 사용하여 **이전에 미검사된 위협을 탐지** 하고 [가양성을 최소화](false-positives.md)합니다.
 
-- Microsoft의 수년 간의 사이버 보안 성과물을 활용하여 **인공 지능을 통해 위협을 조사** 하고 대규모로 의심스러운 활동을 헌팅합니다. 
+- Microsoft의 수년 간의 사이버 보안 성과물을 활용하여 **인공 지능을 통해 위협을 조사** 하고 대규모로 의심스러운 활동을 헌팅합니다.
 
 - 일반 작업의 기본 제공 오케스트레이션 및 자동화로 **빠르게 인시던트에 대응** 합니다.
 
 ![Azure Sentinel의 핵심 기능](./media/overview/core-capabilities.png)
 
-기존 Azure 서비스의 전체 범위를 토대로 구축된 Azure Sentinel은 기본적으로 Log Analytics 및 Logic Apps와 같은 입증된 토대를 통합합니다. Azure Sentinel은 AI를 통해 조사 및 검색을 보강하고, Microsoft의 위협 인텔리전스 스트림을 제공하고, 사용자 고유의 위협 인텔리전스를 구현할 수 있도록 합니다. 
+기존 Azure 서비스의 전체 범위를 토대로 구축된 Azure Sentinel은 기본적으로 Log Analytics 및 Logic Apps와 같은 입증된 토대를 통합합니다. Azure Sentinel은 AI를 통해 조사 및 검색을 보강하고, Microsoft의 위협 인텔리전스 스트림을 제공하고, 사용자 고유의 위협 인텔리전스를 구현할 수 있도록 합니다.
 
 ## <a name="connect-to-all-your-data"></a>모든 데이터에 연결
 
@@ -55,9 +55,15 @@ Azure Sentinel에는 Microsoft 365 Defender(이전에는 Microsoft Threat Protec
 
 ## <a name="workbooks"></a>통합 문서
 
-Azure Sentinel에 [데이터 원본을 연결](quickstart-onboard.md)한 후에는 사용자 지정 통합 문서를 만들 때 다양한 기능을 제공하는 Azure Monitor 통합 문서와 Azure Sentinel 통합을 사용하여 데이터를 모니터링할 수 있습니다. 통합 문서가 Azure Sentinel에 다르게 표시되는 반면, [Azure Monitor 통합 문서를 사용하여 대화형 보고서를 만드는](../azure-monitor/visualize/workbooks-overview.md) 방법을 확인하는 것이 유용할 수 있습니다. Azure Sentinel을 사용하면 데이터에 대한 사용자 지정 통합 문서를 만들 수 있으며 데이터 원본을 연결하는 즉시 데이터를 신속하게 파악할 수 있는 기본 제공 통합 문서 템플릿도 제공됩니다.
+Azure Sentinel에 [데이터 원본을 연결](quickstart-onboard.md)한 후에는 사용자 지정 통합 문서를 만들 때 다양한 기능을 제공하는 Azure Monitor 통합 문서와 Azure Sentinel 통합을 사용하여 데이터를 모니터링할 수 있습니다.
+
+통합 문서가 Azure Sentinel에 다르게 표시되는 반면, [Azure Monitor 통합 문서를 사용하여 대화형 보고서를 만드는](../azure-monitor/visualize/workbooks-overview.md) 방법을 확인하는 것이 유용할 수 있습니다. Azure Sentinel을 사용하면 데이터에 대한 사용자 지정 통합 문서를 만들 수 있으며 데이터 원본을 연결하는 즉시 데이터를 신속하게 파악할 수 있는 기본 제공 통합 문서 템플릿도 제공됩니다.
 
 ![대시보드](./media/tutorial-monitor-data/access-workbooks.png)
+
+- 통합 문서는 모든 계층의 SOC 엔지니어와 분석가가 데이터를 시각화하기 위한 것입니다.
+
+- 통합 문서는 Azure Sentinel 데이터의 상위 수준 보기에 가장 적합하며 코딩 지식이 필요하지 않지만 통합 문서를 외부 데이터와 통합할 수 없습니다.
 
 ## <a name="analytics"></a>분석
 
@@ -68,11 +74,17 @@ Azure Sentinel에 [데이터 원본을 연결](quickstart-onboard.md)한 후에�
 
 ## <a name="security-automation--orchestration"></a>보안 자동화 및 오케스트레이션
 
-일반적인 작업을 자동화하고, Azure 서비스 뿐만 아니라 기준 도구와 통합되는 [플레이 북을 사용하여 보안 오케스트레이션 간소화](tutorial-respond-threats-playbook.md)합니다. Azure Logic Apps 토대 위에 구축된 Azure Sentinel의 자동화 및 오케스트레이션 솔루션은 새로운 기술과 위협이 대두될 때 확장성이 뛰어난 자동화를 지원하는 고도로 확장 가능한 아키텍처를 제공합니다. Azure Logic Apps를 사용하여 플레이 북을 빌드하려는 경우 점점 더 커지는 기본 제공 플레이 북 갤러리 중에서 선택할 수 있습니다. 여기에는 Azure Functions와 같은 서비스를 위한 [200개 이상의 커넥터](../connectors/apis-list.md)가 포함됩니다. 이러한 커넥터를 사용하면 코드, ServiceNow, Jira, Zendesk, HTTP 요청, Microsoft Teams, Slack, Windows Defender ATP 및 Cloud App Security에서 사용자 지정 논리를 적용할 수 있습니다.
+일반적인 작업을 자동화하고, Azure 서비스 및 기준 도구와 통합되는 [플레이 북을 사용하여 보안 오케스트레이션 간소화](tutorial-respond-threats-playbook.md)합니다.
+
+새로운 기술과 위협이 출현함에 따라 Azure Logic Apps를 기반으로 하여 구축된 Azure Sentinel의 자동화 및 오케스트레이션 솔루션은 확장성 있는 자동화를 지원하는 고도로 확장 가능한 아키텍처를 제공합니다. Azure Logic Apps를 사용하여 플레이 북을 빌드하려는 경우 점점 더 커지는 기본 제공 플레이 북 갤러리 중에서 선택할 수 있습니다. 여기에는 Azure Functions와 같은 서비스를 위한 [200개 이상의 커넥터](../connectors/apis-list.md)가 포함됩니다. 이러한 커넥터를 사용하면 코드, ServiceNow, Jira, Zendesk, HTTP 요청, Microsoft Teams, Slack, Windows Defender ATP 및 Cloud App Security에서 사용자 지정 논리를 적용할 수 있습니다.
 
 예를 들어, ServiceNow 티켓 시스템을 사용하는 경우 제공된 도구를 사용하여 Azure Logic Apps에서 워크플로를 자동화하고, 특정 이벤트가 검색될 때마다 ServiceNow에서 티켓을 열 수 있습니다.
 
 ![플레이북](./media/tutorial-respond-threats-playbook/logic-app.png)
+
+- 플레이북은 모든 계층의 SOC 엔지니어와 분석가가 데이터 수집, 보강, 조사 및 수정을 포함한 작업을 자동화하고 간소화하기 위한 것입니다.
+
+- 플레이북은 반복 가능한 단일 작업에서 가장 잘 작동하며 코딩 지식이 필요하지 않습니다. 플레이북은 임시 또는 복잡한 작업 체인에 적합하지 않거나 증거를 문서화하고 공유하는 데 적합하지 않습니다.
 
 
 ## <a name="investigation"></a>조사
@@ -88,9 +100,26 @@ Azure Sentinel에 [데이터 원본을 연결](quickstart-onboard.md)한 후에�
 
 ![헌팅 기능의 개요](./media/overview/hunting.png)
 
+## <a name="notebooks"></a>Notebooks
+
+Azure Sentinel은 기계 학습, 시각화 및 데이터 분석을 위한 전체 라이브러리를 포함하여 Azure Machine Learning 작업 영역에서 Jupyter Notebook을 지원합니다.
+
+[Azure Sentinel에서 Notebook을 사용](notebooks.md)하여 Azure Sentinel 데이터를 사용하여 수행할 수 있는 작업의 범위를 확장합니다. 예를 들어 Azure Sentinel에 기본 제공되지 않는 분석(예: 일부 Python 기계 학습 기능)을 수행하거나, Azure Sentinel에 기본 제공되지 않는 데이터 시각화(예: 사용자 지정 타임라인 및 프로세스 트리)를 만들거나, Azure Sentinel 외부의 데이터 원본(예: 온-프레미스 데이터 세트)을 통합합니다.
+
+:::image type="content" source="media/notebooks/sentinel-notebooks-on-machine-learning.png" alt-text="AML 작업 영역에 있는 Sentinel Notebook의 스크린샷":::
+
+- Azure Sentinel Notebook은 위협 헌터 또는 계층 2-3 분석가, 인시던트 조사관, 데이터 과학자 및 보안 연구원을 위한 것입니다.
+
+- Notebook은 Azure Sentinel 및 외부 데이터, 데이터 보강 기능, 조사, 시각화, 헌팅, 기계 학습 및 빅 데이터 분석에 대한 쿼리를 제공합니다.
+
+- Notebook은 반복 가능한 작업, 임시 절차 제어, 기계 학습 및 사용자 지정 분석의 더 복잡한 체인에 가장 적합하고, 데이터를 조작하고 시각화하는 풍부한 Python 라이브러리를 지원하며, 분석 증거를 문서화하고 공유하는 데 유용합니다.
+
+- Notebook에는 더 높은 수준의 학습 곡선과 코딩 지식이 필요하며 자동화 지원이 제한됩니다.
+
+
 ## <a name="community"></a>커뮤니티
 
-Azure Sentinel 커뮤니티는 위협 검색 및 자동화를 위한 강력한 리소스입니다. Microsoft 보안 분석가들은 새로운 통합 문서, 플레이 북 및 헌팅 쿼리를 지속적으로 만들고 추가하며, 작업 환경에서 사용할 수 있게 커뮤니티에 게시하고 있습니다. 프라이빗 커뮤니티 GitHub [리포지토리](https://aka.ms/asicommunity)에서 샘플 콘텐츠를 다운로드하여 Azure Sentinel용 사용자 지정 통합 문서, 헌팅 쿼리, 노트 및 플레이 북을 만들 수 있습니다. 
+Azure Sentinel 커뮤니티는 위협 검색 및 자동화를 위한 강력한 리소스입니다. Microsoft 보안 분석가들은 새로운 통합 문서, 플레이 북 및 헌팅 쿼리를 지속적으로 만들고 추가하며, 작업 환경에서 사용할 수 있게 커뮤니티에 게시하고 있습니다. 프라이빗 커뮤니티 GitHub [리포지토리](https://aka.ms/asicommunity)에서 샘플 콘텐츠를 다운로드하여 Azure Sentinel용 사용자 지정 통합 문서, 헌팅 쿼리, 노트 및 플레이 북을 만들 수 있습니다.
 
 ![사용자 커뮤니티 살펴보기](./media/overview/community.png)
 

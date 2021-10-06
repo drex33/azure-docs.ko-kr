@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/11/2021
 ms.custom: mvc
-ms.openlocfilehash: f925eb888c1955212a762eb46c63300afd17d77d
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 89548cf1c98e360569255b9028b26230fedf5ed2
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123427732"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092341"
 ---
 # <a name="tutorial-discover-physical-servers-with-azure-migrate-discovery-and-assessment"></a>자습서: Azure Migrate: 검색 및 평가를 사용하여 물리적 서버 검색
 
@@ -194,26 +194,28 @@ Azure Migrate 어플라이언스는 서버 검색을 수행하고, 서버 구성
 ### <a name="3-run-the-azure-migrate-installer-script"></a>3. Azure Migrate 설치 프로그램 스크립트 실행
 
 1. 어플라이언스를 호스팅할 서버의 폴더에 압축 파일을 추출합니다.  기존 Azure Migrate 어플라이언스가 있는 서버에서 스크립트를 실행하지 않아야 합니다.
-2. 위 서버에서 관리자(상승된) 권한을 사용하여 PowerShell을 시작합니다.
-3. 다운로드한 압축 파일에서 콘텐츠를 추출한 폴더로 PowerShell 디렉터리를 변경합니다.
-4. 다음 명령을 실행하여 **AzureMigrateInstaller.ps1** 이라는 스크립트를 실행합니다.
 
-    
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
+2. 위 서버에서 관리자(상승된) 권한을 사용하여 PowerShell을 시작합니다.
+
+3. 다운로드한 압축 파일에서 콘텐츠를 추출한 폴더로 PowerShell 디렉터리를 변경합니다.
+
+4. 다음 명령을 실행하여 `AzureMigrateInstaller.ps1`이라는 스크립트를 실행합니다.
+
+   `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1`
 
 5. 시나리오, 클라우드, 연결 옵션 중에서 선택하여 원하는 구성으로 어플라이언스를 배포합니다. 예를 들어 아래와 같이 선택하면 **Azure 퍼블릭 클라우드** 에서 **기본 ‘(퍼블릭 엔드포인트)’ 연결** 이 있는 Azure Migrate 프로젝트에 대한 **물리적 서버**‘(또는 AWS, GCP, Xen 등의 다른 클라우드에서 실행되는 서버)’를 검색하고 평가하도록 어플라이언스가 설정됩니다. 
 
-    :::image type="content" source="./media/tutorial-discover-physical/script-physical-default-inline.png" alt-text="원하는 구성으로 어플라이언스를 설정하는 방법을 보여 주는 스크린샷" lightbox="./media/tutorial-discover-physical/script-physical-default-expanded.png":::
+   :::image type="content" source="./media/tutorial-discover-physical/script-physical-default-inline.png" alt-text="원하는 구성으로 어플라이언스를 설정하는 방법을 보여 주는 스크린샷" lightbox="./media/tutorial-discover-physical/script-physical-default-expanded.png":::
 
 6. 설치 프로그램 스크립트는 다음을 수행합니다.
 
- - 에이전트 및 웹 애플리케이션을 설치합니다.
- - Windows 정품 인증 서비스, IIS 및 PowerShell ISE를 비롯한 Windows 역할을 설치합니다.
- - IIS 재작성 모듈을 다운로드하여 설치합니다.
- - Azure Migrate에 대한 영구적인 설정 세부 정보를 사용하여 레지스트리 키(HKLM)를 업데이트합니다.
- - 지정된 경로에 다음 파일을 만듭니다.
-    - **구성 파일**: %Programdata%\Microsoft Azure\Config
-    - **로그 파일**: %Programdata%\Microsoft Azure\Logs
+   - 에이전트 및 웹 애플리케이션을 설치합니다.
+   - Windows 정품 인증 서비스, IIS 및 PowerShell ISE를 비롯한 Windows 역할을 설치합니다.
+   - IIS 재작성 모듈을 다운로드하여 설치합니다.
+   - Azure Migrate에 대한 영구적인 설정 세부 정보를 사용하여 레지스트리 키(HKLM)를 업데이트합니다.
+   - 지정된 경로에 다음 파일을 만듭니다.
+     - **구성 파일:** `%ProgramData%\Microsoft Azure\Config`
+     - **로그 파일:** `%ProgramData%\Microsoft Azure\Logs`
 
 스크립트를 성공적으로 실행하면 어플라이언스 구성 관리자가 자동으로 시작됩니다.
 
@@ -231,15 +233,15 @@ Azure Migrate 어플라이언스는 서버 검색을 수행하고, 서버 구성
 1. 어플라이언스에 연결할 수 있는 모든 서버에서 브라우저를 열고, 어플라이언스 웹앱의 URL(**https://*어플라이언스 이름 또는 IP 주소*: 44368**)을 엽니다.
 
    또는 바탕 화면에서 앱 바로 가기를 클릭하여 앱을 열 수 있습니다.
-2. **사용 조건** 에 동의하고 타사 정보를 읽습니다.
+1. **사용 조건** 에 동의하고 타사 정보를 읽습니다.
 1. 웹앱 > **필수 구성 요소 설정** 에서 다음을 수행합니다.
-    - **연결**: 앱에서 서버가 인터넷에 액세스할 수 있는지 확인합니다. 서버에서 프록시를 사용하는 경우:
-        - **프록시 설정** 을 클릭하고 프록시 주소(http://ProxyIPAddress 또는 http://ProxyFQDN) 형식) 및 수신 포트를 지정합니다.
-        - 프록시에 인증이 필요한 경우 자격 증명을 지정합니다.
-        - HTTP 프록시만 지원됩니다.
-        - 프록시 세부 정보를 추가하거나 프록시 및/또는 인증을 사용하지 않도록 설정한 경우 **저장** 을 클릭하여 연결 확인을 다시 트리거합니다.
-    - **시간 동기화**: 시간이 확인됩니다. 서버 검색이 제대로 작동하려면 어플라이언스의 시간이 인터넷 시간과 동기화되어야 합니다.
-    - **업데이트 설치**: Azure Migrate: 검색 및 평가에서 어플라이언스에 최신 업데이트가 설치되어 있는지 확인합니다. 확인이 완료되면 **어플라이언스 서비스 보기** 를 클릭하여 어플라이언스에서 실행되는 구성 요소의 상태와 버전을 확인할 수 있습니다.
+   - **연결**: 앱에서 서버가 인터넷에 액세스할 수 있는지 확인합니다. 서버에서 프록시를 사용하는 경우:
+     - **프록시 설정** 을 클릭하고 프록시 주소(http://ProxyIPAddress 또는 http://ProxyFQDN) 형식) 및 수신 포트를 지정합니다.
+     - 프록시에 인증이 필요한 경우 자격 증명을 지정합니다.
+     - HTTP 프록시만 지원됩니다.
+     - 프록시 세부 정보를 추가하거나 프록시 및/또는 인증을 사용하지 않도록 설정한 경우 **저장** 을 클릭하여 연결 확인을 다시 트리거합니다.
+   - **시간 동기화**: 시간이 확인됩니다. 서버 검색이 제대로 작동하려면 어플라이언스의 시간이 인터넷 시간과 동기화되어야 합니다.
+   - **업데이트 설치**: Azure Migrate: 검색 및 평가에서 어플라이언스에 최신 업데이트가 설치되어 있는지 확인합니다. 확인이 완료되면 **어플라이언스 서비스 보기** 를 클릭하여 어플라이언스에서 실행되는 구성 요소의 상태와 버전을 확인할 수 있습니다.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Azure Migrate를 사용하여 어플라이언스 등록
 
@@ -249,14 +251,11 @@ Azure Migrate 어플라이언스는 서버 검색을 수행하고, 서버 구성
     ![디바이스 코드를 보여주는 모달](./media/tutorial-discover-vmware/device-code.png)
 
 1. **코드 복사 및 로그인** 을 클릭하여 디바이스 코드를 복사하고 새 브라우저 탭에서 Azure 로그인 프롬프트를 엽니다. 표시되지 않으면 브라우저에서 팝업 차단을 사용하지 않도록 설정했는지 확인합니다.
-1. 새 탭에서 디바이스 코드를 붙여넣고 Azure 사용자 이름과 암호를 사용하여 로그인합니다.
-   
-   PIN을 사용한 로그인은 지원되지 않습니다.
-3. 로그인 탭을 실수로 로그인하지 않고 닫은 경우에는 어플라이언스 구성 관리자의 브라우저 탭을 새로 고쳐 로그인 단추를 다시 사용하도록 설정해야 합니다.
+1. 새 탭에서 디바이스 코드를 붙여넣고 Azure 사용자 이름과 암호를 사용하여 로그인합니다. PIN을 사용한 로그인은 지원되지 않습니다.
+1. 로그인 탭을 실수로 로그인하지 않고 닫은 경우에는 어플라이언스 구성 관리자의 브라우저 탭을 새로 고쳐 로그인 단추를 다시 사용하도록 설정해야 합니다.
 1. 성공적으로 로그인한 후 어플라이언스 구성 관리자를 사용하여 이전 탭으로 돌아갑니다.
-4. 로깅에 사용되는 Azure 사용자 계정에 키 생성 시 만든 Azure 리소스에 대한 올바른 [권한]()이 있는 경우 어플라이언스 등록이 시작됩니다.
+1. 로깅에 사용되는 Azure 사용자 계정에 키 생성 시 만든 Azure 리소스에 대한 올바른 [권한]()이 있는 경우 어플라이언스 등록이 시작됩니다.
 1. 어플라이언스가 성공적으로 등록되면 **세부 정보 보기** 를 클릭하여 등록 세부 정보를 확인할 수 있습니다.
-
 
 ## <a name="start-continuous-discovery"></a>연속 검색 시작
 
@@ -289,8 +288,7 @@ Azure Migrate 어플라이언스는 서버 검색을 수행하고, 서버 구성
 1. 검색을 시작하기 전에 언제든지 서버에 대한 연결의 **유효성을 다시 검사** 할 수 있습니다.
 1. **검색 시작** 을 클릭하여 유효성 검사에 성공한 서버의 검색을 시작합니다. 검색이 성공적으로 시작되었으면 테이블의 각 서버에 대한 검색 상태를 확인할 수 있습니다.
 
-
-그러면 검색을 시작합니다. 검색된 서버의 메타데이터가 Azure Portal에 표시되는 데 서버당 약 2분이 걸립니다.
+Azure Portal에 표시되는 서버 100개와 해당 메타데이터의 검색을 완료하는 데 약 2분이 걸립니다.
 
 ## <a name="verify-servers-in-the-portal"></a>포털에서 서버 확인
 
@@ -298,6 +296,13 @@ Azure Migrate 어플라이언스는 서버 검색을 수행하고, 서버 구성
 
 1. Azure Migrate 대시보드를 엽니다.
 2. **Azure Migrate - 서버** > **Azure Migrate: 검색 및 평가** 페이지에서 **검색된 서버** 의 수를 표시하는 아이콘을 클릭합니다.
+
+## <a name="delete-servers"></a>서버 삭제
+검색이 시작된 후 **검색 원본 추가** 테이블에서 서버 이름을 검색하고 **삭제** 를 클릭하면 어플라이언스 구성 관리자에서 추가된 서버를 삭제할 수 있습니다.
+
+>[!NOTE]
+> 검색이 시작된 서버를 삭제하면 진행 중인 검색과 평가가 중지되어 이 서버가 포함된 평가의 신뢰 등급이 영향을 받을 수 있습니다. [자세히 알아보기](https://go.microsoft.com/fwlink/?linkid=2171565)
+
 ## <a name="next-steps"></a>다음 단계
 
 - Azure VM으로 마이그레이션할 [물리적 서버를 평가](tutorial-assess-physical.md)합니다.

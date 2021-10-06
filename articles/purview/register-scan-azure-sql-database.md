@@ -1,18 +1,18 @@
 ---
 title: Azure SQL Database 등록 및 검사
-description: 이 자습서에서는 Azure SQL Database를 검사하는 방법을 설명합니다.
+description: 이 자습서에서는 Azure Purview에서 Azure SQL Database를 검사하는 방법을 설명합니다.
 author: hophanms
 ms.author: hophan
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: tutorial
-ms.date: 06/08/2021
-ms.openlocfilehash: 83fd36ca1f352371e4d0717968512d791443d590
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.date: 09/27/2021
+ms.openlocfilehash: a84de6dcdf3abebad1267382fa990fcc1cb0b3a4
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122515538"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209766"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Azure SQL Database 등록 및 검사
 
@@ -35,7 +35,6 @@ Azure SQL Database 데이터 원본에서 지원하는 기능은 다음과 같�
 1. 아직 Purview 계정이 없는 경우 새로 만듭니다.
 
 1. Purview 계정과 Azure SQL Database 간의 네트워킹 액세스.
-
 
 ### <a name="set-up-authentication-for-a-scan"></a>검사 인증 설정
 
@@ -101,7 +100,7 @@ Purview에서 서비스 주체 또는 Purview의 **관리 ID** 를 사용하여 
 
     > [!Note]
     > `Username`은 사용자 고유의 서비스 주체 또는 Purview의 관리 ID입니다. [고정 데이터베이스 역할 및 해당 기능](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles)에 대해 자세히 알아볼 수 있습니다.
-    
+
 ##### <a name="add-service-principal-to-key-vault-and-purviews-credential"></a>키 자격 증명 모음 및 Purview의 자격 증명에 서비스 주체 추가
 
 > [!Note]

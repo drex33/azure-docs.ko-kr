@@ -4,15 +4,15 @@ description: Azure Object Anchors 서비스에 대한 FAQ입니다.
 author: craigktreasure
 manager: vriveras
 ms.author: crtreasu
-ms.date: 04/01/2020
+ms.date: 09/10/2021
 ms.topic: overview
 ms.service: azure-object-anchors
-ms.openlocfilehash: cb64f2be26abc1d3ccaf80b90a85f279c7930c94
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 18069157b4c7f38216c01649a33ed5f999dc7577
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114710721"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638390"
 ---
 # <a name="frequently-asked-questions-about-azure-object-anchors"></a>Azure Object Anchors FAQ
 
@@ -45,13 +45,9 @@ Azure Object Anchors를 사용하면 애플리케이션이 3D 모델을 사용�
 
 **A:** 현재 `fbx`, `ply`, `obj`, `glb` 및 `gltf` 파일 형식을 지원합니다. 자세한 내용은 [자산 요구 사항](overview.md)을 참조하세요.
 
-**Q: 모델 변환 서비스에 필요한 중력 방향 및 단위는 무엇이며 어떻게 확인할 수 있나요?**
+**Q: 모델 변환 서비스에 필요한 중력 방향과 단위는 무엇인가요?**
 
-**A:** 중력 방향은 지구를 가리키는 하향 벡터입니다. CAD 모델의 경우 중력 방향은 일반적으로 위쪽 방향의 반대입니다. 예를 들어, 대부분의 경우 +Z는 위쪽 방향을 나타내며 -Z 또는 `Vector3(0.0, 0.0, -1.0)`가 중력 방향을 나타냅니다. 중력을 결정할 때는 모델을 고려해야 할 뿐만 아니라 런타임 중에 모델이 표시되는 방향도 고려해야 합니다. 실제 세계에서 평면 위의 의자를 검색하려는 경우에는 중력이 `Vector3(0.0, 0.0, -1.0)`일 수 있습니다. 그러나 의자가 45도 기울어 있는 경우 중력은 `Vector3(0.0, -Sqrt(2)/2, -Sqrt(2)/2)`이 될 수 있습니다.
-
-중력 방향은 [MeshLab](http://www.meshlab.net/) 같은 3D 렌더링 도구를 사용하여 추론할 수 있습니다.
-
-단위는 모델의 측정 단위를 나타냅니다. 지원되는 단위는 **Microsoft.Azure.ObjectAnchors.Conversion.AssetLengthUnit** 열거형을 사용하여 찾을 수 있습니다.
+**A:** 중력 방향은 지구를 가리키는 아래쪽 벡터이며 측정 단위는 모델의 배율을 나타냅니다. 모델을 변환할 때 [중력 방향과 자산 차원 단위가 올바른지 확인](./troubleshoot/object-detection.md#ensure-the-gravity-direction-and-asset-dimension-unit-are-correct)해야 합니다.
 
 **Q: CAD 모델을 변환하는 데 얼마나 걸리나요?**
 
@@ -73,7 +69,8 @@ Azure Object Anchors를 사용하면 애플리케이션이 3D 모델을 사용�
 
 **Q: HoloLens에서 개체를 검색하는 데 얼마나 걸리나요?**
 
-**A:** 개체 크기와 스캔 프로세스에 따라 달라집니다. 검색 시간을 단축하려면 철저한 스캔에 대한 모범 사례를 따르세요. 각 치수가 2미터 이하인 작은 개체의 경우 몇 초 내에 검색을 완료할 수 있습니다. 자동차와 같은 대형 개체의 경우, 신뢰할 수 있는 검색을 얻으려면 사용자가 개체를 완전히 빙 돌아야 합니다. 즉, 검색은 수십 초까지 걸릴 수 있습니다.
+**A:** 개체 크기와 스캔 프로세스에 따라 달라집니다. 검색 시간을 단축하려면 철저한 스캔에 대한 모범 사례를 따르세요.
+각 치수가 2미터 이하인 작은 개체의 경우 몇 초 내에 검색을 완료할 수 있습니다. 자동차와 같은 대형 개체의 경우, 신뢰할 수 있는 검색을 얻으려면 사용자가 개체를 완전히 빙 돌아야 합니다. 즉, 검색은 수십 초까지 걸릴 수 있습니다.
 
 **Q: HoloLens 애플리케이션에서 Object Anchors를 사용하는 경우 모범 사례는 무엇인가요?**
 
@@ -95,7 +92,7 @@ Azure Object Anchors를 사용하면 애플리케이션이 3D 모델을 사용�
 
 **Q: 예측 포즈는 얼마나 정확한가요?**
 
-**A:** 개체 크기, 재질, 환경 등에 따라 다릅니다. 소형 개체의 경우 예측 포즈 오차는 2cm 이내일 수 있습니다. 자동차와 같은 대형 개체의 경우 오차는 최대 2~8cm일 수 있습니다.
+**A:** 개체 크기, 재질, 환경 등에 따라 달라집니다. 작은 개체의 경우 예측 포즈는 2cm 오차 내에 있을 수 있습니다. 자동차와 같은 대형 개체의 경우 오차는 최대 2~8cm일 수 있습니다.
 
 **Q: Object Anchors가 개체 이동을 처리할 수 있나요?**
 
@@ -105,35 +102,21 @@ Azure Object Anchors를 사용하면 애플리케이션이 3D 모델을 사용�
 
 **A:** 부분적으로 변형 또는 굴절로 인한 개체 모양 또는 기하 도형 변화 크기에 따라 달라집니다. 개체의 기하 도형이 크게 변화하면 사용자는 해당 구성에 대해 다른 모델을 만들어 검색에 사용할 수 있습니다.
 
-**Q: Object Anchors가 동시에 검색할 수 있는 개체는 몇 개인가요?**
+**Q: Object Anchors에서 동시에 검색할 수 있는 모델은 몇 개인가요?**
 
-**A:** 현재는 한 번에 하나의 개체 모델 검색만 지원합니다.
+**A:** 현재 최상의 사용자 환경을 보장하기 위해 한 번에 세 개의 모델을 검색하도록 지원하지만 이를 제한하지 않습니다.
 
 **Q: Object Anchors가 동일한 개체 모델의 여러 인스턴스를 검색할 수 있나요?**
 
-**A:** 예. 동일한 모델 유형의 개체를 최대 3개까지 검색할 수 있습니다. 애플리케이션은 서로 다른 쿼리로 `ObjectObserver.DetectAsync`를 여러 번 호출하여 동일한 모델의 여러 인스턴스를 검색할 수 있습니다.
+**A:** 예, 최상의 사용자 환경을 보장하기 위해 동일한 모델 유형의 인스턴스를 최대 3개까지 검색하도록 지원하지만 이를 제한하지 않습니다. 검색 영역당 하나의 개체 인스턴스를 검색할 수 있습니다. `ObjectQuery.SearchAreas.Add`를 호출하면 더 많은 검색 영역을 쿼리에 추가하여 더 많은 인스턴스를 검색할 수 있습니다. 여러 쿼리를 통해 `ObjectObserver.DetectAsync`를 호출하여 여러 모델을 검색할 수 있습니다.
 
 **Q: Object Anchors 런타임이 개체를 검색할 수 없는 경우 어떻게 해야 하나요?**
 
-**A:**
-
-* 공간의 질감이 충분하도록 몇 개의 포스터를 추가합니다.
-* 개체를 보다 완전하게 스캔합니다.
-* 아래에서 설명한 대로 모델 매개 변수를 조정합니다.
-* 개체의 전체 또는 대부분을 포함하는 근접한 경계 상자를 검색 영역으로 제공합니다.
-* 공간 매핑 캐시를 지우고 개체를 다시 스캔합니다.
-* 진단 데이터를 캡처하여 Microsoft에 보냅니다.
-* `ObjectQuery` 클래스에서 `MinSurfaceCoverage` 속성을 조정합니다. 자세한 내용은 [어려운 개체를 검색하는 방법](detect-difficult-object.md)을 참조하세요.
+**A:** 개체가 제대로 검색되지 못할 수 있는 환경, 모델 변환 구성, 쿼리 설정 등의 많은 요인이 있습니다. [개체 검색 문제를 해결](./troubleshoot/object-detection.md)하는 방법에 대해 자세히 알아보세요.
 
 **Q: 개체 쿼리 매개 변수는 어떻게 선택하나요?**
 
-**A:**
-
-* 검색 속도 및 정확도를 향상하려면 이상적으로 전체 개체를 포함하는 검색 영역을 제공합니다.
-* 일반적으로 개체 모델의 기본값 `ObjectQuery.MinSurfaceCoverage`이면 충분합니다. 그렇지 않으면 더 작은 값을 사용하여 더 빠르게 검색을 얻으세요.
-* 개체가 똑바로 서 있는 경우 `ObjectQuery.ExpectedMaxVerticalOrientationInDegrees`에 작은 값을 사용합니다.
-* 앱은 항상 `1:1` 개체 모델을 사용하여 검색해야 합니다. 예측 축적은 이상적으로 1% 오차 내에서 1에 근접해야 합니다. 앱은 `ObjectQuery.MaxScaleChange`를 `0` 또는 `0.1`로 설정하여 축적 예측을 해제 또는 설정하고 정성적으로 인스턴스 포즈를 평가할 수 있습니다.
-* 자세한 내용은 [어려운 개체를 검색하는 방법](detect-difficult-object.md)을 참조하세요.
+**A:** [검색하기 어려운 개체](./detect-difficult-object.md)에 대한 몇 가지 [일반적인 지침](./troubleshoot/object-detection.md#adjust-object-query-values) 및 자세한 가이드가 있습니다.
 
 **Q: HoloLens에서 Object Anchors 진단 데이터를 가져오려면 어떻게 하나요?**
 
@@ -153,7 +136,7 @@ Azure Object Anchors를 사용하면 애플리케이션이 3D 모델을 사용�
 
 **Q: 인터넷에 연결하지 않고 Object Anchors를 사용할 수 있나요?**
 
-**A:** 
+**A:**
 * 모델 변환 및 학습의 경우 클라우드에서 수행되므로 연결이 필요합니다.
 * 런타임 세션은 전적으로 디바이스 기반이고 모든 계산이 HoloLens 2에서 수행되므로 연결이 필요하지 않습니다.
 
@@ -161,3 +144,14 @@ Azure Object Anchors를 사용하면 애플리케이션이 3D 모델을 사용�
 **Q: Azure Object Anchors는 데이터를 어떻게 저장하나요?**
 
 **A:** Microsoft 관리되는 데이터 암호화 키를 사용하여 미사용 암호화된 시스템 메타데이터만 저장합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+이 문서에서는 Azure Object Anchors를 사용할 때 최상의 결과를 얻기 위한 일반적인 질문에 대한 몇 가지 대답을 알아보았습니다.
+다음은 몇 가지 관련 문서입니다.
+
+> [!div class="nextstepaction"]
+> [모범 사례](./best-practices.md)
+
+> [!div class="nextstepaction"]
+> [개체 검색 문제 해결](./troubleshoot/object-detection.md)

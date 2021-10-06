@@ -6,12 +6,12 @@ ms.date: 09/02/2021
 author: shortpatti
 ms.author: v-patsho
 ms.service: azure-vmware
-ms.openlocfilehash: 081a704300fad62dbd66d602bbc65004215b20ff
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 9f82d5b60b6d27e63ed87fb9c8936c2e45c37b53
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123453519"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124778874"
 ---
 <!-- Used in /azure/azure-resource-manager/management/azure-subscription-service-limits.md and concepts-networking.md -->
 
@@ -25,8 +25,8 @@ ms.locfileid: "123453519"
 | 프라이빗 클라우드당 호스트 수 | 96 |
 | 프라이빗 클라우드당 vCenter | 1  |
 | HCX 사이트 페어링 | 25(버전은 관계 없음) |
-| AVS ExpressRoute 최대 연결된 프라이빗 클라우드 | 4<br />사용된 가상 네트워크 게이트웨이는 실제 최대 연결된 프라이빗 클라우드를 결정합니다.  자세한 내용은 [ExpressRoute 가상 네트워크 게이트웨이 정보](../../expressroute/expressroute-about-virtual-network-gateways.md)를 참조하세요. | 
-| AVS ExpressRoute 포트 속도 | 10Gbps<br />사용되는 가상 네트워크 게이트웨이는 실제 대역폭을 결정합니다. 자세한 내용은 [ExpressRoute 가상 네트워크 게이트웨이 정보](../../expressroute/expressroute-about-virtual-network-gateways.md)를 참조하세요. | 
+| Azure VMware Solution ExpressRoute 최대 연결된 프라이빗 클라우드 | 4<br />사용된 가상 네트워크 게이트웨이는 실제 최대 연결된 프라이빗 클라우드를 결정합니다.  자세한 내용은 [ExpressRoute 가상 네트워크 게이트웨이 정보](../../expressroute/expressroute-about-virtual-network-gateways.md)를 참조하세요. | 
+| Azure VMware Solution ExpressRoute 포트 속도 | 10Gbps<br />사용되는 가상 네트워크 게이트웨이는 실제 대역폭을 결정합니다. 자세한 내용은 [ExpressRoute 가상 네트워크 게이트웨이 정보](../../expressroute/expressroute-about-virtual-network-gateways.md)를 참조하세요. | 
 | vWAN을 통해 노출되는 공용 IP | 100 |
 | vSAN 용량 제한 | 총 가용의 75%(SLA에 25% 사용 가능)  |
 

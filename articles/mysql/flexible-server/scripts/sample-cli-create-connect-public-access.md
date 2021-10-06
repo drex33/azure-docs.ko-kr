@@ -1,0 +1,62 @@
+---
+title: CLI 스크립트 - Azure Database for MySQL - 유연한 서버(미리 보기) 만들기 및 퍼블릭 액세스 연결 사용
+description: 이 Azure CLI 샘플 스크립트는 Azure Database for MySQL - 유연한 서버를 만들고, 서버 수준 방화벽 규칙(퍼블릭 액세스 연결 방법)을 구성하고, 서버에 연결하는 방법을 보여 줍니다.
+author: shreyaaithal
+ms.author: shaithal
+ms.service: mysql
+ms.devlang: azurecli
+ms.topic: sample
+ms.custom: mvc, devx-track-azurecli
+ms.date: 09/15/2021
+ms.openlocfilehash: cc9710576eef20505a9ae27b74ce93897e7889b0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128701625"
+---
+# <a name="create-an-azure-database-for-mysql---flexible-server-preview-and-enable-public-access-connectivity-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL - 유연한 서버(미리 보기) 만들기 및 퍼블릭 액세스 연결 사용
+
+이 CLI 샘플 스크립트는 Azure Database for MySQL - 유연한 서버를 만들고, 서버 수준 방화벽 규칙([퍼블릭 액세스 연결 방법](../concepts-networking-public.md))을 구성하고, 만든 후에 서버에 연결합니다. 
+
+스크립트가 성공적으로 실행되면 모든 Azure 서비스 및 구성된 IP 주소에서 MySQL 유연한 서버에 액세스할 수 있으며 대화형 모드에서 서버에 연결됩니다.
+
+> [!NOTE] 
+> 서버를 만든 후에는 연결 방법을 변경할 수 없습니다. 예를 들어 *퍼블릭 액세스(허용된 IP 주소)* 를 사용하여 서버를 만드는 경우 만든 후에 *프라이빗 액세스(VNet 통합)* 로 변경할 수 없습니다. 연결 방법에 대한 자세한 내용은 [네트워킹 개념](../concepts-networking.md)을 참조하세요.
+
+
+[!INCLUDE [flexible-server-free-trial-note](../../includes/flexible-server-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment](../../../../includes/azure-cli-prepare-your-environment.md)]
+
+- 이 문서에는 Azure CLI 버전 2.0 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다. 
+
+## <a name="sample-script"></a>샘플 스크립트
+
+변수 값을 사용하여 스크립트에서 강조 표시된 줄을 편집합니다.
+
+[!code-azurecli-interactive[main](../../../../cli_scripts/mysql/flexible-server/create-server-public-access/create-connect-burstable-server-public-access.sh?highlight=8,11-12 "Create Flexible Server and enable public access.")]
+
+## <a name="clean-up-deployment"></a>배포 정리
+
+샘플 스크립트가 실행되었으면 다음 코드 조각을 사용하여 리소스를 정리할 수 있습니다.
+
+[!code-azurecli-interactive[main](../../../../cli_scripts/mysql/flexible-server/create-server-public-access/clean-up-resources.sh?highlight=4 "Clean up resources.")]
+
+## <a name="script-explanation"></a>스크립트 설명
+
+이 스크립트는 다음 명령을 사용합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
+
+| **명령** | **참고** |
+|---|---|
+|[az group create](/cli/azure/group#az_group_create)|모든 리소스가 저장되는 리소스 그룹을 만듭니다.|
+|[az mysql flexible-server create](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_create)|데이터베이스를 호스트하는 유연한 서버를 만듭니다.|
+|[az mysql flexible-server firewall-rule create](/cli/azure/mysql/flexible-server/firewall-rule#az_mysql_flexible_server_firewall_rule_create)|입력한 IP 주소 범위에서 유연한 서버 및 해당 데이터베이스에 대한 액세스를 허용하는 방화벽 규칙을 만듭니다.|
+|[az mysql flexible-server connect](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_connect)|유연한 서버에 연결하여 서버 또는 데이터베이스 작업을 수행합니다.|
+|[az mysql flexible-server delete](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_delete)|유연한 서버를 삭제합니다.|
+|[az group delete](/cli/azure/group#az_group_delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다.|
+
+## <a name="next-steps"></a>다음 단계
+
+- 추가 스크립트 시도: [Azure Database for MySQL - 유연한 서버(미리 보기)용 Azure CLI 샘플](../sample-scripts-azure-cli.md)
+- Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.

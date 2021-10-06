@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 82b40680d5f9aa46514273d8a147971b19cae9c8
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: bc405fa293eec4f991ca5cab51d3d8f2a4c3c816
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123438555"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233261"
 ---
 # <a name="basic-concepts"></a>기본 개념
 
@@ -46,7 +46,12 @@ Azure Attestation은 사용 가능한 모든 지역에서 지역 공유 공급�
 | 북유럽 | `https://sharedneu.neu.attest.azure.net` | 
 | 서유럽| `https://sharedweu.weu.attest.azure.net` | 
 | 미국 동부 2 | `https://sharedeus2.eus2.attest.azure.net` | 
-| 미국 중부 | `https://sharedcus.cus.attest.azure.net` | 
+| 미국 중부 | `https://sharedcus.cus.attest.azure.net` |
+| 동남아시아 | `https://sharedsasia.sasia.attest.azure.net` | 
+| 미국 중북부 | `https://sharedncus.ncus.attest.azure.net` | 
+| 미국 중남부 | `https://sharedscus.scus.attest.azure.net` | 
+| US Gov 버지니아 | `https://sharedugv.ugv.attest.azure.us` | 
+| US Gov 애리조나 | `https://shareduga.uga.attest.azure.us` | 
 
 ## <a name="attestation-request"></a>증명 요청
 

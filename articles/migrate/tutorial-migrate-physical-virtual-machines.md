@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 01/02/2021
 ms.custom: MVC
-ms.openlocfilehash: a3ff769b8f879246a47228f03f5a1b9a5b5fb84d
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 6c392d1af427c7a9837519ea8443efc5773aa6db
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123272478"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129154815"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>물리적 서버로 머신을 Azure에 마이그레이션
 
@@ -340,7 +340,7 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
 
 ## <a name="complete-the-migration"></a>마이그레이션 완료
 
-1. 마이그레이션이 완료되면 마우스 오른쪽 단추로 VM > **마이그레이션 중지** 를 차례로 클릭합니다. 다음을 수행합니다.
+1. 마이그레이션이 완료되면 마우스 오른쪽 단추로 VM > **복제 중지** 를 차례로 클릭합니다. 다음을 수행합니다.
     - 온-프레미스 머신에 대한 복제를 중지합니다.
     - Azure Migrate의 **서버 복제** 수에서 머신을 제거합니다. Server Migration에 연결합니다.
     - 머신에 대한 복제 상태 정보를 정리합니다.

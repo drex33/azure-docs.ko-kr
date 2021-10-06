@@ -10,12 +10,13 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: fef4972271046f7435140fd2d9ba3d18c7c3b11c
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.subservice: calling
+ms.openlocfilehash: a6e5f1ecb5686145718d83febf3faf5c520db6fe
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123254759"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609520"
 ---
 # <a name="calling-recording-overview"></a>통화 녹화 개요
 
@@ -55,7 +56,7 @@ ms.locfileid: "123254759"
 Event Grid 알림 `Microsoft.Communication.RecordingFileStatusUpdated`는 녹음/녹화를 검색할 준비가 되면 일반적으로 녹화 프로세스가 완료된 후(예: 모임이 종료되고 녹음/녹화가 중지됨) 몇 분 후에 게시됩니다. 녹음/녹화 이벤트 알림에는 녹음/녹화된 미디어와 녹음/녹화 메타데이터 파일을 모두 검색하는 데 사용되는 `contentLocation` 및 `metadataLocation`이 포함됩니다.
 
 ### <a name="notification-schema-reference"></a>알림 스키마 참조
-```
+```typescript
 {
     "id": string, // Unique guid for event
     "topic": string, // Azure Communication Services resource id
@@ -89,6 +90,6 @@ Event Grid 알림 `Microsoft.Communication.RecordingFileStatusUpdated`는 녹음
 개인 데이터의 유지 관리에 대한 규정에 따라 사용자 데이터를 내보낼 수 있어야 합니다. 이러한 요구 사항을 지원하기 위해 녹화 메타데이터 파일에는 `participants` 배열의 각 통화 참가자에 대한 participantId가 포함됩니다. 내부 사용자 ID가 있는 `participants` 배열의 MRI를 상호 참조하여 통화에서 참가자를 식별할 수 있습니다. 녹화 메타데이터 파일의 예는 아래에 참조용으로 제공됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은 [통화 녹음/녹화 빠른 시작 샘플](../../quickstarts/voice-video-calling/call-recording-sample.md)을 확인하세요.
+자세한 내용은 [통화 녹음/녹화 빠른 시작](../../quickstarts/voice-video-calling/call-recording-sample.md)을 확인하세요.
 
 [Call Automation API](./call-automation-apis.md)에 대해 자세히 알아보세요.

@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/11/2021
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 90d4fd76350d03bd876d97a7191011079b11845e
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 03506bd066ee81eb61c2d44f0d31f1336bd44f05
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112300960"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081114"
 ---
 # <a name="quickstart-monitor-an-aspnet-core-app-with-azure-monitor-application-insights"></a>빠른 시작: Azure Monitor Application Insights를 사용하여 ASP.NET Core 앱 모니터링
 
@@ -100,7 +100,7 @@ ms.locfileid: "112300960"
 
 1. `dotnet run` 또는 IDE를 사용하여 웹앱을 실행합니다.
 1. Azure Portal에서 Application Insights 리소스를 볼 때 **조사** 에서 **라이브 메트릭** 을 선택합니다.
-1. 앱에서 **홈** 및 **개인 정보** 링크를 반복해서 선택합니다.
+1. 앱(`http://localhost:5000`)에서 **홈** 및 **개인 정보** 링크를 반복해서 선택합니다.
 1. 앱에서 요청이 발생하는 경우 **라이브 메트릭** 디스플레이에 대한 활동을 관찰합니다.
 
 ## <a name="next-steps"></a>다음 단계

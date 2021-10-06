@@ -6,13 +6,13 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 06/10/2021
-ms.openlocfilehash: 52ecc8a66dfa13747daf2b4b7fd227ef7ab5a3b2
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.date: 09/19/2021
+ms.openlocfilehash: 3e76d298d30d2e191edf218e85a8fc64758f8359
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112237168"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128560791"
 ---
 # <a name="azure-security-center-free-vs-azure-defender-enabled"></a>Azure Security Center 무료 및 Azure Defender 사용 비교
 Azure Defender는 처음 30일 동안 무료입니다. 30일 종료 시 서비스를 계속 사용하기로 선택하는 경우 사용량에 대한 요금이 자동으로 부과되기 시작합니다.
@@ -31,6 +31,7 @@ Security Center는 두 모드로 제공됩니다.
     - **가상 머신 및 컨테이너 레지스트리의 취약성 검사** - 업계에서 가장 진보적인 취약성 관리 솔루션을 제공하는 검사기를 모든 가상 머신에 손쉽게 배포할 수 있습니다. Security Center 내에서 검사 결과를 직접 확인, 조사 및 수정하세요. 
     - **하이브리드 보안** – 모든 온-프레미스 및 클라우드 작업에 걸쳐 보안을 통합 확인할 수 있습니다. 또한 보안 정책을 적용하고 하이브리드 클라우드 작업의 보안을 지속적으로 평가하여 보안 표준을 준수할 수 있습니다. 뿐만 아니라 방화벽 및 기타 파트너 솔루션을 포함한 여러 소스에서 보안 데이터를 수집, 검색 및 분석할 수 있습니다.
     - **위협 방지 경고** - 고급 동작 분석 및 Microsoft Intelligent Security Graph가 갈수록 발전하는 사이버 공격에 효율적으로 대응합니다. 기본 제공 행동 분석 및 기계 학습은 공격 및 제로 데이 익스플로잇을 식별할 수 있습니다. 또한 네트워크, 컴퓨터 및 클라우스 서비스에서 들어오는 공격 및 위반 후 활동을 모니터링할 수 있습니다. 대화형 도구 및 상황에 맞는 위협 인텔리전스를 사용하면 조사를 손쉽게 수행할 수 있습니다.
+    - **다양한 표준으로 규정 준수 추적** - Security Center는 하이브리드 클라우드 환경을 지속적으로 평가하여 [Azure Security Center 벤치마크](/security/benchmark/azure/introduction)의 제어와 모범 사례에 따라 위험 요인을 분석합니다. Azure Defender를 사용하면 조직의 요구 사항에 따라 다양한 업계 표준, 규정 표준 및 벤치마크를 적용할 수 있습니다. 표준을 추가하고 [규정 준수 대시보드](update-regulatory-compliance-packages.md)에서 이러한 표준을 사용하여 규정 준수를 추적합니다.
     - **AAC(액세스 및 애플리케이션 제어)** - 허용 및 거부 목록을 만들기 위해 특정 워크로드에 맞게 조정된 기계 학습 구동 추천 사항을 적용하여 맬웨어 및 기타 원치 않는 애플리케이션을 차단합니다. Azure VM의 관리 포트에 대한 액세스를 JIT(Just-In-Time) 방식으로 제어하여 네트워크 공격 표면을 줄입니다. AAC는 무차별 암호 대입 공격 및 기타 네트워크 공격에 대한 노출을 크게 줄입니다.
     - **컨테이너 보안 기능** - 컨테이너화된 환경에서 취약성 관리 및 실시간 위협 방지를 활용할 수 있습니다. **Azure Defender를 컨테이너 레지스트리에 사용** 하도록 설정하는 경우 모든 기능이 사용하도록 설정될 때까지 최대 12시간이 걸릴 수 있습니다. 요금은 연결된 레지스트리에 푸시된 고유한 컨테이너 이미지 수를 기반으로 청구됩니다. 한 번 검사한 이미지는 수정하여 한 번 더 푸시하지 않는 한 요금이 다시 청구되지 않습니다.
     - **Azure 환경에 연결된 리소스에 대한 광범위한 위협 보호** - Azure Defender에는 다음과 같은 모든 리소스에 대한 공통적인 Azure 서비스를 위해 광범위한 Azure 기본 범위 위협 보호가 포함되어 있습니다. Azure Resource Manager, Azure DNS, Azure 네트워크 계층 및 Azure Key Vault. Azure Defender는 Azure 관리 계층과 Azure DNS 계층에 대한 고유한 가시성을 제공하므로 이들 계층에 연결된 클라우드 리소스를 보호할 수 있습니다.
@@ -106,7 +107,7 @@ Microsoft Defender for Endpoint에 대한 라이선스가 이미 있는 경우 A
 :::image type="content" source="media/security-center-pricing/deallocated-virtual-machines.png" alt-text="할당 취소된 머신을 보여주는 Azure Virtual Machines.":::
 
 ### <a name="will-i-be-charged-for-machines-without-the-log-analytics-agent-installed"></a>Log Analytics 에이전트가 설치되지 않은 컴퓨터에 대해 요금이 청구되나요?
-예. [Azure Defender](defender-for-servers-introduction.md)를 구독의 서버에 사용하도록 설정하면 Log Analytics 에이전트를 설치하지 않은 경우에도 해당 구독의 컴퓨터는 다양한 보호를 받습니다.
+예. [Azure Defender](defender-for-servers-introduction.md)를 구독의 서버에 사용하도록 설정하면 Log Analytics 에이전트를 설치하지 않은 경우에도 해당 구독의 컴퓨터는 다양한 보호를 받습니다. 이는 Azure 가상 머신, Azure 가상 머신 확장 집합 인스턴스 및 Azure Arc 지원 서버에 적용됩니다.
 
 ### <a name="if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice"></a>Log Analytics 에이전트에서 여러 작업 영역에 보고하는 경우 요금이 두 번 청구되나요? 
 예. 데이터를 둘 이상의 서로 다른 Log Analytics 작업 영역에 보내도록 Log Analytics 에이전트를 구성한 경우(멀티 호밍(multi-homing)) ‘보안’ 또는 ‘맬웨어 방지’ 솔루션이 설치된 모든 작업 영역에 대해 요금이 청구됩니다. 

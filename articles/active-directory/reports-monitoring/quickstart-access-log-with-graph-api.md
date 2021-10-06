@@ -11,12 +11,12 @@ author: MarkusVi
 manager: mtillman
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dad33236812329014851a7397488025a4df558cd
-ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
+ms.openlocfilehash: 267c7ae20f9d424d03897e0ee31b7ad990ed261d
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111528791"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754098"
 ---
 # <a name="quickstart-access-azure-ad-logs-with-the-microsoft-graph-api"></a>빠른 시작: Microsoft Graph API를 사용하여 Azure AD 로그에 액세스 
 
@@ -47,15 +47,15 @@ Azure AD 로그인 로그의 정보를 사용하여 사용자 로그인이 실�
 
 이 섹션에서는 Graph API를 사용하여 로그인에 대한 정보를 가져오는 단계를 제공합니다.
 
- ![Graph 탐색기 쿼리](./media/quickstart-access-log-with-graph-api/graph-explorer-query.png)   
+ ![Microsoft Graph Explorer 쿼리](./media/quickstart-access-log-with-graph-api/graph-explorer-query.png)   
 
 **실패한 로그인을 검토하려면:**
 
-1. [Microsoft Graph 탐색기](https://developer.microsoft.com/en-us/graph/graph-explorer)로 이동합니다.
+1. [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer)로 이동합니다.
 
 2. 전역 관리자 권한으로 테넌트에 로그인합니다.
 
-    ![Microsoft Graph 탐색기 인증](./media/quickstart-access-log-with-graph-api/graph-explorer-authentication.png)   
+    ![Microsoft Graph Explorer 인증](./media/quickstart-access-log-with-graph-api/graph-explorer-authentication.png)   
 
 3. **HTTP 동사 드롭다운 목록** 에서 **GET** 을 선택합니다.
 
@@ -67,7 +67,7 @@ Azure AD 로그인 로그의 정보를 사용하여 사용자 로그인이 실�
 
 쿼리의 결과를 검토합니다.
 
- ![Microsoft Graph 탐색기 응답 미리 보기](./media/quickstart-access-log-with-graph-api/response-preview.png)   
+ ![Microsoft Graph Explorer 응답 미리 보기](./media/quickstart-access-log-with-graph-api/response-preview.png)   
 
 
 ## <a name="clean-up-resources"></a>리소스 정리

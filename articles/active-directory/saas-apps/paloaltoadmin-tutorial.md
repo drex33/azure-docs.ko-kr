@@ -1,5 +1,5 @@
 ---
-title: '자습서: Palo Alto Networks - Admin UI와 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: Palo Alto Networks - Admin UI와 Azure AD SSO 통합 | Microsoft Docs'
 description: Azure Active Directory 및 Palo Alto Networks - Admin UI 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -9,37 +9,36 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/10/2020
+ms.date: 09/08/2021
 ms.author: jeedes
-ms.openlocfilehash: aceaed29b83a190e4e943f0ec1ae99a8daa44682
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9699f985d0e18153c224977b39900b67aaf205c5
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121727591"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124746704"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>자습서: Palo Alto Networks - Admin UI와 Azure Active Directory 통합
+# <a name="tutorial-azure-ad-sso-integration-with-palo-alto-networks---admin-ui"></a>자습서: Palo Alto Networks - Admin UI와 Azure AD SSO 통합
 
-이 자습서에서는 Azure AD(Azure Active Directory)와 Palo Alto Networks - Admin UI를 통합하는 방법에 대해 알아봅니다.
-Azure AD에 Palo Alto Networks - Admin UI를 통합하면 다음과 같은 이점을 얻을 수 있습니다.
+이 자습서에서는 Azure AD(Azure Active Directory)와 Palo Alto Networks - Admin UI를 통합하는 방법에 대해 알아봅니다. Azure AD와 Palo Alto Networks - Admin UI를 통합하면 다음을 수행할 수 있습니다.
 
-* Palo Alto Networks - Admin UI에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
-* 사용자가 해당 Azure AD 계정으로 Palo Alto Networks - Admin UI에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
-* 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
+* Azure AD에서 Palo Alto Networks - Admin UI에 액세스할 수 있는 사용자를 제어합니다.
+* 사용자가 해당 Azure AD 계정으로 Palo Alto Networks - Admin UI에 자동으로 로그인되도록 설정합니다.
+* 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-Palo Alto Networks - Admin UI와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
+시작하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 Azure AD 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 구할 수 있습니다.
-* Palo Alto Networks - Admin UI Single Sign-On을 사용하도록 설정된 구독
+* Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
+* Palo Alto Networks - Admin UI SSO(Single Sign-On)를 사용하도록 설정된 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
 
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
 * Palo Alto Networks - Admin UI에서 **SP** 시작 SSO를 지원합니다.
-* Palo Alto Networks - Admin UI에서 **Just-In-Time** 사용자 프로비전을 지원합니다.
+* Palo Alto Networks - Admin UI에서 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
 
 ## <a name="adding-palo-alto-networks---admin-ui-from-the-gallery"></a>갤러리에서 Palo Alto Networks - Admin UI 추가
 
@@ -52,7 +51,7 @@ Palo Alto Networks - Admin UI의 Azure AD 통합을 구성하려면 갤러리의
 1. **갤러리에서 추가** 섹션의 검색 상자에서 **Palo Alto Networks - Admin UI** 를 입력합니다.
 1. 결과 패널에서 **Palo Alto Networks - Admin UI** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-## <a name="configure-and-test-azure-ad-sso"></a>Azure AD SSO 구성 및 테스트
+## <a name="configure-and-test-azure-ad-sso-for-palo-alto-networks---admin-ui"></a>Palo Alto Networks - Admin UI에 대한 Azure AD SSO 구성 및 테스트
 
 이 섹션에서는 **B.Simon** 이라는 테스트 사용자를 기반으로 하여 Palo Alto Networks - Admin UI에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 Single Sign-On이 작동하려면 Azure AD 사용자와 Palo Alto Networks - Admin UI의 관련 사용자 간에 연결 관계를 설정해야 합니다.
@@ -60,10 +59,10 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 Palo Alto Networks - Adm
 Palo Alto Networks - Admin UI에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 단계를 수행합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-    * **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
-    * **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 1. **[Palo Alto Networks - Admin UI SSO 구성](#configure-palo-alto-networks---admin-ui-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-    * **[Palo Alto Networks - Admin UI 테스트 사용자 만들기](#create-palo-alto-networks---admin-ui-test-user)** - Azure AD 표현과 연결된 B.Simon에 해당하는 사용자를 Palo Alto Networks - Admin UI에 만듭니다.
+    1. **[Palo Alto Networks - Admin UI 테스트 사용자 만들기](#create-palo-alto-networks---admin-ui-test-user)** - Azure AD 표현과 연결된 B.Simon에 해당하는 사용자를 Palo Alto Networks - Admin UI에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
 ## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
@@ -78,14 +77,14 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    a. **로그인 URL** 텍스트 상자에서 `https://<Customer Firewall FQDN>/php/login.php` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에서 `https://<Customer Firewall FQDN>:443/SAML20/SP` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **식별자** 텍스트 상자에서 `https://<Customer Firewall FQDN>:443/SAML20/SP` 패턴을 사용하는 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에서 `https://<Customer Firewall FQDN>:443/SAML20/SP/ACS` 형식의 ACS(Assertion Consumer Service) URL을 입력합니다.
 
-    다. **회신 URL** 텍스트 상자에서 `https://<Customer Firewall FQDN>:443/SAML20/SP/ACS` 형식의 ACS(Assertion Consumer Service) URL을 입력합니다.
+    다. **로그인 URL** 텍스트 상자에서 `https://<Customer Firewall FQDN>/php/login.php` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트합니다. 이러한 값을 얻으려면 [Palo Alto Networks - Admin UI 클라이언트 지원 팀](https://support.paloaltonetworks.com/support)에 문의합니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 해당 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [Palo Alto Networks - Admin UI 클라이언트 지원 팀](https://support.paloaltonetworks.com/support)에 문의합니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
     >
     > **식별자** 와 **회신 URL** 에 포트 443이 필요합니다. Palo Alto Firewall에 이러한 값이 하드 코딩되어 있기 때문입니다. 포트 번호를 제거하면 로그인하는 동안 오류가 발생합니다.
 
@@ -122,7 +121,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
-
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
@@ -131,7 +129,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -153,15 +151,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. **디바이스** 탭을 선택합니다.
 
-    ![디바이스 탭](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin1.png)
+    ![디바이스 탭을 보여 주는 스크린샷](./media/paloaltoadmin-tutorial/device.png)
 
 3. 왼쪽 창에서 **SAML ID 공급자** 를 선택한 후 **가져오기** 를 선택하여 메타데이터 파일을 가져옵니다.
 
-    ![메타데이터 파일 가져오기 단추](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin2.png)
+    ![메타데이터 파일 가져오기 단추를 보여 주는 스크린샷](./media/paloaltoadmin-tutorial/admin.png)
 
 4. **SAML ID 공급자 서버 프로필 가져오기** 창에서 다음을 수행합니다.
 
-    !["SAML ID 공급자 서버 프로필 가져오기" 창](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp.png)
+    !["SAML ID 공급자 서버 프로필 가져오기" 창을 보여 주는 스크린샷](./media/paloaltoadmin-tutorial/profile.png)
 
     a. **프로필 이름** 상자에 이름(예: **AzureAD Admin UI**)을 제공합니다.
 
@@ -175,11 +173,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 5. 왼쪽 창에서 **SAML ID 공급자** 를 선택한 후 이전 단계에서 만든 SAML ID 공급자 프로필(예: **AzureAD Admin UI**)을 선택합니다.
 
-    ![SAML ID 공급자 프로필](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp_select.png)
+    ![SAML ID 공급자 프로필을 보여 주는 스크린샷](./media/paloaltoadmin-tutorial/azure.png)
 
 6. **SAML ID 공급자 서버 프로필** 창에서 다음을 수행합니다.
 
-    !["SAML ID 공급자 서버 프로필" 창](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_slo.png)
+    !["SAML ID 공급자 서버 프로필" 창을 보여 주는 스크린샷](./media/paloaltoadmin-tutorial/server.png)
   
     a. **ID 공급자 SLO URL** 상자에서 이전에 가져온 SLO URL을 `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0` URL로 바꿉니다.
   
@@ -191,7 +189,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 9. **관리자 역할 프로필** 창의 **이름** 상자에 관리자 역할의 이름을 제공합니다(예: **fwadmin**). 이 관리자 역할 이름은 ID 공급자가 보낸 SAML 관리자 역할 특성 이름과 일치해야 합니다. 관리자 역할 이름과 값은 Azure Portal의 **사용자 특성** 섹션에 만들어졌습니다.
 
-    ![Palo Alto Networks 관리자 역할 구성](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_adminrole.png)
+    ![Palo Alto Networks 관리자 역할 구성](./media/paloaltoadmin-tutorial/role.png)
   
 10. Firewall Admin UI에서 **디바이스** 를 선택한 후 **인증 프로필** 을 선택합니다.
 
@@ -199,7 +197,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 12. **인증 프로필** 창에서 다음을 수행합니다. 
 
-    !["인증 프로필" 창](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_authentication_profile.png)
+    !["인증 프로필" 창을 보여 주는 스크린샷](./media/paloaltoadmin-tutorial/authentication.png)
 
     a. **이름** 상자에 이름(예: **AzureSAML_Admin_AuthProfile**)을 제공합니다.
 
@@ -207,26 +205,26 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     다. **IdP 서버 프로필** 드롭다운 목록에서 적절한 SAML ID 공급자 서버 프로필(예: **AzureAD Admin UI**)을 선택합니다.
 
-    다. **단일 로그아웃 사용** 확인란을 선택합니다.
+    d. **단일 로그아웃 사용** 확인란을 선택합니다.
 
-    d. **관리자 역할 특성** 상자에 특성 이름(예: **adminrole**)을 입력합니다.
+    e. **관리자 역할 특성** 상자에 특성 이름(예: **adminrole**)을 입력합니다.
 
-    e. **고급** 탭을 선택한 후 **허용 목록** 에서 **추가** 를 선택합니다.
+    f. **고급** 탭을 선택한 후 **허용 목록** 에서 **추가** 를 선택합니다.
 
-    ![고급 탭의 추가 단추](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_allowlist.png)
+    ![고급 탭의 추가 단추를 보여 주는 스크린샷](./media/paloaltoadmin-tutorial/allowlist.png)
 
-    f. **모두** 확인란을 선택하거나 이 프로필로 인증될 수 있는 사용자 및 그룹을 선택합니다.  
+    g. **모두** 확인란을 선택하거나 이 프로필로 인증될 수 있는 사용자 및 그룹을 선택합니다.  
     사용자를 인증할 때 방화벽은 연결된 사용자 이름 또는 그룹이 이 목록에 있는 항목과 일치하는지 비교합니다. 항목을 추가하지 않은 경우 사용자가 인증될 수 없습니다.
 
-    g. **확인** 을 선택합니다.
+    h. **확인** 을 선택합니다.
 
 13. 관리자가 Azure를 통해 SAML SSO를 사용하도록 허용하려면 **디바이스** > **설정** 을 선택합니다. **설정** 창에서 **관리** 탭을 선택한 후 **인증 설정** 에서 **설정** ("기어") 단추를 선택합니다.
 
-    ![설정 단추](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsetup.png)
+    ![스크린샷은 설정 단추를 보여줍니다.](./media/paloaltoadmin-tutorial/setup.png)
 
 14. [인증 프로필] 창에서 만든 SAML 인증 프로필(예: **AzureSAML_Admin_AuthProfile**)을 선택합니다.
 
-    ![인증 프로필 필드](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsettings.png)
+    ![인증 프로필 필드를 보여 주는 스크린샷](./media/paloaltoadmin-tutorial/settings.png)
 
 15. **확인** 을 선택합니다.
 
@@ -244,8 +242,7 @@ Palo Alto Networks - Admin UI는 Just-In-Time 사용자 프로비저닝을 지�
 
 * Palo Alto Networks - Admin UI 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Palo Alto Networks - Admin UI 타일을 클릭하면 SSO를 설정한 Palo Alto Networks - Admin UI 애플리케이션에 자동으로 로그온됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
-
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Palo Alto Networks - Admin UI 타일을 클릭하면 SSO를 설정한 Palo Alto Networks - Admin UI 애플리케이션에 자동으로 로그온됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

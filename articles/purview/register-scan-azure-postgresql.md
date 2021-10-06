@@ -1,18 +1,18 @@
 ---
 title: Azure Database for PostgreSQL 등록 및 검색
-description: 이 자습서에서는 Azure Database for PostgreSQL 데이터베이스를 검색하는 방법을 설명합니다.
+description: 이 자습서에서는 Azure Purview에서 Azure Database for PostgreSQL 데이터베이스를 검색하는 방법을 설명합니다.
 author: evwhite
 ms.author: evwhite
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: tutorial
 ms.date: 06/30/2021
-ms.openlocfilehash: 622e89392dc10f12fe81ed1c1085e5b9cc524999
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: abc676fbff551781f720db5937a9c35c7c8f81ea
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122181301"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209809"
 ---
 # <a name="register-and-scan-an-azure-database-for-postgresql"></a>Azure Database for PostgreSQL 등록 및 검색
 
@@ -73,7 +73,7 @@ Azure Database for PostgreSQL 데이터베이스에 연결하려면 정규화된
 
 새 검색을 만들고 실행하려면 다음을 수행합니다.
 
-1. Purview Studio의 왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
+1. [Purview Studio](https://web.purview.azure.com/resource/)의 왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
 
 1. 등록한 Azure Database for PostgreSQL 원본을 선택합니다.
 

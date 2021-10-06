@@ -1,19 +1,19 @@
 ---
 title: 빠른 시작 - Python API를 사용하여 Azure Batch 작업 실행
 description: 이 빠른 시작에서는 Batch Python 클라이언트 라이브러리를 사용하여 Azure Batch 샘플 작업 및 태스크를 실행합니다. Batch 서비스의 주요 개념에 대해 알아봅니다.
-ms.date: 08/17/2020
+ms.date: 09/10/2021
 ms.topic: quickstart
 ms.custom:
 - seo-python-october2019
 - mvc
 - devx-track-python
 - mode-api
-ms.openlocfilehash: 75f83e0ea4823796ace348084bab0915babc8979
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 8311e299b7ff2fde0ea9b9b845c2f2a703bb1743
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107535566"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124827347"
 ---
 # <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>빠른 시작: Python API를 사용하여 Azure Batch 작업 실행
 
@@ -29,7 +29,7 @@ Python API를 사용하여 앱에서 Azure Batch 작업을 실행하여 Azure Ba
 
 - Batch 계정 및 연결된 Azure Storage 계정. 이러한 계정을 만들려면 [Azure Portal](quick-create-portal.md) 또는 [Azure CLI](quick-create-cli.md)를 사용하는 Batch 빠른 시작을 참조하세요.
 
-- [pip](https://pip.pypa.io/en/stable/installing/) 패키지 관리자를 포함한 [Python](https://python.org/downloads) 버전 2.7 또는 3.6
+- [pip](https://pip.pypa.io/en/stable/installing/) 패키지 관리자를 포함한 [Python](https://python.org/downloads) 버전 2.7 또는 3.6 이상.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -78,7 +78,6 @@ python python_quickstart_client.py
 ```output
 Sample start: 11/26/2018 4:02:54 PM
 
-Container [input] created.
 Uploading file taskdata0.txt to container [input]...
 Uploading file taskdata1.txt to container [input]...
 Uploading file taskdata2.txt to container [input]...
@@ -94,7 +93,7 @@ Monitoring all tasks for 'Completed' state, timeout in 00:30:00...
 Printing task output...
 Task: Task0
 Node: tvm-2850684224_3-20171205t000401z
-Standard out:
+Standard output:
 Batch processing began with mainframe computers and punch cards. Today it still plays a central role in business, engineering, science, and other pursuits that require running lots of automated tasks....
 ...
 ```
@@ -106,23 +105,27 @@ Batch processing began with mainframe computers and punch cards. Today it still 
 이 빠른 시작의 Python 앱은 다음을 수행합니다.
 
 - 세 개의 작은 텍스트 파일을 Azure Storage 계정의 Blob 컨테이너에 업로드합니다. 이러한 파일은 Batch 태스크에서 처리하기 위한 입력입니다.
-- Ubuntu 18.04 LTS를 실행하는 두 개의 컴퓨팅 노드로 구성된 풀을 만듭니다.
+- Ubuntu 20.04 LTS를 실행하는 두 개 컴퓨팅 노드로 구성되는 풀을 만듭니다.
 - 노드에서 실행할 하나의 작업과 세 개의 태스크를 만듭니다. 각 태스크는 Bash 셸 명령줄을 사용하여 입력 파일 중 하나를 처리합니다.
-* 태스크에서 반환된 파일을 표시합니다.
+- 태스크에서 반환된 파일을 표시합니다.
 
 자세한 내용은 `python_quickstart_client.py` 파일 및 다음 섹션을 참조하세요.
 
 ### <a name="preliminaries"></a>준비 단계
 
-스토리지 계정과 상호 작용하기 위해 앱에서 [azure-storage-blob](https://pypi.python.org/pypi/azure-storage-blob) 패키지를 사용하여 [BlockBlobService](/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice) 개체를 만듭니다.
+스토리지 계정과 상호 작용하기 위해 앱은 [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) 개체를 만듭니다.
 
 ```python
-blob_client = azureblob.BlockBlobService(
-    account_name=config._STORAGE_ACCOUNT_NAME,
-    account_key=config._STORAGE_ACCOUNT_KEY)
+blob_service_client = BlobServiceClient(
+        account_url="https://{}.{}/".format(
+            config._STORAGE_ACCOUNT_NAME,
+            config._STORAGE_ACCOUNT_DOMAIN
+        ),
+        credential=config._STORAGE_ACCOUNT_KEY
+    )
 ```
 
-앱은 `blob_client` 참조를 사용하여 스토리지 계정에 컨테이너를 만들고, 데이터 파일을 이 컨테이너에 업로드합니다. 스토리지의 파일은 Batch가 나중에 컴퓨팅 노드에 다운로드할 수 있는 Batch [ResourceFile](/python/api/azure-batch/azure.batch.models.resourcefile) 개체로 정의됩니다.
+앱은 `blob_service_client` 참조를 사용하여 스토리지 계정에 컨테이너를 만들고, 데이터 파일을 이 컨테이너에 업로드합니다. 스토리지의 파일은 Batch가 나중에 컴퓨팅 노드에 다운로드할 수 있는 Batch [ResourceFile](/python/api/azure-batch/azure.batch.models.resourcefile) 개체로 정의됩니다.
 
 ```python
 input_file_paths = [os.path.join(sys.path[0], 'taskdata0.txt'),
@@ -130,44 +133,44 @@ input_file_paths = [os.path.join(sys.path[0], 'taskdata0.txt'),
                     os.path.join(sys.path[0], 'taskdata2.txt')]
 
 input_files = [
-    upload_file_to_container(blob_client, input_container_name, file_path)
+    upload_file_to_container(blob_service_client, input_container_name, file_path)
     for file_path in input_file_paths]
 ```
 
 이 앱은 Batch 서비스에서 풀, 작업 및 태스크를 만들고 관리하는 [BatchServiceClient](/python/api/azure.batch.batchserviceclient) 개체를 만듭니다. 샘플의 Batch 클라이언트는 공유 키 인증을 사용합니다. 또한 Batch는 Azure Active Directory 인증도 지원합니다.
 
 ```python
-credentials = batch_auth.SharedKeyCredentials(config._BATCH_ACCOUNT_NAME,
-                                              config._BATCH_ACCOUNT_KEY)
+credentials = SharedKeyCredentials(config._BATCH_ACCOUNT_NAME,
+        config._BATCH_ACCOUNT_KEY)
 
-batch_client = batch.BatchServiceClient(
-    credentials,
-    batch_url=config._BATCH_ACCOUNT_URL)
+    batch_client = BatchServiceClient(
+        credentials,
+        batch_url=config._BATCH_ACCOUNT_URL)
 ```
 
 ### <a name="create-a-pool-of-compute-nodes"></a>컴퓨팅 노드 풀 만들기
 
-Batch 풀을 만들려면 앱에서 [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) 클래스를 사용하여 노드 수, VM 크기 및 풀 구성을 설정합니다. 여기서 [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) 개체는 Azure Marketplace에 게시된 Ubuntu Server 18.04 LTS 이미지에 대한 [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference)를 지정합니다. Batch는 Azure Marketplace의 다양한 Linux 및 Windows Server 이미지와 사용자 지정 VM 이미지를 지원합니다.
+Batch 풀을 만들려면 앱에서 [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) 클래스를 사용하여 노드 수, VM 크기 및 풀 구성을 설정합니다. 여기서 [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) 개체는 Azure Marketplace에 게시된 Ubuntu Server 20.04 LTS 이미지에 대한 [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference)를 지정합니다. Batch는 Azure Marketplace의 다양한 Linux 및 Windows Server 이미지와 사용자 지정 VM 이미지를 지원합니다.
 
-노드 수(`_POOL_NODE_COUNT`)와 VM 크기(`_POOL_VM_SIZE`)는 상수로 정의됩니다. 샘플은 기본적으로 *Standard_A1_v2* 크기인 2개 노드로 구성되는 풀을 만듭니다. 제안된 크기는 이 빠른 예제의 성능과 비용에 대한 적절한 균형을 제공합니다.
+노드 수(`_POOL_NODE_COUNT`)와 VM 크기(`_POOL_VM_SIZE`)는 상수로 정의됩니다. 샘플은 기본적으로 *Standard_DS1_v2* 크기인 2개 노드로 구성되는 풀을 만듭니다. 제안된 크기는 이 빠른 예제의 성능과 비용에 대한 적절한 균형을 제공합니다.
 
 [pool.add](/python/api/azure-batch/azure.batch.operations.pooloperations) 메서드는 풀을 Batch 서비스에 제출합니다.
 
 ```python
-new_pool = batch.models.PoolAddParameter(
-    id=pool_id,
-    virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
-        image_reference=batchmodels.ImageReference(
-            publisher="Canonical",
-            offer="UbuntuServer",
-            sku="18.04-LTS",
-            version="latest"
-        ),
-        node_agent_sku_id="batch.node.ubuntu 18.04"),
-    vm_size=config._POOL_VM_SIZE,
-    target_dedicated_nodes=config._POOL_NODE_COUNT
-)
-batch_service_client.pool.add(new_pool)
+new_pool = batchmodels.PoolAddParameter(
+        id=pool_id,
+        virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
+            image_reference=batchmodels.ImageReference(
+                publisher="canonical",
+                offer="0001-com-ubuntu-server-focal",
+                sku="20_04-lts",
+                version="latest"
+            ),
+            node_agent_sku_id="batch.node.ubuntu 20.04"),
+        vm_size=config._POOL_VM_SIZE,
+        target_dedicated_nodes=config._POOL_NODE_COUNT
+    )
+    batch_service_client.pool.add(new_pool)
 ```
 
 ### <a name="create-a-batch-job"></a>Batch 작업 만들기
@@ -175,9 +178,10 @@ batch_service_client.pool.add(new_pool)
 Batch 작업은 하나 이상의 태스크에 대한 논리적 그룹입니다. 작업에는 우선 순위 및 태스크를 실행할 풀과 같은 태스크에 공통적으로 적용되는 설정이 포함됩니다. 앱에서 [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) 클래스를 사용하여 풀에 작업을 만듭니다. [job.add](/python/api/azure-batch/azure.batch.operations.joboperations) 메서드는 지정된 Batch 계정에 작업을 추가합니다. 처음에는 작업에 태스크가 없습니다.
 
 ```python
-job = batch.models.JobAddParameter(
+job = batchmodels.JobAddParameter(
     id=job_id,
-    pool_info=batch.models.PoolInformation(pool_id=pool_id))
+    pool_info=batchmodels.PoolInformation(pool_id=pool_id))
+
 batch_service_client.job.add(job)
 ```
 
@@ -192,7 +196,7 @@ tasks = list()
 
 for idx, input_file in enumerate(input_files):
     command = "/bin/bash -c \"cat {}\"".format(input_file.file_path)
-    tasks.append(batch.models.TaskAddParameter(
+    tasks.append(batchmodels.TaskAddParameter(
         id='Task{}'.format(idx),
         command_line=command,
         resource_files=[input_file]

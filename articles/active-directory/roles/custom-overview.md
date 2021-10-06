@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
-ms.date: 11/20/2020
+ms.date: 09/13/2021
 ms.author: rolyon
-ms.reviewer: vincesm
+ms.reviewer: abhijeetsinha
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f376a8e5d61b9bb3fda39184f4ff0873c48c8b43
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 21e1b91c10d687b0b82626372510dcaf2a0611ef
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732337"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601802"
 ---
 # <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Azure Active Directory의 역할 기반 액세스 제어 개요
 
@@ -52,23 +52,23 @@ Azure AD는 두 가지 유형의 역할 정의를 지원합니다.
 
 ## <a name="role-assignment"></a>역할 할당
 
-역할 할당은 특정 *범위* 에서 *역할 정의* 를 *사용자* 에게 연결하여 Azure AD 리소스에 대한 액세스 권한을 부여하는 Azure AD 리소스입니다. 역할 할당을 만들어서 액세스 권한을 부여하고, 역할 할당을 제거하여 액세스 권한을 취소합니다. 그 내부를 보면 역할 할당은 다음과 같은 세 가지 요소로 구성됩니다.
+역할 할당은 특정 *범위* 에서 *역할 정의* 를 *보안 주체* 에 연결하여 Azure AD 리소스에 대한 액세스 권한을 부여하는 Azure AD 리소스입니다. 역할 할당을 만들어서 액세스 권한을 부여하고, 역할 할당을 제거하여 액세스 권한을 취소합니다. 그 내부를 보면 역할 할당은 다음과 같은 세 가지 요소로 구성됩니다.
 
-- Azure AD 사용자
-- 역할 정의
-- 리소스 범위
+- 보안 주체 - 권한을 얻는 ID. 사용자, 그룹 또는 서비스 주체일 수 있습니다. 
+- 역할 정의 - 권한 컬렉션 
+- 범위 - 해당 권한이 적용되는 위치를 제한하는 방법
 
-Azure portal, Azure AD PowerShell 또는 Graph API를 사용하여 [역할 할당 만들기](custom-create.md)를 수행할 수 있습니다. [역할 할당을 나열](view-assignments.md)할 수도 있습니다.
+Azure portal, Azure AD PowerShell 또는 Graph API를 사용하여 [역할 할당 만들기](manage-roles-portal.md)를 수행할 수 있습니다. [역할 할당을 나열](view-assignments.md)할 수도 있습니다.
 
-다음 다이어그램은 역할 할당의 예를 보여줍니다. 이 예제에서 Chris Green에게는 Contoso Widget Builder 앱 등록 범위에서 앱 등록 관리자 사용자 지정 역할이 할당되었습니다. 이렇게 할당하면 이 특정 앱 등록에 대해서만 Chris에게 앱 등록 관리자 역할 권한이 부여됩니다.
+다음 다이어그램은 역할 할당의 예를 보여줍니다. 이 예에서 Chris는 Contoso Widget Builder 앱 등록 범위에서 앱 등록 관리자 사용자 지정 역할을 할당받았습니다. 이렇게 할당하면 이 특정 앱 등록에 대해서만 Chris에게 앱 등록 관리자 역할 권한이 부여됩니다.
 
 ![역할 할당은 권한이 적용되는 방식이며 세 부분으로 구성됩니다.](./media/custom-overview/rbac-overview.png)
 
 ### <a name="security-principal"></a>보안 주체
 
-보안 주체는 Azure AD 리소스에 대한 액세스 권한을 할당할 사용자를 나타냅니다. 사용자는 Azure Active Directory에 프로필이 있는 개인입니다.
+보안 주체는 Azure AD 리소스에 대한 액세스 권한이 할당된 사용자, 그룹 또는 서비스 주체를 나타냅니다. 사용자는 Azure Active Directory에 프로필이 있는 개인입니다. 그룹은 isAssignableToRole 속성이 true로 설정된 새 Microsoft 365 또는 보안 그룹입니다(현재 미리 보기). 서비스 주체는 Azure AD 리소스에 액세스하기 위해 애플리케이션, 호스트된 서비스 및 자동화된 도구에서 사용하도록 만든 ID입니다.
 
-### <a name="role"></a>역할
+### <a name="role-definition"></a>역할 정의
 
 역할 정의 또는 역할은 권한 컬렉션입니다. 역할 정의는 만들기. 읽기, 업데이트 및 삭제와 같이 Azure AD 리소스에 대해 수행할 수 있는 작업을 나열합니다. Azure AD에는 다음과 같은 두 가지 유형의 역할이 있습니다.
 
@@ -77,7 +77,21 @@ Azure portal, Azure AD PowerShell 또는 Graph API를 사용하여 [역할 할�
 
 ### <a name="scope"></a>범위
 
-범위는 역할 할당의 일부로 허용되는 작업을 특정 Azure AD 리소스로 제한하는 것입니다. 역할을 할당할 때 관리자의 액세스를 특정 리소스로 제한하는 범위를 지정할 수 있습니다. 예를 들어 개발자에게 특정 애플리케이션 등록만 관리하는 사용자 지정 역할을 부여하려면 특정 애플리케이션 등록을 역할 할당의 범위로 포함하면 됩니다.
+범위는 역할 할당의 일부로 허용되는 작업을 특정 리소스 세트로 제한하는 방법입니다. 예를 들어 개발자에게 사용자 지정 역할을 할당하고 특정 애플리케이션 등록만 관리하려는 경우 특정 애플리케이션 등록을 역할 할당의 범위로 포함할 수 있습니다.
+
+역할을 할당할 때 다음 범위 유형 중 하나를 지정합니다.
+
+- 테넌트
+- [관리 단위](administrative-units.md)
+- Azure AD 리소스
+
+Azure AD 리소스를 범위로 지정하는 경우 다음 중 하나일 수 있습니다.
+
+- Azure AD 그룹
+- Enterprise 애플리케이션
+- 애플리케이션 등록
+
+자세한 내용은 [다양한 범위에서 Azure AD 역할 할당](assign-roles-different-scopes.md)을 참조하세요.
 
 ## <a name="license-requirements"></a>라이선스 요구 사항
 
@@ -86,5 +100,5 @@ Azure AD에서 기본 제공 역할을 사용하는 것은 무료이지만, 사�
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure AD 역할 이해](concept-understand-roles.md)
-- [Azure Portal, Azure AD PowerShell 및 Graph API](custom-create.md)를 사용하여 사용자 지정 역할 할당 만들기
-- [역할 할당 나열](view-assignments.md)
+- [사용자에게 Azure AD 역할 할당](manage-roles-portal.md)
+- [사용자 지정 역할 만들기 및 할당](custom-create.md)

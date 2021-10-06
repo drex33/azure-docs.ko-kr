@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: be43dda1e1fdf6d23031f2d2bf75a7f126ddef7a
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 7e16fd0d1c6370cb0ab973760c988c600f42888c
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123272838"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153523"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>VMware VM을 Azure로 마이그레이션(에이전트 기반)
 
@@ -103,7 +103,7 @@ Azure Migrate Server Migration은 마이그레이션하려는 VM을 검색하기
 다음과 같이 계정을 준비합니다.
 
 1. VM에 설치할 수 있는 권한이 있는 도메인 또는 로컬 계정을 준비합니다.
-2. Windows VM의 경우 도메인 계정을 사용하지 않으면 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** 에서 레지스트리의 값과 함께 **LocalAccountTokenFilterPolicy** DWORD 항목을 추가하여 로컬 머신에서 원격 사용자 액세스 제어를 사용하지 않도록 설정합니다.
+2. Windows VM의 경우 도메인 계정을 사용하지 않으면 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** 에서 레지스트리의 1 값과 함께 **LocalAccountTokenFilterPolicy** DWORD 항목을 추가하여 로컬 머신에서 원격 사용자 액세스 제어를 사용하지 않도록 설정합니다.
 3. Linux VM의 경우 원본 Linux 서버에서 루트 계정을 준비합니다.
 
 
@@ -354,7 +354,7 @@ OVF 템플릿이 다운로드되면 VMware로 가져와서 Windows Server 2016�
 
 ## <a name="complete-the-migration"></a>마이그레이션 완료
 
-1. 마이그레이션이 완료되면 마우스 오른쪽 단추로 VM > **마이그레이션 중지** 를 차례로 클릭합니다. 다음을 수행합니다.
+1. 마이그레이션이 완료되면 마우스 오른쪽 단추로 VM > **복제 중지** 를 차례로 클릭합니다. 다음을 수행합니다.
     - 온-프레미스 머신에 대한 복제를 중지합니다.
     - Azure Migrate의 **서버 복제** 수에서 머신을 제거합니다. Server Migration에 연결합니다.
     - VM에 대한 복제 상태 정보를 정리합니다.

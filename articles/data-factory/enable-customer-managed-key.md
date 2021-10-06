@@ -8,12 +8,12 @@ ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.reviewer: mariozi
-ms.openlocfilehash: 3580ae78497426f1399981035e861bc51c912144
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 725ebc0dbb8b037dcfcde8d154353fd7cf0a1a59
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697559"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208104"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>고객 관리형 키를 사용하여 Azure Data Factory 암호화
 
@@ -149,7 +149,7 @@ Data Factory 암호화에 사용되는 키를 변경하려면 Data Factory에서
 
   :::image type="content" source="media/enable-customer-managed-key/07-include-in-template.png" alt-text="ARM 템플릿에서 고객 관리형 키 설정을 포함하는 스크린샷":::
 
-ARM 템플릿에서 다음 설정이 추가됩니다. 이러한 속성은 [Azure Resource Manager 매개 변수 구성](continuous-integration-deployment.md#use-custom-parameters-with-the-resource-manager-template)을 편집하여 연속 통합 및 배달 파이프라인에서 매개 변수화할 수 있습니다.
+ARM 템플릿에서 다음 설정이 추가됩니다. 이러한 속성은 [Azure Resource Manager 매개 변수 구성](continuous-integration-delivery-resource-manager-custom-parameters.md)을 편집하여 연속 통합 및 배달 파이프라인에서 매개 변수화할 수 있습니다.
 
   :::image type="content" source="media/enable-customer-managed-key/08-template-with-customer-managed-key.png" alt-text="Azure Resource Manager 템플릿에서 고객 관리형 키 설정을 포함하는 스크린샷":::
 

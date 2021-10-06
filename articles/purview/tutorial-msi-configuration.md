@@ -1,23 +1,20 @@
 ---
-title: 대규모 Azure Purview MSI의 데이터 원본에 대한 액세스 구성(미리 보기)
+title: 대규모 Azure Purview MSI의 데이터 원본에 대한 액세스 구성
 description: 이 자습서에서는 Azure 데이터 원본 구독에서 Azure MSI 설정을 구성합니다.
 author: zeinam
 ms.author: zeinam
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: tutorial
-ms.date: 05/28/2021
-ms.openlocfilehash: 952f69d7d33ae695103ee42de4462bdaa30c2538
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.date: 09/27/2021
+ms.openlocfilehash: 101d18cdecdc4fc7d4fb33b824500350f53b7b3f
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113109200"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213397"
 ---
-# <a name="tutorial-configure-access-to-data-sources-for-azure-purview-msi-at-scale-preview"></a>자습서: 대규모 Azure Purview MSI의 데이터 원본에 대한 액세스 구성(미리 보기)
-
-> [!IMPORTANT]
-> Azure Purview는 현재 미리 보기로 제공됩니다. [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타 또는 미리 보기로 제공되거나 아직 일반 공급을 위해 릴리스되지 않은 Azure 기능에 적용되는 추가 약관이 포함되어 있습니다.
+# <a name="tutorial-configure-access-to-data-sources-for-azure-purview-msi-at-scale"></a>자습서: 대규모 Azure Purview MSI의 데이터 원본에 대한 액세스 구성
 
 데이터 원본을 검사하려면 Azure Purview에서 해당 원본에 대한 액세스 권한이 필요합니다. 이 자습서는 Azure 구독 소유자 및 Azure Purview 데이터 원본 관리자를 대상으로 합니다. 필요한 액세스를 식별하고 Azure 데이터 원본에서 Azure Purview에 필요한 인증 및 네트워크 규칙을 설정하는 데 도움이 됩니다.
 
@@ -47,7 +44,7 @@ ms.locfileid: "113109200"
 
 스크립트를 실행하기 전에 4개의 열이 있는 .csv 파일(예: "C:\temp\Subscriptions.csv)을 만듭니다.
    
-|열 이름|Description|예제|
+|열 이름|설명|예제|
 |----|----|----|
 |`SubscriptionId`|데이터 원본에 대한 Azure 구독 ID입니다.|12345678-aaaa-bbbb-cccc-1234567890ab|
 |`KeyVaultName`|데이터 원본 구독에 배포된 기존 키 자격 증명 모음의 이름입니다.|ContosoDevKeyVault|
@@ -58,7 +55,7 @@ ms.locfileid: "113109200"
 
 **샘플 .csv 파일:**
     
-:::image type="content" source="./media/tutorial-data-sources-readiness/subscriptions-input.png" alt-text="샘플 구독 목록을 보여 주는 스크린샷." lightbox="./media/tutorial-data-sources-readiness/subscriptions-input.png":::
+:::image type="content" source="./media/tutorial-data-sources-readiness/subscriptions-input.png" alt-text="샘플 구독 목록 스크린샷" lightbox="./media/tutorial-data-sources-readiness/subscriptions-input.png":::
 
 > [!NOTE] 
 > 필요한 경우 코드에서 파일 이름과 경로를 업데이트할 수 있습니다.
@@ -70,7 +67,7 @@ Windows 컴퓨터에서 스크립트를 실행하려면 다음 단계를 따르�
 
 1. 원하는 위치에 [Azure Purview MSI 구성 스크립트를 다운로드](https://github.com/Azure/Purview-Samples/tree/master/Data-Source-MSI-Configuration)합니다.
 
-2. 컴퓨터의 Windows 작업 표시줄에 있는 검색 상자에 **PowerShell** 을 입력합니다. 검색 목록에서 **Windows PowerShell** 을 마우스 오른쪽 단추로 클릭한 다음, **관리자 권한으로 실행** 을 선택합니다.
+2. 컴퓨터의 Windows 작업 표시줄에 있는 검색 상자에 **PowerShell** 을 입력합니다. 검색 목록에서 **Windows PowerShell** 을 길게 선택(또는 마우스 오른쪽 단추로 클릭)한 다음, **관리자 권한으로 실행** 을 선택합니다.
 
 3. PowerShell 창에서 다음 명령을 입력합니다. `<path-to-script>`를 추출된 스크립트 파일의 폴더 경로로 바꿉니다.
 
@@ -83,9 +80,9 @@ Windows 컴퓨터에서 스크립트를 실행하려면 다음 단계를 따르�
    ```powershell
    Install-Module -Name Az -AllowClobber -Scope CurrentUser
    ```
-5. *계속하려면 NuGet 공급자가 필요합니다* 라는 메시지가 표시되면 **Y** 를 입력하고 **Enter** 키를 선택합니다.
+5. ‘계속하려면 NuGet 공급자가 필요합니다.’라는 메시지가 표시되면 **Y** 를 입력하고 **Enter** 키를 선택합니다.
 
-6. *신뢰할 수 없는 리포지토리* 메시지가 표시되면 **A** 를 입력한 다음 **Enter** 키를 선택합니다.
+6. ‘신뢰할 수 없는 리포지토리’ 메시지가 표시되면 **A** 를 입력하고 **Enter** 키를 선택합니다.
 
 7. 이전 단계를 반복하여 `Az.Synapse` 및 `AzureAD` 모듈을 설치합니다.
 
@@ -96,7 +93,7 @@ PowerShell이 필요한 모듈을 설치하는 데 최대 1분 정도 걸릴 수
 
 PowerShell 스크립트를 실행하여 데이터 원본 구독의 준비 상태를 확인하기 전에 스크립트에서 사용할 다음 인수의 값을 가져옵니다.
 
-- `AzureDataType`: 다음 옵션 중 하나를 데이터 원본 유형으로 선택하여 구독 전체에서 데이터 유형에 대한 준비 상태를 확인합니다. 
+- `AzureDataType`: 다음 옵션 중 하나를 데이터 원본 형식으로 선택하여 구독 전체에서 데이터 형식에 대한 준비 상태를 확인합니다. 
     
     - `BlobStorage`
 
@@ -143,7 +140,7 @@ Azure 환경에서 스크립트를 실행하려면 최소한 다음 권한이 �
    cd <path-to-script>
    ```
 
-2. 다음 명령을 실행하여 로컬 컴퓨터의 실행 정책을 설정합니다. 실행 정책을 변경하라는 메시지가 표시되면 *모두 예* 에 대한 **A** 를 입력합니다.
+2. 다음 명령을 실행하여 로컬 컴퓨터의 실행 정책을 설정합니다. 실행 정책을 변경하라는 메시지가 표시되면 ‘모두 예’를 나타내는 **A** 를 입력합니다.
 
    ```powershell
    Set-ExecutionPolicy -ExecutionPolicy Unrestricted
@@ -168,13 +165,13 @@ Key Vault의 자격 증명이 일치하지 않는 경우 Azure SQL Server 인스
 
 ### <a name="what-data-sources-are-supported-by-the-script"></a>스크립트에서 지원하는 데이터 원본은 무엇인가요?
 
-현재 스크립트에서 지원하는 데이터 소스는 다음과 같습니다.
+현재 스크립트에서 지원하는 데이터 원본은 다음과 같습니다.
 
-- Azure BlobStorage(Blob Storage)
-- ADLSGen2(Azure Data Lake Storage Gen2)
-- ADLSGen1(Azure Data Lake Storage Gen1)
-- AzureSQLDB(Azure SQL Database)
-- AzureSQLMI(Azure SQL Managed Instance)
+- Azure Blob Storage(BlobStorage)
+- Azure Data Lake Storage Gen2(ADLSGen2)
+- Azure Data Lake Storage Gen1(ADLSGen1)
+- Azure SQL Database(AzureSQLDB)
+- Azure SQL Managed Instance(AzureSQLMI)
 - Azure Synapse(Synapse) 전용 풀
 
 스크립트를 실행할 때 이러한 데이터 원본을 모두 또는 일부를 입력 매개 변수로 선택할 수 있습니다.

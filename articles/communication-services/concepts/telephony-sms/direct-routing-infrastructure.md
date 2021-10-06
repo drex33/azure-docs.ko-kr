@@ -9,12 +9,12 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: pstn
-ms.openlocfilehash: 3ab9c444fbd2413d0534aba7b1db62198e92a82f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b03779f9c56d2ebcc4d070165cdf29a54e78d269
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609691"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060956"
 ---
 # <a name="azure-direct-routing-infrastructure-requirements"></a>Azure 직접 라우팅 인프라 요구 사항 
 
@@ -156,16 +156,13 @@ SBC는 DNS 쿼리를 수행하여 sip.pstnhub.microsoft.com을 확인합니다. 
 
 ## <a name="media-traffic-media-processors-geography"></a>미디어 트래픽: 미디어 프로세서 지리
 
-미디어 트래픽은 미디어 프로세서라는 구성 요소를 통해 흐릅니다. 미디어 프로세서는 SIP 프록시와 동일한 데이터 센터에 배치됩니다. 또한 미디어 흐름을 최적화하기 위한 추가 미디어 프로세서가 있습니다. 예를 들어 현재 오스트레일리아에는 SIP 프록시 구성 요소(싱가포르 또는 홍콩 SAR을 통한 SIP 흐름)가 없지만 오스트레일리아에서 로컬로 미디어 프로세서를 사용할 수 있습니다. 로컬 미디어 프로세서의 필요 여부는 오스트레일리아에서 싱가포르 또는 홍콩 SAR과 같이 먼 지역으로 트래픽을 전송할 경우에 발생하는 대기 시간에 따라 결정됩니다. 오스트레일리아에서 홍콩 SAR 또는 싱가포르로 흐르는 트래픽 예제의 대기 시간은 SIP 트래픽의 양호한 통화 품질을 유지하기에 적합하지만 실시간 미디어 트래픽의 경우에는 그렇지 않습니다.
-
-SIP 프록시와 미디어 프로세서 구성 요소가 둘 다 배포되는 위치:
+미디어 트래픽은 미디어 프로세서라는 구성 요소를 통해 흐릅니다. 미디어 프로세서는 SIP 프록시와 동일한 데이터 센터에 배치됩니다.
 - 미국(미국 서부 및 미국 동부 데이터 센터)
 - 유럽(암스테르담 및 더블린 데이터 센터)
 - 아시아(싱가포르 및 홍콩 SAR 데이터 센터)
 - 오스트레일리아(오스트레일리아 동부 및 남동부 데이터 센터)
-
-미디어 프로세서만 배포되는 위치(위에 나열된 가장 가까운 데이터 센터를 통한 SIP 흐름):
 - 일본(일본 동부 및 서부 데이터 센터)
+
 
 
 ## <a name="media-traffic-codecs"></a>미디어 트래픽: 코덱

@@ -1,5 +1,5 @@
 ---
-title: LiquidFiles와 Azure Active Directory 통합 | Microsoft Docs
+title: '자습서: LiquidFiles와 Azure AD SSO 통합'
 description: Azure Active Directory와 LiquidFiles 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/02/2021
+ms.date: 09/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 482d47c69da61ce932127d1e450f106ee02b4172
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 2c20c03e61d7fa7055d1044d69cacc8b234ad8f4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111571632"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636651"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-liquidfiles"></a>자습서: LiquidFiles와 Azure Active Directory 통합
+# <a name="tutorial-azure-ad-sso-integration-with-liquidfiles"></a>자습서: LiquidFiles와 Azure AD SSO 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 LiquidFiles를 통합하는 방법에 대해 알아봅니다. Azure AD와 LiquidFiles를 통합하면 다음을 수행할 수 있습니다.
 
@@ -32,6 +32,9 @@ LiquidFiles와 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 
 * Azure AD 구독 Azure AD 환경이 없으면 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * LiquidFiles Single Sign-On을 사용하도록 설정된 구독
+
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 

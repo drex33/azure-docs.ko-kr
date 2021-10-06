@@ -1,7 +1,7 @@
 ---
-title: '빠른 시작: 애플리케이션에 사용자 할당'
+title: '빠른 시작: 사용자 계정 만들기 및 할당'
 titleSuffix: Azure AD
-description: 이 빠른 시작에서는 Azure AD를 ID 공급자로 사용하도록 설정한 앱을 사용자가 사용할 수 있도록 허용하는 프로세스를 안내합니다.
+description: Azure Active Directory 테넌트에서 사용자 계정을 만들고 애플리케이션에 할당합니다.
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -9,68 +9,65 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/23/2021
+ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: alamaral
-ms.openlocfilehash: 5c8b4ec030f60b940d8d6c36bd31e10932151dd5
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: 28f5cfe158c13928d9443df22551bcfd6e7d8e85
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114667172"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129058402"
 ---
-# <a name="quickstart-assign-users-to-an-application"></a>빠른 시작: 애플리케이션에 사용자 할당
+# <a name="quickstart-create-and-assign-a-user-account-in-azure-active-directory"></a>빠른 시작: Azure Active Directory에서 사용자 계정 만들기 및 할당
 
-이전 빠른 시작에서는 앱의 속성을 구성했습니다. 속성을 설정할 때 할당된 사용자 및 할당되지 않은 사용자 모두에 대해 환경을 구성합니다. 이 빠른 시작에서는 앱에 사용자를 할당하는 프로세스를 안내합니다.
+이 빠른 시작에서는 Azure Active Directory 관리 센터를 사용하여 Azure AD(Azure Active Directory) 테넌트에서 사용자 계정을 만듭니다. 계정이 만들어지면 해당 계정을 테넌트에 추가한 엔터프라이즈 애플리케이션에 할당할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+이 빠른 시작의 단계를 테스트하려면 비 프로덕션 환경을 사용하는 것이 좋습니다.
 
-Azure AD 테넌트에 추가한 앱에 사용자를 설정하려면 다음이 필요합니다.
+## <a name="prerequisites"></a>필수 조건
+
+사용자 계정을 만들고 엔터프라이즈 애플리케이션에 할당하려면 다음이 필요합니다.
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - 다음 역할 중 하나: 전역 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 관리자 또는 서비스 주체의 소유자.
-- 선택 사항: [앱 보기](view-applications-portal.md) 완료.
-- 선택 사항: [앱 추가](add-application-portal.md) 완료.
-- 선택 사항: [앱 구성](add-application-portal-configure.md) 완료.
+- [빠른 시작: 엔터프라이즈 애플리케이션 추가](add-application-portal.md) 단계의 완료
 
->[!IMPORTANT]
->비 프로덕션 환경을 사용하여 이 빠른 시작의 단계를 테스트합니다.
+## <a name="create-a-user-account"></a>사용자 계정 만들기
 
-## <a name="assign-users-to-an-app"></a>앱에 사용자 할당
+Azure AD 테넌트에서 사용자 계정을 만들려면,
 
-1. Azure AD Portal에서 **엔터프라이즈 애플리케이션** 을 선택합니다. 그런 다음, 구성하려는 애플리케이션을 찾아 선택합니다.
-2. 왼쪽 탐색 메뉴에서 **사용자 및 그룹** 을 선택합니다.
-   > [!NOTE]
-   > 일부 Microsoft 365 앱은 PowerShell을 사용해야 합니다.
-3. **사용자/그룹 추가** 단추를 선택합니다.
-4. **할당 추가** 창에서 **사용자 및 그룹** 을 선택합니다.
-5. 애플리케이션에 할당할 사용자 또는 그룹을 선택합니다. 검색 상자에 사용자 또는 그룹의 이름을 입력할 수도 있습니다. 여러 사용자 및 그룹을 선택할 수 있으며 선택 항목은 **선택한 항목** 아래에 표시됩니다.
-    > [!IMPORTANT]
-    > 애플리케이션에 그룹을 할당하면 그룹의 사용자만 액세스할 수 있습니다. 할당은 중첩된 그룹에 적용되지 않습니다.
+1. [Azure Active Directory 관리 센터](https://aad.portal.azure.com)로 이동하고, 필수 구성 요소에 나열된 역할 중 하나를 사용하여 로그인합니다.
+1. 왼쪽 메뉴에서 **사용자** 를 선택합니다.
+1. 창 위쪽에서 **새 사용자** 를 선택합니다.
 
-    > [!NOTE]
-    > 그룹 기반 할당에는 Azure Active Directory Premium P1 또는 P2 버전이 필요합니다. 그룹 기반 할당은 보안 그룹에만 지원됩니다. 중첩된 그룹 멤버 자격 및 Microsoft 365 그룹은 현재 지원되지 않습니다. 이 문서에서 설명하는 기능에 대한 추가 라이선스 요구 사항은 [Azure Active Directory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory)를 참조하세요.
-6. 완료되면 **선택** 을 선택합니다.
-   :::image type="content" source="./media/assign-user-or-group-access-portal/assign-users.png" alt-text="앱에 사용자 또는 그룹 할당":::
-7. **사용자 및 그룹** 창의 목록에서 하나 이상의 사용자 또는 그룹을 선택한 다음, 창 하단에 있는 **선택** 단추를 선택합니다.
-8. 애플리케이션에서 지원하는 경우 사용자 또는 그룹에 역할을 할당할 수 있습니다. **할당 추가** 창에서 **역할 선택** 을 선택합니다. 그런 다음, **역할 선택** 창에서 선택한 사용자 또는 그룹에 적용할 역할을 선택한 다음, 창 하단에 있는 **확인** 단추를 선택합니다.
-    > [!NOTE]
-    > 애플리케이션에서 역할 선택을 지원하지 않는 경우 기본 액세스 역할이 할당됩니다. 이 경우 애플리케이션은 사용자의 액세스 수준을 관리합니다.
-9. **할당 추가** 창에서 창 하단에 있는 **할당** 단추를 선택합니다.
+    :::image type="content" source="media/add-application-portal-assign-users/new-user.png" alt-text="Azure AD 테넌트에 새 사용자 계정 추가":::
+    
+1. **사용자 이름** 필드에서 사용자 계정의 사용자 이름을 입력합니다. 예: `contosouser1@contoso.com`. `contoso.com`을 테넌트 도메인의 이름으로 변경해야 합니다.
+1. **이름** 필드에서 계정의 사용자 이름을 입력합니다. 예: `contosouser1`.
+1. **암호 자동 생성** 을 선택한 상태로 두고, **암호 표시** 를 선택합니다. 암호 상자에 표시된 값을 적어둡니다.
+1. **만들기** 를 선택합니다.
 
-동일한 절차를 사용하여 사용자 또는 그룹의 할당을 해제할 수 있습니다. 할당을 해제할 사용자 또는 그룹을 선택한 다음, **제거** 를 선택합니다. 일부 Microsoft 365 및 Office 365 앱은 PowerShell을 사용해야 합니다.
+## <a name="assign-a-user-account-to-an-enterprise-application"></a>엔터프라이즈 애플리케이션에 사용자 계정 할당
+
+사용자 계정을 엔터프라이즈 애플리케이션에 할당하려면,
+
+1. [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, 사용자 계정을 할당하려는 애플리케이션을 검색하여 선택합니다. 예를 들어 이전 빠른 시작에서 만든 **Azure AD SAML Toolkit 1** 이라는 애플리케이션입니다.
+1. 왼쪽 창에서 **사용자 및 그룹** 을 선택한 다음, **사용자/그룹 추가** 를 선택합니다.
+
+    :::image type="content" source="media/add-application-portal-assign-users/assign-user.png" alt-text="Azure AD 테넌트에서 zn 애플리케이션에 사용자 계정 할당":::
+
+1. **할당 추가** 창의 **사용자 및 그룹** 아래에서 **선택된 항목 없음** 을 선택합니다.
+1. 애플리케이션에 할당하려는 사용자를 검색하여 선택합니다. 예: `contosouser1@contoso.com`.
+1. **선택** 을 선택합니다.
+1. **할당 추가** 창의 아래쪽에서 **할당** 단추를 선택합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-빠른 시작을 완료한 후에는 앱을 삭제하는 것이 좋습니다. 이렇게 하면 테스트 테넌트를 깨끗하게 유지할 수 있습니다. 앱 삭제에 대한 내용은 이 시리즈의 마지막 빠른 시작에서 다룹니다. [앱 삭제](delete-application-portal.md)를 참조하세요.
+다음 빠른 시작을 완료하려는 경우 만든 애플리케이션을 유지합니다. 그렇지 않으면 해당 애플리케이션을 삭제하여 테넌트를 정리하는 것이 좋습니다. 자세한 내용은 [애플리케이션 삭제](delete-application-portal.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-앱에 대한 Single Sign-On을 지정하는 방법에 대한 다음 문서를 진행하세요.
+엔터프라이즈 애플리케이션에 대한 Single Sign-On을 설정하는 방법을 알아봅니다.
 > [!div class="nextstepaction"]
-> [SAML 기반 Single Sign On 설정](add-application-portal-setup-sso.md)
-
-또는
-
-> [!div class="nextstepaction"]
-> [OIDC 기반 Single Sign On 설정](add-application-portal-setup-oidc-sso.md)
+> [Single Sign-On 사용](add-application-portal-setup-sso.md)

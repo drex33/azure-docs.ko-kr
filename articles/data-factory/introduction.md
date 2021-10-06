@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: overview
 ms.date: 06/08/2021
-ms.openlocfilehash: 745a0b67bf2ac225f62b0e18cadc009a16007ab6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e9925b8c01cbaaeaf28815a7188118ff2060d507
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740950"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208023"
 ---
 # <a name="what-is-azure-data-factory"></a>Azure 데이터 팩터리란 무엇인가요?
 
@@ -32,7 +32,7 @@ Azure Data Factory는 그러한 데이터 시나리오를 해결하는 플랫폼
 
 또한 변환된 데이터를 BI(비즈니스 인텔리전스) 애플리케이션용 Azure Synapse Analytics와 같은 데이터 저장소에 게시하여 사용할 수 있습니다. 궁극적으로, Azure Data Factory를 통해 원시 데이터를 더 나은 비즈니스 결정에 의미 있는 데이터 저장소 및 데이터 레이크로 구성할 수 있습니다.
 
-![데이터 팩터리의 최상위 수준 보기](media/data-flow/overview.png)
+:::image type="content" source="media/data-flow/overview.png" alt-text="데이터 팩터리의 최상위 수준 보기":::
 
 ## <a name="how-does-it-work"></a>작동 원리
 
@@ -60,7 +60,7 @@ Data Factory가 있으면 향후 분석에 사용할 수 있도록 데이터 파
 직접 변환을 코딩하는 것을 선호하는 경우 ADF는 컴퓨팅 서비스(예: HDInsight Hadoop, Spark, Data Lake Analytics 및 Machine Learning)에서 변환을 실행하기 위한 외부 활동을 지원합니다.
 
 ### <a name="cicd-and-publish"></a>CI/CD 및 게시
-Azure DevOps 및 GitHub를 사용하여 [Data Factory가 데이터 파이프라인의 CI/CD를 완벽하게 지원](continuous-integration-deployment.md)합니다. 이를 통해 완성된 제품을 게시하기 전에 ETL 프로세스를 증분 방식으로 개발하고 제공할 수 있습니다. 원시 데이터를 비즈니스에 사용 가능한 형식으로 구체화했으므로 데이터를 Azure Data Warehouse, Azure SQL Database, Azure CosmosDB 또는 비즈니스 사용자가 자신의 비즈니스 인텔리전스 도구로/에서 가리킬 수 있는 분석 엔진에 로드합니다.
+Azure DevOps 및 GitHub를 사용하여 [Data Factory가 데이터 파이프라인의 CI/CD를 완벽하게 지원](continuous-integration-delivery.md)합니다. 이를 통해 완성된 제품을 게시하기 전에 ETL 프로세스를 증분 방식으로 개발하고 제공할 수 있습니다. 원시 데이터를 비즈니스에 사용 가능한 형식으로 구체화했으므로 데이터를 Azure Data Warehouse, Azure SQL Database, Azure CosmosDB 또는 비즈니스 사용자가 자신의 비즈니스 인텔리전스 도구로/에서 가리킬 수 있는 분석 엔진에 로드합니다.
 ### <a name="monitor"></a>모니터
 데이터 통합 파이프라인을 성공적으로 만들고 배포하여 구체화된 데이터에서 비즈니스 가치를 제공한 후에는 성공 및 실패 비율에 맞게 일정 계획된 작업과 파이프라인을 모니터링합니다. Azure Data Factory는 Azure Monitor, API, PowerShell, Azure Monitor 로그 및 Azure Portal의 상태 패널을 통한 파이프라인 모니터링을 기본 제공합니다.
 

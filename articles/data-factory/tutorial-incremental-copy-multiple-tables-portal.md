@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 07/05/2021
-ms.openlocfilehash: 75ddd0ebf1a4d796cf59f087399ea94957916349
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a961b008406c487b1543ee827fe1c33d3e435645
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638415"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124767454"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-a-database-in-azure-sql-database-using-the-azure-portal"></a>Azure Portal을 사용하여 SQL Server의 여러 테이블에서 Azure SQL Database의 데이터베이스로 데이터를 증분 로드
 
@@ -58,7 +58,7 @@ ms.locfileid: "122638415"
 
     대략적인 솔루션 다이어그램은 다음과 같습니다. 
 
-    ![데이터 증분 로드](media/tutorial-incremental-copy-multiple-tables-portal/high-level-solution-diagram.png)
+    :::image type="content" source="media/tutorial-incremental-copy-multiple-tables-portal/high-level-solution-diagram.png" alt-text="데이터 증분 로드":::
 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
@@ -234,7 +234,7 @@ END
 1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
 2. 왼쪽 메뉴에서 **리소스 만들기** > **통합** > **Data Factory** 를 선택합니다. 
    
-   !["새로 만들기" 창에서 데이터 팩터리 선택](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="&quot;새로 만들기&quot; 창에서 Data Factory 선택":::
 
 3. **새 데이터 팩터리** 페이지에서 **이름** 에 대해 **ADFMultiIncCopyTutorialDF** 를 입력합니다. 
  
@@ -262,11 +262,11 @@ END
 
 1. Azure Data Factory UI의 홈페이지에서 맨 왼쪽 창에 있는 [관리 탭](./author-management-hub.md)을 선택합니다.
 
-   ![홈 페이지 관리 단추](media/doc-common-process/get-started-page-manage-button.png)
+   :::image type="content" source="media/doc-common-process/get-started-page-manage-button.png" alt-text="홈 페이지 관리 단추":::
 
 1. 왼쪽 창에서 **통합 런타임** 을 선택한 다음, **+새로 만들기** 를 선택합니다.
 
-   ![Integration Runtime 만들기](media/doc-common-process/manage-new-integration-runtime.png)
+   :::image type="content" source="media/doc-common-process/manage-new-integration-runtime.png" alt-text="Integration Runtime 만들기":::
 
 1. **Integration Runtime 설정** 창에서 **데이터 이동을 수행하고 활동을 외부 계산으로 디스패치합니다** 를 선택하고, **계속** 을 클릭합니다. 
 
@@ -275,10 +275,10 @@ END
 
 1. 다음 위치에서 **이 컴퓨터에 대한 기본 설치를 시작하려면 여기를 클릭하세요** 를 클릭합니다. **옵션 1: 빠른 설치** 섹션 
 
-   ![빠른 설치 링크 클릭](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png" alt-text="빠른 설치 링크 클릭":::
 1. **Integration Runtime(자체 호스팅) 빠른 설치** 창에서 **닫기** 를 클릭합니다. 
 
-   ![Integration Runtime 설정 - 성공](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtime-setup-successful.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtime-setup-successful.png" alt-text="Integration Runtime 설정 - 성공":::
 1. 웹 브라우저의 **Integration Runtime 설정** 창에서 **마침** 을 클릭합니다. 
 
  
@@ -324,7 +324,7 @@ END
 
 1. 두 개의 연결된 서비스가 목록에 표시되는지 확인합니다. 
    
-    ![두 개의 연결된 서비스](./media/tutorial-incremental-copy-multiple-tables-portal/two-linked-services.png) 
+    :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/two-linked-services.png" alt-text="두 개의 연결된 서비스"::: 
 
 ## <a name="create-datasets"></a>데이터 세트 만들기
 이 단계에서는 데이터 원본, 데이터 대상 및 워터마크를 저장할 위치를 나타내는 데이터 세트를 만듭니다.
@@ -339,7 +339,7 @@ END
 
 1. 속성 창에서 **연결** 탭으로 전환하고, **연결된 서비스** 에 대해 **SqlServerLinkedService** 를 선택합니다. 여기에서 테이블을 선택하지 마십시오. 파이프라인의 복사 작업은 전체 테이블을 로드하는 대신 SQL 쿼리를 사용하여 데이터를 로드합니다.
 
-   ![원본 데이터 세트 - 연결](./media/tutorial-incremental-copy-multiple-tables-portal/source-dataset-connection.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/source-dataset-connection.png" alt-text="원본 데이터 세트 - 연결":::
 
 
 ### <a name="create-a-sink-dataset"></a>싱크 데이터 세트 만들기
@@ -354,14 +354,14 @@ END
     1. **Create/update 매개 변수** 섹션에서 **새로 만들기** 를 클릭합니다. 
     1. **이름** 에 대해 **SinkTableName** 을 입력하고 **형식** 에 대해 **문자열** 을 입력합니다. 이 데이터 세트는 매개 변수로 **SinkTableName** 을 사용합니다. SinkTableName 매개 변수는 런타임에 동적으로 파이프라인에 의해 설정됩니다. 파이프라인의 ForEach 작업은 테이블 이름 목록을 반복하고 반복할 때마다 테이블 이름을 이 데이터 세트에 전달합니다.
    
-        ![싱크 데이터 세트 - 속성](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png" alt-text="싱크 데이터 세트 - 속성":::
 1. 속성 창에서 **연결** 탭으로 전환하고, **연결된 서비스** 에 대해 **AzureSqlDatabaseLinkedService** 를 선택합니다. **테이블** 속성에서 **동적 콘텐츠 추가** 를 클릭합니다.   
     
 1. **동적 콘텐츠 추가** 창의 **매개 변수** 섹션에서 **SinkTableName** 를 선택 합니다. 
  
 1. **마침** 을 클릭하면 “@dataset().SinkTableName”이 테이블 이름으로 표시됩니다.
 
-   ![싱크 데이터 세트 - 연결](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png" alt-text="싱크 데이터 세트 - 연결":::
 
 ### <a name="create-a-dataset-for-a-watermark"></a>워터마크에 대한 데이터 세트 만들기
 이 단계에서는 상위 워터마크 값을 저장하기 위한 데이터 세트를 만듭니다. 
@@ -376,7 +376,7 @@ END
     1. **연결된 서비스** 에 대해 **AzureSqlDatabaseLinkedService** 를 선택합니다.
     1. **테이블** 에 대해 **[dbo].[watermarktable]** 을 선택합니다.
 
-        ![워터마크 데이터 세트 - 연결](./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png" alt-text="워터마크 데이터 세트 - 연결":::
 
 ## <a name="create-a-pipeline"></a>파이프라인 만들기
 파이프라인에서는 테이블 이름 목록을 매개 변수로 사용합니다. ForEach 작업은 테이블 이름 목록을 반복하고 다음 작업을 수행합니다. 
@@ -405,7 +405,7 @@ END
 
 1. **설정** 탭으로 전환하고 **항목** 에 대해 `@pipeline().parameters.tableList`를 입력합니다. ForEach 작업은 테이블 목록을 반복하고 증분 복사 작업을 수행합니다. 
 
-    ![ForEach 활동 - 설정](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-settings.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/foreach-settings.png" alt-text="ForEach 활동 - 설정":::
 
 1. 아직 선택되지 않은 경우 파이프라인에서 **ForEach** 활동을 선택합니다. **편집(연필 아이콘)** 단추를 클릭합니다.
 
@@ -421,7 +421,7 @@ END
         select * from watermarktable where TableName  =  '@{item().TABLE_NAME}'
         ```
 
-        ![첫 번째 조회 활동 - 설정](./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-settings.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-settings.png" alt-text="첫 번째 조회 활동 - 설정":::
 1. **활동** 도구 상자에서 **조회** 활동을 끌어서 놓고 **이름** 에 대해 **LookupNewWaterMarkActivity** 를 입력합니다.
         
 1. **설정** 탭으로 전환합니다.
@@ -434,12 +434,12 @@ END
         select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
         ```
     
-        ![두 번째 조회 활동 - 설정](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png" alt-text="두 번째 조회 활동 - 설정":::
 1. **활동** 도구 상자에서 **복사** 활동을 끌어서 놓고 **이름** 에 대해 **IncrementalCopyActivity** 를 입력합니다. 
 
 1. **조회** 활동을 하나씩 **복사** 활동에 연결합니다. 연결하려면 **조회** 활동에 연결된 **녹색** 상자를 끌어서 **복사** 활동에 놓습니다. 복사 활동의 테두리 색이 **파란색** 으로 변경되면 마우스 단추를 놓습니다.
 
-    ![조회 활동 및 복사 활동 연결](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png" alt-text="조회 활동 및 복사 활동 연결":::
 1. 파이프라인에서 **복사** 활동을 선택합니다. **속성** 창의 **원본** 탭으로 전환합니다. 
 
     1. **원본 데이터 세트** 에 대해 **SourceDataset** 를 선택합니다. 
@@ -450,7 +450,7 @@ END
         select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
         ```
 
-        ![복사 활동 - 원본 설정](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png" alt-text="복사 활동 - 원본 설정":::
 1. **싱크** 탭으로 전환하고, **싱크 데이터 세트** 에 대해 **SinkDataset** 을 선택합니다. 
         
 1. 다음 단계를 수행합니다.
@@ -460,14 +460,14 @@ END
     1. **테이블 형식** 속성에 `@{item().TableType}`을 입력합니다.
     1. **테이블 형식 매개 변수 이름** 에 `@{item().TABLE_NAME}`을 입력합니다.
 
-        ![복사 활동 - 매개 변수](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png" alt-text="복사 활동 - 매개 변수":::
 1. **저장 프로시저** 활동을 **활동** 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓습니다. **복사** 활동을 **저장 프로시저** 활동에 연결합니다. 
 
 1. 파이프라인에서 **저장 프로시저** 활동을 선택하고 **속성** 창의 **일반** 탭에서 **이름** 에 대해 **StoredProceduretoWriteWatermarkActivity** 를 입력합니다. 
 
 1. **SQL 계정** 탭으로 전환하고, **연결된 서비스** 에 대해 **AzureSqlDatabaseLinkedService** 를 선택합니다.
 
-    ![저장 프로시저 활동 - SQL 계정](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png" alt-text="저장 프로시저 활동 - SQL 계정":::
 1. **저장 프로시저** 탭으로 전환하고 다음 단계를 수행합니다.
 
     1. **저장 프로시저 이름** 에 `[dbo].[usp_write_watermark]`를 입력합니다. 
@@ -479,7 +479,7 @@ END
         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
-        ![저장 프로시저 활동 - 저장 프로시저 설정](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png" alt-text="저장 프로시저 활동 - 저장 프로시저 설정":::
 1. 만든 엔터티를 Data Factory에 게시하려면 **모두 게시** 를 선택합니다. 
 
 1. **게시됨** 메시지가 표시될 때까지 기다립니다. 알림을 보려면 **알림 표시** 링크를 클릭합니다. **X** 를 클릭하여 알림 창을 닫습니다.
@@ -508,7 +508,7 @@ END
     ]
     ```
 
-    ![파이프라인 실행 인수](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-run-arguments.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-run-arguments.png" alt-text="파이프라인 실행 인수":::
 
 ## <a name="monitor-the-pipeline"></a>파이프라인 모니터링
 

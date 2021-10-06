@@ -4,47 +4,61 @@ description: 포함 파일
 author: timlt
 ms.service: iot-develop
 ms.topic: include
-ms.date: 08/03/2021
+ms.date: 09/17/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 7241fcd0026d33518bdbaa99b7f08c64a437c70d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e19743a7ae754296992f4cb281c10c1d44cbe25c
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121744414"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094065"
 ---
 [![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/pnp)
 
-이 빠른 시작에서는 기본 Azure IoT 애플리케이션 개발 워크플로에 대해 알아봅니다. Azure CLI를 사용하여 Azure IoT Hub 및 디바이스를 만듭니다. 그런 다음 Azure IoT 디바이스 SDK 샘플을 사용하여 시뮬레이션된 온도 조절기를 실행하고 허브에 안전하게 연결하고 원격 분석을 전송합니다.
+이 빠른 시작에서는 기본 Azure IoT 애플리케이션 개발 워크플로에 대해 알아봅니다. Azure CLI 및 IoT Explorer를 사용하여 Azure IoT 허브와 디바이스를 만듭니다. 그런 다음 Azure IoT 디바이스 SDK 샘플을 사용하여 시뮬레이션된 온도 조절기를 실행하고 허브에 안전하게 연결하고 원격 분석을 전송합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
+이 빠른 시작은 Windows, Linux 및 Raspberry Pi에서 실행됩니다. 다음 OS와 디바이스 버전에서 테스트되었습니다.
+
+- Windows 10
+- WSL(Linux용 Windows 하위 시스템)에서 실행되는 Ubuntu 20.04 LTS
+- Raspberry Pi 3 모델 B+에서 실행되는 Raspberry Pi OS 버전 10(Raspian)
+
+Raspberry Pi에 명시된 경우를 제외하고 다음 사전 요구 사항을 개발 컴퓨터에 설치합니다.
+
 - Azure 구독이 아직 없는 경우 시작하기 전에 [무료 구독을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Git](https://git-scm.com/downloads)
 - [Node.js](https://nodejs.org) 버전 10 이상 노드 버전을 확인하려면 `node --version`을 실행합니다.
-- [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Azure IoT 모니터링하고 관리하는 플랫폼 간 유틸리티 
+- [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Azure IoT를 모니터링하고 관리하는 플랫폼 간 GUI 기반 유틸리티입니다. Raspberry Pi를 개발 플랫폼으로 사용하는 경우 IoT Explorer를 다른 컴퓨터에 설치하는 것이 좋습니다. IoT Explorer를 설치하지 않으려면 Azure CLI를 사용하여 동일한 단계를 수행할 수 있습니다. 
 - Azure CLI. 이 빠른 시작에서 Azure CLI 명령을 실행하기 위한 두 가지 옵션이 있습니다.
     - 브라우저에서 CLI 명령을 실행하는 대화형 셸인 Azure Cloud Shell을 사용합니다. 이 옵션은 아무 것도 설치할 필요가 없으므로 권장됩니다. 처음으로 Cloud Shell을 사용하는 경우 [Azure Portal](https://portal.azure.com)에 로그인합니다. [Cloud Shell 빠른 시작](../articles/cloud-shell/quickstart.md)의 단계를 따라 **Cloud Shell을 시작하고** **Bash 환경을 선택합니다**.
-    - 선택적으로 로컬 컴퓨터에서 Azure CLI를 실행합니다. Azure CLI가 이미 설치된 경우 `az upgrade`를 실행하여 CLI 및 확장을 현재 버전으로 업그레이드합니다. Azure CLI를 설치하는 방법은 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+    - 선택적으로 로컬 컴퓨터에서 Azure CLI를 실행합니다. Azure CLI가 이미 설치된 경우 `az upgrade`를 실행하여 CLI 및 확장을 현재 버전으로 업그레이드합니다. Azure CLI를 설치하는 방법은 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. Raspberry Pi를 개발 플랫폼으로 사용하는 경우 Azure Cloud Shell을 사용하거나 Azure CLI를 다른 컴퓨터에 설치하는 것이 좋습니다.
 
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
 ## <a name="run-a-simulated-device"></a>시뮬레이트된 디바이스 실행
 이 섹션에서는 Node.js SDK를 사용하여 시뮬레이션된 디바이스에서 IoT 허브로 메시지를 보냅니다. 두 개의 온도 조절기 센서가 있는 온도 컨트롤러를 구현하는 샘플을 실행합니다.
 
-1. 새 콘솔 창을 엽니다. 이 콘솔을 사용하여 Node.js SDK를 설치하고 Node.js 샘플 코드로 작업합니다.
+1. 새 콘솔(예: Windows CMD, PowerShell 또는 Bash)을 엽니다. 다음 단계에서 이 콘솔을 사용하여 Node.js SDK를 설치하고 Node.js 샘플 코드로 작업합니다.
 
     > [!NOTE]
     > Azure CLI의 로컬 설치를 사용하는 경우 이제 두 개의 콘솔 창이 열려 있을 수 있습니다. CLI에 사용한 콘솔이 아니라 방금 연 콘솔에서 이 섹션의 명령을 입력해야 합니다.
 
-1. 노드 콘솔에서 로컬 컴퓨터에 [Azure IoT Node.js SDK 디바이스 샘플](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples)을 복제합니다.
+1. [Azure IoT Node.js SDK 디바이스 샘플](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples)을 로컬 컴퓨터에 복제합니다.
 
     ```console
     git clone https://github.com/Azure/azure-iot-sdk-node
     ```
 
-1. *azure-iot-sdk-node/device/samples/pnp* 디렉터리로 이동합니다.
+1. 샘플 디렉터리로 이동합니다.
 
+    **Windows**
+    ```console
+    cd azure-iot-sdk-node\device\samples\pnp
+    ```
+
+    **Linux 또는 Raspberry Pi OS**
     ```console
     cd azure-iot-sdk-node/device/samples/pnp
     ```
@@ -61,7 +75,7 @@ ms.locfileid: "121744414"
     * `IOTHUB_DEVICE_CONNECTION_STRING`이라는 환경 변수를 설정합니다. 변수 값의 경우 이전 섹션에서 저장한 디바이스 연결 문자열을 사용합니다.
     * `IOTHUB_DEVICE_SECURITY_TYPE`이라는 환경 변수를 설정합니다. 변수의 경우 리터럴 문자열 값 `connectionString`을 사용합니다.
 
-    **Windows(cmd)**
+    **CMD(Windows)**
 
     ```console
     set IOTHUB_DEVICE_CONNECTION_STRING=<your connection string here>
@@ -78,15 +92,14 @@ ms.locfileid: "121744414"
     $env:IOTHUB_DEVICE_SECURITY_TYPE='connectionString'
     ```
 
-    **Bash(Linux 또는 Windows)**
+    **Bash**
 
     ```bash
     export IOTHUB_DEVICE_CONNECTION_STRING="<your connection string here>"
     export IOTHUB_DEVICE_SECURITY_TYPE="connectionString"
     ```
-1. 노드 콘솔에서 다음 샘플 파일의 코드를 실행합니다. 
+1. 다음 코드 샘플을 실행합니다.
 
-    터미널에서 Node.js 샘플을 실행하려면 다음을 수행합니다.
     ```console
     node pnpTemperatureController.js
     ```
@@ -120,7 +133,7 @@ Azure IoT Explorer에서 원격 분석을 보려면
 
 Azure CLI를 사용하여 디바이스 원격 분석을 보려면 다음을 수행합니다.
 
-1. CLI 앱에서 [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) 명령을 실행하여 시뮬레이션된 디바이스에서 IoT 허브로 전송된 이벤트를 모니터링합니다. 이전에 디바이스 및 IoT Hub에 대해 Azure IoT에서 만든 이름을 사용합니다.
+1. [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) 명령을 실행하여 시뮬레이션된 디바이스에서 IoT 허브로 보낸 이벤트를 모니터링합니다. 이전에 디바이스 및 IoT Hub에 대해 Azure IoT에서 만든 이름을 사용합니다.
 
     ```azurecli
     az iot hub monitor-events --output table --device-id mydevice --hub-name {YourIoTHubName}

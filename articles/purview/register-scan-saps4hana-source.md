@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Purview에서 SAP S/4HANA 원본을 등�
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 2/25/2021
-ms.openlocfilehash: 811078d18d6659e600cb5b0931dcf2a217a8856e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 45ea054394c5f74a6a3a34b9a69df5c5b07a632f
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751893"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212633"
 ---
 # <a name="register-and-scan-a-sap-s4hana-source"></a>SAP S/4HANA 원본 등록 및 검사
 
@@ -78,7 +78,7 @@ SAP S/4HANA 원본에 대해 유일하게 지원되는 인증은 **기본 인증
 
 새 검색을 만들고 실행하려면 다음을 수행합니다.
 
-1.  관리 센터에서 통합 런타임을 클릭합니다. 자체 호스팅 통합 런타임이 설정되어 있는지 확인합니다. 설정되지 않은 경우 [여기](./manage-integration-runtimes.md)에 언급된 단계를 사용하여 자체 호스팅 통합 런타임을 만들 수 있습니다.
+1.  관리 센터에서 통합 런타임을 선택합니다. 자체 호스팅 통합 런타임이 설정되어 있는지 확인합니다. 설정되지 않은 경우 [여기](./manage-integration-runtimes.md)에 언급된 단계를 사용하여 자체 호스팅 통합 런타임을 만들 수 있습니다.
 
 2.  **원본** 으로 이동합니다.
 
@@ -108,11 +108,11 @@ SAP S/4HANA 원본에 대해 유일하게 지원되는 인증은 **기본 인증
 
     :::image type="content" source="media/register-scan-saps4hana-source/scan-saps-4-hana.png" alt-text="SAP S/4HANA 검사" border="true":::
 
-6.  **계속** 을 클릭합니다.
+6.  **계속** 을 선택합니다.
 
 7.  **검사 트리거** 를 선택합니다. 예약을 설정하거나 검사를 한 번 실행할 수 있습니다.
 
-8.  검사를 검토하고, **저장 및 실행** 을 클릭합니다.
+8.  검사를 검토하고 **저장 및 실행** 을 선택합니다.
 
 ## <a name="viewing-your-scans-and-scan-runs"></a>검사 및 검사 실행 보기
 

@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: b92603e5aa9f7c42a2e4789353077058b1fc6ea9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6ee619e6036b9d8bc3b0323bc793903dab0a2735
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730927"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129207334"
 ---
 # <a name="azure-synapse-access-control"></a>Azure Synapse 액세스 제어 
 
@@ -48,7 +48,7 @@ Azure 역할은 다음을 관리하는 데 사용됩니다.
 Synapse는 다음과 같은 두 가지 개발 모델을 지원합니다.
 
 - **Synapse 라이브 개발**. Synapse Studio에서 코드를 개발하고 디버그한 다음, 코드를 **게시** 하여 저장하고 실행할 수 있습니다.  Synapse 서비스는 코드를 편집하고 실행하기 위한 믿을 수 있는 원본입니다.  게시되지 않은 작업은 Synapse Studio를 닫을 때 손실됩니다.  
-- **Git 지원 개발**. Synapse Studio에서 코드를 개발하고 디버그한 다음, Git 리포지토리의 작업 분기에 변경 내용을 **커밋** 합니다. 하나 이상의 분기에서 수행한 작업은 협업 분기에 통합되며, 협업 분기에서 작업을 서비스에 **게시** 합니다. Git 리포지토리는 코드 편집을 위한 믿을 수 있는 원본이고, 서비스는 실행을 위한 믿을 수 있는 원본입니다. Synapse Studio를 닫기 전에 변경 내용을 Git 리포지토리에 커밋하거나 서비스에 게시해야 합니다. Git에서 Synapse Analytics를 사용하는 방법에 대해 [자세히 알아보세요](../cicd/continuous-integration-deployment.md).
+- **Git 지원 개발**. Synapse Studio에서 코드를 개발하고 디버그한 다음, Git 리포지토리의 작업 분기에 변경 내용을 **커밋** 합니다. 하나 이상의 분기에서 수행한 작업은 협업 분기에 통합되며, 협업 분기에서 작업을 서비스에 **게시** 합니다. Git 리포지토리는 코드 편집을 위한 믿을 수 있는 원본이고, 서비스는 실행을 위한 믿을 수 있는 원본입니다. Synapse Studio를 닫기 전에 변경 내용을 Git 리포지토리에 커밋하거나 서비스에 게시해야 합니다. Git에서 Synapse Analytics를 사용하는 방법에 대해 [자세히 알아보세요](../cicd/continuous-integration-delivery.md).
 
 두 개발 모델에서 Synapse Studio에 액세스할 수 있는 모든 사용자는 코드 아티팩트를 만들 수 있습니다. 그러나 아티팩트를 서비스에 게시하고, 게시된 아티팩트를 읽고, 변경 내용을 Git에 커밋하고, 코드를 실행하고, 자격 증명으로 보호된 연결된 데이터에 액세스하려면 추가 권한이 필요합니다.
 
@@ -76,7 +76,7 @@ Git 모드에서 Git 지원 개발을 사용하는 경우 Git 권한은 연결�
 
 **서버리스 SQL 풀**: Synapse 관리자에게는 서버리스 SQL 풀 '기본 제공'에 대한 `db_owner`(`DBO`) 권한이 부여됩니다. 다른 사용자에게 서버리스 SQL 풀에 대한 액세스 권한을 부여하려면 Synapse 관리자는 각 서버리스 풀에 대해 SQL 스크립트를 실행해야 합니다.  
 
-**전용 SQL 풀**: 작업 영역 작성자와 작업 영역 MSI에게는 Active Directory 관리자 권한이 부여됩니다.  그 외의 사용자에게는 전용 SQL 풀에 대한 액세스 권한이 자동으로 부여되지 않습니다. 다른 사용자 또는 그룹에 전용 SQL 풀에 대한 액세스 권한을 부여하려면 Active Directory 관리자는 각 전용 SQL 풀에 대해 SQL 스크립트를 실행해야 합니다.
+**전용 SQL 풀**: Synapse 관리자는 전용 SQL 풀에 대한 `db_owner`(`DBO`) 권한을 부여 받습니다. 작업 영역 작성자와 작업 영역 MSI에게는 Active Directory 관리자 권한이 부여됩니다.  그 외의 사용자에게는 전용 SQL 풀에 대한 액세스 권한이 자동으로 부여되지 않습니다. 다른 사용자 또는 그룹에 전용 SQL 풀에 대한 액세스 권한을 부여하려면 Active Directory 관리자는 각 전용 SQL 풀에 대해 SQL 스크립트를 실행해야 합니다.
 
 SQL 풀에서 SQL 권한을 부여하는 SQL 스크립트 예제는 [Synapse 액세스 제어를 설정하는 방법](./how-to-set-up-access-control.md)을 참조하세요.  
 

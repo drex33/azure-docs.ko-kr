@@ -1,27 +1,22 @@
 ---
 title: Azure Video Analyzer for Media(이전의 Video Analyzer for Media)에 사용자 초대 - Azure
-titleSuffix: Azure Video Analyzer for Media
 description: 이 문서에서는 Azure Video Analyzer for Media(이전의 Video Analyzer for Media)에 사용자를 초대하는 방법을 보여줍니다.
-services: azure-video-analyzer
-author: Juliako
-manager: femila
 ms.topic: quickstart
-ms.subservice: azure-video-analyzer-media
-ms.date: 02/03/2021
-ms.author: juliako
-ms.openlocfilehash: b724ebdc929c654c5a31db2c797901147be3e29a
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.date: 09/14/2021
+ms.openlocfilehash: 791e9e7d3090aaa79cd754135f26e79fae3a9e0a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112119595"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650774"
 ---
 # <a name="quickstart-invite-users-to-video-analyzer-for-media"></a>빠른 시작: Video Analyzer for Media에 사용자 초대
 
 동료와 협업하려면 Azure Video Analyzer for Media(이전의 Video Indexer) 계정에 초대할 수 있습니다. 
 
 > [!NOTE]
-> 계정 관리자만 사용자를 추가하거나 제거할 수 있습니다.
+> 계정 관리자만 사용자를 추가하거나 제거할 수 있습니다.</br>
+> 유료 계정을 사용하는 경우 Azure AD 사용자만 초대할 수 있습니다.
 
 ## <a name="invite-new-users"></a>새 사용자 초대
 

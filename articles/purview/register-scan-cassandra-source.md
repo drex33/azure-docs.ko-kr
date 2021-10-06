@@ -1,20 +1,20 @@
 ---
-title: Azure Purview에서 Cassandra를 원본으로 등록하고 검사를 설정합니다.
+title: Cassandra를 원본으로 등록하고 검사를 설정합니다.
 description: 이 문서에서는 Azure Purview에서 Cassandra 서버를 등록하고 검사를 설정하는 방법을 설명합니다.
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 8/06/2021
-ms.openlocfilehash: 8e2136cdb4cca53d81412335f7f5878fd8d70b86
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: dcc0ef65654d8100a1c96cdb0c84a6ac758587a2
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121788062"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212737"
 ---
-# <a name="register-and-scan-a-cassandra-source"></a>Cassandra 원본 등록 및 검사 
+# <a name="register-and-scan-a-cassandra-source-preview"></a>Cassandra 원본 등록 및 검사(미리 보기)
 
 이 문서에서는 Purview에서 Cassandra 서버를 등록하고 검사를 설정하는 방법에 대해 설명합니다.
 
@@ -52,14 +52,14 @@ Cassandra 원본은 전체 검사를 지원하여 Cassandra 서버에서 메타�
 3. **포트** 필드에 Cassandra 서버에서 사용하는 포트를 입력합니다.
 4. 컬렉션을 선택하거나 새로 만듭니다(선택 사항).
 
-5.  **등록** 을 클릭합니다.
+5.  **등록** 을 선택합니다.
     :::image type="content" source="media/register-scan-cassandra-source/configure-sources.png" alt-text="Cassandra 원본 구성" border="true":::
 
 ## <a name="creating-and-running-a-scan"></a>검사 만들기 및 실행
 
 새 검색을 만들고 실행하려면 다음을 수행합니다.
 
-1.  관리 센터에서 통합 런타임을 클릭합니다. 자체 호스팅 통합 런타임이 설정되어 있는지 확인합니다. 설정되지 않은 경우 [여기](./manage-integration-runtimes.md)에 언급된 단계를 사용하여 자체 호스팅 통합 런타임을 설정할 수 있습니다.
+1.  관리 센터에서 통합 런타임을 선택합니다. 자체 호스팅 통합 런타임이 설정되어 있는지 확인합니다. 설정되지 않은 경우 [여기](./manage-integration-runtimes.md)에 언급된 단계를 사용하여 자체 호스팅 통합 런타임을 설정할 수 있습니다.
 
 2.  **원본** 으로 이동합니다.
 
@@ -96,13 +96,13 @@ NOT 및 특수 문자는 허용되지 않습니다.
     g. **사용 가능한 최대 메모리**: 고객의 VM에서 검사 프로세스를 수행하는 데 사용할 수 있는 최대 메모리(GB)입니다. 이는 검사할 Cassandra 서버의 크기에 따라 다릅니다.
         :::image type="content" source="media/register-scan-cassandra-source/scan.png" alt-text="Cassandra 원본 검사" border="true":::
 
-6.  **연결 테스트** 를 클릭합니다.
+6.  **연결 테스트** 를 선택합니다.
 
-7.  **계속** 을 클릭합니다.
+7.  **계속** 을 선택합니다.
 
 8.  **검사 트리거** 를 선택합니다. 예약을 설정하거나 검사를 한 번 실행할 수 있습니다.
 
-9.  검사를 검토하고, **저장 및 실행** 을 클릭합니다.
+9.  검사를 검토하고 **저장 및 실행** 을 선택합니다.
 
 ## <a name="viewing-your-scans-and-scan-runs"></a>검사 및 검사 실행 보기
 

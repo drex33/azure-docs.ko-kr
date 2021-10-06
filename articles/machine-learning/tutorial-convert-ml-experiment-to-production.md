@@ -5,16 +5,16 @@ description: MLOpsPython 코드 템플릿을 사용하여 기계 학습 실험 N
 author: bjcmit
 ms.author: brysmith
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 37778bc096c9089e3706907fcdd6b9c816cc5fbc
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 1e3659f44811c59033a22e1985856f934cd78bba
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107817489"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129426513"
 ---
 # <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>자습서: ML 실험을 프로덕션 Python 코드로 변환
 

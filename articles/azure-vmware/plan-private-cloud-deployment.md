@@ -3,13 +3,13 @@ title: Azure VMware Solution 배포 계획
 description: Azure VMware Solution 배포를 계획하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.custom: contperf-fy21q4
-ms.date: 07/07/2021
-ms.openlocfilehash: 4f0f59a01ff53646a23809efa129a154bfba81ee
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.date: 09/27/2021
+ms.openlocfilehash: 6528727fda867f5f07d7d83b09df1bbf70df6b92
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122444216"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129079469"
 ---
 # <a name="plan-the-azure-vmware-solution-deployment"></a>Azure VMware Solution 배포 계획
 
@@ -34,7 +34,7 @@ VM(가상 머신) 생성 및 마이그레이션을 위한 성공적인 프로덕
 Azure VMware Solution을 배포하는 데 사용할 구독을 확인합니다.  새 구독을 만들거나 기존 구독을 사용할 수 있습니다.
 
 >[!NOTE]
->구독은 Microsoft EA(기업계약) 또는 CSP(클라우드 솔루션 공급자) Azure 플랜과 연결되어야 합니다. 자세한 내용은 [자격 기준](request-host-quota-azure-vmware-solution.md#eligibility-criteria)을 참조하세요.
+>구독은 Microsoft EA(기업계약), CSP(클라우드 솔루션 공급자) Azure 플랜 또는 MCA(Microsoft 고객 계약)와 연결되어야 합니다. 자세한 내용은 [자격 기준](request-host-quota-azure-vmware-solution.md#eligibility-criteria)을 참조하세요.
 
 ## <a name="identify-the-resource-group"></a>리소스 그룹 식별
 
@@ -65,7 +65,7 @@ Azure VMware Solution을 배포할 때 사용할 호스트 크기를 확인합�
 
 
 >[!NOTE]
->클러스터당 호스트 수에 대한 제한, 프라이빗 클라우드당 클러스터 수 및 프라이빗 클라우드당 호스트 수에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-vmware-solution-limits)을 참조하세요.
+>클러스터당 호스트 수에 대한 제한, 프라이빗 클라우드당 클러스터 수 및 프라이빗 클라우드당 호스트 수에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-vmware-solution-limits)을 참조하세요.
 
 ## <a name="request-a-host-quota"></a>호스트 할당량 요청 
 

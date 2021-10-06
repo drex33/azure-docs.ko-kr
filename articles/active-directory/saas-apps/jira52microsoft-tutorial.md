@@ -1,5 +1,5 @@
 ---
-title: '자습서: JIRA SAML SSO by Microsoft(V5.2)와 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: JIRA SAML SSO by Microsoft(V5.2)와 Azure AD SSO 통합'
 description: Azure Active Directory와 JIRA SAML SSO by Microsoft(V5.2) 간에 Single Sign-On을 구성하는 방법을 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/28/2020
+ms.date: 09/08/2021
 ms.author: jeedes
-ms.openlocfilehash: 7b85cc064babf44b14e80abc02669573b4730da2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5254b7bcf851685572adbdc3d18c1fc5560a34d7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821406"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633247"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>자습서: JIRA SAML SSO by Microsoft(V5.2)와 Azure Active Directory 통합
+# <a name="tutorial-azure-ad-sso-integration-with-jira-saml-sso-by-microsoft-v52"></a>자습서: JIRA SAML SSO by Microsoft(V5.2)와 Azure AD SSO 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 JIRA SAML SSO by Microsoft(V5.2)를 통합하는 방법에 대해 알아봅니다. Azure AD와 JIRA SAML SSO by Microsoft(V5.2)를 통합하면 다음 작업을 수행할 수 있습니다.
 
@@ -41,7 +41,7 @@ JIRA SAML SSO by Microsoft(V5.2)와 Azure AD의 통합을 구성하려면 다음
 - JIRA 서버가 인터넷에 연결되어 있고 인증을 위해 특히 Azure AD 로그인 페이지에 접속되고 Azure AD에서 토큰을 받을 수 있어야 합니다.
 - JIRA에 관리자 자격 증명이 설정되어 있어야 합니다.
 - JIRA에서 WebSudo를 사용하지 않아야 합니다.
-- JIRA 서버 애플리케이션에서 생성된 테스트 사용자
+- JIRA 서버 애플리케이션에서 생성된 테스트 사용자.
 
 > [!NOTE]
 > 이 자습서의 단계를 테스트하기 위해 JIRA의 프로덕션 환경을 사용하는 것은 바람직하지 않습니다. 애플리케이션 개발 또는 스테이징 환경에서 통합을 먼저 테스트 한 다음 프로덕션 환경을 사용하세요.
@@ -49,11 +49,11 @@ JIRA SAML SSO by Microsoft(V5.2)와 Azure AD의 통합을 구성하려면 다음
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 
 - 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 마세요.
-- Azure AD 평가판 환경이 없으면 [평가판 제품](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
+- Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 
 ## <a name="supported-versions-of-jira"></a>지원되는 JIRA 버전
 
-* JIRA Core 및 Software: 5.2
+* JIRA Core 및 Software: 5.2.
 * JIRA는 6.0에서 7.12도 지원합니다. 자세한 내용을 보려면 [JIRA SAML SSO by Microsoft](jiramicrosoft-tutorial.md)를 클릭하세요.
 
 > [!NOTE]
@@ -99,14 +99,14 @@ JIRA SAML SSO by Microsoft(V5.2)에서 Azure AD Single Sign-On을 구성하고 �
 
 4. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    a. **로그인 URL** 텍스트 상자에서 `https://<domain:port>/plugins/servlet/saml/auth` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에서 `https://<domain:port>/` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **식별자** 텍스트 상자에서 `https://<domain:port>/` 패턴을 사용하는 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에서 `https://<domain:port>/plugins/servlet/saml/auth` 패턴을 사용하여 URL을 입력합니다.
 
-    다. **회신 URL** 텍스트 상자에서 `https://<domain:port>/plugins/servlet/saml/auth` 패턴을 사용하여 URL을 입력합니다.
+    다. **로그인 URL** 텍스트 상자에서 `https://<domain:port>/plugins/servlet/saml/auth` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 명명된 URL인 경우 포트는 선택 사항입니다. 이러한 값은 JIRA 플러그 인 구성 중에 수신되며 자습서의 뒷부분에 설명되어 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 명명된 URL인 경우 포트는 선택 사항입니다. 이러한 값은 JIRA 플러그 인 구성 중에 수신되며 자습서의 뒷부분에 설명되어 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL** 을 복사한 후 컴퓨터에 저장합니다.
 
@@ -142,23 +142,23 @@ JIRA SAML SSO by Microsoft(V5.2)에서 Azure AD Single Sign-On을 구성하고 �
 
 2. 마우스로 선 위를 가리키고 **추가 기능** 을 클릭합니다.
 
-    ![스크린샷은 설정 메뉴에서 선택한 추가 기능을 보여줍니다.](./media/jira52microsoft-tutorial/addon1.png)
+    ![스크린샷은 설정 메뉴에서 선택한 추가 기능을 보여줍니다.](./media/jira52microsoft-tutorial/menu.png)
 
 3. 추가 기능 탭 섹션에서 **추가 기능 관리** 를 클릭합니다.
 
-    ![스크린샷은 추가 기능 탭에서 선택한 추가 기능 관리를 보여줍니다.](./media/jira52microsoft-tutorial/addon7.png)
+    ![스크린샷은 추가 기능 탭에서 선택한 추가 기능 관리를 보여줍니다.](./media/jira52microsoft-tutorial/dashboard.png)
 
 4. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=56521)에서 플러그 인을 다운로드합니다. **업로드 추가 기능** 메뉴를 사용하여 Microsoft에서 제공하는 플러그 인을 수동으로 업로드합니다. 플러그 인 다운로드에는 [Microsoft 서비스 계약](https://www.microsoft.com/servicesagreement/)이 적용됩니다.
 
-    ![스크린샷은 추가 기능 업로드 링크가 호출된 추가 기능 관리를 보여줍니다.](./media/jira52microsoft-tutorial/addon12.png)
+    ![스크린샷은 추가 기능 업로드 링크가 호출된 추가 기능 관리를 보여줍니다.](./media/jira52microsoft-tutorial/service.png)
 
 5. 플러그 인이 설치되면 **사용자가 설치한** 추가 기능 섹션에 표시됩니다. **구성** 을 클릭하여 새 플러그 인을 구성합니다.
 
-    ![스크린샷은 구성이 선택된 Jira용 Azure AD SAML Single Sign-On 섹션을 보여줍니다.](./media/jira52microsoft-tutorial/addon13.png)
+    ![스크린샷은 구성이 선택된 Jira용 Azure AD SAML Single Sign-On 섹션을 보여줍니다.](./media/jira52microsoft-tutorial/configure-plugin.png)
 
 6. 구성 페이지에서 다음 단계를 수행합니다.
 
-    ![스크린샷은 Microsoft Jira SSO Connector 구성 페이지를 보여줍니다.](./media/jira52microsoft-tutorial/addon52.png)
+    ![스크린샷은 Microsoft Jira SSO Connector 구성 페이지를 보여줍니다.](./media/jira52microsoft-tutorial/configuration.png)
 
     > [!TIP]
     > 메타데이터를 확인하는 데 오류가 없도록 앱에 매핑된 인증서가 하나만 있는지 확인합니다. 인증서가 여러 개 있으면 메타데이터를 확인할 때 관리자에게 오류가 표시됩니다.
@@ -197,19 +197,19 @@ Azure AD 사용자가 JIRA 온-프레미스 서버에 로그인할 수 있게 �
 
 2. 마우스로 선 위를 가리키고 **사용자 관리** 를 클릭합니다.
 
-    ![스크린샷은 설정 메뉴에서 선택한 사용자 관리를 보여줍니다.](./media/jira52microsoft-tutorial/user1.png)
+    ![스크린샷은 설정 메뉴에서 선택한 사용자 관리를 보여줍니다.](./media/jira52microsoft-tutorial/user.png)
 
 3. 리디렉션된 [관리자 액세스] 페이지에서 **암호** 를 입력하고 **확인** 단추를 클릭합니다.
 
-    ![스크린샷은 자격 증명을 입력하는 관리자 액세스 페이지를 보여줍니다.](./media/jira52microsoft-tutorial/user2.png)
+    ![스크린샷은 자격 증명을 입력하는 관리자 액세스 페이지를 보여줍니다.](./media/jira52microsoft-tutorial/access.png)
 
 4. **사용자 관리** 탭 섹션 아래에서  **사용자 만들기** 를 클릭합니다.
 
-    ![스크린샷은 사용자를 만들 수 있는 사용자 관리 탭을 보여줍니다.](./media/jira52microsoft-tutorial/user3.png) 
+    ![스크린샷은 사용자를 만들 수 있는 사용자 관리 탭을 보여줍니다.](./media/jira52microsoft-tutorial/create-user.png) 
 
 5. **“새 사용자 만들기”** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
-    ![스크린샷은 이 단계에서 정보를 입력할 수 있는 새 사용자 만들기 대화 상자를 보여줍니다.](./media/jira52microsoft-tutorial/user4.png)
+    ![스크린샷은 이 단계에서 정보를 입력할 수 있는 새 사용자 만들기 대화 상자를 보여줍니다.](./media/jira52microsoft-tutorial/new-user.png)
 
     a. **이메일 주소** 텍스트 상자에서 Brittasimon@contoso.com과 같은 사용자의 이메일 주소를 입력합니다.
 
@@ -229,8 +229,7 @@ Azure AD 사용자가 JIRA 온-프레미스 서버에 로그인할 수 있게 �
 
 * JIRA SAML SSO by Microsoft(V5.2) 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 JIRA SAML SSO by Microsoft(V5.2) 타일을 클릭하면 JIRA SAML SSO by Microsoft(V5.2) 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
-
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 JIRA SAML SSO by Microsoft(V5.2) 타일을 클릭하면 JIRA SAML SSO by Microsoft(V5.2) 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

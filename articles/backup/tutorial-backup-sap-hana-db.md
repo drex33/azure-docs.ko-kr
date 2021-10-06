@@ -2,13 +2,13 @@
 title: 자습서 - Azure VM에서 SAP HANA 데이터베이스 백업
 description: 이 자습서에서는 Azure VM에서 실행되는 SAP HANA 데이터베이스를 Azure Backup Recovery Services 자격 증명 모음에 백업하는 방법을 알아봅니다.
 ms.topic: tutorial
-ms.date: 09/01/2021
-ms.openlocfilehash: 3cfbd89e9df6cf2d0d30d744ee8e437e3c364094
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 09/27/2021
+ms.openlocfilehash: 629465100106ff3a2403a27cae9bb00e1350bf5e
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123434253"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129082729"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>자습서: Azure VM에서 SAP HANA 데이터베이스 백업
 
@@ -38,8 +38,8 @@ ms.locfileid: "123434253"
   * 사용자를 추가하고 삭제하려면 자격 증명이 있어야 합니다
   * 사전 등록 스크립트를 성공적으로 실행한 후에 이 키를 삭제할 수 있습니다.
 * 위 단계에 나열된 사용자 지정 키를 만드는 대신 **hdbuserstore** 에서 기존 HANA SYSTEM 사용자에 대한 키를 만들 수도 있습니다.
-* HANA가 설치된 가상 머신에서 루트 사용자로 SAP HANA 백업 구성 스크립트(사전 등록 스크립트)를 실행합니다. [이 스크립트](https://aka.ms/scriptforpermsonhana)는 HANA 시스템을 백업할 준비가 되도록 하고 위 단계에서 만든 키를 입력으로 전달하도록 합니다. 이 입력이 스크립트에 매개 변수로 전달되는 방식을 이해하려면 [사전 등록 스크립트가 수행하는 작업](#what-the-pre-registration-script-does) 섹션을 참조하세요. 또한 사전 등록 스크립트가 수행하는 작업에 대해 자세히 설명합니다.
-* HANA 설정에서 프라이빗 엔드포인트를 사용하는 경우 [사전 등록 스크립트](https://aka.ms/scriptforpermsonhana)를 *-sn* 또는 *--skip-network-checks* 매개 변수를 사용하여 실행합니다.
+* HANA가 설치된 가상 머신에서 루트 사용자로 SAP HANA 백업 구성 스크립트(사전 등록 스크립트)를 실행합니다. [이 스크립트](https://go.microsoft.com/fwlink/?linkid=2173610)는 HANA 시스템을 백업할 준비가 되도록 하고 위 단계에서 만든 키를 입력으로 전달하도록 합니다. 이 입력이 스크립트에 매개 변수로 전달되는 방식을 이해하려면 [사전 등록 스크립트가 수행하는 작업](#what-the-pre-registration-script-does) 섹션을 참조하세요. 또한 사전 등록 스크립트가 수행하는 작업에 대해 자세히 설명합니다.
+* HANA 설정에서 프라이빗 엔드포인트를 사용하는 경우 [사전 등록 스크립트](https://go.microsoft.com/fwlink/?linkid=2173610)를 *-sn* 또는 *--skip-network-checks* 매개 변수를 사용하여 실행합니다.
 
 >[!NOTE]
 >사전 등록 스크립트는 RHEL(7.4, 7.6 및 7.7)에서 실행되는 SAP HANA 워크로드용 **compat-unixODBC234** 및 RHEL 8.1용 **unixODBC** 를 설치합니다. [이 패키지는 RHEL for SAP HANA(RHEL 7 Server의 경우), RPM(SAP 솔루션용 업데이트 서비스) 리포지토리에 있습니다](https://access.redhat.com/solutions/5094721).  Azure Marketplace RHEL 이미지의 경우 리포지토리는 **rhui-rhel-sap-hana-for-rhel-7-server-rhui-e4s-rpms** 입니다.
@@ -57,12 +57,14 @@ ms.locfileid: "123434253"
 | Azure Firewall FQDN 태그          | 필요한 FQDN이 자동으로 관리되어 관리가 더 쉬움 | Azure Firewall하고만 함께 사용할 수 있음                         |
 | 서비스 FQDN/IP에 대한 액세스 허용 | 추가 비용 없음   <br><br>  모든 네트워크 보안 어플라이언스 및 방화벽과 함께 작동 | 광범위한 IP 또는 FQDN 세트에 액세스해야 할 수 있음   |
 | HTTP 프록시 사용                 | VM에 대한 인터넷 액세스의 단일 지점                       | 프록시 소프트웨어로 VM을 실행하기 위해 추가 비용이 있음         |
+| [가상 네트워크 서비스 엔드포인트](/azure/virtual-network/virtual-network-service-endpoints-overview)    |     Azure Storage(= Recovery Services 자격 증명 모음)에 사용할 수 있습니다.     <br><br>     데이터 평면 트래픽의 성능을 최적화하는 데 큰 이점이 있습니다.          |         Azure AD, Azure Backup 서비스에 사용할 수 없습니다.    |
+| 네트워크 가상 어플라이언스      |      Azure Storage, Azure AD, Azure Backup 서비스에 사용할 수 있습니다. <br><br> **데이터 평면**   <ul><li>      Azure Storage: `*.blob.core.windows.net`, `*.queue.core.windows.net`  </li></ul>   <br><br>     **관리 평면**  <ul><li>  Azure AD: [Microsoft 365 Common 및 Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online)의 56 및 59 섹션에 언급된 FQDN에 대한 액세스를 허용합니다. </li><li>   Azure Backup 서비스: `.backup.windowsazure.com` </li></ul> <br>[Azure Firewall 서비스 태그](/azure/firewall/fqdn-tags#:~:text=An%20FQDN%20tag%20represents%20a%20group%20of%20fully,the%20required%20outbound%20network%20traffic%20through%20your%20firewall.)에 대해 자세히 알아보세요.       |  데이터 평면 트래픽에 오버헤드를 추가하고 처리량/성능을 저하시킵니다.  |
 
 이러한 옵션을 사용하는 방법에 대한 자세한 내용은 아래에 나와 있습니다.
 
 ### <a name="private-endpoints"></a>프라이빗 엔드포인트
 
-프라이빗 엔드포인트를 사용하면 가상 네트워크 내의 서버에서 안전하게 Recovery Services 자격 증명 모음에 연결할 수 있습니다. 프라이빗 엔드포인트는 VNET 주소 공간의 IP를 자격 증명 모음에 사용합니다. 가상 네트워크 내의 리소스와 자격 증명 모음 간의 네트워크 트래픽은 가상 네트워크와 Microsoft 백본 네트워크의 프라이빗 링크를 통해 이동합니다. 이렇게 하면 퍼블릭 인터넷에서 공개되지 않습니다. Azure Backup의 프라이빗 엔드포인트에 대한 자세한 내용은 [여기](./private-endpoints.md)를 참조하세요.
+프라이빗 엔드포인트를 사용하면 가상 네트워크 내의 서버에서 안전하게 Recovery Services 자격 증명 모음에 연결할 수 있습니다. 프라이빗 엔드포인트는 VNET 주소 공간의 개인 IP를 자격 증명 모음에 사용합니다. 가상 네트워크 내의 리소스와 자격 증명 모음 간의 네트워크 트래픽은 가상 네트워크와 Microsoft 백본 네트워크의 프라이빗 링크를 통해 이동합니다. 이렇게 하면 퍼블릭 인터넷에서 공개되지 않습니다. 프라이빗 엔드포인트는 가상 네트워크의 특정 서브넷에 할당되며 Azure Active Directory에 사용할 수 없습니다. Azure Backup의 프라이빗 엔드포인트에 대한 자세한 내용은 [여기](./private-endpoints.md)를 참조하세요.
 
 ### <a name="nsg-tags"></a>NSG 태그
 
@@ -102,17 +104,19 @@ Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업하는 경우 V
 
 ## <a name="understanding-backup-and-restore-throughput-performance"></a>백업 및 복원 처리량 성능 이해
 
-Backint를 통해 제공되는 SAP HANA Azure VM의 백업(로그 및 비로그)은 Azure Recovery Services 자격 증명 모음으로 스트리밍되므로 이 스트리밍 방법론을 이해하는 것이 중요합니다.
+Backint를 통해 제공되는 SAP HANA Azure VM의 백업(로그 및 비로그)은 Azure Recovery Services 자격 증명 모음(내부에서 Azure Storage Blob 사용)으로 스트리밍되므로 이 스트리밍 방법론을 이해하는 것이 중요합니다.
 
-HANA의 Backint 구성 요소는 데이터베이스 파일이 있는 기본 디스크에 연결된 '파이프'(읽을 파이프 및 쓸 파이프)를 제공하며, 이는 Azure Backup 서비스에서 읽고 Azure Recovery Services 자격 증명 모음으로 전송됩니다. 또한 Azure Backup 서비스는 Backint 네이티브 유효성 검사뿐만 아니라 스트림의 유효성을 검사하는 체크섬을 수행합니다. 이러한 유효성 검사를 통해 Azure Recovery Services 자격 증명 모음에 있는 데이터가 실제로 안정적이며 복구 가능한지 확인할 수 있습니다.
+HANA의 Backint 구성 요소는 데이터베이스 파일이 있는 기본 디스크에 연결된 '파이프'(읽을 파이프 및 쓸 파이프)를 제공하고, 이 파이프는 Azure Backup 서비스에서 읽히고 원격 Azure Storage 계정인 Azure Recovery Services 자격 증명 모음으로 전송됩니다. 또한 Azure Backup 서비스는 Backint 네이티브 유효성 검사뿐만 아니라 스트림의 유효성을 검사하는 체크섬을 수행합니다. 이러한 유효성 검사를 통해 Azure Recovery Services 자격 증명 모음에 있는 데이터가 실제로 안정적이며 복구 가능한지 확인할 수 있습니다.
 
-스트림은 주로 디스크와 관련이 있으므로 백업 및 복원 성능을 측정하려면 디스크 성능을 이해해야 합니다. Azure VM의 디스크 처리량 및 성능을 자세히 이해하려면[이 문서](../virtual-machines/disks-performance.md)를 참조하세요. 이는 백업 및 복원 성능에도 적용됩니다.
+스트림은 주로 디스크와 관련이 있으므로, 백업 및 복원 성능을 측정하려면 디스크 읽기 성능과 백업 데이터를 전송하는 네트워크 성능을 이해해야 합니다. Azure VM의 디스크/네트워크 처리량 및 성능을 자세히 이해하려면[이 문서](../virtual-machines/disks-performance.md)를 참조하세요. 이는 백업 및 복원 성능에도 적용됩니다.
 
 **Azure Backup 서비스는 비로그 백업(예: 전체, 차등 및 증분)의 경우 최대 420MBps, HANA 로그 백업의 경우 최대 100MBps의 속도를 구현합니다**. 위에서 설명한 것처럼, 이러한 속도는 보장되는 것이 아니라 다음과 같은 요인에 따라 달라집니다.
 
-* VM의 최대 캐시되지 않은 디스크 처리량
-* 기본 디스크 유형 및 처리량
-* 동일한 디스크에 동시에 읽기와 쓰기를 시도하는 프로세스의 수입니다.
+- VM의 캐시되지 않은 최대 디스크 처리량 - 데이터 또는 로그 영역에서 읽습니다.
+- 기본 디스크 유형 및 처리량 - 데이터 또는 로그 영역에서 읽습니다.
+- VM의 최대 네트워크 처리량 – Recovery Services 자격 증명 모음에 기록합니다.
+- VNET에 NVA/방화벽이 있는 경우 네트워크 처리량입니다.
+- Azure NetApp Files의 데이터와 로그가 모두 ANF에서 읽고 자격 증명 모음에 쓰는 경우 VM의 네트워크를 사용합니다.
 
 > [!IMPORTANT]
 > 캐시되지 않은 디스크 처리량이 400MBps 미만이거나 이에 매우 근접한 경우, 백업 서비스에서 전체 디스크 IOPS를 사용하여 디스크 읽기/쓰기와 관련된 SAP HANA 작업에 영향이 있을지 여부가 염려될 수 있습니다. 이 경우 백업 서비스 사용을 제한하거나 최대 한도까지 제한하려면 다음 섹션을 참조하면 됩니다.
@@ -176,13 +180,19 @@ hdbuserstore list
 
 다음은 등록 전 스크립트 실행을 완료하는 데 필요한 단계의 요약입니다. 이 흐름에서는 사전 등록 스크립트에 대한 입력 매개 변수로 SYSTEM 사용자 키를 제공하고 있습니다.
 
-|대상  |시작  |실행할 버전  |의견  |
-|---------|---------|---------|---------|
-|```<sid>```adm(OS)     |  HANA OS       |   자습서 읽기 및 등록 전 스크립트 다운로드      |   [위의 필수](#prerequisites) 구성 요소를 읽습니다. [여기](https://aka.ms/scriptforpermsonhana)에서 등록 전 스크립트를 다운로드합니다.  |
-|```<sid>```adm(OS) 및 시스템 사용자(HANA)    |      HANA OS   |   hdbuserstore Set 명령 실행      |   예: hdbuserstore Set SYSTEM hostname>:3```<Instance#>``` 13 시스템 ```<password>``` **정보:**  IP 주소 또는 FQDN 대신 호스트 이름을 사용해야 합니다.      |
-|```<sid>```adm(OS)    |   HANA OS      |  hdbuserstore List 명령 실행       |   결과에 ```KEY SYSTEM  ENV : <hostname>:3<Instance#>13  USER: SYSTEM```과 같은 기본 저장소가 포함되어 있는지 확인합니다.      |
-|루트(OS)     |   HANA OS        |    Azure Backup HANA 등록 전 스크립트 실행      |    ```./msawb-plugin-config-com-sap-hana.sh -a --sid <SID> -n <Instance#> --system-key SYSTEM```     |
-|```<sid>```adm(OS)    |  HANA OS       |   hdbuserstore List 명령 실행      |    결과에 ```KEY AZUREWLBACKUPHANAUSER  ENV : localhost: 3<Instance#>13   USER: AZUREWLBACKUPHANAUSER```와 같은 새 줄이 포함되어 있는지 확인합니다.     |
+| 대상     |    시작    |    실행할 버전    |    의견    |
+| --- | --- | --- | --- |
+| `<sid>`adm(OS) |    HANA OS   | 자습서를 읽고 등록 전 스크립트를 다운로드합니다.  |    자습서: [Azure VM에서 HANA 데이터베이스 백업](/azure/backup/tutorial-backup-sap-hana-db)   <br><br>    [사전 등록 스크립트](https://go.microsoft.com/fwlink/?linkid=2173610)를 다운로드합니다. |
+| `<sid>`adm(OS)    |    HANA OS    |   HANA 시작(HDB 시작)    |   설정하기 전에 HANA가 실행 중인지 확인합니다.   |
+| `<sid>`adm(OS)   |   HANA OS  |    명령 실행: <br>  `hdbuserstore Set`   |  `hdbuserstore Set SYSTEM <hostname>:3<Instance#>13 SYSTEM <password>`  <br><br>   **참고** <br>  IP 주소/FQDN 대신 호스트 이름을 사용해야 합니다.   |
+| `<sid>`adm(OS)   |  HANA OS    |   명령 실행:<br> `hdbuserstore List`   |  결과에 다음과 같은 기본 저장소가 포함되어 있는지 확인합니다. <br><br> `KEY SYSTEM`  <br> `ENV : <hostname>:3<Instance#>13`    <br>  `USER : SYSTEM`   |
+| 루트(OS)   |   HANA OS    |    [Azure Backup HANA 등록 전 스크립트](https://go.microsoft.com/fwlink/?linkid=2173610)를 실행합니다.     | `./msawb-plugin-config-com-sap-hana.sh -a --sid <SID> -n <Instance#> --system-key SYSTEM`    |
+| `<sid>`adm(OS)   |   HANA OS   |    명령 실행: <br> `hdbuserstore List`   |   결과에 다음과 같은 새 줄이 포함되어 있는지 확인합니다. <br><br>  `KEY AZUREWLBACKUPHANAUSER` <br>  `ENV : localhost: 3<Instance#>13`   <br> `USER: AZUREWLBACKUPHANAUSER`    |
+| Azure 기여자     |    Azure portal    |   Azure Backup 서비스, Azure AD 및 Azure Storage로 전송되는 아웃바운드 트래픽을 허용하도록 NSG, NVA, Azure Firewall 등을 구성합니다.     |    [네트워크 연결 설정](/azure/backup/tutorial-backup-sap-hana-db#set-up-network-connectivity)    |
+| Azure 기여자 |   Azure portal    |   Recovery Services 자격 증명 모음을 만들거나 연 다음, HANA 백업을 선택합니다.   |   백업할 모든 대상 HANA VM을 찾습니다.   |
+| Azure 기여자    |   Azure portal    |   HANA 데이터베이스를 검색하고 백업 정책을 구성합니다.   |  다음은 그 예입니다. <br><br>  매주 백업: 매주 일요일 오전 2:00, 매주 백업은 12주, 매월 백업은 12개월, 매년 백업은 3년간 보존   <br>   차등 또는 증분: 매일, 일요일 제외    <br>   로그: 15분마다 백업은 35일간 보존    |
+| Azure 기여자  |   Azure portal    |    Recovery Service 자격 증명 모음 – 백업 항목 – SAP HANA     |   백업 작업(Azure 워크로드)을 확인합니다.    |
+| HANA 관리자    | HANA 스튜디오   | Backup 콘솔, Backup 카탈로그, backup.log, backint.log 및 globa.ini 확인   |    SYSTEMDB 및 테넌트 데이터베이스 둘 다   |
 
 등록 전 스크립트를 성공적으로 실행하고 확인한 후 [연결 요구 사항](#set-up-network-connectivity)을 확인한 다음, Recovery Services 자격 증명 모음에서 [백업을 구성](#discover-the-databases)할 수 있습니다.
 
@@ -221,6 +231,12 @@ Recovery Services 자격 증명 모음을 만들려면:
    ![검토 + 만들기 선택](./media/tutorial-backup-sap-hana-db/review-create.png)
 
 이제 Recovery Services 자격 증명 모음이 만들어집니다.
+
+## <a name="enable-cross-region-restore"></a>지역 간 복원을 사용하도록 설정
+
+Recovery Services 자격 증명 모음에서 지역 간 복원을 사용하도록 설정할 수 있습니다. HANA 데이터베이스에서 백업을 구성하고 보호하려면 먼저 지역 간 복원을 설정해야 합니다. [지역 간 복원을 켜는 방법](/azure/backup/backup-create-rs-vault#set-cross-region-restore)을 알아보세요.
+
+지역 간 복원에 대해 [자세히 알아보세요](/azure/backup/backup-azure-recovery-services-vault-overview).
 
 ## <a name="discover-the-databases"></a>데이터베이스 검색
 

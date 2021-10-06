@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2020
 ms.author: kumud
-ms.openlocfilehash: 927ff80a544ef8fbff348aeb8781f8a55c84e109
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 57d719f5ea56123c4b237e48f07f1e82fd885b3b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106061896"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624807"
 ---
 # <a name="what-is-azure-virtual-network"></a>Azure Virtual Network란?
 
@@ -74,6 +74,9 @@ Azure 서비스를 Azure 가상 네트워크에 통합하면 가상 네트워크
 ## <a name="azure-vnet-limits"></a>Azure VNet 제한
 
 배포할 수 있는 Azure 리소스 수와 관련된 특정 제한이 있습니다. 대부분의 Azure 네트워킹 제한은 최댓값으로 설정됩니다. 그러나 [VNet 제한 페이지](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)에 지정된 대로 [특정 네트워킹 제한을 늘릴](../azure-portal/supportability/networking-quota-requests.md) 수 있습니다. 
+
+## <a name="virtual-networks-and-availability-zones"></a>가상 네트워크 및 가용성 영역
+가상 네트워크와 서브넷은 지역의 모든 가용성 영역에 걸쳐 있습니다. 영역 리소스를 수용하기 위해 가용성 영역으로 나눌 필요가 없습니다. 예를 들어 영역 VM을 구성하는 경우 VM의 가용성 영역을 선택할 때 가상 네트워크를 고려하지 않아도 됩니다. 다른 영역 리소스의 경우도 마찬가지입니다.
 
 ## <a name="pricing"></a>가격 책정
 

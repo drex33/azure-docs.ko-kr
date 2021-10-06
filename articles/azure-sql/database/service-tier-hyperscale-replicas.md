@@ -8,13 +8,13 @@ ms.topic: overview
 author: yorek
 ms.author: damauri
 ms.reviewer: ''
-ms.date: 7/27/2021
-ms.openlocfilehash: 9fa0a964033439a4b1c5276bf4310528dd345ff8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 9/24/2021
+ms.openlocfilehash: e2785f965cdbb94af081e937f0b2290578c04796
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121722901"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059533"
 ---
 # <a name="hyperscale-secondary-replicas"></a>하이퍼스케일 보조 복제본
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -22,13 +22,13 @@ ms.locfileid: "121722901"
 [분산 기능 아키텍처](service-tier-hyperscale.md)에 설명된 대로 Azure SQL Database 하이퍼스케일에는 두 가지 유형의 컴퓨팅 노드(복제본이라고도 함)가 있습니다.
 
 - 주: 읽기 및 쓰기 작업을 제공합니다.
-- 보조: 읽기 확장, 고가용성, 지역 복제를 제공합니다.
+- 보조: [읽기 확장](read-scale-out.md), [고가용성](high-availability-sla.md), [지역 복제](active-geo-replication-overview.md)를 제공합니다.
 
 보조 복제본은 항상 읽기 전용이며 다음 세 가지 유형일 수 있습니다.
 
 - 고가용성 복제본
-- 명명된 복제본(미리 보기)
-- 지역 복제본(미리 보기)
+- 명명된 복제본([미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 상태)
+- 지역 복제본([미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 상태)
 
 아키텍처, 기능 세트, 목적, 비용은 유형마다 다릅니다. 필요한 기능에 따라 세 유형 중 하나만 사용하거나 모든 유형을 함께 사용할 수도 있습니다.
 
@@ -63,7 +63,7 @@ HA 복제본과 명명된 복제본의 차이점은 다음과 같습니다.
 - 명명된 복제본은 주 복제본마다 최대 30개의 명명된 복제본을 지원합니다.
 - 명명된 복제본을 호스트하는 논리 서버에서 서로 다른 로그인을 만들어 명명된 복제본마다 다른 인증을 지원할 수 있습니다.
 
-명명된 복제본의 주요 목표는 대규모 OLTP 읽기 확장 시나리오를 지원하고 HTAP(하이브리드 트랜잭션 및 분석 처리) 워크로드를 개선하는 것입니다. 해당 솔루션을 만드는 방법의 예는 아래에서 확인할 수 있습니다.
+명명된 복제본의 주요 목표는 대규모 OLTP [읽기 확장](read-scale-out.md) 시나리오를 지원하고 HTAP(하이브리드 트랜잭션 및 분석 처리) 워크로드를 개선하는 것입니다. 해당 솔루션을 만드는 방법의 예는 아래에서 확인할 수 있습니다.
 
 - [OLTP 스케일 아웃 샘플](https://github.com/Azure-Samples/azure-sql-db-named-replica-oltp-scaleout)
 - [HTAP 스케일 아웃 샘플](https://github.com/Azure-Samples/azure-sql-db-named-replica-htap)

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
 ms.date: 06/23/2021
-ms.openlocfilehash: 2aa4fe3e7e2f7637060996b53748391da03879ec
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 07a47b432470b683680c315f2d1d741cc607774f
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123032285"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129214602"
 ---
 # <a name="whats-new-in-anomaly-detector"></a>Anomaly Detector의 새로운 기능
 
@@ -19,6 +19,10 @@ ms.locfileid: "123032285"
 일부 사용자 생성 콘텐츠의 링크도 추가했습니다. 해당 항목은 **[UGC]** 태그로 표시됩니다. 일부 링크는 Microsoft 외부의 웹 사이트에서 호스트되며 Microsoft는 해당 콘텐츠에 책임을 지지 않습니다. 이러한 리소스를 참조하는 경우에는 주의해야 합니다. 콘텐츠를 제거하려면 AnomalyDetector@microsoft.com으로 문의하거나 GitHub에서 문제를 제출하세요.
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="september-2021"></a>2021년 9월
+* Jio 인도 서부에서 사용할 수 있는 Anomaly Detector(일변량)입니다.
+* 다변량 변칙 검색 API는 5개 지역(동아시아, 미국 서부, 인도 중부, 한국 중부, 독일 중서부)에 추가로 배포되었습니다.
 
 ### <a name="august-2021"></a>2021년 8월
 
@@ -70,9 +74,6 @@ ms.locfileid: "123032285"
 * 2019년 8월 20일 [컨테이너 지원과 함께 온-프레미스에서 Anomaly Detector 제공](https://channel9.msdn.com/Shows/AI-Show/Bring-Anomaly-Detector-on-premise-with-containers-support) - Qun Ying 및 Seth Juarez와 함께하는 AI Show
 * 2019년 8월 13일 [Azure Anomaly Detector 소개](https://channel9.msdn.com/Shows/AI-Show/Introducing-Azure-Anomaly-Detector?WT.mc_id=ai-c9-niner) - Qun Ying 및 Seth Juarez와 함께하는 AI Show
 
-## <a name="open-source-projects"></a>오픈 소스 프로젝트
-
-* 2019년 6월 3일 **[UGC]** [변칙 검색을 보여 주고 Power BI에 스트림하는 Jupyter Notebook](https://github.com/marvinbuss/MS-AnomalyDetector) - Marvin Buss
 
 ## <a name="service-updates"></a>서비스 업데이트
 

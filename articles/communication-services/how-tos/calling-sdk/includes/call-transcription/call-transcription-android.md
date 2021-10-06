@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 09/08/2021
 ms.author: rifox
-ms.openlocfilehash: a5b1e42a683683a507f2f4628f5acea32b87f370
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b880f8a8f84247c14a0f1e81577d9e252b2b78c8
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124838793"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129585191"
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-android.md)]
 
@@ -22,7 +22,7 @@ ms.locfileid: "124838793"
 통화 대화 내용 기록은 핵심 `Call` API의 확장 기능입니다. 먼저 대화 내용 기록 기능 API 개체를 가져와야 합니다.
 
 ```java
-TranscriptionFeature callTranscriptionFeature = call.api(TranscriptionFeature.class);
+TranscriptionCallFeature callTranscriptionFeature = call.api(Features.TRANSCRIPTION);
 ```
 
 그런 다음, 통화 대화 내용이 기록되고 있는지 확인하려면 `callTranscriptionFeature`의 `isTranscriptionActive` 속성을 검사합니다. `boolean`를 반환합니다.

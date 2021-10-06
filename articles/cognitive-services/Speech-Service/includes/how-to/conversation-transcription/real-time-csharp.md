@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/20/2020
 ms.author: pafarley
-ms.openlocfilehash: cb39fc53e5753c2667fcc3d3bf78b075366dd3a8
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 0ffa432b6d5d94ad4e313a183d8e277ce44aae3d
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539079"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129585130"
 ---
 ## <a name="install-the-speech-sdk"></a>Speech SDK 설치하기
 
@@ -112,6 +112,9 @@ private static async Task<string> GetVoiceSignatureString()
 * 대화에 참가자를 추가합니다. 문자열 `voiceSignatureStringUser1` 및 `voiceSignatureStringUser2`는 위의 단계에서 `GetVoiceSignatureString()` 함수의 출력으로 제공됩니다.
 * 대화에 참가하고 대화 내용 기록을 시작합니다.
 
+> [!NOTE]
+> `AudioStreamReader`는 [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/csharp/dotnet/conversation-transcription/helloworld/AudioStreamReader.cs)에서 얻을 수 있는 도우미 클래스입니다.
+
 `TranscribeConversationsAsync()` 함수를 호출하여 대화 내용 기록을 시작합니다.
 
 ```csharp
@@ -201,8 +204,9 @@ public static async Task TranscribeConversationsAsync(string voiceSignatureStrin
                 Task.WaitAny(new[] { stopRecognition.Task });
                 await conversationTranscriber.StopTranscribingAsync().ConfigureAwait(false);
             }
-        }
-    }
-}
+         }
+      }
+   }
 }
 ```
+

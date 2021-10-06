@@ -1,15 +1,15 @@
 ---
-author: wesmc7777
+author: curib
 ms.service: redis-cache
 ms.topic: include
 ms.date: 11/09/2018
-ms.author: wesmc
-ms.openlocfilehash: 4fa712e8cf19bf4deb9b536777520a3ffec7261c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.author: cauribeg
+ms.openlocfilehash: a04462ab50a5db71e9d019ab9d49fb137f569569
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128645538"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129585224"
 ---
 | 리소스 | 제한 |
 | --- | --- |

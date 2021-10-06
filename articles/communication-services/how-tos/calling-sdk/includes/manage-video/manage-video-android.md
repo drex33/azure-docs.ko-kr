@@ -4,23 +4,21 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 09/08/2021
 ms.author: rifox
-ms.openlocfilehash: c8683ae7275c9cff9e3035a0ad4b0e1cdc6015d3
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7d77857152ad381bb12e5bacc9889c10ca633948
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128705614"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129585282"
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-android.md)]
 
 ## <a name="device-management"></a>디바이스 관리
-통화로 비디오 사용을 시작하려면 디바이스를 관리하는 방법을 알아야 합니다. 디바이스를 사용하면 오디오 및 비디오를 통화로 전송하는 내용을 제어할 수 있습니다.
+을 호출 하 여 비디오를 사용 하기 시작 하려면 장치를 관리 하는 방법을 알아야 합니다. 장치를 사용 하면 통화에 대 한 오디오 및 비디오 전송 대상을 제어할 수 있습니다.
 
 `DeviceManager`를 사용하여 오디오/비디오 스트림을 전송하는 호출에 사용 가능한 로컬 디바이스를 열거할 수 있습니다. 또한 네이티브 브라우저 API를 사용하여 사용자의 마이크 및 카메라에 액세스할 수 있는 권한을 요청할 수 있습니다.
 
 `callClient.getDeviceManager()` 메서드를 호출하여 `deviceManager`에 액세스할 수 있습니다.
-> [!WARNING]
-> 현재는 DeviceManager에 대한 액세스 권한을 얻으려면 먼저 `callAgent` 개체를 인스턴스화해야 합니다.
 
 ```java
 Context appContext = this.getApplicationContext();
@@ -41,15 +39,20 @@ List<VideoDeviceInfo> localCameras = deviceManager.getCameras(); // [VideoDevice
 `DeviceManager` 및 `Renderer`를 사용하여 로컬 카메라에서 스트림 렌더링을 시작할 수 있습니다. 이 스트림은 다른 참가자에게 전송되지 않는 로컬 미리 보기 피드입니다. 비동기 작업입니다.
 
 ```java
-VideoDeviceInfo videoDevice = <get-video-device>;
+VideoDeviceInfo videoDevice = <get-video-device>; // See the `Enumerate local devices` topic above
 Context appContext = this.getApplicationContext();
-currentVideoStream = new LocalVideoStream(videoDevice, appContext);
+
+LocalVideoStream currentVideoStream = new LocalVideoStream(videoDevice, appContext);
+
 LocalVideoStream[] localVideoStreams = new LocalVideoStream[1];
 localVideoStreams[0] = currentVideoStream;
-videoOptions = new VideoOptions(localVideoStreams);
 
+VideoOptions videoOptions = new VideoOptions(localVideoStreams);
+
+RenderingOptions renderingOptions = new RenderingOptions(ScalingMode.Fit);
 VideoStreamRenderer previewRenderer = new VideoStreamRenderer(currentVideoStream, appContext);
-VideoStreamRendererView uiView = previewRenderer.createView(new RenderingOptions(ScalingMode.Fit));
+
+VideoStreamRendererView uiView = previewRenderer.createView(renderingOptions);
 
 // Attach the uiView to a viewable location on the app at this point
 layout.addView(uiView);
@@ -59,28 +62,35 @@ layout.addView(uiView);
 > [!WARNING]
 > 현재는 발신 로컬 비디오 스트림 하나만 지원됩니다. 비디오를 통해 전화를 걸려면 `deviceManager` `getCameras` API를 사용하여 로컬 카메라를 열거해야 합니다.
 원하는 카메라를 선택한 후에는 해당 카메라를 사용하여 `LocalVideoStream` 인스턴스를 생성하고 `call` 메서드에 대한 `localVideoStream` 배열의 항목으로 `videoOptions`에 전달합니다.
-전화가 연결되면 선택한 카메라에서 다른 참가자로 비디오 스트림을 자동으로 보내기 시작합니다.
+호출이 연결 되 면 선택한 카메라에서 다른 참가자로 비디오 스트림을 자동으로 보내기 시작 합니다.
 
 > [!NOTE]
 > 개인 정보 보호 문제 때문에 비디오를 로컬로 미리 보지 않는 경우에는 비디오가 통화에서 공유되지 않습니다.
 자세한 내용은 [로컬 카메라 미리 보기](#local-camera-preview)를 참조하세요.
+
 ```java
+VideoDeviceInfo desiredCamera = <get-video-device>; // See the `Enumerate local devices` topic above
 Context appContext = this.getApplicationContext();
-VideoDeviceInfo desiredCamera = callClient.getDeviceManager(appContext).get().getCameras().get(0);
+
 LocalVideoStream currentVideoStream = new LocalVideoStream(desiredCamera, appContext);
+
 LocalVideoStream[] localVideoStreams = new LocalVideoStream[1];
 localVideoStreams[0] = currentVideoStream;
+
 VideoOptions videoOptions = new VideoOptions(localVideoStreams);
 
 // Render a local preview of video so the user knows that their video is being shared
 Renderer previewRenderer = new VideoStreamRenderer(currentVideoStream, appContext);
 View uiView = previewRenderer.createView(new CreateViewOptions(ScalingMode.FIT));
+
 // Attach the uiView to a viewable location on the app at this point
 layout.addView(uiView);
 
 CommunicationUserIdentifier[] participants = new CommunicationUserIdentifier[]{ new CommunicationUserIdentifier("<acs user id>") };
+
 StartCallOptions startCallOptions = new StartCallOptions();
 startCallOptions.setVideoOptions(videoOptions);
+
 Call call = callAgent.startCall(context, participants, startCallOptions);
 ```
 
@@ -89,10 +99,13 @@ Call call = callAgent.startCall(context, participants, startCallOptions);
 비디오를 시작하려면 `deviceManager` 개체의 `getCameraList` API를 사용하여 카메라를 열거해야 합니다. 그런 다음, 원하는 카메라를 전달하는 새 `LocalVideoStream` 인스턴스를 만들고, 이 인스턴스를 `startVideo` API에서 인수로 전달합니다.
 
 ```java
-VideoDeviceInfo desiredCamera = <get-video-device>;
+VideoDeviceInfo desiredCamera = <get-video-device>; // See the `Enumerate local devices` topic above
 Context appContext = this.getApplicationContext();
+
 LocalVideoStream currentLocalVideoStream = new LocalVideoStream(desiredCamera, appContext);
+
 VideoOptions videoOptions = new VideoOptions(currentLocalVideoStream);
+
 Future startVideoFuture = call.startVideo(appContext, currentLocalVideoStream);
 startVideoFuture.get();
 ```
@@ -100,7 +113,8 @@ startVideoFuture.get();
 비디오 전송을 성공적으로 시작하면 호출 인스턴스의 `localVideoStreams` 컬렉션에 `LocalVideoStream` 인스턴스가 추가됩니다.
 
 ```java
-currentLocalVideoStream == call.getLocalVideoStreams().get(0);
+List<LocalVideoStream> videoStreams = call.getLocalVideoStreams();
+LocalVideoStream currentLocalVideoStream = videoStreams.get(0); // Please make sure there are VideoStreams in the list before calling get(0).
 ```
 
 로컬 비디오를 중지하려면 `LocalVideoStream` 컬렉션에서 사용할 수 있는 `localVideoStreams` 인스턴스를 전달합니다.
@@ -115,10 +129,16 @@ currentLocalVideoStream.switchSource(source).get();
 ```
 
 ## <a name="render-remote-participant-video-streams"></a>원격 참가자 비디오 스트림 렌더링
+
 원격 참가자의 비디오 스트림과 화면 공유 스트림을 나열하려면 `videoStreams` 컬렉션을 검사합니다.
+
 ```java
-RemoteParticipant remoteParticipant = call.getRemoteParticipants().get(0);
-RemoteVideoStream remoteParticipantStream = remoteParticipant.getVideoStreams().get(0);
+List<RemoteParticipant> remoteParticipants = call.getRemoteParticipants();
+RemoteParticipant remoteParticipant = remoteParticipants.get(0); // Please make sure there are remote participants in the list before calling get(0).
+
+List<RemoteVideoStream> remoteStreams = remoteParticipant.getVideoStreams();
+RemoteVideoStream remoteParticipantStream = remoteStreams.get(0); // Please make sure there are video streams in the list before calling get(0).
+
 MediaStreamType streamType = remoteParticipantStream.getType(); // of type MediaStreamType.Video or MediaStreamType.ScreenSharing
 ```
  

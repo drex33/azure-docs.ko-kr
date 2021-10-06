@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 09/08/2021
 ms.author: rifox
-ms.openlocfilehash: 64b7021132196887440373f343626b43836a8b91
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a12f5717d927e8358a503a50f314c6b80f577952
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128705627"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129585067"
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-android.md)]
 
@@ -23,7 +23,7 @@ ms.locfileid: "128705627"
 통화 레코딩은 핵심 `Call` API의 확장 기능입니다. 먼저 레코딩 기능 API 개체를 가져와야 합니다.
 
 ```java
-RecordingFeature callRecordingFeature = call.api(RecordingFeature.class);
+RecordingCallFeature callRecordingFeature = call.api(Features.RECORDING);
 ```
 
 그런 다음, 통화가 녹음되고 있는지 확인하려면 `callRecordingFeature`의 `isRecordingActive` 속성을 검사합니다. `boolean`를 반환합니다.

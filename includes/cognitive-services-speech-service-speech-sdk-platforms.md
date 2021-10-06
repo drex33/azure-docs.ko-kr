@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/03/2021
 ms.author: trbye
-ms.openlocfilehash: a1b5ff8461c4835d8f6f061c154a2bd3350a6822
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: b9cfedce886f5d1727dac91dcc1469d077a021c2
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129300354"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129585010"
 ---
 | 프로그래밍 언어 | 플랫폼 | SDK 참조 |
 |----------------------|----------|---------------|
@@ -24,3 +24,6 @@ ms.locfileid: "129300354"
 <sup>1 .NET Speech SDK는 .NET Standard 2.0을 기반으로 하므로 많은 플랫폼을 지원합니다. 자세한 내용은 .NET 구현 지원 를 [참조하세요.](/dotnet/standard/net-standard#net-implementation-support)</sup>
 
 <sup>2 Java Speech SDK는 [Speech Devices SDK](../articles/cognitive-services/speech-service/speech-devices-sdk.md)의 일부로도 제공됩니다.</sup>
+
+> [!IMPORTANT]
+> C는 Speech SDK에 지원되는 프로그래밍 언어가 아닙니다. 지원되는 여러 프로그래밍 언어(예: C++)에는 일반적인 ABI(애플리케이션 이진 인터페이스) 계층의 일부인 C 헤더가 포함됩니다. 이러한 ABI 헤더는 직접 사용하기 위한 **것이 아니며** 버전 간에 변경될 수 있습니다.

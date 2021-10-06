@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 09/08/2021
 ms.author: rifox
-ms.openlocfilehash: 2bc30ff8b610b48973c6d72b86fb897ad70f7db9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 029e4ce2f699eb66f0807f47cc80a893052f7a57
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128705626"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129585205"
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-ios.md)]
 
@@ -22,7 +22,7 @@ ms.locfileid: "128705626"
 통화 레코딩은 핵심 `Call` API의 확장 기능입니다. 먼저 레코딩 기능 API 개체를 가져와야 합니다.
 
 ```swift
-let callRecordingFeature = call.api(RecordingFeature.self)
+let callRecordingFeature = call.api(Features.recording)
 ```
 
 그런 다음, 통화가 녹음되고 있는지 확인하려면 `callRecordingFeature`의 `isRecordingActive` 속성을 검사합니다. `Bool`를 반환합니다.
@@ -31,13 +31,13 @@ let callRecordingFeature = call.api(RecordingFeature.self)
 let isRecordingActive = callRecordingFeature.isRecordingActive;
 ```
 
-이벤트 `didChangeRecordingState`를 사용하여 클래스에 `RecordingFeatureDelegate` 대리자를 구현하여 변경 내용 기록을 구독할 수도 있습니다.
+이벤트 `didChangeRecordingState`를 사용하여 클래스에 `RecordingCallFeatureDelegate` 대리자를 구현하여 변경 내용 기록을 구독할 수도 있습니다.
 
 ```swift
 callRecordingFeature.delegate = self
 
-// didChangeRecordingState is a member of RecordingFeatureDelegate
-public func recordingFeature(_ recordingFeature: RecordingFeature, didChangeRecordingState args: PropertyChangedEventArgs) {
+// didChangeRecordingState is a member of RecordingCallFeatureDelegate
+public func recordingCallFeature(_ recordingCallFeature: RecordingCallFeature, didChangeRecordingState args: PropertyChangedEventArgs) {
     let isRecordingActive = recordingFeature.isRecordingActive
 }
 ```

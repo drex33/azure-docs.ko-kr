@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 07/08/2020
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 61aa5ffcbab493109371067b1eb9d199a29cb852
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: a39b49c8a75f8ffbf99b3d92917c8e5e3e0cae55
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100551224"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129585045"
 ---
 **구성 및 프로세스 서버 요구 사항**
 
@@ -63,6 +63,9 @@ https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.
 
 > [!NOTE]
 > Site Recovery 자격 증명 모음에 [프라이빗 링크 연결](../articles/site-recovery/hybrid-how-to-enable-replication-private-endpoints.md)이 있는 경우 구성 서버에 대한 추가 인터넷 액세스가 필요하지 않습니다. 이에 대한 예외는 OVA 템플릿을 사용하여 CS 머신을 설정하는 동안 프라이빗 링크 액세스(https://management.azure.com , https://www.live.com 및 https://www.microsoft.com )를 통해 다음 URL에 액세스해야 한다는 것입니다. 이러한 URL에 대한 액세스를 허용하지 않으려면 통합 설치 관리자를 사용하여 CS를 설정하세요.
+
+> [!NOTE]
+> VMware 및 물리적 컴퓨터를 보호 하기 위해 개인 끝점을 설정 하는 동안 구성 서버에 MySQL을 수동으로 설치 해야 합니다. 수동 설치를 수행 하려면 [여기](https://docs.microsoft.com/azure/site-recovery/vmware-azure-deploy-configuration-server#configure-settings) 의 단계를 따르세요. 
 
 ## <a name="required-software"></a>필수 소프트웨어
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/15/2021
+ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 3bc61bdbca64b8a4aacc8aa8937d74081029d9f2
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: dac9007716d156816836c338fbad08902bb282cd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112286243"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128675709"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>자습서: Bonusly와 Azure Active Directory 통합
 
@@ -38,6 +38,7 @@ Bonusly와 Azure AD의 통합을 구성하려면 다음 항목이 필요합니�
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
 * Bonusly는 **IDP** 시작 SSO를 지원합니다.
+* Bonusly는 [자동화된 사용자 프로비저닝](bonusly-provisioning-tutorial.md)을 지원합니다.
 
 > [!NOTE]
 > 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
@@ -95,7 +96,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
+### <a name="create-an-azure-ad-test-user&quot;></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
@@ -103,11 +104,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
+### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 Bonusly에 대한 액세스 권한을 부여합니다.
 
@@ -116,16 +117,16 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
+1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 &quot;기본 액세스&quot; 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-## <a name="configure-bonusly-sso"></a>Bonusly SSO 구성
+## <a name=&quot;configure-bonusly-sso&quot;></a>Bonusly SSO 구성
 
 1. 다른 브라우저 창에서 **Bonusly** 테넌트에 로그인합니다.
 
 1. 위쪽 도구 모음에서 **설정** 을 클릭한 다음, **통합 및 앱** 을 선택합니다.
 
-    ![Bonusly 소셜 섹션](./media/bonus-tutorial/settings.png "Bonusly")
+    ![Bonusly 소셜 섹션](./media/bonus-tutorial/settings.png &quot;Bonusly")
 1. **Single Sign-On** 에서 **SAML** 을 선택합니다.
 
 1. **SAML** 대화 상자 페이지에서 다음 단계를 수행합니다.
@@ -182,7 +183,10 @@ Azure AD 사용자가 Bonusly에 로그인하려면 Bonusly에 프로비저닝�
     d. **저장** 을 클릭합니다.
 
     > [!NOTE]
-    > Azure AD 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함하는 전자 메일을 받습니다.  
+    > Azure AD 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함하는 전자 메일을 받습니다.
+
+> [!NOTE]
+>Bonusly는 자동 사용자 프로비저닝도 지원합니다. 자동 사용자 프로비저닝 구성 방법에 대한 자세한 내용은 [여기](./bonusly-provisioning-tutorial.md)에서 제공합니다.
 
 ## <a name="test-sso"></a>SSO 테스트
 
@@ -190,7 +194,7 @@ Azure AD 사용자가 Bonusly에 로그인하려면 Bonusly에 프로비저닝�
 
 * Azure Portal에서 이 애플리케이션 테스트를 클릭하면 SSO를 설정한 Bonusly에 자동으로 로그인됩니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Bonusly 타일을 클릭하면 SSO를 설정한 Bonusly에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Bonusly 타일을 클릭하면 SSO를 설정한 Bonusly에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

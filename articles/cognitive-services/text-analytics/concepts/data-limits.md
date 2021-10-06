@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 04/07/2021
+ms.date: 09/16/2021
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: b583caa4fdb2a1e72833d4e24c317282be041513
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: fd8347acf6f5fb67de5c011692d893416d5ac068
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822138"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128677514"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Text Analytics API에 대한 데이터 및 속도 제한
 <a name="data-limits"></a>
@@ -31,10 +31,12 @@ ms.locfileid: "122822138"
 > * 데이터 및 요금 제한은 API로 보내는 문서 수를 기반으로 합니다. 허용 한도보다 큰 문서를 분석해야 하는 경우 텍스트를 API로 보내기 전에 텍스트를 더 작은 텍스트 청크로 분할할 수 있습니다. 
 >   * 문서는 텍스트 문자의 단일 문자열입니다.  
 
+
+
 | 제한 | 값 |
 |------------------------|---------------|
 | 단일 문서의 최대 크기 | [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements)에 의해 측정된 5,120자. Text Analytics for health에도 적용됩니다. |
-| 단일 문서의 최대 크기(`/analyze` 엔드포인트)  | [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements)에 의해 측정된 125K자. Text Analytics for health에 적용되지 않습니다. |
+| 요청당 최대 문자 수(`/analyze` 엔드포인트)  | [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements)(최대 25개 문서)로 측정되는 모든 제출된 문서에서 125K 문자를 계산합니다. Text Analytics for health에 적용되지 않습니다. |
 | 전체 요청의 최대 크기 | 1MB Text Analytics for health에도 적용됩니다. |
 
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/16/2021
+ms.date: 08/26/2021
 ms.author: jeedes
-ms.openlocfilehash: bcbf68523fda8ccd8041d5147f9904f0b8520521
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 36829f44d818356bbe61fe3f37265c2a76ed6f8a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108147970"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128617985"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-exium"></a>자습서: Exium과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -38,6 +38,7 @@ ms.locfileid: "108147970"
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 * Exium에서 **SP** 시작 SSO를 지원합니다.
+* Exium에서 [자동화된 사용자 프로비저닝](exium-provisioning-tutorial.md)을 지원합니다.
 
 ## <a name="adding-exium-from-the-gallery"></a>갤러리에서 Exium 추가
 
@@ -149,6 +150,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![저장 단추를 사용하여 테스트 사용자 필드 만들기 스크린샷](./media/exium-tutorial/add-user-2.png)
 
+> [!NOTE]
+>Exium은 자동 사용자 프로비저닝도 지원합니다. 자동 사용자 프로비저닝 구성 방법에 대한 자세한 내용은 [여기](./exium-provisioning-tutorial.md)에서 제공합니다.
+
 ## <a name="test-sso"></a>SSO 테스트 
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
@@ -157,7 +161,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * Exium 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Exium 타일을 클릭하면 Exium 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Exium 타일을 클릭하면 Exium 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -4,24 +4,31 @@ description: 포함 파일
 author: timlt
 ms.service: iot-develop
 ms.topic: include
-ms.date: 04/28/2021
+ms.date: 09/17/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 4bb64b6ee52bbf70a13bc1e654322f2f49bd0dee
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 85e75839d204360847162b470d149e580fac80bc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114712980"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128909854"
 ---
 [![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/pnp)
 
 이 빠른 시작에서는 기본 Azure IoT 애플리케이션 개발 워크플로에 대해 알아봅니다. 먼저 디바이스 호스트를 위한 Azure IoT Central 애플리케이션을 만듭니다. 그런 다음 Azure IoT 디바이스 SDK 샘플을 사용하여 시뮬레이션된 온도 조절기를 실행하고 IoT Central에 안전하게 연결하고 원격 분석을 전송합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
+이 빠른 시작은 Windows, Linux 및 Raspberry Pi에서 실행됩니다. 다음 OS와 디바이스 버전에서 테스트되었습니다.
+
+- Windows 10
+- WSL(Linux용 Windows 하위 시스템)에서 실행되는 Ubuntu 20.04 LTS
+- Raspberry Pi 3 Model B+에서 실행되는 Raspberry Pi OS 버전 10(buster)
+
+개발 컴퓨터에 다음 필수 구성 요소를 설치합니다.
+
 - [Node.js](https://nodejs.org/) 버전 6 이상 버전을 확인하려면 콘솔 애플리케이션에서 `node --version`을 실행합니다.
 - [Git](https://git-scm.com/downloads)
-- Linux 또는 Windows에서 이 빠른 시작을 실행할 수 있습니다. 셸 명령은 표준 Linux 경로 구분 기호 `/`를 사용합니다. Windows를 사용하는 경우 이 구분 기호를 Windows 경로 구분 기호 `\`로 바꿉니다.
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
@@ -30,11 +37,11 @@ ms.locfileid: "114712980"
 
 ### <a name="configure-your-environment"></a>환경 구성
 
-1. Windows CMD, PowerShell 또는 Bash를 사용하여 콘솔을 엽니다.
+1. Windows CMD, PowerShell 또는 Bash와 같은 콘솔을 엽니다.
 
 1. 콘솔에 적합한 명령을 사용하여 다음 환경 변수를 설정합니다. 시뮬레이션된 디바이스는 이 값을 사용하여 IoT Central에 연결합니다. `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY` 및 `IOTHUB_DEVICE_DPS_DEVICE_ID`의 경우 이전에 저장한 디바이스 연결 값을 사용합니다.
 
-    **Windows CMD**
+    **CMD(Windows)**
 
     ```console
     set IOTHUB_DEVICE_SECURITY_TYPE=DPS
@@ -57,7 +64,7 @@ ms.locfileid: "114712980"
     $env:IOTHUB_DEVICE_DPS_ENDPOINT='global.azure-devices-provisioning.net'
     ```
 
-    **Bash(Linux 또는 Windows)**
+    **Bash**
 
     ```bash
     export IOTHUB_DEVICE_SECURITY_TYPE='DPS'
@@ -76,9 +83,17 @@ ms.locfileid: "114712980"
     ```
 
 1. 샘플 디렉터리로 이동합니다.
+
+    **Windows**
+    ```console
+    cd azure-iot-sdk-node\device\samples\pnp
+    ```
+
+    **Linux 또는 Raspberry Pi OS**
     ```console
     cd azure-iot-sdk-node/device/samples/pnp
     ```
+
 1. Azure IoT Node.js SDK 및 필요한 종속성을 설치합니다.
     ```console
     npm install

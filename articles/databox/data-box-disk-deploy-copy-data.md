@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 09/14/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 9186c742f34f1c060b57ffdfbf1bf688607b4c03
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1dc4c63d5d19b688a695702a5eb94365ff762a97
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125340"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591808"
 ---
 ::: zone target="docs"
 
@@ -283,7 +283,7 @@ ms.locfileid: "92125340"
 
     > [!TIP]
     > - 두 실행 간에 도구를 다시 설정합니다.
-    > - 작은 파일(KB 이하)이 포함된 대형 데이터 세트를 처리하는 경우 옵션 1을 사용합니다. 체크섬 생성에 시간이 오래 걸릴 수 있고 성능이 매우 느려질 수 있으므로 이 옵션은 파일의 유효성만 검사합니다.
+    > - 작은 파일(~KB)이 포함된 큰 데이터 세트가 있는 경우 체크섬 프로세스에 시간이 오래 걸릴 수 있습니다.  옵션 1을 사용하고 체크섬 만들기를 건너뛰는 경우 소유하고 있는 데이터 복사본을 삭제하기 전에 가급적 체크섬을 통해 Azure에서 업로드된 데이터의 데이터 무결성을 독립적으로 확인해야 합니다.
 
 3. 여러 디스크를 사용하는 경우 각 디스크에 대해 명령을 실행합니다.
 
@@ -311,7 +311,7 @@ Data Box Disk를 반환하고 Azure에 대한 데이터 업로드를 확인하�
 다음 단계를 수행하여 컴퓨터에서 Data Box Disk로 데이터를 연결하고 복사합니다.
 
 1. 잠금 해제된 드라이브의 콘텐츠를 봅니다. 드라이브에서 사전 생성된 폴더 및 하위 폴더 목록은 Data Box Disk 주문 시 선택한 옵션에 따라 다릅니다.
-2. 적절한 데이터 형식에 해당하는 폴더에 데이터를 복사해야 합니다. 예를 들어 비정형 데이터는 *BlockBlob* 폴더에 복사하고, VHD 또는 VHDX 데이터는 *PageBlob* 폴더에 복사하고, 파일은 *AzureFile*에 복사합니다. 데이터 형식이 적절한 폴더(스토리지 형식)와 일치하지 않는 경우 이후 단계에서 Azure에 대한 데이터 업로드가 실패합니다.
+2. 적절한 데이터 형식에 해당하는 폴더에 데이터를 복사해야 합니다. 예를 들어 비정형 데이터는 *BlockBlob* 폴더에 복사하고, VHD 또는 VHDX 데이터는 *PageBlob* 폴더에 복사하고, 파일은 *AzureFile* 에 복사합니다. 데이터 형식이 적절한 폴더(스토리지 형식)와 일치하지 않는 경우 이후 단계에서 Azure에 대한 데이터 업로드가 실패합니다.
 
     - 모든 컨테이너, Blob 및 파일은 [Azure 명명 규칙](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions) 및 [Azure 개체 크기 제한](data-box-disk-limits.md#azure-object-size-limits)을 준수해야 합니다. 이러한 규칙 또는 제한을 따르지 않으면 Azure로 데이터를 업로드할 수 없습니다.     
     - 주문의 스토리지 대상 중 하나가 Managed Disks인 경우 [관리 디스크](data-box-disk-limits.md#managed-disk-naming-conventions)의 명명 규칙을 참조하세요.

@@ -2,19 +2,21 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/03/2021
+ms.date: 09/17/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: c1bfb3d6540a0c30185e4b9251f6aba826d062a9
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 3c863facc6e1eb0bd381936164dc1cdae54e9caf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123477227"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128655282"
 ---
-|Name<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
+|[Azure IoT Hub는 Service Api에 대해 로컬 인증 방법을 사용하지 않도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F672d56b3-23a7-4a3c-a233-b77ed7777518) |로컬 인증 방법을 사용하지 않도록 설정하면 Azure IoT Hub에서 Service Api 인증을 위해 Azure Active Directory ID만 필요하므로 보안이 향상됩니다. [https://aka.ms/iothubdisablelocalauth](../../../../articles/iot-hub/iot-hub-dev-guide-azure-ad-rbac.md)에서 자세히 알아보세요. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/IoTHub_DisableLocalAuth_AuditDeny.json) |
 |[\[미리 보기\]: Azure IoT Hub는 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d7e144b-159c-44fc-95c1-ac3dbf5e6e54) |고객 관리형 키를 사용하여 IoT Hub에서 미사용 데이터를 암호화하면 기본 서비스 관리형 키 위에 두 번째 암호화 계층이 추가되고, 키에 대한 고객 제어, 사용자 지정 회전 정책 및 키 액세스 제어를 통해 데이터에 대한 액세스를 관리할 수 있습니다. IoT Hub를 만드는 동안 고객 관리형 키를 구성해야 합니다. 고객 관리형 키를 구성하는 방법에 대한 자세한 내용은 [https://aka.ms/iotcmk](../../../../articles/iot-hub/iot-hub-customer-managed-keys.md)를 구성해야 합니다. |감사, 거부, 사용 안 함 |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/IotHub_CMKEncryptionEnabled.json) |
+|[로컬 인증을 사용하지 않도록 Azure IoT Hub 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9f8ba900-a70f-486e-9ffc-faf907305376) |Azure IoT Hub에 인증을 위해 Azure Active Directory ID가 독점적으로 필요하도록 로컬 인증 방법을 사용하지 않도록 설정합니다. [https://aka.ms/iothubdisablelocalauth](../../../../articles/iot-hub/iot-hub-dev-guide-azure-ad-rbac.md)에서 자세히 알아보세요. |수정, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/IoTHub_DisableLocalAuth_Modify.json) |
 |[프라이빗 DNS 영역을 사용하도록 IoT Hub 디바이스 프로비저닝 인스턴스 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faaa64d2d-2fa3-45e5-b332-0b031b9b30e8) |프라이빗 DNS 영역을 사용하여 프라이빗 엔드포인트에 대한 DNS 확인을 재정의합니다. 프라이빗 DNS 영역은 가상 네트워크에 연결하여 IoT Hub 디바이스 프로비저닝 서비스 인스턴스로 확인합니다. [https://aka.ms/iotdpsvnet](../../../../articles/iot-dps/virtual-network-support.md)에서 자세히 알아보세요. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/IoTDps_DeployPrivateDnsZoneForPrivateEndpoint_Deploy.json) |
 |[공용 네트워크 액세스를 사용하지 않도록 IoT Hub 디바이스 프로비저닝 서비스 인스턴스 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F859dfc91-ea35-43a6-8256-31271c363794) |공용 인터넷을 통해 액세스할 수 없도록 IoT Hub 디바이스 프로비저닝 인스턴스에 대한 공용 네트워크 액세스를 사용하지 않도록 설정합니다. 이를 통해 데이터 유출 위험을 줄일 수 있습니다. [https://aka.ms/iotdpsvnet](../../../../articles/iot-dps/virtual-network-support.md)에서 자세히 알아보세요. |수정, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/IoTDps_DisablePublicNetworkAccess_Modify.json) |
 |[프라이빗 엔드포인트로 IoT Hub 디바이스 프로비저닝 서비스 인스턴스 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9b75ea5b-c796-4c99-aaaf-21c204daac43) |프라이빗 엔드포인트는 원본 또는 대상에서 공용 IP 주소 없이 Azure 서비스에 가상 네트워크를 연결합니다. 프라이빗 엔드포인트를 IoT Hub 디바이스 프로비저닝 서비스에 매핑하면 데이터 유출 위험을 줄일 수 있습니다. [https://aka.ms/iotdpsvnet](../../../../articles/iot-dps/virtual-network-support.md)에서 프라이빗 링크에 대해 자세히 알아보세요. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/IoTDps_DeployPrivateEndpoint_Deploy.json) |

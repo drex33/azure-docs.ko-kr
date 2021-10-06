@@ -9,12 +9,12 @@ ms.collection: linux
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 916f1b268e8fc8a3b765e4362190a2db78ec306a
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 6b8286ca8cac5ec2a16015d2171f224a60a58fb3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698486"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596812"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-in-azure-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure에서 Linux VM 만들기 및 암호화
 
@@ -49,7 +49,7 @@ VM 배포에는 몇 분 정도 걸립니다.
 Azure Disk Encryption은 Azure Key Vault에 암호화 키를 저장합니다. [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault)를 사용하여 Key Vault를 만듭니다. Key Vault를 사용하여 암호화 키를 저장하려면 -EnabledForDiskEncryption 매개 변수를 사용합니다.
 
 > [!Important]
-> 모든 Key Vault에는 Azure 전체에서 고유한 이름이 있어야 합니다. 아래 예제에서 <your-unique-keyvault-name>을 선택한 이름으로 바꿉니다.
+> 모든 Key Vault에는 Azure 전체에서 고유한 이름이 있어야 합니다. 아래 예제에서 \<your-unique-keyvault-name\>을 선택한 이름으로 바꿉니다.
 
 ```azurepowershell-interactive
 New-AzKeyvault -name "<your-unique-keyvault-name>" -ResourceGroupName "myResourceGroup" -Location EastUS -EnabledForDiskEncryption

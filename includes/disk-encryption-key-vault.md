@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: virtual-machines
 author: msmbaldwin
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: fa16db2472daaa98f972460d691c07f700ec3447
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 1e0ec6d37990fbddcdebf7a1d2efd063cd9e4ea6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110720119"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128908926"
 ---
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -42,7 +42,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 >[!WARNING]
 > 키 자격 증명 모음과 VM이 동일한 구독에 있어야 합니다. 또한 암호화 비밀이 지역 경계를 넘지 않도록 하려면 Azure Disk Encryption에서 Key Vault와 VM을 동일한 지역에 공동 배치해야 합니다. 암호화할 VM과 동일한 구독 및 지역에 있는 Key Vault를 만들고 사용합니다. 
 
-각 Key Vault마다 고유한 이름이 있어야 합니다. 다음 예제에서는 <your-unique-keyvault-name>을 Key Vault의 이름으로 바꿉니다.
+각 Key Vault마다 고유한 이름이 있어야 합니다. 다음 예제에서 \<your-unique-keyvault-name\>을 키 자격 증명 모음의 이름으로 바꿉니다.
 
 ### <a name="azure-cli"></a>Azure CLI
 

@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 04/08/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: e02ac9d6abd3358218f268fb3da1e99b90fac7c5
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: 9f095bbadf8f395b809d46c8beea5f6665932d12
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113568085"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357910"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 Key Vault 참조 사용
 
@@ -203,7 +203,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 
 Azure App Configuration은 키 자격 증명 모음에 액세스하지 않습니다. 앱은 Key Vault에서 직접 읽기 때문에 키 자격 증명 모음의 비밀에 대한 읽기 권한을 앱에 부여해야 합니다. 이렇게 하면 비밀은 항상 앱에 유지됩니다. [Key Vault 액세스 정책](../key-vault/general/assign-access-policy-portal.md) 또는 [Azure 역할 기반 액세스 제어](../key-vault/general/rbac-guide.md)를 사용하여 액세스 권한을 부여할 수 있습니다.
 
-위 코드에서는 `DefaultAzureCredential`을 사용합니다. 이는 `EnvironmentCredential`, `ManagedIdentityCredential`, `SharedTokenCacheCredential`, `VisualStudioCredential` 등의 다양한 자격 증명 유형을 자동으로 시도하는 집계된 토큰 자격 증명입니다. 자세한 내용은 [DefaultAzureCredential 클래스](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet)를 참조하세요. 명시적으로 `DefaultAzureCredential`을 임의 자격 증명 유형으로 바꿀 수 있습니다. 그러나 `DefaultAzureCredential`을 사용하면 로컬 및 Azure 환경에서 둘 다 동일한 코드를 실행할 수 있습니다. 예를 들어, 키 자격 증명 모음에 대한 고유한 자격 증명 액세스 권한을 부여합니다. 로컬 개발에 Visual Studio를 사용하는 경우 `DefaultAzureCredential`은 자동으로 `SharedTokenCacheCredential` 또는 `VisualStudioCredential`로 대체됩니다.
+위 코드에서는 `DefaultAzureCredential`을 사용합니다. 이는 `EnvironmentCredential`, `ManagedIdentityCredential`, `SharedTokenCacheCredential`, `VisualStudioCredential` 등의 다양한 자격 증명 유형을 자동으로 시도하는 집계된 토큰 자격 증명입니다. 자세한 내용은 [DefaultAzureCredential 클래스](/dotnet/api/azure.identity.defaultazurecredential)를 참조하세요. 명시적으로 `DefaultAzureCredential`을 임의 자격 증명 유형으로 바꿀 수 있습니다. 그러나 `DefaultAzureCredential`을 사용하면 로컬 및 Azure 환경에서 둘 다 동일한 코드를 실행할 수 있습니다. 예를 들어, 키 자격 증명 모음에 대한 고유한 자격 증명 액세스 권한을 부여합니다. 로컬 개발에 Visual Studio를 사용하는 경우 `DefaultAzureCredential`은 자동으로 `SharedTokenCacheCredential` 또는 `VisualStudioCredential`로 대체됩니다.
 
 또는 AZURE_TENANT_ID, AZURE_CLIENT_ID 및 AZURE_CLIENT_SECRET 환경 변수를 설정할 수 있습니다. 그러면 `DefaultAzureCredential`은 `EnvironmentCredential`을 통해 소유한 클라이언트 비밀을 사용하여 키 자격 증명 모음으로 인증합니다. 관리 ID가 사용되는 Azure 서비스(예: Azure App Service, Azure Kubernetes Service 또는 Azure Container Instance)에 앱이 배포된 후, 키 자격 증명 모음에 액세스할 권한을 Azure 서비스의 관리 ID에 부여합니다. 앱이 Azure에서 실행되는 경우 `DefaultAzureCredential`은 자동으로 `ManagedIdentityCredential`을 사용합니다. 동일한 관리 ID를 사용하여 App Configuration과 Key Vault로 둘 다 인증할 수 있습니다. 자세한 내용은 [관리 ID를 사용하여 App Configuration에 액세스하는 방법](howto-integrate-azure-managed-service-identity.md)을 참조하세요.
 

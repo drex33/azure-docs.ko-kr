@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 01/16/2021
-ms.openlocfilehash: 857de601019e7e8778795f5de7939b461e86df07
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.openlocfilehash: bb78b1ec37541d96d6ad5440ec0e0f3624d90de6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113288845"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128604825"
 ---
 # <a name="quickstart-use-java-and-jdbc-with-azure-database-for-mysql-flexible-server"></a>빠른 시작: Azure Database for MySQL 유연한 서버에서 Java 및 JDBC 사용
 
@@ -23,7 +23,9 @@ ms.locfileid: "113288845"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- Azure 계정. 계정이 없으면 [체험 계정을 얻습니다](https://azure.microsoft.com/free/).
+- 활성 구독이 있는 Azure 계정. 
+
+    [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 - [Azure Cloud Shell](../../cloud-shell/quickstart.md) 또는 [Azure CLI](/cli/azure/install-azure-cli). 자동으로 로그인되고 필요한 모든 도구에 액세스할 수 있는 Azure Cloud Shell을 권장합니다.
 - 지원되는 [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure) 버전 8(Azure Cloud Shell에 포함됨)입니다.
 - [Apache Maven](https://maven.apache.org/) 빌드 도구.
@@ -85,7 +87,7 @@ az mysql flexible-server create \
   	| jq
 ```
 
-로컬 머신에서 서버에 액세스하려면 <YOUR-IP-ADDRESS>를 입력해야 합니다. 이 명령은 개발에 적합한 Burstable Tier MySQL 유연한 서버를 만듭니다.
+로컬 컴퓨터에서 서버에 액세스하려면 \<YOUR-IP-ADDRESS\>를 입력해야 합니다. 이 명령은 개발에 적합한 Burstable Tier MySQL 유연한 서버를 만듭니다.
 
 사용자가 만든 MySQL 서버에는 **flexibleserverdb** 라는 빈 데이터베이스가 있습니다. 이 문서에서는 이 데이터베이스를 사용합니다.
 

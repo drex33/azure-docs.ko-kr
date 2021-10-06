@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 08/26/2019
+ms.date: 09/08/2021
 ms.author: alkohli
 ms.localizationpriority: high
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: d5334314626d29dc9e3047bc382d41fcfa318a1d
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 0bf9eb2eab829e22e72f19fc4da4575166ea2755
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123469521"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743356"
 ---
 # <a name="tutorial-order-azure-data-box-heavy"></a>자습서: Azure Data Box Heavy 주문
 
@@ -62,6 +62,8 @@ Azure Data Box Heavy는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-�
 ## <a name="order-data-box-heavy"></a>Data Box Heavy 주문
 
 [!INCLUDE [order-data-box-via-portal](../../includes/data-box-order-portal.md)]
+
+Data Box 팀은 사용자 요구 사항에 대한 자세한 정보를 얻기 위해 사용자에게 연락하여 필요한 위치에서 Data Box Heavy 서비스를 사용할 수 있는지 여부를 확인할 수 있습니다. 주문은 검토하는 동안 **주문됨** 상태로 유지됩니다. 몇 가지 이유로 사용자 주문을 채울 수 없으면 사용자에게 이를 알려줍니다.
 
 ## <a name="track-the-order"></a>주문 추적
 

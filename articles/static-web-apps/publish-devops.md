@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 08/17/2021
 ms.author: apedward
-ms.openlocfilehash: 9df037177aac3dd909795f18c6e903eedd1c98a6
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: bc1e6c5ad5423f48eed50c65237b0d42a4e61d7a
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122608874"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129236221"
 ---
 # <a name="tutorial-publish-azure-static-web-apps-with-azure-devops"></a>자습서: Azure DevOps를 사용하여 Azure Static Web Apps 게시
 
@@ -34,9 +34,6 @@ ms.locfileid: "122608874"
 
   > [!NOTE]
   > 리포지토리에 기존 앱이 있는 경우 다음 섹션으로 건너뛸 수 있습니다.
-  
-  > [!NOTE]
-  > 파이프라인이 성공하려면 애플리케이션이 .NET Core 3.1을 대상으로 해야 합니다.
 
 1. Azure Repos의 리포지토리로 이동합니다.
 

@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Lab 정보 | Microsoft Docs
+title: Azure DevTest Labs 정보
 description: DevTest Lab에서 Azure 가상 머신을 쉽게 만들고 관리하고 모니터링할 수 있는 방법 알아보기
-ms.topic: article
+ms.topic: overview
 ms.date: 08/20/2021
-ms.openlocfilehash: 5ef1aabb861b90679fbb36e46b837d6567f122d4
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
-ms.translationtype: MT
+ms.openlocfilehash: cad1bb218722c72d6b7f7c2d28ad92a460e3d051
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123468045"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563173"
 ---
 # <a name="about-azure-devtest-labs"></a>Azure DevTest Labs 정보
 Azure DevTest Labs를 통해 팀의 개발자는 승인을 기다리지 않고 VM(가상 머신) 및 PaaS 리소스를 효율적으로 자체 관리할 수 있습니다.
@@ -40,13 +40,13 @@ DevTest Labs는 PaaS 환경에서 작업하는 개발자에게 다음과 같은 
 - 팀 리더 또는 중앙 IT에서 구성하고 권한을 부여한 Resource Manager 템플릿의 조정된 목록에서 선택합니다.
 - 랩 컨텍스트 내에서 Resource Manager 템플릿을 통해 Azure를 탐색하여 빈 리소스 그룹(샌드박스)을 실행합니다.
 
-또한 DevTest Labs를 사용하면 중앙 IT에서 낭비를 제어하고, 리소스 비용을 최적화하고, 다음 작업을 수행하여 예산 내에서 유지할 수 있습니다.  
+또한 DevTest Labs를 사용하면 중앙 IT 부서에서 다음 작업을 수행하여 낭비를 제어하고 리소스에 대한 비용을 최적화하고 예산을 벗어나지 않게 할 수 있습니다.  
 
 - VM에 대해 자동 종료 및 자동 시작 일정을 설정합니다.
 - 사용자가 만들 수 있는 VM 수에 대한 정책을 설정합니다.
-- 사용자가 선택하는 VM의 크기 및 갤러리 이미지에 대한 정책을 설정합니다.
+- 사용자가 선택하는 VM 크기와 갤러리 이미지에 대한 정책을 설정합니다.
 - 랩에서 비용을 추적하고 목표를 설정합니다.
-- 필요한 조치를 취할 수 있도록 랩에 대해 예상 비용이 높은지 알려 드립니다.
+- 랩에 대한 예상 비용이 높을 경우 필요한 작업을 수행할 수 있도록 알림을 제공합니다.
 
 DevTest Labs는 클라우드에서 환경을 만들고 구성하고 관리하는 데 다음과 같은 이점을 제공합니다.
 

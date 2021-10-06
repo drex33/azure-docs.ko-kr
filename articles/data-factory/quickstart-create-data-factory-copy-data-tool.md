@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: quickstart
 ms.date: 07/05/2021
-ms.openlocfilehash: c4b7d5f0e60d526976734a5878cf7dd0800ad322
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2bde0d03c901808e277044db035dc738bb555bb0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749870"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750352"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>빠른 시작: 데이터 복사 도구를 사용하여 데이터 복사
 
@@ -35,13 +35,13 @@ ms.locfileid: "121749870"
 1. [Azure 포털](https://portal.azure.com)로 이동합니다. 
 1. Azure Portal 메뉴에서 **리소스 만들기** > **통합** > **Data Factory** 를 차례로 선택합니다.
 
-    ![새 데이터 팩터리 만들기](./media/doc-common-process/new-azure-data-factory-menu.png)
+    :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="새 데이터 팩터리 만들기":::
 
 1. **새 데이터 팩터리** 페이지에서 **이름** 에 대해 **ADFTutorialDataFactory** 를 입력합니다. 
  
    Azure Data Factory의 이름은 *전역적으로 고유* 해야 합니다. 다음 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: **&lt;yourname&gt;ADFTutorialDataFactory**) 다시 만듭니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](naming-rules.md) 문서를 참조하세요.
   
-   ![이름을 사용할 수 없는 경우 오류](./media/doc-common-process/name-not-available-error.png)
+   :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="이름을 사용할 수 없는 경우 오류":::
 1. **구독** 에 대해 데이터 팩터리를 만들려는 위치에 Azure 구독을 선택합니다. 
 1. **리소스 그룹** 에 대해 다음 단계 중 하나를 사용합니다.
      
@@ -64,11 +64,11 @@ ms.locfileid: "121749870"
 
 1. Azure Data Factory 홈페이지에서 **수집** 타일을 선택하여 데이터 복사 도구를 시작합니다.
 
-   ![Azure Data Factory 홈페이지를 보여주는 스크린샷.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Azure Data Factory 홈페이지를 보여주는 스크린샷.":::
 
 1. 데이터 복사 도구의 **속성** 페이지에 있는 **작업 유형** 아래에서 **기본 제공 복사 작업** 을 선택한 후 **다음** 을 선택합니다.
 
-   !["속성" 페이지](./media/quickstart-create-data-factory-copy-data-tool/copy-data-tool-properties-page.png)
+   :::image type="content" source="./media/quickstart-create-data-factory-copy-data-tool/copy-data-tool-properties-page.png" alt-text="&quot;속성&quot; 페이지":::
 
 1. **원본 데이터 저장소** 페이지에서 다음 단계를 완료합니다.
 
@@ -76,11 +76,11 @@ ms.locfileid: "121749870"
 
     1. 원본 연결에 만들려는 연결된 서비스 유형을 선택합니다. 이 자습서에서는 **Azure Blob Storage** 를 사용합니다. 갤러리에서 선택한 다음, **계속** 을 선택합니다.
     
-       ![Blob 선택](./media/quickstart-create-data-factory-copy-data-tool/select-blob-source.png)
+       :::image type="content" source="./media/quickstart-create-data-factory-copy-data-tool/select-blob-source.png" alt-text="Blob 선택":::
 
     1. **새 연결(Azure Blob Storage)** 페이지에서 연결의 이름을 지정합니다. **Azure 구독** 목록에서 Azure 구독을 선택하고, **스토리지 계정 이름** 목록에서 스토리지 계정을 선택하고, 연결을 테스트한 다음, **만들기** 를 선택합니다. 
 
-       ![Azure Blob Storage 계정 구성](./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png)
+       :::image type="content" source="./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png" alt-text="Azure Blob Storage 계정 구성":::
 
     1. **연결** 블록에서 새로 만든 연결을 선택합니다.
     1. **파일 또는 폴더** 섹션에서 **찾아보기** 를 선택하여 **adftutorial/input** 폴더로 이동하고, **emp.txt** 파일을 선택한 다음, **확인** 을 클릭합니다.
@@ -105,11 +105,11 @@ ms.locfileid: "121749870"
 
 1. **배포 완료** 페이지에서 **모니터** 를 선택하여 만든 파이프라인을 모니터링합니다. 
 
-    !["배포 완료" 페이지](./media/quickstart-create-data-factory-copy-data-tool/deployment-page.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-copy-data-tool/deployment-page.png" alt-text="&quot;배포 완료&quot; 페이지":::
 
 1. 애플리케이션이 **모니터** 탭으로 전환됩니다. 이 탭에서 파이프라인의 상태가 표시됩니다. **새로 고침** 을 선택하여 목록을 새로 고칩니다. **파이프라인 이름** 아래에서 링크를 클릭하여 활동 실행 세부 정보를 보거나 파이프라인을 다시 실행합니다. 
    
-    ![파이프라인 새로 고침](./media/quickstart-create-data-factory-copy-data-tool/refresh-pipeline.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-copy-data-tool/refresh-pipeline.png" alt-text="파이프라인 새로 고침":::
 
 1. 복사 작업에 관한 자세한 내용은 활동 실행 페이지의 **활동 이름** 열에서 **세부 정보** 링크(안경 아이콘)를 선택합니다. 속성에 대한 자세한 내용은 [복사 활동 개요](copy-activity-overview.md)를 참조하세요. 
 
@@ -119,7 +119,7 @@ ms.locfileid: "121749870"
 
 1. 연결된 서비스, 데이터 세트 및 파이프라인을 편집할 수 있도록 왼쪽 창의 **모니터** 탭 위에서 **작성자** 탭으로 전환합니다. 데이터 팩터리 UI에서 이러한 항목을 편집하는 방법을 알아보려면 [Azure Portal을 사용하여 데이터 팩터리 만들기](quickstart-create-data-factory-portal.md)를 참조하세요.
 
-    ![작성자 탭 선택](./media/quickstart-create-data-factory-copy-data-tool/select-author.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-copy-data-tool/select-author.png" alt-text="작성자 탭 선택":::
 
 ## <a name="next-steps"></a>다음 단계
 이 샘플의 파이프라인은 Azure Blob Storage의 한 위치에서 다른 위치로 데이터를 복사합니다. 더 많은 시나리오에서의 데이터 팩터리 사용에 대해 알아보려면 [자습서](tutorial-copy-data-portal.md)를 따릅니다. 

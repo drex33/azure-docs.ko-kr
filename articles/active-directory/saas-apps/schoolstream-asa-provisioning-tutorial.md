@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/27/2021
 ms.author: thwimmer
-ms.openlocfilehash: 3f3b6fa4a1dcd87371fe2c75de2dc89b60d92eb1
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 5648c84fceb0c6d17375b712a4f3a86561296d4d
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123544781"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128709045"
 ---
 # <a name="tutorial-configure-schoolstream-asa-for-automatic-user-provisioning-in-schoolstream-asa"></a>자습서: SchoolStream ASA에서 자동 사용자 프로비저닝을 위한 SchoolStream ASA 구성
 
@@ -28,7 +28,8 @@ ms.locfileid: "123544781"
 > [!div class="checklist"]
 > * SchoolStream ASA에서 사용자 만들기 
 > * SchoolStream ASA에서 더 이상 액세스할 필요가 없는 사용자 제거
-> * Azure AD와 SchoolStream ASA 간에 사용자 특성을 동기화된 상태로 유지
+> * Azure AD와 SchoolStream ASA 간에 사용자 특성을 동기화된 상태로 유지합니다.
+> * SchoolStream ASA에서 그룹 및 그룹 멤버 자격을 프로비전합니다.
 > * SchoolStream ASA에 대한 [Single Sign-On](../manage-apps/add-application-portal-setup-oidc-sso.md)(권장)
 
 
@@ -56,11 +57,11 @@ ms.locfileid: "123544781"
 Azure AD에서 SchoolStream ASA에 대한 프로비전 관리를 시작하려면 Azure AD 애플리케이션 갤러리에서 SchoolStream ASA를 추가해야 합니다. 
 
 1. Azure Portal에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
-2. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
-3. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
-4. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
-5. **Azure AD 갤러리 찾아보기** 섹션의 검색 상자에서 **SchoolStream ASA** 를 입력합니다.
-6. 결과 패널에서 **SchoolStream ASA** 를 선택한 다음, **앱에 가입** 합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
+1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
+1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
+1. **Azure AD 갤러리 찾아보기** 섹션의 검색 상자에서 **SchoolStream ASA** 를 입력합니다.
+1. 결과 패널에서 **SchoolStream ASA** 를 선택한 다음, **앱에 가입** 합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
 
 이전에 SSO에 대해 SchoolStream ASA를 설정한 경우 동일한 애플리케이션을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](../manage-apps/add-application-portal.md)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
@@ -144,7 +145,19 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |externalId|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String| 
 
-13. **저장** 단추를 선택하여 변경 내용을 커밋합니다. **애플리케이션** 탭으로 돌아가서 **프로비전 수정** 을 선택하여 계속할 수 있습니다.
+
+1. **매핑** 섹션 아래에서 **Azure Active Directory 그룹을 UNIFI에 동기화** 를 선택합니다.
+
+1. **특성 매핑** 섹션에서 Azure AD에서 UNIFI로 동기화되는 그룹 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 UNIFI의 그룹을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+
+      |attribute|Type|필터링에 지원됨|
+      |---|---|---|
+      |displayName|String|&check;
+      |members|참조|
+      |externalId|String|      
+
+
+1. **저장** 단추를 선택하여 변경 내용을 커밋합니다. **애플리케이션** 탭으로 돌아가서 **프로비전 수정** 을 선택하여 계속할 수 있습니다.
 
 1. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
@@ -168,6 +181,10 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 * [프로비저닝 로그](../reports-monitoring/concept-provisioning-logs.md)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
 * [진행률 표시줄](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
 * 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](../app-provisioning/application-provisioning-quarantine-status.md)를 참조하세요.  
+
+## <a name="change-log"></a>로그 변경
+
+* 2020/09/24 - 그룹 프로비저닝이 사용하도록 설정되었습니다.
 
 ## <a name="more-resources"></a>추가 리소스
 

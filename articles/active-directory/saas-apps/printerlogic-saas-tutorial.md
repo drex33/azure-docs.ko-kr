@@ -9,36 +9,38 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/18/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 1d43a3fddec2c72302ecd607dedec9e4cb340ad3
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 4e4529fccf6051a3376b3b3ecda715e672c61a90
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108802921"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124756378"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-printerlogic"></a>자습서: PrinterLogic과 Azure Active Directory SSO(Single Sign-On) 통합
 
 이 자습서에서는 PrinterLogic과 Azure AD(Azure Active Directory)를 통합하는 방법에 대해 알아봅니다. Azure AD와 PrinterLogic을 통합하면 다음을 수행할 수 있습니다.
 
-- Azure AD에서 PrinterLogic에 대한 액세스 권한이 있는 사용자를 제어합니다.
-- 사용자가 자신의 Azure AD 계정으로 PrinterLogic에 자동으로 로그인되도록 설정합니다.
-- 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
+* Azure AD에서 PrinterLogic에 대한 액세스 권한이 있는 사용자를 제어합니다.
+* 사용자가 자신의 Azure AD 계정으로 PrinterLogic에 자동으로 로그인되도록 설정합니다.
+* 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
-- Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-- PrinterLogic SSO(Single Sign-On)가 설정된 구독.
+* Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
+* PrinterLogic SSO(Single Sign-On)가 설정된 구독.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
-- PrinterLogic에서 **SP 및 IDP** 시작 SSO를 지원합니다.
-- PrinterLogic에서 **Just In Time** 사용자 프로비저닝을 지원합니다.
+* PrinterLogic에서 **SP 및 IDP** 시작 SSO를 지원합니다.
+* PrinterLogic에서 **Just In Time** 사용자 프로비저닝을 지원합니다.
+
+* PrinterLogic에서 [자동화된 사용자 프로비저닝](printer-logic-saas-provisioning-tutorial.md)을 지원합니다.
 
 ## <a name="add-printerlogic-from-the-gallery"></a>갤러리에서 PrinterLogic 추가
 
@@ -140,21 +142,23 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 PrinterLogic에서 Britta Simon이라는 사용자를 만듭니다. PrinterLogic은 Just-In-Time 사용자 프로비저닝을 지원하며, 기본적으로 사용하도록 설정되어 있습니다. 이 섹션에 작업 항목이 없습니다. PrinterLogic에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
 
+PrinterLogic은 자동 사용자 프로비저닝도 지원합니다. 자동 사용자 프로비저닝 구성 방법에 대한 자세한 내용은 [여기](./printer-logic-saas-provisioning-tutorial.md)에서 제공합니다.
+
 ## <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 #### <a name="sp-initiated"></a>SP 시작:
 
-- Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 PrinterLogic 로그온 URL로 리디렉션됩니다.
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 PrinterLogic 로그온 URL로 리디렉션됩니다.
 
-- PrinterLogic 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
+* PrinterLogic 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
 #### <a name="idp-initiated"></a>IDP 시작:
 
-- Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 PrinterLogic에 자동으로 로그인됩니다.
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 PrinterLogic에 자동으로 로그인됩니다.
 
-Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 PrinterLogic 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위한 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 PrinterLogic에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 PrinterLogic 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위한 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 PrinterLogic에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

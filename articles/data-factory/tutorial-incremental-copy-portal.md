@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 07/05/2021
-ms.openlocfilehash: e884869b77398ab32987363bb85367d46a958380
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 738c60663f80fd036f50c7bd354ca0e3b1d9284e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638390"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124757823"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure SQL Database에서 Azure Blob 스토리지로 데이터 증분 로드
 
@@ -40,7 +40,7 @@ ms.locfileid: "122638390"
 ## <a name="overview"></a>개요
 대략적인 솔루션 다이어그램은 다음과 같습니다.
 
-![데이터 증분 로드](media/tutorial-Incremental-copy-portal/incrementally-load.png)
+:::image type="content" source="media/tutorial-Incremental-copy-portal/incrementally-load.png" alt-text="데이터 증분 로드":::
 
 이 솔루션을 만드는 중요한 단계는 다음과 같습니다.
 
@@ -151,7 +151,7 @@ END
 1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
 2. 왼쪽 메뉴에서 **리소스 만들기** > **통합** > **Data Factory** 를 선택합니다.
 
-   !["새로 만들기" 창에서 데이터 팩터리 선택](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="&quot;새로 만들기&quot; 창에서 Data Factory 선택":::
 
 3. **새 데이터 팩터리** 페이지에서 **이름** 에 대해 **ADFIncCopyTutorialDF** 를 입력합니다.
 
@@ -179,12 +179,12 @@ END
 
 1. Data Factory UI 홈페이지에서 **오케스트레이션** 타일을 클릭합니다.
 
-   ![Data Factory UI 홈페이지 스크린샷](./media/doc-common-process/get-started-page.png)    
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Data Factory UI 홈페이지 스크린샷":::    
 3. **속성** 아래의 일반 패널에서 **이름** 에 **IncrementalCopyPipeline** 을 지정합니다. 그런 다음, 오른쪽 위 모서리에 있는 속성 아이콘을 클릭하여 패널을 축소합니다.
 
 4. 이전 워터마크 값을 가져오는 첫 번째 조회 활동을 추가하겠습니다. **활동** 도구 상자에서 **일반** 을 펼치고, **조회** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 활동 이름을 **LookupOldWaterMarkActivity** 로 변경합니다.
 
-   ![첫 번째 조회 활동 - 이름](./media/tutorial-incremental-copy-portal/first-lookup-name.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-portal/first-lookup-name.png" alt-text="첫 번째 조회 활동 - 이름":::
 5. **설정** 탭으로 전환하고, **원본 데이터 세트** 에 대해 **+ 새로 만들기** 를 클릭합니다. 이 단계에서는 **watermarktable** 에 데이터를 나타내기 위한 데이터 세트를 만듭니다. 이 테이블에는 이전 복사 작업에서 사용된 이전 워터마크가 포함되어 있습니다.
 
 6. **새 데이터 세트** 창에서 **Azure SQL Database** 를 선택하고 **계속** 을 클릭합니다. 데이터 세트의 새 창이 열립니다.
@@ -201,11 +201,11 @@ END
     6. **Finish** 를 클릭합니다.
     7. **연결된 서비스** 에서 **AzureSqlDatabaseLinkedService** 가 선택되어 있는지 확인합니다.
 
-        ![새 연결된 서비스 창](./media/tutorial-incremental-copy-portal/azure-sql-linked-service-settings.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-portal/azure-sql-linked-service-settings.png" alt-text="새 연결된 서비스 창":::
     8. **마침** 을 선택합니다.
 9. **연결** 탭의 **테이블** 에서 **[dbo].[watermarktable]** 을 선택합니다. 테이블의 데이터를 미리 보려면 **데이터 미리 보기** 를 클릭합니다.
 
-    ![워터마크 데이터 세트 - 연결 설정](./media/tutorial-incremental-copy-portal/watermark-dataset-connection-settings.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-portal/watermark-dataset-connection-settings.png" alt-text="워터마크 데이터 세트 - 연결 설정":::
 10. 위쪽의 파이프라인 탭을 클릭하거나 왼쪽의 트리 뷰에서 파이프라인 이름을 클릭하여 파이프라인 편집기로 전환합니다. **조회** 활동에 대한 속성 창에서 **원본 데이터 세트** 필드에 대해 **WatermarkDataset** 가 선택되어 있는지 확인합니다.
 
 11. **활동** 도구 상자에서 **일반** 을 펼치고, 다른 **조회** 활동을 파이프라인 디자이너 화면으로 끌어서 놓고, 속성 창의 **일반** 탭에서 이름을 **LookupNewWaterMarkActivity** 로 설정합니다. 이 조회 작업은 대상에 복사될 원본 데이터가 있는 테이블에서 새 워터마크 값을 가져옵니다.
@@ -223,12 +223,12 @@ END
     select MAX(LastModifytime) as NewWatermarkvalue from data_source_table
     ```
 
-    ![두 번째 조회 활동 - 쿼리](./media/tutorial-incremental-copy-portal/query-for-new-watermark.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-portal/query-for-new-watermark.png" alt-text="두 번째 조회 활동 - 쿼리":::
 19. **활동** 도구 상자에서 **이동 및 변환** 을 펼치고, [활동] 도구 상자의 **복사** 활동을 끌어다 놓은 다음, 이름을 **IncrementalCopyActivity** 로 설정합니다.
 
 20. 조회 활동에 붙어 있는 **녹색 단추** 를 복사 활동으로 끌어 **조회 활동을 복사 활동에 연결합니다**. 복사 활동의 테두리 색이 파란색으로 변경되면 마우스 단추를 놓습니다.
 
-    ![조회 활동 및 복사 활동 연결](./media/tutorial-incremental-copy-portal/connection-lookups-to-copy.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-portal/connection-lookups-to-copy.png" alt-text="조회 활동 및 복사 활동 연결":::
 21. **복사 활동** 을 선택하고 **속성** 창에서 활동에 대한 속성을 확인합니다.
 
 22. **속성** 창에서 **원본** 으로 전환하고 다음 단계를 수행합니다.
@@ -241,7 +241,7 @@ END
         select * from data_source_table where LastModifytime > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and LastModifytime <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'
         ```
 
-        ![복사 활동 - 원본](./media/tutorial-incremental-copy-portal/copy-activity-source.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-portal/copy-activity-source.png" alt-text="복사 활동 - 원본":::
 23. **싱크** 탭으로 전환하고, **싱크 데이터 세트** 필드에 대해 **+ 새로 만들기** 를 클릭합니다.
 
 24. 이 자습서에서 싱크 데이터 저장소는 Azure Blob Storage 유형입니다. 따라서 **Azure Blob Storage** 를 선택하고 **새 데이터 세트** 창에서 **계속** 을 클릭합니다.
@@ -275,7 +275,7 @@ END
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
-        ![저장 프로시저 활동 - 저장 프로시저 설정](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png" alt-text="저장 프로시저 활동 - 저장 프로시저 설정":::
 27. 파이프라인 설정에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사** 를 클릭합니다. 유효성 검사 오류가 없는지 확인합니다. **파이프라인 유효성 검사 보고서** 창을 닫으려면 >>를 클릭합니다.   
 
 28. **모두 게시** 단추를 선택하여 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)를 Azure Data Factory 서비스에 게시합니다. 게시 성공 메시지가 표시될 때까지 기다립니다.
@@ -296,7 +296,7 @@ END
 ## <a name="review-the-results"></a>결과 검토
 1. [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)와 같은 도구를 사용하여 Azure 스토리지 계정에 연결합니다. 출력 파일이 **adftutorial** 컨테이너의 **incrementalcopy** 폴더에 만들어졌는지 확인합니다.
 
-    ![첫 번째 출력 파일](./media/tutorial-incremental-copy-portal/first-output-file.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-portal/first-output-file.png" alt-text="첫 번째 출력 파일":::
 2. 출력 파일을 열고 모든 데이터가 **data_source_table** 에서 Blob 파일로 복사되었는지 확인합니다.
 
     ```

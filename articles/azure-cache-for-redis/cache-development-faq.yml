@@ -2,18 +2,18 @@
 metadata:
   title: Azure Cache for Redis 개발 FAQ
   description: Azure Cache for Redis를 개발에 도움이 되는 일반적인 질문에 대한 답변 알아보기
-  author: yegu-ms
-  ms.author: yegu
+  author: curib
+  ms.author: cauribeg
   ms.service: cache
   ms.topic: conceptual
   ms.custom: devx-track-csharp
   ms.date: 08/06/2020
-  ms.openlocfilehash: 5963fe660a3fed4b084d94abb92b172566988c9f
-  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+  ms.openlocfilehash: 9f033add3a8d0de5320ec7df745242b09d21cd97
+  ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/24/2021
-  ms.locfileid: "128577036"
+  ms.lasthandoff: 10/05/2021
+  ms.locfileid: "129538774"
 title: Azure Cache for Redis 개발 FAQ
 summary: 이 문서는 Azure Cache for Redis의 개발 방법에 대한 일반적인 질문의 답변을 제공합니다.
 sections:

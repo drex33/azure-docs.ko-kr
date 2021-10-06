@@ -9,12 +9,12 @@ ms.author: nmurav
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: d8938a437db42a2d1cb5dd88f6102ce7f5facb3a
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: d2ea2c510aa9e6225de215da128670514f1dba3b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259076"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129360451"
 ---
 # <a name="pricing-scenarios"></a>가격 책정 시나리오
 
@@ -190,10 +190,10 @@ Rose는 메시지를 확인하고 채팅을 시작했습니다. 잠시 후 Casey
 
 ### <a name="sms"></a>SMS
 
-SMS는 종량제 가격을 제공합니다. 가격은 메시지 대상을 기준으로 하는 메시지당 요금입니다. 수신자 부담 전화 번호로 메시지를 미국 내에 있는 전화 번호로 보낼 수 있습니다. 로컬(지리적) 전화 번호는 SMS 메시지를 보내는 데 사용할 수 없습니다.
+SMS는 종량제 가격을 제공합니다. 가격은 메시지 대상을 기준으로 하는 메시지 세그먼트당 요금입니다. 메시지 세그먼트에 대한 자세한 내용은 [여기](./telephony-sms/sms-faq.md#what-is-the-sms-character-limit)를 참조하세요. 수신자 부담 전화 번호로 메시지를 미국 내에 있는 전화 번호로 보낼 수 있습니다. 로컬(지리적) 전화 번호는 SMS 메시지를 보내는 데 사용할 수 없습니다.
 
 다음 가격에는 필요한 통신세 및 요금이 포함됩니다.
 
 |국가   |메시지 보내기|메시지 받기|
 |-----------|------------|------------|
-|USA(수신자 부담)    |$0.0075/msg   | $0.0075/msg |
+|USA(수신자 부담)    |$0.0075/메시지 세그먼트  | $0.0075/메시지 세그먼트 |

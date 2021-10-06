@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: Node.js에서 Azure Cache for Redis 사용'
 description: 이 빠른 시작에서는 Node.js 및 node_redis와 함께 Azure Cache for Redis를 사용하는 방법을 알아봅니다.
-author: yegu-ms
+author: curib
 ms.service: cache
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2018
-ms.author: yegu
+ms.author: cauribeg
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: a94b6382003d4cd9ee1e3d1bbb4932ee88a15577
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c975794d09cdd9f7f9de538fdf2debfb37bea2d3
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128625739"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537837"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-nodejs"></a>빠른 시작: Node.js에서 Azure Cache for Redis 사용
 

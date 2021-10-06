@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 07/05/2021
-ms.openlocfilehash: b8029f8eb78539cb49bc3d13fefe9e2bf11b9f76
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6297956cb77898c26beaa617a59b1b43cc111e80
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638903"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124771767"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>CDC(변경 데이터 캡처)를 사용하여 Azure SQL Managed Instance에서 Azure Storage로 데이터 증분 로드
 
@@ -103,11 +103,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
 1. 왼쪽 메뉴에서 **리소스 만들기** > **데이터 + 분석** > **Data Factory** 를 차례로 선택합니다.
 
-   !["새로 만들기" 창에서 데이터 팩터리 선택](./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-azure-data-factory-menu.png" alt-text="&quot;새로 만들기&quot; 창에서 Data Factory 선택":::
 
 2. **새 데이터 팩터리** 페이지에서 **이름** 에 대해 **ADFTutorialDataFactory** 를 입력합니다.
 
-     ![새 데이터 팩터리 페이지](./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-azure-data-factory.png)
+     :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-azure-data-factory.png" alt-text="새 데이터 팩터리 페이지":::
 
    Azure Data Factory의 이름은 **전역적으로 고유** 해야 합니다. 다음 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: yournameADFTutorialDataFactory) 다시 만듭니다. Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory - 명명 규칙](naming-rules.md) 문서를 참조하세요.
 
@@ -125,7 +125,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 7. **만들기** 를 클릭합니다.
 8. 배포가 완료되면 **리소스로 이동** 을 클릭합니다.
 
-   ![스크린샷은 배포가 완료되었음을 나타내는 메시지와 리소스로 이동하는 옵션을 보여줍니다.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png" alt-text="스크린샷은 배포가 완료되었음을 나타내는 메시지와 리소스로 이동하는 옵션을 보여줍니다.":::
 9. 만들기가 완료되면 이미지와 같은 **Data Factory** 페이지가 표시됩니다.
 
       :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Azure Data Factory Studio 열기 타일이 있는 Azure Data Factory 홈페이지":::
@@ -133,7 +133,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 10. **Azure Data Factory Studio 열기** 타일에서 **열기** 를 선택하여 별도의 탭에서 Azure Data Factory UI(사용자 인터페이스)를 시작합니다.
 11. 다음 이미지와 같이 홈페이지에서 왼쪽 패널의 **관리** 탭으로 전환합니다.
 
-    ![관리 단추 스크린샷](media/doc-common-process/get-started-page-manage-button.png)
+    :::image type="content" source="media/doc-common-process/get-started-page-manage-button.png" alt-text="관리 단추 스크린샷":::
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소를 연결하고 컴퓨팅 서비스를 데이터 팩터리에 연결합니다. 이 섹션에서는 Azure Storage 계정과 Azure SQL MI에 연결된 서비스를 만듭니다.
@@ -143,17 +143,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. **연결**, **+ 새로 만들기** 를 차례로 클릭합니다.
 
-   ![새 연결 단추](./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-connection-button-storage.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-connection-button-storage.png" alt-text="새 연결 단추":::
 2. **새 연결된 서비스** 창에서 **Azure Blob Storage** 를 선택하고 **계속** 을 클릭합니다.
 
-   ![Azure Blob Storage 선택](./media/tutorial-incremental-copy-change-data-capture-feature-portal/select-azure-storage.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/select-azure-storage.png" alt-text="Azure Blob Storage 선택":::
 3. **새 연결된 서비스** 창에서 다음 단계를 수행합니다.
 
    1. **이름** 에 대해 **AzureStorageLinkedService** 를 입력합니다.
    2. **스토리지 계정 이름** 에 대해 Azure Storage 계정을 선택합니다.
    3. **저장** 을 클릭합니다.
 
-   ![Azure Storage 계정 설정](./media/tutorial-incremental-copy-change-data-capture-feature-portal/azure-storage-linked-service-settings.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/azure-storage-linked-service-settings.png" alt-text="Azure Storage 계정 설정":::
 
 
 ### <a name="create-azure-sql-mi-database-linked-service"></a>Azure SQL MI Database 연결 서비스를 만듭니다.
@@ -174,7 +174,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    7. **연결 테스트** 를 클릭하여 연결을 테스트합니다.
    8. **저장** 을 클릭하여 연결된 서비스를 저장합니다.
 
-   ![Azure SQL MI Database 연결 서비스 설정](./media/tutorial-incremental-copy-change-data-capture-feature-portal/azure-sql-managed-instance-database-linked-service-settings.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/azure-sql-managed-instance-database-linked-service-settings.png" alt-text="Azure SQL MI Database 연결 서비스 설정":::
 
 ## <a name="create-datasets"></a>데이터 세트 만들기
 이 단계에서는 데이터 원본 및 데이터 대상을 나타내는 데이터 세트를 만듭니다.
@@ -184,30 +184,30 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. 트리 뷰에서 **+(더하기)** , **데이터 세트** 를 차례로 클릭합니다.
 
-   ![새 데이터 세트 메뉴](./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-dataset-menu.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-dataset-menu.png" alt-text="새 데이터 세트 메뉴":::
 2. **Azure SQL Database Managed Instance** 를 선택하고 **계속** 을 클릭합니다.
 
-   ![원본 데이터 세트 유형 - Azure SQL Database](./media/tutorial-incremental-copy-change-data-capture-feature-portal/select-azure-sql-database.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/select-azure-sql-database.png" alt-text="원본 데이터 세트 유형 - Azure SQL Database":::
    
 3. **Set 속성** 탭에서 데이터 세트 이름 및 연결 정보를 설정합니다.
  
    1. **연결된 서비스** 에 대해 **AzureSqlMI1** 를 선택합니다.
    2. **테이블 이름** 에 대한 **[dbo].[dbo_customers_CT]** 를 선택합니다.  참고: CDC를 고객 테이블에서 실행할 때 이 테이블이 자동으로 생성되었습니다. 변경된 데이터는 이 테이블에서 직접 쿼리하지 않지만[CDC 함수](/sql/relational-databases/system-functions/change-data-capture-functions-transact-sql)를 통해 추출됩니다.
 
-   ![원본 연결](./media/tutorial-incremental-copy-change-data-capture-feature-portal/source-dataset-configuration.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/source-dataset-configuration.png" alt-text="원본 연결":::
 
 ### <a name="create-a-dataset-to-represent-data-copied-to-sink-data-store"></a>싱크 데이터 저장소에 복사된 데이터를 나타내는 데이터 세트 만들기
 이 단계에서는 원본 데이터 저장소에서 복사된 데이터를 나타내는 데이터 세트를 만듭니다. 필수 구성 요소의 일부로써 데이터 레이크 컨테이너를 Azure Blob Storage에 만들었습니다. 아직 없는 경우 컨테이너를 만들거나 기존 컨테이너의 이름으로 설정합니다. 이 자습서에서 출력 파일 이름은 나중에 구성될 트리거 시간을 사용하여 동적으로 생성됩니다.
 
 1. 트리 뷰에서 **+(더하기)** , **데이터 세트** 를 차례로 클릭합니다.
 
-   ![새 데이터 세트 메뉴](./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-dataset-menu.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-dataset-menu.png" alt-text="새 데이터 세트 메뉴":::
 2. **Azure Blob Storage** 를 선택하고 **선택** 을 클릭합니다.
 
-   ![싱크 데이터 세트 유형 - Azure Blob Storage](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-type.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-type.png" alt-text="싱크 데이터 세트 유형 - Azure Blob Storage":::
 3. **DelimitedText** 를 선택하고 **계속** 을 클릭합니다.
 
-   ![싱크 데이터 세트 형식 - DelimitedText](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-format.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-format.png" alt-text="싱크 데이터 세트 형식 - DelimitedText":::
 4. **Set 속성** 탭에서 데이터 세트 이름 및 연결 정보를 설정합니다.
 
    1. **연결된 서비스** 에 대해 **AzureStorageLinkedService** 를 선택합니다.
@@ -215,20 +215,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    3. **첫 번째 행을 헤더** 로 사용하십시오.
    4. **확인** 을 클릭합니다.
 
-   ![싱크 데이터 세트 - 연결](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration.png" alt-text="싱크 데이터 세트 - 연결":::
 
 ## <a name="create-a-pipeline-to-copy-the-changed-data"></a>변경된 데이터를 복사하는 파이프라인 만들기
 이 단계에서는 **조회 작업** 을 사용하여 변경 테이블에 있는 변경된 레코드의 수를 먼저 확인하는 파이프라인을 만듭니다. IF 조건 작업은 변경된 레코드 수가 0보다 큰지 여부를 확인하고 **복사 작업** 을 실행하여 Azure SQL Database에서 삽입/업데이트/삭제된 데이터를 Azure Blob Storage로 복사합니다. 마지막으로, 연속 창 트리거가 구성되고 시작 및 종료 시간이 작업에 시작 및 종료 창 매개 변수로 전달됩니다. 
 
 1. Data Factory UI에서 **편집** 탭으로 전환합니다. 왼쪽 창에서 **+(더하기)** , **파이프라인** 을 차례로 클릭합니다.
 
-    ![새 파이프라인 메뉴](./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-pipeline-menu.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-pipeline-menu.png" alt-text="새 파이프라인 메뉴":::
 2. 파이프라인을 구성하기 위한 새 탭이 표시됩니다. 또한 트리 뷰에도 파이프라인이 표시됩니다. **속성** 창에서 파이프라인 이름을 **IncrementalCopyPipeline** 으로 변경합니다.
 
-    ![파이프라인 이름](./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-name.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-name.png" alt-text="파이프라인 이름":::
 3. **활동** 도구 상자에서 **일반** 을 펼치고, **조회** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 활동 이름을 **GetChangeCount** 로 설정합니다. 이 활동은 지정된 시간 창에 대한 변경 테이블의 레코드 수를 가져옵니다.
 
-    ![조회 활동 - 이름](./media/tutorial-incremental-copy-change-data-capture-feature-portal/first-lookup-activity-name.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/first-lookup-activity-name.png" alt-text="조회 활동 - 이름":::
 4. **속성** 창의 **설정** 으로 전환합니다.
    1. **원본 데이터 세트** 필드에 대해 SQL MI 데이터 세트 이름을 지정합니다.
    2. 쿼리 옵션을 선택하고 쿼리 상자에 다음을 입력합니다.
@@ -240,13 +240,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ```
    3. **첫 행만** 사용
 
-    ![조회 활동 - 설정](./media/tutorial-incremental-copy-change-data-capture-feature-portal/first-lookup-activity-settings.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/first-lookup-activity-settings.png" alt-text="조회 활동 - 설정":::
 5. **데이터 미리 보기** 단추를 클릭하여 조회 작업에서 유효한 출력을 가져왔는지 확인합니다.
 
-    ![조회 작업 - 미리 보기](./media/tutorial-incremental-copy-change-data-capture-feature-portal/first-lookup-activity-preview.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/first-lookup-activity-preview.png" alt-text="조회 작업 - 미리 보기":::
 6. **활동** 도구 상자에서 **반복 및 조건부** 를 펼치고, **If 조건부** 작업을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 작업 이름을 **HasChangedRows** 로 설정합니다. 
 
-    ![If 조건 작업 - 이름](./media/tutorial-incremental-copy-change-data-capture-feature-portal/if-condition-activity-name.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/if-condition-activity-name.png" alt-text="If 조건 작업 - 이름":::
 7. **속성** 창에서 **작업** 으로 전환합니다.
 
    1. 다음 **식** 을 입력합니다.
@@ -257,20 +257,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    2. 연필 아이콘을 클릭하여 True 조건을 편집합니다.
 
-   ![If 조건 작업 - 설정](./media/tutorial-incremental-copy-change-data-capture-feature-portal/if-condition-activity-setting.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/if-condition-activity-setting.png" alt-text="If 조건 작업 - 설정":::
 
    3. **활동** 도구 상자에서 **일반** 을 펼치고, **대기** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 이 작업은 If 조건을 디버깅하기 위한 임시 작업이며 자습서의 뒷부분에서 변경됩니다. 
 
-   ![If 조건 True - 대기](./media/tutorial-incremental-copy-change-data-capture-feature-portal/if-condition-activity-wait.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/if-condition-activity-wait.png" alt-text="If 조건 True - 대기":::
 
    4. IncrementalCopyPipeline 이동 경로를 클릭하여 주 파이프라인으로 돌아갑니다.
 
 8. **디버그** 모드에서 파이프라인을 실행하여 파이프라인이 성공적으로 실행되는지 확인합니다. 
 
-   ![파이프라인 - 디버그](./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-debug.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-debug.png" alt-text="파이프라인 - 디버그":::
 9. 그런 다음 True 조건 단계로 돌아가서 **대기** 작업을 삭제합니다. **활동** 도구 상자에서 **이동 & 전환** 을 펼치고, **복사** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 활동 이름을 **IncrementalCopyActivity** 로 설정합니다. 
 
-   ![복사 활동 - 이름](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-name.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-name.png" alt-text="복사 활동 - 이름":::
 10. **속성** 창에서 **원본** 으로 전환하고 다음 단계를 수행합니다.
 
    1. **원본 데이터 세트** 필드에 대해 SQL MI 데이터 세트 이름을 지정합니다. 
@@ -284,33 +284,33 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
       SELECT * FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, 'all')
       ```
 
-   ![복사 활동 - 원본 설정](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-settings.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-settings.png" alt-text="복사 활동 - 원본 설정":::
 
 11. 미리 보기를 클릭하여 쿼리가 변경된 행을 올바르게 반환하는지 확인합니다.
 
-    ![스크린샷은 쿼리를 확인하는 미리 보기를 보여줍니다.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-preview.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-preview.png" alt-text="스크린샷은 쿼리를 확인하는 미리 보기를 보여줍니다.":::
 12. **싱크** 탭으로 전환하고 **싱크 데이터 세트** 필드의 Azure Storage 데이터 세트를 지정합니다.
 
-    ![스크린샷은 싱크 탭을 보여줍니다.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-sink-settings.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-sink-settings.png" alt-text="스크린샷은 싱크 탭을 보여줍니다.":::
 13. 주 파이프라인 캔버스로 돌아가기를 클릭하고 **조회** 활동을 **If 조건** 활동에 하나씩 연결합니다. **조회** 활동에 연결된 **녹색** 단추를 **If 조건** 활동으로 끕니다.
 
-    ![조회 활동 및 복사 활동 연결](./media/tutorial-incremental-copy-change-data-capture-feature-portal/connect-lookup-if.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/connect-lookup-if.png" alt-text="조회 활동 및 복사 활동 연결":::
 14. 도구 모음에서 **유효성 검사** 를 클릭합니다. 유효성 검사 오류가 없는지 확인합니다. **>>** 를 클릭하여 **파이프라인 유효성 검사 보고서** 창을 닫습니다.
 
-    ![유효성 검사 단추](./media/tutorial-incremental-copy-change-data-capture-feature-portal/validate-button.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/validate-button.png" alt-text="유효성 검사 단추":::
 15. 디버그를 클릭하여 파이프라인을 테스트하고 파일이 스토리지 위치에 생성되었는지 확인합니다.
 
-    ![증분 파이프라인 디버그-2](./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-debug-2.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-debug-2.png" alt-text="증분 파이프라인 디버그-2":::
 16. **모두 게시** 단추를 클릭하여 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)를 Data Factory 서비스에 게시합니다. **게시 성공** 메시지가 표시될 때까지 기다립니다.
 
-    ![게시 단추](./media/tutorial-incremental-copy-change-data-capture-feature-portal/publish-button-2.png)    
+    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/publish-button-2.png" alt-text="게시 단추":::    
 
 ### <a name="configure-the-tumbling-window-trigger-and-cdc-window-parameters"></a>연속 창 트리거 및 CDC 창 매개 변수를 구성합니다. 
 이 단계에서는 빈번한 일정에 따라 작업을 실행하는 연속 창 트리거를 만듭니다. 연속 창 트리거의 WindowStart 및 WindowEnd 시스템 변수를 사용하여 CDC 쿼리에 사용할 파이프라인에 매개 변수로 전달합니다.
 
 1. **IncrementalCopyPipeline** 파이프라인의 **매개 변수** 탭으로 이동하고 **+ 새** 단추를 사용하여 파이프라인에 두 개의 매개 변수(**triggerStartTime** 및 **triggerEndTime**)를 추가합니다. 이는 연속 창 시작 및 종료 시간을 나타냅니다. 디버깅을 위해 **YYYY-MM-DD HH24:MI:SS.FFF** 형식의 기본값을 추가합니다. 하지만 테이블에서 triggerStartTime이 CDC를 사용하도록 설정되어 있지 않은지 확인합니다. 그렇지 않으면 오류가 발생합니다.
 
-    ![지금 트리거 메뉴](./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-parameters.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-parameters.png" alt-text="지금 트리거 메뉴":::
 2. **조회** 작업의 설정 탭을 클릭하고 시작 및 종료 매개 변수를 사용하도록 쿼리를 구성합니다. 다음을 쿼리에 복사합니다.
     ```sql
     @concat('DECLARE @begin_time datetime, @end_time datetime, @from_lsn binary(10), @to_lsn binary(10); 
@@ -332,7 +332,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ```
 4. **복사** 작업의 **싱크** 탭을 클릭하고 **열기** 를 클릭하여 데이터 세트 속성을 편집합니다. **매개 변수** 탭을 클릭하고 **triggerStart** 라는 새 매개 변수를 추가합니다.    
 
-    ![스크린샷은 매개 변수 탭에 새 매개 변수 추가를 보여줍니다.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-2.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-2.png" alt-text="스크린샷은 매개 변수 탭에 새 매개 변수 추가를 보여줍니다.":::
 5. 그런 다음 날짜 기반 파티션이 있는 **고객/증분** 하위 디렉터리에 데이터를 저장하도록 데이터 세트 속성을 구성합니다.
    1. 데이터 세트 속성의 **연결** 탭을 클릭하고 **디렉터리** 및 **파일** 섹션 모두에 동적 콘텐츠를 추가합니다. 
    2. 텍스트 상자 아래의 동적 콘텐츠 링크를 클릭하여 **디렉터리** 섹션에 다음 식을 입력합니다.
@@ -345,30 +345,30 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ```sql
     @concat(formatDateTime(dataset().triggerStart,'yyyyMMddHHmmssfff'),'.csv')
     ```
-    ![싱크 데이터 세트 구성-3](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-3.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-3.png" alt-text="싱크 데이터 세트 구성-3":::
 
    4. **IncrementalCopyPipeline** 탭을 클릭하여 **복사** 작업의 **싱크** 설정으로 다시 이동합니다. 
    5. 데이터 세트 속성을 확장하고 다음 식을 사용하여 triggerStart 매개 변수 값에 동적 콘텐츠를 입력합니다.
      ```sql
      @pipeline().parameters.triggerStartTime
      ```
-    ![싱크 데이터 세트 구성-4](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-4.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-4.png" alt-text="싱크 데이터 세트 구성-4":::
 
 6. 디버그를 클릭하여 파이프라인을 테스트하고 폴더 구조와 출력 파일이 예상대로 생성되는지 확인합니다. 콘텐츠를 확인하려면 파일을 다운로드하여 엽니다. 
 
-    ![증분 복사 디버그-3](./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-debug-3.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-debug-3.png" alt-text="증분 복사 디버그-3":::
 7. 파이프라인 실행의 입력 매개 변수를 검토하여 매개 변수가 쿼리에 삽입되는지 확인합니다.
 
-    ![증분 복사 디버그-4](./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-debug-4.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-debug-4.png" alt-text="증분 복사 디버그-4":::
 8. **모두 게시** 단추를 클릭하여 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)를 Data Factory 서비스에 게시합니다. **게시 성공** 메시지가 표시될 때까지 기다립니다.
 9. 마지막으로 연속 창 트리거를 구성하여 일정한 간격으로 파이프라인을 실행하고 시작 및 종료 시간 매개 변수를 설정합니다. 
    1. **트리거 추가** 단추를 클릭하고 **새로 만들기/편집** 을 선택합니다.
 
-   ![새 트리거 추가](./media/tutorial-incremental-copy-change-data-capture-feature-portal/add-trigger.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/add-trigger.png" alt-text="새 트리거 추가":::
 
    2. 트리거 이름을 입력하고 시작 시간을 지정합니다. 이 시간은 위의 디버그 창 종료 시간과 같습니다.
 
-   ![연속 창 트리거](./media/tutorial-incremental-copy-change-data-capture-feature-portal/tumbling-window-trigger.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/tumbling-window-trigger.png" alt-text="연속 창 트리거":::
 
    3. 다음 화면에서 시작 및 종료 매개 변수에 대한 다음 값을 각각 지정합니다.
     ```sql
@@ -376,7 +376,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     @formatDateTime(trigger().outputs.windowEndTime,'yyyy-MM-dd HH:mm:ss.fff')
     ```
 
-   ![연속 창 트리거-2](./media/tutorial-incremental-copy-change-data-capture-feature-portal/tumbling-window-trigger-2.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/tumbling-window-trigger-2.png" alt-text="연속 창 트리거-2":::
 
 > [!NOTE]
 > 트리거는 게시된 후에만 실행됩니다. 또한 연속 창의 예상 동작은 시작 날짜부터 지금까지 모든 기록 간격을 실행하는 것입니다. 연속 창 트리거에 대한 자세한 내용은 [여기](./how-to-create-tumbling-window-trigger.md)에서 찾을 수 있습니다. 
@@ -396,16 +396,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ### <a name="monitor-the-incremental-copy-pipeline"></a>증분 복사 파이프라인 모니터링
 1. 왼쪽의 **모니터** 탭을 클릭합니다. 목록에 파이프라인 실행 및 해당 상태가 표시됩니다. 목록을 새로 고치려면 **새로 고침** 을 클릭합니다. 파이프라인 이름 근처를 가리켜 다시 실행 작업 및 소비 보고서에 액세스합니다.
 
-    ![파이프라인 실행](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-pipeline-runs.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-pipeline-runs.png" alt-text="파이프라인 실행":::
 2. 파이프라인 실행과 연결된 활동 실행을 보려면 파이프라인 이름을 클릭합니다. 변경된 데이터가 검색되면 복사 작업을 포함하는 세 가지 작업이 있습니다. 그렇지 않으면 목록에 두 개의 항목만 있습니다. 파이프라인 실행 보기로 다시 전환하려면 위쪽의 **모든 파이프라인** 링크를 클릭합니다.
 
-    ![작업 실행](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-activity-runs.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-activity-runs.png" alt-text="작업 실행":::
 
 
 ### <a name="review-the-results"></a>결과 검토
 `raw` 컨테이너의 `customers/incremental/YYYY/MM/DD` 폴더에 두 번째 파일이 표시됩니다.
 
-![증분 복사의 출력 파일](media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-run.png)
+:::image type="content" source="media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-run.png" alt-text="증분 복사의 출력 파일":::
  
 
 ## <a name="next-steps"></a>다음 단계

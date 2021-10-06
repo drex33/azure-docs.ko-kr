@@ -7,21 +7,21 @@ ms.author: sumuth
 author: mksuni
 ms.service: postgresql
 ms.date: 08/09/2021
-ms.openlocfilehash: 747a1c59d00ac4127fab4b6c28d02c837e540133
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 2f26ac8b2bea54bc49398b46eae02131991aac1b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122516011"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363710"
 ---
 # <a name="azure-pipelines-task-for-azure-database-for-postgresql-flexible-server"></a>Azure Database for PostgreSQL 유연한 서버에 대한 Azure Pipelines 작업
 
 **Azure Pipelines** 를 사용하여 빌드가 성공할 때마다 Azure Database for PostgreSQL 유연한 서버에 데이터베이스 업데이트를 자동으로 배포할 수 있습니다.  Azure CLI 작업을 사용해서 데이터베이스에 대해 SQL 파일 또는 인라인 SQL 스크립트로 데이터베이스를 업데이트할 수 있습니다. 이 작업은 Linux, macOS 또는 Windows 운영 체제에서 실행되는 플랫폼 간 에이전트에서 실행될 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 계정. 계정이 없으면 [체험 계정을 얻습니다](https://azure.microsoft.com/free/).
-- Azure 계정에 대한 [Azure Resource Manager 서비스 연결](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops)
+- Azure 계정에 대한 [Azure Resource Manager 서비스 연결](/azure/devops/pipelines/library/connect-to-azure)
 - Microsoft 호스팅 에이전트에 Azure CLI가 미리 설치되어 있어야 합니다. 하지만 프라이빗 에이전트를 사용하는 경우 빌드 및 릴리스 에이전트를 실행하는 컴퓨터에 [Azure CLI를 설치](/cli/azure/install-azure-cli)합니다. 에이전트가 Azure CLI가 설치된 컴퓨터에서 이미 실행되고 있으면 모든 관련 스테이지 변수가 업데이트되도록 에이전트를 다시 시작합니다.
 - [Azure Portal](./quickstart-create-server-portal.md) 또는 [Azure CLI](./quickstart-create-server-cli.md)를 사용하여 Azure Database for PostgreSQL 유연한 서버 만들기
 
@@ -90,11 +90,10 @@ Azure Pipelines에서 Azure CLI 작업을 사용할 때 모든 작업 입력의 
 |failOnStandardError|(선택 사항) true이면 오류가 StandardError 스트림에 기록될 때 이 작업이 실패합니다. 표준 오류를 무시하고 종료 코드를 사용하여 상태를 확인하려면 확인란을 선책 취소합니다. 기본값은 false입니다.|
 |powerShellIgnoreLASTEXITCODE| (선택 사항) false이면 스크립트 끝에 <code>if ((Test-Path -LiteralPath variable:\\LASTEXITCODE)) { exit $LASTEXITCODE }</code> 줄이 추가됩니다. 이렇게 하면 외부 명령의 마지막 종료 코드가 PowerShell의 종료 코드로 전파됩니다. 그렇지 않으면 줄이 스크립트 끝에 추가되지 않습니다. 기본값은 false입니다. |
 
-CLI 작업 문제가 있으면 [빌드 및 릴리스 문제 해결 방법](/azure/devops/pipelines/troubleshooting/troubleshooting?view=azure-devops)을 참조하세요.
+CLI 작업 문제가 있으면 [빌드 및 릴리스 문제 해결 방법](/azure/devops/pipelines/troubleshooting/troubleshooting)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계 
 다음은 Azure Pipelines를 사용하여 배포하는 데 사용할 수 있는 몇 가지 관련 작업입니다.
 
-- [Azure 리소스 그룹 배포](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment?view=azure-devops)
-- [Azure 웹앱 배포](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment?view=azure-devops)
-
+- [Azure 리소스 그룹 배포](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment)
+- [Azure 웹앱 배포](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment)

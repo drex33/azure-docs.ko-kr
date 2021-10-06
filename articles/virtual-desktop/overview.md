@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 773e0053512026f6a92a2981d43340b68e708186
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: f988fafbdd381c88a3f8da60fb48fa3320a82876
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113757708"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128674455"
 ---
 # <a name="what-is-azure-virtual-desktop"></a>Azure Virtual Desktop이란?
 
@@ -123,6 +123,8 @@ Azure Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스�
 
 Azure Virtual Desktop은 [Microsoft 수명 주기 정책](/lifecycle/)을 따르고 다음 x64 운영 체제 이미지를 지원합니다.
 
+* Windows 11 Enterprise 다중 세션(미리 보기)
+* Windows 11 Enterprise(미리 보기)
 * Windows 10 Enterprise 다중 세션
 * Windows 10 Enterprise
 * Windows 7 Enterprise
@@ -136,9 +138,11 @@ Azure Virtual Desktop은 x86(32비트), Windows 10 Enterprise N, Windows 10 LTSB
 
 |운영 체제|Azure 이미지 갤러리|수동 VM 배포|Azure Resource Manager 템플릿 통합|Azure Marketplace에서 호스트 풀 프로비저닝|
 |--------------------------------------|:------:|:------:|:------:|:------:|
+|Windows 11 Enterprise 다중 세션(미리 보기)|예|예|예|예|
+|Windows 11 Enterprise(미리 보기)|예|예|예|예|
 |Windows 10 Enterprise 다중 세션, 버전 1909 이상|예|예|예|예|
 |Windows 10 Enterprise, 버전 1909 이상|예|예|예|예|
-|Windows 7 Enterprise|예|예|예|예|
+|Windows 7 Enterprise|예|예|예|아니요|
 |Windows Server 2019|예|예|예|예|
 |Windows Server 2016|예|예|예|예|
 |Windows Server 2012 R2|예|예|예|예|

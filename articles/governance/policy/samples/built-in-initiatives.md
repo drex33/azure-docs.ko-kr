@@ -1,15 +1,15 @@
 ---
 title: 기본 제공 정책 이니셔티브 목록
 description: Azure Policy에 대한 기본 제공 정책 이니셔티브를 나열합니다. 범주에는 규정 준수, 게스트 구성 등이 포함됩니다.
-ms.date: 09/03/2021
+ms.date: 09/17/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 857f1ef3c01bb3261f201e5da5defdc8ffa602fc
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 69ac7fd7e6803172e09f21f45444a70444326090
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123474796"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128618394"
 ---
 # <a name="azure-policy-built-in-initiative-definitions"></a>Azure Policy 기본 제공 이니셔티브 정의
 
@@ -44,6 +44,10 @@ ms.locfileid: "123474796"
 ## <a name="security-center"></a>Security Center
 
 [!INCLUDE [azure-policy-reference-policysets-security-center](../../../../includes/policy/reference/bycat/policysets-security-center.md)]
+
+## <a name="trusted-launch"></a>신뢰할 수 있는 시작
+
+[!INCLUDE [azure-policy-reference-policysets-trusted-launch](../../../../includes/policy/reference/bycat/policysets-trusted-launch.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

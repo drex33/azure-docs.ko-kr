@@ -1,16 +1,16 @@
 ---
 title: Azure CLI를 사용하여 Service Bus 토픽 및 구독 만들기
 description: 이 빠른 시작에서는 Azure CLI를 사용하여 Service Bus 토픽 및 구독을 만드는 방법에 대해 알아봅니다.
-ms.date: 06/23/2020
+ms.date: 09/28/2021
 ms.topic: quickstart
 author: spelluru
 ms.author: spelluru
-ms.openlocfilehash: 080b089efa276779420f6d9bc8e76272f1e65788
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 012fa6c3b6190959b7eb38c140b57a551f317498
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90069699"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129236864"
 ---
 # <a name="use-azure-cli-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Azure CLI를 사용하여 Service Bus 토픽 및 해당 토픽에 대한 구독 만들기
 이 빠른 시작에서는 Azure CLI를 사용하여 Service Bus 토픽을 만든 다음, 해당 토픽에 대한 구독을 만듭니다. 

@@ -5,15 +5,15 @@ services: app-service
 author: msangapu
 ms.service: app-service
 ms.topic: include
-ms.date: 02/27/2019
+ms.date: 09/14/2021
 ms.author: msangapu
 ms.custom: include file
-ms.openlocfilehash: d26b8d131d5a8ff54b12fc5817718ddd381b720b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: afaacb79906c07893d835d654b00815ea97199d0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "122643261"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128577332"
 ---
 > [!NOTE]
 > `az webapp up` 명령에는 다음 작업이 포함됩니다.
@@ -24,5 +24,7 @@ ms.locfileid: "122643261"
 >
 >- 지정된 이름으로 [앱을 만듭니다](/cli/azure/webapp#az_webapp_create).
 >
->- 현재 작업 디렉터리에서 앱까지의 [배포 파일을 압축합니다](../articles/app-service/deploy-zip.md).
+>- [Zip](../articles/app-service/deploy-zip.md#deploy-a-zip-package)은 [빌드 자동화가 활성화](../articles/app-service/deploy-zip.md#enable-build-automation-for-zip-deploy)된 현재 작업 디렉터리의 모든 파일을 배포합니다.
+>
+>- `az webapp up` 또는 다른 Azure CLI 명령을 사용하여 나중에 배포할 때 다시 지정할 필요가 없도록 *azure/config* 파일에서 매개 변수를 로컬로 캐시합니다. 캐시된 값은 기본적으로 자동으로 사용됩니다.
 >

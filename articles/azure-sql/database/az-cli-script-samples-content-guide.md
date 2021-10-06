@@ -1,23 +1,24 @@
 ---
-title: Azure CLI 스크립트 예제
+title: Azure SQL Database 및 Managed Instance의 Azure CLI 샘플 | Microsoft Docs
 titleSuffix: Azure SQL Database & SQL Managed Instance
-description: Azure SQL Database 및 Azure SQL Managed Instance를 만들고 관리하는 Azure CLI 스크립트 예제
+description: Azure SQL Database 및 Azure SQL Managed Instance를 만들고 관리하는 Azure CLI 스크립트 샘플을 찾습니다.
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: deployment-configuration
-ms.custom: overview-samples, mvc, sqldbrb=2, devx-track-azurecli
+ms.custom: overview-samples, mvc, sqldbrb=2, devx-track-azurecli, seo-azure-cli
 ms.devlang: azurecli
 ms.topic: sample
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: ''
-ms.date: 02/03/2019
-ms.openlocfilehash: f0300464054a3417951c0283536e5506a12612bf
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.date: 09/17/2021
+keywords: sql database, 관리되는 인스턴스, azure cli 샘플, azure cli 예제, azure cli 코드 샘플, azure cli 스크립트 예제
+ms.openlocfilehash: adc7f1db28fa1b0e8cafb2b3363876b1e316f8bd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110690463"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662156"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance의 Azure CLI 샘플 
  

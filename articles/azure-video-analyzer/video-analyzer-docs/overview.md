@@ -3,12 +3,12 @@ title: Azure Video Analyzer란?
 description: 이 항목에서는 Azure Video Analyzer에 대해 간략하게 설명합니다.
 ms.topic: overview
 ms.date: 06/01/2021
-ms.openlocfilehash: 4cf2ba0bb9d5388eb6017fd0717929a3f5410a7d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 25f289a26743e92f6c904149e296ba6699fcf8b2
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128646925"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389111"
 ---
 # <a name="what-is-azure-video-analyzer-preview"></a>Azure Video Analyzer란? (미리 보기)
  
@@ -22,7 +22,7 @@ Video Analyzer 에지 모듈은 확장 가능한 플랫폼으로 설계되었기
 
 Video Analyzer를 사용하면 기존 [VMS(비디오 관리 시스템)](https://en.wikipedia.org/wiki/Video_management_system)에서 [CCTV 카메라](https://en.wikipedia.org/wiki/Closed-circuit_television_camera)를 계속 사용하고 비디오 분석 앱을 독립적으로 빌드할 수 있습니다. Video Analyzer를 Computer Vision SDK 및 도구 키트와 함께 사용하여 최첨단 IoT 솔루션을 빌드할 수 있습니다. 아래 다이어그램에서 이를 보여 줍니다.
 
-![Video Analyzer를 통해 IoT 솔루션 개발](./media/overview/product-diagram.svg)
+![Video Analyzer를 통해 IoT 솔루션 개발](./media/overview/product-diagram.png)
 
 ### <a name="concepts"></a>개념
 

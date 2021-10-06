@@ -1,15 +1,16 @@
 ---
-title: Azure CLI 스크립트 예제 - Batch의 Windows 풀
-description: 이 스크립트는 Azure Batch에서 Windows 컴퓨팅 노드 풀을 만들고 관리할 수 있는 Azure CLI 명령 중 일부를 보여줍니다.
+title: Azure CLI 스크립트 예제 - Batch의 Windows 풀 | Microsoft Docs
+description: Azure Batch에서 Windows 컴퓨팅 노드 풀을 만들고 관리하기 위해 Azure CLI에서 사용할 수 있는 몇 가지 명령을 알아봅니다.
 ms.topic: sample
-ms.date: 12/12/2019
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 773699dde9342a4b230a08471a289a56fca7e308
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 09/17/2021
+ms.custom: devx-track-azurecli, seo-azure-cli
+keywords: windows 풀, azure cli 샘플, azure cli 코드 샘플, azure cli 스크립트 샘플
+ms.openlocfilehash: 6c98d5ece314f6aa8603db73a0a5c0c9a420efde
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107768201"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595168"
 ---
 # <a name="cli-example-create-and-manage-a-windows-pool-in-azure-batch"></a>CLI 예제: Azure Batch에서 Windows 풀 만들기 및 관리
 

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/06/2021
+ms.date: 09/24/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9551906dc3a80a07597fc8406228a5869688d317
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: af682b21c60c7746595383d2488e3ad064eda4b5
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750566"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129058307"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
 
@@ -31,7 +31,7 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 동적 멤버십을 사�
 - 디바이스 소유자의 특성을 기반으로 하는 디바이스 그룹은 만들 수 없습니다. 디바이스 멤버 자격 규칙은 디바이스 특성만 참조할 수 있습니다.
 
 > [!NOTE]
-> 이 기능을 사용하려면 하나 이상의 동적 그룹의 멤버인 고유한 각 사용자에 대해 Azure AD Premium P1 라이선스가 필요합니다. 사용자에게 동적 그룹의 멤버가 될 수 있는 라이선스를 지정할 필요는 없지만, 이러한 사용자를 모두 포함하려면 Azure AD 조직에 최소 개수의 라이선스는 있어야 합니다. 예를 들어, 조직의 모든 동적 그룹에 고유한 사용자가 총 1,000명 있는 경우, 라이선스 요구 사항을 충족하려면 Azure AD Premium P1에 대해 1,000개 이상의 라이선스가 필요합니다.
+> 이 기능을 사용하려면 하나 이상의 동적 그룹의 멤버인 고유한 각 사용자에 대해 Azure AD Premium P1 라이선스 또는 Intune for Education이 필요합니다. 사용자에게 동적 그룹의 멤버가 될 수 있는 라이선스를 지정할 필요는 없지만, 이러한 사용자를 모두 포함하려면 Azure AD 조직에 최소 개수의 라이선스는 있어야 합니다. 예를 들어, 조직의 모든 동적 그룹에 고유한 사용자가 총 1,000명 있는 경우, 라이선스 요구 사항을 충족하려면 Azure AD Premium P1에 대해 1,000개 이상의 라이선스가 필요합니다.
 > 동적 디바이스 그룹의 멤버에 속한 디바이스에는 라이선스가 필요하지 않습니다.
 
 ## <a name="rule-builder-in-the-azure-portal"></a>Azure Portal의 규칙 작성기
@@ -133,7 +133,7 @@ user.department -eq &quot;Sales&quot;
 
 ## <a name="supported-expression-operators"></a>지원되는 식 연산자
 
-다음 표에는 단일 식에 지원되는 모든 연산자와 해당 구문이 나와 있습니다. 연산자는 하이픈(-) 접두사를 사용하거나 사용하지 않을 수 있습니다.
+다음 표에는 단일 식에 지원되는 모든 연산자와 해당 구문이 나와 있습니다. 연산자는 하이픈(-) 접두사를 사용하거나 사용하지 않을 수 있습니다. **Contains** 연산자는 부분 문자열 일치를 수행하지만 컬렉션의 일치 항목은 수행하지 않습니다.
 
 | 연산자 | 구문 |
 | --- | --- |
@@ -204,7 +204,7 @@ null 값을 참조하는 올바른 방법은 다음과 같습니다.
 
 ## <a name="rules-with-multiple-expressions"></a>여러 식이 있는 규칙
 
-그룹 멤버 자격 규칙은 -and, -or 및 -not 논리 연산자로 연결된 둘 이상의 단일 식으로 구성할 수 있습니다. 논리 연산자는 조합하여 사용할 수도 있습니다. 
+그룹 멤버 자격 규칙은 -and, -or 및 -not 논리 연산자로 연결된 둘 이상의 단일 식으로 구성할 수 있습니다. 논리 연산자는 조합하여 사용할 수도 있습니다.
 
 여러 식을 사용하여 올바르게 구성된 멤버 자격 규칙의 예제는 다음과 같습니다.
 
@@ -396,7 +396,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
  deviceOwnership | 개인, 회사, 알 수 없음 | (device.deviceOwnership -eq "Company")
  enrollmentProfileName | Apple 디바이스 등록 프로필 이름, Android Enterprise 기업 소유의 전용 디바이스 등록 프로필 이름 또는 Windows Autopilot 프로필 이름 | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
- managementType | MDM(모바일 디바이스)<br>PC(Intune PC 에이전트에 의해 관리되는 컴퓨터) | (device.managementType -eq "MDM")
+ managementType | MDM(모바일 디바이스) | (device.managementType -eq "MDM")
  deviceId | 유효한 Azure AD 디바이스 ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | 유효한 Azure AD 개체 ID |  (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d")
  devicePhysicalIds | Autopilot에서 사용하는 모든 문자열 값(예: 모든 Autopilot 디바이스, OrderID 또는 PurchaseOrderID)  | (device.devicePhysicalIDs -any _ -contains "[ZTDId]") (device.devicePhysicalIds -any _ -eq "[OrderID]:179887111881") (device.devicePhysicalIds -any _ -eq "[PurchaseOrderId]:76222342342")

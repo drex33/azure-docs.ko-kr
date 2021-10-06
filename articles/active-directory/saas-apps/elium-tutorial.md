@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/27/2021
+ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: a49dec3b7a87eebebbb6d4737618a387c80e4f1a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d476a5df53425d202b8c06e08765e0e35a39f41e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121742823"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128674398"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-elium"></a>자습서: Elium과 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -42,6 +42,7 @@ ms.locfileid: "121742823"
 
 * Elium에서 **SP 및 IDP** 시작 SSO를 지원합니다.
 * Elium에서 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
+* Elium에서 [자동화된 사용자 프로비저닝](elium-provisioning-tutorial.md)을 지원합니다.
 
 ## <a name="add-elium-from-the-gallery"></a>갤러리에서 Elium 추가
 
@@ -123,7 +124,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -190,8 +191,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Elium에서 B.Simon이라는 사용자를 만듭니다. Elium은 기본적으로 사용하도록 설정되는 **Just-In-Time 프로비전** 을 지원합니다. 이 섹션에 작업 항목이 없습니다. Elium에 사용자가 아직 없는 경우 Elium에 액세스하려고 할 때 새 사용자가 만들어집니다.
 
-> [!Note]
-> 사용자를 수동으로 만들어야 하는 경우 [Elium 지원 팀](mailto:support@elium.com)에 문의하세요.
+Elium은 자동 사용자 프로비저닝도 지원합니다. 자동 사용자 프로비저닝 구성 방법에 대한 자세한 내용은 [여기](./elium-provisioning-tutorial.md)에서 제공합니다.
 
 ## <a name="test-sso"></a>SSO 테스트 
 
@@ -207,7 +207,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
  
 * Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 Elium에 자동으로 로그인됩니다. 
  
-Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 Elium 타일을 클릭할 때 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 Elium에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 Elium 타일을 클릭할 때 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 Elium에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

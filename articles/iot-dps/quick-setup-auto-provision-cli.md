@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3d52a83c8c0920c4d85aa5b4b6b89fd8d36e5fea
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 0a8225e63844b0eefa9d8a6922732769b723e200
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107774972"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273745"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 IoT Hub Device Provisioning Service 설정
 
@@ -142,4 +142,4 @@ az group delete --name my-sample-resource-group
 이 빠른 시작에서는 IoT 허브 및 Device Provisioning Service 인스턴스를 배포하고, 두 리소스를 연결했습니다. 시뮬레이션된 디바이스를 프로비저닝하도록 설정하는 방법을 알아보려면 시뮬레이션된 디바이스를 만들기 위한 빠른 시작을 진행하세요.
 
 > [!div class="nextstepaction"]
-> [시뮬레이션된 디바이스를 만들기 위한 빠른 시작](./quick-create-simulated-device.md)
+> [시뮬레이션된 디바이스를 만들기 위한 빠른 시작](./quick-create-simulated-device-tpm.md)

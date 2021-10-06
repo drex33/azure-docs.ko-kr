@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/26/2021
+ms.date: 09/22/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management, has-adal-ref
-ms.openlocfilehash: ba222c5d0ae028b606deda08e225085bd42d761c
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 5f70c401799fb0b67f9f4013713eb89525072f45
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122966753"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128670731"
 ---
 # <a name="introduction-to-azure-ad-connect-v20"></a>Azure AD Connect v2.0 소개 
 
@@ -40,7 +40,7 @@ SQL Server 2019에는 Visual C++ Redist 14 런타임이 필요하므로 이 버�
 
 ### <a name="tls-12"></a>TLS 1.2 
 
-TLS 1.0 및 TLS 1.1은 안전하지 않은 것으로 간주되며 Microsoft에서 더 이상 지원되지 않는 프로토콜입니다. 이 Azure AD Connect 릴리스는 TLS 1.2만 지원합니다. 서버에서 TLS 1.2를 지원하지 않는 경우 Azure AD Connect v2.0을 배포하기 전에 이 프로토콜을 사용하도록 설정해야 합니다. 자세한 내용은 [Azure AD Connect에 대한 TLS 1.2 적용](reference-connect-tls-enforcement.md)을 참조하세요.
+TLS 1.0 및 TLS 1.1은 안전하지 않은 것으로 간주되며 Microsoft에서 더 이상 지원되지 않는 프로토콜입니다. 이 Azure AD Connect 릴리스는 TLS 1.2만 지원합니다. Azure AD Connect V2.0에 지원되는 모든 버전의 Windows Server는 이미 TLS 1.2로 기본 설정되어 있습니다. 서버에서 TLS 1.2를 지원하지 않는 경우 Azure AD Connect v2.0을 배포하기 전에 이 프로토콜을 사용하도록 설정해야 합니다. 자세한 내용은 [Azure AD Connect에 대한 TLS 1.2 적용](reference-connect-tls-enforcement.md)을 참조하세요.
 
 ### <a name="all-binaries-signed-with-sha2"></a>SHA2로 서명된 모든 이진 파일 
 
@@ -60,7 +60,7 @@ SQL Server 2019에는 서버 운영 체제로 Windows Server 2016 이상 버전�
 
 이 Azure AD Connect 릴리스에는 PowerShell 5.0이 필요한 몇 가지 cmdlet이 포함되어 있으므로 이 요구 사항은 Azure AD Connect의 새로운 필수 구성 요소입니다.  
 
-PowerShell 필수 조건에 대한 자세한 내용은 [여기](/powershell/scripting/windows-powershell/install/windows-powershell-system-requirements?view=powershell-7.1#windows-powershell-50)에서 찾을 수 있습니다.
+PowerShell 필수 조건에 대한 자세한 내용은 [여기](/powershell/scripting/windows-powershell/install/windows-powershell-system-requirements#windows-powershell-50)에서 찾을 수 있습니다.
 
  >[!NOTE]
  >PowerShell 5는 이미 Windows Server 2016의 일부이므로 최근 Windows Server 버전을 사용하는 한, 별도로 수행해야 할 작업은 없을 것입니다. 
@@ -88,10 +88,10 @@ PowerShell 필수 조건에 대한 자세한 내용은 [여기](/powershell/scri
 가능하면 빨리 Azure AD Connect V2.0으로 업그레이드해야 합니다. **__모든 Azure AD Connect V1 버전은 2022년 8월 31일에 사용이 중단됩니다.__** 당분간 이전 버전의 Azure AD Connect을 계속 지원할 예정이지만 Azure AD Connect의 일부 구성 요소의 지원이 중단될 경우 적절한 지원 환경을 제공하기 어려울 수 있습니다. ADAL 및 TLS1.0/1.1 서비스는 사용 중단된 후에 예기치 않게 작동 중단될 수 있으므로 이러한 서비스의 경우 이 업그레이드가 특히 중요합니다. 
 
 **외부 SQL 데이터베이스를 사용하며 SQL 2012 LocalDb를 사용하지 않고 있습니다. 그래도 업그레이드해야 하나요?** </br>
-예, TLS1.0/1.1 및 ADAL 사용 중단 때문에 SQL Server 2012를 사용하지 않더라도 지원을 받으려면 여전히 업그레이드가 필요합니다. 
+예, TLS1.0/1.1 및 ADAL 사용 중단 때문에 SQL Server 2012를 사용하지 않더라도 지원을 받으려면 여전히 업그레이드가 필요합니다. SQL Server 2012는 Azure AD Connect V2.0에서 외부 SQL 데이터베이스로 계속 사용될 수 있습니다. Azure AD Connect V2.0의 SQL 2019 드라이버는 SQL Server 2012와 호환됩니다.
 
 **Azure AD Connect 인스턴스를 V2.0으로 업그레이드한 후 SQL 2012 구성 요소가 자동으로 제거되나요?** </br>
-아니요, SQL 2019로 업그레이드해도 서버에서 SQL 2012 구성 요소가 제거되지 않습니다. 이러한 구성 요소가 더 이상 필요하지 않으면 [SQL Server 제거 지침](https://docs.microsoft.com/sql/sql-server/install/uninstall-an-existing-instance-of-sql-server-setup)을 따라야 합니다.
+아니요, SQL 2019로 업그레이드해도 서버에서 SQL 2012 구성 요소가 제거되지 않습니다. 이러한 구성 요소가 더 이상 필요하지 않으면 [SQL Server 제거 지침](/sql/sql-server/install/uninstall-an-existing-instance-of-sql-server-setup)을 따라야 합니다.
 
 **업그레이드하지 않으면 어떻게 되나요?** </br>
 사용 중지될 구성 요소 중 하나가 실제로 사용 중단될 때까지는 어떤 영향도 나타나지 않습니다. Azure AD Connect는 계속 작동합니다. 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: d98b7050b2472c1dd0405c213b450c719bcd8572
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: e045a7df3389dc58fe8ac2298f2f51b0337a5f94
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322448"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124775515"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>빠른 시작: Azure CDN 프로필 및 엔드포인트 만들기
 
@@ -62,6 +62,9 @@ CDN 프로필을 만든 후에 엔드포인트를 만드는 데 사용할 수 �
    ![CDN 엔드포인트](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
    엔드포인트를 전파하는 데 걸리는 시간은 프로필을 만들 때 선택한 가격 책정 계층에 따라 달라집니다. **표준 Akamai** 는 일반적으로 1분 이내에 완료되고, **표준 Microsoft** 는 10분 이내에, **표준 Verizon** 및 **프리미엄 Verizon** 은 최대 30분 이내에 완료됩니다.
+
+> [!NOTE]
+> *Verizon CDN 엔드포인트* 의 경우 어떤 이유로든 엔드포인트를 **사용하지 않도록 설정** 하거나 **중지** 하면 Verizon 보조 포털을 통해 구성된 모든 리소스가 정리됩니다. 엔드포인트를 다시 시작하여 이러한 구성을 자동으로 복원할 수 없습니다. 이러한 구성을 다시 변경해야 합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

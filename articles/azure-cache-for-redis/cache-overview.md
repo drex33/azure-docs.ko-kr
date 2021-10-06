@@ -1,17 +1,17 @@
 ---
 title: Azure Cache for Redis란?
 description: 캐시 배제, 콘텐츠 캐싱, 사용자 세션 캐싱, 작업 및 메시지 큐, 분산 트랜잭션을 활성화하는 Azure Cache for Redis에 대해 알아봅니다.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: overview
 ms.date: 02/08/2021
-ms.openlocfilehash: 5debf0fdd82132ece890f29967e345ab5b134635
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 63aae0f54d07fea45f4cecc5a4699cd1448c0a4f
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114297587"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537777"
 ---
 # <a name="about-azure-cache-for-redis"></a>Azure Cache for Redis 소개
 

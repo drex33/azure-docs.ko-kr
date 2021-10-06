@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/18/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 721c13ea31f812dd5f5b5c335373884766764c80
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 9e542c7d9e78ea73dc96809d7d1fa06d60f15283
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108750764"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128600003"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-ae"></a>자습서: GitHub AE와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -38,7 +38,8 @@ ms.locfileid: "108750764"
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 * GitHub AE에서 **SP** 및 **IDP** 시작 SSO를 지원합니다.
-* GitHub AE는 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
+* GitHub AE에서 **Just In Time** 사용자 프로비저닝을 지원합니다.
+* GitHub AE에서 [자동화된 사용자 프로비저닝](github-ae-provisioning-tutorial.md)을 지원합니다.
 
 ## <a name="adding-github-ae-from-the-gallery"></a>갤러리에서 GitHub AE 추가
 
@@ -150,6 +151,8 @@ GitHub AE 쪽에서 SSO를 구성하려면 [여기](https://docs.github.com/gith
 
 이 섹션에서는 GitHub AE에서 B.Simon이라는 사용자를 만듭니다. GitHub AE는 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 프로비저닝을 지원합니다. 이 섹션에 작업 항목이 없습니다. GitHub AE에 사용자가 없는 경우 인증 후에 새 사용자가 만들어집니다.
 
+GitHub AE에서 자동화된 사용자 프로비저닝도 지원합니다. 자동화된 사용자 프로비저닝 구성 방법에 대한 자세한 내용은 [여기](./github-ae-provisioning-tutorial.md)를 참조하세요.
+
 ## <a name="test-sso"></a>SSO 테스트 
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
@@ -164,7 +167,7 @@ GitHub AE 쪽에서 SSO를 구성하려면 [여기](https://docs.github.com/gith
 
 * Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 GitHub AE에 자동으로 로그인됩니다. 
 
-Microsoft 액세스 패널을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 액세스 패널에서 GitHub AE 타일을 클릭할 때 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 GitHub AE에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 GitHub AE 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작할 수 있는 애플리케이션 로그온 페이지로 리디렉션됩니다. IDP 모드로 구성된 경우에는 SSO를 설정한 GitHub AE에 자동으로 로그인되어야 합니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

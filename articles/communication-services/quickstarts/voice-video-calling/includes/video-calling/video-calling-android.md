@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: rifox
-ms.openlocfilehash: 927fcadc97ec689e477198e87b690a50e3c9e28f
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: d53c9a7d265366531cc22d6de726f84ddb9f7a50
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122966038"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128910139"
 ---
 Communication Services 호출 클라이언트 라이브러리를 사용하여 앱에 1:1 영상 통화를 추가하여 Azure Communication Services를 시작하세요. Android용 Azure Communication Services Calling SDK를 사용하여 영상 통화를 시작 및 응답하는 방법에 대해 알아봅니다.
 
@@ -239,7 +239,9 @@ import android.content.Context;
 import com.azure.android.communication.calling.CallState;
 import com.azure.android.communication.calling.CallingCommunicationException;
 import com.azure.android.communication.calling.CameraFacing;
+import com.azure.android.communication.calling.ParticipantsUpdatedListener;
 import com.azure.android.communication.calling.PropertyChangedEvent;
+import com.azure.android.communication.calling.PropertyChangedListener;
 import com.azure.android.communication.calling.VideoDeviceInfo;
 import com.azure.android.communication.common.CommunicationUserIdentifier;
 import com.azure.android.communication.common.CommunicationIdentifier;
@@ -263,6 +265,7 @@ import com.azure.android.communication.calling.RemoteVideoStream;
 import com.azure.android.communication.calling.RemoteVideoStreamsEvent;
 import com.azure.android.communication.calling.RendererListener;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
@@ -281,6 +284,8 @@ public class MainActivity extends AppCompatActivity {
     VideoStreamRendererView preview;
     final Map<Integer, StreamData> streamData = new HashMap<>();
     private boolean renderRemoteVideo = true;
+    private ParticipantsUpdatedListener remoteParticipantUpdatedListener;
+    private PropertyChangedListener onStateChangedListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -441,8 +446,10 @@ private void startCall() {
             options);
     
     //Subcribe to events on updates of call state and remote participants
-    call.addOnRemoteParticipantsUpdatedListener(this::handleRemoteParticipantsUpdate);
-    call.addOnStateChangedListener(this::handleCallOnStateChanged);
+    remoteParticipantUpdatedListener = this::handleRemoteParticipantsUpdate;
+    onStateChangedListener = this::handleCallOnStateChanged;
+    call.addOnRemoteParticipantsUpdatedListener(remoteParticipantUpdatedListener);
+    call.addOnStateChangedListener(onStateChangedListener);
 }
 ```
 
@@ -512,8 +519,10 @@ private void answerIncomingCall() {
     }
 
     //Subcribe to events on updates of call state and remote participants
-    call.addOnRemoteParticipantsUpdatedListener(this::handleRemoteParticipantsUpdate);
-    call.addOnStateChangedListener(this::handleCallOnStateChanged);
+    remoteParticipantUpdatedListener = this::handleRemoteParticipantsUpdate;
+    onStateChangedListener = this::handleCallOnStateChanged;
+    call.addOnRemoteParticipantsUpdatedListener(remoteParticipantUpdatedListener);
+    call.addOnStateChangedListener(onStateChangedListener);
 }
 ```
 
@@ -522,8 +531,12 @@ private void answerIncomingCall() {
 통화를 시작하거나 수신 전화에 응답할 때 `addOnRemoteParticipantsUpdatedListener` 이벤트를 구독하여 원격 참가자를 처리해야 합니다. 
 
 ```java
-call.addOnRemoteParticipantsUpdatedListener(this::handleRemoteParticipantsUpdate);
+remoteParticipantUpdatedListener = this::handleRemoteParticipantsUpdate;
+call.addOnRemoteParticipantsUpdatedListener(remoteParticipantUpdatedListener);
 ```
+동일한 클래스 내에 정의된 이벤트 수신기를 사용하는 경우 수신기를 변수에 바인딩합니다. 변수를 인수로 전달하여 수신기 메서드를 추가하고 제거합니다.
+
+수신기를 인수로 직접 전달하려고 하면 해당 수신기에 대한 참조가 손실됩니다. Java는 이러한 수신기의 새 인스턴스를 만들고 이전에 만든 인스턴스를 참조하지 않습니다. 이러한 인스턴스는 계속 올바르게 시작되지만 더 이상 참조가 없으므로 제거될 수 없습니다.
 
 ### <a name="remote-participant-and-remote-video-stream-update"></a>원격 참가자 및 원격 비디오 스트림 업데이트
 

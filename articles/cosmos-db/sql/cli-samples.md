@@ -1,19 +1,20 @@
 ---
-title: Azure Cosmos DB SQL(Core) API용 Azure CLI 샘플
-description: Azure Cosmos DB SQL(Core) API용 Azure CLI 샘플
+title: Azure Cosmos DB에 대한 Azure CLI 샘플 | Microsoft Docs
+description: 이 문서에는 Azure Cosmos DB와 상호 작용하는 데 사용할 수 있는 여러 Azure CLI 코드 샘플이 나열되어 있습니다. API 관련 CLI 샘플을 봅니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 10/13/2020
+ms.date: 09/17/2021
 ms.author: mjbrown
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5f68f09b8d97e9d653f1551c2ca1fe5ed5a47b0e
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.custom: devx-track-azurecli, seo-azure-cli
+keywords: cosmos db, azure cli 샘플, azure cli 코드 샘플, azure cli 스크립트 샘플
+ms.openlocfilehash: 4529b51ff5109bfa6b8814b23e7e82844e7fb95c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117861"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128567721"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-core-sql-api"></a>Azure Cosmos DB SQL(Core) API용 Azure CLI 샘플
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -39,7 +40,7 @@ ms.locfileid: "123117861"
 
 ## <a name="core-sql-api-samples"></a>Core(SQL) API 샘플
 
-|Task | Description |
+|Task | 설명 |
 |---|---|
 | [Azure Cosmos 계정, 데이터베이스 및 컨테이너 만들기](../scripts/cli/sql/create.md?toc=%2fcli%2fazure%2ftoc.json)| Core(SQL) API에 대한 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너를 만듭니다. |
 | [자동 스케일링되는 Azure Cosmos 계정, 데이터베이스 및 컨테이너 만들기](../scripts/cli/sql/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| 자동 스케일링되는 Core(SQL) API에 대한 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너를 만듭니다. |

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2021
 ms.author: jeedes
-ms.openlocfilehash: 39072747cd2e6b9daa62f02b198a201c5b1782ea
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: ef52547bb8ec27bd759a238d742173f6b8fc3994
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110451468"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591989"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-remote-secure-access-vpn"></a>자습서: Check Point Remote Secure Access VPN과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -233,7 +233,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     1. 온-프레미스 Active Directory(LDAP)를 사용하지 않으려면 외부 사용자 프로필만 선택하고 확인을 클릭합니다.
     2. 온-프레미스 Active Directory(LDAP)를 사용하려면 LDAP 사용자만 선택하고 LDAP 조회 유형에서 메일을 선택합니다. 그런 후 확인을 클릭합니다.
 
-    ![수동 구성의 스크린샷](./media/check-point-remote-access-vpn-tutorial/manual-configuration.png)
+    ![수동 구성의 스크린샷.](./media/check-point-remote-access-vpn-tutorial/manual-configuration.png)
 
 1. 관리 데이터베이스에서 필요한 설정을 구성합니다.
 
@@ -270,44 +270,64 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. ID 공급자 브라우저 모드 설정(선택 사항) 기본적으로 Windows 클라이언트는 포함된 브라우저를 사용하고 macOS 클라이언트는 Safari를 사용하여 ID 공급자의 포털에서 인증합니다.
 Windows 클라이언트가 Internet Explorer를 대신 사용하도록 이 동작을 변경하려면:
 
-    1.  클라이언트 머신에서 일반 텍스트 편집기를 관리자 권한으로 엽니다.
-    2.  텍스트 편집기에서 trac.defaults 파일을 엽니다.
-        * 32비트 Windows: ``%ProgramFiles%\CheckPoint\Endpoint Connect\trac.defaults``
-        * 64비트 Windows: ``%ProgramFiles(x86)%\CheckPoint\Endpoint Connect\trac.defaults``
-    3.  idp_browser_mode 특성 값을 “embedded”에서 “IE”로 변경합니다.
-    4.  파일을 저장합니다.
-    5.  Check Point Endpoint Security VPN 클라이언트 서비스를 다시 시작합니다.
-관리자 권한으로 Windows 명령 프롬프트를 열고 다음 명령을 실행합니다.
+   1. 클라이언트 머신에서 일반 텍스트 편집기를 관리자 권한으로 엽니다.
 
-        `# net stop TracSrvWrapper `
+   2. 텍스트 편집기에서 `trac.defaults` 파일을 엽니다.
 
-        `# net start TracSrvWrapper`
- 
+      - 32비트 Windows: 
+
+        `%ProgramFiles%\CheckPoint\Endpoint Connect\trac.defaults`
+
+      - 64비트 Windows: 
+
+        `%ProgramFiles(x86)%\CheckPoint\Endpoint Connect\trac.defaults`
+
+    3. `idp_browser_mode` 특성 값을 `embedded`에서 `IE`로 변경합니다.
+
+    4. 파일을 저장합니다.
+
+    5. Check Point Endpoint Security VPN 클라이언트 서비스를 다시 시작합니다.
+
+   관리자 권한으로 Windows 명령 프롬프트를 열고 다음 명령을 실행합니다.
+
+   `# net stop TracSrvWrapper`
+
+   `# net start TracSrvWrapper`
 
 1. 백그라운드에서 실행되는 브라우저를 사용하여 인증을 시작합니다.
 
-    1.  클라이언트 머신에서 일반 텍스트 편집기를 관리자 권한으로 엽니다.
-    2.  텍스트 편집기에서 trac.defaults 파일을 엽니다.
-        * 32비트 Windows: `%ProgramFiles%\CheckPoint\Endpoint Connect\trac.defaults`
-        * 64비트 Windows: `%ProgramFiles(x86)%\CheckPoint\Endpoint Connect\trac.defaults`
+   1. 클라이언트 머신에서 일반 텍스트 편집기를 관리자 권한으로 엽니다.
 
-        * macOS: `/Library/Application Support/Checkpoint/Endpoint Security/Endpoint Connect/Trac.defaults`
+   2. 텍스트 편집기에서 `trac.defaults` 파일을 엽니다.
 
-    3.  **idp_show_browser_primary_auth_flow** 값을 **false** 로 변경합니다.
-    4.  파일을 저장합니다.
-    5.  Check Point Endpoint Security VPN 클라이언트 서비스를 다시 시작합니다.
-        * Windows 클라이언트에서 관리자 권한으로 Windows 명령 프롬프트를 열고 다음 명령을 실행합니다.
+      - 32비트 Windows: 
 
-            `# net stop TracSrvWrapper`
+        `%ProgramFiles%\CheckPoint\Endpoint Connect\trac.defaults`
+
+      - 64비트 Windows: 
+
+        `%ProgramFiles(x86)%\CheckPoint\Endpoint Connect\trac.defaults`
+
+      - macOS에서:
+      
+        `/Library/Application Support/Checkpoint/Endpoint Security/Endpoint Connect/trac.defaults`
+
+    3. `idp_show_browser_primary_auth_flow`의 값을 `false`로 변경합니다.
+
+    4. 파일을 저장합니다.
+
+    5. Check Point Endpoint Security VPN 클라이언트 서비스를 다시 시작합니다.
+       - Windows 클라이언트에서 관리자 권한으로 Windows 명령 프롬프트를 열고 다음 명령을 실행합니다.
+
+         `# net stop TracSrvWrapper`
         
-            `# net start TracSrvWrapper`
+         `# net start TracSrvWrapper`
 
-        * macOS 클라이언트에서
+       - macOS 클라이언트에서 다음을 실행합니다.
 
-            `sudo launchctl stop com.checkpoint.epc.service`
+         `sudo launchctl stop com.checkpoint.epc.service`
 
-            `sudo launchctl start com.checkpoint.epc.service`
-
+         `sudo launchctl start com.checkpoint.epc.service`
 
 ### <a name="create-check-point-remote-secure-access-vpn-test-user"></a>Check Point Remote Secure Access VPN 테스트 사용자 만들기
 
@@ -328,5 +348,3 @@ Windows 클라이언트가 Internet Explorer를 대신 사용하도록 이 동�
 ## <a name="next-steps"></a>다음 단계
 
 Check Point Remote Secure Access VPN이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
-
-

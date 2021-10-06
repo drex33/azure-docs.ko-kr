@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
 ms.date: 02/18/2021
-ms.openlocfilehash: bc6c64c7ce8f3a836e1a2fc002e423536f55e48c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: be4aa228ff5882f0068bb0a7ffb436359e62f80a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638882"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124771615"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-powershell"></a>PowerShell을 사용하는 변경 추적 정보를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드
 
@@ -57,13 +57,13 @@ ms.locfileid: "122638882"
 
 1. **초기 로드:** 원본 데이터 저장소(Azure SQL Database)에서 대상 데이터 저장소(Azure Blob Storage)로 전체 데이터를 복사하는 복사 작업이 있는 파이프라인을 만듭니다.
 
-    ![데이터 전체 로드](media/tutorial-incremental-copy-change-tracking-feature-powershell/full-load-flow-diagram.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/full-load-flow-diagram.png" alt-text="데이터 전체 로드":::
 1.  **증분 로드:** 다음 작업이 있는 파이프라인을 만들어서 주기적으로 실행합니다.
     1. Azure SQL Database의 이전 및 새 SYS_CHANGE_VERSION을 가져오도록 **두 가지 조회 작업** 을 만들어서 복사 작업에 전달합니다.
     2. 두 가지 SYS_CHANGE_VERSION 값 사이에 삽입된/업데이트된/삭제된 데이터를 Azure SQL Database에서 Azure Blob Storage로 복사하도록 **복사 작업을 하나** 만듭니다.
     3. 다음 번 파이프라인 실행을 위해 SYS_CHANGE_VERSION 값을 업데이트하도록 **저장 프로시저 작업을 하나** 만듭니다.
 
-    ![증분 로드 흐름 다이어그램](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-load-flow-diagram.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-load-flow-diagram.png" alt-text="증분 로드 흐름 다이어그램":::
 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
@@ -441,26 +441,26 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **모든 서비스** 를 클릭하고 `data factories` 키워드를 사용하여 검색하고 **데이터 팩터리** 를 선택합니다.
 
-    ![데이터 팩터리 메뉴](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-data-factories-menu-1.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-data-factories-menu-1.png" alt-text="데이터 팩터리 메뉴":::
 3. 데이터 팩터리 목록에서 **데이터 팩터리** 를 검색하고 선택하여 데이터 팩터리 페이지를 시작합니다.
 
-    ![데이터 팩터리 검색](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-search-data-factory-2.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-search-data-factory-2.png" alt-text="데이터 팩터리 검색":::
 4. 데이터 팩터리 페이지에서 **모니터링 및 관리** 타일을 클릭합니다.
 
-    ![타일 모니터링 및 관리](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png)    
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png" alt-text="타일 모니터링 및 관리":::    
 5. **데이터 통합 애플리케이션** 이 별도의 탭에서 시작됩니다. 모든 **파이프라인 실행** 과 해당 상태를 볼 수 있습니다. 다음 예제에서 파이프라인 실행의 상태는 **성공** 입니다. **매개 변수** 열의 링크를 클릭하면 파이프라인에 전달된 매개 변수를 확인할 수 있습니다. 오류가 있으면 **오류** 열에 링크가 표시됩니다. **작업** 열의 링크를 클릭합니다.
 
-    ![스크린샷은 데이터 팩터리에 대한 파이프라인 실행을 보여줍니다.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png" alt-text="스크린샷은 데이터 팩터리에 대한 파이프라인 실행을 보여줍니다.":::    
 6. **작업** 열에 있는 링크를 클릭하면 파이프라인의 모든 **작업 실행** 을 보여주는 다음 페이지가 표시됩니다.
 
-    ![스크린샷은 파이프라인 링크가 호출된 데이터 팩터리에 대한 활동 실행을 보여줍니다.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png" alt-text="스크린샷은 파이프라인 링크가 호출된 데이터 팩터리에 대한 활동 실행을 보여줍니다.":::
 7. **파이프라인 실행** 보기로 다시 전환하려면 다음 이미지와 같이 **파이프라인** 을 클릭합니다.
 
 
 ### <a name="review-the-results"></a>결과 검토
 `adftutorial` 컨테이너의 `incchgtracking` 폴더에 `incremental-<GUID>.txt`라는 파일이 표시됩니다.
 
-![전체 복사의 출력 파일](media/tutorial-incremental-copy-change-tracking-feature-powershell/full-copy-output-file.png)
+:::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/full-copy-output-file.png" alt-text="전체 복사의 출력 파일":::
 
 파일에는 데이터베이스의 데이터가 있어야 합니다.
 
@@ -626,16 +626,16 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -Resource
 ### <a name="monitor-the-incremental-copy-pipeline"></a>증분 복사 파이프라인 모니터링
 1. **데이터 통합 애플리케이션** 에서 **파이프라인 실행** 보기를 새로 고칩니다. 목록에 IncrementalCopyPipeline이 표시되는지 확인합니다. **작업** 열의 링크를 클릭합니다.  
 
-    ![스크린샷은 파이프라인을 포함한 데이터 팩터리에 대한 파이프라인 실행을 보여줍니다.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png)    
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png" alt-text="스크린샷은 파이프라인을 포함한 데이터 팩터리에 대한 파이프라인 실행을 보여줍니다.":::    
 2. **작업** 열에 있는 링크를 클릭하면 파이프라인의 모든 **작업 실행** 을 보여주는 다음 페이지가 표시됩니다.
 
-    ![스크린샷은 성공으로 표시된 여러 개의 데이터 팩터리에 대한 파이프라인 실행을 보여줍니다.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png" alt-text="스크린샷은 성공으로 표시된 여러 개의 데이터 팩터리에 대한 파이프라인 실행을 보여줍니다.":::
 3. **파이프라인 실행** 보기로 다시 전환하려면 다음 이미지와 같이 **파이프라인** 을 클릭합니다.
 
 ### <a name="review-the-results"></a>결과 검토
 `adftutorial` 컨테이너의 `incchgtracking` 폴더에 두 번째 파일이 표시됩니다.
 
-![증분 복사의 출력 파일](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-copy-output-file.png)
+:::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-copy-output-file.png" alt-text="증분 복사의 출력 파일":::
 
 파일에는 데이터베이스의 델타 데이터만 포함되어야 합니다. `U`가 포함된 레코드가 데이터베이스에서 업데이트된 행이고 `I`가 추가된 행입니다.
 

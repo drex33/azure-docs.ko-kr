@@ -3,12 +3,12 @@ title: Azure Arc 지원 서버 개요
 description: Azure Arc 지원 서버를 사용하여 Azure 리소스처럼 Azure 외부에서 호스트된 머신을 관리하는 방법을 알아봅니다.
 ms.date: 08/27/2021
 ms.topic: overview
-ms.openlocfilehash: 2a6ed9eb865ed588653cd9ce5a41863af2db6de4
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 5bca2ec2bdf46f27ca83c4747c5ecb5688fa1708
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123108719"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124807140"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Azure Arc 지원 서버란?
 
@@ -39,13 +39,13 @@ Azure Arc 지원 서버를 사용하면 Azure ‘외부’의 회사 네트워�
 | Azure Monitor | 연결된 컴퓨터 게스트 운영 체제 성능을 모니터링하고 애플리케이션 구성 요소를 검색하여 애플리케이션에서 [VM 인사이트](../../azure-monitor/vm/vminsights-overview.md)를 사용해 통신하는 다른 리소스와의 종속성 및 프로세스를 모니터링합니다. [Log Analytics 에이전트](../../azure-monitor/agents/agents-overview.md#log-analytics-agent)를 사용하여 컴퓨터에서 실행되는 운영 체제 또는 워크로드에서 성능 데이터 및 이벤트와 같은 다른 로그 데이터를 수집합니다. 데이터는 [Log Analytics 작업 영역](../../azure-monitor/logs/design-logs-deployment.md)의 테이블에 저장됩니다. |
 
 > [!NOTE]
-> 지금은 Arc 지원 서버에서 직접 Azure Automation 업데이트 관리를 사용하도록 설정할 수 없습니다. 요구 사항과 서버를 사용하도록 설정하는 방법에 대한 자세한 내용은 [Automation 계정에서 업데이트 관리 사용](../../automation/update-management/enable-from-automation-account.md)을 참조하세요.
+> 지금은 Azure Arc 지원 서버에서 직접 Azure Automation 업데이트 관리를 사용할 수 없습니다. 요구 사항과 서버를 사용하도록 설정하는 방법에 대한 자세한 내용은 [Automation 계정에서 업데이트 관리 사용](../../automation/update-management/enable-from-automation-account.md)을 참조하세요.
 
 하이브리드 컴퓨터에서 Log Analytics 작업 영역에 수집되어 저정된 로그 데이터에는 이제 [resource-context](../../azure-monitor/logs/design-logs-deployment.md#access-mode) 로그 액세스를 지원하기 위해 리소스 ID와 같은 컴퓨터 특정 속성이 포함되어 있습니다.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
-Arc 지원 서버를 사용하여 하이브리드 및 다중 클라우드 환경에서 Azure 모니터링, 보안 및 업데이트 서비스를 구현하는 방법에 대한 자세한 내용은 다음 비디오를 참조하세요.
+Azure Arc 지원 서버를 사용하여 하이브리드 환경과 다중 클라우드 환경에서 Azure 모니터링, 보안 및 업데이트 서비스를 구현하는 방법에 대한 자세한 내용은 다음 비디오를 참조하세요.
 
 > [!VIDEO https://www.youtube.com/embed/mJnmXBrU1ao]
 
@@ -66,10 +66,10 @@ Azure Arc 지원 서버가 지원되는 지역의 정확한 목록은 [지역별
 
 ### <a name="supported-environments"></a>지원되는 환경
 
-Arc 지원 서버는 Azure ‘외부’에서 호스트된 물리적 서버와 가상 머신의 관리를 지원합니다. VM을 호스트하는 하이브리드 클라우드 환경에 대한 구체적인 세부 정보는 [Connected Machine 에이전트 사전 요구 사항](agent-overview.md#supported-environments)을 참조하세요.
+Azure Arc 지원 서버에서 Azure *외부* 에서 호스트된 물리적 서버와 가상 머신을 관리할 수 있습니다. VM을 호스트하는 하이브리드 클라우드 환경에 대한 구체적인 세부 정보는 [Connected Machine 에이전트 사전 요구 사항](agent-overview.md#supported-environments)을 참조하세요.
 
 > [!NOTE]
-> Arc 지원 서버는 Azure에서 실행되는 가상 머신을 관리할 수 있도록 설계되지 않았거나 지원하지 않습니다.
+> Azure Arc 지원 서버는 Azure에서 실행되는 가상 머신을 관리하도록 설계되지 않았거나 이를 지원하지 않습니다.
 
 ### <a name="agent-status"></a>에이전트 상태
 
@@ -77,6 +77,6 @@ Connected Machine 에이전트는 5분마다 정기적인 하트비트 메시지
 
 ## <a name="next-steps"></a>다음 단계
 
-* 여러 하이브리드 머신에서 Arc 지원 서버를 평가하거나 사용하도록 설정하기 전에 [연결된 머신 에이전트 개요](agent-overview.md)를 검토하여 요구 사항, 에이전트에 대한 기술 세부 정보, 배포 방법을 파악합니다.
+* 여러 하이브리드 컴퓨터에서 Azure Arc 지원 서버를 평가하거나 사용하기 전에 [Connected Machine 에이전트 개요](agent-overview.md)를 검토하여 요구 사항, 에이전트에 대한 기술 세부 정보 및 배포 방법을 파악합니다.
 
 * [계획 및 배포 가이드](plan-at-scale-deployment.md)를 검토하여 모든 규모의 Azure Arc 지원 서버 배포를 계획하고 중앙 집중식 관리와 모니터링을 구현합니다.

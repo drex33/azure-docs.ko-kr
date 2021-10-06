@@ -11,17 +11,17 @@ ms.date: 04/19/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 얼굴 인식, 얼굴 인식 소프트웨어, 얼굴 분석, 얼굴 일치, 얼굴 인식 앱, 이미지별 얼굴 검색, 얼굴 인식 검색
-ms.openlocfilehash: 15d8043beb32d8f3c7fa1b237e1ba25310983b86
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 9375b8b482076da9e308c9309c4f264118cccfa0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822291"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128663329"
 ---
 # <a name="what-is-the-azure-face-service"></a>Azure Face 서비스란?
 
 > [!WARNING]
-> 2020년 6월 11일, Microsoft는 인권에 기반한 강력한 규정이 적용될 때까지 미국 경찰 당국에 얼굴 인식 기술을 판매하지 않겠다고 발표했습니다. 따라서 미국 경찰 당국에 의해 또는 미국 경찰 당국을 위해 이 서비스를 사용하거나 허용하는 경우 고객은 얼굴 인식 기능 또는 Face나 Video Indexer와 같은 Azure 서비스에 포함된 기능을 사용하지 않을 수도 있습니다. 새 얼굴 리소스를 만들 때는 Azure Portal에서 이 서비스를 미국의 경찰서를 통해 또는 경찰서를 위해 사용하지 않을 것이며, [RAI(Responsible AI) 설명서](https://go.microsoft.com/fwlink/?linkid=2164191)를 검토했으며 이 서비스를 그에 따라 사용할 것임을 인정하고 동의합니다.
+> 2020년 6월 11일, Microsoft는 인권에 기반한 강력한 규정이 적용될 때까지 미국 경찰 당국에 얼굴 인식 기술을 판매하지 않겠다고 발표했습니다. 따라서 미국 경찰 당국에 의해 또는 미국 경찰 당국을 위해 이 서비스를 사용하거나 허용하는 경우 고객은 얼굴 인식 기능 또는 Face나 Video Indexer와 같은 Azure 서비스에 포함된 기능을 사용하지 않을 수도 있습니다. 새 얼굴 리소스를 만들 때는 Azure Portal에서 이 서비스를 미국의 경찰서를 통해 또는 경찰서를 위해 사용하지 않을 것이며, [RAI(Responsible AI) 설명서](../cognitive-services-apis-create-account-cli.md#prerequisites)를 검토했으며 이 서비스를 그에 따라 사용할 것임을 인정하고 동의합니다.
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
@@ -57,7 +57,7 @@ ID 검증: 여권 또는 운전면허증이나 기타 등록 이미지와 같은
 
 ### <a name="identification"></a>Identification(식별)
 
-얼굴 식별은 "일 대 다" 일치로 간주할 수 있습니다. 얼굴 데이터가 쿼리 얼굴과 일치하는 정도에 따라 일치 후보가 반환됩니다. 이 시나리오는 특정 사용자 그룹에 대한 빌드 액세스 권한을 부여하거나 디바이스의 사용자를 확인하는 데 사용됩니다.
+얼굴 식별은 이미지의 한 면을 보안 리포지토리의 얼굴 세트와 일치시키는 "일 대 다"를 처리할 수 있습니다. 얼굴 데이터가 쿼리 얼굴과 일치하는 정도에 따라 일치 후보가 반환됩니다. 이 시나리오는 특정 사용자 그룹에 대한 빌드 액세스 권한을 부여하거나 디바이스의 사용자를 확인하는 데 사용됩니다.
 
 다음 이미지는 `"myfriends"`라는 데이터베이스의 예를 보여 줍니다. 각 그룹은 최대 1백만 개의 서로 다른 사람 개체를 포함할 수 있습니다. 각 사람 개체에 대해 최대 248개의 얼굴을 등록할 수 있습니다.
 
@@ -67,7 +67,11 @@ ID 검증: 여권 또는 운전면허증이나 기타 등록 이미지와 같은
 
 ### <a name="verification"></a>확인
 
-확인 작업은 "이 두 얼굴이 동일한 사람의 것인가요?"라는 질문에 답합니다. 프로브 얼굴 데이터가 등록된 하나의 얼굴과 비교되기 때문에 확인을 "일 대 일" 일치라고도 합니다. 확인은 식별 시나리오에서 특정 일치가 정확한지 다시 확인하는 데 사용됩니다. 
+확인 작업은 "이 두 얼굴이 동일한 사람의 것인가요?"라는 질문에 답합니다. 
+
+또한 이미지의 한 면을 보안 리포지토리 또는 사진의 한 면으로 "일 대 일"로 일치시킵니다.
+
+ID 확인 또는 액세스 제어 시나리오에서 확인을 사용하여 사진이 이전에 캡처한 이미지(예: 정부 발급 ID 카드의 사진)와 일치하는지 확인할 수 있습니다.
 
 ID 검증에 대한 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) 및 [Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) API 참조 설명서를 확인하세요.
 

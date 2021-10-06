@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 06/21/2021
+ms.date: 09/23/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
-ms.openlocfilehash: ff35dc6211992bd3d89161dede2745c2e366ee8f
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 332552d361c4c8c43b7b4bfa981050c829a79762
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112463822"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624523"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-user"></a>자습서: 보안 앱에서 사용자로 Microsoft Graph에 액세스
 
@@ -53,7 +53,7 @@ Azure App Service에서 실행되는 웹앱에서 Microsoft Graph에 액세스�
 
 ## <a name="configure-app-service-to-return-a-usable-access-token"></a>사용 가능한 액세스 토큰을 반환하도록 App Service 구성
 
-이제 웹앱에 로그인한 사용자로 Microsoft Graph에 액세스하는 데 필요한 권한이 있습니다. 이 단계에서는 Microsoft Graph에 액세스하는 데 사용할 수 있는 액세스 토큰을 제공하도록 App Service 인증 및 권한 부여를 구성합니다. 이 단계에서는 다운스트림 서비스(Microsoft Graph)의 클라이언트/앱 ID가 필요합니다. Microsoft Graph의 앱 ID는 *00000003-0000-0000-c000-000000000000* 입니다.
+이제 웹앱에 로그인한 사용자로 Microsoft Graph에 액세스하는 데 필요한 권한이 있습니다. 이 단계에서는 Microsoft Graph에 액세스하는 데 사용할 수 있는 액세스 토큰을 제공하도록 App Service 인증 및 권한 부여를 구성합니다. 이 단계에서는 다운스트림 서비스(Microsoft Graph)에 대한 User.Read 범위를 추가해야 합니다. `https://graph.microsoft.com/User.Read`.
 
 > [!IMPORTANT]
 > 사용 가능한 액세스 토큰을 반환하도록 App Service를 구성하지 않으면 코드에서 Microsoft Graph API를 호출할 때 ```CompactToken parsing failed with error code: 80049217``` 오류가 발생합니다.
@@ -65,7 +65,7 @@ Azure App Service에서 실행되는 웹앱에서 Microsoft Graph에 액세스�
 
 왼쪽 브라우저에서 **구성** > **authsettingsV2** 로 드릴다운합니다.
 
-**authsettingsV2** 보기에서 **편집** 을 선택합니다. **identityProviders** -> **azureActiveDirectory** 의 **login** 섹션을 찾아 다음 **loginParameters** 설정을 추가합니다. `"loginParameters":[ "response_type=code id_token","resource=00000003-0000-0000-c000-000000000000" ]`
+**authsettingsV2** 보기에서 **편집** 을 선택합니다. **identityProviders** -> **azureActiveDirectory** 의 **login** 섹션을 찾아 다음 **loginParameters** 설정을 추가합니다. `"loginParameters":[ "response_type=code id_token","scope=openid offline_access profile https://graph.microsoft.com/User.Read" ]`
 
 ```json
 "identityProviders": {
@@ -74,7 +74,7 @@ Azure App Service에서 실행되는 웹앱에서 Microsoft Graph에 액세스�
       "login": {
         "loginParameters":[
           "response_type=code id_token",
-          "resource=00000003-0000-0000-c000-000000000000"
+          "scope=openid offline_access profile https://graph.microsoft.com/User.Read"
         ]
       }
     }
@@ -98,7 +98,7 @@ az login
 az rest --method GET --url '/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Web/sites/{WEBAPP_NAME}/config/authsettingsv2/list?api-version=2020-06-01' > authsettings.json
 ```
 
-원하는 텍스트 편집기를 사용하여 authsettings.json 파일을 엽니다. **identityProviders** -> **azureActiveDirectory** 의 **login** 섹션을 찾아 다음 **loginParameters** 설정을 추가합니다. `"loginParameters":[ "response_type=code id_token","resource=00000003-0000-0000-c000-000000000000" ]`
+원하는 텍스트 편집기를 사용하여 authsettings.json 파일을 엽니다. **identityProviders** -> **azureActiveDirectory** 의 **login** 섹션을 찾아 다음 **loginParameters** 설정을 추가합니다. `"loginParameters":[ "response_type=code id_token","scope=openid offline_access profile https://graph.microsoft.com/User.Read" ]`
 
 ```json
 "identityProviders": {
@@ -107,7 +107,7 @@ az rest --method GET --url '/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RES
       "login": {
         "loginParameters":[
           "response_type=code id_token",
-          "resource=00000003-0000-0000-c000-000000000000"
+          "scope=openid offline_access profile https://graph.microsoft.com/User.Read"
         ]
       }
     }
@@ -121,13 +121,6 @@ az rest --method GET --url '/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RES
 az rest --method PUT --url '/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Web/sites/{WEBAPP_NAME}/config/authsettingsv2?api-version=2020-06-01' --body @./authsettings.json
 ```
 ---
-
-## <a name="update-the-issuer-url"></a>발급자 URL 업데이트
-[Azure Portal](https://portal.azure.com)에서 App Service로 이동한 다음 **인증** 블레이드로 이동합니다.
-
-Microsoft ID 공급자 옆에 있는 **편집** 링크를 클릭합니다.
-
-**기본 사항** 탭에서 **발급자 URL** 을 확인합니다. **발급자 URL** 끝에 "/v2.0"이 포함되어 있으면 이를 제거하고 **저장** 을 클릭합니다. "/v2.0"을 제거하지 않으면 웹앱에 로그인할 때 *AADSTS901002: 'resource' 요청 매개 변수가 지원되지 않음* 이라는 메시지가 표시됩니다.
 
 ## <a name="call-microsoft-graph-net"></a>Microsoft Graph(.NET) 호출
 

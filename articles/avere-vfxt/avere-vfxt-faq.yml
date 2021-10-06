@@ -8,12 +8,12 @@ metadata:
   ms.date: 12/19/2019
   ms.author: rohogue
   ms.custom: references_regions
-  ms.openlocfilehash: 1d5230119afa33c05878d11e407e80acdc10f15a
-  ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+  ms.openlocfilehash: 241bcb1e164bf8f0233e7110ffcdd9630e870e8d
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/13/2021
-  ms.locfileid: "113657019"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124751096"
 title: Avere vFXT for Azure FAQ
 summary: 이 문서에서는 Avere vFXT for Azure가 사용자의 요구 사항에 적합한지 판단하는 데 도움이 되는 질문과 답변을 참조할 수 있습니다. Avere vFXT에 대한 기본 정보를 참조하고, 다른 Azure 구성 요소 및 외부 공급업체의 제품에 Avere vFXT가 어떻게 작동하는지 이해할 수 있습니다.
 sections:
@@ -101,7 +101,7 @@ sections:
   - question: >
       Avere vFXT 환경의 크기를 조정할 수 있나요?
     answer: >
-      Avere vFXT 클러스터는 3개의 가상 머신 노드만큼 작거나 24개의 노드만큼 클 수 있습니다. 클러스터에 9개가 넘는 노드가 필요한 경우 Azure 기술 지원 팀에 문의하여 계획을 수립하세요. 노드 수가 많을수록 더 큰 배포 아키텍처가 필요합니다.
+      Avere vFXT 클러스터는 3개의 가상 머신 노드만큼 작거나 20개의 노드만큼 클 수 있습니다. 워크플로에 적합한 클러스터 크기를 계획하는 데 도움이 필요한 경우 Azure 기술 지원에 문의하세요.
   - question: >
       Avere vFXT 환경은 "자동으로 크기 조정"할 수 있나요?
     answer: >

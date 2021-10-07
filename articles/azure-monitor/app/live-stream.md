@@ -4,12 +4,12 @@ description: 사용자 지정 메트릭으로 웹앱을 실시간으로 모니�
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 865de94f1d9b4012a908643bbf87f38aeb8594a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 3e19d424f8aa56f37b12ab776c9ff85ca78f6738
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98679469"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129614957"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>라이브 메트릭 스트림: 1초 대기 시간으로 모니터링 및 진단
 
@@ -245,7 +245,7 @@ Application Insights 리소스 내에서 API 키를 만들고 함수 앱에 대�
 | .NET Core(대상=.NET Framework)| 지원됨(V2.4.1 이상) | 지원됨(V2.4.1 이상) | 지원됨(V2.4.1 이상) | 지원됨(V2.4.1 이상) | 지원됨(V2.4.1 이상)  |
 | .NET Core(대상=.NET Core)     | 지원됨(V2.4.1 이상) | 지원됨*          | 지원됨(V2.4.1 이상) | 지원됨(V2.4.1 이상) | **지원 안 됨**    |
 | Azure Functions v2               | 지원됨           | 지원됨           | 지원됨           | 지원됨           | **지원 안 됨**    |
-| Java                             | 지원됨(V2.0.0 이상) | 지원됨(V2.0.0 이상) | **지원 안 됨**   | **지원 안 됨**   | **지원 안 됨**    |
+| Java                             | 지원됨(V2.0.0 이상) | 지원됨(V2.0.0 이상) | **지원 안 됨**   | 지원 됨 (V 3.2.0 +) | **지원 안 됨**    |
 | Node.js                          | 지원됨 (V1.3.0 이상) | 지원됨 (V1.3.0 이상) | **지원 안 됨**   | 지원됨 (V1.3.0 이상) | **지원 안 됨**    |
 
 기본 메트릭에는 요청, 종속성 및 예외 비율이 포함됩니다. 성능 메트릭(성능 카운터)에는 메모리 및 CPU가 포함됩니다. 샘플 원격 분석은 실패한 요청 및 종속성, 예외, 이벤트 및 추적에 대한 자세한 정보 스트림을 표시합니다.

@@ -38,12 +38,14 @@ items:
     items:
       - name: Purview Studio 사용
         href: use-purview-studio.md
-      - name: 모범 사례
+      - name: 모범 사례 및 지침
         items:
           - name: 배포 모범 사례
             href: deployment-best-practices.md
           - name: 컬렉션 아키텍처
             href: concept-best-practices-collections.md
+          - name: Purview 가격 책정 지침
+            href: concept-guidelines-pricing.md
       - name: Purview 권한
         href: catalog-permissions.md
       - name: 데이터 맵

@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: .NET Core에서 Azure Cache for Redis 사용'
 description: 이 빠른 시작에서는 .NET Core 앱에서 Azure Cache for Redis에 액세스하는 방법을 알아봅니다.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.devlang: dotnet
 ms.custom: devx-track-csharp, mvc
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 63595bc1471e550eb964e50e5d5bafacb29bd623
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3ca0d730d1c99e985a0b7b96c01fdd1dcef95a18
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128596375"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538600"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-core"></a>빠른 시작: .NET Core에서 Azure Cache for Redis 사용
 

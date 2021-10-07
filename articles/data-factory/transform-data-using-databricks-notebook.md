@@ -7,13 +7,13 @@ ms.topic: tutorial
 ms.author: abnarain
 author: nabhishek
 ms.custom: seo-lt-2019
-ms.date: 08/31/2021
-ms.openlocfilehash: 15e08069be22cc71e228a1ad878e5f2b5424ce89
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.date: 09/08/2021
+ms.openlocfilehash: a2086feece0bb37068c57534740b2c58d072d0ea
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123541827"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806397"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Azure Data Factory에서 Databricks Notebook 작업으로 Databricks Notebook 실행
 
@@ -87,15 +87,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1.  홈페이지에서 왼쪽 패널의 **관리** 탭으로 전환합니다.
 
-    ![관리 탭을 보여주는 스크린샷](media/doc-common-process/get-started-page-manage-button.png)
+    :::image type="content" source="media/doc-common-process/get-started-page-manage-button.png" alt-text="관리 탭을 보여주는 스크린샷":::
 
 1.  **연결** 아래에서 **연결된 서비스** 를 선택한 다음, **+ 새로 만들기** 를 선택합니다.
     
-    ![새 연결을 만드는 방법을 보여주는 스크린샷](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-6.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-6.png" alt-text="새 연결을 만드는 방법을 보여주는 스크린샷":::
 
 1.  **새 연결된 서비스** 창에서 **컴퓨팅** &gt; **Azure Databricks**, **계속** 을 차례로 선택합니다.
     
-    ![Databricks 연결된 서비스를 지정하는 방법을 보여 주는 스크린샷](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-7.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-7.png" alt-text="Databricks 연결된 서비스를 지정하는 방법을 보여 주는 스크린샷":::
 
 1.  **새 연결된 서비스** 창에서 다음 단계를 완료합니다.
     
@@ -109,7 +109,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     1.  **액세스 토큰** 에 대해 Azure Databricks 작업 공간에서 생성합니다. 단계는 [여기](https://docs.databricks.com/api/latest/authentication.html#generate-token)서 찾을 수 있습니다.
 
-    1.  **클러스터 버전** 에 대해 **4.2**(Apache Spark 2.3.1, Scala 2.11 포함)를 선택합니다.
+    1.  **클러스터 버전** 에 사용할 버전을 선택합니다.
 
     1.  **클러스터 노드 유형** 에 대해 이 자습서의 **범용(HDD)** 범주 아래에서 **표준\_D3\_v2** 를 선택합니다. 
     
@@ -117,23 +117,23 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     
     1.  **만들기** 를 선택합니다.
 
-        ![새 Azure Databricks 연결된 서비스의 구성을 보여 주는 스크린샷](media/transform-data-using-databricks-notebook/new-databricks-linked-service.png)
+        :::image type="content" source="media/transform-data-using-databricks-notebook/new-databricks-linked-service.png" alt-text="새 Azure Databricks 연결된 서비스의 구성을 보여 주는 스크린샷":::
 
 ## <a name="create-a-pipeline"></a>파이프라인 만들기
 
 1.  **+** (더하기) 단추를 선택한 다음 메뉴에서 **파이프라인** 을 선택합니다.
 
-    ![새 파이프라인을 만들기 위한 단추를 보여 주는 스크린샷](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-9.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-9.png" alt-text="새 파이프라인을 만들기 위한 단추를 보여 주는 스크린샷":::
 
 1.  **파이프라인** 에서 사용할 **매개 변수** 를 만듭니다. 나중에 이 매개 변수를 Databricks Notebook 작업에 전달합니다. 빈 파이프라인에서 **매개 변수** 탭, **새로 만들기** 를 차례로 선택하고, 이름으로 '**name**'을 지정합니다.
 
-    ![새 매개 변수를 만드는 방법을 보여주는 스크린샷](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-10.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-10.png" alt-text="새 매개 변수를 만드는 방법을 보여주는 스크린샷":::
 
-    ![name 매개 변수를 만드는 방법을 보여 주는 스크린샷](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-11.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-11.png" alt-text="name 매개 변수를 만드는 방법을 보여 주는 스크린샷":::
 
 1.  **활동** 도구 상자에서 **Databricks** 를 펼칩니다. **활동** 도구 상자에서 **Notebook** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다.
 
-    ![Notebook을 디자이너 화면으로 끌어오는 방법을 보여 주는 스크린샷](media/transform-data-using-databricks-notebook/new-adf-pipeline.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/new-adf-pipeline.png" alt-text="Notebook을 디자이너 화면으로 끌어오는 방법을 보여 주는 스크린샷":::
 
 1.  아래쪽의 **Databricks** **Notebook** 활동 창에 대한 속성에서 다음 단계를 완료합니다.
 
@@ -149,26 +149,26 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
        1. 작업 공간에서 **새 폴더** 를 만들고 **adftutorial** 로 호출합니다.
 
-          ![새 폴더를 만드는 방법을 보여 주는 스크린샷](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
+          :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png" alt-text="새 폴더를 만드는 방법을 보여 주는 스크린샷":::        
 
        1. [새 Notebook을 만드는 방법을 보여 주는 스크린샷](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python) **adftutorial** 폴더 아래에서 **mynotebook** 이라고 하고 **만들기** 를 클릭해 보겠습니다.
 
-          ![새 Notebook을 만드는 방법을 보여 주는 스크린샷](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
+          :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png" alt-text="새 Notebook을 만드는 방법을 보여 주는 스크린샷":::  
 
-          ![새 Notebook의 속성을 설정하는 방법을 보여 주는 스크린샷](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png)
+          :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png" alt-text="새 Notebook의 속성을 설정하는 방법을 보여 주는 스크린샷":::
 
-       1. 새로 생성된 "mynotebook&quot; Notebook에서 다음 코드를 추가합니다.
+       1. 새로 생성된 "mynotebook" Notebook에서 다음 코드를 추가합니다.
 
            ```
            # Creating widgets for leveraging parameters, and printing the parameters
 
-           dbutils.widgets.text(&quot;input&quot;, &quot;&quot;,&quot;")
+           dbutils.widgets.text("input", "","")
            y = dbutils.widgets.get("input")
            print ("Param -\'input':")
            print (y)
            ```
 
-           ![매개 변수에 대한 위젯을 만드는 방법을 보여 주는 스크린샷](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image16.png)
+          :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image16.png" alt-text="매개 변수에 대한 위젯을 만드는 방법을 보여 주는 스크린샷"::: 
 
        1. 이 경우 **Notebook 경로** 는 **/adftutorial/mynotebook** 입니다.
 
@@ -176,51 +176,51 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     a.  **매개 변수** 를 Notebook 작업에 추가합니다. 이전에 **파이프라인** 에 추가한 것과 동일한 매개 변수를 사용합니다.
 
-       ![매개 변수 추가 방법을 보여 주는 스크린샷](media/transform-data-using-databricks-notebook/new-adf-parameters.png)
+       :::image type="content" source="media/transform-data-using-databricks-notebook/new-adf-parameters.png" alt-text="매개 변수 추가 방법을 보여 주는 스크린샷":::
 
     b.  매개 변수의 이름을 **input** 으로 지정하고 값을 **\@pipeline().parameters.name** 식으로 제공합니다.
 
 1.  파이프라인에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사** 단추를 선택합니다. 유효성 검사 창을 닫으려면 **닫기** 단추를 선택합니다.
 
-    ![파이프라인의 유효성을 검사하는 방법을 보여 주는 스크린샷](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-18.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-18.png" alt-text="파이프라인의 유효성을 검사하는 방법을 보여 주는 스크린샷":::
 
 1.  **모두 게시** 를 선택합니다. Data Factory UI는 엔터티(연결된 서비스 및 파이프라인)를 Azure Data Factory 서비스에 게시합니다.
 
-    ![새 데이터 팩터리 엔터티를 게시하는 방법을 보여 주는 스크린샷](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-19.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-19.png" alt-text="새 데이터 팩터리 엔터티를 게시하는 방법을 보여 주는 스크린샷":::
 
 ## <a name="trigger-a-pipeline-run"></a>파이프라인 실행 트리거
 
 도구 모음에서 **트리거 추가** 를 선택한 다음, **지금 트리거** 를 선택합니다.
 
-!['지금 트리거' 명령을 선택하는 방법을 보여 주는 스크린샷](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-20.png)
+:::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-20.png" alt-text="'지금 트리거' 명령을 선택하는 방법을 보여 주는 스크린샷":::
 
 **파이프라인 실행** 대화 상자에서 **name** 매개 변수를 요청합니다. 여기서는 **/path/filename** 을 매개 변수로 사용합니다. **확인** 을 선택합니다.
 
-![name 매개 변수의 값을 제공하는 방법을 보여 주는 스크린샷](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-21.png)
+:::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-21.png" alt-text="name 매개 변수의 값을 제공하는 방법을 보여 주는 스크린샷":::
 
 ## <a name="monitor-the-pipeline-run"></a>파이프라인 실행을 모니터링합니다.
 
 1.  **모니터** 탭으로 전환합니다. 파이프라인 실행이 표시되는지 확인합니다. 노트북이 실행되는 Databricks 작업 클러스터를 만드는 데 약 5~8분이 걸립니다.
 
-    ![파이프라인을 모니터링하는 방법을 보여 주는 스크린샷](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image22.png)
+    :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image-22.png" alt-text="파이프라인을 모니터링하는 방법을 보여 주는 스크린샷"::: 
 
 1.  주기적으로 **새로 고침** 을 선택하여 파이프라인 실행 상태를 확인합니다.
 
-1.  파이프라인 실행과 연결된 활동 실행을 보려면 **작업** 열에서 **활동 실행 보기** 를 선택합니다.
+1.  파이프라인 실행과 관련된 활동 실행을 보려면 **파이프라인 이름** 열에서 **pipeline1** 링크를 선택합니다.
 
-    ![활동 실행을 표시하는 방법을 보여 주는 스크린샷](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image23.png)
+1. **활동 실행** 페이지의 **활동 이름** 열에서 **출력** 을 선택하여 각 활동 출력을 봅니다. Spark 로그에 대한 자세한 내용은 **출력** 창의 Databricks 로그의 링크를 참조하세요.
 
-위쪽의 **파이프라인** 링크를 선택하여 파이프라인 실행 보기로 다시 전환할 수 있습니다.
+1. 맨 위에 있는 이동 경로 메뉴의 **모든 파이프라인 실행** 링크를 선택하면 파이프라인 실행 보기로 다시 전환할 수 있습니다.
 
 ## <a name="verify-the-output"></a>출력 확인
 
 **Azure Databricks 작업 영역** 에 로그온하고 **클러스터** 로 이동할 수 있으며, **작업** 상태가 *실행 보류 중, 실행 중 또는 종료됨* 으로 표시됩니다.
 
-![작업 클러스터 및 작업을 표시하는 방법을 보여 주는 스크린샷](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image24.png)
+:::image type="content" source="media/transform-data-using-databricks-notebook/databricks-notebook-activity-image24.png" alt-text="작업 클러스터 및 작업을 표시하는 방법을 보여 주는 스크린샷"::: 
 
 **작업 이름** 을 클릭하여 세부 정보를 탐색할 수 있습니다. 성공적으로 실행되면 전달된 매개 변수와 Python 노트북의 출력의 유효성을 검사할 수 있습니다.
 
-![실행 세부 정보 및 출력을 표시하는 방법을 보여 주는 스크린샷](media/transform-data-using-databricks-notebook/databricks-output.png)
+:::image type="content" source="media/transform-data-using-databricks-notebook/databricks-output.png" alt-text="실행 세부 정보 및 출력을 표시하는 방법을 보여 주는 스크린샷"::: 
 
 ## <a name="next-steps"></a>다음 단계
 

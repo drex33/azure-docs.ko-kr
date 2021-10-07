@@ -5,12 +5,12 @@ author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 09/30/2021
-ms.openlocfilehash: df925bd149c8516f4c6af8b49a65969737aaffa2
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 6b093eeda754d288030e6ff3f1739a5c68c659c1
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129352377"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615603"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Azure Monitor 메트릭 경고 문제 해결 
 
@@ -141,7 +141,7 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
     }
 ```
 > [!NOTE] 
-> 3 일 넘게 내보내지 않은 기존 사용자 지정 메트릭에 대 한 경고 규칙을 정의 하는 경우에도 *skipMetricValidation* 매개 변수를 사용 해야 합니다.
+> 며칠 동안 내보내지 않은 기존 사용자 지정 메트릭에 대한 경고 규칙을 정의할 때 *skipMetricValidation* 매개 변수를 사용해야 할 수도 있습니다.
 
 ## <a name="export-the-azure-resource-manager-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Azure Portal을 통해 메트릭 경고 규칙의 Azure Resource Manager 템플릿 내보내기
 

@@ -3,21 +3,21 @@ title: '빠른 시작: JavaScript SPA(단일 페이지 앱)에서 인증 코드�
 titleSuffix: Microsoft identity platform
 description: 이 빠른 시작에서는 JavaScript SPA(단일 페이지 애플리케이션)에서 인증 코드 흐름을 사용하여 개인 계정, 회사 및 학교 계정의 사용자에 로그인하는 방법을 알아봅니다.
 services: active-directory
-author: hahamil
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/17/2020
-ms.author: hahamil
+ms.date: 09/09/2021
+ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 4ba36b80fc6a521b22dc812bdf67c3985a455ff4
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 5a136437f6ec47cf1b60f6a8a54ac7e63139afd7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108071897"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128611981"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow-with-pkce"></a>빠른 시작: PKCE를 통해 인증 코드 흐름을 사용하여 사용자를 로그인하고 JavaScript SPA에서 액세스 토큰을 가져옵니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "108071897"
 
 자세한 내용은 [샘플 작동 방식](#how-the-sample-works)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험용 Azure 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Node.JS](https://nodejs.org/en/download/)
@@ -48,7 +48,7 @@ ms.locfileid: "108071897"
 > #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
 >
 > 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
-> 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+> 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트로 전환합니다.
 > 1. **Azure Active Directory** 를 검색하고 선택합니다.
 > 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
 > 1. 애플리케이션의 **이름** 을 입력합니다. 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
@@ -89,7 +89,7 @@ ms.locfileid: "108071897"
 > const msalConfig = {
 >   auth: {
 >     clientId: "Enter_the_Application_Id_Here",
->     authority: "Enter_the_Cloud_Instance_Id_HereEnter_the_Tenant_Info_Here",
+>     authority: "Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here",
 >     redirectUri: "Enter_the_Redirect_Uri_Here",
 >   },
 >   cache: {
@@ -110,7 +110,7 @@ ms.locfileid: "108071897"
 > - `Enter_the_Application_Id_Here`는 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 입니다.
 >
 >    **애플리케이션(클라이언트) ID** 값을 찾으려면 Azure Portal에서 앱 등록의 **개요** 페이지로 이동합니다.
-> - `Enter_the_Cloud_Instance_Id_Here`는 Azure 클라우드 인스턴스입니다. 주 또는 글로벌 Azure 클라우드의 경우 `https://login.microsoftonline.com/`을 입력합니다. **국가별** 클라우드(예제: 중국)의 경우 [국가별 클라우드](authentication-national-cloud.md)를 참조하세요.
+> - `Enter_the_Cloud_Instance_Id_Here`는 Azure 클라우드 인스턴스입니다. 주 또는 글로벌 Azure 클라우드의 경우 `https://login.microsoftonline.com`을 입력합니다. **국가별** 클라우드(예제: 중국)의 경우 [국가별 클라우드](authentication-national-cloud.md)를 참조하세요.
 > - `Enter_the_Tenant_info_here`는 다음 중 하나일 수 있습니다.
 >   - 애플리케이션에서 *이 조직 디렉터리의 계정* 을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름** 으로 바꿉니다. 예들 들어 `contoso.microsoft.com`입니다.
 >

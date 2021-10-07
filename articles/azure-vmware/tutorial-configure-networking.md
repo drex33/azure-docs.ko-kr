@@ -4,12 +4,12 @@ description: Azure에서 프라이빗 클라우드를 배포하는 데 필요한
 ms.topic: tutorial
 ms.custom: contperf-fy22q1
 ms.date: 07/30/2021
-ms.openlocfilehash: 61a1c1c45455c9edc402aca1e5471f3ed95a8d66
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 99389c55ab13b6c6c181a4d7d1bcf14c3b8ba08d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122069561"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597800"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>자습서: Azure에서 VMware 프라이빗 클라우드에 대한 네트워킹 구성
 
@@ -27,8 +27,9 @@ Azure VMware Solution 프라이빗 클라우드에는 Azure Virtual Network가 �
 
 >[!NOTE]
 >새 VNet을 만들기 전에 Azure에 기존 VNet이 이미 있는지 확인하고 이를 사용해서 Azure VMware Solution에 연결할지 또는 VNet을 완전히 새로 만들지 여부를 계획합니다.  
->* 기존 VNet을 사용하려면 **연결** 아래에서 **[Azure VNet 연결](#select-an-existing-vnet)** 탭을 사용합니다. 
->* 새 VNet을 만들려면 **[Azure VNet 연결](#create-a-new-vnet)** 탭을 사용하거나 항목을 [수동으로](#create-a-vnet-manually) 만듭니다.
+>* Azure VMware Solution과 동일한 Azure 구독에서 기존 vNet을 사용하려면 **연결** 의 **[Azure vNet 연결](#select-an-existing-vnet)** 탭을 사용합니다. 
+>* Azure VMware Solution과 다른 Azure 구독에서 기존 vNet을 사용하려면 **[프라이빗 클라우드로 수동 연결](#connect-to-the-private-cloud-manually)** 의 지침을 사용합니다. 
+>* Azure VMware Solution과 동일한 Azure 구독에서 새 vNet을 만들려면 **[Azure vNet 연결](#create-a-new-vnet)** 탭을 사용하거나 [수동으로](#create-a-vnet-manually) 만듭니다.
 
 ## <a name="connect-with-the-azure-vnet-connect-feature"></a>Azure VNet 연결 기능을 사용하여 연결
 

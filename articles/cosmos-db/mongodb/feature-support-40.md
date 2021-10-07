@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: 9879b6a5e70af9aff6a2f7a97321f996a8aa209b
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 3c7e455377ab243f8140ac346c6f924a3b04f0d8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123033352"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128554186"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-40-server-version-supported-features-and-syntax"></a>Azure Cosmos DB의 API for MongoDB(4.0 서버 버전): 지원되는 기능 및 구문
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -313,9 +313,9 @@ Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령
 | $dateToString | 예 |
 | $isoDayOfWeek | 예 |
 | $isoWeek | 예 |
-| $dateFromParts | 예 | 
-| $dateToParts | 예 |
-| $dateFromString | 예 |
+| $dateFromParts | Yes | 
+| $dateToParts | Yes |
+| $dateFromString | Yes |
 | $isoWeekYear | 예 |
 
 ### <a name="conditional-expressions"></a>조건부 식
@@ -534,34 +534,8 @@ $polygon | No |
 
 `findOneAndUpdate` 작업을 사용할 경우 단일 필드에 대한 정렬 작업이 지원되지만 여러 필드에 대한 정렬 작업은 지원되지 않습니다.
 
-## <a name="unique-indexes"></a>고유 인덱스
-
-[고유 인덱스](mongodb-indexing.md#unique-indexes)를 사용하면 컬렉션의 모든 문서에서 특정 필드에 중복된 값이 나타나지 않으며, 이는 기본 "_id" 키에서 고유성이 유지되는 방식과 유사합니다. `createIndex` 명령을 `unique` 제약 조건 매개 변수와 함께 사용하면 Azure Cosmos DB에서 고유 인덱스를 만들 수 있습니다.
-
-```javascript
-globaldb:PRIMARY> db.coll.createIndex( { "amount" : 1 }, {unique:true} )
-{
-    "_t" : "CreateIndexesResponse",
-    "ok" : 1,
-    "createdCollectionAutomatically" : false,
-    "numIndexesBefore" : 1,
-    "numIndexesAfter" : 4
-}
-```
-
-## <a name="compound-indexes"></a>복합 인덱스
-
-[복합 인덱스](mongodb-indexing.md#compound-indexes-mongodb-server-version-36)를 사용하면 최대 8개 필드까지 필드 그룹의 인덱스를 만들 수 있습니다. 이 유형의 인덱스는 기본 MongoDB 복합 인덱스와 다릅니다. Azure Cosmos DB 복합 인덱스는 여러 필드에 적용되는 정렬 작업에 사용됩니다. 복합 인덱스를 만들려면 두 개 이상의 속성을 매개 변수로 지정해야 합니다.
-
-```javascript
-globaldb:PRIMARY> db.coll.createIndex({"amount": 1, "other":1})
-{
-    "createdCollectionAutomatically" : false, 
-    "numIndexesBefore" : 1,
-    "numIndexesAfter" : 2,
-    "ok" : 1
-}
-```
+## <a name="indexing"></a>인덱싱
+API for MongoDB는 여러 필드를 기준으로 정렬하고, 쿼리 성능을 향상시키고, 고유성을 적용할 수 있도록 [다양한 인덱스를 지원](mongodb-indexing.md)합니다.
 
 ## <a name="gridfs"></a>GridFS
 
@@ -606,4 +580,4 @@ Azure Cosmos DB는 아직 사용자 및 역할을 지원하지 않습니다. 그
 - Azure Cosmos DB의 API for MongoDB를 사용하여 MongoDB [샘플](nodejs-console-app.md)을 살펴봅니다.
 - Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
     - 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](../convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
-    - 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-capacity-planner.md)에 대해 읽어보세요.
+    - 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](estimate-ru-capacity-planner.md)에 대해 읽어보세요.

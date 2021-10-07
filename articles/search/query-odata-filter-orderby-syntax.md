@@ -2,29 +2,17 @@
 title: OData 언어 개요
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search 쿼리의 filter, select, order-by에 대한 OData 언어 개요입니다.
-manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/10/2020
-translation.priority.mt:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pt-br
-- ru-ru
-- zh-cn
-- zh-tw
-ms.openlocfilehash: d04311fce81d147a0830918aee1d4a2a9c0808d4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 10/06/2021
+ms.openlocfilehash: 2225bd0012e5159467cba17ebf7b272ca8db0cb7
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88923401"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129613019"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Azure Cognitive Search의 `$filter`, `$orderby`, `$select`에 대한 OData 언어 개요
 

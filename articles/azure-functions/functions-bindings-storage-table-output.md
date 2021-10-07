@@ -6,19 +6,19 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: f793f96f55a258b2d7cb11f214984416557618df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: b30fbbca1bfabfdbf9836e00ee2b2d585308774a
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102453005"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129611770"
 ---
 # <a name="azure-table-storage-output-bindings-for-azure-functions"></a>Azure Functions에 대한 Azure Table Storage 출력 바인딩
 
 Azure Table Storage 출력 바인딩을 사용하여 Azure Storage 계정에서 테이블에 엔터티를 쓸 수 있습니다.
 
 > [!NOTE]
-> 이 출력 바인딩은 기존 엔터티 업데이트를 지원하지 않습니다. [Azure Storage SDK](../cosmos-db/tutorial-develop-table-dotnet.md#delete-an-entity)에서 `TableOperation.Replace` 작업을 사용하여 기존 엔터티를 업데이트합니다.
+> 이 출력 바인딩은 기존 엔터티 업데이트를 지원하지 않습니다. [Azure Storage SDK](../cosmos-db/table/table-support.md)에서 `TableOperation.Replace` 작업을 사용하여 기존 엔터티를 업데이트합니다.
 
 ## <a name="example"></a>예제
 

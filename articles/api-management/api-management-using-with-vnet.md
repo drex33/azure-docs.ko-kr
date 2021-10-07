@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/10/2021
 ms.author: danlep
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 008e3874961af2c3e8ff8dfe3f162254fb9d5f5e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1d3abd6da011a0147c3e9cee06f8e60800263e63
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128669249"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612012"
 ---
 # <a name="connect-to-a-virtual-network-using-azure-api-management"></a>Azure API Management를 사용하여 가상 네트워크에 연결
 
@@ -162,12 +162,12 @@ API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표�
 | * / 1433                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / SQL                 | **Azure SQL 엔드포인트에 대한 액세스**                           | 외부 및 내부  |
 | * / 5671, 5672, 443          | 아웃바운드           | TCP                | VIRTUAL_NETWORK/이벤트 허브            | [이벤트 허브에 로그 정책](api-management-howto-log-event-hubs.md) 및 모니터링 에이전트의 종속성 | 외부 및 내부  |
 | * / 445                      | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 스토리지             | [GIT](api-management-configuration-repository-git.md)의 Azure 파일 공유에 대한 종속성                      | 외부 및 내부  |
-| * / 443, 12000                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / AzureCloud            | 상태 및 모니터링 확장         | 외부 및 내부  |
+| * / 443, 12000                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / AzureCloud            | 상태 및 모니터링 확장 & Event Grid 종속성(이벤트 알림이 활성화된 경우)        | 외부 및 내부  |
 | * / 1886, 443                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | [진단 로그 및 메트릭](api-management-howto-use-azure-monitor.md), [Resource Health](../service-health/resource-health-overview.md) 및 [Application Insights](api-management-howto-app-insights.md) 게시                   | 외부 및 내부  |
 | * / 25, 587, 25028                       | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 인터넷            | 메일을 보내기 위해 SMTP 릴레이에 연결                    | 외부 및 내부  |
 | * / 6381 - 6383              | 인바운드 및 아웃바운드 | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | 머신 간 [캐시](api-management-caching-policies.md) 정책을 위해 Redis Service에 액세스         | 외부 및 내부  |
 | * / 4290              | 인바운드 및 아웃바운드 | UDP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | 머신 간 [속도 제한](api-management-access-restriction-policies.md#LimitCallRateByKey) 정책에 대한 동기화 카운터         | 외부 및 내부  |
-| * / *                         | 인바운드            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure 인프라 Load Balancer (Premium SKU에 대 한 중요)                         | 외부 및 내부  |
+| * / *                         | 인바운드            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure 인프라 Load Balancer(Premium SKU에 중요)                         | 외부 및 내부  |
 
 ---
 
@@ -189,7 +189,7 @@ API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표�
   
 ### <a name="regional-service-tags"></a>지역 서비스 태그
 
-Storage, SQL 및 Event Hubs 서비스 태그에 대 한 아웃 바운드 연결을 허용 하는 nsg 규칙은 API Management 인스턴스가 포함 된 지역 (예: Storage)에 해당 하는 태그의 지역 버전을 사용할 수 있습니다. 미국 서 부 지역의 API Management 인스턴스에 대 한 WestUS입니다. 다중 지역 배포에서 각 지역의 NSG는 해당 지역 및 주 지역에 대한 서비스 태그로의 트래픽을 허용해야 합니다.
+Storage, SQL 및 Event Hubs 서비스 태그에 대한 아웃바운드 연결을 허용하는 NSG 규칙은 API Management 인스턴스를 포함하는 지역에 해당하는 해당 태그의 지역 버전(예: Storage)을 사용할 수 있습니다. 미국 서부 지역의 API Management 인스턴스)에 대한 WestUS입니다. 다중 지역 배포에서 각 지역의 NSG는 해당 지역 및 주 지역에 대한 서비스 태그로의 트래픽을 허용해야 합니다.
 
 > [!IMPORTANT]
 > 미국 서부 지역의 Blob 스토리지에 대한 아웃바운드 연결을 허용하여 VNET에서 API Management 인스턴스에 대한 [개발자 포털](api-management-howto-developer-portal.md)을 게시하도록 설정합니다. 예를 들어 NSG 규칙에서 **Storage.WestUS** 서비스 태그를 사용합니다. 현재 모든 API Management 인스턴스에 대한 개발자 포털을 게시하려면 미국 서부 지역의 Blob 스토리지에 대한 연결이 필요합니다.
@@ -319,16 +319,16 @@ Windows를 실행 하는 가상 머신을 VNET에 추가 하는 경우, 포트 1
 | Azure Government| 미국 국방부 동부| 52.181.32.192|
 
 ## <a name="troubleshooting"></a>문제 해결
-* **서브넷에 API Management 서비스의 초기 배포 실패** 
+* **API Management 서비스를 서브넷에 초기 배포 하지 못했습니다.** 
   * 같은 서브넷에 가상 머신을 배포합니다. 
-  * 가상 머신에 커넥트 Azure 구독에서 다음 각 리소스 중 하나에 대한 연결의 유효성을 검사합니다.
+  * 가상 컴퓨터에 커넥트 하 고 Azure 구독에서 다음 리소스 중 하나에 대 한 연결의 유효성을 검사 합니다.
     * Azure Storage Blob
     * Azure SQL Database
     * Azure Storage 테이블
-    * [ `stv2` Azure Key Vault(플랫폼에서](compute-infrastructure.md)호스트되는 API Management 인스턴스의 경우)
+    * Azure Key Vault ( [ `stv2` 플랫폼](compute-infrastructure.md)에서 호스팅되는 API Management 인스턴스의 경우)
 
   > [!IMPORTANT]
-  > 연결의 유효성을 검사한 후 서브넷에 API Management 배포하기 전에 서브넷의 모든 리소스를 제거합니다(API Management 플랫폼에서 호스트되는 경우 `stv1` 필요).
+  > 연결의 유효성을 검사 한 후에는 서브넷에 API Management를 배포 하기 전에 서브넷의 모든 리소스를 제거 합니다 (API Management가 플랫폼에서 호스팅될 때 필요 `stv1` ).
 
 * **네트워크 연결 상태 확인**  
   * 서브넷에 API Management를 배포한 후 포털을 사용하여 Azure Storage와 같은 종속성에 대한 인스턴스의 연결을 확인합니다. 
@@ -338,25 +338,25 @@ Windows를 실행 하는 가상 머신을 VNET에 추가 하는 경우, 포트 1
 
   | Assert | 설명 |
   | ----- | ----- |
-  | **필수** | API Management에 대해 필요한 Azure 서비스 연결을 검토하려면 선택합니다. 실패는 인스턴스가 API를 관리하기 위한 핵심 작업을 수행할 수 없음을 나타냅니다. |
+  | **필수** | API Management에 대해 필요한 Azure 서비스 연결을 검토하려면 선택합니다. 오류는 인스턴스가 Api를 관리 하기 위한 핵심 작업을 수행할 수 없음을 나타냅니다. |
   | **선택 사항** | 선택적 서비스 연결을 검토하려면 선택합니다. 오류는 특정 기능(예: SMTP)이 작동하지 않음을 나타냅니다. 오류가 발생하면 API Management 인스턴스를 사용 및 모니터링하고 커밋된 SLA를 제공하는 기능이 저하될 수 있습니다. |
 
-  연결 문제를 해결하려면 [네트워크 구성 설정을](#network-configuration-issues) 검토하고 필요한 네트워크 설정을 수정합니다.
+  연결 문제를 해결 하려면 [네트워크 구성 설정](#network-configuration-issues) 을 검토 하 고 필요한 네트워크 설정을 수정 합니다.
 
 * **증분 업데이트**  
   네트워크를 변경할 때 [NetworkStatus API](/rest/api/apimanagement/2020-12-01/network-status)를 참조하여 API Management 서비스에서 중요한 리소스에 대한 액세스를 손실하지 않았는지 확인합니다. 연결 상태는 15분마다 업데이트되어야 합니다.
 
 * **리소스 탐색 링크**  
-  [ `stv1` 컴퓨팅 플랫폼에서](compute-infrastructure.md)호스트되는 APIM 인스턴스는 Resource Manager VNET 서브넷에 배포될 때 리소스 탐색 링크를 만들어 서브넷을 예약합니다. 서브넷에 니미 다른 공급자의 리소스가 포함된 경우에는 배포가 **실패** 합니다. 마찬가지로 API Management 서비스를 삭제하거나 다른 서브넷으로 이동하면 리소스 탐색 링크가 제거됩니다.
+  리소스 관리자 VNET 서브넷에 배포 된 경우 [ `stv1` 계산 플랫폼](compute-infrastructure.md)에서 호스트 되는 apim 인스턴스는 리소스 탐색 링크를 만들어 서브넷을 예약 합니다. 서브넷에 니미 다른 공급자의 리소스가 포함된 경우에는 배포가 **실패** 합니다. 마찬가지로 API Management 서비스를 삭제하거나 다른 서브넷으로 이동하면 리소스 탐색 링크가 제거됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 다음에 대해 자세히 알아봅니다.
 
-* [VPN Gateway 사용하여 백 엔드에 가상 네트워크 연결](../vpn-gateway/design.md#s2smulti)
-* [다른 배포 모델에서 가상 네트워크 연결](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
+* [VPN Gateway를 사용 하 여 가상 네트워크를 백 엔드에 연결](../vpn-gateway/design.md#s2smulti)
+* [다양 한 배포 모델에서 가상 네트워크 연결](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [요청 추적을 사용하여 API 디버그](api-management-howto-api-inspector.md)
-* [질문과 대답 Virtual Network](../virtual-network/virtual-networks-faq.md)
+* [Virtual Network 질문과 대답](../virtual-network/virtual-networks-faq.md)
 * [서비스 태그](../virtual-network/network-security-groups-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png

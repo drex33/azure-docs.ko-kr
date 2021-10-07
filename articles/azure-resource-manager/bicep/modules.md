@@ -4,13 +4,13 @@ description: 모듈을 정의하고 사용하는 방법과 모듈 범위를 사�
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/14/2021
-ms.openlocfilehash: 53bc8d80f1954694b8bdb262cdec25bb4506b221
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/05/2021
+ms.openlocfilehash: bd5069db6a2ad9cb14f5f0b3bc28612afa519727
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128672840"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619598"
 ---
 # <a name="use-bicep-modules"></a>Bicep 모듈 사용
 
@@ -22,7 +22,7 @@ Bicep을 사용하면 복잡 한 솔루션을 모듈로 분할할 수 있습니�
 
 ## <a name="define-modules"></a>모듈 정의
 
-모든 Bicep 파일을 모듈로 사용할 수 있습니다. 모듈은 매개 변수 및 출력만 다른 Bicep 파일에 계약으로 노출합니다. 매개 변수 및 출력은 선택 사항입니다.
+모든 Bicep 파일을 모듈로 사용할 수 있습니다. 모듈은 매개 변수 및 출력만 다른 Bicep 파일에 대한 계약으로 노출합니다. 매개 변수 및 출력은 선택 사항입니다.
 
 다음 Bicep 파일을 직접 배포하여 스토리지 계정을 만들거나 모듈로 사용할 수 있습니다.  다음 섹션에서는 모듈을 사용하는 방법을 보여줍니다.
 
@@ -139,7 +139,7 @@ param namePrefix string
 param location string = deployment().location
 
 var resourceGroupName = '${namePrefix}rg'
-resource myResourceGroup 'Microsoft.Resources/resourceGroups@2020-01-01' = {
+resource myResourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   name: resourceGroupName
   location: location
   scope: subscription()
@@ -189,7 +189,7 @@ module storage2 'storageAccount.bicep' = {
 }
 ```
 
-범위 속성은 유효한 범위 개체로 설정해야 합니다. Bicep 파일이 리소스 그룹, 구독 또는 관리 그룹을 배포하는 경우 모듈의 범위를 해당 리소스의 기호 이름으로 설정할 수 있습니다. 또는 범위 함수를 사용하여 유효한 범위를 얻을 수 있습니다. 
+범위 속성은 유효한 범위 개체로 설정해야 합니다. Bicep 파일이 리소스 그룹, 구독 또는 관리 그룹을 배포하는 경우 모듈의 범위를 해당 리소스의 기호 이름으로 설정할 수 있습니다. 또는 범위 함수를 사용하여 유효한 범위를 얻을 수 있습니다.
 
 해당 함수는 다음과 같습니다.
 

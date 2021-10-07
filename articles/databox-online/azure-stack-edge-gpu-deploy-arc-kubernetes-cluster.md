@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 44716cea30df107d3e966ce39e941bcbe385ebb8
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 4958574256cbd3a854647eaf37948ef4e0a8f9a7
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129535686"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129611513"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 디바이스의 Kubernetes 클러스터에 Azure Arc 사용
 
@@ -142,7 +142,7 @@ Azure Arc 관리를 위해 Kubernetes 클러스터를 구성하려면 다음 단
 
     `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>"` 
     
-    이 명령을 실행하면 를 입력하라는 후속 메시지가 `ClientSecret` 표시됩니다. `ClientSecret`은 보안 문자열입니다.
+    이 명령을 실행하면 를 입력하라는 후속 메시지가 `ClientSecret` 표시됩니다. 서비스 주체 암호를 제공합니다.
 
     Azure 퍼블릭이 아닌 다른 클라우드를 사용하는 경우 `CloudEnvironment` 매개 변수를 추가합니다. 이 매개 변수를 , , 및 로 설정할 수 `AZUREPUBLICCLOUD` `AZURECHINACLOUD` `AZUREGERMANCLOUD` `AZUREUSGOVERNMENTCLOUD` 있습니다.
 
@@ -154,7 +154,17 @@ Azure Arc 관리를 위해 Kubernetes 클러스터를 구성하려면 다음 단
     예를 들면 다음과 같습니다.
    
     ```powershell
-    [10.128.44.240]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed&quot; -ResourceGroupName &quot;myaserg1&quot; -ResourceName &quot;myasetestresarc&quot; -Location &quot;westeurope&quot; -TenantId &quot;72f988bf-86f1-41af-91ab-2d7cd011db47&quot; -ClientId &quot;aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b"
+    [10.100.10.10]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed&quot; -ResourceGroupName &quot;myaserg1&quot; -ResourceName &quot;myasetestresarc&quot; -Location &quot;westeurope&quot; -TenantId &quot;72f988bf-86f1-41af-91ab-2d7cd011db47&quot; -ClientId &quot;aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b"
+    
+    WARNING: A script or application on the remote computer 10.126.76.0 is sending a prompt request. When you are prompted,
+    enter sensitive information, such as credentials or passwords, only if you trust the remote computer and the
+    application or script that is requesting the data.
+
+    cmdlet Set-HcsKubernetesAzureArcAgent at command pipeline position 1
+
+    Supply values for the following parameters:
+    ClientSecret: **********************************
+    [10.100.10.10]: PS>
     ```
     
     Azure Portal에서는 이전 명령에 제공했던 이름으로 리소스를 만들어야 합니다.

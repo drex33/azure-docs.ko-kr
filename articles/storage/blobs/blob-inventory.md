@@ -10,12 +10,12 @@ ms.author: normesta
 ms.reviewer: klaasl
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 9cf53cdf35435030b9aa16b8336d80d887e6efbd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6962688a574d7f7c11f8cbfc71ccdb29ac3b6445
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128584212"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619391"
 ---
 # <a name="azure-storage-blob-inventory"></a>Azure Storage Blob 인벤토리
 
@@ -254,7 +254,7 @@ Blob 인벤토리 실행은 매일 자동으로 예약됩니다. 인벤토리 �
 
 규칙에 대한 인벤토리를 실행할 때마다 다음 파일이 생성됩니다.
 
-- **인벤토리 파일:** 규칙에 대 한 인벤토리 실행은 하나 이상의 CSV 또는 Apache Parquet 형식 파일을 생성 합니다. 일치하는 개체 수가 많으면 단일 파일 대신 여러 개의 파일이 생성됩니다. 각 파일에는 일치하는 개체와 해당 메타데이터가 포함됩니다. CS 형식 파일의 경우 첫 번째 행은 항상 스키마 행입니다. 다음 이미지는 Microsoft Excel에서 열린 인벤토리 CSV 파일을 보여 줍니다.
+- **인벤토리 파일:** 규칙에 대 한 인벤토리 실행은 하나 이상의 CSV 또는 Apache Parquet 형식 파일을 생성 합니다. 일치하는 개체 수가 많으면 단일 파일 대신 여러 개의 파일이 생성됩니다. 각 파일에는 일치하는 개체와 해당 메타데이터가 포함됩니다. CSV 형식의 파일의 경우 첫 번째 행은 항상 스키마 행입니다. 다음 이미지는 Microsoft Excel에서 열린 인벤토리 CSV 파일을 보여 줍니다.
 
   :::image type="content" source="./media/blob-inventory/csv-file-excel.png" alt-text="Microsoft Excel에서 열린 인벤토리 CSV 파일의 스크린샷":::
 

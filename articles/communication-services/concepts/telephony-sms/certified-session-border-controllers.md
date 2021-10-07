@@ -8,12 +8,13 @@ ms.author: bobazile
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 8b2468b13f7093129c137019d8ec7f60e4fd5e4f
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.subservice: pstn
+ms.openlocfilehash: 9d9b08435f0f3a114a726acc26582a44b32b97ff
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123258005"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060975"
 ---
 # <a name="list-of-session-border-controllers-certified-for-azure-communication-services-direct-routing"></a>Azure Communication Services 직접 라우팅이 인증된 Session Border Controller 목록
 이 문서에는 Azure Communication Services 직접 라우팅이 인증된 Session Border Controller 목록이 포함되어 있습니다. 알려진 제한 사항도 제공됩니다.
@@ -37,8 +38,11 @@ Communication Services 직접 라우팅용 SBC 인증 프로그램에 대한 질
 
 |Vendor|제품|소프트웨어 버전|
 |:--- |:--- |:--- 
-|AudioCodes|중앙값 SBC|7.40A
+|[AudioCodes](https://www.audiocodes.com/media/lbjfezwn/mediant-sbc-with-microsoft-azure-communication-services.pdf)|중앙값 SBC|7.40A
 |Metaswitch|Perimeta SBC|4.9|
+|[Oracle](https://www.oracle.com/technical-resources/documentation/acme-packet.html)|Oracle Acme Packet SBC|8.4|
+|리본 통신|SBC SWe / SBC 5400 / SBC 7000|9.02|
+||SBC SWe Lite / SBC 1000 / SBC 2000|9.0
 
 주 버전에 부여된 인증을 확인합니다. 즉, 주 버전 뒤에 있는 SBC 펌웨어의 숫자를 포함하는 펌웨어가 지원됩니다.
 

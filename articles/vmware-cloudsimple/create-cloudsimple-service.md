@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - CloudSimple 서비스 만들기
 description: Azure Portal에서 CloudSimple 서비스를 만드는 방법에 대해 알아봅니다. 시작하기 전에 필요한 구성을 검토합니다.
-author: Ajayan1008
-ms.author: v-hborys
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 53f2d0fc9f73985bd70792c8c3b7607eb4c560fa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: be62455293975a046524ea81271428ebede7c354
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97896297"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612107"
 ---
 # <a name="create-the-azure-vmware-solution-by-cloudsimple-service"></a>Azure VMware Solution by CloudSimple 만들기
 

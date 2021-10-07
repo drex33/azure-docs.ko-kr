@@ -2,19 +2,17 @@
 title: moreLikeThis(미리 보기) 쿼리 기능
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search REST API의 미리 보기 버전에서 제공되는 moreLikeThis(미리 보기) 기능에 관해 설명합니다.
-manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
-ms.devlang: rest-api
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 595884bf9d73e6e7af6663c051a2735908670eb4
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
-ms.translationtype: HT
+ms.date: 10/06/2021
+ms.openlocfilehash: 1dae66ed27a0934d17503cc8262d39dfc02b46dc
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112578670"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612069"
 ---
 # <a name="morelikethis-preview-in-azure-cognitive-search"></a>Azure Cognitive Search의 moreLikeThis(미리 보기)
 
@@ -35,14 +33,14 @@ ms.locfileid: "112578670"
 
 다음 쿼리는 설명 필드가 `moreLikeThis` 매개 변수로 지정된 원본 문서의 필드와 가장 유사한 문서를 찾습니다.
 
-```
+```http
 GET /indexes/hotels-sample-index/docs?moreLikeThis=29&searchFields=Description&api-version=2020-06-30-Preview
 ```
 
 이 예제에서 요청은 `HotelId` 29와 유사한 호텔을 검색합니다.
 HTTP GET을 사용하는 대신 HTTP POST를 사용하여 `MoreLikeThis`를 호출할 수도 있습니다.
 
-```
+```http
 POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30-Preview
     {
       "moreLikeThis": "29",
@@ -54,7 +52,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30-Preview
 
 `MoreLikeThis`는 `$filter`와 같은 다른 일반적인 쿼리 매개 변수와 결합될 수 있습니다. 예를 들어, 쿼리는 범주가 ‘예산’이고 평점이 3.5보다 높은 호텔로만 제한될 수 있습니다.
 
-```
+```http
 GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$filter=(Category eq 'Budget' and Rating gt 3.5)&api-version=2020-06-30-Preview
 ```
 
@@ -62,7 +60,7 @@ GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$
 
 `$top` 선택기를 사용하여 `MoreLikeThis` 쿼리에서 반환되어야 하는 결과 수를 제한할 수 있습니다. 또한 `$select`를 사용하여 필드를 선택할 수 있습니다. 여기에서 상위 3개 호텔이 ID, 이름, 등급과 함께 선택됩니다. 
 
-```
+```http
 GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$filter=(Category eq 'Budget' and Rating gt 3.5)&$top=3&$select=HotelId,HotelName,Rating&api-version=2020-06-30-Preview
 ```
 
@@ -71,4 +69,4 @@ GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$
 모든 웹 테스트 도구를 사용하여 기능을 시험해 볼 수 있습니다.  이 연습에서는 Postman을 사용하는 것이 좋습니다.
 
 > [!div class="nextstepaction"]
-> [Azure Cognitive Search REST API 살펴보기](search-get-started-rest.md)
+> [Postman을 사용하여 Azure Cognitive Search REST API 살펴보기](search-get-started-rest.md)

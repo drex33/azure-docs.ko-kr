@@ -3,17 +3,17 @@ title: Azure Virtual Desktop의 새로운 기능 - Azure
 description: Azure Virtual Desktop에 대한 새로운 기능 및 제품 업데이트.
 author: Heidilohr
 ms.topic: overview
-ms.date: 07/30/2021
+ms.date: 09/27/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: 88c94a3f1b6329c80cddcec49c7ebb445a21d8e0
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 438a3f4091afbfb885e2f585196193ce91f13f4a
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123318144"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129154549"
 ---
 # <a name="whats-new-in-azure-virtual-desktop"></a>Azure Virtual Desktop의 새로운 기능
 
@@ -42,6 +42,10 @@ Azure Virtual Desktop 에이전트는 한 달에 한 번 이상 업데이트됩�
 
 Azure Virtual Desktop 에이전트에서 변경된 내용은 다음과 같습니다.
 
+- 버전 1.0.3373.2600: 이 업데이트는 2021년 9월에 릴리스되었으며 다음과 같이 변경되었습니다.
+    - 일반 에이전트가 향상되었습니다.
+    - Windows 7 VM에서 에이전트를 다시 시작할 때 발생하는 문제가 해결되었습니다.
+    - WVDAgentHealthStatus 테이블의 필드가 올바르게 표시되지 않는 문제가 해결되었습니다.
 - 버전 1.0.3130.2900: 이 업데이트는 2021년 7월에 릴리스되었으며 다음과 같이 변경되었습니다.
     - 일반 개선 사항 및 버그 수정
     - Intune 등록을 위한 호스트 풀 경로를 가져오는 문제를 해결합니다.
@@ -67,33 +71,51 @@ Azure Virtual Desktop 에이전트에서 변경된 내용은 다음과 같습니
 
 FSLogix의 최신 업데이트가 궁금하신가요? [FSLogix의 새로운 기능](/fslogix/whats-new)을 확인하세요.
 
+## <a name="september-2021"></a>2021년 9월
+
+2021년 9월에 변경된 내용은 다음과 같습니다.
+
+### <a name="azure-portal-updates"></a>Azure Portal 업데이트
+
+이제 Azure Resource Manager 템플릿을 배포 후 세션 호스트에 적용하려는 모든 업데이트에 사용할 수 있습니다. 이 기능은 호스트 풀을 만드는 동안 **가상 머신** 탭을 선택하여 액세스할 수 있습니다.
+
+또한 이제는 나중에 대신 호스트 풀을 만드는 동안 호스트 풀, 앱 그룹 및 작업 영역 진단 설정을 지정할 수 있습니다. 이러한 설정을 호스트 풀 만들기 프로세스 중에 구성하면 Azure Virtual Desktop 인사이트에 대한 보고 데이터도 자동으로 설정됩니다.
+
+### <a name="azure-active-directory-domain-join"></a>Azure Active Directory 도메인 가입
+
+이제 Azure Active Directory 도메인 가입이 일반 공급됩니다. 이 서비스를 사용하면 세션 호스트를 Azure Active Directory에 조인할 수 있습니다. 또한 도메인 가입을 통해 Microsoft Endpoint Manager의 일부로 Intune에 자동으로 등록할 수 있습니다. 이 기능은 Azure 퍼블릭 클라우드에서 액세스할 수 있지만, Government 클라우드 또는 Azure 중국에서는 액세스할 수 없습니다. 자세한 내용은 [블로그 게시물](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-general-availability-of-azure-ad-joined-vms-support/ba-p/2751083)을 참조하세요.
+
+### <a name="azure-china"></a>Azure 중국
+
+Azure Virtual Desktop은 이제 Azure 중국 클라우드에서 일반 공급됩니다. 자세한 내용은 [블로그 게시물](https://azure.microsoft.com/updates/general-availability-azure-virtual-desktop-is-now-available-in-the-azure-china-cloud/)을 참조하세요.
+
+### <a name="automatic-migration-module-tool"></a>자동 마이그레이션 모듈 도구
+
+자동 마이그레이션 도구를 사용하면 몇 가지 PowerShell 명령을 사용하여 조직을 Azure Virtual Desktop(클래식)에서 Azure Virtual Desktop으로 이동할 수 있습니다. 이 기능은 현재 공개 미리 보기에 있으며,[자동 마이그레이션](automatic-migration.md)에서 자세한 내용을 확인할 수 있습니다.
+
 ## <a name="august-2021"></a>2021년 8월
 
 2021년 8월에 변경된 내용은 다음과 같습니다.
 
-### <a name="windows-11-preview-on-avd"></a>AVD의 Windows 11(미리 보기)
+### <a name="windows-11-preview-for-azure-virtual-desktop"></a>Azure Virtual Desktop용 Windows 11(미리 보기)
 
 Windows 11(미리 보기) 이미지는 이제 고객이 Azure Virtual Desktop을 사용하여 테스트하고 유효성을 검사할 수 있도록 Azure Marketplace에 제공됩니다. 자세한 내용은 [공지](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/windows-11-preview-is-now-available-on-azure-virtual-desktop/ba-p/2666468)를 참조하세요.
 
-### <a name="multimedia-redirection-mmr-is-now-in-public-preview"></a>이제 MMR(멀티미디어 리디렉션)이 공개 미리 보기로 제공됩니다.
+### <a name="multimedia-redirection-is-now-in-public-preview"></a>멀티미디어 리디렉션이 이제 공개 미리 보기에 있음
 
-MMR(멀티미디어 리디렉션)은 Azure Virtual Desktop 웹 브라우저에서 비디오를 시청하는 동안 부드럽게 비디오를 재생하며 Microsoft Edge 및 Google Chrome에서 작동합니다. [블로그 게시물](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/public-preview-announcing-public-preview-of-multimedia/m-p/2663244#M7692)에서 자세히 알아보세요.
+멀티미디어 리디렉션은 Azure Virtual Desktop 웹 브라우저에서 비디오를 시청하는 동안 비디오를 부드럽게 재생하며 Microsoft Edge 및 Google Chrome에서 작동합니다. [블로그 게시물](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/public-preview-announcing-public-preview-of-multimedia/m-p/2663244#M7692)에서 자세히 알아보세요.
 
-### <a name="ip-virtualization-support-for-windows-server-2019"></a>Windows Server 2019에 대한 IP 가상화 지원
+### <a name="windows-defender-application-control-and-azure-disk-encryption-support"></a>Windows Defender 애플리케이션 제어 및 Azure Disk Encryption 지원
 
-IP 가상화는 Windows Server 2008 R2 이상에서 지원됩니다. Windows Server 2019에 IP 가상화를 사용하려면 추가 단계가 필요합니다. 자세한 내용은 [공지](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/ip-virtualization-support-for-windows-server-2019/m-p/2658650)를 참조하세요.
-
-### <a name="windows-defender-application-control-and-azure-disk-encryption-is-now-supported"></a>이제 Windows Defender 애플리케이션 제어 및 Azure Disk Encryption이 지원됩니다.
-
-이제 Azure Virtual Desktop은 Windows VM에서 실행할 수 있는 드라이버 및 애플리케이션을 제어하는 Windows Defender 애플리케이션 제어, 그리고 Windows BitLocker를 사용하여 VM의 OS 및 데이터 디스크에 대한 볼륨 암호화를 제공하는 Azure Disk Encryption을 지원합니다. 자세한 내용은 [공지](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/support-for-windows-defender-application-control-and-azure-disk/m-p/2658633#M7685)를 참조하세요.
+이제 Azure Virtual Desktop은 Windows VM(가상 머신)에서 실행할 수 있는 드라이버와 애플리케이션을 제어하는 Windows Defender 애플리케이션 제어 및 Windows BitLocker를 사용하여 VM의 OS 및 데이터 디스크에 대한 볼륨 암호화를 제공하는 Azure Disk Encryption을 지원합니다. 자세한 내용은 [공지](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/support-for-windows-defender-application-control-and-azure-disk/m-p/2658633#M7685)를 참조하세요.
  
 ### <a name="signing-into-azure-ad-using-smart-cards-are-now-supported-in-azure-virtual-desktop"></a>이제 Azure Virtual Desktop에서 스마트 카드를 사용하여 Azure AD에 로그인할 수 있습니다.
 
-Azure AD의 새 기능은 아니지만, 이제 Azure Virtual Desktop에서 스마트 카드로 로그인하도록 Active Directory Federation Services를 구성할 수 있습니다. 자세한 내용은 [공지](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/signing-in-to-azure-ad-using-smart-cards-now-supported-in-azure/m-p/2654209#M7671)를 참조하세요.
+Azure AD의 새로운 기능은 아니지만, 이제 Azure Virtual Desktop에서 스마트 카드로 로그인하도록 Active Directory Federation Services를 구성할 수 있습니다. 자세한 내용은 [공지](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/signing-in-to-azure-ad-using-smart-cards-now-supported-in-azure/m-p/2654209#M7671)를 참조하세요.
 
 ### <a name="screen-capture-protection-is-now-generally-available"></a>화면 캡처 보호의 일반 공급 전환
 
-클라이언트 엔드포인트에서 실행되는 소프트웨어에서 중요한 정보를 화면 캡처할 수 없도록 AVD의 화면 캡처 보호를 사용하여 보호하세요. [블로그 게시물](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-general-availability-of-screen-capture-protection-for/m-p/2699684)에서 자세히 알아보세요.
+Azure Virtual Desktop의 화면 캡처 보호를 사용하여 클라이언트 엔드포인트에서 실행되는 소프트웨어에서 중요한 정보를 화면 캡처하지 못하도록 방지합니다. [블로그 게시물](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-general-availability-of-screen-capture-protection-for/m-p/2699684)에서 자세히 알아보세요.
 
 ## <a name="july-2021"></a>2021년 7월
 
@@ -540,7 +562,7 @@ Azure Virtual Desktop Azure Portal에서 다음과 같은 기능을 업데이트
 
 ### <a name="autoscaling-tool-update"></a>자동 크기 조정 도구 업데이트
 
-미리 보기 상태에 있던 최신 버전의 자동 크기 조정 도구는 이제 일반 공급됩니다. 이 도구는 Azure 자동화 계정 및 Azure Logic App을 사용하여 호스트 풀 내에서 세션 호스트 VM(가상 머신)을 자동으로 종료하고 다시 시작하여 인프라 비용을 절감합니다. [Azure Automation을 사용하여 세션 호스트 크기 조정](set-up-scaling-script.md)에서 자세히 알아보세요.
+미리 보기 상태에 있던 최신 버전의 자동 크기 조정 도구는 이제 일반 공급됩니다. 이 도구는 Azure 자동화 계정 및 Azure Logic App을 사용하여 호스트 풀 내에서 세션 호스트 VM을 자동으로 종료하고 다시 시작하여 인프라 비용을 절감합니다. [Azure Automation을 사용하여 세션 호스트 크기 조정](set-up-scaling-script.md)에서 자세히 알아보세요.
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -581,7 +603,7 @@ Azure Virtual Desktop에 대한 Microsoft Teams에 개선 사항이 있습니다
 
 - 이 업데이트에서는 더 이상 호스트 풀을 확장하기 위해 Azure Marketplace 또는 GitHub 템플릿을 반복적으로 실행할 필요가 없습니다. 호스트 풀을 확장하려면 Azure Portal의 호스트 풀로 이동하고 **+ 추가** 를 선택하여 추가 세션 호스트를 배포하기만 하면 됩니다.
 
-- 이제 호스트 풀 배포가 [Azure 공유 이미지 갤러리](../virtual-machines/shared-image-galleries.md)와 완전히 통합되었습니다. 공유 이미지 갤러리는 이미지 버전 관리를 비롯한 VM(가상 머신) 이미지 정의를 저장하는 별도의 Azure 서비스입니다. 또한 글로벌 복제를 사용하여 로컬 배포를 위해 이미지를 복사하여 다른 Azure 지역으로 보낼 수 있습니다.
+- 이제 호스트 풀 배포가 [Azure 공유 이미지 갤러리](../virtual-machines/shared-image-galleries.md)와 완전히 통합되었습니다. 공유 이미지 갤러리는 이미지 버전 관리를 포함하여 VM 이미지 정의를 저장하는 별도의 Azure 서비스입니다. 또한 글로벌 복제를 사용하여 로컬 배포를 위해 이미지를 복사하여 다른 Azure 지역으로 보낼 수 있습니다.
 
 - PowerShell 또는 진단 서비스 웹앱을 통해 수행되는 함수 모니터링은 이제 Azure Portal의 Log Analytics로 이동되었습니다. 또한 이제 두 가지 옵션을 통해 보고서를 시각화할 수 있습니다. Kusto 쿼리를 실행하고 통합 문서를 사용하여 시각적 보고서를 만들 수 있습니다.
 

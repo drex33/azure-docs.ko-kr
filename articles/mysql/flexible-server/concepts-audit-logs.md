@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: af4356a4f432572920bd07fd8d7ea8c7e5f6663e
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: 769f178a65ac096446cd98015050ad1a35b3ef09
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122642196"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612449"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Azure Database for MySQL 유연한 서버에서 감사 로그를 사용하여 데이터베이스 작업 추적
 
@@ -52,7 +52,7 @@ Azure Database for MySQL 유연한 서버는 사용자에게 감사 로그를 �
 
 ## <a name="access-audit-logs"></a>감사 로그 액세스
 
-감사 로그는 Azure Monitor 진단 설정과 통합됩니다. MySQL 유연한 서버에서 감사 로그를 사용하도록 설정하면 Azure Monitor 로그, Event Hubs 또는 Azure Storage로 감사 로그를 내보낼 수 있습니다. 진단 설정에 대한 자세한 내용은 [진단 로그 설명서](../../azure-monitor/essentials/platform-logs-overview.md)를 참조하세요. Azure Portal에서 진단 설정을 사용하도록 설정하는 방법에 대한 자세한 내용은 [감사 로그 포털 문서](how-to-configure-audit-logs-portal.md#set-up-diagnostics)를 참조하세요.
+감사 로그는 Azure Monitor 진단 설정과 통합됩니다. MySQL 유연한 서버에서 감사 로그를 사용하도록 설정하면 Azure Monitor 로그, Event Hubs 또는 Azure Storage로 감사 로그를 내보낼 수 있습니다. 진단 설정에 대한 자세한 내용은 [진단 로그 설명서](../../azure-monitor/essentials/platform-logs-overview.md)를 참조하세요. Azure Portal에서 진단 설정을 사용하도록 설정하는 방법에 대한 자세한 내용은 [감사 로그 포털 문서](tutorial-configure-audit.md#set-up-diagnostics)를 참조하세요.
 
 다음 섹션에서는 이벤트 유형을 기반으로 하는 MySQL 감사 로그의 출력을 설명합니다. 포함되는 필드와 이러한 필드가 표시되는 순서는 출력 방법에 따라 달라질 수 있습니다.
 
@@ -198,6 +198,6 @@ Azure Database for MySQL 유연한 서버는 사용자에게 감사 로그를 �
     ``` 
 
 ## <a name="next-steps"></a>다음 단계
-- [느린 쿼리 로그](concepts-slow-query-logs.md)에 대한 자세한 정보
-- [Azure Portal](how-to-configure-audit-logs-portal.md)에서 감사 쿼리 로그 구성
+- [느린 쿼리 로그](concepts-slow-query-logs.md)에 대해 자세히 알아보기
+- [감사](tutorial-query-performance-insights.md) 구성
 <!-- - [How to configure audit logs in the Azure portal](howto-configure-audit-logs-portal.md)-->

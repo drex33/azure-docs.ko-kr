@@ -2,18 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: notification-hubs
-author: jwargo
+author: sethmanheim
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 01/17/2019
-ms.author: jowargo
+ms.date: 09/07/2021
+ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: 2ec602f056b339a1b1dcb78d6b8d7583aeaf0434
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9d33df05e54d9cdeb97631ca479dd8ac9869343c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96009128"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "126056449"
 ---
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -21,19 +21,19 @@ ms.locfileid: "96009128"
 
       ![Azure Portal - Notification Hubs 선택](./media/notification-hubs-portal-create-new-hub/all-services-select-notification-hubs.png)
 
-1. **Notification Hubs** 페이지의 도구 모음에서 **추가** 를 선택합니다.
+1. **Notification Hubs** 페이지의 도구 모음에서 **만들기** 를 선택합니다.
 
-      ![Notification Hubs - 추가 도구 모음 단추](./media/notification-hubs-portal-create-new-hub/add-toolbar-button.png)
+      ![Notification Hubs - 추가 도구 모음 단추](./media/notification-hubs-portal-create-new-hub/create-toolbar-button.png)
 
-1. **Notification Hub** 페이지에서 다음 단계를 수행합니다.
+1. **Notification Hub** 페이지의 **기본** 탭에서 다음 단계를 수행합니다.
 
-    1. **알림 허브** 에 이름을 입력합니다.  
+    1. **구독** 에서 사용하려는 Azure 구독 이름을 선택한 다음, 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다.  
 
-    1. **새 네임스페이스 만들기** 에 이름을 입력합니다. 네임스페이스에는 하나 이상의 허브가 포함되어 있습니다.
+    1. **네임스페이스 세부 정보** 에 새 네임스페이스의 고유한 이름을 입력합니다. 
+    
+    1. 네임스페이스에 알림 허브가 하나 이상 포함되어 있으므로 **Notification Hub 세부 정보** 에 허브 이름을 입력합니다. 또는 드롭다운에서 기존 네임스페이스를 선택합니다.
 
     1. **위치** 드롭다운 목록 상자에서 값을 선택합니다. 이 값은 허브를 만들려는 위치를 지정합니다.
-
-    1. **리소스 그룹** 에서 기존 리소스 그룹을 선택하거나 새 리소스 그룹의 이름을 만듭니다.
 
     1. **만들기** 를 선택합니다.
 

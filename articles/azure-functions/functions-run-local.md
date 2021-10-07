@@ -3,14 +3,14 @@ title: Azure Functions 핵심 도구 작업
 description: Azure Functions에서 실행하기 전에 로컬 컴퓨터의 명령 프롬프트 및 터미널에서 Azure Functions를 코딩하고 테스트하는 방법을 알아봅니다.
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
-ms.date: 07/27/2021
+ms.date: 10/05/2021
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 5f2ea49df446c26453bb8cf54af52ab54b2c24b2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fa804ee911d8b810de391916f7ae92ff46efe0b1
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128669718"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129613285"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -35,25 +35,25 @@ Azure Functions Core Tools는 현재 Azure 계정으로 인증하기 위해 [Azu
 
 ## <a name="core-tools-versions"></a><a name="v2"></a>Core Tools 버전
 
-Azure Functions Core Tools 네 가지 버전이 있습니다. 사용하는 버전은 로컬 개발 환경, [언어 선택](supported-languages.md)및 필요한 지원 수준에 따라 달라집니다.
+Azure Functions Core Tools의 네 가지 버전이 있습니다. 사용 하는 버전은 로컬 개발 환경, [선택 언어](supported-languages.md)및 필요한 지원 수준에 따라 달라 집니다.
 
-아래 버전 탭을 선택하여 각 특정 버전에 대해 알아보고 자세한 설치 지침을 확인합니다.
+아래 버전 탭을 선택 하 여 각 특정 버전에 대해 알아보고 자세한 설치 지침을 확인 하십시오.
 
 # <a name="version-3x"></a>[버전 3.x](#tab/v3)
 
-Azure Functions 런타임 버전 [3.x를](functions-versions.md) 지원합니다. 이 버전은 Windows, macOS 및 Linux를 지원하며, 설치에 플랫폼별 패키지 관리자 또는 npm을 사용합니다. 권장되는 버전의 Functions 런타임 및 핵심 도구입니다.
+는 Azure Functions 런타임의 [버전 3(sp3)](functions-versions.md) 을 지원 합니다. 이 버전은 Windows, macos 및 Linux를 지원 하 고 플랫폼별 패키지 관리자 또는 npm를 사용 하 여 설치 합니다. 이는 권장 되는 버전의 함수 런타임 및 핵심 도구입니다.
 
-# <a name="version-4x-preview"></a>[버전 4.x(미리 보기)](#tab/v4)
+# <a name="version-4x-preview"></a>[버전 4.x (미리 보기)](#tab/v4)
 
-미리 보기로 있는 Functions 런타임 [버전 4.x를](functions-versions.md) 지원합니다. 이 버전은 Windows, macOS 및 Linux를 지원하며, 설치에 플랫폼별 패키지 관리자 또는 npm을 사용합니다. .NET 6.0에서 C# 함수를 실행해야 하는 경우가 아니면 Functions 런타임 및 Core Tools 버전 3.x를 사용하는 것이 좋습니다.
+는 미리 보기 상태인 함수 런타임의 [버전](functions-versions.md) 4.x를 지원 합니다. 이 버전은 Windows, macos 및 Linux를 지원 하 고 플랫폼별 패키지 관리자 또는 npm를 사용 하 여 설치 합니다. .NET 6.0에서 c # 함수를 실행 해야 하는 경우가 아니면 함수 런타임 및 핵심 도구의 버전 2.x를 사용 하는 것이 좋습니다.
 
 # <a name="version-2x"></a>[버전 2.x](#tab/v2)
 
-Azure Functions 런타임 버전 [2.x를](functions-versions.md) 지원합니다. 이 버전은 Windows, macOS 및 Linux를 지원하며, 설치에 플랫폼별 패키지 관리자 또는 npm을 사용합니다. 
+는 Azure Functions 런타임의 [버전](functions-versions.md) 2.x를 지원 합니다. 이 버전은 Windows, macos 및 Linux를 지원 하 고 플랫폼별 패키지 관리자 또는 npm를 사용 하 여 설치 합니다. 
 
 # <a name="version-1x"></a>[버전 1.x](#tab/v1) 
 
-Azure Functions 런타임 버전 1.x를 지원합니다. 이 버전의 도구는 Windows 컴퓨터에서만 지원되며 [npm 패키지](https://www.npmjs.com/package/azure-functions-core-tools)에서 설치됩니다.
+에서는 Azure Functions 런타임 버전 1.x를 지원 합니다. 이 버전의 도구는 Windows 컴퓨터에서만 지원되며 [npm 패키지](https://www.npmjs.com/package/azure-functions-core-tools)에서 설치됩니다.
 
 ---
 
@@ -61,55 +61,43 @@ Azure Functions 런타임 버전 1.x를 지원합니다. 이 버전의 도구는
 
 ## <a name="install-the-azure-functions-core-tools"></a>Azure Functions 핵심 도구 설치
 
-[Azure Functions 핵심 도구]에는 로컬 개발 컴퓨터에서 실행할 수 있는 Azure Functions 런타임을 제공하는 동일한 런타임 버전이 포함됩니다. 또한 함수를 만들고, Azure에 연결하고, 함수 프로젝트를 배포하는 명령을 제공합니다.
+[Azure Functions 핵심 도구](https://github.com/Azure/azure-functions-core-tools)에는 로컬 개발 컴퓨터에서 실행할 수 있는 Azure Functions 런타임을 제공하는 동일한 런타임 버전이 포함됩니다. 또한 함수를 만들고, Azure에 연결하고, 함수 프로젝트를 배포하는 명령을 제공합니다.
 
-버전 2.x부터 Core Tools는 .NET Core를 기반으로 합니다. 즉, 버전 2.x 이상은 [Windows,](?tabs=windows#v2) [macOS](?tabs=macos#v2)및 [Linux](?tabs=linux#v2)를 포함하여 .NET Core에서 지원하는 모든 플랫폼에서 실행됩니다.
-
-> [!IMPORTANT]
-> non-.NET 언어의 경우 [확장 번들]를 사용하여 .NET Core SDK 설치하기 위한 요구 사항을 무시할 수 있습니다.
+버전 2.x부터 핵심 도구는 [Windows](?tabs=windows#v2), [macos](?tabs=macos#v2)및 [Linux](?tabs=linux#v2)에서 실행 됩니다.
 
 # <a name="windows"></a>[Windows](#tab/windows/v4)
 
-Core Tools 버전 4.x를 설치하려면 현재 npm이 필요합니다. 다른 패키지 관리자를 사용하여 이전 버전의 Core Tools를 설치한 경우 버전 4.x를 설치하기 전에 제거합니다.
+다음 단계에서는 MSI (Windows 설치 관리자)를 사용 하 여 핵심 도구 v4. x를 설치 합니다. 다른 패키지 기반 설치 관리자에 대 한 자세한 내용은 [핵심 도구 추가](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows)정보를 참조 하세요.
 
-1. 아직 설치하지 않은 경우 [npm 을 Node.js 설치합니다.](https://nodejs.org/en/download/) 
+다음과 같이 Windows 버전에 따라 Core Tools 설치 프로그램을 다운로드하여 실행합니다.
 
-1. 다음 npm 명령을 실행하여 Core Tools 패키지를 설치합니다.
-
-    ```
-    npm i -g azure-functions-core-tools@4 --unsafe-perm true
-    ```
-
-1. [확장 번들](functions-bindings-register.md#extension-bundles)을 사용하지 않으려는 경우 [Windows용 .NET Core 3.x SDK](https://dotnet.microsoft.com/download)를 설치합니다.
+- [v4. x-Windows 64](https://go.microsoft.com/fwlink/?linkid=2174087) 비트 (권장) [Visual Studio Code 디버깅](functions-develop-vs-code.md#debugging-functions-locally)에는 64-비트가 필요합니다.)
+- [v4 .x-Windows 32 비트](https://go.microsoft.com/fwlink/?linkid=2174159)
 
 # <a name="windows"></a>[Windows](#tab/windows/v3)
 
-다음 단계에서는 MSI(Windows 설치 프로그램)를 사용하여 Core Tools v3.x를 설치합니다. 다른 패키지 기반 설치 관리자에 대한 자세한 내용은 Core Tools 추가 정보 를 [참조하세요.](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows)
+다음 단계에서는 MSI(Windows 설치 프로그램)를 사용하여 Core Tools v3.x를 설치합니다. 다른 패키지 기반 설치 관리자에 대 한 자세한 내용은 [핵심 도구 추가](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows)정보를 참조 하세요.
 
-1. 다음과 같이 Windows 버전에 따라 Core Tools 설치 프로그램을 다운로드하여 실행합니다.
+다음과 같이 Windows 버전에 따라 Core Tools 설치 프로그램을 다운로드하여 실행합니다.
 
-    - [v3.x - Windows 64-비트](https://go.microsoft.com/fwlink/?linkid=2135274) (권장. [Visual Studio Code 디버깅](functions-develop-vs-code.md#debugging-functions-locally)에는 64-비트가 필요합니다.)
-    - [v3.x - Windows 32-비트](https://go.microsoft.com/fwlink/?linkid=2135275)
-
-1. [확장 번들](functions-bindings-register.md#extension-bundles)을 사용하지 않으려는 경우 [Windows용 .NET Core 3.x SDK](https://dotnet.microsoft.com/download)를 설치합니다.
+- [v3.x - Windows 64-비트](https://go.microsoft.com/fwlink/?linkid=2135274) (권장. [Visual Studio Code 디버깅](functions-develop-vs-code.md#debugging-functions-locally)에는 64-비트가 필요합니다.)
+- [v3.x - Windows 32-비트](https://go.microsoft.com/fwlink/?linkid=2135275)
 
 # <a name="windows"></a>[Windows](#tab/windows/v2)
 
-Core Tools 버전 2.x를 설치하려면 npm이 필요합니다. [Chocolatey를 사용하여 패키지를 설치할](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#azure-functions-core-tools)수도 있습니다.
+핵심 도구의 버전 2.x를 설치 하려면 npm가 필요 합니다. [Chocolatey를 사용 하 여 패키지를 설치할](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#azure-functions-core-tools)수도 있습니다.
 
-1. 아직 설치하지 않은 경우 [npm 을 Node.js 설치합니다.](https://nodejs.org/en/download/) 
+1. 아직 수행 하지 않은 경우 npm를 [사용 하 여 Node.js를 설치](https://nodejs.org/en/download/)합니다. 
 
-1. 다음 npm 명령을 실행하여 Core Tools 패키지를 설치합니다.
+1. 다음 npm 명령을 실행 하 여 핵심 도구 패키지를 설치 합니다.
 
     ```
     npm install -g azure-functions-core-tools@2 --unsafe-perm true
     ```
 
-1. [확장 번들](functions-bindings-register.md#extension-bundles)을 사용하지 않으려는 경우 [Windows용 .NET Core 3.x SDK](https://dotnet.microsoft.com/download)를 설치합니다.
-
 # <a name="windows"></a>[Windows](#tab/windows/v1)
 
-Core Tools 버전 1.x를 설치해야 하는 경우 자세한 내용은 [GitHub 리포지토리를](https://github.com/Azure/azure-functions-core-tools/blob/v1.x/README.md#installing) 참조하세요.
+핵심 도구의 버전 1.x를 설치 해야 하는 경우 자세한 내용은 [GitHub 리포지토리](https://github.com/Azure/azure-functions-core-tools/blob/v1.x/README.md#installing) 를 참조 하세요.
 
 # <a name="macos"></a>[macOS](#tab/macos/v4)
 
@@ -125,8 +113,6 @@ Core Tools 버전 1.x를 설치해야 하는 경우 자세한 내용은 [GitHub 
     # if upgrading on a machine that has 2.x or 3.x installed:
     brew link --overwrite azure-functions-core-tools@4
     ```
-    
-1. [확장 번들](functions-bindings-register.md#extension-bundles)을 사용하지 않으려는 경우 [macOS용 .NET Core 3.x SDK](https://dotnet.microsoft.com/download)를 설치합니다.
 
 # <a name="macos"></a>[macOS](#tab/macos/v3)
 
@@ -142,8 +128,6 @@ Core Tools 버전 1.x를 설치해야 하는 경우 자세한 내용은 [GitHub 
     # if upgrading on a machine that has 2.x installed:
     brew link --overwrite azure-functions-core-tools@3
     ```
-    
-1. [확장 번들](functions-bindings-register.md#extension-bundles)을 사용하지 않으려는 경우 [macOS용 .NET Core 3.x SDK](https://dotnet.microsoft.com/download)를 설치합니다.
 
 # <a name="macos"></a>[macOS](#tab/macos/v2)
 
@@ -157,12 +141,10 @@ Core Tools 버전 1.x를 설치해야 하는 경우 자세한 내용은 [GitHub 
     brew tap azure/functions
     brew install azure-functions-core-tools@2
     ```
-    
-1. [확장 번들](functions-bindings-register.md#extension-bundles)을 사용하지 않으려는 경우 [macOS용 .NET Core 3.x SDK](https://dotnet.microsoft.com/download)를 설치합니다.
 
 # <a name="macos"></a>[macOS](#tab/macos/v1)
 
-Core Tools 버전 1.x는 macOS에서 지원되지 않습니다. macOS에서 버전 2.x 이상 버전을 사용합니다.
+핵심 도구의 버전 1.x는 macOS에서 지원 되지 않습니다. MacOS에서 버전 2.x 또는 이후 버전을 사용 합니다.
 
 # <a name="linux"></a>[Linux](#tab/linux/v4)
 
@@ -175,9 +157,6 @@ Core Tools 버전 1.x는 macOS에서 지원되지 않습니다. macOS에서 버�
     sudo apt-get install azure-functions-core-tools-4
     ```
 
-1. [확장 번들](functions-bindings-register.md#extension-bundles)을 사용하지 않으려는 경우 [Linux용 .NET Core 3.x SDK](https://dotnet.microsoft.com/download)를 설치합니다.
-
-
 # <a name="linux"></a>[Linux](#tab/linux/v3)
 
 [!INCLUDE [functions-core-tools-linux-install](../../includes/functions-core-tools-linux-install.md)]
@@ -188,8 +167,6 @@ Core Tools 버전 1.x는 macOS에서 지원되지 않습니다. macOS에서 버�
     sudo apt-get update
     sudo apt-get install azure-functions-core-tools-3
     ```
-
-1. [확장 번들](functions-bindings-register.md#extension-bundles)을 사용하지 않으려는 경우 [Linux용 .NET Core 3.x SDK](https://dotnet.microsoft.com/download)를 설치합니다.
 
 # <a name="linux"></a>[Linux](#tab/linux/v2)
 
@@ -202,24 +179,21 @@ Core Tools 버전 1.x는 macOS에서 지원되지 않습니다. macOS에서 버�
     sudo apt-get install azure-functions-core-tools-2
     ```
 
-1. [확장 번들](functions-bindings-register.md#extension-bundles)을 사용하지 않으려는 경우 [Linux용 .NET Core 3.x SDK](https://dotnet.microsoft.com/download)를 설치합니다.
-
-
 # <a name="linux"></a>[Linux](#tab/linux/v1)
 
-Core Tools 버전 1.x는 Linux에서 지원되지 않습니다. Linux에서 버전 2.x 이상 버전을 사용합니다.
+Linux에서는 핵심 도구의 버전 1. x가 지원 되지 않습니다. Linux에서 버전 2.x 또는 이후 버전을 사용 합니다.
 
 ---
 
 ## <a name="changing-core-tools-versions"></a>핵심 도구 버전 변경
 
-다른 버전의 Core Tools로 변경하는 경우 원래 설치와 동일한 패키지 관리자를 사용하여 다른 패키지 버전으로 이동해야 합니다. 예를 들어 npm을 사용하여 Core Tools 버전 2.x를 설치한 경우 다음 명령을 사용하여 버전 3.x로 업그레이드해야 합니다.
+다른 버전의 핵심 도구로 변경 하는 경우 원본 설치와 동일한 패키지 관리자를 사용 하 여 다른 패키지 버전으로 이동 해야 합니다. 예를 들어 npm를 사용 하 여 핵심 도구 버전 2.x를 설치한 경우 다음 명령을 사용 하 여 버전 3(sp3)으로 업그레이드 해야 합니다.
 
 ```bash
 npm install -g azure-functions-core-tools@3 --unsafe-perm true
 ```
 
-MSI(Windows 설치 관리자)를 사용하여 Windows Core Tools를 설치한 경우 다른 버전을 설치하기 전에 프로그램 추가에서 이전 버전을 제거해야 합니다.
+Windows installer (MSI)를 사용 하 여 Windows 핵심 도구를 설치한 경우 다른 버전을 설치 하기 전에 프로그램 추가 제거에서 이전 버전을 제거 해야 합니다.
 
 ## <a name="create-a-local-functions-project"></a>로컬 Functions 프로젝트 만들기
 
@@ -284,9 +258,9 @@ PowerShell에 대한 추가 고려 사항은 없습니다.
 
 ## <a name="register-extensions"></a>확장 등록
 
-런타임 버전 2.x부터 Functions 바인딩은 .NET 확장(NuGet) 패키지로 구현됩니다. 컴파일된 C# 프로젝트의 경우 사용 중인 특정 트리거 및 바인딩에 대한 NuGet 확장 패키지를 참조하기만 하면 됩니다. HTTP 바인딩 및 타이머 트리거에는 확장이 필요하지 않습니다. 
+런타임 버전 2.x부터 함수 트리거 및 바인딩이 .net 확장 (NuGet) 패키지로 구현 됩니다. 컴파일된 C# 프로젝트의 경우 사용 중인 특정 트리거 및 바인딩에 대한 NuGet 확장 패키지를 참조하기만 하면 됩니다. HTTP 바인딩 및 타이머 트리거에는 확장이 필요하지 않습니다. 
 
-C#이 아닌 프로젝트의 개발 환경을 개선하기 위해 Functions를 사용하면 host.json 프로젝트 파일에서 버전이 지정된 확장 번들을 참조할 수 있습니다. [확장 번들](functions-bindings-register.md#extension-bundles)은 앱에서 모든 확장을 사용할 수 있도록 하고 확장 간에 패키지 호환성 문제가 발생할 가능성을 제거합니다. 확장 번들은 .NET Core 2.x SDK를 설치하고 extension.csproj 파일을 처리해야 하는 요구 사항도 제거합니다.
+C#이 아닌 프로젝트의 개발 환경을 개선하기 위해 Functions를 사용하면 host.json 프로젝트 파일에서 버전이 지정된 확장 번들을 참조할 수 있습니다. [확장 번들](functions-bindings-register.md#extension-bundles)은 앱에서 모든 확장을 사용할 수 있도록 하고 확장 간에 패키지 호환성 문제가 발생할 가능성을 제거합니다. 또한 확장 번들은 .NET Core 3.1 SDK를 설치 하 고 .csproj 파일을 처리 해야 하는 요구 사항을 제거 합니다.
 
 확장 번들은 C# 호환 프로젝트 이외의 Functions 프로젝트에 권장되는 접근 방식입니다. 이러한 프로젝트의 경우 초기화 중에 확장 번들 설정이 _host.json_ 파일에 생성됩니다. 이것이 작동한다면 이 전체 섹션을 건너뛸 수 있습니다.  
 
@@ -629,6 +603,6 @@ Azure Functions Core Tools [Microsoft 학습 모듈](/learn/modules/develop-test
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
-[확장 번들]: functions-bindings-register.md#extension-bundles
+[extension bundles]: functions-bindings-register.md#extension-bundles
 [func azure functionapp publish]: functions-core-tools-reference.md?tabs=v2#func-azure-functionapp-publish
 [func init]: functions-core-tools-reference.md?tabs=v2#func-init

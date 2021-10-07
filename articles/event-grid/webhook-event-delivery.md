@@ -2,13 +2,13 @@
 title: WebHook 이벤트 전달
 description: 이 문서에서는 웹후크를 사용할 때의 웹후크 이벤트 전달 및 엔드포인트 유효성 검사에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 09/15/2021
-ms.openlocfilehash: 58da34498fa3e2fc81c8fe1476b1098688b9c6c0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 09/29/2021
+ms.openlocfilehash: 77908b7f36c51ca729915b09cb1e813c978235e3
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128625167"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129614369"
 ---
 # <a name="webhook-event-delivery"></a>웹후크 이벤트 전달
 웹후크는 Azure Event Grid에서 이벤트를 수신하는 여러 가지 방법 중 하나입니다. 새 이벤트가 준비되면 Event Grid 서비스는 요청 본문에 이벤트가 포함되어 구성된 엔드포인트로 HTTP 요청을 게시합니다.
@@ -82,6 +82,25 @@ SubscriptionValidationEvent 예가 다음 예제에 나와 있습니다.
 
 ## <a name="endpoint-validation-with-cloudevents-v10"></a>CloudEvents v1.0을 사용한 엔드포인트 유효성 검사
 CloudEvents v1.0은 **HTTP OPTIONS** 메서드를 사용하여 자체 남용 방지 [의미 체계를 구현합니다.](webhook-event-delivery.md) 해당 서비스에 대한 자세한 내용은 [여기](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection)에서 확인할 수 있습니다. 출력에 CloudEvents 스키마를 사용하는 경우, Event Grid는 Event Grid 유효성 검사 이벤트 메커니즘 대신 CloudEvents v1.0 악용 방지를 사용합니다.
+
+## <a name="event-subscriptions-considerations"></a>이벤트 구독 고려 사항
+
+구독을 만드는 동안 문제를 방지하려면 이 참조를 사용하여 토픽과 구독 스키마 간의 호환성 유효성을 검사합니다. 토픽이 만들어지면 들어오는 이벤트 스키마가 정의되고 구독을 만들 때 나가는 이벤트 스키마가 정의됩니다.
+
+> [!NOTE]
+> 이 호환성 테이블 참조는 사용자 지정 토픽 및 이벤트 도메인에 적용됩니다.
+
+| 들어오는 이벤트 스키마 | 나가는 이벤트 스키마 | 지원됨 |
+| ---- | ---- | ---- |
+| Event Grid 스키마 | Event Grid 스키마 | 예 |
+| | 클라우드 이벤트 v1.0 스키마 | 예 |
+| | 사용자 지정 입력 스키마 | 예 |
+| 클라우드 이벤트 v1.0 스키마 | Event Grid 스키마 | 예 |
+| | 클라우드 이벤트 v1.0 스키마 | 예 |
+| | 사용자 지정 입력 스키마 | 예 |
+| 사용자 지정 입력 스키마 | Event Grid 스키마 | 예 |
+| | 클라우드 이벤트 v1.0 스키마 | 예 |
+| | 사용자 지정 입력 스키마 | 예 |
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참고하여 이벤트 구독 유효성 검사의 문제를 해결하는 방법을 알아봅니다. 

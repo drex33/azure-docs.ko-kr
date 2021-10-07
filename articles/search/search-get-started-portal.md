@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 08/24/2021
-ms.openlocfilehash: 9bb3bdc7254fb3f9da62936df6429d8cba6b3bd5
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: f9dacea4d80591b6ec5b83ae93564cd8b03aff9c
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450076"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212459"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 인덱스 만들기
 
@@ -200,7 +200,7 @@ Bing 이나 Google 검색, 또는 완전히 지정된 쿼리 식에서 수행할
 
 + 필터링 가능한 필드만 패싯이 가능합니다. 검색이 가능한 필드만 결과에 반환할 수 있습니다.
 
-+ *등급* 필드는 배정밀도 부동 소수점이며 그룹화는 정확한 값으로 지정됩니다. 간격(예: "3성 등급", "4성 등급" 등)별 그룹화에 대한 자세한 내용은 [Azure Cognitive Search에서 패싯 탐색을 구현하는 방법](./search-faceted-navigation.md#filter-based-on-a-range)을 참조하세요.
++ *등급* 필드는 배정밀도 부동 소수점이며 그룹화는 정확한 값으로 지정됩니다. 간격(예: "3성 등급", "4성 등급" 등)별 그룹화에 대한 자세한 내용은 [REST API의 "쿼리 매개 변수"](/rest/api/searchservice/search-documents#query-parameters)를 참조하세요.
 
 ### <a name="highlight-search-results"></a><a name="highlight-query"></a> 검색 결과 강조
 

@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - 서비스
 description: 개요를 통해 CloudSimple 서비스에 대해 알아봅니다. 서비스를 만들면 노드를 구매하고, 노드를 예약하고, 프라이빗 클라우드를 만들 수 있습니다.
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: acf5180e438d244f2eab791f4a2ebff77df6eaa4
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
-ms.translationtype: HT
+ms.openlocfilehash: 037ca574be21d0b0e2648ab558e1b3f36417651b
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108182285"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129613950"
 ---
 # <a name="cloudsimple-service-overview"></a>CloudSimple 서비스 개요
 

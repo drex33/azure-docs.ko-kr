@@ -6,20 +6,20 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: 4165768837f590690a39226b983b4d32361957e3
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
-ms.translationtype: HT
+ms.date: 10/06/2021
+ms.openlocfilehash: 5ea2c908cce37e19023e27b0e3e4cc76f778b7f0
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114730562"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129620168"
 ---
-# <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search에서 증분 보강을 위해 캐싱을 구성하는 방법
+# <a name="configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search 증분 보강을 위한 캐싱 구성
 
 > [!IMPORTANT] 
 > 이 기능은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 따라 퍼블릭 미리 보기로 제공됩니다. [미리 보기 REST API](/rest/api/searchservice/index-preview)에서 이 기능을 지원합니다.
 
-이 문서에서는 매번 다시 빌드하지 않고도 단계를 증분 방식으로 수정할 수 있도록 보강 파이프라인에 캐싱을 추가하는 방법을 보여 줍니다. 기본적으로 기술 세트는 상태 비저장이며 해당 컴포지션의 어떤 부분이든 변경하려면 인덱서 전체를 다시 실행해야 합니다. 증분 보강을 사용하면 인덱서가 기술 세트 또는 인덱서 정의에서 검색된 변경 내용을 기준으로 새로 고쳐야 하는 문서 트리 부분을 확인할 수 있습니다. 처리된 기존 출력은 유지되고 가능한 모든 곳에서 재사용됩니다. 
+이 문서에서는 매번 다시 빌드하지 않고도 단계를 증분 방식으로 수정할 수 있도록 보강 파이프라인에 캐싱을 추가하는 방법을 설명합니다. 기본적으로 기술 세트는 상태 비저장이며 해당 컴포지션의 어떤 부분이든 변경하려면 인덱서 전체를 다시 실행해야 합니다. 증분 보강을 사용하면 인덱서가 기술 세트 또는 인덱서 정의에서 검색된 변경 내용을 기준으로 새로 고쳐야 하는 문서 트리 부분을 확인할 수 있습니다. 처리된 기존 출력은 유지되고 가능한 모든 곳에서 재사용됩니다. 
 
 캐시된 콘텐츠는 제공된 계정 정보를 사용하여 Azure Storage에 보관됩니다. 인덱서를 실행하면 `ms-az-search-indexercache-<alpha-numerc-string>`이라는 컨테이너가 생성됩니다. 이 컨테이너는 검색 서비스에서 관리하는 내부 구성 요소로 간주해야 하며 수정할 수 없습니다.
 
@@ -29,12 +29,9 @@ ms.locfileid: "114730562"
 
 이미 기술 세트를 포함하는 기존 인덱서가 있는 경우 이 섹션의 단계에 따라 캐싱을 추가합니다. 일회성 작업으로 인덱서 전체를 다시 설정한 후 다시 실행해야 증분 처리가 적용됩니다.
 
-> [!TIP]
-> 이 [포털 빠른 시작](cognitive-search-quickstart-blob.md)을 개념 증명으로 실행하여 필요한 개체를 만든 다음, Postman 또는 포털을 사용하여 업데이트를 수행할 수 있습니다. 청구 가능한 Cognitive Services 리소스를 연결하는 것이 좋습니다. 인덱서를 여러 번 실행하면 모든 단계를 완료하기 전에 일일 무료 할당이 소모됩니다.
-
 ### <a name="step-1-get-the-indexer-definition"></a>1단계: 인덱서 정의 가져오기
 
-데이터 원본, 기술 세트, 인덱스 등의 구성 요소가 있는 유효한 기존 인덱서로 시작합니다. 인덱서를 실행할 수 있어야 합니다. 
+데이터 원본, 기술 세트, 인덱스 등의 구성 요소가 있는 유효한 기존 인덱서로 시작합니다. 인덱서를 실행할 수 있어야 합니다.
 
 API 클라이언트를 사용하여 인덱서의 현재 구성을 가져오는 [인덱서 가져오기 요청](/rest/api/searchservice/get-indexer)을 생성합니다. 미리 보기 API 버전을 사용하여 인덱서를 가져오는 경우 Null로 설정된 `cache` 속성이 정의에 추가됩니다.
 

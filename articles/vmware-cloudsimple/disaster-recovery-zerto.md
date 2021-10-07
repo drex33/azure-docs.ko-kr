@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - 온-프레미스 워크로드에 대한 재해 사이트로 프라이빗 클라우드 사용
 description: CloudSimple 프라이빗 클라우드를 온-프레미스 VMware 워크로드에 대한 재해 복구 사이트로 설정하는 방법을 설명합니다.
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e7305557944e00121c54112704f67f861d2aa789
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
-ms.translationtype: HT
+ms.openlocfilehash: f9700b5d25a7d564c72bf959d48ad7cf1afce4e7
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108177785"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612392"
 ---
 # <a name="set-up-cloudsimple-private-cloud-as-a-disaster-recovery-site-for-on-premises-vmware-workloads"></a>온-프레미스 VMware 워크로드를 사용하여 CloudSimple 프라이빗 클라우드를 재해 복구 사이트로 설정
 

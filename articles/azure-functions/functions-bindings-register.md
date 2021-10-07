@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/14/2020
 ms.author: cshoe
-ms.openlocfilehash: 262e0fc02632465a03391dbfeaa0902d1b6b9ec3
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7267e733971b2abed258ca815a010b13938bc2a6
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609761"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129613475"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Azure Functions 바인딩 확장 등록
 
@@ -69,7 +69,7 @@ Java, JavaScript, PowerShell, Python, 사용자 지정 처리기 함수 앱의 �
 * 단일 번들에서 사용할 수 없는 특정 확장 조합에 액세스해야 합니다.
 
 > [!NOTE]
-> Core Tools를 사용하여 수동으로 확장을 설치하려면 [.NET Core 2.x SDK](https://dotnet.microsoft.com/download)가 설치되어 있어야 합니다. .NET Core SDK는 Azure Functions Core Tools에서 NuGet의 확장을 설치하는 데 사용됩니다. Azure Functions 확장을 사용하기 위해 .NET을 알 필요는 없습니다.
+> 핵심 도구를 사용 하 여 확장을 수동으로 설치 하려면 [.Net Core 3.1 SDK](https://dotnet.microsoft.com/download) 가 설치 되어 있어야 합니다. .NET Core SDK는 Azure Functions Core Tools에서 NuGet의 확장을 설치하는 데 사용됩니다. Azure Functions 확장을 사용하기 위해 .NET을 알 필요는 없습니다.
 
 확장을 명시적으로 설치하면 extensions.csproj라는 .NET 프로젝트 파일이 프로젝트의 루트에 추가됩니다. 이 파일은 함수에 필요한 NuGet 패키지 세트를 정의합니다. 이 파일에서 [NuGet 패키지 참조](/nuget/consume-packages/package-references-in-project-files)로 작업할 수 있지만 Core Tools를 사용하면 파일을 수동으로 편집하지 않고도 확장을 설치할 수 있습니다.
 

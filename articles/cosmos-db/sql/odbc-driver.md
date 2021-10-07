@@ -7,22 +7,26 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/04/2021
 ms.author: sngun
-ms.openlocfilehash: 6e9a03869fadf5dd6616755a44c12cefe40a5556
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 6f9c1effadf4415bdcd2278080900ff7be2dd6e7
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129456027"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129614881"
 ---
-# <a name="connect-to-azure-cosmos-db-using-analytics-bi-and-data-integration-tools-with-the-odbc-driver"></a>ODBC 드라이버와 함께 분석, BI 및 데이터 통합 도구를 사용하여 Azure Cosmos DB에 커넥트
+# <a name="connect-to-azure-cosmos-db-from-bi-and-data-integration-tools-with-the-odbc-driver"></a>ODBC 드라이버를 사용 하 여 BI 및 데이터 통합 도구에서 Azure Cosmos DB 커넥트
+
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB ODBC 드라이버를 사용하면 SQL Server Integration Services 및 Tableau와 같은 도구를 사용하여 Azure Cosmos DB에 연결할 수 있으므로 해당 솔루션에서 Azure Cosmos DB 데이터의 시각화를 분석, 이동, 변환 및 만들 수 있습니다.
+Azure Cosmos DB ODBC 드라이버를 사용 하면 SQL Server Integration Services, Alteryx, QlikSense, tableau, 기타 분석, BI 및 데이터 통합 도구와 같은 솔루션을 사용 하 여 Azure Cosmos DB에 연결 하 여 Azure Cosmos DB 데이터의 시각화를 분석 하 고, 이동 하 고, 변환 하 고, 만들 수 있습니다.
 
 Azure Cosmos DB ODBC 드라이버는 ODBC 3.8 규격으로, ANSI SQL-92 구문을 지원합니다. 이 드라이버는 Azure Cosmos DB에서 데이터를 다시 정규화하는 데 도움이 되는 다양한 기능을 제공합니다. 이 드라이버를 사용하여 Azure Cosmos DB의 데이터를 테이블 및 뷰로 나타낼 수 있습니다. 이 드라이버를 사용하면 테이블 및 뷰에 대해 쿼리별 그룹화, 삽입, 업데이트 및 삭제 등의 SQL 작업을 수행할 수 있습니다.
 
 > [!NOTE]
-> Power BI 사용하는 경우 네이티브 커넥터 [설명서](powerbi-visualize.md)를 확인하세요.
+> Power BI를 사용 하는 경우 기본 커넥터 [설명서](powerbi-visualize.md)를 확인 하세요.
+
+> [!NOTE]
+> QlikSense를 사용 하는 경우 방법 [설명서](../visualize-qlik-sense.md)를 확인 하세요.
 
 
 > [!NOTE]

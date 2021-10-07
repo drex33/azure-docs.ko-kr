@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: cawrites
 ms.date: 11/06/2020
-ms.openlocfilehash: 5ad3560cccb0cd87191f103d435776ce401beb90
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 04bd20e233bac44194c66e772db19f022458383d
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529177"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615527"
 ---
 # <a name="migration-overview-sql-server-to-azure-sql-database"></a>마이그레이션 개요: SQL Server를 Azure SQL Database로
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -186,7 +186,6 @@ SQL Database는 고급 관리 및 보안 기능 외에도 [워크로드를 모�
 |[PowerShell을 사용하여 대량 데이터베이스 만들기](https://www.microsoft.com/download/details.aspx?id=103107)|리소스 그룹(create_rg.ps1), [Azure의 논리 서버](../../database/logical-servers.md)(create_sqlserver.ps1) 및 SQL Database(create_sqldb.ps1)를 만드는 세 가지 PowerShell 스크립트 집합을 사용할 수 있습니다. 스크립트에는 반복 기능이 포함되어 있어 필요한 만큼 서버와 데이터베이스를 반복하고 만들 수 있습니다.|
 |[MSSQL-Scripter 및 PowerShell을 사용하여 대량 스키마 배포](https://www.microsoft.com/download/details.aspx?id=103032)|이 자산은 리소스 그룹을 만들고, Azure SQL Database를 호스팅하기 위해 하나 이상의 [논리 서버](../../database/logical-servers.md)를 만들고, 온-프레미스 SQL Server 인스턴스(또는 여러 SQL Server 2005+ 인스턴스)에서 모든 스키마를 내보내고, Azure SQL Database에 스키마를 가져옵니다.|
 |[SQL Server 에이전트 작업을 탄력적 데이터베이스 작업으로 변환](https://www.microsoft.com/download/details.aspx?id=103123)|이 스크립트는 원본 SQL Server 에이전트 작업을 탄력적 데이터베이스 작업으로 마이그레이션합니다.|
-|[Azure SQL Database에서 이메일 보내기](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/AF%20SendMail)|이 솔루션은 SendMail 기능의 대안이며 온-프레미스 SQL Server에서 사용할 수 있습니다. Azure Functions 및 SendGrid 서비스를 사용하여 Azure SQL Database에서 이메일을 보냅니다.|
 |[온-프레미스 SQL Server 로그인을 Azure SQL Database로 이동하는 유틸리티](https://www.microsoft.com/download/details.aspx?id=103111)|PowerShell 스크립트는 T-SQL 명령 스크립트를 만들어 로그인을 다시 만들고 온-프레미스 SQL Server에서 Azure SQL Database로 데이터베이스 사용자를 선택할 수 있습니다. 이 도구를 사용하면 Windows Server Active Directory 계정을 Azure AD 계정으로 자동 매핑하고 선택적으로 SQL Server 네이티브 로그인을 마이그레이션할 수 있습니다.|
 |[Logman을 사용하는 Perfmon 데이터 수집 자동화](https://www.microsoft.com/download/details.aspx?id=103114)|Logman 도구를 사용하여 Perfmon 데이터를 수집해 기준 성능을 쉽게 이해할 수 있으며 마이그레이션 대상 권장 사항을 확인할 수 있습니다. 이 도구는 logman.exe를 사용하여 원격 SQL Server 인스턴스에 설정된 성능 카운터를 생성, 시작, 중지 및 삭제하는 명령을 만듭니다.|
 

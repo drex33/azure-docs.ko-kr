@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: d8ba75ce068d7d2b604e9cafa4cde76393175c30
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 3ca38fbefccaf6529d78d1c5acce30c85d88bf7c
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114298160"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129616990"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>구성 옵션 - Java용 Azure Monitor Application Insights
 
@@ -39,14 +39,14 @@ ms.locfileid: "114298160"
 
 ## <a name="configuration-file-path"></a>구성 파일 경로
 
-기본적으로 Application Insights Java 3.x는 구성 파일의 이름을 `applicationinsights.json`으로 지정하고 `applicationinsights-agent-3.1.1.jar`와 동일한 디렉터리에 위치하도록 합니다.
+기본적으로 Application Insights Java 3.x는 구성 파일의 이름을 `applicationinsights.json`으로 지정하고 `applicationinsights-agent-3.2.0.jar`와 동일한 디렉터리에 위치하도록 합니다.
 
 다음 중 하나를 사용하여 사용자 고유의 구성 파일 경로를 지정할 수 있습니다.
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` 환경 변수 또는
 * `applicationinsights.configuration.file` Java 시스템 속성
 
-상대 경로를 지정하면 `applicationinsights-agent-3.1.1.jar`이 있는 디렉터리를 기준으로 확인됩니다.
+상대 경로를 지정하면 `applicationinsights-agent-3.2.0.jar`이 있는 디렉터리를 기준으로 확인됩니다.
 
 ## <a name="connection-string"></a>연결 문자열
 
@@ -180,6 +180,22 @@ ms.locfileid: "114298160"
 > [!NOTE]
 > 버전 3.0.2부터 `service.version`이라는 사용자 지정 차원을 추가하는 경우 값은 사용자 지정 차원이 아닌 Application Insights Logs 테이블의 `application_Version` 열에 저장됩니다.
 
+## <a name="inherited-attribute-preview"></a>상속 된 특성 (미리 보기)
+
+3.2.0 버전부터 요청 원격 분석에 대해 프로그래밍 방식으로 사용자 지정 차원을 설정 하 고 다음을 수행 하는 종속성 원격 분석을 통해 해당 차원을 상속 하는 경우에 시작 합니다.
+
+```json
+{
+  "inheritedAttributes": [
+    {
+      "key": "mycustomer",
+      "type": "string"
+    }
+  ]
+}
+```
+
+
 ## <a name="telemetry-processors-preview"></a>원격 분석 프로세서(미리 보기)
 
 이를 통해 요청, 종속성 및 추적 원격 분석에 적용되는 규칙을 구성할 수 있습니다. 예를 들면 다음과 같습니다.
@@ -254,28 +270,6 @@ Application Insights에 대해 구성된 기본 수준은 `INFO`입니다. 이 �
 }
 ```
 
-## <a name="auto-collected-azure-sdk-telemetry-preview"></a>자동 수집된 Azure SDK 원격 분석(미리 보기)
-
-대부분의 최신 Azure SDK 라이브러리는 원격 분석을 내보냅니다([전체 목록](./java-in-process-agent.md#azure-sdks-preview) 참조).
-
-Application Insights Java 3.0.3부터 이 원격 분석 캡처를 사용할 수 있습니다.
-
-이 기능을 사용하려면 다음을 수행합니다.
-
-```json
-{
-  "preview": {
-    "instrumentation": {
-      "azureSdk": {
-        "enabled": true
-      }
-    }
-  }
-}
-```
-
-또한 `APPLICATIONINSIGHTS_PREVIEW_INSTRUMENTATION_AZURE_SDK_ENABLED` 환경 변수를 `true`로 설정하여 이 기능을 사용할 수 있습니다. 이 경우 json 구성에 지정된 사용 설정보다 우선 적용됩니다.
-
 ## <a name="suppressing-specific-auto-collected-telemetry"></a>자동 수집된 특정 원격 분석 표시 안 함
 
 3\.0.3 버전부터 다음 구성 옵션을 사용하여 자동 수집된 특정 원격 분석을 표시하지 않을 수 있습니다.
@@ -283,6 +277,9 @@ Application Insights Java 3.0.3부터 이 원격 분석 캡처를 사용할 수 
 ```json
 {
   "instrumentation": {
+    "azureSdk": {
+      "enabled": false
+    },
     "cassandra": {
       "enabled": false
     },
@@ -301,6 +298,9 @@ Application Insights Java 3.0.3부터 이 원격 분석 캡처를 사용할 수 
     "mongo": {
       "enabled": false
     },
+    "rabbitmq": {
+      "enabled": false
+    },
     "redis": {
       "enabled": false
     },
@@ -313,12 +313,14 @@ Application Insights Java 3.0.3부터 이 원격 분석 캡처를 사용할 수 
 
 이러한 환경 변수를 `false`로 설정하여 이러한 계측을 표시하지 않을 수도 있습니다.
 
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_AZURE_SDK_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_CASSANDRA_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_JDBC_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_JMS_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_KAFKA_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_MICROMETER_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_MONGO_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_RABBITMQ_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_REDIS_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_SPRING_SCHEDULING_ENABLED`
 
@@ -326,6 +328,31 @@ Application Insights Java 3.0.3부터 이 원격 분석 캡처를 사용할 수 
 
 > [!NOTE]
 > 더 세분화된 컨트롤을 원하는 경우(예: 모든 redis 호출이 아니라 일부 redis 호출을 표시하지 않는 경우)에는 [샘플링 재정의](./java-standalone-sampling-overrides.md)를 참조하세요.
+
+## <a name="preview-instrumentations"></a>계측 미리 보기
+
+버전 3.2.0부터 다음 미리 보기 계측을 사용하도록 설정할 수 있습니다.
+
+```
+{
+  "preview": {
+    "instrumentation": {
+      "apacheCamel": {
+        "enabled": true
+      },
+      "grizzly": {
+        "enabled": true
+      },
+      "quartz": {
+        "enabled": true
+      },
+      "springIntegration": {
+        "enabled": true
+      }
+    }
+  }
+}
+```
 
 ## <a name="heartbeat"></a>하트비트
 
@@ -431,7 +458,7 @@ Application Insights Java 3.x는 설정된 경우 전역 `https.proxyHost` 및 `
 
 `level`은 `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG` 또는 `TRACE` 중 하나일 수 있습니다.
 
-`path`는 절대 또는 상대 경로일 수 있습니다. 상대 경로는 `applicationinsights-agent-3.1.1.jar`이 있는 디렉터리를 기준으로 확인됩니다.
+`path`는 절대 또는 상대 경로일 수 있습니다. 상대 경로는 `applicationinsights-agent-3.2.0.jar`이 있는 디렉터리를 기준으로 확인됩니다.
 
 `maxSizeMb`는 롤오버되기 전에 로그 파일의 최대 크기입니다.
 

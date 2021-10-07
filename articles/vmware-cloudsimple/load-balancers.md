@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - CloudSimple 프라이빗 클라우드에 대한 부하 분산 솔루션 선택
 description: 프라이빗 클라우드에 애플리케이션을 배포하는 부하 분산 옵션을 설명합니다.
-author: Ajayan1008
-ms.author: v-hborys
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 06d2305c209011e4fb1b8ee05a016d2e15a49833
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 36ed6b55b3f97f53a0b8be4829dff97bd0d9c120
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97898031"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129616382"
 ---
 # <a name="choose-a-load-balancing-solution-for-cloudsimple-private-clouds"></a>CloudSimple 프라이빗 클라우드에 대한 부하 분산 솔루션 선택
 

@@ -1,19 +1,19 @@
 ---
 title: Azure의 VMware 솔루션 by CloudSimple-Veeam을 사용하여 프라이빗 클라우드의 워크로드 가상 머신 백업
 description: Veeam B&R 9.5를 사용하여 Azure 기반 CloudSimple 프라이빗 클라우드에서 실행되는 가상 머신을 백업하는 방법을 설명합니다
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d5037a6d236c0071c25e0e4f148c32f67b5e8438
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: 449f000ad9921904f18f5481118330bc5e11d49f
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113006287"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129618027"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Veeam B&R을 사용하여 CloudSimple 프라이빗 클라우드에서 워크로드 가상 머신 백업
 

@@ -5,12 +5,12 @@ ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Azure Monitor를 사용하여 Azure Arc 지원 Kubernetes 클러스터의 메트릭 및 로그 수집
-ms.openlocfilehash: 55beedec85b5e2a426954f179b738fcf81eb4982
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
-ms.translationtype: HT
+ms.openlocfilehash: eb1229e9ccccab3a8210531b7aa5dfba6b46abbf
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109845747"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129613152"
 ---
 # <a name="azure-monitor-container-insights-for-azure-arc-enabled-kubernetes-clusters"></a>Azure Arc 지원 Kubernetes 클러스터에 대한 Azure Monitor Container Insights
 
@@ -23,6 +23,9 @@ ms.locfileid: "109845747"
 - Azure Monitor Container Insights는 라이브 데이터(미리 보기) 기능을 제외하고 [개요](container-insights-overview.md) 문서에 설명된 대로 Azure Arc 지원 Kubernetes(미리 보기) 모니터링을 지원합니다. 또한 사용자에게는 [메트릭을 사용하도록 설정](container-insights-update-metrics.md)하기 위한 [소유자](../../role-based-access-control/built-in-roles.md#owner) 권한이 필요하지 않습니다.
 - `Docker`, `Moby` 및 CRI 호환 컨테이너 런타임(예: `CRI-O` 및 `containerd`)
 - 인증이 없는 아웃바운드 프록시 및 기본 인증이 있는 아웃바운드 프록시가 지원됩니다. 신뢰할 수 있는 인증서가 필요한 아웃바운드 프록시는 현재 지원되지 않습니다.
+
+>[!NOTE]
+> Azure Monitor 컨테이너 Insights 현재 Kubernetes v1.22 이상은 지원하지 않습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

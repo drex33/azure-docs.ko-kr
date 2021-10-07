@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 08/19/2021
+ms.date: 09/12/2021
 ms.author: memildin
-ms.openlocfilehash: 0e9988aa7779d85714d6e1562af78c3a5bf0e1ff
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 2d78588e900becc8fc802f1e4665b4fe533f0f6a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122444694"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124766847"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Azure Security Center에 예정된 중요한 변경
 
@@ -28,7 +28,7 @@ ms.locfileid: "122444694"
 
 | 계획된 변경       | 변경 예상 날짜 |
 |----------------------|---------------------------|
-| [ISO 27001의 레거시 구현이 새 ISO 27001:2013으로 대체되고 있습니다.](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)| 2021년 8월|
+| [ISO 27001의 레거시 구현이 새 ISO 27001:2013으로 대체되고 있습니다.](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)| 2021년 9월|
 | [일부 경고 유형의 접두사를 "ARM_"에서 "VM_"으로 변경](#changing-prefix-of-some-alert-types-from-arm_-to-vm_)                                          | 2021년 10월|
 | [엔드포인트 보호 솔루션 관리를 위한 권장 사항 변경](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | 2021년 4분기    |
 | [SQL 데이터베이스의 중요한 데이터 분류에 대한 개선된 권장 사항](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)   | 2022년 1분기    |
@@ -36,7 +36,7 @@ ms.locfileid: "122444694"
 
 ### <a name="legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013"></a>ISO 27001의 레거시 구현이 새 ISO 27001:2013으로 대체되고 있습니다.
 
-**변경 예상 날짜:** 2021년 8월
+**변경 예상 날짜:** 2021년 9월
 
 ISO 27001의 레거시 구현은 Security Center의 규정 준수 대시보드에서 제거됩니다. Security Center를 사용하여 ISO 27001 규정 준수를 추적하는 경우 모든 관련 관리 그룹 또는 구독에 대한 새 ISO 27001:2013 표준을 온보드하면 현재 레거시 ISO 27001이 대시보드에서 곧 제거됩니다.
 

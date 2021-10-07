@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - 보안 프라이빗 클라우드
 description: CloudSimple 프라이빗 클라우드로 Azure VMware Solution을 보호하는 방법을 설명합니다.
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2cf73cfcad43f34bc3977ab7818bb9623d56c4aa
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
-ms.translationtype: HT
+ms.openlocfilehash: 9ca38542dd794aca6661565d6b4c02fe50d31f7e
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108177263"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129616192"
 ---
 # <a name="how-to-secure-your-private-cloud-environment"></a>프라이빗 클라우드 환경을 보호하는 방법
 

@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 07/26/2021
-ms.openlocfilehash: cb88998009ab05eb91b8945a138ef935660dac35
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
-ms.translationtype: HT
+ms.date: 10/05/2021
+ms.openlocfilehash: 89fcd5ce46ea9093779ad24dcca5a80a3a4f6ada
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114710755"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129618331"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL – 하이퍼스케일(Citus) 모니터링 및 튜닝
 
@@ -26,7 +26,7 @@ ms.locfileid: "114710755"
 
 ### <a name="per-node-vs-aggregate"></a>노드당 대 집계
 
-기본적으로 Azure Portal은 서버 그룹의 노드에서 하이퍼스케일(Citus) 메트릭을 집계합니다. 그러나 디스크 사용량과 같은 일부 메트릭은 노드당 정보가 더 유용합니다. 노드에 대한 메트릭을 확인하려면 Azure Monitor [서버 이름별 메트릭 분할](../azure-monitor/essentials/metrics-charts.md#metric-splitting)을 사용합니다.
+기본적으로 Azure Portal은 서버 그룹의 노드에서 하이퍼스케일(Citus) 메트릭을 집계합니다. 그러나 디스크 사용량과 같은 일부 메트릭은 노드당 정보가 더 유용합니다. 노드에 대한 메트릭을 확인하려면 Azure Monitor [서버 이름별 메트릭 분할](howto-hyperscale-monitoring.md#view-metrics-per-node)을 사용합니다.
 
 > [!NOTE]
 >
@@ -51,5 +51,6 @@ Azure는 클러스터 전체의 집계 메트릭을 제공하지 않지만 여�
 
 ## <a name="next-steps"></a>다음 단계
 
+- Citus (Hyperscale) 서버 그룹에 대 한 [메트릭을 보는](howto-hyperscale-monitoring.md) 방법에 대해 알아봅니다.
 - 메트릭에 대한 경고 생성에 대한 지침은 [경고를 설정하는 방법](howto-hyperscale-alert-on-metric.md)을 참조하세요.
 - [메트릭 분할](../azure-monitor/essentials/metrics-charts.md#metric-splitting)을 수행하여 서버 그룹의 노드당 메트릭을 검사하는 방법을 알아봅니다.

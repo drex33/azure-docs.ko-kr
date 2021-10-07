@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 07/05/2021
 ms.author: jianleishen
-ms.openlocfilehash: ed91fcaf566e31df2a1c9b57178c2e60d9206ad5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dd7a38070b13cb762bc22e954c47703ef5366b84
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637721"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124805473"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob 스토리지에서 Azure SQL Database의 데이터베이스로 데이터 복사
 
@@ -111,13 +111,13 @@ ms.locfileid: "122637721"
 
 1. 홈페이지에서 **오케스트레이션** 을 선택합니다.
 
-   ![ADF 홈페이지를 보여 주는 스크린샷](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="ADF 홈페이지를 보여 주는 스크린샷":::
 
 1. **속성** 아래의 일반 패널에서 **이름** 에 **CopyPipeline** 을 지정합니다. 그런 다음, 오른쪽 위 모서리에 있는 속성 아이콘을 클릭하여 패널을 축소합니다.
 
 1. **활동** 도구 상자에서 **이동 및 변환** 범주를 펼치고, **데이터 복사** 활동을 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓습니다. **이름** 에 대해 **CopyFromBlobToSql** 을 지정합니다.
 
-    ![복사 활동](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal/drag-drop-copy-activity.png" alt-text="복사 작업":::
 
 ### <a name="configure-source"></a>원본 구성
 
@@ -141,7 +141,7 @@ ms.locfileid: "122637721"
 
 1. **확인** 을 선택합니다. 자동으로 파이프라인 페이지로 이동합니다. **원본** 탭에서 **SourceBlobDataset** 가 선택되어 있는지 확인합니다. 이 페이지에서 데이터를 미리 보려면 **데이터 미리 보기** 를 선택합니다.
 
-    ![원본 데이터 세트](./media/tutorial-copy-data-portal/source-dataset-selected.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal/source-dataset-selected.png" alt-text="원본 데이터 세트":::
 
 ### <a name="configure-sink"></a>싱크 구성
 >[!TIP]
@@ -170,13 +170,13 @@ ms.locfileid: "122637721"
 
     g. **만들기** 를 선택하여 연결된 서비스를 배포합니다.
 
-    ![새 연결된 서비스 저장](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
+    :::image type="content" source="./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png" alt-text="새 연결된 서비스 저장":::
 
 1. 자동으로 **속성 설정** 대화 상자로 이동합니다. **테이블** 에서 **[dbo].[emp]** 를 선택합니다. 그런 다음, **확인** 을 선택합니다.
 
 1. 파이프라인이 있는 탭으로 이동하고, **싱크 데이터 세트** 에서 **OutputSqlDataset** 가 선택되어 있는지 확인합니다.
 
-    ![파이프라인 탭](./media/tutorial-copy-data-portal/pipeline-tab-2.png)       
+    :::image type="content" source="./media/tutorial-copy-data-portal/pipeline-tab-2.png" alt-text="파이프라인 탭":::       
 
 [복사 작업의 스키마 매핑](copy-activity-schema-and-type-mapping.md)을 따라 선택적으로 원본 스키마를 대상의 해당 스키마에 매핑할 수 있습니다.
 
@@ -201,11 +201,11 @@ ms.locfileid: "122637721"
 
 1. 왼쪽의 **모니터** 탭으로 이동합니다. 수동 트리거로 트리거되는 파이프라인 실행이 표시됩니다. **파이프라인 이름** 열 아래의 링크를 사용하여 활동 세부 정보를 보고 파이프라인을 다시 실행할 수 있습니다.
 
-    [![파이프라인 실행 모니터링](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png)](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png#lightbox)
+    [:::image type="content" source="./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png#lightbox" alt-text="파이프라인 실행 모니터링](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png)":::
 
 1. 파이프라인 실행과 관련된 활동 실행을 보려면 **파이프라인 이름** 열에서 **CopyPipeline** 링크를 선택합니다. 이 예제에서는 활동이 하나뿐이므로 목록에 하나의 항목만 표시됩니다. 복사 작업에 대한 자세한 내용을 보려면 **활동 이름** 열에서 **세부 정보** 링크(안경 아이콘)를 선택합니다. 파이프라인 실행 보기로 돌아가려면 위쪽에 있는 **모든 파이프라인 실행** 을 선택합니다. 보기를 새로 고치려면 **새로 고침** 을 선택합니다.
 
-    [![활동 실행 모니터링](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png#lightbox)
+    [:::image type="content" source="./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png#lightbox" alt-text="작업 실행 모니터링](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png)":::
 
 1. 데이터베이스의 **emp** 테이블에 둘 이상의 행이 추가되어 있는지 확인합니다.
 
@@ -243,7 +243,7 @@ ms.locfileid: "122637721"
 
 1. 왼쪽의 **모니터** 탭으로 이동하여 트리거된 파이프라인 실행을 확인합니다.
 
-    [![트리거된 파이프라인 실행](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png#lightbox)
+    [:::image type="content" source="./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png#lightbox" alt-text="트리거된 파이프라인 실행](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png)":::
 
 1. **파이프라인 실행** 보기에서 **트리거 실행** 보기로 전환하려면 창 왼쪽에서 **트리거 실행** 을 선택합니다.
 

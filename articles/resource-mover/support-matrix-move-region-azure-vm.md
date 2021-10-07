@@ -7,20 +7,16 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 02/08/2021
 ms.author: raynew
-ms.openlocfilehash: 3022b2d4954ffaef71e17ed28dd9b6f141d4da70
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: ced0213a155bee2926a77d0b8f4126b7b97232fb
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99980493"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129618955"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Azure 지역 간에 Azure VM 이동 시 지원
 
 이 문서에는 Resource Mover를 사용하여 Azure 지역 전반에서 가상 머신 및 관련 네트워크 리소스를 이동할 때 제공되는 지원 및 사전 요구 사항이 요약되어 있습니다.
-
-> [!IMPORTANT]
-> Azure Resource Mover는 현재 미리 보기로 제공됩니다.
-
 
 ## <a name="windows-vm-support"></a>Windows VM 지원
 

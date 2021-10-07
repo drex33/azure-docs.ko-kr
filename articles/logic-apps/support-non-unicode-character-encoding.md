@@ -1,16 +1,16 @@
 ---
-title: Logic Apps에서 유니코드가 아닌 문자 인코딩을 지원합니다.
-description: Logic Apps에서 유니코드가 아닌 텍스트를 사용하여 작업합니다. Base64 인코딩 및 Azure Functions를 사용하여 텍스트 페이로드를 UTF-8로 변환합니다.
-ms.date: 04/29/2021
-ms.topic: conceptual
-ms.reviewer: logicappspm
+title: 호환성을 위해 유니코드가 아닌 인코딩된 텍스트 변환
+description: base64 인코딩 및 Azure Functions 사용하여 텍스트 페이로드를 UTF-8로 변환하여 Azure Logic Apps 유니코드가 아닌 문자를 처리합니다.
+ms.date: 10/05/2021
+ms.topic: how-to
+ms.reviewer: estfan, azla
 ms.service: logic-apps
-ms.openlocfilehash: cabdb2a644870d363265fa39290eb503f72730a9
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
-ms.translationtype: HT
+ms.openlocfilehash: 1251a1622e62b7940c25ac810db10f70da560000
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326926"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129618993"
 ---
 # <a name="support-non-unicode-character-encoding-in-logic-apps"></a>Logic Apps에서 유니코드가 아닌 문자 인코딩을 지원합니다.
 
@@ -24,9 +24,17 @@ ms.locfileid: "108326926"
 
 먼저 트리거가 콘텐츠 형식을 올바르게 식별할 수 있는지 확인합니다. 이 단계를 수행하면 Logic Apps에서 더 이상 텍스트를 UTF-8로 간주하지 않습니다. 
 
-**추론 콘텐츠 형식** 설정 트리거의 경우 **아니요** 를 선택합니다. 트리거에 이 옵션이 없으면 수신 메시지에 의해 콘텐츠 형식이 설정됩니다. 
+**콘텐츠 형식 유추** 속성이 있는 트리거 및 작업에서 **아니요를** 선택합니다.  일반적으로 작업의 **매개 변수 추가** 목록에서 이 속성을 찾을 수 있습니다. 그러나 작업에 이 속성이 포함되어 있지 않으면 콘텐츠 형식이 인바운드 메시지에 의해 설정됩니다.
 
-`text/plain` 콘텐츠에 대한 HTTP 요청 트리거를 사용하는 경우, 호출의 `Content-Type` 헤더에 `charset` 매개 변수를 설정해야 합니다. `charset` 매개 변수를 설정하지 않거나 매개 변수가 페이로드의 인코딩 형식과 일치하지 않으면 문자가 손상될 수 있습니다. 자세한 내용은 [콘텐츠 형식`text/plain`을 처리하는 방법](logic-apps-content-type.md#text-plain)을 참조하세요.
+다음 목록에서는 콘텐츠 형식을 자동으로 유추하지 않도록 설정할 수 있는 일부 커넥터를 보여 드립니다.
+* [OneDrive](/connectors/onedrive/)
+* [Azure Blob Storage](/connectors/azureblob/)
+* [Azure File Storage](/connectors/azurefile/)
+* [파일 시스템](/connectors/filesystem/)
+* [Google 드라이브](/connectors/googledrive/)
+* [SFTP - SSH](/connectors/sftpwithssh/)
+ 
+콘텐츠에 요청 트리거를 사용하는 경우 `text/plain` `charset` 호출의 헤더에 있는 매개 변수를 설정해야 `Content-Type` 합니다. 그렇지 않으면 문자가 손상되거나 매개 변수가 페이로드의 인코딩 형식과 일치하지 않을 수 있습니다. 자세한 내용은 [ `text/plain` 콘텐츠 형식을 처리하는 방법을](logic-apps-content-type.md#text-plain)검토하세요.
 
 예를 들어, HTTP 트리거는 `Content-Type` 헤더가 올바른 `charset` 매개 변수로 설정된 경우 수신 콘텐츠를 UTF-8로 변환합니다.
 

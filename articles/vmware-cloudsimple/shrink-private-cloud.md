@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple 프라이빗 클라우드 축소
 description: 기존 vSphere 클러스터에서 노드를 제거하거나 전체 클러스터를 제거하여 CloudSimple에서 프라이빗 클라우드를 동적으로 축소하는 방법에 대해 알아봅니다.
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.date: 07/01/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: cad88e2b151efb17516fb22a1132fe7d7825454e
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
-ms.translationtype: HT
+ms.openlocfilehash: d6608ccc3cbeecc691663a7d10df6535e44c19ac
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108181097"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129616002"
 ---
 # <a name="shrink-a-cloudsimple-private-cloud"></a>CloudSimple 프라이빗 클라우드 축소
 

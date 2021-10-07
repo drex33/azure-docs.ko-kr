@@ -2,29 +2,17 @@
 title: OData 컬렉션 필터 이해
 titleSuffix: Azure Cognitive Search
 description: 컬렉션에 고유한 제한 사항 및 동작을 포함하여 Azure Cognitive Search 쿼리에서 OData 컬렉션 필터가 작동하는 방식의 메커니즘을 알아봅니다.
-manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-translation.priority.mt:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pt-br
-- ru-ru
-- zh-cn
-- zh-tw
-ms.openlocfilehash: 88387bbe51d71a2530d25608fee962e926cd6511
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.date: 10/06/2021
+ms.openlocfilehash: 9a73f5073d5388499a678b25db983046a50de717
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123449156"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612088"
 ---
 # <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData 컬렉션 필터 이해
 

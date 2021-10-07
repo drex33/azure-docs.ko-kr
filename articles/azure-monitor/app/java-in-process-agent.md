@@ -6,12 +6,12 @@ ms.date: 06/24/2021
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 900430b1b1897479b4551c9e12e28ad87eaf0ad9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0aa8fdf150560058331c267d78967abf257bd122
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128642380"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129617248"
 ---
 # <a name="java-codeless-application-monitoring-with-azure-monitor-application-insights"></a>Azure Monitor Application Insights를 사용 하 여 Java 코드 없는 응용 프로그램 모니터링
 
@@ -24,46 +24,55 @@ Java 에이전트는 모든 환경에서 작동하며 모든 Java 애플리케�
 
 Application Insights Java 3.x 에이전트가 요청, 종속성 및 로그를 모두 자동으로 수집하기 때문에 Application Insights Java 2.x SDK를 애플리케이션에 추가하는 것은 더 이상 필요하지 않습니다.
 
-애플리케이션에서 사용자 지정 원격 분석을 계속 보낼 수 있습니다.
-3\.x 에이전트는 자동으로 수집된 모든 원격 분석과 함께 이를 추적하고 상관 관계를 지정합니다.
+애플리케이션에서 사용자 지정 원격 분석을 계속 보낼 수 있습니다. 3\.x 에이전트는 자동으로 수집된 모든 원격 분석과 함께 이를 추적하고 상관 관계를 지정합니다.
 
 3\.x 에이전트는 Java 8 이상을 지원합니다.
 
 ## <a name="quickstart"></a>빠른 시작
 
-**1. 에이전트 다운로드**
+Azure Monitor Application Insights에서 Java 코드 없는 응용 프로그램 모니터링을 사용 하는 방법에 대 한 빠른 시작을 보려면 다음 단계를 따르세요.
+
+### <a name="step-1-download-the-agent"></a>1 단계: 에이전트 다운로드
+
+Jar 파일을 다운로드 하기 전에 다음 구성 요소를 검토 합니다.
 
 > [!WARNING]
-> **3.0 미리 보기에서 업그레이드하는 경우**
+> 
+> - **3.0 Preview에서 업그레이드 하는 경우**
 >
-> 모두 소문자로 된 파일 이름 자체 외에도 json 구조가 완전히 변경되었으므로 아래 모든 [구성 옵션](./java-standalone-config.md)을 신중히 검토하세요.
-
-> [!WARNING]
-> **3.0.x에서 업그레이드하는 경우**
+>    모두 소문자로 된 파일 이름 자체 외에도 json 구조가 완전히 변경되었으므로 아래 모든 [구성 옵션](./java-standalone-config.md)을 신중히 검토하세요.
+> 
+> - **3.0. x에서 업그레이드 하는 경우**
+> 
+>    이제 작업 이름과 요청 원격 분석 이름에 http 메서드(`GET`, `POST` 등)가 접두사로 붙습니다.
+>    이전 값에 의존 하는 경우 사용자 지정 대시보드 또는 경고에 영향을 줄 수 있습니다.
+>    자세한 내용은 [3.1.0 릴리스 정보](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0)를 참조하세요.
 >
-> 이제 작업 이름과 요청 원격 분석 이름에 http 메서드(`GET`, `POST` 등)가 접두사로 붙습니다.
-> 이전 접두사가 없는 값을 사용하는 경우 사용자 지정 대시보드 또는 경고에 영향을 줄 수 있습니다.
-> 자세한 내용은 [3.1.0 릴리스 정보](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0)를 참조하세요.
+> - **3.1. x에서 업그레이드 하는 경우**
+> 
+>    이제 필드에 전체 (삭제 된) 쿼리가 있는 데이터베이스 종속성 이름이 더 간결 합니다 `data` . 이제 및 HTTP 종속성 이름이 더 설명적입니다.
+>    이전 값에 의존 하는 경우 사용자 지정 대시보드 또는 경고에 영향을 줄 수 있습니다.
+>    자세한 내용은 [3.2.0 릴리스 정보](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0) 를 참조 하세요.
 
-[applicationinsights-agent-3.1.1.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.1.1/applicationinsights-agent-3.1.1.jar) 다운로드
+[Applicationinsights-agent-3.2.0](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.2.0/applicationinsights-agent-3.2.0.jar) 파일을 다운로드 합니다.
 
-**2. JVM을 에이전트로 지정**
+### <a name="step-2-point-the-jvm-to-the-agent"></a>2 단계: 에이전트에 대 한 JVM 가리키기
 
-애플리케이션의 JVM 인수에 `-javaagent:path/to/applicationinsights-agent-3.1.1.jar` 추가 
+애플리케이션의 JVM 인수에 `-javaagent:path/to/applicationinsights-agent-3.2.0.jar` 추가 
 
 애플리케이션의 JVM 인수 구성에 관한 도움말은 [JVM 인수 업데이트를 위한 팁](./java-standalone-arguments.md)을 참조하세요.
 
-**3. 에이전트를 Application Insights 리소스로 지정**
+### <a name="step-3-point-the-agent-to-your-application-insights-resource"></a>3 단계: 에이전트에 Application Insights 리소스 가리키기
 
-Application Insights 리소스가 아직 없는 경우 [리소스 생성 가이드](./create-new-resource.md)의 단계에 따라 새 리소스를 만들 수 있습니다.
+Application Insights 리소스가 아직 없는 경우 [리소스 만들기 가이드](./create-new-resource.md)의 단계에 따라 새 리소스를 만들 수 있습니다.
 
 환경 변수를 설정하여 에이전트가 Application Insights 리소스를 가리키도록 합니다.
 
-```
+```console
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
-또는 `applicationinsights.json`이라는 구성 파일을 작성하고 다음 내용으로 `applicationinsights-agent-3.1.1.jar`과 동일한 디렉터리에 배치합니다.
+또는 `applicationinsights.json`이라는 구성 파일을 작성하고 다음 내용으로 `applicationinsights-agent-3.2.0.jar`과 동일한 디렉터리에 배치합니다.
 
 ```json
 {
@@ -75,12 +84,12 @@ Application Insights 리소스에서 연결 문자열을 찾을 수 있습니다
 
 :::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights 연결 문자열":::
 
-**4. 이것으로 끝입니다.**
+### <a name="step-4-thats-it"></a>4 단계: 이것이 끝났습니다.
 
 이제 애플리케이션을 시작하고 Azure Portal의 Application Insights 리소스로 이동하여 모니터링 데이터를 확인합니다.
 
 > [!NOTE]
-> 모니터링 데이터가 포털에 표시되는 데 몇 분 정도 걸릴 수 있습니다.
+> 모니터링 데이터가 포털에 표시 되는 데 몇 분 정도 걸릴 수 있습니다.
 
 
 ## <a name="configuration-options"></a>구성 옵션
@@ -113,9 +122,15 @@ Application Insights 리소스에서 연결 문자열을 찾을 수 있습니다
 
 자동으로 수집된 종속성 및 다운스트림 분산 추적 전파:
 
-* Apache HttpClient 및 HttpAsyncClient
+* Apache HttpClient
+* Apache HttpAsyncClient
+* AsyncHttpClient
+* Google HttpClient
 * gRPC
 * java.net.HttpURLConnection
+* Java 11 HttpClient
+* JAX-RS-RS 클라이언트
+* Jetty HttpClient
 * JMS
 * Kafka
 * Netty 클라이언트
@@ -139,9 +154,9 @@ Application Insights 리소스에서 연결 문자열을 찾을 수 있습니다
 * Micrometer(Spring Boot Actuator 메트릭 포함)
 * JMX 메트릭
 
-## <a name="azure-sdks-preview"></a>Azure SDK(미리 보기)
+## <a name="azure-sdks"></a>Azure SDK
 
-이 미리 보기 기능을 사용하도록 설정하고 다음 Azure SDK에서 내보낸 원격 분석을 자동으로 수집하려면 [구성 옵션](./java-standalone-config.md#auto-collected-azure-sdk-telemetry-preview)을 참조하세요.
+이러한 Azure Sdk에서 내보낸 원격 분석은 기본적으로 자동으로 수집 됩니다.
 
 * [App Configuration](/java/api/overview/azure/data-appconfiguration-readme) 1.1.10 이상
 * [Cognitive Search](/java/api/overview/azure/search-documents-readme) 11.3.0 이상
@@ -383,7 +398,7 @@ RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().g
 requestTelemetry.setName("myname");
 ```
 
-### <a name="get-the-request-telemetry-id-and-the-operation-id-using-the-2x-sdk"></a>2\.x SDK를 사용하여 요청 원격 분석 ID 및 작업 ID를 얻습니다.
+### <a name="get-the-request-telemetry-id-and-the-operation-id-by-using-the-2x-sdk"></a>2.x SDK를 사용 하 여 요청 원격 분석 ID 및 작업 ID를 가져옵니다.
 
 > [!NOTE]
 > 이 기능은 3.0.3 이상에만 해당됩니다.
@@ -398,7 +413,7 @@ requestTelemetry.setName("myname");
 </dependency>
 ```
 
-코드에서 요청 원격 분석 ID 및 작업 ID를 얻습니다.
+그리고 코드에서 요청 원격 분석 ID 및 작업 ID를 가져옵니다.
 
 ```java
 import com.microsoft.applicationinsights.web.internal.ThreadContext;

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.author: thwimmer
-ms.openlocfilehash: c60f2ccc9325183fdcbc4edc533c7418e36eb6bf
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 34d1d765dbb5f2267c4c56d4dd91daa31f8799a7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113763606"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629885"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Hootsuite 구성
 
@@ -45,7 +45,7 @@ ms.locfileid: "113763606"
 
 ## <a name="step-2-configure-hootsuite-to-support-provisioning-with-azure-ad"></a>2단계. Azure AD에서 프로비저닝을 지원하도록 Hootsuite 구성
 
-dev.support@hootsuite.com에 연결하여 이후 단계에서 필요한 오래 지속되는 비밀 토큰을 가져옵니다. 
+이후 단계에서 필요한 오래 지속되는 토큰을 위해 Hootsuite CSM에 연결합니다.
 
 ## <a name="step-3-add-hootsuite-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 애플리케이션 갤러리에서 Hootsuite 추가
 

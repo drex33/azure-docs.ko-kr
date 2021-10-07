@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 7550fafa0a1fdf67baca4f9c777a4a064f522728
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: bf3aa8b675e242952f32678059b8b2c89d5b95e0
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122642138"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612430"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql-flexible-server-preview"></a>Azure Database for MySQL 유연한 서버에서 느린 쿼리 로그(미리 보기)
 
@@ -41,7 +41,7 @@ MySQL 느린 쿼리 로그에 대한 자세한 내용은 MySQL 엔진 설명서�
 
 ## <a name="access-slow-query-logs"></a>느린 쿼리 로그 액세스
 
-느린 쿼리 로그는 Azure Monitor 진단 설정과 통합됩니다. MySQL 유연한 서버에서 느린 쿼리 로그를 사용하도록 설정하면 Azure Monitor 로그, Event Hubs 또는 Azure Storage로 느린 로그를 내보낼 수 있습니다. 진단 설정에 관한 자세한 정보는 [진단 로그 설명서](../../azure-monitor/essentials/platform-logs-overview.md)를 참조하세요. Azure Portal에서 진단 설정을 사용하도록 설정하는 방법에 대한 자세한 정보는 [느린 쿼리 로그 포털 문서](how-to-configure-slow-query-logs-portal.md#set-up-diagnostics)를 참조하세요.
+느린 쿼리 로그는 Azure Monitor 진단 설정과 통합됩니다. MySQL 유연한 서버에서 느린 쿼리 로그를 사용하도록 설정하면 Azure Monitor 로그, Event Hubs 또는 Azure Storage로 느린 로그를 내보낼 수 있습니다. 진단 설정에 관한 자세한 정보는 [진단 로그 설명서](../../azure-monitor/essentials/platform-logs-overview.md)를 참조하세요. Azure Portal에서 진단 설정을 사용하도록 설정하는 방법에 대한 자세한 정보는 [느린 쿼리 로그 포털 문서](tutorial-query-performance-insights.md#set-up-diagnostics)를 참조하세요.
 
 다음 표는 느린 쿼리 로그의 출력에 대해 설명합니다. 포함되는 필드와 이러한 필드가 표시되는 순서는 출력 방법에 따라 달라질 수 있습니다.
 
@@ -132,6 +132,6 @@ MySQL 느린 쿼리 로그에 대한 자세한 내용은 MySQL 엔진 설명서�
     ```    
     
 ## <a name="next-steps"></a>다음 단계
-- [감사 로그](concepts-audit-logs.md)에 대한 자세한 정보를 알아봅니다.
-- [Azure Portal](how-to-configure-slow-query-logs-portal.md)을 사용하여 느린 쿼리 로그 구성
+- [감사 로그](concepts-audit-logs.md)에 대한 자세한 정보
+- [쿼리 성능 Insight](tutorial-query-performance-insights.md)
 <!-- - [How to configure slow query logs from the Azure CLI](howto-configure-server-logs-in-cli.md). -->

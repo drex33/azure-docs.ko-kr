@@ -1,23 +1,20 @@
 ---
-title: 대규모 데이터 원본 준비 상태 확인(미리 보기)
+title: 대규모 데이터 원본 준비 상태 확인
 description: 이 자습서에서는 Azure Purview에서 등록하고 검사하기 전에 Azure 데이터 원본의 준비 상태를 확인합니다.
 author: zeinam
 ms.author: zeinam
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: tutorial
-ms.date: 05/28/2021
-ms.openlocfilehash: d7dc8ab7987f149747df30834f426ce6d119eb5c
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.date: 09/27/2021
+ms.openlocfilehash: 1eaca951a5abe43bda2621043321537cee2daa13
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113105924"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213416"
 ---
-# <a name="tutorial-check-data-source-readiness-at-scale-preview"></a>자습서: 대규모 데이터 원본 준비 상태 확인(미리 보기)
-
-> [!IMPORTANT]
-> Azure Purview는 현재 미리 보기로 제공됩니다. [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타 또는 미리 보기로 제공되거나 아직 일반 공급을 위해 릴리스되지 않은 Azure 기능에 적용되는 추가 약관이 포함되어 있습니다.
+# <a name="tutorial-check-data-source-readiness-at-scale"></a>자습서: 대규모 데이터 원본 준비 상태 확인
 
 데이터 원본을 검사하려면 Azure Purview에서 해당 원본에 대한 액세스 권한이 필요합니다. 자격 증명을 사용하여 이 액세스 권한을 얻습니다. ‘자격 증명’은 Azure Purview가 등록된 데이터 원본에 인증하는 데 사용할 수 있는 인증 정보입니다. Azure Purview에 대한 자격 증명을 설정하는 몇 가지 방법은 다음과 같습니다. 
 - Azure Purview 계정에 할당된 관리 ID
@@ -52,7 +49,7 @@ Azure Purview 계정을 배포한 후 Azure 데이터 원본을 등록하고 검
 
 스크립트를 실행하기 전에 4개의 열이 있는 .csv 파일(예: C:\temp\Subscriptions.csv)을 만듭니다.
 
-|열 이름|Description|예제|
+|열 이름|설명|예제|
 |----|----|----|
 |`SubscriptionId`|데이터 원본에 대한 Azure 구독 ID입니다.|12345678-aaaa-bbbb-cccc-1234567890ab|
 |`KeyVaultName`|데이터 원본 구독에 배포된 기존 키 자격 증명 모음의 이름입니다.|ContosoDevKeyVault|
@@ -75,7 +72,7 @@ Windows 컴퓨터에서 스크립트를 실행하려면 다음 단계를 수행�
 
 1. [Azure Purview 데이터 원본 준비 상태 검사 목록](https://github.com/Azure/Purview-Samples/tree/master/Data-Source-Readiness) 스크립트를 선택한 위치에 다운로드합니다.
 
-2. 컴퓨터의 Windows 작업 표시줄에 있는 검색 상자에 **PowerShell** 을 입력합니다. 검색 목록에서 **Windows PowerShell** 을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행** 을 선택합니다.
+2. 컴퓨터의 Windows 작업 표시줄에 있는 검색 상자에 **PowerShell** 을 입력합니다. 검색 목록에서 **Windows PowerShell** 을 길게 선택(또는 마우스 오른쪽 단추로 클릭)한 다음, **관리자 권한으로 실행** 을 선택합니다.
 
 3. PowerShell 창에서 다음 명령을 입력합니다. `<path-to-script>`를 추출된 스크립트 파일의 폴더 경로로 바꿉니다.
 

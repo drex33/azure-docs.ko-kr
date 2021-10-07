@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: pafarley
-ms.openlocfilehash: 2e5942ccbb9e7acf090e5b538dfbb70b1c84762f
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: e396c3b206f581935e04321c91bfd0c07c741953
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538636"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129617571"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>오디오 콘텐츠 만들기 도구를 사용한 합성 향상
 
@@ -138,13 +138,12 @@ Welcome to use Audio Content Creation to customize audio output for your product
 오디오 콘텐츠 만들기를 사용할 수 있도록 사용자를 음성 리소스에 추가하려면 다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 **Cognitive Services** 를 검색하고, 사용자를 추가하려는 음성 리소스를 선택합니다.
-2. **액세스 제어(IAM)** 를 클릭합니다. **역할 할당** 탭을 클릭하여 이 구독의 모든 역할 할당을 봅니다.
-    :::image type="content" source="media/audio-content-creation/access-control-roles.png" alt-text="역할 할당 탭":::
-3. **추가** > **역할 할당 추가** 를 클릭하여 역할 할당 추가 창을 엽니다. 역할 드롭다운 목록에서 **Cognitive Service 사용자** 역할을 선택합니다. 사용자에게 이 음성 리소스의 소유권을 부여하려면 **소유자** 역할을 선택할 수 있습니다.
-4. 사용자의 메일 주소를 입력하고 디렉터리에서 사용자를 선택합니다. 메일 주소는 Azure Active Directory에서 신뢰할 수 있는 **Microsoft 계정** 이어야 합니다. 사용자는 개인 메일 주소를 사용하여 [Microsoft 계정](https://account.microsoft.com/account)에 쉽게 가입할 수 있습니다. 
-5. **저장** 을 클릭하여 역할을 할당합니다. 
-6. 사용자는 이메일 초대를 받게 됩니다. 이메일에서 **초대 수락** > **Azure 조인에 동의** 를 클릭하여 초대를 수락합니다. 그러면 사용자가 Azure Portal로 리디렉션됩니다. 사용자는 Azure Portal에서 추가 작업을 수행할 필요가 없습니다. 잠시 후 사용자는 음성 리소스 범위의 역할이 할당되고 이 음성 리소스에 액세스할 수 있게 됩니다. 사용자가 초대 메일을 받지 못한 경우 “역할 할당”에서 사용자 계정을 검색하고 사용자 프로필 내부로 이동할 수 있습니다. “ID” -> “초대가 수락됨”을 찾고 **(관리)** 를 클릭하여 메일 초대를 다시 보냅니다. 사용자에게 초대 링크를 복사할 수도 있습니다. 
-7. 이제 사용자는 [오디오 콘텐츠 만들기](https://aka.ms/audiocontentcreation) 제품 페이지를 방문하거나 새로 고치고 사용자의 Microsoft 계정으로 로그인합니다. 모든 음성 제품 중에서 **오디오 콘텐츠 만들기** 블록을 선택합니다. 팝업 창 또는 페이지 오른쪽 위에 있는 설정에서 음성 리소스를 선택합니다. 사용자가 사용 가능한 음성 리소스를 찾을 수 없는 경우 적합한 디렉터리에 있는지 확인합니다. 적합한 디렉터리를 확인하려면 오른쪽 위에 있는 계정 프로필을 클릭하고 “현재 디렉터리” 옆에 있는 **전환** 을 클릭합니다. 사용 가능한 디렉터리가 두 개 이상 있는 경우 여러 디렉터리에 액세스할 수 있음을 의미합니다. 다른 디렉터리로 전환하고 설정으로 이동하여 적합한 음성 리소스를 사용할 수 있는지 확인합니다. 
+2. **액세스 제어(IAM)** 를 클릭합니다.   >  **역할 할당 추가(미리 보기)를** 선택하여 역할 할당 추가 창을 엽니다. 
+1. **역할** 탭에서 Cognitive **Service 사용자** 역할을 선택합니다. 사용자에게 이 음성 리소스의 소유권을 부여하려면 **소유자** 역할을 선택할 수 있습니다.
+1. **멤버** 탭에서 사용자의 이메일 주소를 입력하고 디렉터리에서 사용자를 선택합니다. 메일 주소는 Azure Active Directory에서 신뢰할 수 있는 **Microsoft 계정** 이어야 합니다. 사용자는 개인 메일 주소를 사용하여 [Microsoft 계정](https://account.microsoft.com/account)에 쉽게 가입할 수 있습니다. 
+1. **검토 + 할당** 탭에서 **검토 + 할당** 을 선택하여 역할을 할당합니다.
+1. 사용자는 이메일 초대를 받게 됩니다. 이메일에서 **초대 수락** > **Azure 조인에 동의** 를 클릭하여 초대를 수락합니다. 그러면 사용자가 Azure Portal로 리디렉션됩니다. 사용자는 Azure Portal에서 추가 작업을 수행할 필요가 없습니다. 잠시 후 사용자는 음성 리소스 범위의 역할이 할당되고 이 음성 리소스에 액세스할 수 있게 됩니다. 사용자가 초대 메일을 받지 못한 경우 “역할 할당”에서 사용자 계정을 검색하고 사용자 프로필 내부로 이동할 수 있습니다. “ID” -> “초대가 수락됨”을 찾고 **(관리)** 를 클릭하여 메일 초대를 다시 보냅니다. 사용자에게 초대 링크를 복사할 수도 있습니다. 
+1. 이제 사용자는 [오디오 콘텐츠 만들기](https://aka.ms/audiocontentcreation) 제품 페이지를 방문하거나 새로 고치고 사용자의 Microsoft 계정으로 로그인합니다. 모든 음성 제품 중에서 **오디오 콘텐츠 만들기** 블록을 선택합니다. 팝업 창 또는 페이지 오른쪽 위에 있는 설정에서 음성 리소스를 선택합니다. 사용자가 사용 가능한 음성 리소스를 찾을 수 없는 경우 적합한 디렉터리에 있는지 확인합니다. 적합한 디렉터리를 확인하려면 오른쪽 위에 있는 계정 프로필을 클릭하고 “현재 디렉터리” 옆에 있는 **전환** 을 클릭합니다. 사용 가능한 디렉터리가 두 개 이상 있는 경우 여러 디렉터리에 액세스할 수 있음을 의미합니다. 다른 디렉터리로 전환하고 설정으로 이동하여 적합한 음성 리소스를 사용할 수 있는지 확인합니다. 
 
     :::image type="content" source="media/audio-content-creation/add-role-first.png" alt-text="역할 추가 대화 상자":::
 

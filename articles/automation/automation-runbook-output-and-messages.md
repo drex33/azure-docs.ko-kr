@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 11/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0b41880bea25c1b833ab2a996a50edcf557f37b8
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
-ms.translationtype: HT
+ms.openlocfilehash: f2392484c8ee7c72daa0da7c3ff9632a981a52ec
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108161666"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619693"
 ---
 # <a name="configure-runbook-output-and-message-streams"></a>Runbook 출력 및 메시지 스트림 구성
 
@@ -30,7 +30,7 @@ ms.locfileid: "108161666"
 
 ## <a name="use-the-output-stream"></a>출력 스트림 사용
 
-출력 스트림이 올바르게 실행되면 스크립트 또는 워크플로에 의해 생성된 개체의 출력을 위해 사용됩니다. Azure Automation에서 이 스트림은 주로 [현재 Runbook](automation-child-runbooks.md)을 호출하는 부모 Runbook에서 사용하는 개체에서 사용됩니다. 부모가 [인라인으로 Runbook을 호출](automation-child-runbooks.md#invoke-a-child-runbook-using-inline-execution)하면 자식은 출력 스트림에서 부모에게 데이터를 반환합니다.
+출력 스트림이 올바르게 실행되면 스크립트 또는 워크플로에 의해 생성된 개체의 출력을 위해 사용됩니다. Azure Automation에서 이 스트림은 주로 [현재 Runbook](automation-child-runbooks.md)을 호출하는 부모 Runbook에서 사용하는 개체에서 사용됩니다. 부모가 [인라인으로 Runbook을 호출](automation-child-runbooks.md#call-a-child-runbook-by-using-inline-execution)하면 자식은 출력 스트림에서 부모에게 데이터를 반환합니다.
 
 Runbook은 다른 Runbook에 의해 호출되지 않는 경우에만 출력 스트림을 사용하여 클라이언트에 일반 정보를 커뮤니케이션합니다. Runbook에서 [자세한 정보 표시 스트림](#write-output-to-verbose-stream)을 사용하여 사용자에게 일반 정보를 전달하는 것이 좋습니다.
 

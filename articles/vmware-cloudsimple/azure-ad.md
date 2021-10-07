@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - 프라이빗 클라우드의 ID 원본으로 Azure AD 사용
 description: Azure AD를 CloudSimple 프라이빗 클라우드의 ID 공급자로 추가하여 Azure에서 CloudSimple에 액세스하는 사용자를 인증하는 방법을 설명합니다.
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 20e854b38aa45e410c5f6ddae51ee4d1bf0b088e
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
-ms.translationtype: HT
+ms.openlocfilehash: 01123699f5d7557a9e485a08c62c0808c028bb1e
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108182573"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129618274"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>CloudSimple 프라이빗 클라우드에서 Azure AD를 vCenter용 ID 공급자로 사용
 

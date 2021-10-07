@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple 프라이빗 클라우드 삭제
 description: CloudSimple 프라이빗 클라우드를 삭제하는 방법에 대해 알아봅니다. 프라이빗 클라우드를 삭제하면 모든 클러스터가 삭제됩니다.
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/06/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8ff5d251daca97ab5f0557f016ef47c7d77c2b2e
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
-ms.translationtype: HT
+ms.openlocfilehash: b8afadea5c1f0236166f9d2cd5b7c7fa7d6c3d6e
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108182375"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129620396"
 ---
 # <a name="delete-a-cloudsimple-private-cloud"></a>CloudSimple 프라이빗 클라우드 삭제
 

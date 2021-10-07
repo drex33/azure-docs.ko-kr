@@ -1,19 +1,19 @@
 ---
-title: '자습서: GitHub Actions를 사용하여 컨테이너용 App Service에 배포 및 데이터베이스에 연결'
+title: '자습서: GitHub Actions를 사용하여 App Service 사용자 지정 컨테이너에 배포 및 데이터베이스에 연결'
 description: GitHub Actions를 사용하여 ASP.NET Core 앱을 Azure 및 Azure SQL Database에 배포하는 방법 알아보기
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/22/2021
 ms.author: jukullam
 ms.custom: github-actions-azure
-ms.openlocfilehash: f8048dab26451fea85b52caa3ffdc27d7e0a677a
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 24001d71721f2e3ee243248705ed8d4b64571c83
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111894149"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128675405"
 ---
-# <a name="tutorial-use-github-actions-to-deploy-to-app-service-for-containers-and-connect-to-a-database"></a>자습서: GitHub Actions를 사용하여 컨테이너용 App Service에 배포 및 데이터베이스에 연결
+# <a name="tutorial-use-github-actions-to-deploy-to-an-app-service-custom-container-and-connect-to-a-database"></a>자습서: GitHub Actions를 사용하여 App Service 사용자 지정 컨테이너에 배포 및 데이터베이스에 연결
 
 이 자습서에서는 [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) 백 엔드를 사용하여 컨테이너화된 ASP.NET Core 애플리케이션을 배포하는 GitHub Actions 워크플로를 설정하는 과정을 안내합니다. 완료되면 ASP.NET 앱이 Azure에서 실행되고 SQL Database에 연결됩니다. 먼저 [ARM 템플릿](../azure-resource-manager/templates/overview.md) GitHub Actions 워크플로를 사용하여 Azure 리소스를 만듭니다.
 

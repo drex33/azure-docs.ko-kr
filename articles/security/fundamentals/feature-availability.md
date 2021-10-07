@@ -6,12 +6,12 @@ ms.author: terrylan
 ms.service: security
 ms.topic: reference
 ms.date: 09/13/2021
-ms.openlocfilehash: 3f2559ca573ed9fedf5a15fce454cf406f8f6b0b
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 4308e4596e6580ed28d5931df1a1b322c3298030
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129210747"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129618974"
 ---
 # <a name="cloud-feature-availability-for-us-government-customers"></a>미국 정부 고객을 위한 클라우드 기능 가용성
 
@@ -303,24 +303,37 @@ Azure Defender for IoT를 사용하면 모든 IoT/OT 디바이스에서 포괄�
 |--|--|--|
 | [온-프레미스 디바이스 검색 및 인벤토리](../../defender-for-iot/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md) | GA | GA |
 | [취약점 관리](../../defender-for-iot/how-to-create-risk-assessment-reports.md) | GA | GA |
-| [IoT 및 OT 동작 분석을 통한 위협 감지](../../defender-for-iot/how-to-work-with-alerts-on-your-sensor.md) | GA | GA |
-| [자동 위협 인텔리전스 업데이트](../../defender-for-iot/how-to-work-with-threat-intelligence-packages.md) | GA | GA |
+| [IoT를 사용하여 위협 탐지 및 OT 동작 분석](../../defender-for-iot/how-to-work-with-alerts-on-your-sensor.md) | GA | GA |
+| [수동 및 자동 위협 인텔리전스 업데이트](../../defender-for-iot/how-to-work-with-threat-intelligence-packages.md) | GA | GA |
 | **SIEM, SOAR 및 XDR을 사용하여 IT 및 OT 보안 통합** |  |  |
-| - [경고 정보 전달](../../defender-for-iot/how-to-forward-alert-information-to-partners.md) | GA | GA |
-| - [Azure Defender for IoT를 사용하여 Sentinel 구성](../../defender-for-iot/how-to-configure-with-sentinel.md) | 퍼블릭 미리 보기 | 사용할 수 없음 |
-| - [SOC 시스템](../../defender-for-iot/integration-splunk.md) | GA | GA |
-| - [티켓 시스템 및 CMDB(Service Now)](../../defender-for-iot/integration-servicenow.md) | GA | GA |
-| - [센서 프로비저닝](../../defender-for-iot/how-to-manage-sensors-on-the-cloud.md) | GA | GA |
+| [Active Directory](../../defender-for-iot/organizations/how-to-create-and-manage-users.md#integrate-with-active-directory-servers) | GA | GA |
+| [ArcSight](../../defender-for-iot/organizations/how-to-accelerate-alert-incident-response.md#accelerate-incident-workflows-by-using-alert-groups) | GA | GA |
+| [ClearPass(경고 & 인벤토리)](../../defender-for-iot/organizations/how-to-install-software.md#attach-a-span-virtual-interface-to-the-virtual-switch) | GA | GA |
+| [CyberArk PSM](../../defender-for-iot/organizations/concept-key-concepts.md#integrations) | GA | GA |
+| [Email](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#email-address-action) | GA | GA |
+| [FortiGate](../../defender-for-iot/organizations/tutorial-fortinet.md) | GA | GA |
+| [FortiSIEM](../../defender-for-iot/organizations/tutorial-fortinet.md) | GA | GA |
+| [Microsoft Sentinel](../../defender-for-iot/organizations/how-to-configure-with-sentinel.md) | 공개 미리 보기 | 공개 미리 보기 |
+| [NetWitness](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#netwitness-action) | GA | GA |
+| [Palo Alto NGFW](../../defender-for-iot/organizations/tutorial-palo-alto.md) | GA | GA |
+| [Palo Alto Panorama](../../defender-for-iot/organizations/tutorial-palo-alto.md) | GA | GA |
+| [ServiceNow(경고 & 인벤토리)](../../defender-for-iot/organizations/tutorial-servicenow.md) | GA | GA |
+| [SNMP MIB 모니터링](../../defender-for-iot/organizations/how-to-set-up-snmp-mib-monitoring.md) | GA | GA |
+| [Splunk](../../defender-for-iot/organizations/tutorial-splunk.md) | GA | GA |
+| [SYSLOG 서버(CEF 형식)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
+| [SYSLOG 서버(LEEF 형식)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
+| [SYSLOG 서버(개체)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
+| [SYSLOG 서버(문자 메시지)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
+| [웹 콜백(웹후크)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#webhook-server-action) | GA | GA |
 
 ### <a name="for-device-builders"></a>디바이스 빌더의 경우
 
 | 기능 | Azure | Azure Government |
 |--|--|--|
 | [Azure RTOS용 마이크로 에이전트](../../defender-for-iot/iot-security-azure-rtos.md) | GA | GA |
-| - [Azure Defender for IoT를 사용하여 Sentinel 구성](../../defender-for-iot/how-to-configure-with-sentinel.md) | GA | 사용할 수 없음 |
+| [Azure Defender for IoT를 사용하여 Sentinel 구성](../../defender-for-iot/how-to-configure-with-sentinel.md) | 공개 미리 보기 | 공개 미리 보기 |
 | **Linux용 독립 실행형 마이크로 에이전트** |  |  |
-| - [독립 실행형 마이크로 에이전트 개요](../../defender-for-iot/concept-standalone-micro-agent-overview.md) | 공개 미리 보기 | 공개 미리 보기 |
-| - [독립 실행형 에이전트 이진 설치](../../defender-for-iot/quickstart-standalone-agent-binary-installation.md) | 공개 미리 보기 | 공개 미리 보기 |
+| [독립 실행형 에이전트 이진 설치](../../defender-for-iot/quickstart-standalone-agent-binary-installation.md) | 공개 미리 보기 | 공개 미리 보기 |
 
 ## <a name="next-steps"></a>다음 단계
 

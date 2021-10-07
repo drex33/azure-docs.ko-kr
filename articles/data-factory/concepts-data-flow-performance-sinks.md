@@ -1,20 +1,20 @@
 ---
-title: 매핑 데이터 흐름에서 싱크 성능 최적화
+title: 데이터 흐름 매핑의 싱크 성능 및 모범 사례
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 및 Azure Synapse Analytics 파이프라인의 데이터 흐름 매핑에서 싱크 성능을 최적화하는 방법을 알아봅니다.
+description: Azure Data Factory 및 Azure Synapse Analytics 파이프라인에서 데이터 흐름을 매핑하는 방법에 대 한 싱크 성능 및 모범 사례를 최적화 하는 방법에 대해 알아봅니다.
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
-ms.date: 09/29/2021
-ms.openlocfilehash: 54c03cc8b4c34be02d3dee608ce4a759e75f2200
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.date: 10/06/2021
+ms.openlocfilehash: 4ed5d50d4b74e86b91d51e4011e41f2b600edb88
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129294381"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129618689"
 ---
 # <a name="optimizing-sinks"></a>싱크 최적화
 
@@ -23,6 +23,10 @@ ms.locfileid: "129294381"
 ## <a name="azure-sql-database-sinks"></a>Azure SQL Database 싱크
 
 Azure SQL Database를 사용하면 대부분의 경우 기본 분할이 작동합니다. SQL 데이터베이스에서 처리하기에 너무 많은 파티션이 싱크에 포함될 가능성이 있습니다. 이 경우 SQL Database 싱크에서 출력하는 파티션 수를 줄입니다.
+
+### <a name="best-practice-for-deleting-rows-in-sink-based-on-missing-rows-in-source"></a>원본에 누락 된 행을 기반으로 싱크에서 행을 삭제 하는 최선의 방법
+
+다음은이 일반적인 패턴을 얻기 위해 종료, alter row 및 sink 변환에서 데이터 흐름을 사용 하는 방법에 대 한 비디오 연습입니다. > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWMLr5]
 
 ### <a name="impact-of-error-row-handling-to-performance"></a>오류 행 처리가 성능에 미치는 영향
 

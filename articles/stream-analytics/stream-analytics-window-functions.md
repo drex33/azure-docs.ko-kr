@@ -6,12 +6,12 @@ ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/16/2021
-ms.openlocfilehash: 5ff59b0add8a9b3c48ad8ae80a50c0a816c08d6e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: f9d47c3c08c450000da34742459a62977e82808a
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104588095"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615121"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Stream Analytics 창 함수 소개
 
@@ -24,23 +24,26 @@ ms.locfileid: "104588095"
 ![Stream Analytics 창 함수 개념](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
 
 ## <a name="tumbling-window"></a>연속 창
-연속 창 함수는 다른 시간 세그먼트에 데이터 스트림을 분할하는 데 사용되고 아래 예와 같이 그에 대한 기능을 수행합니다. 연속 창의 핵심적인 차이는 반복되지만 겹치지 않고 이벤트가 둘 이상의 연속 창에 속할 수 없다는 점입니다.
+
+[**연속**](/stream-analytics-query/tumbling-window-azure-stream-analytics) 창 함수는 데이터 스트림을 고유한 시간 세그먼트로 분할 하 고 아래 예제와 같이이에 대해 함수를 수행 하는 데 사용 됩니다. 연속 창의 핵심적인 차이는 반복되지만 겹치지 않고 이벤트가 둘 이상의 연속 창에 속할 수 없다는 점입니다.
 
 ![Stream Analytics 연속 창](media/stream-analytics-window-functions/stream-analytics-window-functions-tumbling-intro.png)
 
 ## <a name="hopping-window"></a>도약 창
-도약 창 함수는 고정된 기간만큼 시간을 앞으로 건너 뜁니다. 창 크기 보다 더 자주 겹쳐서 내보낼 수 있는 연속 창으로 생각하는 것이 더 쉬울 수 있습니다. 이벤트는 둘 이상의 도약 창 결과 집합에 속할 수 있습니다. 연속 창과 동일한 도약 창을 만들려면 도약 크기를 창 크기와 동일하도록 지정합니다. 
+
+[**도약**](/stream-analytics-query/hopping-window-azure-stream-analytics) window 함수는 고정 된 기간으로 시간을 앞으로 이동 합니다. 창 크기 보다 더 자주 겹쳐서 내보낼 수 있는 연속 창으로 생각하는 것이 더 쉬울 수 있습니다. 이벤트는 둘 이상의 도약 창 결과 집합에 속할 수 있습니다. 연속 창과 동일한 도약 창을 만들려면 도약 크기를 창 크기와 동일하도록 지정합니다. 
 
 ![Stream Analytics 도약 창](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
 
 ## <a name="sliding-window"></a>슬라이딩 윈도우
 
-연속 또는 도약 windows와 달리 슬라이딩 윈도우는 창의 내용이 실제로 변경된 시점에 대한 이벤트만 출력합니다. 즉, 이벤트가 창에 들어가거나 종료 될 때를 말합니다. 따라서 모든 창에는 하나 이상의 이벤트가 있습니다. 도약 창과 유사하게 이벤트는 둘 이상의 슬라이딩 윈도우에 속할 수 있습니다.
+연속 또는 도약 windows와 달리 [**슬라이딩**](/stream-analytics-query/sliding-window-azure-stream-analytics) 윈도우는 창의 내용이 실제로 변경 된 시점에 대 한 이벤트만 출력 합니다. 즉, 이벤트가 창에 들어가거나 종료 될 때를 말합니다. 따라서 모든 창에는 하나 이상의 이벤트가 있습니다. 도약 창과 유사하게 이벤트는 둘 이상의 슬라이딩 윈도우에 속할 수 있습니다.
 
-![Stream Analytics 슬라이딩 윈도우](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
+![Stream Analytics 10 초 슬라이딩 윈도우](media/stream-analytics-window-functions/sliding-window-updated.png)
 
 ## <a name="session-window"></a>세션 창
-세션 창 함수는 데이터가 없는 기간을 필터링하여 비슷한 시간에 도착하는 이벤트를 그룹화합니다. 세 가지 주요 매개 변수인 시간 제한, 최대 지속 시간 및 분할 키(선택 사항)가 있습니다.
+
+[**세션**](/stream-analytics-query/session-window-azure-stream-analytics) 창 함수는 비슷한 시간에 도착 하는 이벤트를 그룹화 하 여 데이터가 없는 기간을 필터링 합니다. 세 가지 주요 매개 변수인 시간 제한, 최대 지속 시간 및 분할 키(선택 사항)가 있습니다.
 
 ![Stream Analytics 세션 창](media/stream-analytics-window-functions/stream-analytics-window-functions-session-intro.png)
 
@@ -52,7 +55,7 @@ ms.locfileid: "104588095"
 
 ## <a name="snapshot-window"></a>스냅숏 창
 
-스냅샷 창은 타임 스탬프를 포함하는 이벤트를 그룹화합니다. 특정 창 함수(예: [Sessionwindow()](/stream-analytics-query/session-window-azure-stream-analytics)등을 요구하는 창 유형과는 달리, 시스템을 추가하여 스냅샷 창에 적용할 수 있음. Timestamp()를 절 별로 그룹에 적용할 수 있음.
+타임 스탬프가 동일한 [**스냅숏**](/stream-analytics-query/snapshot-window-azure-stream-analytics) windows 그룹 이벤트입니다. 특정 창 함수(예: [Sessionwindow()](/stream-analytics-query/session-window-azure-stream-analytics)등을 요구하는 창 유형과는 달리, 시스템을 추가하여 스냅샷 창에 적용할 수 있음. Timestamp()를 절 별로 그룹에 적용할 수 있음.
 
 ![스트림 분석 스냅샷 윈도우](media/stream-analytics-window-functions/snapshot.png)
 

@@ -3,12 +3,12 @@ title: 경고 정보 전달
 description: 전달 규칙을 사용하여 경고 정보를 파트너 시스템에 보낼 수 있습니다.
 ms.date: 08/29/2021
 ms.topic: how-to
-ms.openlocfilehash: 2136a58a383bb623edca69cb03c1c9c5530a107f
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: eb902036a286be50dc1f29ccca894f3d422cc59c
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123432364"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612214"
 ---
 # <a name="forward-alert-information"></a>경고 정보 전달
 
@@ -98,6 +98,8 @@ IoT 용 Defender 시스템은 인증서의 유효성을 검사 하거나 인증�
 전달 규칙에 대한 전자 메일을 정의하려면:
 
 1. 단일 전자 메일 주소를 입력합니다. 메일을 두 개 이상 추가해야 하는 경우 각 메일 주소에 대해 다른 작업을 만들어야 합니다.
+
+    :::image type="content" source="media/how-to-forward-alert-information-to-partners/forward-email.png" alt-text="경고를 전자 메일 주소로 전달 하는 전달 경고 화면을 Scrrenshot 합니다.":::
 
 1. SIEM에서 경고 검색에 대한 타임 스탬프에 대한 표준 시간대를 입력합니다.
 
@@ -194,7 +196,7 @@ Webhook 확장은 끝점에 추가 데이터를 보내는 데 사용할 수 있�
 
 **Webhook 확장 작업을 정의 하려면**:
 
-1. 관리 콘솔의 왼쪽 창에서 **전달** 을 선택 합니다.
+1. 관리 콘솔의 왼쪽 창에서 **전달을** 선택합니다.
 
 1. 단추를 선택하여 전달 규칙을 :::image type="icon" source="media/how-to-forward-alert-information-to-partners/add-icon.png" border="false"::: 추가합니다.
 
@@ -224,7 +226,7 @@ Webhook 확장은 끝점에 추가 데이터를 보내는 데 사용할 수 있�
 
     :::image type="content" source="media/how-to-forward-alert-information-to-partners/run-button.png" alt-text="실행 단추를 선택하여 전달 규칙을 테스트합니다.":::
 
-성공 알림이 표시되면 전달 규칙이 작동하는지 알 수 있습니다.
+성공 알림이 표시되면 전달 규칙이 작동 중임을 알 수 있습니다.
 
 :::image type="content" source="media/how-to-forward-alert-information-to-partners/success.png" alt-text="성공 알림이 표시되면 경고가 올바르게 작동합니다.":::
 

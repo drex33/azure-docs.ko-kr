@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2021
 ms.author: ofshezaf
-ms.openlocfilehash: 091181388656dd02ee438d1e5ef77a19d489205a
-ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
+ms.openlocfilehash: dabb12e5c0e6bd95ebe1a8025b431ec57e42745b
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129419091"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615375"
 ---
 # <a name="azure-sentinel-information-model-asim-schemas-public-preview"></a>ASIM(Azure Sentinel 정보 모델) 스키마(퍼블릭 미리 보기)
 
@@ -30,6 +30,7 @@ ms.locfileid: "129419091"
 
  - [네트워크 세션](normalization-schema.md)
  - [DNS 작업](dns-normalization-schema.md)
+ - [DHCP 활동](dhcp-normalization-schema.md)
  - [프로세스 이벤트](process-events-normalization-schema.md)
  - [인증 이벤트](authentication-normalization-schema.md)
  - [레지스트리 이벤트](registry-event-normalization-schema.md)
@@ -84,7 +85,7 @@ ms.locfileid: "129419091"
 |---------------------|-------------|------------|--------------------|
 | <a name="timegenerated"></a>**TimeGenerated** | 기본 제공 | Datetime | 보고 디바이스에서 이벤트가 생성된 시간입니다.|
 | **_ResourceId**   | 기본 제공 |  guid     | 보고 디바이스 또는 서비스의 Azure 리소스 ID이거나 Syslog, CEF 또는 WEF를 사용하여 전달된 이벤트에 대한 로그 전달자 리소스 ID입니다. |
-| **Type** | 기본 제공 | String | 레코드를 가져온 원본 테이블입니다. 이 필드는 서로 다른 테이블에 대 한 두 채널을 통해 동일한 이벤트를 받을 수 있지만와가 같은 경우에 유용 합니다 `EventVendor` `EventProduct` . 예를 들어 이벤트 테이블이 나 SecurityEvent 테이블로 Sysmon 이벤트를 수집할 수 있습니다. |
+| **형식** | 기본 제공 | String | 레코드를 가져온 원본 테이블입니다. 이 필드는 서로 다른 테이블에 대한 두 채널을 통해 동일한 이벤트를 수신할 수 있지만 및 가 동일한 경우에 `EventVendor` `EventProduct` 유용합니다. 예를 들어 Sysmon 이벤트는 Event 테이블 또는 SecurityEvent 테이블에 수집할 수 있습니다. |
 | **EventMessage**        | 선택    | 문자열     |     레코드에 포함되거나 레코드에서 생성된 일반 메시지 또는 설명입니다.   |
 | **EventCount**          | 필수   | 정수    |     레코드에서 설명하는 이벤트 수입니다. <br><br>이 값은 원본에서 집계를 지원할 때 사용되며, 단일 레코드에서 여러 이벤트를 나타낼 수 있습니다. <br><br>다른 원본의 경우 `1`로 설정합니다.   |
 | **EventStartTime**      | 필수   | 날짜/시간  |      원본에서 집계를 지원하고 레코드에서 여러 이벤트를 나타내는 경우 이 필드는 첫 번째 이벤트가 생성된 시간을 지정합니다. <br><br>그렇지 않은 경우 이 필드는 [TimeGenerated](#timegenerated) 필드의 별칭을 지정합니다. |

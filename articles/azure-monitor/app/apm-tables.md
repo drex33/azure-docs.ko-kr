@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights 작업 영역 기반 리소스 스키�
 description: Azure Monitor Application Insights 작업 영역 기반 리소스에 대한 새 테이블 구조 및 스키마에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/09/2020
-ms.openlocfilehash: ef9d22cd2b45679928ee54778b2a521ea9ecab03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 040f53836466dec446da6fcd312910ca7ad600e4
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100575600"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615508"
 ---
 # <a name="workspace-based-resource-changes"></a>작업 영역 기반 리소스 변경
 
@@ -28,7 +28,7 @@ Application Insights 데이터는 [작업 영역 기반 Application Insights 리
 | pageViews | AppPageViews| 브라우저 정보가 포함된 각 웹 사이트 보기에 대한 데이터입니다. |
 | performanceCounters | AppPerformanceCounters | 애플리케이션을 지원하는 컴퓨팅 리소스의 성능 측정입니다(예: Windows 성능 카운터). |
 | requests | AppRequests | 애플리케이션이 받은 요청입니다. 예를 들어, 웹앱이 수신하는 각 HTTP 요청에 대해 별도의 요청 레코드가 기록됩니다.  |
-| 예외 | AppSystemEvents | 애플리케이션 런타임에서 throw된 예외는 서버 측 및 클라이언트 측(브라우저) 예외를 모두 캡처합니다. |
+| 예외 | AppExceptions | 애플리케이션 런타임에서 throw된 예외는 서버 측 및 클라이언트 측(브라우저) 예외를 모두 캡처합니다. |
 | traces | AppTraces | TrackTrace()를 통해 기록된 애플리케이션 코드/로깅 프레임워크를 통해 생성된 자세한 로그(추적)입니다. |
 
 ## <a name="table-schemas"></a>테이블 스키마

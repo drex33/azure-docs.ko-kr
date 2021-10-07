@@ -4,12 +4,12 @@ description: 이 문서에는 Azure Arc 지원 서버 에이전트 릴리스 정
 ms.topic: overview
 ms.date: 09/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: d4008a41629ac2e71e1abdb91e30f2d6b9350538
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 027d682a6f9727edb7ce39ac1eeea9947b2e4957
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123431607"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128628537"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Azure Arc 지원 서버 에이전트의 새로운 기능
 
@@ -20,6 +20,16 @@ Azure Arc 지원 서버 Connected Machine 에이전트에는 지속적으로 향
 - 버그 수정
 
 이 페이지는 매월 업데이트되므로 정기적으로 다시 방문해 주세요. 6개월이 넘은 항목을 찾으려는 경우 [Azure Arc 지원 서버 에이전트의 새로운 기능 아카이브](agent-release-notes-archive.md)에서 찾을 수 있습니다.
+
+## <a name="september-2021"></a>2021년 9월
+
+버전 1.11
+
+### <a name="fixed"></a>고정
+
+- 이제 [시스템 개체: 비 Windows 하위 시스템에 대한 대/소문자 구분 필요](/windows/security/threat-protection/security-policy-settings/system-objects-require-case-insensitivity-for-non-windows-subsystems) 정책을 사용 안 함으로 설정하여 Windows 시스템에 에이전트를 설치할 수 있습니다.
+- 이제 게스트 구성 정책 에이전트는 서비스 시작이나 다시 시작 이벤트 중에 오류가 발생하면 자동으로 다시 시도합니다.
+- 게스트 구성 감사 정책이 Linux 컴퓨터에서 성공적으로 실행되지 않는 문제를 해결했습니다.
 
 ## <a name="august-2021"></a>2021년 8월
 
@@ -81,19 +91,8 @@ Azure Arc 지원 서버 Connected Machine 에이전트에는 지속적으로 향
    - 확장 유효성 검사에 대한 V2 서명 지원이 추가되었습니다.
    - 데이터 로깅에 대한 사소한 업데이트입니다.
 
-## <a name="april-2021"></a>2021년 4월
-
-버전 1.5
-
-### <a name="new-features"></a>새로운 기능
-
-- Red Hat Enterprise Linux 8 및 CentOS Linux 8에 대한 지원이 추가되었습니다.
-- 새 `-useStderr` 매개 변수를 통해 오류 및 자세한 정보 출력을 stderr로 지정합니다.
-- 새 `-json` 매개 변수를 통해 출력을 지정하여 JSON 형식이 되도록 합니다(-useStderr과 함께 사용하는 경우).
-- 제조업체, 모델, 클러스터 리소스 ID(Azure Stack HCI 노드의 경우) 등 다른 인스턴스 메타데이터를 수집합니다.
- 
 ## <a name="next-steps"></a>다음 단계
 
-- 여러 하이브리드 머신에서 Arc 지원 서버를 평가하거나 사용하도록 설정하기 전에 [연결된 머신 에이전트 개요](agent-overview.md)를 검토하여 요구 사항, 에이전트에 대한 기술 세부 정보, 배포 방법을 파악합니다.
+- 여러 하이브리드 컴퓨터에서 Azure Arc 지원 서버를 평가하거나 사용하기 전에 [Connected Machine 에이전트 개요](agent-overview.md)를 검토하여 요구 사항, 에이전트에 대한 기술 세부 정보 및 배포 방법을 파악합니다.
 
 - [계획 및 배포 가이드](plan-at-scale-deployment.md)를 검토하여 모든 규모의 Azure Arc 지원 서버 배포를 계획하고 중앙 집중식 관리와 모니터링을 구현합니다.

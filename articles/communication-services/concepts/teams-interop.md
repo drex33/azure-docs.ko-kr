@@ -3,19 +3,17 @@ title: Teams 모임 상호 운용성
 titleSuffix: An Azure Communication Services concept document
 description: Teams 모임 참가
 author: chpalm
-manager: chpalm
-services: azure-communication-services
 ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.openlocfilehash: 15936b796e677f913e6814b29c68394a9560285d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 85616e754df0eebc76dd3dceea48dfefe4acf971
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609729"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362363"
 ---
 # <a name="teams-interoperability"></a>Teams 상호 운용성
 
@@ -60,9 +58,11 @@ Teams 익명 사용자는 Teams 사용자일 필요가 없습니다. Azure Commu
 
 BYOI(사용자 고유의 ID 가져오기)는 Azure Communication Services 및 Teams 상호 운용성을 사용하기 위한 일반적인 모델입니다. 모든 ID 공급자 및 인증 체계를 지원합니다. 사용된 첫 번째 시나리오를 통해 애플리케이션이 Microsoft Teams 회의에 참여할 수 있고, Teams는 이러한 사용자를 Teams 익명 웹 애플리케이션을 사용하여 참여한 사용자와 동일한 익명 외부 계정으로 취급합니다. 직원(Teams에 익숙)과 외부 사용자(사용자 지정 애플리케이션 환경 사용)를 모임 환경에 결합하는 B2C(business-to-customer) 애플리케이션에 적합합니다. 향후에는 애플리케이션에서 Teams 회의의 컨텍스트 외부에서 Teams 사용자와 통화 및 채팅을 시작할 수 있도록 하는 직접 호출 및 채팅을 비롯한 추가 시나리오를 지원할 예정입니다.
 
-Communication Services 사용자가 익명 사용자로 Teams 회의에 참여하는 기능은 기존 Teams 익명 회의 참여를 제어하는 기존 "익명 회의 참여 허용" 구성에 따라 제어됩니다.  이 설정은 Teams 관리 센터(https://admin.teams.microsoft.com/meetings/settings) ) 또는 Teams PowerShell cmdlet Set-CsTeamsMeetingConfiguration(https://docs.microsoft.com/powershell/module/skype/set-csteamsmeetingconfiguration) )에서 업데이트할 수 있습니다. Teams 익명 회의 참여와 마찬가지로 애플리케이션에 참여할 회의 링크가 있어야 합니다. 이 링크는 Graph API 또는 Microsoft Teams의 일정에서 가져올 수 있습니다.  Teams에 표시되는 Communication Services 사용자의 이름은 Communication Services 통화 SDK를 통해 구성할 수 있습니다.
+Communication Services 사용자가 익명 사용자로 Teams 회의에 참여하는 기능은 기존 Teams 익명 회의 참여를 제어하는 기존 "익명 회의 참여 허용" 구성에 따라 제어됩니다.  이 설정은 [Teams 관리 센터](https://admin.teams.microsoft.com/meetings/settings) 또는 Teams PowerShell cmdlet [Set-CsTeamsMeetingConfiguration](/powershell/module/skype/set-csteamsmeetingconfiguration)에서 업데이트할 수 있습니다. Teams 익명 회의 참여와 마찬가지로 애플리케이션에 참여할 회의 링크가 있어야 합니다. 이 링크는 Graph API 또는 Microsoft Teams의 일정에서 가져올 수 있습니다.  Teams에 표시되는 Communication Services 사용자의 이름은 Communication Services 통화 SDK를 통해 구성할 수 있습니다.
 
-외부 사용자는 Azure Communication Services SDK를 통해 핵심 오디오, 비디오, 화면 공유 및 채팅 기능을 사용할 수 있습니다. 올린 손, 함께 모드 및 소회의실과 같은 기능은 Teams 사용자만 사용할 수 있습니다. Communication Services 사용자는 Teams 모임에 있는 동안 및 모임이 채널에 대해 예약되지 않은 경우에만 메시지를 보내고 받을 수 있습니다.
+외부 사용자는 Azure Communication Services SDK를 통해 핵심 오디오, 비디오, 화면 공유 및 채팅 기능을 사용할 수 있습니다. 올린 손, 함께 모드 및 소회의실과 같은 기능은 Teams 사용자만 사용할 수 있습니다. Communication Services 사용자는 Teams 모임에 있는 동안 및 모임이 채널에 대해 예약되지 않은 경우에만 메시지를 보내고 받을 수 있습니다. 
+
+Communication Services 사용자를 위해 지원되는 메시지 유형 목록은 [채팅 개념](./chat/concepts.md#message-types)에서 찾을 수 있습니다. 지원되지 않는 메시지 유형은 무시할 수 있습니다.
 
 사용자 지정 애플리케이션은 Teams 모임을 보호하기 위해 사용자 인증 및 기타 보안 조치를 고려해야 합니다. 익명 사용자가 모임에 참가하도록 설정하는 경우 보안에 미치는 영향을 고려하고, [Teams 보안 가이드](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings)를 사용하여 익명 사용자가 사용할 수 있는 기능을 구성합니다.
 

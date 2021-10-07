@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - 프라이빗 클라우드에서 vCenter ID 원본 설정
 description: VMware 관리자가 vCenter에 액세스할 수 있도록 Active Directory를 사용하여 인증하도록 프라이빗 클라우드 vCenter를 설정하는 방법을 설명합니다.
-author: Ajayan1008
-ms.author: v-hborys
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a76fecb942c5c6da926e37149245e82dcbc4661b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 36b45bcdc84b02dec5c54eff5f96cb7b07cf2ca5
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97899153"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129616040"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Active Directory를 사용할 vCenter ID 원본 설정
 
@@ -58,7 +58,7 @@ Active Directory 도메인을 설정할 때 다음 표의 정보를 사용합니
 |------------|-----------------|
 | **Name** | ID 원본의 이름입니다. |
 | **사용자의 기본 DN** | 사용자의 기본 고유 이름입니다. |
-| **도메인 이름** | 도메인의 FQDN(예: example.com)입니다. 이 텍스트 상자에 IP 주소를 제공하지 마십시오. |
+| **도메인 이름** | 도메인의 FQDN(예: example.com)입니다. 이 텍스트 상자에 IP 주소를 입력하지 마세요. |
 | **도메인 별칭** | 도메인 NetBIOS 이름입니다. SSPI 인증을 사용하는 경우 Active Directory 도메인의 NetBIOS 이름을 ID 원본의 별칭으로 추가합니다. |
 | **그룹의 기본 DN** | 그룹의 기본 고유 이름입니다. |
 | **주 서버 URL** | 도메인에 대한 주 도메인 컨트롤러 LDAP 서버입니다.<br><br>`ldap://hostname:port` 또는 `ldaps://hostname:port` 형식을 사용합니다. 포트는 일반적으로 LDAP 연결의 경우 389이고, LDAPS 연결의 경우 636입니다. Active Directory 다중 도메인 컨트롤러 배포의 경우 포트는 일반적으로 LDAP의 경우 3268이고, LDAPS의 경우 3269입니다.<br><br>주 또는 보조 LDAP URL에서 `ldaps://`를 사용하는 경우 Active Directory 서버의 LDAPS 엔드포인트에 대한 신뢰를 설정하는 인증서가 필요합니다. |

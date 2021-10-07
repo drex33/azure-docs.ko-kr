@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: fb68ea362c5b91e5c60578f63c752d1982495efb
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: ee4acc6e8e7abf8ece1c6808a810b022745fb66a
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129538070"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612335"
 ---
 # <a name="enable-zone-redundancy-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 영역 중복 사용
 이 문서에서는 Azure Portal을 사용하여 영역 중복 Azure Cache 인스턴스를 구성하는 방법을 알아봅니다.
@@ -35,7 +35,7 @@ Azure Cache for Redis Standard, Premium, Enterprise 계층은 두 개의 전용 
    
 1. **기본 사항** 페이지에서 새 캐시의 설정을 구성합니다.
    
-    | 설정      | 제안 값  | Description |
+    | 설정      | 제안 값  | 설명 |
     | ------------ |  ------- | -------------------------------------------------- |
     | **구독** | 구독을 선택합니다. | 이 구독 아래에 새 Azure Cache for Redis 인스턴스가 만들어집니다. | 
     | **리소스 그룹** | 리소스 그룹을 선택하거나 **새로 만들기** 를 선택하고 새 리소스 그룹 이름을 입력합니다. | 캐시 및 기타 리소스를 만들 새 리소스 그룹의 이름입니다. 모든 앱 리소스를 하나의 리소스 그룹에 배치하면 앱 리소스를 쉽게 관리하거나 삭제할 수 있습니다. | 
@@ -74,7 +74,7 @@ Azure Cache for Redis Standard, Premium, Enterprise 계층은 두 개의 전용 
 
 ### <a name="why-cant-i-enable-zone-redundancy-when-creating-a-premium-cache"></a>프리미엄 캐시를 만들 때 영역 중복을 사용하도록 설정할 수 없는 이유는 무엇인가요?
 
-영역 중복은 가용성 영역이 있는 Azure 지역에서만 사용할 수 있습니다. 최신 목록은 [가용성 영역이 있는 Azure 지역](../availability-zones/az-region.md#azure-services-supporting-availability-zones)을 참조하세요.
+영역 중복은 가용성 영역이 있는 Azure 지역에서만 사용할 수 있습니다. 최신 목록은 [가용성 영역이 있는 Azure 지역](../availability-zones/az-region.md#azure-regions-with-availability-zones)을 참조하세요.
 
 ### <a name="why-cant-i-select-all-three-zones-during-cache-create"></a>캐시를 만드는 동안 세 영역을 모두 선택할 수 없는 이유는 무엇인가요?
 

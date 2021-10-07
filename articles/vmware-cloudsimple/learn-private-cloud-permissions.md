@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - 프라이빗 클라우드 권한 모델
 description: CloudSimple 프라이빗 클라우드 권한 모델, 그룹 및 범주에 대해 설명합니다.
-author: Ajayan1008
-ms.author: v-hborys
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1c8cfeda008955006f2fbad1df58c8047bd36541
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: c49dcb4158785170d67742df5c8c797b139edbe5
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97898048"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129620301"
 ---
 # <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>VMware vCenter의 CloudSimple 프라이빗 클라우드 권한 모델
 
@@ -70,7 +70,7 @@ CloudSimple은 프라이빗 클라우드 환경에 대한 모든 관리 액세�
 | **성능** | 간격 수정 |
 | **호스트 프로필** | 보기 |
 | **리소스** | 권장 구성 적용 <br> 리소스 풀에 vApp 할당 <br> Assign virtual machine to resource pool <br> 리소스 풀 만들기 <br> 전원이 꺼진 가상 머신 마이그레이션 <br> 전원이 켜진 가상 머신 마이그레이션 <br> 리소스 풀 수정 <br> 리소스 풀 이동 <br> vMotion 쿼리 <br> 리소스 풀 제거 <br> 리소스 풀 이름 바꾸기 |
-| **예약된 작업** | 작업 만들기 <br> 작업 수정 <br> 작업 제거 <br> 작업 실행 |
+| **예약된 작업** | 태스크 만들기 <br> 작업 수정 <br> 작업 제거 <br> 작업 실행 |
 | **세션** | 사용자 가장 <br> 메시지 <br> 세션 유효성 검사 <br> 세션 보기 및 중지 |
 | **데이터 저장소 클러스터** | 데이터 저장소 클러스터 구성 |
 | **프로필 기반 스토리지** | 프로필 기반 스토리지 업데이트 <br> 프로필 기반 스토리지 보기 |

@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 2404d8af682f119b68c78d6dc5cacc3d30201c17
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
-ms.translationtype: HT
+ms.openlocfilehash: 61253ab7360253e1c6902b6a7b38c9fb53faa3eb
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122568041"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129611751"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Azure AD 로그인을 사용하도록 App Service 또는 Azure Functions 앱 구성
 
@@ -26,7 +26,7 @@ App Service 인증 기능은 Microsoft ID 플랫폼을 사용하여 앱 등록�
 > [!NOTE]
 > 정부 클라우드에서는 새 등록을 만드는 옵션을 사용할 수 없습니다. 대신 [등록을 별도로 정의](#advanced)합니다.
 
-## <a name="create-a-new-app-registration-automatically"></a><a name="express"> </a>자동으로 새 앱 등록 만들기
+## <a name="option-1-create-a-new-app-registration-automatically"></a><a name="express"></a> 옵션 1: 자동으로 새 앱 등록 만들기
 
 이 옵션은 인증 설정을 간소화하며 클릭 몇 번으로 진행할 수 있습니다.
 
@@ -47,7 +47,7 @@ App Service 인증 기능은 Microsoft ID 플랫폼을 사용하여 앱 등록�
 
 Azure Storage 및 Microsoft Graph에 액세스하는 웹앱에 대해 Azure AD 로그인을 구성하는 예제는 [이 자습서](scenario-secure-app-authentication-app-service.md)를 참조하세요.
 
-## <a name="use-an-existing-registration-created-separately"></a><a name="advanced"> </a>별도로 만든 기존 등록 사용
+## <a name="option-2-use-an-existing-registration-created-separately"></a><a name="advanced"> </a>옵션 2: 별도로 만든 기존 등록 사용
 
 등록 세부 정보를 사용하여 등록을 사용자 지정하고 App Service 인증을 구성하여 Microsoft ID 플랫폼용 애플리케이션을 수동으로 등록할 수도 있습니다. 이 방식은 예를 들어, 애플리케이션이 있는 것과는 다른 Azure AD 테넌트에서 앱 등록을 사용하려는 경우에 유용합니다.
 

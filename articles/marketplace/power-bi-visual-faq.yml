@@ -5,16 +5,16 @@ metadata:
   ms.service: marketplace
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: conceptual
-  ms.date: 09/03/2021
+  ms.date: 09/27/2021
   author: posurnis
   ms.author: pooja.surnis
   ms.reviewer: pooja.surnis
-  ms.openlocfilehash: a86d692daa794aed6130e7e1e4f84b74f04285a6
-  ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+  ms.openlocfilehash: a30f4e7e5807393e5a7d0293b4a3752021ce27f2
+  ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/07/2021
-  ms.locfileid: "123544739"
+  ms.lasthandoff: 09/27/2021
+  ms.locfileid: "129080153"
 title: Power BI 시각적 개체 FAQ
 summary: Power BI 시각적 개체 제안은 제안 관리 환경을 간소화하기 위해 파트너 센터 내에서 상업용 Marketplace로 이동합니다. 모든 기존 또는 신규 Power BI 시각적 개체 제안은 2021년 9월 Microsoft에서 이동한 후 상업용 Marketplace에서 액세스할 수 있습니다. 이 문서에서는 제안 관리 환경의 이동 및 개선된 기능에 대한 질문과 대답을 설명합니다.
 sections:
@@ -89,35 +89,12 @@ sections:
       Office 스토어에서 지원되는 모든 Power BI 시각적 개체 제안은 상태(초안 또는 라이브)에 관계없이 이동됩니다. Power BI 시각적 개체 제안은 이동 후에 Office 스토어에서 편집할 수 없도록 잠깁니다.
   - question: >
       파트너 센터에서 Power BI 시각적 개체 제안을 찾을 수 없는 이유는 무엇인가요?
-    answer: >
-      제안을 상업용 Marketplace로 이동하면 Office 스토어에서 해당 제안에 액세스할 수 없습니다. 파트너 센터에 표시되는 내용은 등록한 프로그램, 속한 계정, 할당된 사용자 역할 및 권한에 따라 다릅니다. 많은 파트너 센터 프로그램이 제공되며 여러 프로그램에 등록할 수 있습니다. 동일한 사용자 자격 증명으로 여러 계정에 액세스할 수도 있습니다.
-
-
-      Office 스토어에서 만든 Power BI 시각적 개체 제안은 원래 제안을 만드는 데 사용된 것과 동일한 계정을 사용하여 상업용 Marketplace에서 사용할 수 있습니다. 올바른 프로그램과 올바른 계정을 보고 있는지 확인하려면 아래 단계를 수행합니다. 기타 문제 해결 팁은 [파트너 센터 계정 관리](/partner-center/partner-center-account-setup)를 참조하세요.
-
-
-      **파트너 센터에서 올바른 프로그램에 액세스**
-
-
-      1. 이전과 동일한 자격 증명을 사용하여 [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2166002)에 로그인합니다. 왼쪽의 탐색 메뉴(왼쪽 탐색 메뉴)에는 MPN 프로그램, Office 스토어 및 상업용 Marketplace와 같은 등록된 프로그램과 관련된 옵션이 표시됩니다.
-
-
-      1. Select **상업용 Marketplace** > **개요** 를 선택하여 제안에 액세스합니다(왼쪽 탐색 메뉴에 상업용 Marketplace가 표시되지 않으면 잘못된 계정에 있을 수 있음).
-
-         :::image type="content" source="media/power-bi-visual/overview-tab.png" alt-text="파트너 센터의 개요 탭 표시":::
-
-      **파트너 센터에서 올바른 계정에 액세스**
-
-
-      여러 계정이 있는 경우 파트너 센터의 왼쪽 탐색 메뉴에 계정 선택기 단추가 표시됩니다. 사용자가 속한 계정을 보려면 이 단추를 선택합니다. 전환할 계정을 선택하고, 해당 계정에 관련된 모든 프로그램 및 정보를 확인합니다. 탐색 메뉴에 계정 선택기 단추가 표시되지 않으면 하나의 계정만 있는 것입니다.
-
-
-      :::image type="content" source="media/power-bi-visual/account-picker.png" alt-text="파트너 센터의 왼쪽 탐색 메뉴에 계정 선택기 단추 표시":::
+    answer: "제안을 상업용 Marketplace로 이동하면 Office 스토어에서 해당 제안에 액세스할 수 없습니다. 파트너 센터에 표시되는 내용은 등록한 프로그램, 속한 계정, 할당된 사용자 역할 및 권한에 따라 다릅니다. 많은 파트너 센터 프로그램이 제공되며 여러 프로그램에 등록할 수 있습니다. 동일한 사용자 자격 증명으로 여러 계정에 액세스할 수도 있습니다.\n\nOffice 스토어에서 만든 Power BI 시각적 개체 제안은 기본적으로 원래 제안을 만드는 데 사용한 것과 동일한 계정을 사용하여 상업용 Marketplace에서 사용할 수 있습니다. 마이그레이션 후에 Power BI 시각적 개체 제안을 보려면 계정을 상업용 Marketplace에 등록해야 합니다. 제안을 Office 스토어에 사용한 계정이 아닌 다른 계정으로 이동하려면 [지원](support.md)에 문의하세요. 올바른 프로그램과 올바른 계정을 보고 있는지 확인하려면 아래 단계를 수행합니다. 기타 문제 해결 팁은 [파트너 센터 계정 관리](/partner-center/partner-center-account-setup)를 참조하세요.\n\n**파트너 센터에서 올바른 프로그램에 액세스**\n\n[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]\n\n#### <a name=\"workspaces-view\"></a>[작업 영역 보기](#tab/workspaces-view)\n\n1. 이전과 동일한 자격 증명을 사용하여 [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2166002)에 로그인합니다. MPN 프로그램, Office 스토어 및 상업용 Marketplace와 같이 등록한 프로그램과 연결된 타일이 표시됩니다. \n\n1. 홈페이지에서 제안에 액세스하려면 **Marketplace 제안** 타일을 선택합니다. \n\n    [ ![파트너 센터 홈페이지에서 보여 주는 Marketplace 제안 타일](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)\n\n    둘 이상의 마켓플레이스 프로그램에 가입한 경우 _Marketplace 제안_ 페이지의 위쪽에 탭이 표시됩니다. 그렇다면 **상업용 Marketplace** 탭이 선택되어 있는지 확인합니다. **상업용 Marketplace** 탭이 표시되지 않으면 상업용 Marketplace에 아직 등록되지 않았으며 Office 스토어에만 등록되었음을 의미합니다.\n\n    [ ![Marketplace 제안 페이지에서 보여 주는 상업용 Marketplace 탭](media/workspaces/commercial-marketplace-tab.png) ](media/workspaces/commercial-marketplace-tab.png#lightbox)\n\n#### <a name=\"current-view\"></a>[현재 보기](#tab/current-view)\n\n1. 이전과 동일한 자격 증명을 사용하여 [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2166002)에 로그인합니다. 왼쪽의 탐색 메뉴(왼쪽 탐색 메뉴)에는 MPN 프로그램, Office 스토어 및 상업용 Marketplace와 같은 등록된 프로그램과 관련된 옵션이 표시됩니다.\n\n1. **상업용 Marketplace** > **개요** 를 선택하여 제품에 액세스합니다. 왼쪽 탐색 메뉴에서 상업용 Marketplace가 표시되지 않으면 계정이 아직 상업용 Marketplace에 등록되지 않았음을 의미합니다.\n\n   :::image type=\"content\" source=\"media/power-bi-visual/overview-tab.png\" alt-text=\"파트너 센터의 개요 탭 표시\":::\n\n---\n\n**파트너 센터에서 올바른 계정에 액세스**\n\n여러 계정이 있는 경우 계정 간에 전환할 수 있습니다. 방법을 알아보려면 [파트너 센터에서 계정 전환](switch-accounts.md)을 참조하세요.\n"
   - question: >
       파트너 센터를 사용하는 방법에 대한 지침은 어디에 있나요?
     answer: >
-      상업용 Marketplace [시작 페이지](https://aka.ms/MigrationFAQs)로 이동하여 **제안 만들기 및 관리** 섹션을 펼칩니다.
+      상업용 Marketplace [시작 페이지](./index.yml)로 이동하여 **제안 만들기 및 관리** 섹션을 펼칩니다.
   - question: >
       게시와 제품 관리의 차이점은 무엇인가요?
-    answer: "Power BI 시각적 개체 제안을 Office 스토어에 게시하는 경우와 상업용 Marketplace에 게시하는 경우의 주요 차이점은 다음과 같습니다.\n\n1. **간소화된 패키지 제출 프로세스**\n\n   파트너 센터의 상업용 Marketplace에 제출하는 새 제안의 경우 **기술 구성** 페이지에서 `.pbix` 및 `.pbiviz`의 두 패키지 파일을 직접 업로드할 수 있습니다. XML 매니페스트 파일에 대해 더 이상 PBI 지원 팀과 협력할 필요가 없습니다. 제안 제출을 위해 XML 파일을 더 이상 사용할 필요가 없습니다. 간소화된 이 제출 프로세스는 Power BI 시각적 개체 제안을 준비하고 제출하는 데 필요한 시간을 줄여줍니다.\n\n   :::image type=\"content\" source=\"media/power-bi-visual/technical-config.png\" alt-text=\"파트너 센터의 기술 구성 페이지 표시\":::\n\n1. **향상된 미리 보기 옵션**\n\n   상업용 Marketplace는 제안을 게시하기 전에 변경 내용을 확인하고 이미 미리 보기에 있거나 고객이 사용할 수 있는 것과 비교할 수 있는 개선된 필터링 옵션이 포함된 비교 기능을 제공합니다. 게시하지 않은 업데이트는 초안으로 저장됩니다. [상업용 Marketplace에서 기존 제안 업데이트](update-existing-offer.md#compare-changes-to-your-offer)에서 **비교** 기능에 대해 자세히 알아보세요.\n\n   :::image type=\"content\" source=\"media/power-bi-visual/enhanced-preview.png\" lightbox=\"media/power-bi-visual/enhanced-preview.png\" alt-text=\"파트너 센터의 제안 비교 페이지 표시\":::\n\n1. **브랜딩 및 탐색 변경 내용**\n\n   몇 가지 브랜딩 변경 내용을 확인할 수 있습니다. 예를 들어 **제품** 은 상업용 Marketplace에서 **제안** 으로 브랜딩됩니다.\n\n   :::image type=\"content\" source=\"media/power-bi-visual/branding-navigation.png\" alt-text=\"파트너 센터의 제안 개요 페이지 표시\":::\n\n1. **분석**\n\n   - 파트너 센터의 **Marketplace 인사이트** 대시보드는 다음과 같은 개선된 기능을 제공합니다.\n\n     - 조치 사항 추세\n\n       - 동의 클릭 수 분석 추가. 동의 클릭 수는 제안 목록 페이지에서 완료된 모든 동의 클릭의 수를 나타냅니다. 사용자가 **조치 사항** 단추(*지금 가져오기*, *평가판*, *나에게 연락* 또는 *시험 사용*)를 클릭하면 표시됩니다.\n\n         :::image type=\"content\" source=\"media/power-bi-visual/analytics-graphs.png\" alt-text=\"파트너 센터의 동의 클릭 수 분석 그래프 표시\":::\n\n     - 페이지 방문 횟수 및 조치 사항\n     \n     - 표 형식 데이터 수정\n\n       - **동의 클릭 수** 열 추가. 이 정보를 사용하여 제안에 대한 변환율을 이해합니다.\n\n       - 조회 도메인별 보기에 **플랫폼** 열 추가. 이 정보를 사용하여 웹 사이트와 포함된 클라이언트 플랫폼에서 나타나는 제안에 대한 페이지 보기 횟수, 조치 사항 및 동의 클릭 수의 변화를 이해합니다.\n\n       - 페이지 보기 횟수에서 동의 클릭 수로의 변환율을 표시하는 **깔때기형 보기** 추가\n\n         :::image type=\"content\" source=\"media/power-bi-visual/funnel-view.png\" alt-text=\"파트너 센터의 깔때기형 보기 분석 그래프 표시\":::\n\n   - Office 스토어 페이지의 분석\n\n     - Office 스토어의 분석에는 클라이언트 내 스토어에 대한 획득 원격 분석만 표시됩니다. 웹 스토어에 대한 분석은 제안이 마이그레이션되면 상업용 Marketplace의 Marketplace 인사이트 보고서에 표시됩니다.\n     \n"
+    answer: "Power BI 시각적 개체 제안을 Office 스토어에 게시하는 경우와 상업용 Marketplace에 게시하는 경우의 주요 차이점은 다음과 같습니다.\n\n1. **간소화된 패키지 제출 프로세스**\n\n   파트너 센터의 상업용 Marketplace에 제출하는 새 제안의 경우 **기술 구성** 페이지에서 `.pbix` 및 `.pbiviz`의 두 패키지 파일을 직접 업로드할 수 있습니다. XML 매니페스트 파일에 대해 더 이상 PBI 지원 팀과 협력할 필요가 없습니다. 제안 제출을 위해 XML 파일을 더 이상 사용할 필요가 없습니다. 간소화된 이 제출 프로세스는 Power BI 시각적 개체 제안을 준비하고 제출하는 데 필요한 시간을 줄여줍니다.\n\n   :::image type=\"content\" source=\"media/power-bi-visual/technical-configuration.png\" alt-text=\"파트너 센터의 기술 구성 페이지 표시\":::\n\n1. **향상된 미리 보기 옵션**\n\n   상업용 Marketplace는 제안을 게시하기 전에 변경 내용을 확인하고 이미 미리 보기에 있거나 고객이 사용할 수 있는 것과 비교할 수 있는 개선된 필터링 옵션이 포함된 비교 기능을 제공합니다. 게시하지 않은 업데이트는 초안으로 저장됩니다. [상업용 Marketplace에서 기존 제안 업데이트](update-existing-offer.md#compare-changes-to-your-offer)에서 **비교** 기능에 대해 자세히 알아보세요.\n\n   :::image type=\"content\" source=\"media/power-bi-visual/enhanced-preview.png\" lightbox=\"media/power-bi-visual/enhanced-preview.png\" alt-text=\"파트너 센터의 제안 비교 페이지 표시\":::\n\n1. **브랜딩 및 탐색 변경 내용**\n\n    #### <a name=\"workspaces-view\"></a>[작업 영역 보기](#tab/workspaces-view)   \n\n    몇 가지 브랜딩 변경 내용을 확인할 수 있습니다. 예를 들어 **제품** 은 상업용 Marketplace에서 **제안** 으로 브랜딩됩니다.\n\n    :::image type=\"content\" source=\"media/power-bi-visual/branding-navigation-workspaces.png\" alt-text=\"파트너 센터의 제안 개요 페이지 표시\":::\n\n    #### <a name=\"current-view\"></a>[현재 보기](#tab/current-view)\n\n    몇 가지 브랜딩 변경 내용을 확인할 수 있습니다. 예를 들어 **제품** 은 상업용 Marketplace에서 **제안** 으로 브랜딩됩니다.\n\n    :::image type=\"content\" source=\"media/power-bi-visual/branding-navigation.png\" alt-text=\"파트너 센터의 제안 개요 페이지 표시\":::\n\n    ---    \n\n1. **분석**\n\n   - 파트너 센터의 **Marketplace 인사이트** 대시보드는 다음과 같은 개선된 기능을 제공합니다.\n\n     - 조치 사항 추세\n\n       - 동의 클릭 수 분석 추가. 동의 클릭 수는 제안 목록 페이지에서 완료된 모든 동의 클릭의 수를 나타냅니다. 사용자가 **조치 사항** 단추(*지금 가져오기*, *평가판*, *나에게 연락* 또는 *시험 사용*)를 클릭하면 표시됩니다.\n\n         :::image type=\"content\" source=\"media/power-bi-visual/analytics-graphs.png\" alt-text=\"파트너 센터의 동의 클릭 수 분석 그래프 표시\":::\n\n     - 페이지 방문 횟수 및 조치 사항\n     \n     - 표 형식 데이터 수정\n\n       - **동의 클릭 수** 열 추가. 이 정보를 사용하여 제안에 대한 변환율을 이해합니다.\n\n       - 조회 도메인별 보기에 **플랫폼** 열 추가. 이 정보를 사용하여 웹 사이트와 포함된 클라이언트 플랫폼에서 나타나는 제안에 대한 페이지 보기 횟수, 조치 사항 및 동의 클릭 수의 변화를 이해합니다.\n\n       - 페이지 보기 횟수에서 동의 클릭 수로의 변환율을 표시하는 **깔때기형 보기** 추가\n\n         :::image type=\"content\" source=\"media/power-bi-visual/funnel-view.png\" alt-text=\"파트너 센터의 깔때기형 보기 분석 그래프 표시\":::\n\n   - Office 스토어 페이지의 분석\n\n     - Office 스토어의 분석에는 클라이언트 내 스토어에 대한 획득 원격 분석만 표시됩니다. 웹 스토어에 대한 분석은 제안이 마이그레이션되면 상업용 Marketplace의 Marketplace 인사이트 보고서에 표시됩니다.\n     \n"
 additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\n- 추가 도움이 필요하면 [지원](https://partner.microsoft.com/support/?stage=2&topicid=dfd204c3-8357-c8d6-4dff-186bd183058c)에 문의하세요.\n\n<!--\n- [Create a Power BI visual offer in Partner Center](marketplace-power-bi-visual.md) -->"

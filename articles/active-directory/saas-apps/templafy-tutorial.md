@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/03/2021
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 4a392ab735368b9850397e1e921590f898d273c1
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 198d11d85cacb984808db5449524812a151d82b7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111557489"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124821307"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-templafy-saml2"></a>자습서: Templafy SAML2와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "111557489"
 * 사용자가 해당 Azure AD 계정으로 Templafy SAML2에 자동으로 로그인되도록 합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -39,6 +39,7 @@ ms.locfileid: "111557489"
 
 * Templafy SAML2에서 **SP** 시작 SSO를 지원합니다.
 * Templafy SAML2에서 **Just In Time** 사용자 프로비저닝을 지원합니다.
+* Templafy SAML2에서 [자동화된 사용자 프로비저닝](templafy-saml-2-provisioning-tutorial.md)을 지원합니다.
 
 > [!NOTE]
 > 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
@@ -90,7 +91,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도 Templafy SAML2 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
-    | 속성 | 원본 특성| 네임스페이스  |
+    | Name | 원본 특성| 네임스페이스  |
     | ---------------| --------------- | --------- |
     | givenname | user.givenname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | surname | user.surname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
@@ -144,6 +145,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Templafy SAML2에서 B.Simon이라는 사용자를 만듭니다. Templafy SAML2는 Just-In-Time 사용자 프로비저닝을 지원하며, 기본적으로 사용하도록 설정되어 있습니다. 이 섹션에 작업 항목이 없습니다. Templafy SAML2에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
 
+Templafy SAML2는 자동 사용자 프로비저닝도 지원합니다. 자동 사용자 프로비저닝 구성 방법에 대한 자세한 내용은 [여기](./templafy-saml-2-provisioning-tutorial.md)에서 제공합니다.
+
 ## <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
@@ -152,7 +155,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * Templafy SAML2 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Templafy SAML2 타일을 클릭하면 Templafy SAML2 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Templafy SAML2 타일을 클릭하면 Templafy SAML2 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,5 @@
 ---
-title: '자습서: LogicMonitor와 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: LogicMonitor와 Azure AD SSO 통합'
 description: Azure Active Directory 및 LogicMonitor 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/15/2021
+ms.date: 09/14/2021
 ms.author: jeedes
-ms.openlocfilehash: d5342782c26b5c274699bacc4ea0c7cdf5b7f880
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 86623285f1fa4d9ca3c8be9d1d628bf3c49a0d6c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101649413"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128607661"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>자습서: LogicMonitor와 Azure Active Directory 통합
+# <a name="tutorial-azure-ad-sso-integration-with-logicmonitor"></a>자습서: LogicMonitor와 Azure AD SSO 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 LogicMonitor를 통합하는 방법에 대해 알아봅니다. LogicMonitor를 Azure AD와 통합하면 다음을 수행할 수 있습니다.
 
@@ -26,12 +26,12 @@ ms.locfileid: "101649413"
 * 사용자가 자신의 Azure AD 계정으로 LogicMonitor에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-LogicMonitor와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
+시작하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 Azure AD 환경이 없는 경우 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
-* LogicMonitor Single Sign-On이 설정된 구독
+* Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
+* LogicMonitor SSO(Single Sign-On)이 설정된 구독.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -63,7 +63,7 @@ LogicMonitor에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계
     1. **[LogicMonitor 테스트 사용자 만들기](#create-logicmonitor-test-user)** - B.Simon의 Azure AD 표현과 연결되는 대응 사용자를 LogicMonitor에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
+## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
@@ -75,16 +75,14 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![LogicMonitor 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
-
-    a. **로그온 URL** 텍스트 상자에서 `https://<companyname>.logicmonitor.com` 패턴을 사용하는 URL을 입력합니다.
-
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<companyname>.logicmonitor.com` 패턴을 사용하는 URL을 입력합니다.
+    a. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<companyname>.logicmonitor.com` 패턴을 사용하는 URL을 입력합니다.
     
-    다. **회신 URL(Assertion Consumer Service URL)** 텍스트 상자에 `https://companyname.logicmonitor.com/santaba/saml/SSO/` 패턴을 사용하는 URL을 입력합니다. 
+    b. **회신 URL(Assertion Consumer Service URL)** 텍스트 상자에 `https://companyname.logicmonitor.com/santaba/saml/SSO/` URL을 입력합니다. 
   
+    다. **로그온 URL** 텍스트 상자에서 `https://<companyname>.logicmonitor.com` 패턴을 사용하는 URL을 입력합니다.
+
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [LogicMonitor 클라이언트 지원 팀](https://www.logicmonitor.com/contact/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 해당 값을 실제 식별자 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [LogicMonitor 클라이언트 지원 팀](https://www.logicmonitor.com/contact/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML** 을 다운로드하고 컴퓨터에 저장합니다.
 
@@ -93,7 +91,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 6. **LogicMonitor 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
-
 
 ### <a name="create-an-azure-ad-test-user&quot;></a>Azure AD 테스트 사용자 만들기
 
@@ -119,21 +116,21 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 &quot;기본 액세스&quot; 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-### <a name=&quot;configure-logicmonitor-sso&quot;></a>LogicMonitor SSO 구성
+## <a name=&quot;configure-logicmonitor-sso&quot;></a>LogicMonitor SSO 구성
 
 1. **LogicMonitor** 회사 사이트에 관리자 권한으로 로그인합니다.
 
 2. 위쪽의 메뉴에서 **설정** 을 클릭합니다.
 
-    ![설정](./media/logicmonitor-tutorial/ic790052.png &quot;설정")
+    ![설정](./media/logicmonitor-tutorial/menu.png &quot;설정")
 
 3. 왼쪽의 탐색 모음에서 **Single Sign-On** 을 클릭합니다.
 
-    ![Single Sign-On](./media/logicmonitor-tutorial/ic790053.png "Single Sign-On")
+    ![Single Sign-On](./media/logicmonitor-tutorial/roles.png "Single Sign-On")
 
 4. **SSO(Single Sign-On) 설정** 섹션에서 다음 단계를 수행합니다.
 
-    ![Single Sign-On 설정](./media/logicmonitor-tutorial/ic790054.png "Single Sign-On 설정")
+    ![Single Sign-On 설정](./media/logicmonitor-tutorial/metadata.png "Single Sign-On 설정")
 
     a. **Single Sign-On 사용** 을 선택합니다.
 
@@ -153,13 +150,13 @@ Azure AD 사용자가 로그인 할 수 있도록 Azure Active Directory 사용�
 
 2. 상단 메뉴에서 **설정** 을 클릭한 후 **역할 및 사용자** 를 클릭합니다.
 
-    ![역할 및 사용자](./media/logicmonitor-tutorial/ic790056.png "역할 및 사용자")
+    ![역할 및 사용자](./media/logicmonitor-tutorial/user.png "역할 및 사용자")
 
 3. **추가** 를 클릭합니다.
 
 4. **계정 추가** 섹션에서 다음 단계를 수행합니다.
 
-    ![계정 추가](./media/logicmonitor-tutorial/ic790057.png "계정 추가")
+    ![계정 추가](./media/logicmonitor-tutorial/details.png "계정 추가")
 
     a. 프로비전할 Azure Active Directory 사용자의 **이름**, **전자 메일**, **암호** 및 **암호 확인** 값을 관련된 텍스트 상자에 입력합니다.
 
@@ -170,7 +167,7 @@ Azure AD 사용자가 로그인 할 수 있도록 Azure Active Directory 사용�
 > [!NOTE]
 > LogicMonitor에서 제공하는 다른 LogicMonitor 사용자 계정 만들기 도구 또는 API를 사용하여 Azure Active Directory 사용자 계정을 프로비전합니다.
 
-### <a name="test-sso"></a>SSO 테스트
+## <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
@@ -178,7 +175,7 @@ Azure AD 사용자가 로그인 할 수 있도록 Azure Active Directory 사용�
 
 * LogicMonitor 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 LogicMonitor 타일을 클릭하면 SSO를 설정한 LogicMonitor에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 LogicMonitor 타일을 클릭하면 SSO를 설정한 LogicMonitor에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

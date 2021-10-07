@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - VM 템플릿을 사용하여 Azure에서 가상 머신 만들기
 description: CloudSimple 프라이빗 클라우드용 VMware 인프라에서 VM 템플릿을 사용하여 Azure에서 가상 머신을 만드는 방법을 설명합니다.
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ad998c1def91a0e2a6ff74c25e4e1cc972df1474
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
-ms.translationtype: HT
+ms.openlocfilehash: cc382f0316f5f7f0d80d2d1fc5cf9612d623e754
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108182663"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129618293"
 ---
 # <a name="create-a-virtual-machine-in-azure-using-vm-templates-on-the-vmware-infrastructure"></a>VMware 인프라에서 VM 템플릿을 사용하여 Azure에서 가상 머신 만들기
 
@@ -40,7 +40,7 @@ CloudSimple 관리자가 구독에 대해 사용하도록 설정한 VMware 인�
 
     ![CloudSimple 가상 머신 만들기 - 기본 사항](media/create-cloudsimple-virtual-machine-basic-info.png)
 
-    | 필드 | Description |
+    | 필드 | 설명 |
     | ------------ | ------------- |
     | Subscription | 프라이빗 클라우드와 연결된 Azure 구독입니다.  |
     | 리소스 그룹 | VM이 할당될 리소스 그룹입니다. 기존 그룹을 선택하거나 새 그룹을 만들 수 있습니다. |
@@ -62,7 +62,7 @@ CloudSimple 관리자가 구독에 대해 사용하도록 설정한 VMware 인�
 
     네트워크 인터페이스에 대해 **네트워크 인터페이스 추가** 를 클릭하고, 다음 설정을 구성합니다.
 
-    | 컨트롤 | Description |
+    | 컨트롤 | 설명 |
     | ------------ | ------------- |
     | 이름 | 인터페이스를 식별하는 이름을 입력합니다.  |
     | 네트워크 | vSphere 프라이빗 클라우드에 구성된 분산 포트 그룹 목록에서 선택합니다.  |

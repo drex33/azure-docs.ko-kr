@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/04/2021
 ms.author: jeedes
-ms.openlocfilehash: 8c6fef9319416c902f9c334453bd4a3a2fe4f93a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 936398f324448abfa46b381fc19154117b8d4771
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124809987"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232549"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn---shibboleth"></a>자습서: Blackboard Learn - Shibboleth와 Azure Active Directory 통합
 
@@ -86,7 +86,7 @@ Blackboard Learn - Shibboleth에서 Azure AD Single Sign-On을 구성하려면 �
     다. **회신 URL** 텍스트 상자에서 `https://<yourblackoardlearnserver>.blackboardlearn.com/Shibboleth.sso/SAML2/POST` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트합니다. 이러한 값을 얻으려면 [Blackboard Learn - Shibboleth 클라이언트 지원팀](https://www.blackboard.com/forms/contact-us_form.aspx)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트합니다. 이러한 값을 얻으려면 [Blackboard Learn - Shibboleth 클라이언트 지원팀](https://www.blackboard.com/contact-us)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML** 을 다운로드하고 컴퓨터에 저장합니다.
 
@@ -105,7 +105,7 @@ Blackboard Learn - Shibboleth에서 Azure AD Single Sign-On을 구성하려면 �
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -127,7 +127,7 @@ Blackboard Learn - Shibboleth Single Sign-On을 구성하려면 이 [문서](htt
 
 ### <a name="create-blackboard-learn---shibboleth-test-user"></a>Blackboard Learn - Shibboleth 테스트 사용자 만들기
 
-이 섹션에서는 Blackboard Learn - Shibboleth에서 Britta Simon이라는 사용자를 만듭니다. [Blackboard Learn - Shibboleth 지원 팀](https://www.blackboard.com/forms/contact-us_form.aspx)과 협력하여 사용자를 Blackboard Learn - Shibboleth 플랫폼에 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Blackboard Learn - Shibboleth에서 Britta Simon이라는 사용자를 만듭니다. [Blackboard Learn - Shibboleth 지원 팀](https://www.blackboard.com/contact-us)과 협력하여 사용자를 Blackboard Learn - Shibboleth 플랫폼에 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ## <a name="test-sso"></a>SSO 테스트
 

@@ -1,15 +1,15 @@
 ---
 title: NIST SP 800-53 개정 5(Azure Government)에 대한 규정 준수 세부 정보
 description: NIST SP 800-53 개정 5(Azure Government) 규정 준수 기본 제공 이니셔티브의 세부 정보 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
-ms.date: 09/03/2021
+ms.date: 09/17/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 94baf3b0e067cc1844808bb99497503dd7e62e57
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 18ffd7da539e8e219086e083b33703e3c84552b2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123471339"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620563"
 ---
 # <a name="details-of-the-nist-sp-800-53-rev-5-azure-government-regulatory-compliance-built-in-initiative"></a>NIST SP 800-53 개정 5(Azure Government) 규정 준수 기본 제공 이니셔티브의 세부 정보
 
@@ -59,7 +59,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 AC-2(7)
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[SQL 서버에 대해 Azure Active Directory 관리자를 프로비저닝해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1f314764-cb73-4fc9-b863-8eca98ac36e9) |SQL 서버에 대한 Azure Active Directory 관리자 프로비전을 감사하여 Azure AD 인증을 활성화합니다. Azure AD 인증을 사용하면 데이터베이스 사용자 및 기타 Microsoft 서비스의 권한을 간편하게 관리하고 ID를 한 곳에서 집중적으로 관리할 수 있습니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SQL_DB_AuditServerADAdmins_Audit.json) |
 |[사용자 지정 RBAC 규칙 사용 감사](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa451c1ef-c6ca-483d-87ed-f49761e3ffb5) |오류가 발생하기 쉬운 사용자 지정 RBAC 역할 대신 '소유자, 기여자, 읽기 권한자' 같은 기본 제공 역할을 감사합니다. 사용자 지정 역할 사용은 예외로 처리되며 엄격한 검토 및 위협 모델링이 필요합니다. |감사, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/Subscription_AuditCustomRBACRoles_Audit.json) |
@@ -71,7 +71,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 AC-2(12)
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Azure Arc 사용 Kubernetes 클러스터에 Azure Defender의 확장이 설치되어 있어야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8dfab9c4-fe7b-49ad-85e4-1e9be085358f) |Azure Arc용 Azure Defender 확장은 Arc 지원 Kubernetes 클러스터에 대한 위협 보호를 제공합니다. 이 확장은 클러스터의 노드에서 데이터를 수집하고 추가 분석을 위해 클라우드의 Azure Defender for Kubernetes 백 엔드로 보냅니다. [https://docs.microsoft.com/azure/security-center/defender-for-kubernetes-azure-arc](../../../security-center/defender-for-kubernetes-azure-arc.md)에서 자세히 알아보세요. |AuditIfNotExists, 사용 안 함 |[2.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/ASC_Azure_Defender_Kubernetes_Arc_Extension_Audit.json) |
 |[Azure SQL Database 서버용 Azure Defender를 사용해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7fe3b40f-802b-4cdd-8bd4-fd799c948cc2) |Azure Defender for SQL은 잠재적인 데이터베이스 취약성을 표시 및 완화하고, SQL 데이터베이스에 대한 위협을 나타낼 수 있는 비정상적인 활동을 감지하고, 중요한 데이터를 검색 및 분류하는 기능을 제공합니다. |AuditIfNotExists, 사용 안 함 |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_EnableAdvancedDataSecurityOnSqlServers_Audit.json) |
@@ -88,7 +88,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 AC-3
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[시스템 할당 관리 ID를 추가하여 ID가 없는 가상 머신에서 게스트 구성 할당을 사용하도록 설정](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e) |이 정책은 게스트 구성에서 지원되지만 관리 ID가 없는 Azure에서 호스트되는 가상 머신에 시스템 할당 관리 ID를 추가합니다. 시스템 할당 관리 ID는 모든 게스트 구성 할당에 대한 필수 구성 요소이며 게스트 구성 정책 정의를 사용하기 전에 머신에 추가해야 합니다. 게스트 구성에 대한 자세한 내용은 [https://aka.ms/gcpol](../concepts/guest-configuration.md)을 방문하세요. |수정 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Guest%20Configuration/GuestConfiguration_AddSystemIdentityWhenNone_Prerequisite.json) |
 |[시스템이 할당한 관리 ID를 추가하여 사용자가 할당한 ID가 있는 VM에서 게스트 구성 할당을 사용하도록 설정](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6) |이 정책은 게스트 구성에서 지원되고 사용자 할당 ID가 하나 이상 있지만 시스템 할당 관리 ID가 없는 Azure에서 호스트되는 가상 머신에 시스템 할당 관리 ID를 추가합니다. 시스템 할당 관리 ID는 모든 게스트 구성 할당에 대한 필수 구성 요소이며 게스트 구성 정책 정의를 사용하기 전에 머신에 추가해야 합니다. 게스트 구성에 대한 자세한 내용은 [https://aka.ms/gcpol](../concepts/guest-configuration.md)을 방문하세요. |수정 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Guest%20Configuration/GuestConfiguration_AddSystemIdentityWhenUser_Prerequisite.json) |
@@ -110,7 +110,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 AC-3(7)
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Kubernetes Services에서 RBAC(역할 기반 액세스 제어)를 사용해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac4a19c2-fa67-49b4-8ae5-0b2e78c49457) |사용자가 수행할 수 있는 작업에 대한 세부적인 필터링을 제공하려면 RBAC(역할 기반 액세스 제어)를 사용하여 Kubernetes Service 클러스터에서 권한을 관리하고 관련 권한 부여 정책을 구성합니다. |감사, 사용 안 함 |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_EnableRBAC_KubernetesService_Audit.json) |
 
@@ -118,7 +118,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 AC-4
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[가상 머신과 연결된 네트워크 보안 그룹에서 모든 네트워크 포트를 제한해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9daedab3-fb2d-461e-b861-71790eead4f6) |Azure Security Center에서 네트워크 보안 그룹의 인바운드 규칙 중 일부가 너무 관대하다는 사실을 식별했습니다. 인바운드 규칙에서 '모두' 또는 '인터넷' 범위에서 들어오는 액세스를 허용해서는 안 됩니다. 그러면 리소스가 공격자의 표적이 될 수 있습니다. |AuditIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_UnprotectedEndpoints_Audit.json) |
 |[API Management 서비스에서 가상 네트워크를 사용해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fef619a2c-cc4d-4d03-b2ba-8c94a834d85b) |Azure Virtual Network 배포는 향상된 보안, 격리를 제공하며, 액세스를 제어하는 인터넷 라우팅이 불가능한 네트워크에 API Management 서비스를 배치할 수 있습니다. 그런 다음, 다양한 VPN 기술을 사용하여 이러한 네트워크를 온-프레미스 네트워크에 연결할 수 있으며, 이를 통해 네트워크 및/또는 온-프레미스 내에서 백 엔드 서비스에 액세스할 수 있습니다. 개발자 포털 및 API 게이트웨이를 인터넷에서 또는 가상 네트워크 내에서만 액세스할 수 있게 구성할 수 있습니다. |감사, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/API%20Management/ApiManagement_VNETEnabled_Audit.json) |
@@ -200,14 +200,14 @@ ms.locfileid: "123471339"
 
 |이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[보호되지 않는 Azure SQL 서버에 대해 Azure Defender for SQL을 사용하도록 설정해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fabfb4388-5bf4-4ad7-ba82-2cd2f41ceae9) |Advanced Data Security 없이 SQL 서버 감사 |AuditIfNotExists, 사용 안 함 |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_AdvancedDataSecurity_Audit.json) |
+|[보호되지 않는 Azure SQL 서버에 대해 SQL용 Azure Defender를 사용하도록 설정해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fabfb4388-5bf4-4ad7-ba82-2cd2f41ceae9) |Advanced Data Security 없이 SQL 서버 감사 |AuditIfNotExists, 사용 안 함 |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_AdvancedDataSecurity_Audit.json) |
 |[보호되지 않는 SQL Managed Instance에 대해 Azure Defender for SQL을 사용하도록 설정해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fabfb7388-5bf4-4ad7-ba99-2cd2f41cebb9) |Advanced Data Security를 사용하지 않고 각 SQL Managed Instance를 감사합니다. |AuditIfNotExists, 사용 안 함 |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_AdvancedDataSecurity_Audit.json) |
 
 ### <a name="remote-access"></a>원격 액세스
 
 **ID**: NIST SP 800-53 Rev. 5 AC-17
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[시스템 할당 관리 ID를 추가하여 ID가 없는 가상 머신에서 게스트 구성 할당을 사용하도록 설정](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e) |이 정책은 게스트 구성에서 지원되지만 관리 ID가 없는 Azure에서 호스트되는 가상 머신에 시스템 할당 관리 ID를 추가합니다. 시스템 할당 관리 ID는 모든 게스트 구성 할당에 대한 필수 구성 요소이며 게스트 구성 정책 정의를 사용하기 전에 머신에 추가해야 합니다. 게스트 구성에 대한 자세한 내용은 [https://aka.ms/gcpol](../concepts/guest-configuration.md)을 방문하세요. |수정 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Guest%20Configuration/GuestConfiguration_AddSystemIdentityWhenNone_Prerequisite.json) |
 |[시스템이 할당한 관리 ID를 추가하여 사용자가 할당한 ID가 있는 VM에서 게스트 구성 할당을 사용하도록 설정](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6) |이 정책은 게스트 구성에서 지원되고 사용자 할당 ID가 하나 이상 있지만 시스템 할당 관리 ID가 없는 Azure에서 호스트되는 가상 머신에 시스템 할당 관리 ID를 추가합니다. 시스템 할당 관리 ID는 모든 게스트 구성 할당에 대한 필수 구성 요소이며 게스트 구성 정책 정의를 사용하기 전에 머신에 추가해야 합니다. 게스트 구성에 대한 자세한 내용은 [https://aka.ms/gcpol](../concepts/guest-configuration.md)을 방문하세요. |수정 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Guest%20Configuration/GuestConfiguration_AddSystemIdentityWhenUser_Prerequisite.json) |
@@ -244,7 +244,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 AC-17(1)
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[시스템 할당 관리 ID를 추가하여 ID가 없는 가상 머신에서 게스트 구성 할당을 사용하도록 설정](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e) |이 정책은 게스트 구성에서 지원되지만 관리 ID가 없는 Azure에서 호스트되는 가상 머신에 시스템 할당 관리 ID를 추가합니다. 시스템 할당 관리 ID는 모든 게스트 구성 할당에 대한 필수 구성 요소이며 게스트 구성 정책 정의를 사용하기 전에 머신에 추가해야 합니다. 게스트 구성에 대한 자세한 내용은 [https://aka.ms/gcpol](../concepts/guest-configuration.md)을 방문하세요. |수정 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Guest%20Configuration/GuestConfiguration_AddSystemIdentityWhenNone_Prerequisite.json) |
 |[시스템이 할당한 관리 ID를 추가하여 사용자가 할당한 ID가 있는 VM에서 게스트 구성 할당을 사용하도록 설정](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6) |이 정책은 게스트 구성에서 지원되고 사용자 할당 ID가 하나 이상 있지만 시스템 할당 관리 ID가 없는 Azure에서 호스트되는 가상 머신에 시스템 할당 관리 ID를 추가합니다. 시스템 할당 관리 ID는 모든 게스트 구성 할당에 대한 필수 구성 요소이며 게스트 구성 정책 정의를 사용하기 전에 머신에 추가해야 합니다. 게스트 구성에 대한 자세한 내용은 [https://aka.ms/gcpol](../concepts/guest-configuration.md)을 방문하세요. |수정 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Guest%20Configuration/GuestConfiguration_AddSystemIdentityWhenUser_Prerequisite.json) |
@@ -283,7 +283,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 AU-6
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Azure Arc 사용 Kubernetes 클러스터에 Azure Defender의 확장이 설치되어 있어야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8dfab9c4-fe7b-49ad-85e4-1e9be085358f) |Azure Arc용 Azure Defender 확장은 Arc 지원 Kubernetes 클러스터에 대한 위협 보호를 제공합니다. 이 확장은 클러스터의 노드에서 데이터를 수집하고 추가 분석을 위해 클라우드의 Azure Defender for Kubernetes 백 엔드로 보냅니다. [https://docs.microsoft.com/azure/security-center/defender-for-kubernetes-azure-arc](../../../security-center/defender-for-kubernetes-azure-arc.md)에서 자세히 알아보세요. |AuditIfNotExists, 사용 안 함 |[2.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/ASC_Azure_Defender_Kubernetes_Arc_Extension_Audit.json) |
 |[Azure SQL Database 서버용 Azure Defender를 사용해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7fe3b40f-802b-4cdd-8bd4-fd799c948cc2) |Azure Defender for SQL은 잠재적인 데이터베이스 취약성을 표시 및 완화하고, SQL 데이터베이스에 대한 위협을 나타낼 수 있는 비정상적인 활동을 감지하고, 중요한 데이터를 검색 및 분류하는 기능을 제공합니다. |AuditIfNotExists, 사용 안 함 |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_EnableAdvancedDataSecurityOnSqlServers_Audit.json) |
@@ -303,7 +303,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 AU-6(4)
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[SQL 서버에 대한 감사가 사용되도록 설정되어야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9) |서버의 모든 데이터베이스에서 데이터베이스 활동을 추적하고 감사 로그에 저장하려면 SQL Server에서의 감사를 사용하도록 설정해야 합니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditing_Audit.json) |
 |[구독에 Log Analytics 에이전트의 자동 프로비저닝을 사용하도록 설정해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F475aae12-b88a-4572-8b36-9b712b2b3a17) |보안 취약성 및 위협을 모니터링하기 위해 Azure Security Center는 Azure 가상 머신에서 데이터를 수집합니다. 데이터는 이전에 MMA(Microsoft Monitoring Agent)로 알려진 Log Analytics 에이전트에 의해 수집되며, 머신에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석을 위해 Log Analytics 작업 영역에 데이터를 복사합니다. 지원되는 모든 Azure VM과 생성된 모든 새 VM에 에이전트를 자동으로 배포하려면 자동 프로비저닝을 사용하도록 설정하는 것이 좋습니다. |AuditIfNotExists, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_Automatic_provisioning_log_analytics_monitoring_agent.json) |
@@ -341,7 +341,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 AU-6(5)
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[SQL 서버에 대한 감사가 사용되도록 설정되어야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9) |서버의 모든 데이터베이스에서 데이터베이스 활동을 추적하고 감사 로그에 저장하려면 SQL Server에서의 감사를 사용하도록 설정해야 합니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditing_Audit.json) |
 |[구독에 Log Analytics 에이전트의 자동 프로비저닝을 사용하도록 설정해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F475aae12-b88a-4572-8b36-9b712b2b3a17) |보안 취약성 및 위협을 모니터링하기 위해 Azure Security Center는 Azure 가상 머신에서 데이터를 수집합니다. 데이터는 이전에 MMA(Microsoft Monitoring Agent)로 알려진 Log Analytics 에이전트에 의해 수집되며, 머신에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석을 위해 Log Analytics 작업 영역에 데이터를 복사합니다. 지원되는 모든 Azure VM과 생성된 모든 새 VM에 에이전트를 자동으로 배포하려면 자동 프로비저닝을 사용하도록 설정하는 것이 좋습니다. |AuditIfNotExists, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_Automatic_provisioning_log_analytics_monitoring_agent.json) |
@@ -379,7 +379,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 AU-11
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[스토리지 계정 대상에 대한 감사 기능이 있는 SQL Server는 보존 기간을 90일 이상으로 구성해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F89099bee-89e0-4b26-a5f4-165451757743) |인시던트 조사를 위해 SQL Server 감사를 위한 데이터 보존 기간을 스토리지 계정 대상으로 90일 이상으로 설정하는 것이 좋습니다. 운영 중인 지역에 필요한 보존 규칙을 충족하는지 확인합니다. 이는 규정 표준을 준수해야 하는 경우도 있습니다. |AuditIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditingRetentionDays_Audit.json) |
 
@@ -387,7 +387,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 AU-12
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[SQL 서버에 대한 감사가 사용되도록 설정되어야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9) |서버의 모든 데이터베이스에서 데이터베이스 활동을 추적하고 감사 로그에 저장하려면 SQL Server에서의 감사를 사용하도록 설정해야 합니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditing_Audit.json) |
 |[구독에 Log Analytics 에이전트의 자동 프로비저닝을 사용하도록 설정해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F475aae12-b88a-4572-8b36-9b712b2b3a17) |보안 취약성 및 위협을 모니터링하기 위해 Azure Security Center는 Azure 가상 머신에서 데이터를 수집합니다. 데이터는 이전에 MMA(Microsoft Monitoring Agent)로 알려진 Log Analytics 에이전트에 의해 수집되며, 머신에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석을 위해 Log Analytics 작업 영역에 데이터를 복사합니다. 지원되는 모든 Azure VM과 생성된 모든 새 VM에 에이전트를 자동으로 배포하려면 자동 프로비저닝을 사용하도록 설정하는 것이 좋습니다. |AuditIfNotExists, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_Automatic_provisioning_log_analytics_monitoring_agent.json) |
@@ -425,7 +425,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 AU-12(1)
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[SQL 서버에 대한 감사가 사용되도록 설정되어야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9) |서버의 모든 데이터베이스에서 데이터베이스 활동을 추적하고 감사 로그에 저장하려면 SQL Server에서의 감사를 사용하도록 설정해야 합니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditing_Audit.json) |
 |[구독에 Log Analytics 에이전트의 자동 프로비저닝을 사용하도록 설정해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F475aae12-b88a-4572-8b36-9b712b2b3a17) |보안 취약성 및 위협을 모니터링하기 위해 Azure Security Center는 Azure 가상 머신에서 데이터를 수집합니다. 데이터는 이전에 MMA(Microsoft Monitoring Agent)로 알려진 Log Analytics 에이전트에 의해 수집되며, 머신에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석을 위해 Log Analytics 작업 영역에 데이터를 복사합니다. 지원되는 모든 Azure VM과 생성된 모든 새 VM에 에이전트를 자동으로 배포하려면 자동 프로비저닝을 사용하도록 설정하는 것이 좋습니다. |AuditIfNotExists, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_Automatic_provisioning_log_analytics_monitoring_agent.json) |
@@ -465,7 +465,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 CM-6
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[클러스터에 AKS(Azure Kubernetes Service)용 Azure Policy 추가 기능을 설치하고 사용하도록 설정해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0a15ec92-a229-4763-bb14-0ea34a568f8d) |AKS(Azure Kubernetes Service)용 Azure Policy 추가 기능은 OPA(Open Policy Agent)용 허용 컨트롤러 웹후크인 Gatekeeper v3를 확장하여 일관된 중앙 집중식 방법으로 클러스터에 대규모 규약 및 세이프가드를 적용합니다. |감사, 사용 안 함 |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/AKS_AzurePolicyAddOn_Audit.json) |
 |[CORS에서 모든 리소스가 API 앱에 액세스하도록 허용해서는 안 됩니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F358c20a6-3f9e-4f0e-97ff-c6ce485e2aac) |CORS(교차 원본 리소스 공유)는 API 앱에 액세스하는 모든 도메인을 허용하지 않아야 합니다. 필요한 도메인만 API 앱과 상호 작용할 수 있도록 허용합니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_RestrictCORSAccess_ApiApp_Audit.json) |
@@ -475,19 +475,19 @@ ms.locfileid: "123471339"
 |[웹앱에서 '클라이언트 인증서(들어오는 클라이언트 인증서)'가 '켜기'로 설정되어 있는지 확인합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5bb220d9-2698-4ee4-8404-b9c30c9df609) |클라이언트 인증서는 앱이 들어오는 요청에 대한 인증서를 요청하도록 허용합니다. 유효한 인증서가 있는 클라이언트만 앱에 연결할 수 있습니다. |감사, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Webapp_Audit_ClientCert.json) |
 |[함수 앱은 '클라이언트 인증서(들어오는 클라이언트 인증서)'를 사용하도록 설정해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Feaebaea7-8013-4ceb-9d14-7eb32271373c) |클라이언트 인증서는 앱이 들어오는 요청에 대한 인증서를 요청하도록 허용합니다. 유효한 인증서가 있는 클라이언트만 앱에 연결할 수 있습니다. |감사, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_ClientCert.json) |
 |[Kubernetes 클러스터 컨테이너 CPU 및 메모리 리소스 한도는 지정된 한도를 초과하지 않아야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe345eecc-fa47-480f-9e88-67dcc122b164) |Kubernetes 클러스터에서 리소스 소모 공격을 방지하기 위해 컨테이너 CPU 및 메모리 리소스 제한을 적용합니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[7.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/ContainerResourceLimits.json) |
-|[Kubernetes 클러스터 컨테이너는 호스트 프로세스 ID 또는 호스트 IPC 네임스페이스를 공유해서는 안 됨](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F47a1ee2f-2a2a-4576-bf2a-e0e36709c2b8) |Kubernetes 클러스터에서 호스트 프로세스 ID 네임스페이스 및 호스트 IPC 네임스페이스를 공유하지 못하도록 Pod 컨테이너를 차단합니다. 이 권장 사항은 Kubernetes 환경의 보안을 향상시키기 위한 CIS 5.2.2 및 CIS 5.2.3의 일부입니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/BlockHostNamespace.json) |
+|[Kubernetes 클러스터 컨테이너는 호스트 프로세스 ID 또는 호스트 IPC 네임스페이스를 공유해서는 안 됨](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F47a1ee2f-2a2a-4576-bf2a-e0e36709c2b8) |Kubernetes 클러스터에서 호스트 프로세스 ID 네임스페이스 및 호스트 IPC 네임스페이스를 공유하지 못하도록 Pod 컨테이너를 차단합니다. 이 권장 사항은 Kubernetes 환경의 보안을 향상시키기 위한 CIS 5.2.2 및 CIS 5.2.3의 일부입니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[3.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/BlockHostNamespace.json) |
 |[Kubernetes 클러스터 컨테이너는 허용된 포트만 수신 대기해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F440b515e-a580-421e-abeb-b159a61ddcbc) |Kubernetes 클러스터에 대한 액세스를 보호하기 위해 컨테이너가 허용된 포트에서만 수신 대기하도록 제한합니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[6.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/ContainerAllowedPorts.json) |
-|[Kubernetes 클러스터 컨테이너는 허용된 AppArmor 프로필만 사용해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F511f5417-5d12-434d-ab2e-816901e72a5e) |컨테이너는 Kubernetes 클러스터에서 허용된 AppArmor 프로필만 사용해야 합니다. 이 권장 사항은 Kubernetes 환경의 보안을 향상시키기 위한 Pod 보안 정책의 일부입니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[4.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/EnforceAppArmorProfile.json) |
-|[Kubernetes 클러스터 컨테이너는 허용된 기능만 사용해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26596ff-4d70-4e6a-9a30-c2506bd2f80c) |Kubernetes 클러스터에서 컨테이너의 공격 노출 영역을 줄이기 위해 기능을 제한합니다. 이 권장 사항은 Kubernetes 환경의 보안을 향상시키기 위한 CIS 5.2.8 및 CIS 5.2.9의 일부입니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[4.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/ContainerAllowedCapabilities.json) |
+|[Kubernetes 클러스터 컨테이너는 허용된 AppArmor 프로필만 사용해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F511f5417-5d12-434d-ab2e-816901e72a5e) |컨테이너는 Kubernetes 클러스터에서 허용된 AppArmor 프로필만 사용해야 합니다. 이 권장 사항은 Kubernetes 환경의 보안을 향상시키기 위한 Pod 보안 정책의 일부입니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/EnforceAppArmorProfile.json) |
+|[Kubernetes 클러스터 컨테이너는 허용된 기능만 사용해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26596ff-4d70-4e6a-9a30-c2506bd2f80c) |Kubernetes 클러스터에서 컨테이너의 공격 노출 영역을 줄이기 위해 기능을 제한합니다. 이 권장 사항은 Kubernetes 환경의 보안을 향상시키기 위한 CIS 5.2.8 및 CIS 5.2.9의 일부입니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/ContainerAllowedCapabilities.json) |
 |[Kubernetes 클러스터 컨테이너는 허용된 이미지만 사용해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffebd0533-8e55-448f-b837-bd0e06f16469) |신뢰할 수 있는 레지스트리의 이미지를 사용하여 알 수 없는 취약성, 보안 문제 및 악성 이미지에 대한 Kubernetes 클러스터의 노출 위험을 줄입니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[7.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/ContainerAllowedImages.json) |
-|[Kubernetes 클러스터 컨테이너는 읽기 전용 루트 파일 시스템에서 실행되어야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf49d893-a74c-421d-bc95-c663042e5b80) |읽기 전용 루트 파일 시스템을 통해 컨테이너를 실행하여 Kubernetes 클러스터의 PATH에 추가된 악성 이진 파일로 인한 런타임 시 변경으로부터 보호합니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[4.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/ReadOnlyRootFileSystem.json) |
-|[Kubernetes 클러스터 Pod hostPath 볼륨은 허용된 호스트 경로만 사용해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F098fc59e-46c7-4d99-9b16-64990e543d75) |Pod HostPath 볼륨 탑재를 Kubernetes 클러스터에서 허용된 호스트 경로로 제한합니다. 이 권장 사항은 Kubernetes 환경의 보안을 향상시키기 위한 Pod 보안 정책의 일부입니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[4.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/AllowedHostPaths.json) |
-|[Kubernetes 클러스터 Pod 및 컨테이너는 승인된 사용자 및 그룹 ID로만 실행해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) |Pod 및 컨테이너가 Kubernetes 클러스터에서 실행하는 데 사용할 수 있는 사용자, 기본 그룹, 보조 그룹 및 파일 시스템 그룹 ID를 제어합니다. 이 권장 사항은 Kubernetes 환경의 보안을 향상시키기 위한 Pod 보안 정책의 일부입니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[4.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/AllowedUsersGroups.json) |
-|[Kubernetes 클러스터 Pod는 승인된 호스트 네트워크와 포트 범위만 사용해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82985f06-dc18-4a48-bc1c-b9f4f0098cfe) |Kubernetes 클러스터에서 호스트 네트워크 및 허용 가능한 호스트 포트 범위에 대한 Pod 액세스를 제한합니다. 이 권장 사항은 Kubernetes 환경의 보안을 향상시키기 위한 CIS 5.2.4의 일부입니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[4.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/HostNetworkPorts.json) |
+|[Kubernetes 클러스터 컨테이너는 읽기 전용 루트 파일 시스템에서 실행되어야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf49d893-a74c-421d-bc95-c663042e5b80) |읽기 전용 루트 파일 시스템을 통해 컨테이너를 실행하여 Kubernetes 클러스터의 PATH에 추가된 악성 이진 파일로 인한 런타임 시 변경으로부터 보호합니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/ReadOnlyRootFileSystem.json) |
+|[Kubernetes 클러스터 Pod hostPath 볼륨은 허용된 호스트 경로만 사용해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F098fc59e-46c7-4d99-9b16-64990e543d75) |Pod HostPath 볼륨 탑재를 Kubernetes 클러스터에서 허용된 호스트 경로로 제한합니다. 이 권장 사항은 Kubernetes 환경의 보안을 향상시키기 위한 Pod 보안 정책의 일부입니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/AllowedHostPaths.json) |
+|[Kubernetes 클러스터 Pod 및 컨테이너는 승인된 사용자 및 그룹 ID로만 실행해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) |Pod 및 컨테이너가 Kubernetes 클러스터에서 실행하는 데 사용할 수 있는 사용자, 기본 그룹, 보조 그룹 및 파일 시스템 그룹 ID를 제어합니다. 이 권장 사항은 Kubernetes 환경의 보안을 향상시키기 위한 Pod 보안 정책의 일부입니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/AllowedUsersGroups.json) |
+|[Kubernetes 클러스터 Pod는 승인된 호스트 네트워크와 포트 범위만 사용해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82985f06-dc18-4a48-bc1c-b9f4f0098cfe) |Kubernetes 클러스터에서 호스트 네트워크 및 허용 가능한 호스트 포트 범위에 대한 Pod 액세스를 제한합니다. 이 권장 사항은 Kubernetes 환경의 보안을 향상시키기 위한 CIS 5.2.4의 일부입니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[4.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/HostNetworkPorts.json) |
 |[Kubernetes 클러스터 서비스는 허용된 포트만 수신 대기해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F233a2a17-77ca-4fb1-9b6b-69223d272a44) |Kubernetes 클러스터에 대한 액세스를 보호하기 위해 서비스가 허용된 포트에서만 수신 대기하도록 제한합니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[6.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/ServiceAllowedPorts.json) |
 |[Kubernetes 클러스터는 권한 있는 컨테이너를 허용하지 않아야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F95edb821-ddaf-4404-9732-666045e056b4) |Kubernetes 클러스터는 권한 있는 컨테이너를 만드는 것을 허용하지 않습니다. 이 권장 사항은 Kubernetes 환경의 보안을 향상시키기 위한 CIS 5.2.1의 일부입니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[7.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/ContainerNoPrivilege.json) |
-|[Kubernetes 클러스터는 컨테이너 권한 상승을 허용해서는 안 됨](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) |컨테이너가 Kubernetes 클러스터 루트로의 권한 상승을 통해 실행되는 것을 허용하지 않습니다. 이 권장 사항은 Kubernetes 환경의 보안을 향상시키기 위한 CIS 5.2.5의 일부입니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/ContainerNoPrivilegeEscalation.json) |
-|[Linux 머신은 Azure 컴퓨팅 보안 기준의 요구 사항을 충족해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc9b3da7-8347-4380-8e70-0a0361d8dedd) |필수 구성 요소가 정책 할당 범위에 배포되어야 합니다. 자세한 내용은 [https://aka.ms/gcpol](../concepts/guest-configuration.md)을 방문하세요. Azure 컴퓨팅 보안 기준의 권장 사항 중 하나에 맞게 올바르게 구성되지 않은 머신은 비규격입니다. |AuditIfNotExists, 사용 안 함 |[1.1.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Guest%20Configuration/GuestConfiguration_AzureLinuxBaseline_AINE.json) |
+|[Kubernetes 클러스터는 컨테이너 권한 상승을 허용해서는 안 됨](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) |컨테이너가 Kubernetes 클러스터 루트로의 권한 상승을 통해 실행되는 것을 허용하지 않습니다. 이 권장 사항은 Kubernetes 환경의 보안을 향상시키기 위한 CIS 5.2.5의 일부입니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](../concepts/policy-for-kubernetes.md)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[3.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/ContainerNoPrivilegeEscalation.json) |
+|[Linux 머신이 Azure 컴퓨팅 보안 기준에 대한 요구 사항을 충족해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc9b3da7-8347-4380-8e70-0a0361d8dedd) |필수 구성 요소가 정책 할당 범위에 배포되어야 합니다. 자세한 내용은 [https://aka.ms/gcpol](../concepts/guest-configuration.md)을 방문하세요. Azure 컴퓨팅 보안 기준의 권장 사항 중 하나에 맞게 올바르게 구성되지 않은 머신은 비규격입니다. |AuditIfNotExists, 사용 안 함 |[1.1.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Guest%20Configuration/GuestConfiguration_AzureLinuxBaseline_AINE.json) |
 |[API Apps에 대해 원격 디버깅을 해제해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe9c8d085-d9cc-4b17-9cdc-059f1f01f19e) |원격 디버깅에 API 앱에서 열리는 인바운드 포트가 필요합니다. 원격 디버깅을 해제해야 합니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_DisableRemoteDebugging_ApiApp_Audit.json) |
 |[함수 앱에 대해 원격 디버깅을 해제해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0e60b895-3786-45da-8377-9c6b4b6ac5f9) |원격 디버깅에 함수 앱에서 열리는 인바운드 포트가 필요합니다. 원격 디버깅을 해제해야 합니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_DisableRemoteDebugging_FunctionApp_Audit.json) |
 |[웹 애플리케이션에 대해 원격 디버깅을 해제해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcb510bfd-1cba-4d9f-a230-cb0976f4bb71) |원격 디버깅에 웹 애플리케이션에서 열리는 인바운드 포트가 필요합니다. 원격 디버깅을 해제해야 합니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_DisableRemoteDebugging_WebApp_Audit.json) |
@@ -497,7 +497,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 CM-7
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[머신에서 안전한 애플리케이션을 정의하기 위해 적응형 애플리케이션 제어를 사용하도록 설정해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F47a6b606-51aa-4496-8bb7-64b11cf66adc) |애플리케이션 제어를 활성화하여 머신에서 실행 중인 알려진 안전한 애플리케이션 목록을 정의하고, 다른 애플리케이션이 실행될 때 경고합니다. 이렇게 하면 맬웨어로부터 머신을 강화할 수 있습니다. 규칙을 구성하고 유지 관리하는 프로세스를 간소화하기 위해 Security Center는 기계 학습을 사용하여 각 머신에서 실행 중인 애플리케이션을 분석하고 알려진 안전한 애플리케이션의 목록을 제안합니다. |AuditIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_AdaptiveApplicationControls_Audit.json) |
 |[적응형 애플리케이션 제어 정책의 허용 목록 규칙을 업데이트해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F123a3936-f020-408a-ba0c-47873faf1534) |Azure Security Center의 적응형 애플리케이션 제어를 통한 감사를 위해 구성된 머신 그룹의 동작 변경 내용을 모니터링합니다. Security Center는 기계 학습을 사용하여 머신에서 실행 중인 프로세스를 분석하고 알려진 안전한 애플리케이션의 목록을 제안합니다. 이러한 앱은 적응형 애플리케이션 제어 정책에서 허용하도록 권장되는 앱으로 제공됩니다. |AuditIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_AdaptiveApplicationControlsUpdate_Audit.json) |
@@ -507,7 +507,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 CM-7(2)
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[머신에서 안전한 애플리케이션을 정의하기 위해 적응형 애플리케이션 제어를 사용하도록 설정해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F47a6b606-51aa-4496-8bb7-64b11cf66adc) |애플리케이션 제어를 활성화하여 머신에서 실행 중인 알려진 안전한 애플리케이션 목록을 정의하고, 다른 애플리케이션이 실행될 때 경고합니다. 이렇게 하면 맬웨어로부터 머신을 강화할 수 있습니다. 규칙을 구성하고 유지 관리하는 프로세스를 간소화하기 위해 Security Center는 기계 학습을 사용하여 각 머신에서 실행 중인 애플리케이션을 분석하고 알려진 안전한 애플리케이션의 목록을 제안합니다. |AuditIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_AdaptiveApplicationControls_Audit.json) |
 |[적응형 애플리케이션 제어 정책의 허용 목록 규칙을 업데이트해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F123a3936-f020-408a-ba0c-47873faf1534) |Azure Security Center의 적응형 애플리케이션 제어를 통한 감사를 위해 구성된 머신 그룹의 동작 변경 내용을 모니터링합니다. Security Center는 기계 학습을 사용하여 머신에서 실행 중인 프로세스를 분석하고 알려진 안전한 애플리케이션의 목록을 제안합니다. 이러한 앱은 적응형 애플리케이션 제어 정책에서 허용하도록 권장되는 앱으로 제공됩니다. |AuditIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_AdaptiveApplicationControlsUpdate_Audit.json) |
@@ -516,7 +516,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 CM-7(5)
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[머신에서 안전한 애플리케이션을 정의하기 위해 적응형 애플리케이션 제어를 사용하도록 설정해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F47a6b606-51aa-4496-8bb7-64b11cf66adc) |애플리케이션 제어를 활성화하여 머신에서 실행 중인 알려진 안전한 애플리케이션 목록을 정의하고, 다른 애플리케이션이 실행될 때 경고합니다. 이렇게 하면 맬웨어로부터 머신을 강화할 수 있습니다. 규칙을 구성하고 유지 관리하는 프로세스를 간소화하기 위해 Security Center는 기계 학습을 사용하여 각 머신에서 실행 중인 애플리케이션을 분석하고 알려진 안전한 애플리케이션의 목록을 제안합니다. |AuditIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_AdaptiveApplicationControls_Audit.json) |
 |[적응형 애플리케이션 제어 정책의 허용 목록 규칙을 업데이트해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F123a3936-f020-408a-ba0c-47873faf1534) |Azure Security Center의 적응형 애플리케이션 제어를 통한 감사를 위해 구성된 머신 그룹의 동작 변경 내용을 모니터링합니다. Security Center는 기계 학습을 사용하여 머신에서 실행 중인 프로세스를 분석하고 알려진 안전한 애플리케이션의 목록을 제안합니다. 이러한 앱은 적응형 애플리케이션 제어 정책에서 허용하도록 권장되는 앱으로 제공됩니다. |AuditIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_AdaptiveApplicationControlsUpdate_Audit.json) |
@@ -525,7 +525,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 CM-10
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[머신에서 안전한 애플리케이션을 정의하기 위해 적응형 애플리케이션 제어를 사용하도록 설정해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F47a6b606-51aa-4496-8bb7-64b11cf66adc) |애플리케이션 제어를 활성화하여 머신에서 실행 중인 알려진 안전한 애플리케이션 목록을 정의하고, 다른 애플리케이션이 실행될 때 경고합니다. 이렇게 하면 맬웨어로부터 머신을 강화할 수 있습니다. 규칙을 구성하고 유지 관리하는 프로세스를 간소화하기 위해 Security Center는 기계 학습을 사용하여 각 머신에서 실행 중인 애플리케이션을 분석하고 알려진 안전한 애플리케이션의 목록을 제안합니다. |AuditIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_AdaptiveApplicationControls_Audit.json) |
 |[적응형 애플리케이션 제어 정책의 허용 목록 규칙을 업데이트해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F123a3936-f020-408a-ba0c-47873faf1534) |Azure Security Center의 적응형 애플리케이션 제어를 통한 감사를 위해 구성된 머신 그룹의 동작 변경 내용을 모니터링합니다. Security Center는 기계 학습을 사용하여 머신에서 실행 중인 프로세스를 분석하고 알려진 안전한 애플리케이션의 목록을 제안합니다. 이러한 앱은 적응형 애플리케이션 제어 정책에서 허용하도록 권장되는 앱으로 제공됩니다. |AuditIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_AdaptiveApplicationControlsUpdate_Audit.json) |
@@ -534,7 +534,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 CM-11
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[머신에서 안전한 애플리케이션을 정의하기 위해 적응형 애플리케이션 제어를 사용하도록 설정해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F47a6b606-51aa-4496-8bb7-64b11cf66adc) |애플리케이션 제어를 활성화하여 머신에서 실행 중인 알려진 안전한 애플리케이션 목록을 정의하고, 다른 애플리케이션이 실행될 때 경고합니다. 이렇게 하면 맬웨어로부터 머신을 강화할 수 있습니다. 규칙을 구성하고 유지 관리하는 프로세스를 간소화하기 위해 Security Center는 기계 학습을 사용하여 각 머신에서 실행 중인 애플리케이션을 분석하고 알려진 안전한 애플리케이션의 목록을 제안합니다. |AuditIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_AdaptiveApplicationControls_Audit.json) |
 |[적응형 애플리케이션 제어 정책의 허용 목록 규칙을 업데이트해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F123a3936-f020-408a-ba0c-47873faf1534) |Azure Security Center의 적응형 애플리케이션 제어를 통한 감사를 위해 구성된 머신 그룹의 동작 변경 내용을 모니터링합니다. Security Center는 기계 학습을 사용하여 머신에서 실행 중인 프로세스를 분석하고 알려진 안전한 애플리케이션의 목록을 제안합니다. 이러한 앱은 적응형 애플리케이션 제어 정책에서 허용하도록 권장되는 앱으로 제공됩니다. |AuditIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_AdaptiveApplicationControlsUpdate_Audit.json) |
@@ -545,7 +545,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 CP-6
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Azure Database for MariaDB에 대해 지역 중복 백업을 사용하도록 설정해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ec47710-77ff-4a3d-9181-6aa50af424d0) |Azure Database for MariaDB를 사용하면 데이터베이스 서버에 대한 중복성 옵션을 선택할 수 있습니다. 서버가 호스트되는 지역 내에 저장될 뿐만 아니라 지역 장애 발생 시 복구 옵션을 제공하기 위해 쌍을 이루는 지역에도 복제되는 데이터가 있는 지역 중복 백업 스토리지로 설정할 수 있습니다. 백업을 위한 지역 중복 스토리지 구성은 서버 생성 중에만 허용됩니다. |감사, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMariaDB_Audit.json) |
 |[Azure Database for MySQL에 대해 지역 중복 백업을 사용하도록 설정해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82339799-d096-41ae-8538-b108becf0970) |Azure Database for MySQL을 사용하면 데이터베이스 서버에 대한 중복성 옵션을 선택할 수 있습니다. 서버가 호스트되는 지역 내에 저장될 뿐만 아니라 지역 장애 발생 시 복구 옵션을 제공하기 위해 쌍을 이루는 지역에도 복제되는 데이터가 있는 지역 중복 백업 스토리지로 설정할 수 있습니다. 백업을 위한 지역 중복 스토리지 구성은 서버 생성 중에만 허용됩니다. |감사, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMySQL_Audit.json) |
@@ -557,7 +557,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 CP-6(1)
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Azure Database for MariaDB에 대해 지역 중복 백업을 사용하도록 설정해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ec47710-77ff-4a3d-9181-6aa50af424d0) |Azure Database for MariaDB를 사용하면 데이터베이스 서버에 대한 중복성 옵션을 선택할 수 있습니다. 서버가 호스트되는 지역 내에 저장될 뿐만 아니라 지역 장애 발생 시 복구 옵션을 제공하기 위해 쌍을 이루는 지역에도 복제되는 데이터가 있는 지역 중복 백업 스토리지로 설정할 수 있습니다. 백업을 위한 지역 중복 스토리지 구성은 서버 생성 중에만 허용됩니다. |감사, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMariaDB_Audit.json) |
 |[Azure Database for MySQL에 대해 지역 중복 백업을 사용하도록 설정해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82339799-d096-41ae-8538-b108becf0970) |Azure Database for MySQL을 사용하면 데이터베이스 서버에 대한 중복성 옵션을 선택할 수 있습니다. 서버가 호스트되는 지역 내에 저장될 뿐만 아니라 지역 장애 발생 시 복구 옵션을 제공하기 위해 쌍을 이루는 지역에도 복제되는 데이터가 있는 지역 중복 백업 스토리지로 설정할 수 있습니다. 백업을 위한 지역 중복 스토리지 구성은 서버 생성 중에만 허용됩니다. |감사, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMySQL_Audit.json) |
@@ -569,7 +569,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 CP-7
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[재해 복구가 구성되어 있지 않은 가상 머신 감사](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0015ea4d-51ff-4ce3-8d8c-f3f8f0179a56) |재해 복구가 구성되지 않은 가상 머신을 감사합니다. 재해 복구에 대한 자세한 내용은 [https://aka.ms/asr-doc](../../../site-recovery/index.yml)를 참조하세요. |auditIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/RecoveryServices_DisasterRecovery_Audit.json) |
 
@@ -577,7 +577,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 CP-9
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Virtual Machines에 Azure Backup을 사용하도록 설정해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F013e242c-8828-4970-87b3-ab247555486d) |Azure Backup을 사용하도록 설정하여 Azure Virtual Machines를 보호하세요. Azure Backup은 Azure를 위한 안전하고 경제적인 데이터 보호 솔루션입니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Backup/VirtualMachines_EnableAzureBackup_Audit.json) |
 |[Azure Database for MariaDB에 대해 지역 중복 백업을 사용하도록 설정해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ec47710-77ff-4a3d-9181-6aa50af424d0) |Azure Database for MariaDB를 사용하면 데이터베이스 서버에 대한 중복성 옵션을 선택할 수 있습니다. 서버가 호스트되는 지역 내에 저장될 뿐만 아니라 지역 장애 발생 시 복구 옵션을 제공하기 위해 쌍을 이루는 지역에도 복제되는 데이터가 있는 지역 중복 백업 스토리지로 설정할 수 있습니다. 백업을 위한 지역 중복 스토리지 구성은 서버 생성 중에만 허용됩니다. |감사, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMariaDB_Audit.json) |
@@ -592,7 +592,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 IA-2
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[SQL 서버에 대해 Azure Active Directory 관리자를 프로비저닝해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1f314764-cb73-4fc9-b863-8eca98ac36e9) |SQL 서버에 대한 Azure Active Directory 관리자 프로비전을 감사하여 Azure AD 인증을 활성화합니다. Azure AD 인증을 사용하면 데이터베이스 사용자 및 기타 Microsoft 서비스의 권한을 간편하게 관리하고 ID를 한 곳에서 집중적으로 관리할 수 있습니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SQL_DB_AuditServerADAdmins_Audit.json) |
 |[Cognitive Services 계정은 로컬 인증 방법을 사용하지 않도록 설정해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F71ef260a-8f18-47b7-abcb-62d0673d94dc) |로컬 인증 방법을 사용하지 않도록 설정하면 Cognitive Services 계정에 인증 전용 Azure Active Directory ID가 필요하므로 보안이 강화됩니다. [https://aka.ms/cs/auth](../../../cognitive-services/authentication.md)에서 자세히 알아보세요. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_DisableLocalAuth_Audit.json) |
@@ -609,7 +609,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 IA-2(1)
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[구독에서 쓰기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9297c21d-2ed6-4474-b48f-163f75654ce3) |계정 또는 리소스 위반을 방지하려면 쓰기 권한이 있는 모든 구독 계정에서 MFA(Multi-Factor Authentication)를 사용하도록 설정해야 합니다. |AuditIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_EnableMFAForWritePermissions_Audit.json) |
 |[구독에서 소유자 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faa633080-8b72-40c4-a2d7-d00c03e80bed) |계정 또는 리소스 위반을 방지하려면 소유자 권한이 있는 모든 구독 계정에 대해 MFA(Multi-Factor Authentication)를 사용하도록 설정해야 합니다. |AuditIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_EnableMFAForOwnerPermissions_Audit.json) |
@@ -618,7 +618,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 IA-2(2)
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[구독에서 읽기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe3576e28-8b17-4677-84c3-db2990658d64) |계정 또는 리소스 위반을 방지하려면 읽기 권한이 있는 모든 구독 계정에서 MFA(Multi-Factor Authentication)를 사용하도록 설정해야 합니다. |AuditIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_EnableMFAForReadPermissions_Audit.json) |
 
@@ -626,7 +626,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 IA-4
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[SQL 서버에 대해 Azure Active Directory 관리자를 프로비저닝해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1f314764-cb73-4fc9-b863-8eca98ac36e9) |SQL 서버에 대한 Azure Active Directory 관리자 프로비전을 감사하여 Azure AD 인증을 활성화합니다. Azure AD 인증을 사용하면 데이터베이스 사용자 및 기타 Microsoft 서비스의 권한을 간편하게 관리하고 ID를 한 곳에서 집중적으로 관리할 수 있습니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SQL_DB_AuditServerADAdmins_Audit.json) |
 |[Cognitive Services 계정은 로컬 인증 방법을 사용하지 않도록 설정해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F71ef260a-8f18-47b7-abcb-62d0673d94dc) |로컬 인증 방법을 사용하지 않도록 설정하면 Cognitive Services 계정에 인증 전용 Azure Active Directory ID가 필요하므로 보안이 강화됩니다. [https://aka.ms/cs/auth](../../../cognitive-services/authentication.md)에서 자세히 알아보세요. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_DisableLocalAuth_Audit.json) |
@@ -640,7 +640,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 IA-5
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[시스템 할당 관리 ID를 추가하여 ID가 없는 가상 머신에서 게스트 구성 할당을 사용하도록 설정](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e) |이 정책은 게스트 구성에서 지원되지만 관리 ID가 없는 Azure에서 호스트되는 가상 머신에 시스템 할당 관리 ID를 추가합니다. 시스템 할당 관리 ID는 모든 게스트 구성 할당에 대한 필수 구성 요소이며 게스트 구성 정책 정의를 사용하기 전에 머신에 추가해야 합니다. 게스트 구성에 대한 자세한 내용은 [https://aka.ms/gcpol](../concepts/guest-configuration.md)을 방문하세요. |수정 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Guest%20Configuration/GuestConfiguration_AddSystemIdentityWhenNone_Prerequisite.json) |
 |[시스템이 할당한 관리 ID를 추가하여 사용자가 할당한 ID가 있는 VM에서 게스트 구성 할당을 사용하도록 설정](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6) |이 정책은 게스트 구성에서 지원되고 사용자 할당 ID가 하나 이상 있지만 시스템 할당 관리 ID가 없는 Azure에서 호스트되는 가상 머신에 시스템 할당 관리 ID를 추가합니다. 시스템 할당 관리 ID는 모든 게스트 구성 할당에 대한 필수 구성 요소이며 게스트 구성 정책 정의를 사용하기 전에 머신에 추가해야 합니다. 게스트 구성에 대한 자세한 내용은 [https://aka.ms/gcpol](../concepts/guest-configuration.md)을 방문하세요. |수정 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Guest%20Configuration/GuestConfiguration_AddSystemIdentityWhenUser_Prerequisite.json) |
@@ -653,7 +653,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 IA-5(1)
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[시스템 할당 관리 ID를 추가하여 ID가 없는 가상 머신에서 게스트 구성 할당을 사용하도록 설정](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e) |이 정책은 게스트 구성에서 지원되지만 관리 ID가 없는 Azure에서 호스트되는 가상 머신에 시스템 할당 관리 ID를 추가합니다. 시스템 할당 관리 ID는 모든 게스트 구성 할당에 대한 필수 구성 요소이며 게스트 구성 정책 정의를 사용하기 전에 머신에 추가해야 합니다. 게스트 구성에 대한 자세한 내용은 [https://aka.ms/gcpol](../concepts/guest-configuration.md)을 방문하세요. |수정 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Guest%20Configuration/GuestConfiguration_AddSystemIdentityWhenNone_Prerequisite.json) |
 |[시스템이 할당한 관리 ID를 추가하여 사용자가 할당한 ID가 있는 VM에서 게스트 구성 할당을 사용하도록 설정](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6) |이 정책은 게스트 구성에서 지원되고 사용자 할당 ID가 하나 이상 있지만 시스템 할당 관리 ID가 없는 Azure에서 호스트되는 가상 머신에 시스템 할당 관리 ID를 추가합니다. 시스템 할당 관리 ID는 모든 게스트 구성 할당에 대한 필수 구성 요소이며 게스트 구성 정책 정의를 사용하기 전에 머신에 추가해야 합니다. 게스트 구성에 대한 자세한 내용은 [https://aka.ms/gcpol](../concepts/guest-configuration.md)을 방문하세요. |수정 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Guest%20Configuration/GuestConfiguration_AddSystemIdentityWhenUser_Prerequisite.json) |
@@ -673,7 +673,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 IR-4
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Azure SQL Database 서버용 Azure Defender를 사용해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7fe3b40f-802b-4cdd-8bd4-fd799c948cc2) |Azure Defender for SQL은 잠재적인 데이터베이스 취약성을 표시 및 완화하고, SQL 데이터베이스에 대한 위협을 나타낼 수 있는 비정상적인 활동을 감지하고, 중요한 데이터를 검색 및 분류하는 기능을 제공합니다. |AuditIfNotExists, 사용 안 함 |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_EnableAdvancedDataSecurityOnSqlServers_Audit.json) |
 |[컨테이너 레지스트리용 Azure Defender를 사용해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc25d9a16-bc35-4e15-a7e5-9db606bf9ed4) |컨테이너 레지스트리용 Azure Defender는 지난 30일 내에 끌어와서 레지스트리에 푸시한 이미지의 취약성을 검사하고, 각 이미지에 대해 발견한 자세한 내용을 공개합니다. |AuditIfNotExists, 사용 안 함 |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_EnableAdvancedThreatProtectionOnContainerRegistry_Audit.json) |
@@ -692,7 +692,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 IR-5
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Azure SQL Database 서버용 Azure Defender를 사용해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7fe3b40f-802b-4cdd-8bd4-fd799c948cc2) |Azure Defender for SQL은 잠재적인 데이터베이스 취약성을 표시 및 완화하고, SQL 데이터베이스에 대한 위협을 나타낼 수 있는 비정상적인 활동을 감지하고, 중요한 데이터를 검색 및 분류하는 기능을 제공합니다. |AuditIfNotExists, 사용 안 함 |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_EnableAdvancedDataSecurityOnSqlServers_Audit.json) |
 |[컨테이너 레지스트리용 Azure Defender를 사용해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc25d9a16-bc35-4e15-a7e5-9db606bf9ed4) |컨테이너 레지스트리용 Azure Defender는 지난 30일 내에 끌어와서 레지스트리에 푸시한 이미지의 취약성을 검사하고, 각 이미지에 대해 발견한 자세한 내용을 공개합니다. |AuditIfNotExists, 사용 안 함 |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_EnableAdvancedThreatProtectionOnContainerRegistry_Audit.json) |
@@ -711,7 +711,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 IR-6(2)
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[심각도가 높은 경고에 대해 이메일 알림을 사용하도록 설정해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6e2593d9-add6-4083-9c9b-4b7d2188c899) |구독 중 하나에 잠재적인 보안 위반이 있을 때 조직의 관련 인원에게 알리려면 Security Center에서 심각도가 높은 경고에 대한 이메일 알림을 사용하도록 설정합니다. |AuditIfNotExists, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_Email_notification.json) |
 |[심각도가 높은 경고에 대해 구독 소유자에게 이메일 알림을 사용하도록 설정해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b15565f-aa9e-48ba-8619-45960f2c314d) |구독에 잠재적인 보안 위반이 있을 때 구독 소유자에게 알리려면 Security Center에서 심각도가 높은 경고에 대해 구독 소유자에게 이메일로 알리도록 설정합니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_Email_notification_to_subscription_owner.json) |
@@ -723,7 +723,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 RA-5
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Azure SQL Database 서버용 Azure Defender를 사용해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7fe3b40f-802b-4cdd-8bd4-fd799c948cc2) |Azure Defender for SQL은 잠재적인 데이터베이스 취약성을 표시 및 완화하고, SQL 데이터베이스에 대한 위협을 나타낼 수 있는 비정상적인 활동을 감지하고, 중요한 데이터를 검색 및 분류하는 기능을 제공합니다. |AuditIfNotExists, 사용 안 함 |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_EnableAdvancedDataSecurityOnSqlServers_Audit.json) |
 |[컨테이너 레지스트리용 Azure Defender를 사용해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc25d9a16-bc35-4e15-a7e5-9db606bf9ed4) |컨테이너 레지스트리용 Azure Defender는 지난 30일 내에 끌어와서 레지스트리에 푸시한 이미지의 취약성을 검사하고, 각 이미지에 대해 발견한 자세한 내용을 공개합니다. |AuditIfNotExists, 사용 안 함 |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_EnableAdvancedThreatProtectionOnContainerRegistry_Audit.json) |
@@ -749,7 +749,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 SC-3
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[서버용 Azure Defender를 사용해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4da35fc9-c9e7-4960-aec9-797fe7d9051d) |서버용 Azure Defender는 서버 워크로드에 대한 실시간 위협 방지 기능을 제공하고 강화된 권장 사항과 의심스러운 활동에 대한 경고를 생성합니다. |AuditIfNotExists, 사용 안 함 |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_EnableAdvancedThreatProtectionOnVM_Audit.json) |
 |[가상 머신 확장 집합에 Endpoint Protection 솔루션을 설치해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F26a828e1-e88f-464e-bbb3-c134a282b9de) |가상 머신 확장 집합에서 엔드포인트 보호 솔루션의 존재 및 상태를 감사하여 위협 및 취약성으로부터 보호합니다. |AuditIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_VmssMissingEndpointProtection_Audit.json) |
@@ -760,7 +760,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 SC-5
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Azure DDoS Protection 표준을 사용하도록 설정해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa7aca53f-2ed4-4466-a25e-0b45ade68efd) |공용 IP를 사용하는 애플리케이션 게이트웨이의 일부인 서브넷이 포함된 모든 가상 네트워크에 DDoS 보호 표준을 사용하도록 설정해야 합니다. |AuditIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_EnableDDoSProtection_Audit.json) |
 |[가상 머신에서 IP 전달을 사용하지 않도록 설정해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbd352bd5-2853-4985-bf0d-73806b4a5744) |가상 머신의 NIC에서 IP 전달을 사용하도록 설정하면 머신이 다른 대상으로 주소가 지정된 트래픽을 수신할 수 있습니다. IP 전달은 거의 필요하지 않으므로(예: VM을 네트워크 가상 어플라이언스로 사용하는 경우), 네트워크 보안 팀에서 검토해야 합니다. |AuditIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_IPForwardingOnVirtualMachines_Audit.json) |
@@ -771,7 +771,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 SC-7
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[가상 머신과 연결된 네트워크 보안 그룹에서 모든 네트워크 포트를 제한해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9daedab3-fb2d-461e-b861-71790eead4f6) |Azure Security Center에서 네트워크 보안 그룹의 인바운드 규칙 중 일부가 너무 관대하다는 사실을 식별했습니다. 인바운드 규칙에서 '모두' 또는 '인터넷' 범위에서 들어오는 액세스를 허용해서는 안 됩니다. 그러면 리소스가 공격자의 표적이 될 수 있습니다. |AuditIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_UnprotectedEndpoints_Audit.json) |
 |[API Management 서비스에서 가상 네트워크를 사용해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fef619a2c-cc4d-4d03-b2ba-8c94a834d85b) |Azure Virtual Network 배포는 향상된 보안, 격리를 제공하며, 액세스를 제어하는 인터넷 라우팅이 불가능한 네트워크에 API Management 서비스를 배치할 수 있습니다. 그런 다음, 다양한 VPN 기술을 사용하여 이러한 네트워크를 온-프레미스 네트워크에 연결할 수 있으며, 이를 통해 네트워크 및/또는 온-프레미스 내에서 백 엔드 서비스에 액세스할 수 있습니다. 개발자 포털 및 API 게이트웨이를 인터넷에서 또는 가상 네트워크 내에서만 액세스할 수 있게 구성할 수 있습니다. |감사, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/API%20Management/ApiManagement_VNETEnabled_Audit.json) |
@@ -818,7 +818,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 SC-7(3)
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[가상 머신과 연결된 네트워크 보안 그룹에서 모든 네트워크 포트를 제한해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9daedab3-fb2d-461e-b861-71790eead4f6) |Azure Security Center에서 네트워크 보안 그룹의 인바운드 규칙 중 일부가 너무 관대하다는 사실을 식별했습니다. 인바운드 규칙에서 '모두' 또는 '인터넷' 범위에서 들어오는 액세스를 허용해서는 안 됩니다. 그러면 리소스가 공격자의 표적이 될 수 있습니다. |AuditIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_UnprotectedEndpoints_Audit.json) |
 |[API Management 서비스에서 가상 네트워크를 사용해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fef619a2c-cc4d-4d03-b2ba-8c94a834d85b) |Azure Virtual Network 배포는 향상된 보안, 격리를 제공하며, 액세스를 제어하는 인터넷 라우팅이 불가능한 네트워크에 API Management 서비스를 배치할 수 있습니다. 그런 다음, 다양한 VPN 기술을 사용하여 이러한 네트워크를 온-프레미스 네트워크에 연결할 수 있으며, 이를 통해 네트워크 및/또는 온-프레미스 내에서 백 엔드 서비스에 액세스할 수 있습니다. 개발자 포털 및 API 게이트웨이를 인터넷에서 또는 가상 네트워크 내에서만 액세스할 수 있게 구성할 수 있습니다. |감사, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/API%20Management/ApiManagement_VNETEnabled_Audit.json) |
@@ -865,7 +865,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 SC-8
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[API 앱은 HTTPS를 통해서만 액세스할 수 있어야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb7ddfbdc-1260-477d-91fd-98bd9be789a6) |HTTPS를 사용하여 서버/서비스 인증을 보장하고 전송 중인 데이터를 네트워크 계층 도청 공격으로부터 보호합니다. |감사, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppServiceApiApp_AuditHTTP_Audit.json) |
 |[Azure HDInsight 클러스터는 전송 중 암호화를 사용하여 Azure HDInsight 클러스터 노드 간 통신을 암호화해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd9da03a1-f3c3-412a-9709-947156872263) |데이터는 Azure HDInsight 클러스터 노드 간 전송 중에 변조될 수 있습니다. 전송 중 암호화를 사용하도록 설정하면 전송 중 오용 및 변조 문제가 해결됩니다. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/HDInsight/HDInsight_EncryptionInTransit_Audit.json) |
@@ -888,7 +888,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 SC-8(1)
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[API 앱은 HTTPS를 통해서만 액세스할 수 있어야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb7ddfbdc-1260-477d-91fd-98bd9be789a6) |HTTPS를 사용하여 서버/서비스 인증을 보장하고 전송 중인 데이터를 네트워크 계층 도청 공격으로부터 보호합니다. |감사, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppServiceApiApp_AuditHTTP_Audit.json) |
 |[Azure HDInsight 클러스터는 전송 중 암호화를 사용하여 Azure HDInsight 클러스터 노드 간 통신을 암호화해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd9da03a1-f3c3-412a-9709-947156872263) |데이터는 Azure HDInsight 클러스터 노드 간 전송 중에 변조될 수 있습니다. 전송 중 암호화를 사용하도록 설정하면 전송 중 오용 및 변조 문제가 해결됩니다. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/HDInsight/HDInsight_EncryptionInTransit_Audit.json) |
@@ -911,7 +911,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 SC-12
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Azure Automation 계정은 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F56a5ee18-2ae6-4810-86f7-18e39ce5629b) |고객 관리형 키를 사용하여 Azure Automation 계정의 미사용 데이터 암호화를 관리합니다. 기본적으로 고객 데이터는 서비스 관리형 키로 암호화되지만, 고객 관리형 키는 일반적으로 규정 준수 기준을 충족하는 데 필요합니다. 고객 관리형 키를 사용하면 사용자가 만들고 소유한 Azure Key Vault 키를 사용하여 데이터를 암호화할 수 있습니다. 순환 및 관리를 포함하여 키의 수명 주기를 고객이 모두 제어하고 책임져야 합니다. [https://aka.ms/automation-cmk](../../../automation/automation-secure-asset-encryption.md#:~:text=Secure assets in Azure Automation include credentials, certificates, connections,,Using Microsoft-managed keys)에서 자세히 알아보세요. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/AutomationAccount_CMK_Audit.json) |
 |[Azure Batch 계정은 고객 관리형 키를 사용하여 데이터를 암호화해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F99e9ccd8-3db9-4592-b0d1-14b1715a4d8a) |고객 관리형 키를 사용하여 Batch 계정 데이터의 미사용 데이터 암호화를 관리합니다. 기본적으로 고객 데이터는 서비스 관리형 키로 암호화되지만, 고객 관리형 키는 일반적으로 규정 준수 기준을 충족하는 데 필요합니다. 고객 관리형 키를 사용하면 사용자가 만들고 소유한 Azure Key Vault 키를 사용하여 데이터를 암호화할 수 있습니다. 순환 및 관리를 포함하여 키의 수명 주기를 고객이 모두 제어하고 책임져야 합니다. [https://aka.ms/Batch-CMK](https://aka.ms/Batch-CMK)에서 자세히 알아보세요. |감사, 거부, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Batch/Batch_CustomerManagedKey_Audit.json) |
@@ -947,7 +947,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 SC-28
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[App Service Environment에서 내부 암호화를 사용하도록 설정해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb74e86f-d351-4b8d-b034-93da7391c01f) |InternalEncryption을 true로 설정하면 App Service Environment의 프런트 엔드와 작업자 간의 페이지 파일, 작업자 디스크 및 내부 네트워크 트래픽이 암호화됩니다. 자세히 알아보려면 [https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-custom-settings#enable-internal-encryption](../../../app-service/environment/app-service-app-service-environment-custom-settings.md#enable-internal-encryption)을 참조하세요. |감사, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_HostingEnvironment_InternalEncryption_Audit.json) |
 |[Automation 계정 변수를 암호화해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3657f5a0-770e-44a3-b44e-9431ba1e9735) |중요한 데이터를 저장할 때 Automation 계정 변수 자산의 암호화를 사용하도록 설정해야 합니다. |감사, 거부, 사용 안 함 |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/Automation_AuditUnencryptedVars_Audit.json) |
@@ -962,13 +962,13 @@ ms.locfileid: "123471339"
 |[Azure Kubernetes Service 클러스터의 에이전트 노드 풀에 대한 임시 디스크 및 캐시는 호스트에서 암호화되어야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F41425d9f-d1a5-499a-9932-f8ed8453932c) |데이터 보안을 강화하려면 Azure Kubernetes Service 노드 VM의 VM(가상 머신) 호스트에 저장된 데이터는 미사용 시 암호화해야 합니다. 이는 다양한 규정 및 업계 규정 준수 표준의 공통 요구 사항입니다. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_EncryptionAtHost_Deny.json) |
 |[SQL 데이터베이스에 투명한 데이터 암호화를 사용하도록 설정해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F17k78e20-9358-41c9-923c-fb736d382a12) |저장 데이터를 보호하고 규정 준수 요구 사항을 충족하려면 투명한 데이터 암호화를 사용하도록 설정해야 합니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlDBEncryption_Audit.json) |
 |[가상 머신 및 가상 머신 확장 집합에서는 호스트에서 암호화를 사용하도록 설정해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc4d8e41-e223-45ea-9bf5-eada37891d87) |호스트에서 암호화를 사용하여 가상 머신 및 가상 머신 확장 집합 데이터에 대한 엔드투엔트 암호화를 가져옵니다. 호스트에서 암호화를 사용하면 임시 디스크 및 OS/데이터 디스크 캐시에 대해 미사용 데이터를 암호화할 수 있습니다. 임시 및 사용 후 삭제 OS 디스크는 호스트에서 암호화가 활성화될 때 플랫폼 관리형 키로 암호화됩니다. OS/데이터 디스크 캐시는 디스크에서 선택한 암호화 유형에 따라 고객 관리형 키 또는 플랫폼 관리형 키를 사용하여 미사용 데이터를 암호화합니다. [https://aka.ms/vm-hbe](../../../virtual-machines/disks-enable-host-based-encryption-portal.md)에서 자세히 알아보세요. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/HostBasedEncryptionRequired_Deny.json) |
-|[가상 머신은 Compute 및 Storage 리소스 간에 임시 디스크, 캐시 및 데이터 흐름을 암호화해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |디스크 암호화를 사용하도록 설정되지 않은 가상 머신은 추천 사항으로 Azure Security Center에서 모니터링됩니다. |AuditIfNotExists, 사용 안 함 |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
+|[가상 머신은 Compute 및 Storage 리소스 간에 임시 디스크, 캐시 및 데이터 흐름을 암호화해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |기본적으로 가상 머신의 OS 및 데이터 디스크는 플랫폼 관리형 키를 사용하여 미사용 시 암호화됩니다. 임시 디스크, 데이터 캐시 및 컴퓨팅과 스토리지 간에 이동하는 데이터는 암호화되지 않습니다. 다음과 같은 경우 이 권장 사항을 무시합니다. 1. 호스트에서 암호화를 사용하는 경우 또는 2. Managed Disks의 서버 쪽 암호화는 보안 요구 사항을 충족합니다. [Azure Disk Storage의 서버 쪽 암호화](../../../virtual-machines/disk-encryption.md) 및 [다양한 디스크 암호화 제품](../../../virtual-machines/disk-encryption-overview.md#comparison)에서 자세히 알아봅니다. |AuditIfNotExists, 사용 안 함 |[2.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
 
 ### <a name="cryptographic-protection"></a>암호화 보호
 
 **ID**: NIST SP 800-53 Rev. 5 SC-28(1)
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[App Service Environment에서 내부 암호화를 사용하도록 설정해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb74e86f-d351-4b8d-b034-93da7391c01f) |InternalEncryption을 true로 설정하면 App Service Environment의 프런트 엔드와 작업자 간의 페이지 파일, 작업자 디스크 및 내부 네트워크 트래픽이 암호화됩니다. 자세히 알아보려면 [https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-custom-settings#enable-internal-encryption](../../../app-service/environment/app-service-app-service-environment-custom-settings.md#enable-internal-encryption)을 참조하세요. |감사, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_HostingEnvironment_InternalEncryption_Audit.json) |
 |[Automation 계정 변수를 암호화해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3657f5a0-770e-44a3-b44e-9431ba1e9735) |중요한 데이터를 저장할 때 Automation 계정 변수 자산의 암호화를 사용하도록 설정해야 합니다. |감사, 거부, 사용 안 함 |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/Automation_AuditUnencryptedVars_Audit.json) |
@@ -983,7 +983,7 @@ ms.locfileid: "123471339"
 |[Azure Kubernetes Service 클러스터의 에이전트 노드 풀에 대한 임시 디스크 및 캐시는 호스트에서 암호화되어야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F41425d9f-d1a5-499a-9932-f8ed8453932c) |데이터 보안을 강화하려면 Azure Kubernetes Service 노드 VM의 VM(가상 머신) 호스트에 저장된 데이터는 미사용 시 암호화해야 합니다. 이는 다양한 규정 및 업계 규정 준수 표준의 공통 요구 사항입니다. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AKS_EncryptionAtHost_Deny.json) |
 |[SQL 데이터베이스에 투명한 데이터 암호화를 사용하도록 설정해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F17k78e20-9358-41c9-923c-fb736d382a12) |저장 데이터를 보호하고 규정 준수 요구 사항을 충족하려면 투명한 데이터 암호화를 사용하도록 설정해야 합니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlDBEncryption_Audit.json) |
 |[가상 머신 및 가상 머신 확장 집합에서는 호스트에서 암호화를 사용하도록 설정해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc4d8e41-e223-45ea-9bf5-eada37891d87) |호스트에서 암호화를 사용하여 가상 머신 및 가상 머신 확장 집합 데이터에 대한 엔드투엔트 암호화를 가져옵니다. 호스트에서 암호화를 사용하면 임시 디스크 및 OS/데이터 디스크 캐시에 대해 미사용 데이터를 암호화할 수 있습니다. 임시 및 사용 후 삭제 OS 디스크는 호스트에서 암호화가 활성화될 때 플랫폼 관리형 키로 암호화됩니다. OS/데이터 디스크 캐시는 디스크에서 선택한 암호화 유형에 따라 고객 관리형 키 또는 플랫폼 관리형 키를 사용하여 미사용 데이터를 암호화합니다. [https://aka.ms/vm-hbe](../../../virtual-machines/disks-enable-host-based-encryption-portal.md)에서 자세히 알아보세요. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/HostBasedEncryptionRequired_Deny.json) |
-|[가상 머신은 Compute 및 Storage 리소스 간에 임시 디스크, 캐시 및 데이터 흐름을 암호화해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |디스크 암호화를 사용하도록 설정되지 않은 가상 머신은 추천 사항으로 Azure Security Center에서 모니터링됩니다. |AuditIfNotExists, 사용 안 함 |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
+|[가상 머신은 Compute 및 Storage 리소스 간에 임시 디스크, 캐시 및 데이터 흐름을 암호화해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |기본적으로 가상 머신의 OS 및 데이터 디스크는 플랫폼 관리형 키를 사용하여 미사용 시 암호화됩니다. 임시 디스크, 데이터 캐시 및 컴퓨팅과 스토리지 간에 이동하는 데이터는 암호화되지 않습니다. 다음과 같은 경우 이 권장 사항을 무시합니다. 1. 호스트에서 암호화를 사용하는 경우 또는 2. Managed Disks의 서버 쪽 암호화는 보안 요구 사항을 충족합니다. [Azure Disk Storage의 서버 쪽 암호화](../../../virtual-machines/disk-encryption.md) 및 [다양한 디스크 암호화 제품](../../../virtual-machines/disk-encryption-overview.md#comparison)에서 자세히 알아봅니다. |AuditIfNotExists, 사용 안 함 |[2.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
 
 ## <a name="system-and-information-integrity"></a>시스템 및 정보 무결성
 
@@ -991,7 +991,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 SI-2
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Azure SQL Database 서버용 Azure Defender를 사용해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7fe3b40f-802b-4cdd-8bd4-fd799c948cc2) |Azure Defender for SQL은 잠재적인 데이터베이스 취약성을 표시 및 완화하고, SQL 데이터베이스에 대한 위협을 나타낼 수 있는 비정상적인 활동을 감지하고, 중요한 데이터를 검색 및 분류하는 기능을 제공합니다. |AuditIfNotExists, 사용 안 함 |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_EnableAdvancedDataSecurityOnSqlServers_Audit.json) |
 |[컨테이너 레지스트리용 Azure Defender를 사용해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc25d9a16-bc35-4e15-a7e5-9db606bf9ed4) |컨테이너 레지스트리용 Azure Defender는 지난 30일 내에 끌어와서 레지스트리에 푸시한 이미지의 취약성을 검사하고, 각 이미지에 대해 발견한 자세한 내용을 공개합니다. |AuditIfNotExists, 사용 안 함 |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_EnableAdvancedThreatProtectionOnContainerRegistry_Audit.json) |
@@ -1022,7 +1022,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 SI-2(6)
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[API 앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F991310cd-e9f3-47bc-b7b6-f57b557d07db) |보안 결함이 있거나 추가 기능을 포함하기 위해 HTTP에 대한 최신 버전이 주기적으로 릴리스됩니다. 최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 웹앱에 최신 HTTP 버전을 사용하는 것이 좋습니다. 현재 이 정책은 Linux 웹앱에만 적용됩니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_HTTP_Latest.json) |
 |[함수 앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe2c1c086-2d84-4019-bff3-c44ccd95113c) |보안 결함이 있거나 추가 기능을 포함하기 위해 HTTP에 대한 최신 버전이 주기적으로 릴리스됩니다. 최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 웹앱에 최신 HTTP 버전을 사용하는 것이 좋습니다. 현재 이 정책은 Linux 웹앱에만 적용됩니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_HTTP_Latest.json) |
@@ -1041,7 +1041,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 SI-3
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[서버용 Azure Defender를 사용해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4da35fc9-c9e7-4960-aec9-797fe7d9051d) |서버용 Azure Defender는 서버 워크로드에 대한 실시간 위협 방지 기능을 제공하고 강화된 권장 사항과 의심스러운 활동에 대한 경고를 생성합니다. |AuditIfNotExists, 사용 안 함 |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_EnableAdvancedThreatProtectionOnVM_Audit.json) |
 |[가상 머신 확장 집합에 Endpoint Protection 솔루션을 설치해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F26a828e1-e88f-464e-bbb3-c134a282b9de) |가상 머신 확장 집합에서 엔드포인트 보호 솔루션의 존재 및 상태를 감사하여 위협 및 취약성으로부터 보호합니다. |AuditIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_VmssMissingEndpointProtection_Audit.json) |
@@ -1052,7 +1052,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 SI-4
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[구독에 Log Analytics 에이전트의 자동 프로비저닝을 사용하도록 설정해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F475aae12-b88a-4572-8b36-9b712b2b3a17) |보안 취약성 및 위협을 모니터링하기 위해 Azure Security Center는 Azure 가상 머신에서 데이터를 수집합니다. 데이터는 이전에 MMA(Microsoft Monitoring Agent)로 알려진 Log Analytics 에이전트에 의해 수집되며, 머신에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석을 위해 Log Analytics 작업 영역에 데이터를 복사합니다. 지원되는 모든 Azure VM과 생성된 모든 새 VM에 에이전트를 자동으로 배포하려면 자동 프로비저닝을 사용하도록 설정하는 것이 좋습니다. |AuditIfNotExists, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_Automatic_provisioning_log_analytics_monitoring_agent.json) |
 |[Azure Arc 사용 Kubernetes 클러스터에 Azure Defender의 확장이 설치되어 있어야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8dfab9c4-fe7b-49ad-85e4-1e9be085358f) |Azure Arc용 Azure Defender 확장은 Arc 지원 Kubernetes 클러스터에 대한 위협 보호를 제공합니다. 이 확장은 클러스터의 노드에서 데이터를 수집하고 추가 분석을 위해 클라우드의 Azure Defender for Kubernetes 백 엔드로 보냅니다. [https://docs.microsoft.com/azure/security-center/defender-for-kubernetes-azure-arc](../../../security-center/defender-for-kubernetes-azure-arc.md)에서 자세히 알아보세요. |AuditIfNotExists, 사용 안 함 |[2.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Kubernetes/ASC_Azure_Defender_Kubernetes_Arc_Extension_Audit.json) |
@@ -1078,7 +1078,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 SI-4(12)
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[심각도가 높은 경고에 대해 이메일 알림을 사용하도록 설정해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6e2593d9-add6-4083-9c9b-4b7d2188c899) |구독 중 하나에 잠재적인 보안 위반이 있을 때 조직의 관련 인원에게 알리려면 Security Center에서 심각도가 높은 경고에 대한 이메일 알림을 사용하도록 설정합니다. |AuditIfNotExists, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_Email_notification.json) |
 |[심각도가 높은 경고에 대해 구독 소유자에게 이메일 알림을 사용하도록 설정해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b15565f-aa9e-48ba-8619-45960f2c314d) |구독에 잠재적인 보안 위반이 있을 때 구독 소유자에게 알리려면 Security Center에서 심각도가 높은 경고에 대해 구독 소유자에게 이메일로 알리도록 설정합니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_Email_notification_to_subscription_owner.json) |
@@ -1088,7 +1088,7 @@ ms.locfileid: "123471339"
 
 **ID**: NIST SP 800-53 Rev. 5 SI-16
 
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[서버용 Azure Defender를 사용해야 합니다.](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4da35fc9-c9e7-4960-aec9-797fe7d9051d) |서버용 Azure Defender는 서버 워크로드에 대한 실시간 위협 방지 기능을 제공하고 강화된 권장 사항과 의심스러운 활동에 대한 경고를 생성합니다. |AuditIfNotExists, 사용 안 함 |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_EnableAdvancedThreatProtectionOnVM_Audit.json) |
 |[Windows Defender Exploit Guard를 머신에서 사용하도록 설정해야 함](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbed48b13-6647-468e-aa2f-1af1d3f4dd40) |Windows Defender Exploit Guard는 Azure Policy 게스트 구성 에이전트를 사용합니다. Exploit Guard에는 다양한 공격 벡터에 대해 디바이스를 잠그고 맬웨어 공격에서 일반적으로 사용되는 동작을 차단하면서 기업에서 보안 위험과 생산성 요구 사항 사이의 균형을 맞출 수 있도록 설계된 네 가지 구성 요소가 있습니다(Windows에만 해당). |AuditIfNotExists, 사용 안 함 |[1.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Guest%20Configuration/GuestConfiguration_WindowsDefenderExploitGuard_AINE.json) |

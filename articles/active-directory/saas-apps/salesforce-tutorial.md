@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 0f800d2d42d0d8815021f1582b04750d87aa5abc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be90f5bdbd34201672cd2b39c7bbbe53e4de38cf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101651442"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128572062"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>자습서: Salesforce와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -26,7 +26,7 @@ ms.locfileid: "101651442"
 * 사용자가 자신의 Azure AD 계정으로 Salesforce에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -144,7 +144,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![설정 구성](common/setup-sso.png)
 
-1. Salesforce를 수동으로 설정하려면 새 웹 브라우저 창을 열고 Salesforce 회사 사이트에 관리자로 로그인하여 다음 단계를 수행합니다.
+1. Salesforce를 수동으로 설정하려면 새 웹 브라우저 창을 열고 Salesforce 회사 사이트에 관리자 권한으로 로그인하여 다음 단계를 수행합니다.
 
 1. 페이지의 오른쪽 위 모서리에 있는 **설정 아이콘** 아래에서 **설정** 을 클릭합니다.
 
@@ -177,6 +177,14 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![Single Sign-On 사용자 프로비저닝을 사용하도록 구성](./media/salesforce-tutorial/salesforcexml.png)
 
+    > [!NOTE]
+    > SAML JIT를 구성한 경우 **[Azure AD SSO 구성](#configure-azure-ad-sso)** 섹션에서 추가 단계를 완료해야 합니다. Salesforce 애플리케이션에는 특정 SAML 어설션이 필요하므로 특정 특성이 SAML 토큰 특성 구성에 있어야 합니다. 다음 스크린샷에서는 Salesforce의 필수 특성 목록을 보여 줍니다.
+    
+    ![JIT 필수 특성 창을 보여 주는 스크린샷](./media/salesforce-tutorial/just-in-time-attributes-required.png)
+    
+    SAML JIT를 사용하여 사용자를 프로비전하는 데 여전히 문제가 있는 경우 [Just-In-Time 프로비전 요구 사항 및 SAML 어설션 필드](https://help.salesforce.com/s/articleView?id=sf.sso_jit_requirements.htm&type=5)를 참조하세요. 일반적으로 JIT가 실패하면 `We can't log you in because of an issue with single sign-on. Contact your Salesforce admin for help.`와 같은 오류가 표시될 수 있습니다.
+
+
 1. Salesforce의 왼쪽 탐색 패널에서 **회사 설정** 을 클릭하여 관련 섹션을 확장하고 **내 도메인** 을 클릭합니다.
 
     ![내 도메인에 Single Sign-On 구성](./media/salesforce-tutorial/sf-my-domain.png)
@@ -204,11 +212,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * Salesforce 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Salesforce 타일을 클릭하면 SSO를 설정한 Salesforce에 자동으로 로그인되어야 합니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱 포털에서 Salesforce 타일을 클릭하면 SSO를 설정한 Salesforce에 자동으로 로그인됩니다. 내 앱 포털에 대한 자세한 내용은 [내 앱 포털 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="test-sso-for-salesforce-mobile"></a>Salesforce에 대한 SSO 테스트(모바일)
 
-1. Salesforce 모바일 애플리케이션을 엽니다. 로그인 페이지에서 **사용자 지정 도메인** 을 클릭합니다.
+1. Salesforce 모바일 애플리케이션을 엽니다. 로그인 페이지에서 **Use Custom Domain(사용자 지정 도메인)** 을 클릭합니다.
 
     ![Salesforce 모바일 앱 사용자 지정 도메인 사용](media/salesforce-tutorial/mobile-app1.png)
 
@@ -224,10 +232,10 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![Salesforce 모바일 앱 액세스 허용](media/salesforce-tutorial/mobile-app4.png)
 
-1. 마지막으로 로그인하면 애플리케이션 홈 페이지가 표시됩니다.
+1. 마지막으로 로그인에 성공하면 애플리케이션 홈페이지가 표시됩니다.
 
     ![Salesforce 모바일 앱 홈페이지](media/salesforce-tutorial/mobile-app5.png) ![Salesforce 모바일 앱](media/salesforce-tutorial/mobile-app6.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-Salesforce를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](/cloud-app-security/proxy-deployment-aad)
+Salesforce가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](/cloud-app-security/proxy-deployment-aad)

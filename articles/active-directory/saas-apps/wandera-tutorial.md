@@ -1,7 +1,6 @@
 ---
-title: '자습서: Wandera RADAR Admin과 Azure Active Directory 연결 | Microsoft Docs'
+title: '자습서: Wandera RADAR Admin과 Azure Active Directory 통합'
 description: Azure Active Directory와 Wandera RADAR Admin 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
-services: active-directory
 author: jeevansd
 manager: CelesteDG
 ms.reviewer: celested
@@ -11,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/10/2021
 ms.author: jeedes
-ms.openlocfilehash: 7f2658261e89ab82c59cdb9b3491766e95491c92
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: c6606494bcdcc006634d4bbb4405933e0adb8ebb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111985199"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653800"
 ---
 # <a name="tutorial-integrate-wandera-radar-admin-with-azure-active-directory"></a>자습서: Azure Active Directory와 Wandera RADAR Admin 통합
 
@@ -26,7 +25,7 @@ ms.locfileid: "111985199"
 * 사용자가 자신의 Azure AD 계정으로 Wandera RADAR Admin에 자동으로 로그인하도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -81,7 +80,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     **회신 URL** 텍스트 상자에 `https://radar.wandera.com/saml/acs/<TENANT_ID>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이 값은 실제 값이 아닙니다. 실제 회신 URL로 값을 업데이트합니다. 이 값을 가져오려면 [Wandera RADAR Admin 클라이언트 지원 팀](https://www.wandera.com/about-wandera/contact/#supportsection)에 문의합니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다. 위의 URL <tenant id> 부분을 Wandera 계정 내의 **설정** > **관리** > **Single sign-on** 페이지에 표시된 테넌트 ID로 신중하게 바꿉니다.
+    > 이 값은 실제 값이 아닙니다. 실제 회신 URL로 값을 업데이트합니다. 이 값을 가져오려면 [Wandera RADAR Admin 클라이언트 지원 팀](https://www.wandera.com/about-wandera/contact/#supportsection)에 문의합니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다. 위의 URL \<tenant id\> 부분을 Wandera 계정 내의 **설정** > **관리** > **Single sign-on** 페이지에 표시된 테넌트 ID로 신중하게 바꿉니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
@@ -157,7 +156,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * Azure Portal에서 이 애플리케이션 테스트를 클릭하면 SSO를 설정한 Wandera RADAR Admin에 자동으로 로그인됩니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Wandera RADAR Admin 타일을 클릭하면 SSO를 설정한 Wandera RADAR Admin에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Wandera RADAR Admin 타일을 클릭하면 SSO를 설정한 Wandera RADAR Admin에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

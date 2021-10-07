@@ -1,5 +1,5 @@
 ---
-title: '자습서: HireVue와 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: HireVue와 Azure AD SSO 통합'
 description: Azure Active Directory와 HireVue 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/03/2021
+ms.date: 09/13/2021
 ms.author: jeedes
-ms.openlocfilehash: e5305a5abbddc6db68925d1c5a7abffb5e949193
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 073b6bde981bd9395470aca9e77e44674d2a546f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572245"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128573921"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hirevue"></a>자습서:Azure Active Directory와 HireVue 통합
+# <a name="tutorial-azure-ad-sso-integration-with-hirevue"></a>자습서: HireVue와 Azure AD SSO 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 HireVue를 통합하는 방법에 대해 알아봅니다. Azure AD와 HireVue를 통합하면 다음을 수행할 수 있습니다.
 
@@ -26,12 +26,15 @@ ms.locfileid: "111572245"
 * 사용자가 해당 Azure AD 계정으로 HireVue에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * HireVue SSO(Single Sign-On)를 사용하도록 설정된 구독
+
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 

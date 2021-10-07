@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - Oracle RAC용 CloudSimple 프라이빗 클라우드 최적화
 description: 새 클러스터를 배포하고 Oracle RAC(Real Application Clusters) 설치 및 구성을 위해 VM을 최적화하는 방법을 설명합니다.
-author: Ajayan1008
-ms.author: v-hborys
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/06/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3959aae5f490af10c6747cfa67d9960e0c4a203f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: c6413d6237cb8bab903b3c98a844fe05c943539e
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97899272"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129616292"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Oracle RAC 설치를 위해 CloudSimple 프라이빗 클라우드 최적화
 
@@ -46,9 +46,9 @@ Oracle RAC 가상 머신에는 특정 기능에 사용되는 여러 디스크가
 
 | 디스크                                      | 목적                                       | 공유 디스크 |
 |-------------------------------------------|-----------------------------------------------|-------------|
-| OS                                        | 운영 체제 디스크                         | 예          |
+| OS                                        | 운영 체제 디스크                         | 아니요          |
 | GRID                                      | Oracle Grid 소프트웨어의 설치 위치     | 예          |
-| DATABASE                                  | Oracle 데이터베이스 소프트웨어의 설치 위치 | 예          |
+| DATABASE                                  | Oracle 데이터베이스 소프트웨어의 설치 위치 | 아니요          |
 | ORAHOME                                   | Oracle 데이터베이스 이진 파일의 기본 위치    | 예          |
 | DATA1, DATA2, DATA3, DATA4                | Oracle 데이터베이스 파일이 저장되는 디스크   | 예         |
 | REDO1, REDO2, REDO3, REDO4, REDO5, REDO6  | 다시 실행 로그 디스크                                | 예         |

@@ -5,18 +5,22 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 04/07/2021
-ms.openlocfilehash: 761dcc36e684aa8f024cb650929441b54dddb790
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: a42798f5af63d9ec43760511a749861a955518cf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111952925"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643083"
 ---
 # <a name="whats-new-in-language-understanding"></a>Language Understanding의 새로운 기능
 
 서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목에는 릴리스 정보, 비디오, 블로그 게시물 및 기타 유형의 정보가 포함될 수 있습니다. 서비스를 최신 상태로 유지하려면 이 페이지에 대한 책갈피를 지정하세요.
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="august-2021"></a>2021년 8월
+* 노르웨이 동부 [게시 지역](luis-reference-regions.md#publishing-to-europe).
+* 미국 서부 3 [게시 지역](luis-reference-regions.md#other-publishing-regions).
 
 ### <a name="april-2021"></a>2021년 4월
 

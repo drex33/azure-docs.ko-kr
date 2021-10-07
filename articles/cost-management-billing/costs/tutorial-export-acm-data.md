@@ -3,18 +3,18 @@ title: 자습서 - Azure Cost Management에서 내보낸 데이터 만들기 및
 description: 이 문서에서는 내보낸 Azure Cost Management 데이터를 외부 시스템에서 사용할 수 있도록 만들고 관리하는 방법을 보여줍니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/05/2021
+ms.date: 09/16/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: f6d640d40b586e435e1484fce8d6560a961ba6ac
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5c27f34adcf427a82f425f7ef4cf24a4ae843bc4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121731945"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648775"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>자습서: 내보낸 데이터 만들기 및 관리
 
@@ -295,6 +295,14 @@ Microsoft 고객 계약, Microsoft 파트너 계약 또는 기업계약이 없�
   ]
 }
 ```
+
+### <a name="export-versions"></a>내보내기 버전
+
+Azure Portal 또는 API를 사용하여 예약된 내보내기를 만들면 항상 만들 때 사용되는 내보내기 버전에서 실행됩니다. 업데이트하는 경우를 제외하고는 Azure에서 이전에 만든 내보내기를 동일한 버전으로 유지합니다. 이렇게 하면 내보내기 버전이 변경되는 경우에도 요금 및 CSV 필드가 변경되지 않습니다. 시간이 지남에 따라 내보내기 기능이 변경되면 필드 이름이 변경되고 새 필드가 추가되는 경우가 있습니다.
+
+사용 가능한 최신 데이터 및 필드를 사용하려면 Azure Portal에서 새 내보내기를 만드는 것이 좋습니다. 기존 내보내기를 최신 버전으로 업데이트하려면 Azure Portal 또는 최신 내보내기 API 버전으로 업데이트합니다. 기존 내보내기를 업데이트하면 나중에 생성되는 파일의 필드 및 요금에 약간의 차이가 표시될 수 있습니다.
+
+
 ## <a name="verify-that-data-is-collected"></a>데이터가 수집되는지 확인
 
 Azure Storage Explorer를 사용하여 간단하게 Cost Management 데이터가 수집되는지 확인하고 내보낸 CSV 파일을 볼 수 있습니다.

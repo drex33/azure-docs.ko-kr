@@ -5,16 +5,16 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/27/2019
 ms.author: lajanuar
-ms.openlocfilehash: fbf4fc405c92700f993a488d94334338ab2757b4
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 262cde08f93ca7d56a454effe17579dd086c3d7a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122327228"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128909624"
 ---
-Form Recognizer는 다음 요구 사항을 충족하는 입력 문서에서 작동합니다.
+Form Recognizer는 다음 요구 사항을 충족하는 입력 문서를 처리합니다.
 
-* 형식은 JPG, PNG, PDF(텍스트 또는 스캔) 또는 TIFF여야 합니다. 문자 추출 및 위치에 오류가 발생할 가능성이 없으므로 텍스트가 포함된 PDF가 가장 좋습니다.
+* 지원되는 파일 형식: JPEG, PNG, BMP, TIFF 및 PDF(텍스트 포함 또는 검사). 텍스트 포함 PDF는 문자 추출 및 위치에 오류가 발생할 가능성을 제거하는 데 가장 좋습니다.
 * 파일 크기는 50MB 미만이어야 합니다.
 * 이미지 크기는 50x50 픽셀에서 10,000x10,000 픽셀 사이여야 합니다.
 * PDF 크기는 최대 17x17인치(Legal 또는 A3 용지 크기 이하에 해당)여야 합니다.

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 2c711188343be5ee52e1bac217f8b31dc6756d3d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 45ec57871be8160c2bfde34c20137bd6c7afd6c7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101654394"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124738590"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-olfeo-saas"></a>자습서: Olfeo SAAS와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -37,7 +37,9 @@ ms.locfileid: "101654394"
 
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
-* Olfeo SAAS는 **SP** 시작 SSO를 지원합니다.
+* Olfeo SAAS에서 **SP** 시작 SSO를 지원합니다.
+
+* Olfeo SAAS에서 [자동화된 사용자 프로비저닝](olfeo-saas-provisioning-tutorial.md)을 지원합니다.
 
 ## <a name="adding-olfeo-saas-from-the-gallery"></a>갤러리에서 Olfeo SAAS 추가
 
@@ -49,7 +51,6 @@ Olfeo SAAS의 Azure AD 통합을 구성하려면 갤러리의 Olfeo SAAS를 관�
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에 **Olfeo SAAS** 를 입력합니다.
 1. 결과 패널에서 **Olfeo SAAS** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-olfeo-saas"></a>Olfeo SAAS에 대한 Azure AD SSO 구성 및 테스트
 
@@ -121,6 +122,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Olfeo SAAS에서 Britta Simon이라는 사용자를 만듭니다. Olfeo SAAS 플랫폼에 사용자를 추가하려면 [Olfeo SAAS 지원 팀](mailto:equipe-rd@olfeo.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
+Olfeo SAAS는 자동 사용자 프로비저닝도 지원합니다. 자동 사용자 프로비저닝 구성 방법에 대한 자세한 내용은 [여기](./olfeo-saas-provisioning-tutorial.md)에서 제공합니다.
+
 ## <a name="test-sso"></a>SSO 테스트 
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
@@ -129,8 +132,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * Olfeo SAAS 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Olfeo SAAS 타일을 클릭하면 Olfeo SAAS 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
-
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Olfeo SAAS 타일을 클릭하면 Olfeo SAAS 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

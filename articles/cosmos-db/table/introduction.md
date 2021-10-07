@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 01/08/2021
+ms.date: 08/25/2021
 ms.author: sngun
-ms.openlocfilehash: 3e1391aa0d29e6b6ae50964413195552768d12b7
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 1cb2b9057a1be20896523eba5e1111046a2901ed
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123543055"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124798943"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB 소개: 테이블 API
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
@@ -25,15 +25,16 @@ ms.locfileid: "123543055"
 * 보장된 고가용성
 * 자동 보조 인덱싱.
 
-[Azure Data Table SDK](https://devblogs.microsoft.com/azure-sdk/announcing-the-new-azure-data-tables-libraries/)는 .NET, Java, Python, Node.js 및 Go에 사용할 수 있습니다. 이러한 SDK를 사용하여 Table Storage 또는 Cosmos DB 테이블을 대상으로 지정할 수 있습니다. Azure Data Tables SDK를 사용하여 Azure Table 스토리지용으로 작성된 애플리케이션은 프리미엄 기능을 활용하기 위해 코드를 변경하지 않고 Azure Cosmos DB Table API로 마이그레이션할 수 있습니다.
+[Azure Tables SDK](https://devblogs.microsoft.com/azure-sdk/announcing-the-new-azure-data-tables-libraries/)는 .NET, Java, Python, Node.js 및 Go에 사용할 수 있습니다. 이러한 SDK를 사용하여 Table Storage 또는 Cosmos DB 테이블을 대상으로 지정할 수 있습니다. Azure Tables SDK를 사용하여 Azure Table 스토리지용으로 작성된 애플리케이션은 프리미엄 기능을 활용하기 위해 코드를 변경하지 않고 Azure Cosmos DB Table API로 마이그레이션할 수 있습니다.
 
 > [!NOTE]
 > 이제 Azure Cosmos DB의 Table API에서 [서버리스 용량 모드](../serverless.md)를 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> .NET Cosmos DB Table 라이브러리 [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)이 유지 관리 모드에 있으며 곧 사용 중지될 예정됩니다. 새 .NET Azure Data Tables 라이브러리 [Azure.Data.Tables](https://www.nuget.org/packages/Azure.Data.Tables/)로 업그레이드하여 Table API에서 지원하는 최신 기능을 계속 유지합니다.
+> .NET Cosmos DB Table 라이브러리 [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)이 유지 관리 모드에 있으며 곧 사용 중지될 예정됩니다. 새 .NET Azure Tables SDK [Azure.Data.Tables](https://www.nuget.org/packages/Azure.Data.Tables/)로 업그레이드하여 Table API에서 지원하는 최신 기능을 계속 유지하세요.
 
 ## <a name="table-offerings"></a>Table 제품
+
 현재 Azure Table Storage를 사용하는 경우 Azure Cosmos DB 테이블 API로 이동하면 다음과 같은 이점이 있습니다.
 
 | 기능 | Azure Table Storage | Azure Cosmos DB 테이블 API |
@@ -49,11 +50,7 @@ ms.locfileid: "123543055"
 
 ## <a name="get-started"></a>시작하기
 
-[Azure Portal](https://portal.azure.com)에서 새 Azure Cosmos DB 계정을 만듭니다. 그런 다음 [.NET을 사용하여 테이블 API에 대한 빠른 시작](create-table-dotnet.md)을 시작합니다. 
-
-> [!IMPORTANT]
-> 미리 보기 도중에 Table API 계정을 만든 경우 일반 공급되는 Table API SDK와 작동하는 [새 Table API 계정](create-table-dotnet.md#create-a-database-account)을 만드세요.
->
+[Azure Portal](https://portal.azure.com)에서 새 Azure Cosmos DB 계정을 만듭니다. 그런 다음 [.NET을 사용하여 테이블 API에 대한 빠른 시작](create-table-dotnet.md)을 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

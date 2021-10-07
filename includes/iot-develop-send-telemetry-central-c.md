@@ -4,29 +4,31 @@ description: 포함 파일
 author: timlt
 ms.service: iot-develop
 ms.topic: include
-ms.date: 05/06/2021
+ms.date: 09/10/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 9b383086eb9a53f061f445b26fe2bcd1242524ae
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0665035b31142f5be7fa825a83d8575b49e8e717
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121801747"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128909137"
 ---
 [![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/pnp)
 
 이 빠른 시작에서는 기본 Azure IoT 애플리케이션 개발 워크플로에 대해 알아봅니다. 먼저 디바이스 호스트를 위한 Azure IoT Central 애플리케이션을 만듭니다. 그런 다음 Azure IoT 디바이스 SDK 샘플을 사용하여 시뮬레이션된 온도 조절기를 실행하고 IoT Central에 안전하게 연결하고 원격 분석을 전송합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
-- Linux 또는 Windows에서 이 빠른 시작을 실행할 수 있습니다. 셸 명령은 표준 Linux 경로 구분 기호 `/`를 사용합니다. Windows를 사용하는 경우 이 구분 기호를 Windows 경로 구분 기호 `\`로 바꿉니다.
+## <a name="prerequisites"></a>필수 조건
+이 빠른 시작은 Windows, Linux 및 Raspberry Pi에서 실행됩니다. 다음 OS 및 디바이스 버전에서 테스트되었습니다.
+
+- Windows 10
+- WSL(Linux용 Windows 하위 시스템)에서 실행되는 Ubuntu 20.04 LTS
+- Raspberry Pi 3 Model B+에서 실행되는 Raspberry Pi OS 버전 10(buster)
 
 운영 체제의 나머지 필수 구성 요소를 설치합니다.
 
-### <a name="linux"></a>Linux
-이 자습서의 단계는 Ubuntu Linux 18.04를 사용하여 테스트했습니다.
-
-Linux에서 이 빠른 시작을 완료하려면 로컬 Linux 환경에 다음 소프트웨어를 설치해야 합니다.
+### <a name="linux-or-raspberry-pi-os"></a>Linux 또는 Raspberry Pi OS
+Linux 및 Raspberry Pi OS에서 이 빠른 시작을 완료하려면 다음 소프트웨어를 설치합니다.
 
 `apt-get` 명령을 사용하여 **GCC**, **Git**, **cmake** 및 필요한 종속성을 설치합니다.
 
@@ -59,7 +61,7 @@ Windows 에서 이 빠른 시작을 완료하려면 Visual Studio 2019를 설치
 
 ### <a name="configure-your-environment"></a>환경 구성
 
-1. 콘솔을 열어 Azure IoT C 디바이스 SDK를 설치하고 코드 샘플을 실행합니다. Windows의 경우 **시작** 메뉴에서 *Developer Command Prompt for VS 2019* 를 선택하여 콘솔을 엽니다. Linux의 경우 Bash를 엽니다. 
+1. 콘솔을 열어 Azure IoT C 디바이스 SDK를 설치하고 코드 샘플을 실행합니다. Windows의 경우 **시작** 메뉴에서 *Developer Command Prompt for VS 2019* 를 선택하여 콘솔을 엽니다. Linux 및 Raspberry Pi OS의 경우 Bash 명령에 대한 터미널을 엽니다. 
 
 1. 콘솔에 적합한 명령을 사용하여 다음 환경 변수를 설정합니다. 시뮬레이션된 디바이스는 이 값을 사용하여 IoT Central에 연결합니다. `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY` 및 `IOTHUB_DEVICE_DPS_DEVICE_ID`의 경우 이전에 저장한 디바이스 연결 값을 사용합니다.
 
@@ -87,6 +89,8 @@ Windows 에서 이 빠른 시작을 완료하려면 Visual Studio 2019를 설치
     ```
 
 ### <a name="install-the-sdk-and-samples"></a>SDK 및 샘플을 설치합니다.
+
+1. 샘플 리포지토리를 복제하려는 로컬 폴더로 이동합니다.
 
 1. Azure IoT C 디바이스 SDK를 로컬 컴퓨터에 복사합니다.
 
@@ -119,7 +123,7 @@ Windows 에서 이 빠른 시작을 완료하려면 Visual Studio 2019를 설치
 
     **Bash**
     ```bash
-    cmake/iothub_client/samples/pnp/pnp_temperature_controller/Debug/pnp_temperature_controller
+    cmake/iothub_client/samples/pnp/pnp_temperature_controller/pnp_temperature_controller
     ```
 
     시뮬레이션된 디바이스가 IoT Central 애플리케이션에 연결되면 애플리케이션에서 만든 디바이스 인스턴스에 연결하고 원격 분석 전송을 시작합니다. 연결 세부 정보 및 원격 분석 출력이 콘솔에 표시됩니다. 

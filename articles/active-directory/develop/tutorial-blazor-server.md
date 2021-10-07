@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: 5a631d9ae7a7d1792e3c4e4a2cbf8281e1168283
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f7d62b6fa3523accbeba9a083c74330ff344e2ae
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99822137"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124786373"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>자습서: 인증을 위해 Microsoft ID 플랫폼을 사용하는 Blazor Server 앱 만들기
 
@@ -40,7 +40,7 @@ ms.locfileid: "99822137"
 - **지원되는 계정 유형** 의 경우 **이 조직 디렉터리 계정의 계정만** 을 선택합니다.
 - **리디렉션 URI** 드롭다운 세트를 **웹** 으로 두고 `https://localhost:5001/signin-oidc`를 입력합니다. Kestrel에서 실행되는 앱의 기본 포트는 5001입니다. 다른 포트에서 앱을 사용할 수 있는 경우 `5001` 대신 해당 포트 번호를 지정합니다.
 
-**관리** 에서 **인증** > **암시적 허용 및 하이브리드 흐름** 을 선택합니다. **액세스 토큰** 및 **ID 토큰** 을 선택한 다음, **저장** 을 선택합니다.
+**관리** 에서 **인증** > **암시적 허용 및 하이브리드 흐름** 을 선택합니다. **ID 토큰** 을 선택한 다음, **저장** 을 선택합니다.
 
 마지막으로 앱이 보호된 API(이 경우 Microsoft Graph)를 호출하기 때문에 해당 API를 호출하는 액세스 토큰을 요청할 때 해당 ID를 확인하기 위해 클라이언트 암호가 필요합니다.
 
@@ -53,13 +53,13 @@ ms.locfileid: "99822137"
 다음 명령을 실행하여 이 자습서에서 사용할 Microsoft.Identity.Web의 템플릿을 다운로드합니다.
 
 ```dotnetcli
-dotnet new --install Microsoft.Identity.Web.ProjectTemplates::0.4.0-preview
+dotnet new --install Microsoft.Identity.Web.ProjectTemplates
 ```
 
 그런 다음, 다음 명령을 실행하여 애플리케이션을 만듭니다. 명령의 자리 표시자를 앱의 개요 페이지에 있는 적절한 정보로 바꾸고 명령 셸에서 명령을 실행합니다. `-o|--output` 옵션으로 지정된 출력 위치는 프로젝트 폴더가 없는 경우 폴더를 하나 만들고 앱 이름의 일부가 됩니다.
 
 ```dotnetcli
-dotnet new blazorserver2 --auth SingleOrg --calls-graph -o {APP NAME} --client-id "{CLIENT ID}" --tenant-id "{TENANT ID}"
+dotnet new blazorserver2 --auth SingleOrg --calls-graph -o {APP NAME} --client-id "{CLIENT ID}" --tenant-id "{TENANT ID}" --domain "{DOMAIN}"
 ```
 
 | 자리표시자   | Azure Portal 이름       | 예제                                |
@@ -67,6 +67,7 @@ dotnet new blazorserver2 --auth SingleOrg --calls-graph -o {APP NAME} --client-i
 | `{APP NAME}`  | &mdash;                 | `BlazorSample`                         |
 | `{CLIENT ID}` | 애플리케이션(클라이언트) ID | `41451fa7-0000-0000-0000-69eff5a761fd` |
 | `{TENANT ID}` | 디렉터리(테넌트) ID   | `e86c78e2-0000-0000-0000-918e0565a45e` |
+| `{DOMAIN}`    | 기본 도메인          | `tenantname.onmicrosoft.com`           |
 
 이제 편집기에서 새 Blazor 앱으로 이동하고 클라이언트 암호를 *appsettings.json* 파일에 추가하여 “secret-from-app-registration” 텍스트를 바꿉니다.
 

@@ -1,19 +1,19 @@
 ---
 title: 빠른 시작 - 프라이빗 클라우드에서 Azure VMware VM 만들기 - Azure VMware Solution by CloudSimple
 description: CloudSimple 프라이빗 클라우드에서 VMware 가상 머신을 만드는 방법에 대해 알아봅니다. Azure Portal에서 CloudSimple 포털에 액세스합니다.
-author: Ajayan1008
-ms.author: v-hborys
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c741f01ccc3e34ec991aa77fc850fd9f60c4d8aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 4eec39455834d6ebaa2fcb1ed2799b0e023d48bf
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97899289"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129616173"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>프라이빗 클라우드에서 VMware 가상 머신 만들기
 

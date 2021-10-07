@@ -2,19 +2,17 @@
 title: 자습서 - Azure VMware Solution 프라이빗 클라우드 배포
 description: Azure VMware Solution 프라이빗 클라우드를 만들고 배포하는 방법 알아보기
 ms.topic: tutorial
-ms.date: 06/11/2021
-ms.openlocfilehash: d91e9fe9261aa4a04f5e5dffd3505742d9886623
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/29/2021
+ms.openlocfilehash: 164795bddcd7557a90f2d087cdd5a239a95d3a71
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730354"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274086"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud"></a>자습서: Azure VMware Solution 프라이빗 클라우드 배포
 
 Azure VMware Solution 프라이빗은 vSphere 클러스터를 Azure에 배포할 수 있는 기능을 제공합니다. 기본적으로 생성된 프라이빗 클라우드마다 vSAN 클러스터가 하나 있습니다. 클러스터를 추가, 삭제 및 스케일링할 수 있습니다.  클러스터당 최소 호스트 수는 3개입니다. 클러스터당 최대 16개까지 호스트를 한 번에 하나씩 추가할 수 있습니다. 프라이빗 클라우드당 최대 클러스터 수는 4개입니다.  Azure VMware Solution의 초기 배포에는 호스트가 3개 있습니다. 
-
-평가판 클러스터는 평가용으로 제공되며 호스트 3개로 제한됩니다. 프라이빗 클라우드당 평가판 클러스터가 하나 있습니다. 평가 기간 중 단일 호스트를 기준으로 평가판 클러스터를 스케일링할 수 있습니다.
 
 vSphere와 NSX-T Manager를 사용하여 클러스터 구성 또는 작업의 다른 대부분의 측면을 관리합니다. 클러스터의 각 호스트에 있는 모든 로컬 스토리지는 vSAN이 제어합니다.
 

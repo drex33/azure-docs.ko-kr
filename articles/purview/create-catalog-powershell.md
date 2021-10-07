@@ -1,62 +1,35 @@
 ---
-title: '빠른 시작: Azure PowerShell/Azure CLI를 사용하여 Azure Purview 계정 만들기(미리 보기)'
+title: '빠른 시작: PowerShell/Azure CLI를 사용하여 Purview 계정 만들기'
 description: 이 빠른 시작에서는 Azure PowerShell/Azure CLI를 사용하여 Azure Purview 계정을 만드는 방법을 설명합니다.
 author: hophanms
 ms.author: hophan
-ms.date: 11/23/2020
+ms.date: 09/27/2021
 ms.topic: quickstart
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.custom:
 - mode-api
-ms.openlocfilehash: 6266aedaec8f171a1a6ff3e0d15abdad0263767a
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 0e3cb8399e42dc651a48ada6018c58cb4f48e5d8
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530873"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129217356"
 ---
 # <a name="quickstart-create-an-azure-purview-account-using-azure-powershellazure-cli"></a>빠른 시작: Azure PowerShell/Azure CLI를 사용하여 Azure Purview 계정 만들기
 
-> [!IMPORTANT]
-> Azure Purview는 현재 미리 보기로 제공됩니다. [Microsoft Azure Preview용 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
+이 빠른 시작에서는 Azure PowerShell/Azure CLI를 사용하여 Azure Purview 계정을 만듭니다. [Purview용 PowerShell 참조](/powershell/module/az.purview/)를 사용할 수 있지만 이 문서에서는 PowerShell을 사용하여 계정을 만드는 데 필요한 모든 단계를 설명합니다.
 
-이 빠른 시작에서는 Azure PowerShell/Azure CLI를 사용하여 Azure Purview 계정을 만듭니다.
+Azure Purview는 데이터 환경을 관리하고 제어하는 데 도움이 되는 데이터 거버넌스 서비스입니다. 온-프레미스, 다중 클라우드 및 SaaS(software as a service) 원본에서 데이터에 연결하면 Purview에서 최신 정보 맵을 만듭니다. 중요한 데이터를 식별 및 분류하고 엔드투엔드 계보를 제공합니다. 데이터 소비자는 조직 전체에서 데이터를 검색할 수 있으며, 데이터 관리자는 데이터의 올바른 사용을 감사, 보호 및 보장할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+Purview에 대한 자세한 내용은 [개요 페이지를 참조](overview.md)하세요. Purview를 조직 전체에 배포하는 방법에 대한 자세한 내용은 [배포 모범 사례를 참조](deployment-best-practices.md)하세요.
 
-* 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+[!INCLUDE [purview-quickstart-prerequisites](includes/purview-quickstart-prerequisites.md)]
 
-* Azure에 로그인하는 데 사용하는 사용자 계정은 기여자 또는 소유자 역할의 구성원이거나, Azure 구독의 관리자여야 합니다.
+### <a name="install-powershell"></a>PowerShell 설치
 
-* 사용자 고유의 [Azure Active Directory 테넌트](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
+ 클라이언트 머신에 Azure PowerShell 또는 Azure CLI를 설치하여 템플릿을 배포합니다. [명령줄 배포](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-cli#command-line-deployment)
 
-* 클라이언트 머신에 Azure PowerShell 또는 Azure CLI를 설치하여 템플릿을 배포합니다. [명령줄 배포](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-cli#command-line-deployment)
-
-## <a name="sign-in-to-azure"></a>Azure에 로그인
-
-Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그인합니다.
-
-## <a name="configure-your-subscription"></a>구독 구성
-
-필요한 경우 다음 단계에 따라 구독에서 Azure Purview가 실행될 수 있도록 구독을 구성합니다.
-
-   1. Azure Portal에서 **구독** 을 검색하고 선택합니다.
-
-   1. 구독 목록에서 사용하려는 구독을 선택합니다. 구독에 대한 관리자 액세스 권한이 필요합니다.
-
-      :::image type="content" source="./media/create-catalog-portal/select-subscription.png" alt-text="Azure Portal에서 구독을 선택하는 방법을 보여 주는 스크린샷":::
-
-   1. 구독의 경우 **리소스 공급자** 를 선택합니다. **리소스 공급자** 창에서 다음 세 가지 리소스 공급자를 모두 검색하고 등록합니다. 
-       1. **Microsoft.Purview**
-       1. **Microsoft.Storage**
-       1. **Microsoft.EventHub** 
-      
-      등록되지 않은 경우 **등록** 을 선택하여 등록합니다.
-
-      :::image type="content" source="./media/create-catalog-portal/register-purview-resource-provider.png" alt-text="Azure Portal에서 Microsoft.Azure Purview 리소스 공급자를 등록하는 방법을 보여 주는 스크린샷":::
-
-## <a name="create-an-azure-purview-account-instance"></a>Azure Purview 계정 인스턴스 만들기
+## <a name="create-an-azure-purview-account"></a>Azure Purview 계정 만들기
 
 1. Azure 자격 증명으로 로그인
 
@@ -166,7 +139,8 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 이 빠른 시작에서는 Azure Purview 계정을 만드는 방법을 알아보았습니다.
 
-다음 문서로 계속 진행하여 사용자가 Azure Purview 계정에 액세스할 수 있도록 허용하는 방법을 알아보세요. 
+Purview Studio를 탐색하고, 컬렉션을 만들고, Purview에 대해 액세스 권한을 부여하는 방법을 알아보려면 다음 문서를 참조하세요.
 
-> [!div class="nextstepaction"]
-> [Azure Purview 계정에 사용자 추가](catalog-permissions.md)
+* [Purview Studio를 사용하는 방법](use-purview-studio.md)
+* [컬렉션 만들기](quickstart-create-collection.md)
+* [Azure Purview 계정에 사용자 추가](catalog-permissions.md)

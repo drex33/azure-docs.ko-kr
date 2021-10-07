@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/1/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 26e90482ad03406bbf586c7c9a8f2fdcc31cad7c
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 50e5a8fb09a3bd54dd4131f6c60de6b315233e86
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122254027"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128557671"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure Digital Twins 그래프 만들기
 
@@ -161,6 +161,8 @@ az dt model create --dt-name <Azure-Digital-Twins-instance-name> --models Room.j
     
     :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="room0 및 room1이 포함된 트윈 쿼리의 부분 결과를 보여 주는 Cloud Shell 스크린샷" lightbox="media/tutorial-command-line/cli/output-query-all.png":::
 
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
+
 ### <a name="modify-a-digital-twin"></a>디지털 트윈 수정
 
 사용자가 만든 트윈의 속성을 수정할 수도 있습니다. 
@@ -217,7 +219,7 @@ az dt model create --dt-name <Azure-Digital-Twins-instance-name> --models Room.j
     
     각 명령의 출력에는 성공적으로 만들어진 관계에 대한 정보가 표시됩니다.
 
-1. Azure Digital Twins 인스턴스의 관계를 쿼리하는 다음 명령 중 하나를 사용하여 관계를 확인할 수 있습니다.
+1. Azure Digital Twins 인스턴스의 관계를 인쇄하는 다음 명령 중 하나를 사용하여 관계를 확인할 수 있습니다.
     * 각 floor에서 시작되는 모든 관계를 보려면 다음 명령을 실행합니다(한 쪽에서 관계 보기).
         ```azurecli-interactive
         az dt twin relationship list --dt-name <Azure-Digital-Twins-instance-name> --twin-id floor0
@@ -241,6 +243,8 @@ az dt model create --dt-name <Azure-Digital-Twins-instance-name> --models Room.j
 ## <a name="query-the-twin-graph-to-answer-environment-questions"></a>트윈 그래프를 쿼리하여 환경 질문에 대답
 
 Azure Digital Twins의 주요 기능은 환경에 대한 질문에 답하도록 쉽고 효율적으로 트윈 그래프를 [쿼리](concepts-query-language.md)하는 기능입니다. Azure CLI에서 이 작업은 [az dt twin query](/cli/azure/dt/twin?view=azure-cli-latest&preserve-view=true#az_dt_twin_query) 명령을 사용하여 수행됩니다.
+
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
 
 Cloud Shell에서 다음 쿼리를 실행하여 샘플 환경에 대한 몇 가지 질문에 답변합니다.
 
@@ -278,7 +282,7 @@ Cloud Shell에서 다음 쿼리를 실행하여 샘플 환경에 대한 몇 가�
     :::image type="content" source="media/tutorial-command-line/cli/output-query-relationship.png" alt-text="room0이 포함된 관계 쿼리의 결과를 보여 주는 Cloud Shell의 스크린샷" lightbox="media/tutorial-command-line/cli/output-query-relationship.png":::
 
     > [!NOTE]
-    > 트윈의 ID(예: 위 쿼리의 floor0)는 `$dtId` 메타데이터 필드를 사용하여 쿼리됩니다. 
+    > 트윈의 ID(예: 위 쿼리의 floor0)는 메타데이터 필드 `$dtId`를 사용하여 쿼리됩니다. 
     >
     >Cloud Shell에서 `$`로 시작하는 것과 같은 메타데이터 필드를 사용하여 쿼리를 실행하는 경우, Cloud Shell에서 이 필드가 변수가 아니고 쿼리 텍스트에서 리터럴로 사용되어야 함을 인식할 수 있도록 `$`를 백틱으로 이스케이프해야 합니다. 이는 위의 스크린샷에 반영되어 있습니다.
 

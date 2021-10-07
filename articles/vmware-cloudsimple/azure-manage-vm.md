@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - Azure에서 프라이빗 클라우드 VM 관리
 description: 디스크 추가, VM 용량 변경, 네트워크 인터페이스 추가 등 Azure Portal에서 CloudSimple 프라이빗 클라우드 VM을 관리하는 방법을 설명합니다.
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c505ad4edb6ee13a81e3d575ad11e1bf526166df
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
-ms.translationtype: HT
+ms.openlocfilehash: 26f35e9b34278a5fe7aaacbfef5672cd5b5c8d80
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108182555"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129618160"
 ---
 # <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Azure에서 CloudSimple 프라이빗 클라우드 가상 머신 관리
 
@@ -74,7 +74,7 @@ VM의 용량을 변경 하려면 선택한 VM에 대한 **크기** 페이지를 
 
 인터페이스를 추가하려면 **네트워크 인터페이스 추가** 를 클릭합니다. 인라인 옵션을 입력하거나 선택하여 다음 설정을 각각 구성합니다. **저장** 을 클릭합니다.
 
-   | 컨트롤 | Description |
+   | 컨트롤 | 설명 |
    | ------------ | ------------- |
    | 이름 | 인터페이스를 식별하는 이름을 입력합니다.  |
    | 네트워크 | Private Cloud vSphere의 구성된 네트워크 목록에서 선택합니다.  |

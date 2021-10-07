@@ -9,12 +9,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 232a3293d6529955a768ed8d7700289ddbed5177
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+ms.openlocfilehash: e32e6ecacb2de646314be237c6b7bce973a0ed4e
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113136367"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129213480"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Azure Key Vault 비밀 정보
 
@@ -119,18 +119,18 @@ Key Vault는 [Azure 스토리지 계정](../../storage/common/storage-account-ov
 
 자세한 내용은 [Key Vault REST API 참조의 스토리지 계정 작업](/rest/api/keyvault)을 참조하세요. 권한 설정에 대한 내용은 [자격 증명 모음 - 만들기 또는 업데이트](/rest/api/keyvault/vaults/createorupdate) 및 [자격 증명 모음 - 액세스 정책 업데이트](/rest/api/keyvault/vaults/updateaccesspolicy)를 참조하세요.
 
-Key Vault에서 액세스를 제어하는 방법 가이드:
-- [CLI를 사용하여 Key Vault 액세스 정책 할당](../general/assign-access-policy-cli.md)
-- [PowerShell을 사용하여 Key Vault 액세스 정책 할당](../general/assign-access-policy-powershell.md)
-- [Azure Portal을 사용하여 Key Vault 액세스 정책 할당](../general/assign-access-policy-portal.md)
-- [Azure 역할 기반 액세스 제어를 사용하여 Key Vault 키, 인증서 및 비밀에 대한 액세스 제공](../general/rbac-guide.md)
+## <a name="usage-scenarios"></a>사용 시나리오
 
+| 사용 시기 | 예제 |
+|--------------|-------------|
+|암호, 액세스 키, 서비스 주체 클라이언트 암호와 같은 서비스 간 통신에 대한 자격 증명을 안전하게 저장, 수명 주기 관리 및 모니터링합니다.  | - [Virtual Machine에서 Azure Key Vault 사용](../general/tutorial-net-virtual-machine.md)<br> - [Azure Web App에서 Azure Key Vault 사용](../general/tutorial-net-create-vault-azure-web-app.md) |
 
 ## <a name="next-steps"></a>다음 단계
 
+- [Key Vault의 비밀 관리 모범 사례](secrets-best-practices.md)
 - [Key Vault 정보](../general/overview.md)
 - [키, 비밀 및 인증서에 대한 정보](../general/about-keys-secrets-certificates.md)
-- [키 정보](../keys/about-keys.md)
-- [인증서 정보](../certificates/about-certificates.md)
+- [Key Vault 액세스 정책 할당](../general/assign-access-policy.md)
+- [Azure 역할 기반 액세스 제어를 사용하여 Key Vault 키, 인증서 및 비밀에 대한 액세스 제공](../general/rbac-guide.md)
 - [Key vault에 대한 액세스 보안](../general/security-features.md)
 - [Key Vault 개발자 가이드](../general/developers-guide.md)

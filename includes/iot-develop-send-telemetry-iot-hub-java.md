@@ -7,23 +7,23 @@ ms.topic: include
 ms.date: 08/03/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 21adc3edb161aba5d315b7429fdf5ff244574bc2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6eb78c0601efd305a7fa6983f06ec703a18d0760
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121744279"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129516737"
 ---
-[![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/pnp-device-sample)
+[![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples/pnp-device-sample)
 
-이 빠른 시작에서는 기본 Azure IoT 애플리케이션 개발 워크플로에 대해 알아봅니다. Azure CLI를 사용하여 Azure IoT Hub 및 디바이스를 만듭니다. 그런 다음 Azure IoT 디바이스 SDK 샘플을 사용하여 시뮬레이션된 온도 조절기를 실행하고 허브에 안전하게 연결하고 원격 분석을 전송합니다.
+이 빠른 시작에서는 기본 Azure IoT 애플리케이션 개발 워크플로에 대해 알아봅니다. Azure CLI 및 IoT Explorer를 사용하여 Azure IoT 허브와 디바이스를 만듭니다. 그런 다음 Azure IoT 디바이스 SDK 샘플을 사용하여 시뮬레이션된 온도 조절기를 실행하고 허브에 안전하게 연결하고 원격 분석을 전송합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 - Azure 구독이 아직 없는 경우 시작하기 전에 [무료 구독을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Git](https://git-scm.com/downloads)
 - Java SE Development Kit 8 이상이 포함된 개발 머신. 여러 플랫폼용 Java 8(LTS) JDK는 [OpenJDK의 Zulu 빌드 다운로드](https://www.azul.com/downloads/zulu-community/)에서 다운로드할 수 있습니다. 설치 프로그램에서 **경로에 추가** 옵션을 선택합니다.
 - [Apache Maven 3](https://maven.apache.org/download.cgi). 로컬 폴더로 다운로드를 추출한 후 Maven */bin* 폴더의 전체 경로를 Windows PATH 변수에 추가합니다.
-- [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Azure IoT 모니터링하고 관리하는 플랫폼 간 유틸리티 
+- [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Azure IoT를 모니터링하고 관리하는 플랫폼 간 GUI 기반 유틸리티입니다. 
 - Azure CLI. 이 빠른 시작에서 Azure CLI 명령을 실행하기 위한 두 가지 옵션이 있습니다.
     - 브라우저에서 CLI 명령을 실행하는 대화형 셸인 Azure Cloud Shell을 사용합니다. 이 옵션은 아무 것도 설치할 필요가 없으므로 권장됩니다. 처음으로 Cloud Shell을 사용하는 경우 [Azure Portal](https://portal.azure.com)에 로그인합니다. [Cloud Shell 빠른 시작](../articles/cloud-shell/quickstart.md)의 단계를 따라 **Cloud Shell을 시작하고** **Bash 환경을 선택합니다**.
     - 선택적으로 로컬 컴퓨터에서 Azure CLI를 실행합니다. Azure CLI가 이미 설치된 경우 `az upgrade`를 실행하여 CLI 및 확장을 현재 버전으로 업그레이드합니다. Azure CLI를 설치하는 방법은 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
@@ -34,7 +34,7 @@ ms.locfileid: "121744279"
 이 섹션에서는 Java SDK를 사용하여 시뮬레이션된 디바이스에서 IoT 허브로 메시지를 보냅니다. 두 개의 온도 조절기 센서가 있는 온도 컨트롤러를 구현하는 샘플을 실행합니다.
 
 ### <a name="configure-your-environment"></a>환경 구성
-1. 콘솔을 열어 Azure IoT Java 디바이스 SDK를 설치하고, 빌드하고, 코드 샘플을 실행합니다.
+1. 콘솔을 열어 Azure IoT Java 디바이스 SDK를 설치하고, 빌드하고, 코드 샘플을 실행합니다. 다음 단계에서 이 콘솔을 사용합니다.
 
     > [!NOTE]
     > Azure CLI의 로컬 설치를 사용하는 경우 이제 두 개의 콘솔 창이 열려 있을 수 있습니다. CLI에 사용한 콘솔이 아니라 방금 연 콘솔에서 이 섹션의 명령을 입력해야 합니다.
@@ -60,7 +60,7 @@ ms.locfileid: "121744279"
     ```
 
 ### <a name="build-the-sample"></a>샘플 빌드
-1. 콘솔에서 Azure IoT Java 디바이스 SDK를 로컬 컴퓨터에 복제합니다.
+1. Azure IoT Java 디바이스 SDK를 로컬 컴퓨터에 복제합니다.
     ```console
     git clone https://github.com/Azure/azure-iot-sdk-java.git
     ```
@@ -72,11 +72,11 @@ ms.locfileid: "121744279"
     이 작업은 몇 분이 걸립니다.
 
 ### <a name="run-the-code"></a>코드 실행
-1. Java 콘솔에서 samples 디렉터리로 이동합니다.
+1. 샘플 디렉터리로 이동합니다.
     ```console
     cd device/iot-device-samples/pnp-device-sample/temperature-controller-device-sample
     ```
-1. Java 콘솔에서 다음 코드 샘플을 실행합니다.
+1. 다음 코드 샘플을 실행합니다.
 
     ```console
     mvn exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.device.TemperatureController"
@@ -84,7 +84,7 @@ ms.locfileid: "121744279"
     > [!NOTE]
     > 이 코드 샘플에서는 수동 구성 없이 솔루션에 스마트 디바이스를 통합할 수 있도록 하는 Azure IoT 플러그 앤 플레이를 사용합니다.  기본적으로 이 설명서에 있는 대부분의 샘플은 IoT 플러그 앤 플레이를 사용합니다. IoT PnP의 장점과 사용 여부에 대한 자세한 내용은 [IoT 플러그 앤 플레이란?](../articles/iot-develop/overview-iot-plug-and-play.md)을 참조하세요.
 
-샘플은 등록한 디바이스로 IoT Hub에 안전하게 연결하고 원격 분석 메시지를 보내기 시작합니다. 샘플 출력이 콘솔에 나타납니다.
+샘플은 등록한 디바이스로 IoT 허브에 안전하게 연결하고 원격 분석 메시지를 보내기 시작합니다. 샘플 출력이 콘솔에 나타납니다.
 
 ## <a name="view-telemetry"></a>원격 분석 보기
 
@@ -94,7 +94,7 @@ Azure IoT Explorer에서 원격 분석을 보려면
 
 1. IoT Explorer의 IoT 허브에서 **이 허브의 디바이스 보기** 를 선택한 다음 목록에서 디바이스를 선택합니다. 
 1. 디바이스의 왼쪽 메뉴에서 **원격 분석** 을 선택합니다.
-1. **기본 제공 이벤트 허브 사용** 이 *예* 로 설정되어 있는지 확인한 다음 **시작** 을 선택합니다.
+1. **기본 제공 이벤트 허브 사용** 이 *예* 로 설정되어 있는지 확인한 다음, **시작** 을 선택합니다.
 1. 디바이스에서 메시지를 클라우드에 보낼 때 원격 분석을 봅니다.
 
     :::image type="content" source="media/iot-develop-send-telemetry-iot-hub-java/iot-explorer-device-telemetry.png" alt-text="IoT Explorer의 디바이스 원격 분석 스크린샷":::
@@ -103,15 +103,15 @@ Azure IoT Explorer에서 원격 분석을 보려면
 
 개별 디바이스 구성 요소에서 보낸 원격 분석을 읽으려면 IoT Explorer의 플러그 앤 플레이 기능을 사용할 수 있습니다. 예를 들어 이 빠른 시작의 온도 컨트롤러에는 thermostat1과 thermostat2의 두 온도 조절기가 있습니다. thermostat1에서 보고한 온도를 보려면 다음 단계를 따르세요. 
 
-1. IoT Explorer의 디바이스 왼쪽 메뉴에서 **IoT 플러그 앤 플레이 구성 요소** 를 선택합니다. 그런 다음 구성 요소 목록에서 **thermostat1** 을 선택합니다.
+1. IoT Explorer의 디바이스 왼쪽 메뉴에서 **IoT 플러그 앤 플레이 구성 요소** 를 선택합니다. 그런 다음, 구성 요소 목록에서 **thermostat1** 을 선택합니다.
 
 1. **thermostat1** 구성 요소 창의 상단 메뉴에서 **원격 분석** 을 선택합니다.
 
-1. **원격 분석** 창에서 이전과 동일한 단계를 따릅니다. **기본 제공 이벤트 허브 사용** 이 *예* 로 설정되어 있는지 확인한 다음 **시작** 을 선택합니다.
+1. **원격 분석** 창에서 이전과 동일한 단계를 따릅니다. **기본 제공 이벤트 허브 사용** 이 *예* 로 설정되어 있는지 확인한 다음, **시작** 을 선택합니다.
 
 Azure CLI를 사용하여 디바이스 원격 분석을 보려면 다음을 수행합니다.
 
-1. CLI 앱에서 [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) 명령을 실행하여 시뮬레이션된 디바이스에서 IoT Hub로 전송된 이벤트를 모니터링합니다. 이전에 디바이스 및 IoT Hub에 대해 Azure IoT에서 만든 이름을 사용합니다.
+1. [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) 명령을 실행하여 시뮬레이션된 디바이스에서 IoT 허브로 보낸 이벤트를 모니터링합니다. 이전에 디바이스 및 IoT Hub에 대해 Azure IoT에서 만든 이름을 사용합니다.
 
     ```azurecli
     az iot hub monitor-events --output table --device-id mydevice --hub-name {YourIoTHubName}

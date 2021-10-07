@@ -5,48 +5,48 @@ metadata:
   ms.service: marketplace
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: conceptual
-  ms.date: 11/10/2020
   author: smannepalle
   ms.author: smannepalle
   ms.reviewer: sroy
-  ms.openlocfilehash: 7402fd17b8e91016bae3d64ab278544140d907ee
-  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+  ms.date: 09/27/2021
+  ms.openlocfilehash: 683676b4787d22426e3fddf97ee41be1f6988586
+  ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/13/2021
-  ms.locfileid: "121748295"
+  ms.lasthandoff: 09/27/2021
+  ms.locfileid: "129081494"
 title: 상업용 Marketplace 분석 일반적인 질문
 summary: 이 문서에서는 파트너 센터의 분석 메시지에 대한 일반적인 질문과 대답에 대해 설명합니다.
 sections:
 - name: 무시됨
   questions:
   - question: >
-      Why am I unable to view my analytics data in Partner Center?
+      내 분석 데이터를 파트너 센터에서 볼 수 없는 이유는 무엇인가요?
     answer: >
-      When I access the analytics pages, I see the following message.
+      분석 페이지에 액세스하면 다음 메시지가 표시됩니다.
 
 
-      [![No data for your offers yet.](./media/analytics-faq-no-data.png)](./media/analytics-faq-no-data.png#lightbox)
+      [![제품에 대한 데이터가 아직 없습니다.](./media/analytics-faq-no-data.png)](./media/analytics-faq-no-data.png#lightbox)
 
 
-      Why you may be seeing this message:
+      이 메시지가 표시되는 이유는 다음과 같습니다.
 
 
-      - No acquisitions currently exist for your published offers in the commercial marketplace. This can mean that your offers are live in the commercial marketplace and customers are viewing your product listing pages, but customers haven't yet taken action to purchase and deploy them.
+      - 상업용 Marketplace에 게시한 제품이 구매되지 않았습니다. 이는 제품이 상업용 Marketplace에 게시되고 고객이 제품 목록 페이지를 보고 있지만 고객이 아직 구매 및 배포 작업을 수행하지 않았음을 의미할 수 있습니다.
 
-      - Your offer might be in the process of being published but isn't live yet. Only live offers can be acquired by customers. To check the status of your offers, see the **Summary** page in the [Analyze dashboard](https://go.microsoft.com/fwlink/?linkid=2165765). For more information, see [Summary dashboard in commercial marketplace analytics](summary-dashboard.md).
+      - 제품이 게시 중이지만 아직 라이브 상태가 아닐 수 있습니다. 고객은 라이브 상태의 제품만 얻을 수 있습니다. 제품 상태를 확인하려면 파트너 센터의 [요약](https://go.microsoft.com/fwlink/?linkid=2165765) 페이지를 참조하세요. 자세한 내용은 [상업용 Marketplace 분석의 요약 대시보드](summary-dashboard.md)를 참조하세요.
 
-      - Your offers may be listed as **Contact Me**, which are list-only offers and cannot be purchased by customers in the commercial marketplace. Although these offers generate leads and are shared with you, orders aren't created for these offers as they cannot be purchased. To check your offer listing type, go to the setup page for your offer.
+      - 목록 전용 제품이며 상업용 Marketplace에서 고객이 구매할 수 없는 사용자 제품은 **연락처** 로 나열될 수 있습니다. 이러한 제품은 잠재 고객을 생성하고 사용자와 공유되기는 하지만 구매할 수 없기 때문에 이러한 제품에 대한 주문은 생성되지 않습니다. 제품 목록 유형을 확인하려면 제품 설정 페이지로 이동합니다.
   - question: >
-      I know I have analytics data, so why does the No Analytics Available message appear?
+      분석 데이터가 있는데 사용 가능한 분석 없음 메시지가 표시되는 이유는 무엇인가요?
     answer: >
-      [![No data for your offers yet.](./media/analytics-faq-no-data.png)](./media/analytics-faq-no-data.png#lightbox)
+      [![제품에 대한 데이터가 아직 없습니다.](./media/analytics-faq-no-data.png)](./media/analytics-faq-no-data.png#lightbox)
 
 
-      Why you might be seeing this message:
+      이 메시지가 표시되는 이유는 다음과 같습니다.
 
 
-      - If you're receiving this message, it means you have analytics data but there isn't data for the computation period that you have selected. Select a different computation period or month range to view any data since 2010.
+      - 이 메시지를 수신하는 경우 분석 데이터가 있지만 선택한 계산 기간에 대한 데이터가 없음을 의미합니다. 2010년 이후 데이터를 보려면 다른 계산 기간이나 월 범위를 선택하세요.
 
-      - If you have selected one or more categories from the various dimensions in the filter selection, you may not have analytics data for the selection. Try resetting the filter or make different selections from the filter.
-additionalContent: "\n## Next steps\n\n- For an overview of analytics reports available in Partner Center, see [Access analytics reports for the commercial marketplace in Partner Center](analytics.md).\n- For information about your orders in a graphical and downloadable format, see  [Orders dashboard in commercial marketplace analytics](orders-dashboard.md).\n- For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage dashboard in commercial marketplace analytics](usage-dashboard.md).\n- For detailed information about your customers, including growth trends, see [Customers dashboard in commercial marketplace analytics](customer-dashboard.md).\n- For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](downloads-dashboard.md).\n- To see a consolidated view of customer feedback for offers on Azure Marketplace and Microsoft AppSource, see [Ratings & reviews analytics dashboard in Partner Center](ratings-reviews.md)."
+      - 필터 선택의 여러 차원에서 하나 이상의 범주를 선택한 경우 선택 항목에 대한 분석 데이터가 없을 수 있습니다. 필터를 다시 설정하거나 필터에서 다른 항목을 선택하세요.
+additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\n- 파트너 센터에서 사용할 수 있는 분석 보고서의 개요는 [파트너 센터에서 상업용 Marketplace에 대한 분석 보고서 액세스](analytics.md)를 참조하세요.\n- 다운로드 가능한 그래픽 형식으로 주문 정보를 보려면 [상업용 Marketplace 분석의 주문 대시보드](orders-dashboard.md)를 참조하세요.\n- VM(가상 머신) 제품 사용량 및 요금제 청구 메트릭은 [상업용 Marketplace 분석의 사용량 대시보드](usage-dashboard.md)를 참조하세요.\n- 증가 추세를 비롯한 고객에 대한 자세한 내용은 [상업용 Marketplace 분석의 고객 대시보드](customer-dashboard.md)를 참조하세요.\n- 최근 30일 동안의 다운로드 요청 목록은 [상업용 Marketplace 분석의 다운로드 대시보드](downloads-dashboard.md)를 참조하세요.\n- Azure Marketplace 및 Microsoft AppSource에서 제품에 대한 고객 피드백 통합 보기를 확인하려면 [파트너 센터의 평점 및 리뷰 분석 대시보드](ratings-reviews.md)를 참조하세요."

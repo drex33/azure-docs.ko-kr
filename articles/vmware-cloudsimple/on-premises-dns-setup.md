@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - CloudSimple 프라이빗 클라우드에 대한 DNS 구성
 description: 온-프레미스 워크스테이션에서 CloudSimple 프라이빗 클라우드의 vCenter Server에 액세스하기 위해 DNS 이름 확인을 설정하는 방법을 설명합니다.
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a14d99a81aaad48c8daf0c0bf0d49b3a7e229f3d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b544530ad614e1948287cca540fc81d7a413c971
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128600288"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129616344"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>온-프레미스 워크스테이션에서 프라이빗 클라우드 vCenter의 이름 확인을 위한 DNS 구성
 
@@ -43,7 +43,7 @@ DNS 구성에 대해 이러한 옵션 중 하나를 사용합니다.
 
 구성할 특정 파일 및 매개 변수는 개별 DNS 설정에 따라 달라질 수 있습니다.
 
-예를 들어 기본 BIND 서버 구성의 경우 `/etc/named.conf` DNS 서버에서 파일을 편집하고 다음 영역 정보를 추가합니다.
+예를 들어 기본 바인드 서버 구성의 경우 `/etc/named.conf` DNS 서버의 파일을 편집 하 고 다음 영역 정보를 추가 합니다.
 
 > [!NOTE]
 >이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *slave* 에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.

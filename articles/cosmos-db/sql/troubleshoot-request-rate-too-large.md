@@ -8,12 +8,12 @@ ms.date: 08/25/2021
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 44ecb59508b93347ba57fb40a88c274adfedd320
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 0c8ad195ce2e5288857595b042bb30cf6b5c8a6d
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123434055"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129618421"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-rate-too-large-429-exceptions"></a>Azure Cosmos DB 요청 빈도 너무 높음(429) 예외 진단 및 문제 해결
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -59,20 +59,20 @@ RU/초를 변경하는 작업을 수행하기 전에 빈도 제한의 근본 원
 - 로 분할된 쓰기 작업이 많은 워크로드에 대한 IoT 디바이스 데이터를 저장하는 컨테이너가 `date` 있습니다. 단일 날짜의 모든 데이터는 동일한 논리 및 물리적 파티션에 있습니다. 매일 기록된 모든 데이터에는 동일한 날짜가 있기 때문에 매일 핫 파티션이 발생합니다. 
     - 대신, 이 시나리오의 경우 (GUID 또는 디바이스 ID)와 같은 파티션 키 또는 및 를 `id` 결합하는 [가상 파티션](./synthetic-partition-keys.md) `id` `date` 키는 값의 카디널리티를 높이고 요청 볼륨을 더 잘 배포합니다.
 - 컨테이너가 로 분할된 다중 테넌트 시나리오가 `tenantId` 있습니다. 한 테넌트가 다른 테넌트보다 훨씬 더 활동적이면 핫 파티션이 발생합니다. 예를 들어 가장 큰 테넌트에서 100,000명의 사용자가 있지만 대부분의 테넌트에서 10명 미만의 사용자가 있는 경우 로 분할할 때 핫 파티션이 `tenantID` 있습니다. 
-    - 이 이전 시나리오에서는 와 같은 보다 세분화된 속성으로 분할된 가장 큰 테넌트 전용 컨테이너를 사용하는 것이 `UserId` 좋습니다. 
+    - 이 이전 시나리오에서는 와 같은 보다 세부적인 속성으로 분할된 가장 큰 테넌트 전용 컨테이너를 사용하는 것이 `UserId` 좋습니다. 
     
 #### <a name="how-to-identify-the-hot-partition"></a>핫 파티션을 식별하는 방법
 
 핫 파티션이 있는지 확인하려면 **인사이트** > **처리량** > **PartitionKeyRangeID별 정규화된 RU 사용량(%)** 으로 이동합니다. 특정 데이터베이스 및 컨테이너로 필터링합니다. 
 
-각 PartitionKeyRangeId는 하나의 물리적 파티션에 매핑됩니다. 한 PartitionKeyRangeId가 다른 항목보다 정규화된 RU 사용량이 훨씬 더 높은 경우(예: 한 항목은 일관되게 100%이지만 다른 항목은 30% 이하인 경우) 핫 파티션의 표시일 수 있습니다. [정규화된 RU 사용량 메트릭](../monitor-normalized-request-units.md)에 관해 자세히 알아봅니다.
+각 PartitionKeyRangeId는 하나의 실제 파티션에 매핑됩니다. 한 PartitionKeyRangeId가 다른 항목보다 정규화된 RU 사용량이 훨씬 더 높은 경우(예: 한 항목은 일관되게 100%이지만 다른 항목은 30% 이하인 경우) 핫 파티션의 표시일 수 있습니다. [정규화된 RU 사용량 메트릭](../monitor-normalized-request-units.md)에 관해 자세히 알아봅니다.
 
 :::image type="content" source="media/troubleshoot-request-rate-too-large/split-norm-utilization-by-pkrange-hot-partition.png" alt-text="핫 파티션이 있는 PartitionKeyRangeId별 정규화된 RU 사용량 차트":::
 
 가장 많은 RU/초를 사용하는 논리 파티션 키를 확인하려면 [Azure 진단 로그](../cosmosdb-monitor-resource-logs.md)를 사용합니다. 이 샘플 쿼리는 각 논리 파티션 키에서 초당 사용되는 총 요청 단위의 합계를 계산합니다. 
 
 > [!IMPORTANT]
-> 진단 로그를 사용하면 수집된 데이터 볼륨에 따라 요금이 청구되는 Log Analytics 서비스에 대한 별도 요금이 발생합니다. 디버깅을 위해 제한된 시간 동안 진단 로그를 켜고 더 이상 필요하지 않은 경우 끄는 것이 좋습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)를 참조하세요.
+> 진단 로그를 사용하도록 설정하면 수집된 데이터의 양에 따라 청구되는 Log Analytics 서비스에 대한 별도의 요금이 발생합니다. 디버깅을 위해 제한된 시간 동안 진단 로그를 켜고 더 이상 필요하지 않은 경우 끄는 것이 좋습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)를 참조하세요.
 
 ```kusto
 AzureDiagnostics
@@ -152,7 +152,7 @@ AzureDiagnostics
 #### <a name="recommended-solution"></a>권장된 솔루션
 - 애플리케이션이 메타데이터 작업을 수행해야 하는 경우에는 요청을 더 낮은 빈도로 전송하는 백오프 정책을 구현하는 것이 좋습니다. 
 
-- 정적 Cosmos DB 클라이언트 인스턴스 사용 DocumentClient 또는 CosmosClient가 초기화되면 Cosmos DB SDK는 일관성 수준, 데이터베이스, 컨테이너, 파티션, 제안에 관한 정보를 포함하여 계정에 관한 메타데이터를 가져옵니다. 이 초기화는 많은 수의 RU를 사용할 수 있으며 드물게 수행해야 합니다. 단일 DocumentClient 인스턴스를 사용하며 애플리케이션의 수명에 대해 사용합니다.
+- 정적 Cosmos DB 클라이언트 인스턴스 사용 documentclient 또는 CosmosClient가 초기화 되 면 Cosmos DB SDK는 일관성 수준, 데이터베이스, 컨테이너, 파티션 및 제안에 대 한 정보를 포함 하 여 계정에 대 한 메타 데이터를 가져옵니다. 이 초기화는 많은 수의 RU를 사용할 수 있으며 드물게 수행해야 합니다. 단일 DocumentClient 인스턴스를 사용하며 애플리케이션의 수명에 대해 사용합니다.
 
 - 데이터베이스 및 컨테이너의 이름을 캐시합니다. 구성에서 데이터베이스 및 컨테이너의 이름을 검색하거나 시작할 때 이름을 캐시합니다. ReadDatabaseAsync/ReadDocumentCollectionAsync 또는 CreateDatabaseQuery/CreateDocumentCollectionQuery 같은 호출은 시스템 예약 RU 제한에서 사용되는 서비스에 대한 메타데이터 호출을 생성합니다. 이 작업은 자주 수행되지 않습니다.
 

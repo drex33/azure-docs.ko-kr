@@ -3,20 +3,20 @@ title: 자습서 - Azure Portal을 사용하여 새 정책 할당
 description: 이 자습서에서는 Azure Portal을 사용하여 비규격 리소스를 식별하는 Azure Policy 할당을 만듭니다.
 ms.topic: tutorial
 ms.date: 04/21/2021
-ms.openlocfilehash: be7752b5ccf73269b1e4715fc05c85162b4ea546
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: e1d131c6419fcc0bed866a3334a065e46e399c78
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770346"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124807507"
 ---
 # <a name="tutorial-create-a-policy-assignment-to-identify-non-compliant-resources"></a>자습서: 비준수 리소스를 식별하는 정책 할당 만들기
 
-Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 식별하는 것입니다. Azure Policy에서는 게스트 구성 정책을 사용하여 Arc 지원 서버의 상태를 감사할 수 있습니다. Azure Policy의 게스트 구성 정의는 머신 내에서 설정을 감사하거나 적용할 수 있습니다. 이 자습서에서는 Arc 지원 서버 중 Log Analytics 에이전트가 설치되지 않은 서버를 식별하는 정책을 만들고 할당하는 프로세스를 단계별로 안내합니다.
+Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 식별하는 것입니다. Azure Policy에서는 게스트 구성 정책을 사용하여 Azure Arc 지원 서버의 상태를 감사할 수 있습니다. Azure Policy의 게스트 구성 정의는 머신 내에서 설정을 감사하거나 적용할 수 있습니다. 이 자습서에서는 Azure Arc 지원 서버 중 Log Analytics 에이전트가 설치되지 않은 서버를 식별하는 정책을 만들고 할당하는 프로세스를 단계별로 안내합니다.
 
 이 프로세스가 끝나면 Windows 또는 Linux용 Log Analytics 에이전트가 설치되지 않은 머신을 성공적으로 식별할 수 있습니다. 이 가상 머신은 정책 할당을 _비준수_ 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 

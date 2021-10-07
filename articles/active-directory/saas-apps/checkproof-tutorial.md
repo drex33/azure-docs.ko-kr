@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/06/2021
+ms.date: 08/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 1d6e1c99bd70cedd678cbf3dcef4ef66a594d969
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 631d65b7119d071961b6fd48bd13e152ac7f2321
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121728425"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128661548"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-checkproof"></a>자습서: CheckProof와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -38,6 +38,7 @@ ms.locfileid: "121728425"
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 * CheckProof는 **IDP** 시작 SSO를 지원합니다.
+* CheckProof는 [자동화된 사용자 프로비저닝](checkproof-provisioning-tutorial.md)을 지원합니다.
 
 ## <a name="add-checkproof-from-the-gallery"></a>갤러리에서 CheckProof 추가
 
@@ -97,7 +98,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -135,13 +136,16 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![CheckProof 사용자 만들기 페이지](./media/checkproof-tutorial/user.png)
 
+> [!NOTE]
+>CheckProof는 자동 사용자 프로비저닝도 지원합니다. 자동 사용자 프로비저닝 구성 방법에 대한 자세한 내용은 [여기](./checkproof-provisioning-tutorial.md)에서 제공합니다.
+
 ## <a name="test-sso"></a>SSO 테스트 
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 * Azure Portal에서 이 애플리케이션 테스트를 클릭하면 SSO를 설정한 CheckProof에 자동으로 로그인됩니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 CheckProof 타일을 클릭하면 SSO를 설정한 CheckProof에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 CheckProof 타일을 클릭하면 SSO를 설정한 CheckProof에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

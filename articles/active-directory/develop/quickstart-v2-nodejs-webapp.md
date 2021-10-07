@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: f7f14b91dc69eeba4ac06f6608f6151634dc38d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 26e0ae48c65953312757eb7ac4d6cb51ba2a44c5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100103501"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590084"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>빠른 시작: OpenID Connect를 사용하여 Node.js 웹앱에 로그인 추가
 
 이 빠른 시작에서는 Express와 함께 Node.js를 사용하여 빌드된 웹 애플리케이션에서 OpenID Connect 인증을 설정하는 방법을 보여주는 코드 샘플을 다운로드하고 실행합니다. 샘플은 모든 플랫폼에서 실행되도록 설계되었습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/en/download/).
@@ -31,7 +31,7 @@ ms.locfileid: "100103501"
 ## <a name="register-your-application"></a>애플리케이션 등록
 
 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
-1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트로 전환합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
 1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `MyWebApp`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.

@@ -1,16 +1,17 @@
 ---
-title: Azure CLI 샘플 - Azure Functions
-description: Azure CLI 샘플 - Azure Functions
+title: Azure Functions용 Azure CLI 샘플 | Microsoft Docs
+description: Azure CLI를 사용하는 Azure Functions용 bash 스크립트에 대한 링크를 찾습니다. 통합 및 배포를 허용하는 함수 앱을 만드는 방법에 대해 알아봅니다.
 ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
 ms.topic: sample
-ms.date: 01/09/2018
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 619e974240b19465d50e394f87a7476efec41e45
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/17/2021
+ms.custom: mvc, devx-track-azurecli, seo-azure-cli
+keywords: functions, azure cli 샘플, azure cli 예제, azure cli 코드 샘플
+ms.openlocfilehash: 8f6f5e45be61746cf33bf79e144403631892da9d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87504503"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128618707"
 ---
 # <a name="azure-cli-samples"></a>Azure CLI 샘플
 

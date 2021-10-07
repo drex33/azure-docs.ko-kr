@@ -8,12 +8,12 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: f7bd58361a4943ce295ab0f0b78f386079f0bba6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 34484c501a95379194ad2147fbcb553bf3f06980
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128577864"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129277692"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 소개
 
@@ -70,7 +70,7 @@ Data Lake Storage Gen2는 Azure Blob Storage를 기준으로 빌드되므로 여
 
 ## <a name="supported-blob-storage-features"></a>지원되는 Blob Storage 기능
 
-[진단 로깅](../common/storage-analytics-logging.md), [액세스 계층](storage-blob-storage-tiers.md), [Blob Storage 수명 주기 관리 정책](./lifecycle-management-overview.md)과 같은 Blob Storage 기능을 계정에서 사용할 수 있습니다. 대부분의 Blob Storage 기능은 완전히 지원되지만 일부 기능은 미리 보기 수준에서만 지원되거나 아직 지원되지 않습니다.
+[진단 로깅](../common/storage-analytics-logging.md), [액세스 계층](access-tiers-overview.md), [Blob Storage 수명 주기 관리 정책](./lifecycle-management-overview.md)과 같은 Blob Storage 기능을 계정에서 사용할 수 있습니다. 대부분의 Blob Storage 기능은 완전히 지원되지만 일부 기능은 미리 보기 수준에서만 지원되거나 아직 지원되지 않습니다.
 
 Data Lake Storage Gen2에서 각 Blob Storage 기능이 어떻게 지원되는지 확인하려면 [Azure Storage 계정의 Blob Storage 기능 지원](storage-feature-support-in-storage-accounts.md)을 참조하세요.
 

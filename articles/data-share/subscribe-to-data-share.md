@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 03/24/2021
-ms.openlocfilehash: d063a0870616b5b977df18c56d9d66515b03d0a5
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.date: 09/10/2021
+ms.openlocfilehash: 035b6c9b12df69395409c1c0aa70be219bc2533e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107870862"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124760197"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>자습서: Azure Data Share를 사용하여 데이터 수락 및 받기  
 
@@ -94,9 +94,11 @@ Azure SQL Database, Azure Synapse Analytics로 데이터를 받도록 선택하�
 
    Azure Portal에서 직접 초대를 열려면 Azure Portal에서 **데이터 공유 초대** 를 검색합니다. 이 작업을 수행하면 Data Share 초대 목록으로 이동됩니다.
 
+   테넌트의 게스트 사용자인 경우 처음으로 Data Share 초대를 보기 전에 테넌트 이메일 주소를 확인하라는 메시지가 표시됩니다. 확인되면 12개월 동안 유효합니다.
+
    ![초대 목록](./media/invitations.png "초대 목록") 
 
-1. 확인하려는 공유를 선택합니다. 
+1. 확인하려는 초대를 선택합니다. 
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

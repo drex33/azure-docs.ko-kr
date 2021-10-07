@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 03/02/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: 08e9b63c8ec56ddba1899372d0d6b1d2c8bc423f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2fcaaf038ec7a619ec36a68fdd720ac7599da25f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121786364"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128649722"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>Azure Cosmos DB의 API for MongoDB(3.6 버전): 지원되는 기능 및 구문
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -295,9 +295,9 @@ Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령
 | $dateToString | 예 |
 | $isoDayOfWeek | 예 |
 | $isoWeek | 예 |
-| $dateFromParts | 예 | 
-| $dateToParts | 예 |
-| $dateFromString | 예 |
+| $dateFromParts | Yes | 
+| $dateToParts | Yes |
+| $dateFromString | Yes |
 | $isoWeekYear | 예 |
 
 ### <a name="conditional-expressions"></a>조건부 식
@@ -417,7 +417,7 @@ $regex 쿼리에서 왼쪽에 고정된 식은 인덱스 검색을 허용합니�
 
 ‘$’ 또는 ‘|’을 포함해야 하는 경우 두 개 이상의 정규식 쿼리를 만드는 것이 가장 좋습니다. 예를 들어, 다음 원래 쿼리가 ```find({x:{$regex: /^abc$/})```인 경우 이를 다음과 같이 수정해야 합니다.
 
-```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```
+`find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})`
 
 첫 번째 부분은 인덱스를 사용하여 ^abc로 시작하는 문서로 검색을 제한하며, 두 번째 부분은 정확한 항목의 일치를 확인합니다. 막대 연산자 ‘|’는 “or” 함수 역할을 하고, ```find({x:{$regex: /^abc |^def/})``` 쿼리는 ‘x’ 필드에 “abc” 또는 “def”로 시작하는 값이 있는 문서를 일치하는 항목으로 검색합니다. 인덱스를 사용하려면 쿼리를 $or 연산자 ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```에 의해 조인된 두 개의 서로 다른 쿼리로 나누는 것이 좋습니다.
 
@@ -513,34 +513,8 @@ $polygon | No |
 
 `findOneAndUpdate` 작업을 사용할 경우 단일 필드에 대한 정렬 작업이 지원되지만 여러 필드에 대한 정렬 작업은 지원되지 않습니다.
 
-## <a name="unique-indexes"></a>고유 인덱스
-
-[고유 인덱스](mongodb-indexing.md#unique-indexes)를 사용하면 컬렉션의 모든 문서에서 특정 필드에 중복된 값이 나타나지 않으며, 이는 기본 "_id" 키에서 고유성이 유지되는 방식과 유사합니다. `createIndex` 명령을 `unique` 제약 조건 매개 변수와 함께 사용하여 Cosmos DB에서 고유 인덱스를 만들 수 있습니다.
-
-```javascript
-globaldb:PRIMARY> db.coll.createIndex( { "amount" : 1 }, {unique:true} )
-{
-        "_t" : "CreateIndexesResponse",
-        "ok" : 1,
-        "createdCollectionAutomatically" : false,
-        "numIndexesBefore" : 1,
-        "numIndexesAfter" : 4
-}
-```
-
-## <a name="compound-indexes"></a>복합 인덱스
-
-[복합 인덱스](mongodb-indexing.md#compound-indexes-mongodb-server-version-36)를 사용하면 필드 그룹에 대한 인덱스를 최대 8개까지 만들 수 있습니다. 이 유형의 인덱스는 기본 MongoDB 복합 인덱스와 다릅니다. Azure Cosmos DB 복합 인덱스는 여러 필드에 적용되는 정렬 작업에 사용됩니다. 복합 인덱스를 만들려면 두 개 이상의 속성을 매개 변수로 지정해야 합니다.
-
-```javascript
-globaldb:PRIMARY> db.coll.createIndex({"amount": 1, "other":1})
-{
-        "createdCollectionAutomatically" : false, 
-        "numIndexesBefore" : 1,
-        "numIndexesAfter" : 2,
-        "ok" : 1
-}
-```
+## <a name="indexing"></a>인덱싱
+API for MongoDB는 여러 필드를 기준으로 정렬하고, 쿼리 성능을 향상시키고, 고유성을 적용할 수 있도록 [다양한 인덱스를 지원](mongodb-indexing.md)합니다.
 
 ## <a name="gridfs"></a>GridFS
 
@@ -549,10 +523,6 @@ Azure Cosmos DB는 GridFS 호환 MongoDB 드라이버를 통해 GridFS를 지원
 ## <a name="replication"></a>복제
 
 Cosmos DB는 가장 낮은 계층에서 자동 네이티브 복제를 지원합니다. 이 논리는 또한 짧은 대기 시간, 글로벌 복제를 달성하기 위해 확장됩니다. Cosmos DB는 수동 복제 명령을 지원하지 않습니다.
-
-
-
-
 
 ## <a name="retryable-writes"></a>다시 시도 가능한 쓰기
 

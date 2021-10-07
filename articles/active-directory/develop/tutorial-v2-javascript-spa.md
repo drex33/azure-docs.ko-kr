@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/06/2020
+ms.date: 09/09/2021
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 6d900cafff52ec42a11a0a8537ed1e878a59944a
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 77e1a54bcd863261e7575a818f5ba5ed75198a63
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113356548"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129229642"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>자습서: JavaScript SPA(단일 페이지 애플리케이션)에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -266,7 +266,7 @@ ms.locfileid: "113356548"
 인증을 계속 진행하기 전에 애플리케이션을 **Azure Active Directory** 에 등록합니다.
 
 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
-1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트로 전환합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
 1. 애플리케이션의 **이름** 을 입력합니다. 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
@@ -298,7 +298,7 @@ ms.locfileid: "113356548"
   const msalConfig = {
     auth: {
       clientId: "Enter_the_Application_Id_Here",
-      authority: "Enter_the_Cloud_Instance_Id_HereEnter_the_Tenant_Info_Here",
+      authority: "Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here",
       redirectUri: "Enter_the_Redirect_Uri_Here",
     },
     cache: {
@@ -318,13 +318,14 @@ ms.locfileid: "113356548"
   };
 ```
 
- 위치:
- - *\<Enter_the_Application_Id_Here>* 는 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 입니다.
- - *\<Enter_the_Cloud_Instance_Id_Here>* 는 Azure 클라우드의 인스턴스입니다. 주 또는 글로벌 Azure 클라우드의 경우 *https://login.microsoftonline.com* 을 입력하면 됩니다. **국가별** 클라우드(예제: 중국)의 경우 [국가별 클라우드](./authentication-national-cloud.md)를 참조하세요.
- - *\<Enter_the_Tenant_info_here>* 는 다음 옵션 중 하나로 설정됩니다.
-   - 애플리케이션이 *이 조직 디렉터리의 계정* 을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: *contoso.microsoft.com*)으로 바꿉니다.
-   - 애플리케이션이 *모든 조직 디렉터리의 계정* 을 지원하는 경우 이 값을 **organizations** 으로 바꿉니다.
-   - 애플리케이션에서 *모든 조직 디렉터리의 계정 및 개인 Microsoft 계정* 을 지원하는 경우 이 값을 **common** 으로 바꿉니다. *개인 Microsoft 계정만* 지원하도록 제한하려면 이 값을 **consumers** 로 바꿉니다.
+여기에 설명한 대로 `msalConfig` 섹션에서 값을 수정합니다.
+
+- *\<Enter_the_Application_Id_Here>* 는 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 입니다.
+- *\<Enter_the_Cloud_Instance_Id_Here>* 는 Azure 클라우드의 인스턴스입니다. 기본 또는 글로벌 Azure 클라우드의 경우 *https://login.microsoftonline.com* 을 입력합니다. **국가별** 클라우드(예제: 중국)의 경우 [국가별 클라우드](./authentication-national-cloud.md)를 참조하세요.
+- *\<Enter_the_Tenant_info_here>* 를 다음 옵션 중 하나로 설정합니다.
+  - 애플리케이션이 *이 조직 디렉터리의 계정* 을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: *contoso.microsoft.com*)으로 바꿉니다.
+  - 애플리케이션이 *모든 조직 디렉터리의 계정* 을 지원하는 경우 이 값을 **organizations** 으로 바꿉니다.
+  - 애플리케이션에서 *모든 조직 디렉터리의 계정 및 개인 Microsoft 계정* 을 지원하는 경우 이 값을 **common** 으로 바꿉니다. *개인 Microsoft 계정만* 지원하도록 제한하려면 이 값을 **consumers** 로 바꿉니다.
 
 
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>사용자 로그인에 MSAL(Microsoft 인증 라이브러리) 사용

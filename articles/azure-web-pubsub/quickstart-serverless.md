@@ -6,12 +6,12 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 03/11/2021
-ms.openlocfilehash: e4dd54ef01cf93ffa0bb47d4bbdccb1d14695934
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 787a0e4990988f35ca8e2c98eab1d9c77bea9c1b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123434954"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128576356"
 ---
 # <a name="tutorial-create-a-serverless-real-time-chat-app-with-azure-functions-and-azure-web-pubsub-service"></a>자습서: Azure Functions 및 Azure Web PubSub 서비스를 사용하여 서버리스 실시간 채팅 앱 만들기
 
@@ -151,7 +151,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
     func new -n negotiate -t HttpTrigger
     ```
     > [!NOTE]
-    > 이 샘플에서는 [AAD](/azure/app-service/configure-authentication-user-identities) 사용자 ID 헤더(`x-ms-client-principal-name`)를 사용하여 `userId`를 검색합니다. 그리고 이는 로컬 함수에서 작동하지 않습니다. 비워두거나, 로컬로 재생할 때 `userId`를 가져오거나 생성하는 다른 방법으로 변경할 수 있습니다. 예를 들어 클라이언트에서 사용자 이름을 입력하고, `negotiate` 함수를 호출하여 서비스 연결 URL을 가져올 때 `?user={$username}`과 같은 쿼리에 해당 사용자 이름을 전달할 수 있습니다. 그리고 `negotiate` 함수에서 `userId`를 `{query.user}` 값으로 설정합니다.
+    > 이 샘플에서는 [AAD](../app-service/configure-authentication-user-identities.md) 사용자 ID 헤더(`x-ms-client-principal-name`)를 사용하여 `userId`를 검색합니다. 그리고 이는 로컬 함수에서 작동하지 않습니다. 비워두거나, 로컬로 재생할 때 `userId`를 가져오거나 생성하는 다른 방법으로 변경할 수 있습니다. 예를 들어 클라이언트에서 사용자 이름을 입력하고, `negotiate` 함수를 호출하여 서비스 연결 URL을 가져올 때 `?user={$username}`과 같은 쿼리에 해당 사용자 이름을 전달할 수 있습니다. 그리고 `negotiate` 함수에서 `userId`를 `{query.user}` 값으로 설정합니다.
     
     # <a name="javascript"></a>[JavaScript](#tab/javascript)
    - `negotiate/function.json`을 업데이트하고 다음 json 코드를 복사합니다.
@@ -374,14 +374,14 @@ Use the following commands to create these items.
 
 1. 함수 프로젝트를 Azure에 배포합니다.
 
-    Azure에서 함수 앱을 성공적으로 만들었으면 이제 [func azure functionapp publish](/azure-functions/functions-run-local) 명령을 사용하여 로컬 함수 프로젝트를 배포할 준비가 되었습니다.
+    Azure에서 함수 앱을 성공적으로 만들었으면 이제 [func azure functionapp publish](./../azure-functions/functions-run-local.md) 명령을 사용하여 로컬 함수 프로젝트를 배포할 준비가 되었습니다.
 
     ```bash
-    func azure functionapp publish <FUNCIONAPP_NAME> --publish-local-settings
+    func azure functionapp publish <FUNCIONAPP_NAME>
     ```
+1. 함수 앱의 `WebPubSubConnectionString`을 구성합니다.
 
-    > [!NOTE]
-    > 여기서는 로컬 설정(`local.settings.json`)을 명령 매개 변수(`--publish-local-settings`)와 함께 배포합니다. Microsoft Azure Storage 에뮬레이터를 사용하는 경우 프롬프트 메시지(`App setting AzureWebJobsStorage is different between azure and local.settings.json, Would you like to overwrite value in azure? [yes/no/show]`)에 따라 Azure에서 이 값의 덮어쓰기를 건너뛰려면 `no`를 입력할 수 있습니다. 또한 **Azure Portal** -> **설정** -> **구성** 에서 함수 앱 설정을 업데이트할 수 있습니다.
+   먼저 **Azure Portal** 에서 Web PubSub 리소스를 찾고 **키** 아래에 있는 연결 문자열을 복사합니다. 그런 다음, **Azure Portal** -> **설정** -> **구성** 에서 함수 앱 설정으로 이동합니다. 그리고 **애플리케이션 설정** 에 이름이 `WebPubSubConnectionString`이며 값은 Web PubSub 리소스 연결 문자열인 새 항목을 추가합니다.
 
 ## <a name="configure-the-web-pubsub-service-event-handler"></a>`Event Handler` Web PubSub 서비스 구성
 
@@ -409,10 +409,10 @@ Azure Web PubSub 서비스에 `Event Handler`를 설정합니다. **Azure Portal
 
 여기서는 `negotiate` 함수에서 `x-ms-client-principal-name`을 `userId`로 사용할 ID 공급자로 `Microsoft`를 선택합니다. 또한 아래 링크에 따라 다른 ID 공급자를 구성할 수 있으며, 이에 따라 `negotiate` 함수에서 `userId` 값을 업데이트해야 합니다.
 
-* [Microsoft(Azure AD)](/azure/app-service/configure-authentication-provider-aad)
-* [Facebook](/azure/app-service/configure-authentication-provider-facebook)
-* [Google](/azure/app-service/configure-authentication-provider-google)
-* [Twitter](/azure/app-service/configure-authentication-provider-twitter)
+* [Microsoft(Azure AD)](../app-service/configure-authentication-provider-aad.md)
+* [Facebook](../app-service/configure-authentication-provider-facebook.md)
+* [Google](../app-service/configure-authentication-provider-google.md)
+* [Twitter](../app-service/configure-authentication-provider-twitter.md)
 
 ## <a name="try-the-application"></a>애플리케이션 사용해 보기
 

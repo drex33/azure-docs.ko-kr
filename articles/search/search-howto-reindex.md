@@ -7,15 +7,15 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/18/2020
-ms.openlocfilehash: 47e9b80bb25b7ff14695cc67682265fe338ff76f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 10/06/2021
+ms.openlocfilehash: 1f457f4b86a4f0d6b535b00c45042d5e70a49d2d
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98119104"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129614292"
 ---
-# <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Azure Cognitive Search의 인덱스를 다시 빌드하는 방법
+# <a name="rebuild-an-index-in-azure-cognitive-search"></a>Azure Cognitive Search 인덱스 다시 작성
 
 이 문서에서는 Azure Cognitive Search 인덱스를 다시 빌드하는 방법, 다시 빌드가 필요한 상황 및 지속적인 쿼리 요청에 다시 빌드가 미치는 영향을 완화하기 위한 권장 사항을 설명합니다.
 

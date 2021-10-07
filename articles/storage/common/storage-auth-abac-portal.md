@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.author: rolyon
 ms.reviewer: ''
 ms.subservice: common
-ms.date: 05/06/2021
-ms.openlocfilehash: 3e5e46e15a7885eb5e3f4828cb8298355a116fd8
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.date: 09/24/2021
+ms.openlocfilehash: 0ab670b9ef6309b8db01f4a53f41c703dea69423
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112300492"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092284"
 ---
 # <a name="tutorial-add-a-role-assignment-condition-to-restrict-access-to-blobs-using-the-azure-portal-preview"></a>자습서: Azure Portal을 사용하여 BLOB에 대한 액세스를 제한하는 역할 할당 조건 추가(미리 보기)
 
@@ -29,10 +29,10 @@ ms.locfileid: "112300492"
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * 역할 할당에 조건 추가
-> * BLOB 인덱스 태그를 기반으로 BLOB에 대한 액세스 제한
+> - 역할 할당에 조건 추가
+> - BLOB 인덱스 태그를 기반으로 BLOB에 대한 액세스 제한
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 역할 할당 조건을 추가하거나 편집하기 위한 사전 요구 사항은 [조건 및 사전 요구 사항](../../role-based-access-control/conditions-prerequisites.md)을 참조하세요.
 
@@ -67,7 +67,7 @@ Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스�
 1. 구독 소유자로 Azure Portal에 로그인합니다.
 
 1. **Azure Active Directory** 를 클릭합니다.
-    
+
 1. 사용자를 만들거나 기존 사용자를 찾습니다. 이 자습서에서는 Chandra를 예제로 사용합니다.
 
 ## <a name="step-2-set-up-storage"></a>2단계: 스토리지 설정
@@ -87,7 +87,7 @@ Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스�
     BLOB 인덱스 태그 섹션이 표시되지 않고 구독을 방금 등록한 경우 변경 내용이 전파될 때까지 몇 분 정도 기다려야 합니다. 자세한 내용은 [BLOB 인덱스 태그(미리 보기)를 사용하여 Azure Blob Storage 데이터 관리 및 찾기](../blobs/storage-blob-index-how-to.md)를 참조하세요.
 
     > [!NOTE]
-    > BLOB은 임의의 사용자 정의 키 값 메타데이터를 저장하는 기능을 지원합니다. 메타데이터는 BLOB 인덱스 태그와 유사하지만 조건으로 BLOB 인덱스 태그를 사용해야 합니다. 
+    > BLOB은 임의의 사용자 정의 키 값 메타데이터를 저장하는 기능을 지원합니다. 메타데이터는 Blob 인덱스 태그와 유사하지만 조건으로 Blob 인덱스 태그를 사용해야 합니다.
 
     | 키 | 값 |
     | --- | --- |
@@ -133,7 +133,7 @@ Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스�
 
 ## <a name="step-4-add-a-condition"></a>4단계: 조건 추가
 
-1. **조건** 탭에서 **조건 추가** 를 클릭합니다.
+1. **조건(옵션)** 탭에서 **조건 추가** 를 클릭합니다.
 
     ![새 조건에 대한 역할 할당 조건 추가 페이지의 스크린샷](./media/storage-auth-abac-portal/condition-add-new.png)
 
@@ -141,7 +141,7 @@ Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스�
 
 1. 작업 추가 섹션에서 **작업 선택** 을 클릭합니다.
 
-    작업 선택 창이 표시됩니다. 이 창은 조건 대상이 될 역할 할당을 기준으로 데이터 작업을 필터링한 목록입니다. 
+    작업 선택 창이 표시됩니다. 이 창은 조건 대상이 될 역할 할당을 기준으로 데이터 작업을 필터링한 목록입니다.
 
     ![선택한 작업이 있는 작업 선택 창의 스크린샷](./media/storage-auth-abac-portal/condition-actions-select.png)
 
@@ -213,7 +213,7 @@ Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스�
     ```
 
     다음은 출력 예제입니다. 추가한 조건으로 인해 파일을 읽을 수 **없습니다.**
-    
+
     ```azurepowershell
     Get-AzStorageBlob: This request is not authorized to perform this operation using this permission. HTTP Status Code: 403 - HTTP Error Message: This request is not authorized to perform this operation using this permission.
     ErrorCode: AuthorizationPermissionMismatch
@@ -221,7 +221,7 @@ Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스�
     RequestId: <requestId>
     Time: Sun, 13 Sep 2020 12:33:42 GMT
     ```
-    
+
 1. Cascade 프로젝트의 파일을 읽습니다.
 
     ```azurepowershell
@@ -229,10 +229,10 @@ Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스�
     ```
 
     다음은 출력 예제입니다. Project=Cascade 태그가 있으므로 파일을 읽을 수 있습니다.
-    
+
     ```azurepowershell
        AccountName: <storageAccountName>, ContainerName: <containerName>
-    
+
     Name                 BlobType  Length          ContentType                    LastModified         AccessTier SnapshotT
                                                                                                                   ime
     ----                 --------  ------          -----------                    ------------         ---------- ---------

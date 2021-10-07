@@ -8,17 +8,17 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 09/10/2020
-ms.openlocfilehash: a5050958f01743ff3c6fdcdecfee3067b1d2073e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 10/06/2021
+ms.openlocfilehash: 6dddc7e5a2492aeaf0c15c954f685e10ce475fa7
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98934265"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612943"
 ---
 # <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Azure Cognitive Search 서비스를 다른 Azure 지역으로 이동
 
-때때로 고객이 검색 서비스를 다른 지역으로 이동하는 것에 대해 문의합니다. 현재는 해당 작업에 도움이 되는 기본 제공 메커니즘 또는 도구가 없지만 이 문서는 동일한 결과를 얻기 위한 수동 단계를 이해하는 데 도움이 될 수 있습니다.
+때때로 고객이 검색 서비스를 다른 지역으로 이동하는 것에 대해 문의합니다. 현재는 해당 작업에 도움이 되는 기본 제공 메커니즘 또는 도구가 없지만이 문서는 다른 지역의 새 검색 서비스에서 인덱스 및 기타 개체를 다시 만드는 수동 단계를 이해 하는 데 도움이 될 수 있습니다.
 
 > [!NOTE]
 > Azure Portal에서 모든 서비스에는 **템플릿 내보내기** 명령이 있습니다. Azure Cognitive Search의 경우 이 명령은 서비스의 기본 정의(이름, 위치, 계층, 복제본 및 파티션 수)를 생성하지만 서비스의 콘텐츠를 인식하지 않으며 키, 역할 또는 로그를 전달하지 않습니다. 명령이 존재하지만 검색 서비스를 이동하는 데 사용하지 않는 것이 좋습니다.

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/02/2021
-ms.openlocfilehash: acad54727ecb441cce64021ecba395d41820659a
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: a19fd4aad4ee8e5bac7dc7cde2a5be4609a346fc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123535271"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124796574"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>REST 및 Postman을 사용하여 지식 저장소 만들기
 
@@ -380,7 +380,7 @@ Azure Portal에서 Azure Storage 계정으로 전환하고, **Storage Explorer**
 
    :::image type="content" source="media/knowledge-store-create-rest/knowledge-store-tables.png" alt-text="Storage Explorer의 지식 저장소 테이블에 대한 스크린샷" border="true":::
 
-이 연습에서 지식 저장소는 테이블을 셰이핑하고 구조화하는 다양한 방법을 보여주는 다양한 테이블로 구성됩니다. 첫 번째 세트의 세 테이블은 Shaper 기술의 출력을 사용하여 열과 행을 결정하는 테이블을 보여 줍니다. 두 번째 세트의 세 테이블은 프로젝션 자체에 포함된 인라인 셰이핑 명령을 보여 줍니다. 두 방법 중 하나를 사용하여 동일한 결과를 얻을 수 있습니다.
+이 연습에서 지식 저장소는 테이블을 셰이핑하고 구조화하는 다양한 방법을 보여주는 다양한 테이블로 구성됩니다. 1~3 테이블은 Shaper 기술의 출력을 사용하여 열과 행을 결정합니다. 4~6 테이블은 프로젝션 자체 내에 포함된 인라인 모양 지정 명령에서 생성됩니다. 두 방법 중 하나를 사용하여 동일한 결과를 얻을 수 있습니다.
 
 | 테이블 | Description |
 |-------|-------------|

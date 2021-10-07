@@ -1,7 +1,6 @@
 ---
 title: 자습서 - Python에서 가상 머신이 있는 Azure Key Vault 사용 | Microsoft Docs
 description: 이 자습서에서는 Key Vault에서 비밀을 읽도록 가상 머신을 Python 애플리케이션으로 구성합니다.
-services: key-vault
 author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
@@ -9,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 25182105db831724565c6bf3dbbbb79832b677f7
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 463474d13f0df50aebd775e119918e0db7ad65c2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772063"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597319"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-python"></a>자습서: Python에서 가상 머신이 있는 Azure Key Vault 사용
 
@@ -109,7 +108,7 @@ az keyvault set-policy --name "<your-unique-keyvault-name>" --object-id "<system
 가상 머신에 로그인하려면 [Linux를 실행하는 Azure 가상 머신에 연결 및 로그인](../../virtual-machines/linux/login-using-aad.md) 또는 [Windows를 실행하는 Azure 가상 머신에 연결 및 로그인](../../virtual-machines/windows/connect-logon.md)의 지침을 따르세요.
 
 
-Linux VM에 로그인하려면 다음과 같이 [가상 머신 만들기](#create-a-virtual-machine) 단계에서 지정한 "<publicIpAddress>"와 함께 ssh 명령을 사용하면 됩니다.
+Linux VM에 로그인하려면 다음과 같이 [가상 머신 만들기](#create-a-virtual-machine) 단계에서 지정한 \<publicIpAddress\>와 함께 ssh 명령을 사용하면 됩니다.
 
 ```terminal
 ssh azureuser@<PublicIpAddress>
@@ -129,7 +128,7 @@ pip3 install azure.identity
 
 ## <a name="create-and-edit-the-sample-python-script"></a>샘플 Python 스크립트 만들기 및 편집
 
-가상 머신에서 **sample.py** 라고 하는 Python 파일을 만듭니다. 다음 코드를 포함하도록 파일을 편집하고, "<your-unique-keyvault-name>"을 키 자격 증명 모음의 이름으로 바꿉니다.
+가상 머신에서 **sample.py** 라고 하는 Python 파일을 만듭니다. 다음 코드를 포함하도록 파일을 편집하고 \<your-unique-keyvault-name\>을 키 자격 증명 모음의 이름으로 바꿉니다.
 
 ```python
 from azure.keyvault.secrets import SecretClient

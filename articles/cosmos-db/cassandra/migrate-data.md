@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7cf1a8f329ff735e9c82ca6361bedbcb8e25f4ac
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 937a42d6ebdf3d2ccb87451a2db07df199655005
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121786316"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128586782"
 ---
 # <a name="tutorial-migrate-your-data-to-a-cassandra-api-account"></a>자습서: Cassandra API 계정으로 데이터 마이그레이션
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
@@ -77,7 +77,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 [CQL COPY 명령](https://cassandra.apache.org/doc/latest/cassandra/tools/cqlsh.html#cqlshrc)을 사용하여 로컬 데이터를 Azure Cosmos DB의 Cassandra API 계정으로 복사합니다.
 
-1. Cassandra API 계정의 연결 문자열 정보를 확보합니다.
+1. csv 파일에 올바른 파일 구조가 포함되어 있는지 확인하려면 `COPY TO` 명령을 사용하여 데이터를 원본 Cassandra 테이블에서 csv 파일로 직접 내보냅니다(cqlsh가 적절한 자격 증명을 사용하여 원본 테이블에 연결되어 있는지 확인).
+
+   ```bash
+   COPY exampleks.tablename TO 'data.csv' WITH HEADER = TRUE;   
+   ```
+
+1. 이제 Cassandra API 계정의 연결 문자열 정보를 가져옵니다.
 
    * [Azure Portal](https://portal.azure.com)에 로그인하고 Azure Cosmos DB 계정으로 이동합니다.
 
@@ -85,11 +91,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. 포털의 연결 정보를 사용하여 `cqlsh`에 로그인합니다.
 
-1. `CQL` `COPY` 명령을 사용하여 로컬 데이터를 Cassandra API 계정에 복사합니다.
+1. `CQL` `COPY FROM` 명령을 사용하여 `data.csv`를 복사합니다(`cqlsh`가 설치된 사용자 루트 디렉터리에 계속 있음).
 
    ```bash
-   COPY exampleks.tablename FROM filefolderx/*.csv 
+   COPY exampleks.tablename FROM 'data.csv' WITH HEADER = TRUE;
    ```
+
+
 
 ### <a name="migrate-data-by-using-spark"></a>Spark를 사용하여 데이터 마이그레이션 
 

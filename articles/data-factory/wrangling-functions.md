@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 04/16/2021
-ms.openlocfilehash: 2af1e7f9e1b787e73247d9537b4a8876cc4f7220
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.date: 10/06/2021
+ms.openlocfilehash: a685fb1959fb09800db29eea7755331be4da5948
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129361236"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129613119"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>데이터 랭글링에 대한 파워 쿼리의 변환 함수
 
@@ -131,11 +131,27 @@ M 함수 [Table.AddColumn](/powerquery-m/table-addcolumn), [Table.TransformColum
 * 이 경고를 해결 하려면 PQ 편집기를 사용 하 여 피벗 된 목록을 수동으로 확장 합니다.
 * 리본 메뉴에서 고급 편집기 옵션 선택
 * 피벗 된 값 목록을 수동으로 확장 합니다.
-* List. Distinct ()를 다음과 같은 값 목록으로 바꿉니다.
+* List.Distinct()를 다음과 같은 값 목록으로 대체합니다.
 ```
 #"Pivoted column" = Table.Pivot(Table.TransformColumnTypes(#"Changed column type 1", {{"genres", type text}}), {"Drama", "Horror", "Comedy", "Musical", "Documentary"}, "genres", "Rating", List.Average)
 in
   #"Pivoted column"
+```
+
+### <a name="formatting-datetime-columns"></a>날짜/시간 열 서식 지정
+
+파워 쿼리 ADF를 사용할 때 날짜/시간 형식을 설정하려면 다음 집합에 따라 형식을 설정하세요.
+
+![파워 쿼리 변경 형식](media/data-flow/power-query-date-2.png)
+
+1. 파워 쿼리 UI에서 열을 선택하고 날짜/시간 > 유형 변경을 선택합니다.
+2. 경고 메시지가 표시됩니다.
+3. 고급 편집기 열고 ```TransformColumnTypes``` 를 로 ```TransformColumns``` 변경합니다. 입력 데이터를 기반으로 형식 및 문화권 지정
+
+![파워 쿼리 편집기](media/data-flow/power-query-date-3.png)
+
+```
+#"Changed column type 1" = Table.TransformColumns(#"Duplicated column", {{"start - Copy", each DateTime.FromText(_, [Format = "yyyy-MM-dd HH:mm:ss", Culture = "en-us"]), type datetime}})
 ```
 
 ## <a name="next-steps"></a>다음 단계

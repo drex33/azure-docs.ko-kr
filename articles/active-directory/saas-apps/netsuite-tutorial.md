@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/20/2021
+ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: d99a19efcef0cae518d8d21d3371adaf37d32ff7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a38d2ced173e74263cdf159a1f3243e00ce0911b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821919"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776567"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>자습서: NetSuite와 Azure AD SSO(Single Sign-On) 통합
 
@@ -41,6 +41,7 @@ NetSuite는 다음을 지원합니다.
 
 * IDP 시작 SSO
 * JIT(Just-In-Time) 사용자 프로비저닝
+* NetSuite에서 [자동화된 사용자 프로비저닝](netsuite-provisioning-tutorial.md)을 지원합니다.
 
 > [!NOTE]
 > 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
@@ -56,11 +57,11 @@ NetSuite가 Azure AD에 통합되도록 구성하려면 다음을 수행하여 �
 1. **갤러리에서 추가** 섹션의 검색 상자에 **NetSuite** 를 입력합니다.
 1. 결과 패널에서 **NetSuite** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-netsuite"></a>NetSuite에 대한 Azure AD Single Sign-On 구성 및 테스트
+## <a name="configure-and-test-azure-ad-sso-for-netsuite"></a>NetSuite용 Azure AD SSO 구성 및 테스트
 
 **B.Simon** 이라는 테스트 사용자를 사용하여 NetSuite에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 NetSuite의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
-NetSuite에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
+NetSuite에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 수행합니다.
 
 1. [Azure AD SSO 구성](#configure-azure-ad-sso) - 사용자가 이 기능을 사용할 수 있도록 구성합니다.
     * [Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user) - B.Simon 사용자를 사용하여 Azure AD Single Sign-On을 테스트합니다.  
@@ -79,23 +80,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음을 수
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **기본 SAML 구성** 섹션의 **회신 URL** 텍스트 상자에서 URL을 다음 형식 중 하나로 입력합니다.
-
-    ```https
-    https://<Instance ID>.NetSuite.com/saml2/acs
-    https://<Instance ID>.na1.NetSuite.com/saml2/acs
-    https://<Instance ID>.na2.NetSuite.com/saml2/acs
-    https://<Instance ID>.sandbox.NetSuite.com/saml2/acs
-    https://<Instance ID>.na1.sandbox.NetSuite.com/saml2/acs
-    https://<Instance ID>.na2.sandbox.NetSuite.com/saml2/acs
-    ```
-
-    * Netsuite 구성 아래의 8 단계 자습서 뒷부분에서 설명하는 Netsuite 구성 섹션에서 **<`Instance ID`>** 값을 가져옵니다. 정확한 도메인(이 경우 system.na0.netsuite.com)을 찾을 수 있습니다.
-
-        ![스크린샷은 도메인을 가져올 수 있는 SAML 설정 페이지를 보여줍니다.](./media/NetSuite-tutorial/domain-value.png)
-
-        > [!NOTE]
-        > 이전 URL의 값은 실제 값이 아닙니다. 이 값을 실제 회신 URL로 업데이트합니다. 해당 값을 얻으려면 [NetSuite 클라이언트 지원 팀](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 형식을 참조할 수도 있습니다.
+1. **기본 SAML 구성** 섹션의 **회신 URL** 텍스트 상자에서 `https://system.netsuite.com/saml2/acs` URL을 입력합니다.
 
 1. NetSuite 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 할당 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
 
@@ -246,13 +231,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음을 수
 
 이 섹션에서는 NetSuite에서 B.Simon이라는 사용자를 만듭니다. NetSuite는 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 프로비전을 지원합니다. 이 섹션에는 작업 항목이 없습니다. NetSuite에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
 
+NetSuite는 자동화된 사용자 프로비저닝도 지원합니다. 자동화된 사용자 프로비저닝 구성 방법에 대한 자세한 내용은 [여기](./netsuite-provisioning-tutorial.md)에서 제공합니다.
+
 ## <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 - Azure Portal에서 이 애플리케이션 테스트를 클릭하면 SSO를 설정한 NetSuite에 자동으로 로그인됩니다.
 
-- Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 NetSuite 타일을 클릭하면 SSO를 설정한 NetSuite에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+- Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 NetSuite 타일을 클릭하면 SSO를 설정한 NetSuite에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

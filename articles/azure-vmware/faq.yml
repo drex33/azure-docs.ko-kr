@@ -6,12 +6,12 @@ metadata:
   ms.service: azure-vmware
   ms.custom: contperf-fy21q4
   ms.date: 08/19/2021
-  ms.openlocfilehash: 716605f2a617d5f02d93596e760156b58f9ddcb2
-  ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+  ms.openlocfilehash: 536dfd9fa71c2f6eaefe25ada08f537868cf3f58
+  ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/20/2021
-  ms.locfileid: "122514667"
+  ms.lasthandoff: 09/26/2021
+  ms.locfileid: "129061716"
 title: Azure VMware 솔루션에 대한 일반적인 질문
 summary: 이 문서에서는 Azure VMware Solution에 대해 일반적으로 묻는 질문에 답변합니다.
 sections:
@@ -43,7 +43,7 @@ sections:
   - question: Azure VMware Solution에 대한 가격 책정은 어떻게 구성되나요?
     answer: 가격 책정에 대한 일반적인 질문은 Azure VMware Solution [가격 책정](https://azure.microsoft.com/pricing/details/azure-vmware) 페이지를 참조하세요.
   - question: VMware HCX Enterprise를 사용할 수 있나요? 그렇다면 비용은 얼마나 드나요?
-    answer: VMware HCX Enterprise는 *미리 보기* 기능/서비스로서 Azure VMware Solution에서 사용할 수 있습니다. Azure VMware Solution을 위한 VMware HCX Enterprise는 현재 미리 보기로 제공되는 무료 기능/서비스이며 미리 보기 서비스 사용 약관을 따릅니다. VMware HCX Enterprise 서비스가 일반 공급으로 전환되면 요금 청구 방식이 변경된다는 내용의 알림을 30일 전에 받게 됩니다. 이후에는 이 서비스를 끄거나 옵트아웃할 수 있습니다.
+    answer: VMware HCX Enterprise를 사용하려면 지원 요청을 통해 [VMware HCX Enterprise](https://rc.portal.azure.com/#create/Microsoft.Support) 추가 항목을 사용하도록 설정했는지 확인합니다. Azure VMware Solution의 12개월 평가판입니다.
   - question: ExpressRoute를 통하는 온-프레미스와 Azure VMware Solution 간의 트래픽은 데이터 요금제에서 아웃바운드 데이터 전송 요금을 발생하나요?
     answer: "Azure VMware Solution ExpressRoute 회로의 트래픽은 어떤 경우에도 요금이 발생하지 않습니다. 온-프레미스에서 Azure로 연결하는 ExpressRoute 회로의 트래픽은 ExpressRoute 가격 책정 플랜에 따라 요금이 부과됩니다.\n\n- **VNet에 대한 Azure VMware Solution** 은 내부 ExpressRoute 회로를 사용하며 Azure VMware Solution 동일한 지역 내에서 비용이 들지 않습니다. 그러나 내부 ExpressRoute 회로가 지역 간에 연결되면 데이터 전송 요금이 적용됩니다.\n\n- **온-프레미스에 대한 Azure VMware Solution** 은 VNet 또는 ExpressRoute Global Reach 통해 수행됩니다(내부 ExpressRoute와 외부 ExpressRoute 간). VNet에 대한 연결(위에서 언급함) 또는 ExpressRoute Global Reach 사용이 Azure VMware Solution 배포된 지역 내에 있는 경우 여전히 무료입니다. \n"
   - question: 평가판 Azure VMware Solution 클러스터에 대한 계량은 언제 시작되고 종료됩니까?

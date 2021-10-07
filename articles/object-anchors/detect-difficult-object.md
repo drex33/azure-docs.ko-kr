@@ -4,15 +4,15 @@ description: 어려운 개체를 검색하도록 구성할 수 있는 메커니�
 author: rgarcia
 manager: vrivera
 ms.author: rgarcia
-ms.date: 05/28/2021
-ms.topic: overview
+ms.date: 09/08/2021
+ms.topic: troubleshooting
 ms.service: azure-object-anchors
-ms.openlocfilehash: f7ebff2a9fb45831842b9390e3e72cdbfe58e794
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: cbdf29aa7bb9c342e08b64af0745c689910b26bd
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111987942"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124791976"
 ---
 # <a name="how-to-detect-a-difficult-object"></a>어려운 개체를 검색하는 방법
 
@@ -21,6 +21,8 @@ ms.locfileid: "111987942"
 - 개체가 벽에 기대어 있으므로 큰 노출 영역에 액세스할 수 없는 경우
 - 개체가 너무 커서 주변을 도는 데 너무 오래 걸리는 경우
 - 디바이스 센서에서 개체의 표면이 검색되지 않는 경우
+
+## <a name="adjusting-object-query-values"></a>개체 쿼리 값 조정
 
 이러한 상황에서 도움이 될 수 있는 Azure Object Anchors SDK에서 제공하는 몇 가지 메커니즘은 다음과 같습니다.
 
@@ -40,3 +42,11 @@ ms.locfileid: "111987942"
   - `ObjectSearchArea.FromSphere`를 사용하여 구 선택
 
 자세한 내용은 [Unity](/dotnet/api/microsoft.azure.objectanchors.objectquery)또는 [HoloLens C++/WinRT](/cpp/api/object-anchors/winrt/objectquery)에 대한 `ObjectQuery` 클래스를 참조하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+이 문제 해결 가이드에서는 개체를 검색하기 어려운 검색 문제를 해결하는 방법을 알아보았습니다.
+다음은 몇 가지 관련 문서입니다.
+
+> [!div class="nextstepaction"]
+> [개체 검색 문제 해결](./troubleshoot/object-detection.md)

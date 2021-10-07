@@ -1,17 +1,17 @@
 ---
 title: '빠른 시작: 첫 번째 Python 쿼리'
 description: 이 빠른 시작에서는 단계에 따라 Python용 Resource Graph 라이브러리를 사용하도록 설정하고 첫 번째 쿼리를 실행합니다.
-ms.date: 07/09/2021
+ms.date: 10/01/2021
 ms.topic: quickstart
 ms.custom:
 - devx-track-python
 - mode-api
-ms.openlocfilehash: aa64fb646e45c950dcade38ee7cec189b3501f9e
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 0dfe97eda8244eb0926709d3ed39a514fbb984e9
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114457418"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355468"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-python"></a>빠른 시작: Python을 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -19,7 +19,7 @@ Azure Resource Graph를 사용하는 첫 번째 단계는 Python에 필요한 �
 
 이 과정이 끝나면 Python 설치에 라이브러리가 추가되고 첫 번째 Resource Graph 쿼리를 실행할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -53,6 +53,9 @@ Python을 사용하도록 설정하여 Azure Resource Graph를 쿼리하려면 �
 
    # Add the CLI Core library for Python for authentication (development only!)
    pip install azure-cli-core
+
+   # Add the Azure identity library for Python
+   pip install azure.identity
    ```
 
    > [!NOTE]
@@ -62,7 +65,7 @@ Python을 사용하도록 설정하여 Azure Resource Graph를 쿼리하려면 �
 
    ```bash
    # Check each installed library
-   pip show azure-mgmt-resourcegraph azure-mgmt-resource azure-cli-core
+   pip show azure-mgmt-resourcegraph azure-mgmt-resource azure-cli-core azure.identity
    ```
 
 ## <a name="run-your-first-resource-graph-query"></a>첫 번째 Resource Graph 실행
@@ -76,14 +79,14 @@ Python을 사용하도록 설정하여 Azure Resource Graph를 쿼리하려면 �
    import azure.mgmt.resourcegraph as arg
 
    # Import specific methods and models from other libraries
-   from azure.common.credentials import get_azure_cli_credentials
-   from azure.common.client_factory import get_client_from_cli_profile
    from azure.mgmt.resource import SubscriptionClient
+   from azure.identity import AzureCliCredential
 
    # Wrap all the work in a function
    def getresources( strQuery ):
        # Get your credentials from Azure CLI (development only!) and get your subscription list
-       subsClient = get_client_from_cli_profile(SubscriptionClient)
+       credential = AzureCliCredential()
+       subsClient = SubscriptionClient(credential)
        subsRaw = []
        for sub in subsClient.subscriptions.list():
            subsRaw.append(sub.as_dict())
@@ -92,7 +95,7 @@ Python을 사용하도록 설정하여 Azure Resource Graph를 쿼리하려면 �
            subsList.append(sub.get('subscription_id'))
 
        # Create Azure Resource Graph client and set options
-       argClient = get_client_from_cli_profile(arg.ResourceGraphClient)
+       argClient = arg.ResourceGraphClient(credential)
        argQueryOptions = arg.models.QueryRequestOptions(result_format="objectArray")
 
        # Create query
@@ -133,7 +136,7 @@ Python 환경에서 설치된 라이브러리를 제거하려면 다음 명령�
 
 ```bash
 # Remove the installed libraries from the Python environment
-pip uninstall azure-mgmt-resourcegraph azure-mgmt-resource azure-cli-core
+pip uninstall azure-mgmt-resourcegraph azure-mgmt-resource azure-cli-core azure.identity
 ```
 
 ## <a name="next-steps"></a>다음 단계

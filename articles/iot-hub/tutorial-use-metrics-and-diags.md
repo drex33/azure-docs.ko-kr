@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: beab67a209c177c91a1c4fcfa44934234b6dbc06
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 139244b8519dcbbc02800b8e22e9c438d1cc2b80
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114294808"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458930"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>자습서: IoT 허브를 사용하여 메트릭 및 진단 로그 설정 및 사용
 
@@ -319,7 +319,7 @@ IoT Hub의 할당량 및 제한 한도에 대한 자세한 내용은 [할당량 
 >
 > IoT Hub에서 경고를 완전히 구성하고 사용하도록 설정하는 데 최대 10분이 걸릴 수 있습니다. 마지막 경고를 구성하고 10분 이상 기다린 다음, 시뮬레이션된 디바이스 앱을 실행합니다.
 
-[IoT 디바이스 시뮬레이션](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)에 대한 솔루션을 다운로드합니다. 이 링크는 여러 애플리케이션이 포함된 리포지토리를 다운로드합니다. 찾는 항목은 iot-hub/Quickstarts/simulated-device/에 있습니다.
+[IoT 디바이스 시뮬레이션](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip)에 대한 솔루션을 다운로드합니다. 이 링크는 여러 애플리케이션이 포함된 리포지토리를 다운로드합니다. 찾는 항목은 iot-hub/Quickstarts/simulated-device/에 있습니다.
 
 1. 로컬 터미널 창에서 솔루션의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\simulated-device** 폴더로 이동합니다.
 

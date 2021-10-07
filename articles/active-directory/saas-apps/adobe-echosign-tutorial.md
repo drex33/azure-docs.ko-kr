@@ -1,5 +1,5 @@
 ---
-title: '자습서: Adobe Sign과 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: Adobe Sign과 Azure AD SSO 통합 | Microsoft Docs'
 description: Azure Active Directory 및 Adobe Sign 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/19/2021
+ms.date: 09/08/2021
 ms.author: jeedes
-ms.openlocfilehash: 7162c38aae2fec4ea21aae56fa8c3649f7a55425
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 62791850857770cba44eabf54719176e80cea48b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101649972"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124803403"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>자습서: Adobe Sign과 Azure Active Directory 통합
+# <a name="tutorial-azure-ad-sso-integration-with-adobe-sign"></a>자습서: Adobe Sign과 Azure AD SSO 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Adobe Sign을 통합하는 방법에 대해 알아봅니다. Adobe Sign을 Azure AD와 통합하면 다음을 수행할 수 있습니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "101649972"
 * 사용자가 해당 Azure AD 계정으로 Adobe Sign에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
  
@@ -64,7 +64,7 @@ Adobe Sign에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     1. **[Adobe Sign 테스트 사용자 만들기](#create-adobe-sign-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Adobe Sign에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
+## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
 이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정합니다.
 
@@ -119,7 +119,7 @@ Adobe Sign에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-### <a name="configure-adobe-sign-sso"></a>Adobe Sign SSO 구성
+## <a name="configure-adobe-sign-sso"></a>Adobe Sign SSO 구성
 
 1. 구성하기 전에 [Adobe Sign 클라이언트 지원 팀](https://helpx.adobe.com/in/contact/support.html)에 문의하여 Adobe Sign 허용 목록에 도메인을 추가하세요. 도메인을 추가하는 방법을 다음과 같습니다.
 
@@ -144,13 +144,13 @@ Adobe Sign에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 1. SAML 메뉴에서 **계정 설정** > **SAML 설정** 을 선택합니다.
 
-    ![Adobe Sign SAML 설정 페이지의 스크린샷](./media/adobe-echosign-tutorial/settings.png "계정")
+    ![Adobe Sign SAML 설정 페이지의 스크린샷.](./media/adobe-echosign-tutorial/settings.png "계정")
 
 1. **SAML 설정** 섹션에서 다음 단계를 수행합니다.
 
-    ![SAML 필수 항목을 포함하여 SAML 설정을 강조 표시하는 스크린샷.](./media/adobe-echosign-tutorial/saml1.png "SAML 설정")
+    ![SAML 필수 항목을 포함하여 SAML 설정을 강조 표시하는 스크린샷.](./media/adobe-echosign-tutorial/profile.png "SAML 설정")
 
-   ![SAML 설정의 스크린샷](./media/adobe-echosign-tutorial/saml.png "SAML 설정")
+   ![SAML 설정의 스크린샷.](./media/adobe-echosign-tutorial/certificate.png "SAML 설정")
 
    a. **SAML 모드** 에서 **SAML 필수** 를 선택합니다.
 
@@ -200,7 +200,7 @@ Azure AD 사용자가 Adobe Sign에 로그인할 수 있도록 하려면 Adobe S
 
 * Adobe Sign 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Adobe Sign 타일을 클릭하면 SSO를 설정한 Adobe Sign에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Adobe Sign 타일을 클릭하면 SSO를 설정한 Adobe Sign에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

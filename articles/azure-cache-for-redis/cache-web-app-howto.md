@@ -1,18 +1,18 @@
 ---
 title: Azure Cache for Redis를 사용하여 ASP.NET 웹앱 만들기
 description: 이 빠른 시작에서 Azure Cache for Redis를 사용하여 ASP.NET 웹앱을 만드는 방법 알아보기
-author: yegu-ms
+author: curib
 ms.service: cache
 ms.topic: quickstart
 ms.date: 09/29/2020
-ms.author: yegu
+ms.author: cauribeg
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: d32043aa51f798de96468768fd68a924914b621b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f76f350280b0a42f2915d9e9f00357919e5c4f8e
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128660731"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533816"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에서 Azure Cache for Redis 사용 
 

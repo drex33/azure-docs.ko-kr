@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - ExpressRoute를 사용하여 프라이빗 클라우드를 Azure 네트워크에 연결
 description: ExpressRoute를 사용하여 CloudSimple 프라이빗 클라우드 환경을 Azure 가상 네트워크에 연결하는 방법 설명
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0ebf9e16f5ddaf38d1427342106dffe6ca4d3648
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
-ms.translationtype: HT
+ms.openlocfilehash: dfd394edde01fbeb999a5b821808fd1620bf15f4
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108176939"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129618198"
 ---
 # <a name="connect-your-cloudsimple-private-cloud-environment-to-the-azure-virtual-network-using-expressroute"></a>ExpressRoute를 사용하여 CloudSimple 프라이빗 클라우드 환경을 Azure 가상 네트워크에 연결
 

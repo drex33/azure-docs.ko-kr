@@ -7,14 +7,14 @@ ms.topic: include
 ms.date: 08/03/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 6eb78c0601efd305a7fa6983f06ec703a18d0760
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 6c295a5148f4821e3bd395a95c5b98e298da5077
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129516737"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128610226"
 ---
-[![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples/pnp-device-sample)
+[![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/pnp-device-sample)
 
 이 빠른 시작에서는 기본 Azure IoT 애플리케이션 개발 워크플로에 대해 알아봅니다. Azure CLI 및 IoT Explorer를 사용하여 Azure IoT 허브와 디바이스를 만듭니다. 그런 다음 Azure IoT 디바이스 SDK 샘플을 사용하여 시뮬레이션된 온도 조절기를 실행하고 허브에 안전하게 연결하고 원격 분석을 전송합니다.
 

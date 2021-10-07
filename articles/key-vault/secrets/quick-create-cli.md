@@ -1,7 +1,6 @@
 ---
 title: 빠른 시작 - Azure Key Vault에서 비밀 설정 및 검색
 description: Azure CLI를 사용하여 Azure Key Vault에서 비밀을 설정하고 검색하는 방법을 보여주는 빠른 시작
-services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
@@ -10,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: dc5fa0eeabc437f16ca64c34b4bb72e62c0c3b21
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: cae19bc96cc689a3cb10f1c9820f95e13c9b4e4a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107815021"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593721"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 
@@ -25,7 +24,7 @@ ms.locfileid: "107815021"
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
- - 이 빠른 시작에는 Azure CLI 버전 2.0.4 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
+이 빠른 시작에는 Azure CLI 버전 2.0.4 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -47,9 +46,9 @@ az keyvault secret set --vault-name "<your-unique-keyvault-name>" --name "Exampl
 
 ## <a name="retrieve-a-secret-from-key-vault"></a>Key Vault에서 비밀 검색
 
-이제 해당 URI를 사용하여 Azure Key Vault에 추가한 이 암호를 참조할 수 있습니다. **'https://<your-unique-keyvault-name>.vault.azure.net/secrets/ExamplePassword'** 를 사용하여 현재 버전을 가져옵니다.
+이제 해당 URI를 사용하여 Azure Key Vault에 추가한 이 암호를 참조할 수 있습니다. 현재 버전을 가져오려면 **`https://<your-unique-keyvault-name>.vault.azure.net/secrets/ExamplePassword`** 를 사용합니다.
 
-비밀에 들어 있는 값을 일반 텍스트로 보려면:
+비밀에 포함된 값을 일반 텍스트로 보려면 Azure CLI [az keyvault secret show](/cli/azure/keyvault/secret#az_keyvault_secret_show) 명령을 사용합니다.
 
 ```azurecli
 az keyvault secret show --name "ExamplePassword" --vault-name "<your-unique-keyvault-name>" --query "value"

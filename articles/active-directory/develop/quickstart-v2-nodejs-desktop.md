@@ -10,12 +10,12 @@ ms.subservice: develop
 ms.topic: quickstart
 ms.date: 02/17/2021
 ms.author: v-doeris
-ms.openlocfilehash: beef869b891fe6e3f0ea2f667763cb310008b2fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e791392386f6a2f74f6d59e7999afeb272249aa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101653272"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605756"
 ---
 # <a name="quickstart-acquire-an-access-token-and-call-the-microsoft-graph-api-from-an-electron-desktop-app"></a>빠른 시작: Electron 데스크톱 앱에서 액세스 토큰을 얻고 Microsoft Graph API 호출
 
@@ -37,7 +37,7 @@ ms.locfileid: "101653272"
 > 애플리케이션을 등록하고 앱의 등록 정보를 솔루션에 수동으로 추가하려면 다음 단계를 따르세요.
 >
 > 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
-> 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+> 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트로 전환합니다.
 > 1. **Azure Active Directory** 를 검색하고 선택합니다.
 > 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
 > 1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `msal-node-desktop`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.

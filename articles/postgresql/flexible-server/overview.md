@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: overview
 ms.date: 08/24/2021
 ms.custom: mvc, references_regions
-ms.openlocfilehash: ae7ef0d0ff3cb946bc8c900517a8975bb618ad3c
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 4f125035bdb71302681f84fd04b25767828f1490
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768147"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589666"
 ---
 # <a name="overview---azure-database-for-postgresql---flexible-server"></a>개요 - Azure Database for PostgreSQL - 유연한 서버
 
@@ -29,7 +29,7 @@ PostgreSQL 커뮤니티 버전에서 제공하는 [Azure Database for PostgreSQL
 
 ## <a name="overview"></a>개요
 
-Azure Database for PostgreSQL - 유연한 서버는 데이터베이스 관리 기능 및 구성 설정에 대한 보다 세부적인 제어와 유연성을 제공하도록 설계된 완전 관리형 데이터베이스 서비스입니다. 일반적으로 서비스는 사용자 요구 사항에 따라 더 많은 유연성과 서버 구성 사용자 지정을 제공합니다. 유연한 서버 아키텍처를 통해 사용자는 클라이언트 계층으로 데이터베이스 엔진을 배치하여 대기 시간을 줄이고, 단일 가용성 영역 및 여러 가용성 영역에서 고가용성을 선택할 수 있습니다. 또한 유연한 서버는 서버를 중지/시작하는 기능과 전체 컴퓨팅 용량이 지속적으로 필요하지 않는 워크로드에 이상적인 확장 가능한 컴퓨팅 계층을 통해 더 나은 비용 최적화 제어 기능을 제공합니다. 서비스는 현재 PostgreSQL 11 및 12의 커뮤니티 버전을 지원합니다. 서비스는 현재 미리 보기 상태이며, 다양한 [Azure 지역](https://azure.microsoft.com/global-infrastructure/services/)에서 사용할 수 있습니다.
+Azure Database for PostgreSQL - 유연한 서버는 데이터베이스 관리 기능 및 구성 설정에 대한 보다 세부적인 제어와 유연성을 제공하도록 설계된 완전 관리형 데이터베이스 서비스입니다. 일반적으로 서비스는 사용자 요구 사항에 따라 더 많은 유연성과 서버 구성 사용자 지정을 제공합니다. 유연한 서버 아키텍처를 통해 사용자는 클라이언트 계층으로 데이터베이스 엔진을 배치하여 대기 시간을 줄이고, 단일 가용성 영역 및 여러 가용성 영역에서 고가용성을 선택할 수 있습니다. 또한 유연한 서버는 서버를 중지/시작하는 기능과 전체 컴퓨팅 용량이 지속적으로 필요하지 않는 워크로드에 이상적인 확장 가능한 컴퓨팅 계층을 통해 더 나은 비용 최적화 제어 기능을 제공합니다. 서비스는 현재 PostgreSQL 11, 12 및 13의 커뮤니티 버전을 지원합니다. 서비스는 현재 미리 보기 상태이며, 다양한 [Azure 지역](https://azure.microsoft.com/global-infrastructure/services/)에서 사용할 수 있습니다.
 
 ![유연한 서버 - 개요](./media/overview/overview-flexible-server.png)
 

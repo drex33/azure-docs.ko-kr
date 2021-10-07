@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 49cee5c98c4099e214a732371269e935db353152
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82c6b6cd0dde6b321e4de8a87f99e1adad69040d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97106974"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662118"
 ---
 # <a name="tutorial-add-a-resource-to-your-arm-template"></a>자습서: ARM 템플릿에 리소스 추가
 
@@ -50,7 +50,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 다른 속성은 리소스 유형 및 API 버전에 따라 다릅니다. API 버전과 사용 가능한 속성 간의 연결을 이해하는 것이 중요하므로 좀 더 자세히 살펴보겠습니다.
 
-이 자습서에서는 템플릿에 스토리지 계정을 추가했습니다. [storageAccounts 2019-04-01](/azure/templates/microsoft.storage/2019-04-01/storageaccounts)에서 해당 API 버전을 확인할 수 있습니다. 템플릿에 모든 속성을 추가하지는 않았습니다. 많은 속성은 선택 사항입니다. `Microsoft.Storage` 리소스 공급자가 새로운 API 버전을 출시할 수 있지만, 배포 중인 버전을 변경할 필요는 없습니다. 해당 버전을 계속 사용하고 배포 결과가 일관적이라는 것을 확인할 수 있습니다.
+이 자습서에서는 템플릿에 스토리지 계정을 추가했습니다. [storageAccounts 2021-04-01](/azure/templates/microsoft.storage/2021-04-01/storageaccounts)에서 해당 API 버전을 확인할 수 있습니다. 템플릿에 모든 속성을 추가하지는 않았습니다. 많은 속성은 선택 사항입니다. `Microsoft.Storage` 리소스 공급자가 새로운 API 버전을 출시할 수 있지만, 배포 중인 버전을 변경할 필요는 없습니다. 해당 버전을 계속 사용하고 배포 결과가 일관적이라는 것을 확인할 수 있습니다.
 
 [storageAccounts 2016-05-01](/azure/templates/microsoft.storage/2016-05-01/storageaccounts)와 같은 이전 API 버전이 보이는 경우, 더 작은 속성 집합을 사용할 수 있습니다.
 

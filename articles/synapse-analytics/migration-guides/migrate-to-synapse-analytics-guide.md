@@ -10,12 +10,12 @@ author: julieMSFT
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.date: 03/10/2021
-ms.openlocfilehash: 601b31aa4941ba3a971ebbc9be03178593b5f565
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: fcd2b4adf6387398d05a26abefd567c1375c92f2
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129055289"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619296"
 ---
 # <a name="migrate-a-data-warehouse-to-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀로 데이터 웨어하우스 마이그레이션
 
@@ -111,7 +111,6 @@ Oracle 데이터 웨어하우스를 Azure Synapse Analytics로 마이그레이�
 | [Data Workload Assessment Model and Tool](https://www.microsoft.com/download/details.aspx?id=103130)(데이터 워크로드 평가 모델 및 도구) | 이 도구는 지정된 워크로드에 권장되는 “최적의” 대상 플랫폼, 클라우드 준비 상태, 애플리케이션 또는 데이터베이스 수정 수준을 제공합니다. 또한 자동화되고 균일한 대상 플랫폼 결정 프로세스를 제공하여 대규모 자산 평가를 가속화하는 데 도움이 되는 간단한 원클릭 계산 및 보고서 생성 기능을 제공합니다. |
 | [Azure Synapse Analytics로 데이터를 로드하는 동안 데이터 인코딩 문제 처리](https://azure.microsoft.com/blog/handling-data-encoding-issues-while-loading-data-to-sql-data-warehouse/) | 이 블로그 게시물에서는 PolyBase를 사용하여 SQL Data Warehouse로 데이터를 로드하는 동안 발생할 수 있는 몇 가지 데이터 인코딩 문제에 대한 인사이트를 제공합니다. 또한 이 문서에서는 이러한 문제를 극복하고 데이터를 성공적으로 로드하는 데 사용할 수 있는 몇 가지 옵션을 제공합니다. |
 | [Azure Synapse Analytics 전용 SQL 풀에서 테이블 크기 가져오기](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Getting%20table%20sizes%20in%20SQL%20DW.pdf) | 설계자가 수행해야 하는 주요 작업 중 하나는 마이그레이션 후 새 환경에 대한 메트릭을 가져오는 것입니다. 예를 들어 온-프레미스에서 클라우드로 로드 시간을 수집하고 PolyBase 로드 시간을 수집합니다. 가장 중요한 작업 중 하나는 고객의 현재 플랫폼과 비교하여 SQL Data Warehouse에서 스토리지 크기를 확인하는 것입니다. |
-| [온-프레미스 SQL Server 로그인을 Azure Synapse Analytics로 이동하는 유틸리티](https://github.com/Microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins) | PowerShell 스크립트는 T-SQL 명령 스크립트를 만들어 로그인을 다시 만들고 SQL Server의 온-프레미스 인스턴스에서 Azure SQL PaaS(Platform as a Service) 서비스로 데이터베이스 사용자를 선택합니다. 이 도구를 사용하면 Windows Server Active Directory 계정을 Azure Active Directory 계정에 자동으로 매핑하거나 온-프레미스 Windows Server Active Directory에 대한 각 로그인에 대해 UPN 조회를 수행할 수 있습니다. 이 도구는 선택적으로 SQL Server 기본 로그인도 이동합니다. 사용자 지정 서버 및 데이터베이스 역할은 역할 멤버 자격, 데이터베이스 역할 및 사용자 권한과 함께 스크립팅됩니다. 포함된 데이터베이스는 지원되지 않으며 가능한 SQL Server 권한의 하위 집합만 스크립팅됩니다. 추가 정보는 지원 문서에서 확인할 수 있으며 스크립트는 이해하기 쉽도록 주석을 포함합니다. |
 
 데이터 SQL 엔지니어링 팀이 이러한 리소스를 개발했습니다. 이 팀의 핵심 선언은 Microsoft의 Azure 데이터 플랫폼으로의 데이터 플랫폼 마이그레이션 프로젝트에 대한 복잡한 현대화의 장애물을 제거하고 속도를 높이는 것입니다.
 

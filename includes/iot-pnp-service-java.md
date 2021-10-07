@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 6fa30a56b3fb6e8b16a50bff7fda4c9349348633
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: a047350f8e91a5ce25d8fe8ee60ffd6aa12aaae7
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114403612"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129516593"
 ---
 IoT 플러그 앤 플레이를 사용하면 기본 디바이스 구현에 대한 지식이 없어도 디바이스 기능과 상호 작용할 수 있으므로 IoT가 간소화됩니다. 이 빠른 시작에서는 Java를 사용하여 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스에 연결하고 제어하는 방법을 보여줍니다.
 
@@ -36,7 +36,7 @@ git clone https://github.com/Azure/azure-iot-sdk-java.git
 
 [!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
-샘플 구성에 대해 자세히 알아보려면 [샘플 추가 정보](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md)를 참조하세요.
+샘플 구성에 대해 자세히 알아보려면 [샘플 추가 정보](https://github.com/Azure/azure-iot-sdk-java/blob/main/device/iot-device-samples/readme.md)를 참조하세요.
 
 이 빠른 시작에서는 Java로 작성한 샘플 자동 온도 조절 디바이스를 IoT 플러그 앤 플레이 디바이스로 사용합니다. 샘플 디바이스를 실행하려면 다음을 수행합니다.
 

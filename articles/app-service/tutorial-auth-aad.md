@@ -4,15 +4,15 @@ description: App Service 인증 및 권한 부여를 사용하여 원격 API에 
 keywords: App Service, Azure App Service, authN, authZ, 보호, 보안, 다중 계층, Azure Active Directory, Azure AD
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/26/2021
+ms.date: 09/23/2021
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 4b5244766769255a74becaa7c8893db45532dc4f
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 0c07d17269911043c71fc0d89a5a290f053e39a4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123227131"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639796"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여
 
@@ -260,13 +260,7 @@ Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [
 
 1. **ID 공급자 추가** 페이지에서 **ID 공급자** 로 **Microsoft** 를 선택하여 Microsoft 및 Azure AD ID에 로그인합니다.
 
-1. **앱 등록** > **앱 등록 유형** 에 대해 **새 앱 등록 만들기** 를 선택합니다.
-
-1. **앱 등록** > **지원 계정 유형** 에 대해 **현재 테넌트-단일 테넌트** 를 선택합니다.
-
-1. **App Service 인증 설정** 섹션에서 **인증** 을 **인증 필요** 로 설정하고 **인증되지 않은 요청** 을 **HTTP 302 리디렉션 찾음: 웹 사이트에 권장됨** 으로 설정합니다.
-
-1. **ID 공급자 추가** 페이지의 맨 아래에서 **추가** 를 클릭하여 웹앱에 대한 인증을 사용하도록 설정합니다.
+1. 기본 설정을 적용하고, **추가** 를 클릭합니다.
 
     :::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="선택된 인증/권한 부여 및 오른쪽 메뉴에서 선택한 설정을 보여주는 백 엔드 앱의 왼쪽 메뉴 스크린샷.":::
 
@@ -278,7 +272,7 @@ Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [
 
 ### <a name="enable-authentication-and-authorization-for-front-end-app"></a>프런트 엔드 앱에 대한 인증 및 권한 부여 사용
 
-프런트 엔드 앱과 동일한 단계를 따르지만 마지막 단계는 건너뜁니다. 프런트 엔드 앱에는 클라이언트 ID가 필요하지 않습니다.
+프런트 엔드 앱과 동일한 단계를 따르지만 마지막 단계는 건너뜁니다. 프런트 엔드 앱에는 클라이언트 ID가 필요하지 않습니다. 그러나 다음 단계에서 사용하므로 프런트 엔드 앱에 대한 **인증** 페이지를 유지하세요.
 
 원하는 경우 `http://<front-end-app-name>.azurewebsites.net`으로 이동합니다. 이제 보안 로그인 페이지로 연결됩니다. 로그인 한 후에도 *백 엔드 앱에서 데이터에 액세스할 수 없습니다*. 백 엔드 앱에는 현재 프런트 엔드 앱의 Azure Active Directory 로그인이 필요하기 때문입니다. 다음과 같은 세 가지 작업을 수행해야 합니다.
 
@@ -293,13 +287,9 @@ Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [
 
 두 앱에 대해 인증 및 권한 부여를 사용하도록 설정했으므로 각 앱은 AD 애플리케이션으로 지원됩니다. 이 단계에서는 프런트 엔드 앱에 사용자 대신 백 엔드 액세스 권한을 부여합니다. (기술적으로 프런트 엔드의 _AD 애플리케이션_ 에 사용자를 대신하여 백 엔드의 _AD 애플리케이션_ 에 액세스할 수 있는 권한을 부여합니다.)
 
-1. [Azure Portal](https://portal.azure.com) 메뉴에서 **Azure Active Directory** 를 선택하거나 아무 페이지에서 *Azure Active Directory* 를 검색한 후 선택합니다.
+1. 프런트 엔드 앱에 대한 **인증** 페이지의 **ID 공급자** 아래에서 프런트 엔드 앱 이름을 선택합니다. 이 앱 등록은 자동으로 생성되었습니다. 왼쪽 메뉴에서 **API 권한** 을 선택합니다.
 
-1. **앱 등록** > **소유 애플리케이션** > **이 디렉터리의 모든 애플리케이션 보기** 를 선택합니다. 프런트 엔드 앱 이름을 선택하고 **API 사용 권한** 을 선택합니다.
-
-    :::image type="content" source="./media/tutorial-auth-aad/add-api-access-front-end.png" alt-text="소유 애플리케이션, 프런트 엔드 앱 이름 및 API 권한이 선택된 Microsoft - App 등록 창의 스크린샷.":::
-
-1. **권한 추가** 를 선택한 다음, **내 조직에서 사용하는 API** >  **\<back-end-app-name>** 를 선택합니다.
+1. **권한 추가** 를 선택한 다음, **내 API** >  **\<back-end-app-name>** 을 선택합니다.
 
 1. 백 엔드 앱에 대한 **API 권한 요청** 페이지에서 **위임된 권한** 및 **user_impersonation** 를 선택한 다음, **권한 추가** 를 선택합니다.
 
@@ -315,18 +305,35 @@ Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [
 
     :::image type="content" source="./media/tutorial-auth-aad/resources-enable-write.png" alt-text="읽기/쓰기 단추가 선택된 상태에서 Azure Resource Explorer 페이지 맨 위에 있는 읽기 전용 및 읽기/쓰기 단추의 스크린샷.":::
 
-1. 왼쪽 브라우저에서 **구성** > **authsettings** 로 드릴다운합니다.
+1. 왼쪽 브라우저에서 **구성** > **authsettingsV2** 로 드릴다운합니다.
 
-1. **authsettings** 보기에서 **편집** 을 클릭합니다. 복사한 클라이언트 ID를 사용하여 `additionalLoginParams`를 다음 JSON 문자열로 설정합니다. 
+1. **authsettingsV2** 보기에서 **편집** 을 클릭합니다. `properties.identityProviders.azureActiveDirectory.login`까지 아래로 드릴다운하고, 복사한 클라이언트 ID를 사용하여 다음 JSON 문자열이 있는 `loginParameters`를 추가합니다. 
 
     ```json
-    "additionalLoginParams": ["response_type=code id_token","resource=<back-end-client-id>"],
+    "loginParameters": ["response_type=code id_token","scope=openid api://<back-end-client-id>/user_impersonation"],
     ```
 
-    :::image type="content" source="./media/tutorial-auth-aad/additional-login-params-front-end.png" alt-text="클라이언트 ID의 예제가 포함된 additionalLoginParams 문자열을 보여주는 authsettings 보기의 코드 예제 스크린샷.":::
+    :::image type="content" source="./media/tutorial-auth-aad/add-loginparameters.png" alt-text="클라이언트 ID의 예제가 포함된 loginParameters 문자열을 보여 주는 authsettingsV2 보기의 코드 예제에 대한 스크린샷.":::
+
+    > [!TIP]
+    > `api://<back-end-client-id>/user_impersonation` 범위는 기본적으로 백 엔드 앱에 대한 앱 등록에 추가됩니다. Azure Portal에서 보려면 백 엔드 앱에 대한 **인증** 페이지로 이동하여 **ID 공급자** 아래의 링크를 클릭한 다음, 왼쪽 메뉴에서 **API 표시** 를 클릭합니다.
+    >
+    > 범위에는 관리자 또는 사용자 동의가 필요합니다. 이 요구 사항으로 인해 사용자가 브라우저에서 프런트 엔드 앱에 로그인할 때 동의 요청 페이지가 표시됩니다. 이 동의 페이지를 방지하려면 **클라이언트 애플리케이션 추가** 를 클릭하고 프런트 엔드 앱 등록의 클라이언트 ID를 제공하여 **API 표시** 에서 권한 있는 클라이언트 애플리케이션으로 프런트 엔드 앱 등록을 추가합니다.
 
 1. **PUT** 을 클릭하여 설정을 저장합니다.
 
+    ::: zone pivot="platform-linux"
+    
+    > [!NOTE]
+    > Linux 앱의 경우 백 엔드 앱 등록에 대한 버전 관리 설정을 구성하기 위한 임시 요구 사항이 있습니다. Cloud Shell에서 다음 명령을 사용하여 이를 구성합니다. *\<back-end-client-id>* 를 백 엔드의 클라이언트 ID로 바꿔야 합니다.
+    >
+    > ```azurecli-interactive
+    > id=$(az ad app show --id <back-end-client-id> --query objectId --output tsv)
+    > az rest --method PATCH --url https://graph.microsoft.com/v1.0/applications/$id --body "{'api':{'requestedAccessTokenVersion':2}}" 
+    > ```    
+
+    ::: zone-end
+    
     이제 앱이 구성되었습니다. 이제 프런트 엔드가 적절한 액세스 토큰을 사용하여 백 엔드에 액세스할 준비가 되었습니다.
 
 다른 공급자에 대한 액세스 토큰을 구성하는 방법에 대한 자세한 내용은 [ID 공급자 토큰 새로 고침](configure-authentication-oauth-tokens.md#refresh-auth-tokens)을 참조하세요.

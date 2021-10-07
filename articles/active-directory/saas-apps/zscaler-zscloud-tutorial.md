@@ -9,37 +9,39 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/21/2020
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 74c65a28688906b4c9cfecf786f5862e31143ead
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: ac32f01849054017394d420668d1361e7c597dfb
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108804343"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124751613"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>자습서: Azure Active Directory와 Zscaler ZSCloud 통합
 
 이 자습서에서는 Zscaler ZSCloud를 Azure AD(Azure Active Directory)와 통합하는 방법에 대해 알아보겠습니다. Azure AD와 Zscaler ZSCloud를 연결할 경우 다음을 수행할 수 있습니다.
 
-- Zscaler ZSCloud에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
-- 사용자가 자신의 Azure AD 계정으로 Zscaler ZSCloud에 자동으로 로그인되도록 설정합니다.
-- 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
+* Zscaler ZSCloud에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
+* 사용자가 자신의 Azure AD 계정으로 Zscaler ZSCloud에 자동으로 로그인되도록 설정합니다.
+* 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 Zscaler ZSCloud와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
-- Azure AD 구독 Azure AD 환경이 없으면 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-- Zscaler ZSCloud Single Sign-On을 사용하도록 설정된 구독.
+* Azure AD 구독 Azure AD 환경이 없으면 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
+* Zscaler ZSCloud Single Sign-On을 사용하도록 설정된 구독.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
-- Zscaler ZSCloud는 **SP** 시작 SSO를 지원합니다.
+* Zscaler ZSCloud에서 **SP** 시작 SSO를 지원합니다.
 
-- Zscaler ZSCloud는 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
+* Zscaler ZSCloud에서 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
+
+* Zscaler ZSCloud에서 [자동화된 사용자 프로비저닝](zscaler-zscloud-provisioning-tutorial.md)을 지원합니다.
 
 ## <a name="adding-zscaler-zscloud-from-the-gallery"></a>갤러리에서 Zscaler ZSCloud 추가
 
@@ -141,15 +143,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 5. **사용자 및 그룹** 대화 상자의 목록에서 **Britta Simon** 등의 사용자를 선택한 다음, 화면 맨 아래에서 **선택** 단추를 클릭합니다.
 
-   ![스크린샷은 사용자를 선택할 수 있는 사용자 및 그룹 대화 상자를 보여줍니다.](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_users.png)
+   ![스크린샷은 사용자를 선택할 수 있는 사용자 및 그룹 대화 상자를 보여줍니다.](./media/zscaler-zscloud-tutorial/users.png)
 
 6. **역할 선택** 대화 상자의 목록에서 적절한 사용자 역할을 선택한 다음, 화면 맨 아래에서 **선택** 단추를 클릭합니다.
 
-   ![스크린샷은 사용자 역할을 선택할 수 있는 역할 선택 대화 상자를 보여줍니다.](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_roles.png)
+   ![스크린샷은 사용자 역할을 선택할 수 있는 역할 선택 대화 상자를 보여줍니다.](./media/zscaler-zscloud-tutorial/roles.png)
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 선택합니다.
 
-   ![스크린샷은 할당을 선택할 수 있는 할당 추가 대화 상자를 보여줍니다.](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_assign.png)
+   ![스크린샷은 할당을 선택할 수 있는 할당 추가 대화 상자를 보여줍니다.](./media/zscaler-zscloud-tutorial/assignment.png)
 
    > [!NOTE]
    > 기본 액세스 역할은 프로비저닝을 중단하므로 지원되지 않으며, 따라서 사용자를 할당하는 동안 기본 역할을 선택할 수 없습니다.
@@ -168,7 +170,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. **관리 > 인증 > 인증 설정** 으로 이동하고 다음 단계를 수행합니다.
 
-   ![스크린샷은 설명된 단계가 있는 Zscaler 사이트를 보여줍니다.](./media/zscaler-zscloud-tutorial/ic800206.png "관리")
+   ![스크린샷은 설명된 단계가 있는 Zscaler 사이트를 보여줍니다.](./media/zscaler-zscloud-tutorial/setting.png "관리")
 
    a. 인증 형식에서 **SAML** 을 선택합니다.
 
@@ -176,7 +178,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 5. **SAML 편집** 창에서 다음 단계를 수행하고 저장을 클릭합니다.  
 
-   ![사용자 및 인증 관리](./media/zscaler-zscloud-tutorial/ic800208.png "사용자 & 인증 관리")
+   ![사용자 및 인증 관리](./media/zscaler-zscloud-tutorial/attributes.png "사용자 & 인증 관리")
 
    a. Azure Portal에서 복사한 **로그인 URL** 값을 **SAML 포털 URL** 텍스트 상자에 붙여넣습니다.
 
@@ -196,7 +198,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 6. **사용자 인증 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
-   ![스크린샷은 활성화가 선택된 사용자 인증 구성 대화 상자를 보여줍니다.](./media/zscaler-zscloud-tutorial/ic800207.png)
+   ![스크린샷은 활성화가 선택된 사용자 인증 구성 대화 상자를 보여줍니다.](./media/zscaler-zscloud-tutorial/active.png)
 
    a. 왼쪽 아래 근처에 있는 **활성화** 메뉴를 마우스로 가리킵니다.
 
@@ -210,17 +212,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. **도구** 메뉴에서 **인터넷 옵션** 을 선택하여 **인터넷 옵션** 대화 상자를 엽니다.
 
-   ![인터넷 옵션](./media/zscaler-zscloud-tutorial/ic769492.png &quot;인터넷 옵션")
+   ![인터넷 옵션](./media/zscaler-zscloud-tutorial/network.png &quot;인터넷 옵션")
 
 3. **연결** 탭을 클릭합니다.
 
-   ![연결](./media/zscaler-zscloud-tutorial/ic769493.png "Connections")
+   ![연결](./media/zscaler-zscloud-tutorial/server.png "Connections")
 
 4. **LAN 설정** 을 클릭하여 **LAN 설정** 대화 상자를 엽니다.
 
 5. 프록시 서버 섹션에서 다음 단계를 수행합니다.
 
-   ![프록시 서버](./media/zscaler-zscloud-tutorial/ic769494.png "프록시 서버")
+   ![프록시 서버](./media/zscaler-zscloud-tutorial/internet-options.png "프록시 서버")
 
    a. **사용자 LAN의 프록시 서버 사용** 을 선택합니다.
 
@@ -241,15 +243,18 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 > [!Note]
 > 사용자를 수동으로 만들어야 하는 경우 [Zscaler ZSCloud 지원 팀](https://help.zscaler.com/)에 문의하세요.
 
+> [!NOTE]
+> Zscaler ZSCloud는 자동 사용자 프로비저닝도 지원합니다. 자동 사용자 프로비저닝 구성 방법에 대한 자세한 내용은 [여기](./zscaler-zscloud-provisioning-tutorial.md)에서 제공합니다.
+
 ### <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-- Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Zscaler ZSCloud 로그온 URL로 리디렉션됩니다.
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Zscaler ZSCloud 로그온 URL로 리디렉션됩니다.
 
-- Zscaler ZSCloud 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
+* Zscaler ZSCloud 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-- Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Zscaler ZSCloud 타일을 클릭하면 Zscaler ZSCloud 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Zscaler ZSCloud 타일을 클릭하면 Zscaler ZSCloud 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

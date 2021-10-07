@@ -8,12 +8,12 @@ metadata:
   ms.date: 12/19/2019
   ms.author: rohogue
   ms.custom: references_regions
-  ms.openlocfilehash: 241bcb1e164bf8f0233e7110ffcdd9630e870e8d
-  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+  ms.openlocfilehash: a826f96396a4275b07598564281060dea0bf7b1a
+  ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/13/2021
-  ms.locfileid: "124751096"
+  ms.lasthandoff: 10/01/2021
+  ms.locfileid: "129351422"
 title: Avere vFXT for Azure FAQ
 summary: 이 문서에서는 Avere vFXT for Azure가 사용자의 요구 사항에 적합한지 판단하는 데 도움이 되는 질문과 답변을 참조할 수 있습니다. Avere vFXT에 대한 기본 정보를 참조하고, 다른 Azure 구성 요소 및 외부 공급업체의 제품에 Avere vFXT가 어떻게 작동하는지 이해할 수 있습니다.
 sections:
@@ -80,15 +80,6 @@ sections:
       Avere vFXT는 고가용성 시스템인가요?
     answer: >
       예, Avere vFXT는 독점적인 HA 솔루션으로 실행됩니다.
-  - question: >
-      Avere vFXT for Azure에서 다른 클라우드 서비스도 지원하나요?
-    answer: >
-      예, 고객은 둘 이상의 클라우드 공급자를 Avere vFXT 클러스터에 사용할 수 있습니다. AWS S3 표준 버킷, Google Cloud Services 표준 버킷 및 Azure Blob 컨테이너를 지원합니다.
-
-
-      > [!NOTE]
-
-      > AWS 또는 Google Cloud Storage에서 Avere vFXT를 사용하면 소프트웨어 요금이 적용됩니다. Azure Blob Storage 사용에 대한 추가 소프트웨어 요금은 없습니다.
 - name: '기술: 컴퓨팅'
   questions:
   - question: >
@@ -214,7 +205,7 @@ sections:
       Avere vFXT는 스토리지가 아닙니다. 즉, 코어 파일러라고 하는 여러 스토리지 대상에서 데이터를 읽고 쓰는 캐시입니다. Avere vFXT의 프리미엄 SSD 디스크에 저장된 데이터는 일시적이며, 결국에는 백 엔드 코어 파일러 스토리지로 플러시됩니다.
   - question: >
       Avere vFXT에서 지원하는 코어 파일러는 어떻게 되나요?
-    answer: "일반적으로 Avere vFXT for Azure에서 코어 파일러로 지원하는 시스템은 다음과 같습니다.\n\n* Dell EMC Isilon(OneFS 7.1, 7.2, 8.0 및 8.1) \n* NetApp ONTAP(Clustered Mode 9.4, 9.3, 9.2, 9.1P1, 8.0-8.3) 및 (7-Mode 7.*, 8.0-8.3)\n\n* Azure Blob 컨테이너(로컬 중복 스토리지만 해당)\n* AWS S3 버킷\n* Google Cloud 버킷\n"
+    answer: "일반적으로 Avere vFXT for Azure에서 코어 파일러로 지원하는 시스템은 다음과 같습니다.\n\n* Dell EMC Isilon(OneFS 7.1, 7.2, 8.0 및 8.1) \n* NetApp ONTAP(Clustered Mode 9.4, 9.3, 9.2, 9.1P1, 8.0-8.3) 및 (7-Mode 7.*, 8.0-8.3)\n\n* Azure Blob 컨테이너(로컬 중복 스토리지만 해당)\n"
   - question: >
       Avere vFXT에서 모든 NFS 파일러를 지원하지 않는 이유는 무엇인가요?
     answer: >
@@ -248,7 +239,7 @@ sections:
       쿨 계층 Blob Storage는 일반적으로 Avere vFXT for Azure 코어 파일러에 권장되지 않습니다. 쿨 계층은 스토리지 비용이 낮지만 작업 비용은 더 많이 듭니다. 자세한 내용은 [블록 Blob 가격 책정](<https://azure.microsoft.com/pricing/details/storage/blobs/>)을 참조하세요. 데이터에 자주 액세스하고 데이터를 자주 수정 또는 삭제하는 경우에는 핫 계층 사용을 고려해 보세요.
 
 
-      [액세스 계층](../storage/blobs/storage-blob-storage-tiers.md#cool-access-tier)은 vFXT 코어 파일러로 쿨 계층 스토리지를 사용하는 것이 적합할 수 있는 경우에 대한 자세한 정보를 제공합니다.
+      [액세스 계층](../storage/blobs/access-tiers-overview.md)은 vFXT 코어 파일러로 쿨 계층 스토리지를 사용하는 것이 적합할 수 있는 경우에 대한 자세한 정보를 제공합니다.
   - question: >
       Blob 컨테이너를 암호화하려면 어떻게 할까요?
     answer: "Blob 암호화는 Azure(기본) 또는 Avere vFXT 코어 파일러 수준에서 구성할 수 있습니다.  \n"

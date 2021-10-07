@@ -10,12 +10,12 @@ author: cjgronlund
 ms.date: 08/03/2021
 ms.custom: devx-track-python
 adobe-target: true
-ms.openlocfilehash: 6709309bed5546dacdadc1ba412954e83310e183
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: f0b798db68ee15ffeb393c30f7a7ccc81e4cf386
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122446564"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606250"
 ---
 # <a name="what-is-azure-machine-learning"></a>Azure Machine Learning이란?
 
@@ -52,7 +52,7 @@ Microsoft Azure 클라우드에서 작업하는 기업은 인프라를 위한 �
 
 ### <a name="studio-ui"></a>스튜디오 UI 
 
-Azure Machine Learning 스튜디오는 프로젝트 작업 영역에 사용되는 그래픽 사용자 인터페이스입니다. 이 스튜디오에서는 다음을 수행할 수 있습니다.
+[Azure Machine Learning 스튜디오](https://ml.azure.com)는 프로젝트 작업 영역에 사용되는 그래픽 사용자 인터페이스입니다. 이 스튜디오에서는 다음을 수행할 수 있습니다.
 
 - 실행, 메트릭, 로그, 출력 등을 봅니다.
 - Notebook 및 파일을 작성하고 편집합니다.
@@ -65,6 +65,8 @@ Azure Machine Learning 스튜디오는 프로젝트 작업 영역에 사용되�
 - AutoML 작업을 작성합니다.
 
 또한 디자이너에는 모델을 학습시키고 배포할 수 있는 끌어서 놓기 인터페이스가 있습니다. 
+
+ML Studio(클래식) 사용자인 경우 [Studio(클래식) 사용 중단 및 Azure Machine Learning 스튜디오 간의 차이점에 대해 알아보세요.](overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 ## <a name="enterprise-readiness-and-security"></a>엔터프라이즈 준비 및 보안
 

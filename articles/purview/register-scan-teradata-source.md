@@ -1,18 +1,18 @@
 ---
-title: Azure Purview에서 Teradata 원본 등록 및 검사 설정
+title: Teradata 원본 등록 및 검사 설정
 description: 이 문서에서는 Azure Purview에서 Teradata 원본을 등록하고 검사를 설정하는 방법을 설명합니다.
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 2/25/2021
-ms.openlocfilehash: 3d6f30e3d50fa79ac394460f9b13e1127cf16168
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 5ba69e4b20edc74dfd9de43f19b2ba582b196353
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740268"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211315"
 ---
 # <a name="register-and-scan-teradata-source"></a>Teradata 원본 등록 및 검사
 
@@ -70,9 +70,9 @@ Teradata 원본에 대해 유일하게 지원되는 인증은 **기본 인증** 
 
 새 검색을 만들고 실행하려면 다음을 수행합니다.
 
-1.  관리 센터에서 **통합 런타임** 을 클릭합니다. 자체 호스팅 통합 런타임이 설정되어 있는지 확인합니다. 설정되지 않은 경우 [여기](./manage-integration-runtimes.md)에 언급된 단계를 사용하여 자체 호스팅 통합 런타임을 설정할 수 있습니다.
+1.  관리 센터에서 **통합 런타임** 을 선택합니다. 자체 호스팅 통합 런타임이 설정되어 있는지 확인합니다. 설정되지 않은 경우 [여기](./manage-integration-runtimes.md)에 언급된 단계를 사용하여 자체 호스팅 통합 런타임을 설정할 수 있습니다.
 
-2.  Purview Studio의 왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
+2.  [Purview Studio](https://web.purview.azure.com/resource/)의 왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
 
 3.  등록된 Teradata 원본을 선택합니다.
 
@@ -111,11 +111,11 @@ Teradata 원본에 대해 유일하게 지원되는 인증은 **기본 인증** 
 
     :::image type="content" source="media/register-scan-teradata-source/setup-scan.png" alt-text="검사 설정" border="true":::
 
-6.  **계속** 을 클릭합니다.
+6.  **계속** 을 선택합니다.
 
 7.  **검사 트리거** 를 선택합니다. 예약을 설정하거나 검사를 한 번 실행할 수 있습니다.
 
-8.  검사를 검토하고, **저장 및 실행** 을 클릭합니다.
+8.  검사를 검토하고 **저장 및 실행** 을 선택합니다.
 
 ## <a name="viewing-your-scans-and-scan-runs"></a>검사 및 검사 실행 보기
 

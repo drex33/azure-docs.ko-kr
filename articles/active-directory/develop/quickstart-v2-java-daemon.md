@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/22/2021
 ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 1ef66472d878d33f78ec6ef67c9d7de060f4f292
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 519ef3c4e53eb55bd00957d1d825c96375e241ae
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113357700"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128604844"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-java-console-app-using-apps-identity"></a>빠른 시작: 앱의 ID를 사용하여 Java 콘솔 앱에서 토큰 가져오기 및 Microsoft Graph API 호출
 
@@ -26,7 +26,7 @@ ms.locfileid: "113357700"
 > [!div renderon="docs"]
 > ![이 빠른 시작에서 생성된 샘플 앱의 작동 방식 표시](media/quickstart-v2-java-daemon/java-console-daemon.svg)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 샘플을 실행하려면 다음이 필요합니다.
 
@@ -53,7 +53,7 @@ ms.locfileid: "113357700"
 > 애플리케이션을 등록하고 앱의 등록 정보를 솔루션에 수동으로 추가하려면 다음 단계를 따르세요.
 >
 > 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
-> 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+> 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트로 전환합니다.
 > 1. **Azure Active Directory** 를 검색하고 선택합니다.
 > 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
 > 1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `Daemon-console`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.

@@ -1,15 +1,15 @@
 ---
 title: '자습서: 하이브리드 연결에 사용자 지정 이벤트 보내기 - Event Grid'
 description: '자습서: Azure Event Grid 및 Azure CLI를 사용하여 토픽을 게시하고 해당 이벤트를 구독합니다. 하이브리드 연결은 엔드포인트에 사용됩니다.'
-ms.date: 07/07/2020
+ms.date: 09/29/2021
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7fcbc76f3ab58aac6beca3e142eba3a9b62c28a3
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: b4f4b82e590095c866d4c7a8ee016910d2e11383
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107770409"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129277769"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>자습서: Azure CLI 및 Event Grid를 사용하여 Azure Relay 하이브리드 연결로 사용자 지정 이벤트 라우팅
 

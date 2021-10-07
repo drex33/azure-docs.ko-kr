@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.author: danlep
 ms.date: 06/10/2021
 ms.custom: devx-track-azurepowershell,contperf-fy21q4
-ms.openlocfilehash: e7db405d43ef41f4ebe90272498dae61bf56d817
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 05767ffb0487964780ab25ec56fd586451066ac3
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128679563"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615356"
 ---
 # <a name="integrate-api-management-in-an-internal-virtual-network-with-application-gateway"></a>내부 가상 네트워크의 API Management를 Application Gateway와 통합
 
@@ -138,8 +138,11 @@ Application Gateway 및 API Management 서브넷에 대한 네트워크 보안 �
 $appGwRule1 = New-AzNetworkSecurityRuleConfig -Name appgw-in -Description "AppGw inbound" `
     -Access Allow -Protocol * -Direction Inbound -Priority 100 -SourceAddressPrefix `
     GatewayManager -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 65200-65535
+$appGwRule2 = New-AzNetworkSecurityRuleConfig -Name appgw-in-internet -Description "AppGw inbound Internet" `
+    -Access Allow -Protocol "TCP" -Direction Inbound -Priority 110 -SourceAddressPrefix `
+    Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 443
 $appGwNsg = New-AzNetworkSecurityGroup -ResourceGroupName $resGroupName -Location $location -Name `
-    "NSG-APPGW" -SecurityRules $appGwRule1
+    "NSG-APPGW" -SecurityRules $appGwRule1, $appGwRule2
 
 $apimRule1 = New-AzNetworkSecurityRuleConfig -Name apim-in -Description "APIM inbound" `
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix `
@@ -205,7 +208,7 @@ $apimAdminEmail = "admin@contoso.com" # administrator's email address
 $apimService = New-AzApiManagement -ResourceGroupName $resGroupName -Location $location -Name $apimServiceName -Organization $apimOrganization -AdminEmail $apimAdminEmail -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Developer"
 ```
 
-이 계층에서 API Management 서비스를 만들고 활성화하는 데 30~40분 정도 걸릴 수 있습니다. 이전 명령이 성공한 후 [내부 가상 네트워크 API Management 서비스에 액세스 하는 데 필요한 DNS 구성](api-management-using-with-internal-vnet.md#dns-configuration) 을 참조 하 여 액세스를 확인 합니다. 
+이 계층에서 API Management 서비스를 만들고 활성화하는 데 30~40분 정도 걸릴 수 있습니다. 이전 명령이 성공하면 [내부 가상 네트워크 API Management 서비스에 액세스하는 데 필요한 DNS 구성을](api-management-using-with-internal-vnet.md#dns-configuration) 참조하여 액세스를 확인합니다. 
 
 ## <a name="set-up-custom-domain-names-in-api-management"></a>API Management에서 사용자 지정 도메인 이름 설정
 

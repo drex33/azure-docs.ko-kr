@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 6d1850ce3c0f8e9fb69159f6677bad3e3bfd0d57
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 7d7c07227741487bc62b1a6ef01680ccf326efd7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129351554"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672901"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-vida"></a>자습서: VIDA와 Azure AD SSO 통합
 
@@ -99,6 +99,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     | ---------------- | --------- |
     | assignedroles | user.assignedroles |
 
+    > [!NOTE]
+    > VIDA는 애플리케이션에 할당된 사용자의 역할이 필요합니다. 사용자가 적절한 역할을 할당 받을 수 있도록 Azure AD에서 이러한 역할을 설정하세요. Azure AD에서 역할을 구성하는 방법을 이해하려면 [여기](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui)를 참조하세요.
+
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
@@ -115,7 +118,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 

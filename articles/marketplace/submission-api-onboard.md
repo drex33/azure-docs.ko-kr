@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
 ms.date: 09/22/2021
-ms.openlocfilehash: 5c6431fef8c91b41f19d27d19b59efca14986b7f
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: e75b85ea7557e4eb6688e8a549e92820d580359b
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129058754"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129614748"
 ---
 # <a name="partner-center-submission-api-onboarding"></a>파트너 센터 제출 API 온보딩
 
@@ -23,7 +23,7 @@ ms.locfileid: "129058754"
 파트너 센터 제출 API에는 몇 가지 프로그래밍 방식 자산이 필요합니다.
 
 - Azure Active Directory 애플리케이션
-- azure AD(Azure Active Directory) 액세스 토큰
+- Azure Active Directory(Azure AD) 액세스 토큰
 
 ### <a name="step-1-complete-prerequisites-for-using-the-partner-center-submission-api"></a>1단계: 파트너 센터 제출 API를 사용하기 위한 필수 조건 완료
 
@@ -64,7 +64,7 @@ grant_type=client_credentials
 &resource= https://api.partner.microsoft.com
 ```
 
-POST URI의 tenant_id 값과 client_id 및 client_secret 매개 변수의 경우 이전 섹션의 파트너 센터 검색한 애플리케이션의 테넌트 ID, 클라이언트 ID 및 키를 지정합니다. 리소스 매개 변수에는 https://api.partner.microsoft.com을 지정해야 합니다.
+POST URI의 tenant_id 값과 client_id 및 client_secret 매개 변수에 대해 이전 섹션의 파트너 센터 검색한 애플리케이션의 테넌트 ID, 클라이언트 ID 및 키를 지정합니다. 리소스 매개 변수에는 `https://api.partner.microsoft.com`을 지정해야 합니다.
 
 ### <a name="step-3-use-the-partner-center-submission-api"></a>3단계: 파트너 센터 제출 API 사용
 

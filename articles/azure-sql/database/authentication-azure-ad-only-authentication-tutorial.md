@@ -1,19 +1,20 @@
 ---
-title: Azure SQL을 사용한 Azure Active Directory 전용 인증 사용
+title: Azure Active Directory 전용 인증 사용
 description: 이 문서에서는 Azure SQL Database 및 Azure SQL Managed Instance에서 Azure AD(Azure Active Directory) 전용 인증 기능을 사용하도록 설정하는 방법을 안내합니다.
+titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 ms.service: sql-db-mi
 ms.subservice: security
 ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 06/30/2021
-ms.openlocfilehash: 6ea0da3b8a6ddcc2f41bd9e779742f3e2d9cbe4d
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.date: 08/31/2021
+ms.openlocfilehash: 76425e37c83ea5ac44653e20753e35606b89d370
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114470766"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643235"
 ---
 # <a name="tutorial-enable-azure-active-directory-only-authentication-with-azure-sql"></a>자습서: Azure SQL을 사용한 Azure Active Directory 전용 인증 사용
 
@@ -184,7 +185,7 @@ API를 사용하여 Azure AD 전용 인증을 관리하는 방법에 대한 자�
 
 # <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-명령을 사용하여 SQL Database 논리 서버 또는 SQL 관리형 인스턴스에 대해 Azure AD 전용 인증이 사용하도록 설정되었는지 확인할 수 있습니다. [SQL Server 기여자](../../role-based-access-control/built-in-roles.md#sql-server-contributor) 및 [SQL Managed Instance 기여자](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) 역할의 멤버는 명령을 사용하여 Azure AD 전용 인증 상태를 확인할 수 있지만 기능을 사용하거나 사용하지 않도록 설정할 수는 없습니다.
+이러한 명령을 사용하여 Azure SQL Database 또는 SQL Managed Instance의 [논리 서버](logical-servers.md)에 대해 Azure AD 전용 인증이 사용하도록 설정되었는지 확인할 수 있습니다. [SQL Server 기여자](../../role-based-access-control/built-in-roles.md#sql-server-contributor) 및 [SQL Managed Instance 기여자](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) 역할의 멤버는 명령을 사용하여 Azure AD 전용 인증 상태를 확인할 수 있지만 기능을 사용하거나 사용하지 않도록 설정할 수는 없습니다.
 
 ## <a name="check-status-in-sql-database"></a>SQL Database에서 상태 확인
 
@@ -240,7 +241,7 @@ API를 사용하여 Azure AD 전용 인증을 관리하는 방법에 대한 자�
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-명령을 사용하여 SQL Database 논리 서버 또는 SQL 관리형 인스턴스에 대해 Azure AD 전용 인증이 사용하도록 설정되었는지 확인할 수 있습니다. [SQL Server 기여자](../../role-based-access-control/built-in-roles.md#sql-server-contributor) 및 [SQL Managed Instance 기여자](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) 역할의 멤버는 명령을 사용하여 Azure AD 전용 인증 상태를 확인할 수 있지만 기능을 사용하거나 사용하지 않도록 설정할 수는 없습니다.
+이러한 명령을 사용하여 Azure SQL Database 또는 SQL Managed Instance의 [논리 서버](logical-servers.md)에 대해 Azure AD 전용 인증이 사용하도록 설정되었는지 확인할 수 있습니다. [SQL Server 기여자](../../role-based-access-control/built-in-roles.md#sql-server-contributor) 및 [SQL Managed Instance 기여자](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) 역할의 멤버는 명령을 사용하여 Azure AD 전용 인증 상태를 확인할 수 있지만 기능을 사용하거나 사용하지 않도록 설정할 수는 없습니다.
 
 기능을 사용하도록 설정하면 상태가 **True** 로 반환되고, 사용하지 않도록 설정하면 **False** 로 반환됩니다.
 
@@ -401,3 +402,4 @@ Azure AD 전용 인증을 사용하지 않도록 설정한 후 SQL 인증 로그
 
 - [Azure SQL을 사용한 Azure AD 전용 인증](authentication-azure-ad-only-authentication.md)
 - [Azure SQL에서 Azure AD 전용 인증이 사용하도록 설정된 서버 만들기](authentication-azure-ad-only-authentication-create-server.md)
+- [Azure Policy를 사용하여 Azure SQL로 Azure Active Directory 전용 인증 적용](authentication-azure-ad-only-authentication-policy-how-to.md)

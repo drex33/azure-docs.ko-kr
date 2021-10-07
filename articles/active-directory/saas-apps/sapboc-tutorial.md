@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 19bdb6d2a586dcb279687673c7fa4e302dc4928b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: da2bd04dceb158d2fbd5b73530ff0e6083c52e9a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101652643"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124813199"
 ---
 # <a name="tutorial-integrate-sap-analytics-cloud-with-azure-active-directory"></a>자습서: Azure Active Directory와 SAP Analytics Cloud 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "101652643"
 * 사용자가 해당 Azure AD 계정으로 SAP Analytics Cloud에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -38,6 +38,8 @@ ms.locfileid: "101652643"
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 * SAP Analytics Cloud에서 **SP** 시작 SSO를 지원합니다.
+
+* SAP Analytics Cloud에서 [자동화된 사용자 프로비저닝](sap-analytics-cloud-provisioning-tutorial.md)을 지원합니다. 
 
 ## <a name="add-sap-analytics-cloud-from-the-gallery"></a>갤러리에서 SAP Analytics Cloud 추가
 
@@ -75,18 +77,22 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
-    a. **로그온 URL** 텍스트 상자에서 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
+    a. **식별자(엔터티 ID)** 텍스트 상자에서 다음 패턴 중 하나를 사용하여 값을 입력합니다.
 
-    - `https://<sub-domain>.sapanalytics.cloud/`
-    - `https://<sub-domain>.sapbusinessobjects.cloud/`
+    | **식별자 URL** |
+    |----|
+    | `<sub-domain>.sapbusinessobjects.cloud` |
+    | `<sub-domain>.sapanalytics.cloud` |
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
-
-    - `<sub-domain>.sapbusinessobjects.cloud`
-    - `<sub-domain>.sapanalytics.cloud`
+    b. **로그온 URL** 텍스트 상자에서 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
+    
+    | **URL에 로그인** |
+    |------|
+    | `https://<sub-domain>.sapanalytics.cloud/` |
+    | `https://<sub-domain>.sapbusinessobjects.cloud/` |
 
     > [!NOTE] 
-    > 이러한 URL의 값은 데모용으로만 사용합니다. 실제 로그온 URL 및 식별자 URL로 값을 업데이트합니다. 로그온 URL을 얻으려면 [SAP Analytics Cloud 클라이언트 지원 팀](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/)에 문의하세요. 식별자 URL은 관리 콘솔에서 SAP Analytics Cloud 메타데이터를 다운로드하여 가져올 수 있습니다. 이것은 자습서의 뒷부분에 설명되어 있습니다.
+    > 이러한 URL의 값은 데모용으로만 사용합니다. 값을 실제 식별자 및 로그온 URL로 업데이트합니다. 로그온 URL을 얻으려면 [SAP Analytics Cloud 클라이언트 지원 팀](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/)에 문의하세요. 식별자 URL은 관리 콘솔에서 SAP Analytics Cloud 메타데이터를 다운로드하여 가져올 수 있습니다. 이것은 자습서의 뒷부분에 설명되어 있습니다.
 
 4. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
@@ -190,6 +196,9 @@ Azure AD 사용자는 먼저 SAP Analytics Cloud에서 프로비저닝한 후에
 
     1. **저장** 아이콘을 선택합니다.
 
+> [!NOTE]
+> SAP Analytics Cloud는 자동화된 사용자 프로비저닝도 지원합니다. 자동화된 사용자 프로비저닝 구성 방법에 대한 자세한 내용은 [여기](./sap-analytics-cloud-provisioning-tutorial.md)에서 제공합니다.
+
 ## <a name="test-sso"></a>SSO 테스트 
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
@@ -198,7 +207,7 @@ Azure AD 사용자는 먼저 SAP Analytics Cloud에서 프로비저닝한 후에
 
 * SAP Analytics Cloud 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 SAP Analytics Cloud 타일을 클릭하면 SAP Analytics Cloud 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 SAP Analytics Cloud 타일을 클릭하면 SAP Analytics Cloud 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

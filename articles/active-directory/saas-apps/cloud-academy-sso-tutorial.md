@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/15/2020
+ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: fa46d6e5c7f1007e3a90e22eb9d4f46e18251a28
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f66c2019e85640f1eaaeded5040fb925d070044a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821627"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128655793"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-cloud-academy---sso"></a>자습서: Cloud Academy - SSO와 Azure Active Directory SSO 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "99821627"
 * 사용자가 자신의 Azure AD 계정으로 Cloud Academy - SSO에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -39,6 +39,7 @@ ms.locfileid: "99821627"
 
 * Cloud Academy - SSO에서 **SP** 시작 SSO를 지원합니다.
 * Cloud Academy - SSO는 **Just In Time** 사용자 프로비저닝을 지원합니다.
+* Cloud Academy - SSO는 [자동 사용자 프로비저닝](cloud-academy-sso-provisioning-tutorial.md)을 지원합니다.
 
 ## <a name="add-cloud-academy---sso-from-the-gallery"></a>갤러리에서 Cloud Academy - SSO 추가
 
@@ -153,6 +154,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Cloud Academy - SSO에서 Britta Simon이라는 사용자를 만듭니다. Cloud Academy - SSO는 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 프로비저닝을 지원합니다. 이 섹션에 작업 항목이 없습니다. Cloud Academy - SSO에 사용자가 아직 없는 경우 인증 후에 새로운 사용자가 생성됩니다.
 
+Cloud Academy - SSO는 자동 사용자 프로비저닝도 지원합니다. 자동 사용자 프로비저닝 구성 방법에 대한 자세한 내용은 [여기](./cloud-academy-sso-provisioning-tutorial.md)에서 제공합니다.
+
 ## <a name="test-sso"></a>SSO 테스트 
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
@@ -161,7 +164,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * Cloud Academy - SSO 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Cloud Academy - SSO 타일을 클릭하면 Cloud Academy - SSO 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Cloud Academy - SSO 타일을 클릭하면 Cloud Academy - SSO 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

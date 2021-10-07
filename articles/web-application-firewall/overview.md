@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 05/11/2021
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 7bcaf46ef6860a9546179b86d6293d24c0064c0c
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 3319d0e407c6661ee0727944035b315e77ea512f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751530"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626535"
 ---
 # <a name="what-is-azure-web-application-firewall"></a>Azure 웹 애플리케이션 방화벽이란?
 
@@ -35,3 +35,4 @@ WAF는 Microsoft의 Azure Application Gateway, Azure Front Door 및 Azure CDN(Co
 - Application Gateway의 웹 애플리케이션 방화벽에 대한 자세한 내용은 [Azure Application Gateway의 웹 애플리케이션 방화벽](./ag/ag-overview.md)을 참조하세요.
 - Azure Front Door Service의 웹 애플리케이션 방화벽에 대한 자세한 내용은 [Azure Front Door Service의 웹 애플리케이션 방화벽](./afds/afds-overview.md)을 참조하세요.
 - Azure CDN Service의 웹 애플리케이션 방화벽에 대한 자세한 내용은 [Azure CDN Service의 웹 애플리케이션 방화벽](./cdn/cdn-overview.md)을 참조하세요.
+- Web Application Firewall에 대해 자세히 알아보려면 [학습 모듈: Azure Web Application Firewall 소개](/learn/modules/introduction-azure-web-application-firewall/)를 참조하세요.

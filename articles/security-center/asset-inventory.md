@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 02/10/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 0daf5cab1627819093514833667606758707f17a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 27ce465a536215cc72e9da6f55341e059e6dd6b8
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535737"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612993"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory"></a>자산 인벤토리로 리소스 탐색 및 관리
 
@@ -130,6 +130,73 @@ ARG는 대규모로 쿼리를 하는 기능을 갖춘 효율적인 리소스 탐
     ![ARG의 인벤토리 쿼리](./media/asset-inventory/inventory-query-in-resource-graph-explorer.png)
 
 1. 일부 필터를 정의하고 페이지를 열어둔 경우에는 Security Center가 결과를 자동으로 업데이트하지 않습니다. 수동으로 페이지를 다시 로드하거나 **새로 고침** 을 선택하지 않으면 리소스 변경 내용이 표시된 결과에 영향을 주지 않습니다.
+
+## <a name="access-a-software-inventory"></a>소프트웨어 인벤토리 액세스
+
+엔드포인트용 Microsoft Defender와의 통합을 사용하도록 설정했고 서버에 Azure Defender 사용하도록 설정한 경우 소프트웨어 인벤토리에 액세스할 수 있습니다.
+
+:::image type="content" source="media/deploy-vulnerability-assessment-tvm/software-inventory.png" alt-text="위협 및 취약성 솔루션을 사용하도록 설정한 경우 Security Center 자산 인벤토리는 설치된 소프트웨어로 리소스를 선택하는 필터를 제공합니다.":::
+
+> [!NOTE]
+> "비어 있음" 옵션은 엔드포인트용 Microsoft Defender가 없거나 서버용 Azure Defender 없는 머신을 표시합니다.
+
+자산 인벤토리 페이지의 필터뿐만 아니라 Azure Resource Graph Explorer에서 소프트웨어 인벤토리 데이터를 탐색할 수 있습니다.
+
+Azure Resource Graph Explorer를 사용하여 소프트웨어 인벤토리 데이터에 액세스하고 탐색하는 예제:
+
+1. **Azure Resource Graph Explorer** 를 엽니다.
+
+    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Azure Resource Graph Explorer 시작** 권장 사항 페이지" :::
+
+1. 다음 구독 범위를 선택합니다. securityresources/softwareinventories
+
+1. 다음 쿼리 중 원하는 쿼리를 입력하거나 사용자 지정하거나 직접 작성합니다.) **쿼리 실행을** 선택합니다.
+
+    - 설치된 소프트웨어의 기본 목록을 생성하려면 다음을 수행합니다.
+
+        ```kusto
+        securityresources
+        | where type == "microsoft.security/softwareinventories"
+        | project id, Vendor=properties.vendor, Software=properties.softwareName, Version=properties.version
+        ```
+
+    - 버전 번호로 필터링하려면 다음을 수행합니다.
+
+        ```kusto
+        securityresources
+        | where type == "microsoft.security/softwareinventories"
+        | project id, Vendor=properties.vendor, Software=properties.softwareName, Version=tostring(properties.    version)
+        | where Software=="windows_server_2019" and parse_version(Version)<=parse_version("10.0.17763.1999")
+        ```
+
+    - 소프트웨어 제품을 조합하여 컴퓨터를 찾으려면 다음을 수행합니다.
+
+        ```kusto
+        securityresources
+        | where type == "microsoft.security/softwareinventories"
+        | extend vmId = properties.azureVmId
+        | where properties.softwareName == "apache_http_server" or properties.softwareName == "mysql"
+        | summarize count() by tostring(vmId)
+        | where count_ > 1
+        ```
+
+    - 소프트웨어 제품과 다른 ASC 권장 사항의 조합:
+
+        (이 예제에서는 MySQL을 설치하고 관리 포트를 노출하는 머신)
+
+        ```kusto
+        securityresources
+        | where type == "microsoft.security/softwareinventories"
+        | extend vmId = tolower(properties.azureVmId)
+        | where properties.softwareName == "mysql"
+        | join (
+        securityresources
+        | where type == "microsoft.security/assessments"
+        | where properties.displayName == "Management ports should be closed on your virtual machines" and properties.status.code == "Unhealthy"
+        | extend vmId = tolower(properties.resourceDetails.Id)
+        ) on vmId
+        ```
+
 
 
 ## <a name="faq---inventory"></a>FAQ - 인벤토리

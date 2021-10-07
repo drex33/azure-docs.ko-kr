@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/03/2020
+ms.date: 09/25/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: e8f5405e55c3443b020265e68d68737f6d266a17
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: b2d3cb2eadc86ec04cca6561777a44c4700403eb
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122179308"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081475"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>자습서: Azure Active Directory B2C 테넌트 만들기
 
@@ -39,22 +39,27 @@ ms.locfileid: "122179308"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+- Azure 구독 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
+
+- 구독 내에서 [기여자](../role-based-access-control/built-in-roles.md) 역할 이상이 할당된 Azure 계정 또는 구독 내의 리소스 그룹이 필요합니다. 
 
 ## <a name="create-an-azure-ad-b2c-tenant"></a>Azure AD B2C 테넌트 만들기
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 구독 내에서 적어도 [기여자](../role-based-access-control/built-in-roles.md) 역할 또는 구독 내의 리소스 그룹에 할당된 Azure 계정으로 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
 
 1. 구독이 포함된 디렉터리를 선택합니다.
+    1. Azure Portal 포털 도구 모음에서 **디렉터리 + 구독** 필터 아이콘을 선택합니다. 
+    
+    ![디렉터리 + 구독 필터 아이콘](media/tutorial-create-tenant/directories-subscription-filter-icon.png)
 
-    Azure Portal 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, 구독이 포함된 디렉터리를 선택합니다. 이 디렉터리는 Azure AD B2C 테넌트가 포함될 디렉터리와는 다릅니다.
+    1. 구독이 포함된 디렉터리를 찾아서 옆에 있는 **전환** 단추를 선택합니다. 디렉터리를 전환하면 포털이 다시 로드됩니다.
 
-    ![구독 테넌트, 구독 테넌트가 선택된 디렉터리 + 구독 필터](media/tutorial-create-tenant/portal-01-pick-directory.png)
+    ![전환 단추가 있는 디렉터리 + 구독](media/tutorial-create-tenant/switch-directory.png)
 
 1. 사용 중인 Azure 구독에 대한 리소스 공급자로 **Microsoft.AzureActiveDirectory** 를 추가합니다([자세히 알아보기](../azure-resource-manager/management/resource-providers-and-types.md?WT.mc_id=Portal-Microsoft_Azure_Support#register-resource-provider-1)).
 
     1. Azure Portal 메뉴 또는 **홈** 페이지에서 **구독** 을 선택합니다.
-    2. 구독을 선택한 다음, **리소스 공급자** 를 선택합니다.
+    2. 구독을 선택한 다음, 왼쪽 메뉴에서 **리소스 공급자** 를 선택합니다.
     3. **Microsoft.AzureActiveDirectory** 행에 **등록됨** 상태가 표시되는지 확인합니다. 표시되지 않으면 행을 선택한 다음, **등록** 을 선택합니다.
 
 1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기** 를 선택합니다.
@@ -77,19 +82,18 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     ![Azure Portal에서 예제 값을 사용하여 테넌트 양식 만들기](media/tutorial-create-tenant/review-and-create-tenant.png)
 
 1. **검토 + 만들기** 를 선택합니다.
-1. 디렉터리 설정을 검토합니다. 그런 다음 **만들기** 를 선택합니다. [배포 오류 문제를 해결](../azure-resource-manager/templates/common-deployment-errors.md)합니다.
+1. 디렉터리 설정을 검토합니다. 그런 다음 **만들기** 를 선택합니다. [배포 오류 문제 해결](../azure-resource-manager/templates/common-deployment-errors.md)에 대해 자세히 알아보세요.
 
 청구 목적으로 여러 Azure AD B2C 테넌트를 단일 Azure 구독에 연결할 수 있습니다. 테넌트를 연결하려면 Azure AD B2C 테넌트의 관리자여야 하고 Azure 구독 내에서 적어도 기여자 역할을 할당받아야 합니다. [구독에 Azure AD B2C 테넌트 연결](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription)을 참조하세요.
 
 ## <a name="select-your-b2c-tenant-directory"></a>B2C 테넌트 디렉터리 선택
 
 새 Azure AD B2C 테넌트 사용을 시작하려면 테넌트가 포함된 디렉터리로 전환해야 합니다.
+1. Azure Portal 포털 도구 모음에서 **디렉터리 + 구독** 필터 아이콘을 선택합니다.
+1. **모든 디렉터리** 탭에서 Azure AD B2C 테넌트가 포함된 디렉터리를 찾은 다음, 옆에 있는 **전환** 단추를 선택합니다.
 
-Azure Portal의 맨 위 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+처음에 새 Azure B2C 테넌트가 목록에 표시되지 않으면 브라우저 창을 새로 고치거나 로그아웃했다가 다시 로그인합니다. 그런 다음, Azure Portal 포털 도구 모음에서 **디렉터리 + 구독** 필터를 다시 선택합니다.
 
-처음에 새 Azure B2C 테넌트가 목록에 표시되지 않으면 브라우저 창을 새로 고친 다음, 맨 위 메뉴에서 **디렉터리 + 구독** 필터를 다시 선택합니다.
-
-![B2C 테넌트 - Azure Portal에서 선택한 디렉터리를 포함합니다.](media/tutorial-create-tenant/portal-07-select-tenant-directory.png)
 
 ## <a name="add-azure-ad-b2c-as-a-favorite-optional"></a>Azure AD B2C를 즐겨찾기로 추가(선택 사항)
 

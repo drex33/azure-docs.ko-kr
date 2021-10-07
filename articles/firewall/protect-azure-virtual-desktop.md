@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 08/09/2021
+ms.date: 10/06/2021
 ms.author: victorh
-ms.openlocfilehash: 5c165dc8f00bb21894de06e541c02788bd7b51e5
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 9ac87633dbb4d1b21dfe4fa4430012d91243b8d5
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424996"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129620510"
 ---
 # <a name="use-azure-firewall-to-protect-azure-virtual-desktop-deployments"></a>Azure Firewall을 사용하여 Azure Virtual Desktop 배포 보호
 
@@ -44,6 +44,7 @@ Azure Firewall 정책을 만들고 네트워크 규칙 및 애플리케이션 �
 | 규칙 이름 | IP 주소  | VNet 또는 서브넷 IP 주소 | TCP      | 80                | IP 주소       | 169.254.169.254, 168.63.129.16    |
 | 규칙 이름 | IP 주소  | VNet 또는 서브넷 IP 주소 | TCP      | 443               | 서비스 태그      | AzureCloud, WindowsVirtualDesktop |
 | 규칙 이름 | IP 주소  | VNet 또는 서브넷 IP 주소 | TCP, UDP | 53                | IP 주소       | *                                 |
+|규칙 이름  | IP 주소  | VNet 또는 서브넷 IP 주소 | TCP      | 1688              | IP 주소       | 23.102.135.246                    |
 
 > [!NOTE]
 > 일부 배포에는 DNS 규칙이 필요하지 않을 수 있습니다. 예를 들어, Azure Active Directory Domain 컨트롤러는 DNS 쿼리를 168.63.129.16에서 Azure DNS로 전달합니다.
@@ -53,7 +54,6 @@ Azure Firewall 정책을 만들고 네트워크 규칙 및 애플리케이션 �
 | 이름      | 소스 형식 | 원본                    | 프로토콜   | 대상 형식 | 대상                                                                                 |
 | --------- | ----------- | ------------------------- | ---------- | ---------------- | ------------------------------------------------------------------------------------------- |
 | 규칙 이름 | IP 주소  | VNet 또는 서브넷 IP 주소 | Https:443  | FQDN 태그         | WindowsVirtualDesktop, WindowsUpdate, Windows Diagnostics, MicrosoftActiveProtectionService |
-| 규칙 이름 | IP 주소  | VNet 또는 서브넷 IP 주소 | Https:1688 | FQDN             | kms.core.windows.net                                                                        |
 
 > [!IMPORTANT]
 > Azure 가상 데스크톱에는 TLS 검사를 사용 하지 않는 것이 좋습니다. 자세한 내용은 [프록시 서버 지침](../virtual-desktop/proxy-server-support.md#dont-use-ssl-termination-on-the-proxy-server)을 참조 하세요.

@@ -9,12 +9,12 @@ ms.reviewer: eustacea
 ms.date: 09/17/2021
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: d07f0073141632477a64b2c1cc4bc3a9b8e8d458
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: fedb06a23a71dbe30954154daa6d314267268551
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129233517"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659681"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IoT Edge 보안 관리자
 
@@ -186,7 +186,7 @@ IoT Edge 모듈 런타임은 보안 강화를 위해 사용 가능한 신뢰 기
 
 <!--1.2-->
 :::moniker range=">=iotedge-2020-11"
-관리 API는 IoT Edge 모듈을 생성/시작/중지/제거할 때 IoT Edge 에이전트에서 호출됩니다. 모듈 런타임은 모든 활성 모듈에 대한 "등록"을 저장합니다. 이러한 등록은 모듈의 ID를 모듈의 일부 속성에 매핑합니다. 예를 들어 이러한 모듈 속성에는 컨테이너에서 실행되는 프로세스의 프로세스 식별자(pid)와 docker 컨테이너 콘텐츠의 해시가 포함됩니다.
+관리 API는 IoT Edge 모듈을 생성/시작/중지/제거할 때 IoT Edge 에이전트에서 호출됩니다. 모듈 런타임은 모든 활성 모듈에 대한 "등록"을 저장합니다. 이러한 등록은 모듈의 ID를 모듈의 일부 속성에 매핑합니다. 예를 들어 이러한 모듈 속성에는 컨테이너에서 실행되는 프로세스의 프로세스 식별자(pid)와 Docker 컨테이너 콘텐츠의 해시가 포함됩니다.
 
 해당 속성은 워크로드 API(아래 설명 참조)에서 호출자가 작업을 수행할 수 있는 권한이 있는지 확인하는 데 사용됩니다.
 
@@ -253,7 +253,7 @@ IoT Edge 런타임은 IoT Edge 모듈 런타임의 버전을 추적하고 보고
 
 <!--1.1-->
 :::moniker range="iotedge-2018-06"
-HSM PAL(하드웨어 보안 모듈 플랫폼 추상화 계층)은 신뢰 하드웨어의 모든 루트를 추상화하여 IoT Edge 개발자 또는 사용자의 복잡성을 격리합니다.  이는 API(애플리케이션 프로그래밍 인터페이스) 및 트랜스 도메인 통신 프로시저(예: 표준 실행 환경과 보안 enclave 간의 통신)의 조합으로 구성됩니다.  HSM PAL의 실제 구현은 사용 중인 특정 보안 하드웨어에 따라 달라집니다. 보안 하드웨어가 있으면 사실상 모든 보안 실리콘 하드웨어를 사용할 수 있습니다.
+HSM PAL(하드웨어 보안 모듈 플랫폼 추상화 계층)은 신뢰 하드웨어의 모든 루트를 추상화하여 IoT Edge 개발자 또는 사용자를 복잡성으로부터 격리합니다.  이는 API(애플리케이션 프로그래밍 인터페이스) 및 트랜스 도메인 통신 프로시저(예: 표준 실행 환경과 보안 enclave 간의 통신)의 조합으로 구성됩니다.  HSM PAL의 실제 구현은 사용 중인 특정 보안 하드웨어에 따라 달라집니다. 보안 하드웨어가 있으면 사실상 모든 보안 실리콘 하드웨어를 사용할 수 있습니다.
 :::moniker-end
 
 <!--1.2-->
@@ -269,11 +269,11 @@ IoT Edge 보안 관리자의 목표는 사용자 지정 강화를 위해 Azure I
 
 소프트웨어 또는 가상 TPM을 사용하여 TPM(신뢰할 수 있는 플랫폼 모듈)으로 Azure IoT 보안 관리자를 강화하는 방법을 알아봅니다.  
 
-[Linux 가상 머신에서 가상 TPM을 사용하는 IoT Edge 디바이스](how-to-auto-provision-simulated-device-linux.md)를 만들고 프로비전합니다.
+[Linux 가상 머신에서 가상 TPM을 사용하는 IoT Edge 디바이스](how-to-provision-devices-at-scale-linux-tpm.md)를 만들고 프로비전합니다.
 
 <!--1.1-->
 :::moniker range="iotedge-2018-06"
-[Windows에서 시뮬레이션된 TPM을 사용하는 IoT Edge 디바이스](how-to-auto-provision-simulated-device-windows.md)를 만들고 프로비전합니다.
+[Windows에서 시뮬레이션된 TPM을 사용하는 IoT Edge 디바이스](how-to-provision-devices-at-scale-windows-tpm.md)를 만들고 프로비전합니다.
 :::moniker-end
 
 ## <a name="next-steps"></a>다음 단계

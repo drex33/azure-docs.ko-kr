@@ -3,20 +3,20 @@ title: Azure Functions에 대한 앱 설정 참조
 description: Azure Functions 앱 설정 또는 환경 변수에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 07/27/2021
-ms.openlocfilehash: 6b860e40acd118bc708ab00001707755272525b6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ada3429d32ea08f8185ba19937b963a30400c7b0
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128663614"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659662"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
 
-함수 앱의 앱 설정에는 해당 함수 앱의 모든 함수에 영향을 주는 전역 구성 옵션이 포함됩니다. 로컬에서 실행할 때 이러한 설정은 로컬 [환경 변수](functions-develop-local.md#local-settings-file)로 액세스합니다. 이 문서에는 함수 앱에서 사용할 수 있는 앱 설정이 나열되어 있습니다.
+함수 앱의 앱 설정에는 해당 함수 앱의 모든 함수에 영향을 주는 구성 옵션이 포함 되어 있습니다. 로컬에서 실행할 때 이러한 설정은 로컬 [환경 변수](functions-develop-local.md#local-settings-file)로 액세스합니다. 이 문서에는 함수 앱에서 사용할 수 있는 앱 설정이 나열되어 있습니다.
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-[host.json](functions-host-json.md) 파일과 [local.settings.json](functions-develop-local.md#local-settings-file) 파일에는 다른 전역 구성 옵션이 있습니다.
+다른 함수 앱 구성 옵션은 [호스트 json](functions-host-json.md) 파일 및 [로컬.](functions-develop-local.md#local-settings-file) s s d 파일에 있습니다.
 예에서 연결 문자열 값은 가독성을 위해 잘립니다.
 
 > [!NOTE]
@@ -402,6 +402,6 @@ Windows에서 함수 앱을 실행할 때 사용할 Node.js 버전을 설정합�
 
 [앱 설정 업데이트 방법 알아보기](functions-how-to-use-azure-function-app-settings.md#settings)
 
-[host.json 파일의 전역 설정 보기](functions-host-json.md)
+[host.json 파일의 구성 설정을 참조하세요.](functions-host-json.md)
 
 [App Service 앱에 대한 다른 앱 설정 보기](https://github.com/projectkudu/kudu/wiki/Configurable-settings)

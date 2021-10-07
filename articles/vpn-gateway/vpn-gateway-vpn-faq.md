@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 07/26/2021
 ms.author: yushwang
-ms.openlocfilehash: 0551cf435b732b621ad5493914251afd67f18882
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
-ms.translationtype: HT
+ms.openlocfilehash: b3619ba68338e40773cdd962298b01806bde5b2b
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114707130"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660631"
 ---
 # <a name="vpn-gateway-faq"></a>VPN Gateway FAQ
 
@@ -185,6 +185,10 @@ IPsec/IKE 매개 변수는 [매개 변수](vpn-gateway-about-vpn-devices.md#ipse
 사이트 사이 프레미스 간 구성에 대해 Windows Server 2012 RRAS(라우팅 및 원격 액세스) 서버를 지원합니다.
 
 다른 소프트웨어 VPN 솔루션은 업계 표준 IPsec 구현을 따르는 경우에만 Microsoft 게이트웨이에 사용할 수 있습니다. 구성 및 지원 지침은 소프트웨어 공급 업체에 문의하세요.
+
+### <a name="can-i-connect-to-azure-gateway-via-point-to-site-when-located-at-a-site-that-has-an-active-site-to-site-connection"></a>활성 사이트간 연결이 있는 사이트에 있는 경우 지점 및 사이트간 연결을 통해 Azure Gateway에 연결할 수 있나요?
+
+예, 하지만 지점 및 사이트간 클라이언트의 공용 IP 주소는 사이트간 VPN 디바이스에서 사용하는 공용 IP 주소와 달라야 합니다. 그렇지 않으면 지점 및 사이트간 연결이 작동하지 않습니다. IKEv2와의 지점 및 사이트간 연결은 동일한 Azure VPN Gateway 사이트간 VPN 연결이 구성된 동일한 공용 IP 주소에서 시작할 수 없습니다. 
 
 ## <a name="point-to-site---certificate-authentication"></a><a name="P2S"></a>지점 및 사이트 간 - 인증서 인증
 

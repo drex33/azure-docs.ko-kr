@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 09/22/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
-ms.openlocfilehash: 7200c13d5ad4157afeb2c0dd1d7ab7445670609d
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 61e5bda5722d343aae2fc6be80312f13a21c415a
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129425338"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658192"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>가상 네트워크를 사용하여 Azure Machine Learning 작업 영역 보호
 
@@ -105,18 +105,28 @@ Azure Machine Learning은 개인 끝점 또는 서비스 끝점을 사용 하도
 
 # <a name="private-endpoint"></a>[프라이빗 엔드포인트](#tab/pe)
 
-> [!TIP]
-> 기본 저장소 계정에 대해 두 개의 개인 끝점을 구성 해야 합니다.
-> * **BLOB** 대상 하위 리소스가 있는 프라이빗 엔드포인트입니다.
-> * **파일** 대상 하위 리소스가 있는 프라이빗 엔드포인트입니다(FileShare).
->
-> 파이프라인에서 [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) 를 사용 하려는 경우 **큐** 및 **테이블** 대상 하위 리소스를 사용 하 여 개인 끝점을 구성 해야 합니다. ParallelRunStep는 작업 예약 및 디스패치를 위해 큐 및 테이블을 사용 합니다.
+1. Azure Portal에서 Azure Storage 계정을 선택 합니다.
+1. [Azure Storage에 대 한 전용 끝점 사용](../storage/common/storage-private-endpoints.md#creating-a-private-endpoint) 의 정보를 사용 하 여 다음 저장소 하위 리소스에 대 한 개인 끝점을 추가 합니다.
 
-:::image type="content" source="./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png" alt-text="BLOB 및 파일 옵션을 사용하여 프라이빗 엔드포인트 구성 페이지를 보여 주는 스크린샷":::
+    * **Blob**
+    * **파일**
+    * **큐** -Azure Machine Learning 파이프라인에서 [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) 를 사용 하려는 경우에만 필요 합니다.
+    * **테이블** -Azure Machine Learning 파이프라인에서 [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) 를 사용 하려는 경우에만 필요 합니다.
 
-기본 스토리지가 **아닌** 스토리지 계정에 대한 프라이빗 엔드포인트를 구성하려면 추가하려는 스토리지 계정에 해당하는 **대상 하위 리소스** 종류를 선택합니다.
+    :::image type="content" source="./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png" alt-text="BLOB 및 파일 옵션을 사용하여 프라이빗 엔드포인트 구성 페이지를 보여 주는 스크린샷":::
 
-자세한 내용은 [Azure Storage에 프라이빗 엔드포인트 사용](../storage/common/storage-private-endpoints.md)을 참조하세요.
+    > [!TIP]
+    > 기본 저장소가 **아닌** 저장소 계정을 구성 하는 경우 추가 하려는 저장소 계정에 해당 하는 **대상 하위 리소스** 종류를 선택 합니다.
+
+1. 내 하위 리소스에 대 한 개인 끝점을 만든 후에는 저장소 계정에 대 한 __네트워킹__ 에서 __방화벽 및 가상 네트워크__ 탭을 선택 합니다.
+1. __선택한 네트워크__ 를 선택 하 고 __리소스 인스턴스__ 아래에서 `Microsoft.MachineLearningServices/Workspace` __리소스 유형__ 으로를 선택 합니다. __인스턴스 이름을__ 사용 하 여 작업 영역을 선택 합니다. 자세한 내용은 [시스템 할당 관리 id를 기반으로 하는 트러스트 된 액세스](/azure/storage/common/storage-network-security#trusted-access-based-on-system-assigned-managed-identity)를 참조 하세요.
+
+    > [!TIP]
+    > 또는 신뢰할 수 있는 __서비스 목록에서 Azure 서비스 허용을 선택 하 여이 저장소 계정에 액세스 하__ 여 신뢰할 수 있는 서비스에서 더욱 광범위 하 게 액세스할 수 있도록 합니다. 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](../storage/common/storage-network-security.md#trusted-microsoft-services)을 참조하세요.
+
+    :::image type="content" source="./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-no-vnet.png" alt-text="개인 끝점을 사용 하는 경우 Azure Portal Azure Storage 페이지의 네트워킹 영역":::
+
+1. __저장__ 을 선택하여 구성을 저장합니다.
 
 > [!TIP]
 > 프라이빗 엔드포인트를 사용하는 경우 퍼블릭 액세스를 사용하지 않도록 설정할 수도 있습니다. 자세한 내용은 [퍼블릭 읽기 권한 허용 안 함](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account)을 참조하세요.
@@ -134,14 +144,12 @@ Azure Machine Learning은 개인 끝점 또는 서비스 끝점을 사용 하도
 
 1. __리소스 인스턴스__ 에서 `Microsoft.MachineLearningServices/Workspace` __리소스 형식__ 으로를 선택 하 고 __인스턴스 이름을__ 사용 하 여 작업 영역을 선택 합니다. 자세한 내용은 [시스템 할당 관리 id를 기반으로 하는 트러스트 된 액세스](/azure/storage/common/storage-network-security#trusted-access-based-on-system-assigned-managed-identity)를 참조 하세요.
 
-1. __예외__ 에서 __신뢰할 수 있는 서비스 목록에서 Azure 서비스 허용을 선택 하 여이 저장소 계정에 액세스__ 합니다.
+    > [!TIP]
+    > 또는 신뢰할 수 있는 __서비스 목록에서 Azure 서비스 허용을 선택 하 여이 저장소 계정에 액세스 하__ 여 신뢰할 수 있는 서비스에서 더욱 광범위 하 게 액세스할 수 있도록 합니다. 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](../storage/common/storage-network-security.md#trusted-microsoft-services)을 참조하세요.
 
-    * **구독에 등록된 경우** 일부 서비스의 리소스는 선택 작업에 대해 **동일한 구독** 에 있는 스토리지 계정에 액세스할 수 있습니다. 예를 들어 로그를 작성하거나 백업을 만듭니다.
-    * 일부 서비스의 리소스에는 시스템이 할당한 관리 ID에 __Azure 역할을 할당하여__ 스토리지 계정에 대한 명시적 액세스 권한을 부여할 수 있습니다.
+    :::image type="content" source="./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png" alt-text="Azure Portal에 있는 Azure Storage 페이지의 네트워킹 영역":::
 
-    자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](../storage/common/storage-network-security.md#trusted-microsoft-services)을 참조하세요.
-
-:::image type="content" source="./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png" alt-text="Azure Portal에 있는 Azure Storage 페이지의 네트워킹 영역":::
+1. __저장__ 을 선택하여 구성을 저장합니다.
 
 > [!TIP]
 > 서비스 엔드포인트를 사용하는 경우 퍼블릭 액세스를 사용하지 않도록 설정할 수도 있습니다. 자세한 내용은 [퍼블릭 읽기 권한 허용 안 함](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account)을 참조하세요.

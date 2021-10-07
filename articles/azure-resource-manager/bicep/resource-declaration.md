@@ -4,13 +4,13 @@ description: Bicep에 배포할 리소스를 선언하는 방법을 설명합니
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/16/2021
-ms.openlocfilehash: a540a30cd93d9f1dc54f77355f2f6560444131c1
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
-ms.translationtype: HT
+ms.date: 10/07/2021
+ms.openlocfilehash: 4b3b355016057af00c361a118aed2728948768dd
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122567786"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659624"
 ---
 # <a name="resource-declaration-in-bicep"></a>Bicep의 리소스 선언
 
@@ -28,7 +28,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 }
 ```
 
-리소스에 대한 기호화된 이름을 설정합니다. 앞의 예제에서 기호화된 이름은 `stg`입니다. 기호화된 이름에 모든 값을 사용할 수 있지만, Bicep 파일의 다른 리소스, 매개 변수 또는 변수와 같을 수는 없습니다. 기호화된 이름이 리소스 이름과 동일하지 않습니다. 심볼 이름을 사용하여 Bicep 파일의 다른 부분에 있는 리소스를 참조할 수 있습니다.
+리소스에 대한 기호화된 이름을 설정합니다. 앞의 예제에서 기호화된 이름은 `stg`입니다.  기호화된 이름이 리소스 이름과 동일하지 않습니다. 심볼 이름을 사용하여 Bicep 파일의 다른 부분에 있는 리소스를 참조할 수 있습니다. 기호화 된 이름은 대/소문자를 구분 합니다.  문자, 숫자 및 _를 포함할 수 있습니다. 숫자로 시작할 수 없습니다.
 
 Bicep은 [ARM 템플릿(Azure Resource Manager 템플릿) JSON](../templates/syntax.md)에서 사용할 수 있는 `apiProfile`을 지원하지 않습니다.
 
@@ -106,7 +106,7 @@ az provider show \
 
 ## <a name="set-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID 설정
 
-일부 리소스는 [Azure 리소스에 대한 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 지원합니다. 이러한 리소스에는 리소스 선언의 루트 수준에 ID 개체가 있습니다. 
+일부 리소스는 [Azure 리소스에 대한 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 지원합니다. 이러한 리소스에는 리소스 선언의 루트 수준에 ID 개체가 있습니다.
 
 시스템 할당 또는 사용자 할당 ID를 사용할 수 있습니다.
 
@@ -204,7 +204,7 @@ resource myParent 'My.Rp/parentType@2020-01-01' = {
 
 ### <a name="explicit-dependency"></a>명시적 종속성
 
-명시적 종속성은 `dependsOn` 속성을 사용하여 선언됩니다. 이 속성은 리소스 식별자 배열을 허용하므로 둘 이상의 종속성을 지정할 수 있습니다. 
+명시적 종속성은 `dependsOn` 속성을 사용하여 선언됩니다. 이 속성은 리소스 식별자 배열을 허용하므로 둘 이상의 종속성을 지정할 수 있습니다.
 
 다음 예제에서는 `dnsZone`이라는 DNS 영역에 종속되는 `otherZone`이라는 DNS 영역을 보여 줍니다.
 

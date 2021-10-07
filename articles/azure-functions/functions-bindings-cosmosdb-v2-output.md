@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/01/2021
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: f385ca93c3cee6535a71dcffdd9240871ab1bdce
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d43407221d62992a54f1e5efdeb23afd3dde92ef
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128676393"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129661182"
 ---
 # <a name="azure-cosmos-db-output-binding-for-azure-functions-2x-and-higher"></a>Azure Functions 2.x 이상에 대한 Azure Cosmos DB 출력 바인딩
 
@@ -673,13 +673,13 @@ Python에서는 특성을 지원하지 않습니다.
 |**direction**     | 해당 없음 | `out`로 설정해야 합니다.         |
 |**name**     | 해당 없음 | 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
 |**databaseName** | **DatabaseName**|문서가 만들어진 컬렉션을 포함하는 데이터베이스입니다.     |
-|**collectionName** <br> 또는 <br> **containerName** |**CollectionName** <br> 또는 <br> **ContainerName** | 문서가 만들어진 컬렉션의 이름입니다. <br><br> [확장의 버전](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) 4.x에서이 속성을 호출 `ContainerName` 합니다. |
+|**collectionName** <br> 또는 <br> **containerName** |**CollectionName** <br> 또는 <br> **ContainerName** | 문서가 만들어진 컬렉션의 이름입니다. <br><br> [확장의 버전 4.x에서](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) 이 속성을 라고 `ContainerName` 합니다. |
 |**createIfNotExists**  |**CreateIfNotExists**    | 컬렉션이 존재하지 않는 경우 만들 수 있는지 여부를 나타내는 부울 값입니다. 새 컬렉션이 예약된 처리량으로 만들어져 비용이 부과되기 기본값은 *false* 입니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요.  |
 |**partitionKey**|**PartitionKey** |`CreateIfNotExists`가 true이면 생성된 컬렉션의 파티션 키 경로를 정의합니다.|
-|**collectionThroughput** <br> 또는 <br> **containerThroughput**|**CollectionThroughput** <br> 또는 <br> **ContainerThroughput**| `CreateIfNotExists`가 true이면 생성된 컬렉션의 [처리량](../cosmos-db/set-throughput.md)을 정의합니다. <br><br> [확장의 버전](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) 4.x에서이 속성을 호출 `ContainerThroughput` 합니다. |
-|**connectionStringSetting** <br> 또는 <br> **connection**   |**ConnectionStringSetting** <br> 또는 <br> **연결**|Azure Cosmos DB 연결 문자열을 포함하는 앱 설정의 이름입니다.  <br><br> [확장의 버전](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) 4.x에서이 속성을 호출 `Connection` 합니다. 값은 연결 문자열을 포함 하거나 연결을 정의 하는 구성 섹션 또는 접두사를 포함 하는 앱 설정의 이름입니다. [연결](./functions-reference.md#connections)을 참조하세요. |
+|**collectionThroughput** <br> 또는 <br> **containerThroughput**|**CollectionThroughput** <br> 또는 <br> **ContainerThroughput**| `CreateIfNotExists`가 true이면 생성된 컬렉션의 [처리량](../cosmos-db/set-throughput.md)을 정의합니다. <br><br> [확장의 버전 4.x에서](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) 이 속성을 라고 `ContainerThroughput` 합니다. |
+|**connectionStringSetting** <br> 또는 <br> **connection**   |**ConnectionStringSetting** <br> 또는 <br> **연결**|Azure Cosmos DB 연결 문자열을 포함하는 앱 설정의 이름입니다.  <br><br> [확장의 버전 4.x에서](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) 이 속성을 라고 `Connection` 합니다. 값은 연결 문자열을 포함하거나 연결을 정의하는 구성 섹션 또는 접두사 중 하나를 포함하는 앱 설정의 이름입니다. [연결](./functions-reference.md#connections)을 참조하세요. |
 |**preferredLocations**| **PreferredLocations**| (선택적) Azure Cosmos DB 서비스에서 지역 복제된 데이터베이스 계정의 기본 설정 위치(지역)를 정의합니다. 값은 쉼표로 구분해야 합니다. 예를 들면 "미국 동부, 미국 중남부, 북유럽"입니다. |
-|**useMultipleWriteLocations**| **UseMultipleWriteLocations**| (선택 사항) `PreferredLocations`와 함께 `true`로 설정 하면 Azure Cosmos DB 서비스에서 [다중 지역 쓰기](../cosmos-db/how-to-manage-database-account.md#configure-multiple-write-regions)를 활용할 수 있습니다. <br><br> 이 속성은 [확장의 버전](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher)4.x에서 사용할 수 없습니다. |
+|**useMultipleWriteLocations**| **UseMultipleWriteLocations**| (선택 사항) `PreferredLocations`와 함께 `true`로 설정 하면 Azure Cosmos DB 서비스에서 [다중 지역 쓰기](../cosmos-db/how-to-manage-database-account.md#configure-multiple-write-regions)를 활용할 수 있습니다. <br><br> 이 속성은 [확장의 버전 4.x에서](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher)사용할 수 없습니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -700,7 +700,7 @@ Python에서는 특성을 지원하지 않습니다.
 
 ## <a name="hostjson-settings"></a>host.json 설정
 
-이 섹션에서는 Azure Functions 버전 2.x에서이 바인딩에 사용할 수 있는 전역 구성 설정에 대해 설명 합니다. Azure Functions 버전 2.x의 전역 구성 설정에 대 한 자세한 내용은 [Azure Functions 버전 2.x에 대 한 호스트 json 참조](functions-host-json.md)를 참조 하세요.
+[!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
 
 ```json
 {
@@ -720,8 +720,8 @@ Python에서는 특성을 지원하지 않습니다.
 |속성  |기본값 |Description |
 |----------|--------|------------|
 |GatewayMode|게이트웨이|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 모드입니다. 옵션은 `Direct` 및 `Gateway`입니다.|
-|프로토콜|Https|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 프로토콜입니다. [두 모드에 대 한 설명을 보려면 여기를](../cosmos-db/performance-tips.md#networking)참조 하세요. <br><br> 이 설정은 [확장의 버전](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher)4.x에서 사용할 수 없습니다. |
-|leasePrefix|해당 없음|앱의 모든 함수에서 사용할 접두사를 임대합니다. <br><br> 이 설정은 [확장의 버전](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher)4.x에서 사용할 수 없습니다.|
+|프로토콜|Https|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 프로토콜입니다. [두 모드에 대한 설명은 여기를 읽어보세요.](../cosmos-db/performance-tips.md#networking) <br><br> 이 설정은 [확장의 버전 4.x에서](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher)사용할 수 없습니다. |
+|leasePrefix|해당 없음|앱의 모든 함수에서 사용할 접두사를 임대합니다. <br><br> 이 설정은 [확장의 버전 4.x에서](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher)사용할 수 없습니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

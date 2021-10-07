@@ -1,26 +1,25 @@
 ---
 title: 가상 네트워크에 대한 Azure IoT DPS(Device Provisioning Service) 지원
 description: Azure IoT DPS(Device Provisioning Service)에서 가상 네트워크 연결 패턴을 사용하는 방법입니다.
-services: iot-hub
-author: wesmc7777
+services: iot-dps
+author: anastasia-ms
 ms.service: iot-dps
+manager: lizross
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.author: wesmc
-ms.openlocfilehash: f5b1947a8d037dbdd20a3335a79f90ebf10b2ca6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.date: 10/06/2021
+ms.author: v-stharr
+ms.openlocfilehash: 8d90a033f5af5afb55be9585756a7235dc6d89d7
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108749900"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659320"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>가상 네트워크에 대한 Azure IoT Hub DPS(Device Provisioning Service) 지원
 
 이 문서에서는 DPS를 사용하여 IoT 허브에서 프로비전하는 IoT 디바이스에 대한 VNET(가상 네트워크) 연결 패턴을 소개합니다. 이 패턴은 고객 소유의 Azure VNET 내에서 디바이스, DPS 및 IoT 허브 간에 프라이빗 연결을 제공합니다. 
 
 DPS가 VNET으로 구성된 대부분의 시나리오에서 IoT Hub도 동일한 VNET에서 구성됩니다. IoT Hub에 대한 VNET 지원 및 구성에 대한 자세한 내용은 [IoT Hub 가상 네트워크 지원](../iot-hub/virtual-network-support.md)을 참조하세요.
-
-
 
 ## <a name="introduction"></a>소개
 
@@ -41,7 +40,6 @@ DPS가 VNET으로 구성된 대부분의 시나리오에서 IoT Hub도 동일한
 온-프레미스 네트워크에서 작동하는 디바이스는 [VPN(가상 사설망)](../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [ExpressRoute](https://azure.microsoft.com/services/expressroute/) 개인 피어링을 사용하여 Azure의 VNET에 연결하고, 프라이빗 엔드포인트를 통해 DPS 리소스에 액세스할 수 있습니다. 
 
 프라이빗 엔드포인트는 Azure 리소스에 액세스할 수 있는 고객 소유의 VNET 내에 할당된 개인 IP 주소입니다. DPS 리소스에 대한 프라이빗 엔드포인트가 있으면 VNET 내에서 작동하는 디바이스에서 퍼블릭 엔드포인트로의 트래픽을 허용하지 않고 DPS 리소스를 통한 프로비전을 요청할 수 있습니다.
-
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -64,6 +62,11 @@ DPS가 VNET으로 구성된 대부분의 시나리오에서 IoT Hub도 동일한
 * 현재 DPS VNET은 DPS로의 데이터 수신에만 지원됩니다. DPS에서 IoT Hub로의 트래픽인 데이터 송신은 전용 VNET이 아닌 내부 서비스 간 메커니즘을 사용합니다. DPS와 IoT Hub 간의 전체 VNET 기반 송신 잠금에 대한 지원은 현재 사용할 수 없습니다.
 
 * 대기 시간이 가장 짧은 할당 정책은 디바이스를 대기 시간이 가장 짧은 IoT 허브에 할당하는 데 사용됩니다. 이 할당 정책은 가상 네트워크 환경에서 신뢰할 수 없습니다. 
+
+>[!NOTE]
+>**데이터 상주 고려 사항:**
+>
+>DPS는 **글로벌 장치 끝점** ()을 제공 `global.azure-devices-provisioning.net` 합니다. 그러나 전역 끝점을 사용 하는 경우 DPS 인스턴스가 처음 생성 된 지역 외부에서 데이터가 리디렉션될 수 있습니다. 초기 DPS 지역 내에서 데이터 상주을 보장 하려면 개인 끝점을 사용 합니다.
 
 ## <a name="set-up-a-private-endpoint"></a>프라이빗 엔드포인트 설정
 
@@ -104,13 +107,12 @@ DPS가 VNET으로 구성된 대부분의 시나리오에서 IoT Hub도 동일한
     **다음: 구성** 을 클릭하여 프라이빗 엔드포인트에 대한 VNET을 구성합니다.
 
 4. _프라이빗 엔드포인트 만들기 - 구성_ 페이지에서 프라이빗 엔드포인트를 만들 가상 네트워크 및 서브넷을 선택합니다.
- 
+
     **다음: 태그** 를 클릭하여 필요에 따라 리소스에 대한 태그를 제공합니다.
 
     ![프라이빗 엔드포인트 구성](./media/virtual-network-support/create-private-endpoint-configuration.png)
 
-6. **검토 + 만들기** 를 클릭한 다음, **만들기** 를 클릭하여 프라이빗 엔드포인트 리소스를 만듭니다.
-
+5. **검토 + 만들기** 를 클릭한 다음, **만들기** 를 클릭하여 프라이빗 엔드포인트 리소스를 만듭니다.
 
 ## <a name="use-private-endpoints-with-devices"></a>디바이스에서 프라이빗 엔드포인트 사용
 
@@ -118,7 +120,7 @@ DPS가 VNET으로 구성된 대부분의 시나리오에서 IoT Hub도 동일한
 
 `<Your DPS Tenant Name>.azure-devices-provisioning.net`
 
-설명서 및 SDK에 나와 있는 대부분의 샘플 코드는 **글로벌 디바이스 엔드포인트**(`global.azure-devices-provisioning.net`) 및 **ID 범위** 를 사용하여 특정 DPS 리소스를 확인합니다. 프라이빗 링크를 사용하여 DPS 리소스에 연결하는 경우 글로벌 디바이스 엔드포인트 대신 서비스 엔드포인트를 사용하여 디바이스를 프로비전합니다.
+설명서 및 SDK에 나와 있는 대부분의 샘플 코드는 **글로벌 디바이스 엔드포인트**(`global.azure-devices-provisioning.net`) 및 **ID 범위** 를 사용하여 특정 DPS 리소스를 확인합니다. 장치를 프로 비전 하기 위해 개인 끝점을 사용 하 여 DPS 리소스에 연결할 때 글로벌 장치 끝점 대신 서비스 끝점을 사용 합니다.
 
 예를 들어 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)의 프로비전 디바이스 클라이언트 샘플([pro_dev_client_sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/prov_dev_client_sample))은 **글로벌 디바이스 엔드포인트** 를 [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c)의 글로벌 프로비전 URI(`global_prov_uri`)로 사용하도록 설계되었습니다.
 
@@ -126,7 +128,7 @@ DPS가 VNET으로 구성된 대부분의 시나리오에서 IoT Hub도 동일한
 
 :::code language="c" source="~/iot-samples-c/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c" range="138-144" highlight="3":::
 
-프라이빗 링크가 있는 샘플을 사용하려면 위에서 강조 표시된 코드가 DPS 리소스에 대한 서비스 엔드포인트를 사용하도록 변경됩니다. 예를 들어 서비스 엔드포인트가 `mydps.azure-devices-provisioning.net`인 경우 코드는 다음과 같습니다.
+샘플을 개인 끝점과 함께 사용 하기 위해 위의 강조 표시 된 코드는 DPS 리소스에 대 한 서비스 끝점을 사용 하도록 변경 됩니다. 예를 들어 서비스 엔드포인트가 `mydps.azure-devices-provisioning.net`인 경우 코드는 다음과 같습니다.
 
 ```C
 static const char* global_prov_uri = "global.azure-devices-provisioning.net";

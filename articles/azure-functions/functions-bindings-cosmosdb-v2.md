@@ -1,16 +1,16 @@
 ---
-title: 함수 2.x 이상에 대 한 Azure Cosmos DB 바인딩
+title: Functions 2.x 이상에 대한 Azure Cosmos DB 바인딩
 description: Azure Functions에서 Azure Cosmos DB 트리거 및 바인딩을 사용하는 방법을 파악합니다.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 09/01/2021
 ms.author: cshoe
-ms.openlocfilehash: 5d3513ea7c7e44afde70765bed668c93cf4096bb
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: dbeec528e22d3622b374d6cfee2d51a61b989aac
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128582604"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129661163"
 ---
 # <a name="azure-cosmos-db-trigger-and-bindings-for-azure-functions-2x-and-higher-overview"></a>Azure Functions 2.x 이상의 Azure Cosmos DB 트리거 및 바인딩 개요
 
@@ -55,10 +55,10 @@ ms.locfileid: "128582604"
 
 ### <a name="cosmos-db-extension-4x-and-higher"></a>Cosmos DB 확장 4.x 이상
 
-새 버전의 Cosmos DB 바인딩 확장은 [미리 보기 NuGet 패키지로](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB/4.0.0-preview1)사용할 수 있습니다. 이 미리 보기에서는 [비밀 대신 ID를 사용하여 연결](./functions-reference.md#configure-an-identity-based-connection)하는 기능이 도입되었습니다. .NET 응용 프로그램의 경우에는 바인딩할 수 있는 형식도 변경 하 여 v2 sdk의 형식을 `Microsoft.Azure.DocumentDB` V3 sdk의 최신 형식으로 바꿉니다. [Cosmos](../cosmos-db/sql/sql-api-sdk-dotnet-standard.md)을 참조 하세요. 이러한 새 형식에 대 한 자세한 내용과 [SDK 마이그레이션 가이드](../cosmos-db/sql/migrate-dotnet-v3.md), [트리거](./functions-bindings-cosmosdb-v2-trigger.md), [입력 바인딩](./functions-bindings-cosmosdb-v2-input.md)및 [출력 바인딩](./functions-bindings-cosmosdb-v2-output.md) 예제에서 이러한 형식의 마이그레이션 방법에 대해 자세히 알아보세요.
+새 버전의 Cosmos DB 바인딩 확장은 미리 보기 [NuGet 패키지로](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB/4.0.0-preview1)사용할 수 있습니다. 이 미리 보기에서는 [비밀 대신 ID를 사용하여 연결](./functions-reference.md#configure-an-identity-based-connection)하는 기능이 도입되었습니다. .NET 애플리케이션의 경우 바인딩할 수 있는 형식도 변경하여 v2 SDK의 형식을 `Microsoft.Azure.DocumentDB` v3 SDK [Microsoft.Azure.Cosmos](../cosmos-db/sql/sql-api-sdk-dotnet-standard.md)최신 형식으로 바꿉니다. 이러한 새 형식이 어떻게 다른지와 [SDK 마이그레이션 가이드,](../cosmos-db/sql/migrate-dotnet-v3.md) [트리거,](./functions-bindings-cosmosdb-v2-trigger.md) [입력 바인딩](./functions-bindings-cosmosdb-v2-input.md)및 출력 [바인딩](./functions-bindings-cosmosdb-v2-output.md) 예제에서 이러한 형식으로 마이그레이션하는 방법에 대해 자세히 알아봅니다.
 
 > [!NOTE]
-> 현재, 4.x preview 확장을 사용 하는 암호 대신 id를 사용 하는 인증은 탄력적 Premium 계획에만 사용할 수 있습니다. 
+> 현재 4.x 미리 보기 확장을 사용하는 비밀 대신 ID를 사용한 인증은 탄력적 Premium 계획에서만 사용할 수 있습니다. 
 
 ### <a name="functions-1x"></a>Functions 1.x
 
@@ -74,7 +74,7 @@ Functions 1.x 앱은 [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Mi
 
 ## <a name="hostjson-settings"></a>host.json 설정
 
-이 섹션에서는 Azure Functions 버전 2.x에서이 바인딩에 사용할 수 있는 전역 구성 설정에 대해 설명 합니다. Azure Functions 버전 2.x의 전역 구성 설정에 대 한 자세한 내용은 [Azure Functions 버전 2.x에 대 한 호스트 json 참조](functions-host-json.md)를 참조 하세요.
+[!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
 
 ```json
 {
@@ -94,8 +94,8 @@ Functions 1.x 앱은 [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Mi
 |속성  |기본값 |Description |
 |----------|--------|------------|
 |GatewayMode|게이트웨이|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 모드입니다. 옵션은 `Direct` 및 `Gateway`입니다.|
-|프로토콜|Https|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 프로토콜입니다. [두 모드에 대 한 설명을 보려면 여기를](../cosmos-db/performance-tips.md#networking)참조 하세요. <br><br> 이 설정은 [확장의 버전](#cosmos-db-extension-4x-and-higher)4.x에서 사용할 수 없습니다. |
-|leasePrefix|해당 없음|앱의 모든 함수에서 사용할 접두사를 임대합니다. <br><br> 이 설정은 [확장의 버전](#cosmos-db-extension-4x-and-higher)4.x에서 사용할 수 없습니다.|
+|프로토콜|Https|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 프로토콜입니다. [두 모드에 대한 설명은 여기를 읽어보세요.](../cosmos-db/performance-tips.md#networking) <br><br> 이 설정은 [확장의 버전 4.x에서](#cosmos-db-extension-4x-and-higher)사용할 수 없습니다. |
+|leasePrefix|해당 없음|앱의 모든 함수에서 사용할 접두사를 임대합니다. <br><br> 이 설정은 [확장의 버전 4.x에서](#cosmos-db-extension-4x-and-higher)사용할 수 없습니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

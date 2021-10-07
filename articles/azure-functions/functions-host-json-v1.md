@@ -3,12 +3,12 @@ title: Azure Functions 1.x에 대한 host.json 참조
 description: v1 런타임을 사용하는 Azure Functions host.json 파일에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 8466827402a5a5f785b65ea70887cc868f8667af
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 5893bf8edc60e6a86aacccff6a798bc63ee655d8
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529007"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660612"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Azure Functions 1.x에 대한 host.json 참조
 
@@ -16,7 +16,7 @@ ms.locfileid: "122529007"
 > * [버전 1](functions-host-json-v1.md)
 > * [버전 2](functions-host-json.md)
 
-*host.json* 메타데이터 파일에는 함수 앱의 모든 함수에 영향을 주는 전역 구성 옵션이 포함됩니다. 이 문서에는 v1 런타임에 사용 가능한 설정이 나열되어 있습니다. JSON 스키마는 http://json.schemastore.org/host 에 있습니다.
+*Host. json* 메타 데이터 파일에는 함수 앱 인스턴스의 모든 함수에 영향을 주는 구성 옵션이 포함 되어 있습니다. 이 문서에는 버전 1.x 런타임에 사용할 수 있는 설정이 나와 있습니다. JSON 스키마는 http://json.schemastore.org/host 에 있습니다.
 
 > [!NOTE]
 > 이 문서는 Azure Functions 1.x에 대한 것입니다.  Functions 2.x 이상에서 host.json의 참조는 [Azure Functions 2.x에 대한 host.json 참조](functions-host-json.md)를 참조하세요.
@@ -187,7 +187,7 @@ ms.locfileid: "122529007"
 }
 ```
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------| 
 |사용|true|기능의 사용 여부를 지정합니다. | 
 |healthCheckInterval|10초|정기적인 백그라운드 상태 검사 사이의 간격 | 
@@ -290,7 +290,7 @@ ms.locfileid: "122529007"
 }    
 ```
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------| 
 |원본|해당 없음|모든 함수에서 보낸 사람의 이메일 주소입니다.| 
 
@@ -332,7 +332,7 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 }
 ```
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|함수 수준 잠금이 적용되는 기간입니다. 잠금은 자동 갱신됩니다.| 
 |listenerLockPeriod|00:01:00|수신기 잠금이 적용되는 기간입니다.| 
@@ -376,4 +376,4 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 > [host.json 파일을 업데이트하는 방법 알아보기](functions-reference.md#fileupdate)
 
 > [!div class="nextstepaction"]
-> [환경 변수의 전역 설정 보기](functions-app-settings.md)
+> [환경 변수에 설정 유지](functions-app-settings.md)

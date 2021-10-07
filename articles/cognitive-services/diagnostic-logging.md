@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/19/2021
 ms.author: erhopf
-ms.openlocfilehash: deb5db6f205c02812330539c403fbe7b80d4784c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 804d56309cf7f97c93b2f404b1f7a11360c26fd0
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536730"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660137"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Azure Cognitive Services에 대한 진단 로깅 사용
 
@@ -118,5 +118,4 @@ by bin(TimeGenerated, 10s), OperationName
 * Event Hubs에 대한 자세한 내용은 다음 문서를 참조하세요.
   * [Azure Event Hubs란?](../event-hubs/event-hubs-about.md)
   * [Event Hubs 시작](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
-* [Azure Storage에서 메트릭 및 진단 로그 다운로드](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs)를 읽어보세요.
 * [Azure Monitor 로그의 로그 검색 이해](../azure-monitor/logs/log-query-overview.md)를 읽어보세요.

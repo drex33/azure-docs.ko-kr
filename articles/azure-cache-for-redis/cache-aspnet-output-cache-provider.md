@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 04/22/2018
-ms.openlocfilehash: 2f255014a477e2fe920be44a82d94f3002896205
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 89c76331f9aad8238b596094ad2057df98eea9a9
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129620605"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659529"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 ASP.NET 출력 캐시 공급자
 
@@ -26,11 +26,11 @@ Azure Cache for Redis 세션 상태 NuGet 패키지를 사용하여 Visual Studi
 
 `Package Manager Console` 창에서 다음 명령을 실행합니다.
 
-```
+```powershell
 Install-Package Microsoft.Web.RedisOutputCacheProvider
 ```
 
-Redis 출력 캐시 공급자 NuGet 패키지는 Redis 패키지에 종속 되어 있습니다. Redis 패키지가 프로젝트에 없는 경우 설치 됩니다. Redis 출력 캐시 공급자 NuGet 패키지에 대한 자세한 내용은 [RedisOutputCacheProvider](https://www.nuget.org/packages/Microsoft.Web.RedisOutputCacheProvider/) NuGet 패키지를 참조하세요.
+Redis 출력 캐시 공급자 NuGet 패키지는 StackExchange.Redis 패키지에 종속됩니다. StackExchange.Redis 패키지가 프로젝트에 없는 경우 설치됩니다. Redis 출력 캐시 공급자 NuGet 패키지에 대한 자세한 내용은 [RedisOutputCacheProvider](https://www.nuget.org/packages/Microsoft.Web.RedisOutputCacheProvider/) NuGet 패키지를 참조하세요.
 
 NuGet 패키지에서는 필수 어셈블리 참조를 다운로드하고 추가하며 web.config 파일에 다음 섹션을 추가합니다. 이 섹션에서는 Redis 출력 캐시 공급자를 사용하기 위해 ASP.NET 애플리케이션에 필수 구성을 포함합니다.
 
@@ -53,7 +53,7 @@ Microsoft Azure portal 캐시의 값을 사용하여 왼쪽의 특성을 구성�
 | --------- | ---- | ------- | ----------- |
 | *host* | 문자열 | "localhost" | Redis 서버 IP 주소 또는 호스트 이름 |
 | *port* | 양의 정수 | 6379(비 TLS/SSL)<br/>6380(TLS/SSL) | Redis 서버 포트 |
-| *accessKey* | 문자열 | "" | Redis 권한 부여를 사용하는 경우 Redis 서버 암호입니다. 기본적으로이 값은 빈 문자열입니다. 즉, 세션 상태 공급자가 Redis 서버에 연결할 때 암호를 사용 하지 않습니다. **Redis 서버가 Azure Cache for Redis와 같은 공개적으로 액세스할 수 있는 네트워크에 있는 경우 보안을 향상시키기 위해 Redis 권한 부여를 사용하도록 설정하고 보안 암호를 제공해야 합니다.** |
+| *accessKey* | 문자열 | "" | Redis 권한 부여를 사용하는 경우 Redis 서버 암호입니다. 이 값은 기본적으로 빈 문자열입니다. 즉, 세션 상태 공급자가 Redis 서버에 연결할 때 암호를 사용하지 않습니다. **Redis 서버가 Azure Cache for Redis와 같은 공개적으로 액세스할 수 있는 네트워크에 있는 경우 보안을 향상시키기 위해 Redis 권한 부여를 사용하도록 설정하고 보안 암호를 제공해야 합니다.** |
 | *ssl* | boolean | **false** | TLS를 통해 Redis 서버에 연결할지 여부를 지정합니다. Redis는 기본값으로 TLS를 지원하지 않으므로 이 값은 기본적으로 **false** 입니다. **기본값으로 SSL을 지원하는 Azure Cache for Redis를 사용하는 경우 보안을 강화하려면 이 값을 true로 설정해야 합니다.**<br/><br/>비 TLS 포트는 기본적으로 새 캐시에 대해 사용하지 않도록 설정됩니다. 비 TLS 포트를 사용하려면 이 설정에 대해 **true** 를 지정합니다. 비-TLS 포트 사용 방법에 대한 자세한 내용은 [캐시 구성](cache-configure.md) 문서의 [액세스 포트](cache-configure.md#access-ports) 섹션을 참조하세요. |
 | *databaseIdNumber* | 양의 정수 | 0 | *이 특성은 web.config 또는 AppSettings를 통해서만 지정할 수 있습니다.*<br/><br/>사용할 Redis 데이터베이스를 지정합니다. |
 | *connectionTimeoutInMilliseconds* | 양의 정수 | StackExchange.Redis에서 제공 | StackExchange.Redis.ConnectionMultiplexer를 만들 때 *ConnectTimeout* 을 설정하는 데 사용됩니다. |

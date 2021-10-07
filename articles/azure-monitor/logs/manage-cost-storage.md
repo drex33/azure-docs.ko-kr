@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/23/2021
 ms.author: bwren
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0e894fc6c6e210249e591ed7f9b9b662ff5ae187
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: febbfc5a1a3381affac50a75a29cb502c7872d69
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129272930"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129657222"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 사용량 및 비용 관리    
 
@@ -150,6 +150,8 @@ New-AzResourceGroupDeployment -ResourceGroupName "YourResourceGroupName" -Templa
 > 작업 영역에서 **노드당** 가격 책정 계층에 액세스할 수 있으며 다만 종량제 계층에서 비용이 더 저렴한지 여부가 궁금한 경우, [아래의 쿼리를 사용](#evaluating-the-legacy-per-node-pricing-tier)하면 권장 사항을 쉽게 확인할 수 있습니다. 
 
 2016년 4월 이전에 만든 작업 영역은 데이터 보존 기간이 각각 30일 및 365일로 정해진 **표준** 및 **프리미엄** 가격 책정 계층을 계속 사용할 수도 있습니다. **표준** 또는 **프리미엄** 가격 책정 계층에서는 새 작업 영역을 만들 수 없으며, 작업 영역을 이러한 계층 밖으로 옮기면 다시 이동할 수 없습니다. 이러한 레거시 계층에 대한 Azure 청구서의 데이터 수집 미터를 "분석된 데이터"라고 합니다.
+
+### <a name="legacy-pricing-tiers-and-azure-defender-security-center"></a>레거시 가격 책정 계층 및 Azure Defender (Security Center)
 
 레거시 Log Analytics 계층의 사용과 [Azure Defender(Security Center)](../../security-center/index.yml)의 사용량에 대한 요금이 청구되는 방식 간에도 몇 가지 동작이 있습니다. 
 

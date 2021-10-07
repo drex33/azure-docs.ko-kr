@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 05/01/2017
-ms.openlocfilehash: b1bf95295fbaaa72df50b1aa7c42a6e954ef6ee2
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 7d9d4efb683b7401c4601c86425490957d085d23
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129538810"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658712"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 ASP.NET 세션 상태 제공자
 
@@ -35,12 +35,7 @@ Install-Package Microsoft.Web.RedisSessionStateProvider
 >
 >
 
-Reids 세션 상태 제공자 NuGet 패키지는 StackExchange.Redis.StrongName 패키지에 종속성을 갖습니다. StackExchange.Redis.StrongName 패키지가 프로젝트에 나타나지 않는 경우 설치됩니다.
-
->[!NOTE]
->강력한 이름의 StackExchange.Redis.StrongName 패키지 외에도 StackExchange.Redis 강력하지 않은 이름의 버전이 있습니다. 프로젝트가 StackExchange.Redis 강력하지 않은 이름의 버전을 사용하는 경우 해당 버전을 제거해야 합니다. 그렇지 않으면 프로젝트에서 이름이 충돌합니다. 이 패키지에 대한 자세한 내용은 [.NET 캐시 클라이언트 구성](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients)을 참조하세요.
->
->
+Redis 세션 상태 제공자 NuGet 패키지는 Redis 패키지에 종속 되어 있습니다. Redis 패키지는 프로젝트에 없는 경우 설치 됩니다.
 
 NuGet 패키지에서는 필수 어셈블리 참조를 다운로드하고 추가하며 web.config 파일에 다음 섹션을 추가합니다. 이 섹션에서는 Azure Cache for Redis 세션 상태 제공자를 사용하기 위해 ASP.NET 애플리케이션에 필수 구성을 포함합니다.
 
@@ -134,4 +129,3 @@ Web.config 파일에서 표준 InProc 세션 상태 제공자 섹션을 주석�
 ## <a name="next-steps"></a>다음 단계
 
 [Azure Cache for Redis에 대한 ASP.NET 출력 캐시 제공자](cache-aspnet-output-cache-provider.md)를 확인합니다.
-

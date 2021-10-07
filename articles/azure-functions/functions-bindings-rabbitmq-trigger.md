@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: f0cac775870345ae298672c2af5dad8277c592e6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 671fa1a8c9e0a9c29cfd5d2f93acd1aa7f3a8c4c
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128639789"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658959"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>Azure Functions의 RabbitMQ 트리거 개요
 
@@ -264,7 +264,7 @@ Java [특성 및 주석](#attributes-and-annotations)을 참조하세요.
 
 ## <a name="hostjson-settings"></a>host.json 설정
 
-이 섹션에서는 버전 2.x 이상에서 이 바인딩에 사용할 수 있는 전역 구성 설정을 설명합니다. 아래 예제 *host.json* 파일에는 이 바인딩을 위한 설정만 포함되어 있습니다. 전역 구성 설정에 대한 자세한 내용은 [Azure Functions 버전의 host.json 참조](functions-host-json.md)를 확인하세요.
+[!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
 
 ```json
 {

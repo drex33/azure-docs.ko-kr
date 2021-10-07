@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2021
+ms.date: 09/17/2021
 ms.author: monicar
-ms.openlocfilehash: 0f0b624097fdb159fd52adae7ae57830833662f2
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 223e75d0a02997187eec609324014493e2fa34df
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129272949"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660992"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 용어집: Azure 플랫폼의 클라우드 용어 사전
 
@@ -28,7 +28,7 @@ Microsoft Azure 용어집은 Azure 플랫폼용 클라우드 용어의 간단한
 
 * [Microsoft Azure 및 Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) - Azure 서비스 및 해당 AWS 서비스 정의<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
 * [클라우드 컴퓨팅 용어](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - 업계의 일반적인 클라우드 용어
-* Azure [기본 개념](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts) -azure에 대 한 Microsoft 클라우드 채택 프레임 워크입니다.
+* [Azure 기본 개념](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts) - Azure용 Microsoft 클라우드 채택 프레임워크.
 
 ## <a name="account"></a>account
 Azure 구독에 액세스하고 구독을 관리하는 데 사용되는 계정입니다. Azure 계정이라 불리지만, 계정은 기존 회사, 학교나 개인 Microsoft 계정 중 하나일 수 있습니다. [평가판](https://azure.microsoft.com)에 등록할 때 Azure 구독을 관리하기 위해 계정을 만들 수도 있습니다.  
@@ -133,6 +133,9 @@ Azure 서비스를 받을 수 있도록 하는, 고객과 Microsoft와의 계약
 ## <a name="tag"></a>tag
 관리 또는 청구에 대한 요구 사항에 따라 리소스를 분류할 수 있도록 하는 인덱싱 용어입니다. 복잡한 리소스 컬렉션이 있는 경우 태그를 사용하여 이러한 자산을 가장 적합한 방식으로 시각화할 수 있습니다. 예를 들어 조직에서 비슷한 역할을 제공하거나 동일한 부서에 속한 리소스를 태그로 지정할 수 있습니다.  
 [태그를 사용하여 Azure 리소스 구성](./azure-resource-manager/management/tag-resources.md)을 참조하세요.
+
+## <a name="tenant"></a>테넌트
+테 넌 트는 제품, 서비스 또는 응용 프로그램의 인스턴스에 대 한 특정 권한으로 액세스를 공유 하는 사용자 또는 조직의 그룹입니다. Azure Active Directory 테 넌 트는 Microsoft 365 같은 클라우드 응용 프로그램에 등록할 때 조직이 받는 Azure Active Directory 인스턴스입니다. 각 Azure AD 테넌트는 서로 전혀 다르고 다른 Azure AD 테넌트와 별개입니다. 배포할지에는 여러 조직에서 공유 하는 응용 프로그램의 인스턴스를 나타내며, 각각 인스턴스에 대 한 별도의 액세스 권한이 있습니다.
 
 ## <a name="update-domain"></a>업데이트 도메인
 동시에 업데이트되는 가용성 집합에 있는 가상 머신의 컬렉션입니다. 동일한 업데이트 도메인의 가상 머신은 계획된 유지 관리 동안 함께 다시 시작됩니다. Azure는 한 번에 둘 이상의 업데이트 도메인을 다시 시작하지 않습니다. 또한 업그레이드 도메인이라고도 합니다.  

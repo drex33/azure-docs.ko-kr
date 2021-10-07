@@ -4,12 +4,12 @@ description: Python으로 함수를 개발하는 방법 이해
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: d44de94ef30976a35bbfeddf68b60068b952fbde
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 940ad3d08069ee51a9d138585b6e7dca0af49996
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450884"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658912"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -98,7 +98,7 @@ Python Functions 프로젝트에 권장하는 폴더 구조는 다음 예제와 
 
 * *local.settings.json*: 로컬에서 실행될 때 앱 설정과 연결 문자열을 저장하는 데 사용됩니다. 이 파일은 Azure에 게시되지 않습니다. 자세한 내용은 [local.settings.file](functions-develop-local.md#local-settings-file)을 참조하세요.
 * *requirements.txt*: Azure에 게시할 때 시스템에서 설치하는 Python 패키지 목록이 포함됩니다.
-* *host.json*: 함수 앱의 모든 함수에 영향을 주는 글로벌 구성 옵션이 포함됩니다. 이 파일은 Azure에 게시됩니다. 로컬로 실행할 경우 일부 옵션이 지원되지 않습니다. 자세한 내용은 [host.json](functions-host-json.md)을 참조하세요.
+* *host.json:* 함수 앱 인스턴스의 모든 함수에 영향을 주는 구성 옵션을 포함합니다. 이 파일은 Azure에 게시됩니다. 로컬로 실행할 경우 일부 옵션이 지원되지 않습니다. 자세한 내용은 [host.json](functions-host-json.md)을 참조하세요.
 * *.vscode/* : (선택 사항) 저장소 VSCode 구성을 포함합니다. 자세히 알아보려면 [VSCode 설정](https://code.visualstudio.com/docs/getstarted/settings)을 참조하세요.
 * *.venv/* : (선택 사항) 로컬 개발에 사용되는 Python 가상 환경을 포함합니다.
 * *Dockerfile*: (선택 사항) [사용자 지정 컨테이너](functions-create-function-linux-custom-image.md)에서 프로젝트를 게시할 때 사용됩니다.

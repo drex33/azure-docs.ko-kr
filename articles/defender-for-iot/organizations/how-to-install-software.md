@@ -1,14 +1,14 @@
 ---
 title: Defender for IoT 설치
 description: Azure Defender for IoT용 센서 및 온-프레미스 관리 콘솔을 설치하는 방법을 알아봅니다.
-ms.date: 10/05/2021
+ms.date: 10/07/2021
 ms.topic: how-to
-ms.openlocfilehash: a5b4beff2d01896082974bf761cb7544d439af9e
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 310f76cee0761aaf82a409c71c3ee19152e4fea6
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129537305"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129661277"
 ---
 # <a name="defender-for-iot-installation"></a>Defender for IoT 설치
 
@@ -176,7 +176,7 @@ Dell 어플라이언스와 관리 컴퓨터 간에 통신을 설정하려면 동
 
 연결이 설정되면 BIOS를 구성할 수 있습니다.
 
-**DELL BIOS를 구성 하려면**:
+**Dell BIOS를 구성하려면:**
 
 1. [iDRAC IP 주소 구성](#configure-idrac-ip-address)
 
@@ -205,7 +205,7 @@ Dell 어플라이언스와 관리 컴퓨터 간에 통신을 설정하려면 동
 
 #### <a name="configuring-the-bios"></a>BIOS 구성
 
-다음과 같은 경우 어플라이언스 BIOS를 구성 해야 합니다.
+다음과 같은 경우 어플라이언스 BIOS를 구성해야 합니다.
 
 - 화살표를 통해 어플라이언스를 구입하지 않았습니다.
 
@@ -213,9 +213,9 @@ Dell 어플라이언스와 관리 컴퓨터 간에 통신을 설정하려면 동
 
 BIOS에 액세스한 후 **디바이스 설정** 으로 이동합니다.
 
-**BIOS를 구성 하려면**:
+**BIOS를 구성하려면:**
 
-1. 키보드 및 화면을 사용 하 여 직접 어플라이언스의 BIOS에 액세스 하거나 iDRAC를 사용 합니다.
+1. 키보드 및 화면을 사용하여 어플라이언스의 BIOS에 직접 액세스하거나 iDRAC를 사용합니다.
 
    - 어플라이언스가 Defender for IoT 어플라이언스가 아닌 경우 브라우저를 열고 이전에 구성한 IP 주소로 이동합니다. Dell 기본 관리자 권한으로 로그인합니다. 사용자 이름에 **root** 를 사용하고 암호에 **calvin** 을 사용합니다.
 
@@ -356,7 +356,7 @@ BIOS에 액세스한 후 **디바이스 설정** 으로 이동합니다.
 
 다음 절차에서는 엔터프라이즈 및 SMB 어플라이언스에 대해 HPE BIOS를 구성하는 방법을 설명합니다.
 
-**HPE BIOS를 구성 하려면**:
+**HPE BIOS를 구성하려면:**
 
 1. **시스템 유틸리티** > **시스템 구성** > **BIOS/플랫폼 구성(RBSU)** 을 선택합니다.
 
@@ -1243,7 +1243,7 @@ GUI 또는 CLI를 사용하여 유효성 검사를 수행합니다. 사용자 **
 
 - **Core 로그의 오류**: Core 로그 파일의 오류를 표시합니다.
 
-**도구에 액세스하려면:**
+**도구에 액세스 하려면**:
 
 1. **지원** 사용자 자격 증명을 사용하여 센서에 로그인합니다.
 
@@ -1253,9 +1253,9 @@ GUI 또는 CLI를 사용하여 유효성 검사를 수행합니다. 사용자 **
 
 ### <a name="check-system-health-by-using-the-cli"></a>CLI를 사용하여 시스템 상태 확인
 
-시스템의 온전성을 테스트하기 전에 시스템이 실행 중인지 확인합니다.
+시스템이 작동 중인지 확인 하 고 시스템의 온전성을 테스트 하기 전에 실행 중인지 확인 합니다.
 
-**시스템의 온전성을 테스트하려면:**
+**시스템의 온전성을 테스트 하려면 다음을 수행 합니다**.
 
 1. Linux 터미널(예: PuTTY) 및 사용자 **지원** 을 사용하여 CLI에 연결합니다.
 
@@ -1361,9 +1361,9 @@ GUI 또는 CLI를 사용하여 유효성 검사를 수행합니다. 사용자 **
 
 ## <a name="configure-a-span-port"></a>SPAN 포트 구성
 
-vSwitch에는 미러링 기능이 없지만 SPAN 포트를 구현하기 위한 해결 방법을 사용할 수 있습니다. 해결 방법은 ESXi 또는 Hyper-V를 사용하여 구현할 수 있습니다.
+가상 스위치는 미러링 기능을 포함 하지 않습니다. 그러나 가상 스위치 환경에서 무차별 모드를 사용할 수 있습니다. 무차별 모드는 가상 스위치 또는 인 수준에서 정의 된 보안, 모니터링 및 관리 기술 뿐만 아니라 작업 모드입니다. 기본적으로 무차별 모드는 사용 되지 않습니다. 무차별 모드를 사용 하는 경우 동일한 인에 있는 가상 컴퓨터의 네트워크 인터페이스가 무차별 모드를 사용 하 여 해당 가상 스위치를 통과 하는 모든 네트워크 트래픽을 볼 수 있습니다. ESXi 또는 Hyper-v를 사용 하 여 해결 방법을 구현할 수 있습니다.
 
-:::image type="content" source="media/tutorial-install-components/purdue-model.png" alt-text="아키텍처에서 센서를 배치 해야 하는 위치에 대 한 스크린샷":::
+:::image type="content" source="media/tutorial-install-components/purdue-model.png" alt-text="아키텍처에서 센서를 배치해야 하는 위치의 스크린샷.":::
 
 ### <a name="configure-a-span-port-with-esxi"></a>ESXi를 사용하여 SPAN 포트 구성
 
@@ -1391,7 +1391,7 @@ vSwitch에는 미러링 기능이 없지만 SPAN 포트를 구현하기 위한 �
 
 1. **확인** 을 선택합니다.
 
-1. 센서에 커넥트 하 고 미러링이 작동 하는지 확인 합니다.
+1. 센서에 연결하고 미러링이 작동하는지 확인합니다.
 
 ### <a name="configure-a-span-port-with-hyper-v"></a>Hyper-V를 사용하여 SPAN 포트 구성
 
@@ -1449,7 +1449,7 @@ Windows PowerShell 또는 hyper-v 관리자를 통해 가상 스위치에 범위
 
 이러한 명령은 새로 추가된 어댑터 하드웨어의 이름을 `Monitor`로 설정합니다. Hyper-V 관리자를 사용하는 경우 새로 추가된 어댑터 하드웨어의 이름은 `Network Adapter`로 설정됩니다.
 
-**Hyper-v 관리자를 사용 하 여 가상 스위치에 범위 가상 인터페이스를 연결 하려면**:
+**Hyper-V 관리자를 사용하여 가상 스위치에 SPAN 가상 인터페이스를 연결하려면:**
 
 1. 하드웨어 목록에서 **네트워크 어댑터** 를 선택합니다.
 
@@ -1465,11 +1465,11 @@ Windows PowerShell 또는 hyper-v 관리자를 통해 가상 스위치에 범위
 
 1. **확인** 을 선택합니다.
 
-#### <a name="enable-microsoft-ndis-capture-extensions-for-the-virtual-switch"></a>가상 스위치에 Microsoft NDIS 캡처 확장 사용
+#### <a name="enable-microsoft-ndis-capture-extensions-for-the-virtual-switch"></a>가상 스위치에 대한 Microsoft NDIS 캡처 확장 사용
 
 Microsoft NDIS 캡처 확장을 새 가상 스위치에 사용하도록 설정해야 합니다.
 
-**새로 추가 된 가상 스위치에 대해 MICROSOFT NDIS 캡처 확장을 사용 하도록 설정 하려면 다음을 수행 합니다**.
+**새로 추가된 가상 스위치 에 대해 Microsoft NDIS 캡처 확장을 사용하도록 설정하려면:**
 
 1. Hyper-V 호스트에서 가상 스위치 관리자를 엽니다.
 
@@ -1512,13 +1512,13 @@ Get-VMSwitchExtensionPortFeature -FeatureName "Ethernet Switch Port Security Set
 |--|--|
 | vSwitch_Span | 새로 추가된 SPAN 가상 스위치 이름 |
 
-## <a name="access-sensors-from-the-on-premises-management-console"></a>온-프레미스 관리 콘솔에서 센서 액세스
+## <a name="access-sensors-from-the-on-premises-management-console"></a>온-프레미스 관리 콘솔에서 센서에 액세스
 
 사용자가 센서에 직접 액세스하지 못하도록 하여 시스템 보안을 강화할 수 있습니다. 대신, 사용자가 단일 방화벽 규칙을 사용하여 온-프레미스 관리 콘솔에서 센서에 액세스할 수 있도록 프록시 터널링을 사용합니다. 이 기술은 센서를 벗어나는 네트워크 환경에 대한 무단 액세스 가능성을 줄입니다. 센서에 로그인할 때의 사용자 환경은 동일하게 유지됩니다.
 
 :::image type="content" source="media/tutorial-install-components/sensor-system-graph.png" alt-text="센서에 대한 액세스를 보여 주는 스크린샷.":::
 
-**터널링을 사용 하려면**:
+**터널링을 사용하도록 설정하려면:**
 
 1. **CyberX** 또는 **지원** 사용자 자격 증명을 사용하여 온-프레미스 관리 콘솔의 CLI에 로그인합니다.
 

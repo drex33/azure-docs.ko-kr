@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: kgremban
-ms.openlocfilehash: 75061400eb68e3c17a24839e9e155e3a284607c6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 82aa2eb24905a4166de474fbaf0baa1213abce53
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128589799"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659339"
 ---
 # <a name="register-an-iot-edge-device-in-iot-hub"></a>IoT Hub에 IoT Edge 디바이스 등록
 
@@ -38,10 +38,10 @@ IoT 허브에 연결하는 모든 디바이스에는 클라우드-디바이스 �
 설정할 디바이스가 많고 각 디바이스를 수동으로 프로비저닝하지 않으려면 다음 문서 중 하나를 읽고 IoT Hub Device Provisioning Service에서 IoT Edge를 사용하는 방법을 알아보세요.
 
 * [X.509 인증서를 사용하여 IoT Edge 디바이스 만들기 및 프로비저닝](how-to-provision-devices-at-scale-linux-x509.md)
-* [TPM을 사용하여 IoT Edge 디바이스 만들기 및 프로비저닝](how-to-auto-provision-simulated-device-linux.md)
+* [TPM을 사용하여 IoT Edge 디바이스 만들기 및 프로비저닝](how-to-provision-devices-at-scale-linux-tpm.md)
 * [대칭 키를 사용하 여 IoT Edge 디바이스 만들기 및 프로비저닝](how-to-provision-devices-at-scale-linux-symmetric.md)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 7d3a108185c43be2f6de72466db10db5e2ec94f1
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: 6e35b814b8b6fce5f223200f1774b7da2fee7a8c
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110077323"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660973"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Azure DevOps를 사용한 지속적인 업데이트
 
@@ -244,8 +244,6 @@ JavaScript 앱이 Windows 네이티브 모듈에 대한 종속성이 있는 경�
 새 릴리스 파이프라인을 생성할 때 Azure Functions 릴리스 템플릿을 검색합니다.
 
 ![Azure Functions 릴리스 템플릿 검색](media/functions-how-to-azure-devops/release-template.png)
-
-릴리스 템플릿에서는 배포 슬롯에 대한 배포가 지원되지 않습니다.
 
 ## <a name="create-a-build-pipeline-by-using-the-azure-cli"></a>Azure CLI를 사용하여 빌드 파이프라인 생성
 

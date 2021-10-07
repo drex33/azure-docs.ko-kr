@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: c15c4e2f269791dfce80d89edf22d5041be636b9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 03dd990fdc6d5e2d274a0ea858d1d91feb5a0b07
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536044"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659890"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Azure App Service의 사용자 지정 도메인 이름 구입
 
@@ -97,6 +97,11 @@ App Service 도메인의 가격 책정 정보를 확인하려면 [App Service �
     ![App Service 도메인이 완성되었습니다. 리소스로 이동](./media/app-service-web-tutorial-custom-domain/deployment-complete.png)
 
 이제 사용자 지정 도메인에 App Service 앱을 할당할 준비가 되었습니다.
+
+> [!NOTE]
+> 구독 유형에 따라 App Service 도메인을 만들기 전에 충분한 지불 기록이 필요할 수 있습니다. 
+> 
+> 결제를 했고 이 오류가 계속 발생하면 지원 담당자에게 문의하여 지불 증명을 제공할 수 있습니다.
 
 ## <a name="prepare-the-app"></a>앱 준비
 

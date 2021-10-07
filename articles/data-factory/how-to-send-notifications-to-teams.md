@@ -9,18 +9,18 @@ ms.custom: synapse
 ms.topic: how-to
 ms.subservice: tutorials
 ms.date: 09/29/2021
-ms.openlocfilehash: d1a23e166c322a4a74c3ec175ea672d78ed23de9
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 98fa799cc5fd933d21fb0130093381c628f8e23c
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129372876"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660954"
 ---
 # <a name="send-notifications-to-a-microsoft-teams-channel-from-an-azure-data-factory-or-synapse-analytics-pipeline"></a>Azure Data Factory 또는 Synapse Analytics 파이프라인에서 Microsoft Teams 채널로 알림 보내기
 
 파이프라인을 실행 중 또는 실행한 후에 알림을 보내야 하는 경우가 많습니다. 알림은 사전 경고를 제공하고 문제를 검색하기 위한 사후 모니터링의 필요성을 줄입니다.  데이터 팩터리 또는 Synapse 파이프라인이 호출할 수 있는 [논리 앱을 사용하여 이메일 알림을 보내는 방법을](tutorial-control-flow-portal.md#create-email-workflow-endpoints) 알아볼 수 있습니다.  또한 많은 기업에서 협업에 Microsoft Teams 점점 더 많이 사용하고 있습니다.  이 문서에서는 파이프라인 경고에서 Microsoft Teams 알림을 구성하는 방법을 보여줍니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 파이프라인에서 Teams 알림을 보내려면 먼저 Teams 채널에 대한 [들어오는 Webhook를](/microsoftteams/platform/webhooks-and-connectors/how-to/connectors-using) 만들어야 합니다. 이 목적을 위해 새 Teams 채널을 만들어야 하는 경우 [Teams 설명서를 참조하세요.](https://support.microsoft.com/office/create-a-channel-in-teams-fda0b75e-5b90-4fb8-8857-7e102b014525)  
 
@@ -58,7 +58,7 @@ ms.locfileid: "129372876"
     
     :::image type="content" source="media/how-to-send-notifications-to-teams/send-notification-dialog.png" alt-text="템플릿 &quot; 갤러리의 Microsoft Teams &quot; 템플릿에서 채널에 알림 보내기를 표시합니다.":::
     
-    :::image type="content" source="media/how-to-send-notifications-to-teams/send-notification-template.png" alt-text="템플릿 &quot; &quot; 갤러리에서 선택한 후 Microsoft Teams 템플릿 세부 정보에서 채널에 알림 보내기를 표시합니다.":::
+    :::image type="content" source="media/how-to-send-notifications-to-teams/send-notification-template.png" alt-text="템플릿 &quot; 갤러리에서 선택한 후 Microsoft Teams &quot; 템플릿 세부 정보에서 채널에 알림 보내기를 표시합니다.":::
     
     :::image type="content" source="media/how-to-send-notifications-to-teams/teams-webhook-properties.png" alt-text="Microsoft Teams 템플릿의 채널에 알림 보내기에서 만든 파이프라인의 속성을 &quot; &quot; 표시합니다.":::
 
@@ -72,7 +72,7 @@ ms.locfileid: "129372876"
     
     :::image type="content" source="media/how-to-send-notifications-to-teams/send-notification-dialog-synapse.png" alt-text="템플릿 &quot; 갤러리의 Microsoft Teams &quot; 템플릿에서 채널에 알림 보내기를 표시합니다.":::
     
-    :::image type="content" source="media/how-to-send-notifications-to-teams/send-notification-template-synapse.png" alt-text="템플릿 &quot; &quot; 갤러리에서 선택한 후 Microsoft Teams 템플릿 세부 정보에서 채널에 알림 보내기를 표시합니다.":::
+    :::image type="content" source="media/how-to-send-notifications-to-teams/send-notification-template-synapse.png" alt-text="템플릿 &quot; 갤러리에서 선택한 후 Microsoft Teams &quot; 템플릿 세부 정보에서 채널에 알림 보내기를 표시합니다.":::
     
     :::image type="content" source="media/how-to-send-notifications-to-teams/teams-webhook-properties.png" alt-text="Microsoft Teams 템플릿의 채널에 알림 보내기에서 만든 파이프라인의 속성을 &quot; &quot; 표시합니다.":::
 
@@ -97,7 +97,7 @@ ms.locfileid: "129372876"
     :::image type="content" source="media/how-to-send-notifications-to-teams/teams-notifications-view-pipeline-run.png" alt-text="Teams 채널에서 파이프라인 알림을 표시합니다.":::
 ## <a name="add-dynamic-messages-with-system-variables-and-expressions"></a>시스템 변수 및 식을 통해 동적 메시지 추가
 
-[시스템 변수 및 식을](control-flow-system-variables.md) 사용하여 메시지를 동적으로 만들 수 있습니다. [](control-flow-expression-language-functions.md) 예를 들면 다음과 같습니다.  
+[시스템 변수 및 식을](control-flow-system-variables.md) 사용하여 메시지를 동적으로 만들 수 있습니다. [](control-flow-expression-language-functions.md) 예:  
 
 -   ``@activity("CopyData").output.errors[0].Message``
 
@@ -105,4 +105,8 @@ ms.locfileid: "129372876"
 
 위의 식은 Teams 채널에서 알림으로 보낼 수 있는 오류로부터 관련 오류 메시지를 반환합니다. 자세한 내용은 [출력 속성 복사 작업](copy-activity-monitoring.md) 문서를 참조하세요.
 
-또한 Microsoft Teams 지원되는 [알림 페이로드 스키마를](https://adaptivecards.io/explorer/AdaptiveCard.html) 검토하고 위의 템플릿을 필요에 맞게 추가로 사용자 지정하는 것이 좋습니다.
+또한 지원되는 Microsoft Teams [알림 페이로드 스키마를](https://adaptivecards.io/explorer/AdaptiveCard.html) 검토하고 요구 사항에 맞게 위의 템플릿을 추가로 사용자 지정하는 것이 좋습니다.
+
+## <a name="next-steps"></a>다음 단계
+
+[파이프라인에서 이메일을 보내는 방법](how-to-send-email.md)

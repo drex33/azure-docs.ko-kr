@@ -1,6 +1,6 @@
 ---
 title: Azure API Management 자체 호스팅 게이트웨이의 로컬 메트릭 및 로그 구성 | Microsoft Docs
-description: Kubernetes 클러스터에서 Azure API Management 자체 호스팅 게이트웨이의 로컬 메트릭 및 로그를 구성하는 방법에 대해 알아봅니다.
+description: Kubernetes 클러스터에서 Azure API Management 자체 호스팅 게이트웨이의 로컬 메트릭 및 로그를 구성 하는 방법에 대해 알아봅니다.
 services: api-management
 documentationcenter: ''
 author: dlepow
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/11/2021
 ms.author: danlep
-ms.openlocfilehash: 94dde4e35a072431fbcc5a30b3257b7a70b59e44
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 421111e289ffba14b792af5cf810ac562164c846
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128551121"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660840"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Azure API Management 자체 호스팅 게이트웨이에 대한 로컬 메트릭 및 로그 구성
 
@@ -30,6 +30,9 @@ ms.locfileid: "128551121"
 ### <a name="deploy-statsd-and-prometheus-to-the-cluster"></a>클러스터에 StatsD 및 Prometheus 배포
 
 다음은 Kubernetes 클러스터에 StatsD 및 Prometheus를 배포하여 자체 호스팅 게이트웨이가 배포되는 샘플 YAML 구성입니다. 또한 각각을 대상으로 한[서비스](https://kubernetes.io/docs/concepts/services-networking/service/)도 만듭니다. 자체 호스팅 게이트웨이에서는 StatsD 서비스에 메트릭을 게시합니다. 해당 서비스를 통해 Prometheus 대시보드에 액세스합니다.
+
+> [!NOTE]
+> 다음 예제에서는 Docker 허브에서 공용 컨테이너 이미지를 끌어옵니다. 익명의 끌어오기 요청을 하는 대신 Docker Hub 계정을 사용하여 인증하도록 끌어오기 비밀을 설정하는 것이 좋습니다. 공용 콘텐츠로 작업할 때 안정성을 높이려면 개인 Azure container registry에서 이미지를 가져오고 관리 합니다. [공용 이미지 사용에 대해 자세히 알아봅니다](../container-registry/buffer-gate-public-content.md).
 
 ```yaml
 apiVersion: v1

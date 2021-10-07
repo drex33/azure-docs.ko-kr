@@ -6,19 +6,21 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 10/05/2021
-ms.openlocfilehash: 6e9146767643adf22cc4b185d30acbe7c3018e8f
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.date: 10/06/2021
+ms.openlocfilehash: e2d0a5993dddccc65109eb623d8f04f11715ac47
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129622420"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660042"
 ---
 # <a name="stringify-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 json.stringify 변환
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Json.stringify 변환을 사용 하 여 복합 데이터 형식을 문자열로 변환 합니다. 이는 구조체, 맵 또는 배열 형식으로 시작 될 수 있는 단일 문자열 엔터티로 열 데이터를 저장 하거나 보내야 하는 경우에 매우 유용할 수 있습니다.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWMTs9]
 
 ## <a name="configuration"></a>구성
 

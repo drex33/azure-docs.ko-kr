@@ -3,12 +3,12 @@ title: Backup 센터를 사용한 백업 모니터링 및 운영
 description: 이 문서에서는 Backup 센터를 사용한 대규모 백업을 모니터링하고 운영하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 86b81110d6abeb1425e18ee45dfe65a96f69687d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: cab9e710cfe4bf43b0d225d64e8f64b16c09e3a6
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102506128"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659852"
 ---
 # <a name="monitor-and-operate-backups-using-backup-center"></a>Backup 센터를 사용한 백업 모니터링 및 운영
 
@@ -88,6 +88,14 @@ Backup 센터에서 Backup 정책에 대한 주요 정보를 보고 편집할 �
 **Backup 정책** 메뉴 항목을 선택하면, 백업 공간에서 만든 모든 정책을 볼 수 있습니다. 자격 증명 모음 구독, 리소스 그룹, 데이터 원본 유형 및 자격 증명 모음을 기준으로 목록을 필터링할 수 있습니다. 표에서 항목을 마우스 오른쪽 단추로 클릭하면 해당 정책에 대한 연결된 항목을 보거나, 정책을 편집하거나, 필요한 경우 삭제할 수 있습니다.
 
 ![Backup 센터 - 정책](./media/backup-center-monitor-operate/backup-center-policies.png)
+
+
+## <a name="resource-centric-views"></a>리소스 중심 보기
+
+조직에서 여러 리소스를 공통 자격 증명 모음에 백업 하는 경우 각 리소스 소유자가 소유한 리소스의 백업 정보만 보려는 경우 백업 센터에서 리소스 중심 보기를 사용할 수 있습니다. 리소스 중심 보기를 사용 하려면 ' 액세스 권한이 있는 데이터 원본에 대 한 정보만 표시 ' 확인란을 선택 합니다. 이 옵션은 현재 **개요**, **백업 인스턴스**, **작업**, **경고** 탭에서 지원 됩니다. 지원 되는 작업은 azure vm, azure vm의 SQL, azure vm, azure blob, azure 디스크에 SAP HANA 합니다.
+
+> [!NOTE]
+> 사용자는 리소스 중심 보기를 사용 하는 경우에도 자격 증명 모음에 필요한 RBAC 권한을 보유 해야 합니다. 이 보기의 용도는 개별 사용자가 소유 하지 않은 리소스 (예: Vm)에 대 한 정보를 볼 수 없도록 하는 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

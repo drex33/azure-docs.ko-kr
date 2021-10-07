@@ -2,13 +2,13 @@
 title: Bicep 파일 구조 및 구문
 description: 선언 구문을 사용하여 Bicep 파일의 구조 및 속성을 설명합니다.
 ms.topic: conceptual
-ms.date: 10/01/2021
-ms.openlocfilehash: e627821f80f76ff536859fd643bd01c55d50ab7e
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.date: 10/07/2021
+ms.openlocfilehash: 8251c490b61f3bbb739fd9519c10b1b124f9064c
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129350405"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129661125"
 ---
 # <a name="understand-the-structure-and-syntax-of-bicep-files"></a>Bicep 파일의 구조 및 구문 이해
 
@@ -175,7 +175,7 @@ param storageSKU string = 'Standard_LRS'
 | minValue | int | int | 정수 매개 변수의 최솟값입니다. 해당 값이 포함되어 있습니다. |
 | secure | 문자열, 개체 | 없음 | 매개 변수를 안전하다고 표시합니다. 보안 매개 변수의 값은 배포 기록에 저장되지 않으며 기록되지 않습니다. 자세한 내용은 [보안 문자열 및 개체](data-types.md#secure-strings-and-objects)를 참조하세요. |
 
-데코레이터는 [sys 네임스페이스](bicep-functions.md#namespaces-for-functions)에 있습니다. 동일한 이름의 다른 항목과 데코레이터를 구분해야 하는 경우 데코레이터의 앞면에 를 으로 `sys` 하십시오. 예를 들어 Bicep 파일에 라는 매개 변수가 포함된 경우 `description` **설명** 데코레이터를 사용할 때 sys 네임스페이스를 추가해야 합니다.
+데코레이터은 [sys 네임 스페이스](bicep-functions.md#namespaces-for-functions)에 있습니다. 동일한 이름을 가진 다른 항목의 데코레이터를 구분 해야 하는 경우 데코레이터 앞에를 붙입니다 `sys` . 예를 들어 Bicep 파일에 라는 매개 변수가 포함 된 경우 `description` **설명** 데코레이터를 사용 하는 경우 sys 네임 스페이스를 추가 해야 합니다.
 
 ```bicep
 @sys.description('The name of the instance.')
@@ -184,7 +184,7 @@ param name string
 param description string
 ```
 
-자세한 내용은 [데코레이터 를 참조하세요.](parameters.md#decorators)
+자세한 내용은 [데코레이터](parameters.md#decorators)를 참조 하세요.
 
 ## <a name="variables"></a>variables
 
@@ -202,7 +202,7 @@ var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 
 ## <a name="resource"></a>리소스
 
-`resource` 키워드를 사용하여 배포할 리소스를 정의합니다. 리소스 선언에는 해당 리소스에 대한 기호화된 이름이 포함됩니다. 리소스에서 값을 가져와야 하는 경우 Bicep 파일의 다른 부분에서 기호화된 이름을 사용합니다. 기호 이름에는 a-z, A-Z, 0-9 및 '_'가 포함될 수 있습니다. 이름은 숫자로 시작할 수 없습니다.
+`resource` 키워드를 사용하여 배포할 리소스를 정의합니다. 리소스 선언에는 해당 리소스에 대한 기호화된 이름이 포함됩니다. 리소스에서 값을 가져와야 하는 경우 Bicep 파일의 다른 부분에서 기호화된 이름을 사용합니다. 기호화 된 이름은 대/소문자를 구분 합니다. 문자, 숫자 및 _를 포함할 수 있습니다. 숫자로 시작할 수 없습니다.
 
 리소스 선언에는 리소스 종류 및 API 버전도 포함됩니다.
 
@@ -272,7 +272,7 @@ module webModule './webApp.bicep' = {
 }
 ```
 
-기호화된 이름을 사용하면 파일의 다른 위치에서 모듈을 참조할 수 있습니다. 예를 들어 기호화된 이름 및 출력 값의 이름을 사용하여 모듈에서 출력 값을 가져올 수 있습니다. 기호 이름에는 a-z, a-z, 0-9 및 ' _ '이 포함 될 수 있으며, 이름은 숫자로 시작할 수 없습니다.
+기호화된 이름을 사용하면 파일의 다른 위치에서 모듈을 참조할 수 있습니다. 예를 들어 기호화된 이름 및 출력 값의 이름을 사용하여 모듈에서 출력 값을 가져올 수 있습니다. 기호 이름에는 a-z, A-Z, 0-9 및 '_'가 포함될 수 있습니다. 이름은 숫자로 시작할 수 없습니다.
 
 모듈은 매개 변수, 변수 또는 리소스와 동일한 이름을 가질 수 없습니다.
 
@@ -293,7 +293,7 @@ resource storageAccountResources 'Microsoft.Storage/storageAccounts@2019-06-01' 
 }]
 ```
 
-`batchSize`데코레이터는 [sys 네임 스페이스](bicep-functions.md#namespaces-for-functions)에 있습니다. 이 데코레이터를 같은 이름의 다른 항목과 구분 해야 하는 경우에는 데코레이터 앞에 **sys** 를 사용 합니다. `@sys.batchSize(2)`
+`batchSize`데코레이터는 [sys 네임스페이스](bicep-functions.md#namespaces-for-functions)에 있습니다. 이 데코레이터를 동일한 이름의 다른 항목과 구별해야 하는 경우 데코레이터의 앞면에 **sys를 두세요.**`@sys.batchSize(2)`
 
 자세한 내용은 [일괄 처리로 배포](loop-resources.md#deploy-in-batches)를 참조하세요.
 

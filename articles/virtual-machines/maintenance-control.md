@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: maintenance
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 11/19/2020
+ms.date: 10/06/2021
 ms.author: cynthn
-ms.openlocfilehash: 47d99e87e788c833e5793a1e4e3b7d517d90909b
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: f04a1e776573ae8b335f1659057d89b2a144e051
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129534990"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129661239"
 ---
 # <a name="managing-platform-updates-with-maintenance-control"></a>유지 관리 제어를 통한 플랫폼 업데이트 관리 
 
@@ -32,9 +32,9 @@ ms.locfileid: "129534990"
 ## <a name="limitations"></a>제한 사항
 
 - VM은 [전용 호스트](./dedicated-hosts.md)에 있거나 [격리된 VM 크기](isolation.md)를 사용하여 만들어져야 합니다.
-- 유지 관리 기간 기간은 월에 따라 다를 수 있으며, 사용자가 시작한 후 보류 중인 업데이트를 적용 하는 데 2 시간이 걸릴 수 있습니다.  
+- 유지 관리 기간은 월별로 달라질 수 있으며, 사용자가 시작한 후 보류 중인 업데이트를 적용하는 데 최대 2시간이 걸릴 수 있습니다.  
 - 35일 후에는 업데이트가 자동으로 적용됩니다.
-- 랙 수준 유지 관리 작업은 아직이 유지 관리 제어의 일부가 아닙니다.
+- 랙 수준 유지 관리는 유지 관리 제어를 통해 제어할 수 없습니다.
 - 사용자에게 **리소스 참가자** 액세스 권한이 있어야 합니다.
 
 ## <a name="management-options"></a>관리 옵션

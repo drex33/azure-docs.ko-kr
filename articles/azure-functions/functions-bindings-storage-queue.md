@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: ea5f9511cd9ae6d569d833ef8f950f1391c30f38
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
-ms.translationtype: HT
+ms.openlocfilehash: 252a3316ae14e17c2712547f088477d74da2c66e
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113112188"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658687"
 ---
 # <a name="azure-queue-storage-trigger-and-bindings-for-azure-functions-overview"></a>Azure Functions의 Azure Queue 스토리지 트리거 및 바인딩 개요
 
@@ -22,7 +22,7 @@ Azure Functions는 새 Azure Queue 스토리지 메시지가 만들어질 때 �
 | 큐 스토리지 데이터 변경 시 함수 실행 | [트리거](./functions-bindings-storage-queue-trigger.md) |
 | 큐 스토리지 메시지 쓰기 |[출력 바인딩](./functions-bindings-storage-queue-output.md) |
 
-## <a name="add-to-your-functions-app"></a>Functions 앱에 추가
+## <a name="add-to-your-functions-app"></a>Functions 앱 추가
 
 ### <a name="functions-2x-and-higher"></a>Functions 2.x 이상
 
@@ -31,7 +31,7 @@ Azure Functions는 새 Azure Queue 스토리지 메시지가 만들어질 때 �
 | 언어                                        | 추가 방법...                                   | 설명 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | [NuGet 패키지] 버전 3.x 설치 | |
-| C# 스크립트, Java, JavaScript, Python, PowerShell | [확장 번들] 등록          | [Azure Tools 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)은 Visual Studio Code와 함께 사용하는 것이 좋습니다. |
+| C# Script, Java, JavaScript, Python, PowerShell | [확장 번들] 등록          | [Azure Tools 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)은 Visual Studio Code와 함께 사용하는 것이 좋습니다. |
 | C# 스크립트(Azure Portal에서 온라인으로만)         | 바인딩 추가                            | 함수 앱을 다시 게시하지 않고 기존 바인딩 확장을 업데이트하려면 [확장 업데이트]를 참조하세요. |
 
 #### <a name="storage-extension-5x-and-higher"></a>스토리지 확장 5.x 이상
@@ -57,7 +57,7 @@ Functions 1.x 앱은 [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Mi
 
 ## <a name="hostjson-settings"></a>host.json 설정
 
-이 섹션에서는 버전 2.x 이상에서 이 바인딩에 사용할 수 있는 전역 구성 설정을 설명합니다. 아래 예제 *host.json* 파일에는 이 바인딩에 대한 버전 2.x 이상 설정만 포함되어 있습니다. 버전 2.x 이상의 전역 구성 설정에 관한 자세한 내용은 [Azure Functions에 관한 host.json 참조](functions-host-json.md)를 확인하세요.
+[!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
 
 > [!NOTE]
 > Functions 1.x에서 host.json의 참조는 [Azure Functions 1.x에 대한 host.json 참조](functions-host-json-v1.md)를 참조하세요.

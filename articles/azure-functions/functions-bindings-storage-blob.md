@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: af8e6a64e94530d6cca1494aff2c3b249186a42e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 9ca3471b599e9f0671cd39603d71def344f7d72c
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528799"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660498"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Azure Functions의 Azure Blob Storage 바인딩 개요
 
@@ -22,7 +22,7 @@ Azure Functions는 [트리거 및 바인딩](./functions-triggers-bindings.md)�
 | 함수에서 Blob Storage 데이터 읽기 | [입력 바인딩](./functions-bindings-storage-blob-input.md) |
 | 함수가 Blob Storage 데이터를 쓰도록 허용 |[출력 바인딩](./functions-bindings-storage-blob-output.md) |
 
-## <a name="add-to-your-functions-app"></a>Functions 앱에 추가
+## <a name="add-to-your-functions-app"></a>Functions 앱 추가
 
 ### <a name="functions-2x-and-higher"></a>Functions 2.x 이상
 
@@ -31,7 +31,7 @@ Azure Functions는 [트리거 및 바인딩](./functions-triggers-bindings.md)�
 | 언어                                        | 추가 방법...                                   | 설명 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | [NuGet 패키지] 버전 3.x 설치 | |
-| C# 스크립트, Java, JavaScript, Python, PowerShell | [확장 번들] 등록          | [Azure Tools 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)은 Visual Studio Code와 함께 사용하는 것이 좋습니다. |
+| C# Script, Java, JavaScript, Python, PowerShell | [확장 번들] 등록          | [Azure Tools 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)은 Visual Studio Code와 함께 사용하는 것이 좋습니다. |
 | C# 스크립트(Azure Portal에서 온라인으로만)         | 바인딩 추가                            | 함수 앱을 다시 게시하지 않고 기존 바인딩 확장을 업데이트하려면 [확장 업데이트]를 참조하세요. |
 
 #### <a name="storage-extension-5x-and-higher"></a>스토리지 확장 5.x 이상
@@ -55,10 +55,10 @@ Functions 1.x 앱은 [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Mi
 
 ## <a name="hostjson-settings"></a>host.json 설정
 
-> [!NOTE]
-> 이 섹션은 5.0.0보다 이전의 확장 버전을 사용하는 경우에는 적용되지 않습니다. 이러한 버전의 경우 Blob에 대한 전역 구성 설정이 없습니다.
+이 섹션에서는이 바인딩이 사용 하는 함수에 사용할 수 있는 함수 앱 구성 설정에 대해 설명 합니다. 이러한 설정은 [확장 버전 5.0.0 이상을](#storage-extension-5x-and-higher)사용 하는 경우에만 적용 됩니다. 아래 예제 host.json 파일에는 이 바인딩에 대한 버전 2.x+ 설정만 포함되어 있습니다. 버전 2.x 이상 버전의 함수 앱 구성 설정에 대 한 자세한 내용은 [Azure Functions에 대 한 호스트 json 참조](functions-host-json.md)를 참조 하세요.
 
-이 섹션에서는 [확장 버전 5.0.0 이상](#storage-extension-5x-and-higher)을 사용할 때 이 바인딩에 사용할 수 있는 전역 구성 설정을 설명합니다. 아래 예제 *host.json* 파일에는 이 바인딩에 대한 버전 2.x 이상 설정만 포함되어 있습니다. Functions 버전 2.x 이상의 전역 구성 설정에 관한 자세한 내용은 [Azure Functions에 관한 host.json 참조](functions-host-json.md)를 확인하세요.
+> [!NOTE]
+> 이 섹션은 5.0.0 이전 확장 버전에는 적용 되지 않습니다. 이러한 이전 버전의 경우 blob에 대 한 함수 앱 전체 구성 설정이 없습니다.
 
 ```json
 {

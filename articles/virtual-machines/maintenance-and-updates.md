@@ -5,14 +5,14 @@ author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 10/06/2021
 ms.author: shants
-ms.openlocfilehash: 0f1d65c7caa9073fa66fe3920b2b39bc9c5a5d11
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: cb1a4cc1e0c1539ab56b986a35084fa761d85438
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122687708"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129657533"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Azure에서 가상 머신 유지 관리
 
@@ -35,7 +35,7 @@ VM 내에서 [Linux](./linux/scheduled-events.md)용 또는 [Windows용 Schedule
 
 대부분의 플랫폼 업데이트는 고객 VM에 영향을 주지 않습니다. 영향을 주지 않는 업데이트가 불가능한 경우 Azure는 고객 VM에 미치는 영향이 가장 적은 업데이트 메커니즘을 선택합니다. 
 
-영향이 거의 없는 유지 관리는 VM을 10초 미만으로 일시 중지합니다. 경우에 따라 Azure는 메모리 보존 유지 관리 메커니즘을 사용합니다. 이러한 메커니즘은 VM을 최대 30초 동안 일시 중지하고 메모리를 RAM에 보존합니다. 그런 다음, VM이 다시 시작되고 클록이 자동으로 동기화됩니다. 
+영향이 거의 없는 유지 관리는 VM을 10초 미만으로 일시 중지합니다. 경우에 따라 Azure는 메모리 보존 유지 관리 메커니즘을 사용합니다. 이러한 메커니즘은 일반적으로 30초 동안 VM을 일시 중지하고 RAM에서 메모리를 유지합니다. 그런 다음, VM이 다시 시작되고 클록이 자동으로 동기화됩니다. 
 
 메모리 보존 유지 관리는 90%를 초과하는 Azure VM에서 작동합니다. G, M, N 및 H 시리즈에서는 작동하지 않습니다. Azure는 실시간 마이그레이션 기술을 점점 더 많이 사용하며 메모리 보존 유지 관리 메커니즘을 개선하여 일시 중지 기간을 줄이고 있습니다.  
 

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/19/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
-ms.openlocfilehash: dc6a56cff3492011a4717d867f08a580cf5a198c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: fe746ed4fe8c24afa0667d8c2559d9c46fee5211
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566885"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660080"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Azure App Service의 간헐적인 아웃 바운드 연결 오류 문제 해결
 
@@ -165,14 +165,6 @@ TCP 연결 및 SNAT 포트는 직접적인 관련성이 없습니다. TCP 연결
  
 SNAT 포트가 소진되고 WebJob이 SQL Database에 연결할 수 없는 경우 각 개별 웹 애플리케이션 프로세스에서 열린 연결 수를 보여 주는 메트릭이 없습니다. 문제가 있는 WebJob을 찾으려면 몇 가지 WebJob을 다른 App Service 계획으로 이동하여 상황을 개선하거나 계획 중 하나에 문제가 남아 있는지 확인합니다. 문제가 있는 WebJob을 찾을 때까지 프로세스를 반복합니다.
 
-### <a name="using-snat-ports-sooner"></a>더 빨리 SNAT 포트 사용
-
-모든 SNAT 포트가 아래 조건에 따라 해제되도록 설계되어 있으므로 사용된 SNAT 포트를 더 빨리 해제하도록 Azure 설정을 변경할 수 없습니다.
- 
-* 서버 또는 클라이언트 중 하나가 FINACK를 보내면 240초 후에 [SNAT 포트가 해제됩니다](../load-balancer/load-balancer-outbound-connections.md).
-* RST가 표시되는 경우 15초 후에 SNAT 포트가 해제됩니다.
-* 유휴 시간 제한에 도달하면 포트가 해제됩니다.
- 
 ## <a name="additional-information"></a>추가 정보
 
 * [App Service를 사용한 SNAT](https://4lowtherabbit.github.io/blogs/2019/10/SNAT/)

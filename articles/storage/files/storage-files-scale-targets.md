@@ -4,15 +4,15 @@ description: 용량, 요청 속도 및 인바운드/아웃바운드 대역폭 �
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/16/2021
+ms.date: 10/06/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 83e33933e8afb8b376750368a64c60cb56406a75
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 66ad68711d57767f6f657d941222e4b225c4b20e
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128651544"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658940"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files 확장성 및 성능 목표
 [Azure Files](storage-files-introduction.md)는 SMB 및 NFS 파일 시스템 프로토콜을 통해 액세스할 수 있는 완전 관리형 파일 공유를 클라우드에서 제공합니다. 이 문서에서는 Azure Files 및 Azure 파일 동기화의 확장성 및 성능 목표에 대해 설명합니다.
@@ -71,7 +71,7 @@ Azure에서는 고객에게 있을 수 있는 다양한 스토리지 시나리�
 
 <sup>1</sup> 표준 파일 공유에 대한 제한은 표준 파일 공유에 사용할 수 있는 세 계층(트랜잭션 최적화, 핫, 쿨) 모두에 적용됩니다.
 
-<sup>2</sup> 표준 파일 공유의 기본값은 5TiB입니다. 100TiB 크기의 파일 공유를 만들고 기존 표준 파일 공유를 최대 100TiB까지 늘리는 방법에 대한 자세한 내용은 [Azure 파일 공유 만들기](./storage-how-to-create-file-share.md)를 참조하세요.
+<sup>2</sup> 표준 파일 공유의 기본값은 5TiB입니다. 100TiB 크기의 파일 공유를 만들고 기존 표준 파일 공유를 최대 100TiB까지 늘리는 방법에 대한 자세한 내용은 [Azure 파일 공유 만들기](./storage-how-to-create-file-share.md)를 참조하세요. 더 큰 규모 목표를 활용 하려면 5 TiB 보다 큰 할당량을 변경 해야 합니다.
 
 ### <a name="file-scale-targets"></a>파일 크기 조정 목표
 | attribute | 표준 파일 공유의 파일  | 프리미엄 파일 공유의 파일  |

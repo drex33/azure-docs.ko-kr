@@ -9,12 +9,12 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: pstn
-ms.openlocfilehash: 7a27e630490fe78023a9406f931c6066c5e9fb7f
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 2270e29cc9b279348467ca2a6f6593269e37eafb
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129362353"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659814"
 ---
 # <a name="list-of-session-border-controllers-certified-for-azure-communication-services-direct-routing"></a>Azure Communication Services 직접 라우팅이 인증된 Session Border Controller 목록
 이 문서에는 Azure Communication Services 직접 라우팅이 인증된 Session Border Controller 목록이 포함되어 있습니다. 알려진 제한 사항도 제공됩니다.
@@ -42,7 +42,7 @@ Communication Services 직접 라우팅용 SBC 인증 프로그램에 대한 질
 |[Metaswitch](https://manuals.metaswitch.com/Perimeta/V4.9/AzureCommunicationServicesIntegrationGuide/Source/notices.html)|Perimeta SBC|4.9|
 |[Oracle](https://www.oracle.com/technical-resources/documentation/acme-packet.html)|Oracle Acme Packet SBC|8.4|
 |리본 통신|[SBC SWe / SBC 5400 / SBC 7000](https://support.sonus.net/display/ALLDOC/Ribbon+Configurations+with+Azure+Communication+Services+Direct+Routing)|9.02|
-||SBC SWe Lite / SBC 1000 / SBC 2000|9.0
+||[SBC SWe Lite / SBC 1000 / SBC 2000](https://support.sonus.net/display/UXDOC90/Best+Practice+-+Configure+SBC+Edge+for+Azure+Communication+Services+Direct+Routing)|9.0
 
 주 버전에 부여된 인증을 확인합니다. 즉, 주 버전 뒤에 있는 SBC 펌웨어의 숫자를 포함하는 펌웨어가 지원됩니다.
 

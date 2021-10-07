@@ -2,18 +2,18 @@
 title: 기업계약 문제에 대한 Azure 지원 요청을 만드는 방법
 description: 지원이 필요한 기업계약 고객은 Azure Portal 사용하여 셀프 서비스 솔루션을 찾고 지원 요청을 만들고 관리할 수 있습니다.
 ms.topic: troubleshooting
-ms.date: 10/06/2021
+ms.date: 10/07/2021
 ms.author: banders
 author: bandersmsft
 ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.openlocfilehash: 3563851d6942ea292b82fb6c1db1c597db7fdadd
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 7826b2c19a77ef3762f39ade9a80f26615f704bd
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129622409"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660194"
 ---
 # <a name="create-an-azure-support-request-for-an-enterprise-agreement-issue"></a>기업계약 문제에 대한 Azure 지원 요청 만들기
 
@@ -65,7 +65,7 @@ Azure Portal의 어디에서나 지원 요청을 시작하려면 다음을 수�
 ### <a name="problem-description"></a>문제 설명
 
 1. 문제에 대한 요약을 입력한 **다음, 문제 유형** 을 선택합니다. 
-1. 문제 **유형** 목록에서 **등록 관리** 를 선택합니다.  
+1. 문제 **유형** 목록에서 EA Portal 관련 문제에 대한 **등록 관리를** 선택합니다.  
     :::image type="content" source="./media/how-to-create-azure-support-request-ea/select-issue-type-enrollment-administration.png" alt-text="등록 관리 선택을 보여주는 스크린샷." lightbox="./media/how-to-create-azure-support-request-ea/select-issue-type-enrollment-administration.png" :::
 1. **등록 번호** 에 대해 등록 번호를 선택합니다. 
     :::image type="content" source="./media/how-to-create-azure-support-request-ea/select-enrollment.png" alt-text="등록 번호 선택을 보여주는 스크린샷." :::
@@ -108,7 +108,7 @@ Azure Portal의 어디에서나 지원 요청을 시작하려면 다음을 수�
 
 MSA(Microsoft 계정)가 있는 경우 Azure 지원 티켓을 만들 수 없습니다. Microsoft 계정은 Outlook, Windows Live 및 Hotmail을 포함한 서비스에 대해 만들어집니다.
 
-Azure 지원 티켓을 만들려면 *조직 계정에* EA 관리자 역할이 있어야 합니다.
+Azure 지원 티켓을 만들려면 *조직 계정에* EA 관리자 역할 또는 파트너 관리자 역할이 있어야 합니다.
 
 MSA가 있는 경우 관리자가 조직 계정을 만들게 합니다. 그런 다음 엔터프라이즈 관리자 또는 파트너 관리자는 조직 계정을 엔터프라이즈 관리자 또는 파트너 관리자로 추가해야 합니다. 그런 다음, 조직 계정을 사용하여 지원 요청을 제출할 수 있습니다.
 

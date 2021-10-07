@@ -3,12 +3,12 @@ title: Azure Functions 2.x에 대한 host.json 참조
 description: v2 런타임을 사용하는 Azure Functions host.json 파일에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: b646c4d263896e1bf4d63bdaf965209c005b8228
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 8844e76c7f01bf33bc81ef2fec733b9e538e34cc
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536469"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660517"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure Functions 2.x 이상에 대한 host.json 참조 
 
@@ -16,12 +16,15 @@ ms.locfileid: "122536469"
 > * [버전 1](functions-host-json-v1.md)
 > * [버전 2 이상](functions-host-json.md)
 
-*host.json* 메타데이터 파일에는 함수 앱의 모든 함수에 영향을 주는 전역 구성 옵션이 포함됩니다. 이 문서에서는 Azure Functions 런타임의 버전 2.x부터 사용 가능한 설정을 나열합니다.  
+host.json 메타데이터 파일에는 함수 앱 인스턴스의 모든 함수에 영향을 주는 구성 옵션이 포함되어 있습니다. 이 문서에서는 Azure Functions 런타임의 버전 2.x부터 사용 가능한 설정을 나열합니다.  
 
 > [!NOTE]
 > 이 문서는 Azure Functions 2.x 이상의 버전을 대상으로 합니다.  Functions 1.x에서 host.json의 참조는 [Azure Functions 1.x에 대한 host.json 참조](functions-host-json-v1.md)를 참조하세요.
 
-다른 함수 앱 구성 옵션은 [앱 설정](functions-app-settings.md)(배포된 앱용) 또는 [local.settings.json](functions-develop-local.md#local-settings-file) 파일(로컬 개발용)에서 관리됩니다.
+다른 함수 앱 구성 옵션은 함수 앱이 실행되는 위치에 따라 관리됩니다.
+
++ **Azure에 배포:** [애플리케이션 설정에서](functions-app-settings.md) 
++ **로컬 컴퓨터의**: [local.settings.json](functions-develop-local.md#local-settings-file) 파일.
 
 바인딩과 관련된 host.json의 구성은 함수 앱의 각 함수에 동일하게 적용됩니다. 
 
@@ -152,7 +155,7 @@ ms.locfileid: "122536469"
 > [!NOTE]
 > 로그 샘플링으로 인해 Application Insights 모니터 블레이드에 일부 실행이 표시되지 않을 수 있습니다. 로그 샘플링을 방지하려면 `samplingSettings` 값에 `excludedTypes: "Request"`를 추가합니다.
 
-| 속성 | 기본값 | 설명 |
+| 속성 | 기본값 | Description |
 | --------- | --------- | --------- | 
 | samplingSettings | 해당 없음 | [applicationInsights.samplingSettings](#applicationinsightssamplingsettings)를 참조합니다. |
 | enableLiveMetrics | true | 라이브 메트릭 수집을 사용하도록 설정합니다. |
@@ -166,7 +169,7 @@ ms.locfileid: "122536469"
 
 이러한 설정에 대한 자세한 내용은 [Application Insights의 샘플링](../azure-monitor/app/sampling.md)을 참조하세요. 
 
-|속성 | 기본값 | 설명 |
+|속성 | 기본값 | Description |
 | --------- | --------- | --------- | 
 | isEnabled | true | 샘플링을 사용 여부를 설정합니다. | 
 | maxTelemetryItemsPerSecond | 20 | 각 서버 호스트에서 초당 기록된 원격 분석 항목의 수입니다. 앱이 여러 호스트에서 실행되는 경우 이 값을 줄여서 전체 목표 트래픽 속도 내에서 유지합니다. | 
@@ -182,7 +185,7 @@ ms.locfileid: "122536469"
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights.httpAutoCollectionOptions
 
-|속성 | 기본값 | 설명 |
+|속성 | 기본값 | Description |
 | --------- | --------- | --------- | 
 | enableHttpTriggerExtendedInfoCollection | true | HTTP 트리거에 확장된 HTTP 요청 정보(들어오는 요청 상관관계 헤더, 다중 계측 키 지원, HTTP 메서드, 경로, 응답)를 사용하거나 사용하지 않도록 설정합니다. |
 | enableW3CDistributedTracing | true | W3C 분산 추적 프로토콜 지원을 사용하거나 사용하지 않도록 설정하고 레거시 상관관계 스키마를 사용하도록 설정합니다. `enableHttpTriggerExtendedInfoCollection`이 true인 경우 기본적으로 사용하도록 설정됩니다. `enableHttpTriggerExtendedInfoCollection`이 false인 경우 이 플래그는 나가는 요청에만 적용되고 들어오는 요청에는 적용되지 않습니다. |
@@ -192,7 +195,7 @@ ms.locfileid: "122536469"
 
 스냅샷에 대한 자세한 내용은 [.NET 앱에서 예외에 대한 스냅샷 디버그하기](../azure-monitor/app/snapshot-debugger.md) 및 [Application Insights 스냅샷 디버거 또는 스냅샷 보기를 사용 설정하는 문제 해결](../azure-monitor/app/snapshot-debugger-troubleshoot.md)을 참조하세요.
 
-|속성 | 기본값 | 설명 |
+|속성 | 기본값 | Description |
 | --------- | --------- | --------- | 
 | agentEndpoint | null | Application Insights 스냅샷 디버거 서비스에 연결하는 데 사용되는 엔드포인트입니다. Null인 경우 기본 엔드포인트가 사용됩니다. |
 | captureSnapshotMemoryWeight | 0.5 | 스냅샷을 만들기에 충분한 메모리가 있는지 검사할 때 현재 프로세스 메모리 크기에 지정된 가중치입니다. 예상 값은 0보다 큰 진분수(0 < CaptureSnapshotMemoryWeight < 1)입니다. |
@@ -240,7 +243,7 @@ ms.locfileid: "122536469"
 
 |속성  |기본값 | 설명 |
 |---------|---------|---------| 
-|DisableColors|false| Linux의 컨테이너 로그에 로그 서식을 지정합니다. Linux에서 실행할 때 컨테이너 로그에 원치 않는 ANSI 제어 문자가 표시되면 true로 설정합니다. |
+|DisableColors|false| Linux의 컨테이너 로그에서 로그 형식을 지정 하지 않습니다. Linux에서 실행할 때 컨테이너 로그에 원치 않는 ANSI 제어 문자가 표시되면 true로 설정합니다. |
 |isEnabled|false|콘솔 로깅을 사용하거나 사용하지 않도록 설정합니다.| 
 
 ## <a name="cosmosdb"></a>cosmosDb
@@ -262,7 +265,7 @@ ms.locfileid: "122536469"
 }
 ```
 
-|속성 | 기본값 | 설명 |
+|속성 | 기본값 | Description |
 | --------- | --------- | --------- |
 | defaultExecutablePath | 해당 없음 | 사용자 지정 처리기 프로세스로 시작할 실행 파일입니다. 이는 사용자 지정 처리기를 사용하는 경우 필수 설정이며, 해당 값은 함수 앱 루트를 기준으로 합니다. |
 | workingDirectory | ‘함수 앱 루트’ | 사용자 지정 처리기 프로세스를 시작할 작업 디렉터리입니다. 이는 선택적 설정이며 해당 값은 함수 앱 루트를 기준으로 합니다. |
@@ -303,7 +306,7 @@ ms.locfileid: "122536469"
 
 | 플랜 유형 | 기본(분) | 최대(분) |
 | -- | -- | -- |
-| 소비 | 5 | 10 |
+| Consumption | 5 | 10 |
 | 프리미엄<sup>1</sup> | 30 | -1(제한 없음)<sup>2</sup> |
 | 전용(App Service) | 30 | -1(제한 없음)<sup>2</sup> |
 
@@ -332,7 +335,7 @@ ms.locfileid: "122536469"
 }
 ```
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------| 
 |사용|true|기능의 사용 여부를 지정합니다. | 
 |healthCheckInterval|10초|정기적인 백그라운드 상태 검사 사이의 간격 | 
@@ -364,7 +367,7 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 }
 ```
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|활성화할 파일 로깅의 수준을 정의합니다.  옵션은 `never`, `always`, `debugOnly`입니다. |
 |logLevel|해당 없음|앱의 함수에 대한 로그 범주 필터링을 정의하는 개체입니다. 이 설정을 통해 특정 함수의 로깅을 필터링할 수 있습니다. 자세한 내용은 [로그 수준 구성](configure-monitoring.md#configure-log-levels)을 참조하세요. |
@@ -401,7 +404,7 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 }
 ```
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------| 
 |전략|null|필수 요소. 사용하는 재시도 전략입니다. 유효한 값은 `fixedDelay` 또는 `exponentialBackoff`입니다.|
 |maxRetryCount|null|필수 요소. 함수 실행당 허용되는 최대 재시도 횟수입니다. `-1`은 무기한으로 재시도하는 것을 의미합니다.|
@@ -433,7 +436,7 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 }
 ```
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|함수 수준 잠금이 적용되는 기간입니다. 잠금은 자동 갱신됩니다.| 
 |listenerLockPeriod|00:01:00|수신기 잠금이 적용되는 기간입니다.| 

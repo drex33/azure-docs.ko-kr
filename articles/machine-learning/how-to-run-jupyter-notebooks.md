@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 07/22/2021
-ms.openlocfilehash: 447398acc918dc830769b6b5e227f2ea87eb33c4
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 1a4fbbb84eb296acabd383461e01e90cbf570d9d
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129545381"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129657381"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>작업 영역에서 Jupyter Notebook 실행
 
@@ -311,9 +311,9 @@ Jupyter Notebook과 마찬가지로 Azure Machine Learning Studio Notebook에는
 
 ## <a name="troubleshooting"></a>문제 해결
 
-* Notebook에 연결할 수 없으면 WebSocket 통신이 사용하지 않도록 설정되지 **않았는지** 확인합니다. 컴퓨팅 인스턴스 Jupyter 기능이 작동하기 위해서는 WebSocket 통신이 사용하도록 설정되어 있어야 합니다. 네트워크에서 *.instances.azureml.net 및 *.instances.azureml.ms [대한 websocket 연결을 허용하는지 확인합니다.](https://docs.microsoft.com/azure/machine-learning/how-to-access-azureml-behind-firewall?tabs=ipaddress#microsoft-hosts) 
+* Notebook에 연결할 수 없으면 WebSocket 통신이 사용하지 않도록 설정되지 **않았는지** 확인합니다. 컴퓨팅 인스턴스 Jupyter 기능이 작동하기 위해서는 WebSocket 통신이 사용하도록 설정되어 있어야 합니다. 네트워크에서 *. instances.azureml.net 및 *. instances.azureml.ms에 대 한 [websocket 연결을 허용](how-to-access-azureml-behind-firewall.md?tabs=ipaddress#microsoft-hosts) 하는지 확인 합니다. 
 
-* 컴퓨팅 인스턴스가 프라이빗 엔드포인트가 있는 작업 영역에 배포된 경우 [가상 네트워크 내에서만 액세스할](./how-to-secure-training-vnet.md)수 있습니다. 사용자 지정 DNS 또는 호스트 파일을 사용하는 경우 작업 영역 프라이빗 엔드포인트의 개인 IP 주소를 사용하여 < 인스턴스 이름 >.< 지역 >.instances.azureml.ms 항목을 추가합니다. 자세한 내용은 [사용자 지정 DNS](./how-to-custom-dns.md?tabs=azure-cli) 문서를 참조하세요.
+* 계산 인스턴스가 개인 끝점을 사용 하는 작업 영역에 배포 된 경우 [가상 네트워크 내 에서만 액세스할](./how-to-secure-training-vnet.md)수 있습니다. 사용자 지정 DNS 또는 호스트 파일을 사용 하는 경우 < 인스턴스 이름 >에 대 한 항목을 작업 영역 개인 끝점의 개인 IP 주소를 사용 하 여 < 지역 >에 추가 합니다. 자세한 내용은 [사용자 지정 DNS](./how-to-custom-dns.md?tabs=azure-cli) 문서를 참조하세요.
 
 * 커널이 충돌하여 다시 시작된 경우 `sudo journalctl -u jupyter` 명령을 실행하여 jupyter 로그를 확인하고 자세한 정보를 확인할 수 있습니다. 커널 문제가 지속되면 더 많은 메모리가 있는 컴퓨팅 인스턴스를 사용하는 것이 좋습니다.
 

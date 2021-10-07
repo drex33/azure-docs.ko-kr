@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 00a3fa397bf88520fa4923b6fbe7495c0aa0b8a2
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
-ms.translationtype: HT
+ms.openlocfilehash: 37535361222a1c2e476e2cde24304ee4cc3f218c
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277405"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129657362"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>설명 오디오 트랙 신호 알림
 
@@ -45,7 +45,7 @@ Media Services v3에서는 Azure Storage API를 사용하여 파일을 업로드
 다음 함수는 아래와 같은 작업을 수행합니다.
 
 * **자산** 만들기 
-* [스토리지의 자산 컨테이너](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container)에 쓰기가 가능한 [SAS URL](../../storage/common/storage-sas-overview.md) 가져오기
+* [스토리지의 자산 컨테이너](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-a-blob-to-a-container)에 쓰기가 가능한 [SAS URL](../../storage/common/storage-sas-overview.md) 가져오기
 * SAS URL을 사용하여 스토리지의 컨테이너에 파일 업로드
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]

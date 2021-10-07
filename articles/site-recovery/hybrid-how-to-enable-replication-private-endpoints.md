@@ -6,12 +6,12 @@ ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
-ms.openlocfilehash: a90d9a82ff26c62423651d8d1b16173300147a1c
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 939eb89de2e347aeec2d8946f456f5ba2aa6be29
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129536770"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658579"
 ---
 # <a name="replicate-on-premises-machines-by-using-private-endpoints"></a>프라이빗 엔드포인트를 사용하여 온-프레미스 머신 복제
 
@@ -41,7 +41,7 @@ Azure Site Recovery를 사용하면 [Azure Private Link](../private-link/private
 - 캐시 스토리지 계정에 대한 프라이빗 엔드포인트 연결을 위해 바이패스 네트워크에서 하나의 추가 IP 주소가 필요합니다. 온-프레미스와 스토리지 계정 엔드포인트 간에 어떤 연결 방법도 사용할 수 있습니다. 예를 들어, 인터넷 또는 Azure [ExpressRoute](../expressroute/index.yml)를 사용할 수 있습니다. 프라이빗 링크 설정은 선택 사항입니다. 범용 v2 계정에서만 스토리지에 대한 프라이빗 엔드포인트를 만들 수 있습니다. 범용 v2 계정의 데이터 전송 가격 책정에 대한 자세한 내용은 [Azure 페이지 Blob 가격 책정](https://azure.microsoft.com/pricing/details/storage/page-blobs/)을 참조하세요.
 
 > [!NOTE]
-> VMware 및 물리적 컴퓨터를 보호하기 위해 프라이빗 엔드포인트를 설정하는 동안 구성 서버에 MySQL을 수동으로 설치해야 합니다. 수동 설치를 수행하려면 [여기의](https://docs.microsoft.com/azure/site-recovery/vmware-azure-deploy-configuration-server#configure-settings) 단계를 따르세요. 
+> VMware 및 물리적 컴퓨터를 보호 하기 위해 개인 끝점을 설정 하는 동안 구성 서버에 MySQL을 수동으로 설치 해야 합니다. 수동 설치를 수행 하려면 [여기](vmware-azure-deploy-configuration-server.md#configure-settings) 의 단계를 따르세요. 
 
  ## <a name="create-and-use-private-endpoints-for-site-recovery"></a>사이트 복구를 위한 프라이빗 엔드포인트 만들기 및 사용
 

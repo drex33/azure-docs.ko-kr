@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 6caf3847971c2dd39f1eea0a921891e4440373a5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 70d01dce8e5879b6b075c2ea9e305ebf90d57e18
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727470"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658884"
 ---
 # <a name="azure-functions-http-output-bindings"></a>Azure Functions HTTP 출력 바인딩
 
@@ -39,7 +39,7 @@ HTTP 응답을 보내려면 언어 표준 응답 패턴을 사용합니다. C# �
 
 ## <a name="hostjson-settings"></a>host.json 설정
 
-이 섹션에서는 버전 2.x 이상에서 이 바인딩에 사용할 수 있는 전역 구성 설정을 설명합니다. 아래 예제 host.json 파일에는 이 바인딩에 대한 버전 2.x+ 설정만 포함되어 있습니다. 버전 2.x 이상의 전역 구성 설정에 관한 자세한 내용은 [Azure Functions에 관한 host.json 참조](functions-host-json.md)를 확인하세요.
+[!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
 
 > [!NOTE]
 > Functions 1.x에서 host.json의 참조는 [Azure Functions 1.x에 대한 host.json 참조](functions-host-json-v1.md#http)를 참조하세요.

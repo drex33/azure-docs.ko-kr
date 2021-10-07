@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/10/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 8cc39325f8c993afb6901e9700376fc73ecbefe7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 81032760fa559cbdbae6382084e7a2d2e629d989
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128602862"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659396"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device"></a>Windows 디바이스에서 Linux용 Azure IoT Edge 설치 및 프로비저닝
 
@@ -81,9 +81,9 @@ Azure IoT Edge for Linux on Windows에서 지원하는 프로비전 방법은 �
 
   * 사용하려는 인증 방법을 선택한 다음 해당 문서의 단계에 따라 DPS 인스턴스를 설정하고 등록을 만들어 디바이스를 프로비저닝합니다. 등록 유형에 대한 자세한 내용은 [Azure IoT Hub Device Provisioning Service 개념](../iot-dps/concepts-service.md#enrollment)을 참조하세요.
 
-    * [DPS 및 대칭 키로 IoT Edge 디바이스를 프로비저닝합니다.](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md)
-    * [DPS 및 X.509 인증서로 IoT Edge 디바이스를 프로비저닝합니다.](how-to-provision-devices-at-scale-linux-on-windows-x509.md)
-    * [DPS 및 TPM 증명으로 IoT Edge 디바이스를 프로비저닝합니다.](how-to-auto-provision-tpm-linux-on-windows.md)
+    * [DPS 및 대칭 키를 사용 하 여 IoT Edge 장치를 프로 비전](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md)합니다.
+    * [DPS 및 x.509 인증서를 사용 하 여 IoT Edge 장치를 프로 비전](how-to-provision-devices-at-scale-linux-on-windows-x509.md)합니다.
+    * [DPS 및 TPM 증명을 사용 하 여 IoT Edge 장치를 프로 비전](how-to-provision-devices-at-scale-linux-on-windows-tpm.md)합니다.
 
 ## <a name="create-a-new-deployment"></a>새 배포 만들기
 
@@ -242,7 +242,7 @@ Windows Admin Center 또는 관리자 권한 PowerShell 세션을 사용하여 �
 
   * [DPS(Device Provisioning Service) 및 대칭 키를 사용하여 자동 프로비저닝](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md#configure-the-device-with-provisioning-information)
   * [DPS 및 X.509 인증서를 사용하여 자동 프로비저닝](how-to-provision-devices-at-scale-linux-on-windows-x509.md#configure-the-device-with-provisioning-information)
-  * [DPS 및 TPM 증명을 사용한 자동 프로비저닝](how-to-auto-provision-tpm-linux-on-windows.md#configure-the-device-with-provisioning-information)
+  * [DPS 및 TPM 증명을 사용한 자동 프로비저닝](how-to-provision-devices-at-scale-linux-on-windows-tpm.md#configure-the-device-with-provisioning-information)
 
 ### <a name="manual-provisioning-using-the-connection-string"></a>연결 문자열을 사용한 수동 프로비저닝
 

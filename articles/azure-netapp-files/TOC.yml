@@ -149,6 +149,8 @@
               href: azure-netapp-files-configure-export-policy.md
             - name: Unix 권한 구성 및 소유권 모드 변경
               href: configure-unix-permissions-change-ownership-mode.md
+            - name: 볼륨에 대한 네트워크 기능 구성
+              href: configure-network-features.md
         - name: 볼륨 탑재 또는 분리
           items:
             - name: 볼륨 탑재 또는 분리
@@ -221,6 +223,8 @@
           href: troubleshoot-capacity-pools.md
         - name: 지역 간 복제 문제 해결
           href: troubleshoot-cross-region-replication.md
+        - name: 볼륨 오류 해결
+          href: troubleshoot-volumes.md
         - name: SMB 또는 이중 프로토콜 볼륨 문제 해결
           href: troubleshoot-dual-protocol-volumes.md
         - name: NFSv4.1 Kerberos 볼륨 문제 해결

@@ -134,8 +134,12 @@
       href: configure-automatic-updates.md
     - name: 멀티미디어 리디렉션 설정(미리 보기)
       href: multimedia-redirection.md
-    - name: 언어 팩 설치
-      href: language-packs.md
+    - name: 언어 패키지 설치
+      items:
+        - name: Windows 10 다중 세션 이미지
+          href: language-packs.md
+        - name: Windows 11 Enterprise 이미지
+          href: windows-11-language-packs.md
     - name: Azure Advisor 사용
       href: azure-advisor.md
     - name: 해결 권장 사항

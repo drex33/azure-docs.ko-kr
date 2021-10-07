@@ -145,6 +145,8 @@
                       href: authenticate-aks-cross-tenant.md
                     - name: Kubernetes 끌어오기 비밀을 사용하여 인증
                       href: container-registry-auth-kubernetes.md
+                - name: 인증되지 않은 끌어오기 액세스 사용
+                  href: anonymous-pull-access.md
             - name: Azure 역할 기반 액세스 제어
               href: container-registry-roles.md
               displayName: 'permissions, authorization'
@@ -254,7 +256,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/acr
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/containerregistry
     - name: PowerShell
       href: /powershell/module/az.containerregistry

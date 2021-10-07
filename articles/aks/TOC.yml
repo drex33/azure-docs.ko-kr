@@ -388,6 +388,8 @@
                   href: open-service-mesh-nginx-ingress.md
                 - name: 'Prometheus, Grafana 및 Jaeger를 사용하여 관찰 가능성 구성'
                   href: open-service-mesh-open-source-observability.md
+                - name: OSM CLI 환경 사용자 지정
+                  href: open-service-mesh-customize-add-on-experience.md
             - name: Azure Monitor 구성
               href: open-service-mesh-azure-monitor.md
             - name: OSM 문제 해결
@@ -422,7 +424,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/aks
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/aks
     - name: PowerShell
       href: /powershell/module/az.aks#aks

@@ -293,6 +293,8 @@ items:
             href: storage-blob-pageblob-overview.md
           - name: 정적 웹 사이트
             href: storage-blob-static-website.md
+          - name: Data Lake Storage Gen2로 업그레이드
+            href: upgrade-to-data-lake-storage-gen2.md
           - name: Blob Storage 기능 지원
             href: storage-feature-support-in-storage-accounts.md
       - name: 방법
@@ -550,6 +552,8 @@ items:
                     href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage
           - name: 지역 간 이동
             href: ../common/storage-account-move.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: Data Lake Storage Gen2로 업그레이드
+            href: upgrade-to-data-lake-storage-gen2-how-to.md
           - name: Monitor
             items:
               - name: 시나리오 및 모범 사례

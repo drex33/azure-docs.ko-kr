@@ -2,19 +2,19 @@
 title: 프라이빗 클라우드 권한 높이기
 titleSuffix: Azure VMware Solution by CloudSimple
 description: vCenter의 관리 기능에 대한 프라이빗 클라우드의 권한을 에스컬레이션하는 방법에 대해 설명합니다.
-author: shortpatti
-ms.author: v-hborys
+author: suzizuber
+ms.author: v-szuber
 ms.date: 06/05/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c72c13aa63908311d7a54015ef61165e7dde5917
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
-ms.translationtype: HT
+ms.openlocfilehash: f12b6face019fcbcdc0e47710ead71df633dc0b3
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108182393"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129614710"
 ---
 # <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>CloudSimple 포털에서 프라이빗 클라우드 vCenter 권한 에스컬레이션
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 5e4091138f51fdd5af4052895cdb75c2390f7ce5
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: a927232bab058ff461ff1158739a6b4d390e1c56
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114459734"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128679468"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>자습서: 사용자 프로비전을 위한 Workplace by Facebook 구성
 
@@ -168,6 +168,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 ## <a name="troubleshooting-tips"></a>문제 해결 팁
 *  사용자가 성공적으로 생성되지 않은 것을 확인하고 코드가 "1789003"인 감사 로그 이벤트가 있는 경우 사용자가 확인되지 않은 도메인에서 온 것임을 의미합니다.
 *  사용자에게 '오류: 메일 필드 없음' 오류가 발생하는 경우가 있습니다. Facebook에서 반환된 메일 오류인 'HTTP 요청을 처리하는 동안 예외가 발생했습니다.'를 제공해야 합니다. 자세한 내용은 이 예외의 'Response' 속성에서 반환된 HTTP 응답을 참조하세요. 이 작업을 0번 다시 시도했습니다. 이 날짜 이후에 다시 시도됩니다. 이 오류는 userPrincipalName이 아닌 고객이 메일을 Facebook 메일로 매핑하지만 일부 사용자에게 메일 특성이 없기 때문에 발생합니다. 오류를 방지하고 Facebook에서 Workplace로 실패한 사용자를 프로비저닝하려면 Facebook 메일 특성에서 Workplace로의 특성 매핑을 Coalesce([mail],[userPrincipalName])로 수정하거나 Facebook에서 Workplace의 사용자를 할당 취소하거나 해당 사용자에 대한 메일 주소를 프로비저닝합니다.  
+*  작업 공간에는 [이메일 주소가 없는 사용자](https://www.workplace.com/resources/tech/account-management/email-less#enable)가 있을 수 있는 옵션이 있습니다. 작업 공간 측에서 이 설정을 전환하는 경우 이메일을 사용하지 않는 사용자가 작업 공간에서 성공적으로 생성되려면 Azure 쪽에서 프로비전을 다시 시작해야 합니다.  
 
 
 ## <a name="change-log"></a>로그 변경

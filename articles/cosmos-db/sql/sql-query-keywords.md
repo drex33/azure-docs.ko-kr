@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/20/2021
+ms.date: 10/05/2021
 ms.author: tisande
-ms.openlocfilehash: 680b383cee86ec4233579b9305c47e60ad4d5ff4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 78f2db0f13c1f4b73b926e14cca72645eb626223
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128625349"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129618765"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Azure Cosmos DB의 키워드
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -102,7 +102,7 @@ FROM f
 ]
 ```
 
-집계 시스템 함수 및 가 있는 하위 쿼리가 있는 `DISTINCT` 쿼리는 특정 SDK 버전에서만 지원됩니다. 예를 들어 다음 셰이프의 쿼리는 아래의 특정 SDK 버전에서만 지원됩니다.
+집계 시스템 함수 및 가 있는 하위 쿼리가 있는 `DISTINCT` 쿼리는 특정 SDK 버전에서만 지원됩니다. 예를 들어 다음 모양의 쿼리는 아래의 특정 SDK 버전에서만 지원됩니다.
 
 ```sql
 SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
@@ -117,7 +117,7 @@ SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 |Node.js SDK|지원되지 않음|
 |Python SDK|지원되지 않음|
 
-집계 시스템 함수 및 가 있는 하위 쿼리가 있는 쿼리에는 몇 가지 추가 제한 사항이 있습니다. `DISTINCT`
+집계 시스템 함수 및 가 있는 하위 쿼리가 있는 쿼리에는 몇 가지 추가 제한 사항이 `DISTINCT` 있습니다. 아래 쿼리는 지원되지 않습니다.
 
 |**제한 사항**|**예제**|
 |-------|----------------------|

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/17/2021
-ms.openlocfilehash: e31fff677b6e1363d0afda420d521d31b2cf4247
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0f8306f625e2f2e1e9c59c6c2059b27ec105588d
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128657560"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129611494"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>상업용 Marketplace를 위한 SaaS 제품을 계획하는 방법
 
@@ -107,17 +107,17 @@ SaaS 제품을 게시하면 해당 제품은 Microsoft AppSource, Azure Marketpl
 SaaS 제품이 IT 솔루션(Azure Marketplace)인 *동시에* 비즈니스 솔루션(AppSource)인 경우 각 온라인 스토어에 적용되는 범주와 하위 범주를 선택합니다. 두 온라인 스토어에 모두 게시된 제품은 IT 솔루션 *이자* 비즈니스 솔루션으로써 가치 제안을 모두 제공해야 합니다.
 
 > [!IMPORTANT]
-> [종량제](partner-center-portal/saas-metered-billing.md)를 사용하는 SaaS 제품은 Azure Marketplace 및 Azure Portal을 통해 제공됩니다. 프라이빗 플랜만 가능한 SaaS 제품은 Azure Portal을 통해 제공됩니다.
+> [종량제](partner-center-portal/saas-metered-billing.md)를 사용하는 SaaS 제품은 Azure Marketplace 및 Azure Portal을 통해 제공됩니다. 개인 계획만 포함 된 SaaS 제품은 Azure Portal 및 AppSource를 통해 제공 됩니다.
 
 | 종량제 | 공개 플랜 | 프라이빗 플랜 | 제공 위치: |
 |---|---|---|---|
 | 예             | 예         | 아니요           | Azure Marketplace 및 Azure Portal |
 | 예             | 예         | 예          | Azure Marketplace 및 Azure Portal* |
-| 예             | 아니요          | 예          | Azure Portal만 |
-| 아니요              | 아니요          | 예          | Azure Portal만 |
+| 예             | 예          | 예          | Azure Portal만 |
+| 아니요              | 예          | 예          | Azure Portal 및 AppSource |
 |||||
 
-&#42; 제품의 프라이빗 플랜은 Azure Portal을 통해서만 제공됩니다.
+&#42; 제안의 비공개 요금제는 Azure Portal 및 AppSource를 통해서만 사용할 수 있습니다.
 
 예를 들어 종량제 및 프라이빗 플랜만 제공하는(공개 플랜 없음) 제품은 고객이 Azure Portal에서 구매합니다. [Microsoft 상업용 Marketplace의 프라이빗 제품](private-offers.md)에 대해 자세히 알아보세요.
 
@@ -132,7 +132,6 @@ SaaS 제품이 IT 솔루션(Azure Marketplace)인 *동시에* 비즈니스 솔�
 > [!NOTE]
 > 상업용 Marketplace 표준 계약을 사용하여 제품이 게시되면 사용자 고유의 사용자 지정 사용 약관을 이용할 수 없습니다. 이는 "또는" 시나리오입니다. 표준 계약 또는 고유의 사용 약관에 따라 솔루션을 제공합니다. 표준 계약의 사용 약관을 수정하려면 표준 계약 수정계약을 통해 이 작업을 수행할 수 있습니다.
 
-
 ## <a name="microsoft-365-integration"></a>Microsoft 365 통합
 
 Microsoft 365와 통합하면 SaaS 제품은 Teams 앱, Office 추가 기능, SharePoint Framework 솔루션 등의 관련 무료 추가 기능을 통해 여러 Microsoft 365 앱 화면에서 연결된 환경을 제공할 수 있습니다. 고객이 E2E 솔루션(웹 서비스 + 관련 추가 기능)의 모든 패싯을 쉽게 검색하고 다음 정보를 제공하여 한 프로세스 내에서 배포하도록 도와줄 수 있습니다. 
@@ -140,7 +139,7 @@ Microsoft 365와 통합하면 SaaS 제품은 Teams 앱, Office 추가 기능, Sh
     
      Microsoft를 통해 제품을 판매하기로 선택하는 경우 고객 구독 활성화를 완료하는 데 필요한 기본 사용자 정보를 얻기 위해 방문 페이지에서 사용하도록 등록한 것과 동일한 AAD 앱 ID입니다. 자세한 지침은 [상업용 Marketplace의 거래 가능 SaaS 제품에 대한 방문 페이지 작성](azure-ad-transactable-saas-landing-page.md)을 참조하세요. 
     
-   -    연결하려는 SaaS 제품에서 작동하는 관련 추가 기능 목록을 제공합니다. 고객은 AppSource에서 E2E 솔루션을 검색할 수 있고, 관리자는 Microsoft 365 관리 센터를 통해 동일한 프로세스에서 연결한 SaaS 및 모든 관련 추가 기능을 배포할 수 있습니다.
+   -    연결하려는 SaaS 제품에서 작동하는 관련 추가 기능 목록을 제공합니다. 고객은 Microsoft AppSource에서 E2E 솔루션을 검색할 수 있으며, 관리자는 Microsoft 365 관리 센터를 통해 동일한 프로세스에서 연결한 SaaS와 모든 관련 추가 기능을 배포할 수 있습니다.
     
         관련 추가 기능을 연결하려면 추가 기능의 AppSource 링크를 제공해야 합니다. 즉, 추가 기능을 AppSource에 먼저 게시해야 합니다. 연결할 수 있는 지원되는 추가 기능 유형은 Teams 앱, Office 추가 기능 및 SPFx(SharePoint Framework) 솔루션입니다. 연결된 각 추가 기능은 SaaS 제품에 대해 고유해야 합니다. 
 
@@ -182,7 +181,7 @@ Microsoft 365와 통합하면 SaaS 제품은 Teams 앱, Office 추가 기능, Sh
 **호출 설명**
 
 1. 제목
-1. Description
+1. 설명
 1. 유용한 링크
 1. 스크린샷
 
@@ -214,9 +213,9 @@ Microsoft 365와 통합하면 SaaS 제품은 Teams 앱, Office 추가 기능, Sh
 
   이러한 로고는 온라인 스토어의 여러 위치에 사용됩니다.
 
-  - 작은 로고는 Azure Marketplace 검색 결과 및 Microsoft AppSource 기본 페이지와 검색 결과 페이지에 표시됩니다.
+  - 작은 로고는 Azure Marketplace 검색 결과와 AppSource 기본 페이지 및 검색 결과 페이지에 표시됩니다.
   - 중간 로고는 Microsoft Azure에서 새 리소스를 만들 때 표시됩니다.
-  - 큰 로고는 Azure Marketplace 및 Microsoft AppSource의 제품 목록 페이지에 표시됩니다.
+  - Azure Marketplace 및 AppSource의 제안 목록 페이지에 큰 로고가 표시됩니다.
 
 - **미디어 - 스크린샷**: 다음 요구 사항에 따라 제품의 작동 방식을 보여주는 스크린샷을 적어도 하나 이상, 최대 5개까지 추가해야 합니다.
   - 1280x720픽셀

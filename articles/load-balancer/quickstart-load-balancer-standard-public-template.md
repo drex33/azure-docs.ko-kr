@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2020
 ms.author: allensu
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 2feee9beb6232320cc5265227754b0803d248bae
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: a5cb80924daf3328da6a3a9fd7fc1c7c7212bed6
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112028238"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129090935"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 VM 부하를 분산하는 공용 부하 분산 장치 만들기
 
@@ -54,7 +54,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 - [**Microsoft.Network/bastionHosts**](/azure/templates/microsoft.network/bastionhosts)
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft.Compute/virutalMachines**](/azure/templates/microsoft.compute/virtualmachines)(3).
+- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)(3).
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)(3).
 - [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (3): IIS(인터넷 정보 서버) 및 웹 페이지를 구성하는 데 사용합니다.
 
@@ -140,4 +140,4 @@ Azure Portal로 이동하여 부하 분산 장치가 포함된 리소스 그룹�
 자세히 알아보려면 Azure Load Balancer에 대한 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Azure Load Balancer 자습서](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Azure Load Balancer 자습서](./quickstart-load-balancer-standard-public-portal.md)

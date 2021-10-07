@@ -1,18 +1,18 @@
 ---
 title: '빠른 시작: 오픈 소스 Redis 캐시 만들기'
 description: 이 빠른 시작에서는 기본, 표준 또는 프리미엄 계층에서 Azure Cache for Redis의 인스턴스를 만드는 방법을 알아봅니다.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/08/2021
-ms.openlocfilehash: 32ad04c46989816b86a644925f8727e21deb38c4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c7f58eafda0a08d0ddd4aabc93528836a66dde63
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128582864"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534298"
 ---
 # <a name="quickstart-create-an-open-source-redis-cache"></a>빠른 시작: 오픈 소스 Redis 캐시 만들기
 

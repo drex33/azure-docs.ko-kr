@@ -1,15 +1,15 @@
 ---
-title: 'PowerShell 스크립트: Azure Lab Services에서 허용되는 VM 크기 설정 | Microsoft Docs'
+title: 'PowerShell 스크립트: 허용되는 VM 크기 설정'
 description: 이 문서에는 Azure Lab Services에서 허용되는 VM(가상 머신) 크기를 설정하는 샘플 PowerShell 스크립트가 포함되어 있습니다.
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/11/2020
-ms.openlocfilehash: 476b86b7c577db17efc39dbac64a527432c916b6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef5e755caf5b5f1477b947798869a67663f71ee6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95998138"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128557680"
 ---
 # <a name="use-powershell-to-set-allowed-vm-sizes-in-azure-lab-services"></a>PowerShell을 사용하여 Azure Lab Services에서 허용되는 VM 크기 설정
 

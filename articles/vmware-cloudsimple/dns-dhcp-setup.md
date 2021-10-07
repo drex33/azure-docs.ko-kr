@@ -1,19 +1,19 @@
 ---
 title: CloudSimple의 Azure VMware 솔루션-프라이빗 클라우드에 대한 워크로드 DNS 및 DHCP 설정
 description: CloudSimple 프라이빗 클라우드 환경에서 실행되는 애플리케이션 및 워크로드에 대해 DNS 및 DHCP를 설정하는 방법을 설명합니다.
-author: Ajayan1008
-ms.author: v-hborys
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: cdcb3cd7afa660909fad416ca455c041dc50321e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 0e947f5f277378b446a84bd8457fd02e55f91d0a
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97896995"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612848"
 ---
 # <a name="set-up-dns-and-dhcp-applications-and-workloads-in-your-cloudsimple-private-cloud"></a>CloudSimple 프라이빗 클라우드에서 DNS 및 DHCP 애플리케이션 및 워크로드 설정
 
@@ -31,7 +31,7 @@ Linux에서는 DNS 서버를 설정하기 위한 다양한 패키지를 제공�
 
 ## <a name="windows-based-setup"></a>Windows 기반 설정
 
-이 Microsoft 토픽에서는 Windows 서버를 DNS 서버 및 DHCP 서버로 설정하는 방법을 설명합니다.
+이 Microsoft 항목에서는 Windows 서버를 DNS 서버 및 DHCP 서버로 설정하는 방법을 설명합니다.
 
 * [Windows 서버를 DNS 서버로](/windows-server/networking/dns/dns-top)
 * [Windows 서버를 DHCP 서버로](/windows-server/networking/technologies/dhcp/dhcp-top)

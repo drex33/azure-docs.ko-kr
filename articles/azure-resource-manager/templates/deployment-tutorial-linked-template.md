@@ -5,12 +5,12 @@ ms.date: 02/12/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6bfe1a2d7fb993e51c82f14b508d697900b7a333
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 9b9f8f594fbc85c69a546a82f2857802382eea28
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319758"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128556474"
 ---
 # <a name="tutorial-deploy-a-linked-template"></a>자습서: 연결된 템플릿 배포
 
@@ -48,7 +48,7 @@ ms.locfileid: "108319758"
 Cloud Shell을 열려면 **사용해 보세요** 를 선택하고, PowerShell 스크립트를 복사하려면 **복사** 를 선택하고, 마우스 오른쪽 단추로 셸 창을 클릭하여 스크립트를 붙여넣습니다.
 
 > [!IMPORTANT]
-> Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 사용해야 합니다. 이름은 고유해야 합니다. 템플릿에서 스토리지 계정 이름은 **store** 가 추가된 프로젝트 이름이며, 프로젝트 이름은 3-11자 사이여야 합니다. 따라서 프로젝트 이름은 스토리지 계정 이름 요구 사항을 충족해야 하며 11자 미만이어야 합니다.
+> 스토리지 계정 이름은 3자에서 24자 사이의 고유한 이름이어야 하고 **숫자** 와 **소문자** 만 사용해야 합니다. 샘플 템플릿의 `storageAccountName` 변수는 `projectName` 매개 변수의 최대 11자를 [uniqueString](./template-functions-string.md#uniquestring) 값 13자로 결합합니다.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.

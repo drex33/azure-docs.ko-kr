@@ -8,18 +8,21 @@ ms.date: 09/01/2021
 ms.topic: quickstart
 ms.service: route-server
 ms.custom: devx-track-azurepowershell - mode-api
-ms.openlocfilehash: 65f5957d52dcf510601f4a4773cde4c8a477dc97
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 8fe644edd7b08a5f18787b16abfe5e0a1951df40
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123475623"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129094408"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Route Server 만들기 및 구성
 
 이 문서는 Azure PowerShell을 사용하여 가상 네트워크의 NVA(네트워크 가상 어플라이언스)와 피어링되도록 Azure Route Server를 구성하는 데 유용합니다. Route Server는 NVA에서 경로를 학습하고 가상 네트워크의 가상 머신에 대해 프로그래밍합니다. 또한 Azure Route Server는 NVA에 가상 네트워크 경로를 보급합니다. 자세한 내용은 [Azure Route Server](overview.md)를 참조하세요.
 
 :::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Azure PowerShell을 사용하는 Route Server 배포 환경의 다이어그램." border="false":::
+
+> [!IMPORTANT]
+> 9월 1일 이전에 만든 Azure Route Server가 있고 공용 IP 주소가 분리되지 않은 경우 관리 목적으로 IP 주소를 가져올 수 있도록 Route Server를 다시 만들어야 합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -126,7 +129,7 @@ NVA에 대한 구성을 완료하고 BGP 세션을 사용하도록 설정하려�
 ```azurepowershell-interactive
 $routeserver = @{
     RouteServerName = 'myRouteServer'
-    ResourcGroupName = 'myRouteServerRG'
+    ResourceGroupName = 'myRouteServerRG'
 } 
 Get-AzRouteServer @routeserver
 ```
@@ -147,7 +150,7 @@ ExpressRoute 및 Azure VPN 게이트웨이가 동일한 가상 네트워크에 �
 ```azurepowershell-interactive
 $routeserver = @{
     RouteServerName = 'myRouteServer'
-    ResourcGroupName = 'myRouteServerRG'
+    ResourceGroupName = 'myRouteServerRG'
     AllowBranchToBranchTraffic
 }  
 Update-AzRouteServer @routeserver 
@@ -158,7 +161,7 @@ Update-AzRouteServer @routeserver
 ```azurepowershell-interactive
 $routeserver = @{
     RouteServerName = 'myRouteServer'
-    ResourcGroupName = 'myRouteServerRG'
+    ResourceGroupName = 'myRouteServerRG'
 }  
 Update-AzRouteServer @routeserver 
 ```
@@ -170,7 +173,7 @@ Azure Route Server에서 보급된 경로를 보려면 [Get-AzRouteServerPeerAdv
 ```azurepowershell-interactive
 $remotepeer = @{
     RouteServerName = 'myRouteServer'
-    ResourcGroupName = 'myRouteServerRG'
+    ResourceGroupName = 'myRouteServerRG'
     PeerName = 'myNVA'
 }
 Get-AzRouteServerPeerAdvertisedRoute @routeserver
@@ -181,7 +184,7 @@ Azure Route Server에서 학습된 경로를 보려면 [Get-AzRouteServerPeerLea
 ```azurepowershell-interactive
 $routeserver = @{
     RouteServerName = 'myRouteServer'
-    ResourcGroupName = 'myRouteServerRG'
+    ResourceGroupName = 'myRouteServerRG'
     AllowBranchToBranchTraffic
 }  
 Get-AzRouteServerPeerLearnedRoute @routeserver

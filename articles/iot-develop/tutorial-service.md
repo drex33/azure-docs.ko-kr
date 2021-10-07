@@ -1,20 +1,20 @@
 ---
 title: 자습서 - Azure IoT 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스와 상호 작용 | Microsoft Docs
 description: 자습서 - C#, JavaScript, Java 또는 Python을 사용하여 Azure IoT 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스에 연결하고 상호 작용합니다.
-author: lizross
-ms.author: lizross
+author: sejal6300
+ms.author: sejsha
 ms.date: 09/21/2020
 ms.topic: tutorial
 ms.service: iot-develop
 services: iot-develop
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: 97905ca31678a5e1918886bc0159a6f5aad463fb
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 7fe9a93c7a70e7a2d89d15594e03d35e784ea89a
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129092797"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129349623"
 ---
 # <a name="tutorial-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution"></a>자습서: 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스와 상호 작용
 

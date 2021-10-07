@@ -10,12 +10,12 @@ ms.topic: sample
 ms.date: 02/23/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c53686338ae45971519735edce0ac62a0544ac2e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: bbb43768aee85d5c3cde83563645fa649a4cbcc4
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121744778"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092189"
 ---
 # <a name="use-the-headpose-attribute"></a>HeadPose 특성 사용
 
@@ -25,7 +25,7 @@ ms.locfileid: "121744778"
 
 감지된 모든 얼굴과 함께 반환되는 얼굴 사각형은 이미지에 있는 얼굴의 위치와 크기를 표시합니다. 기본적으로 사각형은 항상 이미지와 맞춥니다(측면은 세로 및 가로임). 이는 기울어진 얼굴을 프레이밍하는 데 비효율적일 수 있습니다. 이미지에서 얼굴을 프로그래밍 방식으로 자르려면 사각형을 회전하여 자르는 것이 좋습니다.
 
-[Cognitive Services Face WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) 샘플 앱은 HeadPose 특성을 사용하여 감지된 얼굴 사각형을 회전시킵니다.
+[Cognitive Services Face WPF(Windows Presentation Foundation)](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) 샘플 앱은 HeadPose 특성을 사용하여 감지된 얼굴 사각형을 회전시킵니다.
 
 ### <a name="explore-the-sample-code"></a>샘플 코드 탐색
 

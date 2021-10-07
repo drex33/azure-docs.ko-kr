@@ -3,15 +3,15 @@ author: v-dalc
 ms.service: databox
 ms.subservice: databox
 ms.topic: include
-ms.date: 08/26/2021
+ms.date: 09/08/2021
 ms.author: alkohli
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: cce8075187517377efc406ce3b452e8a5c33a817
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 6f784c075d24fe26b7ec1ea9d5921dfb460e5298
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123468748"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124743323"
 ---
 디바이스를 주문하려면 Azure Portal에서 다음 단계를 수행합니다.
 
@@ -36,9 +36,13 @@ ms.locfileid: "123468748"
 
     [ ![Azure Data Box 가져오기 주문 시작](media/data-box-order-portal/data-box-import-03.png) ](media/data-box-order-portal/data-box-import-03.png#lightbox)
 
-5. 아래와 같이 Data Box 또는 Data Box Heavy 중에서 주문할 **Data Box** 제품을 선택합니다. Data Box의 경우 단일 주문의 최대 사용 가능한 용량은 80TB입니다. Data Box Heavy의 경우 단일 주문의 최대 사용 가능한 용량은 770TB입니다. 더 큰 데이터 크기에 대해 여러 개의 주문을 만들 수 있습니다.
+5. 아래와 같이 Data Box 또는 Data Box Heavy 중에서 주문할 **Data Box** 제품을 선택합니다. 
 
     [ ![Azure Data Box 제품을 선택하는 화면을 보여 주는 스크린샷. Data Box 선택 단추가 강조 표시되어 있습니다.](media/data-box-order-portal/data-box-import-04.png) ](media/data-box-order-portal/data-box-import-04.png#lightbox)
+
+    Data Box의 경우 단일 주문의 최대 사용 가능한 용량은 80TB입니다. Data Box Heavy의 경우 단일 주문의 최대 사용 가능한 용량은 770TB입니다. 더 큰 데이터 크기에 대해 여러 개의 주문을 만들 수 있습니다.
+
+    **Data Box Heavy** 를 선택하면 Data Box 팀이 해당 지역의 디바이스 가용성을 검사합니다. 주문을 계속 진행할 수 있는 경우 사용자에게 알려줍니다.
 
 6. **주문** 에서 **기본 사항** 탭으로 이동합니다. 다음 정보를 입력하거나 선택합니다. 그런 다음, **다음: 데이터 대상>** 을 선택합니다.
 

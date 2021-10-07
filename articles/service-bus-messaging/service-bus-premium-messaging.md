@@ -2,13 +2,13 @@
 title: Azure Service Bus 프리미엄 및 표준 계층
 description: 이 문서에서는 Azure Service Bus의 표준 및 프리미엄 계층에 대해 설명합니다. 이러한 계층을 비교하고 기술적 차이점을 제공합니다.
 ms.topic: conceptual
-ms.date: 02/17/2021
-ms.openlocfilehash: c6c520219c383a21d8d2e134d0798f3cb5058c2d
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
-ms.translationtype: HT
+ms.date: 10/06/2021
+ms.openlocfilehash: e3899dec34a8c39de0bede60e7cc520989a3239f
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114202425"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129620245"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus 프리미엄 및 표준 메시징 계층
 

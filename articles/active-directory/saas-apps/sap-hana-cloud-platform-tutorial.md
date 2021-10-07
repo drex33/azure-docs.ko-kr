@@ -1,5 +1,5 @@
 ---
-title: '자습서: SAP Cloud Platform과 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: SAP Cloud Platform과 Azure AD SSO 통합'
 description: Azure Active Directory 및 SAP Cloud Platform 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/27/2020
+ms.date: 09/08/2021
 ms.author: jeedes
-ms.openlocfilehash: b15c5a9f9f1e4e144caa2ddaa36d42a2a225b31b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 939bc772a46a35a1d702bf972d42467be8c86dee
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97964051"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128547263"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>자습서: SAP Cloud Platform과 Azure Active Directory 통합
+# <a name="tutorial-azure-ad-sso-integration-with-sap-cloud-platform"></a>자습서: SAP Cloud Platform과 Azure AD SSO 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 SAP Cloud Platform을 통합하는 방법에 대해 알아봅니다. Azure AD와 SAP Cloud Platform을 통합하면 다음을 수행할 수 있습니다.
 
@@ -26,14 +26,12 @@ ms.locfileid: "97964051"
 * 사용자가 해당 Azure AD 계정으로 SAP Cloud Platform에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-SAP Cloud Platform과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
+시작하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 Azure AD 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 구할 수 있습니다.
-* SAP Cloud Platform Single Sign-On을 사용하도록 설정된 구독
-
-이 자습서를 완료한 후 SAP Cloud Platform에 할당한 Azure AD 사용자가 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 사용하여 애플리케이션에 Single Sign-On 할 수 있습니다.
+* Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
+* SAP Cloud Platform SSO(Single Sign-On)를 사용하도록 설정된 구독.
 
 >[!IMPORTANT]
 >사용자 고유의 애플리케이션을 배포하거나 SAP Cloud Platform 계정에 대 한 single sign 테스트하도록 애플리케이션을 구독해야 합니다. 이 자습서에서는 애플리케이션이 계정에 배포됩니다.
@@ -45,7 +43,7 @@ SAP Cloud Platform과 Azure AD 통합을 구성하려면 다음 항목이 필요
 
 * SAP Cloud Platform에서 **SP** 시작 SSO를 지원합니다.
 
-## <a name="adding-sap-cloud-platform-from-the-gallery"></a>갤러리에서 SAP Cloud Platform 추가
+## <a name="add-sap-cloud-platform-from-the-gallery"></a>갤러리에서 SAP Cloud Platform 추가
 
 SAP Cloud Platform의 Azure AD 통합을 구성하려면 갤러리의 SAP Cloud Platform을 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
@@ -69,7 +67,7 @@ SAP Cloud Platform에서 Azure AD SSO를 구성하고 테스트하려면 다음 
     1. **[SAP Cloud Platform 테스트 사용자 만들기](#create-sap-cloud-platform-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 SAP Cloud Platform에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
+## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
@@ -81,36 +79,40 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
-    ![SAP Cloud Platform 도메인 및 URL Single Sign-On 정보](common/sp-identifier-reply.png)
+    a. **식별자** 텍스트 상자에 다음 패턴 중 하나를 사용하여 SAP Cloud Platform의 URL 형식을 입력합니다. 
 
-    a. **로그온 URL** 텍스트 상자에 **SAP Cloud Platform** 애플리케이션에 사용자가 로그인하기 위해 사용한 URL을 입력합니다. SAP Cloud Platform 애플리케이션에서 보호된 리소스의 계정 관련 URL입니다. URL은 다음 패턴을 기반으로 합니다. `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
+    | **식별자** |
+    |-----------|
+    | `https://hanatrial.ondemand.com/<instancename>` |
+    | `https://hana.ondemand.com/<instancename>` |
+    | `https://us1.hana.ondemand.com/<instancename>` |
+    | `https://ap1.hana.ondemand.com/<instancename>` |
+
+    b. **회신 URL** 텍스트 상자에서 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
+
+    | **회신 URL** |
+    |----------|
+    | `https://<subdomain>.hanatrial.ondemand.com/<instancename>` |
+    | `https://<subdomain>.hana.ondemand.com/<instancename>` |
+    | `https://<subdomain>.us1.hana.ondemand.com/<instancename>` |
+    | `https://<subdomain>.dispatcher.us1.hana.ondemand.com/<instancename>` |
+    | `https://<subdomain>.ap1.hana.ondemand.com/<instancename>` |
+    | `https://<subdomain>.dispatcher.ap1.hana.ondemand.com/<instancename>` |
+    | `https://<subdomain>.dispatcher.hana.ondemand.com/<instancename>` |
+
+    c. **로그온 URL** 텍스트 상자에 **SAP Cloud Platform** 애플리케이션에 사용자가 로그인하기 위해 사용한 URL을 입력합니다. SAP Cloud Platform 애플리케이션에서 보호된 리소스의 계정 관련 URL입니다. URL은 다음 패턴을 기반으로 합니다. `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
       
     >[!NOTE]
     >사용자의 인증을 필요로 하는 SAP Cloud Platform 애플리케이션의 URL입니다.
     > 
 
-    - `https://<subdomain>.hanatrial.ondemand.com/<instancename>`
-    - `https://<subdomain>.hana.ondemand.com/<instancename>`
-
-    b. **식별자** 텍스트 상자에 다음 패턴 중 하나를 사용하여 SAP Cloud Platform의 URL 형식을 입력합니다. 
-
-    - `https://hanatrial.ondemand.com/<instancename>`
-    - `https://hana.ondemand.com/<instancename>`
-    - `https://us1.hana.ondemand.com/<instancename>`
-    - `https://ap1.hana.ondemand.com/<instancename>`
-
-    다. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
-
-    - `https://<subdomain>.hanatrial.ondemand.com/<instancename>`
-    - `https://<subdomain>.hana.ondemand.com/<instancename>`
-    - `https://<subdomain>.us1.hana.ondemand.com/<instancename>`
-    - `https://<subdomain>.dispatcher.us1.hana.ondemand.com/<instancename>`
-    - `https://<subdomain>.ap1.hana.ondemand.com/<instancename>`
-    - `https://<subdomain>.dispatcher.ap1.hana.ondemand.com/<instancename>`
-    - `https://<subdomain>.dispatcher.hana.ondemand.com/<instancename>`
+    | **로그온 URL** |
+    |------|
+    | `https://<subdomain>.hanatrial.ondemand.com/<instancename>` |
+    | `https://<subdomain>.hana.ondemand.com/<instancename>` |
 
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트합니다. 로그온 URL 및 식별자를 가져오려면 [SAP Cloud Platform 클라이언트 지원 팀](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/5dd739823b824b539eee47b7860a00be.html)에 문의하세요. 이 자습서의 뒷부분에 설명되어 있는 트러스트 관리 섹션에서 회신 URL을 가져올 수 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 해당 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 로그온 URL 및 식별자를 가져오려면 [SAP Cloud Platform 클라이언트 지원 팀](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/5dd739823b824b539eee47b7860a00be.html)에 문의하세요. 이 자습서의 뒷부분에 설명되어 있는 트러스트 관리 섹션에서 회신 URL을 가져올 수 있습니다.
     > 
 4. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML** 을 다운로드하고 컴퓨터에 저장합니다.
 
@@ -146,11 +148,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. **신뢰** 탭을 클릭합니다.
    
-    ![신뢰](./media/sap-hana-cloud-platform-tutorial/ic790800.png "신뢰")
+    ![신뢰](./media/sap-hana-cloud-platform-tutorial/account.png "신뢰")
 
 3. 트러스트 관리 섹션의 **로컬 서비스 공급자** 아래에서 다음 단계를 수행합니다.
 
-    !["로컬 서비스 공급자" 탭이 선택되고 모든 텍스트 상자가 강조 표시된 "신뢰 관리" 섹션을 보여주는 스크린샷.](./media/sap-hana-cloud-platform-tutorial/ic793931.png "트러스트 관리")
+    !["로컬 서비스 공급자" 탭이 선택되고 모든 텍스트 상자가 강조 표시된 "신뢰 관리" 섹션을 보여주는 스크린샷.](./media/sap-hana-cloud-platform-tutorial/service.png "트러스트 관리")
    
     a. **편집** 을 클릭합니다.
 
@@ -168,7 +170,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. **로컬 서비스 공급자** 설정을 저장한 후 다음을 수행하여 회신 URL을 가져옵니다.
    
-    ![메타데이터 가져오기](./media/sap-hana-cloud-platform-tutorial/ic793930.png "메타데이터 가져오기")
+    ![메타데이터 가져오기](./media/sap-hana-cloud-platform-tutorial/certificate.png "메타데이터 가져오기")
 
     a. **메타데이터 가져오기** 를 클릭하여 SAP Cloud Platform 메타데이터 파일을 다운로드합니다.
 
@@ -178,7 +180,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 5. **신뢰할 수 있는 ID 공급자** 탭을 클릭한 다음 **신뢰할 수 있는 ID 공급자 추가** 를 클릭합니다.
    
-    !["신뢰할 수 있는 ID 공급자" 탭이 선택된 "신뢰 관리" 페이지를 보여주는 스크린샷.](./media/sap-hana-cloud-platform-tutorial/ic790802.png "트러스트 관리")
+    !["신뢰할 수 있는 ID 공급자" 탭이 선택된 "신뢰 관리" 페이지를 보여주는 스크린샷.](./media/sap-hana-cloud-platform-tutorial/add-service.png "트러스트 관리")
    
     >[!NOTE]
     >신뢰할 수 있는 ID 공급자 목록을 관리하려면, 로컬 서비스 공급자 섹션에서 사용자 할당 구성 형식을 선택해야 합니다. 기본 구성 유형으로 SAP ID 서비스에 대한 편집할 수 없는 암시적 트러스트가 있습니다. 없음의 경우 신뢰 설정이 필요 없습니다.
@@ -187,7 +189,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 6. **일반** 탭을 클릭한 다음 **찾아보기** 를 클릭하여 다운로드한 메타데이터 파일을 업로드합니다.
     
-    ![신뢰 관리](./media/sap-hana-cloud-platform-tutorial/ic793932.png "트러스트 관리")
+    ![신뢰 관리](./media/sap-hana-cloud-platform-tutorial/general.png "트러스트 관리")
     
     >[!NOTE]
     >메타데이터 파일을 업로드하면 **Single Sign-On URL**, **단일 로그아웃 URL** 및 **서명 인증서** 의 값이 자동으로 채워집니다.
@@ -197,7 +199,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 8. **특성** 탭에서 다음 단계를 수행합니다.
     
-    ![특성](./media/sap-hana-cloud-platform-tutorial/ic790804.png "특성") 
+    ![특성](./media/sap-hana-cloud-platform-tutorial/principal-attribute.png "특성") 
 
     a. **어설션 기반 특성 추가** 를 클릭한 다음 어설션 기반 특성을 추가합니다.
        
@@ -207,9 +209,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |lastname |
     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |이메일 |
    
-     >[!NOTE]
-     >특성의 구성은 SAML 응답에서 예상되는 특성 및 코드의 이 특성에 액세스하는 이름(보안 주체 특성)과 같은 SCP의 애플리케이션이 개발된 방법에 따라 다릅니다.
-     > 
+    >[!NOTE]
+    >특성의 구성은 SAML 응답에서 예상되는 특성 및 코드의 이 특성에 액세스하는 이름(보안 주체 특성)과 같은 SCP의 애플리케이션이 개발된 방법에 따라 다릅니다.
+    > 
     
     b. 스크린샷의 **기본 특성** 은 설명 목적입니다. 시나리오 작업을 작성할 필요가 없습니다.  
  
@@ -235,7 +237,7 @@ Azure AD 사용자가 SAP Cloud Platform으로 로그를 사용하려면, SAP Cl
 
 2. 다음을 수행합니다.
    
-    ![권한 부여](./media/sap-hana-cloud-platform-tutorial/ic790805.png "권한 부여")
+    ![권한 부여](./media/sap-hana-cloud-platform-tutorial/roles.png "권한 부여")
    
     a. **권한 부여** 를 클릭합니다.
 
@@ -255,7 +257,7 @@ Azure AD 사용자가 SAP Cloud Platform으로 로그를 사용하려면, SAP Cl
 
 * SAP Cloud Platform 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 SAP Cloud Platform 타일을 클릭하면 SSO를 설정한 SAP Cloud Platform 애플리케이션에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 SAP Cloud Platform 타일을 클릭하면 SSO를 설정한 SAP Cloud Platform 애플리케이션에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

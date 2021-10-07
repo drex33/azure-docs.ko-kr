@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.openlocfilehash: 0dc539a5f649ed4a894e92e579fdbd15d4d2b4be
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 410b0926faf2e5c6b8885c91cdf08343c3000469
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128635796"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362331"
 ---
 # <a name="calling-sdk-overview"></a>통화 SDK 개요
 
@@ -88,8 +88,8 @@ Communication Services 통화 SDK는 다음과 같은 스트리밍 구성을 지
 
 | 제한                                                         | 웹                         | Windows/Android/iOS        |
 | ------------------------------------------------------------- | --------------------------- | -------------------------- |
-| **# 동시에 보낼 수 있는 나가는 스트림 수**     | 비디오 1개 또는 화면 공유 1개 | 비디오 1개 + 화면 공유 1개 |
-| **# 동시에 렌더링할 수 있는 들어오는 스트림 수** | 비디오 1개 또는 화면 공유 1개 | 비디오 6개 + 화면 공유 1개 |
+| **# 동시에 보낼 수 있는 최대 송신 로컬 스트림 수**     | 비디오 1개 또는 화면 공유 1개 | 비디오 1개 + 화면 공유 1개 |
+| **# 동시에 렌더링할 수 있는 최대 수신 원격 스트림 수** | 비디오 4개 + 화면 공유 1개 | 비디오 6개 + 화면 공유 1개 |
 
 통화 SDK는 이러한 제한을 적용하지 않지만 초과할 경우 사용자에게 성능 저하가 발생할 수 있습니다.
 
@@ -119,7 +119,6 @@ Communication Services 통화 SDK에는 다음 제한 시간이 적용됩니다.
 | Windows      | ✔️      | ❌      | ✔️           |
 | Ubuntu/Linux | ✔️      | ❌      | ❌           |    
 
-* Safari에서는 1:1 통화가 지원되지 않습니다.
 * iOS 또는 Android에서는 발신 화면 공유가 지원되지 않습니다.
 * [Safari의 iOS 앱은 마이크 및 스피커 디바이스(예: Bluetooth)를 열거/선택할 수 없습니다](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados). 이는 OS의 제한 사항이며, 항상 하나의 디바이스만 있고, OS가 기본 디바이스 선택을 제어합니다.
 

@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: 스튜디오 UI에서 Azure Machine Learning 자동화된 ML을 사용하여 한 줄의 코드도 작성하지 않고 분류 모델을 학습합니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 07/01/2021
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 69cbb3923f3a29085b0999bdce44efe99245b3eb
-ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
+ms.openlocfilehash: e3664e9a42a502509e74c43643d47f18e153ff6e
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113491374"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429968"
 ---
 # <a name="tutorial-train-a-classification-model-with-no-code-automl-in-the-azure-machine-learning-studio"></a>자습서: Azure Machine Learning 스튜디오에서 코드가 없는 AutoML을 사용하여 분류 모델 학습
 

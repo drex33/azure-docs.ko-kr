@@ -1,7 +1,6 @@
 ---
-title: Azure Data Box Disk에서 스토리지 계정으로 데이터 업로드를 확인하는 자습서 | Microsoft Docs
+title: Azure Data Box Disk에서 스토리지 계정으로 데이터 업로드를 확인하는 자습서
 description: 이 자습서를 사용하여 Azure Data Box Disk에서 Azure 스토리지 계정으로 업로드된 데이터를 확인하는 방법을 알아봅니다.
-services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
@@ -9,12 +8,12 @@ ms.topic: tutorial
 ms.localizationpriority: high
 ms.date: 09/17/2019
 ms.author: alkohli
-ms.openlocfilehash: abe09cf10e241ec95ceed767e7038cde07667fc9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 53e2db3728d92a862fce64ba1fc379a2ae2205ce
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322736"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591637"
 ---
 ::: zone target="docs"
 
@@ -33,17 +32,17 @@ ms.locfileid: "91322736"
 
 ## <a name="verify-data-upload-to-azure"></a>Azure에 대한 데이터 업로드 확인
 
-운송업체에서 디스크를 픽업하면 포털에서 주문 상태는 **픽업됨**으로 업데이트됩니다. 추적 ID도 표시됩니다.
+운송업체에서 디스크를 픽업하면 포털에서 주문 상태는 **픽업됨** 으로 업데이트됩니다. 추적 ID도 표시됩니다.
 
 ![디스크 픽업됨](media/data-box-disk-deploy-picked-up/data-box-portal-pickedup.png)
 
-Microsoft에서 디스크를 수신하고 검사할 때 작업 상태는 **수신됨**으로 업데이트됩니다. 
+Microsoft에서 디스크를 수신하고 검사할 때 작업 상태는 **수신됨** 으로 업데이트됩니다. 
 
 ![디스크 수신됨](media/data-box-disk-deploy-picked-up/data-box-portal-received.png)
 
 디스크가 Azure 데이터 센터에서 서버에 연결되면 데이터는 자동으로 복사됩니다. 데이터 크기에 따라 복사 작업을 완료하는 데 몇 시간에서 몇 일이 걸릴 수 있습니다. 포털에서 복사 작업 진행 상황을 모니터링할 수 있습니다.
 
-복사가 완료되면 주문 상태는 **완료됨**으로 업데이트됩니다.
+복사가 완료되면 주문 상태는 **완료됨** 으로 업데이트됩니다.
 
 ![데이터 복사 완료됨](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)
 
@@ -60,7 +59,7 @@ Microsoft에서 디스크를 수신하고 검사할 때 작업 상태는 **수�
 
 - 관리 디스크 리소스 그룹. 관리 디스크를 만들 때 VHD는 페이지 Blob으로 업로드된 다음, 관리 디스크로 변환됩니다. 관리 디스크는 주문을 만들 때 지정된 리소스 그룹에 연결됩니다.
 
-  - Azure에서 관리 디스크로 복사가 완료되면 Azure Portal에서 **주문 세부 정보**로 이동하여 관리 디스크에 지정된 리소스 그룹을 메모할 수 있습니다.
+  - Azure에서 관리 디스크로 복사가 완료되면 Azure Portal에서 **주문 세부 정보** 로 이동하여 관리 디스크에 지정된 리소스 그룹을 메모할 수 있습니다.
 
       ![주문 세부 정보 보기](media/data-box-disk-deploy-picked-up/order-details-resource-group.png)
 
@@ -71,7 +70,7 @@ Microsoft에서 디스크를 수신하고 검사할 때 작업 상태는 **수�
     > [!NOTE]
     > 데이터 복사 중에 페이지 Blob이 관리 디스크로 성공적으로 변환되지 않은 경우 스토리지 계정에 유지되고 스토리지에 대한 요금이 청구됩니다.
 
-  -  VHDX 또는 동적/차이점 보관용 VHD를 복사한 경우 VHD/VHD가 준비 스토리지 계정에 블록 Blob으로 업로드됩니다. 준비 **Storage 계정 > Blob**으로 차례로 이동한 다음, 적절한 컨테이너(StandardSSD, StandardHDD 또는 PremiumSSD)를 선택합니다. VHDX/VHD는 준비 스토리지 계정에서 블록 Blob으로 표시되어야 합니다.
+  -  VHDX 또는 동적/차이점 보관용 VHD를 복사한 경우 VHD/VHD가 준비 스토리지 계정에 블록 Blob으로 업로드됩니다. 준비 **Storage 계정 > Blob** 으로 차례로 이동한 다음, 적절한 컨테이너(StandardSSD, StandardHDD 또는 PremiumSSD)를 선택합니다. VHDX/VHD는 준비 스토리지 계정에서 블록 Blob으로 표시되어야 합니다.
   
 
   
@@ -85,9 +84,9 @@ Microsoft에서 디스크를 수신하고 검사할 때 작업 상태는 **수�
 
 - Azure Storage 계정. Data Box에 데이터를 복사할 때, 데이터 형식에 따라 Azure Storage 계정에서 다음 경로 중 하나에 업로드됩니다.
 
-    - **블록 Blob 및 페이지 Blob**: https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt
+    - **블록 Blob 및 페이지 Blob의 경우**: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
 
-    - **Azure Files**: https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt
+    - **Azure Files의 경우**: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
 
 - 관리 디스크 리소스 그룹. 관리 디스크를 만들 때 VHD는 페이지 Blob으로 업로드된 다음, 관리 디스크로 변환됩니다. 관리 디스크는 주문을 만들 때 지정된 리소스 그룹에 연결됩니다.
 
@@ -96,10 +95,10 @@ Microsoft에서 디스크를 수신하고 검사할 때 작업 상태는 **수�
 데이터가 Azure로 업로드되었는지 확인하려면 다음 단계를 수행합니다.
 
 1. 디스크 주문과 연결된 스토리지 계정으로 이동합니다.
-2. **Blob service > Blob 찾아보기**로 이동합니다. 컨테이너 목록이 표시됩니다. *BlockBlob* 및 *PageBlob* 폴더 아래에서 만든 하위 폴더에 해당하는 동일한 이름의 컨테이너가 스토리지 계정에 만들어집니다.
+2. **Blob service > Blob 찾아보기** 로 이동합니다. 컨테이너 목록이 표시됩니다. *BlockBlob* 및 *PageBlob* 폴더 아래에서 만든 하위 폴더에 해당하는 동일한 이름의 컨테이너가 스토리지 계정에 만들어집니다.
     폴더 이름이 Azure 명명 규칙을 따르지 않는 경우 Azure에 대한 데이터 업로드가 실패합니다.
 
-3. 전체 데이터 세트가 로드되었는지 확인하려면 Microsoft Azure Storage Explorer를 사용합니다. Data Box Disk 순서에 해당하는 스토리지 계정을 연결한 다음, Blob 컨테이너의 목록을 살펴봅니다. 컨테이너를 선택하고, **...자세히**를 클릭한 다음, **폴더 통계**를 클릭합니다. **작업** 창에서 Blob의 수 및 총 Blob 크기를 포함하는 해당 폴더에 대한 통계가 표시됩니다. 총 Blob 크기(바이트)는 데이터 세트의 크기와 일치해야 합니다.
+3. 전체 데이터 세트가 로드되었는지 확인하려면 Microsoft Azure Storage Explorer를 사용합니다. Data Box Disk 순서에 해당하는 스토리지 계정을 연결한 다음, Blob 컨테이너의 목록을 살펴봅니다. 컨테이너를 선택하고, **...자세히** 를 클릭한 다음, **폴더 통계** 를 클릭합니다. **작업** 창에서 Blob의 수 및 총 Blob 크기를 포함하는 해당 폴더에 대한 통계가 표시됩니다. 총 Blob 크기(바이트)는 데이터 세트의 크기와 일치해야 합니다.
 
     ![Storage Explorer에서 폴더 통계](media/data-box-disk-deploy-picked-up/folder-statistics-storage-explorer.png)
 

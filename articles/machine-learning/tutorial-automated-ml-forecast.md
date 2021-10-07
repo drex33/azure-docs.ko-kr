@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Azure Machine Learning의 자동화된 기계 학습(자동화된 ML) 인터페이스를 사용하여 코드를 작성하지 않고 수요 예측 모델을 학습 및 배포합니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: a5f7c0cf95d62df2d06c91abd99a1827524d5d6b
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: dcf05fe6acdb7f8f60520759b0a1b3e3e99fed3e
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210553"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428011"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>자습서: 자동화된 기계 학습으로 수요 예측
 

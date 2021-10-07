@@ -3,12 +3,12 @@ title: 자습서 - Azure VM에서 SAP HANA 데이터베이스 백업
 description: 이 자습서에서는 Azure VM에서 실행되는 SAP HANA 데이터베이스를 Azure Backup Recovery Services 자격 증명 모음에 백업하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 09/27/2021
-ms.openlocfilehash: 629465100106ff3a2403a27cae9bb00e1350bf5e
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 5469c10bb62164e7feea33a1b56cef3457d46efb
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129082729"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129349680"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>자습서: Azure VM에서 SAP HANA 데이터베이스 백업
 
@@ -22,10 +22,7 @@ ms.locfileid: "129082729"
 
 현재 지원되는 모든 시나리오는 [여기](sap-hana-backup-support-matrix.md#scenario-support)에 나와 있습니다.
 
->[!NOTE]
->2020년 8월 1일부터 RHEL(7.4, 7.6, 7.7 및 8.1)에 대한 SAP HANA 백업이 일반 공급됩니다.
-
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 백업을 구성하기 전에 다음을 수행해야 합니다.
 
@@ -190,7 +187,7 @@ hdbuserstore list
 | `<sid>`adm(OS)   |   HANA OS   |    명령 실행: <br> `hdbuserstore List`   |   결과에 다음과 같은 새 줄이 포함되어 있는지 확인합니다. <br><br>  `KEY AZUREWLBACKUPHANAUSER` <br>  `ENV : localhost: 3<Instance#>13`   <br> `USER: AZUREWLBACKUPHANAUSER`    |
 | Azure 기여자     |    Azure portal    |   Azure Backup 서비스, Azure AD 및 Azure Storage로 전송되는 아웃바운드 트래픽을 허용하도록 NSG, NVA, Azure Firewall 등을 구성합니다.     |    [네트워크 연결 설정](/azure/backup/tutorial-backup-sap-hana-db#set-up-network-connectivity)    |
 | Azure 기여자 |   Azure portal    |   Recovery Services 자격 증명 모음을 만들거나 연 다음, HANA 백업을 선택합니다.   |   백업할 모든 대상 HANA VM을 찾습니다.   |
-| Azure 기여자    |   Azure portal    |   HANA 데이터베이스를 검색하고 백업 정책을 구성합니다.   |  다음은 그 예입니다. <br><br>  매주 백업: 매주 일요일 오전 2:00, 매주 백업은 12주, 매월 백업은 12개월, 매년 백업은 3년간 보존   <br>   차등 또는 증분: 매일, 일요일 제외    <br>   로그: 15분마다 백업은 35일간 보존    |
+| Azure 기여자    |   Azure portal    |   HANA 데이터베이스를 검색하고 백업 정책을 구성합니다.   |  예를 들어: <br><br>  매주 백업: 매주 일요일 오전 2:00, 매주 백업은 12주, 매월 백업은 12개월, 매년 백업은 3년간 보존   <br>   차등 또는 증분: 매일, 일요일 제외    <br>   로그: 15분마다 백업은 35일간 보존    |
 | Azure 기여자  |   Azure portal    |    Recovery Service 자격 증명 모음 – 백업 항목 – SAP HANA     |   백업 작업(Azure 워크로드)을 확인합니다.    |
 | HANA 관리자    | HANA 스튜디오   | Backup 콘솔, Backup 카탈로그, backup.log, backint.log 및 globa.ini 확인   |    SYSTEMDB 및 테넌트 데이터베이스 둘 다   |
 

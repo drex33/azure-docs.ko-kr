@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/13/2021
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 0223b78ac34d2cfffa6a307f220c4d207c7f8b15
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 450eca8a589f6184bcac5e5d986fc7a5f4d49128
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110068567"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124745142"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-one"></a>자습서: Azure Active Directory와 Zscaler One 통합
 
@@ -40,6 +40,8 @@ ms.locfileid: "110068567"
 * Zscaler One에서 **SP** 시작 SSO를 지원합니다.
 
 * Zscaler One에서 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
+
+* Zscaler One에서 [자동 사용자 프로비저닝](zscaler-one-provisioning-tutorial.md)을 지원합니다.
 
 > [!NOTE]
 > 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
@@ -229,6 +231,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 > [!Note]
 > 사용자를 수동으로 만들어야 하는 경우 [Zscaler One 지원 팀](https://www.zscaler.com/company/contact)에 문의해야 합니다.
 
+> [!NOTE]
+> Zscaler One은 자동 사용자 프로비저닝도 지원합니다. 자동 사용자 프로비저닝 구성 방법에 대한 자세한 내용은 [여기](./zscaler-one-provisioning-tutorial.md)에서 제공합니다.
+
 ## <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
@@ -237,7 +242,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * Zscaler One 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Zscaler One 타일을 클릭하면 Zscaler One 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Zscaler One 타일을 클릭하면 Zscaler One 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

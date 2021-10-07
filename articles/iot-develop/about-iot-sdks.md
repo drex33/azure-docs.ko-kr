@@ -6,12 +6,12 @@ ms.author: philmea
 ms.service: iot-develop
 ms.topic: overview
 ms.date: 02/11/2021
-ms.openlocfilehash: cdf20d65347792af4136ea407dd58e563354301d
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 2374755dc1874b1dcd421daa97fc77535ef99286
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114729227"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129455440"
 ---
 # <a name="overview-of-azure-iot-device-sdks"></a>Azure IoT 디바이스 SDK 개요
 
@@ -97,8 +97,8 @@ Azure IoT 디바이스 SDK는 여러 언어로 구현되므로 선호하는 언�
 #### <a name="java-device-sdk"></a>Java 디바이스 SDK
 
 * [GitHub 리포지토리](https://github.com/Azure/azure-iot-sdk-java)
-* [샘플](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples)
-* [패키지](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-device-sdk)
+* [샘플](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples)
+* [패키지](https://github.com/Azure/azure-iot-sdk-java/blob/main/doc/java-devbox-setup.md#for-the-device-sdk)
 * [참조 설명서](/java/api/com.microsoft.azure.sdk.iot.device)
 * [Edge 모듈 참조 설명서](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient)
 
@@ -127,9 +127,9 @@ IoT Hub 서비스 SDK를 사용하면 IoT Hub와 쉽게 상호 작용하여 디�
 
 [**IoT Hub에 대한 자세한 정보**](https://azure.microsoft.com/services/iot-hub/) | [**디바이스 제어 사용해 보기**](../iot-hub/quickstart-control-device.md)
 
-**C# IoT Hub 서비스 SDK**: [GitHub 리포지토리](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service) | [패키지](https://www.nuget.org/packages/Microsoft.Azure.Devices/) | [샘플](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service/samples) | [참조 설명서](/dotnet/api/microsoft.azure.devices)
+**C# IoT Hub 서비스 SDK**: [GitHub 리포지토리](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/service) | [패키지](https://www.nuget.org/packages/Microsoft.Azure.Devices/) | [샘플](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/service/samples) | [참조 설명서](/dotnet/api/microsoft.azure.devices)
 
-**Java IoT Hub 서비스 SDK**: [GitHub 리포지토리](https://github.com/Azure/azure-iot-sdk-java/tree/master/service) | [패키지](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-service-sdk) | [샘플](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples) | [참조 설명서](/java/api/com.microsoft.azure.sdk.iot.service)
+**Java IoT Hub 서비스 SDK**: [GitHub 리포지토리](https://github.com/Azure/azure-iot-sdk-java/tree/main/service) | [패키지](https://github.com/Azure/azure-iot-sdk-java/blob/main/doc/java-devbox-setup.md#for-the-service-sdk) | [샘플](https://github.com/Azure/azure-iot-sdk-java/tree/main/service/iot-service-samples) | [참조 설명서](/java/api/com.microsoft.azure.sdk.iot.service)
 
 **JavaScript IoT Hub 서비스 SDK**: [GitHub 리포지토리](https://github.com/Azure/azure-iot-sdk-node/tree/master/service) | [패키지](https://www.npmjs.com/package/azure-iothub) | [샘플](https://github.com/Azure/azure-iot-sdk-node/tree/master/service/samples) | [참조 설명서](/javascript/api/azure-iothub/)
 
@@ -153,11 +153,11 @@ Azure Digital Twins는 전체 환경의 디지털 모델을 기반으로 기술 
 
 IoT Hub DPS(Device Provisioning Service)는 IoT Hub용 도우미 서비스로, 사용자 개입 없이 적합한 IoT 허브에 자동 Just-In-Time 프로비저닝을 수행할 수 있습니다. DPS를 사용하면 수백만 개의 디바이스를 안전하고 확장 가능한 방식으로 프로비저닝할 수 있습니다. DPS 서비스 SDK를 사용하면 등록 그룹을 만들고 대량 작업을 수행하여 디바이스를 안전하게 관리할 수 있는 애플리케이션을 빌드할 수 있습니다.
 
-[**Device Provisioning Service에 대한 자세한 정보**](../iot-dps/index.yml) | [**X.509 디바이스에 대한 등록 그룹 만들기 사용해 보기**](../iot-dps/quick-enroll-device-x509-csharp.md)
+[**Device Provisioning Service에 대한 자세한 정보**](../iot-dps/index.yml) | [**X.509 디바이스에 대한 등록 그룹 만들기 사용해 보기**](../iot-dps/quick-enroll-device-x509.md)
 
-**C# Device Provisioning Service SDK**: [GitHub 리포지토리](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service) | [패키지](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) | [샘플](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples) | [참조 설명서](/dotnet/api/microsoft.azure.devices.provisioning.service)
+**C# Device Provisioning Service SDK**: [GitHub 리포지토리](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/provisioning/service) | [패키지](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) | [샘플](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/provisioning/service/samples) | [참조 설명서](/dotnet/api/microsoft.azure.devices.provisioning.service)
 
-**Java Device Provisioning Service SDK**: [GitHub 리포지토리](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-service-client/src) | [패키지](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) | [샘플](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples#provisioning-service-client) | [참조 설명서](/java/api/com.microsoft.azure.sdk.iot.provisioning.service)
+**Java Device Provisioning Service SDK**: [GitHub 리포지토리](https://github.com/Azure/azure-iot-sdk-java/tree/main/provisioning/provisioning-service-client/src) | [패키지](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) | [샘플](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples#provisioning-service-client) | [참조 설명서](/java/api/com.microsoft.azure.sdk.iot.provisioning.service)
 
 **Node.js Device Provisioning Service SDK**: [GitHub 리포지토리](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service) | [패키지](https://www.npmjs.com/package/azure-iot-provisioning-service) | [샘플](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples) | [참조 설명서](/javascript/api/azure-iot-provisioning-service)
 

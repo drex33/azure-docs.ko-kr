@@ -9,12 +9,12 @@ metadata:
   ms.date: 02/19/2020
   ms.author: alkemper
   ms.custom: references_regions
-  ms.openlocfilehash: 6dd7cff8408d89cfca117241ebb434f6976a32fb
-  ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+  ms.openlocfilehash: fdfc62b4b5c61cd1b064e6623464147d01dbc58e
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/27/2021
-  ms.locfileid: "123112043"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128603109"
 title: Azure App Configuration FAQ
 summary: 이 문서에는 Azure App Configuration에 대해 자주 묻는 질문과 대답이 나와 있습니다.
 sections:
@@ -107,6 +107,8 @@ sections:
 
       - 미국 서부 2
 
+      - 미국 서부 3
+
       - 캐나다 중부
 
       - 프랑스 중부
@@ -138,20 +140,25 @@ sections:
 
       * 무료 계층에서 저장소의 일일 요청 한도를 초과한 경우
 
-      * 표준 계층에서 저장소의 높은 요청 속도로 인해 일시적으로 제한된 경우
+      * 표준 계층에서 저장소의 시간별 요청 한도를 초과한 경우
+
+      * 과다한 요청으로 인해 일시적 제한이 발생한 경우†
 
       * 대역폭 사용량이 과도한 경우
 
-      * 스토리지 할당량을 초과한 상태에서 키를 만들거나 수정하려고 한 경우
+      * 스토리지 할당량이 초과된 경우에 키를 만들거나 수정하려고 한 경우
 
 
       요청이 실패한 특정 이유는 429 응답의 본문을 확인합니다.
+
+
+      †구성 저장소에서 과다한 요청을 수신하면 일시적 제한이 발생할 수 있습니다. Azure SDK, 구성 공급자 라이브러리 및 Azure 파이프라인 작업과 같은 App Configuration 클라이언트는 제한된 요청을 자동으로 다시 시도합니다. 이러한 클라이언트 중 하나를 사용하는 애플리케이션이나 제한된 요청을 다시 시도하는 사용자 지정 클라이언트에서 이러한 일시적 제한이 발견되면 발생해야 합니다.
   - question: 방금 삭제한 저장소와 동일한 이름으로 App Configuration 저장소를 만들 수 없는 이유는 무엇인가요?
     answer: >
       표준 계층 App Configuration 저장소를 삭제한 경우 삭제 후 7일 동안 이름이 예약됩니다. 예약 기간이 경과하기 전에 동일한 이름으로 저장소를 다시 만들 수 있지만 원래 저장소와 동일한 구독, 리소스 그룹, 지역에 있어야 합니다. 저장소가 포함된 리소스 그룹을 삭제한 경우 먼저 동일한 구독에서 리소스 그룹을 다시 만든 후 그룹 내에 저장소를 다시 만들어야 합니다.
 
 
-      보존 기간이 경과할 때까지 다른 구독/리소스 그룹에 App Configuration 저장소를 만들 수 없습니다. 그러나 리소스는 원래 구독/리소스 그룹에서 다시 만든 다음 [이 지침](/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-the-portal)에 따라 새 구독/리소스 그룹으로 이동할 수 있습니다.
+      보존 기간이 경과할 때까지 다른 구독/리소스 그룹에 App Configuration 저장소를 만들 수 없습니다. 그러나 리소스는 원래 구독/리소스 그룹에서 다시 만든 다음 [이 지침](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal)에 따라 새 구독/리소스 그룹으로 이동할 수 있습니다.
 
 
       보존 기간 동안 App Configuration 저장소를 다시 만드는 것은 현재 Azure CLI에서 [여기](/cli/azure/appconfig?view=azure-cli-latest#az_appconfig_create)에 자세히 설명된 `az appconfig create` 명령을 사용해서만 지원됩니다.

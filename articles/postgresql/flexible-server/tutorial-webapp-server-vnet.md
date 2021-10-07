@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/30/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 58e7357552be9c209dec81cc9ace23fcfd82ea2d
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 146a3a252a0f8105245c2a6826876e1400efdc13
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114467137"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124766989"
 ---
 # <a name="tutorial-create-an-azure-database-for-postgresql---flexible-server-with-app-services-web-app-in-virtual-network"></a>자습서: App Services 웹앱을 사용하여 가상 네트워크에 Azure Database for PostgreSQL - 유연한 서버 만들기
 
@@ -96,8 +96,8 @@ az webapp up --resource-group demoresourcegroup --location westus2 --plan testap
 ```
 
 > [!NOTE]
-> - --location 인수의 경우 이전 섹션의 데이터베이스에 사용한 것과 동일한 위치를 사용합니다.
-> - <app-name>을 모든 Azure에서 고유한 이름으로 바꿉니다. <app-name>에 허용되는 문자는 A-Z, 0-9 및 -입니다. 회사 이름과 앱 식별자를 조합하여 사용하는 것이 좋습니다.
+> - _--location_ 인수의 경우 이전 섹션의 데이터베이스에 사용한 것과 동일한 위치를 사용합니다.
+> - \<app-name\>을 모든 Azure에서 고유한 이름으로 바꿉니다. \<app-name\>에 허용되는 문자는 A-Z, 0-9 및 -입니다. 회사 이름과 앱 식별자를 조합하여 사용하는 것이 좋습니다.
 
 이 명령은 다음 작업을 수행하며 몇 분 정도 걸릴 수 있습니다.
 
@@ -135,7 +135,7 @@ az webapp vnet-integration add --resource-group demoresourcegroup -n  mywebapp -
 az webapp config appsettings set  --name mywebapp --settings DBHOST="<postgres-server-name>.postgres.database.azure.com" DBNAME="postgres" DBUSER="<username>" DBPASS="<password>" 
 ```
 - 새로 만든 유연한 서버 명령의 **postgres-server-name**, **username**, **password** 를 바꿉니다.
-- **<username>** 및 **<password>** 를 명령에서 생성한 자격 증명으로 바꿉니다.
+- **\<username\>** 및 **\<password\>** 를 명령에서 생성한 자격 증명으로 바꿉니다.
 - 리소스 그룹 및 앱 이름은 .azure/config 파일의 캐시된 값에서 가져옵니다.
 - 이 명령은 **DBHOST**, **DBNAME**, **DBUSER** _, _*DBPASS**라는 설정을 만듭니다. 애플리케이션 코드에서 데이터베이스 정보에 다른 이름을 사용하는 경우 코드에 설명된 대로 해당 이름을 앱 설정에 사용하세요.
 

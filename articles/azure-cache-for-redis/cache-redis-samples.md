@@ -1,18 +1,18 @@
 ---
 title: Azure Cache for Redis 샘플
 description: 캐시에 연결, 캐시에서 읽기 및 쓰기, ASP.NET Azure Cache for Redis 공급자와 같은 코드 샘플에서 Azure Cache for Redis를 사용하는 방법에 대해 알아봅니다.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.custom: devx-track-dotnet
 ms.topic: sample
 ms.date: 01/23/2017
-ms.openlocfilehash: 1fb63e8c537baee8a2b107a0b5451cc5b3e53bce
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 899bf97fc638fa2a763013319e517b76cd37d361
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109847856"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537633"
 ---
 # <a name="azure-cache-for-redis-samples"></a>Azure Cache for Redis 샘플
 이 문서에는 Azure Cache for Redis 샘플 목록이 있습니다. 샘플에서 다루는 시나리오는 다음과 같습니다. 

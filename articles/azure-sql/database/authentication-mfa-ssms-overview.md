@@ -13,12 +13,12 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 09/28/2020
 tags: azure-synapse
-ms.openlocfilehash: 9afad44bcf67478a81e75c17d0ff8ffc6d8c65aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: ad29b24c6c79447a23e0b910583322107fa5af32
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94841133"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129618594"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>다단계 Azure Active Directory 인증 사용
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -68,12 +68,11 @@ SSMS 18.x 이상을 실행하는 경우 18.x 이상이 자동으로 인식하므
 
 ### <a name="azure-ad-business-to-business-support"></a>Azure AD 기업 간 지원
 
-> [!IMPORTANT]
-> 그룹의 일부가 될 필요 없이 게스트 사용자가 Azure SQL Database, SQL Managed Instance 및 Azure Synapse에 연결할 수 있는 지원은 현재 **공개 미리 보기** 상태입니다. 자세한 정보는 [Azure AD 게스트 사용자 만들기 및 Azure AD 관리자로 설정](authentication-aad-guest-users.md)을 참조하세요.
+게스트 사용자로 azure ad b2b 시나리오에 대해 지원 되는 azure ad 사용자 ( [azure B2B 공동 작업](../../active-directory/external-identities/what-is-b2b.md)참조)는 연결 된 azure ad에서 만든 azure ad 그룹의 개별 사용자 또는 멤버로 SQL Database 및 Azure Synapse에 연결 하 고 지정 된 데이터베이스에서 [CREATE USER (SQL transact-sql)](/sql/t-sql/statements/create-user-transact-sql) 문을 사용 하 여 수동으로 매핑할 수 있습니다. 
 
-Azure AD B2B 시나리오에서 게스트 사용자로 지원되는 Azure AD 사용자(이 문서를 참조하세요. [Azure B2B collaboration이란](../../active-directory/external-identities/what-is-b2b.md))는 현재 Azure AD에서 만들어진 그룹의 구성으로만 해당 데이터베이스에서 [CREATE USER(Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) 문을 통해 수동으로 매핑된 SQL Database 및 Azure Synapse에 연결할 수 있습니다. 예를 들어 `steve@gmail.com` 이 Azure AD `contosotest`(Azure AD 도메인 `contosotest.onmicrosoft.com`)에 초대된 경우 Azure AD 그룹(예: `usergroup` 등)이 `steve@gmail.com` 구성원을 포함하는 Azure AD에 만들어져야 합니다. 그런 다음 이 그룹은 특정한 데이터베이스(예를 들어 `MyDatabase`)에 대해 Azure AD SQL 관리자 또는 Azure AD DBO가 만들어야 하며, Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` 문을 실행하여 만들어야 합니다. 
+예를 들어가 azure ad `steve@gmail.com` 에 초대 된 경우 `contosotest` (azure ad 도메인을 사용 하 여 `contosotest.onmicrosoft.com` ) `steve@gmail.com` azure ad SQL 관리자 또는 azure ad DBO에서 SQL transact-sql을 사용 하 여 특정 데이터베이스 (예: **mydatabase**)에 대 한 사용자를 만들어야 합니다 `create user [steve@gmail.com] FROM EXTERNAL PROVIDER` . 이 `steve@gmail.com` azure ad 그룹의 일부인 경우와 같이 `usergroup` azure ad SQL 관리자 또는 azure ad DBO에서 SQL transact-sql을 통해 특정 데이터베이스 (예: **mydatabase**)에 대해이 그룹을 만들어야 합니다 `create user [usergroup] FROM EXTERNAL PROVIDER` . 
 
-데이터베이스 사용자가 만들어지면 `steve@gmail.com` 사용자가 `MyDatabase` 에 SSMS 인증 옵션 `Azure Active Directory – Universal with MFA`을 사용하여 로그인할 수 있습니다. 기본적으로 `usergroup` 은 연결 권한만 있습니다. 충분한 권한이 있는 사용자가 데이터베이스에서 추가 데이터 액세스 권한을 [부여](/sql/t-sql/statements/grant-transact-sql) 해야 합니다. 
+데이터베이스 사용자 또는 사용자 그룹을 만든 후에는 사용자가 `steve@gmail.com` `MyDatabase` SSMS 인증 옵션을 사용 하 여에 로그인 할 수 있습니다 `Azure Active Directory – Universal with MFA` . 기본적으로 user 또는 usergroup에는 connect 권한만 있습니다. 충분한 권한이 있는 사용자가 데이터베이스에서 추가 데이터 액세스 권한을 [부여](/sql/t-sql/statements/grant-transact-sql) 해야 합니다. 
 
 > [!NOTE]
 > SSMS 17.x의 경우 게스트 사용자로 `steve@gmail.com` 를 사용하면 반드시 **AD 도메인 이름 또는 테넌트 ID** 상자를 확인하고 AD 도메인 이름 `contosotest.onmicrosoft.com` 를 **연결 속성** 대화 상자에 추가해야 합니다. 이 **AD 도메인 이름 또는 테넌트 ID** 옵션은 **Azure Active Directory - MFA가 있는 유니버설** 인증에서만 지원됩니다. 그렇지 않으면 확인란이 회색으로 표시됩니다.

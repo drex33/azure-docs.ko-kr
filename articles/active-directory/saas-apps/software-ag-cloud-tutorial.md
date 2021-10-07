@@ -1,7 +1,6 @@
 ---
-title: '자습서: Software AG Cloud와 Azure Active Directory SSO(Single Sign-On) 통합 | Microsoft Docs'
+title: '자습서: Software AG Cloud와 Azure Active Directory SSO(Single Sign-On) 통합'
 description: Azure Active Directory와 Software AG Cloud 간에 Single Sign-On를 구성하는 방법에 대해 알아봅니다.
-services: active-directory
 author: jeevansd
 manager: CelesteDG
 ms.reviewer: CelesteDG
@@ -11,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/09/2020
 ms.author: jeedes
-ms.openlocfilehash: c2a2446da0e1ccf1b3dab88fe898b179291ddaba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 900cb7892331db3e78314a5de6bfb432f40990c6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821684"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128558484"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-software-ag-cloud"></a>자습서: Software AG Cloud와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,7 +25,7 @@ ms.locfileid: "99821684"
 * 사용자가 자신의 Azure AD 계정으로 Software AG Cloud에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -151,7 +150,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-Microsoft Azure가 Software AG Cloud의 공급자로 구성되어 있다고 가정하고, `www.softwareag.cloud`로 이동하여 로그인 단추를 클릭하고 환경 이름을 입력합니다. 다음 화면에서 "<IDP NAME>으로 로그인" 링크를 클릭하고 자격 증명을 입력합니다. 인증되면 로그인되고 Software AG Cloud 홈 페이지로 이동합니다.
+Microsoft Azure가 Software AG Cloud의 공급자로 구성되어 있다고 가정하고, `www.softwareag.cloud`로 이동하여 로그인 단추를 클릭하고 환경 이름을 입력합니다. 다음 화면에서 "\<IDP NAME\>으로 로그인" 링크를 클릭하고 자격 증명을 입력합니다. 인증되면 로그인되고 Software AG Cloud 홈 페이지로 이동합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

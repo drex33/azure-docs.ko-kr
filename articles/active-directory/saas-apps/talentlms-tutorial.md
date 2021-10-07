@@ -1,5 +1,5 @@
 ---
-title: '자습서: TalentLMS와 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: TalentLMS와 Azure AD SSO 통합'
 description: Azure Active Directory와 TalentLMS 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/25/2021
+ms.date: 09/14/2021
 ms.author: jeedes
-ms.openlocfilehash: 84d50d19a8356418a5cbf1f93784e5b8816d4be5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 055c3774acfa3930e7fa1663a46629e80448c25f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101689354"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606039"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>자습서: TalentLMS와 Azure Active Directory 통합
+# <a name="tutorial-azure-ad-sso-integration-with-talentlms"></a>자습서: TalentLMS와 Azure AD SSO 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 TalentLMS를 통합하는 방법에 대해 알아봅니다. Azure AD와 TalentLMS를 통합하면 다음을 수행할 수 있습니다.
 
@@ -63,7 +63,7 @@ TalentLMS에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를
     1. **[TalentLMS 테스트 사용자 만들기](#create-talentlms-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 TalentLMS에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
+## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
@@ -75,14 +75,12 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![TalentLMS 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
+    a. **식별자(엔터티 ID)** 텍스트 상자에서 `http://<tenant-name>.talentlms.com` 패턴을 사용하는 URL을 입력합니다.
 
-    a. **로그온 URL** 텍스트 상자에서 `https://<tenant-name>.TalentLMSapp.com` 패턴을 사용하는 URL을 입력합니다.
-
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `http://<tenant-name>.talentlms.com` 패턴을 사용하는 URL을 입력합니다.
+    b. **로그온 URL** 텍스트 상자에서 `https://<tenant-name>.TalentLMSapp.com` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [TalentLMS 클라이언트 지원 팀](https://www.talentlms.com/contact)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 해당 값을 실제 식별자 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [TalentLMS 클라이언트 지원 팀](https://www.talentlms.com/contact)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML 서명 인증서** 섹션에서 **편집** 단추를 클릭하여 **SAML 서명 인증서** 대화 상자를 엽니다.
 
@@ -120,19 +118,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 &quot;기본 액세스&quot; 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-### <a name=&quot;configure-talentlms-sso&quot;></a>TalentLMS SSO 구성
+## <a name=&quot;configure-talentlms-sso&quot;></a>TalentLMS SSO 구성
 
 1. 다른 웹 브라우저 창에서 TalentLMS 회사 사이트에 관리자로 로그인합니다.
 
 1. **계정 및 설정** 섹션에서 **사용자** 탭을 클릭합니다.
 
-    ![계정 및 설정](./media/talentlms-tutorial/IC777296.png &quot;계정 및 설정")
+    ![계정 및 설정](./media/talentlms-tutorial/user.png &quot;계정 및 설정")
 
 1. **SSO(Single Sign-On)** 를 클릭합니다.
 
 1. Single Sign-On 섹션에서 다음 단계를 수행 합니다.
 
-    ![Single Sign-On](./media/talentlms-tutorial/saml.png "Single Sign-On")
+    ![Single Sign-On](./media/talentlms-tutorial/certificate.png "Single Sign-On")
 
     a. **SSO 통합 형식** 목록에서 **SAML 2.0** 을 선택합니다.
 
@@ -168,7 +166,7 @@ Azure AD 사용자가 TalentLMS에 로그인할 수 있도록 하려면 TalentLM
 
 1. **사용자 추가** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
-    ![사용자 추가](./media/talentlms-tutorial/IC777299.png "사용자 추가")  
+    ![사용자 추가](./media/talentlms-tutorial/account.png "사용자 추가")  
 
     a. **이름** 텍스트 상자에 사용자의 이름(예: `Britta`)을 입력합니다.
 
@@ -181,7 +179,7 @@ Azure AD 사용자가 TalentLMS에 로그인할 수 있도록 하려면 TalentLM
 > [!NOTE]
 > 다른 TalentLMS 사용자 계정 생성 도구 또는 TalentLMS가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 
-### <a name="test-sso"></a>SSO 테스트
+## <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
@@ -189,7 +187,7 @@ Azure AD 사용자가 TalentLMS에 로그인할 수 있도록 하려면 TalentLM
 
 * TalentLMS 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 TalentLMS 타일을 클릭하면 TalentLMS 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 TalentLMS 타일을 클릭하면 TalentLMS 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

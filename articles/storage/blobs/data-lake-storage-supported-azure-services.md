@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 10/06/2021
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 40b40d25e47e3951293ebe5a5d58673535b6615e
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 1fbd0c7a3c2a6edc2ffb0f6a5a4124979fc27225
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123470619"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612411"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2를 지원하는 Azure 서비스
 
@@ -46,9 +46,13 @@ Azure 서비스로 데이터를 수집하고, 분석을 수행하고, 시각적 
 |Azure Content Delivery Network|아직 지원되지 않음|해당 없음|해당 없음|[Azure Data Lake Storage Gen2 문서 인덱스 및 검색(미리 보기)](../../cdn/cdn-overview.md)|
 |Azure SQL Database|아직 지원되지 않음|해당 없음|해당 없음|[Azure SQL Database란?](../../azure-sql/database/sql-database-paas-overview.md)|
 
+> [!TIP]
+> 수집, 다운로드, 처리 및 시각화와 같은 범주로 서비스를 구성 하는 방법을 보려면 [수집, 처리 및 분석](data-lake-storage-data-scenarios.md#ingest-process-and-analyze)을 참조 하세요.
+
 ## <a name="see-also"></a>참고 항목
 
 - [Azure Data Lake Storage Gen2에서 알려진 문제](data-lake-storage-known-issues.md)
 - [Azure Storage 계정의 Blob Storage 기능 지원](storage-feature-support-in-storage-accounts.md)
 - [Azure Data Lake Storage Gen2를 지원하는 오픈 소스 플랫폼](data-lake-storage-supported-open-source-platforms.md)
 - [Azure Data Lake Storage에 대한 다중 프로토콜 액세스](data-lake-storage-multi-protocol-access.md)
+- [Azure Data Lake Storage Gen2 사용에 대한 모범 사례](data-lake-storage-best-practices.md)

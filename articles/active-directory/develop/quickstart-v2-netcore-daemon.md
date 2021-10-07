@@ -13,12 +13,12 @@ ms.date: 10/05/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: a31bf345f523eea940be5d56495890e8ab5c6dbd
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: d5b463156116b675c2220d1c1b1278d7552eadb0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107861646"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128619309"
 ---
 # <a name="quickstart-get-a-token-and-call-the-microsoft-graph-api-by-using-a-console-apps-identity"></a>빠른 시작: 콘솔 앱의 ID를 사용하여 토큰 가져오기 및 Microsoft Graph API 호출
 
@@ -58,7 +58,7 @@ ms.locfileid: "107861646"
 > 애플리케이션을 등록하고 앱의 등록 정보를 솔루션에 수동으로 추가하려면 다음 단계를 따르세요.
 >
 > 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</span></a>에 로그인합니다.
-> 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+> 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트로 전환합니다.
 > 1. **Azure Active Directory** 를 검색하고 선택합니다.
 > 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
 > 1. **이름** 에 대해 애플리케이션 이름을 입력합니다. 예를 들어 **Daemon-console** 을 입력합니다. 이 이름은 앱의 사용자에게 표시되며 나중에 변경할 수 있습니다.
@@ -209,7 +209,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
- | 요소 | Description |
+ | 요소 | 설명 |
  |---------|---------|
  | `config.ClientSecret` | Azure Portal에서 애플리케이션에 대해 생성된 클라이언트 암호입니다. |
  | `config.ClientId` | Azure Portal에 등록된 애플리케이션의 애플리케이션(클라이언트) ID입니다. 이 값은 Azure Portal에 있는 앱의 **개요** 페이지에서 찾을 수 있습니다. |
@@ -226,7 +226,7 @@ result = await app.AcquireTokenForClient(scopes)
                   .ExecuteAsync();
 ```
 
-|요소| Description |
+|요소| 설명 |
 |---------|---------|
 | `scopes` | 요청된 범위를 포함합니다. 기밀 클라이언트의 경우 이 값은 `{Application ID URI}/.default`와 비슷한 형식을 사용해야 합니다. 이 형식은 요청된 범위가 Azure Portal에서 설정한 앱 개체에서 정적으로 정의된 범위임을 나타냅니다. Microsoft Graph에서 `{Application ID URI}`는 `https://graph.microsoft.com`을 가리킵니다. 사용자 지정 웹 API의 경우 `{Application ID URI}`는 Azure Portal의 **애플리케이션 등록(미리 보기)**  > **API 노출** 에서 정의합니다. |
 

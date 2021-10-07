@@ -2,17 +2,17 @@
 title: Azure 앱 컨테이너화 ASP.NET - ASP.NET 웹 애플리케이션을 컨테이너화하고 Azure App Service로 마이그레이션합니다.
 description: '자습서: ASP.NET 웹 애플리케이션 컨테이너화 및 Azure App Service로 마이그레이션'
 services: ''
-author: rahugup
+author: rahug1190
 manager: bsiva
 ms.topic: tutorial
 ms.date: 07/02/2021
 ms.author: rahugup
-ms.openlocfilehash: fd0a7d3e1af6bb0a0dad10f9a92194b495b13b91
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: e574b7b71f9ea2c968020a11c7b18c3ff4f0a64b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123253104"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128621449"
 ---
 # <a name="aspnet-app-containerization-and-migration-to-azure-app-service"></a>ASP.NET 앱 컨테이너화 및 Azure App Service로 마이그레이션
 
@@ -153,7 +153,8 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
 1. 애플리케이션 검색을 위해 서버에 원격으로 연결하는 데 사용해야 하는 ASP.NET 애플리케이션의 실행 서버 **IP 주소/FQDN 및 자격 증명** 을 지정합니다.
     - 애플리케이션 서버의 로컬 관리자(Windows)에 대한 자격 증명을 제공해야 합니다.
     - 도메인 계정의 경우(사용자가 애플리케이션 서버의 관리자여야 함) 사용자 이름 앞에 *<domain\username>* 형식으로 도메인 이름 접두사를 붙입니다.
-    - 한 번에 최대 5대의 서버에서 애플리케이션 검색을 실행할 수 있습니다.
+    - 로컬 계정의 경우(사용자가 애플리케이션 서버의 관리자여야 함) 사용자 이름 앞에 *<hostname\username>* 형식으로 호스트 이름 접두사를 붙입니다.
+    - 한 번에 최대 5대의 서버에 대해 애플리케이션 검색을 실행할 수 있습니다.
 
 2. **유효성 검사** 를 클릭하여 도구를 실행하는 컴퓨터에서 애플리케이션 서버에 연결할 수 있는지, 자격 증명이 유효한지 확인합니다. 유효성 검사가 성공적으로 완료되면 상태 열에서 상태가 **매핑됨** 으로 표시됩니다.  
 
@@ -166,8 +167,8 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
     ![검색된 ASP.NET 애플리케이션을 보여 주는 스크린샷.](./media/tutorial-containerize-apps-aks/discovered-app-asp.png)
 
 
-4. 확인란을 사용하여 컨테이너화할 애플리케이션을 선택합니다.
-5. **컨테이너 이름 지정**: 선택한 애플리케이션 각각에 대한 대상 컨테이너의 이름을 지정합니다. 컨테이너 이름은 <*name:tag*>로 지정해야 합니다. 여기서 태그는 컨테이너 이미지에 사용됩니다. 예를 들어 대상 컨테이너 이름을 *appname:v1* 으로 지정할 수 있습니다.   
+5. 확인란을 사용하여 컨테이너화할 애플리케이션을 선택합니다.
+6. **컨테이너 이름 지정**: 선택한 애플리케이션 각각에 대한 대상 컨테이너의 이름을 지정합니다. 컨테이너 이름은 <*name:tag*>로 지정해야 합니다. 여기서 태그는 컨테이너 이미지에 사용됩니다. 예를 들어 대상 컨테이너 이름을 *appname:v1* 으로 지정할 수 있습니다.   
 
 ### <a name="parameterize-application-configurations"></a>애플리케이션 구성 매개 변수화
 구성을 매개 변수화하여 배포 시간 매개 변수로 사용할 수 있습니다. 이렇게 하면 컨테이너 이미지의 특정 값으로 하드 코딩하는 대신 애플리케이션을 배포하는 동안 이 설정을 구성할 수 있습니다. 예를 들어 이 옵션은 데이터베이스 연결 문자열과 같은 매개 변수에 유용합니다.

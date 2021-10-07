@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 08/17/2021
-ms.openlocfilehash: d29f434e1ac8b5fa8b96dcf4ad4f1125c20eb4db
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: d39ee872024cc3eb301e59d45e276843bb886340
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123451766"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129210557"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-skillset-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 기술 세트 만들기
 
@@ -171,7 +171,7 @@ ms.locfileid: "123451766"
 
 출력은 검색 인덱스로 전달되고, 인덱싱 중에 만들어진 이름-값 쌍과 인덱스의 개별 필드 간에 매핑됩니다. 내부적으로, 포털은 [주석](cognitive-search-concept-annotations-syntax.md)을 설정하고 [기술 집합](cognitive-search-defining-skillset.md)을 정의하여 작업 및 일반적인 흐름의 순서를 설정합니다. 이러한 단계는 포털에서 숨겨지지만, 코드 작성을 시할 때 이러한 개념이 중요합니다.
 
-마지막으로, 인덱스를 쿼리하여 내용을 확인할 수 있는 방법을 알아보았습니다. 결국 Azure Cognitive Search에서 제공하는 검색 가능한 인덱스는 [간단](/rest/api/searchservice/simple-query-syntax-in-azure-search)하거나 [완전히 확장](/rest/api/searchservice/lucene-query-syntax-in-azure-search)된 쿼리 구문을 사용하여 쿼리할 수 있습니다. 보강된 필드를 포함하는 인덱스는 다른 인덱스와 비슷합니다. 원하는 경우 표준 또는 [사용자 지정 분석기](search-analyzers.md), [점수 매기기 프로필](/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [동의어](search-synonyms.md), [패싯 필터](search-filters-facets.md), 지역 검색, 기타 Azure Cognitive Search 기능을 통합할 수 있습니다.
+마지막으로, 인덱스를 쿼리하여 내용을 확인할 수 있는 방법을 알아보았습니다. 결국 Azure Cognitive Search에서 제공하는 검색 가능한 인덱스는 [간단](/rest/api/searchservice/simple-query-syntax-in-azure-search)하거나 [완전히 확장](/rest/api/searchservice/lucene-query-syntax-in-azure-search)된 쿼리 구문을 사용하여 쿼리할 수 있습니다. 보강된 필드를 포함하는 인덱스는 다른 인덱스와 비슷합니다. 원하는 경우 표준 또는 [사용자 지정 분석기](search-analyzers.md), [점수 매기기 프로필](/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [동의어](search-synonyms.md), [패싯 탐색](search-faceted-navigation.md), 지역 검색, 기타 Azure Cognitive Search 기능을 통합할 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/11/2021
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 1ab437afbd8e0dd3035837da47bbbb89e358103f
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 38ab873af949d2cf648ba0a129fd548cd6dbc534
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122272310"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124800501"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-travelperk"></a>자습서: TravelPerk와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "122272310"
 * 사용자가 자신의 Azure AD 계정으로 TravelPerk에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -40,6 +40,8 @@ ms.locfileid: "122272310"
 * TravelPerk는 **SP** 시작 SSO를 지원합니다.
 
 * TravelPerk는 **Just In Time** 사용자 프로비저닝을 지원합니다.
+
+* TravelPerk는 [자동화된 사용자 프로비저닝](travelperk-provisioning-tutorial.md)을 지원합니다.
 
 ## <a name="add-travelperk-from-the-gallery"></a>갤러리에서 TravelPerk 추가
 
@@ -106,7 +108,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -130,6 +132,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 TravelPerk에서 B.Simon이라는 사용자를 만듭니다. TravelPerk은 기본적으로 사용하도록 설정된 Just-In-Time 프로비저닝을 지원합니다. 이 섹션에 작업 항목이 없습니다. 사용자가 TravelPerk에 존재하지 않는 경우 TravelPerk에 액세스하려고 할 때 새 사용자를 만듭니다.
 
+TravelPerk는 자동 사용자 프로비저닝도 지원합니다. 자동 사용자 프로비저닝 구성 방법에 대한 자세한 내용은 [여기](./travelperk-provisioning-tutorial.md)에서 제공합니다.
+
 ## <a name="test-sso"></a>SSO 테스트 
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
@@ -138,7 +142,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * TravelPerk 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 TravelPerk 타일을 클릭하면 TravelPerk 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 TravelPerk 타일을 클릭하면 TravelPerk 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/18/2021
+ms.date: 08/31/2021
 ms.author: jeedes
-ms.openlocfilehash: 9d7c018319003ef9671d9403c2e17642ec70a5d4
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: bd6b11956ffe32a2ae59cd6d6ab262ab3013832f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110476422"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124753092"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>자습서: Reward Gateway와 Azure Active Directory 통합
 
@@ -38,6 +38,8 @@ Reward Gateway와 Azure AD의 통합을 구성하려면 다음 항목이 필요�
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
 * Reward Gateway는 **IDP** 시작 SSO를 지원합니다.
+
+* Reward Gateway는 [자동화된 사용자 프로비저닝](reward-gateway-provisioning-tutorial.md)을 지원합니다.
 
 ## <a name="add-reward-gateway-from-the-gallery"></a>갤러리에서 Reward Gateway 추가
 
@@ -138,13 +140,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Reward Gateway에서 Britta Simon이라는 사용자를 만듭니다. Reward Gateway 플랫폼에서 사용자를 추가하려면 [Reward Gateway 지원 팀](mailto:clientsupport@rewardgateway.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
+Reward Gateway는 자동 사용자 프로비저닝도 지원합니다. 자동 사용자 프로비저닝 구성 방법에 대한 자세한 내용은 [여기](./reward-gateway-provisioning-tutorial.md)에서 제공합니다.
+
 ## <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 * Azure Portal에서 이 애플리케이션 테스트를 클릭하면 SSO를 설정한 Reward Gateway에 자동으로 로그인됩니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Reward Gateway 타일을 클릭하면 SSO를 설정한 Reward Gateway에 자동으로 로그인되어야 합니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Reward Gateway 타일을 클릭하면 SSO를 설정한 Reward Gateway에 자동으로 로그인되어야 합니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

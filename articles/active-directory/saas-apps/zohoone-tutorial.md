@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory와 Zoho One 통합 | Microsoft Docs'
+title: '자습서: Zoho One과 Azure AD SSO 통합'
 description: Azure Active Directory와 Zoho One 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/20/2021
+ms.date: 09/14/2021
 ms.author: jeedes
-ms.openlocfilehash: 12ac4d9fbf30873f0392a6d767d7568129bad112
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 032586f43a43b57b14044aea98ce5719cbb3be93
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101650654"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632788"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zoho-one"></a>자습서: Zoho One과 Azure Active Directory 통합
+# <a name="tutorial-azure-ad-sso-integration-with-zoho-one"></a>자습서: Zoho One과 Azure AD SSO 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Zoho One을 통합하는 방법에 대해 알아봅니다. Azure AD와 Zoho One을 통합하면 다음을 수행할 수 있습니다.
 
@@ -37,7 +37,7 @@ Zoho One과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
-* Zoho One은 **SP** 및 **IDP** 시작 SSO를 지원합니다.
+* Zoho One에서 **SP** 및 **IDP** 시작 SSO를 지원합니다.
 
 > [!NOTE]
 > 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
@@ -66,7 +66,7 @@ Zoho One에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 
     1. **[Zoho One 테스트 사용자 만들기](#create-zoho-one-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Zoho One에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
+## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
@@ -78,7 +78,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    a. **식별자** 텍스트 상자에서 `one.zoho.com` URL을 입력합니다.
+    a. **식별자** 텍스트 상자에서 `one.zoho.com` 값을 입력합니다.
 
     b. **회신 URL** 텍스트 상자에서 `https://accounts.zoho.com/samlresponse/<saml-identifier>` 패턴을 사용하여 URL을 입력합니다.
 
@@ -128,7 +128,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-### <a name="configure-zoho-one-sso"></a>Zoho One SSO 구성
+## <a name="configure-zoho-one-sso"></a>Zoho One SSO 구성
 
 1. 다른 웹 브라우저 창에서 관리자 권한으로 Zoho One 회사 사이트에 로그인 합니다.
 
@@ -192,7 +192,7 @@ Azure AD 사용자가 Zoho One에 로그인하려면 Zoho One에 프로비저닝
 
     다. **추가** 를 클릭합니다.
 
-### <a name="test-sso"></a>SSO 테스트
+## <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
@@ -206,7 +206,7 @@ Azure AD 사용자가 Zoho One에 로그인하려면 Zoho One에 프로비저닝
 
 * Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 Zoho One에 자동으로 로그인됩니다. 
 
-Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 Zoho One 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 Zoho One에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 Zoho One 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 Zoho One에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

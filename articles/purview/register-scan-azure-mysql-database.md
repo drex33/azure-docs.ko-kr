@@ -1,23 +1,22 @@
 ---
 title: Azure MySQL Database 등록 및 검사
-description: 이 자습서에서는 Azure MySQL Database를 검사하는 방법을 설명합니다.
+description: 이 자습서에서는 Azure Purview에서 Azure MySQL 데이터베이스를 등록하고 검사하는 방법을 설명합니다.
 author: evwhite
 ms.author: evwhite
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: tutorial
-ms.date: 06/30/2021
-ms.openlocfilehash: ed3a0abc6bdd99e5c86e67a410d7c9ecadf7a718
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 8f4a5480b76e03a57ff810c88a0a1660ae561071
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121737650"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209866"
 ---
 # <a name="register-and-scan-an-azure-mysql-database"></a>Azure MySQL Database 등록 및 검사
 
 이 문서에서는 Azure MySQL Database를 등록하고 검색하는 방법을 설명합니다.
-
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 - **전체 및 증분 검사** - Azure MySQL Database에서 메타데이터 및 분류를 캡처합니다.
@@ -73,7 +72,7 @@ Purview는 Azure MySQL Database에 대한 SQL 인증만 지원합니다.
 
 새 검색을 만들고 실행하려면 다음을 수행합니다.
 
-1. Purview Studio의 왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
+1. [Purview Studio](https://web.purview.azure.com/resource/)의 왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
 
 1. 등록한 Azure Database for MySQL 원본을 선택합니다.
 

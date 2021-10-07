@@ -2,13 +2,13 @@
 title: Service Fabric 관리형 클러스터의 다른 Azure 리소스에 대한 애플리케이션 액세스 권한 부여
 description: 이 문서에서는 Service Fabric 관리형 클러스터에서 Azure Active Directory 기반 인증을 지원하는 다른 Azure 리소스에 대한 관리 ID 지원 Service Fabric 애플리케이션 액세스 권한을 부여하는 방법을 설명합니다.
 ms.topic: article
-ms.date: 5/10/2021
-ms.openlocfilehash: ba85736779f44d5874bb4a080ce0da1c5ba764f8
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.date: 10/05/2021
+ms.openlocfilehash: 6bead810e52c53f6c045e6d13d8035542f73ae39
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129544700"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615280"
 ---
 # <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-on-a-service-fabric-managed-cluster"></a>Service Fabric 관리형 클러스터에서 Azure 리소스에 대한 Service Fabric 애플리케이션의 관리 ID 액세스 권한 부여
 
@@ -38,74 +38,71 @@ Service Fabric 애플리케이션의 관리 ID(이 경우 사용자 할당)를 �
 다음 예제에서는 템플릿 배포를 통해 자격 증명 모음에 대한 액세스 권한을 부여하는 방법을 보여 줍니다. 아래의 조각을 템플릿의 `resources` 요소 아래에 있는 다른 항목으로 추가합니다. 이 샘플은 각각 사용자 할당 및 시스템 할당 ID 유형 모두에 대한 액세스 권한 부여를 보여 줍니다. 해당하는 항목을 선택하세요.
 
 ```json
-{
+    # under 'variables':
   "variables": {
-    "userAssignedIdentityResourceId": "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]",
-  },
-  "resources": [
-    {
-      "type": "Microsoft.KeyVault/vaults/accessPolicies",
-      "name": "[concat(parameters('keyVaultName'), '/add')]",
-      "apiVersion": "2018-02-14",
-      "properties": {
-        "accessPolicies": [
-          {
-            "tenantId": "[reference(variables('userAssignedIdentityResourceId'), '2018-11-30').tenantId]",
-            "objectId": "[reference(variables('userAssignedIdentityResourceId'), '2018-11-30').principalId]",
-            "dependsOn": [
-              "[variables('userAssignedIdentityResourceId')]"
-            ],
-            "permissions": {
-              "keys": [ "get", "list" ],
-              "secrets": [ "get", "list" ],
-              "certificates": [ "get", "list" ]
-            }
-          }
-        ]
-      }
+        "userAssignedIdentityResourceId" : "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]",
     }
-  ]
-}
+    # under 'resources':
+    {
+        "type": "Microsoft.KeyVault/vaults/accessPolicies",
+        "name": "[concat(parameters('keyVaultName'), '/add')]",
+        "apiVersion": "2018-02-14",
+        "properties": {
+            "accessPolicies": [
+                {
+                    "tenantId": "[reference(variables('userAssignedIdentityResourceId'), '2018-11-30').tenantId]",
+                    "objectId": "[reference(variables('userAssignedIdentityResourceId'), '2018-11-30').principalId]",
+                    "dependsOn": [
+                        "[variables('userAssignedIdentityResourceId')]"
+                    ],
+                    "permissions": {
+                        "keys":         ["get", "list"],
+                        "secrets":      ["get", "list"],
+                        "certificates": ["get", "list"]
+                    }
+                }
+            ]
+        }
+    },
 ```
 시스템 할당 관리 ID의 경우:
 ```json
-{
+    # under 'variables':
   "variables": {
-    "sfAppSystemAssignedIdentityResourceId": "[concat(resourceId('Microsoft.ServiceFabric/managedClusters/applications/', parameters('clusterName'), parameters('applicationName')), '/providers/Microsoft.ManagedIdentity/Identities/default')]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.KeyVault/vaults/accessPolicies",
-      "name": "[concat(parameters('keyVaultName'), '/add')]",
-      "apiVersion": "2018-02-14",
-      "properties": {
-        "accessPolicies": [
-          {
-            "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
-            "tenantId": "[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').tenantId]",
-            "objectId": "[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').principalId]",
-            "dependsOn": [
-              "[variables('sfAppSystemAssignedIdentityResourceId')]"
-            ],
-            "permissions": {
-              "secrets": [
-                "get",
-                "list"
-              ],
-              "certificates": [
-                "get",
-                "list"
-              ]
-            }
-          }
-        ]
-      }
+        "sfAppSystemAssignedIdentityResourceId": "[concat(resourceId('Microsoft.ServiceFabric/managedClusters/applications/', parameters('clusterName'), parameters('applicationName')), '/providers/Microsoft.ManagedIdentity/Identities/default')]"
     }
-  ]
-}
+    # under 'resources':
+    {
+        "type": "Microsoft.KeyVault/vaults/accessPolicies",
+        "name": "[concat(parameters('keyVaultName'), '/add')]",
+        "apiVersion": "2018-02-14",
+        "properties": {
+            "accessPolicies": [
+            {
+                    "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
+                    "tenantId": "[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').tenantId]",
+                    "objectId": "[reference(variables('sfAppSystemAssignedIdentityResourceId'), '2018-11-30').principalId]",
+                    "dependsOn": [
+                        "[variables('sfAppSystemAssignedIdentityResourceId')]"
+                    ],
+                    "permissions": {
+                        "secrets": [
+                            "get",
+                            "list"
+                        ],
+                        "certificates": 
+                        [
+                            "get", 
+                            "list"
+                        ]
+                    }
+            },
+        ]
+        }
+    }
 ```
 
 자세한 내용은 [자격 증명 모음 - 액세스 정책 업데이트](/rest/api/keyvault/vaults/updateaccesspolicy)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [사용자 할당 또는 시스템 할당 관리 ID를 사용하여 Azure Service Fabric 애플리케이션 배포](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
+* [관리 ID가 있는 애플리케이션을 Service Fabric 관리형 클러스터에 배포](how-to-managed-cluster-application-managed-identity.md)

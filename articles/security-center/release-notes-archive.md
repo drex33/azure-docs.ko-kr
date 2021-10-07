@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 10/03/2021
 ms.author: memildin
-ms.openlocfilehash: ca1e75af5f1d5697b84742e3aec207a33a57b1c6
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.openlocfilehash: 657bc73f6e21f4965c36a58acbd5163dcea74ebc
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407193"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615413"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능 보관
 
@@ -2011,7 +2011,7 @@ Secure Score의 일부로 사용자에게 제공되는 많은 작업으로 인�
 
 이미지 검사는 컨테이너 이미지 파일을 구문 분석한 다음 알려진 취약성이 있는지 확인하는 방식으로 작동합니다(Qualys 제공).
 
-검사 자체는 Azure Container Registry에 새 컨테이너 이미지를 푸시할 때 자동으로 트리거됩니다. 발견된 취약성은 Security Center 권장 사항으로 나타나고 허용되는 공격 표면을 줄이기 위해 패치하는 방법에 대한 정보와 함께 Azure Secure Score에 포함됩니다.
+검사 자체는 Azure Container Registry에 새 컨테이너 이미지를 푸시할 때 자동으로 트리거됩니다. 발견된 취약성은 Security Center 권장 사항으로 표면화되며, 허용된 공격 표면을 줄이기 위해 패치하는 방법에 대한 정보와 함께 보안 점수에 포함됩니다.
 
 
 ### <a name="additional-regulatory-compliance-standards-preview"></a>추가 규정 준수 표준(미리 보기)
@@ -2045,7 +2045,7 @@ Kubernetes는 클라우드에서 소프트웨어를 배포하고 관리하기 �
 
 IaaS VM에서 실행되는 SQL DB에 대한 위협 방지 및 취약성 평가에 대한 Azure Security Center 지원은 현재 미리 보기로 제공됩니다.
 
-[취약성 평가](../azure-sql/database/sql-vulnerability-assessment.md)는 잠재적인 데이터베이스 취약성을 검색, 추적 및 수정할 수 있는 서비스를 간편하게 구성합니다. Azure Secure Score의 일부로 보안 태세에 대한 가시성을 제공하고, 보안 문제를 해결하고 데이터베이스 보안을 강화하는 단계를 포함합니다.
+[취약성 평가](../azure-sql/database/sql-vulnerability-assessment.md)는 잠재적인 데이터베이스 취약성을 검색, 추적 및 수정할 수 있는 서비스를 간편하게 구성합니다. 보안 점수의 일부로 보안 태세에 대한 가시성을 제공하고 보안 문제를 해결하고 데이터베이스 강화를 개선하는 단계를 포함합니다.
 
 [Advanced Threat Protection](../azure-sql/database/threat-detection-overview.md)은 비정상적이며 잠재적으로 유해할 수 있는 SQL Server 액세스 또는 악용 시도를 나타내는 비정상적인 활동을 검색합니다. 데이터베이스에서 의심스러운 활동을 지속적으로 모니터링하고 비정상적인 데이터베이스 액세스 패턴에 대해 작업 지향 보안 경고를 제공합니다. 이러한 경고는 의심스러운 활동 세부 정보와 위협을 조사하고 완화하기 위한 권장 조치를 제공합니다.
 

@@ -2,13 +2,13 @@
 title: 비디오 연속 녹화 및 재생 자습서 - Azure Video Analyzer
 description: 이 자습서에서는 Azure Video Analyzer를 사용하여 비디오를 클라우드에 연속 녹화하고 재생하는 방법을 알아봅니다.
 ms.topic: tutorial
-ms.date: 06/01/2021
-ms.openlocfilehash: 2f3fc2421a2341974aa7ea7bdafeaf0123ea983e
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.date: 09/14/2021
+ms.openlocfilehash: 1ecba5892c3112ae12916c8b831eee994d4b5766
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114602927"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128644147"
 ---
 # <a name="tutorial-continuous-video-recording-and-playback"></a>자습서: 연속 비디오 녹화 및 재생
 
@@ -69,8 +69,46 @@ ms.locfileid: "114602927"
 1. 리소스를 정리합니다.
 
 ## <a name="set-up-your-development-environment"></a>개발 환경 설정
-[!INCLUDE [setup development environment](./includes/set-up-dev-environment/csharp/csharp-set-up-dev-env.md)]
-  
+
+
+### <a name="get-the-sample-code"></a>샘플 코드 가져오기
+
+1. [AVA C# 샘플 리포지토리](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp)를 복제합니다.
+1. Visual Studio Code를 시작하고 리포지토리가 다운로드된 폴더를 엽니다.
+1. Visual Studio Code에서 src/cloud-to-device-console-app 폴더로 이동하고, **appsettings.json** 이라는 파일을 만듭니다. 이 파일에는 프로그램을 실행하는 데 필요한 설정이 포함되어 있습니다.
+1. 위의 설정 단계에서 만든 스토리지 계정의 파일 공유를 찾아 "deployment-output" 파일 공유 아래에서 **appsettings.json** 파일을 찾습니다. 파일을 클릭한 다음, "다운로드" 단추를 누릅니다. 콘텐츠는 다음과 같은 새 브라우저 탭에서 열립니다.
+
+   ```
+   {
+       "IoThubConnectionString" : "HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX",
+       "deviceId" : "avasample-iot-edge-device",
+       "moduleId" : "avaedge"
+   }
+   ```
+
+   IoT Hub 연결 문자열을 사용하면 Visual Studio Code를 사용하여 Azure IoT Hub를 통해 명령을 에지 모듈에 보낼 수 있습니다. 위의 JSON을 **src/cloud-to-device-console-app/appsettings.json** 파일에 복사합니다.
+
+### <a name="connect-to-the-iot-hub"></a>IoT Hub에 연결
+
+1. Visual Studio Code에서 왼쪽 아래 모서리의 **AZURE IOT HUB** 창 옆에 있는 **추가 작업** 아이콘을 선택하여 IoT Hub 연결 문자열을 설정합니다. src/cloud-to-device-console-app/appsettings.json 파일의 문자열을 복사합니다.
+
+    <!-- commenting out the image for now ![Set IoT Hub connection string]()./media/quickstarts/set-iotconnection-string.png-->
+    [!INCLUDE [provide-builtin-endpoint](./includes/common-includes/provide-builtin-endpoint.md)]
+1. 약 30초 후에 왼쪽 아래 섹션에서 Azure IoT Hub가 새로 고침됩니다. 에지 디바이스 `avasample-iot-edge-device`에 다음 모듈이 배포되었을 것입니다.
+    - Edge Hub(모듈 이름 **edgeHub**)
+    - Edge 에이전트(모듈 이름 **edgeAgent**)
+    - Video Analyzer(모듈 이름 **avaedge**)
+    - RTSP 시뮬레이터(모듈 이름 **rtspsim**)
+
+### <a name="prepare-to-monitor-the-modules"></a>모듈 모니터링 준비
+
+이 빠른 시작 또는 자습서 실행을 사용하면 이벤트가 IoT Hub로 전송됩니다. 이러한 이벤트를 보려면 다음 단계를 수행합니다.
+
+1. Visual Studio Code에서 탐색기 창을 열고, 왼쪽 아래 모서리에서 **Azure IoT Hub** 를 찾습니다.
+1. **디바이스** 노드를 펼칩니다.
+1. `avasample-iot-edge-device`를 마우스 오른쪽 단추로 클릭하고, **기본 제공 이벤트 엔드포인트 모니터링 시작** 을 선택합니다.
+
+    [!INCLUDE [provide-builtin-endpoint](./includes/common-includes/provide-builtin-endpoint.md)]
 
 ## <a name="examine-the-sample-files"></a>샘플 파일 검사
 
@@ -95,7 +133,7 @@ Visual Studio Code에서 src/cloud-to-device-console-app 폴더로 이동합니�
     `"topologyName" : "CVRToVideoSink"`  
 1. 브라우저에서 [파이프라인 토폴로지](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-video-sink/topology.json)를 열고 videoName을 살펴봅니다. `sample-cvr-video`로 하드 코딩되었습니다. 자습서에서 이를 허용할 수 있습니다. 프로덕션 환경에서는 고유한 각 RTSP 카메라를 고유한 이름을 가진 비디오 리소스에 녹화하도록 주의해야 합니다.
 1. F5 키를 선택하여 디버깅 세션을 시작합니다. **터미널** 창에 일부 메시지가 출력됩니다.
-1. operations.json 파일은 `pipelineTopologyList` 및 `livePipelineList`에 대한 호출로 시작됩니다. 이전 빠른 시작 또는 자습서를 마친 후 리소스를 정리했다면 이 작업은 다음과 같이 빈 목록을 반환하고, 사용자가 **Enter** 키를 선택할 수 있도록 일시 중지됩니다.
+1. operations.json 파일은 `pipelineTopologyList` 및 `livePipelineList`에 대한 호출로 시작됩니다. 이전 빠른 시작이나 자습서를 완료한 후에 리소스를 삭제했으면 이 작업에서 다음과 같은 빈 목록을 반환합니다.
 
     ```
     --------------------------------------------------------------------------
@@ -109,11 +147,10 @@ Visual Studio Code에서 src/cloud-to-device-console-app 폴더로 이동합니�
       "value": []
     }
     --------------------------------------------------------------------------
-    Executing operation WaitForInput
-    Press Enter to continue
+
     ```
 
-1. **터미널** 창에서 **Enter** 키를 선택하면 다음과 같은 직접 메서드 세트가 호출됩니다.
+1. 직접 메서드 호출의 다음 설정을 지정합니다.
    * 이전 `topologyUrl`을 사용하여 `pipelineTopologySet` 호출
    * 다음 본문을 사용하여 `livePipelineSet` 호출
      
@@ -141,21 +178,18 @@ Visual Studio Code에서 src/cloud-to-device-console-app 폴더로 이동합니�
        }
      }
      ```
-   * 라이브 파이프라인 및 비디오 흐름을 시작하는 `livePipelineActivate` 호출
-   * 라이브 파이프라인이 실행 중 상태임을 나타내는 `livePipelineList`에 대한 두 번째 호출 
+   * `livePipelineActivate`를 호출하여 라이브 파이프라인을 시작하고 비디오 흐름을 시작한 다음, **터미널** 창에서 **Enter** 키를 선택하기 위해 일시 중지합니다.
 1. 이제 **터미널** 창의 출력이 **계속하려면 Enter 키를 누르세요** 라는 메시지에서 일시 중지됩니다. 지금은 **Enter** 키를 선택하지 마세요. 위로 스크롤하여 호출한 직접 메서드에 대한 JSON 응답 페이로드를 확인합니다.
-1. 이제 Visual Studio Code에서 **출력** 창으로 전환하면 Video Analyzer 에지 모듈에서 IoT Hub로 보내는 메시지가 표시됩니다.
-
-
-   이러한 메시지에 대한 내용은 다음 섹션에서 다룹니다.
+1. 이제 Visual Studio Code에서 **출력** 창으로 전환하면 Video Analyzer 에지 모듈에서 IoT Hub로 보내는 메시지가 표시됩니다. 이러한 메시지에 대한 내용은 다음 섹션에서 다룹니다.
 1. 라이브 파이프라인은 계속 실행되고 비디오를 녹화합니다. RTSP 시뮬레이터가 원본 비디오를 계속 반복합니다. 녹화를 중지하려면 **터미널** 창으로 돌아가서 **Enter** 를 선택합니다. 다음과 같은 일련의 호출을 수행하여 리소스를 정리합니다.
 
    * `livePipelineDeactivate`를 호출하면 라이브 파이프라인이 비활성화됩니다.
    * `livePipelineDelete`를 호출하면 라이브 파이프라인이 삭제됩니다.
+   * 라이브 파이프라인이 실행 중 상태임을 나타내는 `livePipelineList`에 대한 두 번째 호출.
    * `pipelineTopologyDelete`를 호출하면 토폴로지가 삭제됩니다.
    * 마지막으로 `pipelineTopologyList`를 호출하면 목록이 비어 있음을 보여줍니다.
 
-## <a name="interpret-the-results"></a>결과 해석 
+## <a name="interpret-the-results"></a>결과 해석
 
 라이브 파이프라인을 실행하면 Video Analytics 에지 모듈이 특정 진단 및 작업 이벤트를 IoT Edge 허브에 보냅니다. 이러한 이벤트는 Visual Studio Code의 **출력** 창에 표시되는 메시지입니다. 메시지에는 `body` 섹션 및 `applicationProperties` 섹션이 포함되어 있습니다. 이러한 섹션이 나타내는 내용을 이해하려면 [IoT Hub 메시지 작성 및 읽기](../../iot-hub/iot-hub-devguide-messages-construct.md)를 참조하세요.
 

@@ -2,16 +2,16 @@
 title: 템플릿 사양 만들기 및 배포
 description: 템플릿 사양을 만들고 이를 조직 내 다른 사용자와 공유하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 05/04/2021
+ms.date: 10/05/2021
 ms.author: tomfitz
 ms.custom: devx-track-azurepowershell
 author: tfitzmac
-ms.openlocfilehash: bf417b6ca70012a3cf4bce17640aa4bc9ab9fd08
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8d8b582cdae8b387774402869eccf903a1b394b2
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128611209"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129613437"
 ---
 # <a name="azure-resource-manager-template-specs"></a>Azure Resource Manager 템플릿 사양
 
@@ -23,6 +23,8 @@ ms.locfileid: "128611209"
 
 > [!NOTE]
 > Azure PowerShell에서 템플릿 사양을 사용하려면 [버전 5.0.0 이상](/powershell/azure/install-az-ps)을 설치해야 합니다. Azure CLI에서 사용하려면 [버전 2.14.2 이상](/cli/azure/install-azure-cli)을 사용합니다.
+
+배포를 설계할 때 항상 리소스의 수명 주기를 고려 하 고 유사한 수명 주기를 공유 하는 리소스를 단일 템플릿 사양으로 그룹화 합니다. 예를 들어 배포에는 자체 데이터베이스 및 컨테이너를 포함 하는 각 인스턴스와 Cosmos DB의 여러 인스턴스가 포함 됩니다. 데이터베이스와 컨테이너가 크게 변경 되지 않으면 Cosmo DB 인스턴스와 해당 기본 데이터베이스 및 컨테이너를 포함 하는 하나의 템플릿 사양을 만들어야 합니다. 그런 다음 복사 루프와 함께 템플릿에서 조건문을 사용 하 여 이러한 리소스의 여러 인스턴스를 만들 수 있습니다.
 
 ### <a name="microsoft-learn"></a>Microsoft Learn
 

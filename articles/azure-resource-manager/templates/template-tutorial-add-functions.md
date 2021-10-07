@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 1006f29544bf2708277c6b5a975836a31bcdeff9
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 6f8812e4894a9ba0daa4423fae77b43bcdb758d6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959296"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643995"
 ---
 # <a name="tutorial-add-template-functions-to-your-arm-template"></a>자습서: ARM 템플릿에 템플릿 함수 추가
 
@@ -29,11 +29,11 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json":::
 
-스토리지 계정의 위치는 **미국 동부** 로 하드 코딩되어 있습니다. 하지만 스토리지 계정을 다른 지역에 배포해야 할 수도 있습니다. 유연성이 부족한 템플릿 문제가 다시 발생합니다. 위치에 대한 매개 변수를 추가할 수 있지만 기본값이 하드 코딩된 값보다 적절하면 매우 유용할 수 있습니다.
+스토리지 계정의 위치는 **eastus** 로 하드 코딩되어 있습니다. 하지만 스토리지 계정을 다른 지역에 배포해야 할 수도 있습니다. 유연성이 부족한 템플릿 문제가 다시 발생합니다. 위치에 대한 매개 변수를 추가할 수 있지만 기본값이 하드 코딩된 값보다 적절하면 매우 유용할 수 있습니다.
 
 ## <a name="use-function"></a>함수 사용
 
-이 시리즈의 이전 자습서를 완료했다면 이미 함수를 사용한 것입니다. `"[parameters('storageName')]"`을 추가할 때 [parameters](template-functions-deployment.md#parameters) 함수를 사용했습니다. 대괄호는 대괄호 안의 구문이 [템플릿 표현식](template-expressions.md)임을 나타냅니다. Resource Manager는 구문을 리터럴 값으로 처리하지 않고 구문을 분석합니다.
+[매개 변수 자습서](./template-tutorial-add-parameters.md#make-template-reusable)를 완료한 경우 함수를 사용한 것입니다. `"[parameters('storageName')]"`을 추가할 때 [parameters](template-functions-deployment.md#parameters) 함수를 사용했습니다. 대괄호는 대괄호 안의 구문이 [템플릿 표현식](template-expressions.md)임을 나타냅니다. Resource Manager는 구문을 리터럴 값으로 처리하지 않고 구문을 분석합니다.
 
 함수는 배포 중에 값을 동적으로 가져와서 템플릿에 유연성을 추가합니다. 이 자습서에서는 함수를 사용하여 배포에 사용 중인 리소스 그룹의 위치를 가져옵니다.
 

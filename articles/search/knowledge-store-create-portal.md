@@ -8,23 +8,21 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/02/2021
-ms.openlocfilehash: 4e23862e78fb6b3de9dd360ee54bb229c76bc8b4
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: f80a4a5961c0506f423da4d4f1578b8cf8999b51
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123537981"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124755240"
 ---
 # <a name="quickstart-create-a-knowledge-store-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 지식 저장소 만들기
 
-지식 저장소는 후속 분석 또는 다운스트림 처리를 위해 [AI 보강 파이프라인](cognitive-search-concept-intro.md)의 출력을 Azure Storage에 보내는 Azure Cognitive Search의 한 기능입니다.
+[지식 저장소](knowledge-store-concept-intro.md)는 [AI 보강 파이프라인](cognitive-search-concept-intro.md)의 출력을 Azure Storage에 보내는 Azure Cognitive Search의 한 기능입니다. 번역된 텍스트, OCR 텍스트, 인식된 엔터티 및 기타 보강 같이 파이프라인에서 만든 보강은 Azure Storage에 연결하는 앱 또는 워크로드에서 액세스할 수 있는 테이블 또는 Blob에 프로젝션됩니다.
 
-보강 파이프라인은 구조화되지 않은 텍스트와 이미지 콘텐츠를 허용하고, Cognitive Services의 AI 기반 처리를 적용하고, 이전에 존재하지 않은 새로운 구조와 정보를 출력합니다. 파이프라인에서 만든 물리적 데이터 구조 중 하나는 Azure Storage에 연결하는 도구, 앱 또는 프로세스를 통해 액세스할 수 있는 [지식 저장소](knowledge-store-concept-intro.md)입니다.
-
-이 빠른 시작에서는 데이터를 설정한 다음, **데이터 가져오기** 마법사를 실행하여 지식 저장소도 생성하는 보강 파이프라인을 만듭니다. 지식 저장소에는 원본에서 끌어온 원본 텍스트 콘텐츠와 감정 레이블, 핵심 구 추출 및 영어가 아닌 고객 의견의 텍스트 번역이 포함된 AI 생성 콘텐츠가 포함됩니다.
+이 빠른 시작에서는 데이터를 설정한 다음, **데이터 가져오기** 마법사를 실행하여 지식 저장소도 생성하는 보강 파이프라인을 만듭니다. 지식 저장소에는 원본에서 가져온 원본 텍스트 콘텐츠(호텔에 대한 고객 리뷰)와 감정 레이블, 핵심 구 추출 및 영어가 아닌 고객 의견의 텍스트 번역이 포함된 AI 생성 콘텐츠가 포함됩니다.
 
 > [!NOTE]
-> 이 빠른 시작은 Azure Storage에서 완성된 지식 저장소로 가는 가장 빠른 경로입니다. 자세한 적용 범위는 [REST에서 지식 저장소 만들기](knowledge-store-create-rest.md)를 대신 참조하세요.
+> 이 빠른 시작에서는 Azure Storage에서 완성된 지식 저장소로 가는 가장 빠른 경로를 보여 줍니다. 각 단계에 대한 자세한 설명은 [REST에서 지식 저장소 만들기](knowledge-store-create-rest.md)를 대신 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -34,9 +32,9 @@ ms.locfileid: "123537981"
 
 + Azure Cognitive Search 서비스 계정에서 [서비스를 만들거나](search-create-service-portal.md) [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
 
-+ [Blob Storage](../storage/blobs/index.yml)가 있는 Azure Storage 계정
++ [Blob Storage](../storage/blobs/index.yml)가 있는 Azure Storage 계정.
 
-또한 이 빠른 시작에서는 AI에 대한 [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)를 사용합니다. 워크로드가 너무 작으므로 Cognitive Services는 최대 20개의 트랜잭션을 무료로 처리하기 위해 백그라운드에서 탭으로 처리됩니다. 즉, 추가 Cognitive Services 리소스를 만들지 않고도 이 연습을 완료할 수 있습니다.
+또한 이 빠른 시작은 AI에 대한 [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)를 사용합니다. 워크로드가 너무 작으므로 Cognitive Services는 최대 20개의 트랜잭션을 무료로 처리하기 위해 백그라운드에서 탭으로 처리됩니다. 즉, 추가 Cognitive Services 리소스를 만들지 않고도 이 연습을 완료할 수 있습니다.
 
 ## <a name="set-up-your-data"></a>데이터를 설정합니다.
 
@@ -161,25 +159,17 @@ ms.locfileid: "123537981"
 
 Azure Portal에서 Azure Storage 계정으로 전환하고, **Storage Explorer** 를 사용하여 새 테이블을 봅니다. "보강 추가" 페이지의 "보강 저장" 섹션에 제공된 각 프로젝션에 대해 하나씩 세 개의 테이블이 표시됩니다.
 
-+ 문서 테이블에는 문서 보강 트리의 모든 첫 번째 수준 노드가 포함됩니다.
++ `hotelReviewssDocument`는 컬렉션이 아닌 문서 보강 트리의 모든 첫 번째 수준 노드를 포함합니다.
 
-+ "페이지" 또는 "문장" 수준의 세분성을 지정하면 페이지 테이블(또는 문장 테이블)이 만들어집니다. 페이지 또는 문장 수준에서 실행되는 기술에는 이 테이블에 프로젝션된 출력이 있습니다.
++ `hotelReviewssPages`는 문서에서 분할된 각 페이지에 대해 만들어진 보강 필드를 포함합니다. 페이지 수준 보강은 감정 레이블과 번역된 텍스트로 구성됩니다. 기술 세트 정의에서 "페이지" 세분성을 선택하는 경우 페이지 테이블(또는 특정 세분성 수준을 지정하는 경우 문장 테이블)이 만들어집니다. 페이지 또는 문장 수준에서 실행되는 기술에는 이 테이블에 프로젝션된 출력이 있습니다.
 
-+ 핵심 구 및 엔터티와 같은 컬렉션(배열)을 출력하는 기술에는 독립 실행형 테이블의 출력이 있습니다.
++ `hotelReviewssKeyPhrases`는 모든 리뷰에서 추출한 핵심 구의 긴 목록을 포함합니다. 핵심 구 및 엔터티와 같은 컬렉션(배열)을 출력하는 기술에는 독립 실행형 테이블에 보내는 출력이 있습니다.
 
-동일한 프로젝션 그룹 내의 모든 테이블에는 다른 도구 및 앱에서 테이블 관계를 지원하기 위한 상호 참조 정보가 포함되어 있습니다.
+이러한 테이블은 모두 다른 도구 및 앱에서 테이블 관계를 지원하기 위한 ID 열을 포함합니다. 테이블을 열 때 이러한 필드를 지나면서 스크롤하여 파이프라인에서 추가한 콘텐츠 필드를 봅니다.
 
 이 빠른 시작에서 테이블은 다음 스크린샷과 비슷하게 표시됩니다.
 
    :::image type="content" source="media/knowledge-store-create-portal/azure-table-hotel-reviews.png" alt-text="Storage Explorer에서 생성된 테이블의 스크린샷" border="true":::
-
-각 테이블은 쿼리에서 테이블을 교차 연결하는 데 필요한 ID를 사용하여 생성됩니다. 테이블을 열 때 이러한 필드를 지나면서 스크롤하여 파이프라인에서 추가한 콘텐츠 필드를 봅니다.
-
-| 테이블 | Description |
-|-------|-------------|
-| hotelReviewssDocument | CSV에서 전달되는 필드(예: review_date 및 review_text)를 포함합니다. |
-| hotelReviewssPages | 기술 세트에서 만든 보강 필드(예: 감정 레이블 및 번역된 텍스트)를 포함합니다. |
-| hotelReviewssKeyPhrases | 핵심 구의 긴 목록을 포함합니다. |
 
 ## <a name="clean-up"></a>정리
 

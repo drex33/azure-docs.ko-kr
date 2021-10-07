@@ -10,12 +10,12 @@ ms.reviewer: jburchel, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 07/05/2021
-ms.openlocfilehash: b6489f692dc8fabf63daab0cf13f1036e944e77e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9a567c5b61449cdfd72fac1a946760bccce2bebe
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121731530"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124769715"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Data Factory 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "121731530"
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datafactory%2Fdata-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
+[:::image type="content" source="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datafactory%2Fdata-factory-v2-blob-to-blob-copy%2Fazuredeploy.json" alt-text="Azure에 배포](../media/template-deployments/deploy-to-azure.svg)":::
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -73,7 +73,7 @@ Jane, Doe
 
 1. 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다. 템플릿은 Azure Data Factory 계정, 스토리지 계정 및 Blob 컨테이너를 만듭니다.
 
-    [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datafactory%2Fdata-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
+    [:::image type="content" source="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datafactory%2Fdata-factory-v2-blob-to-blob-copy%2Fazuredeploy.json" alt-text="Azure에 배포](../media/template-deployments/deploy-to-azure.svg)":::
 
 2. 다음 값을 선택하거나 입력합니다.
 

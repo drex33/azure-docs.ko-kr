@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 3e60815b2361f4ba14b6a40ded2734c748f8d4ae
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 95a09a19a4bf569680ba3c16214bc10c6be37cd9
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128633700"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129616420"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>AzCopy 및 File Storage를 사용하여 데이터 전송
 
@@ -423,7 +423,7 @@ azcopy copy 'https://mysourceaccount.file.core.windows.net?sv=2018-03-28&ss=bfqt
 로컬 파일 시스템의 내용을 파일 공유와 동기화하거나 파일 공유의 내용을 다른 파일 공유와 동기화할 수 있습니다. 또한 파일 공유에 있는 디렉터리의 내용을 다른 파일 공유에 있는 디렉터리의 내용과 동기화할 수 있습니다. 한 가지 방법으로 동기화가 있습니다. 즉, 이 두 엔드포인트 중에서 소스와 대상을 선택합니다. 동기화에서도 서버 간 API를 사용합니다.
 
 > [!NOTE]
-> 현재 이 시나리오는 계층 구조 네임스페이스가 없는 계정에만 지원됩니다. 현재 AzCopy의 릴리스는 Azure Files와 Blob Storage 간에 동기화되지 않습니다.
+> 현재이 시나리오는 blob 끝점을 통해 계층적 네임 스페이스를 사용 하도록 설정한 계정에 대해 지원 됩니다.
 
 ### <a name="guidelines"></a>지침
 

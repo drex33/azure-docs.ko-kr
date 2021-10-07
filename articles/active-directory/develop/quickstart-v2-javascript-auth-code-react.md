@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 01/14/2021
+ms.date: 09/09/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 1ce5a7e2532fd150b5445e3b243c841d797b4157
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: ca3f20e3d59b993056684773025fd21661879924
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123226863"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639112"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-a-react-spa-using-the-auth-code-flow"></a>빠른 시작: 인증 코드 흐름을 사용하여 React SPA에 로그인하고 액세스 토큰을 가져옵니다.
 
-이 빠른 시작에서는 인증 코드 흐름을 사용하여 JavaScript React SPA(단일 페이지 애플리케이션)에서 사용자를 로그인하고 Microsoft Graph를 호출할 수 있는 방법을 보여주는 코드 샘플을 다운로드하고 실행합니다. 코드 샘플은 Microsoft Graph API 또는 웹 API를 호출하기 위한 액세스 토큰을 가져오는 방법을 보여줍니다. 
+이 빠른 시작에서는 인증 코드 흐름을 사용하여 JavaScript React SPA(단일 페이지 애플리케이션)에서 사용자를 로그인하고 Microsoft Graph를 호출할 수 있는 방법을 보여주는 코드 샘플을 다운로드하고 실행합니다. 코드 샘플은 Microsoft Graph API 또는 웹 API를 호출하기 위한 액세스 토큰을 가져오는 방법을 보여줍니다.
 
 자세한 내용은 [샘플 작동 방식](#how-the-sample-works)을 참조하세요.
 
@@ -49,7 +49,7 @@ ms.locfileid: "123226863"
 > #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
 >
 > 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
-> 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+> 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트로 전환합니다.
 > 1. **Azure Active Directory** 를 검색하고 선택합니다.
 > 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
 > 1. **애플리케이션 등록** 페이지가 나타나면 애플리케이션의 이름을 입력합니다.
@@ -57,7 +57,7 @@ ms.locfileid: "123226863"
 > 1. **등록** 을 선택합니다. 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 기록해 둡니다.
 > 1. **관리** 에서 **인증** 을 선택합니다.
 > 1. **플랫폼 구성** 에서 **플랫폼 추가** 를 선택합니다. 열린 창에서 **단일 페이지 애플리케이션** 을 선택합니다.
-> 1. **리디렉션 URI** 값을 `http://localhost:3000/`으로 설정합니다. 이는 로컬 머신에서 수신하는 기본 포트 NodeJS입니다. 성공적으로 사용자를 인증한 후에 이 URl에 인증 응답을 반환합니다. 
+> 1. **리디렉션 URI** 값을 `http://localhost:3000/`으로 설정합니다. 이는 로컬 머신에서 수신하는 기본 포트 NodeJS입니다. 성공적으로 사용자를 인증한 후에 이 URl에 인증 응답을 반환합니다.
 > 1. **구성** 을 선택하여 변경 내용을 적용합니다.
 > 1. **플랫폼 구성** 에서 **단일 페이지 애플리케이션** 을 확장합니다.
 > 1. **권한 부여 형식** 에서 ![이미 구성](media/quickstart-v2-javascript/green-check.png)된 리디렉션 URI가 PKCE를 사용하는 권한 부여 코드 흐름에 적합한지 확인합니다.
@@ -89,14 +89,14 @@ ms.locfileid: "123226863"
 >
 > ```javascript
 > /**
-> * Configuration object to be passed to MSAL instance on creation. 
+> * Configuration object to be passed to MSAL instance on creation.
 > * For a full list of MSAL.js configuration parameters, visit:
-> * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md 
+> * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md
 > */
 > export const msalConfig = {
 >    auth: {
 >        clientId: "Enter_the_Application_Id_Here",
->        authority: "Enter_the_Cloud_Instance_Id_HereEnter_the_Tenant_Info_Here",
+>        authority: "Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here",
 >        redirectUri: "Enter_the_Redirect_Uri_Here"
 >    },
 >    cache: {
@@ -116,7 +116,7 @@ ms.locfileid: "123226863"
 > - `Enter_the_Application_Id_Here`는 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 입니다.
 >
 >    **애플리케이션(클라이언트) ID** 값을 찾으려면 Azure Portal에서 앱 등록의 **개요** 페이지로 이동합니다.
-> - `Enter_the_Cloud_Instance_Id_Here`는 Azure 클라우드의 인스턴스입니다. 주 또는 글로벌 Azure 클라우드의 경우 `https://login.microsoftonline.com/`을 입력합니다. **국가별** 클라우드(예제: 중국)의 경우 [국가별 클라우드](authentication-national-cloud.md)를 참조하세요.
+> - `Enter_the_Cloud_Instance_Id_Here`는 Azure 클라우드의 인스턴스입니다. 주 또는 글로벌 Azure 클라우드의 경우 `https://login.microsoftonline.com`을 입력합니다. **국가별** 클라우드(예제: 중국)의 경우 [국가별 클라우드](authentication-national-cloud.md)를 참조하세요.
 > - `Enter_the_Tenant_info_here`는 다음 중 하나로 설정됩니다.
 >   - 애플리케이션에서 *이 조직 디렉터리의 계정* 을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름** 으로 바꿉니다. 예들 들어 `contoso.microsoft.com`입니다.
 >
@@ -140,7 +140,7 @@ ms.locfileid: "123226863"
 
 > [!div renderon="docs"]
 >
-> 동일한 파일에서 아래로 스크롤하고 `graphMeEndpoint`를 업데이트합니다. 
+> 동일한 파일에서 아래로 스크롤하고 `graphMeEndpoint`를 업데이트합니다.
 > - `Enter_the_Graph_Endpoint_Herev1.0/me` 문자열을 `https://graph.microsoft.com/v1.0/me`로 바꿉니다.
 > - `Enter_the_Graph_Endpoint_Herev1.0/me`는 API 호출이 수행될 엔드포인트입니다. 기본(글로벌) Microsoft Graph API 서비스의 경우 `https://graph.microsoft.com/`(후행 슬래시 포함)을 입력합니다. 자세한 내용은 [설명서](/graph/deployments)를 참조하세요.
 >

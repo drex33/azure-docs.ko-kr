@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - 계층 2 네트워크 온-프레미스를 프라이빗 클라우드로 확장
 description: CloudSimple 프라이빗 클라우드의 NSX-T와 온-프레미스 독립 실행형 NSX Edge 클라이언트 간의 계층 2 VPN을 설정하는 방법을 설명합니다.
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 7f327e0eecbfe51095f3f533dc787cc9aeedfb1e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5156be86fdaf2830abc66ed270edd1217be13bfb
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128638314"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129614235"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Layer 2 확장 네트워크로 워크로드 마이그레이션
 
@@ -414,7 +414,7 @@ ENCAP       : GENEVE
 
 ## <a name="obtain-the-peer-code-for-l2vpn-on-the-nsx-t-side"></a>NSX-T 쪽의 L2VPN에 대한 피어 코드 가져오기
 
-NSX-T 엔드포인트의 피어 코드를 가져옵니다. 원격 엔드포인트를 구성하는 경우 피어 코드가 필요합니다. L2VPN은 \<session-id\> 이전 섹션에서 가져올 수 있습니다. 자세한 내용은 [NSX-T 2.3 API 가이드](https://www.vmware.com/support/nsxt/doc/nsxt_23_api.html)를 참조하세요.
+NSX-T 엔드포인트의 피어 코드를 가져옵니다. 원격 엔드포인트를 구성하는 경우 피어 코드가 필요합니다. \<session-id\>이전 섹션에서 L2VPN를 가져올 수 있습니다. 자세한 내용은 [NSX-T 2.3 API 가이드](https://www.vmware.com/support/nsxt/doc/nsxt_23_api.html)를 참조하세요.
 
 ```
 GET https://192.168.110.201/api/v1/vpn/l2vpn/sessions/<session-id>/peer-codes

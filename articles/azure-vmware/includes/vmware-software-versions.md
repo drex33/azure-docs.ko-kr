@@ -3,15 +3,15 @@ title: VMware 소프트웨어 버전
 description: Azure VMware Solution에 지원되는 VMware 소프트웨어 버전입니다.
 ms.topic: include
 ms.date: 07/20/2021
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.service: azure-vmware
-ms.openlocfilehash: c80aed722a58fd8178e78d1ea98b888abdd8b830
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ab7e1e5afd8d6a4039f610c5f6ca5678ce0f8006
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122228958"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129638501"
 ---
 <!-- Used in faq.md and concepts-private-clouds-clusters#host-maintenance-and-lifecycle-management -->
 

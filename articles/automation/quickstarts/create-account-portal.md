@@ -6,12 +6,12 @@ ms.date: 09/07/2021
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 5d73da041b5ecb5dd2b7089ee898b5bffbe4f512
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: f0f93a43fd74ba38b8be17636b695e287354ed5a
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123543001"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129218278"
 ---
 # <a name="quickstart-create-an-automation-account-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Automation 계정 만들기
 
@@ -27,13 +27,13 @@ ms.locfileid: "123543001"
 
 1. 위쪽 메뉴에서 **+ 리소스 만들기** 를 선택합니다.
 
-1. 범주**에서 **IT 및 관리 도구** 를 선택한 다음, **자동화** 를 선택합니다.
+1. **범주** 에서 **IT 및 관리 도구** 를 선택한 다음, **자동화** 를 선택합니다.
 
    :::image type="content" source="./media/create-account-portal/automation-account-portal.png" alt-text="포털에서 Automation 계정 찾기.":::
 
 1. **액세스 정책 추가** 페이지에서 다음 정보를 제공합니다.
 
-   | 속성 | Description |
+   | 속성 | 설명 |
    |---|---|
    |Name| 위치 및 리소스 그룹에 고유한 이름을 입력합니다. 삭제된 Automation 계정의 이름은 즉시 사용할 수 없습니다. 사용자 인터페이스에 입력된 계정 이름은 변경할 수 없습니다. |
    |구독| 드롭다운 목록에서 계정에 대한 Azure 구독을 선택합니다.|

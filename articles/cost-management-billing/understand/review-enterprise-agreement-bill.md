@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 09/08/2021
 ms.author: banders
-ms.openlocfilehash: 5d945c421dc0a4abed17b3a355339c131dd922df
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 60c7acf1f88f37d44ef38516480640eeebd220b9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728053"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662042"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Azure 기업계약 청구서 이해
 
@@ -42,7 +42,7 @@ ms.locfileid: "107728053"
 청구 기간 중에 다음 이벤트 중 하나가 발생하면 Azure 청구서를 받게 됩니다.
 
 - **서비스 초과**: 조직의 사용 요금이 크레딧 잔액을 초과합니다.
-- **별도 청구 요금**: 조직에서 사용한 서비스가 크레딧에 적용되지 않습니다. 다음 서비스에 대해서는 크레딧 잔액과 관계없이 청구서를 받게 됩니다.
+- **별도 청구 요금**: 조직에서 사용한 서비스가 크레딧에 적용되지 않습니다. 다음 서비스에 대해서는 크레딧 잔액과 관계없이 청구서를 받게 됩니다. 표시된 서비스는 별도로 청구되는 요금의 예입니다. [지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)을 제출하여 요금이 개별적으로 청구되는 전체 서비스 목록을 가져올 수 있습니다.
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop
@@ -75,7 +75,7 @@ Enterprise Portal의 **보고서** > **사용량 요약** 에 표시된 총 결�
 다음 이벤트 중 하나라도 발생하면 하나 이상의 Azure 청구서를 받게 됩니다.
 
 - **서비스 초과**: 조직의 사용 요금이 크레딧 잔액을 초과합니다.
-- **별도 청구 요금**: 조직에서 사용한 서비스가 크레딧에 적용되지 않습니다. 다음 서비스에 대해 송장이 청구됩니다.
+- **별도 청구 요금**: 조직에서 사용한 서비스가 크레딧에 적용되지 않습니다. 다음 서비스에 대해 송장이 청구됩니다. 표시된 서비스는 별도로 청구되는 요금의 예입니다. [지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)을 제출하여 요금이 개별적으로 청구되는 전체 서비스 목록을 가져올 수 있습니다.
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop
@@ -368,7 +368,7 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 
 ### <a name="to-access-microsoft-azure-consumption-insights"></a>Microsoft Azure Consumption Insights에 액세스하려면
 
-1. [Microsoft Azure Consumption Insights](https://app.powerbi.com/getdata/services/azureconsumption?cpcode=MicrosoftAzureConsumptionInsights&amp;getDataForceConnect=true&amp;WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26)로 이동합니다.
+1. Microsoft Azure Consumption Insights로 이동합니다.
 1. **지금 가져오기** 를 선택합니다.
 1. 등록 번호와 개월 수를 제공하고, **다음** 을 선택합니다.
 1. 연결할 API 액세스 키를 입력합니다. [Enterprise Portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26)에서 등록에 대한 키를 찾을 수 있습니다.

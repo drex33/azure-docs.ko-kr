@@ -3,21 +3,21 @@ title: '빠른 시작: Java 웹앱에 Microsoft로 로그인 추가 | Azure'
 titleSuffix: Microsoft identity platform
 description: 이 빠른 시작에서는 OpenID Connect를 사용하여 Java 웹 애플리케이션에 Microsoft 로그인을 추가하는 방법을 알아봅니다.
 services: active-directory
-author: sangonzal
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/09/2019
-ms.author: sagonzal
+ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 6ba0052aec7e0938443560f5f0868431907c1b27
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 196500eb70a559339bd237670434ad8f562eda8c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112580857"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128551173"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>빠른 시작: Java 웹앱에 Microsoft로 로그인 추가
 
@@ -49,7 +49,7 @@ ms.locfileid: "112580857"
 > 애플리케이션을 등록하고 앱의 등록 정보를 수동으로 추가하려면 다음 단계를 따르세요.
 >
 > 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
-> 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+> 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트로 전환합니다.
 > 1. **Azure Active Directory** 를 검색하고 선택합니다.
 > 1. **관리** 아래에서 **앱 등록** 을 선택합니다.
 > 1. **새 등록** 을 선택합니다.

@@ -1,14 +1,14 @@
 ---
 title: Azure Defender for IoT와 Palo Alto 통합
 description: Defender for IoT는 연속 ICS 위협 모니터링 플랫폼을 Palo Alto의 차세대 방화벽과 통합하여 중요한 위협 요소를 더 빠르고 효율적으로 차단하고 있습니다.
-ms.date: 09/29/2021
+ms.date: 09/26/2021
 ms.topic: tutorial
-ms.openlocfilehash: ca6160920a19fc653132d6fdc8cccd878da7cee5
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 6579c69d5ab789c97972a81f00dc56d19ce1f9f8
+ms.sourcegitcommit: 149815030568fb4d4dd2e2025a18dc64fc190d07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129236800"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129062054"
 ---
 # <a name="tutorial-integrate-palo-alto-with-azure-defender-for-iot"></a>자습서: Azure Defender for IoT와 Palo Alto 통합
 
@@ -22,7 +22,7 @@ Defender for IoT는 연속 ICS 위협 모니터링 플랫폼을 Palo Alto의 차
 
 - 중앙 관리 시스템 차단에 대한 권장 사항 보내기: Defender for IoT와 Panorama 통합
 
-이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > - 지정된 Palo Alto 방화벽을 통해 즉각적인 차단 구성
@@ -91,7 +91,7 @@ Defender for IoT와 Palo Alto Networks를 통합하면 Palo Alto Networks의 NMS
 
 다음 표에는 이 통합이 어떤 인시던트를 위한 것인지 설명되어 있습니다.
 
-| 인시던트 유형 | Description |
+| 인시던트 유형 | 설명 |
 |--|--|
 |**권한 없는 PLC 변경** | 디바이스의 사다리 논리 또는 펌웨어에 대한 업데이트입니다. 합법적인 작업이나 디바이스를 손상시키려는 시도를 나타낼 수 있습니다. 예를 들어 RAT(원격 액세스 트로이) 또는 물리적 프로세스를 야기하는 회전 터빈과 같은 악성 코드가 안전하지 않은 방식으로 작동할 수 있습니다. |
 |**프로토콜 위반** | 프로토콜 사양을 위반하는 패킷 구조 또는 필드 값입니다. 이것은 잘못 구성된 애플리케이션 또는 디바이스를 손상시키려는 악의적 시도를 나타낼 수 있습니다. 대상 디바이스에서 버퍼 오버플로 조건을 발생시키는 경우를 예로 들 수 있습니다. |

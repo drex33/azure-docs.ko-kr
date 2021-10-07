@@ -6,12 +6,12 @@ ms.date: 11/25/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 5f6b5eb64de1e904805446f731158443205d6b68
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: 09beb020680429b09bc7470da186eede47065cc4
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110082442"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129616895"
 ---
 # <a name="upgrading-from-application-insights-java-2x-sdk"></a>Application Insights Java 2.x SDK에서 업그레이드
 
@@ -113,31 +113,6 @@ Application Insights Java 3.x의 작업 이름은 일반적으로 Application In
     ]
   }
 }
-```
-
-## <a name="dependency-names"></a>종속성 이름
-
-Application Insights Java 3.x의 종속성 이름도 변경되어 Application Insights 포털 U/X에서 일반적으로 더 나은 집계 보기를 제공합니다.
-
-다시 말하지만, 일부 애플리케이션의 경우 이전 종속성 이름에서 제공한 U/X의 집계 보기를 여전히 선호할 수 있습니다. 이 경우 위와 유사한 기술을 사용하여 이전 동작을 복제할 수 있습니다.
-
-## <a name="operation-name-on-dependencies"></a>종속성에 대한 작업 이름
-
-이전에 Application Insights Java 2.x SDK에서 요청 원격 분석의 작업 이름도 종속성 원격 분석에 설정되었습니다.
-Application Insights Java 3.x는 더 이상 종속성 원격 분석에서 작업 이름을 채우지 않습니다.
-종속성 원격 분석의 부모인 요청에 대한 작업 이름을 확인하려는 경우 종속성 테이블에서 요청 테이블로 조인하는 로그(Kusto) 쿼리를 작성할 수 있습니다. 예:
-
-```
-let start = datetime('...');
-let end = datetime('...');
-dependencies
-| where timestamp between (start .. end)
-| project timestamp, type, name, operation_Id
-| join (requests
-    | where timestamp between (start .. end)
-    | project operation_Name, operation_Id)
-    on $left.operation_Id == $right.operation_Id
-| summarize count() by operation_Name, type, name
 ```
 
 ## <a name="2x-sdk-logging-appenders"></a>2.x SDK 로깅 어펜더

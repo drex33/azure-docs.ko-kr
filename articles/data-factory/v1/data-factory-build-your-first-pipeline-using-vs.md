@@ -5,15 +5,16 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: tutorial
 ms.custom: vs-azure, devx-track-azurepowershell
 ms.date: 01/22/2018
-ms.openlocfilehash: 2d48386e0d9b4d82de5deb62da95677172c74155
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: d24ee6c0ff6672a00b137f37bf332fe0f39d59a0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110671000"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667467"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>자습서: Visual Studio를 사용하여 데이터 팩터리 만들기
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -69,10 +70,10 @@ ms.locfileid: "110671000"
 1. **Visual Studio 2013** 또는 **Visual Studio 2015** 를 시작합니다. **File** 을 클릭하고 **New** 를 가리킨 다음 **프로젝트** 를 클릭합니다. **새 프로젝트** 대화 상자가 나타납니다.  
 2. **새 프로젝트** 대화 상자에서 **DataFactory** 템플릿을 선택하고 **빈 데이터 팩터리 프로젝트** 를 클릭합니다.   
 
-    ![새 프로젝트 대화 상자](./media/data-factory-build-your-first-pipeline-using-vs/new-project-dialog.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/new-project-dialog.png" alt-text="새 프로젝트 대화 상자":::
 3. 프로젝트의 **이름**, **위치**, **솔루션** 의 이름을 입력한 다음 **확인** 을 클릭합니다.
 
-    ![솔루션 탐색기](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png" alt-text="솔루션 탐색기":::
 
 ### <a name="create-linked-services"></a>연결된 서비스 만들기
 이 단계에서는 두 가지 연결된 서비스 **Azure Storage** 및 **주문형 HDInsight** 를 만듭니다. 
@@ -87,9 +88,9 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 #### <a name="create-azure-storage-linked-service"></a>Azure Storage 연결된 서비스 만들기
 1. 솔루션 탐색기에서 **연결된 서비스** 를 마우스 오른쪽 단추로 클릭하고 **추가** 를 가리킨 다음 **새 항목** 을 클릭합니다.      
 2. **새 항목 추가** 대화 상자의 목록에서 **Azure Storage 연결된 서비스** 를 선택한 다음 **추가** 를 클릭합니다.
-    ![목록에서 Azure Storage Linked Service를 강조 표시하는 스크린샷.](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png" alt-text="목록에서 Azure Storage Linked Service를 강조 표시하는 스크린샷.":::
 3. `<accountname>` 및 `<accountkey>`를 Azure Storage 계정 이름 및 해당 키로 바꿉니다. 스토리지 액세스 키를 가져오는 방법을 알아보려면 [스토리지 계정 액세스 키 관리](../../storage/common/storage-account-keys-manage.md)를 참조하세요.
-    ![Azure Storage 연결 서비스](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png" alt-text="Azure Storage 연결 서비스":::
 4. **AzureStorageLinkedService1.json** 파일을 저장합니다.
 
 #### <a name="create-azure-hdinsight-linked-service"></a>Azure HDInsight 연결된 서비스 만들기
@@ -293,10 +294,10 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 2. **Microsoft 계정에 로그인** 대화 상자가 표시되면 Azure 구독이 있는 계정의 자격 증명을 입력하고 **로그인** 을 클릭합니다.
 3. 다음 대화 상자가 표시됩니다.
 
-   ![게시 대화 상자](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
+   :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/publish.png" alt-text="게시 대화 상자":::
 4. **데이터 팩터리 구성** 페이지에서 다음 단계를 수행합니다.
 
-    ![게시 - 새 데이터 팩터리 설정](media/data-factory-build-your-first-pipeline-using-vs/publish-new-data-factory.png)
+    :::image type="content" source="media/data-factory-build-your-first-pipeline-using-vs/publish-new-data-factory.png" alt-text="게시 - 새 데이터 팩터리 설정":::
 
    1. **새 데이터 팩터리 만들기** 옵션을 선택합니다.
    2. 데이터 팩터리의 고유한 **이름** 을 입력합니다. 예: **DataFactoryUsingVS09152016** 이름은 전역적으로 고유해야 합니다.
@@ -311,10 +312,10 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
       > 게시할 때 **데이터 팩터리 이름 “DataFactoryUsingVS”를 사용할 수 없습니다.** 오류가 표시되는 경우 이름을 변경합니다(예: yournameDataFactoryUsingVS). 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.   
 1. **항목 게시** 페이지에서 모든 데이터 팩터리 엔터티가 선택되었는지 확인하고 **다음** 을 클릭하여 **요약** 페이지로 전환합니다.
 
-    ![항목 페이지 게시](media/data-factory-build-your-first-pipeline-using-vs/publish-items-page.png)     
+    :::image type="content" source="media/data-factory-build-your-first-pipeline-using-vs/publish-items-page.png" alt-text="항목 페이지 게시":::     
 2. 요약을 검토한 후 **다음** 을 클릭하여 배포 프로세스를 시작하고 **배포 상태** 를 봅니다.
 
-    ![요약 페이지](media/data-factory-build-your-first-pipeline-using-vs/summary-page.png)
+    :::image type="content" source="media/data-factory-build-your-first-pipeline-using-vs/summary-page.png" alt-text="요약 페이지":::
 3. **배포 상태** 페이지에 배포 프로세스의 상태가 표시됩니다. 배포가 완료되면 마침을 클릭합니다.
 
 염두해 둘 중요한 사항은 다음과 같습니다.
@@ -340,46 +341,46 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 1. [Azure Portal](https://portal.azure.com/)에 로그인하고 다음 단계를 수행합니다.
    1. **더 많은 서비스** 를 클릭하고 **데이터 팩터리** 를 클릭합니다.
        
-        ![데이터 팩터리 찾아보기](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
+        :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png" alt-text="데이터 팩터리 찾아보기":::
    2. 데이터 팩터리의 목록에서 데이터 팩터리의 이름을 선택합니다(예: **DataFactoryUsingVS09152016**).
    
-       ![데이터 팩터리 선택](./media/data-factory-build-your-first-pipeline-using-vs/select-first-data-factory.png)
+       :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/select-first-data-factory.png" alt-text="데이터 팩터리 선택":::
 2. 데이터 팩터리에 대한 홈페이지에서 **다이어그램** 을 클릭합니다.
 
-    ![다이어그램 타일](./media/data-factory-build-your-first-pipeline-using-vs/diagram-tile.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/diagram-tile.png" alt-text="다이어그램 타일":::
 3. 다이어그램 보기에 파이프라인의 개요와 이 자습서에 사용된 데이터 세트가 표시됩니다.
 
-    ![다이어그램 뷰](./media/data-factory-build-your-first-pipeline-using-vs/diagram-view-2.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/diagram-view-2.png" alt-text="다이어그램 뷰":::
 4. 파이프라인의 모든 작업을 보려면 다이어그램에서 파이프라인을 마우스 오른쪽 단추로 클릭하고 파이프라인 열기를 클릭합니다.
 
-    ![파이프라인 열기 메뉴](./media/data-factory-build-your-first-pipeline-using-vs/open-pipeline-menu.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/open-pipeline-menu.png" alt-text="파이프라인 열기 메뉴":::
 5. 파이프라인에서 HDInsightHive 활동이 표시되는지 확인합니다.
 
-    ![파이프라인 보기 열기](./media/data-factory-build-your-first-pipeline-using-vs/open-pipeline-view.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/open-pipeline-view.png" alt-text="파이프라인 보기 열기":::
 
     이전 보기를 탐색하려면 맨 위에서 breadcrumb 메뉴의 **데이터 팩터리** 를 클릭합니다.
 6. **다이어그램 보기** 에서 **AzureBlobInput** 데이터 세트를 두 번 클릭합니다. 조각이 **준비** 상태인지 확인합니다. 조각이 준비 상태로 표시되려면 몇 분이 걸릴 수 있습니다. 잠시 대기한 후에 표시되지 않는 경우 오른쪽 컨테이너(`adfgetstarted`) 및 폴더(`inputdata`)에 배치된 입력 파일(input.log)이 있는지 확인합니다. 입력 데이터 세트의 **외부** 속성을 **true** 로 설정했는지 확인합니다. 
 
-   ![준비 상태인 입력 조각](./media/data-factory-build-your-first-pipeline-using-vs/input-slice-ready.png)
+   :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/input-slice-ready.png" alt-text="준비 상태인 입력 조각":::
 7. **X** 를 닫아서 **AzureBlobInput** 블레이드를 닫습니다.
 8. **다이어그램 보기** 에서 **AzureBlobOutput** 데이터 세트를 두 번 클릭합니다. 현재 처리 중인 조각이 표시됩니다.
 
-   ![AzureBlobOutput 데이터 세트를 강조 표시하는 스크린샷.](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
+   :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png" alt-text="AzureBlobOutput 데이터 세트를 강조 표시하는 스크린샷.":::
 9. 처리가 완료되면 **준비** 상태인 조각이 표시됩니다.
 
    > [!IMPORTANT]
    > 주문형 HDInsight 클러스터 만들기는 일반적으로 시간이 소요됩니다.(대략 20분) 따라서 파이프라인이 조각을 처리하는 데 **약 30분** 이 걸릴 수 있습니다.  
    
-    ![데이터 세트](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)    
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png" alt-text="데이터 세트":::    
 10. 조각이 **준비** 상태이면 Blob Storage의 `adfgetstarted` 컨테이너에 있는 `partitioneddata` 폴더에서 출력 데이터를 확인합니다.  
 
-    ![출력 데이터](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png" alt-text="출력 데이터":::
 11. 자세한 내용을 보려면 **데이터 조각** 블레이드에서 조각을 클릭합니다.
 
-    ![데이터 조각 세부 정보](./media/data-factory-build-your-first-pipeline-using-vs/data-slice-details.png)  
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/data-slice-details.png" alt-text="데이터 조각 세부 정보":::  
 12. **작업 실행 목록** 에서 작업 실행을 클릭하여 **작업 실행 세부 정보** 창에서 작업 실행에 대한 세부 정보를 봅니다(이 시나리오에서 Hive 작업). 
   
-    ![작업 실행 세부 정보](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png)    
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png" alt-text="작업 실행 세부 정보":::    
 
     로그 파일에서 실행되는 Hive 쿼리 및 상태 정보를 볼 수 있습니다. 이러한 로그는 문제를 해결하는 데 유용합니다.  
 
@@ -390,12 +391,12 @@ Azure 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데�
 
 1. 타일 모니터링 및 관리를 클릭합니다.
 
-    ![타일 모니터링 및 관리](./media/data-factory-build-your-first-pipeline-using-vs/monitor-and-manage-tile.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/monitor-and-manage-tile.png" alt-text="타일 모니터링 및 관리":::
 2. 애플리케이션 모니터링 및 관리가 표시되어야 합니다. **시작 시간** 및 **종료 시간** 을 파이프라인 시작 시간(2016-04-01 오전 12시) 및 종료 시간(2016-04-02 오전 12시)에 맞게 변경하고 **적용** 을 클릭합니다.
 
-    ![앱 모니터링 및 관리](./media/data-factory-build-your-first-pipeline-using-vs/monitor-and-manage-app.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/monitor-and-manage-app.png" alt-text="앱 모니터링 및 관리":::
 3. 작업 창에 대한 자세한 내용을 보려면 **작업 창 목록** 에서 작업 창을 선택합니다.
-    ![활동 창 세부 정보](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-details.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/activity-window-details.png" alt-text="활동 창 세부 정보":::
 
 > [!IMPORTANT]
 > 조각이 성공적으로 처리될 때 입력된 파일이 삭제됩니다. 따라서 조각을 다시 실행하거나 자습서를 다시 수행하려는 경우 `adfgetstarted` 컨테이너의 `inputdata` 폴더에 입력 파일(input.log)을 업로드합니다.
@@ -417,10 +418,10 @@ Azure 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데�
 1. **Visual Studio** 의 메뉴에서 **보기** 를 클릭한 다음 **서버 탐색기** 를 클릭합니다.
 2. 서버 탐색기 창에서 **Azure** 를 확장한 다음 **Data Factory** 를 확장합니다. **Visual Studio에 로그인** 이 표시되면 Azure 구독과 연결된 **계정** 을 입력하고 **계속** 을 클릭합니다. **암호** 를 입력하고 **로그인** 을 클릭합니다. Visual Studio에서는 구독에 있는 모든 Azure Data Factory에 대한 정보를 가져오려고 시도합니다. **데이터 팩터리 작업 목록** 창에 이 작업의 상태가 표시됩니다.
 
-    ![서버 탐색기](./media/data-factory-build-your-first-pipeline-using-vs/server-explorer.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/server-explorer.png" alt-text="서버 탐색기":::
 3. 데이터 팩터리를 마우스 오른쪽 단추로 클릭하고 **새 프로젝트로 데이터 팩터리 내보내기** 를 선택하여 기존 데이터 팩터리에 따라 Visual Studio 프로젝트를 만들 수 있습니다.
 
-    ![데이터 팩터리 내보내기](./media/data-factory-build-your-first-pipeline-using-vs/export-data-factory-menu.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/export-data-factory-menu.png" alt-text="데이터 팩터리 내보내기":::
 
 ## <a name="update-data-factory-tools-for-visual-studio"></a>Visual Studio용 데이터 팩터리 도구 업데이트
 Visual Studio용 Azure Data Factory 도구를 업데이트하려면 다음 단계를 수행합니다.
@@ -453,7 +454,7 @@ Azure Storage 연결 서비스에 대한 다음 JSON 정의를 고려해야 합�
 1. Visual Studio 솔루션의 데이터 팩터리 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** 를 가리킨 다음 **새 항목** 을 클릭합니다.
 2. 왼쪽에 있는 설치된 템플릿 목록에서 **구성** 을 선택하고 **구성 파일** 을 선택한 다음, 구성 파일의 **이름** 을 입력하고 **추가** 를 클릭합니다.
 
-    ![구성 파일 추가](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png" alt-text="구성 파일 추가":::
 3. 다음 형식으로 구성 매개 변수와 해당 값을 추가합니다.
 
     ```json
@@ -531,7 +532,7 @@ VS에서 Azure 데이터 팩터리 엔터티를 게시하는 경우 해당 게�
 2. 기존 데이터 팩터리를 선택하거나 **데이터 팩터리 구성** 페이지에서 데이터 팩터리를 만드는 값을 지정하고 **다음** 을 클릭합니다.   
 3. **항목 게시** 페이지에서 **배포 구성 선택** 필드에 사용 가능한 구성이 있는 드롭다운 목록이 표시됩니다.
 
-    ![구성 파일 선택](./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png)
+    :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png" alt-text="구성 파일 선택":::
 4. 사용하려는 **구성 파일** 을 선택하고 **다음** 을 클릭합니다.
 5. **요약** 페이지에서 JSON 파일의 이름이 표시되는지 확인하고 **다음** 을 클릭합니다.
 6. 배포 작업이 완료되면 **마침** 을 클릭합니다.

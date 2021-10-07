@@ -25,6 +25,8 @@
   items:
     - name: Azure Defender for IoT 평가판 설치
       href: tutorial-onboarding.md
+    - name: ClearPass 통합
+      href: tutorial-clearpass.md
     - name: CyberArk 통합
       href: tutorial-cyberark.md
     - name: Forescout 통합

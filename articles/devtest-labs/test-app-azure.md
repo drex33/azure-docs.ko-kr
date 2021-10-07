@@ -1,14 +1,14 @@
 ---
-title: Azure에서 앱을 테스트하는 방법 | Microsoft Docs
+title: Azure에서 앱을 테스트하는 방법
 description: 랩에서 파일 공유를 만들어 랩의 로컬 컴퓨터 및 가상 머신에 파일 공유를 탑재하는 방법을 알아본 다음, 데스크톱/웹 애플리케이션을 파일 공유에 배포하고 테스트해 보세요.
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/26/2020
-ms.openlocfilehash: b2dbbf349da4e352fe20a22db03cc9063d801990
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e9d4e78bf0ebe5e28ac9bb180acafae3fcdd0f08
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87282248"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128604382"
 ---
 # <a name="test-your-app-in-azure"></a>Azure에서 앱 테스트 
 이 문서에서는 DevTest Lab을 사용하여 Azure에서 애플리케이션을 테스트하는 방법에 대한 단계를 제공합니다. 먼저 랩 내에서 파일 공유를 설정하고 로컬 개발 컴퓨터의 드라이브 및 랩 내의 VM으로 탑재합니다. 그러면 Visual Studio 2019를 사용하여 앱을 파일 공유에 배포하므로 랩의 VM에서 앱을 실행할 수 있습니다.  

@@ -9,12 +9,12 @@ ms.date: 10/16/2020
 ms.custom: subject-armqs
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7d6111a68be8bc195b7268a778a77facdd944772
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 2940e407e88239aa1afec84137e72073b7a5028a
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129084135"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533234"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 App Service 앱 만들기
 
@@ -142,7 +142,7 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 <summary>다른 언어 스택은 어떻게 배포하나요?</summary>
 다른 언어 스택을 배포하려면 - 업데이트: <abbr title="이 템플릿은 .NET Core, .NET Framework, PHP, Node.js 및 정적 HTML 앱과 호환됩니다.">언어 매개 변수</abbr> 적절한 값으로. Java의 경우 <a href="/azure/app-service/quickstart-java-uiex">Java 앱 만들기</a>를 참조하세요.
 
-| 매개 변수 | Type    | 기본값                | 설명 |
+| 매개 변수 | Type    | 기본값                | Description |
 |------------|---------|------------------------------|-------------|
 | 언어   | 문자열  | ".net"                       | 프로그래밍 언어 스택(.net, php, node, html) |
 
@@ -191,4 +191,3 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 - Postgres를 사용하는 Python
 - [MySQL을 사용하는 PHP](tutorial-php-mysql-app.md)
 - [Java를 사용하여 Azure SQL 데이터베이스에 연결](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
-- [사용자 지정 도메인 매핑](app-service-web-tutorial-custom-domain-uiex.md)

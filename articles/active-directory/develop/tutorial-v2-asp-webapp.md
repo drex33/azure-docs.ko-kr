@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 38def2b5af3a5f0f9a32c2b681bd0ee95ca44086
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2d1f6cf3fc8b5c59d765e61299609b0e11ba1bf5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102174685"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128592036"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>자습서: Microsoft에 로그인을 ASP.NET 웹앱에 추가
 
@@ -376,7 +376,7 @@ Visual Studio에서 새 보기를 만들어 사용자의 클레임을 웹 페이
    1. SSL URL을 복사합니다. 다음 단계에 나오는 등록 포털의 리디렉션 URI 목록에서 이 URL을 리디렉션 URI 목록에 추가합니다.<br/><br/>![프로젝트 속성](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
    
 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
-1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트로 전환합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
 1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `ASPNET-Tutorial`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
@@ -406,8 +406,8 @@ Visual Studio에서 애플리케이션을 테스트하려면 F5 키를 눌러 �
 <br/><br/>
 ![Microsoft 계정으로 로그인](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
-#### <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Microsoft ID 플랫폼의 권한 및 동의
-Microsoft ID 플랫폼과 통합되는 애플리케이션은 사용자와 관리자가 데이터 액세스 방법을 제어할 수 있는 권한 부여 모델을 따릅니다. 사용자가 이 애플리케이션에 액세스하기 위해 Microsoft ID 플랫폼을 사용하여 인증하면 애플리케이션에서 요청한 권한("기본 프로필 보기" 및 "사용자가 액세스 권한을 부여한 데이터에 대한 액세스 유지")에 동의하라는 메시지가 표시됩니다. 이러한 권한에 동의한 사용자는 애플리케이션 결과를 계속 진행할 수 있습니다. 그러나 다음 중 하나가 발생하면 사용자에게 **관리자 동의 필요** 페이지가 대신 표시될 수 있습니다.
+#### <a name="permissions-and-consent-in-the-microsoft-identity-platform&quot;></a>Microsoft ID 플랫폼의 권한 및 동의
+Microsoft ID 플랫폼과 통합되는 애플리케이션은 사용자와 관리자가 데이터 액세스 방법을 제어할 수 있는 권한 부여 모델을 따릅니다. 사용자가 이 애플리케이션에 액세스하기 위해 Microsoft ID 플랫폼을 사용하여 인증하면 애플리케이션에서 요청한 권한(&quot;기본 프로필 보기&quot; 및 &quot;사용자가 액세스 권한을 부여한 데이터에 대한 액세스 유지")에 동의하라는 메시지가 표시됩니다. 이러한 권한에 동의한 사용자는 애플리케이션 결과를 계속 진행할 수 있습니다. 그러나 다음 중 하나가 발생하면 사용자에게 **관리자 동의 필요** 페이지가 대신 표시될 수 있습니다.
 
 - 애플리케이션 개발자가 **관리자 동의** 가 필요한 추가 권한을 추가합니다.
 - 또는 사용자가 자신을 대신하여 회사 데이터에 액세스하는 앱에 동의할 수 없는 테넌트가 **엔터프라이즈 애플리케이션 -> 사용자 설정** 에 구성되어 있습니다.
@@ -426,7 +426,7 @@ Microsoft ID 플랫폼과 통합되는 애플리케이션은 사용자와 관리
 
 컨트롤러 뷰로 이동 후 사용자를 위한 기본 속성이 담긴 테이블을 확인해야 합니다.
 
-|속성 |값 |설명 |
+|속성 |값 |Description |
 |---|---|---|
 |**이름** |사용자의 전체 이름 | 사용자의 이름과 성
 |**사용자 이름** |user<span>@domain.com</span> | 사용자를 식별하는 데 사용되는 사용자 이름|

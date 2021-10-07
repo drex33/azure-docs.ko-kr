@@ -3,15 +3,15 @@ title: NSX-T 네트워크 세그먼트 추가
 description: NSX-T Manager에서 Azure VMware Solution의 NSX-T 네트워크 세그먼트를 추가하는 단계입니다.
 ms.topic: include
 ms.date: 03/13/2021
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.service: azure-vmware
-ms.openlocfilehash: 8431c562b04d62469d2ab261aef0bd779f24ebc6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1e6d50e1ca05ea15c4d6690965c112565dae76f5
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121734229"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129638588"
 ---
 <!-- Used in configure-dhcp-azure-vmware-solution.md and tutorial-nsx-t-network-segment.md -->
 

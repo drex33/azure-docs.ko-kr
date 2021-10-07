@@ -259,8 +259,6 @@
           href: vpn-gateway-activeactive-rm-powershell.md
     - name: 영역 중복 게이트웨이 구성
       href: create-zone-redundant-vnet-gateway.md
-    - name: 패킷 캡처 구성
-      href: packet-capture.md
     - name: 모니터링
       items:
         - name: VPN Gateway 모니터링
@@ -269,6 +267,8 @@
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
         - name: 리소스 로그 기반의 경고 설정
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
+        - name: 패킷 캡처 구성
+          href: packet-capture.md
     - name: 문제 해결
       items:
         - name: VPN Gateway 문제 해결

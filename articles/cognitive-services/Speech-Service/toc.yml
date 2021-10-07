@@ -31,6 +31,8 @@
           displayName: 'codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk'
         - name: 특정 마이크 입력 디바이스 선택
           href: how-to-select-audio-input-devices.md
+        - name: 언어 식별
+          href: language-identification.md
         - name: 언어 식별 사용
           href: how-to-automatic-language-detection.md
         - name: 일괄 처리 기록 API 사용
@@ -330,8 +332,6 @@
       href: keyword-recognition-guidelines.md
     - name: 지역 지원
       href: keyword-recognition-region-support.md
-- name: 언어 식별
-  href: language-identification.md
 - name: 시나리오 심층 분석
   items:
     - name: 대화 시나리오

@@ -6,15 +6,15 @@ metadata:
   description: Azure VMware Solution을 사용하여 Azure에 VMware 프라이빗 클라우드를 배포하는 방법을 알아봅니다.
   ms.service: azure-vmware
   ms.topic: landing-page
-  author: shortpatti
-  ms.author: v-patsho
-  ms.date: 09/13/2021
-  ms.openlocfilehash: 2cecf4d25be4d3062005b865c8fefd2c5bfe4bac
-  ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+  author: suzizuber
+  ms.author: v-szuber
+  ms.date: 10/06/2021
+  ms.openlocfilehash: b6a2adc66a594ec46920bae2bcda9add69cf8a21
+  ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/29/2021
-  ms.locfileid: "129215741"
+  ms.lasthandoff: 10/06/2021
+  ms.locfileid: "129618459"
 landingContent:
 - title: Azure VMware Solution 정보
   linkLists:

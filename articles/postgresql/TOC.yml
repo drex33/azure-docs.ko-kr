@@ -730,6 +730,8 @@
           href: howto-hyperscale-restart.md
         - name: 모니터
           items:
+            - name: 메트릭 보기
+              href: howto-hyperscale-monitoring.md
             - name: 메트릭에 대한 경고 만들기
               href: howto-hyperscale-alert-on-metric.md
               dispalyName: alerts on hyperscale

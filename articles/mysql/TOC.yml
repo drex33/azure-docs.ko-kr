@@ -103,7 +103,7 @@
               displayName: firewall
         - name: 서버 매개 변수 구성
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-server-parameters.md
               displayName: server parameters
             - name: Azure CLI
@@ -430,7 +430,7 @@
           href: flexible-server/how-to-connect-tls-ssl.md
         - name: 서버 매개 변수 구성
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: flexible-server/how-to-configure-server-parameters-portal.md
               displayName: server parameters
             - name: Azure CLI
@@ -439,8 +439,6 @@
         - name: 데이터베이스와 사용자 만들기
           href: howto-create-users.md
           displayName: users
-        - name: 모니터 서버
-          href: flexible-server/how-to-alert-on-metric.md
     - name: 개념
       items:
         - name: 서버 관리
@@ -472,7 +470,7 @@
               href: flexible-server/concepts-business-continuity.md
             - name: 고가용성
               href: flexible-server/concepts-high-availability.md
-        - name: 모니터링 및 로그
+        - name: 모니터링
           items:
             - name: 모니터링 개요
               href: flexible-server/concepts-monitoring.md
@@ -480,6 +478,8 @@
               href: flexible-server/concepts-slow-query-logs.md
             - name: 감사 로그
               href: flexible-server/concepts-audit-logs.md
+            - name: 통합 문서
+              href: flexible-server/concepts-workbooks.md
         - name: 복제
           items:
             - name: 데이터 내부 복제
@@ -505,7 +505,7 @@
               items:
                 - name: GitHub 작업
                   href: quickstart-mysql-github-actions.md
-                - name: Azure 파이프라인
+                - name: Azure Pipelines
                   href: flexible-server/azure-pipelines-deploy-database-task.md
         - name: 서버 관리
           items:
@@ -523,7 +523,7 @@
                   href: flexible-server/how-to-restart-stop-start-server-cli.md
             - name: 서버 다시 시작
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: flexible-server/how-to-restart-server-portal.md
                 - name: Azure CLI
                   href: flexible-server/how-to-restart-stop-start-server-cli.md
@@ -553,20 +553,14 @@
                   href: flexible-server/how-to-configure-high-availability.md
                 - name: Azure CLI
                   href: flexible-server/how-to-configure-high-availability-cli.md
-        - name: 모니터링 및 로그
+        - name: 모니터링
           items:
-            - name: 느린 쿼리 로그 구성
-              items:
-                - name: Azure Portal
-                  href: flexible-server/how-to-configure-slow-query-logs-portal.md
-                - name: Azure CLI
-                  href: flexible-server/how-to-configure-slow-query-log-cli.md
-            - name: 감사 로그 구성
-              items:
-                - name: Azure Portal
-                  href: flexible-server/how-to-configure-audit-logs-portal.md
-                - name: Azure CLI
-                  href: flexible-server/how-to-configure-audit-log-cli.md
+            - name: 쿼리 성능 Insight
+              href: flexible-server/tutorial-query-performance-insights.md
+            - name: 감사
+              href: flexible-server/tutorial-configure-audit.md
+            - name: 경고
+              href: flexible-server/how-to-alert-on-metric.md
         - name: 복제
           items:
             - name: 데이터 내부 복제 구성
@@ -582,7 +576,7 @@
           items:
             - name: 서버 복원
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: flexible-server/how-to-restore-server-portal.md
                 - name: Azure CLI
                   href: flexible-server/how-to-restore-server-cli.md

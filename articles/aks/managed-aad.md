@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/1/2021
 ms.author: miwithro
-ms.openlocfilehash: a4739276cd05ffae6015fb2464e464d0a9f15955
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: f8815258398e6aaa3c54032279645960417756d7
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129272051"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667196"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>AKS 관리형 Azure Active Directory 통합
 
@@ -29,7 +29,7 @@ Azure AD 통합 흐름에 대한 자세한 정보는 [Azure Active Directory 통
 * Kubernetes RBAC를 사용하지 않는 클러스터는 AKS 관리형 Azure AD 통합에 대해 지원되지 않습니다.
 * AKS 관리형 Azure AD 통합에 연결된 Azure AD 테넌트 변경은 지원되지 않습니다
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure CLI 버전 2.11.0 이상
 * Kubectl 최소 버전 [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) 또는 [kubelogin](https://github.com/Azure/kubelogin)
@@ -182,7 +182,7 @@ AKS 관리형 Azure AD 클러스터가 성공적으로 마이그레이션되면 
   }
 ```
 
-클러스터에 액세스하려면 [여기][access-cluster]의 단계를 수행합니다.
+Kubeconfig를 업데이트 하 여 클러스터에 액세스 하려면 [다음][access-cluster]단계를 수행 합니다.
 
 ## <a name="non-interactive-sign-in-with-kubelogin"></a>kubelogin을 사용한 비 대화형 로그인
 
@@ -394,15 +394,15 @@ aks-nodepool1-61156405-vmss000000   Ready    agent   6m36s   v1.18.14
 aks-nodepool1-61156405-vmss000001   Ready    agent   6m42s   v1.18.14
 aks-nodepool1-61156405-vmss000002   Ready    agent   6m33s   v1.18.14
 ```
-### <a name="apply-just-in-time-access-at-the-namespace-level"></a>네임스페이스 수준에서 Just-In-Time 액세스 적용
+### <a name="apply-just-in-time-access-at-the-namespace-level"></a>네임 스페이스 수준에서 Just-in-time 액세스를 적용 합니다.
 
-1. AKS 클러스터를 [Azure RBAC](manage-azure-rbac.md)와 통합합니다.
-2. 역할 할당을 통해 Just-In-Time 액세스와 통합하려는 그룹을 클러스터의 네임스페이스와 연결합니다.
+1. AKS 클러스터를 [AZURE RBAC](https://docs.microsoft.com/azure/aks/manage-azure-rbac)와 통합 합니다.
+2. 역할 할당을 통해 클러스터에서 네임 스페이스를 사용 하 여 Just-in-time 액세스와 통합 하려는 그룹을 연결 합니다.
 
 ```azurecli-interactive
 az role assignment create --role "Azure Kubernetes Service RBAC Reader" --assignee <AAD-ENTITY-ID> --scope $AKS_ID/namespaces/<namespace-name>
 ```
-3. 네임스페이스 수준에서 방금 구성한 그룹을 PIM과 연결하여 구성을 완료합니다.
+3. 네임 스페이스 수준에서 구성 된 그룹을 PIM과 연결 하 여 구성을 완료 합니다.
 
 ### <a name="troubleshooting"></a>문제 해결
 

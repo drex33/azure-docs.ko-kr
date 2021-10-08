@@ -1,6 +1,6 @@
 ---
-title: Microsoft 상업용 Marketplace의 컨설팅 서비스 제품을 계획하는 방법
-description: Microsoft 파트너 센터에서 상업용 Marketplace 프로그램을 사용하여 Microsoft AppSource 또는 Azure Marketplace에 대한 새 컨설팅 서비스 제품을 계획하는 방법입니다.
+title: 상업적 marketplace에 대 한 컨설팅 서비스 제품 계획
+description: 파트너 센터를 사용 하 여 Microsoft AppSource 또는 Azure Marketplace에 대 한 새 컨설팅 서비스 제품을 계획 하세요.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
@@ -8,14 +8,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: 3ffca17efa59a0544e06bb3bd4fbae1d812f2823
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7350fe9dfcadce2d454ab5ee9e78ad80b996bafe
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124819205"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667253"
 ---
-# <a name="how-to-plan-a-consulting-service-offer-in-the-commercial-marketplace"></a>상업용 Marketplace에서 컨설팅 서비스 제품을 계획하는 방법
+# <a name="plan-a-consulting-service-offer-in-the-commercial-marketplace"></a>상업적 marketplace에서 컨설팅 서비스 제품 계획
 
 이 문서에서는 Microsoft 상업용 Marketplace에 컨설팅 서비스 제품을 게시하기 위한 다양한 옵션과 요구 사항을 소개합니다. 파트너 센터를 사용하여 게시할 제품을 준비하려면 이 문서를 참조하세요.
 
@@ -160,7 +160,7 @@ HTML 태그를 사용하여 설명의 서식을 지정할 수 있습니다. 이 
 
 **검색 키워드**(선택 사항): 고객이 온라인 스토어에서 제품을 찾는 데 사용할 수 있는 최대 3개의 검색 키워드를 입력합니다. 제품 **이름** 및 **설명** 을 포함할 필요가 없습니다.
 
-**기간**: 컨설팅 서비스 제품에는 미리 결정 된 기간 (최대 12 개월)이 있어야 합니다.
+**기간:** 컨설팅 서비스 제안에는 최대 12개월의 미리 결정된 기간이 있어야 합니다.
 
 **연락처 정보**: 파트너 센터에서 회사에 소속된 두 사람의 이름, 메일 주소, 전화 번호를 입력하라는 메시지가 표시됩니다(자신이 두 연락처 중 하나일 수 있음). 해당 정보를 사용하여 제품에 대한 의견을 교환합니다. 해당 정보는 고객에게 표시되지 않지만, CSP(클라우드 솔루션 공급자) 파트너에게 제공될 수 있습니다.
 

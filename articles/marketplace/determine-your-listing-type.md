@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 07/30/2021
-ms.openlocfilehash: 154cfa6f8fd413c1cef1a22143d7e4d357053760
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: f1f352c93fca84f26516811b0014f6fca549b1cd
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867015"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129668811"
 ---
 # <a name="introduction-to-listing-options"></a>목록 옵션 소개
 
@@ -24,19 +24,19 @@ ms.locfileid: "122867015"
 | ------------ | ------------- | ------------- | ------------- | ------------- |
 | Azure 애플리케이션(관리형 앱) |   | &#10004; |   | &#10004; |
 | Azure 애플리케이션(솔루션 템플릿) |  |  |  | &#10004; |
-| 컨설팅 서비스 |  |  | &#10004; |  |
 | Azure 컨테이너 |  |  |  | &#10004; |
-| Dynamics 365 business central | &#10004; | &#10004; | &#10004; | &#10004; |
+| Azure Virtual Machine | &#10004; | &#10004; |  | &#10004; |
+| 컨설팅 서비스 |  |  | &#10004; |  |
+| Dynamics 365 Business Central | &#10004; | &#10004; | &#10004; | &#10004; |
 | Dynamics 365 Customer Engagement 및 Power Apps | &#10004; | &#10004; | &#10004; | &#10004; |
-| Dynamics 365 for operations | &#10004; | &#10004; | &#10004; | &#10004; |
+| Dynamics 365 for Operations | &#10004; | &#10004; | &#10004; | &#10004; |
 | IoT Edge 모듈 |  |  |  | &#10004; |
 | 관리형 서비스 |  |  |  | &#10004; |
 | Power BI App |  |  |  | &#10004; |
-| Azure Virtual Machine | &#10004; | &#10004; |  | &#10004; |
 | SaaS(Software as a Service) | &#10004; | &#10004; | &#10004; | &#10004; |
 ||||||
 
-&#42; **바로 구매** 목록에는 평가판 지금 받기, BYOL(사용자 라이선스 필요), 구독, 사용량 기반 가격 책정이 포함됩니다. 자세한 내용은 [바로 구매](#get-it-now)를 참조하세요.
+\***지금 다운로드 하** 여 나열 옵션에는 지금 가져오기 (무료), byol (사용자 라이선스 필요), 구독 및 사용량 기반 가격 책정이 포함 됩니다. 자세한 내용은 [바로 구매](#get-it-now)를 참조하세요.
 
 ## <a name="change-the-offer-type"></a>제품 유형 변경
 

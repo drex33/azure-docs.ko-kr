@@ -9,12 +9,12 @@ ms.author: amjads
 ms.collection: linux
 ms.date: 12/13/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 20be29d428fe6eaf9e7e64b4536c5014641c5416
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: 04264276b3419e32aa420792027502ce3d1acbb2
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111962527"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129669685"
 ---
 # <a name="use-linux-diagnostic-extension-30-to-monitor-metrics-and-logs"></a>Linux 진단 확장 3.0을 사용하여 메트릭 및 로그 모니터링
 
@@ -62,7 +62,7 @@ Debian 7과 같이 주 버전만 나와 있는 배포는 모든 부 버전에 �
 
 지원되는 배포판 및 버전:
 
-- Ubuntu 18.04, 16.04, 14.04
+- Ubuntu 20.04, 18.04, 16.04, 14.04
 - CentOS 7, 6.5 이상
 - Oracle Linux 7, 6.4 이상
 - OpenSUSE 13.1 이상

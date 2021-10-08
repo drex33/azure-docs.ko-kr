@@ -4,12 +4,12 @@ description: 이 문서에서는 컨테이너 인사이트를 업데이트하여
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cff5933db1d74e9853120a07444e399005b2e498
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e5fa5ddca4609c54a9f6d38270a55b1fab40c2d5
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128620828"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129668488"
 ---
 # <a name="how-to-update-container-insights-to-enable-metrics"></a>메트릭을 사용하도록 컨테이너 인사이트를 업데이트하는 방법
 
@@ -23,10 +23,10 @@ ms.locfileid: "128620828"
 
 | 메트릭 네임스페이스 | 메트릭 | Description |
 |------------------|--------|-------------|
-| Insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount, diskUsedPercentage, | *노드* 메트릭으로, 이것들에는 *호스트* 가 차원으로 포함됩니다. 또한 노드 이름이<br> *호스트* 차원에 대한 값으로 포함됩니다. |
+| Insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, Memoryrssbytes, memoryWorkingSetBytes, memoryWorkingSetPercentage, **cpuUsageAllocatablePercentage**, **memoryWorkingSetAllocatablePercentage**, **memoryrssallocatable백분율**, nodesCount, diskUsedPercentage, | *노드* 메트릭으로, 이것들에는 *호스트* 가 차원으로 포함됩니다. 또한 노드 이름이<br> *호스트* 차원에 대한 값으로 포함됩니다. |
 | Insights.container/nodes | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | *Pod* 메트릭으로서, 이것들에는 ControllerName, Kubernetes namespace, name, phase 등이 차원으로 포함됩니다. |
-| Insights.container/containers | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage | |
-| Insights.container/persistentvolumes | pvUsageExceededPercentage | |
+| Insights.container/containers | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage, **cpuThresholdViolated**, **memoryRssThresholdViolated**, **memoryWorkingSetThresholdViolated** | |
+| Insights.container/persistentvolumes | pvUsageExceededPercentage, **pvUsageThresholdViolated** | |
 
 이러한 새 기능을 지원하기 위해 새로운 컨테이너화된 에이전트가 릴리스에 포함되어 있습니다(AKS용 버전 **microsoft/oms:ciprod05262020** 및 Azure Arc 사용 Kubernetes 클러스터용 버전 **microsoft/oms: Ciprod09252020**). AKS의 새 배포에는 이 구성 변경 및 기능이 자동으로 포함됩니다. 이 기능을 지원하기 위해 Azure Portal, Azure PowerShell에서 또는 Azure CLI을 사용하여 클러스터 업데이트를 수행할 수 있습니다. Azure PowerShell 및 CLI의 경우. 클러스터 당 또는 구독의 모든 클러스터에 대해 이를 사용으로 설정할 수 있습니다.
 

@@ -8,12 +8,12 @@ ms.date: 10/01/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: references_regions
-ms.openlocfilehash: 122c6fbb6510cd0e816d080fa8821a2ed75667bd
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: e4d7bd4628e4a84d197fd6976a44c64cde77cd5f
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129615324"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667519"
 ---
 # <a name="regions-and-availability-zones"></a>지역 및 가용성 영역
 
@@ -48,7 +48,7 @@ Azure는 클라우드 공급자의 가장 광범위 한 전역 공간을 제공 
 
 | 아메리카 | 유럽 | 아프리카 | 아시아 태평양 |
 |--------------------|----------------------|---------------------|----------------|
-| 브라질 남부 | 프랑스 중부 | 남아프리카 공화국 북부\* | 오스트레일리아 동부 |
+| 브라질 남부 | 프랑스 중부 | 남아프리카 북부 | 오스트레일리아 동부 |
 | 캐나다 중부 | 독일 중서부 | | 인도 중부\* |
 | 미국 중부 | 북유럽 | | 일본 동부 |
 | 미국 동부 | 노르웨이 동부 | | 한국 중부 |

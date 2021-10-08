@@ -6,18 +6,18 @@ ms.author: trngo
 ms.date: 09/28/2021
 ms.service: azure-fluid
 ms.topic: reference
-ms.openlocfilehash: 35b6ee09860b2acfe766f1ca80722f74cc3f8974
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 5e7f30a9a81e2ae2b6feb78d3a3af84b7cb8638e
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/07/2021
-ms.locfileid: "129663027"
+ms.locfileid: "129669476"
 ---
 # <a name="delete-fluid-containers-in-microsoft-azure-fluid-relay-server"></a>Microsoft Azure Fluid Relay 서버에서 유체 컨테이너 삭제
 이 시나리오에서는 기존 유체 컨테이너를 삭제합니다. 컨테이너가 삭제되면 컨테이너를 참조하는 애플리케이션은 더 이상 컨테이너 또는 해당 데이터에 액세스할 수 없습니다. 
 
 ## <a name="requirements-to-delete-a-fluid-container"></a>유체 컨테이너를 삭제하기 위한 요구 사항
-- 시작하려면 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)를 설치해야 합니다. Azure CLI 이미 설치되어 있는 경우 을 실행하여 버전이 2.0.67 이상인지 `az version` 확인하세요.
+- 시작하려면 [Azure CLI](/cli/azure/install-azure-cli)를 설치해야 합니다. Azure CLI 이미 설치되어 있는 경우 을 실행하여 버전이 2.0.67 이상인지 `az version` 확인하세요.
 - Fluid 컨테이너를 삭제하려면 애플리케이션과 해당 클라이언트가 컨테이너에 더 이상 연결되어 있지 않은지 확인해야 합니다.
 
 ## <a name="list-the-containers-within-a-fluid-relay-resource"></a>Fluid Relay 리소스 내의 컨테이너 나열

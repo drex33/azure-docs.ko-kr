@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.date: 07/08/2021
-ms.openlocfilehash: b66f76d80d3dad6b24eefa6fb7bbd88cfce082e0
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: e92e60355c5abcded77d679be30c37f147d3e63d
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129360029"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129669875"
 ---
 # <a name="azure-machine-learning-curated-environments"></a>Azure Machine Learning 큐레이팅된 환경
 
@@ -29,12 +29,12 @@ ms.locfileid: "129360029"
 ### <a name="pytorch"></a>PyTorch
 
 **이름:** AzureML-pytorch-1.9-ubuntu18.04-py37-cuda11-gpu  
-**설명:** AzureML Python SDK 및 추가 Python 패키지가 포함된 PyTorch를 이용한 딥 러닝 환경입니다.  
+**설명:** AzureML Python SDK 및 추가 Python 패키지를 포함하는 PyTorch를 이용한 딥 러닝 환경입니다.  
 
 다음 Dockerfile은 개인 워크플로에 맞게 사용자 지정할 수 있습니다.
 
 ```dockerfile
-FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.1-cudnn8-ubuntu18.04:20210922.v1
+FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.1-cudnn8-ubuntu18.04:20211005.v1
 
 ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/pytorch-1.9
 
@@ -89,7 +89,7 @@ ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
 다음 Dockerfile은 개인 워크플로에 맞게 사용자 지정할 수 있습니다.
 
 ```dockerfile
-FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210922.v1
+FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20211005.v1
 
 ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/lightgbm
 
@@ -132,7 +132,7 @@ ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
 다음 Dockerfile은 개인 워크플로에 맞게 사용자 지정할 수 있습니다.
 
 ```dockerfile
-FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210922.v1
+FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20211005.v1
 
 ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/sklearn-0.24.1
 
@@ -169,7 +169,7 @@ ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
 다음 Dockerfile은 개인 워크플로에 맞게 사용자 지정할 수 있습니다.
 
 ```dockerfile
-FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04:20210922.v1
+FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04:20211005.v1
 
 ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/tensorflow-2.4
 
@@ -262,5 +262,5 @@ AutoML 및 Azure ML 파이프라인에 대한 자세한 내용은 [Python의 Azu
 
 
 ## <a name="security"></a>보안
-지원되는 환경에 대한 버전 업데이트는 30일 이하의 vulnerabilties를 해결하기 위해 2주마다 릴리스됩니다. 
+지원 되는 환경에 대 한 버전 업데이트는 30 일 보다 오래 된 vulnerabilties를 해결 하기 위해 2 주마다 릴리스됩니다. 
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a55a49232e18c61f1c5b1915c06cd61e1f13ab0b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4fe44c7880420d7f2bc89f479e152a23f22909e8
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128674436"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129670217"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Linux용 Key Vault 가상 머신 확장
 
@@ -33,6 +33,9 @@ Key Vault VM 확장은 다음 Linux 배포를 지원합니다.
 > [!NOTE]
 > 확장된 보안 기능을 이용하려면 Ubuntu-1604 및 Debian-9 시스템의 업그레이드를 준비하십시오. 해당 버전의 지정된 지원 기간은 곧 종료됩니다.
 > 
+
+> [!NOTE]
+> Key Vault VM 확장은 기본 위치 또는 VM 확장 설정의 "certStoreLocation" 속성에서 제공하는 위치에 인증서를 다운로드합니다. KeyValut VM 확장은 폴더 소유자에게만 읽기, 쓰기 및 실행 권한을 허용하도록 폴더 권한을 700(drwx------)으로 업데이트합니다.
 
 ### <a name="supported-certificate-content-types"></a>지원되는 인증서 콘텐츠 형식
 

@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: wellee
-ms.openlocfilehash: 8c9ab37e46f23d533550ffc535633575a85937a6
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
-ms.translationtype: HT
+ms.openlocfilehash: dc065e68d513850f9e006371861d087cccc6e155
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122778902"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129669856"
 ---
 # <a name="connect-cross-tenant-vnets-to-a-virtual-wan-hub"></a>가상 Wan 허브에 교차 테넌트 VNet 연결
 
@@ -28,6 +28,9 @@ ms.locfileid: "122778902"
 
 이 구성의 단계는 Azure Portal과 PowerShell의 조합으로 수행합니다. 그러나 기능 자체는 PowerShell과 CLI에서만 사용할 수 있습니다.
 
+>[!NOTE]
+> 테넌트 간 Virtual Network 연결은 PowerShell 또는 CLI를 통해서만 관리될 수 있습니다. Azure Portal 테넌트 간 Virtual Network 연결을 관리할 **수 없습니다.**
+> 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 ### <a name="prerequisites"></a>필수 구성 요소

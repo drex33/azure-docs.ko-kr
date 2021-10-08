@@ -3,14 +3,14 @@ title: Azure Functions에 대한 JavaScript 개발자 참조
 description: JavaScript를 사용하여 함수를 개발하는 방법을 알아봅니다.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 03/07/2021
+ms.date: 10/07/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: e62e320e2fac2b34e970f983965f9809d62e2103
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: fbd291494554c7bbb6e7f79a932717bf81a124c6
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566979"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667595"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -264,17 +264,15 @@ context.bindingData
 
 ### <a name="contextdone-method"></a>context.done 메서드
 
-```js
-context.done([err],[propertyBag])
-```
+**context.done** 메서드는 동기 메서드에서 사용됩니다.
 
-런타임에서는 코드가 완료되었음을 알 수 있습니다. 함수가 [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) 선언을 사용하는 경우 `context.done()`을 사용할 필요가 없습니다. `context.done` 콜백을 암시적으로 호출합니다. 비동기 함수는 Node 8 이상 버전에서 지원되며 Functions 런타임의 2.x 버전이 필요합니다.
+|동기 실행|[비동기](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) 실행<br>(노드 8 이상, Functions 런타임 2 이상)|
+|--|--|
+|필수: `context.done([err],[propertyBag])` 함수가 완료되었다는 것을 런타임에 알릴 수 있습니다. 실행이 누락된 경우 시간 초과가 발생합니다.<br>`context.done` 메서드를 사용하면 출력 바인딩 데이터가 포함된 JSON 개체와 런타임에 사용자 정의 오류를 다시 전달할 수 있습니다. `context.done`에 전달된 속성은 `context.bindings` 개체에 설정된 내용을 덮어씁니다.|필수가 `context.done` 아닙니다. - 암시적으로 호출됩니다.| 
 
-함수가 비동기 함수가 아닌 경우 함수가 완료됐음을 런타임에 알리려면 `context.done`을 **반드시 호출해야** 합니다. 실행이 누락된 경우 시간 초과가 발생합니다.
-
-`context.done` 메서드를 사용하면 출력 바인딩 데이터가 포함된 JSON 개체와 런타임에 사용자 정의 오류를 다시 전달할 수 있습니다. `context.done`에 전달된 속성은 `context.bindings` 개체에 설정된 내용을 덮어씁니다.
 
 ```javascript
+// Synchronous code only
 // Even though we set myOutput to have:
 //  -> text: 'hello world', number: 123
 context.bindings.myOutput = { text: 'hello world', number: 123 };
@@ -588,7 +586,7 @@ module.exports = function(context) {
 
 ### <a name="in-azure-cloud-environment"></a>Azure 클라우드 환경
 
-Azure에서 실행하는 경우 함수 앱을 사용하면 서비스 연결 문자열과 같은 [애플리케이션 설정](functions-app-settings.md)을 사용하도록 설정할 수 있고, 실행 중에 해당 설정을 환경 변수로 노출할 수 있습니다. 
+Azure에서 실행하는 경우 함수 앱을 사용하면 서비스 연결 문자열과 같은 [애플리케이션 설정을](functions-app-settings.md)설정하고 사용할 수 있으며 실행 중에 이러한 설정을 환경 변수로 노출합니다. 
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 

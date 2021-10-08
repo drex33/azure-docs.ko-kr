@@ -3,12 +3,12 @@ title: 컨테이너 인사이트의 메트릭 경고
 description: 이 문서에서는 공개 미리 보기의 컨테이너 인사이트에서 사용할 수 있는 권장 메트릭 경고를 검토합니다.
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: 8280b567adb36511c4eb58d7ec72b775d36feb6a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 993bd478a7507e3a4e21716b3f588c1bb810bad4
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536039"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129669780"
 ---
 # <a name="recommended-metric-alerts-preview-from-container-insights"></a>컨테이너 인사이트에서 권장되는 메트릭 경고(미리 보기)
 
@@ -17,6 +17,9 @@ ms.locfileid: "122536039"
 이 문서에서는 이러한 경고 규칙을 구성 하 고 관리 하는 방법에 대한 지침을 제공하며 환경을 검토합니다.
 
 Azure Monitor 경고에 익숙하지 않은 경우 시작하기 전에 [Microsoft Azure의 경고 개요](../alerts/alerts-overview.md)를 참조하세요. 메트릭 경고에 대한 자세한 내용은 [Azure Monitor의 메트릭 경고](../alerts/alerts-metric-overview.md)를 참조하세요.
+
+> [!NOTE]
+> 2021 년 10 월 8 일부 터, 경고 조건을 올바르게 계산 하기 위해 **컨테이너 CPU%**, **컨테이너 작업 집합 메모리%** 및 **영구적 볼륨 사용%** 의 세 가지 경고가 업데이트 되었습니다. 이러한 새 경고는 이전에 사용할 수 있는 경고와 동일한 이름을 갖지만 새로운 업데이트 된 메트릭을 사용 합니다. 이 문서에 설명 된 "이전" 메트릭을 사용 하는 경고를 사용 하지 않도록 설정 하 고 "새" 메트릭을 사용 하도록 설정 하는 것이 좋습니다. "이전" 메트릭은 사용 하지 않도록 설정 된 후에 권장 되는 경고에서 더 이상 사용할 수 없지만 수동으로 다시 사용 하도록 설정할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -41,11 +44,11 @@ Azure Monitor 경고에 익숙하지 않은 경우 시작하기 전에 [Microsof
 
 |Name| 설명 |default_threshold |
 |----|-------------|------------------|
-|평균 컨테이너 CPU (%) |컨테이너 당 사용 되는 평균 CPU를 계산합니다.|컨테이너 당 평균 CPU 사용량이 95% 보다 큰 경우.| 
-|평균 컨테이너 작업 집합 메모리% |컨테이너 당 사용 되는 평균 작업 집합 메모리를 계산합니다.|컨테이너당 평균 작업 집합 메모리 사용량이 95%를 초과하는 경우. |
+|**새 평균 컨테이너 CPU (%)** |컨테이너 당 사용 되는 평균 CPU를 계산합니다.|컨테이너 당 평균 CPU 사용량이 95% 보다 큰 경우.| 
+|**새 평균 컨테이너 작업 집합 메모리%** |컨테이너 당 사용 되는 평균 작업 집합 메모리를 계산합니다.|컨테이너당 평균 작업 집합 메모리 사용량이 95%를 초과하는 경우. |
 |평균 CPU % |노드당 사용 되는 평균 CPU를 계산합니다. |평균 노드 CPU 사용률이 80%를 초과 하는 경우 |
 |평균 디스크 사용량 (%) |노드의 평균 디스크 사용량을 계산 합니다.|노드의 디스크 사용량이 80% 보다 큰 경우. |
-|평균 영구적 볼륨 사용량 (%) |Pod 당 평균 PV 사용 현황을 계산합니다. |Pod 당 평균 PV 사용량이 80% 보다 큰 경우.|
+|**새 평균 영구적 볼륨 사용량 (%)** |Pod 당 평균 PV 사용 현황을 계산합니다. |Pod 당 평균 PV 사용량이 80% 보다 큰 경우.|
 |평균 작업 집합 메모리 (%) |노드의 평균 작업 집합 메모리를 계산 합니다. |노드의 평균 작업 집합 메모리가 80% 보다 큰 경우. |
 |컨테이너 개수를 재시작 |재시작 컨테이너를 계산합니다. | 컨테이너 재시작이 이 0 보다 큰 경우 |
 |실패한 Pod 개수 |실패 상태의 pod가 있는지 여부를 계산합니다.|실패 상태에 있는 pod 수가 0 보다 큰 경우. |
@@ -80,7 +83,7 @@ Azure Monitor 경고에 익숙하지 않은 경우 시작하기 전에 [Microsof
 
 ## <a name="metrics-collected"></a>수집된 메트릭
 
-이 기능의 일부로 달리 지정 되지 않은 경우 다음과 같은 메트릭이 활성화 되 고 수집 됩니다.
+이 기능의 일부로 달리 지정 되지 않은 경우 다음 메트릭은 사용 하도록 설정 되 고 수집 됩니다. 레이블이 "Old" 인 **굵게 표시** 된 메트릭은 올바른 경고 평가를 위해 수집 된 "새" 메트릭으로 대체 된 메트릭입니다.
 
 |메트릭 네임스페이스 |메트릭 |Description |
 |---------|----|------------|
@@ -97,10 +100,14 @@ Azure Monitor 경고에 익숙하지 않은 경우 시작하기 전에 [Microsof
 |Insights.container/nodes |restartingContainerCount |컨트롤러, Kubernetes 네임 스페이스 별로 컨테이너를 다시 시작하는 횟수입니다.|
 |Insights.container/nodes |oomKilledContainerCount |컨트롤러, Kubernetes 네임 스페이스 별로 중지된 컨테이너 수입니다.|
 |Insights.container/nodes |podReadyPercentage |컨트롤러, Kubernetes 네임 스페이스에서 준비 상태에 있는 pod의 백분율입니다.|
-|Insights.container/containers |cpuExceededPercentage |컨테이너 이름, 컨트롤러 이름, Kubernetes 네임 스페이스, pod 이름에 의해 사용자 구성 가능 임계값 (기본값은 95.0)을 초과하는 컨테이너에 대한 CPU 사용률입니다.<br> 수집됨  |
-|Insights.container/containers |memoryRssExceededPercentage |컨테이너 이름, 컨트롤러 이름, Kubernetes 네임 스페이스, 포드 이름별로 사용자 구성 가능한 임계값(기본값은 95.0)을 초과하는 컨테이너에 대한 메모리 RSS 백분율입니다.|
-|Insights.container/containers |memoryWorkingSetExceededPercentage |컨테이너 이름, 컨트롤러 이름, Kubernetes 네임 스페이스, pod 이름에 의해 사용자 구성 가능 임계값 (기본값은 95.0)을 초과 하는 컨테이너에 대한 메모리 작업 집합 비율입니다.|
-|Insights.container/persistentvolumes |pvUsageExceededPercentage |클레임 이름, Kubernetes 네임 스페이스, 볼륨 이름, pod 이름 및 노드 이름에 의해 사용자 구성 가능 임계값 (기본값은 60.0)을 초과 하는 영구 볼륨에 대한 PV 사용률 비율입니다.
+|Insights.container/containers |**(이전) cpuExceededPercentage** |컨테이너 이름, 컨트롤러 이름, Kubernetes 네임 스페이스, pod 이름에 의해 사용자 구성 가능 임계값 (기본값은 95.0)을 초과하는 컨테이너에 대한 CPU 사용률입니다.<br> 수집됨  |
+|Insights.container/containers |**(신규) cpuThresholdViolated** |컨테이너 이름, 컨트롤러 이름, Kubernetes 네임 스페이스, pod 이름에 의해 사용자 구성 가능 임계값 (기본값은 95.0)을 초과 하는 컨테이너에 대 한 CPU 사용률 (%)이 트리거되는 메트릭입니다.<br> 수집됨  |
+|Insights.container/containers |**(이전) memoryRssExceededPercentage** |컨테이너 이름, 컨트롤러 이름, Kubernetes 네임 스페이스, 포드 이름별로 사용자 구성 가능한 임계값(기본값은 95.0)을 초과하는 컨테이너에 대한 메모리 RSS 백분율입니다.|
+|Insights.container/containers |**(신규) memoryRssThresholdViolated** |컨테이너의 메모리 RSS 백분율이 컨테이너 이름, 컨트롤러 이름, Kubernetes 네임 스페이스, pod 이름에 의해 사용자 구성 가능 임계값 (기본값은 95.0)을 초과 하는 경우에 트리거되는 메트릭입니다.|
+|Insights.container/containers |**(이전) memoryWorkingSetExceededPercentage** |컨테이너 이름, 컨트롤러 이름, Kubernetes 네임 스페이스, pod 이름에 의해 사용자 구성 가능 임계값 (기본값은 95.0)을 초과 하는 컨테이너에 대한 메모리 작업 집합 비율입니다.|
+|Insights.container/containers |**(신규) memoryWorkingSetThresholdViolated** |컨테이너 이름, 컨트롤러 이름, Kubernetes 네임 스페이스, pod 이름에 의해 사용자 구성 가능 임계값 (기본값은 95.0)을 초과 하는 컨테이너의 메모리 작업 집합 비율을 초과 하는 경우에 트리거되는 메트릭입니다.|
+|Insights.container/persistentvolumes |**(이전) pvUsageExceededPercentage** |클레임 이름, Kubernetes 네임 스페이스, 볼륨 이름, pod 이름 및 노드 이름에 의해 사용자 구성 가능 임계값 (기본값은 60.0)을 초과 하는 영구 볼륨에 대한 PV 사용률 비율입니다.|
+|Insights.container/persistentvolumes |**(신규) pvUsageThresholdViolated** |클레임 이름, Kubernetes 네임 스페이스, 볼륨 이름, pod 이름 및 노드 이름에 의해 사용자 구성 가능 임계값 (기본값은 60.0)을 초과 하는 영구 볼륨에 대해 PV 사용 백분율을 트리거한 메트릭입니다.
 
 ## <a name="enable-alert-rules"></a>경고 규칙 사용
 

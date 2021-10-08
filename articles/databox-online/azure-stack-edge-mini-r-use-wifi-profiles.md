@@ -2,18 +2,18 @@
 title: Azure Stack Edge Mini R 디바이스에서 Wi-Fi 프로필 사용
 description: 보안 수준이 높은 엔터프라이즈 네트워크 및 비공개 네트워크에서 Azure Stack Edge Mini R 디바이스에 대한 Wi-Fi 프로필을 만드는 방법을 설명합니다.
 services: databox
-author: v-dalc@microsoft.com
+author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/24/2021
+ms.date: 10/07/2021
 ms.author: alkohli
-ms.openlocfilehash: 90c7c238cef104eae78618e51fa4b284adcc8f42
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 34fe33f3c1d5be747e96ae71567424026c7c7a2a
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105050546"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129669210"
 ---
 # <a name="use-wi-fi-profiles-with-azure-stack-edge-mini-r-devices"></a>Azure Stack Edge Mini R 디바이스에서 Wi-Fi 프로필 사용
 
@@ -97,6 +97,8 @@ WPA2(무선 보호 액세스 2) - 엔터프라이즈 네트워크에서 네트�
 
 컴퓨터의 Wi-Fi 인터페이스에 대한 프로필을 내보내려면 다음 단계를 수행합니다.
 
+1. 무선 프로필을 내보내는 데 사용할 컴퓨터가 장치에서 사용 하는 Wi-Fi 네트워크에 연결할 수 있는지 확인 합니다.
+
 1. 컴퓨터의 무선 프로필을 보려면 **시작** 메뉴에서 **명령 프롬프트**(cmd.exe)를 열고 다음 명령을 입력합니다.
 
    `netsh wlan show profiles`
@@ -120,14 +122,14 @@ WPA2(무선 보호 액세스 2) - 엔터프라이즈 네트워크에서 네트�
        All User Profile     : Boat
    ```
 
-2. 프로필을 내보내려면 다음 명령을 입력합니다.
+1. 프로필을 내보내려면 다음 명령을 입력합니다.
 
-   `netsh wlan export profile name=”<profileName>” folder=”<path>\<profileName>"`
+   `netsh wlan export profile name=”<profileName>” folder=”<path>\<profileName>" key=clear`
 
    예를 들어 다음 명령은 ContosoFTINET 프로필을 XML 형식으로 `gusp`라는 사용자의 다운로드 폴더에 저장합니다.
 
    ```dos
-   C:\Users\gusp>netsh wlan export profile name="ContosoFTINET" folder=c:Downloads
+   C:\Users\gusp>netsh wlan export profile name="ContosoFTINET" folder=c:Downloads key=clear
 
    Interface profile "ContosoFTINET" is saved in file "c:Downloads\ContosoFTINET.xml" successfully.
    ```

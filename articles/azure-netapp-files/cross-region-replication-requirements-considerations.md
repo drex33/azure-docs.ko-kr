@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/04/2021
+ms.date: 10/07/2021
 ms.author: b-juche
-ms.openlocfilehash: b94374d8eaa0efac50989a388686f96d9bae0622
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
-ms.translationtype: HT
+ms.openlocfilehash: 6e711f3101426f59aead80b84b88350af86bbd6b
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111537136"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129669191"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>지역 간 복제 사용을 위한 요구 사항 및 고려 사항 
 
@@ -33,7 +33,7 @@ Azure NetApp Files의 [볼륨 지역 간 복제를 사용하는 것](cross-regio
 * 대상 계정은 원본 볼륨 지역과 다른 지역에 있어야 합니다. 다른 지역에서 기존 NetApp 계정을 선택할 수 있습니다.  
 * 대상 볼륨에 읽기 및 쓰기를 사용하도록 설정하기 위해 [대상 지역으로 장애 조치(failover)](cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume)할 때까지 복제 대상 볼륨은 읽기 전용입니다. 
 * Azure NetApp Files 복제는 현재 여러 구독을 지원하지 않습니다. 모든 복제는 단일 구독에서 수행해야 합니다.
-* 지역별 단일 구독 내에서 복제할 볼륨을 최대 5개까지 설정할 수 있습니다. 지원 티켓을 열어 5개의 복제 대상 볼륨(한 지역의 구독당)의 기본 할당량 증가를 요청할 수 있습니다. 
+* 지역 간 복제 대상 볼륨의 최대 수는 [리소스 제한을](azure-netapp-files-resource-limits.md) 참조하세요. 지원 티켓을 열어 복제 대상 볼륨의 기본 할당량 [한도 증가를 요청할](azure-netapp-files-resource-limits.md#request-limit-increase) 수 있습니다(지역의 구독당).
 * 인터페이스가 원본 볼륨에 새로 추가된 스냅샷을 반영하는 데 최대 5분이 지연될 수 있습니다.  
 * 연계 및 팬 입력/출력 토폴로지는 지원되지 않습니다.
 * 스냅샷에 생성된 원본 볼륨에 대한 볼륨 복제 구성은 지금은 지원되지 않습니다.

@@ -12,12 +12,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
 ms.date: 7/7/2021
-ms.openlocfilehash: 56bd4dcc121b5ebd2ac48f772bd0793dffccd50d
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 9fbcf03159e11aa9d2951f3f951290eb6e51b511
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114289916"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129670141"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Azure SQL Database 및 Azure SQL Managed Instance 서비스 계층
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -44,7 +44,7 @@ Azure SQL Database 하이퍼스케일 서비스 계층도 제공합니다.
 | | SQL Managed Instance 풀 | 2, 4, 8, 16, 24, 32, 40, 64, 80  vCore | 해당 없음 | 해당 없음 |
 | **스토리지 유형** | 모두 | 원격 스토리지 | 계층형 원격 및 로컬 SSD 스토리지 | 로컬 SSD 스토리지 |
 | **데이터베이스 크기** | SQL Database | 1GB – 4TB | 40GB - 100TB | 1GB – 4TB |
-| | SQL Managed Instance  | 32GB~8TB | 해당 없음 | 32GB~4TB |
+| | SQL Managed Instance  | 32GB~8TB </br> 16 TB (미리 보기) 코어 수에 따라 Gen5만| 해당 없음 | 32GB~4TB |
 | **스토리지 크기** | SQL Database | 1GB – 4TB | 40GB - 100TB | 1GB – 4TB |
 | | SQL Managed Instance  | 32GB~8TB | 해당 없음 | 32GB~4TB |
 | **TempDB 크기** | SQL Database | [vCore당 32GB](resource-limits-vcore-single-databases.md) | [vCore당 32GB](resource-limits-vcore-single-databases.md) | [vCore당 32GB](resource-limits-vcore-single-databases.md) |

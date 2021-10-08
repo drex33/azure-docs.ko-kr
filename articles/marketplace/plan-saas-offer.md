@@ -1,6 +1,6 @@
 ---
-title: Microsoft 상업용 Marketplace를 위한 새 SaaS 제품을 계획하는 방법 - Azure Marketplace
-description: Microsoft 파트너 센터의 상업용 Marketplace 프로그램을 사용하여 Microsoft AppSource, Azure Marketplace 또는 CSP(클라우드 솔루션 공급자) 프로그램을 통해 나열 또는 판매할 새 SaaS(Software as a Service) 제품을 계획하는 방법입니다.
+title: Microsoft 상업적 marketplace에 대 한 SaaS 제품 계획-Azure Marketplace
+description: Microsoft 파트너 센터의 상용 마켓플레이스 프로그램을 사용 하 여 Microsoft AppSource, Azure Marketplace 또는 클라우드 솔루션 공급자 (CSP) 프로그램을 통해 나열 하거나 판매 하기 위한 새 SaaS (software as a service) 제품을 계획 합니다.
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -8,14 +8,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/17/2021
-ms.openlocfilehash: 0f8306f625e2f2e1e9c59c6c2059b27ec105588d
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 5a16b61c70b94f6095012aff077b8bd37ea2f8a1
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129611494"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129669495"
 ---
-# <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>상업용 Marketplace를 위한 SaaS 제품을 계획하는 방법
+# <a name="plan-a-saas-offer-for-the-commercial-marketplace"></a>상업적 marketplace에 대 한 SaaS 제안 계획
 
 이 문서에서는 Microsoft 상업용 Marketplace에 SaaS(Software as a Service) 제품을 게시하는 다양한 옵션과 요구 사항을 설명합니다. SaaS는 온라인 구독을 통해 고객에게 소프트웨어 솔루션 및 라이선스를 제공할 수 있는 제품입니다. SaaS 게시자는 고객의 제품 사용을 지원하는 데 필요한 인프라를 관리하고 비용을 지불해야 합니다. 이 문서는 파트너 센터를 통해 상업용 Marketplace에 게시할 제품을 준비하는 데 도움이 됩니다.
 
@@ -113,7 +113,7 @@ SaaS 제품이 IT 솔루션(Azure Marketplace)인 *동시에* 비즈니스 솔�
 |---|---|---|---|
 | 예             | 예         | 아니요           | Azure Marketplace 및 Azure Portal |
 | 예             | 예         | 예          | Azure Marketplace 및 Azure Portal* |
-| 예             | 예          | 예          | Azure Portal만 |
+| 예             | 아니요          | 예          | Azure Portal만 |
 | 아니요              | 예          | 예          | Azure Portal 및 AppSource |
 |||||
 
@@ -181,7 +181,7 @@ Microsoft 365와 통합하면 SaaS 제품은 Teams 앱, Office 추가 기능, Sh
 **호출 설명**
 
 1. 제목
-1. 설명
+1. Description
 1. 유용한 링크
 1. 스크린샷
 
@@ -213,9 +213,9 @@ Microsoft 365와 통합하면 SaaS 제품은 Teams 앱, Office 추가 기능, Sh
 
   이러한 로고는 온라인 스토어의 여러 위치에 사용됩니다.
 
-  - 작은 로고는 Azure Marketplace 검색 결과와 AppSource 기본 페이지 및 검색 결과 페이지에 표시됩니다.
+  - 작은 로고는 Azure Marketplace 검색 결과와 AppSource 기본 페이지 및 검색 결과 페이지에 표시 됩니다.
   - 중간 로고는 Microsoft Azure에서 새 리소스를 만들 때 표시됩니다.
-  - Azure Marketplace 및 AppSource의 제안 목록 페이지에 큰 로고가 표시됩니다.
+  - Azure Marketplace 및 AppSource의 제품 목록 페이지에 많은 로고가 표시 됩니다.
 
 - **미디어 - 스크린샷**: 다음 요구 사항에 따라 제품의 작동 방식을 보여주는 스크린샷을 적어도 하나 이상, 최대 5개까지 추가해야 합니다.
   - 1280x720픽셀
@@ -264,7 +264,7 @@ Microsoft를 통해 판매되는 SaaS 앱 제품은 정액제, 사용자당 또�
 | Azure 사용량 비용(D1/1개 코어) | 고객이 아닌 게시자에게 직접 청구됩니다. |
 | Microsoft에서 고객에게 청구하는 요금 | 월간 $100.00(게시자는 발생 또는 이전된 인프라 비용을 라이선스 요금으로 계산해야 함) |
 | **Microsoft에 청구되는 요금** | **매월 $100** |
-| Microsoft는 3%의 Marketplace 서비스 요금을 청구하고 라이선스 비용의 97%를 지불합니다. | 매월 $97.00 |
+| Microsoft는 3% Marketplace 서비스 요금을 청구 하 고 라이선스 비용의 97%를 지불 합니다. | 매월 $97.00 |
 |
 
 미리 보기 대상 그룹은 제품이 온라인 스토어에 라이브로 게시되기 전에 제품에 액세스할 수 있습니다. 이들은 상업용 Marketplace에서 제품이 어떻게 표시되는지 살펴볼 수 있으며, 파트너가 제품을 실시간으로 게시하기 전에 기능을 종합적으로 테스트할 수 있습니다. 

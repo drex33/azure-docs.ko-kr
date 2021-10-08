@@ -9,12 +9,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sashan, moslake
 ms.date: 05/18/2021
-ms.openlocfilehash: 16782538918c0477b969f95b7730b38221f97f82
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
-ms.translationtype: HT
+ms.openlocfilehash: 2fa7a60b4f0cbc7e72304c1b01444bf9a9f6a842
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111415215"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667633"
 ---
 # <a name="azure-sql-managed-instance---compute-hardware-in-the-vcore-service-tier"></a>Azure SQL Managed Instance - vCore 서비스 계층의 컴퓨팅 하드웨어
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -35,9 +35,9 @@ vCore 구매 모델의 서비스 계층 옵션에는 범용 및 중요 비즈니
 |**사용 사례**|**범용**|**중요 비즈니스용**|
 |---|---|---|
 |적합한 대상|대부분의 비즈니스 워크로드. 예산에 맞게 균형 있고 확장 가능한 컴퓨팅 및 스토리지 옵션을 제공합니다. |여러 개의 격리된 복제본을 사용하여 비즈니스 애플리케이션에서 오류에 대한 가장 높은 복원력을 제공하고 최고의 I/O 성능을 제공합니다.|
-|스토리지|원격 스토리지를 사용합니다. 32GB~8TB |로컬 SSD 스토리지를 사용합니다. 32GB~4TB |
+|스토리지|원격 스토리지를 사용합니다. 32GB~8TB </br> 16 TB (미리 보기) 코어 수에 따라 Gen5만 |로컬 SSD 스토리지를 사용합니다. 32GB~4TB |
 |IOPS 및 처리량(근사치)|[Azure SQL Managed Instance 리소스 제한 개요](../managed-instance/resource-limits.md#service-tier-characteristics)를 참조하세요.|[Azure SQL Managed Instance 리소스 제한 개요](../managed-instance/resource-limits.md#service-tier-characteristics)를 참조하세요.|
-|가용성|1개 복제본, 읽기 크기 조정 복제본 없음|3개 복제본, 1개 [읽기 크기 조정 복제본](../database/read-scale-out.md),<br/>영역 중복 HA(고가용성)|
+|가용성|1개 복제본, 읽기 크기 조정 복제본 없음|총 4 개의 복제본, 1 개의 [읽기 확장 복제본](../database/read-scale-out.md)<br/> 2 HA (고가용성 복제본)|
 |Backup|[RA-GRS(읽기 액세스 지역 중복 스토리지)](../../storage/common/geo-redundant-design.md), 1-35일(기본적으로 7일)|[RA-GRS](../../storage/common/geo-redundant-design.md), 1-35일(기본값: 7일)|
 |메모리 내|지원되지 않음|지원 여부|
 ||||

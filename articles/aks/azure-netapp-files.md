@@ -1,26 +1,26 @@
 ---
-title: Azure Kubernetes Service와 Azure NetApp Files 통합 | Microsoft Docs
-description: Azure Kubernetes Service를 사용 하 여 Azure NetApp Files를 프로 비전 하는 방법을 알아봅니다.
+title: Azure NetApp Files Azure Kubernetes Service | 통합 Microsoft Docs
+description: Azure Kubernetes Service 사용하여 Azure NetApp Files 프로비전하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 10/05/2021
-ms.openlocfilehash: d5d79a02a883b504eec57a9658e9ea7f0694d796
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.date: 10/07/2021
+ms.openlocfilehash: f4b9c8316ff9cd77017fc49dbe6846ed840f5afb
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129613456"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658978"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Azure NetApp Files와 Azure Kubernetes Service의 통합
 
-영구적 볼륨은 Kubernetes Pod와 함께 사용하기 위해 프로비전된 스토리지 부분을 나타냅니다. 하나 이상의 Pod에서 영구적 볼륨을 사용할 수 있으며 동적 또는 정적으로 프로비전할 수 있습니다. 이 문서에서는 AKS (Azure Kubernetes Service) 클러스터에서 pod에 사용할 [Azure NetApp Files][anf] 볼륨을 만드는 방법을 보여 줍니다.
+영구적 볼륨은 Kubernetes Pod와 함께 사용하기 위해 프로비전된 스토리지 부분을 나타냅니다. 하나 이상의 Pod에서 영구적 볼륨을 사용할 수 있으며 동적 또는 정적으로 프로비전할 수 있습니다. 이 문서에서는 [AKS(Azure Kubernetes Service)][anf] 클러스터의 Pod에서 사용할 Azure NetApp Files 볼륨을 만드는 방법을 보여줍니다.
 
-[Azure NetApp Files][anf]는 Azure에서 실행되는 엔터프라이즈급, 고성능, 요금제 파일 스토리지 서비스입니다. Kubernetes 사용자는 Kubernetes 워크 로드에 Azure NetApp Files 볼륨을 사용 하는 경우 두 가지 옵션을 제공 합니다.
+[Azure NetApp Files][anf]는 Azure에서 실행되는 엔터프라이즈급, 고성능, 요금제 파일 스토리지 서비스입니다. Kubernetes 사용자는 Kubernetes 워크로드에 Azure NetApp Files 볼륨을 사용할 때 두 가지 옵션을 사용할 수 있습니다.
 
-* **정적** Azure NetApp Files 볼륨 만들기:이 시나리오에서는 볼륨 만들기가 AKS 외부에서 이루어집니다. 볼륨은/Azure UI를 사용 하 여 만든 `az` 다음를 만들어 Kubernetes에 노출 `PersistentVolume` 합니다. 정적으로 만들어진 ANF 볼륨에는 많은 제한 사항이 있습니다 (예: 확장, 과도 프로 비전 등). 대부분의 사용 사례에는 사용 하지 않는 것이 좋습니다.
-* **주문형** Azure NetApp Files 볼륨 만들기, Kubernetes를 통한 오케스트레이션:이 방법은 Kubernetes를 통해 직접 여러 볼륨을 만드는 데 사용 되는 **기본 설정** 모드 이며 [Astra Trident](https://docs.netapp.com/us-en/trident/index.html)를 사용 하 여 수행 됩니다. Astra Trident는 기본적으로 Kubernetes를 통해 볼륨을 프로 비전 하는 데 도움이 되는 CSI 규격 동적 저장소 orchestrator입니다.
+* **정적으로** Azure NetApp Files 볼륨 만들기: 이 시나리오에서는 AKS 외부에서 볼륨을 만듭니다. 볼륨은 /Azure UI를 사용하여 만든 `az` 다음 를 만들어 Kubernetes에 `PersistentVolume` 노출됩니다. 정적으로 생성된 ANF 볼륨에는 많은 제한 사항(예: 확장할 수 없음, 과도 프로비전 필요 등)이 있으며 대부분의 사용 사례에는 권장되지 않습니다.
+* 요청 **시** Azure NetApp Files 볼륨 만들기 , Kubernetes를 통해 오케스트레이션: 이 방법은 Kubernetes를 통해 직접 여러 볼륨을 만들기 위한 기본 작업 **모드이며** [Astra Trident](https://docs.netapp.com/us-en/trident/index.html)를 사용하여 수행됩니다. Astra Trident는 Kubernetes를 통해 기본적으로 볼륨을 프로비전하는 데 도움이 되는 CSI 규격 동적 스토리지 오케스트레이터입니다.
 
-CSI 드라이버를 사용 하 여 AKS 워크 로드에서 Azure NetApp Files 볼륨을 직접 사용 하는 것은 대부분의 사용 사례에서 **매우 권장** 됩니다. 이 요구 사항은 Kubernetes에 대 한 오픈 소스 동적 저장소 orchestrator 인 Astra Trident를 사용 하 여 수행 됩니다. Astra Trident는 NetApp에서 완전히 지 원하는 엔터프라이즈급 저장소 orchestrator 용도의 Kubernetes 용으로 작성 되었습니다. 저장소 프로 비전을 자동화 하 여 Kubernetes 환경에서 저장소에 대 한 액세스를 간소화 합니다. 소비자는 Azure NetApp Files에 대 한 Astra Trident의 CSI 드라이버를 활용 하 여 요청 시 기본 세부 정보 및 만들기/확장/스냅숏 볼륨을 추상화할 수 있습니다.
+대부분의 사용 사례에서는 CSI 드라이버를 사용하여 AKS 워크로드에서 Azure NetApp Files 볼륨을 직접 사용하는 **것이 좋습니다.** 이 요구 사항은 Kubernetes용 오픈 소스 동적 스토리지 오케스트레이터인 Astra Trident를 사용하여 충족됩니다. Astra Trident는 Kubernetes용으로 특별히 빌드된 엔터프라이즈급 스토리지 오케스트레이터로, NetApp에서 완벽하게 지원됩니다. 스토리지 프로비저닝을 자동화하여 Kubernetes 환경에서 스토리지에 대한 액세스를 간소화합니다. 소비자는 Azure NetApp Files 위해 Astra Trident의 CSI 드라이버를 활용하여 기본 세부 정보를 추상화하고 주문형 볼륨을 생성/확장/스냅샷할 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -31,13 +31,13 @@ CSI 드라이버를 사용 하 여 AKS 워크 로드에서 Azure NetApp Files �
 
 또한 Azure CLI 버전 2.0.59 이상이 설치되고 구성되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
-Azure NetApp Files 사용 하는 경우 다음 사항을 고려해 야 합니다.
+Azure NetApp Files 사용하는 경우 다음과 같은 고려 사항이 적용됩니다.
 
 * Azure NetApp Files는 [선택한 Azure 지역][anf-regions]에서만 사용할 수 있습니다.
-* AKS 클러스터의 초기 배포 후에 Azure NetApp Files 볼륨을 정적 또는 동적으로 프로 비전 하도록 선택할 수 있습니다.
-* Azure NetApp Files에서 동적 프로 비전을 사용 하려면 [Astra Trident](https://netapp-trident.readthedocs.io/) 버전 19.07 이상을 설치 하 고 구성 합니다.
+* AKS 클러스터의 초기 배포 후 정적 또는 동적으로 Azure NetApp Files 볼륨을 프로비전하도록 선택할 수 있습니다.
+* Azure NetApp Files 동적 프로비저닝을 사용하려면 [Astra Trident](https://docs.netapp.com/us-en/trident/index.html) 버전 19.07 이상 버전을 설치하고 구성합니다.
 
 ## <a name="configure-azure-netapp-files"></a>Azure NetApp Files 구성
 
@@ -96,9 +96,9 @@ az network vnet subnet create \
     --address-prefixes 10.0.0.0/28
 ```
 
-볼륨은 정적 또는 동적으로 프로 비전 할 수 있습니다. 두 옵션에 대해서는 아래에서 자세히 설명 합니다.
+볼륨을 정적 또는 동적으로 프로비전할 수 있습니다. 두 옵션 모두 아래에서 자세히 설명합니다.
 
-## <a name="provision-azure-netapp-files-volumes-statically"></a>정적으로 Azure NetApp Files 볼륨 프로 비전
+## <a name="provision-azure-netapp-files-volumes-statically"></a>정적으로 Azure NetApp Files 볼륨 프로비전
 
 [az netappfiles volume create][az-netappfiles-volume-create]를 사용하여 볼륨을 만듭니다.
 
@@ -267,30 +267,30 @@ Filesystem             Size  Used Avail Use% Mounted on
 ...
 ```
 
-## <a name="provision-azure-netapp-files-volumes-dynamically"></a>동적으로 Azure NetApp Files 볼륨 프로 비전
+## <a name="provision-azure-netapp-files-volumes-dynamically"></a>동적으로 Azure NetApp Files 볼륨 프로비전
 
 ### <a name="install-and-configure-astra-trident"></a>Astra Trident 설치 및 구성
 
-볼륨을 동적으로 프로 비전 하려면 Astra Trident를 설치 해야 합니다. Astra Trident는 Kubernetes 용으로 작성 된 NetApp의 동적 저장소 provisioner. Astra Trident의 업계 표준 [CSI (Container Storage Interface)](https://kubernetes-csi.github.io/docs/) 드라이버를 사용 하 여 Kubernetes 응용 프로그램의 저장소 사용량을 간소화 합니다. Astra Trident는 Kubernetes 클러스터에서 pod로 배포 하 고 Kubernetes 워크 로드에 대 한 동적 저장소 오케스트레이션 서비스를 제공 합니다.
+볼륨을 동적으로 프로비전하려면 Astra Trident를 설치해야 합니다. Astra Trident는 Kubernetes용으로 특별히 빌드된 NetApp의 동적 스토리지 프로비저닝 장치입니다. Astra Trident의 업계 표준 [CSI(컨테이너 Storage 인터페이스)](https://kubernetes-csi.github.io/docs/) 드라이버를 사용하여 Kubernetes 애플리케이션의 스토리지 사용을 간소화합니다. Astra Trident는 Kubernetes 클러스터에 Pod로 배포하고 Kubernetes 워크로드에 대한 동적 스토리지 오케스트레이션 서비스를 제공합니다.
 
-[설명서](https://netapp-trident.readthedocs.io/en/latest/index.html)에서 자세히 알아볼 수 있습니다.
+[설명서] 에서 자세히 알아볼 수 https://docs.netapp.com/us-en/trident/index.html) 있습니다.
 
-다음 단계로 진행 하기 전에 다음을 수행 해야 합니다.
+다음 단계를 진행하기 전에 다음을 수행해야 합니다.
 
-1. **Astra Trident를 설치** 합니다. Trident는 연산자/투구 차트/를 사용 하 여 설치할 수 있습니다 `tridentctl` . 아래에 제공 된 지침은 연산자를 사용 하 여 Astra Trident를 설치 하는 방법을 설명 합니다. 다른 설치 방법의 작동 방식에 대 한 자세한 내용은 [설치 가이드](https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/deploying.html)를 참조 하세요.
+1. **Astra Trident** 를 설치합니다. Trident는 operator/Helm chart/를 사용하여 설치할 수 `tridentctl` 있습니다. 아래에 제공된 지침에서는 운영자를 사용하여 Astra Trident를 설치하는 방법을 설명합니다. 다른 설치 방법의 작동 방식을 알아보려면 [설치 가이드를 참조하세요.](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html)
 
-2. **백 엔드를 만듭니다**. Azure NetApp Files 구독 및 볼륨을 만들어야 하는 위치에 대해 Astra Trident에 지시 하기 위해 백 엔드가 생성 됩니다. 이 단계에서는 이전 단계에서 만든 계정에 대 한 세부 정보가 필요 합니다.
+2. **백 엔드 를 만듭니다.** Azure NetApp Files 구독 및 볼륨을 만들어야 하는 위치에 대해 Astra Trident에 지시하기 위해 백 엔드가 만들어집니다. 이 단계에서는 이전 단계에서 만든 계정에 대한 세부 정보가 필요합니다.
 
-#### <a name="install-astra-trident-using-the-operator"></a>연산자를 사용 하 여 Astra Trident 설치
+#### <a name="install-astra-trident-using-the-operator"></a>운영자를 사용하여 Astra Trident 설치
 
-이 섹션에서는 연산자를 사용 하 여 Astra Trident를 설치 하는 과정을 안내 합니다. 다른 방법 중 하나를 사용 하 여를 설치 하도록 선택할 수도 있습니다.
+이 섹션에서는 운영자를 사용하여 Astra Trident를 설치하는 작업을 안내합니다. 다른 방법 중 하나를 사용하여 설치하도록 선택할 수도 있습니다.
 
-* [투구 차트](https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/operator-deploy.html#deploy-trident-operator-by-using-helm).
-* [trientctl](https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/tridentctl-deploy.html).
+* [Helm 차트](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-operator.html).
+* [tridentctl](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-tridentctl.html).
 
-각 옵션이 작동 하는 방식을 이해 하 고 가장 적합 한 작업을 식별 하려면 [Trident 배포](https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/deploying.html) 를 참조 하세요.
+각 옵션의 작동 방식을 이해하고 가장 적합한 옵션을 식별하려면 [Trident 배포를](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html) 참조하세요.
 
-[GitHub 리포지토리에서](https://github.com/NetApp/trident/releases)Astra Trident를 다운로드 합니다. 원하는 버전을 선택 하 고 설치 관리자 번들을 다운로드 합니다.
+[GitHub 리포지토리에서](https://github.com/NetApp/trident/releases)Astra Trident를 다운로드합니다. 원하는 버전에서 선택하고 설치 관리자 번들을 다운로드합니다.
 
 ```console
 #Download Astra Trident
@@ -298,7 +298,7 @@ Filesystem             Size  Used Avail Use% Mounted on
 $  wget https://github.com/NetApp/trident/releases/download/v21.07.1/trident-installer-21.07.1.tar.gz
 $  tar xzvf trident-installer-21.07.1.tar.gz
 ```
-을 사용 하 여 연산자를 배포 `deploy/bundle.yaml` 합니다.
+를 사용하여 연산자를 `deploy/bundle.yaml` 배포합니다.
 
 ```console
 $  kubectl create ns trident
@@ -314,7 +314,7 @@ deployment.apps/trident-operator created
 podsecuritypolicy.policy/tridentoperatorpods created
 ```
 
-`TridentOrchestrator`Astra Trident를 설치 하려면를 만듭니다.
+`TridentOrchestrator`Astra Trident를 설치할 를 만듭니다.
 
 ```console
 $ kubectl apply -f trident-installer/deploy/crds/tridentorchestrator_cr.yaml
@@ -322,9 +322,9 @@ $ kubectl apply -f trident-installer/deploy/crds/tridentorchestrator_cr.yaml
 tridentorchestrator.trident.netapp.io/trident created 
 ```
 
-운영자는 사양에 제공 된 매개 변수를 사용 하 여를 설치 합니다 `TridentOrchestrator` . 광범위 한 [설치](https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/deploying.html) 및 [백 엔드 가이드](https://netapp-trident.readthedocs.io/en/latest/kubernetes/operations/tasks/backends/index.html)에서 구성 매개 변수 및 예제 백 엔드에 대해 알아볼 수 있습니다.
+연산자는 사양에 제공된 매개 변수를 사용하여 를 `TridentOrchestrator` 설치합니다. 광범위한 [설치](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html) 및 백 엔드 가이드에서 구성 매개 변수 및 예제 [백 엔드에](https://docs.netapp.com/us-en/trident/trident-use/backends.html)대해 알아볼 수 있습니다.
 
-Astra Trident가 설치 되었는지 확인 합니다. 
+Astra Trident가 설치되어 있는 것을 확인합니다. 
 
 ```console
 $  kubectl describe torc trident
@@ -367,7 +367,7 @@ Events:
 
 ### <a name="create-a-backend"></a>백 엔드 만들기
 
-Astra Trident를 설치한 후 Azure NetApp Files 구독을 가리키는 백 엔드를 만듭니다.
+Astra Trident가 설치되면 Azure NetApp Files 구독을 가리키는 백 엔드를 만듭니다.
 
 ```console
 $  kubectl apply -f trident-installer/sample-input/backends-samples/azure-netapp-files/backend-anf.yaml -n trident
@@ -376,17 +376,17 @@ secret/backend-tbc-anf-secret created
 tridentbackendconfig.trident.netapp.io/backend-tbc-anf created
 ```
 
-명령을 실행 하기 전에 `backend-anf.yaml` 다음과 같은 Azure NetApp Files 구독에 대 한 세부 정보를 포함 하도록 업데이트 해야 합니다.
+명령을 실행하기 전에 `backend-anf.yaml` 다음과 같이 Azure NetApp Files 구독에 대한 세부 정보를 포함하도록 업데이트해야 합니다.
 
-* `subscriptionID` Azure NetApp Files 사용 하도록 설정 된 Azure 구독입니다. Component 
-* `tenantID``clientID` `clientSecret` Azure NetApp Files 서비스에 대 한 충분 한 권한이 있는 Azure Active Directory (AD)의 [앱 등록](../active-directory/develop/howto-create-service-principal-portal.md) 에서, 및입니다. 앱 등록은 `Owner` `Contributor` Azure에서 미리 정의 된 또는 역할을 수행 해야 합니다.
-* 하나 이상의 위임 된 서브넷을 포함 하는 Azure 위치입니다.
+* `subscriptionID` Azure NetApp Files 사용하도록 설정된 Azure 구독의 경우 입니다. Component 
+* `tenantID``clientID`Azure NetApp Files 서비스에 대한 충분한 권한이 있는 `clientSecret` AD(Azure Active Directory)의 [앱 등록에서](../active-directory/develop/howto-create-service-principal-portal.md) , 및 앱 등록은 Azure에서 미리 정의된 또는 역할을 수행해야 `Owner` `Contributor` 합니다.
+* 위임된 서브넷이 하나 이상 포함된 Azure 위치입니다.
 
-또한 다른 서비스 수준을 제공 하도록 선택할 수 있습니다. Azure NetApp Files는 표준, Premium 및 Ultra의 세 가지 [서비스 수준을](../azure-netapp-files/azure-netapp-files-service-levels.md)제공 합니다.
+또한 다른 서비스 수준을 제공하도록 선택할 수 있습니다. Azure NetApp Files 표준, Premium 및 Ultra의 세 가지 [서비스 수준을](../azure-netapp-files/azure-netapp-files-service-levels.md)제공합니다.
 
 ### <a name="create-a-storageclass"></a>StorageClass 만들기
 
-스토리지 클래스를 사용하여 영구적 볼륨에서 스토리지 단위를 동적으로 생성되는 방법을 정의합니다. Azure NetApp Files 볼륨을 사용 하려면 저장소 클래스를 만들어야 합니다. 이라는 파일을 만들고 `anf-storageclass.yaml` 아래 제공 된 매니페스트에 복사 합니다.
+스토리지 클래스를 사용하여 영구적 볼륨에서 스토리지 단위를 동적으로 생성되는 방법을 정의합니다. Azure NetApp Files 볼륨을 사용하려면 스토리지 클래스를 만들어야 합니다. 라는 파일을 만들고 `anf-storageclass.yaml` 아래에 제공된 매니페스트에 복사합니다.
 
 ```yaml
 apiVersion: storage.k8s.io/v1
@@ -399,7 +399,7 @@ parameters:
   fsType: "nfs"
 ```
 
-[Kubectl apply][kubectl-apply] 명령을 사용 하 여 저장소 클래스를 만듭니다.
+[kubectl apply][kubectl-apply] 명령을 사용하여 스토리지 클래스를 만듭니다.
 
 ```console
 $  kubectl apply -f anf-storageclass.yaml
@@ -413,9 +413,9 @@ azure-netapp-files   csi.trident.netapp.io   Delete          Immediate          
 
 ### <a name="create-a-persistentvolumeclaim"></a>PersistentVolumeClaim 만들기
 
-PersistentVolumeClaim (PVC)는 사용자가 저장소에 대 한 요청입니다. PersistentVolumeClaim를 만들 때 Astra Trident는 자동으로 Azure NetApp Files 볼륨을 만들고 Kubernetes 워크 로드에서 사용할 수 있도록 합니다.
+PVC(PersistentVolumeClaim)는 사용자의 스토리지 요청입니다. PersistentVolumeClaim을 만들면 Astra Trident는 자동으로 Azure NetApp Files 볼륨을 만들고 Kubernetes 워크로드에서 사용할 수 있도록 합니다.
 
-이라는 파일을 만들고 `anf-pvc.yaml` 다음 매니페스트를 제공 합니다. 이 예제에서는 *Readwritemany* 인 TiB 볼륨을 만듭니다.
+라는 파일을 만들고 `anf-pvc.yaml` 다음 매니페스트를 제공합니다. 이 예제에서는 *ReadWriteMany* 인 1-TiB 볼륨이 만들어집니다.
 
 ```yaml
 kind: PersistentVolumeClaim
@@ -446,9 +446,9 @@ anf-pvc   Bound    pvc-bffa315d-3f44-4770-86eb-c922f567a075   1Ti        RWO    
 
 ### <a name="use-the-persistent-volume"></a>영구적 볼륨 사용
 
-PVC를 만든 후 pod를 분리 하 여 Azure NetApp Files 볼륨에 액세스할 수 있습니다. 아래 매니페스트를 사용 하 여 이전 단계에서 만든 Azure NetApp Files 볼륨을 탑재 하는 NGINX pod를 정의할 수 있습니다. 이 예제에서는 볼륨이에 탑재 됩니다 `/mnt/data` .
+PVC를 만든 후 Pod를 회전하여 Azure NetApp Files 볼륨에 액세스할 수 있습니다. 아래 매니페스트를 사용하여 이전 단계에서 만든 Azure NetApp Files 볼륨을 탑재하는 NGINX Pod를 정의할 수 있습니다. 이 예제에서 볼륨은 에 `/mnt/data` 탑재됩니다.
 
-다음 매니페스트를 포함 하는 라는 파일을 만듭니다 `anf-nginx-pod.yaml` .
+다음 매니페스트를 포함하는 라는 파일을 `anf-nginx-pod.yaml` 만듭니다.
 
 ```yml
 kind: Pod
@@ -483,7 +483,7 @@ $  kubectl apply -f anf-nginx-pod.yaml
 pod/nginx-pod created
 ```
 
-이제 Kubernetes에서 볼륨을 탑재 하 고의 컨테이너 내에서 액세스할 수 있는 pod를 만들었습니다 `nginx` `/mnt/data` . 다음을 사용 하 여 pod에 대 한 이벤트 로그를 확인 합니다 `kubectl describe` .
+Kubernetes는 이제 볼륨이 탑재되고 의 컨테이너 내에서 액세스할 수 있는 Pod를 `nginx` `/mnt/data` 만들었습니다. 를 사용하여 Pod에 대한 이벤트 로그를 확인합니다. `kubectl describe`
 
 ```console
 $  kubectl describe pod nginx-pod
@@ -509,11 +509,11 @@ Events:
   Normal  Started                 10s   kubelet                  Started container nginx
 ```
 
-Astra Trident는 다음과 같은 Azure NetApp Files의 많은 기능을 지원 합니다.
+Astra Trident는 다음과 같은 Azure NetApp Files 있는 많은 기능을 지원합니다.
 
-* [볼륨 확장](https://netapp-trident.readthedocs.io/en/latest/kubernetes/operations/tasks/volumes/vol-expansion.html)
-* [주문형 볼륨 스냅숏](https://netapp-trident.readthedocs.io/en/latest/kubernetes/operations/tasks/volumes/snapshots.html)
-* [볼륨 가져오기](https://netapp-trident.readthedocs.io/en/latest/kubernetes/operations/tasks/volumes/import.html)
+* [볼륨 확장](https://docs.netapp.com/us-en/trident/trident-use/vol-expansion.html)
+* [주문형 볼륨 스냅샷](https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html)
+* [볼륨 가져오기](https://docs.netapp.com/us-en/trident/trident-use/vol-import.html)
 
 ## <a name="next-steps"></a>다음 단계
 

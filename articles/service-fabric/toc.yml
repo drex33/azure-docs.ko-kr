@@ -136,7 +136,7 @@
       href: service-fabric-content-roadmap.md
     - name: 애플리케이션 시나리오
       href: service-fabric-application-scenarios.md
-    - name: 아키텍처
+    - name: Architecture
       href: service-fabric-architecture.md
     - name: 보안
       items:
@@ -420,6 +420,8 @@
           href: how-to-managed-cluster-app-deployment-template.md
         - name: 관리 ID가 있는 애플리케이션을 관리형 클러스터에 배포
           href: how-to-managed-cluster-application-managed-identity.md
+        - name: 관리형 클러스터의 다른 Azure 리소스에 대한 액세스 권한 부여
+          href: how-to-managed-cluster-grant-access-other-resources.md
         - name: 상태 비저장 전용 노드 형식을 관리형 클러스터에 배포
           href: how-to-managed-cluster-stateless-node-type.md
         - name: 관리형 클러스터에서 대규모 크기 조정을 위한 보조 노드 유형 구성

@@ -132,7 +132,7 @@
           href: apply-security-baseline.md
         - name: 취약성 검색
           items:
-            - name: 통합 VA 스캐너로 머신 검사
+            - name: 통합 Qualys 스캐너로 머신 검사
               displayName: 'qualys, vulnerability, arc, hybrid'
               href: deploy-vulnerability-assessment-vm.md
             - name: BYOL VA 솔루션을 사용하여 VM 검사
@@ -158,6 +158,9 @@
         - name: 머신에 대한 안전 애플리케이션 목록 정의
           displayName: 'aac, whitelist, allowlist, reviewgroup, adaptive application controls'
           href: security-center-adaptive-application.md
+        - name: 머신에 설치된 애플리케이션 및 소프트웨어 검토
+          displayName: 'inventory, apps, software inventory, mde, tvm'
+          href: asset-inventory.md#access-a-software-inventory
         - name: 파일 및 레지스트리 변경 내용 추적
           items:
             - name: 파일 무결성 모니터링 개요

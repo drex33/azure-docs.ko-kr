@@ -442,7 +442,7 @@ items:
             href: connector-presto.md
           - name: QuickBooks Online
             href: connector-quickbooks.md
-          - name: REST (영문)
+          - name: REST
             href: connector-rest.md
             displayName: timeout
           - name: Salesforce
@@ -664,6 +664,8 @@ items:
             href: data-flow-sort.md
           - name: 원본
             href: data-flow-source.md
+          - name: 문자열 변환
+            href: data-flow-stringify.md
           - name: 서로게이트 키
             href: data-flow-surrogate-key.md
           - name: Union

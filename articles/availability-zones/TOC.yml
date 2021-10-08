@@ -4,14 +4,20 @@
       href: 'https://azure.microsoft.com/features/resiliency'
     - name: Azure용 복원 애플리케이션 디자인
       href: /azure/architecture/framework/resiliency/app-design
+- name: 가용성 영역 기본 사항
+  items:
+    - name: Azure의 지역 및 가용성 영역
+      href: az-overview.md
+    - name: Azure 서비스
+      href: region-types-service-categories-azure.md
+    - name: 가용성 영역을 지원하는 Azure 서비스
+      href: az-region.md
+    - name: 용어
+      href: glossary.md
 - name: 고가용성
   items:
-    - name: 영역 및 가용성 영역
-      href: az-overview.md
-    - name: 가용성 영역 설명서
+    - name: 빠른 시작 가이드
       items:
-        - name: 가용성 영역을 지원하는 Azure 서비스
-          href: az-region.md
         - name: 가상 머신
           items:
             - name: CLI를 사용하여 가용성 영역에서 Linux VM 만들기

@@ -394,6 +394,8 @@
           href: manage/ea-portal-troubleshoot.md
         - name: 지원에 문의
           href: ../azure-portal/supportability/how-to-create-azure-support-request.md
+        - name: EA 지원 요청 만들기
+          href: manage/how-to-create-azure-support-request-ea.md
 - name: 참조
   items:
     - name: Azure CLI

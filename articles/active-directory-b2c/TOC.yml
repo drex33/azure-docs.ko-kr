@@ -7,6 +7,8 @@
       href: overview.md
     - name: 기술 및 기능 개요
       href: technical-overview.md
+    - name: 지원되는 Azure AD 기능
+      href: supported-azure-ad-features.md
     - name: Docs의 새로운 기능
       href: whats-new-docs.md
 - name: 빠른 시작
@@ -26,7 +28,9 @@
       href: tutorial-register-applications.md
     - name: 3 - 사용자 흐름 및 사용자 지정 정책 만들기
       href: tutorial-create-user-flows.md
-    - name: 테넌트 정리 및 삭제
+    - name: 4 - 테넌트 관리
+      href: tenant-management.md
+    - name: 5 - 테넌트 정리 및 삭제
       href: tutorial-delete-tenant.md
 - name: 샘플
   items:
@@ -82,14 +86,14 @@
       href: user-overview.md
     - name: 사용자 프로필 특성
       href: user-profile-attributes.md
+    - name: 역할 및 리소스 액세스 제어
+      href: roles-resource-access-control.md
     - name: ID 보호 및 조건부 액세스
       href: conditional-access-identity-protection-overview.md
     - name: 정책 키
       href: policy-keys-overview.md
 - name: 방법 가이드
   items:
-    - name: 테넌트 관리
-      href: tenant-management.md
     - name: 앱 통합
       items:
         - name: ASP.NET Core 웹앱

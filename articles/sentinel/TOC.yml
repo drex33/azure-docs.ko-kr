@@ -284,6 +284,8 @@
               href: authentication-normalization-schema.md
             - name: DNS 정규화 스키마
               href: dns-normalization-schema.md
+            - name: DHCP 정규화 스키마
+              href: dhcp-normalization-schema.md
             - name: 파일 이벤트 정규화 스키마
               href: file-event-normalization-schema.md
             - name: 네트워크 정규화 스키마

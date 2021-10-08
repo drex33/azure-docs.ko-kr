@@ -100,6 +100,10 @@
           href: scripts/event-grid-powershell-resource-group.md
         - name: 리소스 그룹에 대한 이벤트 구독 및 필터링
           href: scripts/event-grid-powershell-resource-group-filter.md
+        - name: Azure Event Grid에서 Azure AD 앱을 사용하여 보안 웹후크 전달
+          href: scripts/event-grid-powershell-webhook-secure-delivery-azure-ad-app.md
+        - name: Azure Event Grid에서 Azure AD 사용자를 사용하여 보안 웹후크 전달
+          href: scripts/event-grid-powershell-webhook-secure-delivery-azure-ad-user.md
     - name: 리소스 관리자 템플릿
       href: template-samples.md
     - name: 코드 샘플

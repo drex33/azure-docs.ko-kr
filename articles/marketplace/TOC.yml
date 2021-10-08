@@ -147,6 +147,8 @@
           href: azure-app-test-publish.md
         - name: 제품 마케팅
           href: azure-app-marketing.md
+        - name: 관리형 앱 종량제
+          href: azure-app-metered-billing.md
         - name: 종량제
           href: marketplace-metering-service-apis.md
         - name: 사용량 기반 월별 청구 가격 구성

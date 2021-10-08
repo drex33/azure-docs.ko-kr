@@ -99,10 +99,10 @@
     - name: IoT Edge 디바이스 프로비전
       items:
         - name: Linux
-          href: ../iot-edge/how-to-auto-provision-simulated-device-linux.md
+          href: ../iot-edge/how-to-provision-devices-at-scale-linux-tpm.md
           maintainContext: true
         - name: Windows
-          href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
+          href: ../iot-edge/how-to-provision-devices-at-scale-windows-tpm.md
           maintainContext: true
     - name: 문제 해결
       href: how-to-troubleshoot-dps.md

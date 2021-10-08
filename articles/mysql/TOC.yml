@@ -13,6 +13,8 @@
       href: flexible-server/whats-new.md
     - name: 유연한 서버를 무료로 사용해 보기
       href: flexible-server/how-to-deploy-on-azure-free-account.md
+    - name: 예약된 용량 선불
+      href: concept-reserved-pricing.md
     - name: 버전 지원 정책
       href: concepts-version-policy.md
       displayName: version policy
@@ -31,8 +33,6 @@
           items:
             - name: 가격 책정 계층
               href: concepts-pricing-tiers.md
-            - name: 예약된 용량 선불
-              href: concept-reserved-pricing.md
     - name: 빠른 시작
       expanded: true
       items:

@@ -30,6 +30,8 @@
       displayName: 'version, postgresql'
     - name: 주 버전 업그레이드
       href: how-to-upgrade-using-dump-and-restore.md
+    - name: 예약된 용량 선불
+      href: concept-reserved-pricing.md
     - name: 알려진 문제 및 제한 사항
       href: concepts-known-issues-limitations.md
       displayName: 'issues, limitations, postgresql'
@@ -133,8 +135,6 @@
           items:
             - name: 가격 책정 계층
               href: concepts-pricing-tiers.md
-            - name: 예약된 용량 선불
-              href: concept-reserved-pricing.md
         - name: 보안
           items:
             - name: 보안 개요

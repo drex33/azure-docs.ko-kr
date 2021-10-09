@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 05/25/2021
 ms.author: danlep
-ms.openlocfilehash: fde1ee4c7b19c27b278fe6728ee244d03be246e4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 802dd143accbd993eb0903797def7f1710a00033
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128663652"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129716209"
 ---
 # <a name="self-hosted-gateway-overview"></a>자체 호스팅 게이트웨이 개요
 
@@ -41,7 +41,7 @@ ms.locfileid: "128663652"
 
 ## <a name="packaging-and-features"></a>패키징 및 기능
 
-자체 호스팅 게이트웨이는 모든 API Management 서비스의 일부로 Azure에 배포된 관리형 게이트웨이와 기능적으로 동등하게 컨테이너화된 버전입니다. 자체 호스팅 게이트웨이는 Microsoft Container Registry에서 Linux 기반 Docker [컨테이너](https://aka.ms/apim/sputnik/dhub)로 사용할 수 있습니다. 이 도구는 온-프레미스, 클라우드 인프라의 서버 클러스터에서 실행되거나 평가 및 개발 목적으로 개인용 컴퓨터에서 실행되는 Docker, Kubernetes 또는 다른 컨테이너 오케스트레이션 솔루션에 배포할 수 있습니다. 또한 자체 호스팅 게이트웨이를 [Azure Arc 지원 Kubernetes 클러스터](./how-to-deploy-self-hosted-gateway-azure-arc.md)에 클러스터 확장으로 배포할 수도 있습니다.
+자체 호스팅 게이트웨이는 모든 API Management 서비스의 일부로 Azure에 배포된 관리형 게이트웨이와 기능적으로 동등하게 컨테이너화된 버전입니다. 자체 호스팅 게이트웨이는 Microsoft Container Registry에서 Linux 기반 Docker [컨테이너](https://aka.ms/apim/sputnik/dhub)로 사용할 수 있습니다. 이 도구는 온-프레미스, 클라우드 인프라의 서버 클러스터에서 실행되거나 평가 및 개발 목적으로 개인용 컴퓨터에서 실행되는 Docker, Kubernetes 또는 다른 컨테이너 오케스트레이션 솔루션에 배포할 수 있습니다. 또한 자체 호스팅 게이트웨이를 클러스터 확장으로 [Azure Arc 지원 Kubernetes 클러스터 에](./how-to-deploy-self-hosted-gateway-azure-arc.md)배포할 수도 있습니다.
 
 관리형 게이트웨이에 있는 다음 기능은 자체 호스팅 게이트웨이에서 **사용할 수 없습니다**.
 

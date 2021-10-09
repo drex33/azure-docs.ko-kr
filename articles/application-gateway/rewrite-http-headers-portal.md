@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 16479588b0e0ec64a17cb3ce0b7a46c49bd2244e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e077ac7c1cdae781b2a07cdcba0b89e001da87bb
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124769905"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129712206"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Azure Application Gateway로 HTTP 요청 및 응답 헤더 다시 쓰기 - Azure Portal
 
@@ -99,7 +99,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로�
 
    - **연산자** 목록에서 **equal (=)** 을 선택합니다.
 
-   - 정규식 패턴을 입력합니다. 이 예에서는 `(https?)://.*azurewebsites.net(.*)$` 패턴을 사용합니다.
+   - 정규식 패턴을 입력합니다. 이 예에서는 `(https?):\/\/.*azurewebsites.net(.*)$` 패턴을 사용합니다.
 
    - **확인** 을 선택합니다.
 

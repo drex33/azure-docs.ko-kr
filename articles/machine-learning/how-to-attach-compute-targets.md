@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/18/2021
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1
-ms.openlocfilehash: af5d5914d0a90c2c142582e5cdf2105982205f04
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: d6a50982b546ae5d4e615c2e3cfc2b2dcd955a0f
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129427688"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713253"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>모델 학습 및 배포를 위한 컴퓨팅 대상 설정
 
@@ -32,7 +32,7 @@ Azure 컴퓨팅 리소스를 Azure Machine Learning 작업 영역에 연결하�
 * Azure Databricks - [기계 학습 파이프라인](how-to-create-machine-learning-pipelines.md)에서만 학습 컴퓨팅 대상으로 사용됨
 * Azure 데이터 레이크 분석
 * Azure Container Instance
-* Azure Kubernetes Service 및 Azure Arc 지원 Kubernetes(미리 보기)
+* Azure Kubernetes Service & Azure Arc 사용 Kubernetes (미리 보기)
 
 Azure Machine Learning에서 관리하는 컴퓨팅 대상을 사용하려면 다음을 참조하세요.
 
@@ -361,7 +361,7 @@ compute_target.detach()
 ```
 
 > [!WARNING]
-> 클러스터를 분리해도 **클러스터는 삭제되지 않습니다**. Azure Kubernetes Service 클러스터를 삭제하려면 [AKS에서 Azure CLI 사용](../aks/kubernetes-walkthrough.md#delete-the-cluster)을 참조하세요. Azure Arc 지원 Kubernetes 클러스터를 삭제하려면 [Azure Arc 빠른 시작](../azure-arc/kubernetes/quickstart-connect-cluster.md#7-clean-up-resources)을 참조하세요.
+> 클러스터를 분리해도 **클러스터는 삭제되지 않습니다**. Azure Kubernetes Service 클러스터를 삭제하려면 [AKS에서 Azure CLI 사용](../aks/kubernetes-walkthrough.md#delete-the-cluster)을 참조하세요. Azure Arc 지원 Kubernetes 클러스터를 삭제하려면 [Azure Arc 빠른 시작 을 참조하세요.](../azure-arc/kubernetes/quickstart-connect-cluster.md#7-clean-up-resources)
 
 ## <a name="notebook-examples"></a>Notebook 예제
 

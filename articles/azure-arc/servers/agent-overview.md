@@ -4,12 +4,12 @@ description: 이 문서에서는 하이브리드 환경에서 호스트되는 �
 ms.date: 09/30/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 36dc64a28cd0199e7fba3ab2b5f3f6765eef489d
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: e4251ceafd2ab06afc43f8c3ba84f167219d7e14
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129455610"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713167"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Azure Arc 지원 서버 에이전트 개요
 
@@ -20,7 +20,7 @@ Azure Arc 지원 서버의 Connected Machine 에이전트를 사용하면 Azure 
 
 ## <a name="agent-component-details"></a>에이전트 구성 요소 세부 정보
 
-:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Azure Arc 사용 서버 에이전트 개요" border="false":::
+:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Azure Arc 사용 서버 에이전트 개요." border="false":::
 
 Azure Connected Machine 에이전트 패키지에는 여러 개의 논리적 구성 요소가 함께 포함되어 있습니다.
 
@@ -38,7 +38,7 @@ Azure Connected Machine 에이전트 패키지에는 여러 개의 논리적 구
 
 ## <a name="instance-metadata"></a>인스턴스 메타데이터
 
-연결된 컴퓨터에 대한 메타데이터 정보는 Connected Machine 에이전트가 Azure Arc 지원 서버에 등록한 후에 수집됩니다. 특히:
+연결 된 컴퓨터에 대 한 메타 데이터 정보는 연결 된 컴퓨터 에이전트가 Azure Arc 사용 서버에 등록 된 후 수집 됩니다. 특히:
 
 * 운영 체제 이름, 형식 및 버전
 * 컴퓨터 이름
@@ -78,13 +78,13 @@ Windows 및 Linux용 Azure Connected Machine 에이전트는 요구 사항에 �
 
 ### <a name="supported-environments"></a>지원되는 환경
 
-Azure Arc 지원 서버는 Azure *외부에서* 호스트되는 물리적 서버 및 가상 머신에 Connected Machine 에이전트 설치를 지원합니다. VMware, Azure Stack HCI 및 기타 클라우드 환경과 같은 플랫폼에서 실행되는 가상 머신 포함 Azure Arc 지원 서버는 Azure에서 실행되는 가상 머신 또는 이미 Azure VM으로 모델링된 Azure Stack Hub 또는 Azure Stack Edge 실행되는 가상 머신에 에이전트 설치를 지원하지 않습니다.
+Azure Arc 사용 서버는 Azure *외부* 에서 호스트 되는 모든 물리적 서버 및 가상 컴퓨터에 연결 된 컴퓨터 에이전트를 설치 하도록 지원 합니다. VMware, Azure Stack HCI 및 기타 클라우드 환경과 같은 플랫폼에서 실행 되는 가상 컴퓨터를 포함 합니다. Azure Arc 사용 서버는 azure Vm에서 실행 되는 가상 컴퓨터 Azure Stack Azure Stack 또는 azure에서 실행 중인 가상 컴퓨터에 에이전트를 설치 하는 것을 지원 하지 않습니다.
 
 ### <a name="supported-operating-systems"></a>지원되는 운영 체제
 
 Azure Connected Machine 에이전트를 공식적으로 지원하는 Windows 및 Linux 운영 체제 버전은 다음과 같습니다.
 
-- Windows Server 2008 R2 SP1, Windows Server 2012 R2, 2016, 2019 및 2022(Server Core 포함)
+- Windows server 2008 r2 SP1, Windows Server 2012 R2, 2016, 2019 및 2022 (server Core 포함)
 - Ubuntu 16.04, 18.04 및 20.04 LTS(x64)
 - CentOS Linux 7 및 8(x64)
 - SLES(SUSE Linux Enterprise Server) 12 및 15(x64)
@@ -96,8 +96,8 @@ Azure Connected Machine 에이전트를 공식적으로 지원하는 Windows 및
 > Linux 호스트 이름 또는 Windows 컴퓨터 이름은 이름에 예약된 단어나 상표 중 하나를 사용할 수 없습니다. 그렇지 않으면 Azure에 연결된 컴퓨터를 등록하려고 하면 실패합니다. 예약된 단어 목록은 [예약된 리소스 이름 오류 해결](../../azure-resource-manager/templates/error-reserved-resource-name.md)을 참조하세요.
 
 > [!NOTE]
-> Azure Arc 지원 서버는 Amazon Linux를 지원하지만 다음에서는 이 배포를 지원하지 않습니다.
-> * Azure Monitor VM 인사이트에서 사용하는 종속성 에이전트
+> Azure Arc 사용 서버는 Amazon Linux를 지원 하지만 다음은이 배포판를 지원 하지 않습니다.
+> * Azure Monitor VM insights에서 사용 하는 종속성 에이전트
 > * Azure Automation 업데이트 관리
 
 ### <a name="software-requirements"></a>소프트웨어 요구 사항
@@ -121,7 +121,7 @@ Azure Arc 지원 서버는 리소스 그룹에서 최대 5,000개의 머신 인�
 
 ### <a name="register-azure-resource-providers"></a>Azure 리소스 공급자 등록
 
-Azure Arc 지원 서버는 이 서비스를 사용하기 위해 구독에서 다음 Azure 리소스 공급자에 따라 달라집니다.
+Azure Arc 사용 서버는이 서비스를 사용 하기 위해 구독의 다음 Azure 리소스 공급자에 종속 됩니다.
 
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
@@ -322,17 +322,17 @@ Linux용 Connected Machine 에이전트를 설치하면 다음과 같은 시스�
 
 ### <a name="agent-resource-governance"></a>에이전트 리소스 거버넌스
 
-Azure Arc 지원 서버 Connected Machine 에이전트는 에이전트 및 시스템 리소스 사용을 관리하도록 설계되었습니다. 에이전트는 다음과 같은 경우에 리소스 거버넌스에 접근합니다.
+Azure Arc 사용 서버 연결 된 컴퓨터 에이전트는 에이전트 및 시스템 리소스 소비를 관리 하도록 설계 되었습니다. 에이전트는 다음과 같은 경우에 리소스 거버넌스에 접근합니다.
 
 - 게스트 구성 에이전트는 정책을 평가하기 위해 CPU를 최대 5% 제한합니다.
 - 확장 서비스 에이전트는 CPU의 최대 5%를 사용하도록 제한됩니다.
 
    - 이 제한은 설치/설치 제거/업그레이드 작업에만 적용됩니다. 설치되고 나면 확장에서 자체 리소스 사용률을 담당하며 5% CPU 제한은 적용되지 않습니다.
-   - Log Analytics 에이전트 및 Azure Monitor 에이전트는 Red Hat Linux, CentOS 및 기타 엔터프라이즈 Linux 변형에서 설치/업그레이드/제거 작업 중에 CPU의 최대 60%를 사용할 수 있습니다. 해당 시스템에 미치는 [SELinux](https://www.redhat.com/en/topics/linux/what-is-selinux)의 성능 영향을 수용하기 위해 확장 프로그램과 운영 체제 조합의 경우 한도는 더 높습니다.
+   - Log Analytics 에이전트 및 Azure Monitor 에이전트는 Red Hat Linux, CentOS 및 기타 엔터프라이즈 Linux 변형에서 설치/업그레이드/제거 작업을 수행 하는 동안 최대 60%의 CPU를 사용할 수 있습니다. 해당 시스템에 미치는 [SELinux](https://www.redhat.com/en/topics/linux/what-is-selinux)의 성능 영향을 수용하기 위해 확장 프로그램과 운영 체제 조합의 경우 한도는 더 높습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Arc 지원 서버 평가를 시작하려면 Azure Arc 지원 서버가 있는 [하이브리드 머신 커넥트](learn/quick-enable-hybrid-vm.md)문서를 따르세요.
+* azure arc 사용 서버 평가를 시작 하려면 [azure arc 사용 서버를 사용 하는 하이브리드 컴퓨터 커넥트](learn/quick-enable-hybrid-vm.md)문서를 따르세요.
 
 * Azure Arc 지원 서버 에이전트를 배포하고 다른 Azure 관리 및 모니터링 서비스와 통합하기 전에 [계획 및 배포 가이드를](plan-at-scale-deployment.md)검토하세요.
 

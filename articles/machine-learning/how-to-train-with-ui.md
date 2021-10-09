@@ -11,12 +11,12 @@ author: wenxwei
 ms.author: wenxwei
 ms.date: 06/22/2021
 ms.reviewer: laobri
-ms.openlocfilehash: 94eb2beb95a43e422e8bff6c3ab53f7d2e6c208b
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 2d69263d1c4037640eefd44a1328414f8a47ad06
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129094712"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705390"
 ---
 # <a name="create-a-training-job-with-the-job-creation-ui-preview"></a>작업 만들기 UI를 사용하여 학습 작업 만들기(미리 보기)
 
@@ -55,7 +55,7 @@ Azure Machine Learning을 사용하여 학습 작업을 만드는 방법에는 �
 | --- | --- | 
 | 컴퓨팅 인스턴스 | [Azure Machine Learning 컴퓨팅 인스턴스란?](concept-compute-instance.md) | 
 | 컴퓨팅 클러스터 | [컴퓨팅 클러스터란?](how-to-create-attach-compute-cluster.md#what-is-a-compute-cluster) | 
-| 연결된 Kubernetes 클러스터 | [Azure Arc 지원 기계 학습 구성(미리 보기)](how-to-attach-arc-kubernetes.md). | 
+| 연결된 Kubernetes 클러스터 | [Azure Arc 사용 machine learning (미리 보기)을 구성](how-to-attach-arc-kubernetes.md)합니다. | 
 
 1. 컴퓨팅 형식을 선택합니다.
 1. 기존 컴퓨팅 리소스를 선택합니다. 드롭다운에는 선택에 도움이 되는 노드 정보와 SKU 형식이 표시됩니다.
@@ -73,7 +73,7 @@ Azure Machine Learning을 처음 사용하는 경우 새 컴퓨팅을 만들기 
 | --- | --- | 
 | 컴퓨팅 인스턴스 | [Azure Machine Learning 컴퓨팅 인스턴스 만들고 관리](how-to-create-manage-compute-instance.md) | 
 | 컴퓨팅 클러스터 | [Azure Machine Learning 컴퓨팅 클러스터 만들기](how-to-create-attach-compute-cluster.md) | 
-| 연결된 Kubernetes 클러스터 | [Azure Arc 지원 Kubernetes 클러스터 연결](how-to-attach-arc-kubernetes.md) | 
+| 연결된 Kubernetes 클러스터 | [Azure Arc 사용 Kubernetes 클러스터 연결](how-to-attach-arc-kubernetes.md) | 
 
 ## <a name="specify-the-necessary-environment"></a>필요한 환경 지정
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 07/30/2021
 ms.author: alkohli
-ms.openlocfilehash: 6edb7aafdee046f2dd198d54e566c69b791cc1eb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 6dccf76a99c183c9b3d148ee1c4574c560d877f3
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535885"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714802"
 ---
 # <a name="data-residency-and-resiliency-for-azure-stack-edge-preview"></a>Azure Stack Edge에 대한 데이터 보존 및 복원력(미리 보기)
 
@@ -40,7 +40,7 @@ Azure Stack Edge 서비스의 데이터 보존 상태는 다음 서비스 특성
 
 Azure Stack Edge 서비스는 다음 종속 서비스와 통합되고 해당 동작도 요약되어 있습니다. 
 
-- Azure Arc를 지원하는 Kubernetes
+- Azure Arc 지원 Kubernetes
 - Azure IoT Hub 및 Azure IoT Edge
 <!--- Azure Key Vault -->
 
@@ -77,14 +77,14 @@ For more information, see [Use the Kubernetes dashboard to monitor the Kubernete
 
 ## <a name="azure-stack-edge-dependent-services"></a>Azure Stack Edge 종속 서비스
 
-Azure Arc를 지원하는 Kubernetes, Azure IoT Hub 및 Azure IoT Edge 및 Azure Key Vault는 Azure Stack Edge와 통합되는 서비스입니다.
+Azure Arc 사용 Kubernetes, Azure IoT 허브 및 Azure IoT edge, Azure Key Vault는 Azure Stack edge와 통합 되는 서비스입니다.
 
-### <a name="azure-arc-enabled-kubernetes"></a>Azure Arc를 지원하는 Kubernetes 
+### <a name="azure-arc-enabled-kubernetes"></a>Azure Arc 지원 Kubernetes 
 
-Azure Arc를 지원하는 Kubernetes는 Azure Stack Edge의 추가 기능으로 제공됩니다. 싱가포르(동남아시아)의 경우 Azure Arc 데이터는 싱가포르 내에만 보존되고 홍콩으로 복제되지 않습니다. <!--If there is a region-wide outage, the service is not resilient.-->
+Azure Arc 사용 Kubernetes는 Azure Stack Edge에 대 한 추가 기능으로 사용할 수 있습니다. 싱가포르(동남아시아)의 경우 Azure Arc 데이터는 싱가포르 내에만 보존되고 홍콩으로 복제되지 않습니다. <!--If there is a region-wide outage, the service is not resilient.-->
 
 <!--For all other regions, Azure Arc supports Azure Regional Pair and is resilient to any region-wide outages.--> 
-<!--For more information, see [Data residency and resiliency for Azure Arc enabled Kubernetes clusters]().-->
+<!--For more information, see [Data residency and resiliency for Azure Arc-enabled Kubernetes clusters]().-->
 
 
 ### <a name="azure-iot"></a>Azure IoT

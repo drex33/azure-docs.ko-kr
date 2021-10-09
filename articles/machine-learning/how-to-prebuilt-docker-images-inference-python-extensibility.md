@@ -1,7 +1,7 @@
 ---
 title: 미리 빌드된 Docker 이미지 Python 확장성
 titleSuffix: Azure Machine Learning
-description: Python 패키지 확장성 솔루션을 통해 미리 디버전된 Docker 이미지를 확장합니다.
+description: Python 패키지 확장성 솔루션을 사용 하 여 미리 빌드된 docker 이미지를 확장 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -11,14 +11,14 @@ ms.date: 05/25/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
-ms.openlocfilehash: 16191b274f840438cac8deab6754991b7b9e29df
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 679be09b977ffd39dd513e88968fe4b0d474e74b
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129425015"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705358"
 ---
-# <a name="python-package-extensibility-for-prebuilt-docker-images-preview"></a>미리 디버전된 Docker 이미지에 대한 Python 패키지 확장성(미리 보기)
+# <a name="python-package-extensibility-for-prebuilt-docker-images-preview"></a>미리 빌드된 Docker 이미지에 대 한 Python 패키지 확장성 (미리 보기)
 
 [모델 유추용으로 미리 빌드된 Docker 이미지](concept-prebuilt-docker-images-inference.md)에는 많이 사용되는 기계 학습 프레임워크용 패키지가 포함되어 있습니다. __Docker 이미지를 다시 빌드하지 않고__ Python 패키지를 추가하는 데 사용할 수 있는 두 가지 방법이 있습니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "129425015"
     __프로덕션 배포__ 에 이 방법을 사용합니다. 패키지가 포함된 디렉터리를 이미지에 탑재하기 때문에 배포에 공용 인터넷 액세스 권한이 없는 경우에도 사용할 수 있습니다. 예를 들어 보안 Azure Virtual Network에 배포된 경우입니다.
 
 > [!IMPORTANT]
-> 현재 Azure Machine Learning에서 미리 빌드된 Docker 이미지는 미리 보기에서 사용할 수 있습니다. 미리 보기 기능은 지원 또는 서비스 수준 계약의 보증 없이 “있는 그대로” 제공됩니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> Azure Machine Learning를 통해 미리 작성 된 Docker 이미지에 Python 패키지 확장성을 사용 하는 것은 현재 미리 보기 상태입니다. 미리 보기 기능은 지원 또는 서비스 수준 계약의 보증 없이 “있는 그대로” 제공됩니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

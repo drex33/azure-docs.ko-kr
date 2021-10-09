@@ -8,21 +8,21 @@ ms.workload: mobile
 ms.topic: article
 ms.author: danlep
 ms.date: 05/25/2021
-ms.openlocfilehash: dda6fcbf71914fefcd1afd2056864ad66aa11d4d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5ab029b5080ae06276119d733f081974ba42ff9b
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609824"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708457"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Kubernetes에 자체 호스팅 게이트웨이 배포
 
 이 문서에서는 Azure API Management의 자체 호스팅 게이트웨이 구성 요소를 Kubernetes 클러스터에 배포하는 단계를 설명합니다.
 
 > [!NOTE]
-> 자체 호스팅 게이트웨이를 [Azure Arc 지원 Kubernetes 클러스터](how-to-deploy-self-hosted-gateway-azure-arc.md)에 [클러스터 확장](../azure-arc/kubernetes/extensions.md)으로 배포할 수도 있습니다.
+> [Azure Arc 지원 Kubernetes 클러스터에](how-to-deploy-self-hosted-gateway-azure-arc.md) 자체 호스팅 게이트웨이를 [클러스터 확장으로](../azure-arc/kubernetes/extensions.md)배포할 수도 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 - Kubernetes 클러스터를 만듭니다.
@@ -134,4 +134,4 @@ Azure 연결 중단 시 API 트래픽을 관찰하고 원격 분석 데이터 �
 ## <a name="next-steps"></a>다음 단계
 
 * 자체 호스팅 게이트웨이에 대한 자세한 내용은 [자체 호스팅 게이트웨이 개요](self-hosted-gateway-overview.md)를 참조하세요.
-* [API Management 자체 호스팅 게이트웨이를 Azure Arc 지원 Kubernetes 클러스터에 배포하는 방법](how-to-deploy-self-hosted-gateway-azure-arc.md)에 대해 알아봅니다.
+* [Azure Arc 지원 Kubernetes 클러스터에 API Management 자체 호스팅 게이트웨이를 배포하는 방법을 알아봅니다.](how-to-deploy-self-hosted-gateway-azure-arc.md)

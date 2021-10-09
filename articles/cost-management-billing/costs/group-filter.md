@@ -1,19 +1,19 @@
 ---
 title: Azure Cost Management의 그룹 및 필터 옵션
-description: 이 문서에서는 Azure Cost Management에서 그룹 및 필터 옵션을 사용하는 방법을 설명합니다.
+description: 이 문서에서는 Cost Management 그룹 및 필터 옵션을 사용하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 89344ccfe70a3d0becef103bd0bd3ffee79bb80c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0823775740250cc49a0ac8828476f813f8fe9805
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128616463"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705863"
 ---
 # <a name="group-and-filter-options-in-cost-analysis"></a>비용 분석의 그룹 및 필터 옵션
 

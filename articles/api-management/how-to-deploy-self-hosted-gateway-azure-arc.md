@@ -6,18 +6,18 @@ ms.author: danlep
 ms.service: api-management
 ms.topic: article
 ms.date: 05/25/2021
-ms.openlocfilehash: bfcb6e738c480281361d544c4aa7a8dd355d92de
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ee2b0fc20111fddd55a987bef4d454d5b63b8e4e
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128590706"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708485"
 ---
 # <a name="deploy-an-azure-api-management-gateway-on-azure-arc-preview"></a>Azure Arc에 Azure API Management 게이트웨이 배포(미리 보기)
 
-Azure API Management와 [Kubernetes의 Azure Arc](../azure-arc/kubernetes/overview.md) 간 통합을 사용하여 API Management 게이트웨이 구성 요소를 [Azure Arc 지원 Kubernetes 클러스터에 확장](../azure-arc/kubernetes/extensions.md)으로 배포할 수 있습니다. 
+[Kubernetes에서](../azure-arc/kubernetes/overview.md)azure API Management와 azure arc를 통합 하 여 [Azure arc 사용 Kubernetes 클러스터에서](../azure-arc/kubernetes/extensions.md)API Management 게이트웨이 구성 요소를 확장으로 배포할 수 있습니다. 
 
-Arc 지원 Kubernetes 클러스터에 API Management 게이트웨이를 배포하면 하이브리드 및 다중 클라우드 환경에 대한 API Management 지원이 확장됩니다. 클러스터 확장을 통해 배포를 사용하도록 설정하여 Arc 지원 클러스터에 대한 정책을 관리하고 적용하여 일관된 환경을 제공합니다.
+Azure Arc 사용 Kubernetes 클러스터에 API Management 게이트웨이를 배포 하면 하이브리드 및 다중 클라우드 환경에 대 한 API Management 지원이 확장 됩니다. 클러스터 확장을 사용 하 여 배포를 사용 하도록 설정 하 여 Azure Arc 사용 클러스터에 대 한 정책을 관리 하 고 적용 하는 것이 일관 된 환경을 제공 합니다.
 
 [!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-azure-arc.md)]
 
@@ -72,7 +72,7 @@ Arc 지원 Kubernetes 클러스터에 API Management 게이트웨이를 배포�
 
 ## <a name="deploy-the-api-management-gateway-extension-using-azure-portal"></a>Azure Portal을 사용하여 API Management 게이트웨이 확장 배포
 
-1. Azure Portal에서 Azure Arc 연결된 클러스터로 이동합니다.
+1. Azure Portal에서 Azure Arc 연결 클러스터로 이동 합니다.
 1. 왼쪽 메뉴에서 **확장(미리 보기)**  >  **+ 추가** > **API Management 게이트웨이(미리 보기)** 를 선택합니다.
 1. **만들기** 를 선택합니다.
 1. **API Management 게이트웨이 설치** 창에서 게이트웨이 확장을 구성합니다.
@@ -113,5 +113,5 @@ Arc 지원 Kubernetes 클러스터에 API Management 게이트웨이를 배포�
 ## <a name="next-steps"></a>다음 단계
 
 * 자체 호스팅 게이트웨이에 대한 자세한 내용은 [Azure API Management 자체 호스팅 게이트웨이 개요](self-hosted-gateway-overview.md)를 참조하세요.
-* 모든 [Azure Arc 지원 Kubernetes 확장](../azure-arc/kubernetes/extensions.md)을 검색합니다. 
-* [Azure Arc 지원 Kubernetes](../azure-arc/kubernetes/overview.md)에 대해 자세히 알아보세요.
+* 모든 [Azure Arc 사용 Kubernetes 확장](../azure-arc/kubernetes/extensions.md)을 검색 합니다. 
+* [Azure Arc 사용 Kubernetes](../azure-arc/kubernetes/overview.md)에 대해 자세히 알아보세요.

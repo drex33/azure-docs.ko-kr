@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 01/19/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 555529b52d586078ba7e1832373ec126ba545c11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 16b805f909ad06397894c5c405027986ff5fd939
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98706428"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709335"
 ---
 # <a name="troubleshoot-issues-in-azure-importexport"></a>Azure Import/Export 문제 해결
 이 문서에서는 Azure Import/Export에서 데이터를 가져오고 내보낼 때 발생하는 일반적인 문제의 해결 방법을 설명합니다.
@@ -38,8 +38,8 @@ ms.locfileid: "98706428"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Import/Export 도구 설정](storage-import-export-tool-setup-v1.md)
+<!--* [Set up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)-->
 * [가져오기 작업을 위한 하드 드라이브 준비](storage-import-export-data-to-blobs.md#step-1-prepare-the-drives)
 * [복사 로그 파일을 사용하여 작업 상태 검토](storage-import-export-tool-reviewing-job-status-v1.md)
-* [가져오기 작업 복구](storage-import-export-tool-repairing-an-import-job-v1.md)
-* [내보내기 작업 복구](storage-import-export-tool-repairing-an-export-job-v1.md)
+<!--* [Repair an import job](storage-import-export-tool-repairing-an-import-job-v1.md)-->
+<!--* [Repair an export job](storage-import-export-tool-repairing-an-export-job-v1.md)-->

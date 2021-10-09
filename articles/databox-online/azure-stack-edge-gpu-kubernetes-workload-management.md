@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 67110a2a2bd7f34c735edd126cfc655f45247fc2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: a0b3a5d0cbbae9f25a845f79db35d1049f93f776
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105560236"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710177"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 디바이스에서의 Kubernetes 워크로드 관리
 
@@ -53,11 +53,11 @@ Azure Stack Edge Pro 디바이스에 애플리케이션을 배포하려면:
 
 - **IoT Edge 배포**: Azure IoT Hub에 연결되는 IoT Edge를 통해 배포됩니다. `iotedge` 네임스페이스를 통해 Azure Stack Edge Pro 디바이스의 Kubernetes 클러스터에 연결합니다. 이 네임스페이스에 배포된 IoT Edge 에이전트는 Azure에 대한 연결을 담당합니다. Azure DevOps CI/CD를 사용하여 `IoT Edge deployment.json` 구성을 적용합니다. 네임스페이스 및 IoT Edge 관리는 클라우드 운영자에 의해 수행됩니다.
 
-- **Azure Arc 사용 Kubernetes 배포**: Azure Arc 사용 Kubernetes는 Kubernetes 클러스터에 애플리케이션을 배포하는 데 사용할 수 있는 하이브리드 관리 도구입니다. `azure-arc namespace`를 통해 Azure Stack Edge Pro 디바이스의 Kubernetes 클러스터에 연결합니다. 이 네임스페이스에 배포된 에이전트는 Azure에 대한 연결을 담당합니다. GitOps 기반 구성 관리를 사용하여 배포 구성을 적용합니다. 
+- **Azure Arc 지원 Kubernetes 배포:** Azure Arc 지원 Kubernetes는 Kubernetes 클러스터에 애플리케이션을 배포할 수 있는 하이브리드 관리 도구입니다. `azure-arc namespace`를 통해 Azure Stack Edge Pro 디바이스의 Kubernetes 클러스터에 연결합니다. 이 네임스페이스에 배포된 에이전트는 Azure에 대한 연결을 담당합니다. GitOps 기반 구성 관리를 사용하여 배포 구성을 적용합니다. 
     
-    Azure Arc 사용 Kubernetes를 사용하면 컨테이너에 Azure Monitor를 사용하여 클러스터를 보고 모니터링할 수 있습니다. 자세한 내용은 [Azure Arc 사용 Kubernetes란?](../azure-arc/kubernetes/overview.md)을 참조하세요.
+    Azure Arc 사용하도록 설정된 Kubernetes를 사용하면 컨테이너에 대한 Azure Monitor 사용하여 클러스터를 보고 모니터링할 수도 있습니다. 자세한 내용은 Azure Arc [지원 Kubernetes란?을(를) 참조하십시오.](../azure-arc/kubernetes/overview.md)
     
-    Azure Arc 사용 Kubernetes는 2021년 3월부터 사용자에게 일반 공급되며 표준 사용 요금이 적용됩니다. 미리 보기 고객은 Azure Stack Edge 디바이스에서 Azure Arc 사용 Kubernetes를 무료로 사용할 수 있습니다. 미리 보기 제안을 이용하려면 [지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 만드세요.
+    2021년 3월부터 Azure Arc 사용 가능한 Kubernetes는 일반적으로 사용자에게 제공되며 표준 사용 요금이 적용됩니다. 가치 있는 미리 보기 고객은 Azure Arc 지원 Kubernetes를 Azure Stack Edge 디바이스에 대해 무료로 사용할 수 있습니다. 미리 보기 제안을 이용하려면 [지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 만드세요.
 
     1. **문제점 유형** 에서 **청구** 를 선택합니다.
     2. **구독** 아래에서 구독을 선택합니다.

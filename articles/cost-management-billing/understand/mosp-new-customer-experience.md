@@ -6,14 +6,14 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 05/20/2021
+ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: b4a4bd73672b36e8301d33618701a5d6b43926a5
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: 8e58a31d37e4b6aece877e8a2d920e7abc91d8f8
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110474876"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710945"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>업데이트된 Azure 청구 계정 시작
 
@@ -140,7 +140,7 @@ Azure 청구 계정에서 다음과 같은 새 기능을 사용할 수 있습니
 
 업데이트된 계정의 일부로 Cost Management + Billing에 새 범위가 있습니다. 이는 계층 구조의 조직과 청구서 발부에 도움이 될 뿐만 아니라, 여러 기본 구독의 결합된 요금을 볼 수 있게 해줍니다. 청구 범위에 대한 자세한 내용은 [Microsoft 고객 계약 범위](../costs/understand-work-scopes.md#microsoft-customer-agreement-scopes)를 참조하세요.
 
-Cost Management API에 액세스하여 상위 범위에서 결합된 비용 보기를 확인할 수도 있습니다. 구독 범위를 사용하는 모든 Cost Management API도 스키마를 조금만 변경하면 사용할 수 있습니다. 이러한 API에 대한 자세한 내용은 [Azure Cost Management API](/rest/api/cost-management/) 및 [Azure Consumption API](/rest/api/consumption/)를 참조하세요.
+Cost Management API에 액세스하여 상위 범위에서 결합된 비용 보기를 확인할 수도 있습니다. 구독 범위를 사용하는 모든 Cost Management API도 스키마를 조금만 변경하면 사용할 수 있습니다. API에 대한 자세한 내용은 [Cost Management API](/rest/api/cost-management/) 및 [Azure Consumption API를 참조하세요.](/rest/api/consumption/)
 
 #### <a name="cost-allocation"></a>비용 할당
 
@@ -148,7 +148,7 @@ Cost Management API에 액세스하여 상위 범위에서 결합된 비용 보�
 
 #### <a name="power-bi"></a>Power BI
 
-Power BI Desktop용 Azure Cost Management 커넥터를 사용하여 Azure 사용량 및 지출에 대한 사용자 지정 시각화 및 보고서를 작성할 수 있습니다. 업데이트된 계정에 연결한 후 비용 및 사용량 데이터에 액세스합니다. Power BI Desktop용 Azure Cost Management 커넥터에 대한 자세한 내용은 [Power BI Desktop에서 Azure Cost Management 커넥터를 사용하여 시각적 개체 및 보고서 만들기](/power-bi/connect-data/desktop-connect-azure-cost-management)를 참조하세요.
+Power BI Desktop Cost Management 커넥터를 사용하면 Azure 사용량 및 지출에 대한 사용자 지정 시각화 및 보고서를 작성할 수 있습니다. 업데이트된 계정에 연결한 후 비용 및 사용량 데이터에 액세스합니다. Power BI Desktop Cost Management 커넥터에 대한 자세한 내용은 Power BI Desktop [Cost Management 커넥터를](/power-bi/connect-data/desktop-connect-azure-cost-management)사용하여 시각적 개체 및 보고서 만들기를 참조하세요.
 
 ### <a name="updated-capabilities"></a>업데이트된 기능
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 07/08/2021
+ms.date: 10/07/2021
 ms.author: lajanuar
-ms.openlocfilehash: 43220ce85bf02919a0ccf069bc9646a16c3a0a26
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: 448b13d1406587c36b729b3258d8ca375a0914ae
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129155356"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706581"
 ---
 # <a name="create-and-use-managed-identity-for-your-form-recognizer-resource"></a>Form Recognizer 리소스의 관리 ID 만들기 및 사용
 
@@ -35,7 +35,7 @@ Azure 관리 ID는 Azure 관리되는 리소스에 대한 Azure AD(Azure Active 
 >
 > * [**FOTT(Form Recognizer 샘플 레이블 지정 도구)**](https://fott-2-1.azurewebsites.net/)를 사용하여 스토리지 데이터를 분석하려면 VNet 또는 방화벽 뒤에 도구를 배포해야 합니다.
 >
-> * 분석 [**확인**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync), [**명함**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync), [**송장**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291), [**문서**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707) 및 [**사용자 지정 양식**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) API는 요청을 원시 이진 콘텐츠로 게시하여 단일 문서에서 데이터를 추출할 수 있습니다. 이러한 시나리오에서는 관리 ID 자격 증명에 대한 요구 사항이 없습니다.
+> * [**영수증**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync)분석, [**비즈니스 카드,**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync) [**청구서,**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291) [**ID 문서**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707)및 사용자 지정 [**양식**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) API는 요청을 원시 이진 콘텐츠로 게시하여 단일 문서에서 데이터를 추출할 수 있습니다. 이러한 시나리오에서는 관리 ID 자격 증명에 대한 요구 사항이 없습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -45,17 +45,17 @@ Azure 관리 ID는 Azure 관리되는 리소스에 대한 Azure AD(Azure Active 
 
 * Azure Portal의 [**Form Recognizer**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) 또는 [**Cognitive Services**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) 리소스 자세한 단계는 [Azure Portal을 사용하여 Cognitive Services 리소스 만들기](../../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows)를 _참조_ 하세요.
 
-* 양식 인식기 리소스와 동일한 지역에 있는 [**Azure blob storage 계정**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) . 스토리지 계정 내에서 Blob 데이터를 저장하고 구성하는 컨테이너를 만듭니다. 
+* Form Recognizer 리소스와 동일한 지역에 있는 [**Azure Blob Storage 계정**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) 스토리지 계정 내에서 Blob 데이터를 저장하고 구성하는 컨테이너를 만듭니다. 
 
-  * 저장소 계정이 방화벽 뒤에 있는 경우 **다음 구성을 사용 하도록 설정 해야 합니다**. </br></br>
+  * 스토리지 계정이 방화벽 뒤에 있는 경우 **다음 구성을 사용하도록 설정해야 합니다.** </br></br>
 
-  * 저장소 계정 페이지의 왼쪽 메뉴에서 **보안 + 네트워킹** → **네트워킹** 을 선택 합니다.
+  * 스토리지 계정 페이지의 왼쪽 메뉴에서 **보안 + 네트워킹** → **네트워킹을** 선택합니다.
     :::image type="content" source="media/managed-identities/security-and-networking-node.png" alt-text="스크린샷: 보안 + 네트워킹 탭":::
 
-  * 주 창에서 **선택한 네트워크에서 액세스 허용** 을 선택 합니다.
-  :::image type="content" source="media/managed-identities/firewalls-and-virtual-networks.png" alt-text="스크린샷: 선택한 네트워크 라디오 단추를 선택 합니다.":::
+  * 주 창에서 **선택한 네트워크에서 액세스 허용을** 선택합니다.
+  :::image type="content" source="media/managed-identities/firewalls-and-virtual-networks.png" alt-text="스크린샷: 선택한 네트워크 라디오 단추가 선택되었습니다.":::
 
-  * 선택한 네트워크 페이지에서 **예외** 범주로 이동 하 고  [**신뢰할 수 있는 서비스 목록에 대 한 Azure 서비스에서이 저장소 계정에 액세스 하도록 허용**](/azure/storage/common/storage-network-security?tabs=azure-portal#manage-exceptions) 확인란을 사용 하도록 설정 합니다.
+  * 선택한 네트워크 페이지에서 **예외** 범주로 이동하여 신뢰할 수 있는  [**서비스 목록의 Azure 서비스가 이 스토리지 계정에 액세스하도록 허용**](/azure/storage/common/storage-network-security?tabs=azure-portal#manage-exceptions) 확인란을 사용하도록 설정했는지 확인합니다.
 
     :::image type="content" source="media/managed-identities/allow-trusted-services-checkbox-portal-view.png" alt-text="스크린샷: 신뢰할 수 있는 서비스 허용 확인란, 포털 보기":::
 * Azure Portal을 사용하여 [**Azure RBAC(Azure 역할 기반 액세스 제어)**](../../role-based-access-control/role-assignments-portal.md)를 간략히 이해합니다.

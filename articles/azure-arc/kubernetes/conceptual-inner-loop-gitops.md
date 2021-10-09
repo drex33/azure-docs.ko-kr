@@ -8,12 +8,12 @@ author: sudivate
 ms.author: sudivate
 description: '이 문서에서는 GitOps를 채택한 팀의 내부 루프 개발자 경험에 대한 개념적인 개요를 제공합니다. '
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, 컨테이너, CI, CD, Azure DevOps, 내부 루프, 개발 경험
-ms.openlocfilehash: 3c0e8041a31c506c926315381741afd75bb8a806
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
-ms.translationtype: HT
+ms.openlocfilehash: 3bd60c3236bb187f14b924f4246d8e6fcfed4ed3
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113598654"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706416"
 ---
 # <a name="inner-loop-developer-experience-for-teams-adopting-gitops"></a>GitOps를 채택한 팀의 내부 루프 개발자 경험
 
@@ -90,6 +90,6 @@ Alice가 로컬 또는 원격 클러스터에서 애플리케이션을 업데이
 > [!NOTE]
 > 위 워크플로의 샘플 코드는 이 [GitHub 리포지토리](https://github.com/Azure/arc-cicd-demo-src)에서 찾을 수 있습니다.
 
-
 ## <a name="next-steps"></a>다음 단계
-[Azure Arc 지원 Kubernetes를 사용하여 리소스 구성](./conceptual-configurations.md)으로 클러스터와 Git 리포지토리 간의 연결을 만드는 방법에 대해 자세히 알아보세요.
+
+[Azure Arc 사용하도록 설정된 Kubernetes를](./conceptual-configurations.md) 사용하여 구성 리소스로 클러스터와 Git 리포지토리 간의 연결을 만드는 방법에 대해 자세히 알아봅니다.

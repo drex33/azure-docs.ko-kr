@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 0916439ef75c73d59ada1f9a832b95e733520c9c
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: 09bd0cf6a43934ea7a0e973b64c434b705d9ea36
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129401031"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129716034"
 ---
 # <a name="live-event-types-comparison"></a>라이브 이벤트 유형 비교
 
@@ -120,21 +120,22 @@ Azure Media Services에서 [라이브 이벤트](/rest/api/media/liveevents)는 
 
 라이브 인코더는 기여 피드의 [GOP](https://en.wikipedia.org/wiki/Group_of_pictures) 구조를 따릅니다. 즉, 출력 레이어가 동일한 GOP 기간을 갖게 됩니다. 따라서 GOP 기간이 고정된(일반적으로 2초) 기여 피드를 생성하도록 온-프레미스 인코더를 구성하는 것이 좋습니다. 이렇게 하면 서비스의 나가는 HLS 및 MPEG DASH 스트림에도 고정된 GOP 기간이 지정됩니다. 약간의 GOP 기간 변형은 대부분의 디바이스에서 허용될 수 있습니다.
 
-### <a name="frame-rate-limits"></a>프레임 속도로 제한
+### <a name="frame-rate-limits"></a>프레임 속도 제한
 
 또한 라이브 인코더는 기여 피드의 개별 비디오 프레임 지속 시간을 따릅니다. 즉, 출력 계층에 동일한 기간의 프레임이 포함됩니다. 따라서 프레임 속도가 고정된(초당 30프레임 이내) 기여 피드를 생성하도록 온-프레미스 인코더를 구성하는 것이 좋습니다. 이렇게 하면 서비스의 나가는 HLS 및 MPEG DASH 스트림에도 고정된 프레임 속도가 지정됩니다. 약간의 프레임 속도 변형은 대부분의 디바이스에서 허용될 수 있지만 라이브 인코더가 올바르게 재생되는 출력을 생성한다는 보장이 없습니다. 온-프레미스 라이브 인코더는 어떤 방식으로도 프레임을 삭제하지 않아야 하며(예: 배터리 부족 상태에서) 프레임 속도가 달라지지 않아야 합니다.
 
-입력 시 원본 프레임 속도가 >30fps 인 경우 프레임 속도는 입력 프레임 속도의 1/2과 일치 하도록 줄어듭니다.  예를 들어 60 fps는 30fps로 줄어듭니다.  50 fps는 25fps로 축소 됩니다.
+입력의 원본 프레임 속도가 >30fps이면 프레임 속도가 입력 프레임 속도의 절반과 일치하도록 감소됩니다.  예를 들어 60fps는 30fps로 줄어듭니다.  50fps는 25fps 등으로 줄어듭니다.
 
 ### <a name="resolution-of-contribution-feed-and-output-layers"></a>기여 피드 및 출력 레이어의 해상도
 
-라이브 인코더는 기여 피드를 더 이상 변환 하지 않도록 구성 되어 있습니다. 따라서 출력 레이어의 최대 해상도는 기여 피드의 출력 크기를 초과하지 않습니다.
+라이브 인코더가 기여 피드를 업 변환하지 않도록 구성됩니다. 따라서 출력 레이어의 최대 해상도는 기여 피드의 출력 크기를 초과하지 않습니다.
 
 예를 들어, 720p의 기여 피드를 Default1080p 라이브 인코딩에 대해 구성된 라이브 이벤트에 보낼 경우 출력에는 5개 레이어(3Mbps의 720p부터 시작해서 200kbps의 1080p까지)만 있습니다. 또는 360p의 기여 피드를 표준 라이브 인코딩용으로 구성된 라이브 이벤트로 보내면 출력에 3개의 레이어(288p, 216p 및 192p의 해상도)가 포함됩니다. 중복 제거의 경우 160x90픽셀의 기여 피드를 표준 라이브 인코더로 보내면 출력에 기여 피드와 동일한 비트 전송률, 160x90 해상도의 레이어 1개가 포함됩니다.
 
 ### <a name="bitrate-of-contribution-feed-and-output-layers"></a>기여 피드 및 출력 레이어의 비트 전송률
 
 라이브 인코더는 기여 피드의 비트 전송률에 관계 없이 사전 설정의 비트 전송률 설정을 적용하도록 구성됩니다. 결과적으로 출력 레이어의 비트 전송률이 기여 피드의 속도를 초과할 수 있습니다. 예를 들어, 1Mbps의 해상도 720p에서 기여 피드를 전송하면 출력 레이어는 위의 [표](live-event-types-comparison-reference.md#output-video-streams-for-default720p)에 나오는 것과 동일하게 유지됩니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

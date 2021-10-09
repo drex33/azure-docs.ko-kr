@@ -2,14 +2,14 @@
 title: Azure Blob 백업의 지원 매트릭스
 description: Azure Blob을 백업할 경우의 지원 설정 및 제한 사항에 대한 요약입니다.
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 10/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 921f08a80511766f55e179fccde38a061800061e
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: d0b524ba2865aa72f6fce88e326fffde435f71c3
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129533175"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714157"
 ---
 # <a name="support-matrix-for-azure-blobs-backup"></a>Azure Blob 백업의 지원 매트릭스
 
@@ -17,13 +17,13 @@ ms.locfileid: "129533175"
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-Blob에 대한 운영 백업은 프랑스 남부 및 남아프리카 서부를 제외한 모든 퍼블릭 클라우드 지역에서 사용할 수 있습니다. 소버린 클라우드 지역( 모든 Azure 정부 지역 및 중국 지역(중국 동부 제외)에서도 사용할 수 있습니다.
+Blob에 대 한 운영 백업은 프랑스 남부, 남아프리카 공화국 서 부를 제외한 모든 공용 클라우드 지역에서 사용할 수 있습니다. 소 버린 클라우드 지역 (모든 Azure Government 지역 및 중국 지역 (중국 동부 제외) 에서도 사용할 수 있습니다.
 
 ## <a name="limitations"></a>제한 사항
 
 Blob의 운영 백업은 Blob 특정 시점 복원, Blob 버전 관리, Blob에 대한 일시 삭제, Blob에 대한 변경 피드 및 로컬 백업 솔루션을 제공하는 잠금 삭제를 사용합니다. 따라서 이러한 기능에 적용되는 제한 사항은 운영 백업에도 적용됩니다.
 
-**지원되는 시나리오:** 운영 백업은 표준 범용 v2 스토리지 계정에서만 블록 Blob을 지원합니다. 따라서 ADLS Gen2 계정은 지원되지 않습니다. 또한 스토리지 계정에 있는 모든 페이지 Blob, 추가 Blob 및 프리미엄 Blob은 복원되지 않으며 블록 Blob만 복원됩니다.
+**지원되는 시나리오:** 운영 백업은 표준 범용 v2 스토리지 계정에서만 블록 Blob을 지원합니다. 계층적 네임 스페이스를 사용 하는 Storage 계정 (ADLS Gen2 계정)은 지원 되지 않습니다.   <br><br>   또한 스토리지 계정에 있는 모든 페이지 Blob, 추가 Blob 및 프리미엄 Blob은 복원되지 않으며 블록 Blob만 복원됩니다.
 
 **기타 제한 사항:**
 

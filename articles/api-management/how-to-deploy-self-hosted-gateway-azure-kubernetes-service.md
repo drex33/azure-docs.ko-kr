@@ -7,19 +7,19 @@ ms.service: api-management
 ms.topic: article
 ms.date: 06/11/2021
 ms.author: danlep
-ms.openlocfilehash: a5faca1d91596021e236e2bcb459679085ee99aa
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 624229e947a872f4ea50c0a4e61e210fee9d946f
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128620866"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708437"
 ---
 # <a name="deploy-to-azure-kubernetes-service"></a>Azure Kubernetes Service에 배포
 
 이 문서에서는 Azure API Management의 자체 호스팅 게이트웨이 구성 요소를 [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/)에 배포하는 단계를 제공합니다. Kubernetes 클러스터에 자체 호스팅 게이트웨이를 배포하려면 [방법 문서](how-to-deploy-self-hosted-gateway-kubernetes.md)를 참조하세요.
 
 > [!NOTE]
-> 자체 호스팅 게이트웨이를 [Azure Arc 지원 Kubernetes 클러스터](how-to-deploy-self-hosted-gateway-azure-arc.md)에 [클러스터 확장](../azure-arc/kubernetes/extensions.md)으로 배포할 수도 있습니다.
+> [Azure Arc 지원 Kubernetes 클러스터에](how-to-deploy-self-hosted-gateway-azure-arc.md) 자체 호스팅 게이트웨이를 [클러스터 확장으로](../azure-arc/kubernetes/extensions.md)배포할 수도 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -34,7 +34,7 @@ ms.locfileid: "128620866"
 3. **배포** 를 선택합니다.
 4. **토큰** 텍스트 상자의 새 토큰은 기본 **만료** 및 **비밀 키** 값을 사용하여 자동으로 생성되었습니다. 원하는 경우 둘 중 하나 또는 둘 다를 조정하고 **생성** 을 선택하여 새 토큰을 만듭니다.
 5. **배포 스크립트** 아래에서 **Kubernetes** 가 선택되어 있는지 확인합니다.
-6. **배포** 옆의 **\<gateway-name\> .yml** 파일 링크를 선택 하 여 파일을 다운로드 합니다.
+6. **배포** 옆에 있는 **\<gateway-name\> .yml** 파일 링크를 선택하여 파일을 다운로드합니다.
 7. 필요에 따라 yml 파일의 `config.service.endpoint`, 포트 매핑 및 컨테이너 이름을 조정합니다.
 8. 시나리오에 따라 [서비스 유형](../aks/concepts-network.md#services)을 변경해야 할 수도 있습니다. 
     * 기본값은 외부 부하 분산 장치인 `LoadBalancer`입니다. 
@@ -72,7 +72,7 @@ ms.locfileid: "128620866"
 ## <a name="next-steps"></a>다음 단계
 
 * 자체 호스팅 게이트웨이에 대한 자세한 내용은 [Azure API Management 자체 호스팅 게이트웨이 개요](self-hosted-gateway-overview.md)를 참조하세요.
-* [API Management 자체 호스팅 게이트웨이를 Azure Arc 지원 Kubernetes 클러스터에 배포하는 방법](how-to-deploy-self-hosted-gateway-azure-arc.md)에 대해 알아봅니다.
+* [Azure Arc 지원 Kubernetes 클러스터에 API Management 자체 호스팅 게이트웨이를 배포하는 방법을 알아봅니다.](how-to-deploy-self-hosted-gateway-azure-arc.md)
 * [Azure Kubernetes Service](../aks/intro-kubernetes.md)에 대해 자세히 알아봅니다.
 * [클라우드에서 로그를 구성하고 유지하는 방법](how-to-configure-cloud-metrics-logs.md)을 알아봅니다.
 * [로그를 로컬로 구성하고 유지하는 방법](how-to-configure-local-metrics-logs.md)을 알아봅니다.

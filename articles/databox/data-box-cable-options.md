@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 10/24/2018
 ms.author: alkohli
-ms.openlocfilehash: a2c4cce492c48ebe6e09ad142f97bc6377a8a5e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 851c717ad313c32137235704f7cbdca9544d2605
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94334619"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129716112"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Azure Data Box의 케이블 연결 옵션
 
@@ -117,7 +117,7 @@ ms.locfileid: "94334619"
 
 시작하기 전에 다음을 확인합니다.
 
-- RJ45 케이블(DATA 1을 연결하려는 경우).
+- DATA 3을 연결하려는 경우 RJ45 케이블.
 - 연결하려는 각 10GbE 데이터 포트당 10GbE SFP+ Twinax 동 케이블 하나.
 - [지원되는 OS](data-box-system-requirements.md#supported-operating-systems-for-clients)를 실행 중인 하나 이상의 데이터 원본. 이러한 데이터 원본은 1GbE 또는 10GbE 네트워크 같은 여러 네트워크에 있을 수 있습니다.
 

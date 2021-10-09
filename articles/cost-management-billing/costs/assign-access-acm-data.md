@@ -1,24 +1,24 @@
 ---
 title: Azure Cost Management 데이터에 대한 액세스 할당
-description: 이 문서에서는 다양한 액세스 범위에 맞게 Azure Cost Management 데이터에 대한 권한을 할당하는 방법을 안내합니다.
+description: 이 문서에서는 다양한 액세스 범위에 대한 데이터를 Cost Management 권한을 할당하는 방법을 안내합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/27/2021
+ms.date: 10/07/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: secdec18
-ms.openlocfilehash: 9ee0f7f854363389f3e6594946411f05b1b8b790
-ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
-ms.translationtype: HT
+ms.openlocfilehash: dddb6292530687e75e4b5e697f4fc754d98040fb
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112988700"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706249"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Cost Management 데이터에 대한 액세스 할당
 
-Azure 엔터프라이즈 계약을 맞은 사용자는 Azure Portal과 EA(기업계약) 포털에 부여된 권한 조합에 따라 Azure Cost Management 데이터에 대한 사용자의 액세스 수준이 정의됩니다. 다른 Azure 계정 유형을 사용하는 사용자의 경우 Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 Cost Management 데이터에 대한 사용자의 액세스 수준을 정의하는 것이 더 간편합니다. 이 문서에서는 Cost Management 데이터에 대한 액세스 권한을 할당하는 방법을 안내합니다. 권한 조합이 할당되면 사용자는 액세스 권한이 있는 범위와 Azure Portal에서 선택한 범위에 따라 Cost Management에서 데이터를 봅니다.
+Azure Enterprise 계약을 체결한 사용자의 경우 Azure Portal 부여된 권한과 EA(Enterprise) 포털의 조합은 Cost Management 데이터에 대한 사용자의 액세스 수준을 정의합니다. 다른 Azure 계정 유형을 사용하는 사용자의 경우 Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 Cost Management 데이터에 대한 사용자의 액세스 수준을 정의하는 것이 더 간편합니다. 이 문서에서는 Cost Management 데이터에 대한 액세스 권한을 할당하는 방법을 안내합니다. 권한 조합이 할당되면 사용자는 액세스 권한이 있는 범위와 Azure Portal에서 선택한 범위에 따라 Cost Management에서 데이터를 봅니다.
 
 사용자가 선택한 범위는 Cost Management 전체에서 데이터 통합을 제공하고 비용 정보에 대한 액세스를 제어하는 데 사용됩니다. 범위를 사용하는 경우 사용자는 여러 개의 범위를 선택하지 않습니다. 대신 자식 범위가 롤업하는 더 큰 범위를 선택한 다음, 보려는 대상으로 필터링합니다. 일부 사용자는 자식 범위가 롤업하는 부모 범위에 액세스할 수 없으므로 데이터 통합을 이해해야 합니다.
 
@@ -56,7 +56,7 @@ Azure EA 구독의 비용 데이터를 보려면 사용자에게 적어도 다�
 - 구독
 - Resource group
 
-파트너가 Microsoft 고객 계약을 체결한 후에는 다양한 범위를 사용할 수 있습니다. CSP 고객은 CSP 파트너가 사용하도록 설정된 경우 Cost Management 기능을 사용할 수 있습니다. 자세한 내용은 [파트너용 Azure Cost Management 시작](get-started-partners.md)을 참조하세요.
+파트너가 Microsoft 고객 계약을 체결한 후에는 다양한 범위를 사용할 수 있습니다. CSP 고객은 CSP 파트너가 사용하도록 설정된 경우 Cost Management 기능을 사용할 수 있습니다. 자세한 내용은 [파트너용 Cost Management 시작을 참조하세요.](get-started-partners.md)
 
 ## <a name="enable-access-to-costs-in-the-azure-portal"></a>Azure Portal에서 비용에 대한 액세스를 사용하도록 설정
 
@@ -161,7 +161,7 @@ EA 포털에서 옵션을 사용하려면 다음을 수행합니다.
 
 ## <a name="cross-tenant-authentication-issues"></a>테넌트 간 인증 문제
 
-현재 Azure Cost Management는 테넌트 간 인증을 제한적으로 지원합니다. 테넌트 간에 인증을 시도하는 경우 비용 분석에서 **액세스 거부** 오류가 발생할 수 있습니다. 이 문제는 Azure RBAC(Azure 역할 기반 액세스 제어)를 다른 테넌트의 구독에 구성한 다음, 비용 데이터를 보려고 할 때 발생할 수 있습니다.
+현재 Cost Management 테넌트 간 인증에 대한 지원이 제한되어 있습니다. 테넌트 간에 인증을 시도하는 경우 비용 분석에서 **액세스 거부** 오류가 발생할 수 있습니다. 이 문제는 Azure RBAC(Azure 역할 기반 액세스 제어)를 다른 테넌트의 구독에 구성한 다음, 비용 데이터를 보려고 할 때 발생할 수 있습니다.
 
 *이 문제를 해결하려면 다음을 수행합니다*. 테넌트 간 Azure RBAC를 구성한 후 1시간을 기다립니다. 그런 다음, 비용 분석에서 비용을 보거나 두 테넌트의 사용자에게 Cost Management 액세스 권한을 부여합니다.  
 

@@ -9,13 +9,13 @@ ms.author: rifox
 ms.date: 09/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.subservice: identity
-ms.openlocfilehash: f53a20ff318a25af5e7ca6744a01c3716dc10c69
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.subservice: data
+ms.openlocfilehash: 3c3b995cdf4b27056b0714ae6f9f8bc29fad6302
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129663015"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713093"
 ---
 # <a name="azure-advisor-for-azure-communication-services"></a>Azure Communication Services에 대 한 Azure Advisor
 

@@ -1,23 +1,23 @@
 ---
-title: 내보내기를 사용하여 대규모 비용 데이터 세트 순환 검색
-description: 이 문서는 Azure Cost Management에서 내보내기를 통해 많은 양의 데이터를 정기적으로 내보내는 데 도움이 됩니다.
+title: Azure Cost Management 내보내기로 recurringly 대량 비용 데이터 집합 검색
+description: 이 문서를 사용 하면 Cost Management에서 내보내기로 많은 양의 데이터를 정기적으로 내보낼 수 있습니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/08/2021
+ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 465225341bdffc984ac6cbc82ba94eb656ad60df
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
-ms.translationtype: HT
+ms.openlocfilehash: a27e64e7b5c94d033529c08ea02e757ba8857549
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102509648"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705849"
 ---
 # <a name="retrieve-large-cost-datasets-recurringly-with-exports"></a>내보내기를 사용하여 대규모 비용 데이터 세트 순환 검색
 
-이 문서는 Azure Cost Management에서 내보내기를 통해 많은 양의 데이터를 정기적으로 내보내는 데 도움이 됩니다. 내보내기는 집계되지 않은 비용 데이터를 검색하는 데 추천되는 방법입니다. 특히 사용량 파일이 너무 커서 사용량 세부 정보 API를 사용하여 안정적으로 호출하고 다운로드할 수 없는 경우에 적합합니다. 내보낸 데이터는 선택한 Azure Storage 계정에 저장됩니다. 여기서 자신의 시스템에 로드하고 필요에 따라 분석할 수 있습니다. Azure Portal에서 내보내기를 구성하려면 [데이터 내보내기](tutorial-export-acm-data.md)를 참조하세요.
+이 문서를 사용 하면 Cost Management에서 내보내기로 많은 양의 데이터를 정기적으로 내보낼 수 있습니다. 내보내기는 집계되지 않은 비용 데이터를 검색하는 데 추천되는 방법입니다. 특히 사용량 파일이 너무 커서 사용량 세부 정보 API를 사용하여 안정적으로 호출하고 다운로드할 수 없는 경우에 적합합니다. 내보낸 데이터는 선택한 Azure Storage 계정에 저장됩니다. 여기서 자신의 시스템에 로드하고 필요에 따라 분석할 수 있습니다. Azure Portal에서 내보내기를 구성하려면 [데이터 내보내기](tutorial-export-acm-data.md)를 참조하세요.
 
 내보내기를 다양한 범위로 자동화하려면 다음 섹션의 샘플 API 요청이 적절한 시작 지점입니다. 내보내기 API를 사용하여 일반 환경 구성의 일부로 자동 내보내기를 만들 수 있습니다. 자동 내보내기는 필요한 데이터를 확보하는 데 도움이 됩니다. Azure 사용을 확장할 때 조직의 시스템에서 사용할 수 있습니다.
 
@@ -79,7 +79,7 @@ ms.locfileid: "102509648"
 
 ## <a name="copy-large-azure-storage-blobs"></a>대량 Azure 스토리지 Blob 복사
 
-Cost Management를 사용하여 Azure 사용량 세부 정보를 Blob으로 Azure Storage 계정에 내보내도록 예약할 수 있습니다. 결과 Blob 크기는 기가바이트를 초과할 수 있습니다. Azure Cost Management 팀에서 Azure Storage 팀과 협력하여 대량 Azure 스토리지 Blob 복사를 테스트했습니다. 결과는 다음 섹션에서 설명하고 있습니다. 스토리지 Blob을 한 Azure 지역에서 다른 지역으로 복사하는 것과 비슷한 결과가 나타날 수 있습니다.
+Cost Management를 사용하여 Azure 사용량 세부 정보를 Blob으로 Azure Storage 계정에 내보내도록 예약할 수 있습니다. 결과 Blob 크기는 기가바이트를 초과할 수 있습니다. Cost Management 팀은 Azure Storage 팀과 협력 하 여 대량 Azure Storage blob 복사를 테스트 합니다. 결과는 다음 섹션에서 설명하고 있습니다. 스토리지 Blob을 한 Azure 지역에서 다른 지역으로 복사하는 것과 비슷한 결과가 나타날 수 있습니다.
 
 성능을 테스트하기 위해 팀에서 Blob을 미국 서부 지역의 스토리지 계정에서 동일한 지역 및 다른 지역으로 전송했습니다. 이 팀은 동일한 지역의 2GB/초에서 동남 아시아 지역에 있는 스토리지 계정의 150MB/초까지 다양한 속도를 측정했습니다.
 

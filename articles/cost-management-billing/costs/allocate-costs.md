@@ -3,21 +3,21 @@ title: Azure 비용 할당
 description: 이 문서에서는 구독, 리소스 그룹 또는 태그 비용을 다른 부서에 분산하도록 비용 할당 규칙을 만드는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/10/2021
+ms.date: 10/07/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: b837e5819318707b44932f5915746479e27646ec
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
-ms.translationtype: HT
+ms.openlocfilehash: 7696dc683d41080f5be2c97ebcb0cdf314e2098d
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109734903"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706267"
 ---
 # <a name="create-and-manage-azure-cost-allocation-rules-preview"></a>Azure 비용 할당 규칙 만들기 및 관리(미리 보기)
 
-대기업의 경우 Azure 서비스 또는 리소스를 중앙에서 관리하지만 내부의 다른 부서 또는 사업부에서 사용하는 경우가 많습니다. 일반적으로 중앙의 관리 팀은 서비스를 적극적으로 사용하는 내부 부서나 조직의 사업부에 공유 서비스 비용을 다시 할당하기를 원합니다. 이 문서는 Azure Cost Management의 비용 할당을 이해하고 사용하는 데 도움이 됩니다.
+대기업의 경우 Azure 서비스 또는 리소스를 중앙에서 관리하지만 내부의 다른 부서 또는 사업부에서 사용하는 경우가 많습니다. 일반적으로 중앙의 관리 팀은 서비스를 적극적으로 사용하는 내부 부서나 조직의 사업부에 공유 서비스 비용을 다시 할당하기를 원합니다. 이 문서는 Cost Management 비용 할당을 이해하고 사용하는 데 도움이 됩니다.
 
 비용 할당을 사용하면 구독, 리소스 그룹 또는 태그에서 조직의 다른 구독, 리소스 그룹 또는 태그로 공유 서비스 비용을 재할당하거나 분산할 수 있습니다. 비용 할당은 공유 서비스 비용을 다른 구독, 리소스 그룹 또는 공유 서비스를 사용하는 내부 부서나 사업부 소유의 태그로 이동합니다. 즉, 비용 할당을 통해 _비용 책임_ 을 관리하고 한 곳에서 다른 곳으로의 비용 책임 이동을 표시할 수 있습니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "109734903"
 할당된 비용은 비용 분석에 표시됩니다. 할당된 비용은 비용 할당 규칙을 만들 때 지정하는 대상 구독, 리소스 그룹 또는 태그와 관련된 추가 항목으로 표시됩니다.
 
 > [!NOTE]
-> Azure Cost Management의 비용 할당 기능은 현재 공개 미리 보기로 제공됩니다. Cost Management의 일부 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+> Cost Management 비용 할당 기능은 현재 공개 미리 보기로 제공됩니다. Cost Management의 일부 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -132,4 +132,4 @@ Azure Portal에서 **Cost Management + 청구** > **Cost Management** > **비용
 
 - 비용 할당에 대한 질문과 답변은 [Cost Management + Billing FAQ](../cost-management-billing-faq.yml)를 참조하세요.
 - [비용 할당 Rest API](/rest/api/cost-management/costallocationrules)를 사용하여 할당 규칙 만들기 또는 업데이트
-- [Azure Cost Management를 통해 클라우드 투자를 최적화하는 방법](cost-mgt-best-practices.md) 자세히 알아보기
+- [Cost Management 사용하여 클라우드 투자를 최적화하는 방법에](cost-mgt-best-practices.md) 대해 자세히 알아보세요.

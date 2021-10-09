@@ -2,13 +2,13 @@
 title: Azure Portal의 Azure 파일 공유 백업
 description: Azure Portal를 사용하여 Recovery Services 자격 증명 모음에 Azure 파일 공유를 백업하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 05/07/2021
-ms.openlocfilehash: 807a173112d0bb85c008403028ab76000a3096db
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.date: 10/08/2021
+ms.openlocfilehash: 8e50cee7e177375fae41ef6fb3a27f871427342c
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129427973"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714398"
 ---
 # <a name="back-up-azure-file-shares"></a>Azure 파일 공유 백업
 
@@ -62,7 +62,7 @@ ms.locfileid: "129427973"
    ![검색된 스토리지 계정에서 선택](./media/backup-afs/select-discovered-storage-account.png)
    
    >[!NOTE]
-   > 저장소 계정이 자격 증명 모음과 다른 지역에 있으면 검색 된 저장소 계정 목록에 표시 되지 않습니다.
+   > 스토리지 계정이 자격 증명 모음과 다른 지역에 있는 경우 검색된 스토리지 계정 목록에 표시되지 않습니다.
 
 1. 다음 단계는 백업할 파일 공유를 선택하는 것입니다. **백업할 파일 공유** 섹션에서 **추가** 단추를 선택합니다.
 
@@ -85,9 +85,9 @@ ms.locfileid: "129427973"
 
          ![새 정책 만들기](./media/backup-afs/create-new-policy.png)
 
-      1. **백업 정책** 컨텍스트 창이 오른쪽에 열립니다. 텍스트 상자에서 정책 이름을 지정하고 요구 사항에 따라 보존 기간을 선택합니다. 기본적으로 매일 보존 옵션만 사용하도록 설정되어 있습니다. 매주, 매월 또는 매년 보존을 사용하려면 해당 확인란을 선택하고 원하는 보존 값을 지정합니다.
+      1. [새 정책 만들기](manage-afs-backup.md#create-a-new-policy) 섹션의 3-7단계를 따릅니다.
 
-      1. 보존 값과 유효한 정책 이름을 지정한 후 **확인** 을 선택합니다.<br>
+      1. 정책의 모든 특성을 정의한 후 **확인을** 클릭합니다.
 
          ![정책 이름 및 보존 값 지정](./media/backup-afs/policy-name.png)
 
@@ -147,9 +147,9 @@ ms.locfileid: "129427973"
 
          1. **새 정책 만들기** 링크 텍스트를 선택합니다.
 
-         2. **백업 정책** 컨텍스트 창이 오른쪽에 열립니다. 텍스트 상자에서 정책 이름을 지정하고 요구 사항에 따라 보존 기간을 선택합니다. 기본적으로 매일 보존 옵션만 사용하도록 설정되어 있습니다. 매주, 매월 또는 매년 보존을 사용하려면 해당 확인란을 선택하고 원하는 보존 값을 지정합니다.
+         2. [새 정책 만들기](manage-afs-backup.md#create-a-new-policy) 섹션의 3-7단계를 따릅니다.
 
-         3. 보존 값과 유효한 정책 이름을 지정한 후 **확인** 을 선택합니다.
+         3. 정책의 모든 특성을 정의한 후 **확인을** 클릭합니다.
 
             ![새 백업 정책 만들기](./media/backup-afs/create-new-backup-policy.png)
 

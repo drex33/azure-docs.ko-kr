@@ -8,16 +8,18 @@ ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/22/2021
-ms.openlocfilehash: 22962d1f817379bc57273b40c3c8298354089d3f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b599fbd2d41eacceed29d0d72432809507d3a7bc
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128641411"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707986"
 ---
 # <a name="data-flow-script-dfs"></a>DFS(데이터 흐름 스크립트)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 DFS(데이터 흐름 스크립트)는 매핑 데이터 흐름에 포함된 변환을 실행하는 데 사용되는 코딩 언어와 유사한 기본 메타데이터입니다. 모든 변환은 작업을 적절하게 실행하는 데 필요한 정보를 제공하는 일련의 속성으로 표현됩니다. 스크립트는 브라우저 UI의 상단 리본에 있는 “스크립트” 단추를 클릭하여 ADF에서 보고 편집할 수 있습니다.
 
@@ -101,7 +103,7 @@ deriveTransformationName sink(allowSchemaDrift: true,
 ```
 
 ## <a name="dfs-fundamentals"></a>DFS 기본 사항
-DFS는 원본, 싱크 및 기타 다양한 항목을 포함한 일련의 연결된 변형으로 구성되며 새 열을 추가하고, 데이터를 필터링하고, 데이터를 조인하는 등의 작업을 수행할 수 있습니다. 일반적으로 이 스크립트는 하나 이상의 원본으로 시작하고 많은 변환이 뒤따른 다음 하나 이상의 싱크로 끝납니다.
+DFS는 원본, 싱크 및 기타 다양한 항목을 포함한 일련의 연결된 변형으로 구성되며 새 열을 추가하고, 데이터를 필터링하고, 데이터를 조인하는 등의 작업을 수행할 수 있습니다. 일반적으로 스크립트는 하나 이상의 원본으로 시작한 다음 많은 변환이 수행되고 하나 이상의 싱크로 끝납니다.
 
 원본에는 모두 동일한 기본 구성이 있습니다.
 ```
@@ -280,7 +282,7 @@ aggregate(each(match(true()), $$ = countDistinct($$))) ~> KeyPattern
 ```
 
 ### <a name="compare-previous-or-next-row-values"></a>이전 또는 다음 행 값 비교
-이 샘플 조각에서는 창 변환을 사용하여 현재 행 컨텍스트의 열 값을 현재 행 앞과 뒤의 행에 있는 열 값과 비교하는 방법을 보여줍니다. 이 예제에서는 파생 열을 사용하여 전체 데이터 집합에서 창 파티션을 사용하도록 설정하는 더미 값을 생성합니다. 서로게이트 키 변환은 각 행에 고유한 키 값을 할당하는 데 사용됩니다. 이 패턴을 데이터 변환에 적용할 때 정렬할 열인 경우 서로게이트 키를 제거하고 데이터를 분할하는 데 사용할 열이 있는 경우 파생 열을 제거할 수 있습니다.
+이 샘플 조각에서는 창 변환을 사용하여 현재 행 컨텍스트의 열 값을 현재 행 앞과 뒤의 행에 있는 열 값과 비교하는 방법을 보여줍니다. 이 예제에서는 파생 열을 사용하여 전체 데이터 집합에서 창 파티션을 사용하도록 설정하는 더미 값을 생성합니다. 서로게이트 키 변환은 각 행에 고유한 키 값을 할당하는 데 사용됩니다. 이 패턴을 데이터 변환에 적용할 때 순서를 지정할 열인 경우 서로게이트 키를 제거하고 데이터를 분할하는 데 사용할 열이 있는 경우 파생 열을 제거할 수 있습니다.
 
 ```
 source1 keyGenerate(output(sk as long),

@@ -3,12 +3,12 @@ title: 테넌트 간 관리 환경
 description: Azure Lighthouse는 여러 Azure 서비스에서 테넌트 간 환경을 사용하도록 설정하고 개선합니다.
 ms.date: 09/30/2021
 ms.topic: conceptual
-ms.openlocfilehash: a6ad75df4e22f56c8bcb0f28586c736fc6b04a49
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 90ff0396a467f3137d6501ac34cf707577e43bdf
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129349791"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714793"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -50,12 +50,12 @@ Azure REST API의 [Subscriptions-Get](/rest/api/resources/subscriptions/get) 및
 
 [Azure Arc](../../azure-arc/index.yml):
 
-- [Azure Arc 지원 서버](../../azure-arc/servers/overview.md)를 사용하여 대규모로 하이브리드 서버 관리:
+- 대규모 하이브리드 서버 관리 - [Azure Arc 지원 서버:](../../azure-arc/servers/overview.md)
   - Azure에서 위임된 구독 및/또는 리소스 그룹에 [연결된 Azure 외부의 Windows Server 또는 Linux 시스템 관리](../../azure-arc/servers/onboard-portal.md)
   - Azure Policy 및 태그 지정과 같은 Azure 구문을 사용하여 연결된 컴퓨터 관리
   - 고객의 하이브리드 환경에 동일한 정책 집합이 적용되는지 확인
   - Azure Security Center를 사용하여 고객의 하이브리드 환경에서 호환성 모니터링
-- [Azure Arc 지원 Kubernetes(미리 보기)](../../azure-arc/kubernetes/overview.md)를 사용하여 대규모로 하이브리드 Kubernetes 클러스터 관리
+- 대규모로 하이브리드 Kubernetes 클러스터 관리 - [Azure Arc 지원 Kubernetes(미리 보기)](../../azure-arc/kubernetes/overview.md):
   - Azure에서 위임된 구독 및/또는 리소스 그룹에 [연결된 Kubernetes 클러스터 관리](../../azure-arc/kubernetes/quickstart-connect-cluster.md)
   - 연결된 클러스터에 [GitOps](../../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md) 사용
   - 연결된 클러스터에서 정책 적용

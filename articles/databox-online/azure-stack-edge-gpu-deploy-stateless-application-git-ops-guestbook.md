@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge Pro GPU 디바이스의 Arc 지원 Kubernetes에서 PHP `Guestbook` 앱 배포 | Microsoft Docs
-description: Azure Stack Edge Pro 디바이스의 Arc 지원 Kubernetes 클러스터에서 GitOps를 사용하여 Redis와 함께 PHP `Guestbook` 상태 비저장 애플리케이션을 배포하는 방법을 설명합니다.
+title: '`Guestbook`Azure Stack Edge Pro GPU 장치에서 Azure Arc 사용 Kubernetes에 PHP 앱 배포 | Microsoft Docs'
+description: '`Guestbook`Azure Stack Edge Pro 장치의 Azure Arc 사용 Kubernetes 클러스터에서 gitops를 사용 하 여 Redis를 사용 하 여 PHP 상태 비저장 응용 프로그램을 배포 하는 방법을 설명 합니다.'
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 4c5a361fafeaed6452481adc9e6eae856828bfda
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: bcf2b8e97a00e693825124e92acd0f551ebfde14
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128635587"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709778"
 ---
-# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro GPU의 Arc 지원 Kubernetes 클러스터에서 Redis와 함께 PHP `Guestbook` 상태 비저장 애플리케이션 배포
+# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-azure-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>`Guestbook`Redis를 사용 하 여 Azure Arc를 사용 하는 PHP 상태 비저장 응용 프로그램 배포 Azure Stack Edge Pro GPU의 Kubernetes 클러스터
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
@@ -25,9 +25,9 @@ ms.locfileid: "128635587"
 - 읽기를 제공하기 위해 복제된 다중 Redis 인스턴스
 - 다중 웹 프런트 엔드 인스턴스
 
-배포는 Azure Stack Edge Pro 디바이스의 Arc 지원 Kubernetes 클러스터에서 GitOps를 사용하여 수행됩니다. 
+배포는 Azure Stack Edge Pro 장치의 Azure Arc 사용 Kubernetes 클러스터에서 gitops를 사용 하 여 수행 됩니다. 
 
-이 절차는 [Azure Stack Edge Pro 디바이스의 Kubernetes 워크로드](azure-stack-edge-gpu-kubernetes-workload-management.md)를 검토하고 [Azure Arc 지원 Kubernetes(미리 보기)](../azure-arc/kubernetes/overview.md)의 개념에 대해 잘 알고 있는 사용자를 위해 제공됩니다.
+이 절차는 [Azure Stack Edge Pro 장치에서 Kubernetes 워크 로드](azure-stack-edge-gpu-kubernetes-workload-management.md) 를 검토 하 고 [Azure Arc 사용 Kubernetes (미리 보기)](../azure-arc/kubernetes/overview.md)의 개념에 대해 잘 알고 있는 사용자를 위한 것입니다.
 
 > [!NOTE]
 > 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *slave* 에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
@@ -83,7 +83,7 @@ Azure Portal을 통해 GitOps 구성을 배포하도록 Azure Arc 리소스를 �
 
 1. **구성** 으로 이동하여 **+ 구성 추가** 를 선택합니다.
 
-    ![스크린샷은 구성 추가가 선택된 Azure Arc 지원 Kubernetes 클러스터를 보여 줍니다.](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
+    ![구성 추가가 선택 된 Azure Arc 사용 Kubernetes 클러스터를 보여 주는 스크린샷](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
 
 1. **구성 추가** 에서 필드에 적절한 값을 입력한 다음, **적용** 을 선택합니다.
 
@@ -104,11 +104,11 @@ Azure Portal을 통해 GitOps 구성을 배포하도록 Azure Arc 리소스를 �
 
 1. 구성 배포가 시작되고 **연산자 상태** 가 **보류 중** 으로 표시됩니다. 
 
-    ![스크린샷을 새로 고치면 Azure Arc 지원 Kubernetes 클러스터가 보류 중 상태로 표시됩니다.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
+    ![스크린샷을 새로 고치면 Azure Arc 사용 Kubernetes 클러스터가 보류 중 상태로 표시 됩니다.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
 
 1. 배포는 몇 분 정도 소요됩니다. 배포가 완료되면 **연산자 상태** 는 **설치됨** 으로 표시됩니다.
 
-    ![스크린샷은 설치된 상태의 Azure Arc 지원 Kubernetes 클러스터를 보여 줍니다.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
+    ![설치 된 상태의 Azure Arc 사용 Kubernetes 클러스터를 보여 주는 스크린샷](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
 
 ## <a name="verify-deployment"></a>배포 확인
 

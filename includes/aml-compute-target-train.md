@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 06/18/2021
-ms.openlocfilehash: 7f9d9d854513427fd02b47beb084edbcb70ea527
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 2e44972188b318e4c2f0d61b1ccd9222e7b2fce9
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528974"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713416"
 ---
 **컴퓨팅 대상은 한 학습 작업에서 다음 학습 작업으로 재사용할 수 없습니다.** 예를 들어 원격 VM을 작업 영역에 연결한 후 여러 작업에 다시 사용할 수 있습니다. 기계 학습 파이프라인의 경우 각 컴퓨팅 대상에 적절한 [파이프라인 단계](/python/api/azureml-pipeline-steps/azureml.pipeline.steps)를 사용합니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "122528974"
 |[Azure HDInsight](../articles/machine-learning/how-to-attach-compute-targets.md#hdinsight) | &nbsp; | 예 | &nbsp; |
 |[Azure Batch](../articles/machine-learning/how-to-attach-compute-targets.md#azbatch) | &nbsp; | 예 | &nbsp; |
 |[Azure Kubernetes Service](../articles/machine-learning/how-to-attach-compute-targets.md#kubernetes)(미리 보기) | 예 | 예 | 예 |
-|[Azure Arc 사용 Kubernetes](../articles/machine-learning/how-to-attach-compute-targets.md#kubernetes)(미리 보기) | 예 | 예 | 예 |
+|[Azure Arc 사용 Kubernetes](../articles/machine-learning/how-to-attach-compute-targets.md#kubernetes) (미리 보기) | 예 | 예 | 예 |
 
 > [!TIP]
 > 컴퓨팅 인스턴스에 120GB OS 디스크가 있습니다. 디스크 공간이 부족한 경우에는 [터미널을 사용](../articles/machine-learning/how-to-access-terminal.md)하여 최소 1~2GB를 지운 후 컴퓨팅 인스턴스를 [중지하거나 다시 시작](../articles/machine-learning/how-to-create-manage-compute-instance.md#manage)해야 합니다.

@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: security
 author: nabhishek
 ms.author: abnarain
-ms.openlocfilehash: 285b4c4fb9fae46ed7549352a93553b15a518e36
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
-ms.translationtype: HT
+ms.openlocfilehash: 2138c1947fd6d068bfc4d171595cf818ecf5dd77
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122539062"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708050"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Azure Data Factory용 역할 및 권한
 
@@ -27,6 +27,10 @@ ms.locfileid: "122539062"
 
 데이터 세트, 연결된 서비스, 파이프라인, 트리거 및 통합 런타임을 포함하여 Data Factory에 대한 자식 리소스를 만들고 관리하려면 다음 요구 사항을 적용해야 합니다.
 - Azure Portal에서 자식 리소스를 만들고 관리하려면 **리소스 그룹** 수준 이상의 **Data Factory 기여자** 역할에 속해야 합니다.
+  
+  > [!NOTE]
+  > **리소스 그룹** 수준 이상에서 **기여자** 역할을 이미 할당한 경우 **Data Factory 기여자** 역할이 필요하지 않습니다. [기여자 역할은](../role-based-access-control/built-in-roles.md#contributor) Data Factory 기여자 역할에 부여된 모든 권한을 포함하는 슈퍼 집합 [역할입니다.](../role-based-access-control/built-in-roles.md#data-factory-contributor)
+
 - PowerShell 또는 SDK를 사용하여 자식 리소스를 만들고 관리하려면 리소스 수준 이상의 **기여자** 역할만으로도 충분합니다.
 
 사용자를 역할에 추가하는 방법에 대한 지침 샘플은 [역할 추가](../cost-management-billing/manage/add-change-subscription-administrator.md) 문서를 참조하세요.

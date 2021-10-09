@@ -1,24 +1,24 @@
 ---
 title: 파트너용 Azure Cost Management 시작
-description: 이 문서에서는 파트너가 Azure Cost Management 기능을 사용하는 방법과 파트너가 자사의 고객을 위해 Cost Management 액세스를 사용하도록 설정하는 방법을 설명합니다.
+description: 이 문서에서는 파트너가 Cost Management 기능을 사용 하는 방법 및 해당 고객에 대 한 액세스를 허용 하는 방법을 설명 합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/01/2021
+ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 78a2ef8491eea5fa3df5355236f23be730062108
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d402acaf43682a7c025147fd38bccb9baa033683
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537195"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705978"
 ---
-# <a name="get-started-with-azure-cost-management-for-partners"></a>파트너용 Azure Cost Management 시작
+# <a name="get-started-with-cost-management-for-partners"></a>파트너에 대 한 Cost Management 시작
 
-Azure Cost Management는 고객을 Microsoft 고객 계약에 온보딩하고 [Azure 플랜을 구매](/partner-center/purchase-azure-plan)한 직접 파트너에게 기본적으로 제공됩니다. 이 문서에서는 파트너가 [Azure Cost Management](../index.yml) 기능을 사용하여 Azure 플랜의 구독에 대한 비용을 보는 방법을 설명합니다. 파트너가 고객을 위해 소매 요금으로 Cost Management 액세스가 가능하도록 설정하는 방법에 대해서도 설명합니다.
+Cost Management은 고객에 게 Microsoft 고객 계약에 등록 [Azure 요금제를 구매한](/partner-center/purchase-azure-plan)직접 파트너에 게 기본적으로 제공 됩니다. 이 문서에서는 파트너가 [Cost Management](../index.yml) 기능을 사용 하 여 Azure 계획의 구독에 대 한 비용을 확인 하는 방법을 설명 합니다. 파트너가 고객을 위해 소매 요금으로 Cost Management 액세스가 가능하도록 설정하는 방법에 대해서도 설명합니다.
 
 직접 파트너 및 간접 공급자의 경우 전역 관리자 및 관리자 에이전트는 파트너 테넌트의 Cost Management에 액세스하고 송장이 발부된 가격으로 비용을 관리할 수 있습니다.
 
@@ -43,19 +43,19 @@ CSP 파트너는 Cost Management를 사용하여:
 
 [![단일 고객의 비용을 보여주는 예](./media/get-started-partners/customer-costs2.png)](./media/get-started-partners/customer-costs2.png#lightbox)
 
-Azure Cost Management에서 사용 가능한 모든 기능은 REST API로도 사용할 수 있습니다. API를 사용하여 비용 관리 작업을 자동화할 수 있습니다.
+Cost Management에서 사용할 수 있는 모든 기능을 REST Api와 함께 사용할 수도 있습니다. API를 사용하여 비용 관리 작업을 자동화할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-파트너의 경우 Azure 플랜에 있는 구독에만 Azure Cost Management를 기본적으로 사용할 수 있습니다.
+파트너는 기본적으로 Azure 계획에 있는 구독에 대해서만 Cost Management을 사용할 수 있습니다.
 
-Azure Portal에서 Azure Cost Management를 사용하도록 설정하려면, Microsoft 고객 계약에 대한 고객의 동의를 확인하고(고객을 대신하여) 고객을 Azure 플랜으로 전환해야 합니다. Azure 플랜으로 전환된 구독의 비용만 Azure Cost Management에서 사용할 수 있습니다.
+Azure Portal에서 Cost Management를 사용 하도록 설정 하려면 고객을 대신 하 여 Microsoft 고객 계약에 대 한 고객 동의가 있는지 확인 하 고 고객을 Azure 요금제로 전환 해야 합니다. Azure 요금제로 전환 되는 구독에 대 한 비용도 Cost Management에서 사용할 수 있습니다.
 
-Azure Cost Management에는 청구 계정이나 구독에 대한 읽기 권한이 필요합니다.
+Cost Management에는 청구 계정 또는 구독에 대 한 읽기 권한이 필요 합니다.
 
-청구 계정에 대해 Azure Cost Management에 대한 액세스를 설정하고 할당하는 방법에 대한 자세한 내용은 [사용자 역할 및 권한 할당](/partner-center/permissions-overview)을 참조하세요. **글로벌 관리자** 와 **관리 에이전트** 역할은 청구 계정의 비용을 관리할 수 있습니다.
+청구 계정의 Cost Management에 대 한 액세스를 설정 하 고 할당 하는 방법에 대 한 자세한 내용은 [사용자 역할 및 사용 권한 할당](/partner-center/permissions-overview)을 참조 하세요. **글로벌 관리자** 와 **관리 에이전트** 역할은 청구 계정의 비용을 관리할 수 있습니다.
 
-구독 범위에서 Azure Cost Management에 액세스하기 위해 구독에 대한 Azure RBAC 액세스 권한이 있는 사용자는 소매(종량제) 요금으로 비용을 볼 수 있습니다. 단, [고객 테넌트에 대한 비용 표시 여부 정책](#enable-the-policy-to-view-azure-usage-charges)을 사용하도록 설정해야 합니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요.
+구독 범위에서 Cost Management에 액세스 하기 위해 구독에 대 한 Azure RBAC 액세스 권한이 있는 사용자는 소매 (종 량 제) 요금으로 비용을 볼 수 있습니다. 단, [고객 테넌트에 대한 비용 표시 여부 정책](#enable-the-policy-to-view-azure-usage-charges)을 사용하도록 설정해야 합니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요.
 
 기존 청구 계약을 새 파트너에게 이전할 때 비용 관리 기능은 파트너와의 현재 청구 관계에 대해서만 사용할 수 있습니다. 새 파트너에게 이전하기 전의 기록 비용은 새 청구 계정으로 이동하지 않습니다. 그러나 비용 기록은 원래 연결된 청구 계정에 남아 있습니다.
 
@@ -145,7 +145,7 @@ Azure Portal에서 *파트너 테넌트* 에 로그인하고 **Cost Management +
 선택한 고객의 구독과 연결된 **Azure 사용량** 요금에 대한 현재 비용 표시 여부 정책이 표시됩니다.
 ![고객이 종량제 요금을 보도록 허용하는 정책](./media/get-started-partners/cost-management-billing-policies.png)
 
-정책이 **아니요** 로 설정되면 고객과 연결된 구독 사용자가 Azure Cost Management를 사용할 수 없습니다. 파트너가 활성화하지 않으면 모든 구독 사용자에 대해 비용 표시 여부 정책이 기본적으로 비활성화됩니다.
+정책이 **아니요** 로 설정 된 경우에는 고객과 연결 된 구독 사용자에 대해 Cost Management를 사용할 수 없습니다. 파트너가 활성화하지 않으면 모든 구독 사용자에 대해 비용 표시 여부 정책이 기본적으로 비활성화됩니다.
 
 비용 정책이 **예** 로 설정되면, 고객 테넌트에 연결된 구독 사용자가 종량제 요금으로 사용량 요금을 볼 수 있습니다.
 
@@ -162,8 +162,6 @@ Azure Portal에서 *파트너 테넌트* 에 로그인하고 **Cost Management +
 Azure RBAC 범위에서 예약된 인스턴스에 대한 분할상환 보기와 실제 비용은 요금이 0으로 표시됩니다. 예약 인스턴스 및 Marketplace 요금과 같은 자격에 대한 구매 비용은 구매한 파트너의 테넌트에 있는 청구 범위에만 표시됩니다.
 
 보기에 표시되는 비용을 계산하는 데 사용되는 소매 요금은 모든 고객에 대해 Azure 가격 책정 계산기에 표시된 가격과 동일합니다. 표시된 비용에는 파트너 적립 크레딧, 계층 할인 및 글로벌 서비스 할인과 같은 파트너가 가질 수 있는 할인이나 크레딧이 포함되지 않습니다.
-
- 
 
 ## <a name="analyze-costs-in-cost-analysis"></a>비용 분석에서 비용 분석
 
@@ -229,7 +227,7 @@ Azure RBAC 범위에서 예약된 인스턴스에 대한 분할상환 보기와 
 | unitOfMeasure | 서비스 요금이 청구되는 단위를 식별합니다. 예를 들면 GB와 시간입니다. | 서비스 요금이 청구되는 단위를 식별합니다. 예를 들면 GB, 시간, 10,000초입니다. |
 | pricingCurrency | 단가를 정의하는 통화입니다. | 가격표의 통화입니다.|
 | billingCurrency | 청구되 비용을 정의하는 통화입니다. | 송장의 청구 통화로 정의된 통화입니다. |
-| chargeType | 구매 및 환불과 같이 Azure Cost Management에서 비용이 나타내는 요금 유형을 정의합니다. | 요금 또는 조정의 유형입니다. 현재 작업에 사용할 수 없습니다. |
+| chargeType | 구매 및 환불과 같은 Cost Management 비용을 나타내는 청구 유형을 정의 합니다. | 요금 또는 조정의 유형입니다. 현재 작업에 사용할 수 없습니다. |
 | costinBillingCurrency | 청구된 통화 단위의 세전 혼합 비용 또는 ExtendedCost입니다. | 해당 없음 |
 | costinPricingCurrency | 가격과의 상관 관계를 위한 가격 책정 통화 단위의 세전 혼합 비용 또는 ExtendedCost입니다. | 해당 없음 |
 | **costinUSD** | USD 단위로 예상된 세전 혼합 비용 또는 ExtendedCost입니다. | 해당 없음 |
@@ -247,7 +245,7 @@ Azure RBAC 범위에서 예약된 인스턴스에 대한 분할상환 보기와 
 
 ## <a name="view-partner-earned-credit-pec-resource-costs"></a>PEC(파트너 획득 크레딧) 리소스 비용 보기
 
-Azure Cost Management에서 파트너는 비용 분석을 사용하여 PEC 혜택을 받은 비용을 볼 수 있습니다.
+Cost Management에서 파트너는 비용 분석을 사용 하 여 PEC 혜택을 받은 비용을 볼 수 있습니다.
 
 Azure Portal에서 파트너 테넌트에 로그인하고 **Cost Management + 청구** 를 선택합니다. **Cost Management** 에서 **비용 분석** 을 선택합니다.
 
@@ -261,7 +259,7 @@ Azure Portal에서 파트너 테넌트에 로그인하고 **Cost Management + �
 
 **PartnerEarnedCreditApplied** 속성이 _False_ 인 경우 관련 비용이 크레딧에 필요한 자격을 충족하지 못합니다. 또는 구매한 서비스가 파트너 획득 크레딧을 받을 자격이 없습니다.
 
-서비스 사용 현황 데이터가 Cost Management에 표시되기까지 일반적으로 8-24시간이 걸립니다. 자세한 내용은 [비용, 사용량 데이터 업데이트 및 보존](understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention)을 참조하세요. PEC 크레딧은 Azure Cost Management에 액세스한 후 48시간 이내에 표시됩니다.
+서비스 사용 현황 데이터가 Cost Management에 표시되기까지 일반적으로 8-24시간이 걸립니다. 자세한 내용은 [비용, 사용량 데이터 업데이트 및 보존](understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention)을 참조하세요. PEC 크레딧을 Cost Management의 액세스 시간에서 48 시간 이내에 표시 됩니다.
 
 
 **그룹화 방법** 옵션을 사용하여 **PartnerEarnedCreditApplied** 속성을 기준으로 그룹화하고 필터링할 수도 있습니다. 이 옵션을 사용하여 PEC가 있거나 없는 비용을 검사할 수 있습니다.
@@ -298,7 +296,7 @@ Azure Portal에서 파트너 테넌트 또는 고객 테넌트에 로그인하�
 
 파트너와 고객은 Cost Management API를 사용할 수 있으며, 일반적인 작업에 대해서는 다음 섹션에 설명되어 있습니다.
 
-### <a name="azure-cost-management-apis---direct-and-indirect-providers"></a>Azure Cost Management API - 직접 및 간접 공급자
+### <a name="cost-management-apis---direct-and-indirect-providers"></a>Cost Management Api-직접 및 간접 공급자
 
 파트너 테넌트의 청구 범위에 액세스할 수 있는 파트너는 다음 API를 사용하여 청구된 비용을 볼 수 있습니다.
 

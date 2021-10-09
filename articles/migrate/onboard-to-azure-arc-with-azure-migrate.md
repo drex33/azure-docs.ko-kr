@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 04/27/2021
-ms.openlocfilehash: 675c90218f456fc0f238fcf3b1fb93d2e5a7bc44
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 83bee24ca8da03f6a6896bb47cc298860f941f4c
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114296312"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711972"
 ---
 # <a name="onboard-on-premises-servers-in-vmware-virtual-environment-to-azure-arc"></a>VMware 가상 환경의 온-프레미스 서버를 Azure Arc에 온보딩   
 
@@ -37,7 +37,7 @@ Azure Arc를 사용하면 Azure 관리 환경을 마이그레이션에 적합하
     - Azure 계정에 [필요한 Azure 역할](../azure-arc/servers/agent-overview.md#required-permissions)에 대한 할당이 부여되었는지 확인합니다.
     - 검색된 서버가 인터넷을 통해 통신하기 위해 방화벽 또는 프록시 서버를 통해 연결하는 경우 [필요한 URL](../azure-arc/servers/agent-overview.md#networking-configuration)이 차단되지 않는지 확인합니다.
     - Azure Arc에 대해 [지원되는 지역](../azure-arc/servers/overview.md#supported-regions)을 검토합니다. 
-    - Azure Arc 지원 서버는 리소스 그룹에서 최대 5000개의 컴퓨터 인스턴스를 지원합니다.
+    - Azure Arc 지원 서버는 리소스 그룹에서 최대 5,000개의 머신 인스턴스를 지원합니다.
 
 
 ## <a name="set-up-the-azure-migrate-project"></a>Azure Migrate 프로젝트 설정  

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/16/2021
-ms.openlocfilehash: 9bc027f269355a76d43fe02e4ca90a0e9f65024d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 26338164ca073ff5d9b331d36a5a9d935a3f3468
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128656610"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707607"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 보강에 대한 설명서 리소스
 
@@ -34,7 +34,8 @@ AI 보강은 비텍스트 원본과 구분되지 않는 텍스트에서 잠재�
 
 ## <a name="hands-on-walkthroughs"></a>실습 연습
 
-+ [빠른 시작: Azure Portal에서 인식 기술 세트 만들기](cognitive-search-quickstart-blob.md)
++ [빠른 시작: 텍스트 번역 및 엔터티 기술체 만들기](cognitive-search-quickstart-blob.md)
++ [빠른 시작: OCR 이미지 기술셋 만들기](cognitive-search-quickstart-ocr.md)
 + [자습서: AI를 사용하는 보강 인덱싱](cognitive-search-tutorial-blob.md)
 + [자습서: 디버그 세션을 사용하여 기술 세트 변경 내용 진단, 복구 및 커밋](cognitive-search-tutorial-debug-sessions.md)
 

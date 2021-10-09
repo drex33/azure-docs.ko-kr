@@ -1,24 +1,24 @@
 ---
 title: Azure Cost Management 데이터 이해
-description: 이 문서는 Azure Cost Management에 포함된 데이터와 이 데이터의 처리, 수집, 표시 및 마감 빈도를 파악하는 데 도움이 됩니다.
+description: 이 문서는 Cost Management 포함된 데이터와 처리, 수집, 표시 및 닫힌 빈도를 더 잘 이해하는 데 도움이 됩니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/24/2021
+ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 025208685d45658824956b5625993a5dfdbf5e6a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: 0e67812e07229ee8dc13bcd79fc6d546a2618009
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110467536"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711319"
 ---
 # <a name="understand-cost-management-data"></a>Cost Management 데이터 이해
 
-이 문서는 Azure Cost Management에 포함된 Azure 비용 및 사용량 데이터를 파악하는 데 도움이 됩니다. 데이터의 처리, 수집, 표시 및 마감 빈도를 설명합니다. Azure 사용 요금은 매월 청구됩니다. 청구 기간은 월별 기간이지만 주기 시작 및 종료 날짜는 구독 유형에 따라 달라집니다. Cost Management가 사용량 데이터를 받는 빈도는 다양한 요인에 따라 달라집니다. 이러한 요인에는 데이터 처리에 걸리는 시간, Azure 서비스에서 사용량을 청구 시스템으로 내보내는 빈도 등이 있습니다.
+이 문서는 Cost Management 포함된 Azure 비용 및 사용량 현황 데이터를 더 잘 이해하는 데 도움이 됩니다. 데이터의 처리, 수집, 표시 및 마감 빈도를 설명합니다. Azure 사용 요금은 매월 청구됩니다. 청구 기간은 월별 기간이지만 주기 시작 및 종료 날짜는 구독 유형에 따라 달라집니다. Cost Management가 사용량 데이터를 받는 빈도는 다양한 요인에 따라 달라집니다. 이러한 요인에는 데이터 처리에 걸리는 시간, Azure 서비스에서 사용량을 청구 시스템으로 내보내는 빈도 등이 있습니다.
 
 Cost Management에는 EA(기업계약) 계정에 대한 예약 및 타사 제품을 비롯한 모든 사용량 및 구매가 포함됩니다. Microsoft 고객 계약 계정 및 종량제 요금으로 개별 구독은 Azure 및 Marketplace 서비스의 사용량만 포함합니다. 지원 및 기타 비용은 포함되지 않습니다. 비용은 청구서가 생성될 때까지 예상되며 크레딧에는 영향을 주지 않습니다.
 
@@ -26,7 +26,7 @@ Cost Management에는 EA(기업계약) 계정에 대한 예약 및 타사 제품
 
 ## <a name="supported-microsoft-azure-offers"></a>지원되는 Microsoft Azure 제품
 
-Azure Cost Management에서 현재 지원되는 [Microsoft Azure 제품](https://azure.microsoft.com/support/legal/offer-details/)음 다음과 같습니다. Azure 제품이란 사용자가 소유한 Azure 구독의 유형입니다. 데이터는 날짜에서 **사용 가능한 데이터** 에서 시작하는 Cost Management에서 사용할 수 있습니다. 구독이 제품을 변경하는 경우 제품 변경 날짜 이전의 비용을 사용할 수 없습니다.
+다음 정보는 Cost Management 현재 지원되는 [Microsoft Azure 제안을](https://azure.microsoft.com/support/legal/offer-details/) 보여줍니다. Azure 제품이란 사용자가 소유한 Azure 구독의 유형입니다. 데이터는 날짜에서 **사용 가능한 데이터** 에서 시작하는 Cost Management에서 사용할 수 있습니다. 구독이 제품을 변경하는 경우 제품 변경 날짜 이전의 비용을 사용할 수 없습니다.
 
 | **범주**  | **제품 이름** | **할당량 ID** | **제품 번호** | **사용 가능한 데이터** |
 | --- | --- | --- | --- | --- |
@@ -105,7 +105,7 @@ _<sup>**6**</sup> 예약 구매는 현재 EA(기업계약) 및 Microsoft 고객 
 
 ## <a name="how-tags-are-used-in-cost-and-usage-data"></a>비용 및 사용량 데이터에서 태그를 사용하는 방법
 
-Azure Cost Management는 개별 서비스에서 제출한 각 사용량 레코드의 일부로 태그를 수신합니다. 이러한 태그에 다음과 같은 제한 사항이 적용됩니다.
+Cost Management 개별 서비스에서 제출한 각 사용 레코드의 일부로 태그를 받습니다. 이러한 태그에 다음과 같은 제한 사항이 적용됩니다.
 
 - 태그는 리소스에 직접 적용해야 하며 부모 리소스 그룹에서 암시적으로 상속되지 않습니다.
 - 리소스 태그는 리소스 그룹에 배포된 리소스에 대해서만 지원됩니다.

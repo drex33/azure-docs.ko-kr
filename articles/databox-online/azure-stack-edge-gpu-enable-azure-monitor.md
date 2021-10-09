@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/03/2021
 ms.author: alkohli
-ms.openlocfilehash: bbb4ce6442cc38e2554c6c1f745223a193ca793d
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: 86ddddbffd0a909a22acba6f780632690700eda2
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950758"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715858"
 ---
 # <a name="enable-azure-monitor-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 디바이스에서 Azure Monitor 사용
 
@@ -24,7 +24,7 @@ Azure Stack Edge Pro GPU 디바이스에서 컨테이너를 모니터링하는 �
 이 문서에서는 디바이스에서 Azure Monitor를 사용하도록 설정하고 Log Analytics 작업 영역에서 컨테이너 로그를 수집하는 데 필요한 단계를 설명합니다. Azure Monitor 메트릭 저장소는 현재 Azure Stack Edge Pro GPU 디바이스에서 지원되지 않습니다. 
 
 > [!NOTE]
-> 디바이스의 Kubernetes 클러스터에서 Azure Arc를 사용하는 경우 [Azure Arc 사용 Kubernetes 클러스터에 대한 Azure Monitor 컨테이너 인사이트](../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=%2fazure%2fazure-arc%2fkubernetes%2ftoc.json) 단계에 따라 컨테이너 모니터링을 설정합니다.
+> 장치에서 Kubernetes 클러스터에 azure arc를 사용 하는 경우 [azure arc 사용 Kubernetes 클러스터에 대 한 컨테이너 Insights Azure Monitor](../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=%2fazure%2fazure-arc%2fkubernetes%2ftoc.json) 의 단계에 따라 컨테이너 모니터링을 설정 합니다.
 
 
 ## <a name="prerequisites"></a>필수 구성 요소

@@ -5,18 +5,18 @@ description: Azure App Service를 사용하여 학습된 ML 모델을 웹앱에 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: aashishb
-author: aashishb
+ms.author: ssambare
+author: shivanissambare
 ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: how-to
 ms.custom: devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: ac882fff79148744f2c05b48113961f5cd830996
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 86bfb3343ebbd756a5386d268537e0ace6083431
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429721"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707376"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Azure App Service에 기계 학습 모델 배포(미리 보기)
 

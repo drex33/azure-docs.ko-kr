@@ -4,12 +4,12 @@ description: Azure Resource Manager에 대한 모든 리소스 공급자 네임�
 ms.topic: conceptual
 ms.date: 09/14/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c10fb3e92b4d7c31a311cad980ffdfca9b891c9c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a8a460407df41e6f80436ffc4e663dacc427d84f
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128657978"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711610"
 ---
 # <a name="resource-providers-for-azure-services"></a>Azure 서비스의 리소스 공급자
 
@@ -99,8 +99,8 @@ ms.locfileid: "128657978"
 | Microsoft.HanaOnAzure | [Azure의 SAP HANA(대규모 인스턴스)](../../virtual-machines/workloads/sap/hana-overview-architecture.md) |
 | Microsoft.HardwareSecurityModules | [Azure Dedicated HSM](../../dedicated-hsm/index.yml) |
 | Microsoft.HDInsight | [HDInsight](../../hdinsight/index.yml) |
-| HealthcareApis (FHIR 용 Azure API) | [FHIR용 Azure API](../../healthcare-apis/azure-api-for-fhir/index.yml) |
-| HealthcareApis (의료 Api) | [Healthcare API](../../healthcare-apis/index.yml) |
+| Microsoft.HealthcareApis(Azure API for FHIR) | [FHIR용 Azure API](../../healthcare-apis/azure-api-for-fhir/index.yml) |
+| Microsoft.HealthcareApis(의료 API) | [Healthcare API](../../healthcare-apis/index.yml) |
 | Microsoft.HybridCompute | [Azure Arc 지원 서버](../../azure-arc/servers/index.yml) |
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
 | Microsoft.HybridNetwork  | [네트워크 기능 관리자](../../network-function-manager/index.yml) |
@@ -110,8 +110,8 @@ ms.locfileid: "128657978"
 | Microsoft.IoTSpaces | [Azure Digital Twins](../../digital-twins/index.yml) |
 | Microsoft.Intune | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.KeyVault | [Key Vault](../../key-vault/index.yml) |
-| Microsoft.Kubernetes | [Azure Arc-사용 Kubernetes](../../azure-arc/kubernetes/index.yml) |
-| Microsoft.KubernetesConfiguration | [Azure Arc-사용 Kubernetes](../../azure-arc/kubernetes/index.yml) |
+| Microsoft.Kubernetes | [Azure Arc 지원 Kubernetes](../../azure-arc/kubernetes/index.yml) |
+| Microsoft.KubernetesConfiguration | [Azure Arc 지원 Kubernetes](../../azure-arc/kubernetes/index.yml) |
 | Microsoft.Kusto | [Azure Data Explorer](/azure/data-explorer/) |
 | Microsoft.LabServices | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft.Logic | [Logic Apps](../../logic-apps/index.yml) |

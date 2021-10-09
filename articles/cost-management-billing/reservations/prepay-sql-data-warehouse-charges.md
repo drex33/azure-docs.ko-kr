@@ -1,5 +1,5 @@
 ---
-title: Azure 예약 용량을 사용하여 Azure Synapse Analytics 요금 절감
+title: Azure 예약 용량을 Azure Synapse Analytics(데이터 웨어하우징에만 해당) 요금 절감
 description: 예약 용량으로 Azure Synapse Analytics 요금에 대한 비용을 절감하는 방법을 알아봅니다.
 author: bandersmsft
 ms.reviewer: primittal
@@ -8,20 +8,20 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: f738b2e551ecb26426ef25603969fb471ecfa437
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7e5987aee066e8c9e439b2789b1242e1bc541c35
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128666593"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714098"
 ---
-# <a name="save-costs-for-azure-synapse-analytics-charges-with-reserved-capacity"></a>예약 용량을 사용하여 Azure Synapse Analytics 요금에 대한 비용 절감
+# <a name="save-costs-for-azure-synapse-analytics-data-warehousing-only-charges-with-reserved-capacity"></a>예약된 용량을 Azure Synapse Analytics(데이터 웨어하우징에만 해당) 요금 절감
 
-1년 또는 3년 동안 cDWU 사용량에 대한 예약을 커밋하여 Azure Synapse Analytics 비용을 절약할 수 있습니다. Azure Synapse Analytics 예약 용량을 구매하려면 Azure 지역 및 용어를 선택해야 합니다. 그런 다음, Azure Synapse Analytics SKU를 카트에 추가하고 구매하려는 cDWU 단위의 용량을 선택합니다.
+1년 또는 3년 동안 cDWU 사용량에 대한 예약에 커밋하여 Azure Synapse Analytics(데이터 웨어하우징만 해당)으로 비용을 절감할 수 있습니다. Azure Synapse Analytics 예약 용량을 구매하려면 Azure 지역 및 용어를 선택해야 합니다. 그런 다음, Azure Synapse Analytics SKU를 카트에 추가하고 구매하려는 cDWU 단위의 용량을 선택합니다.
 
 예약을 구매하는 경우 예약 특성과 일치하는 Azure Synapse Analytics 사용에 대해 종량제 요금이 더 이상 청구되지 않습니다.
 
-예약은 Azure Synapse Analytics 사용과 관련된 스토리지 또는 네트워킹 요금은 포함되지 않습니다.
+예약은 Azure Synapse Analytics 사용량과 관련된 스토리지 또는 네트워킹 요금을 포함하지 않으며 데이터 웨어하우징 사용량만 포함합니다.
 
 예약 용량이 만료되면 Azure Synapse Analytics 인스턴스가 계속 실행되지만 종량제 요금이 청구됩니다. 예약은 자동으로 갱신되지 않습니다.
 
@@ -54,7 +54,7 @@ Azure Synapse Analytics 예약 크기는 사용하는 총 cDWU(컴퓨팅 데이�
    - **공유 범위** - 청구 컨텍스트에 있는 적격 구독의 일치하는 리소스에 예약 할인을 적용합니다. 기업계약 고객의 경우 청구 컨텍스트는 등록입니다. 종량제 요금이 적용되는 개별 구독의 경우 청구 범위는 계정 관리자가 만든 모든 적격 구독입니다.
        - 기업 계약의 경우 청구 컨텍스트는 EA 등록입니다.
        - 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.
-   - **관리 그룹** -관리 그룹 및 청구 범위의 일부인 구독 목록에서 일치 하는 리소스에 예약 할인을 적용 합니다.
+   - **관리 그룹** - 관리 그룹 및 청구 범위의 일부인 구독 목록에서 일치하는 리소스에 예약 할인을 적용합니다.
 5. 지역을 선택하여 예약 용량에 적용되는 Azure 지역을 선택합니다.
 6. 수량을 선택합니다. 구매하려는 100 cDWU(Data Warehouse 단위)의 수량을 입력합니다.    
    예를 들어 수량 30은 1시간마다 3,000 cDWU를 예약 용량으로 제공합니다.

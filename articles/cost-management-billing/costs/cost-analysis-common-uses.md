@@ -1,23 +1,23 @@
 ---
 title: Azure Cost Management에서의 일반적인 비용 분석 사용
-description: 이 문서에서는 Azure Cost Management에서 일반적인 비용 분석 작업에 대한 결과를 가져오는 방법을 설명합니다.
+description: 이 문서에서는 Cost Management에서 일반적인 비용 분석 작업에 대 한 결과를 가져오는 방법을 설명 합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: e17a30f5210f77c8fcabdeaf6b719814025b87fa
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0fa5eba77727676f21a7b45848171859395b00f0
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128599851"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706002"
 ---
 # <a name="common-cost-analysis-uses"></a>일반적인 비용 분석 사용
 
-Azure Cost Management 사용자는 다른 사람들이 질문하는 문제에 대한 답변이 필요합니다. 이 문서에서는 Cost Management에서 일반적인 비용 분석 작업에 대한 결과를 가져오는 과정을 안내합니다.
+Cost Management 사용자는 자주 질문 하는 질문에 대 한 답변을 원합니다. 이 문서에서는 Cost Management에서 일반적인 비용 분석 작업에 대한 결과를 가져오는 과정을 안내합니다.
 
 ## <a name="view-forecasted-costs"></a>예상 비용 보기
 

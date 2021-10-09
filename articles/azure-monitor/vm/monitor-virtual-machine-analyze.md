@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2021
-ms.openlocfilehash: cca95effdbbda099dd3e082e950b92f26e96f80f
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 06a37bc77d5eda453740881af9ca45ad4b8746e8
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114459473"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715172"
 ---
 # <a name="monitor-virtual-machines-with-azure-monitor-analyze-monitoring-data"></a>Azure Monitor를 사용하여 가상 머신 모니터링: 모니터링 데이터 분석
 이 문서는 [Azure Monitor에서 가상 머신 및 해당 워크로드 모니터링](monitor-virtual-machine.md) 시나리오의 일부입니다. 구성을 완료한 후 가상 머신에 대한 모니터링 데이터를 분석하는 방법을 설명합니다.
@@ -22,7 +22,7 @@ ms.locfileid: "114459473"
 > 이 문서에는 Azure Monitor와 VM 인사이트를 통해 수집된 데이터를 분석하는 방법에 대한 지침이 포함되어 있습니다. 가상 머신에서 실행되는 워크로드를 모니터링하기 위해 구성하는 데이터에 대해서는 [워크로드 모니터링](monitor-virtual-machine-workloads.md)을 참조하세요.
 
 ## <a name="single-machine-experience"></a>단일 머신 환경
-Azure Portal 메뉴의 **모니터링** 섹션에서 각 Azure 가상 머신과 Azure Arc 지원 서버에 대한 단일 머신 분석 환경에 액세스합니다. 이 옵션은 표시되는 데이터를 해당 머신으로 제한하거나 최소한 초기 필터를 설정합니다. 이렇게 하면 특정 머신에 집중하고, 현재 성능과 시간별 추세를 확인하고, 발생했을 수 있는 문제를 식별할 수 있습니다.
+각 Azure 가상 머신과 Azure Arc 사용 서버에 대 한 Azure Portal 메뉴의 **모니터링** 섹션에서 단일 컴퓨터 분석 환경에 액세스 합니다. 이 옵션은 표시되는 데이터를 해당 머신으로 제한하거나 최소한 초기 필터를 설정합니다. 이렇게 하면 특정 머신에 집중하고, 현재 성능과 시간별 추세를 확인하고, 발생했을 수 있는 문제를 식별할 수 있습니다.
 
 :::image type="content" source="media/monitor-virtual-machines/vm-menu.png" alt-text="Azure Portal에서 VM을 분석하는 방법을 보여 주는 스크린샷" lightbox="media/monitor-virtual-machines/vm-menu.png":::
 
@@ -41,7 +41,7 @@ Azure Portal 메뉴의 **모니터링** 섹션에서 각 Azure 가상 머신과 
 - **통합 문서**: 단일 머신의 VM 인사이트 통합 문서가 포함된 통합 문서 갤러리를 엽니다. 개별 머신용으로 설계된 VM 인사이트 통합 문서 목록은 [VM 인사이트 통합 문서](vminsights-workbooks.md#vm-insights-workbooks)를 참조하세요.
 
 ## <a name="multiple-machine-experience"></a>여러 머신 환경
-Azure Portal의 **모니터링** 메뉴에서 각 Azure 가상 머신과 Azure Arc 지원 서버에 대한 여러 머신 분석 환경에 액세스합니다. 이 옵션은 비교하려는 가상 머신을 선택할 수 있도록 모든 데이터에 대한 액세스를 제공합니다.
+각 Azure 가상 머신과 Azure Arc 사용 서버에 대 한 Azure Portal **모니터** 메뉴에서 여러 컴퓨터 분석 환경에 액세스 합니다. 이 옵션은 비교하려는 가상 머신을 선택할 수 있도록 모든 데이터에 대한 액세스를 제공합니다.
 
 :::image type="content" source="media/monitor-virtual-machines/monitor-menu.png" alt-text="Azure Portal에서 여러 VM을 분석하는 방법을 보여 주는 스크린샷" lightbox="media/monitor-virtual-machines/monitor-menu.png":::
 

@@ -9,12 +9,12 @@ ms.date: 07/31/2020
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 8327a1855de21c274a54f1bfa3750eab9aea8a8c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 05af03c7ac60e2f98471ace4d57a296a54cf8ce6
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128649345"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707357"
 ---
 # <a name="how-to-package-a-registered-model-with-docker"></a>Docker를 사용하여 등록된 모델을 패키징하는 방법
 
@@ -27,7 +27,7 @@ ms.locfileid: "128649345"
 
 ## <a name="package-models"></a>패키지 관리
 
-경우에 따라 모델을 배포하지 않고 Docker 이미지를 만들려고 할 수 있습니다(예: [Azure App Service에 배포](how-to-deploy-app-service.md)하려는 경우). 또는 이미지를 다운로드하여 로컬 Docker 설치에서 실행하려 할 수 있습니다. 이미지를 빌드하는 데 사용되는 파일을 다운로드, 검사, 수정하여 이미지를 수동으로 빌드하려 할 수도 있습니다.
+경우에 따라 모델을 배포 하지 않고 Docker 이미지를 만들 수 있습니다. 또는 이미지를 다운로드하여 로컬 Docker 설치에서 실행하려 할 수 있습니다. 이미지를 빌드하는 데 사용되는 파일을 다운로드, 검사, 수정하여 이미지를 수동으로 빌드하려 할 수도 있습니다.
 
 모델을 패키징하면 이 모든 것을 수행할 수 있습니다. 모델을 웹 서비스로 호스팅하는 데 필요한 모든 자산을 패키징합니다. 이렇게 하면 완전히 빌드된 Docker 이미지나 빌드하는 데 필요한 파일을 다운로드할 수 있습니다. 모델 패키징을 사용하는 방법에는 두 가지가 있습니다.
 

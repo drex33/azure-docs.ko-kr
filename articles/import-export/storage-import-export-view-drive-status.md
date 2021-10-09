@@ -5,16 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/24/2021
+ms.date: 09/28/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: ad107daa5d1a90e3416777375f47640359f10f37
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: bfa9e8a767167d7ae31dae3269be6cad2a1c1d07
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867267"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709380"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Azure Import/Export의 상태 보기
 
@@ -42,7 +42,7 @@ Azure Portal의 **Import/Export** 탭에서 가져오기 또는 내보내기 작
 | 작업 상태 | 설명 |
 |:--- |:--- |
 | 만드는 중 | 작업이 만들어지면 작업 상태는 **만드는 중** 으로 설정됩니다. 작업이 **만들기** 상태인 동안 가져오기/내보내기 서비스는 드라이브가 데이터 센터로 운송되지 않은 것으로 가정합니다. 작업은 최대 2주 동안 이 상태를 유지할 수 있으며 그 이후에는 서비스에서 자동으로 삭제합니다. |
-| 발송 | 패키지를 운송한 후 Azure Portal에서 추적 정보를 업데이트해야 합니다.  이렇게 하면 작업이 **배송 중** 상태로 바뀝니다. 작업은 최대 2주 동안 **운송 중** 상태로 유지됩니다. 
+| 발송 | 패키지를 운송한 후 Azure Portal에서 추적 정보를 업데이트해야 합니다. 이렇게 하면 작업이 **배송 중** 상태로 바뀝니다. 작업은 최대 2주 동안 **운송 중** 상태로 유지됩니다.<br>작업이 배송 상태에 도달 하면 더 이상 취소할 수 없습니다.
 | 수신됨 | 데이터 센터에서 모든 드라이브를 수신한 후에 작업은 **수신됨** 으로 설정됩니다.</br>데이터 센터에서 주문 처리가 완료되면 운송업체가 디바이스를 배달한지 영업일 기준 1~3일 후에 작업 상태가 변경됩니다. |
 | 전송 중 | 하나 이상의 드라이브에서 처리를 시작하면 작업 상태가 **전송 중** 으로 설정됩니다. 자세한 내용은 [드라이브 상태](#view-drive-status)로 이동하세요. |
 | 패키징 | 모든 드라이브에서 처리를 완료한 후에 고객에게 드라이브를 반송할 때까지 작업은 **포장 중** 상태가 됩니다. |

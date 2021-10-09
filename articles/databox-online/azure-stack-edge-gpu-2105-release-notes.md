@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 05/27/2021
 ms.author: alkohli
-ms.openlocfilehash: 60de3b926e490ce1eb6a74b5234e21f8173a8ade
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
-ms.translationtype: HT
+ms.openlocfilehash: 90f5abd9a141e22bbc6eff37f2da7dfd6b5abc7e
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114220350"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707467"
 ---
 # <a name="azure-stack-edge-2105-release-notes"></a>Azure Stack Edge 2105 릴리스 정보
 
@@ -41,7 +41,7 @@ Azure Stack Edge 2105 릴리스에서는 다음과 같은 새로운 기능을 �
         - Kubernetes 서버 버전: v1.20.2
         - IoT Edge 버전: 0.1.0-beta14
         - Azure Arc 지원 Kubernetes 버전: 1.1
-    - Azure Arc 지원 Kubernetes는 이제 다양한 클라우드를 지원하여 로깅이 향상되고 PowerShell 인터페이스를 통한 cmdlet 환경이 변경되었습니다. 
+    - Azure Arc 지원 Kubernetes는 이제 다양한 클라우드를 지원하며, 로깅이 향상되었으며 PowerShell 인터페이스를 통한 cmdlet 환경이 변경되었습니다. 
     - 진단 및 원격 분석에서 수정이 이루어졌습니다.
     - 컴퓨팅 로그에 대한 자동 관리 로그 수집이 향상되었습니다. 
 
@@ -64,7 +64,7 @@ Azure Stack Edge 2105 릴리스에서는 다음과 같은 새로운 기능을 �
 
 | 아니요. | 기능 | 문제 | 해결 방법/설명 |
 | --- | --- | --- | --- |
-|**1.**|미리 보기 기능 |이 릴리스의 경우, 로컬 Azure Resource Manager, VM, VM의 클라우드 관리, Kubernetes 클라우드 관리, Azure Arc 지원 Kubernetes, Azure Stack Edge Pro R 및 Azure Stack Edge Mini R용 VPN, 다중 프로세스 서비스(MPS), Azure Stack Edge Pro GPU용 Network Function Manager는 모두 미리 보기에서 사용할 수 있습니다.  |이러한 기능은 이후 릴리스에서 일반적으로 제공될 예정입니다. |
+|**1.**|미리 보기 기능 |이 릴리스에서는 로컬 Azure Resource Manager, VM, VM의 클라우드 관리, Kubernetes 클라우드 관리, Azure Arc 지원 Kubernetes, Azure Stack Edge Pro R용 VPN 및 Azure Stack Edge Mini R, MPS(다중 프로세스 서비스), Azure Stack Edge Pro GPU용 네트워크 함수 관리자 등의 기능이 모두 미리 보기로 제공됩니다.  |이러한 기능은 이후 릴리스에서 일반적으로 제공될 예정입니다. |
 |**2.**|Multi-access Edge Compute (MEC)/Network Function Manager (NFM) 배포 |2105 업데이트 전의 MEC/NFM 배포의 경우, LAN/WAN VM NetAdapters의 트래픽을 삭제하면 드물게 문제가 발생할 수 있습니다. <br><br> Azure Stack Edge 장치에서, 포트5와 포트6은 [가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-powershell.md)을 허용하는 Mellanox 네트워크 인터페이스 카드에 연결됩니다. 가속화된 네트워킹을 사용하면, 포트5 및 포트6의 LAN/WAN 트래픽이 하이퍼바이저 계층과 가상 스위치를 무시하고 실제 스위치에 직접 도달할 수 있습니다. <br><br> LAN/WAN 네트워크 인터페이스에서 [가상 함수(VF)](/windows-hardware/drivers/network/sr-iov-virtual-functions--vfs-) 장치를 사용하지 않도록 설정하여 가속화된 네트워킹을 사용하지 않도록 설정할 수 있습니다. 이제 VM의 모든 네트워킹 트래픽이 보안 검사를 수행하는 하이퍼바이저 계층을 트래버스합니다. 애플리케이션이 임의의 유니캐스트 원본 IP 주소(VM NetAdapter의 IP가 아닌)를 사용하여 트래픽을 보내는 경우, 보안 검사를 수행하면 트래픽이 삭제됩니다(가상 네트워킹 함수 계약에 지정되지 않은 임의의 IP에서 발생 함).|이 문제를 해결하려면, 2105 업데이트를 보류하고 이 문제에 대한 수정 사항이 있는 다음 릴리스가 나올 때까지 기다려야 합니다.<br><br> 또는 Azure Stack Edge 장치에서 2105 업데이트를 적용하고 동일한 VNF를 다시 배포할 수 있습니다. 2105 업데이트 후에 배포된 VNF에는 수정이 필요하지 않습니다. |
 
 
@@ -82,8 +82,8 @@ Azure Stack Edge 2105 릴리스에서는 다음과 같은 새로운 기능을 �
 |**6.**|NFS 공유 연결|여러 프로세스에서 같은 공유로 복사하고 `nolock` 특성을 사용하지 않는 경우 복사하는 동안 오류가 표시될 수 있습니다.|NFS 공유에 파일을 복사하려면 `nolock` 특성을 탑재 명령에 전달해야 합니다. 예: `C:\Users\aseuser mount -o anon \\10.1.1.211\mnt\vms Z:`|
 |**7.**|Kubernetes 클러스터|Kubernetes 클러스터를 실행하는 디바이스에 업데이트를 적용하는 경우 kubernetes 가상 머신이 다시 시작되고 재부팅됩니다. 이 인스턴스에서 지정된 복제본과 함께 배포되는 Pod만 업데이트 후에 자동으로 복원됩니다.  |복제본 세트를 지정하지 않고 복제 컨트롤러 외부에서 개별 Pod를 만든 경우 이러한 Pod는 디바이스 업데이트 후에 자동으로 복원되지 않습니다. 이러한 Pod를 복원해야 합니다.<br>복제본 세트는 노드 실패 또는 중단형 노드 업그레이드 등을 비롯한 이유로 삭제되었거나 종료된 Pod를 대체합니다. 따라서 애플리케이션에 단일 Pod만 필요한 경우에도 복제본 세트를 사용하는 것이 좋습니다.|
 |**8.**|Kubernetes 클러스터|Azure Stack Edge Pro의 Kubernetes는 Helm v3 이상에서만 지원됩니다. 자세한 내용은 [질문과 대답: Tiller 제거](https://v3.helm.sh/docs/faq/)를 참조하세요.|
-|**9.**|Azure Arc를 지원하는 Kubernetes |GA 릴리스의 경우 Azure Arc 지원 Kubernetes는 버전 0.1.18에서 0.2.9로 업데이트됩니다. Azure Arc 지원 Kubernetes 업데이트는 Azure Stack Edge 디바이스에서 지원되지 않으므로 Azure Arc 지원 Kubernetes를 다시 배포해야 합니다.|다음 단계를 수행합니다.<ol><li>[디바이스 소프트웨어 및 Kubernetes 업데이트를 적용합니다](azure-stack-edge-gpu-install-update.md).</li><li>[디바이스의 PowerShell 인터페이스에 연결합니다](azure-stack-edge-gpu-connect-powershell-interface.md).</li><li>기존 Azure Arc 에이전트를 제거합니다. 다음을 입력합니다. `Remove-HcsKubernetesAzureArcAgent`</li><li>[Azure Arc를 새 리소스에 배포합니다](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). 기존 Azure Arc 리소스를 사용하지 마세요.</li></ol>|
-|**10.**|Azure Arc를 지원하는 Kubernetes|웹 프록시가 Azure Stack Edge Pro 디바이스에 구성된 경우 Azure Arc 배포가 지원되지 않습니다.||
+|**9.**|Azure Arc 지원 Kubernetes |GA 릴리스의 경우 Azure Arc 사용 Kubernetes 버전 0.1.18에서 0.2.9로 업데이트 됩니다. Azure Arc 사용 Kubernetes 업데이트가 Azure Stack Edge 장치에서 지원 되지 않으므로 Azure Arc 사용 Kubernetes를 다시 배포 해야 합니다.|다음 단계를 수행합니다.<ol><li>[디바이스 소프트웨어 및 Kubernetes 업데이트를 적용합니다](azure-stack-edge-gpu-install-update.md).</li><li>[디바이스의 PowerShell 인터페이스에 연결합니다](azure-stack-edge-gpu-connect-powershell-interface.md).</li><li>기존 Azure Arc 에이전트를 제거합니다. 다음을 입력합니다. `Remove-HcsKubernetesAzureArcAgent`</li><li>[Azure Arc를 새 리소스에 배포합니다](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). 기존 Azure Arc 리소스를 사용하지 마세요.</li></ol>|
+|**10.**|Azure Arc 지원 Kubernetes|웹 프록시가 Azure Stack Edge Pro 디바이스에 구성된 경우 Azure Arc 배포가 지원되지 않습니다.||
 |**11.**|Kubernetes |포트 31000은 Kubernetes 대시보드용으로 예약되어 있습니다. 포트 31001은 Edge 컨테이너 레지스트리용으로 예약되어 있습니다. 마찬가지로 기본 구성에서 IP 주소 172.28.0.1과 172.28.0.10은 각각 Kubernetes 서비스 및 Core DNS 서비스용으로 예약되어 있습니다.|예약된 IP는 사용하지 마세요.|
 |**12.**|Kubernetes |현재 Kubernetes는 다중 프로토콜 LoadBalancer 서비스를 허용하지 않습니다. TCP와 UDP 모두에서 수신 대기해야 하는 DNS 서비스를 예로 들 수 있습니다. |MetalLB를 사용하여 Kubernetes의 제한을 해결하기 위해 같은 Pod 선택기에 두 가지 서비스(TCP용 1개, UDP용 1개)를 만들 수 있습니다. 이러한 서비스는 같은 공유 키와 spec.loadBalancerIP를 사용하여 같은 IP 주소를 공유합니다. 사용 가능한 IP 주소보다 더 많은 서비스를 사용하는 경우 IP를 공유할 수도 있습니다. <br> 자세한 내용은 [IP 주소 공유](https://metallb.universe.tf/usage/#ip-address-sharing)를 참조하세요.|
 |**13.**|Kubernetes 클러스터|기존 Azure IoT Edge 마켓플레이스 모듈은 Azure Stack Edge 디바이스에서 IoT Edge를 실행하기 위해 수정이 필요할 수 있습니다.|자세한 내용은 Azure Stack Edge 디바이스에서 실행되도록 마켓플레이스의 Azure IoT Edge 모듈 수정을 참조하세요.<!-- insert link-->|

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 09/30/2021
+ms.date: 10/07/2021
 ms.author: lajanuar
-ms.openlocfilehash: 3adffbac5641c2791c5ef683b5c4d687331a1c3b
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 401c9d08efd6be33d4444d34ba7a2a6c89723a6b
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129350159"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715085"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
@@ -22,21 +22,59 @@ ms.locfileid: "129350159"
 
 Form Recognizer 서비스는 지속적으로 업데이트됩니다. 릴리스 정보, 향상된 기능 및 설명서 업데이트를 최신 상태로 유지하려면 이 페이지에 책갈피를 설정합니다.
 
+## <a name="october-2021"></a>2021년 10월
+
+### <a name="form-recognizer-new-preview-release"></a>폼 인식기 새 미리 보기 릴리스
+
+ 양식 인식기 새로운 미리 보기 릴리스에는 다음과 같은 몇 가지 새로운 기능 및 기능이 도입 되었습니다.
+
+* [**일반 문서**](concept-general-document.md) 모델은 미리 학습 된 모델을 사용 하 여 폼과 문서에서 텍스트, 테이블, 구조, 키-값 쌍 및 명명 된 엔터티를 추출 하는 새로운 API입니다.
+* [**호텔 수령**](concept-receipt.md) 모델이 미리 작성 된 수신 처리에 추가 되었습니다.
+* [**Id 문서의 확장 된 필드**](concept-id-document.md) id 모델은 미국 드라이버 라이선스에서 인증, 제한 및 차량 분류 추출을 지원 합니다.
+* [**서명 필드**](concept-custom.md) 는 양식 필드에서 서명의 존재를 검색 하기 위한 사용자 지정 양식의 새 필드 형식입니다.
+
+* [**언어 확장**](language-support.md) 122 언어 (인쇄) 및 7 개 언어 (필기)를 지원 합니다. 양식 인식기 레이아웃 및 사용자 지정 양식은 최신 미리 보기를 사용 하 여 [지원 되는 언어](language-support.md) 를 122으로 확장 합니다. 여기에는 러시아어, 불가리아어, 기타 키릴 자모 및 기타 라틴어를 비롯 한 49 새로운 언어의 인쇄 텍스트에 대 한 텍스트 추출이 포함 됩니다. 또한 필기 텍스트를 추출 하면 영어를 포함 하는 7 가지 언어 및 중국어 간체, 프랑스어, 독일어, 이탈리아어, 포르투갈어 및 스페인어 미리 보기가 지원 됩니다.
+
+* **테이블 및 텍스트 추출 기능 향상** 이제 레이아웃에서 키-값 테이블이 라고도 하는 단일 행 테이블을 추출할 수 있습니다. 텍스트 추출의 향상 된 기능에는 일반 성능과 함께 id 문서에서 디지털 Pdf 및 MRZ (컴퓨터 판독 가능 영역) 텍스트가 더 효율적으로 처리 됩니다.
+
+* [**폼 인식기 스튜디오**](https://formrecognizer.appliedai.azure.com) 서비스의 사용을 간소화 하기 위해 이제 폼 인식기 Studio에 액세스 하 여 미리 작성 된 다른 모델 또는 레이블을 테스트 하 고 사용자 지정 모델을 학습 시킬 수 있습니다.
+
+새 [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm), [Python](quickstarts/try-v3-python-sdk.md) 또는 [.net](quickstarts/try-v3-csharp-sdk.md) SDK for v 3.0 preview API를 사용 하 여 시작을 받으세요.
+
+ #### <a name="form-recognizer-model-data-extraction"></a>폼 인식기 모델 데이터 추출
+
+  | **모델**   | **텍스트 추출** |**키-값 쌍** |**선택 표시**   | **테이블**   |**엔터티** |
+  | --- | :---: |:---:| :---: | :---: |:---: |
+  |🆕 일반 문서  | ✓  |  ✓ | ✓  | ✓  | ✓  |
+  | Layout  | ✓  |   | ✓  | ✓  |   |
+  | 청구서  | ✓ | ✓  | ✓  | ✓ ||
+  |Receipt  | ✓  |   ✓ |   |  ||
+  | ID 문서 | ✓  |   ✓  |   |   ||
+  | 명함    | ✓  |   ✓ |   |   ||
+  | 사용자 지정             |✓  |  ✓ | ✓  | ✓  | ✓  |
+
 ## <a name="september-2021"></a>2021년 9월
 
-[Azure 메트릭 탐색기 고급 기능은](/azure/azure-monitor/essentials/metrics-charts) Azure Portal의 양식 인식기 리소스 개요 페이지에서 사용할 수 있습니다.
+* [Azure 메트릭 탐색기 고급 기능은](/azure/azure-monitor/essentials/metrics-charts) Azure Portal의 양식 인식기 리소스 개요 페이지에서 사용할 수 있습니다.
 
-### <a name="monitoring-menu"></a>모니터링 메뉴
+    ### <a name="monitoring-menu"></a>모니터링 메뉴
 
-:::image type="content" source="media/portal-metrics.png" alt-text="Azure Portal의 모니터링 메뉴를 보여 주는 스크린샷":::
+    :::image type="content" source="media/portal-metrics.png" alt-text="Azure Portal의 모니터링 메뉴를 보여 주는 스크린샷":::
 
-### <a name="charts"></a>차트
+    ### <a name="charts"></a>차트
 
-:::image type="content" source="media/portal-metrics-charts.png" alt-text="Azure Portal 메트릭 차트의 예를 보여 주는 스크린샷":::
+    :::image type="content" source="media/portal-metrics-charts.png" alt-text="Azure Portal 메트릭 차트의 예를 보여 주는 스크린샷":::
+
+*  **ID 문서** 모델 업데이트: 접미사를 포함 하거나 마침표 (전체 중지)를 포함 하거나 제외 하 고 이름을 지정 하면 성공적으로 처리 됩니다.
+
+    |입력 텍스트 | 업데이트 포함 결과 |
+    |------------|-------------------------------------------|
+    | William Isaac Kirby Jr. |**FirstName**: William Isaac</br></br>**LastName**: Kirby Jr. |
+    | Henry Caleb Ross Sr | **FirstName**: Henry caleb </br></br> **LastName**: Ross Sr |
 
 ## <a name="july-2021"></a>2021년 7월
 
-### <a name="system-assigned-managed-identity-support"></a>시스템이 할당한 관리 ID 지원 
+### <a name="system-assigned-managed-identity-support"></a>시스템이 할당한 관리 ID 지원
 
  이제 시스템이 할당한 관리 ID를 사용하도록 설정하여 VNet(가상 네트워크)이나 방화벽으로 보호되거나 BYOS(Bring Your Own Storage)를 사용하도록 설정한 계정을 비롯한 프라이빗 스토리지 계정에 Form Recognizer 제한된 액세스 권한을 부여할 수 있습니다. 자세한 내용은 [Form Recognizer 리소스의 관리 ID 만들기 및 사용](managed-identity-byos.md)을 ‘참조’하세요.
 
@@ -90,9 +128,9 @@ Form Recognizer 기능은 이제 6개 기능 컨테이너인 **레이아웃**, *
 * [ID 문서](concept-identification-cards.md)
 * [사용자 지정 양식](concept-custom.md)
 
-#### <a name="get-started"></a>시작 
+#### <a name="get-started"></a>시작
 
-[Form Recognizer 샘플 도구](https://fott-2-1.azurewebsites.net/)로 이동하고 [빠른 시작](quickstarts/get-started-with-form-recognizer.md)을 따릅니다. 
+[Form Recognizer 샘플 도구](https://fott-2-1.azurewebsites.net/)로 이동하고 [빠른 시작](quickstarts/get-started-with-form-recognizer.md)을 따릅니다.
 
 ### <a name="layout-adds-table-headers"></a>레이아웃에 테이블 머리글이 추가됨
 
@@ -375,9 +413,9 @@ pip 패키지 버전 3.1.0b4
 
    :::image type="content" source="./media/id-canada-passport-example.png" alt-text="여권 예" lightbox="./media/id-canada-passport-example.png":::
 
-* **미리 빌드된 청구서 모델용 품목 추출** - 이제 미리 빌드된 청구서 모델에서 품목 추출이 지원됩니다. 이제 모든 항목과 해당 부분(설명, 금액, 수량, 제품 ID, 날짜 등)이 추출됩니다. 간단한 API/SDK 호출로 청구서에서 유용한 데이터(텍스트, 표, 키-값 쌍, 품목)를 추출할 수 있습니다.
+* **송장 모델에 대 한 줄 항목 추출** -이제 미리 작성 한 송장 모델에서 줄 항목 추출을 지원 합니다. 이제 전체 항목과 해당 부분 (설명, 수량, 수량, 제품 ID, 날짜 등)을 추출 합니다. 간단한 API/SDK 호출로 청구서에서 유용한 데이터(텍스트, 표, 키-값 쌍, 품목)를 추출할 수 있습니다.
 
-   [미리 빌드된 청구서 모델에 대한 자세한 정보](concept-invoices.md)
+   [송장 모델에 대 한 자세한 정보](concept-invoices.md)
 
 * **감독된 표 레이블 지정 및 학습, 빈 값 레이블 지정** - Form Recognizer의 [최신 딥 러닝 자동 표 추출 기능](https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011) 외에도 이제는 고객이 표에 대해 레이블을 지정하고 학습시킬 수 있습니다. 이 새 릴리스에는 품목/표(동적 및 고정)에 대해 레이블을 지정하고 학습시키는 기능과 키-값 쌍 및 품목을 추출하는 사용자 지정 모델을 학습시키는 기능이 포함됩니다. 모델을 학습시키고 나면 모델은 documentResults 섹션에서 JSON 출력의 일부로 품목을 추출합니다.
 

@@ -4,16 +4,16 @@ description: 이 문서에서는 컨테이너 인사이트를 업데이트하여
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e5fa5ddca4609c54a9f6d38270a55b1fab40c2d5
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 0d48ae48c667422b68c39570eb0003ff2e648267
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129668488"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706877"
 ---
 # <a name="how-to-update-container-insights-to-enable-metrics"></a>메트릭을 사용하도록 컨테이너 인사이트를 업데이트하는 방법
 
-컨테이너 인사이트는 AKS (Azure Kubernetes Services) 및 Azure Arc 사용 Kubernetes 클러스터 노드 및 Pod에서 메트릭 수집에 대한 지원을 도입하고, 해당 메트릭을 Azure Monitor 메트릭 저장소에 기록합니다. 이러한 변경은 성능 차트에 집계 계산(Avg, Count, Max, Min, Sum)을 제공할 때 향상된 적시성을 제공하기 위한 것으로, Azure Portal 대시보드의 고정 성능 차트를 지원하고, 메트릭 경고를 지원합니다.
+컨테이너 인사이트는 AKS(Azure Kubernetes Services) 및 Azure Arc 지원 Kubernetes 클러스터 노드 및 Pod에서 메트릭을 수집하고 Azure Monitor 메트릭 저장소에 쓰기 위한 지원을 도입합니다. 이러한 변경은 성능 차트에 집계 계산(Avg, Count, Max, Min, Sum)을 제공할 때 향상된 적시성을 제공하기 위한 것으로, Azure Portal 대시보드의 고정 성능 차트를 지원하고, 메트릭 경고를 지원합니다.
 
 >[!NOTE]
 >이 기능은 현재 Azure Red Hat OpenShift 클러스터를 지원하지 않습니다.
@@ -23,17 +23,17 @@ ms.locfileid: "129668488"
 
 | 메트릭 네임스페이스 | 메트릭 | Description |
 |------------------|--------|-------------|
-| Insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, Memoryrssbytes, memoryWorkingSetBytes, memoryWorkingSetPercentage, **cpuUsageAllocatablePercentage**, **memoryWorkingSetAllocatablePercentage**, **memoryrssallocatable백분율**, nodesCount, diskUsedPercentage, | *노드* 메트릭으로, 이것들에는 *호스트* 가 차원으로 포함됩니다. 또한 노드 이름이<br> *호스트* 차원에 대한 값으로 포함됩니다. |
+| Insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, **cpuUsageAllocatablePercentage**, **memoryWorkingSetAllocatablePercentage**, **memoryRssAllocatablePercentage**, nodesCount, diskUsedPercentage, | *노드* 메트릭으로, 이것들에는 *호스트* 가 차원으로 포함됩니다. 또한 노드 이름이<br> *호스트* 차원에 대한 값으로 포함됩니다. |
 | Insights.container/nodes | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | *Pod* 메트릭으로서, 이것들에는 ControllerName, Kubernetes namespace, name, phase 등이 차원으로 포함됩니다. |
 | Insights.container/containers | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage, **cpuThresholdViolated**, **memoryRssThresholdViolated**, **memoryWorkingSetThresholdViolated** | |
 | Insights.container/persistentvolumes | pvUsageExceededPercentage, **pvUsageThresholdViolated** | |
 
-이러한 새 기능을 지원하기 위해 새로운 컨테이너화된 에이전트가 릴리스에 포함되어 있습니다(AKS용 버전 **microsoft/oms:ciprod05262020** 및 Azure Arc 사용 Kubernetes 클러스터용 버전 **microsoft/oms: Ciprod09252020**). AKS의 새 배포에는 이 구성 변경 및 기능이 자동으로 포함됩니다. 이 기능을 지원하기 위해 Azure Portal, Azure PowerShell에서 또는 Azure CLI을 사용하여 클러스터 업데이트를 수행할 수 있습니다. Azure PowerShell 및 CLI의 경우. 클러스터 당 또는 구독의 모든 클러스터에 대해 이를 사용으로 설정할 수 있습니다.
+이러한 새로운 기능을 지원하기 위해 새 컨테이너화된 에이전트가 **AKS용 microsoft/oms:ciprod05262020** 버전 및 Azure Arc 지원 Kubernetes 클러스터용 **microsoft/oms:ciprod09252020** 버전 릴리스에 포함되어 있습니다. AKS의 새 배포에는 이 구성 변경 및 기능이 자동으로 포함됩니다. 이 기능을 지원하기 위해 Azure Portal, Azure PowerShell에서 또는 Azure CLI을 사용하여 클러스터 업데이트를 수행할 수 있습니다. Azure PowerShell 및 CLI의 경우. 클러스터 당 또는 구독의 모든 클러스터에 대해 이를 사용으로 설정할 수 있습니다.
 
-각 프로세스는 모니터링 추가 기능에 대한 클러스터의 서비스 주체 또는 사용자 할당 MSI에 **모니터링 메트릭 게시자** 역할을 할당하여, 에이전트에서 수집된 데이터를 클러스터 리소스에 게시할 수 있습니다. 모니터링 메트릭 게시자에는 리소스에 대해 메트릭을 푸시할 수 있는 권한만 있고, 모든 상태를 변경하거나, 리소스를 업데이트하거나, 데이터를 읽을 수는 없습니다. 역할에 대한 자세한 내용은 [Monitoring Metrics Publisher](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher)를 참조하세요. 모니터링 메트릭 게시자 역할 요구 사항은 Azure Arc 사용 Kubernetes 클러스터에는 적용되지 않습니다.
+각 프로세스는 모니터링 추가 기능에 대한 클러스터의 서비스 주체 또는 사용자 할당 MSI에 **모니터링 메트릭 게시자** 역할을 할당하여, 에이전트에서 수집된 데이터를 클러스터 리소스에 게시할 수 있습니다. 모니터링 메트릭 게시자에는 리소스에 대해 메트릭을 푸시할 수 있는 권한만 있고, 모든 상태를 변경하거나, 리소스를 업데이트하거나, 데이터를 읽을 수는 없습니다. 역할에 대한 자세한 내용은 [Monitoring Metrics Publisher](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher)를 참조하세요. 모니터링 메트릭 Publisher 역할 요구 사항은 Azure Arc 지원 Kubernetes 클러스터에 적용되지 않습니다.
 
 > [!IMPORTANT]
-> Azure Arc 사용 Kubernetes 클러스터에는 필요한 최소 에이전트 버전이 이미 있기 때문에 업그레이드가 필요하지 않습니다. Azure Portal, Azure PowerShell 또는 Azure CLI를 사용하는 경우 모니터링 추가 기능에 대한 클러스터의 서비스 주체 또는 사용자 할당 MSI에 **모니터링 메트릭 게시자** 역할이 자동으로 할당됩니다.
+> Azure Arc 사용하도록 설정된 Kubernetes 클러스터에는 필요한 최소 에이전트 버전이 이미 있으므로 업그레이드가 필요하지 않습니다. Azure Portal, Azure PowerShell 또는 Azure CLI를 사용하는 경우 모니터링 추가 기능에 대한 클러스터의 서비스 주체 또는 사용자 할당 MSI에 **모니터링 메트릭 게시자** 역할이 자동으로 할당됩니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -41,7 +41,7 @@ ms.locfileid: "129668488"
 
 * Azure 지역의 하위 집합에서만 사용자 지정 메트릭을 사용할 수 있습니다. 지원되는 지역 목록은 [여기](../essentials/metrics-custom-overview.md#supported-regions)를 참조하세요.
 
-* 사용자는 AKS 클러스터 리소스에 대한 **[소유자](../../role-based-access-control/built-in-roles.md#owner)** 역할의 멤버로서, 노드 및 pod 사용자 지정 성능 메트릭을 수집하도록 설정합니다. 이 요구 사항은 Azure Arc 사용 Kubernetes 클러스터에 적용되지 않습니다.
+* 사용자는 AKS 클러스터 리소스에 대한 **[소유자](../../role-based-access-control/built-in-roles.md#owner)** 역할의 멤버로서, 노드 및 pod 사용자 지정 성능 메트릭을 수집하도록 설정합니다. 이 요구 사항은 Azure Arc 지원 Kubernetes 클러스터에는 적용되지 않습니다.
 
 Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.59 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
@@ -99,7 +99,7 @@ Azure CLI를 사용하여 구독에서 특정 클러스터를 업데이트하려
 
 
 >[!NOTE]
->사용자 계정을 사용 하 여 역할 할당을 수행 하려는 경우 아래 예제와 같이--담당자 매개 변수를 사용 합니다. 또는 SPN을 사용 하 여 로그인 하 고 역할 할당을 수행 하려는 경우--담당자 매개 변수 대신--담당자-id--principal-principal-type 매개 변수를 사용 합니다.
+>사용자 계정을 사용하고 역할 할당을 수행하려는 경우 아래 예제와 같이 --assignee 매개 변수를 사용합니다. SPN을 사용하여 로그인하고 역할 할당을 수행하려는 경우 --assignee 매개 변수 대신 --assignee-object-id --assignee-principal-type 매개 변수를 사용합니다.
 
 ## <a name="upgrade-all-clusters-using-azure-powershell"></a>Azure PowerShell를 사용하여 모든 클러스터 업그레이드
 

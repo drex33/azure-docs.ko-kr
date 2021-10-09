@@ -2,13 +2,13 @@
 title: Azure 파일 공유 백업 관리
 description: 이 문서에서는 Azure Backup에 의해 백업된 Azure 파일 공유를 관리하고 모니터링하는 일반적인 작업에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: 973c28b2c8caac4d2acda9e2cd976f9ceb8c387c
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.date: 10/08/2021
+ms.openlocfilehash: e955ed1cf01c055ea72218076799d7da31d096b7
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129534032"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714317"
 ---
 # <a name="manage-azure-file-share-backups"></a>Azure 파일 공유 백업 관리
 
@@ -36,25 +36,59 @@ Azure Backup [Azure Monitor 로그](../azure-monitor/logs/log-analytics-tutorial
 
 Recovery Services 자격 증명 모음의 **백업 정책** 섹션에서 Azure 파일 공유를 백업하는 새 정책을 만들 수 있습니다. 파일 공유에 대한 백업을 구성할 때 만든 모든 정책은 **정책 유형** 이 **Azure 파일 공유** 로 표시됩니다.
 
+새 백업 정책을 만들려면 다음 단계를 수행 합니다.
+
+1. Recovery Services 자격 증명 모음의 **백업 정책** 창에서 **+ 추가** 를 선택 합니다.
+
+   :::image type="content" source="./media/manage-afs-backup/new-backup-policy.png" alt-text="새 백업 정책 만들기를 시작 하는 옵션을 보여 주는 스크린샷":::
+
+1. **추가** 창에서 **Azure 파일 공유** 를 **정책 유형** 으로 선택합니다.
+
+   :::image type="content" source="./media/manage-afs-backup/define-policy-type.png" alt-text="Azure 파일 공유를 정책 형식으로 선택 하는 것을 보여 주는 스크린샷":::
+
+1. **Azure 파일 공유** 에 대 한 **백업 정책** 창이 열리면 정책 이름을 지정 합니다.
+
+1. **백업 일정** 에서 백업에 대 한 적절 한 빈도 ( **매일** 또는 **매시간**)를 선택 합니다.
+
+   :::image type="content" source="./media/manage-afs-backup/backup-frequency-types.png" alt-text="백업 빈도 유형을 보여 주는 스크린샷":::
+
+   - **매일**: 하루에 한 번 백업을 트리거합니다. 일별 빈도에서 적절 한 값을 선택 합니다.
+
+     - **시간**: 백업 작업을 트리거해야 하는 타임 스탬프입니다.
+     - **표준 시간대**: 백업 작업에 해당 하는 표준 시간대입니다.
+
+   - **매시간**: 하루에 여러 백업을 트리거합니다. 매시간 빈도에 대해 적절 한 값을 선택 합니다.
+   
+     - **일정**: 연속 백업 간의 시간 간격 (시간)입니다.
+     - **시작 시간**: 해당 요일의 첫 번째 백업 작업을 트리거해야 하는 시간입니다.
+     - **기간**: 선택한 일정에 따라 백업 작업을 트리거해야 하는 시간 범위 (시간)를 나타냅니다.
+     - **표준 시간대**: 백업 작업에 해당 하는 표준 시간대입니다.
+     
+     예를 들어 RPO (복구 지점 목표) 요구 사항은 4 시간이 고 작업 시간은 오전 9 시에서 오후 9 시 사이입니다. 이러한 요구 사항을 충족 하기 위해 백업 일정에 대 한 구성은 다음과 같습니다.
+    
+     - 일정: 4 시간 마다
+     - 시작 시간: 오전 9 시 
+     - 기간: 12 시간 
+     
+     :::image type="content" source="./media/manage-afs-backup/hourly-backup-frequency-values-scenario.png" alt-text="시간별 백업 빈도 값의 예를 보여 주는 스크린샷":::
+
+     선택 사항에 따라 백업 작업 세부 정보 (백업 작업이 트리거될 때의 타임 스탬프)가 backup 정책 블레이드에 표시 됩니다.
+
+1. **보존 범위** 에서 매일, 매주, 매월 또는 매년으로 태그가 지정 된 백업에 대 한 적절 한 보존 값을 지정 합니다.
+
+1. 정책의 모든 특성을 정의한 후 **만들기** 를 클릭 합니다.
+  
+### <a name="view-policy"></a>정책 보기
+
 기존 백업 정책을 보려면 다음을 수행합니다.
 
 1. 파일 공유의 백업을 구성하는 데 사용한 Recovery Services 자격 증명 모음을 엽니다. Recovery Services 자격 증명 모음 메뉴에서 **관리** 섹션 아래의 **백업 정책** 을 선택합니다. 자격 증명 모음에 구성된 모든 백업 정책이 표시됩니다.
 
-   ![모든 백업 정책](./media/manage-afs-backup/all-backup-policies.png)
+   :::image type="content" source="./media/manage-afs-backup/all-backup-policies.png" alt-text="모든 백업 정책을 보여 주는 스크린샷":::
 
 1. **Azure 파일 공유** 와 관련된 정책을 보려면 오른쪽 위의 드롭다운 목록에서 **Azure 파일 공유** 를 선택합니다.
 
-   ![Azure 파일 공유 선택](./media/manage-afs-backup/azure-file-share.png)
-
-새 백업 정책을 만들려면 다음을 수행합니다.
-
-1. **백업 정책** 창에서 **+ 추가** 를 선택합니다.
-
-   ![새로운 백업 정책](./media/manage-afs-backup/new-backup-policy.png)
-
-1. **추가** 창에서 **Azure 파일 공유** 를 **정책 유형** 으로 선택합니다. **Azure 파일 공유** 의 **백업 정책** 창이 열립니다. 복구 지점에 대한 정책 이름, 백업 빈도, 보존 기간을 지정합니다. 정책을 정의한 후 **확인** 을 선택합니다.
-
-   ![백업 정책 정의](./media/manage-afs-backup/define-backup-policy.png)
+   :::image type="content" source="./media/manage-afs-backup/azure-file-share.png" alt-text="Azure 파일 공유를 선택 하는 프로세스를 보여 주는 스크린샷":::
 
 ## <a name="modify-policy"></a>정책 수정
 
@@ -131,7 +165,7 @@ Azure 파일 공유에 대한 보호를 다시 시작하려면 다음을 수행�
 
 ## <a name="delete-backup-data"></a>백업 데이터 삭제
 
-**백업 중지** 작업이 진행되는 동안 또는 보호를 중지한 후 언제든지 파일 공유 백업을 삭제할 수 있습니다. 복구 지점을 삭제하기 전에 며칠 또는 몇 주 기다리는 것이 도움이 될 수도 있습니다. 백업 데이터를 삭제하는 경우 삭제할 특정 복구 지점을 선택할 수 없습니다. 백업 데이터를 삭제하도록 결정하면 해당 파일 공유에 연결된 모든 복구 지점을 삭제합니다.
+**백업 중지** 작업 중 또는 보호를 중지 한 후 언제 든 지 파일 공유의 백업을 삭제할 수 있습니다. 복구 지점을 삭제하기 전에 며칠 또는 몇 주 기다리는 것이 도움이 될 수도 있습니다. 백업 데이터를 삭제하는 경우 삭제할 특정 복구 지점을 선택할 수 없습니다. 백업 데이터를 삭제하도록 결정하면 해당 파일 공유에 연결된 모든 복구 지점을 삭제합니다.
 
 다음 절차에서는 파일 공유에 대한 보호가 중지된 것으로 가정합니다.
 

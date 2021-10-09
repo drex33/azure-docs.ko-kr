@@ -8,12 +8,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 10/01/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 900010fd454e356b43eb7cb5b2ee0379bdf90beb
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 1129b4cf06a2de01438f2c83500eee84240183fc
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129372824"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705269"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-the-azure-cli"></a>Azure CLI를 사용 하 여 고정 개인 IP 주소를 사용 하는 가상 컴퓨터 만들기
 
@@ -57,7 +57,7 @@ Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 �
 
 이 섹션에서는 이전에 만든 가상 컴퓨터에 대 한 개인 IP 주소를 **동적** 에서 **정적** 으로 변경 합니다. 
 
-[Az network nic ip 구성 업데이트](/cli/azure/network/nic/ipconfig#az_network_nic_ip_config_update) 를 사용 하 여 네트워크 인터페이스 구성을 업데이트 합니다.
+[Az network nic ip 구성 업데이트](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update) 를 사용 하 여 네트워크 인터페이스 구성을 업데이트 합니다.
 
 다음 명령은 가상 머신의 개인 IP 주소를 고정으로 변경 합니다.
 

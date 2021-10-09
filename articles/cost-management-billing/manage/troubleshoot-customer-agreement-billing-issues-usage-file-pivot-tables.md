@@ -7,21 +7,21 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: 1d4e6a407e75a70618089f20a7d19343785380ad
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: cd7507a6bbb9ef8cfe71c95431fe63191cd63275
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128616482"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711118"
 ---
 # <a name="troubleshoot-mca-billing-issues-with-usage-file-pivot-tables"></a>사용량 파일 피벗 테이블을 사용하여 MCA 청구 문제 해결
 
 이 문서는 사용량 파일의 피벗 테이블을 사용하여 MCA(Microsoft 고객 계약) 청구 문제를 해결하는 데 도움이 됩니다. Azure 사용량 파일에는 모든 Azure 사용량 및 소비 정보가 포함됩니다. 파일의 정보는 다음을 이해하는 데 도움이 될 수 있습니다.
 
 - Azure 예약이 사용되고 적용되는 방법 이해
-- Azure Cost Management에서 청구된 청구서를 사용하여 정보 조정
+- 청구된 청구서로 Cost Management 정보 조정
 - 비용 급증 문제 해결
 - 서비스 수준 계약에 대한 환불 금액 계산
 

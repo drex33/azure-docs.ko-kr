@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 10/08/2021
 ms.author: memildin
-ms.openlocfilehash: a57a94b8ee0bb91deb0b15a3da0265af15dbc3a3
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 174540ecdfe54073c30cdc7b71952c0621a66ba8
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129536304"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710724"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Security Center의 통합 EDR 솔루션인 엔드포인트용 Microsoft Defender로 엔드포인트 보호
 
@@ -48,6 +48,10 @@ Microsoft Defender for Endpoint는 클라우드에서 제공하는 전체적인 
 
 - **고급 위반 후 검색 센서**. 엔드포인트용 Defender의 센서는 머신에서 방대한 동작 신호를 수집합니다.
 
+- **Microsoft 위협 및 취약성 관리 솔루션의 취약성 평가** 엔드포인트용 Microsoft Defender를 사용하도록 설정하면 Security Center 위협 및 취약성 관리 모듈에서 검색된 취약성을 표시하고 이 모듈을 지원되는 취약성 평가 솔루션으로 제공할 수 있습니다. [엔드포인트용 Microsoft Defender의 위협 및 취약성 관리 사용하여 약점 조사에서](deploy-vulnerability-assessment-tvm.md)자세히 알아보세요.
+
+    또한 이 모듈에서는 소프트웨어 인벤토리 액세스에 설명된 [소프트웨어 인벤토리](asset-inventory.md#access-a-software-inventory) 기능을 제공하며 [자동 배포 설정을](auto-deploy-vulnerability-assessment.md)사용하여 지원되는 컴퓨터에 대해 자동으로 사용하도록 설정할 수 있습니다.
+
 - **분석 기반, 클라우드 기반, 위반 후 검색**. 엔드포인트용 Defender는 지속적으로 변화하는 위협에 빠르게 적응하며 고급 분석 기능과 빅 데이터를 활용합니다. 또한 Windows, Azure, Office 전반에 걸쳐 생성되는 신호를 통해 알려지지 않은 위협을 검색하는 Intelligent Security Graph의 기능을 통해 보안을 더욱 강화하며 신속하게 대응할 수 있도록 조치 가능한 경고를 제공합니다.
 
 - **위협 인텔리전스**. 엔드포인트용 Defender는 공격자 도구, 기술, 절차를 식별할 때 경고를 생성합니다. 이 과정에서는 Microsoft 위협 확인 담당자와 보안 팀에서 생성하며 파트너가 제공한 정보를 통해 강화된 데이터를 활용합니다.
@@ -78,9 +82,12 @@ Security Center를 사용하여 머신을 모니터링할 때 엔드포인트용
 
     - **Azure 가상 머신(Windows 또는 Linux)** - 디바이스 프록시 및 인터넷 연결 설정 구성: [Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet) 또는 [Linux](/microsoft-365/security/defender-endpoint/linux-static-proxy-configuration)에 설명된 대로 네트워크 설정을 구성합니다.
 
-    - **온-프레미스 머신** - [Azure Arc 지원 서버와 하이브리드 머신 연결](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)에 설명된 대로 대상 머신을 Azure Arc에 연결합니다.
+    - **온-프레미스 컴퓨터** - Azure Arc 지원 서버가 있는 [커넥트 하이브리드 머신에 설명된](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)대로 대상 컴퓨터를 Azure Arc 커넥트.
 
 1. **서버용 Azure Defender** 를 사용하도록 설정합니다. [빠른 시작: Azure Defender 사용](enable-azure-defender.md)을 참조하세요.
+
+    > [!IMPORTANT]
+    > Security Center 엔드포인트용 Microsoft Defender와의 통합은 기본적으로 사용하도록 설정됩니다. 따라서 Azure Defender 사용하도록 설정하면 서버가 취약성, 설치된 소프트웨어 및 엔드포인트에 대한 경고와 관련된 엔드포인트용 Microsoft Defender 데이터에 액세스할 수 있도록 Azure Defender 대한 동의를 제공합니다.
 
 1. Azure 테넌트 간에 구독을 이동한 경우 몇 가지 수동 준비 단계도 필요합니다. 자세한 내용은 [Microsoft 지원에 문의](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)하세요.
 

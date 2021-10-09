@@ -1,20 +1,20 @@
 ---
 title: App Service, 함수, 논리 앱용으로 Azure Arc 설정
-description: Azure Arc 지원 Kubernetes 클러스터에서 App Service 앱, 함수 앱 및 논리 앱을 사용하도록 설정하는 방법을 알아봅니다.
+description: Azure Arc 지원 Kubernetes 클러스터의 경우 App Service 앱, 함수 앱 및 논리 앱을 사용하도록 설정하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 08/17/2021
-ms.openlocfilehash: 7fbdae7b5e8b3bda94c1f1ddbb2a70720596d1fd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f0594458f65fbd14bc50540148d5ea68d15fbdbd
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128639036"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707119"
 ---
 # <a name="set-up-an-azure-arc-enabled-kubernetes-cluster-to-run-app-service-functions-and-logic-apps-preview"></a>Azure Arc 지원 Kubernetes 클러스터를 설정하여 App Service, Functions 및 Logic Apps 실행(미리 보기)
 
-[Azure Arc 지원 Kubernetes 클러스터](../azure-arc/kubernetes/overview.md)가 있다면 이를 사용하여 [App Service 지원 사용자 지정 위치](overview-arc-integration.md)를 만들고 웹 앱, 함수 앱과 논리 앱을 배포할 수 있습니다.
+Azure Arc 지원 [Kubernetes 클러스터가](../azure-arc/kubernetes/overview.md)있는 경우 이를 사용하여 App Service 사용하도록 [설정된 사용자 지정 위치를](overview-arc-integration.md) 만들고 웹앱, 함수 앱 및 논리 앱을 배포할 수 있습니다.
 
-Azure Arc 지원 Kubernetes를 사용하면 온-프레미스 또는 클라우드 Kubernetes 클러스터를 Azure의 App Service, 함수 및 논리 앱에 표시할 수 있습니다. 다른 Azure 지역처럼 앱을 만들고 배포할 수 있습니다.
+Azure Arc 지원 Kubernetes를 사용하면 온-프레미스 또는 클라우드 Kubernetes 클러스터를 Azure의 App Service, Functions 및 Logic Apps 표시할 수 있습니다. 다른 Azure 지역처럼 앱을 만들고 배포할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -60,7 +60,7 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
 ## <a name="create-a-connected-cluster"></a>연결된 클러스터 만들기
 
 > [!NOTE]
-> 이 자습서에서는 [AKS(Azure Kubernetes Service)](../aks/index.yml)를 사용하여 처음부터 환경을 설정하기 위한 구체적인 지침을 제공합니다. 그러나 프로덕션 워크로드의 경우 Azure에서 이미 관리되는 Azure Arc를 AKS 클러스터에서 사용하도록 설정하지 않는 것이 좋습니다. 아래 단계는 서비스를 이해하는 데 도움이 되지만 프로덕션 배포의 경우 조치가 아닌 설명으로 간주되어야 합니다. Azure Arc 사용 Kubernetes 클러스터 생성에 대한 일반적인 지침은 [빠른 시작: 기존 Kubernetes 클러스터를 Azure Arc에 연결](../azure-arc/kubernetes/quickstart-connect-cluster.md)을 참조하세요.
+> 이 자습서에서는 [AKS(Azure Kubernetes Service)](../aks/index.yml)를 사용하여 처음부터 환경을 설정하기 위한 구체적인 지침을 제공합니다. 그러나 프로덕션 워크로드의 경우 Azure에서 이미 관리되는 Azure Arc를 AKS 클러스터에서 사용하도록 설정하지 않는 것이 좋습니다. 아래 단계는 서비스를 이해하는 데 도움이 되지만 프로덕션 배포의 경우 조치가 아닌 설명으로 간주되어야 합니다. Azure Arc 지원 Kubernetes 클러스터 만들기에 대한 일반적인 지침은 [빠른 시작: 기존 Kubernetes 클러스터](../azure-arc/kubernetes/quickstart-connect-cluster.md) 커넥트 Azure Arc 참조하세요.
 
 1. 공용 IP 주소를 사용하여 Azure Kubernetes Service에서 클러스터를 만듭니다. `<group-name>`을 원하는 리소스 그룹 이름으로 바꿉니다.
 
@@ -151,7 +151,7 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
     
 ## <a name="create-a-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기
 
-[Log Analytic 작업 영역](../azure-monitor/logs/quick-create-workspace.md)은 Azure Arc App Service를 실행하지 않아도 되지만, 개발자는 이 작업 영역을 통해 Azure Arc 지원 Kubernetes 클러스터에서 실행하는 앱에 대한 애플리케이션 로그를 얻을 수 있습니다. 
+Log [Analytic 작업 영역은](../azure-monitor/logs/quick-create-workspace.md) Azure Arc App Service 실행할 필요가 없지만, 개발자가 Azure Arc 지원 Kubernetes 클러스터에서 실행 중인 앱에 대한 애플리케이션 로그를 얻을 수 있습니다. 
 
 1. 간단한 설명을 위해 지금 작업 영역을 만듭니다.
 
@@ -237,7 +237,7 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
 
     ---
     
-2. Log Analytics를 사용하도록 설정한 상태에서 App Service 확장을 Azure Arc 연결된 클러스터에 설치합니다. 이번에도 Log Analytics가 필요하지는 않지만 나중에는 확장에 추가할 수 없으니 지금 하는 것이 더 편합니다.
+2. Log Analytics를 사용하도록 설정된 Azure Arc 연결된 클러스터에 App Service 확장을 설치합니다. 이번에도 Log Analytics가 필요하지는 않지만 나중에는 확장에 추가할 수 없으니 지금 하는 것이 더 편합니다.
 
     # <a name="bash"></a>[bash](#tab/bash)
 
@@ -365,7 +365,7 @@ Azure에서 [사용자 지정 위치](../azure-arc/kubernetes/custom-locations.m
 
 <!-- https://github.com/MicrosoftDocs/azure-docs-pr/pull/156618 -->
 
-1. 사용자 지정 위치의 원하는 이름에, 그리고 Azure Arc에 연결된 클러스터의 ID에 다음 환경 변수를 설정합니다.
+1. 사용자 지정 위치의 원하는 이름 및 Azure Arc 연결된 클러스터의 ID에 대해 다음 환경 변수를 설정합니다.
 
     # <a name="bash"></a>[bash](#tab/bash)
 

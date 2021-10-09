@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
-ms.openlocfilehash: 6acab9618566766b12b4b236c75aa58386100513
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
-ms.translationtype: HT
+ms.openlocfilehash: 93a223edf882200200bb75ed0b67e0b971f4bf42
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105961067"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715027"
 ---
 # <a name="troubleshooting-metrics-charts"></a>메트릭 차트 문제 해결
 
@@ -55,7 +55,7 @@ Azure의 메트릭 액세스는 [Azure RBAC(Azure 역할 기반 액세스 제어
 
 **게스트 OS** 메트릭 컬렉션을 사용하려면 Azure Diagnostics 확장을 구성하거나 해당 리소스의 **진단 설정** 패널을 사용하여 Azure 진단 확장을 설정해야 합니다.
 
-**솔루션:** Azure Diagnostics 확장을 설정했지만, 여전히 메트릭을 볼 수 없는 경우 [Azure Diagnostics 확장 문제 해결 가이드](../agents/diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal)에 설명된 단계를 따릅니다. [게스트 OS 네임스페이스 및 메트릭을 선택할 수 없음](#cannot-pick-guest-os-namespace-and-metrics) 문제 해결 단계도 참조하세요.
+**솔루션:** Azure Diagnostics 확장을 설정했지만, 여전히 메트릭을 볼 수 없는 경우 [Azure Diagnostics 확장 문제 해결 가이드](../agents/diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal)에 설명된 단계를 따릅니다. [게스트 OS 네임스페이스 및 메트릭을 선택할 수 없음](#cannot-pick-guest-namespace-and-metrics) 문제 해결 단계도 참조하세요.
 
 ## <a name="error-retrieving-data-message-on-dashboard"></a>대시보드의 “데이터 검색 오류” 메시지
 
@@ -79,15 +79,15 @@ Azure 메트릭 차트는 파선을 사용하여 두 개의 알려진 시간 조
 
 **솔루션:** 이 동작은 의도된 것입니다. 저희는 데이터가 전체 중 *일부* 이거나 *불완전* 한 경우에도 데이터를 받는 즉시 보여주는 것이 좋다고 생각합니다. 이렇게 하면 중요한 결론을 신속하게 내리고 즉시 조사를 시작할 수 있습니다. 예를 들어 실패 횟수를 보여주는 메트릭의 경우 부분 값 X를 보면 특정 시간에 적어도 X건의 실패가 있다는 것을 알 수 있습니다. (별로 중요하지 않을 수도 있는) 이 시간까지 발생한 정확한 실패 횟수를 알 수 있을 때까지 기다리지 않고 즉시 문제 조사를 시작할 수 있습니다. 데이터 세트 전체를 받을 때 차트가 업데이트되지만, 해당 시간의 새로운 불완전 데이터 요소까지 차트에 표시될 수 있습니다.
 
-## <a name="cannot-pick-guest-os-namespace-and-metrics"></a>게스트 OS 네임스페이스 및 메트릭을 선택 수 없음
+## <a name="cannot-pick-guest-namespace-and-metrics"></a>게스트 네임스페이스 및 메트릭을 선택할 수 없음
 
-가상 머신 및 가상 머신 확장 집합에는 다음과 같은 두 가지 메트릭이 있습니다. 하나는 Azure 호스팅 환경에서 수집하는 **Virtual Machine 호스트** 메트릭이고, 다른 하나는 가상 머신에서 실행되는 [모니터링 에이전트](../agents/agents-overview.md)가 수집하는 **게스트 OS**(클래식) 메트릭입니다. [Azure 진단 확장](../agents/diagnostics-extension-overview.md)을 사용하도록 설정하여 모니터링 에이전트를 설치합니다.
+가상 머신 및 가상 머신 확장 집합에는 Azure 호스팅 환경에서 수집되는 Virtual Machine 호스트 메트릭과 **가상 머신에서** 실행되는 [모니터링 에이전트가](../agents/agents-overview.md) 수집하는 **게스트(클래식)** 메트릭의 두 가지 범주가 있습니다. [Azure 진단 확장](../agents/diagnostics-extension-overview.md)을 사용하도록 설정하여 모니터링 에이전트를 설치합니다.
 
-기본적으로 게스트 OS 메트릭은 리소스의 **진단 설정** 탭에서 선택하는 Azure Storage 계정에 저장됩니다. 게스트 OS 메트릭이 수집되지 않거나 메트릭 탐색기가 메트릭에 액세스할 수 없는 경우 **Virtual Machine 호스트** 메트릭 네임스페이스만 표시됩니다.
+기본적으로 게스트(클래식) 메트릭은 리소스의 **진단 설정** 탭에서 선택하는 Azure Storage 계정에 저장됩니다. 게스트 메트릭이 수집되지 않거나 메트릭 탐색기에서 액세스할 수 없는 경우 **Virtual Machine 호스트** 메트릭 네임스페이스만 표시됩니다.
 
-![메트릭 이미지](./media/metrics-troubleshoot/vm.png)
+![메트릭 이미지](./media/metrics-troubleshoot/vm-metrics.png)
 
-**솔루션:** 메트릭 탐색기에 **게스트 OS(클래식)** 네임스페이스와 메트릭이 표시되지 않으면 다음을 수행합니다.
+**해결 방법:** 메트릭 탐색기에 **게스트(클래식)** 네임스페이스 및 메트릭이 표시되지 않는 경우:
 
 1. [Azure 진단 확장](../agents/diagnostics-extension-overview.md)이 사용되고 메트릭을 수집하도록 구성되었는지 확인합니다.
     > [!WARNING]

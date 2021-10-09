@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
-ms.openlocfilehash: 393e6dbc0f30e4a541408119db6f606f24023d5d
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.date: 10/07/2021
+ms.openlocfilehash: 56a6a521eb648a1ad49baf2bf206ef84aa084731
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129059742"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714119"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>매핑 데이터 흐름 변환 개요
 
@@ -43,6 +43,7 @@ ms.locfileid: "129059742"
 | [싱크](data-flow-sink.md) | - | 데이터의 최종 대상입니다. |
 | [Sort](data-flow-sort.md) | 행 한정자 | 현재 데이터 스트림에서 들어오는 행을 정렬합니다. |
 | [원본](data-flow-source.md) | - | 데이터 흐름에 대한 데이터 원본입니다. |
+| [문자열 변환](data-flow-stringify.md) | - | 복합 형식을 일반 문자열로 변환 |
 | [서로게이트 키](data-flow-surrogate-key.md) | 스키마 한정자 | 증가하는 업무 외 임의 키 값을 추가합니다. |
 | [Union](data-flow-union.md) | 다중 입력/출력 | 여러 데이터 스트림을 수직으로 결합합니다. |
 | [피벗 해제](data-flow-unpivot.md) | 스키마 한정자 | 열을 행 값으로 피벗합니다. |

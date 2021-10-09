@@ -7,69 +7,82 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/09/2021
+ms.date: 10/07/2021
 ms.author: lajanuar
-ms.openlocfilehash: 247400ea72567108fb9dc320bddd1b87d6ef6ced
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+recommendations: false
+ms.openlocfilehash: 425a5cb9ab332076ddd0d745bba7b914e5601917
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128641677"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707159"
 ---
-# <a name="form-recognizer-layout-service"></a>Form Recognizer 레이아웃 서비스
+# <a name="form-recognizer-layout-model"></a>폼 인식기 레이아웃 모델
 
-Azure Form Recognizer의 레이아웃 API는 문서(PDF, TIFF) 및 이미지(JPG, PNG, BMP)에서 텍스트, 테이블, 선택 표시 및 구조 정보를 추출합니다. 이를 통해 고객은 다양한 형식으로 문서를 가져와 문서의 정형 데이터 표현을 반환할 수 있습니다. 이 버전은 강력한 [OCR(광학 문자 인식)](../../cognitive-services/computer-vision/overview-ocr.md) 기능을 딥 러닝 모델과 결합하여 텍스트, 테이블, 선택 표시 및 문서 구조를 추출합니다.
+Azure Form Recognizer의 레이아웃 API는 문서(PDF, TIFF) 및 이미지(JPG, PNG, BMP)에서 텍스트, 테이블, 선택 표시 및 구조 정보를 추출합니다. 이를 통해 고객은 다양 한 형식으로 문서를 가져와서 문서의 구조화 된 데이터 표현을 반환할 수 있습니다. 이 버전은 강력한 [OCR(광학 문자 인식)](../../cognitive-services/computer-vision/overview-ocr.md) 기능을 딥 러닝 모델과 결합하여 텍스트, 테이블, 선택 표시 및 문서 구조를 추출합니다.
 
-## <a name="what-does-the-layout-service-do"></a>레이아웃 서비스는 어떤 작업을 수행하나요?
+##### <a name="sample-form-processed-with-form-recognizer-sample-labeling-tool--layout-feature"></a>[양식 인식기 샘플 레이블 도구](https://fott-2-1.azurewebsites.net/) 레이아웃 기능으로 처리 된 샘플 양식:
 
-레이아웃 API는 문서에서 텍스트, 테이블 머리글이 포함된 테이블, 선택 표시 및 구조 정보를 뛰어난 정확도로 추출하고 구성되고 구조화된 JSON 응답을 반환합니다. 문서는 전화를 캡처한 이미지, 스캔한 문서, 디지털 PDF 등 형식과 품질이 다양할 수 있습니다. 레이아웃 API는 이러한 모든 문서로부터 구조적 출력을 정확하게 추출합니다.
+:::image type="content" source="media/layout-demo.gif" alt-text="{대체 텍스트}":::
 
-![레이아웃 예제](./media/layout-demo.gif)
+**데이터 추출 기능**
 
-## <a name="try-it&quot;></a>시도
+| **레이아웃 모델**   | **텍스트 추출**   | **선택 표시**   | **테이블**  |
+| --- | --- | --- | --- |
+| Layout  | ✓  | ✓  | ✓  |
 
-Form Recognizer 레이아웃 서비스를 사용해보려면 다음과 같은 온라인 샘플 UI 도구로 이동합니다.
+## <a name="try-form-recognizer-studio-preview"></a>양식 인식기 스튜디오 체험 (미리 보기)
 
-> [!div class=&quot;nextstepaction&quot;]
-> [레이아웃 모델 사용해 보기](https://aka.ms/fott-2.1-ga &quot;미리 빌드된 모델 레이아웃부터 시작하여 양식에서 데이터를 추출합니다.")
+* 양식 인식기 스튜디오는 preview (v 3.0) API에서 사용할 수 있습니다.
 
-Form Recognizer 레이아웃 API를 사용해보려면 Azure 구독([무료로 하나 생성](https://azure.microsoft.com/free/cognitive-services))과 [Form Recognizer 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) 엔드포인트 및 키가 필요합니다.
+* 양식 인식기 스튜디오 레이아웃 기능을 사용 하 여 폼과 문서에서 테이블, 확인란 및 텍스트를 추출 합니다.
 
-![샘플 UI 스크린샷. 문서의 텍스트, 테이블 및 선택 표시가 분석됩니다.](./media/analyze-layout.png)
+> [!div class="nextstepaction"]
+> [폼 인식기 스튜디오 체험](https://formrecognizer.appliedai.azure.com/studio/layout)
+
+## <a name="try-form-recognizer-sample-labeling-tool"></a>폼 인식기 샘플 레이블 지정 도구 시도
+
+샘플 레이블 지정 도구를 사용해 서 레이아웃 데이터를 추출 하는 방법을 볼 수 있습니다. 다음이 필요 합니다.
+
+* Azure 구독- [무료로 하나를 만들](https://azure.microsoft.com/free/cognitive-services/) 수 있습니다.
+
+* Azure Portal의 [폼 인식기 인스턴스입니다](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) . 무료 가격 책정 계층(`F0`)을 사용하여 서비스를 시도할 수 있습니다. 리소스를 배포한 후 **리소스로 이동** 을 클릭 하 여 API 키 및 끝점을 가져옵니다.
+
+ :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="스크린샷: Azure Portal의 키 및 끝점 위치입니다.":::
+
+* 양식 문서입니다. [샘플 양식 문서](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf)를 사용할 수 있습니다.
+
+> [!div class="nextstepaction"]
+  > [사용해 보기](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
+
+  양식 인식기 UI에서:
+
+  1. **레이아웃 사용을 선택 하 여 텍스트, 테이블 및 선택 표시를 가져옵니다**.
+  1. 드롭다운 메뉴에서 **로컬 파일** 을 선택 합니다.
+  1. 파일 업로드 하 고 **레이아웃 실행** 선택
+
+  :::image type="content" source="media/try-layout.png" alt-text="스크린샷: 스크린샷: 샘플 레이블 지정 도구 드롭다운 레이아웃 파일 원본 선택 메뉴.":::
 
 ## <a name="input-requirements"></a>입력 요구 사항
 
-[!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
+* 최상의 결과를 위해 문서 마다 하나의 명확한 사진 또는 고품질 스캔을 제공 합니다.
+* 지원되는 파일 형식: JPEG, PNG, BMP, TIFF 및 PDF(텍스트 포함 또는 검사). 텍스트 포함 PDF는 문자 추출 및 위치에 오류가 발생할 가능성을 제거하는 데 가장 좋습니다.
+* PDF 및 TIFF의 경우 최대 2000 페이지를 처리할 수 있습니다 (무료 계층 구독이 있는 경우 처음 두 페이지만 처리 됨).
+* 파일 크기는 50 MB 미만 이어야 합니다.
+* 이미지 크기는 50x50 픽셀에서 10,000x10,000 픽셀 사이여야 합니다.
+* PDF 차원은 Legal 또는 A3 용지 크기에 해당 하는 최대 17 x 17 인치입니다.
+* 학습 데이터의 총 크기는 500 페이지이 하 여야 합니다.
+* Pdf가 암호로 잠겨 있는 경우 제출 하기 전에 잠금을 제거 해야 합니다.
+* 자율 learning (레이블이 지정 되지 않은 데이터):
+  * 데이터에는 키와 값이 포함 되어야 합니다.
+  * 키는 값의 위쪽 이나 왼쪽에 표시 되어야 합니다. 이는 아래 또는 오른쪽에 표시 되지 않습니다.
 
-## <a name="analyze-layout"></a>레이아웃 분석
+> [!NOTE]
+> [샘플 레이블 지정 도구](https://fott-2-1.azurewebsites.net/) 는 BMP 파일 형식을 지원 하지 않습니다. 이는 폼 인식기 서비스가 아닌 도구의 제한 사항입니다.
 
-먼저 [레이아웃 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync) 작업을 호출합니다. 레이아웃 분석은 문서(이미지, TIFF 또는 PDF 파일)를 입력으로 사용하고 문서의 텍스트, 테이블, 선택 표시 및 구조를 추출합니다. 호출은 `Operation-Location`이라는 응답 헤더 필드를 반환합니다. `Operation-Location` 값은 다음 단계에서 사용할 결과 ID를 포함하는 URL입니다.
+## <a name="supported-languages-and-locales"></a>지원 되는 언어 및 로캘
 
-|응답 헤더| 결과 URL |
-|:-----|:----|
-|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1/layout/analyzeResults/{resultId}' |
-
-## <a name="get-analyze-layout-result"></a>레이아웃 분석 결과 가져오기
-
-두 번째 단계는 [레이아웃 분석 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeLayoutResult) 작업을 호출하는 것입니다. 이 작업은 레이아웃 분석 작업으로 만들어진 결과 ID를 입력으로 사용합니다. 다음과 같은 가능한 값을 가진 **상태** 필드가 포함된 JSON 응답을 반환합니다.
-
-|필드| 형식 | 가능한 값 |
-|:-----|:----:|:----|
-|상태 | 문자열 | `notStarted`: 분석 작업이 시작되지 않았습니다.<br /><br />`running`: 분석 작업이 진행 중입니다.<br /><br />`failed`: 분석 작업이 실패했습니다.<br /><br />`succeeded`: 분석 작업이 성공했습니다.|
-
-`succeeded` 값이 반환될 때까지 이 작업을 반복적으로 호출합니다. 3~5초의 간격을 사용하여 RPS(초당 요청 수) 속도를 초과하지 않도록 합니다.
-
-**상태** 필드에 `succeeded` 값이 있는 경우 JSON 응답은 추출된 레이아웃, 텍스트, 테이블 및 선택 표시를 포함합니다. 추출된 데이터에는 추출된 텍스트 줄과 단어, 경계 상자, 필기 표시가 있는 텍스트 모양, 테이블 및 선택/선택 취소를 나타내는 선택 표시가 포함됩니다.
-
-## <a name="sample-json-output"></a>JSON 출력 샘플
-
-*레이아웃 분석 결과 가져오기* 작업에 대한 응답은 모든 정보가 추출된 문서를 구조화된 방식으로 표현한 것입니다.
-[샘플 문서 파일](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-layout.pdf) 및 해당 구조화된 출력 [샘플 레이아웃 출력](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-layout-output.json)은 여기를 참조하세요.
-
-JSON 출력에는 다음 두 부분이 있습니다.
-
-* `readResults` 노드에는 인식된 모든 텍스트와 선택 표시가 포함됩니다. 텍스트는 페이지별로, 그 다음에는 줄별로, 그 다음에는 개별 단어별로 정리됩니다.
-* `pageResults` 노드에는 ‘readResults’의 줄과 단어에 대한 참조, 경계 상자, 신뢰도와 함께 추출된 테이블과 셀이 포함됩니다.
+ 폼 인식기 미리 보기 버전에는 레이아웃 모델에 대 한 추가 언어 지원이 도입 되었습니다. 지원 되는 필기 및 인쇄 된 텍스트의 전체 목록은 [언어 지원](language-support.md#layout-and-custom-model) 을 *참조 하세요* .
 
 ## <a name="features"></a>기능
 
@@ -109,12 +122,22 @@ JSON 출력에는 다음 두 부분이 있습니다.
 
 :::image type="content" source="./media/layout-select-pages-for-text.png" alt-text="선택한 페이지 출력 레이아웃":::
 
+## <a name="form-recognizer-preview-v30"></a>양식 인식기 미리 보기 v 3.0
+
+ 양식 인식기 미리 보기에는 몇 가지 새로운 기능 및 기능이 도입 되었습니다.
+
+* 응용 프로그램 및 워크플로에서 미리 보기 버전을 사용 하는 방법에 대 한 자세한 내용은 [**인식기 v 3.0 마이그레이션 가이드를 참조**](v3-migration-guide.md) 하세요.
+
+* 미리 보기 버전 및 새로운 기능에 대 한 자세한 내용은 [**REST API (미리 보기)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) 를 살펴보세요.
+
 ## <a name="next-steps"></a>다음 단계
 
-* [Form Recognizer 샘플 UI 도구](https://aka.ms/fott-2.1-ga)를 사용하여 사용자 고유의 레이아웃 추출 시도
-* 사용자가 선택한 개발 언어로 레이아웃 추출을 시작하려면 [Form Recognizer 빠른 시작](quickstarts/client-library.md#analyze-layout)을 완료하세요.
+* 양식 인식기 빠른 시작을 완료 합니다.
 
-## <a name="see-also"></a>참조
+  > [!div class="nextstepaction"]
+  > [Form Recognizer 빠른 시작](quickstarts/try-sdk-rest-api.md)
 
-* [Form Recognizer란?](./overview.md)
-* [REST API 참조 문서](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync)
+* REST API를 살펴보세요.
+
+    > [!div class="nextstepaction"]
+    > [Form Recognizer API v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync)

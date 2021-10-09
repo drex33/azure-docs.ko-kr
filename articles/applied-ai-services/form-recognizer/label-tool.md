@@ -11,12 +11,12 @@ ms.date: 05/11/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: 문서 처리
-ms.openlocfilehash: d463a45064a9f6b342a7cb735372a3c5098539c4
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 43e7da4eea864bf0ac2767718ff8ed04ed58c54e
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123431751"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715182"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -24,7 +24,7 @@ ms.locfileid: "123431751"
 <!-- markdownlint-disable MD034 -->
 # <a name="train-a-custom-model-using-the-sample-labeling-tool"></a>샘플 레이블 지정 도구를 사용하여 사용자 지정 모델 학습
 
-이 문서에서는 샘플 레이블 지정 도구에서 Form Recognizer REST API를 사용하여 수동으로 레이블이 지정된 데이터로 사용자 지정 문서 처리 모델을 학습시킵니다. Form Recognizer를 사용한 감독 학습에 대한 자세한 내용은 개요의 [레이블을 사용하여 학습](overview.md#train-with-labels) 섹션을 참조하세요.
+이 문서에서는 샘플 레이블 지정 도구에서 Form Recognizer REST API를 사용하여 수동으로 레이블이 지정된 데이터로 사용자 지정 문서 처리 모델을 학습시킵니다. 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
@@ -201,16 +201,16 @@ v2.1에서 학습 문서의 값이 채워져 있지 않으면 해당 값이 있�
 
 * `number`
   * 기본값, `currency`
-  * 부동 소수점 값으로 형식이 지정 됩니다. 
-  * 예: 문서의 1234.98는 출력에서 1234.98로 형식이 지정 됩니다.
+  * 부동 소수점 값으로 서식이 지정됩니다. 
+  * 예제: 문서의 1234.98은 출력에서 1234.98로 형식이 지정됩니다.
 
 * `date`
   * 기본값, `dmy`, `mdy`, `ymd`
 
 * `time`
 * `integer`
-  * 정수 값 형식입니다. 
-  * 예: 문서의 1234.98는 출력에서 123498로 형식이 지정 됩니다.
+  * 정수 값으로 서식이 지정됩니다. 
+  * 예제: 문서의 1234.98은 출력의 123498 형식이 지정됩니다.
 * `selectionMark`
 
 > [!NOTE]

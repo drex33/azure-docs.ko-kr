@@ -5,18 +5,18 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 06/14/2021
+ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: f2b98768f10ad2c85a1808907e309a99bf685131
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0c9e247b4006fd22c7e820dd2f6d68362a12eea8
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128646780"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705894"
 ---
 # <a name="view-reservation-purchase-and-refund-transactions"></a>예약 구매 및 환불 트랜잭션 보기
 
-몇 가지 방법으로 예약 구매 및 환불 트랜잭션을 볼 수 있습니다. Azure Portal, Power BI 및 REST API를 사용할 수 있습니다. 교환된 예약을 트랜잭션에서 환불 및 구매로 볼 수 있습니다.
+몇 가지 방법으로 예약 구매 및 환불 트랜잭션을 볼 수 있습니다. Azure Portal, Power BI 및 REST API를 사용할 수 있습니다. 거래에서 교환 된 예약을 환불 하 고 구매할 수 있습니다.
 
 ## <a name="view-reservation-purchases-in-the-azure-portal"></a>Azure Portal에서 예약 구매 보기
 
@@ -53,7 +53,7 @@ ms.locfileid: "128646780"
 
 [![예약 트랜잭션을 보여 주는 예제.](./media/view-purchase-refunds/power-bi-reservation-transactions.png)](./media/view-purchase-refunds/power-bi-reservation-transactions.png#lightbox)
 
-자세한 내용은 [기업계약에 대한 Azure Cost Management Power BI 앱](../costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md)을 참조하세요.
+자세한 내용은 [Cost Management Power BI 앱 Enterprise 계약](../costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md)을 참조 하세요.
 
 ## <a name="use-apis-to-get-reservation-transactions"></a>API를 사용하여 예약 트랜잭션 가져오기
 

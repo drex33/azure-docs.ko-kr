@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 9/30/2021
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 39262b40cc320152bcbf2e9e5c0947e52234a019
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: a34f643ea653f1cf5a19a2a8e34002b93f0aaded
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129400233"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129716228"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그
 <a name="network-service-tags"></a>
@@ -56,7 +56,7 @@ ms.locfileid: "129400233"
 | **AzureActiveDirectory** | Azure Active Directory. | 아웃바운드 | 예 | 예 |
 | **AzureActiveDirectoryDomainServices** | Azure Active Directory Domain Services 전용 배포에 대한 관리 트래픽 | 모두 | 예 | 예 |
 | **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection | 아웃바운드 | 예 | 예 |
-| **AzureArcInfrastructure** | Azure Arc 지원 서버, Azure Arc 지원 Kubernetes 및 게스트 구성 트래픽.<br/><br/>*참고:* 이 태그에는 **AzureActiveDirectory**,**AzureTrafficManager**, 및 **AzureResourceManager** 태그에 대한 종속성이 있습니다. *이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다*.| 아웃바운드 | 예 | 예 |
+| **AzureArcInfrastructure** | Azure Arc 사용 서버, Azure Arc 사용 Kubernetes, 게스트 구성 트래픽<br/><br/>*참고:* 이 태그에는 **AzureActiveDirectory**,**AzureTrafficManager**, 및 **AzureResourceManager** 태그에 대한 종속성이 있습니다. *이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다*.| 아웃바운드 | 예 | 예 |
 | **AzureAttestation** | Azure Attestation.<br/><br/>*참고: 이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.* | 아웃바운드 | 예 | 예 | 
 | **AzureBackup** |Azure Backup<br/><br/>*참고:* 이 태그는 **Storage** 및 **AzureActiveDirectory** 태그에 종속됩니다. | 아웃바운드 | 예 | 예 |
 | **AzureBotService** | Azure Bot Service | 아웃바운드 | 예 | 예 |
@@ -68,7 +68,7 @@ ms.locfileid: "129400233"
 | **AzureDatabricks** | Azure Databricks입니다. | 모두 | 예 | 예 |
 | **AzureDataExplorerManagement** | Azure Data Explorer 관리 기능입니다. | 인바운드 | 예 | 예 |
 | **AzureDataLake** | Azure Data Lake Storage Gen1입니다. | 아웃바운드 | 예 | 예 |
-| **AzureDeviceUpdate** | IoT Hub에 대 한 장치 업데이트. | 모두 | 예 | 예 |
+| **AzureDeviceUpdate** | IoT Hub 대한 디바이스 업데이트입니다. | 모두 | 예 | 예 |
 | **AzureDevSpaces** | Azure Dev Spaces입니다. | 아웃바운드 | 예 | 예 |
 | **AzureDevOps** | Azure Dev Ops.<br/><br/>*참고: 이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.*| 인바운드 | 예 | 예 |
 | **AzureDigitalTwins** | Azure Digital Twins.<br/><br/>*참고:* 이 태그 또는 이 태그에 포함된 IP 주소를 사용하여 이벤트 경로에 구성된 엔드포인트에 대한 액세스를 제한할 수 있습니다. *이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.* | 인바운드 | 예 | 예 |
@@ -158,17 +158,17 @@ IP 주소 범위 세부 정보와 함께 서비스 태그의 현재 목록을 �
 
 해당 파일의 IP 주소 범위는 CIDR 표기법으로 되어 있습니다. 
 
-다음 AzureCloud 태그에는 일반 스키마에 따라 형식이 지정된 지역 이름이 없습니다. 
-- AzureCloud.centralfrance(FranceCentral)
-- AzureCloud.southfrance(FranceSouth)
-- AzureCloud.germanywc(GermanyWestCentral)
-- AzureCloud.germanyn(GermanyNorth)
-- AzureCloud.노르웨이어(노르웨이)
-- AzureCloud.노르웨이어(노르웨이West)
-- AzureCloud.landlandn(스위스North)
-- AzureCloud.landlandw(스위스West)
-- AzureCloud.usstagee(EastUSSTG)
-- AzureCloud.usstagec(SouthCentralUSSTG)
+다음 AzureCloud 태그는 일반 스키마에 따라 형식이 지정 된 지역 이름이 아닙니다. 
+- AzureCloud (FranceCentral)
+- AzureCloud (FranceSouth)
+- AzureCloud (GermanyWestCentral)
+- AzureCloud (GermanyNorth)
+- AzureCloud. norwaye (없음)
+- AzureCloud (NorwayWest)
+- AzureCloud (SwitzerlandNorth)
+- AzureCloud (SwitzerlandWest)
+- AzureCloud (EastUSSTG)
+- AzureCloud (SouthCentralUSSTG)
 
 
 > [!NOTE]

@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/07/2021
-ms.openlocfilehash: 2d145e62392ee95189a212c1cd0b294134ce1109
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: dda75aedab0c17f14d2725ff9759d7ab30203474
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528827"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129712930"
 ---
 # <a name="create-rich-interactive-reports-of-security-center-data"></a>Security Center 데이터에 대한 풍부한 대화형 보고서 만들기
 
@@ -95,7 +95,7 @@ Security Center에는 머신에 대한 취약성 스캐너, 컨테이너 레지�
 
 이러한 스캐너 사용에 대해 자세히 알아봅니다.
 
-- [통합 VA 스캐너로 머신 검사](deploy-vulnerability-assessment-vm.md)
+- [통합 Qualys 스캐너로 머신 검사](deploy-vulnerability-assessment-vm.md)
 - [취약성에 대한 레지스트리 이미지 스캔](defender-for-container-registries-usage.md)
 - [SQL 리소스에서 취약성 검색](defender-for-sql-on-machines-vulnerability-assessment.md)
 

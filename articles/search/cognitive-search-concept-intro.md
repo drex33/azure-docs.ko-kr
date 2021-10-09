@@ -9,18 +9,20 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: b1c7a8f29c08f00cc69dbd304c8215180f5ace92
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7d3f76777b717051b7524585abf593f57fedc47d
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124796612"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707923"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 보강
 
 Azure Cognitive Search에서 AI 보강은 인덱싱을 수행하는 동안 콘텐츠 변환과 생성을 추가하는 기본 제공 인식 기술 및 사용자 지정 기술을 나타냅니다. 보강은 이미지로부터 정보를 추출하고, 감정, 주요 구문을 탐지하며, 텍스트에서 엔티티를 찾아내고 일부를 이름 짓는 등 이전에는 존재하지 않았던 새로운 정보를 생성합니다. 보강은 구분되지 않은 텍스트에도 구조체를 추가합니다. 이러한 모든 프로세스는 전체 텍스트 검색을 보다 효율적으로 만드는 문서를 생성합니다. 대부분의 경우 보강 문서는 검색 이외의 시나리오 (예: 정보 마이닝)에 유용합니다.
 
 보강은 [인덱서](search-indexer-overview.md)에 연결된 [기술 세트](cognitive-search-working-with-skillsets.md)에 의해 정의됩니다. 인덱서는 콘텐츠를 추출하고 설정하지만, 기술 세트는 이미지, blob 및 기타 비정형 데이터 원본에서 새로운 정보 및 구조를 식별, 분석 및 생성합니다. 보강 파이프라인의 출력은 [검색 인덱스](search-what-is-an-index.md) 또는 [지식 저장소](knowledge-store-concept-intro.md)입니다.
+
+![보강 파이프라인 다이어그램](./media/cognitive-search-intro/cogsearch-architecture.png "보강 파이프라인 개요")
 
 기술 세트는 Cognitive Search의 기본 제공 기술을 포함하거나 [*사용자 지정 기술*](cognitive-search-create-custom-skill-example.md)에서 제공하는 외부 처리를 포함할 수 있습니다. 사용자 지정 기술의 예제로는 금융, 과학 출판물 또는 의약품과 같은 특정 도메인을 대상으로 하는 사용자 지정 엔터티 모듈 또는 문서 분류자가 있습니다.
 
@@ -29,8 +31,6 @@ Azure Cognitive Search에서 AI 보강은 인덱싱을 수행하는 동안 콘�
 + **자연어 처리** 기술에는 [엔터티 인식](cognitive-search-skill-entity-recognition-v3.md), [언어 감지](cognitive-search-skill-language-detection.md), [핵심 구 추출](cognitive-search-skill-keyphrases.md), 텍스트 조작, [감정 검색(오피니언 마이닝)](cognitive-search-skill-sentiment-v3.md) 및 [PII 검색](cognitive-search-skill-pii-detection.md)이 포함됩니다. 해당 기술을 사용하면 비정형 텍스트가 인덱스에서 검색 및 필터링 가능한 필드로 매핑됩니다.
 
 + **이미지 처리** 기술에는 [OCR(광학 인식)](cognitive-search-skill-ocr.md)을 비롯하여 얼굴 감지, 이미지 해석, 이미지 인식(유명한 사람 및 랜드마크) 또는 이미지 방향과 같은 특성 등의 [시각적 특징](cognitive-search-skill-image-analysis.md) 식별이 포함됩니다. 이러한 기술은 Azure Cognitive Search의 쿼리 기능을 사용하여 검색 가능한 이미지 콘텐츠의 텍스트 표현을 만듭니다.
-
-![보강 파이프라인 다이어그램](./media/cognitive-search-intro/cogsearch-architecture.png "보강 파이프라인 개요")
 
 Azure Cognitive Search의 기본 제공 기술은 Cognitive Services API에서 미리 학습된 기계 학습 모델인 [Computer Vision](../cognitive-services/computer-vision/index.yml) 및 [Text Analytics](../cognitive-services/text-analytics/overview.md)를 기반으로 합니다. 콘텐츠를 처리하는 동안 이러한 리소스를 활용하려는 경우 Cognitive Services 리소스를 연결할 수 있습니다.
 
@@ -109,11 +109,11 @@ AI 보강은 Azure Cognitive Services도 사용할 수 있는 지역에서 사�
 
 Azure Cognitive Search에서 인덱서는 만들어지는 출력을 저장합니다.
 
-[검색 가능 인덱스](search-what-is-an-index.md)는 항상 인덱서에서 생성되는 출력 중 하나입니다. 인덱스의 사양은 인덱서 요구 사항입니다. 기술 세트를 연결하면 기술 세트의 출력과 원본에서 직접 가져온 모든 필드가 인덱스를 채우는 데 사용됩니다. 일반적으로 핵심 구 또는 감정 점수와 같은 특정 기술에 대한 출력은 해당 목적용으로 만든 필드의 인덱스로 수집됩니다.
+[검색 가능 인덱스](search-what-is-an-index.md)는 항상 인덱서에서 생성되는 출력 중 하나입니다. 인덱스 사양은 인덱서 요구 사항입니다. 기술를 연결 하면 기술의 출력과 원본에서 직접 매핑된 모든 필드가 인덱스를 채우는 데 사용 됩니다. 일반적으로 핵심 구 또는 감정 점수와 같은 특정 기술에 대한 출력은 해당 목적용으로 만든 필드의 인덱스로 수집됩니다.
 
 [지식 저장소](knowledge-store-concept-intro.md)는 지식 마이닝과 같은 다운스트림 앱에 사용되는 선택적 출력입니다. 지식 저장소는 기술 세트 내에서 정의됩니다. 해당 정의는 보강 문서가 테이블이나 개체(파일 또는 Blob)로 프로젝션되는지 여부를 결정합니다. 테이블 형식 프로젝션은 Power BI와 같은 도구의 대화형 분석에 적합하지만 파일 및 Blob은 일반적으로 데이터 과학 또는 유사한 프로세스에 사용됩니다.
 
-마지막으로, 인덱서는 이후 기술 세트 실행에서 다시 사용할 수 있도록 Azure Blob Storage의 [보강 문서를 캐시](cognitive-search-incremental-indexing-conceptual.md)할 수 있습니다. 캐시된 보강은 나중에 다시 실행하는 것과 동일한 기술 세트에서 사용할 수 있습니다. 캐싱은 기술 세트에 이미지 분석 또는 OCR이 포함되어 있고 이미지 파일을 다시 처리하는 시간과 비용을 방지하려는 경우에 유용합니다.
+마지막으로, 인덱서는 이후 기술 세트 실행에서 다시 사용할 수 있도록 Azure Blob Storage의 [보강 문서를 캐시](cognitive-search-incremental-indexing-conceptual.md)할 수 있습니다. 캐시는 내부용입니다. 캐시된 보강은 나중에 다시 실행하는 것과 동일한 기술 세트에서 사용할 수 있습니다. 캐싱은 기술 세트에 이미지 분석 또는 OCR이 포함되어 있고 이미지 파일을 다시 처리하는 시간과 비용을 방지하려는 경우에 유용합니다.
 
 인덱스와 지식 저장소는 서로 완전히 독립적입니다. 인덱서 요구 사항을 충족하기 위해 인덱스를 연결해야 하지만, 유일한 목표가 지식 저장소인 경우에는 인덱스를 채운 후 무시해도 됩니다. 그러나 삭제하지 마세요. 인덱서 및 기술 세트를 다시 실행하려면 인덱서를 실행하기 위해 인덱스가 필요합니다.
 
@@ -141,7 +141,8 @@ Azure Cognitive Search에서 인덱서는 만들어지는 출력을 저장합니
 
 ## <a name="next-steps"></a>다음 단계
 
-+ [빠른 시작: 포털에서 AI 보강 시도 연습](cognitive-search-quickstart-blob.md)
++ [빠른 시작: 텍스트 번역 및 엔터티 기술체 만들기](cognitive-search-quickstart-blob.md)
++ [빠른 시작: OCR 이미지 기술셋 만들기](cognitive-search-quickstart-ocr.md)
 + [자습서: AI 보강 REST API 알아보기](cognitive-search-tutorial-blob.md)
 + [기술 세트 개념](cognitive-search-working-with-skillsets.md)
 + [지식 저장소 개념](knowledge-store-concept-intro.md)

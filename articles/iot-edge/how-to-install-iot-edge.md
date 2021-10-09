@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/05/2021
 ms.author: kgremban
-ms.openlocfilehash: 1d00724e6187b5d143b7d138d1749937616f5546
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: b062f4984bd5630f282d181e773e853f2234bb81
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129616724"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710764"
 ---
 # <a name="install-or-uninstall-azure-iot-edge-for-linux"></a>Linux용 Azure IoT Edge 설치 또는 제거
 
@@ -214,21 +214,21 @@ IoT Edge 디바이스에서 구성 파일을 엽니다.
 <!-- 1.2 -->
 ::: moniker range=">=iotedge-2020-11"
 
-다음 명령을 사용하여 대칭 키 인증으로 IoT Edge 디바이스를 신속하게 구성할 수 있습니다.
+다음 명령을 사용 하 여 대칭 키 인증을 사용 하 여 IoT Edge 장치를 신속 하 게 구성할 수 있습니다.
 
    ```bash
-   sudo iotedge config mp --connection-string 'PASTE_CONNECTION_STRING_HERE`
+   sudo iotedge config mp --connection-string 'PASTE_CONNECTION_STRING_HERE'
    ```
 
-명령은 `iotedge config mp` 디바이스에 구성 파일을 만들고, 연결 문자열을 제공하고, 구성 변경 내용을 적용합니다.
+`iotedge config mp`이 명령은 장치에 구성 파일을 만들고 연결 문자열을 제공 하며 구성 변경 내용을 적용 합니다.
 
-구성 파일을 보려면 다음을 열 수 있습니다.
+구성 파일을 표시 하려면 다음을 열 수 있습니다.
 
    ```bash
    sudo nano /etc/aziot/config.toml
    ```
 
-구성 파일을 변경하는 경우 명령을 사용하여 `iotedge config apply` 변경 내용을 적용합니다.
+구성 파일을 변경 하는 경우 다음 명령을 사용 하 여 `iotedge config apply` 변경 내용을 적용 합니다.
 
    ```bash
    sudo iotedge config apply
@@ -268,10 +268,10 @@ IoT Edge 디바이스에서 구성 파일을 엽니다.
 
 다음 필드를 업데이트합니다.
 
-* **iothub_hostname**: 디바이스가 연결될 IoT 허브의 호스트 이름입니다. 예들 들어 `{IoT hub name}.azure-devices.net`입니다.
+* **iothub_hostname**: 디바이스가 연결될 IoT 허브의 호스트 이름입니다. 예: `{IoT hub name}.azure-devices.net`.
 * **device_id**: 디바이스를 등록할 때 제공한 ID입니다.
-* **identity_cert**: 디바이스의 ID 인증서에 대한 URI입니다. 예들 들어 `file:///path/identity_certificate.pem`입니다.
-* **identity_pk**: 제공된 ID 인증서의 프라이빗 키 파일에 대한 URI입니다. 예들 들어 `file:///path/identity_key.pem`입니다.
+* **identity_cert**: 디바이스의 ID 인증서에 대한 URI입니다. 예: `file:///path/identity_certificate.pem`.
+* **identity_pk**: 제공된 ID 인증서의 프라이빗 키 파일에 대한 URI입니다. 예: `file:///path/identity_key.pem`.
 
 파일을 저장하고 닫습니다.
 
@@ -320,7 +320,7 @@ IoT Edge 디바이스에서 구성 파일을 엽니다.
 
 다음 필드를 업데이트합니다.
 
-* **iothub_hostname**: 디바이스가 연결될 IoT 허브의 호스트 이름입니다. 예들 들어 `{IoT hub name}.azure-devices.net`입니다.
+* **iothub_hostname**: 디바이스가 연결될 IoT 허브의 호스트 이름입니다. 예: `{IoT hub name}.azure-devices.net`.
 * **device_id**: 디바이스를 등록할 때 제공한 ID입니다.
 * **identity_cert**: 디바이스의 ID 인증서에 대한 URI입니다(예: `file:///path/identity_certificate.pem`). 또는 EST나 로컬 인증 기관을 사용하여 동적으로 인증서를 발급합니다.
 * **identity_pk**: 제공된 ID 인증서의 프라이빗 키 파일에 대한 URI입니다(예: )`file:///path/identity_key.pem`. 또는 PKCS#11 URI를 제공한 다음 나중에 **PKCS#11** 섹션에 있는 구성 정보를 구성 파일에 제공합니다.

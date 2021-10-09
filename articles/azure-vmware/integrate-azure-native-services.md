@@ -3,12 +3,12 @@ title: Azure 네이티브 서비스를 사용하여 VM 모니터링 및 보호
 description: Azure VMware Solution 워크로드를 모니터링하고 관리하기 위해 Microsoft Azure 네이티브 도구를 통합 및 배포하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 08/15/2021
-ms.openlocfilehash: 19453eeb652a0303e0447a80e37b63613aa92255
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: fa3a30ce3908494e1fdf0470781f4057279fe001
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124799323"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714955"
 ---
 # <a name="monitor-and-protect-vms-with-azure-native-services"></a>Azure 네이티브 서비스를 사용하여 VM 모니터링 및 보호
 
@@ -16,7 +16,7 @@ Microsoft Azure 네이티브 서비스를 사용하면 하이브리드 환경(Az
 
 Azure VMware Solution과 통합할 수 있는 Azure 네이티브 서비스는 다음과 같습니다.
 
-- **Azure Arc** 는 Azure 관리를 Azure VMware Solution, 온-프레미스 또는 기타 클라우드 플랫폼을 비롯한 모든 인프라로 확장합니다. [Azure Arc 지원 서버](../azure-arc/servers/overview.md)를 사용하면 Azure ‘외부’에서 회사 네트워크 또는 다른 클라우드 공급자에 호스트되는 Windows와 Linux의 물리적 서버와 가상 머신을 관리할 수 있습니다. [Azure Arc 지원 Kubernetes](../azure-arc/kubernetes/overview.md)를 사용하여 Azure VMware Solution 환경에서 호스트되는 Kubernetes 클러스터를 연결할 수 있습니다. 
+- **Azure Arc** 는 Azure 관리를 Azure VMware Solution, 온-프레미스 또는 기타 클라우드 플랫폼을 비롯한 모든 인프라로 확장합니다. [azure Arc 사용 서버](../azure-arc/servers/overview.md) 를 사용 하면 azure *외부* , 회사 네트워크 또는 다른 클라우드 공급자에서 호스트 되는 Windows 및 Linux 물리적 서버와 가상 컴퓨터를 관리할 수 있습니다. [Azure Arc 지원 Kubernetes](../azure-arc/kubernetes/overview.md)를 사용하여 Azure VMware Solution 환경에서 호스트되는 Kubernetes 클러스터를 연결할 수 있습니다. 
 
 - **Azure Monitor** 는 클라우드 및 온-프레미스 환경에서 원격 분석을 수집, 분석 및 작동합니다. Azure Monitor는 배포가 필요하지 않습니다.  게스트 운영 체제 성능을 모니터링하여 Azure VMware Solution 또는 온-프레미스 VM에 대한 애플리케이션 종속성을 검색하고 매핑할 수 있습니다. Azure Monitor의 Log Analytics 작업 영역에서는 Log Analytics 에이전트 또는 확장을 사용하여 로그 및 성능 카운터를 수집할 수 있습니다. 
 
@@ -92,7 +92,6 @@ Azure Automation의 [Azure 업데이트 관리](../automation/update-management/
  
 1. 업데이트 관리를 사용하도록 설정했으면 [VM에 업데이트를 배포하고 결과를 검토](../automation/update-management/deploy-updates.md)할 수 있습니다. 
 
-
 ## <a name="enable-azure-security-center"></a>Azure Security Center 활성화
 
 Azure VMware Solution VM의 취약성을 평가하고 필요에 따라 경고를 발생시킵니다. 해당 보안 경고를 Azure Monitor에 전달하여 해결할 수 있습니다. 자세한 내용은 [VM에 지원되는 기능](../security-center/security-center-services.md)을 참조하세요.
@@ -124,8 +123,7 @@ Azure 관리를 Azure VMware Solution, 온-프레미스 또는 기타 클라우�
 
 
 
-## <a name="onboard-hybrid-kubernetes-clusters-with-arc-enabled-kubernetes"></a>Arc 사용 Kubernetes를 사용하여 하이브리드 Kubernetes 클러스터 온보딩
-
+## <a name="onboard-hybrid-kubernetes-clusters-with-azure-arc-enabled-kubernetes"></a>Azure Arc 지원 Kubernetes를 사용하여 하이브리드 Kubernetes 클러스터 온보딩
 
 Azure Arc 사용 Kubernetes를 사용하여 Azure VMware Solution 환경에서 호스트되는 Kubernetes 클러스터를 연결합니다. 자세한 내용은 [Azure Arc 사용 온보딩 서비스 주체 만들기](../azure-arc/kubernetes/create-onboarding-service-principal.md)를 참조하세요.
 
@@ -134,7 +132,7 @@ Azure Arc 사용 Kubernetes를 사용하여 Azure VMware Solution 환경에서 �
 
 Log Analytics 에이전트를 통해 Azure VMware Solution VM을 모니터링합니다. Log Analytics 작업 영역에 연결된 가상 머신은 설치된 소프트웨어, Microsoft 서비스, Windows 레지스트리와 파일, 모니터링되는 서버의 Linux 디먼에 대한 변경 내용의 데이터를 수집하기 위해 [Log Analytics 에이전트](../azure-monitor/agents/log-analytics-agent.md)를 사용합니다. 데이터를 사용할 수 있는 경우 에이전트는 처리를 위해 Azure Monitor 로그에 데이터를 보냅니다. Azure Monitor 로그는 수신한 데이터에 논리를 적용하고, 데이터를 기록하고, 분석에 사용할 수 있게 만듭니다.
 
-[Azure Arc 사용 서버 VM 확장 지원](../azure-arc/servers/manage-vm-extensions.md)을 사용하여 Log Analytics 에이전트를 배포합니다.
+Azure Arc 지원 서버 VM 확장 지원을 사용하여 Log Analytics [에이전트를 배포합니다.](../azure-arc/servers/manage-vm-extensions.md)
 
 
 

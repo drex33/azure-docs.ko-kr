@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 2bffc15980013d91bfe24101499550d1dcfea6e2
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
-ms.translationtype: HT
+ms.openlocfilehash: 8a979fa56a7a75785220747dc1ee43696e8897d4
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111753236"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710511"
 ---
 # <a name="understanding-azure-virtual-desktop-network-connectivity"></a>Azure Virtual Desktop 네트워크 연결 이해
 
@@ -21,7 +21,7 @@ Azure Virtual Desktop은 Azure에서 실행되는 세션 호스트에서 클라�
 
 ## <a name="session-connectivity"></a>세션 연결
 
-Azure Virtual Desktop은 RDP(원격 데스크톱 프로토콜)를 사용하여 네트워크 연결을 통해 원격 표시 및 입력 기능을 제공합니다. RDP는 처음에는 Windows NT 4.0 터미널 서버 버전과 함께 출시되었으며 Microsoft Windows 및 Windows Server가 출시될 때마다 지속적으로 진화하고 있습니다. 처음부터 RDP는 기본 전송 스택과는 별도로 개발되었으며 현재는 여러 유형의 전송을 지원합니다.
+Azure Virtual Desktop은 RDP(원격 데스크톱 프로토콜)를 사용하여 네트워크 연결을 통해 원격 표시 및 입력 기능을 제공합니다. RDP는 처음에 Windows NT 4.0 터미널 서버 버전과 함께 릴리스되었으며 Microsoft Windows 및 Windows Server 릴리스마다 지속적으로 발전하고 있습니다. 처음부터 RDP는 기본 전송 스택과는 별도로 개발되었으며 현재는 여러 유형의 전송을 지원합니다.
 
 ## <a name="reverse-connect-transport"></a>역방향 연결 전송
 

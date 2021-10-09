@@ -1,23 +1,23 @@
 ---
 title: Azure Cost Management와 AWS 통합 설정
-description: 이 문서에서는 Azure Cost Management와의 AWS 비용 및 사용 현황 보고서 통합을 설정하고 구성하는 과정을 안내합니다.
+description: 이 문서에서는 Cost Management AWS 비용 및 사용량 보고서 통합을 설정하고 구성하는 과정을 안내합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/08/2021
+ms.date: 10/07/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: 098766674e3bd665bb533fbf4d78fe1b0b1aebda
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
-ms.translationtype: HT
+ms.openlocfilehash: 6c8c03f93e811e622daa93515740e1cc25e65434
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111756044"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706150"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>AWS 비용 및 사용 현황 보고서 통합 설정 및 구성
 
-AWS(Amazon Web Services) CUR(비용 및 사용 현황 보고서) 통합을 사용하면 Azure Cost Management에서 AWS 지출을 모니터링하고 제어할 수 있습니다. 통합을 통해 Azure Portal 내 한 곳에서 Azure 및 AWS 모두에 대한 지출을 모니터링하고 제어할 수 있습니다. 이 문서에서는 Azure Cost Management 기능을 사용하여 비용을 분석하고 예산을 검토할 수 있도록 통합을 설정하고 구성하는 방법을 설명합니다.
+AWS(Amazon Web Services) CUR(비용 및 사용 현황 보고서) 통합을 사용하면 Cost Management AWS 지출을 모니터링하고 제어할 수 있습니다. 통합을 통해 Azure Portal 내 한 곳에서 Azure 및 AWS 모두에 대한 지출을 모니터링하고 제어할 수 있습니다. 이 문서에서는 Cost Management 기능을 사용하여 비용을 분석하고 예산을 검토할 수 있도록 통합을 설정하고 구성하는 방법을 설명합니다.
 
 Cost Management는 AWS 액세스 자격 증명을 사용하여 보고서 정의를 가져오고 보고서 GZIP CSV 파일을 다운로드하여 S3 버킷에 저장된 AWS 비용 및 사용 현황 보고서를 처리합니다.
 
@@ -59,7 +59,7 @@ AWS는 Amazon S3 버킷에 보고서 배달을 시작하는 데 최대 24시간�
 
 ## <a name="create-a-role-and-policy-in-aws"></a>AWS에서 역할 및 정책 만들기
 
-Azure Cost Management는 비용 및 사용 현황 보고서가 위치한 S3 버킷에 하루에 여러 번 액세스합니다. 서비스는 새 데이터를 확인하기 위해 자격 증명에 액세스해야 합니다. Cost Management가 액세스하는 것을 허용하도록 AWS에서 역할 및 정책을 만듭니다.
+Cost Management 비용 및 사용량 보고서가 하루에 여러 번 있는 S3 버킷에 액세스합니다. 서비스는 새 데이터를 확인하기 위해 자격 증명에 액세스해야 합니다. Cost Management가 액세스하는 것을 허용하도록 AWS에서 역할 및 정책을 만듭니다.
 
 Cost Management의 AWS 계정에 대한 역할 기반 액세스를 사용하도록 설정하기 위해 AWS 콘솔에 역할이 만들어집니다. AWS 콘솔에서 _역할 ARN_ 및 _외부 ID_ 가 있어야 합니다. 나중에 Cost Management의 **AWS 커넥터 만들기** 페이지에서 사용합니다.
 
@@ -71,7 +71,7 @@ Cost Management의 AWS 계정에 대한 역할 기반 액세스를 사용하도�
 4. 다음 페이지에서 **다른 AWS 계정** 을 선택합니다.
 5. **계정 ID** 에 **432263259397** 을 입력합니다.
 6. **옵션** 에서 **외부 ID 필요(타사에서 이 역할을 가정하는 경우 모범 사례)** 를 선택합니다.
-7. **외부 ID** 에서 AWS 역할과 Azure Cost Management 사이에 공유 암호인 외부 ID를 입력합니다. Cost Management의 **새 커넥터** 페이지에서도 동일한 외부 ID를 사용합니다. 외부 ID를 입력하는 경우 강력한 암호 정책을 사용하는 것이 좋습니다.
+7. **외부 ID** 에서 AWS 역할과 Cost Management 간의 공유 암호인 외부 ID를 입력합니다. Cost Management의 **새 커넥터** 페이지에서도 동일한 외부 ID를 사용합니다. 외부 ID를 입력하는 경우 강력한 암호 정책을 사용하는 것이 좋습니다.
     > [!NOTE]
     > **MFA 요구** 에 대한 선택 항목을 변경하지 마세요. 선택 해제로 두어야 합니다.
 8. 완료되면 **다음: 사용 권한** 을 클릭합니다.
@@ -114,7 +114,7 @@ AWS 조직에 대한 권한을 추가합니다.
 5. 완료되면 **다음: 검토** 를 클릭합니다.
 6. 새 역할에 사용할 이름을 입력합니다. 올바른 정보를 입력했는지 확인한 다음, **정책 만들기** 를 선택합니다.
 
-    역할을 만들 때 이전 단계에서 사용한 역할 ARN 및 외부 ID를 확인합니다. 나중에 Azure Cost Management 커넥터를 설정할 때 사용합니다.
+    역할을 만들 때 이전 단계에서 사용한 역할 ARN 및 외부 ID를 확인합니다. 나중에 Cost Management 커넥터를 설정할 때 사용 합니다.
 
 정책 JSON은 다음 예제와 유사합니다. _bucketname_ 을 S3 버킷의 이름으로 바꿉니다.
 

@@ -3,22 +3,22 @@ title: Azure Cost Management로 클라우드 투자를 최적화
 description: 이 문서는 클라우드 투자의 가치를 극대화하고, 비용을 줄이고, 비용이 어디에 지출되는지 평가하는 데 도움이 됩니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/02/2021
+ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 26b48e4f5ed50b547c8ec628fc534e24dfeb252e
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
-ms.translationtype: HT
+ms.openlocfilehash: 5ea9f5a857c28195d0aa82a1314df839ab2236e8
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609546"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705907"
 ---
-# <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Azure Cost Management로 클라우드 투자를 최적화하는 방법
+# <a name="how-to-optimize-your-cloud-investment-with-cost-management"></a>Cost Management 사용하여 클라우드 투자를 최적화하는 방법
 
-Azure Cost Management에는 지출을 계획, 분석 및 절약하여 클라우드 투자를 극대화할 수 있는 도구가 제공됩니다. 이 문서에서는 비용 관리의 체계적인 접근 방식을 제공하고 조직의 비용 문제를 해결할 때 사용할 수 있는 도구를 설명합니다. Azure를 통해 클라우드 솔루션을 쉽게 구축하고 배포할 수 있습니다. 하지만 조직의 비용을 최소화하도록 이러한 솔루션을 최적화하는 것이 중요합니다. 이 문서에 설명되어 있는 원칙을 따르고 도구를 사용하면 성공을 위한 준비를 완료할 수 있습니다.
+Cost Management 클라우드 투자를 최대화하기 위해 지출을 계획, 분석 및 줄일 수 있는 도구를 제공합니다. 이 문서에서는 비용 관리의 체계적인 접근 방식을 제공하고 조직의 비용 문제를 해결할 때 사용할 수 있는 도구를 설명합니다. Azure를 통해 클라우드 솔루션을 쉽게 구축하고 배포할 수 있습니다. 하지만 조직의 비용을 최소화하도록 이러한 솔루션을 최적화하는 것이 중요합니다. 이 문서에 설명되어 있는 원칙을 따르고 도구를 사용하면 성공을 위한 준비를 완료할 수 있습니다.
 
 ## <a name="methodology"></a>방법
 
@@ -162,7 +162,7 @@ Azure 제품 유형을 확인하여 조직의 청구 방식을 파악합니다. 
 
 마찬가지로, 다른 팀이 소유한 여러 구독에서 리소스를 사용하는 웹앱 또는 환경(예: 테스트 또는 프로덕션)이 있을 수도 있습니다. 워크로드의 전체 비용을 보다 잘 이해하려면 워크로드에 사용되는 리소스에 태그를 지정합니다. 태그가 제대로 적용되면 비용 분석에서 해당 태그를 필터로 적용하여 추세를 보다 잘 이해할 수 있습니다.
 
-리소스 태그 지정을 계획한 후 리소스에 태그를 적용하도록 Azure Policy 정의를 구성할 수 있습니다. 확장 가능한 리소스 태그를 지정하는 데 사용할 수 있는 도구를 이해하려면 [Azure Cost Management로 태그 정책을 검토하는 방법](https://www.youtube.com/watch?v=nHQYcYGKuyw) 비디오를 시청하세요. 다른 비디오를 시청하려면 [Cost Management YouTube 채널](https://www.youtube.com/c/AzureCostManagement)을 방문하세요.
+리소스 태그 지정을 계획한 후 리소스에 태그를 적용하도록 Azure Policy 정의를 구성할 수 있습니다. Cost Management 비디오를 [사용 하 여 태그 정책을 검토](https://www.youtube.com/watch?v=nHQYcYGKuyw) 하는 방법을 시청 하 여 확장 가능한 리소스 태깅을 적용 하는 데 도움이 되는 도구에 대해 알아보세요. 다른 비디오를 시청하려면 [Cost Management YouTube 채널](https://www.youtube.com/c/AzureCostManagement)을 방문하세요.
 
 >[!VIDEO https://www.youtube.com/embed/nHQYcYGKuyw]
 
@@ -231,4 +231,4 @@ Azure Reservations를 통해 1년 또는 3년에 해당하는 가상 머신 비�
 Azure에서는 Azure에 남는 용량을 활용하여 서비스 요금을 낮추는 서비스를 빌드할 수 있습니다. 자세한 내용은 [Batch에서 우선 순위가 낮은 VM 사용](../../batch/batch-low-pri-vms.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-- Cost Management를 처음 접하는 경우 [Azure Cost Management란?](../cost-management-billing-overview.md)에서 Cost Management가 Azure 지출을 모니터링하고 컨트롤하는 데 어떻게 도움이 되는지 알아보고 리소스 사용을 최적화할 수 있습니다.
+- Cost Management 경우 azure 지출을 모니터링 및 제어하고 리소스 사용을 최적화하는 데 도움이 되는 방법을 알아보려면 [Cost Management 무엇인가요?를](../cost-management-billing-overview.md) 읽어보세요.

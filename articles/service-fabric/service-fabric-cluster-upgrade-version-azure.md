@@ -3,12 +3,12 @@ title: Service Fabric 클러스터 업그레이드 관리
 description: Service Fabric 클러스터 런타임이 업데이트되는 시기 및 방법 관리
 ms.topic: how-to
 ms.date: 03/26/2021
-ms.openlocfilehash: 98c3300e5cc51c32d894397839879e25190d979b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 129bdae4dc131013bd7c13377b61575141c27ccd
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731170"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714587"
 ---
 # <a name="manage-service-fabric-cluster-upgrades"></a>Service Fabric 클러스터 업그레이드 관리
 
@@ -40,7 +40,7 @@ Azure Portal을 사용하여 새 Service Fabric 클러스터를 만들 때 자�
 
 ### <a name="resource-manager-template"></a>Resource Manager 템플릿
 
-Resource Manager 템플릿을 사용하여 클러스터 업그레이드 모드를 변경하려면 *Microsoft.ServiceFabric/clusters* 리소스 정의의 `upgradeMode` 속성에 대해 *자동* 또는 *수동* 을 지정합니다. 수동 업그레이드를 선택하는 경우 `clusterCodeVersion`을 현재 [지원되는 패브릭 버전](#query-for-supported-cluster-versions)으로 설정합니다.
+Resource Manager 템플릿을 사용하여 클러스터 업그레이드 모드를 변경하려면 *Microsoft.ServiceFabric/clusters* 리소스 정의의 `upgradeMode` 속성에 대해 *자동* 또는 *수동* 을 지정합니다. 수동 업그레이드를 선택하는 경우 `clusterCodeVersion`을 현재 [지원되는 패브릭 버전](#check-for-supported-cluster-versions)으로 설정합니다.
 
 :::image type="content" source="./media/service-fabric-cluster-upgrade/ARMUpgradeMode.PNG" alt-text="스크린샷은 구조를 반영하기 위해 들여쓰기된 일반 텍스트인 템플릿을 보여줍니다. ‘clusterCodeVersion’과 ‘upgradeMode’ 속성이 강조 표시됩니다.":::
 
@@ -126,11 +126,11 @@ Resource Manager 템플릿을 사용하여 클러스터 업그레이드 모드�
 
 :::image type="content" source="./media/service-fabric-cluster-upgrade/custom-upgrade-policy.png" alt-text="업그레이드 중에 사용자 지정 상태 정책을 설정하려면 Azure Portal에서 클러스터 리소스의 ‘패브릭 업그레이드’ 섹션에서 ‘사용자 지정’ 업그레이드 정책 옵션 선택":::
 
-## <a name="query-for-supported-cluster-versions"></a>지원되는 클러스터 버전 쿼리
+## <a name="check-for-supported-cluster-versions"></a>지원 되는 클러스터 버전 확인
 
-[Azure REST API](/rest/api/azure/)를 사용하여 지정된 위치와 구독에 사용할 수 있는 모든 Service Fabric 런타임 버전([clusterVersions](/rest/api/servicefabric/sfrp-api-clusterversions_list))을 나열할 수 있습니다.
+지원 되는 버전 및 운영 체제에 대 한 자세한 내용은 [Service Fabric 버전](service-fabric-versions.md) 을 참조 하세요.
 
-지원되는 버전과 운영 체제에 관한 자세한 내용은 [Service Fabric 버전](service-fabric-versions.md)도 참조할 수 있습니다.
+[Azure REST API](/rest/api/azure/) 를 사용 하 여 지정 된 위치 및 구독에 사용할 수 있는 모든 사용 가능한 Service Fabric 런타임 버전 ([clusterversions](/rest/api/servicefabric/sfrp-api-clusterversions_list))을 나열할 수도 있습니다.
 
 ```REST
 GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2018-02-01
@@ -171,6 +171,40 @@ GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.Serv
 ```
 
 출력의 `supportExpiryUtc`는 지정된 릴리스가 만료될 시기나 만료된 시기를 보고합니다. 최신 릴리스는 유효한 날짜를 포함하지 않으며 *9999-12-31T23:59:59.9999999* 값을 포함합니다. 이는 만료 날짜가 아직 설정되지 않음을 의미합니다.
+
+
+## <a name="check-for-supported-upgrade-path"></a>지원 되는 업그레이드 경로 확인
+
+지원 되는 업그레이드 경로 및 관련 버전 정보는 [Service Fabric 버전](service-fabric-versions.md) 설명서를 참조할 수 있습니다. 
+
+지원 되는 대상 버전 정보를 사용 하 여 다음 PowerShell 단계를 사용 하 여 지원 되는 업그레이드 경로를 확인할 수 있습니다.
+
+1) Azure에 로그인
+   ```PowerShell
+   Login-AzAccount
+   ```
+
+2) 구독 선택
+   ```PowerShell
+   Set-AzContext -SubscriptionId <your-subscription>
+   ```
+
+3) API 호출
+   ```PowerShell
+   $params = @{ "TargetVersion" = "<target version>"}
+   Invoke-AzResourceAction -ResourceId -ResourceId <cluster resource id> -Parameters $params -Action listUpgradableVersions -Force
+   ```
+
+   예제: 
+   ```PowerShell
+   $params = @{ "TargetVersion" = "8.1.335.9590"}
+   Invoke-AzResourceAction -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ServiceFabric/clusters/myCluster -Parameters $params -Action listUpgradableVersions -Force
+
+   Output
+   supportedPath
+   -------------
+   {8.1.329.9590, 8.1.335.9590}
+   ```
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -7,12 +7,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/23/2021
 ms.author: alkohli
-ms.openlocfilehash: bb1250b4ed5c2b447f0f0f8edb5ec50d59ba079f
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 816ebcf8a14235c2193a6f0e63cefde252fe8b1e
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129356279"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129716139"
 ---
 # <a name="azure-stack-edge-2103-release-notes"></a>Azure Stack Edge 2103 릴리스 정보
 
@@ -64,7 +64,7 @@ Azure Stack Edge 2103 릴리스에서는 다음과 같은 새로운 기능을 �
 
 | 아니요. | 기능 | 문제 | 해결 방법/설명 |
 | --- | --- | --- | --- |
-|**1.**|미리 보기 기능 |이 릴리스의 경우 로컬 Azure Resource Manager, VM, VM의 클라우드 관리, Kubernetes 클라우드 관리, Azure Arc 지원 Kubernetes, Azure Stack Edge Pro R 및 Azure Stack Edge Mini R용 VPN, Azure Stack Edge Pro GPU용 MPS(다중 프로세스 서비스)는 모두 미리 보기에서 사용할 수 있습니다.  |이러한 기능은 이후 릴리스에서 일반적으로 제공될 예정입니다. |
+|**1.**|미리 보기 기능 |이 릴리스의 경우 로컬 Azure Resource Manager, VM, VM의 클라우드 관리, Kubernetes 클라우드 관리, Azure Arc 지원 Kubernetes, Azure Stack Edge Pro R용 VPN 및 Azure Stack Edge Mini R, Azure Stack Edge Pro GPU용 MPS(다중 프로세스 서비스)는 모두 미리 보기로 제공됩니다.  |이러한 기능은 이후 릴리스에서 일반적으로 제공될 예정입니다. |
 |**2.**|GPU VM |이 릴리스 이전에는 GPU VM 수명 주기가 업데이트 흐름에서 관리되지 않았습니다. 따라서 2103 릴리스로 업데이트할 때 GPU VM은 업데이트 중에 자동으로 중지되지 않습니다. 디바이스를 업데이트하기 전에 `stop-stayProvisioned` 플래그를 사용하여 GPU VM을 수동으로 중지해야 합니다. 자세한 내용은 [VM 일시 중단 또는 종료](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#suspend-or-shut-down-the-vm)를 참조하세요.<br> 업데이트 전에 계속 실행되는 모든 GPU VM은 업데이트 후에 시작됩니다. 이 경우 VM에서 실행 중인 워크로드는 정상적으로 종료되지 않습니다. 업데이트 후 VM이 원하는 상태가 아닐 수 있습니다. <br>업데이트 전에 `stop-stayProvisioned`를 통해 중지된 모든 GPU VM은 업데이트 후 자동으로 시작됩니다. <br>Azure Portal을 통해 GPU VM을 중지하는 경우 디바이스를 업데이트 다음 VM을 수동으로 시작해야 합니다.| Kubernetes를 사용하여 GPU VM을 실행하는 경우 업데이트 직전에 GPU VM을 중지합니다. <br>GPU VM이 중지되면 Kubernetes는 원래 VM에서 사용했던 GPU를 인수합니다. <br>GPU VM이 중지된 상태에 있는 시간이 길수록 Kubernetes가 GPU를 인수할 가능성이 커집니다. |
 |**3.**|사용자 지정 스크립트 VM 확장 |이전 릴리스에서 만든 Windows VM에 알려진 문제가 있으며 디바이스가 2103으로 업데이트되었습니다. <br> 해당 VM에 사용자 지정 스크립트 확장을 추가하면 Windows VM Guest Agent(버전 2.7.41491.901만 해당)의 업데이트에서 중단되어 확장 배포 시간이 초과됩니다. | 이 문제를 해결하려면 <ul><li> RDP(원격 데스크톱 프로토콜)을 사용하여 Windows VM에 연결합니다. </li><li> `waappagent.exe`가 머신에서 실행 중인지 확인: `Get-Process WaAppAgent`. </li><li> `waappagent.exe`가 실행 중이지 않으면 `rdagent` 서비스 다시 시작: `Get-Service RdAgent` \| `Restart-Service`. 5분 동안 기다립니다.</li><li> `waappagent.exe` 실행 중에 `WindowsAzureGuest.exe` 프로세스를 종료합니다. </li><li>프로세스를 종료하면 프로세스가 최신 버전으로 다시 실행되기 시작합니다.</li><li>`Get-Process WindowsAzureGuestAgent` \| `fl ProductVersion` 명령을 사용하여 Windows VM Guest Agent 버전이 2.7.41491.971인지 확인합니다.</li><li>[Windows VM에서 사용자 지정 스크립트 확장을 설정](azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md)합니다. </li><ul> | 
 |**4.**|MPS(다중 프로세스 서비스) |디바이스 소프트웨어와 Kubernetes 클러스터를 업데이트하면 워크로드의 MPS 설정이 유지되지 않습니다.   |[MPS를 사용하도록 다시 설정](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface)하고 MPS를 사용한 워크로드를 다시 배포합니다. |
@@ -76,16 +76,16 @@ Azure Stack Edge 2103 릴리스에서는 다음과 같은 새로운 기능을 �
 
 | 아니요. | 기능 | 문제 | 해결 방법/설명 |
 | --- | --- | --- | --- |
-| **1.** |Azure Stack Edge Pro + Azure SQL | SQL 데이터베이스를 만들려면 관리자 액세스 권한이 필요합니다.   |[자습서: SQL Server 데이터베이스를 사용 하 여에 지에 데이터 저장](../iot-edge/tutorial-store-data-sql-server.md#create-the-sql-database)에서 1-2 단계 대신 다음 단계를 수행 합니다. <ul><li>디바이스의 로컬 UI에서 컴퓨팅 인터페이스를 사용하도록 설정합니다. **컴퓨팅 > 포트 번호 > 컴퓨팅에 사용 > 적용** 을 선택합니다.</li><li>`sqlcmd` [Sqlcmd 유틸리티](/sql/tools/sqlcmd-utility) 에서 클라이언트 컴퓨터에 다운로드 </li><li>컴퓨팅 인터페이스 IP 주소에 연결하고(사용하도록 설정된 포트) 주소 끝에 “,1401”을 추가합니다.</li><li>최종 명령은 sqlcmd -S {Interface IP},1401 -U SA -P “Strong!Passw0rd”와 비슷합니다.</li>그 이후에 현재 설명서의 3-4단계가 같아야 합니다. </li></ul> |
-| **2.** |새로 고침| **새로 고침** 을 통해 복원된 Blob에 대한 증분 변경은 지원되지 않습니다. |Blob 엔드포인트의 경우 새로 고침 후 Blob의 부분 업데이트로 인해 업데이트가 클라우드에 업로드되지 않을 수 있습니다. 다음과 같은 작업 시퀀스를 예로 들 수 있습니다.<ul><li>클라우드에서 Blob을 만듭니다. 또는 디바이스에서 이전에 업로드된 Blob을 삭제합니다.</li><li>새로 고침 기능을 사용하여 클라우드에서 어플라이언스로 Blob을 새로 고칩니다.</li><li>Azure SDK REST API를 사용하여 Blob의 일부만 업데이트합니다.</li></ul>이러한 작업으로 인해 Blob의 업데이트된 섹션이 클라우드에서 업데이트되지 않을 수 있습니다. <br>**해결 방법**: robocopy와 같은 도구나 탐색기 또는 명령줄을 통한 일반 파일 복사를 사용하여 전체 Blob을 바꿉니다.|
+|**1.**|Azure Stack Edge Pro + Azure SQL | SQL 데이터베이스를 만들려면 관리자 액세스 권한이 필요합니다. |자습서: SQL Server 데이터베이스를 통해 [에지에 데이터 저장의](../iot-edge/tutorial-store-data-sql-server.md#create-the-sql-database)1-2단계 대신 다음 단계를 수행합니다. <ul><li>디바이스의 로컬 UI에서 컴퓨팅 인터페이스를 사용하도록 설정합니다. **컴퓨팅 > 포트 번호 > 컴퓨팅에 사용 > 적용** 을 선택합니다.</li><li>`sqlcmd` [Sqlcmd 유틸리티](/sql/tools/sqlcmd-utility) 에서 클라이언트 컴퓨터에 다운로드 </li><li>계산 인터페이스 IP 주소 (사용 하도록 설정 된 포트)에 커넥트 하 여 `,1401` 주소 끝에를 추가 합니다.</li><li>최종 명령은 다음과 같이 표시 됩니다 `sqlcmd -S {Interface IP},1401 -U SA -P "Strong!Passw0rd"` .</li>그 이후에 현재 설명서의 3-4단계가 같아야 합니다. </li></ul> |
+|**2.**|새로 고침| **새로 고침** 을 통해 복원된 Blob에 대한 증분 변경은 지원되지 않습니다. |Blob 엔드포인트의 경우 새로 고침 후 Blob의 부분 업데이트로 인해 업데이트가 클라우드에 업로드되지 않을 수 있습니다. 다음과 같은 작업 시퀀스를 예로 들 수 있습니다.<ul><li>클라우드에서 Blob을 만듭니다. 또는 디바이스에서 이전에 업로드된 Blob을 삭제합니다.</li><li>새로 고침 기능을 사용하여 클라우드에서 어플라이언스로 Blob을 새로 고칩니다.</li><li>Azure SDK REST API를 사용하여 Blob의 일부만 업데이트합니다.</li></ul>이러한 작업으로 인해 Blob의 업데이트된 섹션이 클라우드에서 업데이트되지 않을 수 있습니다. <br>**해결 방법**: robocopy와 같은 도구나 탐색기 또는 명령줄을 통한 일반 파일 복사를 사용하여 전체 Blob을 바꿉니다.|
 |**3.**|제한|제한하는 동안 디바이스에 대한 새 쓰기가 허용되지 않는 경우 NFS 클라이언트의 쓰기가 “사용 권한이 거부됨” 오류를 나타내며 실패합니다.| 이 오류는 다음과 같이 표시됩니다.<br>`hcsuser@ubuntu-vm:~/nfstest$ mkdir test`<br>mkdir: ‘test’ 디렉터리를 만들 수 없습니다. 사용 권한이 거부되었습니다.|
 |**4.**|Blob Storage 수집|Blob Storage 수집에 AzCopy 버전 10을 사용하는 경우 인수 `Azcopy <other arguments> --cap-mbps 2000`을 사용하여 AzCopy를 실행합니다.| AzCopy에 대해 이러한 제한을 제공하지 않으면 디바이스에 많은 요청을 전송하여 서비스에 문제를 유발할 수 있습니다.|
 |**5.**|계층화된 스토리지 계정|계층화된 스토리지 계정을 사용하는 경우 다음이 적용됩니다.<ul><li> 블록 Blob만 지원됩니다. 페이지 Blob은 지원되지 않습니다.</li><li>스냅샷 또는 복사 API는 지원되지 않습니다.</li><li> `distcp`를 통한 Hadoop 워크로드 수집은 복사 작업을 과도하게 사용하므로 지원되지 않습니다.</li></ul>||
 |**6.**|NFS 공유 연결|여러 프로세스에서 같은 공유로 복사하고 `nolock` 특성을 사용하지 않는 경우 복사하는 동안 오류가 표시될 수 있습니다.|NFS 공유에 파일을 복사하려면 `nolock` 특성을 탑재 명령에 전달해야 합니다. 예: `C:\Users\aseuser mount -o anon \\10.1.1.211\mnt\vms Z:`|
 |**7.**|Kubernetes 클러스터|Kubernetes 클러스터를 실행하는 디바이스에 업데이트를 적용하는 경우 kubernetes 가상 머신이 다시 시작되고 재부팅됩니다. 이 인스턴스에서 지정된 복제본과 함께 배포되는 Pod만 업데이트 후에 자동으로 복원됩니다.  |복제본 세트를 지정하지 않고 복제 컨트롤러 외부에서 개별 Pod를 만든 경우 이러한 Pod는 디바이스 업데이트 후에 자동으로 복원되지 않습니다. 이러한 Pod를 복원해야 합니다.<br>복제본 세트는 노드 실패 또는 중단형 노드 업그레이드 등을 비롯한 이유로 삭제되었거나 종료된 Pod를 대체합니다. 따라서 애플리케이션에 단일 Pod만 필요한 경우에도 복제본 세트를 사용하는 것이 좋습니다.|
 |**8.**|Kubernetes 클러스터|Azure Stack Edge Pro의 Kubernetes는 Helm v3 이상에서만 지원됩니다. 자세한 내용은 [질문과 대답: Tiller 제거](https://v3.helm.sh/docs/faq/)를 참조하세요.|
-|**9.**|Azure Arc를 지원하는 Kubernetes |GA 릴리스의 경우 Azure Arc 지원 Kubernetes는 버전 0.1.18에서 0.2.9로 업데이트됩니다. Azure Arc 지원 Kubernetes 업데이트는 Azure Stack Edge 디바이스에서 지원되지 않으므로 Azure Arc 지원 Kubernetes를 다시 배포해야 합니다.|다음 단계를 수행합니다.<ol><li>[디바이스 소프트웨어 및 Kubernetes 업데이트를 적용합니다](azure-stack-edge-gpu-install-update.md).</li><li>[디바이스의 PowerShell 인터페이스에 연결합니다](azure-stack-edge-gpu-connect-powershell-interface.md).</li><li>기존 Azure Arc 에이전트를 제거합니다. 다음을 입력합니다. `Remove-HcsKubernetesAzureArcAgent`</li><li>[Azure Arc를 새 리소스에 배포합니다](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). 기존 Azure Arc 리소스를 사용하지 마세요.</li></ol>|
-|**10.**|Azure Arc를 지원하는 Kubernetes|웹 프록시가 Azure Stack Edge Pro 디바이스에 구성된 경우 Azure Arc 배포가 지원되지 않습니다.||
+|**9.**|Azure Arc 지원 Kubernetes |GA 릴리스의 경우 Azure Arc 사용 Kubernetes 버전 0.1.18에서 0.2.9로 업데이트 됩니다. Azure Arc 사용 Kubernetes 업데이트가 Azure Stack Edge 장치에서 지원 되지 않으므로 Azure Arc 사용 Kubernetes를 다시 배포 해야 합니다.|다음 단계를 수행합니다.<ol><li>[디바이스 소프트웨어 및 Kubernetes 업데이트를 적용합니다](azure-stack-edge-gpu-install-update.md).</li><li>[디바이스의 PowerShell 인터페이스에 연결합니다](azure-stack-edge-gpu-connect-powershell-interface.md).</li><li>기존 Azure Arc 에이전트를 제거합니다. 다음을 입력합니다. `Remove-HcsKubernetesAzureArcAgent`</li><li>[Azure Arc를 새 리소스에 배포합니다](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). 기존 Azure Arc 리소스를 사용하지 마세요.</li></ol>|
+|**10.**|Azure Arc 지원 Kubernetes|웹 프록시가 Azure Stack Edge Pro 디바이스에 구성된 경우 Azure Arc 배포가 지원되지 않습니다.||
 |**11.**|Kubernetes |포트 31000은 Kubernetes 대시보드용으로 예약되어 있습니다. 포트 31001은 Edge 컨테이너 레지스트리용으로 예약되어 있습니다. 마찬가지로 기본 구성에서 IP 주소 172.28.0.1과 172.28.0.10은 각각 Kubernetes 서비스 및 Core DNS 서비스용으로 예약되어 있습니다.|예약된 IP는 사용하지 마세요.|
 |**12.**|Kubernetes |현재 Kubernetes는 다중 프로토콜 LoadBalancer 서비스를 허용하지 않습니다. TCP와 UDP 모두에서 수신 대기해야 하는 DNS 서비스를 예로 들 수 있습니다. |MetalLB를 사용하여 Kubernetes의 제한을 해결하기 위해 같은 Pod 선택기에 두 가지 서비스(TCP용 1개, UDP용 1개)를 만들 수 있습니다. 이러한 서비스는 같은 공유 키와 spec.loadBalancerIP를 사용하여 같은 IP 주소를 공유합니다. 사용 가능한 IP 주소보다 더 많은 서비스를 사용하는 경우 IP를 공유할 수도 있습니다. <br> 자세한 내용은 [IP 주소 공유](https://metallb.universe.tf/usage/#ip-address-sharing)를 참조하세요.|
 |**13.**|Kubernetes 클러스터|기존 Azure IoT Edge 마켓플레이스 모듈은 Azure Stack Edge 디바이스에서 IoT Edge를 실행하기 위해 수정이 필요할 수 있습니다.|자세한 내용은 Azure Stack Edge 디바이스에서 실행되도록 마켓플레이스의 Azure IoT Edge 모듈 수정을 참조하세요.<!-- insert link-->|

@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)를 사용 할 때 발생하는 일반
 services: container-service
 ms.topic: troubleshooting
 ms.date: 09/24/2021
-ms.openlocfilehash: 28807736cf6f58334eb4e6cf674e2c514df9c427
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 16aa9482b9de779295732fef0f2b88fa348e9026
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129235272"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707189"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -106,7 +106,7 @@ AKS 클러스터 내의 에이전트 노드에서 태그를 수정했기 때문�
 1. 클러스터가 `failed` 상태를 벗어날 때까지 `upgrade` 및 `scale` 작업은 성공적으로 수행되지 않습니다. 일반적인 근본 문제 및 해결 방법은 다음과 같습니다.
     * **부족한 컴퓨팅(CRP) 할당량** 을 사용하여 크기를 조정합니다. 해결하려면 먼저 클러스터의 크기를 할당량 내에서 안정적인 목표 상태로 다시 조정합니다. 그런 다음, 초기 할당량 한도를 초과하여 다시 강화하려고 시도하기 전에 [다음 단계에 따라 컴퓨팅 할당량을 늘리도록 요청](../azure-portal/supportability/regional-quota-requests.md)합니다.
     * 고급 네트워킹 및 **부족한 서브넷(네트워킹) 리소스** 를 사용하여 클러스터 크기를 조정합니다. 해결하려면 먼저 클러스터의 크기를 할당량 내에서 안정적인 목표 상태로 다시 조정합니다. 그런 다음, 초기 할당량 한도를 초과하여 다시 강화하려고 시도하기 전에 [다음 단계에 따라 리소스 할당량을 늘리도록 요청](../azure-resource-manager/templates/error-resource-quota.md#solution)합니다.
-2. 업그레이드 실패의 근본 원인이 해결되면 클러스터가 성공 상태여야 합니다. 성공 상태가 확인되면 원래 작업을 다시 시도합니다.
+2. 업그레이드 실패의 근본 원인이 해결되면 원래 작업을 다시 시도합니다. 이 재시도 작업은 클러스터를 성공 상태로 가져와야 합니다. 
 
 ## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-upgraded-or-has-failed-upgrade"></a>내 클러스터를 업그레이드하고 있거나 업그레이드가 실패한 상태에서 업그레이드하거나 크기를 조정하려고 하면 오류가 발생합니다.
 
@@ -147,7 +147,7 @@ AKS 클러스터를 올바르게 만들려면 해당 문서의 *시작하기 전
 * 클러스터 이름은 1-63자여야 합니다. 허용되는 문자는 문자, 숫자, 대시 및 밑줄입니다. 첫 번째 및 마지막 문자는 문자 또는 숫자여야 합니다.
 * AKS Node/*MC_* 리소스 그룹 이름은 리소스 그룹 이름과 리소스 이름을 결합합니다. `MC_resourceGroupName_resourceName_AzureRegion`의 자동 생성 구문은 80자 이하여야 합니다. 필요한 경우 리소스 그룹 이름 또는 AKS 클러스터 이름의 길이를 줄입니다. [노드 리소스 그룹 이름을 사용자 지정할 수도 있습니다](cluster-configuration.md#custom-resource-group-name).
 * *dnsPrefix* 는 영숫자 값으로 시작하고 끝나야 하며, 1-54자여야 합니다. 유효한 문자에는 영숫자 값 및 하이픈(-)이 포함됩니다. *dnsPrefix* 에는 마침표(.)와 같은 특수 문자가 포함될 수 없습니다.
-* AKS 노드 풀 이름은 모두 소문자여야 하며 Linux 노드 풀의 경우 1-11자, Windows 노드 풀의 경우 1-6자여야 합니다. 이름은 문자로 시작해야 하며, 허용되는 문자는 문자와 숫자입니다.
+* AKS 노드 풀 이름은 모두 소문자 여야 하며 Linux 노드 풀의 경우 1-11 자, Windows 노드 풀의 경우 1-6 자 여야 합니다. 이름은 문자로 시작해야 하며, 허용되는 문자는 문자와 숫자입니다.
 * Linux 노드에 대한 관리자 사용자 이름을 설정하는 *admin-username* 은 문자로 시작해야 하고 문자, 숫자, 하이픈 및 밑줄만 포함할 수 있으며 최대 길이는 64자입니다.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>클러스터를 만들거나, 업데이트하거나, 크기 조정하거나, 삭제하거나, 업그레이드하려고 오류가 발생합니다. 다른 작업이 진행 중이므로 해당 작업이 허용되지 않습니다.

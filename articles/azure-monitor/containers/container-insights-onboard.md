@@ -3,19 +3,19 @@ title: Container Insights 사용 | Microsoft Docs
 description: 이 문서에서는 컨테이너의 성능과 어떤 성능 관련 문제가 확인되었는지 이해할 수 있도록 Container Insights를 사용하도록 설정하고 구성하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 04bc88034c3537431c4c1972611d0c4d93e4cda4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: de7475ddb5a8057ef1b58d4ed21c55a1d10a4dd8
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128631404"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708947"
 ---
 # <a name="enable-container-insights"></a>Container Insights 사용
 
 이 문서에서는 Kubernetes 환경에 배포되고 호스트되는 워크로드의 성능을 모니터링하도록 Container Insights를 설정하는 데 사용할 수 있는 옵션의 개요를 제공합니다.
 
 - [AKS(Azure Kubernetes Service)](../../aks/index.yml)  
-- [Arc 지원 Kubernetes 클러스터](../../azure-arc/kubernetes/overview.md)
+- [Azure Arc-사용 가능한 Kubernetes 클러스터](../../azure-arc/kubernetes/overview.md)
    - [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) 또는 온-프레미스
    - [AKS 엔진](https://github.com/Azure/aks-engine)
    - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) 버전 4.x  
@@ -29,11 +29,11 @@ ms.locfileid: "128631404"
 - Azure CLI
 - [Terraform 및 AKS](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks)
 
-AKS가 아닌 Kubernetes 클러스터의 경우 모니터링을 사용하도록 설정하기 전에 먼저 클러스터를 [Azure Arc](../../azure-arc/kubernetes/overview.md) 연결해야 합니다.
+AKS kubernetes 클러스터의 경우에는 모니터링을 사용 하도록 설정 하기 전에 먼저 클러스터를 [Azure Arc](../../azure-arc/kubernetes/overview.md) 에 연결 해야 합니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 요구 사항을 충족해야 합니다.
 
@@ -73,7 +73,7 @@ Container Insights는 공식적으로 다음 구성을 지원합니다.
 
 - 환경: Azure Red Hat OpenShift, Kubernetes 온-프레미스 및 Azure/Azure Stack의 AKS 엔진 자세한 내용은 [Azure Stack에서 AKS 엔진](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview)을 참조하세요.
 - Kubernetes 및 지원 정책의 버전은 [AKS(Azure Kubernetes Service)에서 지원](../../aks/supported-kubernetes-versions.md)되는 것과 동일합니다.
-- 클러스터를 Azure Arc 연결하고 [Azure Arc](../../azure-arc/kubernetes/overview.md) 통해 컨테이너 Insights 통해 모니터링을 사용하도록 설정하는 것이 좋습니다.
+- 클러스터를 [azure arc](../../azure-arc/kubernetes/overview.md) 에 연결 하 고 azure arc를 통해 Insights 컨테이너를 통해 모니터링 하도록 설정 하는 것이 좋습니다.
 
 ## <a name="network-firewall-requirements"></a>네트워크 방화벽 요구 사항
 
@@ -121,7 +121,7 @@ Container Insights는 공식적으로 다음 구성을 지원합니다.
 
 Container Insights를 사용하도록 설정하려면 다음 표에 설명된 방법 중 하나를 사용합니다.
 
-| 배포 상태 | 메서드 | Description |
+| 배포 상태 | 메서드 | 설명 |
 |------------------|--------|-------------|
 | 새 Kubernetes 클러스터 | [Azure CLI를 사용하여 AKS 클러스터 만들기](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Azure CLI를 사용하여 만든 새 AKS 클러스터에 대한 모니터링을 사용하도록 설정할 수 있습니다. |
 | | [Terraform을 사용하여 AKS 클러스터 만들기](container-insights-enable-new-cluster.md#enable-using-terraform)| 오픈 소스 도구인 Terraform을 사용하여 만든 새 AKS 클러스터에 대한 모니터링을 사용하도록 설정할 수 있습니다. |

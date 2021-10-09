@@ -5,17 +5,21 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 10/04/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: b0eeb73ffb5436284f4f23cef943db0a3307a2b2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 63394c71642917c37bd0383682b64b70f3b870ee
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564571"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709273"
 ---
 # <a name="repairing-an-import-job"></a>가져오기 작업 복구
+
+> [!IMPORTANT]
+> 작업 복구는 Azure Import/Export 도구에서 더 이상 지원 되지 않습니다. 버전 1.5.0.300 이상에서 blob 가져오기의 문제를 해결 한 다음 [새 가져오기 작업을 만들어야](storage-import-export-data-to-blobs.md?tabs=azure-portal#step-2-create-an-import-job)합니다.
+
 Microsoft Azure Import/Export 서비스는 Microsoft Azure Blob service에 파일 또는 파일의 일부를 복사하지 못할 수 있습니다. 이 오류의 몇 가지 원인은 다음과 같습니다.  
   
 -   손상된 파일  
@@ -24,7 +28,7 @@ Microsoft Azure Import/Export 서비스는 Microsoft Azure Blob service에 파�
   
 -   파일이 전송되는 동안 스토리지 계정 키가 변경되었습니다.  
   
-가져오기 작업의 복사 로그 파일을 사용하여 Microsoft Azure Import/Export 도구를 실행할 수 있습니다. 이 도구는 가져오기 작업을 완료하기 위해 Microsoft Azure Storage 계정에 누락된 파일 또는 파일의 일부를 업로드합니다.  
+가져오기 작업의 복사 로그 파일을 사용하여 Microsoft Azure Import/Export 도구를 실행할 수 있습니다. 이 도구는 가져오기 작업을 완료하기 위해 Microsoft Azure Storage 계정에 누락된 파일 또는 파일의 일부를 업로드합니다.
   
 ## <a name="repairimport-parameters"></a>RepairImport 매개 변수
 
@@ -99,7 +103,7 @@ WAImportExport.exe RepairImport /r:C:\WAImportExport\9WM35C2V.rep /d:C:\Users\bo
   
 ## <a name="next-steps"></a>다음 단계
  
-* [Azure Import/Export 도구 설정](storage-import-export-tool-setup-v1.md)   
+<!--* [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)- ARCHIVED-->   
 * [가져오기 작업을 위한 하드 드라이브 준비](storage-import-export-data-to-blobs.md#step-1-prepare-the-drives)   
 * [복사 로그 파일을 사용하여 작업 상태 검토](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [내보내기 작업 복구](./storage-import-export-tool-repairing-an-export-job-v1.md)

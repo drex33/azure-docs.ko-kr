@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: troubleshooting
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 09/09/2021
+ms.date: 09/30/2021
 ms.author: abnarain
-ms.openlocfilehash: c9e6c4c0475842d9eb8c674464ebcf997d98b548
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ec238a018dea8940143aa6a2483c0e7dfa0d3d63
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124749440"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705630"
 ---
 # <a name="troubleshoot-azure-data-factory-and-synapse-pipelines"></a>Azure Data Factory 및 Synapse 파이프라인 문제 해결
 
@@ -142,6 +142,20 @@ ms.locfileid: "124749440"
 
 - **권장 사항**: 자체 호스팅 통합 런타임을 사용하는 경우 통합 런타임 노드에서 네트워크 연결이 안정적인지 확인합니다. Azure 통합 런타임을 사용하는 경우 다시 시도하면 일반적으로 작동합니다.
  
+### <a name="the-boolean-run-output-starts-coming-as-string-instead-of-expected-int"></a>부울 실행 출력이 예상된 int 대신 문자열로 표시될 수 있습니다.
+
+- **증상:** 부울 실행 출력이 `"0"` `"1"` 예상된 int(예: 또는 ) 대신 문자열(예: 또는 )로 표시될 수 `0` `1` 있습니다.
+
+   :::image type="content" source="media/data-factory-troubleshoot-guide/databricks-pipeline.png" alt-text="Databricks 파이프라인의 스크린샷.":::
+
+    이 출력을 사용하는 파이프라인이 실패하기 시작한 2021년 9월 28일 오전 9시 IST에서 이 변경이 발견되었습니다. 파이프라인에 대한 변경이 없으며 실패하기 전에 부울 출력이 예상대로 표시되었습니다. 
+
+   :::image type="content" source="media/data-factory-troubleshoot-guide/old-and-new-output.png" alt-text="출력의 차이점을 스크린샷으로 표시합니다.":::
+
+- **원인:** 이 문제는 의도적으로 변경된 최근 변경으로 인해 발생합니다. 변경 후 결과가 0으로 시작하는 숫자인 경우 Azure Data Factory 숫자를 버그인 8진수 값으로 변환합니다. 이 숫자는 항상 0 또는 1이며 변경 전에 문제를 발생시킨 적이 없습니다. 따라서 8진수 변환을 수정하기 위해 Notebook 실행에서 문자열 출력이 있는 그대로 전달됩니다. 
+
+- **권장 사항:** **if** 조건을 같은 것으로 `if(value=="0")` 변경합니다.
+
 ## <a name="azure-data-lake-analytics"></a>Azure 데이터 레이크 분석
 
 다음 표는 U-SQL에 적용됩니다.
@@ -1021,6 +1035,15 @@ ms.locfileid: "124749440"
 **원인:** 각 작업 실행에 대한 페이로드에는 활동 구성, 연결된 데이터 세트, 연결된 서비스 구성(있는 경우), 활동 유형별로 생성된 시스템 속성의 일부가 포함됩니다. 해당 페이로드 크기의 한도는 [Data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) 및 [Azure Synapse Analytics](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-synapse-analytics-limits)에 대한 Azure 한도 설명서에 언급된 대로 896KB입니다.
 
 **권장 사항:** 이 제한은 업스트림 활동 출력 또는 외부에서 하나 이상의 큰 매개 변수 값을 전달하는 경우, 특히 제어 흐름의 활동 간에 실제 데이터를 전달하는 경우에 발생할 가능성이 높습니다. 큰 매개 변수 값의 크기를 줄이거나 파이프라인 논리를 튜닝하여 활동 간에 이러한 값을 전달하지 않고 활동 내에서 처리할 수 있는지 확인합니다.
+
+### <a name="unsupported-compression-causes-files-to-be-corrupted"></a>지원 되지 않는 압축으로 인해 파일이 손상 됨
+
+**증상**: blob 컨테이너에 저장 된 파일의 압축을 푸는 것이 좋습니다. 파이프라인의 단일 복사 작업에는 압축 형식이 "deflate64" (또는 지원 되지 않는 형식)로 설정 된 소스가 있습니다. 이 작업은 성공적으로 실행 되며 zip 파일에 포함 된 텍스트 파일을 생성 합니다. 그러나 파일의 텍스트에 문제가 있어이 파일이 손상 된 것으로 나타납니다. 이 파일을 로컬로 압축을 푼 경우에는 괜찮습니다.
+
+**원인**: zip 파일은 "deflate64" 알고리즘에 의해 압축 되며 Azure Data Factory의 내부 zip 라이브러리는 "deflate"만 지원 합니다. zip 파일이 Windows 시스템으로 압축 되 고 전체 파일 크기가 특정 번호를 초과 하는 경우에는 기본적으로 Azure Data Factory에서 지원 되지 않는 "deflate64"을 사용 Windows 합니다. 반면, 파일 크기가 작거나 압축 알고리즘 지정을 지 원하는 일부 타사 zip 도구를 사용 하는 경우 Windows는 기본적으로 "deflate"를 사용 합니다.
+
+> [!TIP]
+> 실제로는 [Azure Data Factory 및 Synapse analytics의 이진 형식과](format-binary.md) [Azure Data Factory 및 Azure Synapse Analytics의 분리 된 텍스트 형식이](format-delimited-text.md) 모두 Azure Data Factory에서 "deflate64" 형식이 지원 되지 않는 것을 명확 하 게 명시 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

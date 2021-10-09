@@ -7,15 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 087cc0e9e650e89edb099e2593383a54d173ad89
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d1a76078db3acd79d1f59ce43852d538edac7964
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128588089"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710890"
 ---
 # <a name="plan-to-manage-azure-costs"></a>Azure 비용 관리 계획
 
@@ -95,7 +95,7 @@ Azure 서비스가 실행되면 비용을 정기적으로 확인하여 Azure 지
 
 ## <a name="optimize-and-reduce-costs"></a>비용 최적화 및 절감
 
-비용 관리 원칙에 익숙하지 않은 경우 [Azure Cost Management로 클라우드 투자를 최적화하는 방법](../costs/cost-mgt-best-practices.md)을 참조하세요.
+비용 관리 원칙에 익숙하지 않은 경우 [Cost Management 사용하여 클라우드 투자를 최적화하는 방법을](../costs/cost-mgt-best-practices.md)읽어보세요.
 
 Azure Portal에서 VM에 대한 자동 종료 및 Advisor 권장 지침을 사용하여 Azure 비용을 최적화하고 절감할 수도 있습니다.
 

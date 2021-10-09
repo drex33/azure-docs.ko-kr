@@ -3,12 +3,12 @@ title: 프로그래밍 방식으로 Azure Service Bus 네임스페이스 및 엔
 description: 이 문서에서는 동적으로 또는 프로그래밍 방식으로 Service Bus 네임스페이스 및 엔터티를 프로비저닝하는 방법을 설명합니다.
 ms.topic: article
 ms.date: 08/06/2021
-ms.openlocfilehash: b053ff5cce51fbcd0ce56e2bdbfaff39dddb6394
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 2962d5d8aebcf0a24535b7d9c1538dc69bd11e65
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122567611"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709140"
 ---
 # <a name="dynamically-provision-service-bus-namespaces-and-entities"></a>Service Bus 네임스페이스 및 엔터티를 동적으로 프로비저닝 
 Azure Service Bus는 Service Bus 네임스페이스 및 엔터티를 동적으로 프로비저닝하는 데 도움이 되는 라이브러리를 제공합니다. 따라서 복잡한 배포 및 메시지 시나리오를 사용할 수 있고 프로비저닝할 엔터티를 프로그래밍 방식으로 결정할 수 있습니다.
@@ -60,5 +60,5 @@ Azure Resource Manager 기반 라이브러리의 Fluent 버전이 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-- 최신 Service Bus 라이브러리를 사용하여 큐에서 메시지를 보내고 받기: [.NET](./service-bus-dotnet-get-started-with-queues.md#send-messages), [Java](./service-bus-java-how-to-use-queues.md), [JavaScript](./service-bus-nodejs-how-to-use-queues.md), [Python](./service-bus-python-how-to-use-queues.md)
+- 최신 Service Bus 라이브러리를 사용하여 큐에서 메시지를 보내고 받기: [.NET](./service-bus-dotnet-get-started-with-queues.md#send-messages-to-the-queue), [Java](./service-bus-java-how-to-use-queues.md), [JavaScript](./service-bus-nodejs-how-to-use-queues.md), [Python](./service-bus-python-how-to-use-queues.md)
 - 최신 Service Bus 라이브러리를 사용하여 토픽에 메시지를 보내고 구독에서 메시지 받기: .[NET](./service-bus-dotnet-how-to-use-topics-subscriptions.md),  [Java](./service-bus-java-how-to-use-topics-subscriptions.md), [JavaScript](./service-bus-nodejs-how-to-use-topics-subscriptions.md), [Python](./service-bus-python-how-to-use-topics-subscriptions.md)

@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 09/08/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 4276311163134b428fe9d616bf1e6bc23fdedfaf
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 11572f957fc2d305f5d6f17303bb8386345abc7b
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128638371"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714056"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
-이 문서에서는 계층 구조 네임스페이스 기능을 사용하도록 설정된 계정에 대한 제한 사항 및 알려진 문제에 대해 설명합니다.
+이 문서에서는 계층 구조 네임 스페이스 기능이 사용 하도록 설정 된 계정의 제한 사항 및 알려진 문제에 대해 설명 합니다.
 
 > [!NOTE]
-> 이 문서에 설명된 기능 중 일부는 NFS(네트워크 파일 시스템) 3.0 지원을 사용하도록 설정된 계정에서 지원되지 않을 수 있습니다. 다양한 기능을 사용하는 경우 기능 지원의 영향을 보여 주는 표를 보려면 [Azure Storage 계정의 Blob Storage 기능 지원을 참조하세요.](storage-feature-support-in-storage-accounts.md)
+> 이 문서에서 설명 하는 기능 중 일부는 NFS (네트워크 파일 시스템) 3.0 지원을 사용할 수 있는 계정에서 지원 되지 않을 수 있습니다. 다양 한 기능을 사용 하는 경우 기능 지원의 영향을 보여 주는 표를 보려면 [Azure Storage 계정의 Blob Storage 기능 지원](storage-feature-support-in-storage-accounts.md)을 참조 하세요.
 
 ## <a name="supported-blob-storage-features"></a>지원되는 Blob 스토리지 기능
 
@@ -30,21 +30,21 @@ ms.locfileid: "128638371"
 
 Azure Data Lake Storage Gen2는 데이터를 수집하고, 분석을 수행하고, 시각적 표현을 만드는 데 사용할 수 있는 여러 Azure 서비스를 지원합니다. 지원되는 Azure 서비스 목록은 [Azure Data Lake Storage Gen2를 지원하는 Azure 서비스](data-lake-storage-supported-azure-services.md)를 참조하세요.
 
-자세한 내용은 [Azure Data Lake Storage Gen2를 지원하는 Azure 서비스를 참조하세요.](data-lake-storage-supported-azure-services.md)
+자세한 내용은 [Azure Data Lake Storage Gen2를 지 원하는 Azure 서비스](data-lake-storage-supported-azure-services.md)를 참조 하세요.
 
 ## <a name="supported-open-source-platforms"></a>지원되는 오픈 소스 플랫폼
 
 Data Lake Storage Gen2는 몇 가지 오픈 소스 플랫폼에서 지원합니다. 전체 목록은 [Azure Data Lake Storage Gen2를 지원하는 오픈 소스 플랫폼](data-lake-storage-supported-open-source-platforms.md)을 참조하세요.
 
-자세한 내용은 [Azure Data Lake Storage Gen2를 지원하는 오픈 소스 플랫폼을 참조하세요.](data-lake-storage-supported-open-source-platforms.md)
+자세한 내용은 [Azure Data Lake Storage Gen2를 지 원하는 오픈 소스 플랫폼](data-lake-storage-supported-open-source-platforms.md)을 참조 하세요.
 
 ## <a name="blob-storage-apis"></a>Blob Storage API
 
-Data Lake Storage Gen2 API, NFS 3.0 및 Blob API는 동일한 데이터에서 작동할 수 있습니다.
+Data Lake Storage Gen2 api, NFS 3.0 및 Blob api는 동일한 데이터에 대해 작동할 수 있습니다.
 
-이 섹션에서는 Blob API, NFS 3.0 및 Data Lake Storage Gen2 API를 사용하여 동일한 데이터에서 작동할 때의 문제 및 제한에 대해 설명합니다.
+이 섹션에서는 동일한 데이터에 대해 작동 하는 blob api, NFS 3.0 및 Data Lake Storage Gen2 api를 사용 하는 경우의 문제 및 제한 사항에 대해 설명 합니다.
 
-- Blob API, NFS 3.0 및 Data Lake Storage API를 사용하여 파일의 동일한 인스턴스에 쓸 수 없습니다. Data Lake Storage Gen2 또는 API 또는 NFS 3.0을 사용하여 파일에 쓰는 경우 해당 파일의 블록은 [Get Block List](/rest/api/storageservices/get-block-list) Blob API에 대한 호출에 표시되지 않습니다. 오직 덮어쓰기를 사용할 때만 허용됩니다. API를 사용하거나 NFS 3.0에서 0 자르기 옵션을 사용하여 파일/Blob을 덮어쓰면 됩니다.
+- blob api, NFS 3.0 및 Data Lake Storage api를 사용 하 여 파일의 동일한 인스턴스에 쓸 수는 없습니다. Data Lake Storage Gen2 또는 api 또는 NFS 3.0를 사용 하 여 파일에 쓰는 경우 해당 파일의 블록이 [Get Block List](/rest/api/storageservices/get-block-list) blob API에 대 한 호출에 표시 되지 않습니다. 오직 덮어쓰기를 사용할 때만 허용됩니다. 0-자르기 옵션을 사용 하 여 API 또는 NFS 3.0를 사용 하 여 파일/b s i s를 덮어쓸 수 있습니다.
 
 - 구분 기호를 지정하지 않고 [Blob 나열](/rest/api/storageservices/list-blobs) 작업을 사용하면 결과에 디렉터리와 Blob이 모두 포함됩니다. 구분 기호를 사용하려면 슬래시(`/`)만 사용합니다. 이것이 유일하게 지원되는 구분 기호입니다.
 
@@ -57,7 +57,6 @@ Data Lake Storage Gen2 API, NFS 3.0 및 Blob API는 동일한 데이터에서 �
 - [페이지 범위 가져오기](/rest/api/storageservices/get-page-ranges)
 - [Blob 증분 복사](/rest/api/storageservices/incremental-copy-blob)
 - [URL에서 페이지 배치](/rest/api/storageservices/put-page-from-url)
-- [블록 목록 배치](/rest/api/storageservices/put-block-list)
 
 비관리형 VM 디스크는 계층 구조 네임스페이스가 있는 계정에서 지원되지 않습니다. 스토리지 계정에서 계층 구조 네임스페이스를 활성화하려면, 계층 구조 네임스페이스 기능을 활성화하지 않은 스토리지 계정에 비관리형 VM 디스크를 배치합니다.
 
@@ -95,7 +94,7 @@ ACL은 아직 지원되지 않습니다.
 
 REST API를 사용하는 제3자 애플리케이션은 Data Lake Storage Gen2를 사용하는 경우 계속 사용 가능합니다. BLOB API를 호출하는 애플리케이션은 일반적으로 작동합니다.
 
-## <a name="storage-analytics-logs-classic"></a>Storage 분석 로그(클래식)
+## <a name="storage-analytics-logs-classic"></a>Storage 분석 로그 (클래식)
 
 보존 기간 설정은 아직 지원되지 않지만 Azure Storage Explorer, REST 또는 SDK처럼 지원되는 도구를 사용하여 로그를 수동으로 삭제할 수 있습니다.
 
@@ -111,11 +110,11 @@ REST API를 사용하는 제3자 애플리케이션은 Data Lake Storage Gen2를
 
 ## <a name="soft-delete-for-blobs-capability-currently-in-preview"></a>Blob 기능 일시 삭제(현재 미리 보기)
 
-일시 삭제된 파일 또는 디렉터리에 대한 부모 디렉터리 이름이 변경되면 일시 삭제된 항목이 Azure Portal 올바르게 표시되지 않을 수 있습니다. 이러한 경우 [PowerShell](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-powershell) 또는 [Azure CLI](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-azure-cli)를 사용하여 일시 삭제된 항목을 나열하고 복원할 수 있습니다.
+일시 삭제 된 파일 또는 디렉터리의 부모 디렉터리 이름을 바꾸면 일시 삭제 된 항목이 Azure Portal에 올바르게 표시 되지 않을 수 있습니다. 이러한 경우 [PowerShell](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-powershell) 또는 [Azure CLI](soft-delete-blob-manage.md?tabs=dotnet#restore-soft-deleted-blobs-and-directories-by-using-azure-cli)를 사용하여 일시 삭제된 항목을 나열하고 복원할 수 있습니다.
 
 ## <a name="events"></a>이벤트
 
-계정에 이벤트 구독이 있는 경우 보조 엔드포인트에서 읽기 작업을 수행하면 오류가 발생합니다. 이 문제를 해결하려면 이벤트 구독을 제거합니다.
+계정에 이벤트 구독이 있는 경우 보조 끝점에서 읽기 작업을 수행 하면 오류가 발생 합니다. 이 문제를 해결 하려면 이벤트 구독을 제거 합니다.
 
 > [!TIP]
-> 보조 엔드포인트에 대한 읽기 액세스는 RA-GRS(읽기 액세스 지역 중복 스토리지) 또는 RA-GZRS(읽기 액세스 지역 영역 중복 스토리지)를 사용하도록 설정한 경우에만 사용할 수 있습니다.
+> 보조 끝점에 대 한 읽기 액세스는 읽기 액세스 지역 중복 저장소 (RA-GRS) 또는 읽기 액세스 지역 중복 저장소 (RA-GZRS)를 사용 하도록 설정한 경우에만 사용할 수 있습니다.

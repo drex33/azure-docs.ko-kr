@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2021
-ms.openlocfilehash: 5e1d4675e7e99410471951c21d7e8112cf6839c5
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: b91dac0889da88b81d4306dff6eda4c45bcb6080
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129275015"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713403"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Azure Machine Learning에서 컴퓨팅 대상은 무엇인가요?
 
@@ -165,7 +165,7 @@ Azure Machine Learning은 다음과 같은 관리되지 않은 컴퓨팅 유형�
 * Azure Databricks
 * Azure 데이터 레이크 분석
 * Azure Container Instance
-* Azure Kubernetes Service 및 Azure Arc 지원 Kubernetes(미리 보기)
+* Azure Kubernetes Service & Azure Arc 지원 Kubernetes(미리 보기)
 
 자세한 내용은 [모델 학습 및 배포를 위한 컴퓨팅 대상 설정](how-to-attach-compute-targets.md)을 참조하세요.
 

@@ -7,35 +7,37 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/10/2021
-ms.openlocfilehash: 5b28540f30c23abc4ba1d58f6984524984f2c001
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 10/08/2021
+ms.openlocfilehash: 841cd106f1c54e1c35d3b2785eb942842d77f825
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528873"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706762"
 ---
 # <a name="knowledge-store-projections-in-azure-cognitive-search"></a>Azure Cognitive Search의 지식 저장소 "프로젝션"
 
-[지식 저장소](knowledge-store-concept-intro.md) 요소인 프로젝션은 기술 자료를 위해 실제 스토리지에 저장할 수 있는 보강 문서에 대한 뷰입니다. 프로젝션을 사용하면 필요에 맞게 데이터를 "프로젝션"하여 Power BI 같은 도구에서 추가 작업 없이 데이터를 읽을 수 있도록 관계를 유지할 수 있습니다.
+프로젝션은 Azure Storage에서 데이터의 물리 식을 지정 하는 [기술 자료 저장소](knowledge-store-concept-intro.md) 정의의 요소입니다. 프로젝션 정의는 Azure Storage의 데이터 구조 수와 유형을 결정 합니다.
 
-프로젝션은 테이블 형식일 수 있습니다. 여기서 데이터 조인은 Azure Table Storage의 행과 열에 있거나 Azure Blob Storage에 저장된 JSON 개체나 Blob Storage에 저장된 이진 이미지입니다. 보강되는 데이터의 여러 프로젝션을 정의할 수 있습니다. 여러 프로젝션은 개별 사용 사례에 대해 동일한 데이터의 모양을 다르게 하려는 경우에 유용합니다.
+## <a name="types-of-data-structures"></a>데이터 구조 형식
 
-지식 저장소는 세 가지 유형의 프로젝션을 지원합니다.
+기술 자료 저장소는 테이블, JSON 개체 또는 이진 이미지 파일 처럼 Azure Storage로 물리적으로 표현 되는 논리적 생성입니다.
 
-+ **테이블**: 행 및 열로 표현하는 것이 가장 적합한 데이터의 경우, 테이블 프로젝션을 통해 Table Storage에서 스키마화된 셰이프 또는 프로젝션을 정의할 수 있습니다. 유효한 JSON 개체만 테이블로 프로젝션할 수 있습니다. 보강된 문서에는 이름이 JSON 개체가 아닌 노드가 포함될 수 있으므로 [쉐이퍼 기술을 추가하거나 기술 내에서 인라인 셰이핑을 사용](knowledge-store-projection-shape.md)하여 유효한 JSON을 만듭니다. 
+| 프로젝션 | 스토리지 | 사용량 |
+|------------|---------|-------|
+| 테이블 | Azure Table Storage | 행과 열로 가장 잘 표현 되는 데이터에 사용 됩니다. 테이블 프로젝션을 통해 스키마 화 된 셰이프 또는 프로젝션을 정의할 수 있습니다. 유효한 JSON 개체만 테이블로 프로젝션할 수 있습니다. 보강된 문서에는 이름이 JSON 개체가 아닌 노드가 포함될 수 있으므로 [쉐이퍼 기술을 추가하거나 기술 내에서 인라인 셰이핑을 사용](knowledge-store-projection-shape.md)하여 유효한 JSON을 만듭니다. |
+| 개체 | Azure Blob Storage | 데이터 및 강화의 JSON 표현이 필요할 때 사용 됩니다. 테이블 프로젝션과 마찬가지로 유효한 JSON 개체만 개체로 프로젝션될 수 있으며 셰이핑이 이를 수행하는 데 도움이 될 수 있습니다. |
+| 파일 | Azure Blob Storage | 정규화 된 이진 이미지 파일을 저장 해야 하는 경우에 사용 됩니다. |
 
-+ **개체**: 데이터와 강화의 JSON 표현이 필요한 경우 개체 프로젝션을 사용하여 출력을 Blob으로 저장합니다. 테이블 프로젝션과 마찬가지로 유효한 JSON 개체만 개체로 프로젝션될 수 있으며 셰이핑이 이를 수행하는 데 도움이 될 수 있습니다.
+보강되는 데이터의 여러 프로젝션을 정의할 수 있습니다. 여러 프로젝션은 개별 사용 사례에 대해 동일한 데이터의 모양을 다르게 하려는 경우에 유용합니다.
 
-+ **파일**: 문서에서 추출된 이미지를 저장해야 하는 경우, 파일 프로젝션을 사용하여 정규화된 이미지를 Blob Storage에 저장할 수 있습니다.
+## <a name="basic-definition"></a>기본 정의
 
-컨텍스트에서 정의된 프로젝션을 보려면 [REST에서 지식 저장소 만들기](knowledge-store-create-rest.md)를 단계별로 진행합니다.
+프로젝션은 `knowledgeStore` [기술 개체](/rest/api/searchservice/create-skillset)의 정의 아래에 있는 복잡 한 컬렉션의 배열입니다. 
 
-## <a name="basic-pattern"></a>기본 패턴
+각 테이블, 개체 및 파일 집합은 *프로젝트 그룹* 이며 스토리지 요구 사항에 다양한 도구와 시나리오 지원이 포함된 경우 그룹이 여러 개 있을 수 있습니다. 단일 그룹 내에 테이블, 개체 및 파일이 여러 개 있을 수 있습니다. 
 
-프로젝션은 기술 세트 개체의 `knowledgeStore` 정의 아래에 있는 복잡한 컬렉션 배열입니다. 각 테이블, 개체 및 파일 집합은 *프로젝트 그룹* 이며 스토리지 요구 사항에 다양한 도구와 시나리오 지원이 포함된 경우 그룹이 여러 개 있을 수 있습니다. 단일 그룹 내에 테이블, 개체 및 파일이 여러 개 있을 수 있습니다. 
-
-일반적으로 그룹 하나만 사용되지만 다음 예에서는 그룹이 여러 개 있는 경우의 패턴 두 가지를 보여줍니다.
+일반적으로 하나의 그룹만 사용 되지만 다음 예제에서는 여러 그룹의 아이디어를 보강 하는 두 가지 방법을 보여 줍니다.
 
 ```json
 "knowledgeStore" : {
@@ -55,7 +57,7 @@ ms.locfileid: "122528873"
 }
 ```
 
-### <a name="projection-groups"></a>프로젝션 그룹
+## <a name="data-isolation-and-relatedness"></a>데이터 격리 및 관련성
 
 table-object-file 조합 집합이 여러 개 있으면 다양한 시나리오를 지원하는 데 유용합니다. 기술 세트의 디자인과 디버그에 집합 하나를 사용하여 추가 검사에 사용되는 출력을 캡처할 수 있습니다. 두 번째 집합은 온라인 앱에 사용되는 출력을 수집하고 세 번째 집합은 데이터 과학 워크로드용입니다.
 

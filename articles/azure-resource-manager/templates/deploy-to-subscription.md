@@ -4,12 +4,12 @@ description: Azure Resource Manager 템플릿에서 리소스 그룹을 만드�
 ms.topic: conceptual
 ms.date: 09/14/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 2afcd6fa4598a881f0adc5f82c43c8d9c8021064
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8d171bde22bce1aac94e21c412b6773e6a4f39c5
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128672821"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711488"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>ARM 템플릿을 사용한 구독 배포
 
@@ -332,37 +332,7 @@ ARM 템플릿에서 리소스 그룹을 만들려면 리소스 그룹의 이름 
 
 다음 예제는 기존 정책 정의를 구독에 할당합니다. 정책 정의에서 매개 변수를 사용하는 경우 개체로 제공합니다. 정책 정의에서 매개 변수를 사용하지 않으면 기본 빈 개체를 사용합니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "policyDefinitionID": {
-      "type": "string"
-    },
-    "policyName": {
-      "type": "string"
-    },
-    "policyParameters": {
-      "type": "object",
-      "defaultValue": {}
-    }
-  },
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2020-09-01",
-      "name": "[parameters('policyName')]",
-      "properties": {
-        "scope": "[subscription().id]",
-        "policyDefinitionId": "[parameters('policyDefinitionID')]",
-        "parameters": "[parameters('policyParameters')]"
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/policyassign.json":::
 
 Azure CLI를 사용하여 이 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -398,46 +368,7 @@ New-AzSubscriptionDeployment `
 
 정책 정의를 동일한 템플릿에 [정의](../../governance/policy/concepts/definition-structure.md)하고 할당할 수 있습니다.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {},
-  "resources": [
-    {
-      "type": "Microsoft.Authorization/policyDefinitions",
-      "apiVersion": "2020-09-01",
-      "name": "locationpolicy",
-      "properties": {
-        "policyType": "Custom",
-        "parameters": {},
-        "policyRule": {
-          "if": {
-            "field": "location",
-            "equals": "northeurope"
-          },
-          "then": {
-            "effect": "deny"
-          }
-        }
-      }
-    },
-    {
-      "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2020-09-01",
-      "name": "location-lock",
-      "dependsOn": [
-        "locationpolicy"
-      ],
-      "properties": {
-        "scope": "[subscription().id]",
-        "policyDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/policydefineandassign.json":::
 
 구독에서 정책 정의를 만들어 구독에 할당하려면 다음 CLI 명령을 사용합니다.
 
@@ -485,7 +416,7 @@ New-AzSubscriptionDeployment `
 
 ## <a name="access-control"></a>Access Control
 
-역할 할당에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 Azure 역할 할당을 참조하세요.](../../role-based-access-control/role-assignments-template.md)
+역할 할당에 대 한 자세한 내용은 [Azure Resource Manager 템플릿을 사용 하 여 Azure 역할 할당](../../role-based-access-control/role-assignments-template.md)을 참조 하세요.
 
 다음 예제에서는 리소스 그룹을 만들고 해당 그룹에 잠금을 적용하며 보안 주체에 역할을 할당합니다.
 

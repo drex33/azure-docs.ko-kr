@@ -3,12 +3,12 @@ title: Container Insights 개요 | Microsoft Docs
 description: 이 문서에서는 AKS Container Insights 솔루션을 모니터링하는 Container Insights 및 Container Insights가 Azure의 AKS 클러스터 및 Container Instances 상태를 모니터링하여 제공하는 가치에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 56222eb90534537df237ec2c5d29a5969f150e60
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: b1e7b3e6d3c72dbc65169c48f1d12de6ca712a45
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566872"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708897"
 ---
 # <a name="container-insights-overview"></a>컨테이너 인사이트 개요
 
@@ -19,7 +19,7 @@ Container Insights는 다음을 위해 배포된 컨테이너 워크로드의 �
 - [Azure Container Instances](../../container-instances/container-instances-overview.md)
 - [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) 또는 온-프레미스에서 호스트되는 자체 관리형 Kubernetes 클러스터
 - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md)
-- [Azure Arc 사용 Kubernetes](../../azure-arc/kubernetes/overview.md)(미리 보기)
+- [Azure Arc 지원 Kubernetes(미리](../../azure-arc/kubernetes/overview.md) 보기)
 
 Container Insights는 Linux 및 Windows Server 2019 운영 체제를 실행하는 클러스터를 지원합니다. 지원되는 컨테이너 런타임은 Docker, Moby 및 CRI 호환 런타임(예: CRI-O 및 ContainerD)입니다.
 
@@ -47,7 +47,7 @@ Container Insights는 다양한 Azure Monitor 기능을 사용하여 포괄적�
     >Azure Red Hat OpenShift에 대한 지원은 현재 공개 미리 보기 기능입니다.
     >
 
-* [Azure Arc 사용 Kubernetes(미리 보기)에 배포된](../../azure-arc/kubernetes/overview.md) 컨테이너 워크로드를 모니터링합니다.
+* Azure Arc 지원 [Kubernetes(미리 보기)에 배포된](../../azure-arc/kubernetes/overview.md)컨테이너 워크로드를 모니터링합니다.
 
 Windows Server 클러스터를 모니터링할 때 Linux 클러스터와 크게 다른 점은 다음과 같습니다.
 

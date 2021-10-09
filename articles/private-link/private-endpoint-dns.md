@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: allensu
-ms.openlocfilehash: 80e6fec3741875460f781e728a9b976f1e4bfd71
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 76c883099b5ca665a9d0a720b403e3894bc2e67a
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128631915"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705423"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Azure 프라이빗 엔드포인트 DNS 구성
 
@@ -88,7 +88,7 @@ Azure 서비스의 경우 다음 표에 설명된 대로 권장되는 영역 이
 | Azure Cache for Redis Enterprise(Microsoft.Cache/RedisEnterprise)/redisCache | privatelink.redisenterprise.cache.azure.net | redisenterprise.cache.azure.net |
 | Azure Purview(Microsoft.Purview)| privatelink.purview.azure.com | purview.azure.com |
 | Azure Digital Twins (Microsoft.DigitalTwins) / digitalTwinsInstances | privatelink.digitaltwins.azure.net | digitaltwins.azure.net |
-
+| Azure HDInsight (Microsoft HDInsight) | privatelink.azurehdinsight.net | azurehdinsight.net |
 
 <sup>1</sup>IoT Hub의 기본 제공 Event Hub 호환 엔드포인트에 사용합니다. 자세한 내용은 [IoT Hub의 기본 제공 엔드포인트에 대한 프라이빗 링크](../iot-hub/virtual-network-support.md#built-in-event-hub-compatible-endpoint)를 참조하세요.
 
@@ -105,6 +105,7 @@ Azure 서비스의 경우 다음 표에 설명된 대로 권장되는 영역 이
 | Azure Database for PostgreSQL - 단일 서버(Microsoft.DBforPostgreSQL/servers) / postgresqlServer | privatelink.postgres.database.chinacloudapi.cn | postgres.database.chinacloudapi.cn |
 | Azure Database for MySQL(Microsoft.DBforMySQL/servers) / mysqlServer | privatelink.mysql.database.chinacloudapi.cn  | mysql.database.chinacloudapi.cn  |
 | Azure Database for MariaDB(Microsoft.DBforMariaDB/servers) / mariadbServer | privatelink.mariadb.database.chinacloudapi.cn | mariadb.database.chinacloudapi.cn |
+| Azure HDInsight (Microsoft HDInsight) | privatelink.azurehdinsight.cn | azurehdinsight.cn |
 
 ## <a name="dns-configuration-scenarios"></a>DNS 구성 시나리오
 

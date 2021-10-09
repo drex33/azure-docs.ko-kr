@@ -5,16 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 06/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 20df340df025ceada8a4b254f317fe2f5d8eecbc
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: 1607ad99ffb78a90bcc143ab20829709cec77561
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768898"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706501"
 ---
 # <a name="view-update-assessments-in-update-management"></a>업데이트 관리에서 업데이트 평가 보기
 
-업데이트 관리에서는 머신, 누락된 업데이트, 업데이트 배포, 예약된 업데이트 배포에 대한 정보를 볼 수 있습니다. 선택한 Azure 가상 머신으로 범위가 지정된 평가 정보는 선택한 Arc 지원 서버 또는 구성된 모든 머신과 서버의 Automation 계정에서 볼 수 있습니다.
+업데이트 관리에서는 머신, 누락된 업데이트, 업데이트 배포, 예약된 업데이트 배포에 대한 정보를 볼 수 있습니다. 선택한 Azure 가상 머신, 선택한 Azure Arc 지원 서버 또는 구성된 모든 컴퓨터 및 서버의 Automation 계정으로 범위가 지정되는 평가 정보를 볼 수 있습니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -28,13 +28,13 @@ Azure VM에서 업데이트 평가를 보려면 **가상 머신** 으로 이동�
 
 [ ![Azure VM에 대한 업데이트 관리 평가 보기](./media/view-update-assessments/update-assessment-azure-vm.png)](./media/view-update-assessments/update-assessment-azure-vm-expanded.png#lightbox)
 
-Arc 지원 서버에서 업데이트 평가를 보려면 **서버 - Azure Arc** 로 이동하여 목록에서 서버를 선택합니다. 왼쪽 메뉴에서 **게스트 및 호스트 업데이트** 를 선택합니다. **게스트 + 호스트 업데이트** 창에서 **Go to Update management**(업데이트 관리로 이동)를 선택합니다.
+Azure Arc 지원 서버에서 업데이트 평가를 보려면 서버 - **Azure Arc** 이동하여 목록에서 서버를 선택합니다. 왼쪽 메뉴에서 **게스트 및 호스트 업데이트** 를 선택합니다. **게스트 + 호스트 업데이트** 창에서 **Go to Update management**(업데이트 관리로 이동)를 선택합니다.
 
-업데이트 관리에서는 Arc 사용 머신, 누락된 업데이트, 업데이트 배포, 예약된 업데이트 배포에 대한 정보를 볼 수 있습니다.
+업데이트 관리 Azure Arc 지원 컴퓨터, 누락된 업데이트, 업데이트 배포 및 예약된 업데이트 배포에 대한 정보를 볼 수 있습니다.
 
 [ ![Arc 지원 서버에 대한 업데이트 관리 평가 보기](./media/view-update-assessments/update-assessment-arc-server.png)](./media/view-update-assessments/update-assessment-arc-server-expanded.png#lightbox)
 
-Automation 계정의 Arc 지원 서버를 포함하여 모든 머신에서 업데이트 평가를 보려면 **Automation 계정** 으로 이동하여 목록에서 업데이트 관리를 사용하도록 설정된 Automation 계정을 선택합니다. Automation 계정의 왼쪽 메뉴에서 **업데이트 관리** 를 선택합니다.
+Automation 계정에서 Azure Arc 지원 서버를 비롯한 모든 머신의 업데이트 평가를 보려면 **Automation 계정으로** 이동하여 목록에서 업데이트 관리 사용하도록 설정된 Automation 계정을 선택합니다. Automation 계정의 왼쪽 메뉴에서 **업데이트 관리** 를 선택합니다.
 
 현재 환경에 필요한 업데이트가 **업데이트 관리** 페이지에 나열됩니다. 업데이트가 누락된 것으로 식별된 경우 **누락된 업데이트** 탭에 누락된 업데이트 목록이 표시됩니다.
 

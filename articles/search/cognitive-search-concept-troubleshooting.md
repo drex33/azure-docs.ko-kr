@@ -7,18 +7,18 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/16/2021
-ms.openlocfilehash: 2c8cbc3496b0a7b12f8df114ed2aa993ee5cb1a7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 054abdaeb184a37a995f14ab6196c378abbb470b
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128610867"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707670"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 보강을 위한 팁
 
 이 문서에는 Azure Cognitive Search에서 AI 보강 기능을 시작할 때 계속 진행하기 위한 팁과 요령 목록이 포함되어 있습니다. 
 
-아직 그렇게 하지 않은 경우 Blob 데이터 원본에 AI 보강을 적용하려면 [자습서: AI 보강 API를 호출하는 방법 알아보기](cognitive-search-quickstart-blob.md)를 단계별로 실행합니다.
+아직 진행하지 않은 경우 텍스트 [번역 및 엔터티 기술 집합 만들기](cognitive-search-quickstart-blob.md) 또는 [OCR 이미지 기술 집합 만들기](cognitive-search-quickstart-ocr.md) 빠른 시작에서 Blob 데이터 보강을 소개합니다.
 
 ## <a name="tip-1-start-with-a-small-dataset"></a>팁 1: 작은 데이터 세트로 시작
 문제를 신속하게 찾는 최상의 방법은 문제를 해결할 수 있는 속도를 높이는 것입니다. 인덱싱 시간을 줄이는 최상의 방법은 인덱싱할 문서 수를 줄이는 것입니다. 

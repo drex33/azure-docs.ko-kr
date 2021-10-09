@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 09/07/2021
 ms.author: cherylmc
-ms.openlocfilehash: d44ccec62a9da63fccc45a0735ff16f615dfbb4b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 99cee6b73fb37caf0ccf09170d60ea4ba3effc2a
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128643140"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714185"
 ---
 # <a name="azure-bastion-faq"></a>Azure Bastion FAQ
 
@@ -79,7 +79,24 @@ Azure Bastion은 배포된 지역 외부로 고객 데이터를 이동하거나 
 
 ### <a name="which-keyboard-layouts-are-supported-during-the-bastion-remote-session"></a><a name="keyboard"></a>Bastion 원격 세션 중에 지원되는 키보드 레이아웃은?
 
-Azure Bastion은 현재 VM 내에서 en-us-qwerty 키보드 레이아웃을 지원합니다.  키보드 레이아웃을 위한 다른 로캘에 대한 지원이 진행 중입니다.
+Azure Bastion 현재 VM 내에서 다음과 같은 키보드 레이아웃을 지원합니다.
+* en-us-qwerty
+* en-gb-qwerty
+* de-ch-qwertz
+* de-de-qwertz
+* fr-be-azerty
+* fr-fr-azerty
+* fr-ch-qwertz
+* hu-hu-qwertz
+* it-it-qwerty
+* ja-jp-qwerty
+* pt-br-qwerty
+* es-es-qwerty
+* es-latam-qwerty
+* sv-se-qwerty
+* tr-tr-qwerty
+
+대상 VM의 기본 키보드 레이아웃은 로컬 컴퓨터 설정에서 변경할 수 있는 로컬 언어와 일치합니다.
 
 ### <a name="does-azure-bastion-support-timezone-configuration-or-timezone-redirection-for-target-vms"></a><a name="timezone"></a>Azure Bastion은 대상 VM에 대한 표준 시간대 구성 또는 표준 시간대 리디렉션을 지원하나요?
 
@@ -127,8 +144,8 @@ Azure Bastion은 VNet 또는 피어링된 VNet 내부에 배포되고 Azure 지�
 
 :::image type="content" source="./media/bastion-faq/global-subscriptions.png" alt-text="전역 구독 필터" lightbox="./media/bastion-faq/global-subscriptions.png":::
 
-### <a name="does-bastion-support-connectivity-to-azure-virtual-desktop"></a>Bastion은 Azure Virtual Desktop에 대한 연결을 지원하나요?
-아니요, Azure Virtual Desktop에 대한 Bastion 연결은 지원되지 않습니다.
+### <a name="does-bastion-support-connectivity-to-azure-virtual-desktop"></a>Azure 가상 데스크톱에 대 한 연결을 지원 하나요?
+아니요, Azure 가상 데스크톱에 대 한 방호 연결은 지원 되지 않습니다.
 
 ### <a name="i-have-access-to-the-peered-vnet-but-i-cant-see-the-vm-deployed-there"></a>피어링된 VNet에 액세스할 수 있지만 여기에 배포된 VM은 볼 수 없습니다.
 

@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 09/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: 46c3aca1c2f983d857be59d2d69b0cadfb433303
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8eb9a6ad285bea2a5ac6e69ebb5ebef48b135899
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128655983"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713126"
 ---
 # <a name="azure-monitor-agent-overview"></a>Azure Monitor 에이전트 개요
 AMA(Azure Monitor 에이전트)는 Azure 가상 머신의 게스트 운영 체제에서 모니터링 데이터를 수집하여 이를 Azure Monitor에 전달합니다. 이 문서는 Azure Monitor 에이전트에 대한 개요를 제공하고 설치 방법 및 데이터 수집 구성 방법에 대한 정보를 포함하고 있습니다.
@@ -64,10 +64,10 @@ Azure Monitor 에이전트는 [Azure Monitor용 레거시 에이전트](agents-o
   Log Analytics 에이전트에 대한 사용 중단 날짜는 2021년 8월에 게시됩니다. 현재 에이전트는 지원 중단이 시작된 이후에도 몇 년 동안 지원됩니다.
 
 ## <a name="supported-resource-types"></a>지원되는 리소스 유형
-Azure Virtual Machines, Microsoft Azure Virtual Machine Scale Sets 및 Azure Arc 사용 서버는 현재 지원됩니다. Azure Kubernetes Service 및 기타 컴퓨팅 리소스 종류는 지원되지 않습니다.
+Azure 가상 머신, 가상 머신 확장 집합 및 Azure Arc 사용 서버가 현재 지원 됩니다. Azure Kubernetes Service 및 기타 컴퓨팅 리소스 종류는 지원되지 않습니다.
 
 ## <a name="supported-regions"></a>지원되는 지역
-Azure Monitor 에이전트는 Log Analytics를 지원하는 모든 공용 지역과 Azure Government 및 중국 클라우드에서 사용할 수 있습니다. 에어 갭(Air-Gap) 클라우드는 아직 지원되지 않습니다.
+Azure Monitor 에이전트는 Log Analytics를 지 원하는 모든 공용 지역 뿐만 아니라 Azure Government 및 중국 클라우드 에서도 사용할 수 있습니다. 에어 갭(Air-Gap) 클라우드는 아직 지원되지 않습니다.
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 현재 Azure Monitor 에이전트에서 지원하는 Windows 및 Linux 운영 체제 버전의 목록은 [지원되는 운영 체제](agents-overview.md#supported-operating-systems)를 참조하세요.
@@ -78,14 +78,14 @@ Azure Monitor 에이전트는 Log Analytics를 지원하는 모든 공용 지역
 | Azure 서비스 | 현재 지원 | 자세한 정보 |
 |:---|:---|:---|
 | [Azure Security Center](../../security-center/security-center-introduction.md) | 프라이빗 미리 보기 | [가입 링크](https://aka.ms/AMAgent) |
-| [Azure Sentinel](../../sentinel/overview.md) | <ul><li>Windows WEF(이벤트 전달): 프라이빗 미리 보기</li><li>Windows 보안 이벤트: [공개 미리 보기](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li></ul>  | <ul><li>[가입 링크](https://aka.ms/AMAgent) </li><li>등록이 필요하지 않습니다.</li></ul> |
+| [Azure Sentinel](../../sentinel/overview.md) | <ul><li>Windows 이벤트 전달 (WEF): 비공개 미리 보기</li><li>Windows 보안 이벤트: [공개 미리 보기](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li></ul>  | <ul><li>[가입 링크](https://aka.ms/AMAgent) </li><li>등록 필요 없음</li></ul> |
 
 다음 표에는 Azure Monitor 기능을 통한 Azure Monitor 에이전트에 대한 현재 지원이 나와 있습니다.
 
 | Azure Monitor 기능 | 현재 지원 | 자세한 정보 |
 |:---|:---|:---|
 | [VM 인사이트](../vm/vminsights-overview.md) | 프라이빗 미리 보기  | [가입 링크](https://aka.ms/amadcr-privatepreviews) |
-| [프라이빗 링크 또는 AMPLS를 사용하여 커넥트](../logs/private-link-security.md) | AMA용 프라이빗 미리 보기 | [가입 링크](https://aka.ms/amadcr-privatepreviews) |
+| [개인 링크 또는 AMPLS를 사용 하 여 커넥트](../logs/private-link-security.md) | AMA에 대 한 비공개 미리 보기 | [가입 링크](https://aka.ms/amadcr-privatepreviews) |
 | [VM 인사이트 게스트 상태](../vm/vminsights-health-overview.md) | 퍼블릭 미리 보기 | 새 에이전트에서만 사용 가능 |
 | [SQL 인사이트](../insights/sql-insights-overview.md) | 퍼블릭 미리 보기 | 새 에이전트에서만 사용 가능 |
 

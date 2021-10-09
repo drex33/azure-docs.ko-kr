@@ -9,16 +9,16 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
 ms.custom: ''
-ms.openlocfilehash: 4f657e742165bdb87e1cc1c021966dc2e5473e81
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d64d0bead5df1aa8b91ae39a79c1255eaac51f27
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128647736"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706175"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Azure에서 AWS 비용 및 사용량 관리
 
-Azure Cost Management에 대한 AWS 비용 및 사용 현황 보고서 통합을 설정하고 구성한 후에는 AWS 비용 및 사용량을 관리할 준비가 된 것입니다. 이 문서는 Cost Management에서 비용 분석 및 예산을 사용하여 AWS 비용과 사용량을 관리하는 방법을 이해하는 데 도움이 됩니다.
+Cost Management에 대 한 비용 및 사용 현황 보고서 통합을 설정 하 고 구성한 후에는 AWS 비용 및 사용량을 AWS 관리할 준비가 되었습니다. 이 문서는 Cost Management에서 비용 분석 및 예산을 사용하여 AWS 비용과 사용량을 관리하는 방법을 이해하는 데 도움이 됩니다.
 
 통합을 아직 구성하지 않은 경우 [AWS 사용 현황 보고서 통합 설정 및 구성](aws-integration-set-up-configure.md)을 참조하세요.
 
@@ -151,7 +151,7 @@ AWS 연결 계정 비용에 액세스할 수 있는 권한을 얻는 방법에�
 
 **오류 코드:** _AccessDeniedReportDefinitions_
 
-이 오류는 Cost Management에서 비용 및 사용 현황 보고서 정의를 볼 수 없음을 의미합니다. 이 사용 권한은 Azure Cost Management에 의해 CUR이 예상대로 정의되었는지 확인하는 데 사용됩니다. [AWS에서 비용 및 사용 현황 보고서 만들기](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws)를 참조하세요.
+이 오류는 Cost Management에서 비용 및 사용 현황 보고서 정의를 볼 수 없음을 의미합니다. 이 사용 권한은 Cost Management에 의해 c u r n이 예상 대로 정의 되었는지 확인 하는 데 사용 됩니다. [AWS에서 비용 및 사용 현황 보고서 만들기](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws)를 참조하세요.
 
 ### <a name="collection-failed-with-access-denied---list-reports"></a>액세스 거부로 인해 수집 실패 - 보고서 나열
 

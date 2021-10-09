@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/06/2021
-ms.openlocfilehash: 169689e34339f33b1a1477056612b1801b2d9fef
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 9fe443422bac06ccb934a34799bc29be29c45cb5
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129614197"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714669"
 ---
 # <a name="import-data-wizard-in-azure-cognitive-search"></a>Azure Cognitive Search에서 데이터 가져오기 마법사
 
@@ -21,7 +21,7 @@ Azure Portal의 **데이터 가져오기 마법사** 는 검색 서비스에서 
 
 개념 증명 테스트를 위해 마법사를 사용 하는 경우이 문서에서는 더 효과적으로 사용할 수 있도록 마법사의 내부 기능을 설명 합니다.
 
-이 문서는 단계별로 설명 하지 않습니다. 기본 제공 샘플 데이터와 함께 마법사를 사용 하는 방법에 대 한 도움말은 [빠른 시작: 검색 인덱스 만들기](search-get-started-portal.md) 또는 [빠른 시작: 기술 만들기](cognitive-search-quickstart-blob.md)를 참조 하세요.
+이 문서는 단계별로 설명 하지 않습니다. 기본 제공 샘플 데이터와 함께 마법사를 사용 하는 방법에 대 한 도움말은 [빠른 시작: 검색 인덱스 만들기](search-get-started-portal.md) 또는 [빠른 시작: 텍스트 번역 및 엔터티 기술 만들기](cognitive-search-quickstart-blob.md)를 참조 하세요.
 
 ## <a name="starting-the-wizard"></a>마법사 시작
 

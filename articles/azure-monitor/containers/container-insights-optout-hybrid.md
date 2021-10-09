@@ -4,12 +4,12 @@ description: 이 문서에서는 컨테이너 인사이트를 사용하여 하�
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bd13c3e3c3a1aca3253bc43377a15324db2cc4fb
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
-ms.translationtype: HT
+ms.openlocfilehash: b8f548b8e9440804ae6a7ff293c35e7107cfc4c8
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319938"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708930"
 ---
 # <a name="how-to-stop-monitoring-your-hybrid-cluster"></a>하이브리드 클러스터 모니터링 중지 방법
 
@@ -17,7 +17,7 @@ Kubernetes 클러스터에 대한 모니터링을 사용하도록 설정한 후 
 
 - Azure 및 Azure Stack의 AKS 엔진
 - OpenShift 버전 4 이상
-- Azure Arc 사용 Kubernetes(미리 보기)
+- Azure Arc 사용 Kubernetes (미리 보기)
 
 ## <a name="how-to-stop-monitoring-using-helm"></a>Helm을 사용하여 모니터링을 중지하는 방법
 
@@ -57,7 +57,7 @@ Kubernetes 클러스터에 대한 모니터링을 사용하도록 설정한 후 
 
 구성 변경을 완료하려면 몇 분 정도 걸릴 수 있습니다. Helm은 릴리스를 삭제한 후에도 해당 릴리스를 추적하므로 클러스터의 기록을 감사할 수 있으며, `helm rollback`으로 릴리스를 삭제 취소할 수도 있습니다.
 
-## <a name="how-to-stop-monitoring-on-arc-enabled-kubernetes"></a>Arc 사용 Kubernetes에 대한 모니터링 중지 방법
+## <a name="how-to-stop-monitoring-on-azure-arc-enabled-kubernetes"></a>Azure Arc 사용 Kubernetes에서 모니터링을 중지 하는 방법
 
 ### <a name="using-powershell"></a>PowerShell 사용
 
@@ -89,7 +89,7 @@ Kubernetes 클러스터에 대한 모니터링을 사용하도록 설정한 후 
 *disable-monitoring.ps1* 스크립트는 대화형 디바이스 로그인을 사용합니다. 비 대화형 로그인을 선호하는 경우 [사전 요구 사항](container-insights-enable-arc-enabled-clusters.md#prerequisites)에 설명된 대로 기존 서비스 주체를 사용하거나 필요한 권한이 있는 새 서비스 주체를 생성할 수 있습니다. 서비스 주체를 사용하려면 enable-monitoring.ps1 스크립트에 사용하려는 서비스 주체의 값을 $servicePrincipalClientId, $servicePrincipalClientSecret 및 $tenantId 매개 변수를 전달해야 합니다.
 
 ```powershell
-$subscriptionId = "<subscription Id of the Azure Arc connected cluster resource>"
+$subscriptionId = "<subscription Id of the Azure Arc-connected cluster resource>"
 $servicePrincipal = New-AzADServicePrincipal -Role Contributor -Scope "/subscriptions/$subscriptionId"
 
 $servicePrincipalClientId =  $servicePrincipal.ApplicationId.ToString()
@@ -142,7 +142,7 @@ $tenantId = (Get-AzSubscription -SubscriptionId $subscriptionId).TenantId
 *disable-monitoring.sh* bash 스크립트는 대화형 디바이스 로그인을 사용합니다. 비 대화형 로그인을 선호하는 경우 [사전 요구 사항](container-insights-enable-arc-enabled-clusters.md#prerequisites)에 설명된 대로 기존 서비스 주체를 사용하거나 필요한 권한이 있는 새 서비스 주체를 생성할 수 있습니다. 서비스 주체를 사용하려면 사용하려는 서비스 주체의 --client-id, --client-secret 및 --tenant-id 값을 *enable-monitoring.sh* bash 스크립트에 전달해야 합니다.
 
 ```bash
-subscriptionId="<subscription Id of the Azure Arc connected cluster resource>"
+subscriptionId="<subscription Id of the Azure Arc-connected cluster resource>"
 servicePrincipal=$(az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${subscriptionId}")
 servicePrincipalClientId=$(echo $servicePrincipal | jq -r '.appId')
 

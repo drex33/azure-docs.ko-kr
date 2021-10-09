@@ -10,28 +10,28 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.date: 07/08/2021
-ms.openlocfilehash: e92e60355c5abcded77d679be30c37f147d3e63d
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: d86abb52b5282c70e99abc68da75c4b5f85ecbb8
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129669875"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129712074"
 ---
 # <a name="azure-machine-learning-curated-environments"></a>Azure Machine Learning 큐레이팅된 환경
 
-이 문서에서는 Azure Machine Learning 최신 프레임워크 버전이 있는 큐레이팅된 환경을 나열합니다. 큐레이팅된 환경은 Azure Machine Learning에서 제공하며 기본적으로 작업 영역에서 사용할 수 있습니다. 최신 버전의 Azure Machine Learning SDK를 사용하는 캐시된 Docker 이미지에서 지원되므로 실행 준비 비용을 줄이고 배포 시간을 단축할 수 있습니다. 이러한 환경을 사용하여 다양한 기계 학습 프레임워크를 빠르게 시작할 수 있습니다.
+이 문서에서는 Azure Machine Learning의 최신 프레임 워크 버전이 포함 된 큐 레이트 환경을 나열 합니다. 큐레이팅된 환경은 Azure Machine Learning에서 제공하며 기본적으로 작업 영역에서 사용할 수 있습니다. 최신 버전의 Azure Machine Learning SDK를 사용하는 캐시된 Docker 이미지에서 지원되므로 실행 준비 비용을 줄이고 배포 시간을 단축할 수 있습니다. 이러한 환경을 사용하여 다양한 기계 학습 프레임워크를 빠르게 시작할 수 있습니다.
 
 > [!NOTE]
-> Python [SDK,](how-to-use-environments.md) [CLI](/cli/azure/ml/environment?view=azure-cli-latest&preserve-view=true#az_ml_environment_list)또는 Azure Machine Learning [Studio를](how-to-manage-environments-in-studio.md) 사용하여 환경 및 해당 의존성의 전체 목록을 확인합니다. 자세한 내용은 [환경 문서](how-to-use-environments.md#use-a-curated-environment)를 참조하세요. 
+> [Python SDK](how-to-use-environments.md), [CLI](/cli/azure/ml/environment?view=azure-cli-latest&preserve-view=true#az_ml_environment_list)또는 Azure Machine Learning [studio](how-to-manage-environments-in-studio.md) 를 사용 하 여 환경의 전체 목록 및 해당 종속성을 가져옵니다. 자세한 내용은 [환경 문서](how-to-use-environments.md#use-a-curated-environment)를 참조하세요. 
 
-## <a name="training-curated-environments"></a>큐레이팅된 환경 학습
+## <a name="training-curated-environments"></a>큐 레이트 환경 교육
 
 ### <a name="pytorch"></a>PyTorch
 
-**이름:** AzureML-pytorch-1.9-ubuntu18.04-py37-cuda11-gpu  
-**설명:** AzureML Python SDK 및 추가 Python 패키지를 포함하는 PyTorch를 이용한 딥 러닝 환경입니다.  
+**이름**: AzureML-pytorch-1.9-ubuntu 18.04-py37-cuda11  
+**설명**: AZUREML python SDK 및 추가 Python 패키지를 포함 하는 PyTorch를 사용 하는 심층 학습을 위한 환경입니다.  
 
-다음 Dockerfile은 개인 워크플로에 맞게 사용자 지정할 수 있습니다.
+개인 워크플로에 대해 다음 Dockerfile을 사용자 지정할 수 있습니다.
 
 ```dockerfile
 FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.1-cudnn8-ubuntu18.04:20211005.v1
@@ -77,16 +77,16 @@ RUN HOROVOD_WITH_PYTORCH=1 \
 ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
 ```
 
-사용 가능한 다른 PyTorch 환경:
-* AzureML-pytorch-1.8-ubuntu18.04-py37-cuda11-gpu
+사용 가능한 기타 PyTorch 환경:
+* Pytorch-1.8-ubuntu 18.04-py37-cuda11
 * AzureML-pytorch-1.7-ubuntu18.04-py37-cuda11-gpu
 
 ### <a name="lightgbm"></a>LightGBM
 
-**이름:** AzureML-lightgbm-3.2-ubuntu18.04-py37-cpu  
-**설명:** AzureML Python SDK 및 추가 패키지를 포함하는 Scikit-learn, LightGBM, XGBoost, Dask를 포함하는 기계 학습 환경입니다.  
+**이름**: AzureML-lightgbm-3.2-ubuntu 18.04-py37-cpu  
+**설명**: Scikit를 사용 하는 기계 학습 환경-배우기, LightGBM, XGBoost, AZUREML Python SDK 및 추가 패키지를 포함 하는 dask.  
 
-다음 Dockerfile은 개인 워크플로에 맞게 사용자 지정할 수 있습니다.
+개인 워크플로에 대해 다음 Dockerfile을 사용자 지정할 수 있습니다.
 
 ```dockerfile
 FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20211005.v1
@@ -126,10 +126,10 @@ ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
 ```
 
 ### <a name="sklearn"></a>Sklearn
-**이름:** AzureML-sklearn-0.24-ubuntu18.04-py37-cuda11-gpu  
-**설명:** Scikit-learn을 통해 회귀, 클러스터링 및 분류와 같은 작업을 위한 환경입니다. Azure ML Python SDK 및 추가 python 패키지가 들어 있습니다.  
+**이름**: AzureML-기능 배우기-0.24-ubuntu 18.04-py37-cuda11-gpu  
+**설명**: Scikit를 사용 하 여 회귀, 클러스터링, 분류 등의 작업 환경입니다. Azure ML Python SDK 및 추가 python 패키지가 들어 있습니다.  
 
-다음 Dockerfile은 개인 워크플로에 맞게 사용자 지정할 수 있습니다.
+개인 워크플로에 대해 다음 Dockerfile을 사용자 지정할 수 있습니다.
 
 ```dockerfile
 FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20211005.v1
@@ -163,10 +163,10 @@ ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
 
 ### <a name="tensorflow"></a>TensorFlow
 
-**이름:** AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11-gpu  
-**설명:** AzureML Python SDK 및 추가 Python 패키지를 포함하는 Tensorflow를 포함하는 딥 러닝 환경입니다.  
+**이름**: AzureML-tensorflow-2.4-ubuntu 18.04-py37-cuda11  
+**설명**: AZUREML python SDK 및 추가 Python 패키지를 포함 하는 Tensorflow를 사용 하는 심층 학습을 위한 환경입니다.  
 
-다음 Dockerfile은 개인 워크플로에 맞게 사용자 지정할 수 있습니다.
+개인 워크플로에 대해 다음 Dockerfile을 사용자 지정할 수 있습니다.
 
 ```dockerfile
 FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04:20211005.v1
@@ -216,51 +216,10 @@ AutoML을 사용하는 Azure ML 파이프라인 교육 워크플로는 컴퓨팅
 
 AutoML 및 Azure ML 파이프라인에 대한 자세한 내용은 [Python의 Azure Machine Learning 파이프라인에서 자동화된 ML 사용](how-to-use-automlstep-in-pipelines.md)을 참조하세요.
 
-## <a name="inference-only-curated-environments-and-prebuilt-docker-images"></a>큐레이팅된 환경 및 미리 빌드된 Docker 이미지만 유추
+## <a name="inference-curated-environments-and-prebuilt-docker-images"></a>유추 큐 레이트 환경 및 미리 빌드된 docker 이미지
 
-* 모든 docker 이미지는 루트가 아닌 사용자로 실행됩니다.
-* Docker 이미지에는 `latest` 태그를 사용하는 것이 좋습니다. 유추를 위해 미리 빌드된 Docker 이미지는 MCR(Microsoft 컨테이너 레지스트리)에 게시되며 사용 가능한 태그 목록을 쿼리하려면 [GitHub 리포지토리의 지침](https://github.com/microsoft/ContainerRegistry#browsing-mcr-content)을 따르세요.
-
-### <a name="tensorflow"></a>TensorFlow
-
-프레임워크 버전 | CPU/GPU | 미리 설치된 패키지 | MCR 경로 | 큐레이팅된 환경
- --- | --- | --- | --- | --- |
- 1.15 | CPU | pandas==0.25.1 </br> numpy=1.20.1 | `mcr.microsoft.com/azureml/tensorflow-1.15-ubuntu18.04-py37-cpu-inference:latest`  | AzureML-tensorflow-1.15-ubuntu18.04-py37-cpu-inference | 
-2.4 | CPU | numpy>=1.16.0 </br> pandas~=1.1.x | `mcr.microsoft.com/azureml/tensorflow-2.4-ubuntu18.04-py37-cpu-inference:latest` | AzureML-tensorflow-2.4-ubuntu18.04-py37-cpu-inference |
-2.4 | GPU | numpy >= 1.16.0 </br> pandas~=1.1.x </br> CUDA==11.0.3 </br> CuDNN==8.0.5.39 | `mcr.microsoft.com/azureml/tensorflow-2.4-ubuntu18.04-py37-cuda11.0.3-gpu-inference:latest` | AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11.0.3-gpu-inference |
-
-### <a name="pytorch"></a>PyTorch
-
-프레임워크 버전 | CPU/GPU | 미리 설치된 패키지 | MCR 경로 | 큐레이팅된 환경
- --- | --- | --- | --- | --- |
- 1.6 | CPU | numpy==1.20.1 </br> pandas==0.25.1 | `mcr.microsoft.com/azureml/pytorch-1.6-ubuntu18.04-py37-cpu-inference:latest` | AzureML-pytorch-1.6-ubuntu18.04-py37-cpu-inference |
-1.7 | CPU | numpy>=1.16.0 </br> pandas~=1.1.x | `mcr.microsoft.com/azureml/pytorch-1.7-ubuntu18.04-py37-cpu-inference:latest` | AzureML-pytorch-1.7-ubuntu18.04-py37-cpu-inference |
-
-### <a name="scikit-learn"></a>SciKit-Learn
-
-프레임워크 버전 | CPU/GPU | 미리 설치된 패키지 | MCR 경로 | 큐레이팅된 환경
- --- | --- | --- | --- | --- |
-0.24.1  | CPU | scikit-learn==0.24.1 </br> numpy>=1.16.0 </br> pandas~=1.1.x | `mcr.microsoft.com/azureml/sklearn-0.24.1-ubuntu18.04-py37-cpu-inference:latest` | AzureML-sklearn-0.24.1-ubuntu18.04-py37-cpu-inference |
-
-### <a name="onnx-runtime"></a>ONNX Runtime
-
-프레임워크 버전 | CPU/GPU | 미리 설치된 패키지 | MCR 경로 | 큐레이팅된 환경
- --- | --- | --- | --- | --- |
-1.6 | CPU | numpy>=1.16.0 </br> pandas~=1.1.x | `mcr.microsoft.com/azureml/onnxruntime-1.6-ubuntu18.04-py37-cpu-inference:latest` |AzureML-onnxruntime-1.6-ubuntu18.04-py37-cpu-inference |
-
-### <a name="xgboost"></a>XGBoost
-
-프레임워크 버전 | CPU/GPU | 미리 설치된 패키지 | MCR 경로 | 큐레이팅된 환경
- --- | --- | --- | --- | --- |
-0.9 | CPU | scikit-learn==0.23.2 </br> numpy==1.20.1 </br> pandas==0.25.1 | `mcr.microsoft.com/azureml/xgboost-0.9-ubuntu18.04-py37-cpu-inference:latest` | AzureML-xgboost-0.9-ubuntu18.04-py37-cpu-inference | 
-
-### <a name="no-framework"></a>프레임워크 없음
-
-프레임워크 버전 | CPU/GPU | 미리 설치된 패키지 | MCR 경로 | 큐레이팅된 환경
- --- | --- | --- | --- | --- |
-해당 없음 | CPU | 해당 없음 | `mcr.microsoft.com/azureml/minimal-ubuntu18.04-py37-cpu-inference:latest` | AzureML-minimal-ubuntu18.04-py37-cpu-inference  |
-
+[!INCLUDE [list-of-inference-prebuilt-docker-images](../../includes/aml-inference-list-prebuilt-docker-images.md)]
 
 ## <a name="security"></a>보안
-지원 되는 환경에 대 한 버전 업데이트는 30 일 보다 오래 된 vulnerabilties를 해결 하기 위해 2 주마다 릴리스됩니다. 
+지원 되는 환경에 대 한 버전 업데이트는 30 일이 넘은 취약점을 해결 하기 위해 2 주마다 릴리스됩니다. 
 

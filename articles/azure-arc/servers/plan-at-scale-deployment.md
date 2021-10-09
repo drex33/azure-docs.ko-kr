@@ -3,14 +3,14 @@ title: Azure Arc 지원 서버를 계획하고 배포하는 방법
 description: Azure Arc 지원 서버에서 많은 수의 머신을 사용하도록 설정하여 Azure에서 필수적인 보안, 관리, 모니터링 기능의 구성을 간소화하는 방법을 알아봅니다.
 ms.date: 08/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: a7494bb45eeed9392a44aef400483cd9cfcfb091
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 0a8bd9187d3d8d2394fe340eb1822f45e17a50b7
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124788936"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708967"
 ---
-# <a name="plan-and-deploy-azure-arc-enabled-servers"></a>Azure Arc 사용 서버 계획 및 배포
+# <a name="plan-and-deploy-azure-arc-enabled-servers"></a>Azure Arc 지원 서버 계획 및 배포
 
 IT 인프라 서비스나 비즈니스 애플리케이션을 배포하는 것은 어떤 회사에서든 어려워 하는 작업입니다. 이 작업을 잘 실행하고 예기치 못한 상황과 계획에 없던 비용 지출을 방지하려면 가능한 한 최선의 준비 상태를 유지하도록 철저한 계획을 수립해야 합니다. 규모와 관계없이 Azure Arc 지원 서버에 대한 계획을 세우려면 작업을 성공적으로 완료하기 위해 충족해야 하는 디자인 및 배포 기준을 계획에 포함해야 합니다.
 
@@ -35,7 +35,7 @@ IT 인프라 서비스나 비즈니스 애플리케이션을 배포하는 것은
 
 * 머신이 Connected Machine 에이전트에 대해 [지원되는 운영 체제](agent-overview.md#supported-operating-systems)를 실행합니다.
 * 머신이 직접적이든 프록시 서버를 통해서든 온-프레미스 네트워크 또는 다른 클라우드 환경에서 Azure의 리소스에 대한 연결을 보유하고 있습니다.
-* Azure Arc 사용 서버 연결 된 컴퓨터 에이전트를 설치 하 고 구성 하려면 컴퓨터에 대 한 관리자 권한 (즉, 관리자 또는 루트) 권한이 있는 계정입니다.
+* Azure Arc 지원 서버 Connected Machine 에이전트를 설치하고 구성하려면 컴퓨터에 관리자 권한(즉, 관리자 또는 루트) 권한이 있는 계정입니다.
 * 머신을 등록하려면 **Azure Connected Machine Onboarding** 역할의 멤버여야 합니다.
 * 머신을 읽고, 수정하고, 삭제하려면 **Azure Connected Machine 리소스 관리자** 역할의 구성원이어야 합니다.
 
@@ -56,22 +56,22 @@ IT 인프라 서비스나 비즈니스 애플리케이션을 배포하는 것은
 
 ## <a name="phase-1-build-a-foundation"></a>1단계: 기반 빌드
 
-이 단계에서 시스템 엔지니어 또는 관리자는 Azure Arc 사용 서버 및 기타 Azure 서비스에서 관리 하도록 컴퓨터를 설정 하기 전에 조직의 Azure 구독에서 핵심 기능을 사용 하도록 설정 하 여 기반을 시작 합니다.
+이 단계에서 시스템 엔지니어 또는 관리자는 Azure Arc 지원 서버 및 기타 Azure 서비스를 통해 머신을 관리하도록 설정하기 전에 조직 Azure 구독의 핵심 기능을 통해 기초를 시작할 수 있도록 합니다.
 
 |Task |세부 정보 |Duration |
 |-----|-------|---------|
-| [리소스 그룹 만들기](../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) | Azure Arc 사용 서버만 포함 하 고 이러한 리소스에 대 한 중앙 집중식 관리 및 모니터링을 위한 전용 리소스 그룹입니다. | 1시간 |
-| 머신을 구성하는 데 도움이 되는 [태그](../../azure-resource-manager/management/tag-resources.md)를 적용합니다. | Azure Arc 사용 서버를 관리 하는 복잡성을 줄이고 관리 결정을 간소화 하는 데 도움이 되는 IT에 맞춘 [태그 지정 전략](/azure/cloud-adoption-framework/decision-guides/resource-tagging/) 을 평가 하 고 개발 합니다. | 1일 |
+| [리소스 그룹 만들기](../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) | Azure Arc 지원 서버만 포함하고 이러한 리소스의 관리 및 모니터링을 중앙 집중화하는 전용 리소스 그룹입니다. | 1시간 |
+| 머신을 구성하는 데 도움이 되는 [태그](../../azure-resource-manager/management/tag-resources.md)를 적용합니다. | Azure Arc 지원 서버를 관리하는 [복잡성을](/azure/cloud-adoption-framework/decision-guides/resource-tagging/) 줄이고 관리 결정을 간소화하는 데 도움이 되는 IT 정렬 태그 지정 전략을 평가하고 개발합니다. | 1일 |
 | [Azure Monitor 로그](../../azure-monitor/logs/data-platform-logs.md) 디자인 및 배포 | [디자인 및 배포 고려 사항](../../azure-monitor/logs/design-logs-deployment.md)을 평가하여 조직에서 하이브리드 서버 및 머신에서 수집된 로그 데이터를 저장하기 위해 기존의 Log Analytics 작업 영역을 사용하거나 다른 Log Analytics 작업 영역을 구현할지 결정합니다.<sup>1</sup> | 1일 |
 | [Azure Policy](../../governance/policy/overview.md) 거버넌스 계획 개발 | Azure Policy를 사용하여 구독 또는 리소스 그룹 범위에서 하이브리드 서버 및 머신의 거버넌스를 구현하는 방법을 결정합니다. | 1일 |
-| RBAC([역할 기반 액세스 제어](../../role-based-access-control/overview.md)) 구성 | 액세스 계획을 개발 하 여 Azure Arc 사용 서버를 관리 하 고 다른 Azure 서비스 및 솔루션에서 데이터를 볼 수 있는 권한을 가진 사용자를 제어 합니다. | 1일 |
+| RBAC([역할 기반 액세스 제어](../../role-based-access-control/overview.md)) 구성 | Azure Arc 지원 서버를 관리할 수 있는 액세스 권한이 있는 사람과 다른 Azure 서비스 및 솔루션에서 해당 데이터를 볼 수 있는 기능을 제어하는 액세스 계획을 개발합니다. | 1일 |
 | Log Analytics 에이전트가 이미 설치된 머신 식별 | [Log Analytics](../../azure-monitor/logs/log-analytics-overview.md)에서 다음 로그 쿼리를 실행하여 기존 Log Analytics 에이전트 배포를 확장 관리형 에이전트로 변환하도록 지원합니다.<br> 하트비트 <br> &#124; where TimeGenerated > ago(30d) <br> &#124; where ResourceType == "machines" and (ComputerEnvironment == "Non-Azure") <br> &#124; summarize by Computer, ResourceProvider, ResourceType, ComputerEnvironment | 1시간 |
 
 <sup>1</sup> Log Analytics 작업 영역 디자인을 평가하는 과정에서 중요한 고려 사항은 업데이트 관리와 변경 내용 추적 및 인벤토리 기능을 지원하는 Azure Automation, 그리고 Azure Security Center 및 Azure Sentinel과의 통합입니다. 조직에 이미 Automation 계정이 있고 Log Analytics 작업 영역에 연결된 관리 기능을 사용하도록 설정한 경우, 기존 리소스를 사용하는 것과 중복 계정, 작업 영역 등을 생성하는 것을 비교하여 관리 작업을 중앙 집중화하고 간소화하며 비용을 최소화할 수 있는지를 평가할 수 있습니다.
 
-## <a name="phase-2-deploy-azure-arc-enabled-servers"></a>2 단계: Azure Arc 사용 서버 배포
+## <a name="phase-2-deploy-azure-arc-enabled-servers"></a>2단계: Azure Arc 지원 서버 배포
 
-다음으로, Azure Arc 사용 서버 연결 된 컴퓨터 에이전트를 준비 하 고 배포 하 여 1 단계에 추가 된 기반에 추가 합니다.
+다음으로, Azure Arc 지원 서버 Connected Machine 에이전트를 준비하고 배포하여 1단계에 배치된 기반에 추가합니다.
 
 |Task |세부 정보 |Duration |
 |-----|-------|---------|
@@ -85,10 +85,10 @@ IT 인프라 서비스나 비즈니스 애플리케이션을 배포하는 것은
 
 |Task |세부 정보 |Duration |
 |-----|-------|---------|
-|Resource Health 경고 만들기 |서버에서 Azure로의 하트비트 전송을 15분 이상 중지하는 경우에는 오프라인 상태이거나, 네트워크 연결이 차단되었거나, 에이전트가 실행 중이지 않을 수 있습니다. 해당 인시던트에 응답하고 인시던트를 조사하는 방법에 대한 계획을 수립하고 [Resource Health 경고](../..//service-health/resource-health-alert-monitor-guide.md)를 사용하여 시작 시 알림을 받을 수 있습니다.<br><br> 경고를 구성할 때 다음을 지정합니다.<br> **리소스 종류**  =  **Azure Arc – 사용 서버**<br> **현재 리소스 상태** = **사용할 수 없음**<br> **이전 리소스 상태** = **사용 가능함** | 1시간 |
+|Resource Health 경고 만들기 |서버에서 Azure로의 하트비트 전송을 15분 이상 중지하는 경우에는 오프라인 상태이거나, 네트워크 연결이 차단되었거나, 에이전트가 실행 중이지 않을 수 있습니다. 해당 인시던트에 응답하고 인시던트를 조사하는 방법에 대한 계획을 수립하고 [Resource Health 경고](../..//service-health/resource-health-alert-monitor-guide.md)를 사용하여 시작 시 알림을 받을 수 있습니다.<br><br> 경고를 구성할 때 다음을 지정합니다.<br> **리소스 종류** = **Azure Arc 지원 서버**<br> **현재 리소스 상태** = **사용할 수 없음**<br> **이전 리소스 상태** = **사용 가능함** | 1시간 |
 |Azure Advisor 경고 만들기 | 최상의 경험과 최신 보안 및 버그 수정을 위해 Azure Arc 지원 서버 에이전트를 최신 상태로 유지하는 것이 좋습니다. 만료된 에이전트는 [Azure Advisor 경고](../../advisor/advisor-alerts-portal.md)로 식별됩니다.<br><br> 경고를 구성할 때 다음을 지정합니다.<br> **권장 형식** = **최신 버전 Azure Connected Machine Agent로 업그레이드** | 1시간 |
 |구독 또는 리소스 그룹 범위에 [Azure 정책 할당](../../governance/policy/assign-policy-portal.md) |구독 또는 리소스 그룹 범위에 **VM용 Azure Monitor 사용 설정** [정책](../../azure-monitor/vm/vminsights-enable-policy.md)(및 요구를 충족하는 다른 항목)을 할당합니다. Azure Policy를 사용하면 환경 전반에 걸쳐 VM 인사이트에 필요한 에이전트를 설치하는 정책 정의를 할당할 수 있습니다.| 상황에 따라 다름 |
-|[Azure Arc 사용 서버에 업데이트 관리 사용](../../automation/update-management/enable-from-automation-account.md) |Azure Automation 업데이트 관리 구성하여 Azure Arc 지원 서버에 등록된 Windows 및 Linux 가상 머신에 대한 운영 체제 업데이트를 관리합니다. | 15분 |
+|[Azure Arc 사용 서버에 대 한 업데이트 관리 사용](../../automation/update-management/enable-from-automation-account.md) |Azure Automation에서 업데이트 관리를 구성 하 여 Azure Arc 사용 서버에 등록 된 Windows 및 Linux 가상 머신에 대 한 운영 체제 업데이트를 관리 합니다. | 15분 |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,35 +1,35 @@
 ---
-title: Azure Arc 지원 Logic Apps를 사용하여 워크플로 만들기 및 배포
+title: Azure Arc 사용 Logic Apps를 사용 하 여 워크플로 만들기 및 배포
 description: Kubernetes가 실행할 수 있는 모든 위치에서 실행되는 단일 테넌트 기반 논리 앱 워크플로를 만들고 배포합니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, ladolan, reylons, archidda, sopai, azla
 ms.topic: how-to
 ms.date: 06/03/2021
-ms.openlocfilehash: a3ccea075dd4ce4bce06b31fdbe6dc2a55812ebc
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
-ms.translationtype: HT
+ms.openlocfilehash: 17c9eb020d62207910008fb032872bd609df553f
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111754082"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129712299"
 ---
-# <a name="create-and-deploy-single-tenant-based-logic-app-workflows-with-azure-arc-enabled-logic-apps-preview"></a>Azure Arc 지원 Logic Apps(미리 보기)를 사용하여 단일 테넌트 기반 논리 앱 워크플로 만들기 및 배포
+# <a name="create-and-deploy-single-tenant-based-logic-app-workflows-with-azure-arc-enabled-logic-apps-preview"></a>Azure Arc 사용 Logic Apps (미리 보기)를 사용 하 여 단일 테 넌 트 기반 논리 앱 워크플로 만들기 및 배포
 
 > [!NOTE]
 > 이 기능은 미리 보기로 제공되고 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)이 적용됩니다.
 
-Azure Arc 지원 Logic Apps 및 Azure Portal을 사용하면 단일 테넌트 기반 논리 앱 워크플로를 만들어서 운영 및 관리하는 Kubernetes 인프라에 배포할 수 있습니다. 논리 앱은 Azure App Service 플랫폼 확장 번들을 설치하고 사용하도록 설정한 Azure Arc 지원 Kubernetes 클러스터에 매핑된 *사용자 지정 위치* 에서 실행됩니다.
+Azure Arc 사용 Logic Apps 및 Azure Portal를 사용 하 여 단일 테 넌 트 기반 논리 앱 워크플로를 만들고, 운영 및 관리 하는 Kubernetes 인프라에 배포할 수 있습니다. 논리 앱은 Azure App Service 플랫폼 확장 번들을 설치 하 고 사용 하도록 설정한 Azure Arc 사용 Kubernetes 클러스터에 매핑된 *사용자 지정 위치* 에서 실행 됩니다.
 
 예를 들어 이 클러스터는 Azure Kubernetes Service, 미설치 Kubernetes 또는 다른 설정일 수 있습니다. 확장 번들을 사용하면 Kubernetes 클러스터에서 Azure Logic Apps, Azure App Service 및 Azure Functions와 같은 플랫폼 서비스를 실행할 수 있습니다. 
 
 자세한 내용은 다음 설명서를 검토하세요.
 
-- [Azure Arc 지원 Logic Apps란?](azure-arc-enabled-logic-apps-overview.md)
+- [Azure Arc 사용 Logic Apps 이란?](azure-arc-enabled-logic-apps-overview.md)
 - [단일 테넌트 대 다중 테넌트 및 통합 서비스 환경](../logic-apps/single-tenant-overview-compare.md)
 - [Azure Arc 개요](../azure-arc/overview.md)
 - [Azure Kubernetes Service 개요](../aks/intro-kubernetes.md)
 - [Azure Arc 지원 Kubernetes란?](../azure-arc/kubernetes/overview.md)
-- [Azure Arc 지원 Kubernetes의 사용자 지정 위치](../azure-arc/kubernetes/conceptual-custom-locations.md)
+- [Azure Arc의 사용자 지정 위치-사용 Kubernetes](../azure-arc/kubernetes/conceptual-custom-locations.md)
 - [Azure Arc의 App Service, Functions 및 Logic Apps(미리 보기)](../app-service/overview-arc-integration.md)
 - [Azure Arc 지원 Kubernetes 클러스터를 설정하여 App Service, Functions 및 Logic Apps 실행(미리 보기)](../app-service/manage-create-arc-environment.md)
 
@@ -39,7 +39,7 @@ Azure Arc 지원 Logic Apps 및 Azure Portal을 사용하면 단일 테넌트 �
 
 - 활성 구독이 있는 Azure 계정. Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Azure Arc 지원 Kubernetes 클러스터가 있는 Kubernetes 환경 및 Azure Logic Apps, Azure App Service, Azure Functions를 호스트하고 실행할 수 있는 *사용자 지정 위치*
+- Azure Logic Apps, Azure App Service 및 Azure Functions를 호스트 하 고 실행할 수 있는 Azure Arc 사용 Kubernetes 클러스터와 *사용자 지정 위치* 를 사용 하는 Kubernetes 환경입니다.
 
   > [!IMPORTANT]
   > Kubernetes 환경, 사용자 지정 위치 및 논리 앱에 대해 동일한 리소스 위치를 사용해야 합니다.
@@ -51,16 +51,16 @@ Azure Arc 지원 Logic Apps 및 Azure Portal을 사용하면 단일 테넌트 �
   자세한 내용은 다음 설명서를 검토하세요.
 
   - [Azure Arc의 App Service, Functions 및 Logic Apps(미리 보기)](../app-service/overview-arc-integration.md)
-  - [Azure Arc 지원 Kubernetes의 클러스터 확장](../azure-arc/kubernetes/conceptual-extensions.md)
+  - [Azure Arc의 클러스터 확장-사용 Kubernetes](../azure-arc/kubernetes/conceptual-extensions.md)
   - [Azure Arc 지원 Kubernetes 클러스터를 설정하여 App Service, Functions 및 Logic Apps 실행(미리 보기)](../app-service/manage-create-arc-environment.md)
   - [기본 크기 조정 동작 변경](#change-scaling)
 
 - 자체 Azure AD(Azure Active Directory) ID
 
-  워크플로에서 Office 365 Outlook 또는 Azure Storage와 같은 Azure에서 호스트되는 연결을 사용해야 하는 경우 논리 앱은 인증을 위해 Azure AD ID를 사용해야 합니다. Azure Arc 지원 Logic Apps는 모든 인프라에서 실행할 수 있지만 Azure에서 호스트되는 연결을 사용할 권한이 있는 ID가 필요합니다. 이 ID를 설정하려면 논리 앱에서 필수 ID로 사용하는 Azure AD에서 앱 등록을 만듭니다.
+  워크플로에서 Office 365 Outlook 또는 Azure Storage와 같은 Azure에서 호스트되는 연결을 사용해야 하는 경우 논리 앱은 인증을 위해 Azure AD ID를 사용해야 합니다. Azure Arc 사용 Logic Apps은 모든 인프라에서 실행할 수 있지만 Azure에서 호스트 되는 연결을 사용할 수 있는 권한이 있는 id가 필요 합니다. 이 ID를 설정하려면 논리 앱에서 필수 ID로 사용하는 Azure AD에서 앱 등록을 만듭니다.
 
   > [!NOTE]
-  > 관리 ID 지원은 현재 Azure Arc 지원 Logic Apps에서 사용할 수 없습니다.
+  > 관리 id 지원은 현재 Azure Arc 사용 Logic Apps에서 사용할 수 없습니다.
 
   Azure CLI를 사용하여 Azure AD(Azure Active Directory) 앱 등록을 만들려면 다음 단계를 수행합니다.
 
@@ -168,7 +168,7 @@ az group create --name MyResourceGroupName
 
 #### <a name="create-logic-app"></a>논리 앱 만들기
 
-Azure Arc 지원 논리 앱을 만들려면 `az logicapp create` 명령을 다음 필수 매개 변수와 함께 실행합니다. 논리 앱, 사용자 지정 위치 및 Kubernetes 환경의 리소스 위치는 모두 동일해야 합니다.
+Azure Arc 사용 논리 앱을 만들려면 `az logicapp create` 다음 필수 매개 변수를 사용 하 여 명령을 실행 합니다. 논리 앱, 사용자 지정 위치 및 Kubernetes 환경의 리소스 위치는 모두 동일해야 합니다.
 
 | 매개 변수 | Description |
 |------------|-------------|
@@ -183,7 +183,7 @@ az logicapp create --name MyLogicAppName
    --storage-account MyStorageAccount --custom-location MyCustomLocation
 ```
 
-프라이빗 Azure Container Registry 이미지를 사용하여 Azure Arc 지원 논리 앱을 만들려면 다음 필수 매개 변수와 함께 `az logicapp create` 명령을 실행합니다.
+개인 Azure Container Registry 이미지를 사용 하 여 Azure Arc 사용 논리 앱을 만들려면 `az logicapp create` 다음 필수 매개 변수를 사용 하 여 명령을 실행 합니다.
 
 ```azurecli
 az logicapp create --name MyLogicAppName 
@@ -196,7 +196,7 @@ az logicapp create --name MyLogicAppName
 
 #### <a name="show-logic-app-details"></a>논리 앱 세부 정보 표시
 
-Azure Arc 지원 논리 앱에 대한 세부 정보를 표시하려면 `az logicapp show` 명령을 다음 필수 매개 변수와 함께 실행합니다.
+Azure Arc 사용 논리 앱에 대 한 세부 정보를 표시 하려면 `az logicapp show` 다음 필수 매개 변수를 사용 하 여 명령을 실행 합니다.
 
 ```azurecli
 az logicapp show --name MyLogicAppName 
@@ -205,7 +205,7 @@ az logicapp show --name MyLogicAppName
 
 #### <a name="deploy-logic-app"></a>논리 앱 배포
 
-[Azure App Service의 Kudu zip 배포](../app-service/resources-kudu.md)를 사용하여 Azure Arc 지원 논리 앱을 배포하려면 다음 필수 매개 변수와 함께 `az logicapp deployment source config-zip` 명령을 실행합니다.
+[Azure App Service의 Kudu zip 배포](../app-service/resources-kudu.md)를 사용 하 여 Azure Arc 사용 논리 앱을 배포 하려면 `az logicapp deployment source config-zip` 다음과 같은 필수 매개 변수를 사용 하 여 명령을 실행 합니다.
 
 > [!IMPORTANT]
 > zip 파일에 루트 수준의 프로젝트 아티팩트가 포함되어 있는지 확인합니다. 이러한 아티팩트에는 모든 워크플로 폴더, host.js, connections.json과 같은 구성 파일 및 기타 관련 파일이 포함됩니다. 추가 폴더를 추가하거나 프로젝트 구조에 아직 없는 폴더에 아티팩트를 배치하지 마세요. 예를 들어 이 목록은 MyBuildArtifacts.zip 파일 구조의 예제를 보여줍니다.
@@ -225,7 +225,7 @@ az logicapp deployment source config-zip --name MyLogicAppName
 
 #### <a name="start-logic-app"></a>논리 앱 시작
 
-Azure Arc 지원 논리 앱을 시작하려면 `az logicapp start` 명령을 다음 필수 매개 변수와 함께 실행합니다.
+Azure Arc 사용 논리 앱을 시작 하려면 `az logicapp start` 다음 필수 매개 변수를 사용 하 여 명령을 실행 합니다.
 
 ```azurecli
 az logicapp start --name MyLogicAppName 
@@ -234,7 +234,7 @@ az logicapp start --name MyLogicAppName
 
 #### <a name="stop-logic-app"></a>논리 앱 중지
 
-Azure Arc 지원 논리 앱을 중지하려면 `az logicapp stop` 명령을 다음 필수 매개 변수와 함께 실행합니다.
+Azure Arc 사용 논리 앱을 중지 하려면 `az logicapp stop` 다음 필수 매개 변수를 사용 하 여 명령을 실행 합니다.
 
 ```azurecli
 az logicapp stop --name MyLogicAppName 
@@ -243,7 +243,7 @@ az logicapp stop --name MyLogicAppName
 
 #### <a name="restart-logic-app"></a>논리 앱 다시 시작
 
-Azure Arc 지원 논리 앱을 다시 시작하려면 `az logicapp restart` 명령을 다음 필수 매개 변수와 함께 실행합니다.
+Azure Arc 사용 논리 앱을 다시 시작 하려면 `az logicapp restart` 다음 필수 매개 변수를 사용 하 여 명령을 실행 합니다.
 
 ```azurecli
 az logicapp restart --name MyLogicAppName 
@@ -252,7 +252,7 @@ az logicapp restart --name MyLogicAppName
 
 #### <a name="delete-logic-app"></a>논리 앱 삭제
 
-Azure Arc 지원 논리 앱을 삭제하려면 `az logicapp delete` 명령을 다음 필수 매개 변수와 함께 실행합니다.
+Azure Arc 사용 논리 앱을 삭제 하려면 `az logicapp delete` 다음 필수 매개 변수를 사용 하 여 명령을 실행 합니다.
 
 ```azurecli
 az logicapp delete --name MyLogicAppName 
@@ -261,7 +261,7 @@ az logicapp delete --name MyLogicAppName
 
 ### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-Visual Studio Code 끝에서 끝까지 논리 앱 워크플로를 만들고, 배포하고, 모니터링할 수 있습니다. 단일 테넌트 Azure Logic Apps에서 실행되는 논리 앱 워크플로 개발과 Azure Arc 지원 Logic Apps에서 실행되는 논리 앱 워크플로 개발 간의 디자이너 환경에는 변화나 차이가 없습니다.
+Visual Studio Code 끝에서 끝까지 논리 앱 워크플로를 만들고, 배포하고, 모니터링할 수 있습니다. Azure Arc 사용 Logic Apps와는 단일 테 넌 트 Azure Logic Apps에서 실행 되는 논리 앱 워크플로를 개발 하는 경우와 디자이너 환경에는 변경 사항이 나 차이점이 없습니다.
 
 1. 논리 앱 프로젝트를 만들려면 [Visual Studio Code를 사용하여 단일 테넌트 Azure Logic Apps에서 통합 워크플로 만들기](create-single-tenant-workflows-visual-studio-code.md) 설명서의 필수 구성 요소 및 단계를 따르세요.
 
@@ -271,11 +271,11 @@ Visual Studio Code 끝에서 끝까지 논리 앱 워크플로를 만들고, 배
 
    1. 사용자 지정 위치와 연결된 Azure 구독을 선택합니다.
 
-   1. 새 Azure Arc 지원 Logic Apps 리소스를 만들려면 **Azure에서 새 논리 앱 만들기(고급)** 를 선택합니다. 또는 목록에서 기존 논리 앱 리소스를 선택하고 다음 단계를 건너뛸 수 있습니다.
+   1. 새 Azure Arc 사용 Logic Apps 리소스를 만들려면 **azure에서 새 논리 앱 만들기 (고급)** 를 선택 합니다. 또는 목록에서 기존 논리 앱 리소스를 선택하고 다음 단계를 건너뛸 수 있습니다.
 
    1. 논리 앱에 전역적으로 고유한 이름을 제공합니다.
 
-   1. 배포하려는 Azure Arc 지원 Kubernetes 환경에 대한 사용자 지정 위치를 선택합니다. 대신 일반 Azure 지역을 선택하는 경우 단일 테넌트 Azure Logic Apps에서 실행되는 Azure Arc 비지원 논리 앱 리소스를 만듭니다.
+   1. 배포 하려는 Azure Arc 사용 Kubernetes 환경에 대 한 사용자 지정 위치를 선택 합니다. 대신 일반 Azure 지역을 선택 하는 경우 단일 테 넌 트 Azure Logic Apps에서 실행 되는 비 Azure Arc 사용 논리 앱 리소스를 만듭니다.
 
    1. 논리 앱을 배포하려는 위치에 새 리소스 그룹을 만들거나 선택합니다.
 
@@ -290,15 +290,15 @@ Visual Studio Code 끝에서 끝까지 논리 앱 워크플로를 만들고, 배
       > [!NOTE]
       > 이 단계는 한 번만 완료하면 됩니다. Visual Studio Code에서 프로젝트의 connections.json 파일 및 관리형 API 연결의 액세스 정책이 업데이트됩니다.
 
-1. 완료되면 논리 앱이 Azure Arc 지원 Kubernetes 클러스터에서 활성화되어 실행되고 테스트할 준비가 됩니다.
+1. 완료 되 면 논리 앱은 실시간으로 Azure Arc 사용 Kubernetes 클러스터에서 실행 되므로 테스트할 준비가 되었습니다.
 
 ### <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
-포털 기반 디자이너의 편집 기능은 현재 Azure Arc 지원 Logic Apps용으로 개발 중입니다. 포털 기반 디자이너를 사용하여 논리 앱을 만들고, 배포하고, 볼 수 있지만 배포 후에는 포털에서 편집할 수 없습니다. 지금은 Visual Studio Code에서 로컬로 논리 앱 프로젝트를 만들고 편집한 다음, Visual Studio Code, Azure CLI 또는 자동화된 배포를 사용하여 배포할 수 있습니다.
+포털 기반 디자이너의 편집 기능은 현재 Azure Arc 사용 Logic Apps에 대해 개발 중입니다. 포털 기반 디자이너를 사용하여 논리 앱을 만들고, 배포하고, 볼 수 있지만 배포 후에는 포털에서 편집할 수 없습니다. 지금은 Visual Studio Code에서 로컬로 논리 앱 프로젝트를 만들고 편집한 다음, Visual Studio Code, Azure CLI 또는 자동화된 배포를 사용하여 배포할 수 있습니다.
 
 1. Azure Portal에서 [**논리 앱(표준)** 리소스](create-single-tenant-workflows-azure-portal.md)를 만듭니다. 그러나 **게시** 대상의 경우 **Docker 컨테이너** 를 선택합니다. **지역** 의 경우 이전에 만든 사용자 지정 위치를 앱의 위치로 선택합니다.
 
-   기본적으로 **논리 앱(표준)** 리소스는 단일 테넌트 Azure Logic Apps에서 실행됩니다. 그러나 Azure Arc 지원 Logic Apps의 경우 논리 앱 리소스는 Kubernetes 환경에 대해 만든 사용자 지정 위치에서 실행됩니다. 또한 사용자를 위해 생성되는 App Service 계획을 만들 필요가 없습니다.
+   기본적으로 **논리 앱(표준)** 리소스는 단일 테넌트 Azure Logic Apps에서 실행됩니다. 그러나 Azure Arc 사용 Logic Apps의 경우 논리 앱 리소스가 Kubernetes 환경에 대해 만든 사용자 지정 위치에서 실행 됩니다. 또한 사용자를 위해 생성되는 App Service 계획을 만들 필요가 없습니다.
 
    > [!IMPORTANT]
    > 논리 앱, 사용자 지정 위치 및 Kubernetes 환경의 리소스 위치는 모두 동일해야 합니다.
@@ -313,9 +313,9 @@ Visual Studio Code 끝에서 끝까지 논리 앱 워크플로를 만들고, 배
 
 ## <a name="set-up-connection-authentication"></a>연결 인증 설정
 
-현재 Azure Arc 지원 Kubernetes 클러스터는 논리 앱의 관리 ID를 사용하여 관리형 API 연결을 인증하도록 지원하지 않습니다. 워크플로에서 관리형 커넥터를 사용하는 경우 이러한 Azure에서 호스트 및 관리형 연결을 만듭니다.
+현재 Azure Arc 사용 Kubernetes 클러스터는 관리 되는 API 연결을 인증 하기 위해 논리 앱의 관리 되는 id를 사용 하도록 지원 하지 않습니다. 워크플로에서 관리형 커넥터를 사용하는 경우 이러한 Azure에서 호스트 및 관리형 연결을 만듭니다.
 
-대신 Azure AD(Azure Active Directory)에서 자체 앱 등록을 만들어야 합니다. 그런 다음, 이 앱 등록을 Azure Arc 지원 Logic Apps에서 배포 및 실행되는 논리 앱의 ID로 사용할 수 있습니다. 자세한 내용은 [최상위 필수 구성 요소](#prerequisites)를 검토하세요.
+대신 Azure AD(Azure Active Directory)에서 자체 앱 등록을 만들어야 합니다. 그런 다음이 앱 등록을 Azure Arc 사용 Logic Apps에서 배포 하 고 실행 되는 논리 앱에 대 한 id로 사용할 수 있습니다. 자세한 내용은 [최상위 필수 구성 요소](#prerequisites)를 검토하세요.
 
 앱 등록에서 클라이언트 ID, 개체 ID, 테넌트 ID 및 클라이언트 암호가 필요합니다. Visual Studio Code를 사용하여 배포하는 경우 Azure AD ID를 사용하여 논리 앱을 설정하기 위한 기본 제공 환경이 있습니다. 자세한 내용은 [논리 앱 워크플로 만들기 및 배포 - Visual Studio Code](#create-and-deploy-logic-apps)를 참조하세요.
 
@@ -410,11 +410,11 @@ ARM 템플릿(Azure Resource Manager 템플릿)에서 *각* 관리형 API 연결
 
 ## <a name="automate-devops-deployment"></a>DevOps 배포 자동화
 
-Azure Arc 지원 논리 앱을 빌드하고 배포하려면 [단일 테넌트 기반 논리 앱](single-tenant-overview-compare.md)과 동일한 파이프라인 및 프로세스를 사용할 수 있습니다. DevOps용 파이프라인을 사용하여 인프라 배포를 자동화하려면 비컨테이너 및 컨테이너 배포 모두에 대해 인프라 수준에서 다음과 같은 변경을 수행합니다.
+Azure Arc 사용 논리 앱을 빌드 및 배포 하기 위해 [단일 테 넌 트 기반 논리 앱](single-tenant-overview-compare.md)과 동일한 파이프라인 및 프로세스를 사용할 수 있습니다. DevOps용 파이프라인을 사용하여 인프라 배포를 자동화하려면 비컨테이너 및 컨테이너 배포 모두에 대해 인프라 수준에서 다음과 같은 변경을 수행합니다.
 
 ### <a name="standard-deployment-non-container"></a>표준 배포(비컨테이너)
 
-논리 앱 배포에 zip 배포를 사용하는 경우 컨테이너 이미지를 호스트하기 위한 Docker 레지스트리를 설정할 필요가 없습니다. Kubernetes의 논리 앱은 기술적으로 컨테이너에서 실행되지만 Azure Arc 지원 Logic Apps는 이러한 컨테이너를 관리합니다. 이 시나리오의 경우 인프라를 설정할 때 다음 작업을 완료합니다.
+논리 앱 배포에 zip 배포를 사용하는 경우 컨테이너 이미지를 호스트하기 위한 Docker 레지스트리를 설정할 필요가 없습니다. Kubernetes의 논리 앱은 기술적으로 컨테이너에서 실행 되지만 Azure Arc 사용 Logic Apps는 이러한 컨테이너를 관리 합니다. 이 시나리오의 경우 인프라를 설정할 때 다음 작업을 완료합니다.
 
 - Kubernetes에서 논리 앱을 만들고 있음을 리소스 공급자에게 알립니다.
 - 배포에 App Service 계획을 포함합니다. 자세한 내용은 [배포에 App Service 계획 포함](#include-app-service-plan)을 검토하세요.
@@ -485,7 +485,7 @@ Azure Arc 지원 논리 앱을 빌드하고 배포하려면 [단일 테넌트 �
 
 ### <a name="container-deployment"></a>컨테이너 배포
 
-컨테이너 도구 및 배포 프로세스를 사용하려는 경우 논리 앱을 컨테이너화하고 Azure Arc 지원 Logic Apps에 배포할 수 있습니다. 이 시나리오의 경우 인프라를 설정할 때 다음 같은 상위 수준 작업을 완료합니다.
+컨테이너 도구 및 배포 프로세스를 사용하려는 경우 논리 앱을 컨테이너화하고 Azure Arc 지원 Logic Apps 배포할 수 있습니다. 이 시나리오의 경우 인프라를 설정할 때 다음 같은 상위 수준 작업을 완료합니다.
 
 - 컨테이너 이미지를 호스트하기 위한 Docker 레지스트리를 설정합니다.
 - Kubernetes에서 논리 앱을 만들고 있음을 리소스 공급자에게 알립니다.
@@ -630,7 +630,7 @@ Docker 레지스트리 및 컨테이너 이미지를 참조하려면 템플릿�
 
 ## <a name="change-default-scaling-behavior"></a>기본 크기 조정 동작 변경
 
-Azure Arc 지원 Logic Apps는 백 엔드 스토리지 큐의 *작업* 수를 기반으로 논리 앱의 크기 조정을 자동으로 관리합니다. 단, 기본 크기 조정 동작을 변경할 수 있습니다.
+Azure Arc 지원 Logic Apps 백 엔드 스토리지 큐의 *작업* 수에 따라 논리 앱의 크기 조정을 자동으로 관리합니다. 단, 기본 크기 조정 동작을 변경할 수 있습니다.
 
 논리 앱에서 워크플로 정의는 실행할 작업 시퀀스를 지정합니다. 워크플로 실행이 트리거될 때마다 Azure Logic Apps 런타임은 워크플로 정의의 각 작업 유형에 대한 *작업* 을 만듭니다. 그런 다음, 런타임은 이러한 작업을 *작업 시퀀서* 로 구성합니다. 이 시퀀서가 워크플로 정의에 대한 작업 실행을 오케스트레이션하지만 기본 Azure Logic Apps 작업 오케스트레이션 엔진이 각 작업을 실행합니다.
 
@@ -640,11 +640,11 @@ Azure Arc 지원 Logic Apps는 백 엔드 스토리지 큐의 *작업* 수를 �
 
 ### <a name="prerequisites-to-change-scaling"></a>크기 조정을 변경하기 위한 필수 구성 요소
 
-Arc 지원 Kubernetes 클러스터에서 이전에 만든 App Service 번들 확장에는 `keda.enabled` 속성이 `true`로 설정되어 있어야 합니다. 자세한 내용은 [최상위 필수 구성 요소](#prerequisites)를 검토하세요.
+Azure Arc 지원 Kubernetes 클러스터에서 이전에 만든 App Service 번들 확장에는 속성이 로 설정되어 있어야 `keda.enabled` `true` 합니다. 자세한 내용은 [최상위 필수 구성 요소](#prerequisites)를 검토하세요.
 
 ### <a name="change-scaling-threshold"></a>크기 조정 임계값 변경
 
-Azure Arc 지원 Logic Apps에서 작업 큐의 길이는 크기 조정 이벤트를 트리거하고 논리 앱의 크기 조정 빈도에 대한 임계값을 설정합니다. 기본값이 `20`개 작업으로 설정된 큐 길이를 변경할 수 있습니다. 크기 조정 빈도를 줄이려면 큐 길이를 늘립니다. 크기 조정 빈도를 늘리려면 큐 길이를 줄입니다. 이 프로세스에는 시행착오가 필요할 수 있습니다.
+Azure Arc 지원 Logic Apps 작업 큐의 길이는 크기 조정 이벤트를 트리거하고 논리 앱에 대해 크기 조정이 발생하는 빈도에 대한 임계값을 설정합니다. 기본값이 `20`개 작업으로 설정된 큐 길이를 변경할 수 있습니다. 크기 조정 빈도를 줄이려면 큐 길이를 늘립니다. 크기 조정 빈도를 늘리려면 큐 길이를 줄입니다. 이 프로세스에는 시행착오가 필요할 수 있습니다.
 
 큐 길이를 변경하려면 논리 앱 프로젝트의 루트 수준 **host.js** 파일에서 `Runtime.ScaleMonitor.KEDA.TargetQueueLength` 속성을 설정합니다. 예를 들면 다음과 같습니다.
 
@@ -790,4 +790,4 @@ az logicapp show --name MyLogicAppName
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Arc 지원 Logic Apps 정보](azure-arc-enabled-logic-apps-overview.md)
+- [Azure Arc 사용 Logic Apps 정보](azure-arc-enabled-logic-apps-overview.md)

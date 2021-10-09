@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/19/2021
+ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: 9b586d453f9ac49dd7bd2894c0003fef521167da
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
-ms.translationtype: HT
+ms.openlocfilehash: 982bb3719de66d880f635dbb7c95e9ae2c4590c2
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122568347"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711157"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 청구 계정 설정
 
@@ -27,7 +27,7 @@ ms.locfileid: "122568347"
 청구 계정을 설정하려면 Azure 구독 청구를 기업계약 등록에서 새 계정으로 전환해야 합니다. 이 설정은 구독에서 실행 중인 Azure 서비스에 영향을 주지 않습니다. 그러나 구독의 요금 청구 관리 방식이 변경됩니다.
 
 - [EA Portal](https://ea.azure.com) 대신 [Azure Portal](https://portal.azure.com)에서 Azure 서비스 및 청구를 관리하게 됩니다.
-- 요금에 대한 월별 디지털 청구서를 받게 됩니다. Azure Cost Management + 청구 페이지에서 청구서를 살펴보고 분석할 수 있습니다.
+- 요금에 대한 월별 디지털 청구서를 받게 됩니다. Cost Management + 청구 페이지에서 송장을 보고 분석할 수 있습니다.
 - 기업계약 등록의 부서 및 계정 대신 새 계정의 청구 구조와 범위를 사용하여 청구를 관리하고 구성하게 됩니다.
 
 설정을 시작하기 전에 다음 작업을 수행하는 것이 좋습니다.
@@ -331,7 +331,5 @@ Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 설정된 Azure
 ## <a name="next-steps"></a>다음 단계
 
 - [새 청구 계정 시작](../understand/mca-overview.md)
-
 - [Microsoft 고객 계약의 청구 계정에서 기업계약 작업 완료](mca-enterprise-operations.md)
-
 - [청구 계정에 대한 액세스 관리](understand-mca-roles.md)

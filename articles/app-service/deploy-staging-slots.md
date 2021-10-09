@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit, devx-track-azurepowershell
-ms.openlocfilehash: 925c468ff744df8b543618e4282ec9b6a9dda78a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 77e374e43722554a215675fd09d0317899d7992f
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528129"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709050"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
@@ -274,9 +274,6 @@ ms.locfileid: "122528129"
 ```
 
 기본적으로 새 슬롯에는 회색으로 표시된 `0%`의 회람 규칙이 제공됩니다. 이 값을 명시적으로 `0%`(검정색 텍스트로 표시됨)로 설정하면 사용자가 `x-ms-routing-name` 쿼리 매개 변수를 사용하여 스테이징 슬롯에 수동으로 액세스할 수 있습니다. 그러나 라우팅 백분율이 0으로 설정되어 있으므로 자동으로 슬롯에 라우팅되지 않습니다. 이는 내부 팀이 슬롯에 대한 변경 내용을 테스트할 수 있도록 하면서 일반인에게 스테이징 슬롯을 "숨길" 수 있는 고급 시나리오입니다.
-
-> [!NOTE]
-> 슬롯이 있는 트래픽 라우팅과 프라이빗 엔드포인트에 영향을 주는 알려진 제한 사항이 있습니다. 2021년 4월부터 슬롯 간 자동 및 수동 요청 라우팅으로 인해 "403 액세스 거부"가 발생합니다. 이 제한 사항은 향후 릴리스에서 제거될 예정입니다. 
 
 <a name="Delete"></a>
 

@@ -5,38 +5,38 @@ services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 06/08/2021
+ms.date: 10/07/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 226377f2a8df895c078d05b58d5ed49c4bba9117
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 058ce3899e5857c136859426f0972efc9fd0b92f
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121802642"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129716005"
 ---
 다음 표에는 Azure Service Bus 메시징에 특정한 할당량 정보가 나와 있습니다. Service Bus에 대한 가격 책정 및 기타 할당량에 대한 정보는 [Service Bus 가격 책정](https://azure.microsoft.com/pricing/details/service-bus/)을 참조하세요.
 
 | 할당량 이름 | 범위 | 값 | 참고 | 
 | --- | --- | --- | --- |
 | Azure 구독당 최대 네임스페이스 수 |네임스페이스 |  1000(기본값 및 최대값) |추가 네임스페이스에 대한 후속 요청은 거부됩니다. |
-| 큐 또는 토픽 크기 |엔터티 | 1, 2, 3, 4GB 또는 5GB<p>프리미엄 SKU와 [분할](../articles/service-bus-messaging/service-bus-partitioning.md)을 사용하는 표준 SKU에서 최대 큐 또는 토픽 크기는 80GB입니다.</p><p>프리미엄 네임스페이스에 대한 총 크기 제한은 [메시징 단위당](../articles/service-bus-messaging/service-bus-premium-messaging.md) 1TB입니다. 네임스페이스에 있는 모든 엔터티의 전체 크기는 이 제한을 초과할 수 없습니다.</p> | 큐 또는 토픽을 생성/업데이트할 때 정의됩니다. <br/><br/> 들어오는 후속 메시지가 거부되며 호출 코드에서 예외를 수신합니다. |
+| 큐 또는 토픽 크기 |엔터티 | <p>1, 2, 3, 4GB 또는 5GB</p><p>프리미엄 SKU와 [분할](../articles/service-bus-messaging/service-bus-partitioning.md)을 사용하는 표준 SKU에서 최대 큐 또는 토픽 크기는 80GB입니다.</p><p>프리미엄 네임스페이스에 대한 총 크기 제한은 [메시징 단위당](../articles/service-bus-messaging/service-bus-premium-messaging.md) 1TB입니다. 네임스페이스에 있는 모든 엔터티의 전체 크기는 이 제한을 초과할 수 없습니다.</p> | 큐 또는 토픽을 생성/업데이트할 때 정의됩니다. <br/><br/> 들어오는 후속 메시지가 거부되며 호출 코드에서 예외를 수신합니다. |
 | 네임스페이스에 대한 동시 연결 수 |네임스페이스 |넷 메시징: 1,000.<br /><br />AMQP: 5,000. | 추가 연결에 대한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. REST 작업은 동시 TCP 연결 계산에 포함되지 않습니다. |
 | 큐, 토픽 또는 구독 엔터티의 동시 수신 요청 수 |엔터티 | 5,000 |후속 수신 요청이 거부되며 호출 코드에서 예외를 수신합니다. 이 할당량은 항목의 모든 구독 전반에 걸쳐 종합된 동시 수신 명령 수에 적용됩니다. |
 | 네임스페이스당 토픽 또는 큐 수 |네임스페이스 | 기본 또는 표준 계층의 경우 10,000입니다. 네임스페이스에서 토픽 및 큐의 총수는 10,000 이하이어야 합니다. <br/><br/>프리미엄 계층의 경우, MU(메시징 단위)당 1000입니다. | 네임스페이스에 새 토픽 또는 큐를 만들기 위한 후속 요청이 거부됩니다. 따라서 [Azure Portal][Azure portal]을 통해 구성된 경우 오류 메시지가 생성됩니다. 관리 API에서 호출되는 경우 호출 코드에서 예외가 수신됩니다. |
-| 네임스페이스당 [분할된 토픽 또는 큐](../articles/service-bus-messaging/service-bus-partitioning.md) 수 |네임스페이스 | 기본 및 표준 계층: 100.<br/><br/>분할된 엔터티는 [프리미엄](../articles/service-bus-messaging/service-bus-premium-messaging.md) 계층에서 지원되지 않습니다.<br/><br />각 분할된 큐 또는 토픽은 네임스페이스 당 1,000개의 엔터티를 할당량으로 계산합니다. | 네임스페이스에 분할된 새 토픽 또는 큐를 만들기 위한 후속 요청이 거부됩니다. 따라서 [Azure Portal][Azure portal]을 통해 구성된 경우 오류 메시지가 생성됩니다. 관리 API에서 호출되는 경우 호출 코드에서 **QuotaExceededException** 예외가 수신됩니다. <p>기본 또는 표준 계층 네임스페이스에 분할된 엔터티를 더 많이 포함하려면 추가 네임스페이스를 만듭니다. </p>|
+| 네임스페이스당 [분할된 토픽 또는 큐](../articles/service-bus-messaging/service-bus-partitioning.md) 수 |네임스페이스 | 기본 및 표준 계층: 100.<br/><br/>분할된 엔터티는 [프리미엄](../articles/service-bus-messaging/service-bus-premium-messaging.md) 계층에서 지원되지 않습니다.<br/><br />각 분할된 큐 또는 토픽은 네임스페이스 당 1,000개의 엔터티를 할당량으로 계산합니다. | 네임스페이스에서 분할된 새 토픽 또는 큐 만들기에 대한 후속 요청이 거부됩니다. 따라서 [Azure Portal][Azure portal]을 통해 구성된 경우 오류 메시지가 생성됩니다. 관리 API에서 호출되는 경우 호출 코드에서 **QuotaExceededException** 예외가 수신됩니다. <p>기본 또는 표준 계층 네임스페이스에 분할된 엔터티를 더 많이 포함하려면 추가 네임스페이스를 만듭니다. </p>|
 | 모든 메시징 엔터티 경로의 최대 크기: 큐 또는 토픽 |엔터티 |- |260자 |
 | 모든 메시징 엔터티 이름의 최대 크기: 네임스페이스, 구독 또는 구독 규칙 |엔터티 |- |50자 |
 | 메시지 ID의 최대 크기 | 엔터티 |- | 128 |
 | 메시지 세션 ID의 최대 크기 | 엔터티 |- | 128 |
-| 큐, 토픽 또는 구독 엔터티의 메시지 크기 |엔터티 |이러한 할당량을 초과하는 들어오는 메시지가 거부되며 호출 코드에서 예외를 수신합니다. |최대 메시지 크기: [표준 계층](../articles/service-bus-messaging/service-bus-premium-messaging.md)의 경우 256KB, [프리미엄 계층](../articles/service-bus-messaging/service-bus-premium-messaging.md)의 경우1MB. <br /><br />시스템 오버헤드로 인해, 이 제한이 이러한 값보다 작습니다.<br /><br />최대 헤더 크기: 64KB.<br /><br />속성 모음에서 헤더 속성의 최대 수: **byte/int.MaxValue**.<br /><br />속성 모음의 최대 속성 크기: 속성 이름과 값은 모두 32KB로 제한됩니다. |
-| 큐, 토픽 또는 구독 엔터티의 메시지 속성 크기 |엔터티 | `SerializationException` 예외가 생성됩니다. |각 속성에 대한 최대 메시지 속성 크기는 32KB입니다. 모든 속성의 누적 크기는 64KB를 초과할 수 없습니다. 이 제한은 사용자 속성과 시퀀스 번호, 레이블 및 메시지 ID와 같은 시스템 속성을 모두 가진 broker 저장 메시지의 전체 헤더에 적용됩니다. |
+| 큐, 토픽 또는 구독 엔터티의 메시지 크기 |엔터티 |이러한 할당량을 초과하는 들어오는 메시지가 거부되며 호출 코드에서 예외를 수신합니다. | [표준 계층의](../articles/service-bus-messaging/service-bus-premium-messaging.md) 경우 256KB<br/> [Premium 계층](../articles/service-bus-messaging/service-bus-premium-messaging.md)의 경우 1MB입니다. <br /><br />메시지 크기에는 속성 크기(시스템 및 사용자) 및 페이로드 크기가 포함됩니다. 시스템 속성의 크기는 시나리오에 따라 달라집니다. |
+| 큐, 토픽 또는 구독 엔터티의 메시지 속성 크기 |엔터티 | `SerializationException` 예외가 생성됩니다. | <p>각 속성에 대한 최대 메시지 속성 크기는 32KB입니다.</p><p>모든 속성의 누적 크기는 64KB를 초과할 수 없습니다. 이 제한은 사용자 속성과 시퀀스 번호, 레이블 및 메시지 ID와 같은 시스템 속성을 모두 가진 broker 저장 메시지의 전체 헤더에 적용됩니다.</p><p>속성 모음에서 헤더 속성의 최대 수: **byte/int.MaxValue**.</p> |
 | 토픽당 구독 수 |엔터티 |토픽에 추가 구독을 만들기 위한 후속 요청이 거부됩니다. 따라서 포털을 통해 구성된 경우 오류 메시지가 표시됩니다. 관리 API에서 호출되는 경우 호출 코드에서 예외가 수신됩니다. |표준 등급 및 프리미엄 계층의 경우 토픽당 2,000. |
 | 토픽당 SQL 필터 수 |엔터티 |토픽에서 추가 필터를 생성하기 위한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. |2,000 |
 | 토픽당 상관 관계 필터 수 |엔터티 |토픽에서 추가 필터를 생성하기 위한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. |100,000 |
 | SQL 필터 또는 작업의 크기 |네임스페이스 |추가 필터를 생성하기 위한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. |필터 조건 문자열의 최대 길이: 1,024(1K).<br /><br />규칙 작업 문자열의 최대 길이: 1,024(1K).<br /><br />규칙 작업당 식의 최대 수: 32 |
 | 네임스페이스, 큐 또는 토픽당 공유 액세스 권한 부여 규칙 수 |엔터티, 네임스페이스 |추가 규칙을 생성하기 위한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. |엔터티 형식당 최대 규칙 수: 12. <br /><br /> Service Bus 네임스페이스에 구성된 규칙이 큐, 토픽 등 모든 엔터티에 적용됩니다. |
-| 트랜잭션당 메시지 수 | 트랜잭션 | 추가로 들어오는 메시지는 거부되고 호출 코드에서 "단일 트랜잭션에 100개가 넘는 메시지를 보낼 수 없습니다"라는 예외를 수신합니다. | 100 <br /><br /> **Send()** 및 **SendAsync()** 작업 모두에 해당합니다. |
+| 트랜잭션당 메시지 수 | 트랜잭션 | 들어오는 추가 메시지가 거부되고 호출 코드에서 "단일 트랜잭션에서 100개 이상의 메시지를 보낼 수 없습니다"라는 예외가 수신됩니다. | 100 <br /><br /> **Send()** 및 **SendAsync()** 작업 모두에 해당합니다. |
 | 가상 네트워크 및 IP 필터 규칙 수 | 네임스페이스 | &nbsp; | 128 |
 
 [Azure portal]: https://portal.azure.com

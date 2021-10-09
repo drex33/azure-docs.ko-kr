@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: danlep
-ms.openlocfilehash: 93e7feb2d1b91cb8d5fa58d52244c901e1eeaea2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3bc2543d8051a99c5b770204d64db043bbf7dfad
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128598752"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708560"
 ---
 # <a name="provision-a-self-hosted-gateway-in-azure-api-management"></a>Azure API Management에서 자체 호스팅 게이트웨이 프로비저닝
 
@@ -50,5 +50,5 @@ ms.locfileid: "128598752"
 
 * 자체 호스팅 게이트웨이에 대한 자세한 내용은 [Azure API Management 자체 호스팅 게이트웨이 개요](self-hosted-gateway-overview.md)를 참조하세요.
 * [Kubernetes에 자체 호스팅 게이트웨이를 배포](how-to-deploy-self-hosted-gateway-kubernetes.md)하는 방법을 알아보세요.
-- [Azure Arc 지원 Kubernetes 클러스터에 자체 호스팅 게이트웨이를 배포하는 방법](how-to-deploy-self-hosted-gateway-azure-arc.md)에 대해 자세히 알아봅니다.
+- [Azure Arc 지원 Kubernetes 클러스터에 자체 호스팅 게이트웨이를 배포하는](how-to-deploy-self-hosted-gateway-azure-arc.md) 방법에 대해 자세히 알아봅니다.
 * [Docker에 자체 호스팅 게이트웨이를 배포](how-to-deploy-self-hosted-gateway-docker.md)하는 방법을 알아보세요.

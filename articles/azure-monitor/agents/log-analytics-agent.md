@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: 442400754d4c103a4f26724ff2ca731c8ae5250f
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 0781d627052eaef14583739bba612d6c56aca56c
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122529739"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715797"
 ---
 # <a name="log-analytics-agent-overview"></a>Log Analytics 에이전트 개요
 
@@ -83,14 +83,14 @@ Operations Manager 관리 그룹에 에이전트를 연결하는 방법에 대�
 
 ### <a name="windows-virtual-machine-on-premises-or-in-another-cloud"></a>온-프레미스 또는 다른 클라우드의 Windows 가상 머신
 
-- [Azure Arc 지원 서버](../../azure-arc/servers/overview.md)를 사용하여 Log Analytics VM 확장을 배포하고 관리합니다.
+- [Azure Arc 사용 서버](../../azure-arc/servers/overview.md) 를 사용 하 여 Log Analytics VM 확장을 배포 하 고 관리 합니다.
 - 명령줄에서 에이전트를 [수동으로 설치](../agents/agent-windows.md)합니다.
 - [Azure Automation DSC](../agents/agent-windows.md#install-agent-using-dsc-in-azure-automation)를 사용하여 설치를 자동화합니다.
 - [Azure Stack을 사용한 Resource Manager 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) 사용
 
 ### <a name="linux-virtual-machine-on-premises-or-in-another-cloud"></a>온-프레미스 또는 다른 클라우드의 Linux 가상 머신
 
-- [Azure Arc 지원 서버](../../azure-arc/servers/overview.md)를 사용하여 Log Analytics VM 확장을 배포하고 관리합니다.
+- [Azure Arc 사용 서버](../../azure-arc/servers/overview.md) 를 사용 하 여 Log Analytics VM 확장을 배포 하 고 관리 합니다.
 - GitHub에 호스트된 래퍼 스크립트를 호출하는 에이전트를 [수동으로 설치](../vm/monitor-virtual-machine.md)합니다.
 - Windows 컴퓨터 보고에서 수집된 데이터를 관리 그룹에 전달하도록 [System Center Operations Manager](./om-agents.md)와 Azure Monitor를 통합합니다.
 

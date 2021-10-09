@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/26/2021
 ms.author: pafarley
-ms.openlocfilehash: 0c7fb175d80a35d30649d2e4ce491fe39ac19c70
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: abef7e44ad2e15bda230d28e8dae74a3fd949f88
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539140"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706334"
 ---
 # <a name="what-is-conversation-transcription-preview"></a>대화 기록(미리 보기)는 무엇입니까?
 
@@ -55,10 +55,13 @@ ms.locfileid: "123539140"
 ## <a name="expected-inputs"></a>필요한 입력
 
 - **다중 채널 오디오 스트림** – 사양 및 설계 세부 정보는 [Microsoft 음성 디바이스 SDK 마이크](./speech-devices-sdk-microphone.md)를 참조하세요. 개발 키트에 대해 자세히 알아보거나 구매하려면 [Microsoft 음성 디바이스 SDK 가져오기](./get-speech-devices-sdk.md)를 참조하세요.
-- **사용자 음성 샘플** – 대화에 앞서 대화 기록에 사용자 프로필이 필요합니다. 각 사용자로부터 오디오 녹음을 수집한 다음, [서명 생성 서비스](https://aka.ms/cts/signaturegenservice)로 녹음을 전송하여 오디오의 유효성을 검사하고 사용자 프로필을 생성해야 합니다.
+- **사용자 음성 샘플** – 대화 전사에는 화자 식별을 위한 대화 전에 사용자 프로필이 필요합니다. 각 사용자로부터 오디오 녹음을 수집한 다음, [서명 생성 서비스](https://aka.ms/cts/signaturegenservice)로 녹음을 전송하여 오디오의 유효성을 검사하고 사용자 프로필을 생성해야 합니다.
 
 > [!NOTE]
-> 사용자 음성 샘플은 선택 사항입니다. 이 입력을 사용하지 않으면 대화 내용 기록에 서로 다른 화자가 표시되지만 미리 등록한 화자 이름을 인식하는 대신 "Speaker1", "Speaker2" 등과 같이 표시됩니다.
+> 음성 서명에 대한 사용자 음성 샘플은 화자 식별에 필요합니다. 음성 샘플이 없는 화자는 "식별되지 않음"으로 인식됩니다. 식별되지 않은 화자는 속성이 활성화된 경우에도 여전히 구별할 수 `DifferentiateGuestSpeakers` 있습니다(아래 예제 참조). 그러면 전사 출력은 미리 등록된 특정 화자 이름으로 인식하는 대신 화자를 "Guest_0", "Guest_1" 등으로 표시합니다.
+> ```csharp
+> config.SetProperty("DifferentiateGuestSpeakers", "true");
+> ```
 
 
 ## <a name="real-time-vs-asynchronous"></a>실시간 또는 비동기

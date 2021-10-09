@@ -9,12 +9,12 @@ ms.date: 05/17/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, devx-track-azurecli
-ms.openlocfilehash: b6bccf2dd24e557c2d5cdbb5fa6134f8c0dc904d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 64166d398fe488abf7e3820d780bd11699fbb70a
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128598140"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705382"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Triton Inference Server를 사용한 고성능 서비스 제공(미리 보기) 
 
@@ -198,15 +198,6 @@ az ml service delete -n triton-densenet-onnx
 [!notebook-python[] (~/Azureml-examples-main/python-sdk/experimental/deploy-triton/1.bidaf-ncd-local.ipynb?name=delete-service)]
 
 ---
-
-## <a name="how-to-use-azure-machine-learning-triton-inference-server-container-image"></a>Azure Machine Learning Triton 유추 서버 컨테이너 이미지를 사용하는 방법
-
-새로운 [CLI(v2)](/cli/azure/ml?view=azure-cli-latest&preserve-view=true)를 사용하여 Azure Machine Learning Triton 유추 서버 컨테이너 이미지를 사용하는 방법에 대해 알아봅니다. 아래 예제에서는 [온라인 엔드포인트 및 배포](concept-endpoints.md#what-are-online-endpoints-preview) 개념을 사용합니다. 
-
-1. [단일 Triton 모델을 배포](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-triton-managed-online-endpoint.sh)합니다.
-1. [Triton 여러 모델을 배포](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-triton-multiple-models-online-endpoint.sh)합니다.
-1. [Triton 앙상블 모델을 배포](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-triton-ensemble-managed-online-endpoint.sh)합니다.
-1. [Triton 예제](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/triton)를 체크 아웃하세요.
 
 ## <a name="troubleshoot"></a>문제 해결
 

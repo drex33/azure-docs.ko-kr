@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2021
 ms.author: memildin
-ms.openlocfilehash: b1dc3b61c73894d7792835000f0e13e0bc8b412b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: bbfd426c67d09ca8632c3ab665b1242d27c6ad58
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528376"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711692"
 ---
 # <a name="enable-azure-defender-for-sql-servers-on-machines"></a>컴퓨터에서 SQL Server용 Azure Defender를 사용하는 방법 
 
@@ -110,7 +110,7 @@ SQL 경고에 대한 Azure Defender는 Security Center의 경고 페이지, 컴�
 
 ### <a name="if-i-enable-this-azure-defender-plan-on-my-subscription-are-all-sql-servers-on-the-subscription-protected"></a>구독에서 이 Azure Defender 플랜을 사용하도록 설정하는 경우 구독에 대한 모든 SQL Server가 보호되나요? 
 
-아니요. Azure 가상 컴퓨터 또는 Azure Arc 사용 컴퓨터에서 실행되는 SQL Server에서 SQL Server 배포를 보호하려면 Azure Defender는 다음 두 가지를 모두 요구합니다.
+아니요. azure 가상 머신 또는 azure Arc 사용 컴퓨터에서 실행 되는 SQL Server에서 SQL Server 배포를 보호 하려면 azure Defender는 다음 두 가지를 모두 요구 합니다.
 
 - 컴퓨터의 Log Analytics 에이전트 
 - Azure Defender for SQL 솔루션을 사용할 수 있는 관련 Log Analytics 작업 영역 

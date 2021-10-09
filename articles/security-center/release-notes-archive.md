@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 10/03/2021
 ms.author: memildin
-ms.openlocfilehash: 657bc73f6e21f4965c36a58acbd5163dcea74ebc
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 516fa13a24c9cb5376bc6e8d38eeb1fc077f1d57
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129615413"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713949"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능 보관
 
@@ -504,7 +504,7 @@ Security Center의 규정 준수 대시보드를 사용하는 경우 전환 기�
 
 ### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga"></a>온-프레미스 및 다중 클라우드 머신의 취약성 평가가 GA(일반 공급)를 위해 릴리스되었습니다.
 
-당사는 10월에 [서버용 Azure Defender](defender-for-servers-introduction.md)의 통합 취약성 평가 스캐너(Qualys 기반)로 Azure Arc 사용 서버를 검색하는 기능의 미리 보기를 발표했습니다.
+10월에는 서버용 Azure Defender 있는 Azure Arc 지원 [서버의](defender-for-servers-introduction.md)통합 취약성 평가 스캐너(Qualys 기반)를 검사하기 위한 미리 보기를 발표했습니다.
 
 이제 GA(일반 공급)를 위해 릴리스되었습니다.
 
@@ -519,9 +519,9 @@ Azure가 아닌 머신에서 Azure Arc를 사용하도록 설정한 경우 Secur
 - 배포된 에이전트에서 탐지된 취약성 수신 및 분석(수동 및 대규모로)
 - Azure VM 및 Azure Arc 머신에 대한 통합 환경
 
-[하이브리드 머신에 통합 취약성 스캐너를 배포하는 내용을 자세히 알아보세요](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
+[하이브리드 머신에 통합 Qualys 취약성 스캐너를 배포하는 방법에 대해 자세히 알아봅니다.](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines)
 
-[Azure Arc 사용 서버에 대해 자세히 알아보세요](../azure-arc/servers/index.yml).
+[Azure Arc 지원 서버에 대해 자세히 알아보세요.](../azure-arc/servers/index.yml)
 
 
 ### <a name="secure-score-for-management-groups-is-now-available-in-preview"></a>이제 관리 그룹에 대한 보안 점수를 미리 보기에서 볼 수 있습니다.
@@ -971,7 +971,7 @@ Azure Security Center가 성장함에 따라 더 많은 확장이 개발되었�
 
 ### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview"></a>온-프레미스 및 다중 클라우드 머신의 취약성 평가(미리 보기)
 
-[서버용 Azure Defender](defender-for-servers-introduction.md)의 통합 취약성 평가 스캐너(Qualys 기반)는 이제 Azure Arc 사용 서버를 검색합니다.
+[서버의 Azure Defender](defender-for-servers-introduction.md)' Qualys에서 지원하는 통합 취약성 평가 스캐너)는 이제 Azure Arc 지원 서버를 검사합니다.
 
 Azure가 아닌 머신에서 Azure Arc를 사용하도록 설정한 경우 Security Center는 이러한 머신에 통합 취약성 스캐너를 수동 및 대규모로 배포할 수 있습니다.
 
@@ -984,9 +984,9 @@ Azure가 아닌 머신에서 Azure Arc를 사용하도록 설정한 경우 Secur
 - 배포된 에이전트에서 탐지된 취약성 수신 및 분석(수동 및 대규모로)
 - Azure VM 및 Azure Arc 머신에 대한 통합 환경
 
-[하이브리드 머신에 통합 취약성 스캐너를 배포하는 내용을 자세히 알아보세요](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
+[하이브리드 머신에 통합 Qualys 취약성 스캐너를 배포하는 방법에 대해 자세히 알아봅니다.](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines)
 
-[Azure Arc 사용 서버에 대해 자세히 알아보세요](../azure-arc/servers/index.yml).
+[Azure Arc 지원 서버에 대해 자세히 알아봅니다.](../azure-arc/servers/index.yml)
 
 
 ### <a name="azure-firewall-recommendation-added-preview"></a>Azure Firewall 권장 사항 추가(미리 보기)
@@ -1257,7 +1257,7 @@ Security Center의 통합 취약성 평가 도구는 "가상 머신의 취약성
 
 관련 페이지:
 
-- [Azure 가상 머신에 대한 Security Center의 통합 취약성 평가 솔루션](deploy-vulnerability-assessment-vm.md)
+- [Azure virtual machines에 대 한 Security Center의 통합 Qualys 취약점 평가 솔루션](deploy-vulnerability-assessment-vm.md)
 - [Azure Container Registry 이미지에 대한 Security Center의 통합 취약성 평가 솔루션](defender-for-container-registries-usage.md)
 - [연속 내보내기](continuous-export.md)
 
@@ -2011,7 +2011,7 @@ Secure Score의 일부로 사용자에게 제공되는 많은 작업으로 인�
 
 이미지 검사는 컨테이너 이미지 파일을 구문 분석한 다음 알려진 취약성이 있는지 확인하는 방식으로 작동합니다(Qualys 제공).
 
-검사 자체는 Azure Container Registry에 새 컨테이너 이미지를 푸시할 때 자동으로 트리거됩니다. 발견된 취약성은 Security Center 권장 사항으로 표면화되며, 허용된 공격 표면을 줄이기 위해 패치하는 방법에 대한 정보와 함께 보안 점수에 포함됩니다.
+검사 자체는 Azure Container Registry에 새 컨테이너 이미지를 푸시할 때 자동으로 트리거됩니다. 발견 된 취약점은 Security Center 권장 사항으로 노출 되 고, 허용 되는 공격 노출 영역을 줄이기 위해 패치 하는 방법에 대 한 정보와 함께 보안 점수에 포함 됩니다.
 
 
 ### <a name="additional-regulatory-compliance-standards-preview"></a>추가 규정 준수 표준(미리 보기)
@@ -2045,7 +2045,7 @@ Kubernetes는 클라우드에서 소프트웨어를 배포하고 관리하기 �
 
 IaaS VM에서 실행되는 SQL DB에 대한 위협 방지 및 취약성 평가에 대한 Azure Security Center 지원은 현재 미리 보기로 제공됩니다.
 
-[취약성 평가](../azure-sql/database/sql-vulnerability-assessment.md)는 잠재적인 데이터베이스 취약성을 검색, 추적 및 수정할 수 있는 서비스를 간편하게 구성합니다. 보안 점수의 일부로 보안 태세에 대한 가시성을 제공하고 보안 문제를 해결하고 데이터베이스 강화를 개선하는 단계를 포함합니다.
+[취약성 평가](../azure-sql/database/sql-vulnerability-assessment.md)는 잠재적인 데이터베이스 취약성을 검색, 추적 및 수정할 수 있는 서비스를 간편하게 구성합니다. 보안 점수에 대 한 가시성을 제공 하 고 보안 문제를 해결 하 고 데이터베이스 fortifications을 개선 하는 단계를 포함 합니다.
 
 [Advanced Threat Protection](../azure-sql/database/threat-detection-overview.md)은 비정상적이며 잠재적으로 유해할 수 있는 SQL Server 액세스 또는 악용 시도를 나타내는 비정상적인 활동을 검색합니다. 데이터베이스에서 의심스러운 활동을 지속적으로 모니터링하고 비정상적인 데이터베이스 액세스 패턴에 대해 작업 지향 보안 경고를 제공합니다. 이러한 경고는 의심스러운 활동 세부 정보와 위협을 조사하고 완화하기 위한 권장 조치를 제공합니다.
 

@@ -7,16 +7,16 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/14/2021
 ms.author: memildin
-ms.openlocfilehash: 2fc8c04cbe86737d924a1e61e8a2b3808082b7c9
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 71ea0e8227993c3f0a67f87f1e26c15f0f3119fd
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129351726"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713763"
 ---
 # <a name="defend-azure-arc-enabled-kubernetes-clusters-running-in-on-premises-and-multi-cloud-environments"></a>온-프레미스 및 다중 클라우드 환경에서 실행되는 Azure Arc 지원 Kubernetes 클러스터 방어
 
-**Azure Defender for Kubernetes 클러스터 확장** 은 Azure Kubernetes Service 클러스터에 제공되는 것과 동일한 위협 탐지 기능을 사용하여 온-프레미스 클러스터를 방어할 수 있습니다. 클러스터에서 [Azure Arc 지원 Kubernetes](../azure-arc/kubernetes/overview.md)를 사용하도록 설정하고 이 페이지에 설명된 대로 확장을 배포합니다. 
+**Azure Defender for Kubernetes 클러스터 확장** 은 Azure Kubernetes Service 클러스터에 제공되는 것과 동일한 위협 탐지 기능을 사용하여 온-프레미스 클러스터를 방어할 수 있습니다. 클러스터에서 [Azure Arc 지원 Kubernetes를 사용하도록](../azure-arc/kubernetes/overview.md) 설정하고 이 페이지에 설명된 대로 확장을 배포합니다. 
 
 또한 확장을 사용하여 관리되는 Kubernetes 서비스가 아닌 다른 클라우드 공급자의 Kubernetes 클러스터를 보호할 수 있습니다.
 
@@ -29,28 +29,28 @@ ms.locfileid: "129351726"
 |--------|---------|
 | 릴리스 상태 | **미리 보기**<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
 | 필요한 역할 및 권한 | [보안 관리자](../role-based-access-control/built-in-roles.md#security-admin)는 경고를 해제할 수 있습니다.<br>[보안 읽기 권한자](../role-based-access-control/built-in-roles.md#security-reader)는 발견 사항을 볼 수 있습니다. |
-| 가격 책정 | 무료 (미리 보기 중) |
+| 가격 책정 | 무료(미리 보기 중) |
 | 지원되는 Kubernetes 배포 | [Azure Stack HCI에서 Azure Kubernetes Service](/azure-stack/aks-hci/overview)<br>[Kubernetes](https://kubernetes.io/docs/home/)<br> [AKS 엔진](https://github.com/Azure/aks-engine)<br> [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br> [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/)(버전 4.6 이상)<br> [VMware Tanzu Kubernetes 그리드](https://tanzu.vmware.com/kubernetes-grid)<br> [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/) |
-| 제한 사항 | Azure Arc 지원 Kubernetes 및 Azure Defender 확장은 Google Kubernetes Engine 및 탄력적 Kubernetes 서비스와 같은 관리되는 Kubernetes 제품을 **지원하지 않습니다**. [Azure Defender는 기본적으로 AKS(Azure Kubernetes Service)에서 사용할 수 있으며](defender-for-kubernetes-introduction.md), 클러스터를 Azure Arc에 연결할 필요가 없습니다. |
-| 환경 및 지역 | 이 확장에 대한 가용성은 [Azure Arc 지원 Kubernetes](../azure-arc/kubernetes/overview.md)와 동일합니다.|
+| 제한 사항 | Azure Arc 지원 Kubernetes 및 Azure Defender 확장은 Google Kubernetes 엔진 및 Elastic Kubernetes Service와 같은 관리되는 Kubernetes 제품을 **지원하지 않습니다.** [Azure Defender는 기본적으로 AKS(Azure Kubernetes Service)에서 사용할 수 있으며](defender-for-kubernetes-introduction.md), 클러스터를 Azure Arc에 연결할 필요가 없습니다. |
+| 환경 및 지역 | 이 확장의 가용성은 [Azure Arc 지원 Kubernetes와](../azure-arc/kubernetes/overview.md) 동일합니다.|
 
 ## <a name="architecture-overview"></a>아키텍처 개요
 
-AKS가 아닌 모든 Kubernetes 클러스터의 경우 클러스터를 Azure Arc에 연결해야 합니다. 일단 연결되면 Azure Defender for Kubernetes를 [Azure Arc 지원 Kubernetes](../azure-arc/kubernetes/overview.md) 리소스에 [클러스터 확장](../azure-arc/kubernetes/extensions.md)으로 배포할 수 있습니다.
+AKS 이외의 모든 Kubernetes 클러스터의 경우 클러스터를 Azure Arc 연결해야 합니다. 연결되면 Azure Defender for Kubernetes [Azure Arc 지원 Kubernetes](../azure-arc/kubernetes/overview.md) 리소스에 [클러스터 확장으로](../azure-arc/kubernetes/extensions.md)배포할 수 있습니다.
 
 확장 구성 요소는 클러스터의 모든 컨트롤 플레인 노드에서 Kubernetes 감사 로그 데이터를 수집하고 추가 분석을 위해 클라우드의 Azure Defender for Kubernetes 백 엔드로 보냅니다. 확장은 데이터 파이프라인으로 사용되는 Log Analytics 작업 영역에 등록되지만 감사 로그 데이터는 Log Analytics 작업 영역에 저장되지 않습니다.
 
-이 다이어그램에서는 Azure Defender for Kubernetes와 Azure Arc 지원 Kubernetes 클러스터 간의 상호 작용을 보여 줍니다.
+이 다이어그램은 Azure Defender for Kubernetes Azure Arc 지원 Kubernetes 클러스터 간의 상호 작용을 보여 줍니다.
 
-:::image type="content" source="media/defender-for-kubernetes-azure-arc/defender-for-kubernetes-architecture-overview.png" alt-text="고급 아키텍처 다이어그램에서는 Azure Defender for Kubernetes와 Azure Arc 지원 Kubernetes 클러스터 간의 상호 작용을 보여 줍니다." lightbox="media/defender-for-kubernetes-azure-arc/defender-for-kubernetes-architecture-overview.png":::
+:::image type="content" source="media/defender-for-kubernetes-azure-arc/defender-for-kubernetes-architecture-overview.png" alt-text="Azure Defender for Kubernetes Azure Arc 지원 Kubernetes 클러스터 간의 상호 작용을 간략하게 설명하는 고급 아키텍처 다이어그램입니다." lightbox="media/defender-for-kubernetes-azure-arc/defender-for-kubernetes-architecture-overview.png":::
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
-확장을 배포 하기 전에 다음을 확인 합니다.
-- [Kubernetes 클러스터를 Azure Arc에 커넥트](../azure-arc/kubernetes/quickstart-connect-cluster.md)
-- [일반 클러스터 확장 설명서에 나열 된 필수](../azure-arc/kubernetes/extensions.md#prerequisites)구성 요소를 완료 합니다.
-- [투구 3](https://helm.sh/docs/intro/install) 버전 3.7.0 이상
-- 아웃 바운드 액세스를 위해 다음 끝점에서 **포트 443** 를 구성 합니다.
+확장을 배포하기 전에 다음을 확인합니다.
+- [Kubernetes 클러스터를 Azure Arc 커넥트](../azure-arc/kubernetes/quickstart-connect-cluster.md)
+- 일반 [클러스터 확장 설명서 아래에 나열된 필수 구성을 완료합니다.](../azure-arc/kubernetes/extensions.md#prerequisites)
+- [Helm 3](https://helm.sh/docs/intro/install) 버전 3.7.0 이상
+- 아웃바운드 액세스를 위해 다음 엔드포인트에서 **포트 443을** 구성합니다.
     - Azure Government 클라우드의 클러스터:
         - *.ods.opinsights.azure.us
         - *.oms.opinsights.azure.us
@@ -75,9 +75,9 @@ Azure Security Center의 전용 권장 사항은 다음을 제공합니다.
 
 1. Azure Security Center의 권장 사항 페이지에서 **Azure Defender 사용** 보안 제어를 엽니다.
 
-1. 필터를 사용하여 **Azure Arc 지원 Kubernetes 클러스터에 Azure Defender의 확장이 설치되어 있어야 합니다** 라는 권장 사항을 찾습니다.
+1. 필터를 사용하여 **Azure Arc 지원 Kubernetes 클러스터에 Azure Defender 확장이 설치되어 있어야 하는** 권장 사항을 찾습니다.
 
-    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Arc 지원 Kubernetes 클러스터용 Azure Defender 확장 배포에 대한 Azure Security Center의 권장 사항" lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Arc 지원 Kubernetes 클러스터에 대한 Azure Defender 확장을 배포하기 위한 Azure Security Center 권장 사항입니다." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
     > [!TIP]
     > 작업 열에서 **수정** 아이콘을 확인합니다.
@@ -151,11 +151,11 @@ REST API를 사용하여 Azure Defender 확장을 배포하려면 구독에 Log 
 
     매개 변수에 대한 설명은 다음과 같습니다.
 
-    | 이름            | In(다음 안에)   | 필수 | Type   | 설명                                  |
+    | Name            | In(다음 안에)   | 필수 | Type   | 설명                                  |
     |-----------------|------|----------|--------|----------------------------------------------|
-    | 구독 ID | 경로 | True     | 문자열 | Azure Arc 지원 Kubernetes 리소스의 구독 ID |
-    | 리소스 그룹  | 경로 | True     | 문자열 | Azure Arc 지원 Kubernetes 리소스를 포함하는 리소스 그룹의 이름 |
-    | 클러스터 이름    | 경로 | True     | 문자열 | Azure Arc 지원 Kubernetes 리소스의 이름  |
+    | 구독 ID | 경로 | True     | 문자열 | Azure Arc 사용 Kubernetes 리소스의 구독 ID |
+    | 리소스 그룹  | 경로 | True     | 문자열 | Azure Arc 사용 Kubernetes 리소스를 포함 하는 리소스 그룹의 이름 |
+    | 클러스터 이름    | 경로 | True     | 문자열 | Azure Arc 사용 Kubernetes 리소스의 이름  |
 
 
     **인증** 을 위해 헤더에는 다른 Azure API와 마찬가지로 전달자 토큰이 있어야 합니다. 전달자 토큰을 가져오려면 다음 명령을 실행합니다.
@@ -196,9 +196,9 @@ REST API를 사용하여 Azure Defender 확장을 배포하려면 구독에 Log 
 
 1. Azure Security Center의 권장 사항 페이지에서 **Azure Defender 사용** 보안 제어를 엽니다.
 
-1. **Azure Arc 지원 Kubernetes 클러스터에 Azure Defender의 확장이 설치되어 있어야 합니다** 라는 권장 사항을 선택합니다.
+1. Azure Arc 사용 Kubernetes 클러스터 라는 권장 사항을 선택 하 여 **Azure Defender의 확장이 설치 되어 있어야** 합니다.
 
-    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Arc 지원 Kubernetes 클러스터용 Azure Defender 확장 배포에 대한 Azure Security Center의 권장 사항" lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Arc 사용 Kubernetes 클러스터에 대 한 Azure Defender 확장 배포에 대 한 Azure Security Center의 권장 사항입니다." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
 1. 확장을 배포한 클러스터가 **정상** 으로 표시되는지 확인합니다.
 
@@ -294,7 +294,7 @@ REST API를 사용하여 Azure Defender 확장을 배포하려면 구독에 Log 
 1. 확장 페이지를 엽니다. 클러스터의 확장이 나열됩니다.
 1. 클러스터를 선택하고 **제거** 를 선택합니다.
 
-    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-uninstall-clusters-page.png" alt-text="Arc 지원 Kubernetes 클러스터에서 확장을 제거합니다." lightbox="media/defender-for-kubernetes-azure-arc/extension-uninstall-clusters-page.png":::
+    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-uninstall-clusters-page.png" alt-text="Arc 사용 Kubernetes 클러스터에서 확장 제거" lightbox="media/defender-for-kubernetes-azure-arc/extension-uninstall-clusters-page.png":::
 
 ### <a name="azure-cli"></a>[**Azure CLI**](#tab/k8s-remove-cli)
 
@@ -336,9 +336,9 @@ DELETE https://management.azure.com/subscriptions/{{Subscription Id}}/resourcegr
 
 | Name            | In(다음 안에)   | 필수 | Type   | 설명                                           |
 |-----------------|------|----------|--------|-------------------------------------------------------|
-| 구독 ID | 경로 | True     | 문자열 | Arc 지원 Kubernetes 클러스터의 구독 ID |
-| 리소스 그룹  | 경로 | True     | 문자열 | Arc 지원 Kubernetes 클러스터의 리소스 그룹  |
-| 클러스터 이름    | 경로 | True     | 문자열 | Arc 지원 Kubernetes 클러스터의 이름            |
+| 구독 ID | 경로 | True     | 문자열 | Azure Arc 사용 Kubernetes 클러스터의 구독 ID |
+| 리소스 그룹  | 경로 | True     | 문자열 | Azure Arc 사용 Kubernetes 클러스터의 리소스 그룹  |
+| 클러스터 이름    | 경로 | True     | 문자열 | Azure Arc 사용 Kubernetes 클러스터의 이름            |
 
 **인증** 을 위해 헤더에는 다른 Azure API와 마찬가지로 전달자 토큰이 있어야 합니다. 전달자 토큰을 가져오려면 다음 명령을 실행합니다.
 
@@ -352,7 +352,7 @@ az account get-access-token --subscription <your-subscription-id>
 
 ## <a name="next-steps"></a>다음 단계
 
-이 페이지에서는 Azure Arc 지원 Kubernetes 클러스터에 대한 Azure Defender 확장을 배포하는 방법을 설명했습니다. 다음 페이지에서 Azure Defender 및 Azure Security Center의 컨테이너 보안 기능에 대해 자세히 알아보세요.
+이 페이지에서는 Azure Arc 사용 Kubernetes 클러스터에 대 한 Azure Defender 확장을 배포 하는 방법을 설명 했습니다. 다음 페이지에서 Azure Defender 및 Azure Security Center의 컨테이너 보안 기능에 대해 자세히 알아보세요.
 
 - [Security Center의 컨테이너 보안](container-security.md)
 - [Azure Defender for Kubernetes 소개](defender-for-kubernetes-introduction.md)

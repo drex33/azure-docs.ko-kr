@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/25/2021
-ms.openlocfilehash: a02b7d6fa5ef8369578f89a452df95a50ca34204
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 13de7b055820ac680e8b513198224bcfd6421e11
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123425179"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708877"
 ---
 # <a name="troubleshoot-vm-insights-guest-health-preview"></a>VM 인사이트 게스트 상태 문제 해결(미리 보기)
 이 문서에서는 VM 인사이트 상태와 관련된 이슈가 있을 때 수행할 수 있는 문제 해결 단계를 설명합니다.
@@ -62,7 +62,7 @@ VM 게스트 에이전트가 서비스 파일에 대 한 잠금을 획득할 수
 
 ### <a name="upgrade-available-message-is-still-displayed-after-upgrading-guest-health"></a>게스트 상태를 업그레이드 한 후에도 업그레이드 가능 메시지가 계속 표시됨 
 
-- 글로벌 Azure에서 VM이 실행 중인지 확인합니다. Arc 사용 서버는 아직 지원되지 않습니다.
+- 글로벌 Azure에서 VM이 실행 중인지 확인합니다. Azure Arc 사용 서버는 아직 지원 되지 않습니다.
 - [VM용 Azure Monitor 게스트 상태 사용(미리 보기)](vminsights-health-enable.md)에 설명된 대로 가상 머신의 지역 및 운영 체제 버전이 지원되는지 확인합니다.
 - 게스트 상태 확장이 0 종료 코드를 표시하며 성공적으로 설치되었는지 확인합니다.
 - Azure Monitor 에이전트 확장이 성공적으로 설치되었는지 확인합니다.

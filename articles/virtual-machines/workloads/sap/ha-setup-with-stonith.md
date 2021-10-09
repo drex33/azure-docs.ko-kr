@@ -1,6 +1,6 @@
 ---
 title: STONITH를 사용하여 Azure(대규모 인스턴스)의 SAP HANA에 대한 고가용성 설정 | Microsoft Docs
-description: STONITH 디바이스를 사용하여 SUSE에서 Azure(Large Instances)의 SAP HANA에 대한 고가용성 설정 방법을 알아봅니다.
+description: STONITH 디바이스를 사용하여 SUSE에서 Azure(큰 인스턴스)에서 SAP HANA 고가용성을 설정하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: Ajayan1008
@@ -14,67 +14,60 @@ ms.workload: infrastructure
 ms.date: 9/01/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ae2b1ebd0b48b38a0f5b7a27097c89f94205d88
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 5866fbb227477b0079f5f2ac314357ca8e67a364
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123423685"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710834"
 ---
-# <a name="high-availability-set-up-in-suse-using-the-stonith-device"></a>STONITH 디바이스를 사용하여 SUSE에서 고가용성 설정
+# <a name="high-availability-setup-in-suse-using-the-stonith-device"></a>STONITH 디바이스를 사용하여 SUSE의 고가용성 설정
 
-이 문서에서는 STONITH 디바이스를 사용하여 SUSE 운영 체제의 HANA 대규모 인스턴스에서 고가용성을 설정하는 단계를 진행합니다.
+이 문서에서는 STONITH 디바이스를 사용하여 SUSE 운영 체제의 HANA 큰 인스턴스에서 HA(고가용성)를 설정하는 단계를 진행합니다.
 
-**책임 부인:** *이 가이드는 Microsoft HANA Large Instances 환경에서 설정을 성공적으로 테스트하여 파생되었습니다. HANA Large Instances에 대한 Microsoft 서비스 관리 팀에서는 운영 체제를 지원하지 않으므로 운영 체제 계층에 대한 추가 문제 해결 또는 확인이 필요한 경우 SUSE에 문의해야 할 수 있습니다. Microsoft 서비스 관리 팀은 STONITH 디바이스를 설정하고 STONITH 디바이스 문제를 완벽하게 지원하며 문제 해결에 참여할 수 있습니다.*
+> [!NOTE]
+> 이 가이드는 Microsoft HANA 큰 인스턴스 환경에서 설치 프로그램을 성공적으로 테스트한 후 파생되었습니다. HANA 대규모 인스턴스에 대한 Microsoft 서비스 관리 팀은 운영 체제를 지원하지 않습니다. 운영 체제 계층에 대한 문제 해결 또는 설명은 SUSE에 문의합니다. 
+>
+> Microsoft 서비스 관리 팀은 STONITH 디바이스를 설정하고 완벽하게 지원합니다. STONITH 디바이스 문제를 해결하는 데 도움이 될 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
-SUSE 클러스터링을 사용하여 HA(고가용성)를 설정하려면 다음 필수 구성을 충족해야 합니다.
+SUSE 클러스터링을 사용하여 고가용성을 설정하려면 다음을 수행해야 합니다.
 
-- HANA 대규모 인스턴스 프로비전
-- OS(운영 체제) 등록
-- 패치/패키지를 얻기 위해 SMT 서버에 연결된 HANA 대규모 인스턴스 서버
-- 최신 패치가 설치된 운영 체제
-- 네트워크 시간 프로토콜(NTP 시간 서버) 설정
-- HA 설정에 관한 SUSE 설명서의 최신 버전 이해
+- HANA 큰 인스턴스를 프로비전합니다.
+- 최신 패치를 설치하고 운영 체제를 등록합니다.
+- 커넥트 HANA 대규모 인스턴스 서버에서 SMT 서버로 패치 및 패키지를 가져옵니다.
+- 네트워크 시간 프로토콜(NTP 시간 서버)을 설정합니다.
+- HA 설정에 대한 최신 SUSE 설명서를 읽고 이해합니다.
 
 ## <a name="setup-details"></a>설정 정보
+
 이 가이드에서 사용하는 설정은 다음과 같습니다.
+
 - 운영 체제: SAP용 SLES 12 SP1
-- HANA(대규모 인스턴스): 2xS192(소켓 4개, TB 2개)
+- HANA 대규모 인스턴스: 2xS192(4개 소켓, 2TB)
 - HANA 버전: HANA 2.0 SP1
-- 서버 이름: sapprdhdb95(노드 1) 및 sapprdhdb96(노드 2)
-- STONITH 디바이스: iSCSI 기반 STONITH 디바이스
-- HANA 큰 인스턴스 노드 중 하나에 대한 NTP 설정
+- 서버 이름: sappr도b95(node1) 및 sappr 상태b96(node2)
+- STONITH 디바이스: iSCSI 기반
+- HANA 큰 인스턴스 노드 중 하나의 NTP
 
-HSR(HANA 시스템 복제)을 사용하여 HANA 대규모 인스턴스를 설정하는 경우 Microsoft 서비스 관리 팀이 STONITH 디바이스를 설정하도록 요청할 수 있습니다. 프로비전 시 이 작업을 바로 수행합니다. 
+HANA 시스템 복제를 사용하여 HANA 대규모 인스턴스를 설정하는 경우 Microsoft 서비스 관리 팀이 STONITH 디바이스를 설정하도록 요청할 수 있습니다. 프로비전 시 이 작업을 수행합니다. 
 
-HANA Large Instances가 이미 프로비전된 기존 고객의 경우에도 STONITH 디바이스를 설정할 수 있습니다. 서비스 요청 양식(SRF)에서 Microsoft 서비스 관리 팀에 다음 정보를 제공합니다. 기술 계정 관리자 또는 Microsoft의 HANA Large Instance 온보딩 담당자를 통해 SRF 양식을 요청할 수 있습니다.
+HANA Large Instances가 이미 프로비전된 기존 고객의 경우에도 STONITH 디바이스를 설정할 수 있습니다. 서비스 요청 양식(SRF)에서 Microsoft 서비스 관리 팀에 다음 정보를 제공합니다. 기술 계정 관리자 또는 HANA 큰 인스턴스 온보딩에 대한 Microsoft 연락처를 통해 SRF를 얻을 수 있습니다.
 
-- 서버 이름 및 서버 IP 주소(예: myhanaserver1, 10.35.0.1)
+- 서버 이름 및 서버 IP 주소(예: myhanaserver1 및 10.35.0.1)
 - 위치(예: 미국 동부)
 - 고객 이름(예: Microsoft)
-- SID - HANA 시스템 식별자(예: H11)
+- HANA SID(시스템 식별자)(예: H11)
 
-STONITH 디바이스가 구성되면 Microsoft 서비스 관리 팀에서 iSCSI 스토리지의 STONITH 블록 장치(SBD) 이름과 IP 주소를 제공합니다. 이 정보를 사용하여 STONITH 설정을 구성할 수 있습니다. 
+STONITH 디바이스가 구성되면 Microsoft 서비스 관리 팀에서 iSCSI 스토리지의 STONITH 블록 디바이스(SBD) 이름 및 IP 주소를 제공합니다. 이 정보를 사용하여 STONITH 설정을 구성할 수 있습니다. 
 
-다음 단계에 따라 STONITH를 사용하여 HA를 설정합니다.
-
-1.  SBD 디바이스를 식별합니다.
-2.  SBD 디바이스를 초기화합니다.
-3.  클러스터를 구성합니다.
-4.  Softdog Watchdog을 설정합니다.
-5.  클러스터에 노드를 조인합니다.
-6.  클러스터 유효성을 검사합니다.
-7.  클러스터에 대한 리소스를 구성합니다.
-8.  장애 조치(failover) 프로세스를 테스트합니다.
+다음 섹션의 단계에 따라 STONITH를 사용하여 HA를 설정합니다.
 
 ## <a name="identify-the-sbd-device"></a>SBD 디바이스 식별
 
 > [!NOTE]
 > 이 섹션은 기존 고객에게만 적용됩니다. 새 고객인 경우, Microsoft 서비스 관리 팀에서 SBD 디바이스 이름을 제공하므로 이 섹션을 건너뜁니다.
-
-기존 고객의 경우에만: Microsoft 서비스 관리 팀이 STONITH 디바이스를 구성한 후에는 설정에 사용할 SBD 디바이스를 결정해야 합니다.
 
 1. */etc/iscsi/initiatorname.isci를* 다음으로 수정합니다. 
 
@@ -82,176 +75,181 @@ STONITH 디바이스가 구성되면 Microsoft 서비스 관리 팀에서 iSCSI 
     iqn.1996-04.de.suse:01:<Tenant><Location><SID><NodeNumber> 
     ```
     
-    Microsoft 서비스 관리에서 이 문자열을 제공합니다. 노드 **둘 다** 에서 이 파일을 수정합니다. 노드 번호는 노드마다 다릅니다.
+    Microsoft 서비스 관리에서 이 문자열을 제공합니다. 노드 *둘 다* 에서 파일을 수정합니다. 그러나 노드 번호는 노드마다 다릅니다.
     
-    ![스크린샷에는 노드에 대한 InitiatorName 값을 갖는 initiatorname 파일이 표시됩니다.](media/HowToHLI/HASetupWithStonith/initiatorname.png)
+    ![노드에 대한 InitiatorName 값이 있는 initiatorname 파일을 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/initiatorname.png)
 
-2. */etc/iscsi/iscsid.conf* 수정: *node.session.timeo.replacement_timeout=5* 및 *node.startup = automatic* 을 설정합니다. 노드 **둘 다** 에서 파일을 수정합니다.
+2. 및 *를 설정하여 /etc/iscsi/iscsid.conf를* 수정합니다. `node.session.timeo.replacement_timeout=5` `node.startup = automatic` 노드 *둘 다* 에서 파일을 수정합니다.
 
-3. 검색 명령을 실행합니다. 4개의 세션이 표시됩니다. 두 노드에서 모두 실행합니다.
+3. *두 노드에서* 다음 검색 명령을 실행합니다.
 
     ```
     iscsiadm -m discovery -t st -p <IP address provided by Service Management>:3260
     ```
     
-    ![스크린샷에는 isciadm 검색 명령의 결과가 포함된 콘솔 창이 표시됩니다.](media/HowToHLI/HASetupWithStonith/iSCSIadmDiscovery.png)
+    결과에는 4개의 세션이 표시됩니다.
+    
+    ![검색 명령의 결과가 포함된 콘솔 창을 보여 주는 스크린샷.](media/HowToHLI/HASetupWithStonith/iSCSIadmDiscovery.png)
 
-4. 명령을 실행하여 iSCSI 디바이스에 로그인합니다. 4개의 세션이 표시됩니다. **두** 노드에서 모두 실행합니다.
+4. *두 노드에서* 다음 명령을 실행하여 iSCSI 디바이스에 로그인합니다. 
 
     ```
     iscsiadm -m node -l
     ```
-    ![스크린샷에는 iscsiadm 노드 명령의 결과가 포함된 콘솔 창이 표시됩니다.](media/HowToHLI/HASetupWithStonith/iSCSIadmLogin.png)
+    
+    결과에는 4개의 세션이 표시됩니다.
+    
+    ![노드 명령의 결과가 포함된 콘솔 창을 보여 주는 스크린샷.](media/HowToHLI/HASetupWithStonith/iSCSIadmLogin.png)
 
-5. 다시 검색 스크립트를 실행합니다. *rescan-scsi-bus.sh.*  이 스크립트는 생성된 새 디스크를 보여줍니다.  두 노드에서 모두 실행합니다. 0보다 큰 LUN 번호가 표시됩니다(예: 1, 2 등).
+5. 다음 명령을 사용하여 *rescan-scsi-bus.sh* 다시 검색 스크립트를 실행합니다. 이 스크립트는 생성된 새 디스크를 보여줍니다.  *두* 노드에서 모두 실행합니다.
 
     ```
     rescan-scsi-bus.sh
     ```
-    ![스크린샷에는 스크립트 결과가 포함된 콘솔 창이 표시됩니다.](media/HowToHLI/HASetupWithStonith/rescanscsibus.png)
+    
+    결과에 0보다 큰 LUN 번호가 표시됩니다(예: 1, 2 등).
+     
+    ![스크립트 결과가 포함된 콘솔 창을 보여 주는 스크린샷.](media/HowToHLI/HASetupWithStonith/rescanscsibus.png)
 
-6. 디바이스 이름을 얻으려면 *fdisk –l* 명령을 실행합니다. 두 노드에서 모두 실행합니다. **178MiB** 크기를 가진 디바이스를 선택합니다.
+6. 디바이스 이름을 얻으려면 *두* 노드에서 다음 명령을 실행합니다. 
 
     ```
       fdisk –l
     ```
     
-    ![스크린샷에는 f 디스크 명령의 결과가 포함된 콘솔 창이 표시됩니다.](media/HowToHLI/HASetupWithStonith/fdisk-l.png)
+    결과에서 크기가 178 MiB인 디바이스를 선택합니다.
+    
+    ![f disk 명령의 결과가 포함된 콘솔 창을 보여 주는 스크린샷.](media/HowToHLI/HASetupWithStonith/fdisk-l.png)
 
 ## <a name="initialize-the-sbd-device"></a>SBD 디바이스 초기화
 
-이 섹션과 다음 섹션은 신규 및 기존 고객에게 모두 적용됩니다.
-
-1. **두** 노드에서 SBD 디바이스를 초기화합니다.
+1. 다음 명령을 사용하여 *두* 노드에서 SBD 디바이스를 초기화합니다.
 
     ```
     sbd -d <SBD Device Name> create
     ```
-    ![스크린 샷에는 s b d 생성 명령의 결과가 포함된 콘솔 창이 표시됩니다.](media/HowToHLI/HASetupWithStonith/sbdcreate.png)
+    ![s b d create 명령의 결과가 포함된 콘솔 창을 보여 주는 스크린샷.](media/HowToHLI/HASetupWithStonith/sbdcreate.png)
 
-2. 디바이스에 기록된 내용을 확인합니다. 두 노드에서 **모두** 수행합니다.
+2. *두 노드에서* 다음 명령을 사용하여 디바이스에 기록된 내용을 확인합니다.
 
     ```
     sbd -d <SBD Device Name> dump
     ```
 
-## <a name="configure-the-cluster"></a>클러스터 구성
+## <a name="configure-the-suse-ha-cluster"></a>SUSE HA 클러스터 구성
 
-이 섹션에서는 SUSE HA 클러스터를 설정하는 단계를 설명합니다.
-
-1. 먼저 패키지를 설치합니다. ha_sles 및 SAPHanaSR-doc 패턴이 설치되어 있는지 확인합니다. 설치되지 않은 경우 설치합니다. **두** 노드 모두에 설치합니다.
+1. 다음 명령을 사용하여 ha_sles 및 SAPHanaSR-doc 패턴이 *두 노드에 모두* 설치되어 있는지 확인합니다. 설치되지 않은 경우 설치합니다.
 
     ```
     zypper in -t pattern ha_sles
     zypper in SAPHanaSR SAPHanaSR-doc
     ```
-    ![스크린샷은 패턴 명령의 결과가 포함된 콘솔 창을 보여줍니다.](media/HowToHLI/HASetupWithStonith/zypperpatternha_sles.png)
-    ![스크린샷은 SAPHanaSR-doc 명령의 결과가 포함된 콘솔 창을 보여줍니다.](media/HowToHLI/HASetupWithStonith/zypperpatternSAPHANASR-doc.png)
+    ![패턴 명령의 결과가 포함된 콘솔 창을 보여 주는 스크린샷.](media/HowToHLI/HASetupWithStonith/zypperpatternha_sles.png)
     
-2. 이제 클러스터를 설정합니다. *ha-cluster-init* 명령을 사용하거나 yast2 마법사를 사용하여 클러스터를 설정할 수 있습니다. 이 예제에서는 yast2 마법사를 사용했습니다. **주 노드에 대해서만** 이 단계를 수행합니다.
+    ![SAPHanaSR-doc 명령의 결과가 포함된 콘솔 창을 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/zypperpatternSAPHANASR-doc.png)
+    
+2. `ha-cluster-init`명령 또는 yast2 마법사를 사용하여 클러스터를 설정합니다. 이 예제에서는 yast2 마법사를 사용합니다. 이 단계는 주 노드 에서만 *수행합니다.*
 
-    1. **yast2**  >  **고가용성**  >  **클러스터** 팔로우
+    1. **yast2**  >  **고가용성**  >  **클러스터로** 이동합니다.
     
-        ![고가용성 및 클러스터가 선택된 YaST 제어 센터를 보여주는 스크린샷.](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
-        
-        ![치 및 취소 옵션이 있는 대화 상자를 보여주는 스크린샷.](media/HowToHLI/HASetupWithStonith/yast-hawk-install.png)
-        
-    1. halk2 패키지가 이미 설치되어 있으므로 **취소** 를 선택합니다.
+        ![고가용성 및 클러스터가 선택된 YaST 제어 센터를 보여 주는 스크린샷.](media/HowToHLI/HASetupWithStonith/yast-control-center.png)        
+                
+    1. 이 패키지 설치에 대한 대화 상자에서 halk2 패키지가 이미 설치되어 있으므로 **취소를** 선택합니다.
     
-        ![스크린샷에는 취소 옵션에 대한 메시지가 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast-hawk-continue.png)
+        ![설치 및 취소 옵션이 있는 대화 상자를 보여 주는 스크린샷.](media/HowToHLI/HASetupWithStonith/yast-hawk-install.png)
+                    
+    1. 계속하는 것에 대한 대화 상자에서 **계속을** 선택합니다.
     
-    1. **계속** 을 선택합니다.
-    
-        예상 값=배포된 노드 수(이 경우 2).
+        ![필수 패키지를 설치하지 않고 계속하는 것에 대한 메시지를 보여 주는 스크린샷.](media/HowToHLI/HASetupWithStonith/yast-hawk-continue.png)        
         
-        ![스크린샷에는 보안 인증 사용 확인란이 있는 클러스터 보안이 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast-Cluster-Security.png)
+    1. 예상 값은 배포된 노드 수(이 경우 2)입니다. **다음** 을 선택합니다.  
+
+     
         
-    1. **다음** 을 선택합니다.
-    
-        ![스크린샷에는 호스트 동기화 및 파일 목록 동기화가 포함된 클러스터 구성 창이 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast-cluster-configure-csync2.png)
-        
-        노드 이름을 추가한 다음 제안된 파일 추가를 선택합니다.
+    1. 노드 이름을 추가한 **다음, 제안된 파일 추가를** 선택합니다.
+
+        ![동기화 호스트 및 동기화 파일 목록이 있는 클러스터 구성 창을 보여 주는 스크린샷.](media/HowToHLI/HASetupWithStonith/yast-cluster-configure-csync2.png)
         
     1. **csync2 켜기** 를 선택합니다.
     
-    1. **사전 공유 키 생성** 을 선택합니다. 아래 팝업이 표시됩니다.
+    1. **미리 공유한 키 생성을** 선택합니다. 
     
-        ![스크린샷에는 키가 생성되었다는 메시지가 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast-key-file.png)
-        
-    1. **확인** 을 선택합니다.
+    1. 표시되는 팝업 메시지에서 **확인을** 선택합니다.
     
-        IP 주소 및 Csync2의 미리 공유한 키를 사용하여 인증을 수행합니다. csync2 -k /etc/csync2/key_hagroup을 사용하여 키 파일을 생성합니다. key_hagroup 파일을 생성한 후 클러스터의 모든 멤버에 수동으로 복사해야 합니다. **반드시 노드1에서 노드2로 파일을 복사해야 합니다**.
+        ![키가 생성되었다는 메시지를 보여 주는 스크린샷.](media/HowToHLI/HASetupWithStonith/yast-key-file.png)
         
-        ![스크린샷에는 클러스터의 모든 구성원에 키를 복사하는 데 필요한 옵션이 있는 클러스터 구성 대화 상자가 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast-cluster-conntrackd.png)
+    1. 인증은 Csync2의 IP 주소 및 미리 공유한 키를 사용하여 수행됩니다. 키 파일은 를 통해 `csync2 -k /etc/csync2/key_hagroup` 생성됩니다. 
+    
+        파일을 만든 후 클러스터의 모든 멤버에 *파일 key_hagroup* 수동으로 복사합니다. node1에서 node2로 파일을 복사해야 합니다. 그런 후 **다음** 을 선택합니다.
         
-    1. **다음** 을 선택합니다.
-        ![클러스터 서비스 창을 보여주는 스크린샷.](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
+        ![클러스터의 모든 멤버에 키를 복사하는 데 필요한 옵션이 있는 클러스터 구성 대화 상자를 보여 주는 스크린샷.](media/HowToHLI/HASetupWithStonith/yast-cluster-conntrackd.png)
         
-        기본 옵션에서 부팅이 해제되었습니다. 부팅 시 pacemaker가 시작되도록 켜기로 변경합니다. 설정 요구 사항에 따라 선택할 수 있습니다.
+    1. 기본 옵션에서 **부팅은** **꺼져** 있습니다. 부팅 **시** pacemaker 서비스가 시작되도록 켜기로 변경합니다. 설정 요구 사항에 따라 선택할 수 있습니다.
+
+        ![부팅이 켜져 있는 클러스터 서비스 창을 보여 주는 스크린샷.](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
     
     1. **다음** 을 선택하면 클러스터 구성이 완료됩니다.
 
-## <a name="set-up-the-softdog-watchdog"></a>소프트 dog watchdog 설정
+## <a name="set-up-the-softdog-watchdog"></a>softdog watchdog 설정
 
-이 섹션에서는 Watchdog(softdog) 구성을 설명합니다.
-
-1. **두** 노드의 */etc/init.d/boot.local* 에 다음 줄을 추가 합니다.
+1. *두* 노드의 */etc/init.d/boot.local에* 다음 줄을 추가합니다.
     
     ```
     modprobe softdog
     ```
-    ![스크린샷에는 softdog 줄이 추가된 부팅 파일이 표시됩니다.](media/HowToHLI/HASetupWithStonith/modprobe-softdog.png)
+    ![softdog 줄이 추가된 부팅 파일을 보여 주는 스크린샷.](media/HowToHLI/HASetupWithStonith/modprobe-softdog.png)
     
-2. **두 노드에서 모두** 다음과 같이 *노드에서/etc/sysconfig/sbd* 파일을 업데이트 합니다.
+2. 다음 명령을 사용 하 여 *두* 노드에서 *노드에서/etc/sysconfig/sbd* 파일을 업데이트 합니다.
     
     ```
     SBD_DEVICE="<SBD Device Name>"
     ```
-    ![스크린샷에는 S B D_DEVICE 값이 추가된 s b d 파일이 표시됩니다.](media/HowToHLI/HASetupWithStonith/sbd-device.png)
+    ![S B D_DEVICE 값이 추가 된 s b d 파일을 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/sbd-device.png)
     
-3. 다음 명령을 실행 하 여 **두** 노드에서 커널 모듈을 로드 합니다.
+3. 다음 명령을 실행 하 여 *두* 노드에서 커널 모듈을 로드 합니다.
     
     ```
     modprobe softdog
     ```
-    ![스크린샷에는 modprobe softdog 명령이 있는 콘솔 창의 일부가 표시됩니다.](media/HowToHLI/HASetupWithStonith/modprobe-softdog-command.png)
+    ![Modprobe 소프트 dog 명령을 사용 하 여 콘솔 창의 일부를 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/modprobe-softdog-command.png)
 
-4. **두 노드에서 모두** 다음과 같이 소프트 노드가 실행 되 고 있는지 확인 합니다.
+4. 다음 명령을 사용 하 여 *두* 노드에서 소프트 노드가 실행 되 고 있는지 확인 합니다.
     
     ```
     lsmod | grep dog
     ```
-    ![스크린샷에는 l s mod 명령을 실행한 결과가 포함된 콘솔 창의 일부가 표시됩니다.](media/HowToHLI/HASetupWithStonith/lsmod-grep-dog.png)
+    ![L s mod 명령을 실행 한 결과와 함께 콘솔 창의 일부를 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/lsmod-grep-dog.png)
     
-5. **두 노드에서 모두** SBD 장치를 시작 합니다.
+5. 다음 명령을 사용 하 여 *두 노드에서 모두* SBD 장치를 시작 합니다.
 
     ```
     /usr/share/sbd/sbd.sh start
     ```
-    ![스크린샷에는 시작 명령이 포함된 콘솔 창의 일부가 표시됩니다.](media/HowToHLI/HASetupWithStonith/sbd-sh-start.png)
+    ![시작 명령이 있는 콘솔 창의 일부를 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/sbd-sh-start.png)
     
-6. **두 노드에서 모두** SBD 디먼을 테스트 합니다. 두 노드에서 모두 구성 하 고 나면 두 개의 항목이 표시 됩니다.
+6. 다음 명령을 사용 하 여 *두* 노드에서 SBD 디먼을 테스트 합니다. 
     
     ```
     sbd -d <SBD Device Name> list
     ```
-    ![스크린샷에는 두 개의 항목이 표시된 콘솔 창의 일부가 표시됩니다.](media/HowToHLI/HASetupWithStonith/sbd-list.png)
+    두 노드 모두 구성 후 결과에 두 개의 항목이 표시 됩니다.    
     
-7. 노드 중 **하나** 에 테스트 메시지를 보냅니다.
+    ![두 개의 항목을 표시 하는 콘솔 창의 일부를 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/sbd-list.png)
+    
+7. 다음 테스트 메시지를 노드 *중 하나* 에 보냅니다.
 
     ```
     sbd  -d <SBD Device Name> message <node2> <message>
     ```
-    ![스크린샷에는 두 개의 항목이 표시된 콘솔 창의 일부가 표시됩니다.](media/HowToHLI/HASetupWithStonith/sbd-list.png)
     
-8. **두 번째** 노드 (노드 2)에서 메시지 상태를 확인할 수 있습니다.
+8. *두 번째* 노드 (노드 2)에서 다음 명령을 사용 하 여 메시지 상태를 확인 합니다.
     
     ```
     sbd  -d <SBD Device Name> list
     ```
-    ![스크린샷에는 다른 구성원에 대한 테스트 값을 나타내는 구성원 중 하나를 사용하는 콘솔 창의 일부가 표시됩니다.](media/HowToHLI/HASetupWithStonith/sbd-list-message.png)
+    ![다른 멤버에 대 한 테스트 값을 표시 하는 멤버 중 하나를 사용 하 여 콘솔 창의 일부를 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/sbd-list-message.png)
     
-9. Sbd config를 채택 하려면 다음과 같이 파일 *노드에서/etc/sysconfig/sbd* 를 업데이트 합니다. 노드 **둘 다** 에서 파일을 업데이트합니다.
+9. SBD 구성을 채택 하려면 *두* 노드에서 다음과 같이 *노드에서/etc/sysconfig/sbd* 파일을 업데이트 합니다.
 
     ```
     SBD_DEVICE=" <SBD Device Name>" 
@@ -260,57 +258,56 @@ STONITH 디바이스가 구성되면 Microsoft 서비스 관리 팀에서 iSCSI 
     SBD_STARTMODE="clean" 
     SBD_OPTS=""
     ```
-10. **주 노드** (node1)에서 pacemaker 서비스를 시작 합니다.
+10. 다음 명령을 사용 하 여 *주 노드* (node1)에서 pacemaker 서비스를 시작 합니다.
 
     ```
     systemctl start pacemaker
     ```
-    ![스크린샷에는 Pacemaker를 시작한 후 상태를 나타내는 콘솔 창이 표시됩니다.](media/HowToHLI/HASetupWithStonith/start-pacemaker.png)
+    ![Pacemaker를 시작한 후 상태를 표시 하는 콘솔 창을 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/start-pacemaker.png)
     
-    Pacemaker 서비스가 *실패* 한 경우, *시나리오 5: Pacemaker 서비스 실패* 를 참조하세요.
+    Pacemaker 서비스가 실패 하는 경우이 문서 뒷부분의 [시나리오 5: pacemaker 서비스 실패](#scenario-5-pacemaker-service-fails) 섹션을 참조 하십시오.
 
-## <a name="join-the-cluster"></a>클러스터에 가입
+## <a name="join-the-node-to-the-cluster"></a>클러스터에 노드 조인
 
-다음으로 클러스터에 노드를 조인 합니다.
+노드 2에서 다음 명령을 실행 *하 여 노드가* 클러스터에 연결 하도록 합니다.
 
-- 노드를 추가 합니다. 다음 명령을 **노드 2** 에서 실행하여 노드 2를 클러스터에 조인합니다.
+```
+ha-cluster-join
+```
 
-    ```
-    ha-cluster-join
-    ```
-    클러스터 조인 중에 *오류* 가 표시되는 경우 *시나리오 6: 노드 2가 클러스터를 조인할 수 없는 경우* 를 참조하세요.
+클러스터를 조인 하는 동안 오류가 발생 하는 경우이 문서 뒷부분의 [시나리오 6: 노드 2에서 클러스터에 연결할 수 없습니다](#scenario-6-node2-cant-join-the-cluster) . 섹션을 참조 하세요.
 
 ## <a name="validate-the-cluster"></a>클러스터 유효성 검사
 
-1. 클러스터 서비스를 시작 합니다. **두** 노드에서 처음으로 클러스터를 확인 하 고 필요에 따라 시작 합니다.
+1. 다음 명령을 사용 하 여 *두* 노드에서 처음으로 클러스터를 확인 하 고 필요에 따라 시작할 수 있습니다.
     
      ```
     systemctl status pacemaker
     systemctl start pacemaker
     ```
-    ![스크린샷에는 Pacemaker의 상태가 포함된 콘솔 창이 표시됩니다.](media/HowToHLI/HASetupWithStonith/systemctl-status-pacemaker.png)
+    ![Pacemaker 상태의 콘솔 창을 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/systemctl-status-pacemaker.png)
         
-2. 상태를 모니터링 합니다. 두 노드에서 **모두***crm_mon* 명령을 실행하여 노드가 온라인인지 확인합니다. 이 작업은 클러스터의 **임의 노드** 에서 실행할 수 있습니다.
+2. 다음 명령을 실행 하 여 *두* 노드가 온라인 상태 인지 확인 합니다. 이 작업은 클러스터의 *임의 노드* 에서 실행할 수 있습니다.
     
     ```
     crm_mon
     ```
-    ![스크린샷에는 c r m_mon의 결과가 포함된 콘솔 창이 표시됩니다.](media/HowToHLI/HASetupWithStonith/crm-mon.png)
+    ![C r m_mon 명령의 결과가 포함 된 콘솔 창을 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/crm-mon.png)
     
-    hawk에 로그인하여 클러스터 상태 *https://\<node IP>:7630* 을 확인할 수도 있습니다. 기본 사용자는 hacluster이며 암호는 linux입니다. 필요한 경우 *passwd* 명령을 사용하여 암호를 변경할 수 있습니다.
+    Hawk에 로그인 하 여 클러스터 상태를 확인할 수도 있습니다 `https://\<node IP>:7630` . 기본 사용자는 **hacluster** 이 고 암호는 **linux** 입니다. 필요한 경우 명령을 사용 하 여 암호를 변경할 수 있습니다 `passwd` .
     
 ## <a name="configure-cluster-properties-and-resources"></a>클러스터 속성 및 리소스 구성
 
 이 섹션에서는 클러스터 리소스를 구성하는 단계를 설명합니다.
-이 예제에서는 다음 리소스를 설정하였으며, 나머지는 SUSE HA 가이드를 참조하여 구성할 수 있습니다(필요한 경우).
+이 예제에서는 다음 리소스를 설정 합니다. SUSE HA 가이드를 참조 하 여 나머지 (필요한 경우)를 구성할 수 있습니다.
 
 - 클러스터 부트스트랩
 - STONITH 디바이스
 - 가상 IP 주소
 
-**노드 중 하나** 에서만 구성을 수행 합니다. 주 노드에서 수행합니다.
+*주 노드에서만* 구성을 수행 합니다.
 
-1. 클러스터 부트스트랩 및 추가 구성: 클러스터 부트스트랩을 추가 합니다. 파일을 만들고 다음 텍스트를 추가합니다.
+1. 클러스터 부트스트랩 파일을 만들고 다음 텍스트를 추가 하 여 구성 합니다.
     
     ```
     sapprdhdb95:~ # vi crm-bs.txt
@@ -326,14 +323,15 @@ STONITH 디바이스가 구성되면 Microsoft 서비스 관리 팀에서 iSCSI 
     op_defaults $id="op-options" \
     timeout="600"
     ```
-2. 클러스터에 구성을 추가 합니다.
+
+2. 다음 명령을 사용 하 여 클러스터에 구성을 추가 합니다.
 
     ```
     crm configure load update crm-bs.txt
     ```
-    ![스크린샷에는 c r m 명령을 실행하는 콘솔 창의 일부가 표시됩니다.](media/HowToHLI/HASetupWithStonith/crm-configure-crmbs.png)
+    ![C r m 명령을 실행 하는 콘솔 창의 일부를 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/crm-configure-crmbs.png)
     
-3. STONITH 장치 구성: 리소스를 추가 하 고, 파일을 만들고, 다음과 같이 텍스트를 추가 합니다.
+3. 리소스를 추가 하 고, 파일을 만들고, 다음과 같이 텍스트를 추가 하 여 STONITH 장치를 구성 합니다.
 
     ```
     # vi crm-sbd.txt
@@ -341,13 +339,13 @@ STONITH 디바이스가 구성되면 Microsoft 서비스 관리 팀에서 iSCSI 
     primitive stonith-sbd stonith:external/sbd \
     params pcmk_delay_max="15"
     ```
-      - 클러스터에 구성을 추가합니다.
+    다음 명령을 사용 하 여 클러스터에 구성을 추가 합니다.
         
-          ```
-          crm configure load update crm-sbd.txt
-          ```
+    ```
+    crm configure load update crm-sbd.txt
+    ```
         
-4. 가상 IP 주소 구성: 리소스 가상 IP 추가를 추가 합니다. 파일을 만들고 다음과 같이 텍스트를 추가 합니다.
+4. 파일을 만들고 다음 텍스트를 추가 하 여 리소스에 대 한 가상 IP 주소를 추가 합니다.
 
     ```
     # vi crm-vip.txt
@@ -356,56 +354,64 @@ STONITH 디바이스가 구성되면 Microsoft 서비스 관리 팀에서 iSCSI 
     op monitor interval="10s" timeout="20s" \
     params ip="10.35.0.197"
     ```
-    - 클러스터에 구성을 추가 합니다.
     
-        ```
-        crm configure load update crm-vip.txt
-        ```
+    다음 명령을 사용 하 여 클러스터에 구성을 추가 합니다.
+    
+    ```
+    crm configure load update crm-vip.txt
+    ```
         
-5. 이제 리소스의 유효성을 검사 합니다. *Crm_mon* 명령을 실행 하면 두 리소스를 볼 수 있습니다.
+5. 명령을 사용 `crm_mon` 하 여 리소스의 유효성을 검사 합니다. 
 
-    ![스크린샷에는 두 개의 리소스가 포함된 콘솔 창이 표시됩니다.](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
+    결과는 두 개의 리소스를 보여 줍니다.
 
-    - *https://\<node IP address>:7630/cib/live/state* 에서 상태를 확인할 수 있습니다.
+    ![두 리소스를 포함 하는 콘솔 창을 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
+
+    *Https:// \<node IP address> : 7630/cib/live/state* 에서 상태를 확인할 수도 있습니다.
     
-        ![스크린샷에는 두 개의 리소스 상태가 표시됩니다.](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
+    ![두 리소스의 상태를 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
     
 ## <a name="test-the-failover-process"></a>장애 조치(failover) 프로세스 테스트
 
-1. 장애 조치 프로세스를 테스트하려면 노드 1에서 Pacemaker 서비스를 중단하고 리소스를 노드 2에 장애 조치합니다.
+1. 장애 조치 (failover) 프로세스를 테스트 하려면 다음 명령을 사용 하 여 노드 1에서 pacemaker 서비스를 중지 합니다.
 
     ```
     Service pacemaker stop
     ```
-2. 이제 **노드 2** 에서 Pacemaker 서비스를 중단하고 리소스를 **노드 1** 에 대해 장애 조치합니다.
+    
+    리소스는 노드 2로 장애 조치 (failover) 됩니다.
 
-    **장애 조치(failover) 전**  
-    ![스크린샷에는 장애 조치(failover) 전 두 개의 리소스 상태가 표시됩니다.](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
+2. 노드 2에서 pacemaker 서비스를 중지 하 고 리소스가 node1로 장애 조치 (failover) 됩니다.
+
+    장애 조치 (failover) 전의 상태는 다음과 같습니다.  
+    ![장애 조치 (failover) 전에 두 리소스의 상태를 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
     
-    **장애 조치(failover) 후**  
-    ![스크린샷에는 장애 조치(failover) 후 두 개의 리소스 상태가 표시됩니다.](media/HowToHLI/HASetupWithStonith/after-failover.png)
+    장애 조치 (failover) 후의 상태는 다음과 같습니다.  
+    ![장애 조치 (failover) 후 두 리소스의 상태를 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/after-failover.png)
     
-    ![스크린샷에는 장애 조치(failover) 후 리소스 상태가 포함된 콘솔 창이 표시됩니다.](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
+    ![장애 조치 (failover) 후 리소스 상태를 포함 하는 콘솔 창을 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
     
 
 ## <a name="troubleshooting"></a>문제 해결
-이 섹션에서는 설치 중에 발생할 수 있는 몇 가지 실패 시나리오를 설명합니다. 이 문제가 발생하지 않을 수도 있습니다.
+
+이 섹션에서는 설치 중 발생할 수 있는 오류 시나리오에 대해 설명 합니다.
 
 ### <a name="scenario-1-cluster-node-not-online"></a>시나리오 1: 클러스터 노드가 온라인이 아닌 경우
 
-노드 중 하나라도 클러스터 관리자에서 온라인으로 표시되지 않으면 다음을 시도하여 온라인으로 전환할 수 있습니다.
+노드가 클러스터 관리자에서 온라인으로 표시 되지 않는 경우이 절차를 수행 하 여 온라인 상태로 만들 수 있습니다.
 
-1. iSCSI 서비스 시작
+1. 다음 명령을 사용 하 여 iSCSI 서비스를 시작 합니다.
 
     ```
     service iscsid start
     ```
     
-2. 이제 해당 iSCSI 노드에 로그인 합니다.
+2. 다음 명령을 사용 하 여 해당 iSCSI 노드에 로그인 합니다.
 
     ```
     iscsiadm -m node -l
     ```
+    
     예상 출력은 다음과 같습니다.
 
     ```
@@ -419,112 +425,109 @@ STONITH 디바이스가 구성되면 Microsoft 서비스 관리 팀에서 iSCSI 
     Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal: 10.250.22.22,3260] successful.
     Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal: 10.250.22.21,3260] successful.
     ```
-### <a name="scenario-2-yast2-doesnt-show-graphical-view"></a>시나리오 2: yast2가 그래픽 보기에 표시되지 않는 경우
+### <a name="scenario-2-yast2-doesnt-show-graphical-view"></a>시나리오 2: Yast2에서 그래픽 보기를 표시 하지 않음
 
-yast2 그래픽 화면이 이 문서의 고가용성 클러스터를 설정하는 데 사용됩니다. yast2가 그림과 같은 그래픽 창과 함께 열리지 않고 Qt 오류가 표시되면 아래 단계를 수행합니다. 그래픽 창과 함께 열리면 이 단계를 건너뛸 수 있습니다.
+Yast2 그래픽 화면은이 문서의 고가용성 클러스터를 설정 하는 데 사용 됩니다. 표시 된 대로 그래픽 창에서 yast2가 열리지 않고 Qt 오류가 발생 하면 다음 단계를 수행 하 여 필요한 패키지를 설치 합니다. 그래픽 창과 함께 열리면 이 단계를 건너뛸 수 있습니다.
 
-**오류**
+다음은 Qt 오류의 예입니다.
 
-![스크린샷에는 오류 메시지가 포함된 콘솔 창의 일부가 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast2-qt-gui-error.png)
+![오류 메시지와 함께 콘솔 창의 일부를 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/yast2-qt-gui-error.png)
 
-**예상 출력**
+예상 출력의 예는 다음과 같습니다.
 
-![스크린샷에는 고가용성 및 클러스터가 강조 표시된 YaST 제어 센터가 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
+![고가용성 및 클러스터가 강조 표시 된 YaST 제어 센터를 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
 
-yast2가 그래픽 창과 함께 열리지 않는 경우, 다음 단계를 수행합니다.
+1. 사용자 "root"로 로그인 하 고 패키지를 다운로드 하 여 설치 하도록 SMT를 설정 했는지 확인 합니다.
 
-1. 필요한 패키지를 설치합니다. “루트” 사용자로 로그인해야 하며 SMT 설치 프로그램을 다운로드하거나/패키지를 설치해야 합니다.
-
-2. 패키지를 설치하려면 yast>소프트웨어>소프트웨어 관리>종속성> 옵션 “권장 패키지 설치...”를 사용합니다. 다음 스크린 샷은 예상 화면을 보여 줍니다.
+2. **Yast**  >  **소프트웨어**  >  **소프트웨어 관리**  >  **종속성** 으로 이동한 후 **권장 패키지 설치** 를 선택 합니다. 
 
     >[!NOTE]
-    >두 노드에서 모두 yast2 그래픽 보기에 액세스할 수 있도록 두 노드에서 모두 이 단계를 수행해야 합니다.
+    >두 노드에서 모두 yast2 그래픽 보기에 액세스할 수 있도록 *두 노드에서 모두* 이 단계를 수행 합니다.
     
-    ![스크린샷에는 YaST 제어 센터를 나타내는 콘솔 창이 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast-sofwaremanagement.png)
+    다음 스크린샷에서는 예상 되는 화면을 보여 줍니다.
     
-3. 종속성 아래에서 **권장 패키지 설치** 를 선택 합니다.
+    ![YaST 제어 센터를 표시 하는 콘솔 창을 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/yast-sofwaremanagement.png)
+    
+3. **종속성** 아래에서 **권장 패키지 설치** 를 선택 합니다.
 
-    ![권장 패키지 설치가 선택된 콘솔 창을 보여주는 스크린샷.](media/HowToHLI/HASetupWithStonith/yast-dependencies.png)
+    ![권장 패키지 설치가 선택 된 콘솔 창을 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/yast-dependencies.png)
 
 4. 변경 내용을 검토하고 **확인** 을 선택합니다.
 
-    ![yast](media/HowToHLI/HASetupWithStonith/yast-automatic-changes.png)
+    ![설치 하도록 선택한 패키지 목록이 포함 된 콘솔 창을 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/yast-automatic-changes.png)
 
     패키지 설치가 진행 됩니다.
 
-    ![설치 진행률이 표시된 콘솔 창을 보여주는 스크린샷.](media/HowToHLI/HASetupWithStonith/yast-performing-installation.png)
+    ![설치 진행률을 표시 하는 콘솔 창을 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/yast-performing-installation.png)
 
-5. **다음** 을 선택합니다.
+5. **다음** 을 선택합니다.    
 
-    ![스크린샷에는 성공 메시지가 포함된 콘솔 창이 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast-installation-report.png)
+6. **설치가 완료 되었습니다** 화면이 표시 되 면 **마침** 을 선택 합니다.
 
-6. **마침** 을 선택합니다.
+    ![성공 메시지를 포함 하는 콘솔 창을 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/yast-installation-report.png)
 
-7. libqt4 및 libyui-qt 패키지도 설치해야 합니다.
+7. 다음 명령을 사용 하 여 libqt4 및 libyui 패키지를 설치 합니다.
     
     ```
     zypper -n install libqt4
     ```
-    ![스크린샷에는 libqt4 패키지를 설치하는 콘솔 창이 표시됩니다.](media/HowToHLI/HASetupWithStonith/zypper-install-libqt4.png)
+    ![첫 번째 패키지를 설치 하는 콘솔 창을 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/zypper-install-libqt4.png)
     
     ```
     zypper -n install libyui-qt
     ```
-    ![libyui-qt 패키지를 설치하는 콘솔 창을 보여주는 스크린샷.](media/HowToHLI/HASetupWithStonith/zypper-install-ligyui.png)
+    ![두 번째 패키지를 설치 하는 콘솔 창을 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/zypper-install-ligyui.png)
     
-    ![libyui-qt 패키지를 설치하는 콘솔 창을 보여주는 스크린샷, 계속.](media/HowToHLI/HASetupWithStonith/zypper-install-ligyui_part2.png)
+    ![계속 해 서 두 번째 패키지를 설치 하는 콘솔 창을 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/zypper-install-ligyui_part2.png)
     
-    이제 Yast2는 여기에 표시된 대로 그래픽 보기를 열 수 있습니다.
+    이제 Yast2에서 그래픽 보기를 열 수 있습니다.
 
-    ![스크린샷에 소프트웨어 및 온라인 업데이트가 선택된 YaST 제어 센터가 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast2-control-center.png)
+    ![소프트웨어 및 온라인 업데이트가 선택 된 YaST 제어 센터를 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/yast2-control-center.png)
 
-### <a name="scenario-3-yast2-doesnt-show-the-high-availability-option"></a>시나리오 3: yast2에 고가용성 옵션이 표시되지 않습니다
+### <a name="scenario-3-yast2-doesnt-show-the-high-availability-option"></a>시나리오 3: Yast2는 고가용성 옵션을 표시 하지 않습니다.
 
-고가용성 옵션이 yast2 제어 센터에 표시되도록 하려면 다른 패키지를 설치해야 합니다.
+Yast2 제어 센터에서 고가용성 옵션을 표시 하려면 다른 패키지를 설치 해야 합니다.
 
-1. Yast2>소프트웨어>소프트웨어 관리>를 사용하여 다음 패턴을 선택합니다.
+1. **Yast2**  >  **software**  >  **software Management** 로 이동 합니다. 그런 다음 **소프트웨어**  >  **온라인 업데이트** 를 선택 합니다.  
+
+    ![소프트웨어 및 온라인 업데이트가 선택 된 YaST 제어 센터를 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/yast2-control-center.png)
+
+2. 다음 항목에 대 한 패턴을 선택 합니다. 그런 **다음, 동의를** 선택합니다.
 
     - SAP HANA 서버 베이스
     - C/C++ 컴파일러 및 도구
     - 고가용성
-    - SAP 애플리케이션 서버 베이스
+    - SAP 애플리케이션 서버 기반
 
-    다음 화면은 패턴을 설치하는 단계를 나타냅니다.
+    ![컴파일러 및 도구에 대한 항목에서 첫 번째 패턴을 선택하는 것을 보여 주는 스크린샷.](media/HowToHLI/HASetupWithStonith/yast-pattern1.png)
 
-    yast2 > 소프트웨어 > 소프트웨어 관리 사용
+    ![컴파일러 및 도구에 대한 항목에서 두 번째 패턴을 선택하는 것을 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/yast-pattern2.png)
 
-    ![스크린샷에는 설치를 시작하기 위해 소프트웨어 및 온라인 업데이트가 선택된 YaST 제어 센터가 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast2-control-center.png)
+4. Dependencies를 해결하기 위해 변경된 패키지 목록에서 **계속을** 선택합니다.
 
-2. 패턴을 선택합니다.
+    ![패키지가 변경되어 dependencies를 해결하는 변경된 패키지 대화 상자를 보여 주는 스크린샷.](media/HowToHLI/HASetupWithStonith/yast-changed-packages.png)
 
-    ![C/C++ 컴파일러 및 도구 항목의 첫 번째 패턴을 선택하는 방법을 보여주는 스크린샷.](media/HowToHLI/HASetupWithStonith/yast-pattern1.png)
+4. 설치 **수행** 중 상태 페이지에서 **다음을** 선택합니다.
 
-    ![C/C++ 컴파일러 및 도구 항목의 두 번째 패턴을 선택하는 방법을 보여주는 스크린샷.](media/HowToHLI/HASetupWithStonith/yast-pattern2.png)
+    ![설치 수행 상태 페이지를 보여 주는 스크린샷.](media/HowToHLI/HASetupWithStonith/yast2-performing-installation.png)
 
-3. **수락** 을 선택합니다.
+5. 설치가 완료되면 설치 보고서가 나타납니다. **마침** 을 선택합니다.
 
-    ![스크린샷에는 종속성을 확인하도록 변경된 패키지가 있는 변경된 패키지 대화 상자가 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast-changed-packages.png)
-
-4. **계속** 을 선택합니다.
-
-    ![스크린샷에는 설치 수행 상태 페이지가 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast2-performing-installation.png)
-
-5. 설치가 완료되면 **다음** 을 선택합니다.
-
-    ![스크린샷에는 설치 보고서가 표시됩니다.](media/HowToHLI/HASetupWithStonith/yast2-installation-report.png)
+    ![설치 보고서를 보여 주는 스크린샷.](media/HowToHLI/HASetupWithStonith/yast2-installation-report.png)
 
 ### <a name="scenario-4-hana-installation-fails-with-gcc-assemblies-error"></a>시나리오 4: HANA 설치가 실패하고 gcc 어셈블리 오류가 발생하는 경우
-HANA 설치가 실패하고 다음 오류가 발생합니다.
 
-![스크린샷에는 운영 체제가 g c c 5 어셈블리를 수행할 준비가 되지 않았다는 오류 메시지가 표시됩니다.](media/HowToHLI/HASetupWithStonith/Hana-installation-error.png)
+HANA 설치에 실패하면 다음 오류가 발생할 수 있습니다.
 
-- 문제를 해결 하려면 다음 스크린샷에 따라 라이브러리 (libgcc_sl 및 libstdc + + 6)를 설치 해야 합니다.
+![운영 체제가 g c c 5 어셈블리를 수행할 준비가 되지 않았다는 오류 메시지를 보여 주는 스크린샷.](media/HowToHLI/HASetupWithStonith/Hana-installation-error.png)
 
-    ![스크린샷에는 필요한 라이브러리를 설치하는 콘솔 창이 표시됩니다.](media/HowToHLI/HASetupWithStonith/zypper-install-lib.png)
+이 문제를 해결하려면 다음 스크린샷과 같이 libgcc_sl 및 libstdc++6 라이브러리를 설치합니다.
+
+![필요한 라이브러리를 설치하는 콘솔 창을 보여 주는 스크린샷.](media/HowToHLI/HASetupWithStonith/zypper-install-lib.png)
 
 ### <a name="scenario-5-pacemaker-service-fails"></a>시나리오 5: Pacemaker 서비스 실패
 
-Pacemaker 서비스를 시작하는 동안 다음 문제가 발생했습니다.
+Pacemaker 서비스를 시작할 수 없는 경우 다음 정보가 표시됩니다.
 
 ```
 sapprdhdb95:/ # systemctl start pacemaker
@@ -565,49 +568,51 @@ sapprdhdb95:/ # tail -f /var/log/messages
 2017-09-28T18:45:01.308066-04:00 sapprdhdb95 CRON[57995]: pam_unix(crond:session): session closed for user root
 ```
 
-- 문제를 해결하려면 */usr/lib/systemd/system/fstrim.timer* 파일에서 다음 줄을 삭제합니다.
+이 문제를 해결하려면 */usr/lib/systemd/system/fstrim.timer* 파일에서 다음 줄을 삭제합니다.
 
-    ```
-    Persistent=true
-    ```
+```
+Persistent=true
+```
     
-    ![스크린샷에는 삭제할 Persistent=true의 값이 포함된 fstrim 파일이 표시됩니다.](media/HowToHLI/HASetupWithStonith/Persistent.png)
+![삭제할 영구=true 값이 있는 f s 트리밍 파일을 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/Persistent.png)
 
-### <a name="scenario-6-node-2-unable-to-join-the-cluster"></a>시나리오 6: 노드 2가 클러스터에 조인할 수 없는 경우
+### <a name="scenario-6-node2-cant-join-the-cluster"></a>시나리오 6: Node2가 클러스터에 조인할 수 없습니다.
 
-*ha-cluster-join* 명령을 사용하여 노드 2를 기존 클러스터에 조인할 때 다음 오류가 발생했습니다.
+*ha-cluster-join* 명령을 통해 node2를 기존 클러스터에 조인하는 데 문제가 있는 경우 다음 오류가 나타납니다.
 
 ```
 ERROR: Can’t retrieve SSH keys from <Primary Node>
 ```
 
-![스크린샷에는 IP 주소에서 SSH 키를 검색할 수 없다는 오류 메시지와 함께 콘솔 창이 표시됩니다.](media/HowToHLI/HASetupWithStonith/ha-cluster-join-error.png)
+![특정 I P 주소에서 SS H 키를 검색할 수 없다는 오류 메시지가 포함된 콘솔 창을 보여 주는 스크린샷.](media/HowToHLI/HASetupWithStonith/ha-cluster-join-error.png)
 
-1. 이 문제를 해결 하려면 두 노드에서 모두 다음을 실행 합니다.
+이 문제를 해결하려면 다음을 수행합니다.
+
+1. 두 노드 모두에서 다음 명령을 *실행합니다.*
 
     ```
     ssh-keygen -q -f /root/.ssh/id_rsa -C 'Cluster Internal' -N ''
     cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
     ```
 
-    ![스크린샷에는 첫 번째 노드에서 명령을 실행하는 콘솔 창의 일부가 표시됩니다.](media/HowToHLI/HASetupWithStonith/ssh-keygen-node1.PNG)
+    ![첫 번째 노드에서 명령을 실행하는 콘솔 창의 일부를 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/ssh-keygen-node1.PNG)
 
-    ![스크린샷에는 두 번째 노드에서 명령을 실행하는 콘솔 창의 일부가 표시됩니다.](media/HowToHLI/HASetupWithStonith/ssh-keygen-node2.PNG)
+    ![두 번째 노드에서 명령을 실행하는 콘솔 창의 일부를 보여 주는 스크린샷](media/HowToHLI/HASetupWithStonith/ssh-keygen-node2.PNG)
 
-2. 앞의 문제 해결 후 노드 2가 클러스터에 추가되었을 것입니다.
+2. node2가 클러스터에 추가되어 있는지 확인합니다.
 
-    ![스크린샷에는 ha-cluster-join 명령이 성공적으로 실행된 콘솔 창이 표시됩니다.](media/HowToHLI/HASetupWithStonith/ha-cluster-join-fix.png)
+    ![성공적인 조인 명령이 있는 콘솔 창을 보여 주는 스크린샷.](media/HowToHLI/HASetupWithStonith/ha-cluster-join-fix.png)
 
 ## <a name="next-steps"></a>다음 단계
 
 다음 문서에서 SUSE HA 설정에 관한 추가 정보를 찾을 수 있습니다. 
 
-- [SAP HANA SR 성능 최적화된 시나리오](https://www.suse.com/support/kb/doc/?id=000019450 )
-- [스토리지 기반 울타리](https://www.suse.com/documentation/sle_ha/book_sleha/data/sec_ha_storage_protect_fencing.html)
-- [블로그 - SAP HANA에 Pacemaker 클러스터 사용- 1부](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-1-basics/)
-- [블로그 - SAP HANA에 Pacemaker 클러스터 사용- 2부](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-2-failure-of-both-nodes/)
+- [SAP HANA SR 성능 최적화](https://www.suse.com/support/kb/doc/?id=000019450) 시나리오(SUSE 웹 사이트)
+- [펜싱 및 STONITH(SUSE](https://documentation.suse.com/sle-ha/15-SP1/html/SLE-HA-all/cha-ha-fencing.html) 웹 사이트)
+- [SAP HANA Pacemaker 클러스터를 사용하기 위한 준비 - 1부: 기본 사항(SAP](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-1-basics/) 블로그)
+- [SAP HANA Pacemaker 클러스터 사용 준비 - 2부: 두 노드 모두 실패(SAP](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-2-failure-of-both-nodes/) 블로그)
 
-운영 체제 파일 수준 백업 및 복원을 수행하는 방법을 알아봅니다.
+운영 체제에 대한 파일 수준 백업 및 복원을 수행하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [OS 백업 및 복원](large-instance-os-backup.md)

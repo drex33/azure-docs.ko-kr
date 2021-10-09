@@ -1,27 +1,27 @@
 ---
 title: Power BI 앱을 사용하여 Azure 비용 분석
-description: 이 문서에서는 Azure Cost Management Power BI 앱을 설치하고 사용하는 방법에 대해 설명합니다.
+description: 이 문서에서는 Cost Management Power BI 앱을 설치하고 사용하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/19/2021
+ms.date: 10/07/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: b500bd2b97c262739902c5e1b8af51b013ad4ecb
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
-ms.translationtype: HT
+ms.openlocfilehash: b854d3ca7bc7cde060bb78e5ad94dc2a6fbbc2c1
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122531278"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706341"
 ---
-# <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Azure Cost Management Power BI 앱을 사용하여 EA(기업계약) 비용 분석
+# <a name="analyze-cost-with-the-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Cost Management Power BI App for Enterprise Agreement(EA)를 사용하여 비용 분석
 
-이 문서에서는 Azure Cost Management Power BI 앱을 설치하고 사용하는 방법에 대해 설명합니다. 이 앱은 Power BI에서 Azure 비용을 분석하고 관리하는 데 도움이 됩니다. 이 앱을 사용하여 비용, 사용 추세를 모니터링하고 비용 최적화 옵션을 식별하여 비용을 줄일 수 있습니다.
+이 문서에서는 Cost Management Power BI 앱을 설치하고 사용하는 방법을 설명합니다. 이 앱은 Power BI에서 Azure 비용을 분석하고 관리하는 데 도움이 됩니다. 이 앱을 사용하여 비용, 사용 추세를 모니터링하고 비용 최적화 옵션을 식별하여 비용을 줄일 수 있습니다.
 
-Azure Cost Management Power BI 앱은 현재 [기업계약](https://azure.microsoft.com/pricing/enterprise-agreement/)을 체결한 고객만 지원합니다.
+Cost Management Power BI 앱은 현재 [기업계약](https://azure.microsoft.com/pricing/enterprise-agreement/)있는 고객만 지원합니다.
 
-앱은 사용자 지정 가능성을 제한합니다. 기본 필터, 보기 및 시각화를 수정하고 확장하여 필요에 맞게 사용자 지정하려면 대신 [Power BI Desktop에서 Azure Cost Management 커넥터](/power-bi/connect-data/desktop-connect-azure-cost-management)를 사용합니다. Azure Cost Management 커넥터를 통해 다른 원본의 추가 데이터를 결합하여 사용자 지정 보고서를 만들어 전반적인 비즈니스 비용을 전체적으로 파악할 수 있습니다. 커넥터는 Microsoft 고객 계약도 지원합니다.
+앱은 사용자 지정 가능성을 제한합니다. 기본 필터, 보기 및 시각화를 수정하고 확장하여 필요에 맞게 사용자 지정하려면 [대신 Power BI Desktop Cost Management 커넥터를](/power-bi/connect-data/desktop-connect-azure-cost-management) 사용합니다. Cost Management 커넥터를 사용하면 다른 원본의 추가 데이터를 조인하여 사용자 지정된 보고서를 만들어 전체 비즈니스 비용을 전체적으로 볼 수 있습니다. 커넥터는 Microsoft 고객 계약도 지원합니다.
 
 > [!NOTE]
 > Power BI 템플릿 앱은 PBIX 파일 다운로드를 지원하지 않습니다.
@@ -35,7 +35,7 @@ Azure Cost Management Power BI 앱은 현재 [기업계약](https://azure.micros
 
 앱을 설치하려면 다음을 수행합니다.
 
-1. [Azure Cost Management Power BI 앱](https://aka.ms/costmgmt/ACMApp)을 엽니다.
+1. [Cost Management Power BI 앱을 엽니다.](https://aka.ms/costmgmt/ACMApp)
 1. Power BI AppSource 페이지에서 **지금 가져오기** 를 선택합니다.
 1. **계속** 을 선택하여 사용 약관 및 개인정보처리방침에 동의합니다.
 1. **이 Power BI 앱을 설치하시겠습니까?** 상자에서 **설치** 를 선택합니다.
@@ -50,14 +50,14 @@ Azure Cost Management Power BI 앱은 현재 [기업계약](https://azure.micros
 
     :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png" alt-text="EA 등록 정보를 입력하는 위치를 보여주는 스크린샷." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png" :::
 1. 다음 설치 단계가 EA 등록에 연결되며, [엔터프라이즈 관리자](../manage/understand-ea-roles.md) 계정을 요구합니다. 모든 기본값을 그대로 둡니다. **로그인 및 연결** 을 선택합니다.  
-    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" alt-text="연결할 기본값이 있는 Azure Cost Management 앱에 연결 대화 상자를 보여주는 스크린샷." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" :::
+    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" alt-text="연결할 기본값이 있는 Cost Management 앱 대화 상자에 대한 커넥트 보여주는 스크린샷." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" :::
 1. 최종 대화 상자가 Azure에 연결되어 데이터를 가져옵니다. *기본값을 구성된 대로 그대로 유지* 하고 **로그인 및 계속 진행** 을 선택합니다.  
-    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" alt-text="기본값이 있는 Azure Cost Management 앱에 연결 대화 상자를 보여주는 스크린샷." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" :::
+    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" alt-text="기본값이 있는 Cost Management 앱 대화 상자에 대한 커넥트 보여주는 스크린샷." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" :::
 1. EA자 등록을 사용하여 인증하라는 메시지가 표시됩니다. Power BI를 사용하여 인증합니다. 인증되면 Power BI 데이터 새로 고침이 시작됩니다.
     > [!NOTE]
     > 데이터 새로 고침 프로세스를 완료하는 데 시간이 오래 걸릴 수 있습니다. 소요 시간은 지정된 개월 수 및 동기화하는 데 필요한 데이터 양에 따라 달라집니다.
 
-데이터 새로 고침이 완료되면 Azure Cost Management 앱을 선택하여 미리 만든 보고서를 표시합니다.
+데이터 새로 고침이 완료되면 Cost Management 앱을 선택하여 미리 만든 보고서를 봅니다.
 
 ## <a name="reports-available-with-the-app"></a>앱에서 사용할 수 있는 보고서
 
@@ -190,7 +190,7 @@ Failed to update data source credentials: The credentials provided for the Azure
 
 1. 데이터에 연결합니다.
 1. EA 등록 및 개월 수를 입력한 후 인증 방법에 대해 **익명**, 개인 정보 수준 설정에 대해 **없음** 의 기본값을 그대로 유지합니다.  
-  :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png" alt-text="스크린샷은 익명 및 없음 값이 입력된 Azure Cost Management 앱에 연결 대화 상자를 보여줍니다." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png" :::
+  :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png" alt-text="커넥트에는 익명 및 없음 값이 입력 된 Cost Management 앱 대화 상자가 표시 됩니다." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png" :::
 1. 다음 페이지에서 인증 방법에 대해 **OAuth2** 를 개인 정보 수준에 대해 **없음** 세트를 설정합니다. 그런 다음, 로그인하여 등록으로 인증합니다. 이 단계에서는 Power BI 데이터 새로 고침을 시작합니다.
 
 ## <a name="data-reference"></a>데이터 참조

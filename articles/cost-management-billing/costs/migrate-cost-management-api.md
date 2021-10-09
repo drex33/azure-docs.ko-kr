@@ -3,21 +3,21 @@ title: Microsoft 고객 계약 API로 EA 마이그레이션 - Azure
 description: 이 문서는 Microsoft EA(기업계약)를 Microsoft 고객 계약으로 마이그레이션하면 어떻게 되는지 이해하는 데 도움이 됩니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/13/2021
+ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.openlocfilehash: 2d3bae2f6282a4e505e2d5aa9ce2cf3f52b80006
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
-ms.translationtype: HT
+ms.openlocfilehash: fbccab537575720aa92c00f74afcdb82c773423e
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113762269"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711371"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>기업계약에서 Microsoft 고객 계약 API로 마이그레이션
 
-이 문서는 EA(기업계약) 계정과 MCA(Microsoft 고객 계약) 계정의 데이터 구조, API 및 기타 시스템 통합 차이점을 이해하는 데 도움이 됩니다. Azure Cost Management는 두 계정 유형의 API를 모두 지원합니다. 계속하기 전에 Microsoft 고객 계약 문서에 대한 [청구 계정 설정](../manage/mca-setup-account.md)을 검토하세요.
+이 문서는 EA(기업계약) 계정과 MCA(Microsoft 고객 계약) 계정의 데이터 구조, API 및 기타 시스템 통합 차이점을 이해하는 데 도움이 됩니다. Cost Management 두 계정 유형 모두에 대한 API를 지원합니다. 계속하기 전에 Microsoft 고객 계약 문서에 대한 [청구 계정 설정](../manage/mca-setup-account.md)을 검토하세요.
 
 기존 EA 계정이 있는 조직은 MCA 계정을 설정하는 것과 함께 이 문서를 검토해야 합니다. 이전에는 EA 계정을 갱신하려면 기존 등록에서 새 등록으로 이동하기 위한 최소한의 작업이 필요했습니다. 하지만 MCA 계정으로 마이그레이션하려면 추가 작업이 필요합니다. 추가 작업이 필요한 이유는 모든 비용 관련 API 및 서비스 제품에 영향을 주는 기본 청구 하위 시스템이 변경되었기 때문입니다.
 
@@ -28,7 +28,7 @@ MCA API 및 새로운 통합을 통해 다음을 수행할 수 있습니다.
 - 네이티브 Azure API를 통해 완전한 API 가용성을 확보합니다.
 - 단일 청구 계정에서 여러 청구서를 구성합니다.
 - Azure 서비스 사용, 타사 Marketplace 사용 및 Marketplace 구매를 통해 결합된 API에 액세스합니다.
-- Azure Cost Management를 사용하여 청구 프로필(등록과 동일)의 비용을 봅니다.
+- Cost Management 사용하여 청구 프로필(등록과 동일)에서 비용을 봅니다.
 - 새 API에 액세스하여 비용을 표시하고, 비용이 미리 정의된 임계값을 초과할 때 알림을 받고, 원시 데이터를 자동으로 내보냅니다.
 
 ## <a name="migration-checklist"></a>마이그레이션 검사 목록
@@ -517,7 +517,7 @@ Reservation Summaries API를 사용하여 예약 요약 정보를 가져오는 �
 
 ## <a name="power-bi-integration"></a>Power BI 통합
 
-비용 보고에 Power BI를 사용할 수도 있습니다. Power BI Desktop을 위한 [Azure Cost Management 커넥터](/power-bi/desktop-connect-azure-cost-management)를 사용하여 Azure 지출을 정확하게 파악할 수 있는 강력하고 사용자 지정된 보고서를 만들 수 있습니다. Azure Cost Management 커넥터는 현재 Microsoft 고객 계약 또는 EA(기업계약)를 체결한 고객을 지원합니다.
+비용 보고에 Power BI를 사용할 수도 있습니다. Power BI Desktop Cost Management [커넥터를](/power-bi/desktop-connect-azure-cost-management) 사용하여 Azure 지출을 더 잘 이해하는 데 도움이 되는 강력하고 사용자 지정된 보고서를 만들 수 있습니다. Cost Management 커넥터는 현재 Microsoft 고객 계약 또는 EA(기업계약)를 가진 고객을 지원합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

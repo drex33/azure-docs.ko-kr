@@ -3,16 +3,16 @@ title: 컨테이너 인사이트의 메트릭 경고
 description: 이 문서에서는 공개 미리 보기의 컨테이너 인사이트에서 사용할 수 있는 권장 메트릭 경고를 검토합니다.
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: 993bd478a7507e3a4e21716b3f588c1bb810bad4
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 7036bc7a0f161044312687d6b22171df99821e6a
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129669780"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714420"
 ---
 # <a name="recommended-metric-alerts-preview-from-container-insights"></a>컨테이너 인사이트에서 권장되는 메트릭 경고(미리 보기)
 
-최대 수요가 발생하고 수용작업량까지 실행되고 있을 때 시스템 리소스 문제에 대해 경고하려면 컨테이너 인사이트를 사용하여 Azure Monitor 로그에 저장된 성능 데이터를 기반으로 로그 경고를 만듭니다. 이제 컨테이너 인사이트에는 공개 미리 보기로 제공 되는 AKS 및 Azure Arc enabled Kubernetes 클러스터에 대해 미리 구성 된 메트릭 경고 규칙이 포함되어 있습니다.
+최대 수요가 발생하고 수용작업량까지 실행되고 있을 때 시스템 리소스 문제에 대해 경고하려면 컨테이너 인사이트를 사용하여 Azure Monitor 로그에 저장된 성능 데이터를 기반으로 로그 경고를 만듭니다. 이제 컨테이너 insights에는 공개 미리 보기로 제공 되는 AKS 및 Azure Arc 사용 Kubernetes 클러스터에 대 한 미리 구성 된 메트릭 경고 규칙이 포함 되어 있습니다.
 
 이 문서에서는 이러한 경고 규칙을 구성 하 고 관리 하는 방법에 대한 지침을 제공하며 환경을 검토합니다.
 
@@ -27,20 +27,20 @@ Azure Monitor 경고에 익숙하지 않은 경우 시작하기 전에 [Microsof
 
 * Azure 지역의 하위 집합에서만 사용자 지정 메트릭을 사용할 수 있습니다. 지원되는 지역 목록은 [지원되는 지역](../essentials/metrics-custom-overview.md#supported-regions)에 설명되어 있습니다.
 
-* 메트릭 경고 및 추가 메트릭의 도입을 지원 하기 위해 필요한 최소 에이전트 버전은 AKS는 **mcr.microsoft.com/azuremonitor/containerinsights/ciprod:ciprod05262020** 이고, Azure Arc 지원하는 Kubernetes 클러스터는 **Mcr.microsoft.com/azuremonitor/containerinsights/ciprod:ciprod09252020** 입니다.
+* 메트릭 경고 및 추가 메트릭의 도입을 지원 하기 위해 필요한 최소 에이전트 버전은 Azure Arc 사용 Kubernetes 클러스터에 대 한 AKS 및 **mcr.microsoft.com/azuremonitor/containerinsights/ciprod:ciprod09252020** 에 대 한 **mcr.microsoft.com/azuremonitor/containerinsights/ciprod:ciprod05262020** 입니다.
 
     클러스터가 최신 버전의 에이전트를 실행 하 고 있는지 확인 하려면 다음 중 하나를 수행 합니다.
 
     * `kubectl describe <omsagent-pod-name> --namespace=kube-system` 명령을 실행합니다. 반환된 상태에서 출력의 *컨테이너* 섹션에 있는 omsagent의 **이미지** 아래에 값을 확인합니다. 
     * **노드** 탭에서 클러스터 노드를 선택하고 오른쪽의 **속성** 창에서 **에이전트 이미지 태그** 아래의 값을 확인합니다.
 
-    AKS에 대해 표시 된 값은 버전 **ciprod05262020** 이상 이어야 합니다. Azure Arc 지원하는 Kubernetes 클러스터에 대해 표시 되는 값은 버전 **ciprod09252020** 이상 이어야 합니다. 클러스터에 이전 버전이 있는 경우에 최신 버전을 다운로드 하는 단계는 [컨테이너 인사이트 에이전트를 업그레이드 하는 방법](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster)을 참조 하세요.
+    AKS에 대해 표시 된 값은 버전 **ciprod05262020** 이상 이어야 합니다. Azure Arc 사용 Kubernetes 클러스터에 대해 표시 되는 값은 버전 **ciprod09252020** 이상 이어야 합니다. 클러스터에 이전 버전이 있는 경우에 최신 버전을 다운로드 하는 단계는 [컨테이너 인사이트 에이전트를 업그레이드 하는 방법](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster)을 참조 하세요.
 
     에이전트 릴리스와 관련 된 자세한 내용은 [에이전트 릴리스 기록](https://github.com/microsoft/docker-provider/tree/ci_feature_prod)을 참조 하세요. 메트릭이 수집되고 있는지 확인 하려면 메트릭 탐색기 Azure Monitor를 사용하여 **인사이트** 를 표시 하는 **메트릭 네임 스페이스** 에서 확인할 수 있습니다. 이 경우 그렇다면 경고 설정을 시작할 수 있습니다. 수집 된 메트릭이 표시 되지 않으면 클러스터 서비스 주체 또는 MSI에 필요한 사용 권한이 없는 것입니다. SPN 또는 MSI가 **모니터링 메트릭 측정 항목 게시자** 역할의 구성원인지 확인하려면 [Azure CLI를 사용하여 클러스터당 업그레이드](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) 섹션에 설명된 단계에 따라 역할 할당을 확인하고 설정합니다.
 
 ## <a name="alert-rules-overview"></a>경고 규칙 개요
 
-중요한 문제에 대해 경고 하기 위해 컨테이너 인사이트에는 AKS 및 Azure Arc를 지원하는 Kubernetes 클러스터에 대한 다음과 같은 메트릭 경고가 포함됩니다.
+중요 한 문제에 대해 경고 하기 위해 컨테이너 정보에는 AKS 및 Azure Arc 사용 Kubernetes 클러스터에 대 한 다음과 같은 메트릭 경고가 포함 됩니다.
 
 |Name| 설명 |default_threshold |
 |----|-------------|------------------|
@@ -100,14 +100,14 @@ Azure Monitor 경고에 익숙하지 않은 경우 시작하기 전에 [Microsof
 |Insights.container/nodes |restartingContainerCount |컨트롤러, Kubernetes 네임 스페이스 별로 컨테이너를 다시 시작하는 횟수입니다.|
 |Insights.container/nodes |oomKilledContainerCount |컨트롤러, Kubernetes 네임 스페이스 별로 중지된 컨테이너 수입니다.|
 |Insights.container/nodes |podReadyPercentage |컨트롤러, Kubernetes 네임 스페이스에서 준비 상태에 있는 pod의 백분율입니다.|
-|Insights.container/containers |**(이전) cpuExceededPercentage** |컨테이너 이름, 컨트롤러 이름, Kubernetes 네임 스페이스, pod 이름에 의해 사용자 구성 가능 임계값 (기본값은 95.0)을 초과하는 컨테이너에 대한 CPU 사용률입니다.<br> 수집됨  |
-|Insights.container/containers |**(신규) cpuThresholdViolated** |컨테이너 이름, 컨트롤러 이름, Kubernetes 네임 스페이스, pod 이름에 의해 사용자 구성 가능 임계값 (기본값은 95.0)을 초과 하는 컨테이너에 대 한 CPU 사용률 (%)이 트리거되는 메트릭입니다.<br> 수집됨  |
-|Insights.container/containers |**(이전) memoryRssExceededPercentage** |컨테이너 이름, 컨트롤러 이름, Kubernetes 네임 스페이스, 포드 이름별로 사용자 구성 가능한 임계값(기본값은 95.0)을 초과하는 컨테이너에 대한 메모리 RSS 백분율입니다.|
-|Insights.container/containers |**(신규) memoryRssThresholdViolated** |컨테이너의 메모리 RSS 백분율이 컨테이너 이름, 컨트롤러 이름, Kubernetes 네임 스페이스, pod 이름에 의해 사용자 구성 가능 임계값 (기본값은 95.0)을 초과 하는 경우에 트리거되는 메트릭입니다.|
-|Insights.container/containers |**(이전) memoryWorkingSetExceededPercentage** |컨테이너 이름, 컨트롤러 이름, Kubernetes 네임 스페이스, pod 이름에 의해 사용자 구성 가능 임계값 (기본값은 95.0)을 초과 하는 컨테이너에 대한 메모리 작업 집합 비율입니다.|
-|Insights.container/containers |**(신규) memoryWorkingSetThresholdViolated** |컨테이너 이름, 컨트롤러 이름, Kubernetes 네임 스페이스, pod 이름에 의해 사용자 구성 가능 임계값 (기본값은 95.0)을 초과 하는 컨테이너의 메모리 작업 집합 비율을 초과 하는 경우에 트리거되는 메트릭입니다.|
-|Insights.container/persistentvolumes |**(이전) pvUsageExceededPercentage** |클레임 이름, Kubernetes 네임 스페이스, 볼륨 이름, pod 이름 및 노드 이름에 의해 사용자 구성 가능 임계값 (기본값은 60.0)을 초과 하는 영구 볼륨에 대한 PV 사용률 비율입니다.|
-|Insights.container/persistentvolumes |**(신규) pvUsageThresholdViolated** |클레임 이름, Kubernetes 네임 스페이스, 볼륨 이름, pod 이름 및 노드 이름에 의해 사용자 구성 가능 임계값 (기본값은 60.0)을 초과 하는 영구 볼륨에 대해 PV 사용 백분율을 트리거한 메트릭입니다.
+|Insights.container/containers |**(Old)cpuExceededPercentage** |컨테이너 이름, 컨트롤러 이름, Kubernetes 네임 스페이스, pod 이름에 의해 사용자 구성 가능 임계값 (기본값은 95.0)을 초과하는 컨테이너에 대한 CPU 사용률입니다.<br> 수집됨  |
+|Insights.container/containers |**(New)cpuThresholdViolated** |사용자 구성 가능한 임계값(기본값: 95.0)을 초과하는 컨테이너의 CPU 사용률 백분율이 컨테이너 이름, 컨트롤러 이름, Kubernetes 네임스페이스, Pod 이름으로 트리거됩니다.<br> 수집됨  |
+|Insights.container/containers |**(이전)memoryRssExceededPercentage** |컨테이너 이름, 컨트롤러 이름, Kubernetes 네임 스페이스, 포드 이름별로 사용자 구성 가능한 임계값(기본값은 95.0)을 초과하는 컨테이너에 대한 메모리 RSS 백분율입니다.|
+|Insights.container/containers |**(New)memoryRssThresholdViolated** |컨테이너 이름, 컨트롤러 이름, Kubernetes 네임스페이스, Pod 이름으로 사용자 구성 가능한 임계값(기본값: 95.0)을 초과하는 컨테이너의 메모리 RSS 백분율이 트리거되는 메트릭입니다.|
+|Insights.container/containers |**(이전)memoryWorkingSetExceededPercentage** |컨테이너 이름, 컨트롤러 이름, Kubernetes 네임 스페이스, pod 이름에 의해 사용자 구성 가능 임계값 (기본값은 95.0)을 초과 하는 컨테이너에 대한 메모리 작업 집합 비율입니다.|
+|Insights.container/containers |**(New)memoryWorkingSetThresholdViolated** |컨테이너 이름, 컨트롤러 이름, Kubernetes 네임스페이스, Pod 이름별로 사용자 구성 가능한 임계값(기본값: 95.0)을 초과하는 컨테이너에 대한 메모리 작업 집합 백분율이 트리거됩니다.|
+|Insights.container/persistentvolumes |**(Old)pvUsageExceededPercentage** |클레임 이름, Kubernetes 네임 스페이스, 볼륨 이름, pod 이름 및 노드 이름에 의해 사용자 구성 가능 임계값 (기본값은 60.0)을 초과 하는 영구 볼륨에 대한 PV 사용률 비율입니다.|
+|Insights.container/persistentvolumes |**(New)pvUsageThresholdViolated** |클레임 이름, Kubernetes 네임스페이스, 볼륨 이름, Pod 이름 및 노드 이름별로 사용자 구성 가능한 임계값(기본값: 60.0)을 초과하는 영구적 볼륨에 대한 PV 사용률 백분율이 트리거됩니다.
 
 ## <a name="enable-alert-rules"></a>경고 규칙 사용
 

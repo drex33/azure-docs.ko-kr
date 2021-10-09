@@ -5,17 +5,21 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 10/04/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: d84f26b2764a103a9b504c1480e88b58fed3c201
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: e1768c506928642ec7742ea8713b98ad4f154ed1
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98706470"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709238"
 ---
 # <a name="repairing-an-export-job"></a>내보내기 작업 복구
+
+> [!IMPORTANT]
+> 작업 복구는 Azure Import/Export 도구에서 더 이상 지원 되지 않습니다. 버전 1.5.0.300 이상에서 blob 내보내기의 문제를 해결 한 다음 [새 내보내기 작업을 만들어야](storage-import-export-data-from-blobs.md?tabs=azure-portal#step-1-create-an-export-job)합니다.
+
 내보내기 작업이 완료된 후에 온-프레미스에서 Microsoft Azure Import/Export 도구를 실행하여 다음을 수행할 수 있습니다.  
   
 1.  Azure Import/Export 서비스로 내보낼 수 없는 모든 파일을 다운로드합니다.  
@@ -152,7 +156,7 @@ G:\pictures\wild\canyon.jpg.properties
   
 ## <a name="next-steps"></a>다음 단계
  
-* [Azure Import/Export 도구 설정](storage-import-export-tool-setup-v1.md)   
+<!--* [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)-->
 * [가져오기 작업을 위한 하드 드라이브 준비](storage-import-export-data-to-blobs.md#step-1-prepare-the-drives)   
-* [복사 로그 파일을 사용하여 작업 상태 검토](storage-import-export-tool-reviewing-job-status-v1.md)   
-* [가져오기 작업 복구](storage-import-export-tool-repairing-an-import-job-v1.md)
+* [복사 로그 파일을 사용 하 여 작업 상태 검토](storage-import-export-tool-reviewing-job-status-v1.md)   
+<!--* [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md)-->

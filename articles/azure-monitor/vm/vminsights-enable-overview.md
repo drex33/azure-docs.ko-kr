@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 12/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: fa656b974a89924a2ce029a7c5e38b4d9f68f6b7
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 1a4c872e5df50e2874053ad460cb50ecfabfeed9
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114440092"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713387"
 ---
 # <a name="enable-vm-insights-overview"></a>VM 인사이트 사용 개요
 
@@ -41,7 +41,7 @@ VM 인사이트는 다음 머신을 지원합니다.
 > 가상 머신용 이더넷 디바이스에 9자 넘는 문자가 있는 경우 VM 인사이트를 통해 인식되지 않으며 데이터가 InsightsMetrics 테이블로 전송되지 않습니다. 에이전트는 [다른 원본](../agents/agent-data-sources.md)에서 데이터를 수집합니다.
 
 ## <a name="supported-azure-arc-machines"></a>지원되는 Azure Arc 머신
-Azure Arc 지원 서버는 Arc 확장 서비스를 사용할 수 있는 지역에서 VM 인사이트를 사용할 수 있습니다. Arc Agent 버전 0.9 이상을 실행해야 합니다.
+VM 인사이트는 Arc 확장 서비스를 사용할 수 있는 지역의 Azure Arc 지원 서버에 사용할 수 있습니다. Arc Agent 버전 0.9 이상을 실행해야 합니다.
 
 | 연결된 원본 | 지원됨 | Description |
 |:--|:--|:--|

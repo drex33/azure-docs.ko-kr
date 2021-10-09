@@ -7,20 +7,20 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: 4a21ede66501832512530513423bed018c92f1aa
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5b712ad275ece9293aca5f4fbe01bbc590958aff
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128646951"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711072"
 ---
 # <a name="troubleshoot-viewing-your-billing-account-in-the-azure-portal"></a>Azure Portal에서 청구 계정을 살펴볼 때 발생하는 문제 해결
 
 청구 계정은 Azure를 사용하기 위해 가입할 때 생성됩니다. 청구 계정을 사용하여 청구서, 결제를 관리하고 비용을 추적할 수 있습니다. 액세스 가능한 청구 계정이 여러 개인 경우가 있습니다. 예를 들어 개인 용도로 Azure에 가입했을 수 있습니다. 조직의 기업계약 또는 Microsoft 고객 계약을 통해 Azure에 액세스할 수도 있습니다. 이러한 각 시나리오의 경우 별도의 청구 계정을 가질 수 있습니다. 이 문서는 Azure Portal에서 청구 계정을 살펴보려고 할 때 발생하는 문제 해결에 도움이 됩니다.
 
-[Azure Cost Management + 청구](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade) 페이지에서 청구 계정을 볼 수 있습니다.
+[Cost Management + 청구](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade) 페이지에서 청구 계정을 볼 수 있습니다.
 
 청구 계정에 대해 자세히 알아보고 청구 계정 유형을 확인하려면 [Azure Portal에서 청구 계정 보기](view-all-accounts.md)를 참조하세요.
 

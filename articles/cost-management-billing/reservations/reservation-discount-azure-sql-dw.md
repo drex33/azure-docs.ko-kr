@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Analytics에 예약 할인이 적용되는 방식 | Microsoft Docs
+title: Azure Synapse Analytics(데이터 웨어하우징에만 해당) | 예약 할인이 적용되는 방식 Microsoft Docs
 description: 비용을 절감하는 데 도움이 되도록 Azure Synapse Analytics에 예약 할인이 적용되는 방식을 알아봅니다.
 author: yashesvi
 ms.reviewer: yashar
@@ -8,20 +8,20 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 1d1ac2d61b8ef70b63f174431168a169868a989b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4d8560484e085f44553c717b10c18920725be212
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128625205"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710230"
 ---
-# <a name="how-reservation-discounts-apply-to-azure-synapse-analytics"></a>Azure Synapse Analytics에 예약 할인이 적용되는 방식
+# <a name="how-reservation-discounts-apply-to-azure-synapse-analytics-data-warehousing-only"></a>Azure Synapse Analytics 예약 할인이 적용되는 방식(데이터 웨어하우징에만 해당)
 
 Azure Synapse Analytics 예약 용량을 구매한 후에는 해당 지역에 존재하는 프로비저닝된 인스턴스에 예약 할인이 자동으로 적용됩니다. 예약 할인은 Azure Synapse Analytics cDWU 미터에서 내보낸 사용량에 적용됩니다. 스토리지 및 네트워킹은 종량제 요금으로 청구됩니다.
 
 ## <a name="reservation-discount-application"></a>예약 할인 애플리케이션
 
-Azure Synapse Analytics 예약된 용량 할인은 매시간으로 실행 중인 웨어하우스에 적용됩니다. 한 시간 동안 배포된 웨어하우스가 없는 경우 해당 시간 동안 예약된 용량이 낭비됩니다. 이월되지 않습니다.
+Azure Synapse Analytics 예약된 용량 할인은 매시간 실행 중인 데이터 웨어하우스에 적용됩니다. 한 시간 동안 배포된 웨어하우스가 없는 경우 해당 시간 동안 예약된 용량이 낭비됩니다. 이월되지 않습니다.
 
 구입 후에 구매한 예약은 언제든지 웨어하우스를 실행하여 내보낸 Azure Synapse Analytics 사용량과 일치합니다. 일부 웨어하우스를 종료하는 경우 일치하는 다른 웨어하우스에 예약 할인이 자동으로 적용됩니다.
 

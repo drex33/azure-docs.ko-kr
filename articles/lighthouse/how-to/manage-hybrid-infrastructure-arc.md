@@ -3,12 +3,12 @@ title: Azure Arc를 사용하여 대규모 하이브리드 인프라 관리
 description: Azure Lighthouse를 사용하면 Azure 외부에서 고객의 컴퓨터와 Kubernetes 클러스터를 효과적으로 관리할 수 있습니다.
 ms.date: 09/07/2021
 ms.topic: how-to
-ms.openlocfilehash: 7d544f98d6a88678cb8efc337831aa89becb21ee
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 8761c87daeda97b6c67ce8e79e438ed01d8d3a37
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124736554"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714735"
 ---
 # <a name="manage-hybrid-infrastructure-at-scale-with-azure-arc"></a>Azure Arc를 사용하여 대규모 하이브리드 인프라 관리
 
@@ -27,13 +27,13 @@ ms.locfileid: "124736554"
 
 ## <a name="manage-hybrid-servers-at-scale-with-azure-arcenabled-servers"></a>Azure Arc 지원 서버를 사용하여 대규모 하이브리드 서버 관리
 
-서비스 공급자는 고객이 [Azure Connected Machine 에이전트](../../azure-arc/servers/agent-overview.md)를 사용하여 구독에 연결한 Azure 외부의 온-프레미스 Windows Server 또는 Linux 머신을 관리할 수 있습니다. Azure Portal 위임된 구독에 대한 리소스를 볼 때 Azure Arc 레이블이 있는 연결된 머신이 **표시됩니다.**
+서비스 공급자는 고객이 [Azure Connected Machine 에이전트](../../azure-arc/servers/agent-overview.md)를 사용하여 구독에 연결한 Azure 외부의 온-프레미스 Windows Server 또는 Linux 머신을 관리할 수 있습니다. Azure Portal 위임된 구독에 대한 리소스를 볼 때 Azure Arc 레이블이 있는 연결된 컴퓨터가 **표시됩니다.**
 
 고객의 Azure 리소스를 관리하는 것과 동일한 방식으로 Azure Policy 및 태그 지정과 같은 Azure 구문을 사용하여 이러한 연결된 머신을 관리할 수 있습니다. 또한 고객 테넌트 간에 작업하여 연결된 모든 하이브리드 머신을 함께 관리할 수 있습니다.
 
-예를 들어, [고객의 하이브리드 머신에 동일한 정책 집합을 적용](../../azure-arc/servers/learn/tutorial-assign-policy-portal.md)할 수 있습니다. Azure Security Center 사용하여 고객의 모든 하이브리드 환경에서 규정 준수를 모니터링하거나 [Azure Monitor 사용하여 하이브리드 머신에서](../../azure-arc/servers/learn/tutorial-enable-vm-insights.md) Log Analytics 작업 영역으로 직접 데이터를 수집할 수도 있습니다. [가상 머신 확장](../../azure-arc/servers/manage-vm-extensions.md)은 비 Azure Windows 및 Linux VM에 배포할 수 있으며 고객의 하이브리드 머신 관리를 간소화합니다.
+예를 들어, [고객의 하이브리드 머신에 동일한 정책 집합을 적용](../../azure-arc/servers/learn/tutorial-assign-policy-portal.md)할 수 있습니다. Azure Security Center 사용하여 고객의 모든 하이브리드 환경에서 규정 준수를 모니터링하거나 Azure Monitor [사용하여 하이브리드 머신에서](../../azure-arc/servers/learn/tutorial-enable-vm-insights.md) Log Analytics 작업 영역으로 직접 데이터를 수집할 수도 있습니다. [가상 머신 확장](../../azure-arc/servers/manage-vm-extensions.md)은 비 Azure Windows 및 Linux VM에 배포할 수 있으며 고객의 하이브리드 머신 관리를 간소화합니다.
 
-## <a name="manage-hybrid-kubernetes-clusters-at-scale-with-azure-arcenabled-kubernetes"></a>Azure Arc 사용하도록 설정된 Kubernetes를 사용하여 대규모로 하이브리드 Kubernetes 클러스터 관리
+## <a name="manage-hybrid-kubernetes-clusters-at-scale-with-azure-arc-enabled-kubernetes"></a>Azure Arc 지원 Kubernetes를 사용하여 대규모로 하이브리드 Kubernetes 클러스터 관리
 
 Azure에서 실행되는 것처럼 [Azure Arc를 사용하여 고객 구독에 연결](../../azure-arc/kubernetes/quickstart-connect-cluster.md)된 Kubernetes 클러스터를 관리할 수 있습니다.
 

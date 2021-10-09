@@ -6,14 +6,14 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: 71a3ce7a33f920c361dfe1e7d0004b52e8211336
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 62156836a37cff8e209fe8f97847b8a8c7889272
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128559615"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710927"
 ---
 # <a name="get-started-with-your-microsoft-partner-agreement-billing-account"></a>Microsoft 파트너 계약 청구 계정 시작
 
@@ -84,4 +84,4 @@ CSP [2계층 모델](/partner-center)의 간접 공급자는 Azure Portal에서 
 
 - [Microsoft 파트너 계약에 대한 추가 Azure 구독 만들기](../manage/create-subscription.md)
 - [Azure 청구 API](/rest/api/billing/)를 사용하여 청구 데이터를 사용자 고유의 보고 시스템과 통합합니다.
-- [파트너를 위한 Azure Cost Management 빠른 시작 가이드](../costs/get-started-partners.md)
+- [파트너를 위한 Cost Management 빠른 시작 가이드](../costs/get-started-partners.md)

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/16/2021
-ms.openlocfilehash: 81c82152bf87944c7aed191c12e067567ec2b086
-ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
-ms.translationtype: HT
+ms.openlocfilehash: 26aa625d7ada93c4524276ee195fd279d155e8c8
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122662248"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710324"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent"></a>Azure Monitor 에이전트를 위한 데이터 수집 구성
 
@@ -123,7 +123,7 @@ REST API를 사용하여 데이터 수집 규칙 및 연결을 만들려면 다�
 > [!NOTE]
 > Log Analytics로 데이터를 보내려면 Log Analytics 작업 영역이 있는 **동일한 영역** 에서 데이터 수집 규칙을 만들어야 합니다. 규칙은 지원되는 다른 영역의 컴퓨터에 연결할 수 있습니다.
 
-Resource Manager 템플릿을 사용하여 Azure 가상 머신이나 Azure Arc 지원 서버에 대한 규칙과 연결을 만들 수 있습니다. 샘플 템플릿은 [Azure Monitor의 데이터 수집 규칙에 대한 Resource Manager 템플릿 샘플](./resource-manager-data-collection-rules.md)을 참조하세요.
+리소스 관리자 템플릿을 사용 하 여 Azure 가상 머신 또는 Azure Arc 사용 서버에 대 한 규칙 및 연결을 만들 수 있습니다. 샘플 템플릿은 [Azure Monitor의 데이터 수집 규칙에 대한 Resource Manager 템플릿 샘플](./resource-manager-data-collection-rules.md)을 참조하세요.
 
 
 ## <a name="manage-rules-and-association-using-powershell"></a>PowerShell을 사용하여 규칙 및 연결 관리

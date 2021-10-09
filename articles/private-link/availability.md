@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 3/15/2021
 ms.custom: template-concept,references_regions
-ms.openlocfilehash: aaa013a25e9131ec55f002db089de0d353f13f7c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 175b940995ed4e68e1358989e8c9b09c201f3ce4
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128585769"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711806"
 ---
 # <a name="azure-private-link-availability"></a>Azure Private Link 가용성
 
@@ -39,6 +39,7 @@ Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드�
 |Azure Event Hub | 모든 공용 지역<br/>Azure Government 지역      |   | GA   <br/> [Azure Event Hub에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../event-hubs/private-link-service.md)  |
 | Azure Monitor <br/>(Log Analytics 및 Application Insights) | 모든 공용 지역      |  | GA   <br/> [Azure Monitor에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../azure-monitor/logs/private-link-security.md)   |
 |Azure 데이터 팩터리 | 모든 공용 지역<br/> Azure Government 지역<br/>모든 중국 지역    | 자격 증명을 Azure key vault에 저장해야 합니다.| GA   <br/> [Azure Data Factory에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../data-factory/data-factory-private-link.md)   |
+|Azure HDInsight | 모든 공용 지역<br/>Azure Government 지역      |   | GA   <br/> [Azure HDInsight에 대 한 개인 끝점을 만드는 방법을 알아봅니다.](../hdinsight/hdinsight-private-link.md)  |
 
 ### <a name="compute"></a>컴퓨팅
 

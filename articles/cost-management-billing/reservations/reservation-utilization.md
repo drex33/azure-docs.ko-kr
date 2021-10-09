@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 04/15/2021
+ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: 28b61781f0b22e79d10d79c1a46e757737a401cf
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
-ms.translationtype: HT
+ms.openlocfilehash: 15726451525d3ffcaf2d059b9e6c9dee86058591
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107568752"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710199"
 ---
 # <a name="view-reservation-utilization-after-purchase"></a>구매 후 예약 사용률 보기
 
@@ -45,8 +45,8 @@ EA(기업계약) 관리자 또는 MCA(Microsoft 고객 계약) 청구 관리자�
 
 Power BI 사용자에게는 두 가지 옵션이 있습니다.
 
-- Power BI Desktop용 Azure Cost Management 커넥터 - [Power BI Desktop용 Azure Cost Management 커넥터](/power-bi/desktop-connect-azure-cost-management)에서 예약 구매 날짜와 사용률 데이터를 사용할 수 있습니다. 커넥터를 사용하여 원하는 보고서를 만듭니다.
-- Azure Cost Management Power BI 앱 - 추가로 사용자 지정할 수 있는 미리 생성된 보고서에 [Azure Cost Management Power BI 앱](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)을 사용합니다.
+- [Power BI Desktop에 대 한 Cost Management 커넥터](/power-bi/desktop-connect-azure-cost-management)에서 Power BI Desktop 예약 구매 날짜 및 사용률 데이터에 대 한 Cost Management 커넥터를 사용할 수 있습니다. 커넥터를 사용하여 원하는 보고서를 만듭니다.
+- Cost Management Power BI 앱-추가로 사용자 지정할 수 있는 미리 생성 된 보고서에 [Cost Management Power BI 앱](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp) 을 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,25 +7,22 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: ssambare
 author: shivanissambare
-ms.date: 05/25/2021
+ms.date: 10/07/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
-ms.openlocfilehash: c4a1b52f87f0c5053e357fcb67a2e90962dc37c1
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: b772db78ebdcbede50b3decc4edd235c336471a6
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123433533"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713201"
 ---
-# <a name="extend-a-prebuilt-docker-image-preview"></a>미리 보기된 Docker 이미지 확장(미리 보기)
+# <a name="extend-a-prebuilt-docker-image"></a>사전 빌드된 Docker 이미지 확장
 
 경우에 따라 [모델 유추에 대한 미리 빌드된 Docker 이미지](concept-prebuilt-docker-images-inference.md) 및 Azure Machine Learning에 대한 [확장성](./how-to-prebuilt-docker-images-inference-python-extensibility.md) 솔루션이 유추 서비스 요구를 충족하지 못할 수 있습니다.
 
 이 경우에는 미리 빌드된 이미지 중 하나를 시작점으로 사용하여 Dockerfile을 사용하여 새 이미지를 만들 수 있습니다. 미리 빌드된 기존 Docker 이미지에서 확장하여 처음부터 이미지를 만들지 않고도 Azure Machine Learning 네트워크 스택과 라이브러리를 사용할 수 있습니다.
-
-> [!IMPORTANT]
-> 현재 Azure Machine Learning에서 미리 빌드된 Docker 이미지는 미리 보기에서 사용할 수 있습니다. 미리 보기 기능은 지원 또는 서비스 수준 계약의 보증 없이 “있는 그대로” 제공됩니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 **혜택 및 단점**
 

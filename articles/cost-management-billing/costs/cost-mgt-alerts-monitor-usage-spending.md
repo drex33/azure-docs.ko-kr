@@ -1,19 +1,19 @@
 ---
-title: 비용 경고를 사용하여 사용량 및 지출 모니터링
-description: 이 문서에서는 Azure Cost Management에서 비용 경고를 사용하여 사용량 및 지출을 모니터링하는 방법을 설명합니다.
+title: Azure Cost Management 비용 경고를 통해 사용량 및 지출 모니터링
+description: 이 문서에서는 비용 경고를 통해 Cost Management 사용량 및 지출을 모니터링하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 14d8408ecec26ea75bc3628ad1f5e35de6833548
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 547dac5984ecc88c452913f406196ade27e74fcd
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128596166"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705949"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>비용 경고를 사용하여 사용량 및 지출 모니터링
 

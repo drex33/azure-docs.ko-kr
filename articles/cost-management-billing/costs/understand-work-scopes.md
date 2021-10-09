@@ -3,18 +3,18 @@ title: Azure Cost Management 범위의 이해 및 사용
 description: 이 문서에서는 Azure에서 사용할 수 있는 청구 및 리소스 관리 범위와 Cost Management 및 API에서 범위를 사용하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/05/2021
+ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 67d8ef5bf6960ca03d8d2d36efbe4461e1124190
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: 55c2d19ee2e80915cc1c4393aa5a25326a5e9d0e
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110695247"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711271"
 ---
 # <a name="understand-and-work-with-scopes"></a>범위 이해 및 작업
 
@@ -68,7 +68,7 @@ Cost Management는 아래의 각 범위에서 다음과 같은 기본 제공 역
 
 최소 권한 역할로 Cost Management 기여자를 사용할 것을 권장합니다. 이 역할을 통해 사용자는 예산과 내보내기를 만들고 관리하여 비용을 보다 효과적으로 모니터링하고 보고할 수 있습니다. Cost Management 기여자는 복잡한 비용 관리 시나리오를 지원하기 위해 추가 역할이 필요할 수도 있습니다. 다음과 같은 시나리오를 고려해 보세요.
 
-- **리소스 사용량 보고** - Azure Cost Management는 Azure Portal에 비용을 보여줍니다. 전체 사용 패턴의 비용과 관련된 사용량이 포함됩니다. 이 보고서에는 API와 다운로드 요금이 표시될 수도 있지만, Azure Monitor의 자세한 사용 메트릭을 자세히 파악하여 더 심층적으로 이해할 수 있습니다. 자세한 사용 현황 메트릭도 보고해야 하는 모든 범위에 대해 [모니터링 리더](../../role-based-access-control/built-in-roles.md#monitoring-reader)를 부여하는 것이 좋습니다.
+- **리소스 사용량에 대한 보고** - Cost Management Azure Portal 비용을 표시합니다. 전체 사용 패턴의 비용과 관련된 사용량이 포함됩니다. 이 보고서에는 API와 다운로드 요금이 표시될 수도 있지만, Azure Monitor의 자세한 사용 메트릭을 자세히 파악하여 더 심층적으로 이해할 수 있습니다. 자세한 사용 현황 메트릭도 보고해야 하는 모든 범위에 대해 [모니터링 리더](../../role-based-access-control/built-in-roles.md#monitoring-reader)를 부여하는 것이 좋습니다.
 - **예산 초과 시 조치** – Cost Management 기여자는 초과분에 자동으로 대응할 수 있도록 작업 그룹을 만들고 관리하기 위한 액세스 권한도 필요합니다. 예산 임계값을 초과할 때 사용할 작업 그룹을 포함하고 있는 리소스 그룹에 [모니터링 기여자](../../role-based-access-control/built-in-roles.md#monitoring-contributor)를 부여하는 방안을 고려해 보세요. 특정 작업을 자동화하려면 Automation 및 Azure Functions처럼 사용되는 특정 서비스에 대한 추가 역할이 필요합니다.
 - **비용 데이터 내보내기 예약** Cost Management 기여자는 데이터를 스토리지 계정에 복사하는 내보내기를 예약할 수 있도록 스토리지 계정을 관리하기 위한 액세스 권한도 필요합니다. 비용 데이터를 내보내는 스토리지 계정을 포함하고 있는 리소스 그룹에 [스토리지 계정 기여자](../../role-based-access-control/built-in-roles.md#storage-account-contributor)를 부여하는 방안을 고려해 보세요.
 - **비용 절감 추천 보기** – Cost Management 읽기 권한자 및 Cost Management 기여자는 기본적으로 비용 추천을 *볼 수 있습니다*. 그러나 비용 추천에 따라 조치를 취하려면 개별 리소스에 대한 액세스 권한이 필요합니다. 비용 기반 추천에 따라 조치를 취하려면 [서비스별 역할](../../role-based-access-control/built-in-roles.md#all)을 부여하는 방안을 고려해 보세요.
@@ -267,7 +267,7 @@ Microsoft 고객 계약과 체결한 CSP에 대해 지원되는 범위는 다음
 
 *글로벌 관리자* 및 *관리 에이전트* 역할이 있는 사용자만 파트너의 Azure 테넌트에서 직접 청구 계정, 청구 프로필 및 고객에 대한 비용을 관리하고 볼 수 있습니다. 파트너 센터 역할에 대한 자세한 내용 [사용자 역할 및 권한 할당](/partner-center/permissions-overview)을 참조하세요.
 
-고객이 Microsoft 고객 계약을 체결한 경우 Azure Cost Management는 CSP 파트너 고객만 지원합니다. 아직 Microsoft 고객 계약을 체결하지 않은 CSP 지원 고객은 [파트너 센터](/azure/cloud-solution-provider/overview/partner-center-overview)를 참조하세요.
+Cost Management는 고객이 Microsoft 고객 계약을 체결 한 경우에만 CSP 파트너 고객만 지원 합니다. 아직 Microsoft 고객 계약을 체결하지 않은 CSP 지원 고객은 [파트너 센터](/azure/cloud-solution-provider/overview/partner-center-overview)를 참조하세요.
 
 CSP 범위의 관리 그룹은 Cost Management에서 지원되지 않습니다. CSP 구독이 있고 비용 분석에서 범위를 관리 그룹으로 설정하는 경우 다음과 유사한 오류가 표시됩니다.
 

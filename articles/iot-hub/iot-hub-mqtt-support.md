@@ -15,12 +15,12 @@ ms.custom:
 - contperf-fy21q1
 - fasttrack-edit
 - iot
-ms.openlocfilehash: 8628683dafbc16a657bf7c8c04beecdc60e2506d
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: f2ffc64f5c2f1bde9d770fe896fd1577fc0328aa
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129455383"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707963"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -54,7 +54,7 @@ MQTT 프로토콜을 지원하는 [디바이스 SDK](https://github.com/Azure/az
 
 | 언어 | MQTT 프로토콜 매개 변수 | 웹 소켓을 통한 MQTT 프로토콜 매개 변수
 | --- | --- | --- |
-| [Node.JS](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot-device-mqtt.Mqtt | azure-iot-device-mqtt.MqttWs |
+| [Node.JS](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/javascript/simple_sample_device.js) | azure-iot-device-mqtt.Mqtt | azure-iot-device-mqtt.MqttWs |
 | [Java](https://github.com/Azure/azure-iot-sdk-java/blob/main/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol).MQTT | IotHubClientProtocol.MQTT_WS |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
 | [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype).Mqtt | MQTT가 실패하는 경우 TransportType.Mqtt는 웹 소켓을 통한 MQTT로 대체됩니다. 웹 소켓을 통한 MQTT만 지정하려면 TransportType.Mqtt_WebSocket_Only를 사용합니다. |
@@ -357,7 +357,7 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** 이 `devices/{dev
 
 가능한 상태 코드:
 
-|상태 | Description |
+|상태 | 설명 |
 | ----- | ----------- |
 | 200 | Success |
 | 429 | 너무 많은 요청(제한됨), [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md) 참조 |
@@ -388,7 +388,7 @@ reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토�
 
 가능한 상태 코드:
 
-|상태 | Description |
+|상태 | 설명 |
 | ----- | ----------- |
 | 204 | 성공(반환되는 콘텐츠 없음) |
 | 400 | 잘못된 요청. 형식이 잘못된 JSON |

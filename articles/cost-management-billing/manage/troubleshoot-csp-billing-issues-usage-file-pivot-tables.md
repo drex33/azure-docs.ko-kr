@@ -7,21 +7,21 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: 2532b02247a85d180d7b1cccd504838b83a8f93f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: de526c46a9aace4a6740b8b9afaab5cc23f3f87d
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128591846"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711107"
 ---
 # <a name="troubleshoot-csp-billing-issues-with-usage-file-pivot-tables"></a>사용량 파일 피벗 테이블을 사용하여 CSP 청구 문제 해결
 
 이 문서는 파트너 센터 조정(사용량) 파일에서 만든 피벗 테이블을 사용하여 CSP(클라우드 솔루션 공급자) 청구 문제를 해결하는 데 도움이 됩니다. Azure 사용량 파일에는 모든 Azure 사용량 및 소비 정보가 포함됩니다. 파일의 정보는 다음을 이해하는 데 도움이 될 수 있습니다.
 
 - Azure 예약이 사용되고 적용되는 방법 이해
-- Azure Cost Management에서 청구된 청구서를 사용하여 정보 조정
+- 청구된 청구서로 Cost Management 정보 조정
 - 비용 급증 문제 해결
 - 서비스 수준 계약에 대한 환불 금액 계산
 
@@ -111,4 +111,4 @@ Azure 사용량 파일은 CSV 형식이므로 Excel에서 사용할 수 있도�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [파트너용 Azure Cost Management를 시작합니다](../costs/get-started-partners.md).
+- [파트너용 Cost Management 시작합니다.](../costs/get-started-partners.md)

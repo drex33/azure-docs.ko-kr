@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: memildin
-ms.openlocfilehash: 3d7bed3847465c48914453a3fd167384e1c180b6
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
-ms.translationtype: HT
+ms.openlocfilehash: 66f2ca97ce20dc0aeb6b1fcecf691861b645284b
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113435826"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706706"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Security Center에서 보안 솔루션 통합
 이 문서를 통해 이미 Azure Security Center에 연결된 보안 솔루션을 관리하고 새로 추가할 수 있습니다.
@@ -30,7 +30,7 @@ Security Center를 사용하면 Azure에서 통합된 보안 솔루션을 쉽게
 > [!NOTE]
 > 대부분의 보안 공급업체가 자신들의 어플라이언스에서 외부 에이전트를 실행하는 것을 금지하고 있기 때문에 Security Center는 파트너 가상 어플라이언스에 Log Analytics 에이전트를 설치하지 않습니다.
 
-Azure Defender 고객에게 제공되는 기본 제공 스캐너를 포함하여 Qualys의 취약성 검사 도구 통합에 대한 자세한 내용은 [Azure Virtual Machines에 대한 취약성 평가](deploy-vulnerability-assessment-vm.md)를 참조하세요.
+Azure Defender 고객에게 제공되는 기본 제공 스캐너를 포함하여 Qualys의 취약성 검사 도구 통합에 대한 자세한 내용은 [Azure 및 하이브리드 머신용 Azure Defender 통합 Qualys 취약성 스캐너를 참조하세요.](deploy-vulnerability-assessment-vm.md)
 
 Security Center는 다음에 대한 취약성 분석도 제공합니다.
 

@@ -6,15 +6,15 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: afdbcd6dd0e00f6829a82c136ba495a7097f5bb2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: de7787ab9b36bee5bce2f29f79260682289419c7
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128662023"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705797"
 ---
 # <a name="analyze-unexpected-charges"></a>예기치 않은 요금 분석
 
@@ -35,7 +35,7 @@ Azure 청구서는 _미터_ 를 기준으로 해당 월의 요금을 집계합�
 
 미터에 적용되는 모든 품목을 보려면 분석할 청구서에 표시된 대로 _MeterName_ 을 기준으로 사용량 CSV 파일을 필터링하세요. 품목의 _InstanceID_ 는 요금이 발생한 실제 Azure 리소스에 해당합니다.
 
-해당 리소스를 식별한 후에는 Azure Cost Management에서 비용 분석을 사용하여 리소스와 관련된 비용을 추가로 분석할 수 있습니다. 비용 분석을 사용하는 방법에 대해 자세히 알아보려면 [비용 분석 시작](../costs/quick-acm-cost-analysis.md)을 참조하세요.
+문제의 리소스를 식별 한 경우 Cost Management에서 비용 분석을 사용 하 여 리소스와 관련 된 비용을 추가로 분석할 수 있습니다. 비용 분석을 사용하는 방법에 대해 자세히 알아보려면 [비용 분석 시작](../costs/quick-acm-cost-analysis.md)을 참조하세요.
 
 ## <a name="review-invoiced-charges-in-cost-analysis"></a>비용 분석에서 송장 발부 요금 검토
 
@@ -88,4 +88,4 @@ VM이 생성되면 각 미터가 사용량 레코드를 내보내기 시작합�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Cost Management를 통해 클라우드 투자를 최적화](../costs/cost-mgt-best-practices.md)하는 방법을 자세히 알아보세요.
+- [Cost Management를 사용 하 여 클라우드 투자를 최적화](../costs/cost-mgt-best-practices.md)하는 방법에 대해 알아봅니다.

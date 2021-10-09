@@ -3,25 +3,25 @@ title: Azure Arc의 App Service
 description: Azure 운영자를 위한 Azure Arc App Service 통합 소개입니다.
 ms.topic: article
 ms.date: 08/17/2021
-ms.openlocfilehash: bd5e257d48ec009ccb79696f4c299fd93568f1c9
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
-ms.translationtype: HT
+ms.openlocfilehash: cec1e7bb9dac43e33e85b6036910220a1fa287c2
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122530802"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711658"
 ---
 # <a name="app-service-functions-and-logic-apps-on-azure-arc-preview"></a>Azure Arc의 App Service, Functions 및 Logic Arc(미리 보기)
 
-Azure Arc 지원 Kubernetes 클러스터에서 App Service, Functions, Logic Apps를 실행할 수 있습니다. Kubernetes 클러스터는 온-프레미스이거나 타사 클라우드에서 호스트될 수 있습니다. 이 방법을 통해 앱 개발자는 App Service 기능을 활용할 수 있습니다. 이와 동시에 IT 관리자는 내부 인프라에서 App Service 앱을 호스트하여 회사 규정 준수를 유지할 수 있습니다. 또한 다른 IT 운영자는 기존 Kubernetes 클러스터에서 App Service를 실행하여 이전에 투자한 다른 클라우드 공급자를 보호할 수 있습니다.
+Azure Arc 지원 Kubernetes 클러스터에서 App Service, Functions 및 Logic Apps 실행할 수 있습니다. Kubernetes 클러스터는 온-프레미스이거나 타사 클라우드에서 호스트될 수 있습니다. 이 방법을 통해 앱 개발자는 App Service 기능을 활용할 수 있습니다. 이와 동시에 IT 관리자는 내부 인프라에서 App Service 앱을 호스트하여 회사 규정 준수를 유지할 수 있습니다. 또한 다른 IT 운영자는 기존 Kubernetes 클러스터에서 App Service를 실행하여 이전에 투자한 다른 클라우드 공급자를 보호할 수 있습니다.
 
 > [!NOTE]
 > App Service, Functions 및 Logic Apps에 대해 Kubernetes 클러스터를 설정하는 방법을 알아보려면 [App Service Kubernetes 환경 만들기(미리 보기)](manage-create-arc-environment.md)를 참조하세요.
 
 대부분의 경우 앱 개발자는 배포된 Kubernetes 환경을 나타내는 올바른 Azure 지역에 배포하는 방법만 알면 됩니다. 환경을 제공하고 기본 Kubernetes 인프라를 유지 관리하는 운영자는 다음 Azure 리소스를 알고 있어야 합니다.
 
-- 연결된 클러스터, 이는 Kubernetes 인프라의 Azure 프로젝션입니다. 자세한 내용은 [Azure Arc 지원 Kubernetes란?](../azure-arc/kubernetes/overview.md)을 참조하세요.
-- 클러스터 확장, 이는 연결된 클러스터 리소스의 하위 리소스입니다. App Service 확장은 [연결된 클러스터에 필수 Pod를 설치합니다](#pods-created-by-the-app-service-extension). 클러스터 확장에 대한 자세한 내용은 [Azure Arc 지원 Kubernetes의 클러스터 확장](../azure-arc/kubernetes/conceptual-extensions.md)을 참조하세요.
-- 사용자 지정 위치, 이는 확장 그룹을 번들로 묶어 만든 리소스의 네임스페이스에 매핑합니다. 자세한 내용은 [Azure Arc 지원 Kubernetes 위에 사용자 지정 위치](../azure-arc/kubernetes/conceptual-custom-locations.md)를 참조하세요.
+- 연결된 클러스터, 이는 Kubernetes 인프라의 Azure 프로젝션입니다. 자세한 내용은 [Azure Arc 지원 Kubernetes란?을 참조하세요.](../azure-arc/kubernetes/overview.md)
+- 클러스터 확장, 이는 연결된 클러스터 리소스의 하위 리소스입니다. App Service 확장은 [연결된 클러스터에 필수 Pod를 설치합니다](#pods-created-by-the-app-service-extension). 클러스터 확장에 대한 자세한 내용은 [Azure Arc 지원 Kubernetes의 클러스터 확장을 참조하세요.](../azure-arc/kubernetes/conceptual-extensions.md)
+- 사용자 지정 위치, 이는 확장 그룹을 번들로 묶어 만든 리소스의 네임스페이스에 매핑합니다. 자세한 내용은 [Azure Arc 지원 Kubernetes 위에 있는 사용자 지정 위치를 참조하세요.](../azure-arc/kubernetes/conceptual-custom-locations.md)
 - App Service Kubernetes 환경, 이는 앱 간에 공통적인 구성을 사용할 수 있지만 클러스터 작업과는 관련이 없습니다. 개념적으로 사용자 지정 위치 리소스에 배포되고 앱 개발자는 이 환경에 앱을 만듭니다. 이에 대해서는 [App Service Kubernetes 환경](#app-service-kubernetes-environment)에 자세히 설명되어 있습니다.
 
 ## <a name="public-preview-limitations"></a>공용 미리 보기 제한 사항
@@ -42,7 +42,7 @@ App Service Kubernetes 환경에는 다음과 같은 공개 미리 보기 제한
 
 ## <a name="pods-created-by-the-app-service-extension"></a>App Service 확장에 의해 만들어진 Pod
 
-App Service 확장을 Arc 지원 Kubernetes 클러스터에 설치하면 지정된 릴리스 네임스페이스에 만들어진 여러 Pod가 표시됩니다. 이러한 Pod를 사용하면 Kubernetes 클러스터가 Azure에서 `Microsoft.Web` 리소스 공급자의 확장이 되고 앱의 관리 및 운영을 지원할 수 있습니다. 필요에 따라 이벤트 기반 크기 조정을 위해 확장이 [KEDA](https://keda.sh/)를 설치하도록 선택할 수 있습니다.
+App Service 확장이 Azure Arc 지원 Kubernetes 클러스터에 설치되면 지정된 릴리스 네임스페이스에 생성된 여러 Pod가 표시됩니다. 이러한 Pod를 사용하면 Kubernetes 클러스터가 Azure에서 `Microsoft.Web` 리소스 공급자의 확장이 되고 앱의 관리 및 운영을 지원할 수 있습니다. 필요에 따라 이벤트 기반 크기 조정을 위해 확장이 [KEDA](https://keda.sh/)를 설치하도록 선택할 수 있습니다.
  <!-- You can only have one installation of KEDA on the cluster. If you have one already, you must disable this behavior during installation of the cluster extension `TODO`. -->
 
 다음 표에서는 기본적으로 만들어지는 각 Pod의 역할에 대해 설명합니다.

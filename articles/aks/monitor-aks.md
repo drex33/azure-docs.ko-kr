@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/29/2021
-ms.openlocfilehash: 68f0d94482d65f261b40095ac715ad65f76fe7af
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 464e848814da046600b05a1feea632a1ceaa141a
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124772204"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713839"
 ---
 # <a name="monitoring-azure-kubernetes-service-aks-with-azure-monitor"></a>Azure Monitor를 사용하여 AKS(Azure Kubernetes Service) 모니터링
 이 시나리오에서는 Azure Monitor를 사용하여 AKS(Azure Kubernetes Service)의 상태 및 성능을 모니터링하는 방법을 설명합니다. 여기에는 추세를 식별하기 위해 수집된 데이터의 모니터링, 분석 및 시각화에 중요한 원격 분석 컬렉션과 중요한 문제에 대해 사전에 알림을 받도록 경고를 구성하는 방법이 포함됩니다.
@@ -21,7 +21,7 @@ ms.locfileid: "124772204"
 ## <a name="scope-of-the-scenario"></a>시나리오의 범위
 이 시나리오는 Azure Monitor를 사용하여 AKS를 모니터링하는 고객을 대상으로 합니다. 다음 콘텐츠는 포함되지 않으며, 다만 시나리오에 대한 후속 업데이트에서 추가될 수 있습니다.
 
-- Azure 외부에서 Kubernetes 클러스터 모니터링(Azure Arc 지원 Kubernetes에 대한 기존 콘텐츠를 참조하는 경우 제외) 
+- Azure Arc 지원 Kubernetes에 대한 기존 콘텐츠를 참조하는 경우를 제외하고 Azure 외부의 Kubernetes 클러스터 모니터링 
 - Azure Monitor 이외의 도구로 AKS 모니터링(Azure Monitor 및 컨테이너 인사이트의 공백을 채우는 경우 제외)
 
 > [!NOTE]

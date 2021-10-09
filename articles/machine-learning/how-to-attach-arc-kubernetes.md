@@ -1,6 +1,6 @@
 ---
 title: Azure Arc 지원 기계 학습(미리 보기)
-description: Azure Machine Learning에서 기계 학습 모델을 학습하도록 Azure Arc 지원 Kubernetes 클러스터 구성
+description: Azure Arc 지원 Kubernetes 클러스터를 구성하여 Azure Machine Learning 기계 학습 모델 학습
 titleSuffix: Azure Machine Learning
 author: luisquintanilla
 ms.author: luquinta
@@ -8,24 +8,24 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 06/18/2021
 ms.topic: how-to
-ms.openlocfilehash: 9ce41f22fd90acd8ef7e41ec07bce1d7758ab452
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: c3aea87e32aef24bfc17637720e81d30da0d30eb
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129427707"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713276"
 ---
 # <a name="configure-azure-arc-enabled-machine-learning-preview"></a>Azure Arc 지원 기계 학습 구성(미리 보기)
 
-학습용 Azure Arc 지원 기계 학습을 구성하는 방법에 대해 알아봅니다.
+학습을 위해 Azure Arc 지원 기계 학습을 구성하는 방법을 알아봅니다.
 
 ## <a name="what-is-azure-arc-enabled-machine-learning"></a>Azure Arc 지원 기계 학습이란?
 
 Azure Arc를 사용하면 온-프레미스, 다중 클라우드 또는 에지 등 모든 Kubernetes 환경에서 Azure 서비스를 실행할 수 있습니다.
 
-Azure Arc 지원 기계 학습을 사용하면 Azure Machine Learning에서 기계 학습 모델을 학습 및 관리하도록 Azure Arc 지원 Kubernetes 클러스터를 구성하여 사용할 수 있습니다.
+Azure Arc 지원 기계 학습을 사용하면 Azure Arc 지원 Kubernetes 클러스터를 구성하고 사용하여 Azure Machine Learning 기계 학습 모델을 학습시키고 관리할 수 있습니다.
 
-Azure Arc 지원 기계 학습은 다음의 학습 시나리오를 지원합니다.
+Azure Arc 지원 기계 학습은 다음과 같은 학습 시나리오를 지원합니다.
 
 * CLI(v2)를 사용하여 모델 학습
   * 분산 학습
@@ -36,11 +36,11 @@ Azure Arc 지원 기계 학습은 다음의 학습 시나리오를 지원합니�
 * 아웃바운드 프록시 서버를 사용하여 온-프레미스 모델 학습
 * NFS 데이터 저장소를 통해 온-프레미스 모델 학습
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 Azure를 구독하고 있지 않다면 시작하기 전에 [무료 계정을 만듭니다](https://azure.microsoft.com/free).
 * Azure Arc 지원 Kubernetes 클러스터. 자세한 내용은 [Azure Arc에 기존 Kubernetes 클러스터 연결 빠른 시작 가이드](../azure-arc/kubernetes/quickstart-connect-cluster.md)를 참조하세요.
-* [Azure Arc 지원 Kubernetes 클러스터 확장 필수 구성 요소](../azure-arc/kubernetes/extensions.md#prerequisites)를 처리합니다.
+* [Azure Arc 지원 Kubernetes 클러스터 확장 필수 구성 요소는 충족합니다.](../azure-arc/kubernetes/extensions.md#prerequisites)
   * Azure CLI 버전 >= 2.24.0
   * Azure CLI k8s-extension 확장 버전 >= 0.4.3
 * Azure Machine Learning 작업 영역 아직 구독하지 않는 경우 시작하기 전에 [작업 영역을 만드세요](how-to-manage-workspace.md?tabs=python).
@@ -98,7 +98,7 @@ Azure Arc 지원 Kubernetes에는 Azure Policy 정의, 모니터링, 기계 학�
 
 ## <a name="attach-arc-cluster-studio"></a>Arc 클러스터 연결(스튜디오)
 
-Azure Arc 지원 Kubernetes 클러스터를 연결하면 작업 영역에서 학습에 사용할 수 있습니다.
+Azure Arc 지원 Kubernetes 클러스터를 연결하면 작업 영역에서 학습할 수 있습니다.
 
 1. [Azure Machine Learning 스튜디오](https://ml.azure.com)로 이동합니다.
 1. **관리** 에서 **컴퓨팅** 을 선택합니다.
@@ -214,7 +214,7 @@ JSON 구성 파일을 사용하여 Azure Arc 지원 Kubernetes 클러스터에�
 
 ## <a name="attach-arc-cluster-python-sdk"></a>Arc 클러스터 연결(Python SDK)
 
-다음 Python 코드는 Azure Arc 사용 Kubernetes 클러스터를 연결하고 이를 학습용 컴퓨팅 대상으로 사용하는 방법을 보여 줍니다.
+다음 Python 코드는 Azure Arc 지원 Kubernetes 클러스터를 연결하고 학습을 위한 컴퓨팅 대상으로 사용하는 방법을 보여 줍니다.
 
 ```python
 from azureml.core.compute import KubernetesCompute

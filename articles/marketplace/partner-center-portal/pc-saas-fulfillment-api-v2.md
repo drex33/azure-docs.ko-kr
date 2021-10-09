@@ -4,15 +4,15 @@ description: 처리 API 버전 2를 사용하여 Microsoft AppSource 및 Azure M
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 06/10/2020
+ms.date: 10/08/2021
 author: saasguide
 ms.author: souchak
-ms.openlocfilehash: 194d9465d43de33f1f05e9587d2e166e9d2831f1
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: f142ec2025775e8a512a7b40adb71c917fffdf88
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129455136"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715811"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>상업용 Marketplace의 SaaS 처리 API 버전 2
 
@@ -728,8 +728,6 @@ Code: 200 이미 구매한 플랜을 포함하여 기존 SaaS 구독에 대해 �
 
 지정된 SaaS 구독에 대해 보류 중인 작업 목록을 가져옵니다.  게시자는 [작업 패치 API](#update-the-status-of-an-operation)를 호출하여 반환된 작업을 승인해야 합니다.
 
-현재는 이 API 호출에 대한 응답으로 **복구 작업** 만 반환됩니다.
-
 ##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsapi-versionapiversion"></a>Get `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`
 
 *쿼리 매개 변수:*
@@ -750,7 +748,7 @@ Code: 200 이미 구매한 플랜을 포함하여 기존 SaaS 구독에 대해 �
 
 *응답 코드:*
 
-코드: 200 지정된 SaaS 구독에서 보류 중인 복구 작업을 반환합니다.
+코드: 200 지정된 SaaS 구독에서 보류 중인 작업을 반환합니다.
 
 *응답 페이로드 예제:*
 
@@ -773,7 +771,7 @@ Code: 200 이미 구매한 플랜을 포함하여 기존 SaaS 구독에 대해 �
 }
 ```
 
-보류 중인 복구 작업이 없는 경우 빈 json을 반환합니다.
+보류 중인 작업이 없으면 빈 json을 반환합니다.
 
 코드: 400 잘못된 요청: 유효성을 검사할 수 없습니다.
 

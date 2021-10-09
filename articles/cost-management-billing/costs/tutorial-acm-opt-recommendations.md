@@ -3,24 +3,24 @@ title: 자습서 - 권장 사항을 통해 Azure 비용 절감
 description: 이 자습서는 최적화 권장 사항을 따를 경우 Azure 비용을 절감할 수 있도록 도와줍니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: f8b8b99c1cf2be554703eb49de8c6ff2a39b53be
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d536f8ceb0ae044320e0331671ec33cea501f6b0
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128567702"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711325"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>자습서: 권장 사항에서 비용 최적화
 
-Azure Cost Management는 Azure Advisor와 함께 실행되어 비용 최적화 권장 사항을 제공합니다. Azure Advisor는 유휴 리소스와 사용률이 낮은 리소스를 식별하여 최적화하고 효율성을 개선하는 데 도움이 됩니다. 이 자습서에서는 사용률이 낮은 Azure 리소스를 식별한 다음, 비용을 절감하기 위한 조치를 취하는 예를 안내합니다.
+Cost Management Azure Advisor 사용하여 비용 최적화 권장 사항을 제공합니다. Azure Advisor는 유휴 리소스와 사용률이 낮은 리소스를 식별하여 최적화하고 효율성을 개선하는 데 도움이 됩니다. 이 자습서에서는 사용률이 낮은 Azure 리소스를 식별한 다음, 비용을 절감하기 위한 조치를 취하는 예를 안내합니다.
 
-Advisor를 사용하여 비용을 최적화하는 방법에 대해 자세히 알아보려면 [Azure Cost Management에서 클라우드 투자 최적화](https://www.youtube.com/watch?v=cSNPoAb-TNc) 비디오를 시청하세요. 다른 비디오를 시청하려면 [Cost Management YouTube 채널](https://www.youtube.com/c/AzureCostManagement)을 방문하세요.
+Advisor를 사용하여 비용을 [최적화하는](https://www.youtube.com/watch?v=cSNPoAb-TNc) 방법에 대한 자세한 내용은 Cost Management 클라우드 투자 최적화 비디오를 시청하세요. 다른 비디오를 시청하려면 [Cost Management YouTube 채널](https://www.youtube.com/c/AzureCostManagement)을 방문하세요.
 
 >[!VIDEO https://www.youtube.com/embed/cSNPoAb-TNc]
 

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/09/2021
 ms.author: allensu
-ms.openlocfilehash: 0d613d7d207da8632fe7a2767d6440ee62378866
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 692bcd4900ae960928a66eaa63b02c6ddf12f2bf
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129359413"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705272"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Azure 프라이빗 엔드포인트란?
 
@@ -28,7 +28,7 @@ ms.locfileid: "129359413"
 ## <a name="private-endpoint-properties"></a>프라이빗 엔드포인트 속성 
  프라이빗 엔드포인트는 다음 속성을 지정합니다. 
 
-|속성  |Description |
+|속성  |설명 |
 |---------|---------|
 |속성    |    리소스 그룹의 고유한 이름입니다.      |
 |서브넷    |  배포할 서브넷 및 개인 IP 주소가 할당되는 위치입니다. 서브넷 요구 사항은 이 문서의 제한 사항 섹션을 참조하세요.         |
@@ -88,6 +88,7 @@ ms.locfileid: "129359413"
 | **Azure Event Grid** | Microsoft.EventGrid/domains | 도메인 |
 | **Azure Event Grid** | Microsoft.EventGrid/topics  | Event Grid 토픽 |
 | **Azure 이벤트 허브** | Microsoft.EventHub/namespaces | 네임스페이스 |
+| **Azure HDInsight** | Microsoft.HDInsight/clusters | cluster |
 | **FHIR용 Azure API** | Microsoft.HealthcareApis/services | 서비스 |
 | **Azure Keyvault HSM** | Microsoft.Keyvault/managedHSMs | HSM |
 | **Azure Key Vault** | Microsoft.KeyVault/vaults | 자격 증명 모음 |
@@ -114,9 +115,9 @@ ms.locfileid: "129359413"
 
 ## <a name="network-security-of-private-endpoints"></a>프라이빗 엔드포인트의 네트워크 보안 
 
-프라이빗 엔드포인트를 사용하는 경우 트래픽은 프라이빗 링크 리소스로 보호됩니다. 플랫폼은 액세스 제어를 수행하여 지정된 프라이빗 링크 리소스에만 도달하는 네트워크 연결의 유효성을 검사합니다. 동일한 Azure 서비스 내에서 더 많은 리소스에 액세스하려면 추가 프라이빗 엔드포인트가 필요합니다. 
+개인 끝점을 사용 하는 경우 개인 링크 리소스에 대 한 트래픽이 보호 됩니다. 플랫폼은 지정 된 개인 링크 리소스에만 도달 하는 네트워크 연결의 유효성을 검사 하는 액세스 제어를 수행 합니다. 동일한 Azure 서비스 내에서 더 많은 리소스에 액세스하려면 추가 프라이빗 엔드포인트가 필요합니다. 
  
-워크로드가 퍼블릭 엔드포인트에 액세스하여 지원되는 Azure 서비스에 연결하지 못하게 하기 위해 완전히 잠글 수 있습니다. 이 컨트롤은 리소스에 추가 네트워크 보안 계층을 제공합니다. 보안은 동일한 Azure 서비스에서 호스트되는 다른 리소스에 대한 액세스를 방지하는 보호를 제공합니다. 
+워크로드가 퍼블릭 엔드포인트에 액세스하여 지원되는 Azure 서비스에 연결하지 못하게 하기 위해 완전히 잠글 수 있습니다. 이 컨트롤은 리소스에 대 한 추가 네트워크 보안 계층을 제공 합니다. 보안은 동일한 Azure 서비스에서 호스트 되는 다른 리소스에 대 한 액세스를 방지 하는 보호 기능을 제공 합니다. 
  
 ## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>승인 워크플로를 사용하여 프라이빗 링크 리소스에 액세스 
 다음 연결 승인 방법을 사용하여 프라이빗 링크 리소스에 연결할 수 있습니다.
@@ -135,62 +136,62 @@ ms.locfileid: "129359413"
 > [!NOTE]
 > 승인된 상태의 프라이빗 엔드포인트만 지정된 프라이빗 링크 리소스에 트래픽을 보낼 수 있습니다. 
 
-### <a name="connect-with-alias"></a>별칭이 있는 커넥트
+### <a name="connect-with-alias"></a>별칭을 사용 하는 커넥트
 
-별칭은 서비스 소유자가 표준 부하 분산 장치 뒤에 프라이빗 링크 서비스를 만들 때 생성되는 고유한 모니커입니다. 서비스 소유자는 오프라인에서 이 별칭을 소비자와 공유할 수 있습니다. 
+별칭은 서비스 소유자가 표준 부하 분산 장치 뒤에 프라이빗 링크 서비스를 만들 때 생성되는 고유한 모니커입니다. 서비스 소유자는이 별칭을 소비자와 오프 라인으로 공유할 수 있습니다. 
 
-소비자는 리소스 URI 또는 별칭을 사용하여 프라이빗 링크 서비스에 대한 연결을 요청할 수 있습니다. 별칭을 사용하여 연결하려면 수동 연결 승인 방법을 사용하여 프라이빗 엔드포인트를 만들어야 합니다. 수동 연결 승인 방법을 사용하려면 프라이빗 엔드포인트 만들기 흐름에서 수동 요청 매개 변수를 true로 설정합니다. 자세한 내용은 [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) 및 [az network private-endpoint create를 참조하세요.](/cli/azure/network/private-endpoint#az_network_private_endpoint_create)
+소비자는 리소스 URI 또는 별칭을 사용 하 여 개인 링크 서비스에 대 한 연결을 요청할 수 있습니다. 별칭을 사용 하 여 연결 하려면 수동 연결 승인 방법을 사용 하 여 개인 끝점을 만들어야 합니다. 수동 연결 승인 방법을 사용하려면 프라이빗 엔드포인트 만들기 흐름에서 수동 요청 매개 변수를 true로 설정합니다. 자세한 내용은 [AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) 및 [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create)를 참조 하세요.
 
 ## <a name="dns-configuration"></a>DNS 구성
 
-프라이빗 링크 리소스에 연결하는 데 사용되는 DNS 설정이 중요합니다. 연결에 FQDN(정규화된 도메인 이름)을 사용할 때 DNS 설정이 올바른지 확인합니다. 설정은 프라이빗 엔드포인트의 개인 IP 주소로 확인되어야 합니다. 기존 Azure 서비스에는 공용 엔드포인트를 통해 연결할 때 사용할 DNS 구성이 이미 있을 수 있습니다. 이 구성은 프라이빗 엔드포인트를 사용하여 연결하도록 재정의해야 합니다. 
+개인 링크 리소스에 연결 하는 데 사용 되는 DNS 설정이 중요 합니다. 연결에 FQDN (정규화 된 도메인 이름)을 사용할 때 DNS 설정이 올바른지 확인 합니다. 설정은 개인 끝점의 개인 IP 주소로 확인 되어야 합니다. 기존 Azure 서비스에는 공용 엔드포인트를 통해 연결할 때 사용할 DNS 구성이 이미 있을 수 있습니다. 이 구성은 프라이빗 엔드포인트를 사용하여 연결하도록 재정의해야 합니다. 
  
-프라이빗 엔드포인트와 연결된 네트워크 인터페이스에는 DNS를 구성하는 데 필요한 정보가 포함되어 있습니다. 이 정보에는 프라이빗 링크 리소스에 대한 FQDN 및 개인 IP 주소가 포함됩니다. 
+개인 끝점과 연결 된 네트워크 인터페이스에는 DNS를 구성 하는 데 필요한 정보가 포함 되어 있습니다. 이 정보에는 개인 링크 리소스에 대 한 FQDN 및 개인 IP 주소가 포함 됩니다. 
 
-프라이빗 엔드포인트에 대한 DNS 구성 권장 사항에 대한 자세한 내용은 [프라이빗 엔드포인트 DNS 구성을 참조하세요.](private-endpoint-dns.md)
+전용 끝점에 대 한 DNS를 구성 하기 위한 권장 사항에 대 한 자세한 내용은 [개인 끝점 dns 구성](private-endpoint-dns.md)을 참조 하세요.
  
 ## <a name="limitations"></a>제한 사항
  
 다음 표에서는 프라이빗 엔드포인트를 사용하는 경우의 알려진 제한 사항 목록을 제공합니다. 
 
-| 제한 사항 | Description |완화 방법 |
+| 제한 사항 | 설명 |완화 방법 |
 | --------- | --------- | --------- |
-| 사용자 정의 경로를 사용하여 프라이빗 엔드포인트로 향하는 트래픽은 비대칭일 수 있습니다. | 프라이빗 엔드포인트의 반환 트래픽은 NVA(네트워크 가상 어플라이언스)를 무시하고 원본 VM으로 돌아가려고 시도합니다. | SNAT(원본 네트워크 주소 변환)는 대칭 라우팅을 보장하는 데 사용됩니다. UDR을 사용하여 프라이빗 엔드포인트로 향하는 모든 트래픽의 경우 NVA의 트래픽에 SNAT를 사용하는 것이 좋습니다. |
+| 사용자 정의 경로를 사용 하 여 개인 끝점으로 향하는 트래픽은 비대칭 일 수 있습니다. | 개인 끝점에서 트래픽 반환은 NVA (네트워크 가상 어플라이언스)를 우회 하 여 원본 VM으로 복귀 하려고 시도 합니다. | 원본 네트워크 주소 변환 (SNAT)은 대칭 라우팅을 보장 하는 데 사용 됩니다. UDR을 사용 하 여 개인 끝점으로 향하는 모든 트래픽의 경우 NVA에서 트래픽에 SNAT를 사용 하는 것이 좋습니다. |
 
 > [!IMPORTANT]
-> 프라이빗 엔드포인트에 대한 NSG 및 UDR 지원은 선택한 지역에서 공개 미리 보기로 제공됩니다. 자세한 내용은 [Private Link UDR 지원의 공개 미리 보기](https://azure.microsoft.com/updates/public-preview-of-private-link-udr-support/) 및 Private Link 네트워크 보안 그룹 [지원의 공개 미리 보기를 참조하세요.](https://azure.microsoft.com/updates/public-preview-of-private-link-network-security-group-support/)
+> 개인 끝점에 대 한 NSG 및 UDR 지원은 선택 영역에서 공개 미리 보기 상태입니다. 자세한 내용은 개인 [링크 UDR 지원의 공개 미리 보기](https://azure.microsoft.com/updates/public-preview-of-private-link-udr-support/) 및 [개인 링크 네트워크 보안 그룹 지원의 공개 미리 보기](https://azure.microsoft.com/updates/public-preview-of-private-link-network-security-group-support/)를 참조 하세요.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="public-preview-limitations"></a>공용 미리 보기 제한 사항
 
 ### <a name="nsg"></a>NSG
 
-| 제한 사항 | Description | 완화 방법 |
+| 제한 사항 | 설명 | 완화 방법 |
 | ---------- | ----------- | ---------- |
-| 프라이빗 엔드포인트 네트워크 인터페이스에서는 유효 경로 및 보안 규칙을 가져올 수 없습니다. | 네트워크 인터페이스로 이동하여 유효 경로 및 보안 규칙에 대한 관련 정보를 볼 수 없습니다. | Q4CY21 |
-| NSG 흐름 로그는 지원되지 않습니다. | NSG 흐름 로그는 프라이빗 엔드포인트로 향하는 인바운드 트래픽에 대해 작동하지 않습니다. | 현재는 정보가 없습니다. |
-| ZRS 스토리지 계정에서 간헐적으로 삭제됩니다. | ZRS 스토리지 계정을 사용하는 고객은 스토리지 프라이빗 엔드포인트 서브넷에 NSG를 적용할 수 있더라도 정기적으로 감소할 수 있습니다. | 9월 |
-| Azure Key Vault 간헐적으로 삭제합니다. | Azure Key Vault 사용하는 고객은 Azure Key Vault 프라이빗 엔드포인트 서브넷에 NSG를 적용할 수 있더라도 주기적인 간헐적 하락을 볼 수 있습니다. | 9월 |
-| NSG당 주소 접두사 수를 제한합니다. | 단일 규칙에서 NSG에 500개 이상의 주소 접두사를 두는 것은 지원되지 않습니다. | 9월 |
-| AllowVirtualNetworkAccess 플래그 | 다른 VNet(VNet B)에 대한 피어링 링크에서 **AllowVirtualNetworkAccess** 플래그가 false로 설정된 VNet(VNet A)에서 VNet 피어링을 설정하는 고객은 **VirtualNetwork** 태그를 사용하여 프라이빗 엔드포인트 리소스에 액세스하는 VNet B의 트래픽을 거부할 수 없습니다. 프라이빗 엔드포인트에 대한 트래픽을 거부하려면 VNet B의 주소 접두사에 대한 블록을 명시적으로 배치해야 합니다. | 9월 |
-| 이중 포트 NSG 규칙이 지원되지 않습니다. | NSG 규칙과 함께 여러 포트 범위를 사용하는 경우 허용 규칙 및 거부 규칙에 대해 첫 번째 포트 범위만 허용됩니다. 포트 범위가 여러 인 규칙은 기본적으로 특정 포트 대신 모두 거부됩니다. </br> **자세한 내용은 아래 규칙 예제를 참조하세요.** | 9월 |
+| 효율적인 경로 가져오기 및 보안 규칙은 개인 끝점 네트워크 인터페이스에서 사용할 수 없습니다. | 네트워크 인터페이스로 이동 하 여 유효한 경로 및 보안 규칙에 대 한 관련 정보를 확인할 수 없습니다. | Q4CY21 |
+| NSG 흐름 로그는 지원 되지 않습니다. | NSG 흐름 로그는 개인 끝점으로 향하는 인바운드 트래픽에 대해 작동 하지 않습니다. | 지금은 정보가 없습니다. |
+| ZRS 저장소 계정으로 일시적으로 삭제 됩니다. | ZRS 저장소 계정을 사용 하는 고객은 저장소 개인 끝점 서브넷에 NSG를 적용 한 경우에도 정기적으로 일시적으로 삭제 될 수 있습니다. | 9월 |
+| Azure Key Vault로 간헐적으로 삭제 됩니다. | Azure Key Vault를 사용 하는 고객은 Azure Key Vault 개인 끝점 서브넷에 NSG를 적용 한 경우에도 정기적으로 일시적으로 삭제 될 수 있습니다. | 9월 |
+| NSG 당 주소 접두사 수에 대 한 제한입니다. | 단일 규칙의 NSG에 500 개 이상의 주소 접두사가 있는 것은 지원 되지 않습니다. | 9월 |
+| AllowVirtualNetworkAccess 플래그 | 다른 VNet (VNet B)에 대 한 피어 링 링크에서 **AllowVirtualNetworkAccess** 플래그가 false 인 vnet 피어 링을 설정 하는 고객은 **VirtualNetwork** 태그를 사용 하 여 개인 끝점 리소스에 액세스 하는 VNet B의 트래픽을 거부할 수 없습니다. 개인 끝점에 대 한 트래픽을 거부 하기 위해 VNet B의 주소 접두사에 대 한 블록을 명시적으로 저장 해야 합니다. | 9월 |
+| 지원 되지 않는 이중 포트 NSG 규칙입니다. | NSG 규칙에 여러 포트 범위를 사용 하는 경우 허용 규칙 및 거부 규칙에 대해 첫 번째 포트 범위만 허용 됩니다. 여러 포트 범위를 사용 하는 규칙은 기본적으로 특정 포트 대신 모두 거부 됩니다. </br> **자세한 내용은 아래의 규칙 예를 참조 하세요.** | 9월 |
 
-| 우선 순위 | 원본 포트 | 대상 포트 | 작업 | 효과적인 작업 |
+| 우선 순위 | 원본 포트 | 대상 포트 | 작업 | 유효 작업 |
 | -------- | ----------- | ---------------- | ------ | ---------------- |
-| 10 | 10-12 | 10-12 | 허용/거부 | 원본/대상 포트의 단일 포트 범위는 예상대로 작동합니다. |
-| 10 | 10-12, 13-14 | 14-15, 16-17 | 허용 | 원본 포트 10-12 및 대상 포트 14-15만 허용됩니다. |
-| 10 | 10-12, 13-14 | 120-130, 140-150 | 거부 | 여러 원본 및 대상 포트 범위가 있기 때문에 모든 원본 포트에서 모든 dest 포트로의 트래픽이 거부됩니다. |
-| 10 | 10-12, 13-14 | 120-130 | 거부 | 모든 원본 포트의 트래픽은 대상 포트 120-130으로만 거부됩니다. 여러 원본 포트 범위와 단일 대상 포트 범위가 있습니다. |
+| 10 | 10-12 | 10-12 | 허용/거부 | 원본/대상 포트의 단일 포트 범위는 예상 대로 작동 합니다. |
+| 10 | 10-12, 13-14 | 14-15, 16-17 | 허용 | 원본 포트 10-12 및 대상 포트 14-15만 허용 됩니다. |
+| 10 | 10-12, 13-14 | 120-130, 140-150 | 거부 | 원본 및 대상 포트 범위가 여러 개 있으므로 모든 원본 포트의 트래픽이 모든 대상 포트에서 거부 됩니다. |
+| 10 | 10-12, 13-14 | 120-130 | 거부 | 모든 원본 포트의 트래픽은 대상 포트 120-130에 대해서만 거부 됩니다. 원본 포트 범위와 대상 포트 범위가 여러 개 있습니다. |
 
-**테이블: 이중 포트 규칙의 예입니다.**
+**표: 예제 이중 포트 규칙**
 
 ### <a name="udr"></a>UDR
 
-| 제한 사항 | Description | 완화 방법 |
+| 제한 사항 | 설명 | 완화 방법 |
 | ---------- | ----------- | ---------- |
-| SNAT(원본 네트워크 주소 변환)는 항상 권장됩니다. | 프라이빗 엔드포인트 데이터 평면의 가변 특성 때문에 반환 트래픽이 유지되도록 프라이빗 엔드포인트로 향하는 SNAT 트래픽을 권장합니다. | 현재는 정보가 없습니다. |
+| 원본 네트워크 주소 변환 (SNAT)은 항상 권장 됩니다. | 개인 끝점 데이터 평면의 변수 특성 때문에 반환 트래픽이 적용 되도록 개인 끝점으로 향하는 트래픽을 SNAT 하는 것이 좋습니다. | 지금은 정보가 없습니다. |
  
 ## <a name="next-steps"></a>다음 단계
 
-- 프라이빗 엔드포인트 및 프라이빗 링크에 대한 자세한 내용은 Azure Private Link? 를 [참조하세요.](private-link-overview.md)
-- 웹앱에 대한 프라이빗 엔드포인트 만들기를 시작하려면 [빠른 시작 - Azure Portal 사용하여 프라이빗 엔드포인트 만들기를](create-private-endpoint-portal.md)참조하세요.
+- 개인 끝점 및 개인 링크에 대 한 자세한 내용은 [Azure 개인 링크 란?](private-link-overview.md)을 참조 하세요.
+- 웹 앱에 대 한 개인 끝점 만들기를 시작 하려면 빠른 시작 [-Azure Portal를 사용 하 여 개인 끝점 만들기](create-private-endpoint-portal.md)를 참조 하세요.

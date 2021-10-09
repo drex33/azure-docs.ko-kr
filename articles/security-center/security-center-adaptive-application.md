@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/09/2021
 ms.author: memildin
-ms.openlocfilehash: ef37d84d2fcef851e13837ae40da14db9fb2412f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f2ab2dfeec7522599cfb8b3eccdf9b498fdfff32
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124777453"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713703"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>적응형 애플리케이션 제어를 통해 컴퓨터의 공격 표면 축소
 
@@ -244,7 +244,7 @@ REST API에서 사용 가능한 몇 가지 함수는 다음과 같습니다.
 현재 사용할 수 있는 적용 옵션은 없습니다. 적응형 애플리케이션 제어는 안전한 것으로 정의된 애플리케이션 이외의 애플리케이션이 실행될 때 **보안 경고** 를 제공하기 위한 것입니다. 이 페이지에 나와 있는 것처럼 다양한 이점이 있습니다([적응형 애플리케이션 제어의 이점은 무엇인가요?](#what-are-the-benefits-of-adaptive-application-controls)).
 
 ### <a name="why-do-i-see-a-qualys-app-in-my-recommended-applications"></a>내 권장 애플리케이션에 Qualys 앱이 표시되는 이유는 무엇인가요?
-[서버용 Azure Defender](defender-for-servers-introduction.md)에서는 추가 비용 없이 컴퓨터의 취약성을 검사합니다. Qualys 라이선스 또는 Qualys 계정이 필요하지 않습니다. 모든 항목이 Security Center 내에서 원활하게 처리됩니다. 이 검사기에 대한 자세한 내용 및 배포 방법에 대한 지침은 [Defender의 통합 취약성 평가 솔루션](deploy-vulnerability-assessment-vm.md)을 참조하세요.
+[서버용 Azure Defender](defender-for-servers-introduction.md)에서는 추가 비용 없이 컴퓨터의 취약성을 검사합니다. Qualys 라이선스 또는 Qualys 계정이 필요하지 않습니다. 모든 항목이 Security Center 내에서 원활하게 처리됩니다. 이 스캐너의 세부 정보 및 배포 방법에 대한 지침은 [Defender의 통합 Qualys 취약성 평가 솔루션을 참조하세요.](deploy-vulnerability-assessment-vm.md)
 
 Security Center에서 검사기를 배포할 때 경고가 생성되지 않도록 하기 위해 적응형 애플리케이션 제어 권장 허용 목록에는 모든 컴퓨터에 대한 검사기가 포함되어 있습니다. 
 

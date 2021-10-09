@@ -7,18 +7,18 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: 2f2d88a48b7dca0b2ab3ad512e6b723ab68931c8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c3ed338341ffb73f59a5b20fea55e8d83f4a375f
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128650252"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711290"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Azure 예산으로 비용 관리
 
-비용 제어는 클라우드에서 투자 가치를 극대화하는 데 중요한 구성 요소입니다. 비용 표시, 보고 및 비용 기반 오케스트레이션이 지속적인 비즈니스 운영에 중요한 몇 가지 시나리오가 있습니다. [Azure Cost Management API](/rest/api/consumption/)는 이러한 각 시나리오를 지원하기 위한 API 집합을 제공합니다. API는 사용량 세부 정보를 제공하므로 세부적인 인스턴스 레벨의 비용을 볼 수 있습니다.
+비용 제어는 클라우드에서 투자 가치를 극대화하는 데 중요한 구성 요소입니다. 비용 표시, 보고 및 비용 기반 오케스트레이션이 지속적인 비즈니스 운영에 중요한 몇 가지 시나리오가 있습니다. [Cost Management API는](/rest/api/consumption/) 이러한 각 시나리오를 지원하는 API 집합을 제공합니다. API는 사용량 세부 정보를 제공하므로 세부적인 인스턴스 레벨의 비용을 볼 수 있습니다.
 
 예산은 일반적으로 비용 관리의 일부로 사용되며, Azure에서 예산 범위를 지정할 수 있습니다. 예를 들어 구독, 리소스 그룹 또는 리소스의 컬렉션에 따라 예산 보기의 범위를 좁힐 수 있습니다. 예산 임계값에 도달하면 예산 API를 사용하여 이메일을 통해 알려줄 뿐만 아니라, [Azure Monitor 작업 그룹](../../azure-monitor/alerts/action-groups.md)을 사용하여 예산 이벤트로 인해 오케스트레이션된 작업 집합을 트리거할 수 있습니다.
 

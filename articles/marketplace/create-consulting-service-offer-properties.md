@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 10/27/2020
-ms.openlocfilehash: b40144079304b6981ff8faf251a345dbb163ecac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: a77414e794073771f7bf5fe9346e4196b6b4b836
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96459296"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715767"
 ---
 # <a name="how-to-configure-your-consulting-service-offer-properties"></a>컨설팅 서비스 제품 속성을 구성하는 방법
 
@@ -23,27 +23,28 @@ ms.locfileid: "96459296"
 
 ## <a name="select-the-primary-product"></a>기본 제품 선택
 
-**기본 제품** 드롭다운 목록에서 컨설팅 서비스 제품에 중점을 둘 Microsoft 제품을 선택합니다. 선택한 제품에 따라 제품을 Microsoft AppSource 또는 Azure Marketplace에 게시할지 여부가 결정됩니다.
+**기본 제품** 드롭다운 목록에서 컨설팅 서비스 제품에 중점을 둘 Microsoft 제품을 선택합니다. 선택한 제품에 따라 제품을 Microsoft AppSource 또는 Azure Marketplace에 게시할지 여부가 결정됩니다. 제안을 정확하게 표현하면 고객이 제안을 더 쉽게 찾을 수 있습니다. 선택한 제품에 대한 자격 [요구 사항을](https://aka.ms/AAacrbv) 충족해야 합니다. 
 
-* Azure를 선택하면 제품이 Azure Marketplace에 나열됩니다. 최대 3개의 **솔루션 영역** 을 선택합니다. 이렇게 하면 고객이 제품을 더욱 쉽게 찾을 수 있습니다.
-* 기본 제품이 Azure가 *아닌* 경우에는 제품이 AppSource에 게시됩니다. 최소 1개에서 최대 3개의 **해당 제품** 을 선택합니다. 이렇게 하면 고객이 제품을 더욱 쉽게 찾을 수 있습니다.
+- Azure를 선택하면 제품이 Azure Marketplace에 나열됩니다. 제안을 가장 잘 나타내는 최대 3개의 **솔루션 영역을** 선택합니다.
+- Microsoft 365 선택하는 경우 제안을 가장 잘 나타내는 솔루션 **영역을** 최대 3개까지 선택합니다. 이 제안은 Microsoft AppSource 나열됩니다.
+-   Dynamics 365 또는 Power Platform 제품을 선택하는 경우 두 개의 추가 적용 가능한 제품을 선택할 **수도 있습니다.** 이 제안은 Microsoft AppSource 나열됩니다.
 
 ## <a name="select-the-consulting-service-type"></a>컨설팅 서비스 유형 선택
 
 **컨설팅 서비스 유형** 드롭다운에서 고객에게 제공할 컨설팅 서비스 유형을 선택합니다. 사용 가능한 형식은 다음과 같습니다.
 
-* **평가**: 솔루션의 적용 가능성을 확인하고 구현 예상 비용 및 일정을 추정하기 위한 고객 환경 평가입니다.
-* **브리핑:** : 프레임워크, 데모 및 고객 예제를 사용하여 솔루션 또는 서비스를 소개합니다.
-* **구현**: 완벽하게 작동하는 솔루션으로 이어지는 완전한 설치입니다.
-* **개념 증명**: 솔루션이 고객의 요구 사항을 충족하는지 확인하기 위한 제한된 범위 구현입니다.
-* **워크샵**: 고객의 시설에서 수행되는 대화형 참여입니다. 고객의 데이터 또는 환경을 기반으로 하는 교육, 브리핑, 평가 또는 데모가 포함될 수 있습니다.
+- **평가**: 솔루션의 적용 가능성을 확인하고 구현 예상 비용 및 일정을 추정하기 위한 고객 환경 평가입니다.
+- **브리핑:** : 프레임워크, 데모 및 고객 예제를 사용하여 솔루션 또는 서비스를 소개합니다.
+- **구현**: 완벽하게 작동하는 솔루션으로 이어지는 완전한 설치입니다.
+- **개념 증명**: 솔루션이 고객의 요구 사항을 충족하는지 확인하기 위한 제한된 범위 구현입니다.
+- **워크샵**: 고객의 시설에서 수행되는 대화형 참여입니다. 고객의 데이터 또는 환경을 기반으로 하는 교육, 브리핑, 평가 또는 데모가 포함될 수 있습니다.
 
 ## <a name="select-relevant-industries"></a>관련 산업 선택
 
 이 섹션에서는 고객이 Microsoft 온라인 스토어에서 쉽게 찾을 수 있도록 제품을 범주화하는 데 도움이 되는 정보를 제공합니다.
 
-* Azure를 기본 제품으로 선택한 경우 최대 6개의 **산업** 을 선택합니다. [제품 목록 모범 사례](./gtm-offer-listing-best-practices.md)에서 산업의 전체 목록을 참조하세요.
-* Azure 이외의 기본 제품을 선택한 경우 각 업계에 대해 최대 2개의 **산업** 및 2개의 **하위 산업** 을 선택할 수 있습니다. [제품 목록 모범 사례](./gtm-offer-listing-best-practices.md)에서 산업 및 하위 산업의 전체 목록을 참조하세요.
+- Azure를 기본 제품으로 선택한 경우 최대 6개의 **산업** 을 선택합니다. [제품 목록 모범 사례](./gtm-offer-listing-best-practices.md)에서 산업의 전체 목록을 참조하세요.
+- Azure 이외의 기본 제품을 선택한 경우 각 업계에 대해 최대 2개의 **산업** 및 2개의 **하위 산업** 을 선택할 수 있습니다. [제품 목록 모범 사례](./gtm-offer-listing-best-practices.md)에서 산업 및 하위 산업의 전체 목록을 참조하세요.
 
 ## <a name="select-your-competencies"></a>역량 선택
 

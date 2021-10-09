@@ -1,28 +1,28 @@
 ---
-title: Arc 지원 서버용 Azure Automanage
-description: Arc 지원 서버용 Azure Automanage에 관해 알아봅니다.
+title: Azure Arc 사용 서버에 대한 Azure Automanage
+description: Azure Arc 지원 서버의 Azure Automanage 대해 알아봅니다.
 ms.service: virtual-machines
 ms.subservice: automanage
 ms.collection: linux
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 06/24/2021
-ms.openlocfilehash: ce12689548884d4c57363851f7de99b5fb067ef6
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: cb04cdd75815ecc0579d9e4efbda9c49f1a7ff1c
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129456236"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713442"
 ---
-# <a name="azure-automanage-for-machines-best-practices---arc-enabled-servers"></a>머신용 Azure Automanage 모범 사례 - Arc 지원 서버
+# <a name="azure-automanage-for-machines-best-practices---azure-arc-enabled-servers"></a>머신 모범 사례에 대한 Azure Automanage - Azure Arc 지원 서버
 
-Arc 지원 서버 VM에서 Automanage Machine 모범 사례를 사용하는 경우 이러한 Azure 서비스가 자동으로 온보딩됩니다. 이는 [클라우드 채택 프레임워크](/azure/cloud-adoption-framework/manage/azure-server-management)에서 찾을 수 있는 모범 사례 백서에 필수적입니다.
+이러한 Azure 서비스는 Azure Arc 지원 서버 VM에서 자동 관리 머신 모범 사례를 사용할 때 자동으로 온보딩됩니다. 이는 [클라우드 채택 프레임워크](/azure/cloud-adoption-framework/manage/azure-server-management)에서 찾을 수 있는 모범 사례 백서에 필수적입니다.
 
 이러한 모든 서비스에 대해 자동으로 온보딩하고, 자동 구성하고, 드리프트가 있는지 모니터링하고 드리프트가 검색되면 수정합니다. 이 프로세스에 대해 자세히 알아보려면 [가상 머신에 대한 Azure Automanage](automanage-virtual-machines.md)를 참조하세요.
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
-Automanage는 Arc 지원 서버의 다음 운영 체제를 지원합니다.
+Automanage는 Azure Arc 지원 서버에 대해 다음 운영 체제를 지원합니다.
 
 - Windows Server 2012/R2
 - Windows Server 2016
@@ -34,7 +34,7 @@ Automanage는 Arc 지원 서버의 다음 운영 체제를 지원합니다.
 
 ## <a name="participating-services"></a>참여 서비스
 
-|서비스    |Description    |지원되는 환경 <sup>1</sup>    |지원되는 기본 설정 <sup>1</sup>    |
+|서비스    |설명    |지원되는 환경 <sup>1</sup>    |지원되는 기본 설정 <sup>1</sup>    |
 |-----------|---------------|----------------------|-------------------------|
 |[컴퓨터 인사이트 모니터링](../azure-monitor/vm/vminsights-overview.md)    |컴퓨터용 Azure Monitor는 실행 중인 프로세스와 다른 리소스에 대한 종속성을 비롯하여 가상 머신의 성능과 상태를 모니터링합니다. [자세히](../azure-monitor/vm/vminsights-overview.md) 알아봅니다.    |프로덕션    |아니요    |
 |[Azure Security Center](../security-center/security-center-introduction.md)    |Azure Security Center는 데이터 센터의 보안 상태를 강화하는 통합 인프라 보안 관리 시스템으로, 클라우드의 하이브리드 워크로드에서 Advanced Threat Protection을 제공합니다. [자세히](../security-center/security-center-introduction.md) 알아봅니다.  Automanage는 VM이 Azure Security Center의 체험 계층 제품으로 상주하는 구독을 구성합니다. 구독이 이미 Azure Security Center에 등록된 경우 Automanage는 해당 구독을 다시 구성하지 않습니다.    |프로덕션, 개발/테스트    |아니요    |

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 04/15/2021
 ms.author: alkohli
-ms.openlocfilehash: ebccfdad883242411b4f45b717553ebd25ee69a9
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
-ms.translationtype: HT
+ms.openlocfilehash: e1078bb12b6d33eb4d4d35cc3e1e11f91ef39e9b
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109633522"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705550"
 ---
 # <a name="deploy-azure-data-services-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 디바이스에 Azure Data Services 배포
 
@@ -42,8 +42,8 @@ Azure Arc 데이터 컨트롤러는 고객 관리 환경에서 Azure Data Servic
         1. 디바이스에 설치된 Kubernetes 서버 버전을 식별합니다. 디바이스의 로컬 UI에서 **소프트웨어 업데이트** 페이지로 이동합니다. 이 페이지에서 **Kubernetes 서버 버전** 을 확인합니다.
         1. 마스터에서 부 버전이 두 개 이상 왜곡된 클라이언트를 다운로드합니다. 그러나 클라이언트 버전은 최대 하나의 부 버전으로 마스터를 이끌 수 있습니다. 예를 들어, v1.3 마스터는 v1.1, v1.2 및 v1.3 노드와 함께 사용해야 하며 v1.2, v1.3 및 v1.4 클라이언트에서 작동해야 합니다. Kubernetes 클라이언트 버전에 대한 자세한 내용은 [Kubernetes 버전 및 버전 기울이기 지원 정책](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew)을 참조하세요.
     
-1. 선택적으로 [Azure Arc 지원 데이터 서비스 배포 및 관리를 위한 클라이언트 도구를 설치합니다](../azure-arc/data/install-client-tools.md). 이러한 도구는 필수는 아니지만 권장됩니다.  
-1. 데이터 컨트롤러와 하나의 SQL Managed Instance를 프로비저닝하기에 충분한 리소스가 디바이스에 있는지 확인합니다. 데이터 컨트롤러와 하나의 SQL Managed Instance의 경우 최소 16GB의 RAM과 4개의 CPU 코어가 필요합니다. 자세한 지침은 [Azure Arc 지원 데이터 서비스 배포를 위한 최소 요구 사항](../azure-arc/data/sizing-guidance.md#minimum-deployment-requirements)을 참조하세요.
+1. 필요에 따라 [Azure Arc 사용 데이터 서비스를 배포 하 고 관리 하기 위한 클라이언트 도구를 설치](../azure-arc/data/install-client-tools.md)합니다. 이러한 도구는 필수는 아니지만 권장됩니다.  
+1. 데이터 컨트롤러와 하나의 SQL Managed Instance를 프로비저닝하기에 충분한 리소스가 디바이스에 있는지 확인합니다. 데이터 컨트롤러와 하나의 SQL Managed Instance의 경우 최소 16GB의 RAM과 4개의 CPU 코어가 필요합니다. 자세한 지침은 [Azure Arc 사용 데이터 서비스 배포에 대 한 최소 요구 사항](../azure-arc/data/sizing-guidance.md#minimum-deployment-requirements)을 참조 하세요.
 
 
 ## <a name="configure-kubernetes-external-service-ips"></a>Kubernetes 외부 서비스 IP 구성

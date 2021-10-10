@@ -1,15 +1,15 @@
 ---
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: include
-ms.date: 07/13/2020
-ms.author: jingwang
-ms.openlocfilehash: 66b7159d19838cf08158d794f9b8e8819efc3f41
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
-ms.translationtype: HT
+ms.date: 09/29/2021
+ms.author: jianleishen
+ms.openlocfilehash: a5fbf3071c134b52fb053afc88f6efb51a5ea2f8
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112042380"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129725467"
 ---
 <!--
     Separate the generic requirement on Self-hosted Integration Runtime setup from connector articles.

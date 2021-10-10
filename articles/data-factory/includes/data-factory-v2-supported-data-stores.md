@@ -2,18 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: data-factory
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: include
-ms.date: 09/22/2021
-ms.author: jingwang
+ms.date: 09/29/2021
+ms.author: jianleishen
 ms.custom: include file
-ms.openlocfilehash: 75a08a3aee9a337e422611fd238fece98b9d09e5
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 4bb3c4e2c51323400ca233193c65ba85b3200316
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129095975"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129725409"
 ---
 | 범주 | 데이터 저장소 | 소스로 지원 | 싱크로 지원 | [Azure IR](../concepts-integration-runtime.md#azure-integration-runtime)에서 지원 | [자체 호스팅 IR](../concepts-integration-runtime.md#self-hosted-integration-runtime)에서 지원 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -34,7 +34,7 @@ ms.locfileid: "129095975"
 | &nbsp; |[Azure Synapse Analytics](../connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Table Storage](../connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |
 | **Database** |[Amazon RDS for Oracle](../connector-amazon-rds-for-oracle.md) |✓ | |✓ |✓  |
-| &nbsp; |[amazon RDS for SQL Server](../connector-amazon-rds-for-sql-server.md) |✓ | |✓ |✓  |
+| &nbsp; |[Amazon RDS for SQL Server](../connector-amazon-rds-for-sql-server.md) |✓ | |✓ |✓  |
 | &nbsp; |[Amazon Redshift](../connector-amazon-redshift.md) |✓ | |✓ |✓  |
 | &nbsp; |[DB2](../connector-db2.md) |✓ | |✓ |✓  |
 | &nbsp; |[Drill](../connector-drill.md) |✓ | |✓ |✓  |

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/20/2020
 ms.author: pafarley
-ms.openlocfilehash: 0ffa432b6d5d94ad4e313a183d8e277ce44aae3d
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: b1765c6f3627a694e46698f5fd512ade4ebc35d8
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129585130"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129725432"
 ---
 ## <a name="install-the-speech-sdk"></a>Speech SDK 설치하기
 
@@ -111,9 +111,10 @@ private static async Task<string> GetVoiceSignatureString()
 * 생성자를 사용하여 `ConversationTranscriber`를 만들고 필요한 이벤트를 구독합니다.
 * 대화에 참가자를 추가합니다. 문자열 `voiceSignatureStringUser1` 및 `voiceSignatureStringUser2`는 위의 단계에서 `GetVoiceSignatureString()` 함수의 출력으로 제공됩니다.
 * 대화에 참가하고 대화 내용 기록을 시작합니다.
+* 음성 샘플을 제공 하지 않고 스피커를 차별화 하려면 `DifferentiateGuestSpeakers` [대화 내용 개요](../../../conversation-transcription.md)에서와 같이 기능을 사용 하도록 설정 하세요. 
 
 > [!NOTE]
-> `AudioStreamReader`는 [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/csharp/dotnet/conversation-transcription/helloworld/AudioStreamReader.cs)에서 얻을 수 있는 도우미 클래스입니다.
+> `AudioStreamReader`는 [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/csharp/dotnet/conversation-transcription/helloworld/AudioStreamReader.cs)에서 가져올 수 있는 도우미 클래스입니다.
 
 `TranscribeConversationsAsync()` 함수를 호출하여 대화 내용 기록을 시작합니다.
 
@@ -137,7 +138,9 @@ public static async Task TranscribeConversationsAsync(string voiceSignatureStrin
 
     var config = SpeechConfig.FromSubscription(subscriptionKey, region);
     config.SetProperty("ConversationTranscriptionInRoomAndOnline", "true");
-    // config.SpeechRecognitionLanguage = "zh-cn"; // en-us by default. This code specifies Chinese.
+
+    // en-us by default. Adding this code to specify other languages, like zh-cn.
+    // config.SpeechRecognitionLanguage = "zh-cn";
     var stopRecognition = new TaskCompletionSource<int>();
 
     using (var audioInput = AudioConfig.FromWavFileInput(filepath))

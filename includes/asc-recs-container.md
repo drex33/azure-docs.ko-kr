@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 09/05/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: bdc98523c2c9795f3f69baeaef7599352ff9e4dc
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: fbad522ca99449773402b70839578fdcab24716c
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123536917"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129725646"
 ---
 이 범주에는 **23** 개의 권장 사항이 있습니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "123536917"
 |[컨테이너는 허용되는 포트에서만 수신 대기해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/5f88450f-9546-4b78-a181-a2d9162bb441) |Kubernetes 클러스터의 공격 표면을 줄이려면 컨테이너의 액세스를 구성된 포트로 제한하여 클러스터에 대한 액세스를 제한합니다.<br />(관련 정책: [컨테이너가 Kubernetes 클러스터의 허용된 포트에서만 수신 대기하도록 확인](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f440b515e-a580-421e-abeb-b159a61ddcbc)) |중간 |
 |[변경 불가능한(읽기 전용) 루트 파일 시스템을 컨테이너에 적용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/27d6f0e9-b4d5-468b-ae7e-03d5473fd864) |컨테이너는 Kubernetes 클러스터의 읽기 전용 루트 파일 시스템에서 실행되어야 합니다. 변경할 수 없는 파일 시스템은 런타임에 악성 이진 파일을 경로에 추가하여 컨테이너를 변경하지 못하도록 보호합니다.<br />(관련 정책: [Kubernetes 클러스터 컨테이너는 읽기 전용 루트 파일 시스템에서 실행되어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fdf49d893-a74c-421d-bc95-c663042e5b80)) |중간 |
 |[제한된 액세스 권한으로 Kubernetes API 서버를 구성해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1a2b5b4c-f80d-46e7-ac81-b51a9fb363de) |허용된 네트워크, 머신 또는 서브넷의 애플리케이션만 클러스터에 액세스할 수 있도록 하려면 Kubernetes API 서버에 대한 액세스를 제한합니다. 권한 있는 IP 범위를 정의하거나/azure/aks/private-clusters에 설명된 대로 API 서버를 프라이빗 클러스터로 설정하여 액세스를 제한할 수 있습니다.<br />(관련 정책: [Kubernetes Services에서 권한 있는 IP 범위를 정의해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0e246bcf-5f6f-4f87-bc6f-775d4712c7ea)) |높음 |
-|[Kubernetes 클러스터는 HTTPS를 통해서만 액세스할 수 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c6d87087-9ebe-b31f-b452-0bf3bbbaccd2) |HTTPS를 사용하여 인증을 보장하고, 네트워크 계층 도청 공격으로부터 전송 중인 데이터를 보호합니다. 이 기능은 현재 AKS(Kubernetes Service)로 일반 공급되며, AKS 엔진 및 Azure Arc 지원 Kubernetes에서 미리 보기로 제공됩니다. 자세한 내용은 https://aka.ms/kubepolicydoc을 방문하세요.<br />(관련 정책: [Kubernetes 클러스터에서 HTTPS 수신 적용](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1a5b4dca-0b6f-4cf5-907c-56316bc1bf3d)) |높음 |
+|[Kubernetes 클러스터는 HTTPS를 통해서만 액세스할 수 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c6d87087-9ebe-b31f-b452-0bf3bbbaccd2) |HTTPS를 사용하여 인증을 보장하고, 네트워크 계층 도청 공격으로부터 전송 중인 데이터를 보호합니다. 이 기능은 현재 AKS(Kubernetes Service)에 일반 제공되며 AKS 엔진 및 Azure Arc 지원 Kubernetes용 미리 보기로 제공됩니다. 자세한 내용은 https://aka.ms/kubepolicydoc을 방문하세요.<br />(관련 정책: [Kubernetes 클러스터에서 HTTPS 수신 적용](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1a5b4dca-0b6f-4cf5-907c-56316bc1bf3d)) |높음 |
 |[최소 권한 Linux 기능을 컨테이너에 적용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/11c95609-3553-430d-b788-fd41cde8b2db) |컨테이너의 공격 표면을 줄이기 위해 Linux 기능을 제한하고 루트 사용자의 모든 권한을 부여하지 않고 컨테이너에 특정 권한을 부여합니다. 모든 기능을 삭제한 다음, 필요한 기능을 추가하는 것이 좋습니다.<br />(관련 정책: [Kubernetes 클러스터 컨테이너는 허용된 기능만 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fc26596ff-4d70-4e6a-9a30-c2506bd2f80c)) |중간 |
 |[컨테이너 AppArmor 프로필의 재정의 또는 비활성화를 제한해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/86f91051-9d6a-47c3-a07f-bd14cb214b45) |Kubernetes 클러스터에서 실행되는 컨테이너는 허용된 AppArmor 프로필로만 제한되어야 합니다.<br>AppArmor(Application Armor)는 보안 위협으로부터 운영 체제와 애플리케이션을 보호하는 Linux 보안 모듈입니다. AppArmor를 사용하려면 시스템 관리자는 AppArmor 보안 프로필을 각 프로그램에 연결해야 합니다.<br />(관련 정책: [Kubernetes 클러스터 컨테이너는 허용된 AppArmor 프로필만 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f511f5417-5d12-434d-ab2e-816901e72a5e)) |높음 |
 |[권한 있는 컨테이너를 피해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/5d90913f-a1c5-4429-ad54-2c6c17fb3c73) |무제한 호스트 액세스를 방지하기 위해 되도록이면 권한 있는 컨테이너를 사용하지 마세요.<p>권한 있는 컨테이너는 호스트 머신의 모든 루트 기능을 갖고 있습니다. 공격의 진입점으로 사용되어 손상된 애플리케이션, 호스트 및 네트워크에 악성 코드 또는 맬웨어를 퍼뜨릴 수 있습니다.</p><br />(관련 정책: [Kubernetes 클러스터에서 권한 있는 컨테이너를 허용하지 않음](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f95edb821-ddaf-4404-9732-666045e056b4)) |중간 |

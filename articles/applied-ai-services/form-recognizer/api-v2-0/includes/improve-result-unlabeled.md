@@ -5,16 +5,16 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/25/2021
 ms.author: lajanuar
-ms.openlocfilehash: 32e6f5ab49c36b8675c30868ca8aa919f65b6878
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: ec6e982f786e1e72ab8743ab26b28f5e331a4e5d
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538710"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129725696"
 ---
 `"pageResults"` 노드 아래에서 각 키/값 결과에 대한 `"confidence"` 값을 검사합니다. 텍스트 읽기 작업에 해당하는 `"readResults"` 노드의 신뢰도 점수를 확인합니다. 읽기 결과의 신뢰도는 키/값 추출 결과의 신뢰도에 영향을 주지 않으므로 둘 다 확인합니다.
 
-* 읽기 작업에 대한 신뢰도 점수가 낮으면 입력 문서의 품질을 개선합니다([입력 요구 사항](../../overview.md#input-requirements) 참조).
+* 읽기 작업에 대한 신뢰도 점수가 낮으면 입력 문서의 품질을 개선합니다([입력 요구 사항](../../concept-model-overview.md#input-requirements) 참조).
 
 * 키/값 추출 작업의 신뢰도 점수가 낮으면 분석 중인 문서가 학습 세트에 사용된 문서와 동일한 유형인지 확인합니다. 학습 세트의 문서 모양이 변형된 경우 각 변형에 대해 하나의 모델을 학습하고 다른 폴더로 분할하는 것이 좋습니다.
 

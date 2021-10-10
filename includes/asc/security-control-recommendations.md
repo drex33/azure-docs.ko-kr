@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 09/05/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 9e8b25e4cdfe9cb3b54968a524fe030872f2cd91
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 5ef21b7d66532adad450dadf0d6c0c57b73ae8c6
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123646618"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129725887"
 ---
 <table class="tg">
 <thead>
@@ -23,7 +23,7 @@ ms.locfileid: "123646618"
 <tbody>
   <tr>
     <td class="tg-lboi"><strong>10</strong></td>
-    <td class="tg-lboi"><strong>MFA</strong> - 사용 Security Center MFA(다단계 인증)에 높은 가치를 제공합니다. 이러한 권장 사항을 사용하여 구독 사용자를 보호합니다. <br>MFA를 사용하고 권장 사항을 준수하는 세 가지 방법인 보안 기본값, 사용자별 할당, 조건부 액세스 정책이 있습니다. <a href="/azure/security-center/security-center-identity-access">구독에 대한 MFA 적용 관리</a>에서 이러한 옵션에 대해 자세히 알아봅니다.</td>
+    <td class="tg-lboi"><strong>MFA 사용</strong> - Security Center는 MFA (multi-factor authentication)에 높은 값을 배치 합니다. 이러한 권장 사항을 사용하여 구독 사용자를 보호합니다. <br>MFA를 사용하고 권장 사항을 준수하는 세 가지 방법인 보안 기본값, 사용자별 할당, 조건부 액세스 정책이 있습니다. <a href="/azure/security-center/security-center-identity-access">구독에 대한 MFA 적용 관리</a>에서 이러한 옵션에 대해 자세히 알아봅니다.</td>
     <td class="tg-lboi" width=55%>- 구독에서 소유자 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.<br />- 구독에서 소유자 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.<br />- 구독에 대한 쓰기 권한이 있는 계정에서 MFA를 사용하도록 설정해야 합니다.<br />- 구독에 대한 쓰기 권한이 있는 계정에서 MFA를 사용하도록 설정해야 합니다.</td>
   </tr>
   <tr>
@@ -33,33 +33,33 @@ ms.locfileid: "123646618"
   </tr>
   <tr>
     <td class="tg-lboi"><strong>6</strong></td>
-    <td class="tg-lboi"><strong>시스템 업데이트</strong> - 적용 업데이트를 적용하지 않으면 패치가 적용되지 않은 취약성이 남고 공격에 취약한 환경이 발생합니다. 이러한 권장 사항을 사용하여 운영 효율성을 유지하고, 보안 취약성을 줄이고, 최종 사용자에게 보다 안정적인 환경을 제공합니다. 시스템 업데이트를 배포하려면 <a href="/azure/automation/update-management/overview">업데이트 관리 솔루션을 사용하여 머신에 대한 패치 및 업데이트를 관리</a>할 수 있습니다.</td>
+    <td class="tg-lboi"><strong>시스템 업데이트 적용</strong> - 업데이트를 적용 하지 않으면 패치가 적용 되지 않은 취약성이 발생 하 고 공격에 취약 한 환경이 발생 합니다. 이러한 권장 사항을 사용하여 운영 효율성을 유지하고, 보안 취약성을 줄이고, 최종 사용자에게 보다 안정적인 환경을 제공합니다. 시스템 업데이트를 배포하려면 <a href="/azure/automation/update-management/overview">업데이트 관리 솔루션을 사용하여 머신에 대한 패치 및 업데이트를 관리</a>할 수 있습니다.</td>
     <td class="tg-lboi" width=55%>- Linux 기반 Azure Arc 머신에 Log Analytics 에이전트를 설치해야 합니다.<br />- 가상 머신에 Log Analytics 에이전트를 설치해야 합니다.<br />-가상 머신 확장 집합에 Log Analytics 에이전트를 설치해야 합니다.<br />- Windows 기반 Azure Arc 머신에 Log Analytics 에이전트를 설치해야 합니다.<br />- 가상 머신 확장 집합에 대한 시스템 업데이트를 설치해야 합니다.<br />- 시스템 업데이트를 머신에 설치해야 합니다.<br />- 머신에 시스템 업데이트를 설치해야 합니다(업데이트 센터에서 제공).</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong>6</strong></td>
-    <td class="tg-lboi"><strong>취약성</strong> - 수정 Security Center 여러 취약성 평가 스캐너를 포함하여 머신, 데이터베이스 및 컨테이너 레지스트리에서 위협 행위자가 활용할 수 있는 약점을 확인합니다. 이러한 권장 사항을 사용하여 이러한 스캐너를 활성화하고 해당 결과를 검토합니다.<br><a href="/azure/security-center/deploy-vulnerability-assessment-vm">머신</a>, <a href="/azure/security-center/defender-for-sql-on-machines-vulnerability-assessment">SQL 서버</a> 및 <a href="/azure/security-center/defender-for-container-registries-usage">컨테이너 레지스트리</a> 검사에 대해 자세히 알아봅니다.</td>
-    <td class="tg-lboi" width=55%>- 가상 머신에서 취약성 평가 솔루션을 사용하도록 설정해야 합니다.<br />- Azure Kubernetes Service 클러스터에는 Kubernetes용 Azure Policy 추가 기능 설치가 있어야 합니다.<br />- 신뢰할 수 있는 레지스트리의 컨테이너 이미지만 배포해야 합니다.<br />- Azure Container Registry 이미지의 취약성을 수정해야 합니다(Qualys 제공).<br />- 가상 머신의 취약성을 수정해야 합니다.</td>
+    <td class="tg-lboi"><strong>취약성</strong> - 해결 Security Center에는 위협 행위자가 활용할 수 있는 약점에 대해 컴퓨터, 데이터베이스 및 컨테이너 레지스트리를 확인 하는 여러 취약점 평가 스캐너가 포함 되어 있습니다. 이러한 권장 사항을 사용하여 이러한 스캐너를 활성화하고 해당 결과를 검토합니다.<br><a href="/azure/security-center/deploy-vulnerability-assessment-vm">머신</a>, <a href="/azure/security-center/defender-for-sql-on-machines-vulnerability-assessment">SQL 서버</a> 및 <a href="/azure/security-center/defender-for-container-registries-usage">컨테이너 레지스트리</a> 검사에 대해 자세히 알아봅니다.</td>
+    <td class="tg-lboi" width=55%>- 가상 머신에서 취약성 평가 솔루션을 사용하도록 설정해야 합니다.<br />- Azure Kubernetes 서비스 클러스터에는 Kubernetes 용 Azure Policy 추가 기능이 설치 되어 있어야 합니다.<br />- 신뢰할 수 있는 레지스트리의 컨테이너 이미지만 배포해야 합니다.<br />- Azure Container Registry 이미지의 취약성을 수정해야 합니다(Qualys 제공).<br />- 가상 머신의 취약성을 수정해야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong>4</strong></td>
-    <td class="tg-lboi">전송 중인 <strong>데이터 암호화</strong> - 이러한 권장 사항을 사용하여 구성 요소, 위치 또는 프로그램 간에 이동하는 데이터를 보호합니다. 이러한 데이터는 중간자(man-in-the-middle) 공격, 도청 및 세션 하이재킹에 취약합니다.</td>
+    <td class="tg-lboi">전송 중인 데이터 <strong>암호화</strong> - 이러한 권장 사항을 사용 하 여 구성 요소, 위치 또는 프로그램 간에 이동 하는 데이터를 보호 합니다. 이러한 데이터는 중간자(man-in-the-middle) 공격, 도청 및 세션 하이재킹에 취약합니다.</td>
     <td class="tg-lboi" width=55%>- API 앱은 HTTPS를 통해서만 액세스할 수 있어야 합니다.<br />- MySQL 데이터베이스 서버에 대해 SSL 연결 적용을 사용하도록 설정해야 합니다.<br />- PostgreSQL 데이터베이스 서버에 대해 SSL 연결 적용을 사용하도록 설정해야 합니다.<br />- API 앱에서 FTPS를 요구해야 합니다.<br />- 함수 앱에서 FTPS를 요구해야 합니다.<br />- 웹앱에서 FTPS를 요구해야 합니다.<br />- 함수 앱은 HTTPS를 통해서만 액세스할 수 있어야 합니다.<br />- Redis Cache에 보안 연결만 사용하도록 설정해야 합니다.<br />- 스토리지 계정에 보안 전송을 사용하도록 설정해야 합니다.<br />- TLS를 최신 API 앱 버전으로 업데이트해야 합니다.<br />- TLS를 최신 함수 앱 버전으로 업데이트해야 합니다.<br />- TLS를 최신 웹앱 버전으로 업데이트해야 합니다.<br />- 웹 애플리케이션은 HTTPS를 통해서만 액세스할 수 있어야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong>4</strong></td>
-    <td class="tg-lboi"><strong>무단 네트워크 액세스</strong> - 제한 Azure는 네트워크를 통해 액세스하는 것이 가장 높은 보안 표준을 충족하도록 설계된 도구 모음을 제공합니다.<br>이러한 권장 사항을 사용하여 <a href="/azure/security-center/security-center-adaptive-network-hardening">Security Center의 적응형 네트워크 강화</a> 설정을 관리하고, 모든 관련 PaaS 서비스에 대해 <a href="/azure/private-link/private-link-overview">Azure Private Link</a>를 구성했는지 확인하고, 가상 네트워크 등에서 <a href="/azure/firewall/overview">Azure Firewall</a>을 활성화합니다.</td>
-    <td class="tg-lboi" width=55%>- 인터넷 연결 가상 머신에 적응형 네트워크 강화 권장 사항을 적용해야 합니다.<br />- 모든 네트워크는 가상 머신과 연결된 네트워크 보안 그룹에서 제한되어야 합니다.<br />- App Configuration은 프라이빗 링크를 사용해야 합니다.<br />- Azure Cache for Redis는 가상 네트워크 내에 있어야 합니다.<br />- Azure Event Grid 도메인은 프라이빗 링크를 사용해야 합니다.<br />- Azure Event Grid 토픽은 프라이빗 링크를 사용해야 합니다.<br />- Azure Kubernetes Service 클러스터에는 Kubernetes용 Azure Policy 추가 기능 설치가 있어야 합니다.<br />- Azure Machine Learning 작업 영역은 프라이빗 링크를 사용해야 합니다.<br />- Azure SignalR Service는 프라이빗 링크를 사용해야 합니다.<br />- Azure Spring Cloud는 네트워크 주입을 사용해야 합니다.<br />- 컨테이너 레지스트리는 무제한 네트워크 액세스를 허용하지 않아야 합니다.<br />- 컨테이너 레지스트리는 프라이빗 링크를 사용해야 합니다.<br />- 컨테이너는 허용되는 포트에서만 수신 대기해야 합니다.<br />- CORS에서 모든 리소스가 API 앱에 액세스하도록 허용하지 않아야 합니다.<br />- CORS에서 모든 리소스가 함수 앱에 액세스하도록 허용하지 않아야 합니다.<br />- CORS에서 모든 리소스가 웹 애플리케이션에 액세스하도록 허용하면 안 됩니다.<br />- Key Vault에서 방화벽을 사용하도록 설정해야 합니다.<br />- 네트워크 보안 그룹을 사용하여 인터넷 연결 가상 머신을 보호해야 합니다.<br />- 가상 머신에서 IP 전달을 사용하지 않도록 설정해야 합니다.<br />- 제한된 액세스 권한으로 Kubernetes API 서버를 구성해야 합니다.<br />- Key Vault의 프라이빗 엔드포인트를 구성해야 합니다.<br />- 프라이빗 엔드포인트를 MariaDB 서버에서 사용하도록 설정해야 합니다.<br />- 프라이빗 엔드포인트를 MySQL 서버에서 사용하도록 설정해야 합니다.<br />- 프라이빗 엔드포인트를 PostgreSQL 서버에서 사용하도록 설정해야 합니다.<br />- MariaDB 서버에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 합니다.<br />- MySQL 서버에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 합니다.<br />- PostgreSQL 서버에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 합니다.<br />- 서비스는 허용되는 포트에서만 수신 대기해야 합니다.<br />- 스토리지 계정은 프라이빗 링크 연결을 사용해야 합니다.<br />- 스토리지 계정은 가상 네트워크 규칙을 사용하여 네트워크 액세스를 제한해야 합니다.<br />- 호스트 네트워킹 및 포트 사용을 제한해야 합니다.<br />- 가상 네트워크는 Azure Firewall로 보호해야 합니다.<br />- VM Image Builder 템플릿은 프라이빗 링크를 사용해야 합니다.</td>
+    <td class="tg-lboi"><strong>무단 네트워크 액세스 제한</strong> - Azure는 네트워크를 통한 액세스가 최고 수준의 보안 표준을 충족 하도록 설계 된 도구 모음을 제공 합니다.<br>이러한 권장 사항을 사용하여 <a href="/azure/security-center/security-center-adaptive-network-hardening">Security Center의 적응형 네트워크 강화</a> 설정을 관리하고, 모든 관련 PaaS 서비스에 대해 <a href="/azure/private-link/private-link-overview">Azure Private Link</a>를 구성했는지 확인하고, 가상 네트워크 등에서 <a href="/azure/firewall/overview">Azure Firewall</a>을 활성화합니다.</td>
+    <td class="tg-lboi" width=55%>- 인터넷 연결 가상 머신에 적응형 네트워크 강화 권장 사항을 적용해야 합니다.<br />- 모든 네트워크는 가상 머신과 연결된 네트워크 보안 그룹에서 제한되어야 합니다.<br />- App Configuration은 프라이빗 링크를 사용해야 합니다.<br />- Azure Cache for Redis는 가상 네트워크 내에 있어야 합니다.<br />- Azure Event Grid 도메인은 프라이빗 링크를 사용해야 합니다.<br />- Azure Event Grid 토픽은 프라이빗 링크를 사용해야 합니다.<br />- Azure Kubernetes 서비스 클러스터에는 Kubernetes 용 Azure Policy 추가 기능이 설치 되어 있어야 합니다.<br />- Azure Machine Learning 작업 영역은 프라이빗 링크를 사용해야 합니다.<br />- Azure SignalR Service는 프라이빗 링크를 사용해야 합니다.<br />- Azure Spring Cloud는 네트워크 주입을 사용해야 합니다.<br />- 컨테이너 레지스트리는 무제한 네트워크 액세스를 허용하지 않아야 합니다.<br />- 컨테이너 레지스트리는 프라이빗 링크를 사용해야 합니다.<br />- 컨테이너는 허용되는 포트에서만 수신 대기해야 합니다.<br />- CORS에서 모든 리소스가 API 앱에 액세스하도록 허용하지 않아야 합니다.<br />- CORS에서 모든 리소스가 함수 앱에 액세스하도록 허용하지 않아야 합니다.<br />- CORS에서 모든 리소스가 웹 애플리케이션에 액세스하도록 허용하면 안 됩니다.<br />- Key Vault에서 방화벽을 사용하도록 설정해야 합니다.<br />- 네트워크 보안 그룹을 사용하여 인터넷 연결 가상 머신을 보호해야 합니다.<br />- 가상 머신에서 IP 전달을 사용하지 않도록 설정해야 합니다.<br />- 제한 된 액세스로 Kubernetes API 서버를 구성 해야 합니다.<br />- Key Vault의 프라이빗 엔드포인트를 구성해야 합니다.<br />- 프라이빗 엔드포인트를 MariaDB 서버에서 사용하도록 설정해야 합니다.<br />- 프라이빗 엔드포인트를 MySQL 서버에서 사용하도록 설정해야 합니다.<br />- 프라이빗 엔드포인트를 PostgreSQL 서버에서 사용하도록 설정해야 합니다.<br />- MariaDB 서버에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 합니다.<br />- MySQL 서버에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 합니다.<br />- PostgreSQL 서버에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 합니다.<br />- 서비스는 허용되는 포트에서만 수신 대기해야 합니다.<br />- 스토리지 계정은 프라이빗 링크 연결을 사용해야 합니다.<br />- 스토리지 계정은 가상 네트워크 규칙을 사용하여 네트워크 액세스를 제한해야 합니다.<br />- 호스트 네트워킹 및 포트 사용을 제한해야 합니다.<br />- 가상 네트워크는 Azure Firewall로 보호해야 합니다.<br />- VM Image Builder 템플릿은 프라이빗 링크를 사용해야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong>4</strong></td>
-    <td class="tg-lboi">미사시 암호화 <strong>사용</strong> - 이러한 권장 사항을 사용하여 저장된 데이터의 보호에 대한 잘못된 구성을 완화할 수 있습니다.</td>
+    <td class="tg-lboi"><strong>미사용</strong> - 암호화 사용 이러한 권장 사항을 사용 하 여 저장 된 데이터의 보호와 관련 된 잘못 된 구성을 완화할 수 있습니다.</td>
     <td class="tg-lboi" width=55%>- Service Fabric 클러스터는 ClusterProtectionLevel 속성을 EncryptAndSign으로 설정해야 합니다.<br />- SQL 데이터베이스에 투명한 데이터 암호화를 사용하도록 설정해야 합니다.<br />- 가상 머신은 Compute 및 Storage 리소스 간에 임시 디스크, 캐시 및 데이터 흐름을 암호화해야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong>4</strong></td>
-    <td class="tg-lboi"><strong>액세스 및 권한</strong> - 관리 보안 프로그램의 핵심 부분은 사용자가 작업을 수행하는 데 필요한 액세스 권한을 갖도록 하는 것이지만, 최소 권한 액세스 모델입니다. 이러한 권장 사항을 사용하여 ID 및 액세스 요구 사항을 관리합니다.</td>
-    <td class="tg-lboi" width=55%>- Linux 머신에 대한 인증에 SSH 키가 필요합니다.<br />- Azure Kubernetes Service 클러스터에는 Kubernetes용 Azure Policy 추가 기능 설치가 있어야 합니다.<br />- 권한 상승을 포함하는 컨테이너를 사용하지 않아야 합니다.<br />- 중요한 호스트 네임스페이스를 공유하는 컨테이너를 사용하지 않아야 합니다.<br />- 사용되지 않는 계정을 구독에서 제거해야 합니다.<br />- 사용되지 않는 계정을 구독에서 제거해야 합니다.<br />- 소유자 권한이 있는 사용되지 않는 계정을 구독에서 제거해야 합니다.<br />- 소유자 권한이 있는 사용되지 않는 계정을 구독에서 제거해야 합니다.<br />- 소유자 권한이 있는 외부 계정을 구독에서 제거해야 합니다.<br />- 소유자 권한이 있는 외부 계정을 구독에서 제거해야 합니다.<br />- 쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.<br />- 쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.<br />- 함수 앱은 클라이언트 인증서(들어오는 클라이언트 인증서)를 사용하도록 설정해야 합니다.<br />- 게스트 구성 확장을 머신에 설치해야 합니다.<br />- 변경 불가능한(읽기 전용) 루트 파일 시스템을 컨테이너에 적용해야 합니다.<br />- 최소 권한 Linux 기능을 컨테이너에 적용해야 합니다.<br />- API 앱에서 관리 ID를 사용해야 합니다.<br />- 함수 앱에서 관리 ID를 사용해야 합니다.<br />- 웹앱에서 관리 ID를 사용해야 합니다.<br />- 권한 있는 컨테이너를 피해야 합니다.<br />- Kubernetes 서비스에서 역할 기반 액세스 제어를 사용해야 합니다.<br />- 컨테이너를 루트 사용자로 실행하지 않아야 합니다.<br />- Service Fabric 클러스터는 클라이언트 인증에 대해서만 Azure Active Directory를 사용해야 합니다.<br />- 관리 인증서 대신 서비스 주체를 사용하여 구독을 보호해야 합니다.<br />- 스토리지 계정 공용 액세스가 허용되지 않아야 합니다.<br />- 손상된 컨테이너에서 노드 액세스를 제한하려면 Pod HostPath 볼륨 탑재 사용을 알려진 목록으로 제한해야 합니다.<br />- 가상 머신의 게스트 구성 확장은 시스템이 할당한 관리 ID를 사용하여 배포해야 합니다.</td>
+    <td class="tg-lboi"><strong>액세스 및 사용 권한 관리</strong> - 보안 프로그램의 핵심 부분은 사용자에 게 작업을 수행 하는 데 필요한 액세스 권한이 있는지 확인 하는 것입니다. 최소 권한 액세스 모델의 경우에는 그 이상입니다. 이러한 권장 사항을 사용하여 ID 및 액세스 요구 사항을 관리합니다.</td>
+    <td class="tg-lboi" width=55%>- Linux 머신에 대한 인증에 SSH 키가 필요합니다.<br />- Azure Kubernetes 서비스 클러스터에는 Kubernetes 용 Azure Policy 추가 기능이 설치 되어 있어야 합니다.<br />- 권한 상승을 포함하는 컨테이너를 사용하지 않아야 합니다.<br />- 중요한 호스트 네임스페이스를 공유하는 컨테이너를 사용하지 않아야 합니다.<br />- 사용되지 않는 계정을 구독에서 제거해야 합니다.<br />- 사용되지 않는 계정을 구독에서 제거해야 합니다.<br />- 소유자 권한이 있는 사용되지 않는 계정을 구독에서 제거해야 합니다.<br />- 소유자 권한이 있는 사용되지 않는 계정을 구독에서 제거해야 합니다.<br />- 소유자 권한이 있는 외부 계정을 구독에서 제거해야 합니다.<br />- 소유자 권한이 있는 외부 계정을 구독에서 제거해야 합니다.<br />- 쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.<br />- 쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.<br />- 함수 앱은 클라이언트 인증서(들어오는 클라이언트 인증서)를 사용하도록 설정해야 합니다.<br />- 게스트 구성 확장을 머신에 설치해야 합니다.<br />- 변경 불가능한(읽기 전용) 루트 파일 시스템을 컨테이너에 적용해야 합니다.<br />- 최소 권한 Linux 기능을 컨테이너에 적용해야 합니다.<br />- API 앱에서 관리 ID를 사용해야 합니다.<br />- 함수 앱에서 관리 ID를 사용해야 합니다.<br />- 웹앱에서 관리 ID를 사용해야 합니다.<br />- 권한 있는 컨테이너를 피해야 합니다.<br />- Kubernetes 서비스에서 역할 기반 액세스 제어를 사용해야 합니다.<br />- 컨테이너를 루트 사용자로 실행하지 않아야 합니다.<br />- Service Fabric 클러스터는 클라이언트 인증에 대해서만 Azure Active Directory를 사용해야 합니다.<br />- 관리 인증서 대신 서비스 주체를 사용하여 구독을 보호해야 합니다.<br />- 스토리지 계정 공용 액세스가 허용되지 않아야 합니다.<br />- 손상된 컨테이너에서 노드 액세스를 제한하려면 Pod HostPath 볼륨 탑재 사용을 알려진 목록으로 제한해야 합니다.<br />- 가상 머신의 게스트 구성 확장은 시스템이 할당한 관리 ID를 사용하여 배포해야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong>4</strong></td>
@@ -99,7 +99,7 @@ ms.locfileid: "123646618"
   <tr>
     <td class="tg-lboi"><strong>0</strong></td>
     <td class="tg-lboi"><strong>Azure Defender 사용</strong> - 이러한 권장 사항을 사용 하 여 <a href="/azure/security-center/azure-defender">Azure Defender 계획</a>을 사용 하도록 설정 합니다.</td>
-    <td class="tg-lboi" width=55%>- Azure Arc 사용 Kubernetes 클러스터에 Azure Defender의 확장이 설치되어 있어야 합니다.<br />- Azure Defender for App Service를 사용하도록 설정해야 합니다.<br />- Azure SQL Database 서버용 Azure Defender를 사용하도록 설정해야 합니다.<br />- 컨테이너 레지스트리용 Azure Defender를 사용하도록 설정해야 합니다.<br />- Azure Defender for DNS를 사용하도록 설정해야 합니다.<br />- Azure Defender for Key Vault를 사용하도록 설정해야 합니다.<br />- Azure Defender for Kubernetes를 사용하도록 설정해야 합니다.<br />- Azure Defender for Resource Manager를 사용하도록 설정해야 합니다.<br />- 서버용 Azure Defender를 사용하도록 설정해야 합니다.<br />- 작업 영역에서 서버에 대한 Azure Defender 사용하도록 설정해야 합니다.<br />- 머신에서 SQL 서버용 Azure Defender를 사용하도록 설정해야 합니다.<br />- 스토리지용 Azure Defender를 사용하도록 설정해야 합니다.</td>
+    <td class="tg-lboi" width=55%>- Azure Arc 사용 가능 Kubernetes 클러스터에는 Azure Defender의 확장이 설치 되어 있어야 합니다.<br />- Azure Defender for App Service를 사용하도록 설정해야 합니다.<br />- Azure SQL Database 서버용 Azure Defender를 사용하도록 설정해야 합니다.<br />- 컨테이너 레지스트리용 Azure Defender를 사용하도록 설정해야 합니다.<br />- Azure Defender for DNS를 사용하도록 설정해야 합니다.<br />- Azure Defender for Key Vault를 사용하도록 설정해야 합니다.<br />- Azure Defender for Kubernetes를 사용하도록 설정해야 합니다.<br />- Azure Defender for Resource Manager를 사용하도록 설정해야 합니다.<br />- 서버용 Azure Defender를 사용하도록 설정해야 합니다.<br />- 작업 영역에서 서버에 대한 Azure Defender 사용하도록 설정해야 합니다.<br />- 머신에서 SQL 서버용 Azure Defender를 사용하도록 설정해야 합니다.<br />- 스토리지용 Azure Defender를 사용하도록 설정해야 합니다.</td>
   </tr>
 </tbody>
 </table>

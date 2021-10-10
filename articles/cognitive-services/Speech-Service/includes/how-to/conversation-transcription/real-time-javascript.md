@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/20/2020
 ms.author: pafarley
-ms.openlocfilehash: 138b6f1b0b20ac85c9800daf40d3c82e81e24d0a
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 9a69750da0ae64fc1467785e174fef14a22ab396
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539066"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129725794"
 ---
 ## <a name="install-the-speech-sdk"></a>Speech SDK 설치하기
 
@@ -77,6 +77,7 @@ main();
 * 생성자를 사용하여 `ConversationTranscriber`를 만듭니다.
 * 대화에 참가자를 추가합니다. 문자열 `voiceSignatureStringUser1` 및 `voiceSignatureStringUser2`는 위의 단계에서 출력으로 제공됩니다.
 * 이벤트에 등록하고 대화 내용 기록을 시작합니다.
+* 음성 샘플을 제공하지 않고 화자를 차별화하려면 `DifferentiateGuestSpeakers` 대화 전사 [개요](../../../conversation-transcription.md)에서와 같이 기능을 사용하도록 설정하세요. 
 
 ```javascript
 (function() {
@@ -98,6 +99,9 @@ main();
     
     var speechTranslationConfig = sdk.SpeechTranslationConfig.fromSubscription(subscriptionKey, region);
     var audioConfig = sdk.AudioConfig.fromStreamInput(pushStream);
+    speechTranslationConfig.setProperty("ConversationTranscriptionInRoomAndOnline", "true");
+
+    // en-us by default. Adding this code to specify other languages, like zh-cn.
     speechTranslationConfig.speechRecognitionLanguage = "en-US";
     
     // create conversation and transcriber

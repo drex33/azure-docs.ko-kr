@@ -5,8 +5,6 @@
   items:
     - name: Cognitive Services란?
       href: what-are-cognitive-services.md
-    - name: Cognitive Services 문서의 새로운 기능
-      href: whats-new-docs.md
     - name: 언어 지원
       href: language-support.md
     - name: 가격 책정

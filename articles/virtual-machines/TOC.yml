@@ -297,20 +297,6 @@
               href: h-series-retirement.md
             - name: HB 시리즈 사용 중지
               href: hb-series-retirement.md
-        - name: 상태 및 청구
-          href: states-billing.md
-        - name: vCPU 할당량
-          items:
-            - name: CLI
-              displayName: 'vCPU, quota, limit'
-              href: ./linux/quotas.md
-            - name: PowerShell
-              displayName: 'vCPU, quota, limit'
-              href: ./windows/quotas.md
-        - name: 임시 디스크가 없는 Azure VM
-          href: azure-vms-no-temp-disk.yml
-        - name: Azure VM 크기 명명 규칙
-          href: vm-naming-conventions.md
         - name: 이전 세대
           displayName: 'older, retired, expired, deprecated'
           href: sizes-previous-gen.md
@@ -320,9 +306,6 @@
         - name: 격리된 크기
           displayName: 'isolated VM, sole-tenant, sole'
           href: isolation.md
-        - name: 이전 세대
-          displayName: 'older, retired, expired, deprecated'
-          href: sizes-previous-gen.md
         - name: ACU(Azure 컴퓨팅 단위)
           href: acu.md
         - name: 벤치마크 점수

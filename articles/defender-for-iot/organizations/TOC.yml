@@ -12,7 +12,7 @@
       displayName: 'deployment, where to deploy'
       href: architecture.md
 - name: 빠른 시작
-  expanded: true
+  expanded: false
   items:
     - name: 시스템 필수 구성 요소
       displayName: 'firewall, proxy, open ports'

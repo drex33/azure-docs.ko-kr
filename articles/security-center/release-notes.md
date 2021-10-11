@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 10/06/2021
 ms.author: memildin
-ms.openlocfilehash: 66420b4ec671481a80b6fac93b2c8162ae6a8941
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: bd8ebca221041684a47bb66bb01c176fd1b65ba6
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129706790"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129729523"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -30,57 +30,60 @@ Security Center는 현재 개발 중이며 지속적으로 향상된 기능을 �
 
 10월의 업데이트는 다음과 같습니다.
 
-- [취약성 평가 솔루션 (미리 보기)로 추가 된 Microsoft 위협 및 취약성 관리](#microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution-in-preview)
-- [취약성 평가 솔루션은 이제 자동으로 사용 하도록 설정할 수 있습니다 (미리 보기).](#vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview)
-- [자산 인벤토리에 추가 된 소프트웨어 인벤토리 필터 (미리 보기)](#software-inventory-filters-added-to-asset-inventory-in-preview)
-- [일부 경고 형식의 접두사가 "ARM_"에서 "VM_" (으)로 변경 되었습니다.](#changed-prefix-of-some-alert-types-from-arm_-to-vm_)
+- [Microsoft 위협 및 취약성 관리가 취약성 평가 솔루션으로 추가(미리 보기)](#microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution-in-preview)
+- [이제 취약성 평가 솔루션을 자동으로 사용하도록 설정할 수 있습니다(미리 보기 상태).](#vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview)
+- [자산 인벤토리에 추가된 소프트웨어 인벤토리 필터(미리 보기)](#software-inventory-filters-added-to-asset-inventory-in-preview)
+- [일부 경고 유형의 접두사 "ARM_"에서 "VM_"로 변경](#changed-prefix-of-some-alert-types-from-arm_-to-vm_)
 
 
-### <a name="microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution-in-preview"></a>취약성 평가 솔루션 (미리 보기)로 추가 된 Microsoft 위협 및 취약성 관리
+### <a name="microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution-in-preview"></a>Microsoft 위협 및 취약성 관리가 취약성 평가 솔루션으로 추가(미리 보기)
 
-사용자의 컴퓨터에 대해 제공 되는 새로운 취약점 평가를 지원 하기 위해 [서버에 대 한 Azure defender](defender-for-servers-introduction.md) 와 끝점 용 microsoft Defender 간의 통합을 확장 했습니다. [microsoft 위협 및 취약성 관리](/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt). 
+[서버에 대한 Azure Defender 엔드포인트용](defender-for-servers-introduction.md) Microsoft Defender 간의 통합을 확장하여 머신에 대한 새로운 취약성 평가 제공을 지원했습니다. [Microsoft 위협 및 취약성 관리.](/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt) 
 
-**위협 및 취약성 관리** 를 사용 하 여 끝점을 사용할 수 있도록 [Microsoft Defender와의 통합](security-center-wdatp.md) , 추가 에이전트 또는 정기적 검사가 필요 없이 거의 실시간으로 취약성 및 잘못 된 구성을 검색할 수 있습니다. 위협 및 취약성 관리 조직의 위협 환경 및 검색에 따라 취약점의 우선 순위를 결정 합니다.
+**위협 및 취약성 관리** 사용하여 [엔드포인트용 Microsoft Defender와의 통합이](security-center-wdatp.md) 활성화된 상태에서 추가 에이전트 또는 정기 검색 없이도 거의 실시간으로 취약성 및 잘못된 구성을 검색할 수 있습니다. 위협 및 취약성 관리 조직의 위협 환경 및 검색에 따라 취약성의 우선 순위를 지정합니다.
 
-"[가상 머신에서 취약점 평가 솔루션을 사용 하도록 설정 해야](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/ffff0522-1e88-47fc-8382-2a80ba848f5d)합니다" 라는 보안 권장 사항을 사용 하 여 [지원 되는 컴퓨터](/microsoft-365/security/defender-endpoint/tvm-supported-os?view=o365-worldwide&preserve-view=true)에 대 한 위협 및 취약성 관리에서 검색 된 취약점을 발생 시킬 수 있습니다. 
+보안 권장 사항 "[가상 머신에서 취약성 평가 솔루션을 사용하도록 설정해야 합니다."를](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/ffff0522-1e88-47fc-8382-2a80ba848f5d)사용하여 [지원되는](/microsoft-365/security/defender-endpoint/tvm-supported-os?view=o365-worldwide&preserve-view=true)머신에 대해 위협 및 취약성 관리 검색된 취약성을 파악합니다. 
 
-권장 사항을 수동으로 해결할 필요 없이 기존 및 새 컴퓨터에서 취약점 평가 솔루션을 자동으로 [사용 하도록 설정할 수 있습니다 (미리 보기)](#vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview).
+권장 사항을 수동으로 수정할 필요 없이 기존 및 새 머신에서 취약성을 자동으로 표시하려면 [이제 취약성 평가 솔루션을 자동으로 사용하도록 설정할 수 있음(미리 보기 상태)을](#vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview)참조하세요.
 
+[엔드포인트용 Microsoft Defender의 위협 및 취약성 관리 사용하여 약점 조사에서](deploy-vulnerability-assessment-tvm.md)자세히 알아보세요.
 
-### <a name="vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview"></a>취약성 평가 솔루션은 이제 자동으로 사용 하도록 설정할 수 있습니다 (미리 보기).
+### <a name="vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview"></a>이제 취약성 평가 솔루션을 자동으로 사용하도록 설정할 수 있습니다(미리 보기 상태).
 
-Security Center의 자동 프로 비전 페이지에는 [서버에 대 한 Azure Defender](defender-for-servers-introduction.md)로 보호 되는 구독에서 azure virtual Machines 및 azure Arc 컴퓨터에 대 한 취약점 평가 솔루션을 자동으로 사용 하도록 설정 하는 옵션이 포함 되어 있습니다.
+이제 Security Center 자동 프로비저닝 페이지에는 서버용 Azure Defender 보호되는 구독에서 Azure 가상 머신 및 Azure Arc 머신에 취약성 평가 솔루션을 자동으로 사용하도록 설정하는 옵션이 포함되어 [있습니다.](defender-for-servers-introduction.md)
 
-또한 [Microsoft Defender For Endpoint와의 통합](security-center-wdatp.md) 을 사용 하는 경우 다음과 같은 취약성 평가 솔루션을 선택할 수 있습니다.
+또한 [엔드포인트용 Microsoft Defender와의 통합이](security-center-wdatp.md) 활성화된 경우 다음과 같은 취약성 평가 솔루션을 선택할 수 있습니다.
 
-- (**신규**) microsoft Defender for Endpoint의 microsoft 위협 및 취약성 관리 모듈 ( [릴리스 정보](#microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution-in-preview)참조)
-- Integrated Qualys agent
+- (**NEW**) 엔드포인트용 Microsoft Defender의 Microsoft 위협 및 취약성 관리 모듈(릴리스 [참고](#microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution-in-preview)참조)
+- 통합 Qualys 에이전트
 
-:::image type="content" source="media/deploy-vulnerability-assessment-tvm/auto-provision-vulnerability-assessment-agent.png" alt-text="Azure Security Center에서 Microsoft 위협 및 취약성 관리의 자동 프로 비전을 구성 합니다.":::
+:::image type="content" source="media/deploy-vulnerability-assessment-tvm/auto-provision-vulnerability-assessment-agent.png" alt-text="Azure Security Center Microsoft 위협 및 취약성 관리 자동 프로비저닝을 구성합니다.":::
 
-선택한 솔루션이 지원 되는 컴퓨터에서 자동으로 사용 하도록 설정 됩니다.
+선택한 솔루션은 지원되는 컴퓨터에서 자동으로 사용하도록 설정됩니다.
 
-자세한 내용은 [컴퓨터에 대 한 취약성 평가 자동 구성](auto-deploy-vulnerability-assessment.md)을 확인 하세요.
+[머신에 대한 취약성 평가 자동 구성에서](auto-deploy-vulnerability-assessment.md)자세히 알아보세요.
 
-### <a name="software-inventory-filters-added-to-asset-inventory-in-preview"></a>자산 인벤토리에 추가 된 소프트웨어 인벤토리 필터 (미리 보기)
+### <a name="software-inventory-filters-added-to-asset-inventory-in-preview"></a>자산 인벤토리에 추가된 소프트웨어 인벤토리 필터(미리 보기)
 
-이제 [자산 인벤토리](asset-inventory.md) 페이지에는 특정 소프트웨어를 실행 하는 컴퓨터를 선택 하는 필터가 포함 되며 관심 있는 버전도 지정 됩니다. 
+이제 [자산 인벤토리](asset-inventory.md) 페이지에 특정 소프트웨어를 실행하는 머신을 선택하고 관심 있는 버전을 지정하는 필터가 포함되어 있습니다. 
 
-또한 **Azure 리소스 Graph 탐색기** 에서 소프트웨어 인벤토리 데이터를 쿼리할 수 있습니다.
+또한 **Azure Resource Graph Explorer에서** 소프트웨어 인벤토리 데이터를 쿼리할 수 있습니다.
 
-Azure 리소스 Graph에 대 한 샘플 kusto 쿼리를 비롯 한 전체 세부 정보 [는 소프트웨어 인벤토리 액세스](asset-inventory.md#access-a-software-inventory)를 참조 하세요.
+이러한 새로운 기능을 사용하려면 [엔드포인트용 Microsoft Defender와의 통합을](security-center-wdatp.md)사용하도록 설정해야 합니다. 
 
-:::image type="content" source="media/deploy-vulnerability-assessment-tvm/software-inventory.png" alt-text="위협 및 취약성 솔루션을 사용 하도록 설정한 경우 Security Center의 자산 인벤토리에는 설치 된 소프트웨어를 통해 리소스를 선택 하는 필터가 제공 됩니다.":::
+Azure Resource Graph 대한 샘플 Kusto 쿼리를 비롯한 자세한 내용은 [소프트웨어 인벤토리 액세스를](asset-inventory.md#access-a-software-inventory)참조하세요.
 
-### <a name="changed-prefix-of-some-alert-types-from-arm_-to-vm_"></a>일부 경고 형식의 접두사가 "ARM_"에서 "VM_" (으)로 변경 되었습니다. 
+:::image type="content" source="media/deploy-vulnerability-assessment-tvm/software-inventory.png" alt-text="위협 및 취약성 솔루션을 사용하도록 설정한 경우 Security Center 자산 인벤토리는 설치된 소프트웨어로 리소스를 선택하는 필터를 제공합니다.":::
 
-7 월 2021에는 [Azure Defender의 논리적 재구성을 리소스 관리자 경고에 대해](release-notes.md#logical-reorganization-of-azure-defender-for-resource-manager-alerts) 발표 했습니다. 
+### <a name="changed-prefix-of-some-alert-types-from-arm_-to-vm_"></a>일부 경고 유형의 접두사 "ARM_"에서 "VM_"로 변경 
 
-일부 Azure Defender 계획의 논리적 재구성의 일환으로 Azure Defender에서 [서버에 대 한 azure](defender-for-servers-introduction.md)defender로 [리소스 관리자에 대해](defender-for-resource-manager-introduction.md) 25 개의 경고를 이동 했습니다.
+2021년 7월에 Resource Manager [경고에 대한 Azure Defender 논리적 재구성을 발표했습니다.](release-notes.md#logical-reorganization-of-azure-defender-for-resource-manager-alerts) 
 
-이 업데이트를 사용 하 여 다음 표에 나와 있는 것 처럼이 재할당에 일치 하도록 이러한 경고의 접두사를 변경 하 고 "ARM_"을 "VM_"로 바꿉니다.
+일부 Azure Defender 계획의 논리적 재구성의 일환으로 Resource Manager [대한 Azure Defender 21개의](defender-for-resource-manager-introduction.md) 경고를 [서버의 Azure Defender](defender-for-servers-introduction.md)이동했습니다.
 
-| 원래 이름                                  | 이 변경 내용에서                              |
+이 업데이트에서는 이러한 경고의 접두사에서 이 재할당과 일치하도록 변경하고 다음 표와 같이 "ARM_"을 "VM_"로 바꿨습니다.
+
+| 원래 이름                                  | 이 변경에서                              |
 |------------------------------------------------|-----------------------------------------------|
 | ARM_AmBroadFilesExclusion                      | VM_AmBroadFilesExclusion                      |
 | ARM_AmDisablementAndCodeExecution              | VM_AmDisablementAndCodeExecution              |
@@ -109,18 +112,18 @@ Azure 리소스 Graph에 대 한 샘플 kusto 쿼리를 비롯 한 전체 세부
 
 ## <a name="september-2021"></a>2021년 9월
 
-9 월에는 다음 업데이트가 릴리스 되었습니다.
+9월에는 다음 업데이트가 릴리스되었습니다.
 
-### <a name="two-new-recommendations-to-audit-os-configurations-for-azure-security-baseline-compliance-in-preview"></a>Azure 보안 기준 준수에 대 한 OS 구성을 감사 하기 위한 두 가지 새로운 권장 사항 (미리 보기)
+### <a name="two-new-recommendations-to-audit-os-configurations-for-azure-security-baseline-compliance-in-preview"></a>Azure 보안 기준 준수에 대한 OS 구성을 감사하기 위한 두 가지 새로운 권장 사항(미리 보기)
 
-다음 두 가지 권장 사항은 [Windows 보안 기준](../governance/policy/samples/guest-configuration-baseline-windows.md) 및 [Linux 보안 기준](../governance/policy/samples/guest-configuration-baseline-linux.md)으로 컴퓨터의 호환성을 평가 하기 위해 릴리스 되었습니다.
+Windows 보안 기준 및 [Linux](../governance/policy/samples/guest-configuration-baseline-linux.md) [보안 기준을](../governance/policy/samples/guest-configuration-baseline-windows.md) 사용하여 머신의 규정 준수를 평가하기 위해 다음 두 가지 권장 사항이 릴리스되었습니다.
 
-- Windows 컴퓨터의 경우 [Windows 컴퓨터에서 보안 구성의 취약성을 재구성 해야 합니다 (게스트 구성에서 구동 됨)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1f655fb7-63ca-4980-91a3-56dbc2b715c6) .
-- Linux 컴퓨터의 경우 [linux 컴퓨터에서 보안 구성의 취약성을 재구성 해야 합니다 (게스트 구성에서 구동)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8c3d9ad0-3639-4686-9cd2-2b2ab2609bda) .
+- Windows 컴퓨터의 경우 Windows 컴퓨터의 보안 구성 취약성을 [수정해야 합니다(게스트 구성에서 구동).](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1f655fb7-63ca-4980-91a3-56dbc2b715c6)
+- Linux 머신의 경우 [Linux 머신의 보안 구성 취약성을 수정해야 합니다(게스트 구성에서 구동).](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8c3d9ad0-3639-4686-9cd2-2b2ab2609bda)
 
-이러한 권장 사항은 Azure Policy의 게스트 구성 기능을 사용 하 여 컴퓨터의 OS 구성을 [Azure 보안 벤치 마크](/security/benchmark/azure/overview)에 정의 된 기준선과 비교 합니다.
+이러한 권장 사항은 Azure Policy 게스트 구성 기능을 사용하여 컴퓨터의 OS 구성을 [Azure Security Benchmark](/security/benchmark/azure/overview)에 정의된 기준과 비교합니다.
 
-[게스트 구성을 사용 하 여 컴퓨터의 OS 구성 강화](apply-security-baseline.md)에서 이러한 권장 사항을 사용 하는 방법에 대해 자세히 알아보세요.
+게스트 구성을 사용하여 [컴퓨터의 OS 구성 강화에서](apply-security-baseline.md)이러한 권장 사항을 사용하는 방법에 대해 자세히 알아보세요.
 
 ## <a name="august-2021"></a>2021년 8월
 
@@ -152,7 +155,7 @@ Azure 리소스 Graph에 대 한 샘플 kusto 쿼리를 비롯 한 전체 세부
 
 ### <a name="two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview"></a>엔드포인트 보호 솔루션 관리를 위한 두 가지 새로운 권장 사항(미리 보기)
 
-컴퓨터에 엔드포인트 보호 솔루션을 배포하고 유지 관리하기 위한 두 가지 새로운 **미리 보기** 권장 사항을 추가했습니다. 두 권장 사항에는 Azure 가상 머신 및 Azure Arc 지원 서버에 연결된 머신에 대한 지원이 포함됩니다.
+컴퓨터에 엔드포인트 보호 솔루션을 배포하고 유지 관리하기 위한 두 가지 새로운 **미리 보기** 권장 사항을 추가했습니다. 두 권장 사항에는 azure Arc 사용 서버에 연결 된 Azure virtual machines 및 컴퓨터에 대 한 지원이 포함 됩니다.
 
 |권장 |Description |심각도 |
 |---|---|---|
@@ -549,13 +552,13 @@ Security Center에는 VM, SQL Server 및 해당 호스트, 컨테이너 레지�
 
 이 변경으로 **쿼리 열기** 단추를 사용하여 보안 결과를 보여 주는 쿼리도 열 수 있습니다.
 
-:::image type="content" source="media/release-notes/open-query-menu-security-findings.png" alt-text="이제 쿼리 열기 단추를 클릭 하면 취약성 스캐너 관련 권장 사항에 대 한 보안 결과를 보여 주는 심층 쿼리 옵션이 제공 됩니다.":::
+:::image type="content" source="media/release-notes/open-query-menu-security-findings.png" alt-text="이제 열기 쿼리 단추는 취약성 스캐너 관련 권장 사항에 대한 보안 결과를 보여주는 심층 쿼리에 대한 옵션을 제공합니다.":::
 
-**쿼리 열기** 단추는 관련 된 기타 권장 사항에 대 한 추가 옵션을 제공 합니다.
+**쿼리 열기** 단추는 관련된 다른 권장 사항에 대한 추가 옵션을 제공합니다.
 
 Security Center 취약성 검사기에 대한 자세한 정보:
 
-- [Azure 및 하이브리드 컴퓨터용 azure Defender의 통합 Qualys 취약성 스캐너](deploy-vulnerability-assessment-vm.md)
+- [Azure 및 하이브리드 머신용 Azure Defender 통합 Qualys 취약성 스캐너](deploy-vulnerability-assessment-vm.md)
 - [SQL Server용 Azure Defender 통합 취약성 평가 검사기](defender-for-sql-on-machines-vulnerability-assessment.md)
 - [컨테이너 레지스트리용 Azure Defender 통합 취약성 평가 검사기](defender-for-container-registries-usage.md)
 

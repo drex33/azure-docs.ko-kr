@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 04/09/2021
+ms.date: 10/08/2021
 ms.author: cshoe
-ms.openlocfilehash: 00f01e184b254e4fbc40fefa79506498bae30597
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
-ms.translationtype: HT
+ms.openlocfilehash: e38cc40407f636f8bfd53a9196ecaf9c431d34db
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634913"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129729827"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps"></a>Azure Static Web Apps에 대한 인증 및 권한 부여
 
@@ -21,7 +21,8 @@ Azure Static Web Apps는 간소화된 인증 환경을 제공합니다. 기본�
 - 모든 사용자는 사용 가능한 공급자를 사용하여 인증할 수 있습니다.
 - 로그인하면 사용자는 기본적으로 `anonymous` 및 `authenticated` 역할에 속합니다.
 - 승인된 사용자는 [staticwebapp.config.json 파일](./configuration.md)에 정의된 규칙에 따라 제한된 [경로](configuration.md#routes)에 액세스할 수 있습니다.
-- 사용자는 공급자별 [초대](#invitations) 또는 [사용자 지정 Azure Active Directory 공급자 등록](./authentication-custom.md)을 통해 사용자 지정 역할에 가입합니다.
+- 기본 제공 초대 시스템을 사용하여 사용자에게 사용자 지정 역할이 [할당됩니다.](#invitations)
+- API 함수를 통해 로그인할 때 사용자에게 프로그래밍 방식으로 사용자 지정 역할을 할당할 수 있습니다.
 - 모든 인증 공급자는 기본적으로 사용하도록 설정됩니다.
   - 인증 공급자를 제한하려면 사용자 지정 경로 규칙을 사용하여 [액세스를 차단](#block-an-authorization-provider)합니다.
 - 미리 구성된 공급자는 다음과 같습니다.
@@ -38,9 +39,11 @@ Azure Static Web Apps는 간소화된 인증 환경을 제공합니다. 기본�
 - **익명**: 모든 사용자는 _익명_ 역할에 자동으로 속합니다.
 - **인증됨**: 로그인된 모든 사용자는 _인증됨_ 역할에 속합니다.
 
-기본 제공 역할 외에 새 역할을 만들어 초대를 통해 사용자에게 할당하고, _staticwebapp.config.json_ 파일에서 참조할 수 있습니다.
+기본 제공 역할 외에도 사용자 지정 역할을 사용자에게 할당하고 _staticwebapp.config.json_ 파일에서 참조할 수 있습니다.
 
 ## <a name="role-management"></a>역할 관리
+
+# <a name="invitations"></a>[초대](#tab/invitations)
 
 ### <a name="add-a-user-to-a-role"></a>역할에 사용자 추가
 
@@ -104,6 +107,115 @@ Azure Static Web Apps는 간소화된 인증 환경을 제공합니다. 기본�
 1. 사용자를 제거하면 해당 권한이 무효화됩니다.
 1. 전 세계 전파는 몇 분 정도 걸릴 수 있습니다.
 1. 사용자를 앱에 다시 추가하면 [`userId`가 변경됩니다](user-information.md).
+
+# <a name="function-preview"></a>[함수(미리 보기)](#tab/function)
+
+기본 제공 초대 시스템을 사용하는 대신 서버리스 함수를 사용하여 사용자가 로그인할 때 프로그래밍 방식으로 역할을 할당할 수 있습니다.
+
+함수에서 사용자 지정 역할을 할당하려면 사용자가 ID 공급자를 사용하여 성공적으로 인증할 때마다 자동으로 호출되는 API 함수를 정의할 수 있습니다. 함수는 공급자로부터 사용자 정보를 전달합니다. 사용자에게 할당된 사용자 지정 역할 목록을 반환해야 합니다.
+
+이 함수의 예제 사용은 다음과 같습니다.
+
+- 데이터베이스를 쿼리하여 사용자에게 할당해야 하는 역할 확인
+- Microsoft [Graph API를](https://developer.microsoft.com/graph) 호출하여 Active Directory 그룹 멤버 자격에 따라 사용자의 역할을 결정합니다.
+- ID 공급자가 반환한 클레임에 따라 사용자 역할 결정
+
+> [!NOTE]
+> 함수를 통해 역할을 할당하는 기능은 [사용자 지정 인증이](authentication-custom.md) 구성된 경우에만 사용할 수 있습니다.
+>
+> 이 기능을 사용하도록 설정하면 기본 제공 초대 시스템을 통해 할당된 모든 역할이 무시됩니다.
+
+### <a name="configure-a-function-for-assigning-roles"></a>역할을 할당하기 위한 함수 구성
+
+API 함수를 역할 할당 함수로 사용하도록 Static Web Apps 구성하려면 `rolesSource` `auth` 앱 구성 [파일](configuration.md)의 섹션에 속성을 추가합니다. `rolesSource`속성의 값은 API 함수의 경로입니다.
+
+```json
+{
+  "auth": {
+    "rolesSource": "/api/GetRoles",
+    "identityProviders": {
+      // ...
+    }
+  }
+}
+```
+
+> [!NOTE]
+> 구성된 후에는 외부 HTTP 요청에서 역할 할당 함수에 더 이상 액세스할 수 없습니다.
+
+### <a name="create-a-function-for-assigning-roles"></a>역할을 할당하기 위한 함수 만들기
+
+앱의 구성에서 속성을 정의한 후 `rolesSource` 지정한 경로에 정적 웹앱에 [API 함수를](apis.md) 추가합니다. 관리되는 함수 앱 또는 Bring Your Own 함수 앱을 사용할 수 있습니다.
+
+사용자가 ID 공급자를 성공적으로 인증할 때마다 지정된 함수가 호출됩니다. 함수는 공급자의 사용자 정보를 포함하는 요청 본문에 JSON 개체를 전달합니다. 일부 ID 공급자의 경우 사용자 정보에는 `accessToken` 함수가 사용자의 ID를 사용하여 API 호출을 만드는 데 사용할 수 있는 도 포함됩니다.
+
+다음은 Azure Active Directory 예제 페이로드입니다.
+
+```json
+{
+  "identityProvider": "aad",
+  "userId": "72137ad3-ae00-42b5-8d54-aacb38576d76",
+  "userDetails": "ellen@contoso.com",
+  "claims": [
+      {
+          "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
+          "val": "ellen@contoso.com"
+      },
+      {
+          "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname",
+          "val": "Contoso"
+      },
+      {
+          "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname",
+          "val": "Ellen"
+      },
+      {
+          "typ": "name",
+          "val": "Ellen Contoso"
+      },
+      {
+          "typ": "http://schemas.microsoft.com/identity/claims/objectidentifier",
+          "val": "7da753ff-1c8e-4b5e-affe-d89e5a57fe2f"
+      },
+      {
+          "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
+          "val": "72137ad3-ae00-42b5-8d54-aacb38576d76"
+      },
+      {
+          "typ": "http://schemas.microsoft.com/identity/claims/tenantid",
+          "val": "3856f5f5-4bae-464a-9044-b72dc2dcde26"
+      },
+      {
+          "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+          "val": "ellen@contoso.com"
+      },
+      {
+          "typ": "ver",
+          "val": "1.0"
+      }
+  ],
+  "accessToken": "eyJ0eXAiOiJKV..."
+}
+```
+
+함수는 사용자의 정보를 사용하여 사용자에게 할당할 역할을 결정할 수 있습니다. 사용자에게 할당할 사용자 지정 역할 이름 목록을 포함하는 JSON 본문이 포함된 HTTP 200 응답을 반환해야 합니다.
+
+예를 들어 사용자를 및 역할에 할당하려면 `Reader` `Contributor` 다음 응답을 반환합니다.
+
+```json
+{
+  "roles": [
+    "Reader",
+    "Contributor"
+  ]
+}
+```
+
+사용자에게 추가 역할을 할당하지 않으려면 빈 `roles` 배열을 반환합니다.
+
+자세한 내용은 [자습서: 함수를 사용하여 사용자 지정 역할 할당 및 Microsoft Graph](assign-roles-microsoft-graph.md)를 참조하세요.
+
+---
 
 ## <a name="remove-personal-identifying-information"></a>개인 식별 정보 제거
 

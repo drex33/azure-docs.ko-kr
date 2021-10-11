@@ -3,12 +3,12 @@ title: 필수 어플라이언스 식별
 description: 인증된 Defender for IoT 센서 및 온-프레미스 관리 콘솔의 하드웨어 및 가상 어플라이언스에 대해 알아봅니다.
 ms.date: 06/21/2021
 ms.topic: how-to
-ms.openlocfilehash: b22f1dc81aee7ee20f4490d716b1e2af953b4553
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: f086d6d80e2ee615bed583c2ba945d1b8fcbd90b
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113020324"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129730397"
 ---
 # <a name="identify-required-appliances"></a>필수 어플라이언스 식별
 
@@ -32,7 +32,7 @@ Defender for IoT는 물리적 배포와 가상 배포를 모두 지원합니다.
 
 ### <a name="physical-sensors"></a>실제 센서
 
-이 섹션에서는 사용할 수 있는 실제 센서 모델의 개요를 제공합니다. 미리 구성된 소프트웨어가 있는 센서를 구매하거나 미리 구성되지 않은 센서를 구매할 수 있습니다.
+이 섹션에서는 사용할 수 있는 실제 센서 모델의 개요를 제공합니다. 미리 구성된 소프트웨어로 센서를 구입하거나 미리 구성되지 않은 센서를 구입할 수 있습니다.
 
 | 배포 유형 | 회사 | Enterprise | SMB 랙 탑재| SMB 러기드 |
 |--|--|--|--|--|
@@ -40,7 +40,7 @@ Defender for IoT는 물리적 배포와 가상 배포를 모두 지원합니다.
 | 모델 | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 | HPE EL300 |
 | 포트 모니터링 | 최대 15개의 RJ45 또는 8개의 OPT | 최대 8개의 RJ45 또는 6개의 OPT | 최대 4개의 RJ45 | 최대 5개의 RJ45 |
 | 최대 대역폭 [1](#anchortext) | 3Gb/초 | 1Gb/초 | 200Mb/초 | 100Mb/초 |
-| 최대 보호 디바이스 | 30,000 | 15,000 | 1,000 | 800 |
+| 최대 보호 디바이스 | 10000 | 15,000 | 1,000 | 800 |
 
 공급업체 세부 정보는 [어플라이언스 사양](#appliance-specifications)을 참조하세요.
 
@@ -54,12 +54,12 @@ Defender for IoT는 물리적 배포와 가상 배포를 모두 지원합니다.
 
 ### <a name="virtual-sensors"></a>가상 센서
 
-이 섹션에서는 사용할 수 있는 가상 센서의 개요를 제공합니다.
+이 섹션에서는 사용할 수 있는 가상 센서에 대해 설명합니다.
 
 | 배포 유형 | 회사 | Enterprise | SMB |
 |--|--|--|--|
 | 최대 대역폭 | 2.5Gb/초 | 800Mb/초 | 160Mb/초 |
-| 최대 보호 디바이스 | 30,000 | 10000 | 800 |
+| 최대 보호 디바이스 | 10000 | 10000 | 800 |
 
 ## <a name="on-premises-management-console-appliance"></a>온-프레미스 관리 콘솔 어플라이언스
 

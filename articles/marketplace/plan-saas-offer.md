@@ -1,6 +1,6 @@
 ---
-title: Microsoft 상업적 marketplace에 대 한 SaaS 제품 계획-Azure Marketplace
-description: Microsoft 파트너 센터의 상용 마켓플레이스 프로그램을 사용 하 여 Microsoft AppSource, Azure Marketplace 또는 클라우드 솔루션 공급자 (CSP) 프로그램을 통해 나열 하거나 판매 하기 위한 새 SaaS (software as a service) 제품을 계획 합니다.
+title: Microsoft 상업용 Marketplace에 대한 SaaS 제안 계획 - Azure Marketplace
+description: Microsoft 파트너 센터 상업용 Marketplace 프로그램을 사용하여 Microsoft AppSource, Azure Marketplace 또는 CSP(클라우드 솔루션 공급자) 프로그램을 통해 나열하거나 판매하기 위한 새로운 SaaS(Software as a Service) 제안을 계획합니다.
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -8,14 +8,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/17/2021
-ms.openlocfilehash: 5a16b61c70b94f6095012aff077b8bd37ea2f8a1
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 6f429bd55c3fbf93f88c91168021eed9f1d6505a
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129669495"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129730188"
 ---
-# <a name="plan-a-saas-offer-for-the-commercial-marketplace"></a>상업적 marketplace에 대 한 SaaS 제안 계획
+# <a name="plan-a-saas-offer-for-the-commercial-marketplace"></a>상업용 Marketplace에 대한 SaaS 제안 계획
 
 이 문서에서는 Microsoft 상업용 Marketplace에 SaaS(Software as a Service) 제품을 게시하는 다양한 옵션과 요구 사항을 설명합니다. SaaS는 온라인 구독을 통해 고객에게 소프트웨어 솔루션 및 라이선스를 제공할 수 있는 제품입니다. SaaS 게시자는 고객의 제품 사용을 지원하는 데 필요한 인프라를 관리하고 비용을 지불해야 합니다. 이 문서는 파트너 센터를 통해 상업용 Marketplace에 게시할 제품을 준비하는 데 도움이 됩니다.
 
@@ -72,7 +72,7 @@ _지금 받기(무료)_ , _평가판_ 및 _Microsoft를 통해 판매_ 목록 �
 
     구성하는 방문 페이지는 연중무휴 가동되어야 합니다. 상업용 Marketplace에서 이루어지는 SaaS 제품의 신규 구매 또는 제품 활성 구독의 구성 요청에 대한 통지를 받을 수 있는 유일한 방법입니다.
 
-- **연결 webhook** – Microsoft가 파트너에게 비동기 이벤트(예: SaaS 구독이 취소된 경우)를 보낼 수 있도록 파트너는 연결 webhook URL을 제공해야 합니다. Microsoft는 이 URL을 호출하여 파트너에게 이벤트를 알립니다.
+- **연결 웹후크:** Microsoft에서 보내야 하는 모든 비동기 이벤트(예: SaaS 구독이 취소된 경우)의 경우 [연결 웹후크 URL 을 제공해야](./partner-center-portal/pc-saas-fulfillment-api-v2.md#implementing-a-webhook-on-the-saas-service)합니다. Microsoft는 이 URL을 호출하여 파트너에게 이벤트를 알립니다.
 
   파트너가 제공하는 webhook는 연중무휴 가동되어야 합니다. 고객이 상업용 Marketplace를 통해 구매한 SaaS 구독에 대한 업데이트 소식을 받을 수 있는 유일한 방법입니다.
 
@@ -107,17 +107,17 @@ SaaS 제품을 게시하면 해당 제품은 Microsoft AppSource, Azure Marketpl
 SaaS 제품이 IT 솔루션(Azure Marketplace)인 *동시에* 비즈니스 솔루션(AppSource)인 경우 각 온라인 스토어에 적용되는 범주와 하위 범주를 선택합니다. 두 온라인 스토어에 모두 게시된 제품은 IT 솔루션 *이자* 비즈니스 솔루션으로써 가치 제안을 모두 제공해야 합니다.
 
 > [!IMPORTANT]
-> [종량제](partner-center-portal/saas-metered-billing.md)를 사용하는 SaaS 제품은 Azure Marketplace 및 Azure Portal을 통해 제공됩니다. 개인 계획만 포함 된 SaaS 제품은 Azure Portal 및 AppSource를 통해 제공 됩니다.
+> [종량제](partner-center-portal/saas-metered-billing.md)를 사용하는 SaaS 제품은 Azure Marketplace 및 Azure Portal을 통해 제공됩니다. 프라이빗 플랜만 있는 SaaS 제안은 Azure Portal 및 AppSource를 통해 사용할 수 있습니다.
 
 | 종량제 | 공개 플랜 | 프라이빗 플랜 | 제공 위치: |
 |---|---|---|---|
 | 예             | 예         | 아니요           | Azure Marketplace 및 Azure Portal |
 | 예             | 예         | 예          | Azure Marketplace 및 Azure Portal* |
 | 예             | 아니요          | 예          | Azure Portal만 |
-| 아니요              | 예          | 예          | Azure Portal 및 AppSource |
+| 아니요              | 아니요          | 예          | Azure Portal 및 AppSource |
 |||||
 
-&#42; 제안의 비공개 요금제는 Azure Portal 및 AppSource를 통해서만 사용할 수 있습니다.
+&#42; 제안의 프라이빗 플랜은 Azure Portal 및 AppSource를 통해서만 사용할 수 있습니다.
 
 예를 들어 종량제 및 프라이빗 플랜만 제공하는(공개 플랜 없음) 제품은 고객이 Azure Portal에서 구매합니다. [Microsoft 상업용 Marketplace의 프라이빗 제품](private-offers.md)에 대해 자세히 알아보세요.
 
@@ -139,7 +139,7 @@ Microsoft 365와 통합하면 SaaS 제품은 Teams 앱, Office 추가 기능, Sh
     
      Microsoft를 통해 제품을 판매하기로 선택하는 경우 고객 구독 활성화를 완료하는 데 필요한 기본 사용자 정보를 얻기 위해 방문 페이지에서 사용하도록 등록한 것과 동일한 AAD 앱 ID입니다. 자세한 지침은 [상업용 Marketplace의 거래 가능 SaaS 제품에 대한 방문 페이지 작성](azure-ad-transactable-saas-landing-page.md)을 참조하세요. 
     
-   -    연결하려는 SaaS 제품에서 작동하는 관련 추가 기능 목록을 제공합니다. 고객은 Microsoft AppSource에서 E2E 솔루션을 검색할 수 있으며, 관리자는 Microsoft 365 관리 센터를 통해 동일한 프로세스에서 연결한 SaaS와 모든 관련 추가 기능을 배포할 수 있습니다.
+   -    연결하려는 SaaS 제품에서 작동하는 관련 추가 기능 목록을 제공합니다. 고객은 Microsoft AppSource E2E 솔루션을 검색할 수 있으며 관리자는 Microsoft 365 관리 센터 통해 동일한 프로세스에서 연결한 모든 관련 추가 기능과 SaaS를 모두 배포할 수 있습니다.
     
         관련 추가 기능을 연결하려면 추가 기능의 AppSource 링크를 제공해야 합니다. 즉, 추가 기능을 AppSource에 먼저 게시해야 합니다. 연결할 수 있는 지원되는 추가 기능 유형은 Teams 앱, Office 추가 기능 및 SPFx(SharePoint Framework) 솔루션입니다. 연결된 각 추가 기능은 SaaS 제품에 대해 고유해야 합니다. 
 
@@ -181,7 +181,7 @@ Microsoft 365와 통합하면 SaaS 제품은 Teams 앱, Office 추가 기능, Sh
 **호출 설명**
 
 1. 제목
-1. Description
+1. 설명
 1. 유용한 링크
 1. 스크린샷
 
@@ -213,9 +213,9 @@ Microsoft 365와 통합하면 SaaS 제품은 Teams 앱, Office 추가 기능, Sh
 
   이러한 로고는 온라인 스토어의 여러 위치에 사용됩니다.
 
-  - 작은 로고는 Azure Marketplace 검색 결과와 AppSource 기본 페이지 및 검색 결과 페이지에 표시 됩니다.
+  - 작은 로고는 Azure Marketplace 검색 결과와 AppSource 기본 페이지 및 검색 결과 페이지에 표시됩니다.
   - 중간 로고는 Microsoft Azure에서 새 리소스를 만들 때 표시됩니다.
-  - Azure Marketplace 및 AppSource의 제품 목록 페이지에 많은 로고가 표시 됩니다.
+  - Azure Marketplace 및 AppSource의 제안 목록 페이지에 큰 로고가 표시됩니다.
 
 - **미디어 - 스크린샷**: 다음 요구 사항에 따라 제품의 작동 방식을 보여주는 스크린샷을 적어도 하나 이상, 최대 5개까지 추가해야 합니다.
   - 1280x720픽셀
@@ -264,7 +264,7 @@ Microsoft를 통해 판매되는 SaaS 앱 제품은 정액제, 사용자당 또�
 | Azure 사용량 비용(D1/1개 코어) | 고객이 아닌 게시자에게 직접 청구됩니다. |
 | Microsoft에서 고객에게 청구하는 요금 | 월간 $100.00(게시자는 발생 또는 이전된 인프라 비용을 라이선스 요금으로 계산해야 함) |
 | **Microsoft에 청구되는 요금** | **매월 $100** |
-| Microsoft는 3% Marketplace 서비스 요금을 청구 하 고 라이선스 비용의 97%를 지불 합니다. | 매월 $97.00 |
+| Microsoft는 3%의 Marketplace 서비스 요금을 청구하고 라이선스 비용의 97%를 지불합니다. | 매월 $97.00 |
 |
 
 미리 보기 대상 그룹은 제품이 온라인 스토어에 라이브로 게시되기 전에 제품에 액세스할 수 있습니다. 이들은 상업용 Marketplace에서 제품이 어떻게 표시되는지 살펴볼 수 있으며, 파트너가 제품을 실시간으로 게시하기 전에 기능을 종합적으로 테스트할 수 있습니다. 

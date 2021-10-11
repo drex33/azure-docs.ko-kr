@@ -6,14 +6,14 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/11/2020
+ms.date: 10/8/2021
 ms.author: erhopf
-ms.openlocfilehash: 7e0b0a3023147fc12c0133f7fb0c78b943c09ced
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
-ms.translationtype: HT
+ms.openlocfilehash: e706c8ed4bd15d7d8f1d234d8adfab85d626788c
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529609"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129729105"
 ---
 # <a name="azure-cognitive-services-support-and-help-options"></a>Azure Cognitive Services 지원 및 도움말 옵션
 
@@ -144,7 +144,6 @@ Stack Overflow에 새 질문을 제출하는 경우 질문을 만들 때 다음 
 Azure 블로그의 새 릴리스 또는 뉴스에 있는 기능에 대한 정보를 계속 수신하면 프로그래밍 오류, 서비스 버그 또는 Cognitive Services에서 아직 사용할 수 없는 기능 간의 차이점을 찾는 데 도움이 될 수 있습니다.
 
 * [Azure 업데이트](https://azure.microsoft.com/updates/?category=ai-machine-learning&query=Azure%20Cognitive%20Services)에서 제품 업데이트, 로드맵 및 공지 사항에 대해 자세히 알아봅니다.
-* [Docs의 새로운 소식](whats-new-docs.md)의 Cognitive Services 문서에서 최근에 추가되거나 업데이트된 내용을 참조하세요.
 * Cognitive Services에 대한 뉴스는 [Azure 블로그](https://azure.microsoft.com/blog/topics/cognitive-services/)에서 공유됩니다.
 * Cognitive Services에 대한 [Reddit의 대화에 참여](https://www.reddit.com/r/AZURE/search/?q=Cognitive%20Services&restrict_sr=1)하세요.
 

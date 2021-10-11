@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 08/09/2021
-ms.openlocfilehash: c99d3dde29edbd0e43f883ff9b31e054cea1a720
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 47a91e7655f75f3e85b9f1b020c006d46e5225e2
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129278883"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129728802"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Azure Sentinel의 새로운 기능
 
@@ -32,6 +32,34 @@ ms.locfileid: "129278883"
 >
 > 여러분도 참여할 수 있습니다! [Azure Sentinel 위협 헌터 GitHub 커뮤니티](https://github.com/Azure/Azure-Sentinel/wiki)에 참여하세요.
 >
+
+## <a name="october-2021"></a>2021년 10월
+
+- [예약된 분석 규칙에 대한 템플릿 버전 관리(공개 미리 보기)](#manage-template-versions-for-your-scheduled-analytics-rules-public-preview)
+- [DHCP 정규화 스키마(공개 미리 보기)](#dhcp-normalization-schema-public-preview)
+
+### <a name="manage-template-versions-for-your-scheduled-analytics-rules-public-preview"></a>예약된 분석 규칙에 대한 템플릿 버전 관리(공개 미리 보기)
+
+[기본 제공 Azure Sentinel 규칙 템플릿에서](detect-threats-built-in.md)분석 규칙을 만들 때 템플릿의 복사본을 효과적으로 만듭니다. 이 시점을 지나면 활성 규칙이 원래 템플릿에 적용된 변경 내용과 일치하도록 동적으로 ***업데이트되지 않습니다.***
+
+그러나 템플릿에서 만든 규칙은  두 가지 이점을 제공하는 템플릿을 기억합니다.
+
+- 템플릿에서 규칙을 만들 때(또는 그 이후 언제든지) 규칙을 변경한 경우 언제든지 규칙을 원래 버전(템플릿의 복사본)으로 되돌릴 수 있습니다.
+
+- 템플릿이 업데이트되면 알림을 받을 수 있으며, 규칙을 새 버전의 템플릿으로 업데이트하거나 그대로 둘 수 있습니다.
+
+[이러한 작업을 관리하는 방법](manage-analytics-rule-templates.md)및 유의해야 할 사항을 알아봅니다. 이러한 절차는 템플릿에서 만든 [예약된](detect-threats-built-in.md#scheduled) 분석 규칙에 적용됩니다.
+
+### <a name="dhcp-normalization-schema-public-preview"></a>DHCP 정규화 스키마(공개 미리 보기)
+
+ASIM(Azure Sentinel 정보 모델)은 이제 DHCP 서버에서 보고하는 이벤트를 설명하는 데 사용되며 소스에 관계 없는 분석을 사용하도록 설정하기 위해 Azure Sentinel 사용되는 DHCP 정규화 스키마를 지원합니다. 
+
+DHCP 정규화 스키마에 설명된 이벤트에는 클라이언트 시스템에서 임대된 DHCP IP 주소에 대한 요청 제공 및 부여된 임대로 DNS 서버 업데이트가 포함됩니다.
+
+자세한 내용은 다음을 참조하세요.
+
+- [Azure Sentinel DHCP 정규화 스키마 참조(공개 미리 보기)](dhcp-normalization-schema.md)
+- [정규화 및 ASIM(Azure Sentinel 정보 모델)](normalization.md)
 
 ## <a name="september-2021"></a>2021년 9월
 

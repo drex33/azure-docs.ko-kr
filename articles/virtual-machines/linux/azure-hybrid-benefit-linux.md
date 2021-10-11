@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 867d4b380266c5cbfbae68ca61d83ab3fd28aee3
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 9b144af348a13ae3673ccf2a5f2f11810fd3e296
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129216596"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129728117"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Azure 하이브리드 혜택을 Linux Virtual Machines에 적용하는 방법
 
@@ -188,12 +188,13 @@ Red Hat 구독 규정 준수, 소프트웨어 업데이트, Azure 하이브리�
 
 ### <a name="suse"></a>SUSE
 
+SLES VM에 Azure 하이브리드 혜택을 사용하고 SLES PAYG에서 BYOS로 전환하거나 SLES BYOS에서 PAYG로 전환하는 방법에 대한 자세한 내용은 [SUSE Linux Enterprise 및 Azure 하이브리드 혜택](https://aka.ms/suse-ahb)을 참조하세요. 
+
 Azure 하이브리드 혜택을 사용하는 고객은 클라우드 업데이트 인프라를 해당 VM에 소프트웨어 업데이트 및 패치를 제공하는 세 가지 옵션 중 하나로 이동해야 합니다.
 - [SUSE 고객 센터](https://scc.suse.com)
 - SUSE 관리자
 - SUSE RMT(리포지토리 미러링 도구) 
 
-SLES VM에 Azure 하이브리드 혜택을 사용하고 SLES PAYG에서 BYOS로 전환하거나 SLES BYOS에서 PAYG로 전환하는 방법에 대한 자세한 내용은 [SUSE Linux Enterprise 및 Azure 하이브리드 혜택](https://www.suse.com/c/suse-linux-enterprise-and-azure-hybrid-benefit/)을 참조하세요. 
 
 ## <a name="azure-hybrid-benefit-on-reserved-instances"></a>예약 인스턴스에 대한 Azure 하이브리드 혜택 
 

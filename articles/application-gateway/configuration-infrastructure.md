@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 06/14/2021
 ms.author: surmb
-ms.openlocfilehash: 5ea384a580109d40dfbb072b7bad16924307873e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f838b1821e38e6046014f5cd8233694db7f2ef87
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124837331"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129729846"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>Application Gateway 인프라 구성
 
@@ -73,7 +73,7 @@ NSG(네트워크 보안 그룹)는 Application Gateway에서 지원됩니다. �
 
 - **v1**
 
-   v1 SKU의 경우 UDR(사용자 정의 경로)은 엔드투엔드 요청/응답 통신을 변경하지 않는 한 Application Gateway 서브넷에서 지원됩니다. 예를 들어 Application Gateway 서브넷에서 UDR을 설정하여 패킷 검사를 위한 방화벽 어플라이언스를 가리키도록 할 수 있습니다. 그러나 검사 후 패킷이 의도한 대상에 도달할 수 있는지 확인해야 합니다. 이렇게 하지 않으면 잘못된 상태 프로브 또는 트래픽 라우팅 동작을 초래할 수 있습니다. 여기에는 가상 네트워크에서 Azure ExpressRoute 또는 VPN 게이트웨이를 통해 전파된 학습한 경로 또는 기본 0.0.0.0/0 경로가 포함됩니다. 0\.0.0.0/0을 온-프레미스(강제 터널링)에서 리디렉션해야 하는 모든 시나리오는 v1에서 지원되지 않습니다.
+   v1 SKU의 경우 UDR(사용자 정의 경로)은 엔드투엔드 요청/응답 통신을 변경하지 않는 한 Application Gateway 서브넷에서 지원됩니다. 예를 들어 Application Gateway 서브넷에서 UDR을 설정하여 패킷 검사를 위한 방화벽 어플라이언스를 가리키도록 할 수 있습니다. 그러나 검사 후 패킷이 의도한 대상에 도달할 수 있는지 확인해야 합니다. 이렇게 하지 않으면 잘못된 상태 프로브 또는 트래픽 라우팅 동작을 초래할 수 있습니다. 여기에는 가상 네트워크에서 Azure ExpressRoute 또는 VPN 게이트웨이를 통해 전파된 학습한 경로 또는 기본 0.0.0.0/0 경로가 포함됩니다.
 
 - **v2**
 
@@ -117,7 +117,7 @@ NSG(네트워크 보안 그룹)는 Application Gateway에서 지원됩니다. �
 
   **시나리오 1**: 가상 어플라이언스에 대한 UDR
 
-  가상 어플라이언스, 허브/스포크 가상 네트워크 또는 온-프레미스(강제 터널링)를 통해 0.0.0.0/0을 리디렉션해야 하는 시나리오는 V2에서 지원되지 않습니다.
+  가상 어플라이언스, 허브/스포크 가상 네트워크 또는 온-프레미스 (강제 터널링)를 통해 0.0.0.0/0을 리디렉션해야 하는 모든 시나리오는 s 2에서 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

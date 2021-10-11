@@ -1,18 +1,18 @@
 ---
 title: Defender for IoT 설치
 description: Azure Defender for IoT용 센서 및 온-프레미스 관리 콘솔을 설치하는 방법을 알아봅니다.
-ms.date: 10/07/2021
+ms.date: 10/09/2021
 ms.topic: how-to
-ms.openlocfilehash: 310f76cee0761aaf82a409c71c3ee19152e4fea6
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: d85cded71912f9334d194ab7eb0977d2442564b6
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129661277"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129730511"
 ---
 # <a name="defender-for-iot-installation"></a>Defender for IoT 설치
 
-이 문서에서는 Azure Defender for IoT의 다음 요소를 설치하는 방법을 설명합니다.
+이 문서에서는 다음 Azure Defender for IoT 구성 요소를 설치하는 방법을 설명합니다.
 
 - **센서**: Defender for IoT 센서는 수동(에이전트 없는) 모니터링을 사용하여 ICS 네트워크 트래픽을 수집합니다. 수동 및 비간섭 센서는 OT 및 IoT 네트워크와 디바이스에 어떠한 영향도 주지 않습니다. 센서는 SPAN 포트 또는 네트워크 TAP에 연결하고 즉시 네트워크 모니터링을 시작합니다. 감지된 항목이 센서 콘솔에 표시됩니다. 여기에서 네트워크 맵, 디바이스 인벤토리, 광범위한 보고서의 검색 항목을 보고, 조사하고, 분석할 수 있습니다. 예를 들면 위험 평가 보고서, 데이터 마이닝 쿼리, 공격 벡터가 있습니다. [Defender for IoT 센서 사용자 가이드](./getting-started.md)(직접 다운로드)에서 센서 기능에 대해 자세히 알아보세요.
 
@@ -43,7 +43,7 @@ Defender for IoT 어플라이언스 센서는 SPAN 포트 또는 네트워크 TA
 | **모델** | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 | HPE EL300 |
 | **포트 모니터링** | 최대 15개의 RJ45 또는 8개의 OPT | 최대 8개의 RJ45 또는 6개의 OPT | 최대 4개의 RJ45 | 최대 5개 RJ45 |
 | **최대 대역폭\*** | 3Gb/초 | 1Gb/초 | 200Mb/초 | 100MB/초 |
-| **최대 보호 디바이스 수** | 30,000 | 15,000 | 1,000 | 800 |
+| **최대 보호 디바이스 수** | 10000 | 15,000 | 1,000 | 800 |
 
 \* 최대 대역폭 용량은 프로토콜 배포에 따라 다를 수 있습니다.
 
@@ -55,14 +55,14 @@ Defender for IoT 어플라이언스 센서는 SPAN 포트 또는 네트워크 TA
 |--|--|--|--|
 | **설명** | 기업 배포를 위한 가상 어플라이언스 | 엔터프라이즈 배포용 가상 어플라이언스 | SMB 배포용 가상 어플라이언스 |
 | **최대 대역폭\*** | 2.5Gb/초 | 800Mb/초 | 160Mb/초 |
-| **최대 보호 디바이스 수** | 30,000 | 10000 | 800 |
+| **최대 보호 디바이스 수** | 10000 | 10000 | 800 |
 | **배포 유형** | 회사 | Enterprise | SMB |
 
 \* 최대 대역폭 용량은 프로토콜 배포에 따라 다를 수 있습니다.
 
 ### <a name="hardware-specifications-for-the-on-premises-management-console"></a>온-프레미스 관리 콘솔에 대한 하드웨어 사양
 
- | 항목 | Description |
+ | 항목 | 설명 |
  |----|--|
  **설명** | 다중 계층 아키텍처에서 온-프레미스 관리 콘솔은 지리적으로 분산된 사이트에 대한 표시 여부 및 제어 능력을 제공합니다. SIEM, 티켓 시스템, 차세대 방화벽, 보안 원격 액세스 플랫폼, Defender for IoT ICS 맬웨어 샌드박스를 비롯하여 SOC 보안 스택과 통합됩니다. |
  **배포 유형** | Enterprise |
@@ -176,7 +176,7 @@ Dell 어플라이언스와 관리 컴퓨터 간에 통신을 설정하려면 동
 
 연결이 설정되면 BIOS를 구성할 수 있습니다.
 
-**Dell BIOS를 구성하려면:**
+**DELL BIOS를 구성 하려면**:
 
 1. [iDRAC IP 주소 구성](#configure-idrac-ip-address)
 
@@ -205,7 +205,7 @@ Dell 어플라이언스와 관리 컴퓨터 간에 통신을 설정하려면 동
 
 #### <a name="configuring-the-bios"></a>BIOS 구성
 
-다음과 같은 경우 어플라이언스 BIOS를 구성해야 합니다.
+다음과 같은 경우 어플라이언스 BIOS를 구성 해야 합니다.
 
 - 화살표를 통해 어플라이언스를 구입하지 않았습니다.
 
@@ -213,9 +213,9 @@ Dell 어플라이언스와 관리 컴퓨터 간에 통신을 설정하려면 동
 
 BIOS에 액세스한 후 **디바이스 설정** 으로 이동합니다.
 
-**BIOS를 구성하려면:**
+**BIOS를 구성 하려면**:
 
-1. 키보드 및 화면을 사용하여 어플라이언스의 BIOS에 직접 액세스하거나 iDRAC를 사용합니다.
+1. 키보드 및 화면을 사용 하 여 직접 어플라이언스의 BIOS에 액세스 하거나 iDRAC를 사용 합니다.
 
    - 어플라이언스가 Defender for IoT 어플라이언스가 아닌 경우 브라우저를 열고 이전에 구성한 IP 주소로 이동합니다. Dell 기본 관리자 권한으로 로그인합니다. 사용자 이름에 **root** 를 사용하고 암호에 **calvin** 을 사용합니다.
 
@@ -556,7 +556,7 @@ HPE ProLiant DL20 설치에 대한 이전 섹션을 참조하세요.
 
 다음 절차에서는 HP EL300 어플라이언스에 대한 BIOS를 구성하는 방법을 설명합니다.
 
-**BIOS를 구성 하려면**:
+**BIOS를 구성하려면:**
 
 1. 어플라이언스를 켜고 **F9** 키를 눌러 BIOS를 시작합니다.
 
@@ -1023,7 +1023,7 @@ Hyper-V를 사용하여 가상 머신을 만들려면 다음을 수행합니다.
 
 다음 프로시저에서는 Nuvo 5006LP BIOS를 구성하는 방법을 설명합니다. 운영 체제가 이전에 어플라이언스에 설치되었는지 확인합니다.
 
-**BIOS를 구성하려면:**
+**BIOS를 구성 하려면**:
 
 1. 어플라이언스 전원을 켭니다.
 
@@ -1041,7 +1041,7 @@ Hyper-V를 사용하여 가상 머신을 만들려면 다음을 수행합니다.
 
 설치를 완료하는 데 약 20분이 소요됩니다. 설치 후 시스템이 여러 번 다시 시작됩니다.
 
-**소프트웨어를 설치하려면:**
+**소프트웨어를 설치 하려면**:
 
 1. 키에 대한 외부 CD 또는 디스크를 ISO 이미지와 연결합니다.
 
@@ -1086,7 +1086,7 @@ Hyper-V를 사용하여 가상 머신을 만들려면 다음을 수행합니다.
 
 #### <a name="configure-the-fitlet2-bios"></a>Fitlet2 BIOS 구성
 
-**Fitlet2 BIOS를 구성하려면:**
+**FITLET2 BIOS를 구성 하려면**:
 
 1. 어플라이언스 전원을 켭니다.
 
@@ -1269,7 +1269,7 @@ GUI 또는 CLI를 사용하여 유효성 검사를 수행합니다. 사용자 **
 
 올바른 버전을 사용하고 있는지 확인합니다.
 
-**시스템의 버전을 확인 하려면**:
+**시스템의 버전을 확인하려면:**
 
 1. Linux 터미널(예: PuTTY) 및 사용자 **지원** 을 사용하여 CLI에 연결합니다.
 
@@ -1279,7 +1279,7 @@ GUI 또는 CLI를 사용하여 유효성 검사를 수행합니다. 사용자 **
 
 설치 프로세스 중에 구성된 모든 입력 인터페이스가 실행 중인지 확인합니다.
 
-**시스템의 네트워크 상태를 확인 하려면**:
+**시스템의 네트워크 상태를 확인하려면:**
 
 1. Linux 터미널(예: PuTTY) 및 사용자 **지원** 을 사용하여 CLI에 연결합니다.
 
@@ -1291,7 +1291,7 @@ GUI 또는 CLI를 사용하여 유효성 검사를 수행합니다. 사용자 **
 
 콘솔 웹 GUI에 액세스할 수 있는지 확인합니다.
 
-**관리에서 UI에 대 한 액세스 권한이 있는지 확인 하려면**:
+**관리에서 UI에 액세스할 수 있는지 확인하려면:**
 
 1. 이더넷 케이블을 사용하여 랩톱을 관리 포트(**Gb1**)에 연결합니다.
 
@@ -1361,7 +1361,7 @@ GUI 또는 CLI를 사용하여 유효성 검사를 수행합니다. 사용자 **
 
 ## <a name="configure-a-span-port"></a>SPAN 포트 구성
 
-가상 스위치는 미러링 기능을 포함 하지 않습니다. 그러나 가상 스위치 환경에서 무차별 모드를 사용할 수 있습니다. 무차별 모드는 가상 스위치 또는 인 수준에서 정의 된 보안, 모니터링 및 관리 기술 뿐만 아니라 작업 모드입니다. 기본적으로 무차별 모드는 사용 되지 않습니다. 무차별 모드를 사용 하는 경우 동일한 인에 있는 가상 컴퓨터의 네트워크 인터페이스가 무차별 모드를 사용 하 여 해당 가상 스위치를 통과 하는 모든 네트워크 트래픽을 볼 수 있습니다. ESXi 또는 Hyper-v를 사용 하 여 해결 방법을 구현할 수 있습니다.
+가상 스위치에는 미러링 기능이 없습니다. 그러나 가상 스위치 환경에서 무차별 모드를 사용할 수 있습니다. 무차별 모드는 가상 스위치 또는 포트 그룹 수준에서 정의된 보안, 모니터링 및 관리 기술뿐만 아니라 작업 모드입니다. 기본적으로 무차별 모드는 사용하지 않도록 설정됩니다. 무차별 모드를 사용하도록 설정하면 동일한 포트 그룹에 있는 가상 머신의 네트워크 인터페이스는 무차별 모드를 사용하여 해당 가상 스위치를 통과하는 모든 네트워크 트래픽을 봅니다. ESXi 또는 Hyper-V를 통해 해결 방법을 구현할 수 있습니다.
 
 :::image type="content" source="media/tutorial-install-components/purdue-model.png" alt-text="아키텍처에서 센서를 배치해야 하는 위치의 스크린샷.":::
 
@@ -1397,7 +1397,7 @@ GUI 또는 CLI를 사용하여 유효성 검사를 수행합니다. 사용자 **
 
 시작하기 전에 다음을 수행해야 합니다.
 
-- 을 실행 하는 가상 어플라이언스의 인스턴스가 없는지 확인 합니다.
+- 실행 중인 가상 어플라이언스의 인스턴스가 없는지 확인합니다.
 
 - 관리 포트가 아닌 데이터 포트에서 SPAN 보장을 사용하도록 설정합니다.
 
@@ -1421,11 +1421,11 @@ GUI 또는 CLI를 사용하여 유효성 검사를 수행합니다. 사용자 **
 
 1. **확인** 을 선택합니다.
 
-#### <a name="attach-a-span-virtual-interface-to-the-virtual-switch"></a>가상 스위치에 범위 가상 인터페이스 연결
+#### <a name="attach-a-span-virtual-interface-to-the-virtual-switch"></a>가상 스위치에 SPAN 가상 인터페이스 연결
 
-Windows PowerShell 또는 hyper-v 관리자를 통해 가상 스위치에 범위 가상 인터페이스를 연결할 수 있습니다.
+Windows PowerShell 또는 Hyper-V 관리자를 통해 가상 스위치에 SPAN 가상 인터페이스를 연결할 수 있습니다.
 
-**PowerShell을 사용 하 여 가상 스위치에 범위 가상 인터페이스를 연결 하려면**:
+**PowerShell을 사용하여 가상 스위치에 SPAN 가상 인터페이스를 연결하려면:**
 
 1. 새로 추가된 SPAN 가상 스위치를 선택하고, 다음 명령을 사용하여 새 네트워크 어댑터를 추가합니다.
 
@@ -1449,7 +1449,7 @@ Windows PowerShell 또는 hyper-v 관리자를 통해 가상 스위치에 범위
 
 이러한 명령은 새로 추가된 어댑터 하드웨어의 이름을 `Monitor`로 설정합니다. Hyper-V 관리자를 사용하는 경우 새로 추가된 어댑터 하드웨어의 이름은 `Network Adapter`로 설정됩니다.
 
-**Hyper-V 관리자를 사용하여 가상 스위치에 SPAN 가상 인터페이스를 연결하려면:**
+**Hyper-v 관리자를 사용 하 여 가상 스위치에 범위 가상 인터페이스를 연결 하려면**:
 
 1. 하드웨어 목록에서 **네트워크 어댑터** 를 선택합니다.
 
@@ -1465,11 +1465,11 @@ Windows PowerShell 또는 hyper-v 관리자를 통해 가상 스위치에 범위
 
 1. **확인** 을 선택합니다.
 
-#### <a name="enable-microsoft-ndis-capture-extensions-for-the-virtual-switch"></a>가상 스위치에 대한 Microsoft NDIS 캡처 확장 사용
+#### <a name="enable-microsoft-ndis-capture-extensions-for-the-virtual-switch"></a>가상 스위치에 Microsoft NDIS 캡처 확장 사용
 
 Microsoft NDIS 캡처 확장을 새 가상 스위치에 사용하도록 설정해야 합니다.
 
-**새로 추가된 가상 스위치 에 대해 Microsoft NDIS 캡처 확장을 사용하도록 설정하려면:**
+**새로 추가 된 가상 스위치에 대해 MICROSOFT NDIS 캡처 확장을 사용 하도록 설정 하려면 다음을 수행 합니다**.
 
 1. Hyper-V 호스트에서 가상 스위치 관리자를 엽니다.
 
@@ -1512,13 +1512,13 @@ Get-VMSwitchExtensionPortFeature -FeatureName "Ethernet Switch Port Security Set
 |--|--|
 | vSwitch_Span | 새로 추가된 SPAN 가상 스위치 이름 |
 
-## <a name="access-sensors-from-the-on-premises-management-console"></a>온-프레미스 관리 콘솔에서 센서에 액세스
+## <a name="access-sensors-from-the-on-premises-management-console"></a>온-프레미스 관리 콘솔에서 센서 액세스
 
 사용자가 센서에 직접 액세스하지 못하도록 하여 시스템 보안을 강화할 수 있습니다. 대신, 사용자가 단일 방화벽 규칙을 사용하여 온-프레미스 관리 콘솔에서 센서에 액세스할 수 있도록 프록시 터널링을 사용합니다. 이 기술은 센서를 벗어나는 네트워크 환경에 대한 무단 액세스 가능성을 줄입니다. 센서에 로그인할 때의 사용자 환경은 동일하게 유지됩니다.
 
 :::image type="content" source="media/tutorial-install-components/sensor-system-graph.png" alt-text="센서에 대한 액세스를 보여 주는 스크린샷.":::
 
-**터널링을 사용하도록 설정하려면:**
+**터널링을 사용 하려면**:
 
 1. **CyberX** 또는 **지원** 사용자 자격 증명을 사용하여 온-프레미스 관리 콘솔의 CLI에 로그인합니다.
 

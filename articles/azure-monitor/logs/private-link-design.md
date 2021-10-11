@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 08/01/2021
-ms.openlocfilehash: 8991c9becc7e9e8ffc84d4b3ae2d37411d9f6415
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: b42b3c9146b99ee6e65dc83968ba8e97c8f209fb
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129660479"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129730492"
 ---
 # <a name="design-your-private-link-setup"></a>Private Link 설정 설계
 
@@ -57,7 +57,7 @@ Azure Monitor Private Link를 설정하기 전에 네트워크 토폴로지와 �
 프로덕션 환경에는 이 방법을 권장하지 않습니다.
 
 ## <a name="control-how-private-links-apply-to-your-networks"></a>Private Link가 네트워크에 적용되는 방식 제어
-Private Link 액세스 모드(2021년 9월에 도입)를 사용하면 Private Links가 네트워크 트래픽에 미치는 영향을 제어할 수 있습니다. 이 설정은 AMPLS 개체(연결된 모든 네트워크에 영향을 주도록) 또는 연결된 특정 네트워크에 적용될 수 있습니다.
+개인 링크 액세스 모드 (9 월 2021에 도입)를 사용 하 여 개인 링크가 네트워크 트래픽에 영향을 미치는 방식을 제어할 수 있습니다. 이 설정은 AMPLS 개체(연결된 모든 네트워크에 영향을 주도록) 또는 연결된 특정 네트워크에 적용될 수 있습니다.
 
 적절한 액세스 모드를 선택하면 네트워크 트래픽에 해로운 영향을 미칩니다. 이러한 모드는 각각 다음과 같이 개별적으로 수집과 쿼리에 대해 설정할 수 있습니다.
 
@@ -66,12 +66,12 @@ Private Link 액세스 모드(2021년 9월에 도입)를 사용하면 Private Li
 * 공개 - VNet이 Private Link 리소스와 AMPLS에 없는 리소스에 둘 다 도달할 수 있습니다([공용 네트워크의 트래픽을 수락](./private-link-design.md#control-network-access-to-your-resources)하는 경우). 공개 액세스 모드는 데이터 반출을 방지하지는 않지만 여전히 Private Link의 다른 이점을 제공합니다. Private Link 리소스에 대한 트래픽은 프라이빗 엔드포인트를 통해 전송되고, 유효성이 검사되고, Microsoft 백본을 통해 전송됩니다. 공개 모드는 혼합 작업 모드(공개적으로 일부 리소스에 액세스하고 Private Link를 통해 다른 리소스에 액세스) 또는 점진적 온보딩 프로세스 중에 유용합니다.
 ![AMPLS 공개 액세스 모드의 다이어그램](./media/private-link-security/ampls-open-access-mode.png) 액세스 모드는 수집과 쿼리에 대해 개별적으로 설정됩니다. 예를 들어, 수집에 대해 프라이빗 전용 모드를 설정하고 쿼리에 대해 공개 모드를 설정할 수 있습니다.
 
-액세스 모드를 선택할 때는 주의해야 합니다. 프라이빗 전용 액세스 모드를 사용하면 구독 또는 테넌트(아래 설명된 대로 Log Analytics 검색 요청 제외)에 관계없이 동일한 DNS를 공유하는 모든 네트워크에서 AMPLS에 없는 리소스에 대한 트래픽을 차단합니다. 모든 Azure Monitor 리소스를 AMPLS에 추가할 수 없는 경우 선택 리소스를 추가하고 액세스 열기 모드를 적용하여 시작합니다. *모든* Azure Monitor 리소스를 AMPLS에 추가한 후에만 보안을 최대화하기 위해 '프라이빗 전용' 모드로 전환합니다.
+액세스 모드를 선택할 때는 주의 해야 합니다. 전용 액세스 모드를 사용 하면 아래에 설명 된 것 처럼 Log Analytics 수집 요청을 제외 하 고 구독 또는 테 넌 트에 관계 없이 동일한 DNS를 공유 하는 모든 네트워크에서 AMPLS 되지 않은 리소스에 대 한 트래픽을 차단 합니다. AMPLS에 모든 Azure Monitor 리소스를 추가할 수 없는 경우 먼저 select resources를 추가 하 고 Open access mode를 적용 합니다. AMPLS에 *모든* Azure Monitor 리소스를 추가한 후에만 최대 보안을 위해 ' 전용 전용 ' 모드로 전환 합니다.
 
-구성 세부 정보 [및 예제는 API 및 명령줄 사용을](./private-link-configure.md#use-apis-and-command-line) 참조하세요.
+구성 세부 정보 및 예제는 [api 및 명령줄 사용](./private-link-configure.md#use-apis-and-command-line) 을 참조 하세요.
 
 > [!NOTE]
-> Log Analytics ingestion은 리소스별 엔드포인트를 사용합니다. 따라서 AMPLS 액세스 모드를 따르지 않습니다. **Log Analytics에서 요청이 AMPLS 외부의 작업 영역에 액세스할 수 없도록 하려면 AMPLS 액세스 모드에 관계없이 공용 엔드포인트에 대한 트래픽을 차단하도록 네트워크 방화벽을 설정합니다.**
+> Log Analytics 수집은 리소스 관련 끝점을 사용 합니다. 따라서 AMPLS 액세스 모드를 따르지 않습니다. **Log Analytics 수집 요청에서 AMPLS의 작업 영역에 액세스할 수 없도록 하려면 AMPLS 액세스 모드에 관계 없이 공용 끝점에 대 한 트래픽을 차단 하도록 네트워크 방화벽을 설정** 합니다.
 
 ### <a name="setting-access-modes-for-specific-networks"></a>특정 네트워크에 대한 액세스 모드 설정
 AMPLS 리소스에 설정된 액세스 모드는 모든 네트워크에 영향을 주지만 특정 네트워크에 대해 해당 설정을 재정의할 수 있습니다.
@@ -105,7 +105,7 @@ Log Analytics 작업 영역 또는 Application Insights 구성 요소를 다음�
 
 공용 네트워크의 쿼리를 차단하는 것은 연결된 AMPLS 외부의 클라이언트(머신, SDK 등)가 리소스의 데이터를 쿼리할 수 없다는 것을 의미합니다. 해당 데이터에는 로그, 메트릭, 라이브 메트릭 스트림이 포함됩니다. 공용 네트워크의 쿼리를 차단하면 통합 문서, 대시보드, Azure Portal의 Insights, Azure Portal 외부에서 실행되는 쿼리 등 이러한 쿼리를 실행하는 모든 환경에 영향을 줍니다.
 
-구성 세부 정보는 [리소스 액세스 플래그 설정을](./private-link-configure.md#set-resource-access-flags) 참조하세요.
+구성 세부 정보에 대 한 [리소스 액세스 플래그 설정](./private-link-configure.md#set-resource-access-flags) 을 참조 하세요.
 
 ### <a name="exceptions"></a>예외
 
@@ -169,6 +169,11 @@ Azure Resource Manager를 통해 다음 제품을 확인하고 쿼리 작업 영
 > * 컨테이너 인사이트
 
 ## <a name="requirements"></a>요구 사항
+
+### <a name="network-subnet-size"></a>네트워크 서브넷 크기
+지원되는 가장 작은 IPv4 서브넷은 /27입니다(CIDR 서브넷 정의 사용). Azure VNet은 [/29만큼 작을 수](../../virtual-network/virtual-networks-faq.md#how-small-and-how-large-can-vnets-and-subnets-be)있지만 Azure는 [5개의 IP 주소를 예약하고](../../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets) Azure Monitor Private Link 설정에는 단일 작업 영역에 연결하는 경우에도 11개 이상의 추가 IP 주소가 필요합니다. [엔드포인트의 DNS 설정을 검토하여](./private-link-configure.md#reviewing-your-endpoints-dns-settings) Azure Monitor Private Link 엔드포인트의 자세한 목록을 확인합니다.
+
+
 ### <a name="agents"></a>에이전트
 로그 분석 작업 영역에 대한 안전한 원격 분석 수집을 사용하도록 설정하려면 최신 버전의 Windows 및 Linux 에이전트를 사용해야 합니다. 이전 버전에서는 프라이빗 네트워크에서 모니터링 데이터를 업로드할 수 없습니다.
 

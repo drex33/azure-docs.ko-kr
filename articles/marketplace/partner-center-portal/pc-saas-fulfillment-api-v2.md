@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 10/08/2021
 author: saasguide
 ms.author: souchak
-ms.openlocfilehash: f142ec2025775e8a512a7b40adb71c917fffdf88
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: c420a2fd947e32acb0cce9a6ce4a73ddd1d2a3bd
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129715811"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129729143"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>상업용 Marketplace의 SaaS 처리 API 버전 2
 
@@ -30,11 +30,11 @@ ms.locfileid: "129715811"
 
 #### <a name="purchased-but-not-yet-activated-pendingfulfillmentstart"></a>구매했지만 아직 활성화되지 않음(*PendingFulfillmentStart*)
 
-최종 사용자(또는 CSP)가 상업용 Marketplace에서 SaaS 제품을 구매하면 게시자에게 구매 알림이 제공됩니다. 그러면 게시자는 게시자 쪽에 최종 사용자를 위한 새 SaaS 계정을 만들고 구성할 수 있습니다.
+최종 사용자 또는 CSP(클라우드 솔루션 공급자)가 상업용 Marketplace에서 SaaS 제안을 구매한 후에는 판매자에게 구매 알림을 받아야 합니다. 그러면 게시자는 게시자 쪽에 최종 사용자를 위한 새 SaaS 계정을 만들고 구성할 수 있습니다.
 
 계정이 만들어지는 과정은 다음과 같습니다.
 
-1. 고객이 Microsoft AppSource 또는 Azure Portal에서 SaaS 제품을 구매하면 사용할 수 있게 되는 **구성** 단추를 선택합니다. 또는 고객이 제품 구매 직후 받게 되는 이메일의 **구성** 단추를 사용해도 됩니다.
+1. 고객은 Microsoft AppSource 또는 Azure Portal 성공적으로 구매한 후 SaaS 제안에 사용할 수 있는 **지금 계정 구성** 단추를 선택합니다. 또는 고객이 구매 직후 받을 전자 메일의 **지금 구성** 단추를 사용할 수 있습니다.
 2. 그러면 Microsoft는 새 브라우저 탭에서 토큰 매개 변수(상업용 Marketplace의 구매 식별 토큰)가 포함된 방문 페이지 URL을 열어서 파트너에게 구매 소식을 알립니다.
 
 이러한 호출의 예로 `https://contoso.com/signup?token=<blob>`이 있으며, 파트너 센터에서는 이 SaaS 제품의 방문 페이지 URL이 `https://contoso.com/signup`으로 구성됩니다. 이 토큰은 SaaS 구매 및 고객을 고유하게 식별하는 ID를 게시자에게 제공합니다.
@@ -84,7 +84,7 @@ SaaS 구독은 다음과 같은 두 가지 유형의 업데이트를 사용할 �
 
 이 흐름에서 고객은 Azure Portal 또는 Microsoft 365 관리 센터에서 구독 플랜 또는 사용자 수량을 변경합니다.
 
-1. 업데이트가 입력되면 Microsoft는 *action* 및 기타 관련 매개 변수의 적절한 값을 사용하여 파트너 센터의 **연결 Webhook** 필드에 구성된 게시자의 webhook URL을 호출합니다. 
+1. 업데이트가 입력되면 Microsoft는 *작업* 및 기타 관련 매개 변수에 적절한 값을 사용하여 파트너 센터 _기술 구성_ 페이지의 연결 웹후크 필드에 구성된 게시자의 **웹후크** URL을 호출합니다.
 1. 게시자 쪽에서는 SaaS 서비스를 필요한 대로 변경하고, 모두 마쳤으면 [작업 상태 업데이트 API](#update-the-status-of-an-operation)를 호출하여 Microsoft에 알려야 합니다.
 1. 패치가 *실패* 상태와 함께 전송되는 경우 Microsoft 쪽에서 업데이트 프로세스가 완료되지 않습니다. SaaS 구독의 기존 플랜과 사용자 수량이 유지됩니다.
 
@@ -101,7 +101,7 @@ SaaS 구독은 다음과 같은 두 가지 유형의 업데이트를 사용할 �
 
 1. 게시자 쪽에서 변경 요청을 수행하려면 먼저 게시자 코드에서 [플랜 변경 API](#change-the-plan-on-the-subscription) 및/또는 [수량 변경 API](#change-the-quantity-of-seats-on-the-saas-subscription)를 호출해야 합니다. 
 
-1. Microsoft는 변경 내용을 구독에 적용한 다음, 동일한 변경 내용을 적용하도록 **연결 Webhook** 를 통해 게시자에게 알립니다.
+1. Microsoft는 구독에 변경 사항을 적용한 다음 **연결 웹후크를** 통해 게시자에게 동일한 변경 사항을 적용하도록 알립니다.
 
 1. 그 후 게시자는 SaaS 구독을 필요한 대로 변경하고, 변경을 마친 후 [작업 상태 업데이트 API](#update-the-status-of-an-operation)를 호출하여 Microsoft에 알려야 합니다.
 
@@ -897,10 +897,10 @@ Code: 409 충돌.  예를 들어 새 업데이트가 이미 수행되었습니�
 
 ## <a name="implementing-a-webhook-on-the-saas-service"></a>SaaS 서비스에서 webhook 구현
 
-파트너 센터에서 거래 가능 SaaS 제품을 만들 때 파트너는 HTTP 엔드포인트로 사용할 **연결 Webhook** URL을 제공합니다.  이 webhook는 Microsoft가 Microsoft 쪽에서 발생하는 다음 이벤트를 게시자 쪽에 알리기 위해 POST HTTP 호출을 사용하여 호출합니다.
+파트너 센터 거래 가능한 SaaS 제안을 만들 때 파트너는 HTTP 엔드포인트로 사용할 **연결 웹후크** URL을 제공합니다.  이 webhook는 Microsoft가 Microsoft 쪽에서 발생하는 다음 이벤트를 게시자 쪽에 알리기 위해 POST HTTP 호출을 사용하여 호출합니다.
 
 * SaaS 구독이 *구독 취소됨* 상태인 경우:
-    * ChangePlan 
+    * ChangePlan
     * ChangeQuantity
     * 일시 중지됨
     * 구독 취소

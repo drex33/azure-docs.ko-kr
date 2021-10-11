@@ -6,49 +6,45 @@ author: aaronpowell
 ms.author: aapowell
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/07/2021
-ms.openlocfilehash: b09d1f6d6cdd5838f4c43e7cb05f63d8efd3e7f9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 10/08/2021
+ms.openlocfilehash: 49921eba1a7f4c6c898eaadf1d8743d8d210057a
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566242"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129729808"
 ---
 # <a name="custom-authentication-in-azure-static-web-apps"></a>Azure Static Web Apps의 사용자 지정 인증
 
 Azure Static Web Apps는 Azure에서 관리하는 공급자 등록을 사용하는 [관리형 인증](authentication-authorization.md)을 제공합니다. 등록에 대한 유연성을 높일 수 있도록 사용자 지정 등록을 사용하여 기본값을 재정의할 수 있습니다.
 
-- 사용자 지정 인증을 사용하면 [OpenID Connect](https://openid.net/connect/)를 지원하는 [사용자 지정 공급자를 구성](#configure-a-custom-openid-connect-provider)할 수도 있습니다. 이 구성을 사용하면 여러 외부 공급자를 등록할 수 있습니다.
+- 사용자 지정 인증을 사용하면 [OpenID Connect](https://openid.net/connect/)를 지원하는 [사용자 지정 공급자를 구성](./authentication-custom.md?tabs=openid-connect#configure-a-custom-identity-provider)할 수도 있습니다. 이 구성을 사용하면 여러 외부 공급자를 등록할 수 있습니다.
 
 - 사용자 지정 등록을 사용하면 미리 구성된 모든 공급자가 사용하지 않도록 설정됩니다.
-
-- 특히 AAD(Azure Active Directory) 등록의 경우 그룹 관리를 위한 [초대 흐름](./authentication-authorization.md#role-management)을 무시할 수 있는 테넌트 제공 옵션이 있습니다.
 
 > [!NOTE]
 > 사용자 지정 인증은 Azure Static Web Apps 표준 플랜에서만 사용할 수 있습니다.
 
-## <a name="override-pre-configured-provider"></a>미리 구성된 공급자 재정의
+## <a name="configure-a-custom-identity-provider"></a>사용자 지정 ID 공급자 구성
 
-공급자를 재정의하는 데 사용되는 설정은 [구성 파일](configuration.md)의 `auth` 섹션에서 구성됩니다.
+사용자 지정 ID 공급자는 `auth` 구성 파일 의 섹션에서 [구성됩니다.](configuration.md)
 
 소스 제어에 비밀을 포함시키지 않으려면 구성은 [애플리케이션 설정](application-settings.md)에서 구성 파일의 일치하는 이름을 찾습니다. [Azure Key Vault](./key-vault-secrets.md)에 비밀을 저장하도록 선택할 수도 있습니다.
 
-### <a name="configuration"></a>구성
-
-사용자 지정 인증을 설정하려면 [애플리케이션 설정](./application-settings.md)으로 저장된 몇 가지 비밀을 참조해야 합니다. 
-
 # <a name="azure-active-directory"></a>[Azure Active Directory](#tab/aad)
 
-Azure Active Directory 공급자는 두 가지 버전으로 제공됩니다. 버전 1은 페이로드가 사용자 정보를 반환할 수 있도록 하는 `userDetailsClaim`을 명시적으로 정의합니다. 반대로 버전 2는 기본적으로 사용자 정보를 반환하고, `openIdIssuer` URL에서 `v2.0`으로 지정됩니다.
-
-등록을 만들려면 먼저 다음 애플리케이션 설정을 만듭니다.
+등록을 만들려면 먼저 다음 [애플리케이션 설정을](application-settings.md)만듭니다.
 
 | 설정 이름 | 값 |
 | --- | --- |
 | `AAD_CLIENT_ID` | Azure AD 앱 등록에 대한 애플리케이션(클라이언트) ID |
 | `AAD_CLIENT_SECRET` | Azure AD 앱 등록에 대한 클라이언트 암호 |
 
-#### <a name="azure-active-directory-version-1"></a>Azure Active Directory 버전 1
+다음으로, 다음 샘플을 사용하여 구성 [파일](configuration.md)에서 공급자를 구성합니다.
+
+Azure Active Directory 공급자는 두 가지 버전으로 제공됩니다. 버전 1은 페이로드가 사용자 정보를 반환할 수 있도록 하는 `userDetailsClaim`을 명시적으로 정의합니다. 반대로 버전 2는 기본적으로 사용자 정보를 반환하고, `openIdIssuer` URL에서 `v2.0`으로 지정됩니다.
+
+### <a name="azure-active-directory-version-1"></a>Azure Active Directory 버전 1
 
 ```json
 {
@@ -69,7 +65,7 @@ Azure Active Directory 공급자는 두 가지 버전으로 제공됩니다. 버
 
 `<TENANT_ID>`를 Azure Active Directory 테넌트 ID로 바꿉니다.
 
-#### <a name="azure-active-directory-version-2"></a>Azure Active Directory 버전 2
+### <a name="azure-active-directory-version-2"></a>Azure Active Directory 버전 2
 
 ```json
 {
@@ -89,21 +85,21 @@ Azure Active Directory 공급자는 두 가지 버전으로 제공됩니다. 버
 
 `<TENANT_ID>`를 Azure Active Directory 테넌트 ID로 바꿉니다.
 
-Azure Active Directory 구성 방법에 대한 자세한 내용은 [App Service 인증/권한 부여 설명서](../app-service/configure-authentication-provider-aad.md)를 참조하세요.
+Azure Active Directory 구성하는 방법에 대한 자세한 내용은 기존 등록 사용에 대한 [App Service 인증/권한 부여 설명서를 참조하세요.](../app-service/configure-authentication-provider-aad.md#-option-2-use-an-existing-registration-created-separately)
 
 > [!NOTE]
-> Azure Active Directory에 대한 구성 섹션은 `azureActiveDirectory`이지만 플랫폼은 로그인, 로그아웃 및 사용자 정보 제거를 위해 URL의 `aad`에 별칭을 적용합니다. 자세한 내용은 [인증 및 허가](authentication-authorization.md)를 참조하세요.
+> Azure Active Directory에 대한 구성 섹션은 `azureActiveDirectory`이지만 플랫폼은 로그인, 로그아웃 및 사용자 정보 제거를 위해 URL의 `aad`에 별칭을 적용합니다. 자세한 내용은 [인증 및 권한 부여](authentication-authorization.md) 섹션을 참조하세요.
 
 # <a name="apple"></a>[Apple](#tab/apple)
 
-등록을 만들려면 먼저 다음 애플리케이션 설정을 만듭니다.
+등록을 만들려면 먼저 다음 [애플리케이션 설정을](application-settings.md)만듭니다.
 
 | 설정 이름 | 값 |
 | --- | --- |
 | `APPLE_CLIENT_ID` | Apple 클라이언트 ID |
 | `APPLE_CLIENT_SECRET` | Apple 클라이언트 암호 |
 
-다음으로 다음 샘플을 사용하여 공급자를 구성합니다.
+다음으로, 다음 샘플을 사용하여 구성 [파일](configuration.md)에서 공급자를 구성합니다.
 
 ```json
 {
@@ -124,14 +120,14 @@ Apple을 인증 공급자로 구성하는 방법에 대한 자세한 내용은 [
 
 # <a name="facebook"></a>[Facebook](#tab/facebook)
 
-등록을 만들려면 먼저 다음 애플리케이션 설정을 만듭니다.
+등록을 만들려면 먼저 다음 [애플리케이션 설정을](application-settings.md)만듭니다.
 
 | 설정 이름 | 값 |
 | --- | --- |
 | `FACEBOOK_APP_ID` | Facebook 애플리케이션 ID |
 | `FACEBOOK_APP_SECRET` | Facebook 애플리케이션 비밀 |
 
-다음으로 다음 샘플을 사용하여 공급자를 구성합니다.
+다음으로, 다음 샘플을 사용하여 구성 [파일](configuration.md)에서 공급자를 구성합니다.
 
 ```json
 {
@@ -153,14 +149,14 @@ Facebook을 인증 공급자로 구성하는 방법에 대한 자세한 내용�
 # <a name="github"></a>[GitHub](#tab/github)
 
 
-등록을 만들려면 먼저 다음 애플리케이션 설정을 만듭니다.
+등록을 만들려면 먼저 다음 [애플리케이션 설정을](application-settings.md)만듭니다.
 
 | 설정 이름 | 값 |
 | --- | --- |
 | `GITHUB_CLIENT_ID` | GitHub 클라이언트 ID |
 | `GITHUB_CLIENT_SECRET` | GitHub 클라이언트 암호 |
 
-다음으로 다음 샘플을 사용하여 공급자를 구성합니다.
+다음으로, 다음 샘플을 사용하여 구성 [파일](configuration.md)에서 공급자를 구성합니다.
 
 ```json
 {
@@ -180,14 +176,14 @@ Facebook을 인증 공급자로 구성하는 방법에 대한 자세한 내용�
 # <a name="google"></a>[Google](#tab/google)
 
 
-등록을 만들려면 먼저 다음 애플리케이션 설정을 만듭니다.
+등록을 만들려면 먼저 다음 [애플리케이션 설정을](application-settings.md)만듭니다.
 
 | 설정 이름 | 값 |
 | --- | --- |
 | `GOOGLE_CLIENT_ID` | Google 클라이언트 ID |
 | `GOOGLE_CLIENT_SECRET` | Google 클라이언트 암호 |
 
-다음으로 다음 샘플을 사용하여 공급자를 구성합니다.
+다음으로, 다음 샘플을 사용하여 구성 [파일](configuration.md)에서 공급자를 구성합니다.
 
 ```json
 {
@@ -208,14 +204,14 @@ Google을 인증 공급자로 구성하는 방법에 대한 자세한 내용은 
 
 # <a name="twitter"></a>[Twitter](#tab/twitter)
 
-등록을 만들려면 먼저 다음 애플리케이션 설정을 만듭니다.
+등록을 만들려면 먼저 다음 [애플리케이션 설정을](application-settings.md)만듭니다.
 
 | 설정 이름 | 값 |
 | --- | --- |
 | `TWITTER_CONSUMER_KEY` | Twitter 사용자 키 |
 | `TWITTER_CONSUMER_SECRET` | Twitter 사용자 비밀 |
 
-다음으로 다음 샘플을 사용하여 공급자를 구성합니다.
+다음으로, 다음 샘플을 사용하여 구성 [파일](configuration.md)에서 공급자를 구성합니다.
 
 ```json
 {
@@ -234,11 +230,9 @@ Google을 인증 공급자로 구성하는 방법에 대한 자세한 내용은 
 
 Twitter를 인증 공급자로 구성하는 방법에 대한 자세한 내용은 [App Service 인증/권한 부여 설명서](../app-service/configure-authentication-provider-twitter.md)를 참조하세요.
 
----
+# <a name="openid-connect"></a>[OpenID Connect](#tab/openid-connect)
 
-## <a name="configure-a-custom-openid-connect-provider"></a>사용자 지정 OpenID Connect 공급자 구성
-
-이 섹션에서는 [OIDC(OpenID Connect) 사양](https://openid.net/connect/)을 준수하는 사용자 지정 인증 공급자를 사용하도록 Azure Static Web Apps를 구성하는 방법을 보여 줍니다. 사용자 지정 OIDC 공급자를 사용하려면 다음 단계가 필요합니다.
+[OIDC(OpenID 커넥트) 사양을](https://openid.net/connect/)준수하는 사용자 지정 인증 공급자를 사용하도록 Azure Static Web Apps 구성할 수 있습니다. 사용자 지정 OIDC 공급자를 사용하려면 다음 단계가 필요합니다.
 
 - 하나 이상의 OIDC 공급자가 허용됩니다.
 - 각 공급자는 구성에 고유한 이름이 있어야 합니다.
@@ -297,9 +291,25 @@ ID 공급자에 애플리케이션의 세부 정보를 등록해야 합니다. �
   - `<PROVIDER_ISSUER_URL>`을 공급자의 _발급자 URL_ 에 대한 경로로 바꿉니다.
   - `login` 개체를 사용하면 사용자 지정 범위, 로그인 매개 변수 또는 사용자 지정 클레임에 대한 값을 제공할 수 있습니다.
 
-### <a name="login-logout-and-purging-user-details"></a>로그인, 로그아웃 및 사용자 세부 정보 제거
+---
 
-사용자 지정 OIDC 공급자를 사용하려면 다음 URL 패턴을 사용합니다.
+## <a name="authentication-callbacks"></a>인증 콜백
+
+ID 공급자는 로그인 또는 로그아웃 요청을 완료하려면 리디렉션 URL이 필요합니다. 대부분의 공급자는 콜백 URL을 허용 목록에 추가해야 합니다. 다음 엔드포인트는 리디렉션 대상으로 사용할 수 있습니다.
+
+| Type   | URL 패턴                                                 |
+| ------ | ----------------------------------------------------------- |
+| 로그인  | `https://<YOUR_SITE>/.auth/login/<PROVIDER_NAME_IN_CONFIG>/callback`  |
+| Logout | `https://<YOUR_SITE>/.auth/logout/<PROVIDER_NAME_IN_CONFIG>/callback` |
+
+Azure Active Directory를 사용하는 경우 `aad` 자리 표시자에 대한 값으로 `<PROVIDER_NAME_IN_CONFIG>`을 사용합니다.
+
+> [!Note]
+> 이러한 URL은 인증 공급자로부터 응답을 받기 위해 Azure Static Web Apps에서 제공하므로 이러한 경로에서 페이지를 만들 필요가 없습니다.
+
+## <a name="login-logout-and-purging-user-details"></a>로그인, 로그아웃 및 사용자 세부 정보 제거
+
+사용자 지정 ID 공급자를 사용하려면 다음 URL 패턴을 사용합니다.
 
 | 작업             | 패턴                                  |
 | ------------------ | ---------------------------------------- |
@@ -307,21 +317,7 @@ ID 공급자에 애플리케이션의 세부 정보를 등록해야 합니다. �
 | Logout             | `/.auth/logout`                          |
 | 사용자 세부 정보 제거 | `/.auth/purge/<PROVIDER_NAME_IN_CONFIG>` |
 
-Azure Active Directory를 사용하는 경우 `aad` 자리 표시자에 대한 값으로 `<AUTHENTICATION_PROVIDER_NAME>`을 사용합니다.
-
-### <a name="authentication-callbacks"></a>인증 콜백
-
-사용자 지정 OIDC 공급자는 로그인 또는 로그아웃 요청을 완료하려면 리디렉션 URL이 필요합니다. 다음 엔드포인트는 리디렉션 대상으로 사용할 수 있습니다.
-
-| Type   | URL 패턴                                                 |
-| ------ | ----------------------------------------------------------- |
-| 로그인  | `https://<YOUR_SITE>/.auth/login/<PROVIDER_NAME_IN_CONFIG>/callback`  |
-| Logout | `https://<YOUR_SITE>/.auth/logout/<PROVIDER_NAME_IN_CONFIG>/callback` |
-
-Azure Active Directory를 사용하는 경우 `aad` 자리 표시자에 대한 값으로 `<AUTHENTICATION_PROVIDER_NAME>`을 사용합니다.
-
-> [!Note]
-> 이러한 URL은 인증 공급자로부터 응답을 받기 위해 Azure Static Web Apps에서 제공하므로 이러한 경로에서 페이지를 만들 필요가 없습니다.
+Azure Active Directory를 사용하는 경우 `aad` 자리 표시자에 대한 값으로 `<PROVIDER_NAME_IN_CONFIG>`을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

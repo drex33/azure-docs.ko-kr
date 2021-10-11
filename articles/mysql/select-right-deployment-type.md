@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: ee18a405ca6c6a9d2e6a3a6cceb5c0ff89b5cf73
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3126eb9a2c3289f6fbc97a14fadf94300d1c2e84
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124748614"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129728782"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Azure에서 적절한 MySQL 서버 옵션 선택
 
@@ -50,26 +50,26 @@ Azure를 사용하면 MySQL 서버 워크로드를 호스트된 가상 머신 Ia
 | SLA(서비스 수준 계약) | 99.99% 가용성 SLA |미리 보기에 SLA 없음| 99.99% 가용성 영역 사용|
 | 기본 운영 체제 | Windows | Linux  | 사용자 관리 |
 | MySQL 버전 | Community Edition | Community Edition | Community 또는 Enterprise Edition |
-| MySQL 버전 지원 | 5.6(사용 중지), 5.7 & 8.0| 5.7 & 8.0 | 모든 버전|
-| 애플리케이션 위치의 가용성 영역 선택 | 예 | 예 | 예 |
+| MySQL 버전 지원 | 5.6 (사용 되지 않음), 5.7 & 8.0| 5.7 & 8.0 | 모든 버전|
+| 응용 프로그램 공동 위치에 대 한 가용성 영역 선택 | 아니요 | 예 | 예 |
 | 연결 문자열의 사용자 이름 | `<user_name>@server_name`. 예를 들어 `mysqlusr@mypgServer` | 사용자 이름. 예를 들어 `mysqlusr` | 사용자 이름. 예를 들어 `mysqlusr` | 
-| [**컴퓨팅 & Storage 크기 조정**](flexible-server/concepts-compute-storage.md) | | | |
+| [**계산 & Storage 크기 조정**](flexible-server/concepts-compute-storage.md) | | | |
 | 컴퓨팅 계층 | 기본, 범용 및 메모리 최적화 | 버스트 가능, 범용 및 메모리 최적화 | 버스트 가능, 범용 및 메모리 최적화 |
 | 컴퓨팅 크기 조정 | 지원됨(기본 계층으로의 크기 조정은 지원되지 않음)| 지원 여부 | 지원 여부|
 | 스토리지 크기 | 5GiB~16TiB| 20GiB~16TiB | 32GiB~32,767GiB|
 | 온라인 스토리지 크기 조정 | 지원 여부| 지원됨| 지원되지 않음|
 | 자동 스토리지 크기 조정 | 지원 여부| 지원됨| 지원되지 않음|
-| IOPS 크기 조정 | 지원되지 않음| 지원됨| 지원되지 않음|
+| IOPs 크기 조정 | 지원되지 않음| 지원됨| 지원되지 않음|
 | [**비용 최적화**](https://azure.microsoft.com/pricing/details/mysql/flexible-server/) | | | |
 | 예약 인스턴스 가격 책정 | 지원 여부 | 지원됨 | 지원됨 |
-| 개발을 위한 서버 중지/시작 | 서버를 최대 7일 동안 중지할 수 있습니다. | 서버를 30 일까지 중지할 수 있습니다. | 지원됨 |
+| 개발용 서버 중지/시작 | 서버를 최대 7 일까 지 중지할 수 있음 | 서버를 30 일까지 중지할 수 있습니다. | 지원됨 |
 | 저렴 한 비용의 안정적인 SKU | 지원되지 않음 | 지원됨 | 지원됨 |
 | [**네트워킹/보안**](concepts-security.md) | | | |
 | 네트워크 연결 | - 서버 방화벽이 있는 공용 엔드포인트.<br/> - Private Link 지원으로 프라이빗 액세스.|- 서버 방화벽이 있는 공용 엔드포인트.<br/> - Virtual Network 통합을 통한 프라이빗 액세스.| - 서버 방화벽이 있는 공용 엔드포인트.<br/> - Private Link 지원으로 프라이빗 액세스.|
 | SSL/TLS | TLS v1.2, 1.1 및 1.0에 대한 지원으로 기본적으로 사용하도록 설정됨 | TLS v1.2, 1.1 및 1.0에 대한 지원으로 기본적으로 사용하도록 설정됨| TLS v1.2, 1.1 및 1.0에서 지원됨 |
 | 미사용 데이터 암호화 | BYOK (고객 관리 키)로 지원 됨 | 서비스 관리형 키로 지원됨 | 지원되지 않음|
 | Azure AD 인증 | 지원됨 | 지원되지 않음 | 지원되지 않음|
-| Azure defender 지원 | 예 | 예 | 예 |
+| Azure defender 지원 | 예 | 아니요 | 아니요 |
 | 서버 감사 | 지원됨 | 지원됨 | 사용자 관리 |
 | [**& 유지 관리 패치**](flexible-server/concepts-maintenance.md) | | |
 | 운영 체제 패치| 자동  | 자동  | 관리되는 사용자 |
@@ -83,40 +83,40 @@ Azure를 사용하면 MySQL 서버 워크로드를 호스트된 가상 머신 Ia
 | 영역 중복 | 지원되지 않음 | 지원됨 | 지원됨|
 | 대기 영역 배치 | 지원되지 않음 | 지원됨 | 지원됨|
 | 자동 장애 조치(automatic failover) | 예(다른 서버 회전)| Yes | 사용자 관리|
-| 강제 장애 조치(failover) | 예 | 예 | 사용자 관리 |
+| 강제 장애 조치(failover) | 아니요 | 예 | 사용자 관리 |
 | 투명 한 응용 프로그램 장애 조치 | 예 | 예 | 사용자 관리|
 | [**복제**](flexible-server/concepts-read-replicas.md) | | | |
 | 읽기 복제본 지원 | 예 | 예 | 사용자 관리 |
 | 지원 되는 읽기 복제본 수 | 5 | 10 | 사용자 관리 |
 | 복제 모드 | 비동기 | 비동기 | 사용자 관리 |
 | 읽기 복제본에 대 한 gtid 지원 | 지원됨 | 지원됨 | 사용자 관리 |
-| 지역 간 지원 (지역에서 복제) | 예 | 지원되지 않음 | 사용자 관리 |
+| 지역 간 지원(지역에서 복제) | 예 | 지원되지 않음 | 사용자 관리 |
 | 하이브리드 시나리오 | [데이터 내부 복제](./concepts-data-in-replication.md)에서 지원됨| [데이터 내부 복제](./flexible-server/concepts-data-in-replication.md)에서 지원됨 | 사용자 관리 |
-| 데이터 내 복제에 대 한 gtid 지원 | 지원됨 | 지원되지 않음 | 사용자 관리 |
-| 데이터 복제 | 지원되지 않음 | 미리 보기 | 지원됨 |
+| 데이터 내 복제에 대한 Gtid 지원 | 지원됨 | 지원되지 않음 | 사용자 관리 |
+| 데이터 아웃 복제 | 지원되지 않음 | 미리 보기 | 지원됨 |
 | [**백업 및 복구**](flexible-server/concepts-backup-restore.md) | | | |
 | 자동화된 백업 | 예 | 예 | 예 |
-| 백업 보존 | 7-35일 | 1-35 일 | 사용자 관리 |
+| 백업 보존 | 7-35일 | 1-35일 | 사용자 관리 |
 | 백업 장기 보존 | 사용자 관리 | 사용자 관리 | 사용자 관리 |
-| 백업 내보내기 | 논리적 백업을 사용 하 여 지원 | 논리적 백업을 사용 하 여 지원 | 지원됨 |
-| 보존 기간 내에 언제 든 지 특정 시점 복원 기능 | 예 | 예 | 사용자 관리 |
+| 백업 내보내기 | 논리 백업을 사용하여 지원됨 | 논리 백업을 사용하여 지원됨 | 지원됨 |
+| 보존 기간 내의 모든 시간으로의 시점 복원 기능 | 예 | 예 | 사용자 관리 |
 | 다른 영역에서 복원하는 기능 | 지원되지 않음 | 예 | 예 |
 | 다른 VNET으로 복원하는 기능 | 아니요 | 예 | 예 |
 | 다른 지역으로 복원하는 기능 | 예(지역 중복) | No | 사용자 관리 |
-| 삭제된 서버를 복원하는 기능 | 예 | 예 | 예 |
+| 삭제된 서버를 복원하는 기능 | 예 | 아니요 | 아니요 |
 | [**재해 복구**](flexible-server/concepts-business-continuity.md) | | | | 
-| Azure 지역에서 DR | 지역 간 읽기 복제본, 지역 중복 백업 사용 | 지원되지 않음 | 사용자 관리 |
+| Azure 지역 간 DR | 지역 간 읽기 복제본 사용, 지역 중복 백업 | 지원되지 않음 | 사용자 관리 |
 | 자동 장애 조치(automatic failover) | 예 | 지원되지 않음 | 아니요 |
 | 동일한 r/w 엔드포인트를 사용할 수 있음 | 아니요 | 지원되지 않음 | 아니요 |
 | [**모니터링**](flexible-server/concepts-monitoring.md) | | | |
-| 경고 & Azure Monitor 통합 | 지원됨 | 지원됨 | 사용자 관리 |
+| Azure Monitor 통합 & 경고 | 지원됨 | 지원됨 | 사용자 관리 |
 | 데이터베이스 작업 모니터링 | 지원 여부 | 지원됨 | 사용자 관리 |
-| Query Performance Insight | 지원됨 | 지원되지 않음 | 사용자 관리 |
-| 서버 로그 | 지원됨 | 지원 됨 (진단 로그 사용) | 사용자 관리 |
+| Query Performance Insight | 지원 여부 | 지원됨(통합 문서 사용)| 사용자 관리 |
+| 서버 로그 | 지원됨 | 지원됨(진단 로그 사용) | 사용자 관리 |
 | 감사 로그 | 지원됨 | 지원됨 | 지원됨 | 
 | 오류 로그 | 지원되지 않음 | 지원됨 | 지원됨 |
-| Azure advisor 지원 | 지원됨 | 지원되지 않음 | 지원되지 않음 |
-| **플러그 인** | | | |
+| Azure Advisor 지원 | 지원됨 | 지원되지 않음 | 지원되지 않음 |
+| **플러그인** | | | |
 | validate_password | 지원되지 않음 | 미리 보기 | 지원됨 |
 | caching_sha2_password | 지원되지 않음 | 미리 보기 | 지원됨 |
 | [**개발자 생산성**](flexible-server/quickstart-create-server-cli.md) | | | |

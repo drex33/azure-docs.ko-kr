@@ -4,12 +4,12 @@ description: Azure 또는 온-프레미스에 호스트되는 ASP.NET 웹 사이
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: a60419e6c3ff8c4dd030e5e800edbae62a7f7787
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: a0a262564306448fd587a699b24982595506df50
+ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566619"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129740705"
 ---
 # <a name="configure-application-insights-for-your-aspnet-website"></a>ASP.NET 웹 사이트용 Application Insights 구성
 
@@ -44,7 +44,7 @@ Application Insights를 ASP.NET 웹 사이트에 추가하려면 다음을 수�
 
 이 섹션에서는 템플릿 기반 ASP.NET 웹앱에 Application Insights를 자동으로 추가하는 방법을 안내합니다. Visual Studio의 ASP.NET 웹앱 프로젝트 내에서:
 
-1. **Application Insights 원격 분석 추가** > **Application Insights SDK(로컬)**  > **다음** > **마침** > **닫기** 를 선택합니다.
+1. **Project**  >  **추가 Application Insights 원격 분석**  >  **Application Insights Sdk (로컬)**  >  **다음**  >  **마침**  >  **닫기** 를 선택 합니다.
 2. *ApplicationInsights.config* 파일을 엽니다. 
 3. 닫는 `</ApplicationInsights>` 태그 앞에 Application Insights 리소스에 대한 계측 키가 포함된 줄을 추가합니다.  계측 키는 이 문서에서 필수 조건의 일부로 새로 만든 Application Insights 리소스의 개요 창에서 찾을 수 있습니다.
 

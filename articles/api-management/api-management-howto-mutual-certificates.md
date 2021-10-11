@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 01/26/2021
 ms.author: danlep
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 689dbc56eb5f587e124a645895723436a2a7ccd8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 72b1680af5bb20d772d93d7743224170fde437fd
+ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128569620"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129740287"
 ---
 # <a name="secure-backend-services-using-client-certificate-authentication-in-azure-api-management"></a>Azure API Management에서 클라이언트 인증서 인증을 사용한 백엔드 서비스 보호
 
 API Management를 사용하면 클라이언트 인증서를 사용하여 API의 백엔드 서비스에 대한 액세스를 보호할 수 있습니다. 이 가이드에서는 Azure Portal을 이용하여 Azure API Management 서비스 인스턴스의 인증서를 관리하는 방법을 보여줍니다. 또한 인증서를 사용하여 백엔드 서비스에 액세스하도록 API를 구성하는 방법을 설명합니다.
 
-[API Management REST API](/rest/api/apimanagement/2020-06-01-preview/certificate)를 사용하여 API Management 인증서를 관리할 수도 있습니다.
+[API Management REST API](/rest/api/apimanagement/2020-12-01/certificate)를 사용하여 API Management 인증서를 관리할 수도 있습니다.
 
 ## <a name="certificate-options"></a>인증서 옵션
 

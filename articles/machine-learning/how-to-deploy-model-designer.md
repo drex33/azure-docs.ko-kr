@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.reviewer: peterlu
-ms.date: 10/29/2020
+ms.date: 10/08/2021
 ms.topic: how-to
 ms.custom: deploy, studio, designer
-ms.openlocfilehash: 110bb5e6349ab5cb64366ba365ccace8ab029362
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
-ms.translationtype: HT
+ms.openlocfilehash: d2553ddde013c43b9ce4d23d2cc0b4541150e6f3
+ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107949437"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129740484"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>스튜디오를 사용하여 디자이너에서 학습된 모델 배포
 
@@ -100,7 +100,8 @@ Azure Machine Learning 스튜디오에서 모델을 배포하려면 다음 파�
 필요한 파일을 다운로드한 후에는 모델을 배포할 준비가 된 것입니다.
 
 1. **모델** 자산 페이지에서 등록된 모델을 선택합니다.
-1. **배포** 단추를 선택합니다.
+1. **배포** 를 선택 하 고 **웹 서비스에 배포를** 선택 합니다.
+    ![모델 자산 페이지의 배포 단추 스크린샷](./media/how-to-deploy-model-designer/open-deploy-wizard.png)
 1. 구성 메뉴에서 다음 정보를 입력합니다.
 
     - 엔드포인트의 이름을 입력합니다.

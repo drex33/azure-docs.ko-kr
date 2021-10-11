@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: 50d918cb6cb096674dc5b79d478d37d65422106e
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
-ms.translationtype: HT
+ms.openlocfilehash: a621d93bda3c3a032932a9d6349dcbce0190610c
+ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123186014"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129740249"
 ---
 # <a name="what-is-azure-private-link-service"></a>Azure Private Link 서비스는 무엇입니까?
 
@@ -87,7 +87,7 @@ Private Link 서비스는 다음 속성을 지정합니다.
 
 별칭은 *접두사*.*GUID*.*접미사* 의 세 부분으로 구성됩니다.
 
-- 접두사는 서비스 이름입니다. 고유한 접두사를 선택할 수 있습니다. "별칭"이 생성된 후에는 변경할 수 없으므로 적절한 접두사를 선택합니다.  
+- 접두사는 서비스 이름입니다. 사용자 고유의 접두사 를 선택할 수 있습니다. "별칭"이 생성된 후에는 변경할 수 없으므로 적절한 접두사를 선택합니다.  
 - GUID는 플랫폼에서 제공됩니다. 이렇게 하면 이름을 전역적으로 고유하게 만들 수 있습니다. 
 - 접미사는 Azure에 의해 추가됩니다(예: *region*.azure.privatelinkservice). 
 

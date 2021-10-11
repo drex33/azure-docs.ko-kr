@@ -4,12 +4,12 @@ description: Azure Functions는 여러 버전의 런타임을 지원합니다. �
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 09/22/2021
-ms.openlocfilehash: 85df4bec5eb4802820a8837a1bb23394851aca42
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 516bcbdd00ae4b116326e797746485c82be9c3fb
+ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128637626"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129740515"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 런타임 버전 개요
 
@@ -72,21 +72,16 @@ Azure에 게시된 앱에서 사용하는 Functions 런타임 버전은 [`FUNCTI
 
 ## <a name="migrating-from-3x-to-4x-preview"></a><a name="migrating-from-3x-to-4x"></a>3.x에서 4.x로 마이그레이션(미리 보기)
 
-Azure Functions 버전 4.x(미리 보기)는 버전 3.x와 호환됩니다.  대부분의 앱은 코드를 변경하지 않고도 4.x로 안전하게 업그레이드할 수 있어야 합니다. 프로덕션 앱에서 주 버전을 변경하기 전에 광범위한 테스트를 실행해야 합니다.
+Azure Functions 버전 4.x(미리 보기)는 버전 3.x와 매우 이전 버전과 호환됩니다.  대부분의 앱은 코드를 변경하지 않고도 4.x로 안전하게 업그레이드할 수 있어야 합니다. 프로덕션 앱에서 주 버전을 변경하기 전에 광범위한 테스트를 실행해야 합니다.
 
-3.x에서 4.x로 앱을 마이그레이션하려면 다음을 수행합니다.
+3.x에서 4.x로 앱을 마이그레이션하려면 `FUNCTIONS_EXTENSION_VERSION` 다음 Azure CLI 명령을 사용하여 애플리케이션 설정을 로 설정합니다. `~4`
 
-- 다음 Azure CLI 명령을 사용하여 애플리케이션 설정을 로 설정합니다. `FUNCTIONS_EXTENSION_VERSION` `~4`
+```bash
+az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
 
-    ```bash
-    az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
-    ```
-
-- Windows 함수 앱의 경우 런타임에서 다음 Azure CLI 명령을 사용하여 .NET 6.0을 사용하도록 설정해야 합니다.
-
-    ```bash
-    az functionapp config set --net-framework-version v6.0 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
-    ```
+# For Windows function apps only, also enable .NET 6.0 that is needed by the runtime
+az functionapp config set --net-framework-version v6.0 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
+```
 
 ### <a name="breaking-changes-between-3x-and-4x"></a>3.x와 4.x 간의 주요 변경 내용
 
@@ -101,6 +96,13 @@ Azure Functions 버전 4.x(미리 보기)는 버전 3.x와 호환됩니다.  대
 - Azure Functions 4.x는 확장에 대한 [최소 버전 요구 사항을](https://github.com/Azure/Azure-Functions/issues/1987) 적용합니다. 영향을 받는 최신 버전의 확장으로 업그레이드합니다. non-.NET 언어의 경우 확장 번들 버전 2.x 이상으로 [업그레이드합니다.](./functions-bindings-register.md#extension-bundles)
 
 - 기본 및 최대 시간 제한은 이제 4.x Linux 소비 함수 앱에서 적용됩니다.
+
+- 애플리케이션 Insights 더 이상 기본적으로 4.x에 포함되지 않습니다. 이제 별도의 확장으로 사용할 수 있습니다.
+    - In Process .NET 앱의 경우 [Microsoft.Azure.WebJobs.Extensions.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ApplicationInsights/) 확장 패키지를 함수 앱에 추가합니다.
+    - 격리된 .NET 앱의 경우:
+        - [Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights/) 확장 패키지를 함수 앱에 추가합니다.
+        - [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/) 및 [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/) 패키지를 최신 버전으로 업데이트합니다.
+    - 다른 언어의 경우 Azure Functions [확장 번들에](functions-bindings-register.md#extension-bundles) 대한 향후 업데이트에는 애플리케이션 Insights 확장이 포함됩니다. 앱이 사용 가능한 경우 새 번들을 자동으로 사용합니다.
 
 #### <a name="languages"></a>언어
 
@@ -120,11 +122,11 @@ Azure Functions 버전 4.x(미리 보기)는 버전 3.x와 호환됩니다.  대
 
 ## <a name="migrating-from-2x-to-3x"></a>2\.x에서 3.x로 마이그레이션
 
-Azure Functions 버전 3.x는 이전 버전 2.x와 호환됩니다.  대부분의 앱은 코드를 변경하지 않고도 3.x로 안전하게 업그레이드할 수 있습니다. 3.x로 이동하는 것이 좋습니다. 프로덕션 앱에서 주 버전을 변경하기 전에 광범위한 테스트를 실행합니다.
+Azure Functions 버전 3.x는 이전 버전 2.x와 호환됩니다.  대부분의 앱은 코드를 변경하지 않고도 3.x로 안전하게 업그레이드할 수 있습니다. 3. x로 이동 하는 것이 좋지만 프로덕션 앱에서 주 버전을 변경 하기 전에 광범위 한 테스트를 실행 합니다.
 
 ### <a name="breaking-changes-between-2x-and-3x"></a>2\.x와 3.x의 주요 변경 사항
 
-다음은 2.x 앱을 3.x로 업그레이드하기 전에 인식해야 하는 언어별 변경 내용입니다.
+다음은 2.x 앱을 3. x로 업그레이드 하기 전에 알아두어야 할 언어별 변경 내용입니다.
 
 # <a name="c"></a>[C\#](#tab/csharp)
 
@@ -151,7 +153,7 @@ Azure Functions 버전 3.x는 이전 버전 2.x와 호환됩니다.  대부분�
 
 # <a name="python"></a>[Python](#tab/python)
 
-없음.
+없음
 
 ---
 

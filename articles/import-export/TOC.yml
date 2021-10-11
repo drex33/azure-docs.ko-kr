@@ -5,6 +5,14 @@
   items:
     - name: Import/Export란?
       href: storage-import-export-service.md
+- name: 자습서
+  items:
+    - name: Blob 스토리지로 데이터 가져오기
+      href: storage-import-export-data-to-blobs.md
+    - name: Azure Files에 데이터 가져오기
+      href: storage-import-export-data-to-files.md
+    - name: Blob 스토리지에서 데이터 내보내기
+      href: storage-import-export-data-from-blobs.md
 - name: 개념
   items:
     - name: 요구 사항 검토
@@ -14,21 +22,15 @@
 - name: 방법
   expanded: true
   items:
-    - name: 배포
-      items:
-        - name: Blob으로 데이터 가져오기
-          href: storage-import-export-data-to-blobs.md
-        - name: 파일로 데이터 가져오기
-          href: storage-import-export-data-to-files.md
-        - name: Blob에서 데이터 내보내기
-          href: storage-import-export-data-from-blobs.md
     - name: 고객 관리형 키 사용
       href: storage-import-export-encryption-key-portal.md
+    - name: 사용할 디스크 식별
+      href: storage-import-export-determine-drives-for-export.md
     - name: 모니터
       items:
         - name: '작업, 드라이브 상태 보기'
           href: storage-import-export-view-drive-status.md
-        - name: 작업 상태 검토
+        - name: 복사 로그 검토
           href: storage-import-export-tool-reviewing-job-status-v1.md
     - name: 문제 해결
       items:

@@ -2,10 +2,8 @@
   href: index.yml
 - name: 개요
   items:
-    - name: Azure IoT Hub란?
-      href: about-iot-hub.md
-    - name: IoT 개념
-      href: iot-concepts.md
+    - name: IoT 개념 및 Azure IoT Hub
+      href: iot-concepts-and-iot-hub.md
 - name: 빠른 시작
   expanded: true
   items:

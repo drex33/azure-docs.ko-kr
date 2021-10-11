@@ -130,19 +130,25 @@
         - name: Azure 보안 기준 적용
           displayName: 'VM, guest configuration, vulnerabilities, ASB, benchmark'
           href: apply-security-baseline.md
-        - name: 취약성 검색
+        - name: 취약성 평가
           items:
-            - name: 통합 Qualys 스캐너로 머신 검사
-              displayName: 'qualys, vulnerability, arc, hybrid'
+            - name: 위협 및 취약성 관리를 통해 취약성 찾기
+              displayName: 'mde, tvm, vulnerability, va, arc, hybrid'
+              href: deploy-vulnerability-assessment-tvm.md
+            - name: 통합 Qualys 스캐너를 통해 취약성 찾기
+              displayName: 'qualys, va, vulnerability, arc, hybrid'
               href: deploy-vulnerability-assessment-vm.md
-            - name: BYOL VA 솔루션을 사용하여 VM 검사
+            - name: BYOL VA 솔루션으로 취약성 찾기
               displayName: 'qualys, rapid7, vulnerability'
               href: deploy-vulnerability-assessment-byol-vm.md
+            - name: 취약성 평가 솔루션 자동 활성화
+              displayName: 'qualys, rapid7, vulnerability, auto provision'
+              href: auto-deploy-vulnerability-assessment.md
             - name: 취약점 검토 및 수정
-              displayName: 'qualys, rapid7, vulnerability'
+              displayName: 'qualys, va, rapid7, vulnerability'
               href: remediate-vulnerability-findings-vm.md
             - name: 특정 취약점 발견 사용 안 함
-              displayName: 'qualys, rapid7'
+              displayName: 'qualys, rapid7, va'
               href: remediate-vulnerability-findings-vm.md#disable-specific-findings-preview
         - name: Just-In-Time VM 액세스로 관리 포트 보호
           items:

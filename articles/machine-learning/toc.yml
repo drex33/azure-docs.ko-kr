@@ -290,6 +290,8 @@
             - name: Resource Manager 템플릿 사용
               displayName: arm
               href: how-to-create-workspace-template.md
+            - name: Terraform 사용
+              href: how-to-manage-workspace-terraform.md
             - name: REST 사용
               href: how-to-manage-rest.md
             - name: Azure Synapse Analytics 작업 영역에 연결
@@ -569,11 +571,11 @@
               href: how-to-deploy-azure-container-instance.md
             - name: GPU 유추
               href: how-to-deploy-inferencing-gpus.md
+            - name: Azure Cognitive Search
+              href: how-to-deploy-model-cognitive-search.md
             - name: Azure 기능
               displayName: functions app
               href: how-to-deploy-functions.md
-            - name: Azure Cognitive Search
-              href: how-to-deploy-model-cognitive-search.md
             - name: FPGA 유추
               href: how-to-deploy-fpga-web-service.md
         - name: 미리 빌드된 Docker 이미지

@@ -1111,7 +1111,7 @@
               href: containers/container-insights-enable-new-cluster.md
             - name: 기존 AKS 클러스터에 대해 활성화
               href: containers/container-insights-enable-existing-clusters.md
-            - name: Arc 사용 클러스터에 사용
+            - name: Azure Arc 지원 클러스터에 사용
               href: containers/container-insights-enable-arc-enabled-clusters.md
             - name: 하이브리드 클러스터에 대해 활성화
               href: containers/container-insights-hybrid-setup.md

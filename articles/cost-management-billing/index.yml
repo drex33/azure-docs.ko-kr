@@ -1,22 +1,22 @@
 ### YamlMime:Landing
 title: Azure Cost Management + 청구 설명서
-summary: Azure Cost Management + Billing은 Azure 청구서를 이해하고, 청구 계정 및 구독을 관리하고, Azure 지출을 모니터링 및 제어하고, 리소스 사용을 최적화하는 데 도움이 됩니다. 비용을 분석하고, 예산을 작성 및 관리하고, 데이터를 내보내고, 권장 사항을 검토하고 필요한 조치를 취하는 방법을 알아보세요.
+summary: Cost Management + Billing은 Azure 청구서를 이해하고, 청구 계정 및 구독을 관리하고, Azure 지출을 모니터링 및 제어하고, 리소스 사용을 최적화하는 데 도움이 됩니다. 비용을 분석하고, 예산을 작성 및 관리하고, 데이터를 내보내고, 권장 사항을 검토하고 필요한 조치를 취하는 방법을 알아보세요.
 metadata:
-  title: Azure Cost Management + 청구
-  description: Azure Cost Management + Billing은 Azure 청구서를 이해하고, 청구 계정 및 구독을 관리하고, Azure 지출을 모니터링 및 제어하고, 리소스 사용을 최적화하는 데 도움이 됩니다. 비용을 분석하고, 예산을 작성 및 관리하고, 데이터를 내보내고, 권장 사항을 검토하고 필요한 조치를 취하는 방법을 알아보세요.
+  title: Cost Management + 청구
+  description: Cost Management + Billing은 Azure 청구서를 이해하고, 청구 계정 및 구독을 관리하고, Azure 지출을 모니터링 및 제어하고, 리소스 사용을 최적화하는 데 도움이 됩니다. 비용을 분석하고, 예산을 작성 및 관리하고, 데이터를 내보내고, 권장 사항을 검토하고 필요한 조치를 취하는 방법을 알아보세요.
   ms.service: cost-management-billing
   ms.subservice: common
   ms.topic: landing-page
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 07/14/2021
-  ms.openlocfilehash: ee7f65921165d9649dafd0a2ee2c3934849914d8
-  ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+  ms.date: 10/07/2021
+  ms.openlocfilehash: 4dab44a6129c2e6bb6d810ec820cfb459ddb89df
+  ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/15/2021
-  ms.locfileid: "114203425"
+  ms.lasthandoff: 10/09/2021
+  ms.locfileid: "129711263"
 landingContent:
 - title: 비용 분석
   linkLists:
@@ -28,9 +28,9 @@ landingContent:
       url: https://azure.microsoft.com/blog/tag/cost-management/
   - linkListType: get-started
     links:
-    - text: 자신의 속도에 맞게 학습
+    - text: 자신에게 맞는 속도로 배우기
       url: /learn/paths/control-spending-manage-bills/?WT.mc_id=ignite2020_collections
-    - text: Azure Cost Management 비디오
+    - text: 비용 관리 비디오
       url: https://www.youtube.com/c/AzureCostManagement
     - text: 비용 분석 시작
       url: costs/quick-acm-cost-analysis.md
@@ -82,7 +82,7 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: Azure Cost Management 모범 사례
+    - text: Cost Management 모범 사례
       url: costs/cost-mgt-best-practices.md
     - text: Azure Reservations를 사용하여 비용 절감
       url: reservations/save-compute-costs-reservations.md

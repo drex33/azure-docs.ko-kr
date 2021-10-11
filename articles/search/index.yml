@@ -11,12 +11,12 @@ metadata:
   author: HeidiSteen
   ms.author: heidist
   ms.date: 03/02/2021
-  ms.openlocfilehash: 2cdb36e2cc141c440ab933ea77e4ef2e480a691e
-  ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+  ms.openlocfilehash: d0fbe222a6128604e5ed98d467f60cecbeeeebcf
+  ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/23/2021
-  ms.locfileid: "112518773"
+  ms.lasthandoff: 10/09/2021
+  ms.locfileid: "129706833"
 landingContent:
 - title: Cognitive Search 정보
   linkLists:
@@ -28,7 +28,7 @@ landingContent:
       url: semantic-search-overview.md
     - text: AI 보강이란?
       url: cognitive-search-concept-intro.md
-    - text: 인덱스란?
+    - text: 인덱서란?
       url: search-indexer-overview.md
     - text: Azure Applied AI Services란 무엇인가요?
       url: ../applied-ai-services/what-are-applied-ai-services.md
@@ -36,6 +36,38 @@ landingContent:
     links:
     - text: 검색 솔루션에서 AI 사용
       url: https://youtu.be/M4Rf1s0WcWQ?t=19
+- title: 앱 개발
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 웹앱에 검색 추가
+      url: tutorial-csharp-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: .NET으로 작성된 개발
+      url: search-howto-dotnet-sdk.md
+    - text: Postman에서 REST API 호출
+      url: search-get-started-rest.md
+  - linkListType: reference
+    links:
+    - text: Azure SDK for .NET
+      url: /dotnet/api/overview/azure/search.documents-readme
+    - text: Python용 Azure SDK
+      url: /python/api/overview/azure/search-documents-readme
+- title: 시작
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 서비스 만들기
+      url: search-create-service-portal.md
+    - text: 인덱스 만들기
+      url: search-get-started-portal.md
+    - text: 데모 앱 만들기
+      url: search-create-app-portal.md
+    - text: 텍스트 번역 및 엔터티 인식
+      url: cognitive-search-quickstart-blob.md
+    - text: OCR 및 이미지 분석 적용
+      url: cognitive-search-quickstart-ocr.md
 - title: 인덱스 데이터
   linkLists:
   - linkListType: overview
@@ -54,40 +86,6 @@ landingContent:
       url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
     - text: Cosmos DB의 인덱싱
       url: search-howto-index-cosmosdb.md
-- title: 시작
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: 서비스 만들기
-      url: search-create-service-portal.md
-    - text: 인덱스 만들기
-      url: search-get-started-portal.md
-    - text: 데모 앱 만들기
-      url: search-create-app-portal.md
-    - text: 이미지 및 앱 파일에서 텍스트 추출
-      url: cognitive-search-quickstart-blob.md
-- title: 앱 개발
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: 웹앱에 검색 추가
-      url: tutorial-csharp-overview.md
-  - linkListType: how-to-guide
-    links:
-    - text: .NET으로 작성된 개발
-      url: search-howto-dotnet-sdk.md
-    - text: VS Code에서 REST API 호출
-      url: search-get-started-vs-code.md
-    - text: Postman에서 REST API 호출
-      url: search-get-started-rest.md
-  - linkListType: reference
-    links:
-    - text: Azure SDK for .NET
-      url: /dotnet/api/overview/azure/search.documents-readme
-    - text: Python용 Azure SDK
-      url: /python/api/overview/azure/search-documents-readme
-    - text: REST API 참조
-      url: /rest/api/searchservice/index
 - title: AI로 보강
   linkLists:
   - linkListType: concept
@@ -106,10 +104,6 @@ landingContent:
       url: cognitive-search-defining-skillset.md
     - text: 지식 저장소 만들기
       url: knowledge-store-create-portal.md
-  - linkListType: reference
-    links:
-    - text: 기본 제공 기술
-      url: cognitive-search-predefined-skills.md
 - title: 쿼리 데이터
   linkLists:
   - linkListType: concept
@@ -132,13 +126,3 @@ landingContent:
       url: query-odata-filter-orderby-syntax.md
     - text: 문서 검색(REST)
       url: /rest/api/searchservice/search-documents
-- title: 도움말 및 피드백
-  linkLists:
-  - linkListType: reference
-    links:
-    - text: FAQ
-      url: search-faq-frequently-asked-questions.yml
-    - text: Stack Overflow에 대한 질문
-      url: https://stackoverflow.com/questions/tagged/azure-search
-    - text: 기능 요청
-      url: https://feedback.azure.com/forums/263029-azure-search

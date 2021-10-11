@@ -91,7 +91,7 @@
       items:
         - name: Azure Arc 지원 Logic Apps 정보
           href: azure-arc-enabled-logic-apps-overview.md
-        - name: Arc 지원 논리 앱 만들기 및 배포
+        - name: Azure Arc 지원 논리 앱 만들기 및 배포
           href: azure-arc-enabled-logic-apps-create-deploy-workflows.md
     - name: 개발
       items:
@@ -261,7 +261,7 @@
           href: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md
         - name: Azure Event Hubs
           href: ../connectors/connectors-create-api-azure-event-hubs.md
-        - name: Azure 기능
+        - name: Azure Functions
           href: logic-apps-azure-functions.md
         - name: Azure Logic Apps
           href: logic-apps-http-endpoint.md

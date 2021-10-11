@@ -17,11 +17,13 @@
           href: search-get-started-portal.md
         - name: 데모 앱 만들기
           href: search-create-app-portal.md
-        - name: 기술 집합 만들기
-          href: cognitive-search-quickstart-blob.md
         - name: 지식 저장소 만들기
           href: knowledge-store-create-portal.md
-        - name: Search 탐색기를 사용하여 쿼리
+        - name: 텍스트 번역 및 엔터티 인식
+          href: cognitive-search-quickstart-blob.md
+        - name: OCR 및 이미지 분석 적용
+          href: cognitive-search-quickstart-ocr.md
+        - name: Search Explorer를 사용하여 쿼리
           href: search-explorer.md
     - name: Visual Studio Code
       href: search-get-started-vs-code.md

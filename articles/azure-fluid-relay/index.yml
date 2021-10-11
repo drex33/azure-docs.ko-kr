@@ -1,0 +1,34 @@
+### YamlMime:Landing
+title: Azure Fluid Relay 설명서
+summary: Azure Fluid Relay는 Fluid Framework 클라이언트를 지원하는 관리형 클라우드 서비스입니다.
+metadata:
+  title: Azure Fluid Relay
+  description: Azure Fluid Relay는 Fluid Framework 클라이언트를 지원하는 관리형 클라우드 서비스입니다.
+  ms.service: azure-fluid
+  ms.topic: landing-page
+  author: hickeys
+  ms.author: hickeys
+  ms.date: 08/19/2021
+  ms.openlocfilehash: 86238a56af7d5d5e7f8e105bbe487994dffa207f
+  ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 10/07/2021
+  ms.locfileid: "129661475"
+landingContent:
+- title: Azure Fluid Relay 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Fluid Relay 개요
+      url: overview/overview.md
+    - text: Azure Fluid Relay 아키텍처
+      url: concepts/architecture.md
+- title: 방법 및 빠른 시작
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Azure Fluid Relay 서비스 프로비전
+      url: how-tos/provision-fluid-azure-portal.md
+    - text: '빠른 시작: 주사위 롤러'
+      url: quickstarts/quickstart-dice-roll.md

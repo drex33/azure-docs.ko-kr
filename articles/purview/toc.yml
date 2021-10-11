@@ -8,17 +8,17 @@ items:
   - name: 빠른 시작
     expanded: true
     items:
-      - name: Purview 계정 만들기
+      - name: Azure Purview 계정 만들기
         items:
-          - name: Purview 계정 만들기 - 포털
+          - name: 계정 만들기 - Azure Portal
             href: create-catalog-portal.md
-          - name: Purview 계정 만들기 - PowerShell
+          - name: 계정 만들기 - PowerShell/CLI
             href: create-catalog-powershell.md
-          - name: Purview 계정 만들기 - .NET SDK
+          - name: 계정 만들기 - .NET SDK
             href: create-purview-dotnet.md
-          - name: Purview 계정 만들기 - Python
+          - name: 계정 만들기 - Python
             href: create-purview-python.md
-      - name: 컬렉션 만들기 - 포털
+      - name: 컬렉션 만들기 - Azure Portal
         href: quickstart-create-collection.md
   - name: 자습서
     items:
@@ -26,17 +26,17 @@ items:
         items:
           - name: 대규모 Azure 원본 준비
             href: tutorial-data-sources-readiness.md
-          - name: 대규모 Purview MSI 구성
+          - name: 대규모 Azure Purview MSI 구성
             href: tutorial-msi-configuration.md
-      - name: 온-프레미스 SQL Server 온보드
+      - name: 온-프레미스 SQL Server 인스턴스 온보드
         href: tutorial-register-scan-on-premises-sql-server.md
-      - name: Purview 데이터 평면에 REST API 사용
+      - name: 데이터 평면에 REST API 사용
         href: tutorial-using-rest-apis.md
-      - name: 컬렉션 관리에 REST API 사용
+      - name: 컬렉션에 REST API 사용
         href: tutorial-metadata-policy-collections-apis.md
   - name: 개념
     items:
-      - name: Purview Studio 사용
+      - name: Azure Purview Studio 사용
         href: use-purview-studio.md
       - name: 모범 사례 및 지침
         items:
@@ -44,9 +44,11 @@ items:
             href: deployment-best-practices.md
           - name: 컬렉션 아키텍처
             href: concept-best-practices-collections.md
-          - name: Purview 가격 책정 지침
+          - name: 가격 책정 지침
             href: concept-guidelines-pricing.md
-      - name: Purview 권한
+          - name: 네트워크 아키텍처
+            href: concept-best-practices-network.md
+      - name: Azure Purview 권한
         href: catalog-permissions.md
       - name: 데이터 맵
         items:
@@ -68,7 +70,7 @@ items:
             href: concept-asset-normalization.md
       - name: 데이터 인사이트
         href: concept-insights.md
-      - name: 업그레이드된 Purview 계정
+      - name: 업그레이드된 Azure Purview 계정
         href: concept-account-upgrade.md
   - name: 방법 가이드
     items:
@@ -82,7 +84,7 @@ items:
             href: manage-data-sources.md
           - name: 자격 증명 관리
             href: manage-credentials.md
-            displayName: Create and manage Credentials
+            displayName: Create and manage credentials
       - name: 원본
         items:
           - name: Azure 다중 소스

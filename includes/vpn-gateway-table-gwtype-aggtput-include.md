@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 7205fa7095608084140f7ac6e1c3965b1296a8fe
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: bebedbcd2c36203ec122ebf597ac8a0c64fb1ae4
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122336313"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129679850"
 ---
 |**VPN<br>게이트웨이<br>생성** |**SKU**   | **S2S/VNet 간<br>터널** | **P2S<br> SSTP 연결** | **P2S<br> IKEv2/OpenVPN 연결** | **집계<br>처리량 벤치마크** | **BGP** | **Zone-redundant** |
 |---            |---         | ---        | ---       | ---            | ---       | ---       | ---|
@@ -36,7 +36,7 @@ ms.locfileid: "122336313"
 
 (*) S2S VPN 터널이 30개 넘게 필요한 경우 [가상 WAN](../articles/virtual-wan/virtual-wan-about.md)을 사용해야 합니다.
 
-* VpnGw SKU 크기 조정은 기본 SKU의 크기 조정을 제외하고, 동일 생성 내에서 허용됩니다. 기본 SKU는 레거시 SKU이며 기능이 제한됩니다. 기본에서 다른 VpnGw SKU로 이동하려면 기본 SKU VPN 게이트웨이를 삭제하고 원하는 생성 및 SKU 크기 조합으로 새 게이트웨이를 만들어야 합니다.
+* VpnGw SKU 크기 조정은 기본 SKU의 크기 조정을 제외하고, 동일 생성 내에서 허용됩니다. 기본 SKU는 레거시 SKU이며 기능이 제한됩니다. 기본에서 다른 VpnGw SKU로 이동하려면 기본 SKU VPN 게이트웨이를 삭제하고 원하는 생성 및 SKU 크기 조합으로 새 게이트웨이를 만들어야 합니다. 기본 게이트웨이의 크기는 다른 레거시 SKU로만 조정할 수 있습니다([레거시 SKU 작업](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md) 참조).
 
 * 이러한 연결 제한은 별도로 적용됩니다. 예를 들어 VpnGw1 SKU 하나에 SSTP 연결 128개와 IKEv2 연결 250개가 있을 수 있습니다.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.openlocfilehash: a6e5f1ecb5686145718d83febf3faf5c520db6fe
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 103ced05c6b88c5f7f60de398f78f89cc460daf9
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609520"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667310"
 ---
 # <a name="calling-recording-overview"></a>통화 녹화 개요
 
@@ -30,11 +30,12 @@ ms.locfileid: "128609520"
 ![통화 녹음/녹화 개념 다이어그램](../media/call-recording-concept.png)
 
 ## <a name="media-output-types"></a>미디어 출력 형식
-통화 녹화는 현재 혼합 오디오+비디오 MP4 출력 형식을 지원합니다. 출력 미디어는 Microsoft Teams 녹화를 통해 생성된 회의 녹화와 일치합니다.
+통화 녹음/녹화는 현재 혼합 오디오+비디오 MP4 및 혼합 오디오 전용 MP3/WAV 출력 형식을 지원합니다. 혼합 오디오+비디오 출력 미디어는 Microsoft Teams 녹음/녹화를 통해 생성된 회의 녹음/녹화와 일치합니다.
 
 | 채널 형식 | 콘텐츠 형식 | 동영상 | 오디오 |
 | :----------- | :------------- | :---- | :--------------------------- |
 | audioVideo | mp4 | 기본 타일 정렬의 모든 참가자에 대한 1920x1080 8 FPS 비디오 | 모든 참가자에 대한 16kHz mp4a 혼합 오디오 |
+| audioOnly| mp3/wav | N/A | 모든 참가자의 16kHz mp3/wav 혼합 오디오 |
 
 
 ## <a name="run-time-control-apis"></a>런타임 컨트롤 API

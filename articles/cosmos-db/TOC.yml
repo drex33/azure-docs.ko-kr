@@ -1303,6 +1303,8 @@
           href: graph/powershell-samples.md
         - name: Azure CLI를 사용하여 관리
           href: graph/cli-samples.md
+        - name: 공급망 추적 기능 솔루션
+          href: graph/supply-chain-traceability-solution.md
     - name: 참조
       items:
         - name: 응답 헤더

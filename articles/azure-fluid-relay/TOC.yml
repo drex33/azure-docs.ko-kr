@@ -1,0 +1,46 @@
+- name: Azure Fluid Relay 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure Fluid Relay 개요
+      href: overview/overview.md
+- name: 빠른 시작
+  items:
+    - name: '빠른 시작: 주사위 롤러'
+      href: quickstarts/quickstart-dice-roll.md
+- name: 개념
+  items:
+    - name: Architecture
+      href: concepts/architecture.md
+    - name: 컨테이너 관리
+      href: concepts/container-management.md
+    - name: 분산 데이터 구조
+      href: concepts/data-structures.md
+    - name: 앱의 인증 및 권한 부여
+      href: concepts/authentication-authorization.md
+    - name: 버전 호환성
+      href: concepts/version-compatibility.md
+- name: 방법 가이드
+  items:
+    - name: '방법: Azure Fluid Relay 서비스 프로비전'
+      href: how-tos/provision-fluid-azure-portal.md
+    - name: '방법: Azure Fluid Relay 서비스에 연결'
+      href: how-tos/connect-fluid-azure-service.md
+    - name: '방법: 로컬 테스트에 AzureClient 사용'
+      href: how-tos/local-mode-with-azure-client.md
+    - name: '방법: Azure Function을 사용하여 TokenProvider 작성'
+      href: how-tos/azure-function-token-provider.md
+    - name: '방법: JWT 토큰 사용'
+      href: how-tos/fluid-json-web-token.md
+    - name: '방법: Azure Fluid Relay에서 테스트 자동화 사용'
+      href: how-tos/test-automation.md
+    - name: '방법: Fluid 컨테이너 삭제'
+      href: how-tos/container-deletion.md
+- name: 참조
+  items:
+    - name: API 설명서
+      href: 'https://fluidframework.com/docs/apis/'
+- name: 리소스
+  items:
+    - name: Fluid Framework 홈 페이지
+      href: 'https://fluidframework.com'

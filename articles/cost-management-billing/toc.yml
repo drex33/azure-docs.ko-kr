@@ -1,4 +1,4 @@
-- name: Azure Cost Management + 청구 설명서
+- name: Cost Management + Billing 설명서
   href: index.yml
 - name: 개요
   items:
@@ -36,7 +36,7 @@
   items:
     - name: Cost Management
       items:
-        - name: Azure Cost Management 모범 사례
+        - name: Cost Management 모범 사례
           href: costs/cost-mgt-best-practices.md
         - name: Cost Management 데이터 이해
           href: costs/understand-cost-mgt-data.md
@@ -400,7 +400,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/billing
-    - name: Azure Cost Management REST API
+    - name: Cost Management REST API
       href: /rest/api/cost-management
     - name: Azure Consumption REST API
       href: /rest/api/consumption

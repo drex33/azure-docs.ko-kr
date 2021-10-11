@@ -1,5 +1,5 @@
 ---
-title: '자습서: ADP와 Azure Active Directory SSO(Single Sign-On) 연결 | Microsoft Docs'
+title: '자습서: ADP와 Azure AD SSO 통합'
 description: Azure Active Directory와 ADP 간에 Single Sign-On을 구성하는 방법을 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/24/2020
+ms.date: 09/30/2021
 ms.author: jeedes
-ms.openlocfilehash: ab53dc218bee83476811e6d42dec76479559b50b
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b0ee99863c0ba0287d3fd192ed04145fd3a3c69f
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124803230"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129402672"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adp"></a>자습서: ADP와 Azure Active Directory SSO(Single Sign-On) 연결
+# <a name="tutorial-azure-ad-sso-integration-with-adp"></a>자습서: ADP와 Azure AD SSO 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 ADP를 통합하는 방법에 대해 알아봅니다. Azure AD와 ADP를 통합하면 다음과 같은 일을 할 수 있습니다.
 
@@ -26,13 +26,15 @@ ms.locfileid: "124803230"
 * 사용자가 자신의 Azure AD 계정으로 ADP에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-
 ## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * ADP SSO(Single Sign-On)이 설정된 구독
+
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -43,7 +45,7 @@ ms.locfileid: "124803230"
 > [!NOTE]
 > 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
 
-## <a name="adding-adp-from-the-gallery"></a>갤러리에서 ADP 추가
+## <a name="add-adp-from-the-gallery"></a>갤러리에서 ADP 추가
 
 ADP의 Azure AD 통합을 구성하려면 갤러리의 ADP를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
@@ -73,7 +75,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Azure Portal의 **ADP** 애플리케이션 통합 페이지에서 **속성 탭** 을 클릭하고 다음 단계를 수행합니다. 
 
-    ![Single Sign-On 속성](./media/adpfederatedsso-tutorial/tutorial_adp_prop.png)
+    ![Single Sign-On 속성](./media/adpfederatedsso-tutorial/properties.png)
 
     a. **사용자가 로그인할 수 있습니까** 필드 값을 **예** 로 설정합니다.
 
@@ -91,13 +93,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    **식별자(엔터티 ID)** 텍스트 상자에서 `https://fed.adp.com` URL을 입력합니다.
+    **식별자(엔터티 ID)** 텍스트 상자에 `https://fed.adp.com` URL을 입력합니다.
 
-4. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
 
-6. **ADP 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
+1. **ADP 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
@@ -109,7 +111,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -146,7 +148,7 @@ ADP 담당자로부터 확인을 받는 즉시 ADP 서비스를 구성하고 특
 1. 결과 패널에서 **ADP** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 1. Azure Portal의 **ADP** 애플리케이션 통합 페이지에서 **속성 탭** 을 클릭하고 다음 단계를 수행합니다.  
 
-    ![Single Sign-On 연결 속성](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
+    ![Single Sign-On 연결 속성 탭](./media/adpfederatedsso-tutorial/application.png)
 
     1. **사용자가 로그인할 수 있습니까** 필드 값을 **예** 로 설정합니다.
 
@@ -158,11 +160,11 @@ ADP 담당자로부터 확인을 받는 즉시 ADP 서비스를 구성하고 특
 
 1. **Single Sign-On 방법 선택** 대화 상자에서 **모드** 를 **연결됨** 으로 선택합니다. 애플리케이션을 **ADP** 에 연결하합니다.
 
-    ![연결된 Single Sign-On](./media/adpfederatedsso-tutorial/tutorial_adp_linked.png)
+    ![연결된 Single Sign-On](./media/adpfederatedsso-tutorial/linked.png)
 
 1. **로그온 URL 구성** 섹션으로 이동하고 다음 단계를 수행합니다.
 
-    ![Single Sign-On 속성](./media/adpfederatedsso-tutorial/tutorial_adp_linkedsignon.png)
+    ![Single Sign-On 구성](./media/adpfederatedsso-tutorial/users.png)
 
     1. 위의 **속성 탭**(기본 ADP 앱)에서 복사한 **사용자 액세스 URL** 을 붙여넣습니다.
 
@@ -209,7 +211,6 @@ ADP 담당자로부터 확인을 받는 즉시 ADP 서비스를 구성하고 특
 * Azure Portal에서 이 애플리케이션 테스트를 클릭하면 SSO를 설정한 ADP에 자동으로 로그인됩니다.
 
 * Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 ADP 타일을 클릭하면 SSO를 설정한 ADP에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
-
 
 ## <a name="next-steps"></a>다음 단계
 

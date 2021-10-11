@@ -1,15 +1,15 @@
 ---
 title: '빠른 시작: Event Hubs에 사용자 지정 이벤트 보내기 - Event Grid, Azure CLI'
 description: '빠른 시작: Azure Event Grid 및 Azure CLI를 사용하여 토픽을 게시하고 해당 이벤트를 구독합니다. Event Hub는 엔드포인트에 사용됩니다.'
-ms.date: 07/07/2020
+ms.date: 09/28/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 37523e907eb891a326c8dbe975593554958a44b9
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: f725af009f8c2b8f8c4595865d6d746ff9f55849
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897922"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230167"
 ---
 # <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>빠른 시작: Azure CLI 및 Event Grid를 사용하여 Azure Event Hubs로 사용자 지정 이벤트 라우팅
 
@@ -37,6 +37,9 @@ Event Grid 항목은 이벤트를 게시하는 사용자 정의 엔드포인트�
 
 ```azurecli-interactive
 topicname=<your-topic-name>
+```
+
+```azurecli-interactive
 az eventgrid topic create --name $topicname -l westus2 -g gridResourceGroup
 ```
 
@@ -46,6 +49,9 @@ az eventgrid topic create --name $topicname -l westus2 -g gridResourceGroup
 
 ```azurecli-interactive
 namespace=<unique-namespace-name>
+```
+
+```azurecli-interactive
 hubname=demohub
 
 az eventhubs namespace create --name $namespace --resource-group gridResourceGroup
@@ -94,7 +100,7 @@ done
 
 포털에서 Event Hub로 이동하고 Event Grid에서 이 세 개의 이벤트를 Event Hub로 보냈음을 확인합니다.
 
-![메시지 표시](./media/custom-event-to-eventhub/show-result.png)
+:::image type="content" source="./media/custom-event-to-eventhub/show-result.png" lightbox="./media/custom-event-to-eventhub/show-result.png" alt-text="들어오는 메시지 수가 3인 포털 페이지를 보여주는 이미지.":::
 
 일반적으로 Event Hub에서 이벤트를 검색하는 애플리케이션을 만듭니다. Event Hub에서 메시지를 가져오는 애플리케이션을 만들려면 다음을 참조하세요.
 

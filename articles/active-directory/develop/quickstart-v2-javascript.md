@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: c266fe52620cd91f1e09f06d7468181b0d584df3
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: d49ab26695a061f47fd7e077fb9c609055998286
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113357646"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232587"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>빠른 시작: JavaScript SPA에서 사용자 로그인 및 액세스 토큰 가져오기
 
@@ -25,7 +25,7 @@ ms.locfileid: "113357646"
 
 자세한 내용은 [샘플 작동 방식](#how-the-sample-works)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Node.JS](https://nodejs.org/en/download/)
@@ -295,7 +295,7 @@ myMSALObj.acquireTokenPopup(requestObj)
 ```
 
 > [!NOTE]
-> 이 빠른 시작에서는 Internet Explorer의 팝업 창 처리와 관련하여 [알려진 문제](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) 때문에 Microsoft Internet Explorer로 `loginRedirect` 및 `acquireTokenRedirect` 메서드를 사용합니다.
+> 이 빠른 시작에서는 Internet Explorer의 팝업 창 처리와 관련하여 [알려진 문제](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) 때문에 Microsoft Internet Explorer에서 `loginRedirect` 및 `acquireTokenRedirect` 메서드를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

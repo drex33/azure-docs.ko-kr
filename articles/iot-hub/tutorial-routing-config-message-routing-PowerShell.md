@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 3b40a285b934da2a193d1d4c6819f69e6b0ba69c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0d7919060306ceec06062bdcd1a212789e740bd5
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128610354"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458267"
 ---
 # <a name="tutorial-use-azure-powershell-to-configure-iot-hub-message-routing"></a>자습서: Azure PowerShell을 사용하여 IoT Hub 메시지 라우팅 구성
 
@@ -25,7 +25,7 @@ ms.locfileid: "128610354"
 
 이 자습서의 두 번째 부분에서는 Visual Studio 애플리케이션을 다운로드하고 실행하여 IoT Hub에 메시지를 보냅니다. 이 다운로드에는 Azure Resource Manager 템플릿과 매개 변수 파일은 물론 Azure CLI와 PowerShell 스크립트가 포함된 폴더가 있습니다. 
 
-완성된 스크립트를 보려면 [Azure IoT C# 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)을 다운로드합니다. master.zip 파일의 압축을 풉니다. Azure CLI 스크립트는 /iot-hub/Tutorials/Routing/SimulatedDevice/resources/의 **iothub_routing_psh.ps1** 에 있습니다.
+완성된 스크립트를 보려면 [Azure IoT C# 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip)을 다운로드합니다. main.zip 파일의 압축을 풉니다. Azure CLI 스크립트는 /iot-hub/Tutorials/Routing/SimulatedDevice/resources/의 **iothub_routing_psh.ps1** 에 있습니다.
 
 ## <a name="create-your-resources"></a>리소스 만들기
 

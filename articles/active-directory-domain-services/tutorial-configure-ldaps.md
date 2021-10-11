@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: justinha
-ms.openlocfilehash: 27e8c108447a3e16a5e61854eb9d43c4a8efffee
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: ce3587d0e70c2dec04e60bed5a23f16bd6c7688b
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126914"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233034"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>자습서: Azure Active Directory Domain Services 관리되는 도메인에 대한 보안 LDAP 구성
 
@@ -34,7 +34,7 @@ Azure AD DS를 사용하면 LDAPS(보안 Lightweight Directory Access Protocol)�
 
 Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
@@ -232,7 +232,7 @@ Thumbprint                                Subject
 
 1. Azure Portal의 왼쪽 탐색 영역에서 *리소스 그룹* 을 선택합니다.
 1. 리소스 그룹(예: *myResourceGroup*)을 선택한 다음, 네트워크 보안 그룹(*aaads-nsg*)을 선택합니다.
-1. 기존 인바운드 및 아웃바운드 보안 규칙의 목록이 표시됩니다. 네트워크 보안 그룹 창의 왼쪽에서 **설정 > 인바운드 보안 규칙** 을 차례로 선택합니다.
+1. 기존 인바운드 및 아웃바운드 보안 규칙의 목록이 표시됩니다. 네트워크 보안 그룹 창의 왼쪽에서 **설정 > 인바운드 보안 규칙** 을 선택합니다.
 1. **추가** 를 선택한 다음, *636* *TCP* 포트를 허용하는 규칙을 만듭니다. 보안을 강화하려면 *IP 주소* 로 원본을 선택한 다음, 조직에 대한 사용자 고유의 유효한 IP 주소 또는 범위를 지정합니다.
 
     | 설정                           | 값        |
@@ -245,7 +245,7 @@ Thumbprint                                Subject
     | 프로토콜                          | TCP          |
     | 작업                            | 허용        |
     | 우선 순위                          | 401          |
-    | 속성                              | AllowLDAPS   |
+    | Name                              | AllowLDAPS   |
 
 1. 준비가 되면 **추가** 를 선택하여 규칙을 저장하고 적용합니다.
 

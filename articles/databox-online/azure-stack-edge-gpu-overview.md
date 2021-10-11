@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 08/12/2021
+ms.date: 10/05/2021
 ms.author: alkohli
-ms.openlocfilehash: a61178917214e53f6a2d01183a3d35a1ba93eff3
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 551933814b034c3ac6370e4fe25ffe93fc616a4a
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122429666"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129544985"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>GPU가 있는 Azure Stack Edge Pro란?
 
@@ -42,19 +42,20 @@ Azure Stack Edge Pro GPU의 기능은 다음과 같습니다.
 
 |기능 |Description  |
 |---------|---------|
-|가속 AI 유추| 기본 제공 GPU(모델에 따라 하나 또는 두 개)에 의해 활성화됩니다.|
-|Edge 컴퓨팅      |VM 및 컨테이너화된 워크로드를 지원하여 데이터의 분석, 처리 및 필터링을 허용합니다. |
+|가속 AI 유추| 기본 제공 GPU(모델에 따라 하나 또는 두 개)에 의해 활성화됩니다. <br> 자세한 내용은 [Azure Stack Edge 디바이스에서 GPU 공유](azure-stack-edge-gpu-sharing.md)를 참조하세요.|
+|Edge 컴퓨팅      |VM 및 컨테이너화된 워크로드를 지원하여 데이터의 분석, 처리 및 필터링을 허용합니다. <ul><li>VM 워크로드에 대한 자세한 내용은 [Azure Stack Edge VM 개요](azure-stack-edge-gpu-virtual-machine-overview.md)를 참조하세요.</li> <li>컨테이너화된 워크로드의 경우 [Azure Stack Edge의 Kubernetes 개요](azure-stack-edge-gpu-kubernetes-overview.md)를 참조하세요.</li></ul> |
 |데이터 액세스     | 클라우드 API를 사용하여 Azure Storage Blob 및 Azure Files에서 데이터에 직접 액세스해 클라우드에서 데이터를 추가로 처리할 수 있습니다. 디바이스의 로컬 캐시는 가장 최근에 사용한 파일에 빠르게 액세스하는 데 사용됩니다.|
-|클라우드 관리     |디바이스 및 서비스는 Azure Portal를 통해 관리됩니다.  |
+|클라우드 관리     |디바이스 및 서비스는 Azure Portal를 통해 관리됩니다.|
 |오프라인 업로드     | 연결 끊김 모드에서도 오프라인 업로드 시나리오가 지원됩니다.|
 |지원되는 파일 전송 프로토콜      | 데이터 수집을 위한 표준 SMB, NFS 및 REST 프로토콜이 지원됩니다. <br> 지원되는 버전에 대한 자세한 내용은 [Azure Stack Edge Pro GPU 시스템 요구 사항](azure-stack-edge-system-requirements.md)을 참조하세요.|
-|데이터 새로 고침     | 클라우드의 최신 데이터로 로컬 파일을 새로 고칠 수 있습니다.|
+|데이터 새로 고침     | 클라우드의 최신 데이터로 로컬 파일을 새로 고칠 수 있습니다. <br> 자세한 내용은 [Azure Stack Edge에서 공유 새로 고침](azure-stack-edge-gpu-manage-shares.md#refresh-shares)을 참조하세요.|
 |암호화    | *https* 를 통해 클라우드로 안전하게 데이터를 전송하고 로컬에서 데이터를 암호화할 수 있도록 BitLocker가 지원됩니다.|
-|대역폭 제한| 사용량이 많은 시간 동안 대역폭 사용을 제한하는 데 사용됩니다.|
-|간편한 주문| Azure Edge Hardware Center(미리 보기)를 통해 디바이스의 대량 주문 및 추적이 가능합니다.|
+|대역폭 제한| 사용량이 많은 시간 동안 대역폭 사용을 제한하는 데 사용됩니다. <br> 자세한 내용은 [Azure Stack Edge에서 대역폭 일정 관리](azure-stack-edge-gpu-manage-bandwidth-schedules.md)를 참조하세요.|
+|간편한 주문| Azure Edge Hardware Center(미리 보기)를 통해 디바이스의 대량 주문 및 추적이 가능합니다. <br> 자세한 내용은 [Azure Edge Hardware Center를 통해 디바이스 주문](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource)을 참조하세요.|
 |특수 네트워크 함수|Azure Network Function Manager의 Marketplace 환경을 사용하여 모바일 패킷 코어, SD-WAN 에지 및 VPN 서비스 등의 네트워크 기능을 온-프레미스 환경에서 실행되는 Azure Stack Edge 디바이스에 신속하게 배포합니다. 자세한 내용은 [Azure Network Function Manager란?(미리 보기)](../network-function-manager/overview.md)을 참조하세요.|
 
 <!--|ExpressRoute | Added security through ExpressRoute. Use peering configuration where traffic from local devices to the cloud storage endpoints travels over the ExpressRoute. For more information, see [ExpressRoute overview](../expressroute/expressroute-introduction.md).|-->
+
 
 ## <a name="components"></a>구성 요소
 

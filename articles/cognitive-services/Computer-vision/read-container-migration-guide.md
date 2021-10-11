@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 05/24/2021
+ms.date: 09/28/2021
 ms.author: aahi
-ms.openlocfilehash: f8913bc75688184d30711e4ee33b5d3601557ee7
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.openlocfilehash: 5998ccdfa48a700ac8789954246f6b7bcec60543
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113303673"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129360501"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Read v3.x OCR 컨테이너로 마이그레이션
 
@@ -39,7 +39,7 @@ Read v3.2 컨테이너는 Computer Vision API 버전 3을 사용하고 다음 �
 
 ## <a name="memory-requirements"></a>메모리 요구 사항
 
-요구 사항 및 권장 사항은 초당 단일 요청을 포함하는 벤치마크를 기준으로 하며, 8MB의 스캔된 비즈니스 문자 이미지를 사용하여 29개 줄과 총 803 문자를 포함합니다. 다음 표에서는 각 Read OCR 컨테이너의 최소 및 권장 리소스 할당에 대해 설명합니다.
+요구 사항 및 권장 사항은 초당 단일 요청을 포함하는 벤치마크를 기준으로 하며, 8MB의 스캔된 비즈니스 문자 이미지를 사용하여 29개 줄과 총 803 문자를 포함합니다. 다음 표에서는 각 Read OCR 컨테이너에 대한 최소 및 권장 리소스 할당을 설명합니다.
 
 |컨테이너  |최소 | 권장  |
 |---------|---------|------|

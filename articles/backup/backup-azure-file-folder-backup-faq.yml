@@ -5,12 +5,12 @@ metadata:
   ms.topic: article
   ms.service: backup
   ms.date: 04/05/2021
-  ms.openlocfilehash: ff157a3d8e744dffd314525a053b8c3ca1ab8999
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.openlocfilehash: d4877b7346e9854748f6106ca881732c549e98a1
+  ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122252500"
+  ms.lasthandoff: 09/29/2021
+  ms.locfileid: "129271672"
 title: 질문과 대답 - MARS(Microsoft Azure Recovery Services) 에이전트
 summary: >
   이 문서에서는 [Azure Backup](backup-overview.md) 서비스에서 MARS(Microsoft Azure Recovery Services) 에이전트를 사용하여 데이터를 백업하는 것과 관련된 일반적인 질문에 대한 답변입니다.
@@ -84,6 +84,10 @@ sections:
   - question: >
       자격 증명 모음 구독을 다른 Azure AD 디렉터리로 전송하면 MARS 에이전트 백업에 어떤 영향이 있나요?
     answer: "Azure AD 디렉터리의 변경 내용은 MARS 에이전트 백업에 영향을 주지 않습니다. \n"
+  - question: >
+      예상되는 주간, 월간 또는 연간 백업이 실패하면 어떻게 되나요?
+    answer: >
+      백업이 실패하면 백업 정책에 따라 예상되는 주간, 월간 또는 연간 백업 이후의 다음 번의 성공적인 백업은 주간, 월간 및 연간 복구 지점(LTR(장기 보존) 지점)의 보존 기간별로 각각 유지됩니다. 이 성공적인 백업은 MARS 에이전트의 경우 임시 백업 또는 예약된 백업일 수 있습니다.
 - name: 백업 관리
   questions:
   - question: >
@@ -96,7 +100,7 @@ sections:
 
       * 자격 증명 모음에 새 이름을 등록하면 첫 번째 작업은 *전체* 백업입니다.
 
-      * 이전 서버 이름으로 자격 증명 모음에 백업된 데이터를 복원해야 하는 경우 옵션을 사용하여 데이터 복구 마법사의 대체 위치로 복원합니다. [자세한 정보](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
+      * 이전 서버 이름으로 자격 증명 모음에 백업된 데이터를 복원해야 하는 경우 옵션을 사용하여 데이터 복구 마법사의 대체 위치로 복원합니다. [자세히 알아보기](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
   - question: >
       백업의 최대 파일 경로 길이는 얼마인가요?
     answer: "MARS 에이전트는 NTFS를 사용하며 [Windows API](/windows/win32/FileIO/naming-a-file#fully-qualified-vs-relative-paths)에 의해 제한되는 파일 경로 길이 사양을 사용합니다. 보호할 파일이 허용된 값보다 길면 상위 폴더 또는 디스크 드라이브를 백업합니다.  \n"
@@ -203,7 +207,7 @@ sections:
   - question: >
       백업에 사용되는 대역폭의 양을 조정하는 방법이 있나요?
     answer: >
-      예, MARS 에이전트의 **속성 변경** 옵션을 사용하여 대역폭과 타이밍을 조정할 수 있습니다. [자세한 정보](backup-windows-with-mars-agent.md#enable-network-throttling).
+      예, MARS 에이전트의 **속성 변경** 옵션을 사용하여 대역폭과 타이밍을 조정할 수 있습니다. [자세히 알아보기](backup-windows-with-mars-agent.md#enable-network-throttling).
 - name: 복원
   questions:
   - question: >

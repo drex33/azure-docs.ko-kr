@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/28/2019
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: d2ec1be20c7453d64b3255f9756676d06b023d38
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3cf44d5ebe1ea643f588f1f63e0f5695240b1c95
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121747314"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233165"
 ---
 # <a name="what-is-azure-iot-edge"></a>Azure IoT Edge란?
 
@@ -65,7 +65,7 @@ Azure IoT Edge 런타임은 다양한 방식으로 사용할 수 있는 대규�
 
 제조사와 모델이 다르거나 지리적으로 분산된 수백만 대의 IoT 디바이스의 소프트웨어 수명 주기를 관리하기란 힘든 일입니다. 특정 유형의 디바이스를 위한 워크로드를 만들어서 구성하고, 모든 디바이스에 배포하고, 모니터링하면서 오작동하는 디바이스를 찾아내야 합니다. 이러한 작업은 디바이스 단위로 수행할 수 없고 대규모로 수행해야 합니다.
 
-Azure IoT Edge는 Azure IoT 솔루션 가속기와 원활하게 통합되어 솔루션의 요구 사항에 따라 하나의 제어 평면을 제공합니다. 사용자는 Cloud Services를 통해 다음 작업을 수행할 수 있습니다.
+Azure IoT Edge는 Azure IoT Central과 원활하게 통합되어 솔루션의 요구 사항에 따라 하나의 컨트롤 플레인을 제공합니다. 사용자는 Cloud Services를 통해 다음 작업을 수행할 수 있습니다.
 
 * 특정 유형의 디바이스에서 실행되는 워크로드를 만들고 구성합니다.
 * 디바이스 집합에 워크로드를 보냅니다.

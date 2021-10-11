@@ -11,12 +11,12 @@ ms.date: 08/24/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe1da3615d835b6a2d828fdbca989c805a9f9b17
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: cae6f7285618771f2486c62bfbd3d532db146c8a
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122823083"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350615"
 ---
 # <a name="troubleshoot-ecma-connector-host-issues"></a>ECMA 커넥터 호스트 문제 해결
 
@@ -187,7 +187,7 @@ ECMA 커넥터 호스트 스키마 매핑이 구성되면 들어오는 연결을
 
 이 문제는 일반적으로 에이전트가 로컬 PowerShell 실행 정책으로 인해 PowerShell 등록 스크립트를 실행할 수 없기 때문에 발생합니다.
 
-이 문제를 해결하려면 서버에서 PowerShell 실행 정책을 변경합니다. 머신 및 사용자 정책이 *Undefined* 또는 *RemoteSigned* 로 설정되어 있어야 합니다. *Unrestricted* 으로 설정된 경우 이 오류가 표시됩니다. 자세한 내용은 [PowerShell 실행 정책](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6)을 참조하세요. 
+이 문제를 해결하려면 서버에서 PowerShell 실행 정책을 변경합니다. 머신 및 사용자 정책이 *Undefined* 또는 *RemoteSigned* 로 설정되어 있어야 합니다. *Unrestricted* 으로 설정된 경우 이 오류가 표시됩니다. 자세한 내용은 [PowerShell 실행 정책](/powershell/module/microsoft.powershell.core/about/about_execution_policies)을 참조하세요. 
 
 ### <a name="log-files"></a>로그 파일
 
@@ -219,7 +219,7 @@ Azure AD를 사용하면 클라우드에서 프로비저닝 서비스를 모니�
   ```
 
 ### <a name="i-am-getting-an-invalid-ldap-style-dn-error-when-trying-to-configure-the-ecma-connector-host-with-sql"></a>SQL을 사용하여 ECMA 커넥터 호스트를 구성하려고 하면 잘못된 LDAP 스타일 DN 오류가 발생함
-기본적으로 genericSQL 커넥터는 첫 번째 연결 페이지에서 ‘DN이 앵커입니다.’ 특성이 선택되어 있지 않으면 LDAP 스타일을 사용하여 DN을 채울 것으로 예상합니다. 위의 오류 메시지에서 DN은 커넥터가 예상하는 LDAP 스타일 DN이 아닌 UPN임을 알 수 있습니다. 
+기본적으로 genericSQL 커넥터는 첫 번째 연결 페이지에서 'DN이 앵커입니다.' 특성이 선택되어 있지 않으면 LDAP 스타일을 사용하여 DN을 채울 것으로 예상합니다. 위의 오류 메시지에서 DN은 커넥터가 예상하는 LDAP 스타일 DN이 아닌 UPN임을 알 수 있습니다. 
 
 이 오류를 해결하려면 커넥터를 구성할 때 개체 유형 페이지에서 **자동 생성됨** 이 선택되어 있는지 확인하세요.
 
@@ -227,7 +227,4 @@ Azure AD를 사용하면 클라우드에서 프로비저닝 서비스를 모니�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD ECMA 커넥터 호스트 설치](on-premises-ecma-install.md)
-- [Azure AD ECMA 커넥터 호스트 구성](on-premises-ecma-configure.md)
-- [일반 SQL 커넥터](on-premises-sql-connector-configure.md)
 - [자습서: ECMA 커넥터 호스트 일반 SQL 커넥터](tutorial-ecma-sql-connector.md)

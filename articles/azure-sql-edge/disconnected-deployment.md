@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: fce098767fffd36376399bbd9396699e3d9fbfd3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 548593a3b3c4548fbf1f037cd15c302a68df9845
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93392081"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235082"
 ---
 # <a name="deploy-azure-sql-edge-with-docker"></a>Docker를 사용하여 Azure SQL Edge 배포
 
@@ -43,7 +43,7 @@ ms.locfileid: "93392081"
         ```
 
 > [!NOTE]
-> 이 문서에서는 bash 명령으로 `sudo`를 사용합니다. macOS 및 Windows에서는 sudo가 필요하지 않을 수 있습니다. Linux에서 Docker를 실행하는 데 sudo를 사용하지 않으려는 경우 docker 그룹을 구성하고 해당 그룹에 사용자를 추가하면 됩니다. 자세한 내용은 [Linux용 설치 후 단계](https://docs.docker.com/engine/install/linux-postinstall/)를 참조하세요.
+> 이 문서에서는 bash 명령으로 `sudo`를 사용합니다. macOS 및 Windows에서는 `sudo`가 필요하지 않을 수 있습니다. Linux에서 `sudo`를 사용하여 Docker를 실행하지 않으려는 경우 Docker 그룹을 구성하고 해당 그룹에 사용자를 추가할 수 있습니다. 자세한 내용은 [Linux용 설치 후 단계](https://docs.docker.com/engine/install/linux-postinstall/)를 참조하세요.
 
 이전 명령은 최신 Azure SQL Edge 컨테이너 이미지를 끌어옵니다. 사용 가능한 모든 이미지를 보려면 [azure-sql-egde Docker 허브 페이지](https://hub.docker.com/_/microsoft-azure-sql-edge)를 참조하세요.
 

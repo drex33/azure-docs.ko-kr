@@ -10,16 +10,31 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 05/24/2021
 ms.author: pafarley
-ms.openlocfilehash: b7292206aacbbca5c8e76ce573dc6fd0b3e32578
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.openlocfilehash: 1a27bfac347480591a67bf2c164b9ff41fe3b18d
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835759"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129426438"
 ---
 # <a name="whats-new-in-computer-vision"></a>Computer Vision의 새로운 기능
 
 서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목은 릴리스 정보, 비디오, 블로그 게시물 및 기타 유형의 정보입니다. 이 페이지에 책갈피를 설정하여 서비스를 최신 상태로 유지하세요.
+
+## <a name="september-2021"></a>2021년 9월
+
+### <a name="ocr-read-api-public-preview-supports-122-languages"></a>OCR(읽기) API 공개 미리 보기는 122개 언어를 지원합니다.
+Computer Vision의 [OCR(읽기) API](overview-ocr.md)는 최신 미리 보기를 통해 [지원되는 언어](language-support.md)를 122개로 확장합니다.
+* 러시아어, 불가리아어, 기타 키릴 자모 및 기타 라틴어를 비롯한 49개의 새로운 언어로 된 인쇄 텍스트에 대한 OCR 지원이 제공됩니다.
+* 영어, 중국어 간체, 프랑스어, 독일어, 이탈리아어, 포르투갈어 및 스페인어를 비롯한 6개의 새로운 언어로 작성된 텍스트에 대한 OCR 지원이 제공됩니다.
+* ID 문서에서 디지털 PDF 및 MRZ(컴퓨터 판독 가능 영역) 텍스트를 처리하는 기능이 향상되었습니다.
+* 일반 성능 및 AI 품질 향상
+
+새로운 미리 보기 기능을 사용하는 방법을 알아보려면 [OCR 방법 가이드](Vision-API-How-to-Topics/call-read-api.md)를 참조하세요.
+
+> [!div class="nextstepaction"]
+> [Read API 시작](./quickstarts-sdk/client-library.md)
+
 
 ## <a name="august-2021"></a>2021년 8월
 

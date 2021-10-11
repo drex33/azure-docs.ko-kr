@@ -5,12 +5,12 @@ metadata:
   ms.date: 04/22/2020
   ms.topic: article
   ms.service: backup
-  ms.openlocfilehash: ac3cc6f6fc6b6896e236fd28c4808c49616cf68a
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.openlocfilehash: 22aeb3771f0a1c1d1f7baafc4ce4a2e5885aa4bc
+  ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122252318"
+  ms.lasthandoff: 10/05/2021
+  ms.locfileid: "129533124"
 title: Azure Files 백업에 대한 질문
 summary: >
   이 문서에서는 Azure Files 백업에 대한 일반적인 질문에 대답합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. 또한 [Microsoft 질문과 답변의 토론 관련 질문 페이지](/answers/topics/azure-backup.html)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
@@ -74,6 +74,10 @@ sections:
       PowerShell을 사용하여 Azure 파일 공유에 대한 백업을 구성/관리/복원할 수 있나요?
     answer: >
       예. [여기](backup-azure-afs-automation.md)에 있는 자세한 설명서를 참조하세요.
+  - question: >
+      자격 증명 모음의 Storage 복제 유형 설정에 따라 Azure Files 백업이 복제되지 않는 이유는 무엇인가요?
+    answer: >
+      자격 증명 모음의 Storage 복제 설정은 Azure Files 백업과 관련이 없습니다. 이는 현재 솔루션이 스냅샷 기반이며 자격 증명 모음에 전송된 데이터가 없기 때문입니다. 스냅샷은 백업된 파일 공유와 동일한 스토리지 계정에 저장되므로 스토리지 계정의 복제 설정에 따라 복제됩니다.
   - question: >
       Azure Backup에서 만든 스냅샷에 액세스하고 탑재할 수 있나요?
     answer: >

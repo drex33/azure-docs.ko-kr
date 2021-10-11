@@ -14,12 +14,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-java-uiex
-ms.openlocfilehash: 54ca249d1b89eb90b636da72e1378eadfd5fe0c1
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
+ms.openlocfilehash: 2fb7a97f1efb50f76b91cbc49a189deda7cde9c8
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681395"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357108"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>빠른 시작: Azure App Service에서 Java 앱 만들기
 
@@ -98,7 +98,7 @@ Azure App Service에 대한 배포 프로세스는 Azure CLI의 Azure 자격 증
 아래의 maven 명령을 실행하여 배포를 구성합니다. 이 명령은 App Service 운영 체제, Java 버전 및 Tomcat 버전을 설정하는 데 도움이 됩니다.
 
 ```azurecli-interactive
-mvn com.microsoft.azure:azure-webapp-maven-plugin:2.1.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.2.0:config
 ```
 
 ::: zone pivot="platform-windows"
@@ -107,9 +107,9 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.1.0:config
 
 1. **Subscription** 옵션을 사용하라는 메시지가 표시되면 줄 시작에 인쇄된 번호를 입력하여 적절한 `Subscription`을 선택합니다.
 2. **Web App** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 기본 옵션 `<create>`를 선택합니다.
-3. **OS** 옵션을 사용하라는 메시지가 표시되면 `2`를 입력하여 **Windows** 를 선택합니다.
+3. **OS** 옵션을 사용하라는 메시지가 표시되면 `1`를 입력하여 **Windows** 를 선택합니다.
 4. **javaVersion** 옵션을 사용하라는 메시지가 표시되면 `1`을 입력하여 **Java 8** 을 선택합니다.
-5. **가격 책정 계층** 옵션을 사용하라는 메시지가 표시되면 `7`을 입력하여 **P1v2** 를 선택합니다.
+5. **가격 책정 계층** 옵션을 사용하라는 메시지가 표시되면 `10`을 입력하여 **P1v2** 를 선택합니다.
 6. 마지막으로, 마지막 프롬프트에서 Enter를 눌러 선택 내용을 확인합니다.
 
     요약 출력은 아래에 표시된 코드 조각과 유사하게 표시됩니다.
@@ -119,11 +119,11 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.1.0:config
     Subscription Id : ********-****-****-****-************
     AppName : spring-boot-1599007390755
     ResourceGroup : spring-boot-1599007390755-rg
-    Region : westeurope
-    PricingTier : Basic_B2
+    Region : centralus
+    PricingTier : P1v2
     OS : Windows
-    Java : 1.8
-    WebContainer : java 8
+    Java : Java 8
+    WebContainer : Java SE
     Deploy to slot : false
     Confirm (Y/N)? : Y
     [INFO] Saving configuration to pom.
@@ -139,10 +139,10 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.1.0:config
 
 1. **Subscription** 옵션을 사용하라는 메시지가 표시되면 줄 시작에 인쇄된 번호를 입력하여 적절한 `Subscription`을 선택합니다.
 2. **Web App** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 기본 옵션 `<create>`를 선택합니다.
-3. **OS** 옵션을 사용하라는 메시지가 표시되면 `2`를 입력하여 **Windows** 를 선택합니다.
+3. **OS** 옵션을 사용하라는 메시지가 표시되면 `1`를 입력하여 **Windows** 를 선택합니다.
 4. **javaVersion** 옵션을 사용하라는 메시지가 표시되면 `1`을 입력하여 **Java 8** 을 선택합니다.
-5. **webContainer** 옵션을 사용하라는 메시지가 표시되면 `3`을 입력하여 **Tomcat 8.5** 를 선택합니다.
-6. **가격 책정 계층** 옵션을 사용하라는 메시지가 표시되면 `7`을 입력하여 **P1v2** 를 선택합니다.
+5. **webContainer** 옵션을 사용하라는 메시지가 표시되면 `1`을 입력하여 **Tomcat 8.5** 를 선택합니다.
+6. **가격 책정 계층** 옵션을 사용하라는 메시지가 표시되면 `10`을 입력하여 **P1v2** 를 선택합니다.
 7. 마지막으로, 마지막 프롬프트에서 Enter를 눌러 선택 내용을 확인합니다.
 
     요약 출력은 아래에 표시된 코드 조각과 유사하게 표시됩니다.
@@ -152,10 +152,10 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.1.0:config
     Subscription Id : ********-****-****-****-************
     AppName : helloworld-1599003152123
     ResourceGroup : helloworld-1599003152123-rg
-    Region : westeurope
-    PricingTier : Basic_B2
+    Region : centralus
+    PricingTier : P1v2
     OS : Windows
-    Java : 1.8
+    Java : Java 8
     WebContainer : tomcat 8.5
     Deploy to slot : false
     Confirm (Y/N)? : Y
@@ -183,7 +183,7 @@ JBoss EAP는 Linux 버전의 App Service에서만 사용할 수 있습니다. �
 1. **Web App** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 기본 옵션 `<create>`를 선택합니다.
 1. **OS** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 **Linux** 를 선택합니다.
 2. **javaVersion** 옵션을 사용하라는 메시지가 표시되면 `1`을 입력하여 **Java 8** 을 선택합니다.
-3. **가격 책정 계층** 옵션을 사용하라는 메시지가 표시되면 `6`을 입력하여 **P1v2** 를 선택합니다.
+3. **가격 책정 계층** 옵션을 사용하라는 메시지가 표시되면 `10`을 입력하여 **P1v2** 를 선택합니다.
 4. 마지막으로, 마지막 프롬프트에서 Enter를 눌러 선택 내용을 확인합니다.
 
     ```
@@ -191,10 +191,10 @@ JBoss EAP는 Linux 버전의 App Service에서만 사용할 수 있습니다. �
     Subscription Id : ********-****-****-****-************
     AppName : spring-boot-1599007116351
     ResourceGroup : spring-boot-1599007116351-rg
-    Region : westeurope
-    PricingTier : Basic_B2
+    Region : centralus
+    PricingTier : P1v2
     OS : Linux
-    RuntimeStack : JAVA 8-jre8
+    Web server stack : JAVA SE
     Deploy to slot : false
     Confirm (Y/N)? : Y
     [INFO] Saving configuration to pom.
@@ -212,8 +212,8 @@ JBoss EAP는 Linux 버전의 App Service에서만 사용할 수 있습니다. �
 1. **Web App** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 기본 옵션 `<create>`를 선택합니다.
 1. **OS** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 **Linux** 를 선택합니다.
 1. **javaVersion** 옵션을 사용하라는 메시지가 표시되면 `1`을 입력하여 **Java 8** 을 선택합니다.
-1. **runtimeStack** 옵션을 사용하라는 메시지가 표시되면 `3`을 입력하여 **Tomcat 8.5** 를 선택합니다.
-1. **가격 책정 계층** 옵션을 사용하라는 메시지가 표시되면 `6`을 입력하여 **P1v2** 를 선택합니다.
+1. **webcontainer** 옵션을 사용하라는 메시지가 표시되면 `3`을 입력하여 **Tomcat 8.5** 를 선택합니다.
+1. **가격 책정 계층** 옵션을 사용하라는 메시지가 표시되면 `10`을 입력하여 **P1v2** 를 선택합니다.
 1. 마지막으로, 마지막 프롬프트에서 Enter를 눌러 선택 내용을 확인합니다.
 
     ```
@@ -221,10 +221,10 @@ JBoss EAP는 Linux 버전의 App Service에서만 사용할 수 있습니다. �
     Subscription Id : ********-****-****-****-************
     AppName : helloworld-1599003744223
     ResourceGroup : helloworld-1599003744223-rg
-    Region : westeurope
-    PricingTier : Basic_B2
+    Region : centralus
+    PricingTier : P1v2
     OS : Linux
-    RuntimeStack : TOMCAT 8.5-jre8
+    Web server stack : TOMCAT 8.5
     Deploy to slot : false
     Confirm (Y/N)? : Y
     [INFO] Saving configuration to pom.
@@ -242,8 +242,8 @@ JBoss EAP는 Linux 버전의 App Service에서만 사용할 수 있습니다. �
 1. **웹 앱** 옵션을 선택하라는 메시지가 표시되면 enter 키를 눌러 기본 옵션`<create>`을 적용합니다.
 1. **OS** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 **Linux** 를 선택합니다.
 1. **javaVersion** 옵션을 사용하라는 메시지가 표시되면 `1`을 입력하여 **Java 8** 을 선택합니다.
-1. **runtimeStack** 옵션을 사용하라는 메시지가 표시되면 `2`를 입력하여 **Jbosseap 7** 을 선택합니다.
-1. **pricingTier** 옵션을 사용하라는 메시지가 표시되면 `3`을 입력하여 **P1v3** 를 선택합니다.
+1. **webContainer** 옵션을 사용하라는 메시지가 표시되면 `1`을 입력하여 **Jbosseap 7** 을 선택합니다.
+1. **pricingTier** 옵션을 사용하라는 메시지가 표시되면 `1`을 입력하여 **P1v3** 를 선택합니다.
 1. 마지막으로, 마지막 프롬프트에서 Enter를 눌러 선택 내용을 확인합니다.
 
     ```
@@ -251,11 +251,11 @@ JBoss EAP는 Linux 버전의 App Service에서만 사용할 수 있습니다. �
     Subscription Id : ********-****-****-****-************
     AppName : petstoreee7-1623451825408
     ResourceGroup : petstoreee7-1623451825408-rg
-    Region : westeurope
+    Region : centralus
     PricingTier : P1v3
     OS : Linux
     Java : Java 8
-    Web server stack: Jbosseap 7.2
+    Web server stack: Jbosseap 7
     Deploy to slot : false
     Confirm (Y/N) [Y]: y
     [INFO] Saving configuration to pom.
@@ -279,8 +279,8 @@ JBoss EAP는 Linux 버전의 App Service에서만 사용할 수 있습니다. �
 `<subscriptionId>` | false | 구독 ID를 지정합니다. | 0.1.0+
 `<resourceGroup>` | true | 웹앱에 대한 Azure 리소스 그룹입니다. | 0.1.0+
 `<appName>` | true | 웹앱의 이름입니다. | 0.1.0+
-`<region>` | true | 웹앱이 호스트되는 지역을 지정합니다(기본값: **westeurope**). [지원되는 지역](https://azure.microsoft.com/global-infrastructure/services/?products=app-service) 섹션에 있는 모든 유효한 지역입니다. | 0.1.0+
-`<pricingTier>` | true | 웹앱에 대한 가격 책정 계층입니다. 기본값은 프로덕션 작업의 경우 **P1V2** 이고, **B2** 는 Java 개발/테스트에 권장되는 최솟값입니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
+`<region>` | true | 웹앱이 호스트되는 지역을 지정합니다(기본값: **centralus**). [지원되는 지역](https://azure.microsoft.com/global-infrastructure/services/?products=app-service) 섹션에 있는 모든 유효한 지역입니다. | 0.1.0+
+`<pricingTier>` | true | 웹앱에 대한 가격 책정 계층입니다. 기본값은 프로덕션 작업의 경우 **P1v2** 이고, **B2** 는 Java 개발/테스트에 권장되는 최솟값입니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
 `<runtime>` | true | 런타임 환경 구성이며, [여기](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details)에서 세부 정보를 볼 수 있습니다. | 0.1.0+
 `<deployment>` | true | 배포 구성이며, [여기](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details)에서 세부 정보를 볼 수 있습니다. | 0.1.0+
 

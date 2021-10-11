@@ -4,14 +4,14 @@ metadata:
   description: Azure Container Registry 서비스와 관련된 질문과 대답입니다.
   author: sajayantony
   ms.topic: article
-  ms.date: 03/15/2021
+  ms.date: 09/17/2021
   ms.author: sajaya
-  ms.openlocfilehash: ef541e23c2ad3142c4e5b50ccc5351a569727905
-  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+  ms.openlocfilehash: 9a1b4cdb33dc3499bdc027911dee5ac05c2f79b7
+  ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/22/2021
-  ms.locfileid: "114438897"
+  ms.lasthandoff: 10/05/2021
+  ms.locfileid: "129545419"
 title: 자주 묻는 질문 - Azure Container Registry
 summary: >
   이 문서에서는 Azure Container Registry에 대한 질문과 대답 및 알려진 문제에 대해 설명합니다.
@@ -230,7 +230,7 @@ sections:
       이미지 격리는 현재 ACR의 미리 보기 기능입니다. 보안 검사를 성공적으로 통과한 이미지만 일반 사용자에게 표시되도록 레지스트리의 격리 모드를 사용하도록 설정할 수 있습니다. 자세한 내용은 [ACR GitHub 리포지토리](https://github.com/Azure/acr/tree/master/docs/preview/quarantine)를 참조하세요.
   - question: >
       익명 풀 액세스를 사용하도록 설정하려면 어떻게 하나요?
-    answer: "익명(인증되지 않은) 풀 액세스를 위한 Azure 컨테이너 레지스트리 설정은 현재 표준 및 프리미엄 [서비스 계층](container-registry-skus.md)에서 사용할 수 있는 미리 보기 기능입니다. \n\n익명 풀 액세스를 사용하도록 설정하려면 Azure CLI(버전 2.21.0 이상)를 사용하여 레지스트리를 업데이트하고 `--anonymous-pull-enabled` 매개 변수를 [az acr update](/cli/azure/acr#az_acr_update) 명령에 전달합니다.\n\n```azurecli\naz acr update --name myregistry --anonymous-pull-enabled\n``` \n\n`--anonymous-pull-enabled`를 `false`로 설정하여 언제든지 익명 풀 액세스를 사용하지 않도록 설정할 수 있습니다.\n\n> [!NOTE]\n> * 익명 풀 작업을 시도하기 전에 `docker logout`을 실행하여 기존 Docker 자격 증명을 지웁니다.\n> * 인증되지 않은 클라이언트에서는 데이터 평면 작업만 사용할 수 있습니다.\n> * 레지스트리는 높은 비율의 인증되지 않은 요청을 제한할 수 있습니다.\n> * 현재 [지역 복제](container-registry-geo-replication.md) 레지스트리 지역에서 익명 풀 액세스는 지원되지 않습니다.\n\n> [!WARNING]\n> 익명 풀 액세스는 현재 레지스트리의 모든 리포지토리에 적용됩니다. [리포지토리 범위 토큰](container-registry-repository-scoped-permissions.md)을 사용하여 리포지토리 액세스를 관리하는 경우 모든 사용자가 익명 풀이 사용 가능한 레지스트리의 해당 리포지토리에서 풀할 수 있습니다. 익명 풀 액세스가 사용하도록 설정된 경우 토큰을 삭제하는 것이 좋습니다.\n"
+    answer: "자세한 내용은 [레지스트리 콘텐츠를 공개적으로 사용할 수 있도록 설정](anonymous-pull-access.md)을 참조하세요.          \n"
   - question: >
       배포 불가능 레이어를 레지스트리로 푸시하려면 어떻게 해야 하나요?
     answer: >

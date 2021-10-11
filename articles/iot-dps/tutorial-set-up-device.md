@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 78858e9d8b7aae10109e4a709100d912869f3189
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f9020c757e1a8bdfb5f244881f69f4790af2e3bf
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121727842"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129277188"
 ---
 # <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>자습서: Azure IoT Hub Device Provisioning Service를 사용하여 디바이스 프로비전
 
@@ -145,7 +145,7 @@ Device Provisioning Service 클라이언트 SDK는 디바이스 등록 소프트
 > [!NOTE]
 > 이 단계에서는 워크스테이션에서 SDK 샘플 등록 애플리케이션을 실행하여 얻은 시뮬레이션된 디바이스를 사용하는 것으로 가정합니다. 하지만 물리적 디바이스에 배포할 등록 애플리케이션을 작성하는 경우에도 동일한 개념이 적용됩니다. 
 
-1. Azure Portal에서 Device Provisioning 서비스에 대한 **개요** 블레이드를 선택하고 **_ID 범위_** 값을 복사합니다. *ID 범위* 는 서비스에 의해 생성되고 고유성이 보장됩니다. 이는 변경할 수 없으며 등록 ID를 고유하게 식별하는 데 사용됩니다.
+1. Azure Portal에서 Device Provisioning Service에 대한 **개요** 블레이드를 선택하고 **_ID 범위_** 값을 복사합니다. *ID 범위* 는 서비스에 의해 생성되고 고유성이 보장됩니다. 이는 변경할 수 없으며 등록 ID를 고유하게 식별하는 데 사용됩니다.
 
     ![포털 블레이드에서 디바이스 프로비저닝 서비스 엔드포인트 정보 추출](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
 

@@ -8,19 +8,19 @@ ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 84a0722a85e08de34841fef752ac8bb36c32f8b9
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 9fcc67dbcf0cdf6832a4f5ba7718d49c50308c5a
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113357067"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458968"
 ---
 # <a name="help-and-support-options-for-azure-communication-services"></a>Azure Communication Services에 대한 도움말 및 지원 옵션
 
 Azure Communication Services와 관련된 문제나 질문이 있는 경우 여러 가지 옵션을 사용할 수 있습니다.
 
 ## <a name="create-an-azure-support-request"></a>Azure 지원 요청 만들기
-Azure에는 살펴보고 검토할 수 있는 다양한 [지원 옵션과 플랜](https://azure.microsoft.com/support/plans/)이 있습니다. [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)에서 지원 티켓을 만들 수 있습니다.
+Azure에는 살펴보고 검토할 수 있는 다양한 [지원 옵션과 플랜](https://azure.microsoft.com/support/plans/)이 있습니다. [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)에서 지원 티켓을 만들 수 있습니다.
 
 ## <a name="post-a-question-to-microsoft-qa"></a>Microsoft Q&A에 질문 게시
 
@@ -31,6 +31,10 @@ Microsoft 엔지니어, Azure Mvp (가장 귀중한 전문가) 또는 커뮤니�
 ## <a name="post-a-question-on-stack-overflow"></a>Stack Overflow에 질문 게시
 
 대규모 커뮤니티 개발자 커뮤니티 및 에코시스템을 갖추고 있는 Stack Overflow에서 질문을 할 수도 있습니다. Azure Communication Services에도 [전용 태그](https://stackoverflow.com/questions/tagged/azure-communication-services)가 있습니다.
+
+## <a name="tech-community"></a>기술 커뮤니티
+
+[Microsoft Tech Community](https://techcommunity.microsoft.com/t5/azure-communication-services/bd-p/AzureCommunicationServices)는 제품 또는 기술 관련 질문을 할 수 있는 또 다른 장소입니다. Azure Communication Services 팀은 정기적으로 [블로그](https://techcommunity.microsoft.com/t5/azure-communication-services/bg-p/AzureCommunicationServicesBlog)를 게시하고 "무엇이든 물어보세요" 이벤트를 호스트합니다.
 
 ## <a name="provide-feedback"></a>피드백 제공
 

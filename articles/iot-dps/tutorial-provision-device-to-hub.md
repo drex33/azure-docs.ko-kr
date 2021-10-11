@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: b6dce9f84ff78a7caaf5f5f7ef702053640cee7a
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.openlocfilehash: eed3ff374850d4861c94fe79263c26a8f33760ac
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112519104"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129271691"
 ---
 # <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>자습서: Azure IoT Hub Device Provisioning Service를 사용하여 IoT Hub에 디바이스를 프로비전
 
-이전 자습서에서 Device Provisioning Service에 연결하기 위해 디바이스를 설정하는 방법을 배웠습니다. 이 자습서에서는 이 서비스를 사용하여 자동 프로비전 및 **_등록 목록_** 을 사용하는 단일 IoT Hub에 디바이스를 프로비전하는 방법을 배웁니다. 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
+이전 자습서에서 Device Provisioning Service에 연결하기 위해 디바이스를 설정하는 방법을 알아보았습니다. 이 자습서에서는 이 서비스를 사용하여 자동 프로비전 및 **_등록 목록_** 을 사용하는 단일 IoT Hub에 디바이스를 프로비전하는 방법을 배웁니다. 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
 > [!div class="checklist"]
 > * 디바이스 등록
@@ -68,17 +68,17 @@ Device Provisioning Service에 디바이스를 등록하는 방법은 두 가지
 
 ## <a name="start-the-iot-device"></a>IoT 디바이스 시작
 
-IoT 디바이스는 실제 디바이스일 수도 있고 시뮬레이션된 디바이스일 수도 있습니다. IoT 디바이스가 디바이스 프로비전 서비스 인스턴스에 등록되었으니, 이제 디바이스를 부팅하고, 증명 메커니즘을 사용하여 프로비전 서비스를 호출하고 인식할 수 있습니다. 프로비전 서비스에서 디바이스를 인식하면 디바이스가 IoT Hub에 할당됩니다. 
+IoT 디바이스는 실제 디바이스일 수도 있고 시뮬레이션된 디바이스일 수도 있습니다. IoT 디바이스가 디바이스 프로비전 서비스 인스턴스에 등록되었으니, 이제 디바이스를 부팅하고, 증명 메커니즘을 사용하여 프로비전 서비스를 호출하고 인식할 수 있습니다. 프로비전 서비스에서 디바이스를 인식하면 디바이스가 IoT Hub에 할당됩니다.
 
-TPM 및 X.509 증명을 사용하여 시뮬레이션된 디바이스 예제가 C, Java, C#, Node.js 및 Python용으로 포함되어 있습니다. 예를 들어 TPM 및 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)를 사용하여 시뮬레이션된 디바이스는 [디바이스의 첫 번째 부팅 시퀀스 시뮬레이션](quick-create-simulated-device.md#simulate-first-boot-sequence-for-the-device) 섹션에 설명된 프로세스를 따릅니다. X.509 인증서 증명을 사용하는 동일한 디바이스는 이 [부팅 시퀀스](quick-create-simulated-device-x509.md#simulate-first-boot-sequence-for-the-device) 섹션을 참조하세요.
+TPM 및 X.509 증명을 사용하여 시뮬레이션된 디바이스 예제가 C, Java, C#, Node.js 및 Python용으로 포함되어 있습니다.  TPM 증명을 사용하는 디바이스의 예를 보려면 [빠른 시작: 시뮬레이션된 TPM 디바이스 프로비전](quick-create-simulated-device-tpm.md)을 참조하세요. X.509 증명을 사용하는 디바이스의 예는 [빠른 시작: 시뮬레이션된 대칭 키 디바이스 프로비전](quick-create-simulated-device-x509.md#prepare-and-run-the-device-provisioning-code)을 참조하세요.
 
-장치를 시작하고 장치의 클라이언트 애플리케이션이 Device Provisioning Service에 등록할 수 있도록 허용하세요.  
+디바이스를 시작하고 디바이스의 클라이언트 애플리케이션이 Device Provisioning Service에 등록할 수 있도록 허용하세요.  
 
 ## <a name="verify-the-device-is-registered"></a>디바이스가 등록되어 있는지 확인
 
 디바이스가 부팅되면 다음 작업을 수행해야 합니다.
 
-1. 디바이스가 Device Provisioning Service에 등록 요청을 보냅니다.
+1. 디바이스에서 등록 요청을 Device Provisioning Service에 보냅니다.
 2. TPM 디바이스의 경우 Device Provisioning Service에서 디바이스가 응답하는 등록 챌린지를 다시 보냅니다. 
 3. 등록에 성공하면 Device Provisioning Service는 IoT Hub URI, 디바이스 ID 및 암호화된 키를 디바이스로 다시 보냅니다. 
 4. 그러면 디바이스의 IoT Hub 클라이언트 애플리케이션이 사용자 허브에 연결됩니다. 
@@ -86,7 +86,7 @@ TPM 및 X.509 증명을 사용하여 시뮬레이션된 디바이스 예제가 C
 
     ![포털에서 허브에 연결 성공](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
 
-자세한 내용은 디바이스 클라이언트 프로비전 샘플 [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c)를 참조하세요. 이 샘플은 TPM, X.509 인증서 및 대칭 키를 사용하여 시뮬레이션된 디바이스를 프로비전하는 방법을 보여줍니다. 다시 [TPM](./quick-create-simulated-device.md), [X.509](./quick-create-simulated-device-x509.md) 및 [대칭 키](./quick-create-simulated-device-symm-key.md) 증명 빠른 시작을 참조하여 샘플 사용 방법에 대한 단계별 지침을 확인하세요.
+자세한 내용은 디바이스 클라이언트 프로비전 샘플 [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c)를 참조하세요. 이 샘플은 TPM, X.509 인증서 및 대칭 키를 사용하여 시뮬레이션된 디바이스를 프로비전하는 방법을 보여줍니다. 다시 [TPM](./quick-create-simulated-device-tpm.md), [X.509](./quick-create-simulated-device-x509.md) 및 [대칭 키](./quick-create-simulated-device-symm-key.md) 증명 빠른 시작을 참조하여 샘플 사용 방법에 대한 단계별 지침을 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 다음 작업 방법을 알아보았습니다.

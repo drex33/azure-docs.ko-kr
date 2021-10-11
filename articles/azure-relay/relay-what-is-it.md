@@ -1,15 +1,15 @@
 ---
 title: Azure Relay란? | Microsoft Docs
 description: 이 문서에서는 Azure Relay 서비스에 대한 개요를 제공합니다. 이 서비스를 사용하면 방화벽 연결을 열거나 네트워크 인프라를 강제로 변경하지 않고도 회사 네트워크에서 실행되는 온-프레미스 서비스를 사용하는 클라우드 애플리케이션을 개발할 수 있습니다.
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 09/02/2021
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: af12067cd73b8767beb243e9e098d2cbbf9c456a
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
-ms.translationtype: MT
+ms.openlocfilehash: e7555e44af9192141e9588361b905773cd56e2e6
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129081874"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129545061"
 ---
 # <a name="what-is-azure-relay"></a>Azure Relay란?
 Azure Relay 서비스를 사용하면 회사 네트워크에서 실행되는 서비스를 퍼블릭 클라우드에 안전하게 공개할 수 있습니다. 방화벽에서 포트를 열거나 회사 네트워크 인프라를 강제로 변경하지 않고도 이 작업을 수행할 수 있습니다. 
@@ -35,7 +35,7 @@ Azure Relay는 VPN과 같은 네트워크 수준의 통합 기술과 다릅니�
 Azure 릴레이에는 다음과 같은 두 가지 기능이 있습니다.
 
 - [하이브리드 연결](#hybrid-connections) - 다중 플랫폼 시나리오를 가능하게 하는 공개 표준 웹 소켓을 사용합니다.
-- [WCF 릴레이](#wcf-relay) - WCF(Windows Communication Foundation)를 사용하여 원격 프로시저 호출을 사용하도록 설정합니다. WCF 릴레이는 레거시 릴레이로 많은 고객이 기존의 WCF 프로그래밍 모델과 함께 사용합니다.
+- [WCF 릴레이](#wcf-relay) - 원격 프로시저 호출이 가능하도록 WCF(Windows Communication Foundation)를 사용합니다. WCF 릴레이는 레거시 릴레이로 많은 고객이 기존의 WCF 프로그래밍 모델과 함께 사용합니다.
 
 ## <a name="hybrid-connections"></a>하이브리드 연결
 
@@ -46,14 +46,14 @@ Azure Relay의 하이브리드 연결 기능은 이전에 있던 Relay 기능의
 > [!NOTE]
 > Azure Relay의 하이브리드 연결은 BizTalk Services의 이전 하이브리드 연결 기능을 대체합니다. BizTalk Services의 하이브리드 연결 기능은 Azure Service Bus WCF Relay를 기반으로 합니다. Azure Relay의 하이브리드 연결 기능은 기존 WCF Relay 기능을 보완합니다. 이러한 두 가지 서비스 기능(WCF Relay 및 하이브리드 연결)은 Azure Relay 서비스에 함께 있습니다. 일반적인 게이트웨이를 공유하지만 구현 방식은 서로 다릅니다.
 
-Azure Relay 하이브리드 연결 사용을 시작하려면 다음 빠른 시작을 참조하세요. 
+Azure Relay에서 하이브리드 연결 사용을 시작하려면 다음 빠른 시작을 참조하세요. 
 
 - [하이브리드 연결 - .NET WebSockets](relay-hybrid-connections-dotnet-get-started.md)
-- [하이브리드 연결 - Node WebSockets](relay-hybrid-connections-node-get-started.md)
+- [하이브리드 연결 - 노드 WebSockets](relay-hybrid-connections-node-get-started.md)
 - [하이브리드 연결 - .NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
 - [하이브리드 연결 - 노드 HTTP](relay-hybrid-connections-http-requests-node-get-started.md)
 
-자세한 샘플은 [GitHub Azure Relay - 하이브리드 연결 샘플을 참조하세요.](https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections)
+추가 샘플은 [Azure Relay - GitHub의 하이브리드 연결 샘플](https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections)을 참조하세요.
 
 ## <a name="wcf-relay"></a>WCF 릴레이
 WCF Relay는 전체 .NET Framework 및 WCF에서 작동합니다. WCF "릴레이" 바인딩 모음을 사용하여 온-프레미스 서비스와 릴레이 서비스 사이의 연결을 만듭니다. 릴레이 바인딩은 클라우드에서 Service Bus와 통합하는 WCF 채널 구성 요소를 생성하도록 설계된 새로운 전송 바인딩 요소에 매핑합니다.
@@ -64,7 +64,7 @@ WCF Relay 사용을 시작하려면 다음 빠른 시작을 참조하세요.
 - [네트워크 외부의 WCF 클라이언트에 온-프레미스 WCF 서비스 노출](service-bus-relay-tutorial.md)
 - [네트워크 외부의 클라이언트에 온-프레미스 WCF REST 서비스 노출](service-bus-relay-rest-tutorial.md)
 
-자세한 샘플은 [GitHub Azure Relay - WCF Relay 샘플을 참조하세요.](https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay)
+추가 샘플은 [Azure Relay - GitHub의 WCF Relay 샘플](https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay)을 참조하세요.
 
 ## <a name="hybrid-connections-vs-wcf-relay"></a>하이브리드 연결과 WCF Relay
 하이브리드 연결과 WCF Relay는 모두 회사 네트워크 내에 있는 자산에 안전하게 연결할 수 있게 합니다. 다음 표에서 설명한 대로 이들 중 무엇을 사용할지는 특정 요구 사항에 따라 달라집니다.
@@ -94,11 +94,11 @@ WCF Relay 사용을 시작하려면 다음 빠른 시작을 참조하세요.
 9. 게이트웨이는 메시지를 송신 클라이언트에서 수신 대기 클라이언트로 전달합니다.  
 
 ## <a name="next-steps"></a>다음 단계
-다음 빠른 시작 중 하나 이상을 따르거나 [GitHub Azure Relay 샘플을](https://github.com/Azure/azure-relay/tree/master/samples)참조하세요.
+다음 빠른 시작 중 하나 이상을 수행하거나 [GitHub의 Azure Relay 샘플](https://github.com/Azure/azure-relay/tree/master/samples)을 참조하세요.
 
 - 하이브리드 연결
     - [하이브리드 연결 - .NET WebSockets](relay-hybrid-connections-dotnet-get-started.md)
-    - [하이브리드 연결 - Node WebSockets](relay-hybrid-connections-node-get-started.md)
+    - [하이브리드 연결 - 노드 WebSockets](relay-hybrid-connections-node-get-started.md)
     - [하이브리드 연결 - .NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
     - [하이브리드 연결 - 노드 HTTP](relay-hybrid-connections-http-requests-node-get-started.md)
 - WCF 릴레이
@@ -106,5 +106,5 @@ WCF Relay 사용을 시작하려면 다음 빠른 시작을 참조하세요.
     - [네트워크 외부의 WCF 클라이언트에 온-프레미스 WCF 서비스 노출](service-bus-relay-tutorial.md)
     - [네트워크 외부의 클라이언트에 온-프레미스 WCF REST 서비스 노출](service-bus-relay-rest-tutorial.md)
 
-질문과 대답 목록은 [릴레이 FAQ를 참조하세요.](relay-faq.yml)
+질문과 대답 및 그에 대한 답변 목록은 [릴레이 FAQ](relay-faq.yml)를 참조하세요.
 

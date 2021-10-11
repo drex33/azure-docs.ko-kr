@@ -5,12 +5,12 @@ ms.author: askaur
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 4aad194e1bfbd31cb31795ec4b6d21737800e06d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 616741c97b1e133dd9027b8622c181a9ca622b72
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121722558"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129378329"
 ---
 이 빠른 시작에서는 JavaScript용 Azure Communication Services 채팅 SDK를 사용하여 Teams 모임에서 채팅하는 방법을 알아봅니다.
 
@@ -205,118 +205,121 @@ const sendMessageButton = document.getElementById("send-message");
 const messagebox = document.getElementById("message-box");
 
 var userId = '';
-var messages = '';
+var lastMessage = '';
+var previousMessage = '';
 
 async function init() {
-    const connectionString = "<SECRET_CONNECTION_STRING>";
-    const endpointUrl = "<ENDPOINT_URL>";
+  const connectionString = "<SECRET_CONNECTION_STRING>";
+  const endpointUrl = "<ENDPOINT_URL>";
 
-    const identityClient = new CommunicationIdentityClient(connectionString);
+  const identityClient = new CommunicationIdentityClient(connectionString);
 
-    let identityResponse = await identityClient.createUser();
-    userId = identityResponse.communicationUserId;
-    console.log(`\nCreated an identity with ID: ${identityResponse.communicationUserId}`);
+  let identityResponse = await identityClient.createUser();
+  userId = identityResponse.communicationUserId;
+  console.log(`\nCreated an identity with ID: ${identityResponse.communicationUserId}`);
 
-    let tokenResponse = await identityClient.getToken(identityResponse, [
-        "voip",
-        "chat",
-    ]);
+  let tokenResponse = await identityClient.getToken(identityResponse, [
+    "voip",
+    "chat",
+  ]);
 
-    const { token, expiresOn } = tokenResponse;
-    console.log(`\nIssued an access token that expires at: ${expiresOn}`);
-    console.log(token);
+  const { token, expiresOn } = tokenResponse;
+  console.log(`\nIssued an access token that expires at: ${expiresOn}`);
+  console.log(token);
 
-    const callClient = new CallClient();
-    const tokenCredential = new AzureCommunicationTokenCredential(token);
-    callAgent = await callClient.createCallAgent(tokenCredential);
-    callButton.disabled = false;
+  const callClient = new CallClient();
+  const tokenCredential = new AzureCommunicationTokenCredential(token);
+  callAgent = await callClient.createCallAgent(tokenCredential);
+  callButton.disabled = false;
 
-    chatClient = new ChatClient(
-        endpointUrl,
-        new AzureCommunicationTokenCredential(token)
-    );
+  chatClient = new ChatClient(
+    endpointUrl,
+    new AzureCommunicationTokenCredential(token)
+  );
 
-    console.log('Azure Communication Chat client created!');
+  console.log('Azure Communication Chat client created!');
 }
 
 init();
 
 callButton.addEventListener("click", async () => {
-    // join with meeting link
-    call = callAgent.join({meetingLink: meetingLinkInput.value}, {});
+  // join with meeting link
+  call = callAgent.join({meetingLink: meetingLinkInput.value}, {});
 
-    call.on('stateChanged', () => {
-        callStateElement.innerText = call.state;
-    })
-    // toggle button and chat box states
-    chatBox.style.display = "block";
-    hangUpButton.disabled = false;
-    callButton.disabled = true;
+  call.on('stateChanged', () => {
+      callStateElement.innerText = call.state;
+  })
+  // toggle button and chat box states
+  chatBox.style.display = "block";
+  hangUpButton.disabled = false;
+  callButton.disabled = true;
 
-    messagesContainer.innerHTML = messages;
+  messagesContainer.innerHTML = "";
 
-    console.log(call);
+  console.log(call);
 
-    // open notifications channel
-    await chatClient.startRealtimeNotifications();
+  // open notifications channel
+  await chatClient.startRealtimeNotifications();
 
-    // subscribe to new message notifications
-    chatClient.on("chatMessageReceived", (e) => {
-        console.log("Notification chatMessageReceived!");
+  // subscribe to new message notifications
+  chatClient.on("chatMessageReceived", (e) => {
+    console.log("Notification chatMessageReceived!");
 
       // check whether the notification is intended for the current thread
-        if (threadIdInput.value != e.threadId) {
-            return;
-        }
+    if (threadIdInput.value != e.threadId) {
+      return;
+    }
 
-        if (e.sender.communicationUserId != userId) {
-           renderReceivedMessage(e.message);
-        }
-        else {
-           renderSentMessage(e.message);
-        }
-    });
+    if (e.sender.communicationUserId != userId) {
+       renderReceivedMessage(e.message);
+    }
+    else {
+       renderSentMessage(e.message);
+    }
+  });
 
-    chatThreadClient = await chatClient.getChatThreadClient(threadIdInput.value);
+  chatThreadClient = await chatClient.getChatThreadClient(threadIdInput.value);
 });
 
 async function renderReceivedMessage(message) {
-    messages += '<div class="container lighter">' + message + '</div>';
-    messagesContainer.innerHTML = messages;
+  previousMessage = lastMessage;
+  lastMessage = '<div class="container lighter">' + message + '</div>';
+  messagesContainer.innerHTML = previousMessage + lastMessage;
 }
 
 async function renderSentMessage(message) {
-    messages += '<div class="container darker">' + message + '</div>';
-    messagesContainer.innerHTML = messages;
+  previousMessage = lastMessage;
+  lastMessage = '<div class="container darker">' + message + '</div>';
+  messagesContainer.innerHTML = previousMessage + lastMessage;
 }
 
 hangUpButton.addEventListener("click", async () => 
-    {
-        // end the current call
-        await call.hangUp();
+  {
+    // end the current call
+    await call.hangUp();
 
-        // toggle button states
-        hangUpButton.disabled = true;
-        callButton.disabled = false;
-        callStateElement.innerText = '-';
+    // toggle button states
+    hangUpButton.disabled = true;
+    callButton.disabled = false;
+    callStateElement.innerText = '-';
 
-        // toggle chat states
-        chatBox.style.display = "none";
-        messages = "";
-    });
+    // toggle chat states
+    chatBox.style.display = "none";
+    messages = "";
+  });
 
 sendMessageButton.addEventListener("click", async () =>
-    {
-        let message = messagebox.value;
+  {
+    let message = messagebox.value;
 
-        let sendMessageRequest = { content: message };
-        let sendMessageOptions = { senderDisplayName : 'Jack' };
-        let sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
-        let messageId = sendChatMessageResult.id;
+    let sendMessageRequest = { content: message };
+    let sendMessageOptions = { senderDisplayName : 'Jack' };
+    let sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
+    let messageId = sendChatMessageResult.id;
 
-        messagebox.value = '';
-        console.log(`Message sent!, message id:${messageId}`);
-    });
+    messagebox.value = '';
+    console.log(`Message sent!, message id:${messageId}`);
+  });
 ```
 
 채팅 스레드 참가자의 표시 이름은 Teams 클라이언트에서 설정하지 않습니다. 이름이 참가자 나열을 위한 API, `participantsAdded` 이벤트 및 `participantsRemoved` 이벤트에서 null로 반환됩니다. 채팅 참가자의 표시 이름은 `call` 개체의 `remoteParticipants` 필드에서 검색할 수 있습니다. 명단 변경에 대한 알림을 받으면 이 코드를 사용하여 추가되거나 제거된 사용자의 이름을 검색할 수 있습니다.
@@ -327,7 +330,9 @@ var displayName = call.remoteParticipants.find(p => p.identifier.communicationUs
 
 ## <a name="get-a-teams-meeting-chat-thread-for-a-communication-services-user"></a>Communication Services 사용자를 위한 Teams 미팅 채팅 스레드 가져오기
 
-Teams 모임 링크 및 채팅은 [그래프 문서](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true)에 자세히 설명된 Graph API를 사용하여 검색할 수 있습니다. Communication Services Calling SDK는 전체 Teams 미팅 링크를 수락합니다. 이 링크는 [`joinWebUrl` 속성](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)에서 액세스할 수 있는 `onlineMeeting` 리소스의 일부로 반환됩니다. [Graph API](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true)를 사용하면 `threadId`를 얻을 수도 있습니다. 응답에는 `threadID`를 포함하는 `chatInfo` 개체가 포함됩니다. 
+Teams 모임 세부 정보는 [그래프 문서](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true)에 자세히 설명된 Graph API를 사용하여 검색할 수 있습니다. Communication Services Calling SDK는 전체 Teams 모임 링크 또는 모임 ID를 수락합니다. [`joinWebUrl` 속성](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)에서 액세스할 수 있는 `onlineMeeting` 리소스의 일부로 반환됩니다.
+
+[Graph API](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true)를 사용하여 `threadID`를 얻을 수도 있습니다. 응답에는 `threadID`를 포함하는 `chatInfo` 개체가 포함됩니다. 
 
 또한 Teams 모임 초대 자체의 **모임 참가** URL에서 필요한 모임 정보 및 스레드 ID를 가져올 수 있습니다.
 Teams 미팅 링크는 `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`와 같습니다. `threadId`는 링크의 `meeting_chat_thread_id` 위치에 있습니다. 사용하기 전에 `meeting_chat_thread_id`가 이스케이프되지 않았는지 확인합니다. `19:meeting_ZWRhZDY4ZGUtYmRlNS00OWZaLTlkZTgtZWRiYjIxOWI2NTQ4@thread.v2` 형식이어야 합니다.
@@ -345,7 +350,7 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 
 :::image type="content" source="../join-teams-meeting-chat-quickstart.png" alt-text="완성된 JavaScript 애플리케이션의 스크린샷":::
 
-텍스트 상자에 Teams 모임 링크와 스레드 ID를 삽입합니다. Teams 모임에 참가하려면 *팀 모임 참가* 를 누릅니다. Communication Services 사용자가 모임에 입장한 후 Communication Services 애플리케이션에서 채팅할 수 있습니다. 페이지 맨 아래에 있는 상자로 이동하여 채팅을 시작합니다.
+텍스트 상자에 Teams 모임 링크와 스레드 ID를 삽입합니다. Teams 모임에 참가하려면 *팀 모임 참가* 를 누릅니다. Communication Services 사용자가 모임에 입장한 후 Communication Services 애플리케이션에서 채팅할 수 있습니다. 페이지 맨 아래에 있는 상자로 이동하여 채팅을 시작합니다. 간단히 하기 위해 애플리케이션은 채팅의 마지막 두 메시지만 표시합니다.
 
 > [!NOTE] 
-> 현재는 Teams와의 상호 운용성 시나리오에 대해서만 메시지 전송, 수신, 편집 및 타이핑 알림 보내기가 지원됩니다. 읽음 확인 및 Communication Services 사용자와 같은 다른 기능에서는 아직 Teams 미팅에서 다른 사용자를 추가하거나 제거할 수 없습니다.
+> 현재는 Teams와의 상호 운용성 시나리오에 대해서만 메시지 전송, 수신, 편집 및 타이핑 알림 보내기가 지원됩니다. 읽음 확인 및 Communication Services 사용자와 같은 다른 기능에서는 Teams 미팅에서 다른 사용자를 추가하거나 제거할 수 없습니다.

@@ -1,7 +1,7 @@
 ---
 title: 명령줄에서 C# 함수 만들기 - Azure Functions
 description: 명령줄에서 C# 함수를 만든 다음, 로컬 프로젝트를 Azure Functions의 서버리스 호스팅에 게시하는 방법을 알아봅니다.
-ms.date: 08/15/2021
+ms.date: 09/14/2021
 ms.topic: quickstart
 ms.custom:
 - devx-track-csharp
@@ -11,23 +11,21 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-csharp-ieux
-ms.openlocfilehash: c2344a13c1a3dc005d00933fdc182348be9bb0f2
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+zone_pivot_groups: runtime-version-programming-functions
+ms.openlocfilehash: 5ae176c8f9ebe77a40619a65464594236b94671b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122830611"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128559885"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 C# 함수 만들기
 
-[!INCLUDE [functions-language-selector-quickstart-cli](../../includes/functions-language-selector-quickstart-cli.md)]
+[!INCLUDE [functions-runtime-version-dotnet](../../includes/functions-runtime-version-dotnet.md)]
 
 이 문서에서는 명령줄 도구를 사용하여 HTTP 요청에 응답하는 C# 함수를 만듭니다. 코드를 로컬로 테스트한 후 서버리스 Azure Functions 환경에 배포합니다.
 
-이 문서에서는 두 가지 유형의 컴파일된 C# 함수 만들기를 지원합니다. 
-
-+ [In-process](create-first-function-cli-csharp.md?tabs=in-process) - Functions 호스트 프로세스와 동일한 프로세스에서 실행됩니다. 자세한 내용은 [Azure Functions를 사용하여 C# 클래스 라이브러리 함수 개발](functions-dotnet-class-library.md)을 참조하세요.
-+ [격리된 프로세스](create-first-function-cli-csharp.md?tabs=isolated-process) - 별도의 .NET 작업자 프로세스에서 실행됩니다. 자세한 내용은 [Azure의 .NET 5.0에서 함수를 실행하는 방법에 대한 가이드](dotnet-isolated-process-guide.md)를 참조하세요.
+[!INCLUDE [functions-dotnet-execution-model](../../includes/functions-dotnet-execution-model.md)]
 
 이 빠른 시작을 완료하면 Azure 계정에서 약간의 비용(몇 USD 센트)이 발생합니다.
 
@@ -37,9 +35,39 @@ ms.locfileid: "122830611"
 
 시작하기 전에 다음이 있어야 합니다.
 
+::: zone pivot="programming-runtime-functions-v3"
 [!INCLUDE [functions-cli-dotnet-prerequisites](../../includes/functions-cli-dotnet-prerequisites.md)]
+::: zone-end
+::: zone pivot="programming-runtime-functions-v4"
+# <a name="in-process"></a>[In-Process](#tab/in-process)    
 
-+ 활성 구독이 있는 Azure 계정도 필요합니다. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
++ [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
+
++ [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 4.x
+
++ 다음 도구 중 하나를 통해 Azure 리소스를 만듭니다.
+
+    + [Azure CLI](/cli/azure/install-azure-cli) 버전 2.4 이상.
+
+    + [Azure PowerShell](/powershell/azure/install-az-ps) 버전 5.0 이상.
+
+# <a name="isolated-process"></a>[격리된 프로세스](#tab/isolated-process)
+
++ [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0)
+
++ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download). 빌드 프로세스에 필요합니다.
+
++ [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 4.x
+
++ 다음 도구 중 하나를 통해 Azure 리소스를 만듭니다.
+
+    + [Azure CLI](/cli/azure/install-azure-cli) 버전 2.4 이상.
+
+    + [Azure PowerShell](/powershell/azure/install-az-ps) 버전 5.0 이상.
+---
+::: zone-end
+
+활성 구독이 있는 Azure 계정도 필요합니다. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ### <a name="prerequisite-check"></a>필수 구성 요소 확인
 
@@ -206,6 +234,11 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
     [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet은 Azure에서 함수 앱을 만듭니다. 
 
     ---
+
+    ::: zone pivot="programming-runtime-functions-v4"
+    > [!NOTE]
+    > 이 명령은 Azure Functions 런타임의 3.x 버전을 사용하여 함수 앱을 만듭니다. 나중에 실행할 `func azure functionapp publish` 명령은 앱을 버전 4.x로 업데이트합니다.
+    ::: zone-end
     
     이전 예제에서는 `<STORAGE_NAME>`을 이전 단계에서 사용한 계정의 이름으로 바꾸고, `<APP_NAME>`을 적절하고 전역적으로 고유한 이름으로 바꿉니다. `<APP_NAME>`은 함수 앱의 기본 DNS 도메인이기도 합니다. 
     

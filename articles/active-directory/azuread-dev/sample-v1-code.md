@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4d2b1a60856877c24d61379a688ea630e506a848
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: fab3983d4061b494fdadf9ab2c09f2827735e9da
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075239"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129229965"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Azure Active Directory 코드 샘플(v1.0 엔드포인트)
 
@@ -72,7 +72,7 @@ GitHub에서 샘플에 참여할 수도 있습니다. 자세한 방법은 [Micro
 다음 샘플은 사용자 이름으로 Microsoft Graph 또는 Web API에 액세스하는 공용 클라이언트 애플리케이션(데스크톱/모바일 애플리케이션)을 보여 줍니다. 디바이스 및 플랫폼에 따라 애플리케이션에서 다른 방식(흐름/권한 부여)으로 사용자를 로그인할 수 있습니다.
 
 - 대화형
-- 자동으로(Windows의 Windows 통합 인증 또는 사용자 이름/암호 사용)
+- 자동(Windows의 Windows 통합 인증 또는 사용자 이름/암호 사용)
 - 다른 디바이스에 대화형 로그인을 위임하여(웹 컨트롤을 제공하지 않는 디바이스에서 사용되는 디바이스 코드 흐름)
 
 클라이언트 애플리케이션 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출 | ASP.NET 또는 ASP.NET Core 2.x Web API 호출

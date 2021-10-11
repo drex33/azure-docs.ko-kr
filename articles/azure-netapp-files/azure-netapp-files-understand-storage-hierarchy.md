@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 06/14/2021
 ms.author: b-juche
-ms.openlocfilehash: fd96a8c2002bc22a0e4ef2c5a19fa06bf10b5565
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 41ccd31a5e42b2765ffa778dc347cc848090ffee
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112071896"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407516"
 ---
 # <a name="storage-hierarchy-of-azure-netapp-files"></a>Azure NetApp Files의 스토리지 계층 구조
 
@@ -66,9 +66,9 @@ QoS 유형은 용량 풀의 특성입니다. Azure NetApp Files는 용량 풀의
 
     용량 풀에 수동 QoS 유형을 사용하는 옵션이 있습니다.
 
-    수동 QoS 용량 풀에서는 볼륨에 대한 용량 및 처리량을 독립적으로 할당할 수 있습니다. 수동 QoS 용량 풀로 만든 모든 볼륨의 총 처리량은 풀의 총 처리량으로 제한됩니다.  풀 크기와 서비스 수준 처리량의 조합에 의해 결정됩니다. 
+    수동 QoS 용량 풀에서는 볼륨에 대한 용량 및 처리량을 독립적으로 할당할 수 있습니다. 수동 QoS 용량 풀로 만든 모든 볼륨의 총 처리량은 풀의 총 처리량으로 제한됩니다.  이는 풀 크기와 서비스 수준 처리량의 조합에 따라 결정됩니다. 
 
-    예를 들어 Ultra 서비스 수준의 4-TiB 용량 풀에는 해당 볼륨에 대해 사용할 수 있는 총 512MiB/s(4TiB x 128MiB/s/TiB)의 처리량 용량이 있습니다.
+    예를 들어, Ultra 서비스 수준인 4TiB 용량 풀에는 해당 볼륨에 사용할 수 있는 총 512MiB/s(4TiB x 128MiB/s/TiB)의 처리량 용량이 있습니다.
 
 
 ## <a name="volumes"></a><a name="volumes"></a>볼륨
@@ -86,8 +86,7 @@ QoS 유형은 용량 풀의 특성입니다. Azure NetApp Files는 용량 풀의
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure NetApp Files에 대한 리소스 제한](azure-netapp-files-resource-limits.md)
-- [Azure NetApp Files에 등록](azure-netapp-files-register.md)
 - [Azure NetApp Files에 대한 서비스 수준](azure-netapp-files-service-levels.md)
 - [Azure NetApp Files의 성능 고려 사항](azure-netapp-files-performance-considerations.md)
-- [용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)
+- [용량 풀 만들기](azure-netapp-files-set-up-capacity-pool.md)
 - [수동 QoS 용량 풀 관리](manage-manual-qos-capacity-pool.md)

@@ -1,15 +1,15 @@
 ---
 title: '빠른 시작: Python을 사용하여 새 정책 할당'
 description: 이 빠른 시작에서는 Python을 사용하여 비규격 리소스를 식별하는 Azure Policy 할당을 만듭니다.
-ms.date: 08/17/2021
+ms.date: 10/01/2021
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 59f61e05afd9e3abb0aa6bb6a76f632187940412
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: fd9328fdc3f925756652853a81e8b9c77a0266e7
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323498"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350798"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-python"></a>빠른 시작: Python을 사용하여 비규격 리소스를 식별하는 정책 할당 만들기
 
@@ -51,6 +51,9 @@ Python이 Azure Policy와 작업할 수 있도록 하려면 라이브러리를 �
 
    # Add the CLI Core library for Python for authentication (development only!)
    pip install azure-cli-core
+
+   # Add the Azure identity library for Python
+   pip install azure.identity
    ```
 
    > [!NOTE]
@@ -60,7 +63,7 @@ Python이 Azure Policy와 작업할 수 있도록 하려면 라이브러리를 �
 
    ```bash
    # Check each installed library
-   pip show azure-mgmt-policyinsights azure-mgmt-resource azure-cli-core
+   pip show azure-mgmt-policyinsights azure-mgmt-resource azure-cli-core azure.identity
    ```
 
 ## <a name="create-a-policy-assignment"></a>정책 할당 만들기
@@ -71,16 +74,21 @@ Python이 Azure Policy와 작업할 수 있도록 하려면 라이브러리를 �
 
 ```python
 # Import specific methods and models from other libraries
-from azure.common.credentials import get_azure_cli_credentials
-from azure.common.client_factory import get_client_from_cli_profile
 from azure.mgmt.resource.policy import PolicyClient
-from azure.mgmt.resource.policy.models import PolicyAssignment
+from azure.mgmt.resource.policy.models import PolicyAssignment, Identity, UserAssignedIdentitiesValue, PolicyAssignmentUpdate
+from azure.identity import AzureCliCredential
+
+# Set subscription
+subId = "{subId}"
+assignmentLocation = "westus2"
 
 # Get your credentials from Azure CLI (development only!) and get your subscription list
-policyClient = get_client_from_cli_profile(PolicyClient)
+credential = AzureCliCredential()
+policyClient = PolicyClient(credential, subId, base_url=none)
 
 # Create details for the assignment
-policyAssignmentDetails = PolicyAssignment(display_name="Audit VMs without managed disks Assignment", policy_definition_id="/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d", scope="{scope}", description="Shows all virtual machines not using managed disks")
+policyAssignmentIdentity = Identity(type="SystemAssigned")
+policyAssignmentDetails = PolicyAssignment(display_name="Audit VMs without managed disks Assignment", policy_definition_id="/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d", description="Shows all virtual machines not using managed disks", identity=policyAssignmentIdentity, location=assignmentLocation)
 
 # Create new policy assignment
 policyAssignment = policyClient.policy_assignments.create("{scope}", "audit-vm-manageddisks", policyAssignmentDetails)
@@ -92,6 +100,7 @@ print(policyAssignment)
 이 명령은 다음 정보를 사용합니다.
 
 할당 세부 정보:
+- **subId** - 사용자의 구독. 인증에 필요합니다. `{subId}`를 사용자의 구독으로 바꿉니다.
 - **display_name** - 정책 할당에 대한 표시 이름입니다. 이 예제에서는 ‘관리 디스크 할당이 없는 VM 감사’를 사용합니다.
 - **policy_definition_id** – 할당을 만드는 데 기준으로 사용되는 정책 정의 경로입니다. 이 예제에서는 ‘관리 디스크를 사용하지 않는 VM 감사’ 정책 정의의 ID입니다. 이 예제에서는 정책 정의가 기본 제공되며 경로에는 관리 그룹 또는 구독 정보가 포함되지 않습니다.
 - **범위** - 범위는 정책 할당이 적용되는 리소스 또는 리소스 그룹을 결정합니다. 관리 그룹에서 개별 리소스에 이르기까지 다양할 수 있습니다. `{scope}`를 다음 패턴 중 하나로 바꾸어야 합니다.
@@ -115,24 +124,28 @@ print(policyAssignment)
 
 ```python
 # Import specific methods and models from other libraries
-from azure.common.client_factory import get_client_from_cli_profile
 from azure.mgmt.policyinsights._policy_insights_client import PolicyInsightsClient
 from azure.mgmt.policyinsights.models import QueryOptions
+from azure.identity import AzureCliCredential
+
+# Set subscription
+subId = "{subId}"
 
 # Get your credentials from Azure CLI (development only!) and get your subscription list
-policyInsightsClient = get_client_from_cli_profile(PolicyInsightsClient)
+credential = AzureCliCredential()
+policyClient = PolicyInsightsClient(credential, subId, base_url=none)
 
 # Set the query options
 queryOptions = QueryOptions(filter="IsCompliant eq false and PolicyAssignmentId eq 'audit-vm-manageddisks'",apply="groupby((ResourceId))")
 
 # Fetch 'latest' results for the subscription
-results = policyInsightsClient.policy_states.list_query_results_for_subscription(policy_states_resource="latest", subscription_id="{subscriptionId}", query_options=queryOptions)
+results = policyInsightsClient.policy_states.list_query_results_for_subscription(policy_states_resource="latest", subscription_id=subId, query_options=queryOptions)
 
 # Show results
 print(results)
 ```
 
-`{subscriptionId}`를 이 정책 할당에 대한 규정 준수 결과를 보려는 구독으로 바꿉니다. 다른 범위와 데이터를 요약하는 방법 목록은 [정책 상태 메서드](/python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights.operations.policystatesoperations#methods)를 참조하세요.
+`{subId}`를 이 정책 할당에 대한 규정 준수 결과를 보려는 구독으로 바꿉니다. 다른 범위와 데이터를 요약하는 방법 목록은 [정책 상태 메서드](/python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights.operations.policystatesoperations#methods)를 참조하세요.
 
 결과는 다음 예제와 유사합니다.
 
@@ -155,11 +168,15 @@ print(results)
 
 ```python
 # Import specific methods and models from other libraries
-from azure.common.client_factory import get_client_from_cli_profile
 from azure.mgmt.resource.policy import PolicyClient
+from azure.identity import AzureCliCredential
+
+# Set subscription
+subId = "{subId}"
 
 # Get your credentials from Azure CLI (development only!) and get your subscription list
-policyClient = get_client_from_cli_profile(PolicyClient)
+credential = AzureCliCredential()
+policyClient = PolicyClient(credential, subId, base_url=none)
 
 # Delete the policy assignment
 policyAssignment = policyClient.policy_assignments.delete("{scope}", "audit-vm-manageddisks")
@@ -168,7 +185,7 @@ policyAssignment = policyClient.policy_assignments.delete("{scope}", "audit-vm-m
 print(policyAssignment)
 ```
 
-`{scope}`를 정책 할당을 만드는 데 사용한 것과 동일한 범위로 바꿉니다.
+`{subId}`를 사용자의 구독으로 바꾸고 `{scope}`를 정책 할당을 만드는 데 사용한 것과 동일한 범위로 바꿉니다.
 
 ## <a name="next-steps"></a>다음 단계
 

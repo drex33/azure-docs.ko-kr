@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 6cca34774038156cfb01e872e751338c1c96efaa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 090d11866f3d3605a3703fd7ca39f820bbeb7187
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91316003"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273253"
 ---
 # <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>자습서: 부하가 분산되는 IoT 허브에 디바이스 프로비저닝
 
-이 자습서에서는 Device Provisioning Service를 사용하여 부하가 분산된 여러 IoT Hub에 대해 디바이스를 프로비전하는 방법을 보여 줍니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 Device Provisioning Service를 사용하여 부하가 분산된 여러 IoT Hub에 대해 디바이스를 프로비전하는 방법을 보여 줍니다. 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
 > * Azure Portal을 사용하여 두 번째 IoT Hub에 두 번째 디바이스를 프로비전 
@@ -25,7 +25,7 @@ ms.locfileid: "91316003"
 > * Device Provisioning Service 할당 정책을 **균등하게 배포** 로 설정
 > * Device Provisioning Service에 새 IoT Hub 연결
 
-Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

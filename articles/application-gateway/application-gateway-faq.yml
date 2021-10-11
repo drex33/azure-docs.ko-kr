@@ -9,12 +9,12 @@ metadata:
   ms.date: 06/08/2021
   ms.author: victorh
   ms.custom: references_regions
-  ms.openlocfilehash: 87780dbc3a7d492f0fd0fec8839ef26bb092b2eb
-  ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+  ms.openlocfilehash: a0d8c83209f5d96d10cacd95d85fc45f2d09b44b
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/24/2021
-  ms.locfileid: "122777557"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128669078"
 title: Application Gateway에 대한 질문과 대답입니다.
 summary: >
   [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -60,7 +60,11 @@ sections:
 
       v2 SKU의 경우 공용 IP 리소스를 열고 **구성** 을 선택합니다. **DNS 이름 레이블(옵션)** 필드를 사용하여 DNS 이름을 구성할 수 있습니다.
   - question: Keep-Alive 시간 제한 및 TCP 유휴 시간 제한의 설정은 어떻게 되나요?
-    answer: "*Keep-Alive 시간 제한* 은 클라이언트가 영구 연결에 대한 요청을 다른 HTTP 요청으로 보낼 때까지 Application Gateway가 대기하는 시간을 조정합니다. 이 시간이 지나면 Application Gateway가 연결을 재사용하거나 종료합니다. *TCP 유휴 시간 제한* 은 작업이 없을 때 TCP 연결이 열린 상태로 유지되는 시간을 제어합니다. \n\nApplication Gateway v1 SKU의 *Keep-Alive 시간 제한* 은 120초이고 v2 SKU에서는 75초입니다. *TCP 유휴 시간 제한* 은 Application Gateway v1 및 v2 SKU의 프런트 엔드 VIP(가상 IP)에서 기본적으로 4분입니다. v1 및 v2 Application Gateways에서 TCP 유휴 시간 제한 값을 4분~30분 사이로 구성할 수 있습니다. v1 및 v2 Application Gateways 모두 Application Gateway의 공용 IP로 이동하고 포털에서 공용 IP의 “구성” 블레이드 아래에서 TCP 유휴 시간 제한을 변경해야 합니다. 다음 명령을 실행하여 PowerShell을 통해 공용 IP의 TCP 유휴 시간 제한 값을 설정할 수 있습니다. \n\n```azurepowershell-interactive\n$publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup\n$publicIP.IdleTimeoutInMinutes = \"15\"\nSet-AzPublicIpAddress -PublicIpAddress $publicIP\n```\n"
+    answer: "*Keep-Alive 시간 제한* 은 클라이언트가 영구 연결에 대한 요청을 다른 HTTP 요청으로 보낼 때까지 Application Gateway가 대기하는 시간을 조정합니다. 이 시간이 지나면 Application Gateway가 연결을 재사용하거나 종료합니다. *TCP 유휴 시간 제한* 은 작업이 없을 때 TCP 연결이 열린 상태로 유지되는 시간을 제어합니다. \n\nApplication Gateway v1 SKU의 *Keep-Alive 시간 제한* 은 120초이고 v2 SKU에서는 75초입니다. *TCP 유휴 시간 제한* 은 Application Gateway v1 및 v2 SKU의 프런트 엔드 VIP(가상 IP)에서 기본적으로 4분입니다. v1 및 v2 Application Gateways에서 TCP 유휴 시간 제한 값을 4분~30분 사이로 구성할 수 있습니다. v1 및 v2 Application Gateways 모두 Application Gateway의 공용 IP로 이동하고 포털에서 공용 IP의 “구성” 블레이드 아래에서 TCP 유휴 시간 제한을 변경해야 합니다. 개인 IP 주소의 값을 변경하는 것은 지원되지 않습니다. 다음 명령을 실행하여 PowerShell을 통해 공용 IP의 TCP 유휴 시간 제한 값을 설정할 수 있습니다. \n\n```azurepowershell-interactive\n$publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup\n$publicIP.IdleTimeoutInMinutes = \"15\"\nSet-AzPublicIpAddress -PublicIpAddress $publicIP\n```\n"
+  - question: 내 Application Gateway 리소스의 이름을 바꿀 수 있나요?
+    answer: 아니요. Application Gateway 리소스의 이름을 바꿀 수 있는 방법은 없습니다. 다른 이름으로 새 리소스를 만들어야 합니다.
+  - question: Application Gateway 및 해당 공용 IP가 삭제된 경우 복원하는 방법이 있나요?
+    answer: 아니요. Application Gateway 리소스 또는 해당 공용 IP를 삭제한 후에는 복원할 수 없습니다. 새 리소스를 만들어야 합니다.
   - question: 애플리케이션 게이트웨이의 수명 주기 중에 IP 또는 DNS 이름이 변경되나요?
     answer: Application Gateway V1 SKU에서는 애플리케이션 게이트웨이를 중지하고 시작할 때 VIP가 변경될 수 있습니다. 그러나 애플리케이션 게이트웨이와 연결된 DNS 이름은 게이트웨이 수명 주기 중에 변경되지 않습니다. DNS 이름은 변경되지 않으므로 CNAME 별칭을 사용하고 해당 별칭이 애플리케이션 게이트웨이의 DNS 주소를 가리키도록 설정해야 합니다. Application Gateway V2 SKU에서는 IP 주소를 고정 IP로 설정할 수 있으므로, 애플리케이션 게이트웨이의 수명 주기 동안 IP 및 DNS 이름이 변경되지 않습니다.
   - question: Application Gateway에서 고정 IP를 지원하나요?
@@ -96,6 +100,8 @@ sections:
     answer: 아니요. Application Gateway V2는 NTLM 인증을 사용한 프록시 요청을 지원하지 않습니다.
   - question: Application Gateway 선호도 쿠키는 SameSite 특성을 지원하나요?
     answer: "예, [Chromium 브라우저](https://www.chromium.org/Home) [v80 업데이트](https://chromiumdash.appspot.com/schedule)에서는 SameSite 특성이 없는 HTTP 쿠키를 SameSite=Lax로 처리해 달라는 요구를 수락했습니다. 즉, 타사 컨텍스트에서는 브라우저가 Application Gateway 선호도 쿠키를 보내지 않습니다. \n\n이 시나리오를 지원하기 위해, Application Gateway는 기존 *ApplicationGatewayAffinity* 쿠키 외에도 *ApplicationGatewayAffinityCORS* 라는 또 다른 쿠키를 삽입합니다.  이러한 쿠키는 유사하지만, *ApplicationGatewayAffinityCORS* 쿠키에 다음과 같은 두 가지 특성이 더 추가되었습니다. *SameSite=None; Secure*. 이러한 특성은 원본 간 요청에서도 고정 세션을 유지합니다. 자세한 내용은 [쿠키 기반 선호도 섹션](configuration-http-settings.md#cookie-based-affinity)을 참조하세요.\n"
+  - question: 활성 수신기 및 비활성 수신기로 간주되는 항목은 무엇인가요?
+    answer: "활성 수신기는 규칙에 **연결** 되고 백 엔드 풀로 트래픽을 전송하는 수신기입니다. 트래픽 **만** 리디렉션하는 수신기는 활성 수신기가 아닙니다. 리디렉션 규칙과 연결된 수신기는 활성으로 간주되지 않습니다. 리디렉션 규칙이 경로 기반 규칙인 경우 해당 리디렉션 규칙의 모든 경로는 트래픽을 리디렉션해야 합니다. 그렇지 않으면 수신기는 활성 상태인 것으로 간주됩니다. 개별 구성 요소 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits)을 참조하세요. \n"
 - name: 성능
   questions:
   - question: Application Gateway는 고가용성과 확장성을 어떤 방식으로 지원하나요?

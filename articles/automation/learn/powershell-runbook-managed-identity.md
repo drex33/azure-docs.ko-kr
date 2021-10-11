@@ -3,20 +3,20 @@ title: Azure Automation에서 관리 ID를 사용하여 PowerShell Runbook 만�
 description: 이 자습서에서는 Azure Automation에서 PowerShell Runbook의 관리 ID를 사용하는 방법을 알아봅니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/16/2021
+ms.date: 09/28/2021
 ms.topic: tutorial
-ms.openlocfilehash: 0620aacb1b4f2a6cb7c6214c1ce92add3bec8f63
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f335df520b8d47a9439575a5d2f337d28a9bebc6
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128610677"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357557"
 ---
 # <a name="tutorial-create-automation-powershell-runbook-using-managed-identity"></a>자습서: 관리 ID를 사용하여 Automation PowerShell Runbook 만들기
 
 이 자습서에서는 Azure Automation에서, 실행 계정이 아닌 [관리 ID](../automation-security-overview.md#managed-identities-preview)를 사용하여 리소스와 상호 작용하는 [PowerShell Runbook](../automation-runbook-types.md#powershell-runbooks)을 만드는 방법을 안내합니다. PowerShell Runbook은 Windows PowerShell을 기반으로 합니다. Azure AD(Azure Active Directory)의 관리 ID를 사용하면 Runbook에서 다른 Azure AD 보호 리소스에 쉽게 액세스할 수 있습니다.
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
 > * 관리 ID에 권한 할당
@@ -24,11 +24,11 @@ ms.locfileid: "128610677"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 사용자 할당 관리 ID가 하나 이상 있는 Azure Automation 계정. 자세한 내용은 [Azure Automation 계정에 대해 사용자 할당 관리 ID 사용](../add-user-assigned-identity.md)을 참조하세요.
 * Az 모듈 `Az.Accounts`, `Az.Automation`, `Az.ManagedServiceIdentity` 및 `Az.Compute`를 Automation 계정으로 가져옵니다. 자세한 내용은 [Az 모듈 가져오기](../shared-resources/modules.md#import-az-modules)를 참조하세요.
-* 로컬 컴퓨터에 설치된 [Azure Az PowerShell 모듈](/powershell/azure/new-azureps-module-az)입니다. 설치 또는 업그레이드하려면 [Azure Az PowerShell 모듈을 설치하는 방법](/powershell/azure/install-az-ps)을 참조하세요.
+* 로컬 컴퓨터에 설치된 [Azure Az PowerShell 모듈](/powershell/azure/new-azureps-module-az)입니다. 설치 또는 업그레이드하려면 [Azure Az PowerShell 모듈을 설치하는 방법](/powershell/azure/install-az-ps)을 참조하세요. `Az.ManagedServiceIdentity`는 미리 보기 모듈이며 Az 모듈의 일부로 설치되지 않습니다. 설치하려면 `Install-Module -Name Az.ManagedServiceIdentity`를 실행합니다.
 * [Azure 가상 머신](../../virtual-machines/windows/quick-create-powershell.md). 이 머신을 중지하고 시작하므로 프로덕션 VM이 아니어야 합니다.
 * [Automation Runbook](../manage-runbooks.md)에 대해 일반적으로 잘 알고 있습니다.
 
@@ -122,7 +122,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     
     # Connect using a Managed Service Identity
     try {
-            Connect-AzAccount -Identity -ErrorAction stop -WarningAction SilentlyContinue | Out-Null
+            $AzureContext = (Connect-AzAccount -Identity).context
         }
     catch{
             Write-Output "There is no system-assigned user identity. Aborting."; 
@@ -130,8 +130,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
         }
     
     # set and store context
-    $subID = (Get-AzContext).Subscription.Id
-    $AzureContext = Set-AzContext -SubscriptionId $subID
+    $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription `
+        -DefaultProfile $AzureContext
     
     if ($method -eq "SA")
         {
@@ -142,15 +142,18 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
             Write-Output "Using user-assigned managed identity"
     
             # Connects using the Managed Service Identity of the named user-assigned managed identity
-            $identity = Get-AzUserAssignedIdentity -ResourceGroupName $resourceGroup -Name $UAMI -DefaultProfile $AzureContext
+            $identity = Get-AzUserAssignedIdentity -ResourceGroupName $resourceGroup `
+                -Name $UAMI -DefaultProfile $AzureContext
     
             # validates assignment only, not perms
-            if ((Get-AzAutomationAccount -ResourceGroupName $resourceGroup -Name $automationAccount -DefaultProfile $AzureContext).Identity.UserAssignedIdentities.Values.PrincipalId.Contains($identity.PrincipalId))
+            if ((Get-AzAutomationAccount -ResourceGroupName $resourceGroup `
+                    -Name $automationAccount `
+                    -DefaultProfile $AzureContext).Identity.UserAssignedIdentities.Values.PrincipalId.Contains($identity.PrincipalId))
                 {
-                    Connect-AzAccount -Identity -AccountId $identity.ClientId | Out-Null
+                    $AzureContext = (Connect-AzAccount -Identity -AccountId $identity.ClientId).context
     
                     # set and store context
-                    $AzureContext = Set-AzContext -SubscriptionId ($identity.id -split "/")[2]
+                    $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
                 }
             else {
                     Write-Output "Invalid or unassigned user-assigned managed identity"
@@ -163,7 +166,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
          }
     
     # Get current state of VM
-    $status = (Get-AzVM -ResourceGroupName $resourceGroup -Name $VMName -Status -DefaultProfile $AzureContext).Statuses[1].Code
+    $status = (Get-AzVM -ResourceGroupName $resourceGroup -Name $VMName `
+        -Status -DefaultProfile $AzureContext).Statuses[1].Code
     
     Write-Output "`r`n Beginning VM status: $status `r`n"
     
@@ -178,7 +182,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
         }
     
     # Get new state of VM
-    $status = (Get-AzVM -ResourceGroupName $resourceGroup -Name $VMName -Status -DefaultProfile $AzureContext).Statuses[1].Code  
+    $status = (Get-AzVM -ResourceGroupName $resourceGroup -Name $VMName -Status `
+        -DefaultProfile $AzureContext).Statuses[1].Code  
     
     Write-Output "`r`n Ending VM status: $status `r`n `r`n"
     

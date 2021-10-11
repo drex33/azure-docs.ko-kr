@@ -1,22 +1,22 @@
 ---
-title: '자습서: AutoML - 회귀 모델 학습'
+title: '자습서: AutoML 학습 회귀 모델'
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning 자동화된 ML을 사용하여 Azure Machine Learning Python SDK를 통해 NYC 택시 요금를 예측하는 회귀 모델을 학습합니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 06/11/2021
+ms.date: 10/01/2021
 ms.custom: devx-track-python, automl, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 6a909d5742a582776f1467f5053b217876885bf7
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 1cbd1a3a43b7693c62c2955ae89b11c35f7d375e
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112462778"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129426570"
 ---
 # <a name="tutorial-train-a-regression-model-with-automl-and-python"></a>자습서: AutoML 및 Python을 사용하여 회귀 모델 학습
 
@@ -92,42 +92,13 @@ green_taxi_df.head(10)
 |811755|1|2015-01-04 19:57:51|2015-01-04 20:05:45|2|1.10|None|None|-73.96|40.72|-73.95|...|2|6.50|0.50|0.50|0.3|0.00|0.00|nan|7.80|
 |737281|1|2015-01-03 12:27:31|2015-01-03 12:33:52|1|0.90|None|None|-73.88|40.76|-73.87|...|2|6.00|0.00|0.50|0.3|0.00|0.00|nan|6.80|
 |113951|1|2015-01-09 23:25:51|2015-01-09 23:39:52|1|3.30|None|None|-73.96|40.72|-73.91|...|2|12.50|0.50|0.50|0.3|0.00|0.00|nan|13.80|
-|150436|2|2015-01-11 17:15:14|2015-01-11 17:22:57|1|1.19|None|None|-73.94|40.71|-73.95|...|1|7.00|0.00|0.50|0.3|1.75|0.00|nan|9.55|
-|432136|2|2015-01-22 23:16:33   2015-01-22 23:20:13 1   0.65|None|None|-73.94|40.71|-73.94|...|2|5.00|0.50|0.50|0.3|0.00|0.00|nan|6.30|
+|150436|2|2015-01-11 17:15:14|2015-01-11 17:22:57|1|1.19|None|없음|-73.94|40.71|-73.95|...|1|7.00|0.00|0.50|0.3|1.75|0.00|nan|9.55|
+|432136|2|2015-01-22 23:16:33   2015-01-22 23:20:13 1   0.65|없음|없음|-73.94|40.71|-73.94|...|2|5.00|0.50|0.50|0.3|0.00|0.00|nan|6.30|
 
-이제 초기 데이터가 로드되었으므로 태운 날짜/시간 필드에서 다양한 시간 기반 기능을 만들기 위한 함수를 정의합니다. 그러면 월 숫자, 월간 일자, 요일 및 일간 시간에 대한 새 필드가 생성되며 모델에서 시간 기반 계절성을 고려할 수 있게 됩니다. 데이터 프레임에 대해 `apply()` 함수를 사용하여 택시 데이터의 각 행에 `build_time_features()` 함수를 반복해서 적용합니다.
-
-```python
-def build_time_features(vector):
-    pickup_datetime = vector[0]
-    month_num = pickup_datetime.month
-    day_of_month = pickup_datetime.day
-    day_of_week = pickup_datetime.weekday()
-    hour_of_day = pickup_datetime.hour
-
-    return pd.Series((month_num, day_of_month, day_of_week, hour_of_day))
-
-green_taxi_df[["month_num", "day_of_month","day_of_week", "hour_of_day"]] = green_taxi_df[["lpepPickupDatetime"]].apply(build_time_features, axis=1)
-green_taxi_df.head(10)
-```
-
-|vendorID| lpepPickupDatetime|  lpepDropoffDatetime|    passengerCount| tripDistance|   puLocationId|   doLocationId|   pickupLongitude|    pickupLatitude| dropoffLongitude    |...|   paymentType|fareAmount  |extra| mtaTax| improvementSurcharge|   tipAmount|  tollsAmount|    ehailFee|   totalAmount|tripType|month_num|day_of_month|day_of_week|hour_of_day
-|----|----|----|----|----|----|---|--|---|---|---|----|----|----|--|---|----|-----|----|----|----|----|---|----|----|
-|131969|2|2015-01-11 05:34:44|2015-01-11 05:45:03|3|4.84|None|None|-73.88|40.84|-73.94|...|2|15.00|0.50|0.50|0.3|0.00|0.00|nan|16.30|1.00|1|11|6|
-|1129817|2|2015-01-20 16:26:29|2015-01-20 16:30:26|1|0.69|None|None|-73.96|40.81|-73.96|...|2|4.50|1.00|0.50|0.3|0.00|0.00|nan|6.30|1.00|1|20|1|
-|1278620|2|2015-01-01 05:58:10|2015-01-01 06:00:55|1|0.45|None|None|-73.92|40.76|-73.91|...|2|4.00|0.00|0.50|0.3|0.00|0.00|nan|4.80|1.00|1|1|3|
-|348430|2|2015-01-17 02:20:50|2015-01-17 02:41:38|1|0.00|None|None|-73.81|40.70|-73.82|...|2|12.50|0.50|0.50|0.3|0.00|0.00|nan|13.80|1.00|1|17|5|
-1269627|1|2015-01-01 05:04:10|2015-01-01 05:06:23|1|0.50|None|None|-73.92|40.76|-73.92|...|2|4.00|0.50|0.50|0|0.00|0.00|nan|5.00|1.00|1|1|3|
-|811755|1|2015-01-04 19:57:51|2015-01-04 20:05:45|2|1.10|None|None|-73.96|40.72|-73.95|...|2|6.50|0.50|0.50|0.3|0.00|0.00|nan|7.80|1.00|1|4|6|
-|737281|1|2015-01-03 12:27:31|2015-01-03 12:33:52|1|0.90|None|None|-73.88|40.76|-73.87|...|2|6.00|0.00|0.50|0.3|0.00|0.00|nan|6.80|1.00|1|3|5|
-|113951|1|2015-01-09 23:25:51|2015-01-09 23:39:52|1|3.30|None|None|-73.96|40.72|-73.91|...|2|12.50|0.50|0.50|0.3|0.00|0.00|nan|13.80|1.00|1|9|4|
-|150436|2|2015-01-11 17:15:14|2015-01-11 17:22:57|1|1.19|None|None|-73.94|40.71|-73.95|...|1|7.00|0.00|0.50|0.3|1.75|0.00|nan|9.55|1.00|1|11|6|
-|432136|2|2015-01-22 23:16:33   2015-01-22 23:20:13 1   0.65|None|None|-73.94|40.71|-73.94|...|2|5.00|0.50|0.50|0.3|0.00|0.00|nan|6.30|1.00|1|22|3|
-
-학습 또는 추가 기능 만들기에 필요하지 않은 열을 제거합니다.
+학습 또는 추가 기능 만들기에 필요하지 않은 열을 제거합니다.  기계 학습 자동화는 **lpepPickupDatetime** 과 같은 시간 기반 기능을 자동으로 처리합니다.
 
 ```python
-columns_to_remove = ["lpepPickupDatetime", "lpepDropoffDatetime", "puLocationId", "doLocationId", "extra", "mtaTax",
+columns_to_remove = ["lpepDropoffDatetime", "puLocationId", "doLocationId", "extra", "mtaTax",
                      "improvementSurcharge", "tollsAmount", "ehailFee", "tripType", "rateCodeID",
                      "storeAndFwdFlag", "paymentType", "fareAmount", "tipAmount"
                     ]

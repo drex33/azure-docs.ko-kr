@@ -1,15 +1,15 @@
 ---
 title: Bicep 파일 만들기 - Visual Studio Code
 description: Azure 리소스 배포를 위해 Visual Studio Code 및 Bicep 파일에 대한 Bicep 확장 사용
-ms.date: 07/30/2021
+ms.date: 10/01/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4f76d18c756855798651e0c129fd4f0caec15984
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 95e7a601da5c8a9976d2341c2964df0f4d9718d0
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750152"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354955"
 ---
 # <a name="quickstart-create-bicep-files-with-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Bicep 파일 만들기
 
@@ -30,6 +30,9 @@ Bicep 확장이 포함된 VS Code는 미리 정의된 코드 조각을 제공하
 *main.bicep* 에 **vnet** 를 입력합니다. 목록에서 **res-vnet** 를 선택한 다음, Tab 키 또는 Enter 키를 선택합니다.
 
 :::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/add-snippet.png" alt-text="가상 네트워크에 대한 코드 조각 추가":::
+
+> [!TIP]
+> VS Code에 이러한 intellisense 옵션이 표시되지 않는 경우 [필수 구성 요소](#prerequisites)에 지정된 대로 Bicep 확장을 설치했는지 확인합니다. 확장을 설치한 경우 Bicep 파일을 연 후 Bicep 언어 서비스를 시작할 시간을 제공합니다. 일반적으로 빠르게 시작되지만 시작할 때까지 intellisense 옵션이 없습니다. 오른쪽 아래 모서리에 있는 알림은 서비스가 시작 중임을 나타냅니다. 해당 알림이 사라지면 서비스가 실행 중인 것입니다.
 
 이제 Bicep 파일에 다음 코드가 포함됩니다.
 

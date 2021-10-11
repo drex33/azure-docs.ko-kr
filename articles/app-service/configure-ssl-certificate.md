@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/13/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 27e17c5adeb7ab5a55b4783bac86301ba4237f45
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: cf15fd428c7e487b82823586be6edfd21f6cab48
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538204"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129057401"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Azure App Service에서 TLS/SSL 인증서 추가
 
@@ -70,12 +70,13 @@ TLS 바인딩에서 사용자 지정 도메인을 보호하려면 인증서가 �
 - 와일드카드 인증서를 지원하지 않습니다.
 - 인증서 지문을 클라이언트 인증서로 사용하도록 지원하지 않습니다(인증서 지문 제거 예정).
 - 내보낼 수 없습니다.
+- 공개적으로 액세스할 수 없는 App Service에서는 지원되지 않습니다.
 - ASE(App Service Environment)에서 지원되지 않습니다.
 - Traffic Manager와 통합된 루트 도메인에서 지원되지 않습니다.
 - 인증서가 CNAME 매핑된 도메인용인 경우 CNAME을 `<app-name>.azurewebsites.net`에 직접 매핑해야 합니다.
 
 > [!NOTE]
-> 무료 인증서는 DigiCert에서 발급됩니다. 일부 최상위 도메인의 경우 `0 issue digicert.com` 값으로 [CAA 도메인 레코드](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization)를 만들어 DigiCert를 인증서 발급자로 명시적으로 허용해야 합니다.
+> 무료 인증서는 DigiCert에서 발급됩니다. 일부 도메인의 경우 `0 issue digicert.com` 값으로 [CAA 도메인 레코드](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization)를 만들어 DigiCert를 인증서 발급자로 명시적으로 허용해야 합니다.
 > 
 
 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 왼쪽 메뉴에서 **App Services** >  **\<app-name>** 를 선택합니다.
@@ -121,7 +122,7 @@ App Service 인증서를 구매하려면 [인증서 주문 시작](#start-certif
 
 다음 표를 사용하여 인증서를 구성할 수 있습니다. 작업을 마쳤으면 **만들기** 를 클릭합니다.
 
-| 설정 | 설명 |
+| 설정 | Description |
 |-|-|
 | Name | App Service Certificate에 대한 식별 이름입니다. |
 | Naked 도메인 호스트 이름 | 여기서 루트 도메인을 지정합니다. 발급된 인증서는 루트 도메인과 `www` 하위 도메인을 *모두* 보호합니다. 발급된 인증서의 일반 이름 필드에는 루트 도메인이 포함되고, 주체 대체 이름 필드에는 `www` 도메인이 포함됩니다. 하위 도메인만 보호하려면 여기에 하위 도메인의 정규화된 도메인 이름을 지정합니다(예: `mysubdomain.contoso.com`).|
@@ -131,7 +132,7 @@ App Service 인증서를 구매하려면 [인증서 주문 시작](#start-certif
 | 약관 | 약관에 동의하는지 확인하려면 클릭합니다. GoDaddy에서 인증서가 옵니다. |
 
 > [!NOTE]
-> Azure에서 구매한 App Service 인증서는 GoDaddy에 의해 발급됩니다. 일부 최상위 도메인의 경우 `0 issue godaddy.com` 값으로 [CAA 도메인 레코드](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization)를 만들어 GoDaddy를 인증서 발급자로 명시적으로 허용해야 합니다.
+> Azure에서 구매한 App Service 인증서는 GoDaddy에 의해 발급됩니다. 일부 도메인의 경우 `0 issue godaddy.com` 값으로 [CAA 도메인 레코드](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization)를 만들어 GoDaddy를 인증서 발급자로 명시적으로 허용해야 합니다.
 > 
 
 ### <a name="store-in-azure-key-vault"></a>Azure Key Vault에 저장
@@ -146,7 +147,7 @@ App Service 인증서를 구매하려면 [인증서 주문 시작](#start-certif
 
 **Key Vault 상태** 페이지에서 **Key Vault 리포지토리** 를 클릭하여 새 자격 증명 모음을 만들거나 기존 자격 증명 모음을 선택합니다. 새 자격 증명 모음을 만들려면 다음 표를 사용하여 자격 증명 모음을 구성하고 만들기를 클릭합니다. App Service 앱과 동일한 구독 및 리소스 그룹 내에 새 Key Vault를 만듭니다.
 
-| 설정 | 설명 |
+| 설정 | Description |
 |-|-|
 | Name | 영숫자와 대시로 구성된 고유한 이름입니다. |
 | Resource group | 권장 사항으로, App Service Certificate과 동일한 리소스 그룹을 선택합니다. |
@@ -218,7 +219,7 @@ Azure Key Vault를 사용하여 인증서를 관리하는 경우 Key Vault의 [�
 
 다음 표를 사용하여 인증서를 선택합니다.
 
-| 설정 | 설명 |
+| 설정 | Description |
 |-|-|
 | Subscription | Key Vault가 속한 구독입니다. |
 | Key Vault | 가져오려는 인증서가 포함된 자격 증명 모음입니다. |
@@ -331,6 +332,9 @@ IIS 또는 _Certreq.exe_ 를 사용하여 인증서 요청을 생성한 경우 �
 3. 기존 인증서를 삭제합니다.
 
 ### <a name="renew-an-app-service-certificate"></a>App Service 인증서 갱신
+
+> [!NOTE]
+> 2021년 9월 23일부터 App Service 인증서는 395일마다 도메인 유효성 검사를 수행해야 합니다. App Service Managed Certificate와 달리 App Service Certificate에 대한 도메인 다시 유효성 검사는 자동화되지 않습니다.
 
 > [!NOTE]
 > 갱신 프로세스를 수행하려면 [App Service의 잘 알려진 서비스 주체에게 키 자격 증명 모음에 대한 필수 권한이 있어야 합니다](deploy-resource-manager-template.md#deploy-web-app-certificate-from-key-vault). 이 권한은 포털을 통해 App Service Certificate를 가져올 때 구성되며 키 자격 증명 모음에서 제거하면 안 됩니다.

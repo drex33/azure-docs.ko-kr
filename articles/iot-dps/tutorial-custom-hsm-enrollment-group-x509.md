@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: f2e6918e6cdc6eb87fe80e9110183ed5a0a3693b
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: d431e91eb71d5befe71f134e634fe5ad3c7b392d
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113106716"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274478"
 ---
 # <a name="tutorial-provision-multiple-x509-devices-using-enrollment-groups"></a>자습서: 등록 그룹을 사용하여 여러 X.509 디바이스 프로비저닝
 
@@ -318,7 +318,7 @@ Windows 기반 디바이스에서 인증서 저장소에 서명 인증서를 추
 
 ## <a name="create-an-enrollment-group"></a>등록 그룹 만들기
 
-1. Azure Portal에 로그인하여 왼쪽 메뉴에서 **모든 리소스** 단추를 선택하고 Device Provisioning 서비스를 엽니다.
+1. Azure Portal에 로그인하여 왼쪽 메뉴에서 **모든 리소스** 단추를 선택하고 Device Provisioning Service를 엽니다.
 
 2. **등록 관리** 탭을 선택한 다음, 위쪽에서 **등록 그룹 추가** 단추를 선택합니다.
 
@@ -339,9 +339,9 @@ Windows 기반 디바이스에서 인증서 저장소에 서명 인증서를 추
 
 이 섹션에서는 샘플 코드를 Device Provisioning Service 인스턴스 정보로 업데이트합니다. 디바이스가 인증되면 이 섹션에 구성한 Device Provisioning Service 인스턴스에 연결된 IoT 허브에 디바이스가 할당됩니다.
 
-1. Azure Portal에서 Device Provisioning 서비스에 대한 **개요** 탭을 선택하고 **_ID 범위_** 값을 기록해 둡니다.
+1. Azure Portal에서 Device Provisioning Service에 대한 **개요** 탭을 선택하고 **_ID 범위_** 값을 기록해 둡니다.
 
-    ![포털 블레이드에서 디바이스 프로비저닝 서비스 엔드포인트 정보 추출](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
+    ![포털 블레이드에서 디바이스 프로비저닝 서비스 엔드포인트 정보 추출](./media/quick-create-simulated-device-x509/copy-id-scope.png) 
 
 2. Visual Studio를 시작하고, azure-iot-sdk-c git 리포지토리의 루트에 만든 `cmake` 디렉터리에 생성된 새 솔루션 파일을 엽니다. 솔루션 파일의 이름은 `azure_iot_sdks.sln`입니다.
 

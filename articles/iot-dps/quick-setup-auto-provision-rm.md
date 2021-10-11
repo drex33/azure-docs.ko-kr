@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 8ec795e7ad54d2101573d857fa52b5aaad0ed71d
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 20a6ced453ca49c08131917f0d22c4c7d9f759a9
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112032396"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278750"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-dps-with-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure IoT Hub DPS(Device Provisioning Service) 설정
 
@@ -170,4 +170,4 @@ Azure Portal, PowerShell, REST API 또는 Azure Resource Manager나 IoT Hub Devi
 이 빠른 시작에서는 IoT 허브 및 Device Provisioning Service 인스턴스를 배포하고, 두 리소스를 연결했습니다. 이 설정을 사용하여 디바이스를 프로비저닝하는 방법을 알아보려면 디바이스를 만들기 위한 빠른 시작으로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [디바이스 프로비저닝을 위한 빠른 시작](./quick-create-simulated-device-symm-key.md)
+> [빠른 시작: 시뮬레이션된 대칭 키 디바이스 프로비전](./quick-create-simulated-device-symm-key.md)

@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Functions를 사용하여 Event Grid를 �
 documentationcenter: .net
 author: spelluru
 ms.topic: tutorial
-ms.date: 06/23/2020
+ms.date: 09/29/2021
 ms.author: spelluru
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fb18eb5df675690a6bb5b796349c140a61949df1
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: 46dc7a9ac1b985c116162f60c58afb0e8dff9c3a
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "122207427"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273164"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions"></a>자습서: Azure Functions를 사용하여 Azure Event Grid를 통해 받은 Azure Service Bus 이벤트에 응답
 이 자습서에서는 Azure Functions 및 Azure Logic Apps를 사용하여 Azure Event Grid를 통해 받은 Azure Service Bus 이벤트에 응답하는 방법을 알아봅니다. 
@@ -44,6 +44,8 @@ ms.locfileid: "122207427"
 1. **게시** 마법사의 **대상** 페이지에서 **Azure** 를 **대상** 으로 선택합니다. 
 1. **특정 대상** 페이지에서 **Azure 함수 앱(Windows)** 을 선택합니다. 
 1. **Functions 인스턴스** 페이지에서 **새 Azure 함수 만들기** 를 선택합니다. 
+
+    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/add-function-button.png" alt-text="Visual Studio - 게시 대화 상자의 함수 추가 단추를 보여주는 이미지.":::
 1. **함수 앱(Windows)** 페이지에서 다음 단계를 수행합니다.
     1. 함수 앱의 **이름** 을 입력합니다.
     1. Azure **구독** 을 선택합니다.

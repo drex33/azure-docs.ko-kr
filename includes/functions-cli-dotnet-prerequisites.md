@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: b45bcfe6ff410b9aa4452761d5886cf3da1bf177
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.openlocfilehash: 3861d5d9dde33e54d523cb6b379cab7ccc73d2f1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122830542"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128559898"
 ---
 # <a name="in-process"></a>[In-Process](#tab/in-process)    
 
@@ -22,7 +22,7 @@ ms.locfileid: "122830542"
 
 + [.NET 5.0 SDK](https://dotnet.microsoft.com/download)
 
-+ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
++ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download). 빌드 프로세스에 필요합니다.
 
 + [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) 버전 3.x
 

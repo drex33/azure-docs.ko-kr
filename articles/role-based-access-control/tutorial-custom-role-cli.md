@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e3743697d58d0f5b167b123df59bc5638aa60489
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 6fed28798e8e2f7795600b50c0121361ce54584b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771680"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129358237"
 ---
 # <a name="tutorial-create-an-azure-custom-role-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure 사용자 지정 역할 만들기
 
-Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 [사용자 지정 역할](built-in-roles.md)을 만들면 됩니다. 이 자습서에서는 Azure CLI를 사용하여 Reader 지원 티켓이라는 사용자 지정 역할을 만듭니다. 사용자 지정 역할을 통해 사용자는 구독의 관리 평면에서 모든 것을 살펴보고 지원 티켓을 열 수도 있습니다.
+Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 [사용자 지정 역할](built-in-roles.md)을 만들면 됩니다. 이 자습서에서는 Azure CLI를 사용하여 Reader 지원 티켓이라는 사용자 지정 역할을 만듭니다. 사용자 지정 역할을 통해 사용자는 구독의 컨트롤 플레인에서 모든 것을 살펴보고 지원 티켓을 열 수도 있습니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -52,7 +52,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. [Microsoft.Support 리소스 공급자](resource-provider-operations.md#microsoftsupport)에 대한 작업 목록을 검토합니다. 권한을 만드는 데 사용할 수 있는 작업을 파악하는 데 도움이 됩니다.
 
-    | 작업(Operation) | Description |
+    | 작업 | Description |
     | --- | --- |
     | Microsoft.Support/register/action | 지원 리소스 공급자에 등록합니다. |
     | Microsoft.Support/supportTickets/read | 상태, 심각도, 연락처 세부 정보, 통신 등 지원 티켓 세부 정보를 얻거나 구독의 지원 티켓 목록을 얻습니다. |
@@ -202,7 +202,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. ReaderSupportRole.json 파일을 엽니다.
 
-1. `Actions`에서 리소스 그룹 배포 `"Microsoft.Resources/deployments/*"`를 만들고 관리하는 작업을 추가합니다. 이전 작업 뒤에 꼭 쉼표를 추가해야 합니다.
+1. `Actions`에서 리소스 그룹 배포 `"Microsoft.Resources/deployments/*"`를 만들고 관리하는 작업을 추가합니다. 이전 작업 뒤에 쉼표를 추가해야 합니다.
 
     업데이트된 JSON 파일은 다음과 비슷합니다.
 

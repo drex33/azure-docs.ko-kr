@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: 다중 클래스 이미지 분류 모델에서 사용할 수 있도록 이미지 레이블 지정 프로세스를 관리하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: tutorial
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
-ms.date: 04/09/2020
+ms.date: 09/30/2021
 ms.custom: data4ml
-ms.openlocfilehash: 2dcd31493bf8ebc7c5096bfe7fda3e2b3f1641be
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 89d3a569a8e202ff2fbe43f697de3598b9b767ad
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112459553"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129423937"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>자습서: 다중 클래스 이미지 분류를 위한 레이블 지정 프로젝트 만들기 
 
@@ -35,7 +35,7 @@ ms.locfileid: "112459553"
 > * 데이터에 레이블을 지정합니다.  사용자 또는 레이블 지정자에서 이 작업을 수행할 수 있습니다.
 > * 데이터를 검토하고 내보내서 프로젝트를 완료합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -96,6 +96,10 @@ Azure Machine Learning 데이터 저장소는 구독 ID 및 토큰 권한 부여
     레이블 지정 작업 유형 | **이미지 분류 다중 클래스** 를 선택합니다.  
     
     **다음** 을 선택하여 프로젝트 만들기를 계속합니다.
+
+### <a name="add-workforce-optional"></a>인력 추가(선택 사항)
+
+**다음** 을 선택하여 계속합니다.  이 자습서에서는 외부 인력을 사용하지 않습니다.
 
 ### <a name="select-or-create-a-dataset"></a>데이터 세트 선택 또는 만들기
 

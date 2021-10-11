@@ -1,5 +1,5 @@
 ---
-title: '자습서: Starmind와 Azure Active Directory SSO(Single Sign-On) 통합 | Microsoft Docs'
+title: '자습서: Starmind와 Azure AD SSO 통합'
 description: Azure Active Directory 및 Starmind 간에 Single Sign-On을 구성하는 방법을 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/25/2020
+ms.date: 09/20/2021
 ms.author: jeedes
-ms.openlocfilehash: ecccc0bf05dfc4e27835a676748ca144c6bcc6c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 535abbd360ffb3bbc2d07c8cc23491874679b813
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92521988"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128669326"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-starmind"></a>자습서: Starmind와 Azure Active Directory SSO(Single Sign-On) 통합
+# <a name="tutorial-azure-ad-sso-integration-with-starmind"></a>자습서: Starmind와 Azure AD SSO 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Starmind를 통합하는 방법에 대해 알아봅니다. Azure AD와 Starmind를 연결하는 경우 다음을 수행할 수 있습니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "92521988"
 * 사용자가 자신의 Azure AD 계정으로 Starmind에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -38,9 +38,9 @@ ms.locfileid: "92521988"
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 * Starmind에서 **SP** 시작 SSO를 지원합니다.
-* Starmind는 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
+* Starmind에서 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
 
-## <a name="adding-starmind-from-the-gallery"></a>갤러리에서 Starmind 추가
+## <a name="add-starmind-from-the-gallery"></a>갤러리에서 Starmind 추가
 
 Starmind가 Azure AD에 통합되도록 구성하려면 갤러리에서 Starmind를 관리형 SaaS 앱 목록에 추가해야 합니다.
 
@@ -50,7 +50,6 @@ Starmind가 Azure AD에 통합되도록 구성하려면 갤러리에서 Starmind
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에서 **Starmind** 를 입력합니다.
 1. 결과 패널에서 **Starmind** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-starmind"></a>Starmind에 대한 Azure AD SSO 구성 및 테스트
 
@@ -71,23 +70,22 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Azure Portal의 **Starmind** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
+1. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    a. **로그인 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.starmind.com` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<SUBDOMAIN>.starmind.com/auth/realms/<ID>` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<SUBDOMAIN>.starmind.com/auth/realms/<ID>` 패턴을 사용하는 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.starmind.com/auth/realms/<ID>/broker/saml/endpoint` 패턴을 사용하여 URL을 입력합니다.
 
-    다. **회신 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.starmind.com/auth/realms/<ID>/broker/saml/endpoint` 패턴을 사용하여 URL을 입력합니다.
+    다. **로그인 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.starmind.com` 패턴을 사용하여 URL을 입력합니다.
 
     d. **로그아웃 URL** 텍스트 상자에 `https://<SUBDOMAIN>.starmind.com/auth/realms/<ID>/broker/saml/endpoint` 패턴을 사용하여 URL을 입력합니다.
 
-
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자, 회신 URL 및 로그아웃 URL로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Starmind 클라이언트 지원 팀](mailto:support@starmind.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL, 로그온 URL 및 로그아웃 URL로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Starmind 클라이언트 지원 팀](mailto:support@starmind.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
@@ -105,7 +103,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -133,11 +131,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-1. Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Starmind 로그온 URL로 리디렉션됩니다. 
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Starmind 로그온 URL로 리디렉션됩니다. 
 
-2. Starmind 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
+* Starmind 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-3. Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 Starmind 타일을 클릭하면 Starmind 로그온 URL로 리디렉션됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Starmind 타일을 클릭하면 Starmind 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

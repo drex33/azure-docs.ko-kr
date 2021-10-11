@@ -10,12 +10,12 @@ ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d3a1fe8f4b06601ed6b3e77ffa5743506e923ec4
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 9e610e7ec02ec16d077087dab4742721c4209bfa
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122771753"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234854"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀에 대한 스토리지 계정 액세스 제어
 
@@ -36,7 +36,7 @@ Synapse Analytics 작업 영역의 서버리스 SQL 풀은 Azure Data Lake 스�
 
 ## <a name="supported-storage-authorization-types"></a>지원되는 스토리지 권한 부여 유형
 
-서버리스 SQL 풀에 로그인한 사용자는 파일을 공개적으로 사용할 수 없는 경우 Azure Storage의 파일에 액세스하고 쿼리할 수 있는 권한이 있어야 합니다. [사용자 ID](?tabs=user-identity), [공유 액세스 서명](?tabs=shared-access-signature) 및 [관리 ID](?tabs=managed-identity)의 세 가지 권한 부여 유형을 사용하여 비공개 스토리지에 액세스할 수 있습니다.
+서버리스 SQL 풀에 로그인한 사용자는 파일을 공개적으로 사용할 수 없는 경우 Azure Storage의 파일에 액세스하고 쿼리할 수 있는 권한이 있어야 합니다. [사용자 ID](?tabs=user-identity), [공유 액세스 서명](?tabs=shared-access-signature), [서비스 사용자](?tab/service-principal) 및 [관리 ID](?tabs=managed-identity)의 네 가지 권한 부여 유형을 사용하여 비공개 스토리지에 액세스할 수 있습니다.
 
 > [!NOTE]
 > **Azure AD 통과** 는 작업 영역을 만들 때의 기본 동작입니다.
@@ -46,7 +46,7 @@ Synapse Analytics 작업 영역의 서버리스 SQL 풀은 Azure Data Lake 스�
 **사용자 ID**("Azure AD 통과"라고도 함)는 서버리스 SQL 풀에 로그인한 Azure AD 사용자의 ID를 사용하여 데이터 액세스 권한을 부여하는 권한 부여 유형입니다. 데이터에 액세스하기 전에 Azure Storage 관리자가 Azure AD 사용자에게 권한을 부여해야 합니다. 아래 표에서 설명한 대로 SQL 사용자 유형에는 지원되지 않습니다.
 
 > [!IMPORTANT]
-> AAD 인증 토큰은 클라이언트 애플리케이션에서 캐시될 수 있습니다. 예를 들어 PowerBI는 AAD 토큰을 캐시하고 한 시간 동안 동일한 토큰을 재사용합니다. 쿼리가 실행되는 도중 토큰이 만료되면 긴 실행 쿼리가 실패할 수 있습니다. 쿼리 중간에 만료되는 AAD 액세스 토큰으로 인해 발생하는 쿼리 오류가 발생하는 경우 [관리 ID](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) 또는 [공유 액세스 서명](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types)으로 전환하는 것이 좋습니다.
+> AAD 인증 토큰은 클라이언트 애플리케이션에서 캐시될 수 있습니다. 예를 들어 PowerBI는 AAD 토큰을 캐시하고 한 시간 동안 동일한 토큰을 재사용합니다. 쿼리가 실행되는 도중 토큰이 만료되면 긴 실행 쿼리가 실패할 수 있습니다. 쿼리 중간에 만료되는 AAD 액세스 토큰으로 인해 쿼리 오류가 발생하는 경우 [서비스 사용자](develop-storage-files-storage-access-control.md?tabs=service-principal#supported-storage-authorization-types), [관리 ID](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) 또는 [공유 액세스 서명](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types)으로 전환하는 것이 좋습니다.
 
 이 ID를 사용하여 데이터에 액세스하려면 Storage Blob 데이터 소유자/기여자/읽기 권한자 역할이 있어야 합니다. 또는 파일 및 폴더에 액세스하는 세분화된 ACL 규칙을 지정할 수 있습니다. 스토리지 계정의 소유자인 경우에도 Storage Blob 데이터 역할 중 하나에 자신을 추가해야 합니다.
 Azure Data Lake Store Gen2의 액세스 제어에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](../../storage/blobs/data-lake-storage-access-control.md) 문서를 검토하세요.
@@ -69,6 +69,14 @@ SAS 토큰을 사용하여 액세스를 사용하도록 설정하려면 데이�
 > [!IMPORTANT]
 > SAS 토큰을 사용하여 프라이빗 스토리지 계정에 액세스할 수 없습니다. 보호된 스토리지에 액세스하려면 [관리 ID](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) 또는 [Azure AD 통과](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) 인증으로 전환하는 것이 좋습니다.
 
+
+### <a name="service-principal"></a>Service Principal
+**서비스 주체** 는 특정 Azure AD 테넌트에 있는 글로벌 애플리케이션 개체의 로컬 표현입니다. 이 인증 방법은 사용자 앱, 서비스 또는 자동화 도구에 대한 스토리지 액세스 권한을 부여하는 경우에 적합합니다. 
+
+애플리케이션은 Azure Active Directory에 등록해야 합니다. 등록 프로세스는 [빠른 시작: Microsoft ID 플랫폼을 사용하여 애플리케이션 등록](../../active-directory/develop/quickstart-register-app.md)을 참조하세요. 애플리케이션을 등록한 후에는 해당 서비스 주체를 권한 부여에 사용할 수 있습니다. 
+
+애플리케이션에서 데이터에 액세스하려면 서비스 사용자에게 Storage Blob 데이터 소유자/기여자/Reader 역할이 할당되어야 합니다. 서비스 주체가 스토리지 계정의 소유자인 경우에도 적절한 Storage Blob 데이터 역할을 부여받아야 합니다. 스토리지 파일 및 폴더에 대한 액세스 권한을 부여하는 또 다른 방법으로, 서비스 주체에 대한 세분화된 ACL 규칙을 정의할 수 있습니다. Azure Data Lake Store Gen2의 액세스 제어에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](../../storage/blobs/data-lake-storage-access-control.md) 문서를 검토하세요.
+
 ### <a name="managed-identity"></a>[관리 ID](#tab/managed-identity)
 
 **관리 ID** 는 MSI라고도 합니다. Azure 서비스를 서버리스 SQL 풀에 제공하는 Azure AD(Azure Active Directory)의 기능입니다. 또한 Azure AD에서 관리 ID를 자동으로 배포합니다. 이 ID는 Azure Storage에서 데이터 액세스에 대한 요청을 승인하는 데 사용될 수 있습니다.
@@ -81,15 +89,19 @@ SAS 토큰을 사용하여 액세스를 사용하도록 설정하려면 데이�
 
 ---
 
+#### <a name="cross-tenant-scenarios"></a>교차 테넌트 시나리오
+Synapse 서버리스 SQL 풀과 다른 테넌트에 Azure Storage가 있는 경우 **서비스 주체** 를 통한 권한 부여가 권장되는 방법입니다. **SAS** 권한 부여도 가능하지만 **관리 ID** 는 지원되지 않습니다. 
+
 ### <a name="supported-authorization-types-for-databases-users"></a>데이터베이스 사용자에 대해 지원되는 권한 부여 유형
 
-아래 표에서 사용 가능한 권한 부여 유형을 확인할 수 있습니다.
+아래 표에서 Synapse 서버리스 SQL 엔드포인트에 대한 다양한 로그인 메서드에 사용할 수 있는 권한 부여 유형을 찾을 수 있습니다.
 
-| 권한 부여 유형                    | *SQL 사용자*    | *Azure AD 사용자*     |
-| ------------------------------------- | ------------- | -----------    |
-| [사용자 ID](?tabs=user-identity#supported-storage-authorization-types)       | 지원되지 않음 | 지원됨      |
-| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | 지원됨     | 지원됨      |
-| [관리 ID](?tabs=managed-identity#supported-storage-authorization-types) | 지원됨 | 지원됨      |
+| 권한 부여 유형                    | *SQL 사용자*    | *Azure AD 사용자*     | Service Principal |
+| ------------------------------------- | ------------- | -----------    | -------- |
+| [사용자 ID](?tabs=user-identity#supported-storage-authorization-types)       |  지원되지 않음 | 지원됨      | 지원됨|
+| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | 지원됨     | 지원됨      | 지원됨|
+| Service Principal | 지원됨 | 지원됨      | 지원됨|
+| [관리 ID](?tabs=managed-identity#supported-storage-authorization-types) | 지원됨 | 지원됨      | 지원됨|
 
 ### <a name="supported-storages-and-authorization-types"></a>지원되는 스토리지 및 권한 부여 유형
 
@@ -98,6 +110,7 @@ SAS 토큰을 사용하여 액세스를 사용하도록 설정하려면 데이�
 | 권한 부여 유형  | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | 지원됨      | 지원되지 않음   | 지원됨     |
+| Service Principal | 지원됨   | 지원됨      | 지원됨  |
 | [관리 ID](?tabs=managed-identity#supported-storage-authorization-types) | 지원됨      | 지원됨        | 지원 여부     |
 | [사용자 ID](?tabs=user-identity#supported-storage-authorization-types)    | 지원 여부      | 지원됨        | 지원 여부     |
 
@@ -109,6 +122,15 @@ SAS 토큰을 사용하여 액세스를 사용하도록 설정하려면 데이�
 > [!NOTE]
 > 스토리지의 방화벽 기능은 공개 미리 보기로 제공되며 모든 공용 클라우드 지역에서 사용할 수 있습니다. 
 
+
+아래 표에서 Synapse 서버리스 SQL 엔드포인트에 대한 다양한 로그인 메서드에 사용할 수 있는 권한 부여 유형을 찾을 수 있습니다.
+
+| 권한 부여 유형                    | *SQL 사용자*    | *Azure AD 사용자*     | Service Principal |
+| ------------------------------------- | ------------- | -----------    | -------- |
+| [사용자 ID](?tabs=user-identity#supported-storage-authorization-types)       |  지원되지 않음 | 지원됨      | 지원됨|
+| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | 지원되지 않음     | 지원되지 않음      | 지원되지 않음|
+| Service Principal | 지원되지 않음 | 지원되지 않음      | 지원되지 않음|
+| [관리 ID](?tabs=managed-identity#supported-storage-authorization-types) | 지원됨 | 지원됨      | 지원 여부|
 
 ### <a name="user-identity"></a>[사용자 ID](#tab/user-identity)
 
@@ -193,6 +215,10 @@ SAS 토큰을 사용하여 액세스를 사용하도록 설정하려면 데이�
 
 공유 액세스 서명은 방화벽으로 보호된 스토리지에 액세스하는 데 사용할 수 없습니다.
 
+### <a name="service-principal"></a>Service Principal
+
+서비스 주체는 방화벽으로 보호된 스토리지에 액세스하는 데 사용할 수 없습니다. 대신 관리 ID를 사용합니다.
+
 ### <a name="managed-identity"></a>[관리 ID](#tab/managed-identity)
 
 해당 인스턴스의 [시스템 할당 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)에 [신뢰할 수 있는 Microsoft 서비스 허용... 설정](../../storage/common/storage-network-security.md#trusted-microsoft-services) 및 명시적으로 [Azure 역할 할당](../../storage/blobs/authorize-access-azure-active-directory.md#assign-azure-roles-for-access-rights)이 필요합니다. 이 경우 인스턴스에 대한 액세스 범위는 관리 ID에 할당된 Azure 역할에 해당합니다.
@@ -263,8 +289,18 @@ GO
 
 필요에 따라 컨테이너 이름 없이 스토리지 계정의 기본 URL만 사용할 수 있습니다.
 
-### <a name="managed-identity"></a>[관리 ID](#tab/managed-identity)
+### <a name="service-principal"></a>Service Principal
 
+다음 스크립트는 인증 및 권한 부여를 위해 서비스 주체를 사용하여 스토리지의 파일에 액세스하는 데 사용할 수 있는 서버 수준 자격 증명을 만듭니다. **AppID** 는 Azure Portal에서 앱 등록을 방문하여 스토리지 액세스를 요청하는 앱을 선택하여 찾을 수 있습니다. **비밀** 은 앱 등록 중에 얻습니다. **AuthorityUrl** 은 AAD Oauth2.0 기관의 URL입니다.
+
+```sql
+CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
+WITH IDENTITY = '<AppID>@<AuthorityUrl>' 
+, SECRET = '<Secret>'
+```
+
+### <a name="managed-identity"></a>[관리 ID](#tab/managed-identity)
+ 
 다음 스크립트는 `OPENROWSET` 함수가 작업 영역 관리 ID를 사용하여 Azure 스토리지의 파일에 액세스하는 데 사용할 수 있는 서버 수준 자격 증명을 만듭니다.
 
 ```sql
@@ -313,6 +349,24 @@ GO
 CREATE EXTERNAL DATA SOURCE mysample
 WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>',
           CREDENTIAL = SasToken
+)
+```
+
+
+### <a name="service-principal"></a>Service Principal
+다음 스크립트는 인증 및 권한 부여를 위해 서비스 주체를 사용하여 스토리지의 파일에 액세스하는 데 사용할 수 있는 데이터베이스 범위 자격 증명을 만듭니다. **AppID** 는 Azure Portal에서 앱 등록을 방문하여 스토리지 액세스를 요청하는 앱을 선택하여 찾을 수 있습니다. **비밀** 은 앱 등록 중에 얻습니다. **AuthorityUrl** 은 AAD Oauth2.0 기관의 URL입니다.
+
+```sql
+-- Optional: Create MASTER KEY if not exists in database:
+-- CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<Very Strong Password>
+
+CREATE DATABASE SCOPED CREDENTIAL [<CredentialName>] WITH
+IDENTITY = '<AppID>@<AuthorityUrl>' 
+, SECRET = '<Secret>'
+GO
+CREATE EXTERNAL DATA SOURCE MyDataSource
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>',
+          CREDENTIAL = CredentialName
 )
 ```
 
@@ -394,14 +448,18 @@ GO
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Y*********0'
 GO
 
--- Create databases scoped credential that use Managed Identity or SAS token. User needs to create only database-scoped credentials that should be used to access data source:
+-- Create databases scoped credential that use Managed Identity, SAS token or Service Principal. User needs to create only database-scoped credentials that should be used to access data source:
 
 CREATE DATABASE SCOPED CREDENTIAL WorkspaceIdentity
 WITH IDENTITY = 'Managed Identity'
 GO
 CREATE DATABASE SCOPED CREDENTIAL SasCredential
 WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2019-10-1********ZVsTOL0ltEGhf54N8KhDCRfLRI%3D'
-
+GO
+CREATE DATABASE SCOPED CREDENTIAL SPNCredential WITH
+IDENTITY = '**44e*****8f6-ag44-1890-34u4-22r23r771098@https://login.microsoftonline.com/**do99dd-87f3-33da-33gf-3d3rh133ee33/oauth2/token' 
+, SECRET = '.7OaaU_454azar9WWzLL.Ea9ePPZWzQee~'
+GO
 -- Create data source that one of the credentials above, external file format, and external tables that reference this data source and file format:
 
 CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] WITH ( FORMAT_TYPE = PARQUET)
@@ -412,6 +470,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 -- Uncomment one of these options depending on authentication method that you want to use to access data source:
 --,CREDENTIAL = WorkspaceIdentity 
 --,CREDENTIAL = SasCredential 
+--,CREDENTIAL = SPNCredential
 )
 
 CREATE EXTERNAL TABLE dbo.userData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )

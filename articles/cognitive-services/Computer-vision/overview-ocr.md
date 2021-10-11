@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 06/21/2021
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 3c644a62dfd48f86fd21a39af57211ff7c20ae36
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.openlocfilehash: 48b1eaa6e01bf25b11ca269e0771b4fd03530bba
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112520623"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533221"
 ---
 # <a name="what-is-optical-character-recognition"></a>OCR(광학 문자 인식)이란?
 
@@ -45,20 +45,26 @@ Computer Vision [읽기 API](https://centraluseuap.dev.cognitive.microsoft.com/d
 * 파일 크기는 50MB(무료 계층의 경우 6MB) 미만이어야 하며, 크기는 최소 50 x 50픽셀 및 최대 10000 x 10000 픽셀 이상이어야 합니다. 
 
 ## <a name="supported-languages"></a>지원되는 언어
-Read API는 인쇄 스타일 텍스트에 총 73개 언어를 지원합니다. [OCR 지원 언어](./language-support.md#optical-character-recognition-ocr)의 전체 목록을 참조하세요. 필기 스타일 OCR은 영어 전용으로 지원됩니다.
+Read API는 미리 보기 언어 및 기능을 포함하여 인쇄 텍스트의 경우 122개의 언어와 필기 텍스트의 경우 7개의 언어를 지원합니다.
+
+인쇄 텍스트용 OCR에는 최신 미리 보기 업데이트를 통해 라틴어 및 키릴 자모 언어와 함께 영어, 프랑스어, 독일어, 이탈리아어, 포르투갈어, 스페인어, 중국어, 일본어, 한국어 및 러시아어(미리 보기)가 지원됩니다.
+
+필기 테스트용 OCR에는 영어 지원과 프랑스어, 독일어, 이탈리아어, 포르투갈어, 스페인어 및 중국어 지원의 미리 보기가 포함됩니다.
+
+미리 보기 언어 및 기능을 사용하려면 [모델 버전을 지정하는 방법](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional)을 참조하세요. [OCR 지원 언어](./language-support.md#optical-character-recognition-ocr)의 전체 목록을 참조하세요. 미리 보기 모델에는 현재 GA 버전에 대한 향상된 기능이 포함되어 있습니다.
 
 ## <a name="key-features"></a>주요 특징
 
-Read API에는 다음 기능이 포함됩니다. 
+Read API에는 다음 기능이 포함됩니다.
 
-* 73개 언어로 인쇄 텍스트 추출
-* 영어로 필기 텍스트 추출
+* 122개 언어로 인쇄 텍스트 추출
+* 7개 언어로 작성한 텍스트 추출
 * 위치 및 신뢰도 점수가 있는 텍스트 줄 및 단어
 * 언어 식별이 필요하지 않음
 * 혼합 언어, 혼합 모드 지원(인쇄 및 필기)
 * 여러 페이지로 구성된 대형 문서에서 페이지 및 페이지 범위 선택
-* 텍스트 줄의 자연스러운 읽기 순서
-* 텍스트 줄에 대한 필기 분류
+* 텍스트 줄 출력을 위한 자연스러운 읽기 순서 옵션(라틴어만 해당)
+* 텍스트 줄에 대한 필기 분류(라틴어만 해당)
 * 온-프레미스 배포를 위한 Distroless Docker 컨테이너로 사용 가능
 
 [OCR 기능을 사용하는 방법](./vision-api-how-to-topics/call-read-api.md)에 대해 알아봅니다.
@@ -78,4 +84,4 @@ Read 3.x 클라우드 API는 편리한 통합 및 빠른 생산성 덕분에 대
 ## <a name="next-steps"></a>다음 단계
 
 - [OCR(Read) REST API 또는 클라이언트 라이브러리 빠른 시작](./quickstarts-sdk/client-library.md)을 시작하세요.
-- [Read 3.2 REST API](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)에 대해 알아봅니다.
+- [Read 3.2 REST API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)에 대해 알아봅니다.

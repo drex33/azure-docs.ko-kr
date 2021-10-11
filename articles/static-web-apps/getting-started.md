@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 06/16/2021
 ms.author: cshoe
-ms.openlocfilehash: b543831ceead6d386de0617b02db93a99d9507a6
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 167d6a2fbe6ec782a83c8dc3cb7f3ea57832a594
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609131"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275908"
 ---
 # <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>빠른 시작: Azure Static Web Apps를 사용하여 첫 번째 정적 사이트 빌드
 
@@ -20,7 +20,7 @@ Azure Static Web Apps는 코드 리포지토리에서 앱을 빌드하여 웹 �
 
 Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.com/free)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [GitHub](https://github.com) 계정
 - [Azure](https://portal.azure.com) 계정
@@ -62,17 +62,20 @@ Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.
 
     :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Static Web App 만들기":::
 
+1. 가까운 지역을 선택합니다.
+
+    > [!NOTE]
+    > Azure Static Web Apps는 정적 자산을 전역으로 배포합니다. 선택한 지역에 따라 선택적 스테이징 환경 및 API 함수 앱의 위치가 결정됩니다.
+
 1. 애플리케이션 유형과 일치하는 사전 설정을 선택합니다.
 
     # <a name="no-framework"></a>[프레임워크 없음](#tab/vanilla-javascript)
 
     :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="애플리케이션 사전 설정: 프레임워크 없음":::
 
-    애플리케이션 파일의 위치로 **./src** 를 입력하고 <kbd>Enter</kbd> 키를 누릅니다.
+    애플리케이션 파일의 위치로 **/src** 를 입력하고 <kbd>Enter</kbd>를 누릅니다.
 
-    :::image type="content" source="media/getting-started/extension-build-location.png" alt-text="애플리케이션 빌드 출력 위치":::
-
-    빌드 출력 위치로 **./src** 를 입력하고 <kbd>Enter</kbd> 키를 누릅니다.
+    이 앱은 빌드 출력을 생성하지 않습니다. 빌드 출력 위치가 비어 있는지 확인하고 <kbd>Enter</kbd>를 누릅니다.
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
@@ -80,7 +83,7 @@ Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.
 
     :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="애플리케이션 사전 설정: Angular":::
 
-    애플리케이션 파일의 위치로 **./** 를 입력합니다.
+    애플리케이션 파일의 위치로 **/** 를 입력합니다.
 
     :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="애플리케이션 파일 위치: Angular":::
 
@@ -92,9 +95,17 @@ Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.
 
     :::image type="content" source="media/getting-started/extension-presets-react.png" alt-text="애플리케이션 사전 설정: React":::
 
+    애플리케이션 파일의 위치로 **/** 를 입력합니다.
+
+    빌드 출력 위치로 **build** 를 입력합니다.
+
     # <a name="vue"></a>[Vue](#tab/vue)
 
     :::image type="content" source="media/getting-started/extension-presets-vue.png" alt-text="애플리케이션 사전 설정: Vue":::
+
+    애플리케이션 파일의 위치로 **/** 를 입력합니다.
+
+    빌드 출력 위치로 **dist** 를 입력합니다.
 
     ---
 

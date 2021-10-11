@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 08/11/2021
+ms.date: 10/05/2021
 ms.author: alkohli
-ms.openlocfilehash: ab133e05cd08be42b212e72f801ee59ffa104d4a
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 6bf565a2f7d2d08931ca32f34ac07de2e8cec9b5
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122429644"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129544757"
 ---
 # <a name="what-is-the-azure-stack-edge-pro-r"></a>Azure Stack Edge Pro R이란?
 
@@ -30,15 +30,15 @@ Azure Stack Edge Pro R의 기능은 다음과 같습니다.
 |---------|---------|
 |러기드 하드웨어| 가혹한 환경을 견디도록 설계된 러기드 서버급 하드웨어입니다. 휴대용 전송 사례에 포함된 디바이스입니다. |
 |클라우드 관리     |디바이스 및 서비스는 Azure Portal를 통해 관리됩니다.|
-|Edge 컴퓨팅 워크로드   |데이터를 분석, 처리, 필터링할 수 있습니다. VM 및 컨테이너화된 워크로드를 지원합니다.|
-|가속 AI 유추| Nvidia T4 GPU에서 사용됩니다.|
+|Edge 컴퓨팅 워크로드   |데이터를 분석, 처리, 필터링할 수 있습니다. VM 및 컨테이너화된 워크로드를 지원합니다. <ul><li>VM 워크로드에 대한 자세한 내용은 [Azure Stack Edge VM 개요](azure-stack-edge-gpu-virtual-machine-overview.md)를 참조하세요.</li> <li>컨테이너화된 워크로드의 경우 [Azure Stack Edge의 Kubernetes 개요](azure-stack-edge-gpu-kubernetes-overview.md)를 참조하세요.</li></ul> |
+|가속 AI 유추| Nvidia T4 GPU에서 사용됩니다. <br> 자세한 내용은 [Azure Stack Edge 디바이스에서 GPU 공유](azure-stack-edge-gpu-sharing.md)를 참조하세요.|
 |데이터 액세스     | 클라우드 API를 사용하여 Azure Storage Blob 및 Azure Files에서 데이터에 직접 액세스해 클라우드에서 데이터를 추가로 처리할 수 있습니다. 디바이스의 로컬 캐시는 가장 최근에 사용한 파일에 빠르게 액세스하는 데 사용됩니다.|
 |연결 해제 모드| 필요한 경우 Azure Stack Hub를 통해 디바이스와 서비스를 관리할 수 있습니다. 오프라인 모드에서 애플리케이션을 배포, 실행, 관리합니다. <br> 연결 끊김 모드에서도 오프라인 업로드 시나리오가 지원됩니다.|
 |지원되는 파일 전송 프로토콜     |데이터 수집을 위한 표준 SMB, NFS 및 REST 프로토콜이 지원됩니다. <br> 지원되는 버전에 대한 자세한 내용은 [Azure Stack Edge Pro R 시스템 요구 사항](azure-stack-edge-gpu-system-requirements.md)을 참조하세요.|
-|데이터 새로 고침     | 클라우드의 최신 데이터로 로컬 파일을 새로 고칠 수 있습니다.|
-|이중 암호화    | 자동 암호화 드라이브를 사용하면 첫 번째 암호화 계층이 제공됩니다. VPN은 두 번째 암호화 계층을 제공합니다. *https* 를 통해 클라우드로 안전하게 데이터를 전송하고 로컬에서 데이터를 암호화할 수 있도록 BitLocker가 지원됩니다.|
-|대역폭 제한| 사용량이 많은 시간 동안 대역폭 사용을 제한하는 데 사용됩니다.|
-|간편한 주문| Azure Edge Hardware Center(미리 보기)를 통해 디바이스의 대량 주문 및 추적이 가능합니다.|
+|데이터 새로 고침     | 클라우드의 최신 데이터로 로컬 파일을 새로 고칠 수 있습니다. <br> 자세한 내용은 [Azure Stack Edge에서 공유 새로 고침](azure-stack-edge-gpu-manage-shares.md#refresh-shares)을 참조하세요.|
+|이중 암호화    | 자동 암호화 드라이브를 사용하면 첫 번째 암호화 계층이 제공됩니다. VPN은 두 번째 암호화 계층을 제공합니다. *https* 를 통해 클라우드로 안전하게 데이터를 전송하고 로컬에서 데이터를 암호화할 수 있도록 BitLocker가 지원됩니다. <br> 자세한 내용은 [Azure Stack Edge Pro R 디바이스에서 VPN 구성](azure-stack-edge-mini-r-configure-vpn-powershell.md)을 참조하세요.|
+|대역폭 제한| 사용량이 많은 시간 동안 대역폭 사용을 제한하는 데 사용됩니다. <br> 자세한 내용은 [Azure Stack Edge에서 대역폭 일정 관리](azure-stack-edge-gpu-manage-bandwidth-schedules.md)를 참조하세요.|
+|간편한 주문| Azure Edge Hardware Center(미리 보기)를 통해 디바이스의 대량 주문 및 추적이 가능합니다. <br> 자세한 내용은 [Azure Edge Hardware Center를 통해 디바이스 주문](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource)을 참조하세요. |
 
 <!--|Scale out file server| Available as 1-node and 4-node cluster configurations|-->
 

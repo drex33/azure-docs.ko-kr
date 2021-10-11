@@ -7,20 +7,20 @@ ms.topic: include
 ms.date: 04/28/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 4715c007ea9c86b623eab63b83cb83514cf16866
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: b4ff1f14ac628f28e67f4b619983760d06f60d8b
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114712940"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129516540"
 ---
-[![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/device/PnpDeviceSamples)
+[![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/main/iot-hub/Samples/device/PnpDeviceSamples)
 
 이 빠른 시작에서는 기본 Azure IoT 애플리케이션 개발 워크플로에 대해 알아봅니다. 먼저 디바이스 호스트를 위한 Azure IoT Central 애플리케이션을 만듭니다. 그런 다음 Azure IoT 디바이스 SDK 샘플을 사용하여 시뮬레이션된 온도 조절기를 실행하고 IoT Central에 안전하게 연결하고 원격 분석을 전송합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 - [Visual Studio(Community, Professional 또는 Enterprise) 2019](https://visualstudio.microsoft.com/downloads/).
-- [C#(.NET) GitHub 리포지토리에 대한 Microsoft Azure IoT 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp)의 로컬 복사본입니다. [ZIP 다운로드](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)를 통해 리포지토리의 복사본을 다운로드하고 추출합니다.
+- [C#(.NET) GitHub 리포지토리에 대한 Microsoft Azure IoT 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp)의 로컬 복사본입니다. [ZIP 다운로드](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip)를 통해 리포지토리의 복사본을 다운로드하고 추출합니다.
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
@@ -29,7 +29,7 @@ ms.locfileid: "114712940"
 
 Visual Studio에서 샘플 애플리케이션을 실행하려면 다음을 수행합니다.
 
-1. C#에 대한 Azure IoT 샘플의 압축을 해제한 폴더에 Visual Studio의 *azure-iot-samples-csharp-master\iot-hub\Samples\device\IoTHubDeviceSamples.sln* 솔루션 파일을 엽니다. 
+1. C#에 대한 Azure IoT 샘플의 압축을 해제한 폴더에 Visual Studio의 *azure-iot-samples-csharp-main\iot-hub\Samples\device\IoTHubDeviceSamples.sln"* 솔루션 파일을 엽니다. 
 
 1. **솔루션 탐색기** 에서 **PnpDeviceSamples > TemperatureController** 프로젝트 파일을 선택하고 마우스 오른쪽 단추로 클릭한 다음 **시작 프로젝트로 설정** 을 선택합니다.
 

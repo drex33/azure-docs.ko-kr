@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: c547f3b2657d31e4d25dbb884a5a75c2c8b9c5f2
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 48e5c42eca957db9aa45117c21a4ec70869a5ef5
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112452587"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389231"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Synapse SQL에서 인증에 Azure Active Directory 인증 사용
 
@@ -61,7 +61,7 @@ Azure AD 인증을 사용하는 데이터베이스에 액세스하려면 호스�
 
 ## <a name="administrator-structure"></a>관리자 구조
 
-Azure AD 인증을 사용하는 경우 Synapse SQL의 관리자 계정으로는 원래 SQL Server 관리자와 Azure AD 관리자의 두 가지 관리자 계정이 있습니다. Azure AD 계정을 기반으로 하는 관리자만 사용자 데이터베이스에서 최초 Azure AD 포함 데이터베이스 사용자를 만들 수 있습니다. 
+Azure AD 인증을 사용하는 경우 Synapse SQL에는 원래 SQL Server 관리자(SQL 인증 사용)와 Azure AD 관리자라는 두 개의 관리자 계정이 있습니다. Azure AD 계정을 기반으로 하는 관리자만 사용자 데이터베이스에서 최초 Azure AD 포함 데이터베이스 사용자를 만들 수 있습니다. 
 
 Azure AD 관리자 로그인은 Azure AD 사용자나 Azure AD 그룹이 될 수 있습니다. 관리자가 그룹 계정인 경우 모든 그룹 구성원이 사용할 수 있으므로 해당 Synapse SQL 인스턴스에 대해 여러 Azure AD 관리자를 지정할 수 있습니다. 
 
@@ -71,7 +71,7 @@ Azure AD 관리자 로그인은 Azure AD 사용자나 Azure AD 그룹이 될 수
 
 ## <a name="permissions"></a>사용 권한
 
-새 사용자를 만들려면 데이터베이스에서 `ALTER ANY USER` 권한이 있어야 합니다. `ALTER ANY USER` 권한은 아무 데이터베이스 사용자에게나 부여할 수 있습니다. 서버 관리자 계정과, 해당 데이터베이스에 대한 `CONTROL ON DATABASE` 또는 `ALTER ON DATABASE` 권한이 있는 데이터베이스 사용자와, `db_owner` 데이터베이스 역할 그룹의 구성원도 `ALTER ANY USER` 권한을 보유할 수 있습니다.
+새 사용자를 만들려면 데이터베이스에서 `ALTER ANY USER` 권한이 있어야 합니다. `ALTER ANY USER` 권한은 아무 데이터베이스 사용자에게나 부여할 수 있습니다. SQL 관리자 및 Azure AD 관리자 계정과 해당 데이터베이스에 대한 `CONTROL ON DATABASE` 또는 `ALTER ON DATABASE` 권한이 있는 데이터베이스 사용자 및 `db_owner` 데이터베이스 역할 그룹의 구성원도 `ALTER ANY USER` 권한을 보유합니다.
 
 Synapse SQL에 포함된 데이터베이스 사용자를 만들려면 Azure AD ID를 사용하여 데이터베이스 또는 인스턴스에 연결해야 합니다. 최초 포함 데이터베이스 사용자를 만들려면 Azure AD 관리자(데이터베이스 소유자)를 사용하여 데이터베이스에 연결해야 합니다. 
 

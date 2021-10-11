@@ -5,12 +5,12 @@ metadata:
   ms.topic: article
   ms.service: service-bus
   ms.date: 01/20/2021
-  ms.openlocfilehash: 8502e0b908133432ebffbb27108e45a8a605cc17
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.openlocfilehash: e364e9719962263e52aa404d8656729b27c72406
+  ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122254235"
+  ms.lasthandoff: 10/01/2021
+  ms.locfileid: "129359428"
 title: Azure Service Bus - FAQ(질문과 대답)
 summary: >
   이 문서는 Microsoft Azure Service Bus에 대한 일부 자주 묻는 질문에 대해 설명합니다. 또한 일반적인 Azure 가격 책정 및 지원 정보는 [Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)에서 확인할 수 있습니다.
@@ -43,7 +43,7 @@ sections:
 
       Azure Service Bus 프리미엄 계층은 선택한 지역에 메타데이터 및 데이터를 저장합니다. Azure Service Bus 프리미엄 네임스페이스에 대해 지리적 재해 복구를 설정하는 경우 메타데이터는 선택한 보조 지역에 복사됩니다.
   - question: "방화벽에서 열어야 하는 포트는 어느 것인가요? \n"
-    answer: "Azure Service Bus에서 다음 프로토콜을 사용하여 메시지를 주고받을 수 있습니다.\n\n- AMQP(고급 메시지 큐 프로토콜) 1.0\n- TLS를 사용하는 HTTPS(Hypertext Transfer Protocol) 1.1\n\n이러한 프로토콜을 사용하여 Azure Service Bus와 통신하기 위해 열어야 하는 아웃바운드 TCP 포트는 다음 표를 참조하세요.\n\n| 프로토콜 | 포트 | 세부 정보 | \n| -------- | ----- | ------- | \n| AMQP | 5671 | TLS를 사용하는 AMQP. [AMQP 프로토콜 가이드](service-bus-amqp-protocol-guide.md)를 참조하세요. | \n| HTTPS | 443 | 이 포트는 HTTP/REST API 및 AMQP-over-WebSockets에 사용됩니다. |\n\n클라이언트 SDK에서 수행하는 여러 관리 작업 및 Azure Active Directory(사용되는 경우)에서의 토큰 획득은 HTTPS를 통해 수행되므로 AMQP가 포트 5671을 통해 사용되는 경우에도 아웃바운드 통신에 일반적으로 HTTPS 포트가 필요합니다. \n\n공식 Azure SDK는 일반적으로 Service Bus에서 메시지를 보내고 받기 위해 AMQP 프로토콜을 사용합니다. \n\n[!INCLUDE [service-bus-websockets-options](./includes/service-bus-websockets-options.md)]\n\n.NET Framework에 대한 이전 WindowsAzure.ServiceBus 패키지에는 \"NetMessaging\"이라고도 하는 레거시 \"SBMP\"(Service Bus Messaging Protocol)를 사용하는 옵션이 있습니다. 이 프로토콜은 TCP 포트 9350-9354를 사용합니다. 이 패키지의 기본 모드는 해당 포트를 통신에 사용할 수 있는지 여부를 자동으로 감지하고, 사용할 수 없는 경우 포트 443을 통한 TLS를 사용하는 WebSocket으로 전환합니다. 이 설정을 재정의하고 애플리케이션에 전역적으로 적용되는 [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity) 설정에서 `Https` [ConnectivityMode](/dotnet/api/microsoft.servicebus.connectivitymode)를 설정하여 이 모드를 강제로 적용할 수 있습니다.\n"
+    answer: "Azure Service Bus에서 다음 프로토콜을 사용하여 메시지를 주고받을 수 있습니다.\n\n- AMQP(고급 메시지 큐 프로토콜) 1.0\n- TLS를 사용하는 HTTPS(Hypertext Transfer Protocol) 1.1\n\n이러한 프로토콜을 사용하여 Azure Service Bus와 통신하기 위해 열어야 하는 아웃바운드 TCP 포트는 다음 표를 참조하세요.\n\n| 프로토콜 | 포트 | 세부 정보 | \n| -------- | ----- | ------- | \n| AMQP | 5671 | TLS를 사용하는 AMQP. [AMQP 프로토콜 가이드](service-bus-amqp-protocol-guide.md)를 참조하세요. | \n| HTTPS | 443 | 이 포트는 HTTP/REST API 및 AMQP-over-WebSockets에 사용됩니다. |\n\n클라이언트 SDK에서 수행하는 여러 관리 작업 및 Azure Active Directory(사용되는 경우)에서의 토큰 획득은 HTTPS를 통해 수행되므로 AMQP가 포트 5671을 통해 사용되는 경우에도 아웃바운드 통신에 일반적으로 HTTPS 포트가 필요합니다. \n\n공식 Azure SDK는 일반적으로 Service Bus에서 메시지를 보내고 받기 위해 AMQP 프로토콜을 사용합니다. \n\n[!INCLUDE [service-bus-websockets-options](./includes/service-bus-websockets-options.md)]          \n"
   - question: >
       허용 목록에 추가해야 하는 IP 주소는 무엇인가요?
     answer: "연결의 허용 목록에 추가할 적절한 IP 주소를 찾으려면 다음 단계를 수행합니다.\n\n1. 명령 프롬프트에서 다음 명령을 실행합니다. \n\n    ```\n    nslookup <YourNamespaceName>.servicebus.windows.net\n    ```\n2. `Non-authoritative answer`에서 반환된 IP 주소를 적어 둡니다. \n\n네임스페이스에 대해 **영역 중복성** 을 사용하는 경우 몇 가지 추가 단계를 수행해야 합니다. \n\n1. 먼저 네임스페이스에서 nslookup을 실행합니다.\n\n    ```\n    nslookup <yournamespace>.servicebus.windows.net\n    ```\n2. **신뢰할 수 없는 응답** 섹션에서 다음 형식 중 하나로 표시되는 이름을 적어 둡니다. \n\n    ```\n    <name>-s1.cloudapp.net\n    <name>-s2.cloudapp.net\n    <name>-s3.cloudapp.net\n    ```\n3. 접미사 s1, s2 및 s3를 포함하는 각 이름에 대해 nslookup을 실행하여 세 개의 가용성 영역에서 실행되는 세 인스턴스의 IP 주소를 모두 가져옵니다. \n\n    > [!NOTE]\n    > `nslookup` 명령에서 반환된 IP 주소는 고정 IP 주소가 아닙니다. 그러나 기본 배포가 삭제되거나 다른 클러스터로 이동될 때까지 일정하게 유지됩니다.\n"

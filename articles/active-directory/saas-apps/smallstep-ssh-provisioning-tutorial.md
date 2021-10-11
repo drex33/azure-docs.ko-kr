@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/21/2021
 ms.author: thwimmer
-ms.openlocfilehash: f08ee68a3ee51e7d42b1939cf3e4ecee03808f93
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 16f9124abf34892f00ebb1dadde229ef6d140e55
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122327898"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355162"
 ---
 # <a name="tutorial-configure-smallstep-ssh-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Smallstep SSH 구성
 
@@ -54,7 +54,7 @@ ms.locfileid: "122327898"
 
 2. **사용자** 탭으로 이동하여 ID 공급자로 **Azure AD를** 선택합니다.
 
-3. 다음 페이지에서 **Azure AD 테넌트 ID** 및 **도메인 허용 목록** 을 제공하여 OIDC를 구성합니다.
+3. 다음 페이지에서 **Azure AD 테넌트 ID** 및 허용 목록을 제공하여 OIDC를 구성합니다.
 
 4. SCIM 세부 정보 아래에서 SCIM **테넌트 URL** 및 **비밀 토큰** 을 복사하고 저장합니다. 해당 값은 Azure Portal에서 Smallstep SSH 애플리케이션의 프로비저닝 탭에 있는 **테넌트 URL** 및 **비밀 토큰** 필드에 입력됩니다.
 

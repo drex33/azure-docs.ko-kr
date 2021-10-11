@@ -6,14 +6,14 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart
-ms.date: 08/10/2020
+ms.date: 10/04/2021
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: 3d97c10236391157dbf0a8d32110e3e1d540a3b3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: bd8821c898c4fa94963bb240658aa8118a104905
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121729272"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407896"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>빠른 시작: Azure NetApp Files 설정 및 NFS 볼륨 만들기
 
@@ -21,7 +21,7 @@ ms.locfileid: "121729272"
 
 이 빠른 시작에서는 다음 항목을 설정합니다.
 
-- Azure NetApp Files 및 NetApp 리소스 공급 기업 등록
+- NetApp 리소스 공급자 등록
 - NetApp 계정
 - 용량 풀
 - Azure NetApp Files에 대한 NFS 볼륨
@@ -30,14 +30,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 NFS 볼륨 및 관련 고려 사항에 대해 활성화할 수 있는 모든 기능을 확인하려면 [NFS 볼륨 만들기](azure-netapp-files-create-volumes.md)를 참조하세요. 
 
-## <a name="before-you-begin"></a>시작하기 전에
-
-> [!IMPORTANT]
-> Azure NetApp Files 서비스에 대한 액세스 권한을 부여받아야 합니다. 서비스에 대한 액세스를 요청하려면 [Azure NetApp Files 대기 목록 제출 페이지](https://aka.ms/azurenetappfiles)를 참조하세요.  계속하려면 Azure NetApp Files 팀의 공식 확인 이메일을 받아야 합니다.
-
----
-
-## <a name="register-for-azure-netapp-files-and-netapp-resource-provider"></a>Azure NetApp Files 및 NetApp 리소스 공급자 등록
+## <a name="register-for-netapp-resource-provider"></a>NetApp 리소스 공급자 등록
 
 > [!NOTE]
 > 등록 프로세스는 완료하는 데 다소 시간이 걸릴 수 있습니다.
@@ -75,9 +68,7 @@ Azure CLI에 대한 환경을 준비합니다.
 
 없음
 
-Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Azure NetApp Files 및 NetApp 리소스 공급자에 등록합니다.
-
-자세한 내용은 [Azure NetApp Files에 등록](azure-netapp-files-register.md)을 참조하세요.
+Azure Portal, PowerShell 또는 Azure CLI를 사용하여 [NetApp 리소스 공급자에 등록](azure-netapp-files-register.md)합니다.
 
 ---
 
@@ -174,7 +165,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Azure NetApp Files 및
 
 ---
 
-## <a name="set-up-a-capacity-pool"></a>용량 풀 설정
+## <a name="create-a-capacity-pool"></a>용량 풀 만들기
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 

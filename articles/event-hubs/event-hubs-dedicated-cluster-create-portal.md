@@ -2,13 +2,13 @@
 title: Azure Portal을 사용하여 Event Hubs 전용 클러스터 만들기
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Event Hubs 클러스터를 만드는 방법을 알아봅니다.
 ms.topic: quickstart
-ms.date: 06/23/2020
-ms.openlocfilehash: 9fd43423d8928768f46f4c1c10f14a2ca0a7fc4e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 09/28/2021
+ms.openlocfilehash: 758110a0dcffc8f9ea8a802ac5cbac2c6ffb39b8
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375044"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129231214"
 ---
 # <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 전용 Event Hubs 클러스터 만들기 
 Event Hubs 클러스터는 스트리밍 요구 사항이 가장 까다로운 고객을 위한 단일 테넌트 배포를 제공합니다. 이 제품은 99.99% SLA를 보장하며 Dedicated 가격 책정 계층에서만 사용할 수 있습니다. 용량을 보장하고 대기 시간이 1초 미만에 불과한 [Event Hubs 클러스터](event-hubs-dedicated-overview.md)는 초당 수백만 개의 이벤트를 수신할 수 있습니다. 클러스터 내부에 생성되는 네임스페이스 및 이벤트 허브는 프리미엄 제품의 모든 기능을 포함하고 있으며, 수신 제한도 없습니다. Dedicated 제품은 인기 있는 [Event Hubs 캡처](event-hubs-capture-overview.md) 기능을 추가 비용 없이 사용할 수 있으므로, 자동으로 데이터 스트림을 일괄 처리하여 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) 또는 [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)에 기록할 수 있습니다.
@@ -35,29 +35,31 @@ Event Hubs 클러스터는 하나 이상의 네임스페이스를 만들 수 있
 
 Azure Portal을 사용하여 리소스 그룹에 클러스터를 만들려면 다음 단계를 완료합니다.
 
-1. [이 링크](https://aka.ms/eventhubsclusterquickstart)를 따라 이동하여 Azure Portal에서 클러스터를 만듭니다. 반대로, 왼쪽 탐색 창에서 **모든 서비스** 를 선택한 다음, 검색 창에 "Event Hubs 클러스터"를 입력하고 결과 목록에서 "Event Hubs 클러스터"를 선택합니다.
-2. **클러스터 만들기** 페이지에서 다음 설정을 구성합니다.
+1. [이 링크](https://aka.ms/eventhubsclusterquickstart)를 따라 이동하여 Azure Portal에서 클러스터를 만듭니다. 반대로, 왼쪽 탐색 창에서 **모든 서비스** 를 선택한 다음, 검색 창에 **Event Hubs 클러스터** 를 입력하고 결과 목록에서 **Event Hubs 클러스터** 를 선택합니다.
+1. **Event Hubs 클러스터** 페이지의 도구 모음에 있는 **+ 만들기** 를 선택합니다. 
+1. **클러스터 만들기** 페이지에서 다음 설정을 구성합니다.
     1. **클러스터의 이름** 을 입력합니다. 시스템에서 사용 가능한 이름인지 즉시 확인합니다.
     2. 클러스터를 만들 **구독** 을 선택합니다.
     3. 클러스터를 만들 **리소스 그룹** 을 선택합니다.
     4. 클러스터의 **위치** 를 선택합니다. 원하는 지역이 회색으로 비활성화된 경우 일시적으로 용량을 초과한 것이며, Event Hubs 팀에 [지원 요청](#submit-a-support-request)을 제출할 수 있습니다.
     5. 페이지 하단에서 **다음: 태그** 단추를 선택합니다. 시스템에서 리소스를 완전히 프로비전하기까지 몇 분 동안 기다려야 할 수 있습니다.
 
-        ![Event Hubs 클러스터 만들기 - 기본 페이지](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-basics-page.png)
+        :::image type="content" source="./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-basics-page.png" alt-text="Event Hubs 클러스터 만들기 - 기본 사항 페이지를 보여주는 이미지.":::
 3. **태그** 페이지에서 다음을 구성합니다.
     1. 추가할 태그의 **이름** 및 **값** 을 입력합니다. 이 단계는 **선택 사항** 입니다.  
     2. **검토 + 만들기** 단추를 선택합니다.
 
-        ![Event Hubs 클러스터 만들기 - 태그 페이지](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-tags-page.png)
+        :::image type="content" source="./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-tags-page.png" alt-text="Event Hubs 클러스터 만들기 페이지 - 태그 페이지를 보여주는 이미지.":::
 4. **검토 + 만들기** 페이지에서 세부 정보를 검토하고 **만들기** 를 선택합니다. 
 
-    ![Event Hubs 클러스터 만들기 - 검토 + 만들기 페이지](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-review-create-page.png)
+    :::image type="content" source="./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-review-create-page.png" alt-text="Event Hubs 클러스터 만들기 페이지 - 검토 + 만들기 페이지를 보여주는 이미지.":::
+5. 성공적으로 만든 후 **리소스로 이동** 을 선택하여 Event Hubs 클러스터의 홈페이지로 이동합니다. 
 
 ## <a name="create-a-namespace-and-event-hub-within-a-cluster"></a>클러스터 내부에 네임스페이스 및 이벤트 허브 만들기
 
 1. 클러스터 내부에 네임스페이스를 만들려면 클러스터에 대한 **Event Hubs 클러스터** 페이지의 상단 메뉴에서 **+네임스페이스** 를 선택합니다.
 
-    ![클러스터 관리 페이지 - 네임스페이스 단추 추가](./media/event-hubs-dedicated-cluster-create-portal/cluster-management-page-add-namespace-button.png)
+    :::image type="content" source="./media/event-hubs-dedicated-cluster-create-portal/cluster-management-page-add-namespace-button.png" alt-text="클러스터 관리 페이지 - 네임스페이스 단추 추가를 보여주는 이미지.":::
 2. **네임스페이스 만들기** 페이지에서 다음 단계를 수행합니다.
     1. **네임스페이스 이름** 을 입력합니다.  그러면 시스템에서는 사용 가능한 이름인지 확인합니다.
     2. 네임스페이스는 다음 속성을 상속합니다.
@@ -67,7 +69,7 @@ Azure Portal을 사용하여 리소스 그룹에 클러스터를 만들려면 �
         4. 클러스터 이름
     3. **만들기** 를 선택하여 네임스페이스를 만듭니다. 이제 클러스터를 관리할 수 있습니다.  
 
-        ![클러스터에 네임스페이스 만들기 페이지](./media/event-hubs-dedicated-cluster-create-portal/create-namespace-cluster-page.png)
+        :::image type="content" source="./media/event-hubs-dedicated-cluster-create-portal/create-namespace-cluster-page.png" alt-text="클러스터 페이지에서 네임스페이스 만들기를 보여주는 이미지.":::
 3. 네임스페이스를 만든 후에는 평소에 네임스페이스 내부에 만들던 것처럼 [이벤트 허브를 만들 수 있습니다](event-hubs-create.md#create-an-event-hub). 
 
 

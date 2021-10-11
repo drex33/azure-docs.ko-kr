@@ -4,14 +4,14 @@ ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
 ms.date: 03/31/2021
-ms.openlocfilehash: d9625e59396111eeecbd0f2ff12d945c3e717c7e
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: 32afd7c4fff650e41d04a4ed809ad700cacc4e36
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114408308"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129516658"
 ---
-[![코드 찾아보기](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/device/PnpDeviceSamples/Thermostat)
+[![코드 찾아보기](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/main/iot-hub/Samples/device/PnpDeviceSamples/Thermostat)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -21,11 +21,11 @@ ms.locfileid: "114408308"
 
 - [Visual Studio(Community, Professional 또는 Enterprise)](https://visualstudio.microsoft.com/downloads/)가 포함된 개발 머신.
 
-- 샘플 코드가 포함된 [C#용 Microsoft Azure IoT 샘플(.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub 리포지토리의 로컬 복사본입니다. 다음 링크를 사용하여 리포지토리의 복사본을 다운로드합니다. [ZIP 다운로드](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). 그런 다음, 로컬 머신의 적절한 위치에 파일의 압축을 풉니다.
+- 샘플 코드가 포함된 [C#용 Microsoft Azure IoT 샘플(.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub 리포지토리의 로컬 복사본입니다. 다음 링크를 사용하여 리포지토리의 복사본을 다운로드합니다. [ZIP 다운로드](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip). 그런 다음, 로컬 머신의 적절한 위치에 파일의 압축을 풉니다.
 
 ## <a name="review-the-code"></a>코드 검토
 
-이전에 다운로드한 C#용 Microsoft Azure IoT 샘플 리포지토리의 복사본에서 Visual Studio의 *azure-iot-samples-csharp-master\iot-hub\Samples\device\IoTHubDeviceSamples.sln"* 솔루션 파일을 엽니다. **솔루션 탐색기** 에서 *PnpDeviceSamples > TemperatureController* 폴더를 확장하고 *Program.cs* 및 *TemperatureControllerSample.cs* 파일을 열어 이 샘플에 대한 코드를 확인합니다.
+이전에 다운로드한 C#용 Microsoft Azure IoT 샘플 리포지토리의 복사본에서 Visual Studio의 *azure-iot-samples-csharp-main\iot-hub\Samples\device\IoTHubDeviceSamples.sln"* 솔루션 파일을 엽니다. **솔루션 탐색기** 에서 *PnpDeviceSamples > TemperatureController* 폴더를 확장하고 *Program.cs* 및 *TemperatureControllerSample.cs* 파일을 열어 이 샘플에 대한 코드를 확인합니다.
 
 샘플을 실행하여 IoT Central에 연결하면 DPS(Device Provisioning Service)를 사용하여 디바이스를 등록하고 연결 문자열을 생성합니다. 이 샘플은 환경에서 필요한 DPS 연결 정보를 검색합니다.
 

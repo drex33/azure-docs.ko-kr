@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 05/17/2021
 ms.author: rolyon
 ms.custom: contperf-fy21q1, azuread-video-2020
-ms.openlocfilehash: 9126b3a915f9d457b51a69a4cef9a79003597c31
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3b731b83264802884bba01ed3c32db6152d0a4f9
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110091139"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129356123"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Azure RBAC(Azure 역할 기반 액세스 제어)란?
 

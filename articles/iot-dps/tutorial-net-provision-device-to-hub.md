@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 84fe935c1122d3d5c65423341b8760643257f992
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 19f36e926ada75f36ddb34f1ad8d98cdf531fd22
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107868574"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457433"
 ---
 # <a name="tutorial-enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>자습서: Azure IoT Hub Provisioning Service 클라이언트를 사용하여 IoT 허브에 디바이스를 등록(.NET)
 
-이전 자습서에서 Device Provisioning Service에 연결하기 위해 디바이스를 설정하는 방법을 배웠습니다. 이 자습서에서는 이 서비스를 사용하여 **_개별 등록_** 및 **_등록 그룹_** 을 모두 사용하는 단일 IoT Hub에 디바이스를 프로비전하는 방법을 배웁니다. 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
+이전 자습서에서 Device Provisioning Service에 연결하기 위해 디바이스를 설정하는 방법을 알아보았습니다. 이 자습서에서는 이 서비스를 사용하여 **_개별 등록_** 및 **_등록 그룹_** 을 모두 사용하는 단일 IoT Hub에 디바이스를 프로비전하는 방법을 배웁니다. 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
 > [!div class="checklist"]
 > * 디바이스 등록
@@ -221,17 +221,17 @@ Device Provisioning Service에 디바이스를 등록하는 방법은 두 가지
 
 이 시점에서 다음 설정이 디바이스 등록을 위해 준비되었습니다.
 
-1. 디바이스 또는 디바이스 그룹이 Device Provisioning Service에 등록되었습니다. 
+1. 디바이스 또는 디바이스 그룹이 Device Provisioning Service에 등록되었습니다. 또한 
 2. 장치가 Device Provisioning Service 클라이언트 SDK를 사용하여 애플리케이션을 통해 구성 및 액세스가 가능한 보안과 함께 준비되어 있습니다.
 
-디바이스에서 Device Provisioning Service를 통해 등록을 시작하도록 클라이언트 애플리케이션을 허용합니다.  
+장치에서 Device Provisioning Service를 통해 등록을 시작하도록 클라이언트 애플리케이션을 허용합니다.  
 
 
 ## <a name="verify-the-device-is-registered"></a>디바이스가 등록되어 있는지 확인
 
-디바이스가 부팅되면 다음 작업이 이루어져야 합니다. 자세한 내용은 [디바이스 클라이언트 샘플 프로비전](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device)을 참조하세요. 
+디바이스가 부팅되면 다음 작업이 이루어져야 합니다. 자세한 내용은 [디바이스 클라이언트 샘플 프로비전](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/main/provisioning/Samples/device)을 참조하세요. 
 
-1. 디바이스가 Device Provisioning Service에 등록 요청을 보냅니다.
+1. 디바이스에서 등록 요청을 Device Provisioning Service에 보냅니다.
 2. TPM 디바이스의 경우 Device Provisioning Service에서 디바이스가 응답하는 등록 챌린지를 다시 보냅니다. 
 3. 등록에 성공하면 Device Provisioning Service는 IoT Hub URI, 디바이스 ID 및 암호화된 키를 디바이스로 다시 보냅니다. 
 4. 그러면 디바이스의 IoT Hub 클라이언트 애플리케이션이 사용자 허브에 연결됩니다. 

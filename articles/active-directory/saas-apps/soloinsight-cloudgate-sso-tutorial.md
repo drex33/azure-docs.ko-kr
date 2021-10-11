@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/24/2021
+ms.date: 09/01/2021
 ms.author: jeedes
-ms.openlocfilehash: 7c52a14ce1115be6efcaf99a29f9ee7ca1836c71
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f21c120374a7e6a42c5bb98a1db8687f00aba548
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110452673"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124778479"
 ---
 # <a name="tutorial-integrate-soloinsight-cloudgate-sso-with-azure-active-directory"></a>자습서: Soloinsight-CloudGate SSO와 Azure Active Directory 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "110452673"
 * 사용자가 자신의 Azure AD 계정으로 Soloinsight-CloudGate SSO에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -38,6 +38,7 @@ ms.locfileid: "110452673"
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 * Soloinsight-CloudGate SSO에서 **SP** 시작 SSO를 지원합니다.
+* Soloinsight-CloudGate SSO에서 [자동 사용자 프로비저닝](soloinsight-cloudgate-sso-provisioning-tutorial.md)을 지원합니다.
 
 ## <a name="add-soloinsight-cloudgate-sso-from-the-gallery"></a>갤러리에서 Soloinsight-CloudGate SSO 추가
 
@@ -67,13 +68,13 @@ Soloinsight-CloudGate SSO에서 Azure AD SSO를 구성하고 테스트하려면 
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **Soloinsight-CloudGate SSO** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 후 **Single Sign-On** 을 선택합니다.
+1. Azure Portal의 **Soloinsight-CloudGate SSO** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **기본 SAML 구성** 페이지에서 다음 필드에 대한 값을 입력합니다.
+1. **기본 SAML 구성** 페이지에서 다음 단계를 수행합니다.
 
     1. **로그온 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.sigateway.com/login` 패턴을 사용하는 URL을 입력합니다.
 
@@ -98,7 +99,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -172,6 +173,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ![직원 테스트](./media/soloinsight-cloudgate-sso-tutorial/employee-test.png)
 
+> [!NOTE]
+> Soloinsight-CloudGate SSO는 자동 사용자 프로비저닝도 지원합니다. 자동 사용자 프로비저닝 구성 방법에 대한 자세한 내용은 [여기](./soloinsight-cloudgate-sso-provisioning-tutorial.md)에서 제공합니다.
+
 ## <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
@@ -180,7 +184,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * Soloinsight-CloudGate SSO 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Soloinsight-CloudGate SSO 타일을 클릭하면 Soloinsight-CloudGate SSO 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Soloinsight-CloudGate SSO 타일을 클릭하면 Soloinsight-CloudGate SSO 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

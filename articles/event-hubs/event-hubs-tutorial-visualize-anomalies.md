@@ -2,14 +2,14 @@
 title: Azure Event Hubs - 실시간 이벤트에서 데이터 변칙 시각화
 description: '자습서: Microsoft Azure Event Hubs로 보내는 실시간 이벤트에서 데이터 변칙 시각화'
 ms.topic: tutorial
-ms.date: 06/23/2020
+ms.date: 09/29/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: dc498398a164cb559cb243e46699f39a21ab3d50
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: e89cf8f501576b18144e28b8b042948cdcb408ee
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110698543"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129276483"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>자습서: Azure Event Hubs에 보내는 실시간 이벤트에서 데이터 이상 시각화
 
@@ -25,127 +25,14 @@ Azure Event Hubs에서는 Azure Stream Analytics를 사용하여 들어오는 �
 > * 이러한 트랜잭션을 처리하는 Stream Analytics 작업 구성
 > * Power BI 시각화를 구성하여 결과 표시
 
-이 자습서를 완료하려면 Azure 구독이 필요합니다. 구독이 없으면 시작하기 전에 [계정을 만드세요][].
+## <a name="prerequisites"></a>사전 요구 사항
+시작하기 전에 다음 단계를 완료해야 합니다.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
-
-- [Visual Studio](https://www.visualstudio.com/)를 설치합니다. 
+- Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+- [Event Hubs 네임스페이스를 만들고 이 네임스페이스에 이벤트 허브를 만듭니다](event-hubs-create.md).
+- [Event Hubs 연결 문자열 가져오기](event-hubs-get-connection-string.md)의 지침을 따릅니다. Event Hub 네임스페이스에 대한 연결 문자열과 이벤트 허브의 이름을 기록해 둡니다. 
+- [Visual Studio](https://www.visualstudio.com/)를 설치합니다. Visual Studio 솔루션을 사용해 앱을 실행하여 테스트 이벤트 데이터를 생성하고 이벤트 허브로 보냅니다. 
 - Stream Analytics 작업에서 출력을 분석하려면 Power BI 계정이 필요합니다. [Power BI 평가판](https://app.powerbi.com/signupredirect?pbi_source=web)을 사용할 수 있습니다.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## <a name="set-up-resources"></a>리소스 설정
-
-이 자습서에서는 Event Hubs 네임스페이스 및 이벤트 허브가 필요합니다. 이러한 리소스는 Azure CLI 또는 Azure PowerShell을 사용하여 만들 수 있습니다. 모든 리소스에 대해 동일한 리소스 그룹 및 위치를 사용합니다. 그런 다음, 마지막에 리소스 그룹을 삭제하면 모든 내용을 한 번에 삭제할 수 있습니다.
-
-다음 섹션에서는 이를 위해 필요한 단계를 설명합니다. CLI *또는* PowerShell 명령에 따라 다음 단계를 수행합니다.
-
-1. [리소스 그룹](../azure-resource-manager/management/overview.md)을 만듭니다. 
-
-2. Event Hubs 네임스페이스를 만듭니다. 
-
-3. 이벤트 허브를 만듭니다.
-
-> [!NOTE]
-> 이 자습서의 뒷부분에서 필요한 각 스크립트에 변수 집합이 있습니다. 여기에는 리소스 그룹 이름($resourceGroup), 이벤트 허브 네임스페이스( **$eventHubNamespace**) 및 이벤트 허브 이름( **$eventHubName**)이 포함됩니다. 이 문서의 뒷부분에서 이러한 항목에는 달러 기호($)가 접두어로 붙어 있으므로 스크립트에 설정되어 있는 것을 알 수 있습니다.
-
-<!-- some day they will approve the tab control; 
-  When that happens, put CLI and PSH in tabs. -->
-
-### <a name="set-up-your-resources-using-azure-cli"></a>Azure CLI를 사용하여 리소스 설정
-
-이 스크립트를 복사하여 Cloud Shell에 붙여넣습니다. 이미 로그인했다고 가정하면 한 번에 한 줄씩 스크립트가 실행됩니다.
-
-전역적으로 고유해야 하는 변수에는 `$RANDOM`이 연결되어 있습니다. 스크립트가 실행되고 변수가 설정되면 임의의 수치 문자열이 생성되고 고정 문자열 마지막에 연결되어 이것이 고유하게 됩니다.
-
-```azurecli-interactive
-# Set the values for location and resource group name.
-location=westus
-resourceGroup=ContosoResourcesEH
-
-# Create the resource group to be used
-#   for all the resources for this tutorial.
-az group create --name $resourceGroup \
-    --location $location
-
-# The Event Hubs namespace name must be globally unique, so add a random number to the end.
-eventHubNamespace=ContosoEHNamespace$RANDOM
-echo "Event Hub Namespace = " $eventHubNamespace
-
-# Create the Event Hubs namespace.
-az eventhubs namespace create --resource-group $resourceGroup \
-   --name $eventHubNamespace \
-   --location $location \
-   --sku Standard
-
-# The event hub name must be globally unique, so add a random number to the end.
-eventHubName=ContosoEHhub$RANDOM
-echo "event hub name = " $eventHubName
-
-# Create the event hub.
-az eventhubs eventhub create --resource-group $resourceGroup \
-    --namespace-name $eventHubNamespace \
-    --name $eventHubName \
-    --message-retention 3 \
-    --partition-count 2
-
-# Get the connection string that authenticates the app with the Event Hubs service.
-connectionString=$(az eventhubs namespace authorization-rule keys list \
-   --resource-group $resourceGroup \
-   --namespace-name $eventHubNamespace \
-   --name RootManageSharedAccessKey \
-   --query primaryConnectionString \
-   --output tsv)
-echo "Connection string = " $connectionString 
-```
-
-### <a name="set-up-your-resources-using-azure-powershell"></a>Azure PowerShell을 사용하여 리소스 설정
-
-이 스크립트를 복사하여 Cloud Shell에 붙여넣습니다. 이미 로그인했다고 가정하면 한 번에 한 줄씩 스크립트가 실행됩니다.
-
-전역적으로 고유해야 하는 변수에는 `$(Get-Random)`이 연결되어 있습니다. 스크립트가 실행되고 변수가 설정되면 임의의 수치 문자열이 생성되고 고정 문자열 마지막에 연결되어 이것이 고유하게 됩니다.
-
-```azurepowershell-interactive
-# Log in to Azure account.
-Login-AzAccount
-
-# Set the values for the location and resource group.
-$location = "West US"
-$resourceGroup = "ContosoResourcesEH"
-
-# Create the resource group to be used  
-#   for all resources for this tutorial.
-New-AzResourceGroup -Name $resourceGroup -Location $location
-
-# The Event Hubs namespace name must be globally unique, so add a random number to the end.
-$eventHubNamespace = "contosoEHNamespace$(Get-Random)"
-Write-Host "Event Hub Namespace is " $eventHubNamespace
-
-# The event hub name must be globally unique, so add a random number to the end.
-$eventHubName = "contosoEHhub$(Get-Random)"
-Write-Host "Event hub Name is " $eventHubName
-
-# Create the Event Hubs namespace.
-New-AzEventHubNamespace -ResourceGroupName $resourceGroup `
-     -NamespaceName $eventHubNamespace `
-     -Location $location
-
-# Create the event hub.
-$yourEventHub = New-AzEventHub -ResourceGroupName $resourceGroup `
-    -NamespaceName $eventHubNamespace `
-    -Name $eventHubName `
-    -MessageRetentionInDays 3 `
-    -PartitionCount 2
-
-# Get the event hub key, and retrieve the connection string from that object.
-# You need this to run the app that sends test messages to the event hub.
-$eventHubKey = Get-AzEventHubKey -ResourceGroupName $resourceGroup `
-    -Namespace $eventHubNamespace `
-    -AuthorizationRuleName RootManageSharedAccessKey
-
-# Save this value somewhere local for later use.
-Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
-```
 
 ## <a name="run-app-to-produce-test-event-data"></a>테스트 이벤트 데이터를 생성하는 앱 실행
 
@@ -175,7 +62,7 @@ GitHub의 Event Hubs [샘플](https://github.com/Azure/azure-event-hubs/tree/mas
 
    **리소스 그룹**: 이벤트 허브에서 사용하는 것과 동일한 리소스 그룹(**ContosoResourcesEH**)을 사용합니다.
 
-   **위치**: 설치 스크립트에 사용된 것과 동일한 위치(**미국 서부**)를 사용합니다.
+   **위치**: 이전에 사용한 것과 동일한 Azure 지역을 사용합니다.
 
    ![새 Azure Stream Analytics 작업을 만드는 방법을 보여주는 스크린샷.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-add-job.png)
 
@@ -187,35 +74,28 @@ GitHub의 Event Hubs [샘플](https://github.com/Azure/azure-event-hubs/tree/mas
 
 Stream Analytics 작업 입력은 이벤트 허브로부터의 신용 카드 거래입니다.
 
-> [!NOTE]
-> 달러 기호($)로 시작되는 변수의 값은 이전 섹션의 시작 스크립트에서 설정되었습니다. Event Hubs 네임스페이스와 이벤트 허브 이름 등, 해당 필드를 지정할 때와 동일한 값을 여기서 사용해야 합니다.
 
-1. **작업 토폴로지** 에서 **입력** 을 클릭합니다.
-
-2. **입력** 창에서 **스트림 입력 추가** 를 클릭하고 Event Hubs를 선택합니다. 나타난 화면에서 다음 필드를 입력합니다.
+1. 왼쪽 메뉴의 **작업 토폴로지** 섹션에서 **입력** 을 선택합니다.
+2. **입력** 창에서 **스트림 입력 추가** 를 클릭하고 **Event Hubs** 를 선택합니다. 나타난 화면에서 다음 필드를 입력합니다.
 
    **입력 별칭**: **contosoinputs** 를 사용합니다. 이 필드는 데이터에 대한 쿼리를 정의할 때 사용한 입력 스트림의 이름입니다.
 
-   **구독**: 구독을 선택합니다.
+   **구독**: Azure 구독을 선택합니다.
 
-   **Event Hubs 네임스페이스**: Event Hub 네임스페이스($**eventHubNamespace**)를 선택합니다. 
+   **Event Hubs 네임스페이스**: Event Hub 네임스페이스를 선택합니다. 
 
-   **Event Hub 이름**: **기존 항목 사용** 을 클릭하고, 이벤트 허브($**eventHubName**)를 선택합니다.
-
-   **Event Hubs 정책 이름**: **RootManageSharedAccessKey** 를 선택합니다.
+   **Event Hub 이름**: **기존 항목 사용** 을 클릭하고 이벤트 허브를 선택합니다.
 
    **Event Hubs 소비자 그룹**: 기본 소비자 그룹을 사용하려면 이 필드를 비워 둡니다.
 
-   나머지 필드는 기본값을 그대로 사용합니다.
+   나머지 필드에 대해 기본값을 수락합니다.
 
    ![Stream Analytics 작업에 입력 스트림을 추가하는 방법을 보여주는 스크린샷.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-inputs.png)
-
 5. **저장** 을 클릭합니다.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Stream Analytics 작업에 출력 추가
 
-1. **작업 토폴로지** 에서 **출력** 을 클릭합니다. 이 필드는 데이터에 대한 쿼리를 정의할 때 사용한 출력 스트림의 이름입니다.
-
+1. 왼쪽 메뉴의 **작업 토폴로지** 섹션에서 **출력** 을 선택합니다. 이 필드는 데이터에 대한 쿼리를 정의할 때 사용한 출력 스트림의 이름입니다.
 2. **출력** 창에서 **추가** 를 클릭한 다음, **Power BI** 를 선택합니다. 나타난 화면에서 다음 필드를 입력합니다.
 
    **출력 별칭**: **contosooutputs** 를 사용합니다. 이 필드는 출력에 대한 고유 별칭입니다. 
@@ -227,11 +107,8 @@ Stream Analytics 작업 입력은 이벤트 허브로부터의 신용 카드 거
    나머지 필드는 기본값을 그대로 사용합니다.
 
    ![Stream Analytics 작업에 대한 출력을 설정하는 방법을 보여주는 스크린샷.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-outputs.png)
-
 3. **권한 부여** 를 클릭하고 사용자의 Power BI 계정에 로그인합니다.
-
 4. 나머지 필드는 기본값을 그대로 사용합니다.
-
 5. **저장** 을 클릭합니다.
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Stream Analytics 작업의 쿼리 구성
@@ -348,21 +225,8 @@ Stream Analytic 작업에서 **시작**, **지금**, **시작** 을 차례로 �
 
 Power BI 계정에 로그인합니다. **내 작업 영역** 으로 이동합니다. 대시보드 이름이 있는 줄에서 휴지통 아이콘을 클릭합니다. **데이터 세트** 로 이동하고 휴지통 아이콘을 클릭하여 데이터 세트(**contosoehdataset**)를 삭제합니다.
 
-### <a name="clean-up-resources-using-azure-cli"></a>Azure CLI를 사용하여 리소스 정리
-
-리소스 그룹을 제거하려면 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용합니다.
-
-```azurecli-interactive
-az group delete --name $resourceGroup
-```
-
-### <a name="clean-up-resources-using-powershell"></a>PowerShell을 사용하여 리소스 정리
-
-리소스 그룹을 제거하려면 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 명령을 사용합니다.
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name $resourceGroup
-```
+### <a name="clean-up-resources"></a>리소스 정리
+이 자습서의 일부로 만든 모든 리소스가 포함된 리소스 그룹을 삭제합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -379,4 +243,4 @@ Azure Event Hubs에 대해 자세히 알아보려면 다음 문서를 진행하�
 > [!div class="nextstepaction"]
 > [.NET Standard를 사용하여 Azure Event Hubs로 메시지 전송 시작](event-hubs-dotnet-standard-getstarted-send.md)
 
-[계정을 만드세요]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[create a free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

@@ -7,16 +7,21 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 08/04/2021
 ms.custom: mvc
-ms.openlocfilehash: 99216bd26bfff76c4342f1533ff4ced070a69e92
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ca3a4a3bbcfd1de92906b75ed56351afb04b4b17
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124735961"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389440"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Azure Migrate의 새로운 기능
 
 [Azure Migrate](migrate-services-overview.md)를 사용하면 온-프레미스 서버, 앱 및 데이터를 검색 및 평가하고 Microsoft Azure 클라우드로 마이그레이션할 수 있습니다. 이 문서에서는 Azure Migrate의 새로운 릴리스와 기능이 요약되어 있습니다.
+
+## <a name="update-september-2021"></a>업데이트(2021년 9월)
+- [Azure Private Link](../private-link/private-endpoint-overview.md)를 사용하는 프라이빗 네트워크를 통해 서버를 검색, 평가 및 마이그레이션합니다.  현재 지원되는 [정부 클라우드 지역](migrate-support-matrix.md#supported-geographies-azure-government)에서 미리 보기로 제공됩니다. [자세한 정보](how-to-use-azure-migrate-with-private-endpoints.md)
+- PowerShell을 사용하여 에이전트 없는 VMware VM 마이그레이션을 위한 리소스에 태그를 지정하고 사용자 지정 이름을 추가하도록 지원합니다.
+- Azure Migrate 어플라이언스: 물리적 서버 검색 목록에서 서버를 제거하는 옵션입니다.
 
 ## <a name="update-august-2021"></a>업데이트(2021년 8월)
 

@@ -398,15 +398,13 @@
           displayName: rest claims exchange
         - name: API 커넥터 보호
           href: secure-rest-api.md
-    - name: 사용자 지정 정책
+    - name: 문제 해결
       items:
-        - name: 문제 해결
-          items:
-            - name: Application Insights를 사용하여 로그 수집
-              href: troubleshoot-with-application-insights.md
-              displayName: 'troubleshooting, app insights'
-            - name: 사용자 지정 정책 문제 해결
-              href: troubleshoot-custom-policies.md
+        - name: Application Insights를 사용하여 로그 수집
+          href: troubleshoot-with-application-insights.md
+          displayName: 'troubleshooting, app insights'
+        - name: 문제 해결 및 오류 처리
+          href: troubleshoot.md
     - name: UserInfo 엔드포인트
       href: userinfo-endpoint.md
     - name: 파트너 통합

@@ -442,7 +442,7 @@ items:
             href: connector-presto.md
           - name: QuickBooks Online
             href: connector-quickbooks.md
-          - name: REST
+          - name: REST (영문)
             href: connector-rest.md
             displayName: timeout
           - name: Salesforce
@@ -737,6 +737,8 @@ items:
                 href: monitor-install-analytics.md
           - name: SDK로 모니터링
             href: monitor-programmatically.md
+          - name: 이메일 알림을 통해 파이프라인 모니터링
+            href: how-to-send-email.md
           - name: Microsoft Teams 알림을 통해 파이프라인 모니터링
             href: how-to-send-notifications-to-teams.md
           - name: 통합 런타임 모니터링
@@ -876,7 +878,9 @@ items:
             href: how-to-discover-explore-purview-data.md
       - name: 시나리오
         items:
-          - name: Microsoft Teams 알림을 통해 파이프라인 모니터링
+          - name: 파이프라인에서 이메일 보내기
+            href: how-to-send-email.md
+          - name: 파이프라인에서 Microsoft Teams 알림 보내기
             href: how-to-send-notifications-to-teams.md
           - name: 데이터 레이크 및 EDW용 데이터 마이그레이션
             items:

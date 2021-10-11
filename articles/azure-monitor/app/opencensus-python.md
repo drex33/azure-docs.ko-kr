@@ -7,12 +7,12 @@ ms.reviewer: mbullwin
 ms.custom: devx-track-python
 author: lzchen
 ms.author: lechen
-ms.openlocfilehash: 988f32cae16a026ddef0294815ffd21ba0d81760
-ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
-ms.translationtype: HT
+ms.openlocfilehash: 98af913787ede9a0c9f543315043540b7994729f
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112991742"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754238"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Python 애플리케이션용 Azure Monitor 설정
 
@@ -27,7 +27,7 @@ OpenCensus가 [OpenTelemetry](https://opentelemetry.io/)로 통합되고 있음�
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-- Python 설치. 다른 버전의 경우 약간 변경되어 작동할 가능성이 있으므로 이 문서에서는 [Python 3.7.0](https://www.python.org/downloads/release/python-370/)을 사용합니다. Opencensus Python SDK는 Python v2.7 및 v3.4-v3.7만 지원합니다.
+- Python 설치. 다른 버전의 경우 약간 변경되어 작동할 가능성이 있으므로 이 문서에서는 [Python 3.7.0](https://www.python.org/downloads/release/python-370/)을 사용합니다. Opencensus Python SDK는 Python v2.7 및 v3.4 이상만 지원합니다.
 - Application Insights [리소스](./create-new-resource.md)를 만듭니다. 리소스에 대한 자체 계측 키(ikey)가 할당됩니다.
 
 ## <a name="introducing-opencensus-python-sdk"></a>Opencensus Python SDK 소개
@@ -349,47 +349,47 @@ Opencensus Python SDK에서는 기본적으로 키/값 쌍의 사전인 `tags`�
 
 1. 사용할 태그를 태그 맵에 삽입합니다. 태그 맵은 사용할 수 있는 모든 사용 가능한 태그에 대한 일종의 "풀" 역할을 합니다.
 
-```python
-...
-tmap = tag_map_module.TagMap()
-tmap.insert("url", "http://example.com")
-...
-```
+    ```python
+    ...
+    tmap = tag_map_module.TagMap()
+    tmap.insert("url", "http://example.com")
+    ...
+    ```
 
 1. 특정 `View`의 경우 태그 키를 통해 해당 뷰로 메트릭을 기록할 때 사용할 태그를 지정합니다.
 
-```python
-...
-prompt_view = view_module.View("prompt view",
-                               "number of prompts",
-                               ["url"], # <-- A sequence of tag keys used to specify which tag key/value to use from the tag map
-                               prompt_measure,
-                               aggregation_module.CountAggregation())
-...
-```
+    ```python
+    ...
+    prompt_view = view_module.View("prompt view",
+                                "number of prompts",
+                                ["url"], # <-- A sequence of tag keys used to specify which tag key/value to use from the tag map
+                                prompt_measure,
+                                aggregation_module.CountAggregation())
+    ...
+    ```
 
 1. 측정 맵에 기록할 때 태그 맵을 사용해야 합니다. `View`에 지정된 태그 키는 기록에 사용되는 태그 맵에 있어야 합니다.
 
-```python
-...
-mmap = stats_recorder.new_measurement_map()
-mmap.measure_int_put(prompt_measure, 1)
-mmap.record(tmap) # <-- pass the tag map in here
-...
-```
+    ```python
+    ...
+    mmap = stats_recorder.new_measurement_map()
+    mmap.measure_int_put(prompt_measure, 1)
+    mmap.record(tmap) # <-- pass the tag map in here
+    ...
+    ```
 
 1. `customMetrics` 테이블에서 `prompt_view`를 사용하여 내보낸 모든 메트릭 레코드에는 사용자 지정 차원 `{"url":"http://example.com"}`이 있습니다.
 
 1. 동일한 키를 사용하여 다른 값으로 태그를 생성하려면 해당 항목에 대한 새 태그 맵을 만듭니다.
 
-```python
-...
-tmap = tag_map_module.TagMap()
-tmap2 = tag_map_module.TagMap()
-tmap.insert("url", "http://example.com")
-tmap2.insert("url", "https://www.wikipedia.org/wiki/")
-...
-```
+    ```python
+    ...
+    tmap = tag_map_module.TagMap()
+    tmap2 = tag_map_module.TagMap()
+    tmap.insert("url", "http://example.com")
+    tmap2.insert("url", "https://www.wikipedia.org/wiki/")
+    ...
+    ```
 
 #### <a name="performance-counters"></a>성능 카운터
 

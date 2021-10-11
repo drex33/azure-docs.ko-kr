@@ -11,12 +11,12 @@ ms.custom: sqldbrb=2, references_regions
 ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/24/2021
-ms.openlocfilehash: c73546c23a619f1d38caf10383097b4ded638581
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 39fddc353b72b72eb234c60685bed12b514ae314
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129057287"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754637"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance의 새로운 기능은 무엇인가요?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -102,7 +102,7 @@ Azure SQL Database 및 Azure SQL Managed Instance에 대한 설명서는 별도�
 - [Azure SQL Managed Instances에 걸친 분산 데이터베이스 트랜잭션](https://azure.microsoft.com/updates/distributed-database-transactions-spanning-multiple-azure-sql-managed-instances/) - Azure SQL Managed Instances에 걸친 분산 데이터베이스 트랜잭션이 추가되어 기존 애플리케이션의 원활한 마이그레이션과 수직 또는 수평 분할된 데이터베이스 아키텍처를 사용하는 최신 다중 테넌트 애플리케이션 개발이 가능합니다(퍼블릭 미리 보기).
 - [Azure SQL Managed Instance에 대한 구성 가능한 백업 스토리지 중복성 옵션](https://azure.microsoft.com/updates/configurable-backup-storage-redundancy-option-for-azure-sql-managed-instance-2/) - LRS(로컬 중복 스토리지) 및 ZRS(영역 중복 스토리지) 옵션이 백업 스토리지 중복성에 추가되어 더 많은 유연성과 선택 사항을 제공합니다. 
 - [Azure SQL Database 및 Managed Instance에 대한 백업 스토리지 비용 절감](https://azure.microsoft.com/updates/backup-storage-cost-savings-for-azure-sql-database-and-managed-instance/) - 사용자가 TDE(투명한 데이터 암호화)를 사용하는 데이터베이스에 대해 PITR 백업 보존 기간과 백업 자동 압축을 설정할 수 있으므로 이제 백업 스토리지 공간이 최대 30% 더 효율적으로 사용됩니다.
-- [Azure SQL MI에 대한 Azure AD 인증 기능](https://azure.microsoft.com/updates/azure-ad-authentication-features-for-azure-sql-db-azure-synapse-analytics-and-azure-sql-managed-instance/) - 이 기능을 사용하면 Azure AD 애플리케이션을 통해 사용자 생성을 자동화하고, SQL Managed Instance에서 개별 Azure AD 게스트 사용자를 만들 수 있습니다(퍼블릭 미리 보기).
+- [Azure SQL MI에 대한 Azure AD 인증 기능](https://azure.microsoft.com/updates/azure-ad-authentication-features-for-azure-sql-db-azure-synapse-analytics-and-azure-sql-managed-instance/) - 이러한 기능은 Azure AD 애플리케이션을 사용하여 사용자 만들기를 자동화하고 개별 Azure AD 게스트 사용자를 SQL Managed Instance(공개 미리 보기)에서 만들 수 있도록 합니다.
 - [Azure SQL Managed Instance에 대한 글로벌 가상 네트워크 피어링 지원](https://azure.microsoft.com/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/)
 - [Azure SQL Managed Instance에서 지원되는 모든 SSRS 버전의 카탈로그 데이터베이스 호스팅](https://azure.microsoft.com/updates/hosting-catalog-databases-for-all-supported-versions-of-ssrs-in-azure-sql-managed-instance/) - Azure SQL Managed Instance는 지원되는 모든 SSRS(SQL Server Reporting Services) 버전의 카탈로그 데이터베이스를 호스트할 수 있습니다.
 - [Azure SQL Database Managed Instance의 주요 성능 개선 사항](https://techcommunity.microsoft.com/t5/azure-sql/announcing-major-performance-improvements-for-azure-sql-database/ba-p/1701256) 
@@ -169,17 +169,17 @@ Azure SQL Database 및 Azure SQL Managed Instance에 대한 설명서는 별도�
 |보안 연결을 사용하는 외부(비 Azure) 메일 서버와 데이터베이스 메일 기능||해결됨|2019년 10월|
 |포함된 데이터베이스는 SQL Managed Instance에서 지원되지 않습니다.||해결됨|2019년 8월|
 
-### <a name="misleading-error-message-on-azure-portal-suggesting-recreation-of-the-service-principal"></a>서비스 주체의 재작성을 제안 하 Azure Portal 오류 메시지가 잘못 되었습니다.
+### <a name="misleading-error-message-on-azure-portal-suggesting-recreation-of-the-service-principal"></a>서비스 주체의 다시 Azure Portal 제안하는 잘못된 오류 메시지
 
-서비스 주체가 이미 존재 하는 경우에도 Azure SQL Managed Instance에 대 한 Azure Portal의 _Active Directory 관리자_ 블레이드가 다음 오류 메시지를 표시 하 고 있을 수 있습니다.
+서비스 주체가 이미 있는 경우에도 Azure SQL Managed Instance 대한 Azure Portal _Active Directory 관리자_ 블레이드에 다음 오류 메시지가 표시될 수 있습니다.
 
-"Managed Instance Azure Active Directory에 액세스 하려면 서비스 주체가 필요 합니다. 서비스 주체를 만들려면 여기를 클릭 하십시오. "
+"Managed Instance Azure Active Directory 액세스하려면 서비스 주체가 필요합니다. 서비스 주체를 만들려면 여기를 클릭하세요."
 
-관리 되는 인스턴스의 서비스 주체가 이미 존재 하는 경우이 오류 메시지를 무시 하 고 관리 되는 인스턴스의 AAD 인증을 사용할 수 있습니다. 
+관리되는 인스턴스에 대한 서비스 주체가 이미 있고 관리되는 인스턴스에 대한 AAD 인증이 작동하는 경우 이 오류 메시지를 무시해도 됩니다. 
 
-서비스 사용자가 있는지 여부를 확인 하려면 Azure Portal의 응용 프로그램 _Enterprise_ 페이지로 이동 하 고 _응용 프로그램 종류_ 드롭다운 목록에서 _관리 id_ 를 선택한 다음 _적용_ 을 클릭 하 고 검색 상자에 관리 되는 인스턴스의 이름을 입력 합니다. 인스턴스 이름이 결과 목록에 표시 되는 경우 서비스 주체는 이미 존재 하며 추가 작업이 필요 하지 않습니다.
+서비스 주체가 있는지 확인하려면 _Azure Portal Enterprise 애플리케이션_ 페이지로 이동하고, 애플리케이션 _유형_ 드롭다운 목록에서 관리 _ID를_ 선택하고, _적용을_ 클릭하고, 검색 상자에 관리되는 인스턴스의 이름을 입력합니다. 인스턴스 이름이 결과 목록에 표시되면 서비스 주체가 이미 존재하며 추가 작업이 필요하지 않습니다.
 
-오류 메시지의 지침을 이미 따르고 오류 메시지에서 링크를 클릭 한 경우 관리 되는 인스턴스의 서비스 사용자가 다시 생성 되었습니다. 이 경우 Azure AD 인증이 제대로 작동 하려면 새로 만든 서비스 사용자에 게 Azure AD 읽기 권한을 할당 하세요. 다음 [지침](./authentication-aad-configure.md?tabs=azure-powershell#powershell)에 따라 Azure PowerShell를 통해이 작업을 수행할 수 있습니다.
+오류 메시지의 지침을 이미 따르고 오류 메시지의 링크를 클릭하면 관리되는 인스턴스의 서비스 주체가 다시 생성됩니다. 이 경우 Azure AD 인증이 제대로 작동하려면 새로 만든 서비스 주체에 Azure AD 읽기 권한을 할당하세요. 이 작업은 지침을 통해 Azure PowerShell 통해 수행할 수 [있습니다.](./authentication-aad-configure.md?tabs=azure-powershell#powershell)
 
 ### <a name="changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint"></a>연결 유형을 변경해도 장애 조치(failover) 그룹 엔드포인트를 통한 연결에는 영향을 주지 않습니다.
 
@@ -220,7 +220,7 @@ END
 
 ### <a name="cannot-create-sql-managed-instance-with-the-same-name-as-logical-server-previously-deleted"></a>이전에 삭제한 논리 서버와 동일한 이름으로 SQL Managed Instance를 만들 수 없습니다.
 
-[논리 서버](./logical-servers.md)가 삭제된 후 이름이 레코드에서 해제되기까지 7일 임계 기간이 있습니다. 해당 기간에는 동일한 이름의 SQL Managed Instance를 만들 수 없습니다. 해결 방법으로, SQL Managed Instance에 다른 이름을 사용하거나 논리 서버 이름을 해제하기 위한 지원 티켓을 만들어야 합니다.
+[논리 서버를](./logical-servers.md) 삭제한 후 레코드에서 이름이 해제되기까지 7일의 임계값 기간이 있습니다. 해당 기간에는 동일한 이름의 SQL Managed Instance를 만들 수 없습니다. 해결 방법으로, SQL Managed Instance에 다른 이름을 사용하거나 논리 서버 이름을 해제하기 위한 지원 티켓을 만들어야 합니다.
 
 ### <a name="bulk-insert-and-backuprestore-statements-should-use-sas-key-to-access-azure-storage"></a>BULK INSERT 및 BACKUP/RESTORE 문은 SAS 키를 사용하여 Azure Storage에 액세스해야 합니다.
 
@@ -346,7 +346,7 @@ SQL Server Data Tools는 Azure AD 로그인 및 사용자를 완전히 지원하
 
 **해결 방법**: 복원이 완료된 것을 볼 때까지 복원 중인 데이터베이스에 액세스하지 마십시오.
 
-### <a name="tempdb-structure-and-content-is-re-created"></a>TEMPDB 구조와 콘텐츠가 다시 생성됨
+### <a name="tempdb-structure-and-content-is-re-created"></a>Tempdb 구조와 콘텐츠를 다시 만들었습니다.
 
 `tempdb` 데이터베이스는 항상 12개의 데이터 파일로 분할되며 파일 구조를 변경할 수 없습니다. 파일당 최대 크기는 변경할 수 없으며, `tempdb`에 새 파일을 추가할 수 없습니다. `Tempdb`는 인스턴스가 시작되거나 장애 조치(failover)될 때 항상 빈 데이터베이스로 다시 생성되며 `tempdb`에서 변경한 내용은 유지되지 않습니다.
 

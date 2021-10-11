@@ -16,34 +16,45 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86546995e0b5481daeff32f2fcdae61a4a69524b
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: 6b37cdba3f5b95f1e6ecc6b4dab02b5c9d69f109
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112284782"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754409"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-azure-shared-disk"></a>Windows Server 장애 조치(failover) 클러스터링 및 Azure 공유 디스크를 사용하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성
 
 > ![Windows OS][Logo_Windows] Windows
->
 
 이 문서에서는 Azure 공유 디스크를 사용하는 기존 WSFC(Windows Server 장애 조치(Failover) 클러스터링) 클러스터에 추가 SAP ASCS/SCS 클러스터형 인스턴스를 설치하여 단일 ASCS/SCS 설치에서 SAP 다중 SID 구성으로 이동하는 방법을 중점적으로 설명합니다. 이 프로세스가 완료되면 SAP 다중 SID 클러스터가 구성됩니다.
 
 ## <a name="prerequisites-and-limitations"></a>필수 구성 요소 및 제한 사항
 
-현재, Azure 프리미엄 SSD 디스크를 SAP ASCS/SCS 인스턴스용 Azure 공유 디스크로 사용할 수 있습니다. 다음과 같은 제한 사항이 있습니다.
+현재, Azure 프리미엄 SSD 디스크를 SAP ASCS/SCS 인스턴스용 Azure 공유 디스크로 사용할 수 있습니다. 현재 적용 중인 제한 사항은 다음과 같습니다.
 
--  [Azure Ultra Disk](../../disks-types.md#ultra-disk)는 SAP 워크로드용 Azure 공유 디스크로 지원되지 않습니다. 현재 가용성 집합의 Azure Ultra Disk를 사용하여 Azure VM을 배치할 수 없습니다.
--  프리미엄 SSD 디스크가 있는 [Azure 공유 디스크](../../disks-shared.md)는 가용성 집합의 VM에서만 지원됩니다. 가용성 영역 배포에서는 지원되지 않습니다. 
+-  [Azure Ultra Disk](../../disks-types.md#ultra-disk) 및 [표준 SSD 디스크는](../../disks-types.md#standard-ssd) SAP 워크로드용 Azure 공유 디스크로 지원되지 않습니다.
+-  [Premium SSD 디스크가](../../disks-types.md#premium-ssd) 있는 [Azure 공유](../../disks-shared.md) 디스크는 가용성 집합 및 가용성 영역에서 SAP 배포에 대해 지원됩니다.
+-  Premium SSD 디스크가 있는 Azure 공유 디스크에는 두 개의 스토리지 S SKU가 제공됩니다.
+   - 프리미엄 공유 디스크(skuName - Premium_LRS)에 대한 LRS(로컬 중복 스토리지)는 가용성 집합의 배포에서 지원됩니다.
+   - 프리미엄 공유 디스크(skuName - Premium_ZRS)용 ZRS(영역 중복 스토리지)는 가용성 영역의 배포에서 지원됩니다.
 -  Azure 공유 디스크 값인 [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes)는 공유 디스크로 사용할 수 있는 클러스터 노드의 개수를 결정합니다. 일반적으로 SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터에서는 두 개의 노드를 구성하므로 `maxShares`에 해당하는 값은 2로 설정되어야 합니다.
--  모든 SAP ASCS/SCS 클러스터 VM은 동일한 [Azure 근접 배치 그룹](../../windows/proximity-placement-groups.md)에 배포되어야 합니다.   
-   PPG가 없는 Azure 공유 디스크를 사용해 가용성 집합에 Windows 클러스터 VM을 배포할 수 있지만, PPG가 있으면 Azure 공유 디스크와 클러스터 VM의 물리적 근접성을 확보할 수 있으므로 해당 VM과 스토리지 계층 간의 대기 시간을 줄일 수 있습니다.    
+-  SAP 시스템에 [Azure 근접 배치 그룹을](../../windows/proximity-placement-groups.md) 사용하는 경우 디스크를 공유하는 모든 가상 머신이 동일한 PPG의 일부여야 합니다.
 
-Azure 공유 디스크의 제한 사항에 대한 자세한 내용은 Azure 공유 디스크 설명서의 [제한 사항](../../disks-shared.md#limitations) 섹션을 꼼꼼히 검토하여 참조하세요.  
+Azure 공유 디스크의 제한 사항에 대한 자세한 내용은 Azure 공유 디스크 설명서의 [제한 사항 섹션을](../../disks-shared.md#limitations) 주의 깊게 검토하세요.
 
-> [!IMPORTANT]
-> SAP ASCS/SCS Windows 장애 조치(Failover) 클러스터를 Azure 공유 디스크로 배포하는 경우, 해당 배포가 하나의 스토리지 클러스터에서 단일 공유 디스크로 작동한다는 점에 유의합니다. Azure 공유 디스크가 배포된 스토리지 클러스터에 문제가 생기면 SAP ASCS/SCS 인스턴스가 영향을 받습니다.  
+#### <a name="important-consideration-for-premium-shared-disk"></a>Premium 공유 디스크에 대한 중요한 고려 사항
+
+다음은 Azure Premium 공유 디스크와 관련하여 고려해야 할 몇 가지 중요한 사항입니다.
+
+- Premium 공유 디스크에 대한 LRS
+  - 프리미엄 공유 디스크용 LRS를 통해 SAP 배포는 하나의 스토리지 클러스터에서 단일 Azure 공유 디스크로 작동합니다. Azure 공유 디스크가 배포된 스토리지 클러스터에 문제가 생기면 SAP ASCS/SCS 인스턴스가 영향을 받습니다.
+
+- Premium 공유 디스크용 ZRS
+  - ZRS의 쓰기 대기 시간이 영역 간 데이터 복사로 인해 LRS보다 높습니다.
+  - 다른 지역의 가용성 영역 간 거리는 서로 다르며 가용성 영역 전체에서 ZRS 디스크 대기 시간도 다릅니다. [디스크를 벤치마킹하여](../../disks-benchmarks.md) 해당 지역의 ZRS 디스크 대기 시간을 식별합니다.
+  - Premium 공유 디스크용 ZRS는 해당 지역의 세 가용성 영역에서 데이터를 동기적으로 복제합니다. 스토리지 클러스터 중 하나에서 문제가 발생하는 경우 스토리지 장애 조치(failover)가 애플리케이션 계층에 투명하게 표시되면 SAP ASCS/SCS가 계속 실행됩니다.
+  - 자세한 내용은 관리 디스크에 대한 ZRS의 [제한 사항](../../disks-redundancy.md#limitations) 섹션을 검토하세요.
 
 > [!IMPORTANT]
 > 설치 프로그램은 다음 조건을 충족해야 합니다.
@@ -99,15 +110,33 @@ Windows Server 2016과 Windows Serve 2019가 모두 지원됩니다(최신 데�
 
 ### <a name="host-names-and-ip-addresses"></a>호스트 이름 및 IP 주소
 
-| 호스트 이름 역할 | 호스트 이름 | 고정 IP 주소 | 가용성 집합 | 근접 배치 그룹 |
-| --- | --- | --- |---| ---|
-| 첫 번째 클러스터 노드 ASCS/SCS 클러스터 |pr1-ascs-10 |10.0.0.4 |pr1-ascs-avset |PR1PPG |
-| 두 번째 클러스터 노드 ASCS/SCS 클러스터 |pr1-ascs-11 |10.0.0.5 |pr1-ascs-avset |PR1PPG |
-| 클러스터 네트워크 이름 | pr1clust |10.0.0.42(Win 2016 클러스터에 **만** 해당) | 해당 없음 | 해당 없음 |
-| **SID1** ASCS 클러스터 네트워크 이름 | pr1-ascscl |10.0.0.43 | 해당 없음 | 해당 없음 |
-| **SID1** ERS 클러스터 네트워크 이름(ERS2에 **만** 해당) | pr1-erscl |10.0.0.44 | 해당 없음 | 해당 없음 |
-| **SID2** ASCS 클러스터 네트워크 이름 | pr2-ascscl |10.0.0.45 | 해당 없음 | 해당 없음 |
-| **SID2** ERS 클러스터 네트워크 이름(ERS2에 **만** 해당) | pr1-erscl |10.0.0.46 | 해당 없음 | 해당 없음 |
+배포 유형에 따라 시나리오의 호스트 이름 및 IP 주소는 다음과 같습니다.
+
+**Azure 가용성 집합의 SAP 배포**
+
+| 호스트 이름 역할                                        | 호스트 이름   | 고정 IP 주소                        | 가용성 집합 | 디스크 SkuName |
+| ----------------------------------------------------- | ----------- | ---------------------------------------- | ---------------- | ------------ |
+| 첫 번째 클러스터 노드 ASCS/SCS 클러스터                     | pr1-ascs-10 | 10.0.0.4                                 | pr1-ascs-avset   | Premium_LRS  |
+| 두 번째 클러스터 노드 ASCS/SCS 클러스터                     | pr1-ascs-11 | 10.0.0.5                                 | pr1-ascs-avset   |              |
+| 클러스터 네트워크 이름                                  | pr1clust    | 10.0.0.42(Win 2016 클러스터에 **만** 해당) | 해당 없음              |              |
+| **SID1** ASCS 클러스터 네트워크 이름                    | pr1-ascscl  | 10.0.0.43                                | 해당 없음              |              |
+| **SID1** ERS 클러스터 네트워크 이름(ERS2에 **만** 해당) | pr1-erscl   | 10.0.0.44                                | 해당 없음              |              |
+| **SID2** ASCS 클러스터 네트워크 이름                    | pr2-ascscl  | 10.0.0.45                                | 해당 없음              |              |
+| **SID2** ERS 클러스터 네트워크 이름(ERS2에 **만** 해당) | pr1-erscl   | 10.0.0.46                                | 해당 없음              |              |
+
+**Azure 가용성 영역에서 SAP 배포**
+
+| 호스트 이름 역할                                        | 호스트 이름   | 고정 IP 주소                        | 가용성 영역 | 디스크 SkuName |
+| ----------------------------------------------------- | ----------- | ---------------------------------------- | ----------------- | ------------ |
+| 첫 번째 클러스터 노드 ASCS/SCS 클러스터                     | pr1-ascs-10 | 10.0.0.4                                 | AZ01              | Premium_ZRS  |
+| 두 번째 클러스터 노드 ASCS/SCS 클러스터                     | pr1-ascs-11 | 10.0.0.5                                 | AZ02              |              |
+| 클러스터 네트워크 이름                                  | pr1clust    | 10.0.0.42(Win 2016 클러스터에 **만** 해당) | 해당 없음               |              |
+| **SID1** ASCS 클러스터 네트워크 이름                    | pr1-ascscl  | 10.0.0.43                                | 해당 없음               |              |
+| **SID2** ERS 클러스터 네트워크 이름(ERS2에 **만** 해당) | pr1-erscl   | 10.0.0.44                                | 해당 없음               |              |
+| **SID2** ASCS 클러스터 네트워크 이름                    | pr2-ascscl  | 10.0.0.45                                | 해당 없음               |              |
+| **SID2** ERS 클러스터 네트워크 이름(ERS2에 **만** 해당) | pr1-erscl   | 10.0.0.46                                | 해당 없음               |              |
+
+문서에 언급된 단계는 두 배포 유형에 대해 동일하게 유지됩니다. 그러나 클러스터가 가용성 집합에서 실행 중인 경우 Azure Premium_LRS(프리미엄 공유 디스크)용 LRS를 배포해야 하며, 클러스터가 가용성 영역에서 실행되는 경우 Azure 프리미엄 공유 디스크(Premium_ZRS)용 ZRS를 배포해야 합니다. 
 
 ### <a name="create-azure-internal-load-balancer"></a>Azure 내부 부하 분산 장치 만들기
 
@@ -124,7 +153,7 @@ SAP ASCS, SAP SCS 및 새 SAP ERS2는 가상 호스트 이름 및 가상 IP 주�
     - 포트 620 **nr** [**62002**]는 프로토콜(TCP), 간격(5), 비정상 임계값(2)에 대한 기본 옵션을 그대로 유지합니다.
 - 부하 분산 규칙
     - 표준 Load Balancer를 사용하는 경우 HA 포트를 선택합니다.
-    - 기본 Load Balancer를 사용하는 경우 다음 포트에 대한 부하 분산 규칙을 만듭니다.
+    - 기본 Load Balancer 사용하는 경우 다음 포트에 대한 부하 분산 규칙을 만듭니다.
         - 32 **nr** TCP [**3202**]
         - 36 **nr** TCP [**3602**]
         - 39 **nr** TCP [**3902**]
@@ -150,7 +179,7 @@ ERS2(인큐 복제 서버2)도 클러스터되므로 SAP ASCS/SCS IP 외에 Azur
 
 - 새 분산 규칙
     - 표준 Load Balancer를 사용하는 경우 HA 포트를 선택합니다.
-    - 기본 Load Balancer를 사용하는 경우 다음 포트에 대한 부하 분산 규칙을 만듭니다.
+    - 기본 Load Balancer 사용하는 경우 다음 포트에 대한 부하 분산 규칙을 만듭니다.
         - 32 **nr** TCP [**3212**]
         - 33 **nr** TCP [**3312**]
         - 5 **nr** 13 TCP [**51212**]
@@ -158,7 +187,7 @@ ERS2(인큐 복제 서버2)도 클러스터되므로 SAP ASCS/SCS IP 외에 Azur
         - 5 **nr** 16 TCP [**51212**]
         - **PR2** ERS2 프런트 엔드 IP, 상태 프로브 및 기존 백 엔드 풀과 연결합니다.  
 
-    - 유휴 시간 제한(분)이 최댓값(예: 30)으로 설정되어 있고, 부동 IP(Direct Server Return)가 사용하도록 설정되어 있는지 확인합니다.
+    - 유휴 시간 제한(분)이 최대값(예: 30)으로 설정되어 있고 부동 IP(직접 서버 반환)가 사용인지 확인합니다.
 
 
 ### <a name="create-and-attach-second-azure-shared-disk"></a>두 번째 Azure 공유 디스크 만들기 및 연결
@@ -166,33 +195,42 @@ ERS2(인큐 복제 서버2)도 클러스터되므로 SAP ASCS/SCS IP 외에 Azur
 클러스터 노드 중 하나에서 이 명령을 실행합니다. 리소스 그룹, Azure 지역, SAPSID 등에 대한 값을 조정해야 합니다.  
 
 ```powershell
-    $ResourceGroupName = "MyResourceGroup"
-    $location = "MyRegion"
-    $SAPSID = "PR2"
-    $DiskSizeInGB = 512
-    $DiskName = "$($SAPSID)ASCSSharedDisk"
-    $NumberOfWindowsClusterNodes = 2
-    $diskConfig = New-AzDiskConfig -Location $location -SkuName Premium_LRS  -CreateOption Empty  -DiskSizeGB $DiskSizeInGB -MaxSharesCount $NumberOfWindowsClusterNodes
+$ResourceGroupName = "MyResourceGroup"
+$location = "MyRegion"
+$SAPSID = "PR2"
+$DiskSizeInGB = 512
+$DiskName = "$($SAPSID)ASCSSharedDisk"
+$NumberOfWindowsClusterNodes = 2
+
+# For SAP deployment in availability set, use below storage SkuName
+$SkuName = "Premium_LRS"
+# For SAP deployment in availability zone, use below storage SkuName
+$SkuName = "Premium_ZRS"
+
+$diskConfig = New-AzDiskConfig -Location $location -SkuName $SkuName  -CreateOption Empty  -DiskSizeGB $DiskSizeInGB -MaxSharesCount $NumberOfWindowsClusterNodes
     
-    $dataDisk = New-AzDisk -ResourceGroupName $ResourceGroupName -DiskName $DiskName -Disk $diskConfig
-    ##################################
-    ## Attach the disk to cluster VMs
-    ##################################
-    # ASCS Cluster VM1
-    $ASCSClusterVM1 = "pr1-ascs-10"
-    # ASCS Cluster VM2
-    $ASCSClusterVM2 = "pr1-ascs-11"
-    # next free LUN number
-    $LUNNumber = 1
-    # Add the Azure Shared Disk to Cluster Node 1
-    $vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $ASCSClusterVM1 
-    $vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun $LUNNumber
-    Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
-    # Add the Azure Shared Disk to Cluster Node 2
-    $vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $ASCSClusterVM2
-    $vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun $LUNNumber
-    Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
-   ```
+$dataDisk = New-AzDisk -ResourceGroupName $ResourceGroupName -DiskName $DiskName -Disk $diskConfig
+##################################
+## Attach the disk to cluster VMs
+##################################
+# ASCS Cluster VM1
+$ASCSClusterVM1 = "pr1-ascs-10"
+# ASCS Cluster VM2
+$ASCSClusterVM2 = "pr1-ascs-11"
+# next free LUN number
+$LUNNumber = 1
+
+# Add the Azure Shared Disk to Cluster Node 1
+$vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $ASCSClusterVM1 
+$vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun $LUNNumber
+Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
+
+# Add the Azure Shared Disk to Cluster Node 2
+$vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $ASCSClusterVM2
+$vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun $LUNNumber
+Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
+```
+
 ### <a name="format-the-shared-disk-with-powershell"></a>PowerShell을 사용하여 공유 디스크 포맷
 1. 디스크 번호를 가져옵니다. 클러스터 노드 중 하나에서 PowerShell 명령을 실행합니다.
 
@@ -235,7 +273,7 @@ ERS2(인큐 복제 서버2)도 클러스터되므로 SAP ASCS/SCS IP 외에 Azur
 
 4. 클러스터에 디스크를 등록합니다.  
    ```powershell
-     # Add the disk to cluster 
+    # Add the disk to cluster 
     Get-ClusterAvailableDisk -All | Add-ClusterDisk
     # Example output 
     # Name           State  OwnerGroup        ResourceType 
@@ -290,13 +328,13 @@ SAP에 설명된 설치 절차를 따릅니다. 설치 시작 옵션인 ‘첫 �
 
 내부 부하 분산 장치의 프로브 기능을 사용하여 전체 클러스터 구성이 Azure Load Balancer에서 작동하도록 합니다. 일반적으로 Azure 내부 부하 분산 장치는 참여하는 가상 머신 간에 동일하게 들어오는 작업 부하를 분산합니다.
 
-그러나 하나의 인스턴스만 활성 상태가 되므로 일부 클러스터 구성에서는 작동하지 않습니다. 다른 인스턴스는 수동 상태이므로 워크로드를 받아들일 수 없습니다. 프로브 기능을 사용하면 Azure 내부 부하 분산 장치가 활성 상태인 인스턴스를 감지하고 활성 인스턴스만 대상으로 할 때 도움이 됩니다.  
+그러나 하나의 인스턴스만 활성 상태가 되므로 일부 클러스터 구성에서는 작동하지 않습니다. 다른 인스턴스는 수동 상태이므로 워크로드를 받아들일 수 없습니다. 프로브 기능은 Azure 내부 부하 분산 장치에서 활성 상태인 인스턴스를 검색하고 활성 인스턴스만 대상으로 하는 경우에 도움이 됩니다.  
 
 > [!IMPORTANT]
 > 이 예제 구성에서 **ProbePort** 는 620 **Nr** 로 설정됩니다. 번호가 **02** 인 SAP ASCS 인스턴스의 경우 620 **02** 입니다.
 > SAP 인스턴스 번호 및 SAP SID와 일치하도록 구성을 조정해야 합니다.
 
-프로브 포트를 추가하려면 클러스터 VM 중 하나에서 이 PowerShell 모듈을 실행합니다.
+프로브 포트를 추가하려면 클러스터 VM 중 하나에서 다음 PowerShell 모듈을 실행합니다.
 
 - 인스턴스 번호가 **02** 인 SAP ASC/SCS 인스턴스의 경우 
    ```powershell
@@ -461,7 +499,7 @@ SAP에 설명된 설치 절차를 따릅니다. 설치 시작 옵션인 ‘첫 �
 ## <a name="test-the-sap-ascsscs-instance-failover"></a>SAP ASCS/SCS 인스턴스 장애 조치(failover) 테스트
 앞서 설명한 장애 조치(failover) 테스트에서는 SAP ASCS가 노드 A에서 활성화되어 있다고 가정합니다.  
 
-1. SAP 시스템이 노드 A에서 노드 B로 성공적으로 장애 조치(failover)할 수 있는지 확인합니다. 이 예제에서는 SAPSID **PR2** 에 대해 테스트가 수행됩니다.  
+1. SAP 시스템이 노드 A에서 노드 B로 장애 조치(fail over)할 수 있는지 확인합니다. 이 예제에서는 SAPSID **PR2에** 대한 테스트를 수행합니다.  
    각 SAPSID를 다른 클러스터 노드로 성공적으로 이동할 수 있는지 확인합니다.   
    이러한 옵션 중 하나를 선택하여 클러스터 노드 A에서 클러스터 노드 B로 SAP \<SID\> 클러스터 그룹의 장애 조치(failover)를 시작합니다.
     - 장애 조치(failover) 클러스터 관리자  
@@ -474,7 +512,7 @@ SAP에 설명된 설치 절차를 따릅니다. 설치 시작 옵션인 ‘첫 �
     Move-ClusterGroup -Name $SAPClusterGroup
 
     ```
-2. Windows 게스트 운영 체제 내에서 클러스터 노드 A를 다시 시작합니다. 이렇게 하면 노드 A에서 노드 B로의 SAP \<SID\> 클러스터 그룹의 자동 장애 조치(failover)가 시작됩니다.  
+2. Windows 게스트 운영 체제 내에서 클러스터 노드 A를 다시 시작합니다. 이렇게 하면 노드 A에서 노드 B로의 SAP \<SID\> 클러스터 그룹의 자동 장애 조치(Failover)가 시작됩니다.  
 3. Azure Portal에서 클러스터 노드 A를 다시 시작합니다. 이렇게 하면 노드 A에서 노드 B로의 SAP \<SID\> 클러스터 그룹의 자동 장애 조치(failover)가 시작됩니다.  
 4. Azure PowerShell을 사용하여 클러스터 노드 A를 다시 시작합니다. 이렇게 하면 노드 A에서 노드 B로의 SAP \<SID\> 클러스터 그룹의 자동 장애 조치(Failover)가 시작됩니다.
 
@@ -624,8 +662,8 @@ SAP에 설명된 설치 절차를 따릅니다. 설치 시작 옵션인 ‘첫 �
 [sap-ha-guide-figure-6005]:media/virtual-machines-shared-sap-high-availability-guide/6005-sap-multi-sid-azure-portal.png
 [sap-ha-guide-figure-6006]:media/virtual-machines-shared-sap-high-availability-guide/6006-sap-multi-sid-sios-replication.png
 
-[sap-ha-guide-figure-6007]:media/virtual-machines-shared-sap-high-availability-guide/6007-sap-multi-sid-ascs-azure-shared-disk-sid1.png
-[sap-ha-guide-figure-6008]:media/virtual-machines-shared-sap-high-availability-guide/6008-sap-multi-sid-ascs-azure-shared-disk-sid2.png
+[sap-ha-guide-figure-6007]:media/virtual-machines-shared-sap-high-availability-guide/6007-sap-multi-sid-ascs-azure-shared-disk-sid-1.png
+[sap-ha-guide-figure-6008]:media/virtual-machines-shared-sap-high-availability-guide/6008-sap-multi-sid-ascs-azure-shared-disk-sid-2.png
 [sap-ha-guide-figure-6009]:media/virtual-machines-shared-sap-high-availability-guide/6009-sap-multi-sid-ascs-azure-shared-disk-dns1.png
 [sap-ha-guide-figure-6010]:media/virtual-machines-shared-sap-high-availability-guide/6010-sap-multi-sid-ascs-azure-shared-disk-dns2.png
 [sap-ha-guide-figure-6011]:media/virtual-machines-shared-sap-high-availability-guide/6011-sap-multi-sid-ascs-azure-shared-disk-dns3.png

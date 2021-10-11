@@ -3,12 +3,12 @@ title: Defender for IoT 설치
 description: Azure Defender for IoT용 센서 및 온-프레미스 관리 콘솔을 설치하는 방법을 알아봅니다.
 ms.date: 10/09/2021
 ms.topic: how-to
-ms.openlocfilehash: d85cded71912f9334d194ab7eb0977d2442564b6
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: f23c5fe84959045ba0446ad03c9a990a7bbb2014
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2021
-ms.locfileid: "129730511"
+ms.locfileid: "129754542"
 ---
 # <a name="defender-for-iot-installation"></a>Defender for IoT 설치
 
@@ -43,7 +43,7 @@ Defender for IoT 어플라이언스 센서는 SPAN 포트 또는 네트워크 TA
 | **모델** | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 | HPE EL300 |
 | **포트 모니터링** | 최대 15개의 RJ45 또는 8개의 OPT | 최대 8개의 RJ45 또는 6개의 OPT | 최대 4개의 RJ45 | 최대 5개 RJ45 |
 | **최대 대역폭\*** | 3Gb/초 | 1Gb/초 | 200Mb/초 | 100MB/초 |
-| **최대 보호 디바이스 수** | 10000 | 15,000 | 1,000 | 800 |
+| **최대 보호 디바이스 수** | 10000 | 10000 | 1,000 | 800 |
 
 \* 최대 대역폭 용량은 프로토콜 배포에 따라 다를 수 있습니다.
 
@@ -62,7 +62,7 @@ Defender for IoT 어플라이언스 센서는 SPAN 포트 또는 네트워크 TA
 
 ### <a name="hardware-specifications-for-the-on-premises-management-console"></a>온-프레미스 관리 콘솔에 대한 하드웨어 사양
 
- | 항목 | 설명 |
+ | 항목 | Description |
  |----|--|
  **설명** | 다중 계층 아키텍처에서 온-프레미스 관리 콘솔은 지리적으로 분산된 사이트에 대한 표시 여부 및 제어 능력을 제공합니다. SIEM, 티켓 시스템, 차세대 방화벽, 보안 원격 액세스 플랫폼, Defender for IoT ICS 맬웨어 샌드박스를 비롯하여 SOC 보안 스택과 통합됩니다. |
  **배포 유형** | Enterprise |
@@ -1243,7 +1243,7 @@ GUI 또는 CLI를 사용하여 유효성 검사를 수행합니다. 사용자 **
 
 - **Core 로그의 오류**: Core 로그 파일의 오류를 표시합니다.
 
-**도구에 액세스 하려면**:
+**도구에 액세스하려면:**
 
 1. **지원** 사용자 자격 증명을 사용하여 센서에 로그인합니다.
 
@@ -1253,9 +1253,9 @@ GUI 또는 CLI를 사용하여 유효성 검사를 수행합니다. 사용자 **
 
 ### <a name="check-system-health-by-using-the-cli"></a>CLI를 사용하여 시스템 상태 확인
 
-시스템이 작동 중인지 확인 하 고 시스템의 온전성을 테스트 하기 전에 실행 중인지 확인 합니다.
+시스템의 온전성을 테스트하기 전에 시스템이 실행 중인지 확인합니다.
 
-**시스템의 온전성을 테스트 하려면 다음을 수행 합니다**.
+**시스템의 온전성을 테스트하려면:**
 
 1. Linux 터미널(예: PuTTY) 및 사용자 **지원** 을 사용하여 CLI에 연결합니다.
 

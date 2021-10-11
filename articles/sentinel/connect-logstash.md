@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 37b09e09207b91e966fef7249cc38a2f13fe4e68
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 5f6765d4e6fc60a4b1d34846b1279456e1e8dca7
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567183"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754295"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Logstash를 사용하여 Azure Sentinel에 데이터 원본 연결
 
@@ -48,7 +48,7 @@ Logstash 엔진은 다음과 같은 세 가지 구성 요소로 구성됩니다.
 >
 > - Microsoft는 Azure Sentinel용 타사 Logstash 출력 플러그 인 또는 기타 모든 Logstash 플러그 인 또는 모든 유형의 구성 요소를 지원하지 않습니다.
 >
-> - Azure Sentinel의 Logstash 출력 플러그 인은 **Logstash 버전 7.0부터 7.9까지** 만 지원합니다.
+> - Azure 센티널의 Logstash 출력 플러그 인은 **7.0에서 7.15 까지의 Logstash 버전만** 지원 합니다.
 
 Logstash용 Azure Sentinel 출력 플러그 인은 Log Analytics HTTP 데이터 수집기 REST API를 사용하여 JSON 형식 데이터를 Log Analytics 작업 영역으로 보냅니다. 데이터는 사용자 지정 로그에 수집됩니다.
 

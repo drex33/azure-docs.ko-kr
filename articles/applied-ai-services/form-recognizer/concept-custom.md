@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: 0a98c4ef2a532b764b64deb0e2fe6d94f8dae797
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 181d96d2e722d7f9b79c47285bab417bf0337133
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129712361"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754675"
 ---
 # <a name="form-recognizer-custom-and-composed-models"></a>Form Recognizer 사용자 지정 모델 및 구성형 모델
 
-Form Recognizer는 고급 기계 학습 기술을 사용하여 문서 이미지에서 정보를 탐지하여 추출하고, 추출된 데이터를 정형 JSON 출력으로 반환합니다. 양식 인식기를 사용 하면 독립 실행형 사용자 지정 모델을 학습 하거나 사용자 지정 모델을 결합 하 여 구성 된 모델을 만들 수 있습니다. 자세한 내용은
+Form Recognizer는 고급 기계 학습 기술을 사용하여 문서 이미지에서 정보를 탐지하여 추출하고, 추출된 데이터를 정형 JSON 출력으로 반환합니다. 양식 인식기를 사용 하면 독립 실행형 사용자 지정 모델을 학습 하거나 사용자 지정 모델을 결합 하 여 구성 된 모델을 만들 수 있습니다.
 
 * **사용자 지정 모델**. Form Recognizer 사용자 지정 모델을 사용하면 비즈니스와 관련된 양식 및 문서의 데이터를 분석하고 추출할 수 있습니다. 사용자 지정 모델은 고객의 고유한 데이터 및 사용 사례를 학습합니다.
 

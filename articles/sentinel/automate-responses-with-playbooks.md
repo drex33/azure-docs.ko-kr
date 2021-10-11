@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/29/2021
+ms.date: 10/11/2021
 ms.author: yelevin
-ms.openlocfilehash: bddd27b29a1546f0c985f7a5b3aa15027be75d46
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d6afd8e1d4c70d818257007993aedfe3a48ce4f4
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528306"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129752116"
 ---
 # <a name="automate-threat-response-with-playbooks-in-azure-sentinel"></a>Azure Sentinel의 플레이북을 사용하여 위협 대응 자동화
 
@@ -36,7 +36,29 @@ ms.locfileid: "122528306"
 
 예를 들어 계정과 머신이 손상된 경우 플레이북은 SOC 팀이 인시던트 알림을 받을 때까지 네트워크에서 머신을 격리하고 계정을 차단할 수 있습니다.
 
-플레이북은 구독 수준에서 만들어지고 적용되지만, **플레이북** 탭(새 **자동화** 블레이드에서)에는 선택한 구독에서 사용할 수 있는 모든 플레이북이 표시됩니다.
+플레이북은 속한 구독 내에서 사용할 수 **있지만, 플레이북** 탭(Automation  블레이드)에는 선택한 구독에서 사용할 수 있는 모든 플레이북이 표시됩니다.
+
+### <a name="playbook-templates"></a>플레이북 템플릿
+
+> [!IMPORTANT]
+>
+> **플레이북 템플릿은** 현재 **미리 보기로** 제공됩니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+플레이북 템플릿은 요구 사항에 맞게 사용자 지정할 수 있는 미리 빌드되고 테스트되고 즉시 사용할 수 있는 워크플로입니다. 템플릿은 처음부터 플레이북을 개발할 때 모범 사례에 대한 참조 또는 새로운 자동화 시나리오에 대한 영감을 제공하는 역할을 할 수도 있습니다.
+
+플레이북 템플릿은 플레이북(템플릿의 편집 가능한 복사본)을 만들 때까지 활성 플레이북 자체가 아닙니다.
+
+다음 소스에서 플레이북 템플릿을 얻을 수 있습니다.
+
+- **플레이북 템플릿** 탭(Automation 아래)은 Azure Sentinel 커뮤니티에서 제공하는 주요 시나리오를 제공합니다. 동일한 템플릿에서 여러 활성 플레이북을 만들 수 있습니다.
+
+    새 버전의 템플릿이 게시되면 해당 템플릿에서 만든 활성 **플레이북(플레이북** 탭)에 업데이트를 사용할 수 있다는 알림이 레이블로 지정됩니다.
+
+- 플레이북 템플릿은 특정 제품의 컨텍스트에서 [**Azure Sentinel 솔루션의**](sentinel-solutions.md) 일부로 가져올 수도 있습니다. 솔루션을 배포하면 활성 플레이북이 생성됩니다.
+
+- [**Azure Sentinel GitHub 리포지토리에는**](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) 많은 플레이북 템플릿이 포함되어 있습니다. Azure에 배포 단추를 선택하여 Azure 구독에 **배포할** 수 있습니다. 
+
+기술적으로 플레이북 템플릿은 관련된 각 연결에 대한 Azure Logic Apps 워크플로 및 API 연결과 같은 여러 리소스로 구성된 [ARM 템플릿입니다.](../azure-resource-manager/templates/index.yml) 
 
 ### <a name="azure-logic-apps-basic-concepts"></a>Azure Logic Apps 기본 개념
 
@@ -62,7 +84,7 @@ Azure Logic Apps는 커넥터를 사용하여 다른 시스템 및 서비스와 
 
     > [!IMPORTANT]
     >
-    > - 플레이북의 **인시던트 트리거** 기능은 현재 **미리 보기** 로 제공됩니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+    > 플레이북의 **인시던트 트리거** 기능은 현재 **미리 보기** 로 제공됩니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 - **작업:** 트리거 후 발생하는 모든 단계가 작업입니다. 병렬 또는 복합 조건의 매트릭스에서 순차적으로 정렬할 수 있습니다.
 

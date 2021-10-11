@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: 0c47ca84f98af22d23410eddef4b9a38bd906040
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: f2e2ef59d4c3608065edab4ffd1d1ec55122f2ad
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129717738"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754618"
 ---
 <!-- markdownlint-disable MD033 -->
 
 # <a name="form-recognizer-models"></a>폼 인식기 모델
 
- Azure 양식 인식기 미리 작성 된 모델을 사용 하면 사용자 고유의 모델을 학습 하 고 작성 하지 않고도 앱 및 흐름에 지능형 양식 처리를 추가할 수 있습니다. 미리 작성 된 모델은 심층 학습 모델과 함께 사용 되는 OCR (광학 문자 인식)을 사용 하 여 특정 양식 및 문서 유형에 공통 된 미리 정의 된 텍스트 및 데이터 필드를 식별 하 고 추출 합니다. 폼 인식기 추출은 폼과 문서 데이터를 분석 한 다음 구성 된 구조적 JSON 응답을 반환 합니다. 양식 인식기 v 2.1은 송장, 수신, ID 문서 및 비즈니스 카드 모델을 지원 합니다.
+ Azure 양식 인식기 미리 빌드된 모델을 사용 하면 사용자 고유의 모델을 학습 하 고 빌드하지 않고도 앱 및 흐름에 지능형 양식 처리를 추가할 수 있습니다. 미리 작성 된 모델은 심층 학습 모델과 함께 사용 되는 OCR (광학 문자 인식)을 사용 하 여 특정 양식 및 문서 유형에 공통 된 미리 정의 된 텍스트 및 데이터 필드를 식별 하 고 추출 합니다. 폼 인식기 추출은 폼과 문서 데이터를 분석 한 다음 구성 된 구조적 JSON 응답을 반환 합니다. 양식 인식기 v 2.1은 송장, 수신, ID 문서 및 비즈니스 카드 모델을 지원 합니다.
 
 ## <a name="model-overview"></a>모델 개요
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/12/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: b2501631c8ccdb6c61d4f31e9179a7e94c2276cb
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: ac93a2d3dabb01492dbe75351ab3600f86453b07
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129210405"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754428"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>Azure Cosmos DB 분석 저장소란?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -149,7 +149,7 @@ Microsoft Azure Cosmos DB 트랜잭션 저장소는 스키마에 구애받지 �
   * 컬렉션의 모든 문서를 삭제해도 분석 저장소 스키마가 다시 설정되지는 않습니다.
   * 스키마의 버전은 관리되지 않습니다. 트랜잭션 저장소에서 유추된 마지막 버전을 분석 저장소에서 볼 수 있습니다.
 
-* 현재 Azure Synapse Spark는 이름에 몇 가지 특수 문자가 포함된 속성을 읽을 수 없습니다( 아래 나열). Azure Synapse SQL 서버리스는 영향을 받지 않습니다.
+* 현재 Azure Synapse Spark는 아래에 나열 된 이름에 특수 문자가 포함 된 속성을 읽을 수 없습니다. 서버를 사용 하지 않는 Azure Synapse SQL는 영향을 받지 않습니다.
   * :(콜론)
   * `(억음 악센트 기호)
   * ,(쉼표)
@@ -161,11 +161,11 @@ Microsoft Azure Cosmos DB 트랜잭션 저장소는 스키마에 구애받지 �
   * =(등호)
   * "(따옴표)
  
-* 위에 나열된 문자를 사용하는 속성 이름이 있는 경우 대안은 다음과 같습니다.
-   * 이러한 문자를 방지하려면 데이터 모델을 미리 변경합니다.
-   * 현재 스키마 재설정을 지원하지 않기 때문에 애플리케이션을 변경하여 유사한 이름의 중복 속성을 추가하여 이러한 문자를 방지할 수 있습니다.
-   * 변경 피드를 사용하여 속성 이름에 이러한 문자 없이 컨테이너의 구체화된 뷰를 만듭니다.
-   * 새 Spark 옵션을 사용하여 `dropColumn` 데이터를 DataFrame에 로드할 때 영향을 받는 열을 무시합니다. 쉼표가 포함된 "FirstName,LastNAme"이라는 가상 열을 삭제하는 구문은 다음과 같습니다.
+* 위에 나열 된 문자를 사용 하는 속성 이름이 있는 경우 대체 방법은 다음과 같습니다.
+   * 이러한 문자를 방지 하기 위해 데이터 모델을 미리 변경 합니다.
+   * 현재 스키마 재설정을 지원 하지 않으므로 응용 프로그램을 변경 하 여 유사한 이름의 중복 속성을 추가 하 여 이러한 문자를 방지할 수 있습니다.
+   * 변경 피드를 사용 하 여 속성 이름에 이러한 문자를 포함 하지 않고 컨테이너의 구체화 된 뷰를 만듭니다.
+   * `dropColumn`데이터 프레임에 데이터를 로드할 때 새 Spark 옵션을 사용 하 여 영향을 받는 열을 무시 합니다. 쉼표를 포함 하는 "FirstName, LastNAme" 이라는 가상 열을 삭제 하는 구문은 다음과 같습니다.
 
 ```Python
 df = spark.read\

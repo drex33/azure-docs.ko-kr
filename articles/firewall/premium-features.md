@@ -5,15 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 08/10/2021
+ms.date: 10/11/2021
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: d1a46cd010f0a629e787a7ebabcfe002837b7ad3
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: c6cc19bd688dd2c38210fae8d77a036f2ba5be7e
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124811170"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754314"
 ---
 # <a name="azure-firewall-premium-features"></a>Azure Firewall 프리미엄 기능
 
@@ -103,6 +103,8 @@ Azure Firewall 프리미엄은 다음 지역에서 지원됩니다.
 - 인도 중부(퍼블릭/인도)
 - 미국 중부(퍼블릭/미국)
 - 미국 중부 EUAP(퍼블릭/카나리아(미국))
+- 중국 북부 2 (Mooncake/중국)
+- 중국 동부 2 (Mooncake/중국)
 - 동아시아(퍼블릭/아시아 태평양)
 - 미국 동부(퍼블릭/미국)
 - 미국 동부 2(퍼블릭/미국)
@@ -125,6 +127,9 @@ Azure Firewall 프리미엄은 다음 지역에서 지원됩니다.
 - 아랍에미리트 북부(퍼블릭/아랍에미리트)
 - 영국 남부(퍼블릭/영국)
 - 영국 서부(퍼블릭/영국)
+- 미국 정부 애리조나 (Fairfax/미국 정부)
+- 미국 정부 텍사스 (Fairfax/미국 정부)
+- 미국 정부 버지니아 (Fairfax/미국 정부)
 - 미국 중서부(퍼블릭/미국)
 - 서유럽(퍼블릭/유럽)
 - 인도 서부(퍼블릭/인도)
@@ -144,7 +149,7 @@ Azure Firewall 프리미엄에는 다음과 같이 알려진 문제가 있습니
 |클라이언트 인증서(TLS)|클라이언트 인증서는 클라이언트와 서버 간에 상호 ID 신뢰를 구축하는 데 사용합니다. 클라이언트 인증서는 TLS 협상 중에 사용합니다. Azure Firewall은 서버와의 연결을 재협상하고 클라이언트 인증서의 프라이빗 키에 액세스할 수 없습니다.|없음|
 |QUIC/HTTP3|QUIC는 HTTP의 새 주 버전입니다. 80(PLAN)과 443(SSL)을 통한 UDP 기반 프로토콜입니다. FQDN/URL/TLS 검사는 지원되지 않습니다.|UDP 80/443을 네트워크 규칙으로 전달하도록 구성합니다.|
 신뢰할 수 없는 고객 서명 인증서|고객이 서명한 인증서는 인트라넷 기반 웹 서버에서 수신되면 방화벽에서 신뢰되지 않습니다.|수정 사항을 조사하고 있습니다.
-|HTTP에 IDPS를 사용하는 경고에 잘못된 원본 IP 주소가 있습니다(TLS 검사 없음).|일반 텍스트 HTTP 트래픽이 사용 중이고 IDPS에서 새 경고를 발생시키고 대상이 공용 IP 주소인 경우 표시된 원본 IP 주소가 잘못되었습니다(내부 IP 주소가 원래 IP 주소 대신 표시).|수정 사항을 조사하고 있습니다.|
+|HTTP에 IDPS를 사용하는 경고에 잘못된 원본 IP 주소가 있습니다(TLS 검사 없음).|일반 텍스트 HTTP 트래픽이 사용 중이 고 IDPS가 새 경고를 발급 하 고 대상이 공용 IP 주소인 경우 표시 된 원본 IP 주소가 잘못 되었습니다 (원본 IP 주소 대신 내부 IP 주소가 표시 됨).|수정 사항을 조사하고 있습니다.|
 |인증서 전파|CA 인증서가 방화벽에 적용된 후 인증서가 적용되는 데 5-10분 정도 걸릴 수 있습니다.|수정 사항을 조사하고 있습니다.|
 |TLS 1.3 지원|TLS 1.3은 부분적으로 지원됩니다. 클라이언트에서 방화벽으로의 TLS 터널은 TLS 1.2를 기반으로 하고, 방화벽에서 외부 웹 서버로의 TLS 터널은 TLS 1.3을 기반으로 합니다.|업데이트는 조사 중입니다.|
 |KeyVault 프라이빗 엔드포인트|KeyVault는 네트워크 공개를 제한하기 위해 프라이빗 엔드포인트 액세스를 지원합니다. 신뢰할 수 있는 Azure 서비스는 [KeyVault 문서](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services)에 설명된 대로 예외가 구성된 경우 이 제한을 바이패스할 수 있습니다. Azure Firewall은 현재 신뢰할 수 있는 서비스로 나열되지 않으며 Key Vault에 액세스할 수 없습니다.|수정 사항을 조사하고 있습니다.|

@@ -150,7 +150,11 @@ items:
       - name: 푸시 알림
         href: concepts/notifications.md
       - name: Teams 상호 운용성
-        href: concepts/teams-interop.md
+        items:
+          - name: 개요
+            href: concepts/teams-interop.md
+          - name: Teams 회의 참가
+            href: concepts/join-teams-meeting.md
       - name: 서비스 이벤트(EventGrid)
         href: ../event-grid/event-schema-communication-services.md
         maintainContext: true

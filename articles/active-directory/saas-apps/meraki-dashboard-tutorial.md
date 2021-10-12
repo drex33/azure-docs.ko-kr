@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/28/2020
+ms.date: 09/28/2021
 ms.author: jeedes
-ms.openlocfilehash: 0cc51035a8bdb0ee12d27763b1d03e6b08494b66
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5adf1f5c2c811bdc2b48e03c1e2892746d36da4b
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124795776"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129402924"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-meraki-dashboard"></a>자습서: Meraki Dashboard와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -63,7 +63,7 @@ Meraki Dashboard에서 Azure AD SSO를 구성하고 테스트하려면 다음 �
    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 1. **[Meraki Dashboard SSO 구성](#configure-meraki-dashboard-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-   1. **[Meraki Dashboard 테스트 사용자 만들기](#create-meraki-dashboard-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Meraki Dashboard에 만듭니다.
+   1. **[Meraki Dashboard 관리자 역할 만들기](#create-meraki-dashboard-admin-roles)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Meraki Dashboard에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
 ## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
@@ -119,7 +119,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -169,7 +169,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![Meraki Dashboard 구성](./media/meraki-dashboard-tutorial/configure-4.png)
 
-### <a name="create-meraki-dashboard-test-user"></a>Meraki Dashboard 테스트 사용자 만들기
+### <a name="create-meraki-dashboard-admin-roles"></a>Meraki Dashboard 관리자 역할 만들기
 
 1. 다른 웹 브라우저 창에서 관리자 권한으로 Meraki Dashboard 웹 사이트에 로그인합니다.
 
@@ -184,6 +184,26 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **meraki_full_admin** 역할을 입력하고, **Organization access(조직 액세스)** 를 **전체(Full)** 로 표시하고 **Create role(역할 만들기)** 을 클릭합니다. **meraki_readonly_admin** 에 대해 이 프로세스를 반복합니다. 이번에는 **Organization access** 를 **Read-only(읽기 전용)** 상자로 표시합니다.
 
    ![Meraki Dashboard 사용자 만들기](./media/meraki-dashboard-tutorial/user-3.png)
+
+1. 아래 단계에 따라 Meraki Dashboard 역할을 Azure AD SAML 역할에 매핑합니다.
+
+   ![앱 역할의 스크린샷](./media/meraki-dashboard-tutorial/app-role.png)
+
+   a. Azure Portal에서 **앱 등록** 을 클릭합니다.
+
+   b. 모든 애플리케이션을 선택하고 **Meraki Dashboard** 를 클릭합니다.
+
+   c. **앱 역할** 을 클릭하고 **앱 역할 만들기** 를 클릭합니다.
+
+   d. 표시 이름을 `Meraki Full Admin`으로 입력합니다.
+   
+   e. 허용되는 멤버를 `Users/Groups`로 선택합니다.
+
+   f. 값을 `meraki_full_admin`으로 입력합니다.
+
+   g. 설명을 `Meraki Full Admin`으로 입력합니다.
+
+   h. **저장** 을 클릭합니다. 
 
 ## <a name="test-sso"></a>SSO 테스트
 

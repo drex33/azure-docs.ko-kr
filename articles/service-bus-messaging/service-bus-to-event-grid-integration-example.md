@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Logic Apps를 사용하여 Event Grid를 
 documentationcenter: .net
 author: spelluru
 ms.topic: tutorial
-ms.date: 08/13/2021
+ms.date: 10/04/2021
 ms.author: spelluru
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 013468d1b6e5ba6fccb1277f715b5a42a469f4a2
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 5e5089985b56ad271f3de41fc3c68f091beddffb
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122182605"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457212"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-logic-apps"></a>자습서: Azure Logic Apps를 사용하여 Azure Event Grid를 통해 받은 Azure Service Bus 이벤트에 응답
 이 자습서에서는 Azure Logic Apps를 사용하여 Azure Event Grid를 통해 받은 Azure Service Bus 이벤트에 응답하는 방법을 알아봅니다. 
@@ -24,12 +24,14 @@ ms.locfileid: "122182605"
 
 1. Azure Portal에서 논리 앱을 만듭니다.
     1. **+ 리소스 만들기** 를 선택하고 **통합** 을 선택한 후 **논리 앱** 을 선택합니다. 
-    2. **논리 앱 - 만들기** 페이지에서 논리 앱의 **이름** 을 입력합니다.
-    3. Azure **구독** 을 선택합니다. 
-    4. **리소스 그룹** 에 대해 **기존 항목 사용** 을 선택하고 다른 리소스(예: Azure 함수, Service Bus 네임스페이스)에 사용한 리소스 그룹을 선택합니다. 
-    5. 논리 앱의 **위치** 를 선택합니다. 
-    6. **검토 + 만들기** 를 선택합니다. 
+    2. Azure **구독** 을 선택합니다. 
+    3. **리소스 그룹** 에 대해 **기존 항목 사용** 을 선택하고 다른 리소스(예: Azure 함수, Service Bus 네임스페이스)에 사용한 리소스 그룹을 선택합니다. 
+    1. **유형** 으로 **소비** 를 선택합니다. 
+    1. 논리 앱의 **이름** 을 입력합니다.
+    1. 논리 앱의 **지역** 을 선택합니다. 
+    1. **검토 + 만들기** 를 선택합니다. 
     1. **검토 + 만들기** 페이지에서 **만들기** 를 선택하여 논리 앱을 만듭니다. 
+    1. **배포 완료** 페이지에서 **리소스로 이동** 을 선택합니다. 
 1. **Logic Apps 디자이너** 페이지에서 **템플릿** 아래에 있는 **비어 있는 논리 앱** 을 선택합니다. 
 
 ### <a name="add-a-step-receive-messages-from-service-bus-via-event-grid"></a>Event Grid를 통해 Service Bus에서 메시지를 수신하는 단계 추가
@@ -43,10 +45,12 @@ ms.locfileid: "122182605"
     1. Azure 구독을 선택합니다. 
     2. **리소스 종류** 로 **Microsoft.ServiceBus.Namespaces** 를 선택합니다. 
     3. **리소스 이름** 에 대해 Service Bus 네임스페이스를 선택합니다. 
-    4. **새 매개 변수 추가** 를 선택하고 **접미사 필터** 를 선택합니다. 
-    5. **접미사 필터** 에 대해 Service Bus 항목 구독의 이름을 입력합니다. 
+    4. **새 매개 변수 추가** 를 선택하고, **접미사 필터** 를 선택한 다음, 포커스를 드롭다운 목록 밖으로 이동합니다.
+    
+        :::image type="content" source="./media/service-bus-to-event-grid-integration-example/add-new-parameter-suffix-filter.png" alt-text="접미사 필터 추가를 보여 주는 이미지":::
+    1. **접미사 필터** 에 대해 Service Bus 항목 구독의 이름을 입력합니다. 
         ![Logic Apps 디자이너 - 이벤트 구성](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
-6. 디자이너에서 **+ 새 단계** 를 선택하고 다음 단계를 수행합니다.
+1. 디자이너에서 **+ 새 단계** 를 선택하고 다음 단계를 수행합니다.
     1. **Service Bus** 를 검색합니다.
     2. 목록에서 **Service Bus** 를 선택합니다. 
     3. **작업** 목록에서 **메시지 가져오기** 를 선택합니다. 
@@ -86,16 +90,19 @@ ms.locfileid: "122182605"
 1. **커넥터 및 작업 검색** 텍스트 상자에 **Office 365** 를 입력합니다. 
 1. 검색 결과에서 **Office 365 Outlook** 을 선택합니다. 
 1. 작업 목록에서 **이메일 보내기(V2)** 를 선택합니다. 
+1. **메일 보내기(V2)** 창에서 다음 단계를 수행합니다. 
 1. **본문** 의 텍스트 상자 내부를 선택하고 다음 단계를 수행합니다.
+    1. **대상** 에 이메일 주소를 입력합니다. 
+    1. **제목** 에 **Service Bus 토픽 구독에서 받은 메시지** 를 입력합니다.  
     1. **식** 으로 전환합니다.
-    1. `base64ToString(items('For_each')?['ContentData'])`를 입력합니다. 
+    1. 다음 식을 입력합니다.
+    
+        ```
+        base64ToString(items('For_each')?['ContentData'])
+        ``` 
     1. **확인** 을 선택합니다. 
     
-        :::image type="content" source="./media/service-bus-to-event-grid-integration-example/specify-expression-email.png" alt-text="이메일 보내기 작업의 본문에 대한 식을 보여주는 이미지":::
-1. **제목** 에 **Service Bus 토픽 구독에서 받은 메시지** 를 입력합니다.  
-1. **대상** 에 이메일 주소를 입력합니다. 
-
-    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/send-email-configured.png" alt-text="구성된 이메일 보내기 작업을 보여주는 이미지":::
+        :::image type="content" source="./media/service-bus-to-event-grid-integration-example/specify-expression-email.png" alt-text="메일 보내기 작업의 본문에 대한 식을 보여 주는 이미지":::
 
 #### <a name="add-another-action-in-the-foreach-loop-to-complete-the-message"></a>foreach 루프 내 다른 작업을 추가하여 메시지를 완료         
 1. **For each** 루프 내에서 **작업 추가** 를 선택합니다. 
@@ -112,7 +119,7 @@ ms.locfileid: "122182605"
 
 ## <a name="test-the-app"></a>앱 테스트
 1. 토픽에 테스트 메시지를 아직 보내지 않은 경우 [Service Bus 토픽으로 메시지 보내기](#send-messages-to-the-service-bus-topic) 섹션의 지침에 따라 토픽에 메시지를 보냅니다. 
-1. 논리 앱의 **개요** 페이지로 전환합니다. 전송한 메시지의 **실행 기록** 에서 논리 앱이 실행되는 것을 확인합니다. 논리 앱이 실행되기까지 몇 분 정도 걸릴 수 있습니다. 도구 모음에서 **새로 고침** 을 선택하여 페이지를 새로 고칩니다. 
+1. 논리 앱의 **개요** 페이지로 전환한 다음, 아래쪽 창에서 **실행 기록** 탭으로 전환합니다. 논리 앱이 토픽에 전송된 메시지를 실행하는 것을 볼 수 있습니다. 논리 앱이 실행되기까지 몇 분 정도 걸릴 수 있습니다. 도구 모음에서 **새로 고침** 을 선택하여 페이지를 새로 고칩니다. 
 
     ![Logic Apps 디자이너 - 논리 앱 실행](./media/service-bus-to-event-grid-integration-example/logic-app-runs.png)
 1. 세부 정보를 보려면 실행 논리 앱을 선택합니다. for 루프에서 5개의 메시지를 처리했습니다. 

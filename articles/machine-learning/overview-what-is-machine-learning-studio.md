@@ -9,12 +9,12 @@ author: peterclu
 ms.author: peterlu
 ms.date: 08/23/2021
 adobe-target: true
-ms.openlocfilehash: f52c27bbcd0f289028f51c6fcb1fa22ae321f8b4
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: d2b3a18341c782cf848ebd8740577004340be0f8
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122695772"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351883"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio란?
 
@@ -56,7 +56,7 @@ ms.locfileid: "122695772"
 
 + **데이터 레이블 지정**
 
-    [Azure Machine Learning 데이터 레이블 지정](how-to-create-labeling-projects.md)을 사용하여 데이터 레이블 지정 프로젝트를 효율적으로 조정합니다.
+    Azure Machine Learning 데이터 레이블 지정을 사용하여 [이미지 레이블 지정](how-to-create-image-labeling-projects.md) 또는 [텍스트 레이블 지정](how-to-create-text-labeling-projects.md) 프로젝트를 효율적으로 조정합니다.
 
 ## <a name="manage-assets-and-resources"></a>자산 및 리소스 관리
 

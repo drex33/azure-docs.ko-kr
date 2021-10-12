@@ -12,27 +12,23 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/28/2018
+ms.date: 10/04/2021
 ms.author: b-juche
-ms.openlocfilehash: 4ad556a6c720cb4eaac9a0c9cdf5c4346e2aa857
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fcff7e8523e788adae30236782c23610d32a9f44
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87512944"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407820"
 ---
 # <a name="what-is-azure-netapp-files"></a>Azure NetApp Files란?
 
-Azure NetApp Files 서비스는 엔터프라이즈급, 고성능, 데이터 통신 연결 파일 스토리지 서비스입니다. Azure NetApp Files는 모든 워크로드 유형을 지원하며 기본적으로 고가용성입니다. 서비스 및 성능 수준을 선택하고 서비스를 통해 스냅샷을 설정할 수 있습니다. 
-
-## <a name="learn-how-to-use-azure-netapp-files"></a>Azure NetApp Files 사용 방법 알아보기
+Azure NetApp Files 서비스는 엔터프라이즈급, 고성능, 데이터 통신 연결 파일 스토리지 서비스입니다. Azure NetApp Files는 모든 워크로드 유형을 지원하며 기본적으로 고가용성입니다. 서비스 및 성능 수준을 선택하고, NetApp 계정, 용량 풀, 볼륨을 만들고, 데이터 보호를 관리할 수 있습니다. 
 
 Azure NetApp Files 설명서는 Azure NetApp Files를 사용하여 볼륨 만들기 및 관리에 대한 지침을 제공합니다. 
-
-> [!IMPORTANT] 
-> 이 설명서에서 설명하는 모든 작업은 Azure NetApp Files 서비스에 대한 액세스 권한을 부여받아야 합니다. 서비스에 대한 액세스를 요청하려면 [서비스에 액세스하기 위한 대기 목록 요청 제출](azure-netapp-files-register.md#waitlist)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure NetApp Files의 스토리지 계층 구조 이해](azure-netapp-files-understand-storage-hierarchy.md) 
 * [빠른 시작: Azure NetApp Files 설정 및 NFS 볼륨 만들기](azure-netapp-files-quickstart-set-up-account-create-volumes.md)
+* [Azure 지원 요청 만들기](../azure-portal/supportability/how-to-create-azure-support-request.md)

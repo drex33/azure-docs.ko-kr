@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: rifox
-ms.openlocfilehash: cccf6c4c5882c7132bf526095e331035f1e665af
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: d61120d3f4e1256b9da50b8128b23fd73b36a5ef
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122967942"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129406841"
 ---
 ## <a name="sample-code"></a>샘플 코드
 [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-chat)에서 이 빠른 시작에 대한 최종 코드를 찾습니다.
@@ -47,8 +47,8 @@ CocoaPods를 사용하여 필요한 Communication Services 종속성을 설치�
 Podfile를 열고 `ChatQuickstart` 대상에 다음 종속성을 추가합니다.
 
 ```
-pod 'AzureCommunicationCommon', '~> 1.0'
-pod 'AzureCommunicationChat', '~> 1.0.1'
+pod 'AzureCommunicationCommon', '~> 1.0.2'
+pod 'AzureCommunicationChat', '~> 1.1.0-beta.2'
 ```
 
 `pod install` 명령을 사용하여 종속성을 설치합니다. 이는 Xcode 작업 영역도 만듭니다.
@@ -107,7 +107,13 @@ override func viewDidLoad() {
 
 ### <a name="create-a-chat-client"></a>채팅 클라이언트 만들기
 
-`<CREATE A CHAT CLIENT>` 주석을 다음 코드로 바꿉니다.
+채팅 클라이언트를 만들려면 Communications Service 엔드포인트와 필수 조건 단계의 일부로 생성된 액세스 토큰을 사용합니다.
+
+[사용자 액세스 토큰](../../access-tokens.md)에 대해 자세히 알아보세요.
+
+이 빠른 시작에서는 권장되는 사항이기는 하지만 채팅 애플리케이션에 대한 토큰을 관리하는 서비스 계층을 만드는 방법을 다루지 않습니다. [채팅 아키텍처](../../../concepts/chat/concepts.md)에 대한 자세한 정보
+
+`<CREATE A CHAT CLIENT>` 주석을 다음 코드 조각으로 바꿉니다.
 
 ```
 let endpoint = "<ACS_RESOURCE_ENDPOINT>"
@@ -126,13 +132,9 @@ let chatClient = try ChatClient(
 
 `<ACS_RESOURCE_ENDPOINT>`를 실제 Azure Communication Services 리소스의 엔드포인트로 바꿉니다. `<ACCESS_TOKEN>`을 올바른 Communication Services 액세스 토큰으로 바꿉니다.
 
-이 빠른 시작에서는 권장되는 사항이기는 하지만 채팅 애플리케이션에 대한 토큰을 관리하는 서비스 계층을 만드는 방법을 다루지 않습니다. 자세한 내용은 [채팅 개념](../../../concepts/chat/concepts.md)의 "채팅 아키텍처" 섹션을 참조하세요.
-
-사용자 액세스 토큰에 대한 자세한 내용은 [빠른 시작: 액세스 토큰 만들기 및 관리](../../access-tokens.md)를 참조하세요.
-
 ## <a name="object-model"></a>개체 모델 
 
-다음 클래스 및 인터페이스는 JavaScript용 Azure Communication Services 채팅 SDK의 주요 기능 중 일부를 처리합니다.
+다음 클래스 및 인터페이스는 iOS용 Azure Communication Services 채팅 SDK의 주요 기능 중 일부를 처리합니다.
 
 | Name                                   | Description                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -141,9 +143,10 @@ let chatClient = try ChatClient(
 
 ## <a name="start-a-chat-thread"></a>채팅 스레드 시작
 
-이제 `ChatClient`를 사용하여 초기 사용자로 새 대화목록을 만듭니다.
+`CreateChatThreadResult`는 채팅 스레드를 만들 때 반환되는 응답입니다.
+`ChatThreadProperties` 개체인 `chatThread` 속성을 포함합니다. 이 개체에는 생성된 스레드에서 참가자 추가, 메시지 보내기 등 작업을 수행하기 위해 `ChatThreadClient`를 가져오는 데 사용할 수 있는 threadId가 포함됩니다.
 
-`<CREATE A CHAT THREAD>` 주석을 다음 코드로 바꿉니다.
+`<CREATE A CHAT THREAD>` 주석을 다음 코드 조각으로 바꿉니다.
 
 ```
 let request = CreateChatThreadRequest(
@@ -200,7 +203,7 @@ semaphore.wait()
 
 ## <a name="get-a-chat-thread-client"></a>채팅 스레드 클라이언트 가져오기
 
-이제 채팅 대화목록을 만들었으므로 대화목록 내에서 작업을 수행하기 위해 `ChatThreadClient`를 가져옵니다.
+`createClient` 메서드는 이미 존재하는 스레드의 `ChatThreadClient`를 반환합니다. 생성된 스레드에서 참가자 추가, 메시지 보내기 등의 작업을 수행하는 데 사용할 수 있습니다. threadId는 기존 채팅 스레드의 고유 ID입니다.
 
 `<GET A CHAT THREAD CLIENT>` 주석을 다음 코드로 바꿉니다.
 
@@ -210,13 +213,29 @@ let chatThreadClient = try chatClient.createClient(forThread: threadId!)
 
 ## <a name="send-a-message-to-a-chat-thread"></a>채팅 스레드에 메시지 보내기
 
-`<SEND A MESSAGE>` 주석을 다음 코드로 바꿉니다.
+`send` 메서드를 사용하여 threadId로 식별되는 스레드에 메시지를 보냅니다.
+
+`SendChatMessageRequest`는 메시지 요청을 설명하는 데 사용됩니다.
+
+- `content`를 사용하여 채팅 메시지 콘텐츠를 제공합니다.
+- `senderDisplayName`을 사용하여 보낸 사람의 표시 이름을 지정합니다.
+- `type`을 사용하여 메시지 유형(예: ‘text’ 또는 ‘html’)을 지정합니다.
+- 선택적으로 `metadata`를 사용하여 메시지와 함께 보내려는 추가 데이터를 포함합니다. 이 필드는 개발자가 채팅 메시지 기능을 확장하고 사용 사례에 대한 사용자 지정 정보를 추가할 수 있는 메커니즘을 제공합니다. 예를 들어 메시지에서 파일 링크를 공유할 때 메타데이터에 'hasAttachment:true'를 추가하여 수신자의 애플리케이션이 이를 구문 분석하고 그에 따라 표시할 수 있습니다.
+
+`SendChatMessageResult`는 메시지 전송 후 반환된 응답이며, 메시지의 고유 ID인 ID를 포함합니다.
+
+`<SEND A MESSAGE>` 주석을 다음 코드 조각으로 바꿉니다.
 
 ```
 let message = SendChatMessageRequest(
-    content: "Hello!",
-    senderDisplayName: "Jack"
-)
+                        content: "Hello!",
+                        senderDisplayName: "Jack",
+                        type: .text,
+                        metadata: [
+                            "hasAttachment": "true",
+                            "attachmentUrl": "https://contoso.com/files/attachment.docx"
+                        ]
+                    )
 
 var messageId: String?
 
@@ -233,12 +252,12 @@ chatThreadClient.send(message: message) { result, _ in
 semaphore.wait()
 ```
 
-먼저 콘텐츠와 보낸 사람의 표시 이름을 포함하는 `SendChatMessageRequest`를 생성합니다. 원할 경우 이 요청에 공유 기록 시간을 포함할 수도 있습니다. 완료 처리기에 반환된 응답에는 전송된 메시지의 ID가 포함됩니다.
-
-
 ## <a name="send-a-read-receipt"></a>읽음 확인 보내기
 
-`ChatThreadClients` `sendReadReceipt` 메서드를 호출하여 특정 메시지에 대한 읽음 확인을 보낼 수 있습니다. `<SEND A READ RECEIPT>` 주석을 다음 코드로 바꿉니다.
+`sendReadReceipt` 메서드를 사용하여 사용자 대신 채팅 스레드에서 읽음 확인 이벤트를 게시합니다.
+`messageId`는 읽은 채팅 메시지의 고유 ID입니다.
+
+`<SEND A READ RECEIPT>` 주석을 다음 코드로 바꿉니다.
 
 ```
 if let id = messageId {
@@ -259,9 +278,33 @@ if let id = messageId {
 
 ## <a name="receive-chat-messages-from-a-chat-thread"></a>채팅 스레드에서 채팅 메시지 받기
 
-`ChatThreadClient`에서 `listMessages()` 메서드를 호출하여 채팅 대화목록의 메시지를 받을 수 있습니다. 나열 메시지에는 시스템 메시지뿐만 아니라 사용자가 보낸 메시지도 포함됩니다. 수신할 수 있는 메시지 유형에 대한 자세한 내용은 [메시지 유형](../../../concepts/chat/concepts.md#message-types)을 참조하세요.
+실시간 신호를 통해, 새로 들어오는 메시지를 수신 대기하도록 구독하고 메모리의 현재 메시지를 적절하게 업데이트할 수 있습니다. Azure Communication Services는 [구독할 수 있는 이벤트 목록](../../../concepts/chat/concepts.md#real-time-notifications)을 지원합니다.
 
-`<RECEIVE MESSAGES>` 주석을 다음 코드로 바꿉니다.
+`<RECEIVE MESSAGES>` 주석을 다음 코드로 바꿉니다. 알림을 사용하도록 설정한 후 새 메시지를 보내 ChatMessageReceivedEvents를 확인해 봅니다.
+
+```
+chatClient.startRealTimeNotifications { result in
+    switch result {
+    case .success:
+        print("Real-time notifications started.")
+    case .failure:
+        print("Failed to start real-time notifications.")
+    }
+    semaphore.signal()
+}
+semaphore.wait()
+
+chatClient.register(event: .chatMessageReceived, handler: { response in
+    switch response {
+    case let .chatMessageReceivedEvent(event):
+        print("Received a message: \(event.message)")
+    default:
+        return
+    }
+})
+```
+
+또는 지정된 간격으로 `listMessages` 메서드를 폴링하여 채팅 메시지를 가져올 수 있습니다. `listMessages`에 관해서는 다음 코드 조각을 참조하세요.
 
 ```
 chatThreadClient.listMessages { result, _ in
@@ -286,6 +329,13 @@ semaphore.wait()
 
 ## <a name="add-a-user-as-a-participant-to-the-chat-thread"></a>채팅 스레드에 사용자를 참가자로 추가
 
+스레드가 생성되면 스레드에서 사용자를 추가하고 제거할 수 있습니다. 사용자를 추가하면 스레드에 메시지를 보내고 다른 참가자를 추가/제거할 수 있는 액세스 권한이 해당 사용자에게 부여됩니다. `add`를 호출하기 전에 해당 사용자에 대한 새 액세스 토큰 및 ID를 획득했는지 확인하세요. 사용자가 채팅 클라이언트를 초기화하려면 액세스 토큰이 필요합니다.
+
+`ChatThreadClient`의 `add` 메서드를 사용하여 채팅 스레드에 참가자를 하나 이상 추가합니다. 다음은 각 스레드 참가자에 대해 지원되는 특성입니다.
+- 필수 사항인 `id`는 스레드 참가자의 ID입니다.
+- 선택 사항인 `displayName`은 스레드 참가자의 표시 이름입니다.
+- 선택 사항인 `shareHistoryTime`은 채팅 기록이 참가자와 공유된 시간입니다.
+
 `<ADD A USER>` 주석을 다음 코드로 바꿉니다.
 
 ```
@@ -308,9 +358,9 @@ semaphore.wait()
 
 `<USER_ID>`를 추가할 사용자의 Communication Services 사용자 ID로 바꿉니다.
 
-대화목록에 참가자를 추가하는 경우 반환된 응답에 오류가 포함될 수 있습니다. 이러한 오류는 특정 참가자를 추가하지 못했음을 나타냅니다.
-
 ## <a name="list-users-in-a-thread"></a>스레드에 사용자 나열
+
+`listParticipants` 메서드를 사용하여 특정 채팅 스레드의 모든 참가자를 가져옵니다.
 
 `<LIST USERS>` 주석을 다음 코드로 바꿉니다.
 
@@ -339,4 +389,4 @@ semaphore.wait()
 
 Xcode에서 실행 단추를 눌러 프로젝트를 빌드하고 실행합니다. 콘솔에서 코드의 출력과 ChatClient의 로거 출력을 볼 수 있습니다.
 
-**참고:** `Build Settings > Build Options > Enable Bitcode`를 `No`로 설정합니다. 현재 iOS용 AzureCommunicationChat SDK는 비트코드 사용을 지원하지 않습니다. 다음 [Github 문제](https://github.com/Azure/azure-sdk-for-ios/issues/787)는 이를 추적합니다.
+**참고:** `Build Settings > Build Options > Enable Bitcode`를 `No`로 설정합니다. 현재 iOS용 AzureCommunicationChat SDK는 비트코드 사용을 지원하지 않습니다. 다음 [GitHub 이슈](https://github.com/Azure/azure-sdk-for-ios/issues/787)는 이를 추적합니다.

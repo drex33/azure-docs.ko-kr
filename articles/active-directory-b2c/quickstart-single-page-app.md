@@ -11,25 +11,27 @@ ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f560b5d288c1beea639476600a9a40fda19b8044
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 7dc02eb3c74208cf0d438640434430c7c04aeb9c
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613407"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353654"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>빠른 시작: Azure Active Directory B2C를 사용하여 단일 페이지 앱에 대한 로그인 설정
 
-Azure AD B2C(Azure Active Directory B2C)는 애플리케이션, 비즈니스 및 고객을 보호하기 위한 클라우드 ID 관리 기능을 제공합니다. Azure AD B2C를 사용하면 애플리케이션에서 개방형 표준 프로토콜을 사용하여 소셜 계정 및 엔터프라이즈 계정을 인증할 수 있습니다. 이 빠른 시작에서는 단일 페이지 애플리케이션에서 소셜 ID 공급자를 사용하여 로그인하고 Azure AD B2C로 보호되는 웹 API를 호출합니다.
+Azure AD B2C(Azure Active Directory B2C)는 애플리케이션, 비즈니스 및 고객을 보호하기 위한 클라우드 ID 관리 기능을 제공합니다. Azure AD B2C를 사용하면 애플리케이션에서 개방형 표준 프로토콜을 사용하여 소셜 계정 및 엔터프라이즈 계정을 인증할 수 있습니다. 
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+이 빠른 시작에서는 단일 페이지 애플리케이션에서 소셜 ID 공급자를 사용하여 로그인하고 Azure AD B2C로 보호되는 웹 API를 호출합니다.
+
+<!--[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] -->
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Node.JS](https://nodejs.org/en/download/)
 - Facebook, Google 또는 Microsoft의 소셜 계정
-- GitHub의 코드 샘플: [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa)
+- GitHub의 코드 샘플: [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa):
 
     [zip 보관을 다운로드](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/archive/main.zip)하거나 리포지토리를 복제할 수 있습니다.
 
@@ -42,7 +44,8 @@ Azure AD B2C(Azure Active Directory B2C)는 애플리케이션, 비즈니스 및
 1. Node.js 명령 프롬프트에서 다음 명령을 실행하여 서버를 시작합니다.
 
     ```console
-    npm install && npm update
+    npm install
+    npm update
     npm start
     ```
 
@@ -75,19 +78,16 @@ Azure AD B2C(Azure Active Directory B2C)는 애플리케이션, 비즈니스 및
 
 샘플 단일 페이지 애플리케이션은 보호되는 웹 API 리소스에 대한 요청에 액세스 토큰을 포함합니다.
 
-## <a name="clean-up-resources"></a>리소스 정리
+<!-- ## Clean up resources
 
-다른 Azure AD B2C 빠른 시작 또는 자습서를 사용하려는 경우 Azure AD B2C 테넌트를 사용할 수 있습니다. 더 이상 필요하지 않으면 [Azure AD B2C 테넌트를 삭제](faq.yml#how-do-i-delete-my-azure-ad-b2c-tenant-)할 수 있습니다.
+You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C quickstarts or tutorials. When no longer needed, you can [delete your Azure AD B2C tenant](faq.yml#how-do-i-delete-my-azure-ad-b2c-tenant-).-->
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 샘플 단일 페이지 애플리케이션을 사용하여 다음 작업을 수행합니다.
+<!---In this quickstart, you used a sample single-page application to:
 
-- 소셜 ID 공급자를 사용하여 로그인
-- Azure AD B2C 사용자 계정 만들기(로그인 시 자동으로 만들어짐)
-- Azure AD B2C로 보호되는 웹 API 호출
+- Sign in with a social identity provider
+- Create an Azure AD B2C user account (created automatically at sign-in)
+- Call a web API protected by Azure AD B2C -->
 
-사용자 고유의 Azure AD B2C 테넌트 만들기를 시작하세요.
-
-> [!div class="nextstepaction"]
-> [Azure Portal에서 Azure Active Directory B2C 테넌트 만들기](tutorial-create-tenant.md)
+- [Azure Portal에서 고유한 Azure Active Directory B2C 테넌트](tutorial-create-tenant.md) 만들기 시작

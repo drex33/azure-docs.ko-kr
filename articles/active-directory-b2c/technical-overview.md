@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 06/07/2021
+ms.date: 10/01/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7fb3dcb07b8b868dda7bfef587b930765c4f661e
-ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+ms.openlocfilehash: 0aad268f8721d2f4747c4e3dec3860e52dd7112a
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112199241"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352795"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Azure Active Directory B2C의 기술 및 기능 개요
 
@@ -60,11 +60,14 @@ Azure AD B2C는 여러 유형의 사용자 계정을 정의합니다. Azure Acti
 소비자 계정에서 연결할 수 있는 ID 형식은 다음과 같습니다.
 
 * **로컬** ID - Azure AD B2C 디렉터리에 로컬로 저장된 사용자 이름과 암호를 사용합니다. 이러한 ID는 "로컬 계정"으로 참조하는 경우가 많습니다.
-* **소셜** 또는 **엔터프라이즈** ID - 사용자의 ID가 Facebook, Microsoft, ADFS 또는 Salesforce와 같은 페더레이션 ID 공급자를 통해 관리됩니다.
+* **소셜** 또는 **엔터프라이즈** ID - 사용자의 ID가 Facebook, Google, Microsoft, ADFS 또는 Salesforce와 같은 페더레이션 ID 공급자를 통해 관리됩니다.
 
 소비자 계정을 가진 사용자는 사용자 이름, 이메일, 직원 ID, 정부 ID 등 여러 ID를 사용하여 로그인할 수 있습니다. 단일 계정에는 로컬 및 소셜 모두의 여러 ID가 있을 수 있습니다.
 
-![소비자 계정 ID](media/technical-overview/identities.png)<br/>*그림: 여러 ID가 있는 Azure AD B2C의 단일 소비자 계정*
+
+
+:::image type="content" source="media/technical-overview/identities.png" alt-text="소비자 계정 ID":::
+<br/>*그림: 여러 ID가 있는 Azure AD B2C의 단일 소비자 계정*
 
 자세한 내용은 [Azure Active Directory B2C의 사용자 계정 개요](user-overview.md)를 참조하세요.
 
@@ -87,13 +90,17 @@ Azure AD B2C에서는 표시 이름, 성, 이름, 구/군/시 등 소비자 계�
 
 사용자가 소셜 및 엔터프라이즈 ID 공급자의 자격 증명을 사용하여 애플리케이션에 로그인할 수 있도록 Azure AD B2C를 구성할 수 있습니다. Azure AD B2C는 OAuth 1.0, OAuth 2.0, OpenID Connect 및 SAML 프로토콜을 지원하는 ID 공급자와 페더레이션할 수 있습니다. 예를 들면 Facebook, Microsoft 계정, Google, Twitter 및 AD-FS가 있습니다.
 
-![외부 ID 공급자](media/technical-overview/external-idps.png)
+
+
+:::image type="content" source="media/technical-overview/external-idps.png" alt-text="외부 ID 공급자":::
 
 외부 ID 공급자 페더레이션을 사용하면 애플리케이션 전용의 새 계정을 만들 필요 없이 기존 소셜 또는 엔터프라이즈 계정으로 로그인할 수 있는 기능을 소비자에게 제공할 수 있습니다.
 
 Azure AD B2C는 가입 또는 로그인 페이지에서 사용자가 로그인을 위해 선택할 수 있는 외부 ID 공급자의 목록을 제공합니다. 외부 ID 공급자 중 하나를 선택하면 로그인 프로세스를 수행할 수 있도록 선택한 공급자의 웹 사이트로 이동(리디렉션)됩니다. 사용자가 성공적으로 로그인하면 애플리케이션의 계정 인증을 위해 Azure AD B2C로 반환됩니다.
 
-![소셜 계정이 있는 모바일 로그인 예제(Facebook)](media/technical-overview/external-idp.png)
+
+
+:::image type="content" source="media/technical-overview/external-idp.png" alt-text="소셜 계정이 있는 모바일 로그인 예제(Facebook)":::
 
 Azure AD B2C에서 ID 공급자를 추가하는 방법을 알아보려면 [Azure Active Directory B2C의 애플리케이션에 ID 공급자 추가](add-identity-provider.md)를 참조하세요.
 
@@ -117,7 +124,9 @@ Azure AD B2C에서는 ID 사용자 환경을 제공하기 위한 두 가지 방�
 
 Azure AD B2C에서는 표시되는 페이지가 사용자 브랜드의 모양 및 느낌과 원활하게 조화되도록 사용자의 ID 환경을 만들 수 있습니다. 사용자가 애플리케이션의 ID 경험을 진행할 때 사용자에게 제공되는 HTML 및 CSS 콘텐츠를 거의 완벽하게 제어할 수 있습니다. 이러한 유연성을 통해 애플리케이션과 Azure AD B2C 간에 브랜드 및 시각적 개체의 일관성을 유지할 수 있습니다.
 
-![브랜드가 사용자 지정된 가입 로그인 페이지의 스크린샷](media/technical-overview/seamless-ux.png)
+
+
+:::image type="content" source="media/technical-overview/seamless-ux.png" alt-text="브랜드가 사용자 지정된 등록 로그인 페이지의 스크린샷":::
 
 UI 사용자 지정에 대한 내용은 다음을 참조하세요.
 
@@ -165,7 +174,9 @@ Azure AD B2C는 등록 및 암호 재설정 흐름 중에 고객에게 메일 �
 
 반환 데이터는 Azure AD B2C의 사용자 디렉터리 계정에 저장할 수 있습니다. 그런 다음, 데이터를 정책의 후속 단계에서 추가로 평가하거나 액세스 토큰에 포함시킬 수 있습니다.
 
-![모바일 애플리케이션의 LOB(기간 업무) 통합](media/technical-overview/lob-integration.png)
+
+
+:::image type="content" source="media/technical-overview/lob-integration.png" alt-text="모바일 애플리케이션의 기간 업무 통합":::
 
 사용자 지정 정책으로 정의된 사용자 경험의 모든 단계에서 REST API 호출을 추가할 수 있습니다. 예를 들어 REST API를 다음과 같이 호출할 수 있습니다.
 
@@ -195,7 +206,7 @@ Azure AD B2C에서 RESTful API 통합에 대한 사용자 지정 정책을 사�
 
 사용자가 애플리케이션에 로그인하려고 하면 애플리케이션은 사용자 흐름 또는 사용자 지정 정책 제공 엔드포인트에 대한 권한 부여 요청을 시작합니다. 사용자 흐름 또는 사용자 지정 정책은 사용자의 환경을 정의하고 제어합니다. *가입 또는 로그인* 흐름과 같은 사용자 흐름을 완료하면 Azure AD B2C에서 토큰을 생성한 다음, 사용자를 애플리케이션으로 다시 리디렉션합니다.
 
-![Azure AD B2C 로그인 페이지 간의 흐름을 보여 주는 화살표가 있는 모바일 앱](media/technical-overview/app-integration.png)
+:::image type="content" source="media/technical-overview/app-integration.png" alt-text="Azure AD B2C 로그인 페이지 간 흐름을 보여 주는 화살표가 있는 모바일 앱":::
 
 여러 애플리케이션에서 동일한 사용자 흐름 또는 사용자 지정 정책을 사용할 수 있습니다. 단일 애플리케이션은 여러 사용자 흐름 또는 사용자 지정 정책을 사용할 수 있습니다.
 
@@ -229,7 +240,9 @@ Azure AD B2C는 각 로그인 이벤트를 평가하고 사용자 액세스 권�
 
 Azure AD B2C 테넌트 관리자는 사용자가 암호를 잊어버린 경우 [사용자의 암호를 재설정](manage-users-portal.md#reset-a-users-password)할 수 있습니다. 또는 주기적으로 암호를 강제로 재설정하도록 할 수 있습니다. 자세한 내용은 [강제 암호 재설정 흐름 설정](force-password-reset.md)을 참조하세요.
 
-![암호 강제 재설정 흐름](media/technical-overview/force-password-reset-flow.png)
+
+
+:::image type="content" source="media/technical-overview/force-password-reset-flow.png" alt-text="암호 강제 재설정 흐름":::
 
 ## <a name="smart-account-lockout"></a>스마트 계정 잠금
 
@@ -245,7 +258,8 @@ Azure AD B2C는 [Microsoft Azure 보안 센터](https://www.microsoft.com/trustc
 
 세션은 Azure AD B2C 보안 토큰 서비스에만 알려진 암호 해독 키를 사용하여 암호화된 데이터로 모델링됩니다. 강력한 암호화 알고리즘인 AES-192가 사용됩니다. 모든 통신 경로는 기밀성 및 무결성을 위해 TLS로 보호됩니다. 보안 토큰 서비스는 EV(확장 유효성 검사) 인증서를 TLS에 사용합니다. 일반적으로 보안 토큰 서비스는 신뢰할 수 없는 입력을 렌더링하지 않음으로써 XSS(교차 사이트 스크립팅) 공격을 완화합니다.
 
-![전송 중 및 저장 상태의 보안 데이터에 대한 다이어그램](media/technical-overview/user-data.png)
+
+:::image type="content" source="media/technical-overview/user-data.png" alt-text="전송 중 및 미사용 보안 데이터의 다이어그램":::
 
 ### <a name="access-to-user-data"></a>사용자 데이터에 액세스
 
@@ -286,6 +300,12 @@ Azure Application Insights를 Azure AD B2C 사용자 지정 정책에 통합하�
 
 자세한 내용은 [Azure Active Directory B2C에서 Application Insights를 사용하여 사용자 동작 추적](analytics-with-application-insights.md)을 참조하세요.
 
+## <a name="azure-ad-b2c-service-limits-and-restrictions"></a>Azure AD B2C 서비스 한도 및 제한 사항
+[Azure AD B2C 서비스 한도 및 제한 사항](service-limits.md)에 관한 자세한 정보
+
 ## <a name="next-steps"></a>다음 단계
 
-이제 Azure Active Directory B2C의 기능 및 기술적 측면을 자세히 살펴보았으므로 [Azure Active Directory B2C 테넌트를 만들기 위한 자습서](tutorial-create-tenant.md)를 시작하세요.
+이제 Azure Active Directory B2C의 기능과 기술적 측면을 자세히 살펴보았으므로 다음을 수행합니다.
+- [Azure Active Directory B2C 테넌트 만들기 자습서](tutorial-create-tenant.md)를 시작합니다.
+- [Azure Active Directory B2C를 사용하여 단일 페이지 앱의 로그인 설정](quickstart-single-page-app.md)
+- [Azure Active Directory B2C 개념](application-types.md) 

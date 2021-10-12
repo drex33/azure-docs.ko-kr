@@ -1,5 +1,5 @@
 ---
-title: '자습서: Perforce Helix Core - Helix 인증 서비스와 Azure Active Directory SSO(Single Sign-On) 통합 | Microsoft Docs'
+title: '자습서: Perforce Helix Core - Helix 인증 서비스와 Azure AD SSO 통합'
 description: Azure Active Directory와 Perforce Helix Core - Helix 인증 서비스 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/18/2021
+ms.date: 09/24/2021
 ms.author: jeedes
-ms.openlocfilehash: 8f3695edd8529d28ea792fcca57e8225b511635f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e11a0aeff4168b850ae95be7ce26f97e4afa9c81
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124738024"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129399606"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-perforce-helix-core---helix-authentication-service"></a>자습서: Perforce Helix Core - Helix 인증 서비스와 Azure Active Directory SSO(Single Sign-On) 통합
+# <a name="tutorial-azure-ad-sso-integration-with-perforce-helix-core---helix-authentication-service"></a>자습서: Perforce Helix Core - Helix 인증 서비스와 Azure AD SSO 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Perforce Helix Core - Helix 인증 서비스를 통합하는 방법에 대해 알아봅니다. Perforce Helix Core - Helix 인증 서비스를 Azure AD와 통합하면 다음을 수행할 수 있습니다.
 
@@ -32,6 +32,9 @@ ms.locfileid: "124738024"
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * Perforce Helix Core - Helix 인증 서비스 SSO(Single Sign-On)가 설정된 구독입니다.
+
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -73,16 +76,16 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
+1. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    a. **로그온 URL** 텍스트 상자에서 `https://<HELIX-AUTH-SERVICE>.<CUSTOMER_HOSTNAME>.com/` 패턴을 사용하는 URL을 입력합니다.
+    a. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<HELIX-AUTH-SERVICE>.<CUSTOMER_HOSTNAME>.com/saml` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<HELIX-AUTH-SERVICE>.<CUSTOMER_HOSTNAME>.com/saml` 패턴을 사용하는 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에서 `https://<HELIX-AUTH-SERVICE>.<CUSTOMER_HOSTNAME>.com/saml/sso` 패턴을 사용하여 URL을 입력합니다.
 
-    다. **회신 URL** 텍스트 상자에서 `https://<HELIX-AUTH-SERVICE>.<CUSTOMER_HOSTNAME>.com/saml/sso` 패턴을 사용하여 URL을 입력합니다.
+    다. **로그온 URL** 텍스트 상자에서 `https://<HELIX-AUTH-SERVICE>.<CUSTOMER_HOSTNAME>.com/` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 로그온 URL, 식별자 및 회신 URL로 업데이트합니다. 이러한 값을 가져오려면 [Perforce Helix Core - Helix 인증 서비스 지원 팀](mailto:support@perforce.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 해당 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이러한 값을 가져오려면 [Perforce Helix Core - Helix 인증 서비스 지원 팀](mailto:support@perforce.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL** 을 복사한 후 컴퓨터에 저장합니다.
 
@@ -96,7 +99,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 

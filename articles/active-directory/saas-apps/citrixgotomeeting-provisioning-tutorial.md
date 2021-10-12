@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: ff377b0f93968eb6743187e4e659f4e888e5010e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c150788f6b4c5439a20995c8db83b0f50c95a65
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94358902"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427099"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 GoToMeeting 구성
 
@@ -60,17 +60,14 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 1. **프로비전 모드** 를 **자동** 으로 설정합니다. 
 
-    ![Azure Portal에서 GoToMeeting에 대한 프로비저닝 탭의 스크린샷 프로비저닝 모드를 자동으로 설정하고, 관리자 사용자 이름, 암호 및 연결 테스트를 강조 표시합니다.](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
+    ![Azure Portal에서 GoToMeeting에 대한 프로비저닝 탭의 스크린샷 프로비저닝 모드를 자동으로 설정하고, 관리자 사용자 이름, 암호 및 연결 테스트를 강조 표시합니다.](https://user-images.githubusercontent.com/49566142/135871050-9d63861d-7963-47e0-bbdf-0e7c947e0b41.png)
 
-1. 관리자 자격 증명 섹션에서 다음 단계를 수행합니다.
+
+1. 관리자 자격 증명 섹션에서 **권한 부여** 를 클릭하고 표시되는 팝업 창에서 GoToMeeting에 로그인합니다.
    
-    a. **GoToMeeting 관리자 사용자 이름** 텍스트 상자에 관리자의 사용자 이름을 입력합니다.
-
-    b. **GoToMeeting 관리자 암호** 텍스트 상자에 관리자의 암호를 입력입니다.
 
 1. Azure Portal에서 **연결 테스트** 를 클릭하여 Azure AD가 GoToMeeting 앱에 연결할 수 있는지 확인합니다. 연결에 실패하면 사용자의 GoToMeeting 계정에 팀 관리자 권한이 있는지 확인하고 **"관리자 자격 증명"** 단계를 다시 시도합니다.
 
-1. 프로비전 오류 알림을 받을 개인 또는 그룹의 이메일 주소를 **알림 메일** 필드에 입력하고 확인란을 선택합니다.
 
 1. **저장** 을 클릭합니다.
 

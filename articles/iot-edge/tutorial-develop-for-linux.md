@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3cff113ffd6a37406a88eb5ad5a4e3d5e85e10c5
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: abf39ce59bec57d765ab981eae94b1b49b41e4b1
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123039425"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129390086"
 ---
 # <a name="tutorial-develop-iot-edge-modules-with-linux-containers"></a>자습서: Linux 컨테이너로 IoT Edge 모듈 개발
 
@@ -178,7 +178,7 @@ IoT Edge 확장은 Azure에서 컨테이너 레지스트리 자격 증명을 끌
 3. .env 파일에 변경 내용을 저장합니다.
 
 >[!NOTE]
->이 자습서에서는 개발 및 테스트 시나리오에 편리하게 사용할 수 있는 관리자 로그인 자격 증명을 Azure Container Registry에 사용합니다. 프로덕션 시나리오에 사용할 준비가 되면 서비스 주체 같은 최소 권한 인증 옵션을 사용하는 것이 좋습니다. 자세한 내용은 [컨테이너 레지스트리에 대한 액세스 관리](production-checklist.md#manage-access-to-your-container-registry)를 참조하세요.
+>이 자습서에서는 개발 및 테스트 시나리오에 편리하게 사용할 수 있는 관리자 로그인 자격 증명을 Azure Container Registry에 사용합니다. 프로덕션 시나리오에 사용할 준비가 되면 서비스 주체 또는 리포지토리 범위 토큰과 같은 최소 권한 인증 옵션을 사용하는 것이 좋습니다. 자세한 내용은 [컨테이너 레지스트리에 대한 액세스 관리](production-checklist.md#manage-access-to-your-container-registry)를 참조하세요.
 
 ### <a name="select-your-target-architecture"></a>대상 아키텍처 선택
 

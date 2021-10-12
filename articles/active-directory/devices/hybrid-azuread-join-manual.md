@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d563f8a188496918997d54e06594d282ebaa67ce
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 755c3eaf90cd12fcebc032f33189fb07c6ce9d1a
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128637953"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234284"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>자습서: 하이브리드 Azure Active Directory 조인 디바이스를 수동으로 구성
 
@@ -523,7 +523,7 @@ Windows 하위 수준 디바이스를 등록하려면 사용자가 Azure AD에�
    which decoded is {"Properties":[{"Key":"acr","Value":"wiaormultiauthn"}]}
    ```
 
-이러한 요청이 오면 온-프레미스 페더레이션 서비스는 통합 Windows 인증을 사용하여 사용자를 인증해야 합니다. 인증이 완료되면 페더레이션 서비스가 다음 두 클레임을 발급해야 합니다.
+해당 요청이 발생하면 온-프레미스 페더레이션 서비스는 Windows 통합 인증을 사용하여 사용자를 인증해야 합니다. 인증이 완료되면 페더레이션 서비스가 다음 두 클레임을 발급해야 합니다.
 
    `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/windows` `http://schemas.microsoft.com/claims/wiaormultiauthn`
 

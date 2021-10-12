@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.author: inhenkel
 author: IngridAtMicrosoft
 ms.date: 03/20/2021
-ms.openlocfilehash: 0e425cddea1adaec8bfb8f0055b55bb0c45fb168
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 43f1602b22a761461f84761ed3a3806397011ae2
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106123173"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389517"
 ---
 # <a name="create-an-azure-media-services-live-stream-with-obs"></a>OBS를 사용하여 Azure Media Services 라이브 스트림 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "106123173"
 - 기본 스트리밍 엔드포인트 실행
 - Azure Media Player를 사용하여 라이브 스트림 및 주문형 출력 보기
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -63,7 +63,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    ![라이브 이벤트 이름 상자](media/live-events-obs-quickstart/live-event-name.png)
 1. **설명** 상자에 이벤트에 대한 설명(선택 사항)을 입력합니다.
-1. **통과 – 클라우드 인코딩 없음** 옵션을 선택합니다.
+1. 기본 **통과 – 클라우드 인코딩 없음** 옵션을 선택합니다.
 
    ![클라우드 인코딩 옵션](media/live-events-obs-quickstart/cloud-encoding.png)
 1. **RTMP** 옵션을 선택합니다.
@@ -151,7 +151,7 @@ OBS는 기본 장면으로 시작하지만 입력이 선택되지 않았습니�
 
 #### <a name="x264-encoder-settings"></a>X264 인코더 설정
 
-1. **X264** 인코딩 옵션을 선택한 경우 **출력 크기 다시 조정** 상자를 선택합니다. Media Services에서 프리미엄 라이브 이벤트를 사용하는 경우 1920x1080을 선택하고, 표준(720P) 라이브 이벤트를 사용하는 경우 1280x720을 선택합니다.  통과 라이브 이벤트를 사용하는 경우 사용 가능한 모든 해상도를 선택할 수 있습니다.
+1. **X264** 인코딩 옵션을 선택한 경우 **출력 크기 다시 조정** 상자를 선택합니다. Media Services에서 프리미엄 라이브 이벤트를 사용하는 경우 1920x1080을 선택하고, 표준(720P) 라이브 이벤트를 사용하는 경우 1280x720을 선택합니다.  기본 또는 표준 통과 라이브 이벤트를 사용하는 경우 사용 가능한 모든 해상도를 선택할 수 있습니다.
 
 1. **비트 전송률** 을 1,500Kbps에서 4,000Kbps 사이로 설정합니다. 720P에서 표준 인코딩 라이브 이벤트를 사용하는 경우 2,500Kbps를 사용하는 것이 좋습니다. 1080P 프리미엄 라이브 이벤트를 사용하는 경우 4,000Kbps를 사용하는 것이 좋습니다. 네트워크에서 사용 가능한 CPU 기능 및 대역폭을 기준으로 비트 전송률을 조정하여 원하는 품질 설정을 달성할 수 있습니다.
 
@@ -165,7 +165,7 @@ OBS는 기본 장면으로 시작하지만 입력이 선택되지 않았습니�
 
 #### <a name="nvidia-nvenc-encoder-settings"></a>Nvidia NVENC 인코더 설정
 
-1. **NVENC** GPU 인코딩 옵션을 선택한 경우 **출력 크기 다시 조정** 상자를 선택하고, Media Services에서 프리미엄 라이브 이벤트를 사용하는 경우 1920x1080을 선택하거나 표준(720P) 라이브 이벤트를 사용하는 경우 1280x720을 선택합니다. 통과 라이브 이벤트를 사용하는 경우 사용 가능한 모든 해상도를 선택할 수 있습니다.
+1. **NVENC** GPU 인코딩 옵션을 선택한 경우 **출력 크기 다시 조정** 상자를 선택하고, Media Services에서 프리미엄 라이브 이벤트를 사용하는 경우 1920x1080을 선택하거나 표준(720P) 라이브 이벤트를 사용하는 경우 1280x720을 선택합니다. 기본 또는 표준 통과 라이브 이벤트를 사용하는 경우 사용 가능한 모든 해상도를 선택할 수 있습니다.
 
 1. 상수 비트 전송률 속도 제어를 위해 **속도 제어** 를 CBR로 설정합니다.
 
@@ -189,7 +189,7 @@ OBS는 기본 장면으로 시작하지만 입력이 선택되지 않았습니�
 
 #### <a name="intel-quicksync-encoder-settings"></a>Intel QuickSync 인코더 설정
 
-1. Intel **QuickSync** GPU 인코딩 옵션을 선택한 경우 **출력 크기 다시 조정** 상자를 선택하고, Media Services에서 프리미엄 라이브 이벤트를 사용하는 경우 1920x1080을 선택하거나 표준(720P) 라이브 이벤트를 사용하는 경우 1280x720을 선택합니다. 통과 라이브 이벤트를 사용하는 경우 사용 가능한 모든 해상도를 선택할 수 있습니다.
+1. Intel **QuickSync** GPU 인코딩 옵션을 선택한 경우 **출력 크기 다시 조정** 상자를 선택하고, Media Services에서 프리미엄 라이브 이벤트를 사용하는 경우 1920x1080을 선택하거나 표준(720P) 라이브 이벤트를 사용하는 경우 1280x720을 선택합니다. 기본 또는 표준 통과 라이브 이벤트를 사용하는 경우 사용 가능한 모든 해상도를 선택할 수 있습니다.
 
 1. **대상 사용량** 을 "균형 조정"으로 설정하거나 필요한 경우 CPU 및 GPU 조합 부하에 따라 조정합니다. 필요에 따라 조정하고, 하드웨어에서 생성할 수 있는 품질로 평균 80%의 최대 CPU 사용률을 달성할 수 있는지 실험합니다. 더 제한된 하드웨어를 사용하는 경우 "빠르게"로 테스트하거나, 성능 문제가 있는 경우 "매우 빠르게"로 설정합니다.
 

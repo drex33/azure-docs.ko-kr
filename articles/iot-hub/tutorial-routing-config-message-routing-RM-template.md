@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/24/2021
 ms.author: robinsh
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 6a5f21153936313a209bb5971c1a7c6bd7a9e973
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: e23eb5b3c3aa85aaa941839234a17e9bd7afb318
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122969389"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129459006"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>자습서: Azure Resource Manager 템플릿을 사용하여 IoT Hub 메시지 라우팅 구성
 
@@ -29,7 +29,7 @@ ms.locfileid: "122969389"
 
 이 자습서의 두 번째 부분에서는 Visual Studio 애플리케이션을 다운로드하고 실행하여 IoT Hub에 메시지를 보냅니다. 이 다운로드에는 Azure Resource Manager 템플릿과 매개 변수 파일은 물론 Azure CLI와 PowerShell 스크립트가 포함된 폴더가 있습니다.
 
-[Azure IoT C# 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)을 지금 다운로드합니다. master.zip 파일의 압축을 풉니다. Resource Manager 템플릿과 매개 변수 파일은 /iot-hub/Tutorials/Routing/SimulatedDevice/resources/에 있는 **template_iothub.json** 및 **template_iothub_parameters.json** 파일입니다.
+[Azure IoT C# 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip)을 지금 다운로드합니다. main.zip 파일의 압축을 풉니다. Resource Manager 템플릿과 매개 변수 파일은 /iot-hub/Tutorials/Routing/SimulatedDevice/resources/에 있는 **template_iothub.json** 및 **template_iothub_parameters.json** 파일입니다.
 
 ## <a name="create-your-resources"></a>리소스 만들기
 

@@ -168,6 +168,8 @@
           href: cache-how-to-monitor.md
         - name: 예외에 대한 경고 설정
           href: cache-how-to-monitor.md#operations-and-alerts
+        - name: 진단 로그 모니터링
+          href: cache-monitor-diagnostic-settings.md
         - name: 모니터링 FAQ
           href: cache-monitor-troubleshoot-faq.yml
     - name: 확장
@@ -202,7 +204,7 @@
       href: /powershell/module/az.rediscache
     - name: Azure CLI
       href: /cli/azure/redis
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/redis/
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.cache/allversions

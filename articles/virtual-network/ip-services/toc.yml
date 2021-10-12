@@ -59,7 +59,7 @@ items:
       - name: 보안
         items:
           - name: 공용 IP 보안 기준
-        href: /security/benchmark/azure/baselines/public-ip-security-baseline?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json
+            href: /security/benchmark/azure/baselines/public-ip-security-baseline?toc=/azure/virtual-network/ip-services/toc.json
   - name: 방법
     items:
       - name: Azure 네트워크 인터페이스용 IP 주소 구성

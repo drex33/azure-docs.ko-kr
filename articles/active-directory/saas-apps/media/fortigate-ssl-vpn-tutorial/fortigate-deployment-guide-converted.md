@@ -1,7 +1,6 @@
 ---
-title: FortiGate 배포 가이드 | Microsoft Docs
+title: FortiGate 배포 가이드
 description: Fortinet FortiGate 차세대 방화벽 제품을 설정하고 사용합니다.
-services: active-directory
 author: jeevansd
 manager: CelesteDG
 ms.reviewer: celested
@@ -11,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2020
 ms.author: jeedes
-ms.openlocfilehash: cdaa6a9601452100ab90ef8b0f2191002f256b74
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b1b3a2dca9e11e12a72ec99685ff71beb279473e
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95025530"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353935"
 ---
 # <a name="fortigate-azure-virtual-machine-deployment-guide"></a>FortiGate Azure Virtual Machine 배포 가이드
 
@@ -217,4 +216,4 @@ FortiGate VM이 배포되는 환경에 대해 공개적으로 라우팅할 수 �
 
 ## <a name="configure-fortigate-ssl-vpn"></a>FortiGate SSL VPN 구성
 
-https://docs.microsoft.com/azure/active-directory/saas-apps/fortigate-ssl-vpn-tutorial 에서 설명하는 단계를 수행합니다.
+[자습서: FortiGate SSL VPN과 Azure Active Directory SSO(Single Sign-On) 통합](../../fortigate-ssl-vpn-tutorial.md)에 설명된 단계를 따릅니다.

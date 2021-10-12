@@ -11,12 +11,12 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: adbb2979fc9e097fa0abf2675759ba1f7aad8a0c
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: fffd56c05fc3389a6f10ade5b565a760b842a2ca
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123310560"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129358214"
 ---
 # <a name="tutorial-using-openssl-to-create-test-certificates"></a>자습서: OpenSSL을 사용하여 테스트 인증서 만들기
 
@@ -285,10 +285,10 @@ openssl x509 -in mycert.crt -out mycert.pem -outform PEM
  
   ```
 
-10. 루트 CA 구성 파일 및 소유 증명 인증서의 CSR을 사용하여 인증서를 만듭니다.
+10. 종속 CA 구성 파일과 소유 증명 인증서의 CSR을 사용하여 인증서를 만듭니다.
 
   ```bash
-    openssl ca -config rootca.conf -in pop.csr -out pop.crt -extensions client_ext
+    openssl ca -config subca.conf -in pop.csr -out pop.crt -extensions client_ext
 
   ```
 
@@ -314,7 +314,7 @@ Azure Portal에서 IoT Hub로 이동하고, 다음 값을 사용하여 새 IoT �
 openssl genpkey -out device.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
 ```
 
-키에 대한 CSR(인증서 서명 요청)을 만듭니다. 챌린지 암호 또는 회사 이름(선택 사항)을 입력할 필요가 없습니다. 그러나 일반 이름 필드에서 디바이스 ID를 입력해야 합니다.
+키에 대한 CSR(인증서 서명 요청)을 만듭니다. 챌린지 암호 또는 회사 이름(선택 사항)을 입력할 필요가 없습니다. 그러나 일반 이름 필드에서 디바이스 ID를 입력해야 합니다. **국가**, **조직 이름** 등 다른 매개 변수의 고유한 값을 입력할 수도 있습니다.
 
 ```bash
 openssl req -new -key device.key -out device.csr
@@ -349,4 +349,8 @@ openssl ca -config subca.conf -in device.csr -out device.crt -extensions client_
 
 ## <a name="next-steps"></a>다음 단계
 
-[인증서 인증 테스트](tutorial-x509-test-certificate.md)로 이동하여 인증서가 디바이스를 IoT Hub에 인증할 수 있는지 확인합니다.
+[인증서 인증 테스트](tutorial-x509-test-certificate.md)로 이동하여 인증서가 디바이스를 IoT Hub에 인증할 수 있는지 확인합니다. 해당 페이지의 코드를 사용하려면 PFX 인증서를 사용해야 합니다. 다음 OpenSSL 명령을 사용하여 디바이스 .crt 인증서를 .pfx 형식으로 변환합니다.
+
+```bash
+openssl pkcs12 -export -in device.crt -inkey device.key -out device.pfx
+```

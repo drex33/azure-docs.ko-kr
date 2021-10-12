@@ -2,16 +2,16 @@
 title: 자습서 - 템플릿 만들기 및 배포
 description: 첫 번째 ARM 템플릿(Azure Resource Manager 템플릿)을 만듭니다. 이 자습서에서는 템플릿 파일 구문 및 스토리지 계정을 배포하는 방법에 대해 알아봅니다.
 author: mumian
-ms.date: 12/17/2020
+ms.date: 10/01/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 83a043084af78d382e06b3f860addb986423e9cb
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 7263a72f19d9dfea8044e55451a52ebdec29ec7d
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123187130"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129390238"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>자습서: 첫 번째 ARM 템플릿 만들기 및 배포
 
@@ -100,18 +100,18 @@ az login
 
 ---
 
-Azure 구독이 여러 개 있는 경우 사용할 구독을 선택합니다. `[SubscriptionID/SubscriptionName]` 및 대괄호 `[]`을(를) 구독 정보로 바꿉니다.
+Azure 구독이 여러 개 있는 경우 사용할 구독을 선택합니다. `SubscriptionName`을 구독 이름으로 바꿉니다. 구독 이름 대신 구독 ID를 사용할 수도 있습니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Set-AzContext [SubscriptionID/SubscriptionName]
+Set-AzContext SubscriptionName
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az account set --subscription [SubscriptionID/SubscriptionName]
+az account set --subscription SubscriptionName
 ```
 
 ---

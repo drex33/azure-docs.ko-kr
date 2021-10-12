@@ -5,20 +5,37 @@ description: Azure Data Science Virtual Machine의 릴리스 정보
 author: michalmar
 ms.service: data-science-vm
 ms.author: mimarusa
-ms.date: 07/16/2021
+ms.date: 10/11/2021
 ms.topic: reference
-ms.openlocfilehash: e256382b4d1e397be6d11a3660a4c4fe73eafb23
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
-ms.translationtype: HT
+ms.openlocfilehash: c20d7e93bdf507db7c6ac43634c06c20c79b1786
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122778326"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129811184"
 ---
 # <a name="azure-data-science-virtual-machine-release-notes"></a>Azure Data Science Virtual Machine 릴리스 정보
 
 본 문서에서는 Azure Data Science Virtual Machine 릴리스에 대해 알아봅니다. 버전 번호와 함께 포함된 도구 전체 목록은 [관련 페이지](./tools-included.md)를 확인하세요.
 
 알려진 버그 및 해결 방법에 대해 알아보려면 [알려진 문제 목록](reference-known-issues.md)을 참조하세요.
+
+## <a name="2021-10-07"></a>2021-10-07
+
+[Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview)용 새로운 이미지입니다.
+
+버전: 21.10.07
+
+주요 변경 사항은 다음과 같습니다.
+ - pytorch를 버전 1.9.1로 변경
+ - Docker를 버전 20.10.9로 변경
+ - Intellijidea를 버전 2021.2.2로 변경
+ - Nodejs를 v14.18.0 버전으로 변경
+ - Pycharm을 버전 2021.2.2로 변경
+ - VS Code 버전 1.60.2로 변경
+ - 고정 AutoML 환경(azureml_py36_automl)
+ - 고정 Azure Storage Explorer 안정성
+ - 안정성 개선 및 사소한 버그 수정 
 
 
 ## <a name="2021-08-11"></a>2021-08-11

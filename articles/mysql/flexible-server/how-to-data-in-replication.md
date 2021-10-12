@@ -6,12 +6,12 @@ ms.author: sunaray
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/08/2021
-ms.openlocfilehash: 05ccdc3613141e7b04c3255a6035c7a03ad25995
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ee81fa18ac0f6bae6a3aefbfef60333991001dff
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128579732"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129812136"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-flexible-server-data-in-replication"></a>Azure Database for MySQL Flexible Server 입력 데이터 복제를 구성하는 방법
 
@@ -164,6 +164,8 @@ Azure Database for MySQL Flexible 서비스에서 복제본을 만들기 위해 
 
    덤프 파일을 Azure Database for MySQL Flexible Server 서비스에서 생성된 서버로 복원합니다. 덤프 파일을 MySQL 서버로 복원하는 방법은 [덤프 및 복원](../concepts-migrate-dump-restore.md)을 참조하세요. 덤프 파일이 큰 경우, 복제본 서버와 동일한 지역 내의 Azure 가상 머신에 업로드합니다. 가상 머신에서 Azure Database for MySQL Flexible Server 서버로 복원합니다.
 
+>[!Note]
+>* 덤프 및 복원할 때만 데이터베이스를 읽도록 설정하지 않으려면 [mydumper/myloader](../concepts-migrate-mydumper-myloader.md)를 사용할 수 있습니다.
 
 ## <a name="link-source-and-replica-servers-to-start-data-in-replication"></a>원본 서버와 복제본 서버를 연결하여 입력 데이터 복제 시작
 
@@ -189,7 +191,8 @@ Azure Database for MySQL Flexible 서비스에서 복제본을 만들기 위해 
      이 매개 변수를 변수로 전달하는 것이 좋습니다. 자세한 내용은 다음 예를 참조하세요.
 
    > [!NOTE]
-   > 원본 서버가 Azure VM에서 호스팅되는 경우 원본 서버와 복제본 서버가 서로 통신할 수 있도록 "Azure 서비스에 대한 액세스 허용"을 "켜기"로 설정합니다. 이 설정은 **연결 보안** 옵션에서 변경할 수 있습니다. 자세한 내용은 [포털을 사용하여 방화벽 규칙 관리](how-to-manage-firewall-portal.md)를 참조하세요.
+   > * 원본 서버가 Azure VM에서 호스팅되는 경우 원본 서버와 복제본 서버가 서로 통신할 수 있도록 "Azure 서비스에 대한 액세스 허용"을 "켜기"로 설정합니다. 이 설정은 **연결 보안** 옵션에서 변경할 수 있습니다. 자세한 내용은 [포털을 사용하여 방화벽 규칙 관리를 참조하세요.](how-to-manage-firewall-portal.md)
+   > * mydumper/myloader를 사용하여 데이터베이스를 덤프한 경우 */backup/metadata* 파일에서 master_log_file 및 master_log_pos 수 있습니다. 
 
    **예제**
 

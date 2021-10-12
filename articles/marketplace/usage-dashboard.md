@@ -7,13 +7,13 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 09/27/2021
-ms.openlocfilehash: c50a36c521848956577fd0e8f53bdb2dceaaee8f
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.date: 10/11/2021
+ms.openlocfilehash: 0ef727d47949acb1d095bbfb3890021b273c50db
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129084053"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129811204"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 사용량 대시보드
 
@@ -45,7 +45,7 @@ ms.locfileid: "129084053"
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
 1. 홈 페이지에서 **Insights** 타일을 선택합니다.
 
-    [![파트너 센터 홈 페이지의 Insights 타일을 보여 줍니다. ](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+    [![파트너 센터 홈페이지의 Insights 타일을 보여 줍니다. ](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
 
 1. 왼쪽 메뉴에서 **사용량을** 선택합니다.
 
@@ -191,7 +191,7 @@ _**표 1: 데이터 용어 사전**_
 | 작업 수행 시간 | 작업 수행 시간 | **사용자 지정 측정기 차원을 사용하는 제품에 적용할 수 있습니다**.<br>게시자가 제안의 사용자 지정 측정기 차원에 대한 고객의 초과 사용량을 있는 그대로 또는 거짓으로 승인한 시간을 지정합니다.<br>_게시자에게 사용자 지정 측정기 차원을 사용하는 제품이 없고 프로그래밍 방식 액세스를 통해 이 열을 내보내는 경우 값은 null이 됩니다._ | ActionTakenAt |
 | 작업 수행자 | 작업 수행자 | **사용자 지정 측정기 차원을 사용하는 제품에 적용할 수 있습니다**.<br>제품의 사용자 지정 측정기 차원에 대한 고객의 초과 사용량을 있는 그대로 또는 거짓으로 승인한 사람을 지정합니다.<br>_게시자에게 사용자 지정 측정기 차원을 사용하는 제품이 없고 프로그래밍 방식 액세스를 통해 이 열을 내보내는 경우 값은 null이 됩니다._ | ActionTakenBy |
 | 예상 재무 영향(USD) | 예상 재무 영향(USD) | **사용자 지정 측정기 차원을 사용하는 제품에 적용할 수 있습니다**.<br>파트너 센터에서 제품의 사용자 지정 측정기 차원에 대한 고객의 초과 사용량을 비정상으로 표시할 경우, 이 필드에서는 비정상적인 초과 사용에 대한 예상 재무 영향(USD)을 지정합니다.<br>_게시자에게 사용자 지정 측정기 차원을 사용하는 제품이 없고 프로그래밍 방식의 수단을 통해 이 열을 내보내는 경우 값은 null이 됩니다._ | EstimatedFinancialImpactUSD |
-| 해당 없음 | 리소스 ID | 리소스 이름과 리소스 종류를 포함하여 리소스의 정규화된 ID입니다. 이 필드는 보고서 다운로드에서만 사용할 수 있는 데이터 필드입니다.<br>다음 형식을 사용합니다.<br> /subscriptions/{guid}/resourceGroups/{resource-group-name}/{resource-provider-namespace}/{resource-type}/{resource-name} | 해당 없음 |
+| 해당 없음 | 리소스 ID | 리소스 이름과 리소스 종류를 포함하여 리소스의 정규화된 ID입니다. 이 필드는 보고서 다운로드에서만 사용할 수 있는 데이터 필드입니다.<br>다음 형식을 사용합니다.<br> /subscriptions/{guid}/resourceGroups/{resource-group-name}/{resource-provider-namespace}/{resource-type}/{resource-name}<br>**참고**:이 필드는 10/20/2021에서 더 이상 사용 되지 않습니다. | 해당 없음 |
 |||||
 
 ### <a name="usage-page-filters"></a>사용량 페이지 필터

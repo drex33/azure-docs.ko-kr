@@ -7,12 +7,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 3a6bb0fd360b334299c6cd1be2795121a3b53203
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e73e8226bd90b1600b0f3538e34c9f4f937ce189
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124777529"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129807378"
 ---
 # <a name="index-data-from-sharepoint-online"></a>SharePoint Online의 데이터 인덱싱
 
@@ -49,11 +49,11 @@ SharePoint Online 인덱서를 설정하려면 Azure Portal 및 미리 보기 RE
  
 > [!VIDEO https://www.youtube.com/embed/QmG65Vgl0JI]
 
-### <a name="step-1-optional-enable-system-assigned-managed-identity"></a>1 단계 (선택 사항): 시스템 할당 관리 id 사용
+### <a name="step-1-optional-enable-system-assigned-managed-identity"></a>1단계(선택 사항): 시스템 할당 관리 ID 사용
 
-시스템 할당 관리 ID를 사용하도록 설정하면 Azure는 인덱서에서 사용할 수 있는 검색 서비스의 ID를 만듭니다. 이 id는 검색 서비스가 프로 비전 된 테 넌 트를 자동으로 검색 하는 데 사용 됩니다.
+시스템 할당 관리 ID를 사용하도록 설정하면 Azure는 인덱서에서 사용할 수 있는 검색 서비스의 ID를 만듭니다. 이 ID는 검색 서비스가 프로비전되는 테넌트 자동 검색에 사용됩니다.
 
-SharePoint Online 사이트가 검색 서비스와 동일한 테 넌 트에 있는 경우 검색 서비스에 대 한 시스템 할당 관리 id를 사용 하도록 설정 해야 합니다. SharePoint Online 사이트가 검색 서비스와 다른 테 넌 트에 있는 경우 시스템 할당 관리 id를 사용 하도록 설정할 필요가 없습니다.
+SharePoint Online 사이트가 검색 서비스와 동일한 테넌트에 있는 경우 검색 서비스에 대해 시스템 할당 관리 ID를 사용하도록 설정해야 합니다. SharePoint Online 사이트가 검색 서비스와 다른 테넌트인 경우 시스템 할당 관리 ID를 사용하도록 설정할 필요가 없습니다.
 
 ![시스템이 할당한 관리 ID 사용](media/search-howto-index-sharepoint-online/enable-managed-identity.png "시스템이 할당한 관리 ID 사용")
 
@@ -125,7 +125,7 @@ api-key: [admin key]
 ```
 
 > [!NOTE]
-> SharePoint Online 사이트가 검색 서비스와 같은 테 넌 트에 있고 시스템 할당 관리 id가 사용 되는 경우는 `TenantId` 연결 문자열에 포함 될 필요가 없습니다. SharePoint Online 사이트가 검색 서비스와 다른 테 넌 트에 있는 경우에는를 `TenantId` 포함 해야 합니다.
+> SharePoint Online 사이트가 검색 서비스와 동일한 테넌트에 있고 시스템 할당 관리 ID를 사용하도록 설정된 경우 `TenantId` 을 연결 문자열에 포함할 필요가 없습니다. SharePoint Online 사이트가 검색 서비스와 다른 테넌트인 경우 를 `TenantId` 포함해야 합니다.
 
 ### <a name="step-4-create-an-index"></a>4단계: 인덱스 만들기
 인덱스는 문서의 필드, 특성 및 검색 경험을 형성하는 기타 항목을 지정합니다.
@@ -265,9 +265,6 @@ api-key: [admin key]
 ## <a name="indexing-document-metadata"></a>문서 메타데이터 인덱싱
 문서 메타데이터를 인덱싱하도록 인덱서를 설정한 경우 다음 메타데이터를 인덱싱할 수 있습니다.
 
-> [!NOTE]
-> 사용자 지정 메타데이터는 현재 버전의 미리 보기에 포함되어 있지 않습니다.
-
 | ID | 유형 | Description | 
 | ------------- | -------------- | ----------- |
 | metadata_spo_site_library_item_id | Edm.String | 사이트의 문서 라이브러리에서 항목을 고유하게 식별하는 사이트 ID, 라이브러리 ID 및 항목 ID의 조합 키입니다. |
@@ -284,6 +281,9 @@ api-key: [admin key]
 
 SharePoint Online 인덱서는 각 문서 유형과 관련된 메타데이터도 지원합니다. 자세한 내용은 [Azure Cognitive Search에서 사용되는 콘텐츠 메타데이터 속성](search-blob-metadata-properties.md)을 참조하세요.
 
+> [!NOTE]
+> 사용자 지정 메타 데이터를 인덱싱 하려면 [ `additionalColumns` 쿼리 정의에를 지정 해야 합니다](#query) .
+
 <a name="controlling-which-documents-are-indexed"></a>
 
 ## <a name="controlling-which-documents-are-indexed"></a>인덱싱되는 문서 제어
@@ -298,6 +298,8 @@ SharePoint Online 인덱서는 각 문서 유형과 관련된 메타데이터도
 +   *useQuery*
     + *query* 에는 인덱스 콘텐츠만 정의됩니다.
 
+<a name="query"></a>
+
 ### <a name="query"></a>쿼리
 *query* 속성은 키워드/값 쌍으로 구성됩니다. 다음은 사용할 수 있는 키워드입니다. 값은 사이트 URL 또는 문서 라이브러리 URL 중 하나입니다.
 
@@ -310,6 +312,7 @@ SharePoint Online 인덱서는 각 문서 유형과 관련된 메타데이터도
 | includeLibrariesInSite | 연결 문자열에서 정의된 사이트에 있는 모든 라이브러리의 콘텐츠를 인덱싱합니다. 사이트의 하위 사이트로 제한됩니다. <br><br> 이 키워드의 *query* 값은 사이트 또는 하위 사이트의 URI여야 합니다. | mysite의 모든 문서 라이브러리에 있는 모든 콘텐츠를 인덱싱합니다. <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrariesInSite=https://mycompany.sharepoint.com/mysite" } ``` |
 | includeLibrary | 이 라이브러리의 콘텐츠를 인덱싱합니다. <br><br> 이 키워드의 *query* 값은 다음 형식 중 하나여야 합니다. <br><br> 예제 1: <br><br> *includeLibrary=[사이트 또는 하위 사이트]/[문서 라이브러리]* <br><br> 예제 2: <br><br> 브라우저에서 복사되는 URI입니다. | MyDocumentLibrary의 모든 콘텐츠를 인덱싱합니다. <br><br> 예제 1: <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrary=https://mycompany.sharepoint.com/mysite/MyDocumentLibrary" } ``` <br><br> 예제 2: <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrary=https://mycompany.sharepoint.com/teams/mysite/MyDocumentLibrary/Forms/AllItems.aspx" } ``` |
 | excludeLibrary |  이 라이브러리의 콘텐츠를 인덱싱하지 않습니다. <br><br> 이 키워드의 *query* 값은 다음 형식 중 하나여야 합니다. <br><br> 예제 1: <br><br> *excludeLibrary=[사이트 또는 하위 사이트 URI]/[문서 라이브러리]* <br><br> 예제 2: <br><br> 브라우저에서 복사되는 URI입니다. | MyDocumentLibrary를 제외한 모든 라이브러리의 모든 콘텐츠를 인덱싱합니다. <br><br> 예제 1: <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrariesInSite=https://mysite.sharepoint.com/subsite1; excludeLibrary=https://mysite.sharepoint.com/subsite1/MyDocumentLibrary" } ``` <br><br> 예제 2: <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrariesInSite=https://mycompany.sharepoint.com/teams/mysite; excludeLibrary=https://mycompany.sharepoint.com/teams/mysite/MyDocumentLibrary/Forms/AllItems.aspx" } ``` |
+| additionalColumns | 이 라이브러리의 열을 인덱싱합니다. <br><br> 이 키워드의 쿼리 값에는 인덱스를 만들려는 열 이름의 쉼표로 구분 된 목록이 포함 되어야 합니다. 이중 백슬래시를 사용 하 여 열 이름에 세미콜론과 쉼표를 이스케이프 합니다. <br><br> 예제 1: <br><br> additionalColumns = MyCustomColumn, MyCustomColumn2 <br><br> 예제 2: <br><br> additionalColumns = MyCustomColumnWith \\ ,, MyCustomColumn2With \\ ; | MyDocumentLibrary의 모든 콘텐츠를 인덱싱합니다. <br><br> 예제 1: <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrary=https://mycompany.sharepoint.com/mysite/MyDocumentLibrary;additionalColumns=MyCustomColumn,MyCustomColumn2" } ``` <br><br> 참고 문자를 이스케이프 하는 경우 이중 백슬래시 (JSON은 백슬래시를 사용 해야 함)는 다른 백슬래시로 이스케이프 됩니다. <br><br> 예제 2: <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrary=https://mycompany.sharepoint.com/teams/mysite/MyDocumentLibrary/Forms/AllItems.aspx;additionalColumns=MyCustomColumnWith\\,,MyCustomColumnWith\\;" } ``` |
 
 ## <a name="index-by-file-type"></a>파일 형식별 인덱싱
 인덱싱할 문서와 건너뛸 문서를 제어할 수 있습니다.

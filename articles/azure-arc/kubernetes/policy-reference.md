@@ -1,22 +1,22 @@
 ---
-title: Azure Arc 사용 Kubernetes에 대 한 기본 제공 정책 정의
-description: Azure Arc 사용 Kubernetes에 대 한 Azure Policy 기본 제공 정책 정의를 나열 합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 09/17/2021
+title: Azure Arc 지원 Kubernetes에 대한 기본 제공 정책 정의
+description: Azure Arc 사용 가능한 Kubernetes에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
+ms.date: 10/11/2021
 ms.service: azure-arc
 author: mlearned
 ms.author: mlearned
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 4cb41dd8efed4382eee14cd4eac6507333e115ea
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7a2f32b3c324d66a2f4334351f09bd7ade0483e5
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128647628"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129811316"
 ---
-# <a name="azure-policy-built-in-definitions-for-azure-arc-enabled-kubernetes"></a>Azure Arc 사용 Kubernetes에 대 한 Azure Policy 기본 제공 정의
+# <a name="azure-policy-built-in-definitions-for-azure-arc-enabled-kubernetes"></a>Azure Arc 지원 Kubernetes에 대한 기본 제공 정의 Azure Policy
 
-이 페이지는 Azure Arc 사용 Kubernetes에 대 한 [Azure Policy](../../governance/policy/overview.md) 기본 제공 정책 정의의 인덱스입니다. 다른 서비스에 대한 추가 Azure Policy 기본 제공 기능은 [Azure Policy 기본 제공 정의](../../governance/policy/samples/built-in-policies.md)를 참조하세요.
+이 페이지는 [Azure Arc](../../governance/policy/overview.md) 지원 Kubernetes에 대한 Azure Policy 기본 제공 정책 정의의 인덱스입니다. 다른 서비스에 대한 추가 Azure Policy 기본 제공 기능은 [Azure Policy 기본 제공 정의](../../governance/policy/samples/built-in-policies.md)를 참조하세요.
 
 Azure Portal의 정책 정의에 대한 각 기본 제공 정책 정의 링크의 이름입니다. **Version** 열의 링크를 사용하여 [Azure Policy GitHub 리포지토리](https://github.com/Azure/azure-policy)에서 원본을 봅니다.
 

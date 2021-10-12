@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 3fe90f5c9038c37e3ac3e9fba357ea27ca089679
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 8e14e1fd97bbf3e0fe83c1b7e0eeae1cf446e74d
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529222"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129811226"
 ---
 # <a name="face-detection-and-attributes"></a>얼굴 감지 및 특성
 
@@ -34,6 +34,8 @@ ms.locfileid: "122529222"
 ![27개의 이정표에 모두 레이블이 지정되어 있는 얼굴 다이어그램](../Images/landmarks.1.jpg)
 
 지점의 좌표는 픽셀 단위로 반환됩니다.
+
+Detection_03 모델에는 현재 가장 정확한 랜드마크 검색 기능이 있습니다. 반환하는 눈과 눈동자 랜드마크는 얼굴을 응시 추적할 수 있을 만큼 정확합니다.
 
 ## <a name="attributes"></a>특성
 

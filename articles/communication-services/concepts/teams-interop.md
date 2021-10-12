@@ -1,19 +1,19 @@
 ---
-title: Teams 모임 상호 운용성
+title: Teams 상호 운용성
 titleSuffix: An Azure Communication Services concept document
-description: Teams 모임 참가
+description: Teams 상호 운용성
 author: chpalm
 ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.openlocfilehash: 85616e754df0eebc76dd3dceea48dfefe4acf971
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: bd74843b6a046ffcfd590798c9a2958dfb33b593
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129362363"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129809546"
 ---
 # <a name="teams-interoperability"></a>Teams 상호 운용성
 

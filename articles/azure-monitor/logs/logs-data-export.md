@@ -6,12 +6,12 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: bwren
 ms.author: bwren
 ms.date: 05/07/2021
-ms.openlocfilehash: 04662b734f86905f0064bad43ecbecd84bc48042
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: beb3d2374e89402795dab0480d840e291c391ec8
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129401392"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129811564"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기(미리 보기)
 Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기를 사용하면 데이터를 수집하는 동안 Log Analytics 작업 영역에서 선택한 테이블의 데이터를 Azure Storage 계정 또는 Azure Event Hubs로 계속 내보낼 수 있습니다. 이 문서에서는 이 기능 및 작업 영역에서 데이터 내보내기를 구성하는 단계에 대한 세부 정보를 제공합니다.
@@ -32,17 +32,17 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
 
 ## <a name="limitations"></a>제한 사항
 
-- 현재 CLI 또는 REST 요청을 사용 하 여 구성을 수행할 수 있습니다. Azure Portal 또는 PowerShell은 아직 지원되지 않습니다.
+- 구성은 현재 CLI 또는 REST 요청을 사용하여 수행할 수 있습니다. Azure Portal 또는 PowerShell은 아직 지원되지 않습니다.
 - CLI 및 REST의 `--export-all-tables` 옵션은 지원되지 않으며 제거될 예정입니다. 내보내기 규칙에서 테이블 목록을 명시적으로 제공해야 합니다.
-- 지원 되는 테이블은 아래의 [지원 되는 테이블](#supported-tables) 섹션에 지정 된 테이블에서 제한 됩니다. 
-- 기존 사용자 지정 로그 테이블은 내보내기에서 지원 되지 않습니다. 3 월 2022에 제공 되는 새로운 사용자 지정 로그 버전이 지원 됩니다.
-- 데이터 내보내기 규칙에 지원 되지 않는 테이블이 포함 되어 있으면 작업이 성공 하지만 테이블이 지원 될 때까지 해당 테이블에 대 한 데이터는 내보내지 않습니다. 
+- 지원되는 테이블은 아래 [지원되는 테이블](#supported-tables) 섹션에 지정된 테이블로 제한됩니다. 
+- 기존 사용자 지정 로그 테이블은 내보내기에서 지원되지 않습니다. 2022년 3월에 사용할 수 있는 새 사용자 지정 로그 버전이 지원됩니다.
+- 데이터 내보내기 규칙에 지원되지 않는 테이블이 포함되어 있으면 작업이 성공하지만 테이블이 지원될 때까지 해당 테이블에 대한 데이터를 내보내지 않습니다. 
 - 데이터 내보내기 규칙에 존재하지 않는 테이블이 포함되어 있으면 `Table <tableName> does not exist in the workspace` 오류와 함께 실패합니다.
-- 작업 영역에 활성화된 규칙을 최대 10개까지 정의할 수 있습니다. 사용 하지 않도록 설정 하면 추가 규칙이 허용 됩니다. 
+- 작업 영역에 활성화된 규칙을 최대 10개까지 정의할 수 있습니다. 사용하지 않도록 설정하면 추가 규칙이 허용됩니다. 
 - 대상은 작업 영역에 있는 모든 내보내기 규칙에서 고유해야 합니다.
 - 대상은 Log Analytics 작업 영역과 동일한 지역에 있어야 합니다.
-- 저장소 계정으로 내보낼 때 테이블 이름은 60 자이 하 여야 하 고, 47 문자는 이벤트 허브로 변환할 수 없습니다. 이름이 긴 테이블은 내보내지 않습니다.
-- 데이터 내보내기는 모든 지역에서 사용할 수 있지만 현재에서 지원 됩니다. 
+- 스토리지 계정으로 내보낼 때 테이블 이름은 60자, 이벤트 허브로 47자를 초과할 수 없습니다. 이름이 긴 테이블은 내보내지 않습니다.
+- 데이터 내보내기 는 모든 지역에서 사용할 수 있지만 현재 다음에서 지원됩니다. 
     - 오스트레일리아 중부
     - 오스트레일리아 동부
     - 오스트레일리아 남동부
@@ -80,31 +80,31 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
 
 ## <a name="export-destinations"></a>내보내기 대상
 
-작업 영역에서 내보내기 규칙을 만들기 전에 데이터 내보내기 대상을 만들어야 합니다. 대상이 작업 영역과 동일한 구독에 있을 필요는 없습니다. Azure Lighthouse를 사용 하는 경우 다른 Azure Active Directory 테 넌 트의 대상으로 데이터가 전송 될 수도 있습니다.
+작업 영역에서 내보내기 규칙을 만들기 전에 데이터 내보내기 대상을 만들어야 합니다. 대상이 작업 영역과 동일한 구독에 있을 필요는 없습니다. Azure Lighthouse 사용하는 경우 다른 Azure Active Directory 테넌트에서 대상으로 데이터를 보낼 수도 있습니다.
 
 ### <a name="storage-account"></a>스토리지 계정
 
-데이터 내보내기 규칙을 구성 하려면 작업 영역 및 대상 모두에 대 한 ' 쓰기 ' 권한이 있어야 합니다. 데이터에 대 한 액세스를 더 효율적으로 제어 하 고 저장소 수집 빈도 제한 및 제한에 도달 하지 않도록 방지 하기 위해 저장 된 다른 데이터를 모니터링 하지 않는 기존 저장소 계정을 사용 하지 않아야 합니다. 
+데이터 내보내기 규칙을 구성하려면 작업 영역과 대상 모두에 대한 '쓰기' 권한이 있어야 합니다. 데이터에 대한 액세스를 더 잘 제어하고 스토리지 수집 속도 제한 및 제한에 도달하지 않도록 모니터링하지 않는 다른 데이터가 저장된 기존 스토리지 계정을 사용하면 안 됩니다. 
 
-데이터를 변경할 수 없는 저장소로 보내려면 [Blob 저장소에 대 한 불변성 정책 설정 및 관리](../../storage/blobs/immutable-policy-configure-version-scope.md)에 설명 된 대로 저장소 계정에 대 한 변경할 수 없는 정책을 설정 합니다. 보호된 추가 BLOB 쓰기 사용을 비롯하여 이 문서의 모든 단계를 따라야 합니다.
+데이터를 불변 가능한 스토리지로 보내려면 Blob Storage에 대한 불변성 정책 설정 및 관리에 설명된 대로 스토리지 계정에 [대한 불변성 정책을 설정합니다.](../../storage/blobs/immutable-policy-configure-version-scope.md) 보호된 추가 BLOB 쓰기 사용을 비롯하여 이 문서의 모든 단계를 따라야 합니다.
 
-저장소 계정은 작업 영역과 동일한 지역에 StorageV1 여야 합니다. 다른 지역에 있는 다른 저장소 계정에 데이터를 복제 해야 하는 경우 GRS 및 GZRS를 비롯 한 [Azure Storage 중복성 옵션](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) 중 하나를 사용할 수 있습니다.
+스토리지 계정은 작업 영역과 동일한 지역에 StorageV1 이상이어야 합니다. 다른 지역의 다른 스토리지 계정에 데이터를 복제해야 하는 경우 GRS 및 GZRS를 비롯한 [Azure Storage 중복성 옵션을](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) 사용할 수 있습니다.
 
-데이터는 Azure Monitor에 도달하면 스토리지 계정으로 전송되고 매시간 추가 Blob에 저장됩니다. 내보내기 규칙 설정은 저장소 계정의 각 테이블에 대 한 컨테이너를 *am* 이름으로 만든 다음 테이블 이름을 사용 하 여 만듭니다. 예를 들어 *SecurityEvent* 테이블은 *am-SecurityEvent* 라는 이름의 컨테이너로 전송됩니다.
+데이터는 Azure Monitor에 도달하면 스토리지 계정으로 전송되고 매시간 추가 Blob에 저장됩니다. 내보내기 규칙 설정은 스토리지 계정의 각 테이블에 대한 컨테이너를 만들고 이름 *am-* 다음에 테이블 이름을 지정합니다. 예를 들어 *SecurityEvent* 테이블은 *am-SecurityEvent* 라는 이름의 컨테이너로 전송됩니다.
 
-2021 년 10 월 15 일부 터 blob은 5 분 안에 *WorkspaceResourceId =/subscriptions/subscription-id/resourcegroups/ \<resource-group\> /providers/microsoft.operationalinsights/workspaces/ \<workspace\> /y = \<four-digit numeric year\> /m = \<two-digit numeric month\> /d = \<two-digit numeric day\> /H = \<two-digit 24-hour clock hour\> /M = \<two-digit 60-minute clock minute\> /pt05m.json* 에 저장 됩니다. 추가 Blob은 스토리지에서 50K 쓰기로 제한되므로 추가 수가 많으면 내보낸 Blob 수가 확대될 수 있습니다. 이러한 경우 blob에 대 한 명명 패턴은 PT05M_ #. json *입니다. 여기서 #은 증분 blob 수입니다.
+2021년 10월 15일부터 Blob은 *WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/ \<resource-group\> /providers/microsoft.operationalinsights/workspaces/ \<workspace\> /y= \<four-digit numeric year\> /m= \<two-digit numeric month\> /d= \<two-digit numeric day\> /h= \<two-digit 24-hour clock hour\> /m= \<two-digit 60-minute clock minute\> /PT05M.json* 경로 구조의 5분 폴더에 저장됩니다. 추가 Blob은 스토리지에서 50K 쓰기로 제한되므로 추가 수가 많으면 내보낸 Blob 수가 확대될 수 있습니다. 이러한 경우 Blob의 명명 패턴은 PT05M_#.json*입니다. 여기서 #은 증분 Blob 수입니다.
 
-저장소 계정 데이터 형식은 [JSON 줄](../essentials/resource-logs-blob-format.md)에 있습니다. 즉, 각 레코드는 바깥쪽 레코드는 없고 JSON 레코드 사이에는 쉼표가 없는 줄 바꿈으로 구분 됩니다. 
+스토리지 계정 데이터 형식은 [JSON 줄](../essentials/resource-logs-blob-format.md)입니다. 즉, 각 레코드는 외부 레코드 배열이 없고 JSON 레코드 간에 쉼표가 없는 새줄로 구분됩니다. 
 
 [![스토리지 샘플 데이터](media/logs-data-export/storage-data.png)](media/logs-data-export/storage-data.png#lightbox)
 
 ### <a name="event-hub"></a>이벤트 허브
 
-데이터 내보내기 규칙을 구성 하려면 작업 영역 및 대상 모두에 대 한 ' 쓰기 ' 권한이 있어야 합니다. 이벤트 허브 네임 스페이스에 대 한 공유 액세스 정책은 스트리밍 메커니즘이 포함 하는 사용 권한을 정의 합니다. 이벤트 허브로 스트리밍하려면 관리, 보내기 및 수신 권한이 필요 합니다. 내보내기 규칙을 업데이트 하려면 해당 Event Hubs 권한 부여 규칙에 대 한 ListKey 권한이 있어야 합니다.
+데이터 내보내기 규칙을 구성하려면 작업 영역과 대상 모두에 대한 '쓰기' 권한이 있어야 합니다. 이벤트 허브 네임스페이스에 대한 공유 액세스 정책은 스트리밍 메커니즘에 있는 권한을 정의합니다. 이벤트 허브로 스트리밍하려면 관리, 보내기 및 수신 권한이 필요합니다. 내보내기 규칙을 업데이트하려면 해당 Event Hubs 권한 부여 규칙에 대한 ListKey 권한이 있어야 합니다.
 
-이벤트 허브 네임 스페이스는 작업 영역과 동일한 지역에 있어야 합니다.
+이벤트 허브 네임스페이스는 작업 영역과 동일한 지역에 있어야 합니다.
 
-Azure Monitor에 도달 하면 이벤트 허브로 데이터가 전송 됩니다. 이벤트 허브는 내보내는 각 데이터 형식에 대해 생성되며 이름은 *am-* 뒤에 테이블 이름이 지정됩니다. 예를 들어 *SecurityEvent* 테이블은 *am-SecurityEvent* 라는 이름의 이벤트 허브로 전송됩니다. 내보낸 데이터를 특정 이벤트 허브에 연결하려는 경우 또는 이름이 47자 제한을 초과하는 테이블이 있는 경우, 고유한 이벤트 허브 이름을 제공하고 정의된 테이블의 모든 데이터를 내보낼 수 있습니다.
+데이터가 Azure Monitor 도달하면 이벤트 허브로 전송됩니다. 이벤트 허브는 내보내는 각 데이터 형식에 대해 생성되며 이름은 *am-* 뒤에 테이블 이름이 지정됩니다. 예를 들어 *SecurityEvent* 테이블은 *am-SecurityEvent* 라는 이름의 이벤트 허브로 전송됩니다. 내보낸 데이터를 특정 이벤트 허브에 연결하려는 경우 또는 이름이 47자 제한을 초과하는 테이블이 있는 경우, 고유한 이벤트 허브 이름을 제공하고 정의된 테이블의 모든 데이터를 내보낼 수 있습니다.
 
 > [!IMPORTANT]
 > ['기본' 및 '표준' 네임스페이스 계층당 지원되는 이벤트 허브 수는 10개입니다](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). 10개가 넘는 테이블을 내보내는 경우, 여러 이벤트 허브 네임스페이스에 대한 여러 내보내기 규칙으로 테이블을 분할하거나, 내보내기 규칙에 이벤트 허브 이름을 지정하고 모든 테이블을 해당 이벤트 허브로 내보냅니다.
@@ -114,7 +114,7 @@ Azure Monitor에 도달 하면 이벤트 허브로 데이터가 전송 됩니다
 2. 내보낸 데이터의 볼륨은 시간이 지남에 따라 증가하는 경우가 많으며, 높은 전송 속도를 처리하고 제한 시나리오 및 데이터 대기 시간을 방지하려면 이벤트 허브 규모를 늘려야 합니다. Event Hubs의 자동 확장 기능을 사용하여 처리량 단위 수를 자동으로 스케일 업하여 늘려서 사용량 요구 사항을 충족해야 합니다. 자세한 내용은 [Azure Event Hubs 처리량 단위 자동 확장](../../event-hubs/event-hubs-auto-inflate.md)을 참조하세요.
 
 > [!NOTE]
-> Azure Monitor 데이터 내보내기에서는 가상 네트워크를 사용할 때 이벤트 허브 리소스에 액세스할 수 없습니다. Azure Monitor 데이터 내보내기에서 Event Hubs 리소스에 대한 액세스 권한이 부여되도록 신뢰할 수 있는 Microsoft 서비스 허용이 Event Hub에서 이 방화벽을 무시하도록 허용 설정을 사용하도록 설정해야 합니다. 
+> Azure Monitor 데이터 내보내기에서는 가상 네트워크를 사용하는 경우 이벤트 허브 리소스에 액세스할 수 없습니다. Azure Monitor 데이터 내보내기에서 Event Hubs 리소스에 대한 액세스 권한이 부여되도록 신뢰할 수 있는 Microsoft 서비스 이벤트 허브에서 이 방화벽을 무시하도록 허용 설정을 사용하도록 설정해야 합니다. 
 
 ## <a name="enable-data-export"></a>데이터 내보내기 사용
 Log Analytics 데이터 내보내기를 사용하도록 설정하려면 다음 단계를 수행해야 합니다. 각각에 대한 더 자세한 내용은 다음 섹션을 참조하세요.
@@ -142,12 +142,46 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.insights
 [![스토리지 계정 방화벽 및 가상 네트워크](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
 
 ### <a name="create-or-update-data-export-rule"></a>데이터 내보내기 규칙 만들기 또는 업데이트
-데이터 내보내기 규칙은 데이터를 내보낼 테이블과 대상을 정의합니다. 작업 영역에 활성화된 규칙이 10개 있을 수 있으며, 이때 10개를 초과하는 추가 규칙은 비활성 상태가 되어야 합니다. 대상은 작업 영역에 있는 모든 내보내기 규칙에서 고유해야 합니다.
+데이터 내보내기 규칙은 데이터를 내보내고 대상을 지정하는 테이블을 정의합니다. 작업 영역에서 10개 사용 규칙을 사용할 수 있으며, 추가 규칙을 추가할 수 있지만 '사용 안 함' 상태입니다. 대상은 작업 영역의 모든 내보내기 규칙에서 고유해야 합니다.
 
-> [!NOTE]
-> 데이터 내보내기는 [스토리지 계정 확장성](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts), [이벤트 허브 네임스페이스 할당량](../../event-hubs/event-hubs-quotas.md) 등의 몇 가지 제한 사항이 있지만 사용자가 소유한 대상에 로그를 보냅니다. 제한에 거의 도달한 경우에는 제한할 대상을 모니터링하고 측정값을 적용하는 것이 좋습니다. 예를 들면 다음과 같습니다. 
-> - 이벤트 허브의 자동 확장 기능을 자동으로 스케일 업되도록 설정하고 TU(처리량 단위) 수를 늘립니다. 자동 확장이 최대치일 경우 추가 TU를 요청할 수 있습니다.
-> - 서로 다른 대상에 대한 여러 내보내기 규칙으로 테이블 분할
+데이터 내보내기 대상에는 제한이 있으며 내보내기 제한, 오류 및 대기 시간을 최소화하기 위해 모니터링해야 합니다. [스토리지 계정 확장성](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) 및 [이벤트 허브 네임스페이스 할당량을](../../event-hubs/event-hubs-quotas.md)참조하세요.
+
+#### <a name="recommendations-for-storage-account"></a>스토리지 계정에 대한 권장 사항 
+
+1. 내보내기를 위해 별도의 스토리지 계정 사용
+1. 다음 설정을 사용하여 아래 메트릭에 대한 경고를 구성합니다. 
+   - `Operator` 다음보다 낫습니다.
+   - `Aggregation type` 총
+   - `Aggregation granularity (period)` 5분
+   - `Frequency of evaluation` 5분마다
+  
+    | 범위 | 메트릭 네임스페이스 | 메트릭 | 집계 | 임계값 |
+    |:---|:---|:---|:---|:---|
+    | storage-name | 계정 | 수신 | 합계 | 최대 스토리지 수신 속도의 80%입니다. 예를 들어 미국 서부의 범용 v2의 경우 60Gbps입니다. |
+  
+1. 재구성 작업
+    - 내보내기를 위해 별도의 이벤트 허브 네임스페이스 사용
+    - Azure Storage 표준 계정은 요청에 따라 더 높은 수신 제한을 지원합니다. 증가를 요청하려면 [Azure 지원](https://azure.microsoft.com/support/faq/) 문의합니다.
+    - 추가 스토리지 계정 간에 테이블 분할
+
+#### <a name="recommendations-for-event-hub"></a>이벤트 허브에 대한 권장 사항
+
+1. 다음 설정을 사용하여 아래 메트릭에 대한 경고를 구성합니다. 
+   - `Operator` 다음보다 낫습니다.
+   - `Aggregation type` 총
+   - `Aggregation granularity (period)` 5분
+   - `Frequency of evaluation` 5분마다
+  
+    | 범위 | 메트릭 네임스페이스 | 메트릭 | 집계 | 임계값 |
+    |:---|:---|:---|:---|:---|
+    | namespaces-name | 이벤트 허브 표준 메트릭 | 들어오는 바이트 | 합계 | 5분당 최대 수신의 80%입니다. 예를 들어 TU당 1MB/s입니다. |
+    | namespaces-name | 이벤트 허브 표준 메트릭 | 들어오는 메시지 | 합계 | 5분당 최대 이벤트의 80%입니다. 예를 들어 TU당 1000/s입니다. |
+    | namespaces-name | 이벤트 허브 표준 메트릭 | 제한 요청 | 합계 | 요청의 1%~5% 사이 |
+
+1. 재구성 작업
+   - TU(제한 단위) 수 늘리기
+   - 추가 네임스페이스 간에 테이블 분할
+   - 더 높은 처리량을 위해 Premium 이벤트 허브 계층 사용
 
 내보내기 규칙은 작업 영역에 있는 테이블을 포함해야 합니다. 작업 영역에서 사용 가능한 테이블 목록에 대해 이 쿼리를 실행합니다.
 

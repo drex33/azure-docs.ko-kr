@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
-ms.openlocfilehash: 93a223edf882200200bb75ed0b67e0b971f4bf42
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: f8ff057f818999a9d170fe6f58101c99cd931f7e
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129715027"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129809688"
 ---
 # <a name="troubleshooting-metrics-charts"></a>메트릭 차트 문제 해결
 
@@ -51,11 +51,11 @@ Azure의 메트릭 액세스는 [Azure RBAC(Azure 역할 기반 액세스 제어
 
 **솔루션:** 차트의 y축 경계가 메트릭 값의 범위를 벗어나서 잠기지 않는지 확인합니다. y축 경계가 잠긴 경우 메트릭 값이 차트 범위를 벗어나지 않도록 경계를 다시 설정해야 합니다. **합계**, **최솟값** 및 **최댓값** 을 집계하는 차트는 브라우저 창의 크기를 조정하거나 화면 해상도를 전환할 때 값이 변경되므로 자동 단위에 y축 잠금을 사용하지 않는 것이 좋습니다. 단위를 전환할 때 차트의 표시 영역이 비어 있을 수 있습니다.
 
-### <a name="you-are-looking-at-a-guest-os-metric-but-didnt-enable-azure-diagnostic-extension"></a>게스트 OS 메트릭을 보고 있지만, Azure 진단 확장을 사용으로 설정하지 않음
+### <a name="you-are-looking-at-a-guest-classic-metric-but-didnt-enable-azure-diagnostic-extension"></a>게스트 (클래식) 메트릭을 볼 수 있지만 Azure 진단 확장을 사용 하도록 설정 하지 않았습니다.
 
-**게스트 OS** 메트릭 컬렉션을 사용하려면 Azure Diagnostics 확장을 구성하거나 해당 리소스의 **진단 설정** 패널을 사용하여 Azure 진단 확장을 설정해야 합니다.
+**게스트 (클래식)** 메트릭을 수집 하려면 Azure 진단 확장을 구성 하거나 리소스의 **진단 설정** 패널을 사용 하 여 사용 하도록 설정 해야 합니다.
 
-**솔루션:** Azure Diagnostics 확장을 설정했지만, 여전히 메트릭을 볼 수 없는 경우 [Azure Diagnostics 확장 문제 해결 가이드](../agents/diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal)에 설명된 단계를 따릅니다. [게스트 OS 네임스페이스 및 메트릭을 선택할 수 없음](#cannot-pick-guest-namespace-and-metrics) 문제 해결 단계도 참조하세요.
+**솔루션:** Azure Diagnostics 확장을 설정했지만, 여전히 메트릭을 볼 수 없는 경우 [Azure Diagnostics 확장 문제 해결 가이드](../agents/diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal)에 설명된 단계를 따릅니다. [게스트 (클래식) 네임 스페이스 및 메트릭을 선택할 수 없는](#cannot-pick-guest-namespace-and-metrics) 문제 해결 단계도 참조 하세요.
 
 ## <a name="error-retrieving-data-message-on-dashboard"></a>대시보드의 “데이터 검색 오류” 메시지
 
@@ -79,19 +79,19 @@ Azure 메트릭 차트는 파선을 사용하여 두 개의 알려진 시간 조
 
 **솔루션:** 이 동작은 의도된 것입니다. 저희는 데이터가 전체 중 *일부* 이거나 *불완전* 한 경우에도 데이터를 받는 즉시 보여주는 것이 좋다고 생각합니다. 이렇게 하면 중요한 결론을 신속하게 내리고 즉시 조사를 시작할 수 있습니다. 예를 들어 실패 횟수를 보여주는 메트릭의 경우 부분 값 X를 보면 특정 시간에 적어도 X건의 실패가 있다는 것을 알 수 있습니다. (별로 중요하지 않을 수도 있는) 이 시간까지 발생한 정확한 실패 횟수를 알 수 있을 때까지 기다리지 않고 즉시 문제 조사를 시작할 수 있습니다. 데이터 세트 전체를 받을 때 차트가 업데이트되지만, 해당 시간의 새로운 불완전 데이터 요소까지 차트에 표시될 수 있습니다.
 
-## <a name="cannot-pick-guest-namespace-and-metrics"></a>게스트 네임스페이스 및 메트릭을 선택할 수 없음
+## <a name="cannot-pick-guest-namespace-and-metrics"></a>게스트 네임 스페이스 및 메트릭을 선택할 수 없습니다.
 
-가상 머신 및 가상 머신 확장 집합에는 Azure 호스팅 환경에서 수집되는 Virtual Machine 호스트 메트릭과 **가상 머신에서** 실행되는 [모니터링 에이전트가](../agents/agents-overview.md) 수집하는 **게스트(클래식)** 메트릭의 두 가지 범주가 있습니다. [Azure 진단 확장](../agents/diagnostics-extension-overview.md)을 사용하도록 설정하여 모니터링 에이전트를 설치합니다.
+Virtual machines 및 virtual machine scale sets에는 Azure 호스팅 환경에서 수집 하는 **가상 컴퓨터 호스트** 메트릭과 가상 컴퓨터에서 실행 되는 [모니터링 에이전트가](../agents/agents-overview.md) 수집 하는 **게스트 (클래식)** 메트릭에 해당 하는 두 가지 범주의 메트릭이 있습니다. [Azure 진단 확장](../agents/diagnostics-extension-overview.md)을 사용하도록 설정하여 모니터링 에이전트를 설치합니다.
 
-기본적으로 게스트(클래식) 메트릭은 리소스의 **진단 설정** 탭에서 선택하는 Azure Storage 계정에 저장됩니다. 게스트 메트릭이 수집되지 않거나 메트릭 탐색기에서 액세스할 수 없는 경우 **Virtual Machine 호스트** 메트릭 네임스페이스만 표시됩니다.
+기본적으로 게스트 (클래식) 메트릭은 리소스의 **진단 설정** 탭에서 선택 하는 Azure Storage 계정에 저장 됩니다. 게스트 메트릭이 수집 되지 않거나 메트릭 탐색기에서 액세스할 수 없는 경우 **가상 컴퓨터 호스트** 메트릭 네임 스페이스만 표시 됩니다.
 
 ![메트릭 이미지](./media/metrics-troubleshoot/vm-metrics.png)
 
-**해결 방법:** 메트릭 탐색기에 **게스트(클래식)** 네임스페이스 및 메트릭이 표시되지 않는 경우:
+**해결 방법:** 메트릭 탐색기에 **게스트 (클래식)** 네임 스페이스 및 메트릭이 표시 되지 않는 경우:
 
 1. [Azure 진단 확장](../agents/diagnostics-extension-overview.md)이 사용되고 메트릭을 수집하도록 구성되었는지 확인합니다.
     > [!WARNING]
-    > [Log Analytics 에이전트](../agents/agents-overview.md#log-analytics-agent)(Microsoft Monitoring Agent 또는 줄여서 MMA라고도 함)를 사용하여 **게스트 OS** 를 스토리지 계정으로 보낼 수 없습니다.
+    > [Log Analytics 에이전트](../agents/agents-overview.md#log-analytics-agent) (Microsoft Monitoring Agent 또는 "MMA" 라고도 함)를 사용 하 여 **게스트 (클래식)** 를 저장소 계정으로 보낼 수 없습니다.
 
 1. **Microsoft.Insights** 리소스 공급자가 [구독에 등록되지 않았는지](#microsoftinsights-resource-provider-isnt-registered-for-your-subscription) 확인합니다.
 

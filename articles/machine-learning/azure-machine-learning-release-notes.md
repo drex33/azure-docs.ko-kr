@@ -8,19 +8,45 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 08/18/2021
-ms.openlocfilehash: f4c7c43c0406ed7a6c05c3d83e467bc335c43093
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/04/2021
+ms.openlocfilehash: 598cc1944cb49024d91da476b95f9aa0b25f6279
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128628112"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129811099"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
 이 문서에서는 Azure Machine Learning 릴리스에 대해 알아봅니다.  전체 SDK 참조 콘텐츠를 보려면 Azure Machine Learning의 [**Python용 기본 SDK**](/python/api/overview/azure/ml/intro) 참조 페이지를 확인하세요.
 
 __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 이 페이지가 업데이트될 때 알림을 받을 수 있습니다. `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+## <a name="2021-10-11"></a>2021-10-11
+
+### <a name="azure-machine-learning-sdk-for-python-v1350"></a>Azure Machine Learning Python v 1.35.0 SDK
+  + **azureml-automl-core**
+    + 이진 메트릭 계산 사용
+  + **azureml-contrib-fairness**
+    + 실패 한 대시보드 다운로드에 대 한 오류 메시지 개선
+  + **azureml-core**
+    + 관리 되는 Id 인증에 대해 공용이 아닌 클라우드를 지정 하는 동안 버그가 해결 되었습니다.
+    + 이제 Dataset.File.upload_directory () 및 Dataset.Tabular.register_pandas_dataframe () 실험적 플래그가 제거 됩니다.
+    + 이제 TabularDataset 클래스의 partition_by () 메서드에서 실험적 플래그가 제거 됩니다.
+  + **azureml-pipeline-steps**
+    + 이제 `partition_keys` ParallelRunConfig 클래스의 매개 변수에 대 한 실험적 플래그가 제거 됩니다.
+  + **azureml-interpret**
+    + azureml-intepret로 업데이트 된 패키지 해석-community 0.20. *
+  + **azureml.mlflow**
+    + 하위 디렉터리를 사용 하 여 MLflow로 아티팩트 및 이미지를 기록할 수 있습니다.
+  + **azureml-responsibleai**
+    + 실패 한 대시보드 다운로드에 대 한 오류 메시지 개선
+  + **azureml-train-automl-client**
+    + 이미지 분류, 개체 검색 및 인스턴스 조각화와 같은 컴퓨터 비전 작업에 대 한 지원이 추가 되었습니다. 자세한 설명서는 다음에서 찾을 수 있습니다. https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-image-models
+    + 이진 메트릭 계산 사용
+  + **azureml-train-automl-runtime**
+    + 모델 테스트 실행에 TCNForecaster 지원을 추가 합니다.
+    + 모델 테스트 predictions.csv 출력 형식으로 업데이트 합니다. 이제 출력 열에는 원래 대상 값과 테스트 실행에 전달 된 기능이 포함 됩니다. 이 설정은에서를 설정 `test_include_predictions_only=True` `AutoMLConfig` 하거나에서 설정 하 여 해제할 수 있습니다 `include_predictions_only=True` `ModelProxy.test()` . 사용자가 예측만 포함 하도록 요청한 경우 출력 형식은 다음과 같습니다 (예측이 회귀와 같음). 분류 => [예측 값] [확률] 회귀 => [예측 값] else (기본값): 분류 => [원래 테스트 데이터 레이블] [예측 값] [확률] [기능] 회귀 => [원래 테스트 데이터 레이블] [예측 값] [기능] `[predicted values]` 열 이름 = `[label column name] + "_predicted"` . `[probabilities]`열 이름 = `[class name] + "_predicted_proba"` 입니다. 테스트 실행에 대 한 입력으로 전달 된 대상 열이 없으면 `[original test data labels]` 는 출력에 없습니다.
 
 ## <a name="2021-09-07"></a>2021-09-07
 
@@ -1038,8 +1064,6 @@ Azure CLI에 대한 `ml` 확장은 Azure Machine Learning을 위한 차세대 �
     + 캐시 저장소 콘텐츠가 변조된 경우에 발생하는 새 유형의 사용자 예외가 추가됨
   + **azureml-automl-runtime**
     + 사용자가 기능화를 사용하지 않도록 설정하면 Class Balancing Sweeping이 더 이상 사용되지 않습니다.  
-  + **azureml-contrib-itp**
-    + CmAks 컴퓨팅 유형이 지원됩니다. 학습 작업을 위해 작업 영역에 사용자 고유의 AKS 클러스터를 연결할 수 있습니다.
   + **azureml-contrib-notebook**
     + azureml-contrib-notebook 패키지에 대한 문서 개선.
   + **azureml-contrib-pipeline-steps**

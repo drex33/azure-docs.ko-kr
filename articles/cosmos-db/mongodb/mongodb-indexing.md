@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 09/13/2021
+ms.date: 10/13/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: devx-track-js
-ms.openlocfilehash: 8e609268258142875ebbe924f3cfbdebc94911f8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 115876aab202c550d694267294345b5472ad1f2a
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128601726"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129811730"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB에서 인덱싱 관리
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -23,9 +23,9 @@ Azure Cosmos DB의 API for MongoDB는 Azure Cosmos DB의 핵심 인덱스 관리
 
 ## <a name="indexing-for-mongodb-server-version-36-and-higher"></a>MongoDB 서버 버전 3.6 이상에 대한 인덱싱
 
-MongoDB server 버전 3.6 +에 대 한 Azure Cosmos DB의 API는 `_id` 필드 및 분할 키 (분할 된 컬렉션에만 해당)를 자동으로 인덱싱합니다. API는 분할 키 당 필드의 고유성을 자동으로 적용 합니다 `_id` . 
+Azure Cosmos DB의 API for MongoDB 서버 버전 3.6 이상은 `_id` 분할된 컬렉션에서만 필드 및 분할 키를 자동으로 인덱싱합니다. API는 분할 키당 필드의 고유성을 자동으로 `_id` 적용합니다. 
 
-MongoDB 용 api는 기본적으로 모든 필드를 인덱싱하는 Azure Cosmos DB SQL api와 다르게 동작 합니다.
+MongoDB API는 기본적으로 모든 필드를 인덱싱하는 Azure Cosmos DB SQL API와 다르게 동작합니다.
 
 ### <a name="editing-indexing-policy"></a>인덱싱 정책 편집
 
@@ -49,12 +49,12 @@ Azure Portal에서 `name`에 동일한 단일 필드 인덱스를 만들 수 있
 
 :::image type="content" source="./media/mongodb-indexing/add-index.png" alt-text="인덱싱 정책 편집기에서 이름 인덱스 추가":::
 
-사용 가능한 경우 하나의 쿼리가 여러 개의 단일 필드 인덱스를 사용합니다. 컬렉션 당 최대 500 개의 단일 필드 인덱스를 만들 수 있습니다.
+사용 가능한 경우 하나의 쿼리가 여러 개의 단일 필드 인덱스를 사용합니다. 컬렉션당 최대 500개의 단일 필드 인덱스를 만들 수 있습니다.
 
 ### <a name="compound-indexes-mongodb-server-version-36"></a>복합 인덱스(MongoDB 서버 버전 3.6 이상)
-MongoDB에 대 한 API에서는 쿼리가 한 번에 여러 필드를 정렬할 수 있어야 하는 경우 복합 인덱스가 **필요** 합니다. 정렬할 필요가 없는 여러 필터가 포함 된 쿼리의 경우 인덱싱 비용을 줄이기 위해 복합 인덱스 대신 단일 필드 인덱스를 여러 개 만듭니다. 
+MongoDB용 API에서 쿼리에 여러 필드를 한 번에 정렬하는 기능이 필요한 경우 복합 인덱스가 **필요합니다.** 정렬할 필요가 없는 여러 필터가 있는 쿼리의 경우 복합 인덱스 대신 여러 개의 단일 필드 인덱스를 만들어 인덱싱 비용을 절감합니다. 
 
-복합 인덱스의 각 필드에 대 한 복합 인덱스 또는 단일 필드 인덱스는 쿼리를 필터링 하는 데 동일한 성능을 생성 합니다.
+복합 인덱스의 각 필드에 대한 복합 인덱스 또는 단일 필드 인덱스는 쿼리에서 필터링에 대해 동일한 성능을 제공합니다.
 
 
 > [!NOTE]
@@ -361,13 +361,13 @@ Azure Cosmos DB의 API for MongoDB 버전 3.6 이상에서는 데이터베이스
 
 ## <a name="reindex-command"></a>ReIndex 명령
 
-`reIndex` 명령은 컬렉션의 모든 인덱스를 다시 만듭니다. 대부분의 경우 이 명령은 필요하지 않습니다. 그러나 드문 경우이지만 `reIndex` 명령을 실행한 후 쿼리 성능이 향상될 수 있습니다.
+`reIndex` 명령은 컬렉션의 모든 인덱스를 다시 만듭니다. 일부 드문 경우에는 명령을 실행 하 여 컬렉션의 쿼리 성능 또는 기타 인덱스 문제를 해결할 수 있습니다 `reIndex` . 인덱싱에 문제가 발생 하는 경우 명령을 사용 하 여 인덱스를 다시 만드는 `reIndex` 것이 좋습니다. 
 
 다음 구문을 사용하여 `reIndex` 명령을 실행할 수 있습니다.
 
 `db.runCommand({ reIndex: <collection> })`
 
-아래 구문을 사용하여 `reIndex` 명령을 실행해야 하는지 여부를 확인할 수 있습니다.
+다음 구문을 사용 하 여 명령 실행이 `reIndex` 컬렉션의 쿼리 성능을 향상 시킬 수 있는지 확인할 수 있습니다.
 
 `db.runCommand({"customAction":"GetCollection",collection:<collection>, showIndexes:true})`
 
@@ -402,7 +402,7 @@ Azure Cosmos DB의 API for MongoDB 버전 3.6 이상에서는 데이터베이스
 }
 ```
 
-`reIndex`가 필요한 경우 **requiresReIndex** 는 true가 됩니다. `reIndex`가 필요하지 않은 경우 이 속성은 생략됩니다.
+에서 `reIndex` 쿼리 성능을 향상 시킬 경우 **requiresReIndex** 가 true가 됩니다. `reIndex`에서 쿼리 성능을 향상 시 키가 아니면이 속성이 생략 됩니다.
 
 ## <a name="migrate-collections-with-indexes"></a>인덱스를 사용하여 컬렉션 마이그레이션
 
@@ -440,4 +440,4 @@ Azure Cosmos DB의 API for MongoDB 버전 3.6 이상과 달리 버전 3.2는 기
 * 분할 및 인덱싱 간의 관계에 대해 알아보려면 [Azure Cosmos 컨테이너를 쿼리](../how-to-query-container.md)하는 방법 문서를 참조하세요.
 * Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
     * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](../convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
-    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](estimate-ru-capacity-planner.md)에 대해 읽어보세요.
+    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-capacity-planner.md)에 대해 읽어보세요.

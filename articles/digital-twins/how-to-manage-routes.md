@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/30/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4e9bfa2dc340f567a6c2b7c4ab5d45cfeaa41e6c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 99fbf0a6ecd232ae646639e84864addd103c1f5a
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128661016"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129807777"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Azure Digital Twins에서의 엔드포인트 및 경로 관리
 
@@ -42,9 +42,12 @@ Azure Digital Twins에서는 [이벤트 알림](concepts-event-notifications.md)
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Azure Digital Twins 엔드포인트 만들기
 
 다음은 인스턴스에 대해 만들 수 있는 지원되는 엔드포인트 유형입니다.
-* [Event Grid](../event-grid/overview.md) 
-* [Event Hubs](../event-hubs/event-hubs-about.md)
-* [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
+* [Event Grid](../event-grid/overview.md) 항목
+* [Event Hubs](../event-hubs/event-hubs-about.md) 허브
+* [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) 항목
+
+>[!NOTE]
+> Event Grid 엔드포인트의 경우 Event Grid **토픽만** 지원됩니다. Event Grid **도메인은** 엔드포인트로 지원되지 않습니다.
 
 다양한 엔드포인트 유형에 대한 자세한 정보는 [Azure 메시징 서비스 간 선택](../event-grid/compare-messaging-services.md)을 참조하세요.
 
@@ -58,7 +61,7 @@ Azure Digital Twins에서는 [이벤트 알림](concepts-event-notifications.md)
 
 | 엔드포인트 유형 | 필수 리소스(생성 지침에 연결됨) |
 | --- | --- |
-| Event Grid 엔드포인트 | [이벤트 그리드 토픽](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) |
+| Event Grid 엔드포인트 | [이벤트 그리드 토픽](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)<br/>*이벤트 스키마는 스키마 또는 클라우드 이벤트 스키마 v1.0을 Event Grid 합니다. |
 | Event Hubs 엔드포인트 | [Event&nbsp;Hubs&nbsp;네임스페이스](../event-hubs/event-hubs-create.md)<br/><br/>[이벤트 허브](../event-hubs/event-hubs-create.md)<br/><br/>(선택 사항) 키 기반 인증에 대한 [권한 부여 규칙](../event-hubs/authorize-access-shared-access-signature.md) | 
 | 서비스 버스 엔드포인트 | [Service Bus 네임스페이스](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md)<br/><br/>[Service Bus 토픽](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md)<br/><br/> (선택 사항) 키 기반 인증에 대한 [권한 부여 규칙](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature)|
 

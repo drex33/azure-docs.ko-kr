@@ -10,15 +10,15 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 9/30/2021
+ms.date: 10/11/2021
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: a34f643ea653f1cf5a19a2a8e34002b93f0aaded
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 2ff16c0782d12b5bf4b789cfb114ddc7fb25faef
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129716228"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129811072"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그
 <a name="network-service-tags"></a>
@@ -68,7 +68,7 @@ ms.locfileid: "129716228"
 | **AzureDatabricks** | Azure Databricks입니다. | 모두 | 예 | 예 |
 | **AzureDataExplorerManagement** | Azure Data Explorer 관리 기능입니다. | 인바운드 | 예 | 예 |
 | **AzureDataLake** | Azure Data Lake Storage Gen1입니다. | 아웃바운드 | 예 | 예 |
-| **AzureDeviceUpdate** | IoT Hub 대한 디바이스 업데이트입니다. | 모두 | 예 | 예 |
+| **AzureDeviceUpdate** | IoT Hub에 대 한 장치 업데이트. | 모두 | 예 | 예 |
 | **AzureDevSpaces** | Azure Dev Spaces입니다. | 아웃바운드 | 예 | 예 |
 | **AzureDevOps** | Azure Dev Ops.<br/><br/>*참고: 이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.*| 인바운드 | 예 | 예 |
 | **AzureDigitalTwins** | Azure Digital Twins.<br/><br/>*참고:* 이 태그 또는 이 태그에 포함된 IP 주소를 사용하여 이벤트 경로에 구성된 엔드포인트에 대한 액세스를 제한할 수 있습니다. *이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.* | 인바운드 | 예 | 예 |
@@ -86,7 +86,9 @@ ms.locfileid: "129716228"
 | **AzurePlatformLKM** | Windows 라이선스 또는 키 관리 서비스입니다.<br/><br/>이 태그를 사용하여 라이선스에 대한 기본값을 사용하지 않도록 설정할 수 있습니다. 이 태그를 사용할 때는 주의해야 합니다. [Azure 플랫폼 고려 사항](./network-security-groups-overview.md#azure-platform-considerations)을 읽어 보는 것이 좋습니다.  또한 이 태그를 사용하기 전에 테스트를 수행하는 것이 좋습니다. | 아웃바운드 | 예 | 예 |
 | **AzureResourceManager** | Azure Resource Manager입니다. | 아웃바운드 | 예 | 예 |
 | **AzureSignalR** | Azure SignalR입니다. | 아웃바운드 | 예 | 예 |
-| **AzureSiteRecovery** | Azure Site Recovery입니다.<br/><br/>*참고:* 이 태그는 **AzureActiveDirectory**, **AzureKeyVault**, **EventHub**,**GuestAndHybridManagement** 및 **Storage** 태그에 종속됩니다. | 아웃바운드 | 예 | 예 |
+| **AzureSiteRecovery** | Azure Site Recovery입니다.<br/><br/>*참고:* 이 태그는 **AzureActiveDirectory**, **AzureKeyVault**, **EventHub**,**GuestAndHybridManagement** 및 **Storage** 태그에 종속됩니다. | 아웃바운드 | 예 | 아니요 |
+| **AzureSphere** | 이 태그 또는이 태그가 적용 되는 IP 주소를 사용 하 여 Azure Sphere 보안 서비스에 대 한 액세스를 제한할 수 있습니다. </br> *참고: 이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.* | 모두 | 예 | 예 | 
+| **AzureStack** | 브리지 서비스를 Azure Stack 합니다. </br> 이 태그는 지역별 Azure Stack 브리지 서비스 끝점을 나타냅니다. </br> *참고: 이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.* | 아웃바운드 | 예 | 예 |
 | **AzureTrafficManager** | Azure Traffic Manager 프로브 IP 주소입니다.<br/><br/>Traffic Manager 프로브 IP 주소에 대한 자세한 내용은 [Azure Traffic Manager FAQ](../traffic-manager/traffic-manager-faqs.md)를 참조하세요. | 인바운드 | 예 | 예 |  
 | **AzureUpdateDelivery** | Windows 업데이트에 액세스합니다. <br/><br/>‘참고:’ 이 태그는 Windows 업데이트 메타데이터 서비스에 대한 액세스를 제공합니다. 업데이트를 성공적으로 다운로드하려면 **AzureFrontDoor.FirstParty** 서비스 태그를 사용하도록 설정하고 다음과 같이 정의된 프로토콜과 포트를 사용하여 아웃바운드 보안 규칙을 구성해야 합니다. <ul><li>AzureUpdateDelivery: TCP, 포트 443</li><li>AzureFrontDoor.FirstParty: TCP, 포트 80</li></ul>*이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.*| 아웃바운드 | 예 | 아니요 |  
 | **BatchNodeManagement** | Azure Batch 전용 배포에 대한 관리 트래픽입니다. | 모두 | 예 | 예 |
@@ -105,7 +107,8 @@ ms.locfileid: "129716228"
 | **MicrosoftAzureFluidRelay** | 이 태그는 Azure Microsoft 유체 Relay 서버에 사용 되는 IP 주소를 나타냅니다. | 아웃바운드 | 예 | 예 |
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security입니다. | 아웃바운드 | 예 | 예 |
 | **MicrosoftContainerRegistry** | Microsoft 컨테이너 이미지용 컨테이너 레지스트리입니다. <br/><br/>*참고:* 이 태그는 **AzureFrontDoor** 태그에 종속됩니다. | 아웃바운드 | 예 | 예 |
-| **PowerBI** | PowerBi. *참고: 이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.* | 모두 | 예 | 예|
+| **PowerBI** | PowerBi. *참고: 이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.* | 모두 | 예 | 아니요|
+| **PowerPlatformInfra** | 이 태그는 인프라에서 전원 플랫폼 서비스를 호스트 하는 데 사용 하는 IP 주소를 나타냅니다. *참고: 이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.* | 아웃바운드 | 예 | 예 |
 | **PowerQueryOnline** | 파워 쿼리 온라인입니다. | 모두 | 예 | 예 |
 | **Service Bus** | 프리미엄 서비스 계층을 사용하는 Azure Service Bus 트래픽입니다. | 아웃바운드 | 예 | 예 |
 | **ServiceFabric** | Azure Service Fabric입니다.<br/><br/>*참고:* 이 태그는 지역별 제어 평면에 대한 Service Fabric 서비스 엔드포인트를 나타냅니다. 이를 통해 고객은 자신의 VNET에서 Service Fabric 클러스터에 대한 관리 작업을 수행할 수 있습니다(엔드포인트 예: https://westus.servicefabric.azure.com). | 모두 | 예 | 예 |

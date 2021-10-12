@@ -7,13 +7,13 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 08/06/2021
-ms.openlocfilehash: f930c52c4b913e9411c6f619231fb50d0bb6cc5c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 10/11/2021
+ms.openlocfilehash: 2412673dd71c6fbe6a1f070451db24d748694a8d
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535994"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129811131"
 ---
 # <a name="configure-export-policy-for-nfs-or-dual-protocol-volumes"></a>NFS 또는 이중 프로토콜 볼륨에 대한 내보내기 정책 구성
 
@@ -44,7 +44,7 @@ NFS 프로토콜(NFSv3 및 NFSv4.1) 또는 이중 프로토콜(NFSv3 및 SMB 또
 
       ![Kerberos 보안 옵션](../media/azure-netapp-files/kerberos-security-options.png) 
 
-    * **루트 액세스**: `root` 계정에서 볼륨에 액세스할 수 있는지를 지정합니다.  기본적으로 루트 액세스는 **설정** 으로 지정되고 `root` 계정에는 볼륨에 대한 액세스 권한이 있습니다.
+    * **루트 액세스**: `root` 계정에서 볼륨에 액세스할 수 있는지를 지정합니다.  기본적으로 루트 액세스는 **설정** 으로 지정되고 `root` 계정에는 볼륨에 대한 액세스 권한이 있습니다.  NFSv 4.1 Kerberos 볼륨에는이 옵션을 사용할 수 없습니다.
 
       ![내보내기 정책](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 

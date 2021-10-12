@@ -6,15 +6,15 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 07/17/2017
+ms.date: 10/09/2021
 ms.custom: devx-track-java
 ms.author: cynthn
-ms.openlocfilehash: ec738d2f2765cd97c518b79081675c197ead6466
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: fa4d2f5dc33553cb92a5733e5946c055d6a12941
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697207"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129810879"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Java를 사용하여 Azure에서 Windows VM 만들기 및 관리
 
@@ -68,74 +68,24 @@ ms.locfileid: "122697207"
 
     ```xml
     <dependency>
-      <groupId>com.microsoft.azure</groupId>
-      <artifactId>azure</artifactId>
-      <version>1.1.0</version>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-identity</artifactId>
+      <version>1.3.6</version>
     </dependency>
     <dependency>
-      <groupId>com.microsoft.azure</groupId>
-      <artifactId>azure-mgmt-compute</artifactId>
-      <version>1.1.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.microsoft.azure</groupId>
-      <artifactId>azure-mgmt-resources</artifactId>
-      <version>1.1.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.microsoft.azure</groupId>
-      <artifactId>azure-mgmt-network</artifactId>
-      <version>1.1.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.squareup.okio</groupId>
-      <artifactId>okio</artifactId>
-      <version>1.13.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.nimbusds</groupId>
-      <artifactId>nimbus-jose-jwt</artifactId>
-      <version>3.6</version>
-    </dependency>
-    <dependency>
-      <groupId>net.minidev</groupId>
-      <artifactId>json-smart</artifactId>
-      <version>1.0.6.3</version>
-    </dependency>
-    <dependency>
-      <groupId>javax.mail</groupId>
-      <artifactId>mail</artifactId>
-      <version>1.4.5</version>
+      <groupId>com.azure.resourcemanager</groupId>
+      <artifactId>azure-resourcemanager</artifactId>
+      <version>2.8.0</version>
     </dependency>
     ```
 
 3. 파일을 저장합니다.
 
-## <a name="create-credentials"></a>자격 증명 만들기
+## <a name="set-up-authentication"></a>인증 설정
 
-이 단계를 시작하기 전에 [Active Directory 서비스 주체](../../active-directory/develop/howto-create-service-principal-portal.md)에 액세스할 수 있는지 확인합니다. 또한 이후 단계에서 필요한 애플리케이션 ID, 인증 키 및 테넌트 ID를 기록해 두어야 합니다.
+[인증을 설정](/azure/developer/java/sdk/get-started#set-up-authentication)하는 방법을 알아봅니다.
 
-### <a name="create-the-authorization-file"></a>권한 부여 파일 만들기
-
-1. `azureauth.properties`라는 파일을 만들고 이러한 속성을 추가합니다.
-
-    ```
-    subscription=<subscription-id>
-    client=<application-id>
-    key=<authentication-key>
-    tenant=<tenant-id>
-    managementURI=https://management.core.windows.net/
-    baseURL=https://management.azure.com/
-    authURL=https://login.windows.net/
-    graphURL=https://graph.microsoft.com/
-    ```
-
-    **&lt;subscription-id&gt;** 를 구독 식별자, **&lt;application-id&gt;** 를 Active Directory 애플리케이션 식별자, **&lt;authentication-key&gt;** 를 애플리케이션 키, **&lt;tenant-id&gt;** 를 테넌트 식별자로 바꿉니다.
-
-2. 파일을 저장합니다.
-3. 인증 파일에 전체 경로로 프로그램 셸의 AZURE_AUTH_LOCATION이라는 환경 변수를 설정합니다.
-
-### <a name="create-the-management-client"></a>관리 클라이언트 만들기
+## <a name="create-the-management-client"></a>관리 클라이언트 만들기
 
 1. `src\main\java\com\fabrikam`에 있는 `App.java` 파일을 열고 이 패키지 문이 위쪽에 있는지 확인합니다.
 
@@ -143,42 +93,20 @@ ms.locfileid: "122697207"
     package com.fabrikam.testAzureApp;
     ```
 
-2. 패키지 문에서 다음과 같은 import 문을 추가합니다.
+2. AzureResourceManager 만들기:
    
     ```java
-    import com.microsoft.azure.management.Azure;
-    import com.microsoft.azure.management.compute.AvailabilitySet;
-    import com.microsoft.azure.management.compute.AvailabilitySetSkuTypes;
-    import com.microsoft.azure.management.compute.CachingTypes;
-    import com.microsoft.azure.management.compute.InstanceViewStatus;
-    import com.microsoft.azure.management.compute.DiskInstanceView;
-    import com.microsoft.azure.management.compute.VirtualMachine;
-    import com.microsoft.azure.management.compute.VirtualMachineSizeTypes;
-    import com.microsoft.azure.management.network.PublicIPAddress;
-    import com.microsoft.azure.management.network.Network;
-    import com.microsoft.azure.management.network.NetworkInterface;
-    import com.microsoft.azure.management.resources.ResourceGroup;
-    import com.microsoft.azure.management.resources.fluentcore.arm.Region;
-    import com.microsoft.azure.management.resources.fluentcore.model.Creatable;
-    import com.microsoft.rest.LogLevel;
-    import java.io.File;
-    import java.util.Scanner;
-    ```
+    TokenCredential credential = new EnvironmentCredentialBuilder()
+                .authorityHost(AzureAuthorityHosts.AZURE_PUBLIC_CLOUD)
+                .build();
 
-2. 요청을 해야 하는 Active Directory 자격 증명을 만들려면 App 클래스의 Main 메서드에 이 코드를 추가합니다.
-   
-    ```java
-    try {
-        final File credFile = new File(System.getenv("AZURE_AUTH_LOCATION"));
-        Azure azure = Azure.configure()
-            .withLogLevel(LogLevel.BASIC)
-            .authenticate(credFile)
+    // Please finish 'Set up authentication' step first to set the four environment variables: AZURE_SUBSCRIPTION_ID, AZURE_CLIENT_ID, AZURE_CLIENT_SECRET, AZURE_TENANT_ID
+    AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE);
+
+    AzureResourceManager azureResourceManager = AzureResourceManager.configure()
+            .withLogLevel(HttpLogDetailLevel.BASIC)
+            .authenticate(credential, profile)
             .withDefaultSubscription();
-    } catch (Exception e) {
-        System.out.println(e.getMessage());
-        e.printStackTrace();
-    }
-
     ```
 
 ## <a name="create-resources"></a>리소스 만들기
@@ -209,7 +137,6 @@ AvailabilitySet availabilitySet = azure.availabilitySets()
     .define("myAvailabilitySet")
     .withRegion(Region.US_EAST)
     .withExistingResourceGroup("myResourceGroup")
-    .withSku(AvailabilitySetSkuTypes.MANAGED)
     .create();
 ```
 ### <a name="create-the-public-ip-address"></a>공용 IP 주소 만들기
@@ -220,7 +147,7 @@ AvailabilitySet availabilitySet = azure.availabilitySets()
 
 ```java
 System.out.println("Creating public IP address...");
-PublicIPAddress publicIPAddress = azure.publicIPAddresses()
+PublicIpAddress publicIPAddress = azure.publicIpAddresses()
     .define("myPublicIP")
     .withRegion(Region.US_EAST)
     .withExistingResourceGroup("myResourceGroup")
@@ -241,7 +168,7 @@ Network network = azure.networks()
     .withRegion(Region.US_EAST)
     .withExistingResourceGroup("myResourceGroup")
     .withAddressSpace("10.0.0.0/16")
-    .withSubnet("mySubnet","10.0.0.0/24")
+    .withSubnet("mySubnet", "10.0.0.0/24")
     .create();
 ```
 
@@ -297,21 +224,22 @@ input.nextLine();
 마켓플레이스 이미지 대신 기존 디스크를 사용하려면 다음 코드를 사용합니다. 
 
 ```java
-ManagedDisk managedDisk = azure.disks.define("myosdisk")
+Disk managedDisk = azure.disks().define("myosdisk")
     .withRegion(Region.US_EAST)
     .withExistingResourceGroup("myResourceGroup")
     .withWindowsFromVhd("https://mystorage.blob.core.windows.net/vhds/myosdisk.vhd")
+    .withStorageAccountName("mystorage")
     .withSizeInGB(128)
-    .withSku(DiskSkuTypes.PremiumLRS)
+    .withSku(DiskSkuTypes.PREMIUM_LRS)
     .create();
 
-azure.virtualMachines.define("myVM")
+azure.virtualMachines().define("myVM")
     .withRegion(Region.US_EAST)
     .withExistingResourceGroup("myResourceGroup")
     .withExistingPrimaryNetworkInterface(networkInterface)
-    .withSpecializedOSDisk(managedDisk, OperatingSystemTypes.Windows)
+    .withSpecializedOSDisk(managedDisk, OperatingSystemTypes.WINDOWS)
     .withExistingAvailabilitySet(availabilitySet)
-    .withSize(VirtualMachineSizeTypes.StandardDS1)
+    .withSize(VirtualMachineSizeTypes.STANDARD_DS1)
     .create();
 ```
 
@@ -347,23 +275,24 @@ System.out.println("osProfile");
 System.out.println("    computerName: " + vm.osProfile().computerName());
 System.out.println("    adminUserName: " + vm.osProfile().adminUsername());
 System.out.println("    provisionVMAgent: " + vm.osProfile().windowsConfiguration().provisionVMAgent());
-System.out.println("    enableAutomaticUpdates: " + vm.osProfile().windowsConfiguration().enableAutomaticUpdates());
+System.out.println(
+        "    enableAutomaticUpdates: " + vm.osProfile().windowsConfiguration().enableAutomaticUpdates());
 System.out.println("networkProfile");
 System.out.println("    networkInterface: " + vm.primaryNetworkInterfaceId());
 System.out.println("vmAgent");
 System.out.println("  vmAgentVersion: " + vm.instanceView().vmAgent().vmAgentVersion());
 System.out.println("    statuses");
-for(InstanceViewStatus status : vm.instanceView().vmAgent().statuses()) {
+for (InstanceViewStatus status : vm.instanceView().vmAgent().statuses()) {
     System.out.println("    code: " + status.code());
     System.out.println("    displayStatus: " + status.displayStatus());
     System.out.println("    message: " + status.message());
     System.out.println("    time: " + status.time());
 }
 System.out.println("disks");
-for(DiskInstanceView disk : vm.instanceView().disks()) {
+for (DiskInstanceView disk : vm.instanceView().disks()) {
     System.out.println("  name: " + disk.name());
     System.out.println("  statuses");
-    for(InstanceViewStatus status : disk.statuses()) {
+    for (InstanceViewStatus status : disk.statuses()) {
         System.out.println("    code: " + status.code());
         System.out.println("    displayStatus: " + status.displayStatus());
         System.out.println("    time: " + status.time());
@@ -375,7 +304,7 @@ System.out.println("  id: " + vm.id());
 System.out.println("  name: " + vm.name());
 System.out.println("  type: " + vm.type());
 System.out.println("VM instance status");
-for(InstanceViewStatus status : vm.instanceView().statuses()) {
+for (InstanceViewStatus status : vm.instanceView().statuses()) {
     System.out.println("  code: " + status.code());
     System.out.println("  displayStatus: " + status.displayStatus());
 }

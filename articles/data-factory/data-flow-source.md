@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/09/2021
-ms.openlocfilehash: a95bfe8ed978a0d67381d0be1f15038c847ab36b
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.date: 10/11/2021
+ms.openlocfilehash: 1c37fdc73b226c003208e02b019ddf4e23b53374
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129061222"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129812328"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 원본 변환
 
@@ -67,6 +67,7 @@ Azure Synapse 작업 영역에서 ```Workspace DB```라는 데이터 흐름 원�
 | [Hive](connector-hive.md#mapping-data-flow-properties) | | -/✓ |
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
 | [SQL Server](connector-sql-server.md) | | ✓/✓ |
+| [REST (영문)](connector-rest.md#mapping-data-flow-properties) | | ✓/✓ |
 
 이러한 커넥터와 관련된 설정은 **원본 옵션** 탭에 있습니다. 이러한 설정에 대한 정보 및 데이터 흐름 스크립트 예는 커넥터 설명서에 있습니다.
 

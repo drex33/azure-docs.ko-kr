@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
-ms.openlocfilehash: a41329da9171014b0495498f8757007dbef008ef
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: bd0ca3b20cc37ecf2107e03eea5d6e4a62633f16
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129537426"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129807193"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Azure Cache for Redis 클라이언트 쪽 문제 해결
 
@@ -21,7 +21,7 @@ ms.locfileid: "129537426"
 - [트래픽 버스트](#traffic-burst)
 - [클라이언트의 높은 CPU 사용량](#high-client-cpu-usage)
 - [클라이언트 쪽 대역폭 제한](#client-side-bandwidth-limitation)
-- [크기가 큰 요청 또는 응답](#large-request-or-response-size)
+<!-- [Large request or response size](#large-request-or-response-size) -->
 
 ## <a name="memory-pressure-on-redis-client"></a>Redis 클라이언트의 메모리 압력
 
@@ -78,11 +78,12 @@ Azure Portal에서 제공하는 메트릭을 사용하거나 머신의 성능 �
 
 이 문제를 완화하려면 네트워크 대역폭 소비를 줄이거나 클라이언트 VM 크기를 네트워크 용량이 더 많은 크기로 늘리세요.
 
-## <a name="large-request-or-response-size"></a>크기가 큰 요청 또는 응답
+<!-- 
+## Large request or response Size
 
-큰 요청/응답으로 시간 초과가 발생할 수 있습니다. 예를 들어 클라이언트에 구성된 시간 제한 값이 1초라고 가정하겠습니다. 애플리케이션이 동시에 2개의 키(예: 'A' 및 'B')를 요청합니다(동일한 실제 네트워크 연결 사용). 대부분의 클라이언트에서는 요청 ‘A’와 ‘B’가 둘 다 응답을 기다리지 않고 연달아 전송되는 요청 “파이프라인”을 지원합니다. 서버는 응답을 동일한 순서로 전송합니다. 응답 ‘A’의 크기가 크면 후속 요청을 위한 시간 제한에서 대부분의 시간을 사용할 수 있습니다.
+A large request/response can cause timeouts. As an example, suppose your timeout value configured on your client is 1 second. Your application requests two keys (for example, 'A' and 'B') at the same time (using the same physical network connection). Most clients support request "pipelining", where both requests 'A' and 'B' are sent one after the other without waiting for their responses. The server sends the responses back in the same order. If response 'A' is large, it can eat up most of the timeout for later requests.
 
-다음 예제에서는 요청 ‘A’와 ‘B’가 서버로 신속하게 전송됩니다. 서버는 신속하게 응답 ‘A’와 ‘B’를 전송하기 시작합니다. 데이터 전송 시간 때문에 응답 ‘B’는 서버가 신속하게 응답하는 경우에도 응답 ‘A’의 시간 제한이 종료될 때까지 기다려야 합니다.
+In the following example, request 'A' and 'B' are sent quickly to the server. The server starts sending responses 'A' and 'B' quickly. Because of data transfer times, response 'B' must wait behind response 'A' times out even though the server responded quickly.
 
 ```console
 |-------- 1 Second Timeout (A)----------|
@@ -93,19 +94,20 @@ Azure Portal에서 제공하는 메트릭을 사용하거나 머신의 성능 �
                                        |- Read Response B-| (**TIMEOUT**)
 ```
 
-이 요청/응답은 측정하기 어렵습니다. 크기가 큰 요청 및 응답을 추적하도록 클라이언트 코드를 계측할 수 있습니다.
+This request/response is a difficult one to measure. You could instrument your client code to track large requests and responses.
 
-크기가 큰 응답 문제를 해결하는 방법은 다음과 같이 다양합니다.
+Resolutions for large response sizes are varied but include:
 
-1. 적은 수의 큰 값이 아니라 많은 수의 작은 값에 대해 애플리케이션을 최적화합니다.
-    - 선호하는 해결 방법은 데이터를 더 작은 값으로 분할하는 것입니다.
-    - 더 작은 값이 권장되는 이유에 대한 자세한 내용은 [What is the ideal value size range for redis? Is 100 KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ)(Redis에 이상적인 값 크기 범위는 얼마인가요? 100KB는 너무 큰가요?) 게시물을 참조하세요.
-1. VM 크기를 늘려 대역폭 기능을 더 높입니다.
-    - 클라이언트 또는 서버 VM의 대역폭이 증가하면 크기가 큰 응답의 데이터 전송 시간을 줄일 수 있습니다.
-    - 두 머신의 현재 네트워크 사용량과 현재 VM 크기 한도를 비교해 보세요. 서버에서만 또는 클라이언트에서만 대역폭이 증가하는 것으로는 충분하지 않을 수 있습니다.
-1. 애플리케이션에서 사용하는 연결 개체 수를 늘립니다.
-    - 라운드 로빈 방식을 사용하여 여러 연결 개체에 대한 요청을 수행할 수 있습니다.
+1. Optimize your application for a large number of small values, rather than a few large values.
+    - The preferred solution is to break up your data into related smaller values.
+    - See the post [What is the ideal value size range for redis? Is 100 KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) for details on why smaller values are recommended.
+1. Increase the size of your VM to get higher bandwidth capabilities
+    - More bandwidth on your client or server VM may reduce data transfer times for larger responses.
+    - Compare your current network usage on both machines to the limits of your current VM size. More bandwidth on only the server or only on the client may not be enough.
+1. Increase the number of connection objects your application uses.
+    - Use a round-robin approach to make requests over different connection objects.
 
+ -->
 ## <a name="additional-information"></a>추가 정보
 
 - [Azure Cache for Redis 서버 쪽 문제 해결](cache-troubleshoot-server.md)

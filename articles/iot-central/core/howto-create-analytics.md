@@ -7,12 +7,12 @@ ms.date: 08/16/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: ad16a831b22097e98bd02b606e3a6596cf4e48f5
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f8f399ec557bbddd031b386d69436f3376ee42b1
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124810947"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129808507"
 ---
 # <a name="how-to-use-analytics-to-analyze-device-data"></a>분석을 사용하여 디바이스 데이터를 분석하는 방법
 
@@ -52,6 +52,8 @@ Azure IoT Central은 기록 추세를 분석하고 디바이스의 원격 분석
 ## <a name="interact-with-your-data"></a>데이터 조작
 
 데이터를 쿼리한 후에는 꺾은선형 차트에서 시각화할 수 있습니다. 원격 분석을 표시 또는 숨기거나 기간을 변경하거나 그리드에서 데이터를 볼 수 있습니다.
+
+**저장을** 선택하여 분석 쿼리를 저장합니다. 나중에 저장한 쿼리를 검색할 수 있습니다.
 
 - **시간 편집기 패널:** 기본적으로 마지막 날의 데이터가 표시됩니다. 슬라이더의 한쪽 끝을 끌어 기간을 변경할 수 있습니다. 달력 컨트롤을 사용하여 미리 정의된 시간 버킷 중 하나를 선택하거나 사용자 지정 시간 범위를 선택할 수도 있습니다. 시간 컨트롤에는 데이터를 집계하는 데 사용되는 간격 크기를 제어하는 **간격 크기** 슬라이더도 있습니다.
 

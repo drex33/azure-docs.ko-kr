@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 10/06/2021
-ms.openlocfilehash: a685fb1959fb09800db29eea7755331be4da5948
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: c0a646624054aca3bc043f4ee573dac274f2aa77
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129613119"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129809908"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>데이터 랭글링에 대한 파워 쿼리의 변환 함수
 
@@ -103,7 +103,7 @@ M 함수 [Table.AddColumn](/powerquery-m/table-addcolumn), [Table.TransformColum
 
 ### ```SplitColumn```
 
-길이 및 위치를 기준으로 분할에 대 한 대체는 아래에 나열 됩니다.
+길이 및 위치별로 분할에 대한 대체 항목이 아래에 나열되어 있습니다.
 
 * Table.AddColumn(소스, "첫 번째 문자", 각 Text.Start([Email], 7), 텍스트 입력)
 * Table.AddColumn(#"첫 번째 문자 삽입", "텍스트 범위", 각 Text.Middle([Email], 4, 9), 텍스트 입력)
@@ -116,43 +116,47 @@ M 함수 [Table.AddColumn](/powerquery-m/table-addcolumn), [Table.TransformColum
 
 * Table.AddColumn(RemoveEmailColumn, "이름", 각 [FirstName] & " " & [LastName])
 
-### <a name="pivots"></a>피벗
+### <a name="pivots"></a>받침대
 
-* PQ 편집기에서 피벗 변환을 선택 하 고 피벗 열을 선택 합니다.
+* PQ 편집기에서 피벗 변환을 선택하고 피벗 열을 선택합니다.
 
 ![파워 쿼리 피벗 공통](media/wrangling-data-flow/power-query-pivot-1.png)
 
-* 그런 다음 값 열 및 집계 함수를 선택 합니다.
+* 다음으로 값 열 및 집계 함수를 선택합니다.
 
 ![파워 쿼리 피벗 선택기](media/wrangling-data-flow/power-query-pivot-2.png)
 
-* 확인을 클릭 하면 편집기의 데이터가 피벗 된 값으로 업데이트 된 것을 볼 수 있습니다.
-* 변환이 지원 되지 않을 수도 있다는 경고 메시지가 표시 됩니다.
-* 이 경고를 해결 하려면 PQ 편집기를 사용 하 여 피벗 된 목록을 수동으로 확장 합니다.
-* 리본 메뉴에서 고급 편집기 옵션 선택
-* 피벗 된 값 목록을 수동으로 확장 합니다.
-* List.Distinct()를 다음과 같은 값 목록으로 대체합니다.
+* 확인을 클릭하면 편집기에서 피벗된 값으로 업데이트된 데이터가 표시됩니다.
+* 변환이 지원되지 않을 수 있다는 경고 메시지도 표시됩니다.
+* 이 경고를 해결하려면 PQ 편집기를 사용하여 피벗된 목록을 수동으로 확장합니다.
+* 리본에서 고급 편집기 옵션 선택
+* 피벗된 값 목록을 수동으로 확장
+* List. Distinct ()를 다음과 같은 값 목록으로 바꿉니다.
 ```
 #"Pivoted column" = Table.Pivot(Table.TransformColumnTypes(#"Changed column type 1", {{"genres", type text}}), {"Drama", "Horror", "Comedy", "Musical", "Documentary"}, "genres", "Rating", List.Average)
 in
   #"Pivoted column"
 ```
 
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWNbBf]
+
 ### <a name="formatting-datetime-columns"></a>날짜/시간 열 서식 지정
 
-파워 쿼리 ADF를 사용할 때 날짜/시간 형식을 설정하려면 다음 집합에 따라 형식을 설정하세요.
+ADF 파워 쿼리 사용 하는 경우 날짜/시간 형식을 설정 하려면 다음 집합을 따라 형식을 설정 하십시오.
 
 ![파워 쿼리 변경 형식](media/data-flow/power-query-date-2.png)
 
-1. 파워 쿼리 UI에서 열을 선택하고 날짜/시간 > 유형 변경을 선택합니다.
-2. 경고 메시지가 표시됩니다.
-3. 고급 편집기 열고 ```TransformColumnTypes``` 를 로 ```TransformColumns``` 변경합니다. 입력 데이터를 기반으로 형식 및 문화권 지정
+1. 파워 쿼리 UI에서 열을 선택 하 고 형식 변경 > 날짜/시간을 선택 합니다.
+2. 경고 메시지가 표시 됩니다.
+3. 고급 편집기 ```TransformColumnTypes``` 를 열고를로 변경 ```TransformColumns``` 합니다. 입력 데이터를 기반으로 형식 및 문화권을 지정 합니다.
 
 ![파워 쿼리 편집기](media/data-flow/power-query-date-3.png)
 
 ```
 #"Changed column type 1" = Table.TransformColumns(#"Duplicated column", {{"start - Copy", each DateTime.FromText(_, [Format = "yyyy-MM-dd HH:mm:ss", Culture = "en-us"]), type datetime}})
 ```
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWNdQg]
 
 ## <a name="next-steps"></a>다음 단계
 

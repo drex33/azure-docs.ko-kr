@@ -7,12 +7,12 @@ ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 10/11/2021
 tags: connectors
-ms.openlocfilehash: 33fa7f266362d303e697abcffdca4ccf566a8e73
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: cc56c079173fad1509d9da9cf1d435675b1918f7
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129753925"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129808982"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Azure Blob Storage에서 Blob 만들기 및 관리
 
@@ -23,19 +23,17 @@ Azure Logic Apps 워크플로에서 [Azure Blob Storage 커넥터를](/connector
 > [!IMPORTANT]
 > 논리 앱 워크플로가 동일한 지역에 있는 경우 방화벽 뒤에 있는 스토리지 계정에 직접 액세스할 수 없습니다. 해결 방법으로 논리 앱과 스토리지 계정은 다른 지역에 있을 수 있습니다. Azure Logic Apps 방화벽 뒤의 스토리지 계정에 대한 액세스를 사용하도록 설정하는 자세한 내용은 이 항목의 뒷부분에 있는 방화벽 뒤에 있는 스토리지 계정 액세스 섹션을 [검토하세요.](#access-storage-accounts-behind-firewalls)
 
-트리거, 작업 및 제한과 같은 이 커넥터에 대한 자세한 기술 정보는 [커넥터의 참조 페이지](/connectors/azureblobconnector/)를 검토하세요. Blob Storage 커넥터를 사용하지 않으려면 대신 [Blob 작업에 대한 관리 ID와 함께 HTTP 트리거 또는 작업을 사용할](#access-blob-storage-with-managed-identities)수 있습니다.
-
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 계정 및 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)합니다.
 
 - [Azure Storage 계정 및 스토리지 컨테이너](../storage/blobs/storage-quickstart-blobs-portal.md)
 
-- Blob Storage 계정에 액세스하려는 논리 앱 워크플로. Blob Storage 트리거를 사용하여 워크플로를 시작하려면 빈 논리 [앱](../logic-apps/quickstart-create-first-logic-app-workflow.md)이 필요합니다.
+- Blob Storage 계정에 액세스하려는 논리 앱 워크플로. Blob Storage 트리거를 사용하여 워크플로를 시작하려면 빈 논리 [앱 워크플로](../logic-apps/quickstart-create-first-logic-app-workflow.md)가 필요합니다.
 
 ## <a name="limits"></a>제한
 
-- [ISE(통합 서비스 환경)에서](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)실행되는 논리 앱 워크플로의 경우 > 이 커넥터의 ISE 레이블 지정 버전은 [ISE 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 대신 사용합니다.
+- [ISE(통합 서비스 환경)에서](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)실행되는 논리 앱 워크플로의 경우 이 커넥터의 ISE 레이블 지정 버전은 [대신 ISE 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 사용합니다.
 
 - 기본적으로 Blob Storage 작업은 ‘50MB 이하’의 파일을 읽거나 쓸 수 있습니다. 50MB보다 큰 최대 1,024MB의 파일을 처리하기 위해 Blob Storage 작업은 [메시지 청크](../logic-apps/logic-apps-handle-large-messages.md)를 지원합니다. [**Blob 콘텐츠 가져오기** 작업](/connectors/azureblobconnector/#get-blob-content)은 암시적으로 청크를 사용합니다.
 
@@ -44,6 +42,10 @@ Azure Logic Apps 워크플로에서 [Azure Blob Storage 커넥터를](/connector
   - [**Blob이 추가되거나 수정된 경우(속성만)**](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only))와 같이 파일 속성을 반환하는 Blob Storage 트리거를 사용합니다.
 
   - 전체 파일을 읽고 청크를 암시적으로 사용하는 Blob Storage [**Blob 콘텐츠 가져오기** 작업](/connectors/azureblobconnector/#get-blob-content)을 사용하여 트리거를 따릅니다.
+
+## <a name="connector-reference"></a>커넥터 참조
+
+트리거, 작업 및 제한과 같은 이 커넥터에 대한 자세한 기술 정보는 [커넥터의 참조 페이지](/connectors/azureblobconnector/)를 검토하세요. Blob Storage 커넥터를 사용하지 않으려면 대신 [Blob 작업에 대한 관리 ID와 함께 HTTP 트리거 또는 작업을 사용할](#access-blob-storage-with-managed-identities)수 있습니다.
 
 ## <a name="add-blob-storage-trigger"></a>Blob Storage 트리거 추가
 
@@ -284,15 +286,15 @@ Blob Storage 커넥터를 사용하여 방화벽 뒤에 있는 스토리지 계�
 
 ## <a name="access-blob-storage-with-managed-identities"></a>관리 ID를 사용하여 Blob Storage 액세스
 
-이 커넥터를 사용 하지 않고 Blob Storage에 액세스 하려는 경우 대신 [관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하 여 인증을 수행할 수 있습니다. 방화벽을 통한 스토리지 계정에 대한 액세스 권한을 관리 ID와 같은 Microsoft 신뢰할 수 있는 서비스에 부여하는 예외를 만들 수 있습니다.
+이 커넥터를 사용하지 않고 Blob Storage 액세스하려면 대신 [인증에 관리 ID를](../active-directory/managed-identities-azure-resources/overview.md) 사용할 수 있습니다. 방화벽을 통한 스토리지 계정에 대한 액세스 권한을 관리 ID와 같은 Microsoft 신뢰할 수 있는 서비스에 부여하는 예외를 만들 수 있습니다.
 
-논리 앱에서 관리 되는 id를 사용 하 여 Blob Storage에 액세스 하려면 다음 단계를 수행 합니다.
+논리 앱에서 관리 ID를 사용하여 Blob Storage 액세스하려면 다음 단계를 수행합니다.
 
-1. [저장소 계정에 대 한 액세스를 구성](#configure-storage-account-access)합니다.
+1. [스토리지 계정에 대한 액세스를 구성합니다.](#configure-storage-account-access)
 
-1. [논리 앱에 대 한 역할 할당을 만듭니다](#create-role-assignment-logic-app).
+1. [논리 앱 에 대한 역할 할당을 만듭니다.](#create-role-assignment-logic-app)
 
-1. [논리 앱에서 관리 되는 id에 대 한 지원을 사용 하도록 설정](#enable-managed-identity-support)합니다.
+1. [논리 앱 에서 관리 ID에 대한 지원을 사용하도록 설정합니다.](#enable-managed-identity-support)
 
 > [!NOTE]
 > 이 솔루션의 제한 사항:
@@ -306,54 +308,54 @@ Blob Storage 커넥터를 사용하여 방화벽 뒤에 있는 스토리지 계�
 
 예외 및 관리 ID 지원을 설정하려면 먼저 스토리지 계정에 대한 적절한 액세스를 구성합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 저장소 계정 리소스를 찾아 엽니다.
+1. [Azure Portal](https://portal.azure.com)스토리지 계정 리소스를 찾아 엽니다.
 
-1. 저장소 계정 탐색 메뉴의 **보안 + 네트워킹** 에서 **네트워킹** 을 선택 합니다.
+1. 스토리지 계정 탐색 메뉴의 **보안 + 네트워킹** 아래에서 **네트워킹을** 선택합니다.
 
-   1. 다음 **에서 액세스 허용에서** **선택한 네트워크** 를 선택 하 여 관련 설정을 표시 합니다.
+   1. **에서 액세스 허용에서** **선택한 네트워크를** 선택합니다. 그러면 관련 설정이 표시됩니다.
 
-   1. 컴퓨터에서 저장소 계정에 액세스 해야 하는 경우 **방화벽** 에서 **클라이언트 IP 주소 추가** 를 선택 합니다.
+   1. 컴퓨터에서 스토리지 계정에 액세스해야 하는 경우 **방화벽** 아래에서 **클라이언트 IP 주소 추가를** 선택합니다.
 
-   1. **예외** 에서 **신뢰할 수 있는 Microsoft 서비스이 저장소 계정에 액세스 하도록 허용** 을 선택 합니다.
+   1. **예외에서** 신뢰할 **수 있는 Microsoft 서비스 이 스토리지 계정에 액세스하도록 허용을** 선택합니다.
 
-      :::image type="content" source="./media/connectors-create-api-azureblobstorage/storage-networking-configure.png" alt-text="허용 설정이 있는 Azure Portal 및 Blob Storage 계정 네트워킹 창을 보여 주는 스크린샷":::
+      :::image type="content" source="./media/connectors-create-api-azureblobstorage/storage-networking-configure.png" alt-text="허용 설정이 있는 Azure Portal 및 Blob Storage 계정 네트워킹 창을 보여주는 스크린샷":::
 
    1. 완료되면 **저장** 을 선택합니다.
 
 > [!NOTE]
-> 워크플로에서 저장소 계정에 연결 하려고 할 때 **403 금지** 오류가 발생 하면 가능한 여러 가지 원인이 있을 수 있습니다. 추가 단계를 진행하기 전에 다음 해결 방법을 시도합니다. 먼저 **신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스할 수 있도록 허용** 을 사용하지 않도록 설정하고 변경 내용을 저장합니다. 그런 다음, 설정을 다시 사용하도록 설정하고 변경 내용을 다시 저장합니다.
+> 워크플로에서 스토리지 계정에 연결하려고 할 때 **403 사용할** 수 없음 오류가 발생하면 여러 원인이 있을 수 있습니다. 추가 단계를 진행하기 전에 다음 해결 방법을 시도합니다. 먼저 **신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스할 수 있도록 허용** 을 사용하지 않도록 설정하고 변경 내용을 저장합니다. 그런 다음, 설정을 다시 사용하도록 설정하고 변경 내용을 다시 저장합니다.
 
 <a name="create-role-assignment-logic-app"></a>
 
 ### <a name="create-role-assignment-for-logic-app"></a>논리 앱에 대한 역할 할당 만들기
 
-그런 다음 논리 앱 리소스에서 [관리 되는 id 지원을 사용 하도록 설정](../logic-apps/create-managed-service-identity.md) 합니다.
+다음으로 논리 앱 리소스에서 [관리 ID 지원을 사용하도록 설정합니다.](../logic-apps/create-managed-service-identity.md)
 
-다음 단계는 다중 테 넌 트 환경의 소비 논리 앱 및 단일 테 넌 트 환경의 표준 논리 앱에 대해 동일 합니다.
+다음 단계는 다중 테넌트 환경의 소비 논리 앱 및 단일 테넌트 환경의 표준 논리 앱에 대해 동일합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 논리 앱 리소스를 엽니다.
+1. [Azure Portal](https://portal.azure.com)논리 앱 리소스를 엽니다.
 
-1. 논리 앱 리소스 탐색 메뉴의 **설정** 에서 id를 선택 **합니다.**
+1. 논리 앱 리소스 탐색 메뉴의 **설정** 아래에서 **ID를 선택합니다.**
 
-1. **시스템 할당** 창에서 **상태** 를 **켜기** 로 설정 합니다 .이는 이미 사용 하도록 설정 되었을 수 있습니다. **권한** 에서 **Azure 역할 할당** 을 선택합니다.
+1. 시스템 **할당** 창에서 **상태를** **켜기로** 설정합니다. 이 설정은 이미 사용하도록 설정되어 있을 수 있습니다. **권한** 에서 **Azure 역할 할당** 을 선택합니다.
 
-   :::image type="content" source="./media/connectors-create-api-azureblobstorage/role-assignment-add-1.png" alt-text="' Id ' 설정 창과 ' Azure 역할 할당 권한 ' 단추가 있는 Azure Portal 및 논리 앱 리소스 메뉴를 보여 주는 스크린샷":::
+   :::image type="content" source="./media/connectors-create-api-azureblobstorage/role-assignment-add-1.png" alt-text="'ID' 설정 창과 'Azure 역할 할당 권한' 단추가 있는 Azure Portal 및 논리 앱 리소스 메뉴를 보여주는 스크린샷.":::
 
 1. **Azure 역할 할당** 창에서 **역할 할당 추가** 를 선택합니다.
 
-   :::image type="content" source="./media/connectors-create-api-azureblobstorage/role-assignment-add-2.png" alt-text="선택한 구독과 새 역할 할당을 추가 하는 단추를 사용 하 여 논리 앱 역할 할당 창을 보여 주는 스크린샷":::
+   :::image type="content" source="./media/connectors-create-api-azureblobstorage/role-assignment-add-2.png" alt-text="선택한 구독 및 새 역할 할당을 추가하는 단추가 있는 논리 앱 역할 할당 창을 보여주는 스크린샷.":::
 
-1. **역할 할당 추가** 창에서 다음 단계를 사용 하 여 새 역할 할당을 설정 합니다.
+1. 역할 **할당 추가** 창에서 다음 단계를 사용하여 새 역할 할당을 설정합니다.
 
    1. **범위** 에 대해 **스토리지** 를 선택합니다.
 
-   1. **구독** 에서 저장소 계정에 대 한 구독을 선택 합니다.
+   1. **구독에서** 스토리지 계정의 구독을 선택합니다.
 
-   1. **리소스** 에 대해 논리 앱 워크플로에서 액세스 하려는 저장소 계정을 선택 합니다.
+   1. **리소스** 의 경우 논리 앱 워크플로에서 액세스하려는 스토리지 계정을 선택합니다.
 
    1. **역할** 에 대해 시나리오의 적절한 권한을 선택합니다.
 
-      이 예제에서는 Blob 컨테이너와 날짜에 대한 읽기, 쓰기, 삭제 액세스를 허용하는 **Storage Blob 데이터 기여자** 를 사용합니다. 권한 세부 정보를 보려면 드롭다운 메뉴에서 역할 옆에 있는 정보 아이콘 위로 마우스를 이동 합니다.
+      이 예제에서는 Blob 컨테이너와 날짜에 대한 읽기, 쓰기, 삭제 액세스를 허용하는 **Storage Blob 데이터 기여자** 를 사용합니다. 사용 권한 세부 정보를 알아보려면 드롭다운 메뉴의 역할 옆에 있는 정보 아이콘 위로 마우스를 이동합니다.
 
       :::image type="content" source="./media/connectors-create-api-azureblobstorage/role-assignment-configure.png" alt-text="범위, 구독, 리소스, 역할의 설정을 보여 주는 역할 할당 구성 창의 스크린샷":::
 
@@ -361,37 +363,37 @@ Blob Storage 커넥터를 사용하여 방화벽 뒤에 있는 스토리지 계�
 
 <a name="enable-managed-identity-support"></a>
 
-### <a name="enable-managed-identity-support-on-logic-app"></a>논리 앱에서 관리 되는 id 지원 사용
+### <a name="enable-managed-identity-support-on-logic-app"></a>논리 앱에서 관리 ID 지원 사용
 
 다음으로, 워크플로에서 [HTTP 트리거 또는 작업](connectors-native-http.md)을 추가합니다. [관리 ID를 사용하도록 인증 유형을 설정](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity)해야 합니다.
 
-다음 단계는 다중 테 넌 트 환경의 소비 논리 앱 및 단일 테 넌 트 환경의 표준 논리 앱에 대해 동일 합니다.
+다음 단계는 다중 테넌트 환경의 소비 논리 앱 및 단일 테넌트 환경의 표준 논리 앱에 대해 동일합니다.
 
 1. 디자이너에서 논리 앱 워크플로를 엽니다.
 
-1. 시나리오에 따라 **HTTP** 트리거 또는 작업을 워크플로에 추가 합니다. 필수 매개 변수 값을 설정 합니다.
+1. 시나리오에 따라 **워크플로에 HTTP** 트리거 또는 작업을 추가합니다. 필요한 매개 변수 값을 설정합니다.
 
-   1. 요청에 대 한 **메서드** 를 선택 합니다. 이 예제에서는 HTTP **PUT** 메서드를 사용 합니다.
+   1. 요청에 대한 **메서드를** 선택합니다. 이 예제에서는 HTTP **PUT** 메서드를 사용합니다.
 
-   1. Blob의 **URI** 를 입력합니다. 경로는 `https://<storage-container-name>/<folder-name>/{name}`과 유사합니다. 대신 컨테이너 이름과 폴더 이름을 제공 합니다. 단, 리터럴 문자열은 그대로 유지 `{name}` 합니다.
+   1. Blob의 **URI** 를 입력합니다. 경로는 `https://<storage-container-name>/<folder-name>/{name}`과 유사합니다. 대신 컨테이너 이름과 폴더 이름을 입력하고 `{name}` 리터럴 문자열을 유지합니다.
 
-   1. **헤더** 아래에 다음 항목을 추가 합니다.
+   1. **헤더 아래에서** 다음 항목을 추가합니다.
 
-      - `x-ms-blob-type`값이 포함 된 blob 유형 헤더 `BlockBlob` 입니다.
+      - 값이 인 Blob 형식 `x-ms-blob-type` `BlockBlob` 헤더입니다.
 
-      - `x-ms-version`적절 한 값을 포함 하는 API 버전 헤더입니다.
+      - 적절한 값이 있는 API 버전 `x-ms-version` 헤더입니다.
 
       자세한 내용은 [관리 ID를 사용하여 액세스 인증](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity)과 [Azure Storage 서비스에 대한 버전 관리](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests)를 참조하세요.
 
-    :::image type="content" source="./media/connectors-create-api-azureblobstorage/managed-identity-connect.png" alt-text="필수 ' PUT ' 매개 변수를 사용 하는 워크플로 디자이너와 HTTP 트리거 또는 동작을 보여 주는 스크린샷":::
+    :::image type="content" source="./media/connectors-create-api-azureblobstorage/managed-identity-connect.png" alt-text="필요한 'PUT' 매개 변수가 있는 워크플로 디자이너 및 HTTP 트리거 또는 작업을 보여주는 스크린샷.":::
 
-1. **새 매개 변수 추가** 목록에서 **인증** 을 선택 하 여 [관리 id를 구성](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity)합니다.
+1. 새 **매개 변수 추가** 목록에서 **인증을** 선택하여 [관리 ID 를 구성합니다.](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity)
 
-    1. **인증** 아래 인증 **유형** 속성에서 **관리 id** 를 선택 합니다.
+    1. **인증** 아래에서 **인증 유형** 속성에 대해 관리 **ID** 를 선택합니다.
 
-    1. **관리 id** 속성의 경우 **시스템 할당 관리 id** 를 선택 합니다.
+    1. 관리 **ID** 속성에 **대해 시스템 할당 관리 ID 를** 선택합니다.
 
-    :::image type="content" source="./media/connectors-create-api-azureblobstorage/managed-identity-authenticate.png" alt-text="관리 되는 id 인증 매개 변수 설정을 사용 하 여 워크플로 디자이너 및 HTTP 동작을 보여 주는 스크린샷":::
+    :::image type="content" source="./media/connectors-create-api-azureblobstorage/managed-identity-authenticate.png" alt-text="관리 ID 인증 매개 변수 설정이 있는 워크플로 디자이너 및 HTTP 작업을 보여주는 스크린샷.":::
 
 1. 완료되면 디자이너 도구 모음에서 **저장** 을 선택합니다.
 

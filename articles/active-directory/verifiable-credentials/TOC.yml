@@ -8,14 +8,12 @@
 - name: 자습서
   expanded: true
   items:
-    - name: 확인 가능한 자격 증명 시작
-      href: get-started-verifiable-credentials.md
-    - name: 테넌트에서 확인 가능한 자격 증명 구성
-      items:
-        - name: 1 - 고유의 Azure AD에서 확인 가능한 자격 증명 발급자 설정
-          href: enable-your-tenant-verifiable-credentials.md
-        - name: 2 - 확인 가능한 자격 증명 발급자를 고유의 Azure AD에 연결
-          href: issue-verify-verifiable-credentials-your-tenant.md
+    - name: 확인 가능한 자격 증명 서비스 설정
+      href: verifiable-credentials-configure-tenant.md
+    - name: 확인 가능한 자격 증명 발급
+      href: verifiable-credentials-configure-issuer.md
+    - name: 확인 가능한 자격 증명 확인
+      href: verifiable-credentials-configure-verifier.md
 - name: 개념
   expanded: true
   items:
@@ -32,6 +30,8 @@
           href: plan-issuance-solution.md
         - name: 확인 솔루션 계획
           href: plan-verification-solution.md
+    - name: 요청 서비스 REST API 사용
+      href: get-started-request-api.md
     - name: 자격 증명을 사용자 지정하는 방법
       href: credential-design.md
     - name: 자격 증명 해지 관리
@@ -49,6 +49,15 @@
       href: 'https://didvc-issuer-sample.azurewebsites.net/'
     - name: 샘플 검증 도구
       href: 'https://didvc-verifier-sample.azurewebsites.net/'
+- name: 참조
+  expanded: true
+  items:
+    - name: 새로운 기능
+      href: whats-new.md
+    - name: 발급 API 사양
+      href: issuance-request-api.md
+    - name: 프레젠테이션 API 사양
+      href: presentation-request-api.md
 - name: 리소스
   expanded: true
   items:

@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 03/03/2021
 ms.author: duau
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6c0e01349c56744590f35659edae66d963aeb302
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: 17445b90c3923fa6c3772b40024eec5657cae89e
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110697960"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858598"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager FAQ(질문과 대답)
 
@@ -227,7 +227,7 @@ JavaScript 측정값을 웹 페이지 내에 포함하고 사용 시작 및 중�
 
 ### <a name="will-it-be-possible-for-others-to-see-the-key-i-use-with-real-user-measurements"></a>내가 실제 사용자 측정에서 사용한 키를 다른 사용자가 볼 수 있나요?
 
-웹 페이지에 측정값 스크립트를 포함하는 경우 다른 사용자가 스크립트 및 RUM(실제 사용자 측정) 키를 볼 수 있습니다. 이 키가 구독 ID와 다르고 이러한 용도로 사용하기 위해 Traffic Manager에서 생성되는지를 아는 것이 중요합니다. RUM 키를 알고 있으면 Azure 계정 보안이 손상되지 않습니다.
+웹 페이지에 측정값 스크립트를 포함하는 경우 다른 사용자가 스크립트 및 RUM(실제 사용자 측정) 키를 볼 수 있습니다. 그러나 이 키는 구독 ID와 다르며 Traffic Manager 생성되어 이 용도로만 사용된다는 것을 알고 있어야 합니다. RUM 키를 알고 있으면 Azure 계정 보안이 손상되지 않습니다.
 
 ### <a name="can-others-abuse-my-rum-key"></a>다른 사용자가 내 RUM 키를 공격할 수 있나요?
 
@@ -448,7 +448,7 @@ Traffic Manager를 사용하면 시작하는 HTTP(S) 상태 검사에서 사용�
 
 ### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>상태 검사가 시작되는 IP 주소는 무엇인가요?
 
-[여기](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview)를 클릭하여 Traffic Manager 상태 검사가 시작될 수 있는 IP 주소 목록을 검색하는 방법을 알아보세요. REST API, Azure CLI, Azure PowerShell을 사용하여 최신 목록을 검색할 수 있습니다. 나열된 IP를 검토하여 이 목록의 IP 주소에서 들어오는 연결의 엔드포인트에서 상태 검사가 허용되는지 확인합니다.
+Traffic Manager 상태 검사를 발생시킬 수 있는 IP 주소 목록을 검색하는 방법을 알아보려면 [이 문서를](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) 참조하세요. REST API, Azure CLI, Azure PowerShell을 사용하여 최신 목록을 검색할 수 있습니다. 나열된 IP를 검토하여 이 목록의 IP 주소에서 들어오는 연결의 엔드포인트에서 상태 검사가 허용되는지 확인합니다.
 
 Azure PowerShell을 사용한 예:
 

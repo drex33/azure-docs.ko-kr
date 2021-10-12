@@ -10,12 +10,12 @@ ms.date: 02/10/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 862c576ae86cd7d91a1bd73243caa0a68e3689c1
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
-ms.translationtype: HT
+ms.openlocfilehash: bcf8d828bb20296a27b9288a2ba604bce1b7aef9
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111900542"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129855444"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>Azure AD 자격 증명으로 PowerShell 명령을 실행하여 큐 데이터에 액세스
 
@@ -86,4 +86,4 @@ Azure PowerShell를 사용하여 로그인한 뒤 Azure AD 자격 증명을 사�
 ## <a name="next-steps"></a>다음 단계
 
 - [대기열 데이터에 액세스하기 위한 Azure 역할 할당](assign-azure-role-data-access.md)
-- [Azure 리소스에 대한 관리 ID를 사용하여 Blob 및 큐 데이터에 대한 액세스 권한 부여](../common/storage-auth-aad-msi.md)
+- [Azure 리소스에 대 한 관리 id를 사용 하 여 blob 데이터에 대 한 액세스 권한 부여](../blobs/authorize-managed-identity.md)

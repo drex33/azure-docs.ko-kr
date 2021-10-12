@@ -1,26 +1,37 @@
 ---
-title: Azure Import/Export를 사용하여 Azure Blob으로 데이터 전송 | Microsoft Docs
+title: Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 데이터를 가져오는 자습서 | Microsoft Docs
 description: Azure Portal에서 가져오기 및 내보내기 작업을 만들어 Azure Blob 간에 데이터를 전송하는 방법을 알아봅니다.
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: how-to
-ms.date: 09/02/2021
+ms.topic: tutorial
+ms.date: 10/04/2021
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
-ms.openlocfilehash: 51e70fb16988c0f72cb9b1a35444f55e164839c9
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
-ms.translationtype: MT
+ms.custom: tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
+ms.openlocfilehash: 10f2103049b47366a267fdf0412a7e3fb95a95cd
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123451802"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709635"
 ---
-# <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 데이터 가져오기
+# <a name="tutorial-import-data-to-blob-storage-with-azure-importexport-service"></a>자습서: Azure Import/Export 서비스를 사용하여 Blob Storage로 데이터 가져오기
 
 이 문서에서는 Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 많은 양의 데이터를 안전하게 가져오는 방법에 대한 단계별 지침을 제공합니다. 데이터를 Azure Blob으로 가져오려면 서비스를 사용하여 데이터가 포함된 암호화된 디스크 드라이브를 Azure 데이터 센터로 배송해야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+
+> [!div class="checklist"]
+> * Azure Blob 스토리지로 데이터를 가져오기 위한 필수 조건
+> * 1단계: 드라이브 준비
+> * 2단계: 가져오기 작업 만들기
+> * 3단계: 고객 관리형 키 구성(선택 사항)
+> * 4단계: 드라이브 배송
+> * 5단계: 추적 정보를 사용하여 작업 업데이트
+> * 6단계: Azure에 대한 데이터 업로드 확인
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 가져오기 작업을 만들어 Azure Blob Storage로 데이터를 전송하기 전에 이 서비스에 대한 다음 필수 조건 목록을 신중하게 검토하고 완료해야 합니다.
 다음이 필요합니다.
@@ -28,13 +39,13 @@ ms.locfileid: "123451802"
 * Import/Export 서비스에 사용할 수 있는 활성 Azure 구독이 있어야 합니다.
 * 스토리지 컨테이너가 있는 Azure Storage 계정이 하나 이상 있어야 합니다. [Import/Export 서비스에 지원되는 스토리지 계정 및 스토리지 유형](storage-import-export-requirements.md) 목록을 참조하세요.
   * 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](../storage/common/storage-account-create.md)(영문)을 참조하세요.
-  * 스토리지 컨테이너에 대한 자세한 내용은 [스토리지 컨테이너 만들기](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)로 이동하세요.
+  * 스토리지 컨테이너 생성에 대한 자세한 내용은 [스토리지 컨테이너 만들기](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)로 이동하세요.
 * [지원되는 형식](storage-import-export-requirements.md#supported-disks)에 속한 적절한 개수의 디스크가 있어야 합니다.
 * [지원되는 OS 버전](storage-import-export-requirements.md#supported-operating-systems)을 실행하는 Windows 시스템이 있어야 합니다.
 * Windows 시스템에서 BitLocker를 사용하도록 설정합니다. [BitLocker를 사용하도록 설정하는 방법](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/)을 참조하세요.
-* Windows 시스템에서 [WAImportExport 버전 1을 다운로드](https://www.microsoft.com/download/details.aspx?id=42659)합니다. 최신 버전의 도구에는 BitLocker 키에 대한 외부 보호기를 허용하는 보안 업데이트와 업데이트된 잠금 해제 모드 기능이 있습니다.
-
-  * `waimportexportv1` 기본 폴더에 압축을 풉니다. 예들 들어 `C:\WaImportExportV1`입니다.
+* Windows 시스템에서 Blob용 Azure Import/Export 버전 1 도구의 현재 릴리스를 다운로드합니다.
+  1. [WAImportExport 버전 1을 다운로드](https://www.microsoft.com/download/details.aspx?id=42659)합니다. 현재 버전은 1.5.0.300입니다.
+  1. `WaImportExportV1` 기본 폴더에 압축을 풉니다. 예들 들어 `C:\WaImportExportV1`입니다.
 * FedEx/DHL 계정이 있습니다. FedEx/DHL 이외의 운송업체를 사용하려면 `adbops@microsoft.com`에 있는 Azure Data Box 운영 팀에 문의하세요.
   * 계정은 유효해야 하고, 잔액이 있어야 하며, 반품 기능이 있어야 합니다.
   * 내보내기 작업의 추적 번호를 생성합니다.
@@ -78,7 +89,7 @@ ms.locfileid: "123451802"
 
     다음 표에는 사용되는 매개 변수가 나와 있습니다.
 
-    |옵션  |Description  |
+    |옵션  |설명  |
     |---------|---------|
     |/j:     |확장명이 .jrn인 저널 파일의 이름입니다. 저널 파일은 드라이브마다 생성됩니다. 디스크 일련 번호를 저널 파일 이름으로 사용하는 것이 좋습니다.         |
     |/id:     |세션 ID. 명령의 각 인스턴스마다 고유한 세션 번호를 사용합니다.      |
@@ -90,6 +101,9 @@ ms.locfileid: "123451802"
     |/skipwrite:     | 복사하는 데 필요한 새 데이터가 없고 디스크의 기존 데이터를 준비하도록 지정합니다.          |
     |/enablecontentmd5:     |사용 설정된 경우 MD5가 계산되고 각 BLOB에 대해 `Content-md5` 속성으로 설정됩니다. 데이터가 Azure에 업로드된 이후 `Content-md5` 필드를 사용하려는 경우에만 이 옵션을 사용합니다. <br> 이 옵션은 기본적으로 이루어지는 데이터 무결성 검사에는 영향을 미치지 않습니다. 이 설정은 클라우드로 데이터를 업로드하는 데 걸리는 시간을 늘립니다.          |
 
+    > [!NOTE]
+    > 대상 컨테이너의 기존 Blob과 동일한 이름의 Blob을 가져오는 경우 가져온 Blob은 기존 Blob을 덮어쓰게 됩니다. 이전 도구 버전(1.5.0.300 이전)에서는 가져온 Blob의 이름이 기본적으로 바뀌었으며 \Disposition 매개 변수를 사용하여 가져오기에서 Blob의 이름을 바꾸거나, 덮어쓰거나, 무시할지 여부를 지정할 수 있습니다.
+
 8. 배송해야 하는 각 디스크에 대해 이전 단계를 반복합니다. 
 
    명령줄을 실행할 때마다 제공된 이름의 저널 파일이 만들어집니다. 
@@ -97,7 +111,7 @@ ms.locfileid: "123451802"
    저널 파일과 함께 `<Journal file name>_DriveInfo_<Drive serial ID>.xml` 파일도 도구가 있는 폴더와 동일한 폴더에 만들어집니다. 저널 파일이 너무 큰 경우 작업을 만들 때는 .xml 파일이 저널 파일 대신 사용됩니다.
 
 > [!IMPORTANT]
-> * 디스크 준비를 완료 한 후 디스크 드라이브의 저널 파일이 나 데이터를 수정 하지 않고 디스크를 다시 포맷 하지 마십시오.
+> * 디스크 준비를 완료한 후에는 저널 파일이나 디스크 드라이브의 데이터를 수정하지 말고 디스크를 다시 포맷하지 마세요.
 > * 포털에서 허용하는 저널 파일의 최대 크기는 2MB입니다. 저널 파일이 이 제한을 초과하면 오류가 반환됩니다.
 
 ## <a name="step-2-create-an-import-job"></a>2단계: 가져오기 작업 만들기
@@ -352,9 +366,9 @@ Microsoft 관리 키를 사용하여 드라이브에 대한 BitLocker 키를 보
 
 ## <a name="step-6-verify-data-upload-to-azure"></a>6단계: Azure에 대한 데이터 업로드 확인
 
-완료될 때까지 작업을 추적합니다. 작업이 완료되면 데이터가 Azure에 업로드되었는지 확인합니다. 업로드가 성공했음을 확인한 후에만 온-프레미스 데이터를 삭제합니다.
+완료될 때까지 작업을 추적합니다. 작업이 완료되면 데이터가 Azure에 업로드되었는지 확인합니다. 업로드가 성공했음을 확인한 후에만 온-프레미스 데이터를 삭제합니다. 자세한 내용은 [Import/Export 복사본 로그 검토](storage-import-export-tool-reviewing-job-status-v1.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [작업 및 드라이브 상태 보기](storage-import-export-view-drive-status.md)
-* [Import/Export 요구 사항 검토](storage-import-export-requirements.md)
+* [Import/Export 복사본 로그 검토](storage-import-export-tool-reviewing-job-status-v1.md)

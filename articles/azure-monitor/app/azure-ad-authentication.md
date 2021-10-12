@@ -3,12 +3,12 @@ title: Application Insights에 대한 Azure AD 인증(미리 보기)
 description: Azure Active Directory(Azure AD) 인증을 사용하도록 설정하여 Application Insights 리소스에 인증된 원격 분석만 수집 확인하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/02/2021
-ms.openlocfilehash: 573a7807f6561dfb326bfa247b12ccafa0857152
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: b38e3498ae61c9639c71eb358a4089dc59243616
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129359879"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857714"
 ---
 # <a name="azure-ad-authentication-for-application-insights-preview"></a>Application Insights에 대한 Azure AD 인증(미리 보기)
 이제 Application Insights는 Azure AD(Azure Active Directory) 기반 인증을 지원합니다. Azure AD를 사용하여 Application Insights 리소스에 인증된 원격 분석만 수집되도록 할 수 있습니다. 
@@ -135,7 +135,7 @@ appInsights.defaultClient.aadTokenCredential = credential;
 > [!NOTE]
 > Application Insights Java 에이전트의 Azure AD에 대한 지원은 [Java 3.2.0-BETA](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0-BETA)부터 포함됩니다. 
 
-1. [Java 에이전트를 사용하여 애플리케이션을 구성합니다.](java-in-process-agent.md#quickstart)
+1. [Java 에이전트를 사용하여 애플리케이션을 구성합니다.](java-in-process-agent.md#get-started)
 
     > [!IMPORTANT]
     > Java 에이전트를 사용 하 여 앱을 구성 하는 동안 "IngestionEndpoint"를 포함 하는 전체 연결 문자열을 사용 합니다. 예: `InstrumentationKey=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX;IngestionEndpoint=https://XXXX.applicationinsights.azure.com/`.
@@ -290,7 +290,7 @@ Azure Portal, Azure Policy를 사용하거나 프로그래밍 방식으로 로�
 
 ### <a name="azure-policy"></a>Azure Policy 
 
-' disablelocalauth '의 Azure Policy는 사용자가이 속성을 ' t r u e '로 설정 하지 않고 새 Application Insights 리소스를 만들도록 거부 됩니다. 정책 이름은 ' Application Insights 구성 요소가 AAD 인증을 수집 하지 않도록 차단 해야 합니다. '입니다.
+' disablelocalauth '의 Azure Policy는 사용자가이 속성을 ' t r u e '로 설정 하지 않고 새 Application Insights 리소스를 만들도록 거부 됩니다. 정책 이름은 ' Application Insights 구성 요소가 AAD 되지 않은 인증 수집을 차단 해야 합니다. '입니다.
 
 구독에 이 정책 정의를 적용하려면 [새 정책 할당을 만들고 정책을 할당](../../governance/policy/assign-policy-portal.md)합니다.
 
@@ -434,7 +434,7 @@ Azure Portal, Azure Policy를 사용하거나 프로그래밍 방식으로 로�
 
 Application Insights .NET SDK는 이벤트 원본을 사용하여 오류 로그를 내보냅니다. 이벤트 원본 로그 수집에 대한 자세한 내용은 [PerfView를 사용하여 데이터 수집 로그 없음 문제 해결](asp-net-troubleshoot-no-data.md#PerfView)을 참조합니다.
 
-SDK에서 토큰을 가져오지 못하면 "AAD 토큰을 가져오지 못했습니다." 라는 오류 메시지가 기록 됩니다. 오류 메시지: "
+SDK가 토큰을 가져오지 못하면 예외 메시지가 다음과 같이 기록 됩니다. "AAD 토큰을 가져오지 못했습니다. 오류 메시지: "
 
 ### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 

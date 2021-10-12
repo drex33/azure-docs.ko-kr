@@ -10,12 +10,12 @@ ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cf0a84d97a291850b6e89164befce8e4da2308b3
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: a9a7c822d6a88d9108a3d933ac3b8321eb856f05
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110477675"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129855406"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>.NET에서 Blob 스냅샷 만들기 및 관리
 
@@ -32,7 +32,7 @@ Azure Storage의 Blob 스냅샷에 대한 자세한 내용은 [Blob 스냅샷](s
 - [CreateSnapshot](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.createsnapshot)
 - [CreateSnapshotAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.createsnapshotasync)
 
-다음 코드 예에서는 버전 12.x에서 스냅샷을 만드는 방법을 보여 줍니다. Azure AD 자격 증명을 사용하여 서비스에 대한 요청을 승인하려면 [Azure.Identity](https://www.nuget.org/packages/azure.identity) 라이브러리에 대한 참조를 포함합니다.
+다음 코드 예에서는 버전 12.x에서 스냅샷을 만드는 방법을 보여 줍니다. Azure AD 자격 증명을 사용하여 서비스에 대한 요청을 승인하려면 [Azure.Identity](https://www.nuget.org/packages/azure.identity) 라이브러리에 대한 참조를 포함합니다. [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) 클래스를 사용하여 관리 ID에 Azure Storage 액세스 권한을 부여하는 자세한 내용은 [.NET용 Azure ID 클라이언트 라이브러리를](/dotnet/api/overview/azure/identity-readme)참조하세요.
 
 ```csharp
 private static async Task CreateBlockBlobSnapshot(string accountName, string containerName, string blobName, Stream data)

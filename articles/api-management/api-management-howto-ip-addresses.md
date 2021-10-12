@@ -7,13 +7,14 @@ author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 04/13/2021
-ms.author: danlep
-ms.openlocfilehash: d0fe9c305b9592aad7b08437d6e9d14150748ed6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.author: apimpm
+ms.custom: fasttrack-edit
+ms.openlocfilehash: fe5f282150aae2103d20963416f390bf159c48ea
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128680740"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129856888"
 ---
 # <a name="ip-addresses-of-azure-api-management"></a>Azure API Management의 IP 주소
 
@@ -57,7 +58,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/
 
 API Management 서비스가 가상 네트워크 내에 있는 경우 공용 및 개인이라는 두 가지 유형의 IP 주소를 가지게 됩니다.
 
-공용 IP 주소는 구성을 관리하기 위해 포트 `3443`에 대한 내부 통신에 사용됩니다(예: Azure Resource Manager를 통해). 외부 VNet 구성에서는 런타임 API 트래픽에도 사용됩니다. API Management에서 퍼블릭(인터넷 연결) 백 엔드로 요청이 전송되면 공용 IP 주소가 요청의 원본으로 표시됩니다.
+공용 IP 주소는 구성을 관리하기 위해 포트 `3443`에 대한 내부 통신에 사용됩니다(예: Azure Resource Manager를 통해). 외부 VNet 구성에서는 런타임 API 트래픽에도 사용됩니다. 
 
 [내부 VNet 모드](api-management-using-with-internal-vnet.md)**에서만** 사용 가능한 VIP(개인 가상 IP) 주소는 네트워크 내에서 API Management 엔드포인트-게이트웨이, 개발자 포털, 직접 API 액세스를 위한 관리 평면에 연결하는 데 사용됩니다. 네트워크 내에서 DNS 레코드를 설정하는 데 이를 사용할 수 있습니다.
 
@@ -85,7 +86,11 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/
 }
 ```
 
-API Management는 VNet 외부의 연결에 대한 공용 IP 주소와 VNet 내의 연결에 대한 개인 IP 주소를 사용합니다.
+API Management는 VNet 외부의 연결에 대한 공용 IP 주소와 VNet 내의 연결에 대한 개인 IP 주소를 사용합니다. 
+
+API management가 [내부 VNet 구성](api-management-using-with-internal-vnet.md) 에 배포 되 고 api management가 개인 (인트라넷 연결) 백 엔드에 연결 되는 경우 서브넷의 내부 IP 주소는 런타임 API 트래픽에 사용 됩니다. API Management에서 개인 백 엔드로 요청을 보내면 개인 IP 주소가 요청의 원본으로 표시 됩니다. 따라서이 구성에서는 API Management와 내부 백 엔드 간의 트래픽을 제한 하는 요구 사항이 있는 경우 API Management 리소스와 연결 된 개인 IP 주소 뿐만 아니라 IP 규칙을 사용 하 여 전체 API Management 서브넷 접두사를 사용 하는 것이 좋습니다. 
+
+API Management에서 공용 (인터넷 연결) 백 엔드로 요청이 전송 되 면 공용 IP 주소는 항상 요청의 원본으로 표시 됩니다.
 
 ## <a name="ip-addresses-of-consumption-tier-api-management-service"></a>소비 계층 API Management 서비스의 IP 주소
 

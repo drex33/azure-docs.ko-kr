@@ -7,12 +7,12 @@ ms.date: 03/03/2021
 ms.author: thweiss
 author: ThomasWeiss
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: eb448630424939ef7d17144c6c0d385474fdf917
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
-ms.translationtype: HT
+ms.openlocfilehash: 61e836fcb07045ce25df02ba48823ac5a2d70762
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113360256"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129859307"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Azure Cosmos DB에서 IP 방화벽 구성
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -108,7 +108,7 @@ Azure Cosmos DB를 사용하여 중간 계층 서비스를 호스트하는 데 [
 
 방화벽 설정에 추가할 아웃바운드 IP 범위의 현재 목록에 액세스하려면 [Azure IP 범위 및 서비스 태그 다운로드](https://www.microsoft.com/download/details.aspx?id=56519)를 참조하세요.
 
-목록을 자동화하려면 [서비스 태그 검색 API 사용(공개 미리 보기)](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview)을 참조하세요.
+목록을 자동화 하려면 [서비스 태그 검색 API 사용](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api)을 참조 하세요.
 
 ## <a name="configure-an-ip-firewall-by-using-a-resource-manager-template"></a><a id="configure-ip-firewall-arm"></a>Resource Manager 템플릿을 사용하여 IP 방화벽 구성
 

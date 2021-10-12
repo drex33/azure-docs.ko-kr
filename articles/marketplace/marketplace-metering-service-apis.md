@@ -4,15 +4,15 @@ description: 사용량 이벤트 API를 사용하여 Microsoft AppSource 및 Azu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 10/12/2021
 author: saasguide
 ms.author: souchak
-ms.openlocfilehash: 85bc266dcd1434a7d28eb642376bea32c94c3610
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 056fd364902ccd530b1aa2d540cd7d0457e0276b
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129457129"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129855862"
 ---
 # <a name="marketplace-metered-billing-apis"></a>Marketplace 요금제 청구 API
 
@@ -164,8 +164,12 @@ OK. 추가 처리 및 청구를 위해 Microsoft 측에서 사용량 내보내�
 | `authorization`      | 이 API 호출을 수행하는 ISV를 식별하는 고유한 액세스 토큰입니다. 다음에 설명된 대로 게시자가 토큰 값을 검색하는 경우 형식은 `Bearer <access_token>`입니다. <br> <ul> <li> [HTTP POST를 사용하여 토큰 가져오기](partner-center-portal/pc-saas-registration.md#get-the-token-with-an-http-post)의 SaaS </li> <li> [인증 전략](./marketplace-metering-service-authentication.md)의 관리형 애플리케이션 </li> </ul> |
 | | |
 
+>[!NOTE]
+>요청 본문에서 리소스 식별자는 SaaS 앱 및 사용자 지정 미터를 내보내는 Azure 관리형 앱에 대해 서로 다른 의미를 줍니다. SaaS 앱의 리소스 식별자는 `resourceID` 입니다. Azure 애플리케이션 Managed Apps 계획의 리소스 식별자는 `resourceUri` 입니다.
 
-*요청 본문 예제:*
+SaaS 제품의 경우 `resourceId`는 SaaS 구독 ID입니다. SaaS 구독에 대한 자세한 내용은 [구독 나열](partner-center-portal/pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions)을 참조하세요.
+
+*SaaS 앱에 대한 요청 본문 예제:*
 
 ```json
 {
@@ -188,12 +192,30 @@ OK. 추가 처리 및 청구를 위해 Microsoft 측에서 사용량 내보내�
 }
 ```
 
->[!NOTE]
->`resourceId`는 SaaS 앱과 사용자 지정 요금제를 내보내는 관리 앱에 대해 서로 다른 의미를 갖습니다. 
+Azure 애플리케이션 관리형 앱 플랜의 경우 `resourceUri`는 관리 앱 `resource group Id`입니다. 이를 인출하는 예제 스크립트는 [Azure 관리 ID 토큰 사용](marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token)에서 찾을 수 있습니다. 
 
-Azure 애플리케이션 관리형 앱 플랜의 경우 `resourceId`는 관리 앱 `resource group Id`입니다. 이를 인출하는 예제 스크립트는 [Azure 관리 ID 토큰 사용](marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token)에서 찾을 수 있습니다. 
+*Azure 애플리케이션 관리되는 앱에 대한 요청 본문 예제:*
 
-SaaS 제품의 경우 `resourceId`는 SaaS 구독 ID입니다. SaaS 구독에 대한 자세한 내용은 [구독 나열](partner-center-portal/pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions)을 참조하세요.
+```json
+{
+  "request": [ // list of usage events for the same or different resources of the publisher
+    { // first event
+      "resourceUri": "<guid1>", // Unique identifier of the resource against which usage is emitted. 
+      "quantity": 5.0, // how many units were consumed for the date and hour specified in effectiveStartTime, must be greater than 0, can be integer or float value
+      "dimension": "dim1", //Custom dimension identifier
+      "effectiveStartTime": "2018-12-01T08:30:14",//Time in UTC when the usage event occurred, from now and until 24 hours back
+      "planId": "plan1", // id of the plan purchased for the offer
+    },
+    { // next event
+      "resourceId": "<guid2>", 
+      "quantity": 39.0, 
+      "dimension": "email", 
+      "effectiveStartTime": "2018-11-01T23:33:10
+      "planId": "gold", // id of the plan purchased for the offer
+    }
+  ]
+}
+```
 
 ### <a name="responses"></a>응답
 

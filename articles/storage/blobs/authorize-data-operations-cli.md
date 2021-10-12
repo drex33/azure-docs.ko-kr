@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b8dd3f6a81317abff79dce906c4a9c8ef6ea6484
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 537259315a766da179a47defc277da5abecc4779
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128680246"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129859155"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-with-azure-cli"></a>Azure CLI를 사용하여 Blob 데이터에 대한 액세스 권한을 부여하는 방법 선택
 
@@ -115,4 +115,4 @@ az storage container create \
 ## <a name="next-steps"></a>다음 단계
 
 - [Blob 데이터에 액세스하기 위한 Azure 역할 할당](assign-azure-role-data-access.md)
-- [Azure 리소스에 대한 관리 ID를 사용하여 Blob 및 큐 데이터에 대한 액세스 권한 부여](../common/storage-auth-aad-msi.md)
+- [Azure 리소스에 대한 관리 ID를 사용하여 Blob 데이터에 대한 액세스 권한 부여](authorize-managed-identity.md)

@@ -10,12 +10,12 @@ ms.date: 02/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
-ms.openlocfilehash: dae63f442c2e2df068cc3f17bb5355abd4b7de77
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e83be2c3e6f98d000dfe9623cb90478ec4452053
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128615627"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129859098"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-blob-data"></a>Azure AD 자격 증명을 통해 PowerShell 명령을 실행하여 Blob 데이터에 액세스하기
 
@@ -86,4 +86,4 @@ Azure PowerShell를 사용하여 로그인한 뒤 Azure AD 자격 증명을 사�
 ## <a name="next-steps"></a>다음 단계
 
 - [Blob 데이터에 액세스하기 위한 Azure 역할 할당](assign-azure-role-data-access.md)
-- [Azure 리소스에 대한 관리 ID를 사용하여 Blob 및 큐 데이터에 대한 액세스 권한 부여](../common/storage-auth-aad-msi.md)
+- [Azure 리소스에 대한 관리 ID를 사용하여 Blob 데이터에 대한 액세스 권한 부여](authorize-managed-identity.md)

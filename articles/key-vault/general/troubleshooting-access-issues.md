@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: c5fab8b856ff9c82a0de887dc9c322dbf541348b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: c4d82e0193d891f423245ce2743ad34ac7bcf5d1
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98791410"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129856490"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Azure 키 자격 증명 모음 액세스 정책 문제 해결
 
@@ -39,7 +39,12 @@ ms.locfileid: "98791410"
 
 ### <a name="how-can-i-assign-access-control-per-key-vault-object"></a>키 자격 증명 모음 개체별로 액세스 제어를 할당하려면 어떻게 해야 하나요? 
 
-비밀/키/인증서 액세스 제어 기능별 가용성은 여기, [자세히 알아보기](https://feedback.azure.com/forums/906355-azure-key-vault/suggestions/32213176-per-secret-key-certificate-access-control)에서 확인할 수 있습니다.
+Key Vault RBAC 권한 모델은 개체별 사용 권한을 허용합니다. 개별 키, 비밀 및 인증서 권한은 특정 시나리오에만 사용해야 합니다.
+
+-   계층 간에 액세스 제어를 분리해야 하는 다중 계층 애플리케이션
+
+-   여러 애플리케이션 간에 개별 비밀 공유
+
 
 ### <a name="how-can-i-provide-key-vault-authenticate-using-access-control-policy"></a>액세스 제어 정책을 사용하여 키 자격 증명 모음 인증을 제공하려면 어떻게 해야 하나요?
 

@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: e86ca684dccdf8d2c910024cb78cc04494bc61e2
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 0c5321625f9963a15527d8fb0edef73f0701bd6e
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129660118"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129856388"
 ---
 # <a name="dcsv2-series"></a>DCsv2 시리즈
 
@@ -22,7 +22,9 @@ DCsv2 시리즈 가상 머신을 사용하면 퍼블릭 클라우드에서 처�
 
 해당 머신은 SGX 기술을 사용하는 3.7GHz Intel® Xeon E-2288G(Coffee Lake)로 백업됩니다. Intel® Turbo Boost Max Technology 3.0을 사용하면 이 머신은 최대 5.0GHz까지 사용할 수 있습니다. 
 
-사용 사례로는 기밀 단체 데이터 공유, 사기 감지, 기밀 데이터베이스, 자금 세탁 방지, 블록체인, 기밀 사용 분석, 인텔리전스 분석, 기밀 기계 학습이 있습니다.
+[!NOTE] 추가 된 보안 상태에 대해 하이퍼 기능을 사용할 수 없습니다. 가격 책정은 DC 시리즈의 고유한 보안 기능 뿐만 아니라 물리적 vs 가상 코어의 뛰어난 성능을 기반으로 합니다.
+
+기밀 사용 사례에는 데이터베이스, 블록 체인, 단체 데이터 분석, 사기 감지, 사기 분석, 사용 분석, 인텔리전스 분석 및 기계 학습 등이 있습니다.
 
 ## <a name="configuration"></a>구성
 
@@ -51,7 +53,6 @@ DCsv2 시리즈 가상 머신을 사용하면 퍼블릭 클라우드에서 처�
 - [Azure Portal](./linux/quick-create-portal.md) 또는 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview)를 사용하여 DCsv2 VM 만들기
 - DCsv2 시리즈 VM은 [2세대 VM](./generation-2.md#creating-a-generation-2-vm)이며 `Gen2` 이미지만 지원합니다.
 - 현재 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all)에 나열된 지역에서만 사용할 수 있습니다.
-- 차세대 DC 시리즈 VM: [미리 보기 프로그램에 참가](https://aka.ms/intelgen3)
 
 ## <a name="more-sizes-and-information"></a>추가 크기 및 정보
 

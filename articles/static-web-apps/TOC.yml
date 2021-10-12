@@ -108,6 +108,8 @@
       href: publish-azure-resource-manager.md
     - name: Azure Front Door 추가
       href: front-door-manual.md
+    - name: 프로그래밍 방식으로 사용자 역할 설정
+      href: assign-roles-microsoft-graph.md
 - name: 참조
   items:
     - name: Azure CLI

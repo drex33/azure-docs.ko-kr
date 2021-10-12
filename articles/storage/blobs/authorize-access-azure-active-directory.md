@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: aefbd7c64ba243166a2122426a31f8a3996dd97d
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: fe6397b79ff37074342b40880aa5284e020cd8a1
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129361356"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129859197"
 ---
 # <a name="authorize-access-to-blobs-using-azure-active-directory"></a>Azure Active Directory를 사용하여 Blob에 대한 액세스 권한 부여
 
@@ -30,7 +30,7 @@ Azure AD를 통한 권한 부여는 모든 퍼블릭 지역 및 국가별 클라
 
 보안 주체(사용자, 그룹 또는 응용 프로그램)가 Blob 리소스에 액세스하려고 할 때 익명 액세스에 사용할 수 있는 Blob이 아닌 경우 요청에 권한이 부여되어야 합니다. Azure AD의 경우 리소스에 대한 액세스는 2단계 프로세스입니다. 먼저, 보안 주체의 ID가 인증되고 OAuth 2.0 토큰이 반환됩니다. 그런 다음 토큰은 Blob service에 대한 요청의 일부로 전달되고 서비스에서 지정된 리소스에 대한 액세스 권한을 부여하는 데 사용됩니다.
 
-인증 단계를 수행하려면 런타임 시 애플리케이션 요청에 OAuth 2.0 액세스 토큰이 있어야 합니다. 애플리케이션이 Azure VM, 가상 머신 확장 집합 또는 Azure Functions 앱과 같은 Azure 엔터티 내에서 실행되는 경우 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 사용하여 Blob 데이터에 액세스할 수 있습니다. Azure Blob service에 대한 관리 ID의 요청을 승인하는 방법을 알아보려면 [Azure Active Directory 및 Azure 리소스에 대한 관리 ID를 사용하여 Blob에 대한 액세스 승인](../common/storage-auth-aad-msi.md)을 참조하세요.
+인증 단계를 수행하려면 런타임 시 애플리케이션 요청에 OAuth 2.0 액세스 토큰이 있어야 합니다. 애플리케이션이 Azure VM, 가상 머신 확장 집합 또는 Azure Functions 앱과 같은 Azure 엔터티 내에서 실행되는 경우 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 사용하여 Blob 데이터에 액세스할 수 있습니다. 관리 ID에서 Azure Blob service 대한 요청에 권한을 부여하는 방법을 알아보려면 Azure [리소스에 대한 관리 ID를 사용하여 Blob 데이터에 대한 액세스 권한 부여를 참조하세요.](authorize-managed-identity.md)
 
 권한 부여 단계에서는 보안 주체에 하나 이상의 Azure 역할을 할당해야 합니다. Azure Storage는 Blob 및 큐 데이터에 대한 일반적인 사용 권한 집합을 포함하는 Azure 역할을 제공합니다. 보안 주체에 할당된 역할에 따라 보안 주체가 가지는 권한이 결정됩니다. Blob 액세스를 위한 Azure 역할 할당에 대한 자세한 내용은 [BLOB 데이터 액세스를 위한 Azure 역할 할당](../blobs/assign-azure-role-data-access.md)을 참조하세요.
 
@@ -107,8 +107,8 @@ Azure Portal은 컨테이너로 이동할 때 사용 중인 권한 부여 체계
 
 | Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![예](../media/icons/no-icon.png) |
-| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png)| ![예](../media/icons/no-icon.png) |
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![아니요](../media/icons/no-icon.png) |
+| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png)| ![아니요](../media/icons/no-icon.png) |
 
 <sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
 

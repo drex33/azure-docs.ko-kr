@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: dc89bfcd3d89e6987c2c8b742f5fe2453c273fc7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 8aac6f90880775c5a1d7002048c79257b4e5ab85
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536675"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129855900"
 ---
 # <a name="indexer-access-to-content-protected-by-azure-network-security-features"></a>Azure 네트워크 보안 기능으로 보호되는 콘텐츠에 대한 인덱서 액세스
 
@@ -76,7 +76,7 @@ Azure Cognitive Search 인덱서는 데이터 원본에서 콘텐츠를 효율�
 인덱서가 액세스하려는 리소스가 특정한 IP 범위 세트로만 제한되는 경우 인덱서 요청이 시작될 수 있는 가능한 IP 범위를 포함하도록 이 세트를 확장해야 합니다. 위에서 설명한 것처럼 인덱서를 실행하고 액세스 요청을 시작할 수 있는 가능한 두 가지 환경이 있습니다. 인덱서 액세스가 작동하려면 **두** 환경의 IP 주소를 추가해야 합니다.
 
 - 검색 서비스별 프라이빗 환경의 IP 주소를 얻으려면 검색 서비스의 FQDN(정규화 된 도메인 이름)을 `nslookup`(또는 `ping`)합니다. 예를 들어 퍼블릭 클라우드에서 검색 서비스의 FQDN은 `<service-name>.search.windows.net`일 수 있습니다. 이 정보는 Azure Portal에서 사용할 수 있습니다.
-- 다중 테넌트 환경의 IP 주소는 `AzureCognitiveSearch` 서비스 태그를 통해 확인할 수 있습니다. [Azure 서비스 태그](../virtual-network/service-tags-overview.md)에는 각 서비스에 대한 IP 주소의 게시된 범위가 있는데, [검색 API(미리 보기)](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) 또는 [다운로드 가능한 JSON 파일](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)을 통해 확인할 수 있습니다. 두 경우 모두, IP 범위는 지역별로 분할됩니다. 검색 서비스가 프로비저닝되는 지역에 할당된 IP 범위만 선택할 수 있습니다.
+- 다중 테넌트 환경의 IP 주소는 `AzureCognitiveSearch` 서비스 태그를 통해 확인할 수 있습니다. [Azure 서비스 태그](../virtual-network/service-tags-overview.md) 에는 각 서비스에 대 한 IP 주소의 게시 된 범위가 있습니다 .이는 [검색 API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) 또는 [다운로드 가능한 JSON 파일](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)을 통해 사용할 수 있습니다. 두 경우 모두, IP 범위는 지역별로 분할됩니다. 검색 서비스가 프로비저닝되는 지역에 할당된 IP 범위만 선택할 수 있습니다.
 
 특정 데이터 원본의 경우에는 IP 범위 목록을 열거하는 대신 서비스 태그 자체를 직접 사용할 수 있습니다. 검색 서비스의 IP 주소는 계속해서 명시적으로 사용해야 합니다. 해당 데이터 원본은 Azure Storage, Cosmos DB, Azure SQL 등에서 제공하는 것과 같은 IP 규칙과 달리 기본적으로 서비스 태그 추가를 지원하는 [네트워크 보안 그룹 규칙](../virtual-network/network-security-groups-overview.md)을 설정하여 액세스를 제한합니다. 검색 서비스 IP 주소 외에도 `AzureCognitiveSearch` 서비스 태그를 직접 활용하는 기능을 지원하는 데이터 원본은 다음과 같습니다.
 

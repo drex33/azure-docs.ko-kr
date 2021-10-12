@@ -11,12 +11,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: bf35868d67dab2cb48aee5c85b964f86abd912e3
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 74dea2337bb40469e4d4e94117df080960faca53
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128653781"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858775"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Azure IoT Central에 연결
 
@@ -75,7 +75,7 @@ X.509 인증서가 있는 디바이스를 애플리케이션에 연결하려면 
 
 디바이스 SAS 키가 있는 디바이스를 애플리케이션에 연결하려면 다음을 수행합니다.
 
-1. **SAS(공유 액세스 서명)** 증명 유형을 사용하는 *등록 그룹* 을 만듭니다.
+1. **SAS(공유 액세스 서명)** 증명 유형을 사용하는 *등록 그룹* 을 만듭니다. 
 1. 등록 그룹에서 그룹 기본 또는 보조 키를 복사합니다.
 1. Azure CLI를 사용하여 그룹 키에서 디바이스 키를 생성합니다.
 
@@ -84,6 +84,9 @@ X.509 인증서가 있는 디바이스를 애플리케이션에 연결하려면 
     ```
 
 1. 디바이스에서 IoT Central 애플리케이션에 연결할 때 생성된 디바이스 키를 사용합니다.
+
+> [!NOTE]
+> 등록 그룹에서 기존 SAS 키를 사용 하려면 SAS 키의 **키 자동 생성** 설정/해제 및 입력을 사용 하지 않도록 설정 합니다.
 
 ## <a name="individual-enrollment"></a>개별 등록
 
@@ -190,7 +193,7 @@ IoT Central 애플리케이션은 디바이스에서 보낸 모델 ID를 사용�
 "@id": "dtmi:com:example:Thermostat;1"
 ```
 
-다음 DPS 페이로드를 사용 하 여 장치를 장치 템플릿에 연결 합니다.
+다음 DPS 페이로드를 사용하여 디바이스를 디바이스 템플릿에 연결합니다.
 
 ```json
 {
@@ -198,7 +201,7 @@ IoT Central 애플리케이션은 디바이스에서 보낸 모델 ID를 사용�
 }
 ```
 
-DPS 페이로드에 대 한 자세한 내용은 [자습서: 클라이언트 응용 프로그램을 만들어 Azure IoT 중앙 응용 프로그램에 연결](tutorial-connect-device.md)에 사용 된 샘플 코드를 참조 하세요.
+DPS 페이로드에 대해 자세히 알아보려면 [자습서: 클라이언트 애플리케이션 만들기 및 Azure IoT Central 애플리케이션에 연결에](tutorial-connect-device.md)사용된 샘플 코드를 참조하세요.
 
 ## <a name="device-status-values"></a>디바이스 상태 값
 

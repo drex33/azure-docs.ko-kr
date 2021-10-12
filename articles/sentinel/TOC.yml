@@ -188,6 +188,8 @@
               href: import-export-analytics-rules.md
             - name: SOC-ML 변칙 규칙 작업
               href: work-with-anomaly-rules.md
+            - name: 분석 규칙에 대한 템플릿 버전 관리
+              href: manage-analytics-rule-templates.md
         - name: UEBA(사용자 및 엔터티 동작 분석) 사용
           href: enable-entity-behavior-analytics.md
         - name: SOC-ML 변칙 규칙 작업

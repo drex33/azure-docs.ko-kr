@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/15/2021
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 8b53f906eed0df4c6dddbaa64f460cb7a8898a5e
-ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
-ms.translationtype: HT
+ms.openlocfilehash: 34938a6d5e52912db8d82b39bed3fdbad9f4814c
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113492652"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129859023"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어를 사용하여 Key Vault 키, 인증서 및 비밀에 대한 액세스 제공
 
@@ -28,6 +28,21 @@ Azure RBAC를 통해 사용자는 키, 비밀 및 인증서 권한을 관리할 
 Azure RBAC 모델은 관리 그룹, 구독, 리소스 그룹 또는 개별 리소스의 다양한 범위 수준에서 사용 권한을 설정하는 기능을 제공합니다.  키 자격 증명 모음에 대한 Azure RBAC는 개별 키, 비밀 및 인증서에 대한 별도의 권한을 제공하는 기능도 제공합니다.
 
 자세한 내용은 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 참조하세요.
+
+## <a name="best-practices-for-individual-keys-secrets-and-certificates"></a>개별 키, 비밀 및 인증서에 대한 모범 사례
+
+환경별로 애플리케이션당 자격 증명 모음을 사용하는 것이 좋습니다(개발, 사전 프로덕션 및 프로덕션).
+
+개별 키, 비밀 및 인증서 권한은 특정 시나리오에만 사용해야 합니다.
+
+-   계층 간에 액세스 제어를 분리해야 하는 다중 계층 애플리케이션
+
+-   여러 애플리케이션 간에 개별 비밀 공유
+
+Azure Key Vault 관리 지침에 대한 자세한 내용은 다음을 참조하세요.
+
+- [Azure Key Vault 모범 사례](best-practices.md)
+- [Azure Key Vault 서비스 제한 사항](service-limits.md)
 
 ## <a name="azure-built-in-roles-for-key-vault-data-plane-operations"></a>Key Vault 데이터 평면 작업을 위한 Azure 기본 제공 역할
 

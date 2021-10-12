@@ -6,12 +6,12 @@ ms.date: 11/25/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 09beb020680429b09bc7470da186eede47065cc4
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: cbfdc8c7e07a68335083c529e545143a513b1808
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129616895"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858275"
 ---
 # <a name="upgrading-from-application-insights-java-2x-sdk"></a>Application Insights Java 2.x SDK에서 업그레이드
 
@@ -123,7 +123,7 @@ Application Insights Java 3.x는 로깅 어펜더를 구성할 필요 없이 [�
 ## <a name="2x-sdk-spring-boot-starter"></a>2.x SDK Spring Boot Starter
 
 Java 3.x Spring Boot Starter에는 Application Insights가 없습니다.
-3.x 설정 및 구성은 Spring Boot 사용 여부에 관계없이 동일한 [간단한 단계](./java-in-process-agent.md#quickstart)를 따릅니다.
+3.x 설정 및 구성은 Spring Boot 사용 여부에 관계없이 동일한 [간단한 단계](./java-in-process-agent.md#get-started)를 따릅니다.
 
 Application Insights Java 2.x SDK Spring Boot Starter에서 업그레이드할 때 클라우드 역할 이름이 더 이상 `spring.application.name`으로 기본 설정되지 않습니다.
 json 구성 또는 환경 변수를 통해 3.x에서 클라우드 역할 이름을 설정하려면 [3.x 구성 문서](./java-standalone-config.md#cloud-role-name)를 참조하세요.

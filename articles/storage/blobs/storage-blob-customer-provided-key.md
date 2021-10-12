@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c3096da8b3c83dbfe8cfdd6a5fa4d177241334de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: b6f7001b9eabd34774930378d0656b4ad7ef3c25
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97693511"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857800"
 ---
 # <a name="specify-a-customer-provided-key-on-a-request-to-blob-storage-with-net"></a>.NET을 사용하여 Blob Storage에 대한 요청에 고객이 제공한 키를 지정합니다.
 
@@ -29,7 +29,7 @@ Azure ID 클라이언트 라이브러리로 인증하는 방법에 대한 자세
 
 ## <a name="use-a-customer-provided-key-to-write-to-a-blob"></a>고객이 제공한 키를 사용하여 Blob에 쓰기
 
-다음 예에서는 Blob Storage용 v12 클라이언트 라이브러리를 사용하여 Blob을 업로드할 때 AES-256 키를 제공합니다. 이 예에서는 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) 개체를 사용하여 Azure AD에서 쓰기 요청에 권한을 부여하지만 공유 키 자격 증명으로 요청에 권한을 부여할 수도 있습니다.
+다음 예에서는 Blob Storage용 v12 클라이언트 라이브러리를 사용하여 Blob을 업로드할 때 AES-256 키를 제공합니다. 이 예에서는 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) 개체를 사용하여 Azure AD에서 쓰기 요청에 권한을 부여하지만 공유 키 자격 증명으로 요청에 권한을 부여할 수도 있습니다. DefaultAzureCredential 클래스를 사용 하 여 Azure Storage에 대 한 액세스 권한을 관리 되는 id에 부여 하는 방법에 대 한 자세한 내용은 [.net 용 Azure id 클라이언트 라이브러리](/dotnet/api/overview/azure/identity-readme)를 참조 하세요.
 
 ```csharp
 async static Task UploadBlobWithClientKey(Uri blobUri,

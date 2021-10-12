@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 410d5daf67d590d84801a23627b5ce46e26367f5
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: bd9224537be7559a325b30a71fb72eab07a71bd0
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129357572"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129855368"
 ---
 # <a name="authorize-access-to-queues-using-azure-active-directory"></a>Azure Active Directory를 사용하여 큐에 대한 액세스 권한 부여
 
@@ -28,7 +28,7 @@ Azure AD를 통한 권한 부여는 모든 공용 지역 및 국가 클라우드
 
 보안 주체(사용자, 그룹 또는 응용 프로그램)가 대기열 리소스에 액세스하려고 하면 요청이 승인되어야 합니다. Azure AD의 경우 리소스에 대한 액세스는 2단계 프로세스입니다. 먼저, 보안 주체의 ID가 인증되고 OAuth 2.0 토큰이 반환됩니다. 다음으로 토큰은 큐 서비스에 대한 요청의 일부로 전달되고 서비스에서 지정된 리소스에 대한 액세스 권한을 부여하는 데 사용됩니다.
 
-인증 단계를 수행하려면 런타임 시 애플리케이션 요청에 OAuth 2.0 액세스 토큰이 있어야 합니다. 애플리케이션이 Azure VM, 가상 머신 확장 집합 또는 Azure Functions 앱과 같은 Azure 엔터티 내에서 실행되는 경우 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 사용하여 큐에 액세스할 수 있습니다. 관리 ID의 요청을 승인하는 방법을 알아보려면 [Azure 리소스에 대한 Azure Active Directory 및 관리 ID를 사용하여 대기열에 대한 액세스 승인](../common/storage-auth-aad-msi.md)을 참조하세요.
+인증 단계를 수행하려면 런타임 시 애플리케이션 요청에 OAuth 2.0 액세스 토큰이 있어야 합니다. 애플리케이션이 Azure VM, 가상 머신 확장 집합 또는 Azure Functions 앱과 같은 Azure 엔터티 내에서 실행되는 경우 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 사용하여 큐에 액세스할 수 있습니다. 관리 id에 의해 수행 된 요청에 권한을 부여 하는 방법에 [대 한 자세한 내용은 Azure 리소스에 대 한 관리 id로 큐 데이터에 대 한 액세스 권한 부여](authorize-managed-identity.md)
 
 권한 부여 단계에서는 보안 주체에 하나 이상의 Azure 역할을 할당해야 합니다. Azure Storage는 큐 데이터에 대한 공통 권한 집합을 포함하는 Azure 역할을 제공합니다. 보안 주체에 할당된 역할에 따라 해당 주체가 갖게 될 권한이 결정됩니다. 대기열 액세스를 위한 Azure 역할 할당에 대한 자세한 내용은 [대기열 데이터에 대한 액세스를 위한 Azure 역할 할당](../queues/assign-azure-role-data-access.md)을 참조하세요.
 

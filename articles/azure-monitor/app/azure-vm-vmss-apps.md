@@ -4,12 +4,12 @@ description: Azure VM 및 Azure Virtual Machine Scale Sets에 대한 애플리�
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2fc5057826eda1856b5b3671b6a995e9e80468f5
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
-ms.translationtype: HT
+ms.openlocfilehash: d3f1d1a8a2e3262ba91339c7335fadda92d90cac
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114720653"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129856109"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 및 Azure 가상 머신 확장 집합에 Azure Monitor Application Insights 에이전트 배포
 
@@ -57,7 +57,7 @@ Azure Virtual Machines 및 Azure Virtual Machine Scale Sets 호스팅된 애플�
 
 #### <a name="java"></a>Java 
 
-Java 애플리케이션을 위한 추가적인 사용자 지정 원격 분석이 필요한 경우 [사용 가능한](./java-in-process-agent.md#send-custom-telemetry-from-your-application) 항목을 확인하거나 [사용자 지정 차원](./java-standalone-config.md#custom-dimensions)을 추가하거나 [원격 분석 프로세서](./java-standalone-telemetry-processors.md)를 사용합니다. 
+Java 애플리케이션을 위한 추가적인 사용자 지정 원격 분석이 필요한 경우 [사용 가능한](./java-in-process-agent.md#custom-telemetry) 항목을 확인하거나 [사용자 지정 차원](./java-standalone-config.md#custom-dimensions)을 추가하거나 [원격 분석 프로세서](./java-standalone-telemetry-processors.md)를 사용합니다. 
 
 #### <a name="nodejs"></a>Node.js
 

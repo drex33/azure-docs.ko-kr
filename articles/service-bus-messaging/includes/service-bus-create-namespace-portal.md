@@ -5,15 +5,15 @@ services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 09/01/2021
+ms.date: 10/08/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 2584bbcebf01072df93b66248d9674cd69d7b35f
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 2c614fd986d5657799e033e54c194eea7fe1677c
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123453560"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710673"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Azure Portal에서 네임스페이스 만들기
 Azure에서 Service Bus 메시징 엔터티 사용을 시작하려면 먼저 Azure에서 고유한 이름인 네임스페이스를 만들어야 합니다. 네임스페이스는 애플리케이션 내에서 Service Bus 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다.
@@ -44,15 +44,11 @@ Azure에서 Service Bus 메시징 엔터티 사용을 시작하려면 먼저 Azu
 ## <a name="get-the-connection-string"></a>연결 문자열 가져오기 
 새 네임 스페이스를 만들면 네임스페이스의 모든 측면에 대한 모든 권한을 부여하는 기본 및 보조 키의 연결된 쌍을 포함한 초기 SAS(공유 액세스 서명) 규칙이 자동으로 생성됩니다. 일반적인 보낸 사람과 받는 사람에 대해 자세히 제한된 권한이 적용된 규칙을 만드는 방법에 대한 자세한 내용은 [Service Bus 인증 및 권한 부여](../service-bus-authentication-and-authorization.md)를 참조하세요. 네임스페이스에 대한 기본 및 보조 키를 복사하려면 다음 단계를 수행합니다. 
 
-1. **모든 리소스** 를 클릭한 다음 새로 만든 네임스페이스 이름을 클릭합니다.
-2. 네임스페이스 창에서 **공유 액세스 정책** 을 클릭합니다.
-3. **공유 액세스 정책** 화면에서 **RootManageSharedAccessKey** 를 클릭합니다.
+1. **Service Bus 네임스페이스** 페이지의 왼쪽 메뉴에서 **공유 액세스 정책** 을 선택합니다.
+3. **공유 액세스 정책** 페이지에서 **RootManageSharedAccessKey** 를 선택합니다.
    
     :::image type="content" source="./media/service-bus-create-namespace-portal/connection-info.png" alt-text="스크린샷은 정책이 강조 표시된 공유 액세스 정책 창을 보여줍니다.":::
 4. **정책: RootManageSharedAccessKey** 창에서 **기본 연결 문자열** 옆의 복사 단추를 클릭하여 나중에 사용할 수 있도록 연결 문자열을 클립보드에 복사합니다. 메모장이나 기타 다른 위치에 임시로 이 값을 붙여 넣습니다.
    
     :::image type="content" source="./media/service-bus-create-namespace-portal/connection-string.png" alt-text="스크린샷은 키 및 연결 문자열을 포함하는 RootManageSharedAccessKey라는 S A S 정책을 보여줍니다.":::
-5. 이전 단계를 반복하여 나중에 사용할 수 있도록 **기본 키** 값을 임시 위치에 복사 및 붙여넣기합니다.
-
-<!--Image references-->
 

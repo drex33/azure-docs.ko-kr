@@ -7,18 +7,18 @@ ms.date: 08/17/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 23a9a47bcce81530890c466e19c6c5651104adeb
-ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
+ms.openlocfilehash: 8b6084f411ec948eb7655c5c7c6b54bf7d2e2c30
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129740802"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858984"
 ---
 # <a name="troubleshooting-issues-with-implementing-azure-policy-on-key-vault"></a>Key Vault Azure 정책 구현과 관련된 문제 해결
 
 이 문서에서는 Key Vault [대한 Azure Policy](./azure-policy.md)설정할 때 발생할 수 있는 일반적인 오류를 해결하는 방법을 안내하고 이를 해결하는 방법을 제안합니다.
 
-## <a name="about-azure-policy-for-key-vault"></a>azure policy for Key Vault 정보
+## <a name="about-azure-policy-for-key-vault"></a>Key Vault 대한 Azure 정책 정보
 
 [Azure Policy](../../governance/policy/index.yml)는 사용자에게 대규모로 Azure 환경을 감사 및 관리하는 기능을 제공하는 거버넌스 도구입니다. Azure Policy는 할당된 정책 규칙을 준수하도록 Azure 리소스에 가드 레일을 적용하는 기능을 제공합니다. 이를 통해 사용자는 Azure 환경의 감사, 실시간 적용 및 수정을 수행할 수 있습니다. 정책에 의해 수행되는 감사 결과는 규정 준수 대시보드의 사용자가 사용할 수 있으며, 여기에서 어떤 리소스와 구성 요소가 규정을 준수하는지 드릴다운할 수 있습니다.
 
@@ -29,11 +29,11 @@ ms.locfileid: "129740802"
 로깅을 사용하도록 설정하면 **AzurePolicyEvaluationDetails라는** 새 컨테이너가 자동으로 만들어지고 지정된 스토리지 계정에서 정책 관련 로깅 정보를 수집합니다. 
 
 > [!NOTE]
-> 중요한 정보를 포함할 수 있기 때문에 모니터링 데이터, 특히 로그 파일에 대한 액세스를 엄격하게 규제해야 합니다. 기본 제공 [모니터링 Azure 역할](https://docs.microsoft.com/azure/azure-monitor/roles-permissions-security) 적용 및 액세스 제한에 대해 알아봅니다.
+> 중요한 정보를 포함할 수 있기 때문에 모니터링 데이터, 특히 로그 파일에 대한 액세스를 엄격하게 규제해야 합니다. 기본 제공 [모니터링 Azure 역할](../../azure-monitor/roles-permissions-security.md) 적용 및 액세스 제한에 대해 알아봅니다.
 > 
 > 
 
-개별 Blob은 JSON Blob 형식으로 텍스트로 저장됩니다. 키 정책에 대한 로그 항목 예제를 살펴보겠습니다. [키는 만료 날짜가 로 설정되어 있어야 합니다.](https://docs.microsoft.com/azure/key-vault/general/azure-policy?tabs=keys#secrets-should-have-expiration-date-set-preview) 이 정책은 키 자격 증명 모음의 모든 키를 평가하고 만료 날짜가 비준수로 설정되지 않은 키에 플래그를 지정합니다.
+개별 Blob은 JSON Blob 형식으로 텍스트로 저장됩니다. 키 정책에 대한 로그 항목 예제를 살펴보겠습니다. [키는 만료 날짜가 로 설정되어 있어야 합니다.](azure-policy.md?tabs=keys#secrets-should-have-expiration-date-set-preview) 이 정책은 키 자격 증명 모음의 모든 키를 평가하고 만료 날짜가 비준수로 설정되지 않은 키에 플래그를 지정합니다.
 
 ```json
 {
@@ -137,10 +137,10 @@ Microsoft.KeyVault.Data: 삭제된 정책 할당은 적용을 중지하는 데 �
 
 #### <a name="secret-creation-via-arm-template-missing-out-policy-evaluation"></a>ARM 템플릿을 통한 비밀 만들기 정책 평가 누락
 
-비밀 만들기를 평가하는 데이터 평면 정책은 비밀을 만들 때 [ARM 템플릿을 통해 만든 비밀에](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template?tabs=CLI) 적용되지 않습니다. 24시간이 지나면 자동화된 준수 검사가 발생하고 규정 준수 결과를 검토할 수 있습니다.
+비밀 만들기를 평가하는 데이터 평면 정책은 비밀을 만들 때 [ARM 템플릿을 통해 만든 비밀에](../secrets/quick-create-template.md?tabs=CLI) 적용되지 않습니다. 24시간이 지나면 자동화된 준수 검사가 발생하고 규정 준수 결과를 검토할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Policy 사용하여 오류 문제를 해결하는](https://docs.microsoft.com/azure/governance/policy/troubleshoot/general) 방법을 알아봅니다.
+* [Azure Policy 사용하여 오류 문제를 해결하는](../../governance/policy/troubleshoot/general.md) 방법을 알아봅니다.
 * Azure Policy [알려진 문제에](https://github.com/azure/azure-policy#known-issues) 대해 알아보기

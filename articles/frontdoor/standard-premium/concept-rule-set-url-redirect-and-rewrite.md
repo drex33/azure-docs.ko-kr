@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: article
 ms.date: 02/18/2021
 ms.author: yuajia
-ms.openlocfilehash: 382a4c040c7a519462ee3e35119b9471031e0724
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 2e758560eed1ffb01117764f9399aa6f4f4b1395
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101100007"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857553"
 ---
 # <a name="url-redirect-and-url-rewrite-with-azure-front-door-standardpremium-preview"></a>Azure Front Door 표준/프리미엄(미리 보기)을 사용하여 URL 리디렉션 및 URL 다시 쓰기
 
@@ -45,7 +45,7 @@ Azure Front Door는 프로토콜, 호스트 이름, 경로, 쿼리 문자열 및
 ### <a name="redirection-protocol"></a>리디렉션 프로토콜
 리디렉션에 사용되는 프로토콜을 설정할 수 있습니다. 리디렉션 기능의 가장 일반적인 사용 사례는 HTTP에서 HTTPS로의 리디렉션을 설정하는 것입니다.
 
-* **HTTPS만 사용**: HTTP에서 HTTPS로 트래픽을 리디렉션하는 경우 프로토콜을 HTTPS만 사용으로 설정합니다. Azure Front Door는 항상 리디렉션을 HTTPS만 사용으로 설정할 것을 권장합니다.
+* **HTTPS만 사용**: HTTP에서 HTTPS로 트래픽을 리디렉션하는 경우 프로토콜을 HTTPS만 사용으로 설정합니다. Azure Front Door는 항상 리디렉션을 HTTPS로만 설정할 것을 권장합니다.
 * **HTTP만 사용**: 들어오는 요청을 HTTP로 리디렉션합니다. 트래픽을 HTTP(암호화되지 않음)로 유지하려는 경우에만 이 값을 사용합니다.
 * **요청 일치**: 이 옵션은 들어오는 요청에서 사용하는 프로토콜을 유지합니다. 따라서 리디렉션 후 HTTP 요청은 HTTP로 유지되고 HTTPS 요청은 HTTPS로 유지됩니다.
 
@@ -53,7 +53,7 @@ Azure Front Door는 프로토콜, 호스트 이름, 경로, 쿼리 문자열 및
 리디렉션 라우팅을 구성하는 과정에서 리디렉션 요청에 대한 호스트 이름 또는 도메인을 변경할 수도 있습니다. 이 필드를 리디렉션 URL의 호스트 이름으로 변경할 수도 있고, 들어오는 요청의 호스트 이름을 유지할 수도 있습니다. 따라서 이 필드를 사용하여 `https://www.contoso.com/*`으로 전송되는 모든 요청을 `https://www.fabrikam.com/*`으로 리디렉션할 수 있습니다.
 
 ### <a name="destination-path"></a>대상 경로
-리디렉션의 일부로 URL의 경로 세그먼트를 바꾸려는 경우 이 필드를 새 경로 값으로 설정할 수 있습니다. 그렇지 않으면 리디렉션의 일부로 경로 값을 유지하도록 선택할 수 있습니다. 따라서 이 필드를 사용하여 `https://www.contoso.com/\*`으로 전송되는 모든 요청을 `https://www.contoso.com/redirected-site`으로 리디렉션할 수 있습니다.
+리디렉션의 일부로 URL의 경로 세그먼트를 바꾸려는 경우 이 필드를 새 경로 값으로 설정할 수 있습니다. 그렇지 않으면 리디렉션의 일부로 경로 값을 유지하도록 선택할 수 있습니다. 따라서 이 필드를 사용하여 `https://www.contoso.com/\*`로 전송되는 모든 요청을 `https://www.contoso.com/redirected-site`로 리디렉션할 수 있습니다.
 
 ### <a name="query-string-parameters"></a>쿼리 문자열 매개 변수
 리디렉션되는 URL의 쿼리 문자열 매개 변수를 바꿀 수도 있습니다. 들어오는 요청 URL에서 기존 쿼리 문자열을 바꾸려면 이 필드를 '바꾸기'로 설정하고 적절한 값을 설정합니다. 그렇지 않으면 이 필드를 '유지'로 설정하여 원래 쿼리 문자열 집합을 유지할 수 있습니다. 예를 들어 이 필드를 사용하여 `https://www.contoso.com/foo/bar`로 전송되는 모든 트래픽을 `https://www.contoso.com/foo/bar?&utm_referrer=https%3A%2F%2Fwww.bing.com%2F`로 리디렉션할 수 있습니다. 
@@ -74,6 +74,10 @@ Azure Front Door는 원본으로 라우팅하는 요청의 경로를 다시 작�
 ### <a name="source-pattern"></a>원본 패턴
 
 원본 패턴은 바꾸려는 원본 요청의 URL 경로입니다. 현재, 원본 패턴은 접두사 기반 일치를 사용합니다. 모든 URL 경로를 일치시키려면 원본 패턴 값으로 슬래시(/)를 사용합니다.
+
+URL 재작성 원본 패턴의 경우 경로 구성 "패턴 일치" 후 경로만 고려 합니다. 예를 들어 다음과 같은 들어오는 URL 형식이 있는 경우 다시 `<Frontend-domain>/<route-patterns-to-match-path>/<Rule-URL-Rewrite-Source-pattern>` `/<Rule-URL-Rewrite-Source-pattern>` 작성할 원본 패턴으로 규칙 엔진에서 고려 됩니다. 따라서 소스 패턴 일치를 사용 하는 URL 재작성 규칙이 있는 경우 보내는 URL의 형식은이 됩니다 `<Frontend-domain>/<route-patterns-to-match-path>/<Rule-URL-Rewrite-destination>` .
+
+URL 경로의 세그먼트를 제거 해야 하는 시나리오의 경우 `/<route-patterns-to-match-path` 경로 구성에서 원본 그룹의 원본 경로를로 설정 합니다 `/` .
 
 ### <a name="destination"></a>대상
 

@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/14/2021
 ms.author: memildin
-ms.openlocfilehash: 71ea0e8227993c3f0a67f87f1e26c15f0f3119fd
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 76134a5da21056ca493911a7d1242cf8a269d067
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129713763"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129859003"
 ---
 # <a name="defend-azure-arc-enabled-kubernetes-clusters-running-in-on-premises-and-multi-cloud-environments"></a>온-프레미스 및 다중 클라우드 환경에서 실행되는 Azure Arc 지원 Kubernetes 클러스터 방어
 
@@ -44,12 +44,11 @@ AKS 이외의 모든 Kubernetes 클러스터의 경우 클러스터를 Azure Arc
 
 :::image type="content" source="media/defender-for-kubernetes-azure-arc/defender-for-kubernetes-architecture-overview.png" alt-text="Azure Defender for Kubernetes Azure Arc 지원 Kubernetes 클러스터 간의 상호 작용을 간략하게 설명하는 고급 아키텍처 다이어그램입니다." lightbox="media/defender-for-kubernetes-azure-arc/defender-for-kubernetes-architecture-overview.png":::
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 확장을 배포하기 전에 다음을 확인합니다.
 - [Kubernetes 클러스터를 Azure Arc 커넥트](../azure-arc/kubernetes/quickstart-connect-cluster.md)
 - 일반 [클러스터 확장 설명서 아래에 나열된 필수 구성을 완료합니다.](../azure-arc/kubernetes/extensions.md#prerequisites)
-- [Helm 3](https://helm.sh/docs/intro/install) 버전 3.7.0 이상
 - 아웃바운드 액세스를 위해 다음 엔드포인트에서 **포트 443을** 구성합니다.
     - Azure Government 클라우드의 클러스터:
         - *.ods.opinsights.azure.us
@@ -153,9 +152,9 @@ REST API를 사용하여 Azure Defender 확장을 배포하려면 구독에 Log 
 
     | Name            | In(다음 안에)   | 필수 | Type   | 설명                                  |
     |-----------------|------|----------|--------|----------------------------------------------|
-    | 구독 ID | 경로 | True     | 문자열 | Azure Arc 사용 Kubernetes 리소스의 구독 ID |
-    | 리소스 그룹  | 경로 | True     | 문자열 | Azure Arc 사용 Kubernetes 리소스를 포함 하는 리소스 그룹의 이름 |
-    | 클러스터 이름    | 경로 | True     | 문자열 | Azure Arc 사용 Kubernetes 리소스의 이름  |
+    | 구독 ID | 경로 | True     | 문자열 | Azure Arc 지원 Kubernetes 리소스의 구독 ID |
+    | 리소스 그룹  | 경로 | True     | 문자열 | Azure Arc 지원 Kubernetes 리소스를 포함하는 리소스 그룹의 이름 |
+    | 클러스터 이름    | 경로 | True     | 문자열 | Azure Arc 지원 Kubernetes 리소스의 이름  |
 
 
     **인증** 을 위해 헤더에는 다른 Azure API와 마찬가지로 전달자 토큰이 있어야 합니다. 전달자 토큰을 가져오려면 다음 명령을 실행합니다.
@@ -196,9 +195,9 @@ REST API를 사용하여 Azure Defender 확장을 배포하려면 구독에 Log 
 
 1. Azure Security Center의 권장 사항 페이지에서 **Azure Defender 사용** 보안 제어를 엽니다.
 
-1. Azure Arc 사용 Kubernetes 클러스터 라는 권장 사항을 선택 하 여 **Azure Defender의 확장이 설치 되어 있어야** 합니다.
+1. **Azure Defender 확장이 설치되어 있어야 하는 Azure Arc 지원 Kubernetes 클러스터라는** 권장 사항을 선택합니다.
 
-    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Arc 사용 Kubernetes 클러스터에 대 한 Azure Defender 확장 배포에 대 한 Azure Security Center의 권장 사항입니다." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Arc 지원 Kubernetes 클러스터에 대한 Azure Defender 확장을 배포하기 위한 Azure Security Center 권장 사항입니다." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
 1. 확장을 배포한 클러스터가 **정상** 으로 표시되는지 확인합니다.
 
@@ -294,7 +293,7 @@ REST API를 사용하여 Azure Defender 확장을 배포하려면 구독에 Log 
 1. 확장 페이지를 엽니다. 클러스터의 확장이 나열됩니다.
 1. 클러스터를 선택하고 **제거** 를 선택합니다.
 
-    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-uninstall-clusters-page.png" alt-text="Arc 사용 Kubernetes 클러스터에서 확장 제거" lightbox="media/defender-for-kubernetes-azure-arc/extension-uninstall-clusters-page.png":::
+    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-uninstall-clusters-page.png" alt-text="Arc 지원 Kubernetes 클러스터에서 확장을 제거합니다." lightbox="media/defender-for-kubernetes-azure-arc/extension-uninstall-clusters-page.png":::
 
 ### <a name="azure-cli"></a>[**Azure CLI**](#tab/k8s-remove-cli)
 

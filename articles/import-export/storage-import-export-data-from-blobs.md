@@ -1,24 +1,34 @@
 ---
-title: Azure Import/Export를 사용하여 Azure Blob에서 데이터 내보내기 | Microsoft Docs
+title: Azure Import/Export를 사용하여 Azure Blob 스토리지에서 데이터를 내보내기 위한 자습서 | Microsoft Docs
 description: Azure Portal에서 내보내기 작업을 만들어 Azure Blob에서 데이터를 전송하는 방법을 알아봅니다.
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: how-to
-ms.date: 03/03/2021
+ms.topic: tutorial
+ms.date: 10/01/2021
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
-ms.openlocfilehash: 32605a78336c8d9e1aeb730be50441d43b8fe45c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
-ms.translationtype: MT
+ms.custom: tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
+ms.openlocfilehash: ccda14f4046efe32370b206577807dca558d9f25
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128659137"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709656"
 ---
-# <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage에서 데이터 내보내기
+# <a name="tutorial-export-data-from-azure-blob-storage-with-azure-importexport"></a>자습서: Azure Import/Export를 사용하여 Azure Blob 스토리지에서 데이터 내보내기
 
 이 문서에서는 Azure Import/Export 서비스를 사용하여 Azure Blob Storage에서 많은 양의 데이터를 안전하게 내보내는 방법에 대한 단계별 지침을 제공합니다. 서비스를 사용하려면 빈 드라이브를 Azure 데이터 센터에 배송해야 합니다. 서비스에서 스토리지 계정의 데이터를 드라이브로 내보낸 다음, 드라이브를 다시 배송합니다.
+
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+
+> [!div class="checklist"]
+> * Azure Import/Export를 사용하여 Azure Blob 스토리지에서 데이터를 내보내기 위한 필수 조건
+> * 1단계: 내보내기 작업 만들기
+> * 2단계: 드라이브 배송
+> * 3단계: 추적 정보를 사용하여 작업 업데이트
+> * 4단계: 디스크 받기
+> * 5단계: 디스크 잠금 해제
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -27,7 +37,7 @@ ms.locfileid: "128659137"
 
 - Import/Export 서비스에 사용할 수 있는 활성 Azure 구독이 있어야 합니다.
 - Azure Storage 계정이 하나 이상 있어야 합니다. [Import/Export 서비스에 지원되는 스토리지 계정 및 스토리지 유형](storage-import-export-requirements.md) 목록을 참조하세요. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](../storage/common/storage-account-create.md)(영문)을 참조하세요.
-- [지원되는 형식](storage-import-export-requirements.md#supported-disks)에 속한 적절한 개수의 디스크가 있어야 합니다.
+- [지원되는 형식](storage-import-export-requirements.md#supported-disks)에 속한 적절한 개수의 디스크가 있어야 합니다. Azure Import/Export 도구를 사용하여 제공할 디스크 수를 결정할 수 있습니다. 단계는 [사용할 드라이브 결정](storage-import-export-determine-drives-for-export.md#determine-how-many-drives-you-need)을 참조하세요.
 - FedEx/DHL 계정이 있습니다. FedEx/DHL 이외의 운송업체를 사용하려면 `adbops@microsoft.com`에 있는 Azure Data Box 운영 팀에 문의하세요.
   - 계정은 유효해야 하고, 잔액이 있어야 하며, 반품 기능이 있어야 합니다.
   - 내보내기 작업의 추적 번호를 생성합니다.
@@ -83,7 +93,7 @@ ms.locfileid: "128659137"
         |옵션|Description|
         |------|-----------|      
         |**컨테이너 추가**|컨테이너의 모든 Blob을 내보냅니다.<br>**컨테이너 추가** 를 선택하고 각 컨테이너 이름을 입력합니다.|
-        |**Blob 추가**|내보낼 개별 Blob을 지정합니다.<br>**Blob 추가** 를 선택합니다. 그런 다음 컨테이너 이름으로 시작하는 Blob에 대한 상대 경로를 지정합니다. 루트 컨테이너를 지정하려면 *$root* 를 사용합니다.<br>처리 중에 오류가 발생하지 않도록 방지하려면 다음 스크린샷과 같이 유효한 형식의 Blob 경로를 제공해야 합니다. 자세한 내용은 [유효한 Blob 경로의 예](#examples-of-valid-blob-paths)를 참조하세요.|
+        |**Blob 추가**|내보낼 개별 Blob을 지정합니다.<br>**Blob 추가** 를 선택합니다. 그런 다음 컨테이너 이름으로 시작하는 Blob에 대한 상대 경로를 지정합니다. 루트 컨테이너를 지정하려면 *$root* 를 사용합니다.<br>처리 중에 오류가 발생하지 않도록 방지하려면 다음 스크린샷과 같이 유효한 형식의 Blob 경로를 제공해야 합니다. 자세한 내용은 [유효한 Blob 경로의 예](storage-import-export-determine-drives-for-export.md#examples-of-valid-blob-paths)를 참조하세요.|
         |**접두사 추가**|접두사를 사용하여 유사한 이름의 컨테이너 집합 또는 컨테이너의 유사한 이름의 Blob 집합을 선택합니다. 접두사는 컨테이너 이름의 접두사, 완전한 컨테이너 이름 또는 Blob 이름 접두사가 뒤에 오는 완전한 컨테이너 이름일 수 있습니다. |
 
         ![선택한 컨테이너 및 Blob 내보내기](./media/storage-import-export-data-from-blobs/export-from-blob-5.png)
@@ -126,61 +136,6 @@ ms.locfileid: "128659137"
    ![내보내기 주문을 검토하고 만듭니다.](./media/storage-import-export-data-from-blobs/export-from-blob-6-a.png)
 
  1. 유효성 검사를 통과하면 **만들기** 를 선택합니다.
-
-<!--Replaced text: Steps 4 - end of "Create an export job." Wizard design changes required both screen and text updates.
-
-4. In **Basics**:
-
-    - Select **Export from Azure**.
-    - Enter a descriptive name for the export job. Use the name you choose to track the progress of your jobs.
-        - The name may contain only lowercase letters, numbers, hyphens, and underscores.
-        - The name must start with a letter, and may not contain spaces.
-    - Select a subscription.
-    - Enter or select a resource group.
-
-        ![Basics](./media/storage-import-export-data-from-blobs/export-from-blob-3.png)
-
-5. In **Job details**:
-
-    - Select the storage account where the data to be exported resides. Use a storage account close to where you are located.
-    - The dropoff location is automatically populated based on the region of the storage account selected.
-    - Specify the blob data you wish to export from your storage account to your blank drive or drives.
-    - Choose to **Export all** blob data in the storage account.
-
-         ![Export all](./media/storage-import-export-data-from-blobs/export-from-blob-4.png)
-
-    - You can specify which containers and blobs to export.
-        - **To specify a blob to export**: Use the **Equal To** selector. Specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.
-        - **To specify all blobs starting with a prefix**: Use the **Starts With** selector. Specify the prefix, beginning with a forward slash '/'. The prefix may be the prefix of the container name, the complete container name, or the complete container name followed by the prefix of the blob name. You must provide the blob paths in valid format to avoid errors during processing, as shown in this screenshot. For more information, see [Examples of valid blob paths](#examples-of-valid-blob-paths).
-
-           ![Export selected containers and blobs](./media/storage-import-export-data-from-blobs/export-from-blob-5.png)
-
-    - You can export from  the blob list file.
-
-        ![Export from blob list file](./media/storage-import-export-data-from-blobs/export-from-blob-6.png)
-
-   > [!NOTE]
-   > If the blob to be exported is in use during data copy, Azure Import/Export service takes a snapshot of the blob and copies the snapshot.
-
-6. In **Return shipping info**:
-
-    - Select the carrier from the dropdown list. If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown. Contact Azure Data Box Operations team at `adbops@microsoft.com`  with the information regarding the carrier you plan to use.
-    - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your export job is complete.
-    - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province, and country/region.
-
-        > [!TIP]
-        > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
-
-7. In **Summary**:
-
-    - Review the details of the job.
-    - Make a note of the job name and provided Azure datacenter shipping address for shipping disks to Azure.
-
-        > [!NOTE]
-        > Always send the disks to the datacenter noted in the Azure portal. If the disks are shipped to the wrong datacenter, the job will not be processed.
-
-    - Click **OK** to complete export job creation.
--->
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -240,7 +195,7 @@ ms.locfileid: "128659137"
     blob-path-prefix=/myiecontainer
     ```
 
-   자세한 내용은 [유효한 Blob 경로의 예](#examples-of-valid-blob-paths)를 참조하세요.
+   자세한 내용은 [유효한 Blob 경로의 예](storage-import-export-determine-drives-for-export.md#examples-of-valid-blob-paths)를 참조하세요.
 
    > [!NOTE]
    > 내보낼 Blob가 데이터 복사 중에 사용되는 경우 Azure Import/Export 서비스는 Blob의 스냅샷을 가져와 해당 스냅샷을 복사합니다.
@@ -327,7 +282,7 @@ Install-Module -Name Az.ImportExport
    -ExportBlobListblobPath '/myiecontainer'
    ```
 
-   자세한 내용은 [유효한 Blob 경로의 예](#examples-of-valid-blob-paths)를 참조하세요.
+   자세한 내용은 [유효한 Blob 경로의 예](storage-import-export-determine-drives-for-export.md#examples-of-valid-blob-paths)를 참조하세요.
 
    > [!NOTE]
    > 내보낼 Blob가 데이터 복사 중에 사용되는 경우 Azure Import/Export 서비스는 Blob의 스냅샷을 가져와 해당 스냅샷을 복사합니다.
@@ -346,11 +301,9 @@ Install-Module -Name Az.ImportExport
 
 ---
 
-<!--## (Optional) Step 2: -->
-
 ## <a name="step-2-ship-the-drives"></a>2단계: 드라이브 배송
 
-필요한 드라이브 수를 알지 못하는 경우 [드라이브 수를 확인](#check-the-number-of-drives)합니다. 드라이브 수를 알고 있으면 드라이브 배송을 계속 진행합니다.
+필요한 드라이브 수를 모르는 경우 [필요한 드라이브 수 결정](storage-import-export-determine-drives-for-export.md#determine-how-many-drives-you-need)을 참조하세요. 드라이브 수를 알고 있으면 드라이브 배송을 계속 진행합니다.
 
 [!INCLUDE [storage-import-export-ship-drives](../../includes/storage-import-export-ship-drives.md)]
 
@@ -383,84 +336,7 @@ Install-Module -Name Az.ImportExport
 
 이때 작업을 삭제하거나 유지할 수 있습니다. 작업은 90일 후 자동으로 삭제됩니다.
 
-## <a name="check-the-number-of-drives"></a>드라이브 수 확인
-
-이 *선택적인* 단계는 내보내기 작업에 필요한 드라이브 수를 결정하는 데 도움이 됩니다. [지원되는 OS 버전](storage-import-export-requirements.md#supported-operating-systems)을 실행하는 Windows 시스템에서 이 단계를 수행합니다.
-
-1. Windows 시스템에서 [WAImportExport 버전 1을 다운로드](https://www.microsoft.com/download/details.aspx?id=42659)합니다.
-2. `waimportexportv1` 기본 폴더에 압축을 풉니다. 예들 들어 `C:\WaImportExportV1`입니다.
-3. 관리 권한이 있는 PowerShell 또는 명령줄 창을 엽니다. 압축을 푼 폴더로 디렉터리를 변경하려면 다음 명령을 실행합니다.
-
-   `cd C:\WaImportExportV1`
-
-4. 선택한 Blob에 필요한 디스크 수를 확인하려면 다음 명령을 실행합니다.
-
-   `WAImportExport.exe PreviewExport /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
-
-    다음 표에는 매개 변수가 나와 있습니다.
-
-    |명령줄 매개 변수|Description|
-    |--------------------------|-----------------|
-    |**/logdir:**|선택 사항입니다. 로그 디렉터리입니다. 이 디렉터리에 자세한 로그 파일이 기록됩니다. 지정하지 않으면 현재 디렉터리가 로그 디렉터리로 사용됩니다.|
-    |**/ExportBlobListFile:**|필수 사항입니다. 내보낼 Blob에 대한 Blob 경로 또는 Blob 경로 접두사 목록을 포함하고 있는 XML 파일의 경로입니다. Import/Export 서비스 REST API의 [작업 배치](/rest/api/storageimportexport/jobs) 작업에서 `BlobListBlobPath` 요소에 사용되는 파일 형식입니다.|
-    |**/DriveSize:**|필수 사항입니다. 내보내기 작업에 사용할 드라이브의 크기입니다(*예*: 500GB, 1.5TB).|
-
-    [PreviewExport 명령 예제](#example-of-previewexport-command)를 참조하세요.
-
-5. 내보내기 작업을 위해 배송될 드라이브에 읽거나 쓸 수 있는지 확인합니다.
-
-### <a name="example-of-previewexport-command"></a>PreviewExport 명령 예제
-
-다음 예제에서는 `PreviewExport` 명령을 보여 줍니다.
-
-```powershell
-    WAImportExport.exe PreviewExport /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB
-```
-
-내보내기 Blob 목록 파일에는 다음과 같이 Blob 이름과 Blob 접두사가 포함될 수 있습니다.
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<BlobList>
-<BlobPath>pictures/animals/koala.jpg</BlobPath>
-<BlobPathPrefix>/vhds/</BlobPathPrefix>
-<BlobPathPrefix>/movies/</BlobPathPrefix>
-</BlobList>
-```
-
-Azure Import/Export 도구는 내보낼 모든 Blob을 나열하고 필요한 오버헤드를 고려하여 지정된 크기의 드라이브에 패키지하는 방법을 계산한 다음 Blob 및 드라이브 사용 정보를 보유하는 데 필요한 드라이브 수를 추정합니다.
-
-정보 로그가 생략된 출력의 예제는 다음과 같습니다.
-
-```powershell
-Number of unique blob paths/prefixes:   3
-Number of duplicate blob paths/prefixes:        0
-Number of nonexistent blob paths/prefixes:      1
-
-Drive size:     500.00 GB
-Number of blobs that can be exported:   6
-Number of blobs that cannot be exported:        2
-Number of drives needed:        3
-        Drive #1:       blobs = 1, occupied space = 454.74 GB
-        Drive #2:       blobs = 3, occupied space = 441.37 GB
-        Drive #3:       blobs = 2, occupied space = 131.28 GB
-```
-
-## <a name="examples-of-valid-blob-paths"></a>유효한 Blob 경로의 예
-
-다음 표에는 유효한 Blob 경로의 예가 있습니다.
-
-   | 선택기 | Blob 경로 | Description |
-   | --- | --- | --- |
-   | 시작 단어 |/ |스토리지 계정의 모든 Blob을 내보냄 |
-   | 시작 단어 |/$root/ |루트 컨테이너의 모든 Blob을 내보냄 |
-   | 시작 단어 |/book |접두사 **book** |
-   | 시작 단어 |/music/ |컨테이너 **music** |
-   | 시작 단어 |/music/love |접두사 **love** 로 시작하는 컨테이너 **music** 의 모든 Blob을 내보냄 |
-   | 같음 |$root/logo.bmp |루트 컨테이너의 Blob **logo.bmp** 를 내보냄 |
-   | 같음 |videos/story.mp4 |컨테이너 **videos** 의 Blob **story.mp4** 를 내보냄 |
-
 ## <a name="next-steps"></a>다음 단계
 
-- [작업 및 드라이브 상태 보기](storage-import-export-view-drive-status.md)
-- [Import/Export 요구 사항 검토](storage-import-export-requirements.md)
+* [작업 및 드라이브 상태 보기](storage-import-export-view-drive-status.md)
+* [Import/Export 복사본 로그 검토](storage-import-export-tool-reviewing-job-status-v1.md)

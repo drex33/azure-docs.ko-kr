@@ -1,23 +1,23 @@
 ---
-title: 클라이언트 애플리케이션의 요청에 대한 승인을 위해 Azure AD에서 토큰 가져오기
+title: 네이티브 응용 프로그램 또는 웹 응용 프로그램에서 blob 또는 큐 데이터에 대 한 액세스 권한 부여
 titleSuffix: Azure Storage
 description: Azure Active Directory를 사용하여 클라이언트 애플리케이션 내에서 인증하고, OAuth 2.0 토큰을 획득하며, Azure Blob Storage 및 Queue Storage에 대한 요청을 승인합니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 10/11/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 746d908065523651f9147a721531514d1a0f84c0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0eb9c51f112af25356023ea0483440cea1831e3e
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128673277"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129856452"
 ---
-# <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>클라이언트 애플리케이션의 요청에 대한 승인을 위해 Azure AD에서 토큰 가져오기
+# <a name="authorize-access-to-blob-or-queue-data-from-a-native-or-web-application"></a>네이티브 응용 프로그램 또는 웹 응용 프로그램에서 blob 또는 큐 데이터에 대 한 액세스 권한 부여
 
 Azure Blob Storage 또는 Queue Storage에서 Azure AD(Azure Active Directory)를 사용하는 주요 이점은 사용자의 자격 증명을 코드에 저장할 필요가 없다는 점입니다. 대신 Microsoft ID 플랫폼에서 OAuth 2.0 액세스 토큰을 요청할 수 있습니다. Azure AD는 애플리케이션을 실행하는 보안 주체(사용자, 그룹 또는 서비스 주체)를 인증합니다. 인증이 성공하면 Azure AD는 애플리케이션에 액세스 토큰을 반환하고, 애플리케이션은 액세스 토큰을 사용하여 Azure Blob Storage 또는 Queue Storage에 대한 요청을 승인할 수 있습니다.
 
@@ -294,4 +294,4 @@ https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 
 - [Microsoft ID 플랫폼](../../active-directory/develop/index.yml)
 - [Blob 데이터에 액세스하기 위한 Azure 역할 할당](../blobs/assign-azure-role-data-access.md)
-- [Azure 리소스의 Azure Active Directory 및 관리 ID를 사용하여 Blob 및 큐에 대한 액세스 인증](storage-auth-aad-msi.md)
+- [Azure 리소스에 대한 관리 ID를 사용하여 Blob 데이터에 대한 액세스 권한 부여](../blobs/authorize-managed-identity.md)

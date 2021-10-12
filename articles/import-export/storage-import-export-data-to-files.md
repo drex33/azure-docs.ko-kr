@@ -1,36 +1,50 @@
 ---
-title: Azure Import/Export를 사용하여 Azure Files로 데이터 전송 | Microsoft Docs
+title: Azure Import/Export를 사용하여 Azure Files로 데이터를 전송하기 위한 자습서 | Microsoft Docs
 description: Azure Portal에서 가져오기 작업을 만들어 Azure Files로 데이터를 전송하는 방법에 대해 알아봅니다.
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: how-to
-ms.date: 09/03/2021
+ms.topic: tutorial
+ms.date: 10/06/2021
 ms.author: alkohli
 ms.subservice: common
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
-ms.openlocfilehash: 344d513f823c3eb04e869c66ca79bfb611c3eb6a
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
-ms.translationtype: MT
+ms.custom: tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
+ms.openlocfilehash: 4f8d984d97c046891008c1e1e3904ef065198f98
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129079754"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709611"
 ---
-# <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Azure Import/Export 서비스를 사용하여 Azure Files로 데이터 가져오기
+# <a name="tutorial-transfer-data-to-azure-files-with-azure-importexport"></a>자습서: Azure Import/Export를 사용하여 Azure Files로 데이터 전송 | Microsoft Docs
 
 이 아티클에서는 Azure Import/Export 서비스를 사용하여 Azure Files로 많은 양의 데이터를 안전하게 가져오는 방법에 대한 단계별 지침을 제공합니다. 데이터를 가져오려면 서비스를 사용하여 데이터가 포함된 지원되는 디스크 드라이브를 Azure 데이터 센터로 운송해야 합니다.
 
 Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 지원합니다. Azure Files의 내보내기는 지원되지 않습니다.
+
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+
+> [!div class="checklist"]
+> * Azure Files로 데이터를 가져오기 위한 필수 조건
+> * 1단계: 드라이브 준비
+> * 2단계: 가져오기 작업 만들기
+> * 3단계: Azure 데이터 센터에 드라이브 배송
+> * 4단계: 추적 정보를 사용하여 작업 업데이트
+> * 5단계: Azure에 대한 데이터 업로드 확인
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 가져오기 작업을 만들어 Azure Files로 데이터를 전송하기 전에 다음 필수 조건 목록을 신중하게 검토하고 완료해야 합니다. 다음이 필요합니다.
 
 - Import/Export 서비스에 사용할 활성 Azure 구독이 있어야 합니다.
-- Azure Storage 계정이 하나 이상 있어야 합니다. [Import/Export 서비스에 지원되는 스토리지 계정 및 스토리지 유형](storage-import-export-requirements.md) 목록을 참조하세요. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](../storage/common/storage-account-create.md)(영문)을 참조하세요.
+- Azure Storage 계정이 하나 이상 있어야 합니다. [Import/Export 서비스에 지원되는 스토리지 계정 및 스토리지 유형](storage-import-export-requirements.md) 목록을 참조하세요.
+  - 스토리지 계정에서 대용량 파일 공유를 구성하는 것이 좋습니다. Azure Files로 가져오는 동안 파일 공유에 충분한 여유 공간이 없는 경우 데이터를 여러 Azure 파일 공유로 자동 분할하는 것이 더 이상 지원되지 않으며 복사가 실패합니다. 자세한 내용은 [스토리지 계정에서 대용량 파일 공유 구성](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-files-shares-on-an-existing-account)을 참조하세요.
+  - 새 스토리지 계정을 만드는 방법에 대한 자세한 내용은 [스토리지 계정을 만드는 방법](../storage/common/storage-account-create.md)을 참조하세요.
 - [지원되는 형식](storage-import-export-requirements.md#supported-disks)에 속한 적절한 개수의 디스크가 있어야 합니다.
 - [지원되는 OS 버전](storage-import-export-requirements.md#supported-operating-systems)을 실행하는 Windows 시스템이 있어야 합니다.
-- Windows 시스템에서 [WAImportExport 버전 2를 다운로드](https://aka.ms/waiev2)합니다. `waimportexport` 기본 폴더에 압축을 풉니다. 예들 들어 `C:\WaImportExport`입니다.
+- Windows 시스템에서 파일용 Azure Import/Export 버전 2 도구의 현재 릴리스를 다운로드합니다.
+  1. [WAImportExport 버전 2를 다운로드](https://aka.ms/waiev2)합니다. 현재 버전은 2.2.0.300입니다.
+  1. `WaImportExportV2` 기본 폴더에 압축을 풉니다. 예들 들어 `C:\WaImportExportV2`입니다.
 - FedEx/DHL 계정이 있습니다. FedEx/DHL 이외의 운송업체를 사용하려면 `adbops@microsoft.com`에 있는 Azure Data Box 운영 팀에 문의하세요.
     - 계정은 유효해야 하고, 잔액이 있어야 하며, 반품 기능이 있어야 합니다.
     - 내보내기 작업의 추적 번호를 생성합니다.
@@ -53,24 +67,27 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
    - **파일을 가져오려면**: 다음 예에서 F: 드라이브에 복사할 데이터가 있습니다. *MyFile1.txt* 파일을 *MyAzureFileshare1* 의 루트에 복사합니다. *MyAzureFileshare1* 이 존재하지 않는 경우 Azure Storage 계정에 생성됩니다. 폴더 구조는 유지됩니다.
 
        ```
-           BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
-           "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
+           BasePath,DstItemPathOrPrefix,ItemType
+           "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file
+       ```
+
+   - **폴더를 가져오려면**: *MyFolder2* 아래의 모든 파일과 폴더가 fileshare에 반복적으로 복사됩니다. 폴더 구조는 유지됩니다. 대상 폴더에 있는 기존 파일과 이름이 같은 파일을 가져오는 경우 가져온 파일이 해당 파일을 덮어쓰게 됩니다.
 
        ```
-   - **폴더를 가져오려면**: *MyFolder2* 아래의 모든 파일과 폴더가 fileshare에 반복적으로 복사됩니다. 폴더 구조는 유지됩니다.
-
+           "F:\MyFolder2\","MyAzureFileshare1/",file
        ```
-           "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
+   
+       > [!NOTE]
+       > 이전 버전의 도구에 이미 있는 파일을 가져올 때 수행할 작업을 선택할 수 있는 /Disposition 매개 변수는 Azure Import/Export 버전 2.2.0.300에서 지원되지 않습니다. 이전 도구 버전에서는 기존 파일과 이름이 같은 가져온 파일의 이름이 기본적으로 바뀌었습니다.
 
-       ```
      가져온 폴더 또는 파일에 해당하는 같은 파일에 여러 항목을 만들 수 있습니다.
 
        ```
-           "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
-           "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
-
+           "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file
+           "F:\MyFolder2\","MyAzureFileshare1/",file
        ```
-     [데이터 세트 CSV 파일 준비](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import)에 대해 자세히 알아보세요.
+
+<!--ARCHIVED ARTICLE -Learn more about [preparing the dataset CSV file](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import).-->
 
 
 4. 도구가 있는 루트 폴더에서 *driveset.csv* 파일을 수정합니다. 다음 예제와 비슷한 *driveset.csv* 파일에 항목을 추가합니다. 드라이브 집합 파일에는 디스크 및 해당하는 드라이브 문자 목록이 있으므로 도구는 준비해야 할 디스크 목록을 올바르게 선택할 수 있습니다.
@@ -108,7 +125,7 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 6. 명령줄을 실행할 때마다 `/j:` 매개 변수와 함께 제공된 이름의 업무 일지 파일이 만들어집니다. 준비한 각 드라이브에는 가져오기 작업을 만들 때 업로드해야 하는 업무 일지 파일이 있습니다. 업무 일지 파일이 없는 드라이브는 처리되지 않습니다.
 
     > [!IMPORTANT]
-    > 디스크 준비를 완료한 후 디스크 드라이브의 저널 파일 또는 데이터를 수정하지 말고 디스크를 다시 포맷하지 마세요.
+    > 디스크 준비를 완료한 후에는 저널 파일이나 디스크 드라이브의 데이터를 수정하지 말고 디스크를 다시 포맷하지 마세요.
 
 추가 예제는 [업무 일지 파일에 대한 샘플](#samples-for-journal-files)로 이동합니다.
 
@@ -361,7 +378,11 @@ Install-Module -Name Az.ImportExport
 
 ## <a name="step-5-verify-data-upload-to-azure"></a>5단계: Azure에 대한 데이터 업로드 확인
 
-완료될 때까지 작업을 추적합니다. 작업이 완료되면 데이터가 Azure에 업로드되었는지 확인합니다. 업로드가 성공했음을 확인한 후에만 온-프레미스 데이터를 삭제합니다.
+완료될 때까지 작업을 추적합니다. 작업이 완료되면 데이터가 Azure에 업로드되었는지 확인합니다. 복사 로그에서 오류를 확인합니다. 자세한 내용은 [복사본 로그 검토](storage-import-export-tool-reviewing-job-status-v1.md)를 참조하세요. 업로드가 성공했음을 확인한 후에만 온-프레미스 데이터를 삭제합니다.
+
+> [!NOTE]
+> 파일용 Azure Import/Export 도구의 최신 버전(2.2.0.300)에서 파일 공유에 사용 가능한 공간이 충분하지 않은 경우 데이터는 더 이상 여러 Azure 파일 공유로 자동 분할되지 않습니다. 대신, 복사에 실패하고 지원팀에서 연락을 드립니다. 스토리지 계정에 대용량 파일 공유를 구성하거나 일부 데이터를 이동하여 공유 공간을 확보해야 합니다. 자세한 내용은 [스토리지 계정에서 대용량 파일 공유 구성](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-files-shares-on-an-existing-account)을 참조하세요.
+
 
 ## <a name="samples-for-journal-files"></a>업무 일지 파일에 대한 샘플
 
@@ -397,4 +418,4 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 ## <a name="next-steps"></a>다음 단계
 
 * [작업 및 드라이브 상태 보기](storage-import-export-view-drive-status.md)
-* [Import/Export 요구 사항 검토](storage-import-export-requirements.md)
+* [Import/Export 복사본 로그 검토](storage-import-export-tool-reviewing-job-status-v1.md)

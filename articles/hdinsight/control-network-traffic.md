@@ -4,12 +4,12 @@ description: Azure HDInsight 클러스터에 대한 인바운드 및 아웃바�
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 66b078e8dfa1daa100978f04283e9bba7158bddf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 78d61c1d775b2e710448283e283252b1cb85c802
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104867035"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857895"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>Azure HDInsight에서 네트워크 트래픽 제어
 
@@ -31,7 +31,7 @@ Azure Virtual Networks의 네트워크 트래픽은 다음 방법을 사용하�
 
 2. 해당 지역에서 HDInsight에 필요한 서비스 태그를 확인합니다. 이러한 서비스 태그를 가져오는 방법에는 여러 가지가 있습니다.
     1. [Azure HDInsight에 대한 NSG (네트워크 보안 그룹) 서비스 태그](hdinsight-service-tags.md)에서 게시된 서비스 태그의 목록을 참조하세요. 
-    2. 지역이 목록에 없는 경우 [서비스 태그 검색 API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview)를 사용하여 해당 지역에 대한 서비스 태그를 찾습니다.
+    2. 지역이 목록에 없는 경우 [서비스 태그 검색 API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api)를 사용하여 해당 지역에 대한 서비스 태그를 찾습니다.
     3. API를 사용할 수 없는 경우 [서비스 태그 JSON 파일](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)을 다운로드하고 원하는 지역을 검색합니다.
 
 

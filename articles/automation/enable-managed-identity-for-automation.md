@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 09/23/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b84c73e5286dc633b54ade2d59d43957f517361e
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: eb883fafd7c738ca99fe2282edb67d1849b9b1af
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129057665"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858161"
 ---
 # <a name="using-a-system-assigned-managed-identity-for-an-azure-automation-account-preview"></a>Azure Automation 계정에 대해 시스템 할당 관리 ID 사용(미리 보기)
 
@@ -23,7 +23,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 - Azure Automation 계정. 자세한 내용은 [Azure Automation 계정 만들기](./quickstarts/create-account-portal.md)를 참조하세요.
 
-- 최신 버전의 Azure 계정 모듈. 현재 최신 버전은 2.2.8입니다. (이 버전에 대한 자세한 내용은 [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/)를 참조하세요.)
+- 최신 버전의 Az PowerShell modules Az. Accounts, az. az. az. KeyVault.
 
 - Automation Runbook에서 액세스할 Azure 리소스입니다. 이 리소스에는 Automation Runbook에서 리소스에 대한 액세스를 인증하는 데 도움이 되는 관리 ID에 정의된 역할이 있어야 합니다. 역할을 추가하려면 대응하는 Azure AD 테넌트 리소스의 소유자여야 합니다.
 
@@ -107,7 +107,7 @@ $output
 
 구문 및 예제 단계는 아래에 나와 있습니다.
 
-#### <a name="syntax"></a>구문
+#### <a name="syntax"></a>Syntax
 
 아래 본문 구문은 HTTP **PATCH** 메서드를 사용하여 기존 Automation 계정에 시스템 할당 관리 ID를 사용하도록 설정합니다. 그러나 이 구문은 Automation 계정과 연결된 기존 사용자 할당 관리 ID를 제거합니다.
 

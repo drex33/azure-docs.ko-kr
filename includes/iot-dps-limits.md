@@ -1,18 +1,20 @@
 ---
-author: wesmc7777
+author: anastasia-ms
 ms.service: iot-dps
 ms.topic: include
-ms.date: 06/15/2021
-ms.author: wesmc
-ms.openlocfilehash: b3c218314f56fb53d0690ac0659192bb955e4301
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
+ms.date: 10/10/2021
+ms.author: v-stharr
+ms.openlocfilehash: e343283149cf58a4ec2d29f5b56808eb96d110c2
+ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112539012"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129740845"
 ---
 > [!NOTE]
-> 이 서비스의 일부 영역에는 조정 가능한 한도가 있습니다. 아래 표에 조정 가능? 열과 함께 표시되어 있습니다. 제한을 조정할 수 있는 경우 조정 가능? 값은 예입니다.
+> 이 서비스의 일부 영역에는 조정 가능한 한도가 있습니다. 아래 표에 조정 가능? 열과 함께 표시되어 있습니다. 제한을 조정할 수 있는 경우 ‘조정 가능 여부’ 값은 ‘예’입니다. 
+>
+>제한을 조정할 수 있는 실제 값은 각 고객의 배포에 따라 달라질 수 있습니다.
 >
 > 비즈니스에서 조정 가능한 제한 또는 기본 제한보다 높은 할당량이 필요한 경우 [지원 티켓을 열어](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) 추가 리소스를 요청할 수 있습니다.
 

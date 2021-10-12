@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3f0c18d7f9130c4ef50b085a4f8c1ec5c22ed6d3
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: e0bf6ebac7826346089b82962963d3596d1d4a8f
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129360396"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857914"
 ---
 # <a name="authorize-access-to-tables-using-azure-active-directory-preview"></a>Azure Active Directory를 사용하여 테이블에 대한 액세스 권한 부여
 
@@ -31,7 +31,7 @@ Azure AD 권한 부여는 모든 공용 지역 및 국가별 클라우드에서 
 
 보안 주체(사용자, 그룹 또는 애플리케이션)가 테이블 리소스에 액세스하려고 시도하는 경우 요청에 권한이 부여되어 있어야 합니다. Azure AD의 경우 리소스에 대한 액세스는 2단계 프로세스입니다. 먼저, 보안 주체의 ID가 인증되고 OAuth 2.0 토큰이 반환됩니다. 그런 다음, 토큰이 테이블 서비스에 대한 요청의 일부로 전달되고 서비스가 지정된 리소스에 대한 액세스 권한을 부여하는 데 사용됩니다.
 
-인증 단계를 수행하려면 런타임 시 애플리케이션 요청에 OAuth 2.0 액세스 토큰이 있어야 합니다. 애플리케이션이 Azure VM, 가상 머신 확장 집합 또는 Azure Functions 앱 같은 Azure 엔터티 내에서 실행되는 경우 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 사용하여 테이블에 액세스할 수 있습니다. 관리 ID에서 수행한 요청에 권한을 부여하는 방법을 알아보려면 [Azure 리소스에 대한 Azure Active Directory 및 관리 ID를 사용하여 테이블에 대한 액세스 권한 부여](../common/storage-auth-aad-msi.md)를 참조하세요.
+인증 단계를 수행하려면 런타임 시 애플리케이션 요청에 OAuth 2.0 액세스 토큰이 있어야 합니다. 애플리케이션이 Azure VM, 가상 머신 확장 집합 또는 Azure Functions 앱 같은 Azure 엔터티 내에서 실행되는 경우 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 사용하여 테이블에 액세스할 수 있습니다. 관리 ID에 의한 요청에 권한을 부여하는 방법을 알아보려면 [Azure 리소스에 대한 관리 ID를 사용하여 테이블 데이터에 대한 액세스 권한 부여를 참조하세요.](authorize-managed-identity.md)
 
 권한 부여 단계에서는 보안 주체에 하나 이상의 Azure 역할을 할당해야 합니다. Azure Storage는 테이블 데이터에 대한 일반적인 권한 집합을 포함하는 Azure 역할을 제공합니다. 보안 주체에 할당된 역할에 따라 보안 주체가 보유하는 권한이 결정됩니다. 테이블 액세스 시 Azure 역할을 할당하는 방법에 대한 자세한 내용은 [테이블 데이터에 액세스하기 위한 Azure 역할 할당](assign-azure-role-data-access.md)을 참조하세요.
 

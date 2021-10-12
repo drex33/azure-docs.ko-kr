@@ -3,12 +3,12 @@ title: 프라이빗 가용성 테스트 - Azure Monitor Application Insights
 description: 프라이빗 테스트를 사용하여 방화벽 뒤에서 실행되는 내부 서버에서 가용성 테스트를 사용하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/14/2021
-ms.openlocfilehash: dca75f6497567c5c6855fc1b5b12aa17a41b3dec
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: 713a57db66042c562e212d65c6dd265c2aab47cd
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110104524"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858446"
 ---
 # <a name="private-testing"></a>프라이빗 테스트
 
@@ -32,7 +32,7 @@ Microsoft 서비스에서 들어오는 요청을 허용하도록 방화벽을 �
 
         :::image type="content" source="media/availability-private-test/service-tag.png" alt-text="서비스 태그 원본이 있는 인바운드 보안 규칙 추가 탭의 스크린샷":::
 
-- 엔드포인트가 Azure 외부에서 호스팅되거나 시나리오에 서비스 태그를 사용할 수 없는 경우 [웹 테스트 에이전트의 IP 주소](ip-addresses.md)를 개별적으로 허용 목록에 추가해야 합니다. [서비스 태그 API](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview)를 사용하여 PowerShell, Azure CLI 또는 REST 호출에서 직접 IP 범위를 쿼리할 수 있습니다. [JSON 파일](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)을 다운로드하여 IP 주소 세부 정보와 함께 현재 서비스 태그 목록을 가져올 수도 있습니다.
+- 엔드포인트가 Azure 외부에서 호스팅되거나 시나리오에 서비스 태그를 사용할 수 없는 경우 [웹 테스트 에이전트의 IP 주소](ip-addresses.md)를 개별적으로 허용 목록에 추가해야 합니다. [서비스 태그 API](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api)를 사용하여 PowerShell, Azure CLI 또는 REST 호출에서 직접 IP 범위를 쿼리할 수 있습니다. [JSON 파일](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)을 다운로드하여 IP 주소 세부 정보와 함께 현재 서비스 태그 목록을 가져올 수도 있습니다.
     1. 네트워크 보안 그룹 리소스에서 *설정* 아래의 **인바운드 보안 규칙** 을 선택한 다음 **추가** 를 선택합니다.
     1. 그런 다음 원본으로 *IP 주소* 를 선택한 다음 원본 IP 주소/CIRD 범위에서 쉼표로 구분된 목록에 IP 주소를 추가합니다.
 

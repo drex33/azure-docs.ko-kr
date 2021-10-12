@@ -2,18 +2,18 @@
 title: SAP 지속적인 위협 모니터링 배포 | Microsoft Docs
 description: SAP 환경에 대한 Azure Sentinel 솔루션을 배포하는 방법을 알아봅니다.
 author: batamig
-ms.author: bagold
+ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: how-to
 ms.custom: mvc
 ms.date: 07/06/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: 7b6f68eea2c177ad4e6776723ae0387c0e0da6a1
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: fb8d75b9dbf4fd2e6c0fd82ecbc0dce2ce2447c0
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129361835"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857829"
 ---
 #  <a name="deploy-sap-continuous-threat-monitoring-public-preview"></a>SAP 지속적인 위협 모니터링 배포(퍼블릭 미리 보기)
 
@@ -171,15 +171,15 @@ SAP 데이터 커넥터를 배포한 후에는 SAP 솔루션 보안 콘텐츠를
       --resource-group $kvgp
     ```
 
-1. 다음 방법 중 하나를 사용하여 VM의 관리 ID에 GET, LIST 및 SET 권한을 포함한 액세스 정책을 할당합니다.
+1. 다음 방법 중 하나를 사용 하 여 GET, LIST 및 SET 권한을 포함 하 여 VM의 관리 되는 id에 대 한 액세스 정책을 할당 합니다.
 
-    - **Azure Portal 통해:**
+    - **Azure Portal를 통해**:
 
         Azure Key Vault에서 **액세스 정책** > **액세스 정책 추가 - 비밀 권한: Get, List 및 Set** > **보안 주체 선택** 을 선택합니다. [VM의 이름](#deploy-a-linux-vm-for-your-sap-data-connector)을 입력한 다음, **추가** > **저장** 을 선택합니다.
 
         자세한 내용은 [Key Vault 설명서](../key-vault/general/assign-access-policy-portal.md)를 참조하세요.
 
-    - **Azure CLI 통해:**
+    - **Azure CLI를 통해**:
 
         1. 다음 명령을 실행하여 [VM의 보안 주체 ID](#deploy-a-linux-vm-for-your-sap-data-connector)를 가져오고 Azure 리소스 그룹의 이름을 입력합니다.
 
@@ -189,7 +189,7 @@ SAP 데이터 커넥터를 배포한 후에는 SAP 솔루션 보안 콘텐츠를
 
             다음 단계에서 사용할 수 있도록 보안 주체 ID가 표시됩니다.
 
-        1. 다음 명령을 실행하여 Key Vault VM의 액세스 권한을 할당하고, 리소스 그룹의 이름 및 이전 단계에서 반환된 보안 주체 ID 값을 입력합니다.
+        1. 다음 명령을 실행 하 여 Key Vault에 VM의 액세스 권한을 할당 하 고, 리소스 그룹의 이름 및 이전 단계에서 반환 된 사용자 ID 값을 입력 합니다.
 
             ```azurecli
             az keyvault set-policy -n [key vault] -g [resource group] --object-id $VMPrincipalID --secret-permissions get list set

@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 01/04/2021
+ms.date: 10/11/2021
 ms.author: banders
-ms.openlocfilehash: 07e3cfdce238d5fc4e2737a49dde6fd624de8506
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
-ms.translationtype: HT
+ms.openlocfilehash: ae2d16b6164f201bae8f34c62876f66b45862cfa
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882503"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129855349"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Azure 사용량 및 요금 파일의 사용 약관 이해
 
@@ -26,7 +26,7 @@ ms.locfileid: "97882503"
 --- | --- | --- | --- | ---
 EA(기업 계약) | 예 | 예 | 예 | 아니요
 MCA(Microsoft 고객 계약) | 예 | 예 | 예 | 예
-PAYG(종량제) | 예 | 예 | 예 | 아니요
+PAYG(종량제) | 예 | 예 | 아니요 | 아니요
 
 Marketplace 주문(외부 서비스라고도 함)에 대해 자세히 알아보려면 [Azure 외부 서비스 요금 이해](understand-azure-marketplace-charges.md)를 참조하세요.
 
@@ -111,6 +111,8 @@ _<sup>**1**</sup> 단일 비용 레코드의 고유 ID를 빌드하는 데 사�
 
 일부 필드는 계정 유형 간에 대/소문자 구분과 간격이 다를 수 있습니다.
 종량제 사용량 파일의 이전 버전에는 명세서 및 일일 사용량에 대한 별도의 섹션이 있습니다.
+
+MCA 규약을 사용 하는 고객의 경우 필드의 값이 변경 되었습니다 `PublisherType` . 자세한 내용은 [Publisher 형식 값에 대 한 변경 내용](../costs/group-filter.md#changes-to-publisher-type-values)을 참조 하세요.
 
 ### <a name="list-of-terms-from-older-apis"></a>이전 API의 용어 목록
 다음 표에는 이전 API에서 사용된 용어에 대응하는 새로운 용어가 나와 있습니다. 위의 표에서 이러한 설명을 참조하세요.

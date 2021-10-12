@@ -7,12 +7,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/19/2021
-ms.openlocfilehash: 4aa60a5433f13ca6b942204bbdb8eb4425d0ddf7
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
-ms.translationtype: HT
+ms.openlocfilehash: 11dbe95a63ce22602985cb7ff9b4db11f5e8f8dc
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112983215"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129856755"
 ---
 # <a name="indexer-connections-to-sql-server-on-an-azure-virtual-machine"></a>Azure 가상 머신의 SQL Server에 대한 인덱서 연결
 
@@ -83,7 +83,7 @@ IP 주소 지정의 경우 몇 가지 문제를 내포할 수 있으며 사용�
 
 검색 서비스의 FQDN(예: `<your-search-service-name>.search.windows.net`)을 ping하여 IP 주소를 확인할 수 있습니다. 검색 서비스 IP 주소는 변경할 수 있지만 변경될 가능성은 거의 없습니다. IP 주소는 서비스의 수명 기간 동안 고정되는 경향이 있습니다.
 
-[다운로드 가능한 JSON 파일](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)을 사용하거나 [서비스 태그 검색 API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview)를 통해 `AzureCognitiveSearch` [서비스 태그](../virtual-network/service-tags-overview.md#available-service-tags)의 IP 주소 범위를 확인할 수 있습니다. IP 주소 범위는 매주 업데이트됩니다.
+[다운로드 가능한 JSON 파일](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)을 사용하거나 [서비스 태그 검색 API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api)를 통해 `AzureCognitiveSearch` [서비스 태그](../virtual-network/service-tags-overview.md#available-service-tags)의 IP 주소 범위를 확인할 수 있습니다. IP 주소 범위는 매주 업데이트됩니다.
 
 ### <a name="include-the-azure-cognitive-search-portal-ip-addresses"></a>Azure Cognitive Search 포털 IP 주소 포함
 

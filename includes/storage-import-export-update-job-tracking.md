@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: include
-ms.date: 07/17/2018
+ms.date: 09/28/2021
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: 8ed57cd39580474925e781f3ec8fb05a2299a937
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5aca82d0a3ee290ec7e0f6ad3a32396b51b2aa59
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98701647"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709616"
 ---
 디스크를 배송한 후 Azure Portal의 **Import/Export** 페이지로 돌아갑니다. 
 
@@ -27,3 +27,7 @@ ms.locfileid: "98701647"
 3. **배송됨으로 표시** 확인란을 선택합니다.
 4. **운송업체** 및 **추적 번호** 를 제공합니다.
 5. 포털 대시보드에서 작업 진행 상황을 추적합니다. 각 작업 상태에 대한 설명을 보려면 [작업 상태 보기](../articles/import-export/storage-import-export-view-drive-status.md)로 이동합니다.
+
+> [!NOTE] 
+> 만들기 상태에 있는 동안에만 작업을 취소할 수 있습니다. 추적 세부 정보를 제공한 후에는 작업 상태가 배송으로 변경되고 작업을 취소할 수 없습니다.
+

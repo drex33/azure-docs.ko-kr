@@ -11,24 +11,24 @@ metadata:
   ms.author: nitinme
   manager: nitinme
   ms.custom: custom-portals-hub
-  ms.date: 08/28/2020
+  ms.date: 10/08/2021
 highlightedContent:
   items:
     - title: Cognitive Services란?
       itemType: overview
       url: ./what-are-cognitive-services.md
-    - title: Docs의 새로운 기능
-      itemType: whats-new
-      url: whats-new-docs.md
+    - title: Cognitive Services 온-프레미스 컨테이너
+      itemType: concept
+      url: ./containers/index.yml
+    - title: AI의 책임 있는 사용
+      itemType: concept
+      url: responsible-use-of-ai-overview.md
     - title: 개발 옵션
       itemType: concept
       url: ./cognitive-services-development-options.md
     - title: Cognitive Services 및 기계 학습
       itemType: concept
       url: ./cognitive-services-and-machine-learning.md
-    - title: Cognitive Services 온-프레미스 컨테이너
-      itemType: concept
-      url: ./containers/index.yml
     - title: 데이터베이스를 사용하는 Cognitive Services
       itemType: concept
       url: ./big-data/cognitive-services-for-big-data.md
@@ -130,12 +130,6 @@ conceptualContent:
         - url: ./big-data/samples-python.md
           itemType: reference
           text: Python 샘플
-    - title: AI의 책임 있는 사용
-      summary: Azure Cognitive Services는 애플리케이션에서 AI 서비스를 책임감 있게 사용하는 방법에 대한 정보 및 지침을 제공합니다.
-      links:
-        - url: responsible-use-of-ai-overview.md
-          itemType: overview
-          text: AI의 책임 있는 사용
 additionalContent:
   sections:
     - title: 추가 리소스

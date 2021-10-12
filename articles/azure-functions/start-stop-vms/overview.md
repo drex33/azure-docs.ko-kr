@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.service: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 06/25/2021
-ms.openlocfilehash: 24872e96333aeb67661c462e54acebc62b32c8aa
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: e71f6b6dde1ae12a68f425dcb372cca73456de73
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129455421"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858135"
 ---
 # <a name="startstop-vms-v2-preview-overview"></a>VM v2 시작/중지(미리 보기) 개요
 
@@ -45,14 +45,20 @@ VM v2 시작/중지(미리 보기)가 다시 디자인되고 [이전 버전](../
 
  [Azure Logic Apps](../../logic-apps/logic-apps-overview.md)는 JSON 페이로드를 사용하여 함수를 호출하여 VM 작업 수행에 대한 시작 및 중지 일정을 구성하고 관리하는 데 사용됩니다. 기본적으로 초기 배포 중에는 다음 시나리오에 대한 총 5개의 Logic Apps가 생성됩니다.
 
-- Scheduled - 시작 및 중지 작업은 Azure Resource Manager 및 클래식 VM에 대해 지정한 일정을 기반으로 합니다. **ststv2_vms_Scheduled_start** 및 **ststv2_vms_Scheduled_stop** 은 예약된 시작 및 중지를 구성합니다.
+- **예약 -** 시작 및 중지 작업은 Azure Resource Manager 및 클래식 VM에 대해 지정한 일정에 따라 수행됩니다. **ststv2_vms_Scheduled_start** 및 **ststv2_vms_Scheduled_stop** 은 예약된 시작 및 중지를 구성합니다.
 
-- Sequenced - 시작 및 중지 작업은 미리 정의된 시퀀싱 태그를 사용하여 VM을 대상으로 하는 일정을 기반으로 합니다. 두 개의 명명된 태그(**sequencestart** 및 **sequencestop**)만 지원됩니다. **ststv2_vms_Sequenced_start** 및 **ststv2_vms_Sequenced_stop** 은 시퀀싱된 시작 및 중지를 구성합니다.
+- **시퀀스됨** - 시작 및 중지 작업은 미리 정의된 시퀀싱 태그가 있는 VM을 대상으로 하는 일정을 기반으로 합니다. 두 개의 명명된 태그(**sequencestart** 및 **sequencestop**)만 지원됩니다. **ststv2_vms_Sequenced_start** 및 **ststv2_vms_Sequenced_stop** 은 시퀀싱된 시작 및 중지를 구성합니다. 
+
+    시퀀스 기능을 사용하는 적절한 방법은 시퀀스에서 시작하려는 각 VM에 **sequencestart라는** 태그를 만드는 것입니다. 태그 값은 해당 범위의 각 VM에 대해 1에서 N까지의 정수여야 합니다. 태그는 선택 사항이며, 없는 경우 VM은 단순히 시퀀싱에 참여하지 않습니다. 태그 이름만 다른 VM을 중지하고 이 경우 **sequencestop을** 사용하는 경우에도 동일한 기준이 적용됩니다. 시작 및 중지 작업을 수행하려면 각 VM의 태그를 모두 구성해야 합니다.
+
+    예를 들어 다음 표에서는 시퀀스가 반대인 두 VM이 동일한 순서로 실행되는 방법을 보여 있습니다.
+
+    :::image type="content" source="media/overview/sequence-settings-table.png" alt-text="시퀀스 설정 태그 예제를 보여 주는 표":::
 
     > [!NOTE]
     > 이 시나리오는 Azure Resource Manager VM만 지원합니다.
 
-- AutoStop - 이 기능은 CPU 사용률을 기반으로 Azure Resource Manager 및 클래식 VM 모두에 대해 중지 동작을 수행하는 데만 사용됩니다. 또한 VM에 대한 경고를 생성하고 조건에 따라 중지 동작을 수행하기 위해 경고가 트리거되는 예약 기반 *작업 수행* 일 수도 있습니다. **ststv2_vms_AutoStop** 은 자동 중지 기능을 구성합니다.
+- **AutoStop** - 이 기능은 CPU 사용률에 따라 Azure Resource Manager 및 클래식 VM 모두에 대해 중지 작업을 수행하는 데만 사용됩니다. 또한 VM에 대한 경고를 생성하고 조건에 따라 중지 동작을 수행하기 위해 경고가 트리거되는 예약 기반 *작업 수행* 일 수도 있습니다. **ststv2_vms_AutoStop** 은 자동 중지 기능을 구성합니다.
 
 각 시작/중지 작업은 하나 이상의 구독, 리소스 그룹 또는 VM 목록 할당을 지원합니다.
 

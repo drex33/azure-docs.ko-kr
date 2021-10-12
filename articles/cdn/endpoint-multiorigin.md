@@ -1,5 +1,5 @@
 ---
-title: Azure CDN 엔드포인트 다중 원본(미리 보기)
+title: Azure CDN 엔드포인트 다중 원본
 description: Azure CDN 엔드포인트 다중 원본을 시작합니다.
 services: cdn
 author: asudbring
@@ -8,12 +8,12 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 08/18/2021
 ms.author: allensu
-ms.openlocfilehash: 06d0e35534db97f1de48c55f9cc6f46f979514fa
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.openlocfilehash: 1e17c747c87a5abb184ae4b7b263a8b5bd1a3a49
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122531107"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129855995"
 ---
 # <a name="azure-cdn-endpoint-multi-origin"></a>Azure CDN 엔드포인트 다중 원본
 
@@ -22,6 +22,8 @@ ms.locfileid: "122531107"
 Azure CDN 엔드포인트 내에서 여러 원본을 선택하면 제공된 중복성이 각 원본의 상태를 검색하고 필요한 경우 장애 조치(failover)하여 위험을 분산합니다.
 
 하나 이상의 원본 그룹을 설치하고 기본 원본 그룹을 선택합니다. 각 원본 그룹은 유사한 워크로드를 수행할 수 있는 하나 이상의 원본 컬렉션입니다.
+
+첫 번째 원본 그룹은 기본 원본 그룹으로 설정 됩니다. 다중 원본 기능은 CDN 끝점에 대 한 기본 원본 그룹을 선택할 때 사용 하도록 설정 됩니다. 다중 원본 기능을 사용 하도록 설정 하면 사용 하지 않도록 설정할 수 없으며 기본 원본 그룹을 삭제할 수 없습니다. 기본 원본 그룹은 요청을 원본으로 라우팅하는 데 사용 됩니다. 원본 그룹 구성을 업데이트 하 고 단일 원본 구성으로 전환할 수 있습니다. 또한 기본 원본 그룹 지정을 다른 원본 그룹으로 변경할 수 있습니다.
 
 > [!NOTE]
 > 현재 이 기능은 Microsoft의 Azure CDN에서만 사용할 수 있습니다. 

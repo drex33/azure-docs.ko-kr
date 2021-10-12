@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 06/23/2021
-ms.openlocfilehash: 419feaf3102ba9db4335718131281481821fe6a9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 988e3249580408147b74409856bea1e45df4e966
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528102"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857116"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Azure HDInsight용 NSG 서비스 태그
 
@@ -18,7 +18,7 @@ NSG(네트워크 보안 그룹)에 Azure HDInsight 서비스 태그는 상태 �
 
 HDInsight 서비스는 이러한 서비스 태그를 관리합니다. 사용자 고유의 서비스 태그를 만들거나 기존 태그를 수정할 수는 없습니다. Microsoft는 서비스 태그에 맞는 주소 접두사를 관리하고 주소가 변경되면 서비스 태그를 자동으로 업데이트합니다.
 
-특정 지역을 사용하고 서비스 태그가 이 페이지에 아직 문서화되지 않은 경우 [서비스 태그 검색 API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview)를 사용하여 서비스 태그를 찾을 수 있습니다. 그뿐만 아니라 [서비스 태그 JSON 파일](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)을 다운로드해서 원하는 지역을 검색할 수도 있습니다.
+특정 지역을 사용하고 서비스 태그가 이 페이지에 아직 문서화되지 않은 경우 [서비스 태그 검색 API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api)를 사용하여 서비스 태그를 찾을 수 있습니다. 그뿐만 아니라 [서비스 태그 JSON 파일](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)을 다운로드해서 원하는 지역을 검색할 수도 있습니다.
 
 ## <a name="get-started-with-service-tags"></a>서비스 태그 시작
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 480798177797ad83ec01f33297d5fc559c7c3e3d
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
-ms.translationtype: HT
+ms.openlocfilehash: c03b482a22f24cf4e8ef325c71a39eab65d2fdb4
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111900470"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858541"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-with-azure-cli"></a>Azure CLI에서 큐 데이터에 대한 액세스 권한을 부여하는 방법 선택
 
@@ -112,4 +112,4 @@ az storage queue create \
 ## <a name="next-steps"></a>다음 단계
 
 - [대기열 데이터에 액세스하기 위한 Azure 역할 할당](assign-azure-role-data-access.md)
-- [Azure 리소스에 대한 관리 ID를 사용하여 Blob 및 큐 데이터에 대한 액세스 권한 부여](../common/storage-auth-aad-msi.md)
+- [Azure 리소스에 대 한 관리 id를 사용 하 여 큐 데이터에 대 한 액세스 권한 부여](authorize-managed-identity.md)

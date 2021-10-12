@@ -7,18 +7,18 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/06/2021
+ms.date: 10/11/2021
 ms.author: banders
-ms.openlocfilehash: 41a4f22e669300e24ddce0248e8ab1744b773202
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
-ms.translationtype: HT
+ms.openlocfilehash: 741efbce1f8578ca425059b2b04b64d9892112cb
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113301927"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857615"
 ---
 # <a name="track-your-microsoft-azure-consumption-commitment-macc"></a>Microsoft Azure 사용량 약정(MACC) 추적
 
-Microsoft Azure 사용량 약정(MACC)은 조직에서 시간 경과에 따라 Microsoft Azure에 대해 체결할 수 있는 약정입니다. 조직에 Microsoft 고객 계약(MCA) 청구 계정에 대한 MACC가 있는 경우, Azure Portal 또는 REST API를 통해 시작 및 종료 날짜, 남은 약정 금액, 가능한 지출 등 약정에 대한 중요한 측면을 확인할 수 있습니다. 기업계약(EA) 청구 계정에 대한 MACC 또는 CTC는 아직 Azure Portal 또는 REST API를 통해 사용할 수 없습니다.
+Microsoft Azure 사용량 약정(MACC)은 조직에서 시간 경과에 따라 Microsoft Azure에 대해 체결할 수 있는 약정입니다. 조직에 Microsoft MCA (고객 계약) 청구 계정 또는 EA (기업계약) 청구 계정에 대 한 macc가 있는 경우 시작 및 종료 날짜, 남은 약정 금액, Azure Portal 또는 REST api를 통해 적합 한 비용을 포함 하 여 약정에 대 한 중요 한 측면을 확인할 수 있습니다.
 
 ## <a name="track-your-macc-commitment"></a>MACC 약정 추적
 
@@ -27,13 +27,16 @@ Microsoft Azure 사용량 약정(MACC)은 조직에서 시간 경과에 따라 M
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Cost Management + 청구** 를 검색합니다.  
     :::image type="content" source="./media/track-consumption-commitment/billing-search-cost-management-billing.png" alt-text="포털 내 Cost Management + Billing 검색을 보여주는 스크린샷." lightbox="./media/track-consumption-commitment/billing-search-cost-management-billing.png" :::
-3. 청구 범위 페이지에서 약정을 추적할 청구 계정을 선택합니다. 청구 계정은 **Microsoft 고객 계약** 유형이어야 합니다.  
+3. 청구 범위 페이지에서 약정을 추적할 청구 계정을 선택합니다. 청구 계정 유형은 microsoft 고객 계약 (MCA) 고객에 대 한 **microsoft 고객 계약** 이거나 EA 고객용 **기업계약** 이어야 합니다.   
     :::image type="content" source="./media/track-consumption-commitment/list-of-scopes.png" alt-text="청구 범위를 보여주는 스크린샷." lightbox="./media/track-consumption-commitment/list-of-scopes.png" :::
     > [!NOTE]
      > Azure Portal은 사용자가 액세스한 마지막 청구 범위를 기억했다가 다음에 Cost Management + 청구 페이지로 이동하면 해당 범위를 표시합니다. 이전에 Cost Management + 청구 페이지를 방문한 경우 청구 범위 페이지가 표시되지 않습니다. 이런 경우, [올바른 범위](#check-access-to-a-microsoft-customer-agreement)에 있는지 확인하십시오. 그렇지 않으면, [범위를 전환](view-all-accounts.md#switch-billing-scope-in-the-azure-portal)하여 Microsoft 고객 계약에 대한 청구 계정을 선택하십시오.
-4. 왼쪽에서 **속성** 을 선택한 다음, **Microsoft Azure 사용량 약정(MACC)** 을 선택합니다.  
-    :::image type="content" source="./media/track-consumption-commitment/select-macc-tab.png" alt-text="MACC 탭을 선택하는 것을 보여주는 스크린샷." lightbox="./media/track-consumption-commitment/select-macc-tab.png" :::
-5. Microsoft Azure 사용량 약정(MACC) 탭에는 다음과 같은 섹션이 있습니다.
+4. 계약 유형에 따라 다음 중 하나를 수행 합니다.
+    - MCA 고객의 경우 왼쪽에서 **속성** 을 선택한 다음, **macc (Microsoft Azure 소비 약정)** 를 선택 합니다.  
+        :::image type="content" source="./media/track-consumption-commitment/select-macc-tab.png" alt-text="MCA의 MACC 탭을 선택 하는 것을 보여 주는 스크린샷" lightbox="./media/track-consumption-commitment/select-macc-tab.png" :::
+    - EA 고객의 경우 왼쪽 탐색 메뉴에서 **크레딧을 + 약정** 을 선택 하 고, **macc (Microsoft Azure 소비 약정)** 를 선택 합니다.  
+        :::image type="content" source="./media/track-consumption-commitment/select-macc-tab-ea.png" alt-text="EA에 대 한 MACC 탭을 선택 하는 것을 보여 주는 스크린샷" lightbox="./media/track-consumption-commitment/select-macc-tab-ea.png" :::
+1. Microsoft Azure 사용량 약정(MACC) 탭에는 다음과 같은 섹션이 있습니다.
 
 #### <a name="remaining-commitment"></a>남은 약정 
 
@@ -73,7 +76,7 @@ MACC는 다음 상태 중 하나일 수 있습니다.
 |---|---|
 | Date | 이벤트가 발생한 날짜 |
 | 설명 | 이벤트 설명 |
-| 청구 프로필 | 이벤트가 발생한 청구 프로필 |
+| 청구 프로필 | 이벤트가 발생 한 청구 프로필입니다. 청구 프로필은 Microsoft 고객 계약에만 적용 됩니다. EA 등록이 있는 경우 청구 프로필은 표시 되지 않습니다. |
 | MACC 감소 | 이벤트로 인해 감소한 MACC 양 |
 | 남은 약정 | 이벤트 후 남은 MACC 약정 |
 
@@ -81,7 +84,7 @@ MACC는 다음 상태 중 하나일 수 있습니다.
 
 [Azure 청구](/rest/api/billing/) 및 [사용량](/rest/api/consumption/) API를 사용하여 청구 계정의 Microsoft Azure 사용량 약정(MACC)을 프로그래밍 방식으로 가져올 수 있습니다.
 
-아래에 표시된 예제에서는 REST API를 사용합니다. 현재 PowerShell 및 Azure CLI는 지원되지 않습니다.
+아래에 표시된 예제에서는 REST API를 사용합니다. 현재 PowerShell 및 Azure CLI는 지원되지 않습니다. 예제 출력은 Microsoft 고객 계약에 대 한 것 이므로 Enterprise 계약에 대 한 출력은 다를 수 있습니다.
 
 ### <a name="find-billing-accounts-you-have-access-to"></a>액세스 권한이 있는 청구 계정 찾기
 

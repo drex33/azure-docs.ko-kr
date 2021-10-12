@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: f0b73c1cc510156e0db7518c2d377a6a5cc9b921
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
-ms.translationtype: HT
+ms.openlocfilehash: a91eddfba5c9e1973a938b0c58674cc528f11811
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112377299"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858636"
 ---
 # <a name="configure-ip-firewall-rules-to-allow-indexer-connections-in-azure-cognitive-search"></a>Azure Cognitive Search에서 인덱서 연결을 허용하도록 IP 방화벽 규칙 구성
 
@@ -48,7 +48,7 @@ Aliases:  contoso.search.windows.net
 
 추가 IP 주소는 인덱서의 [다중 테넌트 실행 환경](search-indexer-securing-resources.md#indexer-execution-environment)에서 시작하는 요청에 사용됩니다. 이 IP 주소 범위는 서비스 태그에서 가져올 수 있습니다.
 
-`AzureCognitiveSearch` 서비스 태그의 IP 주소 범위는 [검색 API(미리 보기)](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) 또는 [다운로드 가능한 JSON 파일](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)을 통해 가져올 수 있습니다.
+서비스 태그의 IP 주소 범위는 `AzureCognitiveSearch` [검색 API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) 또는 다운로드 [가능한 JSON 파일](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)를 통해 가져올 수 있습니다.
 
 이 연습에서는 검색 서비스가 Azure 퍼블릭 클라우드라고 가정하여 [Azure 퍼블릭 JSON 파일](https://www.microsoft.com/download/details.aspx?id=56519)을 다운로드해야 합니다.
 

@@ -16,6 +16,8 @@
       href: concepts/container-management.md
     - name: 분산 데이터 구조
       href: concepts/data-structures.md
+    - name: Azure Fluid Relay의 데이터 암호화
+      href: concepts/data-encryption.md
     - name: 앱의 인증 및 권한 부여
       href: concepts/authentication-authorization.md
     - name: 버전 호환성

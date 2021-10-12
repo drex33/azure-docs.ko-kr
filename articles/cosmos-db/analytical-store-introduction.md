@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/12/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: ac93a2d3dabb01492dbe75351ab3600f86453b07
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: 09b5d7c1865020ba33a89e73b2ba39260f473e6a
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129754428"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129859345"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>Azure Cosmos DB 분석 저장소란?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -180,19 +180,21 @@ df = spark.read\
 
 ### <a name="schema-representation"></a>스키마 표현
 
-분석 저장소에는 두 가지 모드의 스키마 표현이 있습니다. 이러한 모드는 데이터베이스 계정의 모든 컨테이너에 대한 스키마 표현 방법을 정의하며, 쿼리 환경의 단순성과 다형 스키마에 대한 보다 포괄적인 열 표현 편리성은 상쇄 관계에 있습니다.
+분석 저장소에는 두 가지 유형의 스키마 표현이 있습니다. 이러한 형식은 데이터베이스 계정에 있는 모든 컨테이너에 대 한 스키마 표현 방법을 정의 하 고 쿼리 환경 및 다형성 스키마에 대 한 보다 포괄적인 칼럼 형식의 편의를 위한 장단점이 있습니다.
 
 * 잘 정의된 스키마 표현(SQL(CORE) API 계정에 대한 기본 옵션) 
 * 전체 충실도 스키마 표현(Azure Cosmos DB API for MongoDB 계정의 기본 옵션)
 
-SQL(Core) API 계정에는 전체 충실도 스키마를 사용할 수 있습니다. 이 가능성에 대한 고려 사항은 다음과 같습니다.
+#### <a name="full-fidelity-schema-for-sql-api-accounts"></a>SQL API 계정에 대 한 전체 충실도 스키마
 
- * 이 옵션은 Synapse Link를 사용하도록 설정하지 않은 계정에만 유효합니다.
- * 기본 옵션을 다시 설정하고 잘 정의된 표현에서 전체 충실도로 변경하기 위해 Synapse Link를 해제했다가 다시 설정할 수 없습니다.
- * 다른 프로세스를 사용하여 잘 정의된 표현에서 전체 충실도로 변경할 수 없습니다.
- * MongoDB 계정에서는 이러한 표현 방법을 변경할 수 없습니다.
- * 현재는 Azure Portal 통해 이 결정을 내릴 수 없습니다.
- * 이 옵션은 계정에서 Synapse Link를 사용하도록 설정할 때 동시에 결정해야 합니다.
+Cosmos DB 계정에서 Synapse 링크를 사용 하도록 설정할 때 스키마 유형을 설정 하 여 기본 옵션이 아닌 SQL (코어) API 계정에 대해 전체 충실도 스키마를 사용할 수 있습니다. 다음은 기본 스키마 표현 유형 변경에 대 한 고려 사항입니다.
+
+ * 이 옵션은 Synapse 링크가 이미 사용 하도록 **설정 된 계정** 에만 유효 합니다.
+ * 스키마 표현 유형은 잘 정의 된 것부터 전체 충실도 또는 그 반대로 다시 설정할 수 없습니다.
+ * 현재 MongoDB 계정에 대 한 Azure Cosmos DB API는 스키마 표현의 변경 가능성과 호환 되지 않습니다. 모든 MongoDB 계정에는 항상 전체 충실도 스키마 표현 유형이 있습니다.
+ * 현재이 변경은 Azure Portal를 통해 수행할 수 없습니다. Azure Portal에서 사용 하도록 설정 된 Synapse LinK의 모든 데이터베이스 계정에는 잘 정의 된 기본 스키마 표현 형식이 있습니다.
+ 
+Azure CLI 또는 PowerShell을 사용 하 여 계정에서 Synapse 링크를 사용 하도록 설정 하는 동시에 스키마 표현 유형 결정을 내려야 합니다.
  
  Azure CLI 사용:
  ```cli
@@ -350,14 +352,14 @@ salary: 1000000
 
 * 분석 읽기 작업: Azure Synapse Analytics Spark 풀 및 서버리스 SQL 풀 런타임에서 분석 저장소에 대해 수행되는 읽기 작업입니다.
 
-분석 저장소 가격은 트랜잭션 저장소 가격 책정 모델과는 별개입니다. 분석 저장소에는 프로비저닝된 RU의 개념이 없습니다. 분석 저장소에 대 한 가격 책정 모델에 대 한 자세한 내용은 [Azure Cosmos DB 가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 를 참조 하세요.
+분석 저장소 가격은 트랜잭션 저장소 가격 책정 모델과는 별개입니다. 분석 저장소에는 프로비저닝된 RU의 개념이 없습니다. 분석 저장소의 가격 책정 모델에 대한 자세한 내용은 [Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) 가격 책정 페이지를 참조하세요.
 
-azure Synapse 링크를 통해서만 분석 저장소의 데이터에 액세스할 수 있습니다. azure Synapse analytics 런타임은 azure Synapse Apache Spark 풀 및 azure Synapse 서버 리스 SQL 풀에서 수행 됩니다. 분석 저장소의 데이터에 액세스 하는 가격 책정 모델에 대 한 자세한 내용은 [Azure Synapse Analytics 가격 책정 페이지](https://azure.microsoft.com/pricing/details/synapse-analytics/) 를 참조 하세요.
+분석 저장소의 데이터는 Azure Synapse Analytics 런타임(Azure Synapse Apache Spark 풀 및 Azure Synapse 서버리스 SQL 풀)에서 수행되는 Azure Synapse Link를 통해서만 액세스할 수 있습니다. 분석 저장소의 데이터에 액세스하는 [가격 책정](https://azure.microsoft.com/pricing/details/synapse-analytics/) 모델에 대한 자세한 내용은 Azure Synapse Analytics 가격 책정 페이지를 참조하세요.
 
-분석 저장소 관점에서 Azure Cosmos DB 컨테이너에 분석 저장소를 사용 하도록 설정 하는 데 높은 수준의 비용 추정치를 얻으려면 [Azure Cosmos DB Capacity planner](https://cosmos.azure.com/capacitycalculator/) 를 사용 하 여 예상 되는 분석 저장소 및 쓰기 작업 비용을 얻을 수 있습니다. 분석 읽기 작업 비용은 분석 워크로드 특성에 따라 달라지지만 대략적으로 어림하여 분석 저장소에서 1TB의 데이터를 검사할 경우 대개 13만개의 분석 읽기 작업이 수행되고 결과적으로 $0.065의 비용이 발생합니다.
+분석 저장소 관점에서 Azure Cosmos DB 컨테이너에서 분석 저장소를 사용하도록 설정하는 높은 수준의 예상 비용을 얻으려면 Azure [Cosmos DB Capacity Planner를](https://cosmos.azure.com/capacitycalculator/) 사용하여 분석 스토리지 및 쓰기 작업 비용을 예상할 수 있습니다. 분석 읽기 작업 비용은 분석 워크로드 특성에 따라 달라지지만 대략적으로 어림하여 분석 저장소에서 1TB의 데이터를 검사할 경우 대개 13만개의 분석 읽기 작업이 수행되고 결과적으로 $0.065의 비용이 발생합니다.
 
 > [!NOTE]
-> 분석 저장소 읽기 작업 추정치는 분석 워크로드의 기능이므로 Cosmos DB 비용 계산기에 포함되지 않습니다. 위의 추정치는 분석 저장소에서 1TB의 데이터를 검사하는 경우에 대한 것이지만 필터를 적용하면 검사되는 데이터 볼륨이 감소합니다. 이 값은 사용량에 따른 가격 책정 모델에서 정확한 분석 읽기 작업 수를 결정합니다. 분석 워크로드의 개념 증명은 분석 읽기 작업에 대한 보다 정밀한 추정치를 제공합니다. 이러한 추정치에는 Azure Synapse Analytics의 비용이 포함 되지 않습니다.
+> 분석 저장소 읽기 작업 추정치는 분석 워크로드의 기능이므로 Cosmos DB 비용 계산기에 포함되지 않습니다. 위의 추정치는 분석 저장소에서 1TB의 데이터를 검사하는 경우에 대한 것이지만 필터를 적용하면 검사되는 데이터 볼륨이 감소합니다. 이 값은 사용량에 따른 가격 책정 모델에서 정확한 분석 읽기 작업 수를 결정합니다. 분석 워크로드의 개념 증명은 분석 읽기 작업에 대한 보다 정밀한 추정치를 제공합니다. 이 예상치에는 Azure Synapse Analytics 비용이 포함되지 않습니다.
 
 
 ## <a name="analytical-time-to-live-ttl"></a><a id="analytical-ttl"></a> 분석 TTL(Time-to-Live)

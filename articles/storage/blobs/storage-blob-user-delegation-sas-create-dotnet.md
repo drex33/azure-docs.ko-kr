@@ -10,12 +10,12 @@ ms.date: 02/03/2021
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 80c02416f5e1fb232d84b1311d261122dc7b9a35
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
-ms.translationtype: HT
+ms.openlocfilehash: ebd9ba6beabe1a0bd3e6f158b90ca90510ea1b66
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733667"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857837"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-directory-or-blob-with-net"></a>.NET을 사용하여 컨테이너, 디렉터리 또는 Blob에 대한 사용자 위임 SAS 만들기
 
@@ -29,13 +29,11 @@ ms.locfileid: "113733667"
 
 Azure AD 보안 주체가 Blob 데이터에 액세스하려는 경우 해당 보안 주체에게 리소스에 대한 권한이 있어야 합니다. 보안 주체가 Azure의 관리 ID 또는 개발 환경에서 코드를 실행하는 Azure AD 사용자 계정이면 보안 주체는 Azure Storage의 Blob 데이터에 대한 액세스 권한을 부여하는 Azure 역할을 할당받아야 합니다. Azure RBAC를 통해 권한을 할당하는 방법에 관한 자세한 내용은 [Blob 데이터에 액세스하기 위한 Azure 역할 할당](assign-azure-role-data-access.md)을 참조하세요.
 
-[!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
-
-Azure Storage에서 Azure ID 클라이언트 라이브러리를 사용하여 인증하는 방법에 대한 자세한 내용은 [Azure Active Directory 및 Azure 리소스에 대한 관리 ID를 사용하여 Azure Blob 및 큐에 대한 액세스 권한 부여](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library)에서 **Azure ID 라이브러리를 사용하여 인증** 섹션을 참조하세요.
+Azure Storage에서 azure id 클라이언트 라이브러리를 사용 하 여 토큰을 가져오는 방법에 대 한 자세한 내용은 [azure id 라이브러리를 사용 하 여 권한 부여에 대 한 액세스 토큰 가져오기](../common/identity-library-acquire-token.md)를 참조 하세요.
 
 ## <a name="get-an-authenticated-token-credential"></a>인증된 토큰 자격 증명 가져오기
 
-코드에서 Azure Storage 요청에 권한을 부여하는 데 사용할 수 있는 토큰 자격 증명을 가져오려면 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) 클래스의 인스턴스를 만듭니다.
+코드에서 Azure Storage 요청에 권한을 부여하는 데 사용할 수 있는 토큰 자격 증명을 가져오려면 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) 클래스의 인스턴스를 만듭니다. DefaultAzureCredential 클래스를 사용 하 여 Azure Storage에 대 한 액세스 권한을 관리 되는 id에 부여 하는 방법에 대 한 자세한 내용은 [.net 용 Azure id 클라이언트 라이브러리](/dotnet/api/overview/azure/identity-readme)를 참조 하세요.
 
 다음 코드 조각에서는 인증된 토큰 자격 증명을 가져와서 이를 사용하여 Blob Storage용 서비스 클라이언트를 만드는 방법을 보여 줍니다.
 

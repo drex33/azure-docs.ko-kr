@@ -5,12 +5,12 @@ ms.author: agiurg
 ms.date: 07/20/2021
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: 07a8af0c389b0b5c2216f45e0a3fb0ba053e5690
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: bb5ccb022b4bfeb90f7c50f27ce2a76d43386571
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114442915"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129378119"
 ---
 이 빠른 시작에서는 Android용 Azure Communication Services 채팅 SDK를 사용하여 Teams 모임에서 채팅하는 방법을 알아봅니다.
 
@@ -45,7 +45,7 @@ Teams 상호 운용성을 사용하도록 설정하면 Communication Services �
 
 ## <a name="add-the-teams-ui-layout"></a>Teams UI 레이아웃 추가
 
-activity_main.xml의 코드를 다음 코드 조각으로 바꿉니다. 스레드 ID 및 메시지 전송을 위한 입력, 입력된 메시지 전송 단추 및 기본 채팅 레이아웃을 추가합니다.
+activity_main.xml의 코드를 다음 코드 조각으로 바꿉니다. 스레드 ID 및 메시지 전송을 위한 입력, 입력된 메시지 전송 버튼 및 기본 채팅 레이아웃을 추가합니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -390,7 +390,9 @@ import com.azure.android.core.util.AsyncStreamHandler;
 
 ## <a name="get-a-teams-meeting-chat-thread-for-a-communication-services-user"></a>Communication Services 사용자를 위한 Teams 미팅 채팅 스레드 가져오기
 
-Teams 모임 링크 및 채팅은 [그래프 문서](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true)에 자세히 설명된 Graph API를 사용하여 검색할 수 있습니다. Communication Services Calling SDK는 전체 Teams 미팅 링크를 수락합니다. 이 링크는 [`joinWebUrl` 속성](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)에서 액세스할 수 있는 `onlineMeeting` 리소스의 일부로 반환됩니다. [Graph API](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true)를 사용하면 `threadId`를 얻을 수도 있습니다. 응답에는 `threadID`를 포함하는 `chatInfo` 개체가 포함됩니다. 
+Teams 모임 링크 및 채팅은 [그래프 설명서](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true)에 자세히 설명된 Graph API를 사용하여 검색할 수 있습니다. Communication Services Calling SDK는 전체 Teams 모임 링크를 수락합니다. 이 링크는 [`joinWebUrl` 속성](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)에서 액세스할 수 있는 `onlineMeeting` 리소스의 일부로 반환됩니다.
+
+[Graph API](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true)를 사용하면 `threadID`도 가져올 수 있습니다. 응답에는 `threadID`를 포함하는 `chatInfo` 개체가 포함됩니다.
 
 또한 Teams 모임 초대 자체의 **모임 참가** URL에서 필요한 모임 정보 및 스레드 ID를 가져올 수 있습니다.
 Teams 미팅 링크는 `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`와 같습니다. `threadId`는 링크의 `meeting_chat_thread_id` 위치에 있습니다. 사용하기 전에 `meeting_chat_thread_id`가 이스케이프되지 않았는지 확인합니다. `19:meeting_ZWRhZDY4ZGUtYmRlNS00OWZaLTlkZTgtZWRiYjIxOWI2NTQ4@thread.v2` 형식이어야 합니다.

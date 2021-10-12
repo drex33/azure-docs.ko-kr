@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 6b4b15362d1fe2371f181fb4ee46c30e8237dea0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7dc2a8e5701ba45e49d9be50d5a05727d01cda4d
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128598112"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533344"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>AWS(Amazon Web Services) VM 검색, 평가 및 Azure로 마이그레이션
 
@@ -329,7 +329,7 @@ Mobility Service 에이전트가 마이그레이션할 원본 AWS VM에 설치�
 5. 마이그레이션이 완료되면 Azure Portal의 **Virtual Machines** 에서 마이그레이션된 Azure VM을 확인합니다. 머신 이름에는 **-Test** 접미사가 있습니다.
 6. 테스트가 완료되면 **머신 복제 중** 에서 마우스 오른쪽 단추로 Azure VM을 클릭하고, **테스트 마이그레이션 정리** 를 클릭합니다.
 
-    ![마이그레이션 정리](./media/tutorial-migrate-physical-virtual-machines/clean-up.png)
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/clean-up-inline.png" alt-text="테스트 마이그레이션 정리 후 결과를 보여 주는 스크린샷" lightbox="./media/tutorial-migrate-physical-virtual-machines/clean-up-expanded.png":::
 
     > [!NOTE]
     > 이제 SQL IaaS 에이전트 확장을 사용하여 자동화된 패치, 자동화된 백업 및 간소화된 라이선스 관리를 활용하기 위해 SQL Server를 실행하는 서버를 SQL VM RP에 등록할 수 있습니다.

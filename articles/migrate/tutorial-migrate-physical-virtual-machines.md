@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 01/02/2021
 ms.custom: MVC
-ms.openlocfilehash: 6c392d1af427c7a9837519ea8443efc5773aa6db
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: 00d069257d25441f16fb82cae720bb49b8e0f15f
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129154815"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536945"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>물리적 서버로 머신을 Azure에 마이그레이션
 
@@ -308,14 +308,15 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
 
 2. 마우스 오른쪽 단추로 테스트할 VM을 클릭하고, **테스트 마이그레이션** 을 클릭합니다.
 
-    ![테스트 마이그레이션](./media/tutorial-migrate-physical-virtual-machines/test-migrate.png)
-
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/test-migrate-inline.png" alt-text="테스트 마이그레이션을 클릭한 후의 결과를 보여 주는 스크린샷" lightbox="./media/tutorial-migrate-physical-virtual-machines/test-migrate-expanded.png":::
+ 
 3. **테스트 마이그레이션** 에서 마이그레이션 후 Azure VM이 위치할 Azure VNet을 선택합니다. 비프로덕션 VNet을 사용하는 것이 좋습니다.
 4. **테스트 마이그레이션** 작업이 시작됩니다. 포털 알림에서 작업을 모니터링합니다.
 5. 마이그레이션이 완료되면 Azure Portal의 **Virtual Machines** 에서 마이그레이션된 Azure VM을 확인합니다. 머신 이름에는 **-Test** 접미사가 있습니다.
 6. 테스트가 완료되면 **머신 복제 중** 에서 마우스 오른쪽 단추로 Azure VM을 클릭하고, **테스트 마이그레이션 정리** 를 클릭합니다.
 
-    ![마이그레이션 정리](./media/tutorial-migrate-physical-virtual-machines/clean-up.png)
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/clean-up-inline.png" alt-text="테스트 마이그레이션 정리 후 결과를 보여 주는 스크린샷" lightbox="./media/tutorial-migrate-physical-virtual-machines/clean-up-expanded.png":::
+
     > [!NOTE]
     > 이제 SQL IaaS 에이전트 확장을 사용하여 자동화된 패치, 자동화된 백업 및 간소화된 라이선스 관리를 활용하기 위해 SQL Server를 실행하는 서버를 SQL VM RP에 등록할 수 있습니다.
     >- **관리** > **복제 서버** > **SQL 서버를 포함한 머신** > **컴퓨팅 및 네트워크** 를 선택하고 **예** 를 선택하여 SQL VM RP에 등록합니다.

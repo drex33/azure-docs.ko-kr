@@ -11,12 +11,12 @@ ms.date: 09/22/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management, has-adal-ref
-ms.openlocfilehash: 5f70c401799fb0b67f9f4013713eb89525072f45
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 06b982a43c5155ce5a111bafbac41862363ec07d
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128670731"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355508"
 ---
 # <a name="introduction-to-azure-ad-connect-v20"></a>Azure AD Connect v2.0 소개 
 
@@ -77,7 +77,7 @@ PowerShell 필수 조건에 대한 자세한 내용은 [여기](/powershell/scri
 아니요 - 이 릴리스에는 새로운 기능이 포함되어 있지 않습니다. 이 릴리스에는 Azure AD Connect의 일부 기본 구성 요소의 업데이트만 포함되어 있습니다. 
 
 **이전 버전에서 V2.0으로 업그레이드할 수 있나요?** </br>
-예 – 이전 버전의 Azure AD Connect에서 Azure AD Connect v2.0로 업그레이드하는 것은 지원됩니다. 이 문서의 지침에 따라 가장 적합한 업그레이드 전략을 결정하세요. 
+예 – 이전 버전의 Azure AD Connect에서 Azure AD Connect v2.0로 업그레이드하는 것은 지원됩니다. [이 문서](how-to-upgrade-previous-version.md)의 지침에 따라 가장 적합한 업그레이드 전략을 결정하세요. 
 
 **현재 서버의 구성을 내보내고 Azure AD Connect V2.0으로 가져올 수 있나요?** </br>
 예, 가능합니다. 특히 새 운영 체제 버전으로 업그레이드하는 경우 이 방법이 Azure AD Connect V2.0으로 마이그레이션하는 좋은 방법입니다. 가져오기/내보내기 구성 기능 및 이 기능을 사용하는 방법에 대한 자세한 내용은 이 [문서](how-to-connect-import-export-config.md)에서 확인할 수 있습니다. 

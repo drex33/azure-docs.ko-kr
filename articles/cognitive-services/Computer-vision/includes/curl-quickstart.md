@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 04/19/2021
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2f01b1d222470c49505638be64180948b6f7e046
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: ceeb1804c9332d9e0d3e11336ff92e8aacc8516c
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728261"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129585304"
 ---
 광학 인식 REST API를 사용하여 인쇄 및 필기 텍스트를 읽을 수 있습니다.
 
@@ -32,10 +32,10 @@ ms.locfileid: "107728261"
 * [cURL](https://curl.haxx.se/) 설치
 
 
+## <a name="extract-printed-and-handwritten-text"></a>인쇄 및 필기 텍스트 추출
 
-## <a name="read-printed-and-handwritten-text"></a>인쇄 텍스트 및 필기 텍스트 읽기
+OCR 서비스는 이미지나 문서에서 보이는 텍스트를 추출하여 문자 스트림으로 변환할 수 있습니다. 텍스트 추출에 대한 자세한 내용은 [OCR(광학 인식) 개요](../overview-ocr.md)를 참조하세요.
 
-OCR 서비스는 이미지 속의 시각적 텍스트를 읽고 문자 스트림으로 변환할 수 있습니다. 텍스트 인식에 대한 자세한 내용은 [OCR(광학 인식) 개요](../overview-ocr.md)를 참조하세요.
 
 ### <a name="call-the-read-api"></a>읽기 API 호출
 
@@ -55,6 +55,9 @@ curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/r
 ```
 
 응답에는 값이 고유한 URL인 `Operation-Location` 헤더가 포함됩니다. 이 URL을 사용하여 읽기 작업의 결과를 쿼리할 수 있습니다. URL은 48시간 후에 만료됩니다.
+
+### <a name="how-to-use-preview-features"></a>미리 보기 기능을 사용하는 방법
+미리 보기 언어 및 기능의 경우, 최신 미리 보기를 사용하려면 [모델 버전을 지정하는 방법](../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional)을 참조하세요. 미리 보기 모델에는 현재 GA 언어 및 기능에 대한 향상된 기능이 포함되어 있습니다.
 
 ### <a name="get-read-results"></a>읽기 결과 가져오기
 

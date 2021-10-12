@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 09/08/2021
-ms.openlocfilehash: cf5c28d197aabf60d7e6ee36c2e724ffad435522
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/01/2021
+ms.openlocfilehash: 8e474cd0ae6635034607a088aceee47a83c500de
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128559212"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388777"
 ---
 # <a name="security-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 보안
 
@@ -24,7 +24,9 @@ ms.locfileid: "128559212"
 Azure Database for PostgreSQL은 다음 두 가지 방법으로 데이터를 암호화합니다.
 
 - **전송 중인 데이터**: Azure Database for PostgreSQL은 SSL/TLS(Secure Sockets Layer 및 전송 계층 보안)를 사용하여 전송 중인 데이터를 암호화합니다. 암호화는 기본적으로 적용됩니다. 자세한 내용은 이 [가이드](how-to-connect-tls-ssl.md)를 참조하세요. 보안을 강화하기 위해 [SCRAM 인증](how-to-connect-scram.md)을 사용하도록 선택할 수 있습니다.
- 권장되지는 않지만 필요한 경우 **require_secure_transport** 서버 매개 변수를 OFF로 업데이트하여 Azure Database for PostgreSQL - 유연한 서버에 연결하기 위해 TLS\SSL을 사용하지 않도록 설정하는 옵션이 있습니다. 또한 **ssl_min_protocol_version** 및 **ssl_max_protocol_version** 서버 매개 변수를 설정하여 TLS 버전을 설정할 수 있습니다.
+
+   권장되지는 않지만 필요한 경우 `require_secure_transport` 서버 매개 변수를 OFF로 업데이트하여 Azure Database for PostgreSQL - 유연한 서버에 연결하기 위해 TLS\SSL을 사용하지 않도록 설정하는 옵션이 있습니다. 설정 `ssl_min_protocol_version` 및 `ssl_max_protocol_version` 서버 매개 변수를 설정하여 TLS 버전을 설정할 수도 있습니다.
+
 
 - **미사용 데이터**: 스토리지 암호화의 경우 Azure Database for PostgreSQL은 FIPS 140-2 유효성 검사 암호화 모듈을 사용합니다. 쿼리가 실행되는 동안 만들어진 백업 및 임시 파일을 포함하여 데이터는 디스크에서 암호화됩니다. 
 

@@ -1,14 +1,14 @@
 ---
 title: Azure Arc 지원 서버 개요
 description: Azure Arc 지원 서버를 사용하여 Azure 리소스처럼 Azure 외부에서 호스트된 머신을 관리하는 방법을 알아봅니다.
-ms.date: 08/27/2021
+ms.date: 09/30/2021
 ms.topic: overview
-ms.openlocfilehash: 5bca2ec2bdf46f27ca83c4747c5ecb5688fa1708
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: c064abb4258f36207e8bd4f02f7cb68d8ce1fce1
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124807140"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355384"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Azure Arc 지원 서버란?
 
@@ -32,8 +32,8 @@ Azure Arc 지원 서버를 사용하면 Azure ‘외부’의 회사 네트워�
 | Azure Security Center | 위협 탐지, 취약성 관리 및 잠재적 보안 위협을 사전에 모니터링하는 [Azure Defender](../../security-center/defender-for-servers-introduction.md)를 통해 포함된 [엔드포인트용 Microsoft Defender](/microsoft-365/security/defender-endpoint)를 사용하여 비 Azure 서버를 보호합니다. Azure Security Center는 검색된 위협의 경고 및 수정 제안을 표시합니다. |
 | Azure Sentinel | Arc 지원 서버에 연결된 컴퓨터는 [Azure Sentinel](scenario-onboard-azure-sentinel.md) 사용하여 보안 관련 이벤트를 수집하고 다른 데이터 원본과 상호 연결하도록 구성할 수 있습니다. |
 |**구성** ||
-| Azure Automation |[변경 내용 추적 및 인벤토리](../../automation/change-tracking/overview.md)를 사용하여, 설치된 소프트웨어, Microsoft 서비스, Windows 레지스트리 및 파일, Linux 디먼에 대한 구성 변경을 평가합니다.<br> [업데이트 관리](../../automation/update-management/overview.md)를 사용하여 Windows 및 Linux 서버의 운영 체제 업데이트를 관리합니다. |
-| Azure Automanage | [Arc 지원 서버에 Automanage Machine](../../automanage/automanage-arc.md)을 사용할 때는 Azure 서비스 집합을 온보딩합니다. |
+| Azure Automation |PowerShell 및 Python [runbook](../../automation/automation-runbook-execution.md)을 사용하여 자주 및 시간이 오래 걸리는 관리 작업을 자동화합니다.<br> [변경 내용 추적 및 인벤토리](../../automation/change-tracking/overview.md)를 사용하여, 설치된 소프트웨어, Microsoft 서비스, Windows 레지스트리 및 파일, Linux 디먼에 대한 구성 변경을 평가합니다.<br> [업데이트 관리](../../automation/update-management/overview.md)를 사용하여 Windows 및 Linux 서버의 운영 체제 업데이트를 관리합니다. |
+| Azure Automanage(미리 보기) | [ARC 지원 서버에 Automanage Machine](../../automanage/automanage-arc.md)을 사용할 때는 Azure 서비스 집합을 온보딩합니다. |
 | VM 확장 | 비 Azure Windows 또는 Linux 컴퓨터에 대해 지원되는 [Arc 지원 서버 VM 확장](manage-vm-extensions.md)을 사용하여 배포 후 구성 및 자동화 작업을 제공합니다. |
 |**모니터**|
 | Azure Monitor | 연결된 컴퓨터 게스트 운영 체제 성능을 모니터링하고 애플리케이션 구성 요소를 검색하여 애플리케이션에서 [VM 인사이트](../../azure-monitor/vm/vminsights-overview.md)를 사용해 통신하는 다른 리소스와의 종속성 및 프로세스를 모니터링합니다. [Log Analytics 에이전트](../../azure-monitor/agents/agents-overview.md#log-analytics-agent)를 사용하여 컴퓨터에서 실행되는 운영 체제 또는 워크로드에서 성능 데이터 및 이벤트와 같은 다른 로그 데이터를 수집합니다. 데이터는 [Log Analytics 작업 영역](../../azure-monitor/logs/design-logs-deployment.md)의 테이블에 저장됩니다. |

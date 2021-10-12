@@ -3,12 +3,12 @@ title: Azure VMware Solution에서 VMware HCX 구성
 description: Azure VMware Solution 프라이빗 클라우드용 온-프레미스 VMware HCX Connector를 구성합니다.
 ms.topic: tutorial
 ms.date: 09/07/2021
-ms.openlocfilehash: 1fbcd8cc2cc596395f3736949f54f30ac224d060
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 022936108246b57f27d26dfffdaa260399821740
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124755827"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457509"
 ---
 # <a name="configure-on-premises-vmware-hcx-connector"></a>온-프레미스 VMware HCX 커넥터 구성
 

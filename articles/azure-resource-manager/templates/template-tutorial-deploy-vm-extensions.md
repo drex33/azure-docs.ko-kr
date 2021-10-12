@@ -6,12 +6,12 @@ ms.date: 03/26/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 14aece10cad828b82f2541e4f0478633382de662
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b7e7770df1195dc170a28246a572f8825b39a860
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128656249"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129401278"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>자습서: ARM 템플릿을 사용하여 가상 머신 확장 배포
 
@@ -32,11 +32,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 이 문서를 완료하려면 다음이 필요합니다.
 
 * Resource Manager 도구 확장이 포함된 Visual Studio Code. [빠른 시작: Visual Studio Code를 사용하여 ARM 템플릿 만들기](quickstart-create-templates-use-visual-studio-code.md)를 참조하세요.
-* 보안을 강화하려면 가상 머신 관리자 계정에 생성된 암호를 사용합니다. 암호를 생성하는 방법에 대한 샘플은 다음과 같습니다.
+* 보안을 강화하려면 가상 머신 관리자 계정에 생성된 암호를 사용합니다. [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용하여 PowerShell 또는 Bash에서 다음 명령을 실행할 수 있습니다.
 
-    ```console
+    ```shell
     openssl rand -base64 32
     ```
+
+    자세히 알아보려면 `man openssl rand`을(를) 실행하여 수동 페이지를 엽니다.
 
     Azure Key Vault는 암호화 키 및 기타 비밀을 보호하기 위한 것입니다. 자세한 내용은 [자습서: ARM 템플릿 배포에 Azure Key Vault 통합](./template-tutorial-use-key-vault.md)을 참조하세요. 또한 3개월마다 암호를 업데이트하는 것도 좋습니다.
 

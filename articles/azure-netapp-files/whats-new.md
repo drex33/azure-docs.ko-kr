@@ -12,18 +12,36 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/27/2021
+ms.date: 10/05/2021
 ms.author: b-juche
-ms.openlocfilehash: cae4e16f42d9031040060a33bb8a5795f7695f56
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 2dff42fcf855a41e2e907563b1aecccad0a1661a
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129092132"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129545928"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Azure NetApp Files의 새로운 기능
 
 Azure NetApp Files는 정기적으로 업데이트됩니다. 이 문서에서는 새로운 최신 기능과 향상된 기능에 대한 요약을 제공합니다. 
+
+    
+## <a name="october-2021"></a>2021년 10월
+
+* [표준 네트워크 기능](configure-network-features.md)(미리 보기)
+
+    Azure NetApp Files는 고객이 개시 이후에 요청하는 볼륨에 대한 **표준** 네트워크 기능을 지원합니다. 혁신적인 하드웨어 및 소프트웨어 통합으로 이 기능을 사용할 수 있습니다. 표준 네트워크 기능은 Azure NetApp Files를 포함하여 모든 워크로드의 보안 태세와 원활하고 일관된 환경을 제공하기 위해 다양한 기능을 통해 향상된 가상 네트워킹 환경을 제공합니다.
+    
+    이제 새 Azure NetApp Files 볼륨을 만들 때 *표준* 또는 *기본* 네트워크 기능을 선택할 수 있습니다. 표준 네트워크 기능을 선택하면 Azure NetApp Files 볼륨 및 위임된 서브넷에 대해 다음과 같은 지원되는 기능을 활용할 수 있습니다.   
+    * VM과 함께 Azure NetApp Files 볼륨이 있는 VNet에 대한 IP 제한 증가
+    * Azure NetApp Files 위임된 서브넷의 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)에 대한 지원으로 향상된 네트워크 보안
+    * Azure NetApp Files 위임된 서브넷 간 [사용자 정의 경로](../virtual-network/virtual-networks-udr-overview.md#custom-routes)를 지원하는 향상된 네트워크 제어
+    * 활성/활성 VPN gateway 설치를 통한 연결
+    * Azure NetApp Files에 대한 [ExpressRoute 경로](../expressroute/about-fastpath.md) 연결
+
+    이 공개 미리 보기는 현재 **미국 중북부** 에서 시작하여 이용이 가능하며 다른 지역으로 롤아웃됩니다.  더 많은 지역 및 기능을 사용할 수 있게 되면 [Azure 업데이트](https://azure.microsoft.com/updates/)를 통해 추가 정보를 계속 조정하세요.  
+ 
+    자세히 알아보려면, [Azure NetApp Files 볼륨의 네트워크 기능 구성](configure-network-features.md)을 참조하세요.
 
 ## <a name="september-2021"></a>2021년 9월
 

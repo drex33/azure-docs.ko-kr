@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: db445dee705c47b557916f7b6d69de4668a7eaa5
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8b2fc0f070ba5a07a1ac51a314f08873860e852d
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128618156"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129229680"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>자습서: 유니버설 Windows 플랫폼(UWP) 애플리케이션에서 Microsoft Graph API 호출
 
@@ -369,7 +369,7 @@ private async Task DisplayMessageAsync(string message)
 
 ## <a name="enable-integrated-authentication-on-federated-domains-optional"></a>페더레이션된 도메인에서 통합된 인증을 사용하도록 설정(선택 사항)
 
-통합 Windows 인증을 페더레이션된 Azure AD 도메인에서 사용하는 경우 이를 사용하도록 설정하려면 애플리케이션 매니페스트에서 추가 기능을 사용하도록 설정해야 합니다. Visual Studio에서 애플리케이션으로 돌아갑니다.
+Windows 통합 인증을 페더레이션된 Azure AD 도메인에서 사용하는 경우 이를 사용하도록 설정하려면 애플리케이션 매니페스트에서 추가 기능을 사용하도록 설정해야 합니다. Visual Studio에서 애플리케이션으로 돌아갑니다.
 
 1. *Package.appxmanifest* 를 엽니다.
 1. **기능** 을 선택하고, 다음 설정을 사용하도록 설정합니다.
@@ -379,7 +379,7 @@ private async Task DisplayMessageAsync(string message)
    * **공유 사용자 인증서**
 
 > [!IMPORTANT]
-> [통합 Windows 인증](https://aka.ms/msal-net-iwa)은 이 샘플에 대해 기본적으로 구성되지 않습니다. `Enterprise Authentication` 또는 `Shared User Certificates` 기능을 요청하는 애플리케이션을 사용하려면 Windows 스토어에서 더 높은 수준을 확인해야 합니다. 또한 일부 개발자가 더 높은 수준의 확인을 수행하려고 합니다. 페더레이션된 Azure AD 도메인과 함께 사용할 통합 Windows 인증이 필요한 경우에만 이 설정을 사용하세요.
+> [통합 Windows 인증](https://aka.ms/msal-net-iwa)은 이 샘플에 대해 기본적으로 구성되지 않습니다. `Enterprise Authentication` 또는 `Shared User Certificates` 기능을 요청하는 애플리케이션을 사용하려면 Windows 스토어에서 더 높은 수준을 확인해야 합니다. 또한 일부 개발자가 더 높은 수준의 확인을 수행하려고 합니다. 페더레이션된 Azure AD 도메인과 함께 사용할 Windows 통합 인증이며, 인증이 필요한 경우 이 설정을 사용하세요.
 
 ## <a name="alternate-approach-to-using-withdefaultredirecturi"></a>WithDefaultRedirectURI()를 사용하는 다른 방법
 

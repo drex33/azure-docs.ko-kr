@@ -1,5 +1,5 @@
 ---
-title: '자습서: Create!Webフロー와 Azure Active Directory SSO(Single Sign-On) 통합 | Microsoft Docs'
+title: '자습서: Create!Webフロー 및 Azure AD SSO 통합 '
 description: Azure Active Directory와 Create!Webフロー 간에 Single Sign-On을 구성하는 방법을 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/31/2021
+ms.date: 09/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 1aaabacff8e1512931aa18c7fe6db20708425096
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 38fab4d4e1dff8f9916693442926312d81409884
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124802863"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129402000"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-createweb"></a>자습서: Create!Webフロー와 Azure Active Directory SSO(Single Sign-On) 통합
+# <a name="tutorial-azure-ad-sso-integration-with-createweb"></a>자습서: Create!Webフロー 및 Azure AD SSO 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Create!Webフロー를 통합하는 방법에 대해 알아봅니다. Azure AD와 Create!Webフロー를 통합하면 다음을 수행할 수 있습니다.
 
@@ -94,7 +94,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     **로그인 URL** 텍스트 상자에서 `https://<user-hostname>:8443/XFV20` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Create!Webフロー 클라이언트 지원 팀](mailto:solution-cwf@iftc.co.jp)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Create!Webフロー 클라이언트 지원 팀](https://support.createwebflow.jp/contact/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드** 를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
@@ -112,7 +112,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -130,11 +130,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-createweb-sso"></a>Create!Webフロー SSO 구성
 
-**Create!Webフロー** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 [Create!Webフロー 지원 팀](mailto:solution-cwf@iftc.co.jp)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Create!Webフロー** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 [Create!Webフロー 지원 팀](https://support.createwebflow.jp/contact/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-createweb-test-user"></a>Create!Webフロー 테스트 사용자 만들기
 
-이 섹션에서는 Create!Webフロー에서 Britta Simon이라는 사용자를 만듭니다. [Create!Webフロー 지원 팀](mailto:solution-cwf@iftc.co.jp)과 협력하여 Create!Webフロー 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Create!Webフロー에서 Britta Simon이라는 사용자를 만듭니다. [Create!Webフロー 지원 팀](https://support.createwebflow.jp/contact/)과 협력하여 Create!Webフロー 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ## <a name="test-sso"></a>SSO 테스트 
 

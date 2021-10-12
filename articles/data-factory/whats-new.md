@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: concepts
 ms.topic: overview
 ms.date: 07/14/2021
-ms.openlocfilehash: 7509be190afd0354f730f72dd97c5b5a118f20dd
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 090b0eaca0e46969aa98e6ac7878da3333602ab6
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123187346"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533489"
 ---
 # <a name="whats-new-in-azure-data-factory"></a>Azure Data Factory의 새로운 기능
 
@@ -25,6 +25,21 @@ Azure Data Factory 서비스는 지속적으로 개선되고 있습니다. 최�
 - 변경 계획
 
 이 페이지는 매월 업데이트되므로 정기적으로 다시 방문해 주세요. 
+
+## <a name="september-2021"></a>2021년 9월
+<br>
+<table>
+<tr><td><b>서비스 범주</b></td><td><b>서비스 개선 사항</b></td><td><b>세부 정보</b></td></tr>
+  <tr><td><b>연속 통합 및 지속적인 업데이트(CI/CD)</b></td><td>확장된 CI/CD 기능</td><td>이제 Azure Data Factory의 다른 분기를 기반으로 새 Git 분기를 만들 수 있습니다.<br><a href="source-control.md#version-control">자세한 정보</a></td></tr>
+<tr><td rowspan=3><b>데이터 이동</b></td><td>Amazon Relational Database Service (RDS) for Oracle 소스</td><td>이제 Azure Data Factory 및 Azure Synapse에서 Amazon RDS for Oracle 소스 커넥터를 사용할 수 있습니다.<br><a href="connector-amazon-rds-for-oracle.md">자세한 정보</a></td></tr>
+<tr><td>Amazon RDS for SQL Server 소스</td><td>이제 Azure Data Factory 및 Azure Synapse에서 Amazon RDS for SQL Server 소스 커넥터를 사용할 수 있습니다.<br><a href="connector-amazon-rds-for-sql-server.md">자세한 정보</a></td></tr>
+<tr><td>Azure Database for PostgreSQL의 병렬 복사 지원</td><td>이제 Azure Database for PostgreSQL 커넥터에서 병렬 복사 작업을 지원합니다.<br><a href="connector-azure-database-for-postgresql.md">자세한 정보</a></td></tr>
+<tr><td rowspan=3><b>데이터 흐름</b></td><td>Azure Data Lake Storage (ADLS) Gen2를 사용하여 전처리 및 후처리 명령을 실행합니다.</td><td>이제 데이터 흐름의 ADLS Gen2 싱크를 사용하여 HDFS (Hadoop 분산 파일 시스템) 전처리 및 후처리 명령을 실행할 수 있습니다.<br><a href="connector-azure-data-lake-storage.md#pre-processing-and-post-processing-commands">자세한 정보</a></td></tr>
+<tr><td>IR(Azure Integration Runtime)의 기존 인스턴스에 대한 데이터 흐름 속성 편집</td><td>IR(Azure Integration Runtime)이 기존 IR에 대한 데이터 흐름 속성을 편집할 수 있도록 업데이트 되었습니다. 이제 새 Azure IR을 만들 필요 없이 데이터 흐름 계산 속성을 수정할 수 있습니다.<br><a href="concepts-integration-runtime.md">자세한 정보</a></td></tr>
+<tr><td>파이프라인 작업 실행 시작 시간을 향상시키기 위한 Azure Synapse TTL 설정</td><td>Azure Synapse Analytics는 데이터 흐름 파이프라인 작업이 몇 초 만에 실행을 시작할 수 있도록 Azure Integration Runtime에 TTL을 추가하여 데이터 흐름 파이프라인의 런타임을 최소화합니다.<br><a href="control-flow-execute-data-flow-activity.md#data-flow-integration-runtime">자세한 정보</a></td></tr>
+<tr><td><b>통합 런타임</b></td><td>Azure Data Factory 관리형 vNet이 GA로 이동</td><td>이제 관리 Virtual Network의 일부로 Azure Integration Runtime를 프로비전하고 개인 엔드포인트를 활용하여 지원되는 데이터 저장소에 안전하게 연결할 수 있습니다. 데이터 트래픽은 데이터 원본에 대한 보안 연결을 제공하는 Azure 개인 링크를 통해 이동합니다. 또한 공용 인터넷으로 데이터가 반출되는 일을 방지합니다.<br><a href="managed-virtual-network-private-endpoint.md">자세한 정보</a></td></tr>
+<tr><td><b>오케스트레이션</b></td><td>데이터 파이프라인용 SLA의 운영 및 제공</td><td>Data Factory 경고와 결합된 새로운 경과된 시간 파이프라인 실행 메트릭은 데이터 파이프라인 개발자들이 고객에게 SLA를 보다 잘 제공할 수 있게 해줍니다. 즉 파이프라인이 실행되어야 하는 기간을 알려주시면 파이프라인이 예상보다 오래 실행될 때 미리 알려드립니다.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/operationalize-and-provide-sla-for-data-pipelines/ba-p/2767768">자세한 정보</a></td></tr>
+</table>
 
 ## <a name="august-2021"></a>2021년 8월
 <br>

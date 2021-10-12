@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 4/27/2021
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 26063c9d0c02079b2c40eb85330be499b4bb624e
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 92b1eeb5317f5a7535406d1b3781a4b0b66cad45
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114462009"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272456"
 ---
 # <a name="quickstart---get-started-with-a-sample-scenario-in-azure-digital-twins-explorer"></a>빠른 시작 - Azure Digital Twins Explorer에서 샘플 시나리오 시작
 
 Azure Digital Twins를 사용하면 실제 환경의 라이브 모델을 만들어 이와 상호 작용할 수 있습니다. 먼저 개별 요소를 **디지털 트윈** 으로 모델링합니다. 그런 다음, 라이브 이벤트에 응답하고 정보를 쿼리할 수 있는 기술 자료 **그래프** 에 연결합니다.
 
-이 빠른 시작에서는 [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md)를 사용하여 미리 빌드된 Azure Digital Twins 그래프를 살펴봅니다. 이 도구는 Azure Portal 내에서 Azure Digital Twins 데이터를 시각화하고 상호 작용할 수 있는 도구입니다.
+이 빠른 시작에서는 [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md)를 사용하여 미리 빌드된 Azure Digital Twins 그래프를 살펴봅니다. 이 도구는 Azure Portal 내에서 Azure Digital Twins 데이터를 시각화하고 상호 작용할 수 있는 도구입니다. 
 
 다음 단계를 완료하게 됩니다.
 
@@ -31,6 +31,9 @@ Azure Digital Twins를 사용하면 실제 환경의 라이브 모델을 만들�
 작업할 샘플 그래프는 두 개의 층과 두 개의 방이 있는 건물을 나타냅니다. Floor0에는 Room0이 포함되고 Floor1에는 Room1이 포함됩니다. 그래프는 다음 이미지와 비슷합니다.
 
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="Azure Digital Twins Explorer에서 화살표로 연결된 4개의 원형 노드로 구성된 그래프의 스크린샷":::
+
+>[!NOTE]
+>이 빠른 시작은 Azure Digital Twins 데이터를 나타내는 방법을 해석하기 위해 미리 정의된 그래프를 탐색하기 위한 것입니다. 간단히 하기 위해 빠른 시작에서는 IoT Hub 디바이스와 해당 그래프 표현 간의 연결 설정을 다루지 않습니다. 그래프에 연결된 엔드투엔드 흐름을 설정하려면 자습서: [엔드투엔드 연결 솔루션](tutorial-end-to-end.md)으로 이동합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

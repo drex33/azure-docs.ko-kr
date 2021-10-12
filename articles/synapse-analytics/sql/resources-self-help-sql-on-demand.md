@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 9/23/2021
 ms.author: stefanazaric
 ms.reviewer: jrasnick, wiassaf
-ms.openlocfilehash: 35803ad7d63e107f71e71c6ce8292c5608740eec
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e0380c4d1b4fe9c82d6e9b82922b1a509f7dcdf4
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128555257"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129545606"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>서버리스 SQL 풀에 대한 자가 진단
 
@@ -495,7 +495,7 @@ Azure Synapse SQL은 다음과 같은 경우 트랜잭션 저장소에 표시되
 ### <a name="cosmosdb-performance-issues"></a>CosmosDB 성능 문제
 
 예기치 않은 성능 문제가 발생하는 경우 다음과 같은 모범 사례를 적용했는지 확인합니다.
-- 클라이언트 애플리케이션, 서버리스 풀 및 Cosmos DB 분석 스토리지를 [동일한 지역](best-practices-serverless-sql-pool.md#colocate-your-cosmosdb-analytical-storage-and-serverless-sql-pool)에 배치했는지 확인합니다.
+- 클라이언트 애플리케이션, 서버리스 풀 및 Cosmos DB 분석 스토리지를 [동일한 지역](best-practices-serverless-sql-pool.md#colocate-your-azure-cosmos-db-analytical-storage-and-serverless-sql-pool)에 배치했는지 확인합니다.
 - [최적 데이터 형식](best-practices-serverless-sql-pool.md#use-appropriate-data-types)으로 `WITH` 절을 사용하고 있는지 확인합니다.
 - 문자열 조건자를 사용하여 데이터를 필터링할 때 [Latin1_General_100_BIN2_UTF8](best-practices-serverless-sql-pool.md#use-proper-collation-to-utilize-predicate-pushdown-for-character-columns) 데이터 정렬을 사용하고 있는지 확인합니다.
 - 캐시될 수 있는 반복 쿼리가 있는 경우 [Azure Data Lake Storage에 쿼리 결과를 저장하는 CETAS](best-practices-serverless-sql-pool.md#use-cetas-to-enhance-query-performance-and-joins)를 사용해 보세요.
@@ -644,10 +644,16 @@ Azure 팀은 `delta_log` 파일의 콘텐츠를 조사하고 가능한 오류 �
 ### <a name="query-duration-is-very-long"></a>매우 긴 쿼리 기간 
 
 Synapse Studio를 사용하는 경우 SQL Server Management Studio 또는 Azure Data Studio 같은 데스크톱 클라이언트를 사용해 보세요. Synapse Studio는 HTTP 프로토콜을 사용하여 서버리스 풀에 연결하는 웹 클라이언트이며, 일반적으로 SQL Server Management Studio 또는 Azure Data Studio에서 사용되는 원시 SQL 연결보다 느립니다.
+
 쿼리 기간이 30분보다 긴 쿼리가 있는 경우 이는 클라이언트에 결과를 반환하는 속도가 느리다는 것을 나타냅니다. 서버리스 SQL 풀의 실행 제한은 30분이며, 결과 스트리밍에 추가 시간이 소요됩니다.
+
+쿼리가 느리게 실행되는 경우 다음 문제를 확인합니다.
 -   클라이언트 애플리케이션이 서버리스 SQL 풀 엔드포인트와 함께 배치되었는지 확인합니다. 지역 간에 쿼리를 실행하면 대기 시간이 길어지고 결과 세트 스트리밍 속도가 느려질 수 있습니다.
 -   결과 세트 스트리밍 속도가 느려질 수 있는 네트워킹 문제가 없는지 확인합니다. 
--   클라이언트 애플리케이션에 충분한 리소스가 있는지 확인합니다(예: CPU 사용률이 100%가 아님). [리소스 공동 배치](best-practices-serverless-sql-pool.md#client-applications-and-network-connections) 모범 사례를 참조하세요.
+-   클라이언트 애플리케이션에 충분한 리소스가 있는지 확인합니다(예: CPU 사용률이 100%가 아님). 
+-   스토리지 계정 또는 cosmosDB 분석 저장소가 서버리스 SQL 엔드포인트와 동일한 지역에 배치되어 있는지 확인합니다.
+
+[리소스 공동 배치](best-practices-serverless-sql-pool.md#client-applications-and-network-connections) 모범 사례를 참조하세요.
 
 ### <a name="high-variations-in-query-durations"></a>쿼리 기간의 큰 차이
 

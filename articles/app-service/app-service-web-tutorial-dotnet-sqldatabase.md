@@ -4,14 +4,14 @@ description: C# ASP.NET 앱을 Azure 및 Azure SQL Database에 배포하는 방�
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 03/18/2021
+ms.date: 10/05/2021
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: 533bd817b704db9976624b356a9950a9c48b8339
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 818ab11d64468a945d85f5b15f6b39dc1664a424
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104606022"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536233"
 ---
 # <a name="tutorial-deploy-an-aspnet-app-to-azure-with-azure-sql-database"></a>자습서: Azure SQL Database를 사용하여 Azure에 ASP.NET 앱 배포
 
@@ -74,7 +74,7 @@ Visual Studio가 이미 설치된 경우 **도구** > **도구 및 기능 가져
 
 #### <a name="sign-in-and-add-an-app"></a>로그인 및 앱 추가
 
-1. **게시** 대화 상자의 계정 관리자 드롭다운에서 **계정 추가** 를 클릭합니다.
+1. **게시** 대화 상자에서 **로그인** 을 클릭합니다.
 
 1. Azure 구독에 로그인합니다. 이미 Microsoft 계정에 로그인한 경우 계정에 Azure 구독이 있는지 확인합니다. 로그인된 Microsoft 계정에 Azure 구독이 없는 경우 클릭하여 올바른 계정을 추가합니다.
 
@@ -111,7 +111,7 @@ Visual Studio가 이미 설치된 경우 **도구** > **도구 및 기능 가져
 
    | 설정  | 제안 값 | 참조 항목 |
    | ----------------- | ------------ | ----|
-   |**App Service 요금제**| myAppServicePlan | [App Service 계획](../app-service/overview-hosting-plans.md) |
+   |**App Service 계획**| myAppServicePlan | [App Service 계획](../app-service/overview-hosting-plans.md) |
    |**위치**| 서유럽 | [Azure 지역](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
    |**크기**| 무료 | [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
@@ -130,6 +130,9 @@ Visual Studio가 이미 설치된 경우 **도구** > **도구 및 기능 가져
 
 1. **게시** 대화 상자에서 **서비스 종속성** 섹션까지 아래로 스크롤합니다. **SQL Server 데이터베이스** 옆에 있는 **구성** 을 클릭합니다.
 
+    > [!NOTE]
+    > **연결된 서비스** 페이지 대신 **게시** 페이지에서 SQL Database를 구성해야 합니다.
+
    ![SQL Database 종속성 구성](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sqldb-dependency.png)
 
 1. **Azure SQL Database** 를 선택하고 **다음** 을 클릭합니다.
@@ -138,7 +141,7 @@ Visual Studio가 이미 설치된 경우 **도구** > **도구 및 기능 가져
 
 1. **데이터베이스 서버** 옆에 있는 **새로 만들기** 를 클릭합니다.
 
-   서버 이름이 생성됩니다. 이 이름은 서버에 대한 기본 URL(`<server_name>.database.windows.net`)의 일부로 사용되며, Azure SQL의 모든 서버에서 고유해야 합니다. 서버 이름은 변경할 수 있지만 이 자습서에서는 생성된 값을 유지합니다.
+   서버 이름은 서버에 대한 기본 URL(`<server_name>.database.windows.net`)의 일부로 사용되며, Azure SQL의 모든 서버에서 고유해야 합니다. 서버 이름을 원하는 값으로 변경합니다.
 
 1. 관리자 사용자 이름 및 암호를 추가합니다. 암호 복잡성 요구 사항은 [암호 정책](/sql/relational-databases/security/password-policy)을 참조하세요.
 
@@ -164,6 +167,9 @@ Visual Studio가 이미 설치된 경우 **도구** > **도구 및 기능 가져
 1. **데이터베이스 연결 사용자 이름** 및 **데이터베이스 연결 암호** 에 [서버 만들기](#create-a-server-and-database)에서 사용한 관리자 사용자 이름과 암호를 입력합니다.
 
 1. **Azure 앱 설정** 이 선택되었는지 확인하고 **마침** 을 클릭합니다.
+
+    > [!NOTE]
+    > 대신 **로컬 사용자 비밀 파일** 이 표시되는 경우 **게시** 페이지 대신 **연결된 서비스** 페이지에서 SQL Database를 구성해야 합니다.
 
     ![데이터베이스 연결 문자열 구성](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-connection.png)
 

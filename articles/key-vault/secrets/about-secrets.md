@@ -9,12 +9,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e32e6ecacb2de646314be237c6b7bce973a0ed4e
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 5583596e399456461b2fc157a193b83b596180ee
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129213480"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387395"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Azure Key Vault 비밀 정보
 
@@ -80,44 +80,6 @@ Key Vault에서 액세스를 제어하는 방법 가이드:
 
 >[!Note]
 >태그는 *list* 또는 *get* 권한이 있는 경우 호출자가 읽을 수 있습니다.
-
-## <a name="azure-storage-account-key-management"></a>Azure Storage 계정 키 관리
-
-Key Vault는 [Azure 스토리지 계정](../../storage/common/storage-account-overview.md) 키를 관리할 수 있습니다.
-
-- 내부적으로 Key Vault는 키를 Azure Storage 계정과 함께 나열(동기화)할 수 있습니다. 
-- Key Vault는 정기적으로 키를 다시 생성(회전)합니다.
-- 키 값은 호출자에게 응답으로 반환되지 않습니다.
-- Key Vault는 스토리지 계정과 클래식 스토리지 계정의 키를 모두 관리합니다.
-
-자세한 내용은 다음을 참조하십시오.
-- [스토리지 계정 액세스 키](../../storage/common/storage-account-keys-manage.md)
-- [Azure Key Vault의 스토리지 계정 키 관리](../secrets/overview-storage-keys.md)
-
-
-## <a name="storage-account-access-control"></a>스토리지 계정 액세스 제어
-
-다음 권한은 관리되는 스토리지 계정에서 작업을 수행할 사용자 또는 애플리케이션 보안 주체에 권한을 부여할 때 사용할 수 있습니다.  
-
-- 관리되는 스토리지 계정 및 SaS 정의 작업에 대한 권한
-  - *get*: 스토리지 계정에 대한 정보 가져오기 
-  - *list*: Key Vault에서 관리하는 스토리지 계정 나열
-  - *update*: 스토리지 계정 업데이트
-  - *delete*: 스토리지 계정 삭제  
-  - *recover*: 삭제된 스토리지 계정 복구
-  - *backup*: 스토리지 계정 백업
-  - *restore*: Key Vault에 백업된 스토리지 계정 복원
-  - *set*: 스토리지 계정 만들기 또는 업데이트
-  - *regeneratekey*: 스토리지 계정에 대해 지정된 키 값을 다시 생성
-  - *getsas*: 스토리지 계정의 SAS 정의에 대한 정보 가져오기
-  - *listsas*: 스토리지 계정에 대한 스토리지 SAS 정의 나열
-  - *deletesas*: 스토리지 계정에서 SAS 정의 삭제
-  - *setsas*: 스토리지 계정에 대한 새 SAS 정의/특성 만들기 또는 업데이트
-
-- 권한 있는 작업에 필요한 권한
-  - *purge*: 관리 스토리지 계정 제거(영구적으로 삭제)
-
-자세한 내용은 [Key Vault REST API 참조의 스토리지 계정 작업](/rest/api/keyvault)을 참조하세요. 권한 설정에 대한 내용은 [자격 증명 모음 - 만들기 또는 업데이트](/rest/api/keyvault/vaults/createorupdate) 및 [자격 증명 모음 - 액세스 정책 업데이트](/rest/api/keyvault/vaults/updateaccesspolicy)를 참조하세요.
 
 ## <a name="usage-scenarios"></a>사용 시나리오
 

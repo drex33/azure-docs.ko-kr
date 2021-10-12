@@ -10,13 +10,13 @@ metadata:
   ms.author: wiassaf
   ms.reviewer: mathoma
   ms.custom: 
-  ms.date: 09/15/2021
-  ms.openlocfilehash: ba903b2ed34877a05b5993095b65d537416486ca
-  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+  ms.date: 09/30/2021
+  ms.openlocfilehash: 608c13253f93f18a8bb1ef59b7af1501077f2c95
+  ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/24/2021
-  ms.locfileid: "128677723"
+  ms.lasthandoff: 10/01/2021
+  ms.locfileid: "129358465"
 title: 유지 관리 기간 FAQ
 summary: 이 문서에서는 [Azure SQL database](sql-database-paas-overview.md) 및 [SQL managed instance](../managed-instance/sql-managed-instance-paas-overview.md)의 유지 관리 기간에 대해 자주 묻는 질문에 답변합니다.
 sections:
@@ -83,6 +83,8 @@ sections:
   - question: 기본 유지 관리 기간을 선택했습니다. 해당 유지 관리의 사전 알림을 사용할 수 있나요?
     answer: >
       아니요. 기본 유지 관리 기간 옵션에서 사전 알림을 구성할 수 없습니다. 유지 관리 기간을 선택할 때 **시스템 기본값** 이외의 옵션을 선택하여 사전 알림을 구성하고 사용합니다.
+  - question: 계획된 유지 관리를 위한 사전 알림을 설정할 수 없습니다. Service Health 대시보드에 계획된 유지 관리 이벤트가 계속 표시될까요?
+    answer: "아니요, 사전 알림이 구성되지 않은 경우 Service Health 계획된 유지 관리 이벤트를 표시하지 않습니다. \n"
 additionalContent: >-
   ## <a name="see-also"></a>참고 항목
 

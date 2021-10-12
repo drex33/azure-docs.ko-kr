@@ -4,12 +4,12 @@ description: Backup 및 Recovery Services를 사용하여 Azure에서 디스크�
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 7f4d70f43f76c3a72cd8e53037d06d32e61c3cdb
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 0de37086f3b7a968b69318ebe7bb73689812373a
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107768510"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537217"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Azure CLI를 사용하여 VM 복원
 
@@ -163,6 +163,12 @@ fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31
 ```
 
 복원 작업의 *상태* 가 *완료* 인 경우 필요한 정보(VM 구성 및 배포 템플릿)가 스토리지 계정에 복원된 것입니다.
+
+#### <a name="using-managed-identity-to-restore-disks"></a>관리 ID를 사용하여 디스크 복원
+
+또한 Azure Backup을 사용하면 복원 작업 중에 MSI(관리 ID)를 사용하여, 디스크가 복원되어야 하는 저장소 계정에 액세스할 수 있습니다. 이 옵션은 현재 관리 디스크 복원에만 지원됩니다.
+
+자격 증명 모음 시스템이 할당한 관리 ID를 사용하여 디스크를 복원하려는 경우 추가 플래그 * **--mi-system-assigned** _를 [az backup restore restore-disks](/cli/azure/backup/restore#az_backup_restore_restore_disks) 명령에 패스합니다. 사용자 할당 관리 ID를 사용하려는 경우, 자격 증명 모음 관리 ID의 ARM ID가 있는 _*_ --mi-user-assigned_** 매개 변수를 매개 변수 값으로 패스합니다. 자격 증명 모음에 관리 ID를 사용하도록 설정하는 방법을 알아보려면 [이 문서](encryption-at-rest-with-cmk.md#enable-managed-identity-for-your-recovery-services-vault)를 참조하세요. 
 
 ## <a name="create-a-vm-from-the-restored-disk"></a>복원된 디스크에서 VM 만들기
 

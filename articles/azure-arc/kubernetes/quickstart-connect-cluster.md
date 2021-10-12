@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/09/2021
 ms.custom: template-quickstart
 keywords: Kubernetes, Arc, Azure, 클러스터
-ms.openlocfilehash: bcc4d9183bf60e37c1d024462d7ab924df1f671e
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 10c97945a78867d92b9ed4887e9655d49b195e33
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/29/2021
-ms.locfileid: "129210773"
+ms.locfileid: "129273764"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>빠른 시작: Azure Arc에 기존 Kubernetes 클러스터 연결
 
@@ -96,8 +96,8 @@ ms.locfileid: "129210773"
 | `https://<region>.dp.kubernetesconfiguration.azure.com`(Azure 클라우드의 경우), `https://<region>.dp.kubernetesconfiguration.azure.us`(Azure 미국 정부의 경우) | 에이전트가 상태를 푸시하고 구성 정보를 가져오기 위한 데이터 평면 엔드포인트. |
 | `https://login.microsoftonline.com`, `login.windows.net`(Azure 클라우드의 경우), `https://login.microsoftonline.us`(Azure 미국 정부의 경우) | Azure Resource Manager 토큰을 가져오고 업데이트하는 데 필요합니다. |
 | `https://mcr.microsoft.com`, `https://*.data.mcr.microsoft.com` | Azure Arc 에이전트의 컨테이너 이미지를 끌어오는 데 필요합니다.                                                                  |
-| `https://gbl.his.arc.azure.com` |  시스템 할당 MSI(Managed Service Identity) 인증서를 끌어오기 위한 지역 엔드포인트를 가져오는 데 필요합니다. |
-| `https://*.his.arc.azure.com`(Azure 클라우드의 경우), `https://usgv.his.arc.azure.us` 및 `https://gbl.his.arc.azure.us`(Azure 미국 정부의 경우) |  시스템이 할당한 관리 ID 인증서를 가져오는 데 필요합니다. |
+| `https://gbl.his.arc.azure.com`(Azure 클라우드의 경우), `https://gbl.his.arc.azure.us`(Azure 미국 정부의 경우) |  시스템 할당 MSI(Managed Identity 증명서) 인증서를 끌어오기 위한 지역 엔드포인트를 가져오는 데 필요합니다. |
+| `https://*.his.arc.azure.com`(Azure 클라우드의 경우), `https://usgv.his.arc.azure.us`(Azure 미국 정부의 경우) |  시스템이 할당한 관리 ID 인증서를 가져오는 데 필요합니다. |
 |`*.servicebus.windows.net`, `guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`, `sts.windows.net` | [클러스터 연결](cluster-connect.md) 및 [사용자 지정 위치](custom-locations.md) 기반 시나리오의 경우. |
 
 ## <a name="1-register-providers-for-azure-arc-enabled-kubernetes"></a>1. Azure Arc 사용 Kubernetes에 공급자 등록

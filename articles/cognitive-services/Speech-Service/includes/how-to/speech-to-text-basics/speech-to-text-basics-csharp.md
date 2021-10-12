@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5df77bcee69c07b8705b656ae7d4d44d921dcc08
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: e8475ffeefbc057f22e2c795da730528d3ff079a
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123542879"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129378142"
 ---
 Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 글로 바꾸는 기능입니다(종종 음성 텍스트 변환이라고도 함). 이 빠른 시작에서는 앱 및 제품에서 Speech SDK를 사용하여 고품질 음성을 텍스트로 변환하는 방법을 알아봅니다.
 
@@ -313,7 +313,7 @@ speechConfig.SpeechRecognitionLanguage = "it-IT";
 >
 > 구 목록 기능에서 사용하는 구를 수백 개 이하로 제한해야 합니다. 현재 지원되지 않는 더 큰 목록이나 언어의 경우 [사용자 지정 모델을 학습](../../../custom-speech-overview.md)하는 것이 정확도를 향상시키는 더 나은 선택일 수 있습니다.
 >
-> 사용자 지정 엔드포인트에는 구문 목록 기능을 사용하지 마세요. 대신 구를 포함하는 사용자 지정 모델을 학습하세요.
+> 구 목록 기능은 사용자 지정 엔드포인트에서 지원되지 않습니다. 사용자 지정 엔드포인트에서 사용하지 마세요. 대신 구를 포함하는 사용자 지정 모델을 학습하세요.
 
 구 목록을 사용하려면 [`PhraseListGrammar`](/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar) 개체를 만든 다음, [`AddPhrase`](/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar.addphrase)를 사용하여 특정 단어와 구를 추가합니다.
 

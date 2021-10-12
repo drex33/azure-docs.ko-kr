@@ -4,14 +4,14 @@ description: 이 자습서에서는 가상 머신에서 가상 센서를 통해 
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 09/23/2021
+ms.date: 10/05/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: cd62dfaa3a90c6efde1f758bec3e7062ce3e858c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 717b65b78d177e277922687c4c290035b57ab6ab
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128642152"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537043"
 ---
 # <a name="tutorial-azure-defender-for-iot-trial-setup"></a>자습서: Azure Defender for IoT 평가판 설정
 
@@ -282,7 +282,7 @@ vSwitch에는 미러링 기능이 없지만 SPAN 포트를 구현하기 위한 �
 
 시작하기 전에 다음을 수행해야 합니다.
 
-- 실행 중인 ClearPass VA 인스턴스가 없는지 확인합니다.
+- 실행 중인 가상 어플라이언스 인스턴스가 없는지 확인합니다.
 
 - 관리 포트가 아닌 데이터 포트에서 SPAN 보장을 사용하도록 설정합니다.
 
@@ -306,11 +306,11 @@ vSwitch에는 미러링 기능이 없지만 SPAN 포트를 구현하기 위한 �
 
 1. **확인** 을 선택합니다.
 
-#### <a name="attach-a-clearpass-span-virtual-interface-to-the-virtual-switch"></a>가상 스위치에 ClearPass SPAN 가상 인터페이스 연결
+#### <a name="attach-a-span-virtual-interface-to-the-virtual-switch"></a>가상 스위치에 SPAN 가상 인터페이스 연결
 
-Windows PowerShell 또는 Hyper-V 관리자를 통해 ClearPass SPAN 가상 인터페이스를 가상 스위치에 연결할 수 있습니다.
+Windows PowerShell 또는 Hyper-V 관리자를 통해 SPAN 가상 인터페이스를 가상 스위치에 연결할 수 있습니다.
 
-**PowerShell을 사용하여 ClearPass SPAN 가상 인터페이스를 가상 스위치에 연결하려면**,
+**PowerShell을 사용하여 SPAN 가상 인터페이스를 가상 스위치에 연결하려면**,
 
 1. 새로 추가된 SPAN 가상 스위치를 선택하고, 다음 명령을 사용하여 새 네트워크 어댑터를 추가합니다.
 
@@ -334,7 +334,7 @@ Windows PowerShell 또는 Hyper-V 관리자를 통해 ClearPass SPAN 가상 인�
 
 이러한 명령은 새로 추가된 어댑터 하드웨어의 이름을 `Monitor`로 설정합니다. Hyper-V 관리자를 사용하는 경우 새로 추가된 어댑터 하드웨어의 이름은 `Network Adapter`로 설정됩니다.
 
-**Hyper-V 관리자를 사용하여 ClearPass SPAN 가상 인터페이스를 가상 스위치에 연결하려면**,
+**Hyper-V 관리자를 사용하여 SPAN 가상 인터페이스를 가상 스위치에 연결하려면**,
 
 1. 하드웨어 목록에서 **네트워크 어댑터** 를 선택합니다.
 

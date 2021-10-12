@@ -8,18 +8,18 @@ ms.topic: overview
 ms.date: 09/05/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 20a1fd8b222da14eb70206d4a9e3b087d4b20690
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e3ed432e1c0c6b9fbe602720935e5c549437587a
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128662593"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129277122"
 ---
 # <a name="latency-in-blob-storage"></a>Blob 스토리지의 대기 시간
 
 응답 시간이라고도 하는 대기 시간은 애플리케이션에서 요청이 완료될 때까지 대기해야 하는 시간입니다. 대기 시간은 애플리케이션의 성능에 직접적으로 영향을 줄 수 있습니다. 낮은 대기 시간은 신용 카드 트랜잭션을 수행하거나 웹 페이지를 로드하는 등 반복에 사용자가 있는 시나리오에서 중요합니다. 원격 분석 로깅 또는 IoT 이벤트와 같이 높은 속도로 들어오는 이벤트를 처리해야 하는 시스템에도 낮은 대기 시간이 필요합니다. 이 문서에서는 블록 Blob 작업의 대기 시간을 파악 및 측정하고, 낮은 대기 시간에 맞춰 애플리케이션을 디자인하는 방법을 설명합니다.
 
-Azure Storage는 블록 Blob에 대한 두 가지 성능 옵션인 프리미엄과 표준을 제공합니다. 프리미엄 블록 Blob은 고성능 SSD 디스크를 통해 표준 블록 Blob보다 상당히 낮고 일관성 있는 대기 시간을 제공합니다. 자세한 내용은 [Azure Blob Storage: 핫, 쿨 및 보관 액세스 계층](storage-blob-storage-tiers.md)의 **프리미엄 성능 블록 Blob 스토리지** 를 참조하세요.
+Azure Storage는 블록 Blob에 대한 두 가지 성능 옵션인 프리미엄과 표준을 제공합니다. 프리미엄 블록 Blob은 고성능 SSD 디스크를 통해 표준 블록 Blob보다 상당히 낮고 일관성 있는 대기 시간을 제공합니다. 더 알아보려면 [Blob 데이터에 대한 핫, 쿨 및 보관 액세스 계층](access-tiers-overview.md)의 **프리미엄 성능 블록 Blob Storage** 를 참조하세요.
 
 ## <a name="about-azure-storage-latency"></a>Azure Storage 대기 시간 정보
 

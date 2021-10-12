@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: 8b1815e7598410cd709572d93082d5dee5e0b0fb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a4fac2cde6f18e504dc2866cc479ce51e3b70b2a
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97369245"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361996"
 ---
 # <a name="tutorial-create-an-azure-custom-role-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Azure 사용자 지정 역할 만들기
 
-Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 [사용자 지정 역할](built-in-roles.md)을 만들면 됩니다. 이 자습서에서는 Azure PowerShell을 사용하여 Reader 지원 티켓이라는 사용자 지정 역할을 만듭니다. 사용자 지정 역할을 통해 사용자는 구독의 관리 평면에서 모든 것을 살펴보고 지원 티켓을 열 수도 있습니다.
+Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 [사용자 지정 역할](built-in-roles.md)을 만들면 됩니다. 이 자습서에서는 Azure PowerShell을 사용하여 Reader 지원 티켓이라는 사용자 지정 역할을 만듭니다. 사용자는 사용자 지정 역할을 통해 구독의 컨트롤 플레인에서 모든 것을 살펴보고 지원 티켓을 열 수도 있습니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -93,7 +93,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     }
     ```
     
-1. JSON 파일을 편집하여 `"Microsoft.Support/*"` 작업을 `Actions` 속성에 추가합니다. 읽기 작업 뒤에 꼭 쉼표를 추가해야 합니다. 이 작업을 통해 사용자가 지원 티켓을 만들 수 있게 됩니다.
+1. JSON 파일을 편집하여 `"Microsoft.Support/*"` 작업을 `Actions` 속성에 추가합니다. 읽기 작업 뒤에는 꼭 쉼표를 추가해야 합니다. 이 작업을 통해 사용자가 지원 티켓을 만들 수 있게 됩니다.
 
 1. [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) 명령을 사용하여 구독 ID를 가져옵니다.
 
@@ -179,7 +179,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 편집기에서 파일을 엽니다.
 
-1. `Actions`에서 리소스 그룹 배포 `"Microsoft.Resources/deployments/*"`를 만들고 관리하는 작업을 추가합니다.
+1. `Actions`에 리소스 그룹 배포 `"Microsoft.Resources/deployments/*"`을(를) 만들고 관리하는 작업을 추가합니다.
 
     업데이트된 JSON 파일은 다음과 비슷합니다.
 

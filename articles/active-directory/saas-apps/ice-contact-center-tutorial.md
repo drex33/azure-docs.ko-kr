@@ -1,5 +1,5 @@
 ---
-title: '자습서: ice Contact Center와 Azure Active Directory SSO(Single Sign-On) 통합 | Microsoft Docs'
+title: '자습서: ice Contact Center와 Azure AD SSO 통합'
 description: Azure Active Directory와 ice Contact Center 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/09/2021
+ms.date: 09/24/2021
 ms.author: jeedes
-ms.openlocfilehash: cf9e228769531095ae4e8b6629b2377af2df3a0c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: df556e930bd570960080233bc17e77c0bcc5510f
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124790665"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129401050"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ice-contact-center"></a>자습서: ice Contact Center와 Azure Active Directory SSO(Single Sign-On) 통합
+# <a name="tutorial-azure-ad-sso-integration-with-ice-contact-center"></a>자습서: ice Contact Center와 Azure AD SSO 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 ice Contact Center를 연결하는 방법에 대해 알아봅니다. Azure AD와 ice Contact Center를 통합하면 다음을 수행할 수 있습니다.
 
@@ -32,6 +32,9 @@ ms.locfileid: "124790665"
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * ice Contact Center SSO(Single Sign-On)가 설정된 구독
+
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -108,7 +111,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 

@@ -5,12 +5,12 @@ metadata:
   ms.topic: article
   ms.service: event-hubs
   ms.date: 01/20/2021
-  ms.openlocfilehash: 57f2f7c6cbb1cb502339d7fa87509672cef69e41
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.openlocfilehash: c4f0139377d24f5a7ad18f53f50c16d6bfd19191
+  ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122252639"
+  ms.lasthandoff: 10/05/2021
+  ms.locfileid: "129536545"
 title: Event Hubs 질문과 대답
 summary: ''
 sections:
@@ -56,11 +56,7 @@ sections:
       Event Hubs는 [Azure Monitor](../azure-monitor/overview.md)에 리소스 상태를 제공하는 자세한 메트릭을 내보냅니다. 또한 네임스페이스 수준뿐만 아니라 엔터티 수준에서도 Event Hubs 서비스의 전반적인 상태를 평가할 수 있습니다. [Azure Event Hubs](monitor-event-hubs.md)에 제공되는 모니터링에 대해 알아보세요.
   - question: >
       Azure Event Hubs는 데이터를 어디에 저장하나요?
-    answer: >
-      Azure Event Hubs 표준 및 전용 계층은 사용자가 선택한 지역에 메타데이터 및 데이터를 저장합니다. Azure Event Hubs 네임스페이스에 대해 지리적 재해 복구를 설정하는 경우 메타데이터가 선택한 보조 지역에 복사됩니다. 따라서 이 서비스는 [보안 센터](https://azuredatacentermap.azurewebsites.net/)에 지정된 데이터를 요구 사항을 포함한 지역 데이터 보존 요구 사항을 자동으로 충족합니다.
-
-
-      [!INCLUDE [event-hubs-connectivity](./includes/event-hubs-connectivity.md)]
+    answer: "Azure Event Hubs 표준, 프리미엄 및 전용 계층은 Event Hubs 이름 공간을 만들 때 선택하는 지역에 게시된 데이터를 저장하고 처리합니다. 기본값으로 고객 데이터는 해당 지역 내에 유지됩니다. Azure Event Hubs 네임스페이스에 대해 지리적 재해 복구를 설정하는 경우 메타데이터가 선택한 보조 지역에 복사됩니다. 따라서 이 서비스는 [보안 센터](https://azuredatacentermap.azurewebsites.net/)에 지정된 데이터를 요구 사항을 포함한 지역 데이터 보존 요구 사항을 자동으로 충족합니다. \n\n[!INCLUDE [event-hubs-connectivity](./includes/event-hubs-connectivity.md)]\n"
 - name: Apache Kafka 통합
   questions:
   - question: >

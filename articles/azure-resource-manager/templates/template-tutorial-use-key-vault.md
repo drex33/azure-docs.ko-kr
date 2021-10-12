@@ -6,12 +6,12 @@ ms.date: 03/01/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: e2136e70f45fa909a306e1af2c25cb6e5c6a85d0
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: a352015437437ef47b076b487710018e7ef8e2d9
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081914"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129402133"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>자습서: ARM 템플릿 배포에 Azure Key Vault 통합
 
@@ -40,11 +40,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 이 문서를 완료하려면 다음이 필요합니다.
 
 * Resource Manager 도구 확장이 포함된 Visual Studio Code. [빠른 시작: Visual Studio Code를 사용하여 ARM 템플릿 만들기](quickstart-create-templates-use-visual-studio-code.md)를 참조하세요.
-* 보안을 강화하려면 VM 관리자 계정용으로 생성된 암호를 사용하세요. 암호를 생성하는 방법에 대한 샘플은 다음과 같습니다.
+* 보안을 강화하려면 VM 관리자 계정용으로 생성된 암호를 사용하세요. [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용하여 PowerShell 또는 Bash에서 다음 명령을 실행할 수 있습니다.
 
-    ```console
+    ```shell
     openssl rand -base64 32
     ```
+
+    자세히 알아보려면 `man openssl rand`을(를) 실행하여 수동 페이지를 엽니다.
 
     생성된 암호가 VM 암호 요구 사항을 충족하는지 확인합니다. Azure 서비스마다 특정한 암호 요구 사항이 있습니다. VM 암호 요구 사항은 [VM을 만들 때의 암호 요구 사항은 무엇인가요?](../../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-)를 참조하세요.
 
@@ -58,7 +60,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 > [!NOTE]
 > 가상 머신 템플릿을 배포하는 사용자가 키 자격 증명 모음의 소유자나 기여자가 아닌 경우에는 소유자나 기여자가 키 자격 증명 모음의 `Microsoft.KeyVault/vaults/deploy/action`에 대한 액세스 권한을 해당 사용자에게 부여해야 합니다. 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](./key-vault-parameter.md)을 참조하세요.
 
-다음 Azure PowerShell 스크립트를 실행하려면 **사용해 보세요** 를 선택하여 Azure Cloud Shell을 엽니다. 스크립트를 붙여넣으려면 마우스 오른쪽 단추로 셸 창을 클릭한 다음, **붙여넣기** 를 선택합니다.
+다음 Azure PowerShell 스크립트를 실행하려면 **시도** 를 선택하여 Cloud Shell을 엽니다. 스크립트를 붙여넣으려면 마우스 오른쪽 단추로 셸 창을 클릭한 다음, **붙여넣기** 를 선택합니다.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -171,7 +173,7 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-1. [Azure Cloud Shell](https://shell.azure.com)에 로그인
+1. [Cloud Shell](https://shell.azure.com)에 로그인합니다.
 
 1. 왼쪽 위 모서리에서 **PowerShell** 또는 **Bash**(CLI용)를 선택하여 기본 환경을 선택합니다.  전환하는 경우 셸을 다시 시작해야 합니다.
 

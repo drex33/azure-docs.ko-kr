@@ -1,5 +1,5 @@
 ---
-title: '자습서: Insight4GRC와 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: Insight4GRC와 Azure AD SSO 통합'
 description: Azure Active Directory 및 Insight4GRC 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/31/2021
+ms.date: 09/30/2021
 ms.author: jeedes
-ms.openlocfilehash: 9c5de8d0444012d7c10f35740f524ae0621eee3c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 47356ee5c3c67b417db24325b2250e42cb7fb5d9
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128676241"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129402222"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-insight4grc"></a>자습서: Insight4GRC와 Azure Active Directory 통합
+# <a name="tutorial-azure-ad-sso-integration-with-insight4grc"></a>자습서: Insight4GRC와 Azure AD SSO 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Insight4GRC를 통합하는 방법에 대해 알아봅니다. Azure AD와 Insight4GRC를 통합하면 다음을 수행할 수 있습니다.
 
@@ -33,6 +33,9 @@ ms.locfileid: "128676241"
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * Insight4GRC SSO(Single Sign-On)를 사용하도록 설정된 구독
 
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
+
 ## <a name="scenario-description"></a>시나리오 설명
 
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
@@ -41,7 +44,7 @@ ms.locfileid: "128676241"
 * Insight4GRC에서 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
 * Insight4GRC에서 [자동화된 사용자 프로비저닝](insight4grc-provisioning-tutorial.md)을 지원합니다.
 
-## <a name="adding-insight4grc-from-the-gallery"></a>갤러리에서 Insight4GRC 추가
+## <a name="add-insight4grc-from-the-gallery"></a>갤러리에서 Insight4GRC 추가
 
 Insight4GRC의 Azure AD 통합을 구성하려면 갤러리의 Insight4GRC를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
@@ -51,7 +54,6 @@ Insight4GRC의 Azure AD 통합을 구성하려면 갤러리의 Insight4GRC를 �
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에서 **Insight4GRC** 를 입력합니다.
 1. 결과 패널에서 **Insight4GRC** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-insight4grc"></a>Insight4GRC에 대한 Azure AD SSO 구성 및 테스트
 
@@ -101,7 +103,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 

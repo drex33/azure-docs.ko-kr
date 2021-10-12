@@ -5,14 +5,14 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: overview
-ms.date: 08/24/2021
+ms.date: 10/04/2021
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 4f125035bdb71302681f84fd04b25767828f1490
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d1d33a526ef2dfff4709b994c77396a4db1b2a5e
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128589666"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457547"
 ---
 # <a name="overview---azure-database-for-postgresql---flexible-server"></a>개요 - Azure Database for PostgreSQL - 유연한 서버
 
@@ -94,11 +94,11 @@ Azure Database for PostgreSQL - 유연한 서버는 데이터베이스 관리 �
 
 Azure에서 워크로드를 실행하는 이점 중 하나는 글로벌 연결입니다. 유연한 서버는 현재 다음과 같은 Azure 지역에서 사용할 수 있습니다.
 
-| 지역 | 가용성 | 영역 중복 HA | 
+| 지역 | V3/V4 컴퓨팅 가용성 | 영역 중복 HA | 
 | --- | --- | --- |
 | 오스트레일리아 동부 | :heavy_check_mark: | :heavy_check_mark: | 
 | 오스트레일리아 남동부 | :heavy_check_mark: | :x: | 
-| 브라질 남부 | :heavy_check_mark: | :x: |
+| 브라질 남부 | :heavy_check_mark: (v3 전용) | :x: |
 | 캐나다 중부 | :heavy_check_mark: | :heavy_check_mark: | 
 | 인도 중부 | :heavy_check_mark: | :x: |
 | 미국 중부 | :heavy_check_mark: | :heavy_check_mark: | 

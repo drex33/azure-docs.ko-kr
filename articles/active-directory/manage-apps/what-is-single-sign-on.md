@@ -13,12 +13,12 @@ ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 8d8c4972653ddc70c7c0eb97e57b37479d52441b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c3b2cc9f3fa6656cf4d5e493f725c17b64f4d7d8
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128616026"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233581"
 ---
 # <a name="what-is-single-sign-on-in-azure-active-directory"></a>Azure Active Directory의 Single Sign-On이란?
 
@@ -40,7 +40,7 @@ SSO를 사용할 수 있는 많은 애플리케이션이 이미 Azure AD에 있�
 
     > [!VIDEO https://www.youtube.com/embed/CjarTgjKcX8]
 
-- **암호** - 온-프레미스 애플리케이션은 암호 기반, Windows 통합 인증, 헤더 기반, 연결 기반 방법을 SSO에 사용할 수 있습니다. 온-프레미스 선택은 [애플리케이션 프록시](../app-proxy/what-is-application-proxy.md)에 대해 애플리케이션을 구성할 때 작동합니다.
+- **암호** - 온-프레미스 애플리케이션은 암호 기반, Windows 인증, 헤더 기반, 연결 기반 방법을 SSO에 사용할 수 있습니다. 온-프레미스 선택은 [애플리케이션 프록시](../app-proxy/what-is-application-proxy.md)에 대해 애플리케이션을 구성할 때 작동합니다.
 
     암호 기반 SSO를 사용하는 경우 최종 사용자는 애플리케이션에 처음 액세스할 때 사용자 이름 및 암호를 사용하여 애플리케이션에 로그인합니다. 첫 번째 로그온 후에는 Azure AD가 사용자 이름 및 암호를 애플리케이션에 제공합니다. 암호 기반 SSO를 사용하면 웹 브라우저 확장 또는 모바일 앱을 사용하여 안전하게 애플리케이션 암호를 스토리지하고 재생할 수 있습니다. 이 옵션은 애플리케이션에서 제공하는 기존 로그인 프로세스를 사용하지만, 관리자가 암호를 관리할 수 있으므로 사용자는 암호를 몰라도 됩니다.
 

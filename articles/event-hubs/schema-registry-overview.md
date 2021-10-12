@@ -1,15 +1,15 @@
 ---
-title: Event Hubs의 Azure Schema Registry(미리 보기)
+title: Event Hubs의 Azure 스키마 레지스트리(미리 보기)
 description: 이 문서에서는 Azure Event Hubs(미리 보기)의 스키마 레지스트리 지원에 대해 간략하게 설명합니다.
 ms.topic: overview
 ms.date: 05/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: 43380ccd4f20616676f4eeb53fb2231b4f76f4e9
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 6ac6361643d9baafb41259e6db69f816d747b1d8
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371208"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534833"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Event Hubs의 Azure Schema Registry(미리 보기)
 많은 이벤트 스트리밍 및 메시징 시나리오에서 이벤트 또는 메시지 페이로드에는 Apache Avro와 같은 스키마 기반 형식을 사용하여 직렬화되거나 역직렬화되는 정형 데이터가 포함됩니다. 발신기와 수신기 모두에서 JSON 스키마와 마찬가지로 스키마 문서를 사용하여 데이터의 무결성을 확인하려고 할 수 있습니다. 스키마 기반 형식의 경우 메시지 소비자에서 스키마를 사용할 수 있도록 하는 것이 소비자를 통해 데이터를 역직렬화할 수 있는 필수 구성 요소입니다. 
@@ -53,7 +53,7 @@ Event Hubs 제한(예: 네임스페이스의 스키마 그룹 수)은 [Event Hub
 ## <a name="azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어
 스키마 레지스트리에 프로그래밍 방식으로 액세스하는 경우 애플리케이션을 Azure AD(Azure Active Directory)에 등록하고 애플리케이션의 보안 주체를 Azure RBAC(Azure 역할 기반 액세스 제어) 역할 중 하나에 추가해야 합니다.
 
-| 역할 | 설명 | 
+| 역할 | Description | 
 | ---- | ----------- | 
 | 소유자 | 스키마 레지스트리 그룹 및 스키마를 읽고, 쓰고, 삭제합니다. |
 | 참가자 | 스키마 레지스트리 그룹 및 스키마를 읽고, 쓰고, 삭제합니다. |

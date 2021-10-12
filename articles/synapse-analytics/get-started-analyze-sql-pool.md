@@ -5,17 +5,17 @@ services: synapse-analytics
 author: saveenr
 ms.author: saveenr
 manager: julieMSFT
-ms.reviewer: jrasnick
+ms.reviewer: jrasnick, wiassaf
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 03/24/2021
-ms.openlocfilehash: 56115e977603e1f2148f84569373dcf4d351e0c4
-ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
+ms.date: 09/29/2021
+ms.openlocfilehash: cf1aabdef95a58c4bdd5a14e3714da37295ed790
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113038213"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387737"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>전용 SQL 풀을 사용하여 데이터 분석
 
@@ -23,9 +23,9 @@ ms.locfileid: "113038213"
 
 ## <a name="create-a-dedicated-sql-pool"></a>전용 SQL 풀 만들기
 
-1. Synapse Studio의 왼쪽 창에서 **관리** > **SQL 풀** 을 차례로 선택합니다.
+1. Synapse Studio의 왼쪽 창에서 **분석 풀** 아래에 있는 **관리** > **SQL 풀** 을 차례로 선택합니다.
 1. **새로 만들기** 를 선택합니다.
-1. **SQL 풀 이름** 에 대해 **SQLPOOL1** 을 선택합니다.
+1. **전용 SQL 풀 이름** 에 대해 **SQLPOOL1** 을 선택합니다.
 1. **성능 수준** 의 경우 **DW100C** 를 선택합니다.
 1. **검토 + 만들기** > **만들기** 를 차례로 선택합니다. 몇 분 안에 전용 SQL 풀이 준비됩니다. 
 
@@ -37,12 +37,14 @@ ms.locfileid: "113038213"
 
 > [!NOTE] 
 > 작업 영역에서 새 전용 SQL 풀(이전의 SQL DW)을 만들 때 전용 SQL 풀 프로비저닝 페이지가 열립니다. 프로비저닝은 논리 SQL 서버에서 수행됩니다.
+
 ## <a name="load-the-nyc-taxi-data-into-sqlpool1"></a>NYC Taxi 데이터를 SQLPOOL1에 로드
 
 1. Synapse Studio에서 **개발** 허브로 이동하여 **+** 단추를 클릭해 새 리소스를 추가한 다음, 새 SQL 스크립트를 만듭니다.
-1. 스크립트 위의 '연결 대상' 드롭다운 목록에서 'SQLPOOL1' 풀(이 자습서의 [1단계](./get-started-create-workspace.md)에서 만든 풀)을 선택합니다.
+1. 스크립트 위의 **연결 대상** 드롭다운 목록에서 'SQLPOOL1' 풀(이 자습서의 [1단계](./get-started-create-workspace.md)에서 만든 풀)을 선택합니다.
 1. 다음 코드를 입력합니다.
-    ```
+
+    ```sql
     IF NOT EXISTS (SELECT * FROM sys.objects O JOIN sys.schemas S ON O.schema_id = S.schema_id WHERE O.NAME = 'NYCTaxiTripSmall' AND O.TYPE = 'U' AND S.NAME = 'dbo')
     CREATE TABLE dbo.NYCTaxiTripSmall
         (
@@ -93,8 +95,8 @@ ms.locfileid: "113038213"
         ,IDENTITY_INSERT = 'OFF'
     )
     ```
-1. 실행 단추를 클릭하여 스크립트를 실행합니다.
-1. 이 스크립트는 60초 이내에 완료됩니다. 2백만 행의 NYC Taxi 데이터를 **dbo.NYCTaxiTripSmall** 이라는 테이블에 로드합니다.
+1. **실행** 단추를 클릭하여 스크립트를 실행합니다.
+1. 이 스크립트는 60초 이내에 완료됩니다. 2백만 행의 NYC Taxi 데이터를 `dbo.NYCTaxiTripSmall`이라는 테이블에 로드합니다.
 
 ## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>전용 SQL 풀에서 NYC Taxi 데이터 검색
 

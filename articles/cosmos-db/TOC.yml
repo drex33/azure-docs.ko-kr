@@ -1036,6 +1036,8 @@
         - name: 요청 단위 요금 찾기
           displayName: 'request units, RUs, RU, charge, consumption'
           href: cassandra/find-request-unit-charge-cassandra.md
+        - name: 속도 제한 오류 방지
+          href: cassandra/prevent-rate-limiting-errors.md
         - name: Spring 데이터 저장 및 관리
           href: cassandra/access-data-spring-data-app.md
         - name: 일반적인 문제 해결

@@ -8,12 +8,12 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.openlocfilehash: bd74843b6a046ffcfd590798c9a2958dfb33b593
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 32067409bb6289b283d8dd3b4de18e1a83f8e374
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/12/2021
-ms.locfileid: "129809546"
+ms.locfileid: "129856052"
 ---
 # <a name="teams-interoperability"></a>Teams 상호 운용성
 
@@ -58,15 +58,9 @@ Teams 익명 사용자는 Teams 사용자일 필요가 없습니다. Azure Commu
 
 BYOI(사용자 고유의 ID 가져오기)는 Azure Communication Services 및 Teams 상호 운용성을 사용하기 위한 일반적인 모델입니다. 모든 ID 공급자 및 인증 체계를 지원합니다. 사용된 첫 번째 시나리오를 통해 애플리케이션이 Microsoft Teams 회의에 참여할 수 있고, Teams는 이러한 사용자를 Teams 익명 웹 애플리케이션을 사용하여 참여한 사용자와 동일한 익명 외부 계정으로 취급합니다. 직원(Teams에 익숙)과 외부 사용자(사용자 지정 애플리케이션 환경 사용)를 모임 환경에 결합하는 B2C(business-to-customer) 애플리케이션에 적합합니다. 향후에는 애플리케이션에서 Teams 회의의 컨텍스트 외부에서 Teams 사용자와 통화 및 채팅을 시작할 수 있도록 하는 직접 호출 및 채팅을 비롯한 추가 시나리오를 지원할 예정입니다.
 
-Communication Services 사용자가 익명 사용자로 Teams 회의에 참여하는 기능은 기존 Teams 익명 회의 참여를 제어하는 기존 "익명 회의 참여 허용" 구성에 따라 제어됩니다.  이 설정은 [Teams 관리 센터](https://admin.teams.microsoft.com/meetings/settings) 또는 Teams PowerShell cmdlet [Set-CsTeamsMeetingConfiguration](/powershell/module/skype/set-csteamsmeetingconfiguration)에서 업데이트할 수 있습니다. Teams 익명 회의 참여와 마찬가지로 애플리케이션에 참여할 회의 링크가 있어야 합니다. 이 링크는 Graph API 또는 Microsoft Teams의 일정에서 가져올 수 있습니다.  Teams에 표시되는 Communication Services 사용자의 이름은 Communication Services 통화 SDK를 통해 구성할 수 있습니다.
+자세한 내용은 [Teams 모임 조인](join-teams-meeting.md)을 참조하세요.
 
-외부 사용자는 Azure Communication Services SDK를 통해 핵심 오디오, 비디오, 화면 공유 및 채팅 기능을 사용할 수 있습니다. 올린 손, 함께 모드 및 소회의실과 같은 기능은 Teams 사용자만 사용할 수 있습니다. Communication Services 사용자는 Teams 모임에 있는 동안 및 모임이 채널에 대해 예약되지 않은 경우에만 메시지를 보내고 받을 수 있습니다. 
-
-Communication Services 사용자를 위해 지원되는 메시지 유형 목록은 [채팅 개념](./chat/concepts.md#message-types)에서 찾을 수 있습니다. 지원되지 않는 메시지 유형은 무시할 수 있습니다.
-
-사용자 지정 애플리케이션은 Teams 모임을 보호하기 위해 사용자 인증 및 기타 보안 조치를 고려해야 합니다. 익명 사용자가 모임에 참가하도록 설정하는 경우 보안에 미치는 영향을 고려하고, [Teams 보안 가이드](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings)를 사용하여 익명 사용자가 사용할 수 있는 기능을 구성합니다.
-
-Teams 모임에 참가하는 데 필요한 데이터 흐름에 대한 추가 정보는 [클라이언트 및 서버 아키텍처 페이지](client-and-server-architecture.md)에서 사용할 수 있습니다. [그룹 통화 주인공 샘플](../samples/calling-hero-sample.md)은 웹 애플리케이션에서 Teams 모임에 참여하기 위한 예제 코드를 제공합니다.
+현재 Teams 사용자는 Azure Communication Services Calling SDK를 사용하여 시작된 호출에 조인할 수 없습니다.
 
 ## <a name="microsoft-365-teams-identity"></a>Microsoft 365 Teams ID
 Azure Communication Services 통화 SDK는 Microsoft 365 Teams ID와 함께 사용하여 Teams 상호 운용성을 위한 Teams와 유사한 환경을 지원할 수 있습니다. Microsoft 365 Teams ID는 Azure Active Directory에서 제공하고 인증합니다. 앱은 일반적인 Microsoft 365 ID를 사용하여 호출을 수행하거나 수락할 수 있습니다. 사용자에 대한 모든 특성과 세부 정보는 Azure Active Directory 사용자에게 바인딩됩니다.
@@ -88,7 +82,7 @@ Teams 사용자는 MSAL 라이브러리를 통해 클라이언트 애플리케�
 |인증 및 권한 부여|사용자 지정*| Azure Active Directory 및 사용자 지정*|
 |통화에 사용 가능한 수단 | Azure Communication Services 통화 SDK | Azure Communication Services 통화 SDK |
 |채팅에 사용 가능한 수단 | Communication Services 채팅 SDK | 그래프 API |
-|PSTN 지원| 아웃바운드 음성 통화, 아웃바운드 직접 라우팅, [세부 정보](./telephony-sms/telephony-concept.md) | Teams ID에 할당된 인바운드 통화, 통화 플랜을 사용하는 아웃바운드 통화|
+|PSTN 지원| Teams 모임의 Communication Services 사용자에게는 지원되지 않음 | Teams ID에 할당된 인바운드 통화, 통화 플랜을 사용하는 아웃바운드 통화|
 
 \* 액세스 토큰을 발급하는 서버 논리는 요청의 모든 사용자 지정 인증 및 권한 부여를 수행할 수 있습니다.
 
@@ -108,5 +102,4 @@ Azure Communication Services 상호 운영성은 현재 [Microsoft 365 정부 �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [BYOI 통화 앱을 Teams 모임에 참가](../quickstarts/voice-video-calling/get-started-teams-interop.md)
 > [Microsoft 365 사용자 인증](../quickstarts/manage-teams-identity.md)

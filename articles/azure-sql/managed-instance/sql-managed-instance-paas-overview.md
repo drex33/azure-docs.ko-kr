@@ -7,16 +7,16 @@ ms.subservice: service-overview
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: overview
-author: bonova
-ms.author: bonova
+author: niko-neugebauer
+ms.author: nneugebauer
 ms.reviewer: mathoma, vanto
 ms.date: 01/14/2021
-ms.openlocfilehash: 6f47e9d43008f004bc529b0a3251bf252e0039b9
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: 4073a78b9dcab9d6e9ce4b11c839c0c9785d3285
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114690793"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667348"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Azure SQL Managed Instance란?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -56,18 +56,18 @@ SQL Managed Instance는 Azure SQL Database와 SQL Server 데이터베이스 엔�
 
 SQL Managed Instance의 주요 기능을 다음 표에서 볼 수 있습니다.
 
-|기능 | Description|
+|기능 | 설명|
 |---|---|
 | SQL Server 버전/빌드 | SQL Server 데이터베이스 엔진(안정적인 최신 버전) |
-| 관리되는 자동 백업 | 예 |
-| 기본 제공 인스턴스/데이터베이스 모니터링 및 메트릭 | 예 |
-| 자동 소프트웨어 패치 | 예 |
-| 최신 데이터베이스 엔진 기능 | 예 |
+| 관리되는 자동 백업 | Yes |
+| 기본 제공 인스턴스/데이터베이스 모니터링 및 메트릭 | Yes |
+| 자동 소프트웨어 패치 | Yes |
+| 최신 데이터베이스 엔진 기능 | Yes |
 | 데이터베이스당 데이터 파일(행) 수 | 여러 |
 | 데이터베이스당 로그 파일(로그) 수 | 1 |
-| VNet - Azure Resource Manager 배포 | 예 |
-| VNet - 클래식 배포 모델 | 예 |
-| 포털 지원 | 예|
+| VNet - Azure Resource Manager 배포 | Yes |
+| VNet - 클래식 배포 모델 | No |
+| 포털 지원 | Yes|
 | 기본 제공 통합 서비스(SSIS) | 아니요 - SSIS는 [Azure Data Factory PaaS](../../data-factory/tutorial-deploy-ssis-packages-azure.md)의 일부입니다. |
 | 기본 제공 분석 서비스(SSAS) | 아니요 - SSAS는 별도의 [PaaS](../../analysis-services/analysis-services-overview.md)입니다. |
 | 기본 제공 보고 서비스(SSRS) | 아니요 - Azure VM에서 SSRS를 호스트하는 대신, [Power BI의 페이지 매김 보고서](/power-bi/paginated-reports/paginated-reports-report-builder-power-bi)를 사용합니다. SQL Managed Instance는 SSRS를 서비스로 실행할 수는 없지만 SQL Server 인증을 사용하여 Azure Virtual Machine에 설치된 보고 서버용 [SSRS 카탈로그 데이터베이스](/sql/reporting-services/install-windows/ssrs-report-server-create-a-report-server-database#database-server-version-requirements)를 호스트할 수 있습니다. |

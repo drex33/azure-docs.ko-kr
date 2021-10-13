@@ -8,12 +8,12 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 34484c501a95379194ad2147fbcb553bf3f06980
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 34331436c0e683aefa8ea7cddd4396e4a21546ea
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129277692"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619334"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 소개
 
@@ -84,5 +84,6 @@ Data Lake Storage Gen2는 몇 가지 오픈 소스 플랫폼에서 지원합니�
 
 ## <a name="see-also"></a>참고 항목
 
+- [Azure Data Lake Storage Gen2 사용에 대한 모범 사례](data-lake-storage-best-practices.md)
 - [Azure Data Lake Storage Gen2에서 알려진 문제](data-lake-storage-known-issues.md)
 - [Azure Data Lake Storage에 대한 다중 프로토콜 액세스](data-lake-storage-multi-protocol-access.md)

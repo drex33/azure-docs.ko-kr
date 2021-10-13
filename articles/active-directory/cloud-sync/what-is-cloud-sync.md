@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 09/30/2021
+ms.date: 10/07/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efa2c16f83fc0a85e3c2d346aed5d7fdf848c873
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: a4bda35abff8bed8795d9cc6257b45bb22ef961c
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129355427"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709872"
 ---
 # <a name="what-is-azure-ad-connect-cloud-sync"></a>Azure AD Connect 클라우드 동기화란?
 Azure AD Connect 클라우드 동기화는 사용자, 그룹 및 연락처를 Azure AD에 동기화하기 위한 하이브리드 ID 목표를 충족하고 달성하도록 설계된 Microsoft의 새로운 제품입니다.  Azure AD Connect 애플리케이션 대신 Azure AD 클라우드 프로비저닝 에이전트를 사용하여 이 작업을 수행합니다.  그러나 Azure AD Connect 동기화와 함께 사용할 수 있으며 다음과 같은 이점을 제공합니다.
@@ -34,7 +34,7 @@ Azure AD Connect 클라우드 동기화를 사용하면 AD에서 Azure AD로의 
 ## <a name="azure-ad-connect-cloud-sync-video"></a>Azure AD Connect 클라우드 동기화 비디오
 다음 짧은 비디오는 Azure AD Connect 클라우드 동기화에 대한 훌륭한 개요를 제공합니다.
 
-> [!VIDEO https://youtube.com/embed/mOT3ID02_YQ]
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWJ8l5]
 
 
 ## <a name="comparison-between-azure-ad-connect-and-cloud-sync"></a>Azure AD Connect와 클라우드 동기화 간의 비교

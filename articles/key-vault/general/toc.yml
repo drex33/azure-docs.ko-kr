@@ -124,6 +124,8 @@
           href: key-vault-recovery.md
         - name: Azure Policy과 Azure Key Vault 통합
           href: azure-policy.md
+        - name: Azure Policy를 사용하여 Azure Key Vault 구현과 관련된 문제 해결
+          href: troubleshoot-azure-policy-for-key-vault.md
         - name: 개별 Key Vault 개체 백업
           href: backup.md
     - name: 보안
@@ -174,7 +176,7 @@
       href: /javascript/api/overview/azure/key-vault-index
     - name: Python
       href: /python/api/overview/azure/key-vault-index
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/keyvault
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.keyvault/allversions

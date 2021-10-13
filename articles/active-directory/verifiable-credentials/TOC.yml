@@ -43,7 +43,7 @@
 - name: 샘플
   expanded: true
   items:
-    - name: 샘플 노드 앱
+    - name: 샘플 애플리케이션
       href: 'https://github.com/Azure-Samples/active-directory-verifiable-credentials'
     - name: 샘플 발급자
       href: 'https://didvc-issuer-sample.azurewebsites.net/'

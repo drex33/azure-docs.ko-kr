@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 06/25/2021
 ms.author: glenga
 ms.topic: tutorial
-ms.openlocfilehash: 6b4875f028fe8645125743d04770c2fd237b4f62
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2454957e6cff781199ad9217ed02ab5241d104c2
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121752463"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129661258"
 ---
 # <a name="tutorial-get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>자습서: 이벤트 기반 백그라운드 처리를 위한 Azure WebJobs SDK 시작
 
@@ -199,10 +199,6 @@ WebJobs SDK 버전 3부터 Azure Storage 서비스에 연결하려면 별도의 
     {
         var builder = new HostBuilder();
         builder.UseEnvironment(EnvironmentName.Development);
-        builder.ConfigureWebJobs(b =>
-        {
-            b.AddAzureStorageCoreServices();
-        });
         builder.ConfigureLogging((context, b) =>
         {
             b.AddConsole();

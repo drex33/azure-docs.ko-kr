@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 05/24/2021
 ms.author: pafarley
-ms.openlocfilehash: 1a27bfac347480591a67bf2c164b9ff41fe3b18d
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 395b9d2670a488ab0743a987b1e8b857f6f2fb2f
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129426438"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708323"
 ---
 # <a name="whats-new-in-computer-vision"></a>Computer Vision의 새로운 기능
 
@@ -30,7 +30,7 @@ Computer Vision의 [OCR(읽기) API](overview-ocr.md)는 최신 미리 보기를
 * ID 문서에서 디지털 PDF 및 MRZ(컴퓨터 판독 가능 영역) 텍스트를 처리하는 기능이 향상되었습니다.
 * 일반 성능 및 AI 품질 향상
 
-새로운 미리 보기 기능을 사용하는 방법을 알아보려면 [OCR 방법 가이드](Vision-API-How-to-Topics/call-read-api.md)를 참조하세요.
+새로운 미리 보기 기능을 사용하는 방법을 알아보려면 [OCR 방법 가이드](Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional)를 참조하세요.
 
 > [!div class="nextstepaction"]
 > [Read API 시작](./quickstarts-sdk/client-library.md)

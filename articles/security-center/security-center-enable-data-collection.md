@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 08/18/2021
+ms.date: 10/08/2021
 ms.author: memildin
-ms.openlocfilehash: 96b5becdda011243cdcc9e510450683c255e7c1c
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 58f4ce3a7b7faeec729f0b56cad6adb23a0cd2f2
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122607951"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713729"
 ---
 # <a name="configure-auto-provisioning-for-agents-and-extensions-from-azure-security-center"></a>Azure Security Center에서 에이전트 및 확장에 대한 자동 프로비저닝 구성
 

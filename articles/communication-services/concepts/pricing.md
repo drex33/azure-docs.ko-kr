@@ -3,18 +3,16 @@ title: 통화(음성/영상) 및 채팅의 가격 책정 시나리오
 titleSuffix: An Azure Communication Services concept document
 description: Communication Services의 가격 책정 모델에 대해 알아봅니다.
 author: nmurav
-manager: nmurav
-services: azure-communication-services
 ms.author: nmurav
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: e697f6c7b7cf056245949a82b5a4703e6cfd089a
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 5d08f964899faf9fe438a0df68c6fe4401fd01c7
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/12/2021
-ms.locfileid: "129809596"
+ms.locfileid: "129859383"
 ---
 # <a name="pricing-scenarios"></a>가격 책정 시나리오
 
@@ -122,7 +120,7 @@ Alice는 환자 Bob과 면담 예정인 의사입니다. Alice가 Teams 데스�
 
 ## <a name="call-recording"></a>통화 기록
 
-Azure Communication Services를 사용하면 PSTN, WebRTC, 회의, SIP 인터페이스 호출을 기록할 수 있습니다. 현재 통화 녹음/녹화는 혼합 오디오+비디오 MP4 및 혼합 오디오 전용 MP3/WAV 출력 형식을 지원합니다. 통화 녹음/녹화 SDK는 Java 및 C#에서 사용할 수 있습니다. [자세히 알아보려면 이 페이지](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/call-recording-sample)를 참조하세요.
+Azure Communication Services를 사용하면 PSTN, WebRTC, 회의, SIP 인터페이스 호출을 기록할 수 있습니다. 현재 통화 녹음/녹화는 혼합 오디오+비디오 MP4 및 혼합 오디오 전용 MP3/WAV 출력 형식을 지원합니다. 통화 녹음/녹화 SDK는 Java 및 C#에서 사용할 수 있습니다. [자세히 알아보려면 이 페이지](../quickstarts/voice-video-calling/call-recording-sample.md)를 참조하세요.
 
 ### <a name="price"></a>가격
 

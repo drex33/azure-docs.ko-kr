@@ -8,16 +8,16 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 09/15/2021
-ms.openlocfilehash: f254cc5b8835bb0430d4c2d3ecd0bd2f7d9fa013
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 115baa8d181bd7ebef125e7a666216efe50680d2
+ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128701561"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129740787"
 ---
 # <a name="configure-same-zone-high-availability-in-an-azure-database-for-mysql---flexible-server-preview-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL - 유연한 서버(미리 보기)에서 동일한 영역의 고가용성 구성
 
-이 샘플 CLI 스크립트는 Azure Database for MySQL - 유연한 서버에서 [동일한 영역의 고가용성](../concepts-high-availability.md)을 구성하고 관리합니다. 유연한 서버를 만드는 동안에만 동일한 영역의 고가용성을 사용하도록 설정할 수 있으며, 언제든지 사용하지 않도록 설정할 수 있습니다. 현재 동일한 영역의 고가용성은 범용 및 메모리 최적화 가격 책정 계층에 대해서만 지원됩니다.
+이 샘플 CLI 스크립트는 Azure Database for MySQL - 유연한 서버에서 [동일한 영역의 고가용성](../concepts-high-availability.md)을 구성하고 관리합니다. 현재 동일한 영역의 고가용성은 범용 및 메모리 최적화 가격 책정 계층에 대해서만 지원됩니다.
 
 
 [!INCLUDE [flexible-server-free-trial-note](../../includes/flexible-server-free-trial-note.md)]

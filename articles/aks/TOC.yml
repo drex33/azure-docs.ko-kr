@@ -237,6 +237,8 @@
           href: load-balancer-standard.md
         - name: 고정 IP 주소 및 DNS 레이블 사용
           href: static-ip.md
+        - name: HTTP 프록시 사용(미리 보기)
+          href: http-proxy.md
         - name: 수신
           items:
             - name: 기본 컨트롤러 만들기

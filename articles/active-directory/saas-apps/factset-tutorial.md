@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 5dfd36891c52fb85ea7b7921f82059ed629158b8
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 4ffeba4fd01a88819857d137f79fef406b43b645
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124835410"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658864"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-factset"></a>자습서: FactSet과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "124835410"
 * 사용자가 자신의 Azure AD 계정으로 FactSet에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -78,9 +78,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **SAML로 Single Sign-On 설정** 페이지에서 다음 단계를 수행합니다.
 
-    a. **식별자** 텍스트 상자에서 `https://login.factset.com` URL을 입력합니다.
+    a. **식별자** 텍스트 상자에서 `https://auth.factset.com` URL을 입력합니다.
 
-    b. **회신 URL** 텍스트 상자에서 URL `https://login.factset.com/services/saml2/`을 입력합니다.
+    b. **회신 URL** 텍스트 상자에서 URL `https://auth.factset.com/sp/ACS.saml2`을 입력합니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 메타데이터 파일을 다운로드하고 컴퓨터에 저장합니다.
 

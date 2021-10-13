@@ -98,6 +98,8 @@ items:
     items:
       - name: 모델 개요
         href: concept-model-overview.md
+      - name: Form Recognizer Studio | 미리 보기
+        href: concept-form-recognizer-studio.md
       - name: 일반 문서 모델 | 미리 보기
         href: concept-general-document.md
       - name: 레이아웃 모델

@@ -7,14 +7,14 @@ ms.topic: quickstart
 ms.date: 09/29/2020
 ms.author: cauribeg
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: f76f350280b0a42f2915d9e9f00357919e5c4f8e
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 2a8b63bf02243d9fc5b59d964d6f43579d4bde11
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129533816"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129657971"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에서 Azure Cache for Redis 사용 
+# <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에서 Azure Cache for Redis 사용
 
 Visual Studio 2019를 사용하는 이 빠른 시작에서는 Azure Cache for Redis에 연결하여 캐시의 데이터를 저장하고 검색하는 ASP.NET 웹 애플리케이션을 만듭니다. 그런 다음, Azure App Service에 앱을 배포합니다.
 
@@ -46,7 +46,7 @@ Visual Studio 2019를 사용하는 이 빠른 시작에서는 Azure Cache for Re
 4. **.NET Framework 4.6.1** 이상이 선택되었는지 확인합니다.
 
 5. **만들기** 를 선택합니다.
-   
+
 6. 프로젝트 유형으로 **MVC** 를 선택합니다.
 
 7. **인증** 설정에 **인증 없음** 을 지정했는지 확인합니다. Visual Studio의 버전에 따라 다른 기본 **인증** 을 설정할 수 있습니다. 변경하려면 **인증 변경** 및 **인증 없음** 을 차례로 선택합니다.
@@ -61,7 +61,7 @@ Visual Studio 2019를 사용하는 이 빠른 시작에서는 Azure Cache for Re
 
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
-#### <a name="to-edit-the-cachesecretsconfig-file"></a>*CacheSecrets.config* 파일을 편집하려면
+### <a name="to-edit-the-cachesecretsconfig-file"></a>*CacheSecrets.config* 파일을 편집하려면
 
 1. *CacheSecrets.config* 라는 컴퓨터에서 파일을 만듭니다. 샘플 애플리케이션의 소스 코드를 사용하여 체크 인하지 않을 위치에 배치합니다. 이 빠른 시작의 경우 *CacheSecrets.config* 파일은 *C:\AppSecrets\CacheSecrets.config* 에 있습니다.
 
@@ -86,26 +86,27 @@ Visual Studio 2019를 사용하는 이 빠른 시작에서는 Azure Cache for Re
 
 이 섹션에서는 Azure Cache for Redis에 대해 간단한 테스트를 표시하는 새 보기를 지원하도록 애플리케이션을 업데이트합니다.
 
-* [캐시에 대한 앱 설정이 포함된 web.config 파일 업데이트](#update-the-webconfig-file-with-an-app-setting-for-the-cache)
-* StackExchange.Redis 클라이언트를 사용하도록 애플리케이션 구성
-* HomeController 및 레이아웃 업데이트
-* 새 RedisCache 뷰 추가
+- [캐시에 대한 앱 설정이 포함된 web.config 파일 업데이트](#update-the-webconfig-file-with-an-app-setting-for-the-cache)
+- StackExchange.Redis 클라이언트를 사용하도록 애플리케이션 구성
+- HomeController 및 레이아웃 업데이트
+- 새 RedisCache 뷰 추가
 
 ### <a name="update-the-webconfig-file-with-an-app-setting-for-the-cache"></a>캐시에 대한 앱 설정이 포함된 web.config 파일 업데이트
 
-애플리케이션을 로컬로 실행하는 경우 *CacheSecrets.config* 의 정보는 Azure Cache for Redis 인스턴스에 연결하는 데 사용됩니다. 나중에 이 애플리케이션을 Azure에 배포합니다. 그때 애플리케이션이 이 파일 대신 캐시 연결 정보를 검색하는 데 사용하는 앱 설정을 Azure에서 구성합니다. 
+애플리케이션을 로컬로 실행하는 경우 *CacheSecrets.config* 의 정보는 Azure Cache for Redis 인스턴스에 연결하는 데 사용됩니다. 나중에 이 애플리케이션을 Azure에 배포합니다. 그때 애플리케이션이 이 파일 대신 캐시 연결 정보를 검색하는 데 사용하는 앱 설정을 Azure에서 구성합니다.
 
 *CacheSecrets.config* 파일이 애플리케이션과 함께 Azure에 배포되지 않으므로 애플리케이션을 로컬로 테스트하는 동안에만 사용합니다. 캐시 데이터에 대한 악의적인 액세스를 방지하기 위해 이 정보를 최대한 안전하게 유지하세요.
 
 #### <a name="to-update-the-webconfig-file"></a>*Web.config* 파일을 업데이트하려면
+
 1. **솔루션 탐색기** 에서 *web.config* 파일을 두 번 클릭하여 엽니다.
 
     ![Web.config](./media/cache-web-app-howto/cache-web-config.png)
 
 2. *web.config* 파일에서 `<appSetting>` 요소를 찾습니다. 그런 다음, 다음 `file` 특성을 추가합니다. 다른 파일 이름 또는 위치를 사용한 경우, 예제에 나타난 값을 해당 값으로 대체합니다.
 
-* 이전: `<appSettings>`
-* 이후: `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
+- 이전: `<appSettings>`
+- 이후: `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
 ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그와 병합합니다. 지정된 파일을 찾을 수 없는 경우 런타임에서 파일 특성을 무시합니다. 암호(캐시에 대한 연결 문자열)는 애플리케이션에 대 한 소스 코드의 일부분으로 포함되지 않습니다. Azure에 웹앱을 배포하는 경우 *CacheSecrets.config* 파일은 배포되지 않습니다.
 
@@ -119,7 +120,7 @@ ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그
     Install-Package StackExchange.Redis
     ```
 
-3. NuGet 패키지는 클라이언트 애플리케이션이 StackExchange.Azure Cache for Redis 클라이언트를 사용하여 Azure Cache for Redis에 액세스하는 데 필요한 어셈블리 참조를 다운로드하고 추가합니다. 강력한 이름의 `StackExchange.Redis` 클라이언트 라이브러리 버전을 사용하려는 경우 `StackExchange.Redis.StrongName` 패키지를 설치합니다.
+3. NuGet 패키지는 클라이언트 애플리케이션이 StackExchange.Azure Cache for Redis 클라이언트를 사용하여 Azure Cache for Redis에 액세스하는 데 필요한 어셈블리 참조를 다운로드하고 추가합니다. 강력한 이름의 `StackExchange.Redis` 클라이언트 라이브러리 버전을 사용하려는 경우 `StackExchange.Redis` 패키지를 설치합니다.
 
 ### <a name="to-update-the-homecontroller-and-layout"></a>HomeController 및 레이아웃을 업데이트하려면
 
@@ -339,7 +340,7 @@ ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그
 4. **솔루션 탐색기** 에서 **뷰** > **공유됨** 폴더를 확장합니다. 그런 다음, *_Layout.cshtml* 파일을 엽니다.
 
     다음을
-    
+
     ```csharp
     @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
     ```
@@ -399,6 +400,7 @@ ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그
 기본적으로 프로젝트는 테스트 및 디버깅을 위해 [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview)에서 앱을 로컬로 호스팅하도록 구성됩니다.
 
 ### <a name="to-run-the-app-locally"></a>로컬에서 앱을 실행하려면
+
 1. Visual Studio에서 **디버그** > **디버깅 시작** 을 선택하여 테스트 및 디버깅을 위해 앱을 로컬로 빌드하고 시작합니다.
 
 2. 브라우저의 탐색 모음에서 **Azure Cache for Redis 테스트** 를 선택합니다.
@@ -440,9 +442,9 @@ ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그
 
 ### <a name="add-the-app-setting-for-the-cache"></a>캐시에 대한 앱 설정 추가
 
-새 앱이 게시된 후에 새 앱 설정을 추가합니다. 이 설정은 캐시 연결 정보를 저장하는 데 사용됩니다. 
+새 앱이 게시된 후에 새 앱 설정을 추가합니다. 이 설정은 캐시 연결 정보를 저장하는 데 사용됩니다.
 
-#### <a name="to-add-the-app-setting"></a>앱 설정을 추가하려면 
+#### <a name="to-add-the-app-setting"></a>앱 설정을 추가하려면
 
 1. 만든 새 앱을 찾으려면 Azure Portal의 위쪽에 있는 검색 표시줄에 앱 이름을 입력합니다.
 
@@ -464,7 +466,7 @@ ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그
 
 다음 자습서를 계속 진행하는 경우 이 빠른 시작에서 만든 리소스를 그대로 두었다가 다시 사용할 수 있습니다.
 
-또는, 빠른 시작 샘플 애플리케이션 사용을 마친 경우 이 빠른 시작에서 만든 Azure 리소스를 삭제하여 요금이 청구되는 것을 방지할 수 있습니다. 
+또는, 빠른 시작 샘플 애플리케이션 사용을 마친 경우 이 빠른 시작에서 만든 Azure 리소스를 삭제하여 요금이 청구되는 것을 방지할 수 있습니다.
 
 > [!IMPORTANT]
 > 리소스 그룹을 삭제하면 다시 되돌릴 수 없습니다. 리소스 그룹을 삭제하는 경우 그 안의 모든 리소스가 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 유지하려는 리소스가 포함된 기존 리소스 그룹 내서에 이 샘플을 호스팅하는 리소스를 만든 경우 리소스 그룹을 삭제하는 대신, 완쪽에서 각 리소스를 개별적으로 삭제할 수 있습니다.

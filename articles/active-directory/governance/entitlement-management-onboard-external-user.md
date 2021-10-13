@@ -13,12 +13,12 @@ ms.subservice: compliance
 ms.date: 08/18/2021
 ms.author: sama
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23e0a0d9bf53192249b50f03df508e86cc88b91e
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: 0a68a523a2a5ce14c9fccd2750eb9523b4c5281d
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129155971"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129807234"
 ---
 # <a name="tutorial---onboard-external-users-to-azure-ad-through-an-approval-process"></a>자습서 - 승인 프로세스를 통해 Azure AD에 외부 사용자 온보딩
 
@@ -130,4 +130,4 @@ Azure AD 권한 관리를 사용하려면 다음 라이선스 중 하나가 있�
 
 ## <a name="next-steps"></a>다음 단계
 
-애플리케이션 및 사이트와 같은 다른 종류의 리소스에 대한 액세스 권한을 관리하는 액세스 패키지를 만드는 방법을 알아봅니다. [자습서: Azure AD 자격 관리에서 리소스에 대한 액세스 관리](/active-directory/governance/entitlement-management-access-package-first.md)
+애플리케이션 및 사이트와 같은 다른 종류의 리소스에 대한 액세스 권한을 관리하는 액세스 패키지를 만드는 방법을 알아봅니다. [자습서: Azure AD 자격 관리에서 리소스에 대한 액세스 관리](/azure/active-directory/governance/entitlement-management-access-package-first)

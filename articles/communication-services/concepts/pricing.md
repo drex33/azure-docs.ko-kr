@@ -9,12 +9,12 @@ ms.author: nmurav
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: d2ea2c510aa9e6225de215da128670514f1dba3b
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: e697f6c7b7cf056245949a82b5a4703e6cfd089a
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129360451"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129809596"
 ---
 # <a name="pricing-scenarios"></a>가격 책정 시나리오
 
@@ -119,6 +119,35 @@ Alice는 환자 Bob과 면담 예정인 의사입니다. Alice가 Teams 데스�
 - Communication Services JavaScript SDK를 사용한 사용자 참여: $0.004 + $0.116 + $0.0024 = $0.1224
 - Teams 데스크톱 애플리케이션의 사용자 참여: $0(Teams 라이선스 적용)
 
+
+## <a name="call-recording"></a>통화 기록
+
+Azure Communication Services를 사용하면 PSTN, WebRTC, 회의, SIP 인터페이스 호출을 기록할 수 있습니다. 현재 통화 녹음/녹화는 혼합 오디오+비디오 MP4 및 혼합 오디오 전용 MP3/WAV 출력 형식을 지원합니다. 통화 녹음/녹화 SDK는 Java 및 C#에서 사용할 수 있습니다. [자세히 알아보려면 이 페이지](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/call-recording-sample)를 참조하세요.
+
+### <a name="price"></a>가격
+
+혼합 오디오+비디오 형식의 경우 분당 0.01달러가 청구되고, 혼합 오디오 전용의 경우 분당 0.002달러가 청구됩니다.
+
+### <a name="pricing-example-record-a-call-in-a-mixed-audiovideo-format"></a>가격 책정 예: 혼합 오디오+비디오 형식으로 통화 녹음/녹화
+
+Alice는 동료 Bob 및 Charlie와 함께 그룹 통화를 했습니다. 
+
+- 통화는 총 60분 동안 진행되었습니다. 그리고 녹음/녹화는 60분 동안 활성화되었습니다.
+- Bob은 30분 동안 통화하고, Alice와 Charlie는 60분 동안 통화했습니다.
+
+**비용 계산**
+- 회의 시간만큼 요금이 청구됩니다. 회의 시간은 사용자가 녹음/녹화를 시작한 후 명시적으로 중지하거나 회의 참가자가 모두 나갈 때까지의 기간을 말합니다.
+- 60분 x 녹음/녹화 시간(분)당 0.01달러= 0.6달러
+
+### <a name="pricing-example-record-a-call-in-a-mixed-audioonly-format"></a>가격 책정 예: 혼합 오디오 전용 형식으로 통화 녹음/녹화
+
+Alice가 Jane과 통화를 시작합니다. 
+
+- 통화는 총 60분 동안 진행되었습니다. 녹음/녹화가 45분 동안 진행되었습니다.
+
+**비용 계산**
+- 녹음/녹화 시간만큼 요금이 청구됩니다. 
+- 45분 x 녹음/녹화 시간(분)당 0.002달러= 0.09달러
 
 ## <a name="chat"></a>채팅
 

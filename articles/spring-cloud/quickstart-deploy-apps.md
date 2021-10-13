@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 598702dee3c4e5fa712144eaad5aefff564df602
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 71f3d64a05a44773652852adb860b64363e158a9
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122015502"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129855957"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>빠른 시작: Azure Spring Cloud에 앱 빌드 및 배포
 
@@ -280,7 +280,7 @@ az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-vis
 1. 부모 POM을 포함하는 Pet Clinic의 루트 폴더에서 다음 명령을 실행하여 구성을 생성합니다. Azure CLI를 사용하여 이미 로그인한 경우 이 명령은 자격 증명을 자동으로 선택합니다. 그렇지 않으면 프롬프트 명령을 사용하여 로그인합니다. 자세한 내용은 [wiki 페이지](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication)를 참조하세요.
 
     ```azurecli
-    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.6.0:config
+    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.7.0:config
     ```
 
     다음 중 선택하라는 메시지가 표시됩니다.
@@ -298,7 +298,7 @@ az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-vis
             <plugin>
                 <groupId>com.microsoft.azure</groupId>
                 <artifactId>azure-spring-cloud-maven-plugin</artifactId>
-                <version>1.6.0</version>
+                <version>1.7.0</version>
                 <configuration>
                     <subscriptionId>xxxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx</subscriptionId>
                     <clusterName>v-spr-cld</clusterName>

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 11/23/2020
+ms.date: 10/07/2021
 ms.author: lajanuar
-ms.openlocfilehash: ea5e49cf6a61ad89d182637c11b969ee80c754e6
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: b541c19f3a3bd129e81723df7b1b58ba75e4a540
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122327276"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714443"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>자습서: AI Builder를 사용하여 양식 처리 앱 만들기
 
@@ -57,7 +57,7 @@ ms.locfileid: "122327276"
 > - 50페이지가 넘는 PDF 문서
 > - 채우기 가능 PDF
 >
-> 입력 문서의 요구 사항에 대한 자세한 내용은 [입력 요구 사항](./overview.md#input-requirements)을 참조하세요.
+> 입력 문서의 요구 사항에 대한 자세한 내용은 [입력 요구 사항](concept-model-overview.md#input-requirements)을 참조하세요.
 
 ### <a name="upload-your-documents"></a>문서 업로드
 
@@ -78,7 +78,7 @@ ms.locfileid: "122327276"
 분석이 완료되면 미리 보기를 선택하여 필드 선택 환경을 엽니다.
 
 > [!IMPORTANT]
-> 분석이 실패하는 경우 AI Builder가 문서의 정형 텍스트를 감지할 수 없는 것이 원인일 가능성이 높습니다. 업데이트한 문서가 [입력 요구 사항](./overview.md#input-requirements)을 준수하는지 확인합니다.
+> 분석이 실패하는 경우 AI Builder가 문서의 정형 텍스트를 감지할 수 없는 것이 원인일 가능성이 높습니다. 업데이트한 문서가 [입력 요구 사항](concept-model-overview.md#input-requirements)을 준수하는지 확인합니다.
 
 ## <a name="select-your-form-fields"></a>양식 필드 선택
 

@@ -14,12 +14,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-java-uiex
-ms.openlocfilehash: 2fb7a97f1efb50f76b91cbc49a189deda7cde9c8
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 5be4133f23764ab87e8c1fca3b176d680e1eeae1
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129357108"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129855615"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>빠른 시작: Azure App Service에서 Java 앱 만들기
 
@@ -123,7 +123,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.2.0:config
     PricingTier : P1v2
     OS : Windows
     Java : Java 8
-    WebContainer : Java SE
+    Web server stack : Java SE
     Deploy to slot : false
     Confirm (Y/N)? : Y
     [INFO] Saving configuration to pom.
@@ -156,7 +156,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.2.0:config
     PricingTier : P1v2
     OS : Windows
     Java : Java 8
-    WebContainer : tomcat 8.5
+    Web server stack : Tomcat 8.5
     Deploy to slot : false
     Confirm (Y/N)? : Y
     [INFO] Saving configuration to pom.
@@ -183,7 +183,7 @@ JBoss EAP는 Linux 버전의 App Service에서만 사용할 수 있습니다. �
 1. **Web App** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 기본 옵션 `<create>`를 선택합니다.
 1. **OS** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 **Linux** 를 선택합니다.
 2. **javaVersion** 옵션을 사용하라는 메시지가 표시되면 `1`을 입력하여 **Java 8** 을 선택합니다.
-3. **가격 책정 계층** 옵션을 사용하라는 메시지가 표시되면 `10`을 입력하여 **P1v2** 를 선택합니다.
+3. **가격 책정 계층** 옵션을 사용하라는 메시지가 표시되면 `9`을 입력하여 **P1v2** 를 선택합니다.
 4. 마지막으로, 마지막 프롬프트에서 Enter를 눌러 선택 내용을 확인합니다.
 
     ```
@@ -194,7 +194,7 @@ JBoss EAP는 Linux 버전의 App Service에서만 사용할 수 있습니다. �
     Region : centralus
     PricingTier : P1v2
     OS : Linux
-    Web server stack : JAVA SE
+    Web server stack : Java SE
     Deploy to slot : false
     Confirm (Y/N)? : Y
     [INFO] Saving configuration to pom.
@@ -213,7 +213,7 @@ JBoss EAP는 Linux 버전의 App Service에서만 사용할 수 있습니다. �
 1. **OS** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 **Linux** 를 선택합니다.
 1. **javaVersion** 옵션을 사용하라는 메시지가 표시되면 `1`을 입력하여 **Java 8** 을 선택합니다.
 1. **webcontainer** 옵션을 사용하라는 메시지가 표시되면 `3`을 입력하여 **Tomcat 8.5** 를 선택합니다.
-1. **가격 책정 계층** 옵션을 사용하라는 메시지가 표시되면 `10`을 입력하여 **P1v2** 를 선택합니다.
+1. **가격 책정 계층** 옵션을 사용하라는 메시지가 표시되면 `9`을 입력하여 **P1v2** 를 선택합니다.
 1. 마지막으로, 마지막 프롬프트에서 Enter를 눌러 선택 내용을 확인합니다.
 
     ```
@@ -224,7 +224,7 @@ JBoss EAP는 Linux 버전의 App Service에서만 사용할 수 있습니다. �
     Region : centralus
     PricingTier : P1v2
     OS : Linux
-    Web server stack : TOMCAT 8.5
+    Web server stack : Tomcat 8.5
     Deploy to slot : false
     Confirm (Y/N)? : Y
     [INFO] Saving configuration to pom.
@@ -273,16 +273,16 @@ JBoss EAP는 Linux 버전의 App Service에서만 사용할 수 있습니다. �
 
 필요한 경우 `pom.xml`에서 직접 App Service에 대한 구성을 수정할 수 있습니다. 몇 가지 일반적인 사항은 다음과 같습니다.
 
-속성 | 필수 | Description | 버전
+속성 | 필수 | 설명 | 버전
 ---|---|---|---
 `<schemaVersion>` | false | 구성 스키마의 버전을 지정합니다. 지원되는 값은 `v1`, `v2`입니다. | 1.5.2
 `<subscriptionId>` | false | 구독 ID를 지정합니다. | 0.1.0+
 `<resourceGroup>` | true | 웹앱에 대한 Azure 리소스 그룹입니다. | 0.1.0+
 `<appName>` | true | 웹앱의 이름입니다. | 0.1.0+
-`<region>` | true | 웹앱이 호스트되는 지역을 지정합니다(기본값: **centralus**). [지원되는 지역](https://azure.microsoft.com/global-infrastructure/services/?products=app-service) 섹션에 있는 모든 유효한 지역입니다. | 0.1.0+
-`<pricingTier>` | true | 웹앱에 대한 가격 책정 계층입니다. 기본값은 프로덕션 작업의 경우 **P1v2** 이고, **B2** 는 Java 개발/테스트에 권장되는 최솟값입니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
-`<runtime>` | true | 런타임 환경 구성이며, [여기](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details)에서 세부 정보를 볼 수 있습니다. | 0.1.0+
-`<deployment>` | true | 배포 구성이며, [여기](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details)에서 세부 정보를 볼 수 있습니다. | 0.1.0+
+`<region>` | false | 웹앱이 호스트되는 지역을 지정합니다(기본값: **centralus**). [지원되는 지역](https://azure.microsoft.com/global-infrastructure/services/?products=app-service) 섹션에 있는 모든 유효한 지역입니다. | 0.1.0+
+`<pricingTier>` | false | 웹앱에 대한 가격 책정 계층입니다. 기본값은 프로덕션 작업의 경우 **P1v2** 이고, **B2** 는 Java 개발/테스트에 권장되는 최솟값입니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
+`<runtime>` | false | 런타임 환경 구성이며, [여기](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details)에서 세부 정보를 볼 수 있습니다. | 0.1.0+
+`<deployment>` | false | 배포 구성이며, [여기](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details)에서 세부 정보를 볼 수 있습니다. | 0.1.0+
 
 `<appName>` 및 `<resourceGroup>` 값(이 데모에서는 `helloworld-1590394316693` 및 `helloworld-1590394316693-rg`에 따라 다름)에 유의해야 합니다. 나중에 사용됩니다.
 

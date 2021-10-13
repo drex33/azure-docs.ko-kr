@@ -55,10 +55,10 @@
           href: my-apps-deployment-plan.md
     - name: Single Sign-On
       items:
-        - name: 배포 계획
-          href: plan-sso-deployment.md
         - name: Single Sign-On이란?
           href: what-is-single-sign-on.md
+        - name: 배포 계획
+          href: plan-sso-deployment.md
     - name: 애플리케이션 보안
       items:
         - name: 앱 액세스 옵션
@@ -118,14 +118,14 @@
           href: prevent-domain-hints-with-home-realm-discovery.md
     - name: 애플리케이션 마이그레이션
       items:
-        - name: 마이그레이션 리소스
-          href: migration-resources.md
         - name: AD FS 앱을 Azure로 마이그레이션
           href: migrate-adfs-apps-to-azure.md
         - name: Azure Active Directory에 애플리케이션 인증 마이그레이션
           href: migrate-application-authentication-to-azure-active-directory.md
         - name: AD FS 애플리케이션 작업 보고서 사용
           href: migrate-adfs-application-activity.md
+        - name: 마이그레이션 리소스
+          href: migration-resources.md
         - name: Okta에서 Azure AD로 애플리케이션 마이그레이션
           items:
             - name: Okta에서 Azure AD로 애플리케이션 마이그레이션

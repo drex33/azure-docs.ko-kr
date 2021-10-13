@@ -3,15 +3,15 @@ title: 가상 네트워크 게이트웨이에 ExpressRoute 연결
 description: ExpressRoute를 가상 네트워크 게이트웨이에 연결하는 단계입니다.
 ms.topic: include
 ms.date: 12/08/2020
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.service: azure-vmware
-ms.openlocfilehash: 6dc579579e315ca24c940a0ed46bc51838aaed77
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 721a298deb1c3122a1781c5803c93492b43a4b59
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122069560"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129638299"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-configure-networking.md -->
 

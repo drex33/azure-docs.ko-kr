@@ -4,16 +4,16 @@ ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 114def65376e40fed81b4857e8d2f124ad665c70
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: 087d5c3e43d1b01754f19978d8b76d012e9c55a7
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114403808"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129725677"
 ---
 이 빠른 시작에서는 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 빌드하고, IoT 허브에 연결하고, Azure IoT 탐색기 도구를 사용하여 전송되는 원격 분석을 확인하는 방법을 보여줍니다. 샘플 애플리케이션은 Node.js로 작성되었으며 Node.js용 Azure IoT 디바이스 SDK에 포함되어 있습니다. 솔루션 빌더는 디바이스 코드를 볼 필요 없이 Azure IoT 탐색기 도구를 사용하여 IoT 플러그 앤 플레이 디바이스의 기능을 이해할 수 있습니다.
 
-[![코드 찾아보기](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/pnp)
+[![코드 찾아보기](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/javascript/pnp)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -75,7 +75,7 @@ _simple_thermostat.js_ 파일을 엽니다. 이 파일에서 다음을 수행하
 
 [!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
-샘플 구성에 대해 자세히 알아보려면 [샘플 추가 정보](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/pnp/readme.md)를 참조하세요.
+샘플 구성에 대해 자세히 알아보려면 [샘플 추가 정보](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/javascript/pnp/readme.md)를 참조하세요.
 
 샘플 애플리케이션을 실행하여 IoT 허브에 원격 분석을 전송하는 IoT 플러그 앤 플레이 디바이스를 시뮬레이트합니다. 샘플 애플리케이션을 실행하려면 다음 명령을 사용합니다.
 

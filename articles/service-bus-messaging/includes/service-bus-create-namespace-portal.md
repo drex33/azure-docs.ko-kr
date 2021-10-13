@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/08/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 2c614fd986d5657799e033e54c194eea7fe1677c
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 978e703285317c7a644f6d0c459a1f1d572b9179
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129710673"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129801094"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Azure Portal에서 네임스페이스 만들기
 Azure에서 Service Bus 메시징 엔터티 사용을 시작하려면 먼저 Azure에서 고유한 이름인 네임스페이스를 만들어야 합니다. 네임스페이스는 애플리케이션 내에서 Service Bus 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다.
@@ -28,9 +28,13 @@ Azure에서 Service Bus 메시징 엔터티 사용을 시작하려면 먼저 Azu
     1. **구독** 에 대해 네임스페이스를 만들 Azure 구독을 선택합니다.
     1. **리소스 그룹** 에 대해 네임스페이스가 있는 기존 리소스 그룹을 선택하거나 새로 만듭니다.      
     1. **네임스페이스 이름** 을 입력합니다. 시스템에서 사용 가능한 이름인지 즉시 확인합니다. 네임스페이스 명명 규칙 목록은 [네임스페이스 REST API 만들기](/rest/api/servicebus/create-namespace)를 참조하세요.
-    1. **위치** 에 대해 네임스페이스가 호스트되어야 하는 지역을 선택합니다.1. 
-    1. **가격 책정 계층** 에 대해 네임스페이스에 대한 가격 책정 계층(기본, 표준 또는 프리미엄)을 선택합니다. [토픽 및 구독](../service-bus-queues-topics-subscriptions.md#topics-and-subscriptions)을 사용하려면 표준 또는 프리미엄을 선택합니다. 토픽/구독은 기본 가격 책정 계층에서 지원되지 않습니다. **프리미엄** 가격 책정 계층을 선택한 경우 **메시징 단위** 수를 지정합니다. 프리미엄 계층은 CPU 및 메모리 수준에서 리소스 격리를 제공하므로 각 워크로드가 독립적으로 실행됩니다. 이 리소스 컨테이너를 메시징 단위라고 합니다. 프리미엄 네임스페이스에는 하나 이상의 메시징 단위가 있습니다. 각 Service Bus 프리미엄 네임스페이스에 대해 1, 2 또는 4의 메시징 단위를 선택할 수 있습니다. 자세한 내용은 [Service Bus 프리미엄 메시징](../service-bus-premium-messaging.md)을 참조하세요.
-    7. **검토 + 만들기** 를 선택합니다. 이제 시스템이 네임스페이스를 만들고 사용하도록 설정합니다. 시스템이 계정에 대한 리소스를 프로비전하는 동안 몇 분 정도 기다려야 할 수도 있습니다.
+    1. **위치** 에 대해 네임스페이스가 호스팅되어야하는 지역을 선택합니다.
+    1. **가격 책정 계층** 에 대해 네임스페이스에 대한 가격 책정 계층(기본, 표준 또는 프리미엄)을 선택합니다. 이 빠른 시작의 경우 **표준** 을 선택합니다. 
+    
+        [토픽 및 구독](../service-bus-queues-topics-subscriptions.md#topics-and-subscriptions)을 사용하려면 표준 또는 프리미엄을 선택합니다. 토픽/구독은 기본 가격 책정 계층에서 지원되지 않습니다. 
+
+        **프리미엄** 가격 책정 계층을 선택한 경우 **메시징 단위** 수를 지정합니다. 프리미엄 계층은 CPU 및 메모리 수준에서 리소스 격리를 제공하므로 각 워크로드가 독립적으로 실행됩니다. 이 리소스 컨테이너를 메시징 단위라고 합니다. 프리미엄 네임스페이스에는 하나 이상의 메시징 단위가 있습니다. 각 Service Bus 프리미엄 네임스페이스에 대해 1, 2 또는 4의 메시징 단위를 선택할 수 있습니다. 자세한 내용은 [Service Bus 프리미엄 메시징](../service-bus-premium-messaging.md)을 참조하세요.
+    1. **검토 + 만들기** 를 선택합니다. 이제 시스템이 네임스페이스를 만들고 사용하도록 설정합니다. 시스템이 계정에 대한 리소스를 프로비전하는 동안 몇 분 정도 기다려야 할 수도 있습니다.
    
         :::image type="content" source="./media/service-bus-create-namespace-portal/create-namespace.png" alt-text="네임스페이스 만들기 페이지를 보여 주는 이미지":::
     1. **검토 + 만들기** 페이지에서 설정을 검토하고 **만들기** 를 선택합니다. 
@@ -42,7 +46,9 @@ Azure에서 Service Bus 메시징 엔터티 사용을 시작하려면 먼저 Azu
     :::image type="content" source="./media/service-bus-create-namespace-portal/service-bus-namespace-home-page.png" alt-text="만든 Service Bus 네임스페이스의 홈페이지를 보여 주는 이미지" :::
 
 ## <a name="get-the-connection-string"></a>연결 문자열 가져오기 
-새 네임 스페이스를 만들면 네임스페이스의 모든 측면에 대한 모든 권한을 부여하는 기본 및 보조 키의 연결된 쌍을 포함한 초기 SAS(공유 액세스 서명) 규칙이 자동으로 생성됩니다. 일반적인 보낸 사람과 받는 사람에 대해 자세히 제한된 권한이 적용된 규칙을 만드는 방법에 대한 자세한 내용은 [Service Bus 인증 및 권한 부여](../service-bus-authentication-and-authorization.md)를 참조하세요. 네임스페이스에 대한 기본 및 보조 키를 복사하려면 다음 단계를 수행합니다. 
+새 네임스페이스를 만들면 기본 키 및 보조 키와 각각 네임스페이스의 모든 측면에 대한 전체 제어 권한을 부여하는 기본 및 보조 연결 문자열이 포함된 초기 SAS(공유 액세스 서명) 정책이 자동으로 생성됩니다. 일반적인 보낸 사람과 받는 사람에 대해 자세히 제한된 권한이 적용된 규칙을 만드는 방법에 대한 자세한 내용은 [Service Bus 인증 및 권한 부여](../service-bus-authentication-and-authorization.md)를 참조하세요. 
+
+네임스페이스에 대한 기본 연결 문자열을 복사하려면 다음 단계를 수행합니다. 
 
 1. **Service Bus 네임스페이스** 페이지의 왼쪽 메뉴에서 **공유 액세스 정책** 을 선택합니다.
 3. **공유 액세스 정책** 페이지에서 **RootManageSharedAccessKey** 를 선택합니다.
@@ -52,3 +58,4 @@ Azure에서 Service Bus 메시징 엔터티 사용을 시작하려면 먼저 Azu
    
     :::image type="content" source="./media/service-bus-create-namespace-portal/connection-string.png" alt-text="스크린샷은 키 및 연결 문자열을 포함하는 RootManageSharedAccessKey라는 S A S 정책을 보여줍니다.":::
 
+    이 페이지를 사용하여 기본 키, 보조 키 및 보조 연결 문자열을 복사할 수 있습니다. 

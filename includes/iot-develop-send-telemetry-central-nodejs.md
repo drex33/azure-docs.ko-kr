@@ -7,19 +7,19 @@ ms.topic: include
 ms.date: 09/17/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 85e75839d204360847162b470d149e580fac80bc
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 233a5df91d744b393736a0c9483c3fcb2b52c57a
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128909854"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129725632"
 ---
-[![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/pnp)
+[![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/javascript/pnp)
 
 이 빠른 시작에서는 기본 Azure IoT 애플리케이션 개발 워크플로에 대해 알아봅니다. 먼저 디바이스 호스트를 위한 Azure IoT Central 애플리케이션을 만듭니다. 그런 다음 Azure IoT 디바이스 SDK 샘플을 사용하여 시뮬레이션된 온도 조절기를 실행하고 IoT Central에 안전하게 연결하고 원격 분석을 전송합니다.
 
-## <a name="prerequisites"></a>필수 조건
-이 빠른 시작은 Windows, Linux 및 Raspberry Pi에서 실행됩니다. 다음 OS와 디바이스 버전에서 테스트되었습니다.
+## <a name="prerequisites"></a>사전 요구 사항
+이 빠른 시작은 Windows, Linux 및 Raspberry Pi에서 실행됩니다. 다음 OS 및 디바이스 버전에서 테스트되었습니다.
 
 - Windows 10
 - WSL(Linux용 Windows 하위 시스템)에서 실행되는 Ubuntu 20.04 LTS
@@ -86,12 +86,12 @@ ms.locfileid: "128909854"
 
     **Windows**
     ```console
-    cd azure-iot-sdk-node\device\samples\pnp
+    cd azure-iot-sdk-node\device\samples\javascript\pnp
     ```
 
     **Linux 또는 Raspberry Pi OS**
     ```console
-    cd azure-iot-sdk-node/device/samples/pnp
+    cd azure-iot-sdk-node/device/samples/javascript/pnp
     ```
 
 1. Azure IoT Node.js SDK 및 필요한 종속성을 설치합니다.

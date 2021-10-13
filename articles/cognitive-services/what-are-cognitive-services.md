@@ -9,15 +9,15 @@ keywords: 인지적 서비스, 인지적 인텔리전스, 인지적 솔루션, A
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: overview
-ms.date: 04/16/2021
+ms.date: 10/08/2021
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 4badad1f7e22fcb82e122a56e219fc61973634a2
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 2b5519d5a71f9a431bd5948283ea12ae79647196
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114451267"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129730036"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Azure Cognitive Services란?
 
@@ -149,5 +149,4 @@ Cognitive Services는 지능형 애플리케이션 생성을 진행하는 데 �
 ## <a name="next-steps"></a>다음 단계
 
 * [Cognitive Services 계정 만들기](cognitive-services-apis-create-account.md "Cognitive Services 계정 만들기")
-* [Cognitive Services 문서의 새로운 기능](whats-new-docs.md "Cognitive Services 문서의 새로운 기능")
 * [Cognitive Services에 대한 비용 계획 및 관리](plan-manage-costs.md)

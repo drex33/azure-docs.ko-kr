@@ -7,25 +7,25 @@ ms.topic: include
 ms.date: 09/17/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: e19743a7ae754296992f4cb281c10c1d44cbe25c
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: d4ff330662cab9c9ef573af3ea834d15ac3426a5
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129094065"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129725924"
 ---
-[![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/pnp)
+[![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/javascript/pnp)
 
-이 빠른 시작에서는 기본 Azure IoT 애플리케이션 개발 워크플로에 대해 알아봅니다. Azure CLI 및 IoT Explorer를 사용하여 Azure IoT 허브와 디바이스를 만듭니다. 그런 다음 Azure IoT 디바이스 SDK 샘플을 사용하여 시뮬레이션된 온도 조절기를 실행하고 허브에 안전하게 연결하고 원격 분석을 전송합니다.
+이 빠른 시작에서는 기본 Azure IoT 애플리케이션 개발 워크플로에 대해 알아봅니다. Azure CLI 및 IoT Explorer를 사용하여 Azure IoT Hub 및 디바이스를 만듭니다. 그런 다음 Azure IoT 디바이스 SDK 샘플을 사용하여 시뮬레이션된 온도 조절기를 실행하고 허브에 안전하게 연결하고 원격 분석을 전송합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
-이 빠른 시작은 Windows, Linux 및 Raspberry Pi에서 실행됩니다. 다음 OS와 디바이스 버전에서 테스트되었습니다.
+이 빠른 시작은 Windows, Linux 및 Raspberry Pi에서 실행됩니다. 다음 OS 및 디바이스 버전에서 테스트되었습니다.
 
 - Windows 10
 - WSL(Linux용 Windows 하위 시스템)에서 실행되는 Ubuntu 20.04 LTS
 - Raspberry Pi 3 모델 B+에서 실행되는 Raspberry Pi OS 버전 10(Raspian)
 
-Raspberry Pi에 명시된 경우를 제외하고 다음 사전 요구 사항을 개발 컴퓨터에 설치합니다.
+Raspberry Pi에 대해 명시한 경우를 제외하고는 다음 사전 요구 사항을 개발 컴퓨터에 설치합니다.
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [무료 구독을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Git](https://git-scm.com/downloads)
@@ -55,12 +55,12 @@ Raspberry Pi에 명시된 경우를 제외하고 다음 사전 요구 사항을 
 
     **Windows**
     ```console
-    cd azure-iot-sdk-node\device\samples\pnp
+    cd azure-iot-sdk-node\device\samples\javascript\pnp
     ```
 
     **Linux 또는 Raspberry Pi OS**
     ```console
-    cd azure-iot-sdk-node/device/samples/pnp
+    cd azure-iot-sdk-node/device/samples/javascript/pnp
     ```
 
 1. Azure IoT Node.js SDK 및 필요한 종속성을 설치합니다.
@@ -106,7 +106,7 @@ Raspberry Pi에 명시된 경우를 제외하고 다음 사전 요구 사항을 
     > [!NOTE]
     > 이 코드 샘플에서는 수동 구성 없이 솔루션에 스마트 디바이스를 통합할 수 있도록 하는 Azure IoT 플러그 앤 플레이를 사용합니다.  기본적으로 이 설명서에 있는 대부분의 샘플은 IoT 플러그 앤 플레이를 사용합니다. IoT PnP의 장점과 사용 여부에 대한 자세한 내용은 [IoT 플러그 앤 플레이란?](../articles/iot-develop/overview-iot-plug-and-play.md)을 참조하세요.
 
-샘플은 등록한 디바이스로 IoT 허브에 안전하게 연결하고 원격 분석 메시지를 보내기 시작합니다. 샘플 출력이 콘솔에 나타납니다.
+샘플은 등록한 디바이스로 IoT Hub에 안전하게 연결하고 원격 분석 메시지를 보내기 시작합니다. 샘플 출력이 콘솔에 나타납니다.
 
 ## <a name="view-telemetry"></a>원격 분석 보기
 
@@ -133,7 +133,7 @@ Azure IoT Explorer에서 원격 분석을 보려면
 
 Azure CLI를 사용하여 디바이스 원격 분석을 보려면 다음을 수행합니다.
 
-1. [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) 명령을 실행하여 시뮬레이션된 디바이스에서 IoT 허브로 보낸 이벤트를 모니터링합니다. 이전에 디바이스 및 IoT Hub에 대해 Azure IoT에서 만든 이름을 사용합니다.
+1. [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) 명령을 실행하여 시뮬레이션된 디바이스에서 IoT 허브로 전송된 이벤트를 모니터링합니다. 이전에 디바이스 및 IoT Hub에 대해 Azure IoT에서 만든 이름을 사용합니다.
 
     ```azurecli
     az iot hub monitor-events --output table --device-id mydevice --hub-name {YourIoTHubName}

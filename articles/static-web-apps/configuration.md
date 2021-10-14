@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 08/27/2021
 ms.author: cshoe
-ms.openlocfilehash: 25358033e88fbfb1590289e6fbad8e4109e0dbbf
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: ce46cbaf5a368d3278f4ccdf0c012f212fbfb48a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129399587"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004220"
 ---
 # <a name="configure-azure-static-web-apps"></a>Azure Static Web Apps 구성
 
@@ -202,7 +202,7 @@ _staticwebapp.config.json_ 의 권장 위치는 [워크플로 파일](./build-co
 
 ## <a name="global-headers"></a>글로벌 헤더
 
-`globalHeaders` 섹션에서는 [경로 헤더](#route-headers) 규칙에 의해 재정의되지 않는 한 각 응답에 적용되는 [HTTP 헤더](https://developer.mozilla.org/docs/Web/HTTP/Headers) 세트를 제공합니다. 그렇지 않으면 경로의 헤더와 글로벌 헤더의 합집합이 반환됩니다.
+`globalHeaders` 섹션에서는 경로 헤더 규칙에 의해 재정의되지 않는 한 각 응답에 적용되는 [HTTP 헤더](#route-headers) 세트를 제공합니다. 그렇지 않으면 경로의 헤더와 글로벌 헤더의 합집합이 반환됩니다.
 
 사용 예제는 [예제 구성 파일](#example-configuration-file)을 참조하세요.
 
@@ -272,7 +272,7 @@ _staticwebapp.config.json_ 의 권장 위치는 [워크플로 파일](./build-co
 
 하나 이상의 IP 주소 블록을 지정한 경우 `allowedIpRanges`의 값과 일치하지 않는 IP 주소에서 시작된 요청은 액세스가 거부됩니다.
 
-IP 주소 블록 외에도 배열에 [서비스 태그를](../virtual-network/service-tags-overview.md) `allowedIpRanges` 지정하여 트래픽을 특정 Azure 서비스로 제한할 수도 있습니다.
+IP 주소 블록 외에도 배열에 [서비스 태그](../virtual-network/service-tags-overview.md) 를 지정 `allowedIpRanges` 하 여 특정 Azure 서비스에 대 한 트래픽을 제한할 수 있습니다.
 
 ```json
 "networking": {
@@ -282,21 +282,21 @@ IP 주소 블록 외에도 배열에 [서비스 태그를](../virtual-network/se
 
 ## <a name="authentication"></a>인증
 
-* [기본 인증 공급자 에는](authentication-authorization.md#login)구성 파일의 설정이 필요하지 않습니다. 
-* [사용자 지정 인증 공급자는](authentication-custom.md) `auth` 설정 파일의 섹션을 사용합니다.
+* [기본 인증 공급자](authentication-authorization.md#login)의 경우 구성 파일의 설정이 필요 하지 않습니다. 
+* [사용자 지정 인증 공급자](authentication-custom.md) 는 `auth` 설정 파일의 섹션을 사용 합니다.
 
 ## <a name="forwarding-gateway"></a>전달 게이트웨이
 
-`forwardingGateway`섹션에서는 CDN 또는 Azure Front Door 같은 전달 게이트웨이에서 정적 웹앱에 액세스하는 방법을 구성합니다.
+`forwardingGateway`섹션은 CDN 또는 Azure Front 문과 같은 전달 게이트웨이에서 정적 웹 앱에 액세스 하는 방법을 구성 합니다.
 
 > [!NOTE]
-> 전달 게이트웨이 구성은 Azure Static Web Apps 표준 계획에서만 사용할 수 있습니다.
+> 전달 게이트웨이 구성은 Azure 정적 Web Apps 표준 계획 에서만 사용할 수 있습니다.
 
-### <a name="allowed-forwarded-hosts"></a>허용되는 전달된 호스트
+### <a name="allowed-forwarded-hosts"></a>허용 된 전달 호스트
   
-`allowedForwardedHosts`목록은 [X-Forwarded-Host](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Forwarded-Host) 헤더에 허용할 호스트 이름을 지정합니다. 일치하는 도메인이 목록에 있는 경우 Static Web Apps 성공적으로 `X-Forwarded-Host` 로그인한 후와 같이 리디렉션 URL을 생성할 때 값을 사용합니다.
+`allowedForwardedHosts`목록은 [X 전달 된 호스트](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Forwarded-Host) 헤더에서 수락할 호스트 이름을 지정 합니다. 일치 하는 도메인이 목록에 있으면 정적 Web Apps는 `X-Forwarded-Host` 성공한 로그인 후와 같이 리디렉션 url을 생성할 때 값을 사용 합니다.
 
-Static Web Apps 전달 게이트웨이 뒤에서 올바르게 작동하려면 게이트웨이의 요청에 헤더에 올바른 호스트 이름이 포함되어야 `X-Forwarded-Host` 하며 동일한 호스트 이름이 에 나열되어야 `allowedForwardedHosts` 합니다.
+정적 Web Apps 전달 게이트웨이 뒤에서 제대로 작동 하려면 게이트웨이의 요청이 헤더에 올바른 호스트 이름을 포함 해야 `X-Forwarded-Host` 하며, 동일한 호스트 이름이에 나열 되어야 합니다 `allowedForwardedHosts` .
 
 ```json
 "forwardingGateway": {
@@ -308,13 +308,13 @@ Static Web Apps 전달 게이트웨이 뒤에서 올바르게 작동하려면 �
 }
 ```
 
-`X-Forwarded-Host`헤더가 목록의 값과 일치하지 않는 경우 요청은 여전히 성공하지만 헤더는 응답에 사용되지 않습니다.
+`X-Forwarded-Host`헤더가 목록의 값과 일치 하지 않는 경우에도 요청은 성공 하지만 헤더는 응답에 사용 되지 않습니다.
 
 ### <a name="required-headers"></a>필수 헤더
 
-필수 헤더는 각 요청과 함께 사이트로 전송해야 하는 HTTP 헤더입니다. 필수 헤더의 한 가지 용도는 각 요청에 필요한 헤더가 모두 없는 한 사이트에 대한 액세스를 거부하는 것입니다.
+필수 헤더는 사이트에 대 한 각 요청과 함께 전송 되어야 하는 HTTP 헤더입니다. 필요한 헤더를 사용 하는 한 가지 방법은 필요한 모든 헤더가 각 요청에 있는 경우를 제외 하 고 사이트에 대 한 액세스를 거부 하는 것입니다.
 
-예를 들어 다음 구성에서는 특정 Azure Front Door 인스턴스에서 사이트에 대한 액세스를 제한하는 [Azure Front Door](../frontdoor/front-door-overview.md) 고유 식별자를 추가하는 방법을 보여 줍니다. 자세한 내용은 [Azure Front Door 구성 자습서를](front-door-manual.md) 참조하세요.
+예를 들어 다음 구성은 특정 Azure Front 도어 인스턴스에서 사이트에 대 한 액세스를 제한 하는 [Azure Front 문에](../frontdoor/front-door-overview.md) 대 한 고유 식별자를 추가 하는 방법을 보여 줍니다. 자세한 내용은 [Azure Front 도어 구성 자습서](front-door-manual.md) 를 참조 하세요.
 
 ```json
 "forwardingGateway": {
@@ -324,9 +324,9 @@ Static Web Apps 전달 게이트웨이 뒤에서 올바르게 작동하려면 �
 }
 ```
 
-- 키/값 쌍은 임의의 문자열 집합일 수 있습니다.
-- 키는 대/소문자를 구분하지 않습니다.
-- 값은 대/소문자 구분
+- 키/값 쌍은 임의의 임의 문자열 집합이 될 수 있습니다.
+- 키는 대/소문자를 구분 하지 않습니다.
+- 값은 대/소문자를 구분 합니다.
 
 ## <a name="example-configuration-file"></a>예제 구성 파일
 

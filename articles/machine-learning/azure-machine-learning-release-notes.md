@@ -2,19 +2,18 @@
 title: 릴리스의 새로운 기능이란?
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning 및 기계 학습 및 데이터 준비 Python SDK에 대한 최신 업데이트에 대해 알아봅니다.
-services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 10/04/2021
-ms.openlocfilehash: 598cc1944cb49024d91da476b95f9aa0b25f6279
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 8807aa11ce8f9d4c96ae27656d9d29a4f5f7e7f1
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129811099"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994179"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
@@ -42,7 +41,7 @@ __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 �
   + **azureml-responsibleai**
     + 실패 한 대시보드 다운로드에 대 한 오류 메시지 개선
   + **azureml-train-automl-client**
-    + 이미지 분류, 개체 검색 및 인스턴스 조각화와 같은 컴퓨터 비전 작업에 대 한 지원이 추가 되었습니다. 자세한 설명서는 다음에서 찾을 수 있습니다. https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-image-models
+    + 이미지 분류, 개체 검색 및 인스턴스 조각화와 같은 컴퓨터 비전 작업에 대 한 지원이 추가 되었습니다. 자세한 설명서 [는 이미지 모델을 자동으로 학습 하는 방법](how-to-auto-train-image-models.md) 에서 찾을 수 있습니다.
     + 이진 메트릭 계산 사용
   + **azureml-train-automl-runtime**
     + 모델 테스트 실행에 TCNForecaster 지원을 추가 합니다.

@@ -1,18 +1,18 @@
 ---
 title: ASE v1 구성
 description: App Service Environment v1을 구성, 관리 및 모니터링합니다. 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
-author: ccompy
+author: madsd
 ms.assetid: b5a1da49-4cab-460d-b5d2-edd086ec32f4
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: ccompy
+ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 598e43d07c213cfeb25f0ecbc7bd02b6ec54b7ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: c1d2023d0b258b0bcc2ab72bff9bb019f91f61f0
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88962590"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998792"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>App Service Environment v1 구성
 
@@ -72,7 +72,7 @@ ASE 각각은 500GB의 스토리지로 구성됩니다. 이 공간은 ASE의 모
 데이터베이스는 내부에서 실행 중인 앱의 환경뿐만 아니라 세부 정보를 정의하는 정보를 가집니다. 이러한 기능 또한 Azure 보유 구독의 일부입니다. 사용자가 직접 조작할 수는 없는 부분입니다. 가상 네트워크 라우팅 또는 보안에 대해 조정하는 경우 SQL Azure에 대한 액세스를 허용하지 않으면 ASE가 작동되지 않습니다.
 
 ### <a name="network"></a>네트워크
-ASE와 함께 사용되는 VNet은 ASE를 만들 때 만들었거나 미리 만들었던 것일 수 있습니다. ASE를 만드는 동안 서브넷을 만드는 경우 ASE가 가상 네트워크와 동일한 리소스 그룹에 있도록 강제 적용됩니다. ASE에서 사용한 리소스 그룹과 VNet의 리소스 그룹이 달라야 하는 경우 Resource Manager 템플릿을 사용하여 ASE를 만들어야 합니다.
+ASE와 함께 사용되는 VNet은 ASE를 만들 때 만들었거나 미리 만들었던 것일 수 있습니다. ASE를 만드는 동안 서브넷을 만드는 경우 ASE가 가상 네트워크와 동일한 리소스 그룹에 있도록 강제 적용됩니다. ASE에서 사용하는 리소스 그룹이 VNet과 달라야 하는 경우 Azure Resource Manager 템플릿을 사용하여 ASE를 만들어야 합니다.
 
 ASE에 사용되는 가상 네트워크에 대한 몇 가지 제한 사항이 있습니다.
 
@@ -96,7 +96,7 @@ ASE로의 인바운드 트래픽을 제어하는 기본적인 방법에는 두 �
 
 ASE를 만들면 VNet에 VIP가 만들어집니다.  외부 및 내부의 두 가지 VIP 유형이 있습니다.  외부 VIP를 사용하여 ASE를 만들 경우 ASE의 앱에 인터넷 라우팅 가능 IP 주소를 통해 액세스할 수 있습니다. 내부를 선택하는 경우 ASE는 ILB로 구성되고, 인터넷에 직접 액세스할 수 없습니다.  ILB ASE는 외부 VIP가 여전히 필요하지만 Azure 관리 및 유지 관리 액세스에만 사용됩니다.  
 
-ILB ASE를 만드는 동안 ILB ASE에서 사용되는 하위 도메인을 제공하고, 지정한 하위 도메인에 대한 고유한 DNS를 관리해야 합니다.  하위 도메인 이름을 설정했으므로 HTTPS 액세스에 사용되는 인증서를 관리해야 합니다.  ASE를 만든 후에 인증서를 제공하라는 메시지가 표시됩니다.  ILB ASE 만들기 및 사용에 대한 자세한 내용은 [App Service Environment에서 내부 부하 분산 장치 사용][ILBASE]을 참조하세요. 
+ILB ASE를 만드는 동안 ILB ASE에서 사용되는 하위 도메인을 제공하고, 지정한 하위 도메인에 대한 고유한 DNS를 관리해야 합니다.  하위 도메인 이름을 설정했으므로 HTTPS 액세스에 사용되는 인증서를 관리해야 합니다.  ASE를 만든 후에 인증서를 제공하라는 메시지가 표시됩니다.  ILB ASE를 만들고 사용하는 방법에 대한 자세한 내용은 [템플릿에서 ASEv1을 만드는 방법을 참조하세요.](app-service-app-service-environment-create-ilb-ase-resourcemanager.md) 
 
 ## <a name="portal"></a>포털
 Azure Portal의 UI를 사용하여 App Service Environment를 관리하고 모니터링할 수 있습니다. ASE가 있는 경우 사이드바에서 App Service 기호를 확인할 수 있습니다. 이 기호는 Azure Portal에서 App Service Environment를 나타내는 데 사용됩니다.
@@ -185,7 +185,7 @@ App Service Environment를 삭제하려면 App Service Environment 블레이드�
 ![App Service Environment 삭제 UI][9]  
 
 ## <a name="getting-started"></a>시작
-App Service Environment를 시작하려면 [App Service Environment를 만드는 방법](app-service-web-how-to-create-an-app-service-environment.md)을 참조하세요.
+App Service 환경을 시작하려면 [템플릿에서 ASEv1을 만드는 방법을](app-service-app-service-environment-create-ilb-ase-resourcemanager.md)참조하세요.
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 
@@ -203,7 +203,6 @@ App Service Environment를 시작하려면 [App Service Environment를 만드는
 <!--Links-->
 [WhatisASE]: app-service-app-service-environment-intro.md
 [Appserviceplans]: ../overview-hosting-plans.md
-[HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [HowtoScale]: app-service-web-scale-a-web-app-in-an-app-service-environment.md
 [ControlInbound]: app-service-app-service-environment-control-inbound-traffic.md
 [virtualnetwork]: ../../virtual-network/virtual-networks-faq.md

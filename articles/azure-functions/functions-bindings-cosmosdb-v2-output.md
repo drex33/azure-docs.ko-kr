@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/01/2021
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: d43407221d62992a54f1e5efdeb23afd3dde92ef
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: e8c2ba6f93d788d377cdb21beb157ea55a066b98
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129661182"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129999799"
 ---
 # <a name="azure-cosmos-db-output-binding-for-azure-functions-2x-and-higher"></a>Azure Functions 2.x 이상에 대한 Azure Cosmos DB 출력 바인딩
 
@@ -26,7 +26,7 @@ Azure Cosmos DB 출력 바인딩을 사용하면 Azure Cosmos DB 데이터베이
 이 섹션에는 다음 예제가 포함되어 있습니다.
 
 * [큐 트리거, 하나의 문서 쓰기](#queue-trigger-write-one-doc-c)
-* [큐 트리거, 1 개 문서 작성 (v4 확장)](#queue-trigger-write-one-doc-v4-c)
+* [큐 트리거, 문서 하나 작성(v4 확장)](#queue-trigger-write-one-doc-v4-c)
 * [큐 트리거, IAsyncCollector를 사용하여 문서 쓰기](#queue-trigger-write-docs-using-iasynccollector-c)
 
 예제에서는 간단한 `ToDoItem` 형식을 참조하세요.
@@ -78,9 +78,9 @@ namespace CosmosDBSamplesV2
 
 <a id="queue-trigger-write-one-doc-v4-c"></a>
 
-### <a name="queue-trigger-write-one-doc-v4-extension"></a>큐 트리거, 1 개 문서 작성 (v4 확장)
+### <a name="queue-trigger-write-one-doc-v4-extension"></a>큐 트리거, 문서 하나 작성(v4 확장)
 
-Cosmos DB [확장 버전](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) 4.x 이상을 사용 하는 앱에는 아래와 같은 다양 한 특성 속성이 있습니다. 다음 예제에서는 Queue storage의 메시지에 제공된 데이터를 사용하여 문서를 데이터베이스에 추가하는 [C# 함수](functions-dotnet-class-library.md)를 보여 줍니다.
+Cosmos DB [확장 버전 4.x를](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) 사용하는 앱에는 아래에 표시된 다른 특성 속성이 있습니다. 다음 예제에서는 Queue storage의 메시지에 제공된 데이터를 사용하여 문서를 데이터베이스에 추가하는 [C# 함수](functions-dotnet-class-library.md)를 보여 줍니다.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -629,7 +629,7 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
     }
 ```
 
-[확장 버전](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) 4.x에서는 일부 설정 및 속성이 제거 되었거나 이름이 바뀌었습니다. 변경 내용에 대 한 자세한 내용은 [출력-구성](#configuration)을 참조 하세요. 다음은 메서드 서명의 `CosmosDB` 특성 예제입니다.
+[확장 버전 4.x에서는](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) 일부 설정 및 속성이 제거되거나 이름이 변경되었습니다. 변경 내용에 대한 자세한 내용은 출력 - 구성 을 [참조하세요.](#configuration) 다음은 메서드 서명의 `CosmosDB` 특성 예제입니다.
 
 ```csharp
     [FunctionName("QueueToCosmosDB")]
@@ -673,15 +673,17 @@ Python에서는 특성을 지원하지 않습니다.
 |**direction**     | 해당 없음 | `out`로 설정해야 합니다.         |
 |**name**     | 해당 없음 | 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
 |**databaseName** | **DatabaseName**|문서가 만들어진 컬렉션을 포함하는 데이터베이스입니다.     |
-|**collectionName** <br> 또는 <br> **containerName** |**CollectionName** <br> 또는 <br> **ContainerName** | 문서가 만들어진 컬렉션의 이름입니다. <br><br> [확장의 버전 4.x에서](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) 이 속성을 라고 `ContainerName` 합니다. |
+|**collectionName** <br> 또는 <br> **containerName** |**CollectionName** <br> 또는 <br> **ContainerName** | 문서가 만들어진 컬렉션의 이름입니다. <br><br> [확장의 버전] 4.x에서이 속성을 호출 `ContainerName` 합니다. |
 |**createIfNotExists**  |**CreateIfNotExists**    | 컬렉션이 존재하지 않는 경우 만들 수 있는지 여부를 나타내는 부울 값입니다. 새 컬렉션이 예약된 처리량으로 만들어져 비용이 부과되기 기본값은 *false* 입니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요.  |
 |**partitionKey**|**PartitionKey** |`CreateIfNotExists`가 true이면 생성된 컬렉션의 파티션 키 경로를 정의합니다.|
-|**collectionThroughput** <br> 또는 <br> **containerThroughput**|**CollectionThroughput** <br> 또는 <br> **ContainerThroughput**| `CreateIfNotExists`가 true이면 생성된 컬렉션의 [처리량](../cosmos-db/set-throughput.md)을 정의합니다. <br><br> [확장의 버전 4.x에서](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) 이 속성을 라고 `ContainerThroughput` 합니다. |
-|**connectionStringSetting** <br> 또는 <br> **connection**   |**ConnectionStringSetting** <br> 또는 <br> **연결**|Azure Cosmos DB 연결 문자열을 포함하는 앱 설정의 이름입니다.  <br><br> [확장의 버전 4.x에서](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) 이 속성을 라고 `Connection` 합니다. 값은 연결 문자열을 포함하거나 연결을 정의하는 구성 섹션 또는 접두사 중 하나를 포함하는 앱 설정의 이름입니다. [연결](./functions-reference.md#connections)을 참조하세요. |
+|**collectionThroughput** <br> 또는 <br> **containerThroughput**|**CollectionThroughput** <br> 또는 <br> **ContainerThroughput**| `CreateIfNotExists`가 true이면 생성된 컬렉션의 [처리량](../cosmos-db/set-throughput.md)을 정의합니다. <br><br> [확장의 버전] 4.x에서이 속성을 호출 `ContainerThroughput` 합니다. |
+|**connectionStringSetting** <br> 또는 <br> **connection**   |**ConnectionStringSetting** <br> 또는 <br> **연결**| 앱 설정의 이름 또는 Azure Cosmos DB 계정에 연결 하는 방법을 지정 하는 컬렉션을 설정 합니다. [연결](#connections) 참조 <br><br> [확장의 버전] 4.x에서이 속성을 호출 `connection` 합니다. |
 |**preferredLocations**| **PreferredLocations**| (선택적) Azure Cosmos DB 서비스에서 지역 복제된 데이터베이스 계정의 기본 설정 위치(지역)를 정의합니다. 값은 쉼표로 구분해야 합니다. 예를 들면 "미국 동부, 미국 중남부, 북유럽"입니다. |
-|**useMultipleWriteLocations**| **UseMultipleWriteLocations**| (선택 사항) `PreferredLocations`와 함께 `true`로 설정 하면 Azure Cosmos DB 서비스에서 [다중 지역 쓰기](../cosmos-db/how-to-manage-database-account.md#configure-multiple-write-regions)를 활용할 수 있습니다. <br><br> 이 속성은 [확장의 버전 4.x에서](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher)사용할 수 없습니다. |
+|**useMultipleWriteLocations**| **UseMultipleWriteLocations**| (선택 사항) `PreferredLocations`와 함께 `true`로 설정 하면 Azure Cosmos DB 서비스에서 [다중 지역 쓰기](../cosmos-db/how-to-manage-database-account.md#configure-multiple-write-regions)를 활용할 수 있습니다. <br><br> 이 속성은 [확장의 버전]4.x에서 사용할 수 없습니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+[!INCLUDE [functions-cosmosdb-connections](../../includes/functions-cosmosdb-connections.md)]
 
 ## <a name="usage"></a>사용량
 
@@ -720,10 +722,12 @@ Python에서는 특성을 지원하지 않습니다.
 |속성  |기본값 |Description |
 |----------|--------|------------|
 |GatewayMode|게이트웨이|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 모드입니다. 옵션은 `Direct` 및 `Gateway`입니다.|
-|프로토콜|Https|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 프로토콜입니다. [두 모드에 대한 설명은 여기를 읽어보세요.](../cosmos-db/performance-tips.md#networking) <br><br> 이 설정은 [확장의 버전 4.x에서](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher)사용할 수 없습니다. |
-|leasePrefix|해당 없음|앱의 모든 함수에서 사용할 접두사를 임대합니다. <br><br> 이 설정은 [확장의 버전 4.x에서](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher)사용할 수 없습니다.|
+|프로토콜|Https|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 프로토콜입니다. [두 모드에 대 한 설명을 보려면 여기를](../cosmos-db/performance-tips.md#networking)참조 하세요. <br><br> 이 설정은 [확장의 버전]4.x에서 사용할 수 없습니다. |
+|leasePrefix|해당 없음|앱의 모든 함수에서 사용할 접두사를 임대합니다. <br><br> 이 설정은 [확장의 버전]4.x에서 사용할 수 없습니다.|
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Cosmos DB 문서를 만들거나 수정할 때 함수 실행(트리거)](./functions-bindings-cosmosdb-v2-trigger.md)
 - [Azure Cosmos DB 문서(입력 바인딩) 읽기](./functions-bindings-cosmosdb-v2-input.md)
+
+[확장의 버전 4.x]: ./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher

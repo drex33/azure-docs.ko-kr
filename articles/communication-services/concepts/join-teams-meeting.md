@@ -8,12 +8,12 @@ ms.date: 10/15/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.openlocfilehash: 6be59e810f504e6909818a8e7ceb57b23174238b
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: abdab0fff3e9d80fa3937113aa74138745b4053f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129855881"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003916"
 ---
 # <a name="join-a-teams-meeting"></a>Teams 회의 참가
 
@@ -30,7 +30,9 @@ Azure Communication Services SDK에서 Microsoft 365 Teams ID를 사용할 수�
 
 ## <a name="enabling-anonymous-meeting-join-in-your-teams-tenant"></a>Teams 테넌트에서 익명 모임 조인 사용
 
-BYOI 사용자가 Teams 모임에 참가하면 Teams 웹 애플리케이션을 사용하여 익명으로 Teams 모임에 참가하는 사용자와 비슷한 익명의 외부 사용자로 처리됩니다. BYOI 사용자가 Teams 모임에 익명 사용자로 참가할 수 있는 기능은 기존 "익명 모임 조인 허용" 구성에 의해 제어되며, 기존 Teams 익명 모임 조인도 제어합니다. 이 설정은 [Teams 관리 센터](https://admin.teams.microsoft.com/meetings/settings) 또는 Teams PowerShell cmdlet [Set-CsTeamsMeetingConfiguration](/powershell/module/skype/set-csteamsmeetingconfiguration)에서 업데이트할 수 있습니다. 사용자 지정 애플리케이션은 Teams 모임을 보호하기 위해 사용자 인증 및 기타 보안 조치를 고려해야 합니다. 익명 사용자가 모임에 참가하도록 설정하는 경우 보안에 미치는 영향을 고려하고, [Teams 보안 가이드](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings)를 사용하여 익명 사용자가 사용할 수 있는 기능을 구성합니다.
+BYOI 사용자가 Teams 모임에 참가하면 Teams 웹 애플리케이션을 사용하여 익명으로 Teams 모임에 참가하는 사용자와 비슷한 익명의 외부 사용자로 처리됩니다. BYOI 사용자가 Teams 모임에 익명 사용자로 참가하는 기능은 기존 "익명 모임 조인 허용" 구성에 의해 제어되며, 기존 Teams 익명 모임 조인도 제어합니다. 이 설정은 [Teams 관리 센터](https://admin.teams.microsoft.com/meetings/settings) 또는 Teams PowerShell cmdlet [Set-CsTeamsMeetingConfiguration](/powershell/module/skype/set-csteamsmeetingconfiguration)에서 업데이트할 수 있습니다.  
+
+Azure Communication Services 사용하여 빌드된 사용자 지정 애플리케이션은 최종 사용자 또는 봇에서 Teams 사용자와 연결하고 통신할 수 있으며, 애플리케이션 개발자가 이를 통신의 일부로 명시적으로 나타내지 않는 한 Teams 사용자에게 표시되는 방식이 구별되지 않습니다. 사용자 지정 애플리케이션은 Teams 모임을 보호하기 위해 사용자 인증 및 기타 보안 조치를 고려해야 합니다. 익명 사용자가 모임에 참가하도록 설정하는 경우 보안에 미치는 영향을 고려하고, [Teams 보안 가이드](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings)를 사용하여 익명 사용자가 사용할 수 있는 기능을 구성합니다.
 
 ## <a name="meeting-experience"></a>모임 환경
 
@@ -48,11 +50,13 @@ Microsoft는 기록 또는 전사가 시작되었음을 Azure Communication Serv
 ## <a name="limitations-and-known-issues"></a>제한 사항 및 알려진 문제
 
 - BYOI 사용자는 Teams 채널에 대해 예약된 Teams 모임에 참가하고 오디오 및 비디오를 사용할 수 있지만 채널의 멤버가 아니므로 채팅 메시지를 보내거나 받을 수 없습니다.
-- Microsoft Graph 사용하여 Teams [모임의 참가자를 나열하는](https://docs.microsoft.com/graph/api/call-list-participants)경우 Communication Services 사용자에 대한 세부 정보는 현재 포함되지 않습니다.
+- Microsoft Graph 사용하여 Teams [모임의 참가자를 나열하는](/graph/api/call-list-participants)경우 Communication Services 사용자에 대한 세부 정보는 현재 포함되지 않습니다.
 - Teams 회의는 최대 1,000명의 참가자를 지원하지만 Azure Communication Services Calling SDK는 현재 350명의 참가자만 지원합니다.
-- [Microsoft Teams Cloud Video Interop에서는](https://docs.microsoft.com/microsoftteams/cloud-video-interop)Communication Services 사용자가 화면을 공유하는 경우 일부 디바이스에 문제가 있습니다.
+- [Microsoft Teams Cloud Video Interop에서는](/microsoftteams/cloud-video-interop)Communication Services 사용자가 화면을 공유하는 경우 일부 디바이스에 문제가 있습니다.
 - 손, 함께 모드 및 중단실과 같은 기능은 Teams 사용자에게만 사용할 수 있습니다.
 - 통화 SDK는 현재 Teams 모임에 대한 자막을 지원하지 않습니다.
+- Communication Services 사용자가 [Teams 라이브 이벤트에](https://docs.microsoft.com/microsoftteams/teams-live-events/what-are-teams-live-events) 조인할 수 없음
+- Communication Services 사용자가 Teams 모임에 참가할 때 봇에 대한 Teams [활동 처리기 이벤트가](https://docs.microsoft.com/microsoftteams/platform/bots/bot-basics?tabs=csharp) 발생하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

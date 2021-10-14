@@ -10,12 +10,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 11/08/2019
 ms.author: cshoe
-ms.openlocfilehash: ea418576ab8fe06964a61e48f16393e1a0566ce8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 42d35abfb3b3cea82355d2ed610a2ccc72c13f6d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102182250"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004543"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Azure Functions 준비 트리거
 
@@ -26,9 +26,9 @@ ms.locfileid: "102182250"
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-2x-and-higher"></a>패키지-함수 2.x 이상
+## <a name="packages---functions-2x-and-higher"></a>패키지 - Functions 2.x 이상
 
-[WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet 패키지, 버전 **3.0.5** 이상이 필요 합니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/main/src/WebJobs.Extensions/Extensions/Warmup) GitHub 리포지토리에 있습니다. 
+[WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet package, version **3.0.5** 이상이 필요 합니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/main/src/WebJobs.Extensions/Extensions/Warmup) GitHub 리포지토리에 있습니다. 
 
 [!INCLUDE [functions-package](../../includes/functions-package-auto.md)]
 
@@ -80,7 +80,7 @@ namespace WarmupSample
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
 
-다음 예제에서는 파일 *에 대 한function.js* 의 준비 트리거와 앱에 추가 될 때 각 새 인스턴스에서 실행 되는 [c # 스크립트 함수](functions-reference-csharp.md) 를 보여 줍니다.
+다음 예제에서는 *함수 json* 파일의 워밍업 트리거와 앱에 추가 될 때 각 새 인스턴스에서 실행 되는 [c # 스크립트 함수](functions-reference-csharp.md) 를 보여 줍니다.
 
 함수는 이름을 지정 해야 하며 ```warmup``` (대/소문자 구분 안 함) 앱 당 하나의 준비 함수만 있을 수 있습니다.
 
@@ -109,7 +109,7 @@ public static void Run(WarmupContext warmupContext, ILogger log)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-다음 예에서는 파일 *에 대 한function.js* 의 준비 트리거와 앱에 추가 될 때 각 새 인스턴스에서 실행 되는 [JavaScript 함수](functions-reference-node.md)  를 보여 줍니다.
+다음 예제에서는 *함수 json* 파일의 워밍업 트리거와 앱에 추가 될 때 각 새 인스턴스에서 실행 되는 [JavaScript 함수](functions-reference-node.md)  를 보여 줍니다.
 
 함수는 이름을 지정 해야 하며 ```warmup``` (대/소문자 구분 안 함) 앱 당 하나의 준비 함수만 있을 수 있습니다.
 
@@ -139,7 +139,7 @@ module.exports = async function (context, warmupContext) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-다음 예에서는 *function.js* 파일의 워밍업 트리거와 앱에 추가 될 때 각 새 인스턴스에서 실행 되는 [Python 함수](functions-reference-python.md) 를 보여 줍니다.
+다음 예제에서는 *함수 json* 파일의 워밍업 트리거와 앱에 추가 될 때 각 새 인스턴스에서 실행 되는 [Python 함수](functions-reference-python.md) 를 보여 줍니다.
 
 함수는 이름을 지정 해야 하며 ```warmup``` (대/소문자 구분 안 함) 앱 당 하나의 준비 함수만 있을 수 있습니다.
 
@@ -240,7 +240,7 @@ Python에서는 특성을 지원하지 않습니다.
 
 ## <a name="trigger---limits"></a>트리거 - 제한
 
-* 워밍업 트리거는 [프리미엄 계획](./functions-premium-plan.md)에서 실행 되는 앱 에서만 사용할 수 있습니다.
+* [소비 계획](./consumption-plan.md)에서 실행 되는 앱에는 워밍업 트리거를 사용할 수 없습니다.
 * 준비 트리거는 수평 확장 작업 중에만 호출 되 고 다시 시작 또는 다른 비 확장 작업 중에는 호출 되지 않습니다. 사용자의 논리가 준비 트리거를 사용 하지 않고 필요한 모든 종속성을 로드할 수 있도록 해야 합니다. 지연 로드는이를 위해 좋은 패턴입니다.
 * 인스턴스가 이미 실행 중인 경우에는 워밍업 트리거를 호출할 수 없습니다.
 * 함수 앱 당 하나의 준비 트리거 함수만 있을 수 있습니다.

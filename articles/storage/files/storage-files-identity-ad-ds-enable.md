@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/05/2021
 ms.author: rogarana
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7a7082005cc2a8154670abfae120d94015b2135c
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 9012f74f29c1e3ed768a32a6988c7aae527b44ce
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129545815"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129999153"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>1부: Azure 파일 공유에 대한 AD DS 인증 사용 설정 
 
@@ -152,7 +152,7 @@ Set-ADComputer -Identity <domain-object-identity> -Server <domain-name> -Kerbero
 $KeyName = "kerb1" # Could be either the first or second kerberos key, this script assumes we're refreshing the first
 $KerbKeys = New-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -KeyName $KeyName
 $KerbKey = $KerbKeys | Where-Object {$_.KeyName -eq $KeyName} | Select-Object -ExpandProperty Value
-$NewPassword = Convert-ToSecureString -String $KerbKey -AsPlainText -Force
+$NewPassword = ConvertTo-SecureString -String $KerbKey -AsPlainText -Force
 
 Set-ADAccountPassword -Identity <domain-object-identity> -Reset -NewPassword $NewPassword
 ```

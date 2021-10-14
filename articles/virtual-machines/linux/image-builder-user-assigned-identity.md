@@ -8,20 +8,20 @@ ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.openlocfilehash: 588e32e2a531f08319a3120a99ca70048c4c24b2
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: f26c60bb4c15ea04acc6b966c0e1af8eec0aeabb
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770413"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001355"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>이미지를 만들고 사용자 할당 관리형 ID를 사용하여 Azure Storage의 파일에 액세스하기 
 
 **적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
-Azure Image Builder는 GitHub 및 Azure Storage 등 다양한 위치에서 스크립트를 사용하거나 파일을 복사하도록 지원합니다. 해당 기능을 사용하려면 스크립트나 파일이 외부에서 Azure Image Builder에 액세스할 수 있어야 하지만, Azure Storage blob을 SAS 토큰을 사용하여 보호할 수 있습니다.
+Azure Image Builder 스크립트를 사용하거나 GitHub 및 Azure Storage 등 여러 위치에서 파일을 복사하는 것을 지원합니다. 이를 사용하려면 Azure Image Builder 외부에서 액세스할 수 있어야 합니다.
 
-본 문서에서는 Azure VM Image Builder를 사용하여 사용자 지정 이미지를 만드는 방법을 보여 주며, 이 때 서비스는 [사용자 할당 관리형 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 사용하여 직접 파일을 공개적으로 액세스할 수 있는 상태로 만들거나 SAS 토큰을 설정하지 않고도 이미지 사용자 지정을 위하여 Azure Storage의 이미지에 액세스합니다.
+이 문서에서는 Azure VM Image Builder 사용하여 사용자 지정된 이미지를 만드는 방법을 보여줍니다. 여기서 서비스는 [사용자가 할당한 관리 ID를](../../active-directory/managed-identities-azure-resources/overview.md) 사용하여 파일을 공개적으로 액세스할 필요 없이 이미지 사용자 지정을 위해 Azure Storage의 파일에 액세스합니다.
 
 아래 예제에서는 사용자 지정 이미지에 사용할 리소스 그룹 하나와 Azure Storage 계정을 호스트할, 스크립트 파일이 들어 있는 리소스 그룹 하나로 된 총 두 개의 리소스 그룹을 만듭니다. Image Builder 외부에 위치한 각기 다른 스토리지 계정에 빌드 아티팩트나 이미지 파일이 있는 경우의 실제 시나리오를 시뮬레이션합니다. 사용자 할당 ID를 만든 뒤 여기에 스크립트 파일에 대한 읽기 권한을 주되 해당 파일에 대한 퍼블릭 액세스는 설정하지 않습니다. 이후, 셸 사용자 지정자를 사용하여 해당 스크립트를 해당 스토리지 계정에서 다운로드하여 실행합니다.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2021
 ms.author: mathoma
-ms.openlocfilehash: b9aa10e9a11ee1268c8bb49d5cb32d0550c2ca3a
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
-ms.translationtype: HT
+ms.openlocfilehash: fce359198f2edd773ea0f48e97cfc670d5aeddc7
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112582081"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130005656"
 ---
 # <a name="hadr-configuration-best-practices-sql-server-on-azure-vms"></a>HADR 구성 모범 사례(Azure VM의 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -284,7 +284,9 @@ VM 또는 디스크 한계로 인해 리소스 병목 현상이 발생하고 클
 
 ## <a name="networking"></a>네트워킹
 
-서버(클러스터 노드)당 하나의 NIC 및 단일 서브넷을 사용합니다. Azure 네트워킹에는 Azure 가상 머신 게스트 클러스터에서 추가 NIC 및 서브넷을 불필요하게 만드는 물리적 중복성이 있습니다. 클러스터 유효성 검사 보고서는 노드가 단일 네트워크에서만 연결할 수 있다는 경고를 표시합니다. Azure 가상 머신 게스트 장애 조치(failover) 클러스터에서는 이 경고를 무시할 수 있습니다.
+서버당 단일 NIC (클러스터 노드)를 사용 합니다. Azure 네트워킹에는 Azure 가상 컴퓨터 게스트 클러스터에서 추가 Nic를 불필요 하 게 만드는 물리적 중복성이 있습니다. 클러스터 유효성 검사 보고서는 노드가 단일 네트워크에서만 연결할 수 있다는 경고를 표시합니다. Azure 가상 머신 게스트 장애 조치(failover) 클러스터에서는 이 경고를 무시할 수 있습니다. 
+
+특정 VM에 대 한 대역폭 제한은 nic에서 공유 되 고 추가 nic를 추가 하는 것은 Azure vm의 SQL Server에 대 한 가용성 그룹 성능을 향상 시 키 지 않습니다. 따라서 두 번째 NIC를 추가할 필요가 없습니다. 
 
 Azure에서 RFC를 준수하지 않는 DHCP 서비스를 사용할 경우 특정 장애 조치 클러스터 구성을 만들 수 없게 됩니다. 이 오류는 클러스터 네트워크 이름에 중복 IP 주소(예: 클러스터 노드 중 하나와 IP 주소가 같음)가 할당되기 때문에 발생합니다. Windows 장애 조치 클러스터 기능에 따라 달라지는 가용성 그룹을 사용하는 경우 해당 문제가 발생합니다.
 
@@ -379,4 +381,4 @@ Not failing over group <Resource name>, failoverCount 3, failoverThresholdSettin
 - [Azure VM에서 SQL Server를 사용하는 Always On 가용성 그룹](availability-group-overview.md)
 - [Azure VM에서 SQL Server를 사용하는 Windows Server 장애 조치(failover) 클러스터](hadr-windows-server-failover-cluster-overview.md)
 - [Azure VM에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스](failover-cluster-instance-overview.md)
-- [장애 조치(Failover) 클러스터 인스턴스 개요](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [장애 조치(failover) 클러스터 인스턴스 개요](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

@@ -1,18 +1,18 @@
 ---
-title: 계층화 된 보안 v1
-description: App Service 환경에서 계층화 된 보안 아키텍처를 구현 하는 방법에 대해 알아봅니다. 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
-author: stefsch
+title: 계층 보안 v1
+description: App Service 환경에서 계층형 보안 아키텍처를 구현하는 방법을 알아봅니다. 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
+author: madsd
 ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601
 ms.topic: article
 ms.date: 08/30/2016
-ms.author: stefsch
+ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 813160ee19c8447fdfcb705e7a9162a41a0c308c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d2245cc7557b7f5d6c6c392957fe0ef817975c53
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739511"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001678"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>App Service Environment로로 계층화된 보안 아키텍처 구현
 App Service Environment가 가상 네트워크에 배포된 격리된 런타임 환경을 제공하므로 개발자는 실제 애플리케이션 계층 각각에 서로 다른 수준으로 네트워크 액세스를 제공하는 계층화된 보안 아키텍처를 만들 수 있습니다.
@@ -36,7 +36,7 @@ App Service Environment가 가상 네트워크에 배포된 격리된 런타임 
 * **백 엔드 API 앱 자체를 호출해야 합니까?**  때로는 간과되고 미묘한 점은 백 엔드 애플리케이션이 자신을 호출해야 한다는 시나리오입니다.  또한 App Service Environment에서 백 엔드 API 애플리케이션이 자신을 호출하는 경우 "인터넷" 호출로 처리됩니다.  샘플 아키텍처에서는 "apiase" App Service Environment의 아웃 바운드 IP 주소에서 액세스하도록 허락이 필요합니다.
 
 ## <a name="setting-up-the-network-security-group"></a>네트워크 보안 그룹 설치
-아웃 바운드 IP 주소 집합을 모두 알고 나면 다음 단계에서 네트워크 보안 그룹을 생성합니다.  클래식 가상 네트워크뿐만 아니라 가상 네트워크를 기반으로 하는 두 Resource Manager에 네트워크 보안 그룹을 만들 수 있습니다.  아래 예제에서는 PowerShell을 사용 하 여 클래식 가상 네트워크에서 NSG를 만들고 구성 하는 방법을 보여 줍니다.
+아웃 바운드 IP 주소 집합을 모두 알고 나면 다음 단계에서 네트워크 보안 그룹을 생성합니다.  클래식 가상 네트워크뿐만 아니라 가상 네트워크를 기반으로 하는 두 Resource Manager에 네트워크 보안 그룹을 만들 수 있습니다.  아래 예제에서는 PowerShell을 사용하여 클래식 가상 네트워크에서 NSG를 만들고 구성하는 방법을 보여줍니다.
 
 샘플 아키텍처의 경우 환경은 미국 중남부에 있으므로 빈 NSG는 해당 지역에서 만들어집니다.
 
@@ -66,7 +66,7 @@ Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecur
 -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 ```
 
-두 번째 및 세 번째 업스트림 App Service 환경 ("fe2ase" 및 "fe3ase")에 대해 다듬고 하 고 반복 합니다.
+두 번째 및 세 번째 업스트림 App Service 환경("fe2ase" 및 "fe3ase")에 대해 Rinse 및 반복합니다.
 
 ```azurepowershell-interactive
 #Grant access to requests from the second upstream web front-end

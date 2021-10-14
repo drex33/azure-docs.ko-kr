@@ -15,12 +15,12 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: 0f9d98eb2a4fe09728a890af59b4c54afbed3737
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: 2c22953d876f1c29d5d66f408c30fb63e4e113cf
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112291658"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129987424"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Azure 빠른 시작 템플릿을 사용하여 Azure VM에서 SQL Server에 대한 가용성 그룹 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,7 +46,8 @@ ms.locfileid: "112291658"
 - [Azure 구독](https://azure.microsoft.com/free/).
 - 도메인 컨트롤러를 포함하는 리소스 그룹 
 - [SQL IaaS 에이전트 확장에 등록](sql-agent-extension-manually-register-single-vm.md)되었으며, 동일한 가용성 집합 또는 가용성 영역에서 [SQL Server 2016 이상의 Enterprise Edition을 실행하는 Azure의 도메인 가입 VM](./create-sql-vm-portal.md)이 하나 이상  
-- 사용 가능한 두 개의 IP 주소(사용하는 엔터티 없음): 내부 부하 분산 장치에 대한 IP 주소 및 가용성 그룹과 동일한 서브넷 내 가용성 그룹 수신기에 대한 IP 주소입니다. 기존 부하 분산 장치를 사용하는 경우 사용 가능한 IP 주소가 하나만 필요합니다.  
+- SQL Server VM과 동일한 서브넷 내의 가용성 그룹 수신기에 사용할 수 있는 내부 Azure Load Balancer 및 사용 가능한(엔터티에서 사용되지 않음) IP 주소입니다. 
+
 
 ## <a name="permissions"></a>사용 권한
 Azure 빠른 시작 템플릿을 사용하여 Always On 가용성 그룹을 구성하려면 다음 권한이 필요합니다. 

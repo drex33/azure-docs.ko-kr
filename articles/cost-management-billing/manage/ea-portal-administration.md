@@ -3,18 +3,18 @@ title: Azure EA Portal 관리
 description: 이 문서에서는 관리자가 Azure EA Portal에서 수행하는 일반적인 작업에 대해 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/28/2021
+ms.date: 10/13/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: sapnakeshari
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: ede22b400b597c8cc474d49f65341bb5b24ea118
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: aeb817f2d76306e2c2f3e571fb4a5bc67e98d098
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129216767"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000312"
 ---
 # <a name="azure-ea-portal-administration"></a>Azure EA Portal 관리
 
@@ -122,7 +122,7 @@ ms.locfileid: "129216767"
 
 계정을 추가하려면 다음을 수행합니다.
 
-1. navigation Enterprise Portal의 왼쪽 탐색 영역에서 **관리** 를 선택합니다.
+1. Azure Enterprise Portal의 왼쪽 탐색 영역에서 **관리를** 선택한 다음, 등록을 선택합니다.
 1. **계정** 탭을 선택합니다. **계정** 페이지에서 **+ 계정 추가** 를 선택합니다.
 1. 부서를 선택하거나 할당되지 않은 상태로 두고 원하는 인증 유형을 선택합니다.
 1. 보고서에서 계정을 식별하는 데 사용할 식별 이름을 입력합니다.
@@ -140,6 +140,19 @@ ms.locfileid: "129216767"
 
    상태가 **보류 중** 에서 **시작/종료 날짜** 로 변경될 것입니다. 시작/종료 날짜는 사용자가 처음 로그인한 날짜와 계약 종료 날짜입니다.
 1. **경고** 메시지가 표시되면 계정 소유자는 Azure Enterprise Portal에 처음 로그인할 때 **계속** 을 클릭하여 계정을 활성화해야 합니다.
+
+## <a name="add-an-account-from-another-azure-ad-tenant"></a>다른 Azure AD 테넌트에서 계정 추가
+
+기본적으로 등록은 특정 Azure AD 테넌트와 연결됩니다. 해당 테넌트 계정만 Azure 등록 계정을 설정하는 데 사용할 수 있습니다. 그러나 계정이 모든 Azure AD 테넌트에서 연결되도록 동작을 변경합니다.
+
+테넌트에서 계정을 추가하려면 다음을 수행합니다.
+
+1.  navigation Enterprise Portal의 왼쪽 탐색 영역에서 **관리** 를 선택합니다.
+1. 적절한 등록을 선택합니다. 나중에 설정을 복원하려는 경우 **인증 수준** 에 대한 현재 설정을 기록해 둡다.
+1.  아직 구성되지 않은 경우 인증 수준을 **작업 및 학교 계정 교차 테넌트** 로 변경합니다.
+1. 이전 섹션에서 설명한 대로 Azure AD 로그인 정보를 사용하여 계정을 추가합니다.
+1.  인증 **수준을** 이전 설정으로 반환하거나, **이를 직장 및 학교 계정** 으로 설정합니다.
+1.  EA Portal에 로그인하여 Azure Portal 구독을 추가할 수 있도록 적절한 구독 제안을 볼 수 있는지 확인합니다.
 
 ## <a name="change-azure-subscription-or-account-ownership"></a>Azure 구독 또는 계정 소유권 변경
 
@@ -198,7 +211,7 @@ ms.locfileid: "129216767"
 
 1. Azure EA Portal에 엔터프라이즈 관리자로 로그인합니다.
 1. 왼쪽 탐색 영역에서 **관리** 를 선택합니다.
-1. **계정** 을 선택 합니다.
+1. **계정 을** 선택합니다.
 1. 마우스로 계정이 있는 행 위를 가리키고, 오른쪽에 있는 연필 아이콘을 선택합니다.
 1. 드롭다운 메뉴에서 부서를 선택합니다.
 1. **저장** 을 선택합니다.

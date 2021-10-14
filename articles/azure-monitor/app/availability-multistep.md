@@ -3,22 +3,25 @@ title: 다단계 웹 테스트를 사용하여 모니터링 - Azure Application 
 description: Azure Application Insights를 사용하여 웹 애플리케이션을 모니터링하도록 다단계 웹 테스트 설정
 ms.topic: conceptual
 ms.date: 07/21/2021
-ms.openlocfilehash: d248340aa272a6a1fef386ca755ed46536668ad9
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 6e0cbbc772b9eb2f3ad245fcb9728b047d2d7126
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114448001"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993229"
 ---
 # <a name="multi-step-web-tests"></a>다중 단계 웹 테스트
 
 다단계 웹 테스트를 통해 웹 사이트와의 상호 작용 및 URL의 기록된 시퀀스를 모니터링할 수 있습니다. 이 문서에서는 Visual Studio Enterprise를 사용하여 다단계 웹 테스트를 만드는 과정을 안내합니다.
 
+> [!IMPORTANT]
+> [다단계 웹 테스트는 더 이상 사용 되지 않습니다](https://azure.microsoft.com/updates/retirement-notice-transition-to-custom-availability-tests-in-application-insights/). [](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability)   다중 단계 웹 테스트 대신 [사용자 지정 가용성 테스트](availability-azure-functions.md)를 제출 하려면 향상 된 기능 ()을 사용 하는 것이 좋습니다   . TrackAvailability() 및 사용자 지정 가용성 테스트를 사용하면 원하는 모든 컴퓨팅에서 테스트를 실행하고 C#을 사용하여 새 테스트를 쉽게 작성할 수 있습니다.
+
 > [!NOTE]
 > 다단계 웹 테스트는 [Azure Government](../../azure-government/index.yml) 클라우드에서 **지원되지 않습니다**.
 
-> [!NOTE]
-> 다단계 웹 테스트는 클래식 테스트로 분류되며 가용성 창의 **클래식 테스트 추가** 에서 찾을 수 있습니다.
+
+다단계 웹 테스트는 클래식 테스트로 분류되며 가용성 창의 **클래식 테스트 추가** 에서 찾을 수 있습니다.
 
 ## <a name="multi-step-webtest-alternative"></a>다단계 웹 테스트 대체
 

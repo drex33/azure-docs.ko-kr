@@ -6,12 +6,12 @@ ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: bae05ac9f7b8287cf7e66a0c1a0e634e8d541489
-ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
-ms.translationtype: HT
+ms.openlocfilehash: 1d0454c4de9831e4ed4062607a04a8cc7bec6210
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112678789"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129987616"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Azure에서 App Service 계획 관리
 
@@ -20,7 +20,7 @@ ms.locfileid: "112678789"
 ## <a name="create-an-app-service-plan"></a>App Service 요금제 만들기
 
 > [!TIP]
-> App Service 환경이 있는 경우 [App Service 환경에서 App Service 계획 만들기](environment/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan)를 참조하세요.
+> App Service Environment 계획을 만들지 않으면 **지역에서** 선택하고 아래 설명된 대로 나머지 단계를 따를 수 있습니다.
 
 빈 App Service 계획을 만들거나 앱 생성의 일부로 계획을 만들 수 있습니다.
 

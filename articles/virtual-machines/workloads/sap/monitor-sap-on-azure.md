@@ -6,26 +6,26 @@ ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.topic: article
 ms.custom: subject-monitoring
-ms.date: 08/24/2021
+ms.date: 10/13/2021
 ms.author: v-hborys
-ms.openlocfilehash: 779a70c4a0386420389937864be01295f985f5b8
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 4f90fc00dc895617796cc478835690c931a55f51
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123104460"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004866"
 ---
 # <a name="monitor-sap-on-azure-preview"></a>Azure의 SAP 모니터링(미리 보기)
 
-Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 프로세스가 있는 경우 이와 같은 리소스의 가용성, 성능 및 작업을 모니터링할 수 있습니다. 
+Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 프로세스가 있는 경우 해당 리소스의 가용성, 성능 및 작업을 모니터링해야 합니다. 
 
 이 문서에서는 SAP 솔루션을 위한 Azure Monitor를 사용하여 Azure에서 실행되는 SAP를 모니터링하는 방법을 설명합니다. SAP 솔루션을 위한 Azure Monitor는 [Azure Monitor](../../../azure-monitor/overview.md) 인프라의 특정 부분을 사용합니다.
 
 ## <a name="overview"></a>개요
 
-SAP 솔루션을 위한 Azure Monitor는 Azure의 SAP 환경을 실행하는 모든 사용자를 위한 Azure-native 모니터링 제품입니다. 본 제품은 [Azure 가상 머신의 SAP](./hana-get-started.md)와 [Azure의 SAP(대규모 인스턴스)](./hana-overview-architecture.md) 모두에서 작동합니다.
+SAP 솔루션을 위한 Azure Monitor는 Azure의 SAP 환경을 실행하는 모든 사용자를 위한 Azure-native 모니터링 제품입니다. Azure의 SAP Virtual Machines 및 [Azure의 SAP](./hana-get-started.md) 큰 인스턴스 모두에서 [작동합니다.](./hana-overview-architecture.md)
 
-SAP 솔루션을 위한 Azure Monitor를 사용하면 단일 중앙 위치에서 Azure 인프라 및 데이터베이스의 원격 분석 데이터를 수집하고, 빠른 문제 해결을 위해 원격 분석 데이터의 상관 관계를 시각적으로 지정할 수 있습니다.
+SAP 솔루션을 위한 Azure Monitor 사용하면 Azure 인프라 및 데이터베이스의 원격 분석 데이터를 하나의 중앙 위치에 수집하고 더 빠른 문제 해결을 위해 데이터를 시각적으로 상호 연결합니다.
 
 해당 구성 요소에 대해 관련 **공급자** 를 추가하여 Azure VM(가상 머신), 고가용성 클러스터, SAP HANA 데이터베이스, SAP NetWeaver 등의 SAP 환경을 이루는 다양한 구성 요소를 모니터링할 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 SAP 솔루션을 위한 Azure Monitor 배포](azure-monitor-sap-quickstart.md)를 참조하세요.
 
@@ -38,9 +38,7 @@ SAP 솔루션을 위한 Azure Monitor를 사용하면 단일 중앙 위치에서
 - SAP HANA 데이터베이스
 - Microsoft SQL Server:
 
-SAP 솔루션을 위한 Azure Monitor는 [Log Analytics](../../../azure-monitor/logs/log-analytics-overview.md) 및 [통합 문서](../../../azure-monitor/visualize/workbooks-overview.md)의 [Azure Monitor](../../../azure-monitor/overview.md) 기능을 사용합니다.
-
-이를 통해 다음을 수행할 수 있습니다.
+SAP 솔루션을 위한 Azure Monitor는 [Log Analytics](../../../azure-monitor/logs/log-analytics-overview.md) 및 [통합 문서](../../../azure-monitor/visualize/workbooks-overview.md)의 [Azure Monitor](../../../azure-monitor/overview.md) 기능을 사용합니다. 이를 통해 다음을 수행할 수 있습니다.
 
 - SAP 솔루션을 위한 Azure Monitor에서 제공하는 기본 통합 문서를 편집하여 [사용자 지정 시각화](../../../azure-monitor/visualize/workbooks-overview.md#getting-started)를 만듭니다. 
 - [사용자 지정 쿼리](../../../azure-monitor/logs/log-analytics-tutorial.md)를 작성합니다.
@@ -52,7 +50,7 @@ SAP 솔루션을 위한 Azure Monitor는 [Log Analytics](../../../azure-monitor/
 
 SAP 솔루션을 위한 Azure Monitor는 다른 많은 Azure 리소스처럼 Azure Monitor 메트릭 또는 리소스 로그 데이터를 수집하지 않습니다. 대신 사용자 지정 로그가 Azure Monitor Logs 시스템에 직접 전송되면 Log Analytics의 기본 제공 기능을 사용할 수 있습니다.
 
-SAP 솔루션을 위한 Azure Monitor에서 수집하는 데이터는 구성된 공급자에 따라 다릅니다. 공개 미리 보기 중에 다음과 같은 데이터가 수집됩니다.
+SAP 솔루션을 위한 Azure Monitor에서 수집하는 데이터는 구성된 공급자에 따라 다릅니다. 공개 미리 보기 중에는 다음 데이터가 수집됩니다.
 
 고가용성 Pacemaker 클러스터 원격 분석:
 - 노드, 리소스 및 SBD(STONITH 블록 디바이스) 상태
@@ -111,7 +109,7 @@ SAP 솔루션을 위한 Azure Monitor는 시스템 메타데이터를 수집하�
 - **Azure Portal** – 시작점입니다. Azure Portal 내에서 Marketplace로 이동하여 SAP 솔루션을 위한 Azure Monitor를 검색할 수 있습니다.
 - **SAP 솔루션을 위한 Azure Monitor** - 리소스는 모니터링 원격 분석을 볼 수 있는 기본 위치입니다.
 - **관리되는 리소스 그룹** – SAP 솔루션을 위한 Azure Monitor 리소스 배포의 일부로 자동으로 배포됩니다. 관리되는 리소스 그룹 내에 배포된 리소스는 원격 분석 데이터를 수집하는 데 도움이 됩니다. 배포된 주요 리소스와 그 용도는 다음과 같습니다.
-   - **Azure 가상 머신**: *수집기 VM* 이라고도 하며 Standard_B2ms VM입니다. 해당 VM의 주 용도는 *모니터링 페이로드* 를 호스트하는 것입니다. 페이로드 모니터링은 원본 시스템에서 원격 분석 데이터를 수집하고, 해당 데이터를 모니터링 프레임워크로 전송하는 논리를 나타냅니다. 위 다이어그램에서 모니터링 페이로드는 SQL 포트를 통해 SAP HANA 데이터베이스에 연결하기 위한 논리를 포함합니다.
+   - **Azure 가상 머신**: *수집기 VM* 이라고도 하며 Standard_B2ms VM입니다. 해당 VM의 주 용도는 *모니터링 페이로드* 를 호스트하는 것입니다. 페이로드 모니터링은 원본 시스템에서 원격 분석 데이터를 수집하고, 해당 데이터를 모니터링 프레임워크로 전송하는 논리를 나타냅니다. 위의 다이어그램에서 모니터링 페이로드에는 SQL 포트를 통해 SAP HANA 데이터베이스에 연결하는 논리가 포함되어 있습니다.
    - **[Azure Key Vault](../../../key-vault/general/basic-concepts.md)** : 이 리소스는 SAP HANA 데이터베이스 자격 증명을 안전하게 보관하고 [공급자](./azure-monitor-providers.md)에 대한 정보를 저장하기 위해 배포됩니다.
    - **Log Analytics 작업 영역**: 원격 분석 데이터가 저장되는 대상입니다.
       - 시각화는 [Azure 통합 문서](../../../azure-monitor/visualize/workbooks-overview.md)를 사용하여 Log Analytics에서 원격 분석을 기반으로 빌드됩니다. 시각화를 사용자 지정할 수 있습니다. 자동 새로 고침을 위해 통합 문서 또는 통합 문서 내의 특정 시각화를 Azure 대시보드에 고정할 수도 있습니다. 새로 고침의 최대 빈도는 30분마다입니다.

@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 10/13/2021
 ms.author: banders
-ms.openlocfilehash: 4e494b38bea9b799a6a2ee82b3fbb9847446d699
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: db7dbf6da5405b0b86a6231b31572cfeaffe12f0
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128611711"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000198"
 ---
 # <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 Azure 사용량 및 요금 파일의 용어
 
@@ -97,7 +97,7 @@ product | 요금이 발생하는 제품의 이름
 subscriptionName | 요금이 발생하는 구독의 이름
 reservationId | 구매한 예약 인스턴스의 고유 식별자
 reservationName | 구매한 예약 인스턴스의 이름
-publisherType | 게시자 유형(값: firstParty, thirdPartyReseller, thirdPartyAgency)
+publisherType | Microsoft/Azure, Marketplace 및 AWS 비용  값은 `Microsoft` Microsoft 고객 계약 계정 및 `Azure` EA 및 종 량 제 계정에 대 한 값입니다.
 publisherName | Marketplace 서비스의 게시자
 resourceGroupId | 리소스와 연결된 리소스 그룹의 고유 식별자
 resourceGroupName | 리소스와 연결된 리소스 그룹의 이름

@@ -3,15 +3,15 @@ title: Azure Service Bus 인증 및 권한 부여 | Microsoft Docs
 description: SAS(공유 액세스 서명) 인증을 사용하여 Service Bus에 대해 앱을 인증합니다.
 ms.topic: article
 ms.date: 09/15/2021
-ms.openlocfilehash: 74ad1674bc09f1514264f4b7f1521526f8da2fd5
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1b1cc20df861f657ed9fff4704862e9ee36965a2
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128597154"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002077"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Service Bus 인증 및 권한 부여
-Azure AD(Azure Active Directory) 및 SAS(공유 액세스 서명)라는 두 가지 방법으로 Azure Service Bus 리소스에 대한 액세스를 인증하고 권한을 부여할 수 있습니다. 이 문서에서는 이 두 가지 유형의 보안 메커니즘을 사용하는 방법에 관해 자세히 설명합니다. 
+Azure Service Bus 리소스에 대한 액세스를 인증하고 권한을 부여하는 방법에는 Azure Active Directory(Azure AD) 및 SAS(공유 액세스 서명)가 있습니다. 이 문서에서는 이 두 가지 유형의 보안 메커니즘을 사용하는 방법에 관해 자세히 설명합니다. 
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 Service Bus 리소스에 대한 Azure AD 통합은 클라이언트의 리소스 액세스를 세부적으로 제어하기 위해 Azure RBAC(역할 기반 액세스 제어)를 제공합니다. Azure RBAC를 사용하여 사용자, 그룹 또는 애플리케이션 서비스 주체일 수 있는 보안 주체에 권한을 부여할 수 있습니다. 보안 주체는 Azure AD에 의해 인증되어 OAuth 2.0 토큰을 반환합니다. 토큰은 Service Bus 리소스(큐, 토픽 등)에 액세스할 권한을 요청에 부여하는 데 사용할 수 있습니다.

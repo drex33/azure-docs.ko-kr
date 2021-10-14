@@ -5,12 +5,12 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
 ms.date: 02/07/2021
-ms.openlocfilehash: c9319465c4e77eab294606ed046f7946948f2cc1
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
-ms.translationtype: HT
+ms.openlocfilehash: bba3965dc3f03bb0b42595ba6bdf5d8889b483ee
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140374"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004296"
 ---
 # <a name="assessment-overview-migrate-to-azure-sql"></a>평가 개요(Azure SQL로 마이그레이션)
 
@@ -25,12 +25,12 @@ Azure Migrate: 검색 및 평가 도구를 사용하여 만들 수 있는 평가
 
 **평가 유형** | **세부 정보**
 --- | --- 
-**Azure VM** | 온-프레미스 서버를 Azure 가상 머신으로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용하여 Azure VM으로 마이그레이션하기 위한 [VMware](how-to-set-up-appliance-vmware.md) 및 [Hyper-V](how-to-set-up-appliance-hyper-v.md) 환경과 [물리적 서버](how-to-set-up-appliance-physical.md)에서 온-프레미스 서버를 평가할 수 있습니다.
-**Azure SQL** | 온-프레미스 SQL Server를 VMware 환경에서 Azure SQL Database 또는 Azure SQL Managed Instance로 마이그레이션하기 위한 평가.
+**Azure VM** | 온-프레미스 서버를 Azure 가상 머신으로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 형식을 사용하여 Azure VM으로 마이그레이션하기 위한 [VMware](how-to-set-up-appliance-vmware.md) 및 [Hyper-V](how-to-set-up-appliance-hyper-v.md) 환경과 [물리적 서버](how-to-set-up-appliance-physical.md)에서 의 온-프레미스 서버를 평가할 수 있습니다.
+**Azure SQL** | 온-프레미스 SQL Server를 VMware 환경에서 Azure SQL Database 또는 Azure SQL Managed Instance로 마이그레이션하기 위한 평가. <br/><br/> SQL 서버가 비 VMware 플랫폼에서 실행되는 경우 [Data Migration Assistant](/sql/dma/dma-assess-sql-data-estate-to-sqldb)사용하여 준비 상태를 평가할 수 있습니다.
 **AVS(Azure VMware 솔루션)** | 온-프레미스 서버를 [AVS(Azure VMware 솔루션)](../azure-vmware/introduction.md)로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용하여 AVS(Azure VMware 솔루션)로 마이그레이션하기 위한 온-프레미스 [VMware VM](how-to-set-up-appliance-vmware.md)을 평가할 수 있습니다. [자세히 알아보기](concepts-azure-vmware-solution-assessment-calculation.md)
 
 > [!NOTE]
-> 검색 및 평가 도구에서 Azure VM의 수 또는 AVS 평가가 잘못된 경우, 총 평가 수를 클릭하여 모든 평가를 탐색하고 Azure VM 또는 AVS 평가를 다시 계산합니다. 그러면 검색 및 평가 도구에 해당 평가 유형에 대한 올바른 개수가 표시됩니다. 
+> 검색 및 평가 도구에서 Azure VM의 수 또는 AVS 평가가 잘못된 경우, 총 평가 수를 클릭하여 모든 평가로 이동하고 Azure VM 또는 AVS 평가를 다시 계산합니다. 그러면 검색 및 평가 도구에 해당 평가 유형에 대한 올바른 개수가 표시됩니다. 
 
 Azure SQL 평가는 다음과 같은 하나의 크기 조정 기준을 제공합니다.
 
@@ -86,7 +86,7 @@ Azure SQL 평가는 다음과 같은 하나의 크기 조정 기준을 제공합
 **서비스 계층** | Azure SQL Database 및/또는 Azure SQL Managed Instance로 마이그레이션해야 하는 비즈니스 요구 사항에 가장 적합한 서비스 계층 옵션입니다.<br/><br/>Azure Migrate에서 서버에 가장 적합한 서비스 계층을 추천하려면 **권장** 을 선택합니다. 권장 제품은 범용 또는 중요 비즈니스용 제품입니다. <br/><br/> 예산 기반 워크로드에 맞게 Azure SQL 구성을 디자인하려면 **범용** 을 선택합니다. [자세한 내용](../azure-sql/database/service-tier-general-purpose.md) <br/><br/> 복원력이 높고 장애 조치(failover)에 대한 대기 시간이 낮은 워크로드에 맞게 디자인된 Azure SQL 구성을 원하는 경우 **중요 비즈니스용** 을 선택합니다. [자세한 내용](../azure-sql/database/service-tier-business-critical.md)
 **통화** | 계정의 청구 통화입니다.
 **할인(%)** | Azure 제품에 적용되는 구독별 할인입니다. 기본 설정은 0%입니다.
-**Azure 하이브리드 혜택** | SQL Server 라이선스가 이미 있는지 여부를 지정합니다. <br/><br/> 이러한 작업을 수행하고 SQL Server 구독의 활성 소프트웨어 보증이 적용되는 경우 Azure에 라이선스를 가져올 때 Azure 하이브리드 혜택을 적용할 수 있습니다.
+**Azure 하이브리드 혜택** | SQL Server 라이선스가 이미 있는지를 지정합니다. <br/><br/> 이러한 작업을 수행하고 SQL Server 구독의 활성 소프트웨어 보증이 적용되는 경우 Azure에 라이선스를 가져올 때 Azure 하이브리드 혜택을 적용할 수 있습니다.
 
 Azure Migrate를 사용하여 평가를 만들기 위해 [모범 사례를 검토](best-practices-assessment.md)합니다.
 

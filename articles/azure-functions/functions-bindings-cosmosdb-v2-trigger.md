@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/01/2021
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 0bccf556f48cea52c4458ec6afc882c3c6035a71
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f9e8790a05181f095ff28b154a5a264cb38295e4
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128635188"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994350"
 ---
 # <a name="azure-cosmos-db-trigger-for-azure-functions-2x-and-higher"></a>Azure Functions 2.x 이상에 대한 Azure Cosmos DB 트리거
 
@@ -258,7 +258,7 @@ Write-Host "First document Id modified : $($Documents[0].id)"
     }
 ```
 
-[확장 버전 4.x에서는](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) 일부 설정 및 속성이 제거되거나 이름이 변경되었습니다. 변경 내용에 대한 자세한 내용은 [트리거 - 구성을](#configuration)참조하세요. 다음은 단순 `CosmosDBTrigger` 형식을 참조하는 메서드 시그니처의 특성 예제입니다. `ToDoItem`
+[확장 버전 4.x에서는](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) 일부 설정 및 속성이 제거되거나 이름이 변경되었습니다. 변경 내용에 대한 자세한 내용은 트리거 - 구성 을 [참조하세요.](#configuration) 다음은 단순 `CosmosDBTrigger` 형식을 참조하는 메서드 시그니처의 특성 예제입니다. `ToDoItem`
 
 ```cs
 namespace CosmosDBSamplesV2
@@ -314,25 +314,27 @@ Python에서는 특성을 지원하지 않습니다.
 |**type** | 해당 없음 | `cosmosDBTrigger`로 설정해야 합니다. |
 |**direction** | 해당 없음 | `in`로 설정해야 합니다. 이 매개 변수는 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
 |**name** | 해당 없음 | 변경 사항이 포함된 문서 목록을 나타내는 함수 코드에 사용되는 변수 이름. |
-|**connectionStringSetting** <br> 또는 <br> **connection**|**ConnectionStringSetting** <br> 또는 <br> **연결**| 모니터링되는 Azure Cosmos DB 계정에 연결하는 데 사용되는 연결 문자열을 포함하고 있는 앱 설정의 이름입니다. <br><br> [확장의 버전 4.x에서](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) 이 속성을 라고 `Connection` 합니다. 값은 모니터링 중인 Azure Cosmos DB 계정에 연결하는 데 사용되는 연결 문자열을 포함하거나 연결을 정의하는 구성 섹션 또는 접두사 중 하나를 포함하는 앱 설정의 이름입니다. [연결](./functions-reference.md#connections)을 참조하세요. |
+|**connectionStringSetting** <br> 또는 <br> **connection**|**ConnectionStringSetting** <br> 또는 <br> **연결**| 모니터링 중인 Azure Cosmos DB 계정에 연결하는 방법을 지정하는 앱 설정 또는 설정 컬렉션의 이름입니다. [연결을 참조하세요.](#connections) <br><br> [확장의 버전 4.x에서] 이 속성을 라고 `connection` 합니다. |
 |**databaseName**|**DatabaseName**  | 컬렉션이 모니터링되는 Azure Cosmos DB 데이터베이스의 이름입니다. |
-|**collectionName** <br> 또는 <br> **containerName** |**CollectionName** <br> 또는 <br> **ContainerName** | 모니터링되는 컬렉션의 이름입니다. <br><br> [확장의 버전 4.x에서](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) 이 속성을 라고 `ContainerName` 합니다. |
-|**leaseConnectionStringSetting** <br> 또는 <br> **leaseConnection** | **LeaseConnectionStringSetting** <br> 또는 <br> **LeaseConnection** | (선택 사항) 임대 컬렉션을 보유하는 Azure Cosmos DB 계정에 대한 연결 문자열을 포함하는 앱 설정의 이름입니다. 설정하지 않으면 `connectionStringSetting` 값이 사용됩니다. 이 매개 변수는 포털에서 바인딩이 생성될 때 자동으로 설정됩니다. 임대 컬렉션에 대한 연결 문자열에 쓰기 권한이 있어야 합니다. <br><br> [확장의 버전 4.x에서는](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) 이 속성이 `LeaseConnection` 호출되며, 설정되지 않은 경우 `Connection` 값을 사용합니다. 값은 임대 컨테이너를 사용하여 Azure Cosmos DB 계정에 연결하는 데 사용되는 연결 문자열을 포함하거나 연결을 정의하는 구성 섹션 또는 접두사 중 하나를 포함하는 앱 설정의 이름입니다. [연결](./functions-reference.md#connections)을 참조하세요.|
+|**collectionName** <br> 또는 <br> **containerName** |**CollectionName** <br> 또는 <br> **ContainerName** | 모니터링되는 컬렉션의 이름입니다. <br><br> [확장의 버전 4.x에서] 이 속성을 라고 `ContainerName` 합니다. |
+|**leaseConnectionStringSetting** <br> 또는 <br> **leaseConnection** | **LeaseConnectionStringSetting** <br> 또는 <br> **LeaseConnection** | (선택 사항) 임대 컬렉션을 보유하는 Azure Cosmos DB 계정에 연결하는 방법을 지정하는 앱 설정 또는 설정 컬렉션의 이름입니다. [연결을 참조하세요.](#connections) <br><br> 설정하지 않으면 `connectionStringSetting` 값이 사용됩니다. 이 매개 변수는 포털에서 바인딩이 생성될 때 자동으로 설정됩니다. 임대 컬렉션에 대한 연결 문자열에 쓰기 권한이 있어야 합니다. <br><br> [확장의 버전 4.x에서는] 이 속성을 이라고 `leaseConnection` 하며, 설정하지 않으면 `connection` 값이 사용됩니다. |
 |**leaseDatabaseName** |**LeaseDatabaseName** | (선택 사항) 임대를 저장하는 데 사용되는 컬렉션을 보유하는 데이터베이스의 이름입니다. 설정하지 않으면 `databaseName` 설정 값이 사용됩니다. 이 매개 변수는 포털에서 바인딩이 생성될 때 자동으로 설정됩니다. |
-|**leaseCollectionName** <br> 또는 <br> **leaseContainerName** | **LeaseCollectionName** <br> 또는 <br> **LeaseContainerName** | (선택 사항) 임대를 저장하는 데 사용되는 컬렉션의 이름입니다. 설정하지 않으면 `leases` 값이 사용됩니다. <br><br> [확장의 버전](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) 4.x에서이 속성을 호출 `LeaseContainerName` 합니다. |
-|**createLeaseCollectionIfNotExists** <br> 또는 <br> **createLeaseContainerIfNotExists** | **CreateLeaseCollectionIfNotExists** <br> 또는 <br> **CreateLeaseContainerIfNotExists** | (선택 사항) `true`로 설정하면 임대 컬렉션이 없는 경우 자동으로 임대 컬렉션이 생성됩니다. 기본값은 `false`입니다. <br><br> [확장의 버전](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) 4.x에서이 속성을 호출 `CreateLeaseContainerIfNotExists` 합니다. |
-|**leasesCollectionThroughput** <br> 또는 <br> **leasesContainerThroughput**| **LeasesCollectionThroughput** <br> 또는 <br> **LeasesContainerThroughput**| 필드 임대 컬렉션을 만들 때 할당할 요청 단위 수를 정의 합니다. 이 설정은가로 설정 된 경우에만 사용 됩니다 `createLeaseCollectionIfNotExists` `true` . 이 매개 변수는 포털을 사용하여 바인딩이 생성될 때 자동으로 설정됩니다. <br><br> [확장의 버전](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) 4.x에서이 속성을 호출 `LeasesContainerThroughput` 합니다. |
-|**leaseCollectionPrefix** <br> 또는 <br> **leaseContainerPrefix**| **LeaseCollectionPrefix** <br> 또는 <br> **leaseContainerPrefix** | 필드 설정 하면이 함수에 대 한 임대 컬렉션에서 만든 임대에 값이 접두사로 추가 됩니다. 접두사를 사용 하면 별도의 두 Azure Functions 서로 다른 접두사를 사용 하 여 동일한 임대 컬렉션을 공유할 수 있습니다. <br><br> [확장의 버전](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) 4.x에서이 속성을 호출 `LeaseContainerPrefix` 합니다. |
+|**leaseCollectionName** <br> 또는 <br> **leaseContainerName** | **LeaseCollectionName** <br> 또는 <br> **LeaseContainerName** | (선택 사항) 임대를 저장하는 데 사용되는 컬렉션의 이름입니다. 설정하지 않으면 `leases` 값이 사용됩니다. <br><br> [확장의 버전] 4.x에서이 속성을 호출 `LeaseContainerName` 합니다. |
+|**createLeaseCollectionIfNotExists** <br> 또는 <br> **createLeaseContainerIfNotExists** | **CreateLeaseCollectionIfNotExists** <br> 또는 <br> **CreateLeaseContainerIfNotExists** | (선택 사항) `true`로 설정하면 임대 컬렉션이 없는 경우 자동으로 임대 컬렉션이 생성됩니다. 기본값은 `false`입니다. <br><br> [확장의 버전] 4.x에서이 속성을 호출 `CreateLeaseContainerIfNotExists` 합니다. |
+|**leasesCollectionThroughput** <br> 또는 <br> **leasesContainerThroughput**| **LeasesCollectionThroughput** <br> 또는 <br> **LeasesContainerThroughput**| 필드 임대 컬렉션을 만들 때 할당할 요청 단위 수를 정의 합니다. 이 설정은가로 설정 된 경우에만 사용 됩니다 `createLeaseCollectionIfNotExists` `true` . 이 매개 변수는 포털을 사용하여 바인딩이 생성될 때 자동으로 설정됩니다. <br><br> [확장의 버전] 4.x에서이 속성을 호출 `LeasesContainerThroughput` 합니다. |
+|**leaseCollectionPrefix** <br> 또는 <br> **leaseContainerPrefix**| **LeaseCollectionPrefix** <br> 또는 <br> **leaseContainerPrefix** | 필드 설정 하면이 함수에 대 한 임대 컬렉션에서 만든 임대에 값이 접두사로 추가 됩니다. 접두사를 사용 하면 별도의 두 Azure Functions 서로 다른 접두사를 사용 하 여 동일한 임대 컬렉션을 공유할 수 있습니다. <br><br> [확장의 버전] 4.x에서이 속성을 호출 `LeaseContainerPrefix` 합니다. |
 |**feedPollDelay**| **FeedPollDelay**| 필드 모든 현재 변경 내용이 끝난 후에 피드의 새 변경 내용에 대 한 파티션 폴링 간의 지연 시간 (밀리초)입니다. 기본값은 5000 밀리초 또는 5 초입니다.
 |**leaseAcquireInterval**| **LeaseAcquireInterval**| (선택 사항) 설정하면 파티션이 알려진 호스트 인스턴스 간에 균등하게 배포되는지를 계산하는 태스크를 시작하는 간격을 밀리초로 정의합니다. 기본값은 13000(13초)입니다.
 |**leaseExpirationInterval**| **LeaseExpirationInterval**| (선택 사항) 설정하면 파티션을 나타내는 임대에 대한 임대 기간인 간격을 밀리초로 정의합니다. 이 간격 내에서 임대를 갱신하지 않으면 기간이 만료되어 다른 인스턴스로 파티션 소유권이 이동합니다. 기본값은 60000(60초)입니다.
 |**leaseRenewInterval**| **LeaseRenewInterval**| (선택 사항) 설정하면 인스턴스가 현재 보유한 파티션의 모든 임대에 대한 갱신 간격을 밀리초로 정의합니다. 기본값은 17000(17초)입니다.
-|**checkpointInterval**| **CheckpointInterval**| (선택 사항) 설정하면 임대 검사점 간격을 밀리초로 정의합니다. 기본값은 항상 각 함수 호출 이후입니다. <br><br> 이 속성은 [확장의 버전](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher)4.x에서 사용할 수 없습니다. |
+|**checkpointInterval**| **CheckpointInterval**| (선택 사항) 설정하면 임대 검사점 간격을 밀리초로 정의합니다. 기본값은 항상 각 함수 호출 이후입니다. <br><br> 이 속성은 [확장의 버전]4.x에서 사용할 수 없습니다. |
 |**maxItemsPerInvocation**| **MaxItemsPerInvocation**| 필드 설정 되 면이 속성은 함수 호출 당 수신 되는 최대 항목 수를 설정 합니다. 모니터링 되는 컬렉션의 작업이 저장 프로시저를 통해 수행 되는 경우 변경 피드에서 항목을 읽을 때 [트랜잭션 범위가](../cosmos-db/stored-procedures-triggers-udfs.md#transactions) 유지 됩니다. 결과적으로, 수신한 항목 수가 지정된 값보다 높을 수 있어 동일한 트랜잭션에 의해 변경된 항목이 하나의 원자성 일괄 처리의 일부로 반환됩니다.
 |**startFromBeginning**| **StartFromBeginning**| 필드 이 옵션은 현재 시간에서 시작 하는 대신 컬렉션의 변경 기록 시작 부분에서 변경 내용을 읽도록 트리거에 지시 합니다. 처음부터 시작 하 여 처음부터 다시 시작 하는 경우에만 트리거가 시작 됩니다. 후속 실행과 마찬가지로 검사점은 이미 저장 되어 있습니다. 이미 생성 된 임대가 있는 경우이 옵션을로 설정 `true` 해도 아무런 효과가 없습니다. |
 |**preferredLocations**| **PreferredLocations**| (선택적) Azure Cosmos DB 서비스에서 지역 복제된 데이터베이스 계정의 기본 설정 위치(지역)를 정의합니다. 값은 쉼표로 구분해야 합니다. 예를 들면 “미국 동부, 미국 중남부, 북유럽”입니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+[!INCLUDE [functions-cosmosdb-connections](../../includes/functions-cosmosdb-connections.md)]
 
 ## <a name="usage"></a>사용
 
@@ -347,3 +349,5 @@ Python에서는 특성을 지원하지 않습니다.
 
 - [Azure Cosmos DB 문서 읽기(입력 바인딩)](./functions-bindings-cosmosdb-v2-input.md)
 - [Azure Cosmos DB 문서에 변경 내용 저장(출력 바인딩)](./functions-bindings-cosmosdb-v2-output.md)
+
+[확장의 버전 4.x]: ./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher

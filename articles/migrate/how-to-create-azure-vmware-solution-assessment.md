@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: cfa3004b0587bbfe74157bf2922dd98cd8741597
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 89c7c903d382d67d9be64829118bdddf8ee4bd31
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566962"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130005998"
 ---
 # <a name="create-an-azure-vmware-solution-assessment"></a>Azure VMware Solution 평가 만들기
 
@@ -123,9 +123,10 @@ AVS(Azure VMware Solution) 평가를 만드는 데 사용할 수 있는 두 가�
 AVS(Azure VMware Solution) 평가는 다음을 설명합니다.
 
 - **AVS(Azure VMware Solution) 준비**: 온-프레미스 서버가 AVS(Azure VMware Solution)로 마이그레이션하는 데 적합한지 여부입니다.
-- **AVS 노드 수**: 서버를 실행하는 데 필요한 예상 AVS 노드 수입니다.
+- **Azure Vmware 솔루션 노드 수**: 서버를 실행 하는 데 필요한 Azure vmware 솔루션 노드의 예상 개수입니다.
 - **AVS 노드에서의 사용률**: 모든 노드에서 예상되는 CPU, 메모리 및 스토리지 사용률입니다.
     - 사용률에는 vCenter Server, NSX Manager(대규모), NSX Edge와 같은 다음 클러스터 관리 오버헤드의 초기 팩터링이 포함됩니다. HCX가 배포되는 경우 HCX Manager와 IX 어플라이언스도 압축 및 중복 제거 전에 ~ 44vCPU(11개 CPU), 75GB RAM 및 722GB의 스토리지를 사용합니다.
+    - 제한 요소는 리소스를 수용 하는 데 필요한 호스트/노드 수를 결정 합니다.
 - **월별 예상 비용**: 온-프레미스 VM을 실행하는 모든 AVS(Azure VMware Solution) 노드에 대한 월별 예상 비용입니다.
 
 
@@ -137,7 +138,7 @@ AVS(Azure VMware Solution) 평가는 다음을 설명합니다.
 
     :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-summary.png" alt-text="AVS 평가 요약":::
 
-1. 평가 요약을 검토합니다. 평가 속성을 편집하거나 평가를 다시 계산할 수도 있습니다.
+1. 평가 요약을 검토합니다. **크기 조정 가정을** 클릭 하 여 노드 크기 조정 및 리소스 사용률 계산에서 발생 한 가정을 이해할 수 있습니다. 평가 속성을 편집하거나 평가를 다시 계산할 수도 있습니다.
 
 ### <a name="review-azure-vmware-solution-avs-readiness"></a>AVS(Azure VMware Solution) 준비 상태 검토
 
@@ -173,8 +174,6 @@ AVS(Azure VMware Solution) 평가는 다음을 설명합니다.
 ### <a name="review-confidence-rating"></a>신뢰 등급 검토
 
 성능 기반 평가를 실행하면 신뢰 등급이 평가에 할당됩니다.
-
-![신뢰 등급](./media/how-to-create-assessment/confidence-rating.png)
 
 - 별 1개(최저)에서 별 5개(최고)까지의 등급입니다.
 - 신뢰 등급을 통해 평가에서 제공하는 크기 추천 사항의 안정성을 예측할 수 있습니다.

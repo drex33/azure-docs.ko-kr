@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/08/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 11572f957fc2d305f5d6f17303bb8386345abc7b
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 088fdbbf59f83a0a695d8abd485fe93df29aee83
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129714056"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129999951"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -68,7 +68,7 @@ ACL 변경 내용을 상위 디렉터리에서 하위 항목으로 재귀적으�
 
 ## <a name="access-control-lists-acl-and-anonymous-read-access"></a>ACL(액세스 제어 목록) 및 익명 읽기 액세스
 
-컨테이너에 [익명 읽기 액세스](./anonymous-read-access-configure.md)가 부여된 경우 ACL은 해당 컨테이너 또는 해당 컨테이너의 파일에 영향을 주지 않습니다.
+컨테이너에 [익명 읽기 액세스](./anonymous-read-access-configure.md)가 부여된 경우 ACL은 해당 컨테이너 또는 해당 컨테이너의 파일에 영향을 주지 않습니다.  이는 읽기 요청에만 영향을 줍니다.  쓰기 요청은 Acl을 계속 인식 합니다.
 
 <a id="known-issues-tools"></a>
 

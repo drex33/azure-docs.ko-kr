@@ -1,21 +1,26 @@
 ---
 title: Cassandra용 Azure Cosmos DB API에 대한 속도 제한 오류를 방지합니다.
-description: Cassandra 작업에 대한 Azure Cosmos DB API가 SSR(서버 쪽 다시 시도) 기능으로 속도 제한 오류에 도달하지 못하도록 방지
+description: Cassandra 작업용 Azure Cosmos DB API가 SSR(서버 쪽 다시 시도) 기능으로 속도 제한 오류에 도달하지 못하도록 방지
 author: dileepraotv-github
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 10/11/2021
 ms.author: turao
-ms.openlocfilehash: 469dc3f87bb7c783f2c3138e2bcf592c85312006
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: 2e110aeb7cf5395a9aea8d0efae9c0f97b6e74ce
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129760557"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003878"
 ---
 # <a name="prevent-rate-limiting-errors-for-azure-cosmos-db-api-for-cassandra-operations"></a>Cassandra 작업에 대한 Azure Cosmos DB API에 대한 속도 제한 오류 방지
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+
+> [!IMPORTANT]
+> Cassandra용 Cosmos DB API에 대해 서버 쪽 재시도를 사용하도록 설정하여 속도 제한 오류 방지는 현재 공개 미리 보기로 제공됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 모든 데이터베이스 작업의 비용은 Azure Cosmos DB에서 정규화되며 RU(요청 단위)로 표현됩니다. 요청 단위는 Azure Cosmos DB에서 지원하는 데이터베이스 작업을 수행하는 데 필요한 CPU, IOPS, 메모리와 같은 시스템 리소스를 추상화하는 성능 통화입니다.
 
@@ -69,12 +74,20 @@ SSR(서버 쪽 재시도)은 제한 오류를 방지할 수 있는 1분 미만�
 
 SSR을 사용하도록 설정한 후 클라이언트 앱은 서버 재시도 60초 설정을 초과하여 읽기 시간 초과를 늘려야 합니다. 90초가 더 안전한 쪽에 있는 것이 좋습니다.
 
-SocketOptions setReadTimeoutMillis DefaultDriverOption.REQUEST_TIMEOUT
-
+코드 샘플 드라이버3
+```java
+SocketOptions socketOptions = new SocketOptions()
+    .setReadTimeoutMillis(90000); 
+```
+코드 샘플 드라이버4  
+```java
+ProgrammaticDriverConfigLoaderBuilder configBuilder = DriverConfigLoader.programmaticBuilder()
+    .withDuration(DefaultDriverOption.REQUEST_TIMEOUT, Duration.ofSeconds(90)); 
+```
 
 ### <a name="how-can-i-monitor-the-effects-of-a-server-side-retry"></a>서버 쪽 다시 시도의 영향을 모니터링하려면 어떻게 해야 하나요?
 
-Cosmos DB 메트릭 창에서 서버 쪽에서 다시 시도된 속도 제한 오류(429)를 볼 수 있습니다. 이러한 오류는 서버 쪽에서 처리되고 다시 시도되므로 SSR을 사용하도록 설정한 경우 클라이언트로 이동하지 않습니다.
+Cosmos DB 메트릭 창에서 서버 쪽에서 다시 시도된 속도 제한 오류(429)를 볼 수 있습니다. 이러한 오류는 SSR이 서버 쪽에서 처리되고 다시 시도되므로 클라이언트로 이동하지 않습니다.
 
 [Cosmos DB 리소스 로그](../cosmosdb-monitor-resource-logs.md)에서 *estimatedDelayFromRateLimitingInMilliseconds* 가 포함된 로그 항목을 검색할 수 있습니다.
 

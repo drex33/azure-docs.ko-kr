@@ -1,22 +1,22 @@
 ---
 title: 인바운드 트래픽 v1 제어
 description: App Service Environment로의 인바운드 트래픽을 제어하는 방법을 알아봅니다. 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
-author: ccompy
+author: madsd
 ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08
 ms.topic: article
 ms.date: 01/11/2017
-ms.author: stefsch
+ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: fe9326ea9ebd5afe981b7ba6c34b1a5d51e084b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 9fc4570d922da43635725f028a31b4458bf03113
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88962063"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001716"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>App Service Environment로의 인바운드 트래픽을 제어하는 방법
 ## <a name="overview"></a>개요
-App Service Environment를 Azure Resource Manager 가상 네트워크에서 **만들 수도 있고** 클래식 배포 모델 [가상 네트워크][virtualnetwork]에서 **만들 수도 있습니다**.  App Service Environment를 만들 때 새 가상 네트워크 및 새 서브넷을 정의할 수 있습니다. 대신, 기존 가상 네트워크 및 기존 서브넷에 App Service Environment를 만들 수 있습니다.  2016년 6월 기준으로, 퍼블릭 주소 범위 또는 RFC1918 주소 공간(프라이빗 주소) 중 하나를 사용하는 가상 네트워크에 ASE를 배포할 수도 있습니다.  자세한 내용은 [App Service Environment를 만드는 방법][HowToCreateAnAppServiceEnvironment]을 참조하세요.
+App Service Environment를 Azure Resource Manager 가상 네트워크에서 **만들 수도 있고** 클래식 배포 모델 [가상 네트워크][virtualnetwork]에서 **만들 수도 있습니다**.  App Service Environment를 만들 때 새 가상 네트워크 및 새 서브넷을 정의할 수 있습니다. 대신, 기존 가상 네트워크 및 기존 서브넷에 App Service Environment를 만들 수 있습니다.  2016년 6월 기준으로, 퍼블릭 주소 범위 또는 RFC1918 주소 공간(프라이빗 주소) 중 하나를 사용하는 가상 네트워크에 ASE를 배포할 수도 있습니다.  자세한 내용은 [How To Create a ASEv1 from template](app-service-app-service-environment-create-ilb-ase-resourcemanager.md)항목을 참조 하세요.
 
 항상 서브넷 내에 App Service Environment를 만듭니다. 서브넷은 업스트림 디바이스와 서비스 뒤에서 인바운드 트래픽을 잠그는 데 사용할 수 있는 네트워크 경계를 제공합니다. 이 설정에서는 특정 업스트림 IP 주소만 HTTP 및 HTTPS 트래픽을 수락할 수 있습니다.
 
@@ -131,7 +131,6 @@ App Service Environment를 시작하려면 [App Service Environment 소개][Intr
 
 <!-- LINKS -->
 [virtualnetwork]: ../../virtual-network/virtual-networks-faq.md
-[HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md
 [NetworkSecurityGroups]: ../../virtual-network/virtual-network-vnet-plan-design-arm.md
 [IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md
 [SecurelyConnecttoBackend]:  app-service-app-service-environment-securely-connecting-to-backend-resources.md

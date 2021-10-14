@@ -5,13 +5,13 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 06/03/2021
-ms.openlocfilehash: 1228f89c2037e1a181fd1f881a1a8d0262b4dbbd
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
-ms.translationtype: HT
+ms.date: 10/14/2021
+ms.openlocfilehash: 38564ba8d607dc82a13757669b7d352359fb29e8
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111410138"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994749"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Azure Monitor의 메트릭 경고에 대해 지원되는 리소스
 
@@ -39,6 +39,7 @@ ms.locfileid: "111410138"
 |Microsoft.Bing/accounts | 예 | 아니요 | [Bing 계정](../essentials/metrics-supported.md#microsoftbingaccounts) |
 |Microsoft.BotService/botServices | 예 | 예 | [Bot Services](../essentials/metrics-supported.md#microsoftbotservicebotservices) |
 |Microsoft.Cache/redis | 예 | 예 | [Azure Cache for Redis](../essentials/metrics-supported.md#microsoftcacheredis) |
+|Microsoft.Cache/redisEnterprise | Yes | 아니요 | [Azure Cache for Redis Enterprise](../essentials/metrics-supported.md#microsoftcacheredisenterprise) |
 |microsoft.Cdn/profiles | 예 | 아니요 | [CDN 프로필](../essentials/metrics-supported.md#microsoftcdnprofiles) |
 |Microsoft.ClassicCompute/domainNames/slots/roles | 예 | 예 | [클래식 Cloud Services](../essentials/metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
 |Microsoft.ClassicCompute/virtualMachines | 예 | 예 | [클래식 Virtual Machines](../essentials/metrics-supported.md#microsoftclassiccomputevirtualmachines) |
@@ -104,6 +105,7 @@ ms.locfileid: "111410138"
 |Microsoft.Peering/peerings | 예 | 예 | [피어링](../essentials/metrics-supported.md#microsoftpeeringpeerings) |
 |Microsoft.Peering/peeringServices | 예 | 예 | [Peering Services](../essentials/metrics-supported.md#microsoftpeeringpeeringservices) |
 |Microsoft.PowerBIDedicated/capacities | 예 | 예 | [용량](../essentials/metrics-supported.md#microsoftpowerbidedicatedcapacities) |
+|Microsoft.RecoveryServices/vaults | 예 | 예 | [Recovery Services 자격 증명 모음](../essentials/metrics-supported.md#microsoftrecoveryservicesvaults) |
 |Microsoft.Relay/namespaces | 예 | 예 | [릴레이](../essentials/metrics-supported.md#microsoftrelaynamespaces) |
 |Microsoft.Search/searchServices | 예 | 예 | [Search 서비스](../essentials/metrics-supported.md#microsoftsearchsearchservices) |
 |Microsoft.ServiceBus/namespaces | 예 | 예 | [Service Bus](../essentials/metrics-supported.md#microsoftservicebusnamespaces) |

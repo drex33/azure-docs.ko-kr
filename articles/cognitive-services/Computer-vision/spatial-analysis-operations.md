@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/08/2021
 ms.author: pafarley
-ms.openlocfilehash: f408a9182727d8e4395972f8d9f7025f8342b4eb
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
-ms.translationtype: HT
+ms.openlocfilehash: 6f4625f87bddfdffca19c3a6b8ebdf7ca4586c70
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122635151"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997652"
 ---
 # <a name="spatial-analysis-operations"></a>공간 분석 작업
 
@@ -33,7 +33,7 @@ ms.locfileid: "122635151"
 
 위의 모든 작업은 처리되는 비디오 프레임을 시각화하는 기능이 있는 `.debug` 버전에서도 사용할 수 있습니다. 비디오 프레임 및 이벤트의 시각화를 사용하도록 설정하려면 호스트 컴퓨터에서 `xhost +`를 실행해야 합니다.
 
-| 작업 식별자| 설명|
+작업 식별자| 설명
 |---------|---------|
 | cognitiveservices.vision.spatialanalysis-personcount.debug | 카메라 시야의 지정된 영역에 있는 사람을 계산합니다. <br> 초기 _personCountEvent_ 이벤트를 내보낸 다음, 개수가 변경되면 _personCountEvent_ 이벤트를 내보냅니다.  |
 | cognitiveservices.vision.spatialanalysis-personcrossingline.debug | 카메라의 시야에서 사람이 지정된 선을 벗어나는 경우를 추적합니다. <br>사람이 선을 벗어날 때 _personLineEvent_ 이벤트를 내보내고, 방향 정보를 제공합니다. 
@@ -67,11 +67,13 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 | VIDEO_URL| 카메라 디바이스에 대한 RTSP URL(예: `rtsp://username:password@url`)입니다. 공간 분석은 RTSP, http 또는 mp4를 통해 H.264로 인코딩된 스트림을 지원합니다. Video_URL은 AES 암호화를 이용하여 난독 처리된 base64 문자열 값으로 제공할 수 있으며, 비디오 URL이 난독 처리된 경우 `KEY_ENV` 및 `IV_ENV`를 환경 변수로 제공해야 합니다. 키 및 암호화를 생성하는 샘플 유틸리티는 [여기](/dotnet/api/system.security.cryptography.aesmanaged)서 확인할 수 있습니다. |
 | VIDEO_SOURCE_ID | 카메라 디바이스 또는 비디오 스트림에 대한 식별 이름입니다. 이벤트 JSON 출력과 함께 반환됩니다.|
 | VIDEO_IS_LIVE| 카메라 디바이스의 경우 true이고, 기록된 비디오의 경우 false입니다.|
-| VIDEO_DECODE_GPU_INDEX| 비디오 프레임을 디코딩하는 GPU입니다. 기본값은 0입니다. `VICA_NODE_CONFIG`, `DETECTOR_NODE_CONFIG`와 같은 다른 노드 구성의 `gpu_index`와 동일해야 합니다.|
+| VIDEO_DECODE_GPU_INDEX| 비디오 프레임을 디코딩하는 GPU입니다. 기본값은 0입니다. 및 와 같은 다른 노드 구성의 와 동일해야 `gpu_index` `DETECTOR_NODE_CONFIG` `CAMERACALIBRATOR_NODE_CONFIG` 합니다.|
 | INPUT_VIDEO_WIDTH | 입력 비디오/스트림의 프레임 너비(예: 1920)입니다. 선택적인 필드이며, 제공되는 경우 프레임은 가로 세로 비율을 유지하면서 이 크기로 조정됩니다.|
 | DETECTOR_NODE_CONFIG | 탐지기 노드를 실행할 GPU를 나타내는 JSON입니다. `"{ \"gpu_index\": 0 }",` 형식이어야 합니다.|
+| TRACKER_NODE_CONFIG | 추적기 노드에서 속도를 계산할지 여부를 나타내는 JSON입니다. `"{ \"enable_speed\": true }",` 형식이어야 합니다.|
 | CAMERA_CONFIG | 여러 카메라에 대해 보정된 카메라 매개 변수를 나타내는 JSON입니다. 사용한 기술에 보정이 필요하고 카메라 매개 변수가 이미 있는 경우 이 구성을 사용하여 직접 제공할 수 있습니다. `"{ \"cameras\": [{\"source_id\": \"endcomputer.0.persondistancegraph.detector+end_computer1\", \"camera_height\": 13.105561256408691, \"camera_focal_length\": 297.60003662109375, \"camera_tiltup_angle\": 0.9738943576812744}] }"`, `source_id` 형식은 각 카메라를 식별하는 데 사용됩니다. 게시한 이벤트의 `source_info`에서 가져올 수 있습니다. `do_calibration=false`가 `DETECTOR_NODE_CONFIG`에 있을 때만 적용됩니다.|
-| TRACKER_NODE_CONFIG | 추적기 노드에서 속도를 계산할지 여부를 나타내는 JSON입니다. `"{ \"enable_speed\": false }",` 형식이어야 합니다.|
+| CAMERACALIBRATOR_NODE_CONFIG | 카메라 보정기 노드를 실행할 GPU 및 보정 사용 여부를 나타내는 JSON입니다. `"{ \"gpu_index\": 0, \"do_calibration\": true, \"enable_orientation\": true}",` 형식이어야 합니다.|
+| CALIBRATION_CONFIG | 카메라 보정의 작동 방식을 제어하는 매개 변수를 나타내는 JSON입니다. `"{\"enable_recalibration\": true, \"quality_check_frequency_seconds\": 86400}",` 형식이어야 합니다.|
 | SPACEANALYTICS_CONFIG | 아래에서 설명한 대로 영역 및 선에 대한 JSON 구성입니다.|
 | ENABLE_FACE_MASK_CLASSIFIER | 비디오 스트림에서 얼굴 마스크를 착용한 사람을 감지하려면 `True`이고, 사용하지 않도록 설정하려면 `False`입니다. 기본적으로 사용하지 않도록 설정됩니다. 얼굴 마스크 감지를 사용하려면 입력 비디오 너비 매개 변수가 1920 `"INPUT_VIDEO_WIDTH": 1920`이어야 합니다. 감지된 사람이 카메라를 향하고 있지 않거나 카메라에서 너무 멀리 떨어져 있으면 얼굴 마스크 특성이 반환되지 않습니다. 자세한 내용은 [카메라 배치](spatial-analysis-camera-placement.md) 가이드를 참조하세요. |
 
@@ -81,7 +83,38 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 ```json
 {
 "gpu_index": 0,
+"enable_breakpad": false
+}
+```
+
+| Name | Type| Description|
+|---------|---------|---------|
+| `gpu_index` | 문자열| 이 작업이 실행되는 GPU 인덱스입니다.|
+| `enable_breakpad`| bool | 디버그 사용을 위해 크래시 덤프를 생성하는 데 사용되는 중단 패드를 사용할지 여부를 나타냅니다. 기본값은 `false`입니다. `true`로 설정하면 `"CapAdd": ["SYS_PTRACE"]`도 `createOptions` 컨테이너의 `HostConfig` 부분에 추가해야 합니다. 기본적으로 크래시 덤프는 [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) AppCenter 앱에 업로드됩니다. 크래시 덤프를 사용자 고유의 AppCenter 앱에 업로드하려면 `RTPT_APPCENTER_APP_SECRET` 환경 변수를 앱의 앱 비밀로 재정의할 수 있습니다.|
+
+### <a name="camera-calibration-node-parameter-settings"></a>카메라 보정 노드 매개 변수 설정
+이는 모든 공간 `CAMERACALIBRATOR_NODE_CONFIG` 분석 작업에 대한 매개 변수의 예입니다.
+
+```
+{
+"gpu_index": 0,
 "do_calibration": true,
+"enable_breakpad": false,
+"enable_orientation": true
+}
+```
+
+| 이름 | Type| Description|
+|---------|---------|---------|
+| `do_calibration` | 문자열 | 보정이 설정되어 있음을 나타냅니다. **cognitiveservices.vision.spatialanalysis-persondistance** 가 제대로 작동하려면 `do_calibration`이 true여야 합니다. `do_calibration` 는 기본적으로 로 `True` 설정됩니다. |
+| `enable_breakpad`| bool | 디버그 사용을 위해 크래시 덤프를 생성하는 데 사용되는 중단 패드를 사용할지 여부를 나타냅니다. 기본값은 `false`입니다. `true`로 설정하면 `"CapAdd": ["SYS_PTRACE"]`도 `createOptions` 컨테이너의 `HostConfig` 부분에 추가해야 합니다. 기본적으로 크래시 덤프는 [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) AppCenter 앱에 업로드됩니다. 크래시 덤프를 사용자 고유의 AppCenter 앱에 업로드하려면 `RTPT_APPCENTER_APP_SECRET` 환경 변수를 앱의 앱 비밀로 재정의할 수 있습니다.
+| `enable_orientation` | bool | 검색된 사람의 방향을 계산할지 여부를 나타냅니다. `enable_orientation` 는 기본적으로 로 `True` 설정됩니다. |
+
+### <a name="calibration-config"></a>보정 구성
+이는 모든 공간 `CALIBRATION_CONFIG` 분석 작업에 대한 매개 변수의 예입니다.
+
+```
+{
 "enable_recalibration": true,
 "calibration_quality_check_frequency_seconds": 86400,
 "calibration_quality_check_sample_collect_frequency_seconds": 300,
@@ -91,18 +124,14 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 }
 ```
 
-| Name | 유형| Description|
+| 이름 | Type| Description|
 |---------|---------|---------|
-| `gpu_index` | 문자열| 이 작업이 실행되는 GPU 인덱스입니다.|
-| `do_calibration` | 문자열 | 보정이 설정되어 있음을 나타냅니다. **cognitiveservices.vision.spatialanalysis-persondistance** 가 제대로 작동하려면 `do_calibration`이 true여야 합니다. do_calibration은 기본적으로 True로 설정됩니다. |
 | `enable_recalibration` | bool | 자동 다시 보정이 설정되어 있는지 여부를 나타냅니다. 기본값은 `true`입니다.|
 | `calibration_quality_check_frequency_seconds` | int | 다시 보정이 필요한지 여부를 결정하기 위한 각 품질 검사 사이의 최소 시간(초)입니다. 기본값은 `86400`(24시간)입니다. `enable_recalibration=True`인 경우에만 사용됩니다.|
 | `calibration_quality_check_sample_collect_frequency_seconds` | int | 다시 보정할 새 데이터 샘플 수집과 품질 검사 사이의 최소 시간(초)입니다. 기본값은 `300`(5분)입니다. `enable_recalibration=True`인 경우에만 사용됩니다.|
 | `calibration_quality_check_one_round_sample_collect_num` | int | 샘플 수집 라운드 단위로 수집할 새 데이터 샘플의 최소 수입니다. 기본값은 `10`입니다. `enable_recalibration=True`인 경우에만 사용됩니다.|
 | `calibration_quality_check_queue_max_size` | int | 카메라 모델이 보정될 때 저장할 최대 데이터 샘플 수입니다. 기본값은 `1000`입니다. `enable_recalibration=True`인 경우에만 사용됩니다.|
 | `calibration_event_frequency_seconds` | int | 카메라 보정 이벤트의 출력 빈도(초)입니다. 값 `-1`을 지정하면 카메라 보정 정보가 변경되지 않은 경우 카메라 보정을 보내지 않아야 함을 나타냅니다. 기본값은 `-1`입니다.|
-| `enable_breakpad`| bool | 디버그에서 사용할 크래시 덤프를 생성하는 데 사용되는 breakpad를 사용하도록 설정할지 여부를 나타냅니다. 기본값은 `false`입니다. `true`로 설정하면 `"CapAdd": ["SYS_PTRACE"]`도 `createOptions` 컨테이너의 `HostConfig` 부분에 추가해야 합니다. 기본적으로 크래시 덤프는 [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) AppCenter 앱에 업로드됩니다. 크래시 덤프를 사용자 고유의 AppCenter 앱에 업로드하려면 `RTPT_APPCENTER_APP_SECRET` 환경 변수를 앱의 앱 비밀로 재정의할 수 있습니다.
-| `enable_orientation` | bool | 검색된 사람의 방향을 계산할지 여부를 나타냅니다. `enable_orientation`은 기본적으로 False로 설정됩니다. |
 
 
 ### <a name="camera-calibration-output"></a>카메라 보정 출력
@@ -202,9 +231,9 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 "enable_speed": true,
 }
 ```
-| 속성 | 유형| Description|
+| 속성 | Type| Description|
 |---------|---------|---------|
-| `enable_speed` | bool | 검색된 사람의 속도를 계산할지 여부를 나타냅니다. `enable_speed`는 기본적으로 False로 설정됩니다. 속도와 방향을 모두 최상의 예상 값을 갖도록 설정하는 것이 좋습니다. |
+| `enable_speed` | bool | 검색된 사람의 속도를 계산할지 여부를 나타냅니다. `enable_speed` 는 기본적으로 로 `True` 설정됩니다. 속도와 방향이 모두 최상의 예상 값을 갖도록 설정하는 것이 좋습니다. |
 
 
 ## <a name="spatial-analysis-operations-configuration-and-output"></a>공간 분석 작업 구성 및 출력
@@ -228,7 +257,7 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 }
 ```
 
-| Name | 유형| 설명|
+| Name | Type| Description|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역에 대한 식별 이름입니다.|
@@ -273,7 +302,7 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 }
 ```
 
-| Name | 유형| 설명|
+| Name | Type| Description|
 |---------|---------|---------|
 | `lines` | list| 선 목록입니다.|
 | `name` | 문자열| 이 선에 대한 식별 이름입니다.|
@@ -319,7 +348,7 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 }
 ```
 
-| Name | 유형| 설명|
+| Name | Type| Description|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역에 대한 식별 이름입니다.|
@@ -355,7 +384,7 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 }
 ```
 
-| Name | 유형| 설명|
+| Name | Type| Description|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역에 대한 식별 이름입니다.|
@@ -645,7 +674,7 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 | `properties` | collection| 값 컬렉션|
 | `trackinId` | 문자열| 감지된 사람의 고유 식별자|
 | `status` | 문자열| 선 교차 방향('CrossLeft' 또는 'CrossRight')입니다. 방향은 선의 "끝"을 향하여 "시작"에 위치해 있는 상상을 기반으로 합니다. CrossRight는 왼쪽에서 오른쪽으로 교차합니다. CrossLeft는 오른쪽에서 왼쪽으로 교차합니다.|
-| `orientationDirection` | 문자열| 선을 통과한 후 감지된 사람의 방향입니다. 값은 'Left', 'Right 또는 'Straight'일 수 있습니다. `DETECTOR_NODE_CONFIG`에서 `enable_orientation`이 `True`로 설정된 경우 이 값이 출력됩니다. |
+| `orientationDirection` | 문자열| 선을 통과한 후 감지된 사람의 방향입니다. 값은 'Left', 'Right 또는 'Straight'일 수 있습니다. `CAMERACALIBRATOR_NODE_CONFIG`에서 `enable_orientation`이 `True`로 설정된 경우 이 값이 출력됩니다. |
 | `zone` | 문자열 | 교차된 선의 "name" 필드|
 
 | detections 필드 이름 | 형식| Description|
@@ -803,7 +832,7 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 | `side` | int| 사람이 교차한 다각형 변의 번호입니다. 각 변은 영역을 나타내는 다각형의 두 꼭짓점 사이에 번호가 매겨진 가장자리입니다. 다각형의 처음 두 꼭짓점 사이의 가장자리는 첫 번째 변을 나타냅니다. 폐색으로 인해 이벤트가 특정 변과 연결되지 않은 경우 'side'는 비어 있습니다. 예를 들어 사람이 사라졌지만 영역의 한 변을 교차하지 않은 것으로 확인되면 진출이 발생했거나, 영역에 사람이 나타났지만 변을 교차하지 않은 것으로 확인되면 진입이 발생했습니다.|
 | `dwellTime` | float | 사용자가 영역에서 머문 시간을 나타내는 밀리초 수입니다. 이벤트 형식이 personZoneDwellTimeEvent인 경우 이 필드가 제공됩니다.|
 | `dwellFrames` | int | 사람이 영역에서 보낸 프레임 수입니다. 이벤트 형식이 personZoneDwellTimeEvent인 경우 이 필드가 제공됩니다.|
-| `dwellTimeForTargetSide` | float | 사용자가 영역에서 보낸 시간과 `target_side`와 마주한 시간을 나타내는 밀리초 수입니다. 이 필드는 `enable_orientation`이 `DETECTOR_NODE_CONFIG `에서 `True`이고 `target_side`의 값이 `SPACEANALYTICS_CONFIG`로 설정된 경우에 제공됩니다.|
+| `dwellTimeForTargetSide` | float | 사용자가 영역에서 보낸 시간과 `target_side`와 마주한 시간을 나타내는 밀리초 수입니다. 이 필드는 `enable_orientation`이 `CAMERACALIBRATOR_NODE_CONFIG `에서 `True`이고 `target_side`의 값이 `SPACEANALYTICS_CONFIG`로 설정된 경우에 제공됩니다.|
 | `avgSpeed` | float| 영역에 있는 사람의 평균 속도입니다. 단위는 `foot per second (ft/s)`입니다.|
 | `minSpeed` | float| 영역에 있는 사용자의 최소 속도입니다. 단위는 `foot per second (ft/s)`입니다.|
 | `zone` | 문자열 | 교차된 영역을 나타내는 다각형의 "name" 필드|
@@ -993,12 +1022,12 @@ GPU의 최고 성능과 사용률을 얻기 위해 그래프 인스턴스를 사
                     "DETECTOR_NODE_CONFIG": "{ \"gpu_index\": 0, \"batch_size\": 7, \"do_calibration\": true}",
                 }
             },
-            "shared_detector1": {
-                "node": "PersonCrossingLineGraph.detector",
+            "shared_calibrator0": {
+                "node": "PersonCrossingLineGraph/cameracalibrator",
                 "parameters": {
-                    "DETECTOR_NODE_CONFIG": "{ \"gpu_index\": 0, \"batch_size\": 8, \"do_calibration\": true}",
+                    "CAMERACALIBRATOR_NODE_CONFIG": "{ \"gpu_index\": 0, \"do_calibration\": true, \"enable_zone_placement\": true}",
+                    "CALIBRATION_CONFIG": "{\"enable_recalibration\": true, \"quality_check_frequency_seconds\": 86400}",
                 }
-            }
         },
         "parameters": {
             "VIDEO_DECODE_GPU_INDEX": 0,
@@ -1008,6 +1037,7 @@ GPU의 최고 성능과 사용률을 얻기 위해 그래프 인스턴스를 사
             "1": {
                 "sharedNodeMap": {
                     "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 1>",
@@ -1018,6 +1048,7 @@ GPU의 최고 성능과 사용률을 얻기 위해 그래프 인스턴스를 사
             "2": {
                 "sharedNodeMap": {
                     "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 2>",
@@ -1028,6 +1059,7 @@ GPU의 최고 성능과 사용률을 얻기 위해 그래프 인스턴스를 사
             "3": {
                 "sharedNodeMap": {
                     "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 3>",
@@ -1038,6 +1070,7 @@ GPU의 최고 성능과 사용률을 얻기 위해 그래프 인스턴스를 사
             "4": {
                 "sharedNodeMap": {
                     "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 4>",
@@ -1048,6 +1081,7 @@ GPU의 최고 성능과 사용률을 얻기 위해 그래프 인스턴스를 사
             "5": {
                 "sharedNodeMap": {
                     "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 5>",
@@ -1058,6 +1092,7 @@ GPU의 최고 성능과 사용률을 얻기 위해 그래프 인스턴스를 사
             "6": {
                 "sharedNodeMap": {
                     "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 6>",
@@ -1068,6 +1103,7 @@ GPU의 최고 성능과 사용률을 얻기 위해 그래프 인스턴스를 사
             "7": {
                 "sharedNodeMap": {
                     "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 7>",
@@ -1077,7 +1113,8 @@ GPU의 최고 성능과 사용률을 얻기 위해 그래프 인스턴스를 사
             },
             "8": {
                 "sharedNodeMap": {
-                    "PersonCrossingLineGraph/detector": "shared_detector1",
+                    "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 8>",
@@ -1087,7 +1124,8 @@ GPU의 최고 성능과 사용률을 얻기 위해 그래프 인스턴스를 사
             },
             "9": {
                 "sharedNodeMap": {
-                    "PersonCrossingLineGraph/detector": "shared_detector1",
+                    "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 9>",
@@ -1097,7 +1135,8 @@ GPU의 최고 성능과 사용률을 얻기 위해 그래프 인스턴스를 사
             },
             "10": {
                 "sharedNodeMap": {
-                    "PersonCrossingLineGraph/detector": "shared_detector1",
+                    "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 10>",
@@ -1107,7 +1146,8 @@ GPU의 최고 성능과 사용률을 얻기 위해 그래프 인스턴스를 사
             },
             "11": {
                 "sharedNodeMap": {
-                    "PersonCrossingLineGraph/detector": "shared_detector1",
+                    "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 11>",
@@ -1117,7 +1157,8 @@ GPU의 최고 성능과 사용률을 얻기 위해 그래프 인스턴스를 사
             },
             "12": {
                 "sharedNodeMap": {
-                    "PersonCrossingLineGraph/detector": "shared_detector1",
+                    "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 12>",
@@ -1127,7 +1168,8 @@ GPU의 최고 성능과 사용률을 얻기 위해 그래프 인스턴스를 사
             },
             "13": {
                 "sharedNodeMap": {
-                    "PersonCrossingLineGraph/detector": "shared_detector1",
+                    "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 13>",
@@ -1137,7 +1179,8 @@ GPU의 최고 성능과 사용률을 얻기 위해 그래프 인스턴스를 사
             },
             "14": {
                 "sharedNodeMap": {
-                    "PersonCrossingLineGraph/detector": "shared_detector1",
+                    "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 14>",
@@ -1147,7 +1190,8 @@ GPU의 최고 성능과 사용률을 얻기 위해 그래프 인스턴스를 사
             },
             "15": {
                 "sharedNodeMap": {
-                    "PersonCrossingLineGraph/detector": "shared_detector1",
+                    "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 15>",
@@ -1160,7 +1204,7 @@ GPU의 최고 성능과 사용률을 얻기 위해 그래프 인스턴스를 사
       }
   }
   ```
-| Name | 유형| 설명|
+| Name | Type| Description|
 |---------|---------|---------|
 | `batch_size` | int | 모든 카메라의 해상도가 동일한 경우 `batch_size`를 해당 작업에 사용할 카메라 수로 설정하고, 그렇지 않으면 `batch_size`를 1로 설정하거나 일괄 처리가 지원되지 않음을 나타내는 기본값(1)으로 둡니다. |
 

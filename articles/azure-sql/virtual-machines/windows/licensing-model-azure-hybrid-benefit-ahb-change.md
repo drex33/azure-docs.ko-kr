@@ -15,12 +15,12 @@ ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6d840893de2c516137e54d015123fa9249b93d54
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
-ms.translationtype: HT
+ms.openlocfilehash: cd9975e1554c6c2f56561ce5e3fba5086c342c21
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113434627"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129987414"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Azure에서 SQL 가상 머신의 라이선스 모델 변경
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -117,7 +117,7 @@ Update-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name> -License
    - [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-overview)가 있는 고객만 사용할 수 있습니다.
    - SQL Server의 Standard 및 Enterprise 버전에만 지원됩니다. Express, Web 및 Developer에 대한 라이선스 변경은 지원되지 않습니다. 
    - Azure Resource Manager 모델을 통해 배포된 가상 머신에만 지원됩니다. 클래식 모델을 통해 배포된 가상 머신은 지원되지 않습니다. 
-   - 공용 클라우드 또는 Azure Government 클라우드에 대해서만 사용할 수 있습니다. 
+   - 공용 클라우드 또는 Azure Government 클라우드에 대해서만 사용할 수 있습니다. Azure 중국 지역에서 현재 사용할 수 없습니다. 
 
 > [!Note]
 > Software Assurance 또는 구독 라이선스를 사용하는 SQL Server 코어 기반 라이선스만 Azure 하이브리드 혜택에 적합합니다. SQL Server에 대해 서버 + CAL 라이선스를 사용하고 있고 Software Assurance가 있는 경우, Azure SQL Server 가상 머신 이미지에 대한 BYOL(사용자 라이선스 필요)을 사용하여 해당 서버에 대한 라이선스 이동을 활용할 수 있지만 Azure 하이브리드 혜택의 다른 기능을 활용할 수는 없습니다. 

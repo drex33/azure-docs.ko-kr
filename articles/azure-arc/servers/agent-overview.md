@@ -1,15 +1,15 @@
 ---
 title: Connected Machine 에이전트 개요
 description: 이 문서에서는 하이브리드 환경에서 호스트되는 가상 머신의 모니터링을 지원하는 Azure Arc 지원 서버 에이전트에 대한 자세한 개요를 제공합니다.
-ms.date: 09/30/2021
+ms.date: 10/12/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e4251ceafd2ab06afc43f8c3ba84f167219d7e14
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 71446d57d5f73e81c859a0d8453a2017f4c5fd12
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129713167"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129984367"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Azure Arc 지원 서버 에이전트 개요
 
@@ -183,17 +183,11 @@ URL:
 |`management.azure.com`|Azure 리소스 관리자|
 |`login.windows.net`|Azure Active Directory|
 |`login.microsoftonline.com`|Azure Active Directory|
+|`pas.windows.net`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
 |`*.guestconfiguration.azure.com` |게스트 구성|
 |`*.his.arc.azure.com`|하이브리드 ID 서비스|
 |`*.blob.core.windows.net`|Azure Arc 사용 서버 확장에 대 한 다운로드 원본|
-
-Preview 에이전트(버전 0.11 이하)에서도 다음 URL에 액세스할 수 있어야 합니다.
-
-| 에이전트 리소스 | Description |
-|---------|---------|
-|`agentserviceapi.azure-automation.net`|게스트 구성|
-|`*-agentservice-prod-1.azure-automation.net`|게스트 구성|
 
 각 서비스 태그/지역의 IP 주소 목록은 JSON 파일 - [Azure IP 범위 및 서비스 태그 – 퍼블릭 클라우드](https://www.microsoft.com/download/details.aspx?id=56519)를 참조하세요. Microsoft는 각 Azure 서비스 및 여기에 사용되는 IP 범위를 포함하는 주간 업데이트를 게시합니다. JSON 파일의 이 정보는 각 서비스 태그에 해당하는 IP 범위의 현재 지정 시간 목록입니다. IP 주소는 변경될 수 있습니다. 방화벽 구성에 IP 주소 범위가 필요한 경우 모든 Azure 서비스에 대한 액세스를 허용하기 위해 **AzureCloud** 서비스 태그를 사용해야 합니다. 이러한 URL의 보안 모니터링 또는 검사를 해제하지 말고, 다른 인터넷 트래픽처럼 허용합니다.
 
@@ -322,17 +316,17 @@ Linux용 Connected Machine 에이전트를 설치하면 다음과 같은 시스�
 
 ### <a name="agent-resource-governance"></a>에이전트 리소스 거버넌스
 
-Azure Arc 사용 서버 연결 된 컴퓨터 에이전트는 에이전트 및 시스템 리소스 소비를 관리 하도록 설계 되었습니다. 에이전트는 다음과 같은 경우에 리소스 거버넌스에 접근합니다.
+Azure Arc 지원 서버 Connected Machine 에이전트는 에이전트 및 시스템 리소스 사용을 관리하도록 설계되었습니다. 에이전트는 다음과 같은 경우에 리소스 거버넌스에 접근합니다.
 
 - 게스트 구성 에이전트는 정책을 평가하기 위해 CPU를 최대 5% 제한합니다.
 - 확장 서비스 에이전트는 CPU의 최대 5%를 사용하도록 제한됩니다.
 
    - 이 제한은 설치/설치 제거/업그레이드 작업에만 적용됩니다. 설치되고 나면 확장에서 자체 리소스 사용률을 담당하며 5% CPU 제한은 적용되지 않습니다.
-   - Log Analytics 에이전트 및 Azure Monitor 에이전트는 Red Hat Linux, CentOS 및 기타 엔터프라이즈 Linux 변형에서 설치/업그레이드/제거 작업을 수행 하는 동안 최대 60%의 CPU를 사용할 수 있습니다. 해당 시스템에 미치는 [SELinux](https://www.redhat.com/en/topics/linux/what-is-selinux)의 성능 영향을 수용하기 위해 확장 프로그램과 운영 체제 조합의 경우 한도는 더 높습니다.
+   - Log Analytics 에이전트 및 Azure Monitor 에이전트는 Red Hat Linux, CentOS 및 기타 엔터프라이즈 Linux 변형에서 설치/업그레이드/제거 작업 중에 CPU의 최대 60%를 사용할 수 있습니다. 해당 시스템에 미치는 [SELinux](https://www.redhat.com/en/topics/linux/what-is-selinux)의 성능 영향을 수용하기 위해 확장 프로그램과 운영 체제 조합의 경우 한도는 더 높습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* azure arc 사용 서버 평가를 시작 하려면 [azure arc 사용 서버를 사용 하는 하이브리드 컴퓨터 커넥트](learn/quick-enable-hybrid-vm.md)문서를 따르세요.
+* Azure Arc 지원 서버 평가를 시작하려면 Azure Arc 지원 서버가 있는 [하이브리드 머신 커넥트](learn/quick-enable-hybrid-vm.md)문서를 따르세요.
 
 * Azure Arc 지원 서버 에이전트를 배포하고 다른 Azure 관리 및 모니터링 서비스와 통합하기 전에 [계획 및 배포 가이드를](plan-at-scale-deployment.md)검토하세요.
 

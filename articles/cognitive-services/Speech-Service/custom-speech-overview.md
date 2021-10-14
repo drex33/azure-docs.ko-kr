@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 10/08/2021
 ms.author: pafarley
 ms.custom: contperf-fy21q2, references_regions
-ms.openlocfilehash: 01cd31d60306968580df5bd6d67a3136d49d2277
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 58de4dacfbd2cb75c3bbfe4a77cda79fe99ffd75
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123542164"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004448"
 ---
 # <a name="what-is-custom-speech"></a>Custom Speech란?
 
@@ -63,7 +63,7 @@ Custom Speech를 사용하여 작업을 수행하려면 Azure 계정 및 Speech 
 
 Azure 계정과 Speech Service 구독을 만든 후에는 [Speech Studio](https://speech.microsoft.com/customspeech)에 로그인하여 구독을 연결해야 합니다.
 
-1. [Speech Studio](https://aka.ms/custom-speech)에 로그인합니다.
+1. [Speech Studio](https://aka.ms/speechstudio/customspeech)에 로그인합니다.
 1. 작업해야 하는 구독을 선택하고 음성 프로젝트를 만듭니다.
 1. 구독을 수정하려면 상단 메뉴에서 톱니바퀴 단추를 선택합니다.
 
@@ -74,7 +74,7 @@ Azure 계정과 Speech Service 구독을 만든 후에는 [Speech Studio](https:
 첫 번째 프로젝트를 만들려면 **음성 텍스트 변환/Custom Speech** 를 선택한 다음, **새 프로젝트** 를 선택합니다. 마법사에서 제공하는 지침에 따라 프로젝트를 만듭니다. 프로젝트를 만든 후에는 **데이터**, **테스트**, **학습** 및 **배포** 라는 네 개의 탭이 표시됩니다. [다음 단계](#next-steps)에 제공된 링크를 사용하여 각 탭을 사용하는 방법을 알아보세요.
 
 > [!IMPORTANT]
-> 이전에 "Custom Speech 포털"로 알려진 [Speech Studio](https://aka.ms/custom-speech)가 최근에 업데이트되었습니다. CRIS.ai 포털에서 또는 API를 사용하여 이전 데이터, 모델, 테스트 및 게시된 엔드포인트를 만든 경우, 새 포털에서 새 프로젝트를 만들어 이러한 이전 엔터티에 연결해야 합니다.
+> [Speech Studio(이전의](https://aka.ms/speechstudio) "Custom Speech Portal")은 최근에 업데이트되었습니다. CRIS.ai 포털에서 또는 API를 사용하여 이전 데이터, 모델, 테스트 및 게시된 엔드포인트를 만든 경우, 새 포털에서 새 프로젝트를 만들어 이러한 이전 엔터티에 연결해야 합니다.
 
 ## <a name="model-and-endpoint-lifecycle"></a>모델 및 엔드포인트 수명 주기
 

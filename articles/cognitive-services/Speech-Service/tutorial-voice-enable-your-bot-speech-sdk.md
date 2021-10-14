@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c29477a7e9f5ed7ea9f26d4169b092ba8307e30a
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 2e133f84888a7a987ca7888f68e5bb195a905f88
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539572"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003973"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>자습서: Speech SDK를 사용하여 봇 음성 지원
 
@@ -234,19 +234,20 @@ Microsoft Bot Framework를 사용하여 봇을 만들고, Azure에 배포하고,
 
 ## <a name="create-a-channel-registration"></a>채널 등록 만들기
 
-봇을 호스트할 Azure App Service를 만들었으므로, 다음 단계는 **봇 채널 등록** 을 만드는 것입니다. Direct Line Speech 채널을 포함하여 Bot Framework 채널에 봇을 등록하려면 먼저 채널 등록을 만들어야 합니다. 봇이 채널을 어떻게 사용하는지 자세히 알아보려면 [채널에 봇 연결](/azure/bot-service/bot-service-manage-channels)을 참조하세요.
+이제 봇을 호스트 하는 Azure App Service를 만들었으므로 다음 단계에서는 **Azure bot** 을 만듭니다. Direct Line Speech 채널을 포함하여 Bot Framework 채널에 봇을 등록하려면 먼저 채널 등록을 만들어야 합니다. 봇이 채널을 어떻게 사용하는지 자세히 알아보려면 [채널에 봇 연결](/azure/bot-service/bot-service-manage-channels)을 참조하세요.
 
-1. <a href="https://ms.portal.azure.com/#create/Microsoft.BotServiceConnectivityGalleryPackage" target="_blank">Azure Bot 채널 등록을 만듭니다</a>.
-2. 다음과 같은 정보를 제공하라는 메시지가 표시됩니다.
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.AzureBot" target="_blank">Azure Bot 만들기</a>
+1. 다음과 같은 정보를 제공하라는 메시지가 표시됩니다.
    * **봇 핸들** 에 **SpeechEchoBotTutorial-BotRegistration-####** 을 입력하고 **####** 을 원하는 숫자로 바꿉니다. 봇 핸들은 전역적으로 고유해야 합니다. 봇 핸들을 입력하면 _요청한 봇 ID를 사용할 수 없습니다_ 라는 오류 메시지가 표시되는 경우 다른 숫자를 선택합니다. 아래 예제에서는 8726을 사용했습니다.
    * **구독** 으로 **평가판** 을 선택합니다.
    * **리소스 그룹** 으로 **SpeechEchoBotTutorial-ResourceGroup** 을 선택합니다.
-   * **위치** 로 **미국 서부** 를 선택합니다.
-     * **가격 책정 계층** 으로 **F0** 을 선택합니다.
-     * **메시지 엔드포인트** 에는 웹앱의 URL 끝에 `/api/messages`를 붙여서 입력합니다. 예를 들어 전역적으로 고유한 앱 이름이 **EchoBot20190805125647** 인 경우 메시지 엔드포인트는 `https://EchoBot20190805125647.azurewebsites.net/api/messages/`입니다.
-     * **Application Insights** 는 **끄기** 로 설정해도 됩니다. 자세한 내용은 [봇 분석](/azure/bot-service/bot-service-manage-analytics)을 참조하세요.
-     * **자동 앱 ID 및 암호 만들기** 는 무시합니다.
-5. **봇 채널 등록** 블레이드의 맨 아래에서 **만들기** 를 클릭합니다.
+     * **위치** 로 **미국 서부** 를 선택합니다.
+   * **가격 책정 계층** 으로 **F0** 을 선택합니다.
+   * **자동 앱 ID 및 암호 만들기** 는 무시합니다.
+1. **Azure** Bot 블레이드 아래쪽에서 **만들기를** 선택합니다.
+1. 리소스를 만든 후 Azure Portal **SpeechEchoBotTutorial-BotRegistration-####** 리소스를 엽니다.
+1. **설정** 탐색에서 **구성을** 선택합니다.
+1. **메시징 엔드포인트의** 경우 경로가 추가된 웹앱의 `/api/messages` URL을 입력합니다. 예를 들어 전역적으로 고유한 앱 이름이 **EchoBot20190805125647인** 경우 메시징 엔드포인트는 `https://EchoBot20190805125647.azurewebsites.net/api/messages/` 입니다.
 
 지금은 Azure Portal에서 리소스 그룹 **SpeechEchoBotTutorial-ResourceGroup** 을 확인합니다. 적어도 다음 4개 리소스가 표시되어야 합니다.
 
@@ -254,46 +255,48 @@ Microsoft Bot Framework를 사용하여 봇을 만들고, Azure에 배포하고,
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | 미국 서부 |
 | SpeechEchoBotTutorial-AppServicePlan | App Service 계획 | 미국 서부 |
-| SpeechEchoBotTutorial-BotRegistration-8726 | 봇 채널 등록 | 전역 |
+| SpeechEchoBotTutorial-BotRegistration-8726 | Azure Bot | 전역 |
 | SpeechEchoBotTutorial-Speech | Cognitive Services | 미국 서부 |
 
 > [!IMPORTANT]
-> 미국 서부를 선택했더라도 봇 채널 등록 리소스는 전체 지역을 표시합니다. 예상된 동작입니다.
+> Azure Bot 리소스는 미국 서부를 선택했지만 글로벌 지역을 표시합니다. 예상된 동작입니다.
 
 ## <a name="optional-test-in-web-chat"></a>선택 사항: 웹 채팅에서 테스트
 
-Azure 봇 채널 등록 페이지의 **봇 관리** 에는 **웹 채팅에 테스트** 옵션이 있습니다. 웹 채팅을 봇에서 인증해야 하므로 이 옵션은 기본적으로 작동하지 않습니다. 배포된 봇을 텍스트 입력을 통해 테스트하려면 다음 단계를 수행합니다. 다음 단계는 선택 사항이며 완료하지 않아도 자습서의 다음 단계를 계속 진행할 수 있습니다. 
+Azure 봇 페이지에는 설정 **아래에** **웹 채팅 테스트** 옵션이 있습니다. 웹 채팅이 봇에 대해 인증해야 하므로 기본적으로 봇에서 작동하지 않습니다. 배포된 봇을 텍스트 입력을 통해 테스트하려면 다음 단계를 수행합니다. 이러한 단계는 선택 사항이며 자습서의 다음 단계를 계속 진행하는 데 필요하지 않습니다. 
 
 1. [Azure Portal](https://portal.azure.com)에서 **EchoBotTutorial-BotRegistration-####** 리소스를 찾아서 엽니다.
-1. **봇 관리** 탐색에서 **설정** 을 선택합니다. **Microsoft 앱 ID** 의 값을 복사합니다.
+1. **설정** 탐색에서 **구성을** 선택합니다. **Microsoft 앱 ID** 의 값을 복사합니다.
 1. Visual Studio EchoBot 솔루션을 엽니다. 솔루션 탐색기에서 **appsettings.json** 파일을 찾아서 두 번 클릭합니다.
 1. JSON 파일의 **MicrosoftAppId** 옆에 있는 빈 문자열을 앞에서 복사한 ID 값으로 바꿉니다.
-1. Azure Portal로 돌아가서, **봇 관리** 탐색에서 **설정** 을 선택하고 **Microsoft 앱 ID** 옆에 있는 **(관리)** 를 클릭합니다.
+1. Azure Portal 돌아가서 **설정** 탐색에서 **구성을** 선택하고 **Microsoft 앱 ID** 옆에 있는 **(관리)를** 클릭합니다.
 1. **새 클라이언트 암호** 를 클릭합니다. 설명(예: "웹 채팅")을 추가하고 **추가** 를 클릭합니다. 새 비밀을 복사합니다.
 1. JSON 파일의 **MicrosoftAppPassword** 옆에 있는 빈 문자열을 앞에서 복사한 ID 비밀 값으로 바꿉니다.
 1. JSON 파일을 저장합니다. 다음과 같이 표시됩니다.
-```json
-{
-  "MicrosoftAppId": "3be0abc2-ca07-475e-b6c3-90c4476c4370",
-  "MicrosoftAppPassword": "-zRhJZ~1cnc7ZIlj4Qozs_eKN.8Cq~U38G"
-}
-```
-9. Visual Studio 솔루션 탐색기에서 **EchoBot** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시...** 를 선택한 다음, **게시** 단추를 클릭하여 앱을 다시 게시합니다.
-10. 이제 웹 채팅에서 봇을 테스트할 준비가 완료되었습니다.
+
+   ```json
+   {
+     "MicrosoftAppId": "3be0abc2-ca07-475e-b6c3-90c4476c4370",
+     "MicrosoftAppPassword": "-zRhJZ~1cnc7ZIlj4Qozs_eKN.8Cq~U38G"
+   }
+   ```
+
+1. 앱을 다시 게시합니다(Visual Studio 솔루션 탐색기 **EchoBot** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시...를** 선택하고 **게시** 단추를 클릭합니다.)
+1. 이제 웹 채팅에서 봇을 테스트할 준비가 완료되었습니다.
 
 ## <a name="register-the-direct-line-speech-channel"></a>Direct Line Speech 채널 등록
 
 이제 Direct Line Speech 채널에 봇을 등록할 차례입니다. 이 채널은 봇과 Speech SDK를 사용하여 컴파일한 클라이언트 앱 사이에 연결을 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 **SpeechEchoBotTutorial-BotRegistration-####** 리소스를 찾아서 엽니다.
-1. **봇 관리** 탐색에서 **채널** 을 선택합니다.
+1. **설정** 탐색에서 **채널을** 선택합니다.
    * **채널 더 보기** 에서 **Direct Line Speech** 를 클릭합니다.
    * **Direct Line Speech 구성** 이라는 페이지의 텍스트를 검토한 다음, **인식 서비스 계정** 드롭다운 메뉴를 확장합니다.
    * 메뉴에서 이전에 만든 Speech 리소스(예: **SpeechEchoBotTutorial-Speech**)를 선택하여 봇을 Speech 구독 키에 연결합니다.
    * 나머지 선택 사항 필드는 무시합니다.
    * **저장** 을 클릭합니다.
 
-1. **봇 관리** 탐색에서 **설정** 을 클릭합니다.
+1. **설정** 탐색에서 **구성을** 클릭합니다.
    * **스트리밍 엔드포인트 사용** 확인란을 선택합니다. 이 옵션은 봇과 Direct Line Speech 채널 사이에 웹 소켓 기반의 통신 프로토콜을 만드는 데 필요합니다.
    * **저장** 을 클릭합니다.
 

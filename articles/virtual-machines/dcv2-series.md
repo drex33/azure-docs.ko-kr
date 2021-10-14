@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 0c5321625f9963a15527d8fb0edef73f0701bd6e
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: a92f368dc01aef5cf43ea93b94639fc1329ec7ea
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129856388"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129984386"
 ---
 # <a name="dcsv2-series"></a>DCsv2 시리즈
 
@@ -22,9 +22,10 @@ DCsv2 시리즈 가상 머신을 사용하면 퍼블릭 클라우드에서 처�
 
 해당 머신은 SGX 기술을 사용하는 3.7GHz Intel® Xeon E-2288G(Coffee Lake)로 백업됩니다. Intel® Turbo Boost Max Technology 3.0을 사용하면 이 머신은 최대 5.0GHz까지 사용할 수 있습니다. 
 
-[!NOTE] 추가 된 보안 상태에 대해 하이퍼 기능을 사용할 수 없습니다. 가격 책정은 DC 시리즈의 고유한 보안 기능 뿐만 아니라 물리적 vs 가상 코어의 뛰어난 성능을 기반으로 합니다.
+> [!NOTE]
+> 추가 보안 태세에 대해 하이퍼 스레딩을 사용할 수 없습니다. 가격 책정은 DC 시리즈의 고유한 보안 기능뿐만 아니라 물리적 코어와 가상 코어의 뛰어난 성능을 기반으로 합니다.
 
-기밀 사용 사례에는 데이터베이스, 블록 체인, 단체 데이터 분석, 사기 감지, 사기 분석, 사용 분석, 인텔리전스 분석 및 기계 학습 등이 있습니다.
+기밀 사용 사례의 예로는 데이터베이스, 블록체인, 다중 파트 데이터 분석, 사기 감지, 자금 방지 사기, 사용량 분석, 인텔리전스 분석 및 기계 학습이 있습니다.
 
 ## <a name="configuration"></a>구성
 
@@ -40,7 +41,7 @@ DCsv2 시리즈 가상 머신을 사용하면 퍼블릭 클라우드에서 처�
 
 ## <a name="technical-specifications"></a>기술 사양
 
-| 크기             | 실제 코어 | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 NIC 수 / 예상 네트워크 대역폭(MBps) | EPC 메모리(MiB) |
+| 크기             | 물리적 코어 | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 NIC 수 / 예상 네트워크 대역폭(MBps) | EPC 메모리(MiB) |
 |------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|----------------------------------------------|---------------------|
 | Standard_DC1s_v2 | 1    | 4           | 50                     | 1              | 2000/16                                                                                               | 2   | 28                                      |
 | Standard_DC2s_v2 | 2    | 8           | 100                    | 2              | 4000/32                                                                                               | 2  | 56                                          |

@@ -10,13 +10,13 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 04/09/2021
-ms.openlocfilehash: 473aa81bf28dd867bf30acef7a5b407b0e4b67a2
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
-ms.translationtype: HT
+ms.date: 10/12/2021
+ms.openlocfilehash: 4c131b756a03622a2569f997fe427ebfdb661454
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112964755"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129999723"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>DTU 구매 모델을 사용한 탄력적 풀의 리소스 한도
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -185,7 +185,9 @@ DTU 수가 동일한 경우 탄력적 풀에 제공된 리소스가 탄력적 �
 > 또한 데이터베이스당 최소 DTU를 0보다 큰 값으로 설정하면 풀에 추가할 수 있는 데이터베이스 수가 암시적으로 제한됩니다. 예를 들어, 400 DTU 풀에서 최소 DTU를 100으로 설정하면 각 데이터베이스에 대해 100 DTU가 예약되어 있으므로 풀에 4개를 초과하는 데이터베이스를 추가할 수 없습니다.
 > 
 
-데이터베이스당 속성은 DTU로 표시되지만 데이터 IO, 로그 IO 및 작업자 스레드와 같은 다른 리소스 종류의 사용량도 제어합니다. 최소 및 최대 데이터베이스당 DTU 값을 조정하면 모든 리소스 종류에 대한 예약과 한도가 비례적으로 조정됩니다.
+데이터베이스별 속성은 DUS로 표현되지만 데이터 IO, 로그 IO, 버퍼 풀 메모리 및 작업자 스레드와 같은 다른 리소스 유형의 사용도 제어합니다. 최소 및 최대 데이터베이스당 DTU 값을 조정하면 모든 리소스 종류에 대한 예약과 한도가 비례적으로 조정됩니다.
+
+데이터베이스당 최소 및 최대값 DTU 값은 사용자 워크로드의 리소스 사용량에 적용되지만 내부 프로세스의 리소스 소비에는 적용되지 않습니다. 예를 들어 데이터베이스당 최대 DTU가 풀 eDTU의 절반으로 설정된 데이터베이스의 경우 사용자 워크로드는 버퍼 풀 메모리의 절반 이상을 사용할 수 없습니다. 그러나 이 데이터베이스는 내부 프로세스에 의해 로드된 버퍼 풀의 페이지를 계속 활용할 수 있습니다. 자세한 내용은 [사용자 워크로드 및 내부 프로세스별 리소스 소비를 참조하세요.](resource-limits-logical-server.md#resource-consumption-by-user-workloads-and-internal-processes)
 
 ## <a name="next-steps"></a>다음 단계
 

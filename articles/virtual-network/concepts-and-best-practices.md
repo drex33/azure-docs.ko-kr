@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2020
 ms.author: kumud
-ms.openlocfilehash: 0a9945a58aa6ec49ad58f3a0a0d03ea75e30f6d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: d2f39d06046cd9d51baef0a2b09be00a37a35ca3
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98223621"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993951"
 ---
 # <a name="azure-virtual-network-concepts-and-best-practices"></a>Azure Virtual Network 개념 및 모범 사례
 
@@ -36,7 +36,7 @@ Azure에서 네트워크를 빌드할 때 다음 범용 디자인 원칙에 유�
 - 겹치지 않는 주소 공간을 확보합니다. VNet 주소 공간(CIDR 블록)이 조직의 다른 네트워크 범위와 겹치지 않는지 확인합니다.
 - 서브넷은 VNet의 전체 주소 공간을 사용하지 않아야 합니다. 미래를 위해 미리 계획하고 일부 주소 공간을 예약합니다.
 - 여러 개의 작은 VNet보다 적은 수의 큰 VNet을 사용하는 것이 좋습니다. 이렇게 하면 관리 오버헤드가 방지됩니다.
-- 아래 서브넷에 NSG(네트워크 보안 그룹)를 할당하여 VNet을 보호합니다.
+- 아래 서브넷에 NSG(네트워크 보안 그룹)를 할당하여 VNet을 보호합니다. 네트워크 보안 개념에 대한 자세한 내용은 [Azure 네트워크 보안 개요를 참조하세요.](../security/fundamentals/network-overview.md)
 
 ## <a name="next-steps"></a>다음 단계
 

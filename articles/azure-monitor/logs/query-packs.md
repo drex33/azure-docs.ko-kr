@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2021
-ms.openlocfilehash: ef34ec8531242dfdb20e984c4c6d8f86d08b8fcf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 28bd435e8c6f6144b1dafd11df174d69f763d45d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566286"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129987464"
 ---
 # <a name="query-packs-in-azure-monitor-logs-preview"></a>Azure Monitor 로그의 쿼리 팩(미리 보기)
 쿼리 팩은 로그 쿼리를 저장하고 여러 작업 영역 및 다른 컨텍스트를 Log Analytics에서 공유하는 방법을 제공하는 Azure Monitor의 로그 쿼리 컨테이너 역할을 하는 리소스 관리자 개체입니다. 
@@ -71,7 +71,7 @@ API를 사용하여 새 쿼리 팩을 만드는 경우 비즈니스 요구 사�
 쿼리 팩의 각 쿼리에는 다음과 같은 속성이 있습니다.
 
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:---|:---|
 | displayName | 각 쿼리에 대한 Log Analytics에 나열된 표시 이름입니다. | 
 | description | 각 쿼리에 대해 Log Analytics에 표시되는 쿼리에 대한 설명입니다. |
@@ -79,11 +79,8 @@ API를 사용하여 새 쿼리 팩을 만드는 경우 비즈니스 요구 사�
 | 관련     | 쿼리에 대한 관련 범주, 리소스 종류 및 솔루션입니다. 사용자가 쿼리를 찾을 수 있도록 Log Analytics에서 그룹화 및 필터링하는 데 사용됩니다. 각 쿼리는 각 형식을 최대 10개까지 가질 수 있습니다. 검색하는 값은 https://api.loganalytics.io/v1/metadata?select=resourceTypes, 솔루션, 범주에서 허용된 값입니다. |
 | tags        | 사용자가 Log Analytics에서 정렬 및 필터링하는 데 사용하는 추가 태그입니다. 각 태그는 [쿼리를 그룹화하고 필터링](queries.md#finding-and-filtering-queries)할 때 범주, 리소스 종류 및 솔루션에 추가됩니다. |
 
-
-
-
 ## <a name="create-a-query-pack"></a>쿼리 팩 만들기
-현재 쿼리 팩을 설치하는 유일한 방법은 REST API입니다. 
+Log Analytics 쿼리 팩 블레이드의 Azure Portal에서 또는 REST API를 사용 하 여 쿼리 팩을 만들 수 있습니다. 
 
 ### <a name="create-token"></a>토큰 만들기
 API 요청의 인증을 위해 토큰이 필요합니다. 토큰을 얻는 방법에는 **armclient** 사용을 포함하여 여러 가지가 있습니다.

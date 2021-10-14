@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: baaa311620f5c10948aa3494002ce359cc5dab28
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 3b0ebb1989e350962317adce64c0542b4a296924
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94517175"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000767"
 ---
 # <a name="secure-development-best-practices-on-azure"></a>Azure의 보안 개발 모범 사례
 이 문서 시리즈에는 클라우드용 애플리케이션을 개발할 때 고려해야 할 보안 작업과 제어 기능이 나와 있습니다. Microsoft SDL(Security Development Lifecycle)의 단계와 주명 주기의 각 단계에서 고려해야 하는 보안 질문 및 개념에 대해 설명합니다. 목적은 수명 주기의 각 단계에서 더 안전한 애플리케이션을 디자인하고 개발 및 배포하기 위해 사용할 수 있는 활동과 Azure 서비스를 정의하는 데 도움을 주는 것입니다.
@@ -67,7 +67,7 @@ SDL 단계는 다음과 같습니다.
 
 [OWASP(Open Web Application Security Project)](https://www.owasp.org/index.php/Main_Page) – OWASP는 웹 애플리케이션 보안 필드에서 무료로 사용할 수 있는 문서, 방법론, 설명서, 도구 및 기술을 생성하는 온라인 커뮤니티입니다.
 
-[Pushing Left, Like a Boss](https://code.likeagirl.io/pushing-left-like-a-boss-part-1-80f1f007da95?WT.mc_id=docs-blog-tajanca) -개발자가 보다 안전한 코드를 만들려면 완료해야 하는 다양한 유형의 애플리케이션 보안 활동을 개괄적으로 설명하는 일련의 온라인 문서입니다.
+[Pushing Left, Like a Boss](https://wehackpurple.com/pushing-left-like-a-boss-part-1/) -개발자가 보다 안전한 코드를 만들려면 완료해야 하는 다양한 유형의 애플리케이션 보안 활동을 개괄적으로 설명하는 일련의 온라인 문서입니다.
 
 [Microsoft ID 플랫폼](../../active-directory/develop/index.yml) – Microsoft ID 플랫폼은 Azure AD ID 서비스와 개발자 플랫폼의 발전된 형태입니다. 인증 서비스, 오픈 소스 라이브러리, 애플리케이션 등록/구성, 완전한 개발자 설명서, 코드 샘플 및 기타 개발자 콘텐츠로 구성되는 모든 기능을 갖춘 플랫폼입니다. Microsoft ID 플랫폼은 OAuth 2.0 및 OpenID Connect 등의 산업 표준 프로토콜을 지원합니다.
 

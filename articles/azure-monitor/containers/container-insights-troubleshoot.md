@@ -3,12 +3,12 @@ title: 컨테이너 인사이트 문제 해결 방법 | Microsoft Docs
 description: 이 문서에서는 컨테이너 인사이트의 문제를 해결하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: b7618e9073308da67a8e17c82375a0f05925a542
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 04fea3c36cbff4e2c8ecb315f6e3f93bc92aa2b3
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105627118"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003253"
 ---
 # <a name="troubleshooting-container-insights"></a>컨테이너 인사이트 문제 해결
 
@@ -160,6 +160,31 @@ nodeSelector:
         kubernetes.azure.com/managedby: aks
         ```
 
+## <a name="installation-of-azure-monitor-containers-extension-fail-with-an-error-containing-manifests-contain-a-resource-that-already-exists-on-azure-arc-enabled-kubernetes-cluster"></a>Azure Arc 사용 Kubernetes 클러스터에서 "매니페스트가 이미 있는 리소스를 포함 하 고 있습니다." 라는 오류와 함께 Azure Monitor 컨테이너 확장 설치가 실패 합니다.
+오류 매니페스트에는 이미 _존재 하는 리소스가 포함 되어_ 있습니다 .이는 컨테이너 Insights 에이전트의 리소스가 Azure Arc Enabled Kubernetes 클러스터에 이미 있음을 나타냅니다. 이는 컨테이너 insights 에이전트가 Azure Arc에 연결 된 AKS 클러스터 인 경우 azuremonitor-컨테이너 투구 차트 또는 모니터링 추가 기능을 통해 이미 설치 되었음을 나타냅니다. 이 문제에 대 한 해결 방법은 컨테이너 insights 에이전트가 있는 경우 기존 리소스를 정리 하 고 Azure Monitor 컨테이너 확장을 사용 하도록 설정 하는 것입니다.
+
+### <a name="for-non-aks-clusters"></a>AKS 않는 클러스터의 경우 
+1.  Azure Arc에 연결 된 K8s 클러스터에 대해 아래 명령을 실행 하 여 azmon 투구 차트 릴리스가 있는지 여부를 확인 합니다.
+
+    `helm list  -A`
+
+2.  위 명령의 출력에서 azmon가 있는 것으로 표시 되 면 투구 차트 릴리스를 삭제 합니다.
+
+    `helm del azmon-containers-release-1`
+
+### <a name="for-aks-clusters"></a>AKS 클러스터의 경우
+1.  아래 명령을 실행 하 고 omsagent addon 프로필을 찾아 AKS monitoring 추가 기능을 사용 하도록 설정 했는지 확인 합니다.
+
+    ```
+    az  account set -s <clusterSubscriptionId>
+    az aks show -g <clusterResourceGroup> -n <clusterName>
+    ```
+
+2.  위 명령의 출력에 log analytics 작업 영역 리소스 Id가 있는 omsagent addon profile 구성이 있는 경우 AKS 모니터링 추가 기능이 사용 하도록 설정 되어 있고 사용 하지 않도록 설정 해야 함을 나타냅니다.
+
+    `az aks disable-addons -a monitoring -g <clusterResourceGroup> -n <clusterName>`
+
+위의 단계에서 Azure Monitor 컨테이너 확장 문제의 설치를 해결 하지 못한 경우 추가 조사를 위해 Microsoft에 티켓을 만드세요.
 
 
 ## <a name="next-steps"></a>다음 단계

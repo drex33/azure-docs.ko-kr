@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/01/2021
 ms.author: danlep
-ms.openlocfilehash: f63a8e9f083256cb68a23d69e49d44d9bbfd57de
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 74ef0589a32520a411b0ba8aa0677496b44f9549
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429474"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129999932"
 ---
 # <a name="api-management-cross-domain-policies"></a>도메인 정책 간 API Management
 이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](./api-management-policies.md)을 참조하세요.
@@ -91,7 +91,7 @@ CORS를 통해 브라우저와 서버가 상호 작용하여 특정 원본 간 �
 ```
 
 ### <a name="example"></a>예제
-이 예제에서는 GET 및 POST 이외의 메서드 또는 사용자 지정 헤더를 비롯하여 사전 요청을 지원하는 방법을 보여 줍니다. 사용자 지정 헤더 및 추가 HTTP 동사를 지원하려면 다음 예제와 같이 `allowed-methods` 및 `allowed-headers` 섹션을 사용하세요.
+이 예제에서는 GET 및 POST 이외의 메서드 또는 사용자 지정 헤더가 있는 요청과 같은 [사전 비행 요청을](https://developer.mozilla.org/docs/Web/HTTP/CORS#preflighted_requests)지원하는 방법을 보여 있습니다. 사용자 지정 헤더 및 추가 HTTP 동사를 지원하려면 다음 예제와 같이 `allowed-methods` 및 `allowed-headers` 섹션을 사용하세요.
 
 ```xml
 <cors allow-credentials="true">
@@ -125,7 +125,7 @@ CORS를 통해 브라우저와 서버가 상호 작용하여 특정 원본 간 �
 
 ### <a name="elements"></a>요소
 
-|이름|설명|필수|기본값|
+|이름|Description|필수|기본값|
 |----------|-----------------|--------------|-------------|
 |cors|루트 요소입니다.|예|해당 없음|
 |allowed-origins|도메인 간 요청에 대해 허용되는 원본을 설명하는 `origin` 요소를 포함합니다. `allowed-origins`는 모든 원본을 허용하도록 `*`를 지정하는 단일 `origin` 요소 또는 URI를 포함하는 하나 이상의 `origin` 요소를 포함할 수 있습니다.|예|해당 없음|
@@ -138,7 +138,7 @@ CORS를 통해 브라우저와 서버가 상호 작용하여 특정 원본 간 �
 
 ### <a name="attributes"></a>특성
 
-|Name|Description|필수|기본값|
+|이름|Description|필수|기본값|
 |----------|-----------------|--------------|-------------|
 |allow-credentials|사전 응답의 `Access-Control-Allow-Credentials` 헤더가 이 특성의 값으로 설정되고 도메인 간 요청에서 자격 증명을 제출하는 클라이언트 기능에 영향을 줍니다.|아니요|false|
 |terminate-unmatched-request|이 특성은 CORS 정책 설정과 일치하지 않는 교차 원본 요청 처리를 제어합니다. OPTIONS 요청이 사전 요청으로 처리되고 CORS 정책 설정과 일치하지 않는 경우: 특성이 `true`로 설정되면 빈 200 OK 응답으로 즉시 요청을 종료합니다. 특성이 `false`로 설정된 경우 인바운드 요소의 직계 자식 요소인 다른 범위 내 CORS 정책에 대한 인바운드를 확인하고 적용합니다.  CORS 정책을 찾지 못한 경우 빈 200 OK 응답으로 요청을 종료합니다. GET 또는 HEAD 요청에 원본 헤더가 포함되고(따라서 원본 간 요청으로 처리됨) CORS 정책 설정과 일치하지 않는 경우: 특성이 `true`로 설정된 경우 빈 200 OK 응답으로 즉시 요청을 종료합니다. 특성이 `false`로 설정된 경우 정상적으로 요청을 계속할 수 있으며 응답에 CORS 헤더를 추가하지 않습니다.|아니요|true|
@@ -177,7 +177,7 @@ CORS를 통해 브라우저와 서버가 상호 작용하여 특정 원본 간 �
 
 ### <a name="attributes"></a>특성
 
-|Name|설명|필수|기본값|
+|이름|Description|필수|기본값|
 |----------|-----------------|--------------|-------------|
 |callback-parameter-name|함수가 상주하는 정규화된 도메인 이름이 접두사로 지정된 도메인 간 JavaScript 함수 호출|예|해당 없음|
 

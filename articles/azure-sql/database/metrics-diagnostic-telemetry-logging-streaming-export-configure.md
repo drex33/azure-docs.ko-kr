@@ -9,13 +9,13 @@ ms.topic: how-to
 author: AlainDormehlMSFT
 ms.author: aldorme
 ms.reviewer: mathoma, wiassaf
-ms.date: 09/21/2021
-ms.openlocfilehash: 9452b12a8ad26ec2da5c488dc83f624863a4c647
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/13/2021
+ms.openlocfilehash: 333b6faabd6603f09c4522f09a18b52c5503f357
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128582566"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004638"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Azure SQL Database 및 SQL Managed Instance 진단 원격 분석 데이터의 스트리밍 내보내기 구성
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -47,9 +47,10 @@ Intelligent Insights 로그의 내보내기를 스트림하는 것 외에도 다
 | [교착 상태](#deadlocks-dataset): 데이터베이스의 교착 상태 이벤트에 대한 정보를 포함합니다. | 예 | 예 |
 | [AutomaticTuning](#automatic-tuning-dataset): 데이터베이스에 대한 자동 튜닝 권장 사항에 대한 정보를 포함합니다. | 예 | 예 |
 | [SQLInsights](#intelligent-insights-dataset): 데이터베이스에 대한 성능에 Intelligent Insights를 포함합니다. 자세한 내용은 [Intelligent Insights](intelligent-insights-overview.md)를 참조하세요. | 예 | 예 |
+| 워크로드 관리: *Azure Synapse만 사용할 수 있습니다.* 자세한 내용은 [Azure Synapse Analytics – 워크로드 관리 포털 모니터링을 참조하세요.](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor)| 아니요 | 아니요 | 
 
 > [!NOTE]
-> 마스터, msdb, 모델, 리소스 및 tempdb 데이터베이스 등의 **시스템 데이터베이스** 에 대해서는 진단 설정을 구성할 수 없습니다.
+> , , , 리소스 및 데이터베이스와 같은 **시스템 데이터베이스에** 대해 진단 설정을 구성할 수 `master` `msdb` `model` `tempdb` 없습니다.
 
 ## <a name="streaming-export-destinations"></a>스트리밍 내보내기 대상
 

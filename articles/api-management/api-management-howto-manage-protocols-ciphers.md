@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/07/2021
 ms.author: danlep
-ms.openlocfilehash: 02442bf73d16486ce51b765e6922bbf434fb69f1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5fc47f2238427c7875d2af29324e06d8b6487f1a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609805"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001792"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>Azure API Management에서 프로토콜 및 암호화 관리
 
@@ -43,7 +43,7 @@ Azure API Management는 다음과 같은 여러 버전의 TLS (Transport Layer S
 1. **저장** 을 클릭합니다. 변경 내용은 1시간 이내에 적용됩니다.  
 
 > [!NOTE]
-> 일부 프로토콜 또는 암호 그룹 (예: 백 엔드 쪽 TLS 1.2)은 Azure Portal에서 사용 하거나 사용 하지 않도록 설정할 수 없습니다. 대신 REST 호출을 적용 해야 합니다. `properties.customProperties` [API Management 서비스 만들기/업데이트 REST API](/rest/api/apimanagement/2020-06-01-preview/api-management-service/create-or-update#request-body) 문서의 구조를 사용 합니다.
+> 일부 프로토콜 또는 암호 그룹 (예: 백 엔드 쪽 TLS 1.2)은 Azure Portal에서 사용 하거나 사용 하지 않도록 설정할 수 없습니다. 대신 REST 호출을 적용 해야 합니다. `properties.customProperties` [API Management 서비스 만들기/업데이트 REST API](/rest/api/apimanagement/2021-01-01-preview/api-management-service/create-or-update) 문서의 구조를 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 50984f7a22caa6e1340b6ed4d927d9450eccdf9e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: e3e349304281b98968810831d9cad0d8e64a8d75
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567427"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002627"
 ---
 # <a name="configure-a-dnn-listener-for-an-availability-group"></a>가용성 그룹에 대한 DNN 수신기 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,6 @@ DNN(분산 네트워크 이름)은 Azure VM의 SQL Server를 사용하여 트래
 
 이 문서는 DNN 수신기를 구성하여 VNN 수신기를 대체하고 Azure VM의 SQL Server를 통해 가용성 그룹으로 트래픽을 라우팅하여 HADR(고가용성 및 재해 복구)을 실현하는 방법을 설명합니다.
 
-DNN 수신기 기능은 현재 Windows Server 2016 이상에서 SQL Server 2019 CU8부터만 사용할 수 있습니다.
 
 대체 연결 옵션의 경우 [VNN 수신기와 Azure Load Balancer](availability-group-vnn-azure-load-balancer-configure.md)를 고려해보시기 바랍니다.
 
@@ -46,12 +45,11 @@ DNN 수신기를 사용하여 기존 VNN 수신기를 대체하거나, 두 개�
 
 이 문서의 단계를 완료하기 전에 다음이 준비되어 있어야 합니다.
 
-- CU8 이상의 Windows Server 2016 이상에서 SQL Server 2019.
+- Windows Server 2016 이상에서 [SQL Server 2019 CU8](https://support.microsoft.com/topic/cumulative-update-8-for-sql-server-2019-ed7f79d9-a3f0-a5c2-0bef-d0b7961d2d72) 이상, [SQL Server 2017 CU25](https://support.microsoft.com/topic/kb5003830-cumulative-update-25-for-sql-server-2017-357b80dc-43b5-447c-b544-7503eee189e9) 이상 또는 [SQL Server 2016 SP3](https://support.microsoft.com/topic/kb5003279-sql-server-2016-service-pack-3-release-information-46ab9543-5cf9-464d-bd63-796279591c31) 이상으로 시작 하는 SQL Server.
 - 분산 네트워크 이름이 [HADR 솔루션에 적절한 연결 옵션](hadr-cluster-best-practices.md#connectivity)이라고 판단했습니다.
 - [Always On 가용성 그룹](availability-group-overview.md)을 구성했습니다. 
 - 최신 버전의 [PowerShell](/powershell/azure/install-az-ps)을 설치했습니다. 
 - DNN 수신기에 사용할 고유 포트를 식별했습니다. DNN 수신기에 사용되는 포트는 가용성 그룹 또는 장애 조치(failover) 클러스터 인스턴스의 모든 복제본에서 고유해야 합니다.  다른 연결은 동일한 포트를 공유할 수 없습니다.
-- DNN 수신기에 연결하는 클라이언트는 연결 문자열에서 `MultiSubnetFailover=True` 매개 변수를 지원해야 합니다. 
 
 
 
@@ -146,7 +144,11 @@ SELECT * FROM SYS.AVAILABILITY_GROUP_LISTENERS
 
 ## <a name="update-connection-string"></a>연결 문자열 업데이트
 
-DNN 수신기에 연결하도록 애플리케이션에 대한 연결 문자열을 업데이트합니다. DNN 수신기에 대한 연결 문자열은 DNN 포트 번호를 제공해야 합니다. 장애 조치(failover) 시 빠른 연결을 보장하려면 SQL 클라이언트에서 지원하는 경우 연결 문자열에 `MultiSubnetFailover=True`를 추가합니다.
+DNN 수신기에 연결 해야 하는 모든 응용 프로그램에 대 한 연결 문자열을 업데이트 합니다. DNN 수신기에 대 한 연결 문자열은 DNN 포트 번호를 제공 하 고 연결 문자열에를 지정 해야 합니다 `MultiSubnetFailover=True` . SQL 클라이언트가 매개 변수를 지원 하지 않는 경우 `MultiSubnetFailover=True` DNN 수신기와 호환 되지 않습니다.  
+
+다음은 수신기 이름 **DNN_Listener** 및 포트 6789에 대 한 연결 문자열의 예입니다. 
+
+`DataSource=DNN_Listener,6789,MultiSubnetFailover=True`
 
 ## <a name="test-failover"></a>테스트 장애 조치
 
@@ -173,8 +175,8 @@ DNN 수신기에 연결하도록 애플리케이션에 대한 연결 문자열�
 
 ## <a name="limitations"></a>제한 사항
 
-- 현재 가용성 그룹에 대한 DNN 수신기는 Windows Server 2016 이상에서 SQL Server 2019 CU8 이상에 대해서만 지원됩니다. 
 - DNN 수신기는 **반드시** 고유 포트로 구성해야 합니다.  모든 복제본의 다른 연결과 포트를 공유할 수 없습니다.
+- DNN 수신기에 연결하는 클라이언트는 연결 문자열에서 `MultiSubnetFailover=True` 매개 변수를 지원해야 합니다. 
 - 다른 SQL Server 기능 및 DNN 지원 가용성 그룹으로 작업하는 경우 추가 고려 사항이 있을 수 있습니다. 자세한 내용은 [DNN과 상호 운용되는 AG](availability-group-dnn-interoperability.md)를 참조하세요. 
 
 ## <a name="port-considerations"></a>포트 고려 사항

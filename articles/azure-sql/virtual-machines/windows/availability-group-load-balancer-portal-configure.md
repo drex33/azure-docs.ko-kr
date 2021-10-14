@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4fe42db21a08a398f5518d794b897d7ce015fa66
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: c1e76d2a1e683f749b651a09e46f5b70ace3c70b
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529507"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004049"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server Always On 가용성 그룹에 대한 부하 분산 장치 구성
 
@@ -214,7 +214,7 @@ SQLCMD 연결은 주 복제본을 호스트하는 SQL Server 인스턴스에 자
 
 ## <a name="create-an-ip-address-for-an-additional-availability-group"></a>추가 가용성 그룹의 IP 주소 만들기
 
-각 가용성 그룹은 별도의 수신기를 사용합니다. 각 수신기는 자체 IP 주소가 있습니다. 동일한 부하 분산 장치를 사용하여 추가 수신기의 IP 주소를 저장하세요. 가용성 그룹을 만든 후에는 부하 분산 장치에 IP 주소를 추가한 다음 수신기를 구성합니다.
+각 가용성 그룹은 별도의 수신기를 사용합니다. 각 수신기는 자체 IP 주소가 있습니다. 동일한 부하 분산 장치를 사용하여 추가 수신기의 IP 주소를 저장하세요. [보조 VM IP 주소가 부동 IP를 지원 하지](/azure/load-balancer/load-balancer-floating-ip)않기 때문에 부하 분산 장치의 백 엔드 풀에 VM의 기본 IP 주소만 추가 합니다.
 
 Azure Portal을 사용하여 부하 분산 장치에 IP 주소를 추가하려면 다음 단계를 수행합니다.
 

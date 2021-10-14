@@ -16,12 +16,12 @@ ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 44dae9d8c8bc5ee3896bfc65340dfeee7679d54e
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: 60d0c326cf35a860fcbf76a318f24ec53b36967c
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223178"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129987553"
 ---
 # <a name="automated-patching-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Azure 가상 머신에서 SQL Server의 자동화된 패치(Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -123,6 +123,10 @@ Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceG
 SQL Server IaaS 에이전트를 설치하고 구성하는 데는 몇 분 정도 걸릴 수 있습니다.
 
 자동화된 패치를 사용하지 않도록 설정하려면 **-Enable** 매개 변수 없이 **New-AzVMSqlServerAutoPatchingConfig** 에 동일한 스크립트를 실행합니다. **-Enable** 매개 변수가 없는 경우 기능을 해제하는 명령을 신호로 보냅니다.
+
+> [!NOTE]
+> 업데이트 관리 [또는](/azure/automation/update-management/overview) 자동 VM 게스트 패치와 같이 Azure [VM의 자동 패치를](/azure/virtual-machines/automatic-vm-guest-patching)사용하도록 설정하는 여러 가지 다른 방법도 있습니다. 겹치는 도구로 인해 업데이트가 실패할 수 있기 때문에 VM을 자동으로 업데이트하는 옵션을 하나만 선택합니다. 
+
 
 ## <a name="next-steps"></a>다음 단계
 사용 가능한 다른 자동화 작업에 대한 내용은 [SQL Server IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)을 참조하세요.

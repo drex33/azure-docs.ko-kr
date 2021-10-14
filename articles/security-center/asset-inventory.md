@@ -8,27 +8,23 @@ ms.author: memildin
 ms.date: 10/07/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 4175476bc655aa0be1a5377f3fada83cb30ac37e
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 29e5ec35d97210b1dfe7494ce96a5e3ecae75bdf
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129715916"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002115"
 ---
-# <a name="explore-and-manage-your-resources-with-asset-inventory"></a>자산 인벤토리로 리소스 탐색 및 관리
+# <a name="use-asset-inventory-to-manage-your-resources-security-posture"></a>자산 인벤토리를 사용 하 여 리소스의 보안 상태 관리
 
-Azure Security Center의 자산 인벤토리 페이지는 Security Center에 연결한 리소스의 보안 상태를 확인할 수 있는 단일 페이지를 제공합니다. 
+Security Center는 Azure 리소스의 보안 상태를 정기적으로 분석하여 잠재적인 보안 취약성을 식별합니다. 그런 다음, 이러한 취약성을 수정하는 방법에 대한 추천 사항을 제공합니다. **리소스에 수정되지 않은 추천 사항이 있으면 인벤토리에 표시됩니다.**
 
-Security Center는 Azure 리소스의 보안 상태를 정기적으로 분석하여 잠재적인 보안 취약성을 식별합니다. 그런 다음, 이러한 취약성을 수정하는 방법에 대한 추천 사항을 제공합니다.
-
-리소스에 수정되지 않은 추천 사항이 있으면 인벤토리에 표시됩니다.
-
-이 뷰와 해당 필터를 사용하여 다음과 같은 질문을 해결합니다.
+자산 인벤토리 보기 및 해당 필터를 사용 하 여 다음과 같은 질문을 해결 합니다.
 
 - Azure Defender를 사용하는 내 구독 중 처리되지 않은 권장 사항이 있는 구독은 무엇인가요?
 - ‘Production’ 태그가 있는 내 머신 중 Log Analytics 에이전트가 누락된 머신은 무엇인가요?
 - 특정 태그를 사용하여 태그가 지정된 내 머신 중 몇 대에 처리되지 않은 권장 사항이 있나요?
-- 취약성 평가 서비스에서 보안 결과를 얻은 특정 리소스 그룹의 리소스는 몇 개인가요?
+- 특정 리소스 그룹에서 알려진 취약성 (CVE 번호 사용)이 있는 컴퓨터는 무엇입니까?
 
 해당 도구에 대한 자산 관리 가능성은 상당히 크며 계속 증가합니다. 
 

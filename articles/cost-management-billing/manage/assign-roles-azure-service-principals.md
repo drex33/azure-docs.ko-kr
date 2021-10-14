@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 05/01/2021
+ms.date: 10/12/2021
 ms.author: banders
-ms.openlocfilehash: 395f6804e0fdea88e65879817b83b9a8aabdd0f1
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
-ms.translationtype: HT
+ms.openlocfilehash: 79e32c7514e561cc3c245464038130f5d4bef763
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111748070"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001013"
 ---
 # <a name="assign-roles-to-azure-enterprise-agreement-service-principal-names"></a>Azure 기업계약 서비스 사용자 이름에 역할 할당
 
@@ -206,6 +206,10 @@ EA 구매자 역할에는 등록 읽기 권한자의 경우와 동일한 단계�
    SPN이 성공적으로 추가되었다는 `200 OK` 응답이 표시됩니다.
 
 이제 SPN을 사용하여 EA API에 자동으로 액세스할 수 있습니다. SPN에는 SubscriptionCreator 역할이 있습니다.
+
+## <a name="troubleshoot"></a>문제 해결
+
+EA 역할을 부여한 Enterprise 애플리케이션 개체 ID를 식별하고 사용해야 합니다. 다른 애플리케이션에서 개체 ID를 사용하는 경우 API 호출이 실패합니다. 올바른 Enterprise 애플리케이션 개체 ID를 사용하고 있는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

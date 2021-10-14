@@ -2,13 +2,13 @@
 title: Azure Monitor 리소스 로그에 대해 지원 되는 범주
 description: Azure Monitor 리소스 로그에 대해 지원 되는 서비스 및 이벤트 스키마를 이해 합니다.
 ms.topic: reference
-ms.date: 09/10/2021
-ms.openlocfilehash: 9c41c714d2913247a6b0d00e3b242da9c59e038e
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.date: 10/05/2021
+ms.openlocfilehash: bf7d5371a170f28e79828619aef9fc16e15a303a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129457756"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130006378"
 ---
 # <a name="supported-categories-for-azure-monitor-resource-logs"></a>Azure Monitor 리소스 로그에 대해 지원 되는 범주
 
@@ -62,11 +62,14 @@ ms.locfileid: "129457756"
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|ApplicationAuditLogs|응용 프로그램 감사 로그|예|
-|FarmManagementLogs|팜 관리 로그|예|
-|FarmOperationLogs|팜 작업 로그|예|
-|ProviderAuthLogs|공급자 인증 로그|예|
-|SatelliteLogs|위성 로그|예|
+|ApplicationAuditLogs|응용 프로그램 감사 로그|Yes|
+|FarmManagementLogs|팜 관리 로그|Yes|
+|FarmOperationLogs|팜 작업 로그|Yes|
+|InsightLogs|정보 로그|Yes|
+|JobProcessedLogs|처리 된 작업 로그|Yes|
+|ModelInferenceLogs|모델 유추 로그|Yes|
+|ProviderAuthLogs|공급자 인증 로그|Yes|
+|SatelliteLogs|위성 로그|Yes|
 |WeatherLogs|날씨 로그|Yes|
 
 
@@ -83,7 +86,7 @@ ms.locfileid: "129457756"
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
 |GatewayLogs|ApiManagement 게이트웨이 관련 로그|No|
-|WebSocketConnectionLogs|Websocket 연결과 관련 된 로그|예|
+|WebSocketConnectionLogs|Websocket 연결과 관련 된 로그|Yes|
 
 
 ## <a name="microsoftappconfigurationconfigurationstores"></a>Microsoft.AppConfiguration/configurationStores
@@ -99,7 +102,8 @@ ms.locfileid: "129457756"
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
 |ApplicationConsole|애플리케이션 콘솔|No|
-|IngressLogs|수신 로그|예|
+|BuildLogs|빌드 로그|Yes|
+|IngressLogs|수신 로그|Yes|
 |SystemLogs|시스템 로그|No|
 
 
@@ -117,7 +121,7 @@ ms.locfileid: "129457756"
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|AuditEvent|AuditEvent|예|
+|AuditEvent|AuditEvent|Yes|
 |DscNodeStatus|DscNodeStatus|No|
 |JobLogs|JobLogs|No|
 |JobStreams|JobStreams|No|
@@ -175,14 +179,14 @@ ms.locfileid: "129457756"
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|BotRequest|채널에서 봇으로 요청|예|
+|BotRequest|채널에서 봇으로 요청|No|
 
 
 ## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|ConnectedClientList|연결 된 클라이언트 목록|예|
+|ConnectedClientList|연결된 클라이언트 목록|Yes|
 
 
 ## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft.Cdn/cdnwebapplicationfirewallpolicies
@@ -230,8 +234,8 @@ ms.locfileid: "129457756"
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
 |AuthOperational|운영 인증 로그|Yes|
-|CallDiagnosticsPRIVATEPREVIEW|진단 로그 호출 - 프라이빗 미리 보기|Yes|
-|CallSummaryPRIVATEPREVIEW|요약 로그 호출 - 프라이빗 미리 보기|Yes|
+|CallDiagnostics|진단 로그 호출|Yes|
+|CallSummary|통화 요약 로그|Yes|
 |ChatOperational|운영 채팅 로그|No|
 |SMSOperational|운영 SMS 로그|No|
 |사용량|사용량 레코드|예|
@@ -241,6 +245,7 @@ ms.locfileid: "129457756"
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
+|감사|MCVP 감사 로그|Yes|
 |로그|MCVP 로그|Yes|
 
 
@@ -433,11 +438,11 @@ ms.locfileid: "129457756"
 |관리|관리|No|
 
 
-## <a name="microsoftdesktopvirtualizationscalingplans"></a>Microsoft.DesktopVirtualization/scalingplans
+## <a name="microsoftdesktopvirtualizationscalingplans"></a>Microsoft DesktopVirtualization/scalingplans
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|자동 확장|자동 조정 로그|예|
+|자동 확장|로그 자동 크기 조정|Yes|
 
 
 ## <a name="microsoftdesktopvirtualizationworkspaces"></a>Microsoft.DesktopVirtualization/workspaces
@@ -579,7 +584,7 @@ ms.locfileid: "129457756"
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|계산|계산|Yes|
+|ExPCompute|ExPCompute|Yes|
 |요청|요청|No|
 
 
@@ -588,7 +593,7 @@ ms.locfileid: "129457756"
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
 |AuditLogs|감사 로그|No|
-|DiagnosticLogs|진단 로그|예|
+|DiagnosticLogs|진단 로그|Yes|
 
 
 ## <a name="microsofthealthcareapisworkspacesdicomservices"></a>Microsoft.HealthcareApis/workspaces/dicomservices
@@ -642,6 +647,7 @@ ms.locfileid: "129457756"
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
 |AuditEvent|감사 로그|No|
+|Azurepolics\ationdetails|Azure Policy 평가 정보|Yes|
 
 
 ## <a name="microsoftkustoclusters"></a>Microsoft.Kusto/Clusters
@@ -712,12 +718,13 @@ ms.locfileid: "129457756"
 |MediaAccount|미디어 계정 상태|Yes|
 
 
-## <a name="microsoftmediavideoanalyzers"></a>Microsoft.Media/videoanalyzers
+## <a name="microsoftmediavideoanalyzers"></a>Microsoft. 미디어/비디오 분석기
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|PipelineDiagnostics|파이프라인 진단 로그|예|
-|PipelineOperational|파이프라인 작업 로그|Yes|
+|감사|감사 로그|예|
+|진단|진단 로그|Yes|
+|작동|작업 로그|Yes|
 
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationgateways
@@ -827,14 +834,14 @@ ms.locfileid: "129457756"
 |GatewayDiagnosticLog|게이트웨이 진단 로그|No|
 |IKEDiagnosticLog|IKE 진단 로그|No|
 |RouteDiagnosticLog|경로 진단 로그|No|
-|TunnelDiagnosticLog|터널 진단 로그|예|
+|TunnelDiagnosticLog|터널 진단 로그|No|
 
 
 ## <a name="microsoftnetworkfunctionazuretrafficcollectors"></a>Microsoft NetworkFunction/azureTrafficCollectors
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|ExpressRouteCircuitIpfix|Express 경로 회로 ipfix Flow 레코드|예|
+|ExpressRouteCircuitIpfix|Express 경로 회로 ipfix Flow 레코드|Yes|
 
 
 ## <a name="microsoftnotificationhubsnamespaces"></a>Microsoft.NotificationHubs/namespaces
@@ -878,7 +885,7 @@ ms.locfileid: "129457756"
 |---|---|---|
 |DataSensitivityLogEvent|DataSensitivity|Yes|
 |ScanStatusLogEvent|ScanStatus|No|
-|보안|PurviewAccountAuditEvents|예|
+|보안|PurviewAccountAuditEvents|Yes|
 
 
 ## <a name="microsoftrecoveryservicesvaults"></a>Microsoft.RecoveryServices/Vaults
@@ -916,12 +923,12 @@ ms.locfileid: "129457756"
 |OperationLogs|작업 로그|예|
 
 
-## <a name="microsoftsecurityinsightssettings"></a>microsoft.securityinsights/settings
+## <a name="microsoftsecurityinsightssettings"></a>microsoft securityinsights/설정
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|분석|분석|예|
-|DataConnectors|데이터 수집 – 커넥터|예|
+|분석|분석|Yes|
+|DataConnectors|데이터 수집 – 커넥터|Yes|
 
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
@@ -942,9 +949,16 @@ ms.locfileid: "129457756"
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|ConnectivityLogs|Azure Web PubSub 서비스에 대한 연결 로그.|예|
-|HttpRequestLogs|Azure Web PubSub 서비스에 대한 Http 요청 로그입니다.|예|
-|MessagingLogs|Azure Web PubSub 서비스에 대한 메시징 로그.|Yes|
+|ConnectivityLogs|Azure 웹 PubSub 서비스에 대 한 연결 로그입니다.|Yes|
+|HttpRequestLogs|Azure 웹 PubSub 서비스에 대 한 Http 요청 로그입니다.|Yes|
+|MessagingLogs|Azure 웹 PubSub 서비스에 대 한 메시징 로그.|Yes|
+
+
+## <a name="microsoftsingularityaccounts"></a>microsoft.singularity/accounts
+
+|범주|범주 표시 이름|내보낼 비용|
+|---|---|---|
+|실행|실행 로그|Yes|
 
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
@@ -1110,7 +1124,6 @@ ms.locfileid: "129457756"
 |AppServiceAppLogs|App Service 애플리케이션 로그|No|
 |AppServiceAuditLogs|액세스 감사 로그|No|
 |AppServiceConsoleLogs|App Service 콘솔 로그|No|
-|AppServiceDiagnosticToolsLogs|보고서 진단 도구 로그|Yes|
 |AppServiceFileAuditLogs|사이트 콘텐츠 변경 감사 로그|No|
 |AppServiceHTTPLogs|HTTP 로그|No|
 |AppServiceIPSecAuditLogs|IPSecurity 감사 로그|No|

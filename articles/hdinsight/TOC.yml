@@ -695,6 +695,8 @@
           items:
             - name: 장애 도메인 부족
               href: ./kafka/kafka-troubleshoot-insufficient-domains.md
+            - name: 전체 데이터 디스크
+              href: ./kafka/kafka-troubleshoot-full-disk.md
 - name: Apache HBase
   items:
     - name: 개요

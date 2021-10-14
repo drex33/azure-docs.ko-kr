@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 02/05/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: c3142fd41830487453a3cc980a87cdca72cf7213
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
-ms.translationtype: HT
+ms.openlocfilehash: 1417d727565b349f9f18b0add73d443c22a4dbb3
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094144"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129992328"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Azure 구독의 청구 소유권을 다른 계정에 양도
 
-이 문서에서는 Azure 구독의 청구 소유권을 다른 계정에 양도하는 데 필요한 단계를 보여 줍니다. 구독의 청구 소유권을 양도하기 전에 [Azure 구독의 청구 소유권을 양도하는 방법 소개](../understand/subscription-transfer.md)를 참조하세요.
+이 문서에서는 Azure 구독의 청구 소유권을 다른 계정에 양도하는 데 필요한 단계를 보여 줍니다. 구독의 청구 소유권을 양도하기 전에 [Azure 구독의 청구 소유권을 양도하는 방법 소개](subscription-transfer.md)를 참조하세요.
 
 청구 소유권을 유지하면서 구독 유형만 변경하려면 [Azure 구독을 다른 제안으로 전환](switch-azure-offer.md)을 참조하세요. 구독의 리소스에 액세스할 수 있는 사용자를 제어하려면 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
 
@@ -30,7 +30,7 @@ EA(기업계약) 고객인 경우 엔터프라이즈 관리자가 계정 간에 
 
 ## <a name="transfer-billing-ownership-of-an-azure-subscription"></a>Azure 구독의 청구 소유권 양도
 
-1. 양도하려는 구독이 있는 청구 계정의 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다. 자신이 관리자인지 여부를 잘 모르는 경우 또는 누가 관리자인지 확인해야 하는 경우 [계정의 대금 청구 관리자 확인](../understand/subscription-transfer.md#whoisaa)을 참조하세요.
+1. 양도하려는 구독이 있는 청구 계정의 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다. 자신이 관리자인지 여부를 잘 모르는 경우 또는 누가 관리자인지 확인해야 하는 경우 [계정의 대금 청구 관리자 확인](add-change-subscription-administrator.md#whoisaa)을 참조하세요.
 1. **Cost Management + 청구** 를 검색합니다.  
    ![Azure Portal 검색을 보여 주는 스크린샷](./media/billing-subscription-transfer/billing-search-cost-management-billing.png)
 1. 왼쪽 창에서 **구독** 을 선택합니다. 액세스 권한에 따라 청구 범위를 선택하고 **구독** 또는 **Azure 구독** 을 선택해야 할 수도 있습니다.
@@ -114,7 +114,7 @@ Azure 계정 및 Azure 구독을 만든 청구 계정의 원소유자가 조직�
 
 ###  <a name="not-all-subscription-types-can-transfer"></a>일부 구독 유형을 양도할 수 없음
 
-일부 구독 유형은 청구 소유권 양도를 지원하지 않습니다. 양도를 지원하는 구독 유형 목록을 보려면 [지원되는 구독 유형](../understand/subscription-transfer.md#supported-subscription-types)을 참조하세요.
+일부 구독 유형은 청구 소유권 양도를 지원하지 않습니다. 전송을 지 원하는 구독 유형 목록을 보려면 [Azure 구독 전송 허브](subscription-transfer.md)를 참조 하세요.
 
 ###  <a name="access-denied-error-shown-when-trying-to-transfer-subscription-billing-ownership"></a>구독 청구 소유권을 양도하려고 하면 액세스 거부 오류가 표시됨
 

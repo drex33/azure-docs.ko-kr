@@ -1,57 +1,71 @@
 ---
 title: ARM을 사용하여 ASE 만들기
 description: Azure Resource Manager 템플릿을 사용하여 외부 또는 ILB App Service 환경을 만드는 방법을 알아봅니다.
-author: ccompy
+author: madsd
 ms.assetid: 6eb7d43d-e820-4a47-818c-80ff7d3b6f8e
 ms.topic: article
-ms.date: 06/13/2017
-ms.author: ccompy
+ms.date: 10/11/2021
+ms.author: madsd
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 49ebcf06d0e01fb6b97e606bbcb5c3068eb0e727
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
-ms.translationtype: HT
+ms.openlocfilehash: 3baad1974c44fae8d683632050fa3850dd44270d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113433295"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130005189"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 ASE 만들기
 
 ## <a name="overview"></a>개요
 > [!NOTE]
-> 이 문서에서는 격리된 App Service 요금제와 함께 사용되는 App Service Environment v2에 관해 설명합니다.
+> 이 문서에서는 격리된 App Service 계획과 함께 사용되는 App Service Environment v2 및 App Service Environment v3에 대해 자세히 알아보기
 > 
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Azure ASE(App Service Environment)는 인터넷에 액세스할 수 있는 엔드포인트 또는 Azure VNet(Virtual Network)의 내부 주소에 있는 엔드포인트를 사용하여 만들 수 있습니다. 엔드포인트가 내부 엔드포인트를 사용하여 만들어진 경우 ILB(내부 부하 분산 장치)를 호출하는 Azure구성 요소에서 해당 엔드포인트를 제공합니다. 내부 IP 주소의 ASE를 ILB ASE라고 합니다. 공용 엔드포인트가 있는 ASE를 외부 ASE라고 합니다. 
 
-Azure Portal 또는 Azure Resource Manager 템플릿을 사용하여 ASE를 만들 수 있습니다. 이 문서에서는 Resource Manager 템플릿으로 외부 ASE 또는 ILB ASE를 만드는 데 필요한 단계와 구문을 안내합니다. Azure Portal에서 ASE를 만드는 방법에 대해 알아보려면 [외부 ASE 만들기][MakeExternalASE] 또는 [ILB ASE 만들기][MakeILBASE]를 참조하세요.
+Azure Portal 또는 Azure Resource Manager 템플릿을 사용하여 ASE를 만들 수 있습니다. 이 문서에서는 Resource Manager 템플릿으로 외부 ASE 또는 ILB ASE를 만드는 데 필요한 단계와 구문을 안내합니다. Azure Portal ASEv2를 만드는 방법을 알아보려면 외부 [ASE 만들기][MakeExternalASE] 또는 [ILB ASE 만들기를][MakeILBASE]참조하세요.
+Azure Portal ASEv3을 만드는 방법을 알아보려면 [ASEv3 만들기를][Create ASEv3]참조하세요.
 
-Azure Portal에서 ASE를 만들 때는 동시에 VNet를 만들거나 ASE를 배포할 기존 VNet를 선택할 수 있습니다. 템플릿에서 ASE를 만들 경우 다음 항목을 미리 준비해야 합니다. 
+Azure Portal에서 ASE를 만들 때는 동시에 VNet를 만들거나 ASE를 배포할 기존 VNet를 선택할 수 있습니다. 
+
+템플릿에서 ASE를 만들 경우 다음 항목을 미리 준비해야 합니다. 
 
 * Resource Manager VNet
 * 해당 VNet의 서브넷 향후 성장 및 크기 조정 요구 사항을 충족할 수 있도록 256개의 주소가 포함된 `/24` 크기의 ASE 서브넷을 사용하는 것이 좋습니다. ASE를 만든 후에는 크기를 변경할 수 없습니다.
-* VNet의 리소스 ID. Azure Portal의 가상 네트워크 속성에서 이 정보를 가져올 수 있습니다.
+* 기존 VNet 및 서브넷에 ASE를 만들 때 기존 리소스 그룹 이름, 가상 네트워크 이름 및 서브넷 이름이 필요합니다.
 * ASE를 배포할 구독
 * ASE를 배포할 위치
 
-ASE 만들기를 자동화하려면:
+ASE 만들기를 자동화하려면 아래 섹션의 지침을 따릅니다. 사용자 지정 dnsSuffix(예: )를 사용하여 ILB ASEv2를 만드는 경우 몇 가지 작업을 `internal-contoso.com` 더 수행할 수 있습니다.
 
-1. 템플릿에서 ASE를 만듭니다. 외부 ASE를 만드는 경우에는 이 단계를 수행하면 만들기가 완료됩니다. ILB ASE를 만드는 경우에는 몇 가지 추가 작업을 수행합니다.
+1. 사용자 지정 dnsSuffix를 사용하여 ILB ASE를 만든 후 ILB ASE 도메인과 일치하는 TLS/SSL 인증서를 업로드해야 합니다.
 
-2. ILB ASE를 만들면 ILB ASE 도메인과 일치하는 TLS/SSL 인증서가 업로드됩니다.
-
-3. 업로드된 TLS/SSL 인증서는 “기본” TLS/SSL 인증서로 해당 ILB ASE에 할당됩니다.  이 SSL 인증서는 ASE에 할당된 공용 루트 도메인(예: `https://someapp.mycustomrootdomain.com`)을 사용할 때 ILB ASE의 앱으로 이동하는 TLS/SSL 트래픽에 사용됩니다.
+2. 업로드된 TLS/SSL 인증서는 “기본” TLS/SSL 인증서로 해당 ILB ASE에 할당됩니다.  이 SSL 인증서는 ASE에 할당된 공용 루트 도메인(예: `https://someapp.internal-contoso.com`)을 사용할 때 ILB ASE의 앱으로 이동하는 TLS/SSL 트래픽에 사용됩니다.
 
 
 ## <a name="create-the-ase"></a>ASE 만들기
-ASE를 만드는 Resource Manager 템플릿 및 관련 매개 변수 파일은 GitHub의 [예제][quickstartasev2create]에서 찾아볼 수 있습니다.
+ASE 및 관련 매개 변수 파일을 만드는 Resource Manager 템플릿은 [ASEv3][asev3quickstarts] 및 [ASEv2용][quickstartasev2create]GitHub 사용할 수 있습니다.
 
-ILB ASE를 만들려는 경우에는 이 Resource Manager 템플릿 [예제][quickstartilbasecreate]를 사용하세요. 해당 사용 사례를 제공합니다. *azuredeploy.parameters.json* 파일에 있는 대부분의 매개 변수는 ILB ASE와 외부 ASE 둘 다를 만들 때 공통적으로 적용됩니다. 아래 목록에는 ILB ASE를 만들 때 특히 주의해야 하는 매개 변수 또는 고유한 매개 변수가 나와 있습니다.
-
-* *internalLoadBalancingMode*: 대부분의 경우 이 속성을 3으로 설정합니다. 이것은 포트 80/443의 HTTP/HTTPS 트래픽과 ASE의 FTP 서비스에서 수신하는 컨트롤/데이터 채널 포트가 ILB 할당 가상 네트워크 내부 주소에 바인딩될 것임을 의미합니다. 이 속성을 2로 설정하면 FTP 서비스 관련 포트(컨트롤 채널과 데이터 채널 둘 다)만 ILB 주소로 바인딩됩니다. HTTP/HTTPS 트래픽은 공용 VIP에 그대로 유지됩니다.
+ASE를 만들려면 이러한 Resource Manager 템플릿 [ASEv3][asev3quickstarts] 또는 [ASEv2 예제를][quickstartilbasecreate] 사용합니다. 해당 사용 사례를 제공합니다. *azuredeploy.parameters.json* 파일에 있는 대부분의 매개 변수는 ILB ASE와 외부 ASE 둘 다를 만들 때 공통적으로 적용됩니다. 다음 목록에서는 기존 서브넷을 사용하여 ILB ASE를 만들 때 특별한 참고 또는 고유한 매개 변수를 호출합니다.
+### <a name="asev3-parameters"></a>ASEv3 매개 변수
+* *aseName:* 필수입니다. 이 매개 변수는 고유한 ASE 이름을 정의합니다. 
+* *internalLoadBalancingMode:* 필수입니다. 대부분의 경우 포트 80/443에서 HTTP/HTTPS 트래픽을 모두 의미하는 3으로 설정합니다. 이 속성을 0으로 설정하면 HTTP/HTTPS 트래픽이 공용 VIP에 유지됩니다.
+* *zoneRedundant:* 필수입니다. 대부분의 경우 이를 false로 설정합니다. 즉, ASE가 AZ(가용성 영역)에 배포되지 않습니다. 일부 지역에서는 영역 ASEs를 배포할 수 있습니다. [이][AZ Support for ASEv3]을 참조할 수 있습니다.
+* *dedicatedHostCount:* 필수입니다. 대부분의 경우 이를 0으로 설정합니다. 즉, 전용 호스트를 배포하지 않고 ASE가 정상적으로 배포됩니다.
+* *useExistingVnetandSubnet:* 필수입니다. 기존 VNet 및 서브넷을 사용하는 경우 true로 설정합니다. 
+* *vNetResourceGroupName:* 기존 VNET 및 서브넷을 사용하는 경우에 필요합니다. 이 매개 변수는 ASE가 상주할 기존 VNet 및 서브넷의 리소스 그룹 이름을 정의합니다.
+* *virtualNetworkName:* 기존 VNet 및 서브넷을 사용하는 경우 필요합니다. 이 매개 변수는 ASE가 상주할 기존 VNet 및 서브넷의 가상 네트워크 이름을 정의합니다.
+* *subnetName:* 기존 VNet 및 서브넷을 사용하는 경우 필요합니다. 이 매개 변수는 ASE가 상주할 기존 VNet 및 서브넷의 서브넷 이름을 정의합니다.
+* *createPrivateDNS:* ASEv3을 만든 후 프라이빗 DNS 영역을 만들려면 true로 설정합니다. ILB ASE의 경우 이 매개 변수를 true로 설정하면 *appserviceenvironment.net* DNS 접미사가 있는 ASE 이름으로 프라이빗 DNS 영역을 만듭니다. 
+### <a name="asev2-parameters"></a>ASEv2 매개 변수
+* *aseName:* 이 매개 변수는 고유한 ASE 이름을 정의합니다.
+* *location*: 이 매개 변수는 App Service Environment 위치를 정의합니다.
+* *existingVirtualNetworkName:* 이 매개 변수는 ASE가 상주할 기존 VNet 및 서브넷의 가상 네트워크 이름을 정의합니다.
+* *existingVirtualNetworkResourceGroup:* 매개 변수는 ASE가 상주할 기존 VNet 및 서브넷의 리소스 그룹 이름을 정의합니다.
+* *subnetName:* 이 매개 변수는 ASE가 상주할 기존 VNet 및 서브넷의 서브넷 이름을 정의합니다.
+* *internalLoadBalancingMode*: 대부분의 경우 이 속성을 3으로 설정합니다. 이것은 포트 80/443의 HTTP/HTTPS 트래픽과 ASE의 FTP 서비스에서 수신하는 컨트롤/데이터 채널 포트가 ILB 할당 가상 네트워크 내부 주소에 바인딩될 것임을 의미합니다. 이 속성을 2로 설정하면 FTP 서비스 관련 포트(컨트롤 채널과 데이터 채널 둘 다)만 ILB 주소로 바인딩됩니다. 이 속성을 0으로 설정하면 HTTP/HTTPS 트래픽이 공용 VIP에 유지됩니다.
 * *dnsSuffix*: 이 매개 변수는 ASE에 할당되는 기본 루트 도메인을 정의합니다. Azure App Service의 공용 변형에서 모든 웹앱용 기본 루트 도메인은 *azurewebsites.net* 입니다. ILB ASE는 고객의 가상 네트워크 내부에 있으므로 공용 서비스의 기본 루트 도메인을 사용하는 것은 적합하지 않습니다. 대신, ILB ASE에는 회사의 내부 가상 네트워크 내에서 사용하기 적합한 기본 루트 도메인이 있어야 합니다. 예를 들어 Contoso Corporation은 Contoso의 가상 네트워크 내에서만 확인 가능하고 액세스할 수 있는 앱에 기본 루트 도메인 *internal-contoso.com* 을 사용할 수 있습니다. 
-* *ipSslAddressCount*: 이 매개 변수는 *azuredeploy.json* 파일에서 자동으로 기본값인 0으로 지정됩니다. ILB ASE에는 ILB 주소가 하나뿐이기 때문입니다. ILB ASE용 명시적 IP-SSL 주소는 없습니다. 따라서 ILB ASE용 IP-SSL 주소 풀은 0으로 설정해야 합니다. 그렇지 않으면 프로비전 오류가 발생합니다. 
+* *ipSslAddressCount*: 이 매개 변수는 *azuredeploy.json* 파일에서 자동으로 기본값인 0으로 지정됩니다. ILB ASE에는 ILB 주소가 하나뿐이기 때문입니다. ILB ASE용 명시적 IP-SSL 주소는 없습니다. 따라서 ILB ASE용 IP-SSL 주소 풀은 0으로 설정해야 합니다. 그렇지 않으면 프로비전 오류가 발생합니다.
 
 *azuredeploy.parameters.json* 파일에 매개 변수를 입력한 후 PowerShell 코드 조각을 사용하여 ASE를 만듭니다. 컴퓨터의 Resource Manager 템플릿 파일 위치와 일치하도록 파일 경로를 변경합니다. Resource Manager 배포 이름 및 리소스 그룹 이름에 대해 고유한 값을 제공해야 합니다.
 
@@ -62,7 +76,7 @@ $parameterPath="PATH\azuredeploy.parameters.json"
 New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 ```
 
-ASE가 작성되려면 1시간 정도 걸립니다. 이 시간이 지나면 ASE가 Portal에서 배포를 트리거한 구독의 ASE 목록에 표시됩니다.
+ASE를 만드는 데 약 2시간이 걸립니다. 이 시간이 지나면 ASE가 Portal에서 배포를 트리거한 구독의 ASE 목록에 표시됩니다.
 
 ## <a name="upload-and-configure-the-default-tlsssl-certificate"></a>“기본” TLS/SSL 인증서 업로드 및 구성
 TLS/SSL 인증서는 앱에 대한 TLS 연결을 설정하는 데 사용되는 “기본” TLS/SSL 인증서로 ASE와 연결되어야 합니다. ASE의 기본 DNS 접미사가 *internal-contoso.com* 인 경우 `https://some-random-app.internal-contoso.com`에 연결하려면 * *.internal-contoso.com* 에 유효한 TLS/SSL 인증서가 필요합니다. 
@@ -154,16 +168,6 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 
 그러나 개발자는 공용 다중 테넌트 서비스에서 실행되는 앱과 마찬가지로 개별 앱에 대해 사용자 지정 호스트 이름을 구성할 수 있습니다. 또한 개별 앱에 대해 고유한 SNI TLS/SSL 인증서 바인딩을 구성할 수도 있습니다.
 
-## <a name="app-service-environment-v1"></a>App Service 환경 v1 ##
-App Service Environment에는 ASEv1 및 ASEv2라는 두 가지 버전이 있습니다. 위의 정보는 ASEv2를 기준으로 작성된 것입니다. 이 섹션은 ASEv1과 ASEv2의 차이를 보여줍니다.
-
-ASEv1에서는 모든 리소스를 수동으로 관리합니다. 여기에는 IP 기반 TLS/SSL 바인딩에 사용되는 프런트 엔드, 작업자 및 IP 주소가 포함됩니다. App Service 계획을 규모 확장하려면 먼저 해당 App Service를 호스트할 작업자 풀을 규모 확장해야 합니다.
-
-ASEv1은 ASEv2와는 다른 가격 책정 모델을 사용합니다. ASEv1에서는 할당된 각 vCPU에 대한 비용을 지불합니다. 여기에는 작업을 호스트하지 않는 프런트 엔드 또는 작업자에 사용되는 vCPU가 포함됩니다. ASEv1에서 ASE의 기본 최대 규모 크기는 총 55개의 호스트입니다. 여기에는 작업자 및 프런트 엔드가 포함됩니다. ASEv1의 한 가지 장점은 클래식 가상 네트워크 및 Resource Manager 가상 네트워크에 배포할 수 있다는 것입니다. ASEv1에 대해 자세히 알아보려면 [App Service Environment v1 소개][ASEv1Intro]를 참조하세요.
-
-Resource Manager 템플릿을 사용하여 ASEv1을 만들려는 경우 [Resource Manager 템플릿을 사용하여 ILB ASE v1 만들기][ILBASEv1Template]를 참조하세요.
-
-
 <!--Links-->
 [quickstartilbasecreate]: https://azure.microsoft.com/resources/templates/web-app-asev2-ilb-create
 [quickstartasev2create]: https://azure.microsoft.com/resources/templates/web-app-asev2-create
@@ -190,3 +194,6 @@ Resource Manager 템플릿을 사용하여 ASEv1을 만들려는 경우 [Resourc
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [ILBASEv1Template]: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
+[Create ASEv3]: creation.md
+[asev3quickstarts]: https://azure.microsoft.com/resources/templates/web-app-asp-app-on-asev3-create
+[AZ Support for ASEv3]: zone-redundancy.md

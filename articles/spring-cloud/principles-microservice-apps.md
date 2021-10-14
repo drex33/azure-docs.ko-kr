@@ -5,14 +5,14 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 10/12/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 24ca2cce27169c2973f16ca7b28599d5e0f01079
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
-ms.translationtype: HT
+ms.openlocfilehash: 4f7cdb16a9885f62657d81354668c46623b3628c
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567498"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129999343"
 ---
 # <a name="java-and-base-os-for-spring-microservice-apps"></a>스프링 마이크로서비스 앱용 Java 및 기본 OS
 

@@ -10,13 +10,13 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 06/23/2021
-ms.openlocfilehash: 54a3e933cda054b8bd3f9e86f2db775fca7342f7
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
-ms.translationtype: HT
+ms.date: 10/12/2021
+ms.openlocfilehash: 300a550363b01e367931ccb34efd3dd7d7d593cc
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112964431"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997291"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>vCore 구매 모델을 사용하여 탄력적 풀에 대한 리소스 제한
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -452,7 +452,7 @@ ms.locfileid: "112964431"
 |풀당 최대 DB 수 <sup>1</sup>|100|100|100|100|100|100|
 |Columnstore 지원 여부|예|예|예|예|예|예|
 |메모리 내 OLTP 스토리지(GB)|64|80|96|112|128|150|
-|최대 데이터 크기(GB)|512|640|768|896|1024|1,152|
+|최대 데이터 크기(GB)|512|640|768|896|1024|1152|
 |최대 로그 크기(GB) <sup>2</sup>|171|213|256|299|341|384|
 |TempDB 최대 데이터 크기(GB)|256|320|384|448|512|576|
 |[최대 로컬 스토리지 크기](resource-limits-logical-server.md#storage-space-governance)(GB)|13836|13836|13836|13836|13836|13836|
@@ -567,7 +567,9 @@ ms.locfileid: "112964431"
 > 또한 데이터베이스당 최소 vCore를 0보다 큰 값으로 설정하면 풀에 추가할 수 있는 데이터베이스 수가 암시적으로 제한됩니다. 예를 들어, 20 vCore 풀에서 최소 vCore를 2으로 설정하면 각 데이터베이스에 대해 2 vCore가 예약되어 있으므로 풀에 10개를 초과하는 데이터베이스를 추가할 수 없습니다.
 > 
 
-데이터베이스당 속성은 vCore로 표시되지만 데이터 IO, 로그 IO 및 작업자 스레드와 같은 다른 리소스 종류의 사용량도 제어합니다. 최소 및 최대 데이터베이스당 vCore 값을 조정하면 모든 리소스 종류에 대한 예약과 한도가 비례적으로 조정됩니다.
+데이터베이스별 속성이 vCore로 표현되더라도 데이터 IO, 로그 IO, 버퍼 풀 메모리 및 작업자 스레드와 같은 다른 리소스 유형의 사용도 제어합니다. 최소 및 최대 데이터베이스당 vCore 값을 조정하면 모든 리소스 종류에 대한 예약과 한도가 비례적으로 조정됩니다.
+
+데이터베이스당 최소 및 최대 vCore 값은 사용자 작업에의 한 리소스 사용에만 적용 되 고 내부 프로세스의 리소스 소비에는 적용 되지 않습니다. 예를 들어 데이터베이스당 최대 vCores 풀 vCores의 절반으로 설정 된 데이터베이스의 경우 사용자 작업은 버퍼 풀 메모리의 절반 이상을 소비할 수 없습니다. 그러나이 데이터베이스는 내부 프로세스에 의해 로드 된 버퍼 풀의 페이지를 계속 사용할 수 있습니다. 자세한 내용은 [사용자 작업 및 내부 프로세스의 리소스 소비](resource-limits-logical-server.md#resource-consumption-by-user-workloads-and-internal-processes)를 참조 하세요.
 
 > [!NOTE]
 > 탄력적 풀의 개별 데이터베이스에 대한 리소스 제한은 일반적으로 컴퓨팅 크기가 동일한 풀 외부의 단일 데이터베이스에 대한 리소스 제한과 동일합니다(서비스 목표). 예를 들어 GP_Gen4_1 데이터베이스에 대한 최대 동시 작업자 수는 200명입니다. 따라서 GP_Gen4_1 풀의 데이터베이스에 대한 최대 동시 작업자 수도 200명입니다. GP_Gen4_1 풀에 대한 총 동시 작업자 수는 210명입니다.

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bf71afe6349595e84e2c3de3f28ebb3b299973a7
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 4b38ef3fe940484cfa6abbfa1ba8ca5a28415bc5
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129708690"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997500"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오 호스트 및 실행
 
@@ -80,11 +80,12 @@ SAP 애플리케이션 계층 및 DBMS의 고가용성은 [SAP NetWeaver에 대�
 이 섹션에서는 Microsoft Power BI를 SAP 데이터 원본에 통합하는 방법과 Azure Data Factory를 SAP BW에 통합하는 방법을 설명하는 문서를 찾을 수 있습니다.
 
 ## <a name="change-log"></a>로그 변경
-- 2021 년 10 월 8 일, [SLES의 Azure vm에서 Pacemaker를 사용 하 여 스케일 아웃 hsr SAP HANA](./sap-hana-high-availability-scale-out-hsr-suse.md)의 변경, [RHEL의 anf](./sap-hana-high-availability-netapp-files-red-hat.md) 를 사용 하 여 확장 SAP HANA 하 고 SAP HANA, [RHEL의 Azure vm에서 Pacemaker를 사용 하 여 확장 hsr](./sap-hana-high-availability-scale-out-hsr-rhel.md) , sudoers의 기본값을 추가 하는 파일 및 업데이트 (hana srhook)
-- 2021 년 10 월 01 일: SAP HANA 백업 문서에 대 한 새 Azure Backup 아키텍처에 대 한 링크가 콘텐츠 테이블에 추가 되었습니다. Azure Virtual Machines Oracle dbms에 대 한 Azure Backup 서비스에 대 한 링크를 [SAP 워크 로드 용](./dbms_guide_oracle.md) 으로 추가 했습니다.
-- 2021 년 9 월 24 일 [SAP HANA 스케일 아웃 HSR에서 SLES의 Azure vm에](./sap-hana-high-availability-scale-out-hsr-suse.md)대 [SAP HANA 한 Pacemaker, RHEL의 anf를 사용](./sap-hana-high-availability-netapp-files-red-hat.md) 하 여 확장 SAP HANA 하 고, [RHEL의 azure vm에서 Pacemaker를 사용 하 여 스케일 아웃 hsr](./sap-hana-high-availability-scale-out-hsr-rhel.md) 를 사용 하 여 sudoers file (HANA srhook 대 한)을 만들기 위한 지침을 조정 합니다.
-- 2021 년 9 월 15 일: sap ASE의 sap ASE에 대 한 새 HADR 구성 소개 [sap 워크 로드에 대 한 DBMS 배포 Virtual Machines](./dbms_guide_sapase.md)
-- 2021 년 9 월 8 일: [SAP HANA에 대 한 Azure NetApp Files의 NFS v 4.1 볼륨](./hana-vm-operations-netapp.md) 에 수동 QoS 용량 풀 추가
+- 2021년 10월 11일: [Azure에서 클러스터 공유 디스크를 사용하여 Windows 장애 조치(failover) 클러스터에서 SAP ASCS/SCS 인스턴스](./sap-high-availability-guide-wsfc-shared-disk.md)클러스터 변경, SAP [ASCS/SCS 및 SAP ASCS/SCS](./sap-high-availability-infrastructure-wsfc-shared-disk.md) 인스턴스 다중 SID 고가용성을 위한 Windows 장애 조치(failover) 클러스터 및 공유 디스크를 사용하여 SAP HA용 Azure 인프라 준비 Windows [서버 장애 조치(failover) 클러스터링 및 Azure 공유 디스크를](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) 사용하여 지침을 추가합니다.  Azure 공유 디스크 지원을 위한 ZRS(영역 중복 스토리지)에 대한 정보입니다.
+- 2021년 10월 8일: [SLES의 Azure VM에서 Pacemaker를 사용하여 SAP HANA 스케일 아웃 HSR](./sap-hana-high-availability-scale-out-hsr-suse.md)변경, [RHEL의 ANF를 사용하여 SAP HANA 강화를 위한 HA](./sap-hana-high-availability-netapp-files-red-hat.md) 및 [RHEL의 Azure VM에서 Pacemaker를 사용하여 규모 확장 HSR을 SAP HANA](./sap-hana-high-availability-scale-out-hsr-rhel.md) sudoers 파일에 기본값을 추가하고 HANA 스케일 아웃(HANA srHook용)에 대한 업데이트를 업데이트합니다.
+- 2021년 10월 1일: SAP HANA 백업 문서를 위한 새로운 Azure Backup 아키텍처에 대한 링크가 목차에 추가되었습니다. SAP 워크로드용 Azure Virtual Machines Oracle DBMS [배포에 Oracle DBMS용 Azure Backup](./dbms_guide_oracle.md) 서비스 링크 추가
+- 2021년 9월 24일: [SLES의 Azure VM에서 Pacemaker를 사용하여 SAP HANA 스케일 아웃 HSR](./sap-hana-high-availability-scale-out-hsr-suse.md)변경, [RHEL의 ANF를 사용하여 SAP HANA 강화를 위한 HA 및 RHEL의](./sap-hana-high-availability-netapp-files-red-hat.md) Azure [VM에서 Pacemaker를 사용하여 규모 확장 HSR을 SAP HANA](./sap-hana-high-availability-scale-out-hsr-rhel.md) sudoers 파일(HANA srHook용)을 만드는 지침을 조정합니다.
+- 2021년 9월 15일: [SAP 워크로드용 SAP ASE Azure Virtual Machines DBMS 배포의 SAP ASE에 대한](./dbms_guide_sapase.md) 새로운 HADR 구성 소개
+- 2021년 9월 [8일: Azure NetApp Files NFS v4.1 볼륨에](./hana-vm-operations-netapp.md) 수동 QoS 용량 풀 추가SAP HANA
 - 2021년 8월 26일: Azure Fence 에이전트의 역할 정의 JSON을 수정하기 위해 [Azure에서 RHEL의 Pacemaker 설정](./high-availability-guide-rhel-pacemaker.md) 및 [Azure에서 SLES의 Pacemaker 설정](./high-availability-guide-suse-pacemaker.md) 변경
 - 2021년 8월 17일: ANF에서 호스트되는 NFS 볼륨을 사용하는 IBM Db2를 지원하기 위해 [SAP 워크로드에 대한 IBM Db2 Azure Virtual Machines DBMS 배포](./dbms_guide_ibm.md), [SAP 워크로드에 대한 Azure Storage 형식 변경](./planning-guide-storage.md) 및 [Azure 가상 머신 지원 시나리오에서의 SAP 워크로드](./sap-planning-supported-configurations.md) 변경
 - 2021년 8월 2일: 서버 실패 큐에 넣기를 시뮬레이션하는 테스트 시나리오에 대한 작동(ENSA1/ENSA2)을 명시하기 위해 [SAP 애플리케이션용 SLES의 Azure VM에서 SAP NW의 HA](./high-availability-guide-suse.md), [ANF를 사용한 SLES의 Azure VM에서 SAP NW의 HA](./high-availability-guide-suse-netapp-files.md), [SAP 애플리케이션용 RHEL의 Azure VM에서 SAP NW의 HA](./high-availability-guide-rhel.md) 및 [ANF를 사용한 RHEL의 Azure VM에서 SAP NW의 HA](./high-availability-guide-rhel-netapp-files.md) 문서 변경     

@@ -15,18 +15,18 @@ ms.date: 09/01/2021
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
-ms.openlocfilehash: 3dfcfcab7421b6aa8710310fdffa08f54688c4fd
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: 32ae5782fab7592e081044da9b4bb5e04cef38d5
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123219933"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130008698"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>SQL IaaS Agent 확장에 SQL Server VM 등록
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-[SQL IaaS Agent 확장](sql-server-iaas-agent-extension-automate-management.md)에 SQL Server VM을 등록하면 Azure VM의 SQL Server에 대 한 다양한 주요 이점을 사용할 수 있습니다.
+[SQL IaaS Agent 확장](sql-server-iaas-agent-extension-automate-management.md)에 SQL Server VM을 등록하면 Azure VM의 SQL Server에 대 한 다양한 주요 이점을 사용할 수 있습니다. 기본적으로 SQL Server 2016 이상 설치되어 있는 Azure VM은 [CEIP 서비스에서](/sql/sql-server/usage-and-diagnostic-data-configuration-for-sql-server)검색될 때 SQL IaaS 에이전트 확장에 자동으로 등록됩니다.  자세한 내용은 [SQL Server 개인 정보 제공](/sql/sql-server/sql-server-privacy#non-personal-data)을 참조하세요.
 
 이 문서에서는 SQL IaaS Agent 확장에 단일 SQL Server VM를 등록하는 방법을 설명합니다. 또는 구독의 모든 SQL Server VM을 [자동으로](sql-agent-extension-automatic-registration-all-vms.md) 등록하거나 [스크립팅된 여러 VM을 대량으로](sql-agent-extension-manually-register-vms-bulk.md) 등록할 수 있습니다.
 
@@ -51,6 +51,7 @@ SQL IaaS Agent 확장을 활용하려면 [**Microsoft.SqlVirtualMachine** 공급
 - [Azure 구독](https://azure.microsoft.com/free/).
 - [SQL Server 2008(또는 그 이상)](https://www.microsoft.com/sql-server/sql-server-downloads)이 공용 또는 Azure Government 클라우드에 배포된 Azure 리소스 모델 [Windows Server 2008(또는 그 이상) 가상 머신](../../../virtual-machines/windows/quick-create-portal.md)(또는 그 이상)
 - 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli) 또는 [Azure PowerShell(5.0 이상)](/powershell/azure/install-az-ps)
+- 최소 .NET Framework 4.5.1 이상
 
 ## <a name="register-subscription-with-rp"></a>RP에 구독 등록
 

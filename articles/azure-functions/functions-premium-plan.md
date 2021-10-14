@@ -9,12 +9,12 @@ ms.custom:
 - references_regions
 - fasttrack-edit
 - devx-track-azurecli
-ms.openlocfilehash: f2ac7aa7d5078359f747e141971eabeba21eab3e
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
-ms.translationtype: HT
+ms.openlocfilehash: 2bbef3190a38d1c0f9b058f2c57050ecd85756e3
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122968734"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129984766"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions 프리미엄 플랜
 
@@ -173,37 +173,45 @@ az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-inst
 |오스트레일리아 남동부 | 100 | 20 |
 |브라질 남부| 100 | 20 |
 |캐나다 중부| 100 | 20 |
+|인도 중부| 100 | 20 |
 |미국 중부| 100 | 20 |
 |중국 동부 2| 100 | 20 |
 |중국 북부 2| 100 | 20 |
 |동아시아| 100 | 20 |
-|미국 동부 | 100 | 20 |
+|미국 동부 | 100 | 40 |
 |미국 동부 2| 100 | 20 |
 |프랑스 중부| 100 | 20 |
-|독일 중서부| 100 | 사용할 수 없음 |
+|독일 중서부| 100 | 20 |
 |일본 동부| 100 | 20 |
 |일본 서부| 100 | 20 |
+|JIO 인도 서부| 100 | 20 |
 |한국 중부| 100 | 20 |
 |한국 남부| 사용할 수 없음 | 20 |
 |미국 중북부| 100 | 20 |
 |북유럽| 100 | 20 |
 |노르웨이 동부| 100 | 20 |
+|남아프리카 북부| 100 | 20 |
 |미국 중남부| 100 | 20 |
 |인도 남부 | 100 | 사용할 수 없음 |
 |동남 아시아| 100 | 20 |
-|스위스 북부| 100 | 사용할 수 없음 |
-|스위스 서부| 100 | 사용할 수 없음 |
+|스위스 북부| 100 | 20 |
+|스위스 서부| 100 | 20 |
+|아랍에미리트 북부| 100 | 20 |
 |영국 남부| 100 | 20 |
 |영국 서부| 100 | 20 |
 |USGov 애리조나| 100 | 20 |
+|USGov 텍사스| 100 | 사용할 수 없음 |
 |USGov 버지니아| 100 | 20 |
 |USNat 동부| 100 | 사용할 수 없음 |
 |USNat 서부| 100 | 사용할 수 없음 |
+|USSec 동부| 100 | 20 |
+|USSec 서부| 100 | 20 |
+|미국 중서부| 100 | 20 |
 |서유럽| 100 | 20 |
 |인도 서부| 100 | 20 |
-|미국 중서부| 100 | 20 |
 |미국 서부| 100 | 20 |
 |미국 서부 2| 100 | 20 |
+|미국 서부 3| 100 | 20 |
 
 ## <a name="next-steps"></a>다음 단계
 

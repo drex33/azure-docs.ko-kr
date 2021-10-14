@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/21/2020
 ms.custom: devx-track-java, devx-track-azurecli, subject-rbac-steps
-ms.openlocfilehash: 6822514e6bcbb5a232f7ee7f22ec8b0ee8a21e10
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
-ms.translationtype: HT
+ms.openlocfilehash: 86b594487a007e33d4f1428312f8ac3ce29fe833
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122530762"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129984029"
 ---
 # <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>가상 네트워크에 Azure Spring Cloud 배포
 
@@ -62,6 +62,7 @@ Azure Spring Cloud 인스턴스를 배포하는 가상 네트워크는 다음 �
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
+#### <a name="portal"></a>[포털](#tab/azure-portal)
 Azure Spring Cloud 인스턴스를 호스팅하는 가상 네트워크가 이미 있는 경우 1, 2 및 3단계를 건너뜁니다. 4단계부터 시작하여 가상 네트워크에 대한 서브넷을 준비할 수 있습니다.
 
 1. Azure Portal 메뉴에서 **리소스 만들기** 를 선택합니다. Azure Marketplace에서 **네트워킹** > **가상 네트워크** 를 차례로 선택합니다.
@@ -85,8 +86,61 @@ Azure Spring Cloud 인스턴스를 호스팅하는 가상 네트워크가 이미
 
 1. **검토 + 만들기** 를 선택합니다. 나머지 항목은 기본값으로 두고, **만들기** 를 선택합니다.
 
+#### <a name="cli"></a>[CLI](#tab/azure-CLI)
+Azure 스프링 클라우드 인스턴스를 호스트할 가상 네트워크가 이미 있는 경우 1, 2, 3 및 4 단계를 건너뜁니다. 5 단계에서 시작 하 여 가상 네트워크에 대 한 서브넷을 준비할 수 있습니다.
+
+1. 구독, 리소스 그룹 및 Azure 스프링 클라우드 인스턴스에 대 한 변수를 정의 합니다. 실제 환경에 따라 값을 사용자 지정합니다.
+
+   ```azurecli
+   SUBSCRIPTION='subscription-id'
+   RESOURCE_GROUP='my-resource-group'
+   LOCATION='eastus'
+   SPRING_CLOUD_NAME='spring-cloud-name'
+   VIRTUAL_NETWORK_NAME='azure-spring-cloud-vnet'
+   ```
+
+1. Azure CLI에 로그인하고 활성 구독을 선택합니다.
+
+   ```azurecli
+   az login
+   az account set --subscription ${SUBSCRIPTION}
+   ```
+
+1. 리소스에 대 한 리소스 그룹을 만듭니다.
+
+   ```azurecli
+   az group create --name $RESOURCE_GROUP --location $LOCATION
+   ```
+
+1. 가상 네트워크 만들기
+
+   ```azurecli
+   az network vnet create --resource-group $RESOURCE_GROUP \
+       --name $VIRTUAL_NETWORK_NAME \
+       --location $LOCATION \
+       --address-prefix 10.1.0.0/16
+   ```
+
+1. 이 가상 네트워크에 2 개의 서브넷을 만듭니다. 
+
+   ```azurecli
+   az network vnet subnet create --resource-group $RESOURCE_GROUP \
+       --vnet-name $VIRTUAL_NETWORK_NAME \
+       --address-prefixes 10.1.0.0/28 \
+       --name service-runtime-subnet 
+   az network vnet subnet create --resource-group $RESOURCE_GROUP \
+       --vnet-name $VIRTUAL_NETWORK_NAME \
+       --address-prefixes 10.1.1.0/28 \
+       --name apps-subnet 
+   ```
+
+---
+
 ## <a name="grant-service-permission-to-the-virtual-network"></a>가상 네트워크에 서비스 권한 부여
+
 Azure Spring Cloud에는 추가 배포 및 유지 관리를 위해 가상 네트워크에서 전용 및 동적 서비스 주체를 부여하려면 가상 네트워크에 대한 **소유자** 권한이 있어야 합니다.
+
+#### <a name="portal"></a>[포털](#tab/azure-portal)
 
 이전에 만든 **azure-spring-cloud-vnet** 가상 네트워크를 선택합니다.
 
@@ -113,8 +167,26 @@ Azure Spring Cloud에는 추가 배포 및 유지 관리를 위해 가상 네트
         --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
     ```
 
+#### <a name="cli"></a>[CLI](#tab/azure-CLI)
+
+```azurecli
+VIRTUAL_NETWORK_RESOURCE_ID=`az network vnet show \
+    --name $VIRTUAL_NETWORK_NAME \
+    --resource-group $RESOURCE_GROUP \
+    --query "id" \
+    --output tsv`
+
+az role assignment create \
+    --role "Owner" \
+    --scope ${VIRTUAL_NETWORK_RESOURCE_ID} \
+    --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
+```
+
+---
+
 ## <a name="deploy-an-azure-spring-cloud-instance"></a>Azure Spring Cloud 인스턴스 배포
 
+#### <a name="portal"></a>[포털](#tab/azure-portal)
 Azure Spring Cloud 인스턴스를 가상 네트워크에 배포하려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다.
@@ -146,6 +218,25 @@ Azure Spring Cloud 인스턴스를 가상 네트워크에 배포하려면 다음
 
     ![사양 확인을 보여 주는 스크린샷](./media/spring-cloud-v-net-injection/verify-specifications.png)
 
+#### <a name="cli"></a>[CLI](#tab/azure-CLI)
+Azure Spring Cloud 인스턴스를 가상 네트워크에 배포하려면 다음을 수행합니다.
+
+방금 만든 가상 네트워크 및 서브넷을 지정 하 여 Azure 스프링 클라우드 인스턴스를 만듭니다.
+
+   ```azurecli
+   az spring-cloud create  \
+       --resource-group "$RESOURCE_GROUP" \
+       --name "$SPRING_CLOUD_NAME" \
+       --vnet $VIRTUAL_NETWORK_NAME \
+       --service-runtime-subnet service-runtime-subnet \
+       --app-subnet apps-subnet \
+       --enable-java-agent \
+       --sku standard \
+       --location $LOCATION
+   ```
+
+---
+
 배포 후 구독에서 Azure Spring Cloud 인스턴스에 대한 네트워크 리소스를 호스팅하는 두 개의 추가 리소스 그룹이 만들어집니다. **홈** 으로 이동한 다음, 위쪽 메뉴 항목에서 **리소스 그룹** 을 선택하여 다음과 같은 새 리소스 그룹을 찾습니다.
 
 **ap-svc-rt_{서비스 인스턴스 이름}_{서비스 인스턴스 지역}** 이라는 리소스 그룹에는 서비스 인스턴스의 서비스 런타임에 대한 네트워크 리소스가 포함되어 있습니다.
@@ -162,6 +253,7 @@ Azure Spring Cloud 인스턴스를 가상 네트워크에 배포하려면 다음
 
    > [!Important]
    > 리소스 그룹은 Azure Spring Cloud 서비스에서 완전히 관리됩니다. 내부에 있는 리소스를 수동으로 삭제하거나 수정하지 *마세요*.
+
 
 ## <a name="using-smaller-subnet-ranges"></a>더 작은 서브넷 범위 사용
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 936e031e72a98f2329202df4fb3b7a97e7f9d237
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 780f6746854ab48bcdc4ae375bb650a78431df60
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124754484"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993970"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -194,7 +194,7 @@ Azure에서 제공하는 DNS를 사용한 테넌트 간 이름 확인에 대한 
 예. ASE(App Service Environment)를 사용하여 VNet 내부에 Web Apps를 배포하고, VNet 통합을 통해 앱의 백 엔드를 VNet에 연결하고, 서비스 엔드포인트를 사용하여 앱에 대한 인바운드 트래픽을 잠글 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [App Service 네트워킹 기능](../app-service/networking-features.md)
-* [App Service 환경에서 Web Apps 만들기](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+* [App Service 환경에서 Web Apps 만들기](../app-service/environment/using.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [Azure Virtual Network에 앱 통합](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [App Service 액세스 제한](../app-service/app-service-ip-restrictions.md)
 
@@ -403,7 +403,7 @@ Azure 서비스에 연결하려면 NSG에서 아웃바운드 연결을 허용해
 가상 네트워크에 대한 쓰기 권한이 있는 사용자는 가상 네트워크에서 독립적으로 서비스 엔드포인트를 구성할 수 있습니다. VNet에 대한 Azure 서비스 리소스를 보호하려면 사용자는 추가되는 서브넷에 대한 사용 권한 **Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action** 을 갖고 있어야 합니다. 이 권한은 기본적으로 기본 제공 서비스 관리자 역할에 포함되고 사용자 지정 역할을 만들어 수정할 수 있습니다. 기본 제공 역할 및 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 특정 권한 할당에 대해 자세히 알아보세요.
  
 
-### <a name="can-i-filter-virtual-network-traffic-to-azure-services-allowing-only-specific-azure-service-resources-over-vnet-service-endpoints"></a>Azure 서비스에 대한 가상 네트워크 트래픽을 필터링하여 VNet 서비스 엔드포인트를 통해 특정 Azure 서비스 리소스만 허용할 수 있습니다. 
+### <a name="can-i-filter-virtual-network-traffic-to-azure-services-allowing-only-specific-azure-service-resources-over-vnet-service-endpoints"></a>VNet 서비스 끝점을 통해 특정 Azure 서비스 리소스만 허용 하 여 Azure 서비스에 대 한 가상 네트워크 트래픽을 필터링 할 수 있나요? 
 
 VNet(가상 네트워크) 서비스 엔드포인트 정책을 통해 가상 네트워크 트래픽을 Azure 서비스로 필터링하여 서비스 엔드포인트를 통해 특정 Azure 서비스 리소스만 허용할 수 있습니다. 엔드포인트 정책은 Azure 서비스로 전송되는 가상 네트워크 트래픽에 대한 세부적인 액세스 제어를 제공합니다. [여기서](virtual-network-service-endpoint-policies-overview.md) 서비스 엔드포인트 정책에 대해 자세히 알아볼 수 있습니다.
 

@@ -11,12 +11,12 @@ ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 07/06/2021
-ms.openlocfilehash: f640165420f06a85633d4db30d6338f4bfa205c4
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: a125ee289f9f3ea87f1015136b07ec2ad76cef32
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129428372"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003045"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 세트 만들기
 
@@ -117,6 +117,8 @@ Python SDK를 사용하여 데이터 저장소에서 데이터 세트를 만들�
 스토리지가 가상 네트워크 또는 방화벽 뒤에 있으면 `from_files()` 메서드에서 `validate=False` 매개 변수를 설정합니다. 이렇게 하면 초기 유효성 검사 단계를 무시하고 해당 보안 파일에서 데이터 세트를 만들 수 있습니다. [가상 네트워크에서 데이터 저장소 및 데이터 세트를 사용](how-to-secure-workspace-vnet.md#datastores-and-datasets)하는 방법에 관해 자세히 알아봅니다.
 
 ```Python
+from azureml.core import Workspace, Datastore, Dataset
+
 # create a FileDataset pointing to files in 'animals' folder and its subfolders recursively
 datastore_paths = [(datastore, 'animals')]
 animal_ds = Dataset.File.from_files(path=datastore_paths)
@@ -126,12 +128,22 @@ web_paths = ['https://azureopendatastorage.blob.core.windows.net/mnist/train-ima
              'https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz']
 mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
-작업 영역 실험에서 데이터 세트를 재사용하고 공유하려면 [데이터 세트를 등록](#register-datasets)합니다. 
 
-> [!TIP] 
-> 로컬 디렉터리에서 파일을 업로드하고 퍼블릭 미리 보기 메서드인 [upload_directory ()](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory#upload-directory-src-dir--target--pattern-none--overwrite-false--show-progress-true-)를 사용하여 단일 메서드로 FileDataset을 만듭니다. 이 메서드는 [실험적인](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능으로, 언제든지 변경할 수 있습니다. 
-> 
->  이 메서드는 데이터를 기본 스토리지에 업로드하므로 스토리지 비용이 발생합니다. 
+로컬 디렉터리에서 모든 파일을 업로드하려면 [upload_directory()](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory#upload-directory-src-dir--target--pattern-none--overwrite-false--show-progress-true-)를 사용하여 단일 메서드로 FileDataset를 만듭니다. 이 메서드는 데이터를 기본 스토리지에 업로드하므로 스토리지 비용이 발생합니다. 
+
+```Python
+from azureml.core import Workspace, Datastore, Dataset
+from azureml.data.datapath import DataPath
+
+ws = Workspace.from_config()
+datastore = Datastore.get(ws, '<name of your datastore>')
+ds = Dataset.File.upload_directory(src_dir='<path to you data>',
+           target=DataPath(datastore,  '<path on the datastore>'),
+           show_progress=True)
+
+```
+
+작업 영역 실험에서 데이터 세트를 재사용하고 공유하려면 [데이터 세트를 등록](#register-datasets)합니다. 
 
 ### <a name="create-a-tabulardataset"></a>TabularDataset 만들기
 
@@ -223,7 +235,7 @@ file_dataset = file_dataset.filter(file_dataset.file_metadata['Size'] < 100000)
 file_dataset = file_dataset.filter((file_dataset.file_metadata['CreatedTime'] < datetime(2020,1,1)) | (file_dataset.file_metadata['CanSeek'] == False))
 ```
 
-이미지 레이블 지정 프로젝트에서 만든 [레이블이 지정되는](how-to-create-image-labeling-projects.md) **데이터 세트는** 특별한 경우입니다. 이 데이터 세트는 이미지 파일로 구성된 TabularDataset 형식입니다. 해당 형식의 데이터 세트에서는 메타데이터 및 `label`과 `image_details`와 같은 열 값을 기준으로 이미지를 [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-)할 수 있습니다.
+[이미지 레이블 지정 프로젝트](how-to-create-image-labeling-projects.md) 에서 만든 **레이블이 지정 된 데이터 집합** 은 특별 한 경우입니다. 이 데이터 세트는 이미지 파일로 구성된 TabularDataset 형식입니다. 해당 형식의 데이터 세트에서는 메타데이터 및 `label`과 `image_details`와 같은 열 값을 기준으로 이미지를 [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-)할 수 있습니다.
 
 ```python
 # Dataset that only contains records where the label column value is dog
@@ -317,36 +329,20 @@ titanic_ds.take(3).to_pandas_dataframe()
 
 ## <a name="create-a-dataset-from-pandas-dataframe"></a>Pandas 데이터 프레임에서 데이터 세트 만들기
 
-메모리 내 pandas 데이터 프레임에서 TabularDataset을 만들려면 csv와 같은 로컬 파일에 데이터를 쓰고 해당 파일에서 데이터 세트를 만듭니다. 다음 코드에서 이 워크플로를 보여 줍니다.
+메모리 내 pandas 데이터 프레임에서 TabularDataset를 만들려면 [`register_pandas_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#register-pandas-dataframe-dataframe--target--name--description-none--tags-none--show-progress-true-) 메서드를 사용합니다. 이 메서드는 TabularDataset를 작업 영역에 등록하고 기본 스토리지에 데이터를 업로드하여 스토리지 비용이 발생합니다. 
 
 ```python
-# azureml-core of version 1.0.72 or higher is required
-# azureml-dataprep[pandas] of version 1.1.34 or higher is required
+from azureml.core import Workspace, Datastore, Dataset
+import pandas as pd
 
-from azureml.core import Workspace, Dataset
-local_path = 'data/prepared.csv'
-dataframe.to_csv(local_path)
+pandas_df = pd.read_csv('<path to your csv file>')
+ws = Workspace.from_config()
+datastore = Datastore.get(ws, '<name of your datastore>')
+dataset = Dataset.Tabular.register_pandas_dataframe(pandas_df, datastore, "dataset_from_pandas_df", show_progress=True)
 
-# upload the local file to a datastore on the cloud
-
-subscription_id = 'xxxxxxxxxxxxxxxxxxxxx'
-resource_group = 'xxxxxx'
-workspace_name = 'xxxxxxxxxxxxxxxx'
-
-workspace = Workspace(subscription_id, resource_group, workspace_name)
-
-# get the datastore to upload prepared data
-datastore = workspace.get_default_datastore()
-
-# upload the local file from src_dir to the target_path in datastore
-datastore.upload(src_dir='data', target_path='data')
-
-# create a dataset referencing the cloud location
-dataset = Dataset.Tabular.from_delimited_files(path = [(datastore, ('data/prepared.csv'))])
 ```
-
 > [!TIP]
-> 퍼블릭 미리 보기 메서드인 [`register_spark_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#methods) 및 [`register_pandas_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#methods)이 있는 단일 메서드를 사용하여 메모리 내 spark 또는 pandas 데이터 프레임에서 TabularDataset을 만들고 등록합니다. 이 등록 메서드는 [실험적](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능이며 언제든지 변경될 수 있습니다. 
+> 메모리 내 Spark 데이터 프레임 또는 dask 데이터 프레임에서 공개 미리 보기 메서드 및 를 사용하여 TabularDataset를 만들고 [`register_spark_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory##register-spark-dataframe-dataframe--target--name--description-none--tags-none--show-progress-true-) [`register_dask_dataframe()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#register-dask-dataframe-dataframe--target--name--description-none--tags-none--show-progress-true-) 등록합니다. 이러한 메서드는 [실험적](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능이며 언제든지 변경 될 수 있습니다. 
 > 
 >  이 메서드는 데이터를 기본 스토리지에 업로드하므로 스토리지 비용이 발생합니다. 
 
@@ -365,13 +361,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 [https://github.com/Azure/azure-quickstart-templates/tree/master//quickstarts/microsoft.machinelearningservices](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices)에는 데이터 세트를 만드는 데 사용할 수 있는 템플릿이 많이 있습니다.
 
 해당 템플릿 사용에 관한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning용 작업 영역 만들기 ](how-to-create-workspace-template.md)를 참조하세요.
-
-
-## <a name="create-datasets-from-azure-open-datasets"></a>Azure Open Datasets에서 데이터 세트 만들기
-
-[Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/)는 기계 학습 솔루션에 시나리오별 기능을 추가하여 보다 정확한 모델을 만들 수 있는 큐레이팅된 공개 데이터 세트입니다. 데이터 세트에는 기계 학습 모델을 학습시키고 예측 솔루션을 보강할 수 있는 날씨, 인구, 휴일, 공공 안전 및 위치에 대한 공개 도메인 데이터가 포함되어 있습니다. Open Datasets는 Microsoft Azure의 클라우드에 있으며 SDK와 스튜디오 둘 다에 포함되어 있습니다.
-
-[Azure Open Datasets에서 Azure Machine Learning 데이터 세트](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md)를 만드는 방법을 알아봅니다. 
+ 
 
 ## <a name="train-with-datasets"></a>데이터 세트로 학습
 

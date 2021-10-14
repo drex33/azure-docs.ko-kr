@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 06/27/2021
 ms.author: banders
-ms.openlocfilehash: b4bd2615dd99145bd75fd7c1095056961d3b2d80
-ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
-ms.translationtype: HT
+ms.openlocfilehash: 913ab605d17e47d5fa8f1ec751a618fe5dbfe123
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112988358"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000975"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Azure 구독 관리자 추가 또는 변경
 
@@ -30,17 +30,28 @@ Azure RBAC를 사용하여 리소스에 대한 액세스를 관리하는 것이 
 
 자세한 내용은 [Azure Resource Manager 및 클래식 배포](../../azure-resource-manager/management/deployment-models.md) 및 [Azure 클래식 구독 관리자](../../role-based-access-control/classic-administrators.md)를 참조하세요.
 
-<a name="add-an-admin-for-a-subscription"></a>
+## <a name="determine-account-billing-administrator"></a>계정의 대금 청구 관리자 확인
+
+<a name="whoisaa"></a>
+
+대금 청구 관리자는 계정의 청구를 관리하는 권한을 가진 사용자입니다. 이들에게는 [Azure Portal](https://portal.azure.com)에서 청구 정보에 액세스하고, 구독 만들기, 청구서 보기 및 결제, 결제 방법 업데이트와 같은 다양한 청구 작업을 수행할 수 있는 권한이 부여됩니다.
+
+자신이 대금 청구 관리자를 맡고 있는 계정을 확인하려면 [Azure Portal의 Cost Management + Billing 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview)를 방문하세요. 그런 다음, 왼쪽 창에서 **모든 청구 범위** 를 선택합니다. 구독 페이지에는 사용자가 대금 청구 관리자를 맡고 있는 모든 구독이 표시됩니다.
+
+구독의 계정 관리자를 잘 모를 경우 [Azure Portal의 구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)를 방문하세요. 그런 다음, 확인하려는 구독을 선택한 후 **설정** 에서 확인합니다. **속성** 을 선택하면 구독의 계정 관리자가 **계정 관리자** 상자에 표시됩니다.
+
 
 ## <a name="assign-a-subscription-administrator"></a>구독 관리자 할당
 
-사용자를 Azure 구독의 관리자로 지정하려면 기존 관리자는 구독 범위에서 [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할(Azure 역할)을 할당합니다. 소유자 역할을 할당하면 다른 사용자에게 액세스를 위임할 수 있는 권한을 비롯한 구독의 리소스에 대한 모든 권한이 사용자에게 제공됩니다. 이러한 단계는 다른 역할 할당과 동일합니다.
+<a name="add-an-admin-for-a-subscription"></a>
 
-구독에 대한 계정 관리자를 잘 모를 경우 다음 단계를 사용하여 확인하세요.
+사용자를 Azure 구독의 관리자로 만들기 위해 기존 청구 관리자는 구독 범위에서 [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할(Azure 역할)을 할당합니다. 소유자 역할을 할당하면 다른 사용자에게 액세스를 위임할 수 있는 권한을 비롯한 구독의 리소스에 대한 모든 권한이 사용자에게 제공됩니다. 이러한 단계는 다른 역할 할당과 동일합니다.
+
+구독에 대한 계정 청구 관리자가 누구인지 확실하지 않은 경우 다음 단계를 사용하여 확인합니다.
 
 1. [Azure Portal의 구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)를 엽니다.
 1. 확인하려는 구독을 선택한 다음 **설정** 에서 확인합니다.
-1. **속성** 을 선택합니다. 구독의 계정 관리자는 **계정 관리자** 상자에 표시됩니다.
+1. **속성** 을 선택합니다. 구독의 계정 청구 관리자가 **계정 관리자** 상자에 표시됩니다.
 
 ### <a name="to-assign-a-user-as-an-administrator"></a>관리자 권한으로 사용자를 할당하려면
 

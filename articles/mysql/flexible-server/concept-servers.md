@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: a0ce6658168bd86188875d9d89f218ee26ef7941
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: c368e94d8d2b07e3d1487d1b6e505d2a87a89e91
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122642197"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994084"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Azure Database for MySQL 유연한 서버의 서버 개념(미리 보기)
 
@@ -51,7 +51,7 @@ Azure Database for MySQL 유연한 서버는 사용하지 않을 때 서버를 *
 서버가 **중지됨** 상태이면 서버 컴퓨팅에 요금이 청구되지 않습니다. 그러나 서버가 다시 시작될 때 데이터 파일을 사용할 수 있도록 서버의 스토리지가 그대로 남아 있기 때문에 스토리지 요금이 계속 청구됩니다.
 
 > [!IMPORTANT]
-> 서버를 **중지** 하면 다음 7일 동안 계속 해당 상태가 유지됩니다. 이 시간 동안 수동으로 **시작** 하지 않으면 서버는 7일이 끝나는 시점에 자동으로 시작됩니다. 서버를 사용하지 않는 경우 다시 **중지** 하도록 선택할 수 있습니다.
+> 서버를 **중지하면** 다음 30일 동안 해당 상태로 유지됩니다. 이 시간 동안 수동으로 **시작하지** 않으면 30일이 지나면 서버가 자동으로 시작됩니다. 서버를 사용하지 않는 경우 다시 **중지** 하도록 선택할 수 있습니다.
 
 서버가 중지된 동안에는 서버에서 관리 작업을 수행할 수 없습니다. 서버에서 구성 설정을 변경하려면 [서버를 시작](how-to-stop-start-server-portal.md)해야 합니다. [중지/시작 제한 사항](./concepts-limitations.md#stopstart-operation)을 참조하세요.
 

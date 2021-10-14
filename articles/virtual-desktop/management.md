@@ -1,21 +1,24 @@
 ---
-title: Azure Virtual Desktop에 대한 Microsoft Endpoint Configuration Manager
-description: Azure Virtual Desktop 환경을 관리하는 권장 방법입니다.
+title: Azure 가상 데스크톱에 대 한 Microsoft Endpoint Configuration Manager
+description: Azure 가상 데스크톱 환경을 관리 하는 데 권장 되는 방법입니다.
 author: heidilohr
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 10/14/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 1c44b679daa000602aad83d98a04894c5cc267b3
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: cc859f82fa65ed1505a440c0b974ef8f4fde5fc7
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129359108"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003385"
 ---
-# <a name="microsoft-endpoint-manager-and-intune-for-azure-virtual-desktop"></a>Azure Virtual Desktop용 Microsoft Endpoint Manager 및 Intune
+# <a name="microsoft-endpoint-manager-and-intune-for-azure-virtual-desktop"></a>Azure 가상 데스크톱에 대 한 Microsoft Endpoint Manager 및 Intune
 
 배포 후 Azure Virtual Desktop 환경을 관리하려면 [Microsoft Endpoint Manager](https://www.microsoft.com/endpointmanager)를 사용하는 것이 좋습니다. Microsoft Endpoint Manager는 Microsoft Endpoint Configuration Manager 및 Microsoft Intune을 포함하는 통합 관리 플랫폼입니다.
+
+> [!NOTE]
+> Microsoft Endpoint Manager를 사용 하 여 azure 가상 데스크톱 세션 호스트를 관리 하는 것은 현재 azure 공용 클라우드에서만 지원 됩니다.
 
 ## <a name="microsoft-endpoint-configuration-manager"></a>Microsoft Endpoint Configuration Manager
 

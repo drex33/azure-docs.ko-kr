@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: how-to
 ms.custom: devx-track-python, responsible-ml
-ms.openlocfilehash: 803a70b01a39d20080a9724b6ab1780c9a81d354
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 878af265e99c1d6ea431f027e19a6b930eb1ded6
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129425414"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001450"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>해석력 패키지를 사용하여 Python의 ML 모델 및 예측 설명(미리 보기)
 
@@ -565,6 +565,15 @@ X, Y 및 색 축을 따라 다른 필터를 선택함으로써 데이터 세트 
 ## <a name="troubleshooting"></a>문제 해결
 
 * **스파스 데이터가 지원되지 않음**: 모델 설명 대시보드는 많은 기능을 사용하여 중단되거나 속도가 상당히 저하되므로 현재 스파스 데이터 형식을 지원하지 않습니다. 또한 일반적인 메모리 문제는 대량 데이터 세트 및 많은 기능에 발생합니다. 
+* **지원 되는 설명 기능 매트릭스**
+
+지원 되는 설명 탭 | 원시 기능 (조밀한) | 원시 기능 (스파스) | 엔지니어링 된 기능 (조밀한) | 엔지니어링 된 기능 (스파스)
+:----- | :--- | :--- | :---- | :---- |
+모델 성능   | 지원 됨 (예측 안 함) | 지원 됨 (예측 안 함)  | 지원됨 | 지원됨 |
+데이터 세트 탐색기  | 지원 됨 (예측 안 함)   | 지원되지 않습니다. 스파스 데이터는 업로드 되지 않고 UI에는 스파스 데이터 렌더링 문제가 있습니다. | 지원됨 | 지원되지 않습니다. 스파스 데이터는 업로드 되지 않고 UI에는 스파스 데이터 렌더링 문제가 있습니다. | 
+ Aggregatge 기능 중요도 | 지원됨 | 지원됨 | 지원됨 | 지원됨 |
+ 개별 기능 중요도| 지원 됨 (예측 안 함)   | 지원되지 않습니다. 스파스 데이터는 업로드 되지 않고 UI에는 스파스 데이터 렌더링 문제가 있습니다. | 지원됨 | 지원되지 않습니다. 스파스 데이터는 업로드 되지 않고 UI에는 스파스 데이터 렌더링 문제가 있습니다. | 
+
 
 * **모델 설명이 지원되지 않는 예측 모델**: 해석력, 최상의 모델 설명은 TCNForecaster, AutoArima, Prophet, ExponentialSmoothing, Average, Naive, Seasonal Average 및 Seasonal Naive 알고리즘을 최고의 모델로 권장하는 AutoML 예측 실험에 사용할 수 없습니다. AutoML 예측 회귀 모델은 설명을 지원합니다. 그러나 설명 대시보드에서는 데이터 파이프라인의 복잡성 때문에 "개별 기능 중요도" 탭이 예측에 대해 지원되지 않습니다.
 

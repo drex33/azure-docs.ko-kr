@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 10/11/2021
 ms.author: banders
-ms.openlocfilehash: ae2d16b6164f201bae8f34c62876f66b45862cfa
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: ae265fd760a20c1e79032f2a7d0d97a459dd5c69
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129855349"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129999457"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Azure 사용량 및 요금 파일의 사용 약관 이해
 
@@ -86,7 +86,7 @@ ProductId<sup>1</sup> | MCA | 제품의 고유 식별자입니다.
 ProductOrderId | 모두 | 제품 주문의 고유 식별자입니다.
 ProductOrderName | 모두 | 제품 주문의 이름입니다.
 PublisherName | 모두 | Marketplace 서비스의 게시자입니다.
-PublisherType | 모두 | 게시자 유형(값: **Azure**, **AWS**, **Marketplace**)입니다.
+PublisherType | 모두 | 게시자의 유형입니다. Microsoft/Azure, Marketplace 및 AWS 비용을 나눕니다.  값은 `Microsoft` MCA 계정 및 `Azure` EA 및 종 량 제 계정에 대 한 값입니다.|
 수량 | 모두 | 구매 또는 소비된 단위 수입니다.
 ReservationId | EA, MCA | 구매한 예약 인스턴스의 고유 식별자입니다.
 ReservationName | EA, MCA | 구매한 예약 인스턴스의 이름입니다.
@@ -112,7 +112,7 @@ _<sup>**1**</sup> 단일 비용 레코드의 고유 ID를 빌드하는 데 사�
 일부 필드는 계정 유형 간에 대/소문자 구분과 간격이 다를 수 있습니다.
 종량제 사용량 파일의 이전 버전에는 명세서 및 일일 사용량에 대한 별도의 섹션이 있습니다.
 
-MCA 규약을 사용 하는 고객의 경우 필드의 값이 변경 되었습니다 `PublisherType` . 자세한 내용은 [Publisher 형식 값에 대 한 변경 내용](../costs/group-filter.md#changes-to-publisher-type-values)을 참조 하세요.
+MCA 계약이 있는 고객의 경우 필드 값이 `PublisherType` 변경되었습니다. 자세한 내용은 [Publisher 형식 값 변경을 참조하세요.](../costs/group-filter.md#publisher-type-value-changes)
 
 ### <a name="list-of-terms-from-older-apis"></a>이전 API의 용어 목록
 다음 표에는 이전 API에서 사용된 용어에 대응하는 새로운 용어가 나와 있습니다. 위의 표에서 이러한 설명을 참조하세요.

@@ -4,16 +4,16 @@ titleSuffix: Azure Digital Twins
 description: Azure PowerShell을 사용하여 Azure Digital Twins 서비스 인스턴스를 설정하는 방법을 참조하세요.
 author: baanders
 ms.author: baanders
-ms.date: 12/16/2020
+ms.date: 9/3/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1e2751c7df1cd3b43ce6c700bc51b51faf95963f
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: c5af0d96b8e639494b556f875a23f13781cbfbec
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114468714"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129996231"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-powershell"></a>Azure Digital Twins 인스턴스 및 인증 설정(PowerShell)
 
@@ -22,9 +22,6 @@ ms.locfileid: "114468714"
 이 문서에서는 인스턴스를 만들고 인증을 설정하는 등 **새 Azure Digital Twins 인스턴스를 설정** 하는 단계에 대해 설명합니다. 이 문서를 완료한 후에는 Azure Digital Twins 인스턴스에 대한 프로그래밍을 시작할 수 있습니다.
 
 이 문서의 버전은 [Azure PowerShell](/powershell/azure/new-azureps-module-az)을 사용하여 이러한 단계를 하나씩 수동으로 진행합니다.
-
-* Azure Portal을 사용하여 이러한 단계를 수동으로 진행하려면 [인스턴스 및 인증 설정(포털)](how-to-set-up-instance-portal.md)에서 이 문서의 포털 버전을 참조하세요.
-* 배포 스크립트 샘플을 사용하여 자동화된 설정을 실행하려면 [인스턴스 및 인증 설정(스크립팅됨)](how-to-set-up-instance-scripted.md)에서 이 문서의 스크립팅된 버전을 참조하세요.
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 

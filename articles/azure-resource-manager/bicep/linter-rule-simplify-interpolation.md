@@ -2,38 +2,27 @@
 title: Lecrule-보간을 단순화 합니다.
 description: Lecrule-보간을 단순화 합니다.
 ms.topic: conceptual
-ms.date: 09/14/2021
-ms.openlocfilehash: aff3df9bd7b357dcfdfd62f87971580399b3f2ce
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/14/2021
+ms.openlocfilehash: 1b81bcc7eca24ed54c60445ed2ddd8adc4fbea5e
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128634328"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001431"
 ---
 # <a name="linter-rule---simplify-interpolation"></a>Lecrule-보간을 단순화 합니다.
 
-Linter를 사용하면 개발 중에 지침을 제공하여 코딩 표준을 보다 쉽게 적용할 수 있습니다. 현재 linter 규칙 집합은 [ttk 테스트 사례](../templates/template-test-cases.md)에서 가져옵니다.
+이 규칙은 필요 하지 않은 경우 문자열 보간을 사용 하는 구문을 찾습니다.
 
-- [no-hardcoded-env-urls](./linter-rule-no-hardcoded-environment-urls.md)
-- [no-unused-params](./linter-rule-no-unused-parameters.md)
-- [no-unused-vars](./linter-rule-no-unused-variables.md)
-- [prefer-interpolation](./linter-rule-prefer-interpolation.md)
-- [secure-parameter-default](./linter-rule-secure-parameter-default.md)
-- [simplify-interpolation](./linter-rule-simplify-interpolation.md)
-
-자세한 내용은 [Bicep Linter 사용](./linter.md)을 참조 하세요.
-
-## <a name="code"></a>코드
+## <a name="returned-code"></a>반환 된 코드
 
 `simplify-interpolation`
 
-## <a name="description"></a>Description
+## <a name="solution"></a>해결 방법
 
-매개 변수 또는 변수를 참조 하는 데 보간을 사용할 필요는 없습니다.
+식의 일부가 아닌 문자열 보간을 사용 하 여 값을 결합 하는 것을 제거 합니다.
 
-## <a name="examples"></a>예제
-
-다음 예제에서는 이 테스트에 실패합니다.
+다음 예제에서는 매개 변수를 참조 하기 때문에이 테스트에 실패 합니다.
 
 ```bicep
 param AutomationAccountName string
@@ -44,7 +33,7 @@ resource AutomationAccount 'Microsoft.Automation/automationAccounts@2020-01-13-p
 }
 ```
 
-다음 예에서는 이 테스트를 통과합니다.
+문자열 보간 구문을 제거 하 여 문제를 해결할 수 있습니다.
 
 ```bicep
 param AutomationAccountName string
@@ -57,4 +46,12 @@ resource AutomationAccount 'Microsoft.Automation/automationAccounts@2020-01-13-p
 
 ## <a name="next-steps"></a>다음 단계
 
-Visual Studio Code 및 Bicep 확장 사용에 대한 자세한 내용은 [빠른 시작: Visual Studio Code를 사용하여 Bicep 파일 만들기](./quickstart-create-bicep-use-visual-studio-code.md)를 참조하세요.
+* Linter에 대 한 자세한 내용은 [Bicep Linter 사용](./linter.md)을 참조 하세요.
+* 현재 lecrules는 다음과 같습니다.
+
+  * [no-hardcoded-env-urls](./linter-rule-no-hardcoded-environment-urls.md)
+  * [no-unused-params](./linter-rule-no-unused-parameters.md)
+  * [no-unused-vars](./linter-rule-no-unused-variables.md)
+  * [prefer-interpolation](./linter-rule-prefer-interpolation.md)
+  * [secure-parameter-default](./linter-rule-secure-parameter-default.md)
+  * [simplify-interpolation](./linter-rule-simplify-interpolation.md)

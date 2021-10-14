@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 09/16/2020
-ms.openlocfilehash: 48d037e4fe18f214af0f5ecaf9eb4e9b7e3ed59e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 10/13/2021
+ms.openlocfilehash: 1bc89a91bde0cc720b56f52900c2e0b57542dfa4
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528680"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130008674"
 ---
 # <a name="resource-management-in-dense-elastic-pools"></a>조밀한 탄력적 풀의 리소스 관리
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,6 +37,8 @@ Azure SQL Database는 프로세스 수준 리소스 거버넌스를 위한 Windo
 > 활성 데이터베이스가 많은 조밀한 풀에서는 풀의 데이터베이스 수를 [DTU](resource-limits-dtu-elastic-pools.md) 및 [vCore](resource-limits-vcore-elastic-pools.md) 탄력적 풀에 대해 문서화된 최댓값까지 늘리는 것이 불가능할 수 있습니다.
 >
 > 리소스 경합 및 성능 문제를 발생시키지 않고 조밀한 풀에 배치할 수 있는 데이터베이스 수는 동시 활성 데이터베이스 수 및 각 데이터베이스의 사용자 워크로드에 의한 리소스 사용량에 따라 달라집니다. 이 수는 시간이 지나면서 사용자 워크로드가 달라짐에 따라 변경될 수 있습니다.
+> 
+> 또한 데이터베이스당 최소 vCore 수 또는 데이터베이스당 최소 DTU 설정이 0보다 큰 값으로 설정된 경우 풀의 최대 데이터베이스 수는 암시적으로 제한됩니다. 자세한 내용은 [풀된 vCore 데이터베이스의 데이터베이스 속성 및 풀된](resource-limits-vcore-elastic-pools.md#database-properties-for-pooled-databases) [DTU 데이터베이스의 데이터베이스 속성을 참조하세요.](resource-limits-dtu-elastic-pools.md#database-properties-for-pooled-databases)
 
 조밀하게 압축된 풀에서 리소스 경합이 발생하는 경우 고객은 다음 작업 중 하나 이상을 선택하여 이를 완화할 수 있습니다.
 
@@ -75,6 +77,9 @@ Azure SQL Database는 해당 유형의 모니터링과 관련된 몇 가지 메�
 |[sys.dm_resource_governor_workload_groups_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-history-ex-azure-sql-database)|최근 32분 동안의 워크로드 그룹 사용률 통계를 반환합니다. 각 행은 20초 간격을 나타냅니다. `delta_` 열은 간격 동안의 각 통계에 대한 변경 내용을 반환합니다.|
 |||
 
+> [!TIP]
+> 서버 관리자 이외의 보안 주체를 사용하여 이러한 뷰와 기타 동적 관리 뷰를 쿼리하려면 이 보안 주체를 서버 역할 에 `##MS_ServerStateReader##` [](security-server-roles.md)추가합니다.
+
 해당 보기를 사용하여 리소스 사용률을 모니터링하고 리소스 경합 문제를 거의 실시간으로 해결할 수 있습니다. 지역 복제본을 비롯하여 주 복제본 및 읽기 가능한 보조 복제본의 사용자 워크로드는 `SloSharedPool1` 리소스 풀 및 `UserPrimaryGroup.DBId[N]` 워크로드 그룹으로 분류됩니다. 여기서 `N`은 데이터베이스 ID 값을 나타냅니다.
 
 현재 리소스 사용률을 모니터링하는 것 외에도 조밀한 풀을 사용하는 고객은 별도의 데이터 저장소에서 기록 리소스 사용률 데이터를 유지할 수 있습니다. 이 데이터는 예측 분석에서 기록 및 계절 추세에 따라 리소스 사용률을 사전에 관리하는 데 사용할 수 있습니다.
@@ -104,9 +109,7 @@ Azure SQL Database는 해당 유형의 모니터링과 관련된 몇 가지 메�
 
 **지나치게 조밀한 서버를 사용하지 않습니다**. Azure SQL Database는 서버당 최대 5000개의 데이터베이스를 [지원](./resource-limits-logical-server.md)합니다. 수천 개의 데이터베이스에서 탄력적 풀을 사용하는 고객은 단일 서버에 여러 탄력적 풀을 배치하는 것이 좋습니다. 이 경우 총 데이터베이스 수는 지원되는 최대치입니다. 그러나 수천 개의 데이터베이스가 있는 서버는 운영 상의 문제를 만듭니다. 서버의 모든 데이터베이스를 열거해야 하는 작업(예: 포털의 데이터베이스 보기)은 더 느려집니다. 서버 수준 로그인 또는 방화벽 규칙의 잘못된 수정과 같은 운영 오류는 더 많은 데이터베이스에 영향을 줍니다. 서버를 실수로 삭제하는 경우, 삭제된 서버에서 데이터베이스를 복구하려면 Microsoft 지원의 도움이 필요하며, 영향을 받는 모든 데이터베이스의 작동이 중단될 수 있습니다.
 
-서버당 데이터베이스 수를 지원되는 최대 개수보다 낮게 제한하는 것이 좋습니다. 대부분의 시나리오에서 서버당 최대 1000-2000 개의 데이터베이스를 사용하는 것이 가장 좋습니다. 실수로 서버를 삭제할 가능성을 줄이려면 서버 또는 해당 리소스 그룹에 [삭제 잠금](../../azure-resource-manager/management/lock-resources.md)을 배치하는 것이 좋습니다.
-
-과거에는 동일한 서버의 탄력적 풀 간에 데이터베이스를 이동하는 특정 시나리오가 서버 간에 데이터베이스를 이동할 때 보다 더 빨랐습니다. 현재 모든 데이터베이스는 원본 서버와 대상 서버에 관계없이 동일한 속도로 실행됩니다.
+서버당 데이터베이스 수를 지원되는 최대값보다 낮은 수로 제한하는 것이 좋습니다. 대부분의 시나리오에서 서버당 최대 1000-2000 개의 데이터베이스를 사용하는 것이 가장 좋습니다. 실수로 인한 서버 삭제 가능성을 줄이려면 서버 또는 해당 리소스 그룹에 [삭제 잠금을](../../azure-resource-manager/management/lock-resources.md) 배치합니다.
 
 ## <a name="examples"></a>예
 

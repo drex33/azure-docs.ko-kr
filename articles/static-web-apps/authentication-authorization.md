@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 10/08/2021
 ms.author: cshoe
-ms.openlocfilehash: e38cc40407f636f8bfd53a9196ecaf9c431d34db
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 8180dc98745079f351d321c971ed7d24d25b4b41
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129729827"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002912"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps"></a>Azure Static Web Apps에 대한 인증 및 권한 부여
 
@@ -22,7 +22,7 @@ Azure Static Web Apps는 간소화된 인증 환경을 제공합니다. 기본�
 - 로그인하면 사용자는 기본적으로 `anonymous` 및 `authenticated` 역할에 속합니다.
 - 승인된 사용자는 [staticwebapp.config.json 파일](./configuration.md)에 정의된 규칙에 따라 제한된 [경로](configuration.md#routes)에 액세스할 수 있습니다.
 - 기본 제공 초대 시스템을 사용하여 사용자에게 사용자 지정 역할이 [할당됩니다.](#invitations)
-- API 함수를 통해 로그인할 때 사용자에게 프로그래밍 방식으로 사용자 지정 역할을 할당할 수 있습니다.
+- 사용자는 API 함수를 통해 로그인할 때 프로그래밍 방식으로 사용자 지정 역할을 할당할 수 있습니다.
 - 모든 인증 공급자는 기본적으로 사용하도록 설정됩니다.
   - 인증 공급자를 제한하려면 사용자 지정 경로 규칙을 사용하여 [액세스를 차단](#block-an-authorization-provider)합니다.
 - 미리 구성된 공급자는 다음과 같습니다.
@@ -48,9 +48,6 @@ Azure Static Web Apps는 간소화된 인증 환경을 제공합니다. 기본�
 ### <a name="add-a-user-to-a-role"></a>역할에 사용자 추가
 
 사용자를 역할에 추가하려면 특정 역할에 사용자를 연결하는 데 사용할 수 있는 초대를 생성합니다. 역할은 _staticwebapp.config.json_ 파일에서 정의되고 유지됩니다.
-
-> [!NOTE]
-> 그룹 관리를 위한 초대를 발급하지 않으려면 [사용자 지정 Azure Active Directory 공급자를 등록](./authentication-custom.md)하도록 선택할 수 있습니다.
 
 <a name="invitations" id="invitations"></a>
 
@@ -112,7 +109,7 @@ Azure Static Web Apps는 간소화된 인증 환경을 제공합니다. 기본�
 
 기본 제공 초대 시스템을 사용하는 대신 서버리스 함수를 사용하여 사용자가 로그인할 때 프로그래밍 방식으로 역할을 할당할 수 있습니다.
 
-함수에서 사용자 지정 역할을 할당하려면 사용자가 ID 공급자를 사용하여 성공적으로 인증할 때마다 자동으로 호출되는 API 함수를 정의할 수 있습니다. 함수는 공급자로부터 사용자 정보를 전달합니다. 사용자에게 할당된 사용자 지정 역할 목록을 반환해야 합니다.
+함수에서 사용자 지정 역할을 할당하려면 사용자가 ID 공급자를 사용하여 성공적으로 인증할 때마다 자동으로 호출되는 API 함수를 정의할 수 있습니다. 함수는 공급자로부터 사용자의 정보를 전달합니다. 사용자에게 할당된 사용자 지정 역할 목록을 반환해야 합니다.
 
 이 함수의 예제 사용은 다음과 같습니다.
 
@@ -147,7 +144,7 @@ API 함수를 역할 할당 함수로 사용하도록 Static Web Apps 구성하�
 
 앱의 구성에서 속성을 정의한 후 `rolesSource` 지정한 경로에 정적 웹앱에 [API 함수를](apis.md) 추가합니다. 관리되는 함수 앱 또는 Bring Your Own 함수 앱을 사용할 수 있습니다.
 
-사용자가 ID 공급자를 성공적으로 인증할 때마다 지정된 함수가 호출됩니다. 함수는 공급자의 사용자 정보를 포함하는 요청 본문에 JSON 개체를 전달합니다. 일부 ID 공급자의 경우 사용자 정보에는 `accessToken` 함수가 사용자의 ID를 사용하여 API 호출을 만드는 데 사용할 수 있는 도 포함됩니다.
+사용자가 ID 공급자를 성공적으로 인증할 때마다 지정된 함수가 호출됩니다. 함수는 공급자의 사용자 정보를 포함하는 요청 본문에 JSON 개체를 전달합니다. 일부 ID 공급자의 경우 사용자 정보에는 `accessToken` 함수가 사용자의 ID를 사용하여 API를 호출하는 데 사용할 수 있는 도 포함됩니다.
 
 다음은 Azure Active Directory 예제 페이로드입니다.
 
@@ -213,7 +210,7 @@ API 함수를 역할 할당 함수로 사용하도록 Static Web Apps 구성하�
 
 사용자에게 추가 역할을 할당하지 않으려면 빈 `roles` 배열을 반환합니다.
 
-자세한 내용은 [자습서: 함수를 사용하여 사용자 지정 역할 할당 및 Microsoft Graph](assign-roles-microsoft-graph.md)를 참조하세요.
+자세한 내용은 [자습서: 함수를](assign-roles-microsoft-graph.md)사용하여 사용자 지정 역할 할당 및 Microsoft Graph 를 참조하세요.
 
 ---
 

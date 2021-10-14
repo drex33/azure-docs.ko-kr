@@ -3,12 +3,12 @@ title: 게스트 구성에 대한 PowerShell Desired State Configuration의 동�
 description: 이 문서에서는 Azure Policy를 통해 컴퓨터에 구성 변경 내용을 제공하는 데 사용되는 플랫폼의 개요를 제공합니다.
 ms.date: 05/31/2021
 ms.topic: how-to
-ms.openlocfilehash: ee5165ea9e8a80fc31863389df018548859e9b20
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 791d9fe38da6c3ae21e3f72960e35a3571eba36b
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123257168"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002475"
 ---
 # <a name="changes-to-behavior-in-powershell-desired-state-configuration-for-guest-configuration"></a>게스트 구성에 대한 PowerShell Desired State Configuration의 동작 변경 사항
 
@@ -72,6 +72,7 @@ Azure Automation State Configuration에서 DSC 구성은 [크기가 제한](../.
 - 반환되는 해시 테이블에 **Reasons** 라는 속성이 포함되어야 합니다.
 - Reasons 속성은 배열이어야 합니다.
 - 배열의 각 항목은 **Code** 및 **Phrase** 라는 키가 있는 hashtable이어야 합니다.
+- 해시 가능 이외의 다른 값은 반환할 수 없습니다.
 
 서비스는 Reasons 속성을 사용하여 준수 정보를 표시하는 방식을 표준화합니다. Reasons의 각 항목은 리소스가 규정을 준수하거나 준수하지 않는 "이유"라고 간주할 수 있습니다. 두 가지 이상의 이유로 리소스가 규정을 준수하지 않을 수 있으므로 속성은 배열입니다.
 
@@ -93,6 +94,8 @@ return @{
     reasons = $reasons
 }
 ```
+
+명령줄 도구를 사용하여 Get에 반환되는 정보를 얻을 때 도구가 예상하지 못한 출력을 반환하는 것을 확인할 수 있습니다. PowerShell에서 출력을 캡처하더라도 출력이 표준 오류로 기록되었을 수도 있습니다. 이 문제를 방지하려면 출력을 null로 리디렉션하는 것이 좋습니다.
 
 ### <a name="the-reasons-property-embedded-class"></a>Reasons 속성 포함 클래스
 
@@ -181,9 +184,9 @@ Microsoft는 PowerShell Gallery의 `PsDscResources` 모듈 및 Windows 함께 �
 ## <a name="next-steps"></a>다음 단계
 
 - [게스트 구성 개요](./guest-configuration.md)를 참조하세요.
-- 사용자 지정 게스트 구성 패키지 [개발 환경](../how-to/guest-configuration-create-setup.md)을 설정합니다.
+- 사용자 지정 게스트 구성 패키지 [개발 환경](../how-to/guest-configuration-create-setup.md)을 설치합니다.
 - 게스트 구성을 위한 [패키지 아티팩트를 만듭니다](../how-to/guest-configuration-create.md).
-- 사용자의 개발 환경에서 [패키지 아티팩트를 테스트](../how-to/guest-configuration-create-test.md)합니다.
-- `GuestConfiguration` 모듈을 사용하여 사용자 환경을 대규모로 관리하기 위한 [Azure Policy 정의를 만듭니다](../how-to/guest-configuration-create-definition.md).
+- 사용자 개발 환경에서 [패키지 아티팩트 테스트](../how-to/guest-configuration-create-test.md)합니다.
+- `GuestConfiguration` 모듈을 사용하여 사용자 환경의 대규모 관리를 위한 [Azure Policy 정의를 생성](../how-to/guest-configuration-create-definition.md)합니다.
 - Azure Portal을 사용하여 [사용자 지정 정책 정의를 할당](../assign-policy-portal.md)합니다.
-- [게스트 구성에 대한 규정 준수 세부 정보](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) 정책 할당을 보는 방법을 알아봅니다.
+- [게스트 구성 정책 할당에 대한 규정 준수 세부 정보](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)를 보는 방법을 알아봅니다.

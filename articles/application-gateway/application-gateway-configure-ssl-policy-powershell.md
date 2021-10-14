@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 18dace708f7ded8f77e041b98c705f0f2f1aafca
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
-ms.translationtype: HT
+ms.openlocfilehash: cc6fe6933c90d4cb8eaecdf7e4386de5e7bc4bf5
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108317634"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001697"
 ---
 # <a name="configure-tls-policy-versions-and-cipher-suites-on-application-gateway"></a>Application Gateway에서 TLS 정책 버전 및 암호 그룹 구성
 
@@ -120,7 +120,7 @@ CipherSuites:
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 
 > [!IMPORTANT]
-> 사용자 지정 TLS 정책을 구성할 때 TLS_RSA_WITH_AES_256_CBC_SHA256을 선택해야 합니다. Application Gateway는 백 엔드 관리를 위해 이 암호 제품군을 사용합니다. 다른 모든 제품군과 함께 사용할 수 있지만 이 항목도 선택해야 합니다. 
+> 사용자 지정 TLS 정책을 구성할 때 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256를 선택 해야 합니다. Application Gateway는 백 엔드 관리를 위해 이 암호 제품군을 사용합니다. 다른 모든 제품군과 함께 사용할 수 있지만 이 항목도 선택해야 합니다. 
 
 ```powershell
 # get an application gateway resource

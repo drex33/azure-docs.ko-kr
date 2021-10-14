@@ -1,14 +1,14 @@
 ---
 title: Azure Monitor에서 메트릭 경고가 작동하는 방식을 이해합니다.
 description: 메트릭 경고로 수행할 수 있는 작업과 Azure Monitor에서 메트릭 경고가 작동하는 방식에 대한 개요를 제공합니다.
-ms.date: 03/11/2021
+ms.date: 10/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: dd0672523329b17b0e101d5abb16700254b8a918
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
-ms.translationtype: HT
+ms.openlocfilehash: fa577d4c2099be6b333994690b56c7581ae32669
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111441333"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994730"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고가 작동하는 방식 이해
 
@@ -146,6 +146,7 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 | Key Vault | **예** | **예** | **예** |
 | Azure Cache for Redis | **예** | **예** | **예** |
 | Data Box Edge 디바이스 | **예** | **예** | **예** |
+| Recovery Services 자격 증명 모음 | **예** | **아니요** | **아니요** |
 
 <sup>1</sup> 가상 머신 네트워크 메트릭(네트워크 입력 총계, 네트워크 출력 총계, 인바운드 흐름, 아웃 바운드 흐름, 인바운드 흐름 최대 생성 속도, 아웃바운드 흐름 최대 생성 속도)은 지원되지 않습니다.
 

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: a8c7584b91b59aa7d807dd8b57f5a9ea3fb5a13d
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
-ms.translationtype: HT
+ms.openlocfilehash: f8ac0c985018d8d4c3858a9ff47ac2b188539161
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754554"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003461"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions 배포 슬롯
 
@@ -224,10 +224,10 @@ Azure Functions 배포 슬롯은 다음 제한이 있습니다.
 | OS/호스팅 계획           | 지원 수준     |
 | ------------------------- | -------------------- |
 | Windows 사용       | 일반 공급 |
-| Windows 프리미엄           | 일반 공급  |
+| Windows 프리미엄           | 일반 공급 |
 | Windows 전용         | 일반 공급 |
-| Linux 사용         | 미리 보기          |
-| Linux 프리미엄             | 일반 공급  |
+| Linux 사용         | 일반 공급 |
+| Linux 프리미엄             | 일반 공급 |
 | Linux 전용           | 일반 공급 |
 
 ## <a name="next-steps"></a>다음 단계

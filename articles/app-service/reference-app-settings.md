@@ -3,12 +3,12 @@ title: 환경 변수 및 앱 설정 참조
 description: 일반적으로 사용되는 환경 변수와 앱 설정을 사용하여 수정할 수 있는 환경 변수에 대해 설명합니다.
 ms.topic: article
 ms.date: 06/14/2021
-ms.openlocfilehash: d3c34f64aa4e13fe0dce371d9848f6422e7b1f63
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: 3a51f620cefef67e8e2cd2256ad6dba19b915bf4
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129399815"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130005132"
 ---
 # <a name="environment-variables-and-app-settings-in-azure-app-service"></a>Azure App Service 환경 변수 및 앱 설정
 
@@ -74,8 +74,14 @@ WEBSITE_CLASSIC_MODE
 | `POSTGRESQLCONNSTR_` | 앱 구성에서 PostgreSQL 연결 문자열을 의미합니다. .NET 앱에 연결 문자열로 삽입됩니다. |
 | `CUSTOMCONNSTR_` | 앱 구성에서 사용자 지정 연결 문자열을 의미합니다. .NET 앱에 연결 문자열로 삽입됩니다. |
 | `MYSQLCONNSTR_` | 앱 구성에서 Azure SQL Database 연결 문자열을 의미합니다. .NET 앱에 연결 문자열로 삽입됩니다. |
-| `AZUREFILESSTORAGE_` | 컨테이너 앱의 사용자 지정 Azure 파일 공유에 대한 연결 문자열. |
-| `AZUREBLOBSTORAGE_` | 컨테이너 앱에 대한 사용자 지정 Azure Blob 스토리지에 대한 연결 문자열. |
+| `AZUREFILESSTORAGE_` | Azure Files의 컨테이너 앱에 대 한 사용자 지정 공유에 대 한 연결 문자열입니다. |
+| `AZUREBLOBSTORAGE_` | Azure Blob Storage의 컨테이너 앱에 대 한 사용자 지정 저장소 계정에 대 한 연결 문자열입니다. |
+| `NOTIFICATIONHUBCONNSTR_` | Azure Notification Hubs에서 알림 허브에 대 한 연결 문자열을 나타냅니다. |
+| `SERVICEBUSCONNSTR_` | Azure Service Bus 인스턴스에 대 한 연결 문자열을 나타냅니다. |
+| `EVENTHUBCONNSTR_` | Azure Event Hubs에서 이벤트 허브에 대 한 연결 문자열을 나타냅니다. |
+| `DOCDBCONNSTR_` | Azure Cosmos DB 데이터베이스에 대 한 연결 문자열을 나타냅니다. |
+| `REDISCACHECONNSTR_` | Redis에 대 한 Azure 캐시의 캐시에 대 한 연결 문자열을 나타냅니다. |
+| `FILESHARESTORAGE_` | 사용자 지정 파일 공유에 대 한 연결 문자열을 나타냅니다. |
 
 ## <a name="deployment"></a>배포
 

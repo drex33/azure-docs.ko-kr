@@ -9,12 +9,12 @@ ms.subservice: mldata
 ms.topic: how-to
 ms.custom: data4ml
 ms.date: 05/14/2020
-ms.openlocfilehash: 2af916866aa78a081f8769322a80f4d846c89d3e
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 3af540df0629181197455d8495b774483579b2de
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424088"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129984010"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>레이블이 있는 Azure Machine Learning 데이터 세트 만들기 및 탐색
 
@@ -48,6 +48,8 @@ ms.locfileid: "129424088"
 Azure Machine Learning 스튜디오의 **데이터 세트** 섹션에서 내보낸 Azure Machine Learning 데이터 세트에 액세스할 수 있습니다. 데이터 세트 **세부 정보** 페이지에서는 Python에서 레이블에 액세스할 수 있는 샘플 코드도 제공합니다.
 
 ![내보낸 데이터 세트](./media/how-to-create-labeling-projects/exported-dataset.png)
+
+레이블이 지정한 데이터를 Azure Machine Learning 데이터 세트로 내보낸 후에는 AutoML을 사용하여 레이블이 지정한 데이터에 대해 학습된 컴퓨터 비전 모델을 빌드할 수 있습니다. [Python을 사용하여 컴퓨터 비전 모델을 학습하도록 AutoML 설정(미리 보기)에서](how-to-auto-train-image-models.md) 자세히 알아보세요.
 
 ## <a name="explore-labeled-datasets"></a>레이블이 지정된 데이터 세트 탐색
 

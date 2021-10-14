@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 07/28/2021
-ms.openlocfilehash: eca62eccca6f53935f29a16bca0afc382896212c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d23daba1618a606ee53b117518324604d47f3fe3
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124810353"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998263"
 ---
 # <a name="troubleshoot-assessment"></a>평가 문제 해결
 
@@ -142,6 +142,10 @@ Azure VM 평가는 평가 유형에 따라 더 큰 디스크를 권장할 수 �
 
 - Azure VM 및 Azure VMware Solution 평가의 경우 검색이 시작된 후 만들어진 서버가 거의 없었습니다. 예를 들어 지난 한 달 동안의 성능 기록에 대한 평가를 만들고 있지만 환경에서 불과 일주일 전에 몇몇 서버가 만들어진 경우입니다. 이 경우 새 서버의 성능 데이터가 전체 기간에 대해 제공되지 않으며 신뢰 등급이 낮습니다. [자세히 알아보기](./concepts-assessment-calculation.md#confidence-ratings-performance-based).
 - Azure SQL 평가의 경우 검색을 시작한 후 일부 SQL 인스턴스 또는 데이터베이스가 만들어졌습니다. 예를 들어 지난 한 달 동안의 성능 기록에 대한 평가를 만들고 있지만 환경에서 불과 일주일 전에 몇몇 SQL 인스턴스 또는 데이터베이스가 만들어진 경우입니다. 이 경우 새 서버의 성능 데이터가 전체 기간에 대해 제공되지 않으며 신뢰 등급이 낮습니다. [자세히 알아보기](./concepts-azure-sql-assessment-calculation.md#confidence-ratings).
+
+## <a name="why-is-my-ram-utilization-greater-than-100"></a>RAM 사용률이 100%를 초과 하는 이유는 무엇 인가요?
+
+기본적으로 프로 비전 된 최대 메모리가 VM에 필요한 것 보다 작은 경우 Hyper-v에서 평가는 메모리 사용률이 100%를 초과 하는 것으로 표시 합니다.
 
 ## <a name="is-the-operating-system-license-included-in-an-azure-vm-assessment"></a>Azure VM 평가에 운영 체제 라이선스가 포함되어 있나요?
 

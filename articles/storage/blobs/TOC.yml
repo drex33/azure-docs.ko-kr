@@ -350,9 +350,11 @@ items:
                 href: assign-azure-role-data-access.md
               - name: Azure AD 인증 및 권한 부여
                 items:
-                  - name: 관리 ID로 권한 부여
-                    href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                  - name: 애플리케이션에서 권한 부여
+                  - name: Azure AD를 사용하여 권한 부여에 대한 액세스 토큰 가져오기
+                    href: ../common/identity-library-acquire-token.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                  - name: Azure에서 실행되는 애플리케이션에서 권한 부여
+                    href: authorize-managed-identity.md
+                  - name: 네이티브 애플리케이션 또는 웹 애플리케이션에서 권한 부여
                     href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               - name: 공유 키로 권한 부여
                 items:

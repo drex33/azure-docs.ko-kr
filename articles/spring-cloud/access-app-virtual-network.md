@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/11/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 68cac51ba9d54abc6514cf493077740339ac56c5
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
-ms.translationtype: HT
+ms.openlocfilehash: 7ede1ecbbe86f0ec5ef3a79d38b42ff58b653b0b
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537479"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130005356"
 ---
 # <a name="access-your-application-in-a-private-network"></a>개인 네트워크에서 애플리케이션에 액세스
 
@@ -23,6 +23,8 @@ Azure Spring Cloud 서비스 인스턴스의 애플리케이션에 대한 **엔�
 ## <a name="create-a-private-dns-zone"></a>프라이빗 DNS 영역 만들기
 
 다음 절차에서는 프라이빗 네트워크의 애플리케이션에 대한 프라이빗 DNS 영역을 만듭니다.
+
+#### <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. Azure Portal을 엽니다. 위쪽 검색 상자에서 **프라이빗 DNS 영역** 을 검색하고 결과에서 **프라이빗 DNS 영역** 을 선택합니다.
 
@@ -37,11 +39,39 @@ Azure Spring Cloud 서비스 인스턴스의 애플리케이션에 대한 **엔�
 
 5. **만들기** 를 선택합니다.
 
+#### <a name="cli"></a>[CLI](#tab/azure-CLI)
+
+1. 구독, 리소스 그룹 및 Azure Spring Cloud 인스턴스에 대한 변수를 정의합니다. 실제 환경에 따라 값을 사용자 지정합니다.
+
+   ```azurecli
+   SUBSCRIPTION='subscription-id'
+   RESOURCE_GROUP='my-resource-group'
+   VIRTUAL_NETWORK_NAME='azure-spring-cloud-vnet'
+   ```
+
+1. Azure CLI에 로그인하고 활성 구독을 선택합니다.
+
+   ```azurecli
+   az login
+   az account set --subscription ${SUBSCRIPTION}
+   ```
+
+1. 프라이빗 DNS 영역을 만듭니다. 
+
+   ```azurecli
+   az network private-dns zone create --resource-group $RESOURCE_GROUP \
+      --name private.azuremicroservices.io
+   ```
+
+---
+
 영역을 만드는 데 몇 분이 걸릴 수 있습니다.
 
 ## <a name="link-the-virtual-network"></a>가상 네트워크 연결
 
 가상 네트워크에 프라이빗 DNS 영역을 연결하려면 가상 네트워크 링크를 만들어야 합니다.
+
+#### <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. 위에서 만든 프라이빗 DNS 영역 리소스를 선택합니다. **<span>private.azuremicroservices.io</span>**
 
@@ -57,9 +87,25 @@ Azure Spring Cloud 서비스 인스턴스의 애플리케이션에 대한 **엔�
 
 6. **확인** 을 선택합니다.
 
+#### <a name="cli"></a>[CLI](#tab/azure-CLI)
+
+방금 만든 프라이빗 DNS 영역을 Azure Spring Cloud 서비스가 있는 가상 네트워크에 연결합니다.
+
+   ```azurecli
+   az network private-dns link vnet create --resource-group $RESOURCE_GROUP \
+       --name azure-spring-cloud-dns-link \
+       --zone-name private.azuremicroservices.io \
+       --virtual-network $VIRTUAL_NETWORK_NAME \
+       --registration-enabled false
+   ```
+
+---
+
 ## <a name="create-dns-record"></a>DNS 레코드 만들기
 
 DNS를 변환/확인하는 데 프라이빗 DNS 영역을 사용하려면 영역에 "A" 형식 레코드를 만들어야 합니다.
+
+#### <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. [Azure 가상 네트워크에 Azure Spring Cloud 배포(VNet 삽입)](./how-to-deploy-in-azure-virtual-network.md)에 설명된 대로 만든 가상 네트워크 리소스를 선택합니다.
 
@@ -100,9 +146,39 @@ $SERVICE_RUNTIME_RG --query "[0].privateIpAddress" -o tsv`
 
     ![프라이빗 DNS 영역 레코드 추가](media/spring-cloud-access-app-vnet/private-dns-zone-add-record.png)
 
+#### <a name="cli"></a>[CLI](#tab/azure-CLI)
+
+1. Spring Cloud 서비스의 IP 주소를 찾습니다. 실제 환경에 따라 Spring Cloud 이름의 값을 사용자 지정합니다.
+
+   ```azurecli
+   SPRING_CLOUD_NAME='spring-cloud-name'
+   SERVICE_RUNTIME_RG=`az spring-cloud show --resource-group $RESOURCE_GROUP \
+       --name $SPRING_CLOUD_NAME --query \
+       "properties.networkProfile.serviceRuntimeNetworkResourceGroup" \
+       --output tsv`
+   IP_ADDRESS=`az network lb frontend-ip list --lb-name kubernetes-internal \
+       --resource-group $SERVICE_RUNTIME_RG \
+       --query "[0].privateIpAddress" \
+       --output tsv`
+   ```
+
+1. 이 IP 주소를 사용하여 DNS 영역에 A 레코드를 만듭니다. 
+
+   ```azurecli
+   az network private-dns record-set a add-record \
+     --resource-group $RESOURCE_GROUP \
+     --zone-name private.azuremicroservices.io \
+     --record-set-name '*' \
+     --ipv4-address $IP_ADDRESS
+   ```
+
+---
+
 ## <a name="assign-private-fqdn-for-your-application"></a>애플리케이션에 대한 프라이빗 FQDN 할당
 
 [마이크로 서비스 애플리케이션 빌드 및 배포](./how-to-deploy-in-azure-virtual-network.md)의 절차를 수행하면 애플리케이션에 대한 프라이빗 FQDN을 할당할 수 있습니다.
+
+#### <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. 가상 네트워크에 배포된 Azure Spring Cloud 서비스 인스턴스를 선택하고 왼쪽 메뉴에서 **앱** 탭을 엽니다.
 
@@ -113,6 +189,20 @@ $SERVICE_RUNTIME_RG --query "[0].privateIpAddress" -o tsv`
     ![프라이빗 엔드포인트 할당](media/spring-cloud-access-app-vnet/assign-private-endpoint.png)
 
 4. 이제 할당된 프라이빗 FQDN(레이블이 지정된 **URL**)을 사용할 수 있습니다. 이 파일은 프라이빗 네트워크 내에서만 액세스할 수 있으며 인터넷에서는 액세스할 수 없습니다.
+
+#### <a name="cli"></a>[CLI](#tab/azure-CLI)
+
+엔드포인트를 할당하도록 앱을 업데이트합니다. 실제 환경에 따라 Spring 앱 이름의 값을 사용자 지정합니다.
+
+```azurecli
+SPRING_CLOUD_APP='your spring cloud app'
+az spring-cloud app update --name $SPRING_CLOUD_APP \
+    --resource-group $RESOURCE_GROUP \
+    --service $SPRING_CLOUD_NAME \
+    --assign-endpoint true
+```
+
+---
 
 ## <a name="access-application-private-fqdn"></a>애플리케이션 프라이빗 FQDN 액세스
 

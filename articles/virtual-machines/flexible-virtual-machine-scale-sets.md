@@ -6,15 +6,15 @@ ms.author: fisteele
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: flexible-scale-sets
-ms.date: 08/11/2021
+ms.date: 10/13/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-ms.openlocfilehash: dc687c2f3d14c2da02fa3ce5b3a3357292977771
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 509b485abe9eca54354fa7d5ad7590ffe1a37794
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128648965"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129995870"
 ---
 # <a name="preview-flexible-orchestration-for-virtual-machine-scale-sets-in-azure"></a>미리 보기: 가상 머신 확장 집합에 대한 유연한 오케스트레이션
 
@@ -38,12 +38,9 @@ Flexible 오케스트레이션을 사용하면 Azure는 Azure VM 에코시스템
 
 단일 확장 집합과 [오케스트레이션 모드](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md)의 유연한 확장 집합 간의 차이점에 대해 자세히 알아보세요.
 
-
 > [!IMPORTANT]
-> Flexible 오케스트레이션 모드의 가상 머신 확장 집합은 현재 공개 미리 보기로 제공됩니다. 아래에서 자세하게 설명하는 공개 미리 보기 기능을 사용 하려면 옵트인 프로시저를 사용해야 합니다.
-> 이 미리 보기 버전은 서비스 수준 약정 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+> Flexible 오케스트레이션 모드의 가상 머신 확장 집합은 현재 공개 미리 보기로 제공됩니다. 아래에서 자세하게 설명하는 공개 미리 보기 기능을 사용 하려면 옵트인 프로시저를 사용해야 합니다. 이 미리 보기 버전은 서비스 수준 약정 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
 
 > [!CAUTION]
 > 오케스트레이션 모드는 확장 집합을 만들 때 정의되며 나중에 변경하거나 업데이트할 수 없습니다.

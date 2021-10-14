@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2021
 ms.custom: references_regions
-ms.openlocfilehash: c3cb2a64cd2981c73a673776c01ec98bf44c8041
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 60dd14be7d420d5aac5da5ba85d3e78e72a5ba42
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129458191"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002532"
 ---
 # <a name="availability-and-business-continuity-in-azure-cognitive-search"></a>Azure Cognitive Search의 가용성 및 비즈니스 연속성
 
@@ -32,6 +32,10 @@ Cognitive Search 복제본은 인덱스의 복제본입니다. 복제본이 여�
 + 읽기/쓰기 작업(쿼리 및 인덱싱)의 고가용성을 위한 복제본 세 개 이상 
 
 무료 계층에 대해서는 SLA가 제공되지 않습니다. 자세한 내용은 [Azure Cognitive Search에 대한 SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)를 참조하세요.
+
+## <a name="data-residency"></a>데이터 보존
+
+Azure Cognitive Search는 권한 부여 없이 고객 지정 지역 외부에 고객 데이터를 저장 하지 않습니다.
 
 <a name="availability-zones"></a>
 

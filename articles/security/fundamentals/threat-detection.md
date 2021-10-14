@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: 19944b336a9140a7133b2f96d7821c56a59abe7e
-ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
-ms.translationtype: HT
+ms.openlocfilehash: 36410c2c6f4f5054f04d017f944b840c6251ec8c
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112676855"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003575"
 ---
 # <a name="azure-threat-protection"></a>Azure 위협 방지
 
@@ -253,7 +253,7 @@ SQL Database 위협 감지기는 다음 검색 방법 중 하나를 사용합니
 
 ### <a name="application-gateway-web-application-firewall"></a>Application Gateway 웹 애플리케이션 방화벽
 
-[WAF(웹 애플리케이션 방화벽)](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md)는 표준 [application delivery control](https://kemptechnologies.com/in/application-delivery-controllers)(애플리케이션 전송 제어) 기능에 애플리케이션 게이트웨이를 사용하는 웹 애플리케이션에 보호를 제공하는 [Azure Application Gateway](../../web-application-firewall/ag/ag-overview.md)의 기능입니다. 웹 애플리케이션 방화벽은 대부분의 [Open Web Application Security Project (OWASP) top 10 common web vulnerabilities](https://owasp.org/www-project-top-ten/)(OWASP(Open Web Application Security Project) 상위 10개 일반 웹 취약성)로부터 보호함으로써 이 기능을 수행합니다.
+[WAF(웹 애플리케이션 방화벽)](../../app-service/environment/integrate-with-application-gateway.md)는 표준 [application delivery control](https://kemptechnologies.com/in/application-delivery-controllers)(애플리케이션 전송 제어) 기능에 애플리케이션 게이트웨이를 사용하는 웹 애플리케이션에 보호를 제공하는 [Azure Application Gateway](../../web-application-firewall/ag/ag-overview.md)의 기능입니다. 웹 애플리케이션 방화벽은 대부분의 [Open Web Application Security Project (OWASP) top 10 common web vulnerabilities](https://owasp.org/www-project-top-ten/)(OWASP(Open Web Application Security Project) 상위 10개 일반 웹 취약성)로부터 보호함으로써 이 기능을 수행합니다.
 
 ![Application Gateway 웹 애플리케이션 방화벽 다이어그램](./media/threat-detection/azure-threat-detection-fig13.png)
 

@@ -7,19 +7,19 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/16/2021
+ms.date: 10/13/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: b8b59db6b73cdc2ecae3ca60741a892580162602
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: 01261b31f1c471d030ddb095fba1fd1d7b5e2e0b
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112287763"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998459"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>청구서로 Azure 구독 비용 지불
 
-이 문서는 MCA(Microsoft 고객 계약)가 있으며 Azure 사이트를 통해 Azure에 등록한 고객에게 적용됩니다. [Microsoft 고객 계약에 대한 액세스를 확인합니다](#check-access-to-a-microsoft-customer-agreement). Microsoft 담당자를 통해 Azure에 등록한 경우 기본 결제 방법은 이미 *수표 또는 전신 송금* 으로 설정되어 있습니다.
+이 문서는 Microsoft 고객 계약 (MCA) 및 Azure 웹 사이트를 통해 Azure에 등록 한 고객 (종 량 제 계정으로도 불리는 Microsoft Online Services 프로그램 계정의 경우)에 적용 됩니다. [Microsoft 고객 계약에 대한 액세스를 확인합니다](#check-access-to-a-microsoft-customer-agreement). Microsoft 담당자를 통해 Azure에 등록한 경우 기본 결제 방법은 이미 *수표 또는 전신 송금* 으로 설정되어 있습니다.
 
 지불 방법을 청구서로 전환하는 경우 청구서 날짜 30일 이내에 수표/전신 송금을 사용하여 결제해야 합니다. 청구서로 Azure 구독에 대한 요금을 지불하려면 Azure 지원에 요청을 제출합니다. 요청이 승인되면 Azure Portal에서 구독을 청구서 지불(수표/전신 송금)로 전환할 수 있습니다.
 
@@ -68,7 +68,7 @@ ms.locfileid: "112287763"
 
 청구서 지불이 승인되면 Azure Portal에서 청구서 지불(수표/전신 송금)로 전환할 수 있습니다.
 
-Microsoft Online Services 프로그램 계정이 있는 경우 Azure 구독을 수표/전신 송금으로 전환할 수 있습니다. Microsoft 고객 계약을 사용하면 청구 프로필을 수표/전신 송금으로 전환할 수 있습니다.
+Microsoft Online Services 프로그램 (종 량 제) 계정이 있는 경우 Azure 구독을 확인/실시간 전송으로 전환할 수 있습니다. Microsoft 고객 계약을 사용하면 청구 프로필을 수표/전신 송금으로 전환할 수 있습니다.
 
 ### <a name="switch-azure-subscription-to-checkwire-transfer"></a>Azure 구독을 수표/전신 송금으로 전환
 

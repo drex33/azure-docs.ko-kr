@@ -10,12 +10,12 @@ ms.date: 09/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: data
-ms.openlocfilehash: 3c3b995cdf4b27056b0714ae6f9f8bc29fad6302
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 6c229f4afddc77e9b85f0dbd7fb4669facf8788e
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129713093"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129983991"
 ---
 # <a name="azure-advisor-for-azure-communication-services"></a>Azure Communication Services에 대 한 Azure Advisor
 
@@ -27,11 +27,11 @@ ms.locfileid: "129713093"
 
 ![채팅 SDK를 업데이트 하는 권장 사항을 보여 주는 예제를 Azure Advisor 합니다.](./media/advisor-chat-sdk-update-example.png)
 
-지원 되는 모든 언어와 함께이 기능에 대해 지원 되는 Sdk는 다음과 같습니다. 사용 가능한 [SDK 옵션](./sdk-options.md) 에 대해 자세히 알아볼 수 있습니다.
+지원 되는 모든 언어와 함께이 기능에 대해 지원 되는 Sdk는 다음과 같습니다. 이 기능은 일반적으로 사용할 수 있는 최신 버전의 Sdk에 대 한 권장 사항만을 보냅니다. 베타 또는 미리 보기 버전은 권장 사항이 나 경고를 트리거하지 않습니다. 사용 가능한 [SDK 옵션](./sdk-options.md) 에 대해 자세히 알아볼 수 있습니다.
 
 * 호출 (클라이언트)
 * 채팅
-* sms
+* SMS
 * ID
 * 전화 번호
 * 관리

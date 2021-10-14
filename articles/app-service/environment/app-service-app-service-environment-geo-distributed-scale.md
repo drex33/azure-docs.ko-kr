@@ -1,23 +1,22 @@
 ---
 title: 지역 분산 크기 조정
 description: Traffic Manager 및 App Service 환경으로 지역 분포를 사용하여 앱을 수평으로 확장하는 방법을 알아봅니다.
-author: stefsch
+author: madsd
 ms.assetid: c1b05ca8-3703-4d87-a9ae-819d741787fb
 ms.topic: article
 ms.date: 09/07/2016
-ms.author: stefsch
+ms.author: madsd
 ms.custom: seodec18, references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 215132888749a54996b3341e43ef8d91c101a460
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
-ms.translationtype: HT
+ms.openlocfilehash: 85b72fa7c0a9f764583f63d6df60a5b209ff6415
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107834303"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998821"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>App Service Environment로 지역 분산된 규모
 ## <a name="overview"></a>개요
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 매우 높은 스케일링을 필요로 하는 애플리케이션 시나리오에서는 앱의 단일 배포에 사용할 수 있는 컴퓨팅 리소스 용량을 초과할 수 있습니다.  투표 애플리케이션, 스포츠 이벤트 및 방송된 엔터테인먼트 이벤트는 대규모를 필요로 하는 시나리오를 모두 포함하는 예입니다. 앱을 수평으로 스케일 아웃하면 높은 스케일링 요구 사항을 충족할 수 있습니다. 매우 높은 로드 요구 사항을 충족하기 위해 단일 지역 및 여러 지역에서 많은 앱 배포를 수행할 수 있습니다.
 

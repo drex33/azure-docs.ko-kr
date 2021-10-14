@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/08/2020
 ms.author: mathoma
-ms.openlocfilehash: e7ff8eaaca03a2c977311c6469e06714c87ce53f
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
-ms.translationtype: HT
+ms.openlocfilehash: e1acce6138cf32873e622e90e36ef56ee4209ae8
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572350"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002570"
 ---
 # <a name="feature-interoperability-with-ag-and-dnn-listener"></a>AG 및 DNN 수신기와의 기능 상호 운용성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -128,6 +128,9 @@ AG DNN 수신기 이름 및 포트를 사용하여 연결된 서버를 구성합
 
    예. 클러스터는 서브넷에 관계없이 가용할 수 있는 모든 복제본의 실제 IP 주소로 DNS의 DNN을 바인딩합니다. SQL 클라이언트는 서브넷에 관계없이 DNS 이름의 모든 IP 주소를 시도합니다. 
 
+- 가용성 그룹 DNN 수신기가 읽기 전용 라우팅을 지원 하나요? 
+
+   예. 읽기 전용 라우팅은 DNN 수신기에서 지원 됩니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

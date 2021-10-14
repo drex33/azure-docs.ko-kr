@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mathoma
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: 3c58814943d844ec1e644412eef926745e2df620
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
-ms.translationtype: HT
+ms.openlocfilehash: a5665b2e335e53963179ef78709241c5c4d595fe
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572395"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002665"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>하나 이상의 Always On 가용성 그룹 수신기 구성 - Resource Manager
 
@@ -137,7 +137,7 @@ foreach($VMName in $VMNames)
 
 ## <a name="example-script-add-an-ip-address-to-an-existing-load-balancer-with-powershell"></a><a name="Add-IP"></a> 예제 스크립트: PowerShell을 사용하여 기존 부하 분산 장치에 IP 주소 추가
 
-둘 이상의 가용성 그룹을 사용하려면 추가 IP 주소를 부하 분산 장치에 추가합니다. 각 IP 주소에는 자체 부하 분산 규칙, 프로브 포트 및 프런트 엔드 포트가 필요합니다.
+둘 이상의 가용성 그룹을 사용하려면 추가 IP 주소를 부하 분산 장치에 추가합니다. 각 IP 주소에는 자체 부하 분산 규칙, 프로브 포트 및 프런트 엔드 포트가 필요합니다. [보조 VM IP 주소가 부동 IP를 지원 하지](/azure/load-balancer/load-balancer-floating-ip)않기 때문에 부하 분산 장치의 백 엔드 풀에 VM의 기본 IP 주소만 추가 합니다.
 
 프런트 엔드 포트는 애플리케이션이 SQL Server 인스턴스에 연결하는 데 사용하는 포트입니다. 다른 가용성 그룹에 대한 IP 주소는 동일한 프런트 엔드 포트를 사용할 수 있습니다.
 

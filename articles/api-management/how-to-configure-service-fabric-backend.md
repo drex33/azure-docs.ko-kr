@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/29/2021
 ms.author: danlep
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 01a7a7c34b7253acdcf046c47643d42dcdee2cb6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4239e9a9abc5e7e63a99ac72a50ec7f238386a20
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128666764"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004771"
 ---
 # <a name="set-up-a-service-fabric-backend-in-api-management-using-the-azure-portal"></a>Azure Portal을 사용하여 API Management에 Service Fabric 백 엔드 설정
 
@@ -139,5 +139,4 @@ API Management와 클러스터의 통합을 테스트하려면 해당 GET 작업
 ## <a name="next-steps"></a>다음 단계
 
 * 요청을 백 엔드로 전달하기 위한 [정책 구성](api-management-advanced-policies.md) 방법 알아보기
-* API Management [REST API](/rest/api/apimanagement/2020-06-01-preview/backend), [Azure PowerShell](/powershell/module/az.apimanagement/new-azapimanagementbackend) 또는 [Azure Resource Manager 템플릿](../service-fabric/service-fabric-tutorial-deploy-api-management.md)을 사용하여 백 엔드를 구성할 수도 있습니다.
-
+* API Management [REST API](/rest/api/apimanagement/2021-01-01-preview/backend), [Azure PowerShell](/powershell/module/az.apimanagement/new-azapimanagementbackend) 또는 [Azure Resource Manager 템플릿](../service-fabric/service-fabric-tutorial-deploy-api-management.md)을 사용하여 백 엔드를 구성할 수도 있습니다.

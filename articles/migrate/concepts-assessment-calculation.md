@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 07/28/2021
-ms.openlocfilehash: 0a5591ddad8410c2cea7018fa2f4d4f13a3afa86
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 99ce96ced92109f4cbb16b8bbcbb41551102f7bd
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124735955"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130006055"
 ---
 # <a name="assessment-overview-migrate-to-azure-vms"></a>평가 개요(Azure VM으로 마이그레이션)
 
@@ -208,8 +208,13 @@ vCenter Server에서 **기타** 로 지정된 OS | 이 경우 Azure Migrate가 O
 Azure VM 평가에서 성능 기반 크기 조정을 사용하는 경우 평가는 다음과 같이 크기 조정 권장 사항을 만듭니다.
 
 - 평가는 서버의 성능 기록을 고려하여 Azure의 VM 크기 및 디스크 형식을 식별합니다.
-- CSV 파일을 사용하여 서버를 가져오는 경우 지정한 값이 사용됩니다. 이 방법은 특히 온-프레미스 서버를 초과 할당하고 사용률이 낮을 경우, 비용을 절감하기 위해 Azure VM의 크기를 적절히 조정하려는 경우에 특히 유용합니다.
+
+> [!NOTE] 
+> CSV 파일을 사용 하 여 가져오기를 수행 하는 경우 성능 기반 크기 조정을 선택 하는 경우 지정 하는 성능 값 (CPU 사용률, 메모리 사용률, 디스크 IOPS 및 처리량)이 사용 됩니다. 성능 기록과 백분위 수 정보를 제공할 수 없습니다.
+
+- 이 방법은 특히 온-프레미스 서버를 초과 할당하고 사용률이 낮을 경우, 비용을 절감하기 위해 Azure VM의 크기를 적절히 조정하려는 경우에 특히 유용합니다.
 - 성능 데이터를 사용하지 않으려면 이전 섹션에서 설명한 대로 크기 조정 기준을 온-프레미스에서 있는 그대로로 다시 설정합니다.
+
 
 #### <a name="calculate-storage-sizing"></a>스토리지 크기 조정 계산
 

@@ -8,24 +8,24 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4c1b4b6437b14039284fb938405fa7069b0e239c
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 7c7bc9f0c520529506e988f6980756a38ef7c8b3
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129667557"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997557"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
-Azure Key Vault를 사용 하면 응용 프로그램 내에서 중요 한 정보에 안전 하 게 액세스할 수 있습니다.
+Azure Key Vault 사용하면 애플리케이션 내에서 중요한 정보에 안전하게 액세스할 수 있습니다.
 
-- 키, 암호 및 인증서는 코드를 직접 작성 하지 않고도 보호 되며 응용 프로그램에서 쉽게 사용할 수 있습니다.
-- 고객이 고유한 키, 비밀, 인증서를 소유하고 관리하도록 허용하므로 핵심 소프트웨어 기능을 제공하는 데 집중할 수 있습니다. 이러한 방식으로 응용 프로그램은 고객의 테 넌 트 키, 암호 및 인증서에 대 한 책임 또는 잠재적인 책임을 소유 하지 않습니다.
-- 응용 프로그램은 서명 및 암호화를 위해 키를 사용할 수 있지만 응용 프로그램 외부에서 키 관리를 유지할 수 있습니다. 자세한 내용은 [키 정보](../keys/about-keys.md)를 참조하세요.
-- 암호, 액세스 키 및 SAS 토큰과 같은 자격 증명을 Key Vault에 암호로 저장 하 여 해당 자격 증명을 관리할 수 있습니다. 자세한 내용은 [비밀 정보](../secrets/about-secrets.md)를 참조하세요.
+- 키, 비밀 및 인증서는 코드를 직접 작성하지 않고도 보호되며 애플리케이션에서 쉽게 사용할 수 있습니다.
+- 고객이 고유한 키, 비밀, 인증서를 소유하고 관리하도록 허용하므로 핵심 소프트웨어 기능을 제공하는 데 집중할 수 있습니다. 이러한 방식으로 애플리케이션은 고객의 테넌트 키, 비밀 및 인증서에 대한 책임 또는 잠재적 책임을 소유하지 않습니다.
+- 애플리케이션은 서명 및 암호화에 키를 사용할 수 있지만 키 관리는 애플리케이션 외부에 유지할 수 있습니다. 자세한 내용은 [키 정보](../keys/about-keys.md)를 참조하세요.
+- 암호, 액세스 키 및 SAS 토큰과 같은 자격 증명을 Key Vault 비밀로 저장하여 관리할 수 있습니다. 자세한 내용은 [비밀 정보](../secrets/about-secrets.md)를 참조하세요.
 - 인증서를 관리합니다. 자세한 내용은 [인증서 정보](../certificates/about-certificates.md)를 참조하세요.
 
-Azure Key Vault에 대 한 일반 정보는 [Azure Key Vault 정보](overview.md)를 참조 하세요.
+Azure Key Vault 대한 일반적인 내용은 [Azure Key Vault 정보를](overview.md)참조하세요.
 
 ## <a name="public-previews"></a>공개 미리 보기
 
@@ -33,47 +33,47 @@ Azure Key Vault에 대 한 일반 정보는 [Azure Key Vault 정보](overview.md
 
 ## <a name="create-and-manage-key-vaults"></a>키 자격 증명 모음 만들기 및 관리
 
-다른 Azure 서비스와 마찬가지로 Key Vault는 [Azure Resource Manager](../../azure-resource-manager/management/overview.md)를 통해 관리 됩니다. Azure Resource Manager는 Azure용 배포 및 관리 서비스입니다. Azure 계정에서 리소스를 만들고, 업데이트 하 고, 삭제 하는 데 사용할 수 있습니다. 
+다른 Azure 서비스와 마찬가지로 Key Vault [Azure Resource Manager](../../azure-resource-manager/management/overview.md)통해 관리됩니다. Azure Resource Manager는 Azure용 배포 및 관리 서비스입니다. Azure 계정에서 리소스를 만들고, 업데이트하고, 삭제하는 데 사용할 수 있습니다. 
 
-[Azure 역할 기반 액세스 제어 (RBAC)](../../role-based-access-control/overview.md) 는 관리 계층 ( [관리 평면](security-features.md#managing-administrative-access-to-key-vault)이 라고도 함)에 대 한 액세스를 제어 합니다. Key Vault의 관리 평면을 사용 하 여 액세스 정책을 포함 하 여 주요 자격 증명 모음 및 해당 특성을 만들고 관리할 수 있습니다. *데이터 평면* 을 사용 하 여 키, 인증서 및 암호를 관리 합니다. 
+[Azure RBAC(역할 기반 액세스 제어)는](../../role-based-access-control/overview.md) 관리 [계층(관리 평면이라고도](security-features.md#managing-administrative-access-to-key-vault)함)에 대한 액세스를 제어합니다. Key Vault 관리 평면을 사용하여 키 자격 증명 모음 및 해당 특성(액세스 정책 포함)을 만들고 관리합니다. *데이터 평면을* 사용하여 키, 인증서 및 비밀을 관리합니다. 
 
-미리 정의 된 Key Vault 참여자 역할을 사용 하 여 Key Vault에 대 한 관리 액세스 권한을 부여할 수 있습니다.     
+미리 정의된 Key Vault 기여자 역할을 사용하여 Key Vault 대한 관리 액세스 권한을 부여할 수 있습니다.     
 
-### <a name="apis-and-sdks-for-key-vault-management"></a>Key vault 관리를 위한 Api 및 Sdk
+### <a name="apis-and-sdks-for-key-vault-management"></a>키 자격 증명 모음 관리를 위한 API 및 SDK
 
 | Azure CLI | PowerShell | REST API | 리소스 관리자 | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
 |[참조](/cli/azure/keyvault)<br>[빠른 시작](quick-create-cli.md)|[참조](/powershell/module/az.keyvault)<br>[빠른 시작](quick-create-powershell.md)|[참조](/rest/api/keyvault/)|[참조](/azure/templates/microsoft.keyvault/vaults)<br>[빠른 시작](./vault-create-template.md)|[참조](/dotnet/api/microsoft.azure.management.keyvault)|[참조](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)|[참조](/java/api/com.microsoft.azure.management.keyvault)|[참조](/javascript/api/@azure/arm-keyvault)|
 
-설치 패키지 및 소스 코드는 [클라이언트 라이브러리](client-libraries.md)를 참조 하세요.
+설치 패키지 및 소스 코드는 클라이언트 라이브러리 를 [참조하세요.](client-libraries.md)
 
 ## <a name="authenticate-to-key-vault-in-code"></a>코드에서 Key Vault에 인증
 
-Key Vault는 azure ad (azure ad) 인증을 Azure Active Directory 사용 하 여 액세스 권한을 부여 하는 azure ad 보안 주체가 필요 합니다. Azure AD 보안 주체는 사용자, 응용 프로그램 서비스 주체, [azure 리소스에 대 한 관리 id](../../active-directory/managed-identities-azure-resources/overview.md)또는 이러한 유형의 그룹 일 수 있습니다.
+Key Vault Azure AD(Azure Active Directory) 인증을 사용하며, 액세스 권한을 부여하려면 Azure AD 보안 주체가 필요합니다. Azure AD 보안 주체는 사용자, 애플리케이션 서비스 주체, [Azure 리소스에 대한 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)또는 이러한 유형의 그룹일 수 있습니다.
 
 ### <a name="authentication-best-practices"></a>인증 모범 사례
 
-Azure에 배포 된 응용 프로그램에 관리 되는 id를 사용 하는 것이 좋습니다. 관리 되는 id를 지원 하지 않는 Azure 서비스를 사용 하거나 응용 프로그램이 온-프레미스에 배포 된 경우 [인증서를 사용 하는 서비스 주체](../../active-directory/develop/howto-create-service-principal-portal.md) 를 사용할 수 있습니다. 이 시나리오에서는 인증서를 Key Vault 저장 하 고 자주 회전 해야 합니다.
+Azure에 배포된 애플리케이션에 관리 ID를 사용하는 것이 좋습니다. 관리 ID를 지원하지 않는 Azure 서비스를 사용하거나 애플리케이션이 온-프레미스에 배포된 경우 [인증서가 있는 서비스 주체가](../../active-directory/develop/howto-create-service-principal-portal.md) 가능한 대안입니다. 이 시나리오에서는 인증서를 Key Vault 저장하고 자주 회전해야 합니다.
 
-개발 및 테스트 환경에 대 한 암호를 사용 하 여 서비스 주체를 사용 합니다. 로컬 개발 및 Azure Cloud Shell에 사용자 보안 주체를 사용 합니다.
+개발 및 테스트 환경에 대한 비밀이 있는 서비스 주체를 사용합니다. 로컬 개발 및 Azure Cloud Shell 사용자 주체를 사용합니다.
 
-각 환경에서 다음 보안 주체를 권장 합니다.
-- **프로덕션 환경**: 인증서를 사용 하 여 관리 id 또는 서비스 주체입니다.
-- **테스트 및 개발 환경**: 관리 되는 id, 인증서가 있는 서비스 주체 또는 암호를 사용 하는 서비스 주체입니다.
-- **로컬 개발**: 암호를 사용 하는 사용자 계정 또는 서비스 주체입니다.
+각 환경에서 이러한 보안 주체를 권장합니다.
+- **프로덕션 환경:** 인증서가 있는 관리 ID 또는 서비스 주체입니다.
+- **테스트 및 개발 환경:** 관리 ID, 인증서가 있는 서비스 주체 또는 비밀이 있는 서비스 주체입니다.
+- **로컬 개발:** 비밀이 있는 사용자 주체 또는 서비스 주체입니다.
 
 ### <a name="azure-identity-client-libraries"></a>Azure ID 클라이언트 라이브러리
 
-앞의 인증 시나리오는 *Azure id 클라이언트 라이브러리* 에서 지원 되 고 Key Vault sdk와 통합 됩니다. 코드를 변경 하지 않고 환경 및 플랫폼에서 Azure Id 클라이언트 라이브러리를 사용할 수 있습니다. 라이브러리는 Azure CLI, Visual Studio, Visual Studio Code 및 기타 수단을 통해 Azure 사용자에 로그인 한 사용자의 인증 토큰을 자동으로 검색 합니다. 
+위의 인증 시나리오는 *Azure ID 클라이언트 라이브러리에서* 지원되며 Key Vault SDK와 통합됩니다. 코드를 변경하지 않고 환경 및 플랫폼에서 Azure ID 클라이언트 라이브러리를 사용할 수 있습니다. 라이브러리는 Azure CLI, Visual Studio, Visual Studio Code 및 기타 방법을 통해 Azure 사용자에 로그인한 사용자로부터 인증 토큰을 자동으로 검색합니다. 
 
-Azure Id 클라이언트 라이브러리에 대 한 자세한 내용은 다음을 참조 하세요.
+Azure ID 클라이언트 라이브러리에 대한 자세한 내용은 다음을 참조하세요.
 
 | .NET | Python | Java | JavaScript |
 |--|--|--|--|
 |[Azure ID SDK .NET](/dotnet/api/overview/azure/identity-readme)|[Azure ID SDK Python](/python/api/overview/azure/identity-readme)|[Azure ID SDK Java](/java/api/overview/azure/identity-readme)|[Azure ID SDK JavaScript](/javascript/api/overview/azure/identity-readme)|     
 
 > [!Note]
-> Key Vault .NET SDK 버전 3 용으로 [앱 인증 라이브러리](/dotnet/api/overview/azure/service-to-service-authentication) 를 사용 하는 것이 좋지만 이제는 사용 되지 않습니다. Key Vault .NET SDK 버전 4로 마이그레이션하려면 [Azure에 대 한 Appauthentication-id 마이그레이션 지침](/dotnet/api/overview/azure/app-auth-migration)을 따르세요.
+> .NET SDK 버전 3을 Key Vault [앱 인증 라이브러리를](/dotnet/api/overview/azure/service-to-service-authentication) 권장했지만 이제는 사용되지 않습니다. Key Vault .NET SDK 버전 4로 마이그레이션하려면 [AppAuthentication to Azure.Identity 마이그레이션 지침을](/dotnet/api/overview/azure/app-auth-migration)따르세요.
 
 애플리케이션에서 Key Vault에 인증하는 방법에 관한 자습서는 다음을 참조하세요.
 - [.NET에서 가상 머신이 있는 Azure Key Vault 사용](./tutorial-net-virtual-machine.md)
@@ -82,9 +82,9 @@ Azure Id 클라이언트 라이브러리에 대 한 자세한 내용은 다음�
 
 ## <a name="manage-keys-certificates-and-secrets"></a>키, 인증서, 비밀 관리
 
-데이터 평면은 키, 인증서 및 암호에 대 한 액세스를 제어 합니다. 데이터 평면을 통해 액세스 제어를 위해 로컬 자격 증명 모음 액세스 정책 또는 Azure RBAC를 사용할 수 있습니다.
+데이터 평면은 키, 인증서 및 비밀에 대한 액세스를 제어합니다. 데이터 평면을 통한 액세스 제어를 위해 로컬 자격 증명 모음 액세스 정책 또는 Azure RBAC를 사용할 수 있습니다.
 
-### <a name="apis-and-sdks-for-keys"></a>키에 대 한 Api 및 Sdk
+### <a name="apis-and-sdks-for-keys"></a>키에 대한 API 및 SDK
 
 | Azure CLI | PowerShell | REST API | 리소스 관리자 | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
@@ -131,12 +131,12 @@ Key Vault 최신 기능을 활용하려면 애플리케이션에서 비밀, 인�
   - [Windows용 Key Vault 가상 머신 확장](../../virtual-machines/extensions/key-vault-windows.md)
   - [Linux용 Key Vault 가상 머신 확장](../../virtual-machines/extensions/key-vault-linux.md)
   - [Azure Arc 지원 서버용 가상 머신 확장 Key Vault](../../azure-arc/servers/manage-vm-extensions.md#azure-key-vault-vm-extension)
-- Azure App Service 통합 - Key Vault 인증서를 가져오고 자동으로 새로 고칠 수 있습니다. 자세한 내용은 [Key Vault 인증서 가져오기를](../../app-service/configure-ssl-certificate.md#import-a-certificate-from-key-vault)참조하세요.
+- Azure App Service 통합- Key Vault 인증서를 가져오고 자동으로 새로 고칠 수 있습니다. 자세한 내용은 [Key Vault 인증서 가져오기를](../../app-service/configure-ssl-certificate.md#import-a-certificate-from-key-vault)참조하세요.
 
 비밀의 경우 다음을 사용할 수 있습니다.
 
 - App Service 애플리케이션 설정을 통해 비밀을 Key Vault. 자세한 내용은 [App Service 및 Azure Functions의 Key Vault 참조 사용](../../app-service/app-service-key-vault-references.md)을 참조하세요.
-- Azure VM에서 호스트되는 애플리케이션에 대한 App Configuration 서비스를 통해 비밀을 Key Vault. 자세한 내용은 [App Configuration 및 Key Vault 를 통해 애플리케이션 구성을](/samples/azure/azure-sdk-for-net/app-secrets-configuration/)참조하세요.
+- Azure VM에서 호스트되는 애플리케이션에 대한 App Configuration 서비스를 통해 비밀을 Key Vault. 자세한 내용은 [App Configuration 및 Key Vault 애플리케이션 구성을](/samples/azure/azure-sdk-for-net/app-secrets-configuration/)참조하세요.
 
 ## <a name="code-examples"></a>코드 예제
 
@@ -148,7 +148,7 @@ Key Vault 최신 기능을 활용하려면 애플리케이션에서 비밀, 인�
 
 - 키 자격 증명 모음에 액세스하려면 클라이언트 애플리케이션이 다양한 기능을 위해 여러 엔드포인트에 액세스할 수 있어야 합니다. [방화벽 뒤의 Key Vault 액세스를](access-behind-firewall.md)참조하세요. 
 - Azure VM에서 실행되는 클라우드 애플리케이션에는 인증서가 필요합니다. 이 인증서를 이 VM으로 어떻게 얻을 수 있나요? Windows Key Vault [가상 머신 확장](../../virtual-machines/extensions/key-vault-windows.md) 또는 [Linux용 Key Vault 가상 머신 확장을](../../virtual-machines/extensions/key-vault-linux.md)참조하세요.
-- Azure CLI, PowerShell 또는 Azure Portal 사용하여 액세스 정책을 할당하려면 [Key Vault 액세스 정책 할당을](assign-access-policy.md)참조하세요. 
+- Azure CLI, PowerShell 또는 Azure Portal 사용하여 액세스 정책을 할당하려면 Key Vault 액세스 [정책 할당을](assign-access-policy.md)참조하세요. 
 - 일시 삭제를 사용하도록 설정된 키 자격 증명 모음 및 다양한 키 자격 증명 모음 개체의 사용 및 수명 주기에 대한 지침은 [일시 삭제 및 제거 보호를 사용하여 복구 관리 Azure Key Vault](./key-vault-recovery.md)참조하세요.
 - 배포하는 동안 보안 값(예: 암호)을 매개 변수로 전달해야 하는 경우 해당 값을 키 자격 증명 모음에 비밀로 저장하고 다른 Resource Manager 템플릿의 값을 참조할 수 있습니다. [배포하는 동안 Azure Key Vault 사용하여 보안 매개 변수 값 전달을](../../azure-resource-manager/templates/key-vault-parameter.md)참조하세요.
 
@@ -157,23 +157,23 @@ Key Vault 최신 기능을 활용하려면 애플리케이션에서 비밀, 인�
 다음 서비스 및 시나리오는 Key Vault 사용하거나 통합합니다.
 
 - [미사용 데이터 암호화는](../../security/fundamentals/encryption-atrest.md) 데이터가 유지될 때 데이터의 인코딩(암호화)을 허용합니다. 데이터 암호화 키는 액세스를 제한하기 위해 Azure Key Vault의 키 암호화 키로 암호화되는 경우가 많습니다.
-- [Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) 사용하면 고유한 테넌트 키를 관리할 수 있습니다. 예를 들어, Microsoft가 테넌트 키를 관리하는 대신(기본값) 테넌트 키를 직접 관리하여 해당 조직에 적용되는 특정 규정을 준수할 수 있습니다. 사용자 고유의 테 넌 트 키를 관리 하는 것을 byok (사용자의 *키로 전환* ) 라고도 합니다.
-- azure [개인 링크](private-link-service.md) 를 사용 하면 가상 네트워크의 개인 끝점을 통해 azure 서비스 (예: Azure Key Vault, Azure Storage 및 Azure Cosmos DB)와 azure에서 호스트 되는 고객/파트너 서비스에 액세스할 수 있습니다.
-- [Azure Event Grid](../../event-grid/event-schema-key-vault.md) 와 통합 Key Vault Key Vault에 저장 된 암호의 상태가 변경 되 면 사용자에 게 알릴 수 있습니다. 새 버전의 암호를 응용 프로그램에 배포 하거나 거의 만료 되지 않는 암호를 회전 하 여 중단을 방지할 수 있습니다.
-- Key Vault에서 원치 않는 액세스 로부터 [Azure DevOps](/azure/devops/pipelines/release/azure-key-vault) 비밀을 보호 합니다.
-- Key Vault에 저장 된 암호를 사용 하 여 [Azure Databricks에서 Azure Storage에 연결](./integrate-databricks-blob-storage.md)합니다.
-- Kubernetes에서 [비밀 저장소 CSI 드라이버](./key-vault-integrate-kubernetes.md) 에 대 한 Azure Key Vault 공급자를 구성 하 고 실행 합니다. 
+- [Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) 사용하면 고유한 테넌트 키를 관리할 수 있습니다. 예를 들어, Microsoft가 테넌트 키를 관리하는 대신(기본값) 테넌트 키를 직접 관리하여 해당 조직에 적용되는 특정 규정을 준수할 수 있습니다. 사용자 고유의 테넌트 키 관리는 BYOK(Bring Your Own Key)라고도 *합니다.*
+- [Azure Private Link](private-link-service.md) 사용하면 가상 네트워크의 프라이빗 엔드포인트를 통해 Azure 서비스(예: Azure Key Vault, Azure Storage 및 Azure Cosmos DB)와 Azure 호스팅 고객/파트너 서비스에 액세스할 수 있습니다.
+- Key Vault Azure Event Grid 통합하면 [Key Vault](../../event-grid/event-schema-key-vault.md) 저장된 비밀의 상태가 변경될 때 사용자에게 알림을 받을 수 있습니다. 새 버전의 비밀을 애플리케이션에 배포하거나 만료에 가까운 비밀을 순환하여 중단을 방지할 수 있습니다.
+- Key Vault 원치 않는 액세스로부터 [Azure DevOps](/azure/devops/pipelines/release/azure-key-vault) 비밀을 보호합니다.
+- Key Vault 저장된 비밀을 사용하여 Azure Databricks [에서 Azure Storage 연결합니다.](./integrate-databricks-blob-storage.md)
+- Kubernetes에서 비밀 저장소 [CSI 드라이버에](./key-vault-integrate-kubernetes.md) 대한 Azure Key Vault 공급자를 구성하고 실행합니다. 
 
 ## <a name="key-vault-overviews-and-concepts"></a>Key Vault 개요 및 개념
 
 자세한 정보:
 
-- 삭제 된 개체를 복구할 수 있도록 하는 기능입니다. 실수로 인 한 삭제 또는 의도적인 [Azure Key Vault 일시 삭제 개요](soft-delete-overview.md)를 참조 하세요.
-- 제한의 기본 개념과 앱에 대 한 접근 방식을 얻는 방법에 대 한 자세한 내용은 [Azure Key Vault 제한 지침](overview-throttling.md)을 참조 하세요.
-- 지역 및 보안 영역 간의 관계는 [Azure Key Vault 보안 세계 및 지리적 경계](overview-security-worlds.md)를 참조 하세요.
+- 삭제가 실수로 또는 의도적인 것인지에 관계없이 삭제된 개체의 복구를 허용하는 기능은 [일시 삭제 개요 Azure Key Vault 참조하세요.](soft-delete-overview.md)
+- 앱에 대한 제한 및 접근 방식의 기본 개념은 [Azure Key Vault 제한 지침을](overview-throttling.md)참조하세요.
+- 지역과 보안 영역 간의 관계는 [Azure Key Vault 보안 세계와 지리적 경계를 참조하세요.](overview-security-worlds.md)
 
 ## <a name="social"></a>소셜
 
 - [Key Vault 블로그](/archive/blogs/kv/)
-- [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
-- [Key Vault에 대 한 Stack Overflow](https://stackoverflow.com/questions/tagged/azure-keyvault)
+- [Microsoft Q&A](/answers/products/)
+- [Key Vault 대한 Stack Overflow](https://stackoverflow.com/questions/tagged/azure-keyvault)

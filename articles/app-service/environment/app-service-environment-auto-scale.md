@@ -1,23 +1,23 @@
 ---
 title: 자동 크기 조정 v1
 description: 자동 크기 조정 및 App Service Environment v1. 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
-author: btardif
+author: madsd
 ms.assetid: c23af2d8-d370-4b1f-9b3e-8782321ddccb
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: ccompy
+ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 4f071c0d09fc2fa97eeea45bd82228b7eb8434a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 85a0c0021de9ea1dabf37d756125e8ff58b4fdba
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96021659"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997367"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>자동 크기 조정 및 App Service Environment v1
 
 > [!NOTE]
-> 이 문서는 ASE(App Service Environment) v1에 관한 내용입니다.  사용하기가 더 쉽고 더 강력한 인프라에서 실행되는 최신 버전의 App Service Environment가 있습니다. 새 버전에 대한 자세한 내용은 [App Service Environment 소개](intro.md)를 참조하세요.
+> 이 문서는 ASE(App Service Environment) v1에 관한 내용입니다. 사용하기가 더 쉽고 더 강력한 인프라에서 실행되는 최신 버전의 App Service Environment가 있습니다. 새 버전에 대한 자세한 내용은 [App Service Environment 소개](intro.md)를 참조하세요.
 > 
 
 Azure App Service 환경은 *자동 크기 조정* 을 지원합니다. 메트릭 또는 일정에 따라 개별 작업자 풀을 자동 크기 조정할 수 있습니다.

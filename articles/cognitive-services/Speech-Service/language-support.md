@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: pafarley
 ms.custom: references_regions
-ms.openlocfilehash: 7937ce57cc432143d449f398a0a433686a6671ed
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 0628af8b495fccd834179edfc9cf0e5c32baf350
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129547041"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000464"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -98,6 +98,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | 아일랜드어(아일랜드)                    | `ga-IE` | 텍스트<br>발음                  |                           |                          |
 | 이탈리아어(이탈리아)                    | `it-IT` | 오디오(20201016)<br>텍스트<br>발음|      예                     |                          |
 | 일본어(일본)                   | `ja-JP` | 텍스트                                   |      예                     |                          |
+| 카나다어(인도)                   | `kn-IN` | 텍스트                                   |                           |                          |
 | 한국어(한국)                     | `ko-KR` | 오디오(20201015)<br>텍스트                 |      예                     |                          |
 | 라트비아어(라트비아)                   | `lv-LV` | 텍스트<br>발음                  |                           |                          |
 | 리투아니아어(리투아니아)             | `lt-LT` | 텍스트<br>발음                  |                           |                          |
@@ -217,7 +218,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 영어(남아프리카 공화국) | `en-ZA` | Male | `en-ZA-LukeNeural` <sup>새로 생성</sup> | 일반 |
 | 영어(영국) | `en-GB` | Female | `en-GB-LibbyNeural` | 일반 |
 | 영어(영국) | `en-GB` | Female | `en-GB-SoniaNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(영국) | `en-GB` | Female | `en-GB-MiaNeural`<sup>받아볼 10 월 30 일, 아래 참조</sup> | 일반 |
+| 영어(영국) | `en-GB` | Female | `en-GB-MiaNeural`<sup>10월 30일 사용이 사용되었습니다. 아래 참조</sup> | 일반 |
 | 영어(영국) | `en-GB` | Male | `en-GB-RyanNeural` | 일반 |
 | 영어(미국) | `en-US` | Female | `en-US-AriaNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 일반, 여러 음성 스타일 |
 | 영어(미국) | `en-US` | Female | `en-US-JennyNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 일반, 여러 음성 스타일 |
@@ -504,7 +505,7 @@ Custom Voice는 인공신경망 계층(즉, 사용자 지정 신경망 음성)�
 
 ## <a name="speech-translation"></a>음성 번역
 
-**Speech Translation** API는 음성 간 음성 및 음성을 텍스트로 번역에 대해 다른 언어를 지원합니다. 원본 언어는 항상 음성 텍스트 변환 언어 테이블에 나와 있는 것이어야 합니다. 사용 가능한 대상 언어는 번역 대상이 음성인지 또는 텍스트인지에 따라 달라집니다. 들어오는 음성을  [지원 되는 언어](https://www.microsoft.com/translator/business/languages/)중 하나로 변환할 수 있습니다. [음성 합성](language-support.md#text-languages)에 언어의 하위 집합을 사용할 수 있습니다.
+**Speech Translation** API는 음성 간 음성 및 음성을 텍스트로 번역에 대해 다른 언어를 지원합니다. 원본 언어는 항상 음성 텍스트 변환 언어 테이블에 나와 있는 것이어야 합니다. 사용 가능한 대상 언어는 번역 대상이 음성인지 또는 텍스트인지에 따라 달라집니다. 들어오는 음성을  [지원되는 언어](https://www.microsoft.com/translator/business/languages/)로 번역할 수 있습니다. [음성 합성](language-support.md#text-languages)에 언어의 하위 집합을 사용할 수 있습니다.
 
 ### <a name="text-languages"></a>텍스트 언어
 

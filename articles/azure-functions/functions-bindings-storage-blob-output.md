@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: bb5382014f82854086d6ec6f07cfe7f67e80726a
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
-ms.translationtype: HT
+ms.openlocfilehash: ede3789b8e0470436612ded9a9712b7aedb8c518
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105961033"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129996459"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Azure Functions에 대한 Azure Blob Storage 출력 바인딩
 
@@ -401,10 +401,12 @@ Python에서는 특성을 지원하지 않습니다.
 |**direction** | 해당 없음 | 출력 바인딩에 대해 `out`로 설정해야 합니다. 예외는 [사용](#usage) 섹션에서 표시됩니다. |
 |**name** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다.  `$return`으로 설정하여 함수 반환 값을 참조합니다.|
 |**path** |**BlobPath** | BLOB 컨테이너에 대한 경로입니다. |
-|**connection** |**연결**| 이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 스토리지 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.<br><br>연결 문자열 대신 [버전 5.x 이상의 확장](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)을 사용하는 경우 연결을 정의하는 구성 섹션에 대한 참조를 제공할 수 있습니다. [연결](./functions-reference.md#connections)을 참조하세요.|
+|**connection** |**연결**| Azure Blob에 연결하는 방법을 지정하는 앱 설정 또는 설정 컬렉션의 이름입니다. [연결](#connections)을 참조하세요.|
 |해당 없음 | **Access** | 읽기 또는 쓰기를 나타냅니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+[!INCLUDE [functions-storage-blob-connections](../../includes/functions-storage-blob-connections.md)]
 
 ## <a name="usage"></a>사용
 
@@ -426,7 +428,7 @@ Python에서는 특성을 지원하지 않습니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-_function.json_ 파일에서 바인딩의 이름 매개 변수로 지정된 이름과 일치하는 매개 변수를 통해 BLOB 데이터에 액세스합니다.
+_function.json_ 파일에서 바인딩의 이름 매개 변수로 지정된 이름과 일치하는 매개 변수를 통해 Blob 데이터에 액세스합니다.
 
 # <a name="python"></a>[Python](#tab/python)
 

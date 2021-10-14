@@ -1,20 +1,20 @@
 ---
 title: 지도에 열 지도 계층 추가 | Microsoft Azure Maps
 description: 열 지도를 만드는 방법을 알아봅니다. Azure Maps Web SDK를 사용하여 지도에 열 지도 계층을 추가하는 방법을 알아봅니다. 열 지도 계층을 사용자 지정하는 방법을 알아봅니다.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 07/29/2019
-ms.topic: conceptual
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/06/2021
+ms.topic: how-to
 ms.service: azure-maps
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 181cd714f85195157b767062cac99caadd32e817
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: e3827deeb1b87471f215028ac7479a83c24231fb
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123432759"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129992639"
 ---
-# <a name="add-a-heat-map-layer"></a>열 지도 계층 추가
+# <a name="add-a-heat-map-layer-to-a-map"></a>지도에 열 지도 계층 추가
 
 지점 밀도 맵이라고도 하는 열 지도는 데이터 시각화의 한 형식입니다. 이는 색 범위를 사용하여 데이터의 밀도를 나타내고 지도에 데이터 “핫 스폿”을 표시하는 데 사용됩니다. 열 지도는 많은 수의 요소가 있는 데이터 세트를 렌더링하는 좋은 방법입니다.
 
@@ -65,14 +65,14 @@ map.layers.add(new atlas.layer.HeatMapLayer(datasource, null, {
 
 이전 예제는 반경 및 불투명도 옵션을 설정하여 열 지도를 사용자 지정했습니다. 열 지도 계층은 다음을 비롯하여 다양한 사용자 지정 옵션을 제공합니다.
 
-* `radius`: 각 데이터 요소를 렌더링할 픽셀 반경을 정의합니다. 반경을 정수 또는 식으로 설정할 수 있습니다. 식을 사용하여 확대/축소 수준에 따라 반경을 조정하고 지도에서 일관적인 공간 영역을 나타낼 수 있습니다(예: 5마일 반경).
-* `color`: 열 지도에 색이 지정되는 방식을 지정합니다. 색 그라데이션은 열 지도의 일반적인 기능입니다. `interpolate` 식을 사용하여 해당 효과를 구현할 수 있습니다. 열 지도에 색상을 적용하는 `step` 식을 사용하여 윤곽선 또는 레이더 스타일 지도와 유사한 범위로 밀도를 시각적으로 나눌 수도 있습니다. 이러한 색상표는 색을 최소에서 최대 밀도 값까지 정의합니다.
+- `radius`: 각 데이터 요소를 렌더링할 픽셀 반경을 정의합니다. 반경을 정수 또는 식으로 설정할 수 있습니다. 식을 사용하여 확대/축소 수준에 따라 반경을 조정하고 지도에서 일관적인 공간 영역을 나타낼 수 있습니다(예: 5마일 반경).
+- `color`: 열 지도에 색이 지정되는 방식을 지정합니다. 색 그라데이션은 열 지도의 일반적인 기능입니다. `interpolate` 식을 사용하여 해당 효과를 구현할 수 있습니다. 열 지도에 색상을 적용하는 `step` 식을 사용하여 윤곽선 또는 레이더 스타일 지도와 유사한 범위로 밀도를 시각적으로 나눌 수도 있습니다. 이러한 색상표는 색을 최소에서 최대 밀도 값까지 정의합니다.
 
   열 지도에 대한 색 값을 `heatmap-density` 값에서 식으로 지정합니다. “보간” 식의 인덱스 0에 데이터가 정의되어 있지 않은 영역의 색 또는 “계단식” 식의 기본 색입니다. 배경색을 정의하는 데 이 값을 사용할 수 있습니다. 대부분 이 값을 투명 또는 반투명 검은색으로 설정하는 것을 선호합니다.
 
   색 식의 예는 다음과 같습니다.
 
-  | 보간 색 식 | 계단식 색 식 | 
+  | 보간 색 식 | 계단식 색 식 |
   |--------------------------------|--------------------------|
   | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'interpolate',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['linear'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, 'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'purple',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.5, '#fb00fb',<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, '#00c3ff'<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'step',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'navy',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.25, 'green',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.50, 'yellow',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.75, 'red'<br/>\] |
 
@@ -118,11 +118,13 @@ map.layers.add(new atlas.layer.HeatMapLayer(datasource, null, {
 
 > [!TIP]
 > 데이터 원본에서 클러스터링을 사용하도록 설정하면 서로 인접한 요소는 클러스터된 요소로 그룹화됩니다. 각 클러스터의 요소 개수를 열 지도의 가중치 식으로 사용할 수 있습니다. 이렇게 하면 렌더링되는 요소의 수를 크게 줄일 수 있습니다. 한 클러스터의 요소 수는 요소 기능의 `point_count` 속성에 저장됩니다.
+>
 > ```JavaScript
 > var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 >    weight: ['get', 'point_count']
 > });
 > ```
+>
 > 클러스터링 반경이 단 몇 개의 픽셀로 이루어진 경우에는 렌더링에 시각적 차이가 작습니다. 반경 그룹이 커지면 각 클러스터의 요소가 많아지며 열 지도의 성능이 향상됩니다.
 
 ## <a name="next-steps"></a>다음 단계
@@ -130,7 +132,7 @@ map.layers.add(new atlas.layer.HeatMapLayer(datasource, null, {
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [HeatMapLayer](/javascript/api/azure-maps-control/atlas.htmlmarker)
+> [HeatMapLayer](/javascript/api/azure-maps-control/atlas.layer.heatmaplayer)
 
 > [!div class="nextstepaction"]
 > [HeatMapLayerOptions](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)

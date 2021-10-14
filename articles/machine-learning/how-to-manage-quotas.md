@@ -10,12 +10,12 @@ ms.author: siarora
 ms.date: 06/14/2021
 ms.topic: how-to
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: eddf1f5a77ef67de3ab6e1861ae44a19b07d8027
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: bbfcf7fd3edb483415041a4706e7a5cd22e2d76a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129425983"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997122"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 리소스 할당량 관리 및 증가
 
@@ -99,12 +99,13 @@ Azure는 사기로 인한 예산 초과를 방지하고, Azure 용량 제약 조
 | 노드당 매개 변수 서버 | 1 |
 
 <sup>1</sup> 최대 수명은 실행 시작 시간과 종료 시간 사이의 기간입니다. 완료된 실행은 무기한 유지됩니다. 최대 수명 내에 완료되지 않은 실행에 대한 데이터는 액세스할 수 없습니다.
+
 <sup>2</sup> 용량 제약 조건이 있을 때마다 우선 순위가 낮은 노드의 작업이 선점될 수 있습니다. 작업에서 검사점을 구현하는 것이 좋습니다.
 
 ### <a name="azure-machine-learning-managed-online-endpoints-preview"></a>Azure Machine Learning 관리형 온라인 엔드포인트(미리 보기)
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-Azure Machine Learning 관리형 온라인 엔드포인트에는 다음과 같은 제한이 있습니다.
+Azure Machine Learning 관리되는 온라인 엔드포인트에는 다음과 같은 제한이 있습니다.
 
 | **리소스** | **제한** |
 | --- | --- |
@@ -114,13 +115,13 @@ Azure Machine Learning 관리형 온라인 엔드포인트에는 다음과 같�
 | 구독당 배포 수 | 200 |
 | 엔드포인트당 배포 수 | 20 |
 | 배포당 인스턴스 수 | 20 |
-| 엔드포인트 수준에서 최대 페이로드 크기 |1.5MB |
+| 엔드포인트 수준에서 최대 페이로드 크기 | 1.5MB |
 | 엔드포인트 수준에서 최대 요청 시간 초과  | 60초 |
-| 모든 배포에 대한 엔드포인트 수준의 총 QPS  | 100 |
+| 모든 배포에 대한 엔드포인트 수준의 총 QPS | 100 |
 
-<sup>1</sup> `my-endpoint-name`와 같은 단일 대시는 엔드포인트 및 배포 이름에 허용됩니다.
+<sup>1</sup> 과 같은 단일 `my-endpoint-name` 대시는 엔드포인트 및 배포 이름에 허용됩니다.
 
-#### <a name="azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인
+### <a name="azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인
 [Azure Machine Learning 파이프라인](concept-ml-pipelines.md)은 다음 한도를 갖습니다.
 
 | **리소스** | **제한** |

@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: a882e0e1f0a5cf0dd9ea3690453887478319268e
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 0463ea748c4d82cc4c098ddd137a12c70f55afb2
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129538968"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130006074"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>검색, 평가 및 종속성 분석 - 일반적인 질문
 
@@ -81,6 +81,16 @@ VMware 환경에서 최대 10,000개의 서버, Hyper-V 환경에서 최대 5,00
 
 - Azure VM 및 AVS 평가의 경우 검색이 시작된 후 일부 서버만 만들어졌습니다. 예를 들어 지난 한 달 동안의 성능 기록에 대한 평가를 만들고 있지만 불과 일주일 전에 환경에서 만든 서버가 거의 없는 경우입니다. 이 경우 새 서버의 성능 데이터는 전체 기간에 사용할 수 없으며 신뢰 등급은 낮습니다. [자세한 정보](./concepts-assessment-calculation.md#confidence-ratings-performance-based)
 - Azure SQL 평가의 경우 검색을 시작한 후 일부 SQL 인스턴스 또는 데이터베이스가 만들어졌습니다. 예를 들어 지난 한 달 동안의 성능 기록에 대한 평가를 만들고 있지만 불과 일주일 전에 환경에서 만든 SQL 인스턴스 또는 데이터베이스가 거의 없는 경우입니다. 이 경우 새 서버의 성능 데이터는 전체 기간에 사용할 수 없으며 신뢰 등급은 낮습니다. [자세한 정보](./concepts-azure-sql-assessment-calculation.md#confidence-ratings)
+
+## <a name="why-is-my-ram-utilization-greater-than-100"></a>RAM 사용률이 100%를 초과 하는 이유는 무엇 인가요?
+
+기본적으로 프로 비전 된 최대 메모리가 VM에 필요한 것 보다 작은 경우 Hyper-v에서 평가는 메모리 사용률이 100%를 초과 하는 것으로 표시 합니다.
+
+## <a name="why-cant-i-see-all-azure-vm-families-in-the-azure-vm-assessment-properties"></a>Azure VM 평가 속성에 모든 Azure VM 패밀리가 표시 되지 않는 이유는 무엇 인가요?
+
+다음과 같은 두 가지 이유가 있을 수 있습니다.
+- 특정 계열이 지원 되지 않는 Azure 지역을 선택 했습니다. Azure VM 평가 속성에 표시 되는 azure VM 제품군은 선택한 Azure location, storage 유형 및 Reserved Instance에서 VM 시리즈의 가용성에 따라 달라 집니다. 
+- VM 시리즈는 평가에서 지원 되지 않으며 평가 논리를 고려 하지 않습니다. 현재는 안정적인, 가속화 및 고성능 SKU 시리즈를 지원 하지 않습니다. VM 시리즈를 업데이트 하기 위해 노력 하 고 있으며 언급 한 시리즈는 로드맵에 있습니다. 
 
 ## <a name="the-number-of-azure-vm-or-avs-assessments-on-the-discovery-and-assessment-tool-are-incorrect"></a>검색 및 평가 도구의 Azure VM 또는 AVS 평가 수가 잘못되었습니다.
 

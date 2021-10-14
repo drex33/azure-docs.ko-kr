@@ -14,12 +14,12 @@ ms.date: 01/14/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d4e965d14c6dab3fd2bd8333b9e04dfa52a3346b
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
-ms.translationtype: HT
+ms.openlocfilehash: 537a9e58adddd421bf26bcd888be8c318feca0cb
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078908"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129984804"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Azure VM에서 SQL Server 버전의 현재 위치 변경
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -52,8 +52,9 @@ SQL Server 버전을 업그레이드하려면 원하는 SQL Server 버전의 SQL
    ![SQL Server 버전을 업그레이드하기 위한 선택 항목](./media/change-sql-server-edition/edition-upgrade.png)
 
 1. **다음** 을 계속 선택하여 **버전 업그레이드 준비 완료** 페이지가 나오면 **업그레이드** 를 선택합니다. 변경 내용이 적용되는 동안 설치 창이 몇 분 동안 응답하지 않을 수 있습니다. **완료** 페이지에서 버전 업그레이드가 완료되었음을 확인할 수 있습니다. 
+1. SQL Server 버전을 업그레이드한 후 Azure Portal에서 SQL Server 가상 머신의 버전 속성을 수정합니다. 그러면 이 VM과 연결된 메타데이터 및 청구가 업데이트됩니다.
 
-SQL Server 버전을 업그레이드한 후 Azure Portal에서 SQL Server 가상 머신의 버전 속성을 수정합니다. 그러면 이 VM과 연결된 메타데이터 및 청구가 업데이트됩니다.
+
 
 ## <a name="downgrade-an-edition"></a>버전 다운그레이드
 
@@ -71,8 +72,9 @@ SQL Server 버전을 다운그레이드하려면 SQL Server를 완전히 제거�
 1. 원하는 SQL Server 버전의 미디어를 사용하여 SQL Server를 설치합니다.
 1. 최신 서비스 팩과 누적 업데이트를 설치합니다.  
 1. 설치하는 동안 생성된 새 시스템 데이터베이스를 앞서 다른 위치로 이동한 시스템 데이터베이스로 바꿉니다. 
+1. SQL Server 버전을 다운그레이드한 후 Azure Portal에서 SQL Server 가상 머신의 버전 속성을 수정합니다. 그러면 이 VM과 연결된 메타데이터 및 청구가 업데이트됩니다. 
 
-SQL Server 버전을 다운그레이드한 후 Azure Portal에서 SQL Server 가상 머신의 버전 속성을 수정합니다. 그러면 이 VM과 연결된 메타데이터 및 청구가 업데이트됩니다.
+
 
 ## <a name="change-edition-in-portal"></a>포털에서 버전 변경 
 

@@ -4,12 +4,12 @@ description: 이 자습서에서는 Azure Video Analyzer를 사용하여 비디�
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: 3122ea07fdab20c93ed4720d0c43f180cce5306d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 0e2df2b89efb974e6336cf4df0ce4e06a63d528a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566612"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129996307"
 ---
 # <a name="tutorial-record-and-stream-inference-metadata-with-video"></a>자습서: 비디오를 사용하여 추론 메타데이터 녹화 및 스트리밍
   
@@ -101,7 +101,7 @@ src/edge/deployment.yolov3.template.json 파일을 엽니다. **모듈** 섹션 
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/deployment-single-device.png" alt-text= "Screenshot of Create Deployment for Single Device":::
 
-1. IoT Hub 디바이스를 선택하라는 메시지가 표시되면 **ava-sample-iot-edge-device** 를 선택합니다.
+1. IoT Hub 디바이스를 선택하라는 메시지가 표시되면 **avasample-iot-edge-device** 를 선택합니다.
 1. 약 30초 후 창의 왼쪽 아래 모서리에서 Azure IoT Hub를 새로 고칩니다. 이제 에지 디바이스에 다음과 같은 배포된 모듈이 표시됩니다.
 
    - **avaedge** 모듈 - Video Analyzer 모듈입니다.

@@ -7,18 +7,30 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 08/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: f957ad88d89b9d31ab8e073214e765dbbdb13094
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: dd0d2c3e8466d0f5b4486be7c15b0092d7026a5e
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224928"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129996250"
 ---
 # <a name="azure-percept-dk-software-release-notes"></a>Azure Percept DK 소프트웨어 릴리스 정보
 
 이 페이지에서는 각 Azure Percept DK OS 및 펌웨어 릴리스에 대한 변경 사항 및 수정 사항에 대한 정보를 제공합니다.
 
 업데이트 이미지를 다운로드하려면 [USB 케이블 업데이트에 대한 Azure Percept DK 소프트웨어 릴리스](./software-releases-usb-cable-updates.md) 또는 [OTA 업데이트에 대한 Azure Percept DK 소프트웨어 릴리스](./software-releases-over-the-air-updates.md)를 참조하세요.
+
+## <a name="september-2109-release"></a>9 월 (2109) 릴리스
+
+- Wi-Fi:
+  - 자동 채널을 선택 하는 대신 고정 채널을 사용 하 여 hostapd 서비스를 지속적으로 다시 시도 하 고 다시 시작 하지 않도록 합니다.
+- 설치 환경:
+  - OOBE 서버 시스템 오류가 지역화 됩니다.
+  - IPv6 다중 라우팅 테이블을 사용 하도록 설정 합니다.
+- 운영 체제
+  - 최신 보안 픽스.
+  - Nginx service가 루트가 아닌 사용자로 실행 됩니다.
+
 
 ## <a name="july-2107-release"></a>7월(2017년) 릴리스
 

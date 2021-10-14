@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d27223906727af3b45617c7162f5c5da5133d2e3
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
-ms.translationtype: HT
+ms.openlocfilehash: 80eb2c9291ffff85e897e868072132d3d79f741e
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111569521"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129999685"
 ---
 # <a name="configure-a-dnn-for-failover-cluster-instance"></a>장애 조치(failover) 클러스터 인스턴스에 대한 DNN 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,6 @@ Azure 가상 머신에서 분산 네트워크 이름(DNN)은 적절한 클러스
 
 이 문서에서는 고가용성 및 재해 복구(HADR)을 위해 Azure VM의 SQL Server를 사용하여 장애 조치(failover) 클러스터 인스턴스로 트래픽을 라우팅하도록 DNN 리소스 구성 방법에 대해 설명합니다. 
 
-DNN 기능은 현재 SQL Server 2019 CU2 이상 및 Windows Server 2016 이상에서만 사용할 수 있습니다. 
 
 대체 연결 옵션의 경우 대신 [가상 네트워크 이름 및 Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md)를 고려하세요. 
 
@@ -43,11 +42,10 @@ FCI 배포의 경우 VNN은 여전히 존재하지만 클라이언트는 VNN 이
 
 이 문서의 단계를 완료하기 전에 다음이 준비되어 있어야 합니다.
 
-- CU2 또는 윈도우즈 Server 2016 이상의 SQL Server 2019
+- Windows Server 2016 이상에서 [SQL Server 2019 CU8](https://support.microsoft.com/topic/cumulative-update-8-for-sql-server-2019-ed7f79d9-a3f0-a5c2-0bef-d0b7961d2d72) 이상, [SQL Server 2017 CU25](https://support.microsoft.com/topic/kb5003830-cumulative-update-25-for-sql-server-2017-357b80dc-43b5-447c-b544-7503eee189e9) 이상 또는 [SQL Server 2016 SP3](https://support.microsoft.com/topic/kb5003279-sql-server-2016-service-pack-3-release-information-46ab9543-5cf9-464d-bd63-796279591c31) 이상으로 시작 하는 SQL Server.
 - 분산 네트워크 이름이 [HADR 솔루션에 대한 연결 옵션](hadr-cluster-best-practices.md#connectivity)으로 적절하다고 결정했습니다.
 - [장애 조치(failover) 클러스터 인스턴스](failover-cluster-instance-overview.md)를 구성했습니다. 
 - 최신 버전의 [PowerShell](/powershell/azure/install-az-ps)을 설치했습니다. 
-- DNN 수신기에 연결하는 클라이언트는 연결 문자열에서 `MultiSubnetFailover=True` 매개 변수를 지원해야 합니다. 
 
 ## <a name="create-dnn-resource"></a>DNN 리소스 생성 
 
@@ -148,7 +146,11 @@ Start-ClusterResource -Name dnn-demo
 
 ## <a name="update-connection-string"></a>연결 문자열 업데이트
 
-장애 조치(failover) 시 신속한 연결을 보장하려면 SQL 클라이언트 버전이 4.6.1 이전인 경우 연결 문자열에 `MultiSubnetFailover=True`을 추가하세요. 
+SQL Server fci DNN에 연결 하 고 연결 문자열에를 포함 하 여 응용 프로그램의 연결 문자열을 업데이트 합니다 `MultiSubnetFailover=True` . 클라이언트에서 MultiSubnetFailover 매개 변수를 지원 하지 않는 경우 DNN와 호환 되지 않습니다. 
+
+다음은 DNS 이름이 **FCIDNN** 인 SQL fci DNN에 대 한 연결 문자열의 예입니다. 
+
+`Data Source=FCIDNN, MultiSubnetFailover=True`
 
 또한 DNN이 원래 VNN을 사용하지 않는 경우 SQL Server FCI에 연결하는 SQL 클라이언트는 연결 문자열을 DNN DNS 이름으로 업데이트해야 합니다. 이러한 요구 사항을 방지하기 위해 DNS 이름 값을 VNN 이름으로 업데이트할 수 있습니다. 그러나 [기존 VNN을 자리 표시자로 먼저 변경](#rename-the-vnn)해야 합니다. 
 
@@ -199,7 +201,8 @@ Get-ClusterResource "virtual IP address" | Set-ClusterParameter
 
 ## <a name="limitations"></a>제한 사항
 
-- 현재 FCI가 포함된 DNN은 SQL Server 2019 CU2 및 Windows Server 2016 이상에서만 지원됩니다. 
+
+- DNN 수신기에 연결하는 클라이언트는 연결 문자열에서 `MultiSubnetFailover=True` 매개 변수를 지원해야 합니다. 
 - 다른 SQL Server 기능 및 DNN을 포함하는 FCI를 사용하여 작업하는 경우 더 많은 고려 사항이 있을 수 있습니다. 자세한 내용은 [DNN 상호 운용성을 포함한 FCI](failover-cluster-instance-dnn-interoperability.md)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계

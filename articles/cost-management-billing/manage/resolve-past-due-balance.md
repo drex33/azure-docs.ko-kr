@@ -9,18 +9,18 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: a61eaa10420a9a4a413074559a158e2a32f5cf95
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8bdb31d13f35f2ffbc4713623e5509675433ddd8
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128634998"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997179"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Azure 구독의 미지불금액 해결
 
 이 문서는 신용 카드로 Azure online에 등록 하 고 Microsoft Online Services 프로그램 청구 계정이 있는 고객에 게 적용 됩니다. [청구 계정 유형을 확인](#check-the-type-of-your-account)하는 방법을 알아보세요. Microsoft 고객 계약 청구 계정이 있는 경우 대신 [Microsoft Azure 요금](../understand/pay-bill.md) 청구를 참조 하세요.
 
-지불이 수신되지 않거나 지불을 처리할 수 없는 경우 이메일을 받게 되고 Azure Portal에서 구독 기한이 지난 것을 알리는 경고가 표시됩니다. 기본 지불 방법이 신용 카드인 경우 [계정 관리자](../understand/subscription-transfer.md#whoisaa) 는 Azure Portal의 미해결 요금을 청구할 수 있습니다. 청구서로 지불하는 경우(수표/전신 송금) 청구서 맨 아래에 기재된 위치로 결제 금액을 송금합니다.
+지불이 수신되지 않거나 지불을 처리할 수 없는 경우 이메일을 받게 되고 Azure Portal에서 구독 기한이 지난 것을 알리는 경고가 표시됩니다. 기본 지불 방법이 신용 카드인 경우 [계정 관리자](add-change-subscription-administrator.md#whoisaa) 는 Azure Portal의 미해결 요금을 청구할 수 있습니다. 청구서로 지불하는 경우(수표/전신 송금) 청구서 맨 아래에 기재된 위치로 결제 금액을 송금합니다.
 
 > [!IMPORTANT]
 > * 동일한 신용 카드를 사용하는 구독이 여러 개 있고 모두 기한이 초과된 경우 전체 미결 잔액을 한 번에 지불해야 합니다.

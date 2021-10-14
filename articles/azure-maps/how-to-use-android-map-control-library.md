@@ -1,20 +1,20 @@
 ---
 title: Android 지도 컨트롤 시작 | Microsoft Azure Maps
 description: Azure Maps Android SDK에 대해 알아봅니다. Android Studio에서 프로젝트를 만들고, SDK를 설치하고, 대화형 맵을 만드는 방법을 알아봅니다.
-author: anastasia-ms
-ms.author: v-stharr
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 2/26/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
+manager: eriklind
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 21442101f1cde2717f079aac550a5e8c587451f2
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 137b0d56a566d2e62f5559a30b391e6418139e59
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123430651"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130005075"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Azure Maps Android SDK 시작
 
@@ -22,44 +22,23 @@ Azure Maps Android SDK는 Android용 벡터 지도 라이브러리입니다. 이
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-[빠른 시작: Android 앱 만들기](quick-android-map.md) 문서의 단계를 완료해야 합니다.
+[빠른 시작: Android 앱 만들기](quick-android-map.md) 문서의 단계를 완료 해야 합니다.
 
 ## <a name="localizing-the-map"></a>맵 지역화
 
-Azure Maps Android SDK는 맵의 언어 및 지역 보기를 설정하는 세 가지 방법을 제공합니다. 다음 코드에서는 언어를 프랑스어(“fr-FR”)로 설정하고 지역 보기를 “Auto”로 설정하는 방법을 보여 줍니다.
+Azure Maps Android SDK에서는 지도의 언어와 지역별 보기를 설정 하는 세 가지 방법을 제공 합니다. 다음 코드에서는 언어를 프랑스어(“fr-FR”)로 설정하고 지역 보기를 “Auto”로 설정하는 방법을 보여 줍니다.
 
-첫 번째 옵션은 정적 `setLanguage` 및 `setView` 메서드를 전역적으로 사용하여 `AzureMaps` 클래스에 언어를 전달하고 지역 정보를 보는 것입니다. 이 코드는 앱에 로드된 모든 Azure Maps 컨트롤에서 기본 언어 및 지역 보기를 설정합니다.
-
-::: zone pivot="programming-language-java-android"
-
-```java
-static {
-    //Alternatively use Azure Active Directory authenticate.
-    AzureMaps.setAadProperties("<Your aad clientId>", "<Your aad AppId>", "<Your aad Tenant>");
-
-    //Set your Azure Maps Key.
-    //AzureMaps.setSubscriptionKey("<Your Azure Maps Key>");   
-
-    //Set the language to be used by Azure Maps.
-    AzureMaps.setLanguage("fr-FR");
-
-    //Set the regional view to be used by Azure Maps.
-    AzureMaps.setView("Auto");
-}
-```
-
-::: zone-end
-
-::: zone pivot="programming-language-kotlin"
-
-```kotlin
-companion object {
-    init {
+1. `AzureMaps`정적 및 속성을 사용 하 여 언어 및 지역 뷰 정보를 클래스에 전달 합니다 `setLanguage` `setView` . 그러면 앱에서 기본 언어 및 국가별 보기 속성이 설정 됩니다.
+    
+    ::: zone pivot="programming-language-java-android"
+    
+    ```java
+    static {
         //Alternatively use Azure Active Directory authenticate.
         AzureMaps.setAadProperties("<Your aad clientId>", "<Your aad AppId>", "<Your aad Tenant>");
-
+    
         //Set your Azure Maps Key.
-        //AzureMaps.setSubscriptionKey("<Your Azure Maps Key>");
+        //AzureMaps.setSubscriptionKey("<Your Azure Maps Key>");   
     
         //Set the language to be used by Azure Maps.
         AzureMaps.setLanguage("fr-FR");
@@ -67,77 +46,97 @@ companion object {
         //Set the regional view to be used by Azure Maps.
         AzureMaps.setView("Auto");
     }
-}
-```
+    ```
+    
+    ::: zone-end
+    
+    ::: zone pivot="programming-language-kotlin"
+    
+    ```kotlin
+    companion object {
+        init {
+            //Alternatively use Azure Active Directory authenticate.
+            AzureMaps.setAadProperties("<Your aad clientId>", "<Your aad AppId>", "<Your aad Tenant>");
+    
+            //Set your Azure Maps Key.
+            //AzureMaps.setSubscriptionKey("<Your Azure Maps Key>");
+        
+            //Set the language to be used by Azure Maps.
+            AzureMaps.setLanguage("fr-FR");
+        
+            //Set the regional view to be used by Azure Maps.
+            AzureMaps.setView("Auto");
+        }
+    }
+    ```
+    
+    ::: zone-end
 
-::: zone-end
+1. 언어 및 지역 보기 정보를 지도 컨트롤 XML로 전달할 수도 있습니다.
 
-두 번째 옵션은 언어 및 보기 정보를 지도 컨트롤 XML에 전달하는 것입니다.
+    ```XML
+    <com.azure.android.maps.control.MapControl
+        android:id="@+id/myMap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:azure_maps_language="fr-FR"
+        app:azure_maps_view="Auto"
+        />
+    ```
+1. 언어 및 지역 보기 속성을 프로그래밍 방식으로 설정 하는 마지막 방법은 maps 메서드를 사용 하는 것입니다 `setStyle` . 언제든지 이 작업을 수행하여 맵의 언어 및 지역 보기를 변경할 수 있습니다.
 
-```XML
-<com.azure.android.maps.control.MapControl
-    android:id="@+id/myMap"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:azure_maps_language="fr-FR"
-    app:azure_maps_view="Auto"
-    />
-```
+    ::: zone pivot="programming-language-java-android"
 
-세 번째 옵션은 맵 `setStyle` 메서드를 사용하여 맵의 언어 및 지역 보기를 프로그래밍 방식으로 설정하는 것입니다. 언제든지 이 방법으로 지도의 언어 및 지역 보기를 변경할 수 있습니다.
+    ```java
+    mapControl.onReady(map -> {
+        map.setStyle(
+            language("fr-FR"),
+            view("Auto")
+        );
+    });
+    ```
 
-::: zone pivot="programming-language-java-android"
+    ::: zone-end
 
-```java
-mapControl.onReady(map -> {
-    map.setStyle(
-        language("fr-FR"),
-        view("Auto")
-    );
-});
-```
+    ::: zone pivot="programming-language-kotlin"
 
-::: zone-end
+    ```kotlin
+    mapControl.onReady(OnReady { map: AzureMap ->
+        map.setStyle(
+            language("fr-FR"),
+            view("Auto")
+        )
+    })
+    ```
 
-::: zone pivot="programming-language-kotlin"
-
-```kotlin
-mapControl.onReady(OnReady { map: AzureMap ->
-    map.setStyle(
-        language("fr-FR"),
-        view("Auto")
-    )
-})
-```
-
-::: zone-end
+    ::: zone-end
 
 다음은 언어가 “fr-FR”로 설정되고 지역 보기가 “Auto”로 설정된 Azure Maps의 예시입니다.
 
 ![Azure Maps, 프랑스어로 레이블을 표시하는 맵 이미지](media/how-to-use-android-map-control-library/android-localization.png)
 
-지원되는 언어 및 지역 보기의 전체 목록은 [여기](supported-languages.md)에 설명되어 있습니다.
+지원 되는 언어 및 지역 보기의 전체 목록은 [Azure Maps의 지역화 지원](supported-languages.md)을 참조 하세요.
 
 ## <a name="navigating-the-map"></a>맵 탐색
 
 여러 가지 방식으로 맵을 확대/축소, 이동, 회전 및 피치할 수 있습니다. 다음에서 맵을 탐색하는 다양한 방법을 자세히 설명합니다.
 
-**맵 확대/축소**
+### <a name="zoom-the-map"></a>맵 확대/축소
 
 * 두 손가락으로 맵을 터치하고 두 손가락을 모으면 축소되고 두 손가락을 넓히면 확대됩니다.
 * 한 수준 확대하려면 맵을 두 번 탭합니다.
 * 두 손가락을 두 번 탭하여 맵을 한 단계 축소합니다.
 * 두 번 탭할 때 두 번째 탭에서 손가락을 맵에 고정한 채로 위나 아래로 끌면 확대 또는 축소됩니다.
 
-**맵 이동**
+### <a name="pan-the-map"></a>맵 이동
 
 * 맵을 터치하고 원하는 방향으로 끕니다.
 
-**맵 회전**
+### <a name="rotate-the-map"></a>맵 회전
 
 * 두 손가락으로 맵을 터치하고 회전합니다.
 
-**맵 피치**
+### <a name="pitch-the-map"></a>맵 피치
 
 * 두 손가락으로 맵을 터치하고 위나 아래로 함께 끕니다.
 

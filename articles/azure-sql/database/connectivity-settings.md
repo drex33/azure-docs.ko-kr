@@ -11,12 +11,12 @@ ms.author: rohitna
 ms.reviewer: mathoma, vanto
 ms.date: 08/03/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: de6af2c8581c157634ee1f8676e3dbc84ccd1803
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f31c53d57b64254c1be654f58b387d7524974e92
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128590681"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129987445"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Azure SQL 연결 설정
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa-formerly-sqldw.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "128590681"
 이 문서에서는 Azure Synapse Analytics에서 Azure SQL Database 및 [전용 SQL 풀(이전에는 SQL DW)](../../synapse-analytics\sql-data-warehouse\sql-data-warehouse-overview-what-is.md)용 서버에 대한 연결을 제어하는 ​​설정을 소개합니다. 이 설정은 서버와 연결된 모든 SQL Database 및 전용 SQL 풀(이전의 SQL DW) 데이터베이스에 적용됩니다.
 
 > [!IMPORTANT]
-> 이 문서는 Azure SQL Managed Instance에 적용되지 않습니다. 이 문서는 Azure Synapse Analytics 작업 영역의 전용 SQL 풀에도 적용되지 않습니다. 작업 영역에서 Azure Synapse Analytics 대한 [IP 방화벽](../../synapse-analytics/security/synapse-workspace-ip-firewall.md) 규칙을 구성하는 방법에 대한 지침은 Azure Synapse Analytics IP 방화벽 규칙을 참조하세요.
+> 이 문서는 Azure SQL Managed Instance에 적용되지 않습니다. 또한이 문서는 Azure Synapse Analytics 작업 영역의 전용 SQL 풀에는 적용 되지 않습니다. 작업 영역을 사용 하 여 Azure Synapse Analytics에 대 한 IP 방화벽 규칙을 구성 하는 방법에 대 한 지침은 [Azure Synapse ANALYTICS IP 방화벽 규칙](../../synapse-analytics/security/synapse-workspace-ip-firewall.md) 을 참조 하세요.
 
 연결 설정은 다음 스크린샷에 표시된 것처럼 **방화벽 및 가상 네트워크** 화면에서 액세스할 수 있습니다.
 

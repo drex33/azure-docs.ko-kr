@@ -3,12 +3,12 @@ title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용하여 조직에서 Azure 리소스에 대한 규칙을 설정하는 방법을 설명합니다.
 ms.date: 09/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7665d2b3855765c0d3c60cdb9c7181720835a963
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 08e4df487786de0e43e7bc1ae7c0a5debb6a9752
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129456977"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002513"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -125,6 +125,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 - `category`(문자열): Azure Portal에서 정책 정의가 표시되는 범주를 결정합니다.
 - `preview`(부울): 정책 정의가 _미리 보기_ 인 경우에 대한 True 또는 False 플래그입니다.
 - `deprecated`(부울): 정책 정의가 _더 이상 사용되지 않음_ 으로 표시된 경우에 대한 True 또는 False 플래그입니다.
+- `portalReview` (string): 필요한 입력에 관계없이 포털에서 매개 변수를 검토할지 여부를 결정합니다. 
 
 > [!NOTE]
 > Azure Policy 서비스는 `version`, `preview` 및 `deprecated` 속성을 사용하여 기본 제공 정책 정의 또는 이니셔티브 및 상태에 대한 변경 수준 전달합니다. `version`의 형식은 `{Major}.{Minor}.{Patch}`입니다. _deprecated_ 또는 _preview_ 와 같은 특정 상태가 `version` 속성에 추가되거나 다른 속성에 **부울** 로 추가됩니다. Azure Policy 버전 기본 제공 방식에 대한 자세한 내용은 [기본 제공 버전 관리](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md)를 참조하세요.

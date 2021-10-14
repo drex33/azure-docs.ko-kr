@@ -1,18 +1,18 @@
 ---
 title: ASE v1 소개
 description: App Service Environment v1기능에 대해 알아봅니다. 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
-author: stefsch
+author: madsd
 ms.assetid: 78e6d4f5-da46-4eb5-a632-b5fdc17d2394
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: ccompy
+ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 878cef39ade0487c03dba83c9e3631fe3c72088f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: b0ea6176f43a5373eb24437a42972eeced26094b
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96008630"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129999780"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>App Service Environment v1 소개
 
@@ -38,7 +38,7 @@ App Service 환경이 높은 확장성을 지원하고 네트워크 액세스를
 
 AzureCon 심층 분석에 표시된 보안 아키텍처를 구성하는 방법을 보려면 App Service Environment를 사용하여 [계층화된 보안 아키텍처](app-service-app-service-environment-layered-security.md) 를 구현하는데 대한 문서를 참조하세요.
 
-App Service Environment에서 실행 중인 앱은 웹 애플리케이션 방화벽 (WAF) 등의 업스트림 디바이스에서 제어된 액세스를 가질 수 있습니다.  [App Service Environment에 대한 WAF 구성](app-service-app-service-environment-web-application-firewall.md) 의 문서는 이 시나리오에 대해 설명합니다.
+App Service Environment에서 실행 중인 앱은 웹 애플리케이션 방화벽 (WAF) 등의 업스트림 디바이스에서 제어된 액세스를 가질 수 있습니다.  [App Service Environment에 대한 WAF 구성](integrate-with-application-gateway.md) 의 문서는 이 시나리오에 대해 설명합니다.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -72,7 +72,7 @@ App Service 환경이 가상 네트워크 및 온-프레미스 네트워크와 �
 
 ## <a name="getting-started"></a>시작
 
-App Service Environment를 시작하려면 [App Service Environment를 만드는 방법][HowToCreateAnAppServiceEnvironment]을 참조하세요.
+App Service 환경을 시작하려면 [템플릿에서 ASEv1을 만드는 방법을 참조하세요.](app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
 
 App Service 환경 네트워크 아키텍처의 개요는 [네트워크 아키텍처 개요][NetworkArchitectureOverview] 문서를 참조하세요.
 
@@ -84,7 +84,6 @@ ExpressRoute로 App Service 환경을 사용하는 방법에 대한 자세한 �
 [PremiumTier]: https://azure.microsoft.com/pricing/details/app-service/
 [MoreInfoOnVirtualNetworks]: ../../virtual-network/virtual-networks-faq.md
 [AppServicePlan]: ../overview-hosting-plans.md
-[HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md
 [LogicApps]: ../../logic-apps/logic-apps-overview.md
 [AzureConDeepDive]:  https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/
 [GeodistributedAppFootprint]:  app-service-app-service-environment-geo-distributed-scale.md

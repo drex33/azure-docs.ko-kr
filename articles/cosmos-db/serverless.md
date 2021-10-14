@@ -6,12 +6,12 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/25/2021
-ms.openlocfilehash: 26858ca04af7a96896229c44757fa963ae362f1c
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
-ms.translationtype: HT
+ms.openlocfilehash: de2ef5b76e67ae19eca6bbb24c9d65dfc7b602b6
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110534175"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129987312"
 ---
 # <a name="azure-cosmos-db-serverless"></a>Azure Cosmos DB 서버리스
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -46,7 +46,6 @@ Azure Cosmos DB 서버리스의 경우 유휴 시간이 길며 **일시적이고
 서버리스 계정에서 만든 컨테이너는 서버리스 컨테이너입니다. 서버리스 컨테이너는 프로비저닝된 처리량 모드로 만든 컨테이너와 동일한 기능을 제공하므로 정확히 동일한 방법으로 데이터를 읽고 쓰고 쿼리합니다. 그러나 서버리스 계정 및 컨테이너에는 다음과 같은 특정 특성도 있습니다.
 
 - 서버리스 계정은 단일 Azure 지역에서만 실행할 수 있습니다. 계정을 만든 후에는 서버리스 계정에 Azure 영역을 더 추가할 수 없습니다.
-- 서버리스 계정에서는 [Synapse Link 기능](synapse-link.md)을 사용하도록 설정할 수 없습니다.
 - 서버리스 컨테이너에는 프로비저닝 처리량이 필요하지 않으므로 다음 문이 적용됩니다.
     - 서버리스 컨테이너를 만들 때 처리량을 전달할 수 없으며 그렇게 하면 오류가 반환됩니다.
     - 서버리스 컨테이너에서는 처리량을 읽거나 업데이트할 수 없으며 그렇게 하면 오류가 반환됩니다.

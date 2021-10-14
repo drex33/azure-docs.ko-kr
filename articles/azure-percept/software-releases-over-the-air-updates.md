@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 08/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: c8f05b1c2d04e492b44aef88ac31a8e4dece5e16
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: 1eb6f41d738f7ab5a2dbd68fab341c2b7c9917ad
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123222859"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001166"
 ---
 # <a name="software-releases-for-ota-updates"></a>OTA 업데이트용 소프트웨어 릴리스
 
@@ -69,13 +69,13 @@ Microsoft는 OTA 패키지를 사용하여 각 개발 키트 릴리스를 서비
 
 |해제|해당하는 버전|다운로드 링크|참고|
 |---|---|---|---|
-|7월 서비스 릴리스(2107)|2021.106.111.115|[2021.107.129.116 OTA 업데이트 패키지](https://go.microsoft.com/fwlink/?linkid=2169245)||
+|9월 서비스 릴리스(2109)|2021.106.111.115,<br>2021.107.129.116|[2021.109.129.108 OTA 업데이트 패키지](https://go.microsoft.com/fwlink/?linkid=2174634)||
 
 **하드 중지 릴리스:**
 
 |해제|해당하는 버전|다운로드 링크|참고|
 |---|---|---|---|
-|6월 서비스 릴리스(2106)|2021.102.108.112, 2021.104.110.103, 2021.105.111.122 |[2021.106.111.115 OTA 매니페스트(PE-101용)](https://go.microsoft.com/fwlink/?linkid=2167127)<br>[2021.106.111.115 OTA 매니페스트(APDK-101용)](https://go.microsoft.com/fwlink/?linkid=2167235) <br>[2021.106.111.115 OTA 업데이트 패키지](https://go.microsoft.com/fwlink/?linkid=2167128) |"모델 이름"(PE-101/APDK-101)에 따라 올바른 매니페스트를 사용해야 합니다.|
+|6월 서비스 릴리스(2106)|2021.102.108.112, 2021.104.110.103, 2021.105.111.122 |[2021.106.111.115 OTA 매니페스트(PE-101용)](https://download.microsoft.com/download/d/f/0/df0f17dc-d2fb-42ff-aaa5-98edf4d6d1e8/aduimportmanifest_PE-101_2021.106.111.115_v3.json)<br>[2021.106.111.115 OTA 매니페스트(APDK-101용)](https://download.microsoft.com/download/d/f/0/df0f17dc-d2fb-42ff-aaa5-98edf4d6d1e8/aduimportmanifest_Azure-Percept-DK_2021.106.111.115_v3.json) <br>[2021.106.111.115 OTA 업데이트 패키지](https://download.microsoft.com/download/d/f/0/df0f17dc-d2fb-42ff-aaa5-98edf4d6d1e8/Microsoft-Azure-Percept-DK-2021.106.111.115.swu) |"모델 이름"(PE-101/APDK-101)에 따라 올바른 매니페스트를 사용해야 합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

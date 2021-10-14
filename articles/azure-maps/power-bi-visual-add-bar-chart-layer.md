@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 4cb7fdf7f32070de66e81736d7572e0b48aad896
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 7e7ea41a95c2b59e124f8f605be52f3ba774f763
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123429499"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998640"
 ---
 # <a name="add-a-bar-chart-layer"></a>가로 막대형 차트 레이어 추가
 
@@ -56,6 +56,14 @@ ms.locfileid: "123429499"
 > 막대가 작은 너비 값에 **확대/축소 시 너비 조정** 옵션을 사용하지 않도록 설정하면 렌더링된 너비가 픽셀보다 작게 축소될 때 사라질 수 있습니다. 그러나 **확대/축소 시 너비 조정** 옵션을 사용하는 경우 확대/축소 수준을 변경하면 큰 데이터 집합의 성능에 영향을 줄 수 있는 추가 계산이 수행됩니다.
 
 ## <a name="next-steps"></a>다음 단계
+
+지도에 데이터가 표시되는 방식 변경:
+
+> [!div class="nextstepaction"]
+> [거품형 계층 추가](power-bi-visual-add-bubble-layer.md)
+
+> [!div class="nextstepaction"]
+> [열 지도 계층 추가](power-bi-visual-add-heat-map-layer.md)
 
 맵에 컨텍스트 추가:
 

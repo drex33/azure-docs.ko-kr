@@ -3,32 +3,32 @@ title: Azure Functions 런타임 버전 개요
 description: Azure Functions는 여러 버전의 런타임을 지원합니다. 버전 간 차이점과 적합한 버전을 선택하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-ms.date: 09/22/2021
-ms.openlocfilehash: 516bcbdd00ae4b116326e797746485c82be9c3fb
-ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
+ms.date: 10/13/2021
+ms.openlocfilehash: e04ab727e1bb7e168a4461e69b62ab049e59cacf
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129740515"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003404"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 런타임 버전 개요
 
-Azure Functions 현재 여러 버전의 런타임 호스트를 지원합니다. 다음 표에서는 사용 가능한 버전, 지원 수준 및 사용 시기에 대해 자세히 설명합니다.
+현재 Azure Functions는 여러 버전의 런타임 호스트를 지원 합니다. 다음 표에서는 사용 가능한 버전, 해당 지원 수준 및 사용 해야 하는 경우에 대해 자세히 설명 합니다.
 
 | 버전 | 지원 수준 | Description |
 | --- | --- | --- |
-| 4.x | 미리 보기 | 모든 언어를 지원합니다. 이 버전을 사용하여 [.NET 6.0에서 C# 함수를 실행합니다.](functions-dotnet-class-library.md#supported-versions) |
-| 3.x | GA | _모든 언어의 함수에 권장되는 런타임 버전입니다._ |
-| 2.x | GA | 레거시 [버전 2.x 앱에](#pinning-to-version-20)대해 지원됨. 이 버전은 유지 관리 모드이며, 향상된 기능이 이후 버전에서만 제공됩니다.|
-| 1.x | GA | .NET Framework 사용해야 하며 Azure Portal, Azure Stack Hub 포털 또는 Windows 컴퓨터에서 로컬로만 개발을 지원하는 C# 앱에만 권장됩니다. 이 버전은 유지 관리 모드이며, 향상된 기능이 이후 버전에서만 제공됩니다. |
+| 4.x | 미리 보기 | 모든 언어를 지원 합니다. 이 버전을 사용 하 여 [.net 6.0에서 c # 함수를 실행](functions-dotnet-class-library.md#supported-versions)합니다. |
+| 3.x | GA | _모든 언어의 함수에 권장 되는 런타임 버전입니다._ |
+| 2.x | GA | [레거시 버전 2.x 앱](#pinning-to-version-20)에 대해 지원 됩니다. 이 버전은 유지 관리 모드 이며 이후 버전 에서만 제공 되는 향상 된 기능을 제공 합니다.|
+| 1.x | GA | .NET Framework를 사용 해야 하며 Azure Portal, Azure Stack 허브 포털 또는 Windows 컴퓨터에서 로컬로 개발을 지 원하는 c # 앱에만 권장 됩니다. 이 버전은 유지 관리 모드 이며 이후 버전 에서만 제공 되는 향상 된 기능을 제공 합니다. |
 
-이 문서에서는 이러한 버전 간의 차이점, 각 버전을 만드는 방법 및 함수가 실행되는 버전을 변경하는 방법에 대해 자세히 설명합니다.
+이 문서에서는 이러한 버전 간의 차이점, 각 버전을 만드는 방법 및 함수가 실행 되는 버전을 변경 하는 방법에 대해 자세히 설명 합니다.
 
 [!INCLUDE [functions-support-levels](../../includes/functions-support-levels.md)]
 
 ## <a name="languages"></a>언어
 
-버전 2.x부터 런타임은 언어 확장성 모델을 사용하며 함수 앱의 모든 함수는 동일한 언어를 공유해야 합니다. 앱을 만들 때 함수 앱에서 함수 언어를 선택했습니다. 함수 앱의 언어는 [FUNCTIONS WORKER \_ \_ RUNTIME](functions-app-settings.md#functions_worker_runtime) 설정에서 유지 관리되며 기존 함수가 있을 때는 변경하지 않아야 합니다. 
+버전 2.x부터 런타임은 언어 확장성 모델을 사용하며 함수 앱의 모든 함수는 동일한 언어를 공유해야 합니다. 앱을 만들 때 함수 앱에서 함수 언어를 선택 했습니다. 함수 앱의 언어는 [함수 \_ 작업자 \_ 런타임](functions-app-settings.md#functions_worker_runtime) 설정에서 유지 관리 되며, 기존 함수가 있는 경우에는 변경할 수 없습니다. 
 
 다음 표는 각 런타임 버전에서 현재 지원되는 프로그래밍 언어를 나타냅니다.
 
@@ -48,7 +48,7 @@ Azure에 게시된 앱에서 사용하는 Functions 런타임 버전은 [`FUNCTI
 
 | 값 | 런타임 대상 |
 | ------ | -------- |
-| `~4` | 4.x(미리 보기) |
+| `~4` | 4.x (미리 보기) |
 | `~3` | 3.x |
 | `~2` | 2.x |
 | `~1` | 1.x |
@@ -70,11 +70,11 @@ Azure에 게시된 앱에서 사용하는 Functions 런타임 버전은 [`FUNCTI
 
 `~2.0`에 고정된 함수 앱은 더 이상 보안 및 기타 업데이트를 수신하지 않는 .NET Core 2.2에서 계속 실행됩니다. 자세히 알아보려면 [Functions v2.x 고려 사항](functions-dotnet-class-library.md#functions-v2x-considerations)을 참조하세요.   
 
-## <a name="migrating-from-3x-to-4x-preview"></a><a name="migrating-from-3x-to-4x"></a>3.x에서 4.x로 마이그레이션(미리 보기)
+## <a name="migrating-from-3x-to-4x-preview"></a><a name="migrating-from-3x-to-4x"></a>3. x에서 4.x로 마이그레이션 (미리 보기)
 
-Azure Functions 버전 4.x(미리 보기)는 버전 3.x와 매우 이전 버전과 호환됩니다.  대부분의 앱은 코드를 변경하지 않고도 4.x로 안전하게 업그레이드할 수 있어야 합니다. 프로덕션 앱에서 주 버전을 변경하기 전에 광범위한 테스트를 실행해야 합니다.
+Azure Functions 버전 4.x (미리 보기)는 버전 3.x와 매우 이전 버전과 호환 됩니다. 많은 앱은 중요 한 코드를 변경 하지 않고 4.x로 안전 하 게 업그레이드 해야 합니다. 프로덕션 앱에서 주 버전을 변경 하기 전에 광범위 하 게 테스트 해야 합니다.
 
-3.x에서 4.x로 앱을 마이그레이션하려면 `FUNCTIONS_EXTENSION_VERSION` 다음 Azure CLI 명령을 사용하여 애플리케이션 설정을 로 설정합니다. `~4`
+앱을 3. x에서 4.x로 마이그레이션하려면 `FUNCTIONS_EXTENSION_VERSION` `~4` 다음 Azure CLI 명령을 사용 하 여 응용 프로그램 설정을로 설정 합니다.
 
 ```bash
 az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
@@ -83,50 +83,64 @@ az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 
 az functionapp config set --net-framework-version v6.0 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
 ```
 
-### <a name="breaking-changes-between-3x-and-4x"></a>3.x와 4.x 간의 주요 변경 내용
+### <a name="breaking-changes-between-3x-and-4x"></a>3(sp3)과 4.x 사이의 주요 변경 내용
 
-다음은 3.x 앱을 4.x로 업그레이드하기 전에 알고 있어야 하는 몇 가지 변경 내용입니다. 전체 목록은 Azure Functions GitHub 주요 [*변경: 승인된*](https://github.com/Azure/azure-functions/issues?q=is%3Aissue+label%3A%22Breaking+Change%3A+Approved%22+is%3A%22closed+OR+open%22)레이블이 있는 문제를 참조하세요. 미리 보기 기간 동안 더 많은 변경이 예상됩니다. 업데이트에 대한 [App Service 알림](https://github.com/Azure/app-service-announcements/issues) 구독
+다음은 3gb 앱을 4.x로 업그레이드 하기 전에 알아두어야 할 몇 가지 사항입니다. 전체 목록은 [*주요 변경 내용: 승인 됨*](https://github.com/Azure/azure-functions/issues?q=is%3Aissue+label%3A%22Breaking+Change%3A+Approved%22+is%3A%22closed+OR+open%22)이라는 레이블이 지정 된 Azure Functions GitHub 문제를 참조 하세요. 미리 보기 기간 동안 더 많은 변경이 필요 합니다. 업데이트에 대 한 [App Service 공지](https://github.com/Azure/app-service-announcements/issues) 를 구독 합니다.
 
 #### <a name="runtime"></a>런타임
 
-- Azure Functions 프록시 4.x에서 더 이상 지원되지 않습니다. [Azure API Management](../api-management/import-function-app-as-api.md)사용하는 것이 좋습니다.
+- Azure Functions 프록시는 더 이상 4. x에서 지원 되지 않습니다. [Azure API Management](../api-management/import-function-app-as-api.md)를 사용 하는 것이 좋습니다.
 
-- *AzureWebJobsDashboard를* 사용하여 Azure Storage 로깅은 4.x에서 더 이상 지원되지 않습니다. [애플리케이션 Insights](./functions-monitoring.md)사용하는 것이 좋습니다.
+- *azurewebjobsdashboard* 를 사용 하 여 Azure Storage에 대 한 로깅은 더 이상 4. x에서 지원 되지 않습니다. [Application Insights](./functions-monitoring.md)를 사용 하는 것이 좋습니다. ([#1923](https://github.com/Azure/Azure-Functions/issues/1923))
 
-- Azure Functions 4.x는 확장에 대한 [최소 버전 요구 사항을](https://github.com/Azure/Azure-Functions/issues/1987) 적용합니다. 영향을 받는 최신 버전의 확장으로 업그레이드합니다. non-.NET 언어의 경우 확장 번들 버전 2.x 이상으로 [업그레이드합니다.](./functions-bindings-register.md#extension-bundles)
+- Azure Functions 4.x는 확장에 대 한 [최소 버전 요구 사항을](https://github.com/Azure/Azure-Functions/issues/1987) 적용 합니다. 영향을 받는 확장의 최신 버전으로 업그레이드 합니다. Non-.NET 언어의 경우 확장 번들 버전 2.x 이상으로 [업그레이드](./functions-bindings-register.md#extension-bundles) 합니다. ([#1987](https://github.com/Azure/Azure-Functions/issues/1987))
 
-- 기본 및 최대 시간 제한은 이제 4.x Linux 소비 함수 앱에서 적용됩니다.
+- 이제 기본 및 최대 시간 제한이 4. x Linux 사용 함수 앱에서 적용 됩니다. ([#1915](https://github.com/Azure/Azure-Functions/issues/1915))
 
-- 애플리케이션 Insights 더 이상 기본적으로 4.x에 포함되지 않습니다. 이제 별도의 확장으로 사용할 수 있습니다.
-    - In Process .NET 앱의 경우 [Microsoft.Azure.WebJobs.Extensions.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ApplicationInsights/) 확장 패키지를 함수 앱에 추가합니다.
-    - 격리된 .NET 앱의 경우:
-        - [Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights/) 확장 패키지를 함수 앱에 추가합니다.
-        - [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/) 및 [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/) 패키지를 최신 버전으로 업데이트합니다.
-    - 다른 언어의 경우 Azure Functions [확장 번들에](functions-bindings-register.md#extension-bundles) 대한 향후 업데이트에는 애플리케이션 Insights 확장이 포함됩니다. 앱이 사용 가능한 경우 새 번들을 자동으로 사용합니다.
+- Application Insights은 더 이상 기본적으로 4. x에 포함 되지 않습니다. 이제 별도의 확장으로 사용할 수 있습니다. ([#2027](https://github.com/Azure/Azure-Functions/issues/2027))
+    - In-process .NET 응용 프로그램의 경우 함수 앱에 [WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ApplicationInsights/) 패키지를 추가 합니다..
+    - Isolated .NET 앱의 경우:
+        - 함수 앱에 [Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights/) . r e n a m e.
+        - 최신 버전으로 [Microsoft azure](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/) .. m a. m a. m [a.](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/)
+    - 다른 언어의 경우 [Azure Functions 확장 번들](functions-bindings-register.md#extension-bundles) 에 대 한 향후 업데이트에는 Application Insights 확장이 포함 됩니다. 앱은 사용 가능한 경우 새 번들을 자동으로 사용 합니다. 업데이트 된 확장 번들이 준비 될 때까지 `APPINSIGHTS_INSTRUMENTATIONKEY` `APPLICATIONINSIGHTS_CONNECTION_STRING` 함수 앱에서 및 앱 설정을 모두 제거 합니다. 이렇게 하면 호스트를 시작할 수 없습니다.
+
+- 저장소 계정을 공유 하는 함수 앱은 계산 된 호스트 이름이 같을 경우 시작 되지 않습니다. 각 함수 앱에 대해 별도의 저장소 계정을 사용 합니다. ([#2049](https://github.com/Azure/Azure-Functions/issues/2049))
 
 #### <a name="languages"></a>언어
 
 # <a name="c"></a>[C\#](#tab/csharp)
 
-현재 보고되지 않았습니다.
+- `InvalidHostServicesException` 는 이제 심각한 오류입니다. ([#2045](https://github.com/Azure/Azure-Functions/issues/2045))
+
+- `EnableEnhancedScopes` 은 기본적으로 사용하도록 설정됩니다. ([#1954](https://github.com/Azure/Azure-Functions/issues/1954))
+
+- 등록된 서비스로 를 `HttpClient` 제거합니다. ([#1911](https://github.com/Azure/Azure-Functions/issues/1911))
+
+# <a name="java"></a>[Java](#tab/java)
+
+- Java 11에서 단일 클래스 로더를 사용합니다. ([#1997](https://github.com/Azure/Azure-Functions/issues/1997))
+
+- Java 8에서 작업자 jar 로드를 중지합니다. ([#1991](https://github.com/Azure/Azure-Functions/issues/1991))
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-현재 보고되지 않았습니다.
+- Node.js 앱의 출력 serialization이 이전 불일치를 해결하기 위해 업데이트되었습니다. ([#2007](https://github.com/Azure/Azure-Functions/issues/2007))
 
 # <a name="python"></a>[Python](#tab/python)
 
-- 공유 메모리 전송은 기본적으로 Azure Functions 4.x에서 사용하도록 설정됩니다.
+- 공유 메모리 전송은 기본적으로 사용하도록 설정됩니다. ([#1973](https://github.com/Azure/Azure-Functions/issues/1973))
+
+- 기본 스레드 수가 업데이트되었습니다. 스레드에서 안전하지 않거나 메모리 사용량이 높은 함수는 영향을 받을 수 있습니다. ([#1962](https://github.com/Azure/Azure-Functions/issues/1962))
 
 ---
 
 ## <a name="migrating-from-2x-to-3x"></a>2\.x에서 3.x로 마이그레이션
 
-Azure Functions 버전 3.x는 이전 버전 2.x와 호환됩니다.  대부분의 앱은 코드를 변경하지 않고도 3.x로 안전하게 업그레이드할 수 있습니다. 3. x로 이동 하는 것이 좋지만 프로덕션 앱에서 주 버전을 변경 하기 전에 광범위 한 테스트를 실행 합니다.
+Azure Functions 버전 3.x는 이전 버전 2.x와 호환됩니다.  대부분의 앱은 코드를 변경하지 않고도 3.x로 안전하게 업그레이드할 수 있습니다. 3.x로 이동하는 것이 좋습니다. 프로덕션 앱에서 주 버전을 변경하기 전에 광범위한 테스트를 실행합니다.
 
 ### <a name="breaking-changes-between-2x-and-3x"></a>2\.x와 3.x의 주요 변경 사항
 
-다음은 2.x 앱을 3. x로 업그레이드 하기 전에 알아두어야 할 언어별 변경 내용입니다.
+다음은 2.x 앱을 3.x로 업그레이드하기 전에 인식해야 하는 언어별 변경 내용입니다.
 
 # <a name="c"></a>[C\#](#tab/csharp)
 
@@ -138,6 +152,10 @@ Azure Functions 버전 3.x는 이전 버전 2.x와 호환됩니다.  대부분�
 
 >[!NOTE]
 >.NET Core 2.2의 지원 문제로 인해 버전 2(`~2`)에 고정된 함수 앱은 기본적으로 .NET Core 3.1에서 실행됩니다. 자세히 알아보려면 [Functions v2.x 호환성 모드](functions-dotnet-class-library.md#functions-v2x-considerations)를 참조하세요.
+
+# <a name="java"></a>[Java](#tab/java)
+
+없음
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -201,7 +219,7 @@ Azure Functions 버전 3.x는 이전 버전 2.x와 호환됩니다.  대부분�
 
 Visual Studio에서 프로젝트를 만들 때 런타임 버전을 선택합니다. Visual Studio용 Azure Functions 도구는 세 가지 주요 런타임 버전을 지원합니다. 디버깅 및 게시를 수행할 때 프로젝트 설정에 따라 올바른 버전이 사용됩니다. 버전 설정은 `.csproj` 파일의 다음 속성에 정의됩니다.
 
-# <a name="version-4x-preview"></a>[버전 4.x (미리 보기)](#tab/v4)
+# <a name="version-4x-preview"></a>[버전 4.x(미리 보기)](#tab/v4)
 
 ```xml
 <TargetFramework>net6.0</TargetFramework>
@@ -209,7 +227,7 @@ Visual Studio에서 프로젝트를 만들 때 런타임 버전을 선택합니�
 ```
 
 > [!NOTE]
-> Azure Functions 4.x를 사용 하려면 `Microsoft.NET.Sdk.Functions` 확장이 이상 이어야 합니다 `4.0.0` .
+> Azure Functions 4.x를 사용하려면 `Microsoft.NET.Sdk.Functions` 확장이 최소한 여야 `4.0.0` 합니다.
 
 # <a name="version-3x"></a>[버전 3.x](#tab/v3)
 

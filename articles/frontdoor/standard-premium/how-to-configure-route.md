@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 05/17/2021
 ms.author: qixwang
-ms.openlocfilehash: 8b25f56b238c7f0c42a1ba589f7da2d68344c915
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: a9f0095ebd82ab82003c03c1ca9d59f70d908c9f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110464394"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130006112"
 ---
 # <a name="configure-an-azure-front-door-standardpremium-route"></a>Azure Front Door 표준/프리미엄 경로 구성
 
@@ -56,7 +56,7 @@ Azure Front Door 경로를 구성하기 전에 현재 엔드포인트 내에서 
     | --- | --- |
     | 이름 | 새 경로의 고유한 이름을 입력합니다. |   
     | 도메인| 유효성이 검사되고 다른 경로에 연결되지 않은 도메인을 하나 이상 선택합니다. |
-    | 일치할 패턴  | 이 경로에 허용되는 모든 URL 경로 패턴을 구성합니다. 예를 들어 이를 `/images/*`로 설정하면 URL `www.contoso.com/images/*`에서 모든 요청을 허용할 수 있습니다. AFD는 정확한 일치를 기준으로 트래픽을 먼저 확인하고, 정확히 일치하는 경로가 없는 경우 일치하는 와일드 카드 경로를 찾습니다. 일치하는 경로가 있는 회람 규칙이 없을 경우 요청을 거부하고 400: 잘못된 요청 오류 HTTP 응답을 반환합니다. |
+    | 일치할 패턴  | 이 경로에 허용되는 모든 URL 경로 패턴을 구성합니다. 예를 들어 이를 `/images/*`로 설정하면 URL `www.contoso.com/images/*`에서 모든 요청을 허용할 수 있습니다. AFD는 정확한 일치를 기준으로 트래픽을 먼저 확인하고, 정확히 일치하는 경로가 없는 경우 일치하는 와일드 카드 경로를 찾습니다. 일치하는 경로가 있는 회람 규칙이 없을 경우 요청을 거부하고 400: 잘못된 요청 오류 HTTP 응답을 반환합니다. 경로와 일치 하는 패턴은 대/소문자를 구분 하지 않습니다. 즉, 다른/소문자나 가진 경로가 중복으로 처리 됩니다. 예를 들어 및 경로와 동일한 프로토콜을 사용 하는 동일한 호스트를 사용 합니다 `/FOO` `/foo` . 이러한 경로는 일치 하는 패턴에 허용 되지 않는 중복 된 것으로 간주 됩니다. |
     | 허용되는 프로토콜 | 클라이언트가 요청할 때 Azure Front Door가 허용할 프로토콜을 지정합니다. |
     | 리디렉션 | HTTP 요청을 사용하여 들어오는 요청에 HTTPS를 적용할지 여부를 지정합니다. |
     | 원본 그룹 | 원본으로 돌아가기 요청이 발생할 때 전달할 원본 그룹을 선택합니다. |

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 10/13/2021
 ms.author: b-juche
-ms.openlocfilehash: acdb84621af21cc29feb3f750a5ea60cb21e3d4a
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 06d7e334205de142b60f73d1e98f0c4167c65b7d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129095780"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993153"
 ---
 # <a name="configure-policy-based-backups-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 정책 기반 백업 구성 
 
@@ -48,7 +48,7 @@ Azure NetApp Files 백업에서는 볼륨 수준에서 *정책 기반* (예약 �
 스냅숏 정책을 만들고 백업 하려는 볼륨에 스냅숏 정책을 연결 해야 합니다. 단일 스냅숏 정책을 여러 볼륨에 연결할 수 있습니다. 스냅숏 정책의 변경 내용은 볼륨의 백업 기능에 영향을 줄 수 있습니다. 
 
 1. Azure Portal에 로그인 하 여 **Azure NetApp Files** 으로 이동 합니다.    
-2. Azure NetApp Files 구독을 선택 합니다.   
+2. Azure NetApp Files 계정을 선택 합니다.   
 3. **스냅숏 정책** 을 선택 합니다.   
 
     ![스냅숏 정책 옵션으로 이동 하는 방법을 보여 주는 스크린샷](../media/azure-netapp-files/backup-navigate-snapshot-policy.png)   
@@ -88,7 +88,7 @@ Azure NetApp Files 백업에서는 볼륨 수준에서 *정책 기반* (예약 �
 정책 기반 (예약 된) 백업을 사용 하도록 설정 하려면: 
 
 1. Azure Portal에 로그인 하 여 **Azure NetApp Files** 으로 이동 합니다. 
-2. Azure NetApp Files 구독을 선택 합니다.
+2. Azure NetApp Files 계정을 선택 합니다.
 3. **백업** 을 선택 합니다. 
 
     ![백업 옵션을 탐색 하는 방법을 보여 주는 스크린샷](../media/azure-netapp-files/backup-navigate.png)
@@ -120,7 +120,7 @@ Azure NetApp Files 백업에서는 볼륨 수준에서 *정책 기반* (예약 �
 
 ### <a name="example-of-an-invalid-configuration"></a>잘못 된 구성의 예
 
-다음 예제 구성에는 매일 백업에 대해 구성 된 백업 정책이 있지만 스냅숏 정책에 해당 구성이 없습니다. 결과적으로 백업 정책에 따라 백업 되는 매일 스냅숏이 생성 되지 않습니다. 이 구성은 매주 및 매월 스냅샷만 백업합니다.
+다음 예제 구성에는 매일 백업에 대해 구성 된 백업 정책이 있지만 스냅숏 정책에 해당 구성이 없습니다. 결과적으로 백업 정책에 따라 백업 되는 매일 스냅숏이 생성 되지 않습니다. 이 구성은 주별 및 월별 스냅샷만 백업합니다.
 
 * 스냅샷 정책:   
     주간: `Number of Snapshots to Keep = 4`   
@@ -132,7 +132,7 @@ Azure NetApp Files 백업에서는 볼륨 수준에서 *정책 기반* (예약 �
 
 ## <a name="enable-backup-functionality-for-a-volume-and-assign-a-backup-policy"></a>볼륨에 백업 기능을 사용하도록 설정하고 백업 정책 할당
 
-백업(정책 기반 또는 수동)을 수행하려면 모든 Azure NetApp Files 볼륨에서 백업 기능을 사용하도록 설정해야 합니다. 
+모든 Azure NetApp Files 볼륨은 백업(정책 기반 또는 수동)을 수행하려면 먼저 백업 기능을 사용하도록 설정해야 합니다. 
 
 백업 기능을 사용하도록 설정한 후 정책 기반 백업이 적용되도록 볼륨에 백업 정책을 할당해야 합니다. 수동 백업의 경우 백업 정책은 선택 사항입니다.
 
@@ -146,7 +146,7 @@ Azure NetApp Files 백업에서는 볼륨 수준에서 *정책 기반* (예약 �
 
     자격 증명 모음 정보가 미리 채워져 있습니다.  
 
-    ![백업 구성 창을 보여 주는 스크린샷.](../media/azure-netapp-files/backup-configure-window.png)
+    ![백업 구성 창을 보여 주는 스크린샷](../media/azure-netapp-files/backup-configure-window.png)
 
 
 ## <a name="next-steps"></a>다음 단계  

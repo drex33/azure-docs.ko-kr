@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 191722d02b493cfe0197c3e45771543fd8c5926a
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
-ms.translationtype: HT
+ms.openlocfilehash: 24db395c33f50fc7638ee00e9406db3709db5366
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105961050"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004011"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Azure Functions의 Azure Blob Storage 입력 바인딩
 
@@ -262,7 +262,7 @@ Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($Inp
 
 `dataType` 속성에 따라 사용되는 바인딩이 결정됩니다. 다음 값은 다양한 바인딩 전략을 지원하는 데 사용할 수 있습니다.
 
-| 바인딩 값 | 기본값 | 설명 | 예제 |
+| 바인딩 값 | 기본값 | Description | 예제 |
 | --- | --- | --- | --- |
 | `string` | N | 제네릭 바인딩을 사용하고 입력 형식을 `string`으로 캐스팅 | `def main(input: str)` |
 | `binary` | N | 제네릭 바인딩을 사용하고 입력 blob을 `bytes` Python 개체로 캐스팅 | `def main(input: bytes)` |
@@ -276,7 +276,6 @@ import logging
 import azure.functions as func
 
 
-# The type func.InputStream is not supported for blob input binding.
 # The input binding field inputblob can either be 'bytes' or 'str' depends
 # on dataType in function.json, 'binary' or 'string'.
 def main(queuemsg: func.QueueMessage, inputblob: bytes) -> bytes:
@@ -327,7 +326,7 @@ C# 스크립트에서는 특성을 지원하지 않습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-`@BlobInput` 특성은 함수를 트리거한 blob에 대한 액세스 권한을 부여합니다. 특성과 함께 바이트 배열을 사용하는 경우 `dataType`을 `binary`로 설정합니다. 자세한 내용은 [입력 예제](#example)를 참조하세요.
+`@BlobInput` 특성은 함수를 트리거한 BLOB에 대한 액세스 권한을 부여합니다. 특성과 함께 바이트 배열을 사용하는 경우 `dataType`을 `binary`로 설정합니다. 자세한 내용은 [입력 예제](#example)를 참조하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -353,11 +352,13 @@ Python에서는 특성을 지원하지 않습니다.
 |**direction** | 해당 없음 | `in`로 설정해야 합니다. 예외는 [사용](#usage) 섹션에서 표시됩니다. |
 |**name** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다.|
 |**path** |**BlobPath** | Blob에 대한 경로입니다. |
-|**connection** |**연결**| 이 바인딩에 사용할 [스토리지 연결 문자열](../storage/common/storage-configure-connection-string.md)을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 “MyStorage”로 설정한 경우 함수 런타임 기능은 “AzureWebJobsMyStorage”라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 스토리지 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.<br><br>연결 문자열 대신 [버전 5.x 이상의 확장](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)을 사용하는 경우 연결을 정의하는 구성 섹션에 대한 참조를 제공할 수 있습니다. [연결](./functions-reference.md#connections)을 참조하세요.|
+|**connection** |**연결**| Azure Blob에 연결하는 방법을 지정하는 앱 설정 또는 설정 컬렉션의 이름입니다. [연결](#connections)을 참조하세요.|
 |**dataType**| 해당 없음 | 동적으로 형식화된 언어의 경우 기본 데이터 형식을 지정합니다. 가능한 값은 `string`, `binary` 또는 `stream`입니다. 자세한 내용은 [트리거 및 바인딩 개념](functions-triggers-bindings.md?tabs=python#trigger-and-binding-definitions)을 참조하세요. |
 |해당 없음 | **Access** | 읽기 또는 쓰기를 나타냅니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+[!INCLUDE [functions-storage-blob-connections](../../includes/functions-storage-blob-connections.md)]
 
 ## <a name="usage"></a>사용
 
@@ -371,15 +372,15 @@ Python에서는 특성을 지원하지 않습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-`@BlobInput` 특성은 함수를 트리거한 blob에 대한 액세스 권한을 부여합니다. 특성과 함께 바이트 배열을 사용하는 경우 `dataType`을 `binary`로 설정합니다. 자세한 내용은 [입력 예제](#example)를 참조하세요.
+`@BlobInput` 특성은 함수를 트리거한 BLOB에 대한 액세스 권한을 부여합니다. 특성과 함께 바이트 배열을 사용하는 경우 `dataType`을 `binary`로 설정합니다. 자세한 내용은 [입력 예제](#example)를 참조하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-`context.bindings.<NAME>`을 사용하여 blob 데이터에 액세스합니다. 여기서 `<NAME>`은 *function.json* 에 정의된 값과 일치합니다.
+`context.bindings.<NAME>`을(를) 사용하여 Blob 데이터에 액세스합니다. 여기서 `<NAME>`은 *function.json* 에 정의된 값과 일치합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-_function.json_ 파일에서 바인딩의 이름 매개 변수로 지정된 이름과 일치하는 매개 변수를 통해 blob 데이터에 액세스합니다.
+_function.json_ 파일에서 바인딩의 이름 매개 변수로 지정된 이름과 일치하는 매개 변수를 통해 Blob 데이터에 액세스합니다.
 
 # <a name="python"></a>[Python](#tab/python)
 

@@ -6,12 +6,12 @@ author: nickomang
 ms.topic: article
 ms.date: 09/09/2021
 ms.author: nickoman
-ms.openlocfilehash: 19a1392756596a1cbfe7000ebd9c7013c053c153
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 43ee8a41ad6c487f5998760396b05a3ec56206d7
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129856926"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004752"
 ---
 # <a name="http-proxy-support-in-azure-kubernetes-service-preview"></a>Azure Kubernetes Service의 HTTP 프록시 지원 (미리 보기)
 
@@ -35,7 +35,7 @@ ms.locfileid: "129856926"
 
 기본적으로 *Httpproxy*, *HttpsProxy 및* *ca* 에는 값이 없습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 * [Azure CLI 설치](/cli/azure/install-azure-cli)
@@ -79,10 +79,29 @@ HTTP 프록시에 AKS를 사용 하는 작업은 [az AKS create][az-aks-create] 
 }
 ```
 
-파일을 만들고 *httpproxy*, *HttpsProxy* 및 *noproxy* 에 대 한 값을 제공 합니다. 환경에 필요한 경우에는 해당 하는 *ca* 값도 제공 합니다. 다음으로, 플래그를 통해 파일 이름을 전달 하 여 클러스터를 배포 `proxy-configuration-file` 합니다.
+`httpProxy`: 클러스터 외부에서 HTTP 연결을 만드는 데 사용할 프록시 URL입니다. URL 체계는 여야 합니다 `http` .
+`httpsProxy`: 클러스터 외부에서 HTTPS 연결을 만드는 데 사용할 프록시 URL입니다. 이를 지정 하지 않으면 `httpProxy` 은 HTTP 및 HTTPS 연결 모두에 사용 됩니다.
+`noProxy`: 프록시를 제외 하는 대상 도메인 이름, 도메인, IP 주소 또는 기타 네트워크 CIDRs의 목록입니다.
+`trustedCa`: 대체 CA 인증서 콘텐츠를 포함 하는 문자열 `base64 encoded` 입니다. 지금은 `PEM` 형식만 지원 합니다. K8s 시스템에 포함 된 Go 기반 구성 요소와의 호환성을 위해 인증서는 `Subject Alternative Names(SANs)` 사용 되지 않는 일반 이름 인증서 대신을 지원 해야 한다는 점을 고려해 야 합니다.
+
+예제 입력: CA 인증서는 PEM 형식 인증서 콘텐츠의 b a s e 64로 인코딩된 문자열 이어야 합니다.
+
+```json
+"httpProxyConfig": { 
+     "httpProxy": "http://myproxy.server.com:8080/", 
+     "httpsProxy": "https://myproxy.server.com:8080/", 
+     "noProxy": [
+         "localhost",
+         "127.0.0.1"
+     ],
+     "trustedCA": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUgvVENDQmVXZ0F3SUJB...b3Rpbk15RGszaWFyCkYxMFlscWNPbWVYMXVGbUtiZGkvWG9yR2xrQ29NRjNURHg4cm1wOURCaUIvCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0="
+}
+```
+
+파일을 만들고 *httpproxy*, *HttpsProxy* 및 *noproxy* 에 대 한 값을 제공 합니다. 환경에 필요한 경우에는 해당 하는 *ca* 값도 제공 합니다. 다음으로, 플래그를 통해 파일 이름을 전달 하 여 클러스터를 배포 `http-proxy-config` 합니다.
 
 ```azurecli
-az aks create -n $clusterName -g $resourceGroup --proxy-configuration-file aks-proxy-config.json
+az aks create -n $clusterName -g $resourceGroup --http-proxy-config aks-proxy-config.json
 ```
 
 클러스터는 노드에 구성 된 HTTP 프록시를 사용 하 여 초기화 됩니다.
@@ -114,7 +133,7 @@ ARM 템플릿을 통해 구성 된 HTTP 프록시를 사용 하 여 AKS 클러�
 예를 들어 *aks* 이라는 새 CA 인증서의 base64 인코딩 문자열을 사용 하 여 새 파일을 만든 경우 다음 작업을 수행 하면 클러스터가 업데이트 됩니다.
 
 ```azurecli
-az aks update -n $clusterName -g $resourceGroup --proxy-configuration-file aks-proxy-config-2.json
+az aks update -n $clusterName -g $resourceGroup --http-proxy-config aks-proxy-config-2.json
 ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -4,13 +4,14 @@ description: HDInsight 서비스 태그를 사용하여 NSG에 IP 주소를 추�
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 06/23/2021
-ms.openlocfilehash: 988e3249580408147b74409856bea1e45df4e966
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.date: 10/07/2021
+ms.author: guyhay
+ms.openlocfilehash: f85ad29b11e45f5e906bfbf50321c86d16670f89
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129857116"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004354"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Azure HDInsight용 NSG 서비스 태그
 
@@ -59,11 +60,14 @@ HDInsight 클러스터에 서비스 태그 사용을 시작하는 가장 쉬운 
 | 오스트레일리아 | 오스트레일리아 동부 | HDInsight.AustraliaEast |
 | &nbsp; | 오스트레일리아 남동부 | HDInsight.AustraliaSoutheast |
 | &nbsp; | 오스트레일리아 중부 | HDInsight.AustraliaCentral |
+| 아시아 | 동아시아 | HDInsight.EastAsia |
+| &nbsp; | 동남아시아 | HDInsight.SoutheastAsia |
 | 브라질 | 브라질 남부 | HDInsight.BrazilSouth |
 | &nbsp; | 브라질 남동부 | HDInsight.BrazilSoutheast |
 | 중국 | 중국 동부 2 | HDInsight.ChinaEast2 |
 | &nbsp; | 중국 북부 2 | HDInsight.ChinaNorth2 |
-| 일본 | 일본 서부 | HDInsight.JapanWest |
+| 일본 | 일본 동부 | HDInsight.JapanEast |
+| &nbsp; | 일본 서부 | HDInsight.JapanWest |
 | 한국 | 한국 중부 | HDInsight.KoreaCentral |
 | &nbsp; | 한국 남부 | HDInsight.KoreaSouth |
 | 인도 | 인도 중부 | HDInsight.CentralIndia |
@@ -72,14 +76,19 @@ HDInsight 클러스터에 서비스 태그 사용을 시작하는 가장 쉬운 
 | 남아프리카 | 남아프리카 북부 | HDInsight.SouthAfricaNorth |
 | 아랍에미리트 | 아랍에미리트 북부 | HDInsight.UAENorth |
 | &nbsp; | 아랍에미리트 중부 | HDInsight.UAECentral |
+| 유럽 | 북유럽 | HDInsight.NorthEurope |
+| &nbsp; | 서유럽 | HDInsight.WestEurope |
 | 프랑스 | 프랑스 중부| HDInsight.FranceCentral |
 | 독일 | 독일 중서부| HDInsight.GermanyWestCentral |
 | 노르웨이 | 노르웨이 동부 | HDInsight.NorwayEast |
+| 스웨덴 | 스웨덴 중부 | HDInsight.SwedenCentral |
+| &nbsp; | 스웨덴 남부 | HDInsight.고사이트 |
 | 스위스 | 스위스 북부 | HDInsight.SwitzerlandNorth |
 | &nbsp; | 스위스 서부 | HDInsight.SwitzerlandWest |
 | 영국 | 영국 남부 | HDInsight.UKSouth |
 | &nbsp; | 영국 서부 | HDInsight.UKWest |
 | 미국 | 미국 중북부 | HDInsight.NorthCentralUS |
+| &nbsp; | 미국 중부 | HDInsight.CentralUS |
 | &nbsp; | 미국 서부 2 | HDInsight.WestUS2 |
 | &nbsp; | 미국 서부 3 | HDInsight.WestUS3 |
 | &nbsp; | 미국 중서부 | HDInsight.WestCentralUS |

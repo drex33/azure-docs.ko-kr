@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/16/2021
+ms.date: 10/08/2021
 ms.author: pafarley
-ms.openlocfilehash: 046499f32050bf856e6eb39874f3f7b0f0fa2e51
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6263643999c3b4c4f6c6c6fb9b7b0b2588b4adf8
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128569495"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997614"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Custom Speech에 대한 데이터 준비
 
@@ -69,7 +69,10 @@ Microsoft 음성 인식의 정확도를 테스트하거나 사용자 지정 모�
 
 ## <a name="upload-data"></a>데이터 업로드
 
-데이터를 업로드하려면 <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech 포털</a>로 이동합니다. 프로젝트를 만든 후 **음성 데이터 세트** 탭으로 이동하고 **데이터 업로드** 를 클릭하여 마법사를 시작하고 첫 번째 데이터 세트를 만듭니다. 데이터 세트에 대한 음성 데이터 형식을 선택하고 데이터를 업로드합니다.
+데이터를 업로드 하려면 [Speech Studio](https://aka.ms/speechstudio/customspeech)로 이동 합니다. 프로젝트를 만든 후 **음성 데이터 세트** 탭으로 이동하고 **데이터 업로드** 를 클릭하여 마법사를 시작하고 첫 번째 데이터 세트를 만듭니다. 데이터 세트에 대한 음성 데이터 형식을 선택하고 데이터를 업로드합니다.
+
+> [!NOTE]
+> 데이터 집합 파일 크기가 128 MB를 초과 하는 경우 *Azure Blob 또는 공유 위치* 옵션을 사용 하 여 업로드할 수 있습니다. 또한 [음성 텍스트 REST API v 3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) 을 사용 하 여 [허용 되는 크기](speech-services-quotas-and-limits.md#model-customization)의 데이터 집합을 업로드할 수 있습니다. 자세한 내용은 [다음 섹션을](#upload-data-using-speech-to-text-rest-api-v30) 참조 하세요.
 
 먼저 **학습** 또는 **테스트** 중 어디에 데이터 세트를 사용할지 지정해야 합니다. **학습** 또는 **테스트** 에 업로드 및 사용할 수 있는 여러 유형의 데이터가 있습니다. 업로드하는 각 데이터 세트는 업로드하기 전에 올바른 형식으로 지정해야 하며 선택한 데이터 형식에 대한 요구 사항을 충족해야 합니다. 다음 섹션에서는 요구 사항에 대해 살펴봅니다.
 
@@ -78,6 +81,35 @@ Microsoft 음성 인식의 정확도를 테스트하거나 사용자 지정 모�
 * **사용자 지정 모델 학습** 탭으로 이동하여 사용자 지정 모델을 학습할 수 있습니다.
 * **테스트 모델** 탭으로 이동하여 오디오 전용 데이터로 품질을 시각적으로 검사하거나 오디오 + 휴먼 레이블 대화 기록 데이터를 사용하여 정확도를 평가할 수 있습니다.
 
+### <a name="upload-data-using-speech-to-text-rest-api-v30"></a>음성 텍스트 REST API v 3.0을 사용 하 여 데이터 업로드
+
+[음성 텍스트 REST API v 3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) 을 사용 하 여 사용자 지정 모델과 관련 된 작업을 자동화할 수 있습니다. 특히 데이터 집합을 업로드 하는 데 사용할 수 있습니다. 이 기능은 Speech Studio에서 *로컬 파일* 옵션을 사용 하 여 큰 파일을 업로드할 수 없기 때문에 데이터 집합 파일이 128 MB를 초과 하는 경우에 특히 유용 합니다. (이전 섹션에서 설명한 것과 같은 목적으로 Speech Studio에서 *Azure Blob 또는 공유 위치* 옵션을 사용할 수도 있습니다.)
+
+다음 요청 중 하나를 사용 하 여 데이터 집합을 만들고 업로드 합니다.
+* [데이터 세트 만들기](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset)
+* [양식에서 데이터 집합 만들기](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UploadDatasetFromForm)
+
+**REST API 만든 데이터 집합 및 Speech Studio 프로젝트**
+
+음성 텍스트 REST API v 3.0을 통해 만든 데이터 집합은 요청 본문에 특수 매개 변수가 지정 되지 않은 경우 Speech Studio 프로젝트에 연결 *되지* 않습니다 (아래 참조). REST API을 통해 수행 되는 경우 모델 사용자 지정 작업에는 Speech Studio 프로젝트와의 연결이 필요 *하지 않습니다* .
+
+Speech Studio에 로그온 하면 해당 사용자 인터페이스는 연결 되지 않은 개체 (프로젝트 참조 없이 REST API를 통해 업로드 된 데이터 집합)가 발견 되 면이를 알리고 기존 프로젝트에 이러한 개체를 연결 합니다. 
+
+[데이터 집합 만들기](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) 또는 [양식 요청에서 데이터 집합 만들기](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UploadDatasetFromForm) 를 사용 하 여 업로드 하는 동안 Speech Studio의 기존 프로젝트에 새 데이터 집합을 연결 하려면 아래 예제와 같이 요청 본문 형식을 사용 합니다.
+```json
+{
+  "kind": "Acoustic",
+  "contentUrl": "https://contoso.com/mydatasetlocation",
+  "locale": "en-US",
+  "displayName": "My speech dataset name",
+  "description": "My speech dataset description",
+  "project": {
+    "self": "https://westeurope.api.cognitive.microsoft.com/speechtotext/v3.0/projects/c1c643ae-7da5-4e38-9853-e56e840efcb2"
+  }
+}
+```
+
+Project 요소에 필요한 `project` URL은 [프로젝트 받기](https://westeurope.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) 요청을 통해 가져올 수 있습니다.
 
 ## <a name="audio--human-labeled-transcript-data-for-trainingtesting"></a>학습/테스트용 오디오 + 휴먼 레이블 대화 기록 데이터
 

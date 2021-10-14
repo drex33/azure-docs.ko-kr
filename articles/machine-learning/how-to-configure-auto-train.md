@@ -11,12 +11,12 @@ ms.subservice: automl
 ms.date: 09/27/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack, contperf-fy22q1
-ms.openlocfilehash: 340c558d695a9a63bc5fe818e48b6f6ed76df144
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: bbd00dc66cca3ee41cd30488f3678fad1ad8f74a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429170"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129999400"
 ---
 # <a name="set-up-automl-training-with-python"></a>Python을 사용하여 AutoML 학습 설정
 
@@ -44,7 +44,7 @@ ms.locfileid: "129429170"
 
 ## <a name="select-your-experiment-type"></a>실험 유형 선택
 
-실험을 시작하기 전에 해결하려는 기계 학습 문제의 종류를 결정해야 합니다. 자동화된 Machine Learning은 `classification`, `regression` 및 `forecasting`의 작업 유형을 지원합니다. [작업 유형](concept-automated-ml.md#when-to-use-automl-classification-regression--forecasting)에 대해 자세히 알아보세요.
+실험을 시작하기 전에 해결하려는 기계 학습 문제의 종류를 결정해야 합니다. 자동화된 Machine Learning은 `classification`, `regression` 및 `forecasting`의 작업 유형을 지원합니다. [작업 유형](concept-automated-ml.md#when-to-use-automl-classification-regression-forecasting--computer-vision)에 대해 자세히 알아보세요.
 
 다음 코드는 `AutoMLConfig` 생성자에서 `task` 매개 변수를 사용하여 실험 형식을 `classification`으로 지정합니다.
 
@@ -203,15 +203,15 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 ### <a name="primary-metric"></a>기본 메트릭
 
-`primary_metric` 매개 변수는 최적화를 위해 모델을 학습시키는 동안 사용할 메트릭을 결정합니다. 선택할 수 있는 메트릭은 선택한 작업 유형에 따라 결정 됩니다.
+`primary_metric` 매개 변수는 최적화를 위해 모델을 학습시키는 동안 사용할 메트릭을 결정합니다. 선택할 수 있는 메트릭은 선택한 작업 유형에 따라 결정됩니다.
 
-자동화된 ML을 통해 최적화할 기본 메트릭 선택은 다양한 요인에 따라 달라집니다. 비즈니스 요구를 가장 잘 표현 하는 메트릭을 선택 하는 것이 중요 한 고려 사항입니다. 그런 다음, 메트릭이 데이터 세트 프로필(데이터 크기, 범위, 클래스 분포 등)에 적합한지를 고려합니다. 다음 섹션에서는 작업 유형 및 비즈니스 시나리오에 따라 권장 되는 기본 메트릭을 요약 합니다. 
+자동화된 ML을 통해 최적화할 기본 메트릭 선택은 다양한 요인에 따라 달라집니다. 주요 고려 사항은 비즈니스 요구 사항을 가장 잘 나타내는 메트릭을 선택하는 것입니다. 그런 다음, 메트릭이 데이터 세트 프로필(데이터 크기, 범위, 클래스 분포 등)에 적합한지를 고려합니다. 다음 섹션에서는 작업 유형 및 비즈니스 시나리오에 따라 권장되는 기본 메트릭을 요약합니다. 
 
 [자동화된 Machine Learning 결과 이해](how-to-understand-automated-ml.md)에서 이러한 메트릭의 정의에 대해 알아보세요.
 
 #### <a name="metrics-for-classification-scenarios"></a>분류 시나리오에 대한 메트릭 
 
-Thresholded 메트릭 (예:, `accuracy` , `average_precision_score_weighted` `norm_macro_recall` 및)은 `precision_score_weighted` 작은 데이터 집합에 대해 최적화 되지 않을 수도 있습니다. 즉, 매우 큰 클래스 기울이기 (클래스 불균형)가 있거나 예상 메트릭 값이 0.0 또는 1.0에 매우 근접 한 경우입니다. 이러한 경우 기본 메트릭에 대해 `AUC_weighted`를 선택하는 것이 더 적합할 수 있습니다. 자동화된 ML이 완료되면 비즈니스 요구에 가장 적합한 메트릭을 기준으로 최적 모델을 선택할 수 있습니다.
+, , 및 와 같은 사후 임계값 `accuracy` `average_precision_score_weighted` 메트릭은 작은 데이터 `norm_macro_recall` `precision_score_weighted` 세트, 매우 큰 클래스 기울이기(클래스 불균형) 또는 예상 메트릭 값이 0.0 또는 1.0에 매우 가까운 데이터 세트에 최적화되지 않을 수 있습니다. 이러한 경우 기본 메트릭에 대해 `AUC_weighted`를 선택하는 것이 더 적합할 수 있습니다. 자동화된 ML이 완료되면 비즈니스 요구에 가장 적합한 메트릭을 기준으로 최적 모델을 선택할 수 있습니다.
 
 | 메트릭 | 사용 사례 예제 |
 | ------ | ------- |

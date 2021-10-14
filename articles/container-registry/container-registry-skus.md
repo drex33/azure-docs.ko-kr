@@ -3,12 +3,12 @@ title: 레지스트리 서비스 계층 및 기능
 description: Azure Container Registry의 기본, 표준 및 프리미엄 서비스 계층(SKU)에 있는 기능 및 제한(할당량)에 대해 알아봅니다.
 ms.topic: article
 ms.date: 08/12/2021
-ms.openlocfilehash: 7f9fe5d461dede4510d3fc8069f42e7950803984
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e15824ec342ffd21f1a0f40dcc87c34c015112a1
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128582342"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003272"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Azure Container Registry 서비스 계층
 
@@ -63,25 +63,25 @@ Azure Container Registry는 다중 서비스 계층(SKU라고도 함)에서 사�
 
 읽기 및 쓰기 작업의 평균 속도가 레지스트리 제한 내에 있는 경우에도 매우 짧은 기간 내에 이미지 끌어오기 또는 푸시 작업의 버스트를 생성할 때 제한이 일시적으로 발생할 수 있습니다. 코드에서 일부 백오프를 사용하여 재시도 논리를 구현하거나 레지스트리에 대한 최대 요청 속도를 줄여야 할 수 있습니다.
 
-## <a name="show-registry-usage"></a>레지스트리 사용 표시
+## <a name="show-registry-usage"></a>레지스트리 사용량 표시
 
-[Az acr show 사용](/cli/az/acr#az_acr_show_usage) 명령 또는 [목록](/rest/api/containerregstry/registries/list-usages) 사용 REST API를 사용 하 여 레지스트리의 현재 저장소 및 기타 리소스 사용량에 대 한 스냅숏을 가져옵니다. 해당 레지스트리의 서비스 계층에 대 한 제한과 비교해 볼 수 있습니다. 포털의 레지스트리의 **개요** 페이지에도 Storage 사용이 표시 됩니다.
+해당 레지스트리의 서비스 계층에 대한 제한과 비교하여 [az acr show-usage](/cli/azure/acr#az_acr_show_usage) 명령 또는 [사용량 나열](/rest/api/containerregistry/registries/list-usages) REST API 사용하여 레지스트리의 현재 스토리지 및 기타 리소스 사용량에 대한 스냅샷을 얻을 수 있습니다. Storage 사용량은 포털의 레지스트리 **개요** 페이지에도 표시됩니다.
 
-사용 정보는 레지스트리가 한도에 도달 하는 경우 [서비스 계층 변경](#changing-tiers) 에 대 한 결정을 내리는 데 도움이 됩니다. 이 정보는 소비를 [관리](container-registry-best-practices.md#manage-registry-size)하는 데도 도움이 됩니다. 
+사용량 정보는 레지스트리가 [제한에 근접할](#changing-tiers) 때 서비스 계층을 변경하는 결정을 내리는 데 도움이 됩니다. 이 정보는 [소비를 관리하는](container-registry-best-practices.md#manage-registry-size)데도 도움이 됩니다. 
 
 > [!NOTE]
-> 레지스트리의 저장소 사용은 가이드로만 사용 해야 하며 최근 레지스트리 작업을 반영 하지 않을 수 있습니다. 최신 데이터에 대해 레지스트리의 [Storageused 메트릭을](monitor-service-reference.md#container-registry-metrics) 모니터링 합니다. 
+> 레지스트리의 스토리지 사용량은 지침으로만 사용해야 하며 최근 레지스트리 작업을 반영하지 않을 수 있습니다. 레지스트리의 [StorageUsed 메트릭에서](monitor-service-reference.md#container-registry-metrics) 최신 데이터를 모니터링합니다. 
 
-레지스트리의 서비스 계층에 따라 사용 정보에는 다음의 일부 또는 전체 및 해당 계층의 제한이 포함 됩니다.
+레지스트리의 서비스 계층에 따라 사용량 정보에는 해당 계층의 제한과 함께 다음 중 일부 또는 전부가 포함됩니다.
 
-* 바이트<sup>1</sup> 에서 사용 된 Storage
-* [웹 후크](container-registry-webhook.md) 수
-* [지역에서 복제](container-registry-geo-replication.md) (홈 복제본 포함)의 수
-* [개인 끝점](container-registry-private-link.md) 수
-* [IP 액세스 규칙](container-registry-access-selected-networks.md) 수
-* [가상 네트워크 규칙](container-registry-vnet.md) 수
+* Storage<sup>1바이트에서</sup> 사용
+* [webhook 수](container-registry-webhook.md)
+* 지역 [복제](container-registry-geo-replication.md) 수(홈 복제본 포함)
+* 프라이빗 [엔드포인트 수](container-registry-private-link.md)
+* IP [액세스 규칙](container-registry-access-selected-networks.md) 수
+* 가상 [네트워크 규칙](container-registry-vnet.md) 수
 
-<sup>1</sup> 지역에서 복제 된 레지스트리에서는 홈 지역에 대해 저장소 사용량이 표시 됩니다. 사용 된 총 저장소 수에 대 한 복제 수를 곱합니다.
+<sup>1</sup> 지역 복제 레지스트리에서 홈 지역에 대한 스토리지 사용량이 표시됩니다. 소비된 총 스토리지에 대한 복제 수를 곱합니다.
 
 ## <a name="changing-tiers"></a>계층 변경
 

@@ -3,14 +3,14 @@ title: Azure Automation 업데이트 관리 지원 클라이언트
 description: 이 문서에서는 Azure Automation 업데이트 관리를 통해 지원되는 Windows 및 Linux 운영 체제에 대해 설명합니다.
 services: automation
 ms.subservice: update-management
-ms.date: 07/14/2021
+ms.date: 10/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: a470a3c8d4ab9ac4f390f7b18133f65f44fed096
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 790544818a207d0a7bb0453f03b890b0dbf5510f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129711635"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129992808"
 ---
 # <a name="operating-systems-supported-by-update-management"></a>업데이트 관리에서 지원하는 운영 체제
 
@@ -32,7 +32,7 @@ ms.locfileid: "129711635"
 |CentOS 6, 7, 8       | Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다. 분류 기반 패치를 사용하려면 `yum`에서 CentOS가 RTM 릴리스에 없는 보안 데이터를 반환해야 합니다. CentOS의 분류 기반 패치에 대한 자세한 내용은 [Linux의 업데이트 분류](view-update-assessments.md#linux)를 참조하세요.          |
 |Oracle Linux 6.x, 7.x, 8x | Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다.        |
 |Red Hat Enterprise 6, 7, 8      | Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다.        |
-|SUSE Linux Enterprise Server 12, 15, 15.1, 15.2      | Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다.     |
+|SUSE Linux Enterprise Server 12, 15 및 15.1      | Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다.     |
 |Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS, 20.04 LTS       |Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다.         |
 
 > [!NOTE]

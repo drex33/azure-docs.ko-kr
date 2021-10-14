@@ -1,23 +1,23 @@
 ---
 title: Azure Cost Management에서의 일반적인 비용 분석 사용
-description: 이 문서에서는 Cost Management에서 일반적인 비용 분석 작업에 대 한 결과를 가져오는 방법을 설명 합니다.
+description: 이 문서에서는 Cost Management 일반적인 비용 분석 작업에 대한 결과를 얻는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2021
+ms.date: 10/13/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 0fa5eba77727676f21a7b45848171859395b00f0
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 642c9ba475690b05723601f4e6ff429e382f29bb
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129706002"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129992502"
 ---
 # <a name="common-cost-analysis-uses"></a>일반적인 비용 분석 사용
 
-Cost Management 사용자는 자주 질문 하는 질문에 대 한 답변을 원합니다. 이 문서에서는 Cost Management에서 일반적인 비용 분석 작업에 대한 결과를 가져오는 과정을 안내합니다.
+Cost Management 사용자는 종종 다른 많은 사용자가 묻는 질문에 대한 답변을 원합니다. 이 문서에서는 Cost Management에서 일반적인 비용 분석 작업에 대한 결과를 가져오는 과정을 안내합니다.
 
 ## <a name="view-forecasted-costs"></a>예상 비용 보기
 
@@ -67,6 +67,18 @@ Azure 및 AWS 비용을 함께 보려면 Azure에서 관리 그룹 범위를 사
 1. 커넥터의 연결된 계정에 *동일한* 관리 그룹을 할당합니다.
 1. 비용 분석으로 이동하여 **누적 비용** 을 선택합니다.
 1. **그룹화 기준** - **공급자** 를 선택합니다.
+
+## <a name="view-new-commerce-license-and-consumption-costs"></a>새 상거래 라이선스 및 소비 비용 보기
+
+비용 분석에서 Azure 요금과 함께 새 상거래 라이선스 및 소비 제품을 볼 수 있습니다. 필터 목록을 선택한 다음, **공급자** 를 선택한 다음, 옵션 목록에서 선택합니다. 예를 들어 Microsoft 365 및 Dynamics 365입니다.
+
+:::image type="content" source="./media/cost-analysis-common-uses/filter-select-provider.png" alt-text="공급자 필터 선택을 보여주는 스크린샷." lightbox="./media/cost-analysis-common-uses/filter-select-provider.png" :::
+
+요금 유형 필터를 사용하고 **구매** 또는 사용량 값을 선택하여 특정 시트 기반 또는 사용 **요금으로** 범위를 좁힐 수 **있습니다.**
+
+:::image type="content" source="./media/cost-analysis-common-uses/filter-charge-type.png" alt-text="요금 유형 필터 선택을 보여주는 스크린샷." lightbox="./media/cost-analysis-common-uses/filter-charge-type.png" :::
+
+현재 새 상거래 제품을 구매하는 것은 파트너만 사용할 수 있습니다.
 
 ## <a name="view-cost-breakdown-by-azure-service"></a>Azure 서비스별 비용 분석 보기
 

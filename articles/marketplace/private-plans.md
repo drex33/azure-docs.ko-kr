@@ -6,13 +6,13 @@ ms.service: marketplace
 ms.topic: article
 author: navits09
 ms.author: navits
-ms.date: 08/13/2021
-ms.openlocfilehash: cc7f4e983ab766577af41497c2e270694361605a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/12/2021
+ms.openlocfilehash: 5268210c298d8cfa9f1c96d1a49c049d15d95073
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124784758"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129987267"
 ---
 # <a name="private-plans-in-the-microsoft-commercial-marketplace"></a>Microsoft 상업용 Marketplace의 프라이빗 플랜
 
@@ -63,14 +63,14 @@ Azure Portal에 로그인한 후 고객은 이 단계에 따라 프라이빗 플
 1. [Azure Portal](https://ms.portal.azure.com/)에 로그인합니다.
 1. **Azure 서비스** 에서 **리소스 만들기** 를 선택합니다.
 1. **신규** 페이지에서 **Azure Marketplace** 옆에 있는 **모두 보기** 를 선택합니다. Marketplace 페이지가 나타납니다.
-1. 왼쪽 탐색에서 **프라이빗 플랜** 을 선택합니다.
+1. 왼쪽 탐색 영역에서 **전용 제품** 을 선택 합니다.
 
 > [!NOTE]
 > 개인 계획은 [Azure Portal](https://azure.microsoft.com/features/azure-portal/) 또는 [Microsoft AppSource](https://appsource.microsoft.com/)에서만 검색할 수 있습니다. [Azure Marketplace](https://azuremarketplace.microsoft.com)에는 표시 되지 않습니다. 다른 상업용 Marketplace 온라인 스토어에 게시하는 방법에 관한 자세한 내용은 [목록 옵션 소개](./determine-your-listing-type.md)를 참조하세요.
 
 프라이빗 플랜은 검색 결과에 나타나고 다른 제품과 같이 명령줄과 Azure Resource Manager 템플릿을 통해 배포될 수 있습니다.
 
-[![[프라이빗 제품이 검색 결과에 표시됨]](media/marketplace-publishers-guide/private-offer.png)](media/marketplace-publishers-guide/private-offer.png#lightbox)
+[![[프라이빗 제품이 검색 결과에 표시됨]](media/marketplace-publishers-guide/private-product.png)](media/marketplace-publishers-guide/private-product.png#lightbox)
 
 >[!Note]
 >프라이빗 플랜은 CSP(클라우드 솔루션 공급자) 프로그램의 재판매인을 통해 설정된 구독에서는 지원되지 않습니다.

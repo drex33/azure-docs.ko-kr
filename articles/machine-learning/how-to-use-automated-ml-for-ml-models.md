@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 06/11/2021
 ms.topic: how-to
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: e49a1560e45b801de2c6031d09e4fa3133d71823
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: a48fa9df38b9892c740713b1463010c1f601506d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429056"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000027"
 ---
 # <a name="set-up-no-code-automl-training-with-the-studio-ui"></a>스튜디오 UI를 사용하여 코드 없는 AutoML 학습 설정 
 
@@ -114,7 +114,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 
     **다음** 을 선택합니다.
 
-1. **작업 유형 및 설정** 양식에서 작업 유형(분류, 회귀 또는 예측)을 선택합니다. 자세한 내용은 [지원되는 작업 형식](concept-automated-ml.md#when-to-use-automl-classification-regression--forecasting)을 참조하세요.
+1. **작업 유형 및 설정** 양식에서 작업 유형(분류, 회귀 또는 예측)을 선택합니다. 자세한 내용은 [지원되는 작업 형식](concept-automated-ml.md#when-to-use-automl-classification-regression-forecasting--computer-vision)을 참조하세요.
 
     1. **분류** 의 경우 딥 러닝을 사용할 수도 있습니다.
     

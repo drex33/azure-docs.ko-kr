@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: mbaldwin
-ms.openlocfilehash: d74cb93cd28f3dc02b37a6c29832d9e8412ef098
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: c7661f91475b85ad8d606770ff74777bb3b8abab
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129458911"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994274"
 ---
 # <a name="configure-azure-key-vault-alerts"></a>Azure Key Vault 경고 구성
 
@@ -85,7 +85,7 @@ Azure Key Vault 사용 하 여 프로덕션 비밀을 저장 한 후에는 주�
 4. 경고에 대 한 논리를 정의 하는 임계값을 선택 하 고 **추가** 를 선택 합니다. Key Vault 팀에서는 다음과 같은 임계값을 구성 하는 것이 좋습니다. 
 
     + Key Vault 가용성은 100% 아래로 떨어집니다 (정적 임계값).
-    + Key Vault 대기 시간이 500 밀리초 (정적 임계값) 보다 큽니다. 
+    + Key Vault 대기 시간이 1000 밀리초 (정적 임계값) 보다 큽니다. 
     + 전체 자격 증명 모음 채도가 75% (정적 임계값) 보다 큽니다. 
     + 전체 자격 증명 모음 채도가 평균을 초과 합니다 (동적 임계값).
     + 총 오류 코드는 평균 (동적 임계값) 보다 높습니다. 
@@ -105,7 +105,7 @@ Azure Key Vault 사용 하 여 프로덕션 비밀을 저장 한 후에는 주�
    + **임계값** 을 **정적** 으로 설정 합니다. 
    + **연산자** 를 **보다 큼** 으로 설정 합니다.
    + **집계 유형** 을 **평균** 으로 설정 합니다.
-   + **임계값** 을 **500** 으로 설정 합니다.
+   + **임계값** 을 **1000** 으로 설정 합니다.
    + **집계 세분성 (기간)** 을 **5 분** 으로 설정 합니다.
    + **평가 빈도** 를 **1 분 간격** 으로 설정 합니다.
 

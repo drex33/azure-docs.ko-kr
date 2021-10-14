@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2019
-ms.openlocfilehash: a91b334b5494d8db44c86352c95fd7b4d1ea2c14
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 887138730d0d023a388b3203367a45e8a677fd1e
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128604078"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130005979"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버에서 사용자 만들기
 
@@ -31,7 +31,7 @@ Azure Database for PostgreSQL 서버는 3개의 기본 역할이 정의된 상�
 
 서버 관리 사용자는 azure_pg_admin 역할의 멤버입니다. 하지만 서버 관리자 계정은 azure_superuser 역할에 속하지 않습니다. 이 서비스는 관리되는 PaaS 서비스이므로 Microsoft만 슈퍼 사용자 역할에 속합니다.
 
-PostgreSQL 엔진은 [PostgreSQL 제품 설명서](https://www.postgresql.org/docs/current/static/sql-createrole.html)의 설명대로 권한을 사용하여 데이터베이스 개체에 대한 액세스를 제어합니다. Azure Database for PostgreSQL에서 서버 관리 사용자에게는 LOGIN, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE, NOREPLICATION 권한이 부여됩니다.
+PostgreSQL 엔진은 [PostgreSQL 제품 설명서](https://www.postgresql.org/docs/current/static/sql-createrole.html)의 설명대로 권한을 사용하여 데이터베이스 개체에 대한 액세스를 제어합니다. Azure Database for PostgreSQL 서버 관리자 사용자에게 LOGIN, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE, REPLICATION 권한이 부여됩니다.
 
 서버 관리 사용자 계정을 사용하여 사용자를 더 만들고 이 사용자에게 azure_pg_admin 역할을 부여할 수 있습니다. 또한 서버 관리자 계정을 사용하여 개별 데이터베이스 및 스키마에 액세스할 수 있는 낮은 권한의 사용자 및 역할을 만들 수 있습니다.
 
@@ -76,7 +76,7 @@ PostgreSQL 엔진은 [PostgreSQL 제품 설명서](https://www.postgresql.org/do
    GRANT ALL PRIVILEGES ON DATABASE <newdb> TO <db_user>;
    ```
 
-   사용자가 "role" 테이블을 만드는 경우 테이블은 해당 사용자에 게 속합니다. 다른 사용자가 테이블에 액세스 해야 하는 경우 테이블 수준에서 다른 사용자에 게 권한을 부여 해야 합니다.
+   사용자가 테이블 "role"을 만드는 경우 테이블은 해당 사용자에게 속합니다. 다른 사용자가 테이블에 액세스해야 하는 경우 테이블 수준에서 다른 사용자에게 권한을 부여해야 합니다.
 
    예를 들면 다음과 같습니다. 
 

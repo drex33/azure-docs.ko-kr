@@ -3,20 +3,24 @@ title: Azure Policy의 게스트 구성 기능 이해
 description: Azure Policy에서 게스트 구성 기능을 사용하여 가상 머신 내부의 설정을 감사하거나 구성하는 방법을 알아봅니다.
 ms.date: 07/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: d9da1454fa531bcc6526cc11dda3b341be0688df
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 0e62909a14989567aee5f7c893f45cd7bdbbee61
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129092626"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129999438"
 ---
 # <a name="understand-the-guest-configuration-feature-of-azure-policy"></a>Azure Policy의 게스트 구성 기능 이해
 
-Azure Policy는 Azure 및 [Arc 지원 컴퓨터](../../../azure-arc/servers/overview.md)에서 실행되는 컴퓨터 모두에 대해 컴퓨터 내부의 설정을 감사하거나 구성할 수 있습니다.
-각 작업은 Windows 및 Linux의 게스트 구성 에이전트에 의해 수행됩니다.
-게스트 구성 확장은 에이전트를 통해 다음과 같은 설정을 관리합니다.
+Azure Policy 게스트 구성 기능은 Azure에서 실행되는 컴퓨터와 하이브리드 [Arc 지원 머신](../../../azure-arc/servers/overview.md)모두에 대해 운영 체제 설정을 코드로 감사하거나 구성하는 기본 기능을 제공합니다.
+이 기능은 컴퓨터별로 직접 사용하거나 Azure Policy 오케스트레이션할 수 있습니다.
 
-- 운영 체제의 구성
+구성은 정책 정의와 다릅니다. 게스트 구성은 Azure Policy 사용하여 컴퓨터에 구성을 동적으로 할당합니다. 구성을 [컴퓨터에 수동으로](/guest-configuration-assignments.md#manually-creating-guest-configuration-assignments)할당하거나 [AutoManage와](../../../automanage/automanage-virtual-machines.md)같은 다른 Azure 서비스를 사용하여 할당할 수도 있습니다.
+
+Azure의 구성 리소스는 [확장 리소스](../../../azure-resource-manager/management/extension-resource-types.md)로 설계되었습니다.
+각 구성을 컴퓨터에 대한 추가 속성 집합으로 간주할 수 있습니다. 구성에는 다음과 같은 설정이 포함될 수 있습니다.
+
+- 운영 체제 설정
 - 애플리케이션 구성 또는 현재 상태
 - 환경 설정
 
@@ -78,8 +82,8 @@ Azure Policy의 게스트 구성 기능을 사용하려면 먼저 `Microsoft.Gue
 |게시자|속성|버전|
 |-|-|-|
 |Amazon|Linux|2|
-|Canonical|Ubuntu Server|16.04-20.x|
-|Credativ|Debian|9-10. x|
+|Canonical|Ubuntu Server|16.04 - 20.x|
+|Credativ|Debian|9 - 10.x|
 |Microsoft|Windows Server|2012 - 2019|
 |Microsoft|Windows 클라이언트|윈도우 10|
 |Oracle|Oracle-Linux|7.x-8.x|

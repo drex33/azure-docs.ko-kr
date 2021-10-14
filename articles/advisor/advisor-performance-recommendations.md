@@ -3,12 +3,12 @@ title: Advisor로 Azure 앱의 성능 향상
 description: Azure Advisor의 성능 권장 사항을 사용하여 중요 비즈니스용 애플리케이션의 속도 및 응답성을 향상시키는 데 도움이 됩니다.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 7229f4a786fc0afc43793ffe730470427ca2b107
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 110501087cc42662412e6446b9859f4078252455
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129234929"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000691"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Azure Advisor를 사용하여 Azure 애플리케이션의 성능 향상
 
@@ -155,7 +155,7 @@ Azure Advisor는 쿼리 페이지 크기 100을 사용하는 Azure Cosmos DB 컨
 ## <a name="consider-using-accelerated-writes-feature-in-your-hbase-cluster-to-improve-cluster-performance"></a>클러스터 성능을 향상시키려면 HBase 클러스터에서 가속화된 쓰기 기능을 사용하는 것이 좋습니다.
 Azure Advisor는 지난 7일간의 시스템 로그를 분석하고 클러스터에 다음 시나리오가 발생했는지 확인합니다.
 1. 긴 WAL 동기화 대기 시간 
-2. 쓰기 요청 수가 많은 경우 (최소 3 1 시간 이상의 windows 1000 avg_write_requests/second/node)
+2. 높은 쓰기 요청 수(1000개 이상의 1시간 이상 avg_write_requests/초/노드)
 
 이러한 상태는 클러스터의 쓰기 대기 시간이 길다는 것을 나타냅니다. 이는 클러스터에서 많은 워크로드를 수행했기 때문일 수 있습니다. 클러스터의 성능을 향상시키기 위해 Azure HDInsight HBase에서 제공하는 가속화된 쓰기 기능을 활용하는 것을 고려할 수 있습니다. HDInsight Apache HBase 클러스터의 가속 쓰기 기능은 클라우드 스토리지를 사용하는 대신 모든 RegionServer(작업자 노드)에 프리미엄 SSD 관리 디스크를 연결합니다. 따라서 애플리케이션의 쓰기 대기 시간이 단축되고 복원력이 향상됩니다. 이 기능에 대한 자세한 내용을 보려면 [자세한 정보를 알아보세요](../hdinsight/hbase/apache-hbase-accelerated-writes.md#how-to-enable-accelerated-writes-for-hbase-in-hdinsight)
 
@@ -180,6 +180,11 @@ VM이 WVD(Windows Virtual Desktop)를 사용하여 사용자가 연결하는 위
 Advisor는 처음에 부하 분산 알고리즘으로 설정된 호스트 풀이 있음을 감지하고 해당 호스트 풀의 최대 세션 제한은 999999보다 크거나 같습니다. 깊이를 우선한 부하 분산은 최대 세션 제한을 사용하여 단일 세션 호스트에서 동시 세션을 가질 수 있는 최대 사용자 수를 결정합니다. 최대 세션 제한이 너무 높으면 모든 사용자 세션이 동일한 세션 호스트로 지정되어 성능 및 안정성 문제가 발생할 수 있습니다. 따라서 호스트 풀에서 깊이를 우선하여 부하 분산을 설정하는 경우 VM의 배포 및 용량 구성에 따라 적절한 최대 세션 제한도 설정해야 합니다. 
 
 Windows Virtual Desktop의 부하 분산에 대한 자세한 정보를 알아보려면 [Windows Virtual Desktop 부하 분산 방법 구성](../virtual-desktop/troubleshoot-set-up-overview.md)을 참조하세요.
+
+## <a name="upgrade-to-the-latest-version-of-the-azure-communication-services-sdks"></a>최신 버전의 Azure Communication Services SDK로 업그레이드
+
+Advisor는 오래된 버전의 특정 Azure Communication Services SDK를 사용하여 이 구독에서 리소스를 식별했습니다. 최신 버전의 Azure Communication Services SDK를 사용하면 통신 환경을 사용자 지정하고 향상시키기 위한 업데이트된 보안, 성능 및 확장된 기능 집합을 제공합니다.
+[Azure Communication Services](../communication-services/overview.md) 및 [Azure Advisor와의 통합에](../communication-services/concepts/advisor-overview.md)대해 자세히 알아봅니다.
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Advisor에서 성능 권장 사항에 액세스하는 방법
 

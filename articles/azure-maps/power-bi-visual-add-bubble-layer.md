@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: bc463a69dc0823e14b08e9fd056f3876e1ba9984
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 95cfe5b01c80dbf8aaee659735cf416c46cdb585
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123430453"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998621"
 ---
 # <a name="add-a-bubble-layer"></a>거품형 레이어 추가
 
@@ -75,6 +75,9 @@ ms.locfileid: "123430453"
 
 > [!div class="nextstepaction"]
 > [가로 막대형 차트 레이어 추가](power-bi-visual-add-bar-chart-layer.md)
+
+> [!div class="nextstepaction"]
+> [열 지도 계층 추가](power-bi-visual-add-heat-map-layer.md)
 
 맵에 컨텍스트 추가:
 

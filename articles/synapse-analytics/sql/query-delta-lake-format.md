@@ -2,19 +2,19 @@
 title: 서버리스 SQL 풀을 사용하여 Delta Lake 형식 쿼리(미리 보기)
 description: 이 문서에서는 서버리스 SQL 풀을 사용하여 Apache Delta Lake 형식에 저장된 파일을 쿼리하는 방법을 알아봅니다.
 services: synapse analytics
-author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 04/27/2021
+ms.date: 07/15/2021
+author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick
-ms.openlocfilehash: 096cee4aca9830acf9e74d3d60d08e6a79590cb4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.reviewer: jrasnick, wiassaf
+ms.openlocfilehash: c06826fa8d08a06ed49bdd56e86c999aff849899
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536579"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002837"
 ---
 # <a name="query-delta-lake-files-preview-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 Delta Lake 파일 쿼리(미리 보기)
 
@@ -174,7 +174,8 @@ deltaTable = DeltaTable.convertToDelta(spark, "parquet.`abfss://delta-lake@sqlon
 
 ## <a name="limitations"></a>제한 사항
 
-이 기능은 공개 미리 보기로 제공되며 몇 가지 알려진 문제와 제한 사항이 있습니다. [Synapse 서버리스 SQL 풀 자가 진단 페이지](resources-self-help-sql-on-demand.md#delta-lake)에서 알려진 문제를 검토합니다.
+- 이 기능은 공개 미리 보기로 제공되며 몇 가지 알려진 문제와 제한 사항이 있습니다. [Synapse 서버리스 SQL 풀 자가 진단 페이지](resources-self-help-sql-on-demand.md#delta-lake)에서 알려진 문제를 검토합니다.
+- 현재 Azure Synapse Analytics에서 Spark 풀 및 서버를 사용 하지 않는 SQL 풀은 모두 델타 Lake 형식을 지원 합니다. 서버리스 SQL 풀은 Delta Lake 파일 업데이트를 지원하지 않습니다. Parquet 형식의 테이블만 Spark 풀에서 서버 리스 SQL 풀로 공유 됩니다. 자세한 내용은 [공유 Spark 테이블](../metadata/table.md#shared-spark-tables)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

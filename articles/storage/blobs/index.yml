@@ -12,12 +12,12 @@ metadata:
   author: normesta
   ms.author: normesta
   ms.date: 08/20/2019
-  ms.openlocfilehash: 67f829dea3446527ed387dda372b5fec759f63ff
-  ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+  ms.openlocfilehash: 4da41103cc040a0d7dd1f4e7731990aa2779ce82
+  ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/29/2021
-  ms.locfileid: "129276362"
+  ms.lasthandoff: 10/12/2021
+  ms.locfileid: "129855919"
 landingContent:
 - title: Blob Storage 정보
   linkLists:
@@ -129,8 +129,8 @@ landingContent:
       url: authorize-data-operations-portal.md
     - text: Azure RBAC를 사용하여 액세스 권한 관리
       url: assign-azure-role-data-access.md
-    - text: 관리 ID를 사용하여 Blob 스토리지에 대한 액세스 권한 부여
-      url: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - text: 관리 ID를 사용하여 Blob Storage에 대한 액세스 권한 부여
+      url: authorize-managed-identity.md
 - title: 데이터 전송
   linkLists:
   - linkListType: concept

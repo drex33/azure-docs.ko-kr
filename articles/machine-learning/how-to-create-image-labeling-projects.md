@@ -9,12 +9,12 @@ ms.subservice: mldata
 ms.topic: how-to
 ms.date: 09/24/2021
 ms.custom: data4ml
-ms.openlocfilehash: e600c5d6d880a5aba0a714173897660e306aa853
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: b8681974510b6d3fbee74248aab95b33de443109
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424562"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003821"
 ---
 # <a name="create-an-image-labeling-project-and-export-labels"></a>이미지 레이블 지정 프로젝트 만들기 및 레이블 내보내기
 
@@ -38,7 +38,7 @@ Azure Machine Learning 데이터 레이블 지정은 데이터 레이블 지정 
 
 이미지 데이터는 “.jpg”, “.jpeg”, “.png”, “.jpe”, “.jfif”, “.bmp”, “.tif”, “.tiff”, “.dcm”, “.dicom” 등의 형식을 가진 파일일 수 있습니다. 각 파일은 레이블이 지정될 항목입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [prerequisites](../../includes/machine-learning-data-labeling-prerequisites.md)]
 
@@ -219,6 +219,8 @@ Azure Blob 스토리지에 이미 저장한 데이터에서 데이터 세트를 
 Machine Learning의 **데이터 세트** 섹션에서 내보낸 Azure Machine Learning 데이터 세트에 액세스합니다. 데이터 세트 세부 정보 페이지에는 Python에서 레이블에 액세스할 수 있는 샘플 코드도 있습니다.
 
 ![내보낸 데이터 세트](./media/how-to-create-labeling-projects/exported-dataset.png)
+
+레이블이 지정한 데이터를 Azure Machine Learning 데이터 세트로 내보낸 후에는 AutoML을 사용하여 레이블이 지정한 데이터에 대해 학습된 컴퓨터 비전 모델을 빌드할 수 있습니다. [Python을 사용하여 컴퓨터 비전 모델을 학습하도록 AutoML 설정(미리 보기)에서](how-to-auto-train-image-models.md) 자세히 알아보세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 

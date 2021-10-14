@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1f9d028ea8701188a1bdea5d072399f1b4c55020
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
-ms.translationtype: HT
+ms.openlocfilehash: 8991881751c636dc6cc7ce10af7ac4b90f487f62
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111985691"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129992309"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Azure Network Watcher 인스턴스 만들기
 
@@ -122,8 +122,8 @@ Network Watcher의 인스턴스를 삭제하려면 다음 예제를 실행합니
 
 ```powershell
 New-AzResourceGroup -Name NetworkWatcherRG -Location westcentralus
-New-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup NetworkWatcherRG -Location westcentralus
-Remove-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup NetworkWatcherRG
+New-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroupName NetworkWatcherRG -Location westcentralus
+Remove-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroupName NetworkWatcherRG
 ```
 
 ## <a name="next-steps"></a>다음 단계

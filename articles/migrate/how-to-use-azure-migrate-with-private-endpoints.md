@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 05/10/2020
-ms.openlocfilehash: efe9f6ce21e59df3d7f8009b7ff540a77b4cc50a
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 773a22fb1fbd94540f8d56fb417a88bbcfccdd3a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129094503"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003140"
 ---
 # <a name="use-azure-migrate-with-private-endpoints"></a>프라이빗 엔드포인트에서 Azure Migrate 사용
 
@@ -27,7 +27,7 @@ Private Link를 사용하는 ExpressRoute 개인 피어링 또는 사이트 간(
 
 ### <a name="supported-geographies"></a>지원되는 지역
 
-이 기능은 이제 지원되는 [퍼블릭 클라우드](/azure/migrate/migrate-support-matrix#supported-geographies-public-cloud) 및 정부 클라우드 지역에서 미리 [보기로 제공됩니다.](/azure/migrate-support-matrix#supported-geographies-azure-government)
+이 기능은 이제 지원되는 [퍼블릭 클라우드](/azure/migrate/migrate-support-matrix#supported-geographies-public-cloud) 및 정부 클라우드 지역에서 미리 [보기로 제공됩니다.](/azure/migrate/migrate-support-matrix#supported-geographies-azure-government)
 
 ### <a name="required-permissions"></a>필요한 사용 권한
 
@@ -136,7 +136,7 @@ Azure Migrate: 검색 및 평가는 간단한 Azure Migrate 어플라이언스�
 
 3. 다운로드한 압축 파일에서 콘텐츠를 추출한 폴더로 PowerShell 디렉터리를 변경합니다.
 
-4. `AzureMigrateInstaller.ps1`다음 명령을 실행 하 여 이라는 스크립트를 실행 합니다.
+4. 다음 명령을 실행하여 `AzureMigrateInstaller.ps1`이라는 스크립트를 실행합니다.
 
    `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1`
 

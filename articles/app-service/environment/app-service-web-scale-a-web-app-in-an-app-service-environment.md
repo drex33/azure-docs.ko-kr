@@ -1,18 +1,18 @@
 ---
 title: ASE v1에서 앱 스케일링
 description: App Service Environment에서 앱을 스케일링합니다. 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
-author: ccompy
+author: madsd
 ms.assetid: 78eb1e49-4fcd-49e7-b3c7-f1906f0f22e3
 ms.topic: article
 ms.date: 10/17/2016
-ms.author: ccompy
+ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 0e665ec27da0a898e754817f946b965ac7360fda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 15fd0cccbc5db52de14f3de471519c92645572db
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86220561"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004619"
 ---
 # <a name="scaling-apps-in-an-app-service-environment-v1"></a>App Service Environment v1에서 앱 스케일링
 Azure App Service에서는 일반적으로 다음 세 가지를 확장할 수 있습니다.
@@ -58,7 +58,7 @@ ASE의 ASP에 대한 자동 크기 조정 규칙은 일반적인 경우와 동�
 > 
 
 ## <a name="getting-started"></a>시작
-App Service Environment를 시작하려면 [App Service Environment를 만드는 방법][HowtoCreateASE]을 참조하세요.
+App Service 환경을 시작 하려면 [템플릿에서 ASEv1를 만드는 방법](app-service-app-service-environment-create-ilb-ase-resourcemanager.md) 을 참조 하세요.
 
 <!--Image references-->
 [1]: ./media/app-service-web-scale-a-web-app-in-an-app-service-environment/aseappscale-aspblade.png
@@ -68,7 +68,6 @@ App Service Environment를 시작하려면 [App Service Environment를 만드는
 <!--Links-->
 [WhatisASE]: app-service-app-service-environment-intro.md
 [ScaleWebapp]: ../manage-scale-up.md
-[HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
 [CreateWebappinASE]: app-service-web-how-to-create-a-web-app-in-an-ase.md
 [Appserviceplans]: ../overview-hosting-plans.md

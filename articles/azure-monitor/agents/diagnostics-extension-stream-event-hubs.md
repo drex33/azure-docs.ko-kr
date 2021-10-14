@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/18/2020
-ms.openlocfilehash: 6aa960eb7aed7a579c3fc95748b6e32601201a61
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
-ms.translationtype: HT
+ms.openlocfilehash: 6c8353064f96868c99a1e4f1feb270e6cd984bce
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305126"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994255"
 ---
 # <a name="send-data-from-windows-azure-diagnostics-extension-to-azure-event-hubs"></a>Microsoft Azure 진단 확장에서 Azure Event Hubs로 데이터 전송
 Azure Diagnostics 확장은 게스트 운영 체제에서 모니터링 데이터를 수집하고 Azure 가상 머신 및 기타 계산 리소스의 워크로드를 수집하는 Azure Monitor의 에이전트입니다. 이 문서는 Azure 외부 위치로 전달할 수 있도록 WAD(Windows Azure Diagnostic) 확장에서 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 데이터를 전송하는 방법을 설명합니다.
@@ -164,7 +164,7 @@ Azure Diagnostics는 항상 Azure Storage 계정에 로그 및 메트릭을 전�
 ```
 
 ## <a name="validating-configuration"></a>구성 유효성 검사
-다양한 방법을 사용하여 데이터가 이벤트 허브로 전송되는지 확인할 수 있습니다. 간단한 방법은 [Azure Blob Storage 또는 Azure Data Lake Storage에서 Azure Event Hubs를 통해 이벤트 캡처](../../event-hubs/event-hubs-capture-overview.md)의 설명대로 이벤트 허브 캡처를 사용하는 것입니다. 
+다양한 방법을 사용하여 데이터가 이벤트 허브로 전송되는지 확인할 수 있습니다. 한 가지 간단한 방법은 Azure Blob Storage [또는 Azure Data Lake Storage Azure Event Hubs 통해 이벤트 캡처에](../../event-hubs/event-hubs-capture-overview.md)설명된 대로 Event Hubs 캡처를 사용하는 것입니다. 
 
 
 ## <a name="troubleshoot-event-hubs-sinks"></a>Event Hubs 싱크 문제 해결

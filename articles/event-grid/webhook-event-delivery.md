@@ -2,13 +2,13 @@
 title: WebHook 이벤트 전달
 description: 이 문서에서는 웹후크를 사용할 때의 웹후크 이벤트 전달 및 엔드포인트 유효성 검사에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 09/29/2021
-ms.openlocfilehash: 77908b7f36c51ca729915b09cb1e813c978235e3
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.date: 10/13/2021
+ms.openlocfilehash: bde0aa6e1e54fee4fa0fc27276af9824a08a77de
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129614369"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000956"
 ---
 # <a name="webhook-event-delivery"></a>웹후크 이벤트 전달
 웹후크는 Azure Event Grid에서 이벤트를 수신하는 여러 가지 방법 중 하나입니다. 새 이벤트가 준비되면 Event Grid 서비스는 요청 본문에 이벤트가 포함되어 구성된 엔드포인트로 HTTP 요청을 게시합니다.
@@ -20,11 +20,12 @@ ms.locfileid: "129614369"
 - [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md)를 포함하는 Azure Functions
 
 ## <a name="endpoint-validation-with-event-grid-events"></a>Event Grid 이벤트를 사용한 엔드포인트 유효성 검사
+
 HTTP 트리거 기반 Azure 함수와 같은 엔드포인트의 다른 형식을 사용하는 경우, 엔드포인트 코드가 Event Grid를 통해 핸드셰이크 유효성 검사에 참여해야 합니다. Event Grid는 두 가지 방법의 구독 유효성 검사를 지원합니다.
 
-1. **동기 핸드셰이크**: 이벤트 구독 생성 시 Event Grid는 엔드포인트에 구독 유효성 검사 이벤트를 전송합니다. 이 이벤트의 스키마는 다른 Event Grid 이벤트와 비슷합니다. 이 이벤트의 데이터 부분에는 `validationCode` 속성이 포함됩니다. 애플리케이션은 예상된 이벤트 구독에 대해 유효성 검사 요청이 수행된 것인지 확인하고 응답에 유효성 검사 코드를 동기식으로 반환합니다. 이 핸드셰이크 메커니즘은 모든 Event Grid 버전에서 지원됩니다.
+- **동기 핸드셰이크**: 이벤트 구독 생성 시 Event Grid는 엔드포인트에 구독 유효성 검사 이벤트를 전송합니다. 이 이벤트의 스키마는 다른 Event Grid 이벤트와 비슷합니다. 이 이벤트의 데이터 부분에는 `validationCode` 속성이 포함됩니다. 애플리케이션은 예상된 이벤트 구독에 대해 유효성 검사 요청이 수행된 것인지 확인하고 응답에 유효성 검사 코드를 동기식으로 반환합니다. 이 핸드셰이크 메커니즘은 모든 Event Grid 버전에서 지원됩니다.
 
-2. **비동기 핸드셰이크**: 유효성 검사 코드를 응답에 동기식으로 반환할 수 없는 경우가 있습니다. 예를 들어, 타사 서비스를 사용하는 경우(예: [`Zapier`](https://zapier.com) 또는 [IFTTT](https://ifttt.com/)) 유효성 검사 코드를 통해 프로그래밍 방식으로 응답할 수 없습니다.
+- **비동기 핸드셰이크**: 유효성 검사 코드를 응답에 동기식으로 반환할 수 없는 경우가 있습니다. 예를 들어, 타사 서비스를 사용하는 경우(예: [`Zapier`](https://zapier.com) 또는 [IFTTT](https://ifttt.com/)) 유효성 검사 코드를 통해 프로그래밍 방식으로 응답할 수 없습니다.
 
    버전 2018-05-01-미리 보기부터 Event Grid는 수동 유효성 검사 핸드셰이크를 지원합니다. API 버전 2018-05-01-미리 보기 이상을 사용하는 SDK 또는 도구에서 이벤트 구독을 만드는 경우 Event Grid는 구독 유효성 검사 이벤트의 데이터 부분에 `validationUrl` 속성을 전송합니다. 핸드셰이크를 완료하려면 이벤트 데이터에서 해당 URL을 찾은 후 GET 요청을 전송합니다. REST 클라이언트 또는 웹 브라우저를 사용할 수 있습니다.
 
@@ -38,13 +39,13 @@ HTTP 트리거 기반 Azure 함수와 같은 엔드포인트의 다른 형식을
 ### <a name="validation-details"></a>유효성 검사 세부 정보
 
 - 이벤트 구독 생성/업데이트 시 Event Grid는 대상 엔드포인트에 구독 유효성 검사 이벤트를 게시합니다.
-- 이벤트에는 헤더 값 이 `aeg-event-type: SubscriptionValidation` 포함됩니다.
+- 이벤트에 헤더 값이 포함 되어 있습니다 `aeg-event-type: SubscriptionValidation` .
 - 이벤트 본문에는 다른 Event Grid 이벤트와 동일한 스키마가 있습니다.
 - `eventType`이벤트의 속성은 `Microsoft.EventGrid.SubscriptionValidationEvent` 입니다.
-- `data`의 속성을 이벤트 임의로 생성 된 문자열을 가진 속성을 포함 `validationCode` 합니다. 예들 들어 `validationCode: acb13…`입니다.
+- `data`이벤트의 속성에는 `validationCode` 임의로 생성 된 문자열이 포함 된 속성이 포함 됩니다. 예: `validationCode: acb13…`.
 - 이벤트 데이터는 구독에 대해 수동으로 유효성 검사를 수행하기 위해 URL에 `validationUrl` 속성도 포함되어 있습니다.
 - 배열에는 유효성 검사 이벤트만 포함됩니다. 다른 이벤트는 유효성 검사 코드를 에코 백한 후 별도의 요청으로 전송됩니다.
-- EventGrid 데이터 평면 SDK에는 구독 유효성 검사 이벤트 데이터 및 구독 유효성 검사 응답에 해당하는 클래스가 있습니다.
+- EventGrid 데이터 평면 Sdk에는 구독 유효성 검사 이벤트 데이터 및 구독 유효성 검사 응답에 해당 하는 클래스가 있습니다.
 
 SubscriptionValidationEvent 예가 다음 예제에 나와 있습니다.
 
@@ -66,7 +67,7 @@ SubscriptionValidationEvent 예가 다음 예제에 나와 있습니다.
 ]
 ```
 
-엔드포인트 소유권을 증명하려면 `validationResponse` 다음 예제와 같이 속성의 유효성 검사 코드를 다시 에코합니다.
+끝점 소유권을 증명 하려면 다음 예제와 같이 속성의 유효성 검사 코드를 다시 에코 합니다 `validationResponse` .
 
 ```json
 {
@@ -74,32 +75,32 @@ SubscriptionValidationEvent 예가 다음 예제에 나와 있습니다.
 }
 ```
 
-**HTTP 200 OK** 응답 상태 코드를 반환해야 합니다. **HTTP 202 수락됨은** 유효한 Event Grid 구독 유효성 검사 응답으로 인식되지 않습니다. HTTP 요청은 30초 이내에 완료되어야 합니다. 작업이 30초 이내에 완료되지 않으면 작업이 취소되며, 5초 뒤에 다시 시도될 수 있습니다. 모든 시도가 실패하면 유효성 검사 핸드셰이크 오류로 간주됩니다.
+**HTTP 200 OK** 응답 상태 코드를 반환 해야 합니다. **HTTP 202 수락** 은 유효한 Event Grid 구독 유효성 검사 응답으로 인식 되지 않습니다. HTTP 요청은 30초 이내에 완료되어야 합니다. 작업이 30초 이내에 완료되지 않으면 작업이 취소되며, 5초 뒤에 다시 시도될 수 있습니다. 모든 시도가 실패하면 유효성 검사 핸드셰이크 오류로 간주됩니다.
 
 또는 유효성 검사 URL에 GET 요청을 수동으로 전송하여 구독이 유효한지 수동으로 검사할 수 있습니다. 이벤트 구독은 유효성을 검사할 때까지 보류 상태로 유지됩니다. 유효성 검사 URL은 포트 553을 사용합니다. 방화벽 규칙이 포트 553을 차단하는 경우, 성공적인 수동 핸드셰이크를 위해서는 규칙을 업데이트해야 합니다.
 
 구독 유효성 검사 핸드셰이크 처리 예제를 보려면 [C# 샘플](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs)을 참조하세요.
 
 ## <a name="endpoint-validation-with-cloudevents-v10"></a>CloudEvents v1.0을 사용한 엔드포인트 유효성 검사
-CloudEvents v1.0은 **HTTP OPTIONS** 메서드를 사용하여 자체 남용 방지 [의미 체계를 구현합니다.](webhook-event-delivery.md) 해당 서비스에 대한 자세한 내용은 [여기](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection)에서 확인할 수 있습니다. 출력에 CloudEvents 스키마를 사용하는 경우, Event Grid는 Event Grid 유효성 검사 이벤트 메커니즘 대신 CloudEvents v1.0 악용 방지를 사용합니다.
+CloudEvents v 1.0은 **HTTP OPTIONS** 메서드를 사용 하 여 자체 [불건전 보호 의미 체계](webhook-event-delivery.md) 를 구현 합니다. 해당 서비스에 대한 자세한 내용은 [여기](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection)에서 확인할 수 있습니다. 출력에 CloudEvents 스키마를 사용하는 경우, Event Grid는 Event Grid 유효성 검사 이벤트 메커니즘 대신 CloudEvents v1.0 악용 방지를 사용합니다.
 
 ## <a name="event-subscriptions-considerations"></a>이벤트 구독 고려 사항
 
-구독을 만드는 동안 문제를 방지하려면 이 참조를 사용하여 토픽과 구독 스키마 간의 호환성 유효성을 검사합니다. 토픽이 만들어지면 들어오는 이벤트 스키마가 정의되고 구독을 만들 때 나가는 이벤트 스키마가 정의됩니다.
+구독을 만드는 동안 문제를 방지 하려면이 참조를 사용 하 여 토픽 및 구독 스키마 간의 호환성을 확인 합니다. 항목을 만들 때 들어오는 이벤트 스키마가 정의 됩니다. 그리고 나가는 이벤트 스키마는 구독을 만들 때 정의 됩니다.
 
 > [!NOTE]
-> 이 호환성 테이블 참조는 사용자 지정 토픽 및 이벤트 도메인에 적용됩니다.
+> 이 호환성 테이블 참조는 사용자 지정 토픽 및 이벤트 도메인에 적용 됩니다.
 
 | 들어오는 이벤트 스키마 | 나가는 이벤트 스키마 | 지원됨 |
 | ---- | ---- | ---- |
-| Event Grid 스키마 | Event Grid 스키마 | 예 |
-| | 클라우드 이벤트 v1.0 스키마 | 예 |
-| | 사용자 지정 입력 스키마 | 예 |
-| 클라우드 이벤트 v1.0 스키마 | Event Grid 스키마 | 예 |
-| | 클라우드 이벤트 v1.0 스키마 | 예 |
-| | 사용자 지정 입력 스키마 | 예 |
-| 사용자 지정 입력 스키마 | Event Grid 스키마 | 예 |
-| | 클라우드 이벤트 v1.0 스키마 | 예 |
+| Event Grid 스키마 | Event Grid 스키마 | Yes |
+| | Cloud Events v1.0 스키마 | Yes |
+| | 사용자 지정 입력 스키마 | No |
+| Cloud Events v1.0 스키마 | Event Grid 스키마 | No |
+| | Cloud Events v1.0 스키마 | Yes |
+| | 사용자 지정 입력 스키마 | No |
+| 사용자 지정 입력 스키마 | Event Grid 스키마 | Yes |
+| | Cloud Events v1.0 스키마 | Yes |
 | | 사용자 지정 입력 스키마 | 예 |
 
 ## <a name="next-steps"></a>다음 단계

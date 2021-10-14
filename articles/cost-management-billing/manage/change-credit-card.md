@@ -9,18 +9,18 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 07/27/2021
 ms.author: banders
-ms.openlocfilehash: fb37278a30e935d2bb65a7b132177a1bd588117d
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
-ms.translationtype: HT
+ms.openlocfilehash: 18d8a363a21e8086b3ebcd01c0b32b0ae119a483
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114731217"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000426"
 ---
 # <a name="add-or-update-a-credit-card-for-azure"></a>Azure에 대한 신용 카드 추가 또는 업데이트
 
 이 문서는 신용 카드로 Azure 온라인에 등록한 고객에게 적용됩니다.
 
-Azure Portal에서 기본 결제 방법을 새 신용 카드로 변경하고 신용 카드 세부 정보를 업데이트할 수 있습니다. 이러한 변경을 수행하려면 [계정 관리자](../understand/subscription-transfer.md#whoisaa)이거나 올바른 [MCA 권한](understand-mca-roles.md)이 있어야 합니다. 모든 구독에 대해 현재 신용 카드를 바꿀 수도 있습니다.
+Azure Portal에서 기본 결제 방법을 새 신용 카드로 변경하고 신용 카드 세부 정보를 업데이트할 수 있습니다. 이러한 변경을 수행하려면 [계정 관리자](add-change-subscription-administrator.md#whoisaa)이거나 올바른 [MCA 권한](understand-mca-roles.md)이 있어야 합니다.
 
 신용 카드를 삭제하려면 [Azure 청구 결제 방법 삭제](delete-azure-payment-method.md)를 참조하세요.
 

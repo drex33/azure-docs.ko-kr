@@ -1,5 +1,5 @@
 ---
-title: 액세스 제어에 대한 관리 ID 사용(미리 보기)
+title: 액세스 제어에 대한 관리 ID 사용
 titleSuffix: Azure Machine Learning
 description: 관리 ID를 사용하여 Azure Machine Learning 작업 영역에서 Azure 리소스에 대한 액세스를 제어하는 방법을 알아봅니다.
 services: machine-learning
@@ -9,15 +9,15 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.topic: how-to
-ms.date: 10/22/2020
-ms.openlocfilehash: 37f0cff74b3918cc81b099149fff485dba405939
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.date: 10/13/2021
+ms.openlocfilehash: 4fb3e1c0e202a33fd63f21918d0514fdf5f260b6
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424069"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129992271"
 ---
-# <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Azure Machine Learning에서 관리 ID 사용(미리 보기)
+# <a name="use-managed-identities-with-azure-machine-learning"></a>Azure Machine Learning에서 관리 되는 id 사용
 
 [관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하면 *리소스에 액세스하는 데 필요한 최소 권한* 으로 작업 영역을 구성할 수 있습니다. 
 
@@ -30,9 +30,6 @@ Azure Machine Learning 작업 영역을 신뢰할 수 있는 방식으로 구성
  * ACR에 대한 관리 사용자 액세스를 사용하도록 설정하지 않고도 Azure Machine Learning 작업 영역에 대한 ACR을 구성하고 사용합니다.
  * 작업 영역 외부의 프라이빗 ACR에 액세스하여 학습 또는 유추를 위한 기본 이미지를 끌어옵니다.
  * 연결된 리소스에 액세스하기 위해 사용자가 할당한 관리 ID를 사용하여 작업 영역을 만듭니다.
-
-> [!IMPORTANT]
-> 관리 ID를 사용하여 Azure Machine Learning이 있는 리소스에 대한 액세스를 제어하는 기능은 현재 미리 보기로 제공됩니다. 미리 보기 기능은 지원 또는 서비스 수준 계약의 보증 없이 “있는 그대로” 제공됩니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
  
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -267,4 +264,6 @@ ws = Workspace.create(name="workspace name",
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Machine Learning의 엔터프라이즈 보안](concept-enterprise-security.md)에 대해 자세히 알아봅니다.
+* [Azure Machine Learning의 엔터프라이즈 보안](concept-enterprise-security.md)에 대해 자세히 알아보기
+* [Id 기반 데이터 액세스](how-to-identity-based-data-access.md) 에 대 한 자세한 정보
+* [계산 클러스터에서 관리 되는 id](how-to-create-attach-compute-cluster.md)에 대해 알아봅니다.

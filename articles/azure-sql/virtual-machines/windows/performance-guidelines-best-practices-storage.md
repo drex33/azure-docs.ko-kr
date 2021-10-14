@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/25/2021
 ms.author: dpless
 ms.reviewer: jroth
-ms.openlocfilehash: 86db0ce090c68f1a610aae6c69ed74dcf303416a
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
-ms.translationtype: HT
+ms.openlocfilehash: 5ae107f2c96f4ef70fa37dd6cc1758f725d976cf
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122635205"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129984785"
 ---
 # <a name="storage-performance-best-practices-for-sql-server-on-azure-vms"></a>스토리지: Azure VM의 SQL Server에 대한 성능 모범 사례
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -98,6 +98,9 @@ Azure 가상 머신은 임시 디스크(`D:\` 드라이브로 레이블이 지�
 성능 요구 사항에 가장 적합하도록 프로비전된 데이터 디스크에 데이터 및 로그 파일을 저장합니다. 
 
 임시 `D:\` 드라이브(기본값은 4KB)가 아닌 드라이브에 배치된 모든 데이터 파일에 대해 64KB 할당 단위 크기를 사용하도록 데이터 디스크의 형식을 지정합니다. Azure Marketplace를 통해 배포된 SQL Server VMs는 할당 단위 크기로 형식이 지정된 데이터 디스크와 함께 제공되고 64KB로 설정된 스토리지 풀에 인터리빙됩니다. 
+
+> [!NOTE]
+> azure [Blob storage](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure) 또는 [azure premium 파일 공유](../../../storage/files/storage-how-to-create-file-share.md)와 같은 [SMB 저장소](/sql/database-engine/install-windows/install-sql-server-with-smb-fileshare-as-a-storage-option) 에서 직접 SQL Server 데이터베이스 파일을 호스팅할 수도 있지만 최상의 성능, 안정성 및 기능 가용성을 위해 [azure managed disks](../../../virtual-machines/managed-disks-overview.md) 를 사용 하는 것이 좋습니다.
 
 ## <a name="premium-disks"></a>프리미엄 디스크:
 

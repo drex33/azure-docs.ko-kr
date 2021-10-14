@@ -11,17 +11,17 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 9/01/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0e1193dea6826e4188a7d8f933d2c0a2637a72c1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 954164ef583aaebd7829dd67cdccbe2e383db308
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128650157"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130006340"
 ---
 # <a name="automatic-registration-with-sql-iaas-agent-extension"></a>SQL IaaS 에이전트 확장을 사용하여 자동 등록
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-경량 모드에서 [SQL IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)을 사용하여 Azure VM(Virtual Machines)에서 현재 및 향후의 모든 SQL Server를 자동으로 등록하려면 Azure Portal에서 자동 등록 기능을 사용하도록 설정합니다. 
+경량 모드에서 [SQL IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)을 사용하여 Azure VM(Virtual Machines)에서 현재 및 향후의 모든 SQL Server를 자동으로 등록하려면 Azure Portal에서 자동 등록 기능을 사용하도록 설정합니다. 기본적으로 SQL Server 2016 이상이 설치 된 Azure vm은 [CEIP 서비스](/sql/sql-server/usage-and-diagnostic-data-configuration-for-sql-server)에서 검색 될 때 SQL IaaS 에이전트 확장에 자동으로 등록 됩니다. 자세한 내용은 [SQL Server 개인 정보 제공](/sql/sql-server/sql-server-privacy#non-personal-data)을 참조하세요.
 
 이 문서에서는 자동 등록 기능을 사용하도록 설정하는 방법을 설명합니다. 또는 [단일 VM을 등록](sql-agent-extension-manually-register-single-vm.md)하거나 SQL IaaS 에이전트 확장을 사용하여 [VM을 대량으로 등록](sql-agent-extension-manually-register-vms-bulk.md)할 수 있습니다. 
 
@@ -33,6 +33,10 @@ ms.locfileid: "128650157"
 [SQL IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)에 SQL Server VM을 등록하면 전체 기능의 이점을 활용할 수 있습니다. 
 
 자동 등록을 사용하도록 설정하면 작업이 매일 실행되어 구독의 등록되지 않은 모든 VM에 SQL Server가 설치되어 있는지 여부를 검색합니다. 이 작업은 SQL IaaS 에이전트 확장 이진 파일을 VM에 복사한 다음 SQL Server 레지스트리 하이브를 확인하는 일회성 유틸리티를 실행하여 수행됩니다. SQL Server 하이브가 검색되면 가상 머신이 경량 모드에서 확장을 사용하여 등록됩니다. 레지스트리에 SQL Server 하이브가 없으면 이진 파일이 제거됩니다. 자동 등록은 새로 만든 SQL Server VM을 검색하는 데 최대 4일이 걸릴 수 있습니다.
+
+> [!CAUTION]
+> 레지스트리에 SQL Server 하이브가 없는 경우 [리소스 잠금이](/azure/governance/blueprints/concepts/resource-locking#locking-modes-and-states) 설정 되어 있으면 이진 파일을 제거 하는 것이 영향을 받을 수 있습니다. 
+
 
 구독에 대해 자동 등록을 사용하도록 설정하면 SQL Server가 설치된 모든 현재 및 향후 VM이 **가동 중지 시간 없이 SQL Server 서비스를 다시 시작하지 않고 경량 모드** 로 SQL IaaS 에이전트 확장에 등록됩니다. 전체 기능 집합을 활용하려면 여전히 [전체 관리 모드로 수동 업그레이드](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full)해야 합니다. 라이선스 유형은 자동으로 VM 이미지의 라이선스 유형으로 기본 설정됩니다. VM에 종량제 이미지를 사용하는 경우 라이선스 유형은 `PAYG`이고 그렇지 않은 경우 라이선스 유형은 기본적으로 `AHUB`입니다. 
 
@@ -94,14 +98,14 @@ PowerShell을 사용하여 여러 Azure 구독에 대한 자동 등록 기능을
 1. [이 스크립트](https://github.com/microsoft/tigertoolbox/blob/master/AzureSQLVM/EnableBySubscription.ps1)를 저장합니다.
 1. 관리 명령 프롬프트 또는 PowerShell 창을 사용하여 스크립트를 저장한 위치로 이동합니다. 
 1. Azure에 연결합니다(`az login`).
-1. SubscriptionIds를 매개 변수로 전달하여 스크립트를 실행합니다. 구독이 설정되지 않은 경우 스크립트는 사용자 계정의 모든 구독에 대해 자동 등록을 사용하도록 설정합니다.    
+1. 구독 Id를 매개 변수로 전달 하 여 스크립트를 실행 합니다. 구독을 지정 하지 않으면 스크립트는 사용자 계정의 모든 구독에 대해 자동 등록을 사용 하도록 설정 합니다.    
 
-   다음 명령은 두 구독에 대해 자동 등록을 사용하도록 설정합니다. 
+   다음 명령은 두 구독에 대해 자동 등록을 사용 하도록 설정 합니다. 
 
    ```console
    .\EnableBySubscription.ps1 -SubscriptionList a1a1a-aa11-11aa-a1a1-a11a111a1,b2b2b2-bb22-22bb-b2b2-b2b2b2bb
    ```
-   다음 명령은 모든 구독에 대해 자동 등록을 사용하도록 설정합니다. 
+   다음 명령을 사용 하 여 모든 구독에 대해 자동 등록을 사용 하도록 설정 합니다. 
 
    ```console
    .\EnableBySubscription.ps1

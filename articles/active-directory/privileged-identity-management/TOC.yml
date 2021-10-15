@@ -118,4 +118,4 @@
     - name: Azure AD 역할에 대한 PowerShell 예제
       href: powershell-for-azure-ad-roles.md
     - name: Azure AD 서비스 제한
-      href: ../users-groups-roles/directory-service-limits-restrictions.md
+      href: ../enterprise-users/directory-service-limits-restrictions.md

@@ -205,8 +205,6 @@
         - name: 리소스 소유자 암호 자격 증명 정책
           href: add-ropc-policy.md
           displayName: ROPC
-        - name: 셀프 서비스 암호 재설정 정책 설정(사용되지 않음)
-          href: user-flow-self-service-password-reset.md
         - name: 전화 등록 및 로그인
           href: phone-authentication-user-flows.md
     - name: ID 공급자

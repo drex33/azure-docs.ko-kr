@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 07/08/2020
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: a39b49c8a75f8ffbf99b3d92917c8e5e3e0cae55
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: f345ab52b2f663116602d2a3c782ad050ea4c207
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129585045"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130019277"
 ---
 **구성 및 프로세스 서버 요구 사항**
 
@@ -74,6 +74,9 @@ https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.
 VMware vSphere PowerCLI | 버전 9.14 이상에는 필요하지 않음
 MYSQL | MySQL을 설치해야 합니다. 수동으로 설치할 수도 있고 Site Recovery를 통해 설치할 수도 있습니다. (자세한 내용은 [설정 구성](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings)을 참조하세요.)
 |
+
+> [!NOTE]
+> 구성 서버에서 MySql을 업그레이드 하는 것은 지원 되지 않습니다.
 
 ## <a name="sizing-and-capacity-requirements"></a>크기 및 용량 요구 사항
 

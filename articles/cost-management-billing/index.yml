@@ -1,8 +1,9 @@
 ### YamlMime:Landing
-title: Azure Cost Management + 청구 설명서
+title: Cost Management + Billing 설명서
 summary: Cost Management + Billing은 Azure 청구서를 이해하고, 청구 계정 및 구독을 관리하고, Azure 지출을 모니터링 및 제어하고, 리소스 사용을 최적화하는 데 도움이 됩니다. 비용을 분석하고, 예산을 작성 및 관리하고, 데이터를 내보내고, 권장 사항을 검토하고 필요한 조치를 취하는 방법을 알아보세요.
 metadata:
   title: Cost Management + 청구
+  titleSuffix: Azure Cost Management + Billing documentation
   description: Cost Management + Billing은 Azure 청구서를 이해하고, 청구 계정 및 구독을 관리하고, Azure 지출을 모니터링 및 제어하고, 리소스 사용을 최적화하는 데 도움이 됩니다. 비용을 분석하고, 예산을 작성 및 관리하고, 데이터를 내보내고, 권장 사항을 검토하고 필요한 조치를 취하는 방법을 알아보세요.
   ms.service: cost-management-billing
   ms.subservice: common
@@ -10,13 +11,13 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 10/07/2021
-  ms.openlocfilehash: 4dab44a6129c2e6bb6d810ec820cfb459ddb89df
-  ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+  ms.date: 10/13/2021
+  ms.openlocfilehash: 50e8782d70e2c8d783c8079e7bd3fb48fcf9bb94
+  ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2021
-  ms.locfileid: "129711263"
+  ms.lasthandoff: 10/14/2021
+  ms.locfileid: "130000388"
 landingContent:
 - title: 비용 분석
   linkLists:

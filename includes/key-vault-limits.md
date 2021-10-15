@@ -4,12 +4,12 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 05/28/2021
 ms.author: ambapat
-ms.openlocfilehash: 3539e222407fee63a829e80db986f2b0eed02e24
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
-ms.translationtype: HT
+ms.openlocfilehash: 2918ae1a7fcca250de91e61ecc9b2c64a2d9a0aa
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111761485"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130019187"
 ---
 Azure Key Vault 리소스 공급자는 자격 증명 모음과 관리형 HSM이라는 두 가지 리소스 유형을 지원합니다. 다음 두 섹션에서는 이들 각각에 대한 서비스 제한을 설명합니다.
 
@@ -86,7 +86,7 @@ Key Vault는 비밀, 키 또는 인증서의 버전 수를 제한하지 않지�
 
 |항목|제한|
 |----|------:|
-지역별 구독당 HSM 인스턴스 수|1 
+지역별 구독당 HSM 인스턴스 수|5 
 HSM 풀당 키 수|5,000
 키당 버전 수|100
 HSM당 사용자 지정 역할 정의 수|50

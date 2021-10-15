@@ -10,12 +10,12 @@ ms.date: 03/17/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: c871a1ec4feec89cc3250f1fbfefefa69ed927bb
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b5d33e9bfe123b0c0b2fceacc3d59e8f1f35de7f
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128589324"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066778"
 ---
 # <a name="configure-network-routing-preference-for-azure-storage"></a>Azure Storage의 네트워크 라우팅 기본 설정 구성
 
@@ -131,7 +131,7 @@ ms.locfileid: "128589324"
 
    - Microsoft 네트워크 라우팅 기본 설정을 사용하는 경로별 엔드포인트를 만들려면 `-PublishMicrosoftEndpoint` 매개 변수를 `true`로 설정합니다.
 
-   - 인터넷 라우팅 기본 설정을 사용하는 경로별 엔드포인트를 만들려면 `-PublishInternetEndpointTo` 매개 변수를 `true`로 설정합니다.
+   - 인터넷 라우팅 기본 설정을 사용하는 경로별 엔드포인트를 만들려면 `-PublishInternetEndpoint` 매개 변수를 `true`로 설정합니다.
 
    다음 예제에서는 Microsoft 네트워크 라우팅 기본 설정을 사용하는 경로별 엔드포인트를 만듭니다.
 

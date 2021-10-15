@@ -1,22 +1,22 @@
 ---
-title: Amazon S3(Simple Storage Service)에서 데이터 복사
+title: Amazon Simple Storage Service (S3)에서 데이터 복사 및 변환
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 또는 Synapse Analytics 파이프라인을 사용 하 여 Amazon Simple Storage Service (S3)에서 지원 되는 싱크 데이터 저장소로 데이터를 복사 하는 방법에 대해 알아봅니다.
+description: amazon simple Storage service (s3)에서 데이터를 복사 하 고 Azure Data Factory 또는 Azure Synapse Analytics 파이프라인을 사용 하 여 amazon simple Storage service (s3)에서 데이터를 변환 하는 방법에 대해 알아봅니다.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
-ms.openlocfilehash: baaf601ce6ab21a524cbabc7188de24231002ffd
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/15/2021
+ms.openlocfilehash: ffc3a58ef83d667c812ae1c4b9cc3f899a1aa03d
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124762088"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064004"
 ---
-# <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics를 사용 하 여 Amazon Simple Storage 서비스에서 데이터 복사
+# <a name="copy-and-transform-data-in-amazon-simple-storage-service-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용 하 여 Amazon Simple Storage 서비스에서 데이터 복사 및 변환
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 >
 > * [버전 1](v1/data-factory-amazon-simple-storage-service-connector.md)
@@ -24,7 +24,7 @@ ms.locfileid: "124762088"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Amazon S3(Simple Storage Service)에서 데이터를 복사하는 방법을 설명합니다. 자세히 알아보려면 [Azure Data Factory](introduction.md) 및 [Synapse Analytics](../synapse-analytics/overview-what-is.md)에 대 한 소개 문서를 참조 하세요.
+이 문서에서는 복사 작업을 사용 하 여 amazon s (Simple Storage Service)에서 데이터를 복사 하는 방법에 대해 간략하게 설명 하 고 데이터 Flow를 사용 하 여 amazon s 3에서 데이터를 변환 합니다. 자세히 알아보려면 [Azure Data Factory](introduction.md) 및 [Synapse Analytics](../synapse-analytics/overview-what-is.md)에 대 한 소개 문서를 참조 하세요.
 
 >[!TIP]
 >amazon s3에서 Azure Storage로 데이터 마이그레이션 시나리오에 대 한 자세한 내용은 amazon s 3 [에서 Azure Storage로 데이터 마이그레이션을](data-migration-guidance-s3-azure-storage.md)참조 하세요.
@@ -85,7 +85,7 @@ Amazon S3 사용 권한의 전체 목록은 AWS 웹 사이트에서 [정책에�
 
 Amazon S3 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 속성 **유형** 은 **AmazonS3** 으로 설정되어야 합니다. | 예 |
 | authenticationType | Amazon S3에 연결하는 데 사용할 인증 유형을 지정합니다. AWS ID 및 액세스 관리(IAM) 계정 또는 [임시 보안 자격 증명](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html)에 대한 액세스 키를 사용하도록 선택할 수 있습니다.<br>허용되는 값은 `AccessKey`(기본값) 및 `TemporarySecurityCredentials`입니다. |예 |
@@ -153,7 +153,7 @@ Amazon S3 연결된 서비스에 다음 속성이 지원됩니다.
 
 형식 기반 데이터 세트의 `location` 설정에서 Amazon S3에 다음 속성이 지원됩니다.
 
-| 속성   | 설명                                                  | 필수 |
+| 속성   | Description                                                  | 필수 |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | 데이터 세트의 `location`에서 속성 **유형** 은 **AmazonS3Location** 으로 설정되어야 합니다. | 예      |
 | bucketName | S3 버킷 이름입니다.                                          | 예      |
@@ -198,7 +198,7 @@ Amazon S3 연결된 서비스에 다음 속성이 지원됩니다.
 
 형식 기반 복사 원본의 `storeSettings` 설정에서 Amazon S3에 다음 속성이 지원됩니다.
 
-| 속성                 | 설명                                                  | 필수                                                    |
+| 속성                 | Description                                                  | 필수                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
 | type                     | `storeSettings`에서의 속성 **유형** 은 **AmazonS3ReadSettings** 로 설정되어야 합니다. | 예                                                         |
 | ***복사할 파일 찾기:*** |  |  |
@@ -282,6 +282,81 @@ Amazon S3 연결된 서비스에 다음 속성이 지원됩니다.
 
 Amazon S3의 파일을 Azure Data Lake Storage Gen2 또는 Azure Blob 스토리지에 복사할 때 데이터와 함께 파일 메타데이터를 유지하도록 선택할 수 있습니다. [메타데이터 유지](copy-activity-preserve-metadata.md#preserve-metadata)에서 자세히 알아보세요.
 
+## <a name="mapping-data-flow-properties"></a>매핑 데이터 흐름 속성
+
+매핑 데이터 흐름에서 데이터를 변환하는 경우 Amazon S3에서 다음 형식으로 파일을 읽을 수 있습니다.
+
+- [Avro](format-avro.md#mapping-data-flow-properties)
+- [구분된 텍스트](format-delimited-text.md#mapping-data-flow-properties)
+- [델타](format-delta.md#mapping-data-flow-properties)
+- [Excel](format-excel.md#mapping-data-flow-properties)
+- [JSON](format-json.md#mapping-data-flow-properties)
+- [Parquet](format-parquet.md#mapping-data-flow-properties)
+
+형식별 설정은 해당 형식에 대한 설명서에 있습니다. 자세한 내용은 [매핑 데이터 흐름의 원본 변환을 참조하세요.](data-flow-source.md)
+
+> [!NOTE]
+> Amazon S3 원본 변환은 현재 **Azure Synapse Analytics** 작업 영역에서만 지원됩니다.
+
+### <a name="source-transformation"></a>원본 변환
+
+원본 변환에서는 Amazon S3의 컨테이너, 폴더 또는 개별 파일에서 읽을 수 있습니다. **원본 옵션** 탭을 사용하여 파일을 읽는 방법을 관리합니다. 
+
+:::image type="content" source="media/data-flow/sourceOptions1.png" alt-text="원본 옵션의 스크린샷.":::
+
+**와일드카드 경로:** 와일드카드 패턴을 사용하면 서비스가 일치하는 각 폴더와 파일을 단일 원본 변환에서 반복하도록 지시합니다. 이는 단일 흐름 내에서 여러 파일을 처리하는 효과적인 방법입니다. 기존 와일드카드 패턴을 마우스로 가리키면 표시되는 + 기호를 사용하여 와일드카드 일치 패턴을 여러 개 추가합니다.
+
+원본 컨테이너에서 패턴과 일치하는 일련의 파일을 선택합니다. 데이터 세트에는 컨테이너만 지정할 수 있습니다. 따라서 와일드카드 경로에는 루트 폴더의 폴더 경로도 포함되어야 합니다.
+
+와일드카드 예제:
+
+- `*` 모든 문자 집합 나타내기
+- `**` 재귀 디렉터리 중첩 나타내기
+- `?` 한 문자 바꾸기
+- `[]` 괄호 안에 있는 하나 이상의 문자와 일치시키기
+
+- `/data/sales/**/*.csv` /data/sales에서 .csv 파일 모두 가져오기
+- `/data/sales/20??/**/` 20세기의 파일 모두 가져오기
+- `/data/sales/*/*/*.csv` /data/sales에서 .csv 파일을 두 가지 수준으로 가져오기
+- `/data/sales/2004/*/12/[XY]1?.csv` X 또는 Y 접두사가 두 자리 숫자로 시작하는 2004년 12월의 .csv 파일 모두 가져오기
+
+**파티션 루트 경로:** 파일 원본에 `key=value` 형식으로 분할된 폴더(예: `year=2019`)가 있는 경우 해당 파티션 폴더 트리의 최상위 수준을 데이터 흐름 데이터 스트림의 열 이름에 할당할 수 있습니다.
+
+먼저 분할된 폴더와 읽을 리프 파일인 모든 경로를 포함하도록 와일드카드를 설정합니다.
+
+:::image type="content" source="media/data-flow/partfile2.png" alt-text="파티션 원본 파일 설정의 스크린샷.":::
+
+**파티션 루트 경로** 설정을 사용하여 폴더 구조의 최상위 수준을 정의합니다. 데이터 미리 보기를 통해 데이터 콘텐츠를 보면 서비스가 각 폴더 수준에서 찾은 해결된 파티션을 추가함을 확인할 수 있습니다.
+
+:::image type="content" source="media/data-flow/partfile1.png" alt-text="파티션 루트 경로의 스크린샷.":::
+
+**파일 목록:** 파일 집합입니다. 처리할 상대 경로 파일 목록이 포함된 텍스트 파일을 만듭니다. 이 텍스트 파일을 가리킵니다.
+
+**파일 이름을 저장할 열:** 원본 파일의 이름을 데이터 열에 저장합니다. 파일 이름 문자열을 저장하려면 여기에 새 열 이름을 입력합니다.
+
+**완료 후 기간(일):** 데이터 흐름이 실행된 후 원본 파일을 사용해 아무 작업도 수행하지 않도록 선택하거나, 원본 파일을 삭제 또는 이동합니다. 이동 경로는 상대 경로입니다.
+
+원본 파일을 다른 위치에 후처리로 이동하려면 먼저 파일 작업에서 "이동"을 선택합니다. 그런 다음, "원본" 디렉터리를 설정합니다. 경로에 와일드카드를 사용하지 않을 경우 "원본" 설정은 원본 폴더와 같은 폴더에 있습니다.
+
+와일드카드가 있는 원본 경로를 사용하는 경우 구문은 다음과 같습니다.
+
+`/data/sales/20??/**/*.csv`
+
+"원본"은 다음과 같이 지정할 수 있습니다.
+
+`/data/sales`
+
+그리고 "to"를 다음으로 지정할 수 있습니다.
+
+`/backup/priorSales`
+
+이 경우 `/data/sales`에서 제공되는 모든 파일이 `/backup/priorSales`로 이동됩니다.
+
+> [!NOTE]
+> 파이프라인에서 Data Flow 실행 작업을 사용하는 파이프라인 실행(파이프라인 디버그 또는 실행)에서 데이터 흐름을 시작하는 경우에만 파일 작업이 실행됩니다. Data Flow 디버그 모드에서는 파일 작업이 실행되지 *않습니다.*
+
+**마지막으로 수정한 사람 필터링:** 마지막으로 수정된 날짜 범위를 지정하여 처리하는 파일을 필터링할 수 있습니다. 모든 날짜/시간은 UTC 기준입니다. 
+
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 
 속성에 대한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인하세요.
@@ -301,7 +376,7 @@ Amazon S3의 파일을 Azure Data Lake Storage Gen2 또는 Azure Blob 스토리�
 
 ### <a name="legacy-dataset-model"></a>레거시 데이터 세트 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 속성 **유형** 을 **AmazonS3Object** 로 설정해야 합니다. |예 |
 | bucketName | S3 버킷 이름입니다. 와일드카드 필터는 지원되지 않습니다. |복사 또는 조회 작업의 경우 예, GetMetadata 작업의 경우 아니요 |
@@ -381,7 +456,7 @@ Amazon S3의 파일을 Azure Data Lake Storage Gen2 또는 Azure Blob 스토리�
 
 ### <a name="legacy-source-model-for-the-copy-activity"></a>복사 작업에 대한 레거시 원본 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 속성 **유형** 을 **FileSystemSource** 로 설정해야 합니다. |예 |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. **recursive** 를 **true** 로 설정하고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사되거나 만들어지지 않습니다.<br/>허용되는 값은 **true**(기본값) 및 **false** 입니다. | 예 |

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: fe50e8db24f0f280365e435d8a205e9b45ac6ccb
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 48c63bc12f2b7655dcdf88ad3f2066e0d162c119
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124774531"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066512"
 ---
 # <a name="on-demand-capacity-reservation-preview"></a>주문형 용량 예약(미리 보기)
 
@@ -38,54 +38,6 @@ Azure에서 예약 요청을 수락하면 일치하는 구성의 VM에서 사용
 
 > [!NOTE]
 > 용량 예약은 가상 머신에서 사용할 수 있도록 Azure 가용성 SLA와 함께 제공됩니다. 공개 미리 보기 중에는 SLA가 적용되지 않으며 용량 예약을 일반적으로 사용할 수 있을 때 정의됩니다.
-
-
-## <a name="register-for-capacity-reservation"></a>용량 예약 등록 
-
-용량 예약 기능을 사용하려면 먼저 미리 보기에 대한 구독을 등록해야 합니다. 등록을 완료하는 데 몇 분 정도 걸릴 수 있습니다. Azure CLI 또는 PowerShell을 사용하여 기능 등록을 완료할 수 있습니다.
-
-### <a name="cli"></a>[CLI](#tab/cli1)
-
-1. [az feature register](/cli/azure/feature#az_feature_register)를 사용하여 구독에서 미리 보기를 사용하도록 설정합니다.
-
-    ```azurecli-interactive
-    az feature register --namespace Microsoft.Compute --name CapacityReservationPreview
-    ```
-
-1. 기능 등록에는 최대 15분이 걸립니다. 다음 방법으로 등록 상태를 확인합니다.
-
-    ```azurecli-interactive
-    az feature show --namespace Microsoft.Compute --name CapacityReservationPreview
-    ```
-
-1. 기능이 구독에 등록되면 변경 내용을 컴퓨팅 리소스 공급자로 전파하여 옵트인 프로세스를 완료합니다.
-
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.Compute
-    ``` 
-
-### <a name="powershell"></a>[PowerShell](#tab/powershell1)
-
-1. [Register-AzProviderFeature cmdlet](/powershell/module/az.resources/register-azproviderfeature)을 사용하여 구독에 대한 미리 보기를 사용하도록 설정합니다.
-
-    ```powershell-interactive
-    Register-AzProviderFeature -FeatureName CapacityReservationPreview -ProviderNamespace Microsoft.Compute
-    ``` 
-
-1. 기능 등록에는 최대 15분이 걸립니다. 다음 방법으로 등록 상태를 확인합니다.
-
-    ```powershell-interactive
-    Get-AzProviderFeature -FeatureName CapacityReservationPreview -ProviderNamespace Microsoft.Compute
-    ``` 
-
-1. 기능이 구독에 등록되면 변경 내용을 컴퓨팅 리소스 공급자로 전파하여 옵트인 프로세스를 완료합니다.
-
-    ```powershell-interactive
-    Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-    ``` 
-
---- 
-<!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
 
 ## <a name="benefits-of-capacity-reservation"></a>용량 예약의 이점 
 
@@ -120,6 +72,18 @@ Azure에서 예약 요청을 수락하면 일치하는 구성의 VM에서 사용
 그런 다음 D2s_v3 VM을 배포하고 예약을 해당 속성으로 지정하면 용량 예약이 사용됩니다. 사용되면 VM에 대해서만 요금을 지불하며 용량 예약에 대한 추가 비용은 없습니다. 이전에 언급한 용량 예약에 대해 D2s_v3 VM 5개를 배포한다고 가정해 보겠습니다. D2s_v3 VM과 동일한 요금으로 청구되는 D2s_v3 VM 5개 및 사용되지 않은 용량 예약 5개에 대한 청구서가 표시됩니다.    
 
 사용된 용량 예약과 사용되지 않는 용량 예약은 모두 예약 인스턴스 기간 약정 할인을 받을 수 있습니다. 위의 예제에서, 동일한 Azure 지역의 D2s_v3 VM 2개에 대한 예약 인스턴스가 있는 경우 2개의 리소스(VM 또는 사용되지 않은 용량 예약)에 대한 청구는 0이 되고 나머지 8개 리소스(즉, 사용되지 않은 용량 예약 5개와 D2s_v3 VM 3개)에 대해서만 요금을 지불하게 됩니다. 이 경우 기간 약정 할인이라는 용어는 VM 또는 사용되지 않은 용량 예약에 적용될 수 있으며, 둘 다 동일한 PAYG 요금으로 청구됩니다. 
+
+## <a name="difference-between-on-demand-capacity-reservation-and-reserved-instances"></a>주문형 용량 예약과 예약 인스턴스 간의 차이점 
+
+
+| | 주문형 용량 예약 | 예약 인스턴스|
+|---|---|---|
+| 용어 | 기간 약정이 필요하지 않습니다. 고객 요구 사항에 따라 만들고 삭제할 수 있습니다. | 1년 또는 3년 고정 기간 약정|
+| 청구 할인 | 기본 VM 크기에 대한 종량제 요금으로 청구* | 종량제 요금보다 상당한 비용 절감 |
+| 용량 SLA | 지정된 위치(지역 또는 가용성 영역)에서 용량을 보장합니다. | 용량 보장을 제공하지 않습니다. 고객은 더 나은 액세스 권한을 얻기 위해 "용량 우선 순위"를 선택할 수 있지만 해당 옵션은 SLA를 제공하지 않습니다. |
+| 지역 및 가용성 영역 | 지역별 또는 가용성 영역별로 배포할 수 있습니다. | 지역 수준에서만 사용 가능 |
+
+*별도로 구매한 경우 예약 인스턴스 할인에 적합
 
 
 ## <a name="work-with-capacity-reservation"></a>용량 예약 작업 

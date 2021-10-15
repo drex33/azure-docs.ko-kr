@@ -1,39 +1,39 @@
 ---
-title: Azure HDInsight에서 공용 연결 제한 (미리 보기)
-description: 모든 아웃 바운드 공용 IP 주소에 대 한 액세스를 제거 하는 방법 알아보기
+title: Azure HDInsight 공용 연결 제한
+description: 모든 아웃바운드 공용 IP 주소에 대한 액세스를 제거하는 방법 알아보기
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/20/2021
-ms.openlocfilehash: 8d4fc269137b9d11ab0db046288f1d548b911d7a
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: c63cccd4f2331a9124dece37a1fd4b260f2b8621
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129717683"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130062826"
 ---
-# <a name="restrict-public-connectivity-in-azure-hdinsight-preview"></a>Azure HDInsight에서 공용 연결 제한 (미리 보기)
+# <a name="restrict-public-connectivity-in-azure-hdinsight"></a>Azure HDInsight 공용 연결 제한
 
 ## <a name="overview"></a>개요
-Azure HDInsight의 [기본 virtual network 아키텍처](./hdinsight-virtual-network-architecture.md)에서 RP (hdinsight 리소스 공급자)는 공용 네트워크를 통해 클러스터와 통신 합니다. 이 문서에서는 인바운드 연결이 개인 네트워크로 제한 되는 제한 된 HDInsight 클러스터를 만드는 데 사용할 수 있는 고급 컨트롤에 대해 알아봅니다. HDInsight 클러스터와 종속 리소스에 대 한 공용 연결을 옵트인 (opt in) 할 수 있는 경우 [Azure HDInsight에서 네트워크 트래픽 제어](./control-network-traffic.md)의 지침에 따라 클러스터의 연결을 제한 하는 것이 좋습니다. 공용 연결을 제한 하는 것 외에도 이러한 클러스터와 함께 사용 하도록 구성할 수 있는 개인 링크 사용 종속성 리소스에 대 한 지원을 추가 합니다.
+Azure HDInsight [기본 가상 네트워크 아키텍처에서](./hdinsight-virtual-network-architecture.md)HDInsight RP(리소스 공급자)는 공용 네트워크를 통해 클러스터와 통신합니다. 이 문서에서는 인바운드 연결이 프라이빗 네트워크로 제한되는 제한된 HDInsight 클러스터를 만드는 데 사용할 수 있는 고급 컨트롤에 대해 알아봅니다. HDInsight 클러스터 및 종속 리소스에 대한 공용 연결을 선택할 수 있는 경우 Azure HDInsight [네트워크 트래픽 제어의](./control-network-traffic.md)지침에 따라 클러스터의 연결을 제한하는 것이 좋습니다. 공용 연결을 제한하는 것 외에도 이러한 클러스터에서 사용하도록 구성할 수 있는 프라이빗 링크 사용 종속성 리소스에 대한 지원을 추가하고 있습니다.
 
-다음 다이어그램에서는 `resourceProviderConnection` 이 *아웃 바운드* 로 설정 된 경우 잠재적 HDInsight 가상 네트워크 아키텍처의 모양을 보여 줍니다.
+다음 다이어그램에서는 가 아웃바운드 로 설정된 경우 잠재적인 HDInsight 가상 네트워크 아키텍처가 어떻게 표시되는지 보여줍니다. `resourceProviderConnection` 
 
 :::image type="content" source="media/hdinsight-private-link/outbound-resource-provider-connection-only.png" alt-text="아웃바운드 리소스 공급자 연결을 사용하는 HDInsight 아키텍처의 다이어그램":::
 
 > [!NOTE]
-> 공용 연결을 제한 하는 것은 개인 링크를 사용 하기 위한 필수 구성 요소 이며 동일한 기능으로 간주 되어서는 안 됩니다.
+> 공용 연결을 제한하는 것은 Private Link 사용하도록 설정하기 위한 필수 조건이며 동일한 기능으로 간주해서는 안 됩니다.
 
-## <a name="initialize-a-restricted-cluster"></a>제한 된 클러스터 초기화
+## <a name="initialize-a-restricted-cluster"></a>제한된 클러스터 초기화
 
-기본적으로 HDInsight 리소스 공급자는 공용 Ip를 사용 하 여 클러스터에 대 한 *인바운드* 연결을 사용 합니다. `resourceProviderConnection`네트워크 속성이 *아웃 바운드* 로 설정 된 경우 클러스터 내에서 리소스 공급자로 항상 연결이 시작 되도록 HDInsight 리소스 공급자에 대 한 연결을 되돌립니다. 이 구성에서 인바운드 연결을 사용 하지 않는 경우 NSG (네트워크 보안 그룹)에서 인바운드 서비스 태그를 구성 하거나 UDR (사용자 정의 경로)을 통해 NVA (방화벽/네트워크 가상 어플라이언스)를 바이패스 하지 않아도 됩니다.
+기본적으로 HDInsight 리소스 공급자는 공용 IP를 사용하여 클러스터에 *대한 인바운드* 연결을 사용합니다. 네트워크 `resourceProviderConnection` 속성이 *아웃바운드* 로 설정된 경우 클러스터 내부에서 리소스 공급자로 연결이 항상 시작되도록 HDInsight 리소스 공급자에 대한 연결을 되돌려 놓습니다. 이 구성에서는 인바운드 연결이 없으면 NSG(네트워크 보안 그룹)에서 인바운드 서비스 태그를 구성하거나 UDR(사용자 정의 경로)을 통해 방화벽/NVA(네트워크 가상 어플라이언스)를 무시할 필요가 없습니다.
 
-클러스터를 만든 후에는 제한 된 HDInsight 클러스터에 필요한 DNS 레코드를 추가 하 여 적절 한 DNS 확인을 설정 해야 합니다. 다음 정식 이름 DNS 레코드 (CNAME)는 Azure에서 관리 되는 공용 DNS 영역에 생성 됩니다. `azurehdinsight.net`
+클러스터를 만든 후 제한된 HDInsight 클러스터에 필요한 DNS 레코드를 추가하여 적절한 DNS 해상도를 설정해야 합니다. 다음 정식 이름 DNS 레코드(CNAME)는 Azure 관리 공용 DNS 영역에 만들어집니다. `azurehdinsight.net`
 
 ```dns
 <clustername>    CNAME    <clustername>-int
 ```
 
-클러스터 Fqdn을 사용 하 여 클러스터에 액세스 하려면 내부 부하 분산 장치 개인 Ip를 직접 사용 하거나 고유한 개인 DNS 영역 (이 경우 영역 이름)을 사용 하 여 `azurehdinsight.net` 필요에 따라 클러스터 끝점을 재정의 합니다. 예를 들어 사설 DNS 영역의 경우 `azurehdinsight.net` 필요에 따라 개인 ip를 추가할 수 있습니다.
+클러스터 FQDN을 사용하여 클러스터에 액세스하려면 내부 부하 분산 장치를 직접 사용하거나 고유한 프라이빗 DNS 영역을 사용하여(이 경우 영역 이름은 이어야 `azurehdinsight.net` 합니다) 필요에 따라 클러스터 엔드포인트를 재정의할 수 있습니다. 예를 들어 프라이빗 DNS 영역 의 `azurehdinsight.net` 경우 필요에 따라 개인 IP를 추가할 수 있습니다.
 
 ```dns
 <clustername>        A   10.0.0.1
@@ -41,9 +41,9 @@ Azure HDInsight의 [기본 virtual network 아키텍처](./hdinsight-virtual-net
 ```
 
 > [!NOTE]
-> 공용 연결이 설정 된 다른 클러스터로 동일한 VNet (에 대 한 개인 DNS 영역)에 제한 된 클러스터를 포함 `azurehdinsight.net` 하는 것은 의도 하지 않은 DNS 확인 동작/충돌을 일으킬 수 있으므로 사용 하지 않는 것이 좋습니다.
+> 공용 연결이 사용되는 다른 클러스터와 동일한 VNet(의 프라이빗 DNS 영역 사용)에 제한된 클러스터를 사용하는 `azurehdinsight.net` 것은 의도하지 않은 DNS 확인 동작/충돌을 일으킬 수 있으므로 권장되지 않습니다.
 
-DNS 설정을 보다 쉽게 만들기 위해 Fqdn 및 해당 개인 IP 주소를 클러스터 응답의 일부로 반환 합니다 `GET` . 이 PowerShell 코드 조각을 사용 하 여 시작할 수 있습니다.
+DNS를 더 쉽게 설정할 수 있도록 클러스터 응답의 일부로 FQDN 및 해당 개인 IP 주소를 `GET` 반환합니다. 이 PowerShell 조각을 사용하여 시작할 수 있습니다.
 
 ```powershell
 <#
@@ -119,13 +119,13 @@ foreach($label in $endpointMapping.Keys)
 
 ```
 
-## <a name="adding-private-link-connectivity-private-endpoints-to-cluster-dependent-resources-optional"></a>클러스터 종속 리소스에 개인 링크 연결 (개인 끝점) 추가 (선택 사항)
+## <a name="adding-private-link-connectivity-private-endpoints-to-cluster-dependent-resources-optional"></a>클러스터 종속 리소스에 프라이빗 링크 연결(프라이빗 엔드포인트) 추가(선택 사항)
 
-`resourceProviderConnection` *아웃 바운드* 를 구성 하면 Storage (Azure Data Lake Storage Gen2 및 Windows Azure Storage Blob), SQL 메타 저장소 (Apache 레인저, Ambari, Oozie 및 Hive)와 같은 클러스터 관련 리소스에도 액세스할 수 있으며 개인 끝점을 사용 하 여 Azure Key Vault 수 있습니다. 이러한 리소스에 대해 개인 끝점을 반드시 사용 해야 하는 것은 아니지만 이러한 리소스에 대해 개인 끝점을 사용 하려는 경우 이러한 리소스를 만들고, HDInsight 클러스터를 만들기 전에 개인 끝점과 DNS 항목을 구성 해야 합니다. 이러한 모든 리소스는 전용 끝점을 통해 클러스터 서브넷 내에서 액세스할 수 있어야 합니다.
-프라이빗 엔드포인트를 통해 Azure Data Lake Storage Gen2에 연결할 때에는 Gen2 스토리지 계정에 ‘blob’ 및 ‘dfs’ 모두에 대한 엔드포인트 세트가 있어야 합니다. 자세한 내용은 [개인 끝점 만들기](../private-link/create-private-endpoint-portal.md)를 참조 하세요.
+`resourceProviderConnection` *아웃바운드로* 구성하면 Storage(Azure Data Lake Storage Gen2 및 Windows Azure Storage Blob), SQL 메타 저장소(Apache Ranger, Ambari, Oozie 및 Hive) 및 프라이빗 엔드포인트를 사용하여 Azure Key Vault 같은 클러스터별 리소스에 액세스할 수 있습니다. 이러한 리소스에 프라이빗 엔드포인트를 반드시 사용하는 것은 아니지만 이러한 리소스에 프라이빗 엔드포인트를 사용하려는 경우 HDInsight 클러스터를 만들기 전에 이러한 리소스를 만들고 프라이빗 엔드포인트 및 DNS 항목을 구성해야 합니다. 이러한 모든 리소스는 프라이빗 엔드포인트를 통해 또는 다른 엔드포인트를 통해 클러스터 서브넷 내에서 액세스할 수 있어야 합니다.
+프라이빗 엔드포인트를 통해 Azure Data Lake Storage Gen2에 연결할 때에는 Gen2 스토리지 계정에 ‘blob’ 및 ‘dfs’ 모두에 대한 엔드포인트 세트가 있어야 합니다. 자세한 내용은 [프라이빗 엔드포인트 만들기를](../private-link/create-private-endpoint-portal.md)참조하세요.
 
-## <a name="using-firewall-optional"></a>방화벽 사용 (선택 사항)
-HDInsight 클러스터는 여전히 공용 인터넷에 연결 하 여 아웃 바운드 종속성을 가져올 수 있습니다. 추가로 제한 하려는 경우 [방화벽을 구성할](./hdinsight-restrict-outbound-traffic.md)수 있지만 반드시 필요한 것은 아닙니다.
+## <a name="using-firewall-optional"></a>방화벽 사용(선택 사항)
+HDInsight 클러스터는 여전히 퍼블릭 인터넷에 연결하여 아웃바운드 의존도를 얻을 수 있습니다. 더 제한하려는 경우 [방화벽을 구성할](./hdinsight-restrict-outbound-traffic.md)수 있지만 요구 사항은 아닙니다.
 
 ## <a name="how-to-create-clusters"></a>클러스터를 만드는 방법
 ### <a name="use-arm-template-properties"></a>ARM 템플릿 속성 사용
@@ -149,6 +149,6 @@ Azure CLI를 사용하려면 [여기](/cli/azure/hdinsight#az_hdinsight_create-e
 
 ## <a name="next-steps"></a>다음 단계
 
-* [클러스터에서 개인 링크를 사용 하도록 설정](./hdinsight-private-link.md)
+* [클러스터에서 Private Link 사용](./hdinsight-private-link.md)
 * [Azure HDInsight용 Enterprise Security Package](enterprise-security-package.md)
 * [Azure HDInsight의 엔터프라이즈 보안 일반 정보 및 지침](./domain-joined/general-guidelines.md)

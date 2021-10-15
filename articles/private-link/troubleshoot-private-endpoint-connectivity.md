@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: 0df95d90d0119f8bc513fe2a26ed731d87401b3d
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: 77295f2d47f0645b8d4610af3834f0b8a64ec7a0
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129154264"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064460"
 ---
 # <a name="troubleshoot-azure-private-endpoint-connectivity-problems"></a>Azure 프라이빗 엔드포인트 연결 문제 해결
 
@@ -103,8 +103,9 @@ Azure 프라이빗 엔드포인트는 프라이빗 링크 서비스에 비공개
 1. 원본 가상 머신에는 NIC 유효 경로에서 InterfaceEndpoints로 프라이빗 엔드포인트 IP 다음 홉에 대한 경로를 포함해야 합니다. 
 
     a. 원본 VM에서 프라이빗 엔드포인트 경로를 볼 수 없는 경우 다음을 확인합니다. 
-     - 원본 VM과 프라이빗 엔드포인트가 동일한 VNET에 속해 있습니다. 그렇다면 지원에 문의해야 합니다. 
-     - 원본 VM과 프라이빗 엔드포인트가 서로 다른 VNET에 속한 경우에는 VNET 간의 IP 연결을 확인합니다. IP 연결이 있지만 경로를 볼 수 없는 경우 지원에 문의합니다. 
+     - 원본 VM과 개인 끝점은 동일한 VNET의 일부입니다. 그렇다면 지원에 문의해야 합니다. 
+     - 원본 VM과 개인 끝점은 서로 직접 피어 링 서로 다른 Vnet의 일부입니다. 그렇다면 지원에 문의해야 합니다.
+     - 원본 VM과 개인 끝점은 서로 직접 피어 링 되지 않는 다른 Vnet의 일부 이며, Vnet 간의 IP 연결을 확인 합니다.
 
 1. 연결에서 검증된 결과가 있는 경우 연결 문제는 애플리케이션 계층의 비밀, 토큰 및 암호와 같은 다른 측면과 관련될 수 있습니다.
    - 이 경우 프라이빗 엔드포인트와 연결된 프라이빗 링크 리소스의 구성을 검토합니다. 자세한 내용은 [Azure Private Link 문제 해결 가이드](troubleshoot-private-link-connectivity.md)를 참조하세요.

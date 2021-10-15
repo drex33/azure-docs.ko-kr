@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 08/23/2021
-ms.openlocfilehash: e83ea29b4894827ac68af6b243ce0e19842f2d87
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: d6a43a64cbe24bc547ef1c6e61d4c0e3c340d76f
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769816"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130067272"
 ---
 # <a name="usage-metering-billing-and-pricing-models-for-azure-logic-apps"></a>Azure Logic Apps의 사용량 계량, 청구 및 가격 책정 모델
 
@@ -74,9 +74,9 @@ ms.locfileid: "122769816"
 단일 테넌트 Azure Logic Apps에서 논리 앱과 해당 워크플로는 가격 책정 및 청구에 대한 [**표준** 요금제](https://azure.microsoft.com/pricing/details/logic-apps/)를 따릅니다. 예를 들어 **논리 앱(표준)** 리소스 종류를 선택하거나 Visual Studio Code에서 **Azure Logic Apps(표준)** 확장을 사용할 때 이러한 논리 앱을 다양한 방법으로 만들 수 있습니다. 이 가격 책정 모델에서는 논리 앱에서 호스팅 계획 및 가격 책정 계층을 사용해야 합니다. 이는 사용하는지 여부에 관계없이 요금이 예약된 용량 및 전용 리소스에 대해 청구된다는 점에서 사용량 요금제와 다릅니다.
 
 > [!IMPORTANT]
-> **논리 앱(표준)** 리소스 종류를 기반으로 하여 새 논리 앱을 만들거나 배포하는 경우 모든 Azure 지역에서 워크플로 표준 호스팅 계획을 사용하거나 App Service 호스팅 계획을 사용할 수 있지만, **기본 사항** 탭에서 **App Service Environment v3** 지역을 선택하는 경우에만 사용할 수 있습니다.
+> **논리 앱 (표준)** 리소스 종류를 사용 하 여 논리 앱을 만들거나 배포할 때 모든 Azure 지역에서 워크플로 표준 호스팅 계획을 사용할 수 있습니다. 기존 **App Service Environment v3 (ASEv3)** 리소스를 논리 앱 리소스를 만들고 배포 하는 지역으로 사용 하는 경우에 *만* App Service 호스팅 계획을 사용할 수 있습니다.
 >
-> 미리 보기 **논리 앱(표준)** 리소스 종류를 사용하면 App Service 요금제, Functions 프리미엄 요금제, App Service Environment v1 및 App Service Environment v2를 사용할 수 있지만, 이러한 옵션은 이 Azure Logic Apps 리소스 종류의 퍼블릭 릴리스에서 더 이상 사용할 수 없거나 지원되지 않습니다.
+> 다음 옵션은 Azure 지역에서 **논리 앱 (표준)** 리소스 형식의 공용 릴리스와 더 이상 사용할 수 없거나 지원 되지 않습니다. 함수 Premium 계획, App Service Environment v1 및 App Service Environment v2입니다. ASEv3를 제외 하 고는 App Service 계획을 사용할 수 없으며 지원 되지 않습니다.
 
 다음 표에는 단일 테넌트 Azure Logic Apps에서 논리 앱 및 워크플로와 함께 사용하는 경우 표준 모델에서 다음 구성 요소에 대한 계량 및 청구를 처리하는 방법이 요약되어 있습니다.
 
@@ -178,7 +178,7 @@ ms.locfileid: "122769816"
 | 작업 유형 | Description | 계량 및 요금 청구 |
 |----------------|-------------|----------------------|
 | [*기본 제공*](../connectors/built-in.md) | 이러한 작업은 Azure Logic Apps 런타임 및 논리 앱 워크플로와 동일한 ISE에서 기본적으로 직접 실행됩니다. 이러한 작업은 디자이너의 **기본 제공** 레이블에서 찾을 수 있지만, 각 작업에는 **CORE** 레이블도 표시됩니다. <p>예를 들어 HTTP 트리거 및 요청 트리거는 기본 제공 트리거입니다. HTTP 작업 및 응답 작업은 기본 제공 작업입니다. 기타 기본 제공 작업에는 루프 및 조건, 데이터 작업, 일괄 처리 작업 등과 같은 워크플로 제어 작업이 포함됩니다. | ISE 모델에는 이러한 작업이 *무료로* 포함되지만, [Azure Logic Apps의 ISE 제한](logic-apps-limits-and-config.md#integration-service-environment-ise)이 적용됩니다. |
-| [*관리형 커넥터*](../connectors/managed.md) | *표준* 또는 *엔터프라이즈* 인지의 여부에 관계없이 커넥터 또는 작업에서 **ISE** 레이블을 표시하는지 여부에 따라 관리형 커넥터 작업은 ISE 또는 다중 테넌트 Azure에서 실행됩니다. <p><p>- **ISE** 레이블: 이러한 작업은 논리 앱과 동일한 ISE에서 실행되며 [온-프레미스 데이터 게이트웨이](#data-gateway) 없이 작동합니다. <p><p>- **ISE** 없음 레이블: 이러한 작업은 다중 테넌트 Azure에서 실행됩니다. | ISE 모델에는 **ISE** 및 **ISE** 없음 레이블이 지정된 작업이 모두 *무료로* 포함되지만, [Azure Logic Apps의 ISE 제한](logic-apps-limits-and-config.md#integration-service-environment-ise)이 적용됩니다. |
+| [*관리형 커넥터*](../connectors/managed.md) | *표준* 또는 *엔터프라이즈* 인지의 여부에 관계없이 커넥터 또는 작업에서 **ISE** 레이블을 표시하는지 여부에 따라 관리형 커넥터 작업은 ISE 또는 다중 테넌트 Azure에서 실행됩니다. <p><p>- **ISE** 레이블: 이러한 작업은 논리 앱과 동일한 ISE에서 실행되며 [온-프레미스 데이터 게이트웨이](#data-gateway) 없이 작동합니다. <p><p>- **ISE** 없음 레이블: 이러한 작업은 다중 테넌트 Azure에서 실행됩니다. | ISE 모델에는 **ise** 를 모두 포함 하 고 있습니다 .이 작업에는 *사용 가능한 작업에 대 한* **Ise가 없으며** [Azure Logic Apps의 ise 제한이](logic-apps-limits-and-config.md#integration-service-environment-ise)적용 됩니다. |
 | [*사용자 지정 커넥터*](../connectors/apis-list.md#custom-apis-and-connectors) | 이러한 작업은 디자이너의 **사용자 지정** 레이블에서 찾을 수 있습니다. | ISE 모델에는 이러한 작업이 *무료로* 포함되지만, [Azure Logic Apps의 사용자 지정 커넥터 제한](logic-apps-limits-and-config.md#custom-connector-limits)이 적용됩니다. |
 ||||
 

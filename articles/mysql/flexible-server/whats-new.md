@@ -7,12 +7,12 @@ ms.author: jtoland
 ms.custom: mvc, references_regions
 ms.topic: conceptual
 ms.date: 10/12/2021
-ms.openlocfilehash: 01a1e77479d6a4c6ea446da5fcb2adc44fc754fb
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: ff0534f6d7cae2b8b6efcfab3cebe60f9d97138a
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129997065"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130067063"
 ---
 # <a name="whats-new-in-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL - 유연한 서버의 새로운 기능(미리 보기)
 
@@ -24,9 +24,13 @@ ms.locfileid: "129997065"
 
 ## <a name="october-2021"></a>2021년 10월
 
-- **읽기 복제본을 만들 때 가용성 영역 선택**
+- **DR 시나리오의 지역 쌍 지역에 대 한 지역 중복 백업 복원**
 
-    읽기 복제본을 만들 때 선택한 가용성 영역 위치를 선택할 수 있는 옵션이 있습니다. 가용성 영역은 데이터 센터 오류 로부터 응용 프로그램 및 데이터를 보호 하는 고가용성 제품입니다. 가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. [자세히 알아보기](../flexible-server/concepts-read-replicas.md).
+    이제 서비스는 더 높은 데이터 복원 력을 제공 하기 위해 지역 중복 백업 저장소를 선택 하는 추가 유연성을 제공 합니다. 지리적 중복성을 사용 하도록 설정 하면 고객이 주 지역의 서버에 액세스할 수 없는 경우 지리적 재해 또는 지역 장애를 복구할 수 있습니다. 이 기능을 사용 하는 경우 고객은 지역에서 복원 하 고, 원래의 서버에서 사용 가능한 최신 지역 중복 백업을 활용 하 여 지리적으로 쌍을 이루는 지리적 지역에 새 서버를 배포할 수 있습니다. [자세한 정보를 알아보세요](../flexible-server/concepts-backup-restore.md). 
+
+-  **읽기 복제본을 만들 때 가용성 영역 선택**
+
+    읽기 복제본을 만들 때 선택한 가용성 영역 위치를 선택할 수 있는 옵션이 있습니다. 가용성 영역은 데이터 센터 오류 로부터 응용 프로그램 및 데이터를 보호 하는 고가용성 제품입니다. 가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. [자세한 정보를 알아보세요](../flexible-server/concepts-read-replicas.md).
 
 - **Azure Database for MySQL에서 복제본 읽기-유연한 서버는 더 이상 간에 볼 수 있는 Sku에서 사용할 수 없습니다.**
     
@@ -36,11 +40,22 @@ ms.locfileid: "129997065"
 
  - **Azure Database for MySQL-Azure Monitor 통합 문서를 사용 하는 유연한 서버 모니터링**
  
-     Azure Database for MySQL 유연한 서버가 이제 Azure Monitor 통합 문서와 통합 되었습니다. 통합 문서는 Azure Portal 내에서 데이터를 분석하고 풍부한 시각적 보고서를 생성할 수 있는 유연한 캔버스를 제공합니다. 이러한 통합을 통해 서버에는 통합 문서에 대 한 링크가 포함 되어 있으며, 규모에 맞게 서비스를 모니터링 하는 데 도움이 되는 몇 가지 샘플 템플릿이 있습니다. 이러한 템플릿을 편집 하 고, 고객 요구 사항에 맞게 사용자 지정 하 고, 대시보드에 고정 하 여 Azure 리소스를 집중적으로 구성 된 보기를 만들 수 있습니다. [쿼리 성능 Insights](./tutorial-query-performance-insights.md), [감사](./tutorial-configure-audit.md)및 인스턴스 개요 템플릿을 현재 사용할 수 있습니다. [자세히 알아보기](./concepts-workbooks.md).
+     Azure Database for MySQL 유연한 서버가 이제 Azure Monitor 통합 문서와 통합 되었습니다. 통합 문서는 Azure Portal 내에서 데이터를 분석하고 풍부한 시각적 보고서를 생성할 수 있는 유연한 캔버스를 제공합니다. 이러한 통합을 통해 서버에는 통합 문서에 대 한 링크가 포함 되어 있으며, 규모에 맞게 서비스를 모니터링 하는 데 도움이 되는 몇 가지 샘플 템플릿이 있습니다. 이러한 템플릿을 편집 하 고, 고객 요구 사항에 맞게 사용자 지정 하 고, 대시보드에 고정 하 여 Azure 리소스를 집중적으로 구성 된 보기를 만들 수 있습니다. [쿼리 성능 Insights](./tutorial-query-performance-insights.md), [감사](./tutorial-configure-audit.md)및 인스턴스 개요 템플릿을 현재 사용할 수 있습니다. [자세한 정보를 알아보세요](./concepts-workbooks.md).
 
-- **예약 된 인스턴스를 사용 하는 Azure Database for MySQL 계산 리소스에 대 한 선불** Azure Database for MySQL 유연한 서버는 이제 종 량 제 가격과 비교 하 여 계산 리소스에 대 한 총액 비용 절감에 도움이 됩니다. Azure Database for MySQL reserved instances를 사용 하 여 1 년 또는 3 년 동안 MySQL server에 대 한 사전 약정을 수행 하 여 계산 비용에 대 한 상당한 할인을 받으세요. 또한 Azure Database for MySQL 단일 서버에서 유연한 서버를 사용 하 여 예약을 교환할 수 있습니다. [자세히 알아보기](../concept-reserved-pricing.md).
+- **예약 된 인스턴스를 사용 하는 Azure Database for MySQL 계산 리소스에 대 한 선불**
 
-- **서버를 사용 하지 않는 동안 최대 30 일 동안 서버 중지** 이제 유연한 서버 Azure Database for MySQL 사용 하지 않을 때 최대 30 일간 서버를 중지 하 고이 시간 내에 서버를 시작 하는 기능을 제공 합니다. 이렇게 하면 사용자의 진도에 맞게 개발 하 고 사용 중인 리소스에 대해서만 요금을 지불 하 여 데이터베이스 서버에 대 한 개발 비용을 절감할 수 있습니다. 이는 개발-테스트 워크 로드 및 하루 중 일부에만 서버를 사용 하는 경우에 중요 합니다. 서버를 중지하면 모든 활성 연결이 삭제됩니다. 서버가 중지됨 상태이면 서버 컴퓨팅에 요금이 청구되지 않습니다. 그러나 서버가 다시 시작될 때 데이터 파일을 사용할 수 있도록 서버의 스토리지가 그대로 남아 있기 때문에 스토리지 요금이 계속 청구됩니다. [자세한 정보](concept-servers.md#stopstart-an-azure-database-for-mysql-flexible-server)
+    Azure Database for MySQL 유연한 서버는 이제 종 량 제 가격과 비교 하 여 계산 리소스에 대 한 총액 비용 절감에 도움이 됩니다. Azure Database for MySQL reserved instances를 사용 하 여 1 년 또는 3 년 동안 MySQL server에 대 한 사전 약정을 수행 하 여 계산 비용에 대 한 상당한 할인을 받으세요. 또한 Azure Database for MySQL 단일 서버에서 유연한 서버를 사용 하 여 예약을 교환할 수 있습니다. [자세한 정보를 알아보세요](../concept-reserved-pricing.md).
+
+- **서버를 사용 하지 않는 동안 최대 30 일 동안 서버 중지**
+    
+    이제 유연한 서버 Azure Database for MySQL 사용 하지 않을 때 최대 30 일간 서버를 중지 하 고이 시간 내에 서버를 시작 하는 기능을 제공 합니다. 이렇게 하면 사용자의 진도에 맞게 개발 하 고 사용 중인 리소스에 대해서만 요금을 지불 하 여 데이터베이스 서버에 대 한 개발 비용을 절감할 수 있습니다. 이는 개발-테스트 워크 로드 및 하루 중 일부에만 서버를 사용 하는 경우에 중요 합니다. 서버를 중지하면 모든 활성 연결이 삭제됩니다. 서버가 중지됨 상태이면 서버 컴퓨팅에 요금이 청구되지 않습니다. 그러나 서버가 다시 시작될 때 데이터 파일을 사용할 수 있도록 서버의 스토리지가 그대로 남아 있기 때문에 스토리지 요금이 계속 청구됩니다. [자세한 정보](concept-servers.md#stopstart-an-azure-database-for-mysql-flexible-server)
+
+- **MySQL 유연한 서버에 대 한 terraform 지원**
+    
+    MySQL 유연한 서버에 대 한 terraform 지원이 이제 [azurerm의 최신 v 2.81.0 릴리스와](https://github.com/hashicorp/terraform-provider-azurerm/blob/v2.81.0/CHANGELOG.md)함께 출시 되었습니다. Terraform을 사용 하 여 MySQL 유연한 서버를 프로 비전 하 고 관리 하기 위한 자세한 참조 문서는 [여기](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mysql_flexible_server)에서 찾을 수 있습니다. 버그 또는 알려진 문제는 [여기](https://github.com/hashicorp/terraform-provider-azurerm/issues)에서 찾거나 보고할 수 있습니다.
+
+- **알려진 문제**
+    - 기본 azure 지역이 다운 된 경우 기본 Azure 지역에서 저장소를 프로 비전 할 수 없기 때문에 지리적으로 쌍을 이루는 지역에 지역 중복 서버를 만들 수 없습니다. 지리적으로 쌍을 이루는 지역에서 지역 중복 서버를 프로 비전 하기 위해 주 지역이 준비 될 때까지 기다려야 합니다. 
 
 ## <a name="september-2021"></a>2021년 9월
 
@@ -108,7 +123,7 @@ ms.locfileid: "129997065"
    - ssl_mode VERIFY_IDENTITY에서 SSL을 사용하는 경우 영역 중복 고가용성 서버 장애 조치 직후에 클라이언트는 서버에 연결하지 못합니다. VERIFY_CA에서 ssl_mode를 사용하여 이 문제를 완화할 수 있습니다.
    - 인도 중부, 동아시아, 한국 중부, 남아프리카 공화국 북부, 스위스 북부 지역에서는 동일한 영역의 고가용성 서버를 만들 수 없습니다.
    - 드문 시나리오에서 HA 장애 조치 후 주 서버는 read_only 모드가 됩니다. 서버 매개 변수 블레이드에서 "read_only" 값을 OFF로 업데이트하여 이 문제를 해결합니다.
-   - 컴퓨팅+스토리지 블레이드에서 컴퓨팅을 스케일 인한 후에 IOPS가 SKU 기본값으로 다시 설정됩니다. 고객은 계산 + Storage 블레이드에서 IOPs를 크기 조정 하 여 계산 배포 및 그 iops를 다시 설정 하 여이 문제를 해결할 수 있습니다.
+   - 컴퓨팅+스토리지 블레이드에서 컴퓨팅을 스케일 인한 후에 IOPS가 SKU 기본값으로 다시 설정됩니다. 고객은 컴퓨팅 배포 후 Compute+Storage 블레이드의 IOPS를 원하는 값(이전에 설정)으로 다시 설정하고 그에 따라 IOPS를 다시 설정하여 이 문제를 해결할 수 있습니다.
 
 ## <a name="july-2021"></a>2021년 7월
 
@@ -141,7 +156,7 @@ ms.locfileid: "129997065"
 
 - **스토리지 자동 증가**
 
-  자동 증가 Storage 서버에서 저장소를 모두 실행 하 고 읽기 전용으로 설정 하는 것을 방지 합니다. 스토리지 자동 증가를 사용하도록 설정하면 워크로드에 영향을 주지 않고 스토리지가 자동으로 증가합니다. 2021 년 6 월 21 일부 터 새로 만든 모든 서버는 기본적으로 저장소 자동 증가를 사용 하도록 설정 합니다. [자세히 알아보기](concepts-compute-storage.md#storage-auto-grow).
+  Storage 자동 증가는 서버의 스토리지가 부족해지고 읽기 전용이 되는 것을 방지합니다. 스토리지 자동 증가를 사용하도록 설정하면 워크로드에 영향을 주지 않고 스토리지가 자동으로 증가합니다. 2021년 6월 21일부터 새로 만든 모든 서버는 기본적으로 스토리지 자동 증가가 사용하도록 설정됩니다. [자세히 알아보기](concepts-compute-storage.md#storage-auto-grow).
 
 - **입력 데이터 복제**
 

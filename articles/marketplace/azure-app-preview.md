@@ -1,6 +1,6 @@
 ---
 title: Azure 애플리케이션 제품에 대한 미리 보기 대상 추가
-description: 파트너 센터(Azure Marketplace)에서 Azure 애플리케이션 제품에 대한 미리 보기 대상을 추가합니다.
+description: 파트너 센터 Azure 애플리케이션 제안에 대한 미리 보기 대상을 추가합니다.
 author: aarathin
 ms.author: aarathin
 ms.reviewer: dannyevers
@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: 74f270922694dd0416638b8d429eca31cebf2609
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
-ms.translationtype: HT
+ms.openlocfilehash: cc0452ca7405803c47d40659e8e629892086e24a
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542876"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065391"
 ---
 # <a name="add-a-preview-audience-for-an-azure-application-offer"></a>Azure 애플리케이션 제품에 대한 미리 보기 대상 추가
 
@@ -21,7 +21,7 @@ ms.locfileid: "111542876"
 
 ## <a name="define-a-preview-audience"></a>미리 보기 대상 정의
 
-**미리 보기 대상** 페이지에서 광범위한 마켓플레이스 대상에게 라이브로 게시하기 전에 Azure 애플리케이션 제품을 검토할 수 있는 제한된 사용자를 정의할 수 있습니다. Azure 구독 ID와 각각에 대한 선택적 설명과 함께 미리 보기 대상을 정의합니다. 해당 필드는 고객에게 표시되지 않습니다. Azure 구독 ID는 Azure Portal의 **구독** 페이지에서 찾을 수 있습니다.
+**미리 보기 대상** 페이지에서 광범위한 마켓플레이스 대상에게 라이브로 게시하기 전에 Azure 애플리케이션 제품을 검토할 수 있는 제한된 사용자를 정의할 수 있습니다. Azure 구독 ID와 각각에 대한 선택적 설명과 함께 미리 보기 대상을 정의합니다. 해당 필드는 고객에게 표시되지 않습니다. Azure 구독 ID는 Azure Portal의 **구독** 페이지에서 확인할 수 있습니다.
 
 개별적으로(최대 10개) 또는 CSV 파일을 업로드하여(최대 100개) 최소 1개에서 최대 10개의 Azure 구독 ID를 추가하고 라이브로 게시하기 전에 제품을 미리 볼 수 있는 사람을 정의합니다. 제품이 이미 라이브 상태인 경우 제품의 변경 내용 또는 업데이트를 테스트하기 위한 미리 보기 대상 그룹을 정의할 수 있습니다.
 

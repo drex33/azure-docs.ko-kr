@@ -4,13 +4,13 @@ description: Azure에서 Azure Monitor를 사용하여 리소스의 모니터링
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/08/2019
-ms.openlocfilehash: 203af340a8bd48bdb6dee70f92c2ecc39708b8e1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.date: 10/14/2021
+ms.openlocfilehash: fa5a417ef79cf0e11fa50c280dfea768d5e61f40
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732332"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064270"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Azure Monitor를 사용하여 Azure 리소스 모니터링
 Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 프로세스가 있는 경우 이와 같은 리소스의 가용성, 성능 및 작업을 모니터링할 수 있습니다. 이 문서에서는 Azure 리소스에서 생성되는 모니터링 데이터와 Azure Monitor 기능을 사용하여 이 데이터에 대해 분석하고 경고하는 방법을 설명합니다.
@@ -31,11 +31,11 @@ Azure 리소스를 만들자마자 Azure Monitor가 사용하도록 설정되며
 - 활동 로그를 수집하고 Azure Portal에서 분석합니다.
 - 활동 로그 경고 규칙을 만듭니다.
 
-로그 및 메트릭을 수집하고 내보내는 데 소요되는 Azure Monitor 비용은 없지만, 다음과 같이 대상과 관련된 비용이 있을 수 있습니다.
+메트릭을 수집하고 내보내는 데 Azure Monitor 비용은 없습니다. 리소스 로그 지원 범주 에 나열된 대로 특정 범주의 [리소스 로그를](/azure/azure-monitor/essentials/resource-logs-categories)내보내는 데 요금이 부과될 수 있습니다. 메트릭 및 로그에 대해 선택한 대상과 관련된 비용이 있을 수도 있습니다.
 
-- Log Analytics 작업 영역에서 로그 및 메트릭을 수집할 때 데이터 수집 및 보존과 관련된 비용입니다. [Log Analytics에 대한 Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)을 참조하세요.
-- Azure 스토리지 계정에 로그 및 메트릭을 수집하는 경우 데이터 스토리지와 관련된 비용입니다. [Blob Storage에 대한 Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/)을 참조하세요.
-- 로그 및 메트릭을 Azure Event Hubs로 전달할 때 이벤트 허브 스트리밍과 관련된 비용입니다. [Azure Event Hubs 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/)을 참조하세요.
+- Log Analytics 작업 영역에서 메트릭 및 로그를 수집할 때 데이터 수집 및 보존과 관련된 비용입니다. [Log Analytics에 대한 Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)을 참조하세요.
+- Azure Storage 계정에 메트릭 및 로그를 수집할 때 데이터 스토리지와 관련된 비용입니다. [Blob Storage에 대한 Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/)을 참조하세요.
+- 메트릭 및 로그를 Azure Event Hubs 전달할 때 이벤트 허브 스트리밍과 관련된 비용입니다. [Azure Event Hubs 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/)을 참조하세요.
 
 다음과 관련된 Azure Monitor 비용이 있을 수 있습니다. [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)을 참조하세요.
 
@@ -131,7 +131,7 @@ Azure Monitor 로그는 강력한 쿼리 도구를 사용하여 분석을 위해
 명령줄에서 리소스에서 수집한 모니터링 데이터에 액세스하거나, [Azure PowerShell](/powershell/azure/) 또는 [Azure 명령줄 인터페이스](/cli/azure/)를 사용하여 스크립트에 포함할 수 있습니다. 
 
 - CLI에서 메트릭 데이터에 액세스하는 방법은 [CLI 메트릭 참조](/cli/azure/monitor/metrics)를 참조하세요.
-- CLI에서 로그 쿼리를 사용하여 Azure Monitor 로그 데이터에 액세스하는 방법은 [CLI Log Analytics 참조](/cli/azure/ext/log-analytics/monitor/log-analytics)를 참조하세요.
+- CLI에서 로그 쿼리를 사용하여 Azure Monitor 로그 데이터에 액세스하는 방법은 [CLI Log Analytics 참조](/cli/azure/monitor/log-analytics)를 참조하세요.
 - Azure PowerShell에서 메트릭 데이터에 액세스하는 방법은 [Azure PowerShell 메트릭 참조](/powershell/module/azurerm.insights/get-azurermmetric)를 참조하세요.
 - Azure PowerShell의 로그 쿼리를 사용하여 Azure Monitor 로그 데이터에 액세스하는 방법은 [Azure PowerShell 로그 쿼리 참조](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery)를 참조하세요.
 

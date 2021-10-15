@@ -3,12 +3,12 @@ title: Azure Arc 사용 서버로 VM 확장 관리
 description: Azure Arc 사용 서버에서는 Azure가 아닌 VM을 사용하여 배포 후 구성 및 자동화 작업을 제공하는 가상 머신 확장 배포 기능을 관리할 수 있습니다.
 ms.date: 09/30/2021
 ms.topic: conceptual
-ms.openlocfilehash: d79bae8b84a9e776e64dbe5d93038f88db5bb04c
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 83fb74673b5da94cc656b512886ce1ee5d772ac1
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129354521"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064402"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Azure Arc 사용 서버로 가상 머신 확장 관리
 
@@ -56,9 +56,10 @@ Arc 지원 서버는 구성에 영향을 주지 않고 리소스 그룹 또는 �
 
 ### <a name="windows-extensions"></a>Windows 확장
 
-|내선 번호 |Publisher |유형 |추가 정보 |
+|내선 번호 |Publisher |형식 |추가 정보 |
 |----------|----------|-----|-----------------------|
 |Azure Defender 통합 취약성 스캐너 |Qualys |WindowsAgent.AzureSecurityCenter |[Azure 및 하이브리드 컴퓨터용 Azure Defender의 통합 취약성 평가 솔루션](../../security-center/deploy-vulnerability-assessment-vm.md)|
+|Microsoft Antimalware 확장 |Microsoft.Azure.Security |IaaSAntimalware |[Windows 대한 Microsoft Antimalware 확장](../../virtual-machines/extensions/iaas-antimalware-windows.md) |
 |사용자 지정 스크립트 확장 |Microsoft.Compute | CustomScriptExtension |[Windows 사용자 지정 스크립트 확장](../../virtual-machines/extensions/custom-script-windows.md)|
 |Log Analytics 에이전트 |Microsoft.EnterpriseCloud.Monitoring |MicrosoftMonitoringAgent |[Windows용 Log Analytics VM 확장](../../virtual-machines/extensions/oms-windows.md)|
 |VM용 Azure Monitor(인사이트) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentWindows | [Windows용 종속성 에이전트 가상 머신 확장](../../virtual-machines/extensions/agent-dependency-windows.md)|
@@ -68,7 +69,7 @@ Arc 지원 서버는 구성에 영향을 주지 않고 리소스 그룹 또는 �
 
 ### <a name="linux-extensions"></a>Linux 확장
 
-|내선 번호 |Publisher |유형 |추가 정보 |
+|내선 번호 |Publisher |형식 |추가 정보 |
 |----------|----------|-----|-----------------------|
 |Azure Defender 통합 취약성 스캐너 |Qualys |LinuxAgent.AzureSecurityCenter |[Azure 및 하이브리드 컴퓨터용 Azure Defender의 통합 취약성 평가 솔루션](../../security-center/deploy-vulnerability-assessment-vm.md)|
 |사용자 지정 스크립트 확장 |Microsoft.Azure.Extensions |CustomScript |[Linux 사용자 지정 스크립트 확장 버전 2](../../virtual-machines/extensions/custom-script-linux.md) |
@@ -76,9 +77,9 @@ Arc 지원 서버는 구성에 영향을 주지 않고 리소스 그룹 또는 �
 |VM용 Azure Monitor(인사이트) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentLinux |[Linux용 Dependency Agent 가상 머신 확장](../../virtual-machines/extensions/agent-dependency-linux.md) |
 |Azure Key Vault 인증서 동기화 | Microsoft.Azure.Key.Vault |KeyVaultForLinux | [Linux용 Key Vault 가상 머신 확장](../../virtual-machines/extensions/key-vault-linux.md) |
 |Azure Monitor 에이전트 |Microsoft.Azure.Monitor |AzureMonitorLinuxAgent |[Azure Monitor 에이전트 설치(미리 보기)](../../azure-monitor/agents/azure-monitor-agent-install.md) |
-|Azure Automation Hybrid Runbook Worker 확장(미리 보기) |Microsoft.Compute |HybridWorkerForLinux |[확장 기반 사용자 Hybrid Runbook Worker를 배포](../../automation/extension-based-hybrid-runbook-worker-install.md) 하 여 로컬로 runbook을 실행할 수 있습니다.|
+|Azure Automation Hybrid Runbook Worker 확장(미리 보기) |Microsoft.Compute |HybridWorkerForLinux |[확장 기반 사용자 Hybrid Runbook Worker 배포하여](../../automation/extension-based-hybrid-runbook-worker-install.md) Runbook을 로컬로 실행합니다.|
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 기능은 구독의 다음 Azure 리소스 공급자에 따라 달라집니다.
 

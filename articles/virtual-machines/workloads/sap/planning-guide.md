@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: a5a989d60e98b36906bd53cc79c3e5e2010ba25d
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
-ms.translationtype: HT
+ms.openlocfilehash: eb814b252ca67c324ac9b4bc0a7af90e63db73e0
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122777669"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066550"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -66,6 +66,7 @@ ms.locfileid: "122777669"
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
+[azure-cli-inst]:../../../cli/azure/install-classic-cli
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
 [azure-ps]:/powershell/azure/
@@ -167,7 +168,8 @@ ms.locfileid: "122777669"
 [ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
-
+[azure-cli-install]:/cli/azure/install-azure-cli.md
+ 
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 
@@ -722,18 +724,17 @@ Windows PowerShell은 Azure에서 많은 수의 시스템을 배포하는 고객
 
 Azure PowerShell cmdlet을 사용할 수 있도록 로컬 데스크톱/랩톱을 설정하는 프로세스와 Azure 구독에서 이러한 cmdlet을 사용하도록 구성하는 방법은 [이 문서][powershell-install-configure]에서 설명하고 있습니다.
 
-Azure PowerShell cmdlet을 설치, 업데이트 및 구성하는 방법에 대한 자세한 단계는 [배포 가이드의 이 챕터][deployment-guide-4.1]에서도 확인할 수 있습니다.
-
-지금까지 고객이 경험한 바에 따르면 PS(PowerShell)는 분명히 VM을 배포하고 VM의 배포에서 사용자 지정 단계를 만들 수 있는 더 강력한 도구입니다. Azure에서 SAP 인스턴스를 실행하는 모든 고객은 PS cmdlet을 사용하여 Azure Portal에서 수행하는 관리 작업을 보완하거나 PS cmdlet만 사용해서 Azure의 배포를 관리하고 있습니다. Azure 관련 cmdlet은 2,000개가 넘는 Windows 관련 cmdlet과 동일한 명명 규칙을 공유하기 때문에 Windows 관리자가 이러한 cmdlet을 활용하는 것은 쉽습니다.
+Azure PowerShell cmdlet을 설치, 업데이트 및 구성 하는 방법에 대 한 자세한 단계는 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)에서 찾을 수도 있습니다.
+지금까지 사용자 환경은 PowerShell을 통해 Vm을 배포 하 고 Vm 배포에서 사용자 지정 단계를 만들 수 있는 강력한 도구입니다. Azure에서 SAP 인스턴스를 실행 하는 모든 고객은 PowerShell cmdlet을 사용 하 여 Azure Portal에서 수행 하는 관리 작업을 보완 하거나 PowerShell cmdlet을 사용 하 여 Azure에서 배포를 관리 하기도 합니다. Azure 관련 cmdlet은 2,000개가 넘는 Windows 관련 cmdlet과 동일한 명명 규칙을 공유하기 때문에 Windows 관리자가 이러한 cmdlet을 활용하는 것은 쉽습니다.
 
 예제는 <https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>에서 참조하세요.
 
 
 Azure Extension for SAP(이 문서의 [Azure Extension for SAP][planning-guide-9.1] 챕터 참조)의 배포는 PowerShell 또는 CLI를 통해서만 가능합니다. 따라서 Azure에서 SAP NetWeaver 시스템을 배포 또는 관리하는 경우 PowerShell 또는 CLI를 반드시 설치하고 구성해야 합니다.
 
-Azure에서는 더 많은 기능을 제공하므로 cmdlet 업데이트를 요구하는 새로운 PS cmdlet이 추가될 예정입니다. 따라서 매월 한 번 이상 Azure 다운로드 사이트 <https://azure.microsoft.com/downloads/>를 확인하여 새 버전의 cmdlet이 있는지 확인하는 것이 좋습니다. 새 버전은 이전 버전이 그대로 유지된 상태로 설치됩니다.
+Azure에서 더 많은 기능을 제공 하므로 cmdlet 업데이트를 필요로 하는 새 PowerShell cmdlet이 추가 될 예정입니다. 따라서 매월 한 번 이상 Azure 다운로드 사이트 <https://azure.microsoft.com/downloads/>를 확인하여 새 버전의 cmdlet이 있는지 확인하는 것이 좋습니다. 새 버전은 이전 버전이 그대로 유지된 상태로 설치됩니다.
 
-Azure 관련 PowerShell 명령의 일반 목록은 </powershell/azure/>를 참조하세요.
+Azure 관련 PowerShell 명령의 일반 목록은 [Azure PowerShell 설명서][azure-ps]를 참조 하세요.
 
 ### <a name="management-via-microsoft-azure-cli-commands"></a>Microsoft Azure CLI 명령을 통한 관리
 
@@ -743,10 +744,9 @@ Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령
 설치 및 구성에 대한 내용과 CLI 명령을 사용하여 Azure 작업을 수행하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure 클래식 CLI 설치][xplat-cli]
-* [Azure Resource Manager 템플릿 및 Azure CLI를 사용하여 가상 머신 배포 및 관리][../../linux/create-ssh-secured-vm-from-template.md]
+* [Azure CLI 2.0 설치][azure-cli-install]
+* [Azure Resource Manager 템플릿 및 Azure CLI를 사용하여 가상 머신 배포 및 관리](/articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md)
 * [Azure Resource Manager에서 Mac, Linux 및 Windows용 Azure 클래식 CLI 사용][xplat-cli-azure-resource-manager]
-
-또한 Azure CLI를 사용하여 SAP용 Azure 모니터링 확장을 배포하는 방법에 대해서는 [배포 가이드][planning-guide]의 [Linux VM용 Azure CLI][deployment-guide-4.5.2] 챕터도 읽어보세요.
 
 
 ## <a name="first-steps-planning-a-deployment"></a>배포 계획의 1단계
@@ -899,7 +899,7 @@ Azure Portal을 통해서는 Azure에 VM 이미지와 디스크를 업로드할 
 * *az login* 을 사용하여 구독에 로그인
 * *az account set --subscription `<subscription name or id`>* 를 사용하여 구독 선택
 * *az storage blob upload* 를 사용하여 VHD 업로드 - [Azure Storage에서 Azure CLI 사용][storage-azure-cli] 참조
-* (선택 사항) *az disk create* 를 사용하여 VHD에서 관리 디스크 만들기 - [az disk](/cli/azure/disk) 참조
+* (선택 사항) *az disk create* 를 사용하여 VHD에서 관리 디스크 만들기 - [az disk](/cli/azure/disk.md) 참조
 * *az vm create* 및 매개 변수 *--attach-os-disk* 를 사용하여 업로드한 VHD 또는 관리 디스크를 OS 디스크로 지정해 새 VM 만들기
 * *az vm disk attach* 및 매개 변수 *--new* 를 사용하여 새 VM에 데이터 디스크 추가
 
@@ -928,7 +928,7 @@ Azure VM 이미지로 사용하기 위해 온-프레미스 네트워크에서 �
 * *az login* 을 사용하여 구독에 로그인
 * *az account set --subscription `<subscription name or id`>* 를 사용하여 구독 선택
 * *az storage blob upload* 를 사용하여 VHD 업로드 - [Azure Storage에서 Azure CLI 사용][storage-azure-cli] 참조
-* (선택 사항) *az image create* 를 사용하여 VHD에서 관리 디스크 이미지 만들기 - [az image](/cli/azure/image] 참조
+* (선택 사항) *az image create를* 사용하여 VHD에서 관리 디스크 이미지 만들기 - [az image를 참조하세요.](/cli/azure/image)
 * *az vm create* 및 매개 변수 *--image* 를 사용하여 업로드한 VHD 또는 관리 디스크 이미지를 OS 디스크로 지정해 새 VM 만들기
 
 **템플릿**
@@ -1078,7 +1078,7 @@ Azure Portal에서는 이 작업을 수행할 수 없습니다. Azure PowerShell
 ##### <a name="powershell"></a>PowerShell
 구독 간에 VHD를 복사할 수도 있습니다. 자세한 내용은 [이 문서][storage-powershell-guide-full-copy-vhd]를 참조하세요.
 
-PS cmdlet 논리의 기본 흐름은 다음과 같습니다.
+PowerShell cmdlet 논리의 기본 흐름은 다음과 같습니다.
 
 * *New-AzStorageContext* 를 사용하여 **원본** 스토리지 계정의 스토리지 계정 컨텍스트 만들기 - </powershell/module/az.storage/new-AzStoragecontext> 참조
 * *New-AzStorageContext* 를 사용하여 **대상** 스토리지 계정의 스토리지 계정 컨텍스트 만들기 - </powershell/module/az.storage/new-AzStoragecontext> 참조
@@ -1691,12 +1691,12 @@ SAP Change and Transport System(TMS)은 지형 내에서 시스템 간에 전송
 
 사이트 간에 연결된 크로스-프레미스 시나리오에서 온-프레미스와 Azure 간의 대기 시간이 여전히 길 수 있습니다. 개발 및 테스트 시스템에서 프로덕션으로 개체를 전송하는 순서를 따르거나 전송 또는 지원 패키지를 다른 시스템에 적용하려는 경우 중앙 전송 디렉터리의 위치에 따라, 일부 시스템에서 중앙 전송 디렉터리에서 데이터를 읽거나 쓸 때 긴 대기 시간이 발생합니다. 이러한 상황은 데이터 센터 간에 멀리 떨어져 있는 서로 다른 데이터 센터에 여러 다른 시스템이 분산되어 있는 SAP 지형 구성과 유사합니다.
 
-이러한 대기 시간 문제를 해결하고 시스템이 더 빠르게 전송 디렉터리에서 읽거나 전송 디렉터리로 쓸 수 있도록 하려면 두 개의 STMS 전송 도메인(온-프레미스용 1개와 Azure의 시스템을 포함하는 1개)을 설정하고 전송 도메인을 연결할 수 있습니다. SAP TMS에서 이 개념의 기본 원칙을 설명하는 https://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm) [설명서]를 참조하세요.
+이러한 대기 시간 문제를 해결하고 시스템이 더 빠르게 전송 디렉터리에서 읽거나 전송 디렉터리로 쓸 수 있도록 하려면 두 개의 STMS 전송 도메인(온-프레미스용 1개와 Azure의 시스템을 포함하는 1개)을 설정하고 전송 도메인을 연결할 수 있습니다. SAP TMS에서이 개념의 원칙을 설명 하는이 [설명서](https://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm)를 확인 하세요.
 
 
 방법:
 
-* 트랜잭션 STMS를 사용하여 각 위치(온-프레미스 및 Azure)에서 [전송 도메인 설정](<https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/44b4a0b47acc11d1899e0000e829fbbd.html?q=Set%20up%20a%20transport%20domain)
+* 트랜잭션 STMS를 사용 하 여 각 위치 (온-프레미스 및 Azure)에서 [전송 도메인 설정](https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/44b4a0b47acc11d1899e0000e829fbbd.html?q=Set%20up%20a%20transport%20domain)
 * [도메인 링크를 사용하여 도메인을 연결](https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/14c795388d62e450e10000009b38f889.html?q=Link%20the%20domains%20with%20a%20domain%20link)하고 두 도메인 간의 연결을 확인합니다.
 * 연결된 시스템으로 구성을 배포합니다.
 
@@ -1972,11 +1972,11 @@ SAP 시스템 내의 다른 VM은 Azure Virtual Machine Backup 기능을 사용�
 > 이론적으로 DBMS 시스템에서 Windows VSS(볼륨 섀도 복사본 서비스 <https://msdn.microsoft.com/library/windows/desktop/bb968832(v=vs.85).aspx>)를 지원하는 경우 데이터베이스를 실행하는 VM을 SQL Server 등 일관성 있는 방법으로 백업할 수 있습니다.
 > 그러나 데이터베이스의 Azure VM 백업 기반의 특정 시간 복원은 가능하지 않습니다. 따라서 Azure VM Backup을 사용하지 않고 DBMS 기능을 사용하여 데이터베이스 백업을 수행하는 것이 좋습니다.
 >
-> Azure Virtual Machine Backup에 관한 자세한 내용은 </azure/backup/backup-azure-vms>를 참조하세요.
+> Azure Virtual Machine Backup에 익숙해지려면 [VM 설정 에서 Azure VM 백업에서](/../../../azure/backup/backup-azure-vms)시작합니다.
 >
-> Azure VM에 설치된 Microsoft Data Protection Manager와 Azure Backup을 함께 사용하여 데이터베이스 백업/복원할 수도 있습니다. 자세한 내용은 </azure/backup/backup-azure-dpm-introduction>을 참조하세요.
+> Azure VM에 설치된 Microsoft Data Protection Manager와 Azure Backup을 함께 사용하여 데이터베이스 백업/복원할 수도 있습니다. 자세한 내용은 [System Center DPM을 사용하여 Azure에 워크로드를 백업하도록 준비에서](/../../../azure/backup/backup-azure-dpm-introduction)찾을 수 있습니다.
 >
-> ![Linux 로고입니다.][Logo_Linux] Linux
+> ![Linux 로고.][Logo_Linux] Linux
 >
 > Linux에는 Windows VSS와 동일한 기능이 없습니다. 따라서 파일 일치 백업만 가능하고 애플리케이션 일치 백업은 가능하지 않습니다. SAP DBMS 백업은 DBMS 기능을 사용해서 수행해야 합니다. SAP 관련 데이터를 포함하는 파일 시스템은 <https://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>에 설명된 대로 tar 등을 사용해서 저장할 수 있습니다.
 >
@@ -2009,4 +2009,4 @@ Azure의 SAP 시스템 고가용성의 핵심 사항은 다음과 같습니다.
 
 - [SAP NetWeaver에 대한 Azure Virtual Machines 배포](./deployment-guide.md)
 - [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](./dbms_guide_general.md)
-- [Azure에서 SAP HANA 인프라 구성 및 작업](/- azure/virtual-machines/workloads/sap/hana-vm-operations)
+- [Azure에서 SAP HANA 인프라 구성 및 작업](./hana-vm-operations.md)

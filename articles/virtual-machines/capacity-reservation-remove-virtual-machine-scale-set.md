@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: 03b89b1b8c0221795f58ff28addd4fdeaad5053e
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: cc3b433b0ae36076a0442c8dc91e502020bdfd04
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129532581"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063643"
 ---
 # <a name="remove-a-virtual-machine-scale-set-association-from-a-capacity-reservation-group"></a>용량 예약 그룹에서 가상 머신 확장 집합 연결 제거 
 
@@ -48,7 +48,7 @@ VM과 기본 용량 예약은 모두 논리적으로 용량을 차지하므로 A
     ```rest
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{VMScaleSetName}/update?api-version=2021-04-01
     ```
-    요청 본문에서 `capacityReservationGroup` 속성을 null로 설정하여 그룹에 대한 가상 머신 확장 집합 연결을 제거합니다.
+    요청 본문에서 `capacityReservationGroup` 속성을 null로 설정 하 여 해당 그룹에 대 한 가상 머신 확장 집합 연결을 제거 합니다.
 
     ```json
     {
@@ -65,6 +65,27 @@ VM과 기본 용량 예약은 모두 논리적으로 용량을 차지하므로 A
     }
     ```
 
+### <a name="cli"></a>[CLI](#tab/cli1)
+
+1. 가상 머신 확장 집합 할당을 취소합니다. 다음 작업은 확장 집합 내의 모든 가상 머신 할당을 취소합니다. 
+
+    ```azurecli-interactive
+    az vmss deallocate
+    --location eastus
+    --resource-group myResourceGroup 
+    --name myVMSS 
+    ```
+
+1. 용량 예약 그룹과의 연결을 제거하도록 확장 집합을 업데이트합니다. 속성을 `capacity-reservation-group` 없음으로 설정 하면 확장 집합을 용량 예약 그룹에 연결 하는 것이 제거 됩니다. 
+
+    ```azurecli-interactive
+    az vmss update 
+    --resource-group myresourcegroup 
+    --name myVMSS 
+    --capacity-reservation-group None
+    ```
+
+
 ### <a name="powershell"></a>[PowerShell](#tab/powershell1)
 
 1. 가상 머신 확장 집합 할당을 취소합니다. 다음 작업은 확장 집합 내의 모든 가상 머신 할당을 취소합니다. 
@@ -75,7 +96,7 @@ VM과 기본 용량 예약은 모두 논리적으로 용량을 차지하므로 A
     -VMScaleSetName "myVmss"
     ```
 
-1. 용량 예약 그룹과의 연결을 제거하도록 확장 집합을 업데이트합니다. 속성을 `CapacityReservationGroupId` null로 설정해도 확장 집합이 용량 예약 그룹에 연결됩니다. 
+1. 용량 예약 그룹과의 연결을 제거하도록 확장 집합을 업데이트합니다. 속성을 `CapacityReservationGroupId` null로 설정 하면 확장 집합과 용량 예약 그룹의 연결이 제거 됩니다. 
 
     ```powershell-interactive
     $vmss =
@@ -131,7 +152,7 @@ VM과 기본 용량 예약은 모두 논리적으로 용량을 차지하므로 A
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{VMScaleSetName}/update?api-version=2021-04-01
     ```
 
-    요청 본문에서 `capacityReservationGroup` 속성을 null로 설정하여 연결을 제거합니다.
+    요청 본문에서 `capacityReservationGroup` 속성을 null로 설정 하 여 연결을 제거 합니다.
     
     ```json
     {
@@ -148,6 +169,27 @@ VM과 기본 용량 예약은 모두 논리적으로 용량을 차지하므로 A
     }
     ```
 
+### <a name="cli"></a>[CLI](#tab/cli2)
+
+1. 예약된 수량을 0으로 업데이트
+
+    ```azurecli-interactive
+    az capacity reservation update 
+    -g myResourceGroup 
+    -c myCapacityReservationGroup 
+    -n myCapacityReservation 
+    --capacity 0
+    ```
+
+2. 속성을 None으로 설정 하 여 용량 예약 그룹과의 연결을 제거 하도록 확장 집합을 업데이트 합니다 `capacity-reservation-group` . 
+
+    ```azurecli-interactive
+    az vmss update 
+    --resource-group myResourceGroup 
+    --name myVMSS 
+    --capacity-reservation-group None
+    ```
+
 ### <a name="powershell"></a>[PowerShell](#tab/powershell2)
 
 1. 예약된 수량을 0으로 업데이트
@@ -160,7 +202,7 @@ VM과 기본 용량 예약은 모두 논리적으로 용량을 차지하므로 A
     -CapacityToReserve 0
     ```
 
-2. 속성을 null로 설정하여 용량 예약 그룹과의 연결을 제거하도록 확장 집합을 업데이트합니다. `CapacityReservationGroupId` 
+2. 속성을 null로 설정 하 여 용량 예약 그룹과의 연결을 제거 하도록 확장 집합을 업데이트 합니다 `CapacityReservationGroupId` . 
 
     ```powershell-interactive
     $vmss =

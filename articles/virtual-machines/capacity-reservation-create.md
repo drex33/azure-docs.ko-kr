@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: 360a634104b7735a90cbae4b41eae9723b723e2e
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 51139277b0c8da4fb3dfdd61bf826305657280b5
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129532629"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065018"
 ---
 # <a name="create-a-capacity-reservation-preview"></a>용량 예약 만들기(미리 보기)
 
@@ -119,6 +119,39 @@ ms.locfileid: "129532629"
 1. **만들기** 를 선택합니다.
 
 
+### <a name="cli"></a>[CLI](#tab/cli1)
+
+1. 용량 예약을 만들기 전에 `az group create`을 사용하여 리소스 그룹을 만듭니다. 다음 예에서는 미국 동부 위치에 리소스 그룹 *myResourceGroup* 을 만듭니다.
+
+    ```azurecli-interactive
+    az group create 
+    -l eastus 
+    -g myResourceGroup
+    ```
+
+1. 이제 `az capacity reservation group create`을 사용하여 용량 예약 그룹을 만듭니다. 다음 예에서는 3개의 가용성 영역 모두에 대해 미국 동부 위치에 *myCapacityReservationGroup* 그룹을 만듭니다.
+
+    ```azurecli-interactive
+    az capacity reservation group create 
+    -n myCapacityReservationGroup 
+    -l eastus 
+    -g myResourceGroup 
+    --zones 1 2 3 
+    ```
+
+1. 용량 예약 그룹이 만들어지면 `az capacity reservation create`을 사용하여 새 용량 예약을 만듭니다. 다음 예에서는 미국 동부 위치의 영역 1에 Standard_D2s_v3 VM 크기의 5개 수량에 대한 *myCapacityReservation* 을 만듭니다.
+
+    ```azurecli-interactive
+    az capacity reservation create 
+    -c myCapacityReservationGroup 
+    -n myCapacityReservation 
+    -l eastus 
+    -g myResourceGroup 
+    --sku Standard_D2s_v3 
+    --capacity 5 
+    --zone 1
+    ```
+
 ### <a name="powershell"></a>[PowerShell](#tab/powershell1)
 
 1. 용량 예약을 만들기 전에 `New-AzResourceGroup`을 사용하여 리소스 그룹을 만듭니다. 다음 예에서는 미국 동부 위치에 리소스 그룹 *myResourceGroup* 을 만듭니다.
@@ -203,6 +236,15 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 } 
 ```
 
+### <a name="cli"></a>[CLI](#tab/cli2)
+
+ ```azurecli-interactive
+ az capacity reservation show 
+ -c myCapacityReservationGroup 
+ -n myCapacityReservation 
+ -g myResourceGroup
+ ```
+
 ### <a name="powershell"></a>[PowerShell](#tab/powershell2)
 
 용량 예약 확인:
@@ -237,7 +279,6 @@ $CapRes.sku
 1. 왼쪽에서 **개요** 를 선택합니다.
 1. **예약** 을 선택합니다.
 1. 이 보기에서 VM 크기 및 예약 수량과 함께 그룹의 모든 예약을 볼 수 있습니다.
-
 --- 
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
 

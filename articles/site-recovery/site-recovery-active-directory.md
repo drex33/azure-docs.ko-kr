@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: mayg
-ms.openlocfilehash: 528a24bb64aa8d323b5d63a27af0a52ccdf1abb6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: f7df260f0ef02df5d706bc78ed4938cb1868eead
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86132316"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065087"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Active Directory 및 DNS에 대한 재해 복구 설정
 
@@ -179,7 +179,7 @@ Azure로 장애 조치(failover)를 수행하면 **VM-GenerationID** 가 다시 
 
 ### <a name="dns-and-domain-controller-on-different-machines"></a>다른 컴퓨터에서 DNS 및 도메인 컨트롤러
 
-동일한 VM에서 도메인 컨트롤러 및 DNS를 실행 중인 경우 이 프로시저를 건너뛰어도 됩니다.
+동일한 VM에서 도메인 컨트롤러와 DNS를 실행 하는 경우이 절차를 건너뛸 수 있습니다.
 
 DNS가 도메인 컨트롤러와 동일한 VM에 있지 않은 경우 테스트 장애 조치(failover)를 위한 DNS VM을 만들어야 합니다. 새 DNS 서버를 사용하고 모든 필요한 영역을 만들 수 있습니다. 예를 들어 Active Directory 도메인이 `contoso.com`인 경우 이름이 `contoso.com`인 DNS 영역을 만들 수 있습니다. 다음과 같이 Active Directory에 해당하는 항목을 DNS에서 업데이트해야 합니다.
 

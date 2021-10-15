@@ -9,12 +9,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 07/06/2021
 ms.author: mbullwin
-ms.openlocfilehash: e13aeefca9ab5b9430f1a6b591a8b8b7b415b46f
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
-ms.translationtype: HT
+ms.openlocfilehash: bc376e8bc69845af245c66c045ed345f758e410e
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114342515"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063928"
 ---
 # <a name="azure-metrics-advisor-cost-management"></a>Azure Metrics Advisor 비용 관리
 
@@ -37,7 +37,7 @@ Azure Metrics Advisor는 판매 수익 및 제조 작업을 포함하여 조직�
 | 무료: 처음 25개 시계열 | $- |
 | 26개 시계열 - 1k 시계열 | $0.75 |
 | 1k 시계열 - 5k 시계열 | $0.50 |
-| 5k 시계열 - 10k 시계열 | $0.25|
+| 5k Time Series - 20k time series | $0.25|
 | 20k 시계열 - 50k 시계열| $0.10|
 | >50k 시계열 | $0.05 |
 

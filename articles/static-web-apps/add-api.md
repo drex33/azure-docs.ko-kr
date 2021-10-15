@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/14/2021
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: 4d549c3d8e97cad7a2cf0bbb75f45c6c06eba641
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 568117bf629117e42af177845c9444996853f6c2
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128640043"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130067215"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-with-azure-functions"></a>Azure Functions를 사용하여 Azure Static Web Apps에 API 추가
 
@@ -280,7 +280,7 @@ Static Web Apps CLI로 앱을 시작하여 프런트 엔드 앱과 API를 함께
     현재 폴더(`src`) 및 API 폴더(`api`)를 CLI에 전달합니다.
      
     ```bash
-    swa start src --api api
+    swa start src --api-location api
     ```
 
     # <a name="angular"></a>[Angular](#tab/angular)
@@ -288,7 +288,7 @@ Static Web Apps CLI로 앱을 시작하여 프런트 엔드 앱과 API를 함께
     빌드 출력 폴더(`dist/angular-basic`) 및 API 폴더(`api`)를 CLI에 전달합니다.
 
     ```bash
-    swa start dist/angular-basic --api api
+    swa start dist/angular-basic --api-location api
     ```
 
     # <a name="react"></a>[React](#tab/react)
@@ -296,7 +296,7 @@ Static Web Apps CLI로 앱을 시작하여 프런트 엔드 앱과 API를 함께
     빌드 출력 폴더(`build`) 및 API 폴더(`api`)를 CLI에 전달합니다.
 
     ```bash
-    swa start build --api api
+    swa start build --api-location api
     ```
 
     # <a name="vue"></a>[Vue](#tab/vue)
@@ -304,7 +304,7 @@ Static Web Apps CLI로 앱을 시작하여 프런트 엔드 앱과 API를 함께
     빌드 출력 폴더(`dist`) 및 API 폴더(`api`)를 CLI에 전달합니다.
 
     ```bash
-    swa start dist --api api
+    swa start dist --api-location api
     ```
 
     ---

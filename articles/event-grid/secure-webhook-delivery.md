@@ -3,14 +3,14 @@ title: Azure Event Grid에서 Azure AD를 사용하여 보안 웹후크 배달
 description: Azure Event Grid를 사용하여 Azure Active Directory가 보호하는 HTTPS 엔드포인트에 이벤트를 전달하는 방법을 설명합니다.
 ms.topic: how-to
 ms.date: 09/29/2021
-ms.openlocfilehash: b41bc0193ab154c59d0742f0aa15acc05f29f7f5
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 18db7a5244cb498ff54999646082d3d5628468e1
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129996174"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066910"
 ---
-# <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Azure Active Directory로 보호되는 엔드포인트에 이벤트 게시
+# <a name="deliver-events-to-azure-active-directory-protected-endpoints"></a>Azure Active Directory 보호된 엔드포인트에 이벤트 전달
 이 문서에서는 Azure AD(Azure Active Directory)를 사용하여 **이벤트 구독** 과 **웹후크 엔드포인트** 간의 연결을 보호하는 방법을 설명합니다. Azure AD 애플리케이션 및 서비스 주체에 대한 개요는 [Microsoft ID 플랫폼(v2.0) 개요](../active-directory/develop/v2-overview.md)를 참조하세요.
 
 이 문서에서는 데모를 위해 Azure Portal을 사용하지만 CLI, PowerShell 또는 SDK를 사용하여 이 기능을 사용하도록 설정할 수도 있습니다.
@@ -18,7 +18,7 @@ ms.locfileid: "129996174"
 > [!IMPORTANT]
 > 보안 취약성을 해결하기 위해 2021년 3월 30일에 이벤트 구독을 만들거나 업데이트하는 과정의 일부로 추가 액세스 검사가 도입되었습니다. 구독자 클라이언트의 서비스 주체는 소유자이거나 대상 애플리케이션 서비스 주체에 할당된 역할이 있어야 합니다. 아래 새 지침에 따라 AAD 애플리케이션을 다시 구성하세요.
 
-## <a name="single-tenant-events-with-azure-ad-and-webhooks"></a>Azure AD 및 Webhook를 통해 단일 테넌트 이벤트
+## <a name="deliver-events-to-a-webhook-in-the-same-azure-ad-tenant"></a>동일한 Azure AD 테넌트에서 Webhook에 이벤트 전달
 
 ![Azure Event Grid에서 Azure AD를 사용하여 보안 웹후크 배달](./media/secure-webhook-delivery/single-tenant-diagram.png)
 
@@ -30,7 +30,7 @@ ms.locfileid: "129996174"
 
 2. 테넌트에서 [Azure Shell을](https://portal.azure.com/#cloudshell/) 열고 PowerShell 환경을 선택합니다.
 
-3. 테넌트 연결에 **$webhookAadTenantId** 값을 수정합니다.
+3. 테넌트  $webhookAadTenantId 값을 수정합니다.
 
     - Variables:
         - **$webhookAadTenantId:** Azure 테넌트 ID
@@ -75,7 +75,7 @@ ms.locfileid: "129996174"
 
 5. 테넌트에서 [Azure Shell을](https://portal.azure.com/#cloudshell/) 열고 PowerShell 환경을 선택합니다.
 
-6. 테넌트 연결에 **$webhookAadTenantId** 값을 수정합니다.
+6. 테넌트  $webhookAadTenantId 값을 수정합니다.
 
     - Variables:
         - **$webhookAadTenantId:** Azure 테넌트 ID
@@ -107,14 +107,14 @@ ms.locfileid: "129996174"
     ```
 
     > [!NOTE]
-    > 이 시나리오에서는 Event Grid 시스템 항목을 사용하고 있습니다. Azure CLI 사용하여 사용자 지정 항목 또는 Event Grid 도메인에 대한 구독을 만들려면 [여기를](/cli/azure/eventgrid)참조하세요.
+    > 이 시나리오에서는 Event Grid 시스템 항목을 사용하고 있습니다. Azure CLI 사용하여 사용자 지정 토픽 또는 Event Grid 도메인에 대한 구독을 만들려면 [여기를](/cli/azure/eventgrid)참조하세요.
 
 10. 모든 항목이 올바르게 구성된 경우 Event Grid 항목에서 webhook 구독을 성공적으로 만들 수 있습니다.
 
     > [!NOTE]
     > 이제 Event Grid 모든 메시지에서 Azure AD 전달자 토큰을 webhook 클라이언트에 전달하고 있으므로 webhook에서 권한 부여 토큰의 유효성을 검사해야 합니다.
 
-## <a name="multitenant-events-with-azure-ad-and-webhooks"></a>Azure AD 및 Webhook를 통해 다중테넌트 이벤트
+## <a name="deliver-events-to-a-webhook-in-a-different-azure-ad-tenant"></a>다른 Azure AD 테넌트에서 Webhook에 이벤트 제공 
 
 여러 테넌트에서 보안 웹후크 구독을 사용하도록 설정하려면 Azure AD 애플리케이션을 사용하여 이 작업을 수행해야 합니다. 이 프로세스는 현재 포털에서 Azure AD 사용자를 사용하여 사용할 수 없습니다.
 
@@ -122,11 +122,11 @@ ms.locfileid: "129996174"
 
 위의 다이어그램에 따라 다음 단계에 따라 두 테넌트 모두를 구성합니다.
 
-1. **테넌트** A에서 Azure AD 디렉터리(다중 테넌트)와 함께 작동하도록 구성된 Event Grid 구독 기록기용 Azure AD 애플리케이션을 만듭니다.
+1. **테넌트** A의 모든 Azure AD 디렉터리(다중 테넌트)에서 작동하도록 구성된 Event Grid 구독 작성기용 Azure AD 애플리케이션을 만듭니다.
 
 2. 이전에 **테넌트** A에서 만든 Azure AD 애플리케이션에 대한 비밀을 만들고 값을 저장합니다(나중에 이 값이 필요함).
 
-3. **테넌트 A에서** Event Grid 항목의 액세스 제어(IAM)로 이동하고 Event Grid 구독 기록기의 Azure AD 애플리케이션의 역할 할당을 Event Grid 기여자로 추가합니다. 이 단계를 통해 Azure CLI 사용하여 Azure AD 애플리케이션으로 Azure에 로그인할 때 Event Grid 리소스에 액세스할 수 있습니다.
+3. **테넌트 A에서** Event Grid 항목의 액세스 제어(IAM)로 이동하고 Event Grid 구독 작성자의 Azure AD 애플리케이션의 역할 할당을 Event Grid 기여자로 추가합니다. 이 단계를 사용하면 Azure CLI 사용하여 Azure AD 애플리케이션으로 Azure에 로그인할 때 Event Grid 리소스에 액세스할 수 있습니다.
 
 4. **테넌트 B에서** Microsoft 디렉터리(단일 테넌트)와 함께 작동하도록 구성된 웹후크에 대한 Azure AD 애플리케이션을 만듭니다.
 
@@ -164,7 +164,7 @@ ms.locfileid: "129996174"
     ```
 
     > [!NOTE]
-    > 이 시나리오에서는 Event Grid 시스템 항목을 사용하고 있습니다. Azure CLI 사용하여 사용자 지정 항목 또는 Event Grid 도메인에 대한 구독을 만들려면 [여기를](/cli/azure/eventgrid)참조하세요.
+    > 이 시나리오에서는 Event Grid 시스템 항목을 사용하고 있습니다. Azure CLI 사용하여 사용자 지정 토픽 또는 Event Grid 도메인에 대한 구독을 만들려면 [여기를](/cli/azure/eventgrid)참조하세요.
 
 10. 모든 항목이 올바르게 구성된 경우 Event Grid 항목에서 webhook 구독을 성공적으로 만들 수 있습니다.
 

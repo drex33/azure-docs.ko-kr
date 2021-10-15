@@ -1,6 +1,6 @@
 ---
 title: 분석 데이터에 프로그래밍 방식으로 액세스하기 위한 사전 요구 사항
-description: 상용 Marketplace 분석 데이터에 프로그래밍 방식으로 액세스하기 위해 충족해야 하는 요구 사항을 알아봅니다.
+description: 파트너 센터에서 상업용 marketplace 분석 데이터에 프로그래밍 방식으로 액세스 하기 위해 충족 해야 하는 요구 사항을 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
@@ -8,12 +8,12 @@ author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: a3c27a8e91ef1f202fbc757eb1a21eeddfc1d3d8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 842314bb514f74de73ab4eb077b09057ea914d50
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529277"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064175"
 ---
 # <a name="prerequisites-to-programmatically-access-analytics-data"></a>분석 데이터에 프로그래밍 방식으로 액세스하기 위한 사전 요구 사항
 
@@ -29,13 +29,13 @@ ms.locfileid: "122529277"
 
 ## <a name="associate-the-azure-ad-application-to-the-partner-center-tenant"></a>파트너 센터 테넌트에 Azure AD 애플리케이션 연결
 
-Azure Portal에서 만든 Azure AD 애플리케이션을 파트너 센터 계정에 연결해야 합니다. 단계는 다음과 같습니다.
+Azure Portal에서 만든 Azure AD 응용 프로그램을 파트너 센터 계정에 연결 해야 합니다. 단계는 다음과 같습니다.
 
 1. [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165507)에 로그인합니다.
 1. 페이지 오른쪽 위에서 기어 아이콘을 선택한 후 **계정 설정** 을 선택합니다.
 1. **계정 설정** 메뉴에서 **사용자 관리** 를 선택합니다.
-1. **Azure AD 애플리케이션** 을 선택하고 **+ Azure AD 애플리케이션 만들기** 를 선택합니다.
-1. Azure Portal에서 만든 Azure AD 애플리케이션을 선택하고 **다음** 을 선택합니다.
+1. **AZURE ad 응용 프로그램** 을 선택 하 고 **azure Ad 응용 프로그램 만들기** 를 선택 합니다.
+1. Azure Portal에서 만든 Azure AD 응용 프로그램을 선택 하 고 **다음** 을 선택 합니다.
 1. **관리자(Windows)** 확인란을 선택하고 **추가** 를 선택합니다.
 
     :::image type="content" source="./media/analytics-programmatic-access/azure-ad-roles.png" alt-text="역할 선택을 위한 확인란을 포함하는 Azure AD 애플리케이션 만들기 페이지를 보여 줍니다.":::

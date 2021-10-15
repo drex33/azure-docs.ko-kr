@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/22/2021
 ms.author: v-jansk
-ms.openlocfilehash: ae867a4383b5644eca2cabf2651c2c40797ed49a
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
-ms.translationtype: HT
+ms.openlocfilehash: 39173fbd5fd6725d8307d2e390bec6b397406cb7
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112540603"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130062693"
 ---
 # <a name="start-translation"></a>번역 시작
 
@@ -25,7 +25,7 @@ ms.locfileid: "112540603"
 
 용어집/번역 메모리가 요청에 포함될 수 있으며 문서 번역 시 이 용어집/번역 메모리가 서비스에서 적용됩니다.
 
-용어집이 잘못되었거나 번역 중에 연결할 수 없는 경우 문서 상태에 오류가 표시됩니다. 동일한 이름의 파일이 대상에 이미 있으면 해당 파일을 덮어씁니다. 각 대상 언어의 targetUrl은 고유해야 합니다.
+용어집이 잘못되었거나 번역 중에 연결할 수 없는 경우 문서 상태에 오류가 표시됩니다. 이름이 같은 파일이 대상에 이미 있으면 작업은 실패 합니다. 각 대상 언어의 targetUrl은 고유해야 합니다.
 
 ## <a name="request-url"></a>요청 URL
 
@@ -51,7 +51,7 @@ POST https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text
 
 ## <a name="request-body-batch-submission-request"></a>요청 본문: 일괄 처리 제출 요청
 
-|Name|유형|Description|
+|Name|Type|Description|
 |--- |--- |--- |
 |입력|BatchRequest[]|BatchRequest는 아래와 같습니다. 문서 또는 문서가 포함된 폴더의 입력 목록입니다. 미디어 유형에는 “application/json”, “text/json”, “application/*+json”이 있습니다.|
 
@@ -59,7 +59,7 @@ POST https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text
 
 입력 일괄 처리 번역 요청에 대한 정의입니다.
 
-|Name|유형|필수|Description|
+|Name|Type|필수|Description|
 |--- |--- |--- |--- |
 |source|SourceInput[]|True|inputs.source는 아래와 같습니다. 입력 문서의 원본입니다.|
 |storageType|StorageInputType[]|거짓|inputs.storageType은 아래와 같습니다. 입력 문서 원본 문자열의 스토리지 유형입니다. 단일 문서 변환에만 필요합니다.|
@@ -69,7 +69,7 @@ POST https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text
 
 입력 문서의 원본입니다.
 
-|Name|유형|필수|Description|
+|Name|Type|필수|Description|
 |--- |--- |--- |--- |
 |filter|DocumentFilter[]|거짓|DocumentFilter[]는 아래와 같습니다.|
 |filter.prefix|문자열|거짓|번역을 위해 원본 경로의 문서를 필터링하며 대/소문자를 구분하는 접두사 문자열입니다. 예를 들어 Azure Storage Blob URI를 사용하는 경우 접두사를 사용하여 번역할 하위 폴더를 제한합니다.|
@@ -92,7 +92,7 @@ POST https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text
 
 완성된 번역 문서의 대상입니다.
 
-|Name|유형|필수|Description|
+|Name|Type|필수|Description|
 |--- |--- |--- |--- |
 |category|문자열|거짓|번역 요청을 위한 범주/사용자 지정 시스템입니다.|
 |glossaries|Glossary[]|거짓|Glossary는 아래와 같습니다. 용어집의 목록입니다.|
@@ -229,7 +229,7 @@ SAS 토큰은 컨테이너용이지만 폴더 이름(대/소문자 구분)을 �
 
 ## <a name="error-response"></a>오류 응답
 
-|Name|유형|설명|
+|Name|Type|설명|
 |--- |--- |--- |
 |code|문자열|간략한 오류 코드가 포함된 열거형입니다. 가능한 값은 다음과 같습니다.<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>권한 없음</li></ul>|
 |message|문자열|간략한 오류 메시지를 가져옵니다.|

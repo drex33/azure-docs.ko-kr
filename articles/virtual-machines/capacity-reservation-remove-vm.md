@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: 0ac1f38d65542ac6c8a892a6469cd8c9301dd463
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: f0c84e4b44218aa4f7659376251d1931ffc9516b
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129532601"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063624"
 ---
 # <a name="remove-a-vm-association-from-a-capacity-reservation-group-preview"></a>용량 예약 그룹에서 VM 연결 제거(미리 보기)
 
@@ -73,6 +73,27 @@ VM과 기본 용량 예약은 모두 논리적으로 용량을 차지하므로 A
 1. **구성** 을 선택합니다.
 1. **용량 예약 그룹** 값을 *없음* 으로 설정합니다.
     - VM이 더 이상 용량 예약 그룹에 연결되지 않습니다. 
+
+### <a name="cli"></a>[CLI](#tab/cli1)
+
+1. 가상 머신 할당 취소
+
+    ```azurecli-interactive
+    az vm deallocate 
+    -g myResourceGroup 
+    -n myVM
+    ```
+
+    상태가 **중지됨(할당 취소됨)** 으로 변경되면 가상 머신이 할당 취소됩니다.
+
+1. 속성을 None으로 설정하여 용량 예약 그룹과의 연결을 `capacity-reservation-group` 제거하도록 VM을 업데이트합니다.
+
+    ```azurecli-interactive
+    az vm update 
+    -g myresourcegroup 
+    -n myVM 
+    --capacity-reservation-group None
+    ```
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell1)
 
@@ -168,6 +189,28 @@ VM과 기본 용량 예약은 모두 논리적으로 용량을 차지하므로 A
 1. 가상 머신으로 이동하여 **구성** 을 선택합니다.
 1. **용량 예약 그룹** 값을 *없음* 으로 설정합니다.
     - VM이 더 이상 용량 예약 그룹에 연결되지 않습니다.
+
+### <a name="cli"></a>[CLI](#tab/cli2)
+
+1. 예약된 수량을 0으로 업데이트
+
+   ```azurecli-interactive
+   az capacity reservation update 
+   -g myResourceGroup
+   -c myCapacityReservationGroup 
+   -n myCapacityReservation 
+   --capacity 0
+   ```
+
+1. 속성을 None으로 설정하여 용량 예약 그룹과의 연결을 `capacity-reservation-group` 제거하도록 VM을 업데이트합니다.
+
+    ```azurecli-interactive
+    az vm update 
+    -g myresourcegroup 
+    -n myVM 
+    --capacity-reservation-group None
+    ```
+
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell2)
 

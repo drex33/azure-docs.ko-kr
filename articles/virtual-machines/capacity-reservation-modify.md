@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: 8b6e2ba3c65b5fd521bdb6326069ce5d8be05599
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 25b6eaea3c639d39721bd80aaad08cf2c6f80380
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128564888"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066474"
 ---
 # <a name="modify-a-capacity-reservation-preview"></a>용량 예약 수정(미리 보기)
 
@@ -66,6 +66,17 @@ ms.locfileid: "128564888"
 1. *예약 관리* 페이지에서 **인스턴스** 필드에 예약할 새 수량을 입력합니다 
 1. **저장** 을 선택합니다. 
 
+### <a name="cli"></a>[CLI](#tab/cli1)
+예약된 수량을 업데이트하려면 업데이트된 `capacity `속성과 함께 `az capacity reservation update`을 사용합니다.
+
+ ```azurecli-interactive
+ az capacity reservation update 
+ -c myCapacityReservationGroup 
+ -n myCapacityReservation 
+ -g myResourceGroup2 
+ --capacity 5
+ ```
+
 ### <a name="powershell"></a>[PowerShell](#tab/powershell1)
 
 예약된 수량을 업데이트하려면 업데이트된 `capacityToReserve`속성과 함께 `New-AzCapacityReservation`을 사용합니다.
@@ -78,7 +89,7 @@ Update-AzCapacityReservation
 -CapacityToReserve 5
 ```
 
-자세한 내용은 Azure PowerShell 명령 [Update-AzCapacityReservation으로](/powershell/module/az.compute/update-azcapacityreservation)이동합니다.
+자세히 알아보려면 Azure PowerShell 명령 [AzCapacityReservation](/powershell/module/az.compute/update-azcapacityreservation)를 참조 하세요.
 
 --- 
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
@@ -160,6 +171,32 @@ Update-AzCapacityReservation
 1. 각 예약에 예약된 *VM 크기* 를 확인합니다 
     1. 대상 VM 크기가 그룹의 일부가 아니면, 대상 VM에 대한 [새 용량 예약을 생성](capacity-reservation-create.md)합니다 
     1. 대상 VM 크기가 이미 그룹에 있는 경우, [가상 머신의 크기를 조정](resize-vm.md)합니다 
+
+### <a name="cli"></a>[CLI](#tab/cli2)
+
+1. 을 사용 하 여 용량 예약 그룹 내에 있는 모든 용량 예약의 이름을 가져옵니다. `az capacity reservation group show`
+
+    ```azurecli-interactive
+    az capacity reservation group show 
+    -g myResourceGroup
+    -n myCapacityReservationGroup 
+    ```
+
+1. 응답에서 모든 용량 예약의 이름을 찾습니다
+
+1. 다음 명령을 실행하여 각 예약에 예약된 VM 크기를 확인합니다
+
+    ```azurecli-interactive
+    az capacity reservation show
+    -g myResourceGroup
+    -c myCapacityReservationGroup 
+    -n myCapacityReservation 
+    ```
+
+1. 다음을 살펴보세요. 
+    1. 대상 VM 크기가 그룹의 일부가 아니면, 대상 VM에 대한 [새 용량 예약을 생성](capacity-reservation-create.md)합니다 
+    1. 대상 VM 크기가 이미 그룹에 있는 경우, [가상 머신의 크기를 조정](resize-vm.md)합니다 
+
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell2)
 
@@ -285,6 +322,38 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
     1. 용량 예약 그룹으로 이동합니다
     1. 페이지 위쪽에서 **삭제** 를 선택합니다
 
+### <a name="cli"></a>[CLI](#tab/cli3)
+
+용량 예약 그룹과 연결된 모든 가상 머신을 찾아 분리합니다.
+
+1. 다음을 실행합니다. 
+    
+    ```azurecli-interactive
+    az capacity reservation group show
+    -g myResourceGroup
+    -n myCapacityReservationGroup
+    ```
+
+1. 위의 응답에서 `VirtualMachinesAssociated` 속성 아래에 있는 모든 가상 머신의 이름을 확인하고, [용량 예약 그룹에서 가상 머신 연결 제거](capacity-reservation-remove-vm.md)에 설명된 단계를 사용하여 용량 예약 그룹에서 제거합니다.
+
+1. 모든 가상 머신이 그룹에서 제거되면 다음 단계를 진행합니다. 
+
+1. 용량 예약을 삭제합니다.
+
+    ```azurecli-interactive
+    az capacity reservation delete 
+    -g myResourceGroup 
+    -c myCapacityReservationGroup 
+    -n myCapacityReservation 
+    ```
+
+1. 용량 예약 그룹을 삭제합니다.
+
+    ```azurecli-interactive
+    az capacity reservation group delete 
+    -g myResourceGroup 
+    -n myCapacityReservationGroup
+    ```
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell3)
 

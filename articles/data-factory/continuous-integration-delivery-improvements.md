@@ -7,13 +7,13 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 08/23/2021
-ms.openlocfilehash: 921db5e082748ce814a19c96c5de4ac3061750e2
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 10/14/2021
+ms.openlocfilehash: 3c14373567bf0860f59b44cd7f6042ad9aeb1adb
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129220421"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066968"
 ---
 # <a name="automated-publishing-for-continuous-integration-and-delivery"></a>연속 통합 및 지속적인 업데이트에 대한 자동화된 게시
 
@@ -69,6 +69,9 @@ Data Factory를 다른 환경으로 승격시키는 두 가지 제안된 방법�
 
 > [!NOTE]
 > `adf_publish` 분기인 기존 메커니즘을 계속 사용할 수도 있고, 새 흐름을 사용할 수도 있습니다. 둘 다 지원됩니다.
+
+> [!WARNING]
+> 자동화된 게시를 사용하는 경우 전역 매개 변수에 ARM 템플릿 구성 **포함은** 지원되지 않으며 ARM 템플릿 배포 후에 팩터리의 Git 구성이 제거됩니다. 대신 [PowerShell 스크립트 메서드를](author-global-parameters.md#cicd) 사용하여 Azure 파이프라인에 전역 매개 변수를 배포합니다.
 
 ## <a name="package-overview"></a>패키지 개요
 

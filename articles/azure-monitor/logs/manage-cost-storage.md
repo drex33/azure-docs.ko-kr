@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/23/2021
+ms.date: 10/12/2021
 ms.author: bwren
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: febbfc5a1a3381affac50a75a29cb502c7872d69
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: d79bd794d14dd3bb6fec9375008c688a37f92764
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129657222"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065657"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 사용량 및 비용 관리    
 
@@ -69,9 +69,18 @@ Azure Monitor 로그를 아직 사용하고 있지 않다면 [Azure Monitor 가�
 2. **AKS(Azure Kubernetes Service) 클러스터 모니터링:** 일반적인 AKS 클러스터를 모니터링하기 위한 예상 데이터 볼륨에 대한 자세한 내용은 [여기](../containers/container-insights-cost.md#estimating-costs-to-monitor-your-aks-cluster)에서 확인할 수 있습니다. 이러한 [모범 사례](../containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost)에 따라 AKS 클러스터 모니터링 비용을 제어합니다. 
 3. **애플리케이션 모니터링:** Azure Monitor 가격 계산기에는 애플리케이션의 사용량에 대해 사용하고 Application Insights 데이터 볼륨의 통계 분석을 기준으로 하는 데이터 볼륨 예측 도구가 포함되어 있습니다. 가격 계산기의 Application Insights 섹션에서 "애플리케이션 활동을 기반으로 데이터 볼륨 예측" 옆에 있는 스위치를 토글하여 사용합니다. 
 
-## <a name="understand-your-usage-and-estimate-costs"></a>사용량 파악 및 비용 추정
+## <a name="viewing-log-analytics-usage-on-your-azure-bill"></a>Azure 청구서에서 Log Analytics 사용량 보기 
 
-이제 Azure Monitor 로그를 사용하면 최근 사용 패턴에 기초하여 발생 가능한 비용을 쉽게 파악할 수 있습니다. 이렇게 하려면 **Log Analytics 사용량 및 예상 비용** 을 사용하여 데이터 사용량을 검토하고 분석합니다. 이는 솔루션별로 수집되는 데이터양, 보유 중인 데이터양, 수집된 데이터양과 포함된 양을 초과하여 추가로 보유 중인 데이터양을 기준으로 한 추정 비용을 각각 표시합니다.
+Partciular Log Analytics 작업 영역에 대 한 청구 된 사용량을 확인 하는 가장 쉬운 방법은 작업 영역의 **개요** 페이지로 이동 하 여 페이지 맨 위에 있는 Essentials 섹션의 오른쪽 위 모서리에서 **비용 보기** 를 클릭 하는 것입니다. 이렇게 하면 이미이 작업 영역으로 범위가 지정 된 Azure Cost Management + 청구에서 비용 분석을 시작 합니다.  
+
+또는 [Azure Cost Management + 청구](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json) 허브에서 시작할 수 있습니다. 여기에서 "비용 분석" 기능을 사용 하 여 Azure 리소스 비용을 볼 수 있습니다. Log Analytics 지출을 추적하려면 "리소스 종류" 기준 필터를 추가할 수 있습니다(Log Analytics의 경우 microsoft.operationalinsights/workspace에 추가, Log Analytics 클러스터의 경우 microsoft.operationalinsights/cluster에 추가). **그룹화 방법** 으로 **미터 범주** 또는 **미터** 를 선택합니다. Azure Defender(Security Center) 및 Azure Sentinel과 같은 다른 서비스에서도 Log Analytics 작업 영역 리소스에 대한 사용량 요금을 청구합니다. 서비스 이름에 대한 매핑을 보기 위해 차트 대신 테이블 보기를 선택할 수 있습니다. 
+
+사용량을 보다 잘 이해하려면 [Azure Portal에서 사용량을 다운로드](../../cost-management-billing/understand/download-azure-daily-usage.md)할 수 있습니다. 다운로드한 스프레드시트에서 Azure 리소스별(예: Log Analytics 작업 영역) 일일 사용량을 볼 수 있습니다. 이 Excel 스프레드시트에서 Log Analytics 작업 영역의 사용량은 먼저 “Log Analytics”, “Insight and Analytics”(일부 레거시 가격 책정 계층에서 사용됨) 및 “Azure Monitor”(약정 계층 가격 책정 계층에서 사용됨)를 표시하도록 “미터 범주” 열을 필터링한 다음, “작업 영역 포함” 또는 “클러스터 포함”(후자의 경우 Log Analytics 클러스터 사용량을 포함)인 필터를 “인스턴스 ID” 열에 추가하여 확인할 수 있습니다. 사용량은 "사용한 수량" 열에 표시되며 각 항목에 대한 단위는 "측정 단위" 열에 표시됩니다. 자세한 내용은 [개별 Azure 구독 청구서 검토](../../cost-management-billing/understand/review-individual-bill.md)를 참조하세요. 
+
+## <a name="understand-your-usage-and-optimizing-your-pricing-tier"></a>사용량 이해 및 가격 책정 계층 최적화
+<a name="understand-your-usage-and-estimate-costs"></a>
+
+사용량 추세에 대해 알아보고 가장 비용 효율적인 log Analytics 가격 책정 계층을 선택 하려면 **Log Analytics 사용량 및 예상 비용** 을 사용 합니다. 이는 각 솔루션에 의해 수집 되는 데이터의 양, 보존 되는 데이터의 양과 최근 데이터 수집 패턴을 기반으로 하는 각 가격 책정 계층의 예상 비용을 보여 줍니다. 
 
 :::image type="content" source="media/manage-cost-storage/usage-estimated-cost-dashboard-01.png" alt-text="사용량 및 예상 비용":::
 
@@ -82,12 +91,6 @@ Azure Monitor 로그를 아직 사용하고 있지 않다면 [Azure Monitor 가�
 **사용량 및 예상 비용** 페이지에서 해당 월의 데이터 볼륨을 검토할 수 있습니다. 여기에는 Log Analytics 작업 영역에서 받고 유지하는 모든 청구 가능한 데이터가 포함됩니다.  
  
 Log Analytics 요금은 Azure 청구서에 추가됩니다. Azure 청구서의 자세한 내용은 Azure Portal의 **청구** 섹션 또는 [Azure 청구 포털](https://account.windowsazure.com/Subscriptions)에서 참고할 수 있습니다.  
-
-## <a name="viewing-log-analytics-usage-on-your-azure-bill"></a>Azure 청구서에서 Log Analytics 사용량 보기 
-
-Azure는 [Azure Cost Management + 청구](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json) 허브에서 많은 유용한 기능을 제공합니다. 예를 들어 "비용 분석" 기능을 사용하여 Azure 리소스 비용을 볼 수 있습니다. Log Analytics 지출을 추적하려면 "리소스 종류" 기준 필터를 추가할 수 있습니다(Log Analytics의 경우 microsoft.operationalinsights/workspace에 추가, Log Analytics 클러스터의 경우 microsoft.operationalinsights/cluster에 추가). **그룹화 방법** 으로 **미터 범주** 또는 **미터** 를 선택합니다. Azure Defender(Security Center) 및 Azure Sentinel과 같은 다른 서비스에서도 Log Analytics 작업 영역 리소스에 대한 사용량 요금을 청구합니다. 서비스 이름에 대한 매핑을 보기 위해 차트 대신 테이블 보기를 선택할 수 있습니다. 
-
-사용량을 보다 잘 이해하려면 [Azure Portal에서 사용량을 다운로드](../../cost-management-billing/understand/download-azure-daily-usage.md)할 수 있습니다. 다운로드한 스프레드시트에서 Azure 리소스별(예: Log Analytics 작업 영역) 일일 사용량을 볼 수 있습니다. 이 Excel 스프레드시트에서 Log Analytics 작업 영역의 사용량은 먼저 “Log Analytics”, “Insight and Analytics”(일부 레거시 가격 책정 계층에서 사용됨) 및 “Azure Monitor”(약정 계층 가격 책정 계층에서 사용됨)를 표시하도록 “미터 범주” 열을 필터링한 다음, “작업 영역 포함” 또는 “클러스터 포함”(후자의 경우 Log Analytics 클러스터 사용량을 포함)인 필터를 “인스턴스 ID” 열에 추가하여 확인할 수 있습니다. 사용량은 "사용한 수량" 열에 표시되며 각 항목에 대한 단위는 "측정 단위" 열에 표시됩니다. 자세한 내용은 [개별 Azure 구독 청구서 검토](../../cost-management-billing/understand/review-individual-bill.md)를 참조하세요. 
 
 ## <a name="changing-pricing-tier"></a>가격 책정 계층 변경
 

@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 065ffe56e2868cce00bd92c612beb987d9372e38
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: b547dfb51771c826f163972408f053d9320d8b1e
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129388796"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130067234"
 ---
 # <a name="encrypted-connectivity-using-transport-layer-security-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버에서 전송 계층 보안을 사용한 암호화된 연결
 
@@ -23,7 +23,7 @@ Azure Database for PostgreSQL - 유연한 서버는 이전에 SSL(Secure Sockets
 Azure Database for PostgreSQL - 유연한 서버는 전송 계층 보안(TLS 1.2 이상)을 사용하는 암호화된 연결을 지원하며 TLS 1.0 및 TLS 1.1을 사용하여 들어오는 연결은 모두 거부됩니다. 모든 유연한 서버의 경우 TLS 연결을 적용할 수 있습니다. 
 
 >[!Note]
-> 기본적으로 클라이언트와 서버 간의 보안 연결이 적용됩니다. 유연한 서버에 연결하기 위해 TLS/SSL을 사용하지 않도록 설정하려면 서버 매개 변수를 로 변경할 수 `require_secure_transport` `OFF` 있습니다. 
+> 기본적으로 클라이언트와 서버 간의 보안 연결이 적용됩니다. 유연한 서버에 연결하기 위해 TLS/SSL을 사용하지 않도록 설정하려면 서버 매개 변수 *require_secure_transport* *OFF로* 변경할 수 있습니다. ssl_min_protocol_version *및* *ssl_max_protocol_version* 서버 매개 변수를 설정하여 TLS 버전을 설정할 수도 있습니다.
 
 ## <a name="applications-that-require-certificate-verification-for-tlsssl-connectivity"></a>TLS/SSL 연결을 위해 인증서 확인이 필요한 애플리케이션
 경우에 따라 안전한 연결을 위해 애플리케이션에 신뢰할 수 있는 CA(인증 기관) 인증서 파일에서 생성되는 로컬 인증서 파일이 필요합니다. Azure Database for PostgreSQL - 유연한 서버는 *DigiCert Global Root CA* 를 사용합니다. [DigiCert Global Root CA](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)에서 SSL을 통해 통신하는 데 필요한 이 인증서를 다운로드하고 인증서 파일을 원하는 위치에 저장합니다. 예를 들어 이 자습서에서는 `c:\ssl`을 사용합니다.
@@ -40,9 +40,9 @@ Azure Database for PostgreSQL - 유연한 서버는 전송 계층 보안(TLS 1.2
  psql "sslmode=verify-full sslrootcert=c:\ssl\DigiCertGlobalRootCA.crt.pem host=mydemoserver.postgres.database.azure.com dbname=postgres user=myadmin"
 ```
 > [!Note]
-> `sslrootcert`에 전달된 값이 저장한 인증서의 파일 경로와 일치하는지 확인합니다.
+> *sslrootcert에* 전달된 값이 저장한 인증서의 파일 경로와 일치하는지 확인합니다.
 
-## <a name="ensure-your-application-or-framework-supports-tls-connections"></a>애플리케이션 또는 프레임워크가 TLS 연결을 지원하는지 확인합니다.
+## <a name="ensure-your-application-or-framework-supports-tls-connections"></a>애플리케이션 또는 프레임워크가 TLS 연결을 지원하는지 확인
 
 데이터베이스 서비스용 PostgreSQL을 사용하는 일부 애플리케이션 프레임워크는 기본적으로 설치하는 동안 TLS를 사용하도록 설정하지 않습니다. PostgreSQL 서버는 TLS 연결을 적용하지만 애플리케이션이 TLS용으로 구성되지 않은 경우 애플리케이션이 데이터베이스 서버에 연결하지 못할 수 있습니다. 애플리케이션의 설명서를 참조하여 TLS 연결을 활성화하는 방법을 알아보세요.
 

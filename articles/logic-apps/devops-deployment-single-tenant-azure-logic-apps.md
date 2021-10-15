@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 09/13/2021
-ms.openlocfilehash: a94abb3b2c640dbd0bcd372e83844d660af514cd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b7e418c6e8fd282bc04f7a4a95c90d085e86deae
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128548200"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130067082"
 ---
 # <a name="devops-deployment-for-single-tenant-azure-logic-apps"></a>단일 테넌트 Azure Logic Apps용 DevOps 배포
 
@@ -43,7 +43,7 @@ ms.locfileid: "128548200"
 
 ### <a name="local-development-and-testing"></a>로컬 개발 및 테스트
 
-Azure Logic Apps(표준) 확장과 함께 Visual Studio Code를 사용하는 경우 Azure에 배포하지 않고도 개발 환경에서 단일 테넌트 기반 논리 앱 워크플로를 로컬로 개발, 빌드 및 실행할 수 있습니다. Azure Functions 실행할 수 있는 워크플로를 실행할 수도 있습니다. 예를 들어, 시나리오에 컨테이너가 필요한 경우 논리 앱을 컨테이너화하고 컨테이너로 배포할 수 있습니다.
+Azure Logic Apps(표준) 확장과 함께 Visual Studio Code를 사용하는 경우 Azure에 배포하지 않고도 개발 환경에서 단일 테넌트 기반 논리 앱 워크플로를 로컬로 개발, 빌드 및 실행할 수 있습니다. 시나리오에 컨테이너가 필요한 경우 Azure Arc 사용하도록 [설정된 Logic Apps](azure-arc-enabled-logic-apps-overview.md)통해 만들고 배포할 수 있습니다.
 
 이 기능은 주요 개선 사항으로, 다중 테넌트 모델에 비해 상당한 이점을 제공하며, 이를 위해 Azure에서 기존 및 실행 중인 리소스를 토대로 개발을 진행해야 합니다.
 
@@ -69,7 +69,7 @@ Azure Logic Apps(표준) 확장과 함께 Visual Studio Code를 사용하는 경
 
 ### <a name="container-deployment"></a>컨테이너 배포
 
-단일 테 넌 트 Azure Logic Apps는 컨테이너에 대 한 배포를 지원 합니다. 즉, 논리 앱 워크플로를 컨테이너 화 컨테이너를 실행할 수 있는 위치에서 실행할 수 있습니다. 앱을 컨테이너화한 후 배포는 배포하고 관리하는 다른 컨테이너와 거의 동일하게 작동합니다.
+단일 테넌트 Azure Logic Apps 컨테이너에 대한 배포를 지원합니다. 즉, 논리 앱 워크플로를 컨테이너화하고 컨테이너를 실행할 수 있는 곳에서 실행할 수 있습니다. 앱을 컨테이너화한 후 배포는 배포하고 관리하는 다른 컨테이너와 거의 동일하게 작동합니다.
 
 Azure DevOps를 포함하는 예제는 [컨테이너에 대한 CI/CD](https://azure.microsoft.com/solutions/architecture/cicd-for-containers/)를 검토하세요.
 
@@ -97,7 +97,7 @@ Visual Studio Code에서 디자이너를 사용하여 워크플로를 개발하�
 
 ### <a name="service-provider-connections"></a>서비스 공급자 연결
 
-단일 테넌트 Azure Logic Apps에서 Azure Service Bus 또는 Azure Event Hubs와 같은 서비스에 대한 기본 제공 작업을 사용하는 경우 워크플로와 동일한 프로세스에서 실행되는 서비스 공급자 연결을 만듭니다. 이 연결 인프라는 논리 앱 리소스의 일부로 호스트 되 고 관리 되며, 앱 설정은 워크플로에서 사용 하는 모든 서비스 공급자 기반 기본 제공 작업에 대 한 연결 문자열을 저장 합니다.
+단일 테넌트 Azure Logic Apps에서 Azure Service Bus 또는 Azure Event Hubs와 같은 서비스에 대한 기본 제공 작업을 사용하는 경우 워크플로와 동일한 프로세스에서 실행되는 서비스 공급자 연결을 만듭니다. 이 연결 인프라는 논리 앱 리소스의 일부로 호스트 및 관리되며, 앱 설정은 워크플로에서 사용하는 서비스 공급자 기반 기본 제공 작업에 대한 연결 문자열을 저장합니다.
 
 논리 앱 프로젝트에서 각 워크플로에는 워크플로의 기본 JSON 정의가 포함된 workflow.json 파일이 포함되어 있습니다. 그런 다음, 이 워크플로 정의는 프로젝트 connections.json 파일의 필요한 연결 문자열을 참조합니다.
 
@@ -174,7 +174,7 @@ Azure Functions에서 만들고 호스트한 함수를 호출하려면 기본 �
 
 ## <a name="authentication"></a>인증
 
-단일 테넌트 Azure Logic Apps에서 논리 앱 워크플로에 대한 호스팅 모델은 워크로드가 다중 테넌트 모델보다 좀 더 격리된 방식이 유리한 단일 테넌트입니다. 또한 단일 테 넌 트 Azure Logic Apps 런타임은 이식 가능 합니다. 즉, Azure Functions를 실행할 수 있는 워크플로를 실행할 수 있습니다. 그러나 이 디자인은 논리 앱이 Azure에서 관리형 커넥터 에코시스템에 액세스할 수 있도록 해당 ID를 인증하는 방법이 필요합니다. 또한 관리형 연결을 사용할 때 작업을 실행하려면 앱에 올바른 권한이 필요합니다.
+단일 테넌트 Azure Logic Apps에서 논리 앱 워크플로에 대한 호스팅 모델은 워크로드가 다중 테넌트 모델보다 좀 더 격리된 방식이 유리한 단일 테넌트입니다. 또한 단일 테넌트 Azure Logic Apps 런타임은 이식 가능하기 때문에 다른 환경(예: Visual Studio Code 로컬로)에서 워크플로를 실행할 수 있습니다. 그러나 이 디자인은 논리 앱이 Azure에서 관리형 커넥터 에코시스템에 액세스할 수 있도록 해당 ID를 인증하는 방법이 필요합니다. 또한 관리형 연결을 사용할 때 작업을 실행하려면 앱에 올바른 권한이 필요합니다.
 
 기본적으로 각 단일 테넌트 기반 논리 앱에는 자동으로 사용하도록 설정된 시스템 할당 관리 ID가 있습니다. 이 ID는 연결을 만들 때 사용하는 인증 자격 증명이나 연결 문자열과는 다릅니다. 런타임에 논리 앱은 이 ID를 사용하여 Azure 액세스 정책을 통해 해당 연결을 인증합니다. 이 ID를 사용하지 않도록 설정하면 런타임에 연결이 작동하지 않습니다.
 

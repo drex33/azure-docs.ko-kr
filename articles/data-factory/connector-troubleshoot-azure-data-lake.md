@@ -6,15 +6,15 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 10/13/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
-ms.openlocfilehash: 1c36fa5295acafb96e57484cf34429091dd634e9
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: e5300e8c2008d99ec7757ed3850b8b31698ac8a9
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129391106"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064346"
 ---
 # <a name="troubleshoot-the-azure-data-lake-storage-connectors-in-azure-data-factory-and-azure-synapse"></a>Azure Data Factory 및 Azure Synapse의 Azure Data Lake Storage 커넥터 문제 해결
 
@@ -100,6 +100,16 @@ ms.locfileid: "129391106"
             }
         }
         ```
+
+### <a name="the-copy-activity-is-not-able-to-pick-files-from-azure-data-lake-storage-gen2"></a>복사 작업에서 Azure Data Lake Storage Gen2 파일을 선택할 수 없습니다.
+
+- **증상**: 파일 이름이 "Asset_Metadata" 인 경우 복사 작업에서 Azure Data Lake Storage Gen2 파일을 선택할 수 없습니다. 이 문제는 Parquet 형식 데이터 집합에만 발생 합니다. 동일한 파일 이름을 가진 다른 유형의 데이터 집합이 제대로 작동 합니다.
+
+- **원인**: 이전 버전과의 호환성을 위해 `_metadata` 는 파일 이름에 예약 된 부분 문자열로 처리 됩니다. 
+
+- **권장 사항**: 아래 Parquet 예약 목록을 사용 하지 않도록 파일 이름을 변경 합니다. 
+    1. 파일 이름에는가 포함 `_metadata` 됩니다.
+    2. 파일 이름이 `.` (점)로 시작 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

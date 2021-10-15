@@ -1,17 +1,17 @@
 ---
 title: Azure Marketplace에서 테넌트 ID, 개체 ID, 파트너 연결 정보 찾기
-description: Azure Marketplace에서 구독 ID의 테넌트 ID, 개체 ID, 파트너 연결 정보를 찾는 방법입니다.
+description: Azure Marketplace 구독 ID의 테넌트 ID, 개체 ID 및 파트너 연결 세부 정보를 찾습니다.
 ms.service: marketplace
 ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 10/09/2020
-ms.openlocfilehash: 92819c28002c79ff905174e5b2f94779050237fd
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: a71a60bd4f12a46456c3a2d0725642118b2acc40
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129356718"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065296"
 ---
 # <a name="find-tenant-id-object-id-and-partner-association-details"></a>테넌트 ID, 개체 ID, 파트너 연결 정보 찾기
 
@@ -27,22 +27,22 @@ Azure Cloud Shell에서 디버깅 지원에 사용할 수 있도록 이러한 �
 1. [Azure Portal](https://ms.portal.azure.com/)로 이동합니다.
 2. **Azure Active Directory** 를 선택합니다.
 
-    :::image type="content" source="media/tenant-and-object-id/icon-azure-ad.png" alt-text="Azure Portal의 Azure Active Directory 아이콘":::
+    :::image type="content" source="media/tenant-and-object-id/icon-azure-ad.png" alt-text="Azure Portal Azure Active Directory 아이콘입니다.":::
 
 3. **개요** 를 선택합니다. 테넌트 ID는 **기본 정보** 에 표시되어야 합니다.
 
-    :::image type="content" source="media/tenant-and-object-id/select-groups-1.png" alt-text="Azure Portal에서 그룹을 선택":::합니다.
+    :::image type="content" source="media/tenant-and-object-id/select-groups-1.png" alt-text="Azure Portal 그룹을 선택합니다.":::
 
 ## <a name="find-subscriptions-and-roles"></a>구독 및 역할 찾기
 
 1. Azure Portal로 이동하여 위의 1단계와 2단계에서 설명한 대로 **Azure Active Directory** 를 선택합니다.
 2. **구독** 을 선택합니다.
 
-    :::image type="content" source="media/tenant-and-object-id/icon-azure-subscriptions-1.png" alt-text="Azure Portal의 구독 아이콘":::
+    :::image type="content" source="media/tenant-and-object-id/icon-azure-subscriptions-1.png" alt-text="Azure Portal 구독 아이콘입니다.":::
 
 3. 구독 및 역할 보기
 
-    :::image type="content" source="media/tenant-and-object-id/subscriptions-screen-1.png" alt-text="Azure Portal의 구독 화면":::
+    :::image type="content" source="media/tenant-and-object-id/subscriptions-screen-1.png" alt-text="Azure Portal 구독 화면":::
 
 ## <a name="find-partner-id"></a>파트너 ID 찾기
 

@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 10/14/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: fe6397b79ff37074342b40880aa5284e020cd8a1
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 86cf5cfaf5d64c9aa1f1cda17df543b953a5ed17
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129859197"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066987"
 ---
 # <a name="authorize-access-to-blobs-using-azure-active-directory"></a>Azure Active Directory를 사용하여 Blob에 대한 액세스 권한 부여
 
@@ -30,17 +30,19 @@ Azure AD를 통한 권한 부여는 모든 퍼블릭 지역 및 국가별 클라
 
 보안 주체(사용자, 그룹 또는 응용 프로그램)가 Blob 리소스에 액세스하려고 할 때 익명 액세스에 사용할 수 있는 Blob이 아닌 경우 요청에 권한이 부여되어야 합니다. Azure AD의 경우 리소스에 대한 액세스는 2단계 프로세스입니다. 먼저, 보안 주체의 ID가 인증되고 OAuth 2.0 토큰이 반환됩니다. 그런 다음 토큰은 Blob service에 대한 요청의 일부로 전달되고 서비스에서 지정된 리소스에 대한 액세스 권한을 부여하는 데 사용됩니다.
 
-인증 단계를 수행하려면 런타임 시 애플리케이션 요청에 OAuth 2.0 액세스 토큰이 있어야 합니다. 애플리케이션이 Azure VM, 가상 머신 확장 집합 또는 Azure Functions 앱과 같은 Azure 엔터티 내에서 실행되는 경우 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 사용하여 Blob 데이터에 액세스할 수 있습니다. 관리 ID에서 Azure Blob service 대한 요청에 권한을 부여하는 방법을 알아보려면 Azure [리소스에 대한 관리 ID를 사용하여 Blob 데이터에 대한 액세스 권한 부여를 참조하세요.](authorize-managed-identity.md)
+인증 단계를 수행하려면 런타임 시 애플리케이션 요청에 OAuth 2.0 액세스 토큰이 있어야 합니다. 애플리케이션이 Azure VM, 가상 머신 확장 집합 또는 Azure Functions 앱과 같은 Azure 엔터티 내에서 실행되는 경우 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 사용하여 Blob 데이터에 액세스할 수 있습니다. 관리 id에의 한 요청을 Azure Blob service에 권한을 부여 하는 방법을 알아보려면 [azure 리소스에 대 한 관리 되는 id를 사용 하 여 Blob 데이터에 대 한 액세스 권한 부여](authorize-managed-identity.md)를 참조 하세요.
 
-권한 부여 단계에서는 보안 주체에 하나 이상의 Azure 역할을 할당해야 합니다. Azure Storage는 Blob 및 큐 데이터에 대한 일반적인 사용 권한 집합을 포함하는 Azure 역할을 제공합니다. 보안 주체에 할당된 역할에 따라 보안 주체가 가지는 권한이 결정됩니다. Blob 액세스를 위한 Azure 역할 할당에 대한 자세한 내용은 [BLOB 데이터 액세스를 위한 Azure 역할 할당](../blobs/assign-azure-role-data-access.md)을 참조하세요.
+권한 부여 단계를 수행 하려면 요청을 수행 하는 보안 주체에 하나 이상의 Azure RBAC 역할을 할당 해야 합니다. 자세한 내용은 [액세스 권한에 대 한 Azure 역할 할당](#assign-azure-roles-for-access-rights)을 참조 하세요.
 
 Azure Blob service에 요청하는 기본 애플리케이션 및 웹 애플리케이션은 Azure AD로 액세스 권한을 부여할 수도 있습니다. 액세스 토큰을 요청하고 이를 사용하여 Blob 데이터에 대한 요청을 승인하는 방법을 알아보려면 [Azure Storage 애플리케이션에서 Azure AD를 사용하여 Azure Storage에 대한 액세스 권한 부여](../common/storage-auth-aad-app.md)를 참조하세요.
 
 ## <a name="assign-azure-roles-for-access-rights"></a>액세스 권한에 대한 Azure 역할 할당
 
-Azure AD(Azure Active Directory)는 [Azure RBAC](../../role-based-access-control/overview.md)(Azure 역할 기반 액세스 제어)를 통해 보안 리소스에 대한 액세스 권한을 부여합니다. Azure Storage는 Blob 데이터에 액세스하는 데 사용되는 공통 권한 집합을 포함하는 Azure 기본 제공 역할 집합을 정의합니다. Blob 데이터에 액세스하기 위한 사용자 지정 역할을 정의할 수도 있습니다.
+Azure AD(Azure Active Directory)에서는 Azure RBAC를 통해 보호된 리소스에 액세스 권한을 부여합니다. Azure Storage는 blob 데이터에 액세스 하는 데 사용 되는 일반 사용 권한 집합을 포함 하는 기본 제공 RBAC 역할 집합을 정의 합니다. Blob 데이터에 액세스하기 위한 사용자 지정 역할을 정의할 수도 있습니다. Blob 액세스를 위한 Azure 역할 할당에 대한 자세한 내용은 [BLOB 데이터 액세스를 위한 Azure 역할 할당](../blobs/assign-azure-role-data-access.md)을 참조하세요.
 
-Azure AD 보안 주체에 Azure 역할을 할당하는 경우 Azure는 해당 보안 주체의 해당 리소스에 대한 액세스 권한을 부여합니다. Azure AD 보안 주체는 사용자, 그룹, 애플리케이션 서비스 사용자 또는 [Azure 리소스의 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)일 수 있습니다.
+Azure AD 보안 주체는 사용자, 그룹, 애플리케이션 서비스 사용자 또는 [Azure 리소스의 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)일 수 있습니다. 보안 주체에 할당 된 RBAC 역할은 보안 주체에 게 부여 되는 권한을 결정 합니다. Blob 액세스를 위해 Azure 역할을 할당 하는 방법에 대 한 자세한 내용은 [blob 데이터에 액세스 하기 위한 azure 역할 할당](../blobs/assign-azure-role-data-access.md) 을 참조 하세요.
+
+경우에 따라 blob 리소스에 대 한 세분화 된 액세스를 사용 하도록 설정 하거나 저장소 리소스에 대해 많은 수의 역할 할당을 사용 하는 경우 사용 권한을 간소화 해야 할 수도 있습니다. Azure attribute 기반 액세스 제어 (Azure ABAC)를 사용 하 여 역할 할당에 대 한 조건을 구성할 수 있습니다. [사용자 지정 역할](../../role-based-access-control/custom-roles.md)과 함께 조건을 사용하거나 기본 제공 역할을 선택할 수 있습니다. ABAC를 사용 하 여 Azure storage 리소스의 조건을 구성 하는 방법에 대 한 자세한 내용은 [azure 역할 할당 조건 (미리 보기)을 사용 하 여 blob에 대 한 액세스 권한 부여](../common/storage-auth-abac.md) blob 데이터 작업에 대해 지원 되는 조건에 대 한 자세한 내용은 [Azure Storage (미리 보기)의 Azure 역할 할당 조건에 대 한 작업 및 특성](../common/storage-auth-abac-attributes.md)을 참조 하세요.
 
 ### <a name="resource-scope"></a>리소스 범위
 
@@ -107,7 +109,7 @@ Azure Portal은 컨테이너로 이동할 때 사용 중인 권한 부여 체계
 
 | Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![아니요](../media/icons/no-icon.png) |
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)              | ![예](../media/icons/no-icon.png) |
 | Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) | ![예](../media/icons/yes-icon.png)| ![아니요](../media/icons/no-icon.png) |
 
 <sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.

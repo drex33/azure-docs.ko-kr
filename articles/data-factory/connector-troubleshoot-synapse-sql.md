@@ -6,15 +6,15 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 10/13/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
-ms.openlocfilehash: f258ba3b8c62d0d290785bbf6a66cc7651286162
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 84208764621bd03959db7d695bf0616dcccc4491
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129391110"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064783"
 ---
 # <a name="troubleshoot-the-azure-synapse-analytics-azure-sql-database-and-sql-server-connectors-in-azure-data-factory-and-azure-synapse"></a>Azure Data Factory 및 azure Synapse에서 azure Synapse Analytics, Azure SQL Database 및 SQL Server 커넥터 문제 해결
 
@@ -93,10 +93,12 @@ ms.locfileid: "129391110"
 
 - **메시지**: `The specified Stored Procedure is not valid. It could be caused by that the stored procedure doesn't return any data. Invalid Stored Procedure script: '%scriptName;'.`
 
-- **원인**: 지정된 저장 프로시저가 잘못되었습니다. 저장 프로시저가 데이터를 반환하지 않는 것이 원인일 수 있습니다.
+- **원인 및 권장 사항**: 오류의 원인이 여러 가지일 수 있습니다. 아래 목록에서 가능한 원인 분석과 권장 사항을 확인하세요.
 
-- **권장 사항**: SQL 도구를 사용하여 저장 프로시저의 유효성을 검사합니다. 저장 프로시저가 데이터를 반환할 수 있는지 확인합니다.
-
+  | 원인 분석                                               | 권장                                             |
+  | :----------------------------------------------------------- | :----------------------------------------------------------- |
+  | 지정 된 저장 프로시저가 잘못 되었습니다. | SQL 도구를 사용 하 여 저장 프로시저의 유효성을 검사 합니다. 저장 프로시저가 데이터를 반환할 수 있는지 확인합니다.  |
+  | 조회 작업에서는 저장 프로시저에서 일부 값을 반환 해야 하지만 저장 프로시저 코드에서 값을 반환 하지 않습니다. | 저장 프로시저에서 데이터를 반환 하지 않을 것으로 예상 되는 경우 저장 프로시저 작업을 사용 합니다. |
 
 ## <a name="error-code-sqlinvaliddbquerystring"></a>오류 코드: SqlInvalidDbQueryString
 

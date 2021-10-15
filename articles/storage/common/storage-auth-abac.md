@@ -6,33 +6,33 @@ services: storage
 author: santoshc
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/06/2021
+ms.date: 10/14/2021
 ms.author: santoshc
 ms.reviewer: jiacfan
 ms.subservice: common
-ms.openlocfilehash: 355eaa0c7e907dea1e1fe88e0640d3b09463fa09
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
-ms.translationtype: HT
+ms.openlocfilehash: 0aeb8766822bbfe19dfdd70ed242e7176dd44117
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113729023"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130062786"
 ---
 # <a name="authorize-access-to-blobs-using-azure-role-assignment-conditions-preview"></a>Azure 역할 할당 조건(미리 보기)을 사용하여 Blob에 대한 액세스 권한 부여
+
+ABAC(특성 기반 액세스 제어)는 보안 주체, 리소스, 요청 및 환경과 관련된 특성을 기반으로 액세스 수준을 정의하는 권한 부여 전략입니다. Azure ABAC는 기존 IAM(ID 및 액세스 관리) 시스템에 [Azure 역할 할당에 조건](../../role-based-access-control/conditions-overview.md)을 추가하여 Azure RBAC(Azure 역할 기반 액세스 제어)를 기반으로 합니다. 이 미리 보기에는 Blob 및 Data Lake Storage Gen2에 대한 역할 할당 조건이 지원됩니다. 리소스 및 요청 특성을 기반으로 역할 할당 조건을 작성할 수 있습니다.
 
 > [!IMPORTANT]
 > Azure ABAC 및 Azure 역할 할당 조건은 현재 미리 보기 상태입니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-ABAC(특성 기반 액세스 제어)는 보안 주체, 리소스, 요청 및 환경과 관련된 특성을 기반으로 액세스 수준을 정의하는 권한 부여 전략입니다. Azure ABAC는 기존 IAM(ID 및 액세스 관리) 시스템에 [Azure 역할 할당에 조건](../../role-based-access-control/conditions-overview.md)을 추가하여 Azure RBAC(Azure 역할 기반 액세스 제어)를 기반으로 합니다. 이 미리 보기에는 Blob 및 Data Lake Storage Gen2에 대한 역할 할당 조건이 지원됩니다. 리소스 및 요청 특성을 기반으로 역할 할당 조건을 작성할 수 있습니다.
-
 ## <a name="overview-of-conditions-in-azure-storage"></a>Azure 스토리지 조건 개요
 
-Azure 스토리지를 사용하면 [Azure Active Directory](authorize-data-access.md)(Azure AD)를 사용하여 Blob 및 큐 스토리지에 대한 요청을 승인할 수 있습니다. Azure AD는 Azure RBAC를 사용하여 보안 리소스에 대한 액세스 권한을 부여합니다. Azure 스토리지는 Blob 및 큐 데이터에 액세스하는 데 사용되는 공통 권한 집합을 포함하는 Azure [기본 제공 역할](../../role-based-access-control/built-in-roles.md#storage) 집합을 정의합니다. 선택 권한 집합을 사용하여 사용자 지정 역할을 정의할 수도 있습니다. Azure 스토리지는 스토리지 계정 또는 Blob 컨테이너에 대한 역할 할당을 지원합니다.
+Azure Storage 사용하면 Azure [AD(Azure Active Directory)를 사용하여](authorize-data-access.md) Blob, 큐 및 테이블 리소스에 대한 요청에 권한을 부여할 수 있습니다. Azure AD는 Azure RBAC를 사용하여 보안 리소스에 대한 액세스 권한을 부여합니다. Azure 스토리지는 Blob 및 큐 데이터에 액세스하는 데 사용되는 공통 권한 집합을 포함하는 Azure [기본 제공 역할](../../role-based-access-control/built-in-roles.md#storage) 집합을 정의합니다. 선택 권한 집합을 사용하여 사용자 지정 역할을 정의할 수도 있습니다. Azure 스토리지는 스토리지 계정 또는 Blob 컨테이너에 대한 역할 할당을 지원합니다.
 
-그러나 경우에 따라 스토리지 리소스에 대한 세분화된 액세스를 사용하도록 설정하거나 스토리지 리소스에 대한 수백 개의 역할 할당을 간소화해야 할 수도 있습니다. 이러한 목표를 달성하기 위해 [DataActions](../../role-based-access-control/role-definitions.md#dataactions)에 대한 [역할 할당 조건](../../role-based-access-control/conditions-overview.md)을 구성할 수 있습니다. [사용자 지정 역할](../../role-based-access-control/custom-roles.md)과 함께 조건을 사용하거나 기본 제공 역할을 선택할 수 있습니다. [스토리지 리소스 공급자](/rest/api/storagerp)를 통한 관리 [작업](../../role-based-access-control/role-definitions.md#actions)에는 조건이 지원되지 않습니다.
+그러나 경우에 따라 리소스에 대한 보다 세분화된 액세스를 사용하도록 설정하거나 스토리지 리소스에 대한 수백 개의 역할 할당을 간소화해야 할 수 있습니다. 이러한 목표를 달성하기 위해 [DataActions](../../role-based-access-control/role-definitions.md#dataactions)에 대한 [역할 할당 조건](../../role-based-access-control/conditions-overview.md)을 구성할 수 있습니다. [사용자 지정 역할](../../role-based-access-control/custom-roles.md)과 함께 조건을 사용하거나 기본 제공 역할을 선택할 수 있습니다. [스토리지 리소스 공급자](/rest/api/storagerp)를 통한 관리 [작업](../../role-based-access-control/role-definitions.md#actions)에는 조건이 지원되지 않습니다.
 
-Azure 스토리지의 조건은 Blob에 대해 지원됩니다. [HNS(계층 구조 네임스페이스)](../blobs/data-lake-storage-namespace.md) 기능이 사용되도록 설정된 계정에 조건을 사용할 수 있습니다. 파일, 큐 및 테이블에 대한 조건은 현재 지원되지 않습니다.
+Azure 스토리지의 조건은 Blob에 대해 지원됩니다. [HNS(계층 구조 네임스페이스)](../blobs/data-lake-storage-namespace.md) 기능이 사용되도록 설정된 계정에 조건을 사용할 수 있습니다. Azure Storage 큐, 테이블 또는 파일 리소스에 대한 조건은 현재 지원되지 않습니다.
 
 ## <a name="supported-attributes-and-operations"></a>지원되는 특성 및 작업
 

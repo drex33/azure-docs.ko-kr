@@ -6,13 +6,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/10/2021
-ms.openlocfilehash: 7cc61d144576e8f386997e1d2acfa083c9e5f571
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.date: 10/15/2021
+ms.openlocfilehash: 26f70e4750d29231b3f139ecd617b43071e369bb
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123535800"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066094"
 ---
 # <a name="shaping-data-for-projection-into-a-knowledge-store"></a>지식 저장소에 프로젝션할 데이터 셰이핑
 
@@ -144,7 +144,7 @@ Azure Cognitive Search에서 “데이터 셰이핑”은 Azure Storage에서 �
 ]
 ```
 
-## <a name="inline-shaping-projections"></a>프로젝션 인라인 셰이핑
+## <a name="inline-shape-for-table-projections"></a>테이블 프로젝션에 대한 인라인 셰이프
 
 인라인 셰이핑은 프로젝션 정의 자체 내에서 새 셰이프를 형성하는 기능입니다. 인라인 셰이핑의 특성은 다음과 같습니다.
 
@@ -219,6 +219,67 @@ Azure Cognitive Search에서 “데이터 셰이핑”은 Azure Storage에서 �
 ```
   
 두 접근 방식 모두에서 관찰되는 한 가지 항목은 “Keyphrases”의 값이 “sourceContext”를 사용하여 프로젝션되는 방법입니다. 문자열 컬렉션을 포함하는 “Keyphrases” 노드는 그 자체로 페이지 텍스트의 자식입니다. 하지만 프로젝션에 JSON 개체가 필요하고 페이지가 기본 형식(문자열)이기 때문에 이름이 지정된 속성을 사용하여 핵심 문구를 개체로 래핑하기 위해 “sourceContext”가 사용됩니다. 이 방법은 심지어 기본 형식도 독립적으로 프로젝션할 수 있습니다.
+
+<a name="inline-shape"></a>
+
+## <a name="inline-shape-for-object-projections"></a>개체 프로젝션에 대한 인라인 셰이프
+
+쉐이퍼 기술을 사용하여 새 도형을 생성하거나 개체 프로젝션의 인라인 셰이핑을 사용할 수 있습니다. 테이블 예제에서는 도형을 만들고 자르는 방법을 보여주지만, 이 예제에서는 인라인 셰이핑을 사용하는 방법을 보여줍니다. 
+
+인라인 셰이핑은 프로젝션에 대한 입력 정의에서 새 도형을 만드는 기능입니다. 인라인 셰이핑은 셰이퍼 기술이 생성하는 것과 동일한 익명 개체를 생성합니다(이 경우 `projectionShape`). 인라인 셰이핑은 다시 사용할 계획이 없는 도형을 정의하는 경우에 유용합니다.
+
+프로젝션 속성은 배열입니다. 이 예제에서는 knowledgeStore 정의에 인라인 프로젝션이 포함된 새 프로젝션 인스턴스를 배열에 추가합니다. 인라인 프로젝션을 사용하는 경우 셰이퍼 기술을 생략할 수 있습니다.
+
+```json
+"knowledgeStore" : {
+    "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
+    "projections": [
+            {
+            "tables": [ ],
+            "objects": [
+                {
+                    "storageContainer": "sampleobject",
+                    "source": null,
+                    "generatedKeyName": "myobject",
+                    "sourceContext": "/document",
+                    "inputs": [
+                        {
+                            "name": "metadata_storage_name",
+                            "source": "/document/metadata_storage_name"
+                        },
+                        {
+                            "name": "metadata_storage_path",
+                            "source": "/document/metadata_storage_path"
+                        },
+                        {
+                            "name": "content",
+                            "source": "/document/content"
+                        },
+                        {
+                            "name": "keyPhrases",
+                            "source": "/document/merged_content/keyphrases/*"
+                        },
+                        {
+                            "name": "entities",
+                            "source": "/document/merged_content/entities/*/name"
+                        },
+                        {
+                            "name": "ocrText",
+                            "source": "/document/normalized_images/*/text"
+                        },
+                        {
+                            "name": "ocrLayoutText",
+                            "source": "/document/normalized_images/*/layoutText"
+                        }
+                    ]
+
+                }
+            ],
+            "files": []
+        }
+    ]
+}
+```
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/22/2021
 ms.author: b-juche
-ms.openlocfilehash: 2d0e323271cbc465f2f46c4904f01d5c1654426d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6c946ed17d08a24e41f304c268c874ed7082691c
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128576765"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130062712"
 ---
 # <a name="configure-an-nfs-client-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFS 클라이언트 구성
 
@@ -69,7 +69,7 @@ ms.locfileid: "128576765"
 
 5.  NTP 클라이언트를 구성합니다.  
 
-    RHEL 8은 기본적으로 chrony를 사용합니다. [도구 모음을 사용하여 `Chrony`NTP 구성](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/using-chrony-to-configure-ntp)의 구성 지침을 따릅니다.
+    RHEL 8은 기본적으로 chrony를 사용합니다. [도구 모음을 사용하여 `Chrony`NTP 구성](https://access.redhat.com/documentation/en-us/red-hat-enterprise-linux/8/guide/6c230de2-39f1-455a-902d-737eea31ad34)의 구성 지침을 따릅니다.
 
 6.  Active Directory 도메인에 가입합니다.  
 
@@ -158,14 +158,14 @@ ms.locfileid: "128576765"
     `krb5_kpasswd = winad2016.contoso.com (same as AD address which is added in /etc/hosts)`   
     `use_fully_qualified_names = false`   
     
-    위의 `[domain/contoso-ldap]` 구성에서 다음을 수행합니다.
-    * `id_provider`가 이 아닌 로 설정된 `ldap` 경우 `ad`
-    * 구성에는 검색 기준과 검색을 위한 사용자 및 그룹 클래스가 지정되어 있습니다.
-    * `ldap_sasl_authid` 는 의 컴퓨터 계정 `klist -kte` 이름입니다.
-    * `use_fully_qualified_names`이 `false`로 설정된 경우에만 적용됩니다.  이 설정은 짧은 이름을 사용할 때 이 구성이 사용됨을 의미합니다.
-    * `ldap_id_mapping` 가 지정되지 않았습니다. 기본값은 `false` 입니다.
+    `[domain/contoso-ldap]`위의 구성에서 다음을 수행 합니다.
+    * `id_provider` 는로 설정 되 `ldap` 고는 그렇지 않습니다 `ad` .
+    * 검색에 대 한 검색 기준 및 사용자 및 그룹 클래스가 구성에 지정 되어 있습니다.
+    * `ldap_sasl_authid` 는의 컴퓨터 계정 이름입니다 `klist -kte` .
+    * `use_fully_qualified_names`이 `false`로 설정된 경우에만 적용됩니다.  이 설정은 짧은 이름을 사용할 때이 구성이 사용 됨을 의미 합니다.
+    * `ldap_id_mapping` 가 지정 되지 않은 경우 기본값은 `false` 입니다.
 
-    `realm join`구성은 클라이언트에 의해 생성되며 다음과 같습니다.
+    `realm join`구성은 클라이언트에서 생성 되며 다음과 같습니다.
  
     `[domain/contoso.com]  (Do not edit or remove any of the following information. This information is automatically generated during the realm join process.)`   
     `ad_domain = contoso.com`   
@@ -180,10 +180,10 @@ ms.locfileid: "128576765"
     `fallback_homedir = /home/%u@%d`   
     `access_provider = ad`   
     
-    위의 `[domain/contoso.com]` 구성에서 다음을 수행합니다.
+    `[domain/contoso.com]`위의 구성에서 다음을 수행 합니다.
     * `id_provider`이 `ad`로 설정됩니다.
-    * `ldap_id_mapping`이 `true`로 설정됩니다. SSSD에서 생성된 ID를 사용합니다. 또는 `false` 모든 사용자 이름 스타일에 POSIX UID를 사용하려는 경우 이 값을 로 설정할 수 있습니다. 클라이언트 구성에 따라 값을 확인할 수 있습니다. 
-    * `use_fully_qualified_names`은 `true`입니다. 이 `user@CONTOSO.COM` 설정은 가 이 구성을 사용한다는 것을 의미합니다.
+    * `ldap_id_mapping`이 `true`로 설정됩니다. SSSD 생성 Id를 사용 합니다. 또는 `false` 모든 사용자 이름 스타일에 대해 POSIX uid를 사용 하려는 경우이 값을로 설정할 수 있습니다. 클라이언트 구성에 따라 값을 결정할 수 있습니다. 
+    * `use_fully_qualified_names`은 `true`입니다. 이 설정은 `user@CONTOSO.COM` 이 구성을 사용 함을 의미 합니다.
 
 4. `/etc/nsswitch.conf`에 `sss` 항목이 있는지 확인합니다.   
 

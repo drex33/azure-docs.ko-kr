@@ -3,16 +3,16 @@ title: Bicep 함수 - 범위
 description: Bicep 파일에서 배포 범위에 대한 값을 검색하는 데 사용할 함수를 설명합니다.
 ms.topic: conceptual
 ms.date: 09/30/2021
-ms.openlocfilehash: ee7ea8efbb19048ff5aa6b6ead2bf9d2495ad23a
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 6771bf52ce5e5427343eb3210f665760a894627f
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129360235"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130067139"
 ---
 # <a name="scope-functions-for-bicep"></a>Bicep의 범위 함수
 
-이 문서에서는 범위 값을 얻기 위한 Bicep 함수에 대해 설명합니다.
+이 문서에서는 범위 값을 가져오는 Bicep 함수에 대해 설명 합니다.
 
 ## <a name="managementgroup"></a>managementGroup
 
@@ -22,7 +22,7 @@ ms.locfileid: "129360235"
 
 범위를 관리 그룹으로 설정하는 데 사용되는 개체를 반환합니다.
 
-네임스페이스: [az](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="remarks"></a>설명
 
@@ -38,7 +38,7 @@ ms.locfileid: "129360235"
 
 ### <a name="return-value"></a>반환 값
 
-[모듈](modules.md#configure-module-scopes) 또는 [확장 리소스 종류](scope-extension-resources.md)의 `scope` 속성을 설정하는 데 사용되는 개체입니다.
+[모듈](modules.md#set-module-scope) 또는 [확장 리소스 종류](scope-extension-resources.md)의 `scope` 속성을 설정하는 데 사용되는 개체입니다.
 
 ### <a name="management-group-example"></a>관리 그룹의 예
 
@@ -67,11 +67,11 @@ module  'module.bicep' = {
 
 현재 리소스 그룹을 나타내는 개체를 반환합니다.
 
-네임스페이스: [az](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="remarks"></a>설명
 
-resourceGroup 함수에는 두 가지 고유한 용도가 있습니다. 한 가지 용도는 [모듈](modules.md#configure-module-scopes) 또는 [확장 리소스 종류](scope-extension-resources.md)의 범위를 설정하는 것입니다. 다른 용도는 현재 리소스 그룹에 대한 세부 정보를 가져오는 것입니다. 함수의 배치가 용도를 결정합니다. `scope` 속성을 설정하는 데 사용된 경우 범위 개체를 반환합니다.
+resourceGroup 함수에는 두 가지 고유한 용도가 있습니다. 한 가지 용도는 [모듈](modules.md#set-module-scope) 또는 [확장 리소스 종류](scope-extension-resources.md)의 범위를 설정하는 것입니다. 다른 용도는 현재 리소스 그룹에 대한 세부 정보를 가져오는 것입니다. 함수의 배치가 용도를 결정합니다. `scope` 속성을 설정하는 데 사용된 경우 범위 개체를 반환합니다.
 
 `resourceGroup()`은 범위를 설정하거나 리소스 그룹에 대한 세부 정보를 가져오는 데 사용될 수 있습니다.
 
@@ -160,11 +160,11 @@ param location string = resourceGroup().location
 
 현재 배포에 대한 구독 관련 세부 정보를 반환합니다.
 
-네임스페이스: [az](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="remarks"></a>설명
 
-subscription 함수에는 두 가지 고유한 용도가 있습니다. 한 가지 용도는 [모듈](modules.md#configure-module-scopes) 또는 [확장 리소스 종류](scope-extension-resources.md)의 범위를 설정하는 것입니다. 다른 용도는 현재 구독에 대한 세부 정보를 가져오는 것입니다. 함수의 배치가 용도를 결정합니다. `scope` 속성을 설정하는 데 사용된 경우 범위 개체를 반환합니다.
+subscription 함수에는 두 가지 고유한 용도가 있습니다. 한 가지 용도는 [모듈](modules.md#set-module-scope) 또는 [확장 리소스 종류](scope-extension-resources.md)의 범위를 설정하는 것입니다. 다른 용도는 현재 구독에 대한 세부 정보를 가져오는 것입니다. 함수의 배치가 용도를 결정합니다. `scope` 속성을 설정하는 데 사용된 경우 범위 개체를 반환합니다.
 
 `subscription(subscriptionId)`은 범위를 설정하는 데에만 사용될 수 있습니다.
 
@@ -214,7 +214,7 @@ output subscriptionOutput object = subscription()
 
 범위를 테넌트로 설정하는 데 사용되는 개체를 반환합니다.
 
-네임스페이스: [az](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="remarks"></a>설명
 
@@ -222,7 +222,7 @@ output subscriptionOutput object = subscription()
 
 ### <a name="return-value"></a>반환 값
 
-[모듈](modules.md#configure-module-scopes) 또는 [확장 리소스 종류](scope-extension-resources.md)의 `scope` 속성을 설정하는 데 사용되는 개체입니다.
+[모듈](modules.md#set-module-scope) 또는 [확장 리소스 종류](scope-extension-resources.md)의 `scope` 속성을 설정하는 데 사용되는 개체입니다.
 
 ### <a name="tenant-example"></a>테넌트의 예
 

@@ -3,14 +3,14 @@ title: AKS(Azure Kubernetes Service)에서 CSI(Container Storage Interface) 드�
 description: AKS(Azure Kubernetes Service) 클러스터에서 Azure 디스크 및 Azure Files용 CSI(Container Storage Interface) 드라이버를 사용하도록 설정하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 08/31/2021
+ms.date: 10/15/2021
 author: palma21
-ms.openlocfilehash: 0f941b612c76811ba750a06036faf48c7359bedd
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 26de8065b5f96b9fc914a824018c7c7a2028b7b9
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429854"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065448"
 ---
 # <a name="enable-container-storage-interface-csi-drivers-for-azure-disks-and-azure-files-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure 디스크와 Azure Files용 CSI(Container Storage Interface) 드라이버 사용
 
@@ -33,7 +33,7 @@ AKS의 CSI 스토리지 드라이버 지원을 통해 기본적으로 다음을 
 - CSI 드라이버를 지원하는 최소 Kubernetes 부 버전은 v1.17입니다.
 - 기본 스토리지 클래스는 `managed-csi` 스토리지 클래스입니다.
 
-## <a name="create-a-new-cluster-that-can-use-csi-storage-drivers"></a>CSI 스토리지 드라이버를 사용할 수 있는 새 클러스터 만들기
+## <a name="install-csi-storage-drivers-on-a-new-cluster-with-version--121"></a>버전이 < 1.21인 새 클러스터에 CSI 스토리지 드라이버 설치
 
 다음 CLI 명령을 사용하여 Azure 디스크 및 Azure Files용 CSI 스토리지 드라이버를 사용할 수 있는 새 클러스터를 만듭니다. `--aks-custom-headers` 플래그를 사용하여 `EnableAzureDiskFileCSIDriver` 기능을 설정합니다.
 
@@ -51,7 +51,7 @@ CSI 스토리지 드라이버를 지원하는 AKS 클러스터를 만듭니다.
 az aks create -g MyResourceGroup -n MyManagedCluster --network-plugin azure  --aks-custom-headers EnableAzureDiskFileCSIDriver=true
 ```
 
-CSI 스토리지 드라이버 대신 트리 스토리지 드라이버에 클러스터를 만들려면 사용자 지정 `--aks-custom-headers` 매개 변수를 생략하여 이 작업을 수행할 수 있습니다.
+CSI 스토리지 드라이버 대신 트리 스토리지 드라이버에 클러스터를 만들려면 사용자 지정 `--aks-custom-headers` 매개 변수를 생략하여 이 작업을 수행할 수 있습니다. Kubernetes 버전 1.21부터 Kubernetes는 기본적으로 CSI 드라이버만 사용합니다.
 
 
 다음을 실행하여 이 노드에 연결할 수 있는 Azure 디스크 기반 볼륨의 수를 확인합니다.
@@ -66,12 +66,16 @@ $ echo $(kubectl get CSINode <NODE NAME> -o jsonpath="{.spec.drivers[1].allocata
 8
 ```
 
+## <a name="install-csi-storage-drivers-on-an-existing-cluster-with-version--121"></a>버전이 < 1.21인 기존 클러스터에 CSI 스토리지 드라이버 설치
+ - [AKS 클러스터에서 Azure Disk CSI 드라이버 설정](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/docs/install-driver-on-aks.md)
+ - [AKS 클러스터에서 Azure File CSI 드라이버 설정](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/docs/install-driver-on-aks.md)
+
 ## <a name="migrating-custom-in-tree-storage-classes-to-csi"></a>사용자 지정 트리 내 스토리지 클래스를 CSI로 마이그레이션
 트리 내 스토리지 드라이버를 기반으로 사용자 지정 스토리지 클래스를 만든 경우 클러스터를 1.21.x로 업그레이드할 때 마이그레이션해야 합니다.
 
 스토리지 클래스가 여전히 유효하려면 CSI 공급자로의 명시적 마이그레이션이 필요하지 않지만 CSI 기능(스냅샷 등)을 사용하려면 마이그레이션을 수행해야 합니다.
 
-이러한 스토리지 클래스의 마이그레이션에는 기존 스토리지 클래스를 삭제하고, Azure 디스크를 사용하는 경우 **disk.csi.azure.com** 로 설정된 프로비저닝기를 사용하여 다시 프로비전하고, Azure Files 사용하는 경우 **files.csi.azure.com.**  Azure 디스크의 예:
+이러한 스토리지 클래스의 마이그레이션에는 기존 스토리지 클래스를 삭제하고, Azure 디스크를 사용하는 경우 **disk.csi.azure.com** 로 설정된 프로비저닝기를 사용하여 다시 프로비전하고, Azure Files 사용하는 경우 **files.csi.azure.com** 포함됩니다.  Azure 디스크의 예:
 
 ### <a name="original-in-tree-storage-class-definition"></a>원래 트리 내 스토리지 클래스 정의
 
@@ -101,7 +105,7 @@ parameters:
   kind: Managed
 ```
 
-CSI 스토리지 시스템은 트리 내 드라이버와 동일한 기능을 지원하므로 프로비전자만 변경하면 됩니다.
+CSI 스토리지 시스템은 트리 내 드라이버와 동일한 기능을 지원하므로 프로비저닝기만 변경하면 됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계

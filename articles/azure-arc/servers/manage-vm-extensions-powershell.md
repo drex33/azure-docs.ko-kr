@@ -1,15 +1,15 @@
 ---
 title: Azure PowerShell을 통해 VM 확장 사용
 description: 이 문서에서는 Azure PowerShell을 사용하여 하이브리드 클라우드 환경에서 실행되는 Azure Arc 지원 서버에 가상 머신 확장을 배포하는 방법을 설명합니다.
-ms.date: 08/05/2021
+ms.date: 10/15/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b66ea0face173476048f144053b74305481af8e3
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: c759510c3ab81b15b65315015a16507dadf2658a
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/15/2021
-ms.locfileid: "130044537"
+ms.locfileid: "130074573"
 ---
 # <a name="enable-azure-vm-extensions-using-azure-powershell"></a>Azure PowerShell을 통해 Azure VM 확장 사용
 
@@ -41,7 +41,7 @@ Azure Arc 지원 서버에서 VM 확장을 사용하도록 설정하려면 , - �
 ```powershell
 $Setting = @{ "workspaceId" = "workspaceId" }
 $protectedSetting = @{ "workspaceKey" = "workspaceKey" }
-New-AzConnectedMachineExtension -Name OMSLinuxAgent -ResourceGroupName "myResourceGroup" -MachineName "myMachine" -Location "regionName" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -Settings $Setting -ProtectedSetting $protectedSetting -ExtensionType "OmsAgentForLinux"
+New-AzConnectedMachineExtension -Name OMSLinuxAgent -ResourceGroupName "myResourceGroup" -MachineName "myMachineName" -Location "regionName" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -Settings $Setting -ProtectedSetting $protectedSetting -ExtensionType "OmsAgentForLinux"
 ```
 
 Azure Arc 지원 Windows 서버에서 Log Analytics VM 확장을 사용하도록 설정하려면 `-ExtensionType` 이전 예제에서 매개 변수의 값을 로 변경합니다. `"MicrosoftMonitoringAgent"`
@@ -57,7 +57,7 @@ New-AzConnectedMachineExtension -Name "custom" -ResourceGroupName "myResourceGro
 
 ```powershell
 $Setting = @{ "AntimalwareEnabled" = $true }
-New-AzConnectedMachineExtension -Name "IaaSAntimalware" -ResourceGroupName "myResourceGroup" -MachineName "myMachine" -Location "regionName" -Publisher "Microsoft.Azure.Security" -Settings $Setting -ExtensionType "IaaSAntimalware"
+New-AzConnectedMachineExtension -Name "IaaSAntimalware" -ResourceGroupName "myResourceGroup" -MachineName "myMachineName" -Location "regionName" -Publisher "Microsoft.Azure.Security" -Settings $Setting -ExtensionType "IaaSAntimalware"
 ```
 
 ### <a name="key-vault-vm-extension"></a>Key Vault VM 확장

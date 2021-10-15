@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: be90a868ca4ef738f0275b06fb49abec761c7a0c
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: c0ccdf22928a824194015858592c7dd1c3d98ed6
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129538190"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063187"
 ---
 # <a name="configure-redis-clustering-for-a-premium-azure-cache-for-redis-instance"></a>프리미엄 Azure Cache for Redis 인스턴스에 대한 Redis 클러스터링 구성
 
@@ -90,7 +90,7 @@ StackExchange.Redis 클라이언트를 통해 클러스터링으로 작업하는
 
 클러스터링을 사용하도록 설정된 실행 중인 프리미엄 캐시에서 클러스터 크기를 변경하려면 **리소스 메뉴** 에서 **클러스터 크기** 를 선택합니다.
 
-![Redis 클러스터 크기][redis-cache-redis-cluster-size]
+:::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png" alt-text="Redis 클러스터 크기":::
 
 클러스터 크기를 변경하려면 슬라이더를 사용하거나 **분할된 데이터베이스 수** 텍스트 상자에 1에서 10 사이의 수를 입력합니다. 그런 다음 **확인** 을 선택하여 저장합니다.
 
@@ -201,11 +201,3 @@ StackExchange.Redis를 사용하고 있으며 클러스터링을 사용할 때 `
 Azure Cache for Redis 기능에 대해 자세히 알아보세요.
 
 * [Azure Cache for Redis 프리미엄 서비스 계층](cache-overview.md#service-tiers)
-
-<!-- IMAGES -->
-
-[redis-cache-clustering]: ./media/cache-how-to-premium-clustering/redis-cache-clustering.png
-
-[redis-cache-clustering-selected]: ./media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png
-
-[redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png

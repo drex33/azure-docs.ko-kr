@@ -1,26 +1,26 @@
 ---
-title: Dynamics 365, Dataverse(Common Data Service) 및 Dynamics CRM 커넥터 문제 해결
+title: Dynamics 365, Dataverse (Common Data Service) 및 Dynamics CRM 커넥터 문제 해결
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 및 Azure Synapse Analytics Dynamics 365, Dataverse(Common Data Service) 및 Dynamics CRM 커넥터와 관련된 문제를 해결하는 방법을 알아봅니다.
+description: Azure Data Factory 및 Azure Synapse Analytics에서 Dynamics 365, Dataverse (Common Data Service) 및 Dynamics CRM 커넥터를 사용 하 여 문제를 해결 하는 방법에 대해 알아봅니다.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 10/13/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
-ms.openlocfilehash: 8552cbcb79522933e0b2cf9ffe369cefdf900b79
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 28aa7fee3ab7cf2bbc8f10d1ba2f5ea54a792cd6
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129391123"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066676"
 ---
-# <a name="troubleshoot-the-dynamics-365-dataverse-common-data-service-and-dynamics-crm-connectors-in-azure-data-factory-and-azure-synapse"></a>Azure Data Factory 및 Azure Synapse Dynamics 365, Dataverse(Common Data Service) 및 Dynamics CRM 커넥터 문제 해결
+# <a name="troubleshoot-the-dynamics-365-dataverse-common-data-service-and-dynamics-crm-connectors-in-azure-data-factory-and-azure-synapse"></a>Azure Data Factory 및 Azure Synapse에서 Dynamics 365, Dataverse (Common Data Service) 및 Dynamics CRM 커넥터 문제 해결
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory 및 Azure Synapse Dynamics 365, Dataverse(Common Data Service) 및 Dynamics CRM 커넥터의 일반적인 문제를 해결하기 위한 제안을 제공합니다.
+이 문서에서는 Azure Data Factory 및 Azure Synapse에서 Dynamics 365, Dataverse (Common Data Service) 및 Dynamics CRM 커넥터와 관련 된 일반적인 문제를 해결 하기 위한 제안 사항을 제공 합니다.
 
 ## <a name="error-code-dynamicscreateserviceclienterror"></a>오류 코드: DynamicsCreateServiceClientError
 
@@ -148,6 +148,40 @@ ms.locfileid: "129391123"
 - **원인**: 열 매핑의 싱크 열에서 ‘type’ 속성이 누락되었습니다. 
  
 - **권장 사항**: 포털에서 JSON 편집기를 사용하여 열 매핑에서 해당 열에 ‘type’ 속성을 추가할 수 있습니다. 
+
+## <a name="the-copy-activity-from-the-dynamics-365-reads-more-rows-than-the-actual-number"></a>Dynamics 365의 복사 작업은 실제 숫자 보다 많은 행을 읽습니다.
+
+- **증상**: Dynamics 365의 복사 작업은 실제 숫자 보다 많은 행을 읽습니다.
+
+- **원인**: Dynamics 365 서버는 항상 사용 가능한 레코드를 표시 합니다. 
+
+- **권장 사항**: **Xrmtoolbox** 를 사용 하 여 페이징으로 fetchxml을 테스트 합니다. 일부 설치 된 도구가 있는 **Xrmtoolbox** 는 레코드 수를 가져올 수 있습니다. 자세한 내용은 [Xrmtoolbox](https://www.xrmtoolbox.com/)를 참조 하세요.
+
+## <a name="cannot-access-virtual-columns-from-dynamics-sources-in-the-copy-activity"></a>복사 작업의 Dynamics 원본에서 가상 열에 액세스할 수 없습니다.
+
+- **증상**: 복사 작업의 Dynamics 원본에서 가상 열에 액세스할 수 없습니다.
+
+- **원인**: 이제 가상 열이 지원 되지 않습니다. 
+
+- **권장 사항**: 옵션 집합 값에 대해 다음 옵션을 수행 하 여 가져옵니다.
+  - 모든 엔터티 및 [Dynamics 365 블로그의](https://dynamicscrmdotblog.wordpress.com/) [개체 형식 코드를 찾는 방법](https://powerobjects.com/tips-and-tricks/find-object-type-code-entity/) 을 참조 하 여 개체 형식 코드를 가져올 수 있습니다.
+  - StringMap 엔터티를 대상 엔터티에 연결 하 고 연결 된 값을 가져올 수 있습니다.
+
+## <a name="the-parallel-copy-in-a-dynamics-crm-data-store"></a>Dynamics CRM 데이터 저장소의 병렬 복사
+
+- **증상**: Dynamics CRM 데이터 저장소에서 병렬 복사를 구성할 수 있는지 여부를 알 수 없으며 "병렬 처리 수준 복사" 섹션에서 설정할 수 있는 값의 범위를 모를 수도 있습니다.
+
+- **권장 사항**: 병렬 복사는 병렬 처리를 제어 하 고 "복사 병렬 처리 수준" 섹션은 0이 아닌 값으로 설정할 수 있습니다. 숫자가 많으면 dynamics 서버 쪽에서 제한이 발생할 수 있으므로 처리량을 줄일 수 있지만 이제는 공용 SDK를 통해 제한을 처리 합니다.
+
+  :::image type="content" source="./media/connector-troubleshoot-guide/degree-of-copy-parallelism-section.png" alt-text="병렬 처리 수준 복사 섹션의 다이어그램입니다.":::
+
+## <a name="dynamics-type-conversion"></a>Dynamics 형식 변환
+
+- **증상**: GUID를 Dynamics 원본의 문자열로 변환 하려고 하지만 오류가 발생 합니다.
+
+- **원인**: Dynamics를 소스로 사용 하는 경우 형식 변환이 지원 되지 않습니다.
+
+- **권장 사항**: 준비를 사용 하도록 설정 하 고 다시 시도 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

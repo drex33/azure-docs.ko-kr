@@ -1,31 +1,31 @@
 ---
-title: 제한된 HDInsight 클러스터에서 Private Link 사용(미리 보기)
+title: Azure HDInsight 클러스터에서 Private Link 사용
 description: Azure Private Link 사용하여 HDInsight 클러스터 외부에 연결하는 방법을 알아봅니다.
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 9f432d37e58069decdc9a97e55d926aed3b7277f
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: a9461f70f896e50b1ed82c7b301ea03dde1cd7ec
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129710028"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063073"
 ---
-# <a name="enable-private-link-on-hdinsight-cluster-preview"></a>HDInsight 클러스터에서 Private Link 사용(미리 보기)
+# <a name="enable-private-link-on-hdinsight-cluster"></a>HDInsight 클러스터에서 Private Link 사용
 
 ## <a name="overview"></a>개요
-이 문서에서는 Azure Private Link 활용하여 Microsoft 백본 네트워크를 통해 네트워크를 통해 HDInsight 클러스터에 비공개로 연결하는 방법을 알아봅니다. 이 문서는 공용 연결을 제한하는 데 초점을 맞춘 [Azure HDInsight 클러스터](./hdinsight-restrict-public-connectivity.md) 연결 제한 기본 문서의 확장입니다. HDInsight 클러스터 및 종속 리소스에 대한 공용 연결을 선택할 수 있는 경우 의 네트워크 트래픽 제어 지침에 따라 클러스터 연결을 제한하는 [것이 좋습니다Azure HDInsight](./control-network-traffic.md)
+이 문서에서는 Azure Private Link 활용하여 Microsoft 백본 네트워크를 통해 네트워크를 통해 HDInsight 클러스터에 비공개로 연결하는 방법을 알아봅니다. 이 문서는 공용 [연결 제한에](./hdinsight-restrict-public-connectivity.md) 초점을 맞춘 Azure HDInsight 클러스터 연결 제한 기본 문서의 확장입니다. HDInsight 클러스터 및 종속 리소스에 대한 공용 연결을 선택할 수 있는 경우 의 네트워크 트래픽 제어 지침에 따라 클러스터의 연결을 제한하는 [것이 좋습니다Azure HDInsight](./control-network-traffic.md)
 
 Private Link VNet 피어링을 사용할 수 없거나 사용하도록 설정되지 않은 VNet 간 시나리오에서 활용할 수 있습니다. 예를 들어 Azure Data Factory Azure HDInsight 통합하려는 경우 규정 준수 및 보안상의 이유로 프라이빗 네트워크(즉, 프라이빗 링크)를 통해 HDInsight 클러스터에 Azure Data Factory 연결해야 합니다.
 
 > [!NOTE]
 > 공용 연결을 제한하는 것은 Private Link 사용하도록 설정하기 위한 필수 조건이며 동일한 기능으로 간주해서는 안 됩니다.
 
-Private Link 선택적 기능이며 기본적으로 사용하지 않도록 설정됩니다. 이 기능은 `resourceProviderConnection` Azure HDInsight 클러스터 연결 [제한](./hdinsight-restrict-public-connectivity.md)문서에 설명된 대로 네트워크 속성이 *아웃바운드로* 설정된 경우에만 사용할 수 있습니다.
+Private Link 선택적 기능이며 기본적으로 사용하지 않도록 설정됩니다. 이 기능은 Azure HDInsight `resourceProviderConnection` 클러스터 연결 제한 문서에 설명된 대로 네트워크 속성이 *아웃바운드로* 설정된 경우에만 사용할 [수](./hdinsight-restrict-public-connectivity.md)있습니다.
 
 `privateLink`를 ‘사용하도록 설정’하면 내부 [SLB](../load-balancer/load-balancer-overview.md)(표준 부하 분산 장치)가 생성되고 SLB마다 Azure Private Link 서비스가 프로비저닝됩니다. Private Link 서비스를 사용하면 프라이빗 엔드포인트에서 HDInsight 클러스터에 액세스할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 표준 부하 분산은 기본 부하 분산과 마찬가지로 [퍼블릭 아웃바운드 NAT를](../load-balancer/load-balancer-outbound-connections.md) 자동으로 제공하지 않습니다. 아웃바운드 공용 HDInsight에 연결하려면 NAT 게이트웨이 또는 [방화벽에서](./hdinsight-restrict-outbound-traffic.md)제공하는 NAT와 같은 고유한 NAT 솔루션을 제공해야 합니다. HDInsight 클러스터는 여전히 아웃바운드 종속성에 액세스해야 합니다. 이러한 아웃바운드 dependencies가 허용되지 않으면 클러스터 만들기가 실패할 수 있습니다. 아웃바운드 연결을 사용하려면 서브넷에 네트워크 보안 그룹도 구성해야 합니다.
 
@@ -61,7 +61,7 @@ Private Link 서비스 소비자(예: Azure Data Factory)가 선택할 수 있�
 * **자동:** 서비스 소비자에게 HDInsight 리소스에 대한 Azure RBAC 권한이 있는 경우 소비자는 자동 승인 방법을 선택할 수 있습니다. 이 경우 요청이 HDInsight 리소스에 도달하면 HDInsight 리소스에서 아무 작업도 필요하지 않으며 연결이 자동으로 승인됩니다.
 * **수동:** 반면, 서비스 소비자에게 HDInsight 리소스에 대한 Azure RBAC 권한이 없는 경우 소비자는 수동 승인 방법을 선택할 수 있습니다. 이 경우 연결 요청이 HDInsight 리소스에 보류 중으로 표시됩니다. 연결을 설정하려면 HDInsight 리소스에서 요청을 수동으로 승인해야 합니다. 
 
-프라이빗 엔드포인트를 관리하려면 Azure Portal의 클러스터 보기에서 보안 + 네트워킹 아래의 네트워킹(미리 보기) 섹션으로 이동합니다. 여기서는 모든 기존 연결, 연결 상태 및 프라이빗 엔드포인트 세부 정보를 볼 수 있습니다.
+프라이빗 엔드포인트를 관리하려면 Azure Portal의 클러스터 보기에서 보안 + 네트워킹 아래의 네트워킹 섹션으로 이동합니다. 여기서는 모든 기존 연결, 연결 상태 및 프라이빗 엔드포인트 세부 정보를 볼 수 있습니다.
 기존 연결을 승인, 거부 또는 제거할 수도 있습니다. 프라이빗 연결을 만들 때 HDInsight 하위 리소스(게이트웨이, 헤드 노드)를 지정할 수 있습니다. 등) 에 연결하려고 합니다.
 
 아래 표에서는 다양한 HDInsight 리소스 작업 및 프라이빗 엔드포인트에 대한 결과 연결 상태를 보여줍니다. HDInsight 리소스는 나중에 소비자 개입 없이 프라이빗 엔드포인트 연결의 연결 상태를 변경할 수도 있습니다. 이 작업은 소비자 측 엔드포인트의 상태를 업데이트합니다.

@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/13/2021
-ms.openlocfilehash: d61e753cdaa3e51a82822731d1a1ac98d75fba15
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: b3e6e4336a86b71fe3bfb096cbfc8e1ddc65a186
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/15/2021
-ms.locfileid: "130044216"
+ms.locfileid: "130063130"
 ---
 # <a name="configure-data-persistence-for-a-premium-azure-cache-for-redis-instance"></a>프리미엄 Azure Cache for Redis에 대한 데이터 지속성을 구성
 
@@ -102,7 +102,7 @@ Azure Cache for Redis 지속성에 대해 자주 묻는 질문과 대답이 나�
 - [다른 크기로 확장했고 크기 조정 작업 전에 만들어진 백업을 복원할 경우 어떻게 되나요?](#what-happens-if-ive-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
 - [서로 다른 두 캐시의 지속성에 대해 동일한 스토리지 계정을 사용할 수 있나요?](#can-i-use-the-same-storage-account-for-persistence-across-two-different-caches)
 - [데이터 지속성에 사용되는 스토리지에 대한 요금이 청구되나요?](#will-i-be-charged-for-the-storage-being-used-in-data-persistence)
-- [RDB 및 AOF 지속성은 Blob에 얼마나 자주 쓰며 일시 삭제를 사용하도록 설정해야 합니까?](#how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete)
+- [내 blob에 RDB 및 AOF 지 속성을 쓰는 빈도 및 일시 삭제를 사용 하도록 설정 해야 하나요?](#how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete)
 
 ### <a name="rdb-persistence"></a>RDB 지속성
 
@@ -146,15 +146,15 @@ RDB 및 AOF 지속성:
 
 ### <a name="can-i-use-the-same-storage-account-for-persistence-across-two-different-caches"></a>서로 다른 두 캐시의 지속성에 대해 동일한 스토리지 계정을 사용할 수 있나요?
 
-예, 서로 다른 두 캐시에서 지속성을 위해 동일한 스토리지 계정을 사용할 수 있습니다.
+예, 서로 다른 두 캐시에서 지 속성에 동일한 저장소 계정을 사용할 수 있습니다.
 
 ### <a name="will-i-be-charged-for-the-storage-being-used-in-data-persistence"></a>데이터 지속성에 사용되는 스토리지에 대한 요금이 청구되나요?
 
 예, 사용 중인 스토리지 계정에 대한 가격 책정 모델에 따라 사용되는 스토리지에 대한 요금이 청구됩니다.
 
-### <a name="how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete"></a>RDB 및 AOF 지속성은 Blob에 얼마나 자주 쓰며 일시 삭제를 사용하도록 설정해야 합니까?
+### <a name="how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete"></a>내 blob에 RDB 및 AOF 지 속성을 쓰는 빈도 및 일시 삭제를 사용 하도록 설정 해야 하나요?
 
-일시 삭제는 권장되지 않습니다. RDB 및 AOF 지속성은 Blob에 매시간, 몇 분마다 또는 매초마다 자주 쓸 수 있습니다. 또한 스토리지 계정에서 일시 삭제를 사용하도록 설정하면 Azure Cache for Redis 이전 백업 데이터를 삭제하여 스토리지 비용을 최소화할 수 없습니다. 일시 삭제는 캐시 및 쓰기 작업의 일반적인 데이터 크기로 1초마다 비용이 빠르게 들 수 있습니다. 일시 삭제 비용에 대한 자세한 내용은 [가격 책정 및 청구를 참조하세요.](/azure/storage/blobs/soft-delete-blob-overview)
+일시 삭제는 권장 되지 않습니다. RDB 및 AOF 지 속성은 매시간, 몇 분 마다 또는 매초 마다 blob에 쓸 수 있습니다. 또한 저장소 계정에 대해 일시 삭제를 사용 하도록 설정 하면 Azure Cache for Redis는 이전 백업 데이터를 삭제 하 여 저장소 비용을 최소화할 수 없음을 의미 합니다. 일시 삭제는 캐시의 일반적인 데이터 크기와 초당 쓰기 작업으로 신속 하 게 비용이 많이 들 수 있습니다. 일시 삭제 비용에 대 한 자세한 내용은 [가격 책정 및 청구](/azure/storage/blobs/soft-delete-blob-overview)를 참조 하세요.
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>캐시를 만든 후 RDB 백업 주기를 변경할 수 있나요?
 
@@ -166,7 +166,7 @@ RDB 지속성 백업 간격의 주기는 이전 백업 프로세스가 성공적
 
 ### <a name="what-happens-to-the-old-rdb-backups-when-a-new-backup-is-made"></a>새 백업을 만들면 이전 RDB 백업은 어떻게 되나요?
 
-가장 최근 백업을 제외한 모든 RDB 지속성 백업은 자동으로 삭제됩니다. 즉시 삭제되지 않을 수 있으나 오래된 백업을 무한정 유지하지는 않습니다. 스토리지 계정에 대해 일시 삭제가 설정되어 있으면 일시 삭제 설정이 적용되고 기존 백업은 일시 삭제 상태로 계속 상주합니다.
+가장 최근 백업을 제외한 모든 RDB 지속성 백업은 자동으로 삭제됩니다. 즉시 삭제되지 않을 수 있으나 오래된 백업을 무한정 유지하지는 않습니다. 저장소 계정에 대해 일시 삭제가 설정 된 경우 일시 삭제 설정이 적용 되 고 기존 백업은 일시 삭제 상태에 계속 남아 있습니다.
 
 ### <a name="when-should-i-use-a-second-storage-account"></a>두 번째 스토리지 계정은 언제 사용해야 하나요?
 
@@ -174,7 +174,7 @@ AOF 지속성이 캐시에 대해 예상된 설정 작업보다 더 높다고 �
 
 ### <a name="does-aof-persistence-affect-throughout-latency-or-performance-of-my-cache"></a>AOF 지속성이 내 캐시의 처리량, 대기 시간 또는 성능에 영향을 미치나요?
 
-AOF 지속성은 캐시가 최대 부하보다 낮을 때(CPU 및 서버 부하 둘 다에서 90% 미만) 처리량에 15%-20% 정도 영향을 미칩니다. 캐시가 이러한 한도 내에 있을 때 대기 시간 문제는 없습니다. 그러나 캐시는 AOF를 사용하도록 설정하여 이러한 제한에 더 빨리 도달합니다.
+AOF 지속성은 캐시가 최대 부하보다 낮을 때(CPU 및 서버 부하 둘 다에서 90% 미만) 처리량에 15%-20% 정도 영향을 미칩니다. 캐시가 이러한 한도 내에 있을 때 대기 시간 문제는 없습니다. 그러나 캐시는 AOF를 사용 하 여 이러한 제한 보다 더 빨리 도달 합니다.
 
 ### <a name="how-can-i-remove-the-second-storage-account"></a>두 번째 스토리지 계정은 어떻게 제거할 수 있나요?
 
@@ -186,7 +186,7 @@ AOF 파일이 충분히 커지면 다시 쓰기가 자동으로 큐에 대기됩
 
 ### <a name="what-should-i-expect-when-scaling-a-cache-with-aof-enabled"></a>AOF가 설정된 캐시의 크기를 조정하는 경우 어떻게 되나요?
 
-크기 조정 시 AOF 파일이 큰 경우 크기 조정이 완료된 후 파일이 다시 로드되므로 크기 조정 작업이 예상보다 오래 걸릴 것으로 예상합니다.
+크기를 조정 하는 시점의 AOF 파일이 큰 경우에는 크기 조정 작업이 완료 된 후 파일을 다시 로드 하므로 크기 조정 작업이 예상 보다 오래 걸릴 것으로 예상 됩니다.
 
 크기 조정에 대한 자세한 내용은 [다른 크기로 확장했고 크기 조정 작업 전에 만들어진 백업을 복원할 경우 어떻게 되나요?](#what-happens-if-ive-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)를 참조하세요.
 

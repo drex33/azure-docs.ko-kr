@@ -8,12 +8,12 @@ ms.date: 07/09/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 81c448b39dcbed56d0208f3e8931eacabd5331f0
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 7d36bace70e8e539d03e75808152a79b17b35423
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129663055"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063396"
 ---
 # <a name="create-and-provision-iot-edge-devices-at-scale-with-a-tpm-on-linux"></a>Linux에서 TPM을 사용하여 대규모로 IoT Edge 디바이스 만들기 및 프로비전
 
@@ -23,7 +23,7 @@ ms.locfileid: "129663055"
 
 이 문서에서는 두 가지 방법을 간략하게 설명합니다. 솔루션의 아키텍처에 따라 기본 설정을 선택합니다.
 
-1. 실제 TPM 하드웨어를 사용하여 Linux 디바이스를 자동으로 프로비전합니다. 예를 들어 [Infineon OPTIGA &trade; TPM SLB 9670 입니다.](https://devicecatalog.azure.com/devices/3f52cdee-bbc4-d74e-6c79-a2546f73df4e)
+1. 실제 TPM 하드웨어를 사용하여 Linux 디바이스를 자동 프로비전합니다. 예를 들어 [Infineon OPTIGA &trade; TPM SLB 9670 입니다.](https://devicecatalog.azure.com/devices/3f52cdee-bbc4-d74e-6c79-a2546f73df4e)
 1. Hyper-V를 사용하도록 설정된 Windows 개발 머신에서 실행되는 시뮬레이션된 TPM을 사용하여 Linux VM(가상 머신)을 자동으로 프로비전합니다. 시뮬레이션된 TPM은 실제 TPM과 동일한 보안을 제공하지 않으므로 테스트 시나리오로만 권장됩니다.
 
 지침은 방법론에 따라 다르므로 앞으로 올바른 탭에 있는지 확인합니다.
@@ -53,14 +53,14 @@ ms.locfileid: "129663055"
 
 * 활성 IoT 허브
 * Azure의 IoT Hub Device Provisioning Service의 새 인스턴스로 IoT 허브에 연결되어 있습니다.
-  * Device Provisioning Service 인스턴스가 없는 경우 IoT Hub Device Provisioning Service 빠른 시작의 [새 IoT Hub Device Provisioning Service 만들기](../iot-dps/quick-setup-auto-provision.md#create-a-new-iot-hub-device-provisioning-service) 및 [IoT Hub 및 Device Provisioning Service 연결](../iot-dps/quick-setup-auto-provision.md#link-the-iot-hub-and-your-device-provisioning-service) 섹션의 지침을 따를 수 있습니다.
+  * Device Provisioning Service 인스턴스가 없는 경우 새 IoT Hub Device Provisioning Service 만들기 및 IoT Hub Device Provisioning Service 빠른 [시작의](../iot-dps/quick-setup-auto-provision.md#create-a-new-iot-hub-device-provisioning-service) [IoT Hub 및 Device Provisioning Service 연결](../iot-dps/quick-setup-auto-provision.md#link-the-iot-hub-and-your-device-provisioning-service) 섹션의 지침을 따를 수 있습니다.
   * Device Provisioning Service를 실행한 후 개요 페이지에서 **ID 범위** 값을 복사합니다. IoT Edge 런타임을 구성하는 경우 이 값을 사용합니다.
 
 # <a name="virtual-machine"></a>[가상 머신](#tab/virtual-machine)
 
 * 활성 IoT Hub
 * Azure의 IoT Hub Device Provisioning Service의 새 인스턴스로 IoT 허브에 연결되어 있습니다.
-  * Device Provisioning Service 인스턴스가 없는 경우 IoT Hub Device Provisioning Service 빠른 시작의 [새 IoT Hub Device Provisioning Service 만들기](../iot-dps/quick-setup-auto-provision.md#create-a-new-iot-hub-device-provisioning-service) 및 [IoT Hub 및 Device Provisioning Service 연결](../iot-dps/quick-setup-auto-provision.md#link-the-iot-hub-and-your-device-provisioning-service) 섹션의 지침을 따를 수 있습니다.
+  * Device Provisioning Service 인스턴스가 없는 경우 새 IoT Hub Device Provisioning Service 만들기 및 IoT Hub Device Provisioning Service 빠른 [시작의](../iot-dps/quick-setup-auto-provision.md#create-a-new-iot-hub-device-provisioning-service) [IoT Hub 및 Device Provisioning Service 연결](../iot-dps/quick-setup-auto-provision.md#link-the-iot-hub-and-your-device-provisioning-service) 섹션의 지침을 따를 수 있습니다.
   * Device Provisioning Service를 실행한 후 개요 페이지에서 **ID 범위** 값을 복사합니다. IoT Edge 런타임을 구성하는 경우 이 값을 사용합니다.
 * [Hyper-V를 사용하도록 설정된](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) Windows 개발 컴퓨터. 이 문서에서는 Ubuntu Server VM을 실행하는 Windows 10을 사용합니다.
 
@@ -107,7 +107,7 @@ TPM에서 실제 Linux 디바이스를 사용하는 경우 디바이스를 설�
 
 부팅 가능한 이미지 파일에서 새 VM을 만듭니다.
 
-1. 가상 머신에 사용하기 위해 디스크 이미지 파일을 다운로드하고 로컬로 저장합니다. 예를 들어 [Ubuntu server 18.04](http://releases.ubuntu.com/18.04/)가 있습니다. IoT Edge 디바이스에 지원되는 운영 체제에 대한 자세한 내용은 [Azure IoT Edge 지원 시스템](/support.md)을 참조하세요.
+1. 가상 머신에 사용하기 위해 디스크 이미지 파일을 다운로드하고 로컬로 저장합니다. 예를 들어 [Ubuntu server 18.04](http://releases.ubuntu.com/18.04/)가 있습니다. IoT Edge 디바이스에 지원되는 운영 체제에 대한 자세한 내용은 [Azure IoT Edge 지원 시스템](/azure/iot-edge/support)을 참조하세요.
 
 1. Hyper-V 관리자의 **작업** 메뉴에서 작업  >  **새**  >  **가상 머신을** 선택합니다. 
 
@@ -172,28 +172,28 @@ VM이 만들어지면 설정을 열어 디바이스를 자동으로 프로비전
 
 ## <a name="create-a-dps-enrollment"></a>DPS 등록 만들기
 
-TPM에서 프로비전 정보를 검색하고 이를 사용하여 Device Provisioning Service에서 개별 등록을 만듭니다.
+TPM에서 프로 비전 정보를 검색 하 고이 정보를 사용 하 여 장치 프로 비전 서비스에 개별 등록을 만듭니다.
 
-DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태** 를 선언할 기회가 있습니다. 디바이스 쌍에서 지역, 환경, 위치 또는 디바이스 유형과 같이 솔루션에서 사용되는 메트릭을 기준으로 디바이스를 그룹화하도록 태그를 설정할 수 있습니다. 이러한 태그는 [자동 배포](how-to-deploy-at-scale.md)를 만드는 데 사용됩니다.
+DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태** 를 선언할 기회가 있습니다. 장치 쌍에서 지역, 환경, 위치 또는 장치 유형 등 솔루션에 사용 된 메트릭으로 장치를 그룹화 하도록 태그를 설정할 수 있습니다. 이러한 태그는 [자동 배포](how-to-deploy-at-scale.md)를 만드는 데 사용됩니다.
 
 > [!TIP]
-> 이 문서의 단계는 Azure Portal 위한 것이지만 Azure CLI 사용하여 개별 등록을 만들 수도 있습니다. 자세한 내용은 [az iot dps enrollment](/cli/azure/iot/dps/enrollment)를 참조하세요. CLI 명령의 일부로 **에지 사용** 플래그를 사용하여 IoT Edge 장치에 대한 등록을 지정합니다.
+> 이 문서의 단계는 Azure Portal에 대 한 것 이지만 Azure CLI를 사용 하 여 개별 등록를 만들 수도 있습니다. 자세한 내용은 [az iot dps enrollment](/cli/azure/iot/dps/enrollment)를 참조하세요. CLI 명령의 일부로 **에지 사용** 플래그를 사용하여 IoT Edge 장치에 대한 등록을 지정합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 IoT Hub Device Provisioning Service 인스턴스로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에서 IoT Hub Device Provisioning Service 인스턴스로 이동 합니다.
 
 1. **설정** 에서 **등록 관리** 를 선택합니다.
 
-1. **개별 등록 추가를** 선택한 다음, 다음 단계를 완료하여 등록을 구성합니다.
+1. **개별 등록 추가** 를 선택 하 고 다음 단계를 완료 하 여 등록을 구성 합니다.
 
    1. **메커니즘** 의 경우 **TPM** 을 선택합니다.
 
-   1. 가상 머신 또는 물리적 디바이스에서 복사한 **인증 키** 및 **등록 ID를** 제공합니다.
+   1. 가상 컴퓨터 또는 물리적 장치에서 복사한 **인증 키** 와 **등록 ID** 를 제공 합니다.
 
    1. 원하는 경우 디바이스에 대한 ID를 제공합니다. 디바이스 ID를 제공하지 않으면 등록 ID가 사용됩니다.
 
-   1. 가상 머신 또는 물리적 디바이스가 IoT Edge 디바이스임을 선언하려면 **True를** 선택합니다.
+   1. 가상 컴퓨터 또는 물리적 장치가 IoT Edge 장치 임을 선언 하려면 **True** 를 선택 합니다.
 
-   1. 디바이스를 연결하려는 연결된 IoT Hub를 선택하거나 **새 IoT Hub 연결을** 선택합니다. 여러 허브를 선택할 수 있으며, 선택한 할당 정책에 따라 허브 중 하나에 디바이스가 할당됩니다.
+   1. 장치를 연결 하려는 연결 된 IoT hub를 선택 하거나 **새 IoT Hub에 연결** 을 선택 합니다. 여러 허브를 선택할 수 있으며, 선택한 할당 정책에 따라 허브 중 하나에 디바이스가 할당됩니다.
 
    1. 원하는 경우 **초기 디바이스 쌍 상태** 에 태그 값을 추가합니다. 태그를 사용하여 모듈 배포에 대한 디바이스 그룹을 대상으로 할 수 있습니다. 자세한 내용은 [대규모로 IoT Edge 모듈 배포](how-to-deploy-at-scale.md)를 참조하세요.
 
@@ -203,17 +203,17 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태** 를 선언할 
 
 ## <a name="install-the-iot-edge-runtime"></a>IoT Edge 런타임 설치
 
-이 섹션에서는 IoT Edge 위해 Linux 가상 머신 또는 물리적 디바이스를 준비합니다. 그런 다음, IoT Edge 설치합니다.
+이 섹션에서는 IoT Edge에 대 한 Linux 가상 머신 또는 물리적 장치를 준비 합니다. 그런 다음 IoT Edge를 설치 합니다.
 
-IoT Edge 런타임을 설치할 준비가 되기 전에 디바이스에서 완료해야 하는 두 단계가 있습니다. 디바이스는 Microsoft 설치 패키지에 액세스해야 하며 컨테이너 엔진을 설치해야 합니다.
+IoT Edge 런타임을 설치할 준비가 되기 전에 장치에서 완료 해야 하는 두 가지 단계가 있습니다. 장치에서 Microsoft 설치 패키지에 액세스할 수 있어야 하 고 컨테이너 엔진이 설치 되어 있어야 합니다.
 
 ### <a name="access-the-microsoft-installation-packages"></a>Microsoft 설치 패키지 액세스
 
-디바이스에 Microsoft 설치 패키지에 대한 액세스 권한이 있어야 합니다.
+장치에 Microsoft 설치 패키지에 대 한 액세스 권한이 있어야 합니다.
 
-1. 디바이스의 운영 체제와 일치하는 리포지토리 구성을 설치합니다.
+1. 장치의 운영 체제와 일치 하는 리포지토리 구성을 설치 합니다.
 
-   * **Ubuntu Sever 18.04:**
+   * **Ubuntu 서버 18.04**:
 
       ```bash
       curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
@@ -243,7 +243,7 @@ IoT Edge 런타임을 설치할 준비가 되기 전에 디바이스에서 완�
 
 ### <a name="install-a-container-engine"></a>컨테이너 엔진 설치
 
-Azure IoT Edge는 OCI 호환 컨테이너 런타임을 사용합니다. 프로덕션 시나리오의 경우 Moby 엔진을 사용하는 것이 좋습니다. Moby 엔진은 Azure IoT Edge에서 공식적으로 지원되는 유일한 컨테이너 엔진입니다. Docker CE/EE 컨테이너 이미지는 Moby 런타임과 호환 가능합니다.
+Azure IoT Edge는 OCI 호환 컨테이너 런타임을 사용합니다. 프로덕션 시나리오의 경우 Moby 엔진을 사용 하는 것이 좋습니다. Moby 엔진은 Azure IoT Edge에서 공식적으로 지원되는 유일한 컨테이너 엔진입니다. Docker CE/EE 컨테이너 이미지는 Moby 런타임과 호환 가능합니다.
 
 1. 디바이스에서 패키지 목록을 업데이트합니다.
 
@@ -258,7 +258,7 @@ Azure IoT Edge는 OCI 호환 컨테이너 런타임을 사용합니다. 프로�
    ```
 
    > [!TIP]
-   > Moby 컨테이너 엔진 설치 시 오류가 발생하면 Linux 커널의 Moby 호환성을 확인합니다. 일부 포함된 디바이스의 제조업체는 컨테이너 엔진 호환성에 필요한 기능이 없는 사용자 지정 Linux 커널을 포함하는 디바이스 이미지를 제공합니다. Moby에서 제공하는 [check-config 스크립트를](https://github.com/moby/moby/blob/master/contrib/check-config.sh) 사용하는 다음 명령을 실행하여 커널 구성을 확인합니다.
+   > Moby 컨테이너 엔진 설치 시 오류가 발생하면 Linux 커널의 Moby 호환성을 확인합니다. 일부 포함된 디바이스의 제조업체는 컨테이너 엔진 호환성에 필요한 기능이 없는 사용자 지정 Linux 커널을 포함하는 디바이스 이미지를 제공합니다. Moby에서 제공한 [체크 인 스크립트](https://github.com/moby/moby/blob/master/contrib/check-config.sh) 를 사용 하 여 커널 구성을 확인 하는 다음 명령을 실행 합니다.
    >
    >   ```bash
    >   curl -ssl https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh -o check-config.sh
@@ -275,7 +275,7 @@ Azure IoT Edge는 OCI 호환 컨테이너 런타임을 사용합니다. 프로�
 
 IoT Edge 보안 디먼은 IoT Edge 디바이스에서 보안 표준을 제공하고 유지 관리합니다. 디먼은 부팅할 때마다 시작되며, 나머지 IoT Edge 런타임을 시작하여 디바이스를 부트스트랩합니다.
 
-이 섹션의 단계는 인터넷에 연결되어 있는 디바이스에 최신 버전을 설치하는 일반적인 프로세스를 나타냅니다. 사전 릴리스 버전과 같은 특정 버전을 설치해야 하거나 오프라인 상태에서 설치해야 하는 경우 오프라인 또는 특정 버전 설치 단계를 수행합니다.
+이 섹션의 단계는 인터넷에 연결 된 장치에 최신 버전을 설치 하는 일반적인 프로세스를 나타냅니다. 시험판 버전과 같은 특정 버전을 설치 해야 하거나 오프 라인 상태에서 설치 해야 하는 경우 오프 라인 또는 특정 버전의 설치 단계를 따르세요.
 
 1. 디바이스에서 패키지 목록을 업데이트합니다.
 
@@ -283,14 +283,14 @@ IoT Edge 보안 디먼은 IoT Edge 디바이스에서 보안 표준을 제공하
    sudo apt-get update
    ```
 
-1. **libiothsm-std** 패키지와 함께 IoT Edge 버전 1.1*을 설치합니다.
+1. **Libiothsm** 패키지와 함께 IoT Edge 버전 1.1 *을 설치 합니다.
 
    ```bash
    sudo apt-get install iotedge
    ```
 
    > [!NOTE]
-   > *IoT Edge 버전 1.1은 IoT Edge 장기 지원 분기입니다. 이전 버전을 실행하는 경우 이전 버전이 더 이상 지원되지 않는 최신 패치를 설치하거나 최신 패치로 업데이트하는 것이 좋습니다.
+   > * IoT Edge 버전 1.1은 IoT Edge의 장기 지원 분기입니다. 이전 버전을 실행 하는 경우 이전 버전이 더 이상 지원 되지 않으므로 최신 패치를 설치 하거나 업데이트 하는 것이 좋습니다.
 
 :::moniker-end
 <!-- end 1.1 -->
@@ -302,7 +302,7 @@ IoT Edge 서비스는 IoT Edge 디바이스에서 보안 표준을 제공하고 
 
 IoT ID 서비스는 IoT Edge 버전 1.2와 함께 도입되었습니다. 이 서비스는 IoT Edge 및 IoT Hub와 통신해야 하는 기타 디바이스 구성 요소에 대한 ID 프로비저닝 및 관리를 다룹니다.
 
-이 섹션의 단계는 인터넷에 연결된 디바이스에 최신 버전을 설치하는 일반적인 프로세스를 보여 줍니다. 사전 릴리스 버전과 같은 특정 버전을 설치해야 하거나 오프라인 상태에서 설치해야 하는 경우 오프라인 또는 특정 버전 설치 단계를 수행합니다.
+이 섹션의 단계는 인터넷에 연결된 디바이스에 최신 버전을 설치하는 일반적인 프로세스를 보여 줍니다. 시험판 버전과 같은 특정 버전을 설치 해야 하거나 오프 라인 상태에서 설치 해야 하는 경우 오프 라인 또는 특정 버전의 설치 단계를 따르세요.
 
 디바이스에서 패키지 목록을 업데이트합니다.
 
@@ -334,9 +334,9 @@ IoT ID 서비스는 IoT Edge 버전 1.2와 함께 도입되었습니다. 이 서
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
 
-1. 이전에 수집된 DPS **ID 범위** 및 디바이스 **등록 ID를** 알고 있습니다.
+1. 이전에 수집 된 DPS **Id 범위** 및 장치 **등록 id** 를 확인 합니다.
 
-1. IoT Edge 디바이스에서 구성 파일을 엽니다.
+1. IoT Edge 장치에서 구성 파일을 엽니다.
 
    ```bash
    sudo nano /etc/iotedge/config.yaml
@@ -359,9 +359,9 @@ IoT ID 서비스는 IoT Edge 버전 1.2와 함께 도입되었습니다. 이 서
    # dynamic_reprovisioning: false
    ```
 
-1. `scope_id` 및 `registration_id`의 값을 DPS 및 디바이스 정보로 업데이트합니다. `scope_id`는 DPS 인스턴스 개요 페이지의 **ID 범위입니다.**
+1. `scope_id` 및 `registration_id`의 값을 DPS 및 디바이스 정보로 업데이트합니다. 는 `scope_id` DPS 인스턴스의 개요 페이지에서 **ID 범위** 입니다.
 
-1. 필요에 따라 `always_reprovision_on_startup` 또는 `dynamic_reprovisioning` 줄을 사용하여 디바이스의 다시 프로비저닝 동작을 구성합니다. 디바이스가 시작 시 다시 프로비전하도록 설정된 경우 항상 먼저 DPS를 사용하여 프로비저닝을 시도한 다음, 해당하는 경우 프로비저닝 백업으로 다시 전환합니다. 디바이스가 자신을 동적으로 프로비전하도록 설정된 경우 다시 프로비전 이벤트가 검색되면 다시 시작 및 다시 프로비전으로 IoT Edge. 자세한 내용은 [IoT Hub 디바이스 다시 프로비저닝 개념](../iot-dps/concepts-device-reprovision.md)을 참조하세요.
+1. 필요에 따라 `always_reprovision_on_startup` 또는 `dynamic_reprovisioning` 줄을 사용하여 디바이스의 다시 프로비저닝 동작을 구성합니다. 시작 시 장치가 다시 구축로 설정 된 경우 항상 DPS를 먼저 프로 비전 한 다음, 해당 하는 경우 프로 비전 백업으로 대체 합니다. 장치가 동적으로 프로 비전 하도록 설정 된 경우에는 다시 시작 및 다시 구축를 사용 하 여 IoT Edge 다시 프로 비전 이벤트가 검색 됩니다. 자세한 내용은 [IoT Hub 디바이스 다시 프로비저닝 개념](../iot-dps/concepts-device-reprovision.md)을 참조하세요.
 
 1. 파일을 저장하고 닫습니다.
 
@@ -371,7 +371,7 @@ IoT ID 서비스는 IoT Edge 버전 1.2와 함께 도입되었습니다. 이 서
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
 
-1. 이전에 수집된 DPS **ID 범위** 및 디바이스 **등록 ID를** 알고 있습니다.
+1. 이전에 수집 된 DPS **Id 범위** 및 장치 **등록 id** 를 확인 합니다.
 
 1. IoT Edge 설치의 일부로 제공되는 템플릿 파일을 기반으로 디바이스에 대한 구성 파일을 만듭니다.
 
@@ -399,7 +399,7 @@ IoT ID 서비스는 IoT Edge 버전 1.2와 함께 도입되었습니다. 이 서
    registration_id = "<REGISTRATION_ID>"
    ```
 
-1. `id_scope` 및 `registration_id`의 값을 DPS 및 디바이스 정보로 업데이트합니다. `scope_id`는 DPS 인스턴스 개요 페이지의 **ID 범위입니다.**
+1. `id_scope` 및 `registration_id`의 값을 DPS 및 디바이스 정보로 업데이트합니다. 는 `scope_id` DPS 인스턴스의 개요 페이지에서 **ID 범위** 입니다.
 
 1. 필요에 따라 파일의 자동 다시 프로비저닝 모드 섹션을 찾습니다. `auto_reprovisioning_mode` 매개 변수를 사용하여 디바이스의 다시 프로비저닝 동작을 `Dynamic`, `AlwaysOnStartup` 또는 `OnErrorOnly`로 구성합니다. 자세한 내용은 [IoT Hub 디바이스 다시 프로비저닝 개념](../iot-dps/concepts-device-reprovision.md)을 참조하세요.
 

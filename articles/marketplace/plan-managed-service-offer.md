@@ -1,6 +1,6 @@
 ---
-title: Microsoft 상업용 마켓플레이스에 대한 관리형 서비스 제품 계획
-description: Microsoft 파트너 센터에서 상업용 마켓플레이스 프로그램을 사용하여 Azure Marketplace에 대한 새로운 관리형 서비스 제품을 계획하는 방법입니다.
+title: 상업적 marketplace에 대 한 관리 서비스 제안 계획
+description: 파트너 센터에서 Azure Marketplace에 대 한 관리 서비스 제품을 계획 합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -8,16 +8,16 @@ author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.date: 12/23/2020
-ms.openlocfilehash: ffa7e35bed1713a5ef9e04b59a8dbdb692b9630f
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
-ms.translationtype: HT
+ms.openlocfilehash: 2bbbe75f31a0d785a4d5a96923eb50e8502efa0b
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790958"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066626"
 ---
-# <a name="how-to-plan-a-managed-service-offer-for-the-microsoft-commercial-marketplace"></a>Microsoft 상업용 마켓플레이스에 대한 관리형 서비스 제품을 계획하는 방법입니다.
+# <a name="plan-a-managed-service-offer"></a>관리되는 서비스 제품 계획
 
-해당 문서에서는 파트너 센터를 통해 Microsoft 상업용 마켓플레이스에 관리형 서비스 제품을 게시하기 위한 요구 사항을 소개합니다.
+이 문서에서는 파트너 센터를 통해 상용 marketplace에 관리 되는 서비스 제품을 게시 하기 위한 요구 사항을 소개 합니다.
 
 관리형 서비스는 Azure Lighthouse를 사용하여 교차 테넌트 및 다중 테넌트 관리를 가능하게 하는 Azure Marketplace 제품입니다. 자세한 정보는 [Azure Lighthouse란?](../lighthouse/overview.md)을 참조하세요. 고객이 관리형 서비스 제품을 구매할 때 하나 이상의 구독 또는 리소스 그룹을 위임할 수 있습니다. 그런 다음 Azure Lighthouse의 [Azure 위임된 리소스 관리](../lighthouse/concepts/architecture.md) 기능을 사용하여 해당 리소스에 대한 작업을 수행할 수 있습니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "109790958"
 
 ## <a name="customer-leads"></a>잠재 고객
 
-제품을 CRM(고객 관계 관리) 시스템에 연결하여 고객 정보를 수집해야 합니다. 고객에게 정보를 공유할 수 있는 권한을 요청합니다. 고객 세부 정보는 제품명, ID 및 고객이 제품을 찾은 온라인 매장과 함께, 구성된 CRM 시스템으로 보내집니다. 상업용 마켓플레이스는 Azure 테이블을 사용하거나 Power Automate를 사용하여 HTTPS 엔드포인트를 구성하는 옵션을 비롯한 다양한 종류의 CRM 시스템을 지원합니다.
+제품을 CRM(고객 관계 관리) 시스템에 연결하여 고객 정보를 수집해야 합니다. 고객에게 정보를 공유할 수 있는 권한을 요청합니다. 고객 세부 정보는 제품명, ID 및 고객이 제품을 찾은 온라인 매장과 함께, 구성된 CRM 시스템으로 보내집니다. 상업용 Marketplace는 Azure 테이블을 사용하거나 Power Automate를 사용하여 HTTPS 엔드포인트를 구성하는 옵션을 비롯한 다양한 종류의 CRM 시스템을 지원합니다.
 
 제품을 만드는 도중 또는 만든 이후에 언제든지 CRM 연결을 추가하거나 수정할 수 있습니다. 자세한 내용은 [상업용 Marketplace 제품의 잠재 고객](partner-center-portal/commercial-marketplace-get-customer-leads.md)을 참조하세요.
 
@@ -61,7 +61,7 @@ ms.locfileid: "109790958"
 **호출 설명**
 
 1. 이름
-2. 설명
+2. Description
 3. 유용한 링크
 4. 스크린샷/비디오
 
@@ -98,9 +98,9 @@ HTML 태그를 사용하여 설명의 서식을 지정할 수 있습니다. HTML
 
 **Marketplace 미디어 – 로고**: 제품의 대형 로고에 대한 PNG 파일을 제공합니다. 파트너 센터는 대형 로고를 사용하여 중형 및 소형 로고를 만듭니다. 필요에 따라 나중에 다른 이미지로 기존의 로고를 교체할 수 있습니다.
 
-* Azure Marketplace의 제품 목록에 대형 로고(216 x 216 ~ 350 x 350픽셀)가 표시됩니다.
-* 새 리소스를 만들 때 중형 로고(90 x 90픽셀)가 표시됩니다.
-* 소형 로고(48 x 48픽셀)는 Azure Marketplace의 검색 결과에 사용됩니다.
+* Azure Marketplace에 대 한 제품 목록에 표시 되는 긴 로고 (216x216에서 350x350 px)가 표시 됩니다.
+* 새 리소스를 만들 때 중간 로고 (90x90 px)가 표시 됩니다.
+* 작은 로고 (48x48 px)는 Azure Marketplace 검색 결과에 사용 됩니다.
 
 로고에 대해서는 다음 지침을 따르세요.
 
@@ -110,9 +110,9 @@ HTML 태그를 사용하여 설명의 서식을 지정할 수 있습니다. HTML
 * 투명한 배경을 사용하는 경우 로고 및 텍스트는 흰색, 검은색 또는 파란색이 아니어야 합니다.
 * 로고의 형태와 분위기는 평면적이어야 합니다. 그라데이션은 피합니다. 로고에 회사 또는 브랜드 이름을 포함한 텍스트를 놓지 마십시오.
 
-**Marketplace 미디어 – 스크린샷**(선택 사항): 제품의 작동 방식을 보여 주는 이미지를 최대 5개 추가합니다. 이미지들은 각각 1280 x 720픽셀로 .PNG 형식이어야 합니다.
+**Marketplace 미디어 – 스크린샷**(선택 사항): 제품의 작동 방식을 보여 주는 이미지를 최대 5개 추가합니다. 모든 이미지는 크기와 .PNG 형식으로 1280x720 픽셀 이어야 합니다.
 
-**Marketplace 미디어 – 비디오**(선택 사항): 제품을 설명하는 비디오를 최대 5개 업로드합니다. 비디오는 YouTube 또는 Vimeo에서 호스트되고 미리 보기(1280 x 720 PNG 파일)가 있어야 합니다.
+**Marketplace 미디어 – 비디오**(선택 사항): 제품을 설명하는 비디오를 최대 5개 업로드합니다. 비디오는 YouTube 또는 Vimeo에서 호스트 되 고 미리 보기 (1280x720 PNG 파일)가 있어야 합니다.
 
 ## <a name="preview-audience"></a>미리 보기 대상 그룹
 
@@ -121,7 +121,7 @@ HTML 태그를 사용하여 설명의 서식을 지정할 수 있습니다. HTML
 > [!NOTE]
 > 미리 보기 대상 그룹은 비공개 요금제 대상 그룹과 다릅니다. 프라이빗 플랜은 선택한 특정 대상만 사용할 수 있습니다. 비공개 요금제를 통해 특정 고객과 사용자 지정 요금제에 대해 협상할 수 있습니다.
 
-MSA(Microsoft 계정) 또는 Azure AD(Azure Active Directory) 메일 주소로 초대를 보낼 수 있습니다. 최대 10개의 메일 주소를 수동으로 추가하거나 .csv 파일로 최대 20개를 가져옵니다. 제품이 이미 출시된 경우에도 제품의 변경 내용 또는 업데이트 내용을 테스트하기 위한 미리 보기 대상 그룹을 정의할 수 있습니다.
+MSA(Microsoft 계정) 또는 Azure AD(Azure Active Directory) 메일 주소로 초대를 보낼 수 있습니다. 최대 10개의 이메일 주소를 수동으로 추가하거나 .csv 파일로 최대 20개를 가져옵니다. 제품이 이미 출시된 경우에도 제품의 변경 내용 또는 업데이트 내용을 테스트하기 위한 미리 보기 대상 그룹을 정의할 수 있습니다.
 
 ## <a name="plans-and-pricing"></a>플랜 및 가격 책정
 

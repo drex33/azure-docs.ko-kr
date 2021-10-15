@@ -3,12 +3,12 @@ title: Bicep 파일 구조 및 구문
 description: 선언 구문을 사용하여 Bicep 파일의 구조 및 속성을 설명합니다.
 ms.topic: conceptual
 ms.date: 10/07/2021
-ms.openlocfilehash: 8251c490b61f3bbb739fd9519c10b1b124f9064c
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 8cdeb75aa676b9121d69ba8bf612067157328ee0
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129661125"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130067158"
 ---
 # <a name="understand-the-structure-and-syntax-of-bicep-files"></a>Bicep 파일의 구조 및 구문 이해
 
@@ -129,7 +129,7 @@ output storageEndpoint object = stg.properties.primaryEndpoints
 * **managementGroup** - [관리 그룹 배포](deploy-to-management-group.md)에 사용됩니다.
 * **tenant** - [테넌트 배포](deploy-to-tenant.md)에 사용됩니다.
 
-모듈에서 Bicep 파일의 나머지 부분에 대한 범위와 다른 범위를 지정할 수 있습니다. 자세한 내용은 [모듈 범위 구성](modules.md#configure-module-scopes)을 참조하세요.
+모듈에서 Bicep 파일의 나머지 부분에 대한 범위와 다른 범위를 지정할 수 있습니다. 자세한 내용은 [모듈 범위 구성](modules.md#set-module-scope)을 참조하세요.
 
 ## <a name="parameters"></a>매개 변수
 

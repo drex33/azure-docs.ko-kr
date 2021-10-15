@@ -1,29 +1,29 @@
 ---
 title: OData 원본에서 데이터 복사
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 또는 Synapse Analytics 파이프라인의 복사 활동을 사용하여 OData 원본에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법을 알아봅니다.
+description: Azure Data Factory 또는 Synapse Analytics 파이프라인의 복사 작업을 사용 하 여 OData 원본에서 지원 되는 싱크 데이터 저장소로 데이터를 복사 하는 방법에 대해 알아봅니다.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/13/2021
 ms.author: jianleishen
-ms.openlocfilehash: 938693353505a7fb3d37c85234da429ed2367ad4
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: c1ac63dde4dd489449db5db913aeb55f5d3de3ad
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124787891"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064972"
 ---
-# <a name="copy-data-from-an-odata-source-by-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics 사용하여 OData 원본에서 데이터 복사
+# <a name="copy-data-from-an-odata-source-by-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics를 사용 하 여 OData 원본에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-odata-connector.md)
 > * [현재 버전](connector-odata.md)
 
-이 문서에서는 Azure Data Factory 또는 Synapse Analytics 파이프라인에서 복사 작업을 사용하여 OData 원본에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업](copy-activity-overview.md)을 기준으로 합니다.
+이 문서에서는 Azure Data Factory 또는 Synapse Analytics 파이프라인에서 복사 작업을 사용 하 여 OData 원본에서 데이터를 복사 하는 방법을 설명 합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업](copy-activity-overview.md)을 기준으로 합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -77,7 +77,7 @@ OData 소스에서 지원되는 모든 싱크 데이터 저장소로 데이터�
 
 OData 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | **형식** 속성은 **OData** 로 설정해야 합니다. |예 |
 | url | OData 서비스의 루트 URL입니다. |예 |
@@ -253,7 +253,7 @@ OData 연결된 서비스에 다음 속성이 지원됩니다.
 
 OData에서 데이터를 복사하려면 데이터 세트의 **type** 속성을 **ODataResource** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type** 속성을 **ODataResource** 로 설정해야 합니다. | 예 |
 | 경로 | OData 리소스에 대한 경로입니다. | 예 |
@@ -289,7 +289,7 @@ OData에서 데이터를 복사하려면 데이터 세트의 **type** 속성을 
 
 OData에서 데이터를 복사하기 위해 복사 작업의 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 source 섹션의 **type** 속성은 **ODataSource** 로 설정해야 합니다. | 예 |
 | Query | 데이터 필터링에 대한 OData 쿼리 옵션입니다. 예: `"$select=Name,Description&$top=5"`.<br/><br/>**참고**: OData 커넥터가 결합된 URL(`[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`)에서 데이터를 복사합니다. 자세한 내용은 [OData URL 구성 요소](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 예 |
@@ -331,7 +331,7 @@ OData에서 데이터를 복사하기 위해 복사 작업의 **source** 섹션�
 
 ## <a name="data-type-mapping-for-odata"></a>OData에 대한 데이터 형식 매핑
 
-OData에서 데이터를 복사하는 경우 OData 데이터 형식과 서비스 내에서 내부적으로 사용되는 중간 데이터 형식 간에 다음 매핑이 사용됩니다. 복사 작업에서 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법을 알아보려면 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
+OData에서 데이터를 복사 하는 경우 서비스 내에서 내부적으로 사용 되는 데이터 형식 및 OData 데이터 형식 간에 다음과 같은 매핑이 사용 됩니다. 복사 작업에서 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법을 알아보려면 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
 | OData 데이터 형식 | 중간 서비스 데이터 형식 |
 |:--- |:--- |
@@ -356,7 +356,7 @@ OData에서 데이터를 복사하는 경우 OData 데이터 형식과 서비스
 
 ## <a name="copy-data-from-project-online"></a>Project Online에서 데이터 복사
 
-Project Online에서 데이터를 복사하려면 OData 커넥터와 Postman과 같은 도구에서 얻은 액세스 토큰을 사용하면 됩니다.
+Project Online에는 Azure Data Factory에서 지원 하지 않는 사용자 기반 OAuth가 필요 합니다. Project Online에서 데이터를 복사하려면 OData 커넥터와 Postman과 같은 도구에서 얻은 액세스 토큰을 사용하면 됩니다.
 
 > [!CAUTION]
 > 액세스 토큰은 기본적으로 1시간 후에 만료되며, 만료되면 새 액세스 토큰을 받아야 합니다.
@@ -377,7 +377,7 @@ Project Online에서 데이터를 복사하려면 OData 커넥터와 Postman과 
    1. 사용자 이름 및 암호를 사용하여 로그인하라는 메시지가 표시됩니다.
    1. 액세스 토큰을 가져오면 다음 단계를 위해 토큰을 복사하여 저장하세요.
    
-    [:::image type="content" source="./media/connector-odata/odata-project-online-postman-access-token-expanded.png#lightbox" alt-text="Postman을 사용하여 액세스 토큰 얻기](./media/connector-odata/odata-project-online-postman-access-token-inline.png)":::
+    :::image type="content" source="./media/connector-odata/odata-project-online-postman-access-token-inline.png" alt-text="Postman을 사용 하 여 액세스 토큰을 가져오는 스크린샷" lightbox="./media/connector-odata/odata-project-online-postman-access-token-expanded.png":::        
 
 1. OData 연결된 서비스 만들기:
     - **서비스 URL**: `https://<your tenant name>.sharepoint.com/sites/pwa/_api/Projectdata`를 입력합니다. `<your tenant name>`을 사용자 고유의 테넌트 이름으로 바꿉니다. 

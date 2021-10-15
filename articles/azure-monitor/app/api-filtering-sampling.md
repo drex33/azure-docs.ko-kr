@@ -4,12 +4,12 @@ description: SDK용 원격 분석 프로세서 및 원격 분석 이니셜라이
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5fe23d6cae1b363cdb0c70cba561953368412361
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 293de0f963829516e3fdb119e3bcbf592f9ad113
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128645135"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063415"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Application Insights SDK에서 원격 분석 필터링 및 전처리
 
@@ -312,7 +312,7 @@ ASP.NET **Core/Worker 서비스 앱: 이니셜라이저 로드**
 ### <a name="javascript-telemetry-initializers"></a>JavaScript 원격 분석 이니셜라이저
 *JavaScript*
 
-Init 콜백에서 조각을 사용하여 원격 분석 이니셜라이저를 삽입합니다.
+코드 조각 onInit 콜백을 사용 하 여 원격 분석 이니셜라이저를 삽입 합니다.
 
 ```html
 <script type="text/javascript">
@@ -512,6 +512,9 @@ public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
 * 원격 분석 프로세서를 사용하면 원격 분석 항목을 완전히 바꾸거나 버릴 수 있습니다.
 * 등록된 모든 원격 분석 이니셜라이저는 모든 원격 분석 항목에 대한 호출이 보장됩니다. 원격 분석 프로세서의 경우 SDK가 첫 번째 원격 분석 프로세서 호출을 보장합니다. 나머지 프로세서가 호출되는지 여부는 이전 원격 분석 프로세서에 의해 결정됩니다.
 * 추가 속성으로 원격 분석을 보강하거나 기존 속성을 재정의하려면 원격 분석 이니셜라이저를 사용합니다. 원격 분석을 필터링하려면 원격 분석 프로세서를 사용합니다.
+
+> [!NOTE]
+> JavaScript에는 [ITelemetryInitializer를 사용 하 여 이벤트를 필터링](#javascript-web-applications) 할 수 있는 원격 분석 이니셜라이저가 있습니다.
 
 ## <a name="troubleshoot-applicationinsightsconfig"></a>ApplicationInsights.config 문제 해결
 

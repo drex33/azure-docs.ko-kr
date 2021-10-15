@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: 0e231920a7aee35edd7a5913987ac37f0902b5fe
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 623163dc81bb604627bbbe9d87fff2bca17ea9f8
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129538134"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063168"
 ---
 # <a name="configure-virtual-network-support-for-a-premium-azure-cache-for-redis-instance"></a>프리미엄 Azure Cache for Redis 인스턴스에 대한 가상 네트워크 지원 구성
 
@@ -82,7 +82,7 @@ ms.locfileid: "129538134"
 
 캐시를 만드는 데 잠시 시간이 걸립니다. Azure Cache for Redis **개요** 페이지에서 진행률을 모니터링할 수 있습니다. **상태** 가 **실행 중** 으로 표시되면 캐시를 사용할 준비가 된 것입니다. 캐시가 만들어지면 **리소스 메뉴** 블레이드에서 **Virtual Network** 를 클릭하여 가상 네트워크에 대한 구성을 볼 수 있습니다.
 
-![가상 네트워크][redis-cache-vnet-info]
+:::image type="content" source="media/cache-how-to-premium-vnet/redis-cache-vnet-info.png" alt-text="가상 네트워크":::
 
 가상 네트워크를 사용하는 경우 Azure Cache for Redis 인스턴스에 연결하려면 다음 예제와 같이 캐시의 호스트 이름을 연결 문자열에 지정합니다.
 
@@ -106,14 +106,14 @@ public static ConnectionMultiplexer Connection
 
 Azure Cache for Redis 크기 조정에 대해 자주 묻는 질문과 대답이 나와 있는 목록은 다음과 같습니다.
 
-* Azure Cache for Redis 및 가상 네트워크와 관련된 몇 가지 일반적인 구성 오류 문제는 무엇인가요?
-* [캐시가 가상 네트워크에서 작동하는지 확인하려면 어떻게 해야 하나요?](#how-can-i-verify-that-my-cache-is-working-in-a-virtual-network)
-* 가상 네트워크에서 내 Azure Cache for Redis 인스턴스에 연결하려고 하면 원격 인증서가 유효하지 않다는 오류가 표시되는 이유는 무엇인가요?
-* [표준 또는 기본 캐시에 가상 네트워크를 사용할 수 있나요?](#can-i-use-virtual-networks-with-a-standard-or-basic-cache)
-* 일부 서브넷에서만 Azure Cache for Redis 인스턴스를 만드는 데 실패하는 이유는 무엇인가요?
-* [서브넷 주소 공간 요구 사항은 무엇입니까?](#what-are-the-subnet-address-space-requirements)
-* [피어링된 가상 네트워크에서 내 캐시에 연결할 수 있나요?](#can-i-connect-to-my-cache-from-a-peered-virtual-network)
-* [캐시가 가상 네트워크에서 호스트될 때 모든 캐시 기능이 작동하나요?](#do-all-cache-features-work-when-a-cache-is-hosted-in-a-virtual-network)
+- [Azure Cache for Redis 및 가상 네트워크와 관련된 몇 가지 일반적인 구성 오류 문제는 무엇인가요?](#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-virtual-networks)
+- [캐시가 가상 네트워크에서 작동하는지 확인하려면 어떻게 해야 하나요?](#how-can-i-verify-that-my-cache-is-working-in-a-virtual-network)
+- [가상 네트워크에서 내 Azure Cache for Redis 인스턴스에 연결하려고 하면 원격 인증서가 유효하지 않다는 오류가 표시되는 이유는 무엇인가요?](#when-i-try-to-connect-to-my-azure-cache-for-redis-instance-in-a-virtual-network-why-do-i-get-an-error-stating-the-remote-certificate-is-invalid)
+- [표준 또는 기본 캐시에 가상 네트워크를 사용할 수 있나요?](#can-i-use-virtual-networks-with-a-standard-or-basic-cache)
+- [일부 서브넷에서만 Azure Cache for Redis 인스턴스를 만드는 데 실패하는 이유는 무엇인가요?](#why-does-creating-an-azure-cache-for-redis-instance-fail-in-some-subnets-but-not-others)
+- [서브넷 주소 공간 요구 사항은 무엇입니까?](#what-are-the-subnet-address-space-requirements)
+- [피어링된 가상 네트워크에서 내 캐시에 연결할 수 있나요?](#can-i-connect-to-my-cache-from-a-peered-virtual-network)
+- [캐시가 가상 네트워크에서 호스트될 때 모든 캐시 기능이 작동하나요?](#do-all-cache-features-work-when-a-cache-is-hosted-in-a-virtual-network)
 
 ### <a name="what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-virtual-networks"></a>Azure Cache for Redis 및 가상 네트워크와 관련된 몇 가지 일반적인 구성 오류 문제는 무엇인가요?
 
@@ -123,8 +123,8 @@ Azure Cache for Redis가 가상 네트워크에 호스트되는 경우 사용되
 >다음 표의 포트가 차단되면 캐시가 제대로 작동하지 않을 수 있습니다. 이러한 포트 중 하나 이상이 차단되면 가상 네트워크에서 Azure Cache for Redis를 사용하는 경우 가장 일반적인 잘못된 구성 문제가 발생합니다.
 >
 
-* [아웃바운드 포트 요구 사항](#outbound-port-requirements)
-* [인바운드 포트 요구 사항](#inbound-port-requirements)
+- [아웃바운드 포트 요구 사항](#outbound-port-requirements)
+- [인바운드 포트 요구 사항](#inbound-port-requirements)
 
 #### <a name="outbound-port-requirements"></a>아웃바운드 포트 요구 사항
 
@@ -175,10 +175,10 @@ Azure 가상 네트워크에서 캐시 간의 지역 복제를 사용하는 경�
 
 가상 네트워크에서 처음에는 충족되지 않을 수 있는 Azure Cache for Redis에 대한 네트워크 연결 요구 사항이 있습니다. Azure Cache for Redis는 가상 네트워크 내에서 사용할 때 다음 항목이 모두 제대로 작동하도록 요구합니다.
 
-* 전세계 Azure Storage 엔드포인트에 아웃바운드 네트워크 연결. Azure Cache for Redis 인스턴스와 동일한 지역에 있는 엔드포인트와 *다른* Azure 지역에 있는 스토리지 엔드포인트가 포함됩니다. Azure Storage 엔드포인트는 다음 DNS 도메인에서 확인됩니다. *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* 및 *file.core.windows.net*.
-* *ocsp.digicert.com*, *crl4.digicert.com*, *ocsp.msocsp.com*, *mscrl.microsoft.com*, *crl3.digicert.com*, *cacerts.digicert.com*, *oneocsp.microsoft.com* 및 *crl.microsoft.com* 에 대한 아웃바운드 네트워크 연결. 이 연결은 TLS/SSL 기능을 지원하는 데 필요합니다.
-* 가상 네트워크에 대한 DNS 구성은 이전 시점에 언급된 엔드포인트 및 도메인을 모두 확인할 수 있어야 합니다. 유효한 DNS 인프라를 구성하고 가상 네트워크에 유지 관리하여 DNS 요구를 충족할 수 있습니다.
-* 다음 DNS 도메인에서 확인되는 다음 Azure 모니터링 엔드포인트에 대한 아웃바운드 네트워크 연결: *shoebox2-black.shoebox2.metrics.nsatc.net*, *north-prod2.prod2.metrics.nsatc.net*, *azglobal-black.azglobal.metrics.nsatc.net*, *shoebox2-red.shoebox2.metrics.nsatc.net*, *east-prod2.prod2.metrics.nsatc.net*, *azglobal-red.azglobal.metrics.nsatc.net*, *shoebox3.prod.microsoftmetrics.com*, *shoebox3-red.prod.microsoftmetrics.com*, *shoebox3-black.prod.microsoftmetrics.com*, *azredis-red.prod.microsoftmetrics.com* 및 *azredis-black.prod.microsoftmetrics.com*.
+- 전세계 Azure Storage 엔드포인트에 아웃바운드 네트워크 연결. Azure Cache for Redis 인스턴스와 동일한 지역에 있는 엔드포인트와 *다른* Azure 지역에 있는 스토리지 엔드포인트가 포함됩니다. Azure Storage 엔드포인트는 다음 DNS 도메인에서 확인됩니다. *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* 및 *file.core.windows.net*.
+- *ocsp.digicert.com*, *crl4.digicert.com*, *ocsp.msocsp.com*, *mscrl.microsoft.com*, *crl3.digicert.com*, *cacerts.digicert.com*, *oneocsp.microsoft.com* 및 *crl.microsoft.com* 에 대한 아웃바운드 네트워크 연결. 이 연결은 TLS/SSL 기능을 지원하는 데 필요합니다.
+- 가상 네트워크에 대한 DNS 구성은 이전 시점에 언급된 엔드포인트 및 도메인을 모두 확인할 수 있어야 합니다. 유효한 DNS 인프라를 구성하고 가상 네트워크에 유지 관리하여 DNS 요구를 충족할 수 있습니다.
+- 다음 DNS 도메인에서 확인되는 다음 Azure 모니터링 엔드포인트에 대한 아웃바운드 네트워크 연결: *shoebox2-black.shoebox2.metrics.nsatc.net*, *north-prod2.prod2.metrics.nsatc.net*, *azglobal-black.azglobal.metrics.nsatc.net*, *shoebox2-red.shoebox2.metrics.nsatc.net*, *east-prod2.prod2.metrics.nsatc.net*, *azglobal-red.azglobal.metrics.nsatc.net*, *shoebox3.prod.microsoftmetrics.com*, *shoebox3-red.prod.microsoftmetrics.com*, *shoebox3-black.prod.microsoftmetrics.com*, *azredis-red.prod.microsoftmetrics.com* 및 *azredis-black.prod.microsoftmetrics.com*.
 
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-virtual-network"></a>캐시가 가상 네트워크에서 작동하는지 확인하려면 어떻게 해야 하나요?
 
@@ -188,15 +188,15 @@ Azure 가상 네트워크에서 캐시 간의 지역 복제를 사용하는 경�
 
 이전 섹션에 설명된 대로 포트 요구 사항이 구성되면 다음 단계를 수행하여 캐시가 작동하는지 확인할 수 있습니다.
 
-* 모든 캐시 노드를 [다시 부팅](cache-administration.md#reboot)합니다. [인바운드 포트 요구 사항](cache-how-to-premium-vnet.md#inbound-port-requirements) 및 [아웃바운드 포트 요구 사항](cache-how-to-premium-vnet.md#outbound-port-requirements)에 설명된 대로 모든 필수 캐시 종속성에 도달할 수 없는 경우 캐시를 성공적으로 다시 시작할 수 없습니다.
-* Azure Portal의 캐시 상태에서 보고된 대로 캐시 노드가 다시 시작되면 다음 테스트를 수행할 수 있습니다.
-  + [tcping](https://www.elifulkerson.com/projects/tcping.php)을 사용하여 캐시와 동일한 가상 네트워크 내에 있는 머신에서 포트 6380을 사용하여 캐시 엔드포인트를 ping합니다. 예를 들면 다음과 같습니다.
+- 모든 캐시 노드를 [다시 부팅](cache-administration.md#reboot)합니다. [인바운드 포트 요구 사항](cache-how-to-premium-vnet.md#inbound-port-requirements) 및 [아웃바운드 포트 요구 사항](cache-how-to-premium-vnet.md#outbound-port-requirements)에 설명된 대로 모든 필수 캐시 종속성에 도달할 수 없는 경우 캐시를 성공적으로 다시 시작할 수 없습니다.
+- Azure Portal의 캐시 상태에서 보고된 대로 캐시 노드가 다시 시작되면 다음 테스트를 수행할 수 있습니다.
+  - [tcping](https://www.elifulkerson.com/projects/tcping.php)을 사용하여 캐시와 동일한 가상 네트워크 내에 있는 머신에서 포트 6380을 사용하여 캐시 엔드포인트를 ping합니다. 예를 들면 다음과 같습니다.
 
     `tcping.exe contosocache.redis.cache.windows.net 6380`
 
     `tcping` 도구가 포트가 열려 있다고 보고하는 경우 캐시는 가상 네트워크의 클라이언트에서 연결할 수 있습니다.
 
-  + 테스트하는 다른 방법: 캐시에 연결하는 테스트 캐시 클라이언트를 만든 다음, 캐시에서 일부 항목을 추가하고 검색합니다. 테스트 캐시 클라이언트는 StackExchange.Redis를 사용하는 콘솔 애플리케이션일 수 있습니다. 캐시와 동일한 가상 네트워크에 있는 VM에 샘플 클라이언트 응용 프로그램을 설치합니다. 그런 다음, 이를 실행하여 캐시 연결을 확인합니다.
+  - 테스트하는 다른 방법: 캐시에 연결하는 테스트 캐시 클라이언트를 만든 다음, 캐시에서 일부 항목을 추가하고 검색합니다. 테스트 캐시 클라이언트는 StackExchange.Redis를 사용하는 콘솔 애플리케이션일 수 있습니다. 캐시와 동일한 가상 네트워크에 있는 VM에 샘플 클라이언트 응용 프로그램을 설치합니다. 그런 다음, 이를 실행하여 캐시 연결을 확인합니다.
 
 ### <a name="when-i-try-to-connect-to-my-azure-cache-for-redis-instance-in-a-virtual-network-why-do-i-get-an-error-stating-the-remote-certificate-is-invalid"></a>가상 네트워크에서 내 Azure Cache for Redis 인스턴스에 연결하려고 하면 원격 인증서가 유효하지 않다는 오류가 표시되는 이유는 무엇인가요?
 
@@ -244,7 +244,7 @@ Azure 가상 네트워크 인프라에서 사용하는 IP 주소 외에도 서�
 
 캐시가 가상 네트워크의 일부인 경우 가상 네트워크의 클라이언트만 캐시에 액세스할 수 있습니다. 결과적으로 이번에는 다음 캐시 관리 기능이 작동하지 않습니다.
 
-* **Redis 콘솔**: Redis 콘솔은 일반적으로 가상 네트워크에 연결되지 않은 개발자 컴퓨터의 로컬 브라우저에서 실행되기 때문에 캐시에 연결할 수 없습니다.
+- **Redis 콘솔**: Redis 콘솔은 일반적으로 가상 네트워크에 연결되지 않은 개발자 컴퓨터의 로컬 브라우저에서 실행되기 때문에 캐시에 연결할 수 없습니다.
 
 ## <a name="use-expressroute-with-azure-cache-for-redis"></a>Azure Cache for Redis에서 ExpressRoute 사용
 
@@ -258,8 +258,8 @@ Azure 가상 네트워크 인프라에서 사용하는 IP 주소 외에도 서�
 
 가능한 경우 다음 구성을 사용합니다.
 
-* ExpressRoute 구성은 0.0.0.0/0을 보급하고 기본적으로 모든 아웃바운드 트래픽 온-프레미스를 강제로 터널링합니다.
-* Azure Cache for Redis 인스턴스를 포함하는 서브넷에 적용된 UDR은 공용 인터넷에 대한 TCP/IP 트래픽에 대한 작업 경로로 0.0.0.0/0을 정의합니다. 예를 들어, 다음 홉 유형을 *인터넷* 으로 설정합니다.
+- ExpressRoute 구성은 0.0.0.0/0을 보급하고 기본적으로 모든 아웃바운드 트래픽 온-프레미스를 강제로 터널링합니다.
+- Azure Cache for Redis 인스턴스를 포함하는 서브넷에 적용된 UDR은 공용 인터넷에 대한 TCP/IP 트래픽에 대한 작업 경로로 0.0.0.0/0을 정의합니다. 예를 들어, 다음 홉 유형을 *인터넷* 으로 설정합니다.
 
 이러한 단계를 결합하면 서브넷 수준 UDR이 ExpressRoute 강제 터널링보다 우선하고 Azure Cache for Redis 인스턴스에서 아웃바운드 인터넷 액세스를 보장한다는 것입니다.
 
@@ -279,12 +279,4 @@ ExpressRoute에 대한 자세한 내용은 [ExpressRoute 기술 개요](../expre
 
 Azure Cache for Redis 기능에 대해 자세히 알아보세요.
 
-* [Azure Cache for Redis 프리미엄 서비스 계층](cache-overview.md#service-tiers)
-
-<!-- IMAGES -->
-
-[redis-cache-vnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet.png
-
-[redis-cache-vnet-ip]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-ip.png
-
-[redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
+- [Azure Cache for Redis 프리미엄 서비스 계층](cache-overview.md#service-tiers)

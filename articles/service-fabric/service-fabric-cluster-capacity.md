@@ -4,12 +4,12 @@ description: 노드 형식, 내구성, 안정성 및 Service Fabric 클러스터
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
-ms.openlocfilehash: 0b04bc99abc2f9864ed22078f809702390d9f547
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: 3bc3edfa2f3adf7dd29d7f6f1dfee3b95107950c
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110695453"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064308"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>서비스 패브릭 클러스터 용량 계획 고려 사항
 
@@ -64,7 +64,7 @@ ms.locfileid: "110695453"
 *내구성 수준* 은 Service Fabric VM이 기본 Azure 인프라에 대해 갖는 권한을 지정합니다. 이 권한을 사용하면 Service Fabric이 Service Fabric 시스템 서비스 및 상태 저장 서비스에 대한 쿼럼 요구 사항에 영향을 주는 VM 수준 인프라 요청(예: 다시 부팅, 이미지로 다시 설치, 또는 마이그레이션 등)을 일시 중지할 수 있습니다.
 
 > [!IMPORTANT]
-> 내구성 수준은 노드 형식별로 설정됩니다. 지정되지 않으면 *브론즈* 계층이 사용되지만, 자동 OS 업그레이드는 제공되지 않습니다. *실버* 나 *골드* 내구성은 프로덕션 워크로드에 사용하는 것이 좋습니다.
+> 내구성 수준은 노드 형식별로 설정됩니다. 지정되지 않은 경우 *Bronze* 계층이 사용됩니다. 프로덕션 워크로드에는 VM 수준 인프라 요청으로 인한 데이터 손실을 방지하기 위해 내구성 수준이 Silver 또는 Gold여야 합니다.
 
 아래 표에는 Service Fabric 내구성 계층, 요구 사항, 어포던스가 나열되어 있습니다.
 

@@ -1,29 +1,29 @@
 ---
-title: Azure Data Explorer로/에서 데이터 복사
+title: Azure 데이터 탐색기에서 데이터 복사 및 변환
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 또는 Synapse Analytics 파이프라인에서 복사 활동을 사용하여 Azure Data Explorer 데이터를 복사하는 방법을 알아봅니다.
+description: Data Factory 또는 Azure Synapse Analytics를 사용 하 여 Azure 데이터 탐색기에서 데이터를 복사 하거나 변환 하는 방법에 대해 알아봅니다.
 ms.author: orspodek
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
-ms.openlocfilehash: 511e1d58e3abf3c44025a02059c5d6aa947809c0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/14/2021
+ms.openlocfilehash: a764b6e0046b399d1984f13404aae6ba1eb4d72f
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124771900"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063890"
 ---
-# <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics 사용하여 Azure Data Explorer 데이터 복사
+# <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics를 사용 하 여 Azure 데이터 탐색기 간에 데이터 복사
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory 및 Synapse Analytics 파이프라인에서 복사 작업을 사용하여 Azure Data Explorer 데이터를 복사하는 방법을 [설명합니다.](/azure/data-explorer/data-explorer-overview) 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory 및 Synapse Analytics 파이프라인의 복사 작업을 사용 하 여 [Azure 데이터 탐색기](/azure/data-explorer/data-explorer-overview)간에 데이터를 복사 하는 방법을 설명 합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 >[!TIP]
->서비스와의 Azure Data Explorer 통합에 대한 자세한 내용은 Azure Data Explorer [통합을](/azure/data-explorer/data-factory-integration)읽어보세요.
+>Azure 데이터 탐색기와의 통합에 대 한 자세한 내용은 일반적으로 [azure 데이터 탐색기 통합](/azure/data-explorer/data-factory-integration)을 읽어 보세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -46,7 +46,7 @@ Azure Data Explorer 커넥터를 사용하여 다음을 수행할 수 있습니�
 ## <a name="getting-started"></a>시작
 
 >[!TIP]
->Azure Data Explorer 커넥터에 대한 연습은 Azure Data Explorer [데이터 복사](/azure/data-explorer/data-factory-load-data) 및 [데이터베이스에서 Azure Data Explorer 대량 복사를](/azure/data-explorer/data-factory-template)참조하세요.
+>Azure 데이터 탐색기 커넥터에 대 한 연습은 [azure 데이터 탐색기 간 데이터 복사](/azure/data-explorer/data-factory-load-data) 및 [데이터베이스에서 Azure 데이터 탐색기로 대량 복사](/azure/data-explorer/data-factory-template)를 참조 하세요.
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
@@ -100,18 +100,18 @@ Azure Data Explorer 커넥터는 다음과 같은 인증 형식을 지원합니�
     - **싱크로** 데이터베이스에 적어도 **데이터베이스 수집기** 역할을 부여합니다.
 
 >[!NOTE]
->UI를 사용하여 작성하면 기본적으로 로그인 사용자 계정이 Azure Data Explorer 클러스터, 데이터베이스 및 테이블을 나열하는 데 사용됩니다. 새로 고침 단추 옆의 드롭다운을 클릭하여 서비스 주체를 사용하여 개체를 나열하도록 선택하거나 해당 작업에 대한 권한이 없는 경우 수동으로 이름을 입력할 수 있습니다.
+>UI를 사용 하 여 작성 하는 경우 기본적으로 로그인 사용자 계정을 사용 하 여 Azure 데이터 탐색기 클러스터, 데이터베이스 및 테이블을 나열 합니다. 새로 고침 단추 옆의 드롭다운을 클릭하여 서비스 주체를 사용하여 개체를 나열하도록 선택하거나 해당 작업에 대한 권한이 없는 경우 수동으로 이름을 입력할 수 있습니다.
 
 Azure Data Explorer 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | **형식** 속성을 **AzureDataExplorer** 로 설정해야 합니다. | 예 |
 | 엔드포인트(endpoint) | `https://<clusterName>.<regionName>.kusto.windows.net` 형식의 Azure Data Explorer 클러스터의 엔드포인트 URL입니다. | 예 |
 | 데이터베이스 | 데이터베이스의 이름입니다. | 예 |
 | tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. 이를 [Kusto 연결 문자열](/azure/kusto/api/connection-strings/kusto#application-authentication-properties)의 “Authority ID”라고 합니다. Azure Portal의 오른쪽 위 모서리를 마우스 포인터로 가리켜 검색합니다. | 예 |
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. 이를 [Kusto 연결 문자열](/azure/kusto/api/connection-strings/kusto#application-authentication-properties)의 “AAD 애플리케이션 클라이언트 ID”라고 합니다. | 예 |
-| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이를 [Kusto 연결 문자열](/azure/kusto/api/connection-strings/kusto#application-authentication-properties)의 “AAD 애플리케이션 키”라고 합니다. 이 필드를 **SecureString으로** 표시하여 안전하게 저장하거나 [Azure Key Vault 저장된 보안 데이터를 참조합니다.](store-credentials-in-key-vault.md) | 예 |
+| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이를 [Kusto 연결 문자열](/azure/kusto/api/connection-strings/kusto#application-authentication-properties)의 “AAD 애플리케이션 키”라고 합니다. 이 필드를 **SecureString** 으로 표시 하 여 안전 하 게 저장 하거나 [Azure Key Vault에 저장 된 보안 데이터를 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure 통합 런타임 또는 데이터 저장소가 프라이빗 네트워크에 있는 경우 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure 통합 런타임이 사용됩니다. |예 |
 
 **예: 서비스 주체 키 인증 사용**
@@ -141,7 +141,7 @@ Azure 리소스에 대한 관리 ID에 대한 자세한 내용은 [Azure 리소�
 
 시스템이 할당한 관리 ID 인증을 사용하려면 다음 단계를 수행하여 권한을 부여합니다.
 
-1. 팩터리 또는 Synapse 작업 영역과 함께 생성된 **관리 ID 개체 ID** 값을 복사하여 관리 ID [정보를](data-factory-service-identity.md#retrieve-managed-identity) 검색합니다.
+1. 팩터리 또는 Synapse 작업 영역과 함께 생성 된 **관리 id 개체 ID** 의 값을 복사 하 여 [관리 되는 Id 정보를 검색](data-factory-service-identity.md#retrieve-managed-identity) 합니다.
 
 2. Azure Data Explorer에서 관리 ID에 올바른 권한을 부여합니다. 역할 및 사용 권한과 사용 권한 관리에 대한 자세한 내용은 [Azure Data Explorer 데이터베이스 권한 관리](/azure/data-explorer/manage-database-permissions)를 참조하세요. 일반적으로 다음을 수행해야 합니다.
 
@@ -149,11 +149,11 @@ Azure 리소스에 대한 관리 ID에 대한 자세한 내용은 [Azure 리소�
     - **싱크로** 데이터베이스에 적어도 **데이터베이스 수집기** 역할을 부여합니다.
 
 >[!NOTE]
->UI를 사용하여 작성하면 로그인 사용자 계정이 Azure Data Explorer 클러스터, 데이터베이스 및 테이블을 나열하는 데 사용됩니다. 해당 작업에 대한 권한이 없는 경우 수동으로 이름을 입력합니다.
+>UI를 사용 하 여 작성 하는 경우 로그인 사용자 계정은 Azure 데이터 탐색기 클러스터, 데이터베이스 및 테이블을 나열 하는 데 사용 됩니다. 해당 작업에 대한 권한이 없는 경우 수동으로 이름을 입력합니다.
 
 Azure Data Explorer 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | **형식** 속성을 **AzureDataExplorer** 로 설정해야 합니다. | 예 |
 | 엔드포인트(endpoint) | `https://<clusterName>.<regionName>.kusto.windows.net` 형식의 Azure Data Explorer 클러스터의 엔드포인트 URL입니다. | 예 |
@@ -185,11 +185,11 @@ Azure 리소스에 대한 관리 ID에 대한 자세한 내용은 [Azure 리소�
     - **원본으로** 데이터베이스에 적어도 **데이터베이스 뷰어** 역할을 부여합니다.
     - **싱크로** 데이터베이스에 적어도 **데이터베이스 수집기** 역할을 부여합니다.
      
-2. 하나 또는 여러 사용자 할당 관리 id를 data factory 또는 Synapse 작업 영역에 할당 하 고 사용자가 할당 한 각 관리 id에 대 한 [자격 증명을 만듭니다](data-factory-service-identity.md#credentials) .
+2. 데이터 팩터리 또는 Synapse 작업 영역에 하나 또는 여러 개의 사용자 할당 관리 ID를 할당하고 각 사용자 할당 관리 ID에 대한 [자격 증명을 만듭니다.](data-factory-service-identity.md#credentials)
 
 Azure Data Explorer 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | **형식** 속성을 **AzureDataExplorer** 로 설정해야 합니다. | 예 |
 | 엔드포인트(endpoint) | `https://<clusterName>.<regionName>.kusto.windows.net` 형식의 Azure Data Explorer 클러스터의 엔드포인트 URL입니다. | 예 |
@@ -223,7 +223,7 @@ Azure Data Explorer에 데이터를 복사하려면 데이터 세트의 형식 �
 
 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | **형식** 속성을 **AzureDataExplorerTable** 로 설정해야 합니다. | 예 |
 | 테이블 | 연결된 서비스가 참조하는 테이블의 이름입니다. | 싱크의 경우 예이며, 원본의 경우 아니오입니다. |
@@ -249,7 +249,7 @@ Azure Data Explorer에 데이터를 복사하려면 데이터 세트의 형식 �
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 
-활동을 정의 하는 데 사용할 수 있는 섹션 및 속성의 전체 목록은 [Pipelines 및 활동](concepts-pipelines-activities.md)을 참조 하세요. 이 섹션에서는 Azure Data Explorer 원본 및 싱크에서 지원하는 속성 목록을 제공합니다.
+활동을 정의하는 데 사용할 수 있는 섹션 및 속성의 전체 목록은 [Pipelines 및 활동을](concepts-pipelines-activities.md)참조하세요. 이 섹션에서는 Azure Data Explorer 원본 및 싱크에서 지원하는 속성 목록을 제공합니다.
 
 ### <a name="azure-data-explorer-as-source"></a>Azure Data Explorer가 원본인 경우
 
@@ -302,7 +302,7 @@ Azure Data Explorer에서 데이터를 복사하려면 복사 작업 원본의 *
 
 Azure Data Explorer로 데이터를 복사하려면 복사 작업 원본의 형식 속성을 **AzureDataExplorerSink** 로 설정합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 **형식** 속성을 **AzureDataExplorerSink** 로 설정해야 합니다. | 예 |
 | ingestionMappingName | Kusto 테이블에 미리 만들어진 [매핑](/azure/kusto/management/mappings#csv-mapping)의 이름입니다. 원본에서 Azure Data Explorer로(CSV/JSON/Avro 형식을 포함하여 [지원되는 모든 원본 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)에 적용됨) 열을 매핑하려면 복사 작업 [열 매핑](copy-activity-schema-and-type-mapping.md)(이름에 의해 암시적으로 또는 명시적으로 구성된 대로) 및/또는 Azure Data Explorer 매핑을 사용할 수 있습니다. | 예 |
@@ -341,12 +341,87 @@ Azure Data Explorer로 데이터를 복사하려면 복사 작업 원본의 형�
 ]
 ```
 
+## <a name="mapping-data-flow-properties"></a>매핑 데이터 흐름 속성
+
+매핑 데이터 흐름에서 데이터를 변환 하는 경우 Azure 데이터 탐색기에서 테이블을 읽고 쓸 수 있습니다. 자세한 내용은 매핑 데이터 흐름에서 [원본 변환](data-flow-source.md) 및 [싱크 변환](data-flow-sink.md)을 참조하세요. Azure 데이터 탐색기 데이터 집합 또는 [인라인 데이터 집합](data-flow-source.md#inline-datasets) 을 원본 및 싱크 유형으로 사용 하도록 선택할 수 있습니다.
+
+### <a name="source-transformation"></a>원본 변환
+
+아래 표에서는 Azure 데이터 탐색기 원본에서 지 원하는 속성을 나열 합니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다.
+
+| Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| 테이블 | 테이블을 입력으로 선택 하는 경우 데이터 흐름은 인라인 데이터 집합을 사용 하는 경우 Azure 데이터 탐색기 데이터 집합 또는 원본 옵션에 지정 된 테이블의 모든 데이터를 가져옵니다. | 예 | String | *(인라인 데이터 세트에만 해당)*<br>tableName |
+| 쿼리 | [KQL 형식](/azure/data-explorer/kusto/query/)으로 제공되는 읽기 전용 요청입니다. 사용자 지정 KQL 쿼리를 참조로 사용합니다.  | 예 | String | Query |
+| 제한 시간 | 쿼리 요청 시간이 초과 되기 전의 대기 시간입니다. 기본값은 ' 172000 ' (2 일)입니다.  | 예 | 정수 | 시간 제한 |
+
+#### <a name="azure-data-explorer-source-script-examples"></a>Azure 데이터 탐색기 원본 스크립트 예제
+
+Azure 데이터 탐색기 데이터 집합을 원본 유형으로 사용 하는 경우 연결 된 데이터 흐름 스크립트는 다음과 같습니다.
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    query: 'table | take 10',
+    format: 'query') ~> AzureDataExplorerSource
+
+```
+
+인라인 데이터 세트를 사용하는 경우 연결된 데이터 흐름 스크립트는 다음과 같습니다.
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'query',
+    query: 'table | take 10',
+    store: 'azuredataexplorer') ~> AzureDataExplorerSource
+
+```
+
+### <a name="sink-transformation"></a>싱크 변환
+
+아래 표에는 Azure 데이터 탐색기 싱크에 의해 지원 되는 속성이 나와 있습니다. 이러한 속성은 **설정** 탭에서 편집할 수 있습니다. 인라인 데이터 세트를 사용하는 경우 [데이터 세트 속성](#dataset-properties) 섹션에 설명된 속성과 동일한 추가 설정이 표시됩니다. 
+
+| Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| 테이블 작업 | 쓰기 전에 대상 테이블에서 모든 행을 다시 만들지 또는 제거할지 여부를 결정합니다.<br>- **None**: 테이블에 대한 작업이 수행되지 않습니다.<br>- **Recreate**: 테이블이 삭제되고 다시 생성됩니다. 동적으로 새 테이블을 만드는 경우 필요합니다.<br>- **Truncate**: 대상 테이블의 모든 행이 제거됩니다. | 예 | `true` 또는 `false` | recreate<br/>truncate |
+| 사전 및 사후 SQL 스크립트 | 여러 [Kusto 제어를](/azure/data-explorer/kusto/query/#control-commands) 지정 하 여 데이터를 싱크 데이터베이스에 기록 하기 전 (전처리) 및 이후 (사후 처리) 데이터를 실행 합니다. | 예 | String | 보도 Qls; postSQLs |
+| 제한 시간 | 쿼리 요청 시간이 초과 되기 전의 대기 시간입니다. 기본값은 ' 172000 ' (2 일)입니다. | 예 | 정수 | 시간 제한 |
+
+
+#### <a name="azure-data-explorer-sink-script-examples"></a>Azure 데이터 탐색기 싱크 스크립트 예제
+
+Azure 데이터 탐색기 데이터 집합을 싱크 유형으로 사용 하는 경우 연결 된 데이터 흐름 스크립트는 다음과 같습니다.
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'table',
+    preSQLs:['pre SQL scripts'],
+    postSQLs:['post SQL script'],
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> AzureDataExplorerSink
+
+```
+
+인라인 데이터 세트를 사용하는 경우 연결된 데이터 흐름 스크립트는 다음과 같습니다.
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'table',
+    store: 'azuredataexplorer',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> AzureDataExplorerSink
+
+```
+
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 
 속성에 관한 자세한 내용은 [조회 작업](control-flow-lookup-activity.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 복사 작업에서 원본 및 싱크로 지원하는 데이터 저장소 목록은 지원되는 데이터 저장소 를 [참조하세요.](copy-activity-overview.md#supported-data-stores-and-formats)
+* 복사 작업에서 원본 및 싱크로 지원 되는 데이터 저장소 목록은 [지원 되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조 하세요.
 
-* [Azure Data Factory 및 Synapse Analytics 데이터를 Azure Data Explorer 복사하는](/azure/data-explorer/data-factory-load-data)방법에 대해 자세히 알아봅니다.
+* [Azure Data Factory 및 Synapse Analytics에서 Azure 데이터 탐색기로 데이터를 복사](/azure/data-explorer/data-factory-load-data)하는 방법에 대해 자세히 알아보세요.

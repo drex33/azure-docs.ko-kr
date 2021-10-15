@@ -1,26 +1,26 @@
 ---
-title: Parquet 형식 커넥터 문제 해결
+title: Parquet format 커넥터 문제 해결
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 및 Azure Synapse Analytics Parquet 형식 커넥터와 관련된 문제를 해결하는 방법을 알아봅니다.
+description: Azure Data Factory 및 Azure Synapse Analytics에서 Parquet format 커넥터를 사용 하 여 문제를 해결 하는 방법에 대해 알아봅니다.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 10/13/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
-ms.openlocfilehash: 64a49592609b2cb7fd262264bb9802de58db5f04
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: b12666fdd66b3c85702b7222f2f2edca7136e323
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129391118"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130062761"
 ---
-# <a name="troubleshoot-the-parquet-format-connector-in-azure-data-factory-and-azure-synapse"></a>Azure Data Factory 및 Azure Synapse Parquet 형식 커넥터 문제 해결
+# <a name="troubleshoot-the-parquet-format-connector-in-azure-data-factory-and-azure-synapse"></a>Azure Data Factory 및 Azure Synapse의 Parquet format 커넥터 문제 해결
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory 및 Azure Synapse Parquet 형식 커넥터의 일반적인 문제를 해결하기 위한 제안을 제공합니다.
+이 문서에서는 Azure Data Factory 및 Azure Synapse의 Parquet format 커넥터와 관련 된 일반적인 문제를 해결 하기 위한 제안 사항을 제공 합니다.
 
 ## <a name="error-code-parquetjavainvocationexception"></a>오류 코드: ParquetJavaInvocationException
 
@@ -172,6 +172,14 @@ ms.locfileid: "129391118"
 - **원인**: 열 이름에 잘못된 문자가 있습니다.
 
 - **해결 방법**: 열 매핑을 추가하거나 수정하여 싱크 열 이름을 유효하게 만듭니다.
+
+## <a name="the-file-created-by-the-copy-data-activity-extracts-a-table-that-contains-a-varbinary-max-column"></a>데이터 복사 작업을 통해 만들어진 파일은 varbinary (max) 열이 포함 된 테이블을 추출 합니다.
+
+- **증상**: 데이터 복사 작업에서 만든 Parquet 파일은 varbinary (max) 열이 포함 된 테이블을 추출 합니다.
+
+- **원인**:이 문제는 대량 열을 읽는 Parquet mr 라이브러리 버그로 인해 발생 합니다. 
+
+- **해결** 방법: 파일당 1000 행의 제한이 있는 작은 파일 (크기 < 1g)을 생성 하려고 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: c35b9de3b4660c3a5f809fe519040618142490dd
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 18871a1c8b98efd7bd759f3114d089f885e8be22
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124763370"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047022"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Azure Security Center의 권장 사항 교정
 
@@ -68,7 +68,7 @@ ms.locfileid: "124763370"
 
 ## <a name="fix-actions-logged-to-the-activity-log"></a>활동 로그에 기록되는 수정 작업 <a name="activity-log"></a>
 
-수정 작업은 템플릿 배포 또는 REST PATCH API 호출을 사용하여 리소스의 구성을 적용합니다. 이러한 작업은 [Azure 활동 로그](../azure-monitor/essentials/activity-log.md)에 기록됩니다.
+수정 작업은 템플릿 배포 또는 REST API 요청을 사용 하 여 `PATCH` 리소스에 대 한 구성을 적용 합니다. 이러한 작업은 [Azure 활동 로그](../azure-monitor/essentials/activity-log.md)에 기록됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계

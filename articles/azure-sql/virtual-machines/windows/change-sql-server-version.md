@@ -15,12 +15,12 @@ ms.date: 06/08/2020
 ms.author: RamaKoni
 ms.reviewer: sqlblt, daleche
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8428f9ce69bc58a206eb5c60b3602ffbb17f7c19
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: 51dca948a595fac6ba99e77de280f3bb61964f22
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225678"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130048260"
 ---
 # <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Azure VM에서 SQL Server 버전의 현재 위치 변경
 
@@ -33,7 +33,7 @@ ms.locfileid: "123225678"
 SQL Server의 현재 위치 업그레이드를 수행하려면 다음 조건이 적용됩니다.
 
 - 원하는 SQL Server 버전의 설치 미디어가 필요합니다. [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default)가 있는 고객은 [볼륨 라이선싱 센터](https://www.microsoft.com/Licensing/servicecenter/default.aspx)에서 설치 미디어를 구할 수 있습니다. Software Assurance가 없는 고객은 최신 버전의 SQL Server가 포함된 Azure Marketplace SQL Server VM 이미지의 설치 미디어를 사용할 수 있습니다(일반적으로 C:\SQLServerFull에 있음).
-- 에디션 업그레이드는 [업그레이드 경로 지원](/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15)을 따라야 합니다.
+- 버전 업그레이드는 [지원 업그레이드 경로](/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15)를 따라야 합니다.
 
 ## <a name="planning-for-version-change"></a>버전 변경 계획
 
@@ -124,4 +124,4 @@ SQL Server 버전을 변경한 후에는 Azure Portal을 사용하여 SQL Server
 - [Windows VM에서 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)
 - [Windows VM의 SQL Server FAQ](frequently-asked-questions-faq.yml)
 - [Windows VM의 SQL Server 가격 책정 가이드](pricing-guidance.md)
-- [Windows VM의 SQL Server 릴리스 정보](doc-changes-updates-release-notes.md)
+* [Azure vm에서 SQL Server의 새로운 기능](doc-changes-updates-release-notes-whats-new.md)

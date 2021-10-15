@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure PowerShell을 사용하여 하이브리�
 ms.date: 08/05/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9a626e42b5447cafcf0fe99876eb0146a02c25f3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: b66ea0face173476048f144053b74305481af8e3
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536043"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130044537"
 ---
 # <a name="enable-azure-vm-extensions-using-azure-powershell"></a>Azure PowerShell을 통해 Azure VM 확장 사용
 
@@ -22,7 +22,9 @@ ms.locfileid: "122536043"
 
 - Azure PowerShell이 설치된 컴퓨터 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/)을 참조하세요.
 
-Azure PowerShell을 사용하여 Arc 지원 서버에서 관리하는 하이브리드 서버에서 VM 확장을 관리하려면 먼저 `Az.ConnectedMachine` 모듈을 설치해야 합니다. Arc 지원 서버에서 다음 명령을 실행합니다.
+Azure PowerShell 사용하여 Azure Arc 지원 서버에서 관리되는 하이브리드 서버에서 VM 확장을 관리하기 전에 모듈을 설치해야 `Az.ConnectedMachine` 합니다. 이러한 관리 작업은 워크스테이션에서 수행할 수 있으며 Azure Arc 지원 서버에서 실행할 필요가 없습니다.
+
+Azure Arc 지원 서버에서 다음 명령을 실행합니다.
 
 `Install-Module -Name Az.ConnectedMachine`.
 
@@ -32,31 +34,38 @@ Azure PowerShell을 사용하여 Arc 지원 서버에서 관리하는 하이브�
 
 ## <a name="enable-extension"></a>확장 사용
 
-Arc 지원 서버에서 VM 확장을 사용하려면 [New-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/new-azconnectedmachineextension)을 `-Name`, `-ResourceGroupName`, `-MachineName`, `-Location`, `-Publisher`, -`ExtensionType` 및 `-Settings` 매개 변수와 함께 사용합니다.
+Azure Arc 지원 서버에서 VM 확장을 사용하도록 설정하려면 , - 및 매개 변수와 함께 [New-AzConnectedMachineExtension을](/powershell/module/az.connectedmachine/new-azconnectedmachineextension) `-Name` `-ResourceGroupName` `-MachineName` `-Location` `-Publisher` `ExtensionType` `-Settings` 사용합니다.
 
-다음 예제에서는 Arc 지원 Linux 서버에서 Log Analytics VM 확장을 사용하도록 설정합니다.
-
-```powershell
-PS C:\> $Setting = @{ "workspaceId" = "workspaceId" }
-PS C:\> $protectedSetting = @{ "workspaceKey" = "workspaceKey" }
-PS C:\> New-AzConnectedMachineExtension -Name OMSLinuxAgent -ResourceGroupName "myResourceGroup" -MachineName "myMachine" -Location "eastus" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -Settings $Setting -ProtectedSetting $protectedSetting -ExtensionType "OmsAgentForLinux"
-```
-
-Arc 지원 Windows 서버에서 Log Analytics VM 확장을 사용하려면 이전 예제에서 `-ExtensionType` 매개 변수 값을 `"MicrosoftMonitoringAgent"`로 변경합니다.
-
-다음 예제에서는 Arc 지원 서버에서 사용자 지정 스크립트 확장을 사용하도록 설정합니다.
+다음 예제에서는 Azure Arc 지원 Linux 서버에서 Log Analytics VM 확장을 사용하도록 설정합니다.
 
 ```powershell
-PS C:\> $Setting = @{ "commandToExecute" = "powershell.exe -c Get-Process" }
-PS C:\> New-AzConnectedMachineExtension -Name custom -ResourceGroupName myResourceGroup -MachineName myMachineName -Location eastus -Publisher "Microsoft.Compute"  -Settings $Setting -ExtensionType CustomScriptExtension
+$Setting = @{ "workspaceId" = "workspaceId" }
+$protectedSetting = @{ "workspaceKey" = "workspaceKey" }
+New-AzConnectedMachineExtension -Name OMSLinuxAgent -ResourceGroupName "myResourceGroup" -MachineName "myMachine" -Location "regionName" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -Settings $Setting -ProtectedSetting $protectedSetting -ExtensionType "OmsAgentForLinux"
 ```
 
-### <a name="key-vault-vm-extension"></a>Key Vault VM 확장 
+Azure Arc 지원 Windows 서버에서 Log Analytics VM 확장을 사용하도록 설정하려면 `-ExtensionType` 이전 예제에서 매개 변수의 값을 로 변경합니다. `"MicrosoftMonitoringAgent"`
+
+다음 예제에서는 Azure Arc 지원 서버에서 사용자 지정 스크립트 확장을 사용하도록 설정합니다.
+
+```powershell
+$Setting = @{ "commandToExecute" = "powershell.exe -c Get-Process" }
+New-AzConnectedMachineExtension -Name "custom" -ResourceGroupName "myResourceGroup" -MachineName "myMachineName" -Location "regionName" -Publisher "Microsoft.Compute"  -Settings $Setting -ExtensionType CustomScriptExtension
+```
+
+다음 예제에서는 Azure Arc 지원 Windows 서버에서 Microsoft Antimalware 확장을 사용하도록 설정합니다.
+
+```powershell
+$Setting = @{ "AntimalwareEnabled" = $true }
+New-AzConnectedMachineExtension -Name "IaaSAntimalware" -ResourceGroupName "myResourceGroup" -MachineName "myMachine" -Location "regionName" -Publisher "Microsoft.Azure.Security" -Settings $Setting -ExtensionType "IaaSAntimalware"
+```
+
+### <a name="key-vault-vm-extension"></a>Key Vault VM 확장
 
 > [!WARNING]
 > PowerShell 클라이언트는 오류와 함께 akvvm_service에 실패를 일으키는 settings.json에서 `"`에 `\`를 추가하는 경우가 많습니다.`[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`
 
-다음 예제에서는 Arc 지원 서버에서 Key Vault VM 확장을 사용하도록 설정합니다.
+다음 예제에서는 Azure Arc 지원 서버에서 Key Vault VM 확장을 사용하도록 설정합니다.
 
 ```powershell
 # Build settings
@@ -84,7 +93,7 @@ PS C:\> New-AzConnectedMachineExtension -Name custom -ResourceGroupName myResour
 
 ## <a name="list-extensions-installed"></a>설치된 확장 나열
 
-Arc 지원 서버에서 VM 확장 목록을 가져오려면 [AzConnectedMachineExtension](/powershell/module/az.connectedmachine/get-azconnectedmachineextension)을 `-MachineName` 및 `-ResourceGroupName` 매개 변수와 함께 사용합니다.
+Azure Arc 지원 서버에서 VM 확장 목록을 얻으려면 및 매개 변수와 함께 [Get-AzConnectedMachineExtension을](/powershell/module/az.connectedmachine/get-azconnectedmachineextension) `-MachineName` `-ResourceGroupName` 사용합니다.
 
 예제:
 
@@ -98,7 +107,7 @@ custom  westus2   CustomScriptExtension Succeeded
 
 ## <a name="remove-an-installed-extension"></a>설치된 확장 제거
 
-Arc 지원 서버에서 설치된 VM 확장을 제거하려면 [Remove-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/remove-azconnectedmachineextension)을 `-Name`, `-MachineName` 및 `-ResourceGroupName` 매개 변수와 함께 사용합니다.
+Azure Arc 지원 서버에서 설치된 VM 확장을 제거하려면 및 매개 변수와 함께 [Remove-AzConnectedMachineExtension을](/powershell/module/az.connectedmachine/remove-azconnectedmachineextension) `-Name` `-MachineName` `-ResourceGroupName` 사용합니다.
 
 예를 들어, Linux용 Log Analytics VM 확장을 제거하려면 다음 명령을 실행합니다.
 

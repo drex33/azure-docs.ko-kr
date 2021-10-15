@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/28/2021
+ms.date: 10/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 4dbdc8086b59553474d05297cdaf030d897d441e
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 3e820abf824a9593c265fd7d9d4c6ccd9be5cb38
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129234075"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047592"
 ---
 # <a name="azure-netapp-files-for-azure-government"></a>Azure Government용 Azure NetApp Files 
 
@@ -35,12 +35,12 @@ Azure 퍼블릭 클라우드에서 사용할 수 있는 모든 [Azure NetApp Fil
 
 | Azure NetApp Files 기능 | Azure 퍼블릭 클라우드 가용성 |  Azure Government 가용성 |
 |:--- |:--- |:--- |
-| 지역 간 복제 Azure NetApp Files | 퍼블릭 미리 보기 | [제한적](cross-region-replication-introduction.md#supported-region-pairs) |
+| 지역 간 복제 Azure NetApp Files | GA(일반 공급) | [제한적](cross-region-replication-introduction.md#supported-region-pairs) |
 | Azure NetApp Files 백업 | 퍼블릭 미리 보기 | 아니요 |
 
 ## <a name="portal-access"></a>포털 액세스
 
-Azure Government 사용자는 브라우저에서 portal.azure.us 가리키면 **Azure NetApp Files** 액세스할 수 있습니다.포털 사이트 이름은 **정부 Microsoft Azure.**자세한 내용은 [포털을 사용하여 Azure Government 커넥트 참조하세요.](../azure-government/documentation-government-get-started-connect-with-portal.md)   
+Azure Government 사용자는 브라우저에서 portal.azure.us 가리키면 **Azure NetApp Files** 액세스할 수 있습니다.포털 사이트 이름은 **정부 Microsoft Azure.**자세한 내용은 [포털을 사용하여 Azure Government 커넥트](../azure-government/documentation-government-get-started-connect-with-portal.md) 참조하세요.   
 
 ![URL로 portal.azure.us 강조 표시된 Azure Government Portal의 스크린샷](../media/azure-netapp-files/azure-government.jpg)
 
@@ -50,7 +50,7 @@ Microsoft Azure Government 포털에서 Azure Portal 것과 동일한 방식으�
 
 ## <a name="azure-cli-access"></a>액세스 Azure CLI
 
-클라우드 이름을 로 설정하고 명령을 사용하여 정상적으로 로그인하여 Azure Government 연결할 수 `AzureUSGovernment` `az login` 있습니다. 로그인 명령을 실행하면 적절한 Azure Government 자격 증명을 입력하는 브라우저가 시작됩니다.  
+클라우드 이름을 로 설정하여 Azure Government `AzureUSGovernment` 연결한 다음, 명령과 마찬가지로 로그인을 계속 진행할 수 `az login` 있습니다. 로그인 명령을 실행하면 적절한 Azure Government 자격 증명을 입력하는 브라우저가 시작됩니다.  
 
 ```azurecli 
 

@@ -11,12 +11,12 @@ ms.author: danil
 ms.reviewer: mathoma, bonova, danil
 ms.date: 8/18/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 7f9067d2f568c3f3d65b89508d85046970c9e334
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 1f8d848c87979419b4c2605560c3c371edfa5147
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129273422"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045695"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>SQL Server와 Azure SQL Managed Instance 간의 T-SQL 차이점
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -38,7 +38,7 @@ SQL Managed Instance에 도입된 일부 PaaS 제한 사항이 있으며 SQL Ser
 
 이러한 기능 중 대부분은 아키텍처 제약 조건이며 서비스 기능을 나타냅니다.
 
-SQL Managed Instance에서 검색되고 나중에 해결될 수 있는 알려진 일시적 문제는 [릴리스 정보 페이지](../database/doc-changes-updates-release-notes.md)에 설명되어 있습니다.
+SQL Managed Instance에서 검색 되 고 나중에 해결 될 수 있는 일시적인 알려진 문제는 [새로운 기능](doc-changes-updates-release-notes-whats-new.md)에 설명 되어 있습니다.
 
 ## <a name="availability"></a>가용성
 
@@ -561,5 +561,6 @@ SQL Managed Instance는 자세한 정보를 오류 로그에 배치합니다. �
 
 - SQL Managed Instance에 대한 자세한 내용은 [SQL Managed Instance란?](sql-managed-instance-paas-overview.md)을 참조하세요.
 - 기능 및 비교 목록은 [ Azure SQL Managed Instance 기능](../database/features-comparison.md)을 참조하세요.
-- 릴리스 업데이트 및 알려진 문제 상태는 [SQL Managed Instance 릴리스 정보](../database/doc-changes-updates-release-notes.md)를 참조하세요.
+- 릴리스 업데이트는 [새로운 것을 참조하세요.](doc-changes-updates-release-notes-whats-new.md)
+- 문제, 해결 방법 및 해결 방법을 보려면 [알려진 문제를](doc-changes-updates-known-issues.md)참조하세요.
 - 새 SQL Managed Instance를 만드는 방법을 보여 주는 빠른 시작은 [ 만들기](instance-create-quickstart.md)를 참조하세요.

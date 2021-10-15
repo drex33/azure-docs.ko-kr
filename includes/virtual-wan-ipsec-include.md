@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 10/07/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 02ced43f8c3fc7c83359b78362e8ad0feeab3070
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 5c1ee4676942462e6e92ddc6c33b1044ea24483f
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "72168402"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130050747"
 ---
 >[!NOTE]
->기본 정책으로 작업할 때 Azure는 IPsec 터널을 설정하는 동안 개시 장치와 응답기 역할을 모두 수행할 수 있습니다. Azure는 응답기 전용으로 지원되지 않습니다.
+>기본 정책으로 작업할 때 Azure는 IPsec 터널을 설정하는 동안 개시 장치와 응답기 역할을 모두 수행할 수 있습니다.
 >
 
 ### <a name="initiator"></a>시작자

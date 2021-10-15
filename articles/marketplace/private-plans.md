@@ -6,13 +6,13 @@ ms.service: marketplace
 ms.topic: article
 author: navits09
 ms.author: navits
-ms.date: 10/12/2021
-ms.openlocfilehash: 5268210c298d8cfa9f1c96d1a49c049d15d95073
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.date: 10/14/2021
+ms.openlocfilehash: d04a031abced1bdc689feb078015737d20f40cfb
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129987267"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047780"
 ---
 # <a name="private-plans-in-the-microsoft-commercial-marketplace"></a>Microsoft 상업용 Marketplace의 프라이빗 플랜
 
@@ -52,7 +52,7 @@ ms.locfileid: "129987267"
 
 ## <a name="target-customers-with-private-plans"></a>프라이빗 플랜을 사용하는 대상 고객
 
-새로운 프라이빗 플랜과 기존 프라이빗 플랜의 경우 게시자는 구독 식별자를 사용하여 고객을 대상으로 지정할 수 있습니다. Azure Virtual Machine, Azure 애플리케이션, 관리형 서비스 제품의 경우 게시자는 프라이빗 플랜의 가용성을 개별 Azure 구독 ID로 제한하거나 최대 10,000개에 달하는 Azure 구독 ID의 CSV를 업로드할 수 있습니다. SaaS 제품의 경우 게시자는 수동 또는 CSV 업로드 접근 방식을 사용하여 Azure Active Directory 테넌트 ID를 연결하여 프라이빗 플랜의 가용성을 제한할 수 있습니다.
+새로운 프라이빗 플랜과 기존 프라이빗 플랜의 경우 게시자는 구독 식별자를 사용하여 고객을 대상으로 지정할 수 있습니다. Azure 애플리케이션 및 관리 서비스 제공의 경우 게시자는 개인 계획의 가용성을 개별 Azure 구독 Id로 제한할 수 있습니다. SaaS 제품의 경우 게시자는 Azure Active Directory 테 넌 트 id를 연결 하 여 개인 계획의 가용성을 제한할 수 있습니다. Virtual Machine 제품의 경우 게시자는 Azure 테 넌 트 Id, 구독 Id 또는 둘 다를 사용 하 여 개인 계획에 대 한 액세스 권한을 보유 하는 대상 그룹을 할당할 수 있습니다. 이러한 제안 유형 중에서 최대 10 개의 id를 수동으로 추가 하거나, 10 개 이상의 Id가 필요한 경우 CSV 스프레드시트를 가져올 수 있습니다.
 
 제품이 인증되고 게시된 후 프라이빗 구독 동기화 기능을 사용하여 플랜에서 고객을 업데이트하거나 제거할 수 있습니다. 이 기능을 사용하면 게시자가 제품을 다시 인증하거나 게시하지 않고 프라이빗 플랜을 제공할 고객의 목록을 쉽고 빠르게 업데이트할 수 있습니다.
 

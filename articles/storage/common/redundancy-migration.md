@@ -10,12 +10,12 @@ ms.date: 08/16/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 47445520e92f6c7f4a8e5eb78c404b6875dbe017
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 187c4c1808133308f607bf9cb70b851a16d50e57
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129274067"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130039128"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Change how a storage account is replicated(스토리지 계정이 복제되는 방식 변경)
 
@@ -108,9 +108,9 @@ LRS에서 ZRS로 이동하거나 그 반대로 이동하여 주 지역에서 스
 
 실시간 마이그레이션 중에는 내구성 또는 가용성 손실 없이 스토리지 계정의 데이터에 액세스할 수 있습니다. Azure Storage SLA는 마이그레이션 프로세스 중에 유지 관리됩니다. 실시간 마이그레이션과 관련된 데이터 손실은 없습니다. 서비스 엔드포인트, 액세스 키, 공유 액세스 서명, 기타 계정 옵션은 마이그레이션 후에도 변경되지 않습니다.
 
-표준 성능 계층에서 ZRS는 범용 v2 계정만 지원하므로 ZRS로 실시간 마이그레이션 요청을 제출하기 전에 범용 v1 계정인 경우 스토리지 계정을 업그레이드해야 합니다. 자세한 내용은 [범용 v2 스토리지 계정으로 업그레이드](storage-account-upgrade.md)를 참조하세요. 스토리지 계정에는 실시간 마이그레이션을 통해 마이그레이션할 데이터가 포함되어야 합니다.
+표준 성능의 경우 ZRS는 범용 v2 계정만 지원 하므로 실시간 마이그레이션에 대 한 요청을 ZRS로 제출 하기 전에 범용 v1 계정인 경우 저장소 계정을 업그레이드 해야 합니다. 자세한 내용은 [범용 v2 스토리지 계정으로 업그레이드](storage-account-upgrade.md)를 참조하세요. 스토리지 계정에는 실시간 마이그레이션을 통해 마이그레이션할 데이터가 포함되어야 합니다.
 
-프리미엄 성능 계층에서는 프리미엄 파일 공유 계정에 대해 실시간 마이그레이션이 지원되지만 프리미엄 블록 Blob 또는 프리미엄 페이지 Blob 계정에는 지원되지 않습니다.
+프리미엄 성능을 위해 실시간 마이그레이션은 프리미엄 파일 공유 계정에 대해서는 지원 되지만 프리미엄 블록 blob 또는 프리미엄 페이지 blob 계정에 대해서는 지원 되지 않습니다.
 
 계정이 RA-GRS를 사용하는 경우 실시간 마이그레이션을 진행하기 전에 먼저 계정의 복제 유형을 LRS 또는 GRS로 변경해야 합니다. 이 중간 단계에서는 RA-GRS에서 제공한 보조 읽기 전용 엔드포인트가 제거됩니다.
 
@@ -151,7 +151,7 @@ Microsoft에서는 실시간 마이그레이션에 대한 요청을 신속하게
 > [!NOTE]
 > 프리미엄 파일 공유는 LRS 및 ZRS에서만 사용할 수 있습니다.
 >
-> GZRS 스토리지 계정은 현재 보관 계층을 지원하지 않습니다. 자세한 내용은 [Blob 데이터에 대한 핫, 쿨 및 보관 액세스 계층을](../blobs/access-tiers-overview.md) 참조하세요.
+> GZRS 스토리지 계정은 현재 보관 계층을 지원하지 않습니다. 자세한 내용은 [blob 데이터에 대 한 핫, 쿨 및 보관 액세스 계층](../blobs/access-tiers-overview.md) 을 참조 하세요.
 >
 > 관리 디스크는 LRS에만 사용할 수 있으며 ZRS로 마이그레이션할 수 없습니다. 표준 SSD 관리 디스크에 대한 스냅샷 및 이미지를 표준 HDD 스토리지에 저장할 수 있으며 [LRS와 ZRS 옵션 중 하나를 선택할 수 있습니다](https://azure.microsoft.com/pricing/details/managed-disks/). 가용성 집합과의 통합에 대한 자세한 내용은 [Azure 관리 디스크 소개](../../virtual-machines/managed-disks-overview.md#integration-with-availability-sets)를 참조하세요.
 

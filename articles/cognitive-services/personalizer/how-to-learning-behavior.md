@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 05/01/2020
-ms.openlocfilehash: caa3a0d8d9619ee65dbd9d71ae2ff4f56a128c8d
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
-ms.translationtype: HT
+ms.openlocfilehash: 7678d6ebf35391ad50b91a6d597c65637f33d8d9
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122831551"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130046376"
 ---
 # <a name="configure-the-personalizer-learning-behavior"></a>Personalizer 학습 동작 구성
 
@@ -32,7 +32,7 @@ ms.locfileid: "122831551"
 
 ## <a name="changes-to-the-existing-application"></a>기존 애플리케이션 변경
 
-기존 애플리케이션이 현재 표시할 작업을 선택하는 방식이나 애플리케이션이 해당 작업의 **보상** 값을 결정하는 방식을 변경해서는 안 됩니다. 애플리케이션에 대해 변경할 수 있는 유일한 사항은 Personalizer의 순위 API로 전송되는 작업 순서일 수 있습니다. 애플리케이션에 현재 표시된 작업이 작업 목록에서 _첫 번째 작업_ 으로 전송됩니다. [순위 API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank)는 이 첫 번째 작업을 사용하여 Personalizer 모델을 교육합니다.
+기존 애플리케이션이 현재 표시할 작업을 선택하는 방식이나 애플리케이션이 해당 작업의 **보상** 값을 결정하는 방식을 변경해서는 안 됩니다. 애플리케이션의 유일한 변경 내용은 Personalizer 순위 API에 전송된 작업의 순서일 수 있습니다. 애플리케이션에 현재 표시된 작업이 작업 목록에서 _첫 번째 작업_ 으로 전송됩니다. [순위 API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank)는 이 첫 번째 작업을 사용하여 Personalizer 모델을 교육합니다.
 
 ### <a name="configure-your-application-to-call-the-rank-api"></a>순위 API를 호출하도록 애플리케이션 구성
 

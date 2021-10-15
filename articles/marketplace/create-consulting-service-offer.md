@@ -1,6 +1,6 @@
 ---
-title: Microsoft 상업용 마켓플레이스에서 컨설팅 서비스 제품을 만드는 방법
-description: Microsoft 파트너 센터에서 상업용 마켓플레이스 프로그램을 사용하여 Microsoft AppSource 또는 Azure Marketplace에 대한 새 컨설팅 서비스 제품을 만드는 방법에 대해 알아봅니다.
+title: 상용 marketplace에 대 한 컨설팅 서비스 제품 만들기
+description: 파트너 센터를 사용 하 여 Microsoft AppSource 또는 Azure Marketplace에 대 한 컨설팅 서비스 제품을 만듭니다.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
@@ -8,31 +8,31 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: af8e238d57d6168e8c9620177cbf8e97a7d08727
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 5556859fb350354fd2c307412ceaed1215620df8
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129083026"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042166"
 ---
-# <a name="how-to-create-a-consulting-service-offer-in-the-commercial-marketplace"></a>상업용 마켓플레이스에서 컨설팅 서비스 제품을 만드는 방법
+# <a name="create-a-consulting-service-offer"></a>컨설팅 서비스 제품 만들기
 
-이 문서에서는 파트너 센터를 사용하여 Microsoft 상업용 마켓플레이스에 대한 컨설팅 서비스 제품을 만드는 방법을 설명합니다.
+이 문서에서는 파트너 센터를 사용 하 여 상업적 marketplace에 대 한 컨설팅 서비스 제품을 만드는 방법을 설명 합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-컨설팅 서비스 제품을 게시하려면 특정 자격 요구 사항을 충족하여 현장에서 전문성을 발휘할 수 있음을 보여 줘야 합니다. [상업용 마켓플레이스를 위한 컨설팅 서비스 제품 계획](./plan-consulting-service-offer.md)을 아직 읽어 보지 않았다면 읽어 보세요. 여기서는 컨설팅 서비스에 대한 필수 조건과 파트너 센터를 사용하여 제품을 만들 때 필요한 자산을 설명합니다.
+컨설팅 서비스 제품을 게시하려면 특정 자격 요구 사항을 충족하여 현장에서 전문성을 발휘할 수 있음을 보여 줘야 합니다. 아직 수행 하지 않은 경우 [컨설팅 서비스 제안 계획](./plan-consulting-service-offer.md)을 읽어 보세요. 파트너 센터에서 컨설팅 서비스 제품을 만드는 데 필요한 필수 구성 요소 및 자산을 설명 합니다.
 
-## <a name="create-a-new-consulting-service-offer"></a>새 컨설팅 서비스 제품 만들기
+## <a name="create-a-consulting-service-offer"></a>컨설팅 서비스 제품 만들기
 
 [!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
 #### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
-1. 홈 페이지에서 **Marketplace 제품** 타일을 선택 합니다.
+1. 홈페이지에서 **Marketplace 상품** 타일을 선택합니다.
 
-    [![파트너 센터 홈 페이지의 Marketplace 제품 타일을 보여 줍니다. ](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+    [ ![파트너 센터 홈페이지에서 보여 주는 Marketplace 제안 타일](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
 1. Marketplace 제품 페이지에서 **+ 새로 만들기 제공**  >  **컨설팅 서비스** 를 선택 합니다.
 

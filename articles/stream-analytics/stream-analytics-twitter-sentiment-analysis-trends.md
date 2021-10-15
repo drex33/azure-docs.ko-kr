@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/16/2021
-ms.openlocfilehash: e2369e8f4349a3b4a83c1729c6414d319dd8419e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: a2459966b364e2f69b0c0dded6ef5dc1de941dd3
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104589670"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130039109"
 ---
 # <a name="social-media-analysis-with-azure-stream-analytics"></a>Azure Stream Analytics를 통한 소셜 미디어 분석
 
@@ -125,7 +125,7 @@ Twitter에서 실시간으로 추세를 분석할 토픽을 식별하기 위해 
 
 ### <a name="configure-the-client-application"></a>클라이언트 애플리케이션 구성
 
-Microsoft에서는 특정 항목 집합에 대한 트윗 이벤트를 수집하기 위해 [Twitter의 스트리밍 API](https://dev.twitter.com/streaming/overview)를 사용하여 Twitter 데이터에 연결하는 클라이언트 애플리케이션을 만들었습니다.
+[Twitter 스트리밍 api](https://dev.twitter.com/streaming/overview) 를 사용 하 여 twitter 데이터에 연결 하 고 특정 항목 집합에 대 한 트 윗 이벤트를 수집 하는 클라이언트 응용 프로그램을 만들었습니다.
 
 애플리케이션이 실행되기 전에 Twitter 키 및 이벤트 허브 연결 문자열과 같은 사용자의 특정 정보가 필요합니다.
 

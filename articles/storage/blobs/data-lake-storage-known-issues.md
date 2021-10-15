@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/08/2021
+ms.date: 10/14/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 088fdbbf59f83a0a695d8abd485fe93df29aee83
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 6a612621ef316e7d4e7c248968b3cc87c04b85ae
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129999951"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130046265"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -98,15 +98,11 @@ REST API를 사용하는 제3자 애플리케이션은 Data Lake Storage Gen2를
 
 보존 기간 설정은 아직 지원되지 않지만 Azure Storage Explorer, REST 또는 SDK처럼 지원되는 도구를 사용하여 로그를 수동으로 삭제할 수 있습니다.
 
-## <a name="lifecycle-management-policies-with-premium-tier-for-azure-data-lake-storage"></a>Azure Data Lake Storage 프리미엄 계층 수명 주기 관리 정책
+## <a name="windows-azure-storage-blob-wasb-driver"></a>Windows Azure Storage Blob (WASB) 드라이버
 
-프리미엄 계층에 저장된 데이터는 핫, 쿨, 그리고 보관 계층 간에 이동할 수 없습니다. 그러나 프리미엄 계층에서 다른 계정의 핫 액세스 계층으로 데이터를 복사할 수 있습니다.
+현재 Blob API와만 작동하도록 설계된 WASB 드라이버는 몇 가지 일반적인 시나리오에서 문제가 발생합니다. 특히 계층적 네임 스페이스 사용 저장소 계정에 대 한 클라이언트 인 경우 Data Lake Storage에서 다중 프로토콜 액세스를 사용해도 이 문제는 완화되지 않습니다.
 
-## <a name="windows-azure-storage-blob-wasb-driver-unsupported-with-data-lake-storage-gen2"></a>WASB(Windows Azure Storage Blob) 드라이버(Data Lake Storage Gen2에서 지원되지 않음)
-
-현재 Blob API와만 작동하도록 설계된 WASB 드라이버는 몇 가지 일반적인 시나리오에서 문제가 발생합니다. 계층 구조 네임스페이스가 활성화된 스토리지 계정에 대한 클라이언트인 경우에는 특히 그렇습니다. Data Lake Storage에서 다중 프로토콜 액세스를 사용해도 이 문제는 완화되지 않습니다.
-
-당분간은(아마도 가까운 미래에는), WASB 드라이버를 클라이언트로 사용하는 고객에게 계층 구조 네임스페이스가 활성화된 스토리지 계정을 지원하지 못합니다. 그 대신 Hadoop 환경에서 [ABFS(Azure Blob File System)](data-lake-storage-abfs-driver.md) 드라이버를 사용하는 것이 좋습니다. 온-프레미스 Hadoop 환경에서 Hadoop branch-3 이전 버전으로 마이그레이션하려는 경우에는 귀하와 귀사에 올바른 경로를 사용하여 연락할 수 있도록 Azure 지원 티켓을 열어 주시기 바랍니다.
+계층적 네임 스페이스 사용 저장소 계정에 대 한 클라이언트로 WASB 드라이버를 사용 하는 것은 지원 되지 않습니다. 대신 Hadoop 환경에서 [Azure Blob 파일 시스템 (ABFS)](data-lake-storage-abfs-driver.md) 드라이버를 사용 하는 것이 좋습니다. 온-프레미스 Hadoop 환경에서 Hadoop branch-3 이전 버전으로 마이그레이션하려는 경우에는 귀하와 귀사에 올바른 경로를 사용하여 연락할 수 있도록 Azure 지원 티켓을 열어 주시기 바랍니다.
 
 ## <a name="soft-delete-for-blobs-capability-currently-in-preview"></a>Blob 기능 일시 삭제(현재 미리 보기)
 

@@ -9,12 +9,12 @@ ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 39e2e9c0258be13698d3569dcc6e64d02bff8f42
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2bae7f2466363861afe99d37748e7ea41fc0e1c9
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128554507"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130046642"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Azure Cosmos DB에 Node.js Mongoose 애플리케이션 연결
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -72,7 +72,7 @@ Cosmos 계정을 만들겠습니다. 사용하려는 계정이 이미 있는 경
      >[!Note]
      > ```--save``` 플래그는 package.json 파일에 종속성을 추가합니다.
 
-4. 파일의 종속성을 가져옵니다 `index.js` .
+4. 파일의 dependencies를 `index.js` 가져옵니다.
 
     ```JavaScript
    var mongoose = require('mongoose');
@@ -95,7 +95,7 @@ Cosmos 계정을 만들겠습니다. 사용하려는 계정이 이미 있는 경
     ```JavaScript
    mongoose.connect("mongodb://"+process.env.COSMOSDB_HOST+":"+process.env.COSMOSDB_PORT+"/"+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb", {
       auth: {
-        user: process.env.COSMOSDB_USER,
+        username: process.env.COSMOSDB_USER,
         password: process.env.COSMOSDB_PASSWORD
       },
     useNewUrlParser: true,
@@ -317,7 +317,7 @@ Mongoose는 사용자가 만드는 각 모델에 대한 새 컬렉션을 만듭�
     });
     ```
 
-보시다시피 Mongoose 판별자를 쉽게 이용할 수 있습니다. 따라서 Mongoose 프레임워크를 사용하는 앱이 있는 경우 이 자습서에 따라 과도한 변경 없이 Azure Cosmos의 API for MongoDB를 사용하여 애플리케이션을 작동하고 실행할 수 있습니다.
+보시다시피 Mongoose 판별자를 쉽게 이용할 수 있습니다. 따라서 Mongoose 프레임워크를 사용하는 앱이 있는 경우 이 자습서는 너무 많은 변경 없이 Azure Cosmos DB의 API for MongoDB를 사용하여 애플리케이션을 시작하고 실행할 수 있는 방법입니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -330,6 +330,6 @@ Mongoose는 사용자가 만드는 각 모델에 대한 새 컬렉션을 만듭�
 - Azure Cosmos DB의 API for MongoDB를 사용하여 MongoDB [샘플](nodejs-console-app.md)을 살펴봅니다.
 - Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
     - 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](../convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
-    - 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](estimate-ru-capacity-planner.md)에 대해 읽어보세요.
+    - 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-capacity-planner.md)에 대해 읽어보세요.
 
 [dbleveltp]: ./media/connect-using-mongoose/db-level-throughput.png

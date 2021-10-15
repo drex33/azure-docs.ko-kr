@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 780f6746854ab48bcdc4ae375bb650a78431df60
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 3ac75e3cf3ae08d9b7d49077cf54d05fdbabdbad
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129993970"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130039052"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -162,7 +162,7 @@ Azure에서 제공하는 DNS를 사용한 테넌트 간 이름 확인에 대한 
   - **Resource Manager**: 동적 또는 정적 메서드로 할당된 개인 IP 주소는 리소스가 삭제될 때까지 가상 머신(Resource Manager)에 할당된 상태로 유지됩니다. 차이점은 정적 방법을 사용하면 할당할 주소를 사용자가 선택하고 동적 방법을 사용하면 Azure에서 선택된다는 점입니다. 
   - **클래식**: 가상 머신(클래식) VM이 중지(할당 취소됨)된 상태에서 다시 시작될 때 동적 메서드로 할당된 개인 IP 주소가 변경될 수 있습니다. 클래식 배포 모델을 통해 배포된 리소스의 개인 IP 주소가 절대 변경되지 않도록 하려면 정적 메서드로 개인 IP 주소를 할당합니다.
 
-* **공용:** 필요에 따라 Azure Resource Manager 배포 모델을 통해 배포된 VM에 연결된 NIC에 할당됩니다. 정적 또는 동적 할당 메서드를 사용하여 주소를 할당할 수 있습니다. 클래식 배포 모델을 통해 배포된 모든 VM 및 Cloud Services 역할 인스턴스는 클라우드 서비스 내에 존재하며 *동적*, 공용 VIP(가상 IP) 주소가 할당됩니다. [예약된 IP 주소](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip)라고 하는 공용 *정적* IP 주소는 필요에 따라 VIP로 할당될 수 있습니다. 클래식 배포 모델을 통해 배포된 개별 VM 또는 Cloud Services 역할 인스턴스에 공용 IP 주소를 할당할 수 있습니다. 이러한 주소는 [ILPIP(인스턴스 수준 공용 IP)](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) 주소라고 하며 동적으로 할당될 수 있습니다.
+* **공용:** 필요에 따라 Azure Resource Manager 배포 모델을 통해 배포된 VM에 연결된 NIC에 할당됩니다. 정적 또는 동적 할당 메서드를 사용하여 주소를 할당할 수 있습니다. 클래식 배포 모델을 통해 배포된 모든 VM 및 Cloud Services 역할 인스턴스는 클라우드 서비스 내에 존재하며 *동적*, 공용 VIP(가상 IP) 주소가 할당됩니다. [예약된 IP 주소](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip)라고 하는 공용 *정적* IP 주소는 필요에 따라 VIP로 할당될 수 있습니다. 클래식 배포 모델을 통해 배포된 개별 VM 또는 Cloud Services 역할 인스턴스에 공용 IP 주소를 할당할 수 있습니다. 이러한 주소를 [ILPIP(인스턴스 수준 공용 IP)](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) 주소라고 하며 동적으로 할당할 수 있습니다.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>나중에 만들 VM에 대한 개인 IP 주소를 예약할 수 있나요?
 아니요. 개인 IP 주소를 예약할 수 없습니다. 개인 IP 주소가 사용 가능한 경우 DHCP 서버에서 VM 또는 역할 인스턴스에 할당됩니다. VM은 개인 IP 주소를 할당하려는 VM일 수도 있고 그렇지 않을 수도 있습니다. 그러나 이미 만든 VM의 개인 IP 주소를 사용 가능한 모든 개인 IP 주소로 변경할 수 있습니다.

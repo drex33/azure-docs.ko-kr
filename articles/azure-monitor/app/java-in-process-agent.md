@@ -6,12 +6,12 @@ ms.date: 06/24/2021
 ms.custom: devx-track-java
 author: mattmccleary
 ms.author: mmcc
-ms.openlocfilehash: 9ebfaea28e249af5f8ecd140e08178398f38fd6f
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 647922255eaa6ce1296811d928a35e035a184dc4
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129858307"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130044841"
 ---
 # <a name="azure-monitor-opentelemetry-based-auto-instrumentation-for-java-applications"></a>Java 응용 프로그램용 Azure Monitor OpenTelemetry 기반 자동 계측
 
@@ -20,7 +20,7 @@ ms.locfileid: "129858307"
 ## <a name="get-started"></a>시작
 코드를 변경 하지 않고 Java 자동 계측을 사용 하도록 설정할 수 있습니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 - 버전 8 +를 사용 하는 Java 응용 프로그램
 - Azure 구독 - [체험용 Azure 구독 만들기](https://azure.microsoft.com/free/)
 - Application Insights 리소스- [Application Insights 리소스 만들기](create-workspace-resource.md#create-workspace-based-resource)
@@ -156,7 +156,7 @@ Java 3.x에는 다음과 같은 계측 라이브러리가 포함 되어 있습�
 * Micrometer(Spring Boot Actuator 메트릭 포함)
 * JMX 메트릭
 
-### <a name="azure-sdks-preview"></a>Azure SDK(미리 보기)
+### <a name="azure-sdks"></a>Azure SDK
 
 이러한 Azure Sdk에서 내보낸 원격 분석은 기본적으로 자동으로 수집 됩니다.
 
@@ -415,12 +415,12 @@ try {
 ## <a name="support"></a>지원
 - [문제 해결 단계 를 검토합니다.](java-standalone-troubleshoot.md)
 - Azure 지원 문제의 경우 [Azure 지원 티켓을](https://azure.microsoft.com/support/create-ticket/)엽니다.
-- OpenTelemetry 문제의 경우 [OpenTelemetry 커뮤니티에 직접 문의합니다.](https://opentelemetry.io/community/)
+- OpenTelemetry 문제의 경우 [OpenTelemetry 커뮤니티에](https://opentelemetry.io/community/) 직접 문의합니다.
 
 ## <a name="opentelemetry-feedback"></a>OpenTelemetry 피드백
 - OpenTelemetry 커뮤니티의 고객 [피드백 설문 조사](https://docs.google.com/forms/d/e/1FAIpQLScUt4reClurLi60xyHwGozgM9ZAz8pNAfBHhbTZ4gFWaaXIRQ/viewform)를 작성합니다.
 - [OpenTelemetry 얼리 어답터 Community](https://aka.ms/AzMonOTel/)조인하여 Microsoft에 자신을 조금 알려주세요.
-- [Microsoft의 Tech](https://techcommunity.microsoft.com/t5/azure-monitor/bd-p/AzureMonitor)Community 다른 Azure Monitor 사용자와 소통합니다.
+- [Microsoft Tech](https://techcommunity.microsoft.com/t5/azure-monitor/bd-p/AzureMonitor)Community 다른 Azure Monitor 사용자와 소통합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

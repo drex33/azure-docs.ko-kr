@@ -14,12 +14,12 @@ ms.date: 01/14/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 537a9e58adddd421bf26bcd888be8c318feca0cb
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: dd6434ed78d5691af1f84a7ffd827244fe11605e
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129984804"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045069"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Azure VM에서 SQL Server 버전의 현재 위치 변경
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -104,4 +104,4 @@ SQL Server 버전을 다운그레이드하려면 SQL Server를 완전히 제거�
 * [Windows VM에서 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Windows VM의 SQL Server FAQ](frequently-asked-questions-faq.yml)
 * [Windows VM의 SQL Server 가격 책정 가이드](pricing-guidance.md)
-* [Windows VM의 SQL Server 릴리스 정보](doc-changes-updates-release-notes.md)
+* [Azure VM의 SQL Server 새로운 내용](doc-changes-updates-release-notes-whats-new.md)

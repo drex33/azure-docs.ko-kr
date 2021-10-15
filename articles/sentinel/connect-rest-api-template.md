@@ -1,6 +1,6 @@
 ---
-title: 데이터 원본을 Azure Sentinel의 Data Collector API에 연결하여 데이터 수집 | Microsoft Docs
-description: 외부 시스템을 Azure Sentinel의 Data Collector API에 연결하여 해당 로그 데이터를 작업 영역의 사용자 지정 로그에 수집하는 방법을 알아봅니다.
+title: 데이터 원본을 Azure 센티널 데이터 수집기 API에 커넥트 하 여 데이터 수집 | Microsoft Docs
+description: 외부 시스템을 Azure 센티널 데이터 수집기 API에 연결 하 여 작업 영역의 사용자 지정 로그에 로그 데이터를 수집 하는 방법에 대해 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2021
 ms.author: yelevin
-ms.openlocfilehash: aa30b85047460bffe0177c9154152d18262b44be
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3b268d95eed0456b858ab5d8d93b895faca1ee7b
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124823846"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038425"
 ---
-# <a name="connect-your-data-source-to-azure-sentinels-data-collector-api-to-ingest-data"></a>데이터 원본을 Azure Sentinel의 Data Collector API에 연결하여 데이터 수집
+# <a name="connect-your-data-source-to-the-azure-sentinel-data-collector-api-to-ingest-data"></a>데이터 원본을 Azure 센티널 데이터 수집기 API에 커넥트 하 여 데이터 수집
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -34,7 +34,7 @@ ms.locfileid: "124823846"
 > [!NOTE]
 > 데이터는 Azure Sentinel을 실행하는 작업 영역의 지리적 위치에 저장됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure Sentinel 작업 영역에 대한 읽기 및 쓰기 권한이 있어야 합니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "124823846"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 외부 데이터 원본을 Azure Sentinel의 데이터 수집기 API에 연결하는 방법을 알아보았습니다. 이러한 데이터 커넥터에 기본 제공되는 기능을 최대한 활용하려면 데이터 커넥터 페이지에서 **다음 단계** 탭을 선택합니다. 여기에서는 유용한 정보 찾기를 시작할 수 있도록 미리 만들어진 샘플 쿼리, 통합 문서 및 분석 규칙 템플릿을 찾을 수 있습니다.
+이 문서에서는 외부 데이터 원본을 Azure 센티널 데이터 수집기 API에 연결 하는 방법을 알아보았습니다. 이러한 데이터 커넥터에 기본 제공되는 기능을 최대한 활용하려면 데이터 커넥터 페이지에서 **다음 단계** 탭을 선택합니다. 여기에서는 유용한 정보 찾기를 시작할 수 있도록 미리 만들어진 샘플 쿼리, 통합 문서 및 분석 규칙 템플릿을 찾을 수 있습니다.
 
 Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 

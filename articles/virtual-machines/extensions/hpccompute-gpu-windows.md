@@ -10,15 +10,15 @@ ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/15/2021
+ms.date: 10/14/2021
 ms.author: amverma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1bfcb8c9c3bb7ace68e82dd997857e58c4a531f8
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 8e164fad73fd04ea2f9093e99b454f43aa441088
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129996751"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038311"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Windows용 NVIDIA GPU 드라이버 확장
 
@@ -62,7 +62,7 @@ NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM�
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.3",
+    "typeHandlerVersion": "1.4",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -77,7 +77,7 @@ NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM�
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | 문자열 |
 | type | NvidiaGpuDriverWindows | 문자열 |
-| typeHandlerVersion | 1.3 | int |
+| typeHandlerVersion | 1.4 | int |
 
 
 ## <a name="deployment"></a>배포
@@ -130,7 +130,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.3",
+    "typeHandlerVersion": "1.4",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -148,7 +148,7 @@ Set-AzVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverWindows" `
     -ExtensionType "NvidiaGpuDriverWindows" `
-    -TypeHandlerVersion 1.3 `
+    -TypeHandlerVersion 1.4 `
     -SettingString '{ `
     }'
 ```
@@ -161,7 +161,7 @@ az vm extension set \
   --vm-name myVM \
   --name NvidiaGpuDriverWindows \
   --publisher Microsoft.HpcCompute \
-  --version 1.3 \
+  --version 1.4 \
   --settings '{ \
   }'
 ```

@@ -12,12 +12,12 @@ author: vladai78
 ms.author: vladiv
 ms.reviewer: mathoma, vladiv, sachinp
 ms.date: 09/28/2021
-ms.openlocfilehash: 86b823ca368223c2d789ff651fe831b76bbd5c58
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: c399b5eb082c8521ba14996bef035f9ea94371c3
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129613380"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130041712"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Azure SQL Managed Instance 리소스 제한 개요
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -37,7 +37,7 @@ SQL Managed Instance에는 기본 인프라 및 아키텍처에 따라 달라지
 | **vCore 수** | 8, 16, 24개 vCore | vCore 4, 8, 16, 24, 32, 40, 64, 80개 |
 | **최대 메모리(메모리/코어 비율)** | vCore당 7GB<br/>더 많은 메모리를 얻으려면 vCore를 더 추가합니다. | vCore당 5.1GB<br/>더 많은 메모리를 얻으려면 vCore를 더 추가합니다. |
 | **메모리 내 최대 OLTP 메모리** | 인스턴스 제한: vCore당 1 ~ 1.5GB| 인스턴스 제한: vCore당 0.8 ~ 1.65GB |
-| **최대 인스턴스 예약된 스토리지** |  일반 용도: 8TB <br/>중요 비즈니스용: 1TB | 일반 용도: 코어 수에 따라 8TB, 16tb (미리 보기)<br/> 코어 수에 따라 중요 비즈니스용 1TB, 2TB 또는 4TB |
+| **최대 인스턴스 예약된 스토리지** |  일반 용도: 8TB <br/>중요 비즈니스용: 1TB | 범용: 코어 수에 따라 8 TB, 16 TB(미리 보기)<br/> 코어 수에 따라 중요 비즈니스용 1TB, 2TB 또는 4TB |
 
 > [!IMPORTANT]
 > - Gen4 하드웨어는 단계적으로 중단되며 더 이상 새로운 배포에 사용할 수 없습니다. SQL Managed Instance의 모든 새 인스턴스는 Gen5 하드웨어에 배포해야 합니다.
@@ -69,12 +69,12 @@ SQL Managed Instance에는 [범용](../database/service-tier-general-purpose.md)
 | --- | --- | --- |
 | vCore 수\* | Gen4: 8, 16, 24<br/>Gen5: 4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24 <br/> Gen5: 4, 8, 16, 24, 32, 40, 64, 80 <br/>\*동일한 수의 vCore는 읽기 전용 쿼리에 전용으로 사용됩니다. |
 | 최대 메모리 | Gen4: 56GB-168GB(7GB/vCore)<br/>Gen5: 20.4GB - 408GB(5.1GB/vCore)<br/>더 많은 메모리를 얻으려면 vCore를 더 추가합니다. | Gen4: 56GB-168GB(7GB/vCore)<br/>Gen5: 읽기/쓰기 쿼리를 위한 20.4GB - 408GB(5.1GB/vCore)<br/>읽기 전용 쿼리를 위한 추가 20.4GB - 408GB(5.1GB/vCore)<br/>더 많은 메모리를 얻으려면 vCore를 더 추가합니다. |
-| 최대 인스턴스 스토리지 크기(예약됨) | - 4개 vCore의 경우 2TB(Gen5만 해당)<br/>- 다른 크기의 경우 8TB <br/>-16 vCores (Gen5에만 해당) 용 16TB (미리 보기) | Gen4: 1TB <br/> Gen5: <br/>- 1TB(4, 8, 16개 vCore용)<br/>- 2TB(24개 vCore용)<br/>- 4TB(32, 40, 64, 80개 vCore용) |
-| 최대 데이터베이스 크기 | 현재 사용 가능한 인스턴스 크기 (vCores 수에 따라 최대 2tb, 648TB, 16tb (미리 보기)). | 현재 사용할 수 있는 최대 인스턴스 크기(vCore의 수에 따라 최대 1TB-4TB) |
+| 최대 인스턴스 스토리지 크기(예약됨) | - 4개 vCore의 경우 2TB(Gen5만 해당)<br/>- 다른 크기의 경우 8TB <br/>- 16개 vCore의 경우 16 TB(미리 보기)(Gen5에만 해당) | Gen4: 1TB <br/> Gen5: <br/>- 1TB(4, 8, 16개 vCore용)<br/>- 2TB(24개 vCore용)<br/>- 4TB(32, 40, 64, 80개 vCore용) |
+| 최대 데이터베이스 크기 | 현재 사용 가능한 최대 인스턴스 크기(vCore 수에 따라 최대 2 TB - 8 TB, 16 TB(미리 보기)). | 현재 사용할 수 있는 최대 인스턴스 크기(vCore의 수에 따라 최대 1TB-4TB) |
 | 최대 tempDB 크기 | 24GB/vCore(96 - 1,920GB) 및 현재 사용할 수 있는 인스턴스 스토리지 크기로 제한됩니다.<br/>더 많은 TempDB 공간을 얻으려면 vCore를 더 추가합니다.<br/> 로그 파일 크기는 120GB로 제한됩니다.| 현재 사용할 수 있는 최대 인스턴스 스토리지 크기입니다. |
 | 인스턴스당 최대 데이터베이스 수 | 인스턴스 스토리지 크기 제한에 도달하지 않은 경우 100개의 사용자 데이터베이스. | 인스턴스 스토리지 크기 제한에 도달하지 않은 경우 100개의 사용자 데이터베이스. |
-| 인스턴스당 최대 데이터베이스 파일 수 | 최대 280(인스턴스 스토리지 크기 또는 [Azure 프리미엄 디스크 스토리지 할당 공간](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files) 제한에 도달하지 않은 경우) | 데이터베이스당 32,767개 파일(인스턴스 스토리지 크기 제한에 도달하지 않은 경우) |
-| 최대 데이터 파일 크기 | 현재 사용할 수 있는 인스턴스 스토리지 크기(최대 2TB-8TB) 및 [Azure 프리미엄 디스크 스토리지 할당 공간](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files)으로 제한됩니다. 8TB 보다 큰 데이터베이스에는 두 개 이상의 데이터 파일을 사용 합니다. | 현재 사용할 수 있는 인스턴스 스토리지 크기(최대 1TB-4TB)로 제한됩니다. |
+| 인스턴스당 최대 데이터베이스 파일 수 | 최대 280(인스턴스 스토리지 크기 또는 [Azure 프리미엄 디스크 스토리지 할당 공간](doc-changes-updates-known-issues.md#exceeding-storage-space-with-small-database-files) 제한에 도달하지 않은 경우) | 데이터베이스당 32,767개 파일(인스턴스 스토리지 크기 제한에 도달하지 않은 경우) |
+| 최대 데이터 파일 크기 | 현재 사용할 수 있는 인스턴스 스토리지 크기(최대 2TB-8TB) 및 [Azure 프리미엄 디스크 스토리지 할당 공간](doc-changes-updates-known-issues.md#exceeding-storage-space-with-small-database-files)으로 제한됩니다. 8 TB보다 큰 데이터베이스에 대해 두 개 이상의 데이터 파일을 사용합니다. | 현재 사용할 수 있는 인스턴스 스토리지 크기(최대 1TB-4TB)로 제한됩니다. |
 | 최대 로그 파일 크기 | 2TB 및 현재 사용할 수 있는 인스턴스 스토리지 크기로 제한됩니다. | 2TB 및 현재 사용할 수 있는 인스턴스 스토리지 크기로 제한됩니다. |
 | 데이터/로그 IOPS(근사치) | 인스턴스당 최대 30-40 K IOPS*, 파일당 500-7500<br/>\*[더 많은 IOPS를 얻기 위해 파일 크기 늘리기](#file-io-characteristics-in-general-purpose-tier)| 16K - 320K(4000 IOPS/vCore)<br/>더 나은 IO 성능을 얻으려면 vCore를 더 추가합니다. |
 | 로그 쓰기 처리량 한도(인스턴스당) | vCore당 3MB/초<br/>인스턴스당 최대 120MB/초<br/>DB당 22 ~ 65MB/초<br/>\*[더 나은 IO 성능을 얻으려면 파일 크기를 늘립니다.](#file-io-characteristics-in-general-purpose-tier) | vCore당 4MB/초<br/>최대 96MB/초 |

@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 02/17/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 5d6a9ca83060c074740985b87af841bfa4be17f9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 6bf722279462c1f9b6d08830af19577ec218f756
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528380"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130039147"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Azure Defender의 경고 표시 안 함
 
@@ -107,7 +107,7 @@ Azure Portal에서 직접 규칙을 만들려면 다음을 수행합니다.
 
 ## <a name="create-and-manage-suppression-rules-with-the-api"></a>API를 사용하여 중복된 경고 제거 규칙 만들기 및 관리
 
-Security Center의 REST API를 통해 중복된 경고 제거 규칙을 만들거나, 보거나, 삭제할 수 있습니다. 
+Security Center REST API 통해 경고 제거 규칙을 만들거나 보거나 삭제할 수 있습니다. 
 
 REST API에서 중복된 경고 제거 규칙의 관련 HTTP 메서드는 다음과 같습니다.
 

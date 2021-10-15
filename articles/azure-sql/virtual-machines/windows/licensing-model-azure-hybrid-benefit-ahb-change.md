@@ -15,12 +15,12 @@ ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cd9975e1554c6c2f56561ce5e3fba5086c342c21
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 7e3454cd678792533efddac9b5024ef1508d3683
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129987414"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045031"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Azure에서 SQL 가상 머신의 라이선스 모델 변경
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -143,5 +143,5 @@ Update-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name> -License
 * [Windows VM에서 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Windows VM의 SQL Server FAQ](frequently-asked-questions-faq.yml)
 * [Windows VM의 SQL Server 가격 책정 가이드](pricing-guidance.md)
-* [Windows VM의 SQL Server 릴리스 정보](../../database/doc-changes-updates-release-notes.md)
+* [Azure vm에서 SQL Server의 새로운 기능](doc-changes-updates-release-notes-whats-new.md)
 * [SQL IaaS 에이전트 확장 개요](./sql-server-iaas-agent-extension-automate-management.md)

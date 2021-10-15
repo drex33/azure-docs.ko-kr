@@ -12,15 +12,15 @@ ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/01/2021
+ms.date: 10/14/2021
 ms.author: amverma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 65d6302ea0c73673f675dcff8fd8fcc71ace3cf2
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
-ms.translationtype: HT
+ms.openlocfilehash: 0f2e6d04542df5795bd3c30763f0197295a21f78
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110662749"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038349"
 ---
 # <a name="infiniband-driver-extension-for-windows"></a>Windows용 InfiniBand 드라이버 확장
 
@@ -36,8 +36,8 @@ ms.locfileid: "110662749"
 
 | 배포 | InfiniBand NIC 드라이버 |
 |---|---|
-| Windows 10 | CX5, CX6 |
-| Windows Server 2019 | CX5, CX6 |
+| Windows 10 | CX3-Pro, CX5, CX6 |
+| Windows Server 2019 | CX3-Pro, CX5, CX6 |
 | Windows Server 2016 | CX3-Pro, CX5, CX6 |
 | Windows Server 2012 R2 | CX3-Pro, CX5, CX6 |
 | Windows Server 2012 | CX3-Pro, CX5, CX6 |
@@ -62,7 +62,7 @@ InfiniBand 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM�
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "InfiniBandDriverWindows",
-    "typeHandlerVersion": "1.2",
+    "typeHandlerVersion": "1.5",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -77,7 +77,7 @@ InfiniBand 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM�
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | 문자열 |
 | type | InfiniBandDriverWindows | 문자열 |
-| typeHandlerVersion | 1.2 | int |
+| typeHandlerVersion | 1.5 | int |
 
 
 
@@ -104,7 +104,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "InfiniBandDriverWindows",
-    "typeHandlerVersion": "1.2",
+    "typeHandlerVersion": "1.5",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -122,7 +122,7 @@ Set-AzVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "InfiniBandDriverWindows" `
     -ExtensionType "InfiniBandDriverWindows" `
-    -TypeHandlerVersion 1.2 `
+    -TypeHandlerVersion 1.5 `
     -SettingString '{ `
     }'
 ```
@@ -135,16 +135,16 @@ az vm extension set \
   --vm-name myVM \
   --name InfiniBandDriverWindows \
   --publisher Microsoft.HpcCompute \
-  --version 1.2 
+  --version 1.5 
 ```
 
 ### <a name="add-extension-to-a-virtual-machine-scale-set"></a>가상 머신 확장 집합에 확장 추가
 
-다음 예제에서는 *myResourceGroup* 이라는 리소스 그룹에 배포된 *myVMSS* 라는 기존 가상 머신 확장 집합의 모든 RDMA 지원 VM에 최신 버전 1.2 InfiniBandDriverWindows 확장을 설치합니다.
+다음 예제에서는 *Myresourcegroup* 이라는 리소스 그룹에 배포 된 *myvmss* 라는 기존 가상 머신 확장 집합의 모든 RDMA 지원 vm에 최신 버전 1.5 InfiniBandDriverWindows 확장을 설치 합니다.
 
   ```powershell
   $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
-  Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverWindows" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverWindows" -TypeHandlerVersion "1.2"
+  Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverWindows" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverWindows" -TypeHandlerVersion "1.5"
   Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "MyVMSS" -VirtualMachineScaleSet $VMSS
   Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -InstanceId "*"
 ```

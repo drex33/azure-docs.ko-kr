@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 layout: LandingPage
 ms.date: 06/23/2021
-ms.openlocfilehash: e48c464ffa1aa5077f04ea1a7580e0d15e0fd7ca
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 7cb78f108e53c93e736b11d49d21d8cd7c242b79
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535933"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047079"
 ---
 # <a name="data-sources-gallery"></a>데이터 원본 갤러리
 
@@ -670,7 +670,7 @@ BAI Bentley AssetWise 커넥터를 사용하면 AssetWise의 콘텐츠를 다른
 
 제공: [Accenture](https://www.accenture.com)
 
-Box 커넥터는 Box 리포지토리의 콘텐츠를 크롤링합니다. 이 커넥터는 RESTful API를 사용하여 지원되는 요소를 검색하고 전체 크롤링 또는 증분 크롤링, 메타데이터 추출, ACL 가져오기 등을 제공합니다.
+Box 커넥터는 Box 리포지토리의 콘텐츠를 크롤링합니다. 커넥터는 REST API 통해 지원되는 요소를 검색하여 전체 또는 증분 탐색, 메타데이터 추출, ACL 가져오기 등을 제공합니다.
 
 [자세한 정보](https://contentanalytics.digital.accenture.com/display/aspire40/Box++Connector)
 

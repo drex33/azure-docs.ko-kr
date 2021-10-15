@@ -12,19 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/11/2021
+ms.date: 10/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 84ccb06b6be84c26ce9adf5d0c8e25d45190fa2b
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.openlocfilehash: 34ee024344fb5ed7bf7da32f181a0bc43cbfc8fd
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407915"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038653"
 ---
 # <a name="create-volume-replication-for-azure-netapp-files"></a>Azure NetApp Files에 대한 볼륨 복제본 만들기
-
-> [!IMPORTANT]
-> 지역 간 복제 테이블 기능은 현재 미리 보기 상태입니다. [Azure NetApp Files 지역 간 복제 대기 목록 제출 페이지](https://aka.ms/anfcrrpreviewsignup)를 통해 기능에 액세스하기 위한 대기 목록 요청을 제출해야 합니다. 지역 간 복제 기능을 사용하기 전에 Azure NetApp Files 팀의 공식 확인 메일을 기다리세요.
 
 이 문서에서는 복제 피어링을 만들어 지역 간 복제를 설정하는 방법을 설명합니다. 
 

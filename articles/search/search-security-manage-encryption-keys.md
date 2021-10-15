@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/02/2021
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 5513e4f26f6b2fed17f406f43110eb358179ce79
-ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
-ms.translationtype: HT
+ms.openlocfilehash: 9dc1244c6747ea5616bee59ccf9b972a89d0c4a0
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113232829"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042185"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Azure Cognitive Search에서 데이터 암호화에 사용할 고객 관리형 키 구성
 
@@ -22,7 +22,7 @@ Azure Cognitive Search는 [서비스 관리형 키](../security/fundamentals/enc
 
 이 문서에서는 고객이 관리하는 키 암호화를 설정하는 단계를 안내합니다. 이때 유의해야 할 몇 가지 사항이 있습니다.
 
-+ 고객 관리형 키 암호화는 [Azure Key Vault](../key-vault/general/overview.md)에 따라 달라집니다. 사용자 고유의 암호화 키를 만들고 Azure Key Vault에 저장할 수도 있고 Azure Key Vault의 API를 사용하여 암호화 키를 생성할 수도 있습니다.
++ 고객 관리형 키 암호화는 [Azure Key Vault](../key-vault/general/overview.md)에 따라 달라집니다. 사용자 고유의 암호화 키를 만들어 키 자격 증명 모음에 저장하거나 Azure Key Vault API를 사용하여 암호화 키를 생성할 수 있습니다.
 
 + 고객 관리형 키를 사용한 암호화는 개체가 생성될 때 개체별로 사용됩니다. 이미 존재하는 콘텐츠는 암호화할 수 없습니다.
 

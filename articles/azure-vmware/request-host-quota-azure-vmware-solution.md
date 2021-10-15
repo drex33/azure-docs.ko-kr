@@ -4,12 +4,12 @@ description: Azure VMware Solution에 대한 호스트 할당량/용량을 요�
 ms.topic: how-to
 ms.custom: contperf-fy21q3
 ms.date: 09/27/2021
-ms.openlocfilehash: 2b3e2291726f37f3c802d1db24429381e7a2b7d1
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 985b17183d8e3373f03f156857ee0697c769e28d
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129083242"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130044822"
 ---
 # <a name="request-host-quota-for-azure-vmware-solution"></a>Azure VMware Solution에 대한 호스트 할당량 요청
 
@@ -41,7 +41,7 @@ ms.locfileid: "129083242"
 
 1. 지원 티켓의 **설명** 에 있는 **세부 정보** 탭에서 다음 정보를 입력합니다.
 
-   - POC 또는 프로덕션 
+   - 생산 
    - 지역 이름
    - 호스트 수
    - 기타 세부 정보
@@ -94,7 +94,7 @@ CSP는 [Microsoft 파트너 센터](https://partner.microsoft.com)를 사용해�
    
    1. 지원 티켓의 **설명** 에 있는 **세부 정보** 탭에서 다음 정보를 입력합니다.
    
-      - POC 또는 프로덕션 
+      - 생산 
       - 지역 이름
       - 호스트 수
       - 기타 세부 정보

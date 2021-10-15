@@ -15,12 +15,12 @@ ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0cd917ced00220d1251b5aa1118f4287623b9445
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
-ms.translationtype: HT
+ms.openlocfilehash: 599546679039005831a72440ff0d095d7e62c257
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080042"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047307"
 ---
 # <a name="move-a-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery"></a>Azure Site Recovery를 사용하여 Azure 내의 다른 지역으로 SQL Server VM 이동
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -156,4 +156,4 @@ SQL Server VM을 다른 지역으로 이동하려면 다음 단계를 수행해�
 * [Windows VM에서 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Windows VM의 SQL Server FAQ](frequently-asked-questions-faq.yml)
 * [Windows VM의 SQL Server 가격 책정 가이드](pricing-guidance.md)
-* [Windows VM의 SQL Server 릴리스 정보](doc-changes-updates-release-notes.md)
+* [Azure vm에서 SQL Server의 새로운 기능](doc-changes-updates-release-notes-whats-new.md)

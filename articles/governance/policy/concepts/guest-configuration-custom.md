@@ -3,12 +3,12 @@ title: 게스트 구성에 대한 PowerShell Desired State Configuration의 동�
 description: 이 문서에서는 Azure Policy를 통해 컴퓨터에 구성 변경 내용을 제공하는 데 사용되는 플랫폼의 개요를 제공합니다.
 ms.date: 05/31/2021
 ms.topic: how-to
-ms.openlocfilehash: 791d9fe38da6c3ae21e3f72960e35a3571eba36b
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: b501305513e99963ec9d00a49e6e7aa1c74b3683
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130002475"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045335"
 ---
 # <a name="changes-to-behavior-in-powershell-desired-state-configuration-for-guest-configuration"></a>게스트 구성에 대한 PowerShell Desired State Configuration의 동작 변경 사항
 
@@ -175,6 +175,8 @@ Microsoft는 PowerShell Gallery의 `PsDscResources` 모듈 및 Windows 함께 �
 
 - Windows와 함께 제공되는 `PSDesiredStateConfiguration` 모듈의 리소스를 사용하지 마세요. 대신 `PSDscResources`로 전환합니다.
 - `PsDscResources`에 있는 `WindowsFeature` 및 `WindowsFeatureSet` 리소스를 사용하지 마세요. 대신 `WindowsOptionalFeature` 및 `WindowsOptionalFeatureSet` 리소스로 전환합니다.
+  
+Linux용 DSC 리포지션에 포함된 [Linux용](https://github.com/microsoft/PowerShell-DSC-for-Linux/tree/master/Providers) "nx" 리소스는 C 및 Python 언어의 조합으로 작성되었습니다. Linux에서 DSC에 대한 경로는 PowerShell을 사용하는 것이므로 기존 "nx" 리소스는 DSCv3과 호환되지 않습니다. Linux에 대해 지원되는 리소스를 포함하는 새 모듈을 사용할 수 있게 될 때까지 사용자 지정 리소스를 작성해야 합니다.
 
 ## <a name="coexistance-with-dsc-version-3-and-previous-versions"></a>DSC 버전 3 및 이전 버전과 공존
 

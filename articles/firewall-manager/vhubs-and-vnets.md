@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: article
 ms.date: 09/14/2020
 ms.author: victorh
-ms.openlocfilehash: 71ff23e749139087f24da406474403167dcc1c0d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 36c43448abba82ef084a16e13e70700ddf12bdc2
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90563151"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042016"
 ---
 # <a name="what-are-the-azure-firewall-manager-architecture-options"></a>Azure Firewall Manager 아키텍처 옵션은 무엇인가요?
 
@@ -36,7 +36,7 @@ Azure Firewall Manager는 다음 두 가지 네트워크 아키텍처 유형에 
 |**허브 및 스포크**     |가상 네트워크 피어링 사용|허브 가상 네트워크 연결을 사용하여 자동화|
 |**온-프레미스 연결**     |VPN Gateway 최대 10Gbps 및 30개의 S2S 연결, ExpressRoute|보다 확장성 있는 VPN Gateway 최대 20Gbps 및 1000개의 S2S 연결, ExpressRoute|
 |**SDWAN을 사용하는 자동 분기 연결**      |지원되지 않음|지원됨|
-|**지역별 허브**     |지역별 여러 가상 네트워크|지역별 단일 가상 허브. 여러 가상 WAN으로 가능한 여러 허브|
+|**지역별 허브**     |지역별 여러 가상 네트워크|지역당 여러 Virtual Hub|
 |**Azure Firewall - 여러 공용 IP 주소**      |고객이 제공|자동 생성|
 |**Azure Firewall 가용성 영역**     |지원됨|아직 사용할 수 없음|
 |**타사 보안을 서비스 파트너로 사용하는 고급 인터넷 보안**     |선택한 파트너 서비스에 대해 고객이 설정 및 관리하는 VPN 연결|보안 파트너 공급자 흐름 및 파트너 관리 환경을 통해 자동화|
@@ -44,7 +44,7 @@ Azure Firewall Manager는 다음 두 가지 네트워크 아키텍처 유형에 
 |**여러 보안 공급자 지원**|타사 방화벽에 대한 수동으로 구성된 강제 터널링을 사용하여 지원|두 보안 공급자, 즉 프라이빗 트래픽 필터링을 위한 Azure Firewall과 인터넷 필터링을 위한 타사에 대한 자동화 지원|
 |**Application Gateway의 Web Application Firewall** |가상 네트워크에서 지원|현재 스포크 네트워크에서 지원됨|
 |**네트워크 가상 어플라이언스**|가상 네트워크에서 지원|현재 스포크 네트워크에서 지원됨|
-|**Azure DDoS Protection 표준 지원**|예|예|
+|**Azure DDoS Protection 표준 지원**|예|아니요|
 
 ## <a name="next-steps"></a>다음 단계
 

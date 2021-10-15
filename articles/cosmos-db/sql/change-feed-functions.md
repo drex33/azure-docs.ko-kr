@@ -6,14 +6,14 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 10/14/2021
 ms.reviewer: sngun
-ms.openlocfilehash: 01fb12957a9dce42a53861daebab796047cb6f84
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: f66b5a19c6d7deff947ed3208d78c64b95e7a304
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116476"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045316"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB 및 Azure Functions를 사용한 서버리스 이벤트 기반 아키텍처
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -32,7 +32,7 @@ Azure Functions는 [변경 피드](../change-feed.md)에 연결하는 가장 간
 서버리스 이벤트 기반 흐름을 구현하려면 다음이 필요합니다.
 
 * **모니터링된 컨테이너**: 모니터링된 컨테이너는 모니터링된 Azure Cosmos 컨테이너이며 변경 피드가 생성되는 데이터를 저장합니다. 모니터링된 컨테이너에 대한 모든 삽입 및 업데이트는 컨테이너의 변경 피드에 반영됩니다.
-* **임대 컨테이너**: 임대 컨테이너는 여러 동적 서버리스 Azure Function 인스턴스에서 상태를 유지하고 동적 크기 조정을 사용합니다. 이 임대 컨테이너는 Cosmos DB용 Azure Functions 트리거에 의해 수동 또는 자동으로 생성될 수 있습니다. 임대 컨테이너를 자동으로 만들려면 [구성](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration)에서 *CreateLeaseCollectionIfNotExists* 플래그를 설정합니다. 분할된 임대 컨테이너에는 `/id` 파티션 키 정의가 필요합니다.
+* **임대 컨테이너**: 임대 컨테이너는 여러 동적 서버리스 Azure Function 인스턴스에서 상태를 유지하고 동적 크기 조정을 사용합니다. Cosmos DB에 대 한 Azure Functions 트리거를 사용 하 여 자동으로 임대 컨테이너를 만들 수 있습니다. 수동으로 임대 컨테이너를 만들 수도 있습니다. 임대 컨테이너를 자동으로 만들려면 [구성](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration)에서 *CreateLeaseCollectionIfNotExists* 플래그를 설정합니다. 분할된 임대 컨테이너에는 `/id` 파티션 키 정의가 필요합니다.
 
 ## <a name="create-your-azure-functions-trigger-for-cosmos-db"></a>Cosmos DB용 Azure Functions 트리거 만들기
 

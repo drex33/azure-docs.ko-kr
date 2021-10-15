@@ -12,22 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 10/14/2021
 ms.author: b-juche
 ms.custom: references_regions
-ms.openlocfilehash: f97e4ec774dc9ed703a41cdd75fb88747fb627e5
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: c8cef623e26882443379fff73edcc1999463ec3e
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129090916"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045771"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Azure NetApp Files 볼륨의 지역 간 복제
 
 Azure NetApp Files 복제 기능은 지역 간 볼륨 복제를 통해 데이터 보호 기능을 제공합니다. 한 지역의 Azure NetApp Files 볼륨(원본)에서 다른 지역의 다른 Azure NetApp Files 볼륨(대상)으로 데이터를 비동기식으로 복제할 수 있습니다.  이 기능을 사용하면 지역 전체의 가동 중단 또는 재해가 발생할 경우 중요한 애플리케이션을 장애 조치(failover)할 수 있습니다.
-
-> [!IMPORTANT]
-> 지역 간 복제 테이블 기능은 현재 미리 보기 상태입니다. [Azure NetApp Files 지역 간 복제 대기 목록 제출 페이지](https://aka.ms/anfcrrpreviewsignup)를 통해 기능에 액세스하기 위한 대기 목록 요청을 제출해야 합니다. 지역 간 복제 기능을 사용하기 전에 Azure NetApp Files 팀의 퍼블릭 확인 메일을 기다리세요.
 
 ## <a name="supported-cross-region-replication-pairs"></a><a name="supported-region-pairs"></a>지원되는 지역 간 복제 쌍
 

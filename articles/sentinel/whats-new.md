@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 10/11/2021
-ms.openlocfilehash: 07e48fba8bfb554604d875f9f4a041fed466dbe7
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: 9376921b4a80e6267eccd872e211d113fcf427e3
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129754713"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130046016"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Azure Sentinel의 새로운 기능
 
@@ -35,39 +35,39 @@ ms.locfileid: "129754713"
 
 ## <a name="october-2021"></a>2021년 10월
 
-- [플레이 북 템플릿 및 갤러리 사용 가능 (공개 미리 보기)](#playbook-templates-and-gallery-now-available-public-preview)
-- [예약 된 분석 규칙에 대 한 템플릿 버전 관리 (공개 미리 보기)](#manage-template-versions-for-your-scheduled-analytics-rules-public-preview)
-- [DHCP 정규화 스키마 (공개 미리 보기)](#dhcp-normalization-schema-public-preview)
+- [플레이북 템플릿 및 갤러리 사용 가능(공개 미리 보기)](#playbook-templates-and-gallery-now-available-public-preview)
+- [예약된 분석 규칙에 대한 템플릿 버전 관리(공개 미리 보기)](#manage-template-versions-for-your-scheduled-analytics-rules-public-preview)
+- [DHCP 정규화 스키마(공개 미리 보기)](#dhcp-normalization-schema-public-preview)
 
-### <a name="playbook-templates-and-gallery-now-available-public-preview"></a>플레이 북 템플릿 및 갤러리 사용 가능 (공개 미리 보기)
+### <a name="playbook-templates-and-gallery-now-available-public-preview"></a>플레이북 템플릿 및 갤러리 사용 가능(공개 미리 보기)
 
-플레이 북 템플릿은 요구 사항에 맞게 사용자 지정할 수 있는 미리 작성 되 고 테스트 되 고 사용이 가능한 워크플로입니다. 템플릿은 처음부터 플레이 북을 개발할 때 모범 사례에 대 한 참조 나 새로운 자동화 시나리오의 역할을 할 수도 있습니다.
+플레이북 템플릿은 요구 사항에 맞게 사용자 지정할 수 있는 미리 빌드되고 테스트되고 즉시 사용할 수 있는 워크플로입니다. 템플릿은 처음부터 플레이북을 개발할 때 모범 사례에 대한 참조 또는 새로운 자동화 시나리오에 대한 영감을 제공하는 역할을 할 수도 있습니다.
 
-플레이 북 템플릿은 azure 센티널 커뮤니티, isv (독립 소프트웨어 공급 업체) 및 Microsoft 고유의 전문가에 의해 개발 되었으며, **플레이 북 템플릿** 탭 ( **Automation** 아래), [**azure 센티널 솔루션**](sentinel-solutions.md)의 일부로 또는 [**azure 센티널 GitHub 리포지토리에서**](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)찾을 수 있습니다. 
+플레이북 템플릿은 Azure Sentinel 커뮤니티, ISV(독립 소프트웨어 공급업체) 및 Microsoft 자체 전문가에 의해 개발되었으며, **플레이북 템플릿** 탭(Automation 아래), Azure Sentinel [**솔루션의**](sentinel-solutions.md)일부 또는 [**Azure Sentinel GitHub 리포지토리에서**](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)찾을 수 있습니다. 
 
-**Automation** 의 **플레이 북 템플릿** 탭에서 플레이 북 템플릿 배포에 대 한 자세한 내용은 [기본 제공 템플릿에서 플레이 북 만들기 및 사용자 지정](use-playbook-templates.md) 을 참조 하세요.
+**Automation** [아래의 플레이북 템플릿 탭에서 플레이북 템플릿을](use-playbook-templates.md) 배포하는 자세한 내용은 기본 제공 **템플릿에서 플레이북** 만들기 및 사용자 지정을 참조하세요.
 
-### <a name="manage-template-versions-for-your-scheduled-analytics-rules-public-preview"></a>예약 된 분석 규칙에 대 한 템플릿 버전 관리 (공개 미리 보기)
+### <a name="manage-template-versions-for-your-scheduled-analytics-rules-public-preview"></a>예약된 분석 규칙에 대한 템플릿 버전 관리(공개 미리 보기)
 
-[기본 제공 Azure 센티널 규칙 템플릿에서](detect-threats-built-in.md)분석 규칙을 만들 때 템플릿의 복사본을 효과적으로 만듭니다. 그 전에는 활성 규칙이 원래 템플릿에 적용 되는 변경 내용과 일치 하도록 동적으로 업데이트 ***되지 않습니다*** .
+[기본 제공 Azure Sentinel 규칙 템플릿에서](detect-threats-built-in.md)분석 규칙을 만들 때 템플릿의 복사본을 효과적으로 만듭니다. 이 시점을 지나면 활성 규칙이 원래 템플릿에 적용된 변경 내용과 일치하도록 동적으로 ***업데이트되지 않습니다.***
 
-그러나 템플릿에서 생성 된 규칙은 제공 된 ***템플릿을 명심 하*** 여 다음과 같은 두 가지 이점을 누릴 수 있습니다.
+그러나 템플릿에서 만든 규칙은  두 가지 이점을 제공하는 템플릿을 기억합니다.
 
-- 템플릿에서 만들 때 (또는 그 후 언제 든 지) 규칙을 변경한 경우 항상 규칙을 다시 원래 버전 (템플릿의 복사본)으로 되돌릴 수 있습니다.
+- 템플릿에서 규칙을 만들 때(또는 그 이후 언제든지) 규칙을 변경한 경우 언제든지 규칙을 원래 버전(템플릿의 복사본)으로 되돌릴 수 있습니다.
 
-- 템플릿이 업데이트 되 면 알림 메시지를 받을 수 있으며, 규칙을 새 버전의 템플릿으로 업데이트 하거나 그대로 둘 수 있습니다.
+- 템플릿이 업데이트되면 알림을 받을 수 있으며, 규칙을 새 버전의 템플릿으로 업데이트하거나 그대로 둘 수 있습니다.
 
-[이러한 작업을 관리 하는 방법과](manage-analytics-rule-templates.md)기억해 야 할 사항에 대해 알아보세요. 이러한 절차는 템플릿에서 만든 모든 [예약 된](detect-threats-built-in.md#scheduled) 분석 규칙에 적용 됩니다.
+[이러한 작업을 관리하는 방법](manage-analytics-rule-templates.md)및 유의해야 할 사항을 알아봅니다. 이러한 절차는 템플릿에서 만든 [예약된](detect-threats-built-in.md#scheduled) 분석 규칙에 적용됩니다.
 
-### <a name="dhcp-normalization-schema-public-preview"></a>DHCP 정규화 스키마 (공개 미리 보기)
+### <a name="dhcp-normalization-schema-public-preview"></a>DHCP 정규화 스키마(공개 미리 보기)
 
-Azure 센티널 Information Model (ASIM)은 이제 dhcp 정규화 스키마를 지원 합니다 .이 스키마는 DHCP 서버에서 보고 하는 이벤트를 설명 하는 데 사용 되며, Azure 센티널에서 원본에 관계 없는 분석을 사용 하도록 하는 데 사용 됩니다. 
+ASIM(Azure Sentinel 정보 모델)은 이제 DHCP 서버에서 보고하는 이벤트를 설명하는 데 사용되며 소스에 관계 없는 분석을 사용하도록 설정하기 위해 Azure Sentinel 사용되는 DHCP 정규화 스키마를 지원합니다. 
 
-DHCP 정규화 스키마에 설명 된 이벤트에는 클라이언트 시스템에서 임대 된 DHCP IP 주소에 대 한 요청 처리와 임대가 부여 된 DNS 서버 업데이트가 포함 됩니다.
+DHCP 정규화 스키마에 설명된 이벤트에는 클라이언트 시스템에서 임대된 DHCP IP 주소에 대한 요청 처리 및 부여된 임대로 DNS 서버 업데이트가 포함됩니다.
 
 자세한 내용은 다음을 참조하세요.
 
-- [Azure 센티널 DHCP 정규화 스키마 참조 (공개 미리 보기)](dhcp-normalization-schema.md)
+- [Azure Sentinel DHCP 정규화 스키마 참조(공개 미리 보기)](dhcp-normalization-schema.md)
 - [정규화 및 ASIM(Azure Sentinel 정보 모델)](normalization.md)
 
 ## <a name="september-2021"></a>2021년 9월
@@ -90,7 +90,7 @@ Azure Sentinel용 기본 제공 데이터 커넥터를 점점 더 많이 계속 
 - **일반 방법 문서**:
 
    - [Azure, Windows, Microsoft 및 Amazon 서비스에 연결](connect-azure-windows-microsoft-services.md)
-   - [데이터 원본을 Azure Sentinel의 Data Collector API에 연결하여 데이터 수집](connect-rest-api-template.md)
+   - [Azure Sentinel 데이터 수집기 API에 데이터 원본을 커넥트 데이터를 수집합니다.](connect-rest-api-template.md)
    - [디바이스 또는 어플라이언스에서 Azure Sentinel로 CEF 형식 로그 가져오기](connect-common-event-format.md)
    - [Syslog를 사용하여 Linux 기반 소스에서 데이터 수집](connect-syslog.md)
    - [Log Analytics 에이전트를 사용하여 Azure Sentinel에 사용자 지정 로그 형식의 데이터 수집](connect-custom-logs.md)

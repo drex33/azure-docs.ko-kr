@@ -11,12 +11,12 @@ ms.author: johwu
 author: johnwu0604
 ms.date: 03/26/2021
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
-ms.openlocfilehash: 1089589dabd91d9f273b71f0b89bbf0ad3488e95
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 4e7f708622156b5d214bfb1fb566a9d47639c385
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129427783"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042784"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대한 액세스 관리
 
@@ -486,7 +486,6 @@ Azure Machine Learning 작업 영역에서 MLflow 작업을 수행하려면 사�
     네트워킹과 Azure RBAC에 관한 자세한 내용은 [네트워킹 기본 제공 역할](../role-based-access-control/built-in-roles.md#networking)을 참조하세요.
 
 - 경우에 따라 새 역할 할당이 스택 전체의 캐시된 권한에 적용되는 데 최대 1시간까지 걸릴 수 있습니다.
-- 현재 Azure Machine Learning에서는 [조건부 액세스](../role-based-access-control/conditional-access-azure-management.md)가 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 06/14/2021
 ms.author: surmb
-ms.openlocfilehash: f838b1821e38e6046014f5cd8233694db7f2ef87
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 841583de276e4657384854f8430bbb82d75517d3
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129729846"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045922"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>Application Gateway 인프라 구성
 
@@ -62,9 +62,10 @@ NSG(네트워크 보안 그룹)는 Application Gateway에서 지원됩니다. �
 
 1. 인바운드 액세스 포트(예: HTTP 액세스용 포트 80)로 전체 Application Gateway 서브넷 주소 범위 및 대상 포트를 대상으로 하는 원본 IP 또는 IP 범위에서 들어오는 트래픽을 허용합니다.
 2. 원본에서 들어오는 요청을 **GatewayManager** 서비스 태그로 허용하고 Application Gateway v1 SKU의 경우 대상을 **Any** 로 대상 포트를 65503-65534로 허용하고, [ 백엔드 상태 통신](./application-gateway-diagnostics.md)의 경우 v2 SKU의 경우 포트 65200-65535를 허용합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. 이러한 포트는 Azure 인증서에 의해 보호(잠김)됩니다. 적절한 인증서가 없는 경우 외부 엔터티는 해당 엔드포인트에 대한 변경 내용을 초기화할 수 없습니다.
-3. [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)에 대한 들어오는 Azure Load Balancer 프로브(*AzureLoadBalancer* 태그) 및 인바운드 가상 네트워크 트래픽(*VirtualNetwork* 태그)을 허용합니다.
-4. 모두 거부 규칙을 사용하여 다른 모든 들어오는 트래픽을 차단합니다.
-5. 모든 대상에 대해 인터넷으로의 아웃바운드 트래픽을 허용합니다.
+3. [네트워크 보안 그룹에서](../virtual-network/network-security-groups-overview.md)들어오는 Azure Load Balancer 프로브(AzureLoadBalancer 태그)를 허용합니다.
+4. [네트워크 보안 그룹에서](../virtual-network/network-security-groups-overview.md)인바운드 가상 네트워크 트래픽(VirtualNetwork 태그)을 허용합니다.
+5. 모두 거부 규칙을 사용하여 다른 모든 들어오는 트래픽을 차단합니다.
+6. 모든 대상에 대해 인터넷으로의 아웃바운드 트래픽을 허용합니다.
 
 ## <a name="supported-user-defined-routes"></a>지원되는 사용자 정의 경로 
 
@@ -117,7 +118,7 @@ NSG(네트워크 보안 그룹)는 Application Gateway에서 지원됩니다. �
 
   **시나리오 1**: 가상 어플라이언스에 대한 UDR
 
-  가상 어플라이언스, 허브/스포크 가상 네트워크 또는 온-프레미스 (강제 터널링)를 통해 0.0.0.0/0을 리디렉션해야 하는 모든 시나리오는 s 2에서 지원 되지 않습니다.
+  가상 어플라이언스, 허브/스포크 가상 네트워크 또는 온-프레미스(강제 터널링)를 통해 0.0.0.0/0을 리디렉션해야 하는 시나리오는 V2에서 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

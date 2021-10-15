@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 3/31/2021
-ms.openlocfilehash: 39d1d5cbffdc35880ab5065171092c473961e99d
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 25572c32eff7fcdaffe3bad2bbf349bc8ca885f7
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129546997"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045809"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link"></a>Azure Private Link를 사용하는 Azure Cache for Redis
 
@@ -27,7 +27,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 Azur
 >
 >
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 
@@ -129,7 +129,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 Azur
 
 이 섹션에서는 기존 Azure Cache for Redis 인스턴스에 프라이빗 엔드포인트를 추가합니다.
 
-### <a name="create-a-virtual-network-for-you-existing-cache"></a>기존 캐시에 대한 가상 네트워크 만들기
+### <a name="create-a-virtual-network-for-you-existing-cache"></a>기존 캐시의 가상 네트워크 만들기
 
 가상 네트워크를 만들려면 다음 단계를 수행합니다.
 
@@ -206,14 +206,14 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 Azur
 > [!IMPORTANT]
 >
 > 기본값으로 `Disabled`된 `publicNetworkAccess` 플래그가 있습니다.
-> 값을 `Disabled` 또는 `Enabled`로 설정할 수 있습니다. 사용으로 설정하면 이 플래그를 사용하면 퍼블릭 엔드포인트와 프라이빗 엔드포인트 모두에 캐시에 액세스할 수 있습니다. 로 설정하면 `Disabled` 프라이빗 엔드포인트 액세스만 허용됩니다. 값을 변경하는 방법에 대한 자세한 내용은 [FAQ를 참조하세요.](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access)
+> 값을 `Disabled` 또는 `Enabled`로 설정할 수 있습니다. 사용으로 설정 되 면이 플래그를 사용 하 여 공용 및 개인 끝점에서 캐시에 액세스할 수 있습니다. 로 설정 되 면 `Disabled` 개인 끝점 액세스만 허용 됩니다. 값을 변경 하는 방법에 대 한 자세한 내용은 [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access)를 참조 하십시오.
 >
 
 ## <a name="faq"></a>FAQ
 
 - [프라이빗 엔드포인트에 연결되지 않는 이유는 무엇인가요?](#why-cant-i-connect-to-a-private-endpoint)
 - [프라이빗 엔드포인트에서 지원되지 않는 기능은 무엇인가요?](#what-features-arent-supported-with-private-endpoints)
-- [프라이빗 엔드포인트가 올바르게 구성되었는지 확인할 어떻게 할까요? 있나요?](#how-do-i-verify-if-my-private-endpoint-is-configured-correctly)
+- [내 개인 끝점이 올바르게 구성 되어 있는지 확인 어떻게 할까요??](#how-do-i-verify-if-my-private-endpoint-is-configured-correctly)
 - [공용 네트워크 액세스에서 프라이빗 엔드포인트를 사용하지 않도록 혹은 사용하도록 설정하려면 어떻게 해야 하나요?](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access)
 - [내 VNet에 삽입된 캐시를 프라이빗 링크 캐시로 마이그레이션하려면 어떻게 해야 하나요?](#how-can-i-migrate-my-vnet-injected-cache-to-a-private-link-cache)
 - [서로 다른 가상 네트워크에 여러 엔드포인트를 사용하려면 어떻게 해야 하나요?](#how-can-i-have-multiple-endpoints-in-different-virtual-networks)
@@ -227,18 +227,18 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 Azur
 
 ### <a name="what-features-arent-supported-with-private-endpoints"></a>프라이빗 엔드포인트에서 지원되지 않는 기능은 무엇인가요?
 
-현재 포털 콘솔 지원 및 방화벽 스토리지 계정에 대한 지속성은 지원되지 않습니다.
+현재는 포털 콘솔 지원 및 방화벽 저장소 계정에 대 한 지 속성이 지원 되지 않습니다.
 
-### <a name="how-do-i-verify-if-my-private-endpoint-is-configured-correctly"></a>프라이빗 엔드포인트가 올바르게 구성되었는지 확인할 어떻게 할까요? 있나요?
+### <a name="how-do-i-verify-if-my-private-endpoint-is-configured-correctly"></a>내 개인 끝점이 올바르게 구성 되어 있는지 확인 어떻게 할까요??
 
-프라이빗 엔드포인트에 연결된 VNet 내에서 와 같은 명령을 `nslookup` 실행하여 명령이 캐시의 개인 IP 주소로 확인되는지 확인할 수 있습니다. 개인 IP 주소는 리소스에서 **프라이빗 엔드포인트를** 선택하여 찾을 수 있습니다. 왼쪽의 리소스 메뉴에서 DNS **구성** 을 선택합니다. 오른쪽의 작업 창에 **네트워크 인터페이스** 의 IP 주소가 표시됩니다.
+`nslookup`개인 끝점에 연결 된 VNet 내에서와 같은 명령을 실행 하 여 명령이 캐시의 개인 IP 주소로 확인 되는지 확인할 수 있습니다. 개인 IP 주소는 리소스에서 **개인 끝점** 을 선택 하 여 찾을 수 있습니다. 왼쪽의 리소스 메뉴에서 **DNS 구성** 을 선택 합니다. 오른쪽의 작업 창에 **네트워크 인터페이스** 에 대 한 IP 주소가 표시 됩니다.
 
-:::image type="content" source="media/cache-private-link/cache-private-ip-address.png" alt-text="Azure Portal 프라이빗 엔드포인트 D N S 설정입니다.":::
+:::image type="content" source="media/cache-private-link/cache-private-ip-address.png" alt-text="Azure Portal에서 개인 끝점 D N S 설정입니다.":::
 
 ### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access"></a>공용 네트워크 액세스에서 프라이빗 엔드포인트를 사용하지 않도록 혹은 사용하도록 설정하려면 어떻게 해야 하나요?
 
 기본적으로 `Disabled` 상태인 `publicNetworkAccess` 플래그가 있습니다.
-로 설정하면 `Enabled` 이 플래그는 캐시에 대한 퍼블릭 및 프라이빗 엔드포인트 액세스를 모두 허용합니다. 로 설정하면 `Disabled` 프라이빗 엔드포인트 액세스만 허용됩니다. Azure Portal에서 또는 Restful API PATCH 요청을 사용하여 값을 `Disabled` 또는 `Enabled`로 설정할 수 있습니다.
+로 설정 되 면 `Enabled` 이 플래그를 사용 하 여 공용 및 개인 끝점에서 캐시에 액세스할 수 있습니다. 로 설정 되 면 `Disabled` 개인 끝점 액세스만 허용 됩니다. `Disabled` `Enabled` Azure Portal 또는 RESTFUL API PATCH 요청을 사용 하 여 값을 또는로 설정할 수 있습니다.
 
 Azure Portal에서 값을 변경하려면 다음 단계를 수행합니다.
 
@@ -250,7 +250,7 @@ Azure Portal에서 값을 변경하려면 다음 단계를 수행합니다.
 
 1. **공용 네트워크 액세스 사용** 단추를 선택합니다.
 
-Restful API PATCH 요청을 통해 값을 변경하려면 아래를 참조하여 캐시에 사용할 플래그를 반영하도록 값을 편집합니다.
+RESTful API PATCH 요청을 통해 값을 변경하려면 아래를 참조하고 캐시에 대해 원하는 플래그를 반영하도록 값을 편집합니다.
 
 ```http
 PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
@@ -270,7 +270,7 @@ VNet 삽입 캐시를 Private Link 캐시로 마이그레이션하는 방법에 
 
 ### <a name="what-happens-if-i-delete-all-the-private-endpoints-on-my-cache"></a>내 캐시에서 모든 프라이빗 엔드포인트를 삭제하면 어떻게 되나요?
 
-캐시에서 프라이빗 엔드포인트를 삭제한 후에는 명시적으로 공용 네트워크 액세스를 사용하도록 설정하거나 다른 프라이빗 엔드포인트를 추가할 때까지 캐시 인스턴스에 연결이 불가능할 수 있습니다. Azure Portal에서 또는 RESTFUL API PATCH 요청을 통해 `publicNetworkAccess` 플래그를 변경할 수 있습니다. 값을 변경하는 방법에 대한 자세한 내용은 [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access)를 참조하세요.
+캐시에서 프라이빗 엔드포인트를 삭제한 후에는 명시적으로 공용 네트워크 액세스를 사용하도록 설정하거나 다른 프라이빗 엔드포인트를 추가할 때까지 캐시 인스턴스에 연결이 불가능할 수 있습니다. Azure Portal 또는 `publicNetworkAccess` RESTful API PATCH 요청을 통해 플래그를 변경할 수 있습니다. 값을 변경하는 방법에 대한 자세한 내용은 [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access)를 참조하세요.
 
 ### <a name="are-network-security-groups-nsg-enabled-for-private-endpoints"></a>프라이빗 엔드포인트에 NSG(네트워크 보안 그룹)를 사용할 수 있나요?
 

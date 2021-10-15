@@ -4,12 +4,12 @@ description: 지역 간 복원 기능을 포함한 Azure Portal을 사용하여 
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/27/2021
-ms.openlocfilehash: cbe511388755e31a2d295a4cf8ed58e78c9afdc2
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 2c3dac941e766ae2d3889b3800e0b6864df16ebc
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129079526"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047911"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Azure Portal에서 Azure VM 데이터를 복원하는 방법
 
@@ -192,6 +192,14 @@ CRR을 사용하도록 설정된 경우 보조 지역에서 백업 항목을 볼
 [Azure 영역 고정 VM](../virtual-machines/windows/create-portal-availability-zone.md)은 동일한 지역의 모든 [가용성 영역](../availability-zones/az-overview.md)에서 복원할 수 있습니다.
 
 복원 프로세스에서 **가용성 영역** 옵션을 볼 수 있습니다. 먼저 기본 영역을 볼 수 있습니다. 다른 영역을 선택하려면 원하는 영역의 번호를 선택합니다. 고정 영역을 사용할 수 없는 경우 백업된 데이터가 영역별로 복제되지 않기 때문에 데이터를 다른 영역으로 복원할 수 없습니다. 가용성 영역의 복원은 자격 증명 모음 계층의 복구 지점에서만 가능합니다.
+
+요약하면 가용성 **영역은**
+ - 원본 VM이 영역으로 고정되고 암호화되지 않음
+ - 복구 지점은 자격 증명 모음 계층에만 있습니다(스냅샷만 또는 스냅샷 및 자격 증명 모음 계층은 지원되지 않음).
+ - 복구 옵션은 새 VM을 만들거나 디스크를 복원하는 것입니다(디스크 바꾸기 옵션은 원본 데이터를 대체하므로 가용성 영역 옵션은 적용되지 않음).
+ - 자격 증명 모음의 스토리지 중복성이 ZRS인 경우 동일한 지역에 VM/디스크 만들기(원본 VM이 영역 고정된 경우에도 자격 증명 모음의 스토리지 중복이 GRS인 경우 작동하지 않습니다.)
+ - 지역 간 복원 및 쌍을 이루는 지역에서 영역을 지원하는 경우 자격 증명 모음의 스토리지 중복성을 사용하도록 설정된 경우 쌍을 이루는 지역에 VM/디스크 만들기
+
 
 ![가용성 영역 선택](./media/backup-azure-arm-restore-vms/cross-zonal-restore.png)
 

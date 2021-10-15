@@ -7,16 +7,16 @@ ms.date: 01/19/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: de8acfbf4d4930f5c029aaa71300af770a274194
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: a219d04634d04e485f8dcfb7af33e19b87c53cd6
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537123"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038813"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Azure Maps Search Service를 사용하여 위치 검색
 
-[Azure Maps Search Service](/rest/api/maps/search)는 개발자가 이름, 범주, 기타 지리적 정보를 사용하여 주소, 장소, 비즈니스 목록을 검색할 수 있도록 설계한 RESTful API 집합입니다. 관련 서비스는 기존의 지오코딩을 지원할 뿐만 아니라 위도와 경도를 바탕으로 주소와 교차로를 역으로 지오코딩할 수 있습니다. 검색에서 얻은 위도와 경도 값을 [Route](/rest/api/maps/route) 및 [Weather](/rest/api/maps/weather)와 같은 다른 Azure Maps 서비스에서 매개 변수로 사용할 수 있습니다.
+[Azure 지도 Search Service는](/rest/api/maps/search) 개발자가 이름, 범주 및 기타 지리적 정보를 기준으로 주소, 장소 및 비즈니스 목록을 검색할 수 있도록 설계된 RESTful API 세트입니다. 관련 서비스는 기존의 지오코딩을 지원할 뿐만 아니라 위도와 경도를 바탕으로 주소와 교차로를 역으로 지오코딩할 수 있습니다. 검색에서 얻은 위도와 경도 값을 [Route](/rest/api/maps/route) 및 [Weather](/rest/api/maps/weather)와 같은 다른 Azure Maps 서비스에서 매개 변수로 사용할 수 있습니다.
 
 
 이 문서에서는 다음을 수행하는 방법을 알아봅니다.

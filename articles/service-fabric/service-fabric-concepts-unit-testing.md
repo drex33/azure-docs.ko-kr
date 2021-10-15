@@ -3,19 +3,19 @@ title: Azure Service Fabric의 상태 저장 서비스 단위 테스트
 description: Service Fabric 상태 저장 서비스의 단위 테스트 개념 및 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.openlocfilehash: 12e8a47d9685dee12594f4e2afaa848d9688d185
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: e8247d9c71f73f00bd9b8235778f7256af72ed27
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "75433919"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042620"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Service Fabric의 상태 저장 서비스 단위 테스트
 
 이 문서에서는 Service Fabric 상태 저장 서비스의 단위 테스트 개념 및 방법에 대해 알아봅니다. Service Fabric 내의 단위 테스트는 애플리케이션 코드가 여러 다른 컨텍스트에서 능동적으로 실행된다는 사실만으로도 고려할 가치가 있습니다. 이 문서에서는 애플리케이션 코드가 실행될 수 있는 각기 다른 컨텍스트에 포함되도록 하는 데 사용되는 방법을 설명합니다.
 
 ## <a name="unit-testing-and-mocking"></a>단위 테스트 및 모의
-이 문서 컨텍스트의 단위 테스트는 MSTest 또는 NUnit와 같은 Test Runner 컨텍스트 내에서 실행될 수 있는 자동 테스트입니다. 이 문서 내의 단위 테스트는 데이터베이스 또는 RESTFul API와 같은 원격 리소스에 대해 작업을 수행하지 않습니다. 따라서 이러한 원격 리소스는 모의되어야 합니다. 이 문서 컨텍스트의 모의는 원격 리소스에 대한 반환 값을 가짜로 만들고, 기록하고, 제어합니다.
+이 문서 컨텍스트의 단위 테스트는 MSTest 또는 NUnit와 같은 Test Runner 컨텍스트 내에서 실행될 수 있는 자동 테스트입니다. 이 문서 내의 단위 테스트는 데이터베이스 또는 RESTful 같은 원격 리소스에 대해 작업을 수행 하지 않습니다. 따라서 이러한 원격 리소스는 모의되어야 합니다. 이 문서 컨텍스트의 모의는 원격 리소스에 대한 반환 값을 가짜로 만들고, 기록하고, 제어합니다.
 
 ### <a name="service-fabric-considerations"></a>Service Fabric 고려 사항
 Service Fabric 상태 저장 서비스의 단위 테스트를 위해서는 몇 가지 사항이 고려됩니다. 첫째, 서비스 코드는 여러 노드에서 다른 역할로 실행됩니다. 단위 테스트는 각 역할에서 코드를 평가하여 전체 적용 범위를 테스트해야 합니다. 다양한 역할로는 주 복제본, 활성 보조 보제본, 유휴 보조 복제본 및 알 수 없음이 있습니다. 없음 역할의 경우 Service Fabric에서 void 또는 null 서비스로 간주하므로 일반적으로 특별한 적용 범위가 필요하지 않습니다. 둘째, 각 노드는 특정 시점에 해당 역할을 변경합니다. 전체 적용 범위를 테스트하기 위해서는 역할 변경이 발생하고 있는 코드 실행 경로를 테스트해야 합니다.

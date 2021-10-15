@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/26/2021
 ms.author: allensu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6d4671823f5eb3f186007aea46983860269d916b
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 03fa5b7e05a842addd88a890ee41829834910650
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129361759"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130036458"
 ---
 # <a name="manage-network-policies-for-private-endpoints"></a>프라이빗 엔드포인트에 대한 네트워크 정책 관리
 
@@ -75,11 +75,11 @@ $vnet | Set-AzVirtualNetwork
 이 섹션에서는 Azure CLI를 사용하여 서브넷 프라이빗 엔드포인트 정책을 사용하지 않도록 설정하는 방법을 설명합니다. [az 네트워크 vnet 서브넷 업데이트](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)를 사용하여 정책을 사용하지 않게 설정합니다.
 
 ```azurecli
-az network vnet subnet update \ 
+az network vnet subnet update \
   --disable-private-endpoint-network-policies true \
-  --name default \ 
-  --resource-group myResourceGroup \ 
-  --vnet-name myVirtualNetwork \ 
+  --name default \
+  --resource-group myResourceGroup \
+  --vnet-name myVirtualNetwork
   
 ```
 
@@ -88,11 +88,11 @@ az network vnet subnet update \
 이 섹션에서는 Azure CLI를 사용하여 서브넷 프라이빗 엔드포인트 정책을 사용하도록 설정하는 방법을 설명합니다. [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)를 사용하여 정책을 사용하도록 설정합니다.
 
 ```azurecli
-az network vnet subnet update \ 
+az network vnet subnet update \
   --disable-private-endpoint-network-policies false \
-  --name default \ 
-  --resource-group myResourceGroup \ 
-  --vnet-name myVirtualNetwork \ 
+  --name default \
+  --resource-group myResourceGroup \
+  --vnet-name myVirtualNetwork
   
 ```
 ## <a name="resource-manager-template"></a>Resource Manager 템플릿

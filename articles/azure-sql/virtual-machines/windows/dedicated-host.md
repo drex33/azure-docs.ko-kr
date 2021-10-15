@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7b1259843a1195301ff66e7c8d1ad7650f9ca686
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
-ms.translationtype: HT
+ms.openlocfilehash: 9df60340e7a0130c84bd29f220956557eb1bcb0b
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078747"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130037173"
 ---
 # <a name="run-sql-server-vm-on-an-azure-dedicated-host"></a>Azure 전용 호스트에서 SQL Server VM 실행 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -78,4 +78,4 @@ A: 고객은 기존 Windows Server 및 SQL Server 라이선스의 가치를 소�
 * [Windows VM에서 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Windows VM의 SQL Server FAQ](frequently-asked-questions-faq.yml)
 * [Windows VM의 SQL Server 가격 책정 가이드](pricing-guidance.md)
-* [Windows VM의 SQL Server 릴리스 정보](doc-changes-updates-release-notes.md)
+* [Azure VM의 SQL Server 새로운 내용](doc-changes-updates-release-notes-whats-new.md)

@@ -1,6 +1,6 @@
 ---
-title: 상업적 marketplace에 대 한 컨설팅 서비스 제품 계획
-description: 파트너 센터를 사용 하 여 Microsoft AppSource 또는 Azure Marketplace에 대 한 새 컨설팅 서비스 제품을 계획 하세요.
+title: 상업용 Marketplace에 대한 컨설팅 서비스 제안 계획
+description: 파트너 센터 Microsoft AppSource 또는 Azure Marketplace 컨설팅 서비스 제안을 계획합니다.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
@@ -8,16 +8,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: 7350fe9dfcadce2d454ab5ee9e78ad80b996bafe
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 29c7460d8d9831a671759f6bf5f1ce3711a1a12d
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129667253"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130041484"
 ---
-# <a name="plan-a-consulting-service-offer-in-the-commercial-marketplace"></a>상업적 marketplace에서 컨설팅 서비스 제품 계획
+# <a name="plan-a-consulting-service-offer"></a>컨설팅 서비스 제품 계획
 
-이 문서에서는 Microsoft 상업용 Marketplace에 컨설팅 서비스 제품을 게시하기 위한 다양한 옵션과 요구 사항을 소개합니다. 파트너 센터를 사용하여 게시할 제품을 준비하려면 이 문서를 참조하세요.
+이 문서에서는 상업용 Marketplace에 컨설팅 서비스 제안을 게시하기 위한 다양한 옵션 및 요구 사항을 소개합니다. 파트너 센터 사용하여 게시할 제안을 준비하려면 이 문서를 읽어보세요.
 
 ## <a name="whats-a-consulting-service"></a>컨설팅 서비스란 무엇인가요?
 
@@ -90,7 +90,7 @@ AppSource와 Azure Marketplace의 차이점을 자세히 알아보려면 [상업
 * **개념 증명**: 솔루션이 고객의 요구 사항을 충족하는지 확인하기 위한 제한된 범위 구현입니다.
 * **워크샵**: 고객의 시설에서 수행되는 대화형 참여입니다. 고객의 데이터나 환경을 기반으로 하는 교육, 브리핑, 평가 또는 데모가 포함될 수 있습니다.
 
-서비스에는 최대 12 개월의 미리 정의 된 기간이 있어야 합니다. 서비스 기간은 제품 목록에 명시적으로 정의 되어 있어야 합니다.
+서비스에는 최대 12개월의 미리 결정된 기간이 있어야 합니다. 서비스 기간은 제안 목록에서 명시적으로 정의해야 합니다.
 
 ## <a name="customer-leads"></a>잠재 고객
 

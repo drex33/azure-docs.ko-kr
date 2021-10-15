@@ -10,15 +10,15 @@ ms.subservice: hpc
 ms.collection: windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/10/2020
+ms.date: 10/14/2021
 ms.author: vikancha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bcf66b905b1944a160a19c35ff8d8e00c9a52e67
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: ddb0b46e6d4881f3c0dac6a697607964d6cb5eed
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114446037"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038330"
 ---
 # <a name="amd-gpu-driver-extension-for-windows"></a>Windows용 AMD GPU 드라이버 확장
 
@@ -59,7 +59,7 @@ AMD GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM이 �
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "AmdGpuDriverWindows",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.1",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -74,7 +74,7 @@ AMD GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM이 �
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | 문자열 |
 | type | AmdGpuDriverWindows | 문자열 |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 1.1 | int |
 
 
 ## <a name="deployment"></a>배포
@@ -99,7 +99,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "AmdGpuDriverWindows",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.1",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -117,7 +117,7 @@ Set-AzVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "AmdGpuDriverWindows" `
     -ExtensionType "AmdGpuDriverWindows" `
-    -TypeHandlerVersion 1.0 `
+    -TypeHandlerVersion 1.1 `
     -SettingString '{ `
     }'
 ```
@@ -130,7 +130,7 @@ az vm extension set `
   --vm-name myVM `
   --name AmdGpuDriverWindows `
   --publisher Microsoft.HpcCompute `
-  --version 1.0 `
+  --version 1.1 `
   --settings '{ `
   }'
 ```

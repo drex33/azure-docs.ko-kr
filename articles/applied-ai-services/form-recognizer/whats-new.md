@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: lajanuar
-ms.openlocfilehash: 401c9d08efd6be33d4444d34ba7a2a6c89723a6b
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: ddecc748443a6596c611fae857301e1f80f57a66
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129715085"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130039375"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
@@ -423,7 +423,7 @@ pip 패키지 버전 3.1.0b4
 
     표에 레이블을 지정하는 것 외에도 이제 비어 있는 값 및 영역에 레이블을 지정할 수 있습니다. 학습 세트의 일부 문서에 특정 필드 값이 없는 경우 레이블을 지정하여 분석 대상 문서에서 올바르게 값을 추출하는 방법을 모델이 알게 할 수 있습니다.
 
-* **66개의 새 언어 지원** - Form Recognizer의 Layout API 및 Custom Models는 이제 73개의 언어를 지원합니다.
+* **66 새로운 언어에 대 한 지원** -이제 양식 인식기의 레이아웃 API 및 사용자 지정 모델이 73 언어를 지원 합니다.
 
   [Form Recognizer의 언어 지원에 대한 자세한 정보](language-support.md)
 

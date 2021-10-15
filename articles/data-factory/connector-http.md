@@ -9,12 +9,12 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: c4702172923bd070ad59c4c36265e525308d82af
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7bb163d0864290962465f18b65a73236e3ff3ecb
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124831745"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130040434"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 HTTP 엔드포인트에서 데이터 복사
 
@@ -29,7 +29,7 @@ ms.locfileid: "124831745"
 HTTP 커넥터인 [REST 커넥터](connector-rest.md)와 [웹 테이블 커넥터](connector-web-table.md) 간의 차이점은 다음과 같습니다.
 
 - **REST 커넥터** 는 특히 RESTful API에서 데이터를 복사하는 것을 지원합니다. 
-- **HTTP 커넥터** 는 일반적으로 모든 HTTP 엔드포인트에서 데이터를 검색합니다(예: 파일 다운로드). REST 커넥터를 사용할 수 있게 되기 전에는 HTTP 커넥터를 사용하여 지원은 되지만 REST 커넥터와 비교할 때 기능이 적은 RESTful API에서 데이터를 복사할 수도 있습니다.
+- **HTTP 커넥터** 는 일반적으로 모든 HTTP 엔드포인트에서 데이터를 검색합니다(예: 파일 다운로드). REST 커넥터를 사용할 수 있게 되기 전에 HTTP 커넥터를 사용하여 RESTful API에서 데이터를 복사할 수 있습니다. 이 API는 지원되지만 REST 커넥터에 비해 기능이 떨어집니다.
 - **웹 테이블 커넥터** 는 HTML 웹 페이지에서 테이블 콘텐츠를 추출합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
@@ -88,7 +88,7 @@ HTTP 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 
 HTTP 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | **type** 속성은 **HttpServer** 로 설정해야 합니다. | 예 |
 | url | 웹 서버의 기본 URL입니다. | 예 |
@@ -101,7 +101,7 @@ HTTP 연결된 서비스에 다음 속성이 지원됩니다.
 
 **authenticationType** 속성을 **Basic**, **Digest** 또는 **Windows** 로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | userName | HTTP 엔드포인트에 액세스하는 데 사용할 사용자 이름입니다. | 예 |
 | password | 사용자(**userName** 값)의 암호입니다. 이 필드를 **SecureString** 형식으로 표시하여 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | 예 |
@@ -134,7 +134,7 @@ HTTP 연결된 서비스에 다음 속성이 지원됩니다.
 
 ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **ClientCertificate** 로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | embeddedCertData | Base64로 인코딩된 인증서 데이터입니다. | **embeddedCertData** 또는 **certThumbprint** 를 지정합니다. |
 | certThumbprint | 자체 호스팅 통합 런타임 머신의 인증서 저장소에 설치된 인증서의 지문입니다. 자체 호스팅 형식의 통합 런타임이 **connectVia** 속성에 지정된 경우에만 적용됩니다. | **embeddedCertData** 또는 **certThumbprint** 를 지정합니다. |
@@ -228,7 +228,7 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 
 형식 기반 데이터 세트의 `location` 설정에서 HTTP에 다음 속성이 지원됩니다.
 
-| 속성    | 설명                                                  | 필수 |
+| 속성    | Description                                                  | 필수 |
 | ----------- | ------------------------------------------------------------ | -------- |
 | type        | 데이터 세트에 있는 `location` 아래의 type 속성은 **HttpServerLocation** 으로 설정해야 합니다. | 예      |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. HTTP 커넥터가 결합된 URL(`[URL specified in linked service][relative URL specified in dataset]`)에서 데이터를 복사합니다.   | 예       |
@@ -274,7 +274,7 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 
 형식 기반 복사 원본의 `storeSettings` 설정에서 HTTP에 다음 속성이 지원됩니다.
 
-| 속성                 | 설명                                                  | 필수 |
+| 속성                 | Description                                                  | 필수 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | `storeSettings` 아래의 type 속성은 **HttpReadSettings** 로 설정해야 합니다. | 예      |
 | requestMethod            | HTTP 메서드입니다. <br>허용되는 값은 **Get**(기본값) 또는 **Post** 입니다. | 예       |
@@ -389,7 +389,7 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 
 ### <a name="legacy-copy-activity-source-model"></a>레거시 복사 작업 원본 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성을 **HttpSource** 로 설정해야 합니다. | 예 |
 | httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 기본값은 **00:01:40** 입니다.  | 예 |

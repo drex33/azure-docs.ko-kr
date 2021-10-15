@@ -11,12 +11,12 @@ ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
 ms.custom: references_regions
-ms.openlocfilehash: f3a665df26e504eee1c9bea77f8bf6bf5631193f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0a80fe8bc2cf2cfa86b5b8b1a9c78684d718e68f
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128591029"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038368"
 ---
 # <a name="network-routing-preference-for-azure-storage"></a>Azure Storage에 대한 네트워크 라우팅 기본 설정
 
@@ -25,7 +25,7 @@ Azure 스토리지 계정의 네트워크 [라우팅 기본 설정](../../virtua
 라우팅 기본 설정을 구성하면 프리미엄 네트워크 성능 또는 비용에 맞게 트래픽을 자유롭게 최적화할 수 있습니다. 라우팅 기본 설정을 구성하는 경우 기본적으로 스토리지 계정의 퍼블릭 엔드포인트로 트래픽을 전송하는 방법을 지정합니다. 스토리지 계정의 경로별 엔드포인트를 게시할 수도 있습니다.
 
 > [!NOTE]
-> 해당 기능은 프리미엄 성능 계층 또는 ZRS(영역 중복 스토리지)를 사용하도록 구성된 스토리지 계정에서 지원되지 않습니다.
+> 이 기능은 ZRS(영역 중복 스토리지)를 사용하도록 구성된 Premium Performance Storage 계정 또는 계정에서 지원되지 않습니다.
 
 ## <a name="microsoft-global-network-versus-internet-routing"></a>Microsoft 글로벌 네트워크와 인터넷 라우팅 비교
 

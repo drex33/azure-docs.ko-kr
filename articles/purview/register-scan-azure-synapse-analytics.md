@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: 26d4327c5763a1296cd492730004b80947269afa
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 507ea92f6aa50d4d1441874e8dc62bbb06621aec
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129218340"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047402"
 ---
 # <a name="register-and-scan-dedicated-sql-pools-formerly-sql-dw"></a>전용 SQL 풀(이전의 SQL DW) 등록 및 검사
 
@@ -23,7 +23,7 @@ ms.locfileid: "129218340"
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-Azure Synapse Analytics(이전의 SQL DW)는 메타데이터 및 스키마를 캡처하기 위한 전체 검사 및 증분 검사를 지원합니다. 또한 검사는 시스템 및 사용자 지정 분류 규칙을 기반으로 데이터를 자동으로 분류합니다.
+전용 SQL 풀 (이전의 SQL DW)은 메타 데이터와 스키마를 캡처하기 위한 전체 및 증분 검색을 지원 합니다. 또한 검사는 시스템 및 사용자 지정 분류 규칙을 기반으로 데이터를 자동으로 분류합니다.
 
 ### <a name="known-limitations"></a>알려진 제한 사항
 
@@ -33,11 +33,11 @@ Azure Synapse Analytics(이전의 SQL DW)는 메타데이터 및 스키마를 �
 
 - 데이터 원본을 등록하기 전에 Azure Purview 계정을 만듭니다. Purview 계정을 만드는 방법에 관한 자세한 내용은 [빠른 시작: Azure Purview 계정 만들기](create-catalog-portal.md)를 참조하세요.
 - Azure Purview 데이터 원본 관리자여야 합니다.
-- Purview 계정과 Azure Synapse Analytics 간의 네트워킹 액세스.
+- 부서의 범위 계정과 Azure Synapse Analytics의 전용 SQL 풀 간의 네트워킹 액세스.
  
 ## <a name="setting-up-authentication-for-a-scan"></a>검사 인증 설정
 
-Azure Synapse Analytics 인증을 설정하는 방법에는 다음 세 가지가 있습니다.
+인증을 설정 하는 방법에는 다음 세 가지가 있습니다.
 
 - 관리 ID
 - SQL 인증
@@ -48,7 +48,7 @@ Azure Synapse Analytics 인증을 설정하는 방법에는 다음 세 가지가
 
 ### <a name="managed-identity-recommended"></a>관리 ID(권장) 
    
-Purview 계정에는 생성할 때 기본적으로 Purview 이름인 자체 관리 ID가 있습니다. [Azure AD 애플리케이션을 사용하여 Azure AD 사용자 만들기](../azure-sql/database/authentication-aad-service-principal-tutorial.md)의 필수 구성 요소 및 자습서에 따라 정확한 Purview 관리 ID 이름을 사용하여 Azure Synapse Analytics(이전의 SQL DW)에서 Azure AD 사용자를 만들어야 합니다.
+Purview 계정에는 생성할 때 기본적으로 Purview 이름인 자체 관리 ID가 있습니다. azure ad [응용 프로그램을 사용 하 여 azure ad 사용자 만들기](../azure-sql/database/authentication-aad-service-principal-tutorial.md)의 전제 조건 및 자습서에 따라 정확한 부서의 범위의 관리 id 이름을 사용 하 여 전용 SQL 풀에서 azure ad 사용자를 만들어야 합니다.
 
 사용자를 만들고 권한을 부여하는 SQL 구문 예제:
 
@@ -88,9 +88,9 @@ GO
 1. 키 자격 증명 모음이 아직 Purview에 연결되지 않은 경우 [새 키 자격 증명 모음 연결을 생성](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)해야 합니다.
 1. 마지막으로 서비스 주체를 통해 [새 자격 증명을 생성](manage-credentials.md#create-a-new-credential)하여 검사를 설정합니다. 
 
-#### <a name="granting-the-service-principal-access-to-your-azure-synapse-analytics-formerly-sql-dw"></a>서비스 주체에게 Azure Synapse Analytics(이전의 SQL DW)에 대한 액세스 권한 부여
+#### <a name="granting-the-service-principal-access"></a>서비스 사용자 액세스 권한 부여
 
-또한 [Azure AD 애플리케이션을 사용하여 Azure AD 사용자 만들기](../azure-sql/database/authentication-aad-service-principal-tutorial.md)를 위한 필수 조건 및 자습서에 따라 Azure Synapse Analytics에서 Azure AD 사용자를 만들어야 합니다. 사용자를 만들고 권한을 부여하는 SQL 구문 예제:
+또한 azure ad [응용 프로그램을 사용 하 여 azure ad 사용자 만들기](../azure-sql/database/authentication-aad-service-principal-tutorial.md)에 대 한 필수 조건 및 자습서에 따라 전용 풀에 azure ad 사용자를 만들어야 합니다. 사용자를 만들고 권한을 부여하는 SQL 구문 예제:
 
 ```sql
 CREATE USER [ServicePrincipalName] FROM EXTERNAL PROVIDER
@@ -105,7 +105,7 @@ GO
 
 ### <a name="sql-authentication"></a>SQL 인증
 
-Azure Synapse Analytics(이전의 SQL DW)를 위한 로그인이 없는 경우 [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples-1)의 지침에 따라 해당 로그인을 만들 수 있습니다.
+[로그인 만들기](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples-1) 의 지침에 따라 전용 SQL 풀 (이전의 SQL DW)에 대 한 로그인을 만들 수 있습니다 (아직 없는 경우).
 
 선택한 인증 방법이 **SQL 인증** 인 경우 암호를 가져오고 키 자격 증명 모음에 저장해야 합니다.
 
@@ -124,24 +124,22 @@ Purview에서 새 SQL 전용 풀을 등록하려면 다음을 수행합니다.
 1. Purview 계정으로 이동합니다.
 1. 왼쪽 탐색 메뉴에서 **데이터 맵** 을 선택합니다.
 1. **등록** 을 선택합니다.
-1. **원본 등록** 에서 **SQL 전용 풀(이전의 SQL DW)** 을 선택합니다.
+1. **등록 원본** 에서 **Azure 전용 SQL 풀 (이전의 SQL DW)** 을 선택 합니다.
 1. **계속** 을 선택합니다.
 
-**원본 등록(Azure Synapse Analytics)** 화면에서 다음을 수행합니다.
+**소스 등록** 화면에서 다음을 수행 합니다.
 
 1. 카탈로그에서 나열되는 데이터 원본의 **이름** 을 입력합니다.
-2. Azure Synapse 작업 영역을 필터링하려면 Azure 구독을 선택합니다.
-3. Azure Synapse 작업 영역을 선택합니다.
+2. Azure 구독을 선택 하 여 전용 SQL 풀을 필터링 합니다.
+3. 전용 SQL 풀을 선택 합니다.
 4. 컬렉션을 선택하거나 새로 만듭니다(선택 사항).
 5. **등록** 을 선택하여 데이터 원본을 등록합니다.
-
-:::image type="content" source="media/register-scan-azure-synapse-analytics/register-sources.png" alt-text="원본 등록 옵션" border="true":::
 
 ## <a name="creating-and-running-a-scan"></a>검사 만들기 및 실행
 
 새 검색을 만들고 실행하려면 다음을 수행합니다.
 
-1. [부서의 범위 Studio](https://web.purview.azure.com/resource/)의 왼쪽 창에서 **데이터 맵** 탭을 선택 합니다.
+1. [Purview Studio](https://web.purview.azure.com/resource/)의 왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
 
 1. 등록한 SQL 전용 풀 원본을 선택합니다.
 

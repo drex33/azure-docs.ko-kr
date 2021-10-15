@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/14/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: cb19372e5b97a9f508367366faa9ae49d0d11261
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a05935f547815ffba419e2e4302c5197d1907bbf
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128596964"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045278"
 ---
 # <a name="storage-account-overview"></a>Storage 계정 개요
 
@@ -31,7 +31,7 @@ Azure Storage는 여러 유형의 스토리지 계정을 제공합니다. 각각
 | 스토리지 계정의 유형 | 지원되는 스토리지 서비스 | 중복 옵션 | 사용량 |
 |--|--|--|--|
 | 표준 범용 v2 | Blob(Data Lake Storage <sup>1</sup> 포함), 큐 및 Table Storage, Azure Files  | LRS/GRS/RA-GRS<br /><br />ZRS/GZRS/RA-GZRS<sup>2</sup> | Blob, 파일 공유, 큐 및 테이블에 대한 Standard Storage 계정 유형 대부분의 시나리오에 대해 Azure Storage를 사용하는 것이 좋습니다. Azure Files NFS 파일 공유에 대한 지원을 원하는 경우 프리미엄 파일 공유 계정 유형을 사용합니다. |
-| 프리미엄 블록 Blob <sup>3</sup> | Blob 스토리지(Data Lake Storage <sup>1</sup> 포함) | LRS<br /><br />ZRS<sup>2</sup> | 블록 Blob 및 추가 Blob에 대한 프리미엄 스토리지 계정 유형입니다. 트랜잭션 속도가 높은 시나리오 또는 더 작은 개체를 사용하거나 지속적으로 짧은 스토리지 대기 시간이 필요한 시나리오에 추천됩니다. [예시 워크로드에 대해 자세히 알아봅니다.](../blobs/storage-blob-performance-tiers.md#premium-performance) |
+| 프리미엄 블록 Blob <sup>3</sup> | Blob 스토리지(Data Lake Storage <sup>1</sup> 포함) | LRS<br /><br />ZRS<sup>2</sup> | 블록 Blob 및 추가 Blob에 대한 프리미엄 스토리지 계정 유형입니다. 트랜잭션 속도가 높은 시나리오 또는 더 작은 개체를 사용하거나 지속적으로 짧은 스토리지 대기 시간이 필요한 시나리오에 추천됩니다. [예시 워크로드에 대해 자세히 알아봅니다.](../blobs/storage-blob-block-blob-premium.md) |
 | 프리미엄 파일 공유<sup>3</sup> | Azure Files | LRS<br /><br />ZRS<sup>2</sup> | 파일 공유 전용 프리미엄 스토리지 계정 유형입니다. 엔터프라이즈 또는 고성능 규모의 애플리케이션에 추천됩니다. SMB 및 NFS 파일 공유를 모두 지원하는 스토리지 계정을 원하는 경우 이 계정 유형을 사용합니다. |
 | 프리미엄 페이지 Blob<sup>3</sup> | 페이지 Blob만 해당 | LRS | 페이지 Blob에 대한 프리미엄 스토리지 계정 유형입니다. [페이지 Blob 및 샘플 사용 사례에 대해 자세히 알아봅니다.](../blobs/storage-blob-pageblob-overview.md) |
 
@@ -39,7 +39,7 @@ Azure Storage는 여러 유형의 스토리지 계정을 제공합니다. 각각
 
 <sup>2</sup> ZRS(영역 중복 스토리지) 및 GZRS/RA-GZRS(지역 중복 스토리지)는 특정 지역의 표준 범용 v2, 프리미엄 블록 Blob 및 프리미엄 파일 공유 계정에서만 사용할 수 있습니다. 자세한 내용은 [Azure Storage 중복성](storage-redundancy.md)을 참조하세요.
 
-프리미엄 성능 계층의 <sup>3</sup> 스토리지 계정은 짧은 대기 시간과 높은 처리량을 위해 SSD(SolID-State Drive)를 사용합니다.
+<sup>3</sup> Premium 성능 저장소 계정은 낮은 대기 시간 및 높은 처리량을 위해 ssd (반도체 드라이브)를 사용 합니다.
 
 레거시 스토리지 계정도 지원됩니다. 자세한 내용은 [레거시 스토리지 계정 유형](#legacy-storage-account-types)을 참조하세요.
 

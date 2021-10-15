@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 49fd2c8da3ba0a44f4901bc6c7a2241e9e20df4d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 08db679737c4d7823ed369e36c40b27f14b9632c
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98659872"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130036477"
 ---
 # <a name="mariadb-drivers-and-management-tools-compatible-with-azure-database-for-mariadb"></a>Azure Database for MariaDB와 호환되는 MariaDB 드라이버 및 관리 도구
 
@@ -19,7 +19,7 @@ ms.locfileid: "98659872"
 
 ## <a name="mariadb-drivers"></a>MariaDB 드라이버
 
-Azure Database for MariaDB 서버는 MariaDB 커뮤니티 버전을 사용합니다. 따라서 다양한 프로그래밍 언어 및 드라이버와 호환됩니다. MariaDB의 API 및 프로토콜은 MySQL에서 사용하는 API와 호환됩니다. 즉, MySQL에서 작동하는 커넥터는 MariaDB에서도 작동해야 합니다.
+Azure Database for MariaDB 서버는 MariaDB 커뮤니티 버전을 사용합니다. 따라서 다양한 프로그래밍 언어 및 드라이버와 호환됩니다. MariaDB API 및 프로토콜은 MySQL에서 사용하는 프로토콜과 호환됩니다. 즉, MySQL에서 작동하는 커넥터는 MariaDB에서도 작동해야 합니다.
 
 목표는 세 가지 최신 버전의 MariaDB 드라이버를 지원하는 것이며, MariaDB 드라이버의 기능 및 사용 편의를 지속적으로 개선하기 위해 끊임없이 오픈 소스 커뮤니티 작성자와 협력하고 있습니다. 다음 표는 테스트를 거쳐 Azure Database for MariaDB 10.2와 호환되는 것으로 확인한 드라이버 목록입니다.
 

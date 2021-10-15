@@ -15,12 +15,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6b2066ef94cb87a9ab9c000615c018938cbeddb1
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: 50f3099df0f074f00e1a4c7c483bff240e6f07ec
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220625"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047250"
 ---
 # <a name="register-multiple-sql-vms-in-azure-with-the-sql-iaas-agent-extension"></a>SQL IaaS 에이전트 확장을 통해 Azure에 여러 SQL VM 등록
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -249,4 +249,4 @@ GitHub에 있는 전체 스크립트는 [Az PowerShell을 사용하여 SQL Serve
 * [Windows VM에서 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Windows VM의 SQL Server FAQ](frequently-asked-questions-faq.yml)
 * [Windows VM의 SQL Server 가격 책정 가이드](pricing-guidance.md)
-* [Windows VM의 SQL Server 릴리스 정보](../../database/doc-changes-updates-release-notes.md)
+* [Azure VM의 SQL Server 새로운 내용](doc-changes-updates-release-notes-whats-new.md)

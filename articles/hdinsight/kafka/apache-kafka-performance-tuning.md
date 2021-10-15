@@ -4,12 +4,12 @@ description: Azure HDInsight에서 Apache Kafka 워크로드를 최적화하는 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/19/2019
-ms.openlocfilehash: d24527efe6adce6f16b7c890f23c755545f5d5a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: b5c149499fe21940e58c795dbed2407c046ac43d
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98935881"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130044424"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Apache Kafka HDInsight 클러스터의 성능 최적화
 
@@ -53,7 +53,7 @@ Kafka 생산자는 메시지를 브로커에 보내기 전에 압축하도록 �
 
 ## <a name="broker-settings"></a>브로커 설정
 
-다음 섹션에서는 Kafka 브로커의 성능을 최적화하기 위한 가장 중요한 설정 중 일부를 강조 표시합니다. 모든 브로커 설정에 대한 자세한 설명은 [생산자 구성에 대한 Apache Kafka 문서](https://kafka.apache.org/documentation/#producerconfigs)를 참조하세요.
+다음 섹션에서는 Kafka 브로커의 성능을 최적화하기 위한 가장 중요한 설정 중 일부를 강조 표시합니다. 모든 broker 설정에 대한 자세한 설명은 [broker 구성에 대한 Apache Kafka 설명서를 참조하세요.](https://kafka.apache.org/documentation/#brokerconfigs)
 
 ### <a name="number-of-disks"></a>디스크 수
 

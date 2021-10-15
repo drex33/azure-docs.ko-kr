@@ -1,15 +1,15 @@
 ---
 title: Azure CLI를 사용하여 VM 확장 사용
 description: 이 문서에서는 Azure CLI를 사용하여 하이브리드 클라우드 환경에서 실행되는 Azure Arc 지원 서버에 가상 머신 확장을 배포하는 방법을 설명합니다.
-ms.date: 08/05/2021
+ms.date: 10/14/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2e9427d714681883fd5422ab0a7d17fd337c9568
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: dd9499b4ed1754b6170821d7ead3fa37ed517f80
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124807438"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047288"
 ---
 # <a name="enable-azure-vm-extensions-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure VM 확장 사용
 
@@ -22,7 +22,9 @@ ms.locfileid: "124807438"
 
 ## <a name="install-the-azure-cli-extension"></a>Azure CLI 확장 설치
 
-ConnectedMachine 명령은 Azure CLI의 일부로 제공되지 않습니다. Azure CLI 사용하여 Azure Arc 지원 서버에서 관리되는 하이브리드 서버에서 VM 확장을 관리하기 전에 ConnectedMachine 확장을 로드해야 합니다. 다음 명령을 실행하여 가져옵니다.
+ConnectedMachine 명령은 Azure CLI의 일부로 제공되지 않습니다. Azure CLI 사용하여 Azure에 연결하고 Azure Arc 지원 서버에서 관리되는 하이브리드 서버에서 VM 확장을 관리하기 전에 ConnectedMachine 확장을 로드해야 합니다. 이러한 관리 작업은 워크스테이션에서 수행할 수 있으며 Azure Arc 지원 서버에서 실행할 필요가 없습니다.
+
+다음 명령을 실행하여 가져옵니다.
 
 ```azurecli
 az extension add --name connectedmachine
@@ -30,7 +32,7 @@ az extension add --name connectedmachine
 
 ## <a name="enable-extension"></a>확장 사용
 
-Azure Arc 지원 서버에서 VM 확장을 사용하도록 설정하려면 , , 및 매개 변수와 함께 [az connectedmachine extension create를](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_create) `--machine-name` `--extension-name` `--location` `--type` `settings` `--publisher` 사용합니다.
+Azure Arc 지원 서버에서 VM 확장을 사용하도록 설정하려면 , , , , 및 매개 변수와 함께 [az connectedmachine extension create를](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_create) `--machine-name` `--extension-name` `--location` `--type` `settings` `--publisher` 사용합니다.
 
 다음 예제에서는 Azure Arc 지원 서버에서 Log Analytics VM 확장을 사용하도록 설정합니다.
 
@@ -48,6 +50,12 @@ az connectedmachine extension create --machine-name "myMachineName" --name "Cust
 
 ```azurecli
 az connectedmachine extension create --resource-group "resourceGroupName" --machine-name "myMachineName" --location "regionName" --publisher "Microsoft.Azure.KeyVault" --type "KeyVaultForLinux or KeyVaultForWindows" --name "KeyVaultForLinux or KeyVaultForWindows" --settings '{"secretsManagementSettings": { "pollingIntervalInS": "60", "observedCertificates": ["observedCert1"] }, "authenticationSettings": { "msiEndpoint": "http://localhost:40342/metadata/identity" }}'
+```
+
+다음 예제에서는 Azure Arc 지원 Windows 서버에서 Microsoft Antimalware 확장을 사용하도록 설정합니다.
+
+```azurecli
+az connectedmachine extension create --resource-group "resourceGroupName" --machine-name "myMachineName" --location "regionName" --publisher "Microsoft.Azure.Security" --type "IaaSAntimalware" --name "IaaSAntimalware" --settings '{"AntimalwareEnabled": true}'
 ```
 
 ## <a name="list-extensions-installed"></a>설치된 확장 나열

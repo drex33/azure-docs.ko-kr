@@ -1,5 +1,5 @@
 ---
-title: Azure Marketplace에 관리되는 서비스 제품 게시
+title: 상업용 Marketplace를 위한 관리되는 서비스 제품 만들기
 description: Azure Marketplace를 위한 새 관리되는 서비스 제품을 만듭니다.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 545e868a902390929254ae6c03d668f8e0d1d10f
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 6aa296d3dfa6f85504974083887de18b42d71577
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129079728"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045373"
 ---
 # <a name="create-a-managed-service-offer-for-the-commercial-marketplace"></a>상업용 Marketplace를 위한 관리되는 서비스 제품 만들기
 
@@ -29,15 +29,15 @@ ms.locfileid: "129079728"
 
 1. [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2166002)에 로그인합니다.
 
-1. 홈 페이지에서 **Marketplace 제품** 타일을 선택 합니다.
+1. 홈페이지에서 **Marketplace 상품** 타일을 선택합니다.
 
-    [![파트너 센터 홈 페이지의 Marketplace 제품 타일을 보여 줍니다. ](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+    [ ![파트너 센터 홈페이지에서 보여 주는 Marketplace 제안 타일](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
-1. Marketplace 제품 페이지에서 **+ 새 제품**  >  **관리 서비스** 를 선택 합니다.
+1. Marketplace 제안 페이지에서 **+ 새 제안**  >  **관리형 서비스를** 선택합니다.
 
-    [![관리 서비스 제공 유형 옵션을 보여 줍니다. ](./media/new-offer-managed-service-workspaces.png) ](./media/new-offer-managed-service-workspaces.png#lightbox)
+    [![관리 서비스 제안 유형 옵션을 보여 줍니다. ](./media/new-offer-managed-service-workspaces.png) ](./media/new-offer-managed-service-workspaces.png#lightbox)
 
-1. **새 관리 서비스** 대화 상자에서 **제품 ID** 를 입력 합니다. 계정의 각 제품에 대한 고유 식별자입니다. 이 ID는 상업용 마켓플레이스 목록의 URL 및 Azure Resource Manager 템플릿에 표시됩니다(해당하는 경우). 예를 들어, 이 입력란에 test-offer-1을 입력하면 제품 웹 주소가 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`이 됩니다.
+1. 새 **관리형 서비스** 대화 상자에서 **제안 ID** 를 입력합니다. 계정의 각 제품에 대한 고유 식별자입니다. 이 ID는 상업용 마켓플레이스 목록의 URL 및 Azure Resource Manager 템플릿에 표시됩니다(해당하는 경우). 예를 들어, 이 입력란에 test-offer-1을 입력하면 제품 웹 주소가 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`이 됩니다.
 
     - 계정의 각 제품에는 고유한 제품 ID가 있어야 합니다.
     - 소문자와 숫자만 사용할 수 있습니다. 하이픈 및 밑줄을 포함할 수 있지만 공백은 포함할 수 없으며, 50자로 제한됩니다.

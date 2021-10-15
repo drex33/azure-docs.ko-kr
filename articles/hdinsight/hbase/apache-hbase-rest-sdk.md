@@ -5,16 +5,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/02/2019
-ms.openlocfilehash: 70c1dcc133f01cf72392f444192d977440c55cf4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 6b20305fe7e8b93adab2286e33c666458adf56f1
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104866627"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042035"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Apache HBase용 .Net SDK의 사용
 
-[Apache HBase](apache-hbase-overview.md)는 데이터 작업을 위한 두 가지 주요 선택 항목인 [Apache Hive 쿼리와 HBase의 RESTful API 호출](apache-hbase-tutorial-get-started-linux.md)을 제공합니다. `curl`명령 또는 이와 유사한 유틸리티를 사용하여 REST API로 직접 작업할 수 있습니다.
+[Apache HBase](apache-hbase-overview.md) 는 데이터에 사용할 수 있는 두 가지 기본 선택 항목인 [Apache Hive 쿼리, HBase REST API에 대 한 호출](apache-hbase-tutorial-get-started-linux.md)을 제공 합니다. `curl`명령 또는 이와 유사한 유틸리티를 사용하여 REST API로 직접 작업할 수 있습니다.
 
 C# 및 .NET 애플리케이션의 경우 [.NET용 Microsoft HBase REST 클라이언트 라이브러리](https://www.nuget.org/packages/Microsoft.HBase.Client/)가 HBase REST API 기반 클라이언트 라이브러리를 제공합니다.
 

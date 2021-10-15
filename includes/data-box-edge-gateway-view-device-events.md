@@ -2,18 +2,18 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 04/15/2019
+ms.date: 10/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 4077de4f2f103630f09d765f316f100b178ec809
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 19fb4a08f8a173663607f9ec8fe7e0afdd501a28
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "82561163"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047886"
 ---
 디바이스 이벤트를 보려면 Azure Portal에서 다음 단계를 수행합니다. 
 
-1. Azure Portal에서 Azure Stack Edge/Data Box Gateway 리소스로 이동한 후 **모니터링 > 장치 이벤트** 로 이동 합니다.
+1. Azure Portal Azure Stack Edge/Data Box Gateway 리소스로 이동한 다음 디바이스 **이벤트 모니터링 >** 이동합니다.
 2. 이벤트를 선택하고 경고 세부 정보를 봅니다. 경고 조건을 해결하려면 적절한 조치를 취합니다.
 
-    ![이벤트 선택 및 세부 정보 보기](media/data-box-edge-gateway-view-device-events/view-device-events.png)
+    ![Azure Portal "디바이스 이벤트" 블레이드의 경고 세부 정보를 보여주는 스크린샷. "디바이스 이벤트" 메뉴 항목, 경고 및 경고 세부 정보가 강조 표시됩니다.](media/data-box-edge-gateway-view-device-events/view-device-events.png)

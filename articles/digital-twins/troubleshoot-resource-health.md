@@ -8,12 +8,12 @@ ms.date: 8/27/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: 551193ebcddb023010f1cea1029571c99176afb9
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 597de6d24e4051f6b6097b7c4e341cbe8ec3475a
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123113094"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130044917"
 ---
 # <a name="troubleshooting-azure-digital-twins-resource-health"></a>Azure Digital Twins 문제 해결: 리소스 상태
 
@@ -47,7 +47,7 @@ Azure Service Health 사용에 대한 자세한 내용은 [Service Health 개요
 
 ## <a name="use-azure-status"></a>Azure 상태 사용
 
-[Azure 상태](../service-health/azure-status-overview.md) 페이지는 Azure 서비스 및 지역의 상태에 대한 글로벌 보기를 제공합니다. Azure Service Health 또는 Azure Resource Health만큼 개인화되어 있지 않으며 다양한 영향을 미치는 사건을 이해하는 데 유용할 수 있습니다.
+[Azure 상태](../service-health/azure-status-overview.md) 페이지는 Azure 서비스 및 지역의 상태에 대한 글로벌 보기를 제공합니다. Azure Service Health 및 Azure Resource Health 특정 리소스에 맞게 개인 설정 되는 동안 Azure status는 범위가 크므로 광범위 한 영향을 주는 인시던트를 이해 하는 데 유용할 수 있습니다.
 
 Azure 상태를 확인하려면 [Azure 상태](https://status.azure.com/status/) 페이지로 이동합니다. 페이지에는 지역별 상태 표시기와 함께 Azure 서비스 테이블이 표시됩니다. 페이지에서 해당 테이블 항목을 검색하여 Azure Digital Twins를 볼 수 있습니다.
 

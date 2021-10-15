@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/30/2021
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 37b4f063f2d08c137c44784c55cc3c47569a3c56
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
-ms.translationtype: HT
+ms.openlocfilehash: 38e2ab1590af477fdb0221d3d6225adc751a3ad6
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113434599"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130043475"
 ---
 # <a name="manage-sql-server-vms-by-using-the-azure-portal"></a>Azure Portal을 사용하여 SQL Server VM 관리
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -132,6 +132,6 @@ SQL 가상 머신 리소스의 **Security Center** 페이지를 사용하여 SQL
 * [Windows VM에서 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Windows VM의 SQL Server FAQ](frequently-asked-questions-faq.yml)
 * [Windows VM의 SQL Server 가격 책정 가이드](pricing-guidance.md)
-* [Windows VM의 SQL Server 릴리스 정보](doc-changes-updates-release-notes.md)
+* [Azure VM의 SQL Server 새로운 내용](doc-changes-updates-release-notes-whats-new.md)
 
 

@@ -5,13 +5,13 @@ author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
-ms.date: 02/08/2021
-ms.openlocfilehash: 472f06a10e76cb557bd5e9350c94a352ebad17b3
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.date: 10/13/2021
+ms.openlocfilehash: d61e753cdaa3e51a82822731d1a1ac98d75fba15
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129538129"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130044216"
 ---
 # <a name="configure-data-persistence-for-a-premium-azure-cache-for-redis-instance"></a>프리미엄 Azure Cache for Redis에 대한 데이터 지속성을 구성
 
@@ -19,8 +19,8 @@ ms.locfileid: "129538129"
 
 Azure Cache for Redis는 RDB(Redis 데이터베이스) 및 AOF(추가 전용 파일)를 사용하여 Redis 지속성을 제공합니다.
 
-* **RDB 지속성** - RDB 지속성을 사용하는 경우 Azure Cache for Redis는 Redis에 있는 Azure Cache for Redis의 스냅샷을 이진 형식으로 디스크에 유지합니다. 스냅샷은 Azure Storage 계정에 저장됩니다. 구성 가능한 백업 빈도에 따라 스냅샷을 유지할 빈도가 결정됩니다. 중대한 이벤트가 발생하여 주 및 복제본 캐시가 모두 비활성화된 경우 가장 최근의 스냅샷을 사용하여 캐시를 재구성합니다. RDB 지속성의 [장점](https://redis.io/topics/persistence#rdb-advantages) 및 [단점](https://redis.io/topics/persistence#rdb-disadvantages)에 대해 자세히 알아봅니다.
-* **AOF 지속성** - AOF 지속성을 사용하는 경우 Azure Cache for Redis는 모든 쓰기 작업을 로그에 저장합니다. 로그는 초당 한 번 이상 Azure Storage 계정에 저장됩니다. 중대한 이벤트가 발생하여 주 및 복제본 캐시가 모두 비활성화된 경우 저장된 쓰기 작업을 사용하여 캐시를 재구성합니다. AOF 지속성의 [장점](https://redis.io/topics/persistence#aof-advantages) 및 [단점](https://redis.io/topics/persistence#aof-disadvantages)에 대해 자세히 알아봅니다.
+- **Rdb 지 속성** -rdb 지 속성을 사용 하는 경우 Redis 용 Azure cache는 이진 형식으로 캐시의 스냅숏을 유지 합니다. 스냅샷은 Azure Storage 계정에 저장됩니다. 구성 가능한 백업 빈도에 따라 스냅샷을 유지할 빈도가 결정됩니다. 중대한 이벤트가 발생하여 주 및 복제본 캐시가 모두 비활성화된 경우 가장 최근의 스냅샷을 사용하여 캐시를 재구성합니다. RDB 지속성의 [장점](https://redis.io/topics/persistence#rdb-advantages) 및 [단점](https://redis.io/topics/persistence#rdb-disadvantages)에 대해 자세히 알아봅니다.
+- **AOF 지속성** - AOF 지속성을 사용하는 경우 Azure Cache for Redis는 모든 쓰기 작업을 로그에 저장합니다. 로그는 초당 한 번 이상 Azure Storage 계정에 저장됩니다. 중대한 이벤트가 발생하여 주 및 복제본 캐시가 모두 비활성화된 경우 저장된 쓰기 작업을 사용하여 캐시를 재구성합니다. AOF 지속성의 [장점](https://redis.io/topics/persistence#aof-advantages) 및 [단점](https://redis.io/topics/persistence#aof-disadvantages)에 대해 자세히 알아봅니다.
 
 지속성은 사용자가 소유하고 관리하는 Azure Storage 계정에 Redis 데이터를 기록합니다. 캐시를 만드는 동안 왼쪽에서 **새로운 Azure Cache for Redis** 를 구성합니다. 기존 프리미엄 캐시의 경우 **리소스 메뉴** 를 사용합니다.
 
@@ -62,8 +62,8 @@ Azure Cache for Redis는 RDB(Redis 데이터베이스) 및 AOF(추가 전용 파
   
    | 설정      | 제안 값  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **백업 주기** | 백업 간격을 드롭다운하고 선택합니다. **15분**, **30분**, **60분**, **6시간**, **12시간** 및 **24시간** 중에서 선택할 수 있습니다. | 이 간격은 이전 백업 작업이 성공적으로 완료되어 새 백업이 시작된 시점부터 계산됩니다. |
-   | **Storage 계정** | 드롭다운하고 스토리지 계정을 선택합니다. | 캐시와 동일한 영역 및 구독에 있는 스토리지 계정을 선택하며 높은 처리량을 가진 **Premium Storage** 계정을 사용하는 것이 좋습니다.  |
+   | **백업 주기** | 백업 간격을 드롭다운하고 선택합니다. **15분**, **30분**, **60분**, **6시간**, **12시간** 및 **24시간** 중에서 선택할 수 있습니다. | 이 간격은 이전 백업 작업이 성공적으로 완료 된 후 계산을 시작 합니다. 경과할 때 새 백업이 시작 됩니다. |
+   | **Storage 계정** | 드롭다운하고 스토리지 계정을 선택합니다. | 캐시와 동일한 지역 및 구독에서 저장소 계정을 선택 합니다. **Premium Storage** 계정은 처리량이 높기 때문에 권장 됩니다. 또한 저장소 계정에서 일시 삭제 기능을 사용 하면 저장소 비용이 늘어날 수 있습니다. 자세한 내용은 [가격 책정 및 청구](/azure/storage/blobs/soft-delete-blob-overview)를 참조하세요. |
    | **스토리지 키** | 드롭다운하고 사용할 **기본 키** 또는 **보조 키** 중 하나를 선택합니다. | 지속성 계정에 대한 스토리지 키가 다시 생성된 경우에는 **스토리지 키** 드롭다운에서 키를 다시 구성해야 합니다. |
 
     백업 주기 간격이 경과되면 첫 번째 백업이 시작됩니다.
@@ -75,7 +75,7 @@ Azure Cache for Redis는 RDB(Redis 데이터베이스) 및 AOF(추가 전용 파
 
    | 설정      | 제안 값  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **첫 번째 스토리지 계정** | 드롭다운하고 스토리지 계정을 선택합니다. | 이 스토리지 계정은 캐시와 동일한 영역 및 구독에 있어야 하며 높은 처리량을 가진 **Premium Storage** 계정을 사용하는 것이 좋습니다. |
+   | **첫 번째 스토리지 계정** | 드롭다운하고 스토리지 계정을 선택합니다. | 캐시와 동일한 지역 및 구독에서 저장소 계정을 선택 합니다. **Premium Storage** 계정은 처리량이 높기 때문에 권장 됩니다. 또한 저장소 계정에서 일시 삭제 기능을 사용 하면 저장소 비용이 늘어날 수 있습니다. 자세한 내용은 [가격 책정 및 청구](/azure/storage/blobs/soft-delete-blob-overview)를 참조하세요. |
    | **첫 번째 스토리지 키** | 드롭다운하고 사용할 **기본 키** 또는 **보조 키** 중 하나를 선택합니다. | 지속성 계정에 대한 스토리지 키가 다시 생성된 경우에는 **스토리지 키** 드롭다운에서 키를 다시 구성해야 합니다. |
    | **두 번째 스토리지 계정** | 드롭다운하고 보조 스토리지 계정을 선택합니다(선택 사항). | 필요에 따라 다른 스토리지 계정을 구성할 수 있습니다. 두 번째 스토리지 계정이 구성된 경우 복제본 캐시에 대한 쓰기는 이 두 번째 스토리지 계정에 기록됩니다. |
    | **두 번째 스토리지 키** | 드롭다운하고 사용할 **기본 키** 또는 **보조 키** 중 하나를 선택합니다(선택 사항). | 지속성 계정에 대한 스토리지 키가 다시 생성된 경우에는 **스토리지 키** 드롭다운에서 키를 다시 구성해야 합니다. |
@@ -96,27 +96,28 @@ Azure Cache for Redis는 RDB(Redis 데이터베이스) 및 AOF(추가 전용 파
 
 Azure Cache for Redis 지속성에 대해 자주 묻는 질문과 대답이 나와 있는 목록은 다음과 같습니다.
 
-* [이전에 만든 캐시에서 지속성을 사용할 수 있나요?](#can-i-enable-persistence-on-a-previously-created-cache)
-* [AOF 및 RDB 지속성을 동시에 사용할 수 있나요?](#can-i-enable-aof-and-rdb-persistence-at-the-same-time)
-* [어떤 지속성 모델을 선택해야 하나요?](#which-persistence-model-should-i-choose)
-* [다른 크기로 확장했고 크기 조정 작업 전에 만들어진 백업을 복원할 경우 어떻게 되나요?](#what-happens-if-ive-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
-* [서로 다른 두 캐시의 지속성에 대해 동일한 스토리지 계정을 사용할 수 있나요?](#can-i-use-the-same-storage-account-for-persistence-across-two-different-caches)
-* [데이터 지속성에 사용되는 스토리지에 대한 요금이 청구되나요?](#will-i-be-charged-for-the-storage-being-used-in-data-persistence)
+- [이전에 만든 캐시에서 지속성을 사용할 수 있나요?](#can-i-enable-persistence-on-a-previously-created-cache)
+- [AOF 및 RDB 지속성을 동시에 사용할 수 있나요?](#can-i-enable-aof-and-rdb-persistence-at-the-same-time)
+- [어떤 지속성 모델을 선택해야 하나요?](#which-persistence-model-should-i-choose)
+- [다른 크기로 확장했고 크기 조정 작업 전에 만들어진 백업을 복원할 경우 어떻게 되나요?](#what-happens-if-ive-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
+- [서로 다른 두 캐시의 지속성에 대해 동일한 스토리지 계정을 사용할 수 있나요?](#can-i-use-the-same-storage-account-for-persistence-across-two-different-caches)
+- [데이터 지속성에 사용되는 스토리지에 대한 요금이 청구되나요?](#will-i-be-charged-for-the-storage-being-used-in-data-persistence)
+- [RDB 및 AOF 지속성은 Blob에 얼마나 자주 쓰며 일시 삭제를 사용하도록 설정해야 합니까?](#how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete)
 
 ### <a name="rdb-persistence"></a>RDB 지속성
 
-* [캐시를 만든 후 RDB 백업 주기를 변경할 수 있나요?](#can-i-change-the-rdb-backup-frequency-after-i-create-the-cache)
-* [RDB 백업 주기가 60분인데 왜 백업 사이 간격이 60분 이상이 되나요?](#why-is-there-more-than-60-minutes-between-backups-when-i-have-an-rdb-backup-frequency-of-60-minutes)
-* [새 백업을 만들면 이전 RDB 백업은 어떻게 되나요?](#what-happens-to-the-old-rdb-backups-when-a-new-backup-is-made)
+- [캐시를 만든 후 RDB 백업 주기를 변경할 수 있나요?](#can-i-change-the-rdb-backup-frequency-after-i-create-the-cache)
+- [RDB 백업 주기가 60분인데 왜 백업 사이 간격이 60분 이상이 되나요?](#why-is-there-more-than-60-minutes-between-backups-when-i-have-an-rdb-backup-frequency-of-60-minutes)
+- [새 백업을 만들면 이전 RDB 백업은 어떻게 되나요?](#what-happens-to-the-old-rdb-backups-when-a-new-backup-is-made)
 
 ### <a name="aof-persistence"></a>AOF 지속성
 
-* [두 번째 스토리지 계정은 언제 사용해야 하나요?](#when-should-i-use-a-second-storage-account)
-* [AOF 지속성이 내 캐시의 처리량, 대기 시간 또는 성능에 영향을 미치나요?](#does-aof-persistence-affect-throughout-latency-or-performance-of-my-cache)
-* [두 번째 스토리지 계정은 어떻게 제거할 수 있나요?](#how-can-i-remove-the-second-storage-account)
-* [다시 쓰기란 무엇이며 내 캐시에 어떤 영향을 미치나요?](#what-is-a-rewrite-and-how-does-it-affect-my-cache)
-* [AOF가 설정된 캐시의 크기를 조정하는 경우 어떻게 되나요?](#what-should-i-expect-when-scaling-a-cache-with-aof-enabled)
-* [스토리지에서 AOF 데이터는 어떤 방식으로 구성되나요?](#how-is-my-aof-data-organized-in-storage)
+- [두 번째 스토리지 계정은 언제 사용해야 하나요?](#when-should-i-use-a-second-storage-account)
+- [AOF 지속성이 내 캐시의 처리량, 대기 시간 또는 성능에 영향을 미치나요?](#does-aof-persistence-affect-throughout-latency-or-performance-of-my-cache)
+- [두 번째 스토리지 계정은 어떻게 제거할 수 있나요?](#how-can-i-remove-the-second-storage-account)
+- [다시 쓰기란 무엇이며 내 캐시에 어떤 영향을 미치나요?](#what-is-a-rewrite-and-how-does-it-affect-my-cache)
+- [AOF가 설정된 캐시의 크기를 조정하는 경우 어떻게 되나요?](#what-should-i-expect-when-scaling-a-cache-with-aof-enabled)
+- [스토리지에서 AOF 데이터는 어떤 방식으로 구성되나요?](#how-is-my-aof-data-organized-in-storage)
 
 ### <a name="can-i-enable-persistence-on-a-previously-created-cache"></a>이전에 만든 캐시에서 지속성을 사용할 수 있나요?
 
@@ -130,8 +131,8 @@ Azure Cache for Redis 지속성에 대해 자주 묻는 질문과 대답이 나�
 
 AOF 지속성은 모든 쓰기를 로그에 저장하여 처리량에 상당한 영향을 주며, 구성된 백업 간격에 따라 백업을 저장하고 성능에 미치는 영향을 최소화하면서 AOF를 RDB 지속성과 비교합니다. 기본 목표가 데이터 손실을 최소화하는 것이며 캐시에 대해 낮은 처리량을 처리할 수 있는 경우에는 AOF 지속성을 선택합니다. 캐시에 대해 최적의 처리량을 유지하려고 하면서도 데이터 복구 메커니즘을 계속 유지하려는 경우에는 RDB 지속성을 선택합니다.
 
-* RDB 지속성의 [장점](https://redis.io/topics/persistence#rdb-advantages) 및 [단점](https://redis.io/topics/persistence#rdb-disadvantages)에 대해 자세히 알아봅니다.
-* AOF 지속성의 [장점](https://redis.io/topics/persistence#aof-advantages) 및 [단점](https://redis.io/topics/persistence#aof-disadvantages)에 대해 자세히 알아봅니다.
+- RDB 지속성의 [장점](https://redis.io/topics/persistence#rdb-advantages) 및 [단점](https://redis.io/topics/persistence#rdb-disadvantages)에 대해 자세히 알아봅니다.
+- AOF 지속성의 [장점](https://redis.io/topics/persistence#aof-advantages) 및 [단점](https://redis.io/topics/persistence#aof-disadvantages)에 대해 자세히 알아봅니다.
 
 AOF 지속성을 사용하는 경우 성능에 대한 자세한 내용은 [AOF 지속성이 내 캐시의 처리량, 대기 시간 또는 성능에 영향을 미치나요?](#does-aof-persistence-affect-throughout-latency-or-performance-of-my-cache)를 참조하세요.
 
@@ -139,13 +140,21 @@ AOF 지속성을 사용하는 경우 성능에 대한 자세한 내용은 [AOF �
 
 RDB 및 AOF 지속성:
 
-* 크기를 더 크게 조정한 경우에는 아무 효과가 없습니다.
-* 더 작은 크기를 조정했고 새 크기에 대한 [데이터베이스 제한](cache-configure.md#databases)보다 사용자 지정 [데이터베이스](cache-configure.md#databases) 설정이 더 크다면, 그러한 데이터베이스에 저장된 데이터는 복원되지 않습니다. 자세한 내용은 [사용자 지정 데이터베이스 설정이 크기 조정 동안 영향을 받나요?](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
-* 더 작은 크기로 확장하고 마지막 백업의 모든 데이터를 저장할 수 있는 작은 크기의 공간이 충분하지 않으면 복원 프로세스 중에 키가 제거됩니다.  일반적으로 키는 [allkeys-lru](https://redis.io/topics/lru-cache) 제거 정책을 사용하여 제거됩니다.
+- 크기를 더 크게 조정한 경우에는 아무 효과가 없습니다.
+- 더 작은 크기를 조정했고 새 크기에 대한 [데이터베이스 제한](cache-configure.md#databases)보다 사용자 지정 [데이터베이스](cache-configure.md#databases) 설정이 더 크다면, 그러한 데이터베이스에 저장된 데이터는 복원되지 않습니다. 자세한 내용은 [사용자 지정 데이터베이스 설정이 크기 조정 동안 영향을 받나요?](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
+- 더 작은 크기로 확장하고 마지막 백업의 모든 데이터를 저장할 수 있는 작은 크기의 공간이 충분하지 않으면 복원 프로세스 중에 키가 제거됩니다.  일반적으로 키는 [allkeys-lru](https://redis.io/topics/lru-cache) 제거 정책을 사용하여 제거됩니다.
 
 ### <a name="can-i-use-the-same-storage-account-for-persistence-across-two-different-caches"></a>서로 다른 두 캐시의 지속성에 대해 동일한 스토리지 계정을 사용할 수 있나요?
 
-예, 서로 다른 두 캐시의 지속성에 대해 동일한 저장소 계정을 사용할 수 있습니다.
+예, 서로 다른 두 캐시에서 지속성을 위해 동일한 스토리지 계정을 사용할 수 있습니다.
+
+### <a name="will-i-be-charged-for-the-storage-being-used-in-data-persistence"></a>데이터 지속성에 사용되는 스토리지에 대한 요금이 청구되나요?
+
+예, 사용 중인 스토리지 계정에 대한 가격 책정 모델에 따라 사용되는 스토리지에 대한 요금이 청구됩니다.
+
+### <a name="how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete"></a>RDB 및 AOF 지속성은 Blob에 얼마나 자주 쓰며 일시 삭제를 사용하도록 설정해야 합니까?
+
+일시 삭제는 권장되지 않습니다. RDB 및 AOF 지속성은 Blob에 매시간, 몇 분마다 또는 매초마다 자주 쓸 수 있습니다. 또한 스토리지 계정에서 일시 삭제를 사용하도록 설정하면 Azure Cache for Redis 이전 백업 데이터를 삭제하여 스토리지 비용을 최소화할 수 없습니다. 일시 삭제는 캐시 및 쓰기 작업의 일반적인 데이터 크기로 1초마다 비용이 빠르게 들 수 있습니다. 일시 삭제 비용에 대한 자세한 내용은 [가격 책정 및 청구를 참조하세요.](/azure/storage/blobs/soft-delete-blob-overview)
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>캐시를 만든 후 RDB 백업 주기를 변경할 수 있나요?
 
@@ -157,7 +166,7 @@ RDB 지속성 백업 간격의 주기는 이전 백업 프로세스가 성공적
 
 ### <a name="what-happens-to-the-old-rdb-backups-when-a-new-backup-is-made"></a>새 백업을 만들면 이전 RDB 백업은 어떻게 되나요?
 
-가장 최근 백업을 제외한 모든 RDB 지속성 백업은 자동으로 삭제됩니다. 즉시 삭제되지 않을 수 있으나 오래된 백업을 무한정 유지하지는 않습니다. 스토리지 계정에 대해 일시 삭제를 켜면 일시 삭제 설정이 적용되고 기존 백업은 일시 삭제 상태로 계속 상주합니다.
+가장 최근 백업을 제외한 모든 RDB 지속성 백업은 자동으로 삭제됩니다. 즉시 삭제되지 않을 수 있으나 오래된 백업을 무한정 유지하지는 않습니다. 스토리지 계정에 대해 일시 삭제가 설정되어 있으면 일시 삭제 설정이 적용되고 기존 백업은 일시 삭제 상태로 계속 상주합니다.
 
 ### <a name="when-should-i-use-a-second-storage-account"></a>두 번째 스토리지 계정은 언제 사용해야 하나요?
 
@@ -165,7 +174,7 @@ AOF 지속성이 캐시에 대해 예상된 설정 작업보다 더 높다고 �
 
 ### <a name="does-aof-persistence-affect-throughout-latency-or-performance-of-my-cache"></a>AOF 지속성이 내 캐시의 처리량, 대기 시간 또는 성능에 영향을 미치나요?
 
-AOF 지속성은 캐시가 최대 부하보다 낮을 때(CPU 및 서버 부하 둘 다에서 90% 미만) 처리량에 15%-20% 정도 영향을 미칩니다. 캐시가 이러한 한도 내에 있을 때 대기 시간 문제는 없습니다. 그러나 캐시는 AOF가 사용하도록 설정되면 더 빨리 이러한 한도에 도달합니다.
+AOF 지속성은 캐시가 최대 부하보다 낮을 때(CPU 및 서버 부하 둘 다에서 90% 미만) 처리량에 15%-20% 정도 영향을 미칩니다. 캐시가 이러한 한도 내에 있을 때 대기 시간 문제는 없습니다. 그러나 캐시는 AOF를 사용하도록 설정하여 이러한 제한에 더 빨리 도달합니다.
 
 ### <a name="how-can-i-remove-the-second-storage-account"></a>두 번째 스토리지 계정은 어떻게 제거할 수 있나요?
 
@@ -177,7 +186,7 @@ AOF 파일이 충분히 커지면 다시 쓰기가 자동으로 큐에 대기됩
 
 ### <a name="what-should-i-expect-when-scaling-a-cache-with-aof-enabled"></a>AOF가 설정된 캐시의 크기를 조정하는 경우 어떻게 되나요?
 
-크기 조정이 완료된 후에 파일이 다시 로드되므로 크기 조정 시 AOF 파일이 아주 커질 경우 크기 조정 작업이 예상한 것보다 더 오래 걸립니다.
+크기 조정 시 AOF 파일이 큰 경우 크기 조정이 완료된 후 파일이 다시 로드되므로 크기 조정 작업이 예상보다 오래 걸릴 것으로 예상합니다.
 
 크기 조정에 대한 자세한 내용은 [다른 크기로 확장했고 크기 조정 작업 전에 만들어진 백업을 복원할 경우 어떻게 되나요?](#what-happens-if-ive-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)를 참조하세요.
 
@@ -194,26 +203,10 @@ AOF 파일에 저장된 데이터는 스토리지에 데이터를 저장하는 �
 
 클러스터링을 사용하도록 설정하면 캐시의 각 분할은 이전 표에 표시된 것처럼 자체 페이지 Blob 집합을 갖습니다. 예를 들어 분할이 3개 있는 P2 캐시는 24개 페이지 Blob에 해당 AOF 파일을 분산합니다(분할된 데이터베이스당 8개 Blob, 3개 분할된 데이터베이스).
 
-다시 쓰기 후 2개의 AOF 파일 집합이 스토리지에 존재합니다. 다시 쓰기 작업은 백그라운드에서 발생하며 첫 번째 파일 세트에 추가됩니다. 다시 쓰는 동안 캐시로 전송되는 설정 작업을 두 번째 집합에 추가합니다. 오류가 발생하는 경우 다시 쓰는 동안 백업이 일시적으로 저장됩니다. 다시 쓰기 작업이 완료되면 백업이 즉시 삭제됩니다. 스토리지 계정에 대해 일시 삭제를 켜면 일시 삭제 설정이 적용되고 기존 백업은 일시 삭제 상태로 계속 상주합니다.
-
-### <a name="will-i-be-charged-for-the-storage-being-used-in-data-persistence"></a>데이터 지속성에 사용되는 스토리지에 대한 요금이 청구되나요?
-
-예, 사용 중인 스토리지 계정에 대한 가격 책정 모델에 따라 사용되는 스토리지에 대한 요금이 청구됩니다.
+다시 쓰기 후 2개의 AOF 파일 집합이 스토리지에 존재합니다. 다시 쓰기 작업은 백그라운드에서 발생하며 첫 번째 파일 세트에 추가됩니다. 다시 쓰는 동안 캐시로 전송되는 설정 작업을 두 번째 집합에 추가합니다. 오류가 발생하는 경우 다시 쓰는 동안 백업이 일시적으로 저장됩니다. 다시 쓰기 작업이 완료되면 백업이 즉시 삭제됩니다. 스토리지 계정에 대해 일시 삭제가 설정되어 있으면 일시 삭제 설정이 적용되고 기존 백업은 일시 삭제 상태로 계속 유지됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure Cache for Redis 기능에 대해 자세히 알아보세요.
 
-* [Azure Cache for Redis 프리미엄 서비스 계층](cache-overview.md#service-tiers)
-
-<!-- IMAGES -->
-
-[redis-cache-premium-pricing-tier]: ./media/cache-how-to-premium-persistence/redis-cache-premium-pricing-tier.png
-
-[redis-cache-persistence]: ./media/cache-how-to-premium-persistence/redis-cache-persistence.png
-
-[redis-cache-rdb-persistence]: ./media/cache-how-to-premium-persistence/redis-cache-rdb-persistence.png
-
-[redis-cache-aof-persistence]: ./media/cache-how-to-premium-persistence/redis-cache-aof-persistence.png
-
-[redis-cache-settings]: ./media/cache-how-to-premium-persistence/redis-cache-settings.png
+- [Azure Cache for Redis 프리미엄 서비스 계층](cache-overview.md#service-tiers)

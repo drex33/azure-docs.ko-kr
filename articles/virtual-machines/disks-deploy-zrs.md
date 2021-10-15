@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 23629a5a15603697eb1feb6e964e63754fbed14c
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: e2c53e09553e62b1a6ca8c1c827d3d2341cae687
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123426738"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130046680"
 ---
 # <a name="deploy-a-managed-disk-that-uses-zone-redundant-storage"></a>영역 중복 스토리지를 사용하는 관리 디스크 배포
 
@@ -26,22 +26,6 @@ ZRS에 대한 개념 정보는 [관리 디스크에 대한 영역 중복 스토�
 [!INCLUDE [disk-storage-zrs-limitations](../../includes/disk-storage-zrs-limitations.md)]
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
-
-### <a name="prerequisites"></a>필수 구성 요소
-
-구독에 대한 기능을 사용하도록 설정해야 합니다. 다음 단계를 사용하여 구독에 대한 기능을 사용하도록 설정합니다.
-
-1.  다음 명령을 실행하여 구독 기능을 등록합니다.
-
-    ```powershell
-     Register-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute" 
-    ```
-
-1.  기능을 사용해보기 전에 다음 명령을 사용하여 등록 상태가 **등록됨**(몇 분 정도 걸릴 수 있음)인지 확인합니다.
-
-    ```powershell
-     Get-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute"  
-    ```
 
 ### <a name="create-a-vm-with-a-zrs-os-disk"></a>ZRS OS 디스크를 사용하여 VM 만들기
 
@@ -78,22 +62,6 @@ ZRS에 대한 개념 정보는 [관리 디스크에 대한 영역 중복 스토�
 이제 ZRS를 사용하는 관리 디스크를 만들었습니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-#### <a name="prerequisites"></a>필수 구성 요소
-
-구독에 대한 기능을 사용하도록 설정해야 합니다. 다음 단계를 사용하여 구독에 대한 기능을 사용하도록 설정합니다.
-
-1.  다음 명령을 실행하여 구독 기능을 등록합니다.
-
-    ```azurecli
-    az feature register --namespace Microsoft.Compute --name SsdZrsManagedDisks
-    ```
- 
-2.  기능을 사용해보기 전에 다음 명령을 사용하여 등록 상태가 **등록됨**(몇 분 정도 걸릴 수 있음)인지 확인합니다.
-
-    ```azurecli
-    az feature show --namespace Microsoft.Compute --name SsdZrsManagedDisks
-    ```
 
 #### <a name="create-a-vm-with-zrs-disks"></a>ZRS 디스크로 VM 만들기
 
@@ -185,23 +153,6 @@ az vmss create -g $rgName \
 ```
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-
-#### <a name="prerequisites"></a>필수 구성 요소
-
-구독에 대한 기능을 사용하도록 설정해야 합니다. 다음 단계를 사용하여 구독에 대한 기능을 사용하도록 설정합니다.
-
-1.  다음 명령을 실행하여 구독 기능을 등록합니다.
-
-    ```powershell
-     Register-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute" 
-    ```
-
-1.  기능을 사용해보기 전에 다음 명령을 사용하여 등록 상태가 **등록됨**(몇 분 정도 걸릴 수 있음)인지 확인합니다.
-
-    ```powershell
-     Get-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute"  
-    ```
-    
 #### <a name="create-a-vm-with-zrs-disks"></a>ZRS 디스크로 VM 만들기
 
 ```powershell

@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: memildin
-ms.openlocfilehash: 9af4f225b1b9ca5e8023a8d5b4bb7607762e4447
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 6ca7b13a7a0873300995a91a6469fc29050f3c95
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102631900"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047041"
 ---
 # <a name="manage-multi-factor-authentication-mfa-enforcement-on-your-subscriptions"></a>구독에 대한 MFA(다단계 인증) 적용 관리
 
@@ -81,7 +81,7 @@ MFA를 사용하지 않는 계정을 확인하려면 다음 Azure Resource Graph
     > 계정은 계정 소유자의 개인 정보를 보호하기 위해 계정 이름이 아닌 개체 ID로 표시됩니다.
 
 > [!TIP]
-> 또는 Security Center의 REST API 메서드 [평가 - Get](/rest/api/securitycenter/assessments/get)을 사용할 수 있습니다.
+> 또는 Security Center REST API 메서드 [평가 (Get)](/rest/api/securitycenter/assessments/get)를 사용할 수 있습니다.
 
 
 ## <a name="faq---mfa-in-security-center"></a>FAQ - Security Center의 MFA

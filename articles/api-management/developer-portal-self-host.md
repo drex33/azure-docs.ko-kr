@@ -7,12 +7,12 @@ ms.author: danlep
 ms.date: 04/15/2021
 ms.service: api-management
 ms.topic: how-to
-ms.openlocfilehash: f3e0004115b417c85914c7cc40fd98acf3c63d73
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: dc709f96c44ddf6ee701493e49c006d01533ede8
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128592644"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130040515"
 ---
 # <a name="self-host-the-api-management-developer-portal"></a>API Management 개발자 포털 자체 호스팅
 
@@ -68,7 +68,7 @@ ms.locfileid: "128592644"
 
 ## <a name="step-2-configure-json-files-static-website-and-cors-settings"></a>2단계: JSON 파일, 정적 웹 사이트 및 CORS 설정 구성
 
-개발자 포털에서 콘텐츠를 관리하려면 API Management의 REST API가 필요합니다.
+개발자 포털에서 콘텐츠를 관리 하려면 API Management REST API 필요 합니다.
 
 ### <a name="configdesignjson-file"></a>config.design.json 파일
 

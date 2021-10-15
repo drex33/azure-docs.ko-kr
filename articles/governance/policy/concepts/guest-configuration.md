@@ -3,26 +3,28 @@ title: Azure Policy의 게스트 구성 기능 이해
 description: Azure Policy에서 게스트 구성 기능을 사용하여 가상 머신 내부의 설정을 감사하거나 구성하는 방법을 알아봅니다.
 ms.date: 07/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0e62909a14989567aee5f7c893f45cd7bdbbee61
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: d562842da341394247a02516c08b062ee12a01cc
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129999438"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042639"
 ---
 # <a name="understand-the-guest-configuration-feature-of-azure-policy"></a>Azure Policy의 게스트 구성 기능 이해
 
-Azure Policy 게스트 구성 기능은 Azure에서 실행되는 컴퓨터와 하이브리드 [Arc 지원 머신](../../../azure-arc/servers/overview.md)모두에 대해 운영 체제 설정을 코드로 감사하거나 구성하는 기본 기능을 제공합니다.
-이 기능은 컴퓨터별로 직접 사용하거나 Azure Policy 오케스트레이션할 수 있습니다.
+Azure Policy의 게스트 구성 기능은 Azure에서 실행 중인 컴퓨터와 하이브리드 [Arc 사용 컴퓨터](../../../azure-arc/servers/overview.md)에 대해 운영 체제 설정을 코드로 감사 하거나 구성 하는 기본 기능을 제공 합니다.
+이 기능은 오케스트레이션에서 직접 사용 하거나 Azure Policy 하 여 규모에 맞게 사용할 수 있습니다.
 
-구성은 정책 정의와 다릅니다. 게스트 구성은 Azure Policy 사용하여 컴퓨터에 구성을 동적으로 할당합니다. 구성을 [컴퓨터에 수동으로](/guest-configuration-assignments.md#manually-creating-guest-configuration-assignments)할당하거나 [AutoManage와](../../../automanage/automanage-virtual-machines.md)같은 다른 Azure 서비스를 사용하여 할당할 수도 있습니다.
+구성은 정책 정의와 구분 됩니다. 게스트 구성은 Azure Policy를 활용 하 여 컴퓨터에 구성을 동적으로 할당 합니다. [수동으로](/guest-configuration-assignments.md#manually-creating-guest-configuration-assignments)컴퓨터에 구성을 할당 하거나 [automanage](../../../automanage/automanage-virtual-machines.md)와 같은 다른 Azure 서비스를 사용할 수도 있습니다.
 
-Azure의 구성 리소스는 [확장 리소스](../../../azure-resource-manager/management/extension-resource-types.md)로 설계되었습니다.
-각 구성을 컴퓨터에 대한 추가 속성 집합으로 간주할 수 있습니다. 구성에는 다음과 같은 설정이 포함될 수 있습니다.
+Azure의 구성 리소스는 [확장 리소스로](../../../azure-resource-manager/management/extension-resource-types.md)설계 되었습니다.
+각 구성은 컴퓨터의 추가 속성 집합으로 간주할 수 있습니다. 구성에는 다음과 같은 설정이 포함 될 수 있습니다.
 
 - 운영 체제 설정
 - 애플리케이션 구성 또는 현재 상태
 - 환경 설정
+
+각 구성의 결과는 [게스트 할당 페이지](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) 에서 확인 하거나 ["준수 정보" 페이지](../how-to/determine-non-compliance.md#view-configuration-assignment-details-at-scale)에서 "마지막으로 평가 된 리소스" 링크를 클릭 하 여 Azure Policy 할당에 의해 구성이 오케스트레이션 수 있습니다.
 
 [이 문서의 동영상 연습 사용 가능](https://youtu.be/t9L8COY-BkM).
 
@@ -82,8 +84,8 @@ Azure Policy의 게스트 구성 기능을 사용하려면 먼저 `Microsoft.Gue
 |게시자|속성|버전|
 |-|-|-|
 |Amazon|Linux|2|
-|Canonical|Ubuntu Server|16.04 - 20.x|
-|Credativ|Debian|9 - 10.x|
+|Canonical|Ubuntu Server|14.04 - 20.x|
+|Credativ|Debian|8 - 10.x|
 |Microsoft|Windows Server|2012 - 2019|
 |Microsoft|Windows 클라이언트|윈도우 10|
 |Oracle|Oracle-Linux|7.x-8.x|

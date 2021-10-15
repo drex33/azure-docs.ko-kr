@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 61253ab7360253e1c6902b6a7b38c9fb53faa3eb
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 039a32d1f1ec1327ee032c17af36dc910f363eed
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129611751"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045978"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Azure AD 로그인을 사용하도록 App Service 또는 Azure Functions 앱 구성
 
@@ -70,14 +70,15 @@ Azure Storage 및 Microsoft Graph에 액세스하는 웹앱에 대해 Azure AD �
 1. 앱 등록을 만든 후에는 나중에 사용할 수 있도록 **애플리케이션(클라이언트) ID** 및 **디렉터리(테넌트) ID** 를 복사합니다.
 1. **인증** 을 선택합니다. **암시적 권한 부여** 에서 **ID 토큰** 을 사용하도록 설정하여 OpenID Connect 사용자가 App Service에서 로그인하는 것을 허용합니다.
 1. (선택 사항) **브랜딩** 을 선택합니다. **홈페이지 URL** 에서 App Service 앱의 URL을 입력하고 **저장** 을 선택합니다.
-1. **API 표시** > **설정** 을 선택합니다. 단일 테넌트 앱의 경우 App Service 앱의 URL에 붙여넣고 **저장** 을 선택합니다. 다중 테넌트 앱의 경우 테넌트가 확인된 도메인 중 하나를 기반으로 하는 URL을 붙여넣고 **저장** 을 선택합니다.
+1. **API 노출을** 선택하고 "애플리케이션 ID URI" 옆에 있는 **설정을** 클릭합니다. 이 값은 리소스로 사용될 때 애플리케이션을 고유하게 식별하여 액세스 권한을 부여하는 토큰을 요청할 수 있도록 합니다. 만드는 범위에 대한 접두사로 사용됩니다.
 
-   > [!NOTE]
-   > 이 값은 앱 등록의 **애플리케이션 ID URI** 입니다. 웹앱이 클라우드에서 API에 액세스해야 하는 경우 클라우드 App Service 리소스를 구성할 때 웹앱의 **애플리케이션 ID URI** 가 필요합니다. 예를 들어 클라우드 서비스에서 웹앱에 대한 액세스 권한을 명시적으로 부여할 때 사용할 수 있습니다.
+    단일 테넌트 앱의 경우 형식의 기본값을 사용할 수 `api://<application-client-id>` 있습니다. 테넌트에서 확인된 도메인 중 하나를 기반으로 보다 읽기 가능한 URI를 지정할 수도 `https://contoso.com/api` 있습니다. 다중 테넌트 앱의 경우 사용자 지정 URI를 제공해야 합니다. 앱 ID URI에 허용되는 형식에 대한 자세한 내용은 [앱 등록 모범 사례 참조를 참조하세요.](../active-directory/develop/security-best-practices-for-app-registration.md#appid-uri-configuration)
+
+    값을 입력한 후 **저장을** 클릭합니다.
 
 1. **범위 추가** 를 선택합니다.
    1. **범위 이름** 에 *user_impersonation* 을 입력합니다.
-   1. 텍스트 상자에는 동의 페이지에서 사용자에게 표시할 동의 범위 이름 및 설명을 입력합니다. 예를 들어 *내 앱에 액세스* 를 입력합니다.
+   1. 텍스트 상자에는 동의 페이지에서 사용자에게 표시할 동의 범위 이름 및 설명을 입력합니다. 예를 들어 *Access &lt; &gt; application-name 을* 입력합니다.
    1. **범위 추가** 를 선택합니다.
 1. (선택 사항) 클라이언트 암호를 만들려면 **인증서 및 비밀** > **새 클라이언트 암호** > **추가** 를 선택합니다. 페이지에 표시되는 클라이언트 암호 값을 복사합니다. 다시 표시되지 않습니다.
 1. (선택 사항) **회신 URL** 을 여러 개 추가하려면 **인증** 을 선택합니다.

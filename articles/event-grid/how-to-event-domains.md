@@ -4,12 +4,12 @@ description: Azure Event Grid에서 이벤트 도메인을 사용하여 대규�
 ms.topic: conceptual
 ms.date: 09/28/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 34109db5d39daed14fc008be12a8785d255a9838
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 1e8187f43da38d7986c62a2c154c89f3576cf1ae
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129232028"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047799"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>이벤트 도메인을 사용하여 토픽을 관리하고 이벤트를 게시하는 방법
 
@@ -197,7 +197,7 @@ Get-AzEventGridDomainKey `
 
 ## <a name="search-lists-of-topics-or-subscriptions"></a>토픽 또는 구독의 검색 목록
 
-많은 수의 토픽 또는 구독을 검색하고 관리하기 위해, Event Grid의 API는 목록 및 페이지 매김을 지원합니다.
+많은 수의 토픽 또는 구독을 검색하고 관리하기 위해 Event Grid API는 목록 및 페이지 매김을 지원합니다.
 
 ### <a name="using-cli"></a>CLI 사용
 예를 들어 다음 명령은 이름에 `mytopic`이 포함된 모든 토픽을 나열합니다. 

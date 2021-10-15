@@ -6,12 +6,12 @@ author: enkrumah
 ms.author: ebnkruma
 ms.topic: how-to
 ms.date: 05/30/2021
-ms.openlocfilehash: 2d65b537ef0bad56127fcfcc1e87f1b1cfc15f2d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ad8142bf5ab65bb6ae4ff49aeb7b4e661d2761a8
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128583768"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045865"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>관리 ID를 사용하여 Power BI에 Azure Stream Analytics 작업 인증
 
@@ -148,7 +148,7 @@ Azure Resource Manager를 사용하여 Stream Analytics 작업의 배포를 완�
     }
     ```
 
-    Power BI의 REST API를 사용하여 Power BI 작업 영역에 Stream Analytics 작업을 추가하려는 경우 반환된 "principalId"를 적어둡니다.
+    Power BI REST API 사용하여 Stream Analytics 작업을 Power BI 작업 영역에 추가하려는 경우 반환된 "principalId"를 기록해 둡다.
 
 3. 이제 작업이 만들어졌으므로 이 문서의 [Stream Analytics 작업에 Power BI 작업 영역에 대한 액세스 권한 부여](#give-the-stream-analytics-job-access-to-your-power-bi-workspace) 섹션으로 이동합니다.
 

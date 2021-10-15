@@ -15,12 +15,12 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: 2c22953d876f1c29d5d66f408c30fb63e4e113cf
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 84b0198f96c7a04a6e30e45820df48038489c9b5
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129987424"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130037177"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Azure 빠른 시작 템플릿을 사용하여 Azure VM에서 SQL Server에 대한 가용성 그룹 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,7 +46,7 @@ ms.locfileid: "129987424"
 - [Azure 구독](https://azure.microsoft.com/free/).
 - 도메인 컨트롤러를 포함하는 리소스 그룹 
 - [SQL IaaS 에이전트 확장에 등록](sql-agent-extension-manually-register-single-vm.md)되었으며, 동일한 가용성 집합 또는 가용성 영역에서 [SQL Server 2016 이상의 Enterprise Edition을 실행하는 Azure의 도메인 가입 VM](./create-sql-vm-portal.md)이 하나 이상  
-- SQL Server VM과 동일한 서브넷 내의 가용성 그룹 수신기에 사용할 수 있는 내부 Azure Load Balancer 및 사용 가능한(엔터티에서 사용되지 않음) IP 주소입니다. 
+- SQL Server VM과 동일한 서브넷 내 가용성 그룹 수신기에 대 한 내부 Azure Load Balancer 및 사용 가능한 (엔터티에서 사용 하지 않음) IP 주소입니다. 
 
 
 ## <a name="permissions"></a>사용 권한
@@ -233,5 +233,5 @@ Remove-AzResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<r
 * [SQL Server VM 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [SQL Server VM에 대한 FAQ](frequently-asked-questions-faq.yml)
 * [SQL Server VM에 대한 가격 책정 지침](pricing-guidance.md)
-* [SQL Server VM 릴리스 정보](../../database/doc-changes-updates-release-notes.md)
+* [Azure VM에서 SQL Server 새로운 내용](doc-changes-updates-release-notes-whats-new.md)
 * [SQL Server VM에 대한 라이선스 모델 전환](licensing-model-azure-hybrid-benefit-ahb-change.md)

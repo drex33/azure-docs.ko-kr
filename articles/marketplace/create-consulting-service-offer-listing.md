@@ -1,6 +1,6 @@
 ---
-title: Microsoft 파트너 센터에서 컨설팅 서비스 제품 목록 세부 정보를 구성하는 방법
-description: 파트너 센터를 사용하여 Microsoft 상업용 Marketplace에서 컨설팅 서비스 제품 목록 세부 정보를 구성하는 방법에 대해 알아봅니다.
+title: 상용 marketplace에 대 한 컨설팅 서비스 제품 목록 세부 정보 구성
+description: 파트너 센터를 사용 하 여 Microsoft 상업적 marketplace에서 컨설팅 서비스 제품 목록 세부 정보를 구성 합니다.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
@@ -8,14 +8,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 10/27/2020
-ms.openlocfilehash: 2476d60cacc9690c24d7d3d2f7e21f04c6811500
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: b810c78cdbee84c23cb810a4a622b2ddceb19471
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92754512"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130039071"
 ---
-# <a name="how-to-configure-your-consulting-service-offer-listing-details"></a>컨설팅 서비스 제품 목록 세부 정보를 구성하는 방법
+# <a name="configure-consulting-service-offer-listing-details"></a>컨설팅 서비스 제공 목록 세부 정보 구성
 
 파트너 센터의 **제품 목록** 페이지에서 입력한 정보는 Microsoft 상업용 Marketplace 온라인 스토어에 표시됩니다. 해당 정보에는 제품 이름, 설명, 미디어, 기타 마케팅 자산이 포함됩니다.
 

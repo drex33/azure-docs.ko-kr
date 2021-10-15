@@ -1,14 +1,14 @@
 ---
 title: Azure Arc 지원 서버 에이전트 관리
 description: 이 문서에서는 Azure Arc 지원 서버 Connected Machine 에이전트의 수명 주기 동안 일반적으로 수행하는 다양한 관리 작업을 설명합니다.
-ms.date: 08/17/2021
+ms.date: 10/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: d8a8613a6fc97fd2510779715d392b9534598950
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d0b4d32100a8063346d9a6f7bd2b4bd70156d868
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124807447"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130041180"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Connected Machine 에이전트 관리 및 유지 관리
 
@@ -125,13 +125,13 @@ Microsoft [패키지 리포지토리](https://packages.microsoft.com/)에서 최
 1. 로컬 패키지 인덱스를 리포지토리의 최신 변경 내용으로 업데이트하려면 다음 명령을 실행합니다.
 
     ```bash
-    apt update
+    sudo apt update
     ```
 
 2. 시스템을 업그레이드하려면 다음 명령을 실행합니다.
 
     ```bash
-    apt upgrade
+    sudo apt upgrade azcmagent
     ```
 
 패키지 설치 및 제거와 같은 [apt](https://help.ubuntu.com/lts/serverguide/apt.html) 명령의 동작은 `/var/log/dpkg.log` 로그 파일에 기록됩니다.
@@ -141,13 +141,13 @@ Microsoft [패키지 리포지토리](https://packages.microsoft.com/)에서 최
 1. 로컬 패키지 인덱스를 리포지토리의 최신 변경 내용으로 업데이트하려면 다음 명령을 실행합니다.
 
     ```bash
-    yum check-update
+    sudo yum check-update
     ```
 
 2. 시스템을 업그레이드하려면 다음 명령을 실행합니다.
 
     ```bash
-    yum update
+    sudo yum update azcmagent
     ```
 
 패키지 설치 및 제거와 같은 [yum](https://access.redhat.com/articles/yum-cheat-sheet) 명령의 동작은 `/var/log/yum.log` 로그 파일에 기록됩니다. 
@@ -157,13 +157,13 @@ Microsoft [패키지 리포지토리](https://packages.microsoft.com/)에서 최
 1. 로컬 패키지 인덱스를 리포지토리의 최신 변경 내용으로 업데이트하려면 다음 명령을 실행합니다.
 
     ```bash
-    zypper refresh
+    sudo zypper refresh
     ```
 
 2. 시스템을 업그레이드하려면 다음 명령을 실행합니다.
 
     ```bash
-    zypper update
+    sudo zypper update azcmagent
     ```
 
 패키지 설치 및 제거와 같은 [zypper](https://en.opensuse.org/Portal:Zypper) 명령의 동작은 `/var/log/zypper.log` 로그 파일에 기록됩니다.

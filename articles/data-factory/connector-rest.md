@@ -9,12 +9,12 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
 ms.author: makromer
-ms.openlocfilehash: dc9aec86e01655087a64c3ac0a494d448889f857
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f24bb345442b2320344cf1c9e89d383571447ded
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124733086"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130044770"
 ---
 # <a name="copy-and-transform-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 REST 엔드포인트에서 데이터 복사 및 변환
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -23,8 +23,8 @@ ms.locfileid: "124733086"
 
 이 REST 커넥터와 [HTTP 커넥터](connector-http.md)와 [웹 테이블 커넥터](connector-web-table.md)의 차이점은 다음과 같습니다.
 
-- **REST 커넥터** 는 특히 RESTful API에서 데이터를 복사하는 것을 지원합니다. 
-- **HTTP 커넥터** 는 파일을 다운로드하는 등 모든 HTTP 엔드포인트에서 데이터를 검색하는 데 일반적입니다. 이 REST 커넥터 전에는 HTTP 커넥터를 사용하여 지원은 되지만 REST 커넥터와 비교할 때 기능이 적은 RESTful API에서 데이터를 복사할 수도 있습니다.
+- **REST 커넥터는** 특히 RESTful API에서 데이터 복사를 지원합니다.
+- **HTTP 커넥터** 는 파일을 다운로드하는 등 모든 HTTP 엔드포인트에서 데이터를 검색하는 데 일반적입니다. 이 REST 커넥터 전에 HTTP 커넥터를 사용하여 RESTful API에서 데이터를 복사할 수 있습니다. 이 API는 지원되지만 REST 커넥터에 비해 기능이 떨어질 수 있습니다.
 - **웹 테이블 커넥터** 는 HTML 웹 페이지에서 테이블 콘텐츠를 추출합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
@@ -79,7 +79,7 @@ REST 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 
 REST 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | **형식** 속성은 **RestService** 로 설정되어야 합니다. | 예 |
 | url | REST 서비스의 기본 URL입니다. | 예 |
@@ -92,7 +92,7 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 
 **authenticationType** 속성을 **Basic** 으로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | userName | REST 엔드포인트에 액세스하는 데 사용할 사용자 이름입니다. | 예 |
 | password | 사용자(**userName** 값)의 암호입니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | 예 |
@@ -125,7 +125,7 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 
 **authenticationType** 속성을 **AadServicePrincipal** 로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | servicePrincipalId | Azure Active Directory 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
 | servicePrincipalKey | Azure Active Directory 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString** 으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
@@ -190,7 +190,7 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 ### <a name="use-user-assigned-managed-identity-authentication"></a>사용자 할당 관리 ID 인증 사용
 **authenticationType** 속성을 **ManagedServiceIdentity** 로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | aadResourceId | 권한 부여를 요청하는 AAD 리소스(예: `https://management.core.windows.net`)를 지정합니다.| 예 |
 | 자격 증명 | 사용자가 할당한 관리 ID를 자격 증명 개체로 지정합니다. | 예 |
@@ -293,7 +293,7 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 
 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성은 **RestSource** 로 설정해야 합니다. | 예 |
 | requestMethod | HTTP 메서드입니다. 허용되는 값은 **GET**(기본값) 또는 **POST** 입니다. | 예 |

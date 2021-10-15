@@ -1,46 +1,33 @@
 ---
 title: Azure Stack Edge 디바이스 모니터링 | Microsoft Docs
-description: Azure Portal 및 로컬 웹 UI를 사용하여 Azure Stack Edge를 모니터링하는 방법을 설명합니다.
+description: Azure Portal 및 로컬 웹 UI를 사용하여 Azure Stack Edge 디바이스를 모니터링하는 방법을 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 10/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 13a11bb23479653ccc88b6e1a2312ff8e6f33609
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: 84ffadea8e8b6980b7bf311db9d2b7a2a36748b6
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110099661"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047885"
 ---
-# <a name="monitor-your-azure-stack-edge"></a>Azure Stack Edge 모니터링 
+# <a name="monitor-your-azure-stack-edge-device"></a>Azure Stack Edge 디바이스 모니터링
 
 [!INCLUDE [applies-to-GPU-and-pro-r-mini-r-and-fpga-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-fpga-sku.md)]
 
-이 문서에서는 Azure Stack Edge를 모니터링하는 방법을 설명합니다. 디바이스를 모니터링하기 위해 Azure Portal 또는 로컬 웹 UI를 사용할 수 있습니다. Azure Portal을 사용하여 디바이스 이벤트를 보고 경고를 구성 및 관리하고 메트릭을 봅니다. 실제 디바이스에서 로컬 웹 UI를 사용하여 다양한 디바이스 구성 요소의 하드웨어 상태를 봅니다.
+이 문서에서는 Azure Stack Edge 디바이스를 모니터링하는 방법을 설명합니다. 디바이스를 모니터링하려면 Azure Portal 또는 로컬 웹 UI를 사용할 수 있습니다. Azure Portal 사용하여 메트릭을 보고, 디바이스 이벤트를 보고, 경고를 구성 및 관리합니다. 실제 디바이스에서 로컬 웹 UI를 사용하여 다양한 디바이스 구성 요소의 하드웨어 상태를 봅니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 >
-> * 디바이스 이벤트 및 해당 경고 보기
-> * 디바이스 구성 요소의 하드웨어 상태 보기
 > * 디바이스의 용량 및 트랜잭션 메트릭 보기
+> * 디바이스 구성 요소의 하드웨어 상태 보기
 
-## <a name="view-device-events"></a>디바이스 이벤트 보기
-
-[!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-view-device-events.md)]
-
-## <a name="view-hardware-status"></a>하드웨어 상태 보기
-
-디바이스 구성 요소의 하드웨어 상태를 보려면 로컬 웹 UI에서 다음 단계를 수행합니다.
-
-1. 디바이스의 로컬 웹 UI에 연결합니다.
-2. **유지 관리 > 하드웨어 상태** 로 이동합니다. 다양한 디바이스 구성 요소의 상태를 볼 수 있습니다.
-
-    ![하드웨어 상태 보기](media/azure-stack-edge-monitor/view-hardware-status.png)
 
 ## <a name="view-metrics"></a>메트릭 보기
 
@@ -79,7 +66,23 @@ ms.locfileid: "110099661"
 |**Edge 컴퓨팅 - 메모리 사용량**      |           |
 |**Edge 컴퓨팅 - CPU 사용률**    |         |
 
+
+### <a name="view-device-events"></a>디바이스 이벤트 보기
+
+[!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-view-device-events.md)]
+
+
+## <a name="view-hardware-status"></a>하드웨어 상태 보기
+
+디바이스 구성 요소의 하드웨어 상태를 보려면 로컬 웹 UI에서 다음 단계를 수행합니다.
+
+1. 디바이스의 로컬 웹 UI에 연결합니다.
+2. **유지 관리 > 하드웨어 상태** 로 이동합니다. 다양한 디바이스 구성 요소의 상태를 볼 수 있습니다.
+
+    ![하드웨어 상태 보기](media/azure-stack-edge-monitor/view-hardware-status.png)
+
+
 ## <a name="next-steps"></a>다음 단계
 
-[대역폭을 관리](azure-stack-edge-manage-bandwidth-schedules.md)하는 방법에 대해 알아봅니다.
-[디바이스 이벤트 경고 알림을 관리](azure-stack-edge-gpu-manage-device-event-alert-notifications.md)하는 방법을 알아봅니다.
+- [대역폭을 관리](azure-stack-edge-manage-bandwidth-schedules.md)하는 방법에 대해 알아봅니다.
+- 경고 알림을 관리하는 방법을 [알아봅니다.](azure-stack-edge-gpu-manage-device-event-alert-notifications.md)

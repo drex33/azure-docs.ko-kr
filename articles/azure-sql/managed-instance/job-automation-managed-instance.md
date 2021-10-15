@@ -13,12 +13,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 06/03/2021
-ms.openlocfilehash: ef1dceba0c95729ccb824b1ad2f32641c92891e7
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
-ms.translationtype: HT
+ms.openlocfilehash: 8d23e2d2c1c6123a986e47a7f2d8e384c99eb5af
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111442103"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130046813"
 ---
 # <a name="automate-management-tasks-using-sql-agent-jobs-in-azure-sql-managed-instance"></a>Azure SQL Managed Instance에서 SQL 에이전트 작업을 사용하여 관리 작업 자동화
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -204,6 +204,6 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name];
 ## <a name="learn-more"></a>자세한 정보
 
 - [Azure SQL Managed Instance란?](../managed-instance/sql-managed-instance-paas-overview.md)
-- [Azure SQL Database 및 SQL Managed Instance의 새로운 기능은 무엇인가요?](../../azure-sql/database/doc-changes-updates-release-notes.md?tabs=managed-instance)
+- [Azure SQL Managed Instance 새로운 내용](doc-changes-updates-release-notes-whats-new.md)
 - [SQL Server와 Azure SQL Managed Instance T-SQL 차이점](../../azure-sql/managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
 - [기능 비교: Azure SQL Database 및 Azure SQL Managed Instance](../../azure-sql/database/features-comparison.md)

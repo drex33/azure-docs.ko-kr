@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 98c1dba49283cd1f7a9e1c4c748af37b9a4fac02
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: f7456e0a54874a5c551a9b2f458c83b8e5b476cb
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129220452"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130039207"
 ---
 # <a name="how-to-automatically-apply-sensitivity-labels-to-your-data-in-azure-purview"></a>Azure Purview에서 데이터에 민감도 레이블을 자동으로 적용하는 방법
 
@@ -38,9 +38,11 @@ ms.locfileid: "129220452"
    최근에 Information Protection 구독을 프로비전한 경우 **Information Protection** 페이지가 표시되는 데 몇 시간이 걸릴 수 있습니다.
 1. Azure **Purview의 자산에 레이블 지정 확장** 영역에서 **켜기** 단추를 선택한 다음, 표시되는 확인 대화 상자에서 **예를** 선택합니다.
 
-예:
+예를 들면 다음과 같습니다.
 
 :::image type="content" source="media/how-to-automatically-label-your-content/extend-sensitivity-labels-to-purview-small.png" alt-text="'켜기' 단추를 선택하여 민감도 레이블을 Purview로 확장합니다." lightbox="media/how-to-automatically-label-your-content/extend-sensitivity-labels-to-purview.png":::
+
+:::image type="content" source="media/how-to-automatically-label-your-content/extend-sensitivity-labels-to-purview-confirmation-small.png" alt-text="민감도 레이블을 Purview로 확장하도록 선택 확인" lightbox="media/how-to-automatically-label-your-content/extend-sensitivity-labels-to-purview-confirmation.png":::
 
 Azure Purview에서 자산에 대한 레이블 지정을 확장한 후에는 게시된 모든 민감도 레이블을 Purview에서 사용할 수 있습니다.
 
@@ -48,7 +50,7 @@ Azure Purview에서 자산에 대한 레이블 지정을 확장한 후에는 게
 
 **새 민감도 레이블을 만들거나 기존 레이블을 수정하려면 다음을 수행합니다.**
 
-1. Microsoft 365 [보안 및 규정 준수 센터](https://compliance.microsoft.com/)를 엽니다.
+1. Microsoft 365 [보안 및 규정 준수 센터를 엽니다.](https://compliance.microsoft.com/)
 
 1. **솔루션** 에서 **Information Protection** 을 선택한 다음, **레이블 만들기** 를 선택합니다.
 

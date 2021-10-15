@@ -3,12 +3,12 @@ title: AuthN/AuthZ의 파일 기반 구성
 description: 특정 미리 보기 기능을 사용하려면 구성 파일을 사용하여 App Service에서 인증 및 권한 부여를 구성합니다.
 ms.topic: article
 ms.date: 07/15/2021
-ms.openlocfilehash: 2875c529e644b46d08251ae57ee9f424492a2433
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 990ce0caf05134d173afb7325682d05d9feb14ea
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128657218"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047345"
 ---
 # <a name="file-based-configuration-in-azure-app-service-authentication"></a>Azure App Service 인증의 파일 기반 구성
 
@@ -43,7 +43,7 @@ ms.locfileid: "128657218"
         "enabled": <true|false>
     },
     "globalValidation": {
-        "unauthenticatedClientAction": "RedirectToLoginPage|AllowAnonymous|Return401|Return403",
+        "unauthenticatedClientAction": "RedirectToLoginPage|AllowAnonymous|RejectWith401|RejectWith404",
         "redirectToProvider": "<default provider alias>",
         "excludedPaths": [
             "/path1",

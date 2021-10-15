@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: 425a5cb9ab332076ddd0d745bba7b914e5601917
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 913eb155820832936295a6cc9df6a22175a9bec5
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129707159"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130041978"
 ---
 # <a name="form-recognizer-layout-model"></a>폼 인식기 레이아웃 모델
 
-Azure Form Recognizer의 레이아웃 API는 문서(PDF, TIFF) 및 이미지(JPG, PNG, BMP)에서 텍스트, 테이블, 선택 표시 및 구조 정보를 추출합니다. 이를 통해 고객은 다양 한 형식으로 문서를 가져와서 문서의 구조화 된 데이터 표현을 반환할 수 있습니다. 이 버전은 강력한 [OCR(광학 문자 인식)](../../cognitive-services/computer-vision/overview-ocr.md) 기능을 딥 러닝 모델과 결합하여 텍스트, 테이블, 선택 표시 및 문서 구조를 추출합니다.
+Azure 양식 인식기 레이아웃 API는 문서 (PDF, TIFF) 및 이미지 (JPG, PNG, BMP)에서 텍스트, 테이블, 선택 표시 및 구조 정보를 추출 합니다. 이를 통해 고객은 다양 한 형식으로 문서를 가져와서 문서의 구조화 된 데이터 표현을 반환할 수 있습니다. 이 버전은 강력한 [OCR(광학 문자 인식)](../../cognitive-services/computer-vision/overview-ocr.md) 기능을 딥 러닝 모델과 결합하여 텍스트, 테이블, 선택 표시 및 문서 구조를 추출합니다.
 
 ##### <a name="sample-form-processed-with-form-recognizer-sample-labeling-tool--layout-feature"></a>[양식 인식기 샘플 레이블 도구](https://fott-2-1.azurewebsites.net/) 레이아웃 기능으로 처리 된 샘플 양식:
 
@@ -65,17 +65,17 @@ Azure Form Recognizer의 레이아웃 API는 문서(PDF, TIFF) 및 이미지(JPG
 
 ## <a name="input-requirements"></a>입력 요구 사항
 
-* 최상의 결과를 위해 문서 마다 하나의 명확한 사진 또는 고품질 스캔을 제공 합니다.
+* 최상의 결과를 위해 문서당 하나의 명확한 사진 또는 고품질 스캔을 제공합니다.
 * 지원되는 파일 형식: JPEG, PNG, BMP, TIFF 및 PDF(텍스트 포함 또는 검사). 텍스트 포함 PDF는 문자 추출 및 위치에 오류가 발생할 가능성을 제거하는 데 가장 좋습니다.
-* PDF 및 TIFF의 경우 최대 2000 페이지를 처리할 수 있습니다 (무료 계층 구독이 있는 경우 처음 두 페이지만 처리 됨).
-* 파일 크기는 50 MB 미만 이어야 합니다.
+* PDF 및 TIFF의 경우 최대 2000페이지를 처리할 수 있습니다(무료 계층 구독의 경우 처음 2페이지만 처리됨).
+* 파일 크기는 50MB 미만이어야 합니다.
 * 이미지 크기는 50x50 픽셀에서 10,000x10,000 픽셀 사이여야 합니다.
-* PDF 차원은 Legal 또는 A3 용지 크기에 해당 하는 최대 17 x 17 인치입니다.
-* 학습 데이터의 총 크기는 500 페이지이 하 여야 합니다.
-* Pdf가 암호로 잠겨 있는 경우 제출 하기 전에 잠금을 제거 해야 합니다.
-* 자율 learning (레이블이 지정 되지 않은 데이터):
-  * 데이터에는 키와 값이 포함 되어야 합니다.
-  * 키는 값의 위쪽 이나 왼쪽에 표시 되어야 합니다. 이는 아래 또는 오른쪽에 표시 되지 않습니다.
+* PDF 크기는 Legal 또는 A3 용지 크기 이하에 해당하는 최대 17 x 17인치입니다.
+* 학습 데이터 세트의 총 크기는 500페이지 이하입니다.
+* PDF가 암호로 잠긴 경우에는 제출하기 전에 잠금을 해제해야 합니다.
+* 자율 학습(레이블이 지정된 데이터 제외)의 경우:
+  * 데이터에는 키와 값이 포함되어야 합니다.
+  * 키는 값의 위쪽 또는 왼쪽에 표시되어야 하며, 아래쪽 또는 오른쪽에는 표시될 수 없습니다.
 
 > [!NOTE]
 > [샘플 레이블 지정 도구](https://fott-2-1.azurewebsites.net/) 는 BMP 파일 형식을 지원 하지 않습니다. 이는 폼 인식기 서비스가 아닌 도구의 제한 사항입니다.

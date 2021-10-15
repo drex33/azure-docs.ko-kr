@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 06/15/2021
+ms.date: 10/14/2021
 ms.author: cherylmc
 ms.custom: include file, devx-track-azurepowershell
-ms.openlocfilehash: 5f0d9c821a26d935544f67bca078a9cfdbe50c58
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
-ms.translationtype: HT
+ms.openlocfilehash: 6f24b40f91c3b06e30bbea7ffc09a288a60d36b5
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112397244"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130050650"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>지점 및 사이트 간 구성에서 VPN 클라이언트 엔드포인트를 몇 개까지 지정할 수 있습니까?
 
@@ -30,6 +30,7 @@ ms.locfileid: "112397244"
 * Windows Server 2016(64비트 전용)
 * Windows Server 2019(64비트 전용)
 * 윈도우 10
+* Windows 11 
 * macOS 버전 10.11 이상
 * Linux(StrongSwan)
 * iOS

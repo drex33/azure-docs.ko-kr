@@ -1017,8 +1017,6 @@
                   href: app/devops.md
                 - name: '개발, 테스트 및 프로덕션 구분'
                   href: app/separate-resources.md
-                - name: Application Insights에서 어떻게 할까요?
-                  href: app/how-do-i.md
                 - name: Application Insights 관리
                   href: app/powershell.md
                 - name: Azure Cloud Services 관리

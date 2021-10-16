@@ -220,8 +220,6 @@
   items:
     - name: '문제 해결 개요, 피드백 및 지원'
       href: troubleshoot-set-up-overview.md
-    - name: 문제 식별 및 진단
-      href: diagnostics-role-service.md
     - name: 시작 기능
       href: troubleshoot-getting-started.md
     - name: 호스트 풀 만들기

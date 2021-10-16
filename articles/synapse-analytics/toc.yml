@@ -279,7 +279,7 @@ items:
             items:
               - name: 개요
                 href: ./sql-data-warehouse/design-elt-data-loading.md?context=/azure/synapse-analytics/context/context
-              - name: 최선의 구현 방법
+              - name: 모범 사례
                 href: sql/data-loading-best-practices.md
               - name: Columnstore 압축
                 href: sql/data-load-columnstore-compression.md
@@ -953,7 +953,7 @@ items:
                 href: ../data-factory/connector-presto.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: QuickBooks Online
                 href: ../data-factory/connector-quickbooks.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
-              - name: REST (영문)
+              - name: REST
                 href: ../data-factory/connector-rest.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&tabs=synapse-analytics
               - name: Salesforce
                 href: ../data-factory/connector-salesforce.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
@@ -1216,6 +1216,8 @@ items:
                     href: ../data-factory/connector-troubleshoot-dynamics-dataverse.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
                   - name: 'FTP, SFTP 및 HTTP'
                     href: ../data-factory/connector-troubleshoot-ftp-sftp-http.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                  - name: Hive
+                    href: ../data-factory/connector-troubleshoot-hive.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
                   - name: Oracle
                     href: ../data-factory/connector-troubleshoot-oracle.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
                   - name: ORC 형식

@@ -987,7 +987,7 @@
     - name: 개요
       displayName: 'managed disks, introduction to managed disks'
       href: managed-disks-overview.md
-    - name: IaaS VM의 디스크 유형 선택
+    - name: 디스크 유형
       href: disks-types.md
     - name: 디스크 중복 옵션
       href: disks-redundancy.md

@@ -211,9 +211,9 @@
             - name: 쿼리 저장소
               href: concepts-query-store.md
               displayName: 'performance, query store'
-            - name: 쿼리 성능 Insight
+            - name: 쿼리
               href: concepts-query-performance-insight.md
-              displayName: query performance insights
+              displayName: Query Performance Insight
             - name: 성능 권장 사항
               href: concepts-performance-recommendations.md
               displayName: recommendation

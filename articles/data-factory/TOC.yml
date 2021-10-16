@@ -442,7 +442,7 @@ items:
             href: connector-presto.md
           - name: QuickBooks Online
             href: connector-quickbooks.md
-          - name: REST (영문)
+          - name: REST
             href: connector-rest.md
             displayName: timeout
           - name: Salesforce
@@ -981,6 +981,8 @@ items:
                 href: connector-troubleshoot-dynamics-dataverse.md
               - name: 'FTP, SFTP 및 HTTP'
                 href: connector-troubleshoot-ftp-sftp-http.md
+              - name: Hive
+                href: connector-troubleshoot-hive.md
               - name: Oracle
                 href: connector-troubleshoot-oracle.md
               - name: ORC 형식

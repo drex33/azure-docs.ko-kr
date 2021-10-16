@@ -14,19 +14,19 @@ metadata:
   ms.author: mathoma
   ms.reviewer: 
   ms.date: 10/30/2019
-  ms.openlocfilehash: eda7b4c3f26f09cdbb76a6befd202a0aeb5b3846
-  ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+  ms.openlocfilehash: c89194a8b26b5b6ca65e358ffc2766693a36f307
+  ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/26/2021
-  ms.locfileid: "114688578"
+  ms.lasthandoff: 10/15/2021
+  ms.locfileid: "130046471"
 landingContent:
 - title: Azure SQL Database
   linkLists:
   - linkListType: whats-new
     links:
     - text: 새로운 기능
-      url: database/doc-changes-updates-release-notes.md?tabs=single-database
+      url: database/doc-changes-updates-release-notes-whats-new.md
   - linkListType: overview
     links:
     - text: SQL Database 정의
@@ -60,13 +60,9 @@ landingContent:
   - linkListType: whats-new
     links:
     - text: 새로운 기능
-      url: database/doc-changes-updates-release-notes.md?tabs=managed-instance
-    - text: 의견이 있으신가요? 설문 조사를 수행하세요.
-      url: https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456
+      url: managed-instance/doc-changes-updates-release-notes-whats-new.md
   - linkListType: overview
     links:
-    - text: 새로운 기능
-      url: database/doc-changes-updates-release-notes.md?tabs=managed-instance
     - text: SQL Managed Instance란?
       url: managed-instance/sql-managed-instance-paas-overview.md
     - text: 인스턴스 풀이란?
@@ -100,7 +96,7 @@ landingContent:
   - linkListType: overview
     links:
     - text: 새로운 기능
-      url: virtual-machines/windows/doc-changes-updates-release-notes.md
+      url: virtual-machines/windows/doc-changes-updates-release-notes-whats-new.md
     - text: Azure VM의 SQL Server란?
       url: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
     - text: Linux VM의 SQL Server란?

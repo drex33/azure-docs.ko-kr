@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/27/2021
-ms.openlocfilehash: 7f784773ff2f29b7f5b9c244811f818861f5ae42
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: b8d72d3b2e32f22cd3fc6bbe8a89b11469b343c4
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129080628"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072217"
 ---
 # <a name="azure-consumption-commitment-enrollment"></a>Azure Consumption Commitment 등록
 
@@ -40,9 +40,9 @@ MACC 프로그램에 등록하려면 제품이 다음 요구 사항을 충족해
 #### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
-1. 홈 페이지에서 **Marketplace 제품** 타일을 선택 합니다.
+1. 홈페이지에서 **Marketplace 상품** 타일을 선택합니다.
 
-    [![파트너 센터 홈 페이지의 Marketplace 제품 타일을 보여 줍니다. ](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+    [ ![파트너 센터 홈페이지에서 보여 주는 Marketplace 제안 타일](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
 1. Marketplace 제품 페이지에서 보려는 제품을 선택 합니다.
 1. **제품 개요** 페이지의 **Marketplace 프로그램** 섹션에서 **Microsoft Azure Consumption Commitment** 상태는 _등록됨_ 또는 _등록되지 않음_ 으로 표시됩니다.
@@ -73,5 +73,5 @@ MACC 프로그램에 등록하려면 제품이 다음 요구 사항을 충족해
 ## <a name="next-steps"></a>다음 단계
 
 - MACC 프로그램이 고객에게 제공하는 이점과 MACC를 사용하도록 설정된 솔루션을 찾는 방법을 자세히 알아보려면 [Azure Consumption Commitment 이점](/marketplace/azure-consumption-commitment-benefit)을 참조하세요.
-- 조직에서 Azure Marketplace를 활용하는 방법을 자세히 알아보려면 Microsoft Learn 모듈: [Azure Marketplace를 통해 클라우드 조달 및 거버넌스 간소화](/learn/modules/simplify-cloud-procurement-governance-azure-marketplace/)를 완료하세요.
+- 조직에서 Azure Marketplace를 활용 하는 방법에 대 한 자세한 내용은 Microsoft Learn 모듈을 완료 하세요. [Azure Marketplace를 사용 하 여 클라우드 조달 및 거 버 넌 스 간소화](/learn/modules/simplify-cloud-procurement-governance-azure-marketplace/)
 - [상업용 Marketplace의 거래 기능](marketplace-commercial-transaction-capabilities-and-considerations.md#transact-publishing-option)

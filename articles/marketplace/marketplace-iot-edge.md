@@ -1,24 +1,24 @@
 ---
 title: Azure Marketplace IoT Edge 모듈 제품
-description: Azure Marketplace에서 IoT Edge 모듈 제품 게시에 대해 알아봅니다.
+description: Azure Marketplace IoT Edge 모듈 제안을 게시하는 방법을 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/30/2021
-ms.openlocfilehash: 8773957a2b34851babb42c6804fc21d6a9d5112b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3ab11ffb7779255a5b45a55d0098657834203d80
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128657465"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072977"
 ---
-# <a name="plan-an-iot-edge-modules-offer"></a>IoT Edge 모듈 제품 계획
+# <a name="plan-an-iot-edge-module-offer"></a>IoT Edge 모듈 제품 계획
 
-[Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) 플랫폼은 Microsoft Azure에서 지원됩니다.  사용자는 IoT 디바이스에서 직접 실행할 클라우드 워크로드를 배포할 수 있습니다.  IoT Edge 모듈은 오프라인 워크로드를 실행할 수 있으며 로컬에서 데이터 분석을 수행합니다. 이러한 유형의 플랫폼을 사용하면 대역폭을 절약하고 로컬 데이터와 중요한 데이터를 보호할 수 있으며 응답 시의 대기 시간을 줄일 수 있습니다.  이제는 미리 작성된 워크로드를 활용하는 옵션이 제공됩니다. 지금까지는 소수의 Microsoft 솔루션만 제공되었습니다.  그러므로 시간과 리소스를 투자하여 사용자 지정 IoT 솔루션을 직접 빌드해야 했습니다.
+[Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) 플랫폼은 Microsoft Azure에서 지원됩니다. 사용자는 IoT 디바이스에서 직접 실행할 클라우드 워크로드를 배포할 수 있습니다.  IoT Edge 모듈은 오프라인 워크로드를 실행할 수 있으며 로컬에서 데이터 분석을 수행합니다. 이러한 유형의 플랫폼을 사용하면 대역폭을 절약하고 로컬 데이터와 중요한 데이터를 보호할 수 있으며 응답 시의 대기 시간을 줄일 수 있습니다.  이제는 미리 작성된 워크로드를 활용하는 옵션이 제공됩니다. 지금까지는 소수의 Microsoft 솔루션만 제공되었습니다. 그러므로 시간과 리소스를 투자하여 사용자 지정 IoT 솔루션을 직접 빌드해야 했습니다.
 
-[Azure Marketplace의 IoT Edge 모듈](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1)을 통해 이제 게시자는 하나의 플랫폼에서 IoT 고객을 대상으로 솔루션을 알리고 판매할 수 있습니다. 그리고 IoT 개발자는 솔루션을 신속하게 개발하는 데 사용할 수 있는 기능을 찾아서 구매할 수 있습니다.  
+[Azure Marketplace 의 IoT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1)모듈을 통해 이제 게시자가 IoT 대상에 솔루션을 공개하고 판매할 수 있는 단일 대상이 생겼습니다. 그리고 IoT 개발자는 솔루션을 신속하게 개발하는 데 사용할 수 있는 기능을 찾아서 구매할 수 있습니다.  
 
 ## <a name="key-benefits-of-iot-edge-modules-in-azure-marketplace"></a>Azure Marketplace의 IoT Edge 모듈이 제공하는 주요 이점
 
@@ -38,17 +38,17 @@ IoT Edge 모듈 제품 유형은 IoT Edge 디바이스에서 실행되는 특정
 
 ## <a name="select-the-right-online-store"></a>올바른 온라인 저장소 선택
 
-IoT Edge 모듈은 Azure Marketplace에만 게시되며 AppSource는 적용되지 않습니다. 온라인 상점 간의 차이점에 대한 자세한 내용은 [게시 옵션 결정](determine-your-listing-type.md)을 참조하세요.
+IoT Edge 모듈은 Azure Marketplace 게시됩니다. AppSource는 적용되지 않습니다. 온라인 상점 간의 차이점에 대한 자세한 내용은 [게시 옵션 결정](determine-your-listing-type.md)을 참조하세요.
 
 ## <a name="technical-requirements"></a>기술적인 요구 사항
 
-Azure Marketplace IoT Edge 모듈을 인증하고 게시하기 위한 기술 요구 사항은 [IoT Edge 모듈 기술 자산 준비에 자세히 설명되어 있습니다.](iot-edge-technical-asset.md)
+IoT Edge 모듈을 인증하고 Azure Marketplace 게시하기 위한 기술 요구 사항은 [IoT Edge 모듈 기술 자산 준비에 자세히 설명되어 있습니다.](iot-edge-technical-asset.md)
 
 ## <a name="eligibility-prerequisites"></a>자격 필수 조건
 
 IoT Edge 모듈 제품에는 Microsoft Azure Marketplace 계약 및 정책의 모든 약관이 적용됩니다.  또한 IoT Edge 모듈 관련 필수 조건과 기술 요구 사항도 적용됩니다.  
 
-IoT Edge 모듈을 Azure Marketplace에 게시하려면 다음 필수 구성 요소를 갖춰야 합니다.
+Azure Marketplace IoT Edge 모듈을 게시하려면 다음 필수 구성을 충족해야 합니다.
 
 - 파트너 센터에 액세스합니다. 자세한 내용은 [파트너 센터에서 상업용 Marketplace 계정 만들기](create-account.md)를 참조하세요.
 - Azure Container Registry에서 IoT Edge 모듈 호스팅

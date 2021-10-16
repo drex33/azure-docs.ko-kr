@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/21/2020
 ms.custom: devx-track-java, devx-track-azurecli, subject-rbac-steps
-ms.openlocfilehash: 86b594487a007e33d4f1428312f8ac3ce29fe833
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 5d19799d688e8273960b92efb3d60a3afc90bb18
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129984029"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074174"
 ---
 # <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>가상 네트워크에 Azure Spring Cloud 배포
 
@@ -148,7 +148,7 @@ Azure Spring Cloud에는 추가 배포 및 유지 관리를 위해 가상 네트
 
     ![액세스 제어 화면을 보여 주는 스크린샷](./media/spring-cloud-v-net-injection/access-control.png)
 
-1. **Azure Spring Cloud 리소스 공급자** 에 *소유자* 역할을 할당합니다. 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md#step-2-open-the-add-role-assignment-pane)을 참조하세요.
+1. **Azure Spring Cloud 리소스 공급자** 에 *소유자* 역할을 할당합니다. 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md#step-2-open-the-add-role-assignment-page)을 참조하세요.
 
     ![리소스 공급자에 대한 소유자 할당을 보여 주는 스크린샷.](./media/spring-cloud-v-net-injection/assign-owner-resource-provider.png)
 
@@ -221,7 +221,7 @@ Azure Spring Cloud 인스턴스를 가상 네트워크에 배포하려면 다음
 #### <a name="cli"></a>[CLI](#tab/azure-CLI)
 Azure Spring Cloud 인스턴스를 가상 네트워크에 배포하려면 다음을 수행합니다.
 
-방금 만든 가상 네트워크 및 서브넷을 지정 하 여 Azure 스프링 클라우드 인스턴스를 만듭니다.
+방금 만든 가상 네트워크 및 서브넷을 지정하여 Azure Spring Cloud 인스턴스를 만듭니다.
 
    ```azurecli
    az spring-cloud create  \

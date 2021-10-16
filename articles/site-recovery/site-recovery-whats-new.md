@@ -3,12 +3,12 @@ title: Azure Site Recovery의 새로운 기능
 description: Azure Site Recovery 서비스의 새로운 기능 및 최신 업데이트에 대해 간략하게 설명합니다.
 ms.topic: conceptual
 ms.date: 07/28/2021
-ms.openlocfilehash: 1e5c74d34d85fed9fff86dba92398c8cd57287bd
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 291865469c552d2e952fbda8d7eb82ece5268ea3
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129356252"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130071400"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
 
@@ -514,7 +514,7 @@ Site Recovery는 이제 범용 v2 스토리지 계정을 캐시 스토리지 또
 **기능** | **세부 정보**
 --- | ---
 **네트워크 매핑** | Azure VM 재해 복구의 경우 이제 복제를 사용하도록 설정하면 사용 가능한 모든 대상 네트워크를 사용할 수 있습니다.
-**표준 SSD** | 이제 [표준 SSD 디스크](../virtual-machines/disks-types.md#standard-ssd)를 사용하여 Azure VM에 대한 재해 복구를 설정할 수 있습니다.
+**표준 SSD** | 이제 [표준 SSD 디스크](../virtual-machines/disks-types.md#standard-ssds)를 사용하여 Azure VM에 대한 재해 복구를 설정할 수 있습니다.
 **스토리지 공간 다이렉트** | 고가용성을 위해 [스토리지 공간 다이렉트](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)를 사용하여 Azure VM 앱에서 실행되는 앱에 대한 재해 복구를 설정할 수 있습니다.  Site Recovery에서 S2D(스토리지 공간 다이렉트)를 함께 사용하면 Azure VM 워크로드를 포괄적으로 보호할 수 있습니다. S2D를 사용하면 Azure에서 게스트 클러스터를 호스팅할 수 있습니다. 이는 VM에서 SAP ASCS 계층, SQL Server 또는 스케일 아웃 파일 서버와 같은 중요한 애플리케이션을 호스팅하는 경우에 특히 유용합니다.
 
 

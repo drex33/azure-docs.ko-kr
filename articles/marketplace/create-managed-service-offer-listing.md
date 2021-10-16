@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/12/2021
-ms.openlocfilehash: 1b2171c300fd52403da29d23f9f34d3f94961b3d
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
-ms.translationtype: HT
+ms.openlocfilehash: c8b18179af70788d7dea385224b02d7dddeb5ad6
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114204502"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072996"
 ---
 # <a name="configure-managed-service-offer-listing-details"></a>관리되는 서비스 제품 목록 세부 정보 구성
 
@@ -54,15 +54,15 @@ Azure 글로벌 고객 및/또는 Azure Government 고객에 대한 지원 웹 �
 
 ### <a name="add-logos"></a>로고 추가
 
-**로고** 에서 216 x 216, 350 x 350 픽셀 사이의 PNG 형식으로 **큰** 로고를 업로드합니다. 파트너 센터는 자동으로 **중간** 및 **작은** 로고를 자동으로 만듭니다. 이러한 로고는 나중에 바꿀 수 있습니다.
+**로고** 아래에서 216x216에서 350x350 픽셀 사이의 .PNG 형식으로 **큰** 로고를 업로드합니다. 파트너 센터는 자동으로 **중간** 및 **작은** 로고를 자동으로 만듭니다. 이러한 로고는 나중에 바꿀 수 있습니다.
 
-- Azure Marketplace의 제품 목록에 대형 로고(216 x 216 ~ 350 x 350픽셀)가 표시됩니다.
-- 새 리소스를 만들 때 중형 로고(90 x 90픽셀)가 표시됩니다.
-- 소형 로고(48 x 48픽셀)는 Azure Marketplace의 검색 결과에 사용됩니다.
+- 큰 로고(216x216에서 350x350픽셀까지)가 Azure Marketplace 제안 목록에 표시됩니다.
+- 새 리소스를 만들 때 중간 로고(90x90 px)가 표시됩니다.
+- 작은 로고(48x48 px)는 Azure Marketplace 검색 결과에 사용됩니다.
 
 ### <a name="add-screenshots-optional"></a>스크린샷 추가(선택 사항)
 
-제품을 설명하는 최대 5개의 이미지를 추가합니다. 이미지들은 각각 1280 x 720픽셀로 .PNG 형식이어야 합니다.
+제품을 설명하는 최대 5개의 이미지를 추가합니다. 모든 이미지의 크기는 1280x720픽셀이어야 하며 .PNG 형식이어야 합니다.
 
 1. **스크린샷** 에서 .PNG 파일을 **스크린샷** 상자에 끌어 놓습니다.
 2. **이미지 캡션 추가** 를 선택합니다.
@@ -71,11 +71,11 @@ Azure 글로벌 고객 및/또는 Azure Government 고객에 대한 지원 웹 �
 
 ### <a name="add-videos-optional"></a>비디오 추가(선택 사항)
 
-제품을 설명하는 YouTube 또는 Vimeo 비디오에 대한 링크를 추가할 수 있습니다. 이러한 비디오는 제품과 함께 고객에게 표시됩니다. 비디오의 썸네일 이미지를 1280 x 720 픽셀 크기, .PNG 형식으로 입력해야 합니다. 제품당 비디오를 최대 5개까지 추가합니다.
+제품을 설명하는 YouTube 또는 Vimeo 비디오에 대한 링크를 추가할 수 있습니다. 이러한 비디오는 제품과 함께 고객에게 표시됩니다. 1280x720픽셀 크기의 비디오의 썸네일 이미지를 .PNG 형식으로 입력해야 합니다. 제품당 비디오를 최대 5개까지 추가합니다.
 
 1. **비디오** 에서 **비디오 추가** 링크를 선택합니다.
 2. 표시되는 상자에 비디오의 이름과 링크를 입력합니다.
-3. 회색 **썸네일** 상자로 .PNG 파일(1280 x 720 픽셀)을 끌어서 놓습니다.
+3. PNG 파일(1280x720픽셀)을 회색 **썸네일** 상자로 끌어서 놓습니다.
 4. 다른 비디오를 추가하려면 1~3단계를 반복합니다.
 
 다음 탭인 **미리 보기 대상** 그룹으로 진행하기 전에 **초안 저장** 을 선택합니다.

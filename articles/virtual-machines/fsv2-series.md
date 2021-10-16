@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-compute
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 6a412bd6afaff1353203b3d032c28cd21087bf73
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: a6b2fb04ea4d0c35a0e1d3de5c9befd3ba06c1f4
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696367"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072692"
 ---
 # <a name="fsv2-series"></a>Fsv2 시리즈
 
@@ -73,7 +73,7 @@ Fsv2 시리즈 VM은 Intel® 하이퍼 스레딩 기술 제공
 
 가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
 
-디스크 유형에 대한 자세한 정보: [디스크 유형](./disks-types.md#ultra-disk)
+디스크 유형에 대한 자세한 정보: [디스크 유형](./disks-types.md#ultra-disks)
 
 
 ## <a name="next-steps"></a>다음 단계

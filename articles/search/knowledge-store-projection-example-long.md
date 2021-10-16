@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/15/2021
-ms.openlocfilehash: 5c5489e4e5edcfdb49c8edf4e795ce96bb8ada7d
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: f8db2f1ab754f762e80899fa8dc5ad3ba35a8000
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/15/2021
-ms.locfileid: "130067911"
+ms.locfileid: "130069048"
 ---
 # <a name="detailed-example-of-shapes-and-projections-in-a-knowledge-store"></a>지식 저장소의 도형 및 프로젝션에 대한 자세한 예제
 
@@ -648,10 +648,9 @@ Power BI는 이러한 생성된 키를 사용하여 테이블 내의 관계를 �
 }
 ```
 
-
 ## <a name="next-steps"></a>다음 단계
 
-이 문서의 예제에서는 프로젝션을 만드는 방법에 대 한 일반적인 패턴을 보여 줍니다. 개념을 이해했으므로 이제 특정 시나리오에 대한 프로젝션을 빌드할 준비가 되었습니다.
+이 문서의 예제에서는 프로젝션을 만드는 방법에 대한 일반적인 패턴을 보여줍니다. 개념을 이해했으므로 이제 특정 시나리오에 대한 프로젝션을 빌드할 준비가 되었습니다.
 
 > [!div class="nextstepaction"]
 > [증분 보강을 위한 캐싱 구성](search-howto-incremental-index.md)

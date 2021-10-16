@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 12/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 842c56ef1fb6f68c3d8b82e2633d9a604db9fde2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 120936f3d2b76fd1e66fc12bfad9bf2f0959de5a
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101671629"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070169"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Azure 가용성 영역을 사용하는 SAP 워크로드 구성
 Azure 가용성 집합에 다양한 SAP 아키텍처 계층을 배포하는 것 이외에, 좀 더 최근에 도입된 [Azure 가용성 영역](../../../availability-zones/az-overview.md)도 SAP 워크로드 배포에 사용할 수 있습니다. Azure 가용성 영역은 다음과 같이 정의됩니다. “지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다.” Azure 가용성 영역을 모든 지역에서 사용할 수 있는 것은 아닙니다. Azure에서 가용성 영역을 제공하는 지역에 대해서는 [Azure 지역 맵](https://azure.microsoft.com/global-infrastructure/geographies/)에서 확인하세요. 해당 맵은 가용성 영역을 제공하거나 제공하도록 발표한 지역에 대해 보여 줍니다. 
@@ -134,7 +134,7 @@ SAP 아키텍처의 특징은 달리 구성하지 않는 한 사용자 작업과
 - SAP Central Services와 DBMS 계층의 장애 조치(failover) 클러스터를 위한 부하 분산 장치는 [표준 SKU Azure Load Balancer](../../../load-balancer/load-balancer-standard-availability-zones.md)를 사용해야 합니다. 기본 Load Balancer는 여러 영역에 걸쳐 작동하지 않습니다.
 - SAP 시스템을 호스트하기 위해 배포한 Azure Virtual Network 및 해당 서브넷은 영역에 걸쳐 확장됩니다. 각 영역에 대해 별도의 가상 네트워크가 필요하지 않습니다.
 - 배포하는 모든 가상 머신에 대해 [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/)를 사용해야 합니다. 영역 배포에서 관리되지 않는 디스크는 사용할 수 없습니다.
-- Azure Premium Storage나 [울트라 SSD 스토리지](../../disks-types.md#ultra-disk) 또는 ANF는 영역 간의 스토리지 복제 중 어떤 유형도 지원하지 않습니다. 애플리케이션(DBMS 또는 SAP Central Services)은 중요한 데이터를 복제해야 합니다.
+- Azure Premium Storage나 [울트라 SSD 스토리지](../../disks-types.md#ultra-disks) 또는 ANF는 영역 간의 스토리지 복제 중 어떤 유형도 지원하지 않습니다. 애플리케이션(DBMS 또는 SAP Central Services)은 중요한 데이터를 복제해야 합니다.
 - 공유 디스크(Windows), CIFS 공유(Windows) 또는 NFS 공유(Linux)에 해당하는 공유 sapmnt 디렉터리의 경우도 마찬가지입니다. 영역 간에 이러한 공유 디스크 또는 공유를 복제하는 기술을 사용해야 합니다. 다음과 같은 기술이 지원됩니다.
   - Windows에서 [Azure에서 클러스터 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스를 Windows 장애 조치(Failover) 클러스터에 클러스터링](./sap-high-availability-guide-wsfc-shared-disk.md)에 설명된 것처럼 SIOS Datakeeper를 사용하는 클러스터 솔루션
   - SUSE Linux에서, [SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성](./high-availability-guide-suse-nfs.md)에 설명된 대로 빌드한 NFS 공유
@@ -174,7 +174,7 @@ SAP 아키텍처의 특징은 달리 구성하지 않는 한 사용자 작업과
 - SAP Central Services와 DBMS 계층의 장애 조치(failover) 클러스터를 위한 부하 분산 장치는 [표준 SKU Azure Load Balancer](../../../load-balancer/load-balancer-standard-availability-zones.md)를 사용해야 합니다. 기본 Load Balancer는 여러 영역에 걸쳐 작동하지 않습니다.
 - SAP 시스템을 호스트하기 위해 배포한 Azure Virtual Network 및 해당 서브넷은 영역에 걸쳐 확장됩니다. 각 영역에 대해 별도의 가상 네트워크가 필요하지 않습니다.
 - 배포하는 모든 가상 머신에 대해 [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/)를 사용해야 합니다. 영역 배포에서 관리되지 않는 디스크는 사용할 수 없습니다.
-- Azure Premium Storage나 [울트라 SSD 스토리지](../../disks-types.md#ultra-disk) 또는 ANF는 영역 간의 스토리지 복제 중 어떤 유형도 지원하지 않습니다. 애플리케이션(DBMS 또는 SAP Central Services)은 중요한 데이터를 복제해야 합니다.
+- Azure Premium Storage나 [울트라 SSD 스토리지](../../disks-types.md#ultra-disks) 또는 ANF는 영역 간의 스토리지 복제 중 어떤 유형도 지원하지 않습니다. 애플리케이션(DBMS 또는 SAP Central Services)은 중요한 데이터를 복제해야 합니다.
 - 공유 디스크(Windows), CIFS 공유(Windows) 또는 NFS 공유(Linux)에 해당하는 공유 sapmnt 디렉터리의 경우도 마찬가지입니다. 영역 간에 이러한 공유 디스크 또는 공유를 복제하는 기술을 사용해야 합니다. 다음과 같은 기술이 지원됩니다.
     - Windows에서 [Azure에서 클러스터 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스를 Windows 장애 조치(Failover) 클러스터에 클러스터링](./sap-high-availability-guide-wsfc-shared-disk.md)에 설명된 것처럼 SIOS Datakeeper를 사용하는 클러스터 솔루션
     - SUSE Linux에서, [SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성](./high-availability-guide-suse-nfs.md)에 설명된 대로 빌드한 NFS 공유
@@ -204,7 +204,7 @@ Microsoft는 Azure 지역의 다른 Azure 가용성 영역을 호스트하는 �
 - SAP Central Services와 DBMS 계층의 장애 조치(failover) 클러스터를 위한 부하 분산 장치는 [표준 SKU Azure Load Balancer](../../../load-balancer/load-balancer-standard-availability-zones.md)를 사용해야 합니다. 기본 Load Balancer는 여러 영역에 걸쳐 작동하지 않습니다.
 - SAP 시스템을 호스트하기 위해 배포한 Azure Virtual Network 및 해당 서브넷은 영역에 걸쳐 확장됩니다. 각 영역에 대해 별도의 가상 네트워크가 필요하지 않습니다.
 - 배포하는 모든 가상 머신에 대해 [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/)를 사용해야 합니다. 영역 배포에서 관리되지 않는 디스크는 사용할 수 없습니다.
-- Azure Premium Storage 또는 [울트라 SSD 스토리지](../../disks-types.md#ultra-disk)는 영역 간에 어떤 유형의 스토리지 복제도 지원하지 않습니다. 애플리케이션(DBMS 또는 SAP Central Services)은 중요한 데이터를 복제해야 합니다.
+- Azure Premium Storage 또는 [울트라 SSD 스토리지](../../disks-types.md#ultra-disks)는 영역 간에 어떤 유형의 스토리지 복제도 지원하지 않습니다. 애플리케이션(DBMS 또는 SAP Central Services)은 중요한 데이터를 복제해야 합니다.
 - 공유 디스크(Windows), CIFS 공유(Windows) 또는 NFS 공유(Linux)에 해당하는 공유 sapmnt 디렉터리의 경우도 마찬가지입니다. 영역 간에 이러한 공유 디스크 또는 공유를 복제하는 기술을 사용해야 합니다. 다음과 같은 기술이 지원됩니다.
     - Windows에서 [Azure에서 클러스터 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스를 Windows 장애 조치(Failover) 클러스터에 클러스터링](./sap-high-availability-guide-wsfc-shared-disk.md)에 설명된 것처럼 SIOS Datakeeper를 사용하는 클러스터 솔루션
     - SUSE Linux에서, [SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성](./high-availability-guide-suse-nfs.md)에 설명된 대로 빌드한 NFS 공유

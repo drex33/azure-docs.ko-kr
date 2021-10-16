@@ -1,14 +1,14 @@
 ---
 title: Azure Portal에서 VM 확장 사용
 description: 이 문서에서는 Azure Portal을 통해 하이브리드 클라우드 환경에서 실행되는 Azure Arc 지원 서버에 가상 머신 확장을 배포하는 방법을 설명합니다.
-ms.date: 08/11/2021
+ms.date: 10/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: 740ee7954340da0a34b581356d51135033a3829d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d6ecbbc57237192f68b9949ab960fb36cda64c81
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535692"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130069599"
 ---
 # <a name="enable-azure-vm-extensions-from-the-azure-portal"></a>Azure Portal에서 Azure VM 확장을 사용하도록 설정
 
@@ -22,7 +22,7 @@ ms.locfileid: "122535692"
 
 ## <a name="enable-extensions"></a>확장 사용
 
-Azure Portal을 사용하여 Arc 지원 서버 관리형 머신에 VM 확장을 적용할 수 있습니다.
+Azure Portal를 통해 Azure Arc 사용 서버 관리 컴퓨터에 VM 확장을 적용할 수 있습니다.
 
 1. 브라우저에서 [Azure Portal](https://portal.azure.com)로 이동합니다.
 
@@ -45,7 +45,7 @@ Azure Portal을 사용하여 Arc 지원 서버 관리형 머신에 VM 확장을 
 
 ## <a name="list-extensions-installed"></a>설치된 확장 나열
 
-Azure Portal에서 Arc 지원 서버의 VM 확장 목록을 가져올 수 있습니다. 다음 단계를 수행하여 목록을 확인합니다.
+Azure Portal에서 Azure Arc 사용 서버에 대 한 VM 확장 목록을 가져올 수 있습니다. 다음 단계를 수행하여 목록을 확인합니다.
 
 1. 브라우저에서 [Azure Portal](https://portal.azure.com)로 이동합니다.
 
@@ -55,40 +55,43 @@ Azure Portal에서 Arc 지원 서버의 VM 확장 목록을 가져올 수 있습
 
     :::image type="content" source="media/manage-vm-extensions/list-vm-extensions.png" alt-text="선택한 머신에 배포된 VM 확장 나열" border="true":::
 
-## <a name="update-extensions"></a>확장 업데이트
+## <a name="upgrade-extensions"></a>확장 업그레이드
 
-지원되는 확장의 새 버전이 릴리스되면 확장을 최신 릴리스로 업데이트할 수 있습니다. Arc 지원 서버로 이동하면 Arc 지원 서버가 Azure Portal에 배너를 표시하여 머신에 설치된 하나 이상의 확장에 사용할 수 있는 업데이트가 있음을 알려줍니다. 선택한 Arc 지원 서버에 대해 설치된 확장 목록을 보면 **업데이트 사용 가능** 레이블이 지정된 열을 확인할 수 있습니다. 확장의 최신 버전이 릴리스되면 해당 확장의 **업데이트 사용 가능** 값에 **예** 값이 표시됩니다. 
+지원 되는 확장의 새 버전이 릴리스되면 확장을 해당 최신 릴리스로 업그레이드할 수 있습니다. Azure arc 사용 서버는 Azure Arc 사용 서버를 탐색할 때 Azure Portal에 배너를 표시 하 여 컴퓨터에 설치 된 하나 이상의 확장에 사용할 수 있는 업그레이드를 알려 줍니다. 선택한 Azure Arc 사용 서버에 대해 설치 된 확장 목록을 보면 **업데이트 사용 가능** 이라는 레이블이 지정 된 열을 확인할 수 있습니다. 확장의 최신 버전이 릴리스되면 해당 확장의 **업데이트 사용 가능** 값에 **예** 값이 표시됩니다.
 
-확장을 최신 버전으로 업데이트해도 해당 확장의 구성에는 영향을 주지 않습니다. 업데이트하는 확장의 구성 정보를 다시 지정할 필요가 없습니다.
+>[!NOTE]
+>현재이 환경에 대 한 Azure Portal에서 word **업데이트** 를 사용 하는 동안 작업의 동작을 정확 하 게 나타내지 않습니다. 확장은 컴퓨터 또는 서버에 현재 설치 된 확장의 최신 버전을 설치 하 여 업그레이드 됩니다.
+
+확장을 최신 버전으로 업그레이드 해도 해당 확장의 구성에는 영향을 주지 않습니다. 업그레이드 하는 모든 확장 프로그램에 대 한 구성 정보를 다시 지정할 필요가 없습니다.
 
 :::image type="content" source="media/manage-vm-extensions-portal/vm-extensions-update-status.png" alt-text="VM 확장 업데이트 상태 나열" border="true":::
 
-Azure Portal에서 다음 단계를 수행하여 확장 1개를 업데이트하거나, 업데이트할 수 있는 확장을 여러 개 선택할 수 있습니다.
+다음 단계를 수행 하 여 하나를 업그레이드 하거나 Azure Portal에서 업그레이드에 적합 한 확장을 여러 개 선택할 수 있습니다.
 
 > [!NOTE]
-> 현재 Azure Portal에서만 확장을 업데이트할 수 있습니다. Azure CLI, Azure PowerShell 또는 Azure Resource Manager 템플릿을 사용한 확장 업데이트는 현재 지원되지 않습니다.
+> 현재 Azure Portal 에서만 확장을 업그레이드할 수 있습니다. 지금은 Azure CLI에서이 작업을 수행 하거나 Azure Resource Manager 템플릿을 사용 하 여이 작업을 수행할 수 없습니다.
 
 1. 브라우저에서 [Azure Portal](https://portal.azure.com)로 이동합니다.
 
 2. 포털에서 **서버 - Azure Arc** 를 찾아 목록에서 하이브리드 머신을 선택합니다.
 
-3. **확장** 을 선택한 다음, **업데이트 사용 가능** 열에서 확장 상태를 검토합니다. 
+3. **확장** 을 선택한 다음, **업데이트 사용 가능** 열에서 확장 상태를 검토합니다.
 
-다음 세 가지 방법 중 하나로 확장 1개를 업데이트할 수 있습니다.
+다음 세 가지 방법 중 하나로 확장을 업그레이드할 수 있습니다.
 
 * 설치된 확장 목록에서 확장을 선택한 다음, 확장 속성에서 **업데이트** 옵션을 선택합니다.
 
-    :::image type="content" source="media/manage-vm-extensions-portal/vm-extensions-update-from-extension.png" alt-text="선택한 확장에서 확장 업데이트" border="true":::
+    :::image type="content" source="media/manage-vm-extensions-portal/vm-extensions-update-from-extension.png" alt-text="선택한 확장에서 확장을 업그레이드 합니다." border="true":::
 
 * 설치된 확장 목록에서 확장을 선택한 다음, 페이지 맨 위에서 **업데이트** 옵션을 선택합니다.
 
-* 설치된 확장 목록에서 업데이트할 수 있는 확장을 하나 이상 선택한 다음, **업데이트** 옵션을 선택합니다.
+* 설치 된 확장 목록에서 업그레이드할 수 있는 확장을 하나 이상 선택 하 고 **업데이트** 옵션을 선택 합니다.
 
     :::image type="content" source="media/manage-vm-extensions-portal/vm-extensions-update-selected.png" alt-text="선택한 확장 업데이트" border="true":::
 
 ## <a name="uninstall-extensions"></a>확장 제거
 
-Azure Portal의 Arc 지원 서버에서 하나 이상의 확장을 제거할 수 있습니다. 확장을 제거하려면 다음 단계를 수행합니다.
+Azure Portal에서 Azure Arc 사용 서버에서 하나 이상의 확장을 제거할 수 있습니다. 확장을 제거하려면 다음 단계를 수행합니다.
 
 1. 브라우저에서 [Azure Portal](https://portal.azure.com)로 이동합니다.
 

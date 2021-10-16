@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 09/29/2021
-ms.openlocfilehash: 6b1859b93e31d901895a39334c83abf4b659289f
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 04121992c3de5e061e54687c8d23469850607870
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130002556"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073984"
 ---
 # <a name="azure-purview-network-architecture-and-best-practices"></a>Azure 부서의 범위 네트워크 아키텍처 및 모범 사례
 
@@ -42,9 +42,9 @@ Azure 부서의 범위는 데이터 관리를 위한 PaaS (platform as a service
 
 사용자 환경에 가장 적합 한 네트워크 옵션을 이해 하려면 먼저 다음 작업을 수행 하는 것이 좋습니다. 
 
-- Azure 부서의 범위에서 데이터 원본을 등록 하 고 검색 하기 전에 네트워크 토폴로지와 보안 요구 사항을 검토 하세요. 자세한 내용은 [Azure 네트워크 토폴로지 정의](/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology)를 참조 하세요. 
+- Azure 부서의 범위에서 데이터 원본을 등록 하 고 검색 하기 전에 네트워크 토폴로지와 보안 요구 사항을 검토 하세요. 자세한 내용은 [Azure 네트워크 토폴로지 정의](/azure/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology)를 참조 하세요. 
 
-- [PaaS 서비스에 대 한 네트워크 연결 모델을](/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure-paas-services)정의 합니다. 
+- [PaaS 서비스에 대 한 네트워크 연결 모델을](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure-paas-services)정의 합니다. 
 
 ## <a name="option-1-use-public-endpoints"></a>옵션 1: 공용 끝점 사용 
 

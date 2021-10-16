@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 04/21/2021
-ms.openlocfilehash: bc720b4df62a06d4c635cc9998dd453bfb7683b1
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
-ms.translationtype: HT
+ms.openlocfilehash: f6145e8732252f7d7b407a2d258d2127e6911ddc
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108127482"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072160"
 ---
 # <a name="set-plan-technical-configuration-for-an-azure-container-offer"></a>Azure Container 제품의 계획 기술 구성 설정
 
@@ -42,7 +42,7 @@ Azure Container Registry와 연결되고 컨테이너 이미지가 있는 관리
 
 ## <a name="image-versions"></a>이미지 버전
 
-고객은 Azure Marketplace에서 자동으로 업데이트를 받아서 게시할 수 있어야 합니다. 업데이트하지 않으려면 특정 버전의 이미지를 유지할 수 있어야 합니다. 이 작업을 수행하려면 이미지를 업데이트할 때마다 새 이미지 태그를 추가해야 합니다.
+고객은 업데이트를 게시할 때 Azure Marketplace에서 자동으로 업데이트를 다운로드할 수 있어야 합니다. 업데이트하지 않으려면 특정 버전의 이미지를 유지할 수 있어야 합니다. 이 작업을 수행하려면 이미지를 업데이트할 때마다 새 이미지 태그를 추가해야 합니다.
 
 지원되는 모든 플랫폼에서 이미지의 최신 버전을 가리키는 **이미지 태그** 를 포함하려면 **이미지 버전 추가** 를 선택합니다. 또한 버전 태그를 포함해야 합니다(예: xx.xx.xx, xx는 숫자). 고객은 여러 플랫폼을 대상으로 하는 [매니페스트 태그](https://github.com/estesp/manifest-tool)를 사용해야 합니다. 매니페스트 태그에서 참조하는 모든 태그는 업로드할 수 있도록 추가되어야 합니다. 모든 매니페스트 태그(최신 태그 제외)는 X.Y 또는 X.Y.Z로 시작해야 합니다(X, Y, Z는 정수입니다). 예를 들어 최신 태그가 `1.0.1-linux-x64`, `1.0.1-linux-arm32` 및 `1.0.1-windows-arm32`를 가리키는 경우 이러한 6개의 태그는 이 필드에 추가되어야 합니다. 태그 및 버전 관리에 대한 자세한 내용은 [Azure Container 기술 자산 준비](azure-container-technical-assets.md)를 참조하세요.
 

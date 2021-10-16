@@ -1,26 +1,32 @@
 ---
-title: 방화벽 규칙 - 하이퍼스케일(Citus) - Azure Database for PostgreSQL
-description: 이 문서에서는 Azure Database for PostgreSQL - 하이퍼스케일(Citus)의 방화벽 규칙에 대해 설명합니다.
+title: 공용 액세스-Hyperscale (Citus)-Azure Database for PostgreSQL
+description: 이 문서에서는 Citus (Azure Database for PostgreSQL-Hyperscale)에 대 한 공용 액세스를 설명 합니다.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 9/12/2019
-ms.openlocfilehash: 559c5eca6fa8a6eceb37ade003d4f1983c0a1a1b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 10/15/2021
+ms.openlocfilehash: cb695514fe4fd1b3d0ed72dd70aeb8b5d6ca4253
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90902098"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072191"
 ---
-# <a name="firewall-rules-in-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL – 하이퍼스케일(Citus)의 방화벽 규칙
+# <a name="public-access-in-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale의 공용 액세스 (Citus)
+
+[!INCLUDE [azure-postgresql-hyperscale-access](../../includes/azure-postgresql-hyperscale-access.md)]
+
+이 페이지에서는 공용 액세스 옵션에 대해 설명 합니다. 개인 액세스는 [여기](concepts-hyperscale-private-access.md)를 참조 하세요.
+
+## <a name="firewall-overview"></a>방화벽 개요
+
 Azure Database for PostgreSQL 서버 방화벽은 사용 권한이 있는 컴퓨터를 지정할 때까지 하이퍼스케일(Citus) 코디네이터 노드에 대한 모든 액세스를 차단합니다. 방화벽은 각 요청이 시작된 IP 주소의 서버에 대한 액세스를 허용합니다.
 방화벽을 구성하려면 허용 가능한 IP 주소 범위를 지정하는 방화벽 규칙을 생성해야 합니다. 서버 수준의 방화벽 규칙을 만들 수 있습니다.
 
 **방화벽 규칙:** 이 규칙을 사용하면 클라이언트가 하이퍼스케일(Citus) 코디네이터 노드, 즉 동일한 논리 서버 내의 모든 데이터베이스에 액세스할 수 있습니다. Azure Portal을 사용하여 서버 수준 방화벽 규칙을 구성할 수 있습니다. 서버 수준 방화벽 규칙을 만들려면 구독 소유자 또는 구독 참가자여야 합니다.
 
-## <a name="firewall-overview"></a>방화벽 개요
 코디네이터 노드에 대한 모든 데이터베이스 액세스는 기본적으로 방화벽에서 차단됩니다. 다른 컴퓨터에서 서버를 사용하려면 해당 서버에 대한 액세스를 허용하는 하나 이상의 서버 수준 방화벽 규칙을 지정해야 합니다. 방화벽 규칙을 사용하여 허용할 인터넷에서의 IP 주소 범위를 지정합니다. Azure Portal 웹 사이트 자체에 대한 액세스는 이 방화벽 규칙의 영향을 받지 않습니다.
 인터넷과 Azure로부터의 연결 시도는 다음 다이어그램과 같이 PostgreSQL Database에 연결하기 전에 먼저 방화벽을 통과해야 합니다.
 

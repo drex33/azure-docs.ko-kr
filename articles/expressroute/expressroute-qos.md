@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: duau
-ms.openlocfilehash: 7f14f43fa341df40ecd35340b7311e1acd18004c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 41035593a31a854e8bb2bb325c51ba5abb8e3f72
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92204710"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130069941"
 ---
 # <a name="expressroute-qos-requirements"></a>ExpressRoute QoS 요구 사항
 비즈니스용 Skype에는 차별화된 QoS 처리를 필요로 하는 다양한 워크로드가 있습니다. ExpressRoute를 통해 음성 서비스를 사용하려면 아래에 설명한 요구 사항을 준수해야 합니다.
@@ -20,7 +20,7 @@ ms.locfileid: "92204710"
 ![ExpressRoute를 통과하는 음성 서비스가 표시된 다이어그램](./media/expressroute-qos/expressroute-qos.png)
 
 > [!NOTE]
-> QoS 요구 사항은 Microsoft 피어링에만 적용합니다. Azure 공용 피어링 및 Azure 프라이빗 피어링에서 수신하는 네트워크 트래픽의 DSCP 값은 0으로 다시 설정됩니다. 
+> QoS 요구 사항은 Microsoft 피어링에만 적용합니다. Azure 프라이빗 피어링에서 받은 네트워크 트래픽의 DSCP 값은 그대로 유지되지만 Microsoft 네트워크의 트래픽 우선 순위를 지정하는 데는 사용되지 않습니다. 
 > 
 > 
 

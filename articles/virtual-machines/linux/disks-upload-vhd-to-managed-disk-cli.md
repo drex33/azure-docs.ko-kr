@@ -8,12 +8,12 @@ ms.date: 09/07/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 08c58a65a8801646d0dd6d0bd51bbab8d57d97e9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: bd1c741bcd12e7708ba37fdcd1190a8c76a6c2f2
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124754607"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072312"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Azure에 VHD 업로드 또는 다른 지역에 관리 디스크 복사 - Azure CLI
 
@@ -81,7 +81,7 @@ az disk grant-access -n <yourdiskname> -g <yourresourcegroupname> --access-level
 
 AzCopy v10에서 생성한 SAS URI를 지정하여 관리 디스크에 로컬 VHD 파일을 업로드합니다.
 
-해당 업로드는 동등한 [표준 HDD](../disks-types.md#standard-hdd)와 처리량이 동일합니다. 예를 들어 S4와 크기가 같은 경우 처리량은 최대 60MiB/초입니다. 그러나 S70과 크기가 같은 경우 처리량은 최대 500MiB/초입니다.
+해당 업로드는 동등한 [표준 HDD](../disks-types.md#standard-hdds)와 처리량이 동일합니다. 예를 들어 S4와 크기가 같은 경우 처리량은 최대 60MiB/초입니다. 그러나 S70과 크기가 같은 경우 처리량은 최대 500MiB/초입니다.
 
 ```bash
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob

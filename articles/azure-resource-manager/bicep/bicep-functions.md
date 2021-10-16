@@ -2,13 +2,13 @@
 title: Bicep 함수
 description: Bicep 파일에서 값을 검색하고, 문자열과 숫자로 작업하고, 배포 정보를 검색하는 데 사용하는 함수를 설명합니다.
 ms.topic: conceptual
-ms.date: 09/30/2021
-ms.openlocfilehash: 6fabd0bdbe6341382344c0e63ca711519275a3f4
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.date: 10/15/2021
+ms.openlocfilehash: 429dca8bd4544e1dd8b22406811e53d0ed2ea623
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129351688"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070568"
 ---
 # <a name="bicep-functions"></a>Bicep 함수
 
@@ -18,7 +18,7 @@ ms.locfileid: "129351688"
 
 ## <a name="namespaces-for-functions"></a>함수의 네임스페이스
 
-모든 Bicep 함수는 및 라는 두 네임스페이스 내에 `az` `sys` 포함됩니다. 일반적으로 함수를 사용할 때 네임스페이스를 지정할 필요가 없습니다. 함수 이름이 Bicep 파일에서 정의한 다른 항목과 동일한 경우에만 네임스페이스를 지정합니다. 예를 들어 라는 매개 변수를 만드는 경우 `range` `range` 네임스페이스를 추가하여 함수를 구분해야 `sys` 합니다.
+모든 Bicep 함수는 및 네임스페이스 내에 `az` `sys` 포함됩니다. 일반적으로 함수를 사용할 때 네임스페이스를 지정할 필요가 없습니다. 함수 이름이 Bicep 파일에서 정의한 다른 항목과 동일한 경우에만 네임스페이스를 지정합니다. 예를 들어 라는 매개 변수를 만드는 경우 `range` `range` 네임스페이스를 추가하여 함수를 구분해야 `sys` 합니다.
 
 ```bicep
 // Parameter contains the same name as a function
@@ -45,6 +45,7 @@ output result array = sys.range(1, range)
 * [empty](./bicep-functions-array.md#empty)
 * [first](./bicep-functions-array.md#first)
 * [intersection](./bicep-functions-array.md#intersection)
+* [items](./bicep-functions-array.md#items)
 * [last](./bicep-functions-array.md#last)
 * [length](./bicep-functions-array.md#length)
 * [min](./bicep-functions-array.md#min)

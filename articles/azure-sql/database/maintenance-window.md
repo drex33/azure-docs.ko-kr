@@ -9,13 +9,13 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
 ms.custom: references_regions
-ms.date: 10/05/2021
-ms.openlocfilehash: ca8ed4fa480bd394196f4ca5b37c52bcc06e41c1
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.date: 10/15/2021
+ms.openlocfilehash: 123ea592e46c270830bccef1dc06f9caa3e8fd6e
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129546174"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130071894"
 ---
 # <a name="maintenance-window-preview"></a>유지 관리 기간(미리 보기)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -66,7 +66,6 @@ Azure는 SQL Database 및 SQL Managed Instance 리소스의 [계획된 유지 �
 ### <a name="supported-service-level-objectives"></a>지원되는 서비스 수준 목표
 
 기본 이외의 유지 관리 기간은 다음을 **제외한** 모든 SLO에 대해 선택할 수 있습니다.
-* 하이퍼스케일 
 * 인스턴스 풀
 * 레거시 Gen4 vCore
 * 기본, S0 및 S1 
@@ -76,10 +75,10 @@ Azure는 SQL Database 및 SQL Managed Instance 리소스의 [계획된 유지 �
 
 기본 이외의 유지 관리 기간은 현재 다음 지역에서 선택할 수 있습니다.
 
-| Azure 지역 | SQL Managed Instance | SQL Database | [Azure 가용성 영역에서](high-availability-sla.md) SQL Database | 
+| Azure 지역 | SQL Managed Instance | SQL Database | [Azure 가용성 영역](high-availability-sla.md) 에서 SQL Database | 
 |:---|:---|:---|:---|
-| 오스트레일리아 중부 1 | Yes | | |
-| 오스트레일리아 중부 2 | Yes | | |
+| 오스트레일리아 중부 1 | 예 | | |
+| 오스트레일리아 중부 2 | 예 | | |
 | 오스트레일리아 동부 | 예 | 예 | 예 |
 | 오스트레일리아 남동부 | 예 | 예 | |
 | 브라질 남부 | 예 | 예 |  |
@@ -99,7 +98,7 @@ Azure는 SQL Database 및 SQL Managed Instance 리소스의 [계획된 유지 �
 | 일본 동부 | 예 | 예 | 예 |
 | 일본 서부 | 예 | 예 | |
 | 한국 중부 | 예 | | |
-| 한국 남부 | Yes | | |
+| 한국 남부 | 예 | | |
 | 미국 중북부 | 예 | 예 | |
 | 북유럽 | 예 | 예 | 예 |
 | 남아프리카 북부 | 예 | | | 
@@ -108,14 +107,14 @@ Azure는 SQL Database 및 SQL Managed Instance 리소스의 [계획된 유지 �
 | 인도 남부 | 예 | 예 | |
 | 동남아시아 | 예 | 예 | 예 |
 | 스위스 북부 | 예 | 예 | |
-| 스위스 서부 | Yes | | |
-| 아랍에미리트 중부 | Yes | | |
+| 스위스 서부 | 예 | | |
+| 아랍에미리트 중부 | 예 | | |
 | 아랍에미리트 북부 | 예 | | |
 | 영국 남부 | 예 | 예 | 예 |
 | 영국 서부 | 예 | 예 | |
 | 미국 중서부 | 예 | 예 | |
 | 서유럽 | 예 | 예 | 예 |
-| 인도 서부 | Yes | | |
+| 인도 서부 | 예 | | |
 | 미국 서부 | 예 | 예 |  |
 | 미국 서부 2 | 예 | 예 | 예 |
 | | | | | 
@@ -130,7 +129,7 @@ Azure는 SQL Database 및 SQL Managed Instance 리소스의 [계획된 유지 �
 
 Azure SQL Database의 클라이언트 연결 정책에 대한 자세한 내용은 [Azure SQL Database 연결 정책](../database/connectivity-architecture.md#connection-policy)을 참조하세요. 
 
-azure SQL Managed Instance의 클라이언트 연결 정책에 대 한 자세한 내용은 [azure SQL Managed Instance 연결 유형](../../azure-sql/managed-instance/connection-types-overview.md)을 참조 하세요.
+Azure SQL Managed Instance 클라이언트 연결 정책에 대한 자세한 내용은 [Azure SQL Managed Instance 연결 형식을 참조하세요.](../../azure-sql/managed-instance/connection-types-overview.md)
 
 ## <a name="considerations-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance에 대한 고려 사항
 

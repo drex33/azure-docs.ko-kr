@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: 48c63bc12f2b7655dcdf88ad3f2066e0d162c119
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: b2fa87d140a9a86c3ced814d15a3898b34c9d4d1
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/15/2021
-ms.locfileid: "130066512"
+ms.locfileid: "130072939"
 ---
 # <a name="on-demand-capacity-reservation-preview"></a>주문형 용량 예약(미리 보기)
 
@@ -73,17 +73,17 @@ Azure에서 예약 요청을 수락하면 일치하는 구성의 VM에서 사용
 
 사용된 용량 예약과 사용되지 않는 용량 예약은 모두 예약 인스턴스 기간 약정 할인을 받을 수 있습니다. 위의 예제에서, 동일한 Azure 지역의 D2s_v3 VM 2개에 대한 예약 인스턴스가 있는 경우 2개의 리소스(VM 또는 사용되지 않은 용량 예약)에 대한 청구는 0이 되고 나머지 8개 리소스(즉, 사용되지 않은 용량 예약 5개와 D2s_v3 VM 3개)에 대해서만 요금을 지불하게 됩니다. 이 경우 기간 약정 할인이라는 용어는 VM 또는 사용되지 않은 용량 예약에 적용될 수 있으며, 둘 다 동일한 PAYG 요금으로 청구됩니다. 
 
-## <a name="difference-between-on-demand-capacity-reservation-and-reserved-instances"></a>주문형 용량 예약과 예약 인스턴스 간의 차이점 
+## <a name="difference-between-on-demand-capacity-reservation-and-reserved-instances"></a>주문형 용량 예약과 예약 된 인스턴스 간의 차이점 
 
 
-| | 주문형 용량 예약 | 예약 인스턴스|
+| 차이점 | 주문형 용량 예약 | 예약 인스턴스|
 |---|---|---|
-| 용어 | 기간 약정이 필요하지 않습니다. 고객 요구 사항에 따라 만들고 삭제할 수 있습니다. | 1년 또는 3년 고정 기간 약정|
-| 청구 할인 | 기본 VM 크기에 대한 종량제 요금으로 청구* | 종량제 요금보다 상당한 비용 절감 |
-| 용량 SLA | 지정된 위치(지역 또는 가용성 영역)에서 용량을 보장합니다. | 용량 보장을 제공하지 않습니다. 고객은 더 나은 액세스 권한을 얻기 위해 "용량 우선 순위"를 선택할 수 있지만 해당 옵션은 SLA를 제공하지 않습니다. |
-| 지역 및 가용성 영역 | 지역별 또는 가용성 영역별로 배포할 수 있습니다. | 지역 수준에서만 사용 가능 |
+| 용어 | 용어 약정은 필요 하지 않습니다. 고객 요구 사항에 따라 만들고 삭제할 수 있습니다. | 1 년 또는 3 년의 용어 약정 기간 고정|
+| 청구 할인 | 기본 VM 크기에 대 한 종 량 제 요금으로 청구 됩니다. * | 종 량 제 요금에 비해 상당한 비용 절감 |
+| 용량 SLA | 지정 된 위치 (영역 또는 가용성 영역)에서 용량을 보장 합니다. | 는 용량 보장을 제공 하지 않습니다. 고객은 "용량 우선 순위"를 선택 하 여 더 나은 액세스를 얻을 수 있지만이 옵션은 SLA를 포함 하지 않습니다. |
+| 지역 및 가용성 영역 | 지역 또는 가용성 영역별로 배포할 수 있습니다. | 지역 수준 에서만 사용할 수 있습니다. |
 
-*별도로 구매한 경우 예약 인스턴스 할인에 적합
+* 별도로 구입 하는 경우 예약 된 인스턴스 할인에 적합
 
 
 ## <a name="work-with-capacity-reservation"></a>용량 예약 작업 

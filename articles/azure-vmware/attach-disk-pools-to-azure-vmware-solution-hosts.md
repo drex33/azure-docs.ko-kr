@@ -3,16 +3,16 @@ title: Azure VMware Solution 호스트(미리 보기)에 디스크 풀 연결
 description: iSCSI 대상을 통해 Azure VMware Solution 프라이빗 클라우드의 VMware 데이터 저장소로 표시되는 디스크 풀을 연결하는 방법을 알아봅니다. 데이터 저장소가 구성되면 데이터 저장소에서 볼륨을 만들어 VMware 인스턴스에 연결할 수 있습니다.
 ms.topic: how-to
 ms.date: 08/20/2021
-ms.openlocfilehash: 2487e26d887935f0d66f13d51ce7894edb2b2b6e
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: 72af6f2e2186b2c4f79d6e49e8f8a272cc6a6326
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769303"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073205"
 ---
 # <a name="attach-disk-pools-to-azure-vmware-solution-hosts-preview"></a>Azure VMware Solution 호스트(미리 보기)에 디스크 풀 연결
 
-[Azure 디스크 풀](../virtual-machines/disks-pools.md)은 Azure 디스크에서 지원하는 애플리케이션과 워크로드에 영구 블록 스토리지를 제공합니다. 최적 비용과 성능을 위해 디스크를 Azure VMware Solution의 영구 스토리지로 사용할 수 있습니다. 예를 들어 스토리지를 많이 사용하는 워크로드를 호스트하는 경우 클러스터를 스케일링하는 대신 디스크 풀을 사용하여 스케일 업할 수 있습니다. 디스크를 사용하여 온-프레미스 또는 기본 VMware 환경에서 보조 사이트의 디스크 스토리지로 데이터를 복제할 수도 있습니다. Azure VMware Solution 호스트와 독립적으로 스토리지를 스케일링하기 위해 [울트라 디스크](../virtual-machines/disks-types.md#ultra-disk)와 [프리미엄 SSD](../virtual-machines/disks-types.md#premium-ssd)를 데이터 저장소로 표시할 수 있습니다.  
+[Azure 디스크 풀](../virtual-machines/disks-pools.md)은 Azure 디스크에서 지원하는 애플리케이션과 워크로드에 영구 블록 스토리지를 제공합니다. 최적 비용과 성능을 위해 디스크를 Azure VMware Solution의 영구 스토리지로 사용할 수 있습니다. 예를 들어 스토리지를 많이 사용하는 워크로드를 호스트하는 경우 클러스터를 스케일링하는 대신 디스크 풀을 사용하여 스케일 업할 수 있습니다. 디스크를 사용하여 온-프레미스 또는 기본 VMware 환경에서 보조 사이트의 디스크 스토리지로 데이터를 복제할 수도 있습니다. Azure VMware Solution 호스트와 독립적으로 스토리지를 스케일링하기 위해 [울트라 디스크](../virtual-machines/disks-types.md#ultra-disks)와 [프리미엄 SSD](../virtual-machines/disks-types.md#premium-ssds)를 데이터 저장소로 표시할 수 있습니다.  
 
 >[!IMPORTANT]
 >Azure VMware Solution(미리 보기)의 Azure 디스크 풀은 현재 퍼블릭 미리 보기로 제공됩니다.

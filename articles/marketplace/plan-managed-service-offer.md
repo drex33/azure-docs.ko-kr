@@ -1,6 +1,6 @@
 ---
-title: 상업적 marketplace에 대 한 관리 서비스 제안 계획
-description: 파트너 센터에서 Azure Marketplace에 대 한 관리 서비스 제품을 계획 합니다.
+title: 상업용 마켓플레이스에 대한 관리 서비스 제안 계획
+description: 파트너 센터 Azure Marketplace 관리 서비스 제안을 계획합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -8,16 +8,16 @@ author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.date: 12/23/2020
-ms.openlocfilehash: 2bbbe75f31a0d785a4d5a96923eb50e8502efa0b
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 0f167cd82c6a66a175923b3b318623ab9a2bd1cf
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/15/2021
-ms.locfileid: "130066626"
+ms.locfileid: "130070853"
 ---
 # <a name="plan-a-managed-service-offer"></a>관리되는 서비스 제품 계획
 
-이 문서에서는 파트너 센터를 통해 상용 marketplace에 관리 되는 서비스 제품을 게시 하기 위한 요구 사항을 소개 합니다.
+이 문서에서는 파트너 센터 사용하여 상업용 Marketplace에 관리 서비스 제안을 게시하기 위한 요구 사항을 소개합니다.
 
 관리형 서비스는 Azure Lighthouse를 사용하여 교차 테넌트 및 다중 테넌트 관리를 가능하게 하는 Azure Marketplace 제품입니다. 자세한 정보는 [Azure Lighthouse란?](../lighthouse/overview.md)을 참조하세요. 고객이 관리형 서비스 제품을 구매할 때 하나 이상의 구독 또는 리소스 그룹을 위임할 수 있습니다. 그런 다음 Azure Lighthouse의 [Azure 위임된 리소스 관리](../lighthouse/concepts/architecture.md) 기능을 사용하여 해당 리소스에 대한 작업을 수행할 수 있습니다.
 
@@ -98,9 +98,9 @@ HTML 태그를 사용하여 설명의 서식을 지정할 수 있습니다. HTML
 
 **Marketplace 미디어 – 로고**: 제품의 대형 로고에 대한 PNG 파일을 제공합니다. 파트너 센터는 대형 로고를 사용하여 중형 및 소형 로고를 만듭니다. 필요에 따라 나중에 다른 이미지로 기존의 로고를 교체할 수 있습니다.
 
-* Azure Marketplace에 대 한 제품 목록에 표시 되는 긴 로고 (216x216에서 350x350 px)가 표시 됩니다.
-* 새 리소스를 만들 때 중간 로고 (90x90 px)가 표시 됩니다.
-* 작은 로고 (48x48 px)는 Azure Marketplace 검색 결과에 사용 됩니다.
+* 큰 로고(216x216에서 350x350픽셀까지)가 Azure Marketplace 제안 목록에 표시됩니다.
+* 새 리소스를 만들 때 중간 로고(90x90 px)가 표시됩니다.
+* 작은 로고(48x48 px)는 Azure Marketplace 검색 결과에 사용됩니다.
 
 로고에 대해서는 다음 지침을 따르세요.
 
@@ -110,9 +110,9 @@ HTML 태그를 사용하여 설명의 서식을 지정할 수 있습니다. HTML
 * 투명한 배경을 사용하는 경우 로고 및 텍스트는 흰색, 검은색 또는 파란색이 아니어야 합니다.
 * 로고의 형태와 분위기는 평면적이어야 합니다. 그라데이션은 피합니다. 로고에 회사 또는 브랜드 이름을 포함한 텍스트를 놓지 마십시오.
 
-**Marketplace 미디어 – 스크린샷**(선택 사항): 제품의 작동 방식을 보여 주는 이미지를 최대 5개 추가합니다. 모든 이미지는 크기와 .PNG 형식으로 1280x720 픽셀 이어야 합니다.
+**Marketplace 미디어 – 스크린샷**(선택 사항): 제품의 작동 방식을 보여 주는 이미지를 최대 5개 추가합니다. 모든 이미지의 크기는 1280x720픽셀이어야 하며 .PNG 형식이어야 합니다.
 
-**Marketplace 미디어 – 비디오**(선택 사항): 제품을 설명하는 비디오를 최대 5개 업로드합니다. 비디오는 YouTube 또는 Vimeo에서 호스트 되 고 미리 보기 (1280x720 PNG 파일)가 있어야 합니다.
+**Marketplace 미디어 – 비디오**(선택 사항): 제품을 설명하는 비디오를 최대 5개 업로드합니다. 비디오는 YouTube 또는 Vimeo에서 호스트되어야 하며 썸네일(1280x720 PNG 파일)이 있어야 합니다.
 
 ## <a name="preview-audience"></a>미리 보기 대상 그룹
 

@@ -8,12 +8,12 @@ author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
 ms.date: 09/27/2021
-ms.openlocfilehash: a8ee69e0c9c196f42a733c4cb6c3079228238b21
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 30b26ea098c66bc807250c0100db93d7564222b6
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129082931"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130069200"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 Marketplace Insights 대시보드
 
@@ -23,7 +23,7 @@ ms.locfileid: "129082931"
 
 ## <a name="marketplace-insights-dashboard"></a>Marketplace 인사이트 대시보드
 
-[Marketplace 인사이트 대시보드](https://go.microsoft.com/fwlink/?linkid=2165936)에는 Azure Marketplace에 대한 개요와 AppSource의 제품의 비즈니스 성과가 표시됩니다. 대시보드는 다음의 광범위한 개요를 제공합니다.
+[Marketplace Insights 대시보드](https://go.microsoft.com/fwlink/?linkid=2165936) 는 Azure Marketplace 및 appsource 제품의 비즈니스 성과에 대 한 개요를 제공 합니다. 대시보드는 다음의 광범위한 개요를 제공합니다.
 
 - 페이지 방문 추세
 - 작업에 대한 호출 추세

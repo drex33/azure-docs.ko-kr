@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: a489b8fd416c750071fa5e292bf916f23c83dab5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 946fe1e1700cfa90af6f329dc6786c5801e526a6
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529239"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073946"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Azure의 SAP BusinessObjects BI 플랫폼 계획 및 구현 가이드
 
@@ -243,7 +243,7 @@ Azure Storage에는 고객이 사용할 수 있는 다양한 Storage 유형이 �
 
 - Azure 관리 디스크
 
-  Azure가 관리하는 블록 수준 스토리지 볼륨입니다. 이 디스크는 Azure 가상 머신에 설치된 경우 SAP BOBI 플랫폼 애플리케이션 서버 및 데이터베이스에 사용할 수 있습니다. 다양한 유형의 [Azure Managed Disks](../../managed-disks-overview.md)를 사용할 수 있지만 SAP BOBI 플랫폼 애플리케이션 및 데이터베이스에는 [프리미엄 SSD](../../disks-types.md#premium-ssd)를 사용하는 것이 좋습니다.
+  Azure가 관리하는 블록 수준 스토리지 볼륨입니다. 이 디스크는 Azure 가상 머신에 설치된 경우 SAP BOBI 플랫폼 애플리케이션 서버 및 데이터베이스에 사용할 수 있습니다. 다양한 유형의 [Azure Managed Disks](../../managed-disks-overview.md)를 사용할 수 있지만 SAP BOBI 플랫폼 애플리케이션 및 데이터베이스에는 [프리미엄 SSD](../../disks-types.md#premium-ssds)를 사용하는 것이 좋습니다.
 
   아래 예에서는 프리미엄 SSD가 BOBI 플랫폼 설치 디렉터리에 사용됩니다. 가상 머신에 설치된 데이터베이스의 경우 지침에 따라 데이터 및 로그 볼륨에 관리 디스크를 사용할 수 있습니다. CMS 및 감사 데이터베이스는 일반적으로 작으며 다른 SAP OLTP/OLAP 데이터베이스와 동일한 스토리지 성능 요구 사항이 없습니다.
 

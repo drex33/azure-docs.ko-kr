@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 7cd3c1d4a0da5ca0741f6d7f05a1cf082d2e922e
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: d6e326bdc08b58d4dc32eb8a3d7592f3fd85b4af
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696542"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074414"
 ---
 # <a name="managed-disk-bursting"></a>관리 디스크 버스팅
 
@@ -31,12 +31,12 @@ Azure VM에 대한 버스팅과 디스크 리소스에 대한 버스팅은 서�
 
 ## <a name="disk-level-bursting"></a>디스크 수준 버스팅
 
-현재 버스트할 수 있는 관리 디스크 유형에는 [프리미엄 SSD](disks-types.md#premium-ssd)와 [표준 SSD](disks-types.md#standard-ssd)의 두 가지가 있습니다. 기타 디스크 유형은 현재 버스트할 수 없습니다. 디스크 버스트에는 두 가지 모델이 있습니다.
+현재 버스트할 수 있는 관리 디스크 유형에는 [프리미엄 SSD](disks-types.md#premium-ssds)와 [표준 SSD](disks-types.md#standard-ssds)의 두 가지가 있습니다. 기타 디스크 유형은 현재 버스트할 수 없습니다. 디스크 버스트에는 두 가지 모델이 있습니다.
 
 - 필요량이 현재 용량을 초과할 때마다 디스크가 버스트되는 주문형 버스트 모델(미리 보기)입니다. 이 모델은 디스크가 버스트될 때마다 추가 요금이 발생합니다. 주문형 버스트는 512GiB보다 큰 프리미엄 SSD에만 사용할 수 있습니다.
 - 크레딧 기반 모델입니다. 이 모델을 사용하면 버스트 크레딧을 크레딧 버킷에 축적한 경우에만 디스크가 버스트됩니다. 이 모델은 디스크가 버스트될 때 추가 요금이 발생하지 않습니다. 크레딧 기반 버스트는 프리미엄 및 표준 SSD 512GiB 이하에만 사용할 수 있습니다.
 
-Azure [프리미엄 SSD](disks-types.md#premium-ssd)는 두 버스팅 모델을 모두 사용할 수 있지만 [표준 SSD](disks-types.md#standard-ssd)는 현재 크레딧 기반 버스팅만 제공합니다.
+Azure [프리미엄 SSD](disks-types.md#premium-ssds)는 두 버스팅 모델을 모두 사용할 수 있지만 [표준 SSD](disks-types.md#standard-ssds)는 현재 크레딧 기반 버스팅만 제공합니다.
 
 또한 [관리 디스크의 성능 계층을 변경할 수 있으며](disks-change-performance.md), 이는 워크로드가 버스트 상태로 실행되는 경우 이상적일 수 있습니다.
 

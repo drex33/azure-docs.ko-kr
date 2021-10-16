@@ -10,12 +10,12 @@ ms.author: jukullam
 ms.date: 10/19/2020
 ms.topic: how-to
 ms.custom: github-actions-azure
-ms.openlocfilehash: ba3ac45c04ef359db56086ff8ddf75b428574062
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: d040b613e11065aaf3a1ad457184ca5afdec1aa4
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129427460"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074250"
 ---
 # <a name="use-github-actions-with-azure-machine-learning"></a>Azure Machine Learning에서 GitHub Actions 사용
 
@@ -83,7 +83,7 @@ az ad sp create-for-rbac --name "myML" --role contributor \
 
 ## <a name="connect-to-the-workspace"></a>작업 영역에 연결
 
-[Azure Machine Learning 작업 영역 작업](https://github.com/marketplace/actions/azure-machine-learning-workspace)을 사용하여 Azure Machine Learning 작업 영역에 연결합니다. 
+**Azure Machine Learning 작업 영역 작업** 을 사용하여 Azure Machine Learning 작업 영역에 연결합니다. 
 
 ```yaml
     - name: Connect/Create Azure Machine Learning Workspace

@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/25/2021
+ms.date: 10/15/2021
 ms.author: rolyon
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: af88edbb788afa3576d3317d4e1cd54dea6f4deb
-ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
-ms.translationtype: HT
+ms.openlocfilehash: b4801d18454ad93c4ffa7284ab5bfaabea254cd1
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112988070"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074212"
 ---
 # <a name="assign-a-user-as-an-administrator-of-an-azure-subscription"></a>Azure 구독의 관리자로 사용자 할당
 
@@ -49,11 +49,11 @@ ms.locfileid: "112988070"
 
 1. **역할 할당** 탭을 클릭하여 관련 범위의 역할 할당을 확인합니다.
 
-1. **추가** > **역할 할당 추가(미리 보기)** 를 클릭합니다.
+1. **추가** > **역할 할당 추가** 를 클릭합니다.
 
    역할을 할당할 수 있는 권한이 없으면 역할 할당 추가 옵션이 비활성화됩니다.
 
-    ![미리 보기 환경에 대한 추가 > 역할 할당 추가 메뉴의 스크린샷](./media/shared/add-role-assignment-menu-preview.png)
+    ![추가 > 역할 할당 추가 메뉴의 스크린샷](./media/shared/add-role-assignment-menu.png)
 
     역할 할당 추가 페이지가 열립니다.
 
@@ -65,7 +65,7 @@ ms.locfileid: "112988070"
 
     역할은 이름 또는 설명을 기준으로 검색할 수 있습니다. 또한 역할은 유형 및 범주를 기준으로 필터링할 수도 있습니다.
 
-   ![미리 보기 환경을 위한 역할 탭이 있는 역할 할당 추가 페이지의 스크린샷](./media/shared/roles.png)
+   ![역할 탭이 있는 역할 할당 추가 페이지의 스크린샷](./media/shared/roles.png)
 
 1. **다음** 을 클릭합니다.
 
@@ -73,7 +73,7 @@ ms.locfileid: "112988070"
 
 1. **멤버** 탭에서 **사용자, 그룹 또는 서비스 주체** 를 선택합니다.
 
-   ![미리 보기 환경에 대한 멤버 추가 탭이 있는 역할 할당 추가 페이지의 스크린샷.](./media/shared/members.png)
+   ![멤버 추가 탭이 있는 역할 할당 추가 페이지의 스크린샷](./media/shared/members.png)
 
 1. **멤버 선택** 을 클릭합니다.
 
@@ -81,7 +81,7 @@ ms.locfileid: "112988070"
 
     **선택** 상자에서 입력하여 디렉터리에서 표시 이름이나 메일 주소를 검색할 수 있습니다.
 
-   ![미리 보기 환경의 멤버 선택 창 스크린샷](./media/shared/select-members.png)
+   ![멤버 선택 창의 스크린샷](./media/shared/select-members.png)
 
 1. **저장** 을 클릭하여 사용자를 멤버 목록에 추가합니다.
 
@@ -99,7 +99,7 @@ ms.locfileid: "112988070"
 
    몇 분 후에 사용자에게 구독의 소유자 역할이 할당됩니다.
 
-    ![미리 보기 환경에 대한 역할을 할당한 후의 역할 할당 목록에 대한 스크린샷](./media/role-assignments-portal-subscription-admin/sub-role-assignments-owner.png)
+    ![역할을 할당한 후 역할 할당 목록의 스크린샷](./media/role-assignments-portal-subscription-admin/sub-role-assignments-owner.png)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,16 +4,16 @@ description: Apache HBase Write Ahead Log의 성능을 향상시키기 위해 �
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/24/2020
-ms.openlocfilehash: c42a9d47cabd803944b858fc470c1bedc39d2d77
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 76e2211eb146178d8e491237370147c3bfed7079
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104868905"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070207"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Apache HBase에 대한 Azure HDInsight 가속 쓰기
 
-이 문서에서는 Azure HDInsight의 Apache HBase에 대한 **가속 쓰기** 기능 및 쓰기 성능을 향상시키기 위해 효과적으로 사용할 수 있는 방법에 대한 배경 지식을 제공합니다. **가속 쓰기** 는 [Azure 프리미엄 SSD 관리 디스크](../../virtual-machines/disks-types.md#premium-ssd)를 사용하여 Apache HBase WAL(Write Ahead Log)의 성능을 개선합니다. Apache HBase에 대해 자세히 알아보려면 [HDInsight의 Apache HBase란?](apache-hbase-overview.md)을 참조하세요.
+이 문서에서는 Azure HDInsight의 Apache HBase에 대한 **가속 쓰기** 기능 및 쓰기 성능을 향상시키기 위해 효과적으로 사용할 수 있는 방법에 대한 배경 지식을 제공합니다. **가속 쓰기** 는 [Azure 프리미엄 SSD 관리 디스크](../../virtual-machines/disks-types.md#premium-ssds)를 사용하여 Apache HBase WAL(Write Ahead Log)의 성능을 개선합니다. Apache HBase에 대해 자세히 알아보려면 [HDInsight의 Apache HBase란?](apache-hbase-overview.md)을 참조하세요.
 
 ## <a name="overview-of-hbase-architecture"></a>HBase 아키텍처 개요
 

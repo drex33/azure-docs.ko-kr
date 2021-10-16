@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/30/2021
+ms.date: 10/15/2021
 ms.author: rolyon
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 49ca89112f011f8f1c6d411ab187697b29523eeb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 15d8b077feadefb95d40014e257b9c300ef1aba2
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566433"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130069859"
 ---
 # <a name="list-azure-role-definitions"></a>Azure 역할 정의 나열
 
@@ -38,9 +38,6 @@ Azure Portal의 모든 역할을 나열하려면 다음 단계를 수행합니�
 1. **역할** 탭을 클릭하여 모든 기본 제공 역할 및 사용자 지정 역할 목록을 봅니다.
 
    ![새 환경을 사용하는 역할 목록을 보여 주는 스크린샷](./media/shared/roles-list.png)
-
-    > [!TIP]
-    > 이전 역할 목록 환경을 보려면 **Use classic experience**(클래식 환경 사용)를 클릭합니다.
   
 1. 특정 역할에 대한 권한을 보려면 **자세히** 열에서 **보기** 링크를 클릭합니다.
 
@@ -349,7 +346,7 @@ az role definition list --name "Virtual Machine Contributor" --output json --que
 1. URI 내에서 *{scope}* 를 역할 정의를 나열하려는 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | 유형 |
+    > | Scope | Type |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | 관리 그룹 |
     > | `subscriptions/{subscriptionId1}` | 구독 |
@@ -434,7 +431,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId1}/providers/Micro
 1. URI 내에서 *{scope}* 를 역할 정의를 나열하려는 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | Scope | 유형 |
+    > | Scope | Type |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | 관리 그룹 |
     > | `subscriptions/{subscriptionId1}` | 구독 |

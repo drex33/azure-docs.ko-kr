@@ -1,18 +1,18 @@
 ---
-title: Marketplace 계량 서비스 인증 전략 | Azure Marketplace
-description: Azure Marketplace에서 지원되는 계량 서비스 인증 전략입니다.
+title: Azure Marketplace에서 지원 되는 Marketplace 계량 서비스 인증 전략
+description: Azure Marketplace에서 지원 되는 계량 서비스 인증 전략입니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/01/2021
 author: saasguide
 ms.author: souchak
-ms.openlocfilehash: 93c9f1f3b2d02ad6737e7323bd2227ffcd8580ca
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 1670552bbbe4b9032befc118947df46e480f1faf
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129457085"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130071098"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Marketplace 계량 서비스 인증 전략
 

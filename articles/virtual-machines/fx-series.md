@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-compute
 ms.topic: conceptual
 ms.date: 06/10/2021
 ms.author: jushiman
-ms.openlocfilehash: eb8e094b4a78e718efc86314ca74c0df92426248
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
-ms.translationtype: HT
+ms.openlocfilehash: 20b1ad634f204e0aeb6f12cc737f7f82ddaf8d32
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122530350"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130071191"
 ---
 # <a name="fx-series"></a>FX 시리즈
 
@@ -52,7 +52,7 @@ FX 시리즈 VM은 [Intel® Turbo Boost Technology 2.0](https://www.intel.com/co
 
 가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
 
-디스크 유형에 대한 자세한 정보: [디스크 유형](./disks-types.md#ultra-disk)
+디스크 유형에 대한 자세한 정보: [디스크 유형](./disks-types.md#ultra-disks)
 
 
 ## <a name="next-steps"></a>다음 단계

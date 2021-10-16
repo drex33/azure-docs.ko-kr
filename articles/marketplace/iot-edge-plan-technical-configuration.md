@@ -7,12 +7,12 @@ ms.topic: how-to
 author: aarathin
 ms.author: aarathin
 ms.date: 05/21/2021
-ms.openlocfilehash: acae63eff8be41453c4483a2d8364531ee109f71
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: 28e9bbcb4086cc9a9bd5e18ef27eb1264f086e29
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111955710"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070302"
 ---
 # <a name="set-plan-technical-configuration-for-an-iot-edge-module-offer"></a>IoT Edge 모듈 제품의 플랜 기술 구성 설정
 
@@ -57,7 +57,7 @@ IoT Edge 모듈 제품 유형은 IoT Edge 디바이스에서 실행되는 특정
 
 ## <a name="image-versions"></a>이미지 버전
 
-고객은 Azure Marketplace에서 자동으로 업데이트를 받아서 게시할 수 있어야 합니다. 업데이트하지 않으려면 특정 버전의 이미지를 유지할 수 있어야 합니다. 이 작업을 수행하려면 이미지를 업데이트할 때마다 새 이미지 태그를 추가해야 합니다.
+고객은 업데이트를 게시할 때 Azure Marketplace에서 자동으로 업데이트를 다운로드할 수 있어야 합니다. 업데이트하지 않으려면 특정 버전의 이미지를 유지할 수 있어야 합니다. 이 작업을 수행하려면 이미지를 업데이트할 때마다 새 이미지 태그를 추가해야 합니다.
 
 지원되는 모든 플랫폼에서 이미지의 최신 버전을 가리키는 **이미지 태그** 를 포함하려면 **이미지 버전 추가** 를 선택합니다. 또한 버전 태그를 포함해야 합니다(예: xx.xx.xx, xx는 숫자). 고객은 여러 플랫폼을 대상으로 하는 [매니페스트 태그](https://github.com/estesp/manifest-tool)를 사용해야 합니다. 매니페스트 태그에서 참조하는 모든 태그는 업로드할 수 있도록 추가되어야 합니다. 모든 매니페스트 태그(최신 태그 제외)는 X.Y 또는 X.Y.Z로 시작해야 합니다(X, Y, Z는 정수입니다). 예를 들어 최신 태그가 `1.0.1-linux-x64`, `1.0.1-linux-arm32` 및 `1.0.1-windows-arm32`를 가리키는 경우 이러한 6개의 태그는 이 필드에 추가되어야 합니다. 태그 및 버전 관리에 관한 자세한 내용은 [IoT Edge 모듈 기술 자산 준비](iot-edge-technical-asset.md)를 참조하세요.
 

@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/25/2021
 ms.author: dpless
 ms.reviewer: jroth
-ms.openlocfilehash: 5ae107f2c96f4ef70fa37dd6cc1758f725d976cf
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: c3d410efa034e291cafd969221f97b31fe13b214
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129984785"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072711"
 ---
 # <a name="storage-performance-best-practices-for-sql-server-on-azure-vms"></a>스토리지: Azure VM의 SQL Server에 대한 성능 모범 사례
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -39,9 +39,9 @@ ms.locfileid: "129984785"
 - 디스크 유형을 선택하기 전에 애플리케이션을 모니터링하고 SQL Server 데이터, 로그, tempdb 파일에 대한 [스토리지 대역폭 및 대기 시간 요구 사항을 결정](../../../virtual-machines/premium-storage-performance.md#counters-to-measure-application-performance-requirements)합니다. 
 - 스토리지 성능을 최적화하기 위해 사용 가능한 캐시되지 않은 최고 IOPS를 계획하고, [가상 머신 및 디스크 상한 설정](../../../virtual-machines/premium-storage-performance.md#throttling)을 방지하면서 데이터 읽기에 대한 성능 기능으로 데이터 캐싱을 사용합니다.
 - 데이터, 로그, tempdb 파일을 별도의 드라이브에 저장합니다.
-    - 데이터 드라이브의 경우 [프리미엄 P30 및 P40 디스크](../../../virtual-machines/disks-types.md#premium-ssd)만 사용하여 캐시 지원의 가용성을 보장합니다.
-    - 로그 드라이브의 경우 [프리미엄 P30 - P80 디스크](../../../virtual-machines/disks-types.md#premium-ssd)를 평가하는 동안 용량 및 테스트 성능과 비용에 대해 계획합니다.
-      - 밀리초보다 적은 단위의 스토리지 대기 시간이 필요한 경우 트랜잭션 로그에 [Azure 울트라 디스크](../../../virtual-machines/disks-types.md#ultra-disk)를 사용합니다. 
+    - 데이터 드라이브의 경우 [프리미엄 P30 및 P40 디스크](../../../virtual-machines/disks-types.md#premium-ssds)만 사용하여 캐시 지원의 가용성을 보장합니다.
+    - 로그 드라이브의 경우 [프리미엄 P30 - P80 디스크](../../../virtual-machines/disks-types.md#premium-ssds)를 평가하는 동안 용량 및 테스트 성능과 비용에 대해 계획합니다.
+      - 밀리초보다 적은 단위의 스토리지 대기 시간이 필요한 경우 트랜잭션 로그에 [Azure 울트라 디스크](../../../virtual-machines/disks-types.md#ultra-disks)를 사용합니다.
       - M 시리즈 가상 머신 배포의 경우 Azure 울트라 디스크를 사용하는 것보다 [쓰기 가속기](../../../virtual-machines/how-to-enable-write-accelerator.md)를 사용하는 것이 좋습니다.
     - 최적의 VM 크기를 선택한 후 대부분의 SQL Server 워크로드를 위해 로컬 임시 SSD `D:\` 드라이브에 [tempdb](/sql/relational-databases/databases/tempdb-database)를 배치합니다. 
       - tempdb를 배치하기에 로컬 드라이브의 용량이 부족한 경우 VM의 크기를 조정하는 것이 좋습니다. 자세한 내용은 [데이터 파일 캐싱 정책](#data-file-caching-policies)을 참조하세요.
@@ -71,7 +71,7 @@ Azure VM에서 SQL Server 워크로드에 대한 가장 효율적인 구성을 �
 
 디스크의 성능 수준에서 선택할 수 있습니다. 기본 스토리지로 사용할 수 있는 관리 디스크 유형(성능 향상 기능으로 표시됨)은 표준 HDD(하드 디스크 드라이브), 표준 SSD, 프리미엄 SSD 및 울트라 디스크입니다. 
 
-디스크의 성능은 용량이 4GiB 인 P1 및 120 IOPS와 같은 [프리미엄 디스크 레이블](../../../virtual-machines/disks-types.md#premium-ssd)을 사용하여 그룹화되며 스토리지가 32TiB인 P80 및 2만 IOPS로 디스크를 늘립니다. 프리미엄 스토리지는 일부 워크로드에 대한 읽기 및 쓰기 성능을 개선하는 데 도움이 되는 스토리지 캐시를 지원합니다. 자세한 내용은 [관리 디스크 개요](../../../virtual-machines/managed-disks-overview.md)를 참조하세요. 
+디스크의 성능은 용량이 4GiB 인 P1 및 120 IOPS와 같은 [프리미엄 디스크 레이블](../../../virtual-machines/disks-types.md#premium-ssds)을 사용하여 그룹화되며 스토리지가 32TiB인 P80 및 2만 IOPS로 디스크를 늘립니다. 프리미엄 스토리지는 일부 워크로드에 대한 읽기 및 쓰기 성능을 개선하는 데 도움이 되는 스토리지 캐시를 지원합니다. 자세한 내용은 [관리 디스크 개요](../../../virtual-machines/managed-disks-overview.md)를 참조하세요. 
 
 Azure VM에서 SQL Server(OS 디스크, 임시 디스크 및 데이터 디스크)에 대해 고려해야 할 세 가지 주요 [디스크 유형](../../../virtual-machines/managed-disks-overview.md#disk-roles)도 있습니다. 운영 체제 드라이브 `(C:\)` 및 임시 드라이브 `(D:\)`에 저장된 항목을 신중하게 선택합니다. 
 
@@ -100,7 +100,7 @@ Azure 가상 머신은 임시 디스크(`D:\` 드라이브로 레이블이 지�
 임시 `D:\` 드라이브(기본값은 4KB)가 아닌 드라이브에 배치된 모든 데이터 파일에 대해 64KB 할당 단위 크기를 사용하도록 데이터 디스크의 형식을 지정합니다. Azure Marketplace를 통해 배포된 SQL Server VMs는 할당 단위 크기로 형식이 지정된 데이터 디스크와 함께 제공되고 64KB로 설정된 스토리지 풀에 인터리빙됩니다. 
 
 > [!NOTE]
-> azure [Blob storage](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure) 또는 [azure premium 파일 공유](../../../storage/files/storage-how-to-create-file-share.md)와 같은 [SMB 저장소](/sql/database-engine/install-windows/install-sql-server-with-smb-fileshare-as-a-storage-option) 에서 직접 SQL Server 데이터베이스 파일을 호스팅할 수도 있지만 최상의 성능, 안정성 및 기능 가용성을 위해 [azure managed disks](../../../virtual-machines/managed-disks-overview.md) 를 사용 하는 것이 좋습니다.
+> Azure Blob Storage 또는 [SMB](/sql/database-engine/install-windows/install-sql-server-with-smb-fileshare-as-a-storage-option) 스토리지(예: [Azure](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure) [프리미엄 파일 공유)에서](../../../storage/files/storage-how-to-create-file-share.md)직접 SQL Server 데이터베이스 파일을 호스트할 수도 있지만 최상의 성능, 안정성 및 기능 가용성을 위해 Azure [관리 디스크를](../../../virtual-machines/managed-disks-overview.md) 사용하는 것이 좋습니다.
 
 ## <a name="premium-disks"></a>프리미엄 디스크:
 
@@ -112,7 +112,7 @@ OLTP 워크로드의 경우 최대 사용 시간 및 `Disk Reads/sec` + `Disk Wr
 
 스토리지 공간을 사용하여 최적의 성능을 획득하고 두 개의 풀(로그 파일에 하나 데이터 파일에 다른 하나)을 구성합니다. 디스크 스트라이프를 사용하지 않는 경우, 별도의 드라이브에 매핑된 프리미엄 SSD 디스크 2개(로그 파일용 1개 및 데이터용 1개)를 사용합니다.
 
-스토리지 풀의 일부로 사용되는 디스크당 [프로비전된 IOPS 및 처리량](../../../virtual-machines/disks-types.md#premium-ssd)입니다. 디스크의 결합된 IOPS 및 처리량 기능은 가상 머신의 처리량 제한까지 이르는 최대 용량입니다.
+스토리지 풀의 일부로 사용되는 디스크당 [프로비전된 IOPS 및 처리량](../../../virtual-machines/disks-types.md#premium-ssds)입니다. 디스크의 결합된 IOPS 및 처리량 기능은 가상 머신의 처리량 제한까지 이르는 최대 용량입니다.
 
 가장 좋은 방법은 IOPS(및 처리량) 및 용량에 대한 최소 요구 사항을 충족하면서 최대한 적은 수의 디스크를 사용하는 것입니다. 그러나, 소형 디스크가 많은 것이 대형 디스크가 적은 것보다 가격과 성능의 균형을 유지하는 데 좋습니다.
 
@@ -130,15 +130,15 @@ Azure 관리 디스크를 처음 배포하는 경우, 해당 디스크의 성능
 
 ## <a name="azure-ultra-disk"></a>Azure 울트라 디스크
 
-대기 시간이 줄어든 밀리초 미만 응답 시간이 필요한 경우, SQL Server 로그 드라이브 또는 I/O 대기 시간에 매우 민감한 애플리케이션의 데이터 드라이브에도 [Azure 울트라 디스크](../../../virtual-machines/disks-types.md#ultra-disk)를 사용하는 것이 좋습니다. 
+대기 시간이 줄어든 밀리초 미만 응답 시간이 필요한 경우, SQL Server 로그 드라이브 또는 I/O 대기 시간에 매우 민감한 애플리케이션의 데이터 드라이브에도 [Azure 울트라 디스크](../../../virtual-machines/disks-types.md#ultra-disks)를 사용하는 것이 좋습니다.
 
 용량 및 IOPS를 독립적으로 확장할 수 있는 울트라 디스크를 구성할 수 있습니다. 울트라 디스크 관리자는 애플리케이션 요구 사항에 따라 용량, IOPS 및 처리량 요구 사항으로 디스크를 프로비전할 수 있습니다. 
 
-울트라 디스크는 모든 VM 시리즈에서 지원되지 않으며 지역 가용성, 중복성 및 Azure Backup 지원과 같은 기타 제한 사항이 있습니다. 자세한 내용은, 전체 제한 사항 목록에 대한 [Azure 울트라 디스크 사용](../../../virtual-machines/disks-enable-ultra-ssd.md)의 내용을 참조하세요. 
+울트라 디스크는 모든 VM 시리즈에서 지원되지 않으며 지역 가용성, 중복성 및 Azure Backup 지원과 같은 기타 제한 사항이 있습니다. 자세한 내용은, 전체 제한 사항 목록에 대한 [Azure 울트라 디스크 사용](../../../virtual-machines/disks-enable-ultra-ssd.md)의 내용을 참조하세요.
 
 ## <a name="standard-hdds-and-ssds"></a>표준 HDD 및 SSD
 
-[표준 HDD](../../../virtual-machines/disks-types.md#standard-hdd) 및 SSD는 대기 시간 및 대역폭이 다양하므로 개발/테스트 워크로드에만 권장됩니다. 프로덕션 워크로드에는 프리미엄 SSD를 사용해야 합니다. 표준 SSD(개발/테스트 시나리오)를 사용하는 경우 [VM 크기](../../../virtual-machines/sizes.md?toc=/azure/virtual-machines/windows/toc.json)에서 지원하는 최대 데이터 디스크 수를 추가하고 최상의 성능을 위해 스토리지 공간을 사용하여 디스크 스트라이프를 사용하는 것이 좋습니다.
+[표준 HDD](../../../virtual-machines/disks-types.md#standard-hdds) 및 SSD는 대기 시간 및 대역폭이 다양하므로 개발/테스트 워크로드에만 권장됩니다. 프로덕션 워크로드에는 프리미엄 SSD를 사용해야 합니다. 표준 SSD(개발/테스트 시나리오)를 사용하는 경우 [VM 크기](../../../virtual-machines/sizes.md?toc=/azure/virtual-machines/windows/toc.json)에서 지원하는 최대 데이터 디스크 수를 추가하고 최상의 성능을 위해 스토리지 공간을 사용하여 디스크 스트라이프를 사용하는 것이 좋습니다.
 
 ## <a name="caching"></a>캐싱
 

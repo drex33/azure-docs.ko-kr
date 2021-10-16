@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mingshen
 ms.author: mingshen
 ms.date: 07/05/2021
-ms.openlocfilehash: f222245af177380a59f4c2adc9987b144a1c9b6f
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: 6ea06820a9f66c831847808d9f6de9a6bf4803b1
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864671"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073965"
 ---
 # <a name="plans-and-pricing-for-commercial-marketplace-offers"></a>상업용 마켓플레이스 제품에 대한 요금제 및 가격 책정
 
@@ -80,7 +80,7 @@ ms.locfileid: "122864671"
 
 - **시장**: 모든 플랜은 하나 이상의 시장에서 사용할 수 있어야 합니다.  Microsoft에서 사용자를 대신하여 판매세(sales tax)와 사용세(use tax)를 납부하는 “세금 납부” 국가만 선택할 수 있습니다.
 - **가격 책정**: 가격 책정 모델은 Azure 관리되는 애플리케이션, SaaS 및 Azure 가상 머신 제품에 대한 플랜에만 적용됩니다. 동일한 제품의 모든 플랜은 동일한 가격 책정 모델을 사용해야 합니다.  
-- **플랜 표시**: 제품 유형에 따라 프라이빗 대상을 정의하거나 Azure Marketplace에서 제품 또는 플랜을 숨길 수 있습니다. 이는 이 문서 뒷부분의 [플랜 표시](#plan-visibility)에 자세히 설명되어 있습니다.
+- **계획 표시** 유형: 제안 유형에 따라 개인 사용자를 정의 하거나 Azure Marketplace에서 제품 또는 계획을 숨길 수 있습니다. 이는 이 문서 뒷부분의 [플랜 표시](#plan-visibility)에 자세히 설명되어 있습니다.
 
 > [!TIP]
 > 대상 고객 기반의 사용량 패턴에 가장 적합한 플랜을 만드는 것이 좋습니다. 이렇게 하면 사용자가 사용량 변화에 따라 플랜을 자주 전환하는 것을 줄일 수 있습니다. 3개의 데이터 통신 청구 플랜을 사용하는 SaaS 제품의 예는 [샘플 제품](./partner-center-portal/saas-metered-billing.md#sample-offer)을 참조하세요.
@@ -135,7 +135,7 @@ USD(미국 달러)로 설정된 가격은 저장할 때 현재 환율을 사용�
 > [!NOTE]
 > 프라이빗 대상 그룹은 미리 보기 대상 그룹과 다릅니다. 일부 제품 유형에 대한 **가용성** 페이지에서 상업용 마켓플레이스에 라이브로 게시되기 전에 미리 볼 수 있는 대상을 정의할 수 있습니다. 프라이빗 대상 그룹은 특정 플랜에만 적용되는 한편, 미리 보기 대상 그룹은 모든 플랜(비공개 또는 공개)을 볼 수 있지만 플랜을 테스트하고 검증하는 제한된 미리 보기 기간 동안만 가능합니다.
 
-제품이 관리되는 애플리케이션 또는 솔루션 템플릿의 일부로 배포될 경우 Azure Marketplace에서 플랜을 완전히 숨기도록 선택할 수도 있습니다.
+또한 제안이 관리되는 애플리케이션 또는 솔루션 템플릿의 일부로 배포될 경우 Azure Marketplace 플랜을 완전히 숨기도록 선택할 수도 있습니다.
 
 ## <a name="free-trials"></a>무료 평가판
 

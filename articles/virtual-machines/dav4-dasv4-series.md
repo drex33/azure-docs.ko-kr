@@ -8,12 +8,12 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.reviewer: jushiman
-ms.openlocfilehash: 43602810d9526257c5980d6a113e6bc45c3ead77
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: 3fc10f9b1751bbeebe8b126b16f44c8850ff3270
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129153428"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072331"
 ---
 # <a name="dav4-and-dasv4-series"></a>Dav4 및 Dasv4 시리즈
 
@@ -63,7 +63,7 @@ Dav4 시리즈 크기는 2.35Ghz AMD EPYC<sup>TM</sup> 7452 프로세서를 기�
 
 Dasv4 시리즈 크기는 2.35Ghz AMD EPYC<sup>TM</sup> 7452 프로세서를 기반으로 하며 최대 주파수 3.35GHz를 달성할 수 있고 프리미엄 SSD를 사용합니다. Dasv4 시리즈 크기는 vCPU, 메모리 및 임시 스토리지를 결합하여 대부분의 프로덕션 워크로드에 제공합니다.
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 버스트 캐시 및 임시 스토리지 처리량: IOPS/MBps | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps |  최대 버스트 캐시되지 않은 디스크 처리량: IOPS/MBps<sup>1</sup> | 최대 NIC 수 | 예상 네트워크 대역폭(Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 버스트 캐시 및 임시 저장소 처리량: IOPS/MBps | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps |  최대 버스트 캐시되지 않은 디스크 처리량: IOPS/MBps<sup>1</sup> | 최대 NIC 수 | 예상 네트워크 대역폭(Mbps) |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Standard_D2as_v4<sup>2</sup>|2|8|16|4|4000 / 32 (50)| 4000/100  |3200 / 48| 4000/200 | 2 | 2000 |
 | Standard_D4as_v4|4|16|32|8|8000 / 64 (100)| 8000/200 |6400 / 96| 8000/200 |2 | 4000 |
@@ -90,7 +90,7 @@ Dasv4 시리즈 크기는 2.35Ghz AMD EPYC<sup>TM</sup> 7452 프로세서를 기
 
 가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
 
-디스크 유형에 대한 자세한 정보: [디스크 유형](./disks-types.md#ultra-disk)
+디스크 유형에 대한 자세한 정보: [디스크 유형](./disks-types.md#ultra-disks)
 
 ## <a name="next-steps"></a>다음 단계
 

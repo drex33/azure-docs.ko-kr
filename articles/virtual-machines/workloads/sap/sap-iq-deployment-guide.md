@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/11/2021
 ms.author: depadia
-ms.openlocfilehash: 7b4f49efff29717e3345a2cc04286e9c3e86c8f7
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: 7ece73f467e2dc148e79512c7dd1a6fcc19cf270
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123306533"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072635"
 ---
 # <a name="sap-bw-nls-implementation-guide-with-sap-iq-on-azure"></a>Azure의 SAP IQ를 사용한 SAP BW NLS 구현 가이드
 
@@ -99,7 +99,7 @@ Azure의 SAP IQ의 경우 다음 Azure 스토리지 유형을 사용할 수 있�
 
 - Azure Managed Disks
 
-  [관리 디스크](../../managed-disks-overview.md)는 Azure에서 관리하는 블록 수준 스토리지 볼륨입니다. SAP IQ 심플렉스 배포에 관리 디스크를 사용할 수 있습니다. 다양한 유형의 관리 디스크를 사용할 수 있지만 SAP IQ에는 [프리미엄 SSD](../../disks-types.md#premium-ssd)를 사용하는 것이 좋습니다. 
+  [관리 디스크](../../managed-disks-overview.md)는 Azure에서 관리하는 블록 수준 스토리지 볼륨입니다. SAP IQ 심플렉스 배포에 관리 디스크를 사용할 수 있습니다. 다양한 유형의 관리 디스크를 사용할 수 있지만 SAP IQ에는 [프리미엄 SSD](../../disks-types.md#premium-ssds)를 사용하는 것이 좋습니다. 
 
 - Azure 공유 디스크
 

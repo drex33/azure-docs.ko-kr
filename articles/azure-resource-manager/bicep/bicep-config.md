@@ -2,13 +2,13 @@
 title: Bicep 구성 파일
 description: Bicep 배포에 대한 구성 값을 사용자 지정하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 10/13/2021
-ms.openlocfilehash: 0ccbbcdf3ac046187208737b24e68cc53093425c
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.date: 10/15/2021
+ms.openlocfilehash: 7a057d353fd5b25ae122e7856f1ccb560d7fce56
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/15/2021
-ms.locfileid: "130067887"
+ms.locfileid: "130071837"
 ---
 # <a name="add-custom-settings-in-the-bicep-config-file"></a>Bicep 구성 파일에 사용자 지정 설정 추가
 
@@ -20,15 +20,18 @@ Bicep 배포에 대한 구성 값을 사용자 지정하려면 Bicep 파일을 �
 
 :::image type="content" source="./media/bicep-config/bicep-linter-configure-intellisense.png" alt-text="bicepconfig.json 구성 시 Intellisense 지원.":::
 
-## <a name="aliases-for-module-registry"></a>모듈 레지스트리의 별칭
+## <a name="aliases-for-modules"></a>모듈의 별칭
 
-레지스트리의 모듈에 연결하는 경로를 간소화하기 위해 구성 파일에 별칭을 만들 수 있습니다. 구성 파일에는 에 대한 속성이 `moduleAliases` 있습니다. Bicep 레지스트리 별칭을 만들려면 `br` 속성 아래에 속성을 추가합니다. `moduleAliases`
+모듈에 연결하기 위한 경로를 간소화하기 위해 구성 파일에 별칭을 만들 수 있습니다. 별칭은 모듈 레지스트리 또는 템플릿 사양이 포함된 리소스 그룹을 참조할 수 있습니다. 구성 파일에는 에 대한 속성이 `moduleAliases` 있습니다. Bicep 레지스트리에 대한 별칭을 만들려면 `br` 속성 아래에 속성을 추가합니다. `moduleAliases` 템플릿 사양에 대 한 별칭을 추가 하려면 사용 된 `ts` 속성입니다.
 
 ```json
 {
   "moduleAliases": {
     "br": {
-      <add-aliases>
+      <add-registry-aliases>
+    },
+    "ts": {
+      <add-template-specs-aliases>
     }
   }
 }
@@ -39,7 +42,12 @@ Bicep 배포에 대한 구성 값을 사용자 지정하려면 Bicep 파일을 �
 - **레지스트리(필수):** 레지스트리 로그인 서버 이름
 - **modulePath(선택** 사항): 모듈이 저장되는 레지스트리 리포지토리
 
-다음 예제에서는 두 개의 모듈 별칭을 정의하는 샘플 구성 파일을 보여줍니다.
+속성 내에서 `ts` 필요한 만큼 별칭을 추가합니다. 각 별칭에 대해 이름 및 다음 속성을 지정합니다.
+
+- **subscription(필수):** 템플릿 사양을 호스트하는 구독 ID
+- **resourceGroup(필수):** 템플릿 사양을 포함하는 리소스 그룹의 이름
+
+다음 예제에서는 모듈 레지스트리에 대한 두 개의 별칭을 정의하는 구성 파일과 템플릿 사양이 포함된 리소스 그룹에 대한 별칭 하나를 보여 주는 구성 파일을 보여줍니다.
 
 ```json
 {
@@ -52,12 +60,27 @@ Bicep 배포에 대한 구성 값을 사용자 지정하려면 Bicep 파일을 �
         "registry": "contosoregistry.azurecr.io",
         "modulePath": "bicep/modules/core"
       }
+    },
+    "ts": {
+      "CoreSpecs": {
+        "subscription": "00000000-0000-0000-0000-000000000000",
+        "resourceGroup": "CoreSpecsRG"
+      }
     }
   }
 }
 ```
 
-**별칭이 없으면** 전체 경로를 사용하여 모듈에 연결합니다.
+모듈 참조에서 별칭을 사용하는 경우 다음 형식을 사용해야 합니다.
+
+```bicep
+br/<alias>:<file>:<tag>
+ts/<alias>:<file>:<tag>
+```
+
+파일 자체가 아니라 모듈이 포함된 폴더 또는 리소스 그룹에 별칭을 정의합니다. 파일 이름은 모듈에 대한 참조에 포함되어야 합니다.
+
+**별칭이 없으면** 전체 경로가 있는 레지스트리의 모듈에 연결됩니다.
 
 ```bicep
 module stgModule 'br:contosoregistry.azurecr.io/bicep/modules/core/storage:v1' = {
@@ -75,13 +98,11 @@ module stgModule 'br/ContosoRegistry:bicep/modules/core/storage:v1' = {
 module stgModule  'br/CoreModules:storage:v1' = {
 ```
 
-모듈 참조에서 별칭을 사용하는 경우 다음 형식을 사용해야 합니다.
+템플릿 사양의 경우 다음을 사용합니다.
 
 ```bicep
-br/<alias>:<file>:<tag>
+module stgModule  'ts/CoreSpecs:storage:v1' = {
 ```
-
-파일 자체가 아니라 모듈이 포함된 폴더에 별칭을 정의합니다. 파일 이름은 모듈에 대한 참조에 포함되어야 합니다.
 
 ## <a name="credentials-for-restoring-modules"></a>모듈 복원을 위한 자격 증명
 

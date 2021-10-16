@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: dc0e424e36d67cd25fc93e950e5758c6378c1b7d
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: e9306d9931a34a192d0fb77caf1ab6147f2020a5
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129660593"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130071932"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions의 Azure Service Bus 바인딩
 
@@ -24,9 +24,6 @@ Azure Functions는 [트리거 및 바인딩](./functions-triggers-bindings.md)�
 | Azure Service Bus 메시지 전송 |[출력 바인딩](./functions-bindings-service-bus-output.md) |
 
 ## <a name="add-to-your-functions-app"></a>Functions 앱 추가
-
-> [!NOTE]
-> Service Bus 바인딩은 관리 ID를 사용하여 인증을 현재 지원하지 않습니다. 대신 [Service Bus 공유 액세스 서명](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature)을 사용하세요.
 
 ### <a name="functions-2x-and-higher"></a>Functions 2.x 이상
 
@@ -46,11 +43,23 @@ Azure Functions는 [트리거 및 바인딩](./functions-triggers-bindings.md)�
 
 #### <a name="service-bus-extension-5x-and-higher"></a>Service Bus 확장 5.x 이상
 
-새 버전의 Service Bus 바인딩 확장은 [미리 보기 NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/5.0.0-beta.2)로 제공됩니다. 이 미리 보기에서는 [비밀 대신 ID를 사용하여 연결](./functions-reference.md#configure-an-identity-based-connection)하는 기능이 도입되었습니다. .NET 애플리케이션의 경우 `Microsoft.ServiceBus.Messaging` 및 `Microsoft.Azure.ServiceBus`의 형식이 [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus)의 최신 형식으로 바뀌어 사용자가 바인딩할 수 있는 형식도 변경됩니다.
+새 버전의 Service Bus 바인딩 확장은 미리 보기에서 사용할 수 있습니다. [비밀 대신 id를 사용 하 여 연결](./functions-reference.md#configure-an-identity-based-connection)하는 기능이 도입 되었습니다. .NET 애플리케이션의 경우 `Microsoft.ServiceBus.Messaging` 및 `Microsoft.Azure.ServiceBus`의 형식이 [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus)의 최신 형식으로 바뀌어 사용자가 바인딩할 수 있는 형식도 변경됩니다.
 
-> [!NOTE]
-> 미리 보기 패키지는 확장 번들에 포함되지 않으며 수동으로 설치해야 합니다. .NET 앱의 경우 패키지에 대한 참조를 추가합니다. 다른 모든 앱 유형에 대해서는 [확장 업데이트]를 참조하세요.
+이 확장 버전은 [미리 보기 NuGet 패키지로] 사용할 수 있거나, 파일에 다음을 추가 하 여 미리 보기 확장 번들 v3에서 추가할 수 있습니다 `host.json` .
 
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[3.*, 4.0.0)"
+  }
+}
+```
+
+자세히 알아보려면 [확장 업데이트]를 참조 하세요.
+
+[NuGet 패키지 미리 보기]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/5.0.0-beta.6
 [core tools]: ./functions-run-local.md
 [확장 번들]: ./functions-bindings-register.md#extension-bundles
 [NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage

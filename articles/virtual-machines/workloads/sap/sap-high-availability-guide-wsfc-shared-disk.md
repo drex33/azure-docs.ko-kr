@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2021
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dc233e3aac51255be4b6b7befde322216ae7f053
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: 9e59347ec1c38c8d315de9ee7332a4955427770b
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129754561"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130068972"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Azure에서 클러스터 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스를 Windows 장애 조치(Failover) 클러스터에 클러스터링
 
@@ -129,14 +129,14 @@ Azure 내 Windows 장애 조치(failover) 클러스터에는 공유 디스크용
 
 **SAP 워크로드를 위한 Azure 공유 디스크**
 
-- 를 사용 하면 유지 관리 및 운영에 필요한 추가 소프트웨어가 없어도 Azure 관리 디스크를 여러 Vm에 동시에 연결할 수 있습니다.
-- [프리미엄 SSD](../../disks-types.md#premium-ssd) 디스크가 있는 [Azure 공유 디스크](../../disks-shared.md) 는 가용성 집합 및 가용성 영역에서 SAP 배포에 대해 지원 됩니다.
-- [Azure Ultra disk](../../disks-types.md#ultra-disk) 및 [azure STANDARD 디스크](../../disks-types.md#standard-ssd) 는 SAP 워크 로드에 대 한 azure 공유 디스크로 지원 되지 않습니다.
-- 필요한 vm 수에 동시에 연결할 수 있도록 [프리미엄 SSD 범위](../../disks-shared.md#disk-sizes) 에 지정 된 최소 디스크 크기를 사용 하 여 Azure Premium 디스크를 프로 비전 해야 합니다 (일반적으로 SAP ascs Windows 장애 조치 (Failover) 클러스터의 경우 2).
+- 유지 관리 및 작동을 위한 추가 소프트웨어 없이도 Azure 관리 디스크를 여러 VM에 동시에 연결할 수 있습니다.
+- [Premium SSD](../../disks-types.md#premium-ssds) [디스크가](../../disks-shared.md) 있는 Azure 공유 디스크는 가용성 집합 및 가용성 영역에서 SAP 배포에 대해 지원됩니다.
+- [Azure Ultra Disk](../../disks-types.md#ultra-disks) 및 [Azure Standard 디스크는](../../disks-types.md#standard-ssds) SAP 워크로드용 Azure 공유 디스크로 지원되지 않습니다.
+- 필요한 수의 VM에 동시에 연결할 수 있도록 Premium [SSD 범위에](../../disks-shared.md#disk-sizes) 지정된 최소 디스크 크기로 Azure Premium 디스크를 프로비전해야 합니다(일반적으로 SAP ASCS Windows 장애 조치(failover) 클러스터의 경우 2).
  
 **SIOS**
 - SIOS 솔루션은 디스크 두 개 사이의 실시간 동기 데이터 복제를 제공합니다.
-- SIOS 솔루션을 사용 하 여 두 개의 관리 디스크를 사용 하 고 가용성 집합 또는 가용성 영역을 사용 하는 경우 관리 디스크는 서로 다른 저장소 클러스터에 배치 됩니다. 
+- SIOS 솔루션을 사용하면 두 개의 관리 디스크로 작동하고 가용성 집합 또는 가용성 영역을 사용하는 경우 관리 디스크는 다른 스토리지 클러스터에 저장됩니다. 
 - 가용성 영역에 배포할 수 있습니다.
 - 추가로 구매해야 하는 타사 소프트웨어를 설치하여 운영해야 합니다.
 
@@ -148,27 +148,27 @@ Microsoft는 공유 디스크 옵션에서 SAP ASCS/SCS 고가용성을 구현�
 
 현재, Azure 프리미엄 SSD 디스크를 SAP ASCS/SCS 인스턴스용 Azure 공유 디스크로 사용할 수 있습니다. 현재 적용 중인 제한 사항은 다음과 같습니다.
 
--  [Azure Ultra disk](../../disks-types.md#ultra-disk) 및 [표준 SSD 디스크](../../disks-types.md#standard-ssd) 는 SAP 워크 로드에 대 한 azure 공유 디스크로 지원 되지 않습니다.
--  [프리미엄 SSD 디스크가](../../disks-types.md#premium-ssd) 있는 [Azure 공유 디스크](../../disks-shared.md) 는 가용성 집합 및 가용성 영역에서 SAP 배포에 대해 지원 됩니다.
--  프리미엄 SSD 디스크가 있는 Azure 공유 디스크는 두 개의 저장소 sku와 함께 제공 됩니다.
-   - 프리미엄 공유 디스크 (LRS)에 대 한 Premium_LRS (로컬 중복 저장소)는 Azure 가용성 집합의 배포에서 지원 됩니다.
-   - 프리미엄 공유 디스크 Premium_ZRS (ZRS)에 대 한 영역 중복 저장소 ()는 Azure 가용성 영역의 배포에서 지원 됩니다.
+-  [Azure Ultra Disk](../../disks-types.md#ultra-disks) 및 [표준 SSD 디스크는](../../disks-types.md#standard-ssds) SAP 워크로드용 Azure 공유 디스크로 지원되지 않습니다.
+-  [Premium SSD 디스크가](../../disks-types.md#premium-ssds) 있는 [Azure 공유](../../disks-shared.md) 디스크는 가용성 집합 및 가용성 영역에서 SAP 배포에 대해 지원됩니다.
+-  Premium SSD 디스크가 있는 Azure 공유 디스크에는 두 개의 스토리지 S SKU가 함께 제공됩니다.
+   - 프리미엄 공유 디스크(skuName - Premium_LRS)에 대한 LRS(로컬 중복 스토리지)는 Azure 가용성 집합의 배포에서 지원됩니다.
+   - 프리미엄 공유 디스크(skuName - Premium_ZRS)용 ZRS(영역 중복 스토리지)는 Azure 가용성 영역의 배포에서 지원됩니다.
 -  Azure 공유 디스크 값인 [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes)는 공유 디스크로 사용할 수 있는 클러스터 노드의 개수를 결정합니다. 일반적으로 SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터에서는 두 개의 노드를 구성하므로 `maxShares`에 해당하는 값은 2로 설정되어야 합니다.
--  SAP 시스템에 대 한 [Azure 근접 배치 그룹](../../windows/proximity-placement-groups.md) 을 사용 하는 경우 디스크를 공유 하는 모든 가상 머신은 동일한 ppg의 일부 여야 합니다.
+-  SAP 시스템에 [Azure 근접 배치 그룹을](../../windows/proximity-placement-groups.md) 사용하는 경우 디스크를 공유하는 모든 가상 머신이 동일한 PPG의 일부여야 합니다.
 
-Azure 공유 디스크에 대 한 제한 사항에 대 한 자세한 내용은 Azure 공유 디스크 설명서의 [제한 사항](../../disks-shared.md#limitations) 섹션을 참조 하세요.
+Azure 공유 디스크의 제한 사항에 대한 자세한 내용은 Azure 공유 디스크 설명서의 [제한 사항 섹션을](../../disks-shared.md#limitations) 주의 깊게 검토하세요.
 
-#### <a name="important-consideration-for-premium-shared-disk"></a>Premium 공유 디스크에 대 한 중요 고려 사항
+#### <a name="important-consideration-for-premium-shared-disk"></a>Premium 공유 디스크에 대한 중요한 고려 사항
 
-다음은 Azure Premium 공유 디스크에 대해 고려해 야 할 몇 가지 중요 사항입니다.
+다음은 Azure Premium 공유 디스크에 대해 고려해야 할 몇 가지 중요한 사항입니다.
 
-- Premium 공유 디스크에 대 한 LRS
+- Premium 공유 디스크에 대한 LRS
   - Premium 공유 디스크용 LRS를 통해 SAP 배포는 하나의 스토리지 클러스터에서 단일 Azure 공유 디스크로 작동합니다. Azure 공유 디스크가 배포된 스토리지 클러스터에 문제가 생기면 SAP ASCS/SCS 인스턴스가 영향을 받습니다.
 
 - Premium 공유 디스크용 ZRS
-  - ZRS의 쓰기 대기 시간이 영역 간 데이터 복사본으로 인해 LRS보다 높습니다.
+  - ZRS의 쓰기 대기 시간이 영역 간 데이터 복사로 인해 LRS보다 높습니다.
   - 다른 지역의 가용성 영역 간 거리는 서로 다르며 가용성 영역 전체에서 ZRS 디스크 대기 시간도 다릅니다. [디스크를 벤치마킹하여](../../disks-benchmarks.md) 해당 지역의 ZRS 디스크 대기 시간을 식별합니다.
-  - Premium 공유 디스크용 ZRS는 해당 지역의 세 가용성 영역에서 데이터를 동기적으로 복제합니다. 스토리지 클러스터 중 하나에서 문제가 발생하는 경우 스토리지 장애 조치(failover)가 애플리케이션 계층에 투명하게 표시되면 SAP ASCS/SCS가 계속 실행됩니다.
+  - Premium 공유 디스크용 ZRS는 해당 지역의 세 가용성 영역에서 데이터를 동기적으로 복제합니다. 스토리지 클러스터 중 하나에서 문제가 발생하는 경우 스토리지 장애 조치(failover)가 애플리케이션 계층에 투명하게 적용되면 SAP ASCS/SCS가 계속 실행됩니다.
   - 자세한 내용은 관리 디스크에 대한 ZRS의 [제한 사항](../../disks-redundancy.md#limitations) 섹션을 검토하세요.
 
 > [!TIP]

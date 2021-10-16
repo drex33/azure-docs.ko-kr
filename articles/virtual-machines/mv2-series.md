@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: eccc5389330fd43025dbb66835b82e45d0284df9
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: fcc18d235be771044e67a6ffda43effb475f1655
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129216102"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130068896"
 ---
 # <a name="mv2-series"></a>Mv2 시리즈
 
@@ -45,7 +45,7 @@ Mv2 시리즈 VM은 Intel® 하이퍼 스레딩 기술 제공
 - SUSE Linux Enterprise Server 12 SP4 이상 또는 SUSE Linux Enterprise Server 15 SP1 이상
 - Red Hat Enterprise Linux 7.6 이상 및 8.1 이상
 - Oracle Enterprise Linux 7.7 이상 및 8.1 이상
-- 5.4.0를 사용 하는 Ubuntu 18.04-azure kernel 이상
+- Ubuntu 18.04 및 5.4.0-azure 커널 이상
 
 <sup>2</sup> [사용 가능한 코어 크기 제한](./constrained-vcpu.md).
 
@@ -63,7 +63,7 @@ Mv2 시리즈 VM은 Intel® 하이퍼 스레딩 기술 제공
 
 가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
 
-디스크 유형에 대한 자세한 정보: [디스크 유형](./disks-types.md#ultra-disk)
+디스크 유형에 대한 자세한 정보: [디스크 유형](./disks-types.md#ultra-disks)
 
 
 ## <a name="next-steps"></a>다음 단계

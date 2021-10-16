@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Video Analyzer 용어에 대한 개요를
 ms.service: azure-video-analyzer
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: 59ed8f85f1196328b6ab477faae77ed35d054223
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
-ms.translationtype: HT
+ms.openlocfilehash: 1b9de2608d3b6ccb3922636f8cd473e79eff5e00
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114601863"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070245"
 ---
 # <a name="azure-video-analyzer-terminology"></a>Azure Video Analyzer 용어
 
@@ -40,7 +40,7 @@ Video Analyzer를 사용하여 비디오 리소스를 만들고 기존 비디오
 
 ## <a name="streaming"></a>스트리밍
 
-Video Analyzer를 사용하여 [HLS(HTTP 라이브 스트리밍)](https://developer.apple.com/streaming/) 및 [MPEG-DASH](https://dashif.org/about/) 같은 업계 표준의 HTTP 기반 미디어 스트리밍 프로토콜을 사용하여 클라이언트로 비디오 녹화를 스트리밍할 수 있습니다. [Azure Video Analyzer 플레이어 위젯](https://github.com/Azure/video-analyzer/blob/main/widgets/readme.md)(웹 구성 요소)을 사용하여 비디오 리소스를 재생할 수 있습니다. 또한 HLS는 [JW Player](https://www.jwplayer.com/), [hls.js](https://github.com/video-dev/hls.js/), [VideoJS](https://videojs.com/), [Google Shaka Player](https://github.com/google/shaka-player) 같은 웹 플레이어에서 지원됩니다. 기본적으로 모바일 앱에서는 Android의 [Exoplayer](https://github.com/google/ExoPlayer) 및 iOS의 [AV Foundation](https://developer.apple.com/av-foundation/)을 사용하여 렌더링을 할 수 있습니다. MPEG-DASH도 마찬가지로 [이 페이지의 클라이언트 목록](https://dashif.org/clients/)에서 지원됩니다.
+Video Analyzer를 사용하여 [HLS(HTTP 라이브 스트리밍)](https://developer.apple.com/streaming/) 및 [MPEG-DASH](https://dashif.org/about/) 같은 업계 표준의 HTTP 기반 미디어 스트리밍 프로토콜을 사용하여 클라이언트로 비디오 녹화를 스트리밍할 수 있습니다. [Azure Video Analyzer 플레이어 위젯](https://github.com/Azure/video-analyzer/blob/main/widgets/readme.md)(웹 구성 요소)을 사용하여 비디오 리소스를 재생할 수 있습니다. 또한 HLS는 [JW Player](https://www.jwplayer.com/), [hls.js](https://github.com/video-dev/hls.js/), [VideoJS](https://videojs.com/), [Google Shaka Player](https://github.com/google/shaka-player) 같은 웹 플레이어에서 지원됩니다. 기본적으로 모바일 앱에서는 Android의 [Exoplayer](https://github.com/google/ExoPlayer) 및 iOS의 [AV Foundation](https://developer.apple.com/av-foundation/)을 사용하여 렌더링을 할 수 있습니다. MPEG-DASH도 마찬가지로 [이 페이지의 클라이언트 목록](https://dashif.org/members/)에서 지원됩니다.
 
 ## <a name="vms"></a>VMS
 

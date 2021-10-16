@@ -7,12 +7,12 @@ ms.topic: article
 author: varsha-sarah
 ms.author: vavargh
 ms.date: 09/27/2021
-ms.openlocfilehash: f6730ad58491fb24dbc025eaa44fbc7d7bdade58
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 115556f2118d34fa4fd2baf3ac84d97a1b9f5962
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129359813"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130071666"
 ---
 # <a name="manage-a-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상업적 마켓플레이스 계정 관리
 
@@ -115,7 +115,7 @@ GUID(Globally Unique Identifier)는 Azure 사용량을 추적하는 데 사용�
 
 각 제품에 대한 모든 제안 및 배포 채널에 대해 고유한 GUID를 만드는 것이 좋습니다. 보고를 분할하지 않으려면 제품의 여러 배포 채널에 대해 단일 GUID를 사용하도록 선택할 수 있습니다.
 
-템플릿을 사용하여 제품을 배포하고 Azure Marketplace 및 GitHub에서 모두 사용할 수 있는 경우, 두 개의 고유 GUID를 만들고 등록할 수 있습니다.
+템플릿을 사용 하 여 제품을 배포 하 고 Azure Marketplace 및 GitHub 둘 다에서 사용할 수 있는 경우 두 개의 고유 guid를 만들어 등록할 수 있습니다.
 
 - Azure Marketplace의 제품 A
 - GitHub의 제품 A

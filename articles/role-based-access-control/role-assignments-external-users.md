@@ -10,15 +10,15 @@ ms.devlang: ''
 ms.topic: how-to
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/28/2021
+ms.date: 10/15/2021
 ms.author: rolyon
 ms.custom: it-pro,subject-rbac-steps
-ms.openlocfilehash: 175beacc486c4b59919bf20300bbd06f7b9aa1a7
-ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
-ms.translationtype: HT
+ms.openlocfilehash: 808e8e1dc5bcdcdddad490f30338c8f7a9e7ffa3
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112988501"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074269"
 ---
 # <a name="assign-azure-roles-to-external-guest-users-using-the-azure-portal"></a>Azure Portal을 사용하여 외부 게스트 사용자에게 Azure 역할 할당
 
@@ -80,25 +80,25 @@ Azure RBAC에서 액세스 권한을 부여하려면 역할을 할당합니다. 
 
     다음은 리소스 그룹에 대한 액세스 제어(IAM) 페이지의 예를 보여줍니다.
 
-    ![미리 보기 환경의 리소스 그룹에 대한 액세스 제어(IAM) 페이지의 스크린샷](./media/shared/rg-access-control.png)
+    ![리소스 그룹에 대한 액세스 제어(IAM) 페이지의 스크린샷](./media/shared/rg-access-control.png)
 
 1. **역할 할당** 탭을 클릭하여 관련 범위의 역할 할당을 확인합니다.
 
-1. **추가** > **역할 할당 추가(미리 보기)** 를 클릭합니다.
+1. **추가** > **역할 할당 추가** 를 클릭합니다.
 
     역할을 할당할 수 있는 권한이 없으면 역할 할당 추가 옵션이 비활성화됩니다.
 
-    ![미리 보기 환경에 대한 추가 > 역할 할당 추가 메뉴의 스크린샷](./media/shared/add-role-assignment-menu-preview.png)
+    ![추가 > 역할 할당 추가 메뉴의 스크린샷](./media/shared/add-role-assignment-menu.png)
 
     역할 할당 추가 페이지가 열립니다.
 
 1. **역할** 탭에서 **Virtual Machine 기여자** 같은 역할을 선택합니다.
 
-   ![미리 보기 환경을 위한 역할 탭이 있는 역할 할당 추가 페이지의 스크린샷](./media/shared/roles.png)
+   ![역할 탭이 있는 역할 할당 추가 페이지의 스크린샷](./media/shared/roles.png)
 
 1. **멤버** 탭에서 **사용자, 그룹 또는 서비스 주체** 를 선택합니다.
 
-   ![미리 보기 환경을 위한 멤버 탭이 있는 역할 할당 추가 페이지의 스크린샷](./media/shared/members.png)
+   ![구성원 탭이 있는 역할 할당 추가 페이지의 스크린샷](./media/shared/members.png)
 
 1. **멤버 선택** 을 클릭합니다.
 
@@ -106,7 +106,7 @@ Azure RBAC에서 액세스 권한을 부여하려면 역할을 할당합니다. 
 
     **선택** 상자에서 입력하여 디렉터리에서 표시 이름이나 메일 주소를 검색할 수 있습니다.
 
-    ![미리 보기 환경의 멤버 선택 창 스크린샷](./media/role-assignments-external-users/select-members.png)
+    ![멤버 선택 창의 스크린샷](./media/role-assignments-external-users/select-members.png)
 
 1. **선택** 을 클릭하여 게스트 사용자를 멤버 목록에 추가합니다.
 
@@ -130,11 +130,11 @@ Azure RBAC에서 액세스 권한을 부여하려면 역할을 할당합니다. 
 
 1. **액세스 제어(IAM)** 를 클릭합니다.
 
-1. **추가** > **역할 할당 추가(미리 보기)** 를 클릭합니다.
+1. **추가** > **역할 할당 추가** 를 클릭합니다.
 
     역할을 할당할 수 있는 권한이 없으면 역할 할당 추가 옵션이 비활성화됩니다.
 
-    ![미리 보기 환경에 대한 추가 > 역할 할당 추가 메뉴의 스크린샷](./media/shared/add-role-assignment-menu-preview.png)
+    ![추가 > 역할 할당 추가 메뉴의 스크린샷](./media/shared/add-role-assignment-menu.png)
 
     역할 할당 추가 페이지가 열립니다.
 
@@ -142,7 +142,7 @@ Azure RBAC에서 액세스 권한을 부여하려면 역할을 할당합니다. 
 
 1. **멤버** 탭에서 **사용자, 그룹 또는 서비스 주체** 를 선택합니다.
 
-   ![미리 보기 환경을 위한 멤버 탭이 있는 역할 할당 추가 페이지의 스크린샷](./media/shared/members.png)
+   ![구성원 탭이 있는 역할 할당 추가 페이지의 스크린샷](./media/shared/members.png)
 
 1. **멤버 선택** 을 클릭합니다.
 

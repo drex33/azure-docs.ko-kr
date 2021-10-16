@@ -3,12 +3,12 @@ title: Service Fabric 관리형 클러스터 노드에 대한 관리형 디스�
 description: Service Fabric 관리형 클러스터 노드에 대한 관리형 디스크 유형을 선택하고 ARM 템플릿에서 구성하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 5/10/2021
-ms.openlocfilehash: c9daef02b9249d44d5d202f5066bac40f807ec58
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: d0113ff161c000480f0e2f233f9acf6851f9d222
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129546333"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130068858"
 ---
 # <a name="select-managed-disk-types-for-service-fabric-managed-cluster-nodes"></a>Service Fabric 관리형 클러스터 노드에 대한 관리형 디스크 유형 선택
 
@@ -21,7 +21,7 @@ Azure Service Fabric 관리형 클러스터는 다음 관리 디스크 유형을
     * 표준 HDD 로컬 중복 스토리지입니다. 중요하지 않고 드문 백업 액세스에 가장 적합합니다. 
 * 표준 SSD *기본값*
     * 표준 SSD 로컬 중복 스토리지입니다. 웹 서버, 사용량이 적은 엔터프라이즈 애플리케이션 및 개발/테스트에 가장 적합합니다.
-* 프리미엄 SSD *특정 VM 크기와 호환 가능* 자세한 내용은 [프리미엄 SSD](../virtual-machines/disks-types.md#premium-ssd)를 참조하세요.
+* 프리미엄 SSD *특정 VM 크기와 호환 가능* 자세한 내용은 [프리미엄 SSD](../virtual-machines/disks-types.md#premium-ssds)를 참조하세요.
     * 프리미엄 SSD 로컬 중복 스토리지입니다. 프로덕션 및 성능에 중요한 워크로드에 가장 적합합니다.
 
 >[!NOTE]

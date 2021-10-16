@@ -9,12 +9,12 @@ ms.service: storage
 ms.tgt_pltfrm: linux
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4904a01c5f612ec504676ce46d3dfe8aaed8e68f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 937834010065cbd243c5b7c2a4b19d16275c52b7
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124774123"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130068991"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Azure에 VHD를 업로드하거나 관리 디스크를 다른 지역에 복사 - Azure PowerShell
 
@@ -80,7 +80,7 @@ $disk = Get-AzDisk -ResourceGroupName '<yourresourcegroupname>' -DiskName '<your
 
 AzCopy v10에서 생성한 SAS URI를 지정하여 관리 디스크에 로컬 VHD 파일을 업로드합니다.
 
-해당 업로드는 동등한 [표준 HDD](../disks-types.md#standard-hdd)와 처리량이 동일합니다. 예를 들어 S4와 크기가 같은 경우 처리량은 최대 60MiB/초입니다. 그러나 S70과 크기가 같은 경우 처리량은 최대 500MiB/초입니다.
+해당 업로드는 동등한 [표준 HDD](../disks-types.md#standard-hdds)와 처리량이 동일합니다. 예를 들어 S4와 크기가 같은 경우 처리량은 최대 60MiB/초입니다. 그러나 S70과 크기가 같은 경우 처리량은 최대 500MiB/초입니다.
 
 ```
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlob

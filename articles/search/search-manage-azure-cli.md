@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 08/03/2021
-ms.openlocfilehash: b5689b17bf2e4eace52e7c3cb28c40dc05e58ade
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 3b8fbcb310b4f972598ac7d0693eb87fac48a256
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122537771"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074003"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure Cognitive Search 서비스 관리
 > [!div class="op_single_selector"]
@@ -110,7 +110,7 @@ az search service show --name <service-name> --resource-group <search-service-re
 
 ## <a name="create-or-delete-a-service"></a>서비스 만들기 또는 삭제
 
-[새 검색 서비스를 만들려면](search-create-service-portal.md)[**az search service create**](/cli/azure/search/service#az_search_service_show) 명령을 사용합니다.
+[새 검색 서비스를 만들려면](search-create-service-portal.md)[**az search service create**](/cli/azure/search/service#az_search_service_create) 명령을 사용합니다.
 
 ```azurecli-interactive
 az search service create \

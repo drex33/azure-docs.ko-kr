@@ -1,25 +1,25 @@
 ---
 title: Azure Monitor 에이전트 설치
-description: Azure 가상 머신 및 Azure Arc 지원 서버에 AMA(Azure Monitor Agent)를 설치하는 옵션입니다.
+description: Azure virtual machines 및 Azure Arc 사용 서버에 Azure Monitor 에이전트 (AMA)를 설치 하는 옵션입니다.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/21/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 13e025845dd4fbd51519f85f1879cc11c6ea102d
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 747bf176d092a049a9c10e9af73601057fde7a39
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129706900"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070263"
 ---
 # <a name="install-the-azure-monitor-agent"></a>Azure Monitor 에이전트 설치
-이 문서에서는 현재 Azure 가상 머신과 Azure Arc 지원 서버 모두에 [Azure Monitor 에이전트를](azure-monitor-agent-overview.md) 설치하는 데 사용할 수 있는 다양한 옵션과 에이전트가 수집해야 하는 데이터를 정의하는 [데이터 수집 규칙과의 연결을](data-collection-rule-azure-monitor-agent.md) 만드는 옵션을 제공합니다.
+이 문서에서는 Azure virtual machines 및 Azure Arc 사용 서버에 [Azure Monitor 에이전트](azure-monitor-agent-overview.md) 를 설치 하는 데 사용할 수 있는 여러 옵션을 제공 하며, 에이전트가 수집 해야 하는 데이터를 정의 하는 [데이터 수집 규칙을 사용 하 여 연결](data-collection-rule-azure-monitor-agent.md) 을 만드는 옵션도 제공 합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 Azure Monitor 에이전트를 설치하기 전에 다음 필수 구성 요소가 필요합니다.
 
-- Azure 가상 머신에서 [관리형 시스템 ID](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)를 사용하도록 설정해야 합니다. Azure Arc 사용 서버에는 필요하지 않습니다. [Azure Portal을 사용하여 데이터 수집 규칙을 만들고 할당](#install-with-azure-portal)하는 프로세스의 일부로 에이전트가 설치된 경우 시스템 ID를 사용하도록 자동으로 설정됩니다.
+- Azure 가상 머신에서 [관리형 시스템 ID](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)를 사용하도록 설정해야 합니다. Azure Arc 사용 서버에는 필요 하지 않습니다. [Azure Portal을 사용하여 데이터 수집 규칙을 만들고 할당](#install-with-azure-portal)하는 프로세스의 일부로 에이전트가 설치된 경우 시스템 ID를 사용하도록 자동으로 설정됩니다.
 - 가상 머신의 가상 네트워크에서 [AzureResourceManager 서비스 태그](../../virtual-network/service-tags-overview.md)를 사용으로 설정해야 합니다.
 - 가상 머신에는 다음 HTTPS 엔드포인트에 대한 액세스 권한이 있어야 합니다.
   - *.ods.opinsights.azure.com
@@ -27,7 +27,7 @@ Azure Monitor 에이전트를 설치하기 전에 다음 필수 구성 요소가
   - *.control.monitor.azure.com
 
 > [!IMPORTANT]
-> Azure Monitor 에이전트는 현재 프라이빗 링크를 지원하지 않습니다.
+> Azure Monitor 에이전트는 현재 개인 링크를 지원 하지 않습니다.
 
 ## <a name="virtual-machine-extension-details"></a>가상 머신 확장 세부 정보
 Azure Monitor 에이전트는 다음 테이블의 세부 정보를 사용하여 [Azure VM 확장](../../virtual-machines/extensions/overview.md)으로 구현됩니다. 이 문서에 설명된 방법을 포함하여 가상 머신 확장을 설치하는 방법 중 하나를 사용하여 설치할 수 있습니다.
@@ -46,15 +46,15 @@ Azure Monitor 에이전트는 다음 테이블의 세부 정보를 사용하여 
 | 2021년 6월 | 일반 공급 지원을 발표했습니다. <ul><li>이제 메트릭 대상을 제외한 모든 기능 공급됨</li><li>프로덕션 품질, 보안 및 규정 준수</li><li>모든 공용 지역에서 사용 가능</li><li>더 높은 EPS의 성능 및 확장성 향상</li></ul> [자세한 정보](https://azure.microsoft.com/updates/azure-monitor-agent-and-data-collection-rules-now-generally-available/) | 1.0.12.0 | 1.9.1.0 |
 | 2021년 7월 | <ul><li>직접 프록시 지원</li><li>Log Analytics 게이트웨이 지원</li></ul> [자세한 정보](https://azure.microsoft.com/updates/general-availability-azure-monitor-agent-and-data-collection-rules-now-support-direct-proxies-and-log-analytics-gateway/) | 1.1.1.0 | 1.10.5.0 |
 | 2021년 8월 | Azure Monitor 메트릭을 유일한 대상으로 허용하는 문제 해결 | 1.1.2.0 | 1.10.9.0(1.10.7.0 사용 금지) |
-| 2021년 9월 | 에이전트를 다시 시작할 때 데이터 손실이 발생하는 문제를 해결했습니다. | 1.1.3.1 | 1.12.2.0 |
+| 2021년 9월 | 에이전트를 다시 시작 하는 동안 데이터 손실을 유발 하는 문제가 해결 되었습니다. | 1.1.3.1 (1.1.3.1 사용 안 함) | 1.12.2.0 |
 
 
 ## <a name="install-with-azure-portal"></a>Azure Portal을 사용하여 설치
-Azure Portal을 사용하여 Azure Monitor 에이전트를 설치하려면 Azure Portal에서 [데이터 수집 규칙 만들기](data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal) 프로세스를 따릅니다. 이를 통해 하나 이상의 Azure 가상 머신 또는 Azure Arc 지원 서버와 데이터 수집 규칙을 연결할 수 있습니다. 에이전트는 아직 설치된 에이전트가 없는 가상 머신에 설치됩니다.
+Azure Portal을 사용하여 Azure Monitor 에이전트를 설치하려면 Azure Portal에서 [데이터 수집 규칙 만들기](data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal) 프로세스를 따릅니다. 이를 통해 하나 이상의 Azure virtual machines 또는 Azure Arc 사용 서버와 데이터 수집 규칙을 연결할 수 있습니다. 에이전트는 아직 설치된 에이전트가 없는 가상 머신에 설치됩니다.
 
 
 ## <a name="install-with-resource-manager-template"></a>Resource Manager 템플릿으로 설치
-Resource Manager 템플릿을 사용하여 Azure 가상 머신 및 Azure Arc 지원 서버에 Azure Monitor 에이전트를 설치하고 데이터 수집 규칙과의 연결을 만들 수 있습니다. 연결을 만들기 전에 데이터 수집 규칙을 만들어야 합니다.
+리소스 관리자 템플릿을 사용 하 여 Azure virtual machines 및 Azure Arc 사용 서버에 Azure Monitor 에이전트를 설치 하 고 데이터 수집 규칙과의 연결을 만들 수 있습니다. 연결을 만들기 전에 데이터 수집 규칙을 만들어야 합니다.
 
 다음에서 에이전트를 설치하고 연결을 만들기 위한 샘플 템플릿을 가져옵니다. 
 
@@ -74,7 +74,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "<resource-group-name>" -Templa
 ---
 
 ## <a name="install-with-powershell"></a>PowerShell을 사용하여 설치
-가상 머신 확장을 추가하기 위해 PowerShell 명령을 사용하여 Azure 가상 머신 및 Azure Arc 지원 서버에 Azure Monitor 에이전트를 설치할 수 있습니다. 
+가상 머신 확장을 추가 하기 위한 PowerShell 명령을 사용 하 여 azure 가상 머신 및 Azure Arc 사용 서버에 Azure Monitor 에이전트를 설치할 수 있습니다. 
 
 ### <a name="azure-virtual-machines"></a>Azure 가상 머신
 다음 PowerShell 명령을 사용하여 Azure 가상 머신에 Azure Monitor 에이전트를 설치합니다.
@@ -89,7 +89,7 @@ Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publishe
 ---
 
 ### <a name="azure-arc-enabled-servers"></a>Azure Arc 지원 서버
-다음 PowerShell 명령을 사용하여Azure Azure Arc 지원 서버에 Azure Monitor 에이전트를 설치합니다.
+다음 PowerShell 명령을 사용 하 여 Azure Monitor 에이전트 onAzure Azure Arc 사용 서버를 설치 합니다.
 # <a name="windows"></a>[Windows](#tab/PowerShellWindowsArc)
 ```powershell
 New-AzConnectedMachineExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location>
@@ -100,7 +100,7 @@ New-AzConnectedMachineExtension -Name AMALinux -ExtensionType AzureMonitorLinuxA
 ```
 ---
 ## <a name="azure-cli"></a>Azure CLI
-가상 머신 확장을 추가하기 위한 Azure CLI 명령을 사용하여 Azure 가상 머신 및 Azure Arc 지원 서버에 Azure Monitor 에이전트를 설치할 수 있습니다. 
+가상 머신 확장을 추가 하는 Azure CLI 명령을 사용 하 여 azure 가상 머신 및 Azure Arc 사용 서버에 Azure Monitor 에이전트를 설치할 수 있습니다. 
 
 ### <a name="azure-virtual-machines"></a>Azure 가상 머신
 다음 CLI 명령을 사용하여 Azure 가상 머신에 Azure Monitor 에이전트를 설치합니다.
@@ -114,7 +114,7 @@ az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Mo
 ```
 ---
 ### <a name="azure-arc-enabled-servers"></a>Azure Arc 지원 서버
-다음 CLI 명령을 사용하여Azure Azure Arc 지원 서버에 Azure Monitor 에이전트를 설치합니다.
+다음 CLI 명령을 사용 하 여 Azure Monitor 에이전트 onAzure Azure Arc 사용 서버를 설치 합니다.
 
 # <a name="windows"></a>[Windows](#tab/CLIWindowsArc)
 ```azurecli

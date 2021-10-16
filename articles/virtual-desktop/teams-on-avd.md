@@ -3,15 +3,15 @@ title: Azure Virtual Desktop의 Microsoft Teams - Azure
 description: Azure Virtual Desktop에서 Microsoft Teams를 사용하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/02/2021
+ms.date: 10/15/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 63c75636fcab47a31735b772f85a8dccbb9c65f5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 7b2a0c17ef0e55dc4dbe583a2dc60845dde94224
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528366"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072388"
 ---
 # <a name="use-microsoft-teams-on-azure-virtual-desktop"></a>Azure Virtual Desktop에서 Microsoft Teams 사용
 
@@ -51,7 +51,7 @@ Teams에서 미디어 최적화를 사용하려면 호스트에서 다음 레지
 
 ### <a name="install-the-teams-websocket-service"></a>Teams WebSocket 서비스 설치
 
-VM 이미지에 최신 [원격 데스크톱 WebRTC 리디렉터 서비스](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWFYsj)를 설치합니다. 설치 오류가 발생할 경우 [최신 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)를 설치하고 다시 시도하세요.
+VM 이미지에 최신 버전의 [원격 데스크톱 WebRTC 리디렉션기 서비스를](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWNg9F) 설치합니다. 설치 오류가 발생할 경우 [최신 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)를 설치하고 다시 시도하세요.
 
 #### <a name="latest-websocket-service-versions"></a>최신 WebSocket 서비스 버전
 
@@ -59,9 +59,17 @@ VM 이미지에 최신 [원격 데스크톱 WebRTC 리디렉터 서비스](https
 
 |버전        |릴리스 날짜  |
 |---------------|--------------|
+|1.1.2110.16001 |10/15/2021    |
 |1.0.2106.14001 |07/29/2021    |
 |1.0.2006.11001 |07/28/2020    |
 |0.11.0         |05/29/2020    |
+
+#### <a name="updates-for-version-11211016001"></a>버전 1.1.2110.16001에 대한 업데이트
+
+- 화면 공유 중 화면이 검은색으로 바뀌는 문제가 해결되었습니다. 이 문제가 발생한 경우 Teams 창의 크기를 조정하여 이 업데이트가 해결되는지 확인합니다. 크기 조정 후 화면 공유가 다시 작동하기 시작하면 업데이트가 이 문제를 해결합니다.
+- 이제 호스트 VM에서 모임, 알림 및 알림 볼륨을 제어할 수 있습니다. 이 기능은 [Windows Desktop 클라이언트](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)버전 1.2.2459 이상에서만 사용할 수 있습니다.
+- 이제 설치 관리자가 업데이트를 설치하기 전에 Teams 닫혔는지 확인합니다.
+- 사용자가 호출 창을 나간 후 전체 화면 모드로 돌아갈 수 없도록 하는 문제를 해결했습니다.
 
 #### <a name="updates-for-version-10210614001"></a>1\.0.2106.14001 버전에 대한 업데이트
 

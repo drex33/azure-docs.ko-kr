@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0af6df954dda4e5af6335776b1f93f929da5834e
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: 25cdaf3bd916b587adeeaf200d0c55b0c4001ad2
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530670"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074554"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>SAP 워크로드에 대한 Azure Storage 형식
 Azure는 용량, 처리량, 대기 시간, 가격이 다양한 수많은 스토리지 유형을 제공합니다. 일부 스토리지 형식은 또는 SAP 시나리오에 사용할 수 없거나 제한적으로 사용할 수 있습니다. 반면, 몇 가지 Azure Storage 유형은 특정 SAP 워크로드 시나리오에 적합하거나 최적화되어 있습니다. 특히 SAP HANA의 경우 일부 Azure Storage 유형은 SAP HANA 사용에 대해 인증을 받았습니다. 이 문서에서는 다양한 유형의 스토리지를 살펴보고 SAP 워크로드 및 SAP 구성 요소를 통해 기능 및 유용성에 대해 설명합니다.
@@ -97,15 +97,15 @@ S/4HANA의 SAP NetWeaver/애플리케이션 계층용 Azure Storage 유형에 �
 
 | 사용 시나리오 | 표준 HDD | 표준 SSD | Premium Storage | Ultra disk | Azure NetApp Files |
 | --- | --- | --- | --- | --- | --- |
-| 처리량/ IOPS SLA | 아니요 | 아니요 | 예 | 예 | 예 |
+| 처리량/ IOPS SLA | 아니요 | no | 예 | 예 | 예 |
 | 대기 시간 읽기 | high | 중간~높음 | low | 밀리초 미만 | 밀리초 미만 |
 | 대기 시간 쓰기 | high | 중간~높음  | 낮음(밀리초 미만<sup>1</sup>) | 밀리초 미만 | 밀리초 미만 |
 | HANA 지원 | 아니요 | 아니요 | 예<sup>1</sup> | 예 | 예 |
-| 디스크 스냅샷 가능 | 예 | 예 | 예 | 아니요 | 예 |
+| 디스크 스냅샷 가능 | 예 | 예 | 예 | no | 예 |
 | 가용성 집합을 사용하는 경우 서로 다른 스토리지 클러스터에 디스크 할당 | 관리 디스크를 통해 | 관리 디스크를 통해 | 관리 디스크를 통해 | 가용성 집합을 통해 배포된 VM에서 지원되지 않는 디스크 유형 | 아니요<sup>3</sup> |
 | 가용성 영역에 맞춰 조정 | 예 | 예 | 예 | 예 | Microsoft 참여 필요 |
 | 영역 중복 | 관리 디스크용 아님 | 관리 디스크용 아님 | 관리 디스크용 아님 | 아니요 | 아니요 |
-| 지리적 중복 | 관리 디스크용 아님 | 관리 디스크용 아님 | 아니요 | 아니요 | 아니요 |
+| 지리적 중복 | 관리 디스크용 아님 | 관리 디스크용 아님 | 아니요 | no | 아니요 |
 
 
 <sup>1</sup> 로그/다시 실행 로그 볼륨에 대해 M/Mv2 VM 제품군에 [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) 사용
@@ -130,7 +130,7 @@ Azure 프리미엄 SSD 스토리지는 다음을 제공하는 것을 목표로 �
 * IOPS 및 처리량에 대한 Service Level Agreement(서비스 수준 약정)
 * 변동성이 적은 I/O 대기 시간
 
-이런 유형의 스토리지는 DBMS 워크로드, 짧은 한 자릿수 밀리초 대기 시간이 필요한 스토리지 트래픽, IOPS 및 처리량에 대한 SLA를 대상으로 합니다. Azure Premium Storage의 경우 비용 기반은 이러한 디스크에 저장된 실제 데이터 볼륨이 아니라 해당 디스크의 크기 범주이며, 디스크 내에 저장된 데이터의 양과 무관합니다. [프리미엄 SSD](../../disks-types.md#premium-ssd) 문서에 표시된 크기 범주에 직접 매핑되지 않는 Premium Storage에 디스크를 만들 수도 있습니다. 이 문서의 결론은 다음과 같습니다.
+이런 유형의 스토리지는 DBMS 워크로드, 짧은 한 자릿수 밀리초 대기 시간이 필요한 스토리지 트래픽, IOPS 및 처리량에 대한 SLA를 대상으로 합니다. Azure Premium Storage의 경우 비용 기반은 이러한 디스크에 저장된 실제 데이터 볼륨이 아니라 해당 디스크의 크기 범주이며, 디스크 내에 저장된 데이터의 양과 무관합니다. [프리미엄 SSD](../../disks-types.md#premium-ssds) 문서에 표시된 크기 범주에 직접 매핑되지 않는 Premium Storage에 디스크를 만들 수도 있습니다. 이 문서의 결론은 다음과 같습니다.
 
 - 스토리지는 범위로 구성됩니다. 예를 들어 513GiB ~ 1024GiB 용량 범위의 디스크는 동일한 기능과 동일한 월별 비용을 공유합니다.
 - GiB당 IOPS는 크기 범주 전체에서 선형으로 추적되지 않습니다. 32GiB 미만의 작은 디스크는 GiB당 IOPS 속도가 더 높습니다. 32GiB ~ 1024GiB를 초과하는 디스크의 경우 GiB당 IOPS 속도는 GiB당 4-5 IOPS입니다. 최대 32,767GiB의 큰 디스크는 GiB당 IOPS 속도가 1 미만입니다.
@@ -190,8 +190,8 @@ Azure ultra disks는Azure IaaS VM에 대해 높은 처리량, 높은 IOPS 및 �
 Ultra Disk를 만들 때 3가지 차원을 정의할 수 있습니다.
 
 - 디스크의 용량. 범위는 4GiB ~ 65,536GiB입니다.
-- 디스크에 대해 프로비저닝된 IOPS. 다른 최댓값이 디스크 용량에 적용됩니다. 자세한 내용은 [Ultra Disk](../../disks-types.md#ultra-disk) 문서를 참조하세요.
-- 프로비저닝된 스토리지 대역폭. 디스크 용량에 따라 최대 대역폭이 다르게 적용됩니다. 자세한 내용은 [Ultra Disk](../../disks-types.md#ultra-disk) 문서를 참조하세요.
+- 디스크에 대해 프로비저닝된 IOPS. 다른 최댓값이 디스크 용량에 적용됩니다. 자세한 내용은 [Ultra Disk](../../disks-types.md#ultra-disks) 문서를 참조하세요.
+- 프로비저닝된 스토리지 대역폭. 디스크 용량에 따라 최대 대역폭이 다르게 적용됩니다. 자세한 내용은 [Ultra Disk](../../disks-types.md#ultra-disks) 문서를 참조하세요.
 
 단일 디스크의 비용은 특정 디스크에 대해 개별적으로 정의할 수 있는 세 가지 차원에 따라 결정됩니다. 
 

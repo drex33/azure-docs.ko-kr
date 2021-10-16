@@ -8,18 +8,18 @@ ms.date: 08/17/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 5ea12e47b67f79ab2d5aa559f3afc1db587e1a55
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 2f1c56070a2b86945494bf0a8625f223d017f326
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122695916"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070827"
 ---
 # <a name="using-azure-ultra-disks"></a>Azure Ultra Disk 사용
 
 **적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 단일 확장 집합
 
-이 문서에서는 Ultra Disk를 배포하고 사용하는 방법을 설명합니다. Ultra Disk에 대한 개념 정보는 [Azure에서 사용할 수 있는 디스크 유형](disks-types.md#ultra-disk)을 참조하세요.
+이 문서에서는 Ultra Disk를 배포하고 사용하는 방법을 설명합니다. Ultra Disk에 대한 개념 정보는 [Azure에서 사용할 수 있는 디스크 유형](disks-types.md#ultra-disks)을 참조하세요.
 
 Azure Ultra Disk는 Azure IaaS VM(가상 머신)에 대해 높은 처리량, 높은 IOPS 및 일관성 있는 낮은 대기 시간 디스크 스토리지를 제공합니다. 이 새 제품은 Microsoft의 기존 디스크 제품과 동일한 가용성 수준에서 최상의 성능을 제공합니다. Ultra Disk의 주요 장점 중 하나는 VM을 다시 시작하지 않고도 워크로드에 따라 SSD의 성능을 동적으로 변경하는 기능입니다. Ultra disks는 SAP HANA, 최상위 계층 데이터베이스 및 트랜잭션 집약적 워크로드와 같은 데이터 집약적 워크로드에 적합합니다.
 
@@ -58,7 +58,7 @@ if($sku){$sku[0].LocationInfo[0].ZoneDetails} Else {Write-host "$vmSize is not s
 
 **영역** 값을 유지합니다. 이 값은 가용성 영역을 나타내며, Ultra Disk를 배포하는 데 필요합니다.
 
-|ResourceType  |이름  |Location  |영역  |제한 사항  |기능  |값  |
+|ResourceType  |이름  |위치  |영역  |제한 사항  |기능  |값  |
 |---------|---------|---------|---------|---------|---------|---------|
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 

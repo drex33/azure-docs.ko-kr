@@ -7,12 +7,12 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: mainframe-rehosting
-ms.openlocfilehash: 27f625e7fced5ff710a6fa0e8b2045a8c5434258
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 853fee40417bc09168fa1cfba1428b8e99bf9a86
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104954363"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072749"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>메인프레임 스토리지를 Azure로 이동
 
@@ -109,7 +109,7 @@ Blob Storage는 Azure에서 가장 큰 스토리지 용량을 제공합니다. �
 - [Azure Virtual Machines에서 메인프레임 다시 호스팅](../overview.md)
 - [메인프레임 컴퓨팅을 Azure로 이동](mainframe-compute-Azure.md)
 - [Azure Blob, Azure 파일 또는 Azure 디스크를 사용할 시기 결정](../../../../storage/common/storage-introduction.md)
-- [Azure VM 워크로드의 표준 SSD 관리 디스크](../../../disks-types.md#standard-ssd)
+- [Azure VM 워크로드의 표준 SSD 관리 디스크](../../../disks-types.md#standard-ssds)
 
 ### <a name="ibm-resources"></a>IBM 리소스
 

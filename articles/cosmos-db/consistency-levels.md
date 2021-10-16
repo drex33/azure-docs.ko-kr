@@ -6,17 +6,17 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/20/2021
-ms.openlocfilehash: fa2adc8aeb73c9796ef0dc3cef5f081375d4d728
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 465d399e699f4ae4491c2964646c9c75956d0014
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129998469"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070340"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 일관성 수준
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-고가용성이나 짧은 대기 시간 또는 둘 다를 위해 복제에 의존하는 분산 데이터베이스는 [PACLC 정리](https://en.wikipedia.org/wiki/PACELC_theorem)에 정의된 대로 읽기 일관성, 가용성, 대기 시간 및 처리량 간에 균형을 유지해야 합니다. 선형화 가능성 또는 강력한 일관성 모델은 데이터 프로그래밍 기능의 표준입니다. 그러나 먼 거리 간에 복제하고 커밋해야 하는 데이터 때문에 쓰기 대기 시간이 더 길어지면서 가격이 급격히 증가됩니다. 또한 모든 지역에서 데이터를 복제하고 커밋할 수는 없기 때문에 가용성 저하로 인해 일관성도 크게 감소할 수 있습니다(실패 시). 최종적인 일관성은 고가용성과 향상된 성능을 제공하지만 모든 지역에서 데이터가 완전히 일관되지는 않을 수 있으므로 애플리케이션을 프로그래밍하는 것이 더 어려워집니다.
+고가용성, 짧은 대기 시간 또는 둘 다를 위해 복제를 사용하는 분산 데이터베이스는 [PACELC 정리에](https://en.wikipedia.org/wiki/PACELC_theorem)정의된 읽기 일관성, 가용성, 대기 시간 및 처리량 간에 기본적인 절충을 수행해야 합니다. 선형화 가능성 또는 강력한 일관성 모델은 데이터 프로그래밍 기능의 표준입니다. 그러나 먼 거리 간에 복제하고 커밋해야 하는 데이터 때문에 쓰기 대기 시간이 더 길어지면서 가격이 급격히 증가됩니다. 또한 모든 지역에서 데이터를 복제하고 커밋할 수는 없기 때문에 가용성 저하로 인해 일관성도 크게 감소할 수 있습니다(실패 시). 최종적인 일관성은 고가용성과 향상된 성능을 제공하지만 모든 지역에서 데이터가 완전히 일관되지는 않을 수 있으므로 애플리케이션을 프로그래밍하는 것이 더 어려워집니다.
 
 현재 시중에서 제공되는 상용으로 배포된 대부분의 NoSQL 데이터베이스는 강력하고 최종적인 일관성만 제공합니다. Azure Cosmos DB는 잘 정의된 5가지 수준을 제공합니다. 해당 수준은 가장 강력한 수준부터 가장 약한 수준 순으로 다음과 같습니다.
 

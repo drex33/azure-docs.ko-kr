@@ -3,12 +3,12 @@ title: Azure Live Video Analytics on IoT Edge 용어
 description: 이 문서에서는 Azure Live Video Analytics on IoT Edge 용어에 대한 개요를 제공합니다.
 ms.topic: conceptual
 ms.date: 05/30/2020
-ms.openlocfilehash: 7a017a7ddb946bf5bb8c01b9a61c322843c9815f
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
-ms.translationtype: HT
+ms.openlocfilehash: 69da3515987387b62b59d33657e9a0b0a28a1389
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378407"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073908"
 ---
 # <a name="live-video-analytics-terminology"></a>Live Video Analytics 용어
 
@@ -44,7 +44,7 @@ Live Video Analytics on IoT Edge는 자산을 만들 수도 있고 기존 자산
 
 ## <a name="streaming"></a>스트리밍
 
-Netflix, YouTube 등의 서비스를 통해 모바일 디바이스에서 비디오를 시청한 적이 있다면 스트리밍 비디오를 경험해 본 것입니다. “재생”을 누르는 즉시 재생이 시작되며(충분한 대역폭이 있는 경우) 비디오의 타임라인을 따라 앞뒤로 검색할 수 있습니다. 스트리밍에 사용된 아이디어는 비디오에서 시청 중인 부분만 전송하는 것과 서버에서 재생 클라이언트로 데이터가 여전히 전송되고 있는 중에 시청자가 비디오 재생을 시작하도록 허용하는 것입니다. Azure Media Services 컨텍스트에서 [스트리밍](https://en.wikipedia.org/wiki/Streaming_media)은 [Azure Media Services](../azure-media-player/azure-media-player-overview.md)에서 스트리밍 클라이언트(예: Azure Media Player)로 미디어를 전송하는 프로세스를 가리킵니다. Azure Media Services를 사용하여 [HLS(HTTP 라이브 스트리밍)](https://developer.apple.com/streaming/) 및 [MPEG-DASH](https://dashif.org/about/) 같은 업계 표준의 HTTP 기반 미디어 스트리밍 프로토콜을 사용하여 클라이언트로 비디오를 스트리밍할 수 있습니다. HLS는 Azure Media Player 및 [JW Player](https://www.jwplayer.com/), [hls.js](https://github.com/video-dev/hls.js/), [VideoJS](https://videojs.com/), [Google Shaka Player](https://github.com/google/shaka-player) 같은 웹 플레이어에서 지원됩니다. 기본적으로 모바일 앱에서는 Android의 [Exoplayer](https://github.com/google/ExoPlayer) 및 iOS의 [AV Foundation](https://developer.apple.com/av-foundation/)을 사용하여 렌더링을 할 수 있습니다. MPEG-DASH도 마찬가지로 Azure Media Player에서 지원되며 [이 페이지에서 클라이언트 목록을 찾을 수](https://dashif.org/clients/) 있습니다. 
+Netflix, YouTube 등의 서비스를 통해 모바일 디바이스에서 비디오를 시청한 적이 있다면 스트리밍 비디오를 경험해 본 것입니다. “재생”을 누르는 즉시 재생이 시작되며(충분한 대역폭이 있는 경우) 비디오의 타임라인을 따라 앞뒤로 검색할 수 있습니다. 스트리밍에 사용된 아이디어는 비디오에서 시청 중인 부분만 전송하는 것과 서버에서 재생 클라이언트로 데이터가 여전히 전송되고 있는 중에 시청자가 비디오 재생을 시작하도록 허용하는 것입니다. Azure Media Services 컨텍스트에서 [스트리밍](https://en.wikipedia.org/wiki/Streaming_media)은 [Azure Media Services](../azure-media-player/azure-media-player-overview.md)에서 스트리밍 클라이언트(예: Azure Media Player)로 미디어를 전송하는 프로세스를 가리킵니다. Azure Media Services를 사용하여 [HLS(HTTP 라이브 스트리밍)](https://developer.apple.com/streaming/) 및 [MPEG-DASH](https://dashif.org/about/) 같은 업계 표준의 HTTP 기반 미디어 스트리밍 프로토콜을 사용하여 클라이언트로 비디오를 스트리밍할 수 있습니다. HLS는 Azure Media Player 및 [JW Player](https://www.jwplayer.com/), [hls.js](https://github.com/video-dev/hls.js/), [VideoJS](https://videojs.com/), [Google Shaka Player](https://github.com/google/shaka-player) 같은 웹 플레이어에서 지원됩니다. 기본적으로 모바일 앱에서는 Android의 [Exoplayer](https://github.com/google/ExoPlayer) 및 iOS의 [AV Foundation](https://developer.apple.com/av-foundation/)을 사용하여 렌더링을 할 수 있습니다. MPEG-DASH도 마찬가지로 Azure Media Player에서 지원되며 [이 페이지에서 클라이언트 목록을 찾을 수](https://dashif.org/members/) 있습니다. 
 
 [미디어 그래프](#media-graph)를 사용하여 Azure Media Services의 자산에 비디오를 녹화하면 Media Services 스트리밍 기능을 활용하여 HLS 및 DASH로 비디오 스트림을 전송할 수 있습니다. 자세한 내용은 [비디오 재생](video-playback-concept.md) 문서에서 확인할 수 있습니다.
 

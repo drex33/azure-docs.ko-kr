@@ -3,12 +3,12 @@ title: Azure Batch의 비용 분석 가져오기 및 예산 설정
 description: Batch 워크로드를 실행하는 데 사용되는 기본 컴퓨팅 리소스 및 소프트웨어 라이선스의 비용 분석을 수행하고 예산을 설정하며 비용을 절감하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 10/04/2021
-ms.openlocfilehash: 0e4c0b6235537d1e5c36e7adf997516d0f966d76
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: b88b69c4debf34cb97368d7cfb6ac5e611c77334
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129532573"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130071818"
 ---
 # <a name="get-cost-analysis-and-set-budgets-for-azure-batch"></a>Azure Batch의 비용 분석 가져오기 및 예산 설정
 
@@ -48,7 +48,7 @@ Batch 솔루션과 함께 사용하는 서비스에 따라 추가 요금이 발�
 
 ## <a name="view-cost-analysis-and-create-budgets"></a>비용 분석 보기 및 예산 만들기
 
-[Azure Cost Management](/cost-management-billing/cost-management-billing-overview.md) 사용하면 지출을 계획, 분석 및 줄여 클라우드 투자를 최대화할 수 있습니다. Azure Batch 포함하여 모든 Azure 서비스에 대한 사용 비용을 사용할 수 있습니다. 일괄 처리 비용을 보고 필터링하고, 향후 비용을 예측하고, 해당 한도에 도달하면 경고를 사용하여 지출 한도를 설정할 수 있습니다.
+[Azure Cost Management](/azure/cost-management-billing/cost-management-billing-overview) 사용하면 지출을 계획, 분석 및 줄여 클라우드 투자를 최대화할 수 있습니다. Azure Batch 포함하여 모든 Azure 서비스에 대한 사용 비용을 사용할 수 있습니다. 일괄 처리 비용을 보고 필터링하고, 향후 비용을 예측하고, 해당 한도에 도달하면 경고를 사용하여 지출 한도를 설정할 수 있습니다.
 
 Azure Portal에서 Batch 풀 또는 Batch 계정에 대한 예산 및 지출 경고를 만들 수 있습니다. 예산 및 경고는 지출 경고가 지연되고 예산을 약간 초과할 수 있지만 초과 지출의 위험을 관련자에게 알리는 데 유용합니다.
 
@@ -86,7 +86,7 @@ Batch 서비스 풀 할당 모드로 만든 Batch 계정의 경우:
 1. **청구 범위** 섹션에서 구독을 선택합니다.
 1. **Cost Management** 에서 **비용 분석** 을 선택합니다.
 1. **필터 추가** 를 선택합니다. 첫 번째 드롭다운에서 **태그를** 선택합니다.
-1. 두 번째 드롭다운에서 **poolname 을** 선택합니다.
+1. 두 번째 드롭다운에서 **poolname을** 선택합니다.
 1. 세 번째 드롭다운에서 Batch 풀을 선택합니다. 풀을 선택하면 풀에 대한 비용 분석이 표시됩니다. 아래 스크린샷은 예제 데이터를 보여줍니다.
    :::image type="content" source="media/batch-budget/user-subscription-pool.png" alt-text="Azure Portal 사용자 구독 Batch 풀의 비용 분석을 보여주는 스크린샷":::
 
@@ -117,33 +117,33 @@ Batch 애플리케이션을 평가하여 풀 노드가 작업 태스크에서 �
 
 ### <a name="ensure-pool-nodes-are-able-to-run-tasks"></a>풀 노드가 작업을 실행할 수 있는지 확인
 
-풀에 대해 나열된 할당된 노드에는 일반적으로 비용이 발생하지만 풀 노드는 'unusable' 또는 'starttaskfailed'와 같은 작업을 실행할 수 없는 상태에 있을 수 있습니다. Batch API 또는 메트릭을 사용하여 이 범주의 VM을 모니터링하고 검색할 수 있습니다. 이러한 비정상 노드를 줄이거나 제거 하기 위해 이러한 상태에 대 한 이유를 확인 하 고 정정 작업을 수행할 수 있습니다.
+풀에 대해 나열된 할당된 노드에는 일반적으로 비용이 발생하지만 풀 노드는 'unusable' 또는 'starttaskfailed'와 같은 작업을 실행할 수 없는 상태에 있을 수 있습니다. Batch API 또는 메트릭을 사용하여 이 범주의 VM을 모니터링하고 검색할 수 있습니다. 그런 다음 이러한 상태에 대한 이유를 확인하고 이러한 비정상 노드를 줄이거나 제거하기 위해 조치를 취할 수 있습니다.
 
 ### <a name="use-the-right-pool-node-vm-size"></a>올바른 풀 노드 VM 크기 사용
 
-필요한 시간 내에 작업을 완료 하는 데 필요한 성능을 제공 하면서 Vm이 작업을 실행할 때 잘 활용 되도록 적절 한 VM 크기를 사용 하 고 있는지 확인 합니다. 풀 노드 Vm은 CPU 사용량이 낮은 경우와 같은 일부 상황에서 미달 사용할 수 있습니다. 저렴 한 가격으로 VM 크기를 선택 하 여 비용을 절약할 수 있습니다.
+필요한 시간에 작업 태스크를 완료하는 데 필요한 성능을 제공하면서 태스크를 실행할 때 VM이 잘 활용되도록 적절한 VM 크기를 사용하고 있는지 확인합니다. 풀 노드 VM은 낮은 CPU 사용량과 같은 일부 상황에서 사용률이 낮을 수 있습니다. 더 낮은 가격으로 VM 크기를 선택하여 비용을 절감할 수 있습니다.
 
-VM 사용률을 확인 하려면 태스크를 실행 하 여 성능 데이터를 볼 때 노드에 로그인 하거나 Application Insights와 같은 [모니터링 기능](monitoring-overview.md)을 사용 하 여 풀 노드에서 성능 데이터를 가져올 수 있습니다.
+VM 사용률을 확인하려면 작업을 실행할 때 노드에 로그인하여 성능 데이터를 보거나 애플리케이션 Insights 같은 [모니터링 기능을](monitoring-overview.md)사용하여 풀 노드에서 성능 데이터를 가져올 수 있습니다.
 
-### <a name="use-pool-slots-to-reduce-node-requirements"></a>풀 슬롯을 사용 하 여 노드 요구 사항 줄이기
+### <a name="use-pool-slots-to-reduce-node-requirements"></a>풀 슬롯을 사용하여 노드 요구 사항 줄이기
 
-풀에 대해 여러 작업 슬롯을 지정할 수 있으므로 해당 태스크 수를 각 노드에서 병렬로 실행할 수 있습니다. 풀 작업 슬롯을 사용 하면 노드 크기를 더 크게 선택 하 고 노드에서 여러 작업을 병렬로 실행 하 여 풀에서 사용 되는 노드 수를 줄일 수 있습니다. 노드가 사용 미달 인 경우 슬롯을 사용 하 여 사용률을 늘릴 수 있습니다. 예를 들어 단일 스레드 작업 응용 프로그램의 경우 코어 당 슬롯 하나를 구성할 수 있습니다. 코어 보다 많은 슬롯을 사용할 수도 있습니다. 이는 한 가지 예를 들어 응용 프로그램에서 외부 서비스에 대 한 호출이 반환 될 때까지 대기 하는 경우에 적용할 수 있습니다.
+풀에 대해 여러 작업 슬롯을 지정할 수 있으므로 해당 태스크 수를 각 노드에서 병렬로 실행할 수 있습니다. 풀 작업 슬롯은 더 큰 VM 크기를 선택하고 노드에서 여러 작업을 병렬로 실행하여 노드가 잘 활용되도록 하여 풀에서 사용되는 노드 수를 줄이는 데 사용할 수 있습니다. 노드 사용률이 부족한 경우 슬롯을 사용하여 사용률을 높일 수 있습니다. 예를 들어 단일 스레드 작업 애플리케이션의 경우 코어당 하나의 슬롯을 구성할 수 있습니다. 코어보다 더 많은 슬롯을 가질 수도 있습니다. 예를 들어 애플리케이션이 외부 서비스에 대한 호출이 반환될 때까지 크게 대기하는 것을 차단하는 경우에 적용할 수 있습니다.
 
-[`taskSchedulingPolicy`](/rest/api/batchservice/pool/add#taskschedulingpolicy)로 설정 `pack` 하면 작업을 실행 하지 않는 노드를 더 쉽게 제거할 수 있도록 하 여 vm을 최대한 활용 하는 데 도움이 됩니다.
+[`taskSchedulingPolicy`](/rest/api/batchservice/pool/add#taskschedulingpolicy)를 로 `pack` 설정하면 작업을 실행하지 않는 노드를 보다 쉽게 제거할 수 있는 크기 조정을 통해 VM이 최대한 많이 활용되도록 할 수 있습니다.
 
 ### <a name="use-low-priority-virtual-machines"></a>우선 순위가 낮은 가상 머신 사용
 
-[우선 순위가 낮은 VM](batch-low-pri-vms.md)은 Azure에서 여분의 컴퓨팅 용량을 활용하여 Batch 워크로드의 비용을 줄입니다. 풀에서 우선 순위가 낮은 VM을 지정하면 Batch는 이러한 남는 용량을 사용하여 워크로드를 실행할 수 있습니다. 전용 VM 대신 우선 순위가 낮은 VM을 사용하면 비용을 크게 절감할 수 있습니다. 낮은 우선 순위 Vm은 할당할 수 있는 용량이 없을 수도 있고 선점 될 수도 있으므로 모든 워크 로드에 적합 하지 않습니다.
+[우선 순위가 낮은 VM](batch-low-pri-vms.md)은 Azure에서 여분의 컴퓨팅 용량을 활용하여 Batch 워크로드의 비용을 줄입니다. 풀에서 우선 순위가 낮은 VM을 지정하면 Batch는 이러한 남는 용량을 사용하여 워크로드를 실행할 수 있습니다. 전용 VM 대신 우선 순위가 낮은 VM을 사용하면 비용을 크게 절감할 수 있습니다. 할당할 수 있는 용량이 없거나 선점될 수 있기 때문에 우선 순위가 낮은 VM은 모든 워크로드에 적합하지 않습니다.
 
 ### <a name="use-ephemeral-os-disks"></a>사용 후 삭제 OS 디스크 사용
 
-기본적으로 풀 노드는 관리 디스크를 사용 하 여 비용을 발생 시킵니다. 일부 VM 크기의 가상 머신 구성 풀은 관리 디스크와 관련 된 추가 비용을 방지 하기 위해 VM 캐시 또는 임시 SSD에서 OS 디스크를 만드는 사용 [후 삭제 os 디스크](create-pool-ephemeral-os-disk.md)를 사용할 수 있습니다.
+기본적으로 풀 노드는 비용이 발생하는 관리 디스크를 사용합니다. 일부 VM 크기의 Virtual Machine 구성 풀은 [관리 디스크와](create-pool-ephemeral-os-disk.md)관련된 추가 비용을 방지하기 위해 VM 캐시 또는 임시 SSD에 OS 디스크를 만드는 임시 OS 디스크를 사용할 수 있습니다.
 
 ### <a name="purchase-reservations-for-virtual-machine-instances"></a>가상 머신 인스턴스에 대한 구매 예약
 
-Batch를 장기간 사용하려는 경우 워크로드에 [Azure Reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md)를 사용하여 VM 비용을 절감할 수 있습니다. 예약 요금은 종량제 요금보다 훨씬 저렴합니다. 예약 없이 사용되는 가상 머신 인스턴스는 종량제 요금으로 청구됩니다. 예약을 구매하면 예약 할인이 적용됩니다. [Vm 인스턴스에](../virtual-machines/prepay-reserved-vm-instances.md)대해 1 년 또는 3 년 요금제로 커밋하면 [Batch 풀을 통해 사용](../virtual-machines/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy)되는 vm을 포함 하 여 vm 사용에 상당한 할인이 적용 됩니다.
+Batch를 장기간 사용하려는 경우 워크로드에 [Azure Reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md)를 사용하여 VM 비용을 절감할 수 있습니다. 예약 요금은 종량제 요금보다 훨씬 저렴합니다. 예약 없이 사용되는 가상 머신 인스턴스는 종량제 요금으로 청구됩니다. 예약을 구매하면 예약 할인이 적용됩니다. [VM 인스턴스에](../virtual-machines/prepay-reserved-vm-instances.md)대해 1년 또는 3년 플랜을 커밋하면 Batch 풀을 통해 사용하는 VM을 포함하여 VM 사용량에 상당한 [할인이 적용됩니다.](../virtual-machines/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy)
 
-예약 할인은 "사용-또는 분실" 이란 점에 유의 해야 합니다.  한 시간 동안 사용 되는 일치 하는 리소스가 없는 경우 해당 시간의 예약 수량이 손실 됩니다. 사용 하지 않는 예약 시간은 전달 되지 않으므로 사용 되지 않는 경우 손실 됩니다. 일괄 처리 작업은 로드에 따라 할당 된 Vm의 수를 조정 하 고 부하가 없는 기간을 포함 하 여 다양 한 부하를 발생 시키는 경우가 많습니다. 따라서 예약 된 시간을 결정 해야 합니다. 배치 Vm이 예약 수량 아래로 확장 된 경우 예약 된 시간을 잃게 됩니다.
+예약 할인은 "use-it-or-lose-it"입니다.  1시간 동안 일치하는 리소스가 사용되지 않으면 해당 시간에 대한 예약 수량이 손실됩니다. 사용되지 않는 예약된 시간은 앞으로 전달할 수 없으므로 사용하지 않으면 손실됩니다. Batch 워크로드는 부하에 따라 할당된 VM 수를 조정하는 경우가 많으며 부하가 없는 기간을 포함하여 다양한 부하가 있습니다. 따라서 예약된 시간이 예약 수량 아래로 축소되는 경우 예약 시간이 손실된다는 점을 고려하여 예약 금액을 결정해야 합니다.
 
 ### <a name="use-automatic-scaling"></a>자동 스케일링 사용
 
@@ -151,5 +151,5 @@ Batch를 장기간 사용하려는 경우 워크로드에 [Azure Reservations](.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Cost Management + 청구](../cost-management-billing/cost-management-billing-overview.md)에 대해 자세히 알아보세요.
+- [Azure Cost Management + Billing](/azure/cost-management-billing/cost-management-billing-overview)대해 자세히 알아보세요.
 - [Batch에서 우선 순위가 낮은 VM을 사용](batch-low-pri-vms.md)하는 방법에 대해 알아보세요.

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/28/2021
+ms.date: 10/15/2021
 ms.author: b-juche
-ms.openlocfilehash: 705cc540097ea41bc0039336d7cc9fdc025dd247
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 8dace313ed9296dd514fb059e8ed681a6276af0f
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129218387"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074535"
 ---
 # <a name="enable-continuous-availability-on-existing-smb-volumes"></a>기존 SMB 볼륨에서 지속적인 가용성 사용
 
@@ -34,8 +34,11 @@ ms.locfileid: "129218387"
 ## <a name="steps"></a>단계
 
 1. [SMB 지속적인 가용성 공유](https://aka.ms/anfsmbcasharespreviewsignup) 기능을 등록했는지 확인합니다.  
-2. SMB CA를 사용할 SMB 볼륨을 클릭합니다. **편집** 을 클릭합니다.  
-3. 나타나는 편집 창에서 **지속적인 가용성 사용** 확인란을 선택합니다.   
+
+    SQL Server 및 [FSLogix 사용자 프로필 컨테이너](../virtual-desktop/create-fslogix-profile-container.md)에 대해서만 지속적인 가용성을 사용하도록 설정해야 합니다. SQL Server 및 FSLogix 사용자 프로필 컨테이너 이외의 워크로드에는 SMB 지속적인 가용성 공유를 사용할 수 *없습니다*. 이 기능은 현재 Windows SQL Server에서 지원됩니다. Linux SQL Server는 현재 지원되지 않습니다. 비관리자(도메인) 계정을 사용하여 SQL Server를 설치하는 경우 계정에 필요한 보안 권한이 할당되어 있어야 합니다. 도메인 계정에 필요한 보안 권한(`SeSecurityPrivilege`)이 없고 도메인 수준에서 권한을 설정할 수 없는 경우에는 Active Directory 연결의 **보안 권한 사용자** 필드를 사용하여 계정에 권한을 부여하면 됩니다. [Active Directory 연결 만들기](create-active-directory-connections.md#create-an-active-directory-connection)를 참조하세요.
+            
+3. SMB CA를 사용할 SMB 볼륨을 클릭합니다. **편집** 을 클릭합니다.  
+4. 나타나는 편집 창에서 **지속적인 가용성 사용** 확인란을 선택합니다.   
     ![지속적인 가용성 사용 옵션을 보여주는 스냅샷.](../media/azure-netapp-files/enable-continuous-availability.png)
 
 4. 기존 SMB 공유에 연결 하는 Windows 시스템을 다시 부팅 합니다.   

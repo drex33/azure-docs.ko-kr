@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e5cc7974038ed69c745a958c682967d26545d5bc
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
-ms.translationtype: HT
+ms.openlocfilehash: 4935bb8c44c2f3d6d1a17a8c1f2ba897178d1606
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113109578"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130069504"
 ---
 # <a name="azure-event-grid-bindings-for-azure-functions"></a>Azure Functions의 Azure Event Grid 바인딩
 
@@ -50,11 +50,23 @@ Event Grid는 *게시자* 에서 발생하는 이벤트를 알리기 위해 HTTP
 
 #### <a name="event-grid-extension-3x-and-higher"></a>Event Grid 확장 3.x 이상
 
-새 버전의 Event Grid 바인딩 확장은 [미리 보기 NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/3.0.0-beta.2)로 제공됩니다. .NET 애플리케이션의 경우 사용자가 바인딩할 수 있는 형식이 변경되어, `Microsoft.Azure.EventGrid.Models`의 형식이 [Azure.Messaging.EventGrid](/dotnet/api/azure.messaging.eventgrid)의 최신 형식으로 바뀝니다. [클라우드 이벤트](/dotnet/api/azure.messaging.cloudevent)는 새로운 Event Grid 확장 프로그램에서도 지원됩니다.
+새 버전의 Event Grid 바인딩 확장은 미리 보기에서 사용할 수 있습니다. .NET 애플리케이션의 경우 바인딩할 수 있는 형식을 변경하여 의 형식을 `Microsoft.Azure.EventGrid.Models` [Azure.Messaging.EventGrid의](/dotnet/api/azure.messaging.eventgrid)최신 형식으로 바꿉니다. [클라우드 이벤트](/dotnet/api/azure.messaging.cloudevent)는 새로운 Event Grid 확장 프로그램에서도 지원됩니다.
 
-> [!NOTE]
-> 미리 보기 패키지는 확장 번들에 포함되지 않으며 수동으로 설치해야 합니다. .NET 앱의 경우 패키지에 대한 참조를 추가합니다. 다른 모든 앱 유형에 대해서는 [확장 업데이트]를 참조하세요.
+이 확장 버전은 [미리 보기 NuGet 패키지로] 사용할 수 있거나 파일에 다음을 추가하여 미리 보기 확장 번들 v3에서 추가할 수 있습니다. `host.json`
 
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[3.*, 4.0.0)"
+  }
+}
+```
+
+자세한 내용은 [확장 업데이트를 참조하세요.]
+
+[미리 보기 NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/3.0.0-beta.4
 [core tools]: ./functions-run-local.md
 [확장 번들]: ./functions-bindings-register.md#extension-bundles
 [NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage

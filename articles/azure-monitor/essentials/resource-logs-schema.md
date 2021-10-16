@@ -3,12 +3,12 @@ title: Azure 리소스 로그 지원 서비스 및 스키마
 description: Azure 리소스 로그에 대해 지원되는 서비스 및 이벤트 스키마를 이해합니다.
 ms.topic: reference
 ms.date: 05/10/2021
-ms.openlocfilehash: 99746b8f392d8afc5df9aa14ac7e1c7f19069151
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 1ef9c5ecea1ff45c7e6b3501f7c71928a5ea60d6
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129454984"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130069466"
 ---
 # <a name="common-and-service-specific-schemas-for-azure-resource-logs"></a>Azure 리소스 로그에 대한 일반 및 서비스별 스키마
 
@@ -24,12 +24,15 @@ ms.locfileid: "129454984"
 
 ## <a name="top-level-common-schema"></a>최상위 공통 스키마
 
+> [!NOTE]
+> 여기에 설명된 스키마는 리소스 로그가 Azure Storage 또는 이벤트 허브로 전송되는 경우에 유효합니다. 로그가 Log Analytics 작업 영역으로 전송되면 열 이름이 다를 수 있습니다. Log Analytics 작업 영역의 모든 테이블에 공통된 열은 [Azure Monitor Logs의 표준](../logs/log-standard-columns.md) 열을 참조하고 다른 테이블에 대한 [참조는 데이터 참조를 Azure Monitor.](/azure/azure-monitor/reference)
+
 | Name | 필수 또는 선택 | Description |
 |---|---|---|
 | `time` | 필수 | 이벤트의 타임스탬프(UTC)입니다. |
 | `resourceId` | 필수 | 이벤트를 내보낸 리소스의 리소스 ID입니다. 테넌트 서비스의 경우 */tenants/tenant-id/providers/provider-name* 형식입니다. |
 | `tenantId` | 테넌트 로그에 필요 | 이 이벤트가 연결된 Active Directory 테넌트의 테넌트 ID입니다. 이 속성은 테넌트 수준 로그에만 사용됩니다. 리소스 수준 로그에는 표시되지 않습니다. |
-| `operationName` | 필수 | 이 이벤트가 나타내는 작업의 이름입니다. 이벤트가 Azure RBAC(역할 기반 액세스 제어) 작업을 나타내는 경우 Azure RBAC 작업 이름(예: `Microsoft.Storage/storageAccounts/blobServices/blobs/Read` )입니다. 이 이름은 문서화된 Resource Manager 작업이 아닌 경우에도 일반적으로 Azure Resource Manager 작업의 형태로 모델링됩니다( `Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>` ). |
+| `operationName` | 필수 | 이 이벤트가 나타내는 작업의 이름입니다. 이벤트가 Azure RBAC(역할 기반 액세스 제어) 작업을 나타내는 경우 Azure RBAC 작업 이름(예: `Microsoft.Storage/storageAccounts/blobServices/blobs/Read` )입니다. 이 이름은 문서화된 Resource Manager 작업이 아니더라도 일반적으로 Azure Resource Manager 작업의 형태로 모델링됩니다( `Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>` ). |
 | `operationVersion` | 선택 사항 | 가 API를 통해 수행된 경우 작업과 연결된 `operationName` API 버전입니다(예: `http://myservice.windowsazure.net/object?api-version=2016-06-01` ). 이 작업에 해당하는 API가 없는 경우 버전은 나중에 작업과 연결된 속성이 변경될 경우 해당 작업의 버전을 나타냅니다. |
 | `category` | 필수 | 이벤트의 로그 범주입니다. 범주는 특정 리소스에 대해 로그를 사용하거나 사용하지 않도록 설정할 수 있는 세분성입니다. 이벤트의 속성 Blob에 표시되는 속성은 특정 로그 범주 및 리소스 종류 내에서 동일합니다. 일반적인 로그 범주는 `Audit` , `Operational` , 및 `Execution` `Request` 입니다. |
 | `resultType` | 선택 사항 | 이벤트의 상태입니다. 일반적인 값은 `Started` , , , , 및 `In Progress` `Succeeded` `Failed` `Active` `Resolved` 입니다. |
@@ -37,7 +40,7 @@ ms.locfileid: "129454984"
 | `resultDescription `| 선택 사항 | 이 작업에 대한 정적 텍스트 설명입니다. 예를 들어 `Get storage file` 입니다. |
 | `durationMs` | 선택 사항 | 밀리초 단위의 작업 기간입니다. |
 | `callerIpAddress` | 선택 사항 | 작업이 공용 IP 주소를 사용하는 엔터티에서 시작되는 API 호출에 해당하는 경우 호출자 IP 주소입니다. |
-| `correlationId` | 선택 사항 | 관련된 이벤트 집합을 그룹화하기 위해 사용되는 GUID입니다. 일반적으로 두 이벤트의 `operationName` 값은 같지만 상태(예: 및 `Started` `Succeeded` )는 동일한 `correlationID` 값을 공유합니다. 이는 이벤트 간의 다른 관계를 나타낼 수도 있습니다. |
+| `correlationId` | 선택 사항 | 관련된 이벤트 집합을 그룹화하기 위해 사용되는 GUID입니다. 일반적으로 두 이벤트의 `operationName` 값은 같지만 두 가지 상태(예: `Started` 및 `Succeeded` )는 동일한 값을 `correlationID` 공유합니다. 이는 이벤트 간의 다른 관계를 나타낼 수도 있습니다. |
 | `identity` | 선택 사항 | 작업을 수행한 사용자 또는 애플리케이션의 ID를 설명하는 JSON Blob입니다. 일반적으로 이 필드에는 Active Directory의 권한 부여 및 클레임 또는 JWT 토큰이 포함됩니다. |
 | `Level` | 선택 사항 | 이벤트의 심각도 수준입니다. `Informational`, `Warning`, `Error` 또는 `Critical` 중에 하나여야 합니다. |
 | `location` | 선택 사항 | 이벤트를 내보내는 리소스의 영역입니다. 예를 들어 `East US` 또는 `France South` 입니다. |
@@ -89,7 +92,7 @@ ms.locfileid: "129454984"
 | Azure SQL Database | [Azure SQL Database 로깅](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Azure Storage | [Blob](../../storage/blobs/monitor-blob-storage-reference.md#resource-logs-preview), [파일](../../storage/files/storage-files-monitoring-reference.md#resource-logs-preview), [큐](../../storage/queues/monitor-queue-storage-reference.md#resource-logs-preview), [테이블](../../storage/tables/monitor-table-storage-reference.md#resource-logs-preview) |
 | Azure Stream Analytics |[작업 로그](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
-| Azure Traffic Manager | [로그 스키마 Traffic Manager](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
+| Azure Traffic Manager | [Traffic Manager 로그 스키마](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Azure Virtual Network | 스키마를 사용할 수 없습니다. |
 | 가상 네트워크 게이트웨이 | 스키마를 사용할 수 없습니다. |
 

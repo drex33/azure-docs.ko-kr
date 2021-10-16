@@ -8,75 +8,73 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2021
-ms.openlocfilehash: 80471da945dcc5fdee690ec477599565777f1beb
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: ceb65226c30d6ee9768388bb18807dd7cf6d6f85
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129611456"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070587"
 ---
 # <a name="use-role-based-authorization-in-azure-cognitive-search"></a>Azure Cognitive Search에서 역할 기반 권한 부여 사용
 
-Azure는 플랫폼에서 실행 중인 모든 서비스에 대해 글로벌 [RBAC(역할 기반 액세스 제어) 권한 부여 시스템](../role-based-access-control/role-assignments-portal.md)을 제공합니다. Cognitive Search 다음과 같은 방법으로 역할을 사용할 수 있습니다.
+Azure는 플랫폼에서 실행 중인 모든 서비스에 대해 글로벌 [RBAC(역할 기반 액세스 제어) 권한 부여 시스템](../role-based-access-control/role-assignments-portal.md)을 제공합니다. Cognitive Search에서 다음과 같은 방법으로 역할을 사용할 수 있습니다.
 
-+ 서비스 관리에 일반적으로 사용 가능한 역할을 사용합니다.
++ 서비스 관리에 일반적으로 사용할 수 있는 역할을 사용 합니다.
 
-+ [**요청에서 사용할 수**](https://aka.ms/azure-cognitive-search/rbac-preview)있는 콘텐츠 관리(인덱스 및 기타 최상위 개체 만들기 및 관리)에 새 미리 보기 역할을 사용합니다.
++ [**요청에서 사용할 수 있는**](https://aka.ms/azure-cognitive-search/rbac-preview)콘텐츠 관리 (인덱스 및 기타 최상위 개체 만들기 및 관리)에 대해 새로운 미리 보기 역할을 사용 합니다.
 
-> [!NOTe]
-> Search Service 기여자는 "미리 보기" 기능이 있는 "일반 제공" 역할입니다. 서비스 및 콘텐츠 관리 작업의 진정한 하이브리드를 지원하는 유일한 역할이며 지정된 검색 서비스에서 모든 작업을 허용합니다. 이 역할에 대한 콘텐츠 관리의 미리 보기 기능을 얻으려면 미리 보기 에 [**등록합니다.**](https://aka.ms/azure-cognitive-search/rbac-preview)
+> [!NOTE]
+> Search Service 참여자는 "미리 보기" 기능이 포함 된 "일반 공급" 역할입니다. 서비스 및 콘텐츠 관리 작업의 진정한 하이브리드을 지원 하 여 지정 된 검색 서비스에 대 한 모든 작업을 허용 하는 유일한 역할입니다. 이 역할에 대 한 콘텐츠 관리의 미리 보기 기능을 얻으려면 [**미리 보기에 등록**](https://aka.ms/azure-cognitive-search/rbac-preview)합니다.
 
-몇 가지 RBAC 시나리오는 **지원되지 않거나** 이 문서에서 다루지 않습니다.
+몇 가지 RBAC 시나리오는 지원 **되지 않으며** 이 문서에서 다루지 않습니다.
 
-+ 아웃바운드 인덱서 연결은 ["관리 ID를 사용하여 데이터 원본에 대한 인덱서 연결 설정"에](search-howto-managed-identities-data-sources.md)설명되어 있습니다. 관리 ID가 할당된 검색 서비스의 경우 Azure Blob Storage 같은 외부 데이터 서비스, 신뢰할 수 있는 검색 서비스에서 Blob에 대한 읽기 액세스를 허용하는 역할 할당을 만들 수 있습니다.
++ 아웃 바운드 인덱서 연결은 ["관리 되는 id를 사용 하 여 데이터 원본에 대 한 인덱서 연결 설정"](search-howto-managed-identities-data-sources.md)에 설명 되어 있습니다. 관리 id가 할당 된 검색 서비스의 경우 신뢰할 수 있는 검색 서비스에 의해 blob에 대 한 Azure Blob Storage, 읽기 액세스 등의 외부 데이터 서비스를 허용 하는 역할 할당을 만들 수 있습니다.
 
-+ [사용자 지정 역할은](../role-based-access-control/custom-roles.md) 지원되지 않습니다.
++ 검색 결과에 대 한 사용자 id 액세스 (행 수준 보안 또는 문서 수준 보안이 라고도 함)는 지원 되지 않습니다. 문서 수준 보안을 위해 [보안 필터](search-security-trimming-for-azure-search.md)를 사용하여 사용자 ID별로 결과를 트리밍하고 요청자가 액세스 권한이 없어야 하는 문서를 제거하는 것이 해결 방법입니다.
 
-+ 검색 결과(행 수준 보안 또는 문서 수준 보안이라고도 함)에 대한 사용자 ID 액세스는 지원되지 않습니다. 문서 수준 보안을 위해 [보안 필터](search-security-trimming-for-azure-search.md)를 사용하여 사용자 ID별로 결과를 트리밍하고 요청자가 액세스 권한이 없어야 하는 문서를 제거하는 것이 해결 방법입니다.
+## <a name="built-in-roles-used-in-search"></a>검색에 사용 되는 기본 제공 역할
 
-## <a name="built-in-roles-used-in-search"></a>검색에 사용되는 기본 제공 역할
+Cognitive Search 기본 제공 역할에는 일반적으로 사용 가능 하 고 미리 보기 역할이 포함 되며 할당 된 멤버 자격은 Azure Active Directory 사용자 및 그룹으로 구성 됩니다.
 
-Cognitive Search 기본 제공 역할에는 할당된 멤버 자격이 Azure Active Directory 사용자 및 그룹으로 구성된 일반 제공 및 미리 보기 역할이 포함됩니다.
+역할 할당은 검색 서비스를 만들거나 관리하는 데 사용되는 모든 도구 및 클라이언트 라이브러리에서 누적되고 광범위하게 사용됩니다. 이러한 클라이언트에는 Azure sdk의 Azure Portal, 관리 REST API, Azure PowerShell, Azure CLI 및 관리 클라이언트 라이브러리가 포함 됩니다.
 
-역할 할당은 검색 서비스를 만들거나 관리하는 데 사용되는 모든 도구 및 클라이언트 라이브러리에서 누적되고 광범위하게 사용됩니다. 이러한 클라이언트에는 Azure Portal, 관리 REST API, Azure PowerShell, Azure CLI 및 Azure SDK의 관리 클라이언트 라이브러리가 포함됩니다.
-
-역할은 검색 서비스 전체에 적용되며 소유자에 의해 할당되어야 합니다. 특정 인덱스 또는 다른 최상위 개체에는 역할을 할당할 수 없습니다.
+역할은 검색 서비스 전체에 적용 되며 소유자가 할당 해야 합니다. 특정 인덱스나 기타 최상위 개체에 역할을 할당할 수 없습니다.
 
 Azure Cognitive Search에서 RBAC 사용에 대한 지역, 계층 또는 가격 책정 제한은 없지만 검색 서비스는 Azure 퍼블릭 클라우드에 있어야 합니다.
 
 | 역할 | 적용 대상 | Description |
 | ---- | ---------- | ----------- |
-| [소유자](../role-based-access-control/built-in-roles.md#owner) | 서비스 ops(일반 제공) | Azure 역할을 할당하는 기능을 포함하여 검색 리소스에 대한 모든 권한 구독 관리자는 기본적으로 멤버입니다. |
-| [기여자](../role-based-access-control/built-in-roles.md#contributor) | 서비스 ops(일반 제공) | 소유자와 동일한 수준의 액세스에서 역할을 할당하거나 권한 부여 옵션을 변경하는 기능을 뺀 값입니다. |
-| [판독기](../role-based-access-control/built-in-roles.md#reader) | 서비스 ops(일반 제공) | 부분적으로 서비스 정보에 대한 액세스가 제한됩니다. 포털에서 읽기 권한자 역할은 서비스 개요 페이지, Essentials 섹션 및 모니터링 탭의 정보에 액세스할 수 있습니다. 모든 기타 탭 및 페이지는 제한이 해제되어 있습니다. </br></br>이 역할은 리소스 그룹, 서비스 상태, 위치, 구독 이름 및 ID, 태그, URL, 가격 측정 계층, 복제본, 파티션 및 검색 단위와 같은 서비스 정보에 액세스할 수 있습니다. </br></br>이 역할은 검색 대기 시간, 제한 요청의 백분율, 초당 평균 쿼리 등 서비스 메트릭에 액세스할 수 있습니다. </br></br>API 키, 역할 할당, 콘텐츠(인덱스 또는 동의어 맵) 또는 콘텐츠 메트릭(스토리지 사용, 개체 수)에 액세스할 수 없습니다. |
-| [Search 서비스 기여자](../role-based-access-control/built-in-roles.md#search-service-contributor) | 서비스 ops(일반 제공) 및 최상위 개체(미리 보기) | 이 역할은 서비스 수준에서 기여자의 조합이지만 를 통해 인덱스, 동의어 맵, 인덱서, 데이터 원본 및 기술 세트에 대한 모든 작업에 대한 모든 액세스 권한이 [`Microsoft.Search/searchServices/*`](/azure/role-based-access-control/resource-provider-operations#microsoftsearch) 있습니다. 이 역할은 서비스를 완전히 관리해야 하는 검색 서비스 관리자를 위한 것입니다. </br></br>기여자처럼 이 역할의 멤버는 역할 할당을 만들거나 관리하거나 권한 부여 옵션을 변경할 수 없습니다. |
-| [검색 인덱스 데이터 기여자](../role-based-access-control/built-in-roles.md#search-index-data-contributor) | 문서 컬렉션(미리 보기) | 검색 서비스의 모든 인덱스의 콘텐츠에 대한 모든 권한을 제공합니다. 이 역할은 인덱스의 문서 컬렉션을 가져오거나 새로 고치거나 쿼리해야 하는 개발자 또는 인덱스 소유자를 위한 것입니다. |
-| [검색 인덱스 데이터 읽기 권한자](../role-based-access-control/built-in-roles.md#search-index-data-reader) | 문서 컬렉션(미리 보기) | 검색 서비스의 검색 인덱스 읽기 전용 액세스를 제공합니다. 이 역할은 쿼리를 실행하는 앱 및 사용자를 위한 것입니다. |
+| [소유자](../role-based-access-control/built-in-roles.md#owner) | 서비스 ops (일반적으로 사용 가능) | Azure 역할을 할당 하는 기능을 포함 하 여 검색 리소스에 대 한 모든 권한을 제공 합니다. 구독 관리자는 기본적으로 멤버입니다. |
+| [기여자](../role-based-access-control/built-in-roles.md#contributor) | 서비스 ops (일반적으로 사용 가능) | 소유자와 동일한 액세스 수준-역할을 할당 하거나 권한 부여 옵션을 변경할 수 없습니다. |
+| [판독기](../role-based-access-control/built-in-roles.md#reader) | 서비스 ops (일반적으로 사용 가능) | 부분적으로 서비스 정보에 대한 액세스가 제한됩니다. 포털에서 읽기 권한자 역할은 서비스 개요 페이지, Essentials 섹션 및 모니터링 탭의 정보에 액세스할 수 있습니다. 모든 기타 탭 및 페이지는 제한이 해제되어 있습니다. </br></br>이 역할은 리소스 그룹, 서비스 상태, 위치, 구독 이름 및 ID, 태그, URL, 가격 측정 계층, 복제본, 파티션 및 검색 단위와 같은 서비스 정보에 액세스할 수 있습니다. </br></br>이 역할은 검색 대기 시간, 제한 요청의 백분율, 초당 평균 쿼리 등 서비스 메트릭에 액세스할 수 있습니다. </br></br>API 키, 역할 할당, 콘텐츠(인덱스 또는 동의어 맵) 또는 콘텐츠 메트릭(스토리지 사용, 개체 수)에 액세스할 수 없습니다. |
+| [Search 서비스 기여자](../role-based-access-control/built-in-roles.md#search-service-contributor) | 서비스 ops (일반적으로 사용 가능) 및 최상위 개체 (미리 보기) | 이 역할은 서비스 수준에서 참가자의 조합 이지만 인덱스, 동의어 맵, 인덱서, 데이터 원본 및 기술력과에 대 한 모든 작업에 대 한 모든 액세스 권한이 [`Microsoft.Search/searchServices/*`](/azure/role-based-access-control/resource-provider-operations#microsoftsearch) 있습니다. 이 역할은 서비스를 완전히 관리 해야 하는 검색 서비스 관리자를 위한 것입니다. </br></br>기여자와 마찬가지로이 역할의 멤버는 역할 할당을 만들거나 관리 하거나 권한 부여 옵션을 변경할 수 없습니다. |
+| [검색 인덱스 데이터 기여자](../role-based-access-control/built-in-roles.md#search-index-data-contributor) | Documents 컬렉션 (미리 보기) | 검색 서비스에 있는 모든 인덱스의 콘텐츠에 대 한 모든 권한을 제공 합니다. 이 역할은 인덱스의 문서 컬렉션을 가져오거나 새로 고치거 나 쿼리 해야 하는 개발자 또는 인덱스 소유자를 위한 것입니다. |
+| [검색 인덱스 데이터 읽기 권한자](../role-based-access-control/built-in-roles.md#search-index-data-reader) | Documents 컬렉션 (미리 보기) | 검색 서비스의 검색 인덱스에 대 한 읽기 전용 액세스를 제공 합니다. 이 역할은 쿼리를 실행 하는 앱 및 사용자에 대 한 역할을 합니다. |
 
 > [!NOTE]
-> Azure 리소스는 [컨트롤 플레인과 데이터 평면](../azure-resource-manager/management/control-plane-and-data-plane.md) 작업 범주의 개념을 가집니다. Cognitive Search "컨트롤 플레인"은 [관리 REST API](/rest/api/searchmanagement/) 또는 이와 동등한 클라이언트 라이브러리에서 지원되는 모든 작업을 나타냅니다. "데이터 평면"은 인덱싱 또는 쿼리와 같은 검색 서비스 엔드포인트에 대한 작업 또는 [검색 REST API](/rest/api/searchservice/) 또는 동등한 클라이언트 라이브러리에 지정된 기타 작업을 나타냅니다. 대부분의 역할은 하나의 평면에만 적용됩니다. 예외는 둘 다에서 작업을 지원하는 Search Service 기여자입니다.
+> Azure 리소스는 [컨트롤 플레인과 데이터 평면](../azure-resource-manager/management/control-plane-and-data-plane.md) 작업 범주의 개념을 가집니다. Cognitive Search에서 "제어 평면"은 [관리 REST API](/rest/api/searchmanagement/) 또는 이와 동등한 클라이언트 라이브러리에서 지원 되는 모든 작업을 나타냅니다. "데이터 평면"은 검색 서비스 끝점에 대 한 작업 (예: 인덱싱 또는 쿼리) 또는 [검색 REST API](/rest/api/searchservice/) 또는 동등한 클라이언트 라이브러리에 지정 된 기타 작업을 나타냅니다. 대부분의 역할은 하나의 평면에만 적용 됩니다. 예외는 둘 다에서 작업을 지 원하는 Search Service 기여자입니다.
 
-## <a name="step-1-preview-sign-up"></a>1단계: 등록 미리 보기
+## <a name="step-1-preview-sign-up"></a>1 단계: 등록 미리 보기
 
-**적용된 내용:** 검색 인덱스 데이터 기여자, 검색 인덱스 데이터 판독기, Search Service 기여자
+**적용 대상:** 검색 인덱스 데이터 참여자, 검색 인덱스 데이터 판독기, Search Service 기여자
 
-일반적으로 사용 가능한 역할(소유자, 기여자, 읽기 프로그램) 또는 Search 서비스 기여자의 서비스 수준 작업만 사용하는 경우 이 단계를 건너뜁니다.
+일반적으로 사용 가능한 역할 (소유자, 참가자, 읽기 권한자) 또는 Search Service 참여자의 서비스 수준 작업만 사용 하는 경우이 단계를 건너뜁니다.
 
-새로운 기본 제공 미리 보기 역할은 검색 서비스의 콘텐츠에 대한 세분화된 권한 집합을 제공합니다. 기본 제공 역할은 항상 Azure Portal 표시되지만 작동하려면 서비스 등록이 필요합니다.
+새로운 기본 제공 미리 보기 역할은 검색 서비스의 콘텐츠에 대해 세부적인 사용 권한 집합을 제공 합니다. 기본 제공 역할은 항상 Azure Portal에 표시 되지만 서비스를 등록 하려면 서비스를 등록 해야 합니다.
 
-미리 보기 프로그램에 등록하는 경우:
+미리 보기 프로그램에 등록 하려면 다음을 수행 합니다.
 
-+ [이 양식을 작성합니다.](https://aka.ms/azure-cognitive-search/rbac-preview)
++ [이 양식 작성](https://aka.ms/azure-cognitive-search/rbac-preview)
 
 등록 요청을 처리하는 데 영업일 기준 최대 2일까지 걸릴 수 있습니다. 서비스가 준비되면 이메일을 받게 됩니다.
 
-## <a name="step-2-preview-configuration"></a>2단계: 미리 보기 구성
+## <a name="step-2-preview-configuration"></a>2 단계: 구성 미리 보기
 
-**적용된 내용:** 검색 인덱스 데이터 기여자, 검색 인덱스 데이터 판독기, Search Service 기여자
+**적용 대상:** 검색 인덱스 데이터 참여자, 검색 인덱스 데이터 판독기, Search Service 기여자
 
-일반적으로 사용 가능한 역할(소유자, 기여자, 읽기 프로그램) 또는 Search 서비스 기여자의 서비스 수준 작업만 사용하는 경우 이 단계를 건너뜁니다.
+일반적으로 사용 가능한 역할 (소유자, 참가자, 읽기 권한자) 또는 Search Service 참여자의 서비스 수준 작업만 사용 하는 경우이 단계를 건너뜁니다.
 
-이 단계에서는 OAuth2 액세스 토큰을 제공하는 데이터 요청에서 **권한 부여** 헤더를 인식하도록 검색 서비스를 구성합니다.
+이 단계에서는 OAuth2 액세스 토큰을 제공 하는 데이터 요청에 대 한 **인증** 헤더를 인식 하도록 검색 서비스를 구성 합니다.
 
 ### <a name="azure-portal"></a>[**Azure portal**](#tab/config-svc-portal)
 
@@ -94,19 +92,19 @@ Azure Cognitive Search에서 RBAC 사용에 대한 지역, 계층 또는 가격 
    | 역할 기반 액세스 제어 | 미리 보기 | 다음 단계에서 설명하는 작업을 완료하려면 역할 할당의 멤버 자격이 필요합니다. 각 요청에는 인증 헤더가 필요합니다. 이 옵션을 선택하면 2021-04-30-preview REST API를 지원하는 클라이언트로 제한됩니다. |
    | 모두 | 미리 보기 | 요청은 API 키 또는 권한 부여 토큰을 사용하여 유효합니다. |
 
-옵션이 표시되지 않으면 포털 URL을 확인합니다.
+옵션이 표시 되지 않으면 포털 URL을 확인 합니다.
 
-선택 항목을 저장할 수 없거나 "검색 서비스에 대한 API 액세스 제어를 업데이트하지 `<name>` 못했습니다. DisableLocalAuth는 미리 보기이며 이 구독에 대해 사용하도록 설정되지 않았습니다." 구독 등록이 시작되지 않았거나 처리되지 않았습니다.
+선택 항목을 저장할 수 없거나 "API 액세스 제어에서 검색 서비스를 업데이트 하지 못했습니다 `<name>` . DisableLocalAuth가이 구독에 대해 미리 보기 이며 사용할 수 없습니다. "라는 구독 등록이 시작 되지 않았거나 처리 되지 않았습니다.
 
 ### <a name="rest-api"></a>[**REST API**](#tab/config-svc-rest)
 
-관리 REST API 버전 2021-04-01-Preview, [서비스 만들기 또는 업데이트](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update)를 사용하여 서비스를 구성합니다.
+관리 REST API 버전 2021-04-01-미리 보기, [만들기 또는 업데이트 서비스](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update)를 사용 하 여 서비스를 구성 합니다.
 
-Postman 또는 다른 웹 테스트 도구를 사용하는 경우 요청 설정에 대한 도움말은 아래 팁을 참조하세요.
+Postman 또는 다른 웹 테스트 도구를 사용 하는 경우 요청을 설정 하는 방법에 대 한 도움말은 아래 팁을 참조 하세요.
 
-1. ["AuthOptions"를](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) "aadOrApiKey"로 설정합니다.
+1. " [Authoptions"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) 를 "aadOrApiKey"로 설정 합니다.
 
-   필요에 따라 ["AadAuthFailureMode"를](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#aadauthfailuremode) 설정하여 인증이 실패할 때 403 대신 401이 반환되는지 여부를 지정합니다. "disableLocalAuth"의 기본값은 false이므로 설정할 필요가 없지만 authOptions가 설정될 때마다 false여야 함을 강조하기 위해 아래에 나열되어 있습니다.
+   필요에 따라 ["AadAuthFailureMode"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#aadauthfailuremode) 를 설정 하 여 인증에 실패할 경우 403 대신 401이 반환 되는지 여부를 지정 합니다. "DisableLocalAuth"의 기본값은 false 이므로 설정 하지 않아도 되지만, authOptions가 설정 될 때마다 false가 되어야 함을 강조 하기 위해 아래에 나열 되어 있습니다.
 
     ```http
     PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
@@ -239,7 +237,7 @@ var tokenCredential =  new ClientSecretCredential(aadTenantId, aadClientId, aadS
 SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, tokenCredential);
 ```
 
-[Azure sdk for .net에서 AAD 인증을](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity) 사용 하는 방법에 대 한 자세한 내용은 SDK의 GitHub 리포지토리에서 제공 됩니다.
+[.net 용 Azure sdk](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity) 를 사용 하 여 AAD 인증 사용에 대 한 자세한 내용은 SDK의 GitHub 리포지토리에서 제공 됩니다.
 
 > [!NOTE]
 > 403 오류가 발생 하면 검색 서비스가 미리 보기 프로그램에 등록 되어 있고 미리 보기 역할 할당에 대해 서비스가 구성 되어 있는지 확인 합니다.

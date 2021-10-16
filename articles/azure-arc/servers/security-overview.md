@@ -3,14 +3,14 @@ title: 보안 개요
 description: Azure Arc 지원 서버에 대한 보안 정보입니다.
 ms.topic: conceptual
 ms.date: 08/30/2021
-ms.openlocfilehash: 0f3e093dc07c1fddb4598138078003425456c8d1
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e5fc087dac29a01f6463766c8d3b3ae0ae26596b
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124832209"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130069485"
 ---
-# <a name="azure-arc-for-servers-security-overview"></a>서버용 Azure Arc 보안 개요
+# <a name="azure-arc-enabled-servers-security-overview"></a>Azure Arc 사용 서버 보안 개요
 
 이 문서에서는 기업에 Azure Arc 지원 서버를 배포하기 전에 평가해야 하는 보안 구성과 고려 사항에 대해 설명합니다.
 
@@ -22,9 +22,9 @@ ms.locfileid: "124832209"
 
 사용자 및 애플리케이션에서 리소스에 대한 액세스 권한이 부여된 [기여자](../../role-based-access-control/built-in-roles.md#contributor) 및 관리자 역할은 컴퓨터에 [확장](manage-vm-extensions.md)을 배포하거나 삭제하는 등 리소스를 변경할 수 있습니다. 확장에는 권한 있는 컨텍스트에서 실행되는 임의의 스크립트가 포함될 수 있으므로 Azure 리소스의 모든 기여자가 서버의 간접 관리자가 될 수 있습니다.
 
-**Azure Connected Machine 온보딩** 역할은 대규모 온보딩에 사용할 수 있으며 Azure에서 새 Azure Arc 지원 서버를 읽거나 만들 수 있습니다. 이미 등록된 서버를 삭제하거나 확장을 관리하는 데 사용할 수 없습니다. 모범 사례로, 대규모 컴퓨터를 온보딩하는 데 사용되는 Azure AD(Azure Active Directory) 서비스 주체에게만 이 역할을 할당하는 것이 좋습니다.
+**Azure에 연결 된 컴퓨터 온 보** 딩 역할은 대규모 온 보 딩에 사용할 수 있으며 azure에서 새 azure Arc 사용 서버를 읽거나 만들 수 있습니다. 이미 등록된 서버를 삭제하거나 확장을 관리하는 데 사용할 수 없습니다. 모범 사례로, 대규모 컴퓨터를 온보딩하는 데 사용되는 Azure AD(Azure Active Directory) 서비스 주체에게만 이 역할을 할당하는 것이 좋습니다.
 
-**Azure Connected Machine Resource 관리자** 역할의 멤버인 사용자는 컴퓨터를 읽고 수정하고 다시 온보딩하고 삭제할 수 있습니다. 이 역할은 리소스 그룹 또는 구독의 다른 리소스가 아닌 Azure Arc 사용 가능한 서버의 관리를 지원하도록 설계되었습니다.
+**Azure Connected Machine Resource 관리자** 역할의 멤버인 사용자는 컴퓨터를 읽고 수정하고 다시 온보딩하고 삭제할 수 있습니다. 이 역할은 Azure Arc 사용 서버를 관리할 수 있도록 설계 되었지만 리소스 그룹 또는 구독의 다른 리소스에 대해서는 지원 하지 않습니다.
 
 ## <a name="agent-security-and-permissions"></a>에이전트 보안 및 사용 권한
 
@@ -40,9 +40,9 @@ Azure Connected Machine Agent는 사용자의 컴퓨터에서 실행되는 세 �
 
 게스트 구성 및 확장 서비스는 Windows에서는 로컬 시스템으로 실행되고 Linux에서는 루트로 실행됩니다.
 
-## <a name="using-a-managed-identity-with-azure-arc-enabled-servers"></a>Azure Arc 지원 서버에서 관리 ID 사용
+## <a name="using-a-managed-identity-with-azure-arc-enabled-servers"></a>Azure Arc 사용 서버에서 관리 id 사용
 
-기본적으로 Arc에서 사용하는 Azure Active Directory 시스템 할당 ID는 Azure에서 Azure Arc 지원 서버의 상태를 업데이트하는 데만 사용할 수 있습니다. 예를 들어 *마지막으로 표시* 된 하트비트의 상태를 업데이트할 수 있습니다. 서버 애플리케이션에서 시스템 할당 ID를 사용하여 다른 Azure 서비스에 액세스하는 경우 필요에 따라 ID에 다른 역할을 할당할 수 있습니다. Azure 리소스에 액세스하도록 시스템 할당 관리 ID를 구성하는 방법에 대한 자세한 내용은 [Azure Arc 지원 서버를 사용하여 Azure 리소스에 대해 인증을](managed-identity-authentication.md)참조하세요. 
+기본적으로 arc에서 사용 하는 Azure Active Directory 시스템 할당 id는 azure에서 azure Arc 사용 서버 상태를 업데이트 하는 데만 사용할 수 있습니다. 예를 들어 *마지막으로 표시* 된 하트비트의 상태를 업데이트할 수 있습니다. 서버 애플리케이션에서 시스템 할당 ID를 사용하여 다른 Azure 서비스에 액세스하는 경우 필요에 따라 ID에 다른 역할을 할당할 수 있습니다. Azure 리소스에 액세스 하도록 시스템 할당 관리 id를 구성 하는 방법에 대 한 자세한 내용은 azure [Arc 사용 서버를 사용 하 여 azure 리소스에 대 한 인증](managed-identity-authentication.md)을 참조 하세요. 
 
 컴퓨터에서 실행되는 애플리케이션에서 Hybrid Instance Metadata Service에 액세스할 수 있지만, 권한이 부여된 애플리케이션만 시스템 할당 ID에 대한 Azure AD 토큰을 요청할 수 있습니다. 토큰 URI에 처음 액세스하려고 할 때 서비스는 신뢰할 수 있는 호출자만 읽을 수 있는 파일 시스템의 위치에 임의로 생성된 암호화 Blob을 생성합니다. 그런 다음 호출자는 파일을 읽고(이에 따라 적절한 권한이 있음이 증명됨) 인증 헤더의 파일 내용으로 요청을 다시 시도하여 Azure AD 토큰을 성공적으로 검색합니다.
 
@@ -60,6 +60,6 @@ Azure Connected Machine Agent는 공개 키 인증을 사용하여 Azure 서비�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 여러 하이브리드 컴퓨터에서 Azure Arc 지원 서버를 평가하거나 사용하도록 설정하기 전에 [Connected Machine 에이전트 개요를](agent-overview.md) 검토하여 요구 사항, 에이전트에 대한 기술 세부 정보 및 배포 방법을 이해합니다.
+* 여러 하이브리드 컴퓨터에서 Azure Arc 지원 서버를 평가하거나 사용하기 전에 [Connected Machine 에이전트 개요](agent-overview.md)를 검토하여 요구 사항, 에이전트에 대한 기술 세부 정보 및 배포 방법을 파악합니다.
 
 * [계획 및 배포 가이드](plan-at-scale-deployment.md)를 검토하여 모든 규모의 Azure Arc 지원 서버 배포를 계획하고 중앙 집중식 관리와 모니터링을 구현합니다.

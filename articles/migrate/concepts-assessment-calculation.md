@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 07/28/2021
-ms.openlocfilehash: 99ce96ced92109f4cbb16b8bbcbb41551102f7bd
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: f3fc574e8e381f8e5c911a340ae958ee0939db8f
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130006055"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073851"
 ---
 # <a name="assessment-overview-migrate-to-azure-vms"></a>평가 개요(Azure VM으로 마이그레이션)
 
@@ -210,7 +210,7 @@ Azure VM 평가에서 성능 기반 크기 조정을 사용하는 경우 평가�
 - 평가는 서버의 성능 기록을 고려하여 Azure의 VM 크기 및 디스크 형식을 식별합니다.
 
 > [!NOTE] 
-> CSV 파일을 사용 하 여 가져오기를 수행 하는 경우 성능 기반 크기 조정을 선택 하는 경우 지정 하는 성능 값 (CPU 사용률, 메모리 사용률, 디스크 IOPS 및 처리량)이 사용 됩니다. 성능 기록과 백분위 수 정보를 제공할 수 없습니다.
+> CSV 파일을 사용하여 서비스를 가져오는 경우 성능 기반 크기 조정을 선택하는 경우 지정한 성능 값(CPU 사용률, 메모리 사용률, 디스크 IOPS 및 처리량)이 사용됩니다. 성능 기록 및 백분위수 정보를 제공할 수 없습니다.
 
 - 이 방법은 특히 온-프레미스 서버를 초과 할당하고 사용률이 낮을 경우, 비용을 절감하기 위해 Azure VM의 크기를 적절히 조정하려는 경우에 특히 유용합니다.
 - 성능 데이터를 사용하지 않으려면 이전 섹션에서 설명한 대로 크기 조정 기준을 온-프레미스에서 있는 그대로로 다시 설정합니다.
@@ -237,7 +237,7 @@ Ultra 디스크의 경우 특정 디스크 크기에 대해 허용되는 IOPS �
     - 총 IOPS 요구 사항을 충족할 수 있는 하나의 디스크(디스크 2)가 검색되었습니다.
         - 프로비저닝할 IOPS = (원본 디스크 처리량) *1024/256
     - 총 처리량 요구 사항을 충족할 수 있는 하나의 디스크(디스크 3)가 검색되었습니다.
-1. 3개의 디스크 중 최대 디스크 크기를 가진 하나가 검색되고 사용 가능한 다음의 [Ultra 디스크 제품](../virtual-machines/disks-types.md#disk-size)으로 반올림됩니다. 프로비저닝된 Ultra 디스크 크기입니다.
+1. 3개의 디스크 중 최대 디스크 크기를 가진 하나가 검색되고 사용 가능한 다음의 [Ultra 디스크 제품](../virtual-machines/disks-types.md#ultra-disks)으로 반올림됩니다. 프로비저닝된 Ultra 디스크 크기입니다.
 1. 프로비저닝된 IOPS는 다음 논리를 사용하여 계산됩니다.
     - 검색된 원본 처리량이 Ultra 디스크 크기에 허용되는 범위에 있는 경우 프로비저닝된 IOPS는 원본 디스크 IOPS와 동일합니다.
     - 그렇지 않은 경우 프로비저닝된 IOPS는 프로비저닝할 IOPS = (원본 디스크 처리량) *1024/256을 사용하여 계산됩니다.

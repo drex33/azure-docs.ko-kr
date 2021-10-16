@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 4cef99adecadc73f105dfffcdc72163c8b622cc3
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 1921349be07d129e9889da3af6c72a7b25a58ff5
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129208686"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074440"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>온-프레미스 SQL Server 등록 및 검사
 
@@ -93,13 +93,15 @@ SQL 계정에는 **master** 데이터베이스에 대한 액세스 권한이 있
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/set-up-sql-data-source.png" alt-text="SQL 데이터 원본 설정":::
 
-5. 식별 이름과 서버 엔드포인트를 제공한 다음 **마침** 을 선택하여 데이터 원본을 등록합니다. 예를 들어 SQL Server FQDN이 **foobar.database.windows.net** 인 경우 서버 엔드포인트로 *foobar* 를 입력합니다.
+1. 서버를 식별 하는 데 사용할 수 있는 약식 이름과 서버 끝점을 식별 하는 친숙 한 이름을 제공 합니다. 
+ 
+1. 그런 다음, **마침** 을 선택하여 데이터 원본을 등록합니다.
 
 ## <a name="creating-and-running-a-scan"></a>검사 만들기 및 실행
 
 새 검색을 만들고 실행하려면 다음을 수행합니다.
 
-1. [부서의 범위 Studio](https://web.purview.azure.com/resource/)의 왼쪽 창에서 **데이터 맵** 탭을 선택 합니다.
+1. [Purview Studio](https://web.purview.azure.com/resource/)의 왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
 
 1. 등록한 SQL Server 원본을 선택합니다.
 

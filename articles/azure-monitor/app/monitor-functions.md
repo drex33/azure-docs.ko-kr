@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
 ms.date: 08/27/2021
-ms.openlocfilehash: ac160463dbfa5fd66afb351c0c0edc5f59b61b30
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5fd65d7028939e6412f7d04ca8e6c90a69fc5b4d
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124751032"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073224"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-application-insights"></a>Azure Monitor Application Insights를 사용하여 Azure Functions 모니터링
 
@@ -44,9 +44,14 @@ XDT_MicrosoftApplicationInsights_Java -> 1
 ApplicationInsightsAgent_EXTENSION_VERSION -> ~2
 ```
 
-#### <a name="linux"></a>Linux
+#### <a name="linux-dedicatedpremium"></a>Linux 전용/Premium
 ```
 ApplicationInsightsAgent_EXTENSION_VERSION -> ~3
+```
+
+#### <a name="linux-consumption"></a>Linux 사용
+```
+APPLICATIONINSIGHTS_ENABLE_AGENT: true
 ```
 
 ## <a name="distributed-tracing-for-python-function-apps"></a>Python 함수 앱에 대한 분산 추적

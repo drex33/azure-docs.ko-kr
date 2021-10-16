@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: 97691d3b9c2d94a42e3ff434a5bbaef1bd281975
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 33ef1ecd96c416cb500ff9be241bc99d0ee699e2
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698838"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130071761"
 ---
 # <a name="m-series"></a>M 시리즈
 
@@ -69,7 +69,7 @@ M 시리즈 VM의 기능은 Intel&reg; Hyper-Threading 기술입니다.
 
 가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
 
-디스크 유형에 대한 자세한 정보: [디스크 유형](./disks-types.md#ultra-disk)
+디스크 유형에 대한 자세한 정보: [디스크 유형](./disks-types.md#ultra-disks)
 
 
 ## <a name="next-steps"></a>다음 단계

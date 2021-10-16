@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: a92f368dc01aef5cf43ea93b94639fc1329ec7ea
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 89714a766dfd4ddc2c952554ab12068121543044
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129984386"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070777"
 ---
 # <a name="dcsv2-series"></a>DCsv2 시리즈
 
@@ -64,7 +64,7 @@ DCsv2 시리즈 가상 머신을 사용하면 퍼블릭 클라우드에서 처�
 - [고성능 컴퓨팅](sizes-hpc.md)
 - [이전 세대](sizes-previous-gen.md)
 - [요금 계산기](https://azure.microsoft.com/pricing/calculator/).
-- [디스크 유형에 관한 자세한 내용](./disks-types.md#ultra-disk)
+- [디스크 유형에 관한 자세한 내용](./disks-types.md#ultra-disks)
 
 가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
 

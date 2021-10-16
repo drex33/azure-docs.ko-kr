@@ -7,16 +7,16 @@ ms.topic: include
 author: mingshen-ms
 ms.author: krsh
 ms.date: 04/16/2021
-ms.openlocfilehash: b1eb954626570d7feb2af7fe0980e4f7a10e70c6
-ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
-ms.translationtype: HT
+ms.openlocfilehash: 2c0ce50c1aac28b532d23ecd1203ff76f10529d4
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113279871"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130077933"
 ---
 ## <a name="generalize-the-image"></a>이미지 일반화
 
-Azure Marketplace의 모든 이미지는 일반적으로 다시 사용할 수 있어야 합니다. 이를 달성하려면 운영 체제 VHD가 일반화되어야 합니다. 이 작업은 VM에서 인스턴스 관련 식별자와 소프트웨어 드라이버를 모두 제거합니다.
+Azure Marketplace의 모든 이미지는 일반적인 방식으로 다시 사용할 수 있어야 합니다. 이를 달성하려면 운영 체제 VHD가 일반화되어야 합니다. 이 작업은 VM에서 인스턴스 관련 식별자와 소프트웨어 드라이버를 모두 제거합니다.
 
 ### <a name="for-windows"></a>Windows의 경우
 

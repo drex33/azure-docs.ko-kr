@@ -4,24 +4,24 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 11d9b2c4825df76bad8e7c860c9edae3b60233ea
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
-ms.translationtype: HT
+ms.openlocfilehash: 5a3b9ab410ff8a757aa3ef23ee7d097ee1b3071b
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110575069"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130077826"
 ---
 ## <a name="add-to-your-functions-app"></a>Functions 앱에 추가
 
 ### <a name="functions-2x-and-higher"></a>Functions 2.x 이상
 
-트리거 및 바인딩을 사용하려면 적절한 패키지를 참조해야 합니다. NuGet 패키지는 .NET 클래스 라이브러리에 사용되는 반면 확장 번들은 다른 모든 애플리케이션 형식에 사용됩니다.
+트리거 및 바인딩을 사용하려면 적절한 패키지를 참조해야 합니다. NuGet 패키지는 .NET 클래스 라이브러리에 사용되는 반면, 확장 번들은 다른 모든 애플리케이션 형식에 사용됩니다.
 
 | 언어                                        | 추가 방법...                                   | 설명 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | [NuGet 패키지] 버전 3.x 설치 | |
 | C# Script, Java, JavaScript, Python, PowerShell | [확장 번들] 등록          | [Azure Tools 확장]은 Visual Studio Code와 함께 사용하는 것이 좋습니다. |
-| C# 스크립트(Azure Portal에서 온라인으로만 사용)         | 바인딩 추가                            | 함수 앱을 다시 게시하지 않고 기존 바인딩 확장을 업데이트하려면 [확장 업데이트]를 참조하세요. |
+| C# 스크립트(Azure Portal에서 온라인으로만)         | 바인딩 추가                            | 함수 앱을 다시 게시하지 않고 기존 바인딩 확장을 업데이트하려면 [확장 업데이트]를 참조하세요. |
 
 [NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs
 [core tools]: ../articles/azure-functions/functions-run-local.md
@@ -31,11 +31,23 @@ ms.locfileid: "110575069"
 
 ### <a name="event-hubs-extension-5x-and-higher"></a>Event Hubs 확장 5.x 이상
 
-새 버전의 Event Hubs 바인딩 확장은 [미리 보기 NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/5.0.0-beta.4)로 제공됩니다. 이 미리 보기에서는 [비밀 대신 ID를 사용하여 연결](../articles/azure-functions/functions-reference.md#configure-an-identity-based-connection)하는 기능이 도입되었습니다. .NET 애플리케이션의 경우 `Microsoft.Azure.EventHubs`의 형식이 [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs)의 최신 형식으로 바뀌어 사용자가 바인딩할 수 있는 형식도 변경됩니다.
+새 버전의 Event Hubs 바인딩 확장은 미리 보기에서 사용할 수 있습니다. [비밀 대신 ID를 사용하여 연결하는](../articles/azure-functions/functions-reference.md#configure-an-identity-based-connection)기능을 소개합니다. .NET 애플리케이션의 경우 `Microsoft.Azure.EventHubs`의 형식이 [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs)의 최신 형식으로 바뀌어 사용자가 바인딩할 수 있는 형식도 변경됩니다.
 
-> [!NOTE]
-> 미리 보기 패키지는 확장 번들에 포함되지 않으며 수동으로 설치해야 합니다. .NET 앱의 경우 패키지에 대한 참조를 추가합니다. 다른 모든 앱 유형에 대해서는 [확장 업데이트]를 참조하세요.
+이 확장 버전은 [미리 보기 NuGet 패키지로] 사용할 수 있거나 파일에 다음을 추가하여 미리 보기 확장 번들 v3에서 추가할 수 있습니다. `host.json`
 
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[3.*, 4.0.0)"
+  }
+}
+```
+
+자세한 내용은 [확장 업데이트를 참조하세요.]
+
+[미리 보기 NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/5.0.0-beta.7
 [core tools]: ./functions-run-local.md
 [확장 번들]: ./functions-bindings-register.md#extension-bundles
 [NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/

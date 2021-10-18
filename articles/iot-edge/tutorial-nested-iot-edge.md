@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 983844a824f4aac6bfe21f06b8fab591c99e1bf1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dc878b0f1a843d8212cd6541338510f8eff4b56c
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740539"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714931"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices"></a>자습서: IoT Edge 디바이스의 계층 구조 만들기
 
@@ -87,9 +87,8 @@ IoT Edge 디바이스의 계층 구조를 만들려면 다음이 필요합니다
 
    ![가상 머신이 생성될 때 출력하는 JSON에 SSH 핸들이 포함되어 있습니다.](./media/tutorial-nested-iot-edge/virtual-machine-outputs.png)
 
-* 최저 레이어 디바이스(8000, 443, 5671, 8883)를 제외한 모든 디바이스에서 다음 포트가 인바운드로 개방되어 있는지 확인합니다.
-  * 8000: API 프록시를 통해 Docker 컨테이너 이미지를 끌어오는 데 사용됩니다.
-  * 443: REST API 호출을 위해 부모 및 자식 에지 허브 간에 사용됩니다.
+* 최저 레이어 디바이스(443, 5671, 8883)를 제외한 모든 디바이스에서 다음 포트가 인바운드로 개방되어 있는지 확인합니다.
+  * 443: REST API 호출 및 docker 컨테이너 이미지를 끌어오기 위한 부모 및 자식 에지 허브 간에 사용됩니다.
   * 5671, 8883: AMQP 및 MQTT에 사용됩니다.
 
   자세한 내용은 [Azure Portal을 사용하여 가상 머신에 대한 포트를 여는 방법](../virtual-machines/windows/nsg-quickstart-portal.md)을 참조하세요.
@@ -235,7 +234,7 @@ IoT Edge 런타임을 구성하려면 설치 스크립트에서 만든 구성 �
 **하위 레이어 디바이스** 의 경우 명령에서 진단 이미지를 수동으로 전달해야 합니다.
 
    ```bash
-   sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:8000/azureiotedge-diagnostics:1.2
+   sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:443/azureiotedge-diagnostics:1.2
    ```
 
 **최상위 레이어 디바이스** 에서 몇 가지 전달 평가가 포함된 출력이 표시될 것입니다. 로그 정책 및 DNS 정책(네트워크에 따라 다름)에 대한 경고가 표시될 수 있습니다.
@@ -259,9 +258,9 @@ IoT Edge 런타임을 구성하려면 설치 스크립트에서 만든 구성 �
 
 **최상위 레이어 디바이스** 는 런타임 모듈 **IoT Edge Agent** 및 **IoT Edge Hub** 외에 **Docker 레지스트리** 모듈 및 **IoT Edge API Proxy** 모듈도 받습니다.
 
-**Docker 레지스트리** 모듈은 기존 Azure Container Registry를 가리킵니다. 이 경우 `REGISTRY_PROXY_REMOTEURL`은 Microsoft Container Registry를 가리킵니다. `createOptions`에서 포트 5000에서 통신하는 것을 볼 수 있습니다.
+**Docker 레지스트리** 모듈은 기존 Azure Container Registry를 가리킵니다. 이 경우 `REGISTRY_PROXY_REMOTEURL`은 Microsoft Container Registry를 가리킵니다. 기본적으로 **Docke 레지스트리** 는 포트 5000에서 수신 대기합니다.
 
-**IoT Edge API Proxy** 모듈은 HTTP 요청을 다른 모듈로 라우팅하므로 하위 레이어 디바이스가 컨테이너 이미지를 끌어오거나 Blob을 스토리지로 밀어 넣을 수 있습니다. 이 자습서에서는 포트 8000에서 통신하고, Docker 컨테이너 이미지 끌어오기 요청을 포트 5000의 **Docker 레지스트리** 모듈로 라우팅하도록 구성됩니다. 또한 모든 Blob Storage 업로드 요청은 포트 11002에서 AzureBlobStorageonIoTEdge 모듈로 라우팅됩니다. **IoT Edge API Proxy** 모듈 및 이 모듈을 구성하는 방법에 대한 자세한 내용은 모듈의 [방법 가이드](how-to-configure-api-proxy-module.md)를 참조하세요.
+**IoT Edge API Proxy** 모듈은 HTTP 요청을 다른 모듈로 라우팅하므로 하위 레이어 디바이스가 컨테이너 이미지를 끌어오거나 Blob을 스토리지로 밀어 넣을 수 있습니다. 이 자습서에서는 포트 443에서 통신하고, Docker 컨테이너 이미지 끌어오기 요청을 포트 5000의 **Docker 레지스트리** 모듈로 라우팅하도록 구성됩니다. 또한 모든 Blob Storage 업로드 요청은 포트 11002에서 AzureBlobStorageonIoTEdge 모듈로 라우팅됩니다. **IoT Edge API Proxy** 모듈 및 이 모듈을 구성하는 방법에 대한 자세한 내용은 모듈의 [방법 가이드](how-to-configure-api-proxy-module.md)를 참조하세요.
 
 Azure Portal 또는 Azure Cloud Shell을 통해 이와 같은 배포를 만드는 방법을 알아보려면 [방법 가이드의 최상위 레이어 디바이스 섹션](how-to-connect-downstream-iot-edge-device.md#deploy-modules-to-top-layer-devices)을 참조하세요.
 
@@ -271,7 +270,7 @@ Azure Portal 또는 Azure Cloud Shell을 통해 이와 같은 배포를 만드�
    cat ~/nestedIotEdgeTutorial/iotedge_config_cli_release/templates/tutorial/deploymentLowerLayer.json
    ```
 
-`systemModules` 아래에서 **하위 레이어 디바이스의** 런타임 모듈이 **최상위 레이어 디바이스** 처럼 `mcr.microsoft.com`에서 끌어오는 것이 아니라, `$upstream:8000`에서 끌어오도록 설정된 것을 볼 수 있습니다. **하위 레이어 디바이스** 는 클라우드에서 이미지를 직접 끌어올 수 없으므로, 포트 8000의 **IoT Edge API Proxy** 모듈로 Docker 이미지 요청을 보냅니다. **하위 레이어 디바이스** 에 배포된 다른 모듈(**Simulated Temperature Sensor** 모듈)도 이미지 요청을 `$upstream:8000`으로 보냅니다.
+`systemModules` 아래에서 **하위 레이어 디바이스의** 런타임 모듈이 **최상위 레이어 디바이스** 처럼 `mcr.microsoft.com`에서 끌어오는 것이 아니라, `$upstream:443`에서 끌어오도록 설정된 것을 볼 수 있습니다. **하위 레이어 디바이스** 는 클라우드에서 이미지를 직접 끌어올 수 없으므로, 포트 443의 **IoT Edge API Proxy** 모듈로 Docker 이미지 요청을 보냅니다. **하위 레이어 디바이스** 에 배포된 다른 모듈(**Simulated Temperature Sensor** 모듈)도 이미지 요청을 `$upstream:443`으로 보냅니다.
 
 Azure Portal 또는 Azure Cloud Shell을 통해 이와 같은 배포를 만드는 방법을 알아보려면 [방법 가이드의 하위 레이어 디바이스 섹션](how-to-connect-downstream-iot-edge-device.md#deploy-modules-to-lower-layer-devices)을 참조하세요.
 
@@ -305,10 +304,8 @@ Azure Portal 또는 Azure Cloud Shell을 통해 이와 같은 배포를 만드�
 
 하위 레이어에서 `iotedge check`를 실행하면 프로그램이 포트 443을 통해 부모에서 이미지 끌어오기를 시도합니다.
 
-이 자습서에서는 포트 8000을 사용하므로 이를 지정해야 합니다.
-
 ```bash
-sudo iotedge check --diagnostics-image-name $upstream:8000/azureiotedge-diagnostics:1.2
+sudo iotedge check --diagnostics-image-name $upstream:443/azureiotedge-diagnostics:1.2
 ```
 
 `azureiotedge-diagnostics` 값은 레지스트리 모듈과 연결된 컨테이너 레지스트리에서 가져옵니다. 이 자습서는 기본적으로 https://mcr.microsoft.com: 으로 설정되어 있습니다.

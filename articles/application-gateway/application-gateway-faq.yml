@@ -9,12 +9,12 @@ metadata:
   ms.date: 06/08/2021
   ms.author: victorh
   ms.custom: references_regions
-  ms.openlocfilehash: a0d8c83209f5d96d10cacd95d85fc45f2d09b44b
-  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+  ms.openlocfilehash: eda05df5b3ec13d2f2ae4dc8c3634ead6c1e35bf
+  ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/24/2021
-  ms.locfileid: "128669078"
+  ms.lasthandoff: 10/11/2021
+  ms.locfileid: "129728421"
 title: Application Gateway에 대한 질문과 대답입니다.
 summary: >
   [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -185,6 +185,8 @@ sections:
     answer: "예. Application Gateway에서는 [암호 그룹을 구성](application-gateway-ssl-policy-overview.md)할 수 있습니다. 사용자 지정 정책을 정의하려면 다음 암호 그룹 중 하나 이상을 사용하도록 설정해야 합니다. \n\n* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 \n* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256\n* TLS_DHE_RSA_WITH_AES_128_GCM_SHA256\n* TLS_RSA_WITH_AES_128_GCM_SHA256\n* TLS_RSA_WITH_AES_256_CBC_SHA256\n* TLS_RSA_WITH_AES_128_CBC_SHA256\n\nApplication Gateway는 백 엔드 관리에 SHA256을 사용합니다.\n"
   - question: Application Gateway는 TLS/SSL 인증서를 몇 개까지 지원하나요?
     answer: Application Gateway는 최대 100의 TLS/SSL 인증서를 지원합니다.
+  - question: Application Gateway는 OCSP 및 OCSP 스테이플링을 지원하나요?
+    answer: 예, Application Gateway는 서버 인증서에 대해 OCSP 확장 및 OCSP 스테이플링을 사용하는 인증서를 지원합니다.
   - question: Application Gateway는 백 엔드 재암호화에 인증 인증서를 몇 개까지 지원하나요?
     answer: Application Gateway는 최대 100의 인증 인증서를 지원합니다.
   - question: Application Gateway는 기본적으로 Azure Key Vault와 통합되나요?

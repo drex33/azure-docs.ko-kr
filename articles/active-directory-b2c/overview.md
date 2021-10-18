@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory B2C란?
-description: Azure Active Directory B2C에서 Facebook, Google 및 기타 ID 공급자를 통한 소셜 로그인을 포함하여 애플리케이션의 외부 ID를 지원하는 방법을 알아봅니다.
+description: Azure Active Directory B2C에서 Facebook, Google 및 기타 ID 공급자를 통한 소셜 등록을 포함하여 애플리케이션의 외부 ID를 지원하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 10/01/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 916c5191acb0f7245c929c6ef1db5fca4fc3841b
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 54af9f4b8584500faa9c3134f350a436da54c24b
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129352458"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709970"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Azure Active Directory B2C란?
 
@@ -25,10 +25,10 @@ Azure Active Directory B2C는 비즈니스-고객 ID를 서비스로 제공합�
 
 Azure AD B2C는 하루에 수백만 명의 사용자와 수십억 개의 인증을 지원할 수 있는 CIAM(고객 ID 액세스 관리) 솔루션입니다. 인증 플랫폼의 스케일링 및 안전을 처리하고, 서비스 거부, 암호 스프레이 또는 무차별 암호 대입 공격과 같은 위협을 모니터링하여 자동으로 처리합니다.
 
-Azure AD B2C는 [Azure AD(Azure Active Directory)](../active-directory/fundamentals/active-directory-whatis.md)와는 별도의 서비스입니다. Azure AD와 동일한 기술을 기반으로 빌드되지만 다른 용도로 빌드됩니다. 즉, 비즈니스에서 고객 관련 애플리케이션을 빌드하도록 허용한 다음, 모든 사용자가 사용자 계정에 대한 제한 없이 해당 애플리케이션에 등록할 수 있도록 허용합니다.
+Azure AD B2C는 [Azure AD(Azure Active Directory)](../active-directory/fundamentals/active-directory-whatis.md)와는 별도의 서비스입니다. Azure AD와 동일한 기술을 기반으로 하지만 다른 용도로 빌드됩니다. 이를 통해 비즈니스에서 고객 관련 애플리케이션을 빌드하도록 허용한 다음, 모든 사용자가 사용자 계정에 대한 제한 없이 해당 애플리케이션에 등록할 수 있도록 허용합니다.
    
 ## <a name="who-uses-azure-ad-b2c"></a>누가 Azure AD B2C를 사용하나요?
-누구나 웹/모바일 애플리케이션에 등록할 수 있도록 허용하려는 모든 비즈니스 또는 개인. 
+화이트 레이블 인증 솔루션을 사용하여 웹/모바일 애플리케이션에 최종 사용자를 인증하려는 모든 비즈니스 또는 개인입니다. 인증 외에도 Azure AD B2C 서비스는 인증된 사용자의 API 리소스 액세스와 같은 권한 부여에 사용됩니다. Azure AD B2C는 **IT 관리자** 및 **개발자** 가 사용하도록 설계되었습니다.
 
 ## <a name="custom-branded-identity-solution"></a>사용자 지정 브랜드 ID 솔루션
 

@@ -1,19 +1,19 @@
 ---
-title: 리소스 상태 이해
+title: '문제 해결: 리소스 상태'
 titleSuffix: Azure Digital Twins
-description: Azure Resource Health를 사용하여 Azure Digital Twins 인스턴스의 상태를 확인하는 방법을 참조하세요.
+description: Azure Resource Health를 사용 하 여 Azure Digital Twins 인스턴스의 상태를 확인 하는 방법을 알아봅니다.
 author: baanders
 ms.author: baanders
-ms.date: 8/27/2021
+ms.date: 10/7/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: 597de6d24e4051f6b6097b7c4e341cbe8ec3475a
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 9c816e613fe6f495de9abb57e2ac041960bffdbe
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130044917"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131451"
 ---
 # <a name="troubleshooting-azure-digital-twins-resource-health"></a>Azure Digital Twins 문제 해결: 리소스 상태
 
@@ -56,6 +56,6 @@ Azure 상태 페이지 사용에 대한 자세한 내용은 [Azure 상태 개요
 ## <a name="next-steps"></a>다음 단계
 
 다음 문서에서 Azure Digital Twins 인스턴스를 모니터링하는 다른 방법에 대해 알아보세요.
-* [문제 해결: Azure Monitor의 메트릭 보기](troubleshoot-metrics.md)
-* [문제 해결: 진단 설정](troubleshoot-diagnostics.md)
-* [문제 해결: 경고 설정](troubleshoot-alerts.md)
+* [문제 해결: 메트릭](troubleshoot-metrics.md)
+* [문제 해결: 진단 로그](troubleshoot-diagnostics.md).
+* [문제 해결: 경고](troubleshoot-alerts.md)

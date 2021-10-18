@@ -1,27 +1,29 @@
 ---
-title: Azure IoT Hub Device Provisioning Service의 개요 | Microsoft Docs
+title: Microsoft Azure IoT Hub Device Provisioning Service 개요
 description: DPS(Device Provisioning Service) 및 IoT Hub를 사용하여 Azure에서 디바이스 프로비저닝 설명
-author: wesmc7777
-ms.author: wesmc
-ms.date: 04/04/2019
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 10/06/2021
 ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
-manager: eliotgra
+manager: lizross
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: d65ef555ff0f05ca8020b3598bc6ac3022a708dd
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: eab01abee0ee75df0e342aa7cec1ef7e6c8a4b55
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129272721"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659510"
 ---
 # <a name="what-is-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service란?
+
 Microsoft Azure는 IoT 솔루션 요구를 위해 통합된 퍼블릭 클라우드 서비스의 다양한 집합을 제공합니다. IoT Hub DPS(Device Provisioning Service)는 IoT Hub용 도우미 서비스로, 사용자 개입 없이 적합한 IoT 허브에 자동 Just-In-Time 프로비저닝을 수행할 수 있습니다. DPS를 사용하면 수백만 대의 디바이스를 확장 가능한 방식으로 안전하게 프로비저닝할 수 있습니다.
 
 ## <a name="when-to-use-device-provisioning-service"></a>Device Provisioning Service를 사용하는 경우
+
 IoT Hub에 디바이스를 연결하고 구성하는 데 DPS가 탁월한 선택이라는 것을 보여주는 프로비저닝 시나리오는 다음과 같이 다양합니다.
 
 * 출하 시(초기 설정) IoT Hub 연결 정보를 하드코딩하지 않고 단일 IoT 솔루션으로 무인 프로비전
@@ -31,6 +33,14 @@ IoT Hub에 디바이스를 연결하고 구성하는 데 DPS가 탁월한 선택
 * 대기 시간이 가장 낮은 IoT Hub에 디바이스 연결(지리적 분할)
 * 디바이스의 변경 내용에 따라 다시 프로비전
 * 디바이스를 IoT Hub에 연결하는 데 사용되는 키 롤링(X.509 인증서를 사용하여 연결하는 경우)
+
+>[!NOTE]
+>**데이터 상주 고려 사항:**
+>
+>DPS는 모든 프로비저닝 서비스 인스턴스에 대해 동일한 [디바이스 프로비저닝 엔드포인트](concepts-service.md#device-provisioning-endpoint)를 사용하며, 사용 가능한 가장 가까운 서비스 엔드포인트로 트래픽 부하 분산을 수행합니다. 따라서 인증 비밀은 DPS 인스턴스가 처음 만들어진 지역 외부에서 일시적으로 전송될 수 있습니다. 그러나 디바이스가 연결되면 디바이스 데이터가 DPS 인스턴스의 원래 지역으로 직접 흐릅니다.
+>
+>데이터가 DPS 인스턴스가 만들어진 지역을 벗어나지 않도록 하려면 프라이빗 엔드포인트를 사용합니다.  프라이빗 엔드포인트를 설정하는 방법을 알아보려면 [가상 네트워크에 대한 Azure IoT DPS(Device Provisioning Service) 지원](virtual-network-support.md#private-endpoint-limitations)을 참조하세요.
+
 
 ## <a name="behind-the-scenes"></a>배후 상황
 이전 섹션에 나열된 모든 시나리오는 DPS를 사용하여 동일한 흐름으로 제로터치 프로비저닝을 수행할 수 있습니다. 기존 프로비저닝에 포함된 다수의 수동 단계가 DPS로 자동화되어 IoT 디바이스 배포 시간이 줄어들고 수동 오류의 위험이 낮아집니다. 다음 섹션에서는 프로비전된 디바이스를 가져올 때 백그라운드에서 발생하는 일에 대해 설명합니다. 첫 번째 단계는 수동이며, 다음 단계는 모두 자동으로 처리됩니다.

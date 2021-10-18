@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 09/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 468f5141d7e28d387719df6bddbf30f5810c5955
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 276ac87c4d1f0c31d75c4dd653aaa5c67f96d6c0
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128557249"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754523"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal-preview"></a>빠른 시작: Azure Portal에서 Apache Cassandra 클러스터용 Azure Managed Instance 생성(미리 보기)
 
@@ -53,7 +53,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    * **Cassandra 관리자 암호 확인** - 암호를 다시 입력합니다.
 
    > [!NOTE]
-   > 공개 미리 보기 중에는 미국 동부, 미국 서부, 미국 동부 2, 미국 서부 2, 미국 중남부, 북유럽, 서유럽, 동남 아시아, 오스트레일리아 동부 지역에서 관리형 인스턴스 클러스터를 만들 수 있습니다.
+   > 공개 미리 보기 중에는 *미국 동부, 미국 서부, 미국 동부 2, 미국 서부 2, 미국 중부, 미국 중남부, 북유럽, 서유럽, 동남 아시아, 인도 중부, 오스트레일리아 동부* 지역에서 관리형 인스턴스 클러스터를 만들 수 있습니다.
 
    :::image type="content" source="./media/create-cluster-portal/create-cluster-page.png" alt-text="클러스터 만들기 양식을 작성합니다." lightbox="./media/create-cluster-portal/create-cluster-page.png" border="true":::
 

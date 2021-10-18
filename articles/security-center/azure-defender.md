@@ -3,16 +3,16 @@ title: Azure Defender 개요 및 사용 가능한 플랜
 description: Azure Defender의 플랜, 보호 및 경고에 대해 알아봅니다. 그런 다음, 고급 보안을 위해 구독에서 Azure Defender를 사용하도록 설정합니다.
 author: memildin
 ms.author: memildin
-ms.date: 9/30/2020
+ms.date: 10/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: cfbb8badd4a0d9a8b9776d810d33f77a051b3a39
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 34d450535b25b8d3ba1bcc69b54a27d6aab73115
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112238960"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715394"
 ---
 # <a name="introduction-to-azure-defender"></a>Azure Defender 소개
 
@@ -57,7 +57,7 @@ Azure 환경을 방어할 수 있을 뿐 아니라, 하이브리드 클라우드
 
 환경에 따라 사용자 지정된 위협 인텔리전스 및 우선 순위가 지정된 경고가 제공되므로 가장 중요한 문제에 집중할 수 있습니다.
 
-다른 클라우드 또는 온-프레미스에 있는 가상 머신 및 SQL 데이터베이스로 보호 범위를 확장하려면 [Azure Arc](https://azure.microsoft.com/services/azure-arc/)를 배포하고 Azure Defender를 사용합니다. 서버용 Azure Arc는 무료 서비스이지만, Azure Defender처럼 Arc 지원 서버에서 사용되는 서비스는 해당 서비스의 가격 책정에 따라 요금이 청구됩니다. [Azure Arc를 사용하여 비 Azure 머신 추가](quickstart-onboard-machines.md#add-non-azure-machines-with-azure-arc)에서 자세히 알아보세요.
+다른 클라우드 또는 온-프레미스에 있는 가상 머신 및 SQL 데이터베이스로 보호 범위를 확장하려면 [Azure Arc](https://azure.microsoft.com/services/azure-arc/)를 배포하고 Azure Defender를 사용합니다. 서버용 Azure Arc는 무료 서비스이지만, Azure Defender처럼 Azure Arc 지원 서버에서 사용되는 서비스는 해당 서비스의 가격 책정에 따라 요금이 청구됩니다. [Azure Arc를 사용하여 비 Azure 머신 추가](quickstart-onboard-machines.md#add-non-azure-machines-with-azure-arc)에서 자세히 알아보세요.
 
 > [!TIP]
 > AWS용 기본 커넥터는 Azure Arc 배포를 투명하게 처리합니다. [Azure Security Center에 AWS 계정 연결](quickstart-onboard-aws.md)에서 자세히 알아보세요.
@@ -84,13 +84,18 @@ Azure Defender 대시보드의 고급 보호 타일을 사용하여 이러한 �
 
 ## <a name="vulnerability-assessment-and-management"></a>취약성 평가 및 관리
 
-Azure Defender는 추가 비용 없이 가상 머신과 컨테이너 레지스트리의 취약성을 검사합니다. 스캐너는 Qualys 제품이지만 Qualys 라이선스 또는 Qualys 계정이 필요하지 않습니다. 모든 것이 Security Center 내에서 원활하게 처리됩니다. 
+Azure Defender는 추가 비용 없이 가상 머신과 컨테이너 레지스트리의 취약성을 평가합니다. 일부 스캐너는 Qualys 제품이지만 Qualys 라이선스 또는 Qualys 계정이 필요하지 않습니다. 모든 것이 Security Center 내에서 원활하게 처리됩니다. 
+
+[엔드포인트용 Microsoft Defender와의 통합](security-center-wdatp.md)을 사용하도록 설정한 경우 **Microsoft 위협 및 취약성 관리** 의 취약성 발견에 액세스할 수 있습니다. [엔드포인트용 Microsoft Defender의 위협 및 취약성 관리를 통한 취약성 조사](deploy-vulnerability-assessment-tvm.md)에서 자세히 알아보세요.
 
 Security Center 내에서 이러한 취약성 스캐너의 결과를 검토하고 대응할 수 있습니다. 이와 같이 모든 클라우드 보안 작업을 Security Center에서 거의 대부분 처리할 수 있습니다.
 
+> [!IMPORTANT]
+> Security Center와 엔드포인트용 Microsoft Defender의 통합은 기본적으로 사용하도록 설정되어 있습니다. 따라서 Azure Defender를 사용하도록 설정하는 경우 서버용 Azure Defender에서 취약성, 설치된 소프트웨어 및 엔드포인트에 대한 경고와 관련된 엔드포인트용 Microsoft Defender 데이터에 액세스하도록 동의합니다.
+
 다음 페이지에서 자세히 알아보세요.
 
-- [Azure 가상 머신을 위한 Security Center의 통합 취약성 평가 솔루션](deploy-vulnerability-assessment-vm.md)
+- [Azure 및 하이브리드 머신을 위한 Azure Defender의 통합 Qualys 스캐너](deploy-vulnerability-assessment-vm.md)
 - [Azure 컨테이너 레지스트리의 이미지 취약성 식별](defender-for-container-registries-usage.md#identify-vulnerabilities-in-images-in-other-container-registries)
 
 

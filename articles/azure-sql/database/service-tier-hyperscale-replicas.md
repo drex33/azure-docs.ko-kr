@@ -9,12 +9,12 @@ author: yorek
 ms.author: damauri
 ms.reviewer: ''
 ms.date: 9/24/2021
-ms.openlocfilehash: e2785f965cdbb94af081e937f0b2290578c04796
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 38dd0f42b8c318d94c266b4837f2b67eda1f9ed9
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129059533"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667861"
 ---
 # <a name="hyperscale-secondary-replicas"></a>하이퍼스케일 보조 복제본
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -62,6 +62,11 @@ HA 복제본과 명명된 복제본의 차이점은 다음과 같습니다.
 - 명명된 복제본에는 주 복제본과 독립적으로 설정하고 변경할 수 있는 자체 서비스 수준 목표가 있습니다.
 - 명명된 복제본은 주 복제본마다 최대 30개의 명명된 복제본을 지원합니다.
 - 명명된 복제본을 호스트하는 논리 서버에서 서로 다른 로그인을 만들어 명명된 복제본마다 다른 인증을 지원할 수 있습니다.
+
+그 결과, 명명된 복제본은 읽기 전용 워크로드와 관련하여 HA 복제본에 비해 몇 가지 이점을 제공합니다.
+
+- 명명된 복제본에 연결된 사용자는 주 복제본이 확장 또는 축소되는 경우에도 연결이 끊어지지 않습니다. 동시에 주 복제본에 연결된 사용자는 명명된 복제본의 확장 또는 축소에 의한 영향을 받지 않습니다.
+-   기본 또는 명명된 모든 복제본에서 실행되는 워크로드는 다른 복제본에서 실행되는 장기 실행 쿼리의 영향을 받지 않습니다.
 
 명명된 복제본의 주요 목표는 대규모 OLTP [읽기 확장](read-scale-out.md) 시나리오를 지원하고 HTAP(하이브리드 트랜잭션 및 분석 처리) 워크로드를 개선하는 것입니다. 해당 솔루션을 만드는 방법의 예는 아래에서 확인할 수 있습니다.
 

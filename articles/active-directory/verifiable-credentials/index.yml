@@ -1,47 +1,59 @@
 ### YamlMime:Landing
-title: Azure Active Directory 확인 가능한 자격 증명 문서
+title: Azure Active Directory 확인 가능한 자격 증명 문서(미리 보기)
 summary: 확인 가능한 자격 증명을 통해 고객이 자신의 데이터를 관리할 수 있는 솔루션을 빌드할 수 있습니다.
 metadata:
   author: barclayn
   description: 고객이 스스로 정보를 제어할 수 있도록 확인 가능한 자격 증명을 솔루션에 통합하는 방법을 알아봅니다.
-  manager: daveba
+  manager: karenh444
   ms.author: barclayn
   ms.collection: na
-  ms.date: 03/30/2021
+  ms.date: 10/13/2021
   ms.service: active-directory
   ms.subservice: na
   ms.topic: landing-page
   services: active-directory
-  ms.openlocfilehash: 13eb88e8e8613c913f66185eba751a1fe3c36e1e
-  ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+  ms.openlocfilehash: 8a69a36231d2eb47307537da0e39ab4306942669
+  ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/01/2021
-  ms.locfileid: "106176209"
+  ms.lasthandoff: 10/14/2021
+  ms.locfileid: "130006796"
 landingContent:
-- title: 확인 가능한 자격 증명 정보
+- title: 주요 개념
   linkLists:
   - linkListType: overview
     links:
     - text: Azure Active Directory 확인 가능한 자격 증명 소개
       url: decentralized-identifier-overview.md
+  - linkListType: overview
+    links:
+    - text: 탈중앙화 ID에 대한 지침 원칙
+      url: https://www.microsoft.com/security/blog/2021/10/06/microsofts-5-guiding-principles-for-decentralized-identities/
   - linkListType: video
     links:
     - text: 리소스에 대한 액세스 관리
       url: https://www.youtube.com/watch?v=r20hCF9NbTo
-- title: 확인 가능한 자격 증명을 통해 개인 정보를 제어할 수 있습니다.
+- title: Azure Active Directory 확인 가능한 자격 증명 서비스에 대해 알아보기
   linkLists:
   - linkListType: tutorial
     links:
     - text: 확인 가능한 자격 증명 시작
-      url: get-started-verifiable-credentials.md
+      url: enable-your-tenant-verifiable-credentials.md
+  - linkListType: tutorial
+    links:
+    - text: 확인 가능한 자격 증명 발급
+      url: verifiable-credentials-configure-issuer.md
+- title: 확인 가능한 자격 증명 솔루션 빌드
+  linkLists:
   - linkListType: concept
     links:
-    - text: 발급자 서비스 통신 예
-      url: issuer-openid.md
-- title: DID를 연결하는 방법
-  linkLists:
+    - text: 아키텍처 계획
+      url: introduction-to-verifiable-credentials-architecture.md
   - linkListType: how-to-guide
     links:
-    - text: 도메인을 분산 식별자에 연결
-      url: how-to-dnsbind.md
+    - text: 발급자에 대한 요청 서비스 API
+      url: issuance-request-api.md
+  - linkListType: how-to-guide
+    links:
+    - text: 검증자에 대한 요청 서비스 API
+      url: presentation-request-api.md

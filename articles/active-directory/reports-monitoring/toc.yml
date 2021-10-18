@@ -8,6 +8,8 @@
       href: overview-monitoring.md
     - name: 로그인 진단이란?
       href: overview-sign-in-diagnostics.md
+    - name: 플래그가 지정된 로그인이란?
+      href: overview-flagged-sign-ins.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -60,6 +62,8 @@
           href: howto-find-activity-reports.md
         - name: 사용자에 대한 로그인 오류 문제 해결
           href: howto-troubleshoot-sign-in-errors.md
+        - name: 위험 플래그가 지정된 사용자 수정
+          href: howto-remediate-users-flagged-for-risk.md
         - name: Reporting API를 위한 필수 구성 요소 구성
           href: howto-configure-prerequisites-for-reporting-api.md
         - name: Azure AD 통합 문서 사용 방법
@@ -91,8 +95,6 @@
 - name: 참조
   expanded: true
   items:
-    - name: 로그인 로그의 기본 정보 식별자
-      href: reference-basic-info-identifiers.md
     - name: 보고용 Azure AD PowerShell cmdlet
       href: reference-powershell-reporting.md
     - name: 감사 로그 API 참조

@@ -3,19 +3,19 @@ title: '빠른 시작: Azure Arc에서 함수 앱 만들기'
 description: 첫 번째 함수 앱을 배포하여 Azure Arc에서 Azure Functions를 시작합니다.
 ms.topic: quickstart
 ms.date: 05/10/2021
-ms.openlocfilehash: 3a9c92e500e79b68688ec526baa2a77b8df2ccef
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4fd5a7a2792e6e90748c60336d92d5ed80388267
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121723015"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706995"
 ---
 # <a name="create-your-first-function-on-azure-arc-preview"></a>Azure Arc에서 첫 번째 함수 만들기(미리 보기)
 
 이 빠른 시작에서는 Azure Functions 프로젝트를 만들어 [Azure Arc 지원 Kubernetes 클러스터](../azure-arc/kubernetes/overview.md)에서 실행되는 함수 앱에 배포합니다. 자세한 내용은 [Azure Arc App Service, Functions 및 Logic Apps](../app-service/overview-arc-integration.md)를 참조하세요. 이 시나리오는 Linux에서 실행되는 함수 앱만 지원합니다.   
 
 > [!NOTE]
-> Arc 지원 Kubernetes 클러스터에서 함수를 실행하기 위한 지원은 현재 미리 보기로 제공됩니다.  
+> Azure Arc 지원 Kubernetes 클러스터에서 함수를 실행하기 위한 지원은 현재 미리 보기로 제공됩니다.  
 >  
 > Azure Arc 지원 Kubernetes 클러스터에 PowerShell 함수 프로젝트를 게시하는 방식은 현재 지원되지 않습니다. Azure Arc 지원 Kubernetes 클러스터에 PowerShell 함수를 배포해야 하는 경우 [컨테이너에서 함수 앱을 만듭니다](create-first-function-arc-custom-container.md). 
 
@@ -164,7 +164,7 @@ func azure functionapp list-functions
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 함수 앱이 Arc 지원 App Service Kubernetes 환경의 컨테이너에서 실행되고 있으므로, Queue Storage 출력 바인딩을 추가하여 Azure Storage에 연결할 수 있습니다.
+이제 함수 앱이 Azure Arc 지원 App Service Kubernetes 환경의 컨테이너에서 실행되고 있으므로, Queue Storage 출력 바인딩을 추가하여 Azure Storage에 연결할 수 있습니다.
 
 # <a name="c"></a>[C\#](#tab/csharp)  
 

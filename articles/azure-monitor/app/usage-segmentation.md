@@ -2,15 +2,15 @@
 title: Application Insights의 사용자, 세션 및 이벤트 분석
 description: 웹앱의 사용자 인구 통계 분석입니다.
 ms.topic: conceptual
-author: lgayhardt
-ms.author: lagayhar
+author: mattmccleary
+ms.author: mmcc
 ms.date: 07/30/2021
-ms.openlocfilehash: 09dc9ba915b0ecf99219aadd9214192b9f4b1e19
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d3b6bac65cea13de078d91a6936aa8618d9f7423
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536741"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132667"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Application Insights의 사용자, 세션 및 이벤트 분석
 

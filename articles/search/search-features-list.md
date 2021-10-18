@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/06/2021
-ms.openlocfilehash: 714dc6ac27f466c98e5c74bc16a9cfa3c5cd30cf
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 07442ce360baa152b36bcc1145e0636d73d6fedb
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129620282"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132724"
 ---
 # <a name="features-of-azure-cognitive-search"></a>Azure Cognitive Search의 기능
 
@@ -33,9 +33,9 @@ Azure Cognitive Search는 전체 텍스트 검색 엔진, 검색 인덱스의 �
 
 | 범주&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 기능 |
 |-------------------|----------|
-|인덱싱 중 AI 처리 | 이미지 및 텍스트 분석을 위한 [**AI 보강**](cognitive-search-concept-intro.md)은 인덱싱 파이프라인에 적용하여 원시 콘텐츠에서 텍스트 정보를 추출할 수 있습니다. [기본 제공 기술](cognitive-search-predefined-skills.md)의 몇 가지 예제에는 광학 문자 인식(스캔된 JPEG를 검색 가능하게 만듬), 엔터티 인식(조직, 이름 또는 위치 식별) 및 키 구문 인식이 포함됩니다. [사용자 정의 기술을 코딩](cognitive-search-create-custom-skill-example.md)하여 파이프라인에 연결수도 있습니다. [Azure Machine Learning 제작 기술을 통합](./cognitive-search-tutorial-aml-custom-skill.md)할 수도 있습니다. |
-| 비검색 시나리오에서 분석하고 사용할 수 있도록 보강된 콘텐츠 저장 | [**지식 저장소**](knowledge-store-concept-intro.md)는 인덱싱 파이프라인의 대체 출력입니다. 인덱스에 토큰화된 용어를 전송하는 대신, 구성에 따라 인덱싱 파이프라인에서 만든 보강 문서를 Azure Blob Storage 또는 테이블 Table Storage에 있는 지식 저장소로 보낼 수 있습니다. 지식 저장소는 AI 기반 인덱싱(기술 세트)에서 생성됩니다. 지식 저장소의 목적은 다운스트림 분석 또는 처리를 지원하는 것입니다. 지식 저장소의 새 정보 및 구조를 사용하여 기계 학습 프로세스에 연결하거나 Power BI에서 연결하여 데이터를 탐색할 수 있습니다.<br/><br/> |
-| 캐시된 콘텐츠 | [**증분 보강(미리 보기)**](cognitive-search-incremental-indexing-conceptual.md)은 캐시된 콘텐츠를 변경되지 않는 파이프라인 부분에 사용하여 특정 편집으로 변경되는 문서로만 처리하도록 제한합니다. |
+|인덱싱 중 AI 처리 | [**AI 보강**](cognitive-search-concept-intro.md) 는 전체 텍스트 검색을 위해 인덱싱할 수 없는 콘텐츠에서 텍스트와 정보를 추출 하는 인덱서 파이프라인에서 포함 된 이미지 및 자연어 처리를 의미 합니다. AI 처리는 기술에서 기술을 추가 하 고 결합 하 여 수행 되며,이는 인덱서에 연결 됩니다. AI는 텍스트 번역 또는 OCR (광학 문자 인식) 또는 사용자가 제공 하는 [사용자 지정 기술과](cognitive-search-create-custom-skill-example.md) 같은 Microsoft의 [기본 기술](cognitive-search-predefined-skills.md) 입니다. |
+| 비검색 시나리오에서 분석하고 사용할 수 있도록 보강된 콘텐츠 저장 | [**기술 자료 저장소**](knowledge-store-concept-intro.md) 는 보강 콘텐츠의 영구 저장소로, 지식 마이닝 및 데이터 과학 처리와 같은 비 검색 시나리오를 위한 것입니다. 기술 자료 저장소는 기술에 정의 되어 있지만 Azure Storage 개체 또는 테이블 형식 행 집합으로 생성 됩니다.|
+| 캐시 된 강화 | [**증분 보강 (미리 보기)**](cognitive-search-incremental-indexing-conceptual.md) 는 기술 실행 중에 다시 사용할 수 있는 캐시 된 강화을 나타냅니다. 캐싱은 OCR 및 이미지 분석을 포함 하는 기술력과에서 처리 하는 데 비용이 많이 드는 특히 유용 합니다. |
 
 ## <a name="query-and-user-experience"></a>쿼리 및 사용자 환경
 

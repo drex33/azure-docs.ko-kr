@@ -8,28 +8,34 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/15/2021
-ms.openlocfilehash: f8db2f1ab754f762e80899fa8dc5ad3ba35a8000
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: e06772af191917daed79210c28ed2efb19c30036
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130069048"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130134225"
 ---
 # <a name="detailed-example-of-shapes-and-projections-in-a-knowledge-store"></a>지식 저장소의 도형 및 프로젝션에 대한 자세한 예제
 
 이 문서에서는 [지식 저장소](knowledge-store-concept-intro.md)에서 풍부한 기술 항목의 출력을 완전히 표현하는 데 필요한 셰이핑 및 프로젝션 단계를 안내하여 [개략적인 개념](knowledge-store-projection-overview.md) 및 [구문 기반 문서를](knowledge-store-projections-examples.md) 보완하는 자세한 예제를 제공합니다.
 
-애플리케이션 요구 사항이 여러 기술 및 프로젝션을 요구하는 경우 이 예제를 통해 콘텐츠를 셰이프하고 프로젝션하는 방법을 더 잘 이해할 수 있습니다.
+애플리케이션 요구 사항에서 여러 기술과 프로젝션을 요구하는 경우 이 예제를 통해 도형과 프로젝션이 교차하는 방식을 더 잘 이해할 수 있습니다.
+
+## <a name="download-sample-definitions"></a>샘플 정의 다운로드
+
+GitHub [azure-search-postman-samples를](https://github.com/Azure-Samples/azure-search-postman-samples) 복제하거나 다운로드하고 Projections 컬렉션을 가져와서 이 예제를 직접 단계별로 [**진행합니다.**](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/projections)
+
+샘플 문서는 컬렉션에 특별히 포함되지 않지만 [azure-search-sample-data의](https://github.com/Azure-Samples/azure-search-sample-data) [혼합 미디어 파일에는](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/ai-enrichment-mixed-media) 이 예제에 설명된 프로젝션을 지원하는 텍스트와 이미지가 모두 있습니다.
 
 ## <a name="example-skillset"></a>기술 예제
 
-도형과 프로젝션 간의 교집합을 이해하려면 보강된 콘텐츠를 만드는 다음 기술집합을 검토합니다. 이 기술 세트는 원시 이미지와 텍스트를 모두 처리하여 모양과 투영에서 참조할 출력을 생성합니다.
+도형과 프로젝션 간의 종속성을 이해하려면 보강된 콘텐츠를 만드는 다음 기술et을 검토합니다. 이 기술 세트는 원시 이미지와 텍스트를 모두 처리하여 모양과 투영에서 참조할 출력을 생성합니다.
 
-기술 출력(targetNames)에 주의해야 합니다. 보강된 문서 트리에 기록된 출력은 프로젝션 및 쉐이퍼 기술에서 참조됩니다.
+기술 출력(targetNames)에 주의해야 합니다. 보강된 문서 트리에 기록된 출력은 도형 및 도형에서 참조됩니다(쉐이퍼 기술을 통해).
 
 ```json
 {
-    "name": "azureblob-skillset",
+    "name": "projections-demo-ss",
     "description": "Skillset that enriches blob data found in "merged_content". The enrichment granularity is a document.",
     "skills": [
         {
@@ -48,7 +54,6 @@ ms.locfileid: "130069048"
             ],
             "defaultLanguageCode": "en",
             "minimumPrecision": null,
-            "includeTypelessEntities": null,
             "inputs": [
                 {
                     "name": "text",
@@ -71,10 +76,6 @@ ms.locfileid: "130069048"
                 {
                     "name": "locations",
                     "targetName": "locations"
-                },
-                {
-                    "name": "entities",
-                    "targetName": "entities"
                 }
             ]
         },
@@ -266,8 +267,7 @@ ms.locfileid: "130069048"
 기술 기술 내에서 쉐이퍼 기술은 다음과 같이 보일 수 있습니다.
 
 ```json
-    "name": "azureblob-skillset",
-    "description": "A friendly description of the skillset goes here.",
+    "name": "projections-demo-ss",
     "skills": [
         {
             <Shaper skill goes here>
@@ -347,7 +347,7 @@ Power BI는 이러한 생성된 키를 사용하여 테이블 내의 관계를 �
 
 개체 프로젝션을 정의하려면 `objects` 프로젝션 속성에 배열을 사용합니다.
 
-원본은 프로젝션의 루트인 보강 트리의 노드에 대한 경로입니다. 필수는 아니지만 노드 경로는 일반적으로 쉐이퍼 기술의 출력입니다. 대부분의 기술은 유효한 JSON 개체를 자체 출력하지 않기 때문입니다. 즉, 일부 형태의 셰이핑이 필요합니다. 대부분의 경우 테이블 프로젝션을 만드는 동일한 쉐이퍼 기술을 사용하여 개체 프로젝션을 생성할 수 있습니다. 또는 원본을 [인라인 셰이핑이 있는](knowledge-store-projection-shape.md#inline-shape) 노드로 설정하여 구조를 제공할 수도 있습니다.
+원본은 프로젝션의 루트인 보강 트리의 노드에 대한 경로입니다. 필수는 아니지만 노드 경로는 일반적으로 쉐이퍼 기술의 출력입니다. 대부분의 기술은 유효한 JSON 개체를 자체 출력하지 않기 때문입니다. 즉, 일부 형태의 셰이핑이 필요합니다. 대부분의 경우 테이블 프로젝션을 만드는 동일한 쉐이퍼 기술을 사용하여 개체 프로젝션을 생성할 수 있습니다. 또는 원본을 [인라인 셰이핑을](knowledge-store-projection-shape.md#inline-shape) 사용하여 노드로 설정하여 구조를 제공할 수도 있습니다.
 
 대상은 항상 Blob 컨테이너입니다.
 
@@ -412,7 +412,7 @@ Power BI는 이러한 생성된 키를 사용하여 테이블 내의 관계를 �
 
 ## <a name="projecting-an-image-file"></a>이미지 파일 프로젝팅
 
-파일 프로젝션은 항상 정규화된 이진 이미지로, 정규화는 기술 영역 실행에 사용할 수 있는 잠재적인 크기 조정 및 회전을 나타냅니다. 개체 프로젝션과 유사한 파일 프로젝션은 Azure Storage Blob으로 만들어지고 이미지를 포함합니다.
+파일 프로젝션은 항상 정규화된 이진 이미지로, 정규화는 기술 영역 실행에 사용할 수 있는 잠재적인 크기 조정 및 회전을 의미합니다. 개체 프로젝션과 유사한 파일 프로젝션은 Azure Storage Blob으로 만들어지고 이미지를 포함합니다.
 
 파일 프로젝션을 정의하려면 `files` 프로젝션 속성에 배열을 사용합니다.
 

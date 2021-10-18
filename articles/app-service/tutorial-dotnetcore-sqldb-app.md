@@ -3,27 +3,27 @@ title: '자습서: Azure SQL Database를 사용하는 ASP.NET Core'
 description: Azure SQL Database에 연결하여 Azure App Service에서 .NET Core 앱이 작동하도록 하는 방법에 대해 알아봅니다.
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/29/2021
+ms.date: 10/06/2021
 ms.custom: devx-track-csharp, mvc, cli-validate, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 45214579e599ab83dfa97470276c85c225c5473b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5db5a4a1d390164cff0f4acee56ca49687ebddfb
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730651"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658439"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-azure-sql-database-app-in-azure-app-service"></a>자습서: Azure App Service에서 ASP.NET Core 및 Azure SQL Database 앱 빌드
 
 ::: zone pivot="platform-windows"  
 
-[Azure App Service](overview.md)는 Azure에서 확장성 뛰어난 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 .NET Core 앱을 만들고 SQL Database에 연결하는 방법을 보여줍니다. 완료되면 .NET Core MVC 앱이 Windows의 App Service에서 실행됩니다.
+[Azure App Service](overview.md)는 Azure에서 확장성 뛰어난 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 ASP.NET Core 앱을 만들고 SQL Database에 연결하는 방법을 보여줍니다. 완료되면 .NET MVC 앱이 Windows의 App Service에서 실행됩니다.
 
 ::: zone-end
 
 ::: zone pivot="platform-linux"
 
-[Azure App Service](overview.md)는 Linux 운영 체제를 사용하여 확장성이 뛰어난 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 .NET Core 앱을 만들고 SQL Database에 연결하는 방법을 보여줍니다. 완료되면 .NET Core MVC 앱이 Linux의 App Service에서 실행됩니다.
+[Azure App Service](overview.md)는 Linux 운영 체제를 사용하여 확장성이 뛰어난 자체 패치 웹 호스팅 서비스를 제공합니다. 이 자습서에서는 ASP.NET Core 앱을 만들고 SQL Database에 연결하는 방법을 보여줍니다. 완료되면 ASP.NET Core MVC 앱이 Linux의 App Service에서 실행됩니다.
 
 ::: zone-end
 
@@ -33,7 +33,7 @@ ms.locfileid: "121730651"
 
 > [!div class="checklist"]
 > * Azure에서 SQL Database 만들기
-> * SQL Database에 .NET Core 앱 연결
+> * SQL Database에 ASP.NET Core 앱 연결
 > * Azure에 앱 배포
 > * 데이터 모델 업데이트 및 앱 다시 배포
 > * Azure에서 진단 로그 스트림
@@ -41,18 +41,18 @@ ms.locfileid: "121730651"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 - <a href="https://git-scm.com/" target="_blank">Git 설치</a>
-- <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">최신 .NET Core 3.1 SDK 설치</a>
+- <a href="https://dotnet.microsoft.com/download/dotnet/5.0" target="_blank">최신 .NET 5.0 SDK 설치</a>
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-## <a name="create-local-net-core-app"></a>로컬 .NET Core 앱 만들기
+## <a name="create-local-aspnet-core-app"></a>로컬 ASP.NET Core 앱 만들기
 
-이 단계에서는 로컬 .NET Core 프로젝트를 설정합니다.
+이 단계에서는 로컬 ASP.NET Core 프로젝트를 설정합니다.
 
 ### <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
@@ -90,7 +90,7 @@ ms.locfileid: "121730651"
 
     ![SQL Database 연결에 성공](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
 
-1. 언제든지 .NET Core를 중지하려면 터미널에서 `Ctrl+C`를 입력합니다.
+1. 언제든지 ASP.NET Core를 중지하려면 터미널에서 `Ctrl+C`를 누릅니다.
 
 ## <a name="create-production-sql-database"></a>프로덕션 SQL Database 만들기
 
@@ -169,7 +169,7 @@ az sql db show-connection-string --client ado.net --server <server-name> --name 
 
 명령 출력에서 *\<username>* 및 *\<password>* 를 이전에 사용한 데이터베이스 관리자 자격 증명으로 바꿉니다.
 
-.NET Core 앱에 대한 연결 문자열입니다. 나중에 사용하기 위해 복사합니다.
+ASP.NET Core 앱에 대한 연결 문자열입니다. 나중에 사용하기 위해 복사합니다.
 
 ### <a name="configure-app-to-connect-to-production-database"></a>프로덕션 데이터베이스에 연결하도록 앱 구성
 
@@ -200,7 +200,7 @@ services.AddDbContext<MyDatabaseContext>(options =>
 ```
 # Delete old migrations
 rm -r Migrations
-# Recreate migrations
+# Recreate migrations with UseSqlServer (see previous snippet)
 dotnet ef migrations add InitialCreate
 
 # Set connection string to production database
@@ -236,7 +236,7 @@ dotnet ef database update
 
 ## <a name="deploy-app-to-azure"></a>Azure에 앱 배포
 
-이 단계에서는 SQL Database 연결 .NET Core 애플리케이션을 App Service에 배포합니다.
+이 단계에서는 SQL Database 연결 ASP.NET Core 애플리케이션을 App Service에 배포합니다.
 
 ### <a name="configure-local-git-deployment"></a>로컬 Git 배포 구성
 
@@ -275,7 +275,7 @@ dotnet ef database update
 Azure 앱에 연결 문자열을 설정하려면 Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) 명령을 사용합니다. 다음 명령에서 *\<app-name>* 및 *\<connection-string>* 매개 변수를 이전에 만든 연결 문자열로 바꿉니다.
 
 ```azurecli-interactive
-az webapp config connection-string set --resource-group myResourceGroup --name <app-name> --settings MyDbConnection="<connection-string>" --connection-string-type SQLAzure
+az webapp config connection-string set --resource-group myResourceGroup --name <app-name> --settings MyDbConnection='<connection-string>' --connection-string-type SQLAzure
 ```
 
 ASP.NET Core에서는 표준 패턴을 사용하여 이 명명된 연결 문자열(`MyDbConnection`)을 사용할 수 있습니다(예: *appsettings.json* 에 지정된 연결 문자열). 이 경우 `MyDbConnection`은 *appsettings.json* 에도 정의되어 있습니다. App Service에서 실행되는 경우 App Service에 정의된 연결 문자열이 *appsettings.json* 에 정의된 연결 문자열보다 우선적으로 적용됩니다. 코드는 지역 개발 중에 *appsettings.json* 값을 사용하고, 동일한 코드는 배포될 때 App Service 값을 사용합니다.
@@ -361,7 +361,7 @@ ASP.NET Core에서는 표준 패턴을 사용하여 이 명명된 연결 문자�
 
     ![App Service에서 실행 중인 앱](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
-**축하합니다.** App Service에서 데이터 기반 .NET Core 앱이 실행되고 있습니다.
+**축하합니다.** App Service에서 데이터 기반 ASP.NET Core 앱이 실행되고 있습니다.
 
 ## <a name="update-locally-and-redeploy"></a>로컬로 업데이트 및 다시 배포
 
@@ -468,12 +468,12 @@ dotnet ef database update
 
 ASP.NET Core 앱이 Azure App Service에서 실행되는 동안 콘솔 로그를 Cloud Shell에 파이프할 수 있습니다. 이 방법으로 애플리케이션 오류를 디버깅하는 데 도움이 되는 진단 메시지를 동일하게 받을 수 있습니다.
 
-샘플 프로젝트는 다음 두 가지 변경 사항과 함께 [Azure에서 ASP.NET Core 로깅](/aspnet/core/fundamentals/logging#azure-app-service-provider)의 지침을 따릅니다.
+샘플 프로젝트는 이미 두 가지 변경 사항을 통해 [Azure App Service 로깅 공급자](/dotnet/core/extensions/logging-providers#azure-app-service)에 대한 지침을 따릅니다.
 
 - *DotNetCoreSqlDb.csproj* 에서 `Microsoft.Extensions.Logging.AzureAppServices`에 대한 참조를 포함합니다.
 - *Program.cs* 에서 `loggerFactory.AddAzureWebAppDiagnostics()`를 호출합니다.
 
-1. App Service에서 ASP.NET Core [로그 수준](/aspnet/core/fundamentals/logging#log-level)을 기본 수준 `Error`에서 `Information`으로 설정하려면, Cloud Shell에서 [`az webapp log config`](/cli/azure/webapp/log#az_webapp_log_config) 명령을 사용합니다.
+1. App Service에서 ASP.NET Core [로그 수준](/dotnet/core/extensions/logging#log-level)을 기본 수준 `Error`에서 `Information`으로 설정하려면, Cloud Shell에서 [`az webapp log config`](/cli/azure/webapp/log#az_webapp_log_config) 명령을 사용합니다.
 
     ```azurecli-interactive
     az webapp log config --name <app-name> --resource-group myResourceGroup --application-logging filesystem --level information
@@ -492,21 +492,7 @@ ASP.NET Core 앱이 Azure App Service에서 실행되는 동안 콘솔 로그를
 
 1. 언제든지 로그 스트리밍을 중지하려면 `Ctrl`+`C`를 입력합니다.
 
-ASP.NET Core 로그를 사용자 지정하는 방법은 [ASP.NET Core에서 로깅](/aspnet/core/fundamentals/logging)을 참조하세요.
-
-## <a name="manage-your-azure-app"></a>Azure 앱 관리
-
-1. 만든 앱을 보려면 [Azure Portal](https://portal.azure.com)에서 **App Services** 를 검색하여 선택합니다.
-
-    ![Azure Portal에서 App Services 선택](./media/tutorial-dotnetcore-sqldb-app/app-services.png)
-
-1. **App Service** 페이지에서 Azure 앱의 이름을 선택합니다.
-
-    ![Azure 앱에 대한 포털 탐색](./media/tutorial-dotnetcore-sqldb-app/access-portal.png)
-
-    기본적으로 포털에 앱의 **개요** 페이지가 표시됩니다. 이 페이지에서는 앱이 어떻게 작동하고 있는지를 보여 줍니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 페이지의 왼쪽에 있는 탭에서는 열 수 있는 여러 구성 페이지를 보여 줍니다.
-
-    ![Azure Portal의 App Service 페이지](./media/tutorial-dotnetcore-sqldb-app/web-app-blade.png)
+ASP.NET Core 로그를 사용자 지정하는 방법에 대한 자세한 내용은 [.NET에서 로깅](/dotnet/core/extensions/logging)을 참조하세요.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
@@ -517,7 +503,7 @@ ASP.NET Core 로그를 사용자 지정하는 방법은 [ASP.NET Core에서 로�
 
 > [!div class="checklist"]
 > * Azure에서 SQL Database 만들기
-> * SQL Database에 .NET Core 앱 연결
+> * SQL Database에 ASP.NET Core 앱 연결
 > * Azure에 앱 배포
 > * 데이터 모델 업데이트 및 앱 다시 배포
 > * Azure에서 터미널로 로그 스트림

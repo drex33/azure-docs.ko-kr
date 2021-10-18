@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/09/2021
 ms.custom: template-quickstart
 keywords: Kubernetes, Arc, Azure, 클러스터
-ms.openlocfilehash: 10c97945a78867d92b9ed4887e9655d49b195e33
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: e876ecf11de197e523c9d34825a5a52284af871b
+ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129273764"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129740458"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>빠른 시작: Azure Arc에 기존 Kubernetes 클러스터 연결
 
@@ -27,7 +27,7 @@ ms.locfileid: "129273764"
 
 * 버전 >= 2.16.0으로 [Azure CLI 설치 또는 업그레이드](/cli/azure/install-azure-cli)
 
-* 버전 1.0.0 이상의 **connectedk8s** Azure CLI 확장을 설치합니다.
+* 버전 1.2.0 이상의 **connectedk8s** Azure CLI 확장을 설치합니다.
 
   ```console
   az extension add --name connectedk8s
@@ -48,8 +48,6 @@ ms.locfileid: "129273764"
 
 * 클러스터를 가리키는 `kubeconfig` 파일 및 컨텍스트입니다.
 * Azure Arc 사용 Kubernetes 리소스 종류(`Microsoft.Kubernetes/connectedClusters`)에 대한 '읽기' 및 '쓰기' 권한
-
-* [Helm 3](https://helm.sh/docs/intro/install)을 설치합니다. Helm 3 버전이 &lt; 3.7.0인지 확인합니다.
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
@@ -99,6 +97,7 @@ ms.locfileid: "129273764"
 | `https://gbl.his.arc.azure.com`(Azure 클라우드의 경우), `https://gbl.his.arc.azure.us`(Azure 미국 정부의 경우) |  시스템 할당 MSI(Managed Identity 증명서) 인증서를 끌어오기 위한 지역 엔드포인트를 가져오는 데 필요합니다. |
 | `https://*.his.arc.azure.com`(Azure 클라우드의 경우), `https://usgv.his.arc.azure.us`(Azure 미국 정부의 경우) |  시스템이 할당한 관리 ID 인증서를 가져오는 데 필요합니다. |
 |`*.servicebus.windows.net`, `guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`, `sts.windows.net` | [클러스터 연결](cluster-connect.md) 및 [사용자 지정 위치](custom-locations.md) 기반 시나리오의 경우. |
+|`https://k8connecthelm.azureedge.net` | `az connectedk8s connect`는 Helm 3를 사용하여 Kubernetes 클러스터에 Azure Arc 에이전트를 배포합니다. 이 엔드포인트는 에이전트 Helm 차트의 배포를 용이하게 하기 위해 Helm 클라이언트 다운로드에 필요합니다. |
 
 ## <a name="1-register-providers-for-azure-arc-enabled-kubernetes"></a>1. Azure Arc 사용 Kubernetes에 공급자 등록
 

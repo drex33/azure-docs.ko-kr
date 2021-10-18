@@ -2,18 +2,16 @@
 title: Azure Monitor 통합 문서 타일 시각화
 description: 모든 Azure Monitor 통합 문서 타일 시각화에 대해 알아봅니다.
 services: azure-monitor
-author: lgayhardt
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.author: lagayhar
-ms.openlocfilehash: 07de9fcd01559e59a1bcd5d8928075aebcf79cc7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: fa486647f124e374087abab959ced16cbddad539
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100615939"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131641"
 ---
 # <a name="tile-visualizations"></a>타일 시각화
 
@@ -27,7 +25,7 @@ ms.locfileid: "100615939"
 
 1. 편집 도구 모음 항목을 클릭하여 통합 문서를 편집 모드로 전환합니다.
 2. **추가** 링크를 선택한 다음 쿼리 추가를 선택하여 통합 문서에 로그 쿼리 컨트롤을 추가합니다.
-3. **로그**, 리소스 형식(예: Application Insights) 및 대상 리소스로 쿼리 유형을 선택합니다.
+3. **로그**, 리소스 형식(예: Application Insights) 및 대상 리소스를 선택합니다.
 4. 쿼리 편집기를 사용하여 분석을 위한 KQL을 입력합니다.
 
     ```kusto

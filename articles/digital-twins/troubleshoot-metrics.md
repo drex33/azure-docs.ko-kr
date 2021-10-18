@@ -1,22 +1,22 @@
 ---
-title: Azure Monitor의 메트릭 보기
+title: '문제 해결: 메트릭'
 titleSuffix: Azure Digital Twins
-description: Azure Monitor에서 Azure Digital Twins 메트릭을 보는 방법을 참조하세요.
+description: Azure Monitor Azure Digital Twins 메트릭을 보고 인스턴스 문제를 해결하고 감독하는 방법을 알아봅니다.
 author: baanders
 ms.author: baanders
-ms.date: 9/16/2021
+ms.date: 10/5/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 107c9e5dd3d548e3e07cd9b037162cca36aa1c8a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 47e90b6e2fd20eedc18ce598d6ea84621af7da02
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128637195"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130134130"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Azure Digital Twins 문제 해결: 메트릭
 
-이 문서에서 설명하는 메트릭은 Azure 구독에서 Azure Digital Twins 리소스의 상태에 대한 정보를 제공합니다. Azure Digital Twins 메트릭은 Azure 디지털 쌍 서비스의 전반적인 상태와 연결 된 리소스를 평가 하는 데 도움이 됩니다. 이러한 사용자 측 통계는 Azure Digital Twins의 기능을 확인하고 Azure 지원에 문의하지 않고도 문제의 근본 원인을 분석하는 데 도움이 됩니다.
+이 문서에서 설명하는 메트릭은 Azure 구독에서 Azure Digital Twins 리소스의 상태에 대한 정보를 제공합니다. Azure Digital Twins 메트릭은 Azure Digital Twins 서비스 및 연결된 리소스의 전반적인 상태를 평가하는 데 도움이 됩니다. 이러한 사용자 측 통계는 Azure Digital Twins의 기능을 확인하고 Azure 지원에 문의하지 않고도 문제의 근본 원인을 분석하는 데 도움이 됩니다.
 
 메트릭은 기본적으로 사용하도록 설정됩니다. [Azure Portal](https://portal.azure.com)에서 Azure Digital Twins 메트릭을 볼 수 있습니다.
 
@@ -36,12 +36,12 @@ ms.locfileid: "128637195"
 
     :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Azure Portal에 추가할 진단 설정 페이지 및 단추를 보여주는 스크린샷.":::
 
-    이 프로세스에 대한 자세한 내용은 [문제 해결: 진단 설정](troubleshoot-diagnostics.md)을 참조하세요.
+    이 프로세스에 대한 자세한 내용은 [문제 해결: 진단 로그를 참조하세요.](troubleshoot-diagnostics.md)
 
 4. 메뉴에서 **경고** 및 **+ 새 경고 규칙** 을 차례로 선택하여 메트릭 데이터에 대한 경고를 설정하도록 선택할 수 있습니다.
     :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Azure Portal에 추가할 경고 페이지 및 단추를 보여주는 스크린샷.":::
 
-    이 프로세스에 대한 자세한 내용은 [문제 해결: 경고 설정](troubleshoot-alerts.md)을 참조하세요.
+    이 프로세스에 대한 자세한 내용은 [문제 해결: 경고를 참조하세요.](troubleshoot-alerts.md)
 
 ## <a name="azure-digital-twins-metrics-and-how-to-use-them"></a>Azure Digital Twins 메트릭 및 사용 방법
 
@@ -55,7 +55,7 @@ Azure Digital Twins는 인스턴스와 연결된 리소스의 상태에 대한 �
 
 추적을 설정하려면 Azure Monitor의 [경고](troubleshoot-alerts.md) 기능을 사용합니다. 메트릭이 게시된 한도의 특정 비율에 도달하면 경고를 받도록 이러한 메트릭에 대한 임계값을 정의할 수 있습니다.
 
-| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| Description | 차원 |
+| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| 설명 | 차원 |
 | --- | --- | --- | --- | --- | --- |
 | TwinCount | 트윈 개수(미리 보기) | 개수 | 합계 | Azure Digital Twins 인스턴스의 총 트윈 수. 이 메트릭을 사용하여 인스턴스당 허용되는 최대 트윈 수에 대한 [서비스 한도](reference-service-limits.md#functional-limits)에 근접하고 있는지 확인합니다. |  없음 |
 | ModelCount | 모델 개수(미리 보기) | 개수 | 합계 | Azure Digital Twins 인스턴스의 총 모델 수. 이 메트릭을 사용하여 인스턴스당 허용되는 최대 모델 수에 대한 [서비스 한도](reference-service-limits.md#functional-limits)에 근접하고 있는지 확인합니다. | 없음 |
@@ -64,7 +64,7 @@ Azure Digital Twins는 인스턴스와 연결된 리소스의 상태에 대한 �
 
 API 요청으로 수행해야 하는 메트릭:
 
-| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| Description | 차원 |
+| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| 설명 | 차원 |
 | --- | --- | --- | --- | --- | --- |
 | ApiRequests | API 요청 | 개수 | 합계 | Digital Twins 읽기, 쓰기, 삭제 및 쿼리 작업에 대해 수행된 API 요청의 수입니다. |  인증, <br>작업, <br>프로토콜, <br>상태 코드, <br>상태 코드 클래스, <br>상태 텍스트 |
 | ApiRequestsFailureRate | API 요청 실패율 | 백분율 | 평균 | 서비스가 인스턴스에 대해 수신하는 API 요청 중 Digital Twins 읽기, 쓰기, 삭제 및 쿼리 작업에 대한 내부 오류(500) 응답 코드를 제공하는 요청의 백분율입니다. | 인증, <br>작업, <br>프로토콜, <br>상태 코드, <br>상태 코드 클래스, <br>상태 텍스트
@@ -74,7 +74,7 @@ API 요청으로 수행해야 하는 메트릭:
 
 청구로 수행해야 하는 메트릭:
 
-| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| Description | 차원 |
+| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| 설명 | 차원 |
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperations | 청구 API 작업 | 개수 | 합계 | Azure Digital Twins 서비스를 대상으로 수행된 모든 API 요청 수에 대한 청구 메트릭입니다. | Meter ID |
 | BillingMessagesProcessed | 처리된 청구 메시지 | 개수 | 합계 | Azure Digital Twins에서 외부 엔드포인트로 전송된 메시지 수에 대한 청구 메트릭입니다.<br><br>요금 청구를 위해 단일 메시지로 간주되려면 페이로드가 1KB보다 크지 않아야 합니다. 이 한도보다 큰 페이로드는 1KB씩 추가 메시지로 계산됩니다. 즉, 1~2KB 사이의 메시지는 2개 메시지로 계산되고, 2~3KB 사이의 메시지는 3개의 메시지로 계산됩니다.<br>이 제한은 응답에도 적용됩니다. 예를 들어 응답 본문에서 1.5KB를 반환하는 호출은 2개 작업으로 요금이 청구됩니다. | Meter ID |
@@ -86,7 +86,7 @@ Azure Digital Twins 요금이 청구되는 방법에 관한 자세한 내용은 
 
 데이터 수신으로 수행해야 하는 메트릭:
 
-| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| Description | 차원 |
+| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| 설명 | 차원 |
 | --- | --- | --- | --- | --- | --- |
 | IngressEvents | 수신 이벤트 | 개수 | 합계 | Azure Digital Twins로 들어오는 원격 분석 이벤트의 수 | 결과 |
 | IngressEventsFailureRate | 수신 이벤트 실패율 | 백분율 | 평균 | 서비스에서 내부 오류(500) 응답 코드를 반환하는 수신 원격 분석 이벤트의 백분율입니다. | 결과 |
@@ -96,7 +96,7 @@ Azure Digital Twins 요금이 청구되는 방법에 관한 자세한 내용은 
 
 라우팅으로 수행해야 하는 메트릭:
 
-| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| Description | 차원 |
+| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| 설명 | 차원 |
 | --- | --- | --- | --- | --- | --- |
 | MessagesRouted | 라우팅된 메시지 | 개수 | 합계 | Event Hub, Service Bus 또는 Event Grid와 같은 엔드포인트 Azure 서비스로 라우팅된 메시지 수입니다. | 엔드포인트 유형, <br>결과 |
 | RoutingFailureRate | 라우팅 실패율 | 백분율 | 평균 | Azure Digital Twins에서 Event Hub, Service Bus 또는 Event Grid와 같은 엔드포인트 Azure 서비스로 라우팅될 때 오류가 발생하는 이벤트의 백분율입니다. | 엔드포인트 유형, <br>결과 |
@@ -119,4 +119,4 @@ Azure Digital Twins 요금이 청구되는 방법에 관한 자세한 내용은 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Digital Twins에 대해 기록된 메트릭을 관리하는 방법에 대한 자세한 내용은 [문제 해결: 진단 설정](troubleshoot-diagnostics.md)을 참조하세요.
+Azure Digital Twins 기록된 메트릭을 관리하는 방법에 대한 자세한 내용은 [문제 해결: 진단 로그를 참조하세요.](troubleshoot-diagnostics.md)

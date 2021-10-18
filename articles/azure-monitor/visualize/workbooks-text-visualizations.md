@@ -2,18 +2,16 @@
 title: Azure Monitor 통합 문서 텍스트 시각화
 description: 모든 Azure Monitor 통합 문서 텍스트 시각화에 대해 알아봅니다.
 services: azure-monitor
-author: lgayhardt
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.author: lagayhar
-ms.openlocfilehash: e8f2d9495484b781b26962c2946b5bada6c38b4c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 9b58d29bc46f086d10534572a27e83f5eba59f84
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100614979"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131660"
 ---
 # <a name="text-visualizations"></a>텍스트 시각화
 

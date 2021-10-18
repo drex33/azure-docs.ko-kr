@@ -309,7 +309,7 @@
           href: consume-private-endpoints.md
         - name: IP 방화벽 구성
           href: configure-firewall.md
-        - name: Azure Active Directory를 사용한 보안 웹후크
+        - name: Azure Active Directory로 보호되는 엔드포인트에 이벤트 전달
           href: secure-webhook-delivery.md
     - name: 문제 해결
       items:

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/15/2021
-ms.openlocfilehash: 2b4e5232622b2e79d8277f0e7388da0e81b5ee82
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 3414e3d5b339334bf0762427c99020ff3a3170ad
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130070796"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130134187"
 ---
 # <a name="define-projections-in-a-knowledge-store"></a>지식 저장소에서 프로젝션 정의
 
@@ -42,7 +42,7 @@ ms.locfileid: "130070796"
 시작 하기 전에 더 많은 배경이 필요한 경우 [이 검사 목록](knowledge-store-projection-overview.md#checklist-for-getting-started) 에서 팁과 워크플로를 검토 합니다.
 
 > [!TIP]
-> 프로젝션을 개발할 때 프로젝션 정의를 편집 하는 동안 기존 강화를 다시 사용할 수 있도록 [보강 캐싱을 사용 하도록 설정](search-howto-incremental-index.md) 합니다. 캐싱을 사용 하지 않을 경우 프로젝션을 간단 하 게 편집 하면 보강 콘텐츠가 완전히 다시 처리 됩니다. 강화을 캐싱하여 기술 처리 요금을 발생 시 키 지 않고 프로젝션을 반복할 수 있습니다.
+> 프로젝션을 개발할 때 프로젝션 정의를 편집 하는 동안 기존 강화를 다시 사용할 수 있도록 [보강 캐싱 (미리 보기)을 사용 하도록 설정](search-howto-incremental-index.md) 합니다.  이 기능은 미리 보기 기능 이므로 인덱서 요청에서 미리 보기 REST API (api-version = 2020-06 -30 이상)를 사용 해야 합니다. 캐싱을 사용 하지 않을 경우 프로젝션을 간단 하 게 편집 하면 보강 콘텐츠가 완전히 다시 처리 됩니다. 강화을 캐싱하여 기술 처리 요금을 발생 시 키 지 않고 프로젝션을 반복할 수 있습니다.
 
 ## <a name="requirements"></a>요구 사항
 
@@ -164,7 +164,7 @@ Power BI는 이러한 생성된 키를 사용하여 테이블 내의 관계를 �
 
 개체 프로젝션을 정의 하려면 `objects` 프로젝션 속성에서 배열을 사용 합니다. 개체 프로젝션에는 다음과 같은 세 가지 필수 속성이 있습니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |----------|-------------|
 | storageContainer | Azure Storage에서 만든 새 컨테이너의 이름을 결정 합니다.  |
 | generatedKeyName | 각 행을 고유 하 게 식별 하는 키의 열 이름입니다. 값은 시스템에서 생성 됩니다. 이 속성을 생략하면 테이블 이름과 ‘키’를 명명 규칙으로 사용하는 열이 자동으로 만들어집니다. |
@@ -233,17 +233,17 @@ Power BI는 이러한 생성된 키를 사용하여 테이블 내의 관계를 �
 
 파일 프로젝션은 항상 이진, 정규화 된 이미지 이며, 정규화를 사용 하면 기술 실행에서 사용 하기 위한 잠재적 크기 조정 및 회전이 가능 합니다. 개체 프로젝션과 비슷한 파일 프로젝션은 Azure Storage blob으로 생성 되며 JSON이 아닌 이진 데이터를 포함 합니다.
 
-파일 프로젝션을 정의하려면 `files` 프로젝션 속성에 배열을 사용합니다. 파일 프로젝션에는 세 가지 필수 속성이 있습니다.
+파일 프로젝션을 정의 하려면 `files` 프로젝션 속성에서 배열을 사용 합니다. 파일 프로젝션에는 다음과 같은 세 가지 필수 속성이 있습니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |----------|-------------|
-| storageContainer | Azure Storage 만든 새 컨테이너의 이름을 결정합니다.  |
-| generatedKeyName | 각 행을 고유하게 식별하는 키의 열 이름입니다. 값은 시스템에서 생성됩니다. 이 속성을 생략하면 테이블 이름과 ‘키’를 명명 규칙으로 사용하는 열이 자동으로 만들어집니다. |
-| 원본 | 프로젝션의 루트인 보강 트리의 노드에 대한 경로입니다. 이미지 파일의 경우 원본은 항상 `/document/normalized_images/*` 입니다.  파일 프로젝션은 `normalized_images` 컬렉션에서만 작동합니다. 인덱서와 기술셋은 모두 정규화되지 않은 원래 이미지를 통과하지 않습니다.|
+| storageContainer | Azure Storage에서 만든 새 컨테이너의 이름을 결정 합니다.  |
+| generatedKeyName | 각 행을 고유 하 게 식별 하는 키의 열 이름입니다. 값은 시스템에서 생성 됩니다. 이 속성을 생략하면 테이블 이름과 ‘키’를 명명 규칙으로 사용하는 열이 자동으로 만들어집니다. |
+| 원본 | 보강 트리에서 프로젝션의 루트인 노드에 대 한 경로입니다. 이미지 파일의 경우 소스는 항상 `/document/normalized_images/*` 입니다.  파일 프로젝션은 컬렉션 에서만 작동 `normalized_images` 합니다. 인덱서와 기술 모두 원래의 정규화 되지 않은 이미지를 통과 하지 않습니다.|
 
-대상은 항상 문서 ID의 base64로 인코딩된 값의 폴더 접두사로 Blob 컨테이너입니다. 여러 이미지가 있는 경우 동일한 폴더에 함께 배치됩니다. 파일 프로젝션은 개체 프로젝션과 동일한 컨테이너를 공유할 수 없으며, 다른 컨테이너에 프로젝션되어야 합니다. 
+대상은 항상 blob 컨테이너 이며, base64 인코딩 값이 문서 ID의 폴더 접두사와 함께 사용 됩니다. 이미지가 여러 개 있으면 동일한 폴더에 함께 배치 됩니다. 파일 프로젝션은 개체 프로젝션과 동일한 컨테이너를 공유할 수 없으며, 다른 컨테이너에 프로젝션되어야 합니다. 
 
-다음 예제에서는 보강된 문서의 문서 노드에서 추출된 모든 정규화된 이미지를 라는 컨테이너에 `myImages` 투영합니다.
+다음 예제에서는 보강 문서의 문서 노드에서 추출한 정규화 된 이미지를 모두 이라는 컨테이너로 프로젝션 `myImages` 합니다.
 
 ```json
 "projections": [
@@ -260,35 +260,35 @@ Power BI는 이러한 생성된 키를 사용하여 테이블 내의 관계를 �
 ]
 ```
 
-## <a name="test-projections"></a>프로젝션 테스트
+## <a name="test-projections"></a>테스트 프로젝션
 
-다음 단계에 따라 프로젝션을 처리할 수 있습니다.
+다음 단계를 수행 하 여 프로젝션을 처리할 수 있습니다.
 
 1. 지식 저장소의 `storageConnectionString` 속성을 유효한 V2 범용 저장소 계정 연결 문자열로 설정합니다.  
 
-1. [기술체 본문에](/rest/api/searchservice/update-skillset) 프로젝션 정의가 있는 PUT 요청을 발급하여 기술체를 업데이트합니다.
+1. 기술 본문에서 프로젝션 정의를 사용 하 여 PUT 요청을 실행 하 여 [기술를 업데이트](/rest/api/searchservice/update-skillset) 합니다.
 
-1. [인덱서 를 실행하여](/rest/api/searchservice/run-indexer) 기술 셋을 실행합니다. 
+1. [인덱서를 실행](/rest/api/searchservice/run-indexer) 하 여 기술를 실행 합니다. 
 
-1. [인덱서 실행을 모니터링하여](search-howto-monitor-indexers.md) 진행 상황을 확인하고 오류를 catch합니다.
+1. [인덱서 실행을 모니터링](search-howto-monitor-indexers.md) 하 여 진행률을 확인 하 고 오류를 catch 합니다.
 
-1. [Storage Explorer 사용하여 Azure Storage](knowledge-store-view-storage-explorer.md) 개체 생성을 확인합니다.
+1. [Storage Explorer를 사용 하 여](knowledge-store-view-storage-explorer.md) Azure Storage에서 개체 생성을 확인 합니다.
 
-1. 테이블을 프로젝션하는 경우 테이블 조작 및 시각화를 위해 [Power BI](knowledge-store-connect-power-bi.md) 가져옵니다. 대부분의 경우 Power BI 테이블 간의 관계를 자동으로 검색합니다.
+1. 테이블을 프로젝션 하는 경우 테이블 조작 및 시각화를 위해 [Power BI로 가져옵니다](knowledge-store-connect-power-bi.md) . 대부분의 경우 Power BI은 테이블 간의 관계를 자동으로 검색 합니다.
 
 ## <a name="common-issues"></a>일반적인 문제
 
-다음 단계를 생략하면 예기치 않은 결과가 발생할 수 있습니다. 출력이 제대로 보이지 않으면 다음 조건을 확인합니다.
+다음 단계를 생략 하면 예기치 않은 결과가 발생할 수 있습니다. 출력이 오른쪽에 표시 되지 않는 경우 다음 조건을 확인 합니다.
 
-+ 문자열 보강은 유효한 JSON으로 셰이이프되지 않습니다. 예를 들어 키 구로 보강된 `merged_content` 문자열이 보강되면 보강된 속성은 보강 트리 내에서 `merged_content`의 자식으로 표시됩니다. 기본 표현은 잘 구성된 JSON이 아닙니다. 프로젝션 시 이름 및 값을 사용하여 보강을 유효한 JSON 개체로 변환해야 합니다. 쉐이퍼 기술을 사용하거나 인라인 셰이프를 정의하면 이 문제를 해결하는 데 도움이 됩니다.
++ 문자열 강화는 유효한 JSON으로 셰이핑 되지 않습니다. 예를 들어 키 구로 보강된 `merged_content` 문자열이 보강되면 보강된 속성은 보강 트리 내에서 `merged_content`의 자식으로 표시됩니다. 기본 표현은 잘 구성된 JSON이 아닙니다. 프로젝션 타임에 보강를 이름 및 값을 사용 하 여 유효한 JSON 개체로 변환 해야 합니다. Shaper 기술을 사용 하거나 인라인 셰이프를 정의 하면이 문제를 해결할 수 있습니다.
 
-+ `/*`원본 경로의 끝에서 의 생략입니다. 프로젝션의 원본이 `/document/projectionShape/keyPhrases`인 경우 키 구 배열은 단일 개체/행으로 프로젝션됩니다. 대신의 원본 경로를 `/document/projectionShape/keyPhrases/*`로 설정하여 각 키 구에 대해 단일 행 또는 개체를 생성합니다.
++ `/*`소스 경로의 끝에를 생략 합니다. 프로젝션의 원본이 `/document/projectionShape/keyPhrases`인 경우 키 구 배열은 단일 개체/행으로 프로젝션됩니다. 대신의 원본 경로를 `/document/projectionShape/keyPhrases/*`로 설정하여 각 키 구에 대해 단일 행 또는 개체를 생성합니다.
 
-+ 경로 구문 오류입니다. [경로 선택기는](cognitive-search-concept-annotations-syntax.md) 대/소문자를 구분하며 선택기에 정확한 대/소문자를 사용하지 않으면 입력 경고가 누락됩니다. 
++ 경로 구문 오류입니다. [경로 선택기](cognitive-search-concept-annotations-syntax.md) 는 대/소문자를 구분 하며 선택기에 대해 정확한 대/소문자를 사용 하지 않는 경우 입력 경고가 누락 될 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 단계에서는 풍부한 기술에서 출력의 셰이핑 및 프로젝션을 안내합니다. 기술 기술이 복잡한 경우 다음 문서에서는 도형과 프로젝션의 예를 모두 제공합니다.
+다음 단계에서는 다양 한 기술의 출력을 셰이핑 하 고 투영 하는 과정을 안내 합니다. 기술 복잡 한 경우 다음 문서에서는 모양과 프로젝션의 예제를 모두 제공 합니다.
 
 > [!div class="nextstepaction"]
-> [도형 및 프로젝션의 자세한 예제](knowledge-store-projection-example-long.md)
+> [도형 및 프로젝션의 자세한 예](knowledge-store-projection-example-long.md)

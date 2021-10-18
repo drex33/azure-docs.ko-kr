@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 10/05/2021
+ms.date: 10/10/2021
 ms.author: memildin
-ms.openlocfilehash: e6d1c8cf55687a8e4d7612ca432a314ae38256bc
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 6a98a5dfbdf47ad9e2b74415786c240b32b3b499
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129534424"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754694"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Azure Security Center에 예정된 중요한 변경
 
@@ -30,8 +30,10 @@ ms.locfileid: "129534424"
 |----------------------|---------------------------|
 | [사용 중단 미리 보기 경고: ARM. MCAS_ActivityFromAnonymousIPAddresses](#deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses)             | 2021년 10월|
 | [ISO 27001의 레거시 구현이 새 ISO 27001:2013으로 대체되고 있습니다.](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)| 2021년 10월|
-| [엔드포인트 보호 솔루션 관리를 위한 권장 사항 변경](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | 2021년 10월    |
-| [SQL 데이터베이스의 중요한 데이터 분류에 대한 개선된 권장 사항](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)   | 2022년 1분기    |
+| [엔드포인트 보호 솔루션 관리를 위한 권장 사항 변경](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | 2021년 11월| 
+| [온-프레미스 머신의 인벤토리 표시는 리소스 이름에 대해 다른 템플릿을 사용합니다.](#inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name)    | 2021년 11월    |
+| [ID 권장 사항에 대한 여러 변경 사항](#multiple-changes-to-identity-recommendations)                                                                                          | 2021년 11월    |
+| [SQL 데이터베이스의 중요한 데이터 분류에 대한 개선된 권장 사항](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                              | 2022년 1분기    |
 |||
 
 ### <a name="deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses"></a>사용 중단 미리 보기 경고: ARM. MCAS_ActivityFromAnonymousIPAddresses
@@ -57,7 +59,7 @@ ISO 27001의 레거시 구현은 Security Center의 규정 준수 대시보드�
 
 ### <a name="changes-to-recommendations-for-managing-endpoint-protection-solutions"></a>엔드포인트 보호 솔루션 관리를 위한 권장 사항 변경
 
-**변경 예상 날짜:** 2021년 10월
+**변경 예상 날짜:** 2021년 11월
 
 2021년 8월에 컴퓨터에 엔드포인트 보호 솔루션을 배포하고 유지 관리하기 위한 두 가지 새로운 **미리 보기** 권장 사항을 추가했습니다. 자세한 내용은 [릴리스 정보](release-notes.md#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview)를 참조하세요.
 
@@ -74,6 +76,68 @@ ISO 27001의 레거시 구현은 Security Center의 규정 준수 대시보드�
 자세한 정보:
 - [Security Center에서 지원하는 엔드포인트 보호 솔루션](security-center-services.md#endpoint-supported)
 - [이 권장 사항이 배포된 솔루션의 상태를 평가하는 방법](security-center-endpoint-protection.md)
+
+
+
+### <a name="inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name"></a>온-프레미스 머신의 인벤토리 표시는 리소스 이름에 대해 다른 템플릿을 사용합니다.
+
+**변경 예상 날짜:** 2021년 11월
+
+[자산 인벤토리](asset-inventory.md)의 리소스 표시를 개선하기 위해 템플릿에서 "source-computer-IP" 요소를 제거하여 온-프레미스 머신 이름을 지정합니다.
+
+- **현재 형식:** ``machine-name_source-computer-id_VMUUID``
+- **업데이트에서:** ``machine-name_VMUUID``
+
+
+### <a name="multiple-changes-to-identity-recommendations"></a>ID 권장 사항에 대한 여러 변경 사항
+
+**변경 예상 날짜:** 2021년 11월
+
+Security Center에는 사용자 및 계정 관리를 개선하기 위한 여러 가지 권장 사항이 포함되어 있습니다. 11월에는 아래에 설명된 변경 내용을 적용하게 됩니다.
+
+- **향상된 새로 고침 간격** - 현재 ID 권장 사항의 새로 고침 간격은 24시간입니다. 이 업데이트는 해당 간격을 12시간으로 줄입니다.
+
+- **계정 예외 기능** - Security Center에는 사용 환경을 사용자 지정하고 보안 점수가 조직의 보안 우선 순위를 반영하는지 확인하기 위한 많은 기능이 있습니다. 보안 권장 사항의 제외 옵션은 이러한 기능 중 하나입니다. 전체 개요와 지침은 [보안 점수에서 리소스 및 권장 사항 제외](exempt-resource.md)을 참조하세요. 이 업데이트를 통해 다음 표에 나열된 8가지 권장 사항에 따라 특정 계정을 평가에서 제외할 수 있습니다.
+
+    일반적으로 이러한 계정은 조직의 MFA 요구 사항에서 의도적으로 제외되는 경우가 많기 때문에 MFA 권장 사항에서 긴급 "비상" 계정을 제외하는 것이 일반적입니다. 또는 액세스를 허용할 외부 계정이 있지만 MFA를 사용하도록 설정하지 않은 경우도 있습니다.
+
+    > [!TIP]
+    > 계정을 제외하면 비정상으로 표시되지 않으며 구독이 비정상으로 표시되지도 않습니다.
+
+    |권장| 평가 키|
+    |-|-|
+    |[구독에서 소유자 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/94290b00-4d0c-d7b4-7cea-064a9554e681)|94290b00-4d0c-d7b4-7cea-064a9554e681|
+    |[구독에서 읽기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/151e82c5-5341-a74b-1eb0-bc38d2c84bb5)|151e82c5-5341-a74b-1eb0-bc38d2c84bb5|
+    |[구독에 대한 쓰기 권한이 있는 계정에서 MFA를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/57e98606-6b1e-6193-0e3d-fe621387c16b)|57e98606-6b1e-6193-0e3d-fe621387c16b|
+    |[소유자 권한이 있는 외부 계정은 구독에서 제거해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c3b6ae71-f1f0-31b4-e6c1-d5951285d03d)|c3b6ae71-f1f0-31b4-e6c1-d5951285d03d|
+    |[읽기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/a8c6a4ad-d51e-88fe-2979-d3ee3c864f8b)|a8c6a4ad-d51e-88fe-2979-d3ee3c864f8b|
+    |[쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/04e7147b-0deb-9796-2e5c-0336343ceb3d)|04e7147b-0deb-9796-2e5c-0336343ceb3d|
+    |[소유자 권한이 있는 사용되지 않는 계정은 구독에서 제거해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e52064aa-6853-e252-a11e-dffc675689c2)|e52064aa-6853-e252-a11e-dffc675689c2|
+    |[더 이상 사용되지 않는 계정은 구독에서 제거해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/00c6d40b-e990-6acf-d4f3-471e747a27c4)|00c6d40b-e990-6acf-d4f3-471e747a27c4|
+    |||
+ 
+- **권장 사항 이름 바꾸기** - 이 업데이트에서 두 권장 사항의 이름을 바꿉니다. 또한 해당 설명을 수정하고 있습니다. 평가 키는 변경되지 않고 그대로 유지됩니다. 
+
+
+    |속성  |현재 값  | 업데이트에서|
+    |---------|---------|---------|
+    |평가 키     | e52064aa-6853-e252-a11e-dffc675689c2        | 변경 안 됨|
+    |이름     |[소유자 권한이 있는 사용되지 않는 계정은 구독에서 제거해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e52064aa-6853-e252-a11e-dffc675689c2)         |Active Directory에서 차단되고 소유자 권한이 있는 계정에서 구독을 제거해야 합니다.        |
+    |설명     |로그인할 수 없도록 차단된 사용자 계정은 구독에서 제거해야 합니다.<br>이러한 계정은 검색하지 않고 데이터에 액세스하는 방법을 찾으려는 공격자의 대상이 될 수 있습니다.|Active Directory 로그인이 차단된 사용자 계정은 구독에서 제거해야 합니다. 이러한 계정은 검색하지 않고 데이터에 액세스하는 방법을 찾으려는 공격자의 대상이 될 수 있습니다.<br>[Azure Identity Management 및 액세스 제어 보안 모범 사례](/azure/security/fundamentals/identity-management-best-practices.md)에서 ID 경계를 보호하는 방법에 대해 자세히 알아보세요.|
+    |관련 정책     |[소유자 권한이 있는 사용되지 않는 계정은 구독에서 제거해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2febb62a0c-3560-49e1-89ed-27e074e9f8ad)         |Active Directory에서 차단되고 소유자 권한이 있는 계정에서 구독을 제거해야 합니다. |
+    |||
+
+    |속성  |현재 값  | 업데이트에서|
+    |---------|---------|---------|
+    |평가 키     | 00c6d40b-e990-6acf-d4f3-471e747a27c4        | 변경 안 됨|
+    |이름     |[더 이상 사용되지 않는 계정은 구독에서 제거해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/00c6d40b-e990-6acf-d4f3-471e747a27c4)|Active Directory에서 차단되고, 읽기 및 쓰기 권한이 있는 계정에서 구독을 제거해야 합니다.|
+    |설명     |로그인할 수 없도록 차단된 사용자 계정은 구독에서 제거해야 합니다.<br>이러한 계정은 검색하지 않고 데이터에 액세스하는 방법을 찾으려는 공격자의 대상이 될 수 있습니다.|Active Directory 로그인이 차단된 사용자 계정은 구독에서 제거해야 합니다. 이러한 계정은 검색하지 않고 데이터에 액세스하는 방법을 찾으려는 공격자의 대상이 될 수 있습니다.<br>[Azure Identity Management 및 액세스 제어 보안 모범 사례](/azure/security/fundamentals/identity-management-best-practices.md)에서 ID 경계를 보호하는 방법에 대해 자세히 알아보세요.|
+    |관련 정책     |[더 이상 사용되지 않는 계정은 구독에서 제거해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6b1cbf55-e8b6-442f-ba4c-7246b6381474)|Active Directory에서 차단되고, 읽기 및 쓰기 권한이 있는 계정에서 구독을 제거해야 합니다.|
+    |||
+ 
+
+
+
 
 ### <a name="enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases"></a>SQL 데이터베이스의 중요한 데이터 분류에 대한 개선된 권장 사항
 

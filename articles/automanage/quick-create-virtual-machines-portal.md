@@ -10,12 +10,12 @@ ms.subservice: automanage
 ms.workload: infrastructure
 ms.custom:
 - mode-portal
-ms.openlocfilehash: faf51735ae6805f0ff7db98416e9b05731c08642
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 7836e15c307a0dcfcf4bfa4b8c56fbeea869d315
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123426457"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709757"
 ---
 # <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 가상 머신용 Azure Automanage 사용
 
@@ -50,7 +50,7 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
     1. 온보딩하려는 각 가상 머신의 확인란을 선택합니다.
     1. **선택** 단추를 클릭합니다.
     > [!NOTE]
-    > Azure VM과 Arc 지원 서버를 모두 선택할 수 있습니다.
+    > Azure VM과 Azure Arc 지원 서버를 모두 선택할 수 있습니다.
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="사용 가능한 VM 목록에서 기존 VM 선택":::
 

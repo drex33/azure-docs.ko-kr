@@ -8,12 +8,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/25/2021
 ms.author: lajanuar
-ms.openlocfilehash: 6c768f18aa8e58ee82519a1b42c078685db25b0e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 48d8747883bfb3d47368d96cc2d4e52d07c599d9
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128652540"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715474"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -979,7 +979,7 @@ ID 문서 분석을 시작하려면 다음과 같은 cURL 명령을 사용합니
 #### <a name="request"></a>요청
 
 ```bash
-curl -i -X POST "https://{endpoint}/formrecognizer/v2.1/prebuilt/idDocument/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your identity document URL}'}"
+curl -i -X POST "https://{endpoint}/formrecognizer/v2.1/prebuilt/idDocument/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your ID document URL}'}"
 ```
 
 #### <a name="operation-location"></a>Operation-Location
@@ -1572,7 +1572,7 @@ curl -v -X DELETE "https://{endpoint}/formrecognizer/v2.1/custom/models/{modelId
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Form Recognizer REST API를 사용하여 다양한 방식으로 모델을 학습시키고 양식을 분석했습니다. 다음으로, 참조 설명서를 탐색하여 Form Recognizer API에 관해 자세히 알아봅니다.
+이 빠른 시작에서는 Form Recognizer REST API를 사용하여 다양한 방식으로 양식을 분석했습니다. 다음으로, 참조 설명서를 탐색하여 Form Recognizer API에 관해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [REST API 참조 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)

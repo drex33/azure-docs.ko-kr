@@ -198,6 +198,8 @@
           items:
             - name: 키 기반 인증
               href: search-security-api-keys.md
+            - name: Azure AD 인증
+              href: search-howto-aad.md
             - name: 역할 기반 권한 부여
               href: search-security-rbac.md
             - name: IP 방화벽 구성
@@ -400,6 +402,8 @@
               href: knowledge-store-projection-shape.md
             - name: 프로젝션 정의
               href: knowledge-store-projections-examples.md
+            - name: 프로젝션 예제
+              href: knowledge-store-projection-example-long.md
             - name: Storage Explorer로 보기
               href: knowledge-store-view-storage-explorer.md
             - name: Power BI로 연결

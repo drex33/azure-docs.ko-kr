@@ -6,12 +6,12 @@ ms.author: jafernan
 ms.subservice: kubernetes
 ms.date: 05/25/2021
 ms.topic: overview
-ms.openlocfilehash: 807d337988993c8be0fee76b9c12e1fc6dc75c7d
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 109c9248bf087cb998fd8debdc644de8cfb1488b
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770571"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714902"
 ---
 # <a name="event-grid-on-kubernetes-with-azure-arc-preview---overview"></a>Azure Arc를 사용하는 Kubernetes의 Event Grid(미리 보기) - 개요
 이 문서에서는 Kubernetes의 Event Grid, 사용 사례, 제공하는 기능 및 Azure Event Grid와의 차이점에 대한 개요를 제공합니다.

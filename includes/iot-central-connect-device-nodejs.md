@@ -4,14 +4,14 @@ ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
 ms.date: 03/31/2021
-ms.openlocfilehash: 0322e1a5c7f7c809b91d5bf9e3dd142c7641598e
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: ba19a222f3485fa15bd754f130a9b72c82334a00
+ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114407707"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129740844"
 ---
-[![코드 찾아보기](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/pnp)
+[![코드 찾아보기](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/javascript/pnp)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -25,7 +25,7 @@ ms.locfileid: "114407707"
 
 ## <a name="review-the-code"></a>코드 검토
 
-이전에 다운로드한 Node.js용 Microsoft Azure IoT SDK 복사본의 텍스트 편집기에서 *azure-iot-sdk-node/device/samples/pnp/pnpTemperatureController.js* 파일을 엽니다.
+이전에 다운로드한 Node.js용 Microsoft Azure IoT SDK 복사본의 텍스트 편집기에서 *azure-iot-sdk-node/device/samples/javascript/pnp/pnpTemperatureController.js* 파일을 엽니다.
 
 샘플을 실행하여 IoT Central에 연결하면 DPS(Device Provisioning Service)를 사용하여 디바이스를 등록하고 연결 문자열을 생성합니다. 이 샘플은 명령줄 환경에서 필요한 DPS 연결 정보를 검색합니다.
 

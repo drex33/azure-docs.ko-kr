@@ -8,23 +8,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
-ms.date: 09/13/2021
+ms.date: 10/06/2021
 ms.author: rolyon
 ms.reviewer: abhijeetsinha
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21e1b91c10d687b0b82626372510dcaf2a0611ef
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 083b0da0152f82d75df2ca83a451b5672dc09002
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128601802"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667899"
 ---
 # <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Azure Active Directory의 역할 기반 액세스 제어 개요
 
 이 문서에서는 Azure AD(Azure Active Directory) 역할 기반 액세스 제어를 이해하는 방법을 설명합니다. Azure AD 역할을 사용하면 최소 권한 원칙에 따라 관리자에게 세부적인 사용 권한을 부여할 수 있습니다. Azure AD 기본 제공 및 사용자 지정 역할은 [Azure 리소스에 대한 역할 기반 액세스 제어 시스템](../../role-based-access-control/overview.md)(Azure 역할)에서 볼 수 있는 것과 유사한 개념으로 작동합니다. [이러한 두 역할 기반 액세스 제어 시스템 간의 차이점](../../role-based-access-control/rbac-and-directory-admin-roles.md)은 다음과 같습니다.
 
-- Azure AD 역할은 Graph API를 사용하여 사용자, 그룹 및 애플리케이션과 같은 Azure AD 리소스에 대한 액세스를 제어합니다.
+- Azure AD 역할은 Microsoft Graph API를 사용하여 사용자, 그룹 및 애플리케이션과 같은 Azure AD 리소스에 대한 액세스를 제어합니다.
 - Azure 역할은 Azure 리소스 관리를 사용하여 가상 머신 또는 스토리지와 같은 Azure 리소스에 대한 액세스를 제어합니다.
 
 두 시스템 모두 유사하게 사용되는 역할 정의 및 역할 할당을 포함합니다. 그러나 Azure AD 역할 권한은 Azure 사용자 지정 역할에서 사용할 수 없으며 그 반대의 경우도 마찬가지입니다.
@@ -58,7 +58,7 @@ Azure AD는 두 가지 유형의 역할 정의를 지원합니다.
 - 역할 정의 - 권한 컬렉션 
 - 범위 - 해당 권한이 적용되는 위치를 제한하는 방법
 
-Azure portal, Azure AD PowerShell 또는 Graph API를 사용하여 [역할 할당 만들기](manage-roles-portal.md)를 수행할 수 있습니다. [역할 할당을 나열](view-assignments.md)할 수도 있습니다.
+Azure Portal, Azure AD PowerShell 또는 Microsoft Graph API를 사용하여 [역할 할당을 생성](manage-roles-portal.md)하고 [역할 할당을 나열](view-assignments.md)할 수 있습니다. Azure AD 역할 할당에는 Azure CLI가 지원되지 않습니다.
 
 다음 다이어그램은 역할 할당의 예를 보여줍니다. 이 예에서 Chris는 Contoso Widget Builder 앱 등록 범위에서 앱 등록 관리자 사용자 지정 역할을 할당받았습니다. 이렇게 할당하면 이 특정 앱 등록에 대해서만 Chris에게 앱 등록 관리자 역할 권한이 부여됩니다.
 

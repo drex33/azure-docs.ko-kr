@@ -2,18 +2,16 @@
 title: Azure Monitor 통합 문서 그리드 시각화
 description: 모든 Azure Monitor 통합 문서 그리드 시각화에 대해 알아봅니다.
 services: azure-monitor
-author: lgayhardt
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.author: lagayhar
-ms.openlocfilehash: 4b30c98bbaf7f7806feecdbccd2c8736d431943c
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
-ms.translationtype: HT
+ms.openlocfilehash: 91b0933102c166657c237e7a7c9511a22a28de5c
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854345"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132496"
 ---
 # <a name="grid-visualizations"></a>그리드 시각화
 

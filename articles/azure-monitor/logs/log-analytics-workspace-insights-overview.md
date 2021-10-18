@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 05/06/2021
-ms.openlocfilehash: 0d5fb976bfeb496e6c69e7df401ed0a756985475
-ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
-ms.translationtype: HT
+ms.openlocfilehash: c56a90ab18467e67360653c83d32c7cfc6f84078
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2021
-ms.locfileid: "113295887"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130133256"
 ---
-# <a name="log-analytics-workspace-insights-preview"></a>Log Analytics 작업 영역 인사이트(미리 보기)
+# <a name="log-analytics-workspace-insights"></a>Log Analytics 작업 영역 인사이트
 
-Log Analytics 작업 영역 인사이트(미리 보기)는 작업 영역 사용량, 성능, 상태, 에이전트, 쿼리, 변경 로그의 통합 보기를 통해 작업 영역에 대한 포괄적인 모니터링을 제공합니다. 이 문서는 Log Analytics 작업 영역 인사이트(미리 보기)를 등록하고 사용하는 방법을 이해하는 데 도움이 됩니다.
+Log Analytics 작업 영역 인사이트는 작업 영역 사용량, 성능, 상태, 에이전트, 쿼리, 변경 로그의 통합 보기를 통해 작업 영역에 대한 포괄적인 모니터링을 제공합니다. 이 문서는 Log Analytics 작업 영역 Insights 온보딩하고 사용하는 방법을 이해하는 데 도움이 됩니다.
 
 ## <a name="overview-your-log-analytics-workspaces"></a>Log Analytics 작업 영역 개요
 
@@ -29,7 +29,7 @@ Azure Monitor 인사이트를 통해 Log Analytics 작업 영역 인사이트에
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-2. Azure Portal의 왼쪽 창에서 **모니터링** 을 선택하고, 인사이트 허브 섹션에서 **Log Analytics 작업 영역 인사이트(미리 보기)** 를 선택합니다.
+2. Azure Portal 왼쪽 창에서 **모니터를** 선택하고 Insights Hub 섹션에서 **Log Analytics 작업 영역 Insights** 선택합니다.
 
 ## <a name="view-insights-for-a-log-analytics-workspace"></a>Log Analytics 작업 영역에 대한 인사이트 보기
 

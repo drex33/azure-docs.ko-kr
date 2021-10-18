@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 991306a115fdfe88f9646d1c65059bfe2699cb8d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fe61b971dbe1a3a82a085228ff8723f3cf47df20
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128613658"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129638272"
 ---
 이 문서에서는 사용자를 Azure AD(Azure Active Directory)에서 SQL 데이터베이스로 자동으로 프로비전 및 프로비전 해제하기 위해 수행해야 하는 단계에 대해 설명합니다.  Azure AD ECMA 커넥터 호스트를 통해 일반 SQL 커넥터를 설정하고 사용하는 방법을 설명합니다. 
  
@@ -32,6 +32,8 @@ ms.locfileid: "128613658"
 * Oracle 10 및 11g
 * Oracle 12c 및 18c
 * MySQL 5.x
+
+참고: 일반 SQL 커넥터를 사용하려면 열 이름이 대/소문자를 구분하지 않아야 합니다. MySQL은 Linux에서 대/소문자를 구분하며, Postgres는 플랫폼에서 대/소문자를 구분합니다. 따라서 현재 지원되지 않습니다. 
 
 ### <a name="cloud-requirements"></a>클라우드 요구 사항
 

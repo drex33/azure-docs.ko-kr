@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 4e6c6b441684d3877a8b85f40b650b257a5159da
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
-ms.translationtype: HT
+ms.openlocfilehash: e8429933e70ca0e83d8cf0b89789fda811b7122d
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107106074"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132059"
 ---
 # <a name="test-through-simulations"></a>시뮬레이션을 통해 테스트
 
@@ -35,7 +35,7 @@ Microsoft는 [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoin
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - 이 자습서의 단계를 완료하려면 먼저 보호되는 공용 IP 주소를 사용하여 [Azure DDoS Standard 보호 계획](manage-ddos-protection.md)을 만들고
-- [BreakingPoint Cloud](http://breakingpoint.cloud/)를 사용하여 계정을 만들어야 합니다. 
+- [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud)를 사용하여 계정을 만들어야 합니다. 
 
 ## <a name="configure-a-ddos-test-attack"></a>DDoS 테스트 공격 구성
 
@@ -66,7 +66,7 @@ Microsoft는 [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoin
 
 ### <a name="breakingpoint-cloud-api-script"></a>BreakingPoint Cloud API 스크립트
 
-이 [API 스크립트](https://aka.ms/ddosbreakingpoint)를 사용하여 한 번 실행하거나 cron을 사용하여 정기적인 테스트를 예약해 DDoS 테스트를 자동화할 수 있습니다. 이는 로깅이 올바르게 구성되었고 감지 및 응답 절차가 효과적인지 확인하는 데 유용합니다. 스크립트에는 Linux OS(Ubuntu 18.04 LTS로 테스트) 및 Python 3이 필요합니다. 포함된 스크립트를 사용하거나 [BreakingPoint Cloud](http://breakingpoint.cloud/) 웹 사이트의 설명서를 사용하여 필수 구성 요소 및 API 클라이언트를 설치합니다.
+이 [API 스크립트](https://aka.ms/ddosbreakingpoint)를 사용하여 한 번 실행하거나 cron을 사용하여 정기적인 테스트를 예약해 DDoS 테스트를 자동화할 수 있습니다. 이는 로깅이 올바르게 구성되었고 감지 및 응답 절차가 효과적인지 확인하는 데 유용합니다. 스크립트에는 Linux OS(Ubuntu 18.04 LTS로 테스트) 및 Python 3이 필요합니다. 포함된 스크립트를 사용하거나 [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud) 웹 사이트의 설명서를 사용하여 필수 구성 요소 및 API 클라이언트를 설치합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

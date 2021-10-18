@@ -9,12 +9,12 @@ metadata:
   author: hickeys
   ms.author: hickeys
   ms.date: 08/19/2021
-  ms.openlocfilehash: 86238a56af7d5d5e7f8e105bbe487994dffa207f
-  ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+  ms.openlocfilehash: d503930da03d2a86e141513ce1ff16ee06ffd950
+  ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/07/2021
-  ms.locfileid: "129661475"
+  ms.lasthandoff: 10/14/2021
+  ms.locfileid: "129984329"
 landingContent:
 - title: Azure Fluid Relay 정보
   linkLists:
@@ -24,11 +24,37 @@ landingContent:
       url: overview/overview.md
     - text: Azure Fluid Relay 아키텍처
       url: concepts/architecture.md
-- title: 방법 및 빠른 시작
-  linkLists:
+    - text: Fluid Framework 릴리스와 버전 호환성
+      url: concepts/version-compatibility.md
   - linkListType: get-started
     links:
     - text: Azure Fluid Relay 서비스 프로비전
       url: how-tos/provision-fluid-azure-portal.md
     - text: '빠른 시작: 주사위 롤러'
       url: quickstarts/quickstart-dice-roll.md
+- title: 심층적 분석
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 앱의 인증 및 권한 부여
+      url: concepts/authentication-authorization.md
+    - text: Azure Fluid Relay의 데이터 암호화
+      url: concepts/data-encryption.md
+    - text: DDS(분산 데이터 구조)
+      url: concepts/data-structures.md
+    - text: Azure Fluid Relay 토큰 계약
+      url: how-tos/fluid-json-web-token.md
+- title: Azure Fluid를 사용하는 방법
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: '방법: Azure Fluid Relay 서비스에 연결'
+      url: how-tos/connect-fluid-azure-service.md
+    - text: '방법: Azure Function을 사용하여 TokenProvider 작성'
+      url: how-tos/azure-function-token-provider.md
+    - text: '방법: 로컬 테스트에 AzureClient 사용'
+      url: how-tos/local-mode-with-azure-client.md
+    - text: Microsoft Azure Fluid Relay 서버에서 Fluid 컨테이너 삭제
+      url: how-tos/container-deletion.md
+    - text: '방법: Azure Fluid Relay에서 테스트 자동화 사용'
+      url: how-tos/test-automation.md

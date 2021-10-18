@@ -3,25 +3,22 @@ title: Azure Defender for DNS - 이점 및 기능
 description: Azure Defender for DNS의 이점 및 기능에 대한 자세한 정보
 author: memildin
 ms.author: memildin
-ms.date: 08/18/2021
+ms.date: 10/11/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: cffe4947e321cbd1f2cbb8a4d22141039129c1e1
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: ad2b761a747401646c48dcbf32385b8e5ec153c1
+ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122419598"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129740230"
 ---
 # <a name="introduction-to-azure-defender-for-dns"></a>Azure Defender for DNS 소개
 
-[Azure DNS](../dns/dns-overview.md)는 Microsoft Azure 인프라를 사용하여 이름 확인을 제공하는 DNS 도메인에 대한 호스팅 서비스입니다. Azure에 도메인을 호스트하면 다른 Azure 서비스와 동일한 자격 증명, API, 도구 및 대금 청구를 사용하여 DNS 레코드를 관리할 수 있습니다.
+Azure Defender for DNS는 Azure DNS의 [Azure 제공 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) 기능을 사용하는 리소스에 대한 추가 보호 계층을 제공합니다. 
 
-Azure Defender for DNS는 다음과 같은 방법으로 Azure DNS에 연결된 리소스에 대한 추가 보호 계층을 제공합니다.
-
-- Azure 리소스의 모든 DNS 쿼리를 지속적으로 모니터링
-- 의심스러운 활동에 대해 경고하는 고급 보안 분석 실행
+Azure DNS 내에서 Defender for DNS는 이러한 리소스의 쿼리를 모니터링하고 리소스에 대한 추가 에이전트 없이 의심스러운 활동을 검색합니다.
 
 ## <a name="availability"></a>가용성
 
@@ -34,12 +31,12 @@ Azure Defender for DNS는 다음과 같은 방법으로 Azure DNS에 연결된 �
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-dns"></a>Azure Defender for DNS의 이점은?
 
-Azure Defender for DNS는 다음과 같은 문제로부터 Azure DNS에 연결된 리소스를 보호합니다.
+Azure Defender for DNS는 다음과 같은 의심스러운 비정상적인 활동을 검색합니다.
 
-- DNS 터널링을 사용하여 Azure 리소스에서 데이터 반출
-- C&C 서버와 통신하는 맬웨어
-- 피싱 및 암호화 마이닝으로 악성 도메인과의 통신
-- DNS 공격 - 악성 DNS 확인자와의 통신 
+- DNS 터널링을 사용하여 Azure 리소스에서 **데이터 반출**
+- 명령 및 제어 서버와 통신하는 **맬웨어**
+- **DNS 공격** - 악성 DNS 확인자와의 통신 
+- 피싱 및 암호화 마이닝과 같은 **악의적인 활동에 사용되는 도메인과의 통신**
 
 Azure Defender for DNS에서 제공하는 경고의 전체 목록은 [경고 참조 페이지](alerts-reference.md#alerts-dns)에 있습니다.
 

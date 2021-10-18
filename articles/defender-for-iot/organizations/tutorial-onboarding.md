@@ -4,14 +4,14 @@ description: 이 자습서에서는 가상 머신에서 가상 센서를 통해 
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 10/05/2021
+ms.date: 10/07/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 717b65b78d177e277922687c4c290035b57ab6ab
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: e509b3a1c12c7c7d118eca0b3a2adabe01bdc977
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129537043"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660308"
 ---
 # <a name="tutorial-azure-defender-for-iot-trial-setup"></a>자습서: Azure Defender for IoT 평가판 설정
 
@@ -246,7 +246,7 @@ ESXi 또는 Hyper-V를 사용하여 가상 센서 소프트웨어를 설치할 �
 
 ## <a name="configure-a-span-port"></a>SPAN 포트 구성
 
-vSwitch에는 미러링 기능이 없지만 SPAN 포트를 구현하기 위한 해결 방법을 사용할 수 있습니다. 해결 방법은 ESXi 또는 Hyper-V를 사용하여 구현할 수 있습니다.
+가상 스위치에는 미러링 기능이 없습니다. 그러나 가상 스위치 환경에서는 무차별 모드를 사용할 수 있습니다. 무차별 모드는 가상 스위치 또는 포트 그룹 수준에서 정의되는 보안, 모니터링 및 관리 기술이자 작업 모드입니다. 기본적으로 무차별 모드는 사용하지 않도록 설정됩니다. 무차별 모드를 사용하도록 설정하면 동일한 포트 그룹에 있는 가상 머신의 네트워크 인터페이스는 무차별 모드를 사용하여 해당 가상 스위치를 통과하는 모든 네트워크 트래픽을 봅니다. ESXi 또는 Hyper-V를 사용하여 해결 방법을 구현할 수 있습니다.
 
 :::image type="content" source="media/tutorial-onboarding/purdue-model.png" alt-text="아키텍처에서 센서를 배치해야 하는 위치의 스크린샷.":::
 
@@ -476,5 +476,5 @@ CA 서명된 인증서를 업로드한 후에는 화면을 새로 고쳐야 할 
 
 ## <a name="next-steps"></a>다음 단계
 
-[추가 어플라이언스](how-to-install-software.md#about-defender-for-iot-appliances)를 설정하는 방법을 알아봅니다.
+[기타 어플라이언스](how-to-install-software.md#about-defender-for-iot-appliances)를 설정하는 방법을 알아봅니다.
 [에이전트 없는 아키텍처](architecture.md)를 참조합니다.

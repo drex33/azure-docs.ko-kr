@@ -2,15 +2,13 @@
 title: Application Insights를 사용하여 Azure Functions에서 실행되는 애플리케이션 모니터링 - Azure Monitor | Microsoft Docs
 description: Azure Monitor는 Azure Functions에서 실행되는 애플리케이션과 원활하게 통합되며, 성능을 모니터링하고 앱 관련 문제를 즉시 확인할 수 있습니다.
 ms.topic: conceptual
-author: MS-jgol
-ms.author: jgol
 ms.date: 08/27/2021
-ms.openlocfilehash: 5fd65d7028939e6412f7d04ca8e6c90a69fc5b4d
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 5be1c91fae86c4c15f9a6d835c36e53aa0f29f14
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130073224"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132021"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-application-insights"></a>Azure Monitor Application Insights를 사용하여 Azure Functions 모니터링
 

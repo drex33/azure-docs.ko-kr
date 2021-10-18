@@ -42,6 +42,8 @@ items:
         items:
           - name: 배포 모범 사례
             href: deployment-best-practices.md
+          - name: 계정 아키텍처
+            href: concept-best-practices-accounts.md
           - name: 컬렉션 아키텍처
             href: concept-best-practices-collections.md
           - name: 가격 책정 지침
@@ -277,8 +279,10 @@ items:
         href: /powershell/module/az.purview/
       - name: Python
         href: /python/api/azure-mgmt-purview/
-      - name: REST
+      - name: REST (영문)
         href: /rest/api/purview/
+      - name: Azure Purview 오픈 소스 도구 유틸리티
+        href: tutorial-purview-tools.md
       - name: ABAP 함수 배포 가이드
         href: abap-functions-deployment-guide.md
       - name: 질문과 대답(FAQ)

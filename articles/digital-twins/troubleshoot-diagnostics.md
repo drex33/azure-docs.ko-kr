@@ -1,27 +1,27 @@
 ---
-title: 진단 로그 사용
+title: '문제 해결: 진단 로그'
 titleSuffix: Azure Digital Twins
-description: 진단 설정으로 로깅을 사용하도록 설정하고 즉시 볼 수 있도록 로그를 쿼리하는 방법을 참조합니다. 또한 로그 범주 및 해당 스키마에 대해 알아봅니다.
+description: 이 문서에서는 진단 설정을 사용하여 로깅을 사용하도록 설정하고 로그를 쿼리하여 즉시 보는 방법을 알아봅니다. 또한 로그 범주 및 해당 스키마에 대해 알아봅니다.
 author: baanders
 ms.author: baanders
-ms.date: 9/15/2021
+ms.date: 9/24/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: c868f0c8418f6b265e3de5b4d8ea0c6b7312a33e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 89b7c741ce75a629de99e3337428027429bce5b7
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128593652"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131774"
 ---
-# <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Azure Digital Twins 문제 해결: 진단 로깅
+# <a name="troubleshooting-azure-digital-twins-diagnostics-logs"></a>문제 해결 Azure Digital Twins: 진단 로그
 
-Azure Digital Twins는 서비스 인스턴스에 대 한 **로그** 를 수집 하 여 성능, 액세스 및 기타 데이터를 모니터링할 수 있습니다. 이러한 로그를 사용하여 Azure Digital Twins 인스턴스에서 발생하는 상황을 파악하고, Azure 지원에 문의하지 않고도 문제에 대한 근본 원인을 분석할 수 있습니다.
+이 문서에서는 수집할 로그 유형 및 저장할 위치(예: Log Analytics 또는 선택한 스토리지 계정)를 포함하여 [Azure Portal](https://portal.azure.com)진단 설정을 구성하는 방법을 보여 줍니다. 그런 다음 로그를 쿼리하여 사용자 지정 인사이트를 신속하게 수집할 수 있습니다.
 
-이 문서에서는 수집할 로그 유형과 해당 로그를 저장할 위치 (예: Log Analytics 또는 선택한 저장소 계정)를 포함 하 여 [Azure Portal](https://portal.azure.com)에서 진단 설정을 구성 하는 방법을 보여 줍니다. 그런 다음 로그를 쿼리하여 사용자 지정 정보를 신속 하 게 수집할 수 있습니다.
+Azure Digital Twins 서비스 인스턴스에 대한 **로그를** 수집하여 성능, 액세스 및 기타 데이터를 모니터링할 수 있습니다. 이러한 로그를 사용하여 Azure Digital Twins 인스턴스에서 발생하는 상황을 파악하고, Azure 지원에 문의하지 않고도 문제에 대한 근본 원인을 분석할 수 있습니다.
 
-또한이 문서에는 Azure 디지털 쌍이 수집할 수 있는 모든 **로그 범주** 와 해당 **스키마** 에 대 한 정보도 포함 되어 있습니다.
+이 문서에는 Azure Digital Twins 수집할 수 있는 모든 **로그 범주** 및 해당 **스키마에** 대한 정보도 포함되어 있습니다.
 
 ## <a name="turn-on-diagnostic-settings"></a>진단 설정 켜기 
 
@@ -60,7 +60,7 @@ Azure Digital Twins는 서비스 인스턴스에 대 한 **로그** 를 수집 �
 
 ## <a name="view-and-query-logs"></a>로그 보기 및 쿼리
 
-Azure Digital Twins 로그의 저장소 세부 정보를 구성한 후 정보를 생성 하 고 문제를 해결 하기 위해 **사용자 지정 쿼리** 를 작성할 수 있습니다. 또한 서비스는 고객이 인스턴스에 대해 가질 수 있는 일반적인 질문의 주소를 지정 하 여 시작 하는 데 도움이 될 수 있는 몇 가지 예제 쿼리를 제공 합니다.
+Azure Digital Twins 로그의 스토리지 세부 정보를 구성한 후 인사이트를 생성하고 문제를 해결하는 **사용자 지정 쿼리를** 작성할 수 있습니다. 또한 이 서비스는 고객이 인스턴스에 대해 가질 수 있는 일반적인 질문을 해결하여 시작하는 데 도움이 되는 몇 가지 예제 쿼리를 제공합니다.
 
 인스턴스에 대한 로그를 쿼리하는 방법은 다음과 같습니다.
 
@@ -367,5 +367,5 @@ Azure Digital Twins가 수집하는 로그의 범주에 대한 자세한 정보�
 ## <a name="next-steps"></a>다음 단계
 
 * 진단을 구성하는 방법에 대한 자세한 내용은 [Azure 리소스에서 로그 데이터 수집 및 사용](../azure-monitor/essentials/platform-logs-overview.md)을 참조하세요.
-* Azure Digital Twins 메트릭에 대한 정보는 [문제 해결: Azure Monitor로 메트릭 보기](troubleshoot-metrics.md)를 참조하세요.
-* 메트릭에 대한 경고를 사용하도록 설정하는 방법은 [문제 해결: 경고 설정](troubleshoot-alerts.md)을 참조하세요.
+* Azure Digital Twins 메트릭에 대한 자세한 내용은 [문제 해결: 메트릭을 참조하세요.](troubleshoot-metrics.md)
+* 메트릭에 대한 경고를 사용하도록 설정하는 방법을 보려면 [문제 해결: 경고를 참조하세요.](troubleshoot-alerts.md)

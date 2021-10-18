@@ -3,24 +3,24 @@ title: '빠른 시작: Azure Application Insights로 Java 웹앱 분석'
 description: 'Application Insights를 사용하여 Java 웹앱에 대한 애플리케이션 성능 모니터링. '
 ms.topic: conceptual
 ms.date: 11/22/2020
-author: MS-jgol
 ms.custom: devx-track-java
-ms.author: jgol
-ms.openlocfilehash: 043287d8a66ee6954e171dc0c09b42963f522fac
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+author: mattmccleary
+ms.author: mmcc
+ms.openlocfilehash: 53dc6c6f757c65842512ab9c215161058d451962
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110104519"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130134035"
 ---
-# <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>빠른 시작: Java 웹 프로젝트에서 Application Insights 시작
+# <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java 웹 프로젝트에서 Application Insights 시작하기
 
 > [!CAUTION]
 > 이 문서는 더 이상 권장되지 않는 Application Insights Java 2.x에 적용됩니다.
 >
 > 최신 버전에 대한 문서는 [Application Insights Java 3.x](./java-in-process-agent.md)에서 찾을 수 있습니다.
 
-빠른 시작에서는 Application Insights SDK를 사용하여 요청을 계측하고, 종속성을 추적하며, 성능 카운터를 수집하고, 성능 문제 및 예외를 진단 및 앱을 통해 사용자가 수행하는 작업을 추적하는 코드를 작성합니다.
+이 자습서에서는 Application Insights SDK를 사용하여 요청을 계측하고, 의존성을 추적하고, 성능 카운터를 수집하고, 성능 문제 및 예외를 진단하고, 사용자가 앱에서 수행하는 작업을 추적하는 코드를 작성합니다.
 
 Application Insights는 라이브 애플리케이션의 성능 및 사용을 이해하는 데 도움이 되는 확장 가능한 분석 서비스입니다. Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱을 지원합니다.
 

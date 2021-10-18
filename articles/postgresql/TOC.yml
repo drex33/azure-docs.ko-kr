@@ -630,12 +630,17 @@
           items:
             - name: 작업자 노드의 분할 데이터
               href: tutorial-hyperscale-shard.md
-        - name: 다중 테넌트 데이터베이스 설계
-          href: tutorial-design-database-hyperscale-multi-tenant.md
-          displayName: 'hyperscale, tutorial, multi-tenant'
-        - name: 실시간 대시보드 설계
-          href: tutorial-design-database-hyperscale-realtime.md
-          displayName: 'hyperscale, tutorial, real-time'
+            - name: 다중 테넌트 데이터베이스 설계
+              href: tutorial-design-database-hyperscale-multi-tenant.md
+              displayName: 'hyperscale, tutorial, multi-tenant'
+            - name: 실시간 대시보드 설계
+              href: tutorial-design-database-hyperscale-realtime.md
+              displayName: 'hyperscale, tutorial, real-time'
+        - name: 관리
+          items:
+            - name: 프라이빗 액세스
+              href: tutorial-hyperscale-private-access.md
+              displayName: 'hyperscale, tutorial, private'
     - name: 개념
       items:
         - name: 기본 계층
@@ -651,11 +656,16 @@
               href: concepts-hyperscale-choose-distribution-column.md
             - name: 테이블 공동 배치
               href: concepts-hyperscale-colocation.md
-        - name: 보안
+        - name: 데이터 액세스 및 보안
           items:
-            - name: 방화벽 규칙
+            - name: 개요
+              href: concepts-hyperscale-security-overview.md
+            - name: 퍼블릭 액세스
               href: concepts-hyperscale-firewall-rules.md
               displayName: 'firewall, rules, hyperscale'
+            - name: 프라이빗 액세스
+              href: concepts-hyperscale-private-access.md
+              displayName: 'private, link, hyperscale'
             - name: SSL 구성
               href: concepts-hyperscale-ssl-connection-security.md
               displayName: 'hyperscale, ssl'
@@ -702,11 +712,18 @@
               href: howto-hyperscale-scale-grow.md
             - name: 분할 균형 다시 맞추기
               href: howto-hyperscale-scale-rebalance.md
-        - name: 방화벽 규칙
+        - name: 데이터 액세스 및 보안
           items:
-            - name: Azure portal
-              href: howto-hyperscale-manage-firewall-using-portal.md
-              displayName: 'firewall rule, hyperscale'
+            - name: 퍼블릭 액세스
+              items:
+                - name: Azure portal
+                  href: howto-hyperscale-manage-firewall-using-portal.md
+                  displayName: 'firewall rule, hyperscale'
+            - name: 프라이빗 액세스
+              items:
+                - name: Azure portal
+                  href: howto-hyperscale-private-access.md
+                  displayName: 'network, private link'
         - name: 사용자 만들기
           href: howto-hyperscale-create-users.md
         - name: 분선 데이터

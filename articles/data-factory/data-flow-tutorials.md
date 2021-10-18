@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: tutorial
 ms.date: 05/18/2021
-ms.openlocfilehash: d70100acae25913a3cbee5bf688c954c2bb072d3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 85e652a5619ebbdae8503f77cb4699ec95848906
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122638955"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619462"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>데이터 흐름 매핑 비디오 자습서
 
@@ -175,6 +175,8 @@ ms.locfileid: "122638955"
 [원본 데이터 변경 내용 검색](http://youtu.be/CaxIlI7oXfI?hd=1)
 
 [제네릭 형식 2 느린 변경 차원](http://youtu.be/tc283k8CWh8)
+
+[원본에 없는 경우 대상의 행 삭제](https://www.youtube.com/watch?v=9i7qf1vczUw)
 
 ## <a name="data-flow-expressions"></a>데이터 흐름 식
 

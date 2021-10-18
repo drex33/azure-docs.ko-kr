@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 10/11/2021
-ms.openlocfilehash: 9376921b4a80e6267eccd872e211d113fcf427e3
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 5523b04235ce386e62abc175ac498f4df34b0641
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130046016"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132306"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Azure Sentinel의 새로운 기능
 
@@ -35,9 +35,14 @@ ms.locfileid: "130046016"
 
 ## <a name="october-2021"></a>2021년 10월
 
+- [이제 M365 Defender 커넥터(공개 미리 보기)에서 Defender for Office 365 이벤트를 사용할 수 있습니다.](#defender-for-office-365-events-now-available-in-the-m365-defender-connector-public-preview)
 - [플레이북 템플릿 및 갤러리 사용 가능(공개 미리 보기)](#playbook-templates-and-gallery-now-available-public-preview)
 - [예약된 분석 규칙에 대한 템플릿 버전 관리(공개 미리 보기)](#manage-template-versions-for-your-scheduled-analytics-rules-public-preview)
 - [DHCP 정규화 스키마(공개 미리 보기)](#dhcp-normalization-schema-public-preview)
+
+### <a name="defender-for-office-365-events-now-available-in-the-m365-defender-connector-public-preview"></a>이제 M365 Defender 커넥터(공개 미리 보기)에서 Defender for Office 365 이벤트를 사용할 수 있습니다.
+
+엔드포인트용 Microsoft Defender의 이벤트 외에도 이제 [Microsoft 365 Defender 커넥터](connect-microsoft-365-defender.md)를 통해 [Office 365 위해 Microsoft Defender에서](/microsoft-365/security/office-365-security/overview) 원시 [고급 헌팅 이벤트를](/microsoft-365/security/defender/advanced-hunting-overview) 수신할 수 있습니다. [자세히 알아보기](microsoft-365-defender-sentinel-integration.md#advanced-hunting-event-collection).
 
 ### <a name="playbook-templates-and-gallery-now-available-public-preview"></a>플레이북 템플릿 및 갤러리 사용 가능(공개 미리 보기)
 
@@ -199,7 +204,6 @@ UEBA 관심 목록이 데이터로 채워진 후에는 해당 데이터와 분�
 - [관심 목록 일반 공급](#watchlists-are-in-general-availability)
 - [더 많은 지역에서 데이터 보존 지원](#support-for-data-residency-in-more-geos)
 - [Azure Defender 커넥터의 양방향 동기화(퍼블릭 미리 보기)](#bidirectional-sync-in-azure-defender-connector-public-preview)
-
 
 ### <a name="microsoft-threat-intelligence-matching-analytics-public-preview"></a>Microsoft 위협 인텔리전스 일치 분석(퍼블릭 미리 보기)
 

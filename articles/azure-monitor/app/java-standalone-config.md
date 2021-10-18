@@ -3,15 +3,15 @@ title: 구성 옵션 - Java용 Azure Monitor Application Insights
 description: Java용 Azure Monitor Application Insights를 구성하는 방법
 ms.topic: conceptual
 ms.date: 11/04/2020
-author: MS-jgol
 ms.custom: devx-track-java
-ms.author: jgol
-ms.openlocfilehash: 3ca38fbefccaf6529d78d1c5acce30c85d88bf7c
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+author: mattmccleary
+ms.author: mmcc
+ms.openlocfilehash: c5de4ed71de7f6cb6534620cbfd1bc62226123e5
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129616990"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132800"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>구성 옵션 - Java용 Azure Monitor Application Insights
 
@@ -180,9 +180,9 @@ ms.locfileid: "129616990"
 > [!NOTE]
 > 버전 3.0.2부터 `service.version`이라는 사용자 지정 차원을 추가하는 경우 값은 사용자 지정 차원이 아닌 Application Insights Logs 테이블의 `application_Version` 열에 저장됩니다.
 
-## <a name="inherited-attribute-preview"></a>상속 된 특성 (미리 보기)
+## <a name="inherited-attribute-preview"></a>상속된 특성(미리 보기)
 
-3.2.0 버전부터 요청 원격 분석에 대해 프로그래밍 방식으로 사용자 지정 차원을 설정 하 고 다음을 수행 하는 종속성 원격 분석을 통해 해당 차원을 상속 하는 경우에 시작 합니다.
+버전 3.2.0부터 요청 원격 분석에서 프로그래밍 방식으로 사용자 지정 차원을 설정하고 다음에 오는 종속성 원격 분석에서 상속하려는 경우:
 
 ```json
 {
@@ -329,9 +329,9 @@ Application Insights에 대해 구성된 기본 수준은 `INFO`입니다. 이 �
 > [!NOTE]
 > 더 세분화된 컨트롤을 원하는 경우(예: 모든 redis 호출이 아니라 일부 redis 호출을 표시하지 않는 경우)에는 [샘플링 재정의](./java-standalone-sampling-overrides.md)를 참조하세요.
 
-## <a name="preview-instrumentations"></a>계측 미리 보기
+## <a name="preview-instrumentations"></a>Instrumentations 미리 보기
 
-버전 3.2.0부터 다음 미리 보기 계측을 사용하도록 설정할 수 있습니다.
+3.2.0 버전부터 다음 미리 보기 instrumentations를 사용 하도록 설정할 수 있습니다.
 
 ```
 {

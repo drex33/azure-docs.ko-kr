@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure CLI를 사용하여 Blob 만들기
+title: '빠른 시작: Blob 업로드, 다운로드 및 나열 - Azure CLI'
 titleSuffix: Azure Storage
 description: 이 빠른 시작에서는 Azure CLI를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열하는 방법을 알아봅니다.
 services: storage
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 68797d8b158e7ff56d609f0d59c174b72277e98b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8f4726088a49bfe5da7fdea088df76da3356162e
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128674588"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129616553"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Blob 생성, 다운로드 및 나열
 

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/01/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: 1203562d088efeafd20a0b6c58698fcfe10b79e6
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ffa5aae5e45583385d7849637665a053ef0b9a2f
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124816199"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129729580"
 ---
 # <a name="introduction-to-azure-active-directory-verifiable-credentials-preview"></a>Azure Active Directory 확인 가능한 자격 증명 소개(미리 보기)
 
@@ -81,7 +81,7 @@ ID는 매일 실생활에 사용됩니다. 운전 면허증은 자동차 운전 
 
 **4. Microsoft Resolver** ION 노드에 연결하여 ```did:ion``` 메서드를 사용하여 DID를 조회 및 확인하고 DDO(DID 문서 개체)를 반환하는 API입니다. DDO에는 DID와 연결된 DPKI 메타데이터(예: 공개 키 및 서비스 엔드포인트)가 포함됩니다. 
 
-**5. Azure Active Directory 확인 가능한 자격 증명 서비스** ```did:ion``` 메서드로 서명된 [W3C Verifiable Credentials](https://www.w3.org/TR/vc-data-model/)용 오픈 소스 SDK와 발급 및 확인 API입니다. 이를 통해 ID 소유자는 클레임을 생성, 제시 및 확인할 수 있습니다. 이것은 시스템 사용자 간에 신뢰의 기초를 형성합니다.
+**5. Azure Active Directory 확인 자격 증명 서비스** Azure의 발급 및 확인 서비스와 ```did:ion``` 메서드로 서명된 [W3C 확인 가능한 자격 증명](https://www.w3.org/TR/vc-data-model/)용 REST API입니다. 이를 통해 ID 소유자는 클레임을 생성, 제시 및 확인할 수 있습니다. 이것은 시스템 사용자 간에 신뢰의 기초를 형성합니다.
 
 ## <a name="a-sample-scenario"></a>샘플 시나리오
 

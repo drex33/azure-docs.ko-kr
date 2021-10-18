@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 10/01/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0aad268f8721d2f4747c4e3dec3860e52dd7112a
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 8f5cbcefa37df245f025895f421df4c4c7907ff4
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129352795"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709989"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Azure Active Directory B2C의 기술 및 기능 개요
 
@@ -299,6 +299,12 @@ Azure AD B2C에서는 최종 사용자가 앱에 가입하거나 로그인하는
 Azure Application Insights를 Azure AD B2C 사용자 지정 정책에 통합하면 최종 사용자가 가입, 로그인, 암호 재설정 또는 프로필 편집을 수행하는 방법에 대한 인사이트를 얻을 수 있습니다. 이러한 지식을 사용하면 향후 개발 주기에 대해 데이터 기반의 결정을 내릴 수 있습니다.
 
 자세한 내용은 [Azure Active Directory B2C에서 Application Insights를 사용하여 사용자 동작 추적](analytics-with-application-insights.md)을 참조하세요.
+
+## <a name="automation-using-microsoft-graph-api"></a>Microsoft Graph API를 사용한 Automation
+
+MS 그래프 API를 사용하여 Azure AD B2C 디렉터리를 관리합니다. Azure AD B2C 디렉터리 자체를 만들 수도 있습니다. 사용자, ID 공급자, 사용자 흐름, 사용자 지정 정책 등을 관리할 수 있습니다. 
+
+[Microsoft Graph로 Azure AD B2C를 관리](microsoft-graph-operations.md)하는 방법에 대해 자세히 알아봅니다. 
 
 ## <a name="azure-ad-b2c-service-limits-and-restrictions"></a>Azure AD B2C 서비스 한도 및 제한 사항
 [Azure AD B2C 서비스 한도 및 제한 사항](service-limits.md)에 관한 자세한 정보

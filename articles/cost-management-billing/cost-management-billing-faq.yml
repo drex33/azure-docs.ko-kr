@@ -10,13 +10,13 @@ metadata:
   ms.topic: conceptual
   ms.date: 09/16/2021
   ms.author: banders
-  ms.openlocfilehash: d23c07386fe0245f3acd7bc1e716a053cdfa2019
-  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+  ms.openlocfilehash: 7edae913ea733002aa3ad0736cf744f969003cdb
+  ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/24/2021
-  ms.locfileid: "128607295"
-title: Azure Cost Management + Billing 질문과 대답(FAQ)
+  ms.lasthandoff: 10/09/2021
+  ms.locfileid: "129706213"
+title: Cost Management + Billing 질문과 대답(FAQ)
 summary: ''
 sections:
 - name: 일반 청구 관련 질문
@@ -55,7 +55,7 @@ sections:
       [Cost Management 데이터에 대한 액세스 할당](costs/assign-access-acm-data.md)을 참조하세요.
   - question: Cost Management에서 지원되는 파트너 제품은 무엇인가요?
     answer: >
-      Azure 플랜 고객을 대상으로 하는 파트너의 경우 Cost Management를 이용할 수 있습니다. 정책 설정을 사용하도록 지정하면 파트너 고객이 본인의 비용 정보를 볼 수 있습니다. 자세한 내용은 [파트너용 Azure Cost Management 시작](costs/get-started-partners.md)을 참조하세요. 기존 CSP는 Cost Management에서 지원되지 않습니다.
+      Azure 플랜 고객을 대상으로 하는 파트너의 경우 Cost Management를 이용할 수 있습니다. 정책 설정을 사용하도록 지정하면 파트너 고객이 본인의 비용 정보를 볼 수 있습니다. 자세한 내용은 [파트너용 Cost Management 시작](costs/get-started-partners.md)을 참조하세요. 기존 CSP는 Cost Management에서 지원되지 않습니다.
   - question: 예상 비용을 확인하려면 어떻게 해야 하나요?
     answer: >
       Azure Portal에서 **Cost Management + 청구** > **Cost Management** > **비용 분석** 으로 이동합니다. 기본 보기에서 맨 위 차트에는 실제/분할 상환 비용 및 예상 비용 섹션이 있습니다. 차트의 단색은 실제/분할 상환 비용을 나타냅니다. 음영 처리된 색은 예상 비용을 나타냅니다.
@@ -87,7 +87,7 @@ sections:
     answer: >
       [Azure Storage 계정 SAS 키와 함께 비용 데이터 내보내기](costs/export-cost-data-storage-account-sas-key.md) 문서를 참조하세요.
   - question: CSP 파트너의 경우 Azure 플랜의 기존 CSP 제품에서 Cost Management가 지원되나요?
-    answer: "[새 상거래 환경](https://www.microsoft.com/licensing/news/new-azure-experience-in-csp)에서 기존 CSP 고객을 Azure 플랜으로 전환하려고 하는 점을 고려할 때 Azure 플랜을 구독한 고객의 직접 파트너 및 간접 공급자의 경우에만 Azure Cost Management를 이용할 수 있습니다. \n"
+    answer: "[새 상거래 환경](https://www.microsoft.com/licensing/news/new-azure-experience-in-csp)에서 기존 CSP 고객을 Azure 플랜으로 전환하려고 하는 점을 고려할 때 Azure 플랜을 구독한 고객의 직접 파트너 및 간접 공급자의 경우에만 Cost Management + Billing을 사용할 수 있습니다. \n"
   - question: CSP 파트너(전역 관리자)가 Azure 플랜의 최종 고객 및 재판매인의 구독 범위에서 비용 표시 정책을 사용하도록 설정하려면 어떻게 해야 하나요?
     answer: >
       구독 시 Azure RBAC 사용자에 대한 소매 요금에서 Azure에서 사용하는 서비스에 대한 비용 표시 정책을 사용하도록 설정하려면 [고객 테넌트 구독에 Cost Management 사용](costs/get-started-partners.md#enable-cost-management-for-customer-tenant-subscriptions)을 참조하세요. 직접 파트너 또는 간접 공급자의 전역 관리자는 정책에 관계 없이 고객 테넌트의 비용을 볼 수 있습니다.
@@ -100,10 +100,10 @@ sections:
   - question: Cost Management에서 지원되는 제품 유형은 무엇인가요?
     answer: >
       [지원되는 Microsoft Azure 제품](./costs/understand-cost-mgt-data.md#supported-microsoft-azure-offers)을 참조하세요.
-  - question: Azure Cost Management에서 비용 및 사용량 데이터를 얼마나 빨리 확인할 수 있나요?
+  - question: Cost Management에서 비용 및 사용량 데이터를 얼마나 빨리 확인할 수 있나요?
     answer: >
       [비용, 사용량 데이터 업데이트 및 보존](./costs/understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention)을 참조하세요.
-  - question: Azure Cost Management에서 모든 비용 관련 정보를 찾을 수 있나요?
+  - question: Cost Management에서 모든 비용 관련 정보를 찾을 수 있나요?
     answer: >
       [Cost Management에 포함된 비용](costs/understand-cost-mgt-data.md#costs-included-in-cost-management)을 참조하세요.
   - question: 할당된 비용은 예산 및 예측 보기에 포함되나요?
@@ -144,7 +144,7 @@ sections:
     answer: >
       절감액은 몇 가지 방법으로 확인할 수 있습니다.
 
-      -  EA 고객인 경우 EA용 Azure Cost Management Power BI 앱을 통해 [RI 절감액 보고서](./costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md#reports-available-with-the-app)를 볼 수 있습니다.
+      -  EA 고객인 경우 EA용 Cost Management Power BI 앱을 통해 [RI 절감액 보고서](./costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md#reports-available-with-the-app)를 볼 수 있습니다.
 
       -  사용량 및 요금 데이터 파일을 통해 수동으로 [예약 절감액을 파악](reservations/understand-reserved-instance-usage-ea.md#determine-reservation-savings)할 수 있습니다.
   - question: 예약 미달 사용은 어떻게 확인하나요?
@@ -340,7 +340,7 @@ sections:
       > Azure Resource Manager 작업을 지원하는 리소스에만 태그를 적용할 수 있습니다. 클래식 배포 모델을 통해(예: 클래식 포털을 통해) 가상 머신, 가상 네트워크 또는 스토리지를 만든 경우 해당 리소스에 태그를 적용할 수 없습니다. 태그를 지원하려면 Resource Manager를 통해 이러한 리소스를 다시 배포해야 합니다. 다른 모든 리소스는 태그 지정을 지원합니다.
   - question: Power BI를 사용하여 분석을 수행할 수 있나요?
     answer: >
-      예. [Power BI Desktop용 Azure Cost Management 커넥터](/power-bi/connect-data/desktop-connect-azure-cost-management)를 사용하면 Azure 지출을 보다 잘 파악할 수 있는 사용자 지정된 강력한 시각화와 보고서를 만들 수 있습니다. EA(기업계약) 고객은 [Azure Cost Management 템플릿 앱](costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md)을 활용할 수도 있습니다. Azure Cost Management 템플릿 앱에는 비용 절감을 위해 모니터링 비용, 서비스 사용량 추세 및 비용 최적화 옵션 파악에 도움이 되는 미리 생성된 보고서가 함께 제공됩니다.               Power BI 보고는 청구 정보를 볼 수 있는 Azure EA 직접 고객, 파트너 및 간접 고객에게 제공됩니다.
+      예. [Power BI Desktop용 Cost Management 커넥터](/power-bi/connect-data/desktop-connect-azure-cost-management)를 사용하면 Azure 지출을 보다 잘 파악할 수 있는 사용자 지정된 강력한 시각화와 보고서를 만들 수 있습니다. EA(기업계약) 고객은 [Cost Management 템플릿 앱](costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md)을 활용할 수도 있습니다. Cost Management 템플릿 앱에는 비용 절감을 위해 모니터링 비용, 서비스 사용량 추세 및 비용 최적화 옵션 파악에 도움이 되는 미리 생성된 보고서가 함께 제공됩니다.               Power BI 보고는 청구 정보를 볼 수 있는 Azure EA 직접 고객, 파트너 및 간접 고객에게 제공됩니다.
   - question: 기존 Azure 계정을 Azure EA 등록에 연결할 수 있나요?
     answer: >
       예. 계정 소유자로 있는 모든 Azure 구독이 기업계약으로 변환됩니다. Visual Studio, AzurePass, MPN, BizSpark 등과 같이 월간 크레딧을 사용하는 구독이 여기에 포함됩니다. 이러한 구독을 변환하면 월간 크레딧이 손실됩니다.

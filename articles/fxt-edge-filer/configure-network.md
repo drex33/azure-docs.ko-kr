@@ -5,13 +5,13 @@ author: ekpgh
 ms.author: v-erkel
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 06/20/2019
-ms.openlocfilehash: 8d349a0faa2cfc97f029e496b9bd92b1e5057018
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.date: 10/07/2021
+ms.openlocfilehash: c723214962e67ef04f9cf7659f63d29af87a4732
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867506"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129670058"
 ---
 # <a name="tutorial-configure-the-clusters-network-settings"></a>자습서: 클러스터의 네트워크 설정 구성
 
@@ -102,42 +102,46 @@ DNS 서버의 사용 여부를 결정할 때 다음 사항에 유의하세요.
 
 ### <a name="round-robin-dns-configuration-details"></a>라운드 로빈 DNS 구성 세부 정보
 
-클라이언트에서 클러스터에 액세스하는 경우 RRDNS는 사용 가능한 모든 인터페이스 간에 요청을 자동으로 분산시킵니다.
+라운드 로빈 DNS(RRDNS) 시스템은 클라이언트 요청을 여러 주소 간에 자동으로 라우팅합니다.
 
-최적의 성능을 위해 다음 다이어그램과 같이 클라이언트 측 클러스터 주소를 처리하도록 DNS 서버를 구성합니다.
+이 시스템을 설정하려면 DNS 서버의 구성 파일을 사용자 지정하여 FXT Edge Filer의 주 도메인 주소로 탑재 요청을 받을 때 모든 클러스터의 탑재 지점 간에 트래픽을 할당합니다. 클라이언트는 해당 도메인 이름을 서버 인수로 사용하여 클러스터를 탑재하고 자동으로 다음 탑재 IP로 라우팅됩니다.
 
-vserver 클러스터는 왼쪽에 표시되고, IP 주소는 가운데와 오른쪽에 표시되어 있습니다. 그림과 같이 A 레코드와 포인터를 사용하여 각 클라이언트 액세스 지점을 구성합니다.
+RRDNS를 구성하는 두 가지 주요 단계는 다음과 같습니다.
 
-:::image type="complex" source="media/fxt-cluster-config/fxt-rrdns-diagram.png" alt-text="클러스터 라운드 로빈 DNS 구성을 보여 주는 다이어그램.":::
-   <이 다이어그램은 단일 가상 서버(왼쪽), 세 개의 IP 주소(가운데 열) 및 세 개의 클라이언트 인터페이스(오른쪽 열)의 세 가지 범주 요소 간의 연결을 보여 줍니다. "vserver1"이라는 레이블이 지정된 왼쪽의 단일 원은 IP 주소(10.0.0.10, 10.0.0.11, 10.0.0.12)가 있는 레이블이 지정된 세 개의 원을 가리키는 화살표로 연결됩니다. vserver 원에서 세 개의 IP 원으로 가는 화살표에는 "A"라는 캡션이 있습니다. 각 IP 주소 원은 클라이언트 인터페이스로 레이블이 지정된 원에 두 개의 화살표로 연결됩니다. IP가 10.0.0.10인 원은 "vs1-client-IP-10"에 연결되고, IP가 10.0.0.11인 원은 "vs1-client-IP-11"에 연결되고, IP가 10.0.0.12인 원은 "vs1-client-IP-11"에 연결됩니다. IP 주소 원과 클라이언트 인터페이스 원 사이는 두 개의 화살표로 연결됩니다. 하나는 IP 주소 원에서 클라이언트 인터페이스 원을 가리키는 "PTR"로 레이블이 지정된 화살표이고 다른 하나는 클라이언트 인터페이스 원에서 IP 주소 원을 가리키는 "A"로 레이블이 지정된 화살표입니다.> :::image-end:::
+1. DNS 서버의 ``named.conf`` 파일을 수정하여 FXT 클러스터에 대한 쿼리의 순환 순서를 설정합니다. 이 옵션을 선택하면 서버에서 사용 가능한 모든 IP 값을 순환합니다. 다음과 같은 명령문을 추가합니다.
 
-각 클라이언트 측 IP 주소에는 클러스터에서 내부적으로 사용할 수 있도록 고유한 이름이 있어야 합니다. (이 다이어그램에서 클라이언트 IP는 명확성을 위해 vs1-client-IP-*로 명명되었지만, 프로덕션에서는 client*와 같이 좀 더 간결하게 사용해야 합니다.)
+   ```bash
+   options {
+       rrset-order {
+           class IN A name "fxt.contoso.com" order cyclic;
+       };
+   };
+   ```
 
-클라이언트는 vserver 이름을 서버 인수로 사용하여 클러스터를 탑재합니다.
+1. 다음 예제와 같이 사용 가능한 각 IP 주소에 대해 A 레코드 및 포인터(PTR) 레코드를 구성합니다.
 
-DNS 서버의 ``named.conf`` 파일을 수정하여 vserver에 대한 쿼리의 순환 순서를 설정합니다. 이 옵션을 사용하면 사용 가능한 모든 값이 순환됩니다. 다음과 같은 명령문을 추가합니다.
+   이러한 ``nsupdate`` 명령은 도메인 이름이 fxt.contoso.com이고 3개의 탑재 주소(10.0.0.10, 10.0.0.11 및 10.0.0.12)가 있는 Azure FXT Edge Filer 클러스터에 대해 DNS를 올바르게 구성하는 예제를 제공합니다.
 
-```
-options {
-    rrset-order {
-        class IN A name "vserver1.example.com" order cyclic;
-    };
-};
-```
+   ```bash
+   update add fxt.contoso.com. 86400 A 10.0.0.10
+   update add fxt.contoso.com. 86400 A 10.0.0.11
+   update add fxt.contoso.com. 86400 A 10.0.0.12
+   update add client-IP-10.contoso.com. 86400 A 10.0.0.10
+   update add client-IP-11.contoso.com. 86400 A 10.0.0.11
+   update add client-IP-12.contoso.com. 86400 A 10.0.0.12
+   update add 10.0.0.10.in-addr.arpa. 86400 PTR client-IP-10.contoso.com
+   update add 11.0.0.10.in-addr.arpa. 86400 PTR client-IP-11.contoso.com
+   update add 12.0.0.10.in-addr.arpa. 86400 PTR client-IP-12.contoso.com
+   ```
 
-다음 ``nsupdate`` 명령은 DNS를 올바르게 구성하는 예제를 제공합니다.
+   이러한 명령은 클러스터의 각 탑재 주소에 대해 A 레코드를 만들고 역방향 DNS 검사를 적절하게 지원하도록 포인터 레코드를 설정합니다.
 
-```
-update add vserver1.example.com. 86400 A 10.0.0.10
-update add vserver1.example.com. 86400 A 10.0.0.11
-update add vserver1.example.com. 86400 A 10.0.0.12
-update add vs1-client-IP-10.example.com. 86400 A 10.0.0.10
-update add vs1-client-IP-11.example.com. 86400 A 10.0.0.11
-update add vs1-client-IP-12.example.com. 86400 A 10.0.0.12
-update add 10.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-10.example.com
-update add 11.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-11.example.com
-update add 12.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-12.example.com
-```
+   아래 다이어그램은 이 구성의 기본 구조를 보여줍니다.
+
+   :::image type="complex" source="media/round-robin-dns-diagram-fxt.png" alt-text="클라이언트 탑재 지점 DNS 구성을 보여주는 다이어그램.":::
+   <이 다이어그램은 단일 FXT Edge Filer 클러스터 도메인 이름(왼쪽), 세 개의 IP 주소(중간 열) 및 세 개의 내부 사용 역방향 DNS 클라이언트 인터페이스(오른쪽 열)의 세 가지 범주 요소 간의 연결을 보여줍니다. "fxt.contoso.com" 레이블이 지정된 왼쪽의 단일 타원은 IP 주소(10.0.0.10, 10.0.0.11, 10.0.0.12) 레이블이 지정된 세 개의 타원을 가리키는 화살표로 연결됩니다. Fxt.contoso.com 타원에서 세 개의 IP 타원까지의 화살표에는 "A" 레이블이 지정됩니다. 각 IP 주소 타원은 클라이언트 인터페이스로 레이블이 지정된 타원에 두 개의 화살표로 연결됩니다. IP가 10.0.0.10인 타원은 "client-IP-10.contoso.com"에 연결되고, IP가 10.0.0.11인 타원은 "client-IP-11.contoso.com"에 연결되고, IP가 10.0.0.12인 타원은 "client-IP-11.contoso.com"에 연결됩니다. IP 주소 타원과 클라이언트 인터페이스 타원 사이는 두 개의 화살표로 연결됩니다. 하나는 IP 주소 타원에서 클라이언트 인터페이스 타원을 가리키는 "PTR"로 레이블이 지정된 화살표이고 다른 하나는 클라이언트 인터페이스 타원에서 IP 주소 타원을 가리키는 "A"로 레이블이 지정된 화살표입니다.> :::image-end:::
+
+RRDNS 시스템이 구성된 후에는 탑재 명령에서 FXT 클러스터 주소를 확인하는 데 사용하도록 클라이언트 컴퓨터에 지시합니다.
 
 ### <a name="enable-dns-in-the-cluster"></a>클러스터에서 DNS를 사용하도록 설정
 

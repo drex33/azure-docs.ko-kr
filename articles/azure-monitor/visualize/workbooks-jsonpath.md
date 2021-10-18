@@ -2,19 +2,16 @@
 title: Azure Monitor 통합 문서-JSONPath를 사용하여 JSON 데이터 변환
 description: Azure Monitor 통합 문서에서 JSONPath를 사용하여 쿼리된 엔드포인트가 반환하는 JSON 데이터의 결과를 원하는 형식으로 변환하는 방법입니다.
 services: azure-monitor
-author: lgayhardt
-manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.author: lagayhar
-ms.openlocfilehash: 142853f0d5ed787d0b7aaee1bb118a001f144227
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: f43fde52d8b85483a5d10548053fb7ca421f93c1
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101722928"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132382"
 ---
 # <a name="how-to-use-jsonpath-to-transform-json-data-in-workbooks"></a>JSONPath를 사용하여 통합 문서에서 JSON 데이터를 변환하는 방법
 

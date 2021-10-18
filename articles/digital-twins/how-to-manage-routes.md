@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/30/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 99fbf0a6ecd232ae646639e84864addd103c1f5a
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: fb27a56dcf1661a95b6c7926a3c11628f6341446
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129807777"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130133902"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Azure Digital Twins에서의 엔드포인트 및 경로 관리
 
@@ -47,7 +47,7 @@ Azure Digital Twins에서는 [이벤트 알림](concepts-event-notifications.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) 항목
 
 >[!NOTE]
-> Event Grid 엔드포인트의 경우 Event Grid **토픽만** 지원됩니다. Event Grid **도메인은** 엔드포인트로 지원되지 않습니다.
+> Event Grid 끝점의 경우 **Event Grid 항목만** 지원 됩니다. Event grid **도메인** 은 끝점으로 지원 되지 않습니다.
 
 다양한 엔드포인트 유형에 대한 자세한 정보는 [Azure 메시징 서비스 간 선택](../event-grid/compare-messaging-services.md)을 참조하세요.
 
@@ -61,7 +61,7 @@ Azure Digital Twins에서는 [이벤트 알림](concepts-event-notifications.md)
 
 | 엔드포인트 유형 | 필수 리소스(생성 지침에 연결됨) |
 | --- | --- |
-| Event Grid 엔드포인트 | [이벤트 그리드 토픽](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)<br/>*이벤트 스키마는 스키마 또는 클라우드 이벤트 스키마 v1.0을 Event Grid 합니다. |
+| Event Grid 엔드포인트 | [이벤트 그리드 토픽](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)<br/>* 이벤트 스키마는 스키마 또는 클라우드 이벤트 스키마 v1.0 Event Grid 이어야 합니다. |
 | Event Hubs 엔드포인트 | [Event&nbsp;Hubs&nbsp;네임스페이스](../event-hubs/event-hubs-create.md)<br/><br/>[이벤트 허브](../event-hubs/event-hubs-create.md)<br/><br/>(선택 사항) 키 기반 인증에 대한 [권한 부여 규칙](../event-hubs/authorize-access-shared-access-signature.md) | 
 | 서비스 버스 엔드포인트 | [Service Bus 네임스페이스](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md)<br/><br/>[Service Bus 토픽](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md)<br/><br/> (선택 사항) 키 기반 인증에 대한 [권한 부여 규칙](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature)|
 
@@ -458,7 +458,7 @@ API를 사용하여 사용자 지정 필터를 작성할 수 있습니다. 필�
 
 경로 필터를 정의할 때 지원되는 함수는 다음과 같습니다.
 
-|함수|Description|예제|
+|함수|설명|예제|
 |--|--|--|
 |STARTS_WITH(x,y)|값 `x`가 문자열 `y`로 시작하면 true를 반환합니다.|`STARTS_WITH($body.$metadata.$model, 'dtmi:example:com:floor')`|
 |ENDS_WITH(x, y) | 값 `x`가 문자열 `y`로 끝나면 true를 반환합니다.|`ENDS_WITH($body.$metadata.$model, 'floor;1')`|
@@ -476,7 +476,7 @@ API를 사용하여 사용자 지정 필터를 작성할 수 있습니다. 필�
 
 여기에서 인스턴스에 대한 메트릭을 보고 사용자 지정 보기를 만들 수 있습니다.
 
-Azure Digital Twins 메트릭을 보는 방법에 대한 자세한 내용은 [Azure Monitor를 사용하여 메트릭 보기](troubleshoot-metrics.md)를 참조하세요.
+Azure Digital Twins 메트릭을 보는 방법에 대 한 자세한 내용은 [문제 해결: 메트릭](troubleshoot-metrics.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

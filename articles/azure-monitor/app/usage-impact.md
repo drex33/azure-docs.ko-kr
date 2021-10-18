@@ -2,15 +2,15 @@
 title: Application Insights 사용 영향 - Azure Monitor
 description: 여러 속성이 앱 일부의 전환율에 미칠 수 있는 영향을 분석합니다.
 ms.topic: conceptual
-author: lgayhardt
-ms.author: lagayhar
+author: mattmccleary
+ms.author: mmcc
 ms.date: 07/30/2021
-ms.openlocfilehash: 3e484cb0f083292ba22c7a30c79202d01d1b10eb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 0d09f93c5a0a541929169130feb921a8e65144be
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566672"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130133237"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Application Insights를 사용하여 영향 분석
 

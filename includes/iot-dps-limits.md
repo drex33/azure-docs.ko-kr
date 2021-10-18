@@ -4,17 +4,17 @@ ms.service: iot-dps
 ms.topic: include
 ms.date: 10/10/2021
 ms.author: v-stharr
-ms.openlocfilehash: e343283149cf58a4ec2d29f5b56808eb96d110c2
-ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
+ms.openlocfilehash: fa416ff3e3ef5b502b65ac414558692ccd7071b5
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129740845"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129866154"
 ---
 > [!NOTE]
 > 이 서비스의 일부 영역에는 조정 가능한 한도가 있습니다. 아래 표에 조정 가능? 열과 함께 표시되어 있습니다. 제한을 조정할 수 있는 경우 ‘조정 가능 여부’ 값은 ‘예’입니다. 
 >
->제한을 조정할 수 있는 실제 값은 각 고객의 배포에 따라 달라질 수 있습니다.
+>제한을 조정할 수 있는 실제 값은 각 고객의 배포에 따라 달라질 수 있습니다. 대규모 배포에는 여러 DPS 인스턴스가 필요할 수 있습니다.
 >
 > 비즈니스에서 조정 가능한 제한 또는 기본 제한보다 높은 할당량이 필요한 경우 [지원 티켓을 열어](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) 추가 리소스를 요청할 수 있습니다.
 

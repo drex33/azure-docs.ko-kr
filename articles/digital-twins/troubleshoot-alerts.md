@@ -1,20 +1,22 @@
 ---
-title: 경고 설정
+title: '문제 해결: 경고'
 titleSuffix: Azure Digital Twins
-description: Azure Digital Twins 메트릭에 대해 경고를 사용하도록 설정하는 방법을 참조하세요.
+description: 서비스 메트릭을 기반으로 경고를 설정하여 Azure Digital Twins 문제를 해결하는 방법을 알아봅니다.
 author: baanders
 ms.author: baanders
-ms.date: 9/15/2021
+ms.date: 10/5/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6a5397a2387b7fb55b0e03664ddb9f52ec8baf59
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 653a710274abc4da116b0c3f3e06b93ed3fce92a
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128642772"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130129000"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Azure Digital Twins 문제 해결: 경고
+
+이 문서에서는 [Azure Portal](https://portal.azure.com)경고를 설정하는 방법을 알아봅니다. 이러한 경고는 Azure Digital Twins 인스턴스의 메트릭에 따라 정의한 구성 가능한 조건이 충족될 때 알림을 표시하여 중요한 작업을 수행할 수 있도록 합니다.
 
 Azure Digital Twins는 리소스의 상태에 대한 정보를 제공하는 서비스 인스턴스에 대한 [메트릭](troubleshoot-metrics.md)을 수집합니다. 이러한 메트릭을 사용하여 Azure Digital Twins 서비스의 전반적인 상태와 연결된 리소스를 평가할 수 있습니다.
 
@@ -22,7 +24,7 @@ Azure Digital Twins는 리소스의 상태에 대한 정보를 제공하는 서�
 
 ## <a name="turn-on-alerts"></a>경고 설정
 
-Azure Digital Twins 인스턴스에 대해 경고를 사용하도록 설정하는 방법은 다음과 같습니다.
+Azure Digital Twins 인스턴스에 대한 경고를 사용하도록 설정하는 방법은 다음과 같습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 Azure Digital Twins 인스턴스로 이동합니다. 포털 검색 창에 이름을 입력하여 찾을 수 있습니다. 
 
@@ -32,9 +34,9 @@ Azure Digital Twins 인스턴스에 대해 경고를 사용하도록 설정하�
 
 3. 다음에 나오는 *경고 규칙 만들기* 페이지에서 프롬프트에 따라 조건, 트리거할 작업 및 경고 세부 정보를 정의할 수 있습니다.     
     * **범위** 세부 정보는 인스턴스에 대한 세부 정보로 자동으로 채워집니다.
-    * 경고 트리거 및 응답을 사용자 지정하도록 **조건** 및 **작업 그룹** 세부 정보를 정의합니다.
+    * **조건** 및 작업 **그룹** 세부 정보를 정의하여 경고 트리거 및 응답을 사용자 지정합니다.
     * **경고 규칙 세부 정보** 섹션에서 규칙의 이름과 설명(선택 사항)을 입력합니다. 
-        - 경고가 생성되는 즉시 활성 상태가 되도록 하려면 _경고 규칙을 만들면 바로 사용_ 확인란을 선택하면 됩니다.
+        - _경고가_ 생성되는 즉시 활성화되도록 하려면 생성 시 경고 규칙 사용 확인란을 선택할 수 있습니다.
         - 조건이 더 이상 충족되지 않을 때 경고를 해결하려면 경고 _자동_ 해결 확인란을 선택할 수 있습니다.
         - 또한 이 섹션에서는 _구독,_ _리소스 그룹_ 및 _심각도_ 수준을 선택합니다.
 
@@ -46,7 +48,7 @@ Azure Digital Twins 인스턴스에 대해 경고를 사용하도록 설정하�
 
 ### <a name="select-conditions"></a>조건 선택
 
-다음은 Azure Digital Twins에 사용할 수 있는 경고 신호의 유형을 보여주는 *조건 선택* 프로세스에서 발췌한 것입니다. 이 페이지에서 신호의 유형을 필터링하고 목록에서 원하는 신호를 선택할 수 있습니다.
+다음은 *조건 선택* 프로세스에서 발췌한 내용으로, Azure Digital Twins 사용할 수 있는 경고 신호 유형을 보여 드립니다. 이 페이지에서 신호의 유형을 필터링하고 목록에서 원하는 신호를 선택할 수 있습니다.
 
 :::image type="content" source="media/troubleshoot-alerts/configure-signal-logic.png" alt-text="첫 번째 신호 논리 구성 페이지를 보여주는 Azure Portal의 스크린샷. 신호 유형 상자와 메트릭 목록 주위에는 강조 표시되어 있습니다.":::
 
@@ -58,10 +60,10 @@ Azure Digital Twins 인스턴스에 대해 경고를 사용하도록 설정하�
 
 경고를 설정하면 인스턴스에 대한 *경고* 페이지에 다시 표시됩니다.
  
-:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="추가할 경고 페이지 및 단추를 보여주는 Azure Portal의 스크린샷. 하나의 경고가 구성되어 있습니다." lightbox="media/troubleshoot-alerts/alerts-post.png":::
+:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="추가할 경고 페이지와 단추를 보여 Azure Portal 스크린샷. 하나의 경고가 구성되어 있습니다." lightbox="media/troubleshoot-alerts/alerts-post.png":::
 
 ## <a name="next-steps"></a>다음 단계
 
 * Azure Monitor 경고에 대한 자세한 내용은 [Microsoft Azure의 경고 개요](../azure-monitor/alerts/alerts-overview.md)를 참조하세요.
-* Azure Digital Twins 메트릭에 대한 정보는 [문제 해결: Azure Monitor로 메트릭 보기](troubleshoot-metrics.md)를 참조하세요.
-* 메트릭에 대해 진단 로깅을 사용하도록 설정하는 방법은 [문제 해결: 진단 설정](troubleshoot-diagnostics.md)을 참조하세요.
+* Azure Digital Twins 메트릭에 대한 자세한 내용은 [문제 해결: 메트릭을 참조하세요.](troubleshoot-metrics.md)
+* 메트릭에 대한 진단 로깅을 사용하도록 설정하는 방법을 보려면 [문제 해결: 진단 로그를 참조하세요.](troubleshoot-diagnostics.md)

@@ -1,28 +1,28 @@
 ---
 title: Azure Cost Management + 청구 개요
-description: Azure Cost Management + 청구 기능을 사용하여 청구 관리 작업을 수행하고 비용에 대한 청구 액세스를 관리합니다. 또한 Azure 지출을 모니터링 및 제어하고 Azure 리소스 사용을 최적화하는 기능을 사용합니다.
+description: Cost Management + Billing 기능을 사용하여 청구 관리 작업을 수행하고 비용에 대한 청구 액세스를 관리합니다. 또한 Azure 지출을 모니터링 및 제어하고 Azure 리소스 사용을 최적화하는 기능을 사용합니다.
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/13/2021
+ms.date: 10/07/2021
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 8eb040183f1a207410c5e093009878845a61f261
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 51b33d90a1dda0878f3c0fa39ed35c7d63d905dd
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113768489"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706235"
 ---
-# <a name="what-is-azure-cost-management--billing"></a>Azure Cost Management + 청구란?
+# <a name="what-is-cost-management--billing"></a>Cost Management + 청구란?
 
-Microsoft 클라우드를 사용하여 비즈니스 워크로드의 기술적 성능을 크게 향상할 수 있습니다. 또한 조직 자산을 관리하는 데 필요한 비용과 오버헤드를 줄일 수 있습니다. 그러나 클라우드 배포 시 낭비와 비효율성이 발생할 가능성이 있으므로 비즈니스 기회는 위험을 동반합니다. Azure Cost Management + 청구는 Microsoft에서 제공하는 도구 모음으로 워크로드 비용을 분석, 관리 및 최적화하는 데 도움이 됩니다. 이 도구 모음을 사용하면 클라우드에서 제공하는 혜택을 조직에서 활용할 수 있습니다.
+Microsoft 클라우드를 사용하여 비즈니스 워크로드의 기술적 성능을 크게 향상할 수 있습니다. 또한 조직 자산을 관리하는 데 필요한 비용과 오버헤드를 줄일 수 있습니다. 그러나 클라우드 배포 시 낭비와 비효율성이 발생할 가능성이 있으므로 비즈니스 기회는 위험을 동반합니다. Cost Management + Billing은 Microsoft에서 제공하는 도구 모음으로 워크로드 비용을 분석, 관리 및 최적화하는 데 도움이 됩니다. 이 도구 모음을 사용하면 클라우드에서 제공하는 혜택을 조직에서 활용할 수 있습니다.
 
-Azure 워크로드를 집의 조명으로 생각할 수 있습니다. 하루 종일 외출할 때 조명을 켜 두고 나가시나요? 효율이 더 높은 다른 전구를 사용하면 월별 에너지 비용을 줄이는 데 도움이 될까요? 방에 필요한 수보다 많은 조명을 사용하시나요? Azure Cost Management + 청구를 사용하면 이와 비슷한 사고 프로세스를 조직에서 사용하는 워크로드에 적용할 수 있습니다.
+Azure 워크로드를 집의 조명으로 생각할 수 있습니다. 하루 종일 외출할 때 조명을 켜 두고 나가시나요? 효율이 더 높은 다른 전구를 사용하면 월별 에너지 비용을 줄이는 데 도움이 될까요? 방에 필요한 수보다 많은 조명을 사용하시나요? Cost Management + Billing을 사용하면 이와 비슷한 사고 프로세스를 조직에서 사용하는 워크로드에 적용할 수 있습니다.
 
-Azure 제품 및 서비스를 사용하면 사용한 만큼만 요금을 지불하면 됩니다. Azure 리소스를 만들고 사용할 때 리소스 요금이 청구됩니다. 새 리소스를 간편하게 배포할 수 있으므로 적절한 분석 및 모니터링 없이 워크로드 비용이 대폭 증가할 수 있습니다. Azure Cost Management + 청구 기능을 사용하여 다음과 같은 일을 할 수 있습니다.
+Azure 제품 및 서비스를 사용하면 사용한 만큼만 요금을 지불하면 됩니다. Azure 리소스를 만들고 사용할 때 리소스 요금이 청구됩니다. 새 리소스를 간편하게 배포할 수 있으므로 적절한 분석 및 모니터링 없이 워크로드 비용이 대폭 증가할 수 있습니다. Cost Management + Billing 기능을 사용하여 다음을 수행할 수 있습니다.
 
 - 청구서 대금 결제와 같은 대금 청구 관리 작업 수행
 - 비용에 대한 청구 액세스 관리
@@ -31,7 +31,7 @@ Azure 제품 및 서비스를 사용하면 사용한 만큼만 요금을 지불�
 - 지출 임계값 설정
 - 지출을 최적화할 수 있는 워크로드 변경 기회 포착
 
-조직 차원에서 비용 관리에 접근하는 방법에 대한 자세한 내용은 [Azure Cost Management 모범 사례](./costs/cost-mgt-best-practices.md) 문서를 참조하세요.
+조직 차원에서 비용 관리에 접근하는 방법에 대한 자세한 내용은 [Cost Management 모범 사례](./costs/cost-mgt-best-practices.md) 문서를 참조하세요.
 
 ![Cost Management + Billing 최적화 프로세스의 다이어그램.](./media/cost-management-optimization-process.png)
 
@@ -51,7 +51,7 @@ Azure 청구 기능은 송장이 발부된 비용을 검토하고 청구 정보�
 
 - **Microsoft 고객 계약**: Microsoft 고객 계약에 대한 청구 계정은 조직이 Microsoft 담당자와 협력하여 Microsoft 고객 계약에 서명할 때 생성됩니다. Azure 웹 사이트를 통해 종량제 요금을 사용한 계정에 가입하거나 [Azure 체험 계정](./manage/create-free-services.md)을 업그레이드한 특정 지역의 일부 고객은 Microsoft 고객 계약에 대한 청구 계정도 가질 수도 있습니다.
 
-## <a name="understand-azure-cost-management"></a>Azure Cost Management 이해
+## <a name="understand-cost-management"></a>Cost Management 이해
 
 관련은 있지만 청구와 비용 관리는 다릅니다. 청구는 상품이나 서비스에 대한 비용을 고객에게 청구하고 상업적 관계를 관리하는 프로세스입니다.
 
@@ -59,7 +59,7 @@ Cost Management는 고급 분석을 통해 조직의 비용 및 사용 패턴을
 
 내보내기 자동화를 위해 Azure Portal 또는 다양한 API를 사용하여 비용 데이터를 외부 시스템 및 프로세스와 통합할 수 있습니다. 자동화된 청구 데이터 내보내기 및 예약된 보고서도 사용할 수 있습니다.
 
-Azure Cost Management가 Azure에서 비용을 절약하는 방법에 대한 간략한 개요를 보려면 Azure Cost Management 개요 비디오를 시청하세요. 다른 비디오를 시청하려면 [Cost Management YouTube 채널](https://www.youtube.com/c/AzureCostManagement)을 방문하세요.
+Cost Management가 Azure에서 비용을 절약하는 방법에 대한 간략한 개요를 보려면 Cost Management 개요 비디오를 시청하세요. 다른 비디오를 시청하려면 [Cost Management YouTube 채널](https://www.youtube.com/c/AzureCostManagement)을 방문하세요.
 
 >[!VIDEO https://www.youtube.com/embed/el4yN5cHsJ0]
 
@@ -77,7 +77,7 @@ Cost Management를 통해 비용을 계획하고 제어하는 방법에는 비�
 
 ### <a name="additional-azure-tools"></a>추가 Azure 도구
 
-Azure에는 Azure Cost Management + 청구 기능 세트에 포함되지 않는 다른 도구가 있습니다. 그러나 비용 관리 프로세스에서 중요한 역할을 합니다. 이러한 도구에 대한 자세한 내용은 다음 링크를 참조하세요.
+Azure에는 Cost Management + Billing 기능 집합에 포함되지 않는 다른 도구가 있습니다. 그러나 비용 관리 프로세스에서 중요한 역할을 합니다. 이러한 도구에 대한 자세한 내용은 다음 링크를 참조하세요.
 
 - [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/) - 이 도구를 사용하여 선불 클라우드 비용을 예측합니다.
 - [Azure Migrate](../migrate/migrate-services-overview.md) - 현재 데이터 센터 워크로드를 평가하여 Azure 대체 솔루션에서 필요한 항목을 이해합니다.
@@ -88,5 +88,5 @@ Azure에는 Azure Cost Management + 청구 기능 세트에 포함되지 않는 
 
 이제 Cost Management + 청구에 대해 숙지했으므로, 다음 단계로 이 서비스를 사용해 보겠습니다.
 
-- Azure Cost Management를 사용하여 [비용 분석](./costs/quick-acm-cost-analysis.md)을 시작하세요.
-- [Azure Cost Management 모범 사례](./costs/cost-mgt-best-practices.md)에 대해 자세히 알아볼 수도 있습니다.
+- Cost Management를 사용하여 [비용 분석](./costs/quick-acm-cost-analysis.md)을 시작하세요.
+- [Cost Management 모범 사례](./costs/cost-mgt-best-practices.md)에 대해 자세히 알아볼 수도 있습니다.

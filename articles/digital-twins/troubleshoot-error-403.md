@@ -1,19 +1,20 @@
 ---
-title: 'Azure Digital Twins 요청이 실패했습니다. 상태: 403(사용할 수 없음)'
-description: "Azure Digital Twins의 '서비스 요청이 실패했습니다. 상태: 403(사용할 수 없음)’에 대한 원인과 해결 방법."
+title: '실패 한 서비스 요청 문제 해결: 오류 403 (사용할 수 없음)'
+titleSuffix: Azure Digital Twins
+description: Azure Digital Twins에서 오류 403 (사용할 수 없음) 상태 응답을 진단 하 고 해결 하는 방법을 알아봅니다.
 ms.service: digital-twins
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
-ms.date: 8/20/2021
-ms.openlocfilehash: b3ad9c84e35483cf81bde83703b01ef0ff3d8a9d
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.date: 9/23/2021
+ms.openlocfilehash: 60c553faad2917ec57fd6e622348e9a694ff6fe2
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772333"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130134244"
 ---
-# <a name="service-request-failed-status-403-forbidden"></a>서비스 요청에 실패했습니다. 상태: 403(사용할 수 없음)
+# <a name="troubleshooting-failed-service-request-error-403-forbidden"></a>실패 한 서비스 요청 문제 해결: 오류 403 (사용할 수 없음)
 
 이 문서에서는 서비스 요청에서 Azure Digital Twins로 403 오류를 수신하는 원인 및 해결 단계를 설명합니다. 
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/18/2021
 ms.custom: references_regions
 ms.author: memildin
-ms.openlocfilehash: 3174aff7529e8248cffb39ee10684e843b4fd0b1
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 21c453da9a2e84e4e936b92f04748854cbd928d3
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122418575"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710740"
 ---
 # <a name="feature-coverage-for-machines"></a>머신에 대한 기능 적용 범위
 
@@ -30,16 +30,16 @@ ms.locfileid: "122418575"
 |[파일리스 보안 경고](alerts-reference.md#alerts-windows)|✔|✔|✔|예|
 |[네트워크 기반 보안 경고](other-threat-protections.md#network-layer)|✔|✔|-|예|
 |[Just-in-time VM 액세스](security-center-just-in-time.md)|✔|-|-|예|
-|[기본 취약성 평가](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|✔|예|
+|[통합 Qualys 취약성 검사기](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|✔|예|
 |[파일 무결성 모니터링](security-center-file-integrity-monitoring.md)|✔|✔|✔|예|
 |[적응 애플리케이션 컨트롤](security-center-adaptive-application.md)|✔|-|✔|예|
 |[네트워크 맵](security-center-network-recommendations.md#network-map)|✔|✔|-|예|
 |[적응형 네트워크 강화](security-center-adaptive-network-hardening.md)|✔|-|-|예|
 |[규정 준수 대시보드 및 보고서](security-center-compliance-dashboard.md)|✔|✔|✔|예|
 |[Docker 호스트 강화](./harden-docker-hosts.md)|-|-|-|예|
-|누락된 OS 패치 평가|✔|✔|✔|Azure: 예<br><br>Arc 지원: 예|
-|잘못된 보안 구성 평가|✔|✔|✔|Azure: 예<br><br>Arc 지원: 예|
-|[Endpoint Protection 평가](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: 예<br><br>Arc 지원: 예|
+|누락된 OS 패치 평가|✔|✔|✔|Azure: 예<br><br>Azure Arc 지원: 예|
+|잘못된 보안 구성 평가|✔|✔|✔|Azure: 예<br><br>Azure Arc 지원: 예|
+|[Endpoint Protection 평가](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: 예<br><br>Azure Arc 지원: 예|
 |디스크 암호화 평가|✔</br>([지원되는 시나리오](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)에 해당)|✔|-|아니요|
 |제3자 취약성 평가|✔|-|✔|아니요|
 |[네트워크 보안 평가](security-center-network-recommendations.md)|✔|✔|-|아니요|
@@ -54,15 +54,15 @@ ms.locfileid: "122418575"
 | [파일리스 보안 경고](alerts-reference.md#alerts-windows)                                                            | -                                                                                                               | -                                    | -                              | 예                               |
 | [네트워크 기반 보안 경고](other-threat-protections.md#network-layer)                                                | ✔                                                                                                              | ✔                                    | -                              | 예                               |
 | [Just-in-time VM 액세스](security-center-just-in-time.md)                                                                 | ✔                                                                                                              | -                                    | -                              | 예                               |
-| [기본 취약성 평가](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) | ✔                                                                                                              | -                                    | ✔                             | 예                               |
+| [통합 Qualys 취약성 검사기](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) | ✔                                                                                                              | -                                    | ✔                             | 예                               |
 | [파일 무결성 모니터링](security-center-file-integrity-monitoring.md)                                                 | ✔                                                                                                              | ✔                                    | ✔                             | 예                               |
 | [적응 애플리케이션 컨트롤](security-center-adaptive-application.md)                                                  | ✔                                                                                                              | -                                    | ✔                             | 예                               |
 | [네트워크 맵](security-center-network-recommendations.md#network-map)                                                     | ✔                                                                                                              | ✔                                    | -                              | 예                               |
 | [적응형 네트워크 강화](security-center-adaptive-network-hardening.md)                                               | ✔                                                                                                              | -                                    | -                              | 예                               |
 | [규정 준수 대시보드 및 보고서](security-center-compliance-dashboard.md)                                      | ✔                                                                                                              | ✔                                    | ✔                             | 예                               |
 | [Docker 호스트 강화](./harden-docker-hosts.md)                                                                         | ✔                                                                                                              | ✔                                    | ✔                             | 예                               |
-| 누락된 OS 패치 평가                                                                                             | ✔                                                                                                              | ✔                                    | ✔                             | Azure: 예<br><br>Arc 지원: 예 |
-| 잘못된 보안 구성 평가                                                                                     | ✔                                                                                                              | ✔                                    | ✔                             | Azure: 예<br><br>Arc 지원: 예 |
+| 누락된 OS 패치 평가                                                                                             | ✔                                                                                                              | ✔                                    | ✔                             | Azure: 예<br><br>Azure Arc 지원: 예 |
+| 잘못된 보안 구성 평가                                                                                     | ✔                                                                                                              | ✔                                    | ✔                             | Azure: 예<br><br>Azure Arc 지원: 예 |
 | [Endpoint Protection 평가](security-center-services.md#supported-endpoint-protection-solutions-)                    | -                                                                                                               | -                                    | -                              | 아니요                                |
 | 디스크 암호화 평가                                                                                                | ✔</br>([지원되는 시나리오](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)에 해당) | ✔                                    | -                              | 아니요                                |
 | 제3자 취약성 평가                                                                                      | ✔                                                                                                              | -                                    | ✔                             | 아니요                                |
@@ -134,7 +134,7 @@ ms.locfileid: "122418575"
 | - [적응형 애플리케이션 제어](./security-center-adaptive-application.md)                                                                              | GA             | GA                             | GA            |
 | - [적응형 네트워크 강화](./security-center-adaptive-network-hardening.md)                                                                           | GA             | 사용할 수 없음                  | 사용할 수 없음 |
 | - [Docker 호스트 강화](./harden-docker-hosts.md)                                                                                                       | GA             | GA                             | GA            |
-| - [머신의 통합 취약성 평가](./deploy-vulnerability-assessment-vm.md)                                                             | GA             | 사용할 수 없음                  | 사용할 수 없음 |
+| - [통합 Qualys 취약성 검사기](./deploy-vulnerability-assessment-vm.md)                                                             | GA             | 사용할 수 없음                  | 사용할 수 없음 |
 | - [규정 준수 대시보드 및 보고서](./security-center-compliance-dashboard.md) <sup>[8](#footnote8)</sup>                                       | GA             | GA                             | GA            |
 | - [엔드포인트용 Microsoft Defender 배포 및 통합 라이선스](./security-center-wdatp.md)                                                         | GA             | GA                             | 사용할 수 없음 |
 | - [AWS 계정 연결](./quickstart-onboard-aws.md)                                                                                                      | GA             | 사용할 수 없음                  | 사용할 수 없음 |
@@ -147,7 +147,7 @@ ms.locfileid: "122418575"
 
 <sup><a name="footnote3" /></a>3</sup> 컨테이너 레지스트리용 Azure Defender가 필요합니다.
 
-<sup><a name="footnote4" /></a>4</sup> 부분 GA: Arc 지원 클러스터에 대한 지원은 공개 미리 보기로 제공되며 Azure Government에서 사용할 수 없습니다.
+<sup><a name="footnote4" /></a>4</sup> 부분 GA: Azure Arc 지원 클러스터에 대한 지원은 공개 미리 보기로 제공되며 Azure Government에서 사용할 수 없습니다.
 
 <sup><a name="footnote5" /></a>5</sup> Azure Defender for Kubernetes가 필요합니다.
 

@@ -1,19 +1,20 @@
 ---
-title: Azure Digital Twins 요청이 404 Sub-Domain not found 상태로 인해 실패함
-description: Azure Digital Twins에서 '서비스 요청이 404 Sub-Domain not found 상태로 인해 실패함’ 오류가 발생한 원인 및 해결 방법입니다.
+title: '실패 한 서비스 요청 문제 해결: 오류 404 (하위 도메인을 찾을 수 없음)'
+titleSuffix: Azure Digital Twins
+description: Azure Digital Twins에서 오류 404 (하위 도메인을 찾을 수 없음) 상태 응답을 진단 하 고 해결 하는 방법을 알아봅니다.
 ms.service: digital-twins
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
-ms.date: 4/13/2021
-ms.openlocfilehash: 774642e15b7d7371872c1ec97455c8f56f8b8789
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.date: 9/23/2021
+ms.openlocfilehash: 91125140632d689eaab18a74b7da75fe3c69800b
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114456088"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132249"
 ---
-# <a name="service-request-failed-status-404-sub-domain-not-found"></a>서비스 요청이 404 Sub-Domain not found 상태로 인해 실패함
+# <a name="troubleshooting-failed-service-request-error-404-sub-domain-not-found"></a>실패 한 서비스 요청 문제 해결: 오류 404 (하위 도메인을 찾을 수 없음)
 
 이 문서에서는 Azure Digital Twins에 대한 서비스 요청에서 404 오류를 수신하는 원인 및 해결 단계를 설명합니다. 
 

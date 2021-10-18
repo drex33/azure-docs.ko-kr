@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 title: Azure Maps 설명서
-summary: Microsoft Azure Maps는 모든 산업의 개발자에게 강력한 지리 공간적 기능을 제공합니다. 이러한 지리 공간적 기능은 가장 새로운 매핑 데이터로 채워져 있습니다. Azure Maps는 웹 및 모바일 애플리케이션 모두에 사용할 수 있습니다. Azure Maps는 Azure One API 호환 REST API 세트입니다. 다음은 Azure Maps에서 제공하는 서비스(지도, 검색, 라우팅, 트래픽, 모바일, 날씨, 표준 시간대, 지리적 위치, 지오펜싱, 지도 데이터, 작성자 및 공간 연산)에 대한 대략적인 개요입니다. 웹 및 Android SDK는 여러 플랫폼에서 개발을 쉽게 하고 유연하게 하며 이식 가능하게 합니다.
+summary: Microsoft Azure Maps는 모든 산업의 개발자에게 강력한 지리 공간적 기능을 제공합니다. 이러한 지리 공간적 기능은 가장 새로운 매핑 데이터로 채워져 있습니다. Azure Maps는 웹 및 모바일 애플리케이션 모두에 사용할 수 있습니다. Azure Maps는 Azure One API 호환 REST API 세트입니다. 다음은 Azure Maps에서 제공하는 서비스(지도, 검색, 라우팅, 트래픽, 날씨, 표준 시간대, 지리적 위치, 지오펜싱, 지도 데이터, 작성자 및 Spatial Operations)에 대한 대략적인 개요입니다. 웹 및 Android SDK는 여러 플랫폼에서 개발을 쉽게 하고 유연하게 하며 이식 가능하게 합니다.
 metadata:
   title: Azure Maps 설명서 | Microsoft Docs
   description: Azure Maps 및 이를 사용하여 웹 또는 모바일 애플리케이션에 지리 공간적 서비스를 제공하는 방법에 대해 알아봅니다.
   ms.service: azure-maps
   ms.topic: landing-page
-  author: anastasia-ms
-  ms.author: v-stharr
-  ms.date: 1/15/2020
-  ms.openlocfilehash: 0f2f5ff726fb723e6481d03e5d8019be45fb9100
-  ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+  author: stevemunk
+  ms.author: v-munksteve
+  ms.date: 10/13/2021
+  ms.openlocfilehash: 21efc1c783be18875d17f72879d7251beec28641
+  ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/06/2021
-  ms.locfileid: "113303961"
+  ms.lasthandoff: 10/14/2021
+  ms.locfileid: "130000483"
 landingContent:
 - title: Azure Maps 정보
   linkLists:
@@ -42,6 +42,8 @@ landingContent:
       url: quick-demo-map-app.md
     - text: Azure Maps를 사용하여 Android 앱 만들기
       url: quick-android-map.md
+    - text: Azure Maps를 사용하여 iOS 앱 만들기
+      url: quick-iOS-app.md
   - linkListType: concept
     links:
     - text: Maps 계정에 적절한 가격 책정 계층 선택
@@ -156,6 +158,16 @@ landingContent:
       url: clustering-point-data-android-sdk.md
     - text: 데이터 기반 스타일 식 사용
       url: data-driven-style-expressions-android-sdk.md
+- title: iOS SDK를 사용하여 개발
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Azure Maps를 사용하여 iOS 앱 만들기
+      url: quick-iOS-app.md
+  - linkListType: how-to-guide
+    links:
+    - text: iOS 지도 컨트롤 시작
+      url: how-to-use-ios-map-control-library.md
 - title: 위치 기반 서비스로 개발
   linkLists:
   - linkListType: concept
@@ -230,22 +242,6 @@ landingContent:
     links:
     - text: 대화형 맵 구성 요소
       url: /powerapps/maker/canvas-apps/geospatial-component-map
-- title: Mobility Service로 개발
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: 모바일 서비스
-      url: mobility-service-data-structure.md
-  - linkListType: how-to-guide
-    links:
-    - text: 공용 전송 경로 요청
-      url: how-to-request-transit-data.md
-    - text: 실시간 공용 전송 데이터 요청
-      url: how-to-request-real-time-data.md
-  - linkListType: reference
-    links:
-    - text: 모바일 서비스
-      url: /rest/api/maps/mobility
 - title: Weather Service로 개발
   linkLists:
   - linkListType: concept

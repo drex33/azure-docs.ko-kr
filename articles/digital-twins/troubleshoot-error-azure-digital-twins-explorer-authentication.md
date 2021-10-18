@@ -1,19 +1,20 @@
 ---
-title: Azure Digital Twins Explorer 인증 오류
-description: "'인증 실패'의 원인 및 해결 Azure Digital Twins Explorer입니다."
+title: '문제 해결 Azure Digital Twins Explorer: 인증 오류'
+titleSuffix: Azure Digital Twins
+description: Azure Digital Twins Explorer 인증 오류를 진단하고 해결하는 방법을 알아봅니다.
 ms.service: digital-twins
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
-ms.date: 4/8/2021
-ms.openlocfilehash: ef78f1dd6089201744de19900738ebcc6e5f70db
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.date: 10/7/2021
+ms.openlocfilehash: f03c85f912271dbd5d1cb7904f159d89f4a09ba6
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114468675"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132629"
 ---
-# <a name="authentication-failed"></a>인증 실패
+# <a name="troubleshooting-azure-digital-twins-explorer-authentication-error"></a>문제 해결 Azure Digital Twins Explorer: 인증 오류
 
 이 문서에서는 로컬 컴퓨터에서 [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) 샘플을 실행하는 동안 '인증 실패' 오류를 수신하는 원인 및 해결 단계를 설명합니다. 
 

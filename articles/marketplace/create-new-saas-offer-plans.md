@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/05/2021
-ms.openlocfilehash: ce68d4161762d47b8754cb69633a3918848085d0
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
-ms.translationtype: HT
+ms.date: 10/15/2021
+ms.openlocfilehash: 1988668640a0c9e6d60c0dd9f09e6e8831ce0809
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113593836"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132610"
 ---
 # <a name="create-plans-for-a-saas-offer"></a>SaaS 제품에 대한 플랜 만들기
 
@@ -73,6 +73,9 @@ Microsoft 상업용 Marketplace를 통해 판매되는 제품에는 플랜이 �
 1. **기준에 포함된 월간 수량** 상자에 월간 요금을 지불하는 고객을 위해 매달 포함되는 차원의 수량(정수)을 입력합니다. 무제한 수량을 설정하려면 대신 확인란을 선택합니다.
 1. **기준에 포함된 연간 수량** 상자에 정기 연간 요금을 지불하는 고객을 위해 매달 포함되는 차원의 수량(정수)을 입력합니다. 무제한 수량을 설정하려면 대신 확인란을 선택합니다.
 1. 다른 사용자 지정 측정기 차원을 추가하려면 **다른 차원 추가** 링크를 선택한 다음 1 ~ 7단계를 반복합니다.
+
+> [!IMPORTANT]
+> 코드의 사용량을 추적 하 고 기본 요금을 초과 하는 사용량에 대해서만 사용 이벤트를 Microsoft에 전송 해야 합니다.
 
 ### <a name="configure-per-user-pricing"></a>사용자 단위 가격 책정 구성
 

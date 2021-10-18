@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 10/17/2021
 ms.author: bwren
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d79bd794d14dd3bb6fec9375008c688a37f92764
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 1713d3091794ed95438a5e9d7944b3f5ee41f5ee
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130065657"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131793"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 사용량 및 비용 관리    
 
@@ -71,16 +71,16 @@ Azure Monitor 로그를 아직 사용하고 있지 않다면 [Azure Monitor 가�
 
 ## <a name="viewing-log-analytics-usage-on-your-azure-bill"></a>Azure 청구서에서 Log Analytics 사용량 보기 
 
-Partciular Log Analytics 작업 영역에 대 한 청구 된 사용량을 확인 하는 가장 쉬운 방법은 작업 영역의 **개요** 페이지로 이동 하 여 페이지 맨 위에 있는 Essentials 섹션의 오른쪽 위 모서리에서 **비용 보기** 를 클릭 하는 것입니다. 이렇게 하면 이미이 작업 영역으로 범위가 지정 된 Azure Cost Management + 청구에서 비용 분석을 시작 합니다.  
+파트시클 Log Analytics 작업 영역에 대한 청구된 사용량을 보는 가장 쉬운 방법은 작업 영역의 **개요** 페이지로 이동하고 페이지 맨 위에 있는 Essentials 섹션의 오른쪽 위 모서리에서 **비용 보기를** 클릭하는 것입니다. 그러면 이미 이 작업 영역으로 범위가 Azure Cost Management + Billing 비용 분석이 시작됩니다.  
 
-또는 [Azure Cost Management + 청구](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json) 허브에서 시작할 수 있습니다. 여기에서 "비용 분석" 기능을 사용 하 여 Azure 리소스 비용을 볼 수 있습니다. Log Analytics 지출을 추적하려면 "리소스 종류" 기준 필터를 추가할 수 있습니다(Log Analytics의 경우 microsoft.operationalinsights/workspace에 추가, Log Analytics 클러스터의 경우 microsoft.operationalinsights/cluster에 추가). **그룹화 방법** 으로 **미터 범주** 또는 **미터** 를 선택합니다. Azure Defender(Security Center) 및 Azure Sentinel과 같은 다른 서비스에서도 Log Analytics 작업 영역 리소스에 대한 사용량 요금을 청구합니다. 서비스 이름에 대한 매핑을 보기 위해 차트 대신 테이블 보기를 선택할 수 있습니다. 
+또는 [Azure Cost Management + Billing](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json) 허브에서 시작할 수 있습니다. 여기서는 "비용 분석" 기능을 사용하여 Azure 리소스 비용을 볼 수 있습니다. Log Analytics 지출을 추적하려면 "리소스 종류" 기준 필터를 추가할 수 있습니다(Log Analytics의 경우 microsoft.operationalinsights/workspace에 추가, Log Analytics 클러스터의 경우 microsoft.operationalinsights/cluster에 추가). **그룹화 방법** 으로 **미터 범주** 또는 **미터** 를 선택합니다. Azure Defender(Security Center) 및 Azure Sentinel과 같은 다른 서비스에서도 Log Analytics 작업 영역 리소스에 대한 사용량 요금을 청구합니다. 서비스 이름에 대한 매핑을 보기 위해 차트 대신 테이블 보기를 선택할 수 있습니다. 
 
 사용량을 보다 잘 이해하려면 [Azure Portal에서 사용량을 다운로드](../../cost-management-billing/understand/download-azure-daily-usage.md)할 수 있습니다. 다운로드한 스프레드시트에서 Azure 리소스별(예: Log Analytics 작업 영역) 일일 사용량을 볼 수 있습니다. 이 Excel 스프레드시트에서 Log Analytics 작업 영역의 사용량은 먼저 “Log Analytics”, “Insight and Analytics”(일부 레거시 가격 책정 계층에서 사용됨) 및 “Azure Monitor”(약정 계층 가격 책정 계층에서 사용됨)를 표시하도록 “미터 범주” 열을 필터링한 다음, “작업 영역 포함” 또는 “클러스터 포함”(후자의 경우 Log Analytics 클러스터 사용량을 포함)인 필터를 “인스턴스 ID” 열에 추가하여 확인할 수 있습니다. 사용량은 "사용한 수량" 열에 표시되며 각 항목에 대한 단위는 "측정 단위" 열에 표시됩니다. 자세한 내용은 [개별 Azure 구독 청구서 검토](../../cost-management-billing/understand/review-individual-bill.md)를 참조하세요. 
 
 ## <a name="understand-your-usage-and-optimizing-your-pricing-tier"></a>사용량 이해 및 가격 책정 계층 최적화
 <a name="understand-your-usage-and-estimate-costs"></a>
 
-사용량 추세에 대해 알아보고 가장 비용 효율적인 log Analytics 가격 책정 계층을 선택 하려면 **Log Analytics 사용량 및 예상 비용** 을 사용 합니다. 이는 각 솔루션에 의해 수집 되는 데이터의 양, 보존 되는 데이터의 양과 최근 데이터 수집 패턴을 기반으로 하는 각 가격 책정 계층의 예상 비용을 보여 줍니다. 
+사용량 추세에 대해 알아보고 가장 비용 효율적인 log Analytics 가격 책정 계층을 선택하려면 **Log Analytics 사용량 및 예상 비용을** 사용합니다. 각 솔루션에서 수집되는 데이터의 양, 보존되는 데이터의 양 및 최근 데이터 수집 패턴에 따라 각 가격 책정 계층에 대한 예상 비용을 보여 줍니다. 
 
 :::image type="content" source="media/manage-cost-storage/usage-estimated-cost-dashboard-01.png" alt-text="사용량 및 예상 비용":::
 
@@ -136,6 +136,10 @@ New-AzResourceGroupDeployment -ResourceGroupName "YourResourceGroupName" -Templa
 ```
 
 가격 책정 계층을 종량제(SKU에서는 `pergb2018`이라고 부름)와 같은 다른 값으로 설정하려면 `capacityReservationLevel` 속성을 생략합니다. [ARM 템플릿 만들기](../../azure-resource-manager/templates/template-tutorial-create-first-template.md), [템플릿에 리소스 추가](../../azure-resource-manager/templates/template-tutorial-add-resource.md) 및 [템플릿 적용](../resource-manager-samples.md)에 대해 자세히 알아봅니다. 
+
+### <a name="tracking-pricing-tier-changes"></a>가격 책정 계층 변경 내용 추적
+
+작업 영역에 대 한 변경 내용은 "작업 영역 만들기" 라는 작업이 포함 된 이벤트와 함께 [활동 로그](../essentials/activity-log.md) 에 기록 됩니다. 이벤트의 **변경 기록** 탭에는 행의 이전 및 새 가격 책정 계층이 표시 됩니다  `properties.sku.name` .  작업 영역에서 "활동 로그" 옵션을 클릭 하 여 특정 작업 영역으로 범위가 지정 된 이벤트를 확인 합니다. 가격 책정 계층의 변경 내용을 모니터링 하기 위해 "작업 영역 만들기" 작업에 대 한 경고를 만들 수 있습니다. 
 
 ## <a name="legacy-pricing-tiers"></a>레거시 가격 책정 계층
 
@@ -292,14 +296,15 @@ _LogOperation | where Operation == "Workspace Configuration" | where Detail cont
 ```kusto
 let DailyCapResetHour=14;
 Usage
-| where Type !in ("SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent")
+| where DataType !in ("SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent")
 | extend TimeGenerated=datetime_add("hour",-1*DailyCapResetHour,TimeGenerated)
 | where TimeGenerated > startofday(ago(31d))
 | where IsBillable
-| summarize IngestedGbBetweenDailyCapResets=sum(Quantity)/1000. by day=bin(TimeGenerated, 1d) | render areachart  
+| summarize IngestedGbBetweenDailyCapResets=sum(Quantity)/1000. by day=bin(TimeGenerated, 1d) // Quantity in units of MB
+| render areachart  
 ```
+`Update`업데이트 관리 `UpdateSummary` `where Datatype` 솔루션이 작업 영역에서 실행되고 있지 않거나 솔루션 대상 지정을 사용하도록 설정된 경우 및 데이터 형식을 줄에 추가합니다([자세한 정보).](../../security-center/security-center-pricing.md#what-data-types-are-included-in-the-500-mb-data-daily-allowance)
 
-(Usage 데이터 형식에서 `Quantity`의 단위는 MB입니다.)
 
 ### <a name="alert-when-daily-cap-is-reached"></a>일일 상한에 도달한 경우 경고
 

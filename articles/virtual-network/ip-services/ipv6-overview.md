@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: allensu
-ms.openlocfilehash: e983494b41e2fe0187f9468a66242c71c9bd3280
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 372953e9a2a11cbb614cc6afd6ccde629344e0c2
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129373050"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132781"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>Azure 가상 네트워크용 IPv6란?
 
@@ -57,7 +57,6 @@ Azure VNet용 IPv6에는 다음과 같은 기능이 포함되어 있습니다.
     - 단일 부하 분산 장치에서 여러 IPv6 공용 IP 주소를 사용할 수 있도록 하는 선택적 다중 프런트 엔드 구성. 프런트 엔드 주소에서 동일한 프런트 엔드 프로토콜 및 포트를 재사용할 수 있습니다.
     - 선택적 IPv6 포트는 부하 분산 규칙의 부동 IP 기능을 사용하여 백 엔드 인스턴스에서 재사용할 수 있습니다. 
     - 참고: 부하 분산은 프로토콜 변환을 수행하지 않습니다(NAT64 없음). 
-    - 참고: IPv6은 Azure VM의 기본 NIC(네트워크 인터페이스)로만 부하를 분산할 수 있습니다. 
 - [표준 IPv6 내부 부하 분산 장치](../../virtual-network/ipv6-dual-stack-standard-internal-load-balancer-powershell.md)를 지원하여 Azure VNET 내에서 복원력 있는 다중 계층 애플리케이션을 만들 수 있습니다.   
 - 레거시 배포와 호환을 위해 기본 IPv6 공용 Load Balancer를 지원합니다.
 - [예약된 IPv6 공용 IP 주소 및 주소 범위](public-ip-address-prefix.md)가 안정적이고 예측 가능한 IPv6 주소를 제공하여 회사 및 고객에 대한 Azure 호스팅 애플리케이션을 용이하게 필터링할 수 있습니다.
@@ -65,7 +64,7 @@ Azure VNet용 IPv6에는 다음과 같은 기능이 포함되어 있습니다.
 - [기존 IPv4 전용 배포에 IPv6 추가](../../virtual-network/ipv6-add-to-existing-vnet-powershell.md) - 이 기능을 사용하면 배포를 다시 만들 필요 없이 기존 IPv4 전용 배포에 IPv6 연결을 쉽게 추가할 수 있습니다.  이 과정에서 IPv4 네트워크 트래픽은 영향을 받지 않으므로 애플리케이션 및 OS에 따라 라이브 서비스에도 IPv6을 추가할 수 있습니다.    
 - IPv6(AAAA) 레코드에 대한 Azure DNS 지원으로 인터넷 클라이언트가 선택한 프로토콜을 사용하여 이중 스택 애플리케이션에 원활하게 액세스할 수 있도록 합니다. 
 - IPv6을 사용하여 가상 머신 확장 집합으로 부하를 자동으로 확장하는 이중 스택 애플리케이션을 만듭니다.
-- 지역 및 글로벌 피어링 모두 [VNET(Virtual Network) 피어링을](../../virtual-network/virtual-network-peering-overview.md) 사용하면 이중 스택 VNET을 원활하게 연결할 수 있습니다. 피어링된 네트워크의 VM에 있는 IPv4 및 IPv6 엔드포인트는 서로 통신할 수 있습니다. 배포를 이중 스택으로 전환하는 동안 IPv4 전용 VNET을 사용하여 이중 스택을 피어링할 수도 있습니다. 
+- [VNET (Virtual Network) 피어 링](../../virtual-network/virtual-network-peering-overview.md) -지역 및 전역 피어 링을 모두 사용 하 여 이중 스택 vnet를 원활 하 게 연결할 수 있습니다. 피어 링 네트워크의 vm에 있는 IPv4 및 IPv6 끝점은 서로 통신할 수 있습니다. 배포를 이중 스택으로 전환하는 동안 IPv4 전용 VNET을 사용하여 이중 스택을 피어링할 수도 있습니다. 
 - IPv6 문제 해결 및 진단은 부하 분산 장치 메트릭/경고 및 Network Watcher 기능(패킷 캡처, NSG 흐름 로그, 연결 문제 해결, 연결 모니터링 등)과 함께 사용할 수 있습니다.   
 
 ## <a name="scope"></a>범위
@@ -74,13 +73,13 @@ Azure VNET용 IPv6은 고객이 Azure에서 이중 스택(IPv4 + IPv6) 애플리
 ## <a name="limitations"></a>제한 사항
 현재 릴리스의 Azure 가상 네트워크용 IPv6에는 다음과 같은 제한 사항이 있습니다.
 - Azure 가상 네트워크용 IPv6은 모든 배포 방법을 사용하는 모든 글로벌 Azure 상용 및 미국 정부 지역에서 사용할 수 있습니다.  
-- ExpressRoute 게이트웨이는 IPv6 사용 VNET에서 IPv4 전용 트래픽에 사용할 수 있습니다.  ExpressRoute에 대한 IPv6 트래픽 지원은 미리 보기로 제공됩니다.   
+- ExpressRoute 게이트웨이는 IPv6 사용 VNET에서 IPv4 전용 트래픽에 사용할 수 있습니다.  Express 경로에 대 한 IPv6 트래픽 지원은 미리 보기 상태입니다.   
 - VPN 게이트웨이는 IPv6 사용 VNET에서 직접 또는 "UseRemoteGateway"과 피어링되어 사용할 수 없습니다.
 - Azure 플랫폼(AKS 등)은 컨테이너에 대한 IPv6 통신을 지원하지 않습니다. 
 - IPv6 전용 Virtual Machines 또는 Virtual Machines Scale Sets는 지원되지 않습니다. 각 NIC는 IPv4 IP 구성을 하나 이상 포함해야 합니다. 
 - 기존 IPv4 배포에 IPv6을 추가하는 경우 기존 리소스 탐색 링크를 포함하는 VNET에 IPv6 범위를 추가할 수 없습니다.  
 - 현재 Azure 공용 DNS에 대해 IPv6용 정방향 DNS는 지원되지만 역방향 DNS는 아직 지원되지 않습니다.
-- 동일한 NSG 내에서 IPv4 및 IPv6에 대한 NSG 규칙을 만들 수 있지만 현재 IP 접두사 지정 시 IPv4 서브넷을 동일한 규칙의 IPv6 서브넷과 결합할 수 없습니다.
+- 동일한 NSG 내에서 IPv4 및 i p v 6에 대 한 NSG 규칙을 만들 수는 있지만, IP 접두사를 지정할 때 동일한 규칙에서 IPv4 서브넷과 IPv6 서브넷을 결합할 수는 없습니다.
 
 ## <a name="pricing"></a>가격 책정
 

@@ -7,16 +7,19 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 08/04/2021
 ms.custom: mvc
-ms.openlocfilehash: ca3a4a3bbcfd1de92906b75ed56351afb04b4b17
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 87b62853be54055c3b130c8b8b23f60c04717210
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129389440"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857857"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Azure Migrate의 새로운 기능
 
 [Azure Migrate](migrate-services-overview.md)를 사용하면 온-프레미스 서버, 앱 및 데이터를 검색 및 평가하고 Microsoft Azure 클라우드로 마이그레이션할 수 있습니다. 이 문서에서는 Azure Migrate의 새로운 릴리스와 기능이 요약되어 있습니다.
+
+## <a name="update-october-2021"></a>업데이트(2021년 10월)
+- Azure Migrate는 이제 새로운 퍼블릭 클라우드 지리 및 지역을 지원합니다. [자세한 정보](migrate-support-matrix.md#supported-geographies-public-cloud)
 
 ## <a name="update-september-2021"></a>업데이트(2021년 9월)
 - [Azure Private Link](../private-link/private-endpoint-overview.md)를 사용하는 프라이빗 네트워크를 통해 서버를 검색, 평가 및 마이그레이션합니다.  현재 지원되는 [정부 클라우드 지역](migrate-support-matrix.md#supported-geographies-azure-government)에서 미리 보기로 제공됩니다. [자세한 정보](how-to-use-azure-migrate-with-private-endpoints.md)

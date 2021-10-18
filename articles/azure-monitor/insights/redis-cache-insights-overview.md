@@ -2,15 +2,13 @@
 title: Azure Cache for Redis용 Azure Monitor | Microsoft Docs
 description: 이 문서에서는 캐시 소유자가 성능 및 사용 문제를 신속하게 이해하도록 도와주는 Azure Cache for Redis용 Azure Monitor에 대해 설명합니다.
 ms.topic: conceptual
-author: lgayhardt
-ms.author: lagayhar
 ms.date: 09/10/2020
-ms.openlocfilehash: fee454073c50b9542e140576ef0629a39b8f4294
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 922909d3c66d53168188257063f943385db0a3d0
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100573468"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132135"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis"></a>Azure Cache for Redis용 Azure Monitor 살펴보기
 

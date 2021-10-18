@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 08/24/2021
-ms.openlocfilehash: f9dacea4d80591b6ec5b83ae93564cd8b03aff9c
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 4af576587d5d0e87053fb31cdd2c1d073d1ea97e
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129212459"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714763"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 인덱스 만들기
 
 **데이터 가져오기** 마법사와 가상의 호텔 데이터로 구성된 기본 제공 샘플 데이터 원본을 사용하여 첫 번째 검색 인덱스를 만듭니다. 마법사는 몇 분 내에 흥미로운 쿼리를 작성할 수 있도록 검색 인덱스(hotels-sample-index)를 만드는 과정을 안내합니다. 
 
-이 빠른 시작의 옵션을 사용하지 않더라도 마법사에는 AI 보강 페이지가 포함되어 있으므로 이미지 파일 및 구조화되지 않은 텍스트에서 텍스트와 구조를 추출할 수 있습니다. AI 보강을 포함하는 비슷한 연습은 [빠른 시작: 인지 기술 세트 만들기](cognitive-search-quickstart-blob.md)를 참조하세요.
+이 빠른 시작의 옵션을 사용하지 않더라도 마법사에는 AI 보강 페이지가 포함되어 있으므로 이미지 파일 및 구조화되지 않은 텍스트에서 텍스트와 구조를 추출할 수 있습니다. AI 보강을 포함하는 비슷한 연습은 [텍스트 번역 및 엔터티 기술 세트](cognitive-search-quickstart-blob.md) 또는 [OCR 이미지 기술 세트](cognitive-search-quickstart-ocr.md) 빠른 시작을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: overview
 ms.custom: contperf-fy21q4
 ms.date: 10/15/2020
-ms.openlocfilehash: 443dcf5bf34622fd0767ac75ece83e3ea6dc3ad0
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 9764afb8bbb0dd6e627336e360ed5b5edc5b8d14
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075568"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129855976"
 ---
 # <a name="what-is-the-microsoft-commercial-marketplace"></a>Microsoft 상업용 마켓플레이스란?
 
@@ -43,8 +43,8 @@ Microsoft의 목표는 Microsoft와의 파트너 관계를 통해 비즈니스�
 
 이 문서에서 설명한 대로 Microsoft 상업용 Marketplace에는 다음과 같은 두 가지 주요 온라인 스토어가 있습니다. 
 
-- [Microsoft AppSource](https://appsource.microsoft.com/)에는 비즈니스 솔루션 및 Azure Marketplace가 포함됩니다.
-- [Azure Marketplace](https://azuremarketplace.microsoft.com/)는 IT 솔루션용으로 설계되었습니다.
+- 비즈니스 솔루션용 [Microsoft AppSource](https://appsource.microsoft.com/)
+- IT 솔루션용 [Azure Marketplace](https://azuremarketplace.microsoft.com/)
 
 > [!NOTE]
 > 다른 상업용 Marketplace 소프트웨어 및 서비스는 Microsoft 365, Dynamics 365, Microsoft Power Platform 및 Azure와 같은 Microsoft 제품에서도 찾을 수 있습니다. 온라인 스토어와 제품 내 환경은 매월 수백만 명의 잠재 고객을 끌어들이고 있습니다. 적절한 고객이 솔루션 또는 서비스를 사용할 수 있도록 각 온라인 스토어에서 다양한 시나리오를 제공합니다.

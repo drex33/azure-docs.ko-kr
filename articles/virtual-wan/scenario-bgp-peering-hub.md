@@ -8,17 +8,17 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 08/06/2021
 ms.author: cherylmc
-ms.openlocfilehash: e570e5f06af814a6d0cbb581275d1c70ebf0df8a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5cc5b3dd26d0cb88460fabbd2ceb3cd28b107121
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124780797"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130129076"
 ---
 # <a name="scenario-bgp-peering-with-a-virtual-hub-preview"></a>시나리오: 가상 허브와 BGP 피어링(미리 보기)
 
 > [!IMPORTANT]
-> Virtual WAN 허브 기능을 사용하는 BGP 피어링은 현재 제어된 공개 미리 보기 상태입니다. 이 기능을 사용하려는 경우 Virtual WAN 리소스의 리소스 ID와 함께 이메일( **previewbgpwithvhub@microsoft.com** )을 보내세요. 기능 활성화 확인을 받은 후에는 다음 doucmentation [페이지](create-bgp-peering-hub-portal.md) 를 따라 주요 고려 사항 및 자세한 구성 가이드를 참조 하세요. 
+> Virtual WAN 허브 기능을 사용하는 BGP 피어링은 현재 제어된 공개 미리 보기 상태입니다. 이 기능을 사용하려는 경우 Virtual WAN 리소스의 리소스 ID와 함께 이메일( **previewbgpwithvhub@microsoft.com** )을 보내세요. 기능 사용 확인이 수신된 후 다음 구조화 [페이지에](create-bgp-peering-hub-portal.md) 따라 주요 고려 사항 및 자세한 구성 가이드를 확인하세요. 
 >
 > 리소스 ID를 찾으려면 Azure Portal을 열고 Virtual WAN 리소스로 이동하고, **설정 > 속성 > 리소스 ID** 를 클릭합니다.<br> 예: `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualWans/<virtualWANname>`
 >
@@ -61,6 +61,8 @@ ms.locfileid: "124780797"
    | 리소스 | 제한 |
    |---|---|
    |  각 BGP 피어가 Azure Route Server에 보급할 수 있는 경로 수| 허브는 연결된 리소스의 경로를 10,000개(합계)까지 수락할 수 있습니다. 예를 들어 가상 허브에 연결된 가상 네트워크, 분기, 가상 허브 등의 경로가 총 6000개인 경우 새로운 BGP와 NVA의 피어링이 구성되면 NVA는 최대 4000개의 경로를 보급할 수 있습니다. |
+* BGP를 통해 가상 허브에 보급될 때 가상 네트워크 주소 공간보다 더 구체적인 가상 네트워크의 NVA 경로는 온-프레미스로 더 이상 전파되지 않습니다.
+* 가상 허브에 직접 연결된 가상 네트워크의 주소로 향하는 트래픽은 허브와 NVA 간의 BGP 피어링을 사용하여 NVA를 통해 라우팅되도록 구성할 수 없습니다. 이는 스포크 가상 네트워크 연결을 만들 때 가상 허브가 스포크 가상 네트워크의 주소와 연결된 시스템 경로에 대해 자동으로 학습하기 때문입니다. 이러한 자동으로 학습된 시스템 경로는 BGP를 통해 허브에서 학습한 경로보다 선호됩니다.
 
 ## <a name="bgp-peering-scenarios"></a>BGP 피어링 시나리오
 

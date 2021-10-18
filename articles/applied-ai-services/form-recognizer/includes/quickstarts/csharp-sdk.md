@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 07/30/2021
 ms.author: lajanuar
 ms.custom: " devx-track-csharp"
-ms.openlocfilehash: 5b1b4658199d624f2ebb8e1ed3dc08d64489f11b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9b8f854a2bf5753f9e2ac047cff9f4c7fcef68da
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128652516"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715480"
 ---
 <!-- markdownlint-disable MD024 -->
 
@@ -279,7 +279,7 @@ URL에서 청구서를 분석하려면 `StartRecognizeInvoicesFromUriAsync` 메�
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_invoice_print)]
 
-## <a name="analyze-identity-documents"></a>ID 문서 분석
+## <a name="analyze-id-documents"></a>ID 문서 분석
 
 이 섹션에서는 Form Recognizer에서 미리 빌드된 ID 모델을 사용하여 정부에서 발행한 신분증(예: 전 세계에서의 여권 및 미국 운전 면허증)에서 핵심 정보를 분석하고 추출하는 방법을 보여 줍니다. ID 문서 분석 방법에 대한 자세한 내용은 [미리 빌드된 ID 모델 개념 가이드](../../concept-identification-cards.md)를 참조하세요.
 

@@ -3,29 +3,30 @@ title: '빠른 시작: Azure Blob Storage 라이브러리 v12 - .NET'
 description: 이 빠른 시작에서는 .NET용 Azure Blob Storage 클라이언트 라이브러리 버전 12를 사용하여 Blob(개체) 스토리지에서 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 컨테이너의 모든 Blob을 나열하는 방법을 알아봅니다.
 author: normesta
 ms.author: normesta
-ms.date: 03/03/2021
+ms.date: 10/06/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c71a362c7e8e3073929967abce4bcdc4566b8ce9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f695d344401598256d89dee83a69b886768e2774
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128652913"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659586"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>빠른 시작: .NET용 Azure Blob Storage 클라이언트 라이브러리 v12
 
 .NET용 Azure Blob Storage 클라이언트 라이브러리 v12를 시작합니다. Azure Blob Storage는 클라우드를 위한 Microsoft의 개체 스토리지 솔루션입니다. 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화되어 있습니다.
 
-.NET용 Azure Blob Storage 클라이언트 라이브러리 v12를 사용하여 다음을 수행합니다.
+이 빠른 시작의 예제에서는 .NET용 Azure Blob Storage 클라이언트 라이브러리 v12를 사용하여 다음을 수행하는 방법을 보여줍니다.
 
-- 컨테이너 만들기
-- Azure Storage에 Blob 업로드
-- 컨테이너의 모든 blob 나열
-- 로컬 컴퓨터에 blob 다운로드
-- 컨테이너 삭제
+- [연결 문자열 가져오기](#get-the-connection-string)
+- [컨테이너 만들기](#create-a-container)
+- [컨테이너에 Blob 업로드](#upload-a-blob-to-a-container)
+- [컨테이너의 Blob 나열](#list-blobs-in-a-container)
+- [Blob 다운로드](#download-a-blob)
+- [컨테이너 삭제](#delete-a-container)
 
 추가 리소스:
 
@@ -109,14 +110,7 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하는 데 최적�
 
 ## <a name="code-examples"></a>코드 예제
 
-이 예제 코드 조각은 .NET용 Azure Blob Storage 클라이언트 라이브러리를 사용하여 다음을 수행하는 방법을 보여줍니다.
-
-- [연결 문자열 가져오기](#get-the-connection-string)
-- [컨테이너 만들기](#create-a-container)
-- [컨테이너에 Blob 업로드](#upload-blobs-to-a-container)
-- [컨테이너의 Blob 나열](#list-the-blobs-in-a-container)
-- [Blob 다운로드](#download-blobs)
-- [컨테이너 삭제](#delete-a-container)
+다음 섹션의 샘플 코드 조각에서는 .NET용 Azure Blob Storage 클라이언트 라이브러리를 사용하여 기본 데이터 작업을 수행하는 방법을 보여줍니다.
 
 ### <a name="get-the-connection-string"></a>연결 문자열 가져오기
 
@@ -139,7 +133,7 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하는 데 최적�
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/quickstarts/dotnet/BlobQuickstartV12/Program.cs" id="Snippet_CreateContainer":::
 
-### <a name="upload-blobs-to-a-container"></a>컨테이너에 Blob 업로드
+### <a name="upload-a-blob-to-a-container"></a>컨테이너에 Blob 업로드
 
 다음 코드 조각을 실행합니다.
 
@@ -151,7 +145,7 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하는 데 최적�
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/quickstarts/dotnet/BlobQuickstartV12/Program.cs" id="Snippet_UploadBlobs":::
 
-### <a name="list-the-blobs-in-a-container"></a>컨테이너의 Blob 나열
+### <a name="list-blobs-in-a-container"></a>컨테이너의 Blob 나열
 
 [GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync) 메서드를 호출하여 컨테이너의 blob을 나열합니다. 이 경우 하나의 Blob만 컨테이너에 추가되었으므로 나열된 작업은 하나의 해당 Blob만 반환합니다.
 
@@ -159,7 +153,7 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하는 데 최적�
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/quickstarts/dotnet/BlobQuickstartV12/Program.cs" id="Snippet_ListBlobs":::
 
-### <a name="download-blobs"></a>Blob 다운로드
+### <a name="download-a-blob"></a>Blob 다운로드
 
 [DownloadToAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync) 메서드를 호출하여 이전에 만든 blob을 다운로드합니다. 예제 코드는 로컬 파일 시스템에서 두 파일을 볼 수 있도록 파일 이름에 "DOWNLOADED" 접미사를 추가합니다.
 

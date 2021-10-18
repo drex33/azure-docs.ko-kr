@@ -5,12 +5,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 7df94ff656cc862a2b6efd6998745531bba94d6d
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: d7a674a7ecc17f8f3f11c65d5fa6393a593501db
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111956413"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706372"
 ---
 # <a name="resource-manager-template-samples-for-agents-in-azure-monitor"></a>Azure Monitor의 에이전트에 대한 Resource Manager 템플릿 샘플
 이 문서에는 Azure Monitor에서 가상 머신에 대한 [Log Analytics 에이전트](./log-analytics-agent.md) 및 [진단 확장](./diagnostics-extension-overview.md)을 배포하고 구성하기 위한 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/syntax.md) 샘플이 포함되어 있습니다. 각 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.

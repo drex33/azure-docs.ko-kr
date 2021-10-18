@@ -2,18 +2,16 @@
 title: Azure Monitor 통합 문서 그래프 시각화
 description: 모든 Azure Monitor 통합 문서 그래프 시각화에 대해 알아봅니다.
 services: azure-monitor
-author: lgayhardt
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.author: lagayhar
-ms.openlocfilehash: a538eaf06013dcce6529c91816b419159a2600a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 45902cbac3948787832238bbeb89090265464ab8
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100620659"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130129228"
 ---
 # <a name="graph-visualizations"></a>그래프 시각화
 

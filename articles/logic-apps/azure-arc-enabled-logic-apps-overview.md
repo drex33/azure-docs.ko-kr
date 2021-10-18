@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, ladolan, reylons, archidda, sopai, azla
 ms.topic: overview
 ms.date: 05/25/2021
-ms.openlocfilehash: 880e194fefdf49b05f2b531699a83d1f0e3e70cc
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 2a8d3187eecb684f7c0c2b89c135745dbcc9d8e9
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122429480"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713360"
 ---
 # <a name="what-is-azure-arc-enabled-logic-apps-preview"></a>Azure Arc 지원 Logic Apps란? (미리 보기)
 
@@ -38,11 +38,11 @@ Azure Arc 지원 Logic Apps를 사용하면 Kubernetes 실행이 가능한 모�
 
 <a name="why-use"></a>
 
-## <a name="why-use-arc-enabled-logic-apps"></a>Arc 지원 Logic Apps를 사용하는 이유
+## <a name="why-use-azure-arc-enabled-logic-apps"></a>Azure Arc 지원 Logic Apps를 사용하는 이유
 
 Azure Arc 지원 Logic Apps를 사용하면 Azure Logic Apps의 단일 테넌트 환경과 동일한 방식으로 논리 앱 워크플로를 만들고 배포할 수 있습니다. 또한 사용자가 운영 및 관리하는 Kubernetes 인프라에서 실행되는 논리 앱이 있는 경우 제어와 유연성 확보가 더 용이해집니다.
 
-Azure Arc와 단일 테넌트 Logic Apps 환경 사이에는 논리 앱을 만들고 디자인하고 배포하는 데 있어서 약간의 차이가 있습니다. Azure Arc 지원 Logic Apps를 사용하는 경우, 주요 차이점은 논리 앱이 *사용자 지정 위치* 에서 실행된다는 것입니다. 이 위치는 사용자가 Azure App Service 플랫폼 확장 번들을 설치하고 사용하도록 설정한 Arc 지원 Kubernetes 클러스터에 매핑됩니다.
+Azure Arc와 단일 테넌트 Logic Apps 환경 사이에는 논리 앱을 만들고 디자인하고 배포하는 데 있어서 약간의 차이가 있습니다. Azure Arc 지원 Logic Apps를 사용하는 경우, 주요 차이점은 논리 앱이 *사용자 지정 위치* 에서 실행된다는 것입니다. 이 위치는 사용자가 Azure App Service 플랫폼 확장 번들을 설치하고 사용하도록 설정한 Azure Arc 지원 Kubernetes 클러스터에 매핑됩니다.
 
 예를 들어 이 클러스터는 Azure Kubernetes Service, 미설치 Kubernetes 또는 다른 설정일 수 있습니다. 확장 번들을 사용하면 Kubernetes 클러스터에서 Azure Logic Apps, Azure Functions 및 Azure App Service와 같은 플랫폼 서비스를 실행할 수 있습니다.
 
@@ -57,7 +57,7 @@ Azure Arc와 단일 테넌트 Logic Apps 환경 사이에는 논리 앱을 만�
 
 <a name="when-to-use"></a>
 
-## <a name="when-to-use-arc-enabled-logic-apps"></a>Arc 지원 Logic Apps를 사용해야 하는 경우
+## <a name="when-to-use-azure-arc-enabled-logic-apps"></a>Azure Arc 지원 Logic Apps를 사용하는 경우
 
 Kubernetes를 통해 제어와 유연성이 증진되지만 운영 오버헤드가 있습니다. Logic Apps 서비스가 요구 사항을 충족하는 경우, 이 서비스를 계속 사용하는 것이 좋습니다. 그러나 다음 시나리오에서는 Azure Arc 지원 Logic Apps를 사용하는 것이 좋습니다.
 
@@ -123,7 +123,7 @@ Kubernetes를 통해 제어와 유연성이 증진되지만 운영 오버헤드�
       컨테이너가 실행되는 모든 곳에서 실행
    :::column-end:::
    :::column:::
-      Arc 지원 Kubernetes 클러스터를 사용하여 어디서나 실행
+      Azure Arc 지원 Kubernetes 클러스터를 사용하여 어디서나 실행
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -181,4 +181,4 @@ Kubernetes를 통해 제어와 유연성이 증진되지만 운영 오버헤드�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Arc 지원 Logic Apps를 사용하여 워크플로 만들기 및 배포](azure-arc-enabled-logic-apps-create-deploy-workflows.md)
+> [Azure Arc 지원 Logic Apps를 사용하여 워크플로 만들기 및 배포](azure-arc-enabled-logic-apps-create-deploy-workflows.md)

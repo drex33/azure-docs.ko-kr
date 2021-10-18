@@ -60,6 +60,8 @@
           href: multi-factor-authentication-faq.yml
     - name: 암호 보호
       items:
+        - name: 결합된 암호 정책 확인
+          href: concept-password-ban-bad-combined-policy.md
         - name: 클라우드에서 취약한 암호 제거
           href: concept-password-ban-bad.md
         - name: 온-프레미스에서 취약한 암호 제거

@@ -137,6 +137,20 @@ items:
     items:
       - name: 오류 코드 및 메시지 v3.0(미리 보기)
         href: preview-error-guide.md
+      - name: Azure Form Recognizer REST API v3.0(미리 보기)
+        items:
+          - name: REST API v3.0 참조
+            href: 'https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument'
+          - name: 클라이언트 라이브러리 및 SDK
+            items:
+              - name: .NET
+                href: 'https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0-beta.1/index.html'
+              - name: Python
+                href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b1/index.html'
+              - name: Java
+                href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.1/index.html'
+              - name: JavaScript
+                href: 'https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.1/index.html'
       - name: Azure Form Recognizer REST API v2.1
         items:
           - name: REST API v2.1 참조
@@ -155,7 +169,7 @@ items:
         items:
           - name: REST API v2.0 참조
             href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm'
-          - name: SDK v3.0.0 가이드
+          - name: SDK 가이드
             href: api-v2-0/reference-sdk-api-v2-0.md
   - name: 리소스
     items:

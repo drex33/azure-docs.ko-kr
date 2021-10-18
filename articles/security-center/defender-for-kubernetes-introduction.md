@@ -7,12 +7,12 @@ ms.date: 07/20/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 53c5ef179a3df860d97cbe31287f2defcec2411b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 265f8646de1208a88b00dcaaccc992e09d44b29a
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750711"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711757"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Azure Defender for Kubernetes 소개
 
@@ -22,7 +22,7 @@ Azure Defender for Kubernetes는 Kubernetes 클러스터를 실행하는 모든 
 
 - **AKS(Azure Kubernetes Service)** - 컨테이너화된 애플리케이션 개발, 배포 및 관리를 위한 Microsoft의 관리형 서비스
 
-- **온-프레미스 및 다중 클라우드 환경** - [Arc 지원 Kubernetes에 대한 확장](defender-for-kubernetes-azure-arc.md) 사용
+- **온-프레미스 및 다중 클라우드 환경** - [Azure Arc 지원 Kubernetes에 대한 확장](defender-for-kubernetes-azure-arc.md) 사용
 
 Azure Security Center 및 AKS는 [Security Center의 컨테이너 보안](container-security.md)에 설명된 대로 환경 강화, 워크로드 보호 및 런타임 보호를 제공하는 클라우드 네이티브 Kubernetes 보안 제품을 구성합니다.
 

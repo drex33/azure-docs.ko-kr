@@ -8,12 +8,12 @@ ms.service: azure-communication-services
 ms.topic: how-to
 ms.date: 10/14/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 4c7bc9a85d0cf9ad45a09e5c270fcdb969443226
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 8e2cff056a6fb96f5cbcdbaea6be4c4257c3752b
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130075897"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130129038"
 ---
 # <a name="subscribe-to-job-router-events"></a>작업 라우터 이벤트 구독
 
@@ -205,11 +205,11 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 :::image type="content" source="media/advanced-filters.png" alt-text="고급 필터 출력":::
 
 > [!NOTE]
-> 구독을 만드는 동안 사용할 수 있는 전체 연산자 목록은 [Event Grid | 이벤트 필터링 - 연산자](https://docs.microsoft.com/azure/event-grid/event-filtering)
+> 구독을 만드는 동안 사용할 수 있는 전체 연산자 목록은 [Event Grid | 이벤트 필터링 - 연산자](../../../event-grid/event-filtering.md)
 
 ## <a name="events-catalog"></a>이벤트 카탈로그
 
-| 이벤트 | 하위 도메인 | Description |
+| 이벤트 | 하위 도메인 | 설명 |
 |------|:------------:| ---------- |
 | [`RouterJobReceived`](#microsoftcommunicationrouterjobreceived) | `Job` | 라우팅을 위해 새 작업이 만들어졌습니다. |
 | [`RouterJobClassified`](#microsoftcommunicationrouterjobclassified)| `Job` | 분류 정책이 작업에 적용되었습니다. |
@@ -226,7 +226,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | [`RouterWorkerOfferRevoked`](#microsoftcommunicationrouterworkerofferrevoked)  | `Worker` | 작업자에 대한 제안이 해지되었습니다. |
 | [`RouterWorkerOfferExpired`](#microsoftcommunicationrouterworkerofferexpired)  | `Worker` | 작업자에 대한 제안이 만료되었습니다. |
 | [`RouterWorkerRegistered`](#microsoftcommunicationrouterworkerregistered)  | `Worker` | 작업자가 등록되었습니다. |
-| [`RouterWorkerDeregistered`](#microsoftcommunicationrouterworkerderegistered)  | `Worker` | 작업자가 등록 취소되었습니다. |
+| [`RouterWorkerDeregistered`](#microsoftcommunicationrouterworkerderegistered)  | `Worker` | 작업자의 등록이 취소되었습니다. |
 
 ## <a name="router-events"></a>라우터 이벤트
 
@@ -262,7 +262,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 
 **특성 목록**
 
-| attribute | Type | Nullable |Description | 참고 |
+| attribute | Type | Nullable |Description | 메모 |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
@@ -313,7 +313,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 
 **특성 목록**
 
-| attribute | Type | Nullable |Description | 참고 |
+| attribute | Type | Nullable |Description | 메모 |
 |:--------- |:-----:|:-------:|-------------|-------|
 | queueInfo | `QueueInfo` | ❌ |
 | jobId| `string` | ❌ |
@@ -362,7 +362,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 
 **특성 목록**
 
-| attribute | Type | Nullable |Description | 참고 |
+| attribute | Type | Nullable |Description | 메모 |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
@@ -412,7 +412,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 
 **특성 목록**
 
-| attribute | Type | Nullable |Description | 참고 |
+| attribute | Type | Nullable |Description | 메모 |
 |:--------- |:-----:|:-------:|-------------|-------|
 | 오류| `List<CommunicationError>` | ❌ |
 | jobId| `string` | ❌ |
@@ -452,7 +452,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 
 **특성 목록**
 
-| attribute | Type | Nullable |Description | 참고 |
+| attribute | Type | Nullable |Description | 메모 |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
@@ -494,7 +494,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 
 **특성 목록**
 
-| attribute | Type | Nullable |Description | 참고 |
+| attribute | Type | Nullable |Description | 메모 |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
@@ -505,7 +505,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | assignmentId | `string` | ❌ | |
 | 레이블 | `Dictionary<string, object>` | ✔️ | | 사용자 입력 기반 |
 
-### <a name="microsoftcommunicationrouterjobcancelled"></a>Microsoft. RouterJobCancelled 됨
+### <a name="microsoftcommunicationrouterjobcancelled"></a>Microsoft.Communication.RouterJobCancelled
 
 [이벤트 카탈로그로 돌아가기](#events-catalog)
 
@@ -536,17 +536,17 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 
 **특성 목록**
 
-| attribute | Type | Nullable |Description | 참고 |
+| attribute | Type | Nullable |Description | 메모 |
 |:--------- |:-----:|:-------:|-------------|-------|
 | 참고| `string` | ✔️ | | 사용자 입력 기반 |
 | dispositionCode| `string` | ❌ |
 | jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
-| queueId | `string` | ✔️ | | 분류가 완료 된 후 작업이 취소 되 면 null이 아닙니다. |
+| queueId | `string` | ✔️ | | 분류에 성공한 후 작업이 취소된 경우 null이 아닌 경우 |
 | 레이블 | `Dictionary<string, object>` | ✔️ | | 사용자 입력 기반 |
 
-### <a name="microsoftcommunicationrouterjobexceptiontriggered"></a>Microsoft. RouterJobExceptionTriggered
+### <a name="microsoftcommunicationrouterjobexceptiontriggered"></a>Microsoft.Communication.RouterJobExceptionTriggered
 
 [이벤트 카탈로그로 돌아가기](#events-catalog)
 
@@ -576,7 +576,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 
 **특성 목록**
 
-| attribute | Type | Nullable |Description | 참고 |
+| attribute | Type | Nullable |Description | 메모 |
 |:--------- |:-----:|:-------:|-------------|-------|
 | ruleKey | `string` | ❌ | |
 | exceptionRuleId| `string` | ❌ |
@@ -585,7 +585,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | channelId | `string` | ❌ |
 | 레이블 | `Dictionary<string, object>` | ✔️ | | 사용자 입력 기반 |
 
-### <a name="microsoftcommunicationrouterjobexceptioncleared"></a>Microsoft. RouterJobExceptionCleared
+### <a name="microsoftcommunicationrouterjobexceptioncleared"></a>Microsoft.Communication.RouterJobExceptionCleared
 
 [이벤트 카탈로그로 돌아가기](#events-catalog)
 
@@ -614,7 +614,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 
 **특성 목록**
 
-| attribute | Type | Nullable |Description | 참고 |
+| attribute | Type | Nullable |Description | 메모 |
 |:--------- |:-----:|:-------:|-------------|-------|
 | ruleKey | `string` | ❌ | |
 | jobId| `string` | ❌ |
@@ -624,7 +624,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 
 ## <a name="worker-events"></a>작업자 이벤트
 
-### <a name="microsoftcommunicationrouterworkerofferissued"></a>RouterWorkerOfferIssued
+### <a name="microsoftcommunicationrouterworkerofferissued"></a>Microsoft.Communication.RouterWorkerOfferIssued
 
 [이벤트 카탈로그로 돌아가기](#events-catalog)
 
@@ -658,7 +658,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 
 **특성 목록**
 
-| attribute | Type | Nullable |Description | 참고 |
+| attribute | Type | Nullable |Description | 메모 |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
 | jobId| `string` | ❌ |
@@ -671,7 +671,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 | jobPriority| `int` | ❌ |
 | jobLabels | `Dictionary<string, object>` | ✔️ | | 사용자 입력 기반 |
 
-### <a name="microsoftcommunicationrouterworkerofferaccepted"></a>RouterWorkerOfferAccepted
+### <a name="microsoftcommunicationrouterworkerofferaccepted"></a>Microsoft.Communication.RouterWorkerOfferAccepted
 
 [이벤트 카탈로그로 돌아가기](#events-catalog)
 
@@ -704,7 +704,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 
 **특성 목록**
 
-| attribute | Type | Nullable |Description | 참고 |
+| attribute | Type | Nullable |Description | 메모 |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
 | jobId| `string` | ❌ |
@@ -742,7 +742,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 
 **특성 목록**
 
-| attribute | Type | Nullable |Description | 참고 |
+| attribute | Type | Nullable |Description | 메모 |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
 | jobId| `string` | ❌ |
@@ -777,7 +777,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 
 **특성 목록**
 
-| attribute | Type | Nullable |Description | 참고 |
+| attribute | Type | Nullable |Description | 메모 |
 |:--------- |:-----:|:-------:|-------------|-------|
 | offerId | `string` | ❌ |
 | workerId | `string` | ❌ |
@@ -812,7 +812,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 
 **특성 목록**
 
-| attribute | Type | Nullable |Description | 참고 |
+| attribute | Type | Nullable |Description | 메모 |
 |:--------- |:-----:|:-------:|-------------|-------|
 | offerId | `string` | ❌ |
 | workerId | `string` | ❌ |
@@ -864,7 +864,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 
 **특성 목록**
 
-| attribute | Type | Nullable |Description | 참고 |
+| attribute | Type | Nullable |Description | 메모 |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
 | totalCapacity | `int` | ❌ |
@@ -892,6 +892,6 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 ```
 **특성 목록**
 
-| attribute | Type | Nullable |Description | 참고 |
+| attribute | Type | Nullable |Description | 메모 |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |

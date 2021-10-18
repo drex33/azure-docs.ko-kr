@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: eb814b252ca67c324ac9b4bc0a7af90e63db73e0
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 26b5e7f65ca688eb1f849fa582f2f02af6e470c0
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130066550"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131394"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -168,7 +168,7 @@ ms.locfileid: "130066550"
 [ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
-[azure-cli-install]:/cli/azure/install-azure-cli.md
+[azure-cli-install]:/cli/azure/install-azure-cli
  
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
@@ -745,7 +745,7 @@ Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령
 
 * [Azure 클래식 CLI 설치][xplat-cli]
 * [Azure CLI 2.0 설치][azure-cli-install]
-* [Azure Resource Manager 템플릿 및 Azure CLI를 사용하여 가상 머신 배포 및 관리](/articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md)
+* [Azure Resource Manager 템플릿 및 Azure CLI를 사용하여 가상 머신 배포 및 관리](/articles/virtual-machines/linux/create-ssh-secured-vm-from-template)
 * [Azure Resource Manager에서 Mac, Linux 및 Windows용 Azure 클래식 CLI 사용][xplat-cli-azure-resource-manager]
 
 
@@ -780,10 +780,10 @@ OS 또는 DBMS 버전의 특정 패치 요구 사항으로 인해 Azure Marketpl
 ---
 > ![Windows 로고입니다.][Logo_Windows] Windows
 >
-> 자세한 내용은 </azure/virtual-machines/windows/upload-generalized-managed>를 참조하세요. Windows SID, 호스트 이름 등의 Windows 설정은 sysprep 명령을 통해 온-프레미스 VM에서 추상화/일반화해야 합니다.
+> 자세한 내용은 [일반화된 Windows VHD 업로드 읽고 Azure에서 새 VM을 만드는 데 사용합니다.](/azure/virtual-machines/windows/upload-generalized-managed) Windows 설정(예: Windows SID 및 호스트 이름)은 sysprep 명령을 통해 온-프레미스 VM에서 추상화/일반화되어야 합니다.
 >
 >
-> ![Linux 로고입니다.][Logo_Linux] Linux
+> ![Linux 로고.][Logo_Linux] Linux
 >
 > [SUSE][virtual-machines-linux-create-upload-vhd-suse], [Red Hat][virtual-machines-linux-redhat-create-upload-vhd] 또는 [Oracle Linux][virtual-machines-linux-create-upload-vhd-oracle] 관련 문서에서 설명하는 단계를 수행하여 Azure에 업로드할 VHD를 준비합니다.
 >
@@ -874,7 +874,7 @@ VM이 범용으로 준비되고, 결과적으로 대상 Azure 배포 시나리�
 ### <a name="transferring-vms-and-vhds-between-on-premises-to-azure"></a>온-프레미스와 Azure 간에 VM 및 VHD 전송
 Azure Portal을 통해서는 Azure에 VM 이미지와 디스크를 업로드할 수 없으므로 Azure PowerShell cmdlet 또는 CLI를 사용해야 합니다. 'AzCopy' 도구를 사용할 수도 있습니다. 이 도구는 온-프레미스와 Azure 간에 VHD를 복사할 수 있습니다(양방향으로). 또한 Azure 지역 간에 VHD를 복사할 수도 있습니다. AzCopy의 다운로드 및 사용에 대해서는 [이 설명서][storage-use-azcopy]를 참조하세요.
 
-세 번째 방법은 다양한 타사 GUI 기반 도구를 사용하는 것입니다. 그러나 이러한 도구가 Azure 페이지 Blob을 지원하는지 확인하세요. 여기서는 Azure 페이지 Blob 저장소를 사용합니다. 차이점은 </rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>를 참조하세요. 또한 Azure에서 제공하는 도구는 업로드해야 하는 VM 및 VHD를 압축하는 데 효율적입니다. 이러한 압축 효율성은 업로드 시간(온-프레미스 시설과 대상 Azure 배포 지역에서 인터넷으로의 업로드 링크에 따라 다름)을 단축하므로 중요합니다. 따라서 유럽 위치에서 미국의 Azure 데이터 센터로 VM 또는 VHD를 업로드하는 것은 같은 VM/VHD를 유럽의 Azure 데이터 센터로 업로드하는 것보다 더 오래 걸린다고 가정할 수 있습니다.
+세 번째 방법은 다양한 타사 GUI 기반 도구를 사용하는 것입니다. 그러나 이러한 도구가 Azure 페이지 Blob을 지원하는지 확인하세요. 이를 위해 Azure 페이지 Blob 저장소를 사용 해야 합니다. 차이점은 [블록 blob, 추가 blob 및 페이지 Blob 이해](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs)에 설명 되어 있습니다. 또한 Azure에서 제공하는 도구는 업로드해야 하는 VM 및 VHD를 압축하는 데 효율적입니다. 이러한 압축 효율성은 업로드 시간(온-프레미스 시설과 대상 Azure 배포 지역에서 인터넷으로의 업로드 링크에 따라 다름)을 단축하므로 중요합니다. 따라서 유럽 위치에서 미국의 Azure 데이터 센터로 VM 또는 VHD를 업로드하는 것은 같은 VM/VHD를 유럽의 Azure 데이터 센터로 업로드하는 것보다 더 오래 걸린다고 가정할 수 있습니다.
 
 #### <a name="uploading-a-vhd-from-on-premises-to-azure"></a><a name="a43e40e6-1acc-4633-9816-8f095d5a7b6a"></a>온-프레미스에서 Azure로 VHD 업로드
 온-프레미스 네트워크에서 기존 VM 또는 VHD를 업로드하려면 이러한 VM 또는 VHD가 이 문서의 [일반화되지 않은 디스크를 사용하여 온-프레미스에서 Azure로 VM 이동 준비][planning-guide-5.2.1] 챕터에서 나열한 요구 사항을 충족해야 합니다.
@@ -887,19 +887,19 @@ Azure Portal을 통해서는 Azure에 VM 이미지와 디스크를 업로드할 
 **PowerShell**
 
 * *Connect-AzAccount* 를 사용하여 구독에 로그인
-* *Set-AzContext* 및 매개 변수 SubscriptionId 또는 SubscriptionName을 사용하여 컨텍스트의 구독 설정 - </powershell/module/az.accounts/set-Azcontext> 참조
-* *Add-AzVhd* 를 사용하여 Azure Storage 계정에 VHD 업로드 - </powershell/module/az.compute/add-Azvhd> 참조
-* (선택 사항) *New-AzDisk* 를 사용하여 VHD에서 관리 디스크 만들기 - </powershell/module/az.compute/new-Azdisk> 참조
-* *Set-AzVMOSDisk* 를 사용하여 새 VM 구성의 OS 디스크를 VHD 또는 관리 디스크로 설정 - </powershell/module/az.compute/set-Azvmosdisk> 참조
-* *New-AzVM* 을 사용하여 VM 구성에서 새로운 VM 만들기 - </powershell/module/az.compute/new-Azvm> 참조
-* *Add-AzVMDataDisk* 를 사용하여 새 VM에 데이터 디스크 추가 - </powershell/module/az.compute/add-Azvmdatadisk> 참조
+* *AzContext* 및 매개 변수 SubscriptionId 또는 SubscriptionName를 사용 하 여 컨텍스트의 구독을 설정 합니다. [AzContext](/powershell/module/az.accounts/set-azcontext) 를 참조 하세요.
+* *AzVhd* 를 사용 하 여 VHD 업로드 Azure Storage 계정에 [추가-AzVhd](/powershell/module/az.compute/add-azvhd) 을 참조 하세요.
+* 필드 *AzDisk* 를 사용 하 여 VHD에서 관리 디스크 만들기- [AzDisk](/powershell/module/az.compute/new-azdisk) 을 참조 하세요.
+* *AzVMOSDisk* 를 사용 하 여 새 VM 구성의 OS 디스크를 VHD 또는 관리 디스크로 설정 합니다. [AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) 을 참조 하세요.
+* *New-azvm* 를 사용 하 여 vm 구성에서 새 vm 만들기- [new-azvm](/powershell/module/az.compute/new-azvm) 을 참조 하세요.
+* *AzVMDataDisk* 를 사용 하 여 새 VM에 데이터 디스크 추가- [AzVMDataDisk](/powershell/module/az.compute/add-azvmdatadisk) 를 참조 하세요.
 
 **Azure CLI**
 
 * *az login* 을 사용하여 구독에 로그인
 * *az account set --subscription `<subscription name or id`>* 를 사용하여 구독 선택
 * *az storage blob upload* 를 사용하여 VHD 업로드 - [Azure Storage에서 Azure CLI 사용][storage-azure-cli] 참조
-* (선택 사항) *az disk create* 를 사용하여 VHD에서 관리 디스크 만들기 - [az disk](/cli/azure/disk.md) 참조
+* (선택 사항) *az disk create* 를 사용하여 VHD에서 관리 디스크 만들기 - [az disk](/cli/azure/disk) 참조
 * *az vm create* 및 매개 변수 *--attach-os-disk* 를 사용하여 업로드한 VHD 또는 관리 디스크를 OS 디스크로 지정해 새 VM 만들기
 * *az vm disk attach* 및 매개 변수 *--new* 를 사용하여 새 VM에 데이터 디스크 추가
 
@@ -914,13 +914,13 @@ Azure VM 이미지로 사용하기 위해 온-프레미스 네트워크에서 �
 
 * Windows의 *sysprep* 또는 Linux의 *waagent -deprovision* 을 사용하여 VM 일반화 - [Sysprep 기술 참조](/previous-versions/windows/it-pro/windows-vista/cc766049(v=ws.10))(Windows) 또는 [Linux 가상 머신을 캡처하여 Resource Manager 템플릿으로 사용하는 방법][capture-image-linux-step-2-create-vm-image] 참조
 * *Connect-AzAccount* 를 사용하여 구독에 로그인
-* *Set-AzContext* 및 매개 변수 SubscriptionId 또는 SubscriptionName을 사용하여 컨텍스트의 구독 설정 - </powershell/module/az.accounts/set-Azcontext> 참조
-* *Add-AzVhd* 를 사용하여 Azure Storage 계정에 VHD 업로드 - </powershell/module/az.compute/add-Azvhd> 참조
-* (선택 사항) *New-AzImage* 를 사용하여 VHD에서 관리 디스크 이미지 만들기 - </powershell/module/az.compute/new-Azimage> 참조
+* *AzContext* 및 매개 변수 SubscriptionId 또는 SubscriptionName를 사용 하 여 컨텍스트의 구독을 설정 합니다. [AzContext](/powershell/module/az.accounts/set-azcontext) 를 참조 하세요.
+* *AzVhd* 를 사용 하 여 VHD 업로드 Azure Storage 계정에 [추가-AzVhd](/powershell/module/az.compute/add-azvhd) 을 참조 하세요.
+* 필드 *AzImage* 를 사용 하 여 VHD에서 관리 디스크 이미지 만들기- [AzImage](/powershell/module/az.compute/new-azimage) 을 참조 하세요.
 * 새 VM 구성의 OS 디스크를
-  * *Set-AzVMOSDisk -SourceImageUri -CreateOption fromImage* 를 사용한 VHD - </powershell/module/az.compute/set-Azvmosdisk> 참조
-  * 관리 디스크 이미지 *Set-AzVMSourceImage* - </powershell/module/az.compute/set-Azvmsourceimage> 참조
-* *New-AzVM* 을 사용하여 VM 구성에서 새로운 VM 만들기 - </powershell/module/az.compute/new-Azvm> 참조
+  * *AzVMOSDisk-SourceImageUri-Createoption fromImage* 를 사용 하는 VHD- [AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) 을 참조 하세요.
+  * Managed Disk Image *AzVMSourceImage* - [AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage) 을 참조 하세요.
+* *New-azvm* 를 사용 하 여 vm 구성에서 새 vm 만들기- [new-azvm](/powershell/module/az.compute/new-azvm) 을 참조 하세요.
 
 **Azure CLI**
 
@@ -928,7 +928,7 @@ Azure VM 이미지로 사용하기 위해 온-프레미스 네트워크에서 �
 * *az login* 을 사용하여 구독에 로그인
 * *az account set --subscription `<subscription name or id`>* 를 사용하여 구독 선택
 * *az storage blob upload* 를 사용하여 VHD 업로드 - [Azure Storage에서 Azure CLI 사용][storage-azure-cli] 참조
-* (선택 사항) *az image create를* 사용하여 VHD에서 관리 디스크 이미지 만들기 - [az image를 참조하세요.](/cli/azure/image)
+* 필드 *Az image create* 를 사용 하 여 VHD에서 관리 디스크 이미지를 만듭니다 [.](/cli/azure/image)
 * *az vm create* 및 매개 변수 *--image* 를 사용하여 업로드한 VHD 또는 관리 디스크 이미지를 OS 디스크로 지정해 새 VM 만들기
 
 **템플릿**
@@ -967,7 +967,7 @@ Azure Infrastructure as a Services는 VHD 및 SAP 시스템을 업로드만 할 
   Save-AzVhd -ResourceGroupName <resource group name of storage account> -SourceUri http://<storage account name>.blob.core.windows.net/<container name>/sapidedata.vhd -LocalFilePath E:\Azure_downloads\sapidesdata.vhd
   ```
 
-  Save-AzVhd cmdlet에 관한 자세한 내용은 </powershell/module/az.compute/save-Azvhd>를 참조하세요.
+  Save-AzVhd cmdlet에 대 한 자세한 내용은 [AzVhd](/powershell/module/az.compute/save-azvhd)를 참조 하세요.
 
 #### <a name="azure-cli"></a>Azure CLI
 * 관리 디스크 다운로드 먼저 관리 디스크의 기본 Blob에 액세스해야 합니다. 그런 다음 기본 Blob를 새 Storage 계정에 복사하고 이 Storage 계정에서 Blob를 다운로드할 수 있습니다.
@@ -1080,8 +1080,8 @@ Azure Portal에서는 이 작업을 수행할 수 없습니다. Azure PowerShell
 
 PowerShell cmdlet 논리의 기본 흐름은 다음과 같습니다.
 
-* *New-AzStorageContext* 를 사용하여 **원본** 스토리지 계정의 스토리지 계정 컨텍스트 만들기 - </powershell/module/az.storage/new-AzStoragecontext> 참조
-* *New-AzStorageContext* 를 사용하여 **대상** 스토리지 계정의 스토리지 계정 컨텍스트 만들기 - </powershell/module/az.storage/new-AzStoragecontext> 참조
+* *AzStorageContext* 를 사용 하 여 **원본** 저장소 계정에 대 한 저장소 계정 컨텍스트를 만듭니다. [AzStorageContext](/powershell/module/az.storage/new-azstoragecontext) 을 참조 하세요.
+* *AzStorageContext* 를 사용 하 여 **대상** 저장소 계정에 대 한 저장소 계정 컨텍스트를 만듭니다. [AzStorageContext](/powershell/module/az.storage/new-azstoragecontext) 을 참조 하세요.
 * 복사 시작
 
 ```powershell
@@ -1259,9 +1259,7 @@ Azure Resource Manager를 사용할 경우 더 이상 이전의 클래식 모델
 
 #### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-over-the-internet"></a>인터넷을 통해 SAP 시스템 및 SAP GUI 연결 구성
 
-이 항목에 대한 세부 정보를 설명하는 이 문서를 참조하세요.
-
-</archive/blogs/saponsqlserver/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure>
+이 항목에 대 한 세부 정보를 설명 하는이 문서를 참조 하세요. [Azure에서 sap 시스템에 연결할 때 SAP GUI 연결이 닫혔습니다](/archive/blogs/saponsqlserver/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure) .
 
 #### <a name="changing-firewall-settings-within-vm"></a>VM 내의 방화벽 설정 변경
 
@@ -1691,12 +1689,12 @@ SAP Change and Transport System(TMS)은 지형 내에서 시스템 간에 전송
 
 사이트 간에 연결된 크로스-프레미스 시나리오에서 온-프레미스와 Azure 간의 대기 시간이 여전히 길 수 있습니다. 개발 및 테스트 시스템에서 프로덕션으로 개체를 전송하는 순서를 따르거나 전송 또는 지원 패키지를 다른 시스템에 적용하려는 경우 중앙 전송 디렉터리의 위치에 따라, 일부 시스템에서 중앙 전송 디렉터리에서 데이터를 읽거나 쓸 때 긴 대기 시간이 발생합니다. 이러한 상황은 데이터 센터 간에 멀리 떨어져 있는 서로 다른 데이터 센터에 여러 다른 시스템이 분산되어 있는 SAP 지형 구성과 유사합니다.
 
-이러한 대기 시간 문제를 해결하고 시스템이 더 빠르게 전송 디렉터리에서 읽거나 전송 디렉터리로 쓸 수 있도록 하려면 두 개의 STMS 전송 도메인(온-프레미스용 1개와 Azure의 시스템을 포함하는 1개)을 설정하고 전송 도메인을 연결할 수 있습니다. SAP TMS에서이 개념의 원칙을 설명 하는이 [설명서](https://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm)를 확인 하세요.
+이러한 대기 시간 문제를 해결하고 시스템이 더 빠르게 전송 디렉터리에서 읽거나 전송 디렉터리로 쓸 수 있도록 하려면 두 개의 STMS 전송 도메인(온-프레미스용 1개와 Azure의 시스템을 포함하는 1개)을 설정하고 전송 도메인을 연결할 수 있습니다. SAP TMS에서 이 개념의 원칙을 설명하는 이 [설명서를](https://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm)확인하세요.
 
 
 방법:
 
-* 트랜잭션 STMS를 사용 하 여 각 위치 (온-프레미스 및 Azure)에서 [전송 도메인 설정](https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/44b4a0b47acc11d1899e0000e829fbbd.html?q=Set%20up%20a%20transport%20domain)
+* 트랜잭션 STMS를 사용하여 각 위치(온-프레미스 및 Azure)에서 [전송 도메인 설정](https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/44b4a0b47acc11d1899e0000e829fbbd.html?q=Set%20up%20a%20transport%20domain)
 * [도메인 링크를 사용하여 도메인을 연결](https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/14c795388d62e450e10000009b38f889.html?q=Link%20the%20domains%20with%20a%20domain%20link)하고 두 도메인 간의 연결을 확인합니다.
 * 연결된 시스템으로 구성을 배포합니다.
 
@@ -1986,7 +1984,7 @@ SAP 시스템 내의 다른 VM은 Azure Virtual Machine Backup 기능을 사용�
 
 2014년 중반부터 Hyper-V, System Center 및 Azure와 관련한 다양한 구성 요소가 확장되면서 Azure를 Hyper-V를 기준으로 온-프레미스에서 실행되는 VM에 대한 DR 사이트로 사용할 수 있게 되었습니다.
 
-이 솔루션을 배포하는 방법을 자세히 설명하는 블로그는 </archive/blogs/saponsqlserver/protecting-sap-solutions-with-azure-site-recovery>를 참조하세요.
+이 솔루션을 배포하는 방법을 자세히 설명하는 블로그는 Azure Site Recovery 사용하여 [SAP 솔루션 보호에](/archive/blogs/saponsqlserver/protecting-sap-solutions-with-azure-site-recovery)설명되어 있습니다.
 
 ## <a name="summary-for-high-availability-for-sap-systems"></a>SAP 시스템의 고가용성 요약
 

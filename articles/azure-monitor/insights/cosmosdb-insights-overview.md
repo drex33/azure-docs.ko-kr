@@ -1,16 +1,14 @@
 ---
 title: Azure Monitor Cosmos DB 인사이트를 사용하여 Azure Cosmos DB 모니터링 | Microsoft Docs
 description: 이 문서에서는 Cosmos DB 소유자가 CosmosDB 계정의 성능 및 사용 문제를 신속하게 이해하도록 도와주는 Azure Monitor의 Cosmos DB 인사이트 기능에 대해 설명합니다.
-author: lgayhardt
-ms.author: lagayhar
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: b6666e43e1dc3461bf7e0cc5849d26c1a8fef70e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: 3a3a87a3d639c2f5d0211e488340ab918c339ba0
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110095089"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131926"
 ---
 # <a name="explore-azure-monitor-cosmos-db-insights"></a>Azure Monitor Cosmos DB 인사이트 살펴보기
 

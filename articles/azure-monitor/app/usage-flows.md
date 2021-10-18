@@ -2,15 +2,15 @@
 title: Application Insights 사용자 흐름에서 탐색 흐름 분석
 description: 페이지와 웹앱의 기능 간에 사용자가 탐색하는 방법을 분석합니다.
 ms.topic: conceptual
-author: lgayhardt
-ms.author: lagayhar
+author: mattmccleary
+ms.author: mmcc
 ms.date: 07/30/2021
-ms.openlocfilehash: 875e3ba35003459e9e7558af4f7c668250521251
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 14884f46df08e8171c178db907ee187af89a838c
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566677"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130129532"
 ---
 # <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Application Insights에서 사용자 흐름을 사용하여 사용자 탐색 패턴 분석
 

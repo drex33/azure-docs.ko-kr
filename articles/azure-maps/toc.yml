@@ -12,6 +12,8 @@ items:
         href: quick-demo-map-app.md
       - name: Android 앱 만들기
         href: quick-android-map.md
+      - name: iOS 앱 만들기
+        href: quick-iOS-app.md
   - name: 자습서
     items:
       - name: 웹 SDK 자습서
@@ -88,8 +90,6 @@ items:
             href: render-coverage.md
           - name: 라우팅 검사
             href: routing-coverage.md
-          - name: Mobility 검사
-            href: mobility-coverage.md
           - name: Weather 검사
             href: weather-coverage.md
       - name: 지역화 지원
@@ -98,8 +98,6 @@ items:
         href: supported-map-styles.md
       - name: 확대/축소 수준 및 타일 그리드
         href: zoom-levels-and-tile-grid.md
-      - name: 모바일 서비스
-        href: mobility-service-data-structure.md
       - name: Weather Service 개념
         href: weather-services-concepts.md
       - name: Weather Services FAQ
@@ -141,10 +139,6 @@ items:
             href: how-to-use-best-practices-for-routing.md
           - name: 정적 맵에서 사용자 지정 데이터 렌더링
             href: how-to-render-custom-data.md
-          - name: 공용 전송 경로 요청
-            href: how-to-request-transit-data.md
-          - name: 실시간 공용 전송 데이터 요청
-            href: how-to-request-real-time-data.md
           - name: 실시간 및 예측 날씨 데이터 요청
             href: how-to-request-weather-data.md
           - name: 권한 상승 데이터 요청
@@ -283,6 +277,10 @@ items:
             href: data-driven-style-expressions-android-sdk.md
           - name: 이벤트에 반응
             href: android-map-events.md
+      - name: iOS SDK를 사용하여 개발
+        items:
+          - name: iOS 지도 컨트롤 시작
+            href: how-to-use-ios-map-control-library.md
       - name: Power BI에서 Azure Maps 사용
         items:
           - name: 시작
@@ -293,6 +291,8 @@ items:
             href: power-bi-visual-add-bubble-layer.md
           - name: 가로 막대형 차트 레이어 추가
             href: power-bi-visual-add-bar-chart-layer.md
+          - name: 열 지도 계층 추가
+            href: power-bi-visual-add-heat-map-layer.md
           - name: 참조 레이어 추가
             href: power-bi-visual-add-reference-layer.md
           - name: 타일 레이어 추가
@@ -333,8 +333,6 @@ items:
             href: /rest/api/maps/elevation
           - name: 지리적 위치 서비스
             href: /rest/api/maps/geolocation
-          - name: 모바일 서비스
-            href: /rest/api/maps/mobility
           - name: Render Service
             href: /rest/api/maps/render
           - name: Render Service V2

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: fc844a3f0f13db3520f0a8302a98392301030d19
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: 73384ff81ddbcc987bb07cd6e516921c32a4c296
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122228743"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129712888"
 ---
 # <a name="connect-your-non-azure-machines-to-security-center"></a>비 Azure 컴퓨터를 Security Center에 연결
 
@@ -139,7 +139,7 @@ Windows 컴퓨터를 추가하려면 **에이전트 관리** 페이지의 정보
 
   ![Azure 머신에 대한 ASC 아이콘.](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
 
-  ![Azure Arc 서버에 대한 ASC 아이콘.](./media/quick-onboard-linux-computer/arc-enabled-machine-icon.png) Azure Arc 사용 서버
+  ![Azure Arc 서버에 대한 ASC 아이콘.](./media/quick-onboard-linux-computer/arc-enabled-machine-icon.png) Azure Arc 지원 서버
 
 ## <a name="next-steps"></a>다음 단계
 

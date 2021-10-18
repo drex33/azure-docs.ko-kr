@@ -2,15 +2,13 @@
 title: Application Insights를 사용하여 AKS(Azure Kubernetes Service)에서 애플리케이션 모니터링 - Azure Monitor | Microsoft Docs
 description: Azure Monitor는 Kubernetes에서 실행되는 애플리케이션과 원활하게 통합되며, 앱 문제를 즉시 찾을 수 있습니다.
 ms.topic: conceptual
-author: MS-jgol
-ms.author: jgol
 ms.date: 05/13/2020
-ms.openlocfilehash: 52bd6d2a98e5126ff2463de1ef99da03ca555567
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 63584a3d753f0b20e91697d0d49e4290348fe22b
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87075301"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130129798"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes---azure-monitor-application-insights"></a>Kubernetes에 대한 제로 계측 애플리케이션 모니터링 - Azure Monitor Application Insights
 

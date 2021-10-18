@@ -1,22 +1,22 @@
 ---
 title: 센서 및 온-프레미스 관리 콘솔 문제 해결
 description: 센서 및 온-프레미스 관리 콘솔 문제를 해결하여 발생하는 모든 문제를 제거합니다.
-ms.date: 05/10/2021
+ms.date: 10/17/2021
 ms.topic: article
-ms.openlocfilehash: 19faf64e590314d26680e0ecb636ba9a3886d14f
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: 791df9cc7b95ac32dfcc794136bc53df51e3a0a8
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113019420"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131314"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>센서 및 온-프레미스 관리 콘솔 문제 해결
 
 이 문서에서는 센서 및 온-프레미스 관리 콘솔의 기본 문제 해결 도구에 대해 설명합니다. 여기에 설명된 항목 외에도 다음과 같은 방법으로 시스템의 상태를 확인할 수 있습니다.
 
-**경고**: 트래픽을 모니터링하는 센서 인터페이스가 다운된 경우 경고가 생성됩니다. 
+**경고**: 트래픽을 모니터링하는 센서 인터페이스가 다운된 경우 경고가 생성됩니다.
 
-**SNMP**: 센서 상태는 SNMP를 통해 모니터링됩니다. Azure Defender for IoT는 권한 있는 모니터링 서버에서 보낸 SNMP 쿼리에 응답합니다. 
+**SNMP**: 센서 상태는 SNMP를 통해 모니터링됩니다. Azure Defender for IoT는 권한 있는 모니터링 서버에서 보낸 SNMP 쿼리에 응답합니다.
 
 **시스템 알림**: 관리 콘솔에서 센서를 제어할 때 실패한 센서 백업 및 연결이 끊긴 센서에 대한 경고를 전달할 수 있습니다.
 
@@ -26,9 +26,9 @@ ms.locfileid: "113019420"
 
 미리 구성된 화살표 센서에 처음으로 로그인할 때 암호 복구를 수행해야 합니다.
 
-암호를 복구하려면
+**암호를 복구 하려면**:
 
-1. Defender for IoT 로그인 화면에서 **암호 복구** 를 선택합니다. **암호 복구** 화면이 열립니다.
+1. IoT 용 Defender 로그인 화면에서  **암호 복구** 를 선택 합니다. **암호 복구** 화면이 열립니다.
 
 1. **CyberX** 또는 **지원** 을 선택하고 고유 식별자를 복사합니다.
 
@@ -36,11 +36,11 @@ ms.locfileid: "113019420"
 
 1. **추가 작업** 드롭다운 메뉴를 선택하고 **온-프레미스 관리 콘솔 암호 복구** 를 선택합니다.
 
-    :::image type="content" source="media/how-to-create-and-manage-users/recover-password.png" alt-text="센서를 선택하고 온-프레미스 관리 콘솔 암호 복구 옵션을 선택합니다.":::
+    :::image type="content" source="media/how-to-create-and-manage-users/recover-password.png" alt-text=" 복구 온-프레미스 관리 콘솔 암호 옵션의 스크린샷":::
 
 1. **암호 복구** 화면에서 받은 고유 식별자를 입력하고 **복구** 를 선택합니다. `password_recovery.zip` 파일이 다운로드됩니다.
 
-    :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="고유 식별자를 입력한 다음, 복구를 선택합니다.":::    
+    :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="에서 고유한 식별자를 입력 한 다음 복구를 선택 합니다.":::
 
     > [!NOTE]
     > 암호 복구 파일을 변경하지 마세요. 이는 서명된 파일이며 변조하는 경우에는 작동하지 않습니다.
@@ -59,61 +59,60 @@ ms.locfileid: "113019420"
 센서는 구성된 포트 중 하나에 트래픽이 없음을 인식하면 콘솔 맨 위에 표시기가 나타납니다. 이 표시기는 모든 사용자에게 표시됩니다.
 
 :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/no-traffic-detected.png" alt-text="트래픽이 검색되지 않았다는 경고 스크린샷":::
- 
+
 이 메시지가 표시되면 트래픽이 없는 위치를 조사할 수 있습니다. 범위 케이블이 연결되어 있고 범위 아키텍처에 변경 내용이 없는지 확인합니다.  
 
 지원 및 문제 해결 정보는 [Microsoft 지원 서비스](https://support.serviceshub.microsoft.com/supportforbusiness/create?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099)에 문의하세요.
 
-### <a name="check-system-performance"></a>시스템 성능을 확인합니다. 
+### <a name="check-system-performance"></a>시스템 성능을 확인합니다.
 
 새 센서가 배포되거나, 예를 들어 센서가 느리게 작동하거나 경고를 표시하지 않는 경우 시스템 성능을 확인할 수 있습니다.
 
-시스템 성능을 확인하려면
+**시스템 성능을 확인 하려면**:
 
 1. 대시보드에서 `PPS > 0`인지 확인합니다.
 
-   :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/dashboard-view-v2.png" alt-text="샘플 대시보드의 스크린샷"::: 
+   :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/dashboard-view-v2.png" alt-text="샘플 대시보드의 스크린샷":::
 
 1. 측면 메뉴에서 **디바이스** 를 선택합니다.
 
 1. **디바이스** 창에서 디바이스가 검색되고 있는지 확인합니다.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/discovered-devices.png" alt-text="디바이스가 검색되는지 확인합니다.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/discovered-devices.png" alt-text="검색 된 장치의 스크린샷":::
 
 1. 측면 메뉴에서 **데이터 마이닝** 을 선택합니다.
 
 1. **데이터 마이닝** 창에서 **모두** 를 선택하고 보고서를 생성합니다.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="데이터 마이닝을 사용하여 새 보고서를 생성합니다.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="데이터 마이닝을 사용 하 여 새 보고서 생성 화면 스크린샷":::
 
 1. 보고서에 데이터가 포함되어 있는지 확인합니다.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="보고서에 데이터가 포함되어 있는지 확인합니다.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="의 스크린샷 보고서에 데이터 화면이 포함 되어 있는지 확인 합니다.":::
 
 1. 측면 메뉴에서 **추세 및 통계** 를 선택합니다.
 
 1. **추세 및 통계** 창에서 **위젯 추가** 를 선택합니다.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/add-widget.png" alt-text="위젯을 선택하여 추가합니다.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/add-widget.png" alt-text="위젯 추가를 선택 하 여 위젯을 추가 합니다.":::
 
 1. 위젯을 추가하고 데이터를 표시하는지 확인합니다.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/widget-data.png" alt-text="위젯이 데이터를 표시하는지 확인합니다.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/widget-data.png" alt-text="데이터를 표시 하는 위젯의 스크린샷":::
 
 1. 측면 메뉴에서 **경고** 를 선택합니다. **경고** 창이 나타납니다.
 
 1. 경고가 생성되었는지 확인합니다.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alerts-created.png" alt-text="경고가 생성되었는지 확인합니다.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alerts-created.png" alt-text="경고의 스크린샷을 만들었습니다.":::
 
-
-### <a name="investigate-a-lack-of-expected-alerts"></a>예상되는 경고 부족 조사
+### <a name="investigate-a-lack-of-expected-alerts-on-the-sensor"></a>센서에 대해 예상 되는 경고가 없다는 것을 조사 합니다.
 
 **경고** 창에 필요한 경고가 표시되지 않으면 다음을 확인합니다.
 
 - 동일한 경고가 **경고** 창에 다른 보안 인스턴스에 대한 반응으로 이미 나타나는지 확인합니다. 그렇다면 이 경고가 아직 처리되지 않은 경우에는 센서 콘솔에 새 경고가 표시되지 않습니다.
 
-- 관리 콘솔에서 **경고 제외** 규칙을 사용하여 이 경고를 제외하지 않았는지 확인합니다. 
+- 관리 콘솔에서 **경고 제외** 규칙을 사용하여 이 경고를 제외하지 않았는지 확인합니다.
 
 ### <a name="investigate-widgets-that-show-no-data"></a>데이터를 표시하지 않는 위젯 조사
 
@@ -121,13 +120,13 @@ ms.locfileid: "113019420"
 
 - [시스템 성능을 검사합니다](#check-system-performance).
 
-- 시간 및 지역 설정이 제대로 구성되어 있고 이후 시간으로 설정되어 있지 않은지 확인합니다. 
+- 시간 및 지역 설정이 제대로 구성되어 있고 이후 시간으로 설정되어 있지 않은지 확인합니다.
 
 ### <a name="investigate-a-device-map-that-shows-only-broadcasting-devices"></a>브로드캐스팅 디바이스만 표시하는 디바이스 맵 조사
 
 맵에 표시된 디바이스가 서로 연결되어 있지 않으면 SPAN 포트 구성에 문제가 있을 수 있습니다. 즉, 브로드캐스팅 디바이스만 표시되고 유니캐스트 트래픽은 표시되지 않을 수 있습니다.
 
-:::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/broadcasting-devices.png" alt-text="브로드캐스팅 디바이스를 확인합니다.":::
+:::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/broadcasting-devices.png" alt-text="브로드캐스팅 장치의 스크린샷":::
 
 이 경우 브로드캐스트 트래픽만 확인한 다음, 유니캐스트 트래픽도 볼 수 있도록 네트워크 엔지니어에게 SPAN 포트 구성을 수정하도록 요청합니다.
 
@@ -145,7 +144,7 @@ ms.locfileid: "113019420"
 
 독립 실행형 센서를 NTP에 연결하려면
 
-- [지원 팀에 도움을 요청하세요](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
+- [지원 팀에 도움을 요청하세요](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
 
 관리 콘솔에서 제어하는 센서를 NTP에 연결하려면
 
@@ -157,9 +156,9 @@ ms.locfileid: "113019420"
 
 동일한 문제가 있다는 또 다른 표시는 인터넷 관련 경고가 여러 개 나타나는 경우입니다.
 
-:::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alert-problems.png" alt-text="인터넷 관련 경고가 여러 개 있습니다.":::
+:::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alert-problems.png" alt-text="여러 인터넷 관련 경고의 스크린샷":::
 
-구성을 수정하려면
+**구성을 수정 하려면**:
 
 1. 디바이스 맵의 클라우드 아이콘을 마우스 오른쪽 단추로 클릭하고 **IP 주소 내보내기** 를 선택합니다. 프라이빗인 퍼블릭 범위를 복사하고 서브넷 목록에 추가합니다. 자세한 내용은 [서브넷 구성](how-to-control-what-traffic-is-monitored.md#configure-subnets)을 참조하세요.
 
@@ -173,13 +172,13 @@ ms.locfileid: "113019420"
 
 인터페이스 대역폭을 제한하려면 sudo 권한으로 실행해야 하는 `cyberx-xsense-limit-interface` CLI 도구를 사용합니다. 이 도구는 다음과 같은 인수를 가져옵니다.
 
-  - `* -i`: 인터페이스(예: eth0)
+- `* -i`: 인터페이스(예: eth0)
 
-  - `* -l`: 제한(예: 30kbit/1mbit) Kbps, mbps, kbit, mbit 또는 bps와 같은 대역폭 단위를 사용할 수 있습니다.
+- `* -l`: 제한(예: 30kbit/1mbit) Kbps, mbps, kbit, mbit 또는 bps와 같은 대역폭 단위를 사용할 수 있습니다.
 
-  - `* -c`: 지우기(인터페이스 대역폭 제한 지우기)
+- `* -c`: 지우기(인터페이스 대역폭 제한 지우기)
 
-서비스 품질을 조정하려면
+**QoS (서비스 품질)를 조정 하려면 다음을 수행 합니다**.
 
 1. 센서 CLI에 Defender for IoT 사용자 권한으로 로그인하고 `sudo cyberx-xsense-limit-interface-I eth0 -l value`를 입력합니다.
 
@@ -192,7 +191,7 @@ ms.locfileid: "113019420"
 
 ## <a name="on-premises-management-console-troubleshooting-tools"></a>온-프레미스 관리 콘솔 문제 해결 도구
 
-### <a name="investigate-a-lack-of-expected-alerts"></a>예상되는 경고 부족 조사
+### <a name="investigate-a-lack-of-expected-alerts-on-the-management-console"></a>관리 콘솔에서 예상 하지 못하는 경고 조사
 
 **경고** 창에 예상되는 경고가 표시되지 않으면 다음을 확인합니다.
 
@@ -208,9 +207,9 @@ ms.locfileid: "113019420"
 
 경고 수를 제한하려면 `/var/cyberx/properties/management.properties`에서 사용할 수 있는 `notifications.max_number_to_report` 속성을 사용합니다. 이 속성을 변경한 후에는 다시 시작할 필요가 없습니다.
 
-서비스 품질을 조정하려면
+**QoS (서비스 품질)를 조정 하려면 다음을 수행 합니다**.
 
-1. Defender for IoT 사용자로 로그인합니다. 
+1. Defender for IoT 사용자로 로그인합니다.
 
 1. 다음과 같이 기본값을 확인합니다.
 
@@ -240,19 +239,19 @@ ms.locfileid: "113019420"
 
 1. 변경 내용을 저장합니다. 다시 시작하지 않아도 됩니다.
 
-## <a name="export-information-for-troubleshooting"></a>문제 해결을 위한 정보 내보내기
+## <a name="export-information-from-the-sensor-for-troubleshooting"></a>문제 해결을 위해 센서에서 정보 내보내기
 
-네트워크를 모니터링하고 분석하기 위한 도구 외에, 추가 조사를 위한 정보를 지원 팀에 보낼 수 있습니다. 로그를 내보낼 때 센서는 내보낸 로그에 대해 고유한 OTP(일회용 암호)를 별도의 텍스트 파일에 자동으로 생성합니다. 
+네트워크를 모니터링하고 분석하기 위한 도구 외에, 추가 조사를 위한 정보를 지원 팀에 보낼 수 있습니다. 로그를 내보낼 때 센서는 내보낸 로그에 대해 고유한 OTP(일회용 암호)를 별도의 텍스트 파일에 자동으로 생성합니다.
 
-로그를 내보내려면
+**로그를 내보내려면**:
 
 1. 왼쪽 창에서 **시스템 설정** 을 선택합니다.
 
 1. **로그 내보내기** 를 선택합니다.
 
-    :::image type="content" source="media/how-to-export-information-for-troubleshooting/export-a-log.png" alt-text="시스템 지원으로 로그를 내보냅니다.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/sensor-export-log.png" alt-text="시스템 지원으로 로그 내보내기 화면의 스크린샷":::
 
-1. **파일 이름** 상자에 로그 내보내기에 사용할 파일 이름을 입력합니다. 기본값은 현재 날짜입니다.
+1. **파일 이름** 필드에 로그 내보내기에 사용할 파일 이름을 입력 합니다. 기본값은 현재 날짜입니다.
 
 1. 내보낼 데이터를 정의하려면 데이터 범주를 선택합니다.  
 
@@ -281,7 +280,41 @@ ms.locfileid: "113019420"
 
 보관된 로그 목록에는 최대 5개의 항목이 포함될 수 있습니다. 목록의 항목 수가 해당 이 개수를 벗어나면 가장 먼저 보관된 항목이 삭제됩니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="export-audit-log-from-the-management-console"></a>관리 콘솔에서 감사 로그 내보내기
+
+감사 로그는 발생 시 키 정보를 기록 합니다. 감사 로그는 변경 된 내용 및 사용자를 확인 하려는 경우에 유용 합니다. 감사 로그는 관리 콘솔에서 내보낼 수 있으며 다음 정보를 포함 합니다.
+
+| 작업 | 기록 되는 정보 |
+|--|--|
+| **경고 학습 및 수정** | 경고 ID |
+| **암호 변경** | 사용자, 사용자 ID |
+| **로그인** | 사용자 |
+| **사용자 만들기** | 사용자, 사용자 역할 |
+| **암호 재설정** | 사용자 이름 |
+| **제외 규칙**: </br></br>- 만들기 </br></br>- 편집 </br></br>- 삭제 | </br></br>규칙 요약 </br></br>규칙 ID, 규칙 요약 </br></br>규칙 ID |
+| **관리 콘솔 업그레이드** | 사용된 업그레이드 파일 |
+| **센서 업그레이드 다시 시도** | 센서 ID |
+| **업로드된 TI 패키지** | 기록된 추가 정보가 없습니다. |
+
+**감사 로그를 내보내려면:**
+
+1. 관리 콘솔의 왼쪽 창에서 시스템 **설정** 를 선택합니다.
+
+1. **내보내기** 를 선택합니다.
+
+1. 파일 이름 필드에 내보낸 로그에 사용할 파일 이름을 입력합니다. 이름을 입력하지 않으면 기본 파일 이름이 현재 날짜가 됩니다.
+
+1. **감사 로그를** 선택합니다.
+
+1. **내보내기** 를 선택합니다.
+
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/audit-logs-export.png" alt-text="감사 로그를 선택한 다음 내보내기를 선택하여 파일을 만드는 스크린샷.":::
+
+내보낸 로그가 보관 로그 목록에 **추가됩니다.** :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false":::OTP를 보려면 단추를 선택합니다. 내보낸 로그와 별도의 메시지로 지원 팀에 OTP 문자열을 보냅니다. 지원 팀에서는 로그를 암호화하는 데 사용되는 고유 OTP를 사용하여 내보낸 로그를 추출할 수 있습니다.
+
+:::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/archived-files.png" alt-text="문제 해결 정보 내보내기 창의 보관된 파일 섹션에서 만든 파일의 스크린샷.":::
+
+## <a name="next-steps"></a>다음 단계
 
 - [경고 보기](how-to-view-alerts.md)
 

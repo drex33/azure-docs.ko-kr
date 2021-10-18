@@ -12,12 +12,12 @@ metadata:
   ms.date: 04/27/2021
   ms.author: kenwith
   ms.reviewer: japere
-  ms.openlocfilehash: f0d27693bcf378988d70bae2ad45babedea4b858
-  ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+  ms.openlocfilehash: d144b160a940132bdab71362b6322b1e51679006
+  ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/29/2021
-  ms.locfileid: "129234322"
+  ms.lasthandoff: 10/06/2021
+  ms.locfileid: "129619165"
 title: Azure AD(Active Directory) 애플리케이션 프록시 질문과 대답
 summary: 이 페이지는 Azure AD(Azure Active Directory) 애플리케이션 프록시에 대한 질문과 대답을 제공합니다.
 sections:
@@ -42,7 +42,7 @@ sections:
     answer: ''
   - question: >
       커넥터가 여전히 이전 버전을 사용하고 있으며 최신 버전으로 자동 업그레이드되지 않는 이유는 무엇인가요?
-    answer: "이 문제는 업데이트 프로그램 서비스가 올바르게 작동하지 않거나 서비스에서 설치할 수 있는 새 업데이트가 없는 경우에 발생할 수 있습니다.\n\n업데이트 프로그램 서비스가 실행 중이고 이벤트 로그에 기록된 오류가 없는 경우(애플리케이션 및 서비스 로그 -> Microsoft -> AadApplicationProxy -> 업데이트 프로그램 -> 관리자) 업데이트 프로그램 서비스가 정상인 것입니다. \n\n> [!IMPORTANT]\n> 주 버전만 자동 업그레이드용으로 릴리스됩니다. 필요한 경우에만 커넥터를 수동으로 업데이트하는 것이 좋습니다. 예를 들어, 단지 알려진 문제를 해결해야 하거나 새 기능을 사용하기 위해 주 릴리스를 기다릴 수는 없습니다. 새 릴리스, 릴리스 유형(다운로드, 자동 업그레이드), 버그 수정 및 새 기능에 대한 자세한 내용은 [Azure AD 애플리케이션 프록시: 버전 릴리스 기록](./application-proxy-release-version-history.md)을 참조하세요.\n\n커넥터를 수동으로 업그레이드하려면\n\n- 최신 버전의 커넥터를 다운로드합니다. Azure Portal의 애플리케이션 프록시 아래에서 찾을 수 있습니다. [Azure AD 애플리케이션 프록시: 버전 릴리스 기록](./application-proxy-release-version-history.md)에서 링크를 찾을 수도 있습니다.\n-   설치 관리자가 Azure AD 애플리케이션 프록시 커넥터 서비스를 다시 시작합니다. 일부 경우에는 설치 관리자가 모든 파일을 바꿀 수 없는 경우 서버를 다시 부팅해야 할 수 있습니다. 따라서 업그레이드를 시작하기 전에 모든 애플리케이션을 닫는 것이 좋습니다(예: 이벤트 뷰어).\n-   설치 관리자를 실행합니다. 업그레이드 프로세스가 신속하게 진행되며 자격 증명을 제공할 필요가 없으며 커넥터는 다시 등록되지 않습니다.\n"
+    answer: "이 문제는 업데이트 프로그램 서비스가 올바르게 작동하지 않거나 서비스에서 설치할 수 있는 새 업데이트가 없는 경우에 발생할 수 있습니다.\n\n업데이트 프로그램 서비스가 실행 중이고 이벤트 로그에 기록된 오류가 없는 경우(애플리케이션 및 서비스 로그 -> Microsoft -> AadApplicationProxy -> 업데이트 프로그램 -> 관리자) 업데이트 프로그램 서비스가 정상인 것입니다. \n\n> [!IMPORTANT]\n> 주 버전만 자동 업그레이드용으로 릴리스됩니다. 필요한 경우에만 커넥터를 수동으로 업데이트하는 것이 좋습니다. 예를 들어, 단지 알려진 문제를 해결해야 하거나 새 기능을 사용하기 위해 주 릴리스를 기다릴 수는 없습니다. 새 릴리스, 릴리스 유형(다운로드, 자동 업그레이드), 버그 수정 및 새 기능에 대한 자세한 내용은 [Azure AD 애플리케이션 프록시: 버전 릴리스 기록](./application-proxy-release-version-history.md)을 참조하세요.\n\n커넥터를 수동으로 업그레이드하려면\n\n- 최신 버전의 커넥터를 다운로드합니다. (Azure Portal의 애플리케이션 프록시 아래에서 찾을 수 있습니다. [Azure AD 애플리케이션 프록시: 버전 릴리스 기록](./application-proxy-release-version-history.md)에서 링크를 찾을 수도 있습니다.\n-   설치 관리자가 Azure AD 애플리케이션 프록시 커넥터 서비스를 다시 시작합니다. 일부 경우에는 설치 관리자가 모든 파일을 바꿀 수 없는 경우 서버를 다시 부팅해야 할 수 있습니다. 따라서 업그레이드를 시작하기 전에 모든 애플리케이션을 닫는 것이 좋습니다(예: 이벤트 뷰어).\n-   설치 관리자를 실행합니다. 업그레이드 프로세스가 신속하게 진행되며 자격 증명을 제공할 필요가 없으며 커넥터는 다시 등록되지 않습니다.\n"
   - question: >
       애플리케이션 프록시 커넥터 서비스가 기본값과 다른 사용자 컨텍스트에서 실행될 수 있나요?
     answer: >
@@ -117,13 +117,29 @@ sections:
     answer: >
       애플리케이션 등록 페이지에서 홈페이지 URL을 방문 페이지의 원하는 외부 URL로 변경할 수 있습니다. 애플리케이션이 내 앱 또는 Office 365 포털에서 시작되면 지정된 페이지가 로드됩니다. 구성 단계에 대해서는 [Azure AD 애플리케이션 프록시를 사용하여 게시된 앱에 대해 사용자 지정 홈페이지 설정](application-proxy-configure-custom-home-page.md)을 참조하세요.
   - question: >
+      URL에 "#"(해시 태그) 문자가 포함될 때마다 게시된 애플리케이션에 액세스하려고 하면 잘린 URL로 리디렉션되는 이유는 무엇인가요?
+    answer: >
+      Azure AD 사전 인증이 구성되어 있고 애플리케이션 URL에서 처음으로 애플리케이션에 액세스하려고 할 때 "#" 문자가 포함된 경우 인증을 위해 Azure AD(login.microsoftonline.com)로 리디렉션됩니다. 인증을 완료하면 "#" 문자 앞에 URL 부분으로 리디렉션되고 "#" 뒤에 오는 모든 항목이 무시/제거된 것으로 보입니다. 예를 들어 URL이 `https://www.contoso.com/#/home/index.html`인 경우 Azure AD 인증이 완료되면 사용자가 `https://www.contoso.com/`으로 리디렉션됩니다.
+
+      이 동작은 브라우저에서 "#" 문자를 처리하는 방식으로 인해 의도적으로 설계된 것입니다.
+
+
+      가능한 솔루션/대안:
+
+
+      - `https://www.contoso.com`에서 `https://contoso.com/#/home/index.html`로의 리디렉션을 설정합니다. 사용자는 먼저 `https://www.contoso.com`에 액세스해야 합니다.
+
+      - 첫 번째 액세스 시도에 사용되는 URL에는 인코딩된 형식(%23)의 "#" 문자가 포함되어야 합니다. 게시된 서버에서 이를 허용하지 않을 수 있습니다.
+
+      - 통과 사전 인증 유형을 구성합니다(권장하지 않음).
+  - question: >
       IIS 기반 애플리케이션만 게시할 수 있나요? 비 Windows 웹 서버에서 실행되는 웹 애플리케이션은 어떻게 되나요? IIS가 설치된 서버에 커넥터를 설치해야 하나요?
     answer: >
       아니요, 게시된 애플리케이션에 대한 IIS 요구 사항은 없습니다. Windows Server가 아닌 서버에서 실행되는 웹 애플리케이션을 게시할 수 있습니다. 그러나 웹 서버에서 협상(Kerberos 인증)를 지원하는지 여부에 따라 비 Windows 서버에서 사전 인증을 사용하지 못할 수도 있습니다. 커넥터가 설치된 서버에는 IIS가 필요하지 않습니다.
   - question: >
       HSTS 헤더를 추가하도록 애플리케이션 프록시를 구성할 수 있나요?
     answer: >
-      애플리케이션 프록시는 HTTPS 응답에 HTTP Strict-Transport-Security 헤더를 자동으로 추가하지 않지만 게시된 애플리케이션에서 보낸 원래 응답에 이 헤더가 있으면 유지됩니다. 이 기능을 사용하도록 설정하는 방식은 로드맵에 나와 있습니다. 응답에 추가할 수 있도록 하는 미리 보기에 관심이 있는 경우 aadapfeedback@microsoft.com에서 자세한 내용을 확인하세요.
+      애플리케이션 프록시는 HTTPS 응답에 HTTP Strict-Transport-Security 헤더를 자동으로 추가하지 않지만 게시된 애플리케이션에서 보낸 원래 응답에 이 헤더가 있으면 유지됩니다. 이 기능을 사용하도록 설정하는 방식은 로드맵에 나와 있습니다.
   - question: >
       Windows 통합 인증
     answer: ''
@@ -209,7 +225,7 @@ sections:
   - question: >
       WebSocket이 QlikSense 및 원격 데스크톱 웹 클라이언트(HTML5) 이외의 다른 애플리케이션에 대한 작업을 지원하나요?
     answer: >
-      현재 WebSocket 프로토콜 지원은 아직 퍼블릭 미리 보기 상태이며 다른 애플리케이션에서 작동하지 않을 수 있습니다. 일부 고객의 경우 성공적으로 다른 애플리케이션에서 WebSocket 프로토콜을 사용하고 있습니다. 이러한 시나리오를 테스트할 경우 결과를 알려 주시기 바랍니다. aadapfeedback@microsoft.com으로 의견을 보내 주세요.
+      현재 WebSocket 프로토콜 지원은 아직 퍼블릭 미리 보기 상태이며 다른 애플리케이션에서 작동하지 않을 수 있습니다. 일부 고객의 경우 성공적으로 다른 애플리케이션에서 WebSocket 프로토콜을 사용하고 있습니다.
 
 
       WAC(Windows 관리 센터)의 기능(Eventlogs, PowerShell 및 원격 데스크톱 서비스)은 현재 Azure AD 애플리케이션 프록시를 통해 작동하지 않습니다.

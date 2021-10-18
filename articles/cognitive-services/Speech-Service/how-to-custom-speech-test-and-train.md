@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/08/2021
 ms.author: pafarley
-ms.openlocfilehash: 6263643999c3b4c4f6c6c6fb9b7b0b2588b4adf8
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: fa62d0e7c24c6a63c63f082333823b5e74a24cf0
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129997614"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132284"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Custom Speech에 대한 데이터 준비
 
@@ -91,11 +91,11 @@ Microsoft 음성 인식의 정확도를 테스트하거나 사용자 지정 모�
 
 **REST API 만든 데이터 집합 및 Speech Studio 프로젝트**
 
-음성 텍스트 REST API v 3.0을 통해 만든 데이터 집합은 요청 본문에 특수 매개 변수가 지정 되지 않은 경우 Speech Studio 프로젝트에 연결 *되지* 않습니다 (아래 참조). REST API을 통해 수행 되는 경우 모델 사용자 지정 작업에는 Speech Studio 프로젝트와의 연결이 필요 *하지 않습니다* .
+음성 텍스트 REST API v 3.0을 사용 하 여 만든 데이터 집합은 요청 본문에 특수 매개 변수가 지정 되지 않은 경우 Speech Studio 프로젝트에 연결 *되지* 않습니다 (아래 참조). REST API을 통해 수행 되는 경우 모델 사용자 지정 작업에는 Speech Studio 프로젝트와의 연결이 필요 *하지 않습니다* .
 
 Speech Studio에 로그온 하면 해당 사용자 인터페이스는 연결 되지 않은 개체 (프로젝트 참조 없이 REST API를 통해 업로드 된 데이터 집합)가 발견 되 면이를 알리고 기존 프로젝트에 이러한 개체를 연결 합니다. 
 
-[데이터 집합 만들기](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) 또는 [양식 요청에서 데이터 집합 만들기](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UploadDatasetFromForm) 를 사용 하 여 업로드 하는 동안 Speech Studio의 기존 프로젝트에 새 데이터 집합을 연결 하려면 아래 예제와 같이 요청 본문 형식을 사용 합니다.
+업로드 중에 Speech Studio에서 기존 프로젝트에 새 데이터 집합을 연결 하려면 [데이터 집합 만들기](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) 또는 [양식에서 데이터 집합 만들기](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UploadDatasetFromForm) 를 사용 하 고 다음 형식에 따라 요청 본문을 입력 합니다.
 ```json
 {
   "kind": "Acoustic",
@@ -109,7 +109,7 @@ Speech Studio에 로그온 하면 해당 사용자 인터페이스는 연결 되
 }
 ```
 
-Project 요소에 필요한 `project` URL은 [프로젝트 받기](https://westeurope.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) 요청을 통해 가져올 수 있습니다.
+요소에 필요한 Project URL은 `project` [Get Projects](https://westeurope.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) 요청을 사용 하 여 가져올 수 있습니다.
 
 ## <a name="audio--human-labeled-transcript-data-for-trainingtesting"></a>학습/테스트용 오디오 + 휴먼 레이블 대화 기록 데이터
 
@@ -185,7 +185,7 @@ Speech Service 구독에 권장되는 지역 목록은 [Azure 계정 설정](cus
 
 ## <a name="pronunciation-data-for-training"></a>학습용 발음 데이터
 
-사용자가 접하거나 사용하게 될 표준 발음이 없는 특수 용어가 있는 경우 사용자 지정 발음 파일을 제공하여 인식을 향상시킬 수 있습니다. 사용자 지정 발음을 지원하는 언어 목록은 [Speech-to-text 테이블의](language-support.md#speech-to-text) **사용자 지정** 열에서 **발음을** 참조하세요.
+사용자가 접하거나 사용하게 될 표준 발음이 없는 특수 용어가 있는 경우 사용자 지정 발음 파일을 제공하여 인식을 향상시킬 수 있습니다. 사용자 지정 발음을 지 원하는 언어 목록은 [음성 텍스트 테이블](language-support.md#speech-to-text)의 **사용자 지정** 열에서 **발음** 을 참조 하세요.
 
 > [!IMPORTANT]
 > 사용자 지정 발음 파일을 사용하여 일반적인 단어의 발음을 변경하는 것은 권장되지 않습니다.

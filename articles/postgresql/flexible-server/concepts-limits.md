@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/17/2021
-ms.openlocfilehash: b9d8dcb2b3947fc51d1567230023e40eed19bdc2
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 58e5f6f5646eb2dd75215a17349b053426b7c837
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130072920"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130133332"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 제한
 
@@ -37,19 +37,20 @@ ms.locfileid: "130072920"
 | D48s_v3/D48ds_v4   | 48     | 192GiB     | 5,000            | 4997                 |
 | D64s_v3/D64ds_v4   | 64     | 256GiB     | 5,000            | 4997                 |
 | **메모리 최적화** |        |             |                 |                      |
-| E2s_v3               | 2      | 16GiB      | 1719            | 1716                 |
-| E4s_v3               | 4      | 32GiB      | 3438            | 3433                 |
-| E8s_v3               | 8      | 64GiB      | 5,000            | 4997                 |
-| E16s_v3              | 16     | 128GiB     | 5,000            | 4997                 |
-| E32s_v3              | 32     | 256GiB     | 5,000            | 4997                 |
-| E48s_v3              | 48     | 384GiB     | 5,000            | 4997                 |
-| E64s_v3              | 64     | 432GiB     | 5,000            | 4997                 |
+| E2s_v3/E2ds_v4    | 2      | 16GiB      | 1719            | 1716                 |
+| E4s_v3/E4ds_v4    | 4      | 32GiB      | 3438            | 3433                 |
+| E8s_v3/E8ds_v4    | 8      | 64GiB      | 5,000            | 4997                 |
+| E16s_v3/E16ds_v4   | 16     | 128GiB     | 5,000            | 4997                 |
+| E20ds_v4             | 20     | 160GiB     | 5,000            | 4997                 |
+| E32s_v3/E32ds_v4   | 32     | 256GiB     | 5,000            | 4997                 |
+| E48s_v3/E48ds_v4   | 48     | 384GiB     | 5,000            | 4997                 |
+| E64s_v3/E64ds_v4   | 64     | 432GiB     | 5,000            | 4997                 |
 
 연결 한도를 초과하면 다음과 같은 오류가 발생할 수 있습니다.
 > 오류: 죄송합니다. 이미 클라이언트가 너무 많습니다.
 
 > [!IMPORTANT]
-> 최상의 환경을 위해 PgBouncer와 같은 연결 풀러를 사용하여 연결을 효율적으로 관리하는 것이 좋습니다.
+> 최상의 환경을 위해 PgBouncer와 같은 연결 풀 관리자를 사용 하 여 효율적으로 연결을 관리 하는 것이 좋습니다. Azure Database for PostgreSQL 유연한 서버는 pgBouncer를 [기본 제공 연결 풀 관리 솔루션](concepts-pgbouncer.md)으로 제공 합니다. 
 
 유휴 상태일지라도 PostgreSQL 연결은 약 10MB의 메모리를 차지할 수 있습니다. 또한 새 연결을 만드는 데는 시간이 걸립니다. 대부분의 애플리케이션은 많은 단기 연결을 요청합니다. 이는 이러한 상황을 복잡하게 만듭니다. 결과적으로 실제 워크로드에 사용할 수 있는 리소스가 줄어들어 성능이 저하됩니다. 연결 풀링은 유휴 연결을 줄이고 기존 연결을 다시 사용하는 데 사용할 수 있습니다. 자세한 내용은 [블로그 게시물](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717)을 참조하세요.
 
@@ -96,7 +97,7 @@ ms.locfileid: "130072920"
 - Postgres 10 이하 버전은 지원되지 않습니다. 이전 Postgres 버전이 필요한 경우 [단일 서버](../overview-single-server.md) 옵션을 사용하는 것이 좋습니다.
 - 확장 지원은 현재 Postgres `contrib` 확장으로 제한됩니다.
 - 기본 제공 PgBouncer 연결 풀러는 현재 버스트 가능 서버에서 사용할 수 없습니다.
-- SCRAM 인증은 기본 제공 PgBouncer를 사용하는 연결에서 지원되지 않습니다.
+- SCRAM 인증은 기본 제공 PgBouncer를 사용 하는 연결에서 지원 되지 않습니다.
 
 ### <a name="stopstart-operation"></a>작업 중지/시작
 

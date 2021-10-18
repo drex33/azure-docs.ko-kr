@@ -10,12 +10,12 @@ ms.devlang: python
 ms.custom:
 - devx-track-python
 - mode-api
-ms.openlocfilehash: 49e80e277c6df5372341293861d5bda0580f3e8c
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 920aadf1cc800a8ea9d7c764cf0bcfa7cf9287f3
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537161"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129614026"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-python"></a>Azure Service Bus 토픽에 메시지를 보내고 구독에서 토픽으로 메시지 받기(Python)
 이 문서에서는 Python을 사용하여 Service Bus 토픽에 메시지를 보내고 구독에서 토픽으로 메시지를 받는 방법을 보여줍니다. 
@@ -23,7 +23,7 @@ ms.locfileid: "107537161"
 ## <a name="prerequisites"></a>필수 구성 요소
 - Azure 구독 [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
 - [빠른 시작: Azure Portal을 사용하여 Service Bus 토픽 및 해당 토픽에 대한 구독 만들기](service-bus-quickstart-topics-subscriptions-portal.md)의 단계를 따릅니다. 연결 문자열, 항목 이름 및 구독 이름을 기록해 둡니다. 이 빠른 시작에는 하나의 구독만 사용합니다. 
-- [Azure Python SDK][Azure Python 패키지] 패키지가 설치된 Python 2.7 이상. 자세한 내용은 [Python 설치 가이드](/azure/developer/python/azure-sdk-install)를 참조하세요.
+- [Azure Python SDK][Azure Python 패키지] 패키지가 설치된 Python 3.5 이상. 자세한 내용은 [Python 설치 가이드](/azure/developer/python/azure-sdk-install)를 참조하세요.
 
 ## <a name="send-messages-to-a-topic"></a>토픽에 메시지 보내기
 

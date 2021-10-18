@@ -17,7 +17,7 @@
 - name: 자습서
   items:
     - name: WAF와 통합
-      href: app-service-app-service-environment-web-application-firewall.md
+      href: integrate-with-application-gateway.md
     - name: ASE 사용자 지정 설정
       href: app-service-app-service-environment-custom-settings.md
 - name: 샘플
@@ -62,22 +62,16 @@
       items:
         - name: ASEv1
           href: app-service-app-service-environment-intro.md
-        - name: ASEv1 만들기
-          href: app-service-web-how-to-create-an-app-service-environment.md
+        - name: 템플릿에서 ASEv1 만들기
+          href: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
         - name: ASEv1 구성
           href: app-service-web-configure-an-app-service-environment.md
-        - name: 외부 ASEv1 만들기
-          href: app-service-environment-with-internal-load-balancer.md
-        - name: 템플에서 내부 ASEv1 만들기
-          href: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
         - name: ASEv1에서 자동 크기 조정 구성
           href: app-service-environment-auto-scale.md
         - name: ASEv1에서 앱 확장
           href: app-service-web-scale-a-web-app-in-an-app-service-environment.md
         - name: 네트워크 아키텍처
           href: app-service-app-service-environment-network-architecture-overview.md
-        - name: ASEv1에서 웹앱 만들기
-          href: app-service-web-how-to-create-a-web-app-in-an-ase.md
         - name: 백 엔드에 연결
           href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
         - name: ExpressRoute 구성

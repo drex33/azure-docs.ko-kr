@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/22/2021
+ms.date: 10/07/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 750ed8f65db04199ea284e69693bced65a1dc8d9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 171297be3e0e8e5215c5c551e984a45d0516507e
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703136"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003159"
 ---
 ::: zone target="docs"
 
@@ -74,11 +74,16 @@ Linux 클라이언트의 경우 Data Box Disk 도구 집합이 다음 필수 소
 
 Data Box Disk에 대해 지원되는 스토리지 형식의 목록은 다음과 같습니다.
 
-| **스토리지 계정** | **참고 사항** |
+| **스토리지 계정** | **지원되는 액세스 계층** |
 | --- | --- |
-| 클래식 | Standard |
-| 범용  |표준; V1 및 V2 모두 지원됩니다. 핫 및 쿨 계층은 모두 지원됩니다. |
+| Classic Standard | |
+| 범용 v1 Standard  | 핫, 쿨 |
+| 범용 v1 Premium   |  |
+| 범용 v2 Standard<sup>*</sup> | 핫, 쿨 |
+| 범용 v2 Premium   |  |
 | Blob Storage 계정 | |
+
+<sup>*</sup> *ADLS Gen2(Azure Data Lake Storage Gen2)가 지원됩니다.*
 
 > [!IMPORTANT]
 > Azure Blob 스토리지의 NFS(네트워크 파일 시스템) 3.0 프로토콜 지원은 Data Box Disk에서 지원되지 않습니다.

@@ -13,12 +13,12 @@ ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: c3b2cc9f3fa6656cf4d5e493f725c17b64f4d7d8
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: bb4a38d46a241c902d0718104d9a4030bf84607f
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129233581"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858756"
 ---
 # <a name="what-is-single-sign-on-in-azure-active-directory"></a>Azure Active Directory의 Single Sign-On이란?
 
@@ -32,7 +32,7 @@ SSO를 사용할 수 있는 많은 애플리케이션이 이미 Azure AD에 있�
 
 - **페더레이션** - 여러 ID 공급자 간에 작업하도록 SSO를 설정하는 경우 이를 페더레이션이라고 합니다. 페더레이션된 프로토콜을 기반으로 SSO를 구현하면 보안, 안정성, 최종 사용자 환경 및 구현이 개선됩니다. 
 
-    페더레이션 Single Sign-On을 사용하면 Azure AD는 사용자의 Azure AD 계정을 사용하여 사용자를 애플리케이션에 인증합니다. 이 방법은 [SAML 2.0](../develop/single-sign-on-saml-protocol.md), WS-Federation 또는 [OpenID Connect](../develop/active-directory-v2-protocols.md) 애플리케이션을 지원합니다. 페더레이션된 SSO는 가장 풍부한 SSO 모드입니다. 애플리케이션에서 지원하는 경우 암호 기반 SSO 및 AD FS(Active Directory Federation Services) 대신 페더레이션된 SSO를 Azure AD와 함께 사용하세요.
+    페더레이션 Single Sign-On을 사용하면 Azure AD는 사용자의 Azure AD 계정을 사용하여 사용자를 애플리케이션에 인증합니다. 이 방법은 SAML 2.0, WS-Federation 또는 OpenID Connect 애플리케이션을 지원합니다. 페더레이션된 SSO는 가장 풍부한 SSO 모드입니다. 애플리케이션에서 지원하는 경우 암호 기반 SSO 및 AD FS(Active Directory Federation Services) 대신 페더레이션된 SSO를 Azure AD와 함께 사용하세요.
 
     엔터프라이즈 애플리케이션을 위한 SSO 옵션이 없는 몇 가지 시나리오가 있습니다. 포털에서 **앱 등록** 을 사용하여 애플리케이션을 등록하면 기본적으로 OpenID Connect 및 OAuth를 사용하도록 Single Sign-On 기능이 구성됩니다. 이 경우 엔터프라이즈 애플리케이션에서 Single Sign-On 옵션을 탐색해도 표시되지 않습니다.
 
@@ -40,7 +40,7 @@ SSO를 사용할 수 있는 많은 애플리케이션이 이미 Azure AD에 있�
 
     > [!VIDEO https://www.youtube.com/embed/CjarTgjKcX8]
 
-- **암호** - 온-프레미스 애플리케이션은 암호 기반, Windows 인증, 헤더 기반, 연결 기반 방법을 SSO에 사용할 수 있습니다. 온-프레미스 선택은 [애플리케이션 프록시](../app-proxy/what-is-application-proxy.md)에 대해 애플리케이션을 구성할 때 작동합니다.
+- **암호** - 온-프레미스 애플리케이션은 암호 기반, Windows 통합 인증, 헤더 기반, 연결 기반 방법을 SSO에 사용할 수 있습니다. 온-프레미스 선택은 애플리케이션 프록시에 대해 애플리케이션을 구성할 때 작동합니다.
 
     암호 기반 SSO를 사용하는 경우 최종 사용자는 애플리케이션에 처음 액세스할 때 사용자 이름 및 암호를 사용하여 애플리케이션에 로그인합니다. 첫 번째 로그온 후에는 Azure AD가 사용자 이름 및 암호를 애플리케이션에 제공합니다. 암호 기반 SSO를 사용하면 웹 브라우저 확장 또는 모바일 앱을 사용하여 안전하게 애플리케이션 암호를 스토리지하고 재생할 수 있습니다. 이 옵션은 애플리케이션에서 제공하는 기존 로그인 프로세스를 사용하지만, 관리자가 암호를 관리할 수 있으므로 사용자는 암호를 몰라도 됩니다.
 
@@ -64,12 +64,12 @@ SSO를 사용할 수 있는 많은 애플리케이션이 이미 Azure AD에 있�
 
 SSO를 구현하는 방법은 애플리케이션이 호스트되는 위치에 따라 달라집니다. 애플리케이션에 액세스하기 위해 네트워크 트래픽이 라우팅되는 방식 때문에 호스팅이 중요합니다. 사용자는 인터넷을 사용하여 온-프레미스 애플리케이션(로컬 네트워크에 호스트되는)에 액세스할 필요가 없습니다. 애플리케이션이 클라우드에 호스트되는 경우 사용자가 이 애플리케이션을 사용하려면 인터넷 연결이 필요합니다. 클라우드 호스팅 애플리케이션을 SaaS(Software as a Service) 애플리케이션이라고도 합니다.
 
-클라우드 애플리케이션에는 페더레이션 프로토콜이 사용됩니다. 온-프레미스 애플리케이션에 Single Sign-On을 사용할 수도 있습니다. 애플리케이션 프록시를 사용하여 온-프레미스 애플리케이션에 대한 액세스를 구성할 수 있습니다. 자세한 내용은 [Azure AD 애플리케이션 프록시를 통해 온-프레미스 애플리케이션에 원격으로 액세스](../app-proxy/application-proxy.md)를 참조하세요.
+클라우드 애플리케이션에는 페더레이션 프로토콜이 사용됩니다. 온-프레미스 애플리케이션에 Single Sign-On을 사용할 수도 있습니다. 애플리케이션 프록시를 사용하여 온-프레미스 애플리케이션에 대한 액세스를 구성할 수 있습니다. 자세한 내용은 Azure AD 애플리케이션 프록시를 통해 온-프레미스 애플리케이션에 원격으로 액세스를 참조하세요.
 
 ## <a name="my-apps"></a>내 앱
 
-애플리케이션 사용자는 아마도 SSO 세부 정보에 대해 크게 신경 쓰지 않을 것입니다. 암호를 자주 입력할 필요 없이 생산성을 높일 수 있는 애플리케이션을 원할 뿐입니다. [내 앱 포털](https://myapps.microsoft.com)에서 애플리케이션을 찾고 관리할 수 있습니다. 
+애플리케이션 사용자는 아마도 SSO 세부 정보에 대해 크게 신경 쓰지 않을 것입니다. 암호를 자주 입력할 필요 없이 생산성을 높일 수 있는 애플리케이션을 원할 뿐입니다. 내 앱 포털에서 애플리케이션을 찾고 관리할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory에서 Single Sign-On 배포 계획](plan-sso-deployment.md)
+- [Single Sign-On 사용](add-application-portal-setup-sso.md)

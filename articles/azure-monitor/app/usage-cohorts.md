@@ -2,15 +2,13 @@
 title: Application Insights 사용 코호트 | Microsoft Docs
 description: 공통점이 있는 다양한 사용자, 세션, 이벤트 또는 작업의 집합을 분석합니다.
 ms.topic: conceptual
-author: lgayhardt
-ms.author: lagayhar
 ms.date: 07/30/2021
-ms.openlocfilehash: de5a452f15cd19c97fec727307b33fc469166459
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: ba51e407a7e9d72926c4ed7c480e0c1ba71225e1
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537115"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130129513"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights 코호트
 

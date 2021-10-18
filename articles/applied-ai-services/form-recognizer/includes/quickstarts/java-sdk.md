@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 05/25/2021
 ms.custom: devx-track-java
 ms.author: lajanuar
-ms.openlocfilehash: 4554725a028bc3b70e14b8eba00a636965694819
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fdb92ae88ceec485557cc7bccd7a62a5b873362f
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128652555"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715483"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -246,7 +246,7 @@ URL에서 청구서를 분석하려면 `beginRecognizeInvoicesFromUrl` 메서드
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_invoice_print)]
 
-## <a name="analyze-identity-documents"></a>ID 문서 분석
+## <a name="analyze-id-documents"></a>ID 문서 분석
 
 이 섹션에서는 Form Recognizer에서 미리 빌드된 ID 모델을 사용하여 정부에서 발행한 신분증(예: 전 세계에서의 여권 및 미국 운전 면허증)에서 핵심 정보를 분석하고 추출하는 방법을 보여 줍니다. ID 문서 분석 방법에 대한 자세한 내용은 [미리 빌드된 ID 모델 개념 가이드](../../concept-identification-cards.md)를 참조하세요.
 

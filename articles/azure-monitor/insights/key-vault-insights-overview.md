@@ -3,15 +3,13 @@ title: Key Vault 인사이트를 사용한 Key Vault 모니터링 | Microsoft Do
 description: 이 문서에서는 Key Vault 인사이트에 대해 설명합니다.
 services: azure-monitor
 ms.topic: conceptual
-author: lgayhardt
-ms.author: lagayhar
 ms.date: 09/10/2020
-ms.openlocfilehash: 953d6300b8ac19ddfcfe3b37a1cfde50480e19a4
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: 0ad400ffcb892c09d6f746c482c9cb78c5627075
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110095125"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131869"
 ---
 # <a name="monitoring-your-key-vault-service-with-key-vault-insights"></a>Key Vault 인사이트를 통해 Key Vault 서비스 모니터링
 Key Vault 인사이트는 Key Vault 요청, 성능, 실패 및 대기 시간에 대한 통합 보기를 제공하여 키 자격 증명 모음의 종합적인 모니터링을 제공합니다.
@@ -129,7 +127,7 @@ Azure Monitor 수준 통합 문서에서 키 자격 증명 모음의 리소스 �
 2. **개요** 통합 문서의 명령 모음에서 **편집** 을 선택합니다.
 3. **구독** 드롭다운 목록에서 기본값으로 사용할 구독을 하나 이상 선택합니다. 통합 문서에서 최대 10개의 구독을 선택할 수 있습니다.
 4. **키 자격 증명 모음** 드롭다운 목록에서 기본값으로 사용할 계정을 하나 이상 선택합니다. 통합 문서에서 최대 200개의 스토리지 계정을 선택할 수 있습니다.
-5. 명령 모음에서 **다른 이름으로 저장** 을 선택하여 사용자 지정 항목이 있는 통합 문서의 복사본을 저장한 다음, **편집 완료** 를 클릭하여 읽기 모드로 돌아갑니다.
+5. 명령 모음에서 **다른 이름으로 저장** 을 선택하여 사용자 지정 항목이 있는 통합 문서의 복사본을 저장한 다음 **편집 완료** 를 클릭하여 읽기 모드로 돌아갑니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

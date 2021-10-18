@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.custom: subject-armqs, devx-track-azurepowershell
-ms.openlocfilehash: b7ae1fa6533067c977952cdfc3ae73244e50d941
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ac32afdf2197c32f43c94c6b0126688ed363902f
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128584926"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711384"
 ---
 # <a name="quickstart-create-a-budget-with-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 예산 만들기
 
@@ -161,7 +161,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 배포를 위한 Azure 예산을 만들었습니다. Azure Cost Management 및 청구와 Azure Resource Manager에 대해 자세히 알아보려면 아래 문서를 계속 진행하세요.
+이 빠른 시작에서는 배포를 위한 Azure 예산을 만들었습니다. Cost Management and Billing과 Azure Resource Manager에 대해 자세히 알아보려면 아래 문서를 계속 진행하세요.
 
 - [Cost Management 및 청구](../cost-management-billing-overview.md) 개요 읽기
 - Azure Portal에서 [예산 만들기](tutorial-acm-create-budgets.md)

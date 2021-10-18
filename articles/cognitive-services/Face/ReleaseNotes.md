@@ -8,25 +8,34 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 09/08/2021
+ms.date: 09/27/2021
 ms.author: pafarley
 ms.custom: contperf-fy21q3, contperf-fy22q1
-ms.openlocfilehash: d68ff884063f81eccccbd2dcd4d3bd05485f5ef9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 77e3eb54f344039130f5971f87ccdca1e6461afd
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124750860"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129808322"
 ---
 # <a name="whats-new-in-azure-face-service"></a>Azure Face 서비스의 새로운 기능은 무엇인가요?
 
 Azure Face 서비스는 지속적으로 업데이트됩니다. 이 문서를 사용하여 새로운 기능, 개선 사항, 수정 사항, 설명서 업데이트를 최신 상태로 유지합니다.
 
+## <a name="july-2021"></a>2021년 7월
+
+### <a name="new-headpose-and-landmarks-improvements-for-detection_03"></a>Detection_03에 대한 새로운 HeadPose 및 랜드마크 개선 사항
+
+* 얼굴 랜드마크를 지원하도록 Detection_03 모델이 업데이트되었습니다.
+* Detection_03의 랜드마크 기능은 특히 시선 추적에 중요한 안구 랜드마크에서 훨씬 더 정확합니다.
+
+
 ## <a name="april-2021"></a>2021년 4월
 
 ### <a name="persondirectory-data-structure"></a>PersonDirectory 데이터 구조
 
-* 식별 및 유사 찾기와 같은 얼굴 인식 작업을 수행하려면 Face API 고객은 다양한 **사용자** 개체 목록을 만들어야 합니다. 새 **PersonDirectory** 는 디렉터리에 추가된 각 **사용자** ID의 고유한 ID, 선택적 이름 문자열 및 선택적 사용자 메타데이터 문자열이 포함된 데이터 구조입니다. 현재 Face API는 기능은 유사하지만 ID가 100만개로 제한되는 **LargePersonGroup** 구조를 제공합니다. **PersonDirectory** 구조는 최대 7500만개 ID로 확장될 수 있습니다. **PersonDirectory** 와 이전 데이터 구조 간의 또 다른 주요 차이점은 얼굴을 **사용자** 개체&mdash;에 추가하면 업데이트가 자동으로 처리되므로 더 이상 학습을 호출할 필요가 없다는 점입니다. 자세한 내용은 [PersonDirectory 구조 사용](Face-API-How-to-Topics/use-persondirectory.md)을 참조하세요.
+* 식별 및 유사 찾기와 같은 얼굴 인식 작업을 수행하려면 Face API 고객은 다양한 **사용자** 개체 목록을 만들어야 합니다. 새 **PersonDirectory** 는 디렉터리에 추가된 각 **사용자** ID의 고유한 ID, 선택적 이름 문자열 및 선택적 사용자 메타데이터 문자열이 포함된 데이터 구조입니다. 현재 Face API는 기능은 유사하지만 ID가 100만개로 제한되는 **LargePersonGroup** 구조를 제공합니다. **PersonDirectory** 구조는 최대 7500만개 ID로 확장될 수 있습니다. 
+* **PersonDirectory** 와 이전 데이터 구조 간의 또 다른 주요 차이점은 얼굴을 **사용자** 개체&mdash;에 추가하면 업데이트가 자동으로 처리되므로 더 이상 학습을 호출할 필요가 없다는 점입니다. 자세한 내용은 [PersonDirectory 구조 사용](Face-API-How-to-Topics/use-persondirectory.md)을 참조하세요.
 
 
 ## <a name="february-2021"></a>2021년 2월

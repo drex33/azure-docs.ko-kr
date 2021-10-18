@@ -102,6 +102,14 @@
       href: sap-deployment-checklist.md
     - name: SAP NetWeaver 애플리케이션 배포
       href: deployment-guide.md
+    - name: SAP용 Azure VM 확장
+      items:
+        - name: SAP용 Azure VM 확장 필수 구성 요소
+          href: vm-extension-for-sap.md
+        - name: SAP용 Azure VM 확장의 표준 버전
+          href: vm-extension-for-sap-standard.md
+        - name: SAP용 Azure VM 확장의 새 버전
+          href: vm-extension-for-sap-new.md
     - name: Azure에서 SAP NetWeaver 계획 및 구현
       href: planning-guide.md
     - name: Azure VM의 SAP Business One

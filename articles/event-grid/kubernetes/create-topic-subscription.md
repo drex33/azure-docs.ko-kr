@@ -6,12 +6,12 @@ ms.subservice: kubernetes
 ms.author: jafernan
 ms.date: 06/17/2021
 ms.topic: quickstart
-ms.openlocfilehash: 5060d8e3022d98c31d11ea570555b7c5bba3d062
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: d08f7678fa2a38f501c28938395bf152c6be7126
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112415645"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715836"
 ---
 # <a name="route-cloud-events-to-webhooks-with-azure-event-grid-on-kubernetes"></a>Kubernetes의 Azure Event Grid를 사용하여 클라우드 이벤트를 웹후크로 라우팅
 이 빠른 시작에서는 Kubernetes의 Event Grid에서 토픽을 만들고 토픽에 대한 구독을 만든 다음, 토픽에 샘플 이벤트를 보내 시나리오를 테스트합니다. 

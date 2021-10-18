@@ -6,15 +6,15 @@ metadata:
   services: storage
   ms.service: storage
   ms.topic: conceptual
-  ms.date: 09/07/2021
+  ms.date: 10/04/2021
   ms.author: alkohli
   ms.subservice: common
-  ms.openlocfilehash: 7a4344ed0aa7346d3c87d36d96e4772c08080327
-  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+  ms.openlocfilehash: 7217f10d9d54931d0f37ec0400c8df3132076f87
+  ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/13/2021
-  ms.locfileid: "124763560"
+  ms.lasthandoff: 10/09/2021
+  ms.locfileid: "129709459"
 title: 'Azure Import/Export 서비스: 질문과 대답'
 summary: >
   Azure Import/Export 서비스를 사용하여 Azure Storage에 데이터를 전송할 때 발생할 수 있는 질문 및 답변은 다음과 같습니다.
@@ -22,9 +22,9 @@ sections:
 - name: Import/Export 서비스 정보
   questions:
   - question: >
-      Azure Import/Export 서비스를 사용하여 Azure File Storage를 복사할 수 있나요?
+      Azure Import/Export 서비스를 사용하여 Azure Files 스토리지에 복사할 수 있나요?
     answer: >
-      예. Azure Import/Export 서비스는 Azure File Storage로 가져오기를 지원합니다. 지금은 Azure 파일의 내보내기는 지원하지 않습니다.
+      예. Azure Import/Export 서비스는 Azure Files 스토리지로 가져오기를 지원합니다. 지금은 Azure Files에서 내보내기를 지원하지 않습니다.
   - question: >
       Azure Import/Export 서비스를 CSP 구독에 사용할 수 있나요?
     answer: >
@@ -56,7 +56,7 @@ sections:
   - question: >
       작업을 취소할 수 있나요?
     answer: >
-      예. 작업 상태가 **만드는 중** 또는 **운송 중** 인 경우 작업을 취소할 수 있습니다. 이러한 단계를 넘으면 작업을 취소할 수 없고 최종 단계까지 계속됩니다.
+      예. **만들기** 상태에 있는 동안 작업을 취소할 수 있습니다. 그러나 추적 정보를 입력하면 작업 상태가 **배송** 으로 변경되고 작업은 더 이상 취소할 수 없습니다.
   - question: >
       Azure Portal에서 완료된 작업의 상태는 얼마나 오랫동안 볼 수 있나요?
     answer: >
@@ -68,9 +68,13 @@ sections:
 
       데이터 용량이 여러 디스크 가져오기 작업에 걸쳐 있는 경우 정보 및 지침은 Microsoft 지원에 문의하세요.
   - question: >
+      가져오기/내보내기 작업에 대한 데이터 복사 로그에서 문제를 발견했습니다. 작업을 복구할 수 있나요?
+    answer: >
+      최신 버전의 Azure ImportExport 도구(Blob용 버전 1.5.0.300 및 파일용 버전 2.2.0.300)는 작업 복구를 지원하지 않습니다. 문제를 해결한 후 새 Import/Export 작업을 만들어야 합니다. [Blob에 대한 가져오기 작업 만들기](storage-import-export-data-to-blobs.md#step-2-create-an-import-job) 또는 [파일에 대한 가져오기 작업 만들기](storage-import-export-data-to-files.md#step-2-create-an-import-job)를 참조하세요.
+  - question: >
       업로드된 Blob은 상태를 “임대 만료”로 표시합니다.   어떻게 해야 합니까?
     answer: >
-      “임대 만료” 필드는 무시해도 됩니다. Import/Export 기능은 업로드 중에 Blob을 임대하여 다른 프로세스가 동시에 Blob을 업데이트할 수 없도록 합니다. 임대 만료는 Import/Export 기능이 더 이상 해당 Blob에 업로드하지 않으므로 사용자가 Blob을 사용할 수 있음을 의미합니다.
+      **임대 만료** 필드는 무시해도 됩니다. Import/Export 기능은 업로드 중에 Blob을 임대하여 다른 프로세스가 동시에 Blob을 업데이트할 수 없도록 합니다. **임대 만료** 는 가져오기 또는 내보내기가 더 이상 Blob에 업로드하지 않으므로 사용자가 Blob을 사용할 수 있음을 의미합니다.
 - name: 디스크 운송
   questions:
   - question: >
@@ -92,7 +96,7 @@ sections:
   - question: >
       드라이브를 전 세계로 배송하고 반품하는 데 제한 사항이 있나요?
     answer: >
-      배송하는 실제 미디어는 국경을 지나야 할 수 있습니다. 실제 미디어와 데이터를 관련 법률에 따라 가져오거나 내보내도록 해야 합니다. 실제 미디어를 배송하기 전에 관리자에게 미디어 및 데이터를 확인된 데이터 센터에 합법적으로 배송할 수 있는지 확인하세요. 이렇게 하면 해당 품목이 시기 적절하게 Microsoft에 도착될 수 있습니다.
+      배송하는 실제 미디어는 국경을 지나야 할 수 있습니다. 실제 미디어와 데이터를 관련 법률에 따라 가져오거나 내보내도록 해야 합니다. 실제 미디어를 배송하기 전에 관리자에게 미디어 및 데이터를 확인된 데이터 센터에 합법적으로 배송할 수 있는지 확인하세요. 미리 확인하면 해당 품목이 시기 적절하게 Microsoft에 도착하는 데 도움이 됩니다.
 
 
       업로드가 완료되면 드라이브를 국제 주소로 반환하는 프로세스가 현지 배송에 필요한 일반적인 2~3일보다 오래 걸릴 수 있습니다. Azure Portal 패키징으로 나열된 단계에서 Data Box 팀은 배송이 다양한 국제 수출입 요구 사항을 준수하도록 올바른 설명서를 제공합니다.
@@ -137,7 +141,13 @@ sections:
   - question: >
       스토리지 계정에 이미 있는 파일이 드라이브에 있는 경우 서비스가 기존 Blob 또는 파일을 덮어쓰나요?
     answer: >
-      경우에 따라 다릅니다. 드라이브를 준비할 때 데이터 세트 CSV 파일에 있는 Disposition:&lt;rename|no-overwrite|overwrite&gt;라는 필드를 사용하여 대상 파일을 덮어쓰거나 무시해야 하는지를 지정할 수 있습니다. 기본적으로 서비스는 기존 Blob 또는 파일을 덮어쓰지 않고 새 파일의 이름을 변경합니다.
+      예. Azure ImportExport 도구의 최신 릴리스인 버전 1.5.0.300(Blob의 경우) 및 2.2.0.300(파일의 경우)은 가져오기에 동일한 이름의 파일 또는 Blob이 포함된 경우 스토리지에 이미 있는 Blob 또는 파일을 자동으로 덮어쓰게 됩니다. 이전 도구 버전은 기존 Blob 또는 파일의 이름이 같은 경우 기본적으로 들어오는 파일의 이름이 바꿉니다. 데이터 세트 CSV 파일의 Disposition 필드를 사용하면 대상 파일 또는 Blob의 이름을 바꿀지, 덮어쓰지 않을지 또는 덮어쓸지 여부를 지정할 수 있습니다. Disposition 필드는 `Disposition:<rename|no-overwrite|overwrite>` 형식입니다.
+  - question: >
+      새 작업을 만들고 있습니다. 이전 Azure Import/Export 도구를 계속 사용할 수 있나요?
+    answer: >
+      기존 작업에서 이전 Azure Import/Export 도구를 계속 사용할 수 있습니다. 그러나 이전 도구가 단계적으로 제거되므로 새 가져오기/내보내기 작업에 대한 현재 도구 버전으로 이동하는 것이 좋습니다. 이전 도구가 더 이상 지원되지 않으면 Azure Portal에서 알림을 받게 됩니다.
+
+      현재 도구 버전을 찾을 수 있는 위치는 다음과 같습니다. Blob용 [WAImportExport 버전 1.5.0.300을 다운로드](https://www.microsoft.com/download/details.aspx?id=42659)합니다. 파일용 [WAImportExport 버전 2.2.0.300을 다운로드](https://aka.ms/waiev2)합니다.
   - question: >
       WAImportExport 도구는 32비트 운영 체제와 호환되나요?
     answer: >

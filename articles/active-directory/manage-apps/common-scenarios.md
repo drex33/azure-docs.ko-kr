@@ -1,5 +1,6 @@
 ---
-title: Azure Active Directory의 일반적인 애플리케이션 관리 시나리오 | Microsoft Docs
+title: 일반적인 애플리케이션 관리 시나리오
+titleSuffix: Azure AD
 description: Azure AD를 사용하여 애플리케이션 관리 중앙 집중화
 author: davidmu1
 manager: CelesteDG
@@ -11,14 +12,14 @@ ms.date: 03/02/2019
 ms.author: davidmu
 ms.reviewer: napuri
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa4856b95de671cf74905db9c5503def1c36b360
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 3f307cf9e25b3e6e0a3cc00279f9e43f4bca39b4
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824298"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619826"
 ---
-# <a name="centralize-application-management-with-azure-ad"></a>Azure AD를 사용하여 애플리케이션 관리 중앙 집중화
+# <a name="centralize-application-management-with-azure-active-directory"></a>Azure Active Directory로 애플리케이션 관리 중앙 집중화
 
 암호는 전 세계 직원들에게 IT 악몽이자 고충입니다. 이 때문에 클라우드 및 기타 리소스를 위한 Microsoft의 ID 및 액세스 관리 솔루션인 Azure Active Directory로 전환하는 회사가 점점 늘어나고 있습니다. 애플리케이션마다 암호를 입력할 필요 없이 애플리케이션 간에 전환할 수 있습니다. Outlook, Workday, ADP를 빠르고 안전하게 열 수 있듯이, Outlook에서 Workday로, ADP로 신속하게 전환할 수 있습니다. 그런 다음, IT를 호출할 필요 없이 파트너는 물론이고 조직 외부의 다른 사람과 협업할 수 있습니다. 뿐만 아니라 Azure AD는 위치에 관계 없이 신원 확인을 위한 다단계 인증 같은 용도로 사용되는 앱을 보호하고, 의심스러운 로그인을 감지하는 지속적인 적응형 기계 학습 및 보안 인텔리전스를 사용하여 필요한 앱에 대한 안전한 액세스를 제공하는 방식으로 위험을 관리할 수 있습니다. 사용자뿐 아니라 IT에게도 매우 훌륭한 솔루션입니다. Just-In-Time 액세스 검토와 완전한 거버넌스 제품군을 제공하는 Azure AD를 사용하면 규정 준수 상태를 유지하고 정책을 적용하는 데 도움이 됩니다. 여기에 더해, 사용자 계정 프로비저닝을 자동화하면 더욱 간편하게 액세스를 관리할 수 있습니다. 고객이 Azure Active Directory의 애플리케이션 관리 기능을 사용하는 일반적인 시나리오를 살펴보세요.
 

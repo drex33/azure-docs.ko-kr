@@ -4,19 +4,22 @@ description: 사용량 이벤트 API를 사용하여 Microsoft AppSource 및 Azu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 10/15/2021
 author: saasguide
 ms.author: souchak
-ms.openlocfilehash: 056fd364902ccd530b1aa2d540cd7d0457e0276b
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 84e55aa971eae4c67bc6ec2dcaa4618b55c8f737
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129855862"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130134111"
 ---
 # <a name="marketplace-metered-billing-apis"></a>Marketplace 요금제 청구 API
 
 요금제 청구 API는 게시자가 파트너 센터에 게시할 제안에 대한 사용자 지정 계량 차원을 만들 때 사용해야 합니다. 사용 이벤트를 내보내기 위해 사용자 지정 차원과 하나 이상의 플랜이 있는 모든 구매 제품에는 요금제 청구 API와의 통합이 필요합니다.
+
+> [!IMPORTANT]
+> 코드의 사용량을 추적 하 고 기본 요금을 초과 하는 사용량에 대해서만 사용 이벤트를 Microsoft에 전송 해야 합니다.
 
 SaaS의 사용자 지정 계량 차원을 만드는 방법에 대한 자세한 내용은 [SaaS 요금제 청구](partner-center-portal/saas-metered-billing.md)를 참조하세요.
 
@@ -165,11 +168,11 @@ OK. 추가 처리 및 청구를 위해 Microsoft 측에서 사용량 내보내�
 | | |
 
 >[!NOTE]
->요청 본문에서 리소스 식별자는 SaaS 앱 및 사용자 지정 미터를 내보내는 Azure 관리형 앱에 대해 서로 다른 의미를 줍니다. SaaS 앱의 리소스 식별자는 `resourceID` 입니다. Azure 애플리케이션 Managed Apps 계획의 리소스 식별자는 `resourceUri` 입니다.
+>요청 본문에서 리소스 식별자는 SaaS 앱 및 Azure에서 관리 되는 앱 내보내기 사용자 지정 측정기에 대해 서로 다른 의미를 갖습니다. SaaS 앱의 리소스 식별자는 `resourceID` 입니다. Azure 애플리케이션 관리 되는 앱 계획의 리소스 식별자는 `resourceUri` 입니다.
 
 SaaS 제품의 경우 `resourceId`는 SaaS 구독 ID입니다. SaaS 구독에 대한 자세한 내용은 [구독 나열](partner-center-portal/pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions)을 참조하세요.
 
-*SaaS 앱에 대한 요청 본문 예제:*
+*SaaS 앱에 대 한 요청 본문 예제:*
 
 ```json
 {
@@ -194,7 +197,7 @@ SaaS 제품의 경우 `resourceId`는 SaaS 구독 ID입니다. SaaS 구독에 �
 
 Azure 애플리케이션 관리형 앱 플랜의 경우 `resourceUri`는 관리 앱 `resource group Id`입니다. 이를 인출하는 예제 스크립트는 [Azure 관리 ID 토큰 사용](marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token)에서 찾을 수 있습니다. 
 
-*Azure 애플리케이션 관리되는 앱에 대한 요청 본문 예제:*
+*Azure 애플리케이션 관리 앱에 대 한 요청 본문 예제:*
 
 ```json
 {

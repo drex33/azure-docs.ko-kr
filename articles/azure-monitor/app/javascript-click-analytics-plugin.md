@@ -2,18 +2,18 @@
 title: Application Insights JavaScript SDK용 클릭 분석 자동 수집 플러그 인
 description: Application Insights JavaScript SDK용 클릭 분석 자동 수집 플러그 인을 설치하고 사용하는 방법을 알아봅니다.
 services: azure-monitor
-author: lgayhardt
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
-ms.author: lagayhar
-ms.openlocfilehash: 2eabbfb5928fea861874e78fa68ac196d16134d3
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
-ms.translationtype: HT
+author: mattmccleary
+ms.author: mmcc
+ms.openlocfilehash: e1a0ab71ce8d5970b1239f70a058ee7a663117da
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108291337"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132705"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Application Insights JavaScript SDK용 클릭 분석 자동 수집 플러그 인
 

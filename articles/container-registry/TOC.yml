@@ -25,6 +25,8 @@
           href: container-registry-get-started-bicep.md
         - name: Event Grid로 이벤트 보내기 - CLI
           href: container-registry-event-grid-quickstart.md
+        - name: 클라이언트 라이브러리를 사용하여 콘텐츠 관리
+          href: quickstart-client-libraries.md
         - name: Java 이미지 빌드 및 푸시 - CLI
           href: container-registry-java-quickstart.md
     - name: 자습서

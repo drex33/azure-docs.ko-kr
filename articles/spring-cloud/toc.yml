@@ -160,6 +160,8 @@
           href: how-to-enable-system-assigned-managed-identity.md
         - name: 역할 및 권한 만들기
           href: how-to-permissions.md
+        - name: TLS/SSL 인증서 사용
+          href: how-to-use-tls-certificate.md
         - name: 엔드투엔드 전송 계층 보안 사용
           href: how-to-enable-end-to-end-tls.md
         - name: Config Server 및 서비스 레지스트리 액세스
@@ -190,7 +192,7 @@
           href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
           href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
-- name: Architecture
+- name: 아키텍처
   items:
     - name: 참조 아키텍처
       href: reference-architecture.md

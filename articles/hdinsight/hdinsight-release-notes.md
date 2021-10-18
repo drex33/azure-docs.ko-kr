@@ -4,13 +4,13 @@ description: Azure HDInsight에 대한 최신 릴리스 정보입니다. Hadoop,
 ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/27/2021
-ms.openlocfilehash: cf726033a90e256a2d41a3249e237f5eb91aee84
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 10/15/2021
+ms.openlocfilehash: 7cb93adaa00e11b88dcbe4b104e10acf84a009b9
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535941"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131413"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Azure HDInsight 릴리스 정보
 
@@ -31,6 +31,24 @@ Azure HDInsight는 Azure에서 오픈 소스 분석을 위해 기업 고객들 �
 - HDInsight 4.0: Ubuntu 18.04.5 LTS
 
 ## <a name="new-features"></a>새로운 기능
+### <a name="azure-hdinsight-support-for-restricted-public-connectivity-is-generally-available-on-oct-15-2021"></a>제한 된 공용 연결에 대 한 Azure HDInsight 지원은 일반적으로 10 월 15 2021에 제공 됩니다.
+이제 Azure HDInsight는 모든 지역에서 제한 된 공용 연결을 지원 합니다. 이 기능의 주요 주요 사항은 다음과 같습니다. 
+
+- 클러스터에서 리소스 공급자로 아웃 바운드 되도록 리소스 공급자를 클러스터 통신용으로 되돌리는 기능 
+- 개인 네트워크를 통해 리소스에 액세스할 수 있도록 HDinsight 클러스터에 대 한 사용자 고유의 개인 링크 사용 리소스 (예: 저장소, SQL, 키 자격 증명 모음)를 가져오기 위한 지원 
+- 리소스 프로 비전 된 공용 IP 주소가 없습니다. 
+
+이 새로운 기능을 사용 하 여 HDInsight 관리 Ip에 대 한 인바운드 NSG (네트워크 보안 그룹) 서비스 태그 규칙을 건너뛸 수도 있습니다.  [공용 연결 제한](./hdinsight-restrict-public-connectivity.md) 에 대 한 자세한 정보
+
+### <a name="azure-hdinsight-support-for-azure-private-link-is-generally-available-on-oct-15-2021"></a>Azure 개인 링크에 대 한 azure HDInsight 지원은 일반적으로 10 월 15 2021에 제공 됩니다.
+이제 개인 끝점을 사용 하 여 개인 링크를 통해 HDInsight 클러스터에 연결할 수 있습니다.VNET 피어 링을 사용할 수 없거나 사용할 수 없는 VNET 간 시나리오에서 개인 링크를 활용할 수 있습니다. 
+
+azure 개인 링크를 사용 하면 가상 네트워크의 [개인 끝점](../private-link/private-endpoint-overview.md)을 통해 azure PaaS 서비스 (예: Azure Storage 및 SQL Database)와 azure에서 호스트 되는 고객 소유/파트너 서비스에 액세스할 수 있습니다   . 
+
+가상 네트워크와 서비스 사이의 트래픽은 Microsoft 백본 네트워크를 통해 이동합니다. 서비스를 공용 인터넷에 더 이상 노출할 필요가 없습니다. 
+
+ [개인 링크 사용 링크](./hdinsight-private-link.md)를 통해 더 많은 기능을 사용할 수 있습니다.  
+
 ### <a name="new-azure-monitor-integration-experience-preview"></a>새 Azure Monitor 통합 환경(미리 보기)
 새 Azure Monitor 통합 환경은 이번 릴리스와 함께 미국 동부와 서유럽에서 미리 보기로 제공됩니다. 새 Azure Monitor 환경에 대한 자세한 내용은 [여기](./log-analytics-migration.md#migrate-to-the-new-azure-monitor-integration)를 참조하세요.
 

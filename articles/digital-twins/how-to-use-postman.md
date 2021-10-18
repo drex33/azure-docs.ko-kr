@@ -1,20 +1,20 @@
 ---
 title: Postman으로 API 요청 만들기
 titleSuffix: Azure Digital Twins
-description: Postman을 구성하고 사용하여 Azure Digital Twins API를 호출하는 방법을 알아봅니다.
+description: Postman을 권한 부여, 구성 및 사용 하 여 Azure Digital Twins Api를 호출 하는 방법을 알아봅니다.
 ms.author: baanders
 author: baanders
 ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
-ms.date: 6/16/2021
+ms.date: 10/8/2021
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: 3974b080c2a763db4ffa0f344ef18ce129959a53
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 6aeb16ea38d18082b445f8f1e12301e1ae6144b7
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114459456"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130133009"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Postman을 사용하여 Azure Digital Twins API에 요청을 보내는 방법
 

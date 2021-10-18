@@ -3,15 +3,15 @@ title: Java 웹앱에서 Azure Application Insights 원격 분석 필터링
 description: 모니터링하지 않아도 되는 이벤트를 필터링하여 원격 분석 트래픽을 줄입니다.
 ms.topic: conceptual
 ms.date: 3/14/2019
-author: MS-jgol
 ms.custom: devx-track-java
-ms.author: jgol
-ms.openlocfilehash: c8c3e1e73a1504a5da519144ee5c3e9968fb89b9
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+author: mattmccleary
+ms.author: mmcc
+ms.openlocfilehash: 26addfdcd7b7b2d9ec3b049040e5d387d7c5bb86
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110105013"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130133959"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Java 웹앱에서 원격 분석 필터링
 
@@ -85,7 +85,7 @@ ApplicationInsights.xml에서 다음 예제와 같이 `TelemetryProcessors` 섹�
 
 ```
 
-[전체 기본 제공 프로세서 집합을 검사](https://github.com/microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal)합니다.
+[전체 기본 제공 프로세서 집합을 검사](https://github.com/microsoft/ApplicationInsights-Java/tree/main/agent/agent-tooling/src/main/java/com/microsoft/applicationinsights/agent/internal)합니다.
 
 ## <a name="built-in-filters"></a>기본 제공 필터
 

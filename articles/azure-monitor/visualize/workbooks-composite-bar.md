@@ -2,18 +2,16 @@
 title: Azure Monitor 통합 문서 복합 막대 렌더러
 description: 모든 Azure Monitor 통합 문서 복합 막대 렌더러 시각화에 관해 알아봅니다.
 services: azure-monitor
-author: lgayhardt
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 9/04/2020
-ms.author: lagayhar
-ms.openlocfilehash: 9a02299853174192c6963cbb382ceb1aa06ac088
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 1b2946d4def2004d9d620eb253c733fdf31c39cf
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101728606"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132534"
 ---
 # <a name="composite-bar-renderer"></a>복합 막대 렌더러
 

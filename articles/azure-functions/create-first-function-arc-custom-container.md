@@ -3,19 +3,19 @@ title: '빠른 시작: 사용자 지정 컨테이너에서 Azure Arc 함수 앱 
 description: 사용자 지정 Linux 컨테이너에서 첫 번째 함수 앱을 배포하여 Azure Arc에서 Azure Functions를 시작합니다.
 ms.topic: quickstart
 ms.date: 05/11/2021
-ms.openlocfilehash: 48940e70e1678e4426efb34e40b3b16b742e4f5c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a22907387a647ca46a5784661324d3f6edcc3594
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121746742"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706934"
 ---
 # <a name="create-your-first-function-on-azure-arc-using-a-custom-container-preview"></a>사용자 지정 컨테이너를 사용하여 Azure Arc 첫 번째 함수 만들기(미리 보기)
 
 이 빠른 시작에서는 사용자 지정 컨테이너에서 실행되는 Azure Functions 프로젝트를 만들어 Docker Hub 계정에서 [Azure Arc 지원 Kubernetes 클러스터](../azure-arc/kubernetes/overview.md)에 배포합니다. 자세한 내용은 [Azure Arc App Service, Functions 및 Logic Apps](../app-service/overview-arc-integration.md)를 참조하세요. 이 시나리오는 Linux에서 실행되는 함수 앱만 지원합니다.   
 
 > [!NOTE]
-> Arc 지원 Kubernetes 클러스터에서 함수를 실행하기 위한 지원은 현재 미리 보기로 제공됩니다.  
+> Azure Arc 지원 Kubernetes 클러스터에서 함수를 실행하기 위한 지원은 현재 미리 보기로 제공됩니다.  
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -223,7 +223,7 @@ az functionapp config appsettings set --name <app_name> --resource-group AzureFu
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 함수 앱이 Arc 지원 App Service Kubernetes 환경의 컨테이너에서 실행되고 있으므로, Queue Storage 출력 바인딩을 추가하여 Azure Storage에 연결할 수 있습니다.
+이제 함수 앱이 Azure Arc 지원 App Service Kubernetes 환경의 컨테이너에서 실행되고 있으므로, Queue Storage 출력 바인딩을 추가하여 Azure Storage에 연결할 수 있습니다.
 
 # <a name="c"></a>[C\#](#tab/csharp)  
 

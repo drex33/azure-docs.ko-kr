@@ -1,22 +1,24 @@
 ---
-author: DCtheGeek
+author: georgewallace
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/17/2021
-ms.author: dacoulte
+ms.date: 10/11/2021
+ms.author: gwallace
 ms.custom: generated
-ms.openlocfilehash: 395b38513511671b7022841fed8c306031317274
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b21f1b0d720ea4d98de7160b5449ef3f963b7a5f
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128655002"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129810264"
 ---
 |이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Automation 계정 변수를 암호화해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3657f5a0-770e-44a3-b44e-9431ba1e9735) |중요한 데이터를 저장할 때 Automation 계정 변수 자산의 암호화를 사용하도록 설정해야 합니다. |감사, 거부, 사용 안 함 |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/Automation_AuditUnencryptedVars_Audit.json) |
 |[Automation 계정은 공용 네트워크 액세스를 사용하지 않도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F955a914f-bf86-4f0e-acd5-e0766b0efcb6) |공용 네트워크 액세스를 사용하지 않도록 설정하면 리소스가 공용 인터넷에 노출되지 않도록 하여 보안이 향상됩니다. 대신 프라이빗 엔드포인트를 만들어 Automation 계정 리소스 노출을 제한할 수 있습니다. [https://docs.microsoft.com/azure/automation/how-to/private-link-security](../../../../articles/automation/how-to/private-link-security.md)에서 자세히 알아보세요. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/AutomationAccount_PublicNetworkAccess_Audit.json) |
+|[Azure Automation 계정에는 로컬 인증 방법이 비활성화되어 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F48c5f1cb-14ad-4797-8e3b-f78ab3f8d700) |로컬 인증 방법을 사용하지 않도록 설정하면 Azure Automation 계정에서 인증에 Azure Active Directory ID만 필요하므로 보안이 향상됩니다. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/AutomationAccount_DisableLocalAuth_Audit.json) |
 |[Azure Automation 계정은 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F56a5ee18-2ae6-4810-86f7-18e39ce5629b) |고객 관리형 키를 사용하여 Azure Automation 계정의 미사용 데이터 암호화를 관리합니다. 기본적으로 고객 데이터는 서비스 관리형 키로 암호화되지만, 고객 관리형 키는 일반적으로 규정 준수 기준을 충족하는 데 필요합니다. 고객 관리형 키를 사용하면 사용자가 만들고 소유한 Azure Key Vault 키를 사용하여 데이터를 암호화할 수 있습니다. 순환 및 관리를 포함하여 키의 수명 주기를 고객이 모두 제어하고 책임져야 합니다. [https://aka.ms/automation-cmk](../../../../articles/automation/automation-secure-asset-encryption.md#:~:text=Secure assets in Azure Automation include credentials, certificates, connections,,Using Microsoft-managed keys)에서 자세히 알아보세요. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/AutomationAccount_CMK_Audit.json) |
+|[로컬 인증을 사용하지 않도록 Azure Automation 계정 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F30d1d58e-8f96-47a5-8564-499a3f3cca81) |Azure Automation 계정에서 인증을 위해 Azure Active Directory ID만 필요하도록 로컬 인증 방법을 비활성화합니다. |수정, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/AutomationAccount_DisableLocalAuth_Modify.json) |
 |[공용 네트워크 액세스를 사용하지 않도록 Azure Automation 계정 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F23b36a7c-9d26-4288-a8fd-c1d2fa284d8c) |공용 인터넷을 통해 액세스할 수 없도록 Azure Automation 계정에 대한 공용 네트워크 액세스를 사용하지 않도록 설정합니다. 이 구성은 데이터 유출 위험으로부터 보호할 수 있습니다. 대신 프라이빗 엔드포인트를 만들어 Automation 계정 리소스의 노출을 제한할 수 있습니다. [https://aka.ms/privateendpoints](../../../../articles/event-grid/configure-private-endpoints.md)에서 자세히 알아보세요. |수정, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/AutomationAccount_PublicNetworkAccess_Modify.json) |
 |[프라이빗 DNS 영역으로 Azure Automation 계정 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6dd01e4f-1be1-4e80-9d0b-d109e04cb064) |프라이빗 DNS 영역을 사용하여 프라이빗 엔드포인트에 대한 DNS 확인을 재정의합니다. Azure Private Link를 통해 Azure Automation 계정에 연결하려면 프라이빗 DNS 영역을 적절하게 구성해야 합니다. [https://aka.ms/privatednszone](../../../../articles/private-link/private-endpoint-dns.md)에서 자세히 알아보세요. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/AutomationAccount_PrivateDnsZones_DeployIfNotExist.json) |
 |[Azure Automation 계정에서 프라이빗 엔드포인트 연결 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc0c3130e-7dda-4187-aed0-ee4a472eaa60) |프라이빗 엔드포인트 연결을 사용하면 원본 또는 대상에서 공용 IP 주소 없이 Azure Automation 계정에 대한 프라이빗 연결을 활성화하여 보안 통신을 수행할 수 있습니다. [https://docs.microsoft.com/azure/automation/how-to/private-link-security](../../../../articles/automation/how-to/private-link-security.md)에 있는 Azure Automation에서 프라이빗 엔드포인트에 대해 자세히 알아보세요. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/AutomationAccount_PrivateEndpoints_DeployIfNotExist.json) |

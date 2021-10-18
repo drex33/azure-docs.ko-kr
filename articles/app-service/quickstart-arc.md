@@ -3,12 +3,12 @@ title: '빠른 시작: Azure Arc에서 웹 앱 만들기'
 description: Azure Arc의 App Service를 사용하여 첫 번째 웹 앱을 배포하세요.
 ms.topic: quickstart
 ms.date: 06/02/2021
-ms.openlocfilehash: 4002ef3d66eaae05881da0dd8d95cc82ffeb916d
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.openlocfilehash: 30d310aa1170cf4c28d76e0299b23a90a3f599d9
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112377011"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709808"
 ---
 # <a name="create-an-app-service-app-on-azure-arc-preview"></a>Azure Arc의 App Service 앱 만들기(미리 보기)
 
@@ -16,7 +16,7 @@ ms.locfileid: "112377011"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- [App Service를 실행하도록 Azure Arc 지원 Kubernetes를 설정합니다](manage-create-arc-environment.md).
+- [App Service를 실행하도록 Azure Arc 지원 Kubernetes를 설정](manage-create-arc-environment.md)합니다.
 
 [!INCLUDE [app-service-arc-cli-install-extensions](../../includes/app-service-arc-cli-install-extensions.md)]
 

@@ -3,12 +3,12 @@ title: Azure 정책 개요
 description: Azure Policy는 Azure 환경에서 정책 정의를 만들고, 할당하고, 관리하는 데 사용하는 Azure의 서비스입니다.
 ms.date: 07/27/2021
 ms.topic: overview
-ms.openlocfilehash: 9462281ce37e066a920c17d1dc142a177b97fb2a
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: aff8dc3aa4ff97438a4ebc457a6946f30dccb142
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770553"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660859"
 ---
 # <a name="what-is-azure-policy"></a>Azure Policy이란?
 
@@ -74,7 +74,7 @@ Azure Policy에는 여러 권한이 있는데, 다음 두 리소스 공급자에
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-여러 기본 제공 역할은 Azure Policy 리소스에 대한 권한을 부여합니다. **리소스 정책 기여자** 역할은 대부분의 Azure Policy 작업을 포함합니다. **소유자** 는 전체 권한을 보유합니다. **기여자** 및 **읽기 권한자** 는 모두 _읽기_ Azure Policy 작업에 액세스할 수 있습니다. **기여자** 는 리소스 수정을 트리거할 수 있지만, 정의 또는 할당을 _만들_ 수는 없습니다. **사용자 액세스 관리자** 는 **deployIfNotExists** 에서 관리 ID를 부여하거나 할당에 필요한 권한을 **수정** 하는 데 필요합니다.
+여러 기본 제공 역할은 Azure Policy 리소스에 대한 권한을 부여합니다. **리소스 정책 기여자** 역할은 대부분의 Azure Policy 작업을 포함합니다. **소유자** 는 전체 권한을 보유합니다. **기여자** 및 **읽기 권한자** 는 모두 _읽기_ Azure Policy 작업에 액세스할 수 있습니다. **기여자** 는 리소스 수정을 트리거할 수 있지만, 정의 또는 할당을 _만들_ 수는 없습니다. **사용자 액세스 관리자** 는 **deployIfNotExists** 에서 관리 ID를 부여하거나 할당에 필요한 권한을 **수정** 하는 데 필요합니다. 모든 정책 개체는 범위의 모든 역할에서 읽을 수 있습니다.
 
 기본 제공 역할에 필수 권한이 없는 경우 [사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 만듭니다.
 

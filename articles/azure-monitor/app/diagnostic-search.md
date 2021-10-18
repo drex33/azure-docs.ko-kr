@@ -3,16 +3,16 @@ title: Azure Application Insights에서 Search 사용 | Microsoft Docs
 description: 웹앱에서 전송된 원시 원격 분석을 검색하고 필터링합니다.
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.openlocfilehash: 020e602ec52c40c66439df09275f7d4936a57229
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: 8a025210fc399c1d36fa416c3a4795331eca2293
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112293080"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130134206"
 ---
 # <a name="using-search-in-application-insights"></a>Application Insights에서 Search 사용
 
-Search는 페이지 보기, 예외 사항 또는 웹 요청과 같은 개별 원격 분석 항목을 찾고 검색하는 데 사용하는 [Application Insights](./app-insights-overview.md)의 기능입니다. 또한 코딩한 로그 추적 및 이벤트를 볼 수 있습니다.
+트랜잭션 검색은 페이지 보기, 예외 또는 웹 요청과 같은 개별 원격 분석 항목을 찾고 탐색하는 데 사용하는 [애플리케이션](./app-insights-overview.md) Insights 기능입니다. 또한 코딩한 로그 추적 및 이벤트를 볼 수 있습니다.
 
 (사용자 데이터에 비해 좀 더 복잡한 쿼리를 위해서는 [Analytics](../logs/log-analytics-tutorial.md)를 사용합니다.)
 
@@ -20,7 +20,7 @@ Search는 페이지 보기, 예외 사항 또는 웹 요청과 같은 개별 원
 
 ### <a name="in-the-azure-portal"></a>Azure Portal에서
 
-애플리케이션의 Application Insights 개요 탭(위쪽 표시줄에 있음)이나 왼쪽의 조사 아래에서 진단 검색을 열 수 있습니다.
+위쪽 표시줄에 있는 애플리케이션의 애플리케이션 Insights 개요 탭 또는 왼쪽의 조사 아래에서 트랜잭션 검색을 열 수 있습니다.
 
 ![검색 탭](./media/diagnostic-search/view-custom-events.png)
 

@@ -1,18 +1,18 @@
 ---
-title: 성능 문제 해결
+title: '문제 해결: 성능'
 titleSuffix: Azure Digital Twins
 description: Azure Digital Twins 인스턴스의 성능 문제 해결을 위한 팁입니다.
 author: baanders
 ms.author: baanders
-ms.date: 5/11/2021
+ms.date: 10/8/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 252eeea15e5c9ebde19c5925423615cd7c50234c
-ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
-ms.translationtype: HT
+ms.openlocfilehash: 67f182ffbaf439d2c6b592854156073d6104efa7
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113493102"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131432"
 ---
 # <a name="troubleshooting-azure-digital-twins-performance"></a>Azure Digital Twins 문제 해결: 성능
 
@@ -20,7 +20,7 @@ Azure Digital Twins로 작업할 때 지연 또는 기타 성능 문제가 발�
 
 ## <a name="isolate-the-source-of-the-delay"></a>지연 원인 격리
 
-Azure Digital Twins 또는 솔루션의 다른 서비스에서 지연이 발생하는지 여부를 확인합니다. 이 지연을 조사하려면 Azure Portal을 통해 [Azure Monitor](../azure-monitor/essentials/quick-monitor-azure-resource.md)에서 **API 대기 시간** 메트릭을 사용하면 됩니다. Azure Digital Twins 인스턴스에 대한 Azure Monitor 메트릭을 보는 방법에 대한 지침은 [문제 해결: Azure Monitor를 사용하여 메트릭 보기](troubleshoot-metrics.md)를 참조하세요.
+Azure Digital Twins 또는 솔루션의 다른 서비스에서 지연이 발생하는지 여부를 확인합니다. 이 지연을 조사하려면 Azure Portal을 통해 [Azure Monitor](../azure-monitor/essentials/quick-monitor-azure-resource.md)에서 **API 대기 시간** 메트릭을 사용하면 됩니다. Azure Digital Twins 인스턴스에 대한 Azure Monitor 메트릭을 보는 방법에 대한 지침은 [문제 해결: 메트릭을 참조하세요.](troubleshoot-metrics.md)
 
 ## <a name="check-regions"></a>지역 확인
 
@@ -28,7 +28,7 @@ Azure Digital Twins 또는 솔루션의 다른 서비스에서 지연이 발생�
 
 ## <a name="check-logs"></a>로그 확인
 
-Azure Digital Twins는 다른 데이터 중에서 성능을 모니터링하는 데 도움이 되도록 서비스 인스턴스에 대한 로그를 수집할 수 있습니다. [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) 또는 사용자 지정 스토리지 메커니즘으로 로그를 보낼 수 있습니다. 인스턴스에서 로깅을 사용하도록 설정하려면 [문제 해결: 진단 설정](troubleshoot-diagnostics.md)의 지침을 사용합니다. 로그의 타임스탬프를 분석하여 대기 시간을 측정하고, 일관성이 있는지 평가하고, 해당 원본을 이해할 수 있습니다.
+Azure Digital Twins는 다른 데이터 중에서 성능을 모니터링하는 데 도움이 되도록 서비스 인스턴스에 대한 로그를 수집할 수 있습니다. [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) 또는 사용자 지정 스토리지 메커니즘으로 로그를 보낼 수 있습니다. 인스턴스에서 로깅을 사용하도록 설정하려면 [문제 해결: 진단 로그](troubleshoot-diagnostics.md)의 지침을 사용합니다. 로그의 타임스탬프를 분석하여 대기 시간을 측정하고, 일관성이 있는지 평가하고, 해당 원본을 이해할 수 있습니다.
 
 ## <a name="check-api-frequency"></a>API 빈도 확인
 
@@ -46,7 +46,7 @@ Azure Digital Twins는 다른 데이터 중에서 성능을 모니터링하는 �
 ## <a name="next-steps"></a>다음 단계
 
 다음 문서에서 Azure Digital Twins 인스턴스 문제를 해결하는 다른 방법에 대해 알아보세요.
-* [문제 해결: Azure Monitor의 메트릭 보기](troubleshoot-metrics.md)
-* [문제 해결: 진단 설정](troubleshoot-diagnostics.md)
-* [문제 해결: 경고 설정](troubleshoot-alerts.md)
-* [문제 해결: 리소스 상태 이해](troubleshoot-resource-health.md)
+* [문제 해결: 메트릭](troubleshoot-metrics.md)
+* [문제 해결: 진단 로그.](troubleshoot-diagnostics.md)
+* [문제 해결: 경고](troubleshoot-alerts.md)
+* [문제 해결: 리소스 상태](troubleshoot-resource-health.md)

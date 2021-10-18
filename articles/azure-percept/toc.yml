@@ -97,7 +97,20 @@
         - name: Azure Percept DK에서 고급 네트워크 설정
           href: how-to-set-up-advanced-network-settings.md
         - name: 5G 또는 LTE 네트워크를 통해 Azure Percept 연결
-          href: connect-over-cellular.md
+          items:
+            - name: 5G 또는 LTE 네트워크를 통해 Azure Percept 연결
+              href: connect-over-cellular.md
+              items:
+                - name: USB 모뎀을 사용하여 연결
+                  href: connect-over-cellular-usb.md
+                - name: 셀룰러 게이트웨이를 사용하여 연결
+                  href: connect-over-cellular-gateway.md
+                - name: Vodafone Connect 4G 및 USB 모뎀을 사용하여 연결
+                  href: connect-over-cellular-usb-vodafone.md
+                - name: Multitech USB 모뎀을 사용하여 연결
+                  href: connect-over-cellular-usb-multitech.md
+                - name: Quectel 5G 개발자 키트를 사용하여 연결
+                  href: connect-over-cellular-usb-quectel.md
         - name: SSH를 통해 Azure Percept DK에 연결
           href: how-to-ssh-into-percept-dk.md
         - name: Azure Percept DK에 직렬 연결

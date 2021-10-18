@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 10/13/2021
+ms.date: 10/17/2021
 ms.author: memildin
-ms.openlocfilehash: 40ef7f91666efb65213b563b25e62b9ec2914d6a
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: bd75b5fff78c213bc9d0541fb1824969b7a798a3
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130003724"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130129152"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -47,7 +47,7 @@ Security Center는 현재 개발 중이며 지속적으로 향상된 기능을 �
 
 권장 사항을 수동으로 해결할 필요 없이 기존 및 새 컴퓨터에서 취약점 평가 솔루션을 자동으로 [사용 하도록 설정할 수 있습니다 (미리 보기)](#vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview).
 
-[끝점의 위협 및 취약성 관리에 대해 Microsoft Defender를 사용 하 여 약점을 조사 하는](deploy-vulnerability-assessment-tvm.md)방법에 대해 자세히 알아보세요.
+[엔드포인트용 Microsoft Defender의 위협 및 취약성 관리를 통한 취약성 조사](deploy-vulnerability-assessment-tvm.md)에서 자세히 알아보세요.
 
 ### <a name="vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview"></a>취약성 평가 솔루션은 이제 자동으로 사용 하도록 설정할 수 있습니다 (미리 보기).
 
@@ -138,29 +138,29 @@ Security Center 지원 되는 취약점 평가 솔루션을 찾지 못하면 검
 
 따라서
 
- - 권장 사항 #1 권장 구성에 대 한 필수 구성 요소 #2
- - 권장 사항은 권장 사항에 따라 #2 #1
+ - 권장 사항 #1은 권장 사항의 필수 조건 #2입니다.
+ - 권장 사항 #2는 권장 사항 #1에 따라 달라집니다.
 
-:::image type="content" source="media/release-notes/related-recommendations-solution-not-found.png" alt-text="취약성 평가 솔루션을 배포 하기 위한 권장 사항 스크린샷":::
+:::image type="content" source="media/release-notes/related-recommendations-solution-not-found.png" alt-text="취약성 평가 솔루션을 배포하기 위한 권장 사항의 스크린샷.":::
 
-:::image type="content" source="media/release-notes/related-recommendations-vulnerabilities-found.png" alt-text="검색 된 취약성을 해결 하기 위한 권장 사항 스크린샷":::
+:::image type="content" source="media/release-notes/related-recommendations-vulnerabilities-found.png" alt-text="검색된 취약성을 해결하기 위한 권장 사항의 스크린샷":::
 
 
 
 ## <a name="september-2021"></a>2021년 9월
 
-9 월에는 다음 업데이트가 릴리스 되었습니다.
+9월에는 다음 업데이트가 릴리스되었습니다.
 
-### <a name="two-new-recommendations-to-audit-os-configurations-for-azure-security-baseline-compliance-in-preview"></a>Azure 보안 기준 준수에 대 한 OS 구성을 감사 하기 위한 두 가지 새로운 권장 사항 (미리 보기)
+### <a name="two-new-recommendations-to-audit-os-configurations-for-azure-security-baseline-compliance-in-preview"></a>Azure 보안 기준 준수에 대한 OS 구성을 감사하기 위한 두 가지 새로운 권장 사항(미리 보기)
 
-다음 두 가지 권장 사항은 [Windows 보안 기준](../governance/policy/samples/guest-configuration-baseline-windows.md) 및 [Linux 보안 기준](../governance/policy/samples/guest-configuration-baseline-linux.md)으로 컴퓨터의 호환성을 평가 하기 위해 릴리스 되었습니다.
+Windows 보안 기준 및 [Linux](../governance/policy/samples/guest-configuration-baseline-linux.md) [보안 기준을](../governance/policy/samples/guest-configuration-baseline-windows.md) 사용하여 머신의 규정 준수를 평가하기 위해 다음 두 가지 권장 사항이 릴리스되었습니다.
 
-- Windows 컴퓨터의 경우 [Windows 컴퓨터에서 보안 구성의 취약성을 재구성 해야 합니다 (게스트 구성에서 구동 됨)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1f655fb7-63ca-4980-91a3-56dbc2b715c6) .
-- Linux 컴퓨터의 경우 [linux 컴퓨터에서 보안 구성의 취약성을 재구성 해야 합니다 (게스트 구성에서 구동)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8c3d9ad0-3639-4686-9cd2-2b2ab2609bda) .
+- Windows 컴퓨터의 경우 Windows 컴퓨터의 보안 구성 취약성을 [수정해야 합니다(게스트 구성에서 구동).](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1f655fb7-63ca-4980-91a3-56dbc2b715c6)
+- Linux 머신의 경우 [Linux 머신의 보안 구성 취약성을 수정해야 합니다(게스트 구성에서 구동).](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8c3d9ad0-3639-4686-9cd2-2b2ab2609bda)
 
-이러한 권장 사항은 Azure Policy의 게스트 구성 기능을 사용 하 여 컴퓨터의 OS 구성을 [Azure 보안 벤치 마크](/security/benchmark/azure/overview)에 정의 된 기준선과 비교 합니다.
+이러한 권장 사항은 Azure Policy 게스트 구성 기능을 사용하여 컴퓨터의 OS 구성을 [Azure Security Benchmark](/security/benchmark/azure/overview)에 정의된 기준과 비교합니다.
 
-[게스트 구성을 사용 하 여 컴퓨터의 OS 구성 강화](apply-security-baseline.md)에서 이러한 권장 사항을 사용 하는 방법에 대해 자세히 알아보세요.
+게스트 구성을 사용하여 [컴퓨터의 OS 구성 강화에서](apply-security-baseline.md)이러한 권장 사항을 사용하는 방법에 대해 자세히 알아보세요.
 
 ## <a name="august-2021"></a>2021년 8월
 
@@ -192,7 +192,7 @@ Security Center 지원 되는 취약점 평가 솔루션을 찾지 못하면 검
 
 ### <a name="two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview"></a>엔드포인트 보호 솔루션 관리를 위한 두 가지 새로운 권장 사항(미리 보기)
 
-컴퓨터에 엔드포인트 보호 솔루션을 배포하고 유지 관리하기 위한 두 가지 새로운 **미리 보기** 권장 사항을 추가했습니다. 두 권장 사항에는 azure Arc 사용 서버에 연결 된 Azure virtual machines 및 컴퓨터에 대 한 지원이 포함 됩니다.
+컴퓨터에 엔드포인트 보호 솔루션을 배포하고 유지 관리하기 위한 두 가지 새로운 **미리 보기** 권장 사항을 추가했습니다. 두 권장 사항에는 Azure 가상 머신 및 Azure Arc 지원 서버에 연결된 머신에 대한 지원이 포함됩니다.
 
 |권장 |Description |심각도 |
 |---|---|---|
@@ -429,7 +429,7 @@ Azure Defender를 Azure Sentinel에 연결하면 Azure Sentinel로 수집된 Azu
 
 Key Vault용 Azure Defender에서 제공하는 위협 방지 기능을 확장하기 위해 다음과 같은 경고를 추가했습니다.
 
-| 경고(경고 유형)                                                                 | Description                                                                                                                                                                                                                                                                                                                                                      | MITRE 전술 | 심각도 |
+| 경고(경고 유형)                                                                 | 설명                                                                                                                                                                                                                                                                                                                                                      | MITRE 전술 | 심각도 |
 |------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------:|----------|
 | 의심스러운 IP 주소에서 Key Vault에 액세스<br>(KV_SuspiciousIPAccess)  | Microsoft 위협 인텔리전스에서 의심스러운 IP 주소로 식별된 IP를 통해 Key Vault에 액세스했습니다. 이것은 인프라가 손상되었음을 나타낼 수 있습니다. 추가 조사가 권장됩니다. [Microsoft 위협 인텔리전스 기능](https://go.microsoft.com/fwlink/?linkid=2128684)에 대해 자세히 알아보세요. | 자격 증명 액세스                            | 중간   |
 |||
@@ -552,7 +552,7 @@ Azure Security Center에서 오픈 소스 관계형 데이터베이스를 포괄
 
 Resource Manager용 Azure Defender에서 제공하는 위협 방지 기능을 확장하기 위해 다음과 같은 경고를 추가했습니다.
 
-| 경고(경고 유형)                                                                                                                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                              | MITRE 전술 | 심각도 |
+| 경고(경고 유형)                                                                                                                                                | 설명                                                                                                                                                                                                                                                                                                                                                                                                                              | MITRE 전술 | 심각도 |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------:|----------|
 |**Azure 환경에 대해 비정상적인 방식으로 RBAC 역할에 대해 사용 권한이 부여됨(미리 보기)**<br>(ARM_AnomalousRBACRoleAssignment)|Resource Manager용 Azure Defender가 할당 시간, 할당자 위치, 할당자, 인증 방법, 할당된 엔터티, 사용되는 클라이언트 소프트웨어, 할당 익스텐트 등의 변칙으로 인해 테넌트의 동일한 담당자에 대해 동일한 할당자가 수행한 다른 할당과 비교할 때 일반적이지 않은 RBAC 역할 할당을 감지했습니다. 조직의 합법적인 사용자가 이 작업을 수행했을 수 있습니다. 또는 조직의 계정이 위반되었으며 위협 행위자가 소유한 추가 사용자 계정에 사용 권한을 부여하려고 시도하고 있음을 나타낼 수 있습니다.|수평 이동, 방어 우회|중간|
 |**구독에 대해 권한 있는 사용자 지정 역할이 의심스러운 방식으로 생성됨(미리 보기)**<br>(ARM_PrivilegedRoleDefinitionCreation)|Resource Manager용 Azure Defender가 구독에서 의심스러운 방식으로 생성된 권한 있는 사용자 지정 역할 정의를 감지했습니다. 조직의 합법적인 사용자가 이 작업을 수행했을 수 있습니다. 또는 조직의 계정이 위반되었으며 위협 행위자가 나중에 우회하는 데 사용할 권한 있는 역할을 만들려고 하는 것임을 나타낼 수 있습니다.|수평 이동, 방어 우회|낮음|
@@ -595,7 +595,7 @@ Security Center에는 VM, SQL Server 및 해당 호스트, 컨테이너 레지�
 
 Security Center 취약성 검사기에 대한 자세한 정보:
 
-- [Azure 및 하이브리드 머신에 대한 Azure Defender 통합 Qualys 취약성 스캐너](deploy-vulnerability-assessment-vm.md)
+- [Azure Defender 및 하이브리드 머신용 Qualys 통합 취약성 스캐너](deploy-vulnerability-assessment-vm.md)
 - [SQL Server용 Azure Defender 통합 취약성 평가 검사기](defender-for-sql-on-machines-vulnerability-assessment.md)
 - [컨테이너 레지스트리용 Azure Defender 통합 취약성 평가 검사기](defender-for-container-registries-usage.md)
 

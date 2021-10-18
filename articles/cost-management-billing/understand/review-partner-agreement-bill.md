@@ -7,18 +7,18 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: a7c67b364fba771ad485eee8b93a62b9bdabc841
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: acff6020d401390ab514c168241db8daca801691
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128643045"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705815"
 ---
 # <a name="tutorial-review-your-microsoft-partner-agreement-invoice"></a>자습서: Microsoft 파트너 계약 청구서 검토
 
- Microsoft 파트너 계약의 청구 계정에서, 매월 청구 프로필마다 청구서가 생성됩니다. 청구서에는 이전 달의 모든 고객 요금이 포함됩니다. Azure Portal에서 개별 트랜잭션을 분석하여 청구서의 요금을 이해할 수 있습니다. Azure Portal에서 청구서를 보고 요금을 사용량 세부 정보 파일과 비교할 수도 있습니다.
+Microsoft 파트너 계약의 청구 계정에서, 매월 청구 프로필마다 청구서가 생성됩니다. 청구서에는 이전 달의 모든 고객 요금이 포함됩니다. Azure Portal에서 개별 트랜잭션을 분석하여 청구서의 요금을 이해할 수 있습니다. Azure Portal에서 청구서를 보고 요금을 사용량 세부 정보 파일과 비교할 수도 있습니다.
 
 자세한 내용은 [Azure Portal에서 청구서를 다운로드하는 방법](download-azure-invoice.md)을 참조하세요.
 
@@ -132,7 +132,7 @@ Azure 사용량 및 요금 CSV 파일에서 **customerName** 열을 필터링하
 > * 보류 중인 요금을 검토하여 다음 달 청구서 예상
 > * Azure 사용 요금 분석
 
-파트너용 Azure Cost Management를 사용하는 방법에 대해 알아봅니다.
+파트너용 Cost Management를 사용하는 방법에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [파트너용 Azure Cost Management 시작](../costs/get-started-partners.md)
+> [파트너용 Cost Management 시작](../costs/get-started-partners.md)

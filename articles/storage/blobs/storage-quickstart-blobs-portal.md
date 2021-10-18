@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure Portal로 Blob 만들기
+title: '빠른 시작: Blob 업로드, 다운로드 및 나열 - Azure Portal'
 titleSuffix: Azure Storage
 description: 이 빠른 시작에서는 개체(Blob) 스토리지에서 Azure Portal을 사용합니다. 그런 다음, Azure Portal을 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
 services: storage
@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 04/29/2021
 ms.author: tamram
-ms.openlocfilehash: 2e181394a67cb6762965e600ada46ab48c753fbc
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: e5dcd34491c2b8b06b7739eae606ba8618dbdef6
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108317465"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619050"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Blob 업로드, 다운로드 및 나열
 

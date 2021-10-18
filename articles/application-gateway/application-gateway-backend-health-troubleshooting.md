@@ -2,18 +2,18 @@
 title: Azure Application Gateway의 백 엔드 상태 문제 해결
 description: Azure Application Gateway의 백 엔드 상태 문제를 해결하는 방법 설명
 services: application-gateway
-author: surajmb
+author: vhorne
 ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
-ms.author: surmb
+ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3bb3a89443cdefeedbe5df254d215dfcec770983
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
-ms.translationtype: HT
+ms.openlocfilehash: 3cc75c637dd286cb87ca745d713a55a0a2cf8834
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109737850"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130137706"
 ---
 # <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Application Gateway의 백 엔드 상태 문제 해결
 
@@ -121,6 +121,37 @@ BackendAddressPoolsText : [
 1.  Azure 기본 DNS를 사용하는 경우 도메인 이름 등록 기관에서 적절한 A 레코드 또는 CNAME 레코드 매핑이 완료되었는지 여부에 대해 확인합니다.
 
 1.  도메인이 개인 또는 내부인 경우 동일한 가상 네트워크의 VM에서 확인해 보세요. 확인이 가능한 경우 Application Gateway를 다시 시작하고 다시 확인합니다. Application Gateway를 다시 시작하려면 연결된 이들 리소스에 설명된 PowerShell 명령을 사용하여 [중지](/powershell/module/azurerm.network/stop-azurermapplicationgateway)하고 [시작](/powershell/module/azurerm.network/start-azurermapplicationgateway)해야 합니다.
+
+### <a name="updates-to-the-dns-entries-of-the-backend-pool"></a>백 엔드 풀의 DNS 항목에 대 한 업데이트
+
+**메시지:** 백 엔드 상태를 검색할 수 없습니다. 이는 응용 프로그램 게이트웨이 서브넷의 NSG/UDR/방화벽이 v1 SKU의 경우 포트 65503-65534에서 트래픽을 차단 하는 경우 또는 v2 SKU의 경우 포트 65200-65535에서 IP 주소로 구성 된 FQDN을 확인할 수 없는 경우에 발생 합니다. 자세한 내용은을 참조 https://aka.ms/UnknownBackendHealth 하세요.
+
+**원인:** Application Gateway는 시작 시 백 엔드 풀에 대 한 DNS 항목을 확인 하 고 실행 하는 동안 동적으로 업데이트 하지 않습니다.
+
+**해결 방법:**
+
+새 IP 주소 사용을 시작 하려면 백 엔드 서버 DNS 항목을 수정한 후에 Application Gateway를 다시 시작 해야 합니다.  이 작업은 Azure PowerShell 또는 Azure CLI를 통해 완료할 수 있습니다.
+
+#### <a name="azure-powershell"></a>Azure PowerShell
+```
+# Get Azure Application Gateway
+$appgw=Get-AzApplicationGateway -Name <appgw_name> -ResourceGroupName <rg_name>
+ 
+# Stop the Azure Application Gateway
+Stop-AzApplicationGateway -ApplicationGateway $appgw
+ 
+# Start the Azure Application Gateway
+Start-AzApplicationGateway -ApplicationGateway $appgw
+```
+
+#### <a name="azure-cli"></a>Azure CLI
+```
+# Stop the Azure Application Gateway
+az network application-gateway stop -n <appgw_name> -g <rg_name>
+
+# Start the Azure Application Gateway
+az network application-gateway start -n <appgw_name> -g <rg_name>
+```
 
 ### <a name="tcp-connect-error"></a>TCP 연결 오류
 

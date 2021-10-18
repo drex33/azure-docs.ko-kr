@@ -3,12 +3,12 @@ title: 모든 엔터프라이즈 센서가 검색하는 디바이스에 대해 �
 description: 온-프레미스 관리 콘솔에서 디바이스 인벤토리를 사용하여 연결된 센서에서 디바이스 정보에 대한 포괄적인 보기를 가져옵니다. 가져오기, 내보내기, 필터링 도구를 사용하여 이 정보를 관리합니다.
 ms.date: 12/02/2020
 ms.topic: how-to
-ms.openlocfilehash: 0ae59123b59cfb54cba2a2ee9bdeefb411c8793b
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: 8016efe809d03cbc00bdb94b67f99caa7f98ac4c
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113020087"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130137819"
 ---
 # <a name="investigate-all-enterprise-sensor-detections-in-the-device-inventory"></a>디바이스 인벤토리에서 모든 엔터프라이즈 센서 검색 조사
 
@@ -42,6 +42,7 @@ ms.locfileid: "113020087"
 | **그룹** | 이 디바이스가 참여하는 그룹입니다. |
 | **마지막 작업** | 디바이스가 수행한 마지막 작업입니다. |
 | **Discovered** | 이 디바이스가 네트워크에서 처음으로 검색된 시기입니다. |
+| **PLC 모드 (미리 보기)** | PLC 운영 모드는 키 상태 (물리적) 및 실행 상태 (논리적)를 포함 합니다. 가능한 **주요** 상태는, 실행, 프로그램, 원격, 중지, 잘못 됨, 프로그래밍 사용 안 함입니다. 실행할 수 있습니다. 가능한 **실행** 상태는 실행, 프로그램, 중지, 일시 중지 됨, 예외, 중지 됨, 트랩 됨, 유휴 상태, 오프 라인 상태입니다. 두 상태가 동일 하면 oe 상태만 표시 됩니다. |
 
 ## <a name="integrate-data-into-the-enterprise-device-inventory"></a>엔터프라이즈 디바이스 인벤토리에 데이터 통합
 

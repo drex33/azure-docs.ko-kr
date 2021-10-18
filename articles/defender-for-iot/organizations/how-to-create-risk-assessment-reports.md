@@ -3,12 +3,12 @@ title: 위험 평가 보고서 만들기
 description: 개별 센서가 탐지한 네트워크 위험 또는 모든 센서가 탐지한 네트워크 위험에 대한 인사이트를 얻습니다.
 ms.date: 12/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 567660d1e1e55ee3dde0cbf5e5c09748cbb2cf0c
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: 908a78f659dc17d0207d81613b6be7dd2295a1d2
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113020596"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130138610"
 ---
 # <a name="risk-assessment-reporting"></a>위험 평가 보고
 
@@ -44,7 +44,10 @@ ms.locfileid: "113020596"
 
 ### <a name="risk-mitigation"></a>위험 완화
 
-보고서는 보안 점수를 개선하는 데 도움이 되는 권장 사항을 제공합니다. 예를 들어 최신 보안 업데이트를 설치하고 펌웨어를 최신 버전으로 업그레이드하거나 경고에 대한 후속 작업을 수행하라는 등의 권장 사항을 제공합니다.
+보고서는 보안 점수를 개선하는 데 도움이 되는 권장 사항을 제공합니다. 예를 들어:
+- 최신 보안 업데이트 설치
+- 펌웨어를 최신 버전으로 업그레이드합니다.
+- 안전하지 않은 상태에서 PLC를 조사합니다.
 
 ## <a name="about-security-scores"></a>보안 점수 정보
 
@@ -112,4 +115,3 @@ PDF 위험 평가 보고서를 만듭니다. 보고서 이름은 risk-assessment
 ## <a name="see-also"></a>참고 항목
 
 [공격 벡터 보고](how-to-create-attack-vector-reports.md)
-

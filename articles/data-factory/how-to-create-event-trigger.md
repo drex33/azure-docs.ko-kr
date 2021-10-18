@@ -10,12 +10,12 @@ ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: bea14b1630cbe5d1c4035e9abea62130cd546964
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e2621a6eea481866bb5351623065e7d113e8e9bd
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124831411"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130138670"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>스토리지 이벤트에 대한 응답으로 파이프라인을 실행하는 트리거 만들기
 
@@ -119,7 +119,7 @@ EDA(이벤트 기반 아키텍처)는 프로덕션, 검색, 소비 및 이벤트
 
 Azure Data Factory 및 Synapse 파이프라인은 Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 Blob 이벤트에 연결된 파이프라인의 수신 대기를 위한 무단 액세스, 업데이트를 위한 구독, 트리거가 엄격히 금지되도록 합니다.
 
-* 새 스토리지 이벤트 트리거를 만들거나 기존 스토리지 이벤트 트리거를 업데이트하려면, 서비스에 로그인한 Azure 계정에서 관련 스토리지 계정에 적절한 액세스 권한을 보유하고 있어야 합니다. 그렇지 않으면 작업이 실패하고 _액세스가 거부_ 됩니다.
+* 새 스토리지 이벤트 트리거를 만들거나 기존 스토리지 이벤트 트리거를 업데이트하려면, 서비스에 로그인한 Azure 계정에서 관련 스토리지 계정에 적절한 액세스 권한을 보유하고 있어야 합니다. 그렇지 않으면 작업이 실패 하 고 _액세스가 거부_ 됩니다.
 * Azure Data Factory 및 Azure Synapse에서는 Event Grid에 대한 특별 권한이 필요하지 않고, 작업의 Data Factory 또는 Azure Synapse 서비스 주체에게 특별 RBAC 권한을 할당할 필요가 _없습니다_.
 
 다음 RBAC 설정은 스토리지 이벤트 트리거에 대해 작동합니다.

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 08/24/2021
 ms.author: cshoe
-ms.openlocfilehash: 95e180d34577f94f96b3e35c1f2432d85eb946a9
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 15df9d0bf25739fd1271f0f51f693e1a1d368637
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129361412"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130138452"
 ---
 # <a name="api-support-in-azure-static-web-apps-with-azure-functions"></a>Azure Functions를 사용하여 Azure Static Web Apps에서 API 지원
 
@@ -22,7 +22,7 @@ Azure Static Web Apps는 [Azure Functions](../azure-functions/functions-overview
 
 - 사용자 지정 CORS 규칙 없이 웹앱에서 _api_ 경로를 안전하게 사용할 수 있도록 하는 **원활한 라우팅**.
 
-Azure Static Web Apps API는 다음과 같은 두 가지 구성에서 지원됩니다.
+Azure 정적 Web Apps Api는 [호스팅 계획](plans.md#features)에 따라 다음과 같은 두 가지 구성에서 지원 됩니다.
 
 - **관리형 함수**: 기본적으로 정적 웹앱의 API는 몇 가지 제한과 관련된 Azure Static Web Apps에서 관리 및 배포하는 Azure Functions 애플리케이션입니다.
 

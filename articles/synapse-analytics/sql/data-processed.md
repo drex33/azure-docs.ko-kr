@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 11/05/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1e87198d66e94204b0465919e7a94e0d04f9c885
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
-ms.translationtype: HT
+ms.openlocfilehash: b1439eb4b2f1f014608c2fe411176d14177c4487
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128850"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130137307"
 ---
 # <a name="cost-management-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 서버리스 SQL 풀에 대한 비용 관리
 
@@ -139,6 +139,14 @@ WHERE name like 'Data processed %';
 ```sql
 SELECT * FROM sys.dm_external_data_processed
 ```
+
+## <a name="exceeding-the-limits-defined-in-the-cost-control"></a>비용 제어에 정의된 한도 초과
+
+쿼리 실행 중에 제한을 초과하면 쿼리가 종료되지 않습니다.  
+
+제한을 초과하면 기간에 대한 세부 정보, 해당 기간에 대해 정의된 제한 및 해당 기간 동안 처리된 데이터가 포함된 오류 메시지와 함께 새 쿼리가 거부됩니다. 예를 들어 주별 제한이 1 TB로 설정되고 초과된 새 쿼리가 실행되는 경우 오류 메시지는 다음과 같습니다. 
+
+```Query is rejected because SQL Serverless budget limit for a period is exceeded. (Period = Weekly: Limit = 1 TB, Data processed = 1 TB))```
 
 ## <a name="next-steps"></a>다음 단계
 

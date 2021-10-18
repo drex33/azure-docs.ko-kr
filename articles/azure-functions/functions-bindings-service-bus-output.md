@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 2702b657b1725351f28180f15213dbcf7678139a
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
-ms.translationtype: HT
+ms.openlocfilehash: 0df83e6e335599b4942d53962add9083a2ecce12
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108226429"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130138264"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Azure Functions의 Azure Service Bus 출력 바인딩
 
@@ -324,10 +324,12 @@ Python에서는 특성을 지원하지 않습니다.
 |**name** | 해당 없음 | 함수 코드에서 큐 또는 토픽 메시지를 나타내는 변수의 이름입니다. "$return"으로 설정하여 함수 반환 값을 참조합니다. |
 |**queueName**|**QueueName**|큐의 이름입니다.  토픽이 아닌 큐 메시지를 보내는 경우에만 설정합니다.
 |**topicName**|**TopicName**|항목의 이름입니다. 큐가 아닌 토픽 메시지를 보내는 경우에만 설정합니다.|
-|**connection**|**연결**|이 바인딩에 사용할 Service Bus 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyServiceBus"로 설정하면 Functions 런타임이 "AzureWebJobsMyServiceBus"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 "AzureWebJobsServiceBus"라는 앱 설정에서 기본 Service Bus 연결 문자열을 사용합니다.<br><br>연결 문자열을 얻으려면 [관리 자격 증명 가져오기](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string)에 나온 단계를 따릅니다. 연결 문자열은 Service Bus 네임스페이스에 대한 것이어야 하며, 특정 큐 또는 항목으로 제한되지 않습니다.<br><br>연결 문자열 대신 [버전 5.x 이상의 확장](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher)을 사용하는 경우 연결을 정의하는 구성 섹션에 대한 참조를 제공할 수 있습니다. [연결](./functions-reference.md#connections)을 참조하세요.|
+|**connection**|**연결**|Service Bus에 연결 하는 방법을 지정 하는 설정 컬렉션 또는 앱 설정의 이름입니다. [연결](#connections)을 참조하세요.|
 |**accessRights**(v1만 해당)|**Access**|연결 문자열에 대한 액세스 권한입니다. 사용 가능한 값은 `manage` 및 `listen`입니다. 기본값은 `manage`이며, `connection`에 **관리** 권한이 있음을 의미합니다. **관리** 권한이 없는 연결 문자열을 사용하는 경우 `accessRights`을 "listen"으로 설정합니다. 그렇지 않으면 함수 런타임은 관리 권한이 필요한 작업 시도를 실패할 수 있습니다. Azure Functions 버전 2.x 이상에서는 최신 버전의 Service Bus SDK가 관리 작업을 지원하지 않으므로 이 속성을 사용할 수 없습니다.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+[!INCLUDE [functions-service-bus-connections](../../includes/functions-service-bus-connections.md)]
 
 ## <a name="usage"></a>사용량
 
@@ -352,7 +354,7 @@ C# 함수를 사용하는 경우:
 
 ### <a name="additional-types"></a>추가 형식 
 
-5\.0.0 이상 버전의 Service Bus 확장을 사용하는 앱은 [Microsoft.Azure.ServiceBus](/dotnet/api/microsoft.azure.servicebus.message) 네임스페이스에 있는 형식 대신 [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusmessage)에 있는 `ServiceBusMessage` 형식을 사용합니다. 이 버전은 다음 유형을 위해 레거시 `Message` 유형 지원을 중단합니다.
+5\.0.0 이상 버전의 Service Bus 확장을 사용하는 앱은 [Microsoft.Azure.ServiceBus](/dotnet/api/microsoft.azure.servicebus.message) 네임스페이스에 있는 `ServiceBusMessage` 유형 대신 [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusmessage)에 있는 유형을 사용합니다. 이 버전은 다음 유형을 위해 레거시 `Message` 유형 지원을 중단합니다.
 
 - [ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage)
 

@@ -2,17 +2,17 @@
 title: 네트워크 연결 문제 해결 | Microsoft Docs
 description: 프라이빗 엔드포인트에 Azure Migrate를 사용하는 경우에 발생하는 일반적인 오류에 대한 문제 해결 팁을 제공합니다.
 author: SGSneha
-ms.author: v-ssudhir
+ms.author: SGSneha
 ms.manager: deseelam
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/19/2021
-ms.openlocfilehash: f6f63c24f98cd362619823ca4ebe1d66d35e6ced
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
-ms.translationtype: HT
+ms.openlocfilehash: 2c76b8d916c656409921428587bb276388276448
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122598038"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130138105"
 ---
 # <a name="troubleshoot-network-connectivity"></a>네트워크 연결 문제 해결
 이 문서는 프라이빗 엔드포인트에 Azure Migrate를 사용하는 경우에 발생하는 네트워크 연결 문제를 해결하는 데 도움이 됩니다.

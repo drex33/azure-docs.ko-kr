@@ -3,12 +3,12 @@ title: 리소스 관리를 위한 프라이빗 링크 만들기 - Azure Portal
 description: Azure Portal을 사용하여 리소스 관리를 위한 프라이빗 링크를 만듭니다.
 ms.topic: conceptual
 ms.date: 07/29/2021
-ms.openlocfilehash: efe1fdb47bf550b996f4f44eed9f2d41f2a1083d
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: 4d829dbc75aa384e57f706f3e689e8b36365a9c1
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123227410"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130137764"
 ---
 # <a name="use-portal-to-create-private-link-for-managing-azure-resources"></a>포털을 사용하여 Azure 리소스 관리를 위한 프라이빗 링크를 만듭니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "123227410"
 
 이제 리소스 관리 프라이빗 링크를 참조하는 프라이빗 엔드포인트를 만듭니다.
 
-1. **Private Link 센터** 로 이동합니다. **프라이빗 링크 만들기** 를 선택합니다.
+1. **Private Link 센터** 로 이동합니다. **개인 끝점 만들기** 를 선택 합니다.
 
    :::image type="content" source="./media/create-private-link-access-portal/private-link-center.png" alt-text="Private Link 센터 선택":::
 
@@ -66,4 +66,4 @@ ms.locfileid: "123227410"
 
 ## <a name="next-steps"></a>다음 단계
 
-프라이빗 링크에 대한 자세한 내용은 [Azure Private Link](../../private-link/index.yml)를 참조하세요.
+프라이빗 링크에 대해 자세히 알아보려면 [Azure Private Link](../../private-link/index.yml)를 참조하세요.

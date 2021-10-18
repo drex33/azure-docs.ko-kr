@@ -3,12 +3,12 @@ title: 데이터 마이닝 보고서 만들기
 description: 프로토콜, 펌웨어 버전 또는 프로그래밍 명령과 같은 다양한 계층에서 네트워크 디바이스에 대한 포괄적이고 세부적인 정보를 생성합니다.
 ms.date: 01/20/2021
 ms.topic: how-to
-ms.openlocfilehash: 99754959e7a3a08b4d763b85b0b9315476969774
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: 460edc5aa21461f37bbcdf35d070ef3674d509d3
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113020620"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130138122"
 ---
 # <a name="sensor-data-mining-queries"></a>센서 데이터 마이닝 쿼리
 
@@ -59,10 +59,11 @@ ms.locfileid: "113020620"
 
 - **표시 유형**: 모든 쿼리 항목을 포함하는 보고서를 생성하여 네트워크의 모든 기본 매개 변수를 볼 수 있습니다.
 
+- **PLC 보안** 안전 하지 않은 상태에서 PLCs를 검색 하 여 보안을 향상 합니다 (예: 프로그램 및 원격 상태).
+
 ## <a name="data-mining-storage"></a>데이터 마이닝 스토리지
 
 디바이스를 삭제하는 경우를 제외하고 데이터 마이닝 정보는 계속 저장됩니다. 데이터 마이닝 결과를 안전한 외부 서버로 내보내고 저장할 수 있습니다. 또한 센서는 시스템 연속성 및 데이터 유지를 위해 매일 자동 백업을 수행합니다.
-
 
 ## <a name="predefined-data-mining-queries"></a>미리 정의된 데이터 마이닝 쿼리
 

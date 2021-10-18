@@ -4,12 +4,12 @@ description: 프로그래밍 언어 및 바인딩에 관계 없이 Azure에서 �
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 9/02/2021
-ms.openlocfilehash: 49c6fc554eab18ec598db7ec21ef8c15b95d7be9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b29ae41d85d243e64fea777dcb0cf9ee5ccff581
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128669648"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130137371"
 ---
 # <a name="azure-functions-developer-guide"></a>Azure Functions 개발자 가이드
 Azure Functions에서 특정 함수는 사용하는 언어나 바인딩에 관계없이 몇 가지 핵심적 기술 개념과 구성 요소를 공유합니다. 특정 언어나 바인딩에 해당하는 세부 정보를 학습하기 전에, 모든 항목에 해당하는 이 개요를 꼼꼼히 읽어 보시기 바랍니다.
@@ -105,59 +105,64 @@ Azure Functions에 대한 코드는 공개 소스이며 GitHub 리포지토리�
 
 하지만 연결 이름은 여러 구성 항목의 컬렉션을 참조할 수도 있습니다. 이중 밑줄(`__`)로 끝나는 공유 접두사를 사용하여 환경 변수를 컬렉션으로 처리할 수 있습니다. 그런 다음 연결 이름을 이 접두사로 설정하여 그룹을 참조할 수 있습니다.
 
-예를 들어 Azure Blob 트리거 정의에 대한 `connection` 속성이 `Storage1`일 수 있습니다. `Storage1`이 이름으로 구성된 단일 문자열 값이 없는 한 `Storage1__serviceUri`는 연결의 `serviceUri` 속성에 대해 사용됩니다. 연결 속성은 각 서비스마다 다릅니다. 연결을 사용하는 확장에 대한 설명서를 참조하세요.
+예를 들어 `connection` Azure Blob 트리거 정의의 속성은 "Storage1"일 수 있습니다. "Storage1"이라는 환경 변수에 의해 구성된 단일 문자열 값이 없는 한 라는 환경 `Storage1__blobServiceUri` 변수를 사용하여 연결의 속성을 알릴 수 `blobServiceUri` 있습니다. 연결 속성은 각 서비스마다 다릅니다. 연결을 사용하는 구성 요소에 대한 설명서를 참조하세요.
 
 ### <a name="configure-an-identity-based-connection"></a>ID 기반 연결 구성
 
-Azure Functions의 일부 연결은 비밀 대신 ID를 사용하도록 구성됩니다. 지원은 연결을 사용하는 확장에 따라 다릅니다. 경우에 따라 연결하는 서비스에서 ID 기반 연결을 지원하는 경우에도 Functions에서 연결 문자열이 필요할 수 있습니다.
+Azure Functions 일부 연결은 비밀 대신 ID를 사용하도록 구성할 수 있습니다. 지원은 연결을 사용하는 확장에 따라 다릅니다. 경우에 따라 연결하는 서비스에서 ID 기반 연결을 지원하는 경우에도 Functions에서 연결 문자열이 필요할 수 있습니다.
 
-ID 기반 연결은 다음 트리거 및 바인딩 확장에서 지원됩니다.
+ID 기반 연결은 다음 구성 요소에서 지원됩니다.
+
+| 연결 원본                                       | 지원되는 계획 | 자세한 정보                                                                                                         |
+|---------------------------------------------------------|-----------------|--------------------------------------------------------------------------------------------------------------------|
+| Azure Blob 트리거 및 바인딩 - 미리 보기              | 모두             | [확장 버전 5.0.0-beta1 이상](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)     |
+| Azure 큐 트리거 및 바인딩 - 미리 보기             | 모두             | [확장 버전 5.0.0-beta1 이상](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher)    |
+| 트리거 및 바인딩 Azure Event Hubs - 미리 보기        | 모두             | [확장 버전 5.0.0-beta1 이상](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher)    |
+| Azure Service Bus 트리거 및 바인딩 - 미리 보기       | 모두             | [확장 버전 5.0.0-beta2 이상](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher)  |
+| Azure Cosmos DB 트리거 및 바인딩 - 미리 보기         | 탄력적 Premium | [확장 버전 4.0.0-preview1 이상](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) |
+| 호스트 필수 스토리지("AzureWebJobsStorage") - 미리 보기 | 모두             | [ID로 호스트 저장소에 연결](#connecting-to-host-storage-with-an-identity-preview)                        |
 
 > [!NOTE]
 > ID 기반 연결은 Durable Functions에서 지원되지 않습니다.
 
-| 확장 이름 | 확장 버전                                                                                     | 계획 지원     |
-|----------------|-------------------------------------------------------------------------------------------------------|---------------------|
-| Azure Blob     | [버전 5.0.0-beta1 이상](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  | 모두                 |
-| Azure Queue    | [버전 5.0.0-beta1 이상](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) | 모두                 |
-| Azure Event Hubs    | [버전 5.0.0-beta1 이상](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher) | 모두            |
-| Azure Service Bus    | [버전 5.0.0-beta2 이상](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher) | 모두         |
-| Azure Cosmos DB   | [버전 4.0.0-tooling 이상](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) | 탄력적 Premium |
+[!INCLUDE [functions-identity-based-connections-configuration](../../includes/functions-identity-based-connections-configuration.md)]
 
+아래 탭을 선택하여 각 구성 요소의 사용 권한에 대해 알아봅니다.
 
-Functions 런타임(`AzureWebJobsStorage`)에서 사용하는 저장소 연결은 ID 기반 연결을 사용하여 구성할 수도 있습니다. 아래의 [ID로 호스트 저장소에 연결](#connecting-to-host-storage-with-an-identity)을 참조하세요.
+# <a name="azure-blobs-extension"></a>[Azure Blob 확장](#tab/blob)
 
-Azure Functions 서비스에서 호스트되는 경우 ID 기반 연결에 [관리 ID](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json)가 사용됩니다. 사용자가 할당한 ID는 `credential` 및 `clientID` 속성을 사용하여 지정할 수 있지만 기본적으로 시스템 할당 ID가 사용됩니다. 로컬 개발과 같은 다른 컨텍스트에서 실행하는 경우 대체 연결 매개 변수를 사용하여 사용자 지정할 수는 있지만 개발자 ID가 대신 사용됩니다.
+[!INCLUDE [functions-blob-permissions](../../includes/functions-blob-permissions.md)]
 
-#### <a name="grant-permission-to-the-identity"></a>ID에 권한 부여
+# <a name="azure-queues-extension"></a>[Azure 큐 확장](#tab/queue)
 
-사용되는 모든 ID에는 의도한 작업을 수행할 수 있는 권한이 있어야 합니다. 일반적으로 이 작업은 연결하는 서비스에 따라 Azure RBAC에서 역할을 할당하거나 액세스 정책에 ID를 지정하여 이루어집니다. 필요한 권한 및 설정 방법은 각 확장의 설명서를 참조하세요.
+[!INCLUDE [functions-queue-permissions](../../includes/functions-queue-permissions.md)]
 
-> [!IMPORTANT]
-> 일부 사용 권한은 모든 컨텍스트에 필요하지 않은 대상 서비스에 의해 노출될 수 있습니다. 가능한 경우 **최소 권한 원칙** 을 준수하여 ID에 필요한 권한만 부여하세요. 예를 들어 앱이 Blob에서 읽기만 수행해야 하는 [Storage Blob 데이터 읽기 권한자](../role-based-access-control/built-in-roles.md#storage-blob-data-reader)를 사용합니다. [Storage Blob 데이터 소유자](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)에는 읽기 작업에 과도한 권한이 포함되어 있기 때문입니다.
-다음 역할은 일반 작업에서 각 확장에 필요한 기본 사용 권한을 포함합니다.
+# <a name="event-hubs-extension"></a>[Event Hubs 확장](#tab/eventhubs)
 
-| 서비스     | 기본 제공 역할 예 |
-|-------------|------------------------|
-| Azure Blob  | [Storage Blob 데이터 읽기 권한자](../role-based-access-control/built-in-roles.md#storage-blob-data-reader), [Storage Blob 데이터 소유자](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)                 |
-| Azure 큐 | [Storage 큐 데이터 읽기 권한자](../role-based-access-control/built-in-roles.md#storage-queue-data-reader), [Storage 큐 데이터 메시지 처리자](../role-based-access-control/built-in-roles.md#storage-queue-data-message-processor), [Storage 큐 데이터 메시지 보내는 사람](../role-based-access-control/built-in-roles.md#storage-queue-data-message-sender), [Storage 큐 데이터 기여자](../role-based-access-control/built-in-roles.md#storage-queue-data-contributor)             |
-| Event Hubs   |    [Azure Event Hubs 데이터 받는 사람](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver), [Azure Event Hubs 데이터 보내는 사람](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender), [Azure Event Hubs 데이터 소유자](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner)              |
-| Service Bus | [Azure Service Bus 데이터 받는 사람](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver), [Azure Service Bus 데이터 보내는 사람](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender), [Azure Service Bus 데이터 소유자](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) |
-| Azure Cosmos DB | 기본 제공 데이터 [구독자 Cosmos DB Cosmos DB](../cosmos-db/how-to-setup-rbac.md#built-in-role-definitions)기본 제공 [데이터 기여자](../cosmos-db/how-to-setup-rbac.md#built-in-role-definitions) |
+[!INCLUDE [functions-event-hubs-permissions](../../includes/functions-event-hubs-permissions.md)]
 
-#### <a name="connection-properties"></a>연결 속성
+# <a name="service-bus-extension"></a>[Service Bus 확장](#tab/servicebus)
 
-Azure 서비스에 대 한 id 기반 연결에는 다음 속성이 적용 `<CONNECTION_NAME_PREFIX>` 됩니다. 여기서은 `connection` 트리거 또는 바인딩 정의의 속성 값입니다.
+[!INCLUDE [functions-service-bus-permissions](../../includes/functions-service-bus-permissions.md)]
 
-| 속성    | 확장에 필요함 | 환경 변수 | Description |
+# <a name="azure-cosmos-db-extension"></a>[Azure Cosmos DB 확장](#tab/cosmos)
+
+[!INCLUDE [functions-cosmos-permissions](../../includes/functions-cosmos-permissions.md)]
+
+# <a name="functions-host-storage"></a>[Functions 호스트 스토리지](#tab/azurewebjobsstorage)
+
+[!INCLUDE [functions-azurewebjobsstorage-permissions](../../includes/functions-azurewebjobsstorage-permissions.md)]
+
+---
+
+#### <a name="common-properties-for-identity-based-connections"></a>ID 기반 연결의 공통 속성
+
+Azure 서비스에 대한 ID 기반 연결은 다음과 같은 공통 속성을 허용합니다. 여기서 `<CONNECTION_NAME_PREFIX>` 는 트리거 또는 바인딩 정의에서 속성의 값입니다. `connection`
+
+| 속성    |  환경 변수 템플릿 | Description |
 |---|---|---|---|
-| 서비스 URI | Azure Blob<sup>1</sup>, Azure Queue | `<CONNECTION_NAME_PREFIX>__serviceUri` | 연결 중인 서비스의 데이터 평면 URI입니다. |
-| 정규화된 네임스페이스 | Event Hubs, Service Bus | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | 정규화된 Event Hubs 및 Service Bus 네임스페이스입니다. |
-| 계정 끝점 | Azure Cosmos DB | `<CONNECTION_NAME_PREFIX>__accountEndpoint` | Azure Cosmos DB 계정 끝점 URI입니다. |
-| 토큰 자격 증명 | (선택 사항) | `<CONNECTION_NAME_PREFIX>__credential` | 연결을 위해 토큰을 가져오는 방법을 정의합니다. "managedidentity"로 설정해야 하는 사용자가 할당한 ID를 지정할 때만 권장됩니다. 이는 Azure Functions 서비스에서 호스팅되는 경우에만 유효합니다. |
-| 클라이언트 ID | (선택 사항) | `<CONNECTION_NAME_PREFIX>__clientId` | `credential`이 "managedidentity"로 설정된 경우 이 속성은 토큰을 가져올 때 사용할 사용자가 할당한 ID를 지정합니다. 속성은 애플리케이션에 할당된 사용자가 할당한 ID에 해당하는 클라이언트 ID를 허용합니다. 지정하지 않으면 시스템 할당 ID가 사용됩니다. 이 속성은 [이 설정되지 않아야 하는 ](#local-development-with-identity-based-connections)로컬 개발 시나리오`credential`에서 다르게 사용됩니다. |
-
-<sup>1</sup> Azure Blob에는 Blob 및 큐 서비스 URI가 모두 필요합니다.
+| 토큰 자격 증명 |  `<CONNECTION_NAME_PREFIX>__credential` | 연결을 위해 토큰을 가져오는 방법을 정의합니다. "managedidentity"로 설정해야 하는 사용자가 할당한 ID를 지정할 때만 권장됩니다. 이는 Azure Functions 서비스에서 호스팅되는 경우에만 유효합니다. |
+| 클라이언트 ID | `<CONNECTION_NAME_PREFIX>__clientId` | `credential`이 "managedidentity"로 설정된 경우 이 속성은 토큰을 가져올 때 사용할 사용자가 할당한 ID를 지정합니다. 속성은 애플리케이션에 할당된 사용자가 할당한 ID에 해당하는 클라이언트 ID를 허용합니다. 지정하지 않으면 시스템 할당 ID가 사용됩니다. 이 속성은 [이 설정되지 않아야 하는 ](#local-development-with-identity-based-connections)로컬 개발 시나리오`credential`에서 다르게 사용됩니다. |
 
 지정된 연결 유형에 대해 추가 옵션이 지원될 수 있습니다. 연결을 구성하는 구성 요소에 대한 설명서를 참조하세요.
 
@@ -172,26 +177,24 @@ Azure 서비스에 대 한 id 기반 연결에는 다음 속성이 적용 `<CONN
 
 성공적인 옵션이 없는 경우 오류가 발생합니다.
 
-경우에 따라 다른 ID를 사용하도록 지정할 수 있습니다. 대체 ID를 가리키는 연결에 대한 구성 속성을 추가할 수 있습니다.
+개발자 ID를 사용하므로 개발 리소스에 대한 일부 역할이 이미 있을 수 있지만 데이터 액세스를 제공하지 않을 수 있습니다. [소유자와](../role-based-access-control/built-in-roles.md#owner) 같은 관리 역할로는 충분하지 않습니다. 각 구성 요소에 대한 연결에 필요한 사용 권한을 다시 확인하고 자신에게 할당되었는지 확인합니다.
 
-> [!NOTE]
-> 다음 구성 옵션은 Azure Functions 서비스에서 호스트될 때 지원되지 않습니다.
+경우에 따라 다른 ID를 사용하도록 지정할 수 있습니다. Azure Active Directory 서비스 주체에 대한 클라이언트 ID 및 클라이언트 암호에 따라 대체 ID를 가리키는 연결에 대한 구성 속성을 추가할 수 있습니다. **이 구성 옵션은 Azure Functions 서비스에서 호스트되는 경우 지원되지 않습니다.** 로컬 컴퓨터에서 ID 및 비밀을 사용하려면 다음 추가 속성을 사용하여 연결을 정의합니다.
 
-클라이언트 ID와 비밀을 사용하여 Azure Active Directory 서비스 주체를 사용하여 연결하려면 위의 [연결 속성](#connection-properties) 외에 다음과 같은 필수 속성을 사용하여 연결을 정의합니다.
-
-| 속성    | 환경 변수 | Description |
+| 속성    | 환경 변수 템플릿 | Description |
 |---|---|---|
 | 테넌트 ID | `<CONNECTION_NAME_PREFIX>__tenantId` | Azure Active Directory 테넌트(디렉터리) ID. |
 | 클라이언트 ID | `<CONNECTION_NAME_PREFIX>__clientId` |  테넌트에 있는 앱 등록의 클라이언트(애플리케이션) ID. |
 | 클라이언트 암호 | `<CONNECTION_NAME_PREFIX>__clientSecret` | 앱 등록을 위해 생성된 클라이언트 암호. |
 
-Azure Blob를 사용하는 ID 기반 연결에 필요한 `local.settings.json` 속성의 예: 
+`local.settings.json`다음은 Azure Blob에 대한 ID 기반 연결에 필요한 속성의 예입니다. 
 
 ```json
 {
   "IsEncrypted": false,
   "Values": {
-    "<CONNECTION_NAME_PREFIX>__serviceUri": "<serviceUri>",
+    "<CONNECTION_NAME_PREFIX>__blobServiceUri": "<blobServiceUri>",
+    "<CONNECTION_NAME_PREFIX>__queueServiceUri": "<queueServiceUri>",
     "<CONNECTION_NAME_PREFIX>__tenantId": "<tenantId>",
     "<CONNECTION_NAME_PREFIX>__clientId": "<clientId>",
     "<CONNECTION_NAME_PREFIX>__clientSecret": "<clientSecret>"
@@ -199,32 +202,27 @@ Azure Blob를 사용하는 ID 기반 연결에 필요한 `local.settings.json` �
 }
 ```
 
-`local.settings.json`Azure Cosmos DB와 id 기반 연결에 필요한 속성의 예: 
+#### <a name="connecting-to-host-storage-with-an-identity-preview"></a>ID를 사용하여 호스트 스토리지에 연결(미리 보기)
 
-```json
-{
-  "IsEncrypted": false,
-  "Values": {
-    "<CONNECTION_NAME_PREFIX>__accountEndpoint": "<accountEndpoint>",
-    "<CONNECTION_NAME_PREFIX>__tenantId": "<tenantId>",
-    "<CONNECTION_NAME_PREFIX>__clientId": "<clientId>",
-    "<CONNECTION_NAME_PREFIX>__clientSecret": "<clientSecret>"
-  }
-}
-```
-
-#### <a name="connecting-to-host-storage-with-an-identity"></a>ID로 호스트 저장소에 연결
-
-기본적으로 Azure Functions는 `AzureWebJobsStorage` 타이머 트리거의 단일 실행 및 기본 앱 키 저장소를 조정하는 등의 핵심 동작에 대한 연결을 사용합니다. ID도 사용하도록 구성할 수 있습니다.
+기본적으로 Azure Functions 타이머 트리거 및 기본 앱 키 스토리지의 싱글톤 실행 조정과 같은 핵심 동작에 대해 "AzureWebJobsStorage" 연결을 사용합니다. ID를 활용하도록 구성할 수도 있습니다.
 
 > [!CAUTION]
-> 일부 앱은 트리거, 바인딩 및/또는 함수 코드의 저장소 연결에 `AzureWebJobsStorage`를 다시 사용합니다. 연결 문자열에서 이 연결을 변경하기 전에 모든 `AzureWebJobsStorage` 사용이 ID 기반 연결 형식을 사용할 수 있는지 확인합니다.
+> Functions의 다른 구성 요소는 기본 동작에 대해 "AzureWebJobsStorage"를 의존합니다. Azure Blob 및 Event Hubs 대한 트리거 및 바인딩을 포함하여 이러한 유형의 연결을 지원하지 않는 이전 버전의 확장을 사용하는 경우 ID 기반 연결로 이동하면 안 됩니다.
+> 
+> 또한 일부 앱은 트리거, 바인딩 및/또는 함수 코드의 다른 스토리지 연결에 "AzureWebJobsStorage"를 다시 사용하며, 연결 문자열에서 이 연결을 변경하기 전에 "AzureWebJobsStorage"의 모든 사용에서 ID 기반 연결 형식을 사용할 수 있는지 확인합니다.
 
-이 방식으로 연결을 구성하려면 핵심 호스트 기능을 지원하기 위해 앱의 ID에 [저장소 Blob 데이터 소유자](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 역할이 있는지 확인하세요. 다른 용도로 "AzureWebJobsStorage"를 사용하는 경우 추가 권한이 필요할 수 있습니다.
+"AzureWebJobsStorage"에 ID 기반 연결을 사용하려면 다음 앱 설정을 구성합니다.
 
-전역 Azure에 대해 기본 DNS 접미사 및 서비스 이름을 사용하는 저장소 계정을 사용하는 경우 `https://<accountName>.blob/queue/file/table.core.windows.net` 형식에 따라 `AzureWebJobsStorage__accountName`를 저장소 계정의 이름으로 설정할 수 있습니다. 
+| 설정                       | 설명                                | 예제 값                                        |
+|-----------------------------------------------------|--------------------------------------------|------------------------------------------------|
+| `AzureWebJobsStorage__blobServiceUri`| 스토리지 계정 Blob Service의 데이터 평면 URI입니다. | <storage_account_name>.blob.core.windows.net |
+| `AzureWebJobsStorage__queueServiceUri` | 스토리지 계정 큐 서비스의 데이터 평면 URI입니다. | <storage_account_name>.queue.core.windows.net |
 
-대신 소버린 클라우드 또는 사용자 지정 DNS에서 저장소 계정을 사용하는 경우 `AzureWebJobsStorage__serviceUri`를 Blob 서비스의 URI로 설정합니다. "AzureWebJobsStorage"가 다른 서비스에 사용되는 경우 대신 `AzureWebJobsStorage__blobServiceUri`, `AzureWebJobsStorage__queueServiceUri` 및 `AzureWebJobsStorage__tableServiceUri`를 별도로 지정할 수 있습니다.
+[ID 기반 연결에 대한 공통 속성도](#common-properties-for-identity-based-connections) 설정할 수 있습니다.
+
+형식에 따라 전역 Azure에 기본 DNS 접미사 및 서비스 이름을 사용하는 스토리지 계정을 사용하는 경우 `https://<accountName>.blob/queue/file/table.core.windows.net` 스토리지 계정의 이름으로 대신 를 설정할 수 `AzureWebJobsStorage__accountName` 있습니다. Blob 및 큐 엔드포인트는 이 계정에 대해 유추됩니다. 스토리지 계정이 소버린 클라우드에 있거나 사용자 지정 DNS가 있는 경우에는 작동하지 않습니다.
+
+[!INCLUDE [functions-azurewebjobsstorage-permissions](../../includes/functions-azurewebjobsstorage-permissions.md)]
 
 ## <a name="reporting-issues"></a>문제 보고
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]

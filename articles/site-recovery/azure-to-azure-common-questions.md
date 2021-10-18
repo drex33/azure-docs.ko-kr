@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 07/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: c2fb5175b077275d0c2ef5b0a37f6d4ead76b9d5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: b7b99f1a5b4c52fb07b2e58c8952eb9ace1f1567
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528373"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130138257"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>일반적인 질문: Azure 간 재해 복구
 
@@ -219,7 +219,7 @@ CPU를 많이 사용하기 때문에 다중 VM 일관성을 사용하도록 설�
 
 VM에 대해 복제를 사용하도록 설정하는 경우 새 복제 그룹이나 기존 그룹에 추가할 수 있습니다. 이미 그룹에 복제 중인 VM은 추가할 수 없습니다.
 
-## <a name="failover"></a>장애 조치 
+## <a name="failover"></a>장애 조치
 
 ### <a name="how-do-we-ensure-capacity-in-the-target-region"></a>대상 지역에서 용량을 확인하려면 어떻게 해야 하나요?
 
@@ -285,7 +285,7 @@ Site Recovery의 [복구 플랜](site-recovery-create-recovery-plans.md)은 VM�
 
 ### <a name="how-does-sequencing-work"></a>작업 순서는 어떻게 지정하나요?
 
-복구 플랜에서 여러 개의 VM 그룹을 만들어 순서를 지정할 수 있습니다. 그룹은 한 번에 하나씩 장애 조치되므로 동일한 그룹에 속한 VM이 함께 장애 조치됩니다. [자세히 알아보기](recovery-plan-overview.md#model-apps).
+복구 계획에서는 시퀀싱을 위해 최대 7 개의 VM 그룹을 만들 수 있습니다. 그룹은 한 번에 하나씩 장애 조치되므로 동일한 그룹에 속한 VM이 함께 장애 조치됩니다. [자세히 알아보기](recovery-plan-overview.md#model-apps).
 
 ### <a name="how-can-i-find-the-rto-of-a-recovery-plan"></a>복구 플랜의 RTO를 확인하려면 어떻게 할까요?
 

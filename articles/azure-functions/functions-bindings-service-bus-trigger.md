@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: d6685d86cb9c807db130b10a9573c3ca44ec911d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: 56f0a58d1713a2ddf47734686214846c7765baf5
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108763797"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130137861"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Azure Functions에 Azure Service Bus 트리거
 
@@ -331,12 +331,14 @@ Python에서는 특성을 지원하지 않습니다.
 |**queueName**|**QueueName**|모니터링할 큐의 이름입니다.  토픽이 아닌 큐를 모니터링하는 경우에만 설정합니다.
 |**topicName**|**TopicName**|모니터링할 토픽의 이름입니다. 큐가 아닌 토픽을 모니터링하는 경우에만 설정합니다.|
 |**subscriptionName**|**SubscriptionName**|모니터링할 구독의 이름입니다. 큐가 아닌 토픽을 모니터링하는 경우에만 설정합니다.|
-|**connection**|**연결**|이 바인딩에 사용할 Service Bus 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyServiceBus"로 설정한 경우 Functions 런타임 기능은 "AzureWebJobsMyServiceBus"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 "AzureWebJobsServiceBus"라는 앱 설정에서 기본 Service Bus 연결 문자열을 사용합니다.<br><br>연결 문자열을 얻으려면 [관리 자격 증명 가져오기](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string)에 나온 단계를 따릅니다. 연결 문자열은 Service Bus 네임스페이스에 대한 것이어야 하며, 특정 큐 또는 항목으로 제한되지 않습니다. <br><br>연결 문자열 대신 [버전 5.x 이상의 확장](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher)을 사용하는 경우 연결을 정의하는 구성 섹션에 대한 참조를 제공할 수 있습니다. [연결](./functions-reference.md#connections)을 참조하세요.|
+|**connection**|**연결**| Service Bus에 연결 하는 방법을 지정 하는 설정 컬렉션 또는 앱 설정의 이름입니다. [연결](#connections)을 참조하세요.|
 |**accessRights**|**Access**|연결 문자열에 대한 액세스 권한입니다. 사용 가능한 값은 `manage` 및 `listen`입니다. 기본값은 `manage`이며, `connection`에 **관리** 권한이 있음을 의미합니다. **관리** 권한이 없는 연결 문자열을 사용하는 경우 `accessRights`을 "listen"으로 설정합니다. 그렇지 않으면 함수 런타임은 관리 권한이 필요한 작업 시도를 실패할 수 있습니다. Azure Functions 버전 2.x 이상에서는 최신 버전의 Service Bus SDK가 관리 작업을 지원하지 않으므로 이 속성을 사용할 수 없습니다.|
 |**isSessionsEnabled**|**IsSessionsEnabled**|`true` [세션 인식](../service-bus-messaging/message-sessions.md) 큐나 구독에 연결하는 경우 입니다. `false` 그렇지 않으면 기본값입니다.|
 |**autoComplete**|**AutoComplete**|`true` 트리거가 처리 후 자동으로 complete를 호출해야 하는지 아니면 함수 코드가 수동으로 complete를 호출하는지 여부입니다.<br><br>`false`로 설정은 C#에서만 지원됩니다.<br><br>`true`로 설정한 경우 함수 실행이 성공적으로 완료되면 트리거가 자동으로 메시지를 완료하고 그렇지 않으면 메시지가 중단됩니다.<br><br>`false`로 설정한 경우 [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) 메서드를 호출하여 메시지를 완료, 중단 또는 배달 못하도록 합니다. 예외가 발생하고 `MessageReceiver` 메서드가 호출되지 않으면 잠금이 유지됩니다. 잠금이 만료되면 `DeliveryCount`가 증가하여 메시지가 다시 큐에 추가되고 잠금이 자동으로 갱신됩니다.<br><br>C#이 아닌 함수에서 함수의 예외로 인해 백그라운드에서 런타임 호출 `abandonAsync`가 발생합니다. 예외가 발생하지 않으면 `completeAsync`가 백그라운드에서 호출됩니다. Azure Functions 2.x 이상에서만 이 속성을 사용할 수 있습니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+[!INCLUDE [functions-service-bus-connections](../../includes/functions-service-bus-connections.md)]
 
 ## <a name="usage"></a>사용
 
@@ -373,11 +375,6 @@ Python에서는 특성을 지원하지 않습니다.
 
 - [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage)
 
-### <a name="additional-types"></a>추가 형식 
-5\.0.0 이상 버전의 Service Bus 확장을 사용하는 앱은 [Microsoft.Azure.ServiceBus 네임스페이스](/dotnet/api/microsoft.azure.servicebus.message)에 있는 `ServiceBusReceivedMessage` 유형 대신 [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage)에 있는 유형을 사용합니다. 이 버전은 다음 유형을 위해 레거시 `Message` 유형 지원을 중단합니다.
-
-- [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody)
-
 # <a name="java"></a>[Java](#tab/java)
 
 `ServiceBusQueueMessage` 또는 `ServiceBusTopicMessage` 매개 변수를 통해 들어오는 Service Bus 메시지를 사용할 수 있습니다.
@@ -412,7 +409,7 @@ Functions 런타임은 [PeekLock 모드](../service-bus-messaging/service-bus-pe
 
 Service Bus 트리거는 몇 가지 [메타데이터 속성](./functions-bindings-expressions-patterns.md#trigger-metadata)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. 이러한 속성은 [Message](/dotnet/api/microsoft.azure.servicebus.message) 클래스의 구성원입니다.
 
-|속성|Type|Description|
+|속성|형식|Description|
 |--------|----|-----------|
 |`ContentType`|`string`|애플리케이션별 논리의 보낸 사람과 받는 사람이 활용하는 콘텐츠 형식 식별자입니다.|
 |`CorrelationId`|`string`|상관관계 ID입니다.|
@@ -435,7 +432,7 @@ Service Bus 트리거는 몇 가지 [메타데이터 속성](./functions-binding
 
 다음 메타데이터 속성은 5.0.0 이상의 확장을 사용하는 앱에서 지원됩니다. 이러한 속성은 [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage) 클래스의 구성원입니다.
 
-|속성|Type|Description|
+|속성|형식|Description|
 |--------|----|-----------|
 |`ApplicationProperties`|`ApplicationProperties`|보낸 사람이 설정한 속성입니다. `UserProperties` 메타데이터 속성 대신 사용합니다.|
 |`Subject`|`string`|`Label` 메타데이터 속성 대신 사용할 수 있는 애플리케이션별 레이블입니다.|

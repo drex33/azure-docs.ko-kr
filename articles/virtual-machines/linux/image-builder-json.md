@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2649fbfabdeea1c3f791bf01b81fa8e25c49303d
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: ec39fb3ec368d315d6d9fa4a17d2cb763e49bce6
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130046280"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130137592"
 ---
 # <a name="create-an-azure-image-builder-template"></a>Azure Image Builder 템플릿 만들기 
 
@@ -292,7 +292,7 @@ Image Builder는 여러 '사용자 지정자'를 지원합니다. 사용자 지�
 사용자 지정 섹션은 배열입니다. Azure Image Builder는 이를 정렬된 순서로 실행합니다. 한 사용자 지정자라도 오류가 발생하면 빌드 프로세스가 실패합니다. 
 
 > [!NOTE]
-> 인라인 명령은 이미지 템플릿 정의에서 볼 수 있습니다. 중요한 정보(암호, SAS 토큰, 인증 토큰 등)가 있는 경우 액세스에 인증이 필요한 Azure Storage 스크립트로 이동해야 합니다.
+> 인라인 명령은 이미지 템플릿 정의에서 볼 수 있습니다. 중요 한 정보 (암호, SAS 토큰, 인증 토큰 등)가 있는 경우 액세스를 요구 하는 Azure Storage의 스크립트로 이동 해야 합니다.
  
 ### <a name="shell-customizer"></a>셸 사용자 지정자
 
@@ -328,7 +328,7 @@ OS 지원: Linux
     * sha256Checksum을 생성하려면 Mac/Linux에서 터미널을 사용하여 다음을 실행합니다. `sha256sum <fileName>`
 
 > [!NOTE]
-> 인라인 명령은 이미지 템플릿 정의의 일부로 저장되며, 이미지 정의를 덤프할 때 이러한 명령을 볼 수 있습니다. 중요한 명령 또는 값(암호, SAS 토큰, 인증 토큰 등)이 있는 경우 스크립트로 이동하고 사용자 ID를 사용하여 Azure Storage 인증하는 것이 좋습니다.
+> 인라인 명령은 이미지 템플릿 정의의 일부로 저장 되므로 이미지 정의를 덤프할 때이를 확인할 수 있습니다. 중요 한 명령 또는 값 (암호, SAS 토큰, 인증 토큰 등 포함)이 있는 경우 스크립트로 이동 하 고 사용자 id를 사용 하 여 Azure Storage에 인증 하는 것이 좋습니다.
 
 #### <a name="super-user-privileges"></a>슈퍼 사용자 권한
 슈퍼 사용자 권한으로 명령을 실행하려면 `sudo` 접두사를 사용해야 합니다. 접두사는 스크립트에 추가하거나 다음과 같이 인라인 명령으로 사용할 수 있습니다.
@@ -399,7 +399,7 @@ Linux 다시 시작 사용자 지정자는 없지만 드라이버를 설치하�
      ], 
 ```
 
-OS 지원: Windows 및 Linux
+OS 지원: Windows
 
 사용자 지정 속성은 다음과 같습니다.
 
@@ -595,7 +595,7 @@ az resource show \
  
 > [!NOTE]
 > 대상 리소스 그룹이 존재해야 합니다.
-> 다른 지역에 이미지를 배포 하려는 경우 배포 시간이 늘어납니다. 
+> 이미지를 다른 지역에 배포하려면 배포 시간이 늘어나게 됩니다. 
 
 ### <a name="distribute-sharedimage"></a>Distribute: sharedImage 
 Azure Shared Image Gallery는 이미지 영역 복제, 버전 관리, 사용자 지정 이미지 공유를 관리하는 데 사용할 수 있는 새로운 이미지 관리 서비스입니다. Azure Image Builder는 이 서비스를 사용한 배포를 지원하므로 공유 이미지 갤러리에서 지원하는 지역에 이미지를 배포할 수 있습니다. 
@@ -641,7 +641,7 @@ Shared Image Gallery의 구성 요소는 다음과 같습니다.
 
 
 > [!NOTE]
-> 이미지 템플릿과 참조 `image definition`이 동일한 위치에 있지 않으면 이미지를 만드는 데 더 오래 걸립니다. Image Builder에는 현재 이미지 버전 리소스에 대한 `location` 매개 변수가 없기 때문에 부모 `image definition`에서 가져옵니다. 예를 들어 이미지 정의가 westus에 있고 이미지 버전이 eastus에 복제 되 게 하려면 blob을 westus에 복사 하 고,이에서 westus의 이미지 버전 리소스를 만든 다음 eastus에 복제 합니다. 복제 시간이 더해지지 않도록 하려면 `image definition` 및 이미지 템플릿이 동일한 위치에 있어야 합니다.
+> 이미지 템플릿과 참조 `image definition`이 동일한 위치에 있지 않으면 이미지를 만드는 데 더 오래 걸립니다. Image Builder에는 현재 이미지 버전 리소스에 대한 `location` 매개 변수가 없기 때문에 부모 `image definition`에서 가져옵니다. 예를 들어 이미지 정의가 westus에 있고 이미지 버전을 eastus에 복제하려는 경우 blob이 westus에 복사됩니다. 여기서 westus의 이미지 버전 리소스가 생성된 다음 eastus에 복제됩니다. 복제 시간이 더해지지 않도록 하려면 `image definition` 및 이미지 템플릿이 동일한 위치에 있어야 합니다.
 
 
 ### <a name="distribute-vhd"></a>배포: VHD  
@@ -697,7 +697,7 @@ az resource invoke-action \
 ### <a name="cancelling-an-image-build"></a>이미지 빌드 취소
 잘못된 것으로 생각되는 이미지 빌드를 실행하거나, 사용자 입력을 기다리거나, 성공적으로 완료되지 않을 것으로 생각되는 경우 빌드를 취소할 수 있습니다.
 
-언제 든 지 빌드를 취소할 수 있습니다. 배포 단계가 시작된 경우에도 취소할 수 있지만 완료하지 못할 수 있는 이미지를 모두 정리해야 합니다. 취소 명령이 취소를 완료할 때까지 기다리지 않습니다 `lastrunstatus.runstate` . 다음 상태 [명령을](image-builder-troubleshoot.md#customization-log)사용 하 여 진행률 취소를 모니터링 하세요.
+언제든지 빌드를 취소할 수 있습니다. 배포 단계가 시작된 경우에도 취소할 수 있지만 완료하지 못할 수 있는 이미지를 모두 정리해야 합니다. cancel 명령은 취소가 완료되기를 기다리지 않습니다. `lastrunstatus.runstate` 이러한 상태 명령을 사용하여 진행률 취소를 모니터링하세요. [](image-builder-troubleshoot.md#customization-log)
 
 
 `cancel` 명령의 예는 다음과 같습니다.

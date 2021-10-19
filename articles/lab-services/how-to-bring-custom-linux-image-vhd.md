@@ -3,12 +3,12 @@ title: Azure Lab Services - 물리적 랩 환경에서 Linux 사용자 지정 �
 description: 물리적 랩 환경에서 Linux 사용자 지정 이미지를 가져오는 방법을 설명합니다.
 ms.date: 07/27/2021
 ms.topic: how-to
-ms.openlocfilehash: 9a8591d383ac5230085bc83d1d791e9de830a99e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b5f9c28c6aa21ae0d82aec5afc99839149ddbe8b
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124771368"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162795"
 ---
 # <a name="bring-a-linux-custom-image-from-your-physical-lab-environment"></a>물리적 랩 환경에서 Linux 사용자 지정 이미지 가져오기
 
@@ -26,11 +26,11 @@ Azure는 다양한 [배포판 및 버전](../virtual-machines/linux/endorsed-dis
 
 ## <a name="prepare-a-custom-image-by-using-hyper-v-manager"></a>Hyper-V 관리자를 사용하여 사용자 지정 이미지 준비
 
-다음 단계에서는 Windows Hyper-V 관리자를 사용하여 Hyper-V VM(가상 머신)에서 Ubuntu 16.04\18.04\20.04 이미지를 만드는 방법을 보여 줍니다.
+다음 단계에서는 Windows Hyper-V 관리자를 사용하여 Hyper-V VM(가상 머신)에서 Ubuntu 18.04\20.04 이미지를 만드는 방법을 보여줍니다.
 
 1. Hyper-V VM에서 사용자 지정 이미지를 설정하는 데 사용할 Windows 호스트 머신에 공식 [Linux Ubuntu Server](https://ubuntu.com/server/docs) 이미지를 다운로드합니다.
 
-   [GNOME](https://www.gnome.org/) GUI 데스크톱이 설치되지 *않은* Ubuntu 이미지를 사용하는 것이 좋습니다. GNOME은 현재 Lab Services에서 이미지가 제대로 작동하는 데 필요한 Azure Linux 에이전트와 충돌합니다. 예를 들어, Ubuntu Server 이미지를 사용하고 XFCE 또는 MATE 같은 다른 GUI 데스크톱을 설치합니다.
+   Ubuntu 18.04 LTS를 사용하는 경우 [GNOME](https://www.gnome.org/) 또는 [MATE](https://mate-desktop.org/) 그래픽 데스크톱이 *설치되지 않은* 이미지를 사용하는 것이 좋습니다. GNOME 및 MATE에는 현재 이미지가 Azure Lab Services 제대로 작동하는 데 필요한 Azure Linux 에이전트와 네트워킹 충돌이 있습니다. 대신 Ubuntu Server 이미지를 사용하고 [XFCE와](https://www.xfce.org/)같은 다른 그래픽 데스크톱을 설치합니다.  또 다른 옵션은 랩의 템플릿 VM을 사용하여 [GNOME\MATE를](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/LinuxGraphicalDesktopSetup/GNOME_MATE/ReadMe.md) 설치하는 것입니다.
 
    또한 Ubuntu는 [다운로드를 위해 사전 빌드된 Azure VHD](https://cloud-images.ubuntu.com/)를 게시합니다. 이러한 VHD는 Linux 호스트 머신과 하이퍼바이저(예: KVM)에서 사용자 지정 이미지를 만들어야 합니다. 해당 VHD를 사용하려면 먼저 Windows에서 사용할 수 없는 qemu 등의 Linux 도구를 사용해야 수행할 수 있는 기본 사용자 암호를 설정해야 합니다. 따라서 Windows Hyper-V를 사용하여 사용자 지정 이미지를 만들면 해당 VHD에 연결하여 이미지를 사용자 지정할 수 없습니다. 사전 빌드된 Azure VHD에 대한 자세한 내용은 [Ubuntu 설명서](https://help.ubuntu.com/community/UEC/Images?_ga=2.114783623.1858181609.1624392241-1226151842.1623682781#QEMU_invocation)를 참조하세요.
 
@@ -54,7 +54,9 @@ Azure는 다양한 [배포판 및 버전](../virtual-machines/linux/endorsed-dis
     - 마지막 단계는 **VHDX** 파일을 **VHD** 파일로 변환하는 것입니다. **Hyper-V 관리자** 를 사용하여 작업을 수행하는 방법을 보여 주는 단계는 다음과 같습니다.
 
         1. **Hyper-V 관리자** > **작업** > **디스크 편집** 으로 이동합니다.
-        1. 그런 다음, 디스크를 VHDX에서 VHD로 **변환** 합니다.
+        1. 변환할 VHDX 디스크를 찾습니다.
+        1. 다음으로 디스크 **변환을** 선택합니다.
+        1. 옵션을 선택하여 **VHD 디스크 형식으로 변환합니다.**
         1. **디스크 유형** 에서, **고정 크기** 를 선택합니다.
             - 디스크 크기를 확장하는 경우, 128GB를 초과하지 *않아야* 합니다.
             :::image type="content" source="./media/upload-custom-image-shared-image-gallery/choose-action.png" alt-text="작업 선택 화면을 보여 주는 스크린샷":::
@@ -67,13 +69,14 @@ Azure는 다양한 [배포판 및 버전](../virtual-machines/linux/endorsed-dis
 ## <a name="upload-the-custom-image-to-a-shared-image-gallery"></a>공유 이미지 갤러리에 사용자 지정 이미지 업로드
 
 1. VHD를 Azure에 업로드하여 관리 디스크를 만듭니다.
-    1. [Azure에 VHD 업로드 또는 다른 지역으로 관리 디스크 복사](../virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md)에 표시된 대로 Storage Explorer 또는 명령줄의 AzCopy를 사용할 수 있습니다.
+    1. Azure에 VHD 업로드 표시된 것처럼 명령줄에서 Azure Storage Explorer 또는 AzCopy를 [사용하거나 관리 디스크를 다른 지역에 복사할](../virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md)수 있습니다.
+
+        > [!WARNING]
+        > 머신이 절전 모드로 전환되거나 잠기면 업로드 프로세스가 중단되고 실패할 수 있습니다. AzCopy가 완료되면, 디스크에 대한 SAS 액세스를 취소해야 합니다. 취소하지 않으면 디스크에서 이미지를 만들려고 할 때 “‘이미지 만들기’ 작업이 ‘활성 업로드’ 상태의 ‘디스크 이름’ 디스크에서 지원되지 않습니다. 오류 코드: OperationNotAllowed*.” 오류가 표시됩니다.
 
     1. VHD를 업로드한 후 Azure Portal에서 볼 수 있는 관리 디스크가 생성됩니다.
 
-    머신이 절전 모드로 전환되거나 잠기면 업로드 프로세스가 중단되고 실패할 수 있습니다. AzCopy가 완료되면, 디스크에 대한 SAS 액세스를 취소해야 합니다. 취소하지 않으면 디스크에서 이미지를 만들려고 할 때 “‘이미지 만들기’ 작업이 ‘활성 업로드’ 상태의 ‘디스크 이름’ 디스크에서 지원되지 않습니다. 오류 코드: OperationNotAllowed*.” 오류가 표시됩니다.
-
-    관리 디스크에 대해 Azure Portal의 **크기+성능** 탭을 사용하여 디스크 크기를 변경합니다. 앞에서 설명한 대로 크기는 128GB보다 크지 ‘않아야’ 합니다.
+        관리 디스크에 대한 Azure Portal **크기+성능** 탭을 사용하여 디스크 크기를 변경할 수 있습니다. 앞에서 설명한 대로 크기는 128GB보다 크지 ‘않아야’ 합니다.
 
 1. 공유 이미지 갤러리에서 이미지 정의 및 버전을 생성합니다.
     1. [이미지 정의를 만듭니다](../virtual-machines/image-version.md).
@@ -81,16 +84,16 @@ Azure는 다양한 [배포판 및 버전](../virtual-machines/linux/endorsed-dis
         - **운영 체제** 로 **Linux** 를 선택합니다.
         - **운영 체제 상태** 로 **범용** 을 선택합니다.
 
-    이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](../virtual-machines/shared-image-galleries.md#image-definitions)를 참조하세요.
+        이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](../virtual-machines/shared-image-galleries.md#image-definitions)를 참조하세요.
 
-    기존 이미지 정의를 사용하고 사용자 지정 이미지의 새 버전을 만들도록 선택할 수도 있습니다.
+        기존 이미지 정의를 사용하고 사용자 지정 이미지의 새 버전을 만들도록 선택할 수도 있습니다.
 
-1. [이미지 버전을 만듭니다](../virtual-machines/image-version.md).
-    - **버전 번호** 속성은 *MajorVersion.MinorVersion.Patch* 형식을 사용합니다. Lab Services를 사용하여 랩을 만들고 사용자 지정 이미지를 선택하면 최신 버전의 이미지가 자동으로 사용됩니다. 최신 버전은 MajorVersion, MinorVersion, Patch의 순서로 가장 큰 값을 기준으로 선택됩니다.
-    - **원본** 의 경우 드롭다운 목록에서 **디스크 및/또는 스냅샷** 을 선택합니다.
-    - **OS 디스크** 속성으로 이전 단계에서 생성한 디스크를 선택합니다.
+    1. [이미지 버전을 만듭니다](../virtual-machines/image-version.md).
+        - **버전 번호** 속성은 *MajorVersion.MinorVersion.Patch* 형식을 사용합니다. Lab Services를 사용하여 랩을 만들고 사용자 지정 이미지를 선택하면 최신 버전의 이미지가 자동으로 사용됩니다. 최신 버전은 MajorVersion, MinorVersion, Patch의 순서로 가장 큰 값을 기준으로 선택됩니다.
+        - **원본** 의 경우 드롭다운 목록에서 **디스크 및/또는 스냅샷** 을 선택합니다.
+        - **OS 디스크** 속성으로 이전 단계에서 생성한 디스크를 선택합니다.
 
-    이미지 정의에 대해 지정할 수 있는 값에 관한 자세한 내용은 [이미지 버전](../virtual-machines/shared-image-galleries.md#image-versions)을 참조하세요.
+        이미지 버전에 대해 지정할 수 있는 값에 대한 자세한 내용은 이미지 버전 을 [참조하세요.](../virtual-machines/shared-image-galleries.md#image-versions)
 
 ## <a name="create-a-lab"></a>랩 만들기
 

@@ -8,16 +8,16 @@ ms.subservice: service-overview
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-author: BustosMSFT
-ms.author: robustos
+author: emlisa
+ms.author: emlisa
 ms.reviewer: mathoma
 ms.date: 10/13/2020
-ms.openlocfilehash: e3ff2d28aa3e2b54a43c65057f59a21534806e87
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ab1baffe32add88e855d800ffe93652d5356c704
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128658814"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130167738"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-sql-database--sql-managed-instance"></a>예약된 용량으로 리소스 비용 절감 - Azure SQL Database 및 SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)] 
@@ -58,7 +58,7 @@ ms.locfileid: "128658814"
     | 필드      | Description|
     |------------|--------------|
     |Subscription|용량 예약의 요금을 지불하는 데 사용하는 구독입니다. 구독 시 지불 방법은 예약에 대해 선불로 비용이 청구됩니다. 구독 유형은 기업계약(제품 번호 MS-AZR-0017P 또는 MS-AZR-0148P) 또는 종량제 가격 책정이 적용되는 개별계약(제품 번호 MS-AZR-0003P 또는 MS-AZR-0023P)이어야 합니다. 엔터프라이즈 구독의 경우 요금은 등록의 Azure 선불(이전에는 현금 약정 금액이라고 함) 잔액에서 차감되거나 초과분에 대해 청구됩니다. 종량제 가격이 적용되는 개별 구독의 경우 구독 요금은 신용 카드 또는 청구서 결제 방법으로 청구됩니다.|
-    |범위       |vCore 예약 범위는 하나 또는 여러 개의 구독(공유 범위)을 포함할 수 있습니다. 선택하는 경우에는 다음과 같습니다. <br/><br/>**공유** - vCore 예약 할인이 청구 컨텍스트 내의 모든 구독에서 실행 중인 데이터베이스 또는 관리형 인스턴스에 적용됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.<br/><br/>**단일 구독** - 해당 구독 내의 데이터베이스 또는 관리형 인스턴스에 vCore 예약 할인이 적용됩니다. <br/><br/>**단일 리소스 그룹** - 선택된 구독 내의 데이터베이스 인스턴스 또는 관리형 인스턴스, 해당 구독 내의 선택된 리소스 그룹에 예약 할인이 적용됩니다.</br></br>관리 **그룹**, 예약 할인은 관리 그룹 및 청구 범위의 일부인 구독 목록에서 일치 하는 리소스에 적용 됩니다.|
+    |범위       |vCore 예약 범위는 하나 또는 여러 개의 구독(공유 범위)을 포함할 수 있습니다. 선택하는 경우에는 다음과 같습니다. <br/><br/>**공유** - vCore 예약 할인이 청구 컨텍스트 내의 모든 구독에서 실행 중인 데이터베이스 또는 관리형 인스턴스에 적용됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.<br/><br/>**단일 구독** - 해당 구독 내의 데이터베이스 또는 관리형 인스턴스에 vCore 예약 할인이 적용됩니다. <br/><br/>**단일 리소스 그룹** - 선택된 구독 내의 데이터베이스 인스턴스 또는 관리형 인스턴스, 해당 구독 내의 선택된 리소스 그룹에 예약 할인이 적용됩니다.</br></br>**관리 그룹**, 예약 할인은 관리 그룹과 청구 범위의 일부인 구독 목록의 일치하는 리소스에 적용됩니다.|
     |지역      |용량 예약이 적용되는 Azure 지역입니다.|
     |배포 유형|예약을 구매할 SQL 리소스 종류입니다.|
     |성능 계층|데이터베이스 또는 관리형 인스턴스의 서비스 계층입니다. |
@@ -79,7 +79,7 @@ vCore 크기 유연성을 통해 예약된 용량 이점을 잃지 않고 성능
 
 ## <a name="limitation"></a>제한 사항
 
-SQL Database에서 DTU 기반(기본, 표준, 프리미엄) 데이터베이스를 예약할 수 없습니다. 예약 된 용량 가격은 일반 공급 상태에 있는 기능 및 제품에 대해서만 지원 됩니다. 
+SQL Database에서 DTU 기반(기본, 표준, 프리미엄) 데이터베이스를 예약할 수 없습니다. 예약 용량 가격은 일반 공급 상태인 기능 및 제품에 대해서만 지원됩니다. 
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 

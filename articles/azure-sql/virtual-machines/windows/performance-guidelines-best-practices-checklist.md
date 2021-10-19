@@ -3,7 +3,7 @@ title: '검사 목록: 모범 사례 및 지침'
 description: Azure VM(Virtual Machine)에서 SQL Server의 성능을 최적화하기 위한 지침 및 모범 사례를 검토하는 빠른 검사 목록을 제공합니다.
 services: virtual-machines-windows
 documentationcenter: na
-author: dplessMSFT
+author: bluefooted
 editor: ''
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2021
-ms.author: dpless
+ms.author: pamela
 ms.custom: contperf-fy21q3
-ms.reviewer: jroth
-ms.openlocfilehash: a05fe37230f6b64cb3d22058eb64162bf0a3c824
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.reviewer: mathoma
+ms.openlocfilehash: 1dd05395d921e2a75a56db353e0b0c740b094e49
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130073395"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130164510"
 ---
 # <a name="checklist-best-practices-for-sql-server-on-azure-vms"></a>검사 목록: Azure VM의 SQL Server에 대한 모범 사례
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -62,7 +62,7 @@ Azure Virtual Machines에서 SQL Server를 실행하는 동안 온-프레미스 
     - 로그 드라이브의 경우 [프리미엄 P30 - P80 디스크](../../../virtual-machines/disks-types.md#premium-ssds)를 평가하는 동안 용량 및 테스트 성능과 비용에 대해 계획합니다.
       - 밀리초보다 적은 단위의 스토리지 대기 시간이 필요한 경우 트랜잭션 로그에 [Azure 울트라 디스크](../../../virtual-machines/disks-types.md#ultra-disks)를 사용합니다. 
       - M 시리즈 가상 머신 배포의 경우 Azure 울트라 디스크를 사용하는 것보다 [쓰기 가속기](../../../virtual-machines/how-to-enable-write-accelerator.md)를 사용하는 것이 좋습니다.
-    - 최적의 VM 크기를 선택한 후 대부분의 SQL Server 워크로드에 대한 로컬 임시 SSD(기본 ) 드라이브에 [tempdb를](/sql/relational-databases/databases/tempdb-database) `D:\` 배치합니다. 
+    - [](/sql/relational-databases/databases/tempdb-database) `D:\` 최적의 VM 크기를 선택한 후에 대부분의 SQL Server 작업에 대해 로컬 임시 SSD (기본) 드라이브에 tempdb를 넣습니다. 
       - tempdb를 배치하기에 로컬 드라이브의 용량이 부족한 경우 VM의 크기를 조정하는 것이 좋습니다. 자세한 내용은 [데이터 파일 캐싱 정책](performance-guidelines-best-practices-storage.md#data-file-caching-policies)을 참조하세요.
 - 대상 가상 머신의 최대 IOPS 및 처리량 한계까지 I/O 대역폭을 늘리려면 [스토리지 공간](/windows-server/storage/storage-spaces/overview)을 사용하여 여러 Azure 데이터 디스크를 스트라이프합니다.
 - 데이터 파일 디스크에 대해 [호스트 캐싱](../../../virtual-machines/disks-performance.md#virtual-machine-uncached-vs-cached-limits)을 읽기 전용으로 설정합니다.

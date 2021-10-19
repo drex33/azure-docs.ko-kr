@@ -3,7 +3,7 @@ title: '기준 수집: 성능 모범 사례 및 지침'
 description: Azure VM(Virtual Machine)에서 SQL Server의 성능을 최적화하기 위한 지침으로 성능 기준선을 수집하는 단계를 제공합니다.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 editor: ''
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/25/2021
-ms.author: mathoma
-ms.reviewer: jroth
-ms.openlocfilehash: 46dff70c8d1064f05d89af9340b5b07e7adc747e
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
-ms.translationtype: HT
+ms.author: pamela
+ms.reviewer: mathoma
+ms.openlocfilehash: 7c223dfd6629f315d3d25b47ffe78f709aa4b864
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079898"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165209"
 ---
 # <a name="collect-baseline-performance-best-practices-for-sql-server-on-azure-vm"></a>기준 수집: Azure VM의 SQL Server에 대한 성능 모범 사례
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

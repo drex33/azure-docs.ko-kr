@@ -3,7 +3,7 @@ title: Windows Server 장애 조치(failover) 클러스터 서비스
 description: '가용성 그룹 및 장애 조치(failover) 클러스터 인스턴스와 같은 Azure VM에서 SQL Server와 함께 사용하는 경우 Windows Server 장애 조치(failover) 클러스터 기술과의 차이점을 알아봅니다. '
 services: virtual-machines
 documentationCenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -12,13 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2021
-ms.author: mathoma
-ms.openlocfilehash: f85c603f7bfa4113edaeaed1eb92d907d06fe09d
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
-ms.translationtype: HT
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: dc007e4aeb68d3cecd156a650bd3c04de1fd26e0
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112581928"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162201"
 ---
 # <a name="windows-server-failover-cluster-with-sql-server-on-azure-vms"></a>Azure VM에서 SQL Server를 사용하는 Windows Server 장애 조치(failover) 클러스터
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

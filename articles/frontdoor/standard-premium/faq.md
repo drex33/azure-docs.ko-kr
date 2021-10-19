@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/18/2021
 ms.author: duau
-ms.openlocfilehash: 378ba28eaa4b68cb1d05fa0af5c11ca95bd52a8b
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 3a56f01c210fb9b6e29294e00a1cb13715108b42
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129210329"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130167546"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-standardpremium-preview"></a>Azure Front Door 표준/프리미엄에 대한 질문과 대답(미리 보기)
 
@@ -96,7 +96,7 @@ Azure Front Door는 전역적으로 분산된 다중 테넌트 서비스입니�
 
 * 백 엔드에 IP ACL을 구성하여 Azure Front Door의 백 엔드 IP 주소 공간 및 Azure 인프라 서비스의 트래픽만 허용합니다. 백엔드를 ACLing하려면 아래의 IP 세부 정보를 참조하세요.
  
-    * Front Door의 IPv4 백엔드 IP 주소 범위에 대한 [Azure IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519)에 있는 *AzureFrontDoor.Backend* 섹션을 참조하세요. 서비스 태그 *AzureFrontDoor.Backend* 를 [네트워크 보안 그룹](../../virtual-network/network-security-groups-overview.md#security-rules)에서 사용할 수도 있습니다.
+    * 프런트 도어 백 엔드 IP 주소 범위에 대 한 [AZURE Ip 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519) 의 *AzureFrontDoor* 섹션을 참조 하세요. 서비스 태그 *AzureFrontDoor.Backend* 를 [네트워크 보안 그룹](../../virtual-network/network-security-groups-overview.md#security-rules)에서 사용할 수도 있습니다.
     * 가상화된 호스트 IP 주소를 통한 Azure의 [기본 인프라 서비스](../../virtual-network/network-security-groups-overview.md#azure-platform-considerations): `168.63.129.16` 및 `169.254.169.254`
 
     > [!WARNING]
@@ -127,7 +127,7 @@ Azure Front Door는 전역적으로 분산된 다중 테넌트 서비스입니�
     </configuration>
     ```
 
-* Azure Front Door 클라이언트가 Front Door 연결할 때 사용하는 IP 주소 목록을 제공하는 *AzureFrontDoor.Frontend* 서비스 태그도 지원합니다. Azure Front Door 뒤에 배포된 서비스에 연결할 수 있어야 하는 아웃바운드 트래픽을 제어할 때 *AzureFrontDoor.Frontend* 서비스 태그를 사용할 수 있습니다. Azure Front Door 다른 Azure 서비스와 내부적으로 통합하기 위해 추가 서비스 *태그인 AzureFrontDoor.FirstParty도* 지원합니다. Azure Front Door 서비스 태그 사용 사례에 대한 자세한 내용은 [사용 가능한](../../virtual-network/service-tags-overview.md#available-service-tags) 서비스 태그를 참조하세요.
+* Azure Front Door 클라이언트는 Front Door에 연결할 때 클라이언트가 사용하는 IP 주소 목록을 제공하는 *AzureFrontDoor.Frontend* 서비스 태그도 지원합니다. Azure Front Door 뒤에 배포된 서비스에 연결할 수 있어야 하는 아웃바운드 트래픽을 제어할 때 *AzureFrontDoor.Frontend* 서비스 태그를 사용할 수 있습니다. Azure Front Door 다른 Azure 서비스와 내부적으로 통합하기 위해 추가 서비스 태그인 *AzureFrontDoor.FirstParty* 도 지원합니다. Azure Front Door 서비스 태그 사용 사례에 대한 자세한 내용은 [사용 가능한 서비스 태그](../../virtual-network/service-tags-overview.md#available-service-tags)를 참조하세요.
 
 ### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>Front Door의 수명 동안 애니캐스트 IP가 변경될 수 있나요?
 

@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 05/05/2021
-ms.openlocfilehash: a25cfb69b0de9561de2093a8e9e91bf4e9f8cb98
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: fc13ac868f2abb1ccd466b245c22682af79ba915
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424286"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130161276"
 ---
 # <a name="failover-for-business-continuity-and-disaster-recovery"></a>비즈니스 연속성 및 재해 복구를 위한 장애 조치(failover)
 
@@ -188,4 +188,4 @@ Azure Machine Learning은 작업 영역 인스턴스 간에 아티팩트 또는 
 > * __실행 출력__ 은 작업 영역과 연결된 기본 스토리지 계정에 저장됩니다. 서비스 중단 시 스튜디오 UI에서는 실행 출력에 액세스할 수 없지만 스토리지 계정을 통해 데이터에 직접 액세스할 수 있습니다. Blob에 저장된 데이터를 사용하는 방법에 관한 자세한 내용은 [Azure CLI를 사용하여 Blob 생성, 다운로드 및 나열](../storage/blobs/storage-quickstart-blobs-cli.md)을 참조하세요.
 ## <a name="next-steps"></a>다음 단계
 
-고가용성 설정을 사용하여 연결된 리소스와 함께 Azure Machine Learning을 배포하려면 [Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced)을 사용합니다.
+고가용성 설정을 사용하여 연결된 리소스와 함께 Azure Machine Learning을 배포하려면 [Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/)을 사용합니다.

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 09/13/2021
-ms.openlocfilehash: 1514a2abf8a7a703b5a87233ff5050ee42b2e495
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 46b5503e6c2c99c2c99f5cd18dc695ecb16275d1
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130064739"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166859"
 ---
 # <a name="single-tenant-versus-multi-tenant-and-integration-service-environment-for-azure-logic-apps"></a>Azure Logic Apps의 단일 테넌트 및 다중 테넌트와 통합 서비스 환경
 
@@ -38,7 +38,7 @@ Azure Logic Apps를 처음 사용하는 경우 다음 문서를 참조하세요.
 
 ## <a name="logic-app-standard-resource"></a>논리 앱(표준) 리소스
 
-**논리 앱(표준)** 리소스 종류는 새롭게 설계된 단일 테넌트 Azure Logic Apps 런타임으로 구동됩니다. 이 런타임은 [Azure Functions 확장성 모델](../azure-functions/functions-bindings-register.md)을 사용하며 Azure Functions 런타임에 확장으로 호스트됩니다. 이러한 설계는 논리 앱을 위한 이식성, 유연성 및 더 우수한 성능과 Azure Functions 플랫폼 및 Azure App Service 에코시스템에서 상속된 기타 기능 및 이점을 제공합니다. 예를 들어 Azure App Service Environment [v3에서](../app-service/environment/overview.md)단일 테넌트 기반 논리 앱 및 해당 워크플로를 만들고, 배포하고, 실행할 수 있습니다.
+**논리 앱(표준)** 리소스 종류는 새롭게 설계된 단일 테넌트 Azure Logic Apps 런타임으로 구동됩니다. 이 런타임은 [Azure Functions 확장성 모델](../azure-functions/functions-bindings-register.md)을 사용하며 Azure Functions 런타임에 확장으로 호스트됩니다. 이러한 설계는 논리 앱을 위한 이식성, 유연성 및 더 우수한 성능과 Azure Functions 플랫폼 및 Azure App Service 에코시스템에서 상속된 기타 기능 및 이점을 제공합니다. 예를 들어 [Azure App Service Environment v3](../app-service/environment/overview.md)에서 단일 테 넌 트 기반 논리 앱 및 해당 워크플로를 만들고, 배포 하 고, 실행할 수 있습니다.
 
 표준 리소스 종류는 Azure 함수 앱이 여러 함수를 호스트하는 방법과 비슷하게 여러 워크플로를 호스트할 수 있는 리소스 구조를 도입합니다. 일대다 매핑을 통해 동일한 논리 앱 및 테넌트에서 워크플로가 컴퓨팅 및 처리 리소스를 공유하므로 근접성으로 인해 더 우수한 성능을 제공합니다. 이 구조는 논리 앱 리소스와 워크플로 간에 일대일 매핑되는 **Logic App(소비)** 리소스와 다릅니다.
 
@@ -53,7 +53,7 @@ Azure Logic Apps를 처음 사용하는 경우 다음 문서를 참조하세요.
 
 ### <a name="portability-and-flexibility"></a>이식성 및 유연성
 
-**논리 앱(표준)** 리소스 유형을 사용하여 논리 앱을 만들 때 Azure App Service Environment [v3과](../app-service/environment/overview.md)같은 다른 환경에서 워크플로를 배포하고 실행할 수 있습니다. **Azure Logic Apps(표준)** 확장과 함께 Visual Studio Code 사용하는 경우 Azure에 배포하지 않고도 개발 환경에서 워크플로를 *로컬로* 개발, 빌드 및 실행할 수 있습니다. 시나리오에 컨테이너가 필요한 경우 [Azure Arc 지원 Logic Apps를 사용하여 단일 테넌트 기반 논리 앱을 만듭니다](azure-arc-enabled-logic-apps-create-deploy-workflows.md). 자세한 내용은 [Azure Arc 지원 Logic Apps란?](azure-arc-enabled-logic-apps-overview.md)을 검토하세요.
+**논리 앱 (표준)** 리소스 유형을 사용 하 여 논리 앱을 만들 때 [Azure App Service Environment v3](../app-service/environment/overview.md)과 같은 다른 환경에서 워크플로를 배포 하 고 실행할 수 있습니다. **Azure Logic Apps (표준)** 확장과 함께 Visual Studio Code를 사용 하는 경우 Azure에 배포 하지 않고도 개발 환경에서 워크플로를 *로컬로* 개발, 빌드 및 실행할 수 있습니다. 시나리오에 컨테이너가 필요한 경우 [Azure Arc 지원 Logic Apps를 사용하여 단일 테넌트 기반 논리 앱을 만듭니다](azure-arc-enabled-logic-apps-create-deploy-workflows.md). 자세한 내용은 [Azure Arc 지원 Logic Apps란?](azure-arc-enabled-logic-apps-overview.md)을 검토하세요.
 
 이러한 기능은 Azure에서 기존의 실행 중인 리소스를 토대로 개발을 진행해야 하는 다중 테넌트 모델에 비해 크게 개선된 것으로 상당한 이점을 제공합니다. 또한 **Logic App(소비)** 리소스 배포를 자동화하기 위한 다중 테넌트 모델은 앱과 인프라 모두에 대한 리소스 프로비전을 결합하고 처리하는 ARM 템플릿(Azure Resource Manager 템플릿)을 완전한 기반으로 합니다.
 
@@ -72,6 +72,12 @@ Azure Logic Apps를 처음 사용하는 경우 다음 문서를 참조하세요.
 **논리 앱(표준)** 리소스 종류 및 단일 테넌트 Azure Logic Apps 런타임은 더 널리 사용되는 관리형 커넥터를 기본 제공 작업으로 사용할 수 있도록 하여 또 다른 중요한 향상을 제공합니다. 예를 들어 Azure Service Bus, Azure Event Hubs, SQL 등에 대해 기본 제공 작업을 사용할 수 있습니다. 한편, 관리형 커넥터 버전도 여전히 사용할 수 있으며 계속 작동합니다.
 
 새로운 기본 제공 작업을 사용하여 만든 연결은 *기본 제공 연결* 또는 *서비스 공급자 연결이라고 합니다*. 관리형 연결에서는 이를 *API 연결* 이라고 하며, ARM 템플릿을 사용하여 배포해야 하는 Azure 리소스로 별도로 생성되고 실행됩니다. 기본 제공 작업 및 연결은 워크플로를 실행하는 것과 동일한 프로세스에서 로컬로 실행됩니다. 둘 다 단일 테넌트 Azure Logic Apps 런타임에서 호스트됩니다. 따라서 워크플로에 근접해 있으므로 기본 제공 작업 및 연결을 통해 성능을 향상시킬 수 있습니다. 이 설계는 서비스 공급자 연결이 동일한 빌드 아티팩트로 패키지화되므로 배포 파이프라인에서도 잘 작동합니다.
+
+<a name="data-residency"></a>
+
+### <a name="data-residency"></a>데이터 상주
+
+논리 **앱 (표준)** 리소스 종류를 사용 하 여 만든 논리 앱 리소스는 단일 테 넌 트 Azure Logic Apps에서 호스팅됩니다. [이러한 논리 앱 리소스를 배포 하는 지역 외부에 데이터를 저장, 처리 또는 복제 하지 않습니다](https://azure.microsoft.com/global-infrastructure/data-residency). 즉, 논리 앱 워크플로의 데이터가 부모 리소스를 만들고 배포 하는 동일한 지역에 유지 됩니다.
 
 ## <a name="create-build-and-deploy-options"></a>옵션 만들기, 빌드 및 배포
 
@@ -119,7 +125,7 @@ Azure Logic Apps를 처음 사용하는 경우 다음 문서를 참조하세요.
 
   이전 이벤트의 데이터를 유지, 검토 또는 참조해야 하는 경우 상태 저장 워크플로를 만듭니다. 이 워크플로는 각 작업의 모든 입출력과 해당 상태를 외부 스토리지에 저장하고 전송하므로, 각 실행이 완료된 후 실행 세부 정보와 기록을 검토할 수 있습니다. 상태 저장 워크플로는 중단이 발생할 때 높은 복원력을 제공합니다. 서비스 및 시스템이 복원된 후에는 저장된 상태로부터 중단된 실행을 다시 생성하고 워크플로를 다시 실행하여 완료할 수 있습니다. 상태 저장 워크플로는 상태 비저장 워크플로보다 훨씬 긴 시간 동안 계속해서 실행 가능합니다.
 
-  기본적으로 다중 테넌트 및 단일 테넌트 모두의 상태 Azure Logic Apps 워크플로는 비동기적으로 실행됩니다. 모든 HTTP 기반 작업은 표준 [비동기 작업 패턴 을](/azure/architecture/patterns/async-request-reply)따릅니다. 이 패턴은 HTTP 작업이 요청을 호출하거나 엔드포인트, 서비스, 시스템 또는 API로 요청을 전송한 후 수신기가 즉시 ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) 응답을 반환하도록 지정합니다. 이 코드는 수신기에서 요청을 수락했지만 처리가 완료되지 않았음을 확인합니다. 응답에는 `location` 수신자가 처리를 중지하고 ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) 성공 응답 또는 기타 비 202 응답을 반환할 때까지 호출자가 비동기 요청의 상태를 폴링하거나 확인하는 데 사용할 수 있는 URI 및 새로 고침 ID를 지정하는 헤더가 포함될 수 있습니다. 하지만 호출자가 요청 처리가 완료될 때까지 기다릴 필요가 없고 계속 다음 작업을 실행할 수 있습니다. 자세한 내용은 [비동기 마이크로서비스 통합에 마이크로서비스 자율성 적용](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging)을 참조하세요.
+  기본적으로 다중 테넌트 및 단일 테넌트 모두의 상태 비동기 워크플로는 비동기적으로 실행 Azure Logic Apps. 모든 HTTP 기반 작업은 표준 [비동기 작업 패턴 을](/azure/architecture/patterns/async-request-reply)따릅니다. 이 패턴은 HTTP 작업이 요청을 호출하거나 엔드포인트, 서비스, 시스템 또는 API로 요청을 전송한 후 수신기가 즉시 ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) 응답을 반환하도록 지정합니다. 이 코드는 수신기에서 요청을 수락했지만 처리가 완료되지 않았음을 확인합니다. 응답에는 `location` 수신자가 처리를 중지하고 ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) 성공 응답 또는 기타 비 202 응답을 반환할 때까지 호출자가 비동기 요청의 상태를 폴링하거나 확인하는 데 사용할 수 있는 URI 및 새로 고침 ID를 지정하는 헤더가 포함될 수 있습니다. 하지만 호출자가 요청 처리가 완료될 때까지 기다릴 필요가 없고 계속 다음 작업을 실행할 수 있습니다. 자세한 내용은 [비동기 마이크로서비스 통합에 마이크로서비스 자율성 적용](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging)을 참조하세요.
 
 * *상태 비저장*
 

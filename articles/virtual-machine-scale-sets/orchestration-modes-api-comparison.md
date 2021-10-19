@@ -8,21 +8,16 @@ ms.service: virtual-machine-scale-sets
 ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-ms.openlocfilehash: 9fd4d2171aa54da469aacfaa7090025c296dd0c1
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: db141f863389d724cc1437beeed3b00b44020098
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124804074"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130161836"
 ---
-# <a name="preview-orchestration-modes-api-comparison"></a>미리 보기: 오케스트레이션 모드 API 비교 
+# <a name="orchestration-modes-api-comparison"></a>오케스트레이션 모드 API 비교 
 
 이 문서에서는 가상 머신 확장 집합에 대한 균일한 오케스트레이션 모드와 [유연한 오케스트레이션](..\virtual-machines\flexible-virtual-machine-scale-sets.md) 모드 간의 API 차이점을 비교합니다. 균일한 가상 머신 확장 집합 및 유연한 가상 머신 확장 집합에 대한 자세한 내용은 [오케스트레이션 모드](virtual-machine-scale-sets-orchestration-modes.md)를 참조하세요.
-
-> [!IMPORTANT]
-> Flexible 오케스트레이션 모드의 가상 머신 확장 집합은 현재 공개 미리 보기로 제공됩니다. 아래에서 자세하게 설명하는 공개 미리 보기 기능을 사용 하려면 옵트인 프로시저를 사용해야 합니다.
-> 이 미리 보기 버전은 서비스 수준 약정 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 
 ## <a name="instance-view"></a>인스턴스 보기
@@ -66,7 +61,7 @@ ms.locfileid: "124804074"
 
 ### <a name="uniform-api"></a>균일한 API
 `VMSS List Instances`: 
-- 이 미리 보기 중에 각 인스턴스와 연결된 확장 집합 ID를 반환합니다. 
+- 각 인스턴스와 연결 된 확장 집합 ID를 반환 합니다.
 
 ### <a name="flexible-alternative"></a>유연한 대체
 Azure Resource Graph: 
@@ -95,6 +90,8 @@ resources
 ### <a name="flexible-alternative"></a>유연한 대체
 개별 VM에서 작업을 호출합니다.
 
+가상 컴퓨터 작업:
+- [이미지로](/rest/api/compute/virtual-machines/reimage)다시 설치: 단일 VM API 호출-임시 OS vm에만 이미지로 다시 설치
 
 ## <a name="vm-extension"></a>VM 확장
 

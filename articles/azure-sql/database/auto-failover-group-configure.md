@@ -8,16 +8,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=2, devx-track-azurecli
 ms.topic: how-to
 ms.devlang: ''
-author: BustosMSFT
-ms.author: robustos
+author: emlisa
+ms.author: emlisa
 ms.reviewer: mathoma
 ms.date: 08/14/2019
-ms.openlocfilehash: a5c1475a4a517fc3c7767fec2d7ee9461476b083
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
-ms.translationtype: HT
+ms.openlocfilehash: 1cb2d8fdaa25479542152c76c12b9b86d7fb0433
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112539721"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165713"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Azure SQL Database에 대한 장애 조치(failover) 그룹 구성
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -196,7 +196,7 @@ PowerShell을 사용하여 장애 조치(failover) 그룹의 장애 조치를 �
 
 Azure Portal 또는 PowerShell을 사용하여 장애 조치 그룹을 만들고 탄력적 풀을 추가합니다.  
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 다음 필수 구성 요소를 고려합니다.
 

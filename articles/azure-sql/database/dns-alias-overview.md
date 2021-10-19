@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: seo-lt-2019 sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: BustosMSFT
-ms.author: robustos
+author: emlisa
+ms.author: emlisa
 ms.reviewer: mathoma, jrasnick, vanto
 ms.date: 06/26/2019
-ms.openlocfilehash: 6ab22ec300fd9be945f7cd0d7f2b83e5f7a409b4
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: 64aaf922229f97856a888d84e91be670f74faa1d
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110689127"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166256"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Azure SQL Database의 DNS 별칭
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]

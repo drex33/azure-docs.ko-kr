@@ -3,7 +3,7 @@ title: '스토리지: 성능 모범 사례 및 지침'
 description: Azure VM(Virtual Machine)에서 SQL Server의 성능을 최적화하기 위한 스토리지 모범 사례와 지침을 제공합니다.
 services: virtual-machines-windows
 documentationcenter: na
-author: dplessMSFT
+author: bluefooted
 editor: ''
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/25/2021
-ms.author: dpless
-ms.reviewer: jroth
-ms.openlocfilehash: c3d410efa034e291cafd969221f97b31fe13b214
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.author: pamela
+ms.reviewer: mathoma
+ms.openlocfilehash: 83d47a3b1d42233df6f90690e88a898feaccb70b
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130072711"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130161522"
 ---
 # <a name="storage-performance-best-practices-for-sql-server-on-azure-vms"></a>스토리지: Azure VM의 SQL Server에 대한 성능 모범 사례
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -100,7 +100,7 @@ Azure 가상 머신은 임시 디스크(`D:\` 드라이브로 레이블이 지�
 임시 `D:\` 드라이브(기본값은 4KB)가 아닌 드라이브에 배치된 모든 데이터 파일에 대해 64KB 할당 단위 크기를 사용하도록 데이터 디스크의 형식을 지정합니다. Azure Marketplace를 통해 배포된 SQL Server VMs는 할당 단위 크기로 형식이 지정된 데이터 디스크와 함께 제공되고 64KB로 설정된 스토리지 풀에 인터리빙됩니다. 
 
 > [!NOTE]
-> Azure Blob Storage 또는 [SMB](/sql/database-engine/install-windows/install-sql-server-with-smb-fileshare-as-a-storage-option) 스토리지(예: [Azure](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure) [프리미엄 파일 공유)에서](../../../storage/files/storage-how-to-create-file-share.md)직접 SQL Server 데이터베이스 파일을 호스트할 수도 있지만 최상의 성능, 안정성 및 기능 가용성을 위해 Azure [관리 디스크를](../../../virtual-machines/managed-disks-overview.md) 사용하는 것이 좋습니다.
+> azure [Blob storage](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure) 또는 [azure premium 파일 공유](../../../storage/files/storage-how-to-create-file-share.md)와 같은 [SMB 저장소](/sql/database-engine/install-windows/install-sql-server-with-smb-fileshare-as-a-storage-option) 에서 직접 SQL Server 데이터베이스 파일을 호스팅할 수도 있지만 최상의 성능, 안정성 및 기능 가용성을 위해 [azure managed disks](../../../virtual-machines/managed-disks-overview.md) 를 사용 하는 것이 좋습니다.
 
 ## <a name="premium-disks"></a>프리미엄 디스크:
 

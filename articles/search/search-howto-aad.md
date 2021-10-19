@@ -7,21 +7,21 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2021
-ms.openlocfilehash: c948bb3cebfef6df79e4d2349aac31248650c0de
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: ece84cc15c9945d8f39e3163ab0da2941d4f1349
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130075855"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162010"
 ---
-# <a name="authorize-search-requests-using-azure-ad-preview"></a>Azure AD를 사용하여 검색 요청 권한 부여(미리 보기)
+# <a name="authorize-search-requests-using-azure-ad-preview"></a>Azure AD(미리 보기)를 사용하여 검색 요청 권한 부여
 
 > [!IMPORTANT]
 > 인덱스 만들기 또는 인덱스 쿼리와 같은 데이터 평면 작업에 대한 역할 기반 액세스 제어는 현재 공개 미리 보기로 제공되며 [추가 사용 약관에](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)따라 사용할 수 있습니다. 이 기능은 퍼블릭 클라우드에서만 사용할 수 있으며 기능이 미리 보기 상태인 동안 작업 대기에 영향을 미칠 수 있습니다. 
 
-azure AD(Azure Active Directory)를 사용하면 RBAC(역할 기반 액세스 제어)를 사용하여 Azure Cognitive Search 서비스에 대한 액세스 권한을 부여할 수 있습니다. Azure AD를 사용하는 주요 이점은 자격 증명을 더 이상 코드에 저장할 필요가 없다는 것입니다. Azure AD는 애플리케이션을 실행하는 보안 주체(사용자, 그룹 또는 서비스 주체)를 인증합니다. 인증에 성공하면 Azure AD는 애플리케이션에 액세스 토큰을 반환하고 애플리케이션은 액세스 토큰을 사용하여 Azure Cognitive Search 요청에 권한을 부여할 수 있습니다. 애플리케이션에서 Azure AD를 사용하는 이점에 대한 자세한 내용은 [Azure Active Directory 통합을](/azure/active-directory/develop/active-directory-how-to-integrate#benefits-of-integration)참조하세요.
+Azure AD(Azure Active Directory)를 사용하면 RBAC(역할 기반 액세스 제어)를 사용하여 Azure Cognitive Search 서비스에 대한 액세스 권한을 부여할 수 있습니다. Azure AD를 사용하는 주요 이점은 자격 증명을 더 이상 코드에 저장할 필요가 없다는 것입니다. Azure AD는 애플리케이션을 실행하는 보안 주체(사용자, 그룹 또는 서비스 주체)를 인증합니다. 인증에 성공하면 Azure AD는 애플리케이션에 액세스 토큰을 반환하고 애플리케이션은 액세스 토큰을 사용하여 Azure Cognitive Search 요청에 권한을 부여할 수 있습니다. 애플리케이션에서 Azure AD를 사용하는 이점에 대한 자세한 내용은 [Azure Active Directory 통합을](/azure/active-directory/develop/active-directory-how-to-integrate#benefits-of-integration)참조하세요.
 
-이 문서에서는 Microsoft ID 플랫폼 인증을 위해 애플리케이션을 구성하는 방법을 보여 줍니다. Microsoft 식별 플랫폼에 대한 자세한 내용은 [Microsoft ID 플랫폼 개요를 참조하세요.](/azure/active-directory/develop/v2-overview) Azure AD에서 사용하는 OAuth 2.0 코드 부여 흐름에 대한 자세한 내용은 [OAuth 2.0 코드 부여 흐름을 사용하여 Azure Active Directory 웹 애플리케이션에 대한 액세스 권한 부여를](/azure/active-directory/develop/v2-oauth2-auth-code-flow)참조하세요.
+이 문서에서는 Microsoft ID 플랫폼 인증을 위해 애플리케이션을 구성하는 방법을 보여 줍니다. Microsoft 식별 플랫폼에 대한 자세한 내용은 [Microsoft ID 플랫폼 개요를](/azure/active-directory/develop/v2-overview)참조하세요. Azure AD에서 사용하는 OAuth 2.0 코드 부여 흐름에 대한 자세한 내용은 [OAuth 2.0 코드 부여 흐름을 사용하여 Azure Active Directory 웹 애플리케이션에 대한 액세스 권한 부여를](/azure/active-directory/develop/v2-oauth2-auth-code-flow)참조하세요.
 
 ## <a name="prepare-your-search-service"></a>검색 서비스 준비
 
@@ -29,7 +29,7 @@ azure AD(Azure Active Directory)를 사용하면 RBAC(역할 기반 액세스 �
 
 ### <a name="sign-up-for-the-preview"></a>미리 보기 등록
 
-검색 서비스를 쿼리하는 데 Azure AD를 사용하는 데 필요한 Azure Cognitive Search RBAC 기능 부분은 여전히 게이트된 미리 보기 상태입니다. 
+검색 서비스를 쿼리하는 데 Azure AD를 사용하는 데 필요한 Azure Cognitive Search RBAC 기능 부분은 여전히 게이트 미리 보기 상태입니다. 
 
 미리 보기에 등록하는 경우 [이 양식을 작성합니다.](https://aka.ms/azure-cognitive-search/rbac-preview)
 
@@ -41,11 +41,11 @@ azure AD(Azure Active Directory)를 사용하면 RBAC(역할 기반 액세스 �
 
 역할 기반 액세스 제어를 사용하도록 설정하려면 다음을 수행합니다.
 
-1. 이 미리 보기 링크를 사용하여 Azure Portal [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true) 이동합니다. 
+1. 이 미리 보기 링크가 있는 Azure Portal [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true) 이동합니다. 
 1. 왼쪽 탐색 창에서 **키를** 선택합니다.
 1. 키 기반 액세스 제어와 역할 기반 액세스 제어를 모두 허용할지 또는 역할 기반 액세스 제어만 허용할지 결정합니다.
 
-![포털에서 Azure Cognitive Search에 대한 인증 옵션](media/search-howto-Azure AD/portal-api-access-control.png)
+![포털에서 Azure Cognitive Search에 대한 인증 옵션](media/search-howto-aad/portal-api-access-control.png)
 
 [Azure Cognitive Search RBAC 설명서에](/azure/search/search-security-rbac?tabs=config-svc-rest%2Croles-powershell%2Ctest-rest#step-2-preview-configuration)설명된 대로 이러한 설정을 프로그래밍 방식으로 변경할 수도 있습니다.
 
@@ -58,7 +58,7 @@ Azure AD에 애플리케이션을 등록하려면 다음을 수행합니다.
 1. [Azure Portal](https://portal.azure.com)Azure 계정에 로그인합니다.
 1. **Azure Active Directory** 를 선택합니다.
 1. **앱 등록** 을 선택합니다.
-1. **새 등록** 을 선택합니다.
+1. **새 등록을** 선택합니다.
 1. 애플리케이션에 이름을 지정하고 애플리케이션을 사용할 수 있는 사람을 결정하는 지원되는 계정 유형을 선택합니다. 그런 다음 **등록** 을 선택합니다.
 
 ![애플리케이션 등록 마법사](media/search-howto-aad/register-app.png)
@@ -101,7 +101,7 @@ Azure AD에 애플리케이션을 등록하려면 다음을 수행합니다.
 
 기본 제공 [역할을](/azure/search/search-security-rbac?tabs=config-svc-portal%2Croles-portal%2Ctest-portal#built-in-roles-used-in-search)사용하는 것 외에도 사용자 [지정 역할을](/azure/role-based-access-control/custom-roles) 만들어 애플리케이션에서 수행할 수 있는 작업을 정확하게 정의할 수 있습니다.
 
-예를 들어 인덱스를 만들고 인덱스에서 데이터를 읽는 기능을 포함하여 인덱스를 완전히 관리할 수 있는 역할을 원하는 경우 아래와 같은 역할을 정의할 수 있습니다.
+예를 들어 인덱스를 만들고 인덱스에서 데이터를 읽는 기능을 포함하여 인덱스를 완전히 관리할 수 있는 역할을 원하는 경우 아래에 표시된 역할을 정의할 수 있습니다.
 
 ```json
 {
@@ -133,7 +133,7 @@ Azure AD에 애플리케이션을 등록하려면 다음을 수행합니다.
 
 일부 시나리오에서는 인덱스와 같은 단일 리소스에 대한 애플리케이션의 액세스 범위를 축소할 수 있습니다. 
 
-포털은 현재 단일 인덱스만 액세스 권한 부여를 지원하지 않지만 [PowerShell](../role-based-access-control/role-assignments-powershell.md) 또는 [Azure CLI](../role-based-access-control/role-assignments-cli.md)사용하여 수행할 수 있습니다.
+포털은 현재 단일 인덱스만 액세스 권한을 부여하는 것을 지원하지 않지만 [PowerShell](../role-based-access-control/role-assignments-powershell.md) 또는 [Azure CLI](../role-based-access-control/role-assignments-cli.md)사용하여 수행할 수 있습니다.
 
 PowerShell에서는 [New-AzRoleAssignment를](/powershell/module/az.resources/new-azroleassignment)사용하여 Azure 사용자 또는 그룹 이름과 할당 범위를 제공합니다.
 
@@ -161,7 +161,7 @@ Azure AD 애플리케이션을 만들고 검색 서비스에 액세스할 수 �
 
 Azure SDK를 통해 Azure AD와 쉽게 통합할 수 있습니다. 버전 [11.4.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.2) 이상은 Azure AD 인증을 지원합니다. Azure AD 인증은 [Java,](https://search.maven.org/artifact/com.azure/azure-search-documents/11.5.0-beta.3/jar) [Python](https://pypi.org/project/azure-search-documents/11.3.0b3/)및 [JavaScript용](https://www.npmjs.com/package/@azure/search-documents/v/11.3.0-beta.3)미리 보기 SDK에서도 지원됩니다.
 
-시작점으로 C# 빠른 시작 에 대한 [소스 코드를](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) [복제합니다.](search-get-started-dotnet.md)  빠른 시작에서는 현재 키 기반 인증을 사용하여 `SearchClient` 를 `SearchIndexClient` 만들지만 약간 변경하여 역할 기반 인증으로 전환할 수 있습니다. `AzureKeyCredential` `Main()` [Program.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart/v11/AzureSearchQuickstart-v11/Program.cs)의 시작 부분에서 를 사용하는 대신 
+시작점으로 C# 빠른 시작 에 대한 [소스 코드를](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) [복제합니다.](search-get-started-dotnet.md)  빠른 시작에서는 현재 키 기반 인증을 사용하여 및 를 `SearchClient` `SearchIndexClient` 만들지만 약간 변경하여 역할 기반 인증으로 전환할 수 있습니다. `AzureKeyCredential` `Main()` [Program.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart/v11/AzureSearchQuickstart-v11/Program.cs)의 시작 부분에서 를 사용하는 대신 
 
 ```dotnet
 AzureKeyCredential credential = new AzureKeyCredential(apiKey);
@@ -190,11 +190,11 @@ Azure.Identity 설명서에는 [.NET용 Azure SDK에서 Azure AD 인증을](/dot
 
 ### <a name="azure-ad-authentication-with-the-rest-api"></a>REST API Azure AD 인증
 
-Azure SDK를 사용하면 OAuth 2.0 흐름이 간소화되지만 애플리케이션의 프로토콜에 대해 직접 프로그래밍할 수도 있습니다. 전체 세부 정보는 [Microsoft ID 플랫폼 OAuth 2.0 클라이언트 자격 증명 흐름에서](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)사용할 수 있습니다.
+Azure SDK를 사용하면 OAuth 2.0 흐름이 간소화되지만 애플리케이션의 프로토콜에 대해 직접 프로그래밍할 수도 있습니다. 자세한 내용은 [Microsoft ID 플랫폼 OAuth 2.0 클라이언트 자격 증명 흐름에서](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)사용할 수 있습니다.
 
 #### <a name="get-a-token"></a>토큰 가져오기
 
-먼저 Microsoft ID 플랫폼에서 [토큰을 가져옵니다](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#get-a-token) .
+Microsoft ID 플랫폼 [토큰을 받아](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#get-a-token) 시작합니다.
 
 ```
 POST /[tenant id]/oauth2/v2.0/token HTTP/1.1
@@ -211,7 +211,7 @@ client_id=[client id]
 
 #### <a name="use-a-token"></a>토큰 사용
 
-이제 토큰이 있으므로 검색 서비스에 대 한 요청을 실행할 준비가 되었습니다. 
+이제 토큰이 생겼으므로 검색 서비스에 요청을 발급할 준비가 되었습니다. 
 
 ```http
 GET https://[service name].search.windows.net/indexes/[index name]/docs?[query parameters]
@@ -219,7 +219,7 @@ Content-Type: application/json
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
 + [Azure Cognitive Search에서 역할 기반 권한 부여 사용](search-security-rbac.md)
 + [OAuth 2.0 코드 권한 부여 흐름을 사용하여 Azure Active Directory 웹 애플리케이션에 대한 액세스 권한 부여](/azure/active-directory/develop/v2-oauth2-auth-code-flow)

@@ -3,7 +3,7 @@ title: 도메인 독립 작업 그룹 가용성 그룹 만들기
 description: Azure의 SQL Server 가상 머신에서 Active Directory Domain Services 도메인 독립 작업 그룹 AlwaysOn 가용성 그룹을 구성하는 방법에 대해 알아보세요.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
@@ -13,13 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
-ms.author: mathoma
-ms.openlocfilehash: 86714655c05968a32e16c83b714705929baf1ca7
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: 6eb8af995b733fb796827d508ee003d83e46c67f
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129233676"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130167295"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>작업 그룹 가용성 그룹 구성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

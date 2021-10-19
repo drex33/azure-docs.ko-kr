@@ -3,7 +3,7 @@ title: AG VNN 수신기에 대해 Load Balancer 구성
 description: HADR(고가용성 및 재해 복구)을 위해 Azure VM에서 SQL Server를 사용하여 트래픽을 가용성 그룹의 VNN(가상 네트워크 이름) 수신기로 라우팅하도록 Azure Load Balancer를 구성하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/14/2021
-ms.author: mathoma
-ms.reviewer: jroth
-ms.openlocfilehash: 902704052524a396812e4d9d3848c754c3a7c4a3
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
-ms.translationtype: HT
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: cddf36f1bd51b50d1642f92158adc3a3ba46cdc2
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112580893"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130161503"
 ---
 # <a name="configure-load-balancer-for-ag-vnn-listener"></a>AG VNN 수신기에 대해 Load Balancer 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,7 +44,7 @@ SQL Server 2019 CU8 이상을 사용하는 고객을 위한 대체 연결 옵션
 
 ## <a name="create-load-balancer"></a>부하 분산 장치 만들기
 
-내부 부하 분산 장치 또는 외부 부하 분산 장치를 만들 수 있습니다. 내부 부하 분산 장치는 네트워크 내부에 있는 비공개 리소스에서만 액세스할 수 있습니다.  외부 부하 분산 장치는 공용에서 내부 리소스로 트래픽을 라우팅할 수 있습니다. 내부 부하 분산 장치를 구성하는 경우 부하 분산 규칙을 구성할 때 프런트 엔드 IP의 가용성 그룹 수신기 리소스와 동일한 IP 주소를 사용합니다. 외부 부하 분산 장치를 구성할 때는 수신기 IP 주소가 공용 IP 주소일 수 없으므로, 가용성 그룹 수신기와 동일한 IP 주소를 사용할 수 없습니다. 따라서 외부 부하 분산 장치를 사용하려면 다른 IP 주소와 충돌하지 않는 가용성 그룹과 동일한 서브넷의 IP 주소를 논리적으로 할당하고, 이 주소를 부하 분산 규칙의 프런트 엔드 IP 주소로 사용합니다. 
+내부 부하 분산 장치 또는 외부 부하 분산 장치를 만들 수 있습니다. 내부 부하 분산 장치는 네트워크 내부에 있는 프라이빗 리소스에서만 액세스할 수 있습니다.  외부 부하 분산 장치는 공용에서 내부 리소스로 트래픽을 라우팅할 수 있습니다. 내부 부하 분산 장치를 구성하는 경우 부하 분산 규칙을 구성할 때 프런트 엔드 IP의 가용성 그룹 수신기 리소스와 동일한 IP 주소를 사용합니다. 외부 부하 분산 장치를 구성할 때는 수신기 IP 주소가 공용 IP 주소일 수 없으므로, 가용성 그룹 수신기와 동일한 IP 주소를 사용할 수 없습니다. 따라서 외부 부하 분산 장치를 사용하려면 다른 IP 주소와 충돌하지 않는 가용성 그룹과 동일한 서브넷의 IP 주소를 논리적으로 할당하고, 이 주소를 부하 분산 규칙의 프런트 엔드 IP 주소로 사용합니다. 
 
 [Azure Portal](https://portal.azure.com)에서 부하 분산 장치를 만듭니다.
 
@@ -139,7 +139,7 @@ SQL Server 2019 CU8 이상을 사용하는 고객을 위한 대체 연결 옵션
    - **상태 프로브**: 이전에 구성한 상태 프로브입니다.
    - **세션 지속성**: 없음
    - **유휴 제한 시간(분)** : 4.
-   - **부동 IP(DSR)** : 사용하지 않습니다.
+   - **부동 IP(Direct Server Return)** : 사용하지 않도록 설정됩니다.
 
 1. **확인** 을 선택합니다.
 
@@ -204,7 +204,7 @@ Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"
 |---------|---------|
 |`Cluster Network Name`| 네트워크의 Windows Server 장애 조치(failover) 클러스터 이름입니다. **장애 조치(failover) 클러스터 관리자** > **네트워크** 에서 네트워크를 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다. 올바른 값은 **일반** 탭의 **이름** 아래에 있습니다.|
 |`AG listener IP Address Resource Name`|AG 수신기의 IP 주소에 대한 리소스 이름입니다. **장애 조치(Failover) 클러스터 관리자** > **역할** 에서, 가용성 그룹 역할의 **서버 이름** 에서 IP 주소 리소스를 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다. 올바른 값은 **일반** 탭의 **이름** 아래에 있습니다.|
-|`ELBIP`|ELB(외부 부하 분산 장치)의 IP 주소입니다. 이 주소는 Azure Portal에서 ELB의 프런트 엔드 주소로 구성되며, 외부 리소스에서 공용 부하 분산 장치에 연결하는 데 사용됩니다.|
+|`ELBIP`|ELB(외부 부하 분산 장치)의 IP 주소입니다. 이 주소는 Azure Portal에서 ELB의 프런트 엔드 주소로 구성되며, 외부 리소스에서 퍼블릭 부하 분산 장치에 연결하는 데 사용됩니다.|
 |`nnnnn`|부하 분산 장치의 상태 프로브에서 구성한 프로브 포트입니다. 사용하지 않는 모든 TCP 포트는 유효합니다.|
 |"SubnetMask"| 클러스터 매개 변수의 서브넷 마스크입니다. TCP IP 브로드캐스트 주소 `255.255.255.255`여야 합니다.| 
 
@@ -216,7 +216,7 @@ Get-ClusterResource $IPResourceName | Get-ClusterParameter
 ```
 
 > [!NOTE]
-> 외부 부하 분산 장치에 대한 개인 IP 주소가 없으므로 사용자는 서브넷 안에서 IP 주소를 확인할 때 VNN DNS 이름을 직접 사용할 수 없습니다. 공용 LB의 공용 IP 주소를 사용하거나 DNS 서버에서 다른 DNS 매핑을 구성합니다. 
+> 외부 부하 분산 장치에 대한 개인 IP 주소가 없으므로 사용자는 서브넷 안에서 IP 주소를 확인할 때 VNN DNS 이름을 직접 사용할 수 없습니다. 퍼블릭 LB의 공용 IP 주소를 사용하거나 DNS 서버에서 다른 DNS 매핑을 구성합니다. 
 
 
 ---

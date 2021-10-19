@@ -7,12 +7,12 @@ ms.reviewer: mbullwin
 ms.custom: devx-track-python
 author: lzchen
 ms.author: lechen
-ms.openlocfilehash: 98af913787ede9a0c9f543315043540b7994729f
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: 14aef56cc84b505afcc58f7f3662ed133bf829c5
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129754238"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162706"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Python 애플리케이션용 Azure Monitor 설정
 
@@ -144,6 +144,9 @@ SDK는 세 가지 Azure Monitor 내보내기를 사용하여 Azure Monitor에 �
     # Use properties in logging statements
     logger.warning('action', extra=properties)
     ```
+
+> [!NOTE]
+> Application Insights 계측을 사용하는 과정의 일환으로 진단 데이터를 수집하고 Microsoft에 보냅니다. 이 데이터는 애플리케이션 Insights 실행하고 개선하는 데 도움이 됩니다. 필수가 아닌 데이터 수집을 사용하지 않도록 설정하는 옵션이 있습니다. [자세한 정보](./statsbeat.md).
 
 #### <a name="configure-logging-for-django-applications"></a>Django 애플리케이션에 대한 로깅 구성
 

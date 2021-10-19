@@ -3,7 +3,7 @@ title: SQL IaaS Agent 확장에 등록
 description: Azure SQL Server 가상 머신을 SQL IaaS Agent 확장에 등록하면 Azure Marketplace 외부에 배포된 SQL Server 가상 머신에서 기능을 설정할 수 있을 뿐 아니라 규정 준수 및 관리 기능을 향상시킬 수 있습니다.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: adbadram
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: management
@@ -12,15 +12,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/01/2021
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: adbadram
+ms.reviewer: mathoma
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
-ms.openlocfilehash: 1d32be2eec9b74d8c47c76f1278e2a5dc7b564e1
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: b66b7c86cf7ba6d23cb09c7feed1f3ced19fd531
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130042525"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130160971"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>SQL IaaS Agent 확장에 SQL Server VM 등록
 
@@ -383,4 +383,4 @@ Remove-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name>
 * [Windows VM에서 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Windows VM의 SQL Server FAQ](frequently-asked-questions-faq.yml)
 * [Windows VM의 SQL Server 가격 책정 가이드](pricing-guidance.md)
-* [Azure vm에서 SQL Server의 새로운 기능](doc-changes-updates-release-notes-whats-new.md)
+* [Azure VM의 SQL Server 새로운 내용](doc-changes-updates-release-notes-whats-new.md)

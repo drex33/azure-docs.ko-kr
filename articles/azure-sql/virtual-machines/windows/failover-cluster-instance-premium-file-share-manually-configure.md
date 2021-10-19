@@ -3,7 +3,7 @@ title: 프리미엄 파일 공유를 사용하여 FCI 만들기
 description: PFS(프리미엄 파일 공유)를 사용하여 Azure Virtual Machines에서 SQL Server를 사용한 FCI(장애 조치(failover) 클러스터 인스턴스)를 만듭니다.
 services: virtual-machines
 documentationCenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -13,13 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
-ms.author: mathoma
-ms.openlocfilehash: e757dac8cb7b81c5a1a24a7008f3eb453a7f977d
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: bf458528503d8d2b74509b95ffde33c16c8e47f1
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123221566"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130164030"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>프리미엄 파일 공유를 사용하여 FCI 만들기(Azure VMs의 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

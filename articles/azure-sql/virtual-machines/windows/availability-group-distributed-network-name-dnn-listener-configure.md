@@ -3,7 +3,7 @@ title: 가용성 그룹에 대한 DNN 수신기 구성
 description: DNN(분산 네트워크 이름) 수신기를 구성하여 VNN(가상 네트워크 이름) 수신기를 대체하고 Azure VM의 SQL Server에서 Always On 가용성 그룹으로 트래픽을 라우팅하는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/07/2020
-ms.author: mathoma
-ms.reviewer: jroth
-ms.openlocfilehash: e3e349304281b98968810831d9cad0d8e64a8d75
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: 3ad963def4866e7528527400ff259502441c9dbf
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130002627"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165638"
 ---
 # <a name="configure-a-dnn-listener-for-an-availability-group"></a>가용성 그룹에 대한 DNN 수신기 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

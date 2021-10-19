@@ -4,12 +4,12 @@ description: Application Insights를 사용하여 Node.js 서비스의 성능을
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 703862d80a7c079739c3bb7f733ae417375675e9
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: 3148dccc9bf6e99d528e34fe54643c871d4a28b5
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112287140"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162863"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Application Insights를 사용하여 Node.js 서비스 및 앱 모니터링
 
@@ -69,6 +69,9 @@ TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측
     `appInsights.defaultClient.config.disableAppInsights = true`를 설정하면 원격 분석을 전송하지 않고 SDK를 사용해 볼 수 있습니다.
 
 5. `appInsights.start();`를 호출하면 데이터를 자동으로 수집하고 전송하기 시작합니다.
+
+> [!NOTE]
+> Application Insights 계측 사용의 일부로 Microsoft에 진단 데이터를 수집 하 여 보냅니다. 이 데이터는 Application Insights를 실행 하 고 개선 하는 데 도움이 됩니다. 필수가 아닌 데이터 수집을 사용 하지 않도록 설정할 수 있는 옵션이 있습니다. [자세한 정보](./statsbeat.md).
 
 ### <a name="monitor-your-app"></a><a name="monitor"></a> 앱 모니터링
 

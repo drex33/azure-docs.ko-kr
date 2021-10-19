@@ -3,12 +3,12 @@ title: Lecrule-하드 코드 되지 않은 환경 URL 없음
 description: Lecrule-하드 코드 되지 않은 환경 URL 없음
 ms.topic: conceptual
 ms.date: 10/14/2021
-ms.openlocfilehash: efbd0e1cdd7a0639fd9dc592ea5bae21254f0326
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 8bb3bbd4be61259d1a11184d879f737d970399cd
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130006283"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165386"
 ---
 # <a name="linter-rule---no-hardcoded-environment-url"></a>Lecrule-하드 코드 되지 않은 환경 URL 없음
 
@@ -61,7 +61,7 @@ resource sa 'Microsoft.Storage/storageAccounts@2021-04-01' = {
 output endpoint string = sa.properties.primaryEndpoints.web
 ```
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 기본적으로이 규칙은 다음 설정을 사용 하 여 허용 되지 않는 Url을 결정 합니다. 
 
@@ -104,12 +104,4 @@ Bicepconfig 파일을 추가 하 고 새 설정을 적용 하 여 사용자 지�
 
 ## <a name="next-steps"></a>다음 단계
 
-* Linter에 대 한 자세한 내용은 [Bicep Linter 사용](./linter.md)을 참조 하세요.
-* 현재 lecrules는 다음과 같습니다.
-
-  * [no-hardcoded-env-urls](./linter-rule-no-hardcoded-environment-urls.md)
-  * [no-unused-params](./linter-rule-no-unused-parameters.md)
-  * [no-unused-vars](./linter-rule-no-unused-variables.md)
-  * [prefer-interpolation](./linter-rule-prefer-interpolation.md)
-  * [secure-parameter-default](./linter-rule-secure-parameter-default.md)
-  * [simplify-interpolation](./linter-rule-simplify-interpolation.md)
+Linter에 대 한 자세한 내용은 [Bicep Linter 사용](./linter.md)을 참조 하세요.

@@ -3,7 +3,7 @@ title: SQL Server 2008 & 2008 R2에 대한 확장 지원
 description: SQL Server 인스턴스를 Azure로 마이그레이션하거나 확장된 지원을 구매하여 온-프레미스 인스턴스를 유지함으로써 SQL Server 2008 및 SQL Server 2008 R2에 대한 지원을 확장합니다.
 services: virtual-machines-windows
 documentationcenter: ''
-author: MashaMSFT
+author: bluefooted
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.subservice: management
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/08/2019
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: pamela
+ms.reviewer: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 297bb5b3aa464cede71e204133df3e856bb9ba1f
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
-ms.translationtype: HT
+ms.openlocfilehash: ea249347c2fca760e2c835aa28b7b4888e684276
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079664"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130160897"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Azure를 사용하여 SQL Server 2008 및 SQL Server 2008 R2 지원 확장
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

@@ -190,7 +190,7 @@
     - name: Linux 보증 배포판
       href: ../virtual-machines/linux/endorsed-distros.md
       maintainContext: true
-    - name: 오케스트레이션 모드(미리 보기)
+    - name: 오케스트레이션 모드
       items:
         - name: 개요
           href: virtual-machine-scale-sets-orchestration-modes.md

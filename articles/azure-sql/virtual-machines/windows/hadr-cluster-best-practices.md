@@ -3,7 +3,7 @@ title: HADR 구성 모범 사례
 description: 지원되는 쿼럼 또는 연결 라우팅 옵션과 같이 Azure Virtual Machines에서 SQL Server에 대한 HADR(고가용성 및 재해 복구)을 구성할 때 지원되는 클러스터 구성에 대해 알아봅니다.
 services: virtual-machines
 documentationCenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -12,13 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2021
-ms.author: mathoma
-ms.openlocfilehash: fce359198f2edd773ea0f48e97cfc670d5aeddc7
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: 40c68a77a3e432c5ff03da2a99e93255719e8898
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130005656"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130163419"
 ---
 # <a name="hadr-configuration-best-practices-sql-server-on-azure-vms"></a>HADR 구성 모범 사례(Azure VM의 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

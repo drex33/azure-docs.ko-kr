@@ -3,7 +3,7 @@ title: Azure에서 SQL VM에 대한 라이선스 모델 변경
 description: Azure 하이브리드 혜택을 사용하여 Azure의 SQL Server VM에 대한 라이선스를 종량제에서 BYOL(사용자 라이선스 필요)로 전환하는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.subservice: management
 ms.workload: iaas-sql-server
 ms.date: 11/13/2019
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: pamela
+ms.reviewer: mathoma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7e3454cd678792533efddac9b5024ef1508d3683
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 6f6e2a4216284776b0d566caac0f79ccfaeb349b
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130045031"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162240"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Azure에서 SQL 가상 머신의 라이선스 모델 변경
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -117,7 +117,7 @@ Update-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name> -License
    - [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-overview)가 있는 고객만 사용할 수 있습니다.
    - SQL Server의 Standard 및 Enterprise 버전에만 지원됩니다. Express, Web 및 Developer에 대한 라이선스 변경은 지원되지 않습니다. 
    - Azure Resource Manager 모델을 통해 배포된 가상 머신에만 지원됩니다. 클래식 모델을 통해 배포된 가상 머신은 지원되지 않습니다. 
-   - 공용 클라우드 또는 Azure Government 클라우드에 대해서만 사용할 수 있습니다. Azure 중국 지역에서 현재 사용할 수 없습니다. 
+   - 공용 클라우드 또는 Azure Government 클라우드에 대해서만 사용할 수 있습니다. 현재 Azure 중국 지역에서 사용할 수 없습니다. 
 
 > [!Note]
 > Software Assurance 또는 구독 라이선스를 사용하는 SQL Server 코어 기반 라이선스만 Azure 하이브리드 혜택에 적합합니다. SQL Server에 대해 서버 + CAL 라이선스를 사용하고 있고 Software Assurance가 있는 경우, Azure SQL Server 가상 머신 이미지에 대한 BYOL(사용자 라이선스 필요)을 사용하여 해당 서버에 대한 라이선스 이동을 활용할 수 있지만 Azure 하이브리드 혜택의 다른 기능을 활용할 수는 없습니다. 
@@ -143,5 +143,5 @@ Update-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name> -License
 * [Windows VM에서 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Windows VM의 SQL Server FAQ](frequently-asked-questions-faq.yml)
 * [Windows VM의 SQL Server 가격 책정 가이드](pricing-guidance.md)
-* [Azure vm에서 SQL Server의 새로운 기능](doc-changes-updates-release-notes-whats-new.md)
+* [Azure VM의 SQL Server 새로운 내용](doc-changes-updates-release-notes-whats-new.md)
 * [SQL IaaS 에이전트 확장 개요](./sql-server-iaas-agent-extension-automate-management.md)

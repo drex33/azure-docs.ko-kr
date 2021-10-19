@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 12/06/2019
+ms.date: 09/10/2021
 ms.author: cynthn
-ms.openlocfilehash: 917f2c00f8cf301be8ec2b19d1cb039dc4a93744
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 2478f6f092cde4d180b8de60bacb5e411a842242
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691697"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130160868"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>빠른 단계: Azure에서 Linux VM용 SSH퍼블릭-프라이빗 키 쌍 만들기 및 사용
 

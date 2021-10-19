@@ -3,7 +3,7 @@ title: 가상 머신을 다른 지역으로 이동(Azure Site Recovery)
 description: Azure 내의 한 지역에서 다른 지역으로 SQL Server 가상 머신을 마이그레이션하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
@@ -12,15 +12,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/30/2019
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: pamela
+ms.reviewer: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 599546679039005831a72440ff0d095d7e62c257
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: d35912c6edafed201a037c8c865746fb299cb1d7
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130047307"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130163802"
 ---
 # <a name="move-a-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery"></a>Azure Site Recovery를 사용하여 Azure 내의 다른 지역으로 SQL Server VM 이동
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

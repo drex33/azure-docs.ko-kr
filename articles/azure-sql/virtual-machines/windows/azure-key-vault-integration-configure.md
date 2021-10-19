@@ -3,7 +3,7 @@ title: Azure의 Windows VM에서 Key Vault를 SQL Server에 통합(Resource Mana
 description: Azure Key Vault와 함께 사용하도록 SQL Server 암호화 구성을 자동화하는 방법에 대해 알아보세요. 이 항목에서는 Azure Key Vault 통합을 Resource Manager로 만든 SQL 가상 머신과 함께 사용하는 방법에 대해 설명합니다.
 services: virtual-machines-windows
 documentationcenter: ''
-author: MashaMSFT
+author: rajeshsetlem
 editor: ''
 tags: azure-service-management
 ms.assetid: cd66dfb1-0e9b-4fb0-a471-9deaf4ab4ab8
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/30/2018
-ms.author: mathoma
-ms.reviewer: jroth
-ms.openlocfilehash: 76363f171ba08c28e7460a988ff72afbf546716b
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
-ms.translationtype: HT
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: bffc40ecc8bde8aead9d115f263c4b580fd12b2b
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113434866"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165600"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-vms-resource-manager"></a>Azure VM에서 SQL Server에 대한 Azure Key Vault 통합 구성(Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

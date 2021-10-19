@@ -3,12 +3,12 @@ title: Lecrule-보간 선호
 description: Lecrule-보간 선호
 ms.topic: conceptual
 ms.date: 10/14/2021
-ms.openlocfilehash: 91bcde23a727a0cf916837b427717d9e5916151b
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 952359c7c258c084e19d6faf152536a3e50212b2
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130005637"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130164475"
 ---
 # <a name="linter-rule---prefer-interpolation"></a>Lecrule-보간 선호
 
@@ -38,12 +38,4 @@ var vnetName = 'vnet-${suffix}'
 
 ## <a name="next-steps"></a>다음 단계
 
-* Linter에 대 한 자세한 내용은 [Bicep Linter 사용](./linter.md)을 참조 하세요.
-* 현재 lecrules는 다음과 같습니다.
-
-  * [no-hardcoded-env-urls](./linter-rule-no-hardcoded-environment-urls.md)
-  * [no-unused-params](./linter-rule-no-unused-parameters.md)
-  * [no-unused-vars](./linter-rule-no-unused-variables.md)
-  * [prefer-interpolation](./linter-rule-prefer-interpolation.md)
-  * [secure-parameter-default](./linter-rule-secure-parameter-default.md)
-  * [simplify-interpolation](./linter-rule-simplify-interpolation.md)
+Linter에 대 한 자세한 내용은 [Bicep Linter 사용](./linter.md)을 참조 하세요.

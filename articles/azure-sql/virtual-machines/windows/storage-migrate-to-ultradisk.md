@@ -3,7 +3,7 @@ title: 로그 디스크를 Ultra 디스크로 마이그레이션
 description: 고성능 및 짧은 대기 시간의 이점을 누리기 위해 Azure VM(Virtual Machine) 로그 디스크의 SQL Server를 Azure Ultradisk로 마이그레이션하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/09/2020
-ms.author: mathoma
-ms.reviewer: jroth
-ms.openlocfilehash: e8410b4e0997798eba5ee91f361c3a5f1ce47ef1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: pamela
+ms.reviewer: mathoma
+ms.openlocfilehash: 54955a953b8386b3dc9b5b4ba814b4826079ef54
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104586304"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165230"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>로그 디스크를 Ultra 디스크로 마이그레이션
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -162,7 +162,7 @@ SSMS를 사용하여 기존 파일을 새 위치로 이동합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-성능 향상을 위한 추가 설정을 보려면 [성능 모범 사례](performance-guidelines-best-practices.md)를 검토합니다. 
+성능 향상을 위한 추가 설정을 보려면 [성능 모범 사례](./performance-guidelines-best-practices-checklist.md)를 검토합니다. 
 
 Azure Virtual Machines의 SQL Server에 대한 개요는 다음 문서를 참조하세요.
 

@@ -4,13 +4,13 @@ description: Bicep 파일에서 배열 작업에 사용하는 함수에 대해 �
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
-ms.date: 10/15/2021
-ms.openlocfilehash: 27e202cc191284aa6ce224cd95f9bbbd3db1ac03
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.date: 10/18/2021
+ms.openlocfilehash: f0f9132818a8708ad5ef2a3205eb2f3a497006d6
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130069922"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130160810"
 ---
 # <a name="array-functions-for-bicep"></a>Bicep의 배열 함수
 
@@ -53,7 +53,7 @@ output objectOutput array = array(objectToConvert)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | intOutput | Array |  [1] |
 | stringOutput | Array | ["efgh"] |
@@ -101,7 +101,7 @@ output return array = concat(firstArray, secondArray)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -151,7 +151,7 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | False |
@@ -166,7 +166,7 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 
 배열, 개체 또는 문자열이 비어 있는지를 확인합니다.
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -194,7 +194,7 @@ output stringEmpty bool = empty(testString)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -206,7 +206,7 @@ output stringEmpty bool = empty(testString)
 
 배열의 첫 번째 요소 또는 문자열의 첫 번째 문자를 반환합니다.
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -235,7 +235,7 @@ output stringOutput string = first('One Two Three')
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | String | one |
 | stringOutput | String | O |
@@ -246,7 +246,7 @@ output stringOutput string = first('One Two Three')
 
 매개 변수에서 공통 요소를 갖는 단일 배열 또는 개체를 반환합니다.
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -254,11 +254,11 @@ output stringOutput string = first('One Two Three')
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 첫 번째 값입니다. |
 | arg2 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 두 번째 값입니다. |
-| more 인수 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 값이 더 많습니다. |
+| 추가 인수 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 추가 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
-공통 요소가 있는 배열 또는 개체입니다. 요소의 순서는 첫 번째 배열 매개 변수에 의해 결정됩니다.
+공통 요소가 있는 배열 또는 개체입니다. 요소의 순서는 첫 번째 배열 매개 변수에 의해 결정 됩니다.
 
 ### <a name="example"></a>예제
 
@@ -294,12 +294,12 @@ output arrayOutput array = intersection(firstArray, secondArray)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
 
-첫 번째 배열 매개 변수는 교차된 요소의 순서를 결정합니다. 다음 예제에서는 반환된 요소의 순서가 첫 번째 배열을 기준으로 하는 방법을 보여 주며,
+첫 번째 배열 매개 변수는 교차 된 요소의 순서를 결정 합니다. 다음 예제에서는 반환 된 요소의 순서가 첫 번째 배열에 기반 하는 방법을 보여 줍니다.
 
 ```bicep
 var array1 = [
@@ -328,7 +328,7 @@ output commonDown array = intersection(array2, array3, array1)
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| 이름 | 유형 | 값 |
 | ---- | ---- | ----- |
 | commonUp | array | [1, 2, 3] |
 | commonDown | array | [3, 2, 1] |
@@ -398,6 +398,53 @@ output modifiedResult array = modifiedListOfEntities
 }
 ```
 
+다음 예제에서는 items 함수에서 반환되는 배열을 보여 있습니다.
+
+```bicep
+var entities = {
+  item001: {
+    enabled: true
+    displayName: 'Example item 1'
+    number: 300
+  }
+  item002: {
+    enabled: false
+    displayName: 'Example item 2'
+    number: 200
+  }
+}
+
+var entitiesArray = items(entities)
+
+output itemsResult array = entitiesArray
+```
+
+이 예제는 다음을 반환합니다.
+
+```json
+"itemsResult": {
+  "type": "Array",
+  "value": [
+    {
+      "key": "item001",
+      "value": {
+        "displayName": "Example item 1",
+        "enabled": true,
+        "number": 300
+      }
+    },
+    {
+      "key": "item002",
+      "value": {
+        "displayName": "Example item 2",
+        "enabled": false,
+        "number": 200
+      }
+    }
+  ]
+}
+```
+
 ## <a name="last"></a>last
 
 `last(arg1)`
@@ -433,7 +480,7 @@ output stringOutput string = last('One Two three')
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | String | three |
 | stringOutput | String | e |
@@ -484,7 +531,7 @@ output objectLength int = length(objectToTest)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -527,7 +574,7 @@ output intOutput int = max(0,3,2,5,4)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
@@ -569,7 +616,7 @@ output intOutput int = min(0,3,2,5,4)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
@@ -606,7 +653,7 @@ output rangeOutput array = range(startingInt, numberOfElements)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | rangeOutput | Array | [5, 6, 7] |
 
@@ -649,7 +696,7 @@ output stringOutput string = skip(testString, charactersToSkip)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
 | stringOutput | String | two three |
@@ -693,7 +740,7 @@ output stringOutput string = take(testString, charactersToTake)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
 | stringOutput | String | On |
@@ -704,7 +751,7 @@ output stringOutput string = take(testString, charactersToTake)
 
 매개 변수의 모든 요소를 포함하는 단일 배열 또는 개체를 반환합니다. 중복된 값 또는 키는 한 번만 포함됩니다.
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -712,7 +759,7 @@ output stringOutput string = take(testString, charactersToTake)
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 첫 번째 값입니다. |
 | arg2 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 두 번째 값입니다. |
-| more 인수 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 더 많은 값입니다. |
+| 추가 인수 |예 |배열 또는 개체 |요소를 조인 하는 데 사용할 추가 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -752,7 +799,7 @@ output arrayOutput array = union(firstArray, secondArray)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["one", "two", "three", "four"] |

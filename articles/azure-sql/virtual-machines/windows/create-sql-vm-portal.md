@@ -3,7 +3,7 @@ title: Azure Portal을 사용하여 Windows 가상 머신 프로비전
 description: 이 가이드에서는 Azure Portal을 사용하여 Windows 가상 머신에서 SQL Server를 프로비전하는 데 사용할 수 있는 옵션을 설명합니다.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
@@ -12,15 +12,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 11/07/2019
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: pamela
+ms.reviewer: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4a6671b19cf4af84891cb1aeb3d81da54de64983
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
-ms.translationtype: HT
+ms.openlocfilehash: 2bc4efc0be1e216a10328f5476f592a3dc1156f0
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078890"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130167086"
 ---
 # <a name="how-to-use-the-azure-portal-to-provision-a-windows-virtual-machine-with-sql-server"></a>Azure Portal을 사용하여 SQL Server로 Windows 가상 머신을 프로비전하는 방법
 

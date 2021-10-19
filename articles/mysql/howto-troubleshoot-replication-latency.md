@@ -7,12 +7,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 01/13/2021
-ms.openlocfilehash: fc206254180e2b5b35f10538bfb4940970b1609e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fac788db67bd96f60a2655f10d5f0a74d02b2c01
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128560810"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165493"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Azure Database for MySQL의 복제 지연 문제 해결
 
@@ -104,7 +104,7 @@ mysql> SHOW SLAVE STATUS;
 |Slave_IO_Running| IO 스레드 실행 여부를 나타냅니다. 값은 `Yes`이어야 합니다. 값이 `NO`이면 복제본이 손상된 것일 수 있습니다.|
 |Slave_SQL_Running| SQL 스레드 실행 여부를 나타냅니다. 값은 `Yes`이어야 합니다. 값이 `NO`이면 복제본이 손상된 것일 수 있습니다.|
 |Read_Master_Log_Pos| 복제본이 적용되는 Relay_Master_Log_File의 위치를 나타냅니다. 대기 시간이 있는 경우 해당 위치 시퀀스는 Read_Master_Log_Pos 보다 작아야 합니다.|
-|Relay_Log_Space|릴레이 로그 크기의 상한 값을 나타냅니다. `relay_log_space_limit`와 같이 `SHOW GLOBAL VARIABLES`을 쿼리하여 크기를 확인할 수 있습니다.|
+|Relay_Log_Space|기존 릴레이 로그 파일의 전체 크기를 합한 크기를 나타냅니다. 와 같이 쿼리 하 여 상한 크기를 확인할 수 있습니다 `SHOW GLOBAL VARIABLES` `relay_log_space_limit` .|
 |Seconds_Behind_Master| 복제 대기 시간(초)을 표시합니다.|
 |Last_IO_Errno|IO 스레드 오류 코드가 있는 경우 이를 표시합니다. 이러한 코드에 대한 자세한 내용은 [MySQL 서버 오류 메시지 참조](https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html)를 참조하세요.|
 |Last_IO_Errno| IO 스레드 오류 메시지가 있는 경우 이를 표시합니다.|

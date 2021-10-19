@@ -2,14 +2,14 @@
 title: 공유 액세스 서명을 사용한 Service Bus 액세스 제어
 description: 공유 액세스 서명을 사용한 Azure Service Bus 액세스 제어 개요, Azure Service Bus를 사용한 SAS 권한 부여 상세 정보
 ms.topic: article
-ms.date: 04/27/2021
+ms.date: 10/18/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5659e159604c80ffe19cbc4b57dea5d99c1acb98
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
-ms.translationtype: HT
+ms.openlocfilehash: 5a31ce93c603f1bc1f0765fb2de438476e1f63de
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112379819"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130164966"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>공유 액세스 서명을 사용한 Service Bus 액세스 제어
 
@@ -261,9 +261,9 @@ AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니
 | 항목 세션을 사용하여 연결된 상태 가져오기 |수신 대기 |../myTopic/Subscriptions/mySubscription |
 | 항목 세션을 사용하여 연결된 상태 설정 |수신 대기 |../myTopic/Subscriptions/mySubscription |
 | **규칙.** | | |
-| 규칙 만들기 |관리 |../myTopic/Subscriptions/mySubscription |
-| 규칙 삭제 |관리 |../myTopic/Subscriptions/mySubscription |
-| 규칙 열거 |관리 또는 수신 |../myTopic/Subscriptions/mySubscription/Rules
+| 규칙 만들기 | 수신 대기 |../myTopic/Subscriptions/mySubscription |
+| 규칙 삭제 | 수신 대기 |../myTopic/Subscriptions/mySubscription |
+| 규칙 열거 | 수신 대기 |../myTopic/Subscriptions/mySubscription/Rules
 
 ## <a name="next-steps"></a>다음 단계
 

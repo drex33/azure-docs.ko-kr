@@ -3,7 +3,7 @@ title: 가용성 그룹 및 DNN 수신기와의 기능 상호 운용성
 description: 'Azure VM의 SQL Server에서 Always On 가용성 그룹을 사용하여 특정 SQL Server 기능 및 DNN(분산 네트워크 이름) 수신기를 사용할 때의 추가 고려 사항에 대해 알아봅니다. '
 services: virtual-machines
 documentationCenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -12,13 +12,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/08/2020
-ms.author: mathoma
-ms.openlocfilehash: e1acce6138cf32873e622e90e36ef56ee4209ae8
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: dd8713bcbe96c16e24305e05f693bbf15af327ab
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130002570"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130163046"
 ---
 # <a name="feature-interoperability-with-ag-and-dnn-listener"></a>AG 및 DNN 수신기와의 기능 상호 운용성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -128,9 +129,9 @@ AG DNN 수신기 이름 및 포트를 사용하여 연결된 서버를 구성합
 
    예. 클러스터는 서브넷에 관계없이 가용할 수 있는 모든 복제본의 실제 IP 주소로 DNS의 DNN을 바인딩합니다. SQL 클라이언트는 서브넷에 관계없이 DNS 이름의 모든 IP 주소를 시도합니다. 
 
-- 가용성 그룹 DNN 수신기가 읽기 전용 라우팅을 지원 하나요? 
+- 가용성 그룹 DNN 수신기가 읽기 전용 라우팅을 지원하나요? 
 
-   예. 읽기 전용 라우팅은 DNN 수신기에서 지원 됩니다. 
+   예. 읽기 전용 라우팅은 DNN 수신기에서 지원됩니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

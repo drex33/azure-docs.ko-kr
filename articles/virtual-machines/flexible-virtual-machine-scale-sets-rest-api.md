@@ -9,14 +9,14 @@ ms.subservice: flexible-scale-sets
 ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-ms.openlocfilehash: 64fc87455b035503891319de1b8fd06090586b4b
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 571894779b05a823b4de2e841a3b198dc334ab1f
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122699308"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166540"
 ---
-# <a name="preview-create-virtual-machines-in-a-flexible-scale-set-using-an-arm-template"></a>미리 보기: ARM 템플릿을 사용하여 유연한 확장 집합에 가상 머신 만들기
+# <a name="create-virtual-machines-in-a-flexible-scale-set-using-an-arm-template"></a>ARM 템플릿을 사용하여 유연한 확장 집합에서 가상 머신 만들기
 
 **적용 대상:** :heavy_check_mark: 유연한 확장 집합
 
@@ -24,11 +24,11 @@ ms.locfileid: "122699308"
 이 문서에서는 ARM 템플릿을 사용하여 유연한 오케스트레이션 모드에서 가상 머신 확장 집합을 만드는 단계를 안내합니다. 유연한 확장 집합에 대한 자세한 내용은 [가상 머신 확장 집합에 대한 유연한 오케스트레이션 모드](flexible-virtual-machine-scale-sets.md)를 참조하세요. 
 
 
-> [!IMPORTANT]
-> Flexible 오케스트레이션 모드의 가상 머신 확장 집합은 현재 공개 미리 보기로 제공됩니다. 아래에서 자세하게 설명하는 공개 미리 보기 기능을 사용 하려면 옵트인 프로시저를 사용해야 합니다.
-> 이 미리 보기 버전은 서비스 수준 약정 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
+
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvmss-flexible-orchestration-quickstart%2Fazuredeploy.json)
 
 > [!CAUTION]
 > 오케스트레이션 모드는 확장 집합을 만들 때 정의되며 나중에 변경하거나 업데이트할 수 없습니다.
@@ -36,10 +36,6 @@ ms.locfileid: "122699308"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-
-## <a name="register-for-flexible-orchestration-mode"></a>Flexible 오케스트레이션 모드 등록
-
-유연한 오케스트레이션 모드에서 가상 머신 확장 집합을 배포하려면 먼저 [미리 보기 기능에 대한 구독을 등록](flexible-virtual-machine-scale-sets.md#register-for-flexible-orchestration-mode)해야 합니다. 등록을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ## <a name="arm-template"></a>ARM 템플릿 
 

@@ -3,12 +3,12 @@ title: Lecrule-보간을 단순화 합니다.
 description: Lecrule-보간을 단순화 합니다.
 ms.topic: conceptual
 ms.date: 10/14/2021
-ms.openlocfilehash: 1b81bcc7eca24ed54c60445ed2ddd8adc4fbea5e
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: e2e0f9eca607ececad22c025e89b7c976cd0d05a
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130001431"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165352"
 ---
 # <a name="linter-rule---simplify-interpolation"></a>Lecrule-보간을 단순화 합니다.
 
@@ -46,12 +46,4 @@ resource AutomationAccount 'Microsoft.Automation/automationAccounts@2020-01-13-p
 
 ## <a name="next-steps"></a>다음 단계
 
-* Linter에 대 한 자세한 내용은 [Bicep Linter 사용](./linter.md)을 참조 하세요.
-* 현재 lecrules는 다음과 같습니다.
-
-  * [no-hardcoded-env-urls](./linter-rule-no-hardcoded-environment-urls.md)
-  * [no-unused-params](./linter-rule-no-unused-parameters.md)
-  * [no-unused-vars](./linter-rule-no-unused-variables.md)
-  * [prefer-interpolation](./linter-rule-prefer-interpolation.md)
-  * [secure-parameter-default](./linter-rule-secure-parameter-default.md)
-  * [simplify-interpolation](./linter-rule-simplify-interpolation.md)
+Linter에 대 한 자세한 내용은 [Bicep Linter 사용](./linter.md)을 참조 하세요.

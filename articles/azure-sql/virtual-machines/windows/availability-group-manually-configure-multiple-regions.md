@@ -3,7 +3,7 @@ title: 여러 지역에서 SQL Server Always On 가용성 그룹 구성
 description: 이 문서에서는 다른 지역의 복제본으로 Azure Virtual Machines에서 SQL Server Always On 가용성 그룹을 구성하는 방법을 설명합니다.
 services: virtual-machines
 documentationCenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
@@ -13,14 +13,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
-ms.author: mathoma
+ms.author: rsetlem
 ms.custom: seo-lt-2019
-ms.openlocfilehash: dc516c9631eda2904ff311af6ca779872d9802f0
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.reviewer: mathoma
+ms.openlocfilehash: e9f00376008e4c469318044d3a45280981be621a
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129537185"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166148"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>여러 Azure 지역에서 SQL Server Always On 가용성 그룹 구성
 
@@ -150,7 +151,7 @@ ms.locfileid: "129537185"
 
 1. 새 SQL Server의 SQL Server 구성 관리자에서 [Always On 가용성 그룹을 사용하도록 설정합니다](/sql/database-engine/availability-groups/windows/enable-and-disable-always-on-availability-groups-sql-server).
 
-1. SQL Server Management Studio 새 SQL Server 시스템 계정 권한을 [구성합니다.](availability-group-manually-configure-prerequisites-tutorial.md#configure-system-account-permissions)
+1. SQL Server Management Studio의 새 SQL Server에서 [시스템 계정 권한을 구성](availability-group-manually-configure-prerequisites-tutorial.md#configure-system-account-permissions)합니다.
 
 1. [새 SQL Server에서 방화벽 포트를 엽니다](availability-group-manually-configure-prerequisites-tutorial.md#endpoint-firewall).
 
@@ -166,7 +167,7 @@ ms.locfileid: "129537185"
 
 원격 데이터 센터의 복제본은 가용성 그룹의 일부이지만 다른 서브넷에 있습니다. 이 복제본이 주 복제본이 되면 애플리케이션 연결 시간 초과가 발생할 수 있습니다. 이 동작은 다중 서브넷 배포의 온-프레미스 가용성 그룹과 동일합니다. 클라이언트 애플리케이션에서의 연결을 허용하려면 클라이언트 연결을 업데이트하거나 클러스터 네트워크 이름 리소스에 대해 이름 확인 캐시를 구성합니다.
 
-가급적 설정할 클러스터 구성과 를 `RegisterAllProvidersIP=1` 설정할 클라이언트 연결 문자열을 업데이트합니다. `MultiSubnetFailover=Yes` [MultiSubnetFailover로 연결](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#Anchor_0)을 참조하세요.
+경우에 따라서를 설정 하도록 클러스터 구성을 업데이트 하 `RegisterAllProvidersIP=1` 고 설정할 클라이언트 연결 문자열을 업데이트 `MultiSubnetFailover=Yes` 합니다. [MultiSubnetFailover로 연결](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#Anchor_0)을 참조하세요.
 
 연결 문자열을 수정할 수 없는 경우 이름 확인 캐시를 구성할 수 있습니다. [시간 제한 오류 및 다중 서브넷 환경에서 SQL Server 2012 AlwaysOn 가용성 그룹 수신기에 연결할 수 없음](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av)을 참조하세요.
 

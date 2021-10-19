@@ -3,7 +3,7 @@ title: 고가용성, 재해 복구, 비즈니스 연속성
 description: Azure VM에서 Always On 가용성 그룹, 장애 조치(failover) 클러스터 인스턴스, 데이터베이스 미러링, 로그 전달, Azure Storage로 백업 및 복원 등의 SQL Server에 사용할 수 있는 고가용성, 재해 복구(HADR), 비즈니스 연속성 옵션에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
@@ -13,13 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
-ms.author: mathoma
-ms.openlocfilehash: a5fe3157d419b199f1e83f44485e507812c0b80c
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
-ms.translationtype: HT
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: f5dd02d8abf70d3812fe0d07baa8ddf08bdc8a7a
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113434828"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166076"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server를 위한 비즈니스 연속성 및 HADR
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

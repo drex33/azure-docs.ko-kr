@@ -6,6 +6,8 @@
       href: overview.md
 - name: 빠른 시작
   items:
+    - name: 포털
+      href: quickstart-portal.md
     - name: Python
       href: quickstart-python.md
     - name: ARM 템플릿

@@ -4,16 +4,16 @@ description: Azure Cosmos DB의 특정 시점 복원 기능은 실수로 인한 
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/29/2021
+ms.date: 10/18/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.custom: references_regions
-ms.openlocfilehash: e7d46d1680e11307eb873383e91e6e682f545549
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: c0e08a9aadc7389fa064ba03fbd026ace197cae1
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129546561"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165531"
 ---
 # <a name="continuous-backup-with-point-in-time-restore-in-azure-cosmos-db"></a>Azure Cosmos DB의 특정 시점 복원을 사용한 지속적인 백업
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -105,13 +105,11 @@ Azure Cosmos DB를 사용하면 지속적인 백업 계정에 대한 복원 권�
 
 * 지속적인 백업은 SQL 및 MongoDB에 대한 Azure Cosmos DB API만 지원됩니다. Cassandra, Table 및 Gremlin API는 아직 지원되지 않습니다.
 
-* Azure 소버린 및 Azure Government 클라우드 지역은 아직 지원되지 않습니다.
-
 * 고객 관리형 키를 사용하는 계정은 지속적인 백업 사용이 지원되지 않습니다.
 
 * 다중 지역 쓰기 계정은 지원되지 않습니다.
 
-* Azure Synapse 링크 및 주기적 백업 모드는 동일한 데이터베이스 계정에 공존할 수 있습니다. 그러나 분석 저장소 데이터는 백업 및 복원에 포함되지 않습니다. Synapse Link를 사용하도록 설정하면 Azure Cosmos DB는 예약된 백업 간격에 따라 컨테이너의 트랜잭션 저장소에 있는 데이터를 자동으로 계속 백업합니다. 
+* Azure Synapse 링크 및 주기적 백업 모드는 동일한 데이터베이스 계정에 공존할 수 있습니다. 그러나 분석 저장소 데이터는 백업 및 복원에 포함되지 않습니다. Synapse Link를 사용하도록 설정하면 Azure Cosmos DB는 예약된 백업 간격에 따라 컨테이너의 트랜잭션 저장소에 있는 데이터를 자동으로 계속 백업합니다.
 
 * Azure Synapse 링크 및 연속 백업 모드는 동일한 데이터베이스 계정에 공존할 수 없습니다. 현재 Synapse Link 사용하도록 설정된 데이터베이스 계정은 연속 백업 모드를 사용할 수 없으며 그 반대의 경우도 마찬가지입니다.
 

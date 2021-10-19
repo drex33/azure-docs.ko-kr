@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/03/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 1da0ca79af5569a7a6018c69441e0d33e9a5732f
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
-ms.translationtype: HT
+ms.openlocfilehash: 9c91032049f1cf36af97e9b0743b753ea6be44c9
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537498"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130161252"
 ---
 # <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Windows 10 다중 세션 이미지에 언어 팩 추가
 
@@ -59,6 +59,7 @@ Azure Virtual Desktop은 사용자가 언제 어디에서든 배포할 수 있�
           - [Windows 10, 버전 2004, 20H2 또는 21H1 **4B** LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2104B.iso)
           - [Windows 10, 버전 2004, 20H2 또는 21H1 **5C** LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2105C.iso)
           - [Windows 10, 버전 2004, 20H2 또는 21H1 **7C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2107C.iso)
+          - [Windows 10, 버전 2004, 20H2 또는 21H1 **9C** LXP ISO](https://software-download.microsoft.com/download/db/LanguageExperiencePack.2109C.iso)
 
 - Azure Files 공유 또는 Windows 파일 서버 가상 머신의 파일 공유
 

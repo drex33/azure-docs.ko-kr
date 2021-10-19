@@ -3,7 +3,7 @@ title: SQL Server VM용 스토리지 구성 | Microsoft Docs
 description: 이 항목에서는 Azure가 프로비저닝(Azure Resource Manager 배포 모델) 중에 SQL Server VM용 스토리지를 구성하는 방법을 설명합니다. 또한 기존 SQL Server VM에 대한 스토리지를 구성하는 방법을 설명합니다.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
@@ -12,13 +12,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
-ms.author: mathoma
-ms.openlocfilehash: 9885950552e7bb62114f8588e95140f16c3f1c04
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.author: pamela
+ms.reviewer: mathoma
+ms.openlocfilehash: 5a30cfbd95f660e470854977a63b4dc469a3f769
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130071951"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162442"
 ---
 # <a name="configure-storage-for-sql-server-vms"></a>SQL Server VM에 대한 스토리지 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

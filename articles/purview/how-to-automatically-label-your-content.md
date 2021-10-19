@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: f7456e0a54874a5c551a9b2f458c83b8e5b476cb
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 80bb6aac5d6eb80f82372fd90d77fa0c2a082957
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130039207"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166715"
 ---
 # <a name="how-to-automatically-apply-sensitivity-labels-to-your-data-in-azure-purview"></a>Azure Purview에서 데이터에 민감도 레이블을 자동으로 적용하는 방법
 
@@ -43,6 +43,10 @@ ms.locfileid: "130039207"
 :::image type="content" source="media/how-to-automatically-label-your-content/extend-sensitivity-labels-to-purview-small.png" alt-text="'켜기' 단추를 선택하여 민감도 레이블을 Purview로 확장합니다." lightbox="media/how-to-automatically-label-your-content/extend-sensitivity-labels-to-purview.png":::
 
 :::image type="content" source="media/how-to-automatically-label-your-content/extend-sensitivity-labels-to-purview-confirmation-small.png" alt-text="민감도 레이블을 Purview로 확장하도록 선택 확인" lightbox="media/how-to-automatically-label-your-content/extend-sensitivity-labels-to-purview-confirmation.png":::
+
+> [!TIP]
+>단추가 표시되지 않고 Purview에서 레이블 지정을 자산으로 확장하기 위한 동의가 부여되었는지 확실하지 않은 경우 상태를 확인하는 방법에 대한 [FAQ](sensitivity-labels-frequently-asked-questions.yml#how-can-i-determine-if-consent-has-been-granted-to-extend-labeling-to-purview) 항목을 참조하세요.
+>
 
 Azure Purview에서 자산에 대한 레이블 지정을 확장한 후에는 게시된 모든 민감도 레이블을 Purview에서 사용할 수 있습니다.
 
@@ -118,7 +122,7 @@ Azure Purview에서 자산에 대한 레이블 지정을 확장한 후에는 게
 
 레이블을 만든 후에는 Azure Purview에서 데이터를 스캔하여 정의한 자동 레이블 지정 규칙에 따라 만든 레이블을 자동으로 적용해야 합니다.
 
-## <a name="scan-your-data-to-apply-sensitivity-labels-automatically"></a>데이터를 검사하여 민감도 레이블 자동 적용
+## <a name="scan-your-data-to-apply-sensitivity-labels-automatically"></a>데이터를 스캔하여 민감도 레이블 자동 적용
 
 Azure Purview에서 데이터를 검사하여 정의한 자동 레이블 지정 규칙에 따라 만든 레이블을 자동으로 적용합니다. Purview에 민감도 레이블 변경 내용이 반영되려면 최대 24시간을 허용합니다.
 

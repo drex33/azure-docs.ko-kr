@@ -3,7 +3,7 @@ title: 클러스터 쿼럼 구성
 description: 'Azure VM에서 SQL Server의 Windows Server 장애 조치(failover) 클러스터에 대한 쿼럼으로 디스크 감시, 클라우드 감시 또는 파일 공유 감시를 구성하는 방법을 알아봅니다. '
 services: virtual-machines
 documentationCenter: na
-author: cawrites
+author: rajeshsetlem
 editor: ''
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -11,14 +11,15 @@ ms.subservice: hadr
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/30/2021
-ms.author: chadam
-ms.openlocfilehash: 6b974628adeb1d1562d3735fcb55704adc8e2d98
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
-ms.translationtype: HT
+ms.date: 06/01/2021
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: 575e8a5ab43e38b723bd0b2084709a1216b477fe
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111573258"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130163431"
 ---
 # <a name="configure-cluster-quorum-for-sql-server-on-azure-vms"></a>Azure VM에서 SQL Server를 위한 클러스터 쿼럼 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

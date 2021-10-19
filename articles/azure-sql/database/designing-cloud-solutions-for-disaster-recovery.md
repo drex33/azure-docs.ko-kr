@@ -8,16 +8,16 @@ ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: BustosMSFT
-ms.author: robustos
+author: emlisa
+ms.author: emlisa
 ms.reviewer: mathoma
 ms.date: 07/28/2020
-ms.openlocfilehash: 0f68716434818f57f2dd2478503ca773431b4e9f
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: dcaab6b2e69d6ba13a683987ec2e68444858ad0a
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110694592"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130163226"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Azure SQL Database를 사용하여 전역적으로 사용 가능 서비스 디자인
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

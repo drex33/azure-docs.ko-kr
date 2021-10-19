@@ -215,7 +215,7 @@
           href: azure-nfs-volume.md
         - name: Azure NetApp Files
           href: azure-netapp-files.md
-        - name: Azure Ultra Disks 사용(미리 보기)
+        - name: Azure Ultra Disk 사용
           href: use-ultra-disks.md
         - name: CSI 스토리지 드라이버
           items:
@@ -430,7 +430,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/aks
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/aks
     - name: PowerShell
       href: /powershell/module/az.aks#aks

@@ -3,7 +3,7 @@ title: Azure Load Balancer에 장애 조치(failover) 클러스터 인스턴스 
 description: HADR(고가용성 및 재해 복구)을 위해 Azure VM에서 SQL Server를 사용하여 트래픽을 FCI(장애 조치(failover) 클러스터 인스턴스)의 VNN(가상 네트워크 이름)으로 라우팅하도록 Azure Load Balancer를 구성하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
-ms.author: mathoma
-ms.reviewer: jroth
-ms.openlocfilehash: 66b762cac767987a1ea2cf74b9e706e7a7939d51
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: 327c030708f37bffab05aa72884422a487b6b729
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567491"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166942"
 ---
 # <a name="configure-azure-load-balancer-for-an-fci-vnn"></a>FCI VNN에 대한 Azure Load Balancer 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -184,7 +184,7 @@ Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"
 Get-ClusterResource $IPResourceName | Get-ClusterParameter
 ```
 
-# <a name="public-load-balancer"></a>[퍼블릭 부하 분산 장치](#tab/elb)
+# <a name="public-load-balancer"></a>[공용 부하 분산 장치](#tab/elb)
 
 클러스터 프로브 포트 매개 변수를 설정하려면 다음 스크립트의 변수를 사용자 환경의 값으로 업데이트합니다. 스크립트에서 꺾쇠 괄호(`<` 및 `>`)를 제거합니다.
 
@@ -273,7 +273,7 @@ Get-ClusterResource yourFCIname | Set-ClusterParameter HostRecordTTL 300
 
 - [Azure VM에서 SQL Server를 사용하는 Windows Server 장애 조치(failover) 클러스터](hadr-windows-server-failover-cluster-overview.md)
 - [Azure VM에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스](failover-cluster-instance-overview.md)
-- [장애 조치(Failover) 클러스터 인스턴스 개요](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [장애 조치(failover) 클러스터 인스턴스 개요](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 - [Azure VM의 SQL Server에 대한 HADR 설정](hadr-cluster-best-practices.md)
 
 

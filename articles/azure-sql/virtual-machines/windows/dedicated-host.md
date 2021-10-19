@@ -3,7 +3,7 @@ title: Azure 전용 호스트에서 SQL Server VM 실행
 description: Azure 전용 호스트에서 SQL Server VM을 실행하는 방법에 대해 알아보세요.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: management
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/12/2019
-ms.author: mathoma
-ms.reviewer: jroth
-ms.openlocfilehash: 9df60340e7a0130c84bd29f220956557eb1bcb0b
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.author: pamela
+ms.reviewer: mathoma
+ms.openlocfilehash: a53b35ef7371d6608283374cfef1086cf9f0bbfd
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130037173"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162223"
 ---
 # <a name="run-sql-server-vm-on-an-azure-dedicated-host"></a>Azure 전용 호스트에서 SQL Server VM 실행 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 07/23/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 152dfc877ad96d2b002fed43eea92a0b607e8bd2
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: d05b48432fd976bf7e5b8add01532aae361968ec
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122642184"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130167196"
 ---
 # <a name="use-azure-active-directory-for-authentication-with-mysql"></a>MySQL 인증에 Azure Active Directory 사용
 
@@ -176,9 +176,9 @@ CREATE AADUSER 'user1@yourtenant.onmicrosoft.com';
 ```sql
 CREATE AADUSER 'userWithLongName@yourtenant.onmicrosoft.com' as 'userDefinedShortName'; 
 ```
-
 > [!NOTE]
-> Azure AD를 통해 사용자를 인증하여도 Azure Database for MySQL 데이터베이스 내의 개체에 액세스할 수 있는 권한이 사용자에게 부여되지 않습니다. 필요한 권한을 사용자에게 수동으로 부여해야 합니다.
+> 1. MySQL은 선행 및 후행 공백을 무시 하므로 사용자 이름에 선행 또는 후행 공백이 포함 되 면 안 됩니다. 
+> 2. Azure AD를 통해 사용자를 인증하여도 Azure Database for MySQL 데이터베이스 내의 개체에 액세스할 수 있는 권한이 사용자에게 부여되지 않습니다. 필요한 권한을 사용자에게 수동으로 부여해야 합니다.
 
 ## <a name="creating-azure-ad-groups-in-azure-database-for-mysql"></a>Azure Database for MySQL에서 Azure AD 그룹 만들기
 

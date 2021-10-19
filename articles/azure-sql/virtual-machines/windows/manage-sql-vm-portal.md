@@ -3,7 +3,7 @@ title: Azure Portal을 사용하여 Azure에서 SQL Server 가상 머신 관리 
 description: Azure에서 호스트되는 SQL Server VM에 대해 Azure Portal에서 SQL 가상 머신 리소스에 액세스하여 SQL Server 설정을 수정하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: management
@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2021
-ms.author: mathoma
-ms.reviewer: jroth
-ms.openlocfilehash: 38e2ab1590af477fdb0221d3d6225adc751a3ad6
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.author: pamela
+ms.reviewer: mathoma
+ms.openlocfilehash: a25f5bf28feb8fcb3903094f45568e96388ec0bd
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130043475"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162163"
 ---
 # <a name="manage-sql-server-vms-by-using-the-azure-portal"></a>Azure Portal을 사용하여 SQL Server VM 관리
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -132,6 +132,6 @@ SQL 가상 머신 리소스의 **Security Center** 페이지를 사용하여 SQL
 * [Windows VM에서 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Windows VM의 SQL Server FAQ](frequently-asked-questions-faq.yml)
 * [Windows VM의 SQL Server 가격 책정 가이드](pricing-guidance.md)
-* [Azure VM의 SQL Server 새로운 내용](doc-changes-updates-release-notes-whats-new.md)
+* [Azure vm에서 SQL Server의 새로운 기능](doc-changes-updates-release-notes-whats-new.md)
 
 

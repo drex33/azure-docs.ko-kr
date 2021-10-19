@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/28/2021
 ms.topic: how-to
-ms.openlocfilehash: 29caef661b7078844991c3ca3867a1f03eb0114e
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 54da805b7f4c2332d0d475d2c5eb31b24fca597f
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129294383"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165659"
 ---
 # <a name="disable-local-authentication-in-automation"></a>Automation에서 로컬 인증 사용 안 함
 
@@ -33,7 +33,7 @@ Azure Automation는 Azure 정책 [구성 Azure Automation 계정을 사용 하 �
 |시나리오 | 대체 |
 |---|---|
 |Webhook를 사용 하 여 runbook 시작 | Azure AD 인증을 사용 하는 Azure Resource Manager 템플릿을 사용 하 여 runbook 작업을 시작 합니다. |
-|Automation Desired State Configuration를 사용 합니다.| [Azure Policy 게스트 구성을](/governance/policy/concepts/guest-configuration)사용 합니다.  |
+|Automation Desired State Configuration를 사용 합니다.| [Azure Policy 게스트 구성을](../governance/policy/concepts/guest-configuration.md)사용 합니다.  |
 |에이전트 기반 Hybrid Runbook Worker를 사용 합니다.| [확장 기반 Hybrid Runbook worker (미리 보기)](./extension-based-hybrid-runbook-worker-install.md)를 사용 합니다.|
 
 ## <a name="limitations"></a>제한 사항

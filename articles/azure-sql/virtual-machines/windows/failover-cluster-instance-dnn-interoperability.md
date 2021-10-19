@@ -3,7 +3,7 @@ title: SQL Server FCI 및 DNN의 기능 상호 운용성
 description: 'Azure VM의 SQL Server 장애 조치(failover) 클러스터 인스턴스를 사용하여 특정 SQL Server 기능 및 DNN(분산 네트워크 이름) 리소스를 사용할 때의 추가 고려 사항에 대해 알아봅니다. '
 services: virtual-machines
 documentationCenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -12,13 +12,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
-ms.author: mathoma
-ms.openlocfilehash: 03dcd9f4750e9bf3e6ec5568255b06ccb8316a0b
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
-ms.translationtype: HT
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: b868de74376199fdc173c41e8711575b44e67200
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111569461"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130164797"
 ---
 # <a name="feature-interoperability-with-sql-server-fci--dnn"></a>SQL Server FCI 및 DNN의 기능 상호 운용성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

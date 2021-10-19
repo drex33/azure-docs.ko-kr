@@ -10,12 +10,12 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.topic: how-to
 ms.date: 10/13/2021
-ms.openlocfilehash: 4fb3e1c0e202a33fd63f21918d0514fdf5f260b6
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 38d9487c5f0cd31c732a855de1008bae74df7e3f
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129992271"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130163266"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning"></a>Azure Machine Learning에서 관리 되는 id 사용
 
@@ -252,7 +252,7 @@ ws = Workspace.create(name="workspace name",
     primary_user_assigned_identity="managed identity ARM ID")
 ```
 
-[ARM 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced)을 사용하여 사용자가 할당한 관리 ID가 있는 작업 영역을 만들 수도 있습니다.
+[ARM 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/)을 사용하여 사용자가 할당한 관리 ID가 있는 작업 영역을 만들 수도 있습니다.
 
 > [!IMPORTANT]
 > 사용자 고유의 연결된 리소스를 가져오는 경우 Azure Machine Learning Service에서 만드는 대신 해당 리소스에 대한 관리 ID 역할을 부여해야 합니다. [역할 할당 ARM 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-dependencies-role-assignment)을 사용하여 할당을 만듭니다.

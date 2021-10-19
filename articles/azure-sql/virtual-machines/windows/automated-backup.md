@@ -3,7 +3,7 @@ title: SQL Server 2016/2017 Azure VM의 자동화된 백업 v2 | Microsoft Docs
 description: 이 문서에서는 Azure에서 실행되는 SQL Server 2016/2017 VM의 자동화된 백업 기능에 대해 설명합니다. 이 문서는 Resource Manager를 사용하는 VMs에만 적용됩니다.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
 ms.service: virtual-machines-sql
@@ -12,15 +12,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: pamela
+ms.reviewer: mathoma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: de61bb153a9aeb4a65933b9f149806b489ea7a6a
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 047280e5db0ce67a80b44dee224196d2ac6668c4
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129987552"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166247"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines의 자동화된 백업 v2(Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -114,7 +114,7 @@ ms.locfileid: "129987552"
 
 
 > [!IMPORTANT]
-> 백업은 각 간격 중에 순차적으로 수행 됩니다. 데이터베이스 수가 많은 인스턴스의 경우 모든 백업을 수용할 수 있는 충분 한 시간을 사용 하 여 백업 간격을 예약 합니다. 지정 된 간격 내에 백업을 완료할 수 없는 경우 일부 백업을 건너뛸 수 있으며, 단일 데이터베이스에 대 한 백업 간의 시간이 구성 된 백업 간격 시간 보다 높을 수 있으며,이로 인해 RPO (복원 지점 목표)에 부정적인 영향을 줄 수 있습니다. 
+> 백업은 각 간격 동안 순차적으로 발생합니다. 데이터베이스 수가 많은 인스턴스의 경우 모든 백업을 수용하기에 충분한 시간으로 백업 간격을 예약합니다. 지정된 간격 내에 백업을 완료할 수 없는 경우 일부 백업을 건너뛸 수 있으며 단일 데이터베이스에 대한 백업 간 시간이 구성된 백업 간격 시간보다 높아 RPO(복원 지점 목표)에 부정적인 영향을 줄 수 있습니다. 
 
 ## <a name="configure-new-vms"></a>새 VM 구성
 

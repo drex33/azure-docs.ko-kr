@@ -3,7 +3,7 @@ title: 가상 머신의 SQL Server로 SQL Server 데이터베이스 마이그레
 description: 온-프레미스 사용자 데이터베이스를 Azure 가상 머신의 SQL Server로 마이그레이션하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
-author: MashaMSFT
+author: bluefooted
 editor: ''
 tags: azure-service-management
 ms.assetid: 00fd08c6-98fa-4d62-a3b8-ca20aa5246b1
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.subservice: migration
 ms.topic: how-to
 ms.date: 08/18/2018
-ms.author: mathoma
-ms.reviewer: jroth
-ms.openlocfilehash: 719de6058ca683acc8fb0be9727271f5a7928531
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
-ms.translationtype: HT
+ms.author: pamela
+ms.reviewer: mathoma
+ms.openlocfilehash: 1d5454ad84baadf82ecea93793cc4cf22d4fb22f
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080024"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165301"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-on-an-azure-virtual-machine"></a>Azure 가상 머신의 SQL Server로 SQL Server 데이터베이스 마이그레이션
 

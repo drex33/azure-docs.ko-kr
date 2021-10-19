@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 09/08/2021
 ms.author: rifox
-ms.openlocfilehash: 319571066bd69d1bc80414de7bdb49da27102c18
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7d2a6415a2cc03513606183c290443c453a82577
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128705616"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130143765"
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-android.md)]
 
@@ -255,3 +255,30 @@ ID는 'Identifier' 형식 중 하나입니다.
     ```java
     List<RemoteVideoStream> videoStreams = remoteParticipant.getVideoStreams(); // [RemoteVideoStream, RemoteVideoStream, ...]
     ```
+## <a name="using-foreground-services"></a>포그라운드 서비스 사용
+
+애플리케이션이 백그라운드에 있는 경우에도 사용자 표시 작업을 실행하려는 경우 [Foreground Services](https://developer.android.com/guide/components/foreground-services)를 사용할 수 있습니다.
+
+예를 들어 Foreground Services를 사용하면 애플리케이션에 활성 호출이 있을 때 사용자에게 표시되는 알림을 유지합니다. 이러한 방식으로 사용자가 홈 화면으로 가거나 [최근 화면에서](https://developer.android.com/guide/components/activities/recents)애플리케이션을 제거하더라도 호출은 계속 활성화됩니다.
+
+호출하는 동안 포그라운드 서비스를 사용하지 않는 경우 홈 화면으로 이동하면 호출을 활성 상태로 유지할 수 있지만 Android OS가 애플리케이션의 프로세스를 중지하면 최근 화면에서 애플리케이션을 제거하면 호출이 중지됩니다.
+
+호출을 시작/조인할 때 Foreground 서비스를 시작해야 합니다. 예를 들면 다음과 같습니다.
+
+```java
+call = callAgent.startCall(context, participants, options);
+startService(yourForegroundServiceIntent);
+```
+
+호출을 중단하거나 호출 상태가 연결 끊김인 경우 포그라운드 서비스를 중지합니다. 예를 들면 다음과 같습니다.
+
+```java
+call.hangUp(new HangUpOptions()).get();
+stopService(yourForegroundServiceIntent);
+```
+
+### <a name="notes-on-using-foreground-services"></a>포그라운드 서비스 사용에 대한 참고 사항
+
+앱이 최근 목록에서 제거될 때 이미 실행 중인 Foreground Service를 중지하는 것과 같은 시나리오는 사용자 표시 알림을 제거하고 Android OS는 일정 기간 동안 애플리케이션 프로세스를 활성 상태로 유지할 수 있습니다. 즉, 이 기간 동안 호출이 계속 활성화될 수 있습니다.
+
+예를 들어 애플리케이션이 서비스 메서드에서 포그라운드 서비스를 중지하는 경우 `onTaskRemoved` 애플리케이션은 메서드 재정의로 활동이 소멸된 경우 오디오 및 비디오 중지와 같은 [작업 수명 주기에](https://developer.android.com/guide/components/activities/activity-lifecycle) 따라 오디오 및 비디오를 시작/중지할 수 `onDestroy` 있습니다.

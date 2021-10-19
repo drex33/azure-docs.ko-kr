@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: eriklind
-ms.openlocfilehash: 2d3b01389ec5ab5b016c6bee1c2b17a44717cb90
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: e2f1f8fff5869cc8d2eb942e45fe40e59d050b4c
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129997719"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045113"
 ---
-#  <a name="create-an-ios-app-public-preview"></a>iOS 앱 만들기(공개 미리 보기)
+# <a name="create-an-ios-app-public-preview"></a>iOS 앱 만들기(공개 미리 보기)
 
 이 문서에서는 iOS 앱에 Azure Maps를 추가하는 방법을 보여 줍니다. 여기서는 다음 기본 단계를 단계별로 안내합니다.
 
@@ -63,9 +63,11 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
 
 3. **기본 키** 를 클립보드로 복사합니다. 이 자습서의 뒷부분에서 사용하기 위해 로컬로 저장합니다.
 
-> [!Note]
-> Azure Maps 기본 키 대신 Azure 구독 키를 사용하면 맵이 제대로 렌더링되지 않습니다. 또한 보안을 위해 기본 키와 보조 키 사이를 회전하는 것이 좋습니다. 키를 회전하려면 보조 키를 사용하도록 앱을 업데이트하고 배포한 다음, 기본 키 옆에 있는 주기/새로 고침 단추를 눌러 새 기본 키를 생성합니다. 이전 기본 키는 사용할 수 없습니다. 키 회전에 대한 자세한 내용은 [키 회전 및 감사를 사용하여 Azure Key Vault 설정](/azure/key-vault/secrets/tutorial-rotation-dual)을 참조하세요.
-
+>[!NOTE]
+> 이 빠른 시작에서는 데모용 [공유 키](azure-maps-authentication.md#shared-key-authentication) 인증 방법을 사용하지만, 프로덕션 환경에 사용되는 기본 방법은 [Azure Active Directory](azure-maps-authentication.md#azure-ad-authentication) 인증입니다.
+<!--
+> If you use the Azure subscription key instead of the Azure Maps primary key, your map won't render properly. Also, for security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing](/azure/key-vault/secrets/tutorial-rotation-dual)
+-->
 ![구독 키를 가져옵니다.](./media/ios-sdk/quick-ios-app/get-key.png)
 
 ## <a name="create-a-project-in-xcode"></a>Xcode에서 프로젝트 만들기
@@ -86,15 +88,20 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
 
 애플리케이션을 빌드하는 다음 단계에서 Azure Maps iOS SDK를 설치합니다. SDK를 설치하려면 다음 단계를 완료합니다.
 
-1. **프로젝트 탐색기** 에서 프로젝트 파일 선택
+1. **프로젝트 탐색기** 에서 원하는 Xcode iOS 프로젝트를 선택한 상태에서 **+** 단추를 선택하여 **패키지 종속성을 추가** 합니다.
 
-2. 열린 **Project 편집기** 에서 프로젝트 선택
+   ![패키지 종속성을 추가합니다.](./media/ios-sdk/quick-ios-app/xcode-add-package-dependency.png)
 
-3. **Swift 패키지** 탭으로 전환
+2. 결과 대화 상자에 다음을 입력합니다.
+   * 오른쪽 위 모서리에 표시되는 검색 창에 `https://github.com/Azure/azure-maps-ios-sdk-distribution.git`을 입력합니다.
+   * `Up to Next Major Version`종속성 규칙 **필드에서** 를 선택합니다.
+   * **종속성 규칙** 버전 필드에 `1.0.0-pre.1`을 입력합니다.
 
-4. Azure Maps iOS SDK 추가: `{link goes here}`
+   ![iOS 프로젝트에 종속성 규칙을 추가합니다.](./media/ios-sdk/quick-ios-app/xcode-dependency-rule.png)
 
-   ![iOS 프로젝트를 추가합니다.](./media/ios-sdk/quick-ios-app/add-project.png)
+3. 패키지가 해당 종속성과 함께 확인되면 **패키지 추가** 단추를 선택하여 종속성 설정을 완료합니다.
+
+   ![iOS 프로젝트에 패키지를 추가합니다.](./media/ios-sdk/quick-ios-app/xcode-add-package.png)
 
 ## <a name="add-mapcontrol-view"></a>MapControl 보기 추가
 

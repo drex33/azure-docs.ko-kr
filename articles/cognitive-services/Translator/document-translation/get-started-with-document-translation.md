@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 09/16/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: 0e1192e310c658e93c4cfe5738e9ad4d36984113
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 051e218b8c0bce8249c6fbe3dd785d797130b61f
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128580875"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130062731"
 ---
 # <a name="get-started-with-document-translation"></a>문서 번역 시작
 
@@ -117,7 +117,7 @@ Translator 서비스에 대한 요청에는 액세스 인증을 위한 읽기 �
 * 각 대상 언어의 `targetUrl`은 고유해야 합니다.
 
 >[!NOTE]
-> 이름이 같은 파일이 대상에 이미 있으면 해당 파일을 덮어씁니다.
+> 이름이 같은 파일이 대상에 이미 있으면 작업이 실패합니다.
 
 <!-- markdownlint-disable MD024 -->
 ### <a name="translate-all-documents-in-a-container"></a>컨테이너의 모든 문서 번역

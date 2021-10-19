@@ -1,20 +1,23 @@
 ---
-title: Azure API for FHIR 검색 예
-description: 다른 검색 매개 변수, 한정자 및 기타 FHIR 검색 도구를 사용하여 검색하는 방법
+title: FHIR 서비스에 대한 검색 예제
+description: FHIR에 대한 다른 검색 매개 변수, 한정자 및 기타 검색 도구를 사용하여 검색하는 방법
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 05/21/2021
+ms.date: 08/03/2021
 ms.author: cavoeg
-ms.openlocfilehash: 5be1be72e47af10868867e0dce8b747911509381
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 17f2ae17f2dd4677734a71fdf395ac7cdab13b8c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111810809"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722190"
 ---
 # <a name="fhir-search-examples"></a>FHIR 검색 예제
+
+> [!IMPORTANT]
+> Azure Healthcare API는 현재 미리 보기로 제공됩니다. [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관이 포함되어 있습니다.
 
 다음은 검색 매개 변수 및 한정자, 체인 및 역방향 체인 검색, 복합 검색, 검색 결과에 대한 다음 항목 집합 보기 및 요청으로 검색을 포함하여 FHIR 검색 작업을 사용하는 몇 가지 `POST` 예입니다. 검색에 대한 자세한 내용은 [FHIR 검색 개요를](overview-of-search.md)참조하세요.
    
@@ -22,7 +25,7 @@ ms.locfileid: "111810809"
 
 ### <a name="_include"></a>_include
 
-`_include` 는 리소스에서 지정된 리소스 매개 변수를 포함하는 리소스를 검색합니다. 예를 들어 `MedicationRequest` 리소스를 검색하여 매개 변수인 특정 환자의개체에 대한 정보가 포함된 리소스만 찾을 수 `reference` `patient` 있습니다. 아래 예제에서는 에서 `MedicationRequests` 참조되는 모든 환자와 모든 환자를 끌어오게 됩니다. `MedicationRequests`
+`_include` 는 리소스의 지정된 매개 변수를 포함하는 리소스를 검색합니다. 예를 들어 `MedicationRequest` 리소스를 검색하여 매개 변수인 특정 환자의개체에 대한 정보가 포함된 리소스만 찾을 수 `reference` `patient` 있습니다. 아래 예제에서는 에서 `MedicationRequests` 참조되는 모든 환자와 모든 환자를 끌어오게 됩니다. `MedicationRequests`
 
 ```rest
  GET [your-fhir-server]/MedicationRequest?_include=MedicationRequest:patient
@@ -49,7 +52,7 @@ GET [your-fhir-server]/Patient?_elements=identifier,active
 
 ```
 
-이 요청에서는 환자 번들을 다시 받게 되지만 각 리소스에는 식별자 및 환자의 활성 상태만 포함됩니다. 이 반환된 응답의 리소스에는 `meta.tag` 불완전한 결과 집합임을 나타내는 값이 `SUBSETTED` 포함됩니다.
+이 요청에서는 환자 번들을 다시 받게 되지만 각 리소스에는 식별자와 환자의 활성 상태만 포함됩니다. 이 반환된 응답의 리소스에는 `meta.tag` 불완전한 결과 집합임을 나타내는 값이 `SUBSETTED` 포함됩니다.
 
 ## <a name="search-modifiers"></a>검색 한정자
 
@@ -81,17 +84,17 @@ GET [your-fhir-server]/Patient?name:exact=Jon
 
 ```
 
-이 `Patient` 요청은 이름과 정확히 동일한 리소스를 `Jon` 반환합니다. 리소스에 또는 와 같은 이름의 환자의 경우 `Jonathan` `joN` 지정된 값과 정확히 일치하지 않으므로 검색에서 리소스를 무시하고 건너뜁니다.
+이 `Patient` 요청은 이름과 정확히 동일한 리소스를 `Jon` 반환합니다. 리소스에 또는 와 같은 이름의 환자가 있는 경우 `Jonathan` `joN` 지정된 값과 정확히 일치하지 않으므로 검색에서 리소스를 무시하고 건너뜁니다.
 
 ### <a name="contains"></a>:contains
-`:contains``string`는 매개 변수에 사용되며 검색되는 필드 내의 문자열에서 지정된 값의 부분 일치 항목이 있는 리소스를 검색합니다. `contains` 는 대/소문자를 구분하지 않으며 문자의 결합을 허용합니다. 예를 들면 다음과 같습니다.
+`:contains``string`는 매개 변수에 사용되며 검색되는 필드 내의 문자열에서 지정된 값의 부분 일치 항목이 있는 리소스를 검색합니다. `contains` 는 대/소문자를 구분하지 않으며 문자 간을 허용합니다. 예를 들어:
 
 ```rest
 GET [your-fhir-server]/Patient?address:contains=Meadow
 
 ```
 
-이 요청은 `Patient` `address` 문자열 "표시"를 포함하는 값이 있는 필드가 있는 모든 리소스를 반환합니다. 즉, 검색 결과로 반환된 "표시자" 또는 "59 표시 ST"와 같은 값을 포함하는 주소가 있을 수 있습니다.
+이 요청은 `Patient` `address` 문자열 "표시"를 포함하는 값이 있는 필드가 있는 모든 리소스를 반환합니다. 즉, 검색 결과로 반환된 "표시자" 또는 "59개의 표시 ST"와 같은 값을 포함하는 주소가 있을 수 있습니다.
 
 ## <a name="chained-search"></a>연결된 검색 
 
@@ -104,7 +107,7 @@ GET [your-fhir-server]/Patient?address:contains=Meadow
 
 이 요청은 `DiagnosticReport` 환자 주제가 "Sarah"인 모든 리소스를 반환합니다. `.`필드가 매개 `Patient` 변수의 참조 매개 변수에 대해 연결된 검색을 수행한 후의 `subject` 기간입니다.
 
-일반적인 검색(체인 검색이 아닌)의 또 다른 일반적인 용도는 특정 환자의 모든 발견을 찾는 것입니다. `Patient`s에는 주체가 있는 가 하나 이상 `Encounter` 있는 경우가 많습니다. 제공된 를 사용하여 에 대한 모든 `Encounter` `Patient` 리소스를 검색하려면: `id`
+일반적인 검색(체인 검색이 아닌)의 또 다른 일반적인 용도는 특정 환자의 모든 발견을 찾는 것입니다. `Patient`s에는 제목이 있는 가 하나 이상 `Encounter` 있는 경우가 많습니다. 제공된 를 사용하여 에 대한 모든 `Encounter` `Patient` 리소스를 검색하려면: `id`
 
 ```rest
 GET [your-fhir-server]/Encounter?subject=Patient/78a14cbe-8968-49fd-a231-d43e6619399f
@@ -120,7 +123,7 @@ GET [your-fhir-server]/Encounter?subject:Patient.birthdate=1987-02-20
 
 이렇게 하면 단일 `Encounter` 환자뿐만 아니라 지정된 생년월일 값이 있는 모든 환자에서 리소스를 검색할 수 있습니다. 
 
-또한 하나의 요청에서 여러 조건을 검색할 수 있는 기호 를 사용하여 연결된 검색을 한 요청에서 두 번 이상 수행할 `&` 수 있습니다. 이러한 경우 연결된 검색은 모든 조건만 한 번에 충족하는 조건을 검색하는 대신 각 매개 변수를 "독립적으로" 검색합니다.
+또한 하나의 요청에서 여러 조건을 검색할 수 있는 기호 를 사용하여 연결된 검색을 한 요청에서 두 번 이상 수행할 수 `&` 있습니다. 이러한 경우 연결된 검색은 모든 조건만 한 번에 충족하는 조건을 검색하는 대신 각 매개 변수를 "독립적으로" 검색합니다.
 
 ```rest
 GET [your-fhir-server]/Patient?general-practitioner:Practitioner.name=Sarah&general-practitioner:Practitioner.address-state=WA
@@ -149,19 +152,22 @@ GET [base]/Patient?_has:Observation:patient:_has:AuditEvent:entity:agent:Practit
 
 ``` 
 
-> [!NOTE]
-> Cosmos에서 백업하는 Azure API for FHIR 및 오픈 소스 FHIR 서버에서 연결된 검색 및 역방향 체인 검색은 MVP 구현입니다. Cosmos DB 연결된 검색을 수행하기 위해 구현에서는 검색 식을 안내하고 하위 쿼리를 실행하여 일치하는 리소스를 확인합니다. 이 작업은 식의 각 수준에 대해 수행됩니다. 쿼리가 100개 이상의 결과를 반환하는 경우 오류가 throw됩니다.
-
 ## <a name="composite-search"></a>복합 검색
 
-한 번에 여러 조건을 충족하는 리소스를 검색하려면 단일 매개 변수 값 시퀀스를 기호 와 조인하는 복합 검색을 `$` 사용합니다. 반환되는 결과는 조인된 검색 매개 변수로 지정된 모든 조건과 일치하는 리소스의 교집합입니다. 이러한 검색 매개 변수를 복합 검색 매개 변수라고 하며 중첩된 구조에서 여러 매개 변수를 결합하는 새 매개 변수를 정의합니다. 예를 들어, `DiagnosticReport` `Observation` 9.2보다 크거나 같은 포트할당 값이 포함된 모든 리소스를 찾으려면 다음을 수행합니다.
+한 번에 여러 조건을 충족하는 리소스를 검색하려면 단일 매개 변수 값 시퀀스를 기호 와 조인하는 복합 검색을 `$` 사용합니다. 반환되는 결과는 조인된 검색 매개 변수로 지정된 모든 조건과 일치하는 리소스의 교집합입니다. 이러한 검색 매개 변수를 복합 검색 매개 변수라고 하며 중첩된 구조에서 여러 매개 변수를 결합하는 새 매개 변수를 정의합니다. 예를 들어, `DiagnosticReport` `Observation` 9.2보다 크거나 작은 포트할당 값이 포함된 모든 리소스를 찾으려면 다음을 수행합니다.
 
 ```rest
 GET [your-fhir-server]/DiagnosticReport?result.code-value-quantity=2823-3$lt9.2
 
 ``` 
 
-이 요청은 코드가 포함된 구성 요소를 지정합니다. `2823-3` 이 경우 포트할당이 됩니다. 기호 다음에는 `$` `lt` "보다 낮거나 같음"에 를 `9.2` 사용하고, 을(를) 시차 값 범위에 사용하는 구성 요소의 값 범위를 지정합니다. 
+이 요청은 코드가 포함된 구성 요소를 지정합니다. `2823-3` 이 경우 포트할당이 됩니다. 기호 다음에는 `$` `lt` "보다 낮거나 같음"에 를 사용하고, 포트할당 값 범위에 를 사용하여 구성 `9.2` 요소의 값 범위를 지정합니다. 
+
+복합 검색 매개 변수를 사용하여 OR로 여러 구성 요소 코드 값 수량을 필터링할 수도 있습니다. 예를 들어 쿼리를 표현하여 90 이상 또는 140보다 큰 systolic 기압을 찾습니다.
+
+```rest
+GET [your-fhir-server]/Observation?component-code-value-quantity=http://loinc.org|8462-4$gt90,http://loinc.org|8480-6$gt140
+``` 
 
 ## <a name="search-the-next-entry-set"></a>다음 항목 집합 검색
 
@@ -205,7 +211,7 @@ POST [your-fhir-server]/Patient/_search?_id=45
 
 ```
 
-이 요청은 `Patient` 값이 45인 모든 리소스를 `id` 반환합니다. GET 요청과 마찬가지로 서버는 조건을 충족하는 리소스 집합을 결정하고 HTTP 응답에서 번들 리소스를 반환합니다.
+이 요청은 `Patient` 값이 45인 모든 리소스를 `id` 반환합니다. GET 요청과 마찬가지로 서버는 조건을 충족하는 리소스 집합을 결정하고 HTTP 응답에 번들 리소스를 반환합니다.
 
 쿼리 매개 변수가 양식 본문으로 제출되는 POST를 사용하여 검색하는 또 다른 예는 다음과 같습니다.
 

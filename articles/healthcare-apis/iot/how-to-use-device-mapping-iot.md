@@ -1,0 +1,456 @@
+---
+title: IoT Connector 디바이스 매핑 템플릿 - Azure Healthcare API
+description: 이 문서에서는 IoT Connector 디바이스 매핑 템플릿을 사용하는 방법을 설명합니다.
+author: msjasteppe
+ms.service: healthcare-apis
+ms.subservice: fhir
+ms.topic: conceptual
+ms.date: 10/12/2021
+ms.author: jasteppe
+ms.openlocfilehash: a0cc7037ca95fe4262b6c10dc9cb260a971f7c31
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130005542"
+---
+# <a name="how-to-use-device-mapping"></a>디바이스 매핑을 사용하는 방법
+
+> [!IMPORTANT]
+> Azure Healthcare API는 현재 미리 보기로 제공됩니다. [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관이 포함되어 있습니다.
+
+IoT 커넥터에는 두 가지 유형의 JSON 기반 매핑이 필요합니다. 첫 번째 형식인 **디바이스 매핑은** `devicedata` Azure Event Hub 엔드포인트로 전송되는 디바이스 페이로드를 매핑하는 것을 담당합니다. 형식, 디바이스 식별자, 측정 날짜 시간 및 측정값을 추출합니다. 
+
+두 번째 형식인 **전자 의료 기록 교환(FHIR&#174;) 대상 매핑은** FHIR 리소스에 대한 매핑을 제어합니다. 관찰 기간의 길이, 값을 저장하는 데 사용되는 FHIR 데이터 형식 및 용어 코드를 구성할 수 있습니다. 
+
+두 가지 유형의 매핑은 형식에 따라 JSON 문서로 구성됩니다. 그런 다음, 이러한 JSON 문서는 Azure Portal 통해 IoT 커넥터에 추가됩니다. 디바이스 매핑 문서는 **디바이스 매핑** 페이지 및 FHIR 대상 매핑 문서를 통해 대상 페이지를 통해 **추가됩니다.**
+
+> [!NOTE]
+> 매핑은 기본 Blob Storage에 저장되고 컴퓨팅 실행당 Blob에서 로드됩니다. 업데이트되면 즉시 적용됩니다. 
+
+## <a name="device-mapping"></a>디바이스 매핑
+
+디바이스 매핑은 추가 평가를 위해 디바이스 콘텐츠를 일반적인 형식으로 추출하는 매핑 기능을 제공합니다. 받은 각 메시지는 모든 템플릿에 대해 평가됩니다. 이 방법을 사용하면 단일 인바운드 메시지를 여러 아웃바운드 메시지에 프로젝션할 수 있으며, 나중에 FHIR의 다른 관찰에 매핑됩니다. 결과는 템플릿에서 구문 분석된 값 또는 값을 나타내는 정규화된 데이터 개체입니다. 정규화된 데이터 모델에는 찾아서 추출해야 하는 몇 가지 필수 속성이 있습니다.
+
+| 속성             | 설명                                                                                                                                                                                                                                                   |
+|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Type**             | 측정값을 분류할 이름/형식입니다. 이 값은 필요한 FHIR 대상 매핑에 바인딩하는 데 사용됩니다.  여러 매핑이 동일한 형식으로 출력되어 여러 디바이스의 다양한 표현을 단일 공통 출력에 매핑할 수 있습니다. |
+| **OccurenceTimeUtc** | 측정이 발생한 시간입니다.                                                                                                                                                                                                                            |
+| **DeviceId**         | 디바이스의 식별자입니다. 이 값은 대상 FHIR 서비스에 있는 디바이스 리소스의 식별자와 일치해야 합니다.                                                                                                                       |
+| **속성**       | 생성된 Observation 리소스에 값을 저장할 수 있도록 하나 이상의 속성을 추출합니다.  속성은 정규화 중에 추출된 키 값 쌍의 컬렉션입니다.                                                                                  |
+
+다음은 정규화 중에 발생하는 작업의 개념 예제입니다.
+
+![정규화 예제](media/concepts-iot-mapping-templates/normalization-example.png#lightbox)
+
+콘텐츠 페이로드 자체는 Azure Event Hub 메시지로, 본문, 속성 및 SystemProperties의 세 부분으로 구성됩니다. `Body`는 UTF-8로 인코딩된 문자열을 나타내는 바이트 배열입니다. 템플릿을 평가하는 동안 바이트 배열은 문자열 값으로 자동으로 변환됩니다. `Properties` 는 메시지 작성자가 사용할 키 값 컬렉션입니다. `SystemProperties` 는 Azure Event Hub 프레임워크에서 예약한 키 값 컬렉션이기도 하며 항목이 자동으로 채워집니다.
+
+```json
+{
+    "Body": {
+        "content": "value"
+    },
+    "Properties": {
+        "key1": "value1",
+        "key2": "value2"
+    },
+    "SystemProperties": {
+        "x-opt-sequence-number": 1,
+        "x-opt-enqueued-time": "2021-02-01T22:46:01.8750000Z",
+        "x-opt-offset": 1,
+        "x-opt-partition-key": "1"
+    }
+}
+```
+### <a name="mapping-with-json-path"></a>JSON 경로를 통해 매핑
+
+현재 지원되는 세 가지 디바이스 콘텐츠 매핑 유형은 JSON 경로를 사용하여 필요한 매핑 및 추출된 값과 일치합니다. JSON 경로에 대한 자세한 내용은 여기에서 찾을 수 [있습니다.](https://goessner.net/articles/JsonPath/) 세 가지 템플릿 형식은 모두 JSON 경로 식을 해결하기 위해 JSON [.NET 구현을](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) 사용합니다.
+
+#### <a name="jsonpathcontenttemplate"></a>JsonPathContentTemplate
+
+JsonPathContentTemplate을 사용하면 JSON 경로를 사용하여 이벤트 허브 메시지에서 값을 일치시키고 추출할 수 있습니다.
+
+| 속성 | 설명 |예제 |
+| --- | --- | --- |
+|**TypeName**|템플릿과 일치하는 측정값과 연결할 형식입니다.|`heartrate`
+|**TypeMatchExpression**|이벤트 허브 페이로드에 대해 평가되는 JSON 경로 식입니다. 일치하는 JToken이 발견되면 템플릿이 일치하는 것으로 간주됩니다. 모든 후속 식은 여기에서 일치하는 추출된 JToken에 대해 평가됩니다.|`$..[?(@heartRate)]`
+|**TimestampExpression**|측정값의 OccurenceTimeUtc에 대한 타임스탬프 값을 추출하는 JSON 경로 식입니다.|`$.endDate`
+|**DeviceIdExpression**|디바이스 식별자를 추출하는 JSON 경로 식입니다.|`$.deviceId`
+|**PatientIdExpression**|*선택 사항:* 환자 식별자를 추출하는 JSON 경로 식입니다.|`$.patientId`
+|**EncounterIdExpression**|*선택 사항:* 발견 식별자를 추출하는 JSON 경로 식입니다.|`$.encounterId`
+|**값[]. ValueName**|후속 식에서 추출한 값과 연결할 이름입니다. FHIR 대상 매핑에서 필요한 값/구성 요소를 바인딩하는 데 사용됩니다. |`hr`
+|**값[]. ValueExpression**|필요한 값을 추출하는 JSON 경로 식입니다.|`$.heartRate`
+|**값[]. 필수**|페이로드에 값이 있어야 합니다.  찾을 수 없으면 측정값이 생성되지 않고 InvalidOperationException이 throw됩니다.|`true`
+
+##### <a name="examples"></a>예제
+
+**심박수**
+
+*Message*
+
+```json
+{
+    "Body": {
+        "heartRate": "78",
+        "endDate": "2021-02-01T22:46:01.8750000Z",
+        "deviceId": "device123"
+    },
+    "Properties": {},
+    "SystemProperties": {}
+}
+```
+*템플릿*
+```json
+{
+    "templateType": "JsonPathContent",
+    "template": {
+        "typeName": "heartrate",
+        "typeMatchExpression": "$..[?(@heartRate)]",
+        "deviceIdExpression": "$.deviceId",
+        "timestampExpression": "$.endDate",
+        "values": [
+            {
+                "required": "true",
+                "valueExpression": "$.heartRate",
+                "valueName": "hr"
+            }
+        ]
+    }
+}
+```
+**혈압**
+
+*Message*
+
+```json
+{
+    "Body": {
+        "systolic": "123",
+        "diastolic" : "87",
+        "endDate": "2021-02-01T22:46:01.8750000Z",
+        "deviceId": "device123"
+    },
+    "Properties": {},
+    "SystemProperties": {}
+}
+```
+*템플릿*
+
+```json
+{
+    "typeName": "bloodpressure",
+    "typeMatchExpression": "$..[?(@systolic && @diastolic)]",
+    "deviceIdExpression": "$.deviceId",
+    "timestampExpression": "$.endDate",
+    "values": [
+        {
+            "required": "true",
+            "valueExpression": "$.systolic",
+            "valueName": "systolic"
+        },
+        {
+            "required": "true",
+            "valueExpression": "$.diastolic",
+            "valueName": "diastolic"
+        }
+    ]
+}
+```
+**단일 메시지에서 여러 측정값 Project**
+
+*Message*
+
+```json
+{
+    "Body": {
+        "heartRate": "78",
+        "steps": "2",
+        "endDate": "2021-02-01T22:46:01.8750000Z",
+        "deviceId": "device123"
+    },
+    "Properties": {},
+    "SystemProperties": {}
+}
+```
+*템플릿 1*
+
+```json
+{
+    "templateType": "JsonPathContent",
+    "template": {
+        "typeName": "heartrate",
+        "typeMatchExpression": "$..[?(@heartRate)]",
+        "deviceIdExpression": "$.deviceId",
+        "timestampExpression": "$.endDate",
+        "values": [
+            {
+                "required": "true",
+                "valueExpression": "$.heartRate",
+                "valueName": "hr"
+            }
+        ]
+    }
+}
+```
+
+*템플릿 2*
+
+```json
+{
+    "templateType": "JsonPathContent",
+    "template": {
+        "typeName": "stepcount",
+        "typeMatchExpression": "$..[?(@steps)]",
+        "deviceIdExpression": "$.deviceId",
+        "timestampExpression": "$.endDate",
+        "values": [
+            {
+                "required": "true",
+                "valueExpression": "$.steps",
+                "valueName": "steps"
+            }
+        ]
+    }
+}
+```
+**메시지의 배열에서 여러 측정값 Project**
+
+*Message*
+
+```json
+{
+    "Body": [
+        {
+            "heartRate": "78",
+            "endDate": "2021-02-01T22:46:01.8750000Z",
+            "deviceId": "device123"
+        },
+        {
+            "heartRate": "81",
+            "endDate": "2021-02-01T23:46:01.8750000Z",
+            "deviceId": "device123"
+        },
+        {
+            "heartRate": "72",
+            "endDate": "2021-02-01T24:46:01.8750000Z",
+            "deviceId": "device123"
+        }
+    ],
+    "Properties": {},
+    "SystemProperties": {}
+}
+```
+*템플릿*
+
+```json
+{
+    "templateType": "JsonPathContent",
+    "template": {
+        "typeName": "heartrate",
+        "typeMatchExpression": "$..[?(@heartRate)]",
+        "deviceIdExpression": "$.deviceId",
+        "timestampExpression": "$.endDate",
+        "values": [
+            {
+                "required": "true",
+                "valueExpression": "$.heartRate",
+                "valueName": "hr"
+            }
+        ]
+    }
+}
+```
+#### <a name="iotjsonpathcontenttemplate"></a>IotJsonPathContentTemplate
+
+IotJsonPathContentTemplate은 DeviceIdExpression 및 TimestampExpression이 필요하지 않다는 점을 제외하고 JsonPathContentTemplate과 비슷합니다.
+
+이 템플릿을 사용하는 경우 평가되는 메시지는 Azure IoT [Central의](../../iot-central/core/overview-iot-central.md) [Azure IoT Hub 디바이스 SDK](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) 또는 [데이터 내보내기(레거시)](../../iot-central/core/howto-export-data-legacy.md) 기능을 사용하여 전송되었다고 가정합니다. 이러한 SDK를 사용하는 경우 디바이스 ID(Azure Iot Hub/Central의 디바이스 식별자가 대상 FHIR 서비스의 디바이스 리소스에 대한 식별자로 등록되었다고 가정) 및 메시지의 타임스탬프가 알려져 있습니다. Azure IoT Hub 디바이스 SDK를 사용하지만 디바이스 ID 또는 측정 타임스탬프에 대한 메시지 본문에서 사용자 지정 속성을 사용하는 경우에도 JsonPathContentTemplate을 사용할 수 있습니다.
+
+> [!NOTE]
+> 를 사용하는 경우 `IotJsonPathContentTemplate` 는 `TypeMatchExpression` 전체 메시지로 JToken으로 확인되어야 합니다. 자세한 내용은 다음 예제를 참조하세요.
+
+##### <a name="examples"></a>예제
+
+**심박수**
+
+*Message*
+
+```json
+{
+    "Body": {
+        "heartRate": "78"        
+    },
+    "Properties": {
+        "iothub-creation-time-utc" : "2021-02-01T22:46:01.8750000Z"
+    },
+    "SystemProperties": {
+        "iothub-connection-device-id" : "device123"
+    }
+}
+```
+*템플릿*
+
+```json
+
+    "templateType": "JsonPathContent",
+    "template": {
+        "typeName": "heartrate",
+        "typeMatchExpression": "$..[?(@Body.heartRate)]",
+        "deviceIdExpression": "$.deviceId",
+        "timestampExpression": "$.endDate",
+        "values": [
+            {
+                "required": "true",
+                "valueExpression": "$.Body.heartRate",
+                "valueName": "hr"
+            }
+        ]
+    }
+}
+```
+
+**혈압**
+
+*Message*
+
+```json
+{
+    "Body": {
+        "systolic": "123",
+        "diastolic" : "87"
+    },
+    "Properties": {
+        "iothub-creation-time-utc" : "2021-02-01T22:46:01.8750000Z"
+    },
+    "SystemProperties": {
+        "iothub-connection-device-id" : "device123"
+    }
+}
+```
+*템플릿*
+
+```json
+{
+    "typeName": "bloodpressure",
+    "typeMatchExpression": "$..[?(@Body.systolic && @Body.diastolic)]",
+    "values": [
+        {
+            "required": "true",
+            "valueExpression": "$.Body.systolic",
+            "valueName": "systolic"
+        },
+        {
+            "required": "true",
+            "valueExpression": "$.Body.diastolic",
+            "valueName": "diastolic"
+        }
+    ]
+}
+```
+#### <a name="iotcentraljsonpathcontenttemplate"></a>IotCentralJsonPathContentTemplate
+
+또한 IotCentralJsonPathContentTemplate에는 DeviceIdExpression 및 TimestampExpression가 필요 하지 않습니다. 이는 [Azure IoT Central](../../iot-central/core/overview-iot-central.md)의 [데이터 내보내기](../../iot-central/core/howto-export-data.md) 기능을 통해 평가할 메시지가 전송 될 때 사용 됩니다. 이 기능을 사용 하는 경우 장치 id (Azure Iot Central의 장치 식별자가 대상 FHIR 서버에서 장치 리소스에 대 한 식별자로 등록 됨) 및 메시지의 타임 스탬프를 알 수 있습니다. Azure IoT Central의 데이터 내보내기 기능을 사용 중이지만 장치 id 또는 측정 타임 스탬프에 대 한 메시지 본문의 사용자 지정 속성을 사용 하는 경우에도 JsonPathContentTemplate를 사용할 수 있습니다.
+
+> [!NOTE]
+> IotCentralJsonPathContentTemplate를 사용 하는 경우 TypeMatchExpression는 전체 메시지를 JToken로 확인 해야 합니다. 자세한 내용은 다음 예제를 참조 하세요.
+ 
+##### <a name="examples"></a>예제
+
+**하트 요금**
+
+*Message*
+
+```json
+{
+    "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+    "messageSource": "telemetry",
+    "deviceId": "1vzb5ghlsg1",
+    "schema": "default@v1",
+    "templateId": "urn:qugj6vbw5:___qbj_27r",
+    "enqueuedTime": "2021-08-05T22:26:55.455Z",
+    "telemetry": {
+        "HeartRate": "88",
+    },
+    "enrichments": {
+      "userSpecifiedKey": "sampleValue"
+    },
+    "messageProperties": {
+      "messageProp": "value"
+    }
+}
+```
+*템플릿*
+
+```json
+{
+    "templateType": "IotCentralJsonPathContent",
+    "template": {
+        "typeName": "heartrate",
+        "typeMatchExpression": "$..[?(@telemetry.HeartRate)]",
+        "values": [
+            {
+                "required": "true",
+                "valueExpression": "$.telemetry.HeartRate",
+                "valueName": "hr"
+            }
+        ]
+    }
+}
+```
+
+**블러드 압력**
+
+*Message*
+
+```json
+{
+    "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+    "messageSource": "telemetry",
+    "deviceId": "1vzb5ghlsg1",
+    "schema": "default@v1",
+    "templateId": "urn:qugj6vbw5:___qbj_27r",
+    "enqueuedTime": "2021-08-05T22:26:55.455Z",
+    "telemetry": {
+        "BloodPressure": {
+            "Diastolic": "87",
+            "Systolic": "123"
+        }
+    },
+    "enrichments": {
+      "userSpecifiedKey": "sampleValue"
+    },
+    "messageProperties": {
+      "messageProp": "value"
+    }
+}
+```
+*템플릿*
+
+```json
+{
+    "templateType": "IotCentralJsonPathContent",
+    "template": {
+        "typeName": "bloodPressure",
+        "typeMatchExpression": "$..[?(@telemetry.BloodPressure.Diastolic && @telemetry.BloodPressure.Systolic)]",
+        "values": [
+            {
+                "required": "true",
+                "valueExpression": "$.telemetry.BloodPressure.Diastolic",
+                "valueName": "bp_diastolic"
+            },
+            {
+                "required": "true",
+                "valueExpression": "$.telemetry.BloodPressure.Systolic",
+                "valueName": "bp_systolic"
+            }
+        ]
+    }
+}
+```
+
+## <a name="next-steps"></a>다음 단계
+
+>[!div class="nextstepaction"]
+>[FHIR 대상 매핑을 사용 하는 방법](how-to-use-fhir-mapping-iot.md)
+
+(FHIR&#174;)는 [HL7](https://hl7.org/fhir/) 의 등록 상표 이며 HL7의 사용 권한과 함께 사용 됩니다.

@@ -1,106 +1,106 @@
 ---
-title: Azure에서 지원되는 FHIR 기능 - Azure API for FHIR
-description: 이 문서에서는 Azure API for FHIR 구현되는 FHIR 사양의 기능을 설명합니다.
+title: FHIR 서비스에서 지원 되는 FHIR 기능
+description: 이 문서에서는 의료 Api에 구현 된 FHIR 사양의 기능을 설명 합니다.
 services: healthcare-apis
 author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 6/16/2021
+ms.date: 08/03/2021
 ms.author: cavoeg
-ms.openlocfilehash: 3e2d0c051ff882e43b04b2aea4357e78d79e67dc
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+ms.openlocfilehash: c1f40d6129f08b8369885631232b394d66f1d260
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113135954"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045846"
 ---
-# <a name="features"></a>기능
+# <a name="supported-fhir-features"></a>지원 되는 FHIR 기능
 
-Azure API for FHIR Azure용 Microsoft FHIR 서버의 완전 관리형 배포를 제공합니다. 서버는 [FHIR](https://hl7.org/fhir) 표준의 구현입니다. 이 문서에서는 FHIR 서버의 주요 기능을 나열합니다.
+> [!IMPORTANT]
+> Azure 의료 Api는 현재 미리 보기로 제공 됩니다. [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관이 포함되어 있습니다.
+
+&reg;Azure 의료 api의 fhir 서비스 (FHIR 서비스 라고 함)는 [오픈 소스 Fhir 서버](https://github.com/microsoft/fhir-server) 를 완전히 관리 하는 배포를 제공 하며, [fhir](https://hl7.org/fhir) 표준의 구현입니다. 이 문서에서는 FHIR 서비스의 주요 기능을 보여 줍니다.
 
 ## <a name="fhir-version"></a>FHIR 버전
 
-지원되는 최신 버전: `4.0.1`
+지원 되는 최신 버전: `4.0.1`
 
-또한 현재 지원되는 이전 버전은 다음과 같습니다. `3.0.2`
+이전 버전은 현재 다음과 같이 지원 됩니다. `3.0.2`
 
 ## <a name="rest-api"></a>REST API
 
-| API                            | 지원됨 - PaaS | 지원됨 - OSS(SQL) | 지원됨 - OSS(Cosmos DB) | 설명                                             |
-|--------------------------------|-----------|-----------|-----------|-----------------------------------------------------|
-| 읽기                           | 예       | 예       | 예       |                                                     |
-| vread                          | 예       | 예       | 예       |                                                     |
-| update                         | 예       | 예       | 예       |                                                     |
-| 낙관적 잠금으로 업데이트 | 예       | 예       | 예       |                                                     |
-| update(조건부)           | 예       | 예       | 예       |                                                     |
-| 패치                          | 예        | 예        | 예        |                                                     |
-| delete                         | 예       | 예       | 예       |  아래 참고를 참조하세요.                                   |
-| delete(조건부)           | 예       | 예        | 예        |                                                     |
-| history                        | 예       | 예       | 예       |                                                     |
-| create                         | 예       | 예       | 예       | POST/PUT 모두 지원                               |
-| create(조건부)           | 예       | 예       | 예       | 문제 [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
-| search                         | Partial   | Partial   | Partial   | [FHIR 검색 개요를](overview-of-search.md)참조하세요.                           |
-| 연결된 검색                 | Partial       | 예       | 부분   | 아래 참고 2를 참조하세요.                                   |
-| 역방향 체인 검색         | Partial       | 예       | 부분   | 아래 참고 2를 참조하세요.                                   |
-| capabilities                   | 예       | 예       | 예       |                                                     |
-| 일괄 처리                          | 예       | 예       | 예       |                                                     |
-| 트랜잭션                    | 예        | 예       | 예        |                                                     |
-| 페이징                         | Partial   | Partial   | Partial   | `self` 및 `next` 가 지원됩니다.                     |
-| 중개자                 | 예        | 예        | 예        |                                                     |
+| API    | FHIR용 Azure API | 의료 Api의 FHIR 서비스 | 의견 |
+|--------|--------------------|---------------------------------|---------|
+| 읽기   | 예                | 예                             |         |
+| vread  | 예                | 예                             |         |
+| update | 예                | 예                             |         | 
+| 낙관적 잠금으로 업데이트 | 예       | 예       |
+| update (조건부)           | 예       | 예       |
+| 패치                          | 예       | 예       | [JSON Patch](https://www.hl7.org/fhir/http.html#patch) 에만 지원 됩니다. [이 PR](https://github.com/microsoft/fhir-server/pull/2143)의 번들에 JSON 패치를 사용 하는 방법에 대 한 해결 방법이 포함 되어 있습니다.|
+| 패치 (조건부)            | 예       | 예       |
+| delete                         | 예       | 예       | 아래의 삭제 섹션에서 세부 정보를 참조 하세요. |
+| delete (조건부)           | 예       | 예       | 아래의 삭제 섹션에서 세부 정보를 참조 하세요. |
+| history                        | 예       | 예       |
+| create                         | 예       | 예       | POST/PUT 모두 지원 |
+| create (조건부)           | 예       | 예       | 문제 [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
+| search                         | Partial   | Partial   | [FHIR 검색 개요를](overview-of-search.md)참조 하세요. |
+| 연결 된 검색                 | 예       | 예       | |
+| 역방향 연결 된 검색         | 예       | 예       | |
+| 일괄 처리                          | 예       | 예       |
+| 트랜잭션                    | 아니요        | 예       |
+| 페이징                         | Partial   | Partial   | `self` 및 `next` 가 지원 됩니다.                     |
+| 매개자                 | 아니요        | 아니요        |
 
-> [!Note]
-> FHIR 사양에서 정의한 삭제를 사용하려면 삭제 후 이후 버전이 아닌 특정 리소스 읽기에서 410 HTTP 상태 코드를 반환하고 검색을 통해 리소스를 더 이상 찾을 수 없게 해야 합니다. 또한 Azure API for FHIR 사용하면 리소스를 완전히 삭제(모든 기록 포함)할 수 있습니다. 리소스를 완전히 삭제 하려면 매개 변수 설정을 `hardDelete` true ()로 전달할 수 있습니다 `DELETE {server}/{resource}/{id}?hardDelete=true` . 이 매개 변수를 전달 하지 않거나 `hardDelete` 을 false로 설정 하면 리소스의 기록 버전을 계속 사용할 수 있습니다.
+### <a name="delete-and-conditional-delete"></a>삭제 및 조건부 삭제
 
+FHIR 사양에 정의 된 삭제를 수행 하려면 삭제 후에 다음 버전의 특정 리소스 읽기가 410 HTTP 상태 코드를 반환 하 고 검색을 통해 리소스를 더 이상 찾을 수 없습니다. FHIR 및 FHIR 서비스에 대 한 Azure API를 사용 하 여 리소스의 모든 기록을 포함 하 여 전체 삭제를 수행할 수도 있습니다. 리소스를 완전히 삭제 하려면 매개 변수 설정을 `hardDelete` true ()로 전달할 수 있습니다 `DELETE {server}/{resource}/{id}?hardDelete=true` . 이 매개 변수를 전달 하지 않거나 `hardDelete` 을 false로 설정 하면 리소스의 기록 버전을 계속 사용할 수 있습니다.
 
- **참고 2**
-* CosmosDB에서 연결 및 역방향 연결 된 FHIR 검색에 대 한 MVP 지원을 추가 합니다. 
+Delete 외에도 FHIR 용 Azure API 및 FHIR 서비스는 조건부 삭제를 지원 하 여 리소스를 삭제 하는 검색 조건을 전달할 수 있습니다. 기본적으로 조건부 삭제를 사용 하면 한 번에 하나의 항목을 삭제할 수 있습니다. `_count`매개 변수를 지정 하 여 한 번에 최대 100 개의 항목을 삭제할 수도 있습니다. 다음은 조건부 삭제를 사용 하는 몇 가지 예입니다.
 
-  fhir 용 Azure API와 Cosmos에서 지 원하는 오픈 소스 fhir 서버에서 연결 된 검색 및 역방향 연결 검색은 MVP 구현입니다. Cosmos DB에 대 한 연결 된 검색을 수행 하기 위해 구현은 검색 식을 아래로 이동 하 고 하위 쿼리를 발행 하 여 일치 하는 리소스를 확인 합니다. 식의 각 수준에 대해 수행 됩니다. 쿼리가 100 개 보다 많은 결과를 반환 하면 오류가 throw 됩니다. 기본적으로 연결 된 검색은 기능 플래그 뒤에 있습니다. Cosmos DB에서 연결 된 검색을 사용 하려면 헤더를 사용 합니다 `x-ms-enable-chained-search: true` . 자세한 내용은 [PR 1695](https://github.com/microsoft/fhir-server/pull/1695)을 참조 하세요.
+조건부 삭제를 사용 하 여 단일 항목을 삭제 하려면 단일 항목을 반환 하는 검색 조건을 지정 해야 합니다.
+``` JSON
+DELETE https://{{hostname}}/Patient?identifier=1032704
+```
+
+동일한 검색을 수행할 수 있지만, 모든 기록을 삭제 하려면 하드 Delete = true를 포함 합니다.
+```JSON 
+DELETE https://{{hostname}}/Patient?identifier=1032704&hardDelete=true
+```
+
+여러 리소스를 삭제 하려는 경우 `_count=100` 검색 조건과 일치 하는 최대 100 개의 리소스를 삭제 하는를 포함할 수 있습니다. 
+``` JSON
+DELETE https://{{hostname}}/Patient?identifier=1032704&_count=100
+```
 
 ## <a name="extended-operations"></a>확장 된 작업
 
-RESTful API를 확장 하는 지원 되는 모든 작업입니다.
+REST API를 확장 하는 모든 지원 되는 작업입니다.
 
-| 검색 매개 변수 유형 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 설명 |
-|------------------------|-----------|-----------|-----------|---------|
-| $export (전체 시스템) | 예       | 예       | 예       |         |
-| 환자/$export        | 예       | 예       | 예       |         |
-| 그룹/$export          | 예       | 예       | 예       |         |
-| $convert-데이터          | 예       | 예       | 예       |         |
-| $validate              | 예       | 예       | 예       |         |
-| $member-일치          | 예       | 예       | 예       |         |
-| $patient-모든 항목    | 예       | 예       | 예       |         |
-
-## <a name="persistence"></a>지속성
-
-Microsoft FHIR 서버에는 플러그형 지 속성 모듈이 있습니다 (참조 [`Microsoft.Health.Fhir.Core.Features.Persistence`](https://github.com/Microsoft/fhir-server/tree/master/src/Microsoft.Health.Fhir.Core/Features/Persistence) ).
-
-현재 fhir 서버 오픈 소스 코드는 [Azure Cosmos DB](../../cosmos-db/index-overview.md) 및 [SQL Database](https://azure.microsoft.com/services/sql-database/)에 대 한 구현을 포함 합니다.
-
-Cosmos DB는 전역적으로 분산 된 다중 모델 (SQL api, MongoDB api 등) 데이터베이스입니다. 서로 다른 [일관성 수준을](../../cosmos-db/consistency-levels.md)지원 합니다. 기본 배포 템플릿은 일관성을 사용 하 여 FHIR 서버를 구성 `Strong` 하지만 요청 헤더를 사용 하 여 요청 별로 요청에서 일관성 정책을 수정할 수 있습니다 (일반적으로 완화 됨) `x-ms-consistency-level` .
+| 검색 매개 변수 유형 | FHIR용 Azure API | 의료 Api의 FHIR 서비스| 의견 |
+|------------------------|-----------|-----------|---------|
+| $export (전체 시스템) | 예       | 예       |         |
+| 환자/$export        | 예       | 예       |         |
+| 그룹/$export          | 예       | 예       |         |
+| $convert-data          | 예       | 예       |         |
+| $validate              | 예       | 예       |         |
+| $member 일치          | 예       | 예       |         |
+| $patient-everything    | 예       | 예       |         |
+| $purge 기록         | 예       | 예       |         |
 
 ## <a name="role-based-access-control"></a>역할 기반 액세스 제어
 
-fhir 서버는 액세스 제어를 위해 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 를 사용 합니다. 특히 구성 매개 변수가로 설정 되어 있는 경우 RBAC (역할 기반 액세스 제어)가 적용 되 `FhirServer:Security:Enabled` `true` 고 `/metadata` Fhir 서버에 대 한 모든 요청 (제외)에는 `Authorization` 요청 헤더가로 설정 되어 있어야 합니다 `Bearer <TOKEN>` . 토큰은 클레임에 정의 된 하나 이상의 역할을 포함 해야 합니다 `roles` . 지정 된 리소스에 대해 지정 된 작업을 허용 하는 역할이 토큰에 포함 되어 있으면 요청이 허용 됩니다.
-
-현재 지정 된 역할에 대해 허용 되는 작업은 API에 *전역적* 으로 적용 됩니다.
+FHIR 서비스는 액세스 제어에 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 사용합니다. 
 
 ## <a name="service-limits"></a>서비스 제한
 
-* [**Rus (요청 단위)**](../../cosmos-db/concepts-limits.md) -Azure API for FHIR에 대 한 포털에서 최대 1만 RUs를 구성할 수 있습니다. 최소 400 RUs 또는 40 RUs/GB 중 더 큰 값이 필요 합니다. 1만 명 이상의 RUs가 필요한 경우 지원 티켓에 추가 하 여이를 늘릴 수 있습니다. 사용 가능한 최대값은 100만입니다.
+* **번들 크기** - 각 번들은 500개 항목으로 제한됩니다.
 
-* **번들 크기** -각 번들은 500 항목으로 제한 됩니다.
-
-* **데이터 크기** -데이터/문서는 각각 2mb 보다 약간 작아야 합니다.
-
-* **구독 제한** -기본적으로 각 구독은 최대 10 개의 FHIR 서버 인스턴스로 제한 됩니다. 구독 당 더 많은 인스턴스가 필요한 경우 지원 티켓을 열고 필요에 대 한 세부 정보를 제공 합니다.
-
-* **동시 연결 및 인스턴스** -기본적으로 클러스터의 두 인스턴스에 대 한 동시 연결 수가 15 개 있습니다 (총 30 개 동시 요청). 더 많은 동시 요청이 필요한 경우 지원 티켓을 열고 필요에 대 한 세부 정보를 제공 합니다.
+* **구독 제한** - 기본적으로 각 구독은 최대 10개의 FHIR 서비스로 제한됩니다. 이 제한은 하나 또는 여러 작업 영역에서 사용할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 FHIR 용 Azure API에서 지원 되는 FHIR 기능에 대해 읽었습니다. 그런 다음, FHIR 용 Azure API를 배포 합니다.
+이 문서에서는 FHIR 서비스에서 지원되는 FHIR 기능에 대해 읽어보았습니다. 다음으로 FHIR 서비스를 배포합니다.
  
 >[!div class="nextstepaction"]
->[Azure API for FHIR 배포](fhir-paas-portal-quickstart.md)
+>[FHIR 서비스 배포](fhir-portal-quickstart.md)

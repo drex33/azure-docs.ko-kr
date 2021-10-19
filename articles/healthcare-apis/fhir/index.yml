@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Azure API for FHIR 설명서
-summary: Azure API for FHIR은 실행 가능한 분석 및 기계 학습 솔루션을 위한 솔루션을 사용하는 임상 건강 데이터를 위한 관리형 표준 기반 규격의 API입니다.
+title: FHIR 서비스 설명서
+summary: Azure 의료 Api (미리 보기)에 대 한 FHIR 서비스 설명서 페이지 FHIR 서비스는 실행 가능한 분석 및 기계 학습을 위한 솔루션을 가능 하 게 하는 임상 상태 데이터를 위한 관리 되는 표준 기반의 규격 API입니다.
 metadata:
-  title: Azure API for FHIR 설명서 - 자습서, 방법 가이드
-  description: Azure API for FHIR은 실행 가능한 분석 및 기계 학습 솔루션을 위한 솔루션을 사용하는 임상 건강 데이터를 위한 관리형 표준 기반 규격의 API입니다.
+  title: FHIR 서비스 설명서
+  description: FHIR 서비스는 실행 가능한 분석 및 기계 학습을 위한 솔루션을 가능 하 게 하는 임상 상태 데이터를 위한 관리 되는 표준 기반의 규격 API입니다.
   services: healthcare-apis
   ms.service: healthcare-apis
   ms.subservice: fhir
@@ -12,48 +12,68 @@ metadata:
   author: matjazl
   ms.author: matjazl
   ms.date: 08/13/2020
-  ms.openlocfilehash: d633b5376832672ecc7c917e24728666b889e16c
-  ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
-  ms.translationtype: HT
+  ms.openlocfilehash: ec3efbffe7b6e7b93fb336383297784749181c5f
+  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+  ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/11/2021
-  ms.locfileid: "103018559"
+  ms.lasthandoff: 09/13/2021
+  ms.locfileid: "124782406"
 landingContent:
-- title: Azure API for FHIR 시작
+- title: FHIR 서비스 시작
   linkLists:
   - linkListType: overview
     links:
-    - text: Azure API for FHIR이란?
+    - text: FHIR 서비스는 무엇 인가요?
       url: overview.md
-    - text: Azure IoT Connector for FHIR(미리 보기)이란?
-      url: overview.md#azure-iot-connector-for-fhir-preview
   - linkListType: quickstart
     links:
-    - text: API Server for FHIR 배포
-      url: fhir-paas-portal-quickstart.md
-    - text: Azure IoT Connector for FHIR(미리 보기) 배포
-      url: iot-fhir-portal-quickstart.md
-- title: 설정 자습서
+    - text: 포털을 사용 하 여 FHIR 서비스 배포
+      url: fhir-portal-quickstart.md
+    - text: ARM 템플릿을 사용 하 여 FHIR 서비스 배포
+      url: fhir-service-resource-manager-template.md
+- title: FHIR 서비스 액세스
   linkLists:
-  - linkListType: tutorial
+  - linkListType: concept
     links:
-    - text: FHIR 서비스에서 데이터를 읽을 수 있는 javascript 앱 배포
-      url: tutorial-web-app-fhir-server.md
-    - text: Postman에서 FHIR API에 액세스
-      url: access-fhir-postman-tutorial.md
-    - text: 타사 앱 및 의료 기록을 위한 SMART 통합
-      url: use-smart-on-fhir-proxy.md
-    - text: Azure IoT Hub를 통해 디바이스 데이터 수신
-      url: device-data-through-iot-hub.md
-- title: AD 인증을 위한 앱 등록
+    - text: FHIR 서비스에 대 한 Azure AD
+      url: azure-active-directory-identity-configuration.md
+    - text: 액세스 토큰 유효성 검사
+      url: fhir-service-access-token-validation.md
+  - linkListType: learn
+    links:
+    - text: Postman을 사용 하 여 액세스
+      url: ./../use-postman.md
+- title: 검색 기능
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: FHIR 검색 개요
+      url: overview-of-search.md
+  - linkListType: how-to-guide
+    links:
+    - text: 사용자 지정 검색 매개 변수 정의
+      url: how-to-do-custom-search.md
+    - text: 재색인 작업 실행 방법
+      url: how-to-run-a-reindex.md
+    - text: 검색 예제
+      url: search-samples.md
+- title: 상호 운용성 및 환자 액세스
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: 리소스 앱 등록
-      url: register-resource-azure-ad-client-app.md
-    - text: 기밀 클라이언트 앱 등록
-      url: register-confidential-azure-ad-client-app.md
-    - text: 퍼블릭 클라이언트 앱 등록
-      url: register-public-azure-ad-client-app.md
-    - text: 서비스 클라이언트 앱 등록
-      url: register-service-azure-ad-client-app.md
+    - text: CMS 상호 운용성 및 환자 액세스 규칙 소개
+      url: centers-for-medicare-tutorial-introduction.md
+    - text: 파란색 단추에 대한 CARIN 구현 가이드
+      url: carin-implementation-guide-blue-button-tutorial.md
+    - text: Da Vinci 약품 제조법
+      url: davinci-drug-formulary-tutorial.md
+- title: 작업
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 프로필 유효성 검사
+      url: validation-against-profiles.md
+    - text: 환자-모든 항목
+      url: patient-everything.md
+    - text: $member-match 작업
+      url: tutorial-member-match.md

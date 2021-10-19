@@ -1,0 +1,36 @@
+items:
+  - name: IoT 커넥터
+    href: index.yml
+  - name: 개요
+    expanded: true
+    items:
+      - name: IoT 커넥터 정보
+        href: iot-connector-overview.md
+  - name: 빠른 시작
+    expanded: true
+    items:
+      - name: IoT 커넥터 배포
+        expanded: true
+        items:
+          - name: 포털 사용
+            href: deploy-iot-connector-in-azure.md
+  - name: 방법 가이드
+    expanded: true
+    items:
+      - name: Azure IoT Hub를 통해 디바이스 데이터 수신
+        href: device-data-through-iot-hub.md
+      - name: IoT 데이터 흐름
+        href: iot-data-flow.md
+      - name: 장치 매핑 사용
+        href: how-to-use-device-mapping-iot.md
+      - name: FHIR 대상 매핑 사용
+        href: how-to-use-fhir-mapping-iot.md
+      - name: 진단 설정을 통해 IoT 커넥터 메트릭 내보내기
+        href: iot-metrics-diagnostics-export.md
+  - name: 리소스
+    expanded: true
+    items:
+      - name: 오픈 소스 프로젝트
+        href: iot-git-projects.md
+      - name: 문제 해결 가이드
+        href: iot-troubleshoot-guide.md

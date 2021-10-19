@@ -1,0 +1,142 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure의 FHIR 서비스에 대한 FAQ - Azure API for FHIR
+  description: FHIR API 뒤에 있는 데이터의 스토리지 위치 및 버전 지원과 같이 Azure API for FHIR 대한 질문과 대답을 얻습니다.
+  author: caitlinv39
+  ms.service: healthcare-apis
+  ms.subservice: fhir
+  ms.topic: reference
+  ms.date: 04/30/2021
+  ms.author: cavoeg
+  ms.openlocfilehash: aa6bde1ac4842ff3559759a68b2925d9bd327732
+  ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+  ms.translationtype: MT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 09/29/2021
+  ms.locfileid: "129274882"
+title: Azure API for FHIR 대한 질문과 대답
+summary: ''
+sections:
+- name: 'Azure API for FHIR: 기본 사항'
+  questions:
+  - question: >
+      FHIR이란?
+    answer: >
+      신속한 전자 의료 기록 교환(FHIR-"fire"로 발음됨)은 서로 다른 상태 시스템 간의 의료 데이터 교환을 가능하게 하는 상호 운용성 표준입니다. 이 표준은 HL7 조직에서 개발되었으며 전 세계 의료 기관에서 채택하고 있습니다. 사용 가능한 FHIR의 최신 버전은 R4(릴리스 4)입니다. Azure API for FHIR R4를 지원하고 이전 버전 STU3(평가판 사용 3용 표준)도 지원합니다. FHIR에 대한 자세한 내용은 [HL7.org.](http://hl7.org/fhir/summary.html)
+  - question: >
+      FHIR API의 데이터가 Azure에 저장되어 있나요?
+    answer: >
+      예, 데이터는 Azure의 관리되는 데이터베이스에 저장됩니다. Azure API for FHIR 기본 데이터 저장소에 대한 직접 액세스를 제공하지 않습니다.
+  - question: >
+      어떤 ID 공급자를 지원합니까?
+    answer: >
+      현재 id 공급자로 Microsoft Azure Active Directory 지원합니다.
+  - question: >
+      Azure API for FHIR RPO(복구 지점 목표)란?
+    answer: >
+      Azure API for FHIR 지속성 공급자로 Cosmos DB에서 백업됩니다. 이 때문에 서비스에 대한 RPO는 [DB(단일 지역)Cosmos](../../cosmos-db/consistency-levels.md) 같고 < 240분입니다.
+  - question: >
+      어떤 FHIR 버전을 지원합니까?
+    answer: >
+      Azure API for FHIR(PaaS) 및 Azure용 FHIR 서버(오픈 소스)에서 버전 4.0.0 및 3.0.1을 지원합니다.
+
+
+      자세한 내용은 [지원되는 기능을 참조하세요.](fhir-features-supported.md) [HL7 FHIR의](https://hl7.org/fhir/R4/history.html)버전 기록에서 FHIR 버전 간에 변경된 내용(예: STU3에서 R4)에 대해 읽어보십시오.
+
+
+      Azure IoT Connector for FHIR(미리 보기)은 현재 FHIR 버전 R4만 지원하며 Azure API for FHIR R4 인스턴스에서만 표시됩니다.
+  - question: "'Azure용 Microsoft FHIR 서버'와 'Azure API for FHIR'의 차이점은 무엇인가요?\n"
+    answer: "Azure API for FHIR Azure용 오픈 소스 Microsoft FHIR 서버의 호스트되고 관리되는 버전입니다. 관리되는 서비스에서 Microsoft는 모든 유지 관리 및 업데이트를 제공합니다. \n\nAzure용 FHIR 서버를 실행하는 경우 기본 서비스에 직접 액세스할 수 있지만 PHI 데이터를 저장하는 경우 서버 및 모든 필수 규정 준수 작업을 유지 관리 및 업데이트해야 합니다.\n\n개발 관점에서 관리되는 서비스에만 적용되지 않는 모든 기능은 먼저 Azure용 오픈 소스 Microsoft FHIR 서버에 배포됩니다. 오픈 소스에서 유효성이 검사되면 PaaS Azure API for FHIR 솔루션에 릴리스됩니다. 오픈 소스와 PaaS에서 릴리스 사이의 시간은 기능의 복잡성 및 기타 로드맵 우선 순위에 따라 달라집니다. Azure IoT Connector for FHIR(미리 보기)과 같은 모든 서비스에 대해 동일한 프로세스입니다.\n"
+  - question: >
+      어떤 지역에서 Azure API for FHIR 사용 가능합니까?
+    answer: >
+      현재 여러 지역에서 공용 및 정부 모두에 대한 일반 [공급이 있습니다.](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=non-regional,us-east,us-east-2,us-central,us-north-central,us-south-central,us-west-central,us-west,us-west-2,canada-east,canada-central,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia) Microsoft의 정부 클라우드 서비스에 대한 자세한 내용은 [FedRAMP의 Azure 서비스를 참조하세요.](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md)
+  - question: >
+      Azure API for FHIR 릴리스되는 내용을 어디에서 확인할 수 있나요?
+    answer: >
+      Azure API for FHIR 릴리스되는 내용 중 일부를 보려면 오픈 소스 FHIR 서버 [릴리스를](https://github.com/microsoft/fhir-server/releases) 참조하세요. Azure-API-for-FHIR을 사용하여 항목이 관리되는 서비스에 릴리스되고 일반적으로 오픈 소스의 릴리스 페이지에 있는 후 2주 후에 사용할 수 있는 경우 항목에 태그를 정하기 위해 노력했습니다. 사용자 환경에서 테스트하려는 경우 [여기에](https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) 빌드를 테스트하는 방법에 대한 지침도 포함되어 있습니다. 추가 관리 서비스 업데이트를 가장 잘 공유하는 방법을 평가하고 있습니다.
+  - question: >
+      SMART on FHIR이란?
+    answer: >
+      FHIR의 SMART(대체 가능한 의료 애플리케이션 및 재사용 가능한 기술)는 파트너 애플리케이션을 FHIR 서버 및 기타 의료 IT 시스템(예: 전자 상태 레코드 및 상태 정보 교환)과 통합하기 위한 개방형 사양 집합입니다. SMART on FHIR 애플리케이션을 만들면 다양한 시스템에서 애플리케이션에 액세스하고 활용할 수 있습니다.
+
+      인증 및 Azure API for FHIR. SMART에 대한 자세한 내용은 [SMART Health IT를 방문합니다.](https://smarthealthit.org/)
+  - question: "내 데이터베이스에서 실행 중인 FHIR 버전은 어디에서 찾을 수 있습니다. \n"
+    answer: "\"fhirVersion\" 속성 아래의 capability 문에 노출된 정확한 FHIR 버전을 찾을 수 있습니다.\n"
+- name: FHIR 구현 및 사양
+  questions:
+  - question: >
+      사용자 지정 FHIR 리소스를 만들 수 있나요?
+    answer: "사용자 지정 FHIR 리소스는 허용되지 않습니다. 사용자 지정 FHIR 리소스가 필요한 경우 확장을 통해 기본 리소스 위에 사용자 지정 [리소스를](http://www.hl7.org/fhir/basic.html) 빌드할 수 있습니다. \n"
+  - question: >
+      Azure API for FHIR 확장이 지원되는가요?
+    answer: "유효한 FHIR JSON 데이터를 서버에 로드할 수 있습니다. 확장을 정의하는 구조체 정의를 저장하려는 경우 이를 구조체 정의 리소스로 저장할 수 있습니다. 확장을 검색하려면 [사용자 고유의 검색 매개 변수](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fhealthcare-apis%2Ffhir%2Fhow-to-do-custom-search&data=04%7C01%7Cv-stevewohl%40microsoft.com%7Cc6a08c7f0c86433f248c08d925377d85%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637581742517376233%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=Ws%2FVQ2N33sMagzs393hmR67M9dNaL6WCLXyxXtor6PM%3D&reserved=0)를 정의해야 합니다. \n"
+  - question: >
+      _count 제한은 무엇인가요?
+    answer: >
+      _count 대한 현재 제한은 1000입니다. _count 1000개 이상으로 설정하면 1000개의 레코드만 표시된다는 경고가 번들에 표시됩니다.
+  - question: >
+      그룹 내보내기 기능에 제한이 있나요?
+    answer: >
+      그룹 내보내기의 경우 [그룹 리소스](https://www.hl7.org/fhir/group.html)의 모든 특성이 아니라 그룹에서 포함된 참조만 내보냅니다.
+  - question: >
+      번들을 Azure API for FHIR 게시할 수 있나요?
+    answer: >
+      현재 [일괄 처리 번들 게시를](https://www.hl7.org/fhir/valueset-bundle-type.html) 지원하지만 Azure API for FHIR 트랜잭션 번들을 게시하는 것은 지원하지 않습니다. SQL 통해 백업되는 오픈 소스 FHIR 서버를 사용하여 트랜잭션 번들을 게시할 수 있습니다.
+  - question: >
+      Azure API for FHIR 단일 환자의 모든 리소스를 얻으려면 어떻게 해야 하나요?
+    answer: >
+      환자 $everything [작업을](patient-everything.md) 사용하거나 Azure API for FHIR [구획 검색을](https://www.hl7.org/fhir/compartmentdefinition.html) 사용할 수 있습니다. 이렇게 하면 특정 환자와 관련된 모든 리소스를 얻을 수 있습니다. 현재 구획에는 환자와 관련된 모든 리소스가 포함되지만 환자 자체는 포함되지 않으므로 결과에 환자 리소스가 필요한 경우 환자를 찾기 위해 검색해야 합니다.
+
+
+      구획 검색을 사용하는 몇 가지 예는 다음과 같습니다.
+
+
+      * `GET Patient/<id>/`
+
+      * `GET Patient/<id>/Observation`
+
+      * `GET Patient/<id>/Observation?code=8302-2`
+  - question: >
+      Azure API for FHIR 리소스를 검색할 때 기본 정렬은 무엇인가요?
+    answer: >
+      마지막으로 업데이트된 날짜별 정렬을 지원합니다. _sort=_lastUpdated. 또한 FirstName, LastName 및 ClinicalDate 요소에 대한 _sort 지원합니다. 지원되는 다른 검색 매개 변수에 대한 자세한 내용은 [FHIR 검색 개요를](overview-of-search.md)참조하세요.
+  - question: "Azure API for FHIR $everything 지원하나요? \n"
+    answer: >
+      예, 환자 $everything 지원합니다. [Patient-$Everything 방법 가이드](patient-everything.md)에서 자세한 내용을 확인할 수 있습니다.
+  - question: >
+      $export 어떻게 작동하나요?
+    answer: >
+      $export FHIR 사양의 https://hl7.org/fhir/uv/bulkdata/export/index.html 일부입니다. FHIR 서비스가 관리 ID 및 스토리지 계정으로 구성되고 관리 ID가 해당 스토리지 계정에 액세스할 수 있는 경우 FHIR API에서 $export 호출하면 모든 FHIR 리소스가 스토리지 계정으로 내보내지게 됩니다. 자세한 내용은 [$export 문서를](../data-transformation/export-data.md)확인하세요.
+  - question: >
+      식별되지 않은 내보내기는 환자 및 그룹 수준에서도 사용할 수 있나요?
+    answer: >
+      익명화된 내보내기는 현재 전체 시스템 내보내기(/$export)에서만 지원되며 환자 내보내기(/Patient/$export)에는 지원되지 않습니다. 환자 수준에서도 사용할 수 있도록 노력하고 있습니다.
+- name: Azure API for FHIR 사용
+  questions:
+  - question: >
+      Azure API for FHIR 로그 분석을 사용하도록 설정할 어떻게 할까요? 있나요?
+    answer: >
+      진단 로깅을 사용하도록 설정하고 이러한 로그에 대한 샘플 쿼리를 검토할 수 있습니다. 감사 로그 및 샘플 쿼리를 사용하도록 설정하는 자세한 내용은 [이 섹션을](enable-diagnostic-logging.md)확인하세요. 로그에 추가 정보를 포함하려면 사용자 지정 [HTTP 헤더 를 사용하여 확인하세요.](use-custom-headers.md)
+  - question: >
+      워크플로 내에서 Azure API for FHIR 사용하는 몇 가지 예제는 어디에서 볼 수 있나요?
+    answer: >
+      상태 아키텍처 [GitHub 페이지에서](https://github.com/microsoft/health-architectures)사용할 수 있는 참조 아키텍처 컬렉션이 있습니다.
+  - question: >
+      웹 애플리케이션을 Azure API for FHIR 연결하는 예제는 어디에서 볼 수 있나요?
+    answer: "예제 애플리케이션 및 시나리오를 포함하는 [상태 아키텍처 GitHub 페이지가](https://aka.ms/health-architectures) 있습니다. 웹 애플리케이션을 Azure API for FHIR 연결하는 방법을 보여 줍니다.  \n"
+- name: Azure API for FHIR 기능 및 서비스
+  questions:
+  - question: >
+      기본 키가 아닌 개인 키를 사용하여 데이터를 암호화하는 방법이 있나요?
+    answer: >
+      예, Azure API for FHIR Cosmos DB의 지원을 활용하여 고객 관리형 키를 구성할 수 있습니다. 개인 키로 데이터를 암호화하는 자세한 내용은 [이 섹션을](customer-managed-key.md)확인하세요.
+- name: 'Azure API for FHIR: 미리 보기 기능'
+  questions:
+  - question: >
+      Azure IoT Connector for FHIR(미리 보기)에 대한 크기 조정 용량을 구성할 수 있나요?
+    answer: >
+      Azure IoT Connector for FHIR은 공개 미리 보기 중에 무료이므로 크기 조정 용량이 고정되고 제한됩니다. Azure IoT 공개 미리 보기에서 사용할 수 있는 커넥터 for FHIR 구성은 초당 약 200개 메시지의 처리량을 제공해야 합니다. 일부 형태의 리소스 용량 구성은 GA(일반 공급)에서 사용할 수 있습니다.
+  - question: >
+      fhir 용 Azure API에서 개인 링크를 사용 하도록 설정 하는 경우 fhir (미리 보기)에 대 한 Azure IoT Connector를 설치할 수 없는 이유는 무엇 인가요?
+    answer: Azure IoT FHIR 용 커넥터는 지금은 개인 링크 기능을 지원 하지 않습니다. 따라서 fhir 용 Azure API에서 개인 링크를 사용 하도록 설정한 경우에는 fhir 용 Azure IoT 커넥터를 설치할 수 없으며 그 반대의 경우도 마찬가지입니다. fhir 용 Azure IoT Connector를 GA (일반 공급)에 사용할 수 있는 경우이 제한이 사라집니다.

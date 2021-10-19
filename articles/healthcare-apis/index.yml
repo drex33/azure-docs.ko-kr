@@ -1,0 +1,102 @@
+### YamlMime:Landing
+title: Azure 의료 Api (미리 보기) 설명서
+summary: FHIR, DICOM 및 데이터 변환을 포함 하 여 모든 Azure 의료 Api (미리 보기) 서비스에 대 한 설명서입니다.
+metadata:
+  title: Azure 의료 Api 설명서
+  description: FHIR, DICOM 및 데이터 변환을 포함 하 여 모든 Azure 의료 Api 제품 및 서비스에 대 한 설명서
+  services: healthcare-apis
+  ms.service: healthcare-apis
+  ms.topic: landing-page
+  ms.collection: collection
+  author: msjasteppe
+  ms.author: jasteppe
+  ms.date: 10/05/2021
+  ms.openlocfilehash: dc71d1a28dd572c1635c22f8505409c0905d397c
+  ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+  ms.translationtype: MT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 10/05/2021
+  ms.locfileid: "129545343"
+landingContent:
+- title: 의료 Api 란?
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 의료 Api 정보
+      url: healthcare-apis-overview.md
+    - text: 작업 영역 정보
+      url: workspace-overview.md
+  - linkListType: deploy
+    links:
+    - text: 의료 Api 시작
+      url: healthcare-apis-quickstart.md
+- title: 의료 Api 사용
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 인증 및 권한 부여
+      url: authentication-authorization.md
+    - text: REST 클라이언트를 사용 하 여 액세스
+      url: using-rest-client.md
+  - linkListType: reference
+    links:
+    - text: 의료 Api Faq
+      url: healthcare-apis-faqs.md
+- title: 데이터 전송 및 변환
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 데이터 내보내기
+      url: ./data-transformation/export-data.md
+    - text: Synapse로 데이터 내보내기
+      url: ./data-transformation/move-to-synapse.md
+  - linkListType: concept
+    links:
+    - text: 데이터 변환
+      url: ./data-transformation/convert-data.md
+- title: FHIR 서비스
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: 서비스 정보
+      url: ./fhir/overview.md
+  - linkListType: deploy
+    links:
+    - text: 포털을 사용 하 여 FHIR 서비스 배포
+      url: ./fhir/fhir-portal-quickstart.md
+  - linkListType: tutorial
+    links:
+    - text: 상호 운용성 및 환자 액세스
+      url: ./fhir/cms-tutorial-introduction.md
+    - text: FHIR 검색 작업
+      url: ./fhir/overview-of-search.md
+- title: DICOM 서비스
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: DICOM 서비스 정보
+      url: ./dicom/dicom-services-overview.md
+  - linkListType: deploy
+    links:
+    - text: 포털을 사용 하 여 DICOM service 배포
+      url: ./dicom/deploy-dicom-services-in-azure.md
+  - linkListType: tutorial
+    links:
+    - text: DICOMweb 표준 Api
+      url: ./dicom/dicomweb-standard-apis-with-dicom-services.md
+    - text: DICOM 변경 피드
+      url: ./dicom/pull-dicom-changes-from-change-feed.md
+- title: IoT 커넥터
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: IoT 커넥터 정보
+      url: ./iot/iot-connector-overview.md
+  - linkListType: deploy
+    links:
+    - text: 포털을 사용 하 여 IoT 커넥터 배포
+      url: ./iot/deploy-iot-connector-in-azure.md
+  - linkListType: tutorial
+    links:
+    - text: Azure IoT Hub를 통해 디바이스 데이터 수신
+      url: ./iot/device-data-through-iot-hub.md

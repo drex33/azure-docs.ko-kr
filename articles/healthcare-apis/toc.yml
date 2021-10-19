@@ -1,0 +1,51 @@
+items:
+  - name: FHIR 용 Azure API 설명서
+    href: ./azure-api-for-fhir/index.yml
+  - name: Azure 의료 Api (미리 보기) 설명서
+    href: index.yml
+  - name: 개요
+    expanded: true
+    items:
+      - name: 의료 Api 정보
+        href: healthcare-apis-overview.md
+      - name: 작업 영역 정보
+        href: workspace-overview.md
+      - name: FHIR 서비스
+        href: ./fhir/index.yml
+      - name: DICOM 서비스
+        href: ./dicom/index.yml
+      - name: IoT 커넥터
+        href: ./iot/index.yml
+      - name: 데이터 전송 및 변환
+        href: ./data-transformation/index.yml
+  - name: 빠른 시작
+    expanded: true
+    items:
+      - name: 의료 Api 배포
+        href: healthcare-apis-quickstart.md
+  - name: 방법 가이드
+    expanded: true
+    items:
+      - name: 인증 및 권한 부여
+        href: authentication-authorization.md
+      - name: Postman을 사용 하 여 FHIR 서비스 액세스
+        href: use-postman.md
+      - name: 말아를 사용 하 여 액세스
+        href: using-curl.md
+      - name: REST 클라이언트를 사용 하 여 액세스
+        href: using-rest-client.md
+      - name: 애플리케이션 등록
+        href: register-application.md
+      - name: 로깅
+        href: logging.md
+  - name: 개념
+    items:
+      - name: Azure Policy의 보안 컨트롤
+        href: security-controls-policy.md
+  - name: 리소스
+    expanded: true
+    items:
+      - name: FAQ
+        href: healthcare-apis-faqs.md
+      - name: GitHub 프로젝트
+        href: github-projects.md

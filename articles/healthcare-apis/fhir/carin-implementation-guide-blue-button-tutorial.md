@@ -1,6 +1,6 @@
 ---
-title: 자습서-파랑 단추&#174;에 대 한 CARIN 구현 가이드-FHIR 용 Azure API
-description: 이 자습서에서는 FHIR 용 Azure API를 설정 하 여 Touchstone 구현 가이드 (C4BB)에 대 한 CARIN 구현 가이드를 전달 하는 단계를 안내 합니다.
+title: 파랑 단추의 경우 파란색 단추 구현 가이드
+description: 이 자습서에서는 FHIR 서비스를 설정 하 여 Touchstone 구현 가이드 (C4BB)에 대 한 CARIN 구현 가이드를 전달 하는 단계를 안내 합니다.
 services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -8,21 +8,24 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
-ms.date: 05/27/2021
-ms.openlocfilehash: 1fade881fbe6d5c401712a4f97c8a249006d8190
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.date: 08/03/2021
+ms.openlocfilehash: 4aebd92ea55e789a42444bc488dcaf2c02b2acb1
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111590381"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778367"
 ---
 # <a name="carin-implementation-guide-for-blue-button174"></a>파랑 단추에 대 한 CARIN 구현 가이드&#174;
 
-이 자습서에서는 [Touchstone](https://touchstone.aegis.net/touchstone/) 구현 가이드 (C4BB)에 대 한 [Carin 구현 가이드](https://build.fhir.org/ig/HL7/carin-bb/index.html) 를 전달 하도록 Fhir 용 Azure API를 설정 하는 과정을 안내 합니다.
+> [!IMPORTANT]
+> Azure 의료 Api는 현재 미리 보기로 제공 됩니다. [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관이 포함되어 있습니다.
+
+이 자습서에서는 [Touchstone](https://touchstone.aegis.net/touchstone/) 구현 가이드 (C4BB)에 [대 한 Carin 구현 가이드](https://build.fhir.org/ig/HL7/carin-bb/index.html) 를 전달 하기 위해 AZURE 의료 API (fhir 서비스 라고 함)에서 fhir 서비스를 설정 하는 과정을 안내 합니다.
 
 ## <a name="touchstone-capability-statement"></a>Touchstone 기능 문
 
-중점적으로 다룰 첫 번째 테스트는 [C4BB IG 기능 문에](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/00-Capability&activeOnly=false&contentEntry=TEST_SCRIPTS)대해 Azure API for FHIR을 테스트 하는 것입니다. 업데이트 없이 FHIR 용 Azure API에 대해이 테스트를 실행 하는 경우 누락 된 검색 매개 변수 및 누락 된 프로필로 인해 테스트가 실패 합니다. 
+중점적으로 다룰 첫 번째 테스트는 [C4BB IG 기능 문에](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/00-Capability&activeOnly=false&contentEntry=TEST_SCRIPTS)대해 FHIR 서비스를 테스트 하는 것입니다. 업데이트 없이 FHIR 서비스에 대해이 테스트를 실행 하는 경우 누락 된 검색 매개 변수 및 누락 된 프로필로 인해 테스트가 실패 합니다. 
 
 ### <a name="define-search-parameters"></a>검색 매개 변수 정의
 
@@ -35,7 +38,7 @@ C4BB IG의 일환으로 리소스에 대 한 세 개의 [새 검색 매개 변�
 > [!NOTE]
 > 이러한 검색 매개 변수에 대 한 원시 JSON에서는 이름이로 설정 됩니다 `ExplanationOfBenefit_<SearchParameter Name>` . Touchstone 테스트에서는 이러한 이름이 **형식**, **서비스 날짜** 및 **insurer** 이 될 것으로 예상 합니다.  
  
-C4BB IG에 필요한 나머지 검색 매개 변수는 기본 사양에 의해 정의 되며 추가 업데이트 없이 FHIR 용 Azure API에서 이미 사용할 수 있습니다.
+C4BB IG에 필요한 나머지 검색 매개 변수는 기본 사양에 의해 정의 되며 추가 업데이트 없이 FHIR 서비스에서 이미 사용할 수 있습니다.
  
 ### <a name="store-profiles"></a>저장소 프로필
 
@@ -54,25 +57,25 @@ C4BB IG에 필요한 나머지 검색 매개 변수는 기본 사양에 의해 �
 
 이러한 검색 매개 변수 및 프로필 생성을 지원 하기 위해 위에 설명 된 모든 단계를 단일 파일에 포함 하는 [샘플 http 파일이](https://github.com/microsoft/fhir-server/blob/main/docs/rest/C4BB/C4BB.http) 있습니다. 필요한 모든 프로필과 검색 매개 변수를 업로드 한 후에는 Touchstone에서 기능 문 테스트를 실행할 수 있습니다.
 
-:::image type="content" source="media/cms-tutorials/capability-test-script-execution-results.png" alt-text="기능 테스트 스크립트 실행 결과입니다.":::
+:::image type="content" source="media/centers-medicare-services-tutorials/capability-test-script-execution-results.png" alt-text="기능 테스트 스크립트 실행 결과입니다.":::
 
 ## <a name="touchstone-read-test"></a>Touchstone read 테스트
 
-기능 설명을 테스트 한 후 C4BB IG에 대해 Azure API for FHIR의 [읽기 기능](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/01-Read&activeOnly=false&contentEntry=TEST_SCRIPTS) 을 테스트 합니다. 이 테스트는 첫 번째 테스트에서 로드 한 8 개의 프로필에 대 한 테스트를 준수 합니다. 프로필을 준수 하는 리소스를 로드 해야 합니다. 가장 좋은 경로는 데이터베이스에 이미 있는 리소스에 대해 테스트 하는 것 이지만 리소스를 만들고 테스트 하는 데 사용할 수 있는 예제에서 끌어온 샘플 리소스를 사용 하 여 [http 파일](https://github.com/microsoft/fhir-server/blob/main/docs/rest/C4BB/C4BB_Sample_Resources.http) 을 사용할 수 있습니다.
+기능 설명을 테스트 한 후에는 C4BB IG에 대해 FHIR 서비스의 [읽기 기능](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/01-Read&activeOnly=false&contentEntry=TEST_SCRIPTS) 을 테스트 합니다. 이 테스트는 첫 번째 테스트에서 로드 한 8 개의 프로필에 대 한 테스트를 준수 합니다. 프로필을 준수 하는 리소스를 로드 해야 합니다. 가장 좋은 경로는 데이터베이스에 이미 있는 리소스에 대해 테스트 하는 것 이지만 리소스를 만들고 테스트 하는 데 사용할 수 있는 예제에서 끌어온 샘플 리소스를 사용 하 여 [http 파일](https://github.com/microsoft/fhir-server/blob/main/docs/rest/C4BB/C4BB_Sample_Resources.http) 을 사용할 수 있습니다.
 
-:::image type="content" source="media/cms-tutorials/test-execution-results-touchstone.png" alt-text="Touchstone read test execution results.":::
+:::image type="content" source="media/centers-medicare-services-tutorials/test-execution-results-touchstone.png" alt-text="Touchstone read test execution results.":::
 
 ## <a name="touchstone-eob-query-test"></a>Touchstone EOB 쿼리 테스트
 
 검토할 다음 테스트는 [EOB 쿼리 테스트](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/02-EOBQuery&activeOnly=false&contentEntry=TEST_SCRIPTS)입니다. 읽기 테스트를 이미 완료 한 경우에는 필요한 모든 데이터를 로드 해야 합니다. 이 테스트는 `Patient` 다양 한 매개 변수를 사용 하 여 특정 및 리소스를 검색할 수 있는지 유효성을 검사 `ExplanationOfBenefit` 합니다.
 
-:::image type="content" source="media/cms-tutorials/test-execution-touchstone-eob-query-test.png" alt-text="Touchstone EOB 쿼리 실행 결과.":::
+:::image type="content" source="media/centers-medicare-services-tutorials/test-execution-touchstone-eob-query-test.png" alt-text="Touchstone EOB 쿼리 실행 결과.":::
 
 ## <a name="touchstone-error-handling-test"></a>Touchstone 오류 처리 테스트
 
 살펴볼 최종 테스트는 [오류 처리](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/99-ErrorHandling&activeOnly=false&contentEntry=TEST_SCRIPTS)를 테스트 하는 것입니다. 데이터베이스에서 ExplanationOfBenefit 리소스를 삭제 하 고 테스트에서 삭제 된 리소스의 ID를 사용 하기만 하면 됩니다 `ExplanationOfBenefit` .
 
-:::image type="content" source="media/cms-tutorials/test-execution-touchstone-error-handling.png" alt-text="Touchstone EOB 오류 처리 결과.":::
+:::image type="content" source="media/centers-medicare-services-tutorials/test-execution-touchstone-error-handling.png" alt-text="Touchstone EOB 오류 처리 결과.":::
 
 
 ## <a name="next-steps"></a>다음 단계

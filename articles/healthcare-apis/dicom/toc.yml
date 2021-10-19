@@ -1,0 +1,57 @@
+items:
+  - name: DICOM 서비스
+    href: index.yml
+  - name: 개요
+    expanded: true
+    items:
+      - name: DICOM 서비스 정보
+        href: dicom-services-overview.md
+  - name: 빠른 시작
+    expanded: true
+    items:
+      - name: Azure Portal를 사용 하 여 DICOM 서비스 배포
+        href: deploy-dicom-services-in-azure.md
+  - name: 자습서
+    expanded: true
+    items:
+      - name: 'C에서 DICOMweb 표준 Api 사용 #'
+        href: dicomweb-standard-apis-c-sharp.md
+      - name: DICOMweb 표준 Api 및 말아 사용
+        href: dicomweb-standard-apis-curl.md
+      - name: Python에서 DICOMweb 표준 Api 사용
+        href: dicomweb-standard-apis-python.md
+  - name: 개념
+    expanded: true
+    items:
+      - name: DICOM 서비스에서 DICOMweb 표준 Api 사용
+        href: dicomweb-standard-apis-with-dicom-services.md
+      - name: DICOM 변경 피드 개요
+        href: dicom-change-feed-overview.md
+      - name: DICOM 서비스에 대 한 Azure Active Directory 응용 프로그램 등록
+        href: dicom-register-azure-active-directory-applications.md
+      - name: DICOM 서비스에서 진단 로깅 사용
+        href: enable-diagnostic-logging.md
+  - name: 방법 가이드
+    expanded: true
+    items:
+      - name: 변경 피드를 사용 하 여 DICOM 변경 내용 끌어오기
+        href: pull-dicom-changes-from-change-feed.md
+      - name: 서비스 클라이언트 애플리케이션 등록
+        href: dicom-register-service-client-application.md
+      - name: 공용 클라이언트 애플리케이션 등록
+        href: dicom-register-public-application.md
+      - name: 기밀 클라이언트 애플리케이션 등록
+        href: dicom-register-confidential-client-application.md
+      - name: DICOM 서비스에 대 한 Azure RBAC 구성
+        href: dicom-configure-azure-rbac.md
+      - name: Azure CLI를 사용 하 여 DICOM 서비스에 대 한 액세스 토큰을 가져옵니다.
+        href: dicom-get-access-token-azure-cli.md
+  - name: 리소스
+    expanded: true
+    items:
+      - name: DICOM 서비스에 대 한 API 버전 관리
+        href: api-versioning-dicom-service.md
+      - name: DICOM 준수 문
+        href: dicom-services-conformance-statement.md
+      - name: FAQ
+        href: dicom-services-faqs.yml

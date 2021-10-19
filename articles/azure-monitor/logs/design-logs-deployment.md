@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 8502c35a145e4a041f9d44b8396fe16f5db3febc
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
-ms.translationtype: HT
+ms.openlocfilehash: 89288c0e5205ba99a51104ffe24eb016aeb27f06
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384207"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179377"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Azure Monitor 로그 배포 디자인
 
@@ -103,7 +103,7 @@ Azure Monitor는 로그 검색을 수행하는 컨텍스트에 따라 자동으�
 | 각 모델의 대상은 누구인가요? | 중앙 관리. 데이터 수집을 구성해야 하는 관리자와 다양한 리소스에 액세스해야 하는 사용자입니다. 또한 현재 Azure 외부의 리소스에 대한 로그에 액세스해야 하는 사용자에게도 필요합니다. | 애플리케이션 팀. 모니터링되는 Azure 리소스의 관리자입니다. |
 | 사용자가 로그를 보는 데 필요한 것은 무엇인가요? | 작업 영역에 대한 권한. [작업 영역 권한을 사용하여 액세스 관리](./manage-access.md#manage-access-using-workspace-permissions)의 **작업 영역 권한** 을 참조하세요. | 리소스에 대한 읽기 액세스 권한. [Azure 권한을 사용하여 액세스 관리](./manage-access.md#manage-access-using-azure-permissions)의 **리소스 권한** 을 참조하세요. 권한은 포함하는 리소스 그룹에서와 같이 상속하거나 리소스에 직접 할당할 수 있습니다. 리소스의 로그에 대한 권한이 자동으로 할당됩니다. |
 | 권한의 범위는 어떻게 되나요? | 작업 영역. 작업 영역에 대한 액세스 권한이 있는 사용자는 권한이 있는 테이블에서 작업 영역의 모든 로그를 쿼리할 수 있습니다. [테이블 액세스 제어](./manage-access.md#table-level-azure-rbac)를 참조하세요. | Azure 리소스. 사용자는 작업 영역에서 액세스할 수 있는 특정 리소스, 리소스 그룹 또는 구독에 대한 로그를 쿼리할 수 있지만, 다른 리소스에 대한 로그는 쿼리할 수 없습니다. |
-| 사용자가 로그에 액세스하려면 어떻게 해야 하나요? | <ul><li>**Azure Monitor** 메뉴에서 **로그** 를 시작합니다.</li></ul> <ul><li>**Log Analytics 작업 영역** 메뉴에서 **로그** 를 시작합니다.</li></ul> <ul><li>Azure Monitor [통합 문서](../visualizations.md#workbooks)에서</li></ul> | <ul><li>Azure 리소스의 메뉴에서 **로그** 를 시작합니다.</li></ul> <ul><li>**Azure Monitor** 메뉴에서 **로그** 를 시작합니다.</li></ul> <ul><li>**Log Analytics 작업 영역** 메뉴에서 **로그** 를 시작합니다.</li></ul> <ul><li>Azure Monitor [통합 문서](../visualizations.md#workbooks)에서</li></ul> |
+| 사용자가 로그에 액세스하려면 어떻게 해야 하나요? | <ul><li>**Azure Monitor** 메뉴에서 **로그** 를 시작합니다.</li></ul> <ul><li>**Log Analytics 작업 영역** 메뉴에서 **로그** 를 시작합니다.</li></ul> <ul><li>Azure Monitor [통합 문서](../best-practices-analysis.md#workbooks)에서</li></ul> | <ul><li>Azure 리소스의 메뉴에서 **로그** 를 시작합니다.</li></ul> <ul><li>**Azure Monitor** 메뉴에서 **로그** 를 시작합니다.</li></ul> <ul><li>**Log Analytics 작업 영역** 메뉴에서 **로그** 를 시작합니다.</li></ul> <ul><li>Azure Monitor [통합 문서](../best-practices-analysis.md#workbooks)에서</li></ul> |
 
 ## <a name="access-control-mode"></a>액세스 제어 모드
 

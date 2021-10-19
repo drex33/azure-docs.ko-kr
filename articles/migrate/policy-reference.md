@@ -4,15 +4,15 @@ description: Azure Migrate를 위한 Azure Policy 기본 제공 정책 정의를
 ms.date: 10/11/2021
 ms.topic: reference
 ms.service: azure-migrate
-author: MaggiePucciEvans
-ms.author: evansma
+author: SGSneha
+ms.author: v-ssudhir
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 0cad7ef9e3af93820e65e3958fb03d5a85c7e4cb
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: eb27dae436f57dea60598c47f740f3ccdb869df7
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/19/2021
-ms.locfileid: "130164284"
+ms.locfileid: "130176342"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-migrate"></a>Azure Migrate를 위한 Azure Policy 기본 제공 정의
 

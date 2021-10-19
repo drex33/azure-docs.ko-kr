@@ -2,13 +2,13 @@
 title: 백업 센터를 사용하여 인사이트 얻기
 description: 백업 센터를 사용하여 기록 추세를 분석하고 백업에 대한 심층적인 인사이트를 얻는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.openlocfilehash: c48173749a9b47be7eeb906e9f8eec716e0cb200
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 10/19/2021
+ms.openlocfilehash: 5244ba6edaac3b58550107c2519b90447ff197e0
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102506017"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177843"
 ---
 # <a name="obtain-insights-using-backup-center"></a>백업 센터를 사용하여 인사이트 얻기
 
@@ -24,7 +24,7 @@ ms.locfileid: "102506017"
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
-- Backup 보고서는 현재 Azure Database for PostgreSQL 서버 백업에 사용할 수 없습니다.
+- Backup 보고서 현재 Backup 자격 증명 모음을 사용하여 백업되는 워크로드에 대해 지원되지 않습니다.
 
 - 지원되는 시나리오와 지원되지 않는 시나리오 상세 목록은 [지원 매트릭스](backup-center-support-matrix.md)를 참조하세요.
 
@@ -56,10 +56,10 @@ ms.locfileid: "102506017"
 
 7. **정책 준수** - 이 탭에서는 모든 백업 인스턴스에 하루에 하나 이상의 성공적인 백업이 있는지 여부를 확인할 수 있습니다. [자세한 정보](./configure-reports.md#policy-adherence)
 
-[메일 보고서](backup-reports-email.md) 기능을 사용하여 이러한 보고서에 대한 메일을 구성할 수도 있습니다.
+전자 메일 보고서 기능을 사용하여 이러한 보고서에 대한 [메일을](backup-reports-email.md) 구성할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [백업 모니터링 및 운영](backup-center-monitor-operate.md)
 - [백업 공간 제어](backup-center-govern-environment.md)
-- [백업 센터를 사용하여 작업 수행](backup-center-actions.md)
+- [Backup 센터를 사용하여 작업 수행](backup-center-actions.md)

@@ -1,15 +1,15 @@
 ---
 title: Azure Lab Services에서 사용자를 랩 작성자로 추가
 description: 이 문서에서는 Azure Lab Services에서 랩 계정의 랩 작성자 역할에 사용자를 추가하는 방법을 보여 줍니다. 랩 작성자는 이 랩 계정 내에서 랩을 만들 수 있습니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/26/2021
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: a2135ab6580d39d6c63f7e948a29f0f0ede4efd6
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
-ms.translationtype: HT
+ms.openlocfilehash: 08377ce7884b9f9a7f974402a799e83ce6fb57bf
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634196"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177330"
 ---
 # <a name="add-lab-creators-to-a-lab-account-in-azure-lab-services"></a>Azure Lab Services에서 랩 작성자를 랩 계정에 추가
 이 문서에서는 Azure Lab Services에서 랩 계정에 사용자를 랩 작성자로 추가하는 방법을 보여 줍니다. 그런 다음, 해당 사용자는 랩 계정에서 랩을 만들 수 있습니다. 

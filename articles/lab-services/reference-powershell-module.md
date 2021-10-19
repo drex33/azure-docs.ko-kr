@@ -1,14 +1,14 @@
 ---
 title: Azure Lab Services용 PowerShell 모듈 | Microsoft Docs
 description: 이 문서에서는 Azure Lab Services에서 아티팩트를 관리하는 데 도움이 되는 PowerShell 모듈에 관한 정보를 제공합니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 4f990b35a41f040d34fab156d3f3d450ad7561a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 81ed7d689105aa459151d698466b98f71f7b352e
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94646528"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177691"
 ---
 # <a name="azlabservices-powershell-module-preview"></a>Az.LabServices PowerShell 모듈(미리 보기)
 Az.LabServices는 Azure Lab Services의 관리를 간소화하는 PowerShell 모듈입니다. 랩 계정, 랩, VM, 이미지 등을 만들고, 쿼리, 업데이트, 삭제하는 구성 가능한 함수를 제공합니다. 이 모듈에 관한 자세한 내용은 [GitHub의 Az.LabServices 홈페이지](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library)를 참조하세요.

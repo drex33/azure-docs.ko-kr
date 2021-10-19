@@ -1,14 +1,14 @@
 ---
-title: Azure Lab Services - 지원 정보 보기(랩 작성자)
+title: 지원 정보 보기 (랩 작성자)
 description: 이 문서에서는 랩 작성자가 도움을 얻기 위해 사용할 수 있는 지원 정보를 보는 방법을 설명합니다.
 ms.date: 06/26/2020
 ms.topic: how-to
-ms.openlocfilehash: 3e04245c3f2d9b0a4f4e98ae21287983cf679ec6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: add69ad733a639b6277fd0c9bfcacf30d9ba281d
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85445052"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179605"
 ---
 # <a name="view-support-information-lab-creator-in-azure-lab-services"></a>지원 정보 보기(Azure Lab Services의 랩 작성자)
 이 문서에서는 랩 작성자가 다음 지원 정보를 볼 수 있는 방법을 설명합니다.

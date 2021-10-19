@@ -3,15 +3,15 @@ title: Chromebook에서 Azure Lab Services VM에 연결하는 방법 | Microsoft
 description: Azure Lab Services에서 Chromebook을 가상 머신으로 연결하는 방법에 대해 알아봅니다.
 services: devtest-lab, lab-services, virtual-machines
 author: nicolela
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 74135c0b36f533ebfbba6422bc79af47825a1a3b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 7fb33b580aa0984366b47f0358df7f915a77730b
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97813227"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176152"
 ---
 # <a name="connect-to-a-vm-using-remote-desktop-protocol-on-a-chromebook"></a>Chromebook에서 원격 데스크톱 프로토콜을 사용하여 VM에 연결
 

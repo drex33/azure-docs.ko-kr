@@ -8,12 +8,12 @@ ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 73a30e7052faaaa644511fec65796a4575e5ab4a
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 3016fb18827c0c1323cb151024303a15a2454c5a
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259135"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177938"
 ---
 # <a name="known-issues"></a>알려진 문제
 이 문서에서는 Azure Communication Services Calling SDK 및 Azure Communication Services Call Automation API와 관련된 제한 사항 및 알려진 문제에 대한 정보를 제공합니다.
@@ -127,6 +127,8 @@ Communication Services 사용자가 JavaScript 통화 SDK를 사용하여 통화
 ##### <a name="possible-causes"></a>가능한 원인
 일부 브라우저(예: Safari)에서는 동일한 디바이스에서 사용자 고유의 스트림을 가져오면 경합 상태를 실행하는 부작용이 발생합니다. 다른 디바이스에서 스트림을 가져오면 USB/IO 대역폭이 부족해질 수 있으며 sourceUnavailableError 비율이 급증할 수 있습니다.  
 
+#### <a name="support-for-simulcast"></a>Simulcast 지원
+Simulcast는 클라이언트가 서로 다른 해상도 및 비트 전송률에서 동일한 비디오 스트림을 두 번 인코딩하고 ACS intrastrucutre가 클라이언트에서 받아야 하는 스트림을 결정 하는 데 사용할 수 있는 기술입니다. Windows, Android 또는 iOS 용 ACS 호출 라이브러리 SDK는 simulcast 스트림을 보내는 기능을 지원 합니다. ACS 웹 SDK는 현재 simulcast 스트림 전송을 지원 하지 않습니다.
 
 ## <a name="azure-communication-services-call-automation-apis"></a>Azure Communication Services Call Automation API
 

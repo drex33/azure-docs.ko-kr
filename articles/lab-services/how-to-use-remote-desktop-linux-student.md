@@ -1,14 +1,14 @@
 ---
 title: Azure Lab Services에서 Linux VM에 연결 | Microsoft Docs
 description: Azure Lab Services의 랩에서 Linux 가상 머신에 대해 원격 데스크톱을 사용하는 방법에 대해 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 23a4c9712a99046648ab14b404c09a7a19bf54e0
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 6c8cd04f1ca3a070db73d2fc0eda4b6d4091f6ae
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/19/2021
-ms.locfileid: "130163955"
+ms.locfileid: "130179966"
 ---
 # <a name="connect-to-linux-virtual-machines-in-a-classroom-lab-of-azure-lab-services"></a>Azure Lab Services의 교실 랩에서 Linux 가상 머신에 연결
 이 문서에서는 학생이 다음을 사용하여 랩에서 Linux VM(가상 머신)에 연결할 수 있는 방법을 보여 줍니다.
@@ -58,7 +58,7 @@ ms.locfileid: "130163955"
    - [Mac에서 RDP를 사용하여 VM에 연결](connect-virtual-machine-mac-remote-desktop.md)
    - [Chromebook에서 RDP를 사용하여 VM에 연결](connect-virtual-machine-chromebook-remote-desktop.md)
 
-RDP 클라이언트에는 사용자의 연결 환경을 최적화하도록 조정할 수 있는 다양한 설정이 포함되어 있습니다.  일반적으로 이러한 설정은 변경할 필요가 없습니다.  기본적으로 설정은 네트워크 연결에 따라 올바른 환경을 선택하도록 이미 구성되어 있습니다.  이러한 설정에 대한 자세한 내용은 [RDP 클라이언트의 **환경** 설정에 대한 문서를 읽어보세요.](https://docs.microsoft.com/windows-server/administration/performance-tuning/role/remote-desktop/session-hosts#client-experience-settings)
+RDP 클라이언트에는 사용자의 연결 환경을 최적화하도록 조정할 수 있는 다양한 설정이 포함되어 있습니다.  일반적으로 이러한 설정은 변경할 필요가 없습니다.  기본적으로 설정은 네트워크 연결에 따라 올바른 환경을 선택하도록 이미 구성되어 있습니다.  이러한 설정에 대한 자세한 내용은 [RDP 클라이언트의 **환경** 설정에 대한 문서를 읽어보세요.](/windows-server/administration/performance-tuning/role/remote-desktop/session-hosts#client-experience-settings)
 
 강사가 RDP 클라이언트를 사용하여 GNOME 그래픽 데스크톱을 구성한 경우 성능을 최적화하기 위해 다음 설정을 권장합니다.
 - **표시** 탭에서 색 깊이를 **높은 색(15비트) 으로** 설정합니다.

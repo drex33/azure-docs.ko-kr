@@ -1,14 +1,14 @@
 ---
-title: Azure Lab Services - 관리자 가이드 | Microsoft Docs
+title: 관리자 가이드 | Microsoft Docs
 description: 이 가이드는 Azure Lab Services를 사용하여 랩 계정을 만들고 관리하는 관리자를 지원합니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/20/2020
-ms.openlocfilehash: 567a6ad5cd7eae6fb6963dbcdb781fc2d7667f79
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 698b6ddb6474031e7d19f2029156197b7d6a7741
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566854"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177273"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services - 관리자 가이드
 대학 클라우드 리소스를 관리하는 IT(정보 기술) 관리자는 일반적으로 학교의 랩 계정을 설정합니다. 랩 계정을 설정하고 나면 관리자 또는 교육자가 해당 계정 내에 포함된 랩을 만듭니다. 이 문서에서는 관련 Azure 리소스에 대한 대략적인 개요 및 해당 리소스를 만들기 위한 지침을 제공합니다.

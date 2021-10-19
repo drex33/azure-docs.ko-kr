@@ -10,12 +10,12 @@ ms.date: 05/08/2021
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 244d7b7d2ff6fe88b883b2e8adbeeaa0e7fb167e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3b1754060a84914fca9b9c7d22ee85e32717d002
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128593233"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178763"
 ---
 # <a name="create-develop-and-maintain-synapse-notebooks-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse Notebook 만들기, 개발, 유지 관리
 
@@ -42,7 +42,6 @@ Synapse 팀은 새로운 Notebook 구성 요소를 Synapse Studio로 가져와�
 |끌어서 놓아 셀 이동| 지원되지 않음 |&#9745;|
 |개요(목차)| 지원되지 않음 |&#9745;|
 |변수 탐색기| 지원되지 않음 |&#9745;|
-|도구 모음 단추를 사용하여 텍스트 셀 서식 지정|&#9745;| 지원되지 않음|
 |코드 셀 주석 달기| 지원되지 않음 | &#9745;|
 
 > [!NOTE]
@@ -190,11 +189,13 @@ Synapse Notebook은 Spark 세션 구성, 데이터를 Spark DataFrame으로 읽�
 
 # <a name="preview-notebook"></a>[프리뷰 Notebook](#tab/preview)
 
-서식 단추 도구 모음은 아직 프리뷰 Notebook 환경에 사용할 수 없습니다. 
+텍스트 셀 도구 모음의 서식 단추를 사용하여 일반적인 Markdown 작업을 수행할 수 있습니다. 여기에는 굵은 텍스트, 텍스트의 직렬화, 드롭다운을 통한 단락/헤더, 코드 삽입, 순서가 지정되지 않은 목록 삽입, 순서가 지정된 목록 삽입, 하이퍼링크 삽입 및 URL에서 이미지 삽입이 포함됩니다.
+
+  ![Synapse 텍스트 셀 도구 모음 스크린샷](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar-preview.png)
 
 ---
 
-<h3 id="undo-redo-cell-operation">셀 실행 취소/다시 실행 작업</h3>
+<h3 id="undo-redo-cell-operation">셀 작업 실행 취소/다시 실행</h3>
 
 # <a name="classical-notebook"></a>[클래식 Notebook](#tab/classical)
 

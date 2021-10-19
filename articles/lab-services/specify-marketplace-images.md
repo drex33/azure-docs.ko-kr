@@ -1,14 +1,14 @@
 ---
 title: Azure Lab Services에서 랩에 마켓플레이스 이미지 지정
 description: 이 문서에서는 랩 작성자가 Azure Lab Services의 랩 계정에서 랩을 만드는 데 사용할 수 있는 마켓플레이스 이미지를 지정하는 방법을 알려줍니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 5c81c8d7a15d67055729a29e98f5b7e30f3d0764
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: ccd304d1a12d38ae18891f9400beaf8c9d90b889
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96434739"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177653"
 ---
 # <a name="specify-marketplace-images-available-to-lab-creators"></a>랩 작성자에 사용할 수 있는 Marketplace 이미지 지정
 랩 계정 소유자는 랩 작성자가 랩 계정에서 랩을 만들 때 사용할 수 있는 Marketplace 이미지를 지정할 수 있습니다. 

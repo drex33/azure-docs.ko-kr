@@ -1,14 +1,14 @@
 ---
 title: Azure Lab Services의 클래스 유형 예제 | Microsoft Docs
 description: Azure Lab Services를 사용하여 랩을 설정할 수 있는 몇 가지 유형의 클래스를 제공합니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 086f5eebb6ef96b1846c2f2777b045821b0418c8
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d2adfd22649bb65bb7ae0d360a5b2a33944abd8d
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124736635"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130181239"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>클래스 유형 개요 - Azure Lab Services
 

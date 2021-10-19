@@ -1,23 +1,23 @@
 ---
-title: VM에 대한 리소스 그룹 지정
+title: DevTest Labs에서 Azure VM에 대한 리소스 그룹 지정
 description: Azure DevTest Labs의 랩에서 VM에 대한 리소스 그룹을 지정하는 방법을 알아봅니다.
 ms.topic: how-to
-ms.date: 06/26/2020
-ms.openlocfilehash: f8800674ca7d324037d026142cff41b4fbd018d0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/18/2021
+ms.openlocfilehash: baeab2c54ae594cf9ecb70ae8c4ec7dd2b66588f
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128635435"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178902"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩 가상 머신에 대한 리소스 그룹 지정
 
-랩 소유자는 랩 가상 머신을 특정 리소스 그룹에 만들도록 구성할 수 있습니다. 이 기능은 다음 시나리오에서 도움이 됩니다.
+기본적으로 Azure DevTest Labs 새 가상 머신을 만들 때마다 새 리소스 그룹을 만듭니다. 랩 소유자는 랩 가상 머신을 특정 리소스 그룹에 만들도록 구성할 수 있습니다. 이 기능은 다음 시나리오에서 도움이 됩니다.
 
 - 구독의 랩에서 더 적은 리소스 그룹을 만들도록 합니다.
 - 랩이 구성된 고정 리소스 그룹 세트 내에서 작동하도록 합니다.
 - Azure 구독 내에서 리소스 그룹을 만드는 데 필요한 승인 및 제한을 해결합니다.
-- 모든 랩 리소스를 단일 리소스 그룹에 통합하여 해당 리소스 추적과 [정책](../governance/policy/overview.md) 적용을 간소화함으로써 리소스 그룹 수준에서 리소스를 관리합니다.
+- 단일 리소스 그룹 내의 모든 랩 리소스를 결합하여 해당 리소스를 추적하고 리소스 그룹 수준에서 리소스를 관리하는 [정책을](../governance/policy/overview.md) 적용하는 과정을 간소화합니다.
 
 이 기능을 사용하면 스크립트로 모든 랩 VM에 사용되는 새 리소스 그룹 또는 기존 리소스 그룹을 Azure 구독 내에 지정할 수 있습니다. 현재 Azure DevTest Labs는 API를 통해 이 기능을 지원합니다.
 

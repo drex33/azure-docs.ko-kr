@@ -1,14 +1,14 @@
 ---
 title: Azure Lab Services를 사용하여 Project Lead the Way 랩 설정
 description: Project Lead The Way 수업을 진행하도록 랩을 설정하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/28/2020
-ms.openlocfilehash: 85e8b8d55ed5a91c21c2554ce15e3ef893e30f15
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 9ee9c0dfdd9174691c27ee007c1dc0070249afbe
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566853"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176779"
 ---
 # <a name="set-up-labs-for-project-lead-the-way-classes"></a>Project Lead The Way 수업을 위한 랩 설정
 
@@ -133,7 +133,7 @@ PLTW에 필요한 설치 파일 중 일부는 클 수 있습니다. 랩 템플�
 - [Mac에서 연결](./connect-virtual-machine-mac-remote-desktop.md)
 - [Chromebook에서 연결](./connect-virtual-machine-chromebook-remote-desktop.md)
 
-## <a name="cost"></a>비용
+## <a name="cost"></a>Cost
 PLTW 수업에 대한 예제 비용 예상치를 살펴보겠습니다.  이러한 예상치는 라이선스 서버를 실행하거나 공유 이미지 갤러리를 사용하는 비용을 포함하지 않습니다. 25명의 학생이 수업에 참여하고 각 학생을 위해 20시간의 수업 시간이 예약됩니다.  각 학생에게는 예약된 수업 시간 외에도 과제를 위해 추가 10시간이 할당됩니다.  예상 비용은 다음과 같습니다.
 
 - **대형 VM**

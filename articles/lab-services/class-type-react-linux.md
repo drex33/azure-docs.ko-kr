@@ -2,15 +2,15 @@
 title: Azure Lab Services를 사용하여 Linux에서 React를 사용한 랩 설정
 description: React 개발 클래스에 랩을 설정하는 방법을 알아봅니다.
 author: emaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/16/2021
 ms.author: enewman
-ms.openlocfilehash: 96154718ce8e0ecff0ccdce0ded70272cdda828e
-ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
-ms.translationtype: HT
+ms.openlocfilehash: 8cd635b5b46e42e59901e0326188b955ecde9b79
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112991769"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176665"
 ---
 # <a name="set-up-lab-for-react-on-linux"></a>Linux에서 React에 랩 설정
 

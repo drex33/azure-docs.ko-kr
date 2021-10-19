@@ -1,14 +1,14 @@
 ---
 title: Azure Lab Services에서 Linux용 그래픽 원격 데스크톱을 사용하도록 설정 | Microsoft Docs
 description: Azure Lab Services의 랩에서 Linux 가상 머신에 대해 원격 데스크톱을 활성화하는 방법에 대해 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 079f572062978fcb655e2ac7d2829b1d18ba7345
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: c870faf1f85c192f12739c17809cc9c9088ac1fd
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/19/2021
-ms.locfileid: "130163640"
+ms.locfileid: "130180327"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Azure Lab Services에서 Linux 가상 머신에 대해 그래픽 원격 데스크톱을 사용하도록 설정
 이 문서에서는 다음 작업을 수행하는 방법을 보여 줍니다.
@@ -77,13 +77,13 @@ X2Go는 SSH에 대해 이미 사용하도록 설정된 것과 동일한 포트�
 
 4. 마지막으로 선택한 그래픽 데스크톱 환경과 함께 RDP 또는 X2Go를 설치합니다.
 
-성능을 최적화하려면 일반적으로 XFCE 그래픽 데스크톱을 사용하고 사용자가 X2Go를 사용하여 데스크톱에 연결하는 것이 좋습니다.  Ubuntu에서 X2Go를 사용하여 XFCE를 설정하려면 다음 지침을 사용합니다.
+최적의 성능을 위해 일반적으로 XFCE 그래픽 데스크톱을 사용하고 사용자가 X2Go를 사용하여 데스크톱에 연결하는 것이 좋습니다.  Ubuntu에서 X2Go를 사용하여 XFCE를 설정하려면 다음 지침을 사용합니다.
   - [X2Go 설치 및 구성](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/LinuxGraphicalDesktopSetup/XFCE_Xubuntu/ReadMe.md)
 
 대신 사용자가 RDP를 사용하여 그래픽 데스크톱에 연결해야 하는 경우 Ubuntu에 대해 다음 지침을 사용합니다.
   - [RDP 설치 및 구성](../virtual-machines/linux/use-remote-desktop.md)
 
-GNOME 또는BRIDGE 그래픽 데스크톱 환경의 경우 VM이 Azure Lab Services 제대로 작동하는 데 필요한 Azure Linux 에이전트와 네트워킹 충돌이 발생할 수 있습니다.  예를 들어 기본적으로 GNOME 또는 MATE가 설치된 Ubuntu 18.04 LTS 이미지에서 랩을 만드는 경우 다음 오류 메시지와 함께 랩 만들기가 **실패합니다. VM 에이전트를 사용하여 통신을 설정할 수 없습니다.  VM 에이전트가 사용하도록 설정되어 있고 작동하는지 확인하세요.**  마찬가지로 이 네트워킹 충돌로 인해 학생 VM을 프로비전하려고 할 때 게시가 중단됩니다.
+GNOME 또는 MATE 그래픽 데스크톱 환경의 경우 VM이 Azure Lab Services 제대로 작동하는 데 필요한 Azure Linux 에이전트와 네트워킹 충돌이 발생할 수 있습니다.  예를 들어 기본적으로 GNOME 또는 MATE가 설치된 Ubuntu 18.04 LTS 이미지에서 랩을 만드는 경우 다음 오류 메시지와 함께 랩 만들기가 **실패합니다. VM 에이전트를 사용하여 통신을 설정할 수 없습니다.  VM 에이전트가 사용하도록 설정되어 있고 작동하는지 확인하세요.**  마찬가지로, 이 네트워킹 충돌로 인해 학생 VM을 프로비전하려고 할 때 게시가 중단됩니다.
 
 Ubuntu에서 GNOME 또는 MATE 그래픽 데스크톱을 설정하려면 다음 지침을 사용하는 것이 좋습니다.  이러한 지침에는 Ubuntu 18.04 LTS와 함께 존재하는 네트워킹 충돌에 대한 수정이 포함됩니다.  또한 Ubuntu 20.04 LTS 및 21.04 LTS도 지원합니다.
  - [GNOME/RDP 및 MATE/X2go 설치 및 구성](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/LinuxGraphicalDesktopSetup/GNOME_MATE/ReadMe.md)

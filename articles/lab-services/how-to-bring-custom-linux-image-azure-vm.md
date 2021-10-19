@@ -1,14 +1,14 @@
 ---
-title: Azure Lab Services-Azure 가상 머신에서 Linux 사용자 지정 이미지를 가져오는 방법.
+title: Azure 가상 머신에서 Linux 사용자 지정 이미지를 가져오는 방법입니다.
 description: Azure 가상 머신에서 Linux 사용자 지정 이미지를 가져오는 방법을 설명 합니다.
 ms.date: 07/27/2021
 ms.topic: how-to
-ms.openlocfilehash: edb1620b0051e82df3994982eb069e78e22777bf
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: fec4c6272b43aefc40607df38b2211bde5cbb04a
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450938"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180878"
 ---
 # <a name="bring-a-linux-custom-image-from-an-azure-virtual-machine"></a>Azure 가상 머신에서 Windows 사용자 지정 이미지 가져오기
 

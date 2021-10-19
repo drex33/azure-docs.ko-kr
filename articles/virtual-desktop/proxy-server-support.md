@@ -7,12 +7,12 @@ ms.date: 04/27/2021
 ms.author: helohr
 ms.reviewer: denisgun
 manager: femila
-ms.openlocfilehash: 41ee917602ed67af40f3244ad7215cae4d3a93c8
-ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
-ms.translationtype: HT
+ms.openlocfilehash: d90f6106d94777c58418a209097d84fe69458d06
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113032459"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177577"
 ---
 # <a name="proxy-server-guidelines-for-azure-virtual-desktop"></a>Azure Virtual Desktop용 프록시 서버 지침
 
@@ -36,9 +36,9 @@ Azure Virtual Desktop 트래픽의 유일한 경로로 프록시 서버를 구�
 
 - Azure 방화벽의 Azure 서비스 태그
 - 프록시 서버를 사용하지 않는 프록시 자동 구성(. PAC) 파일
-- 로컬 프록시 구성의 바이패스 목록 
-- 사용자 단위 구성에 프록시 서버 사용 
-- RDP 연결에 RDP shortpath를 사용하는 동시에 프록시를 통해 서비스 트래픽 유지 
+- 로컬 프록시 구성의 바이패스 목록
+- 사용자 단위 구성에 프록시 서버 사용
+- 프록시를 통해 서비스 트래픽을 유지하면서 RDP 연결에 RDP Shortpath 사용
 
 ## <a name="recommendations-for-using-proxy-servers"></a>프록시 서버 사용에 대한 권장 사항
 
@@ -48,9 +48,9 @@ Azure Virtual Desktop 트래픽의 유일한 경로로 프록시 서버를 구�
 
 프록시 서버를 사용하는 경우 Azure Virtual Desktop 인프라와의 모든 통신을 처리하고 가장 가까운 Azure Front Door에 대한 DNS 확인 및 Anycast 라우팅을 수행합니다. 프록시 서버가 Azure 지리에서 멀리 있거나 분산되어 있는 경우 지리적 해상도는 정확하지 않습니다. 지리적 해상도가 떨어진다는 것은 연결이 더 멀리 떨어진 Azure Virtual Desktop 클러스터로 라우팅된다는 의미입니다. 이 문제를 방지하려면 Azure Virtual Desktop 클러스터와 지리적으로 가까운 프록시 서버만 사용합니다.
 
-### <a name="use-rdp-shortpath-for-desktop-connectivity"></a>데스크톱 연결에 RDP shortpath 사용
+### <a name="use-rdp-shortpath-for-managed-networks-for-desktop-connectivity"></a>데스크톱 연결을 위해 관리형 네트워크에 RDP Shortpath 사용
 
-RDP shortpath를 사용하도록 설정하면 RDP 데이터가 프록시 서버를 사용하지 않습니다(가능한 경우). 프록시 서버를 우회하면 UDP 전송을 사용하는 동안 최적의 라우팅이 보장됩니다. 기타 Azure Virtual Desktop 트래픽(예: 브로커링, 오케스트레이션 및 진단)은 계속 프록시 서버를 통과합니다. 
+관리형 네트워크에 RDP Shortpath를 사용하도록 설정하면 가능한 경우 RDP 데이터가 프록시 서버를 무시합니다. 프록시 서버를 우회하면 UDP 전송을 사용하는 동안 최적의 라우팅이 보장됩니다. 기타 Azure Virtual Desktop 트래픽(예: 브로커링, 오케스트레이션 및 진단)은 계속 프록시 서버를 통과합니다.
 
 ### <a name="dont-use-ssl-termination-on-the-proxy-server"></a>프록시 서버에서 SSL 종료를 사용하지 않음
 

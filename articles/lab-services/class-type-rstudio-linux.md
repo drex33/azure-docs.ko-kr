@@ -2,15 +2,15 @@
 title: Azure Lab Services를 사용하여 Linux에서 R 및 RStudio로 랩 설정
 description: Linux에서 RStudio를 사용하여 R을 가르치기 위해 랩을 설정하는 방법 알아보기
 author: emaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/25/2021
 ms.author: enewman
-ms.openlocfilehash: 14e30572ab620b36730c725c7ac5a2e762947366
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: cc05b682a91deab2d67e9d5ddbe5d4dc85740f6a
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124755504"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176646"
 ---
 # <a name="set-up-a-lab-to-teach-r-on-linux"></a>Linux에서 R을 가르치기 위한 랩 설정
 

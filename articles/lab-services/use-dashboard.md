@@ -1,14 +1,14 @@
 ---
 title: Azure Lab Services의 클래스룸 랩용 대시보드 사용 | Microsoft Docs
 description: Azure Lab Services의 클래스룸 랩용 대시보드를 사용하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: a91e1649d913956219ddcf192ab315a245b32eae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: fdc0227a6d0ce6bd46c4157ba0700a06d734928d
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96434603"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178997"
 ---
 # <a name="dashboard-for-labs"></a>클래스룸 랩용 대시보드
 이 문서에서는 Azure Lab Services의 클래스 룸 랩용 대시보드 보기에 대해 설명합니다. 

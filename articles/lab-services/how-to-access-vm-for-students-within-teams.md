@@ -1,14 +1,14 @@
 ---
 title: 팀의 Azure 랩에서 VM(학생 보기)에 액세스
 description: 팀의 Azure 랩에서 VM(학생 보기)에 액세스하는 방법에 대해 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/07/2020
-ms.openlocfilehash: 31195cc7c8b4bc0e579f8aeb9107b14229dd8877
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 541d3c519a795d73de1704720ccc40db92610f24
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92218275"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130181087"
 ---
 # <a name="access-a-vm-student-view-in-azure-lab-from-teams"></a>팀의 Azure 랩에서 VM(학생 보기)에 액세스
 
@@ -24,7 +24,7 @@ ms.locfileid: "92218275"
 자세한 내용은 다음 문서를 참조하세요.
 
 - [팀 내에서 Azure Lab Services 사용](lab-services-within-teams-overview.md)
-- [팀 내에서 랩 시작 및 만들기](how-to-get-started-create-lab-within-teams.md)
-- [팀 내에서 랩 사용자 목록 관리](how-to-manage-user-lists-within-teams.md)
-- [팀 내에서 랩의 VM 풀 관리](how-to-manage-vm-pool-within-teams.md)
+- [Teams 내에서 시작 및 랩 만들기](how-to-get-started-create-lab-within-teams.md)
+- [Teams 내에서 랩 사용자 목록 관리](how-to-manage-user-lists-within-teams.md)
+- [Teams 내에서 랩의 VM 풀 관리](how-to-manage-vm-pool-within-teams.md)
 - [팀 내에서 랩 일정 만들기 및 관리](how-to-create-schedules-within-teams.md)

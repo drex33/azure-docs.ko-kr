@@ -1,14 +1,14 @@
 ---
 title: Azure Lab Services에서 VM에 액세스하는 교육자
 description: 이 문서에서는 교육자가 교육자 뷰에서 학생 VM에 액세스하는 방법을 보여줍니다. 예를 들어, 조교는 한 클래스의 교육자이지만 다른 클래스의 학생일 수 있습니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: ad4f9cfd11b372e5c6da5c17eaeba82b0cd8a91f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: d20d95f7f86e3116d9daf42417a3a0aae5855bbb
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85445103"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179643"
 ---
 # <a name="access-virtual-machines-as-a-student-from-the-educator-view"></a>교육자 뷰에서 학생으로 가상 머신에 액세스
 이 문서에서는 교육자가 학생으로 참석하는 클래스를 위해 VM에 액세스하는 방법을 보여줍니다. 

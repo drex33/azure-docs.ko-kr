@@ -1,14 +1,14 @@
 ---
 title: Azure Lab Services를 사용하여 윤리적 해킹 랩 설정 | Microsoft Docs
 description: 윤리적 해킹 교육을 위해 Azure Lab Services를 사용하여 랩을 설정하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 97cdf13f39cc73ee7f35fb402229469195f1456c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 649646e560906c499cacda13c7745be3f2f3f758
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97616425"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176912"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>윤리적 해킹 클래스를 교육하기 위한 랩 설정
 
@@ -20,9 +20,9 @@ ms.locfileid: "97616425"
 
 ## <a name="lab-configuration"></a>랩 구성
 
-이 랩을 설정하려면 Azure 구독을 시작해야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. Azure 구독이 있으면 Azure Lab Services에서 새 랩 계정을 만들 수도 있고 기존 계정을 사용할 수도 있습니다. 새 랩 계정 만들기에 대한 다음 자습서를 참조하세요: [랩 계정 설정에 대한 자습서](tutorial-setup-lab-account.md)
+이 랩을 설정하려면 Azure 구독을 시작해야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. Azure 구독이 있으면 Azure Lab Services에서 새 랩 계정을 만들 수도 있고 기존 계정을 사용할 수도 있습니다. 새 랩 계정 만들기에 대한 자습서는 [랩 계정 설정에 대한 자습서](tutorial-setup-lab-account.md)를 참조하세요.
 
-[이 자습서](tutorial-setup-classroom-lab.md)에 따라 새 랩을 만들고 다음 설정을 적용합니다:
+[이 자습서](tutorial-setup-classroom-lab.md)에 따라 새 랩을 만들고 다음 설정을 적용합니다.
 
 | 가상 머신 크기 | 이미지 |
 | -------------------- | ----- |

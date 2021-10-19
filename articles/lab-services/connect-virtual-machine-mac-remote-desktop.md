@@ -1,14 +1,14 @@
 ---
 title: Mac에서 Azure Lab Services VM에 연결하는 방법 | Microsoft Docs
 description: Azure Lab Services에서 Mac을 가상 머신에 연결하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 674bea13093e185ae991148c2cf96599a273d0bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: cf5c3e38a1f2f850a4dbeb9c989dffb395992118
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85444627"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178598"
 ---
 # <a name="connect-to-a-vm-using-remote-desktop-protocol-on-a-mac"></a>Mac에서 원격 데스크톱 프로토콜을 사용하여 VM에 연결
 이 섹션에서는 학생이 RDP를 사용하여 Mac에서 교실 랩 VM에 연결할 수 있는 방법을 보여 줍니다.

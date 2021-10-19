@@ -1,26 +1,21 @@
 ---
-title: Azure Virtual Desktop에 대한 QoS(서비스 품질) 구현(미리 보기)
+title: Azure 가상 데스크톱에 대 한 QoS (서비스 품질) 구현
 titleSuffix: Azure
-description: Azure Virtual Desktop에 대한 QoS(미리 보기)를 설정하는 방법입니다.
+description: Azure 가상 데스크톱에 대 한 QoS를 설정 하는 방법입니다.
 author: gundarev
 ms.topic: conceptual
-ms.date: 11/16/2020
+ms.date: 10/18/2021
 ms.author: denisgun
-ms.openlocfilehash: c90811009a38db0874589dc828059277b9ae285c
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
-ms.translationtype: HT
+ms.openlocfilehash: d82f885a2a1b527be292137049453efbe888f15e
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111753039"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130181429"
 ---
-# <a name="implement-quality-of-service-qos-for-azure-virtual-desktop-preview"></a>Azure Virtual Desktop에 대한 QoS(서비스 품질) 구현(미리 보기)
+# <a name="implement-quality-of-service-qos-for-azure-virtual-desktop"></a>Azure 가상 데스크톱에 대 한 QoS (서비스 품질) 구현
 
-> [!IMPORTANT]
-> Azure Virtual Desktop에 대한 QoS(서비스 품질) 정책 지원은 현재 퍼블릭 미리 보기 상태입니다.
-> RDP는 이 전송을 사용하여 더 나은 안정성과 일관성 있는 대기 시간으로 원격 데스크톱과 RemoteApp을 제공합니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
-[RDP Shortpath](./shortpath.md)는 원격 데스크톱 클라이언트와 세션 호스트 간에 직접 UDP 기반 전송을 제공합니다. RDP Shortpath는 RDP 데이터에 대 한 QoS(서비스 품질) 정책을 구성할 수 있도록 합니다.
+[관리 되는 네트워크에 대 한 RDP Shortpath](./shortpath.md) 는 원격 데스크톱 클라이언트와 세션 호스트 간에 직접 UDP 기반 전송을 제공 합니다. 관리 되는 네트워크에 대 한 RDP Shortpath는 RDP 데이터에 대 한 QoS (서비스 품질) 정책을 구성할 수 있습니다.
 Azure Virtual Desktop의 QoS를 사용하면 네트워크 지연에 민감한 실시간 RDP 트래픽을 덜 중요한 트래픽 앞으로 "새치기"할 수 있습니다. 이러한 덜 중요한 트래픽의 예는 새 앱을 다운로드하는 경우가 될 수 있습니다. 이 경우 다운로드하는 데 드는 추가적인 1초는 그리 중요하지 않을 것입니다. QoS는 Windows 그룹 정책 개체를 사용하여 실시간 스트림의 모든 패킷을 식별한 후 표시하여, 네트워크에서 RDP 트래픽에 전용 대역폭 부분을 제공할 수 있도록 합니다.
 
 이 문서에 설명된 문제가 발생하는 많은 사용자 그룹을 지원하는 경우 QoS를 구현해야 할 것입니다. 사용자가 많지 않은 중소기업은 QoS가 필요하지 않을 수 있지만, 이 경우에도 유용할 수 있습니다.
@@ -50,7 +45,7 @@ QoS를 구현할 때 여러 정체 관리 기능(Cisco의 우선 순위 큐 및 
 높은 수준에서 다음을 수행하여 QoS를 구현합니다.
 
 1. [네트워크가 준비되었는지 확인](#make-sure-your-network-is-ready)
-2. [RDP Shortpath가 사용하도록 설정되어 있는지 확인](./shortpath.md) - QoS 정책은 역방향 연결 전송에 대해서는 지원되지 않습니다.
+2. [관리 되는 네트워크용 RDP Shortpath 사용 하도록 설정 되어 있는지 확인](./shortpath.md) -QoS 정책은 역방향 연결 전송에 대해 지원 되지 않습니다.
 3. 세션 호스트에서 [DSCP 마커 삽입 구현](#insert-dscp-markers)
 
 QoS 구현 준비를 수행할 때는 다음 지침에 유의하세요.
@@ -119,10 +114,10 @@ DSCP 값은 구성된 네트워크에 패킷 또는 스트림에 지정할 우�
 
 ### <a name="implement-qos-on-session-host-using-powershell"></a>PowerShell을 사용하여 세션 호스트에서 QoS 구현
 
-아래 PowerShell cmdlet를 사용하여 RDP Shortpath의 QoS를 설정할 수 있습니다.
+아래 PowerShell cmdlet을 사용 하 여 관리 되는 네트워크용 RDP Shortpath 대 한 QoS를 설정할 수 있습니다.
 
 ```powershell
-New-NetQosPolicy -Name "RDP Shortpath" -AppPathNameMatchCondition "svchost.exe" -IPProtocolMatchCondition UDP -IPSrcPortStartMatchCondition 3390 -IPSrcPortEndMatchCondition 3390 -DSCPAction 46 -NetworkProfile All
+New-NetQosPolicy -Name "RDP Shortpath for managed networks" -AppPathNameMatchCondition "svchost.exe" -IPProtocolMatchCondition UDP -IPSrcPortStartMatchCondition 3390 -IPSrcPortEndMatchCondition 3390 -DSCPAction 46 -NetworkProfile All
 ```
 
 ## <a name="related-articles"></a>관련 문서

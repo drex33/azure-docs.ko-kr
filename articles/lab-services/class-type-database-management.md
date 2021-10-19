@@ -2,15 +2,15 @@
 title: 관계형 데이터베이스의 데이터베이스 관리를 교육하도록 랩 설정 | Microsoft Docs
 description: 관계형 데이터베이스의 관리를 교육하도록 랩을 설정하는 방법을 알아봅니다.
 author: emaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 32079d6dc31cf3fcad66976737630472129b4271
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: bd14a53dffbc7d3480bd12dc35ed686d95b3184c
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96462427"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177026"
 ---
 # <a name="set-up-a-lab-to-teach-database-management-for-relational-databases"></a>관계형 데이터베이스의 데이터베이스 관리를 교육하도록 랩 설정
 
@@ -20,7 +20,7 @@ ms.locfileid: "96462427"
 
 ## <a name="lab-configuration"></a>랩 구성
 
-이 랩을 설정하려면 Azure 구독과 랩 계정으로 시작해야 합니다. Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. Azure 구독이 있으면 Azure Lab Services에서 새 랩 계정을 만들 수 있습니다. 새 랩 계정 만들기에 관한 자세한 내용은 [랩 계정 설정에 대한 자습서](tutorial-setup-lab-account.md)를 참조하세요.  기존 랩 계정을 사용할 수도 있습니다.
+이 랩을 설정하려면 Azure 구독과 랩 계정으로 시작해야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. Azure 구독이 있으면 Azure Lab Services에서 새 랩 계정을 만들 수 있습니다. 새 랩 계정 만들기에 관한 자세한 내용은 [랩 계정 설정에 대한 자습서](tutorial-setup-lab-account.md)를 참조하세요.  기존 랩 계정을 사용할 수도 있습니다.
 
 ### <a name="lab-account-settings"></a>랩 계정 설정
 

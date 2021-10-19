@@ -1,14 +1,14 @@
 ---
 title: Azure Lab Services의 VM 암호 설정 | Microsoft Docs
 description: Azure Lab Services의 랩에서 VM(가상 머신)의 암호를 설정 및 재설정하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 6ae577ee4c0c7e31760e0fb12afeaeac1ef8b7e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: b39dcae2f9568785313a77c9a3b2a9afd4f0a581
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96434229"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180099"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>가상 머신 풀 설정 및 관리 
 이 문서에서는 다음 작업을 수행하는 방법을 보여줍니다.

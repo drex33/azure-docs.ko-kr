@@ -1,14 +1,14 @@
 ---
-title: Azure Lab Services - 물리적 랩 환경에서 Linux 사용자 지정 이미지를 가져오는 방법
+title: 실제 랩 환경에서 Linux 사용자 지정 이미지를 가져오는 방법
 description: 물리적 랩 환경에서 Linux 사용자 지정 이미지를 가져오는 방법을 설명합니다.
 ms.date: 07/27/2021
 ms.topic: how-to
-ms.openlocfilehash: b5f9c28c6aa21ae0d82aec5afc99839149ddbe8b
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 6f044c062b770c6653a1e239ca7c1074ed969b9c
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/19/2021
-ms.locfileid: "130162795"
+ms.locfileid: "130180897"
 ---
 # <a name="bring-a-linux-custom-image-from-your-physical-lab-environment"></a>물리적 랩 환경에서 Linux 사용자 지정 이미지 가져오기
 

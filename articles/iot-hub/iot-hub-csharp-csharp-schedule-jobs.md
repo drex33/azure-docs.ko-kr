@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: b5c068f9c6810551a768b801b065cf526e0565ff
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 3ff7e7fb2ae1249bc3b5c21f7d7b194344c428a5
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536188"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178382"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>작업 예약 및 브로드캐스트(.NET)
 
@@ -308,6 +308,6 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
 
 이 자습서에서는 디바이스에 대한 직접 메서드를 예약하고 디바이스 쌍의 속성을 업데이트하는 데 작업을 사용했습니다.
 
-* IoT Hub 및 디바이스 관리 패턴(예: 원격 무선 펌웨어 업데이트)을 계속 시작하려면 [자습서: 펌웨어 업데이트를 수행하는 방법](tutorial-firmware-update.md)을 읽어보세요.
+* [Raspberry Pi 3 B+ 참조 이미지를 사용하여 Azure IoT Hub용 디바이스 업데이트 자습서에서](../iot-hub-device-update/device-update-raspberry-pi.md)엔드투엔드 이미지 기반 업데이트와 같은 IoT Hub 및 디바이스 관리 패턴을 계속 시작하려면
 
 * Azure IoT Edge로 AI를 에지 디바이스에 배포하는 방법을 자세히 알아보려면 [IoT Edge 시작](../iot-edge/quickstart-linux.md)을 참조하세요.

@@ -2,15 +2,15 @@
 title: Windows 템플릿 컴퓨터 설정 가이드 | Microsoft Docs
 description: 랩 서비스에서 Windows 템플릿 컴퓨터를 준비하는 일반적인 단계입니다.  이러한 단계는 Windows 업데이트 일정 설정, OneDrive 설치 및 Office 설치를 포함합니다.
 author: EMaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 216dc843b31eac355e1d818014f3d70b2ef83132
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 9b84823e356f59cda00b80052add584153a4aad6
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94647905"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180118"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Azure Lab Services에서 Windows 템플릿 컴퓨터를 설정하는 방법에 대한 가이드
 

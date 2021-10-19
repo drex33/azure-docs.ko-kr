@@ -1,14 +1,14 @@
 ---
-title: Azure Lab Services - 지원 정보 설정(랩 계정 소유자)
+title: 지원 정보 설정 (랩 계정 소유자)
 description: 랩 계정 소유자가 지원 연락처 정보를 설정할 수 있는 방법을 설명합니다. 랩 작성자와 랩 사용자는 이를 보고 사용하여 도움을 받을 수 있습니다.
 ms.date: 06/26/2020
 ms.topic: how-to
-ms.openlocfilehash: 17456f61352b1e26a33c042b27faa2d3aa44d73a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: e2143ad161dc426c26810656a5bba7d1614b67d0
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85445086"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179624"
 ---
 # <a name="set-up-support-information-lab-account-owner-in-azure-lab-services"></a>지원 정보 설정(Azure Lab Services의 랩 계정 소유자)
 이 문서에서는 랩 계정 소유자로서 랩 작성자(교육자) 및 랩 사용자(학생)가 랩 계정 또는 랩 사용과 관련하여 기술적인 문제가 발생하는 경우 도움을 얻기 위해 사용할 수 있는 지원 정보를 지정하는 방법을 설명합니다. 

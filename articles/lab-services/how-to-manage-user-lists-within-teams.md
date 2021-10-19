@@ -1,14 +1,14 @@
 ---
 title: Teams에서 Azure Lab Services 사용자 목록 관리
 description: Teams에서 Azure Lab Services 사용자 목록을 관리하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/07/2020
-ms.openlocfilehash: fa8f96a84be5c4c91e0153216e15963ec0e3d6f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 598edd21943364d25f59848236f838cb10fa3ce5
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91946712"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180194"
 ---
 # <a name="manage-lab-services-user-lists-from-teams"></a>Teams에서 Lab Services 사용자 목록 관리
 

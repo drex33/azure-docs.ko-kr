@@ -2,15 +2,15 @@
 title: Azure Lab Services를 사용하여 Windows에서 R 및 RStudio로 랩 설정
 description: Windows에서 RStudio를 사용하여 R을 가르치기 위해 랩을 설정하는 방법 알아보기
 author: emaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/26/2021
 ms.author: enewman
-ms.openlocfilehash: 5d081e21723fa73d84beec12e8602234ad5e8074
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 8e748a3c1af845ddd9c29e71de5b319b4b4b0603
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124757385"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176570"
 ---
 # <a name="set-up-a-lab-to-teach-r-on-windows"></a>Windows에서 R을 가르칠 랩 설정
 

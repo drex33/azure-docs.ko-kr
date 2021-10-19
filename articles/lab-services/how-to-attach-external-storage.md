@@ -2,15 +2,15 @@
 title: Azure Lab Services에서 외부 파일 스토리지 사용 | Microsoft Docs
 description: Lab Services에서 외부 파일 스토리지를 사용하는 랩을 설정하는 방법에 대해 알아봅니다.
 author: emaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/30/2021
 ms.author: enewman
-ms.openlocfilehash: 86dd9290c640829049f4f6cb7b784aacba3cf7ce
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f7c92e4369491a5b371c2f99fbcbdc4609b376f7
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124768746"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180973"
 ---
 # <a name="use-external-file-storage-in-lab-services"></a>Lab Services에서 외부 파일 스토리지 사용
 

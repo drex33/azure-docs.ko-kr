@@ -1,7 +1,7 @@
 ---
-title: 방법 - 사용자 지정 및 구성된 모델
+title: 방법-사용자 지정 및 구성 된 모델
 titleSuffix: Azure Applied AI Services
-description: 사용자 지정 및 구성된 모델을 만들고, 사용하고, Form Recognizer 관리하는 방법을 알아봅니다.
+description: 양식 인식기 사용자 지정 및 구성 된 모델을 만들고 사용 하 고 관리 하는 방법을 알아봅니다.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -10,45 +10,45 @@ ms.topic: how-to
 ms.date: 10/07/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: abd279b8464e4477a99aa0da8be480844bf18563
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 55e3d529b0f0e713be1c19e9f2ae4736d9b6a9ca
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129717740"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177520"
 ---
-# <a name="how-to-use-custom-and-composed-models"></a>방법: 사용자 지정 및 구성된 모델 사용
+# <a name="how-to-use-custom-and-composed-models"></a>방법: 사용자 지정 및 구성 된 모델 사용
 
-Form Recognizer는 고급 기계 학습 기술을 사용하여 문서 이미지에서 정보를 탐지하여 추출하고, 추출된 데이터를 정형 JSON 출력으로 반환합니다. Form Recognizer 사용하면 독립 실행형 사용자 지정 모델을 학습하거나 사용자 지정 모델을 결합하여 구성된 모델을 만들 수 있습니다.
+Form Recognizer는 고급 기계 학습 기술을 사용하여 문서 이미지에서 정보를 탐지하여 추출하고, 추출된 데이터를 정형 JSON 출력으로 반환합니다. 양식 인식기를 사용 하면 독립 실행형 사용자 지정 모델을 학습 하거나 사용자 지정 모델을 결합 하 여 구성 된 모델을 만들 수 있습니다.
 
 * **사용자 지정 모델**. Form Recognizer 사용자 지정 모델을 사용하면 비즈니스와 관련된 양식 및 문서의 데이터를 분석하고 추출할 수 있습니다. 사용자 지정 모델은 고객의 고유한 데이터 및 사용 사례를 학습합니다.
 
 * **구성형 모델**. 구성형 모델은 사용자 지정 모델 컬렉션을 가져와서 사용자의 양식 유형을 포함하는 단일 모델에 할당하여 만듭니다. 구성형 모델에 문서가 제출되면 이 서비스에서는 분류 단계를 수행하여 분석용으로 제공된 양식을 정확히 나타내는 사용자 지정 모델을 결정합니다.
 
-이 문서에서는 Form Recognizer [샘플 레이블 지정 도구,](label-tool.md) [REST API](quickstarts/client-library.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model)또는 [클라이언트 라이브러리 SDK를](quickstarts/client-library.md?branch=main&pivots=programming-language-csharp#train-a-custom-model)사용하여 Form Recognizer 사용자 지정 및 구성된 모델을 만드는 방법을 살펴봅니다.
+이 문서에서는 [폼 인식기 샘플 레이블 도구](label-tool.md), [REST api](quickstarts/client-library.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model)또는 [클라이언트 라이브러리 Sdk](quickstarts/client-library.md?branch=main&pivots=programming-language-csharp#train-a-custom-model)를 사용 하 여 양식 인식기 사용자 지정 및 구성 된 모델을 만드는 방법을 살펴보겠습니다.
 
-## <a name="try-it-sample-labeling-tool"></a>사용해 보세요. 샘플 레이블 지정 도구
+## <a name="try-it-sample-labeling-tool"></a>사용해 보기: 샘플 레이블 지정 도구
 
-샘플 레이블 지정 도구를 사용하여 사용자 지정 양식에서 데이터를 추출하는 방법을 확인할 수 있습니다. 다음이 필요합니다.
+샘플 레이블 지정 도구를 사용해 서 사용자 지정 양식에서 데이터를 추출 하는 방법을 확인할 수 있습니다. 다음이 필요 합니다.
 
-* Azure 구독 - [체험 구독을 만들](https://azure.microsoft.com/free/cognitive-services/) 수 있습니다.
+* Azure 구독- [무료로 하나를 만들](https://azure.microsoft.com/free/cognitive-services/) 수 있습니다.
 
-* [Azure Portal Form Recognizer 인스턴스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) )입니다. 무료 가격 책정 계층(`F0`)을 사용하여 서비스를 시도할 수 있습니다. 리소스가 배포된 후 **리소스로 이동을** 클릭하여 API 키와 엔드포인트를 얻습니다.
+* Azure Portal의 [폼 인식기 인스턴스입니다](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) . 무료 가격 책정 계층(`F0`)을 사용하여 서비스를 시도할 수 있습니다. 리소스를 배포한 후 **리소스로 이동** 을 클릭 하 여 API 키 및 끝점을 가져옵니다.
 
- :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="스크린샷: Azure Portal 키 및 엔드포인트 위치.":::
+ :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="스크린샷: Azure Portal의 키 및 엔드포인트 위치.":::
 
 > [!div class="nextstepaction"]
-> [사용해 보세요.](https://fott-2-1.azurewebsites.net/projects/create)
+> [사용해 보기](https://fott-2-1.azurewebsites.net/projects/create)
 
-Form Recognizer UI에서 다음을 수행합니다.
+양식 인식기 UI에서:
 
-1. 사용자 지정 사용을 선택하여 **레이블이 있는 모델을 학습시키고 키 값 쌍을 얻습니다.**
+1. **사용자 지정 사용을 선택 하 여 레이블을 사용 하 여 모델을 학습 하 고 키 값 쌍을 가져옵니다**.
   
       :::image type="content" source="media/label-tool/fott-use-custom.png" alt-text="스크린샷: 사용자 지정 옵션의 fott 도구 선택":::
 
-1. 다음 창에서 **새 프로젝트** 를 선택합니다.
+1. 다음 창에서 **새 프로젝트** 를 선택 합니다.
 
-    :::image type="content" source="media/label-tool/fott-new-project.png" alt-text="스크린샷: 새 프로젝트의 fott 도구 선택."::: 
+    :::image type="content" source="media/label-tool/fott-new-project.png" alt-text="스크린샷: 새 프로젝트의 fott 도구 선택"::: 
 
 ## <a name="create-your-models"></a>모델 만들기
 
@@ -161,9 +161,9 @@ Form Recognizer 샘플 레이블 지정 도구, REST API 또는 클라이언트 
 
 원하는 프로그래밍 언어 코드를 사용하여 단일 모델 ID로 호출되는 구성형 모델을 만듭니다. 아래는 기존 사용자 지정 모델에서 구성형 모델을 만드는 방법을 보여주는 코드 샘플의 링크입니다.
 
-* [**C#/.NET**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/Sample8_ModelCompose.md)
+* [**C#/.NET**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/Sample_ModelCompose.md)
 
-* [**Java**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/java/com/azure/ai/formrecognizer/CreateComposedModel.java)
+* [**Java**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/java/com/azure/ai/formrecognizer/administration/CreateComposedModel.java)
 
 * [**JavaScript**](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/samples/v3/javascript/createComposedModel.js)
 
@@ -195,9 +195,9 @@ REST API를 사용하면 문서를 분석하고 키-값 쌍 및 테이블 데이
 
 원하는 프로그래밍 언어를 사용하여 사용자 지정 모델 또는 구성형 모델로 양식이나 문서를 분석합니다. Form Recognizer 엔드포인트, API 키 및 모델 ID가 필요합니다.
 
-* [**C#/.NET**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/Sample8_ModelCompose.md#recognize-a-custom-form-using-a-composed-model)
+* [**C#/.NET**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/Sample_ModelCompose.md)
 
-* [**Java**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/java/com/azure/ai/formrecognizer/RecognizeCustomFormsFromUrl.java)
+* [**Java**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/java/com/azure/ai/formrecognizer/AnalyzeCustomDocumentFromUrl.java)
 
 * [**JavaScript**](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/samples/v3/javascript/recognizeCustomForm.js)
 

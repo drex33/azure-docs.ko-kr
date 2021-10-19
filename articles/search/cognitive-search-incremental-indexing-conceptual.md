@@ -7,21 +7,23 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/17/2021
-ms.openlocfilehash: 5bba65f8940fd899f63794c294858e8ed9f706c0
-ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.openlocfilehash: cb04bbea71588ea8d9fa1f1c4734b10e3d0b6792
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130138212"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179206"
 ---
 # <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Azure Cognitive Search의 증분 보강 및 캐싱
 
 > [!IMPORTANT] 
 > 이 기능은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 따라 공개 미리 보기로 제공됩니다. [미리 보기 REST API](/rest/api/searchservice/index-preview)는 이 기능을 지원합니다.
 
-*증분 보강* 는 [기술 실행](cognitive-search-working-with-skillsets.md) 중에 캐시 된 강화을 사용 하 여 새롭고 변경 된 기술과 문서만 AI 처리를 수행 하도록 합니다. 캐시는 [문서 크랙](search-indexer-overview.md#document-cracking)의 출력과 모든 문서에 대 한 각 기술 출력을 포함 합니다. 이미지 추출 및 AI 처리가 청구 가능한 [이벤트](search-sku-manage-costs.md#billable-events)이기 때문에 캐시를 사용 하도록 설정 하면 AI 보강 비용을 줄이고 보강의 처리 시간을 향상 시킬 수 있습니다. 
+*증분 보강* 는 [기술 실행](cognitive-search-working-with-skillsets.md) 중에 캐시 된 강화을 사용 하 여 새롭고 변경 된 기술과 문서만 AI 처리를 수행 하도록 합니다. 캐시는 [문서 크랙](search-indexer-overview.md#document-cracking)의 출력과 모든 문서에 대 한 각 기술 출력을 포함 합니다. 이미지 추출 및 AI 처리가 청구 가능한 [이벤트](search-sku-manage-costs.md#billable-events)이기 때문에 캐시를 사용 하도록 설정 하면 비용을 줄이고 AI 보강 처리 시간을 향상 시킬 수 있습니다. 
 
-캐싱을 사용 하도록 설정 하면 인덱서가 캐시를 읽고 여전히 유효한 모든 강화를 다시 사용 합니다. 일반적으로이는 사용자가 수정 했을 수 있는 기술에 의존 하지 않고 병렬로 실행 되는 업스트림 기술 또는 기술로 구성 됩니다. 업데이트 된 결과가 캐시에 기록 되 고 문서는 검색 인덱스나 기술 자료 저장소에서 업데이트 됩니다.
+캐싱을 사용 하도록 설정 하는 경우 인덱서는 업데이트를 평가 하 여 기존 강화를 캐시에서 끌어올 수 있는지 여부를 확인 합니다. 문서 크랙 단계의 이미지 및 텍스트 콘텐츠 및 편집에 대 한 업스트림 또는 직교 된 기술 출력은 재사용할 수 있습니다.
+
+기술 업데이트에 표시 된 대로 증분 강화을 수행한 후에는 새로 고침 결과가 캐시에, 검색 인덱스나 기술 자료 저장소에도 다시 기록 됩니다.
 
 ## <a name="cache-configuration"></a>캐시 구성
 

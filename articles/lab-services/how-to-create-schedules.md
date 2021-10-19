@@ -1,14 +1,14 @@
 ---
 title: Azure Lab Services에서 랩의 일정 만들기 | Microsoft Docs
 description: 랩의 VM이 지정된 시간에 시작 및 종료되도록 Azure Lab Services에서 랩의 일정을 만드는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 2a827c3d9f3022cb7d27ee43c9c95227c44f97e7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 01ba9448ae22c80ee3a4833c8569b46af370c45e
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96434028"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180612"
 ---
 # <a name="create-and-manage-schedules-for-labs-in-azure-lab-services"></a>Azure Lab Services에서 랩의 일정 만들기 및 관리 
 일정을 사용하면 랩의 VM이 지정된 시간에 자동으로 시작 및 종료되도록 Classroom(강의실) 랩을 구성할 수 있습니다. 일회성 일정이나 되풀이 일정을 정의할 수 있습니다. 다음 절차에서는 Classroom(강의실) 랩의 일정을 만들고 관리하는 단계를 제공합니다. 

@@ -1,18 +1,18 @@
 ---
 title: Azure Lab Services에서 VM의 자동 종료 구성
 description: 이 문서에서는 랩 계정에서 VM의 자동 종료를 구성하는 방법을 설명합니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/17/2020
-ms.openlocfilehash: c0a147a81aaed88313a1b9aa4b0754d9a3badcb5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: fabadbfc61a10b7ca53d0aa4711051a12347bd1d
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91650037"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180764"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab-account"></a>랩 계정에서 VM 자동 종료 구성
 
-여러 자동 종료 비용 제어 기능을 사용하도록 설정하여 가상 머신이 활발하게 사용되지 않을 때 추가 비용을 사전에 방지할 수 있습니다. 다음 세 가지 자동 종료 및 연결 끊기 기능을 결합하면 사용자가 실수로 가상 머신 실행을 방치하는 경우를 대부분 포착할 수 있습니다.
+여러 자동 종료 비용 제어 기능을 사용하도록 설정하여 가상 머신이 활발하게 사용되지 않을 때 추가 비용을 사전에 방지할 수 있습니다. 다음 세 가지 자동 종료 및 연결 끊기 기능을 결합하면 사용자가 실수로 가상 머신을 실행 중인 상태로 두는 경우를 대부분 포착할 수 있습니다.
  
 - OS가 유휴 상태로 간주하는 가상 머신에서 사용자 연결을 자동으로 끊습니다.
 - 사용자가 연결을 끊을 때 가상 머신을 자동으로 종료합니다.

@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 2900eb3ddf1411b80920869932724f76a22c9802
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 60b4e1ac82574cab16feee9c436d9521eaf58ad4
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123453833"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130173375"
 ---
 IMDS(Azure Instance Metadata Service)는 현재 실행 중인 가상 머신 인스턴스에 대한 정보를 제공합니다. 이를 사용하여 가상 머신을 관리하고 구성할 수 있습니다.
 이 정보에는 SKU, 스토리지, 네트워크 구성 및 예정된 유지 관리 이벤트가 포함됩니다. 사용 가능한 데이터의 전체 목록은 [엔드포인트 범주 요약](#endpoint-categories)을 참조하세요.
@@ -343,6 +343,8 @@ GET /metadata/instance
 | `azEnvironment` | VM이 실행되는 Azure 환경 | 2018-10-01
 | `customData` | [IMDS에서는](#frequently-asked-questions) 이 기능이 사용되지 않으며 비활성화됩니다. `userData`로 대체되었습니다. | 2019-02-01
 | `evictionPolicy` | [스폿 VM](../articles/virtual-machines/spot-vms.md)이 제거되는 방법을 설정합니다. | 2020-12-01
+| `extendedLocation.type` | VM의 확장 된 위치 유형입니다. | 2021-03-01
+| `extendedLocation.name` | VM의 확장 위치 이름 | 2021-03-01
 | `isHostCompatibilityLayerVm` | VM이 호스트 호환성 계층에서 실행되는지 여부를 식별합니다. | 2020-06-01
 | `licenseType` | [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit)에 대한 라이선스 유형입니다. 이는 AHB 사용 VM에 대해서만 제공됩니다. | 2020-09-01
 | `location` | VM을 실행하는 Azure 지역 | 2017-04-02
@@ -371,6 +373,7 @@ GET /metadata/instance
 | `tagsList` | 원활한 프로그래매틱 구문 분석을 위해 JSON 배열로 형식이 지정된 태그  | 2019-06-04
 | `userData` | 프로비저닝 중 또는 후에 사용하기 위해 VM을 만들 때 지정된 데이터 세트(Base64 인코딩)  | 2021-01-01
 | `version` | VM 이미지의 버전 | 2017-04-02
+| `virtualMachineScaleSet.id` | Virtual Machine이 속한 [Virtual Machine Scale Set의](../articles/virtual-machine-scale-sets/overview.md) ID(해당하는 경우) | 2021-03-01
 | `vmId` | VM의 [고유 식별자](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) | 2017-04-02
 | `vmScaleSetName` | 가상 머신 확장 집합의 [가상 머신 확장 집합 이름](../articles/virtual-machine-scale-sets/overview.md) | 2017-12-01
 | `vmSize` | [VM 크기](../articles/virtual-machines/sizes.md) | 2017-04-02
@@ -646,6 +649,11 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 ```json
 {
     "azEnvironment": "AZUREPUBLICCLOUD",
+    "extendedLocation": {
+      "type": "edgeZone",
+      "location": "microsoftlosangeles"
+    },
+    "evictionPolicy": "",
     "isHostCompatibilityLayerVm": "true",
     "licenseType":  "Windows_Client",
     "location": "westus",
@@ -665,6 +673,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     },
     "platformFaultDomain": "36",
     "platformUpdateDomain": "42",
+    "priority": "Regular",
     "publicKeys": [{
             "keyData": "ssh-rsa 0",
             "path": "/home/user/.ssh/authorized_keys0"
@@ -744,6 +753,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "tags": "baz:bash;foo:bar",
     "version": "15.05.22",
+    "virtualMachineScaleSet": {
+      "id": "/subscriptions/xxxxxxxx-xxxxx-xxx-xxx-xxxx/resourceGroups/resource-group-name/providers/Microsoft.Compute/virtualMachineScaleSets/virtual-machine-scale-set-name"
+    },
     "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
     "vmScaleSetName": "crpteste9vflji9",
     "vmSize": "Standard_A3",
@@ -755,6 +767,11 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 ```json
 {
     "azEnvironment": "AZUREPUBLICCLOUD",
+    "extendedLocation": {
+      "type": "edgeZone",
+      "location": "microsoftlosangeles"
+    },
+    "evictionPolicy": "",
     "isHostCompatibilityLayerVm": "true",
     "licenseType":  "Windows_Client",
     "location": "westus",
@@ -774,6 +791,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     },
     "platformFaultDomain": "36",
     "platformUpdateDomain": "42",
+    "Priority": "Regular",
     "publicKeys": [{
             "keyData": "ssh-rsa 0",
             "path": "/home/user/.ssh/authorized_keys0"
@@ -853,6 +871,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "tags": "baz:bash;foo:bar",
     "version": "15.05.22",
+    "virtualMachineScaleSet": {
+      "id": "/subscriptions/xxxxxxxx-xxxxx-xxx-xxx-xxxx/resourceGroups/resource-group-name/providers/Microsoft.Compute/virtualMachineScaleSets/virtual-machine-scale-set-name"
+    },
     "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
     "vmScaleSetName": "crpteste9vflji9",
     "vmSize": "Standard_A3",

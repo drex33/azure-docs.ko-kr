@@ -2,15 +2,15 @@
 title: Azure Lab Services를 사용하여 빅 데이터 분석을 교육하도록 랩 설정 | Microsoft Docs
 description: HDP(Hortonworks Data Platform)의 Docker 배포를 사용하여 빅 데이터 분석을 교육하도록 랩을 설정하는 방법을 알아봅니다.
 author: nicolela
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 5eb9cd00350c41645d4427e30a6f25a6c163358c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 280ed6f2804e7a3aef6da8da9512a59da6e8c5f4
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94659899"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177045"
 ---
 # <a name="set-up-a-lab-for-big-data-analytics-using-docker-deployment-of-hortonworks-data-platform"></a>HortonWorks Data Platform의 Docker 배포를 사용하여 빅 데이터 분석에 대한 랩 설정
 
@@ -24,7 +24,7 @@ ms.locfileid: "94659899"
 
 ## <a name="lab-configuration"></a>랩 구성
 
-이 랩을 설정하려면 Azure 구독과 랩 계정으로 시작해야 합니다. Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. Azure 구독이 있으면 Azure Lab Services에서 새 랩 계정을 만들 수 있습니다. 새 랩 계정 만들기에 관한 자세한 내용은 [랩 계정 설정에 대한 자습서](tutorial-setup-lab-account.md)를 참조하세요.  기존 랩 계정을 사용할 수도 있습니다.
+이 랩을 설정하려면 Azure 구독과 랩 계정으로 시작해야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. Azure 구독이 있으면 Azure Lab Services에서 새 랩 계정을 만들 수 있습니다. 새 랩 계정 만들기에 관한 자세한 내용은 [랩 계정 설정에 대한 자습서](tutorial-setup-lab-account.md)를 참조하세요.  기존 랩 계정을 사용할 수도 있습니다.
 
 ### <a name="lab-account-settings"></a>랩 계정 설정
 

@@ -1,14 +1,14 @@
 ---
 title: Azure Lab Services의 랩 계정에서 랩 보기 및 삭제
 description: 랩 계정에서 모든 랩을 보고 랩 계정에서 랩을 삭제하는 방법에 대해 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: cc097e97430462e36a33b982a7394a20c308eab5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: f7d2c356d9e3a9851093ab387e7fbd943908165a
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95993621"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179681"
 ---
 # <a name="manage-labs-in-a-lab-account"></a>랩 계정에서 랩 관리
 이 문서에서는 랩 계정 소유자 또는 관리자가 랩 계정에서 모든 랩을 보고 랩 계정에서 랩을 삭제하는 방법을 보여줍니다. 

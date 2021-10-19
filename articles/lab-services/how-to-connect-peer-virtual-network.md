@@ -1,14 +1,14 @@
 ---
 title: Azure Lab Services에서 피어 네트워크에 연결 | Microsoft Docs
 description: 랩 네트워크를 다른 네트워크와 피어로 연결하는 방법에 대해 알아봅니다. 예를 들어 Azure에서 랩의 가상 네트워크와 온-프레미스 조직/대학 네트워크를 연결합니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 645e99681f5615c3082d784e4e540a6200f618b8
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: dd549061c5b40447afa11b82dfcfdb07d6b635ab
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108755138"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180707"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Azure Lab Services에서 랩의 네트워크를 피어 가상 네트워크에 연결
 

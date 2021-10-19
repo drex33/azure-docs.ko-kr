@@ -1,14 +1,14 @@
 ---
 title: 해커톤용 Azure Lab Services 사용
 description: 이 문서에서는 해커톤을 실행하는 데 사용할 수 있는 랩을 만들기 위해 Azure Lab Services를 사용하는 방법을 설명합니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: d4648def48557d70547ef7d41d6c3e516671849e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 00a00228231152a1ac0817ea1562f84635d7090e
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102452733"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130181125"
 ---
 # <a name="use-azure-lab-services-for-your-next-hackathon"></a>다음 해커톤에 Azure Lab Services 사용
 Azure Lab Services는 해커톤용 가상 머신(VM)의 새 랩을 신속하게 실행할 수 있도록 가볍고 사용하기 쉽게 설계되었습니다.  다음 검사 목록을 사용하여 해커톤이 최대한 원활하게 진행하는지 확인하세요. 이 검사 목록은 해커톤 랩을 만들고 관리하는 업무를 담당하는 IT 부서 또는 교직원이 완료해야 합니다. 

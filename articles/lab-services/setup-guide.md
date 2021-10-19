@@ -1,14 +1,14 @@
 ---
 title: Azure Lab Services에 대한 가속 랩 설정 가이드
 description: 랩 작성자는 이 가이드를 통해 학교에서 랩 계정을 신속하게 설정할 수 있습니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 07f0d92ebd926616f1318b430bec2de32f753f7c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 8d370ee6ffef902633e7b0c4c2895c2ba475814c
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95021733"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177634"
 ---
 # <a name="lab-setup-guide"></a>랩 설정 가이드
 

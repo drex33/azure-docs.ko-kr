@@ -1,14 +1,14 @@
 ---
 title: Azure Lab Services에 대한 가속 랩 계정 설정 가이드
 description: 이 가이드를 통해 관리자는 학교 내에서 사용할 랩 계정을 신속하게 설정할 수 있습니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: e1f36b6d0983c10926a790d42edef3736e848a59
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 8b233464da7e6a5c5529e0057240d839282faf46
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "104669392"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177349"
 ---
 # <a name="lab-account-setup-guide"></a>랩 계정 설정 가이드
 관리자는 Azure Lab Services 환경을 설정하기 전에 먼저 Azure 구독 내에서 *랩 계정* 을 만들어야 합니다. 랩 계정은 하나 이상의 랩에 대한 컨테이너이며 몇 분 정도면 설정할 수 있습니다.

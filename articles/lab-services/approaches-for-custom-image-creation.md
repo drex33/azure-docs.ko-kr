@@ -1,14 +1,14 @@
 ---
-title: Azure Lab Services - 랩에 대한 사용자 지정 이미지를 만드는 권장 방법
+title: 랩에 대 한 사용자 지정 이미지를 만들 때 권장 되는 방법
 description: 랩에 대한 사용자 지정 이미지를 만드는 방법에 대해 설명합니다.
 ms.date: 07/27/2021
-ms.topic: article
-ms.openlocfilehash: 621456c910b5137ed14a77d8d2cfeb9664910fa9
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.topic: how-to
+ms.openlocfilehash: 47a97633b74129e8d44cba9844a65c6e95bd2c61
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450649"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177178"
 ---
 # <a name="recommended-approaches-for-creating-custom-images"></a>사용자 지정 이미지를 만들기 위한 권장 방법
 이 문서에서는 사용자 지정 이미지를 만들기 위한 다음과 같은 권장 방법을 설명합니다.

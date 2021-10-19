@@ -6,17 +6,17 @@ author: bwren
 ms.author: bwren
 ms.date: 09/21/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 747bf176d092a049a9c10e9af73601057fde7a39
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 3e8430499edde638bf32cca2f9a36fb3c3583863
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130070263"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178059"
 ---
 # <a name="install-the-azure-monitor-agent"></a>Azure Monitor 에이전트 설치
 이 문서에서는 Azure virtual machines 및 Azure Arc 사용 서버에 [Azure Monitor 에이전트](azure-monitor-agent-overview.md) 를 설치 하는 데 사용할 수 있는 여러 옵션을 제공 하며, 에이전트가 수집 해야 하는 데이터를 정의 하는 [데이터 수집 규칙을 사용 하 여 연결](data-collection-rule-azure-monitor-agent.md) 을 만드는 옵션도 제공 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 Azure Monitor 에이전트를 설치하기 전에 다음 필수 구성 요소가 필요합니다.
 
 - Azure 가상 머신에서 [관리형 시스템 ID](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)를 사용하도록 설정해야 합니다. Azure Arc 사용 서버에는 필요 하지 않습니다. [Azure Portal을 사용하여 데이터 수집 규칙을 만들고 할당](#install-with-azure-portal)하는 프로세스의 일부로 에이전트가 설치된 경우 시스템 ID를 사용하도록 자동으로 설정됩니다.
@@ -35,7 +35,7 @@ Azure Monitor 에이전트는 다음 테이블의 세부 정보를 사용하여 
 | 속성 | Windows | Linux |
 |:---|:---|:---|
 | Publisher | Microsoft.Azure.Monitor  | Microsoft.Azure.Monitor |
-| 형식      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
+| 유형      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
 | TypeHandlerVersion  | 1.0 | 1.5 |
 
 ## <a name="extension-versions"></a>확장 버전
@@ -99,8 +99,8 @@ New-AzConnectedMachineExtension -Name AMAWindows -ExtensionType AzureMonitorWind
 New-AzConnectedMachineExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location>
 ```
 ---
-## <a name="azure-cli"></a>Azure CLI
-가상 머신 확장을 추가 하는 Azure CLI 명령을 사용 하 여 azure 가상 머신 및 Azure Arc 사용 서버에 Azure Monitor 에이전트를 설치할 수 있습니다. 
+## <a name="install-with-azure-cli"></a>Azure CLI를 사용 하 여 설치
+가상 머신 확장을 추가하기 위한 Azure CLI 명령을 사용하여 Azure 가상 머신과 Azure Arc 사용 서버에 Azure Monitor 에이전트를 설치할 수 있습니다. 
 
 ### <a name="azure-virtual-machines"></a>Azure 가상 머신
 다음 CLI 명령을 사용하여 Azure 가상 머신에 Azure Monitor 에이전트를 설치합니다.
@@ -125,6 +125,35 @@ az connectedmachine extension create --name AzureMonitorWindowsAgent --publisher
 az connectedmachine extension create --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --type AzureMonitorLinuxAgent --machine-name <arc-server-name> --resource-group <resource-group-name> --location <arc-server-location>
 ```
 ---
+
+
+## <a name="install-with-azure-policy"></a>Azure Policy를 사용 하 여 설치
+가상 컴퓨터를 만들 때마다 에이전트를 자동으로 설치 하 고 데이터 수집 규칙과 연결 하려면 다음 정책 및 정책 이니셔티브를 사용 합니다.
+
+### <a name="built-in-policy-initiatives"></a>기본 제공 정책 이니셔티브
+[에이전트 설치를 위한 필수 구성 요소를 확인](azure-monitor-agent-install.md#prerequisites)합니다. 
+
+Windows 및 Linux 가상 머신에 대 한 정책 이니셔티브는 다음과 같은 개별 정책으로 구성 됩니다.
+
+- 가상 컴퓨터에 Azure Monitor 에이전트 확장을 설치 합니다.
+- 연결을 만들고 배포 하 여 가상 머신을 데이터 수집 규칙에 연결 합니다.
+
+![Azure Monitor 에이전트를 구성 하기 위한 두 가지 기본 제공 정책 이니셔티브를 보여 주는 Azure Policy 정의 페이지의 부분 스크린샷](media/azure-monitor-agent-install/built-in-ama-dcr-initiatives.png)  
+
+### <a name="built-in-policies"></a>기본 제공 정책 
+필요에 따라 해당 정책 이니셔티브의 개별 정책을 사용하도록 선택할 수 있습니다. 예를 들어 에이전트를 자동으로 설치하려는 경우 다음 예제와 같이 이니셔티브의 첫 번째 정책을 사용합니다.  
+
+![Azure Monitor 에이전트를 구성하기 위한 이니셔티브 내에 포함된 정책을 보여 주는 Azure Policy 정의 페이지의 부분 스크린샷](media/azure-monitor-agent-install/built-in-ama-dcr-policy.png)  
+
+### <a name="remediation"></a>수정
+이니셔티브 또는 정책은 생성될 때 각 가상 머신에 적용됩니다. [수정 작업은](../../governance/policy/how-to/remediate-resources.md) 이니셔티브의 정책 정의를 기존 리소스 에 배포하므로 이미 생성된 모든 *리소스에* 대해 Azure Monitor 에이전트를 구성할 수 있습니다. 
+
+Azure Portal 사용하여 할당을 만들 때 동시에 수정 작업을 만들 수 있습니다. 수정에 대한 자세한 내용은 [Azure Policy을 사용하여 비준수 리소스 수정](../../governance/policy/how-to/remediate-resources.md)을 참조하세요.
+
+![Azure Monitor 에이전트에 대한 이니셔티브 수정을 보여 주는 스크린샷](media/azure-monitor-agent-install/built-in-ama-dcr-remediation.png)
+
+## <a name="diagnostic-settings"></a>진단 설정
+[진단 설정은](../essentials/diagnostic-settings.md) Azure 리소스에서 리소스 로그 및 메트릭을 수집하고 여러 위치로 라우팅합니다. 일반적인 위치는 로그 쿼리 및 로그 경고를 사용하여 데이터를 분석할 수 있는 [Log Analytics](../logs/log-query-overview.md) 작업 [영역입니다.](../alerts/alerts-log.md) Azure Policy 사용하여 리소스를 만들 때마다 진단 설정을 자동으로 만듭니다.
 
 
 ## <a name="next-steps"></a>다음 단계

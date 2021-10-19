@@ -5,15 +5,15 @@ services: automation
 ms.subservice: ''
 author: mgoedtel
 ms.author: magoedte
-ms.date: 09/24/2021
+ms.date: 10/18/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 824925f4c3616b91f10fc3bae4bdaa1f5a0bb5ee
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 623e36b4efc3a0ecd0a7a5d7f7097e1f5aa64788
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129277160"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179225"
 ---
 # <a name="troubleshoot-agent-based-hybrid-runbook-worker-issues-in-automation"></a>Automation의 에이전트 기반 Hybrid Runbook Worker 문제 해결
 
@@ -50,6 +50,16 @@ Hybrid Runbook Worker가 실행되는 컴퓨터는 작업자가 이 기능을 �
 Hybrid Runbook Worker 기능을 실행할 컴퓨터가 최소 하드웨어 요구 사항을 충족 하는지 확인 합니다. 충족하는 경우 CPU 및 메모리 사용을 모니터링하여 Hybrid Runbook Worker 프로세스의 성능과 Windows 사이에 어떠한 상관 관계가 있는지 확인합니다. 메모리나 CPU가 부족하면 리소스를 업그레이드해야 할 수도 있습니다. 최소 요구 사항을 지 원하는 다른 계산 리소스를 선택 하 고 워크 로드 요구가 증가를 나타내는 경우 크기를 조정할 수도 있습니다.
 
 **Microsoft-SMA** 이벤트 로그에 `Win32 Process Exited with code [4294967295]` 설명이 포함된 해당 이벤트가 있는지 확인합니다. 이 오류의 원인은 Runbook에 인증을 구성하지 않았거나 Hybrid Runbook Worker 그룹에 대해 실행 자격 증명을 지정하지 않았기 때문일 수 있습니다. [Hybrid Runbook Worker에서 Runbook 실행](../automation-hrw-run-runbooks.md)에서 Runbook 사용 권한을 검토하고 Runbook에 대한 인증을 제대로 구성했는지 확인합니다.
+
+### <a name="scenario-runbooks-fail-with-gateway-error"></a>시나리오: Runbook이 게이트웨이 오류로 인해 실패 함
+
+#### <a name="issue"></a>문제
+
+Log Analytics 게이트웨이 서버를 통해 통신할 때 Hybrid Runbook Worker 작업을 새로 고치지 못했으며 반환 된 오류는 다음과 유사 합니다. `Spool operation id does not exist (spool ID): see attachment for job details and exact exception messages.`
+
+#### <a name="resolution"></a>해결 방법
+
+Log Analytics Gateway 서버가 온라인 상태이 고 Hybrid Runbook Worker 역할을 호스트 하는 컴퓨터에서 액세스할 수 있는지 확인 합니다. 추가 문제 해결 정보는 [Log Analytics Gateway 문제 해결](../../azure-monitor/agents/gateway.md#troubleshooting)을 참조 하세요.
 
 ### <a name="scenario-event-15011-in-the-hybrid-runbook-worker"></a><a name="cannot-connect-signalr"></a>시나리오: Hybrid Runbook Worker의 이벤트 15011
 
@@ -180,7 +190,7 @@ Linux Hybrid Runbook Worker에 대해 `sudo` 명령을 실행하면 예기치 �
 
 #### <a name="cause"></a>원인
 
-Linux 용 Log Analytics 에이전트에 대 한 **nxautomationuser** 계정이 **sudoers** 파일에서 올바르게 구성 되지 않았습니다. Hybrid Runbook Worker에 적절한 계정 권한 구성 및 기타 데이터가 있어야 Linux Runbook Worker의 Runbook에 서명할 수 있습니다.
+Linux용 Log Analytics 에이전트의 **nxautomationuser** 계정이 **sudoers** 파일에서 올바르게 구성되지 않았습니다. Hybrid Runbook Worker에 적절한 계정 권한 구성 및 기타 데이터가 있어야 Linux Runbook Worker의 Runbook에 서명할 수 있습니다.
 
 #### <a name="resolution"></a>해결 방법
 
@@ -254,7 +264,7 @@ PowerShell에서 `Get-Service healthservice` 명령을 입력하여 에이전트
 
 #### <a name="resolution"></a>해결 방법
 
-로그는 각 Hybrid Worker의 로컬에 저장되며 위치는 C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes입니다. **Application and Services Logs\Microsoft-SMA\Operations** 및 **Application and Services Logs\Operations Manager** 이벤트 로그에 경고나 오류가 있는지 확인할 수 있습니다. 이러한 로그에는 Azure Automation 역할을 활성화하는 데 영향을 주는 연결이나 기타 문제 유형 또는 정상적인 작업 하에 발생한 문제가 표시됩니다. Log Analytics 에이전트와 관련 된 문제 해결에 대 한 자세한 내용은 [Log Analytics Windows 에이전트의 문제 해결](../../azure-monitor/agents/agent-windows-troubleshoot.md)을 참조 하세요.
+로그는 각 Hybrid Worker의 로컬에 저장되며 위치는 C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes입니다. **Application and Services Logs\Microsoft-SMA\Operations** 및 **Application and Services Logs\Operations Manager** 이벤트 로그에 경고나 오류가 있는지 확인할 수 있습니다. 이러한 로그에는 Azure Automation 역할을 활성화하는 데 영향을 주는 연결이나 기타 문제 유형 또는 정상적인 작업 하에 발생한 문제가 표시됩니다. Log Analytics 에이전트 관련 문제 해결에 대한 자세한 도움말은 [Log Analytics Windows 에이전트 관련 문제 해결을](../../azure-monitor/agents/agent-windows-troubleshoot.md)참조하세요.
 
 Hybrid Worker는 클라우드에서 실행되는 Runbook 작업이 출력과 메시지를 보내는 것과 동일한 방식으로 Azure Automation에 [Runbook 출력 및 메시지](../automation-runbook-output-and-messages.md)를 보냅니다. Runbook을 활성화하듯이 세부 정보 표시 및 진행률 스트림을 활성화할 수 있습니다.
 
@@ -264,7 +274,7 @@ Hybrid Worker는 클라우드에서 실행되는 Runbook 작업이 출력과 메
 
 Windows Hybrid Runbook Worker에서 실행되는 스크립트를 예정대로 오케스트레이터 샌드박스의 Microsoft 365에 연결할 수 없습니다. 이 스크립트는 연결에 [Connect-MsolService](/powershell/module/msonline/connect-msolservice)를 사용하고 있습니다. 
 
-**Orchestrator.Sandbox.exe.config** 를 조정하여 프록시와 바이패스 목록을 설정해도 샌드박스가 제대로 연결되지 않습니다. 프록시 및 바이패스 목록 설정이 동일한 **Powershell_ise.exe.config** 파일이 예상대로 작동하는 것 같습니다. SMA (Service Management Automation) 로그 및 PowerShell 로그는 프록시에 대 한 정보를 제공 하지 않습니다.
+**Orchestrator.Sandbox.exe.config** 를 조정하여 프록시와 바이패스 목록을 설정해도 샌드박스가 제대로 연결되지 않습니다. 프록시 및 바이패스 목록 설정이 동일한 **Powershell_ise.exe.config** 파일이 예상대로 작동하는 것 같습니다. SMA(Service Management Automation) 로그 및 PowerShell 로그는 프록시에 대한 정보를 제공하지 않습니다.
 
 #### <a name="cause"></a>원인
 

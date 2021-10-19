@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: robinsh
 ms.custom: devx-track-python
-ms.openlocfilehash: 305d3103e9f0f0bdfb3ce49f5c801ca0f2f975ff
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
-ms.translationtype: HT
+ms.openlocfilehash: 93374b3cf4f2383039f0a3a670388803511881f2
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835244"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178978"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>작업 예약 및 브로드캐스트(Python)
 
@@ -36,7 +36,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-이 자습서에서는 다음을 수행하는 방법을 보여 줍니다.
+이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
 * 솔루션 백 엔드에서 **LockDoor** 를 호출할 수 있는 직접 메서드가 포함된 Python 시뮬레이션된 디바이스 앱을 만듭니다.
 
@@ -167,7 +167,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
 3. 정책 목록 위의 상단 메뉴에서 **추가** 를 선택합니다.
 
-4. **공유 액세스 정책 추가** 창에서 정책에 대한 설명형 이름(예: *serviceAndRegistryReadWrite*)을 입력합니다. **사용 권한** 아래에서 **서비스 연결** 및 **레지스트리 쓰기** 를 선택합니다 (**레지스트리 쓰기** 를 선택하면 **레지스트리 읽기** 가 자동으로 선택됨). 그런 다음 **생성** 를 선택합니다.
+4. **공유 액세스 정책 추가** 창에서 정책에 대한 설명형 이름(예: *serviceAndRegistryReadWrite*)을 입력합니다. **사용 권한** 아래에서 **서비스 연결** 및 **레지스트리 쓰기** 를 선택합니다 (**레지스트리 쓰기** 를 선택하면 **레지스트리 읽기** 가 자동으로 선택됨). 그런 다음 **만들기** 를 선택합니다.
 
     ![새 공유 액세스 정책을 추가하는 방법 표시](./media/iot-hub-python-python-schedule-jobs/add-policy.png)
 
@@ -342,4 +342,4 @@ IoT Hub 공유 액세스 정책 및 사용 권한에 대한 자세한 내용은 
 
 이 자습서에서는 디바이스에 대한 직접 메서드를 예약하고 디바이스 쌍의 속성을 업데이트하는 데 작업을 사용했습니다.
 
-IoT Hub 및 디바이스 관리 패턴(예: 원격 무선 펌웨어 업데이트)을 계속 시작하려면 [자습서: 펌웨어 업데이트를 수행하는 방법](tutorial-firmware-update.md)을 참조하세요.
+[Raspberry Pi 3 B + 참조 이미지를 사용 하는 Azure IoT 허브 용 장치 업데이트 자습서](../iot-hub-device-update/device-update-raspberry-pi.md)에서 종단 간 이미지 기반 업데이트와 같은 IoT Hub 및 장치 관리 패턴을 계속 시작 하려면

@@ -1,14 +1,14 @@
 ---
 title: Azure Lab Services의 템플릿 VM에서 중첩된 가상화 사용 | Microsoft Docs
 description: 이 문서에서는 Azure Lab Services의 템플릿 머신에서 중첩된 가상화를 설정하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: f1f981602adcf90762258a2921b996507f56f3a2
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
-ms.translationtype: HT
+ms.openlocfilehash: 0e730dc71150a5e201e4dcda84f9c6ed61ec2f90
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125574"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180403"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services"></a>Azure Lab Services의 템플릿 가상 머신에서 중첩된 가상화 사용
 

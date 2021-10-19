@@ -2,13 +2,13 @@
 title: Bicep을 사용하여 관리 그룹에 리소스 배포
 description: 관리 그룹 범위에서 리소스를 배포하는 Bicep 파일을 만드는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 07/19/2021
-ms.openlocfilehash: 7c0e2f6682ff5da0e0cc2bd3b7f16b3ab23af476
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/18/2021
+ms.openlocfilehash: 8e198f923e864b0919f20cb4d0ef6579bb375ec4
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128659895"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178325"
 ---
 # <a name="management-group-deployments-with-bicep-files"></a>Bicep 파일을 사용하여 관리 그룹 배포
 
@@ -18,7 +18,7 @@ ms.locfileid: "128659895"
 
 ### <a name="microsoft-learn"></a>Microsoft Learn
 
-배포 범위 및 실습 지침에 대한 자세한 내용은 **Microsoft Learn** [Bicep을 사용하여 구독, 관리 그룹 및 테넌트](/learn/modules/deploy-resources-scopes-bicep/) 에 리소스 배포를 참조하세요.
+배포 범위 및 실습 지침에 대한 자세한 내용은 **Microsoft Learn** [Bicep을 사용하여 구독, 관리 그룹 및 테넌트](/learn/modules/deploy-resources-scopes-bicep/) 리소스 배포를 참조하세요.
 
 ## <a name="supported-resources"></a>지원되는 리소스
 
@@ -201,7 +201,7 @@ module exampleModule 'module.bicep' = {
 
 ## <a name="management-group"></a>관리 그룹
 
-관리 그룹 배포에서 관리 그룹을 만들려면 관리 그룹에 대한 범위를 `/`로 설정해야 합니다.
+관리 그룹 배포에서 관리 그룹을 만들려면 범위를 테넌트로 설정해야 합니다.
 
 다음 예에서는 루트 관리 그룹에 새 관리 그룹을 만듭니다.
 
@@ -219,13 +219,12 @@ resource newMG 'Microsoft.Management/managementGroups@2020-05-01' = {
 output newManagementGroup string = mgName
 ```
 
-다음 예에서는 부모로 지정된 관리 그룹에 새 관리 그룹을 만듭니다.
+다음 예제에서는 배포를 대상으로 하는 관리 그룹에 새 관리 그룹을 만듭니다. [관리 그룹 함수](bicep-functions-scope.md#managementgroup)를 사용합니다.
 
 ```bicep
 targetScope = 'managementGroup'
 
 param mgName string = 'mg-${uniqueString(newGuid())}'
-param parentMGName string
 
 resource newMG 'Microsoft.Management/managementGroups@2020-05-01' = {
   scope: tenant()
@@ -233,15 +232,10 @@ resource newMG 'Microsoft.Management/managementGroups@2020-05-01' = {
   properties: {
     details: {
       parent: {
-        id: parentMG.id
+        id: managementGroup().id
       }
     }
   }
-}
-
-resource parentMG 'Microsoft.Management/managementGroups@2020-05-01' existing = {
-  name: parentMGName
-  scope: tenant()
 }
 
 output newManagementGroup string = mgName

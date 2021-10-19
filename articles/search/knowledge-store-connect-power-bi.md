@@ -7,25 +7,25 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/07/2021
-ms.openlocfilehash: 97a0025437b7f055f9fcf2e7860e926e9693cde6
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/18/2021
+ms.openlocfilehash: 14a6cd5ec07d9c4c5ee584312e9ba20b2251d0ef
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124766950"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178306"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Power BI를 사용하여 지식 저장소 연결
 
-이 문서에서는 Power BI Desktop 앱에서 파워 쿼리를 사용하여 지식 저장소에 연결하고 검색하는 방법을 알아봅니다. 템플릿을 사용해서 빠르게 시작하거나 사용자 지정 대시보드를 처음부터 만들 수 있습니다.
+이 문서에서는 Power BI Desktop 앱의 파워 쿼리을 사용 하 여 기술 자료 저장소에 연결 하 고 쿼리 하는 방법에 대해 알아봅니다. 템플릿을 사용해서 빠르게 시작하거나 사용자 지정 대시보드를 처음부터 만들 수 있습니다.
 
-Azure Storage 테이블로 구성된 지식 저장소는 Power BI 가장 적합합니다. 테이블에 동일한 기술 및 프로젝션 그룹의 프로젝션이 포함된 경우 쉽게 "조인"하여 관련 테이블의 필드를 포함하는 테이블 시각화를 작성할 수 있습니다.
+Azure Storage 테이블로 구성 된 기술 자료 저장소는 Power BI에서 가장 잘 작동 합니다. 테이블에 같은 기술 및 프로젝션 그룹의 프로젝션이 포함 된 경우이를 쉽게 "조인" 하 여 관련 테이블의 필드를 포함 하는 테이블 시각화를 작성할 수 있습니다.
 
-Azure Portal 만든 샘플 데이터 및 지식 저장소를 사용하거나 [Postman 및 REST](knowledge-store-create-rest.md) [API를](knowledge-store-create-portal.md) 통해 이 문서의 단계를 따릅니다. 
+이 [포털 빠른](knowledge-store-create-portal.md) 시작 또는 [POSTMAN 및 REST api](knowledge-store-create-rest.md)를 통해 만들어진 샘플 데이터 및 기술 자료 저장소를 사용 하 여이 문서의 단계를 수행 합니다. 
 
 ## <a name="connect-to-azure-storage"></a>Azure Storage에 연결
 
-1. [Power BI Desktop](https://powerbi.microsoft.com/downloads/) 시작하고 **데이터 받기를** 선택합니다. 
+1. [Power BI Desktop](https://powerbi.microsoft.com/downloads/) 를 시작 하 고 **데이터 가져오기** 를 선택 합니다. 
 
 1. **데이터 가져오기** 에서 **Azure**, **Azure Table Storage** 를 차례로 선택합니다.
 
@@ -37,19 +37,19 @@ Azure Portal 만든 샘플 데이터 및 지식 저장소를 사용하거나 [Po
 
 ## <a name="set-up-tables"></a>테이블 설정
 
-1. 동일한 기술에서 만든 모든 테이블 옆에 있는 확인란을 **선택한** 다음 로드를 선택합니다.
+1. 동일한 기술에서 만들어진 모든 테이블 옆의 확인란을 선택 하 고 **로드** 를 선택 합니다.
 
    ![테이블 로드](media/knowledge-store-connect-power-bi/power-bi-load-tables.png "테이블 로드")
 
-1. 위쪽 리본에서 **데이터 변환을** 선택하여 **Power Query 편집기** 엽니다.
+1. 위쪽 리본에서 **데이터 변환** 을 선택 하 여 **파워 쿼리 편집기** 를 엽니다.
 
    ![파워 쿼리 열기](media/knowledge-store-connect-power-bi/powerbi-edit-queries.png "파워 쿼리 열기")
 
-1. *hotelReviewsSsDocument* 를 선택한 다음, *PartitionKey*, *RowKey* 및 *Timestamp* 열을 제거합니다. 
+1. *HotelReviewsDocument* 를 열고 *PartitionKey*, *rowkey* 및 *Timestamp* 열을 제거 합니다. 이러한 열은 Azure Table Storage의 테이블 관계에 사용 됩니다. Power BI 필요 하지 않습니다. 각각에 *레코드* 를 표시 하는 "Content" 라는 하나의 열이 있어야 합니다. 
 
    ![테이블 편집](media/knowledge-store-connect-power-bi/powerbi-edit-table.png "테이블 편집")
 
-1. 테이블의 오른쪽 위에서 반대 방향 화살표가 있는 아이콘을 클릭하여 *콘텐츠* 를 확장합니다. 열 목록이 표시되면 모든 열을 선택한 다음, 'metadata'로 시작하는 열을 선택 취소합니다. **확인** 을 클릭하여 선택한 열을 표시합니다.
+1. 테이블의 오른쪽 위에서 반대 방향 화살표가 있는 아이콘을 클릭 하 여 *콘텐츠* 를 확장 합니다. 열 목록이 표시 되 면 모든 열을 선택 합니다. ' 메타 데이터 '로 시작 하는 열을 지웁니다. **확인** 을 클릭 하 여 선택한 열을 포함 합니다.
 
    ![콘텐츠 확장](media/knowledge-store-connect-power-bi/powerbi-expand-content-table.png "콘텐츠 확장")
 
@@ -60,9 +60,9 @@ Azure Portal 만든 샘플 데이터 및 지식 저장소를 사용하거나 [Po
 
    ![데이터 형식 변경](media/knowledge-store-connect-power-bi/powerbi-change-type.png "데이터 형식 변경")
 
-1. *hotelReviewsSsPages* 를 선택한 다음, 9단계와 10단계를 반복하여 열을 삭제하고 *콘텐츠* 를 확장합니다.
+1. *HotelReviewsSsPages* 를 열고 열 삭제 단계를 반복 하 고 *콘텐츠* 를 확장 하 여 레코드에서 열을 선택 합니다. 이 테이블의 데이터 형식은 수정할 필요가 없습니다.
 
-1. *hotelReviewsSsKeyPhrases* 를 선택한 다음, 9단계와 10단계를 반복하여 열을 삭제하고 *콘텐츠* 를 확장합니다. 이 테이블의 데이터 형식은 수정할 필요가 없습니다.
+1. *HotelReviewsSsKeyPhrases* 를 열고 열 삭제 단계를 반복 하 고 *콘텐츠* 를 확장 하 여 레코드에서 열을 선택 합니다. 이 테이블의 데이터 형식은 수정할 필요가 없습니다.
 
 1. 명령 모음에서 **닫기 및 적용** 을 클릭합니다.
 
@@ -78,7 +78,7 @@ Azure Portal 만든 샘플 데이터 및 지식 저장소를 사용하거나 [Po
 
 1. 시각화를 통해 데이터를 검색하려면 왼쪽 탐색 창의 보고서 타일을 클릭합니다. 텍스트 필드의 경우 테이블과 카드는 유용한 시각화입니다.
 
-1. 테이블 또는 카드를 채울 세 개의 테이블 각각에서 필드를 선택합니다.
+1. 테이블이 나 카드를 채울 세 테이블 각각의 필드를 선택 합니다.
 
    ![테이블 보고서 작성](media/knowledge-store-connect-power-bi/power-bi-table-report.png "테이블 보고서 작성")
 
@@ -91,11 +91,11 @@ Azure Portal 만든 샘플 데이터 및 지식 저장소를 사용하거나 [Po
 ![Azure Cognitive Search Power BI 템플릿 샘플](media/knowledge-store-connect-power-bi/powerbi-sample-template-portal-only.png "Power BI 템플릿 샘플")
 
 > [!NOTE]
-> 마법사가 중간에 있는 동안 템플릿이 다운로드됩니다. 지식 저장소를 사용하려면 Azure Table Storage 지식 저장소가 실제로 만들어질 때까지 기다려야 합니다.
+> 마법사를 진행 하는 동안 템플릿이 다운로드 됩니다. 이를 사용 하려면 먼저 Azure Table Storage에서 기술 자료 저장소를 만들 때까지 기다려야 합니다.
 
 ## <a name="video-introduction"></a>비디오 소개
 
-지식 저장소에서 Power BI 사용하는 데모는 다음 비디오를 시청하세요.
+기술 자료 저장소에서 Power BI를 사용 하는 방법에 대 한 데모를 보려면 다음 비디오를 시청 하세요.
 
 > [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3]
 

@@ -5,18 +5,18 @@ services: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 06/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: cf2461484d290dc05912121a6964b42ca58194cc
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 1bb5a7bf62bd16274a168ecb8b3147c07afc8860
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129455525"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130175867"
 ---
 # <a name="how-to-manage-startstop-vms-v2-preview"></a>VM v2 시작/중지(미리 보기)를 관리하는 방법
 
 ## <a name="azure-dashboard"></a>Azure 대시보드
 
-VM v2 시작/중지(미리 보기)에는 VM에 대한 관리 범위 및 최근 작업을 이해하는 데 도움이 되는 [대시보드](../../azure-monitor/visualizations.md#azure-dashboards)가 포함됩니다. Azure VM에서 수행되는 각 작업의 상태를 빠르고 쉽게 확인하는 방법입니다. 각 타일의 시각화는 로그 쿼리를 기반으로 하며 쿼리를 보려면 타일의 오른쪽 모서리에 있는 **로그에서 열기 블레이드** 옵션을 선택합니다. 그러면 Azure Portal에서 [로그 분석](../../azure-monitor/logs/log-analytics-overview.md#starting-log-analytics) 도구가 열리며 여기에서 쿼리를 평가하고 사용자 지정 [로그 경고](../../azure-monitor/alerts/alerts-log.md), 사용자 지정 [통합 문서](../../azure-monitor/visualize/workbooks-overview.md) 등의 요구 사항을 지원하도록 수정할 수 있습니다.
+VM v2 시작/중지(미리 보기)에는 VM에 대한 관리 범위 및 최근 작업을 이해하는 데 도움이 되는 [대시보드](../../azure-monitor/best-practices-analysis.md#azure-dashboards)가 포함됩니다. Azure VM에서 수행되는 각 작업의 상태를 빠르고 쉽게 확인하는 방법입니다. 각 타일의 시각화는 로그 쿼리를 기반으로 하며 쿼리를 보려면 타일의 오른쪽 모서리에 있는 **로그에서 열기 블레이드** 옵션을 선택합니다. 그러면 Azure Portal에서 [로그 분석](../../azure-monitor/logs/log-analytics-overview.md#starting-log-analytics) 도구가 열리며 여기에서 쿼리를 평가하고 사용자 지정 [로그 경고](../../azure-monitor/alerts/alerts-log.md), 사용자 지정 [통합 문서](../../azure-monitor/visualize/workbooks-overview.md) 등의 요구 사항을 지원하도록 수정할 수 있습니다.
 
 지정된 시각화에서 **새로 고침** 아이콘을 클릭하거나 전체 대시보드를 새로 고쳐 요청 시 수동 새로 고침 옵션을 사용하면 대시보드의 각 타일이 표시하는 로그 데이터가 매시간 새로 고침됩니다.
 

@@ -6,12 +6,12 @@ ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2021
-ms.openlocfilehash: 0a161c2341137abc047d81b408058ca56e192526
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.openlocfilehash: 50eb92441c248884930e556551a92acb9e43661b
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122531110"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176409"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기
 Azure 활동 로그 및 리소스 로그를 포함한 Azure의 [플랫폼 로그](./platform-logs-overview.md)에서 Azure 리소스 및 이에 따른 Azure 플랫폼에 대한 자세한 진단 및 감사 정보를 제공합니다. [플랫폼 메트릭](./data-platform-metrics.md)은 기본적으로 수집되며 일반적으로 Azure 모니터 메트릭 데이터베이스에 저장됩니다. 이 문서에서는 플랫폼 메트릭 및 플랫폼 로그를 다른 대상으로 보내기 위한 진단 설정을 만들고 구성하는 방법에 대한 세부 정보를 제공합니다.
@@ -196,19 +196,89 @@ Resource Manager 템플릿을 사용하여 진단 설정을 만들거나 업데�
 ## <a name="create-using-rest-api"></a>REST API를 사용하여 만들기
 [Azure Monitor REST API](/rest/api/monitor/)를 사용하여 진단 설정을 만들거나 업데이트하려면 [진단 설정](/rest/api/monitor/diagnosticsettings)을 참조하세요.
 
-## <a name="create-using-azure-policy"></a>Azure Policy를 사용하여 만들기
-진단 설정은 각 Azure 리소스에 대해 만들어야 하며, 각 리소스를 만들 때마다 진단 설정을 자동으로 만드는 데 Azure Policy를 사용할 수 있습니다. 자세한 내용은 [Azure Policy를 사용하여 대규모로 Azure Monitor 배포](../deploy-scale.md)를 참조하세요.
+## <a name="create-at-scale-using-azure-policy"></a>Azure Policy 사용하여 대규모로 만들기
+진단 설정은 각 Azure 리소스에 대해 만들어야 하며, 각 리소스를 만들 때마다 진단 설정을 자동으로 만드는 데 Azure Policy를 사용할 수 있습니다. 각 Azure 리소스 종류에는 진단 설정에 나열해야 하는 고유한 범주 세트가 있습니다. 이 때문에 각 리소스 종류에는 별도의 정책 정의가 필요합니다. 일부 리소스 종류에는 수정 없이 할당할 수 있는 기본 제공 정책 정의가 있습니다. 다른 리소스 종류의 경우 사용자 지정 정의를 만들어야 합니다.
 
-## <a name="error-metric-category-is-not-supported"></a>오류: 메트릭 범주가 지원되지 않음
-진단 설정을 배포할 때 다음과 같은 오류 메시지가 표시됩니다.
+### <a name="built-in-policy-definitions-for-azure-monitor"></a>Azure Monitor에 대한 기본 제공 정책 정의
+각 리소스 종류에 대한 두 가지 기본 제공 정책 정의가 있습니다. 하나는 Log Analytics 작업 영역으로 보내고 다른 하나는 이벤트 허브로 보냅니다. 위치가 하나만 필요한 경우 리소스 종류에 대해 해당 정책을 할당합니다. 둘 다 필요한 경우 리소스에 대한 두 정책 정의를 모두 할당합니다.
 
-   "메트릭 범주 '*xxxx*' 지원되지 않음"
+예를 들어 다음 이미지는 Azure Data Lake Analytics 대한 기본 제공 진단 설정 정책 정의를 보여줍니다.
 
-예를 들면 다음과 같습니다. 
+![Data Lake Analytics에 대한 두 가지 기본 제공 진단 설정 정책 정의를 보여 주는 Azure Policy 정의 페이지의 부분 스크린샷](media/diagnostic-settings/builtin-diagnostic-settings.png)
 
-   "메트릭 범주 'ActionsFailed' 지원되지 않음"
+### <a name="custom-policy-definitions"></a>사용자 지정 정책 정의
+기본 제공 정책이 없는 리소스 종류의 경우 사용자 지정 정책 정의를 만들어야 합니다. 기존 기본 제공 정책을 복사한 다음 리소스 종류에 맞게 수정하여 Azure Portal 수동으로 이 작업을 수행할 수 있습니다. 그러나 PowerShell 갤러리 스크립트를 사용하여 프로그래밍 방식으로 정책을 만드는 것이 더 효율적입니다.
 
-이전에는 배포가 성공했습니다. 
+[Create-AzDiagPolicy](https://www.powershellgallery.com/packages/Create-AzDiagPolicy) 스크립트는 PowerShell 또는 Azure CLI 사용하여 설치할 수 있는 특정 리소스 종류에 대한 정책 파일을 만듭니다. 진단 설정에 대한 사용자 지정 정책 정의를 만들려면 다음 절차를 수행합니다.
+
+1. [Azure PowerShell](/powershell/azure/install-az-ps)이 설치되어 있는지 확인합니다.
+2. 다음 명령을 사용하여 스크립트를 설치합니다.
+  
+    ```azurepowershell
+    Install-Script -Name Create-AzDiagPolicy
+    ```
+
+3. 매개 변수를 사용하여 스크립트를 실행하여 로그를 보낼 위치를 지정합니다. 구독 및 리소스 종류를 지정하라는 메시지가 표시됩니다. 
+
+   예를 들어 Log Analytics 작업 영역 및 이벤트 허브로 로그를 보내는 정책 정의를 만들려면 다음 명령을 사용합니다.
+
+   ```azurepowershell
+   Create-AzDiagPolicy.ps1 -ExportLA -ExportEH -ExportDir ".\PolicyFiles"  
+   ```
+
+   또는 명령에서 구독 및 리소스 종류를 지정할 수 있습니다. 예를 들어 Log Analytics 작업 영역 및 SQL Server 데이터베이스에 대한 이벤트 허브로 로그를 보내는 정책 정의를 만들려면 다음 명령을 사용합니다.
+
+   ```azurepowershell
+   Create-AzDiagPolicy.ps1 -SubscriptionID xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -ResourceType Microsoft.Sql/servers/databases  -ExportLA -ExportEH -ExportDir ".\PolicyFiles"  
+   ```
+
+5. 스크립트는 각 정책 정의에 대해 별도의 폴더를 만듭니다. 각 폴더에는 *azurepolicy.json , azurepolicy.rules.json* 및 *azurepolicy.parameters.json* 이라는 세 개의 파일이 포함되어 있습니다.  Azure Portal 정책을 수동으로 만들려는 경우 전체 정책 정의가 포함되어 있으므로 *azurepolicy.json의* 내용을 복사하여 붙여넣을 수 있습니다. PowerShell 또는 Azure CLI 다른 두 파일을 사용하여 명령줄에서 정책 정의를 만듭니다.
+
+   다음 예제에서는 PowerShell 및 Azure CLI 모두의 정책 정의를 설치하는 방법을 보여줍니다. 각 예제에는 모니터링 범주를 **지정하는** 메타데이터가 포함되어 새 정책 정의를 기본 제공 정책 정의로 그룹화합니다.
+
+   ```azurepowershell
+   New-AzPolicyDefinition -name "Deploy Diagnostic Settings for SQL Server database to Log Analytics workspace" -policy .\Apply-Diag-Settings-LA-Microsoft.Sql-servers-databases\azurepolicy.rules.json -parameter .\Apply-Diag-Settings-LA-Microsoft.Sql-servers-databases\azurepolicy.parameters.json -mode All -Metadata '{"category":"Monitoring"}'
+   ```
+
+   ```azurecli
+   az policy definition create --name 'deploy-diag-setting-sql-database--workspace' --display-name 'Deploy Diagnostic Settings for SQL Server database to Log Analytics workspace'  --rules 'Apply-Diag-Settings-LA-Microsoft.Sql-servers-databases\azurepolicy.rules.json' --params 'Apply-Diag-Settings-LA-Microsoft.Sql-servers-databases\azurepolicy.parameters.json' --subscription 'AzureMonitor_Docs' --mode All
+   ```
+
+### <a name="initiative"></a>이니셔티브
+각 정책 정의에 대한 할당을 만드는 대신, 일반적인 전략은 각 Azure 서비스에 대한 진단 설정을 만드는 정책 정의를 포함하는 이니셔티브를 만드는 것입니다. 환경을 관리하는 방법에 따라 이니셔티브와 관리 그룹, 구독 또는 리소스 그룹 간에 할당을 만듭니다. 이 전략은 다음과 같은 이점을 제공합니다.
+
+- 리소스 종류마다 여러 할당을 만드는 대신 이니셔티브에 대해 단일 할당을 만듭니다. 여러 모니터링 그룹, 구독 또는 리소스 그룹에 동일한 이니셔티브를 사용합니다.
+- 새 리소스 유형 또는 대상을 추가해야 하는 경우 이니셔티브를 수정합니다. 예를 들어 초기 요구 사항은 Log Analytics 작업 영역에만 데이터를 보내는 것이지만 나중에 이벤트 허브를 추가하려고 할 수 있습니다. 새 할당을 만드는 대신 이니셔티브를 수정합니다.
+
+이니셔티브 만들기에 대한 자세한 내용은 [이니셔티브 정의 만들기 및 할당을 참조하세요.](../../governance/policy/tutorials/create-and-manage.md#create-and-assign-an-initiative-definition) 다음 권장 사항을 고려할 수 있습니다.
+
+- **범주를** **모니터링으로** 설정하여 관련 기본 제공 및 사용자 지정 정책 정의를 사용하여 그룹화합니다.
+- 이니셔티브에 포함된 정책 정의에 대한 Log Analytics 작업 영역 및 이벤트 허브에 대한 세부 정보를 지정하는 대신 일반적인 이니셔티브 매개 변수를 사용합니다. 이 매개 변수를 사용하면 모든 정책 정의에 대한 공통 값을 쉽게 지정하고 필요한 경우 해당 값을 변경할 수 있습니다.
+
+![이니셔티브 정의에 대한 설정을 보여 주는 스크린샷](media/diagnostic-settings/initiative-definition.png)
+
+### <a name="assignment"></a>할당 
+모니터링할 리소스의 범위에 따라 Azure 관리 그룹, 구독 또는 리소스 그룹에 이니셔티브를 할당합니다. [관리 그룹은](../../governance/management-groups/overview.md) 특히 조직에 여러 구독이 있는 경우 범위 지정 정책에 유용합니다.
+
+![Azure Portal Log Analytics 작업 영역에 대한 진단 설정의 이니셔티브 할당 섹션에 있는 기본 사항 탭의 설정 스크린샷.](media/diagnostic-settings/initiative-assignment.png)
+
+이니셔티브 매개 변수를 사용하여 이니셔티브의 모든 정책 정의에 대해 작업 영역 또는 다른 세부 정보를 한 번 지정할 수 있습니다. 
+
+![매개 변수 탭에서 이니셔티브 매개 변수를 보여 주는 스크린샷](media/diagnostic-settings/initiative-parameters.png)
+
+### <a name="remediation"></a>수정
+이니셔티브는 생성되는 각 가상 머신에 적용됩니다. [수정 작업은](../../governance/policy/how-to/remediate-resources.md) 이니셔티브의 정책 정의를 기존 리소스에 배포하므로 이미 생성된 모든 리소스에 대한 진단 설정을 만들 수 있습니다. 
+
+Azure Portal 사용하여 할당을 만들 때 동시에 수정 작업을 만들 수 있습니다. 수정에 대한 자세한 내용은 [Azure Policy을 사용하여 비준수 리소스 수정](../../governance/policy/how-to/remediate-resources.md)을 참조하세요.
+
+![Log Analytics 작업 영역에 대한 이니셔티브 수정을 보여 주는 스크린샷](media/diagnostic-settings/initiative-remediation.png)
+
+
+## <a name="troubleshooting"></a>문제 해결
+
+### <a name="metric-category-is-not-supported"></a>메트릭 범주는 지원되지 않습니다.
+
+진단 설정을 배포할 때 *'xxxx' 메트릭 범주와* 유사한 오류 메시지가 표시됩니다. 이전 배포가 성공한 경우에도 이 오류가 발생할 수 있습니다. 
 
 Resource Manager 템플릿, 진단 설정 REST API, Azure CLI 또는 Azure PowerShell을 사용하는 경우 문제가 발생합니다. Azure Portal를 통해 만든 진단 설정은 지원되는 범주 이름만 표시되므로 영향을 받지 않습니다.
 
@@ -216,7 +286,7 @@ Resource Manager 템플릿, 진단 설정 REST API, Azure CLI 또는 Azure Power
 
 이 오류가 발생하면 모든 메트릭 범주 이름을 'AllMetrics'로 바꿔 배포를 업데이트하여 문제를 해결합니다. 배포가 이전에 여러 범주를 추가한 경우에는 'AllMetrics' 참조를 포함하는 단 하나만 유지해야 합니다. 문제가 계속되면 Azure Portal을 통해 Azure 지원에 문의하세요. 
 
-## <a name="error-setting-disappears-due-to-non-ascii-characters-in-resourceid"></a>오류: resourceID의 비 ASCII 문자로 인해 설정이 사라짐
+## <a name="setting-disappears-due-to-non-ascii-characters-in-resourceid"></a>ResourceID의 비 ASCII 문자로 인해 설정이 사라진다
 
 진단 설정은 비 ASCII 문자(예: Preproducción)가 포함된 Resourceid를 지원하지 않습니다. Azure에서 리소스의 이름을 바꿀 수 없으므로 유일한 방법은 비 ASCII 문자 없이 새 리소스를 만드는 것입니다. 문자가 리소스 그룹에 있는 경우 그 아래에 있는 리소스를 새 리소스로 이동할 수 있습니다. 이동하지 않으면 리소스를 다시 만들어야 합니다. 
 

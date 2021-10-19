@@ -11,12 +11,12 @@ ms.custom: sqldbrb=2, references_regions
 ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/21/2021
-ms.openlocfilehash: b22dc6616b6ec1d5616abc45c3ad696619c1289a
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 11e76fc7a6b84076f3161ec622e7fe8b63404169
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130048237"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176114"
 ---
 # <a name="whats-new-in-azure-sql-database"></a>Azure SQL Database의 새로운 기능
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -61,8 +61,14 @@ Azure SQL Managed Instance는 [새로운 기능](../managed-instance/doc-changes
 
 Azure SQL Database 설명서의 주요 변경 내용에 대해 알아봅니다.
 
-### <a name="september-2021"></a>2021년 9월
 
+### <a name="october-2021"></a>2021년 10월
+
+| 변경 | 세부 정보 |
+| --- | --- |
+|**새로운 기능 분할** | 이전에 결합 한 **새로운** 기능 문서는 [SQL Database의](doc-changes-updates-release-notes-whats-new.md) 새로운 기능 및 [SQL Managed Instance의 새로운](../managed-instance/doc-changes-updates-release-notes-whats-new.md)기능에 의해 분할 되어 현재 미리 보기에 포함 된 기능, 일반적으로 사용 가능한 기능 및 중요 한 문서 변경을 쉽게 식별할 수 있도록 합니다. 또한 [SQL Managed Instance 콘텐츠의 알려진 문제가](../managed-instance/doc-changes-updates-known-issues.md) 자체 페이지로 이동 되었습니다.  | 
+
+### <a name="september-2021"></a>2021년 9월
 
 | 변경 | 세부 정보 |
 | --- | --- |

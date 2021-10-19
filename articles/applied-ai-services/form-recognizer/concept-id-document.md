@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: 4b73526ad245d9364b0ada997fc014e0dd16df40
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 98364df02238c36f7e15f00eaff6ec124631987c
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129717691"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178242"
 ---
 <!-- markdownlint-disable MD033 -->
 
@@ -27,7 +27,7 @@ ID 문서 모델은 강력한 OCR(광학 문자 인식) 기능을 딥 러닝 모
 
 :::image type="content" source="./media/id-example-drivers-license.jpg" alt-text="샘플 식별 카드" lightbox="./media/overview-id.jpg":::
 
-## <a name="try-form-recognizer-studio-preview"></a>Form Recognizer Studio(미리 보기) 사용해 보기
+## <a name="try-form-recognizer-studio-preview"></a>Form Recognizer Studio 사용해 보기(미리 보기)
 
 * Form Recognizer Studio는 미리 보기(v3.0) API와 함께 사용할 수 있습니다.
 
@@ -44,9 +44,9 @@ ID 문서 모델은 강력한 OCR(광학 문자 인식) 기능을 딥 러닝 모
 
 * [Azure Portal Form Recognizer 인스턴스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) )입니다. 무료 가격 책정 계층(`F0`)을 사용하여 서비스를 시도할 수 있습니다. 리소스가 배포된 후 **리소스로 이동을** 클릭하여 API 키와 엔드포인트를 얻습니다.
 
- :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="스크린샷: Azure Portal 키 및 엔드포인트 위치.":::
+ :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="스크린샷: Azure Portal의 키 및 엔드포인트 위치.":::
 
-* ID 문서입니다. 샘플 ID [문서](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/id-license.jpg)를 사용할 수 있습니다.
+* ID 문서입니다. 샘플 ID [문서](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/applied-ai-services/form-recognizer/media/id-license.jpg)를 사용할 수 있습니다.
 
 > [!div class="nextstepaction"]
   > [사용해 보세요.](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
@@ -62,15 +62,15 @@ Form Recognizer UI에서 다음을 수행합니다.
 
 * 최상의 결과를 위해 문서당 하나의 명확한 사진 또는 고품질 스캔을 제공합니다.
 * 지원되는 파일 형식: JPEG, PNG, BMP, TIFF 및 PDF(텍스트 포함 또는 검사). 텍스트 포함 PDF는 문자 추출 및 위치에 오류가 발생할 가능성을 제거하는 데 가장 좋습니다.
-* PDF 및 TIFF의 경우 최대 2000페이지를 처리할 수 있습니다(무료 계층 구독을 사용하면 처음 두 페이지만 처리).
+* PDF 및 TIFF의 경우 최대 2000페이지를 처리할 수 있습니다(무료 계층 구독의 경우 처음 2페이지만 처리됨).
 * 파일 크기는 50MB 미만이어야 합니다.
 * 이미지 크기는 50x50 픽셀에서 10,000x10,000 픽셀 사이여야 합니다.
-* PDF 크기는 Legal 또는 A3 용지 크기에 해당하는 최대 17 x 17인치 또는 더 작은 크기입니다.
-* 학습 데이터의 총 크기는 500페이지 이하입니다.
-* PDF가 암호로 잠겨 있는 경우 제출하기 전에 잠금을 제거해야 합니다.
-* 감독되지 않은 학습의 경우(레이블이 지정되지 않은 데이터 제외):
+* PDF 크기는 Legal 또는 A3 용지 크기 이하에 해당하는 최대 17 x 17인치입니다.
+* 학습 데이터 세트의 총 크기는 500페이지 이하입니다.
+* PDF가 암호로 잠긴 경우에는 제출하기 전에 잠금을 해제해야 합니다.
+* 자율 학습(레이블이 지정된 데이터 제외)의 경우:
   * 데이터에는 키와 값이 포함되어야 합니다.
-  * 키는 값의 위 또는 왼쪽에 나타나야 합니다. 아래 또는 오른쪽에 표시할 수 없습니다.
+  * 키는 값의 위쪽 또는 왼쪽에 표시되어야 하며, 아래쪽 또는 오른쪽에는 표시될 수 없습니다.
 
 > [!NOTE]
 > [샘플 레이블 지정 도구는](https://fott-2-1.azurewebsites.net/) BMP 파일 형식을 지원하지 않습니다. 이는 Form Recognizer 서비스가 아닌 도구의 제한 사항입니다.
@@ -108,9 +108,9 @@ Form Recognizer UI에서 다음을 수행합니다.
 
     |Name| Type | 설명 | 표준화 된 출력|
     |:-----|:----|:----|:----|
-    | 🆕 인증 | string | Motorcycle 또는 School bus와 같은 드라이버에 부여 된 추가 권한입니다.  | |
-    | 🆕 제한 사항 | string | 일시 중단 또는 해지 된 라이선스에 적용 되는 제한 된 구동 권한입니다.| |
-    | 🆕 VehicleClassification | string | 드라이버에서 구동 될 수 있는 차량 유형입니다. ||
+    | 🆕 인증 | 문자열 | Motorcycle 또는 School bus와 같은 드라이버에 부여 된 추가 권한입니다.  | |
+    | 🆕 제한 사항 | 문자열 | 일시 중단 또는 해지 된 라이선스에 적용 되는 제한 된 구동 권한입니다.| |
+    | 🆕 VehicleClassification | 문자열 | 드라이버에서 구동 될 수 있는 차량 유형입니다. ||
     |  CountryRegion | countryRegion | ISO 3166 표준을 준수하는 국가 또는 지역 코드 |  |
     |  DateOfBirth | date | DOB | yyyy-mm-dd |
     |  DateOfExpiration | date | 만료 날짜 DOB | yyyy-mm-dd |

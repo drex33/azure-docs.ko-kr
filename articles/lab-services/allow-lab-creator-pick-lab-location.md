@@ -1,14 +1,14 @@
 ---
 title: 랩 작성자가 Azure Lab Services에서 위치를 선택하도록 허용
 description: 이 문서에서는 랩 작성자가 랩 위치를 선택할 수 있도록 랩 계정 관리자가 허용하는 방법을 설명합니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 3b6c2d83414b1abc763755fbf15402b122c2186b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: f9dbafe6b297d7b94b1d1ec5eb419345cb140457
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85444202"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177254"
 ---
 # <a name="allow-lab-creator-to-pick-location-for-the-lab-in-azure-lab-services"></a>랩 작성자가 Azure Lab Services에서 랩 위치를 선택하도록 허용
 Azure Lab Services에서 랩 계정 소유자는 랩 작성자(교육자)가 만든 랩의 위치를 선택할 수 있습니다. 이 위치는 랩 계정의 위치와 다를 수 있습니다. 위치는 Azure 지역 그룹입니다. 예를 들어 미국 위치는 미국 동부, 미국 서부 등의 지역 그룹입니다. 

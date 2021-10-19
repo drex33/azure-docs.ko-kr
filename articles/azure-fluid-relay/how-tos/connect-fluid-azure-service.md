@@ -1,5 +1,5 @@
 ---
-title: '방법: Azure 유체 Relay 서비스에 커넥트'
+title: '방법: Azure Fluid Relay 서비스에 연결'
 description: 라이브러리를 사용 하 여 Azure 유체 Relay 서비스에 연결 하는 방법 @fluidframework/azure-client 입니다.
 services: azure-fluid
 author: hickeys
@@ -8,14 +8,14 @@ ms.date: 10/05/2021
 ms.topic: article
 ms.service: azure-fluid
 fluid.url: https://fluidframework.com/docs/deployment/azure-frs/
-ms.openlocfilehash: 4c44803b7f65aef89a0f82e6c2420b31f798a9e8
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: b9fe1c6a0b70d2e2765ce9da8733916b6226c0da
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129663060"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178959"
 ---
-# <a name="how-to-connect-to-an-azure-fluid-relay-service"></a>방법: Azure 유체 Relay 서비스에 커넥트
+# <a name="how-to-connect-to-an-azure-fluid-relay-service"></a>방법: Azure Fluid Relay 서비스에 연결
 
 > [!NOTE]
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
@@ -80,7 +80,7 @@ const client = new AzureClient(clientProps);
 
 ### <a name="adding-custom-data-to-tokens"></a>토큰에 사용자 지정 데이터 추가
 
-사용자 개체는 선택적 추가 사용자 세부 정보를 포함할 수도 있습니다. 예:
+사용자 개체는 선택적 추가 사용자 세부 정보를 포함할 수도 있습니다. 예를 들어:
 
 ```javascript
 const userDetails: ICustomUserDetails = {
@@ -158,11 +158,11 @@ const onAudienceChanged = () => {
   const memberStrings: string[] = [];
   const useAzure = process.env.FLUID_CLIENT === "azure";
 
-  members.forEach((member: AzureMember<ICustomUserDetails>) => {
-    if (member.userId !== self?.userId) {
+  members.forEach((member) => {
+    if (member.userId !== (self ? self.userId : "")) {
       if (useAzure) {
-        const memberString = `${member.userName}: {Email: ${member.additionalDetails?.email},
-                        Address: ${member.additionalDetails?.address}}`;
+        const memberString = `${member.userName}: {Email: ${member.additionalDetails ? member.additionalDetails.email : ""},
+                        Address: ${member.additionalDetails ? member.additionalDetails.address : ""}}`;
         memberStrings.push(memberString);
       } else {
         memberStrings.push(member.userName);
@@ -170,7 +170,7 @@ const onAudienceChanged = () => {
     }
   });
   audienceDiv.innerHTML = `
-            Current User: ${self?.userName} <br />
+            Current User: ${self ? self.userName : ""} <br />
             Other Users: ${memberStrings.join(", ")}
         `;
 };

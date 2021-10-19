@@ -2,15 +2,15 @@
 title: Azure Lab Services 사용하여 Windows에서 React로 프런트 엔드 개발을 교육하는 랩 설정
 description: React로 프런트 엔드 개발을 교육하는 랩을 설정하는 방법을 알아봅니다.
 author: emaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/16/2021
 ms.author: enewman
-ms.openlocfilehash: 089ec3d3d4836b4dadb5a0a60023b85ebf9950e0
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
-ms.translationtype: HT
+ms.openlocfilehash: f7cd012e609b253269d1aa04137e8e7e94e0ffde
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112456547"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176685"
 ---
 # <a name="set-up-lab-for-react-on-windows"></a>Windows에서 React에 대한 랩 설정
 

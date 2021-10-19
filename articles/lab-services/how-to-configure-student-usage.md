@@ -1,14 +1,14 @@
 ---
 title: Azure Lab Services 랩에서 사용 설정 구성
 description: 랩의 학생 수를 구성하고, 학생을 랩에 등록하도록 하고, VM을 사용할 수 있는 시간을 제어하는 방법 등을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/01/2020
-ms.openlocfilehash: f7c0fb7b0228ee17705af2dfd70279f6fc7bda3c
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
-ms.translationtype: HT
+ms.openlocfilehash: 6abdbe8ebd771c3d8d1c704cc97222dddd0ace0b
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110190704"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180802"
 ---
 # <a name="add-and-manage-lab-users"></a>랩 사용자 추가 및 관리
 

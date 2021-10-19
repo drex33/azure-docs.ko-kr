@@ -8,12 +8,12 @@ ms.service: azure-communication-services
 ms.topic: how-to
 ms.date: 10/14/2021
 ms.custom: template-how-to
-ms.openlocfilehash: a3d8139326403747900c9cc870c2d62138c625fb
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 3ed75c4e418e5e7494502e4f70d3c5419a5b162c
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130075898"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176038"
 ---
 # <a name="escalate-a-job"></a>작업 에스컬레이션
 
@@ -30,7 +30,7 @@ ms.locfileid: "130075898"
 
 ## <a name="escalation-overview"></a>에스컬레이션 개요
 
-에스컬레이션은 작업을 다른 큐로 이동하거나 더 높은 우선 순위를 지정하는 등 여러 가지 동작의 형태를 사용할 수 있습니다. 우선 순위가 높은 작업은 우선 순위가 낮은 작업보다 작업자에게 배포됩니다. 이 방법 가이드에서는 에스컬레이션 정책을 사용하여 새 큐를 설정하고 작업의 우선 순위를 높입니다.
+에스컬레이션은 작업을 다른 큐로 이동하거나 더 높은 우선 순위를 지정하는 등 여러 가지 동작의 형태를 사용할 수 있습니다. 우선 순위가 높은 작업은 우선 순위가 낮은 작업보다 작업자에게 배포됩니다. 이 방법 가이드에서는 에스컬레이션 정책 및 분류 정책을 사용하여 이 목표를 달성합니다.
 
 ## <a name="exception-policy-configuration"></a>예외 정책 구성
 
@@ -40,7 +40,7 @@ ms.locfileid: "130075898"
 // create the exception policy
 await client.SetExceptionPolicyAsync(
     id: "Escalate_XBOX_Policy",
-    name: "Escalate XBOX Requests to the XBOX Escalation Queue and set the Priority to 10 after 5 minutes",
+    name: "Add escalated label and reclassify XBOX Job requests after 5 minutes",
     rules: new List<ExceptionRule>()
     {
         new (
@@ -48,7 +48,6 @@ await client.SetExceptionPolicyAsync(
             trigger: new WaitTimeExceptionTrigger(TimeSpan.FromMinutes(5)),
             actions: new List<ExceptionAction>
             {
-                new ManualReclassifyExceptionAction("Increase Priority", null, 10),
                 new ReclassifyExceptionAction("EscalateReclassifyExceptionAction")
                 {
                     LabelsToUpsert = new LabelCollection(
@@ -60,6 +59,22 @@ await client.SetExceptionPolicyAsync(
             }
         )
     });
+```
+
+## <a name="classification-policy-configuration"></a>분류 정책 구성
+
+분류 정책을 만들어 작업에 추가된 새 레이블을 처리합니다. 이 정책은 레이블을 평가하고 `Escalated` 작업을 큐에 할당합니다. 또한 Policy는 [RulesEngine을](../../concepts/router/router-rule-concepts.md) 사용하여 작업의 우선 순위를 에서 로 `1` `10` 높입니다.
+
+```csharp
+await client.SetClassificationPolicyAsync(
+    id: "Classify_XBOX_Voice_Jobs",
+    name: "Classify XBOX Voice Jobs",
+    queueSelector: new QueueIdSelector(
+        new ExpressionRule(
+            "If(job.Escalated = true, \"XBOX_Queue\", \"XBOX_Escalation_Queue\")")),
+    workerSelectors: null,
+    prioritizationRule: new ExpressionRule("If(job.Escalated = true, 10, 1)"),
+    fallbackQueueId: "Default");
 ```
 
 ## <a name="queue-configuration"></a>큐 구성
@@ -86,25 +101,9 @@ await client.SetQueueAsync(
 );
 ```
 
-## <a name="classification-policy-configuration"></a>분류 정책 구성
-
-분류 정책을 만들어 작업에 추가된 새 레이블을 처리합니다. 이 정책은 레이블을 평가하고 `Escalated` 큐에 작업을 할당합니다. 또한 정책은 다음을 추가합니다.
-
-```csharp
-await client.SetClassificationPolicyAsync(
-    id: "Classify_XBOX_Voice_Jobs",
-    name: "Classify XBOX Voice Jobs",
-    queueSelector: new QueueIdSelector(
-        new ExpressionRule(
-            "If(job.Escalated = true, \"XBOX_Queue\", \"XBOX_Escalation_Queue\")")),
-    workerSelectors: null,
-    prioritizationRule: null,
-    fallbackQueueId: "Default");
-```
-
 ## <a name="job-lifecycle"></a>작업 수명 주기
 
-작업을 제출할 때 분류 정책 ID를 다음과 같이 지정합니다. 이 특정 예제의 경우 요구 사항은 값이 숫자보다 크거나 같은 레이블이 있는 작업자를 찾는 `XBOX_Hardware` `7` 것입니다.
+작업을 제출할 때 분류 정책 ID를 다음과 같이 지정합니다. 이 특정 예제의 경우 값이 숫자보다 크거나 같은 레이블이 있는 작업자를 찾아야 `XBOX_Hardware` `7` 합니다.
 
 ```csharp
 await client.CreateJobWithClassificationPolicyAsync(

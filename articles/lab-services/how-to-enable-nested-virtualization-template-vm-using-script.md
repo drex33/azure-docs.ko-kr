@@ -1,14 +1,14 @@
 ---
 title: Azure Lab Services의 템플릿 VM에서 중첩된 가상화 사용 (스크립트) | Microsoft Docs
 description: 스크립트를 사용하여 여러 VM 내에서 템플릿 VM을 만드는 방법을 알아봅니다.  즉, Azure Lab Services의 템플릿 VM에서 중첩된 가상화를 사용하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 5ae50bd11ab9a8adb769920f6d473a2ff2ce9342
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: cd2d206ceff358421f7c36f31554a0cb5684a482
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91251498"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180422"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-using-a-script"></a>스크립트를 사용하여 Azure Lab Services의 템플릿 가상 머신에서 중첩된 가상화 사용
 

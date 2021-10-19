@@ -2,15 +2,15 @@
 title: Azure Lab Services를 사용하여 Autodesk에 랩 설정
 description: Autodesk를 사용하여 엔지니어링 클래스를 학습하도록 랩을 설정하는 방법을 알아봅니다.
 author: nicolela
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/21/2021
 ms.author: nicolela
-ms.openlocfilehash: 6cc983907349ca8eab0731b18c18d526f2b75ba5
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
-ms.translationtype: HT
+ms.openlocfilehash: 2c9abda8f42023ebc54de77caadbe2860afe137f
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108281118"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177064"
 ---
 # <a name="set-up-labs-for-autodesk"></a>Autodesk에 대한 랩 설정
 
@@ -22,7 +22,7 @@ Autodesk는 대학 및 K-12 학교에서 일반적으로 사용됩니다.  예�
 
 ## <a name="lab-configuration"></a>랩 구성
 
-이 랩을 설정하려면 Azure 구독과 랩 계정으로 시작해야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. Azure 구독이 있으면 Azure Lab Services에서 새 랩 계정을 만들 수 있습니다. 새 랩 계정 만들기에 대한 자세한 내용은 [랩 계정 설정 방법](./tutorial-setup-lab-account.md) 자습서를 참조하세요. 기존 랩 계정을 사용할 수도 있습니다.
+이 랩을 설정하려면 Azure 구독과 랩 계정으로 시작해야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. Azure 구독이 있으면 Azure Lab Services에서 새 랩 계정을 만들 수 있습니다. 새 랩 계정 만들기에 대한 자세한 내용은 [랩 계정 설정 방법](./tutorial-setup-lab-account.md)의 자습서를 참조하세요. 기존 랩 계정을 사용할 수도 있습니다.
 
 ### <a name="lab-account-settings"></a>랩 계정 설정
 
@@ -47,7 +47,7 @@ Autodesk 네트워크 라이선스 모델을 사용하려는 경우 라이선스
 
 Autodesk 소프트웨어에서 네트워크 라이선스를 사용하려면 라이선스 서버에 Autodesk Network License Manager를 설치하는 [구체적인 단계를 Autodesk에서 제공](https://knowledge.autodesk.com/customer-service/network-license-administration/install-and-configure-network-license)합니다.  이 라이선스 서버는 일반적으로 온-프레미스 네트워크에 있거나 Azure 가상 네트워크 내에 있는 Azure 가상 머신(VM)에서 호스트됩니다.
 
-라이선스 서버를 설정한 후에는 [랩 계정](./tutorial-setup-lab-account.md)으로 [가상 네트워크를 피어링](./how-to-connect-peer-virtual-network.md)해야 합니다. 랩 VM과 라이선스 서버가 서로 액세스할 수 있도록 랩을 만들기 전에 네트워크 피어링을 수행해야 합니다.
+라이선스 서버를 설정한 후에는 [랩 계정](./tutorial-setup-lab-account.md)으로 [가상 네트워크를 피어링](./how-to-connect-peer-virtual-network.md)해야 합니다. 랩 VM과 라이선스 서버가 서로 액세스할 수 있도록 랩을 만들기 ‘전에’ 네트워크 피어링을 수행해야 합니다.
 
 Autodesk 생성 라이선스 파일은 라이선스 서버의 MAC 주소를 포함합니다.  Azure VM을 사용하여 라이선스 서버를 호스트하려면 라이선스 서버의 MAC 주소가 변경되지 않는지 확인하는 것이 중요합니다. MAC 주소가 변경되면 라이선스 파일을 다시 생성해야 합니다. MAC 주소가 변경되지 않도록 하려면 다음을 수행합니다.
 
@@ -74,7 +74,7 @@ Autodesk 생성 라이선스 파일은 라이선스 서버의 MAC 주소를 포�
 - 학생 25명&times;(예약 시간 20시간 + 할당 시간 10시간) &times; 160개의 랩 유닛 &times; 시간당 USD0.01 = USD1200.00
 
 > [!IMPORTANT] 
-> 예상 비용은 예시용으로만 사용됩니다.  최신 가격 책정 정보는 [Azure Lab Services 가격 책정](https://azure.microsoft.com/pricing/details/lab-services/)을 참조하세요.
+> 예상 비용은 예제 용도로만 사용됩니다.  최신 가격 책정 정보는 [Azure Lab Services 가격 책정](https://azure.microsoft.com/pricing/details/lab-services/)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

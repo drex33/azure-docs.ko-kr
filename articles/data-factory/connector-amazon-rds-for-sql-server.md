@@ -1,22 +1,22 @@
 ---
-title: Amazon RDS for SQL Server에서 데이터 복사 및 변환
+title: Amazon RDS for SQL Server에서 데이터 복사
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 또는 azure Synapse Analytics 파이프라인을 사용 하 여 온-프레미스 또는 azure VM에 있는 Amazon RDS for SQL Server 데이터베이스에서 데이터를 복사 하 고 변환 하는 방법에 대해 알아봅니다.
+description: Azure Data Factory 또는 azure Synapse Analytics 파이프라인을 사용 하 여 온-프레미스 또는 azure VM에 있는 Amazon RDS for SQL Server 데이터베이스에서 데이터를 복사 하는 방법에 대해 알아봅니다.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/26/2021
-ms.openlocfilehash: 8c884262620784ef49a011e7f7398a0d44427b33
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.date: 10/18/2021
+ms.openlocfilehash: b75a59d758c5447cec0eb66855866e1349fbd085
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129084406"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176241"
 ---
-# <a name="copy-and-transform-data-from-amazon-rds-for-sql-server-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용 하 여 Amazon RDS for SQL Server에서 데이터 복사 및 변환
+# <a name="copy-data-from-amazon-rds-for-sql-server-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용 하 여 Amazon RDS for SQL Server에서 데이터 복사
 
 이 문서에서는 Azure Data Factory 및 Azure Synapse 파이프라인의 복사 작업을 사용 하 여 Amazon RDS for SQL Server 데이터베이스에서 데이터를 복사 하는 방법을 설명 합니다. 자세한 내용은 [Azure Data Factory](introduction.md) 또는 [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md)의 소개 문서를 참조하세요.
 
@@ -194,7 +194,7 @@ Amazon RDS for SQL Server 데이터베이스에서 데이터를 복사 하기 �
 |:--- |:--- |:--- |
 | type | 데이터 집합의 type 속성은 **AmazonRdsForSqlServerTable** 로 설정 해야 합니다. | 예 |
 | 스키마 | 스키마의 이름입니다. |예 |
-| 테이블 | 테이블/뷰의 이름입니다. |예 |
+| 테이블 | 테이블/뷰의 이름입니다. |아니요 |
 | tableName | 스키마가 포함된 테이블/뷰의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원됩니다. 새 워크로드의 경우 `schema` 및 `table`을 사용합니다. | 예 |
 
 **예제**
@@ -412,7 +412,7 @@ WHERE s.name='[your schema]' AND t.name = '[your table name]'
 
 ## <a name="using-always-encrypted"></a>Always Encrypted 사용
 
-[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)를 사용 하 여 SQL Server에서 Amazon RDS로 데이터를 복사 하는 경우 아래 단계를 따르세요. 
+[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)사용하여 SQL Server Amazon RDS에서 데이터를 복사하는 경우 아래 단계를 수행합니다. 
 
 1. [Azure Key Vault](../key-vault/general/overview.md)에 [CMK(열 마스터 키)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true)를 저장합니다. [Azure Key Vault를 사용하여 Always Encrypted를 구성하는 방법](../azure-sql/database/always-encrypted-azure-key-vault-configure.md?tabs=azure-powershell)을 자세히 알아보세요.
 
@@ -422,13 +422,13 @@ WHERE s.name='[your schema]' AND t.name = '[your table name]'
 
 ## <a name="troubleshoot-connection-issues"></a>연결 문제 해결
 
-1. 원격 연결을 허용 하도록 Amazon RDS for SQL Server 인스턴스를 구성 합니다. **Amazon RDS for SQL Server Management Studio** 를 시작 하 고 **서버** 를 마우스 오른쪽 단추로 클릭 한 다음 **속성** 을 선택 합니다. 목록에서 **연결** 을 선택하고, **이 서버에 대한 원격 연결 허용** 확인란을 선택합니다.
+1. 원격 연결을 허용하도록 SQL Server 인스턴스에 대해 Amazon RDS를 구성합니다. **SQL Server Management Studio Amazon RDS를** 시작하고 **서버를** 마우스 오른쪽 단추로 클릭한 다음 **속성을** 선택합니다. 목록에서 **연결** 을 선택하고, **이 서버에 대한 원격 연결 허용** 확인란을 선택합니다.
 
     :::image type="content" source="media/copy-data-to-from-sql-server/AllowRemoteConnections.png" alt-text="원격 연결 사용":::
 
     자세한 단계는 [원격 액세스 서버 구성 옵션 구성](/sql/database-engine/configure-windows/configure-the-remote-access-server-configuration-option)을 참조하세요.
 
-2. **SQL Server 구성 관리자에 대해 Amazon RDS를** 시작 합니다. 원하는 인스턴스에 대 한 **Amazon RDS for SQL Server 네트워크 구성을** 확장 하 고 **MSSQLSERVER에 대 한 프로토콜** 을 선택 합니다. 오른쪽 창에 프로토콜이 표시됩니다. 마우스 오른쪽 단추로 **TCP/IP** 를 클릭하고 **사용** 을 선택하여 TCP/IP를 사용하도록 설정합니다.
+2. **SQL Server 구성 관리자 Amazon RDS를** 시작합니다. 원하는 **인스턴스의 SQL Server 네트워크 구성에 대해 Amazon RDS를** 확장하고 **MSSQLSERVER에 대한 프로토콜을** 선택합니다. 오른쪽 창에 프로토콜이 표시됩니다. 마우스 오른쪽 단추로 **TCP/IP** 를 클릭하고 **사용** 을 선택하여 TCP/IP를 사용하도록 설정합니다.
 
     :::image type="content" source="./media/copy-data-to-from-sql-server/EnableTCPProptocol.png" alt-text="TCP/IP 사용":::
 
@@ -437,7 +437,7 @@ WHERE s.name='[your schema]' AND t.name = '[your table name]'
 3. 동일한 창에서 **TCP/IP** 를 두 번 클릭하여 **TCP/IP 속성** 창을 시작합니다.
 4. **IP 주소** 탭으로 전환합니다. 아래로 스크롤하여 **IPAll** 섹션을 표시합니다. **TCP 포트** 를 적어 둡니다. 기본값은 **1433** 입니다.
 5. 컴퓨터에 **Windows 방화벽에 대한 규칙** 을 만들어 이 포트를 통해 들어오는 트래픽을 허용합니다. 
-6. **연결 확인**: 정규화 된 이름을 사용 하 여 amazon rds for SQL Server에 연결 하려면 다른 컴퓨터의 SQL Server Management Studio amazon rds를 사용 합니다. 예제는 `"<machine>.<domain>.corp.<company>.com,1433"`입니다.
+6. **연결 확인:** 정규화된 이름을 사용하여 SQL Server Amazon RDS에 연결하려면 다른 컴퓨터의 SQL Server Management Studio Amazon RDS를 사용합니다. 예제는 `"<machine>.<domain>.corp.<company>.com,1433"`입니다.
 
 ## <a name="next-steps"></a>다음 단계
 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

@@ -1,14 +1,14 @@
 ---
-title: Azure Lab Services - 실제 랩 환경에서 Windows 사용자 지정 이미지를 가져오는 방법
+title: 실제 랩 환경에서 Windows 사용자 지정 이미지를 가져오는 방법
 description: 실제 랩 환경에서 Windows 사용자 지정 이미지를 가져오는 방법을 설명합니다.
 ms.date: 07/27/2021
 ms.topic: how-to
-ms.openlocfilehash: 50d224f82943a4157c9c6a1eda77af0b151fafa8
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 36a6c8f920ebada3d5cd4110e48fe8544e4c7ae3
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124736686"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179016"
 ---
 # <a name="bring-a-windows-custom-image-from-a-physical-lab-environment"></a>물리적 랩 환경에서 Windows 사용자 지정 이미지 가져오기
 

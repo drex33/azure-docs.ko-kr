@@ -1,14 +1,14 @@
 ---
 title: 학습에 랩 사용 - Azure Lab Services
 description: 이 문서에서는 학습 시나리오를 위해 Azure에서 랩을 만들기 위해 Azure DevTest Labs를 사용하는 방법을 설명합니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: f9eb3d44d470a978e676f6268cd693b283dd2703
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: e99c3f9d8f27571a88fcdf6d62fa16a86d180a1c
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96433567"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178617"
 ---
 # <a name="use-labs-for-trainings"></a>학습에 랩 사용
 교육자(교사, 교수, 강사 또는 교육 도우미 등)는 Azure Labs Services를 통해 쉽고 빠르게 온라인 랩을 만들어 실습생용으로 미리 구성된 학습 환경을 프로비저닝할 수 있습니다. 각 실습생은 학습에 동일하고 격리된 환경을 사용할 수 있습니다. 각 실습생이 필요할 때에만 학습 환경을 이용할 수 있도록 하고, 학습에 필요한 리소스(예: 가상 머신)가 학습 환경에 충분히 포함되도록 하는 정책을 적용할 수 있습니다. 

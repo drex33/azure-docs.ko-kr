@@ -1,14 +1,14 @@
 ---
 title: Azure Lab Services에서 랩에 대한 VM의 자동 종료 구성
 description: 원격 데스크톱 연결이 끊어질 때 VM 자동 종료를 사용하거나 사용하지 않도록 설정하는 방법에 대해 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/01/2020
-ms.openlocfilehash: 8f9080f3b7b762d3b9fa448a903a4167cd2cec4a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 2b3e589e66749e1b1d9b2348a00cd3c3c432a4e5
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96433939"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180308"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab"></a>랩에 대한 VM의 자동 종료 구성
 

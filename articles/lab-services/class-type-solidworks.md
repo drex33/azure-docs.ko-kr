@@ -2,15 +2,15 @@
 title: Azure Lab Services로 엔지니어링용 SOLIDWORKS 랩 설정 | Microsoft Docs
 description: SOLIDWORKS를 사용하여 엔지니어링 과정을 위한 랩을 설정하는 방법을 알아봅니다.
 author: nicolela
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 3a7e8c47977f0518a3a3e9f8a6fd2e57454e1c42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 0b12526362cf7747768b3c4c8829a041dc499728
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99626107"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176532"
 ---
 # <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>SOLIDWORKS를 사용하여 엔지니어링 클래스용 랩 설정
 
@@ -31,11 +31,11 @@ SOLIDWORKS 네트워크 라이선스를 사용하려면 라이선스 서버에 S
 
 ## <a name="lab-configuration"></a>랩 구성
 
-이 랩을 설정하려면 Azure 구독과 랩 계정으로 시작해야 합니다. Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. Azure 구독이 있으면 Azure Lab Services에서 새 랩 계정을 만들 수 있습니다. 새 랩 계정 만들기에 대한 자세한 내용은 [랩 계정 설정 방법](./tutorial-setup-lab-account.md)의 자습서를 참조하세요. 기존 랩 계정을 사용할 수도 있습니다.
+이 랩을 설정하려면 Azure 구독과 랩 계정으로 시작해야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. Azure 구독이 있으면 Azure Lab Services에서 새 랩 계정을 만들 수 있습니다. 새 랩 계정 만들기에 대한 자세한 내용은 [랩 계정 설정 방법](./tutorial-setup-lab-account.md)의 자습서를 참조하세요. 기존 랩 계정을 사용할 수도 있습니다.
 
 ### <a name="lab-account-settings"></a>랩 계정 설정
 
-랩 계정에 대해 아래 표에 설명된 설정을 사용합니다. 마켓플레이스 이미지를 사용하도록 설정하는 방법에 대한 자세한 내용은 [랩 작성자가 사용할 수 있는 마켓플레이스 이미지를 지정하는 방법](./specify-marketplace-images.md)에 대한 문서를 참조하세요.
+랩 계정에 대해 아래 표에 설명된 설정을 사용합니다. Marketplace 이미지를 사용하도록 설정하는 방법에 대한 자세한 내용은 [랩 작성자가 사용할 수 있는 Marketplace 이미지를 지정하는 방법](./specify-marketplace-images.md)에 대한 문서를 참조하세요.
 
 | 랩 계정 설정 | Instructions |
 | ------------------- | ------------ |
@@ -50,7 +50,7 @@ SOLIDWORKS 네트워크 라이선스를 사용하려면 라이선스 서버에 S
 
 | 랩 설정 | 값/지침 |
 | ------------ | ------------------ |
-|Virtual Machine 크기| **소형 GPU(시각화)** .  이 VM은 OpenGL이나 DirectX와 같은 프레임워크를 사용하는 원격 시각화, 스트리밍, 게임, 인코딩에 가장 적합합니다.|  
+|Virtual Machine 크기| **소형 GPU(시각화)**  이 VM은 OpenGL 및 DirectX와 같은 프레임워크를 사용하는 원격 시각화, 스트리밍, 게임 및 인코딩에 가장 적합합니다.|  
 |가상 머신 이미지| Windows 10 Pro|
 
 > [!NOTE]
@@ -78,7 +78,7 @@ SOLIDWORKS 네트워크 라이선스를 사용하려면 라이선스 서버에 S
 
 ## <a name="cost"></a>Cost
 
-이 클래스의 가능한 예상 비용을 살펴보겠습니다. 이러한 예상치에는 라이선스 서버를 실행하는 비용이 포함되지 않습니다. 25명의 학생이 있는 클래스를 예로 들겠습니다. 예약된 클래스 시간은 20시간입니다. 예약된 클래스 시간 외에도 숙제 또는 과제에 사용하도록 각 학생에게 10시간이 할당됩니다. 선택한 가상 머신 크기는 **소형 GPU(시각화)** 로, 랩 단위는 160개입니다.
+이 클래스의 가능한 예상 비용을 살펴보겠습니다. 이러한 예상치에는 라이선스 서버를 실행하는 비용이 포함되지 않습니다. 25명의 학생이 있는 클래스를 예로 들겠습니다. 예약된 수업 시간은 20시간입니다. 예약된 수업 시간 외에도 숙제 또는 과제에 사용하도록 각 학생에게 10시간이 할당됩니다. 선택한 가상 머신 크기는 **소형 GPU(시각화)** 로, 랩 단위는 160개입니다.
 
 학생 25명 \*(예약 시간 20시간 + 할당 시간 10시간) \* 랩 단위 160개 * 시간당 0.01 USD = 1200.00 USD
 

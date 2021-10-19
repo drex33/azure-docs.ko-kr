@@ -1,14 +1,14 @@
 ---
 title: Teams 내에서 Azure Lab Services 랩 시작 및 만들기
 description: Teams 내에서 Azure Lab Services 랩을 시작하고 만드는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/08/2020
-ms.openlocfilehash: cc4ad604bdf250cc6e4ba2c50c2f7143c921e906
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: e406a73a086a742bcb30d0c45c1ebda629b6bdf2
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96433974"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180232"
 ---
 # <a name="get-started-and-create-a-lab-services-lab-within-teams"></a>Teams 내에서 Lab Services 랩 시작 및 만들기
 

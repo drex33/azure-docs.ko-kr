@@ -6,12 +6,12 @@ author: shseth
 ms.author: shseth
 ms.date: 7/12/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 01c2f7b49b051e9166ad1ceef99fc816e611f579
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
-ms.translationtype: HT
+ms.openlocfilehash: d3f2fa2457ef52fc02e2fd5b7d183918e2e9e09c
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122567887"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177990"
 ---
 # <a name="migrate-from-log-analytics-agents"></a>Log Analytics 에이전트에서 마이그레이션
 이 문서에서는 새 AMA(Azure Monitor 에이전트) 및 DCR(데이터 수집 규칙)으로 마이그레이션하는 시기와 방법에 대한 대략적인 지침을 제공합니다. 이 문서는 새 마이그레이션 도구를 사용할 수 있을 때 업데이트됩니다.
@@ -38,10 +38,10 @@ ms.locfileid: "122567887"
     - 대상(예: Log Analytics 작업 영역)
 1. 위의 구성을 사용하여 [새 데이터 수집 규칙을 만듭니다](/rest/api/monitor/datacollectionrules/create#examples). Windows 및 Linux 원본에 대해 별도의 데이터 수집 규칙을 두는 것이 가장 좋습니다. 또는 데이터 수집 요구 사항이 다른 개별 팀에 대해 별도의 데이터 수집 규칙을 원할 수 있습니다.
 1. 대상 리소스에서 [시스템이 할당한 관리 ID를 사용합니다](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#system-assigned-managed-identity).
-1. Azure Monitor 에이전트 확장을 설치합니다. [기본 제공 정책 이니셔티브](../deploy-scale.md#built-in-policy-initiatives)를 사용하여 모든 대상 리소스에 데이터 수집 규칙 연결을 배포합니다. 앞의 데이터 수집 규칙을 입력 매개 변수로 제공합니다. 
+2. Azure Monitor 에이전트 확장을 설치합니다. [기본 제공 정책 이니셔티브](azure-monitor-agent-install.md#install-with-azure-policy)를 사용하여 모든 대상 리소스에 데이터 수집 규칙 연결을 배포합니다. 앞의 데이터 수집 규칙을 입력 매개 변수로 제공합니다. 
 1. Azure Monitor 에이전트를 통해 데이터가 예상대로 흐르는지 유효성을 검사합니다. **하트비트** 표에서 새 에이전트 버전 값을 확인합니다. 기존 Log Analytics 에이전트를 통해 흐르는 데이터와 일치하는지 확인합니다.
-1. 대시보드, 경고 및 Runbook worker와 같은 모든 다운스트림 종속성의 유효성을 검사합니다. 이제 새 에이전트의 데이터를 사용하여 통합 문서가 모두 계속 작동합니다.
-1. 리소스에서 [Log Analytics 에이전트를 설치 제거합니다](./agent-manage.md#uninstall-agent). System Center Operations Manager 시나리오 또는 Azure Monitor 에이전트에서 아직 사용할 수 없는 다른 솔루션에 사용해야 하는 경우 제거하지 마세요.
-1. 이전에 Log Analytics 에이전트에서 사용한 구성 파일, 작업 영역 키 또는 인증서를 정리합니다.
+2. 대시보드, 경고 및 Runbook worker와 같은 모든 다운스트림 종속성의 유효성을 검사합니다. 이제 새 에이전트의 데이터를 사용하여 통합 문서가 모두 계속 작동합니다.
+3. 리소스에서 [Log Analytics 에이전트를 설치 제거합니다](./agent-manage.md#uninstall-agent). System Center Operations Manager 시나리오 또는 Azure Monitor 에이전트에서 아직 사용할 수 없는 다른 솔루션에 사용해야 하는 경우 제거하지 마세요.
+4. 이전에 Log Analytics 에이전트에서 사용한 구성 파일, 작업 영역 키 또는 인증서를 정리합니다.
 
 

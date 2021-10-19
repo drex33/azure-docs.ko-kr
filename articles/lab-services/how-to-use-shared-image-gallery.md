@@ -1,14 +1,14 @@
 ---
 title: Azure Lab Services에서 공유 이미지 갤러리 사용 | Microsoft Docs
 description: 사용자가 다른 사용자와 이미지를 공유하고 다른 사용자가 해당 이미지를 사용하여 랩에서 템플릿 VM을 만들 수 있도록 공유 이미지 갤러리를 사용하도록 랩 계정을 구성하는 방법에 대해 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/11/2020
-ms.openlocfilehash: 8a0cd273d2444281fd2c43823aaa822b5e476ed0
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: cadb95d4946eef02c98a322e61489588bd8ea767
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450551"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179947"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Azure Lab Services에서 공유 이미지 갤러리 사용
 
@@ -30,7 +30,7 @@ ms.locfileid: "123450551"
     이미지가 공유 이미지 갤러리에 저장되는 경우 Azure Lab Services는 저장된 이미지를 동일한 [지리](https://azure.microsoft.com/global-infrastructure/geographies/)에서 사용할 수 있는 다른 지역에 복제합니다. 그러면 해당 이미지를 동일한 지리의 다른 지역에서 만든 랩에서 사용할 수 있습니다. 공유 이미지 갤러리에 이미지를 저장하면 복제된 모든 이미지에 대한 비용을 포함하는 추가 비용이 발생합니다. 이 비용은 Azure Lab Services 사용 비용과는 별개입니다. Shared Image Gallery 가격 책정에 대한 자세한 내용은 [Shared Image Gallery – 청구](../virtual-machines/shared-image-galleries.md#billing)를 참조하세요.
     
 ## <a name="prerequisites"></a>사전 요구 사항
-- [공유 이미지 갤러리](../virtual-machines/create-gallery.md)를 만듭니다.
+- 공유 [이미지 갤러리](../virtual-machines/create-gallery.md)를 만듭니다.
 - 공유 이미지 갤러리를 랩 계정에 연결했습니다. 단계별 지침은 [공유 이미지 갤러리를 연결하거나 분리하는 방법](how-to-attach-detach-shared-image-gallery.md)을 참조하세요.
 
 ## <a name="save-an-image-to-the-shared-image-gallery"></a>공유 이미지 갤러리에 이미지 저장

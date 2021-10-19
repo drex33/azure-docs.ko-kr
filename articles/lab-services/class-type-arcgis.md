@@ -2,41 +2,41 @@
 title: Azure Lab Services를 사용 하 여 ArcMap\ArcGIS Desktop에 대 한 랩 설정 Microsoft Docs
 description: ArcGIS를 사용 하 여 클래스에 대 한 랩을 설정 하는 방법을 알아봅니다.
 author: nicolela
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/04/2021
 ms.author: nicolela
-ms.openlocfilehash: 530597a72b19afa1e80b5c7640b105d86479b1c1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: dad2beae5248d8f73ceb2dfa747d0c4f45333a80
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101740106"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177197"
 ---
 # <a name="set-up-a-lab-for-arcmaparcgis-desktop"></a>ArcMap\ArcGIS Desktop에 대 한 랩 설정
 
-[ArcGIS](https://www.esri.com/en-us/arcgis/products/arcgis-solutions/overview) 은 gis (지리 정보 시스템)의 유형입니다.  ArcGIS은 지도 분석 및 ESRI ( [환경 시스템 연구 협회](https://www.esri.com/en-us/home) )에서 제공 하는 지리 데이터로 작업 하는 데 사용 됩니다.  ArcGIS Desktop에는 여러 응용 프로그램이 포함 되어 있지만이 문서에서는 ArcMap 사용을 위한 랩을 설정 하는 방법을 보여 줍니다.  [Arcmap](https://desktop.arcgis.com/en/arcmap/latest/map/main/what-is-arcmap-.htm) 은 2d 맵을 만들고 편집 하 고 분석 하는 데 사용 됩니다.
+[ArcGIS](https://www.esri.com/en-us/arcgis/products/arcgis-solutions/overview)는 일종의 GIS(지리 정보 시스템)입니다.  ArcGIS은 지도 분석 및 ESRI ( [환경 시스템 연구 협회](https://www.esri.com/en-us/home) )에서 제공 하는 지리 데이터로 작업 하는 데 사용 됩니다.  ArcGIS Desktop에는 여러 응용 프로그램이 포함 되어 있지만이 문서에서는 ArcMap 사용을 위한 랩을 설정 하는 방법을 보여 줍니다.  [Arcmap](https://desktop.arcgis.com/en/arcmap/latest/map/main/what-is-arcmap-.htm) 은 2d 맵을 만들고 편집 하 고 분석 하는 데 사용 됩니다.
 
 ## <a name="lab-configuration"></a>랩 구성
 
 ArcMap 사용을 위한 랩을 설정 하려면 Azure 구독 및 랩 계정이 필요 합니다.  Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-Azure 구독을 가져온 후 Azure Lab Services에서 새 랩 계정을 만들 수 있습니다.  새 랩 계정을 만드는 방법에 대 한 자세한 내용은 [랩 계정 설정](tutorial-setup-lab-account.md)을 참조 하세요.  기존 랩 계정을 사용할 수도 있습니다.
+Azure 구독이 있으면 Azure Lab Services에서 새 랩 계정을 만들 수 있습니다.  새 랩 계정 만들기에 대한 자세한 내용은 [랩 계정 설정](tutorial-setup-lab-account.md)을 참조하세요.  기존 랩 계정을 사용할 수도 있습니다.
 
 ### <a name="lab-account-settings"></a>랩 계정 설정
 
-다음 표에 설명 된 대로 랩 계정 설정을 사용 하도록 설정 합니다.  Azure Marketplace 이미지를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [랩 작성자가 사용할 수 있는 Azure Marketplace 이미지 지정](./specify-marketplace-images.md)을 참조 하세요.
+다음 표에서 설명하는 것과 같이 랩 계정 설정을 사용합니다.  Azure Marketplace 이미지를 사용하도록 설정하는 방법에 대한 자세한 내용은 [랩 작성자가 사용할 수 있는 Azure Marketplace 이미지 지정](./specify-marketplace-images.md)을 참조하세요.
 
 | 랩 계정 설정 | Instructions |
 | ------------------- | ------------ |
-|Marketplace 이미지| 랩 계정 내에서 사용할 Windows 10 Pro 또는 Windows 10 Pro N 이미지를 사용 하도록 설정 합니다.|
+|Marketplace 이미지| 랩 계정 내에서 사용 하기 위해 Windows 10 Pro 또는 Windows 10 Pro KN 이미지를 사용 하도록 설정 합니다.|
 
 ### <a name="licensing-server"></a>라이선스 서버
 
 ArcGIS Desktop이 제공 하는 한 가지 유형의 라이선스는 [동시 사용 라이선스](https://desktop.arcgis.com/en/license-manager/latest/license-manager-basics.htm)입니다.  이렇게 하려면 라이선스 서버에 ArcGIS 라이선스 관리자를 설치 해야 합니다.  라이선스 관리자는 동시에 실행할 수 있는 소프트웨어의 복사본 수를 추적 합니다.  서버에서 라이선스 관리자를 설정 하는 방법에 대 한 자세한 내용은 [라이선스 관리자 가이드](https://desktop.arcgis.com/en/license-manager/latest/welcome.htm)를 참조 하십시오.
 
-라이선스 서버는 일반적으로 온-프레미스 네트워크 또는 Azure 가상 컴퓨터에서 호스트 되는 Azure 가상 네트워크 내에 있습니다.  라이선스 서버를 설정한 후에는 [랩 계정](./tutorial-setup-lab-account.md)으로 [가상 네트워크를 피어](./how-to-connect-peer-virtual-network.md) 링 해야 합니다.  랩 Vm이 라이선스 서버에 액세스할 수 있도록 랩을 만들기 전에 네트워크 피어 링을 수행 해야 하며, 그 반대의 경우도 마찬가지입니다.
+라이선스 서버는 일반적으로 온-프레미스 네트워크 또는 Azure 가상 컴퓨터에서 호스트 되는 Azure 가상 네트워크 내에 있습니다.  라이선스 서버를 설정한 후에는 [랩 계정](./tutorial-setup-lab-account.md)으로 [가상 네트워크를 피어](./how-to-connect-peer-virtual-network.md) 링 해야 합니다.  랩 VM과 라이선스 서버가 서로 액세스할 수 있도록 랩을 만들기 ‘전에’ 네트워크 피어링을 수행해야 합니다.
 
-자세한 내용은 [공유 리소스로 라이선스 서버 설정](how-to-create-a-lab-with-shared-resource.md)을 참조 하세요.
+자세한 내용은 [라이선스 서버를 공유 리소스로 설정](how-to-create-a-lab-with-shared-resource.md)을 참조하세요.
 
 ### <a name="lab-settings"></a>랩 설정
 
@@ -46,11 +46,11 @@ ArcGIS Desktop에 사용 하도록 권장 되는 VM (가상 머신)의 크기는
 
 | 랩 설정 | 값 및 설명 |
 | ------------ | ------------------ |
-|Virtual Machine 크기| **보통**.  관계형 데이터베이스, 메모리 내 캐싱 및 분석에 가장 적합 합니다.|  
+|Virtual Machine 크기| **보통**.  관계형 데이터베이스, 메모리 내 캐시 및 분석에 가장 적합합니다.|  
 
-### <a name="template-machine"></a>템플릿 컴퓨터
+### <a name="template-machine"></a>템플릿 머신
 
-이 섹션의 단계에서는 템플릿 VM을 설정 하는 방법을 보여 줍니다.
+이 섹션의 단계에서는 템플릿 VM을 설정하는 방법을 보여 줍니다.
 
 1.  템플릿 VM을 시작 하 고 RDP를 사용 하 여 컴퓨터에 연결 합니다.
 
@@ -67,7 +67,7 @@ ArcGIS Desktop에 사용 하도록 권장 되는 VM (가상 머신)의 크기는
     - ArcGIS에 의해 생성 된 모든 데이터를 저장 하는 파일 geodatabases
     - 학생 들이 래스터 파일, 셰이프 파일, GeoTIFF 등을 사용 하 여 사용할 수 있는 기타 데이터
 
-    OneDrive를 백업 저장소에 사용 하는 것이 좋습니다.  템플릿 VM에서 OneDrive를 설정 하려면 [Onedrive 설치 및 구성](how-to-prepare-windows-template.md#install-and-configure-onedrive)문서의 단계를 따르세요. 
+    백업 저장소에 OneDrive를 사용 하는 것이 좋습니다.  템플릿 VM에 OneDrive을 설정 하려면 [OneDrive 설치 및 구성](how-to-prepare-windows-template.md#install-and-configure-onedrive)문서의 단계를 따르세요. 
 
 4.  마지막으로 템플릿 VM을 [게시](how-to-create-manage-template.md#publish-the-template-vm) 하 여 학생의 vm을 만듭니다.
 
@@ -81,21 +81,21 @@ ArcGIS의 경우 이러한 설정에 대해 다음 값을 권장 합니다.
 - 사용자가 연결을 끊을 때 가상 머신 종료
     - 사용자 연결을 끊은 후 15 분
 
-## <a name="cost"></a>비용
+## <a name="cost"></a>Cost
 
-이 클래스에 대해 가능한 예상 비용을 살펴보겠습니다. 이러한 예상치는 라이선스 서버를 실행 하는 비용을 포함 하지 않습니다. 25 명의 학생 클래스를 사용 합니다. 예약 된 클래스 시간은 20 시간입니다. 또한 각 학생은 예약 된 클래스 시간 외에도 과제 또는 배정에 대해 10 시간 할당량을 얻습니다. 선택한 가상 컴퓨터 크기는 42 lab 단위인 **Medium** 입니다.
+이 클래스의 가능한 예상 비용을 살펴보겠습니다. 이러한 예상치에는 라이선스 서버를 실행하는 비용이 포함되지 않습니다. 25명의 학생이 있는 클래스를 예로 들겠습니다. 예약된 수업 시간은 20시간입니다. 예약된 수업 시간 외에도 숙제 또는 과제에 사용하도록 각 학생에게 10시간이 할당됩니다. 선택한 가상 컴퓨터 크기는 42 lab 단위인 **Medium** 입니다.
 
 25 개 학생 \* (20 개의 예약 된 시간 + 10 할당량 시간) \* 42 랩 단위 * 0.01 usd/시간 = 315.00 USD
 
 >[!IMPORTANT]
-> 비용 예측은 예를 들어 목적 으로만 사용 됩니다.  가격 책정에 대 한 최신 정보는 [Azure Lab Services 가격 책정](https://azure.microsoft.com/pricing/details/lab-services/)을 참조 하세요.  
+> 예상 비용은 예제 용도로만 사용됩니다.  가격 책정에 대한 최신 세부 정보는 [Azure Lab Services 가격](https://azure.microsoft.com/pricing/details/lab-services/)을 참조하세요.  
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 단계는 랩을 설정 하는 데 일반적입니다.
+다음 단계는 모든 랩 설정에 공통됩니다.
 
 - [템플릿 만들기 및 관리](how-to-create-manage-template.md)
 - [사용자 추가](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [할당량 설정](how-to-configure-student-usage.md#set-quotas-for-users)
 - [일정 설정](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
-- [학생에 대 한 전자 메일 등록 링크](how-to-configure-student-usage.md#send-invitations-to-users)
+- [메일로 학생에게 등록 링크 보내기](how-to-configure-student-usage.md#send-invitations-to-users)

@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: mqtt, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 591e7c43b26bbd8668bbe50bc78965f04f194c36
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 6061b0ccba7448bbb51dcc93bacecce27c63b910
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528444"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179288"
 ---
 # <a name="schedule-and-broadcast-jobs-nodejs"></a>작업 예약 및 브로드캐스트(Node.js)
 
@@ -297,6 +297,6 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
 이 자습서에서는 디바이스에 대한 직접 메서드를 예약하고 디바이스 쌍의 속성을 업데이트하는 데 작업을 사용했습니다.
 
-IoT Hub 및 디바이스 관리 패턴(예: 원격 무선 펌웨어 업데이트)을 계속 시작하려면 [자습서: 펌웨어 업데이트를 수행하는 방법](tutorial-firmware-update.md)을 참조하세요.
+[Raspberry Pi 3 B + 참조 이미지를 사용 하는 Azure IoT 허브 용 장치 업데이트 자습서](../iot-hub-device-update/device-update-raspberry-pi.md)에서 종단 간 이미지 기반 업데이트와 같은 IoT Hub 및 장치 관리 패턴을 계속 시작 하려면
 
 계속해서 IoT Hub를 시작하려면 [Azure IoT Edge 시작](../iot-edge/quickstart-linux.md)을 참조하세요.

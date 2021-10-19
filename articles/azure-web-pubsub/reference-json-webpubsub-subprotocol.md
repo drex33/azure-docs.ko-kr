@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ms.date: 08/16/2021
-ms.openlocfilehash: 724ffa23cf533133603db717b4d01ebbd81894a1
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.openlocfilehash: 8f1710246158e953492fec23869ba91a77c78e60
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122568274"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177824"
 ---
 #  <a name="azure-web-pubsub-supported-json-websocket-subprotocol"></a>Azure Web PubSub 지원 JSON WebSocket 하위 프로토콜
      
@@ -83,17 +83,18 @@ PubSub WebSocket 클라이언트를 설명할 때 알 수 있듯이 클라이언
     "type": "sendToGroup",
     "group": "<group_name>",
     "ackId" : 1, // optional
+    "noEcho": true|false,
     "dataType" : "json|text|binary",
     "data": {}, // data can be string or valid json token depending on the dataType 
 }
 ```
 
 * `ackId`는 선택 사항이며 이 명령 메시지의 증분 정수입니다. `ackId`가 지정되면 서비스에서 명령이 실행될 때 클라이언트에 [ack 응답 메시지](#ack-response)를 다시 보냅니다.
-
-`dataType`은 `json`, `text`, `binary` 중 하나일 수 있습니다.
-* `json`: `data`는 JSON이 지원하는 모든 유형이 될 수 있으며 그대로 게시됩니다. `dataType`을 지정하지 않으면 기본값은 `json`입니다.
-* `text`: `data`는 문자열 형식이어야 하며 문자열 데이터가 게시됩니다.
-* `binary`: `data`는 base64 형식이어야 하며 이진 데이터가 게시됩니다.
+* `noEcho`는 선택 사항입니다. True로 설정 된 경우이 메시지는 동일한 연결로 다시 에코 되지 않습니다. 설정 되지 않은 경우 기본값은 false입니다.
+* `dataType`은 `json`, `text`, `binary` 중 하나일 수 있습니다.
+     * `json`: `data`는 JSON이 지원하는 모든 유형이 될 수 있으며 그대로 게시됩니다. `dataType`을 지정하지 않으면 기본값은 `json`입니다.
+     * `text`: `data`는 문자열 형식이어야 하며 문자열 데이터가 게시됩니다.
+     * `binary`: `data`는 base64 형식이어야 하며 이진 데이터가 게시됩니다.
 
 #### <a name="case-1-publish-text-data"></a>사례 1: 텍스트 데이터 게시:
 ```json
@@ -327,6 +328,7 @@ WebSocket 프레임은 텍스트 메시지 프레임의 경우 `text` 형식이�
         "group": "<group_name>",
         "dataType": "json|text|binary",
         "data" : {} // The data format is based on the dataType
+        "fromUserId": "abc"
     }
     ```
 

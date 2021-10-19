@@ -4,13 +4,13 @@ description: Lab Services에 대한 비용을 보는 다양한 방법을 이해�
 author: rbest
 ms.author: rbest
 ms.date: 08/16/2020
-ms.topic: article
-ms.openlocfilehash: 05613d4e019d5cef18130dfd39b74c1da6b9768c
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.topic: how-to
+ms.openlocfilehash: 29965e2fe819debd6ea992dcdd2c8164dddab5f5
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129660441"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130181201"
 ---
 # <a name="cost-management-for-azure-lab-services"></a>Azure Lab Services에 대한 비용 관리
 
@@ -119,10 +119,10 @@ Windows 가상 머신은 사용자가 사용을 중지한 후 20분 후에 자�
 **사용자가 연결을 끊을 때 가상 머신 종료** 설정은 Windows 및 Linux 가상 머신을 모두 지원합니다. 이 설정이 켜져 있으면 다음과 같은 경우 자동 종료가 수행됩니다.
 
 - Windows의 경우 RDP(원격 데스크톱) 연결의 연결이 끊깁니다.
-- Linux의 경우 SSH 연결의 연결이 끊깁니다.
+- Linux의 경우 SSH 연결이 끊어집니다.
 
 > [!IMPORTANT]
-> [특정 배포 및 Linux 버전](../virtual-machines/extensions/diagnostics-linux.md#supported-linux-distributions)만 지원됩니다.  [Data Science Virtual Machine Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) 이미지에서는 종료 설정이 지원 되지 않습니다.
+> [특정 배포 및 Linux 버전](../virtual-machines/extensions/diagnostics-linux.md#supported-linux-distributions)만 지원됩니다.  종료 설정은 Data Science Virtual Machine [- Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) 이미지에서 지원되지 않습니다.
 
 가상 머신이 자동으로 종료되기 전에 사용자가 다시 연결하도록 가상 머신이 대기해야 하는 시간을 지정할 수 있습니다.
 

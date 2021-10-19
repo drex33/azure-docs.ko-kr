@@ -2,15 +2,15 @@
 title: Python 및 Jupyter Notebook을 사용하여 데이터 과학을 교육하기 위한 랩 설정 | Microsoft Docs
 description: Python 및 Jupyter Notebook을 사용하여 데이터 과학을 교육하기 위한 랩을 설정하는 방법을 알아봅니다.
 author: emaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/29/2020
 ms.author: enewman
-ms.openlocfilehash: 8f84edf29e6c4e3bd111deb5ea4bd479ea2d6140
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
-ms.translationtype: HT
+ms.openlocfilehash: f52215fbcaf2d3a037863853366aaae9bb55a3fb
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109716279"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176893"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Python 및 Jupyter Notebook을 사용하여 데이터 과학을 교육하기 위한 랩 설정
 이 문서에서는 학생에게 [Jupyter Notebook](http://jupyter-notebook.readthedocs.io/) 사용 방법과 학생이 본인의 VM(가상 머신)에서 Notebook에 연결하는 방법을 교육하는 데 필요한 도구를 사용하여 Lab Services에서 템플릿 VM(가상 머신)을 설정하는 방법을 설명합니다.
@@ -210,7 +210,7 @@ Mac 또는 Chromebook을 사용하는 학생은 다음 문서의 지침에 따�
 
 
 ## <a name="cost-estimate"></a>예상 비용
-이 수업의 가능한 예상 비용을 살펴보겠습니다. 학생이 25명인 수업을 사용합니다. 예약된 수업 시간은 20시간입니다. 예약된 수업 시간 외에도 숙제 또는 과제에 사용하도록 각 학생에게 10시간이 할당됩니다. 앞에서 선택한 VM 크기는 랩 단위 139개를 제공하는 소형 GPU(컴퓨팅)였습니다. 소형(랩 단위 20개) 또는 중간 크기(랩 단위 42개)를 사용하려면 아래 수식에서 랩 단위 부분을 원하는 숫자로 바꾸면 됩니다.  
+이 수업의 가능한 예상 비용을 살펴보겠습니다. 25명의 학생이 있는 수업을 예로 들겠습니다. 예약된 수업 시간은 20시간입니다. 예약된 수업 시간 외에도 숙제 또는 과제에 사용하도록 각 학생에게 10시간이 할당됩니다. 앞에서 선택한 VM 크기는 랩 단위 139개를 제공하는 소형 GPU(컴퓨팅)였습니다. 소형(랩 단위 20개) 또는 중간 크기(랩 단위 42개)를 사용하려면 아래 수식에서 랩 단위 부분을 원하는 숫자로 바꾸면 됩니다.  
 
 이 클래스의 예상 비용은 학생 25명 *(예약된 시간 20시간 + 할당량 시간 10시간) * 랩 단위 139 * 0.01USD/시간 = 1042.5USD입니다.
 

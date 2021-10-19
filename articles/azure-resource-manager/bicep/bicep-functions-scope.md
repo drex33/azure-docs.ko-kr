@@ -2,13 +2,13 @@
 title: Bicep 함수 - 범위
 description: Bicep 파일에서 배포 범위에 대한 값을 검색하는 데 사용할 함수를 설명합니다.
 ms.topic: conceptual
-ms.date: 09/30/2021
-ms.openlocfilehash: 6771bf52ce5e5427343eb3210f665760a894627f
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.date: 10/18/2021
+ms.openlocfilehash: 809d3b2097e530f92370374be5f15c39bbd70734
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130067139"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178344"
 ---
 # <a name="scope-functions-for-bicep"></a>Bicep의 범위 함수
 
@@ -18,40 +18,103 @@ ms.locfileid: "130067139"
 
 `managementGroup()`
 
-`managementGroup(name)`
+`managementGroup(identifier)`
 
 범위를 관리 그룹으로 설정하는 데 사용되는 개체를 반환합니다.
+
+또는
+
+현재 배포의 관리 그룹에 있는 속성을 사용 하 여 개체를 반환 합니다.
 
 네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="remarks"></a>설명
 
-`managementGroup()`은 [관리 그룹 배포](deploy-to-management-group.md)에만 사용될 수 있습니다. 배포 작업에 대한 현재 관리 그룹을 반환합니다.
+`managementGroup()`은 [관리 그룹 배포](deploy-to-management-group.md)에만 사용될 수 있습니다. 배포 작업에 대한 현재 관리 그룹을 반환합니다. 범위 개체를 가져오거나 현재 관리 그룹에 대 한 속성을 가져올 때 사용 합니다.
 
-`managementGroup(name)`은 배포 범위에 사용될 수 있습니다.
+`managementGroup(identifier)` 는 범위 개체를 가져올 때만 모든 배포 범위에 사용할 수 있습니다. 관리 그룹에 대 한 속성을 검색 하려면 관리 그룹 식별자를 전달할 수 없습니다.
 
 ### <a name="parameters"></a>매개 변수
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| name |예 |문자열 |배포할 관리 그룹에 대한 고유 식별자입니다. 관리 그룹에 대한 표시 이름을 사용하지 마세요. 값을 입력하지 않으면 현재 관리 그룹이 반환됩니다. |
+| identifier |예 |문자열 |배포할 관리 그룹에 대한 고유 식별자입니다. 관리 그룹에 대한 표시 이름을 사용하지 마세요. 값을 입력하지 않으면 현재 관리 그룹이 반환됩니다. |
 
 ### <a name="return-value"></a>반환 값
 
-[모듈](modules.md#set-module-scope) 또는 [확장 리소스 종류](scope-extension-resources.md)의 `scope` 속성을 설정하는 데 사용되는 개체입니다.
+[모듈](modules.md#set-module-scope) 또는 [확장 리소스 종류](scope-extension-resources.md)의 `scope` 속성을 설정하는 데 사용되는 개체입니다. 또는 현재 관리 그룹에 대 한 속성을 포함 하는 개체입니다.
 
 ### <a name="management-group-example"></a>관리 그룹의 예
 
 다음 예제에서는 모듈의 범위를 관리 그룹으로 설정합니다.
 
 ```bicep
-param managementGroupName string
+param managementGroupIdentifier string
 
 module  'module.bicep' = {
   name: 'deployToMG'
-  scope: managementGroup(managementGroupName)
+  scope: managementGroup(managementGroupIdentifier)
 }
-``` 
+```
+
+다음 예에서는 현재 관리 그룹에 대 한 속성을 반환 합니다.
+
+```bicep
+targetScope = 'managementGroup'
+
+var mgInfo = managementGroup()
+
+output mgResult object = mgInfo
+```
+
+그러면 다음을 반환합니다.
+
+```json
+"mgResult": {
+  "type": "Object",
+  "value": {
+    "id": "/providers/Microsoft.Management/managementGroups/examplemg1",
+    "name": "examplemg1",
+    "properties": {
+      "details": {
+        "parent": {
+          "displayName": "Tenant Root Group",
+          "id": "/providers/Microsoft.Management/managementGroups/00000000-0000-0000-0000-000000000000",
+          "name": "00000000-0000-0000-0000-000000000000"
+        },
+        "updatedBy": "00000000-0000-0000-0000-000000000000",
+        "updatedTime": "2020-07-23T21:05:52.661306Z",
+        "version": "1"
+      },
+      "displayName": "Example MG 1",
+      "tenantId": "00000000-0000-0000-0000-000000000000"
+    },
+    "type": "/providers/Microsoft.Management/managementGroups"
+  }
+}
+```
+
+다음 예에서는 새 관리 그룹을 만들고이 함수를 사용 하 여 부모 관리 그룹을 설정 합니다.
+
+```bicep
+targetScope = 'managementGroup'
+
+param mgName string = 'mg-${uniqueString(newGuid())}'
+
+resource newMG 'Microsoft.Management/managementGroups@2020-05-01' = {
+  scope: tenant()
+  name: mgName
+  properties: {
+    details: {
+      parent: {
+        id: managementGroup().id
+      }
+    }
+  }
+}
+
+output newManagementGroup string = mgName
+```
 
 ## <a name="resourcegroup"></a>resourceGroup
 
@@ -214,15 +277,19 @@ output subscriptionOutput object = subscription()
 
 범위를 테넌트로 설정하는 데 사용되는 개체를 반환합니다.
 
+또는
+
+현재 배포에 대 한 테 넌 트에 대 한 속성을 반환 합니다.
+
 네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="remarks"></a>설명
 
-`tenant()`는 모든 배포 범위에서 사용될 수 있습니다. 항상 현재 테넌트를 반환합니다.
+`tenant()`는 모든 배포 범위에서 사용될 수 있습니다. 항상 현재 테넌트를 반환합니다. 이 함수를 사용 하 여 리소스에 대 한 범위를 설정 하거나 현재 테 넌 트의 속성을 가져올 수 있습니다.
 
 ### <a name="return-value"></a>반환 값
 
-[모듈](modules.md#set-module-scope) 또는 [확장 리소스 종류](scope-extension-resources.md)의 `scope` 속성을 설정하는 데 사용되는 개체입니다.
+[모듈](modules.md#set-module-scope) 또는 [확장 리소스 종류](scope-extension-resources.md)의 `scope` 속성을 설정하는 데 사용되는 개체입니다. 또는 현재 테 넌 트에 대 한 속성을 포함 하는 개체입니다.
 
 ### <a name="tenant-example"></a>테넌트의 예
 
@@ -232,6 +299,41 @@ output subscriptionOutput object = subscription()
 module exampleModule 'module.bicep' = {
   name: 'deployToTenant'
   scope: tenant()
+}
+```
+
+다음 예에서는 테 넌 트의 속성을 반환 합니다.
+
+```bicep
+var tenantInfo = tenant()
+
+output tenantResult object = tenantInfo
+```
+
+그러면 다음을 반환합니다.
+
+```json
+"tenantResult": {
+  "type": "Object",
+  "value": {
+    "countryCode": "US",
+    "displayName": "Contoso",
+    "id": "/tenants/00000000-0000-0000-0000-000000000000",
+    "tenantId": "00000000-0000-0000-0000-000000000000"
+  }
+}
+```
+
+일부 리소스의 경우 속성에 대 한 테 넌 트 ID를 설정 해야 합니다. 테 넌 트 ID를 매개 변수로 전달 하는 대신 테 넌 트 함수를 사용 하 여 검색할 수 있습니다.
+
+```bicep
+resource kv 'Microsoft.KeyVault/vaults@2021-06-01-preview' = {
+  name: 'examplekeyvault'
+  location: 'westus'
+  properties: {
+    tenantId: tenant().tenantId
+    ...
+  }
 }
 ```
 

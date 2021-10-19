@@ -1,18 +1,18 @@
 ---
 title: 디바이스 그룹에 대한 자동 배포 - Azure IoT Edge | Microsoft Docs
 description: Azure IoT Edge에서 자동 배포를 사용하여 공유 태그를 기준으로 디바이스 그룹 관리
-author: kgremban
-ms.author: kgremban
-ms.date: 01/30/2020
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 10/18/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 601015658b2d2de6c855ac285b4dfbec6cb15ca8
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 349ad022876b2504fe31be6f162255ae4d6d6a65
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129670236"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179472"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>단일 디바이스 또는 대규모 IoT Edge 자동 배포 이해
 
@@ -78,7 +78,7 @@ IoT Edge 디바이스만 배포를 사용하여 구성할 수 있습니다. 배�
 * 디바이스 쌍에서 태그, reported 속성 또는 deviceId를 사용하여 대상 조건만 작성할 수 있습니다.
 * 큰따옴표는 대상 조건의 어떤 부분에도 허용되지 않습니다. 작은따옴표를 사용합니다.
 * 작은따옴표는 대상 조건의 값을 나타냅니다. 따라서 작은따옴표가 디바이스 이름의 일부인 경우 또 다른 작은따옴표로 작은따옴표를 이스케이프해야 합니다. 예를 들어 `operator'sDevice`라는 디바이스를 대상으로 지정하려면 `deviceId='operator''sDevice'`라고 씁니다.
-* 숫자, 문자 및 특수 문자(`-:.+%_#*?!(),=@;$`)는 대상 조건 값에 사용할 수 있습니다.
+* 숫자, 문자 및 특수 문자(`“()<>@,;:\\"/?={} \t\n\r`)는 대상 조건 값에 사용할 수 있습니다.
 * 대상 조건 키에는 다음 문자가 허용되지 `/;` 않습니다.
 
 ### <a name="priority"></a>우선 순위

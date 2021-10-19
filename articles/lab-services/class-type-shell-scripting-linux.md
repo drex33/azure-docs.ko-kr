@@ -1,14 +1,14 @@
 ---
 title: Azure Lab Services로 Linux 셸 스크립팅 랩 설정 | Microsoft Docs
 description: Linux에서 셸 스크립팅을 학습하도록 랩을 설정하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: ba14f2fb5263367014b57741c78d6e509df044b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 0faf5c9a11ad4aed3bf1157bc18dbeb84f60030b
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85444967"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176551"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Linux에서 셸 스크립팅을 학습하도록 랩 설정
 이 문서에서는 Linux에서 셸 스크립팅을 학습하도록 랩을 설정하는 방법을 알아봅니다. 스크립팅은 관리자가 반복적인 작업을 방지할 수 있도록 하는 시스템 관리의 유용한 부분입니다. 이 샘플 시나리오에서 클래스는 기존 bash 스크립트와 향상된 스크립트를 포함합니다. 향상된 스크립트는 bash 명령과 Ruby를 결합하는 스크립트입니다. 이 접근 방식을 사용하면 Ruby에서 데이터를 전달하고, bash 명령이 셸과 상호 작용할 수 있습니다. 

@@ -1,14 +1,14 @@
 ---
 title: Azure Lab Services의 클래스룸 랩 VM용 암호 재설정 | Microsoft Docs
 description: Azure Lab Services의 랩에서 VM(가상 머신)의 암호를 재설정하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 1b0b13862ca4620da15606138c0a80adeac8056a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: ca311c08419ff54fdfe72b20a2a2bffbc436d1dd
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96436813"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180137"
 ---
 # <a name="set-or-reset-password-for-virtual-machines-in-labs-students"></a>랩(학생)에서 가상 머신의 암호 설정 또는 재설정
 이 문서에서는 학생이 VM에 대한 암호를 설정/재설정하는 방법을 보여 줍니다. 

@@ -1,14 +1,14 @@
 ---
 title: Teams에서 Azure Lab Services의 VM 풀 관리
 description: Teams에서 Azure Lab Services의 VM 풀을 관리하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/07/2020
-ms.openlocfilehash: b838e0561bb48b20450e49aaef37baf3c9ecb4d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 035344fa947403b77c35d716636472730d65752b
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91946760"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180156"
 ---
 # <a name="manage-a-vm-pool-in-lab-services-from-teams"></a>Teams에서 Lab Services의 VM 풀 관리
 

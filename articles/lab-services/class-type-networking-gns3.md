@@ -1,14 +1,14 @@
 ---
 title: Azure Lab Services 및 GNS3을 사용하여 네트워킹 랩 설정 | Microsoft Docs
 description: GNS3을 사용해 네트워킹을 가르칠 수 있도록 Azure Lab Services를 사용하여 랩을 설정하는 방법을 알아봅니다.
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: dec5dea13d5a89536a06da45fc57d33881a9b3ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: b4e4562ac472b728f5feff1828897d6bee162b75
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99500514"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176817"
 ---
 # <a name="set-up-a-lab-to-teach-a-networking-class"></a>네트워킹 클래스 지도를 위한 랩 설정 
 이 문서에서는 학생들이 [GNS3](https://www.gns3.com/) 소프트웨어를 사용하여 가상 및 실제 네트워크를 에뮬레이트, 구성, 테스트하고 문제를 해결하는 방법을 주로 가르치는 수업을 설정하는 방법을 보여 줍니다. 

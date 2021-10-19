@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 1b43a76e417505d4894396503ca93fc87f508d4c
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
-ms.translationtype: HT
+ms.openlocfilehash: 3153abcc4a0fa76b0ebb6c0a9715020af6a646ec
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111753164"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130181486"
 ---
 # <a name="remote-desktop-protocol-rdp-bandwidth-requirements"></a>RDP(원격 데스크톱 프로토콜) 대역폭 요구 사항
 
@@ -99,7 +99,7 @@ RDP는 이를 감지하고 다른 애플리케이션이 네트워크를 요청�
 이러한 경우 QoS 정책에 스로틀 속도를 지정하여 RDP 아웃바운드 네트워크 트래픽을 제한할 수 있습니다.
 
   >[!NOTE]
-  > [RDP Shortpath가 사용하도록 설정되어 있는지 확인](./shortpath.md) - 스로틀 속도 제한은 역방향 연결 전송에 대해서는 지원되지 않습니다.
+  > [관리형 네트워크에 대한 RDP Shortpath가 사용하도록 설정되어 있는지 확인합니다.](./shortpath.md) 역방향 연결 전송에는 제한 속도 제한이 지원되지 않습니다.
 
 ### <a name="implement-throttle-rate-limiting-on-session-host-using-group-policy"></a>그룹 정책을 사용하여 세션 호스트에서 스로틀 속도 제한 구현
 
@@ -139,10 +139,10 @@ RDP는 이를 감지하고 다른 애플리케이션이 네트워크를 요청�
 
 ### <a name="implement-throttle-rate-limiting-on-session-host-using-powershell"></a>PowerShell을 사용하여 세션 호스트에서 스로틀 속도 제한 구현
 
-아래 PowerShell cmdlet를 사용하여 RDP Shortpath의 스로틀 속도를 설정할 수 있습니다.
+아래 PowerShell cmdlet을 사용하여 관리형 네트워크의 RDP Shortpath에 대한 제한 속도를 설정할 수 있습니다.
 
 ```powershell
-New-NetQosPolicy -Name "RDP Shortpath" -AppPathNameMatchCondition "svchost.exe" -IPProtocolMatchCondition UDP -IPSrcPortStartMatchCondition 3390 -IPSrcPortEndMatchCondition 3390 -DSCPAction 46 -NetworkProfile All
+New-NetQosPolicy -Name "RDP Shortpath for managed networks" -AppPathNameMatchCondition "svchost.exe" -IPProtocolMatchCondition UDP -IPSrcPortStartMatchCondition 3390 -IPSrcPortEndMatchCondition 3390  -ThrottleRateActionBitsPerSecond 10mb -NetworkProfile All
 ```
 
 ## <a name="next-steps"></a>다음 단계

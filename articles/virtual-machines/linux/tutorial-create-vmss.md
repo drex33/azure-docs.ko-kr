@@ -1,261 +1,188 @@
 ---
 title: '자습서: Linux 가상 머신 확장 집합 만들기'
-description: Azure CLI를 사용하여 가상 머신 확장 집합을 사용하는 Linux VM에서 고가용성 애플리케이션을 만들고 배포하는 방법을 알아봅니다.
+description: 가상 머신 확장 집합을 사용하여 고가용성 애플리케이션을 만들고 Linux VM에 배포하는 방법을 알아봅니다.
 author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
-ms.service: virtual-machine-scale-sets
-ms.subservice: availability
+ms.service: virtual-machines
 ms.collection: linux
-ms.date: 06/01/2018
+ms.date: 10/15/2021
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: e20622d48132172387e78d2e4db6ef808e68bf12
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.custom: mimckitt
+ms.openlocfilehash: 10f7202e2525920edd4c65b2e35cea51b9751abb
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697713"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165007"
 ---
-# <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>자습서: Azure CLI를 통해 Linux에서 가상 머신 확장 집합 만들기 및 고가용성 앱 배포
+# <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>자습서: 가상 머신 확장 집합을 만들고 고가용성 앱을 Linux에 배포 
 
-**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 균일한 확장 집합
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 단일 확장 집합
 
-가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정하거나 CPU와 같은 리소스 사용량, 메모리 요구량 또는 네트워크 트래픽을 기반으로 자동으로 크기를 조정하는 규칙을 정의할 수도 있습니다. 이 자습서에서는 Azure에서 가상 머신 확장 집합을 배포합니다. 다음 방법을 알아봅니다.
+[유연한 오케스트레이션](../flexible-virtual-machine-scale-sets.md)이 포함된 가상 머신 확장 집합을 사용하면 부하 분산된 VM의 그룹을 만들고 관리할 수 있습니다. VM 인스턴스의 수는 요구 또는 정의된 일정에 따라 자동으로 늘리거나 줄일 수 있습니다.
+
+이 자습서에서는 Azure에서 가상 머신 확장 집합을 배포하고 다음에 대해 자세히 알아봅니다.
 
 > [!div class="checklist"]
-> * cloud-init를 사용하여 크기를 조정하는 앱 만들기
-> * 가상 머신 확장 집합 만들기
-> * 확장 집합의 인스턴스 수 증가 또는 감소
-> * 자동 크기 조정 규칙 만들기
-> * 확장 집합 인스턴스에 대한 연결 정보 보기
-> * 확장 집합에 데이터 디스크 사용
+> * 리소스 그룹을 만듭니다.
+> * 부하 분산 장치를 사용하여 유연한 확장 집합을 만듭니다.
+> * nginx를 확장 집합 인스턴스에 추가합니다.
+> * HTTP 트래픽에 대한 80 포트를 엽니다.
+> * 확장 집합을 테스트합니다.
 
-이 자습서에서는 지속적으로 최신 버전으로 업데이트되는 [Azure Cloud Shell](../../cloud-shell/overview.md) 내의 CLI를 사용합니다. Cloud Shell을 열려면 코드 블록 상단에서 **사용해 보세요** 를 선택합니다.
-
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="scale-set-overview"></a>확장 집합 개요
-가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM은 하나 이상의 *배치 그룹* 에서 논리 장애 도메인 및 업데이트 도메인에 분산됩니다. 이러한 항목은 비슷하게 구성된 VM의 그룹으로 [가용성 집합](tutorial-availability-sets.md)과 비슷합니다.
 
-VM은 필요에 따라 확장 집합에 생성됩니다. 사용자는 확장 집합에서 VM이 추가되거나 제거되는 방법 및 시기를 제어하는 자동 크기 조정 규칙을 정의합니다. 이러한 규칙은 메트릭(예: CPU 부하, 메모리 사용량 또는 네트워크 트래픽)을 기반으로 트리거할 수 있습니다.
+확장 집합에서 제공하는 주요 이점은 다음과 같습니다.
+- 손쉬운 여러 VM 만들기 및 관리
+- 장애 도메인 간에 VM을 분산하여 고가용성 및 애플리케이션 복원력을 제공합니다
+- 리소스 수요 변화에 따라 자동으로 애플리케이션 크기 조정
+- 대규모 작업
 
-확장 집합은 Azure 플랫폼 이미지를 사용하는 경우 최대 1,000개의 VM을 지원합니다. 중요한 설치 또는 VM 사용자 지정이 필요한 워크로드의 경우 [사용자 지정 VM 이미지를 만들 수 있습니다](tutorial-custom-images.md). 사용자 지정 이미지를 사용하는 경우 확장 집합에 최대 300대의 VM을 만들 수 있습니다.
+Flexible 오케스트레이션을 사용하면 Azure는 Azure VM 에코시스템에서 통합된 환경을 제공합니다. Flexible 오케스트레이션은 지역 또는 가용성 영역 내의 장애 도메인에 VM을 분산하여 고가용성 보증(최대 1000개 VM)을 제공합니다. 이렇게 하면 다음을 비롯한 쿼럼 기반 또는 상태 저장 워크로드를 실행하는 데 필수적인 장애 도메인 격리를 유지하면서 애플리케이션을 스케일 아웃할 수 있습니다.
+- 쿼럼 기반 워크로드
+- 오픈 소스 데이터베이스
+- 상태 저장 애플리케이션
+- 고가용성 및 대규모를 필요로 하는 서비스
+- 가상 머신 유형을 혼합하거나 스폿을 활용하고 온-디맨드 VM을 함께 활용하려는 서비스
+- 기존 가용성 집합 애플리케이션
 
+단일 확장 집합과 [오케스트레이션 모드](../../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md)의 유연한 확장 집합 간의 차이점에 대해 자세히 알아보세요.
 
-## <a name="create-an-app-to-scale"></a>크기를 조정하는 앱 만들기
-프로덕션 사용을 위해 설치되고 구성된 애플리케이션을 포함하는 [사용자 지정 VM 이미지 만들기](tutorial-custom-images.md) 작업이 필요할 수 있습니다. 이 자습서에서는 처음 부팅 시 VM을 사용자 지정하여 확장 집합의 실제 동작을 신속하게 확인합니다.
-
-이전 자습서에서 cloud-init를 사용하여 [처음 부팅 시 Linux 가상 머신을 사용자 지정하는 방법](tutorial-automate-vm-deployment.md)을 배웠습니다. 동일한 cloud-init 구성 파일을 사용하여 NGINX를 설치하고 간단한 'Hello World' Node.js 앱을 실행할 수 있습니다.
-
-현재 셸에서 *cloud-init.txt* 라는 파일을 만들고 다음 구성을 붙여 넣습니다. 예를 들어 로컬 컴퓨터에 없는 Cloud Shell에서 파일을 만듭니다. `sensible-editor cloud-init.txt`를 입력하여 파일을 만들고 사용할 수 있는 편집기의 목록을 봅니다. 전체 cloud-init 파일, 특히 첫 줄이 올바르게 복사되었는지 확인합니다.
-
-```yaml
-#cloud-config
-package_upgrade: true
-packages:
-  - nginx
-  - nodejs
-  - npm
-write_files:
-  - owner: www-data:www-data
-  - path: /etc/nginx/sites-available/default
-    content: |
-      server {
-        listen 80;
-        location / {
-          proxy_pass http://localhost:3000;
-          proxy_http_version 1.1;
-          proxy_set_header Upgrade $http_upgrade;
-          proxy_set_header Connection keep-alive;
-          proxy_set_header Host $host;
-          proxy_cache_bypass $http_upgrade;
-        }
-      }
-  - owner: azureuser:azureuser
-  - path: /home/azureuser/myapp/index.js
-    content: |
-      var express = require('express')
-      var app = express()
-      var os = require('os');
-      app.get('/', function (req, res) {
-        res.send('Hello World from host ' + os.hostname() + '!')
-      })
-      app.listen(3000, function () {
-        console.log('Hello world app listening on port 3000!')
-      })
-runcmd:
-  - service nginx restart
-  - cd "/home/azureuser/myapp"
-  - npm init
-  - npm install express -y
-  - nodejs index.js
-```
 
 
 ## <a name="create-a-scale-set"></a>확장 집합 만들기
-확장 집합을 만들려면 먼저 [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroupScaleSet* 이라는 리소스 그룹을 만듭니다.
 
-```azurecli-interactive
-az group create --name myResourceGroupScaleSet --location eastus
-```
+Azure Portal을 사용하여 유연한 확장 집합을 만듭니다.
 
-이제 [az vmss create](/cli/azure/vmss#az_vmss_create)를 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 *myScaleSet* 이라는 확장 집합을 만들고, cloud-init 파일을 사용하여 VM을 사용자 지정하고, SSH 키가 없는 경우 SSH 키를 생성합니다.
-
-```azurecli-interactive
-az vmss create \
-  --resource-group myResourceGroupScaleSet \
-  --name myScaleSet \
-  --image UbuntuLTS \
-  --upgrade-policy-mode automatic \
-  --custom-data cloud-init.txt \
-  --admin-username azureuser \
-  --generate-ssh-keys
-```
-
-확장 집합 리소스와 VM을 모두 만들고 구성하는 데 몇 분 정도 걸립니다. Azure CLI에서 프롬프트로 반환한 후 실행을 계속하는 백그라운드 작업이 있습니다. 앱에 액세스하려면 몇 분이 걸릴 수 있습니다.
-
-
-## <a name="allow-web-traffic"></a>웹 트래픽 허용
-부하 분산 장치는 가상 머신 확장 집합의 일부로 자동으로 생성되었습니다. 부하 분산 장치는 부하 분산 장치 규칙을 사용하여 정의된 VM 집합 전역에 트래픽을 분산시킵니다. 다음 자습서 [Azure에서 Virtual Machines의 부하를 분산하는 방법](tutorial-load-balancer.md)에서 부하 분산 장치 개념 및 구성에 대해 자세히 알아볼 수 있습니다.
-
-트래픽이 Web App에 도달하도록 허용하려면 [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create)를 사용하여 규칙을 만듭니다. 다음 예제는 *myLoadBalancerRuleWeb* 이라는 규칙을 만듭니다.
-
-```azurecli-interactive
-az network lb rule create \
-  --resource-group myResourceGroupScaleSet \
-  --name myLoadBalancerRuleWeb \
-  --lb-name myScaleSetLB \
-  --backend-pool-name myScaleSetLBBEPool \
-  --backend-port 80 \
-  --frontend-ip-name loadBalancerFrontEnd \
-  --frontend-port 80 \
-  --protocol tcp
-```
-
-## <a name="test-your-app"></a>앱 테스트
-웹에서 Node.js 앱을 보려면 [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다. 다음 예제에서는 확장 집합의 일부로 만든 *myScaleSetLBPublicIP* 의 IP 주소를 가져옵니다.
-
-```azurecli-interactive
-az network public-ip show \
-    --resource-group myResourceGroupScaleSet \
-    --name myScaleSetLBPublicIP \
-    --query [ipAddress] \
-    --output tsv
-```
-
-웹 브라우저에 공용 IP 주소를 입력합니다. 앱이 표시되고 부하 분산 장치가 트래픽을 분산한 VM의 호스트 이름이 표시됩니다.
-
-![Node.js 앱 실행](./media/tutorial-create-vmss/running-nodejs-app.png)
-
-확장 집합의 실제 동작을 확인하려면 웹 브라우저에서 새로 고침을 실행하여 부하 분산 장치가 앱이 실행되는 모든 VM으로 트래픽을 분산시키는 것을 확인합니다.
-
-
-## <a name="management-tasks"></a>관리 작업
-확장 집합의 수명 주기 내내 하나 이상의 관리 작업을 실행해야 합니다. 또한 다양한 수명 주기 작업을 자동화하는 스크립트를 만들어야 하는 경우가 있습니다. Azure CLI는 이러한 작업을 수행할 수 있는 빠른 방법을 제공합니다. 다음은 몇 가지 일반적인 작업입니다.
-
-### <a name="view-vms-in-a-scale-set"></a>확장 집합의 VM 보기
-확장 집합에서 실행 중인 VM 목록을 보려면 다음과 같이 [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances)를 사용합니다.
-
-```azurecli-interactive
-az vmss list-instances \
-  --resource-group myResourceGroupScaleSet \
-  --name myScaleSet \
-  --output table
-```
-
-다음 예제와 유사하게 출력됩니다.
-
-```bash
-  InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup            VmId
-------------  --------------------  ----------  ------------  -------------------  -----------------------  ------------------------------------
-           1  True                  eastus      myScaleSet_1  Succeeded            MYRESOURCEGROUPSCALESET  c72ddc34-6c41-4a53-b89e-dd24f27b30ab
-           3  True                  eastus      myScaleSet_3  Succeeded            MYRESOURCEGROUPSCALESET  44266022-65c3-49c5-92dd-88ffa64f95da
-```
-
-
-### <a name="manually-increase-or-decrease-vm-instances"></a>수동으로 VM 인스턴스 증가 또는 감소
-현재 확장 집합의 인스턴스 수를 보려면 [az vmss show](/cli/azure/vmss#az_vmss_show)를 사용하여 *sku.capacity* 를 쿼리합니다.
-
-```azurecli-interactive
-az vmss show \
-    --resource-group myResourceGroupScaleSet \
-    --name myScaleSet \
-    --query [sku.capacity] \
-    --output table
-```
-
-그런 다음[az vmss scale](/cli/azure/vmss#az_vmss_scale)을 사용하여 확장 집합의 Virtual Machines 수를 수동으로 증가 또는 감소시킬 수 있습니다. 다음 예제는 확장 집합의 VM 수를 *3* 으로 설정합니다.
-
-```azurecli-interactive
-az vmss scale \
-    --resource-group myResourceGroupScaleSet \
-    --name myScaleSet \
-    --new-capacity 3
-```
-
-### <a name="get-connection-info"></a>연결 정보 가져오기
-확장 집합의 VM에 대한 연결 정보를 가져오려면 [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info)를 사용합니다. 이 명령은 SSH와 연결할 수 있도록 각 VM의 공용 IP 주소 및 포트를 출력합니다.
-
-```azurecli-interactive
-az vmss list-instance-connection-info \
-    --resource-group myResourceGroupScaleSet \
-    --name myScaleSet
-```
+1. [Azure Portal](https://portal.azure.com)을 엽니다.
+1. **가상 머신 확장 집합** 을 검색하여 선택합니다.
+1. **가상 머신 확장 집합** 페이지에서 **만들기** 를 선택합니다. **가상 머신 확장 집합 만들기** 가 열립니다.
+1. **구독** 에 사용하려는 구독을 선택합니다.
+1. **리소스 그룹** 에 대해 **새로 만들기** 를 선택하고, 이름으로 *myVMSSRG* 를 입력한 다음, **확인** 을 선택합니다.
+    :::image type="content" source="media/tutorial-create-vmss/flex-project-details.png" alt-text="프로젝트 세부 정보":::
+1. **가상 머신 확장 집합 이름** 에 대해 *myVMSS* 를 입력합니다.
+1. **지역** 에 대해 가까운 지역(예: *미국 동부*)을 선택합니다.
+    :::image type="content" source="media/tutorial-create-vmss/flex-details.png" alt-text="이름 및 지역":::
+1. 이 예에서는 **가용성 영역** 을 비워 둡니다.
+1. **오케스트레이션 모드** 에 대해 **유연성** 을 선택합니다.
+1. 장애 도메인 수에 대해 기본값인 *1* 을 그대로 두거나 드롭다운에서 다른 값을 선택합니다.
+   :::image type="content" source="media/tutorial-create-vmss/flex-orchestration.png" alt-text="유연한 오케스트레이션 모드를 선택합니다.":::
+1. **이미지** 에 대해 *Ubuntu 18.04 LTS* 를 선택합니다.
+1. **크기** 에 대해 기본값을 그대로 두거나 크기(예: *Standard_E2s_V3*)를 선택합니다.
+1. **사용자 이름** 에서 *azureuser* 를 입력합니다.
+1. **SSH 공개 키 원본** 의 경우 기본값인 **새 키 쌍 생성** 을 그대로 둔 다음, **키 쌍 이름** 에 *myKey* 를 입력합니다.
+    :::image type="content" source="media/tutorial-create-vmss/flex-admin.png" alt-text="인증 유형을 선택하고 관리자 자격 증명을 입력하는 관리자 계정 섹션의 스크린샷":::
+1. **네트워킹** 탭의 **부하 분산** 아래에서 **부하 분산 장치 사용** 을 선택합니다.
+1. **부하 분산 옵션** 에 대해 기본값인 **Azure 부하 분산 장치** 를 그대로 둡니다.
+1. **부하 분산 장치 선택** 에 대해 **새로 만들기** 를 선택합니다.
+    :::image type="content" source="media/tutorial-create-vmss/load-balancer-settings.png" alt-text="부하 분산 장치 설정":::
+1. **부하 분산 장치 만들기** 페이지에서 부하 분산 장치에 대한 이름과 **공용 IP 주소 이름** 을 입력합니다.
+1. **도메인 이름 레이블** 에 대해 도메인 이름에 대한 접두사로 사용할 이름을 입력합니다. 이 이름은 고유해야 합니다.
+1. 완료되면 **만들기** 를 선택합니다.
+    :::image type="content" source="media/tutorial-create-vmss/flex-load-balancer.png" alt-text="부하 분산 장치 만들기":::
+1. **네트워킹** 탭으로 돌아가서 백 엔드 풀에 대한 기본 이름을 그대로 둡니다.
+1. **크기 조정** 탭에서 기본 인스턴스 수를 *2* 로 그대로 두거나 사용자 고유의 값을 추가합니다. 이는 만들어지는 VM의 수이므로 이 값을 변경하는 경우 구독에 대한 비용과 제한을 알고 있어야 합니다.
+1. **크기 조정 정책** 은 *수동* 으로 설정된 상태로 둡니다.
+    :::image type="content" source="media/tutorial-create-vmss/flex-scaling.png" alt-text="크기 조정 정책 설정":::
+1. **고급** 탭을 선택합니다.
+1. **사용자 지정 데이터 및 클라우드 초기화** 아래에서 다음을 복사하여 **사용자 지정 데이터** 텍스트 상자에 붙여넣습니다.
+    ```yml
+    #cloud-config
+    package_upgrade: true
+    packages:
+      - nginx
+      - nodejs
+      - npm
+    write_files:
+      - owner: www-data:www-data
+      - path: /etc/nginx/sites-available/default
+        content: |
+          server {
+            listen 80;
+            location / {
+              proxy_pass http://localhost:3000;
+              proxy_http_version 1.1;
+              proxy_set_header Upgrade $http_upgrade;
+              proxy_set_header Connection keep-alive;
+              proxy_set_header Host $host;
+              proxy_cache_bypass $http_upgrade;
+            }
+          }
+      - owner: azureuser:azureuser
+      - path: /home/azureuser/myapp/index.js
+        content: |
+          var express = require('express')
+          var app = express()
+          var os = require('os');
+          app.get('/', function (req, res) {
+            res.send('Hello World from host ' + os.hostname() + '!')
+          })
+          app.listen(3000, function () {
+            console.log('Hello world app listening on port 3000!')
+          })
+    runcmd:
+      - service nginx restart
+      - cd "/home/azureuser/myapp"
+      - npm init
+      - npm install express -y
+      - nodejs index.js
+    ```
+1. 완료되면 **검토 + 만들기** 를 선택합니다.
+1. 유효성 검사가 통과되면 페이지 아래쪽에서 **만들기** 를 선택하여 확장 집합을 배포할 수 있습니다.
+1. **새 키 쌍 생성** 창이 열리면 **프라이빗 키 다운로드 및 리소스 만들기** 를 선택합니다. 키 파일은 **myKey.pem** 으로 다운로드됩니다. `.pem` 파일을 다운로드한 위치를 확인하고 다음 단계에서 해당 파일에 대한 경로가 필요합니다.
+1. 배포가 완료되면 **리소스로 이동** 을 선택하여 확장 집합을 확인합니다.
 
 
-## <a name="use-data-disks-with-scale-sets"></a>확장 집합으로 데이터 디스크 사용
-확장 집합으로 데이터 디스크를 사용할 수 있습니다. OS 디스크 대신 데이터 디스크에 앱을 빌드하는 모범 사례 및 성능 향상에 대해 설명하는 이전 자습서에서는 [Azure 디스크를 관리하는 방법](tutorial-manage-disks.md)을 배웠습니다.
+## <a name="view-the-vms-in-your-scale-set"></a>확장 집합의 VM 보기
 
-### <a name="create-scale-set-with-data-disks"></a>데이터 디스크로 확장 집합 만들기
-확장 집합을 만들고 데이터 디스크를 연결하려면 [az vmss create](/cli/azure/vmss#az_vmss_create) 명령에 `--data-disk-sizes-gb` 매개 변수를 추가합니다. 다음 예제에서는 각 인스턴스에 *50* Gb 데이터 디스크가 연결된 확장 집합을 만듭니다.
+확장 집합 페이지의 왼쪽 메뉴에서 **인스턴스** 를 선택합니다. 
 
-```azurecli-interactive
-az vmss create \
-    --resource-group myResourceGroupScaleSet \
-    --name myScaleSetDisks \
-    --image UbuntuLTS \
-    --upgrade-policy-mode automatic \
-    --custom-data cloud-init.txt \
-    --admin-username azureuser \
-    --generate-ssh-keys \
-    --data-disk-sizes-gb 50
-```
+확장 집합에 속한 VM의 목록이 표시됩니다. 이 목록에는 다음이 포함됩니다.
 
-확장 집합에서 인스턴스가 제거되면 연결된 데이터 디스크도 제거됩니다.
+- VM 이름
+- VM에서 사용하는 컴퓨터 이름
+- VM의 현재 상태(예: *실행 중*)
+- VM의 *프로비전 상태*(예: *성공*)
 
-### <a name="add-data-disks"></a>데이터 디스크 추가
-확장 집합의 인스턴스에 데이터 디스크를 추가하려면 [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach) 명령을 사용합니다. 다음 예제는 각 인스턴스에 *50* Gb 디스크를 추가합니다.
+:::image type="content" source="media/tutorial-create-vmss/instances.png" alt-text="확장 집합 인스턴스에 대한 정보 테이블":::
 
-```azurecli-interactive
-az vmss disk attach \
-    --resource-group myResourceGroupScaleSet \
-    --name myScaleSet \
-    --size-gb 50 \
-    --lun 2
-```
 
-### <a name="detach-data-disks"></a>데이터 디스크 분리
-확장 집합의 인스턴스에서 데이터 디스크를 제거하려면 [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach) 명령을 사용합니다. 다음 예제는 각 인스턴스의 LUN *2* 에서 데이터 디스크를 제거합니다.
+## <a name="open-port-80"></a>포트 80 열기 
 
-```azurecli-interactive
-az vmss disk detach \
-    --resource-group myResourceGroupScaleSet \
-    --name myScaleSet \
-    --lun 2
-```
+인바운드 규칙을 NSG(네트워크 보안 그룹)에 추가하여 확장 집합에서 80 포트를 엽니다.
 
+1. 확장 집합 페이지의 왼쪽 메뉴에서 **네트워킹** 을 선택합니다. **네트워킹** 페이지가 열립니다.
+1. **인바운드 포트 규칙 추가** 를 선택합니다. **인바운드 보안 규칙 추가** 페이지가 열립니다.
+1. **서비스** 아래에서 *HTTP* 를 선택한 다음, 페이지 아래쪽에서 **추가** 를 선택합니다.
+
+## <a name="test-your-scale-set"></a>확장 집합 테스트
+
+브라우저에서 확장 집합에 연결하여 테스트합니다.
+
+1. 확장 집합에 대한 **개요** 페이지에서 공용 IP 주소를 복사합니다.
+1. 브라우저에서 다른 탭을 열고, IP 주소를 주소 표시줄에 붙여넣습니다.
+1. 페이지가 로드되면 표시되는 컴퓨팅 이름을 적어 둡니다. 
+1. 컴퓨터 이름이 변경될 때까지 페이지를 새로 고칩니다. 
+
+## <a name="delete-your-scale-set"></a>확장 집합 삭제
+
+완료되면 리소스 그룹을 삭제해야 합니다. 그러면 확장 집합에 대해 배포한 모든 항목이 삭제됩니다.
+
+1. 확장 집합에 대한 페이지에서 **리소스 그룹** 을 선택합니다. 리소스 그룹에 대한 페이지가 열립니다.
+1. 페이지 위쪽에서 **리소스 그룹 삭제** 를 선택합니다.
+1. **삭제하시겠습니까?** 페이지에서 리소스 그룹의 이름을 입력한 다음, **삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 가상 머신 확장 집합을 만들었습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
-> * cloud-init를 사용하여 크기를 조정하는 앱 만들기
-> * 가상 머신 확장 집합 만들기
-> * 확장 집합의 인스턴스 수 증가 또는 감소
-> * 자동 크기 조정 규칙 만들기
-> * 확장 집합 인스턴스에 대한 연결 정보 보기
-> * 확장 집합에 데이터 디스크 사용
+> * 리소스 그룹을 만듭니다.
+> * 부하 분산 장치를 사용하여 유연한 확장 집합을 만듭니다.
+> * nginx를 확장 집합 인스턴스에 추가합니다.
+> * HTTP 트래픽에 대한 80 포트를 엽니다.
+> * 확장 집합을 테스트합니다.
 
 Virtual Machines의 부하 분산 개념에 대해 자세히 알아보려면 다음 자습서로 이동합니다.
 

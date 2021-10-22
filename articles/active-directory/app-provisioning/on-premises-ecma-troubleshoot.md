@@ -3,7 +3,7 @@ title: ECMA 커넥터 호스트 및 Azure AD 관련 문제 해결
 description: ECMA 커넥터 호스트를 설치하고 사용할 때 발생할 수 있는 다양한 문제를 해결하는 방법을 설명합니다.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
@@ -11,12 +11,12 @@ ms.date: 08/24/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cae6f7285618771f2486c62bfbd3d532db146c8a
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 002c57afde5909a6f02644b554b389d02735def0
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129350615"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129991134"
 ---
 # <a name="troubleshoot-ecma-connector-host-issues"></a>ECMA 커넥터 호스트 문제 해결
 

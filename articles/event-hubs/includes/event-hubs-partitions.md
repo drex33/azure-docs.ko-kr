@@ -5,15 +5,15 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 03/15/2021
+ms.date: 08/30/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 8cfe26f3f1718acde32c34f00b0f50a79b963d35
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 64ce44dc96571447c8d6baa4afd4b60ed4c68932
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114593279"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130143750"
 ---
 Event Hubs는 이벤트 허브로 전송되는 이벤트 시퀀스를 하나 이상의 파티션으로 구성합니다. 최신 이벤트가 도착하면 이 시퀀스의 끝에 추가됩니다. 
 
@@ -32,7 +32,7 @@ Event Hubs는 대량의 이벤트를 처리하는 데 도움이 되도록 설계
 ### <a name="number-of-partitions"></a>파티션 수
 이벤트 허브를 만들 때 파티션 수가 지정됩니다. 1과 각 가격 책정 계층에 대해 허용된 최대 파티션 수 사이여야 합니다. 각 계층에 대한 파티션 수 제한은 [이 문서](../event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers)를 참조하세요. 
 
-특정 이벤트 허브에서 애플리케이션의 부하가 가장 높을 때는 최소한 필요한 만큼의 파티션을 선택하는 것이 좋습니다. 전용 클러스터의 이벤트 허브를 제외하고 이벤트 허브를 만든 후에는 파티션 수를 변경할 수 없습니다. 이벤트 허브가 생성된 후 [전용 Event Hubs 클러스터](../event-hubs-dedicated-overview.md)의 이벤트 허브 파티션 수를 [늘릴 수 있지만](../dynamically-add-partitions.md), 파티션 수를 늘리면 파티션에 대한 파티션 키 매핑이 변경되어 파티션 전체의 스트림 분포가 변경되므로 애플리케이션에서 이벤트의 상대적인 순서가 중요한 경우에는 이러한 변경을 방지하기 위해 열심히 노력해야 합니다.
+특정 이벤트 허브에서 애플리케이션의 부하가 가장 높을 때는 최소한 필요한 만큼의 파티션을 선택하는 것이 좋습니다. 전용 클러스터 및 프리미엄 계층의 이벤트 허브를 제외하고 이벤트 허브를 만든 후에는 파티션 수를 변경할 수 없습니다. 이벤트 허브가 생성된 후 [전용 Event Hubs 클러스터](../event-hubs-dedicated-overview.md)의 이벤트 허브 파티션 수를 [늘릴 수 있지만](../dynamically-add-partitions.md), 파티션 수를 늘리면 파티션에 대한 파티션 키 매핑이 변경되어 파티션 전체의 스트림 분포가 변경되므로 애플리케이션에서 이벤트의 상대적인 순서가 중요한 경우에는 이러한 변경을 방지하기 위해 열심히 노력해야 합니다.
 
 파티션 수를 최대 허용 값으로 설정하고 싶겠지만 여러 파티션을 활용할 수 있도록 이벤트 스트림을 구성해야 한다는 점을 항상 유의해야 합니다. 모든 이벤트 또는 소수의 하위 스트림에서 절대 순서를 유지해야 하는 경우 많은 파티션을 활용하지 못할 수 있습니다. 또한 파티션이 많으면 처리가 더 복잡해집니다. 
 

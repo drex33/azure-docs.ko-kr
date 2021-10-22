@@ -9,12 +9,12 @@ ms.subservice: nat
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 82b5892b027627871e5492e3c6cd3776a923632b
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: c8375a7e7a404c257b80f48b8824f26bb3af309c
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113438826"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162539"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 NAT 게이트웨이 만들기
 
@@ -47,7 +47,7 @@ VM을 배포하고 NAT 게이트웨이를 사용하려면 먼저 리소스 그�
     | **설정**          | **값**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **프로젝트 세부 정보**  |                                                                 |
-    | Subscription     | Azure 구독 선택                                  |
+    | 구독     | Azure 구독 선택                                  |
     | 리소스 그룹   | **새로 만들기** 를 선택합니다. </br> **myResourceGroupNAT** 를 입력합니다. </br> **확인** 을 선택합니다. |
     | **인스턴스 세부 정보** |                                                                 |
     | 속성             | **myVNet** 입력                                    |
@@ -141,8 +141,8 @@ VM을 배포하고 NAT 게이트웨이를 사용하려면 먼저 리소스 그�
     | **인스턴스 세부 정보** |   |
     | 가상 머신 이름 | **myVM** 을 입력합니다. |
     | 지역 | **(유럽) 서유럽** 을 선택합니다. |
-    | 가용성 옵션 | 중복이 필요하지 않음(기본값)을 그대로 둡니다. |
-    | 이미지 | **Windows Server 2019 Datacenter - Gen1** 을 선택합니다. |
+    | 가용성 옵션 | **인프라 중복이 필요하지 않습니다.** 를 선택합니다. |
+    | 이미지 | **Windows Server 2019 Datacenter - Gen2** 을 선택합니다. |
     | 크기 | **Standard_DS1_v2** 를 선택합니다. |
     | **관리자 계정** |   |
     | 사용자 이름 | 가상 머신의 사용자 이름을 입력합니다. |

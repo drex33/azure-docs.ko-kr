@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: arvinh
-ms.openlocfilehash: 673dca65726a4258e267e8dd3e403329b47f6d98
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5a14f9367a1b46a641f371b8c17a62b9f58c5756
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108739989"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001317"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Slack 구성
 
@@ -37,7 +37,7 @@ ms.locfileid: "108739989"
 
 * [Azure AD 테넌트](../develop/quickstart-create-new-tenant.md)
 * 프로비저닝을 구성할 [권한](../roles/permissions-reference.md)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자).
-* [추가 플랜](https://aadsyncfabric.slack.com/pricing) 이상을 사용하도록 설정된 Slack 테넌트
+* [추가 플랜](https://slack.com/pricing) 이상을 사용하도록 설정된 Slack 테넌트
 * 팀 관리자 권한이 있는 Slack의 사용자 계정
 
 > [!NOTE]

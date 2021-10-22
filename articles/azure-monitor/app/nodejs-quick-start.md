@@ -2,16 +2,14 @@
 title: '빠른 시작: Azure Monitor Application Insights를 사용하여 Node.js 모니터링'
 description: Azure Monitor Application Insights를 사용하여 모니터링하도록 Node.js 웹앱을 빠르게 설정하는 지침을 제공합니다.
 ms.topic: quickstart
-author: lgayhardt
-ms.author: lagayhar
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: c2720fb5fd52eaf5f4f6d854bba622c0fecb5aeb
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: e1d851413d2fb6773170c9ae0f03d7845aa6eb30
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123438249"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131964"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>빠른 시작: Azure Application Insights를 사용하여 Node.js 웹 애플리케이션 모니터링 시작
 
@@ -39,7 +37,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
    구성 페이지가 나타납니다. 다음 표를 사용하여 입력 필드를 채웁니다. 
 
-    | 설정        | 값           | 설명  |
+    | 설정        | 값           | Description  |
    | ------------- |:-------------|:-----|
    | **이름**      | 전역적으로 고유한 값 | 모니터링 중인 앱을 식별하는 이름 |
    | **리소스 그룹**     | myResourceGroup      | Application Insights 데이터를 호스팅할 새 리소스 그룹의 이름입니다. 새 리소스 그룹을 만들거나 기존 그룹을 사용할 수 있습니다. |

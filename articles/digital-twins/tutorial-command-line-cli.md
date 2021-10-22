@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/1/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 50e5a8fb09a3bd54dd4131f6c60de6b315233e86
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8df2c2a1eb7a16df4d35a8b6530aec82a1632722
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128557671"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129996288"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure Digital Twins 그래프 만들기
 
@@ -52,7 +52,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 이 문서에서 Azure Digital Twins로 작업하려면 먼저 **Azure Digital Twins 인스턴스를 설정** 하고 이를 사용하는 데 필요한 권한이 필요합니다. 이전 작업에서 이미 Azure Digital Twins 인스턴스가 설정된 경우 해당 인스턴스를 사용할 수 있습니다.
 
-그렇지 않으면 [인스턴스 및 인증 설정](how-to-set-up-instance-cli.md)의 지침을 따릅니다. 지침에는 각 단계를 성공적으로 완료하고 새 인스턴스를 사용할 준비가 되었는지 확인하는 단계도 포함되어 있습니다.
+그렇지 않으면 [인스턴스 및 인증 설정](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)의 지침을 따릅니다. 지침에는 각 단계를 성공적으로 완료하고 새 인스턴스를 사용할 준비가 되었는지 확인하는 단계도 포함되어 있습니다.
 
 Azure Digital Twins 인스턴스를 설정한 후 나중에 인스턴스에 연결하는 데 필요한 다음 값을 기록해 둡니다.
 * 인스턴스의 **_호스트 이름_**

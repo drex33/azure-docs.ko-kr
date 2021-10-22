@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Event Hubs(미리 보기)의 스키마 �
 ms.topic: overview
 ms.date: 05/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: 6ac6361643d9baafb41259e6db69f816d747b1d8
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: bde8b8c436783c4a7248c449bbee536490e2b740
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129534833"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066173"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Event Hubs의 Azure Schema Registry(미리 보기)
 많은 이벤트 스트리밍 및 메시징 시나리오에서 이벤트 또는 메시지 페이로드에는 Apache Avro와 같은 스키마 기반 형식을 사용하여 직렬화되거나 역직렬화되는 정형 데이터가 포함됩니다. 발신기와 수신기 모두에서 JSON 스키마와 마찬가지로 스키마 문서를 사용하여 데이터의 무결성을 확인하려고 할 수 있습니다. 스키마 기반 형식의 경우 메시지 소비자에서 스키마를 사용할 수 있도록 하는 것이 소비자를 통해 데이터를 역직렬화할 수 있는 필수 구성 요소입니다. 
@@ -38,7 +38,7 @@ Event Hubs 네임스페이스는 이제 스키마 그룹을 이벤트 허브(또
 Avro 직렬 변환기가 포함된 다음 라이브러리 중 하나를 사용할 수 있습니다. 이를 통해 스키마 레지스트리 스키마 식별자 및 Avro 인코딩 데이터가 포함된 페이로드를 직렬화 및 역직렬화할 수 있습니다.
 
 - [.NET - Microsoft.Azure.Data.SchemaRegistry.ApacheAvro](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro)
-- [Java - azure-data-schemaregistry-avro](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/schemaregistry/azure-data-schemaregistry-avro/)
+- [Java - azure-data-schemaregistry-avro](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/schemaregistry/azure-data-schemaregistry-apacheavro)
 - [Python - azure-schemaregistry-avroserializer](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/schemaregistry/azure-schemaregistry-avroserializer)
 - [JavaScript - @azure/schema-registry-avro](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/schemaregistry/schema-registry-avro)
 - [Apache Kafka](https://github.com/Azure/azure-schema-registry-for-kafka/) - Azure 스키마 레지스트리에서 지원하는 Kafka 통합 Apache Avro 직렬 변환기 및 역직렬 변환기를 실행합니다. Azure 스키마 레지스트리에 대한 Java 클라이언트의 Apache Kafka 클라이언트 직렬 변환기는 모든 Apache Kafka 시나리오 및 Apache Kafka® 기반 배포 또는 클라우드 서비스에서 사용할 수 있습니다. 
@@ -67,7 +67,7 @@ Azure Portal을 사용하여 애플리케이션 등록을 만드는 방법에 �
 - Azure Portal을 사용하여 스키마 레지스트리를 만드는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 Event Hubs 스키마 레지스트리 만들기](create-schema-registry.md)를 참조하세요.
 - 다음 **스키마 레지스트리 Avro 클라이언트 라이브러리** 샘플을 참조하세요.
     - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro/tests/Samples)
-    - [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/schemaregistry/azure-data-schemaregistry-avro/src/samples)
+    - [Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/schemaregistry/azure-data-schemaregistry-apacheavro/src/samples)
     - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/schemaregistry/schema-registry-avro/samples )
     - [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/schemaregistry/azure-schemaregistry-avroserializer/samples )
     - [Azure 스키마 레지스트리용 Kafka Avro 통합](https://github.com/Azure/azure-schema-registry-for-kafka/tree/master/csharp/avro/samples)

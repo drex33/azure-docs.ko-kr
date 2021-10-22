@@ -5,12 +5,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2019
-ms.openlocfilehash: afe6e82c3cc9773fbf0c17992fd6894d199d177f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 02a568d48ca99a58778adfd4068c359b4748ab43
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105937246"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130181850"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor 개요
 
@@ -44,7 +44,7 @@ Azure Monitor가 수집하는 모든 데이터는 두 가지 기본 유형인 [�
 
 ![시각화에 사용할 메트릭 탐색기로 흐르는 메트릭 데이터를 보여주는 다이어그램입니다.](media/overview/metrics.png)
 
-Azure Monitor로 수집한 로그 데이터는 수집된 데이터를 신속하게 검색, 통합 및 분석하는 [쿼리](logs/log-query-overview.md)로 분석할 수 있습니다.  Azure Portal에서 [Log Analytics](./logs/log-query-overview.md)를 사용하여 쿼리를 만들고 테스트할 수 있습니다. 그런 다음, 다른 도구를 사용하여 데이터를 직접 분석하거나 [시각화](visualizations.md) 또는 [경고 규칙](alerts/alerts-overview.md)에 사용하기 위해 쿼리를 저장할 수 있습니다.
+Azure Monitor로 수집한 로그 데이터는 수집된 데이터를 신속하게 검색, 통합 및 분석하는 [쿼리](logs/log-query-overview.md)로 분석할 수 있습니다.  Azure Portal에서 [Log Analytics](./logs/log-query-overview.md)를 사용하여 쿼리를 만들고 테스트할 수 있습니다. 그런 다음, 다른 도구를 사용하여 데이터를 직접 분석하거나 [시각화](best-practices-analysis.md) 또는 [경고 규칙](alerts/alerts-overview.md)에 사용하기 위해 쿼리를 저장할 수 있습니다.
 
 Azure Monitor는 단순 로그 쿼리에 적합하지만 집계, 조인, 스마트 분석 같은 고급 기능도 포함하는 [Kusto 쿼리 언어](/azure/kusto/query/) 버전을 사용합니다. [여러 강좌](logs/get-started-queries.md)를 통해 쿼리 언어를 빠르게 배울 수 있습니다.  [SQL](/azure/data-explorer/kusto/query/sqlcheatsheet) 및 [Splunk](/azure/data-explorer/kusto/query/splunk-cheat-sheet)에 이미 익숙한 사용자에게는 특정 지침이 제공됩니다.
 
@@ -107,7 +107,7 @@ Azure Monitor의 경고 규칙은 고유한 수신자 집합 및 여러 규칙 �
 ![다이어그램은 '프로세서 시간> 80%'라는 레이블이 붙은 라인에 여러 대의 서버가 있으며, 서버 2대는 최소, 서버 3대는 현재 용량, 5대는 최대라고 표시된 자동 크기 조정을 보여줍니다.](media/overview/autoscale.png)
 
 ## <a name="visualizing-monitoring-data"></a>모니터링 데이터 시각화
-차트 및 표 같은 [시각화](visualizations.md)는 모니터링 데이터를 요약하여 여러 대상에게 보여주는 효과적인 도구입니다. Azure Monitor는 모니터링 데이터를 시각화하는 고유의 기능을 갖고 있으며 다른 Azure 서비스를 활용하여 모니터링 데이터를 여러 대상에 게시합니다.
+차트 및 표 같은 [시각화](best-practices-analysis.md)는 모니터링 데이터를 요약하여 여러 대상에게 보여주는 효과적인 도구입니다. Azure Monitor는 모니터링 데이터를 시각화하는 고유의 기능을 갖고 있으며 다른 Azure 서비스를 활용하여 모니터링 데이터를 여러 대상에 게시합니다.
 
 ### <a name="dashboards"></a>대시보드
 [Azure 대시보드](../azure-portal/azure-portal-dashboards.md)에서는 다양한 종류의 데이터를 [Azure Portal](https://portal.azure.com)의 단일 창으로 결합할 수 있습니다. 필요에 따라 대시보드를 다른 Azure 사용자와 공유할 수 있습니다. 모든 로그 쿼리 또는 메트릭 차트의 출력을 Azure 대시보드에 추가합니다. 예를 들어 메트릭 그래프, 활동 로그 표, Application Insights의 사용량 차트, 로그 쿼리를 나타내는 타일이 조합된 대시보드를 만들 수 있습니다.

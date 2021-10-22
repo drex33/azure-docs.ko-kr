@@ -3,20 +3,20 @@ title: PowerShell 샘플 - 인증서가 없는 Azure Active Directory 애플리�
 description: 사용자 지정 도메인을 사용 중이지만 유효한 TLS/SSL 인증서가 업로드되지 않은 모든 Azure AD(Azure Active Directory) 애플리케이션 프록시 애플리케이션을 나열하는 PowerShell 예제입니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: sample
 ms.date: 04/29/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: 8cce2ff1b2a94d614e962e2bf6904b7088147c46
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.reviewer: ashishj
+ms.openlocfilehash: 11cc7116690cc5eb5d71ad61ab9af9ff2ceace0a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108293790"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129988047"
 ---
 # <a name="get-all-application-proxy-apps-published-with-no-certificate-uploaded"></a>인증서를 업로드하지 않고 게시된 모든 애플리케이션 프록시 앱 가져오기
 

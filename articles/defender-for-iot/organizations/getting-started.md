@@ -3,12 +3,12 @@ title: '빠른 시작: 시작'
 description: 이 빠른 시작에서는 Defender for IoT 배포의 기본 워크플로를 시작하는 방법에 대해 알아봅니다.
 ms.topic: quickstart
 ms.date: 06/06/2021
-ms.openlocfilehash: 32565bfcf87facb957dc4e8b1fc73f52eb1c7ac2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 223337469a309fd1f28ef1bf469f2998a5af43ba
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124836419"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130138457"
 ---
 # <a name="quickstart-get-started-with-defender-for-iot"></a>빠른 시작: Defender for IoT 시작
 
@@ -76,8 +76,6 @@ Azure Defender for IoT는 물리적 배포와 가상 배포를 모두 지원합�
 1. **온-프레미스 관리 콘솔 다운로드** 탭을 선택하고 다운로드한 활성화 파일을 저장합니다. 이 파일에는 사용자가 정의한 집계된 커밋된 디바이스가 포함되어 있습니다. 이 파일은 첫 로그인 후 관리 콘솔에 업로드됩니다.
 
 구독을 등록 취소하는 방법은 [구독 등록 취소](how-to-manage-subscriptions.md#offboard-a-subscription)를 참조하세요.
-
-
 
 ## <a name="install-and-set-up-the-on-premises-management-console"></a>온-프레미스 관리 콘솔 설치 및 설정
 

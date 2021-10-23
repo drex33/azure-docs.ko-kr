@@ -3,7 +3,7 @@ title: Azure Active Directory의 사용자, 그룹, 라이선스 및 역할
 description: Azure Active Directory에서 사용자와 할당된 라이선스, 관리자 역할, 그룹 멤버십 간의 관계
 keywords: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.author: curtand
 ms.reviewer: krbain
 ms.date: 09/01/2021
@@ -14,12 +14,12 @@ ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 891cc34cc3c9cde7d1bc87df289508881d772586
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: fce67f5f6adf39b70fd6a84dbb959cfc1d7c5237
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123437313"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129986989"
 ---
 # <a name="what-is-enterprise-user-management"></a>엔터프라이즈 사용자 관리란?
 

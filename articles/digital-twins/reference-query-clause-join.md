@@ -1,5 +1,5 @@
 ---
-title: Azure Digital Twins 쿼리 언어 참조 - JOIN 절
+title: Azure Digital Twins 쿼리 언어 참조-조인 절
 titleSuffix: Azure Digital Twins
 description: Azure Digital Twins 쿼리 언어 JOIN 절에 대한 참조 설명서
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 03/31/2021
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 6e018985b231e67e519968c0057754c7f3383ee4
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
-ms.translationtype: HT
+ms.openlocfilehash: ad9447966916098a5ca0834d593242e365b8a088
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114731945"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130246759"
 ---
 # <a name="azure-digital-twins-query-language-reference-join-clause"></a>Azure Digital Twins 쿼리 언어 참조: JOIN 절
 

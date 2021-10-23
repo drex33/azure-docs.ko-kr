@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 04/23/2021
 ms.author: jocorte
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 591f2882e6886f208a5452ac547a5bb1e4024906
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2070ab097407e377df123260965d7066512c1153
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128610164"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130228754"
 ---
 # <a name="scale-snat-ports-with-azure-nat-gateway"></a>Azure NAT Gateway를 사용하여 SNAT 포트 스케일링
 
 Azure Firewall은 구성된 공용 IP 주소당 2,048개의 SNAT 포트를 제공하며 최대 [250개의 공용 IP 주소](./deploy-multi-public-ip-powershell.md)를 연결할 수 있습니다. 이 구성에서는 아키텍처 및 트래픽 패턴에 따라 사용 가능한 SNAT 포트가 512,000개 넘게 필요할 수 있습니다. Microsoft 365 앱과 통합되는 많은 [Windows Virtual Desktop 배포](./protect-azure-virtual-desktop.md)를 보호하는 데 사용하는 경우를 예로 들 수 있습니다.
 
-많은 수의 공용 IP 주소를 사용하는 데 따르는 또 다른 문제는 다운스트림 IP 주소 필터링 요구 사항이 있는 경우 발생합니다. Azure Firewall은 연결에 사용할 원본 공용 IP 주소를 임의로 선택하므로 모든 공용 IP 주소에서 연결이 허용되어야 합니다. [공용 IP 주소 접두사](../virtual-network/public-ip-address-prefix.md)를 사용하고 아웃바운드 SNAT 포트 요구 사항을 충족하도록 250개의 공용 IP 주소를 연결해야 하는 경우에도 16개의 공용 IP 주소 접두사를 만들고 연결을 허용해야 합니다.
+많은 수의 공용 IP 주소를 사용하는 데 따르는 또 다른 문제는 다운스트림 IP 주소 필터링 요구 사항이 있는 경우 발생합니다. Azure Firewall은 연결에 사용할 원본 공용 IP 주소를 임의로 선택하므로 모든 공용 IP 주소에서 연결이 허용되어야 합니다. [공용 IP 주소 접두사](../virtual-network/ip-services/public-ip-address-prefix.md)를 사용하고 아웃바운드 SNAT 포트 요구 사항을 충족하도록 250개의 공용 IP 주소를 연결해야 하는 경우에도 16개의 공용 IP 주소 접두사를 만들고 연결을 허용해야 합니다.
 
 아웃바운드 SNAT 포트를 스케일링하는 효율적인 방법은 [NAT Gateway 리소스](../virtual-network/nat-gateway/nat-overview.md)를 사용하는 것입니다. 공용 IP 주소당 64,000개의 SNAT 포트를 제공하고 최대 16개의 공용 IP 주소를 지원하므로 실질적으로 최대 1,024,000개의 아웃바운드 SNAT 포트를 제공합니다.
 

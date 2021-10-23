@@ -140,12 +140,18 @@
       items:
         - name: Azure AD를 사용하여 하이브리드 액세스 보호
           href: secure-hybrid-access.md
-        - name: F5 및 Azure AD 통합
-          href: f5-aad-integration.md
-        - name: Azure IaaS에 F5 BIG-IP VE 배포
-          href: f5-bigip-deployment-guide.md
-        - name: 암호 없는 VPN용 Azure AD를 사용하는 F5 Big-IP
-          href: f5-aad-password-less-vpn.md
+        - name: Datawiza
+          href: datawiza-with-azure-ad.md
+        - name: F5
+          items:
+            - name: F5 및 Azure AD 통합
+              href: f5-aad-integration.md
+            - name: Azure IaaS에 F5 BIG-IP VE 배포
+              href: f5-bigip-deployment-guide.md
+            - name: 암호 없는 VPN용 Azure AD를 사용하는 F5 Big-IP
+              href: f5-aad-password-less-vpn.md
+        - name: Silverfort
+          href: silverfort-azure-ad-integration.md
     - name: Single Sign-On
       items:
         - name: 연결됨

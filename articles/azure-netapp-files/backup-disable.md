@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/27/2021
 ms.author: b-juche
-ms.openlocfilehash: 1254a9884063fce100152f370a434c55ec2ae207
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 1555a1c42f6365202787750f149b345ccd0cd55c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129095833"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224146"
 ---
 # <a name="disable-backup-functionality-for-a-volume"></a>볼륨에 대한 백업 기능 사용 안 함 
 
@@ -37,7 +37,7 @@ ms.locfileid: "129095833"
 3. **구성** 을 선택합니다.
 4. 백업 구성 페이지에서 **사용** 설정을 **끄기로 전환합니다.** 확인할 볼륨 이름을 입력하고 **확인을** 클릭합니다.
 
-    ![백업을 사용하지 않도록 설정하여 백업 구성 창으로 복원을 보여 주는 스크린샷](../media/azure-netapp-files/backup-configure-backups-disable.png)
+    ![백업을 사용하지 않도록 설정하여 백업 구성 창으로 복원을 보여주는 스크린샷.](../media/azure-netapp-files/backup-configure-backups-disable.png)
 
 ## <a name="next-steps"></a>다음 단계  
 
@@ -51,5 +51,5 @@ ms.locfileid: "129095833"
 * [새 볼륨으로 백업 복원](backup-restore-new-volume.md)
 * [볼륨의 백업 삭제](backup-delete.md)
 * [볼륨 백업 메트릭](azure-netapp-files-metrics.md#volume-backup-metrics)
-* [Azure NetApp Files 백업 FAQ](azure-netapp-files-faqs.md#azure-netapp-files-backup-faqs)
+* [Azure NetApp Files 백업 FAQ](faq-backup.md)
 

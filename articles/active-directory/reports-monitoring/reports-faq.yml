@@ -17,12 +17,12 @@ metadata:
   ms.author: markvi
   ms.reviewer: dhanyahk
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: fe6775a15dc878bb31c60df592ca5d24b29b2c6a
-  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+  ms.openlocfilehash: f74612097e1ad6edc059625c89f22003d15884af
+  ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/13/2021
-  ms.locfileid: "124839101"
+  ms.lasthandoff: 10/19/2021
+  ms.locfileid: "130162887"
 title: Azure Active Directory 보고서 관련 자주 묻는 질문
 summary: "이 문서에는 Azure AD(Azure Active Directory) 보고에 대한 질문과 대답이 포함되어 있습니다. 자세한 내용은 [Azure Active Directory 보고](overview-reports.md)를 참조하세요. \n"
 sections:
@@ -34,7 +34,7 @@ sections:
       [API 참조](https://developer.microsoft.com/graph/)에서 [API를 사용하여 활동 보고서에 액세스하는 방법](concept-reporting-api.md)을 알아보세요. 이 엔드포인트에는 이전 API 엔드포인트에서 가져온 모든 데이터를 확인할 수 있는 두 개의 보고서(**감사** 및 **로그인**)가 있습니다. 이 새 엔드포인트에는 앱 사용, 디바이스 사용 및 사용자 로그인 정보를 가져오는 데 사용할 수 있는 Azure AD Premium 라이선스가 있는 로그인 보고서도 있습니다.
   - question: >
       현재 `https://graph.windows.net/<tenant-name>/reports/` 엔드포인트 API를 사용하여 Azure AD 보안 보고서(유출된 자격 증명 또는 익명 IP 주소의 로그인과 같은 특정 유형의 감지)를 프로그래밍 방식으로 보고 시스템에 끌어오고 있습니다. 어떤 방식으로 전환해야 하나요?
-    answer: " [ID 보호 위험 검색 API](../identity-protection/howto-identity-protection-graph-api.md) 를 사용하여 Microsoft Graph를 통해 보안 검색에 액세스할 수 있습니다. 이 새로운 형식은 고급 필터링, 필드 선택 등을 사용하여 데이터를 보다 유연하게 쿼리할 수 있도록 하고, 위험 검색을 SIEM 및 기타 데이터 수집 도구에 보다 쉽게 통합하기 위해 한 가지 형식으로 표준화합니다. 데이터가 다른 형식으로 되어 있으므로 이전 쿼리를 새 쿼리로 대체할 수 없습니다. 그러나 [새로운 API는 Microsoft Graph](/graph/api/resources/identityriskevent?view=graph-rest-beta&preserve-view=true)를 사용합니다. 이것은 Microsoft 365 또는 Azure AD와 같은 API에 대한 Microsoft 표준입니다. 따라서 필요한 작업이 현재 Microsoft Graph 투자를 확장하거나 이러한 새 표준 플랫폼으로의 전환을 시작하도록 지원할 수 있습니다.\n"
+    answer: " [ID 보호 위험 검색 API](../identity-protection/howto-identity-protection-graph-api.md) 를 사용하여 Microsoft Graph를 통해 보안 검색에 액세스할 수 있습니다. 이 새로운 형식은 고급 필터링, 필드 선택 등을 사용하여 데이터를 보다 유연하게 쿼리할 수 있도록 하고, 위험 검색을 SIEM 및 기타 데이터 수집 도구에 보다 쉽게 통합하기 위해 한 가지 형식으로 표준화합니다. 데이터가 다른 형식으로 되어 있으므로 이전 쿼리를 새 쿼리로 대체할 수 없습니다. 그러나 [새로운 API는 Microsoft Graph](/graph/api/resources/identityprotection-root)를 사용합니다. 이것은 Microsoft 365 또는 Azure AD와 같은 API에 대한 Microsoft 표준입니다. 따라서 필요한 작업이 현재 Microsoft Graph 투자를 확장하거나 이러한 새 표준 플랫폼으로의 전환을 시작하도록 지원할 수 있습니다.\n"
   - question: >
       Premium 라이선스는 어떻게 받을 수 있나요?
     answer: >

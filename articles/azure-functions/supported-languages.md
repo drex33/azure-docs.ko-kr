@@ -3,12 +3,12 @@ title: Azure Functions에서 지원되는 언어
 description: 지원되는 언어(GA)와 미리 보기에 있는 언어 및 Functions 개발을 다른 언어로 확장하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: d0db327a1f5b4189f9715687e3efa8fbe5b668db
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 91dcd26895ad41d79606458287f6aabab9594f79
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128599959"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224314"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Azure Functions에서 지원되는 언어
 
@@ -21,6 +21,8 @@ ms.locfileid: "128599959"
 [여러 버전의 Azure Functions 런타임을](functions-versions.md) 사용할 수 있습니다. 다음 표는 각 런타임 버전에서 지원되는 언어를 나타냅니다.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
+
+[!INCLUDE [functions-portal-language-support](../../includes/functions-portal-language-support.md)]
 
 ### <a name="language-major-version-support"></a>언어 주 버전 지원
 

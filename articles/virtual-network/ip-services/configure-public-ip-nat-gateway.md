@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 06/28/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 2fd41f3459469474c100657747c4873ee99dc057
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: b87947aa265e5a92abf033fffd28ab3424785bb5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129373037"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130217395"
 ---
 # <a name="manage-a-public-ip-address-with-a-nat-gateway"></a>NAT 게이트웨이를 사용하여 공용 IP 주소 관리
 
@@ -31,9 +31,9 @@ NAT 게이트웨이에 연결된 현재 공용 IP를 변경하는 방법을 알�
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- 구독에 두 개의 표준 SKU 공용 IP 주소가 있습니다. IP 주소를 리소스와 연결할 수 없습니다. 표준 SKU 공용 IP 주소를 만드는 방법에 대한 자세한 내용은 [공용 IP 주소 만들기 - Azure Portal](../../virtual-network/create-public-ip-portal.md)을 참조하세요.
+- 구독에 두 개의 표준 SKU 공용 IP 주소가 있습니다. IP 주소를 리소스와 연결할 수 없습니다. 표준 SKU 공용 IP 주소를 만드는 방법에 대한 자세한 내용은 [공용 IP 주소 만들기 - Azure Portal](./create-public-ip-portal.md)을 참조하세요.
     - 이 문서에 나오는 예제의 목적에 맞게 새 공용 IP 주소의 이름을 **myStandardPublicIP-1** 및 **myStandardPublicIP-2** 로 지정합니다.
-- 구독의 공용 IP 접두사. 공용 IP 주소 접두사를 만드는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 공용 IP 주소 접두사 만들기](../../virtual-network/create-public-ip-prefix-portal.md)를 참조하세요.
+- 구독의 공용 IP 접두사. 공용 IP 주소 접두사를 만드는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 공용 IP 주소 접두사 만들기](./create-public-ip-prefix-portal.md)를 참조하세요.
     - 이 문서에 나오는 예의 목적에 맞게 새 공용 IP 접두사 이름을 **myPublicIPPrefixNAT** 로 지정합니다.
 
 ## <a name="create-nat-gateway-existing-public-ip"></a>공용 IP가 있는 NAT 게이트웨이 만들기
@@ -149,4 +149,4 @@ IP를 변경하려면 이전에 만든 새 공용 IP 주소를 NAT 게이트웨�
 이 문서에서 부하 NAT 게이트웨이를 만들고 기존 공용 IP를 사용하는 방법을 알아봤습니다. NAT 게이트웨이 아웃바운드 IP 구성에서 IP 주소를 대체했습니다. 마지막으로, 공용 IP 접두사를 사용하도록 아웃바운드 IP 구성을 변경했습니다.
 
 - Azure Virtual Network NAT에 대한 자세한 내용은 [Azure Virtual Network NAT란?](../nat-gateway/nat-overview.md)을 참조하세요.
-- Azure의 공용 IP 주소에 대한 자세한 내용은 [공용 IP 주소](../../virtual-network/public-ip-addresses.md)를 참조하세요.
+- Azure의 공용 IP 주소에 대한 자세한 내용은 [공용 IP 주소](./public-ip-addresses.md)를 참조하세요.

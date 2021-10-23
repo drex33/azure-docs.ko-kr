@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 03/05/2021
-ms.openlocfilehash: b652087db880cf9bd85d5d3eb00b989bc7be18e4
-ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
-ms.translationtype: HT
+ms.openlocfilehash: ae8311da88ec2598417dd248e12fb044bc9dbf38
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112893531"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223218"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Azure Red Hat OpenShift 지원 정책
 
@@ -78,3 +78,19 @@ Azure Red Hat OpenShift 4는 다음 가상 머신 크기의 작업자 노드 인
 |Dsv3|Standard_D8s_v3|8|32|
 |Dsv3|Standard_D16s_v3|16|64|
 |Dsv3|Standard_D32s_v3|32|128|
+
+### <a name="day-2-worker-node"></a>2일차 작업자 노드
+다음 인스턴스 유형은 머신 세트를 구성하여 2일차 작업으로 지원됩니다. 머신을 만드는 방법에 대한 자세한 내용은 [Azure에서 머신셋 만들기를 참조하세요.](https://docs.openshift.com/container-platform/4.8/machine_management/creating_machinesets/creating-machineset-azure.html)
+
+
+|계열|크기|vCPU|메모리: GiB|
+|-|-|-|-|
+|L4s|Standard_L4s|4|32|
+|L8s|Standard_L8s|8|64|
+|L16s|Standard_L16s|16|128|
+|L32s|Standard_L32s|32|256|
+|L8s_v2|Standard_L8s_v2|8|64|
+|L16s_v2|Standard_L16s_v2|16|128|
+|L32s_v2|Standard_L32s_v2|32|256|
+|L48s_v2|Standard_L48s_v2|32|384|
+|L64s_v2|Standard_L48s_v2|64|512|

@@ -4,15 +4,16 @@ description: 이 자습서에서는 지원하도록 테넌트를 구성하는 �
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 author: barclayn
+manager: karenh444
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 10/08/2021
-ms.openlocfilehash: e28a210a4f80540da9aa8f08ca443c355705b469
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: d480696acf10586f41aa9c5c70a8dcf6e2c7651f
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129730921"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070017"
 ---
 # <a name="configure-your-tenant-for-azure-ad-verifiable-credentials-preview"></a>Azure AD 확인 가능한 자격 증명에 대한 테넌트 구성(미리 보기)
 
@@ -35,7 +36,7 @@ Azure AD(Azure Active Directory) 확인 가능한 자격 증명 서비스를 사
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독이 없는 경우 [체험 구독](https://azure.microsoft.comfree/?WT.mc_id=A261C142F)을 만듭니다.
+- Azure 구독이 없는 경우 [체험 구독](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - 테넌트에서 [Azure Active Directory Premium 버전](../../active-directory/fundamentals/active-directory-get-started-premium.md) 구독에 가입합니다.
 - 구성하려는 디렉터리에 대한 [전역 관리자](../../active-directory/roles/permissions-reference.md#global-administrator) 권한입니다.
 - [PowerShell](/powershell/scripting/install/installing-powershell) 7.0.6 LTS-x64, PowerShell 7.1.3-x64 이상이 설치되어 있어야 합니다.

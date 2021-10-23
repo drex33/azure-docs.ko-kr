@@ -6,13 +6,13 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 05/08/2021
-ms.openlocfilehash: d141ac2be690a0cb788285a773208e0d930f5e67
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 10/15/2021
+ms.openlocfilehash: 1a99755d217dbabd1ecc5e9c3ec33555abfd19d5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129209892"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130241453"
 ---
 # <a name="register-and-scan-multiple-sources-in-azure-purview"></a>Azure Purview에서 여러 원본 등록 및 검사
 
@@ -31,9 +31,9 @@ ms.locfileid: "129209892"
 ### <a name="set-up-authentication-for-enumerating-resources-under-a-subscription-or-resource-group"></a>구독 또는 리소스 그룹에서 리소스를 열거하기 위한 인증 설정
 
 1. Azure Portal에서 구독 또는 리소스 그룹으로 이동합니다.  
-1. 왼쪽 메뉴에서  **액세스 제어(IAM)**  를 선택합니다. 
-1. **+추가** 를 선택합니다. 
-1. **입력 선택** 상자에서 **읽기 권한자** 역할을 선택하고 Azure Purview 계정 이름(MSI 파일 이름을 나타냄)을 입력합니다. 
+1. 왼쪽 메뉴에서  **액세스 제어(IAM)**  를 선택합니다.
+1. **+추가** 를 선택합니다.
+1. 입력 **선택** 상자에서 **읽기** 역할 을 선택하고 Azure Purview 계정 이름(MSI 파일 이름을 나타낸)을 입력합니다.
 1. **저장** 을 선택하여 역할 할당을 완료합니다.
 
 ### <a name="set-up-authentication-to-scan-resources-under-a-subscription-or-resource-group"></a>구독 또는 리소스 그룹에서 리소스를 검사하기 위한 인증 설정
@@ -75,7 +75,6 @@ Azure에서는 다음 두 가지 방법으로 여러 원본에 대한 인증을 
    1. **컬렉션 선택** 상자에서 컬렉션을 선택하거나 새 컬렉션을 만듭니다(선택 사항).
    1. **등록** 을 선택하여 데이터 원본을 등록합니다.
 
-
 ## <a name="create-and-run-a-scan"></a>검사 만들기 및 실행
 
 새 검색을 만들고 실행하려면 다음을 수행합니다.
@@ -88,19 +87,24 @@ Azure에서는 다음 두 가지 방법으로 여러 원본에 대한 인증을 
 
     - **모두** 로 둡니다. 이 선택에는 해당 구독 또는 리소스 그룹 내에 현재 존재하지 않을 수 있는 향후 리소스 종류가 포함됩니다.
     - 상자를 사용하여 검사하려는 리소스 종류를 구체적으로 선택합니다. 이 옵션을 선택하면 나중에 검사가 명시적으로 편집되지 않는 한 이 구독 또는 리소스 그룹 내에서 나중에 생성될 수 있는 리소스 종류가 검사에 포함되지 않습니다.
-    
+
     :::image type="content" source="media/register-scan-azure-multiple-sources/multiple-source-scan.png" alt-text="여러 원본 검사 옵션을 보여주는 스크린샷.":::
 
-1. 데이터 원본 내의 리소스에 연결할 자격 증명을 선택합니다. 
+1. 데이터 원본 내의 리소스에 연결할 자격 증명을 선택합니다.
     - 부모 수준의 자격 증명을 MSI 파일로 선택하거나 특정 서비스 주체 유형에 대한 자격 증명을 선택할 수 있습니다. 그런 다음, 구독 또는 리소스 그룹 아래의 모든 리소스 종류에 대해 이 자격 증명을 사용할 수 있습니다.
     - 구체적으로 리소스 종류를 선택하고 이 리소스 종류에 대해 다른 자격 증명을 적용할 수 있습니다.
-    
+
     각 자격 증명은 특정 종류의 모든 리소스에 대한 인증 방법으로 간주됩니다. [이 문서의 앞부분에서](#set-up-authentication-to-scan-resources-under-a-subscription-or-resource-group) 설명된 것처럼 리소스를 성공적으로 검사하려면 선택한 자격 증명을 리소스에 설정해야 합니다.
 1. 각 종류 내에서 모든 리소스를 검사하거나 이름별로 일부 리소스만 검사할 수 있습니다.
     - 옵션을 **모두** 로 두면 해당 종류의 향후 리소스도 향후 검사 실행 시 검사됩니다.
     - 특정 스토리지 계정 또는 SQL 데이터베이스를 선택할 경우, 나중에 검사를 명시적으로 편집하지 않는 한 이 구독 또는 리소스 그룹 내에 생성된 해당 종류의 향후 리소스가 검사에 포함되지 않습니다.
- 
-1. **계속** 을 선택하여 진행합니다. Azure Purview는 액세스 권한을 테스트하여 구독 또는 리소스 그룹의 읽기 권한자로 Azure Purview MSI 파일을 적용했는지 확인합니다. 오류 메시지가 표시되면 [다음 지침](#set-up-authentication-for-enumerating-resources-under-a-subscription-or-resource-group)에 따라 해결합니다.
+
+1. **연결 테스트** 를 클릭합니다. 그러면 선택한 각 원본에 대한 인증 및 연결이 테스트되고 보고서가 생성됩니다. 선택한 원본 수는 이 보고서를 생성하는 데 걸리는 시간에 영향을 미칩니다. 연결 테스트는 먼저 구독/리소스 그룹/synapse 작업 영역 수준에서 연결 및 액세스를 테스트합니다. 그런 다음, 각 개별 리소스에 대한 액세스 및 연결을 계속 테스트하고 보고서에 결과를 표시합니다. 일부 리소스에서 오류가 발생하면 **X** 아이콘 위로 마우스를 가져가면 자세한 오류 메시지가 표시됩니다.
+
+    :::image type="content" source="media/register-scan-azure-multiple-sources/test-connection.png" alt-text="연결 테스트 단추가 강조 표시된 스캔 설정 슬라이더를 보여주는 스크린샷.":::
+    :::image type="content" source="media/register-scan-azure-multiple-sources/test-connection-report.png" alt-text="일부 연결이 통과되고 일부 연결이 실패하는 테스트 연결 보고서 예제를 보여주는 스크린샷. 실패한 연결 중 하나를 마우스로 가리키면 자세한 오류 보고서가 표시됩니다.":::
+
+1. 연결 테스트가 통과한 후 **계속을** 선택하여 계속합니다. Azure Purview는 액세스 권한을 테스트하여 구독 또는 리소스 그룹의 읽기 권한자로 Azure Purview MSI 파일을 적용했는지 확인합니다. 오류 메시지가 표시되면 [다음 지침](#set-up-authentication-for-enumerating-resources-under-a-subscription-or-resource-group)에 따라 해결합니다.
 
 1. 이전 단계에서 선택한 각 리소스 종류에 대한 검사 규칙 세트를 선택합니다. 검사 규칙 세트를 인라인으로 만들 수도 있습니다.
   

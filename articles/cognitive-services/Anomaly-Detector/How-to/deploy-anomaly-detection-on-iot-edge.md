@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 12/03/2020
 ms.author: mbullwin
-ms.openlocfilehash: f1ef5d40ccf6339d909f2cad6388186ddb5a0a04
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: fa2904768023120fb2b08a52a23bb33e71e4d2f6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129355953"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219151"
 ---
 # <a name="deploy-an-anomaly-detector-univariate-module-to-iot-edge"></a>IoT Edge에 Anomaly Detector 단변량 모듈 배포
 
@@ -68,11 +68,13 @@ IoT Edge 디바이스에 Cognitive Services [Anomaly Detector](../anomaly-detect
 
 11. 아래로 스크롤하여 나열된 모듈을 확인합니다. 새 모듈에 대한 런타임 상태가 실행 중인지 확인합니다. 
 
-IoT Edge 디바이스의 런타임 상태를 해결하려면 문제 [해결 가이드를](../../../iot-edge/troubleshoot.md)참조하세요.
+IoT Edge 디바이스의 런타임 상태를 해결하려면 [문제 해결 가이드를](../../../iot-edge/troubleshoot.md)참조하세요.
 
 ## <a name="test-anomaly-detector-on-an-iot-edge-device"></a>IoT Edge 디바이스에서 Anomaly Detector 테스트
 
 Azure Cognitive Services 컨테이너가 실행되고 있는 Azure IoT Edge 디바이스에 대한 HTTP 호출을 수행합니다. 컨테이너는 REST 기반 엔드포인트 API를 제공합니다. 모듈 API에는 호스트 `http://<your-edge-device-ipaddress>:5000`을 사용합니다.
+
+또는 Azure IoT Edge [디바이스에서 Anomaly Detector 클라이언트 라이브러리를 사용하여 모듈 클라이언트를 만든](../quickstarts/client-libraries.md?tabs=linux&pivots=programming-language-python) 다음, 에지에서 실행 중인 Azure Cognitive Services 컨테이너를 호출할 수 있습니다. 호스트 엔드포인트를 사용하고 `http://<your-edge-device-ipaddress>:5000` 호스트 키를 비워 둡니다. 
 
 에지 디바이스가 포트 5000에서 인바운드 통신을 아직 허용하지 않는 경우 새 **인바운드 포트 규칙** 을 만들어야 합니다. 
 

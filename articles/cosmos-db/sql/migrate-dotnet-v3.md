@@ -6,13 +6,13 @@ ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 10/04/2021
-ms.openlocfilehash: 58ea7624b32b7730863fe3d29f6d9245c4199d25
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.date: 10/19/2021
+ms.openlocfilehash: 1bc32941ec6ca5c7053b39a7730852568d13fb28
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129535308"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219050"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-net-sdk-v3"></a>Azure Cosmos DB .NET SDK v3를 사용하도록 애플리케이션 마이그레이션
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -197,6 +197,17 @@ catch (CosmosException cosmosException) {
 |`EnableEndpointRediscovery`|`LimitToEndpoint` - 이제 값이 반전됩니다. `EnableEndpointRediscovery`가 `true`로 설정되어 있으면 `LimitToEndpoint`는 `false`로 설정되어야 합니다. 이 설정을 사용하기 전에 [클라이언트에 미치는 영향](troubleshoot-sdk-availability.md)을 이해해야 합니다.|
 |`ConnectionProtocol`|제거됩니다. 프로토콜은 게이트웨이(HTTPS) 또는 직접(TCP) 모드에 연결됩니다. HTTPS 프로토콜을 사용 하는 직접 모드는 V3 SDK에서 더 이상 지원 되지 않으며 TCP 프로토콜을 사용 하는 것이 좋습니다. |
 |`MediaRequestTimeout`|제거됩니다. 첨부 파일은 더 이상 지원되지 않습니다.|
+
+### <a name="indexing-policy"></a>인덱싱 정책
+
+인덱싱 정책에서는 이러한 속성을 구성할 수 없습니다. 지정 하지 않으면 이제 이러한 속성은 항상 다음 값을 갖습니다.
+
+| **속성 이름**     | **새 값 (구성할 수 없음)** |
+| ----------------------- | -------------------------------- |
+| `Kind`   | `range` |
+| `dataType`    | `String` 및 `Number` |
+
+경로를 포함하고 제외하는 인덱싱 정책의 예는 [이 섹션](how-to-manage-indexing-policy.md#indexing-policy-examples)을 참조하세요. 쿼리 엔진의 향상 된 기능으로 인해 이전 SDK 버전을 사용 하는 경우에도 이러한 속성을 구성 하면 성능에 영향을 주지 않습니다.
 
 ### <a name="session-token"></a>세션 토큰
 
@@ -710,4 +721,4 @@ private static async Task DeleteItemAsync(DocumentClient client)
 * [v3 SDK에서 수행할 수 있는 작업](sql-api-dotnet-v3sdk-samples.md)에 대해 자세히 알아봅니다.
 * Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요?
     * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](../convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
-    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.
+    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.

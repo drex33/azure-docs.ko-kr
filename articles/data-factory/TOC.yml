@@ -114,6 +114,8 @@ items:
         items:
           - name: 데이터 흐름 매핑으로 데이터 변환
             items:
+              - name: Synapse 파이프라인에 대한 Adventure Works 소매 예제
+                href: tutorial-data-flow-adventure-works-retail-template.md
               - name: ADLS Gen2를 사용하여 레이크에 데이터를 랜딩하는 모범 사례
                 href: tutorial-data-flow-write-to-lake.md
               - name: 동적으로 열 이름 설정

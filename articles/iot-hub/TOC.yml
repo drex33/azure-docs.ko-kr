@@ -40,8 +40,8 @@
       href: tutorial-manual-failover.md
     - name: 디바이스 구성
       href: tutorial-device-twins.md
-    - name: 펌웨어 업데이트 관리
-      href: tutorial-firmware-update.md
+    - name: 디바이스 업데이트 관리
+      href: ../iot-hub-device-update/device-update-raspberry-pi.md
     - name: 디바이스 연결 테스트
       href: tutorial-connectivity.md
     - name: Power BI에서 데이터 시각화

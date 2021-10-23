@@ -3,15 +3,13 @@ title: Azure App Service + Application Insights 리소스에 대한 Resource Man
 description: Application Insights 리소스와 함께 Azure App Service를 배포하기 위한 Azure Resource Manager 템플릿 샘플입니다.
 ms.topic: sample
 ms.custom: devx-track-dotnet
-author: lgayhardt
-ms.author: lagayhar
 ms.date: 08/06/2020
-ms.openlocfilehash: 90baa5490283697cf021215d55a628182c43a124
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b999e267a448840fcf836428b5300c49cea03efe
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111965535"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132911"
 ---
 # <a name="resource-manager-template-samples-for-creating-azure-app-services-web-apps-with-application-insights-monitoring"></a>Application Insights 모니터링을 사용하여 Azure App Services 웹앱을 만들기 위한 Resource Manager 템플릿 샘플
 

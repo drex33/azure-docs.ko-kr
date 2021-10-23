@@ -5,12 +5,12 @@ metadata:
   ms.topic: article
   ms.service: backup
   ms.date: 08/19/2021
-  ms.openlocfilehash: 2b7ecc95117201d9ab60a39acf1d0f6ae60896a0
-  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+  ms.openlocfilehash: 7ccfe8d814cc06e7c637b6de3a8df6edb43f52bd
+  ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/13/2021
-  ms.locfileid: "124799304"
+  ms.lasthandoff: 10/15/2021
+  ms.locfileid: "130069447"
 title: 질문과 대답 - Azure VM 백업
 summary: >
   이 문서에서는 [Azure Backup](./backup-overview.md) 서비스를 통해 Azure VM을 백업하는 방법에 대한 일반적인 질문과 답변을 제공합니다.
@@ -80,7 +80,7 @@ sections:
     answer: Azure Backup은 ResourcePointCollections 개체를 저장하기 위해 `AzureBackupRG_<geo>_<number>` 형식으로 별도의 리소스 그룹을 만듭니다. 이 리소스 그룹은 서비스 소유자이므로 잠그면 백업이 실패할 수 있습니다. 잠금은 고객이 만든 리소스 그룹에만 적용할 수 있습니다.
   - question: Azure Backup은 표준 SSD 관리 디스크를 지원하나요?
     answer: >
-      예, Azure Backup은 [표준 SSD 관리 디스크](../virtual-machines/disks-types.md#standard-ssd)를 지원합니다.
+      예, Azure Backup은 [표준 SSD 관리 디스크](../virtual-machines/disks-types.md#standard-ssds)를 지원합니다.
   - question: WA(쓰기 가속기) 지원 디스크를 사용하여 VM을 백업할 수 있나요?
     answer: 스냅샷은 OS 디스크가 아닌 WA를 사용하는 데이터 디스크에 대해서만 수행할 수 있습니다. 따라서 WA를 사용하는 데이터 디스크만 보호할 수 있습니다.
   - question: WA(쓰기 가속기) 디스크를 사용하고 SAP HANA가 설치된 VM을 갖고 있습니다. 어떻게 백업해야 하나요?

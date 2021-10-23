@@ -5,15 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 09/13/2021
+ms.date: 10/21/2021
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c301e2f4986cdd2c11bb1453e1b1271a59b45913
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6ce61a458f8c697fe331e784cc924743b76ca645
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128654253"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130228680"
 ---
 # <a name="migrate-to-azure-firewall-premium"></a>Azure Firewall 프리미엄으로 마이그레이션
 
@@ -23,7 +23,7 @@ Azure Firewall 표준에서 Azure Firewall 프리미엄으로 마이그레이션
 - Azure PowerShell을 사용하여 기존 표준 정책을 마이그레이션합니다.
 - 기존 표준 방화벽(클래식 규칙 포함)을 프리미엄 정책이 있는 Azure Firewall 프리미엄으로 마이그레이션합니다.
 
-Terraform을 사용 하 여 Azure 방화벽을 배포 하는 경우 Terraform을 사용 하 여 Azure 방화벽 Premium로 마이그레이션할 수 있습니다. 자세한 내용은 [terraform을 사용 하 여 Premium으로 Azure 방화벽 표준 마이그레이션](/azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json)을 참조 하세요.
+Terraform을 사용하여 Azure Firewall 배포하는 경우 Terraform을 사용하여 Azure Firewall Premium 마이그레이션할 수 있습니다. 자세한 내용은 [Terraform을 사용하여 Premium Azure Firewall Standard 마이그레이션을 참조하세요.](/azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json)
 
 ## <a name="performance-considerations"></a>성능 고려 사항
 
@@ -39,7 +39,7 @@ Terraform을 사용 하 여 Azure 방화벽을 배포 하는 경우 Terraform을
 
 `Transform-Policy.ps1`은 기존 표준 정책에서 새 프리미엄 정책을 만드는 Azure PowerShell 스크립트입니다.
 
-표준 방화벽 정책 ID가 있는 경우 이 스크립트는 이를 프리미엄 Azure Firewall 정책으로 변환합니다. 이 스크립트는 먼저 Azure 계정에 연결하고, 정책을 끌어오고, 다양한 매개 변수를 변환/추가하고, 새 프리미엄 정책을 업로드합니다. 새 프리미엄 정책의 이름은 `<previous_policy_name>_premium`입니다. 자식 정책 변환의 경우 부모 정책에 대 한 링크는 그대로 유지 됩니다.
+표준 방화벽 정책 ID가 있는 경우 이 스크립트는 이를 프리미엄 Azure Firewall 정책으로 변환합니다. 이 스크립트는 먼저 Azure 계정에 연결하고, 정책을 끌어오고, 다양한 매개 변수를 변환/추가하고, 새 프리미엄 정책을 업로드합니다. 새 프리미엄 정책의 이름은 `<previous_policy_name>_premium`입니다. 자식 정책 변환의 경우 부모 정책에 대한 링크가 유지됩니다.
 
 사용법 예제:
 
@@ -155,7 +155,7 @@ function TransformPolicyToPremium {
 function ValidateAzNetworkModuleExists {
     Write-Host "Validating needed module exists"
     $networkModule = Get-InstalledModule -Name "Az.Network" -ErrorAction SilentlyContinue
-    if (($null -eq $networkModule) -or ($networkModule.Version -lt 4.5)){
+    if (($null -eq $networkModule) -or ($networkModule.Version -lt 4.5.0)){
         Write-Host "Please install Az.Network module version 4.5.0 or higher, see instructions: https://github.com/Azure/azure-powershell#installation"
         exit(1)
     }
@@ -169,45 +169,50 @@ TransformPolicyToPremium -Policy $policy
 
 ```
 
-## <a name="migrate-an-existing-standard-firewall-using-the-azure-portal"></a>Azure Portal을 사용하여 기존 표준 방화벽 마이그레이션
+## <a name="migrate-azure-firewall-using-stopstart"></a>중지/시작을 사용하여 Azure Firewall 마이그레이션
 
-이 예제는 Azure Portal을 사용하여 표준 방화벽(클래식 규칙)을 프리미엄 정책이 포함된 Azure Firewall 프리미엄으로 마이그레이션하는 방법을 보여 줍니다.
+방화벽 정책과 함께 Azure Firewall 표준 SKU를 사용하는 경우 Allocate/Deallocate 메서드를 사용하여 방화벽 SKU를 Premium 마이그레이션할 수 있습니다. 이 마이그레이션 방법은 VNet Hub 및 보안 허브 방화벽 모두에서 지원됩니다. 보안 허브 배포를 마이그레이션하면 방화벽 공용 IP 주소가 유지됩니다.
+ 
+### <a name="migrate-a-vnet-hub-firewall"></a>VNET Hub 방화벽 마이그레이션
 
-1. Azure Portal에서 표준 방화벽을 선택합니다. **개요** 페이지에서 **방화벽 정책으로 마이그레이션** 을 선택합니다.
+- 표준 방화벽 할당을 해결합니다. 
 
-   :::image type="content" source="media/premium-migrate/firewall-overview-migrate.png" alt-text="방화벽 정책으로 마이그레이션":::
+   ```azurepowershell
+   $azfw = Get-AzFirewall -Name "<firewall-name>" -ResourceGroupName "<resource-group-name>"
+   $azfw.Deallocate()
+   Set-AzFirewall -AzureFirewall $azfw
+   ```
 
-1. **방화벽 정책으로 마이그레이션** 페이지에서 **검토 + 만들기** 를 선택합니다.
-1. **만들기** 를 선택합니다.
 
-   배포를 완료하는 데 몇 분이 걸립니다.
-1. `Transform-Policy.ps1` [Azure PowerShell 스크립트](#migrate-an-existing-policy-using-azure-powershell)를 사용하여 이 새 표준 정책을 프리미엄 정책으로 변환합니다.
-1. 포털에서 표준 방화벽 리소스를 선택합니다. 
-1. **자동화** 에서 **템플릿 내보내기** 를 선택합니다. 이 브라우저 탭을 열어 둡니다. 나중에 이 탭으로 다시 돌아옵니다.
-   > [!TIP]
-   > 템플릿이 손실되지 않도록 하려면 브라우저 탭이 닫히거나 새로 고쳐질 경우에 대비하여 템플릿을 다운로드하고 저장합니다.
-1. 새 브라우저 탭을 열고 Azure Portal로 이동하여 방화벽이 포함된 리소스 그룹을 엽니다.
-1. 기존 표준 방화벽 인스턴스를 삭제합니다.
+- 방화벽 Premium 할당
 
-   이 작업은 완료하는 데 몇 분이 소요됩니다.
+   ```azurepowershell
+   $azfw = Get-AzFirewall -Name "<firewall-name>" -ResourceGroupName "<resource-group-name>"
+   $azfw.Sku.Tier="Premium"
+   $azfw.Allocate($vnet,$pip, $mgmtpip)
+   Set-AzFirewall -AzureFirewall $azfw
+   ```
 
-1. 내보낸 템플릿이 있는 브라우저 탭으로 돌아갑니다.
-1. **배포** 를 선택한 다음 **사용자 지정 배포** 페이지에서 **템플릿 편집** 을 선택합니다.
-1. 다음과 같이 템플릿 텍스트를 편집합니다.
-   
-   1. `Microsoft.Network/azureFirewalls` 리소스의 `Properties` 및 `sku`에서 `tier`를 ‘표준’에서 ‘프리미엄’으로 변경합니다.
-   1. 템플릿 `Parameters`에서 `firewallPolicies_FirewallPolicy_,<your policy name>_externalid`의 `defaultValue`를 다음에서
-      
-       `"/subscriptions/<subscription id>/resourceGroups/<your resource group>/providers/Microsoft.Network/firewallPolicies/FirewallPolicy_<your policy name>"`
+### <a name="migrate-a-secure-hub-firewall"></a>보안 허브 방화벽 마이그레이션
 
-      다음과 같이 변경합니다.
+최소 Azure PowerShell 버전 요구 사항은 6.5.0입니다. 자세한 내용은 [Az 6.5.0을 참조하세요.](https://www.powershellgallery.com/packages/Az/6.5.0)
 
-      `"/subscriptions/<subscription id>/resourceGroups/<your resource group>/providers/Microsoft.Network/firewallPolicies/FirewallPolicy_<your policy name>_premium"`
-1. **저장** 을 선택합니다.
-1. **검토 + 생성** 를 선택합니다.
-1. **만들기** 를 선택합니다.
+- 표준 방화벽 할당을 해결합니다.
 
-배포가 완료되면 이제 모든 새 Azure Firewall 프리미엄 기능을 구성할 수 있습니다.
+   ```azurepowershell
+   $azfw = Get-AzFirewall -Name "<firewall-name>" -ResourceGroupName "<resource-group-name>"
+   $azfw.Deallocate()
+   Set-AzFirewall -AzureFirewall $azfw
+   ```
+
+- 방화벽 Premium 할당
+
+   ```azurepowershell
+   $azfw = Get-AzFirewall -Name -Name "<firewall-name>" -ResourceGroupName "<resource-group-name>"
+   $azfw.Sku.Tier="Premium"
+   $azfw.Allocate($hub.id)
+   Set-AzFirewall -AzureFirewall $azfw
+   ```
 
 ## <a name="next-steps"></a>다음 단계
 

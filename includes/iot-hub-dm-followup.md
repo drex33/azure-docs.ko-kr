@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/17/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 7f1f7d6f9ab6036fbcfcd1d19e175302bbd1a2a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 483d51ab654a67ca9c9ac59a5ae1efdd6861419b
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87298714"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130188567"
 ---
 ## <a name="customize-and-extend-the-device-management-actions"></a>디바이스 관리 작업 사용자 지정 및 확장
 
@@ -27,6 +27,6 @@ IoT 솔루션에서 정의된 디바이스 관리 패턴 집합을 확장하거�
 
 이 자습서에서는 디바이스에서 원격 다시 시작을 트리거하는 데 직접 메서드를 사용했습니다. 보고된 속성을 사용하여 디바이스에서 마지막으로 다시 시작한 시간을 보고하고, 디바이스 쌍을 쿼리하여 디바이스가 클라우드에서 마지막으로 다시 시작한 시간을 확인했습니다.
 
-IoT Hub 및 디바이스 관리 패턴(예: 원격 무선 펌웨어 업데이트)을 계속 시작하려면 [자습서: 펌웨어 업데이트를 수행하는 방법](../articles/iot-hub/tutorial-firmware-update.md)을 참조하세요.
+[Raspberry Pi 3 B+ 참조 이미지를 사용하여 Azure IoT Hub용 디바이스 업데이트 자습서에서](../articles/iot-hub-device-update/device-update-raspberry-pi.md)엔드투엔드 이미지 기반 업데이트와 같은 IoT Hub 및 디바이스 관리 패턴을 계속 시작하려면
 
 IoT 솔루션을 확장하고 여러 디바이스에서 메서드 호출을 예약하는 방법을 알아보려면 [jobs 예약 및 브로드캐스트](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md)를 참조하세요.

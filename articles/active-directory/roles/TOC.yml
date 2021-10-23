@@ -112,6 +112,8 @@
           href: custom-enterprise-app-permissions.md
         - name: 앱 동의 권한
           href: custom-consent-permissions.md
+        - name: 그룹 관리 권한
+          href: custom-group-permissions.md
     - name: Azure AD 서비스 제한
       href: ../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Azure AD PowerShell

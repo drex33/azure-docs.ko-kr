@@ -7,12 +7,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/19/2021
-ms.openlocfilehash: 11dbe95a63ce22602985cb7ff9b4db11f5e8f8dc
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 9b4faabe0406cb1052db2d7992f73bdf16c0e009
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129856755"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130241367"
 ---
 # <a name="indexer-connections-to-sql-server-on-an-azure-virtual-machine"></a>Azure 가상 머신의 SQL Server에 대한 인덱서 연결
 
@@ -89,7 +89,7 @@ IP 주소 지정의 경우 몇 가지 문제를 내포할 수 있으며 사용�
 
 Azure Portal을 사용하여 인덱서를 만드는 경우 SQL Azure 가상 머신에 대한 포털 인바운드 액세스 권한을 부여해야 합니다. 방화벽의 인바운드 규칙을 사용하려면 포털의 IP 주소를 제공해야 합니다.
 
-포털 IP 주소를 가져오려면 트래픽 관리자의 도메인인 `stamp2.ext.search.windows.net`을 ping합니다. 요청 시간이 초과되지만 IP 주소는 상태 메시지에 표시됩니다. 예를 들어 "Pinging azsyrie.northcentralus.cloudapp.azure.com [52.252.175.48]"이라는 메시지에서 IP 주소는 "52.252.175.48"입니다.
+포털 IP 주소를 가져오려면 트래픽 관리자의 도메인인 `stamp2.ext.search.windows.net`을 ping합니다. 요청 시간이 초과되지만 IP 주소는 상태 메시지에 표시됩니다. 예를 들어 "Ping azsyrie.northcentralus.cloudapp.azure.com [52.252.175.48]" 메시지에서 IP 주소는 "52.252.175.48"입니다.
 
 > [!NOTE]
 > 다른 지역의 클러스터는 서로 다른 트래픽 관리자에게 연결됩니다. 도메인 이름과 상관없이 ping에서 반환된 IP 주소는 해당 지역의 Azure Portal에 대한 인바운드 방화벽 규칙을 정의할 때 사용할 올바른 IP 주소입니다.

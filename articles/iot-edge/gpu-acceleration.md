@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 2aa4dcc0aa4ecdd3b620aef874a0b5b9ceef4c96
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
-ms.translationtype: HT
+ms.openlocfilehash: c85659a6c9e89145494d4683da37bd2f13cbd379
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112963549"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234868"
 ---
 # <a name="gpu-acceleration-for-azure-iot-edge-for-linux-on-windows-preview"></a>Azure IoT Edge for Linux on Windows의 GPU 가속(미리 보기)
 
@@ -62,7 +62,7 @@ Windows Enterprise 또는 Professional 사용자의 경우 [Windows 참가자 �
 **T4 GPU** 의 경우 Microsoft는 GPU 공급업체의 디바이스 완화 드라이버를 권장합니다. 선택 사항이지만 완화 드라이버를 설치하면 배포의 보안을 강화할 수 있습니다. 자세한 내용은 [직접 디바이스 할당을 사용하여 그래픽 디바이스 배포](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda#optional---install-the-partitioning-driver)를 참조하세요.
 
 > [!WARNING]
-> 하드웨어 디바이스 통과를 사용하도록 설정하면 보안 위험이 증가할 수 있습니다. GPU 공급업체의 디바이스 완화 드라이버를 설치하는 것이 좋습니다.
+> 하드웨어 디바이스 통과를 사용하도록 설정하면 보안 위험이 증가할 수 있습니다. Microsoft는 해당되는 경우 GPU 공급업체의 디바이스 완화 드라이버를 권장합니다. 자세한 내용은 [개별 디바이스 할당을 사용하여 그래픽 디바이스 배포](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda)를 참조하세요.
 
 ### <a name="geforcequadro-gpus"></a>GeForce/Quadro GPU
 
@@ -70,7 +70,7 @@ Windows Enterprise 또는 Professional 사용자의 경우 [Windows 참가자 �
 
 ## <a name="using-gpu-acceleration-for-your-linux-on-windows-deployment"></a>Linux on Windows 배포에 GPU 가속 사용
 
-이제 Azure IoT Edge for Linux on Windows를 통해 Windows 환경에서 GPU 가속 Linux 모듈을 배포하고 실행할 준비가 되었습니다. 배포 프로세스에 관한 자세한 내용은 [Azure IoT Edge for Linux on Windows 설치](how-to-install-iot-edge-on-windows.md)에서 찾을 수 있습니다.
+이제 Azure IoT Edge for Linux on Windows를 통해 Windows 환경에서 GPU 가속 Linux 모듈을 배포하고 실행할 준비가 되었습니다. 배포 프로세스에 대 한 자세한 내용은 대칭 키를 사용 하거나 [x.509 인증서를 사용](how-to-provision-single-device-linux-on-windows-x509.md) [하 여 Windows 장치에서 Linux 용 단일 IoT Edge를 프로 비전 하기 위한 가이드](how-to-provision-single-device-linux-on-windows-symmetric.md) 에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

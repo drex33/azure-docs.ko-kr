@@ -10,13 +10,13 @@ ms.topic: how-to
 author: uc-msft
 ms.author: umajay
 ms.reviewer: mathoma
-ms.date: 04/19/2020
-ms.openlocfilehash: 4597380c0bae96c67c38d36d162fdf740ba119a2
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
-ms.translationtype: HT
+ms.date: 10/18/2021
+ms.openlocfilehash: ed70bb517478fb931ac402a7b528118b3d76d148
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111590255"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130239400"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance에서 JSON 기능 시작
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -32,7 +32,7 @@ Azure SQL Database 및 Azure SQL Managed Instance를 사용하면 [JSON](https:/
 
 데이터베이스 계층에서 데이터를 가져오고 JSON 형식으로 응답을 제공하는 웹 서비스 또는 JSON으로 형식이 지정된 데이터를 수락하는 클라이언트 쪽 JavaScript 프레임워크나 라이브러리가 있는 경우 SQL 쿼리에서 직접 데이터베이스 콘텐츠 형식을 JSON으로 지정할 수 있습니다. Azure SQL Database 또는 Azure SQL Managed Instance의 결과 형식을 JSON으로 지정하는 애플리케이션 코드를 작성하거나 테이블 형식 쿼리 결과를 변환한 다음, 개체를 JSON 형식으로 직렬화하는 JSON 직렬화 라이브러리를 더 이상 포함할 필요가 없습니다. 대신, FOR JSON 절을 사용하여 Azure SQL Database에서 SQL 쿼리 결과의 형식을 JSON으로 지정하고 애플리케이션에서 직접 사용할 수 있습니다.
 
-다음 예제에서 Sales.Customer 테이블의 행은 FOR JSON 절을 사용하여 JSON으로 형식이 지정됩니다.
+다음 예에서는 `Sales.Customer` FOR json 절을 사용 하 여 테이블의 행을 JSON 형식으로 지정 합니다.
 
 ```sql
 select CustomerName, PhoneNumber, FaxNumber
@@ -104,7 +104,7 @@ Customer 데이터를 가져온 다음 관련 Orders 목록을 인출하는 별�
 
 ## <a name="working-with-json-data"></a>JSON 데이터 작업
 
-엄격하게 구조화된 데이터가 없거나, 복잡한 하위 개체, 배열 또는 계층적 데이터가 있거나, 시간이 지나면서 데이터 구조가 변화할 경우 JSON 형식을 사용하면 복잡한 데이터 구조를 나타내는 데 도움이 될 수 있습니다.
+엄격 하 게 구조화 된 데이터가 없는 경우, 복잡 한 하위 개체, 배열 또는 계층적 데이터가 있거나 시간이 지남에 따라 데이터 구조가 진화 하는 경우 JSON 형식을 통해 복잡 한 데이터 구조를 나타낼 수 있습니다.
 
 JSON은 Azure SQL Database 및 Azure SQL Managed Instance에서 다른 문자열 형식처럼 사용할 수 있는 텍스트 형식입니다. JSON 데이터를 표준 NVARCHAR로 전송하거나 저장할 수 있습니다.
 
@@ -191,9 +191,3 @@ END
 ```
 
 JSON 배열로 형식이 지정되고 저장 프로시저에 대한 매개 변수로 제공되는 주문 컬렉션은 구문 분석된 후 Orders 테이블에 삽입될 수 있습니다.
-
-## <a name="next-steps"></a>다음 단계
-
-JSON을 애플리케이션에 통합하는 방법을 알아보려면 다음 리소스를 참조하세요.
-
-JSON을 애플리케이션에 통합하는 다양한 시나리오에 대해 알아보려면 이 [Channel 9 비디오](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds)에서 데모를 참조하거나 [JSON 블로그 게시물](/archive/blogs/sqlserverstorageengine/json-in-sql-server-use-cases)에서 사용 사례와 일치하는 시나리오 찾아보세요.

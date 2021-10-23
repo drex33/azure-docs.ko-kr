@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/9/2020
-ms.openlocfilehash: 7a24045d38b594e09b931a885c60851109a108e3
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
-ms.translationtype: HT
+ms.openlocfilehash: fe949aef996169f6993623fa9c4716a602f32e93
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110372691"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130260344"
 ---
 # <a name="service-configuration"></a>서비스 구성
 
@@ -48,7 +48,7 @@ App Service 사용자 지정은 사용자 지정 질문 답변(미리 보기)에
 
 QnA Maker 서비스는 다음 사용자가 단일 QnA Maker 서비스와 모든 해당 기술 자료에서 협업할 수 있도록 구성을 제공합니다.
 
-서비스에 [협력자를 추가하는 방법](./reference-role-based-access-control.md)에 대해 알아봅니다.
+서비스에 [협력자를 추가하는 방법](./index.yml)에 대해 알아봅니다.
 
 ## <a name="change-azure-cognitive-search"></a>Azure Cognitive Search 변경
 

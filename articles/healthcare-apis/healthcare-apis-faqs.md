@@ -6,14 +6,14 @@ author: ginalee-dotcom
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 07/16/2021
+ms.date: 10/21/2021
 ms.author: ginle
-ms.openlocfilehash: 3cccd2a1e418dbc66a5a8c1bfa665c6c3276552d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6debd85f084a68cc96133cc7128f97beefa2dfcb
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122435876"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130259378"
 ---
 # <a name="frequently-asked-questions-about-azure-healthcare-apis-preview"></a>Azure 의료 Api (미리 보기)에 대 한 질문과 대답
 
@@ -57,14 +57,18 @@ Azure 의료 Api를 사용 하면 다음을 수행할 수 있습니다.
 * 구독 당 25 개 인스턴스 (조정 불가능)
 * 작업 영역 당 10 개 인스턴스 (조정할 수 없음)
 
-#### <a name="iot-connector"></a>IoT Connector:
-* 구독 당 25 개 IoT 커넥터 (조정 불가능)
-* 작업 영역 당 10 개의 IoT 커넥터 (조정 불가능)
-* IoT Connector 당 1 개의 fhir 대상 * (조정 불가능)
+#### <a name="iot-connector"></a>IoT 커넥터:
+* 구독 당 25 개 IoT 커넥터 (Azure 지원 요청을 통해 조정 가능)
+* 작업 영역 당 IoT 커넥터 10 개 (Azure 지원 요청을 통해 조정 가능)
+* IoT 커넥터 당 단일 FHIR 대상 * (조정 불가능)
+
+(*-FHIR 대상은 IoT 커넥터의 자식 리소스)
 
 ## <a name="more-frequently-asked-questions"></a>기타 질문과 대답
 [Azure 의료 Api FHIR 서비스에 대 한 Faq](./fhir/fhir-faq.md)
 
 [Azure 의료 Api DICOM service에 대 한 Faq](./dicom/dicom-services-faqs.yml)
 
+[Azure 의료 Api IoT 커넥터에 대 한 Faq](./iot/iot-connector-faqs.md)
 
+(FHIR&#174;)는 [HL7](https://hl7.org/fhir/) 의 등록 상표 이며 HL7의 사용 권한과 함께 사용 됩니다.

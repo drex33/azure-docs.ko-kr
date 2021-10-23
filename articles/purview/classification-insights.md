@@ -6,19 +6,19 @@ ms.author: bagol
 ms.service: purview
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 642611a680e0848208aa7e42493fee6fc16fb4d7
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: c5f0f409f009d66afd0cb6103e2018c527c0b0a2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129208857"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130246064"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Azure Purview의 데이터에 대한 분류 인사이트
 
 이 방법 가이드는 데이터에 대한 Purview 분류 인사이트 보고서를 액세스하고, 보고, 필터링하는 방법을 설명합니다.
 
 > [!IMPORTANT]
-> Azure Purview Insights 현재 미리 보기로 제공됩니다. [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관이 포함되어 있습니다.
+> Azure 부서의 범위 Insights는 현재 미리 보기로 제공 됩니다. [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관이 포함되어 있습니다.
 
 지원되는 데이터 원본은 다음과 같습니다. Azure Blob Storage, ADLS(Azure Data Lake Storage) GEN 1, ADLS(Azure Data Lake Storage) GEN 2, Azure Cosmos DB(SQL API), Azure Synapse Analytics(이전의 SQL DW), Azure SQL Database, Azure SQL Managed Instance, SQL Server, Amazon S3 버킷
 
@@ -35,11 +35,11 @@ Purview 인사이트를 시작하기 전에 다음 단계를 완료했는지 확
 
 - Azure 리소스 설정 및 테스트 데이터를 통해 관련 계정 채우기
 
-- 데이터 원본별로 테스트 데이터에 대한 스캔 설정 및 완료 자세한 내용은 [Azure Purview에서 데이터 원본 관리](manage-data-sources.md) 및 검사 규칙 집합 [만들기를 참조하세요.](create-a-scan-rule-set.md)
+- 데이터 원본별로 테스트 데이터에 대한 스캔 설정 및 완료 자세한 내용은 [Azure 부서의 범위에서 데이터 원본 관리](manage-data-sources.md) 및 [스캔 규칙 집합 만들기](create-a-scan-rule-set.md)를 참조 하세요.
 
 - [데이터 판독기 또는 데이터 큐레이터 역할](catalog-permissions.md#roles)이 있는 계정으로 Purview에 로그인했습니다.
 
-자세한 내용은 [Azure Purview에서 데이터 원본 관리를 참조하세요.](manage-data-sources.md)
+자세한 내용은 [Azure 부서의 범위에서 데이터 원본 관리](manage-data-sources.md)를 참조 하세요.
 
 ## <a name="use-purview-classification-insights"></a>Purview 분류 인사이트 사용
 
@@ -54,7 +54,7 @@ Purview는 Microsoft 365와 동일한 중요한 정보 유형을 사용하므로
 
 1. [Azure Portal](https://aka.ms/purviewportal)의 **Azure Purview** 인스턴스 화면으로 이동해 Purview 계정을 선택합니다.
 
-1. **개요** 페이지의 **시작** 섹션에서 **Purview Studio** 타일을 선택합니다.
+1. **개요** 페이지의 **시작** 섹션에서 **부서의 범위 Studio** 타일을 선택 합니다.
 
 1. Purview에서 왼쪽의 **인사이트** :::image type="icon" source="media/insights/ico-insights.png" border="false"::: 메뉴 항목을 선택하여 **인사이트** 영역에 액세스합니다.
 
@@ -109,6 +109,3 @@ Azure Purview 인사이트 보고서에 대해 자세히 알아보기
 
 > [!div class="nextstepaction"]
 > [민감도 레이블 지정 인사이트](./sensitivity-insights.md)
-
-> [!div class="nextstepaction"]
-> [파일 확장명 인사이트](file-extension-insights.md)

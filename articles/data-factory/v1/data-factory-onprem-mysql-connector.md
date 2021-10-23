@@ -5,15 +5,15 @@ author: linda33wj
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 06/06/2018
+ms.date: 10/22/2021
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: abfeb36b5aafbf7451909ca2f586167115677a0c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6bd3494dcda84423f818dcff817718bb3f81c397
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128623668"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130242763"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 MySQL에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -61,7 +61,7 @@ MySQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 테이블은 MySQL 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | type |형식 속성은 **OnPremisesMySql** |예 |
 | 서버 |MySQL 서버의 이름입니다. |예 |
@@ -77,7 +77,7 @@ MySQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우
 
 **typeProperties** 섹션은 데이터 세트의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **RelationalTable** 형식의 데이터 세트(MySQL 데이터 세트를 포함)에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 MySQL 데이터베이스 인스턴스에서 테이블의 이름입니다. |아니요(**RelationalSource** 의 **쿼리** 가 지정된 경우) |
 

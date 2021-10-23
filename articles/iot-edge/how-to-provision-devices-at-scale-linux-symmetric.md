@@ -1,6 +1,6 @@
 ---
 title: Linux에서 대칭 키를 사용하여 IoT Edge 디바이스 만들기 및 프로비전 - Azure IoT Edge | Microsoft Docs
-description: 대칭 키 증명을 사용하여 Device Provisioning Service를 사용하여 Azure IoT Edge에 대한 대규모 Linux 디바이스 프로비저닝 테스트
+description: 대칭 키 증명을 사용하여 Device Provisioning Service에서 Azure IoT Edge에 대한 대규모 프로비저닝 Linux 디바이스를 테스트합니다.
 author: v-tcassi
 ms.author: v-tcassi
 ms.reviewer: kgremban
@@ -8,12 +8,12 @@ ms.date: 08/17/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c2bae93e325a36b6db28d1a9c1e6e47ee947db39
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b19990be57332df6de4ccbb45ae92c74b30041b3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128705714"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226056"
 ---
 # <a name="create-and-provision-iot-edge-devices-at-scale-on-linux-using-symmetric-key"></a>대칭 키를 사용하여 Linux에서 대규모로 IoT Edge 디바이스 만들기 및 프로비전
 
@@ -39,14 +39,14 @@ ms.locfileid: "128705714"
 * IoT Edge 디바이스가 될 물리적 또는 가상 Linux 디바이스입니다.
   * 각 디바이스를 식별하려면 *고유한* **등록 ID를** 정의해야 합니다. 디바이스에서 MAC 주소, 일련 번호 또는 고유 정보를 사용할 수 있습니다. 이 예제에서는 등록 ID에 대한 `sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6` 문자열을 형성하는 MAC 주소와 일련 번호의 조합을 사용합니다. 유효한 문자는 소문자 영숫자 및 대시(`-`)입니다.
 * Azure의 IoT Hub Device Provisioning Service의 새 인스턴스로 IoT 허브에 연결되어 있습니다.
-  * Device Provisioning Service 인스턴스가 없는 경우 IoT Hub Device Provisioning Service 빠른 시작의 [새 IoT Hub Device Provisioning Service 만들기](../iot-dps/quick-setup-auto-provision.md#create-a-new-iot-hub-device-provisioning-service) 및 [IoT Hub 및 Device Provisioning Service 연결](../iot-dps/quick-setup-auto-provision.md#link-the-iot-hub-and-your-device-provisioning-service) 섹션의 지침을 따를 수 있습니다.
+  * Device Provisioning Service 인스턴스가 없는 경우 새 [IoT Hub Device Provisioning Service 만들기](../iot-dps/quick-setup-auto-provision.md#create-a-new-iot-hub-device-provisioning-service) 및 IoT Hub Device Provisioning Service 빠른 시작의 [IoT Hub 및 Device Provisioning Service 연결](../iot-dps/quick-setup-auto-provision.md#link-the-iot-hub-and-your-device-provisioning-service) 섹션의 지침을 따를 수 있습니다.
   * Device Provisioning Service를 실행한 후 개요 페이지에서 **ID 범위** 값을 복사합니다. IoT Edge 런타임을 구성하는 경우 이 값을 사용합니다.
 
 ## <a name="create-a-dps-enrollment"></a>DPS 등록 만들기
 
 DPS를 통해 하나 이상의 디바이스를 프로비전하는 등록을 만듭니다.
 
-단일 IoT Edge 디바이스를 프로비전하려는 경우 **개별 등록을** 만듭니다. 여러 디바이스를 프로비전해야 하는 경우 DPS **그룹 등록을** 만드는 단계를 수행합니다.
+단일 IoT Edge 디바이스를 프로비전하려는 경우 개별 **등록** 을 만듭니다. 여러 디바이스를 프로비전해야 하는 경우 DPS **그룹 등록을** 만드는 단계를 수행합니다.
 
 DPS에서 등록을 만들 때 초기 디바이스 쌍 **상태를** 선언할 수 있습니다. 디바이스 쌍에서 지역, 환경, 위치 또는 디바이스 유형 같은 솔루션에 필요한 모든 메트릭으로 디바이스 그룹에 태그를 설정할 수 있습니다. 이러한 태그는 [자동 배포](how-to-deploy-at-scale.md)를 만드는 데 사용됩니다.
 
@@ -57,7 +57,7 @@ Device Provisioning Service의 등록에 대한 자세한 내용은 [디바이�
 ### <a name="create-a-dps-individual-enrollment"></a>DPS 개별 등록 만들기
 
 > [!TIP]
-> 이 문서의 단계는 Azure Portal 위한 것이지만 Azure CLI 사용하여 개별 등록을 만들 수도 있습니다. 자세한 내용은 [az iot dps enrollment](/cli/azure/iot/dps/enrollment)를 참조하세요. CLI 명령의 일부로 **에지 사용** 플래그를 사용하여 IoT Edge 장치에 대한 등록을 지정합니다.
+> 이 문서의 단계는 Azure Portal 위한 단계이지만 Azure CLI 사용하여 개별 등록을 만들 수도 있습니다. 자세한 내용은 [az iot dps enrollment](/cli/azure/iot/dps/enrollment)를 참조하세요. CLI 명령의 일부로 **에지 사용** 플래그를 사용하여 IoT Edge 장치에 대한 등록을 지정합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 IoT Hub Device Provisioning Service 인스턴스로 이동합니다.
 
@@ -97,7 +97,7 @@ Device Provisioning Service의 등록에 대한 자세한 내용은 [디바이�
 ### <a name="create-a-dps-group-enrollment"></a>DPS 그룹 등록 만들기
 
 > [!TIP]
-> 이 문서의 단계는 Azure Portal 위한 것이지만 Azure CLI 사용하여 그룹 등록을 만들 수도 있습니다. 자세한 내용은 [az iot dps enrollment-group](/cli/azure/iot/dps/enrollment-group)을 참조하세요. CLI 명령의 일부로 **에지 사용** 플래그를 사용하여 IoT Edge 장치에 대한 등록을 지정합니다. 그룹 등록의 경우 모든 디바이스가 IoT Edge 디바이스여야 하며, 그렇지 않은 경우 어떤 디바이스도 등록할 수 없습니다.
+> 이 문서의 단계는 Azure Portal 대한 단계이지만 Azure CLI 사용하여 그룹 등록을 만들 수도 있습니다. 자세한 내용은 [az iot dps enrollment-group](/cli/azure/iot/dps/enrollment-group)을 참조하세요. CLI 명령의 일부로 **에지 사용** 플래그를 사용하여 IoT Edge 장치에 대한 등록을 지정합니다. 그룹 등록의 경우 모든 디바이스가 IoT Edge 디바이스여야 하며, 그렇지 않은 경우 어떤 디바이스도 등록할 수 없습니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 IoT Hub Device Provisioning Service 인스턴스로 이동합니다.
 
@@ -235,7 +235,7 @@ Azure IoT Edge는 OCI 호환 컨테이너 런타임을 사용합니다. 프로�
 
 IoT Edge 보안 디먼은 IoT Edge 디바이스에서 보안 표준을 제공하고 유지 관리합니다. 디먼은 부팅할 때마다 시작되며, 나머지 IoT Edge 런타임을 시작하여 디바이스를 부트스트랩합니다.
 
-이 섹션의 단계는 인터넷에 연결되어 있는 디바이스에 최신 버전을 설치하는 일반적인 프로세스를 나타냅니다. 특정 버전(예: 릴리스 전 버전)을 설치해야 하거나 오프라인 상태에서 설치해야 하는 경우 [오프라인 또는 특정 버전 설치 단계를 수행합니다.](how-to-install-iot-edge.md#offline-or-specific-version-installation-optional)
+이 섹션의 단계는 인터넷에 연결되어 있는 디바이스에 최신 버전을 설치하는 일반적인 프로세스를 나타냅니다. 특정 버전(예: 릴리스 전 버전)을 설치해야 하거나 오프라인 상태에서 설치해야 하는 경우 [오프라인 또는 특정 버전 설치 단계를 수행합니다.](how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional)
 
 1. 디바이스에서 패키지 목록을 업데이트합니다.
 
@@ -262,7 +262,7 @@ IoT Edge 서비스는 IoT Edge 디바이스에서 보안 표준을 제공하고 
 
 IoT ID 서비스는 IoT Edge 버전 1.2와 함께 도입되었습니다. 이 서비스는 IoT Edge 및 IoT Hub와 통신해야 하는 기타 디바이스 구성 요소에 대한 ID 프로비저닝 및 관리를 다룹니다.
 
-이 섹션의 단계는 인터넷에 연결된 디바이스에 최신 버전을 설치하는 일반적인 프로세스를 보여 줍니다. 특정 버전(예: 릴리스 전 버전)을 설치해야 하거나 오프라인 상태에서 설치해야 하는 경우 [오프라인 또는 특정 버전 설치 단계를 수행합니다.](how-to-install-iot-edge.md#offline-or-specific-version-installation-optional)
+이 섹션의 단계는 인터넷에 연결된 디바이스에 최신 버전을 설치하는 일반적인 프로세스를 보여 줍니다. 특정 버전(예: 릴리스 전 버전)을 설치해야 하거나 오프라인 상태에서 설치해야 하는 경우 [오프라인 또는 특정 버전 설치 단계를 수행합니다.](how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional)
 
 디바이스에서 패키지 목록을 업데이트합니다.
 

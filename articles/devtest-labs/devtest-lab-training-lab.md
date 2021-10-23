@@ -3,12 +3,12 @@ title: 학습에 Azure DevTest Labs 사용
 description: 이 문서에서는 Azure DevTest Labs에서 학습을 위한 랩을 설정하는 자세한 단계를 제공합니다.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: d72d87cf2108a5e6d372edbf698e6adc7b100618
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b7de17f89e5e7a23290e00402e13c7035df03578
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128629259"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130228999"
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>학습에 Azure DevTest Labs 사용
 Azure DevTest Labs는 개발/테스트 외에도 여러 주요 시나리오를 구현하는 데 사용할 수 있습니다. 이러한 시나리오 중 하나는 학습용 랩을 설정하는 것입니다. Azure DevTest Labs를 통해 각 실습생이 동일하고 격리된 학습용 환경을 만드는 데 사용할 수 있는 사용자 지정 템플릿을 제공할 수 있는 랩을 만들 수 있습니다. 각 실습생이 필요할 때에만 교육 환경을 이용할 수 있도록 하고 교육에 필요한 리소스(예: 가상 머신)를 충분히 포함하는 정책을 적용할 수 있습니다. 마지막으로 실습생과 랩을 쉽게 공유할 수 있고 실습생은 한 번의 클릭으로 액세스할 수 있습니다.
@@ -68,10 +68,10 @@ Azure DevTest Labs는 모든 가상 환경에서 학습을 수행하는 데 필�
    | Task | 학습 내용 |
    | --- | --- |
    | [랩 정책 정의](devtest-lab-set-lab-policy.md) |랩에 정책을 설정하여 비용을 제어합니다. |
-   | [PowerShell 스크립트를 사용하여 모든 랩 VM 삭제](/azure/devtest-labs/devtest-lab-faq#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |학습이 완료되면 한 번에 모든 랩을 삭제합니다. |
+   | [PowerShell 스크립트를 사용하여 모든 랩 VM 삭제](./devtest-lab-faq.yml) |학습이 완료되면 한 번에 모든 랩을 삭제합니다. |
 5. **각 실습생과 랩 공유**
    
-    실습생과 공유하는 링크를 사용하여 랩에 직접 액세스할 수 있습니다. [Microsoft 계정](/azure/devtest-labs/devtest-lab-faq#what-is-a-microsoft-account)이 있는 실습생은 Azure 계정이 없어도 됩니다. 실습생은 다른 실습생이 만든 VM을 볼 수 없습니다.  
+    실습생과 공유하는 링크를 사용하여 랩에 직접 액세스할 수 있습니다. [Microsoft 계정](./devtest-lab-faq.yml)이 있는 실습생은 Azure 계정이 없어도 됩니다. 실습생은 다른 실습생이 만든 VM을 볼 수 없습니다.  
    
     다음 표에 있는 링크를 클릭하면 자세히 알아볼 수 있습니다.
    
@@ -79,7 +79,7 @@ Azure DevTest Labs는 모든 가상 환경에서 학습을 수행하는 데 필�
    | --- | --- |
    | [Azure DevTest Labs에서 랩에 실습생 추가](devtest-lab-add-devtest-user.md) |Azure Portal을 사용하여 학습 랩에 실습생을 추가합니다. |
    | [PowerShell 스크립트를 사용하여 랩에 실습생 추가](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |PowerShell을 사용하여 학습 랩에 자동으로 실습생을 추가합니다. |
-   | [랩에 대한 링크 가져오기](/azure/devtest-labs/devtest-lab-faq#how-do-i-share-a-direct-link-to-my-lab) |하이퍼링크를 통해 랩에 바로 액세스할 수 있는 방법을 알아봅니다. |
+   | [랩에 대한 링크 가져오기](./devtest-lab-faq.yml) |하이퍼링크를 통해 랩에 바로 액세스할 수 있는 방법을 알아봅니다. |
 6. **랩을 반복해서 다시 사용** 
    
     Resource Manager 템플릿을 만들어 동일한 랩을 반복해서 다시 만드는 데 사용하면 사용자 지정 설정을 포함하여 랩 만들기를 자동화할 수 있습니다. 
@@ -88,6 +88,6 @@ Azure DevTest Labs는 모든 가상 환경에서 학습을 수행하는 데 필�
    
    | Task | 학습 내용 |
    | --- | --- |
-   | [Resource Manager 템플릿을 사용하여 랩 만들기](/azure/devtest-labs/devtest-lab-faq#how-do-i-create-a-lab-from-a-resource-manager-template) |Resource Manager 템플릿을 사용하여 Azure DevTest Labs에서 랩을 만듭니다. |
+   | [Resource Manager 템플릿을 사용하여 랩 만들기](./devtest-lab-faq.yml) |Resource Manager 템플릿을 사용하여 Azure DevTest Labs에서 랩을 만듭니다. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

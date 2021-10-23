@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure DevTest Labs를 사용하기 위한 기�
 ms.topic: conceptual
 ms.date: 06/20/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: fc4c7ca1cdbc8e503ad6c0d94fcec2d9697baae4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9daf32e5094616a98b6fcd6b1f337eadf2d7ee82
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128657484"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130235018"
 ---
 # <a name="popular-scenarios-for-using-azure-devtest-labs"></a>Azure DevTest Labs를 사용하기 위한 일반 시나리오
 엔터프라이즈의 요구에 따라 다양한 요구 사항을 충족하도록 DevTest Labs를 구성할 수 있습니다.  이 문서에서는 일반 시나리오에 대해 설명합니다. 각 시나리오에서는 DevTest Labs를 사용하여 얻은 이점과 이러한 시나리오를 구현하는 데 사용할 리소스를 다룹니다.  
@@ -27,7 +27,7 @@ ms.locfileid: "128657484"
 - 개발자는 필요에 따라 개발 컴퓨터를 신속하게 프로비전하거나 [미리 구성된 기존 컴퓨터를 요청](devtest-lab-add-claimable-vm.md)할 수 있습니다.
 - 개발자는 구독 수준 권한 없이도 셀프 서비스 방식으로 리소스를 프로비전할 수 있습니다.
 - IT 담당자나 관리자는 [네트워킹 토폴로지를 미리 정의](devtest-lab-configure-vnet.md)할 수 있으며, 개발자는 특별한 액세스 권한 없이도 단순하고 직관적인 방식으로 이 토폴로지를 직접 활용할 수 있습니다.
-- 개발자는 필요할 때마다 개발 컴퓨터를 쉽게 [사용자 지정](devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm)할 수 있습니다.
+- 개발자는 필요할 때마다 개발 컴퓨터를 쉽게 [사용자 지정](devtest-lab-add-vm.md#add-artifacts-after-installation)할 수 있습니다.
 - 관리자는 다음을 확인하여 비용을 제어할 수 있습니다.
     - 개발자는 개발에 필요한 것보다 [더 많은 VM을 가져올 수 없습니다](devtest-lab-set-lab-policy.md#set-virtual-machines-per-user).
     - VM은 사용하지 않을 때 [종료](devtest-lab-set-lab-policy.md#set-auto-shutdown)됩니다.
@@ -60,7 +60,7 @@ Azure DevTest Labs의 랩은 워크샵, 실습 랩, 교육 또는 해커톤과 �
 - [정책](devtest-lab-set-lab-policy.md)을 통해 실습생은 필요한 리소스(예: 가상 머신)의 수만 얻을 수 있습니다.
 - 미리 구성된 컴퓨터와 만든 컴퓨터는 실습생의 단일 작업으로 [요청](devtest-lab-add-claimable-vm.md)됩니다.
 - 랩은 [랩의 URL](/azure/devtest-labs/devtest-lab-faq#how-do-i-share-a-direct-link-to-my-lab)에 액세스하여 실습생과 공유됩니다.
-- 가상 머신의 [만료 날짜](devtest-lab-add-vm.md#steps-to-add-a-vm-to-a-lab-in-azure-devtest-labs)는 더 이상 필요하지 않은 컴퓨터를 삭제하도록 합니다.
+- 가상 머신의 [만료 날짜](devtest-lab-add-vm.md#create-and-add-virtual-machines)는 더 이상 필요하지 않은 컴퓨터를 삭제하도록 합니다.
 - 교육이 끝나면 랩 및 모든 [관련 리소스](/azure/devtest-labs/devtest-lab-faq#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab)를 쉽게 [삭제](devtest-lab-delete-lab-vm.md#delete-a-lab)할 수 있습니다.
 
 자세한 내용은 [교육에 DevTest Labs 사용](devtest-lab-training-lab.md)을 참조하세요.  

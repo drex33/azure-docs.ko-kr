@@ -42,4 +42,4 @@
     - name: FAQ
       href: faq.yml
     - name: 클라우드 채택 프레임워크
-      href: 'https://docs.microsoft.com/azure/cloud-adoption-framework/manage/azure-server-management'
+      href: /azure/cloud-adoption-framework/manage/azure-server-management

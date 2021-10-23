@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7a6b1099ea81c7a4a50692496ee044fe4a72bd24
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 832ae975a19fa7765666acd791c7dfec05a55c3c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124742949"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130235037"
 ---
 # <a name="migrate-databases-with-azure-sql-migration-extension-for-azure-data-studio-preview"></a>Azure Data Studio에 대한 Azure SQL 마이그레이션 확장을 사용하여 데이터베이스 마이그레이션(미리 보기)
 
@@ -83,7 +83,7 @@ DMS는 Azure Data Factory의 자체 호스팅 통합 런타임을 사용하여 �
     > 데이터베이스 백업 파일이 이미 Azure Storage 계정에 제공된 경우 마이그레이션 프로세스 중에 자체 호스팅 통합 런타임이 필요하지 않습니다.
 
 * 자체 호스팅 통합 런타임을 사용하는 경우 런타임이 설치된 시스템이 백업 파일이 있는 원본 SQL Server 인스턴스 및 네트워크 파일 공유에 연결할 수 있는지 확인합니다. 네트워크 파일 공유에 대한 액세스를 허용하려면 아웃바운드 포트 445를 사용하도록 설정해야 합니다.
-* Azure Database Migration Service를 처음 사용하는 경우 Microsoft.DataMigration 리소스 공급자가 구독에 등록되어 있는지 확인하세요. 다음 단계에 따라 [리소스 공급자를 등록](/azure/dms/quickstart-create-data-migration-service-portal#register-the-resource-provider)할 수 있습니다.
+* Azure Database Migration Service를 처음 사용하는 경우 Microsoft.DataMigration 리소스 공급자가 구독에 등록되어 있는지 확인하세요. 다음 단계에 따라 [리소스 공급자를 등록](./quickstart-create-data-migration-service-portal.md#register-the-resource-provider)할 수 있습니다.
 
 ### <a name="recommendations-for-using-self-hosted-integration-runtime-for-database-migrations"></a>데이터베이스 마이그레이션을 위한 자체 호스팅 통합 런타임 사용에 대한 권장 사항
 - 여러 원본 SQL Server 데이터베이스에 단일 자체 호스팅 통합 런타임을 사용합니다.

@@ -2,21 +2,21 @@
 title: 전용 SQL 풀의 columnstore 인덱스 성능 향상
 description: 메모리 요구 사항을 줄이거나 사용 가능한 메모리를 늘려 전용 SQL 풀의 각 행 그룹 내 행 수를 최대화합니다.
 services: synapse-analytics
-author: julieMSFT
+author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 03/22/2019
-ms.author: jrasnick
-ms.reviewer: igorstan
+ms.date: 10/18/2021
+ms.author: wiassaf
+ms.reviewer: ''
 ms.custom: azure-synapse
-ms.openlocfilehash: 1336359bdd0768ba1d1554554d266cacfb483a43
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
-ms.translationtype: HT
+ms.openlocfilehash: c461128daf0c6ca9fcaa09ba9b87ecc884405f0b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107566514"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249308"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore-indexes-in-dedicated-sql-pool"></a>전용 SQL 풀에서 columnstore 인덱스에 대한 행 그룹 품질 최대화 
 
@@ -83,9 +83,7 @@ trim_reason_desc는 행 그룹이 잘렸는지 여부를 나타냅니다. trim_r
 
 ## <a name="how-to-estimate-memory-requirements"></a>메모리 요구 사항을 예측하는 방법
 
-<!--
-To view an estimate of the memory requirements to compress a rowgroup of maximum size into a columnstore index, download and run the view [dbo.vCS_mon_mem_grant](). This view shows the size of the memory grant that a rowgroup requires for compression in to the columnstore.
--->
+최대 크기의 행 그룹을 columnstore 인덱스로 압축하기 위한 예상 메모리 요구 사항을 보려면 dbo.vCS_mon_mem_grant 샘플 [뷰를](..\sql\data-load-columnstore-compression.md)만드는 것이 좋습니다. 이 쿼리는 rowgroup이 columnstore로 압축하는 데 필요한 메모리 부여의 크기를 보여 주는 쿼리입니다.
 
 한 개의 행 그룹을 압축하는 데 필요한 최대 메모리는 대략적으로 다음과 같습니다.
 
@@ -98,8 +96,6 @@ To view an estimate of the memory requirements to compress a rowgroup of maximum
 > short-string-columns는 32바이트 이하의 문자열 데이터 형식을 사용하고 long-string-columns는 32바이트를 초과하는 문자열 데이터 형식을 사용합니다.
 
 긴 문자열은 텍스트 압축용으로 고안된 압축 방법으로 압축됩니다. 이 압축 방법은 *사전* 을 사용하여 텍스트 패턴을 저장합니다. 사전의 최대 크기는 16MB입니다. 행 그룹에는 긴 문자열 각각에 대해 사전이 한 개만 있습니다.
-
-columnstore 메모리 요구 사항에 대한 자세한 내용은 [전용 SQL 풀 확장: 구성 및 참고 자료](https://channel9.msdn.com/Events/Ignite/2016/BRK3291) 비디오를 참조하세요.
 
 ## <a name="ways-to-reduce-memory-requirements"></a>메모리 요구 사항을 줄이는 방법
 

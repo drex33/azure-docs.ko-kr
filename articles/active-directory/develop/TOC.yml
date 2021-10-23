@@ -733,9 +733,9 @@
     - name: 동영상
       href: identity-videos.md
     - name: Microsoft ID 플랫폼 개발자 블로그
-      href: 'https://developer.microsoft.com/en-us/identity/blogs/'
+      href: 'https://developer.microsoft.com/identity/blogs/'
     - name: Azure AD 블로그
-      href: 'https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory'
+      href: 'https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
     - name: Microsoft에 로그인 시도

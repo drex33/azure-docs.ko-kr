@@ -10,12 +10,12 @@ ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1b69aed711100eead6e7669c7d57e2f8faac25ad
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
-ms.translationtype: HT
+ms.openlocfilehash: c696105fee677e8e8dca71d5515e0dd2374960b0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539154"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130228452"
 ---
 # <a name="manage-python-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark용 Python 라이브러리 관리
 
@@ -61,7 +61,7 @@ absl-py==0.7.0
 adal==1.2.1
 alabaster==0.7.10
 ```
-##### <a name="yml-format-preview"></a>YML 형식(미리 보기)
+##### <a name="yml-format"></a>YML 형식
 또한 *environment.yml* 파일을 제공하여 풀 환경을 업데이트할 수도 있습니다. 이 파일에 나열된 패키지는 기본 Conda 채널, Conda-Forge 및 PyPI에서 다운로드됩니다. 구성 옵션을 사용하여 다른 채널을 지정하거나 기본 채널을 제거할 수 있습니다.
 
 이 예제에서는 채널과 Conda/PyPI 종속성을 지정합니다. 
@@ -116,7 +116,7 @@ Spark 풀에 라이브러리를 업데이트하거나 추가하려면:
 > 이 설정을 선택하지 않으면 현재 Spark 세션이 종료될 때까지 기다리거나 수동으로 중지해야 합니다. 세션이 종료되면 풀을 다시 시작하도록 해야 합니다.
 
 
-##### <a name="track-installation-progress-preview"></a>설치 진행률 추적(미리 보기)
+##### <a name="track-installation-progress"></a>설치 진행률 추적  
 시스템 예약 Spark 작업은 새 라이브러리 집합으로 풀이 업데이트될 때마다 시작됩니다. 이 Spark 작업은 라이브러리 설치 상태를 모니터링하는 데 유용합니다. 라이브러리 충돌이나 기타 문제로 인해 설치가 실패하는 경우 Spark 풀이 이전 또는 기본 상태로 되돌아갑니다. 
 
 또한 사용자는 설치 로그를 검사하여 종속성 충돌을 식별하거나 풀 업데이트 중에 설치된 라이브러리를 확인할 수도 있습니다.
@@ -132,7 +132,7 @@ Spark 풀에 라이브러리를 업데이트하거나 추가하려면:
 ## <a name="install-wheel-files"></a>휠 파일 설치
 Python 휠 파일은 Python 라이브러리를 패키징하는 일반적인 방법입니다. Azure Synapse Analytics 내에서 사용자는 자신의 휠 파일을 Azure Data Lake Storage 계정의 잘 알려진 위치에 업로드하거나 Azure Synapse 작업 영역 패키지 인터페이스를 사용해 업로드할 수 있습니다.
 
-### <a name="workspace-packages-preview"></a>작업 영역 패키지(미리 보기)
+### <a name="workspace-packages"></a>작업 영역 패키지 
 작업 영역 패키지는 사용자 지정되거나 프라이빗 휠 파일일 수 있습니다. 이러한 패키지를 작업 영역에 업로드하고 나중에 특정 Spark 풀에 할당할 수 있습니다.
 
 작업 영역 패키지를 추가하려면:
@@ -145,7 +145,7 @@ Python 휠 파일은 Python 라이브러리를 패키징하는 일반적인 방�
 >[!WARNING]
 >- Azure Synapse 내에서 Apache Spark 풀은 작업 영역 패키지로 업로드되거나 잘 알려진 Azure Data Lake Storage 경로 내에 업로드된 사용자 지정 라이브러리를 활용할 수 있습니다. 그러나 이러한 두 옵션은 동일한 Apache Spark 풀 내에서 동시에 사용할 수 없습니다. 두 방법을 모두 사용하여 패키지를 제공하면 작업 영역 패키지 목록에 지정된 휠 파일만 설치됩니다. 
 >
->- 지정된 Apache Spark 풀에 패키지를 설치하는 데 작업 영역 패키지(미리 보기)를 사용하는 경우 동일한 풀에서 스토리지 계정 경로를 사용하여 패키지를 더 이상 지정할 수 없다는 제한 사항이 있습니다.  
+>- 작업 영역 패키지가 지정된 Apache Spark 풀에 패키지를 설치하는 데 사용되면 동일한 풀에서 Storage 계정 경로를 사용하여 패키지를 더 이상 지정할 수 없다는 제한이 있습니다.  
 
 ### <a name="storage-account"></a>스토리지 계정
 Synapse 작업 영역에 연결된 Azure Data Lake Storage(Gen2) 계정에 모든 휠 파일을 업로드하여 Apache Spark 풀에 사용자 지정 제공 휠 패키지를 설치할 수 있습니다. 
@@ -164,7 +164,7 @@ abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<wo
 > Azure DataLake 스토리지 메서드를 사용하여 사용자 지정 라이브러리를 설치하려면 Azure Synapse Analytics 작업 영역에 연결된 기본 Gen2 스토리지 계정에 대한 **Storage Blob 데이터 참가자** 또는 **Storage Blob 데이터 소유자** 권한이 있어야 합니다.
 
 
-## <a name="session-scoped-packages-preview"></a>세션 범위 패키지(미리 보기)
+## <a name="session-scoped-packages"></a>세션 범위 패키지
 풀 수준 패키지 외에도 Notebook 세션의 시작 부분에 세션 범위 라이브러리를 지정할 수 있습니다.  세션 범위 라이브러리를 사용하면 Notebook 세션 내에서 사용자 지정 Python 환경을 지정하고 사용할 수 있습니다. 
 
 세션 범위 라이브러리를 사용하는 경우 다음 사항을 염두에 두어야 합니다.

@@ -10,19 +10,19 @@ ms.topic: quickstart
 ms.date: 10/07/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: be4f6f7e2b1bc8e7999ee47467e89ef7625b2acf
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 261b0d20ae5e5f2438b559bc79c271b717606083
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129716685"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130161145"
 ---
 # <a name="quickstart-form-recognizer-python-client-library-sdks-v30--preview"></a>빠른 시작: Form Recognizer Python 클라이언트 라이브러리 SDK v3.0 | 미리 보기
 
 Python 프로그래밍 언어를 사용하여 Azure Form Recognizer를 시작합니다. Azure Form Recognizer는 기계 학습 기술을 사용하여 자동화된 데이터 처리 소프트웨어를 빌드할 수 있는 [Azure Applied AI Service](../../../applied-ai-services/index.yml) 클라우드 서비스입니다. REST API 또는 SDK를 통해 Form Recognizer를 사용할 수 있습니다. 기술을 학습할 때 체험판 서비스를 이용하는 것이 좋습니다. 체험판 페이지는 한 달에 500페이지로 제한됩니다.
 
 >[!NOTE]
-> Form Recognizer v3.0은 현재 공개 미리 보기에 있습니다. 일부 기능은 지원되지 않거나 기능이 제한될 수 있습니다. 
+> Form Recognizer v3.0은 현재 공개 미리 보기에 있습니다. 일부 기능은 지원되지 않거나 기능이 제한될 수 있습니다.
 
 [참조 설명서](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/latest/azure.ai.formrecognizer.html) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer) | [패키지(PyPi)](https://pypi.org/project/azure-ai-formrecognizer/) | [샘플](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
@@ -116,107 +116,10 @@ key = "YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY"
 
 ```python
 
-def analyze_document():
-    # sample form document
-    formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
-
-    document_analysis_client = DocumentAnalysisClient(
-        endpoint=endpoint, credential=AzureKeyCredential(key)
-    )
-
-    poller = document_analysis_client.begin_analyze_document(
-        "prebuilt-document", formUrl
-    )
-    result = poller.result()
-
-    for style in result.styles:
-        if style.is_handwritten:
-            print "Document contains handwritten content: "
-            print ",".join([result.content[span.offset:span.offset
-                           + span.length] for span in style.spans])
-    for page in result.pages:
-        print "----Analyzing document from page #{}----".format(page.page_number)
-        print "Page has width: {} and height: {}, measured with unit: {}".format(
-            page.width, page.height, page.unit
-        )
-
-        for (line_idx, line) in enumerate(page.lines):
-            print "...Line # {} has text content '{}' within bounding box '{}'".format(
-                line_idx, line.content, format_bounding_box(line.bounding_box)
-            )
-
-        for word in page.words:
-            print "...Word '{}' has a confidence of {}".format(
-                word.content, word.confidence
-            )
-
-        for selection_mark in page.selection_marks:
-            print "...Selection mark is '{}' within bounding box '{}' and has a confidence of {}".format(
-                selection_mark.state,
-                format_bounding_box(selection_mark.bounding_box),
-                selection_mark.confidence,
-            )
-
-    for (table_idx, table) in enumerate(result.tables):
-        print "Table # {} has {} rows and {} columns".format(
-            table_idx, table.row_count, table.column_count
-        )
-
-        for region in table.bounding_regions:
-            print "Table # {} location on page: {} is {}".format(
-                table_idx, region.page_number, format_bounding_box(region.bounding_box)
-            )
-
-        for cell in table.cells:
-            print "...Cell[{}][{}] has content '{}'".format(
-                cell.row_index, cell.column_index, cell.content
-            )
-
-            for region in cell.bounding_regions:
-                print "...content on page {} is within bounding box '{}'\n".format(
-                    region.page_number, format_bounding_box(region.bounding_box)
-                )
-
-    print "----Entities found in document----"
-    for entity in result.entities:
-        print "Entity of category '{}' with sub-category '{}'".format(
-            entity.category, entity.sub_category
-        )
-        print "...has content '{}'".format(entity.content)
-        print "...within '{}' bounding regions".format(
-            format_bounding_region(entity.bounding_regions)
-        )
-        print "...with confidence {}\n".format(entity.confidence)
-
-    print "----Key-value pairs found in document----"
-    for kv_pair in result.key_value_pairs:
-        if kv_pair.key:
-            print "Key '{}' found within '{}' bounding regions".format(
-                kv_pair.key.content,
-                format_bounding_region(kv_pair.key.bounding_regions),
-            )
-
-        if kv_pair.value:
-            print "Value '{}' found within '{}' bounding regions\n".format(
-                kv_pair.value.content,
-                format_bounding_region(kv_pair.value.bounding_regions),
-            )
-
-    print "----------------------------------------"
-
-    analyze_document()
-```
-
-## <a name="try-it-layout-model"></a>**사용해 보기**: 레이아웃 모델
-
-> [!div class="checklist"]
->
-> * 이 예제에서는 **URI에 있는 양식 문서 파일** 이 필요합니다. 이 빠른 시작에는 [샘플 양식 문서](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf)를 사용할 수 있습니다.
-> * 파일 URI 값을 파일 위쪽 근처에 있는 `formUrl` 변수에 추가합니다.
-
-### <a name="add-the-following-code-to-your-layout-application-on-the-line-below-the-key-variable"></a>다음 코드를 레이아웃 애플리케이션의 `key` 변수 아래의 줄에 추가
-
-```python
+def format_bounding_region(bounding_regions):
+    if not bounding_regions:
+        return "N/A"
+    return ", ".join("Page #{}: {}".format(region.page_number, format_bounding_box(region.bounding_box)) for region in bounding_regions)
 
 def format_bounding_box(bounding_box):
     if not bounding_box:
@@ -224,26 +127,49 @@ def format_bounding_box(bounding_box):
     return ", ".join(["[{}, {}]".format(p.x, p.y) for p in bounding_box])
 
 
-def analyze_layout():
-    # sample form document
+def analyze_general_documents():
+
     formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
     document_analysis_client = DocumentAnalysisClient(
         endpoint=endpoint, credential=AzureKeyCredential(key)
     )
 
-    poller = document_analysis_client.begin_analyze_document("prebuilt-layout", formUrl)
+    poller = document_analysis_client.begin_analyze_document_from_url(
+            "prebuilt-document", formUrl)
     result = poller.result()
 
-    for idx, style in enumerate(result.styles):
-        print(
-            "Document contains {} content".format(
-                "handwritten" if style.is_handwritten else "no handwritten"
-            )
-        )
+    for style in result.styles:
+        if style.is_handwritten:
+            print("Document contains handwritten content: ")
+            print(",".join([result.content[span.offset:span.offset + span.length] for span in style.spans]))
+
+    print("----Key-value pairs found in document----")
+    for kv_pair in result.key_value_pairs:
+        if kv_pair.key:
+            print(
+                    "Key '{}' found within '{}' bounding regions".format(
+                        kv_pair.key.content,
+                        format_bounding_region(kv_pair.key.bounding_regions),
+                    )
+                )
+        if kv_pair.value:
+            print(
+                    "Value '{}' found within '{}' bounding regions\n".format(
+                        kv_pair.value.content,
+                        format_bounding_region(kv_pair.value.bounding_regions),
+                    )
+                )
+
+    print("----Entities found in document----")
+    for entity in result.entities:
+        print("Entity of category '{}' with sub-category '{}'".format(entity.category, entity.sub_category))
+        print("...has content '{}'".format(entity.content))
+        print("...within '{}' bounding regions".format(format_bounding_region(entity.bounding_regions)))
+        print("...with confidence {}\n".format(entity.confidence))
 
     for page in result.pages:
-        print("----Analyzing layout from page #{}----".format(page.page_number))
+        print("----Analyzing document from page #{}----".format(page.page_number))
         print(
             "Page has width: {} and height: {}, measured with unit: {}".format(
                 page.width, page.height, page.unit
@@ -275,39 +201,77 @@ def analyze_layout():
                 )
             )
 
-        for table_idx, table in enumerate(result.tables):
+    for table_idx, table in enumerate(result.tables):
+        print(
+            "Table # {} has {} rows and {} columns".format(
+                table_idx, table.row_count, table.column_count
+            )
+        )
+        for region in table.bounding_regions:
             print(
-                "Table # {} has {} rows and {} columns".format(
-                    table_idx, table.row_count, table.column_count
+                "Table # {} location on page: {} is {}".format(
+                    table_idx,
+                    region.page_number,
+                    format_bounding_box(region.bounding_box),
                 )
             )
-            for region in table.bounding_regions:
+        for cell in table.cells:
+            print(
+                "...Cell[{}][{}] has content '{}'".format(
+                    cell.row_index,
+                    cell.column_index,
+                    cell.content,
+                )
+            )
+            for region in cell.bounding_regions:
                 print(
-                    "Table # {} location on page: {} is {}".format(
-                        table_idx,
+                    "...content on page {} is within bounding box '{}'\n".format(
                         region.page_number,
                         format_bounding_box(region.bounding_box),
                     )
                 )
-            for cell in table.cells:
-                print(
-                    "...Cell[{}][{}] has content '{}'".format(
-                        cell.row_index,
-                        cell.column_index,
-                        cell.content,
-                    )
-                )
-                for region in cell.bounding_regions:
-                    print(
-                        "...content on page {} is within bounding box '{}'".format(
-                            region.page_number,
-                            format_bounding_box(region.bounding_box),
-                        )
-                    )
+    print("----------------------------------------")
 
-        print("----------------------------------------")
 
-    analyze_layout()
+if __name__ == "__main__":
+    analyze_general_documents()
+```
+
+## <a name="try-it-layout-model"></a>**사용해 보기**: 레이아웃 모델
+
+> [!div class="checklist"]
+>
+> * 이 예제에서는 **URI에 있는 양식 문서 파일** 이 필요합니다. 이 빠른 시작에는 [샘플 양식 문서](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf)를 사용할 수 있습니다.
+> * 파일 URI 값을 파일 위쪽 근처에 있는 `formUrl` 변수에 추가합니다.
+
+### <a name="add-the-following-code-to-your-layout-application-on-the-line-below-the-key-variable"></a>다음 코드를 레이아웃 애플리케이션의 `key` 변수 아래의 줄에 추가
+
+```python
+
+def format_bounding_box(bounding_box):
+    if not bounding_box:
+        return "N/A"
+    return ", ".join(["[{}, {}]".format(p.x, p.y) for p in bounding_box])
+
+
+def analyze_layout():
+    # sample form document
+    formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
+
+    document_analysis_client = DocumentAnalysisClient(
+        endpoint=endpoint, credential=AzureKeyCredential(key)
+    )
+
+    poller = document_analysis_client.begin_analyze_document_from_url(
+            "prebuilt-layout", formUrl)
+    result = poller.result()
+
+    for idx, style in enumerate(result.styles):
+        print(
+            "Document contains {} content".format(
+                "handwritten" if style.is_handwritten else "no handwritten"
+            )
+        )
 
 ```
 
@@ -333,13 +297,27 @@ def analyze_layout():
 
 ```python
 
+def format_bounding_region(bounding_regions):
+    if not bounding_regions:
+        return "N/A"
+    return ", ".join("Page #{}: {}".format(region.page_number, format_bounding_box(region.bounding_box)) for region in bounding_regions)
+
+def format_bounding_box(bounding_box):
+    if not bounding_box:
+        return "N/A"
+    return ", ".join(["[{}, {}]".format(p.x, p.y) for p in bounding_box])
+
+
 def analyze_invoice():
-    # sample form document
+
     formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf"
 
-    document_analysis_client = DocumentAnalysisClient(endpoint=endpoint, credential=AzureKeyCredential(key))
+    document_analysis_client = DocumentAnalysisClient(
+        endpoint=endpoint, credential=AzureKeyCredential(key)
+    )
 
-    poller = document_analysis_client.begin_analyze_document("prebuilt-invoice", formUrl, locale="en-US")
+    poller = document_analysis_client.begin_analyze_document_from_url(
+            "prebuilt-document", formUrl)
     invoices = poller.result()
 
     for idx, invoice in enumerate(invoices.documents):
@@ -479,7 +457,9 @@ def analyze_invoice():
             unit = item.value.get("Unit")
             if unit:
                 print(
-                    "......Unit: {} has confidence: {}".format(unit.value, unit.confidence)
+                    "......Unit: {} has confidence: {}".format(
+                        unit.value, unit.confidence
+                    )
                 )
             unit_price = item.value.get("UnitPrice")
             if unit_price:
@@ -504,7 +484,9 @@ def analyze_invoice():
                 )
             tax = item.value.get("Tax")
             if tax:
-                print("......Tax: {} has confidence: {}".format(tax.value, tax.confidence))
+                print(
+                    "......Tax: {} has confidence: {}".format(tax.value, tax.confidence)
+                )
             amount = item.value.get("Amount")
             if amount:
                 print(
@@ -585,6 +567,7 @@ def analyze_invoice():
                 )
             )
 
+if __name__ == "__main__":
     analyze_invoice()
 ```
 

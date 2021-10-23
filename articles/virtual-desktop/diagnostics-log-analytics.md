@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: caaaded204fbc433a77d7f5a9ccf6a356195e5b9
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
-ms.translationtype: HT
+ms.openlocfilehash: 3a33c9e1542e6abbebfdf251864877112230af83
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111757916"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261465"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>진단 기능에 Log Analytics 사용
 
@@ -199,4 +199,4 @@ WVDErrors
 
 ## <a name="next-steps"></a>다음 단계
 
-진단 기능으로 사용자를 식별할 수 있는 일반적인 오류 시나리오를 검토하려면 [ID 및 진단 문제](diagnostics-role-service.md#common-error-scenarios)를 참조하세요.
+진단 기능으로 사용자를 식별할 수 있는 일반적인 오류 시나리오를 검토하려면 [ID 및 진단 문제](./troubleshoot-set-up-overview.md)를 참조하세요.

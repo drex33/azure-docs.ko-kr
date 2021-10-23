@@ -140,11 +140,11 @@
     - name: IPv6를 사용하는 공용 부하 분산 장치 만들기
       items:
         - name: Azure CLI
-          href: ../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
+          href: ./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
         - name: Azure PowerShell
-          href: ../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+          href: ./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
         - name: Azure Resource Manager 템플릿
-          href: ../virtual-network/ipv6-configure-standard-load-balancer-template-json.md
+          href: ./ipv6-configure-standard-load-balancer-template-json.md
           displayName: ARM
     - name: TCP 초기화 및 유휴 시간 제한 구성
       href: load-balancer-tcp-idle-timeout.md
@@ -226,7 +226,7 @@
       href: 'https://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2020_03_01/LoadBalancers'
     - name: Python
       href: /python/api/azure-mgmt-network/azure.mgmt.network.v2019_02_01.operations.loadbalancersoperations
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/load-balancer/loadbalancers
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.network/loadbalancers

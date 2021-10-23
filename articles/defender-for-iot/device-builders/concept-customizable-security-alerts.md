@@ -2,44 +2,44 @@
 title: IoT Hub에 대한 사용자 지정 보안 경고
 description: Defender for IoT Hub의 기능 및 서비스를 통해 사용자 지정 가능한 보안 경고와 권장되는 수정 사항에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 2/16/2021
-ms.openlocfilehash: d7a58bcdb759c3f31290cc7930eba6ca52fcc17b
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.date: 10/18/2021
+ms.openlocfilehash: e91587df3dbfb50700f95eaefea3bf80c2e18e04
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113018292"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249726"
 ---
 # <a name="defender-for-iot-hub-custom-security-alerts"></a>Defender for IoT Hub 사용자 지정 보안 경고
 
 Defender for IoT는 고급 분석과 위협 인텔리전스를 사용해 IoT 솔루션을 지속적으로 분석하여 악의적인 활동을 경고합니다.
 
-사용자의 고유한 조직 배포 및 환경에서 경고가 잠재적인 손상에 대한 가장 효율적인 지표로 동작하도록 하려면 예상되는 디바이스 동작에 대한 지식을 기반으로 사용자 지정 경고를 만드는 것이 좋습니다.
+예상되는 각 디바이스의 동작에 대한 지식을 기반으로 사용자 지정 경고를 만듭니다. 이러한 경고는 조직 배포 또는 환경의 잠재적 변경 내용을 가장 효율적으로 나타내는 지표로 작동합니다.
 
 다음 Defender for IoT 경고 목록은 예상되는 IoT Hub 동작을 기반으로 사용자가 정의할 수 있습니다. 각 경고를 사용자 지정하는 방법에 대한 자세한 내용은 [사용자 지정 경고 만들기](quickstart-create-custom-alerts.md)를 참조하세요.
 
 ## <a name="built-in-custom-alerts-in-the-iot-hub"></a>IoT Hub에서 기본 제공되는 사용자 지정 경고
 
-| 심각도 | 경고 이름 | 데이터 원본 | Description | 제안된 수정 사항 |
+### <a name="low-severity"></a>낮은 심각도
+
+| 경고 이름 | 심각도 | 데이터 원본 | Description | 경고 유형 |
 |--|--|--|--|--|
-| 낮음 | 사용자 지정 경고 - AMQP 프로토콜의 클라우드-디바이스 메시지 수가 허용 범위를 벗어납니다. | IoT Hub | 특정 시간 범위 내의 클라우드-디바이스 메시지 수(AMQP 프로토콜)가 현재 구성된 허용 범위를 벗어납니다. |  |
-| 낮음 | 사용자 지정 경고 - AMQP 프로토콜에서 거부된 클라우드-디바이스 메시지 수가 허용 범위를 벗어납니다. | IoT Hub | 디바이스에서 거부한 특정 시간 범위 내의 클라우드-디바이스 메시지 수(AMQP 프로토콜)가 현재 구성된 허용 범위를 벗어납니다. |  |
-| 낮음 | 사용자 지정 경고 - AMQP 프로토콜의 디바이스-클라우드 메시지 수가 허용 범위를 벗어납니다. | IoT Hub | 특정 시간 범위 내의 디바이스-클라우드 메시지 수(AMQP 프로토콜)가 현재 구성된 허용 범위를 벗어납니다. |  |
-| 낮음 | 사용자 지정 경고 - 직접 메서드 호출 수가 허용 범위를 벗어납니다. | IoT Hub | 특정 시간 범위 내의 직접 메서드 호출 수가 현재 구성된 허용 범위를 벗어납니다. |  |
-| 낮음 | 사용자 지정 경고 - 파일 업로드 수가 허용 범위를 벗어납니다. | IoT Hub | 특정 시간 범위 내의 파일 업로드 수가 현재 구성된 허용 범위를 벗어납니다. |  |
-| 낮음 | 사용자 지정 경고 - HTTP 프로토콜의 클라우드-디바이스 메시지 수가 허용 범위를 벗어납니다. | IoT Hub | 시간 범위에 속한 클라우드-디바이스 메시지(HTTP 프로토콜)의 양이 구성된 허용 범위를 벗어났습니다. |
-| 낮음 | 사용자 지정 경고 - HTTP 프로토콜에서 거부된 클라우드-디바이스 메시지 수가 허용 범위를 벗어납니다. | IoT Hub | 특정 시간 범위 내의 클라우드-디바이스 메시지 수(HTTP 프로토콜)가 현재 구성된 허용 범위를 벗어납니다. |
-| 낮음 | 사용자 지정 경고 - HTTP 프로토콜의 디바이스-클라우드 메시지 수가 허용 범위를 벗어납니다. | IoT Hub | 특정 시간 범위 내의 디바이스-클라우드 메시지 수(HTTP 프로토콜)가 현재 구성된 허용 범위를 벗어납니다. |  |
-| 낮음 | 사용자 지정 경고 - MQTT 프로토콜의 클라우드-디바이스 메시지 수가 허용 범위를 벗어납니다. | IoT Hub | 특정 시간 범위 내의 클라우드-디바이스 메시지 수(MQTT 프로토콜)가 현재 구성된 허용 범위를 벗어납니다. |  |
-| 낮음 | 사용자 지정 경고 - MQTT 프로토콜에서 거부된 클라우드-디바이스 메시지 수가 허용 범위를 벗어납니다. | IoT Hub | 디바이스에서 거부한 특정 시간 범위 내의 클라우드-디바이스 메시지 수(MQTT 프로토콜)가 현재 구성된 허용 범위를 벗어납니다. |
-| 낮음 | 사용자 지정 경고 - MQTT 프로토콜의 디바이스-클라우드 메시지 수가 허용 범위를 벗어납니다. | IoT Hub | 특정 시간 범위 내의 디바이스-클라우드 메시지 수(MQTT 프로토콜)가 현재 구성된 허용 범위를 벗어납니다. |
-| 낮음 | 사용자 지정 경고 - 명령 큐 제거 수가 허용 범위를 벗어납니다. | IoT Hub | 특정 시간 범위 내의 명령 큐 제거 수가 현재 구성된 허용 범위를 벗어납니다. |  |
-| 낮음 | 사용자 지정 경고 - 모듈 쌍 업데이트 수가 허용 범위를 벗어납니다. | IoT Hub | 특정 시간 범위 내의 모듈 쌍 업데이트 수가 현재 구성된 허용 범위를 벗어납니다. |
-| 낮음 | 사용자 지정 경고 - 권한 없는 작업 수가 허용 범위를 벗어납니다. | IoT Hub | 특정 시간 범위 내의 권한 없는 작업 수가 현재 구성된 허용 범위를 벗어납니다. |
+| 사용자 지정 경고 - AMQP 프로토콜의 클라우드-디바이스 메시지 수가 허용 범위를 벗어납니다. | 낮음 | IoT Hub | 특정 시간 범위 내의 클라우드-디바이스 메시지 수(AMQP 프로토콜)가 현재 구성된 허용 범위를 벗어납니다. | IoT_CA_AmqpC2DMessagesNotInAllowedRange |
+| 사용자 지정 경고 - AMQP 프로토콜에서 거부된 클라우드-디바이스 메시지 수가 허용 범위를 벗어납니다. | 낮음 | IoT Hub | 디바이스에서 거부한 특정 시간 범위 내의 클라우드-디바이스 메시지 수(AMQP 프로토콜)가 현재 구성된 허용 범위를 벗어납니다. | IoT_CA_AmqpC2DRejectedMessagesNotInAllowedRange |
+| 사용자 지정 경고 - AMQP 프로토콜의 디바이스-클라우드 메시지 수가 허용 범위를 벗어납니다. | 낮음 | IoT Hub | 특정 시간 범위 내의 디바이스-클라우드 메시지 수(AMQP 프로토콜)가 현재 구성된 허용 범위를 벗어납니다. | IoT_CA_AmqpD2CMessagesNotInAllowedRange |
+| 사용자 지정 경고 - 직접 메서드 호출 수가 허용 범위를 벗어납니다. | 낮음 | IoT Hub | 특정 시간 범위 내의 직접 메서드 호출 수가 현재 구성된 허용 범위를 벗어납니다. | IoT_CA_DirectMethodInvokesNotInAllowedRange |
+| 사용자 지정 경고 - 파일 업로드 수가 허용 범위를 벗어납니다. | 낮음 | IoT Hub | 특정 시간 범위 내의 파일 업로드 수가 현재 구성된 허용 범위를 벗어납니다. | IoT_CA_FileUploadsNotInAllowedRange |
+| 사용자 지정 경고 - HTTP 프로토콜의 클라우드-디바이스 메시지 수가 허용 범위를 벗어납니다. | 낮음 | IoT Hub | 시간 범위에 속한 클라우드-디바이스 메시지(HTTP 프로토콜)의 양이 구성된 허용 범위를 벗어났습니다. | IoT_CA_HttpC2DMessagesNotInAllowedRange |
+| 사용자 지정 경고 - HTTP 프로토콜에서 거부된 클라우드-디바이스 메시지 수가 허용 범위를 벗어납니다. | 낮음 | IoT Hub | 특정 시간 범위 내의 클라우드-디바이스 메시지 수(HTTP 프로토콜)가 현재 구성된 허용 범위를 벗어납니다. | IoT_CA_HttpC2DRejectedMessagesNotInAllowedRange |
+| 사용자 지정 경고 - HTTP 프로토콜의 디바이스-클라우드 메시지 수가 허용 범위를 벗어납니다. | 낮음 | IoT Hub | 특정 시간 범위 내의 디바이스-클라우드 메시지 수(HTTP 프로토콜)가 현재 구성된 허용 범위를 벗어납니다. | IoT_CA_HttpD2CMessagesNotInAllowedRange |
+| 사용자 지정 경고 - MQTT 프로토콜의 클라우드-디바이스 메시지 수가 허용 범위를 벗어납니다. | 낮음 | IoT Hub | 특정 시간 범위 내의 클라우드-디바이스 메시지 수(MQTT 프로토콜)가 현재 구성된 허용 범위를 벗어납니다. | IoT_CA_MqttC2DMessagesNotInAllowedRange |
+| 사용자 지정 경고 - MQTT 프로토콜에서 거부된 클라우드-디바이스 메시지 수가 허용 범위를 벗어납니다. | 낮음 | IoT Hub | 디바이스에서 거부한 특정 시간 범위 내의 클라우드-디바이스 메시지 수(MQTT 프로토콜)가 현재 구성된 허용 범위를 벗어납니다. | IoT_CA_MqttC2DRejectedMessagesNotInAllowedRange |
+| 사용자 지정 경고 - MQTT 프로토콜의 디바이스-클라우드 메시지 수가 허용 범위를 벗어납니다. | 낮음 | IoT Hub | 특정 시간 범위 내의 디바이스-클라우드 메시지 수(MQTT 프로토콜)가 현재 구성된 허용 범위를 벗어납니다. | IoT_CA_MqttD2CMessagesNotInAllowedRange |
+| 사용자 지정 경고 - 명령 큐 제거 수가 허용 범위를 벗어납니다. | 낮음 | IoT Hub | 특정 시간 범위 내의 명령 큐 제거 수가 현재 구성된 허용 범위를 벗어납니다. | IoT_CA_QueuePurgesNotInAllowedRange |
+| 사용자 지정 경고 - 모듈 쌍 업데이트 수가 허용 범위를 벗어납니다. | 낮음 | IoT Hub | 특정 시간 범위 내의 모듈 쌍 업데이트 수가 현재 구성된 허용 범위를 벗어납니다. | IoT_CA_TwinUpdatesNotInAllowedRange |
+| 사용자 지정 경고 - 권한 없는 작업 수가 허용 범위를 벗어납니다. | 낮음 | IoT Hub | 특정 시간 범위 내의 권한 없는 작업 수가 현재 구성된 허용 범위를 벗어납니다. | IoT_CA_UnauthorizedOperationsNotInAllowedRange |
 
 ## <a name="next-steps"></a>다음 단계
 
 - [경고를 사용자 지정](quickstart-create-custom-alerts.md)하는 방법 알아보기
 - Defender for IoT 서비스 [개요](overview.md)
-- [보안 데이터에 액세스](how-to-security-data-access.md)하는 방법 알아보기
-- [디바이스 조사](how-to-investigate-device.md)에 대한 자세한 정보

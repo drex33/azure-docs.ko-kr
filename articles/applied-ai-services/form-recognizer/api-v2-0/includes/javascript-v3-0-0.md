@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 05/25/2021
 ms.author: lajanuar
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 9b0af9be953f664b962cf780cee0143594811401
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 54bd889d4c6a82b911441b83fb76fe432bc8665c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129725912"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265927"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -84,7 +84,7 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 
 * 사용자 지정 양식을 분석하도록 학습된 사용자 지정 모델을 사용하여 양식 필드 및 콘텐츠를 인식합니다. 이러한 값은 `RecognizedForm` 개체의 컬렉션에서 반환됩니다.
 * 모델을 학습하지 않고도 테이블, 줄 및 단어를 비롯한 양식 콘텐츠를 인식합니다. 양식 콘텐츠는 `FormPage` 개체의 컬렉션에서 반환됩니다.
-* Form Recognizer 서비스에서 미리 학습된 모델을 사용하여 미국 영수증, 명함, 송장 및 ID 문서의 공통 필드를 인식합니다.
+* Form Recognizer 서비스에서 미리 학습된 모델을 사용하여 미국 영수증, 명함, 청구서 및 ID 문서에서 공통 필드를 인식합니다.
 
 ### <a name="formtrainingclient"></a>FormTrainingClient
 
@@ -151,7 +151,7 @@ cell [1,5] has text PT
 
 ## <a name="analyze-receipts"></a>영수증 분석
 
-이 섹션에서는 사전 학습된 영수증 모델을 사용하여 미국 영수증의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 영수증 분석에 대한 자세한 내용은 [영수증 개념 가이드](../../concept-receipts.md)를 참조하세요.
+이 섹션에서는 사전 학습된 영수증 모델을 사용하여 미국 영수증의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 영수증 분석에 대한 자세한 내용은 [영수증 개념 가이드](../../concept-receipt.md)를 참조하세요.
 
 URI에서 영수증을 분석하려면 `beginRecognizeReceiptsFromUrl` 메서드를 사용합니다. 다음 코드는 지정된 URI에서 영수증을 처리하고 주요 필드와 값을 콘솔에 출력합니다.
 

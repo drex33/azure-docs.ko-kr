@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 58e68193ffabb6984365eade56c9c8efe8504acd
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 18d3b3c5717c5bec2044a05c7e5854222adb73b1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122692141"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257939"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Linux 가상 머신을 비관리 디스크에서 Managed Disks로 변환
 
@@ -24,7 +24,7 @@ ms.locfileid: "122692141"
 이 문서에서는 Azure CLI를 사용하여 VM을 변환하는 방법을 보여 줍니다. CLI를 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="before-you-begin"></a>시작하기 전에
-* [Managed Disks로의 마이그레이션에 대한 FAQ](/azure/virtual-machines/faq-for-disks#migrate-to-managed-disks)를 검토합니다.
+* [Managed Disks로의 마이그레이션에 대한 FAQ](../faq-for-disks.yml)를 검토합니다.
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 

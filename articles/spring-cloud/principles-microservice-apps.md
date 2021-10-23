@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/12/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 4f7cdb16a9885f62657d81354668c46623b3628c
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 1f8ef8ded5dc86af6ab8dc8b3344fae86dc8cdd7
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129999343"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258034"
 ---
 # <a name="java-and-base-os-for-spring-microservice-apps"></a>스프링 마이크로서비스 앱용 Java 및 기본 OS
 
@@ -76,5 +76,5 @@ Azul Systems는 기본 운영 체제에 대한 변경 내용을 지속적으로 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [빠른 시작: 첫 번째 Azure Spring Cloud 애플리케이션 배포](./quickstart.md)
+* [빠른 시작: Azure 스프링 클라우드에서 첫 번째 스프링 부팅 앱 배포](./quickstart.md)
 * [Azure 및 Azure Stack에 대한 Java 장기 지원](/azure/developer/java/fundamentals/java-support-on-azure)

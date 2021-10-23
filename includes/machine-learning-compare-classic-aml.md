@@ -4,12 +4,12 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 03/08/2021
 ms.author: peterlu
-ms.openlocfilehash: d6d73754a22a3a0870a6ea141e4a21e7f2ccff09
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 83671800c0068ad606b6dbdad7448d55a1aea8cf
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122688773"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130287504"
 ---
 다음 표에는 ML Studio(클래식)와 Azure Machine Learning 간에 주요 차이점이 요약되어 있습니다.
 
@@ -25,6 +25,6 @@ ms.locfileid: "122688773"
 | 모델 형식 | 전용 형식, Studio(클래식)만 해당 | 학습 작업 유형에 따라 지원되는 여러 형식 |
 | 자동화된 모델 학습 및 하이퍼 매개변수 튜닝 |  지원되지 않음 | [지원됨](../articles/machine-learning/concept-automated-ml.md)이라는 의미입니다. 코드 우선 및 코드 없음 옵션. | 
 | 데이터 드리프트 검색 | 지원되지 않음 | [지원됨](../articles/machine-learning/how-to-monitor-datasets.md) |
-| 데이터 레이블 지정 프로젝트 | 지원되지 않음 | [지원됨](../articles/machine-learning/how-to-create-labeling-projects.md) |
+| 데이터 레이블 지정 프로젝트 | 지원되지 않음 | [지원됨](../articles/machine-learning/how-to-create-image-labeling-projects.md) |
 | 역할 기반 Access Control(RBAC) | 기여자 및 소유자 역할만 | [유연한 역할 정의 및 RBAC 제어](../articles/machine-learning/how-to-assign-roles.md) |
 | AI 갤러리 | 지원됨([https://gallery.azure.ai/](https://gallery.azure.ai/)) | 지원되지 않음 <br><br> [샘플 Python SDK Notebook](https://github.com/Azure/MachineLearningNotebooks)에서 알아보세요. |

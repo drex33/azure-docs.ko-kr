@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/03/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f1d3223114e9f691bfb3802a65abea003a7aec6e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 674520e279eb6ea9e544ee58af9772e434b31504
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105582385"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130287637"
 ---
 파트너가 제공하는 서비스에 대한 자세한 내용은 이 섹션의 링크를 참조하세요. 아래 섹션에 분기 디바이스 파트너가 나열되지 않으면 해당 분기 디바이스 공급자에게 Microsoft로 연락하도록 요청하세요. azurevirtualwan@microsoft.com으로 이메일을 전송하여 연락할 수 있습니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "105582385"
 |[Nuage/Nokia](https://www.nuagenetworks.net/our-partners/nuage-networks-virtualized-cloud-interconnect-for-azure/)|[Nuage 및 Azure Virtual WAN 배포 가이드](https://onestore.nokia.com/asset/210073)|
 |[개방형 시스템]( https://open-systems.com/solutions/microsoft-azure-virtual-wan)|[개방형 시스템 및 Azure Virtual WAN 배포 가이드](https://open-systems.com/wp-content/uploads/2020/07/Azure-Virtual-WAN-UserGuide.pdf)|
 |[Palo Alto Networks](https://researchcenter.paloaltonetworks.com/2018/09/azure-vwan-integration/) |[Palo Alto Networks Azure Virtual WAN 배포 가이드](https://github.com/PaloAltoNetworks/microsoft_azure_virtual_wan)|
-|[Riverbed Technology](https://www.riverbed.com/go/steelconnect-azurewan.html)|[Azure Virtual WAN 및 SteelConnect EX](https://www.riverbed.com/partners/microsoft-azure-virtual-wan.html) |
+|[Riverbed Technology](https://www.riverbed.com/partners/microsoft-azure-virtual-wan.html)|[Azure Virtual WAN 및 SteelConnect EX](https://www.riverbed.com/partners/microsoft-azure-virtual-wan.html) |
 |[Silver-Peak]( https://www.silver-peak.com/silver-peak-expands-integration-with-microsoft-cloud-services)|[EdgeConnect 및 Microsoft Azure Virtual WAN 통합 가이드](https://www.silver-peak.com/documentation/edgeconnect-and-azure-vwan-integration-guide)|
 |[VMware SD-WAN]( https://wan.velocloud.com/rs/098-RBR-178/images/sdwan-654-connect-azure-vwan-so-0819.pdf)|[Azure Virtual WAN VMware SD-WAN 배포 가이드](https://kb.vmware.com/s/article/79000)|
 | [Versa](https://www.versa-networks.com/partners/microsoft-azure-virtual-WAN) | [Versa SD-WAN 및 Microsoft Azure vWAN(등록 고객 사용 가능)](https://docs.versa-networks.com/Versa_Director/Versa_Director_Configuration/Integrate_Director_and_Azure_Virtual_WAN) |

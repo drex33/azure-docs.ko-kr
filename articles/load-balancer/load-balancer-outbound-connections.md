@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 07/01/2021
 ms.author: allensu
-ms.openlocfilehash: adeca1558fd97c1f8534539b7a4ad134d364e4d8
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 6ca5d85e04cab46292ed51e23f4cd5f2add5dcae
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129996136"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223351"
 ---
 # <a name="using-source-network-address-translation-snat-for-outbound-connections"></a>아웃바운드 연결을 위해 SNAT(Source Network Address Translation) 사용
 
-특정 시나리오에는 인터넷에 대한 아웃바운드 연결을 위한 가상 머신 또는 컴퓨팅 인스턴스가 필요합니다. Azure 퍼블릭 부하 분산 장치의 프런트 엔드 IP를 사용하여 백 엔드 인스턴스에 대한 인터넷에 아웃바운드 연결을 제공할 수 있습니다. 이 구성에서는 **SNAT (원본 네트워크 주소 변환)** 을 사용 하 여 가상 컴퓨터의 개인 ip를 Load Balancer의 공용 ip 주소로 변환 합니다. SNAT는 백 엔드의 IP 주소를 부하 분산 프로그램의 공용 IP 주소에 매핑합니다. SNAT는 외부 원본이 백 엔드 인스턴스에 대해 직접적인 주소를 가질 수 없습니다.  
+특정 시나리오에는 인터넷에 대한 아웃바운드 연결을 위한 가상 머신 또는 컴퓨팅 인스턴스가 필요합니다. Azure 퍼블릭 부하 분산 장치의 프런트 엔드 IP를 사용하여 백 엔드 인스턴스에 대한 인터넷에 아웃바운드 연결을 제공할 수 있습니다. 이 구성은 **SNAT(원본 네트워크 주소 변환)를** 사용하여 가상 머신의 개인 IP를 Load Balancer 공용 IP 주소로 변환합니다. SNAT는 백 엔드의 IP 주소를 부하 분산 프로그램의 공용 IP 주소에 매핑합니다. SNAT는 외부 원본이 백 엔드 인스턴스에 대해 직접적인 주소를 가질 수 없습니다.  
 
 ## <a name="azures-outbound-connectivity-methods"></a><a name="scenarios"></a>Azure의 아웃바운드 연결 방법
 
@@ -30,7 +30,7 @@ ms.locfileid: "129996136"
 | 2 | NAT Gateway를 서브넷에 연결 | 고정적, 명시적 | 예 | 가장 좋음 | 
 | 3 | 가상 머신에 공용 IP 할당 | 고정적, 명시적 | 예 | 확인 | 
 | 4 | 아웃바운드(및 인바운드)에 대한 Load Balancer의 프런트 엔드 IP 주소 사용 | 암시적 | No | 두 번째 최하위 |
-| 5 | [기본 아웃 바운드 액세스](../virtual-network/default-outbound-access.md) 사용 | 암시적 | 아니요 | 최하위 |
+| 5 | [기본 아웃바운드 액세스](../virtual-network/ip-services/default-outbound-access.md) 사용 | 암시적 | 아니요 | 최하위 |
 
 ## <a name="using-the-frontend-ip-address-of-a-load-balancer-for-outbound-via-outbound-rules"></a><a name="outboundrules"></a>아웃바운드 규칙을 통한 아웃바운드에 대한 Load Balancer의 프런트 엔드 IP 주소 사용
 
@@ -41,7 +41,7 @@ ms.locfileid: "129996136"
 이 구성을 사용하면 다음을 수행할 수 있습니다.
 
 - IP 위장
-- Allowlists 단순화
+- 허용 목록 간소화
 - 배포할 공용 IP 리소스 수 줄이기
 
 아웃바운드 규칙을 사용하여 아웃바운드 인터넷 연결을 완전하게 제어할 수 있습니다. 아웃바운드 규칙을 사용하면 이 기능을 스케일링하고 특정 요구에 맞게 조정할 수 있습니다.
@@ -92,7 +92,7 @@ Azure Virtual Network NAT에 대한 자세한 내용은 [Azure Virtual Network N
 * 구성된 NAT 게이트웨이
 * 부하 분산 장치
 
-기본 SNAT를 통해 아웃바운드 연결을 만듭니다. 이를 기본 아웃바운드 액세스라고 합니다. 기본 SNAT를 사용 하는 시나리오의 또 다른 예는 Azure의 가상 머신 (위에서 언급 한 연결 제외)입니다. 이 경우 아웃바운드 연결은 기본 아웃바운드 액세스 IP에서 제공됩니다. 이는 사용자가 제어할 수 없는 Azure에서 할당된 동적 IP입니다. 프로덕션 작업에는 기본 SNAT가 권장 되지 않습니다.
+기본 SNAT를 통해 아웃바운드 연결을 만듭니다. 이를 기본 아웃바운드 액세스라고 합니다. 기본 SNAT를 사용하는 시나리오의 또 다른 예는 Azure의 가상 머신입니다(위에서 언급한 연결 제외). 이 경우 아웃바운드 연결은 기본 아웃바운드 액세스 IP에서 제공됩니다. 이는 사용자가 제어할 수 없는 Azure에서 할당된 동적 IP입니다. 프로덕션 워크로드에는 기본 SNAT를 권장하지 않습니다.
 
 ### <a name="what-are-snat-ports"></a>SNAT 포트란?
 

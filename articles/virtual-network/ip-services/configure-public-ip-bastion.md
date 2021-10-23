@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 06/28/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 22fa5e1843cdff45a5bea9fb61393a0579278964
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: bd89926102c13937843b6bdbaba43e5915f3fddb
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129373010"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234002"
 ---
 # <a name="manage-a-public-ip-address-with-azure-bastion"></a>Azure Bastion에서 공용 IP 주소 관리
 
@@ -29,7 +29,7 @@ Azure Bastion 호스트를 사용하려면 구성에 공용 IP 주소가 필요�
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- 구독의 표준 SKU 공용 IP 주소 1개. IP 주소를 리소스에 연결할 수 없습니다. 표준 SKU 공용 IP 주소를 만드는 방법에 대한 자세한 내용은 [공용 IP 주소 만들기 - Azure Portal](../../virtual-network/create-public-ip-portal.md)을 참조하세요.
+- 구독의 표준 SKU 공용 IP 주소 1개. IP 주소를 리소스에 연결할 수 없습니다. 표준 SKU 공용 IP 주소를 만드는 방법에 대한 자세한 내용은 [공용 IP 주소 만들기 - Azure Portal](./create-public-ip-portal.md)을 참조하세요.
     - 이 문서에 나오는 예의 목적에 맞게 새 공용 IP 주소의 이름을 **myStandardPublicIP** 로 지정합니다.
 
 ## <a name="create-azure-bastion-using-existing-ip"></a>기존 IP를 사용하여 Azure Bastion 만들기
@@ -49,7 +49,7 @@ Azure Bastion 호스트를 사용하려면 구성에 공용 IP 주소가 필요�
     | 설정 | 값 | 
     | ------- | ----- |
     | **프로젝트 세부 정보** |   |
-    | Subscription | 구독 선택 |
+    | 구독 | 구독 선택 |
     | Resource group | **새로 만들기** 를 선택합니다. </br> **이름** 에 **myResourceGroup** 을 입력합니다. </br> **확인** 을 선택합니다. |
     | **인스턴스 세부 정보** |  |
     | 이름 | **MyBastionHost** 를 입력합니다. |
@@ -85,4 +85,4 @@ Azure Bastion은 만든 후에 공용 IP 주소를 변경할 수 없습니다.
 이 문서에서는 Azure Bastion을 만들고 기존 공용 IP를 사용하는 방법에 대해 알아보았습니다. 
 
 - Azure Bastion에 대한 자세한 내용은 [Azure Bastion이란?](../../bastion/bastion-overview.md)을 참조하세요.
-- Azure의 공용 IP 주소에 대해 자세히 알아보려면 [공용 IP 주소](../../virtual-network/public-ip-addresses.md)를 참조하세요.
+- Azure의 공용 IP 주소에 대해 자세히 알아보려면 [공용 IP 주소](./public-ip-addresses.md)를 참조하세요.

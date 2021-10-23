@@ -1,5 +1,5 @@
 ---
-title: Azure Digital Twins 쿼리 언어 참조 - FROM 절
+title: Azure 디지털 Twins 쿼리 언어 참조-FROM 절
 titleSuffix: Azure Digital Twins
 description: Azure Digital Twins 쿼리 언어 FROM 절에 대한 참조 설명서
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 03/31/2021
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 1cbdbad379887687c71bd8c52b5791bde4e08a08
-ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
-ms.translationtype: HT
+ms.openlocfilehash: 3bbd9fb23d970173e486cc721e0e2573603287a8
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113492886"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232852"
 ---
 # <a name="azure-digital-twins-query-language-reference-from-clause"></a>Azure Digital Twins 쿼리 언어 참조: FROM 절
 

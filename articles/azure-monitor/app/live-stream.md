@@ -2,14 +2,14 @@
 title: 라이브 메트릭 스트림을 사용하여 진단 - Azure Application Insights
 description: 사용자 지정 메트릭으로 웹앱을 실시간으로 모니터링하고 오류, 추적 및 이벤트의 라이브 피드를 통해 문제를 진단할 수 있습니다.
 ms.topic: conceptual
-ms.date: 04/22/2019
+ms.date: 10/12/2021
 ms.reviewer: sdash
-ms.openlocfilehash: 3e19d424f8aa56f37b12ab776c9ff85ca78f6738
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 94bb2a209fb768c96f375bd54e30a39f811a9ab7
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129614957"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216545"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>라이브 메트릭 스트림: 1초 대기 시간으로 모니터링 및 진단
 
@@ -160,7 +160,7 @@ Application Insights 원격 분석 외에, 스트림 옵션 중에서 선택하�
 ## <a name="secure-the-control-channel"></a>컨트롤 채널 보호
 
 > [!NOTE]
-> 현재는 코드 베이스 모니터링을 사용하여 인증된 채널만 설정할 수 있으며 코드 없는 첨부를 사용하여 서버를 인증할 수 없습니다.
+> 현재는 SDK(수동 계측)를 사용하여 인증된 채널만 설정할 수 있으며 Azure 서비스 통합(또는 자동 계측)을 사용하여 서버를 인증할 수 없습니다.
 
 라이브 메트릭 포털에서 지정한 사용자 지정 필터 조건이 Application Insights SDK의 라이브 메트릭 구성 요소에 다시 전송됩니다. 필터는 customerid와 같은 잠재적으로 중요한 정보를 포함할 수 있습니다. 계측 키 외에도 비밀 API 키를 사용해서 채널 보안을 유지할 수 있습니다.
 
@@ -245,7 +245,7 @@ Application Insights 리소스 내에서 API 키를 만들고 함수 앱에 대�
 | .NET Core(대상=.NET Framework)| 지원됨(V2.4.1 이상) | 지원됨(V2.4.1 이상) | 지원됨(V2.4.1 이상) | 지원됨(V2.4.1 이상) | 지원됨(V2.4.1 이상)  |
 | .NET Core(대상=.NET Core)     | 지원됨(V2.4.1 이상) | 지원됨*          | 지원됨(V2.4.1 이상) | 지원됨(V2.4.1 이상) | **지원 안 됨**    |
 | Azure Functions v2               | 지원됨           | 지원됨           | 지원됨           | 지원됨           | **지원 안 됨**    |
-| Java                             | 지원됨(V2.0.0 이상) | 지원됨(V2.0.0 이상) | **지원 안 됨**   | 지원 됨 (V 3.2.0 +) | **지원 안 됨**    |
+| Java                             | 지원됨(V2.0.0 이상) | 지원됨(V2.0.0 이상) | **지원 안 됨**   | 지원됨(V3.2.0 이상) | **지원 안 됨**    |
 | Node.js                          | 지원됨 (V1.3.0 이상) | 지원됨 (V1.3.0 이상) | **지원 안 됨**   | 지원됨 (V1.3.0 이상) | **지원 안 됨**    |
 
 기본 메트릭에는 요청, 종속성 및 예외 비율이 포함됩니다. 성능 메트릭(성능 카운터)에는 메모리 및 CPU가 포함됩니다. 샘플 원격 분석은 실패한 요청 및 종속성, 예외, 이벤트 및 추적에 대한 자세한 정보 스트림을 표시합니다.

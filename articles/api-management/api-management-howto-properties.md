@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 02/09/2021
 ms.author: danlep
-ms.openlocfilehash: 65f45758ab00d9e549ac0e52287a198bf5734acd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 72bc12589cb63e2fcecc5568dbf628ccacb85394
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128671206"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224652"
 ---
 # <a name="use-named-values-in-azure-api-management-policies"></a>Azure API Management 정책에서 명명된 값 사용하기
 
@@ -33,7 +33,7 @@ ms.locfileid: "128671206"
 
 일반 값 또는 비밀에는 [정책 식이](./api-management-policy-expressions.md)포함될 수 있습니다. 예를 들어, 식은 `@(DateTime.Now.ToString())` 현재 날짜 및 시간을 포함하는 문자열을 반환합니다.
 
-명명된 값의 특성에 대한 세부 정보는 API Management [REST API 참조](/rest/api/apimanagement/2020-06-01-preview/namedvalue/createorupdate)를 참조하세요.
+명명된 값의 특성에 대한 세부 정보는 API Management [REST API 참조](/rest/api/apimanagement/2021-04-01-preview/named-value/create-or-update)를 참조하세요.
 
 ## <a name="key-vault-secrets"></a>키 자격 증명 모음 비밀
 
@@ -206,4 +206,3 @@ az apim nv delete --resource-group apim-hello-word-resource-group \
     -   [정책 식](./api-management-policy-expressions.md)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
-

@@ -3,14 +3,14 @@ author: linda33wj
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 10/22/2021
 ms.author: jingwang
-ms.openlocfilehash: d2ad06534c1ee76f910c826ceb6b3425d60c23fe
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: dd219214a6c1a50befe2064110dc804e2acc6be0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128644406"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130242799"
 ---
 원본이 **FileSystemSource** 형식인 복사 작업의 경우 typeProperties 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 

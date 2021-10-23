@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d3180ba6e8c19714759563eb79a8488929efe940
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
-ms.translationtype: HT
+ms.openlocfilehash: ca7503127342a5eceac43a8f5a2bfce578eb21e6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110675858"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257806"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>가상 머신 네트워크 트래픽 필터 문제 진단
 
@@ -193,7 +193,7 @@ Azure에서 인바운드 트래픽을 처리할 때 서브넷에 연결된 NSG�
 * 기본 보안 규칙은 인터넷의 인바운드 액세스를 차단하고, 가상 네트워크의 인바운드 트래픽만 허용합니다. 인터넷의 인바운드 트래픽을 허용하려면 기본 규칙보다 더 높은 우선 순위의 보안 규칙을 추가합니다. [기본 보안 규칙](./network-security-groups-overview.md#default-security-rules) 또는 [보안 규칙을 추가하는](manage-network-security-group.md#create-a-security-rule) 방법에 대해 자세히 알아봅니다.
 * 가상 네트워크를 피어링한 경우 기본적으로, **VIRTUAL_NETWORK** 서비스 태그는 피러링된 가상 네트워크에 대한 접두사를 포함하도록 자동으로 확장됩니다. 가상 네트워크 피어링과 관련된 문제를 해결하기 위해 **ExpandedAddressPrefix** 목록에서 접두사를 볼 수 있습니다. [가상 네트워크 피어링](virtual-network-peering-overview.md) 및 [서비스 태그](./network-security-groups-overview.md#service-tags)에 대해 자세히 알아봅니다.
 * VM의 네트워크 인터페이스 및 또는 서브넷과 연결된 NSG가 있고 VM이 실행 상태에 있는 경우 네트워크 인터페이스에 대한 효과적인 보안 규칙만 표시됩니다.
-* 네트워크 인터페이스 또는 서브넷과 연결된 NSG가 없고 VM에 할당된 [공용 IP 주소](virtual-network-public-ip-address.md)가 있는 경우 모든 포트가 인바운드 및 아웃바운드 액세스를 위해 열립니다. VM에 공용 IP 주소가 있는 경우 서브넷 및 네트워크 인터페이스에 NSG를 적용하는 것이 좋습니다.
+* 네트워크 인터페이스 또는 서브넷과 연결된 NSG가 없고 VM에 할당된 [공용 IP 주소](./ip-services/virtual-network-public-ip-address.md)가 있는 경우 모든 포트가 인바운드 및 아웃바운드 액세스를 위해 열립니다. VM에 공용 IP 주소가 있는 경우 서브넷 및 네트워크 인터페이스에 NSG를 적용하는 것이 좋습니다.
 
 ## <a name="additional-diagnosis"></a>추가 진단
 

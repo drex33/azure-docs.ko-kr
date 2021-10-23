@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: a75ea7e9f3659b45e79748fdead7be9aa8ca4f94
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 32cac3156a020beebf046fff9c429a75a348ebcd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128649476"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215281"
 ---
 # <a name="azure-load-balancer-components"></a>Azure Load Balancer 구성 요소
 
@@ -70,7 +70,7 @@ IP 주소의 특성에 따라 생성된 부하 분산 장치의 **형식** 이 �
 
 ## <a name="load-balancing-rules"></a>부하 분산 규칙
 
-부하 분산 장치 규칙은 들어오는 트래픽이 백 엔드 풀 내의 **모든** 인스턴스에 배포 되는 방식을 정의 하는 데 사용 됩니다. 부하 분산 규칙은 지정된 프런트 엔드 IP 구성 및 포트를 여러 백 엔드 IP 주소 및 포트에 매핑합니다.
+부하 분산기 규칙은 들어오는 트래픽이 백 엔드 풀 내의 **모든** 인스턴스에 분산되는 방법을 정의하는 데 사용됩니다. 부하 분산 규칙은 지정된 프런트 엔드 IP 구성 및 포트를 여러 백 엔드 IP 주소 및 포트에 매핑합니다.
 
 예를 들어 포트 80에 대한 부하 분산 규칙을 사용하여 프런트 엔드 IP에서 백 엔드 인스턴스의 포트 80으로 트래픽을 라우팅합니다.
 
@@ -137,8 +137,8 @@ Virtual Machine Scale Sets 컨텍스트의 인바운드 NAT 규칙은 인바운�
 
 - Load Balancer를 사용하여 시작하려면 [공용 표준 부하 분산 장치 만들기](quickstart-load-balancer-standard-public-portal.md)를 참조하세요.
 - [Azure Load Balancer에 대해 자세히 알아보세요](load-balancer-overview.md).
-- [공용 IP 주소](../virtual-network/virtual-network-public-ip-address.md)에 대한 자세한 정보
-- [개인 IP 주소](../virtual-network/private-ip-addresses.md)에 대한 자세한 정보
+- [공용 IP 주소](../virtual-network/ip-services/virtual-network-public-ip-address.md)에 대한 자세한 정보
+- [개인 IP 주소](../virtual-network/ip-services/private-ip-addresses.md)에 대한 자세한 정보
 - [표준 부하 분산 장치 및 가용성 영역](load-balancer-standard-availability-zones.md) 사용에 대해 자세히 알아보세요.
 - [표준 부하 분산 장치 진단](load-balancer-standard-diagnostics.md)에 대해 자세히 알아보세요.
 - [유휴 상태의 TCP 재설정](load-balancer-tcp-reset.md)에 대해 알아보세요.

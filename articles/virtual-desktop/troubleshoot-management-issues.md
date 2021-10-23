@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 06/19/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 529cf643cb68bc806aef991142e68f42fccc0d42
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
-ms.translationtype: HT
+ms.openlocfilehash: 7632bbdda8515476cc88fa0735fcd41b9eb5444a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112420697"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130245818"
 ---
 # <a name="management-issues"></a>관리 문제
 
@@ -41,4 +41,4 @@ ms.locfileid: "112420697"
 
 ## <a name="next-steps"></a>다음 단계
 
-진단 기능으로 사용자를 식별할 수 있는 일반적인 오류 시나리오를 검토하려면 [ID 및 진단 문제](diagnostics-role-service.md#common-error-scenarios)를 참조하세요.
+진단 기능으로 사용자를 식별할 수 있는 일반적인 오류 시나리오를 검토하려면 [ID 및 진단 문제](./troubleshoot-set-up-overview.md)를 참조하세요.

@@ -5,12 +5,12 @@ description: 고정 IP 주소를 만들어 AKS(Azure Kubernetes Service) 부하 
 services: container-service
 ms.topic: article
 ms.date: 11/14/2020
-ms.openlocfilehash: bb1e5691027a4bd86b57390e12259ac165ca9ed8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
-ms.translationtype: HT
+ms.openlocfilehash: 9d49aeb39d4325957591474901496b9424ac0434
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107769520"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130240512"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>AKS(Azure Kubernetes Service) 부하 분산 장치에 고정 공용 IP 주소 및 DNS 레이블 사용
 
@@ -174,4 +174,4 @@ Events:
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
-[ip-sku]: ../virtual-network/public-ip-addresses.md#sku
+[ip-sku]: ../virtual-network/ip-services/public-ip-addresses.md#sku

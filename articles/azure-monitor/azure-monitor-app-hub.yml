@@ -332,13 +332,13 @@ conceptualContent:
         - url: ./app/export-telemetry.md
           itemType: how-to-guide
           text: 원격 분석 내보내기
-        - url: ./app/export-stream-analytics.md
+        - url: ../stream-analytics/app-insights-export-stream-analytics.md
           itemType: how-to-guide
           text: Stream Analytics로 내보내기
-        - url: ./app/code-sample-export-sql-stream-analytics.md
+        - url: ../stream-analytics/app-insights-export-sql-stream-analytics.md
           itemType: how-to-guide
           text: Stream Analytics를 사용하여 SQL로 내보내기
-        - url: ./app/code-sample-export-sql-stream-analytics.md
+        - url: ../stream-analytics/app-insights-export-sql-stream-analytics.md
           itemType: how-to-guide
           text: 데이터 모델 내보내기
         - url: ./logs/logicapp-flow-connector.md

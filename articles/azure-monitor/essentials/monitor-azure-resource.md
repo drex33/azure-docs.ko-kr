@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2021
-ms.openlocfilehash: fa5a417ef79cf0e11fa50c280dfea768d5e61f40
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 32c1b2d6cd2d5574e03cdb6ad65900d8df598b2b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130064270"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252766"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Azure Monitor를 사용하여 Azure 리소스 모니터링
 Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 프로세스가 있는 경우 이와 같은 리소스의 가용성, 성능 및 작업을 모니터링할 수 있습니다. 이 문서에서는 Azure 리소스에서 생성되는 모니터링 데이터와 Azure Monitor 기능을 사용하여 이 데이터에 대해 분석하고 경고하는 방법을 설명합니다.
@@ -31,13 +31,13 @@ Azure 리소스를 만들자마자 Azure Monitor가 사용하도록 설정되며
 - 활동 로그를 수집하고 Azure Portal에서 분석합니다.
 - 활동 로그 경고 규칙을 만듭니다.
 
-메트릭을 수집하고 내보내는 데 Azure Monitor 비용은 없습니다. 리소스 로그 지원 범주 에 나열된 대로 특정 범주의 [리소스 로그를](/azure/azure-monitor/essentials/resource-logs-categories)내보내는 데 요금이 부과될 수 있습니다. 메트릭 및 로그에 대해 선택한 대상과 관련된 비용이 있을 수도 있습니다.
+메트릭 수집 및 내보내기에 대 한 Azure Monitor 비용은 없습니다. 리소스 [로그 지원 범주](./resource-logs-categories.md)에 나열 된 리소스 로그의 특정 범주를 내보내는 데 요금이 부과 될 수 있습니다. 메트릭 및 로그에 대해 선택한 대상과 관련 된 비용이 있을 수도 있습니다.
 
-- Log Analytics 작업 영역에서 메트릭 및 로그를 수집할 때 데이터 수집 및 보존과 관련된 비용입니다. [Log Analytics에 대한 Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)을 참조하세요.
-- Azure Storage 계정에 메트릭 및 로그를 수집할 때 데이터 스토리지와 관련된 비용입니다. [Blob Storage에 대한 Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/)을 참조하세요.
-- 메트릭 및 로그를 Azure Event Hubs 전달할 때 이벤트 허브 스트리밍과 관련된 비용입니다. [Azure Event Hubs 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/)을 참조하세요.
+- Log Analytics 작업 영역에서 메트릭과 로그를 수집할 때 데이터 수집 및 보존과 관련 된 비용입니다. [Log Analytics에 대한 Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)을 참조하세요.
+- Azure 저장소 계정에 대 한 메트릭 및 로그를 수집 하는 경우 데이터 저장소와 관련 된 비용입니다. [Blob Storage에 대한 Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/)을 참조하세요.
+- Azure Event Hubs에 메트릭 및 로그를 전달할 때 이벤트 허브 스트림과 관련 된 비용입니다. [Azure Event Hubs 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/)을 참조하세요.
 
-다음과 관련된 Azure Monitor 비용이 있을 수 있습니다. [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)을 참조하세요.
+다음과 관련 된 Azure Monitor 비용이 있을 수 있습니다. [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)을 참조하세요.
 
 - 로그 쿼리를 실행합니다.
 - 메트릭 또는 로그 쿼리 경고 규칙을 만듭니다.

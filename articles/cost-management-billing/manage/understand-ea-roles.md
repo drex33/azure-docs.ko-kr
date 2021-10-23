@@ -2,19 +2,19 @@
 title: Azure의 EA(기업계약) 관리자 역할 이해
 description: Azure의 엔터프라이즈 관리자 역할에 대해 알아봅니다. 5가지 개별 관리 역할을 할당할 수 있습니다.
 author: bandersmsft
-ms.reviewer: adwise
+ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 07/06/2021
+ms.date: 10/22/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 82e5b16ef4f7892a52ea0ec3d332104cbf99bb68
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
-ms.translationtype: HT
+ms.openlocfilehash: 08f13b90190e3d05f87947cb7be58cbda8566c8a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113765491"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232890"
 ---
 # <a name="managing-azure-enterprise-agreement-roles"></a>Azure 기업계약 역할 관리
 
@@ -69,6 +69,8 @@ Azure Enterprise Portal 계층 구조는 다음과 같이 구성됩니다.
 - 알림 연락처
 
 역할은 두 개의 다른 포털에서 작동하여 작업을 완료합니다. [Azure Enterprise Portal](https://ea.azure.com)은 청구 및 비용을 관리에 사용되고, [Azure Portal](https://portal.azure.com)은 Azure 서비스 관리에 사용됩니다.
+
+직접 EA 고객은 Azure Portal의 모든 관리 작업을 완료할 수 있습니다. [Azure Portal](https://portal.azure.com) 을 사용 하 여 청구, 비용 및 azure 서비스를 관리할 수 있습니다.
 
 사용자 역할은 사용자 계정과 연결됩니다. 사용자 인증의 유효성을 검사하려면 각 사용자에게 유효한 회사, 학교 또는 Microsoft 계정이 있어야 합니다. 각 계정이 적극적으로 모니터링되는 이메일 주소와 연결되어 있는지 확인합니다. 계정 알림은 이메일 주소로 전달됩니다.
 
@@ -168,7 +170,8 @@ EA 구매자 역할은 현재 SPN 기반 액세스에만 사용됩니다. 서비
 
 ## <a name="add-a-new-enterprise-administrator"></a>새 엔터프라이즈 관리자 추가
 
-엔터프라이즈 관리자는 Azure EA 등록을 관리할 때 가장 많은 권한을 가집니다. EA 계약이 설정될 때 초기 Azure EA 관리자가 생성되었습니다. 하지만 언제든지 관리자를 새로 추가하거나 제거할 수 있습니다. 기존 관리자만이 새 관리자를 추가할 수 있습니다. 엔터프라이즈 관리자 추가에 대한 자세한 내용은 [다른 엔터프라이즈 관리자 만들기](ea-portal-administration.md#create-another-enterprise-administrator)를 참조하세요. 청구 프로필 역할 및 작업에 대한 자세한 내용은 [청구 프로필 역할 및 작업](understand-mca-roles.md#billing-profile-roles-and-tasks)을 참조하세요.
+엔터프라이즈 관리자는 Azure EA 등록을 관리할 때 가장 많은 권한을 가집니다. EA 계약이 설정될 때 초기 Azure EA 관리자가 생성되었습니다. 하지만 언제든지 관리자를 새로 추가하거나 제거할 수 있습니다. 기존 관리자만이 새 관리자를 추가할 수 있습니다. 엔터프라이즈 관리자를 추가하는 자세한 내용은 [다른 엔터프라이즈 관리자 만들기를](ea-portal-administration.md#create-another-enterprise-administrator)참조하세요. 직접 EA 고객은 Azure Portal 사용하여 EA 관리자를 추가할 수 있습니다. [Azure Portal에서 다른 엔터프라이즈 관리자 만들기를 참조하세요.](direct-ea-administration.md#add-another-enterprise-administrator) 청구 프로필 역할 및 작업에 대한 자세한 내용은 [청구 프로필 역할 및 작업](understand-mca-roles.md#billing-profile-roles-and-tasks)을 참조하세요.
+
 
 ## <a name="update-account-owner-state-from-pending-to-active"></a>계정 소유자 상태를 보류 중에서 활성으로 업데이트
 
@@ -178,7 +181,7 @@ EA 구매자 역할은 현재 SPN 기반 액세스에만 사용됩니다. 서비
 
 Azure EA 관리자가 부서를 만들면 Azure 엔터프라이즈 관리자는 부서 관리자를 추가하고 각 부서 관리자를 부서에 연결할 수 있습니다. 부서 관리자는 새 계정을 만들 수 있습니다. Azure EA 구독을 만들려면 새 계정이 필요합니다.
 
-부서 관리자 추가에 대한 자세한 내용은 [Azure EA 부서 관리자 만들기](ea-portal-administration.md#add-a-department-administrator)를 참조하세요.
+직접 EA 관리자는 Azure Portal 부서 관리자를 추가할 수 있습니다. 자세한 내용은 [Azure EA 부서 관리자 만들기를 참조하세요.](direct-ea-administration.md#add-a-department-administrator)
 
 ## <a name="usage-and-costs-access-by-role"></a>역할별 사용량 및 비용 액세스
 

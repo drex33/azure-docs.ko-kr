@@ -5,15 +5,15 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 10/01/2017
+ms.date: 10/22/2021
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: e136ec96cc2a698f0b0e794830403dcbc284341c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f9d2b2d6b516434f19aa6e38e92ee8be064fb5a9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128554243"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130250011"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>데이터 관리 게이트웨이 사용 관련 문제 해결
 이 문서에서는 데이터 관리 게이트웨이 사용과 관련된 문제 해결에 대한 정보를 제공합니다.

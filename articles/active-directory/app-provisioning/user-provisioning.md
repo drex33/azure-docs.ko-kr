@@ -3,7 +3,7 @@ title: Azure Active Directory에서 자동화된 SaaS 앱 사용자 프로비저
 description: Azure Active Directory를 사용하여 여러 타사 SaaS 애플리케이션에서 사용자 계정을 자동으로 프로비저닝, 프로비저닝 해제, 지속적으로 업데이트하는 방법을 소개합니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: overview
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/28/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 95bd9ea10f857ef5b4eb72b0fb3449bbcb5a67d9
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 78533b519c2410744b3ec8adc7dd3269e018715f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114437334"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990561"
 ---
 # <a name="what-is-app-provisioning-in-azure-active-directory"></a>Azure Active Directory에서 앱 프로비저닝이란?
 

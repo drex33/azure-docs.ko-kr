@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/10/2021
 ms.author: duau
 ms.custom: references_regions
-ms.openlocfilehash: b6483ef0e034f695da1e03475ca2a4b716773684
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 1fcdeaaee2ebafbfd8e97577ed87a5ef0e545cd5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536906"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226398"
 ---
 # <a name="about-expressroute-fastpath"></a>ExpressRoute FastPath 정보
 
@@ -33,11 +33,6 @@ FastPath를 구성하려면 가상 네트워크 게이트웨이가 다음 중 �
 
 * 초고성능
 * ErGw3AZ
-
-> [!IMPORTANT]
-> ExpressRoute를 통해 IPv6 기반 프라이빗 피어링을 사용하려는 경우 **SKU** 에 대해 ErGw3AZ를 선택해야 합니다. 이는 ExpressRoute Direct를 사용하는 회로에만 사용할 수 있습니다.
-> 
->
 
 ## <a name="limitations"></a>제한 사항
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2021
 ms.author: allensu
-ms.openlocfilehash: fb979643b3ff3efeac6df6f6fe664599360a1276
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 73bb9748fa13b6b5209bbbcd8c4332c28249aecc
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129372920"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233945"
 ---
 # <a name="what-is-routing-preference"></a>라우팅 기본 설정이란?
 
@@ -76,5 +76,5 @@ Azure 라우팅 기본 설정을 사용하면 Azure와 인터넷 간의 트래�
 ## <a name="next-steps"></a>다음 단계
 
 * [인터넷을 통해 Microsoft Azure 서비스에 대한 연결을 최적화하는 방법 동영상을 확인해 보세요](https://www.youtube.com/watch?v=j6A_Mbpuh6s&list=PLLasX02E8BPA5V-waZPcelhg9l3IkeUQo&index=12). 
-* [Azure PowerShell을 사용하여 VM에 대한 라우팅 기본 설정 구성](../../virtual-network/configure-routing-preference-virtual-machine-powershell.md)
-* [Azure CLI를 사용하여 VM에 대한 라우팅 기본 설정 구성](../../virtual-network/configure-routing-preference-virtual-machine-cli.md)
+* [Azure PowerShell을 사용하여 VM에 대한 라우팅 기본 설정 구성](./configure-routing-preference-virtual-machine-powershell.md)
+* [Azure CLI를 사용하여 VM에 대한 라우팅 기본 설정 구성](./configure-routing-preference-virtual-machine-cli.md)

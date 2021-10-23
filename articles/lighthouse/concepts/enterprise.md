@@ -1,14 +1,14 @@
 ---
 title: 엔터프라이즈 시나리오의 Azure Lighthouse
 description: Azure Lighthouse의 기능은 여러 Azure AD 테넌트를 사용하는 엔터프라이즈 내에서 테넌트 간 관리를 간소화하는 데 사용할 수 있습니다.
-ms.date: 09/08/2021
+ms.date: 10/21/2021
 ms.topic: conceptual
-ms.openlocfilehash: f83e5d84eee0c3ed7f159778630e3598274e4916
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7d0accd765049c671d8d61a76d7c6449260b0140
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124768784"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249650"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>엔터프라이즈 시나리오의 Azure Lighthouse
 
@@ -49,6 +49,12 @@ Azure Lighthouse는 물리적으로 데이터 또는 리소스를 이동하는 �
 엔터프라이즈 사용자는 일반적으로 엔터프라이즈 테넌트에 직접 액세스할 수 있으며 관리 제안을 마케팅하거나 홍보할 필요가 없으므로, 일반적으로 Azure Resource Manager 템플릿을 배포하는 것이 더 빠르고 간단합니다. [온보딩 지침](../how-to/onboard-customer.md)은 서비스 공급자 및 고객을 의미하는 반면, 기업에서는 동일한 프로세스를 사용하여 테넌트를 온보딩할 수 있습니다.
 
 원하는 경우 [Azure Marketplace에 관리 서비스 제안을 게시](../how-to/publish-managed-services-offers.md)하여 엔터프라이즈 내의 테넌트를 온보딩할 수 있습니다. 제안을 적절한 테넌트에서만 사용할 수 있도록 하려면 계획이 비공개로 표시되어야 합니다. 프라이빗 플랜을 사용하면 온보딩하려는 각 테넌트에 구독 ID를 제공할 수 있으며, 다른 사용자는 해당 제안을 받을 수 없습니다.
+
+## <a name="azure-ad-b2c"></a>Azure AD B2C
+
+[Azure AD B2C (Azure Active Directory B2C)](../../active-directory-b2c/overview.md) 는 기업 간 id를 서비스로 제공 합니다. Azure Lighthouse를 통해 리소스 그룹을 위임 하는 경우 Azure Monitor를 사용 하 여 Azure AD B2C (Azure Active Directory B2C) 로그인 및 감사 로그를 다른 모니터링 솔루션으로 라우팅할 수 있습니다. 장기 사용을 위해 로그를 유지 하거나 타사 SIEM (보안 정보 및 이벤트 관리) 도구와 통합 하 여 사용자 환경에 대 한 통찰력을 얻을 수 있습니다.
+
+자세한 내용은 [Azure Monitor를 사용 하 여 Azure AD B2C 모니터링](../../active-directory-b2c/azure-monitor.md)을 참조 하세요.
 
 ## <a name="terminology-notes"></a>용어 정보
 

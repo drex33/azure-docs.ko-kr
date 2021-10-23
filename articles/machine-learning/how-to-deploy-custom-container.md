@@ -1,7 +1,7 @@
 ---
 title: 관리형 온라인 엔드포인트로 사용자 지정 컨테이너 배포
 titleSuffix: Azure Machine Learning
-description: 사용자 지정 컨테이너를 사용 하 여 Azure Machine Learning에서 오픈 소스 서버를 사용 하는 방법을 알아봅니다.
+description: 사용자 지정 컨테이너를 사용하여 Azure Machine Learning 오픈 소스 서버를 사용하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.date: 06/16/2021
 ms.topic: how-to
 ms.custom: deploy, devplatv2
-ms.openlocfilehash: 4aa55ee69b1092b7a2cb8dd207faf577ac532e32
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 83713736d68dcd019708ade16460cb369d50127d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129428258"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251455"
 ---
 # <a name="deploy-a-tensorflow-model-served-with-tf-serving-using-a-custom-container-in-a-managed-online-endpoint-preview"></a>관리형 온라인 엔드포인트(미리 보기)에서 사용자 지정 컨테이너를 사용하여 TF 서비스 제공에 제공되는 TensorFlow 모델 배포
 
@@ -159,5 +159,5 @@ var
 ## <a name="next-steps"></a>다음 단계
 
 - [온라인 엔드포인트에 대한 안전한 롤아웃(미리 보기)](how-to-safely-rollout-managed-endpoints.md)
-- [관리형 온라인 엔드포인트 배포 문제 해결](how-to-troubleshoot-managed-online-endpoints.md)
+- [관리형 온라인 엔드포인트 배포 문제 해결](./how-to-troubleshoot-online-endpoints.md)
 - [Torch 제공 샘플](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-torchserve.sh)

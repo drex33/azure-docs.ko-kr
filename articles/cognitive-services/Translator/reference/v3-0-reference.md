@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 09/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: d430d7f2db90c4051201b7e9805cde1f4138e7f0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 4b27e60776c459ed74bcf33c79a819f90722a0d0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124793300"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130239004"
 ---
 # <a name="translator-v30"></a>Translator v3.0
 
@@ -163,9 +163,9 @@ Authorization: Bearer <Base64-access_token>
 
 ### <a name="prerequisites"></a>**필수 구성 요소**
 
-* [**Azure Active Directory를 사용 하 여 인증**](/azure/cognitive-services/authentication?tabs=powershell#authenticate-with-azure-active-directory)하는 방법을 간략하게 설명 합니다.
+* [**Azure Active Directory를 사용 하 여 인증**](../../authentication.md?tabs=powershell#authenticate-with-azure-active-directory)하는 방법을 간략하게 설명 합니다.
 
-* [**관리 id에 대 한 액세스 권한을 부여**](/azure/cognitive-services/authentication?tabs=powershell#authorize-access-to-managed-identities)하는 방법을 간략하게 설명 합니다.
+* [**관리 id에 대 한 액세스 권한을 부여**](../../authentication.md?tabs=powershell#authorize-access-to-managed-identities)하는 방법을 간략하게 설명 합니다.
 
 ### <a name="headers"></a>**헤더**
 
@@ -179,7 +179,7 @@ Authorization: Bearer <Base64-access_token>
 
 :::image type="content" source="../media/managed-identities/resource-id-property.png" alt-text="스크린샷: Azure Portal의 속성 페이지를 번역기 합니다.":::
 
-### <a name="examples"></a>**예제**
+### <a name="examples"></a>**예**
 
 #### <a name="using-the-global-endpoint"></a>**전역 끝점 사용**
 

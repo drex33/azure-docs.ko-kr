@@ -18,10 +18,10 @@ highlightedContent:
     - title: 최종 사용자 조직용 Azure Defender for IoT란?
       itemType: overview
       url: organizations/overview.md
-    - title: 조직을 위한 새로운 기능
+    - title: 최종 사용자 조직의 새로운 기능은 무엇인가요?
       itemType: whats-new
       url: organizations/release-notes.md
-    - title: 조직을 위한 에이전트 없는 솔루션 아키텍처
+    - title: 최종 사용자 조직을 위한 에이전트 없는 솔루션 아키텍처
       itemType: architecture
       url: organizations/architecture.md
     - title: 디바이스 빌더용 Azure Defender for IoT란?

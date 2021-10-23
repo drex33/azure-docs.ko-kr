@@ -3,20 +3,20 @@ metadata:
   title: Azure Active Directory B2C에 대한 FAQ(질문과 대답)
   description: Azure Active Directory B2C에 대한 자주 묻는 질문과 대답의 답변입니다.
   services: active-directory-b2c
-  author: msmimart
-  manager: celestedg
+  author: kengaderdus
+  manager: CelesteDG
   ms.service: active-directory
   ms.workload: identity
   ms.topic: conceptual
   ms.date: 09/16/2021
-  ms.author: mimart
+  ms.author: kengaderdus
   ms.subservice: B2C
-  ms.openlocfilehash: 758ab61b8bec91e751fd965584744fedac77a975
-  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+  ms.openlocfilehash: 1a40ae657ae3aa93e12c6c3a828783b84d8c9b2d
+  ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/24/2021
-  ms.locfileid: "128575155"
+  ms.lasthandoff: 10/15/2021
+  ms.locfileid: "130041370"
 title: 'Azure AD B2C: FAQ(질문과 대답)'
 summary: 이 페이지는 Azure AD B2C(Azure Active Directory B2C)에 대한 자주 묻는 질문에 응답합니다. 업데이트를 계속 확인합니다.
 sections:

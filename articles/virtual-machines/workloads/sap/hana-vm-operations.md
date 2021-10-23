@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e83b7b8fd3e1667dbf6f402be2f7dd52a6381340
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
-ms.translationtype: HT
+ms.openlocfilehash: 6507e2367005c1f400c68f46f2ea15705205e819
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122965722"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262986"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Azure에서 SAP HANA 인프라 구성 및 작업
 이 문서에서는 Azure VM(Virtual Machines)에 배포된 SAP HANA 시스템 운영 및 Azure 인프라 구성을 위한 지침을 제공합니다. 또한 M128s VM SKU용 SAP HANA 스케일 아웃을 위한 구성 정보가 포함됩니다. 이 문서는 다음 내용을 포함하는 표준 SAP 설명서를 대체하기 위한 것이 아닙니다.
@@ -104,7 +104,7 @@ SAP HANA를 실행할 VM을 설치할 때 VM에는 다음이 필요합니다.
 >[Azure VNet 피어링](../../../virtual-network/virtual-network-peering-overview.md)을 사용하여 허브 VNet과 스포크 VNet 간에 전달되는 트래픽은 추가적인 [비용](https://azure.microsoft.com/pricing/details/virtual-network/)의 문제입니다. 해당 가격을 기준으로 strict 허브와 스포크 네트워크 설계를 실행하는 것과 바이패스 VNet 피어링을 위하여 ‘스포크’에 연결하는 여러 [Azure ExpressRoute 게이트웨이](../../../expressroute/expressroute-about-virtual-network-gateways.md)를 실행하는 것 사이에서 절충안을 내는 것을 고려해야 할 수도 있습니다. 단, Azure ExpressRoute 게이트웨이에서도 추가 [비용](https://azure.microsoft.com/pricing/details/vpn-gateway/)이 발생합니다. 또한 네트워크 트래픽 로깅, 감사 및 모니터링에 사용하는 타사 소프트웨어에 대한 추가 비용이 발생할 수 있습니다. VNet 피어링을 통한 데이터 교환에 대한 비용 및 추가 Azure ExpressRoute 게이트웨이와 추가 소프트웨어 라이선스로 발생하는 비용에 따라 VNet 대신 격리 단위로 서브넷을 사용하여 하나의 VNet 내에서 마이크로 구분을 결정할 수 있습니다.
 
 
-IP 주소를 할당하는 다른 방법에 대한 개요는 [IP 주소 유형 및 Azure에서 할당 방법](../../../virtual-network/public-ip-addresses.md)을 참조하세요. 
+IP 주소를 할당하는 다른 방법에 대한 개요는 [IP 주소 유형 및 Azure에서 할당 방법](../../../virtual-network/ip-services/public-ip-addresses.md)을 참조하세요. 
 
 SAP HANA를 실행하는 VM의 경우 할당된 고정 IP 주소를 사용해야 합니다. HANA에 대한 일부 구성 특성은 IP 주소를 참조하기 때문입니다.
 

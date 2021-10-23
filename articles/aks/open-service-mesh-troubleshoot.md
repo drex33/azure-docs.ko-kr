@@ -1,21 +1,21 @@
 ---
-title: Open Service Mesh 문제 해결
-description: Open Service Mesh 문제를 해결하는 방법
+title: 서비스 메시 열기 문제 해결
+description: Open Service 메시 문제를 해결 하는 방법
 services: container-service
 ms.topic: article
 ms.date: 8/26/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
-ms.openlocfilehash: 397a1ff24152bf0496842971e545b3eb65e779a3
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: b73c46896c142b76e644eed9815ae4d5e76b6f85
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129533998"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227268"
 ---
 # <a name="open-service-mesh-osm-aks-add-on-troubleshooting-guides"></a>OSM(Open Service Mesh) AKS 추가 기능 문제 해결 가이드 열기
 
-OSM AKS 추가 기능 배포 시 서비스 메시 구성과 관련된 문제가 발생할 수 있습니다. 다음 가이드에서는 오류를 해결하고 일반적인 문제를 해결하는 방법을 안내합니다.
+OSM AKS 추가 기능을 배포 하는 경우 서비스 메시의 구성과 관련 된 문제가 발생할 수 있습니다. 다음 가이드에서는 오류 문제를 해결 하 고 일반적인 문제를 해결 하는 방법을 설명 합니다.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -207,7 +207,7 @@ kubectl get MutatingWebhookConfiguration aks-osm-webhook-osm -o json | jq -r '.w
 1845
 ```
 
-이 숫자는 CA 번들의 바이트 수 또는 크기를 나타냅니다. 이 값이 비어 있거나, 0 또는 1000보다 작은 숫자이면 CA 번들이 올바르게 프로비저닝되지 않았음을 나타내는 것입니다. 올바른 CA 번들 없이 Webhook 유효성 검사에서 오류가 발생하며 사용자가 kube-system 네임스페이스에서 osm-config ConfigMap을 변경하는 것을 금지합니다.
+이 숫자는 CA 번들의 바이트 수 또는 크기를 나타냅니다. 이 값이 비어 있거나, 0 또는 1000보다 작은 숫자이면 CA 번들이 올바르게 프로비저닝되지 않았음을 나타내는 것입니다. 올바른 CA 번들이 없으면 유효성 검사 Webhook에 오류가 발생 하 여 사용자가 kube 네임 스페이스에서 osm ConfigMap을 변경 하지 못하게 됩니다.
 
 CA 번들이 잘못된 경우의 샘플 오류:
 
@@ -251,7 +251,7 @@ CA 번들이 잘못된 경우의 샘플 오류:
 kubectl get meshconfig osm-mesh-config -n kube-system
 ```
 
-OSM MeshConfig의 콘텐츠 확인
+OSM MeshConfig의 콘텐츠를 확인 합니다.
 
 ```azurecli-interactive
 kubectl get meshconfig osm-mesh-config -n osm-system -o yaml
@@ -305,23 +305,23 @@ spec:
 
 | 키 | 형식 | 기본값 | Kubectl Patch 명령 예제 |
 |-----|------|---------------|--------------------------------|
-| spec.traffic.enableEgress | bool | `false` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"traffic":{"enableEgress":true}}}'  --type=merge` |
-| spec.traffic.enablePermissiveTrafficPolicyMode | bool | `false` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"traffic":{"enablePermissiveTrafficPolicyMode":true}}}'  --type=merge` |
-| spec.traffic.useHTTPSIngress | bool | `false` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"traffic":{"useHTTPSIngress":true}}}'  --type=merge` |
-| spec.traffic.outboundPortExclusionList | array | `[]` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"traffic":{"outboundPortExclusionList":6379,8080}}}'  --type=merge` |
-| spec.traffic.outboundIPRangeExclusionList | array | `[]` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"traffic":{"outboundIPRangeExclusionList":"10.0.0.0/32,1.1.1.1/24"}}}'  --type=merge` |
-| spec.certificate.serviceCertValidityDuration | 문자열 | `"24h"` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"certificate":{"serviceCertValidityDuration":"24h"}}}'  --type=merge` |
-| spec.observability.enableDebugServer | bool | `false` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"observability":{"serviceCertValidityDuration":true}}}'  --type=merge` |
-| spec.observability.tracing.enable | bool | `"jaeger.osm-system.svc.cluster.local"`| `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"observability":{"tracing":{"address": "jaeger.osm-system.svc.cluster.local"}}}}'  --type=merge` |
-| spec.observability.tracing.address | 문자열 | `"/api/v2/spans"` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"observability":{"tracing":{"endpoint":"/api/v2/spans"}}}}'  --type=merge' --type=merge` |
-| spec.observability.tracing.endpoint | 문자열 | `false`| `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"observability":{"tracing":{"enable":true}}}}'  --type=merge` |
-| spec.observability.tracing.port | int | `9411`| `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"observability":{"tracing":{"port":9411}}}}'  --type=merge` |
-| spec.sidecar.enablePrivilegedInitContainer | bool | `false` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"sidecar":{"enablePrivilegedInitContainer":true}}}'  --type=merge` |
-| spec.sidecar.logLevel | 문자열 | `"error"` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"sidecar":{"logLevel":"error"}}}'  --type=merge` |
-| spec.sidecar.maxDataPlaneConnections | int | `0` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"sidecar":{"maxDataPlaneConnections":"error"}}}'  --type=merge` |
-| spec.sidecar.envoyImage | 문자열 | `"envoyproxy/envoy-alpine:v1.17.2"` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"sidecar":{"envoyImage":"envoyproxy/envoy-alpine:v1.17.2"}}}'  --type=merge` |
-| spec.sidecar.initContainerImage | 문자열 | `"openservicemesh/init:v0.9.2"` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"sidecar":{"initContainerImage":"openservicemesh/init:v0.9.2"}}}' --type=merge` |
-| spec.sidecar.configResyncInterval | 문자열 | `"0s"` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"sidecar":{"configResyncInterval":"30s"}}}'  --type=merge` |
+| 사양 트래픽. enableEgress | bool | `false` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"traffic":{"enableEgress":true}}}'  --type=merge` |
+| enablePermissiveTrafficPolicyMode | bool | `false` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"traffic":{"enablePermissiveTrafficPolicyMode":true}}}'  --type=merge` |
+| useHTTPSIngress | bool | `false` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"traffic":{"useHTTPSIngress":true}}}'  --type=merge` |
+| outboundPortExclusionList | array | `[]` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"traffic":{"outboundPortExclusionList":6379,8080}}}'  --type=merge` |
+| outboundIPRangeExclusionList | array | `[]` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"traffic":{"outboundIPRangeExclusionList":"10.0.0.0/32,1.1.1.1/24"}}}'  --type=merge` |
+| serviceCertValidityDuration | 문자열 | `"24h"` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"certificate":{"serviceCertValidityDuration":"24h"}}}'  --type=merge` |
+| 관찰성. enableDebugServer | bool | `false` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"observability":{"serviceCertValidityDuration":true}}}'  --type=merge` |
+| 관찰성. 사용 | bool | `"jaeger.osm-system.svc.cluster.local"`| `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"observability":{"tracing":{"address": "jaeger.osm-system.svc.cluster.local"}}}}'  --type=merge` |
+| 관찰성. | 문자열 | `"/api/v2/spans"` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"observability":{"tracing":{"endpoint":"/api/v2/spans"}}}}'  --type=merge' --type=merge` |
+| 관찰성. | 문자열 | `false`| `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"observability":{"tracing":{"enable":true}}}}'  --type=merge` |
+| 관찰성. | int | `9411`| `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"observability":{"tracing":{"port":9411}}}}'  --type=merge` |
+| 사이드카. enablePrivilegedInitContainer | bool | `false` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"sidecar":{"enablePrivilegedInitContainer":true}}}'  --type=merge` |
+| 사이드카. logLevel | 문자열 | `"error"` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"sidecar":{"logLevel":"error"}}}'  --type=merge` |
+| 사이드카. maxDataPlaneConnections | int | `0` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"sidecar":{"maxDataPlaneConnections":"error"}}}'  --type=merge` |
+| 사이드카. envoyImage | 문자열 | `"envoyproxy/envoy-alpine:v1.17.2"` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"sidecar":{"envoyImage":"envoyproxy/envoy-alpine:v1.17.2"}}}'  --type=merge` |
+| 사이드카. initContainerImage | 문자열 | `"openservicemesh/init:v0.9.2"` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"sidecar":{"initContainerImage":"openservicemesh/init:v0.9.2"}}}' --type=merge` |
+| 사이드카. configResyncInterval | 문자열 | `"0s"` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"sidecar":{"configResyncInterval":"30s"}}}'  --type=merge` |
 
 ### <a name="check-namespaces"></a>네임스페이스 확인
 
@@ -362,7 +362,7 @@ kubectl get namespace bookbuyer -o json | jq '.metadata.labels'
 네임스페이스에 주석이 `"openservicemesh.io/sidecar-injection": "enabled"`로 지정되어 있지 않거나 레이블이 `"openservicemesh.io/monitored-by": "osm"`으로 지정되지 않은 경우 OSM 인젝터는 Envoy 사이드카를 추가하지 않습니다.
 
 > [!NOTE]
-> `osm namespace add`가 호출 된 후 **new** pod는 엔보이 사이드카로 삽입 됩니다. 기존 Pod는 `kubectl rollout restart deployment ...`로 다시 시작해야 합니다.
+> `osm namespace add`가 호출된 후에는 **새** Pod만 Envoy 사이드카와 함께 삽입됩니다. 기존 Pod는 `kubectl rollout restart deployment ...`로 다시 시작해야 합니다.
 
 ### <a name="verify-the-smi-crds"></a>SMI CRD를 확인합니다.
 
@@ -452,8 +452,8 @@ kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/v0.8.2/ch
 
 ### <a name="certificate-management"></a>인증서 관리
 
-Application pod에서 실행 되는 엔보이 프록시에 대 한 인증서를 발급 하 고 관리 하는 방법에 대 한 정보는 [OpenServiceMesh docs 사이트](https://docs.openservicemesh.io/docs/guides/certificates/)에서 찾을 수 있습니다 OSM.
+OSM이 애플리케이션 Pod에서 실행되는 Envoy 프록시에 대한 인증서를 발급하고 관리하는 방법에 대한 정보는 [OpenServiceMesh 문서 사이트에서](https://docs.openservicemesh.io/docs/guides/certificates/)찾을 수 있습니다.
 
-### <a name="upgrading-envoy"></a>엔보이 업그레이드
+### <a name="upgrading-envoy"></a>Envoy 업그레이드
 
-추가 기능을 통해 모니터링 되는 네임 스페이스에 새 pod가 만들어지면 OSM는 해당 pod에 [엔보이 프록시 사이드카](https://docs.openservicemesh.io/docs/guides/app_onboarding/sidecar_injection/) 을 삽입 합니다. 엔보이 버전을 업데이트 하는 방법에 대 한 정보는 OpenServiceMesh docs 사이트의 [업그레이드 가이드](https://docs.openservicemesh.io/docs/getting_started/upgrade/#envoy) 에서 찾을 수 있습니다.
+추가 기능으로 모니터링되는 네임스페이스에 새 Pod가 만들어지면 OSM은 해당 Pod에 [envoy 프록시 사이드카를](https://docs.openservicemesh.io/docs/guides/app_onboarding/sidecar_injection/) 삽입합니다. envoy 버전을 업데이트하는 방법에 대한 정보는 OpenServiceMesh 문서 사이트의 [업그레이드 가이드에서](https://release-v0-11.docs.openservicemesh.io/docs/getting_started/upgrade/#envoy) 찾을 수 있습니다.

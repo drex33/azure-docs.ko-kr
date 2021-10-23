@@ -5,15 +5,15 @@ author: linda33wj
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 10/22/2021
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a3d44d8aaf7c83eee7cbd7feab83c2ffdc5d8f2a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: bf0387bfeac7be080576c12f7c4d34d38318612f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128580304"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130264107"
 ---
 # <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Azure Data Factory를 사용하여 OData 소스에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -56,7 +56,7 @@ OData 소스에서 지원되는 모든 싱크 데이터 저장소로 데이터�
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 테이블은 OData 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | type |형식 속성은 **OData** |예 |
 | url |OData 서비스의 URL입니다. |예 |
@@ -141,7 +141,7 @@ OData 소스에서 지원되는 모든 싱크 데이터 저장소로 데이터�
 
 **typeProperties** 섹션은 데이터 세트의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **ODataResource** 형식(OData 데이터 세트 포함)의 데이터 세트에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | path |OData 리소스에 대한 경로 |예 |
 
@@ -152,7 +152,7 @@ OData 소스에서 지원되는 모든 싱크 데이터 저장소로 데이터�
 
 원본이 **RelationalSource** (OData 포함) 형식인 경우 typeProperties섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 속성 | Description | 예 | 필수 |
+| 속성 | 설명 | 예 | 필수 |
 | --- | --- | --- | --- |
 | Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |"?$select=Name, Description&$top=5" |예 |
 

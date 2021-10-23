@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ba229ed81cd5ece4a6013654a11c21740c00c844
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 9f7e3aaff497968419285464f361a1d3ad237d3c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123254064"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130263214"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Azure Files의 공유 스냅샷 개요
 Azure 파일은 파일 공유의 공유 스냅샷을 생성하는 기능을 제공합니다. 공유 스냅샷은 특정 시점의 공유 상태를 캡처합니다. 이 문서에서는 공유 스냅샷이 제공하는 기능 및 사용자 지정 사용 사례에 이를 용할 수 있는 방법을 설명합니다.
@@ -100,7 +100,7 @@ Azure Files에서 허용하는 최대 공유 스냅샷 수는 200개입니다. �
 ## <a name="next-steps"></a>다음 단계
 - 다음에서 공유 스냅샷으로 작업:
     - [Azure 파일 공유 백업](../../backup/azure-file-share-backup-overview.md)
-    - [PowerShell](storage-how-to-use-files-powershell.md)
-    - [CLI](storage-how-to-use-files-cli.md)
+    - [PowerShell](./storage-how-to-use-files-portal.md)
+    - [CLI](./storage-how-to-use-files-portal.md)
     - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
     - [공유 스냅샷 FAQ](storage-files-faq.md#share-snapshots)

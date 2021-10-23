@@ -6,15 +6,15 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: troubleshooting
-ms.date: 09/15/2021
+ms.date: 10/22/2021
 ms.author: banders
-ms.custom: seodec18
-ms.openlocfilehash: c2a89f4905cda375b9e7565631a0ffd28e6dfa16
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: sapnakeshari
+ms.openlocfilehash: 02507604c1194d726014453bde6cd03c2c21aa31
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128561462"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130255429"
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>기업 비용 보기 문제 해결
 
@@ -31,9 +31,12 @@ ms.locfileid: "128561462"
 2. EA Direct 고객인 경우 다음과 같은 몇 가지 가능성이 있습니다.
     * 사용자가 계정 소유자이며 등록 관리자가 **AO 요금 보기** 설정을 사용하지 않도록 설정했습니다.  
     * 사용자가 부서 관리자이며 등록 관리자가 **DA 요금 보기** 설정을 사용하지 않도록 설정했습니다.
-    * 등록 관리자에게 액세스 권한을 문의하세요. 등록 관리자는 [Enterprise Portal](https://ea.azure.com/manage/enrollment)에서 설정을 업데이트할 수 있습니다.
+    * 등록 관리자에게 액세스 권한을 문의하세요. 등록 관리자는 이제 [Azure Portal](https://portal.azure.com/)의 설정을 업데이트할 수 있습니다. **정책** 메뉴로 이동 하 여 설정을 변경 합니다. 
+    * 등록 관리자는 [Enterprise Portal](https://ea.azure.com/manage/enrollment)에서 설정을 업데이트할 수 있습니다.
 
       ![요금 보기에 대한 Enterprise Portal 설정을 보여 주는 스크린샷](./media/enterprise-mgmt-grp-troubleshoot-cost-view/ea-portal-settings.png)
+    
+ 
 
 ## <a name="asset-is-unavailable"></a>자산을 사용할 수 없음
 

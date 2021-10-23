@@ -8,12 +8,12 @@ ms.date: 06/15/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b1fdd85c2f954751a0ce7e2ec03dc87d4c685809
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: cc123b47ed10252b050743955015b89d434a42b0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129660878"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130218076"
 ---
 # <a name="update-iot-edge"></a>IoT Edge 업데이트
 
@@ -135,9 +135,9 @@ curl -L <iotedge link> -o iotedge.deb && sudo apt-get install ./iotedge.deb
 >[!IMPORTANT]
 >Windows 상의 Linux용 IoT Edge의 공개 미리 보기 버전에서 일반적으로 사용 가능한 버전으로 장치를 업데이트하는 경우에는 Azure IoT Edge를 제거하고 다시 설치해야 합니다.
 >
->현재 공개 미리 보기 버전을 사용하고 있는지 확인하려면 Windows 장치에서 **설정** > **Apps** 로 이동합니다. 앱 및 기능 목록에서 **Azure IoT Edge** 를 찾습니다. 표시된 버전이 1.0.x인 경우, 공개 미리 보기 버전을 실행하고 있는 것입니다. 앱을 제거한 후 [Windows 상의 Linux용 IoT Edge를 설치하고 프로 비전](how-to-install-iot-edge-on-windows.md)합니다. 표시된 버전이 1.1.x 인 경우, 일반적으로 사용 가능한 버전을 실행하고 있는 것이며, Microsoft 업데이트를 통해 업데이트를 받을 수 있습니다.
+>현재 공개 미리 보기 버전을 사용하고 있는지 확인하려면 Windows 장치에서 **설정** > **Apps** 로 이동합니다. 앱 및 기능 목록에서 **Azure IoT Edge** 를 찾습니다. 표시된 버전이 1.0.x인 경우, 공개 미리 보기 버전을 실행하고 있는 것입니다. 앱을 제거한 후 [Windows 상의 Linux용 IoT Edge를 설치하고 프로 비전](how-to-provision-single-device-linux-on-windows-symmetric.md)합니다. 표시된 버전이 1.1.x 인 경우, 일반적으로 사용 가능한 버전을 실행하고 있는 것이며, Microsoft 업데이트를 통해 업데이트를 받을 수 있습니다.
 
-IoT Edge for Linux on Windows를 사용할 경우 IoT Edge는 Windows 디바이스에 호스트된 Linux 가상 머신에서 실행됩니다. 이 가상 머신은 IoT Edge와 함께 미리 설치되어 있으므로 IoT Edge 구성 요소를 수동으로 업데이트하거나 변경할 수 없습니다. 대신, 가상 머신은 자동으로 해당 구성 요소를 최신 상태로 유지할 수 있도록 Microsoft 업데이트를 통해 관리됩니다. 
+IoT Edge for Linux on Windows를 사용할 경우 IoT Edge는 Windows 디바이스에 호스트된 Linux 가상 머신에서 실행됩니다. 이 가상 머신은 IoT Edge와 함께 미리 설치되어 있으므로 IoT Edge 구성 요소를 수동으로 업데이트하거나 변경할 수 없습니다. 대신, 가상 머신은 자동으로 해당 구성 요소를 최신 상태로 유지할 수 있도록 Microsoft 업데이트를 통해 관리됩니다.
 
 Windows 상의 Linux용 Azure IoT Edge의 최신 버전을 찾으려면, [EFLOW 릴리스](https://aka.ms/AzEFLOW-Releases)를 참조하세요.
 
@@ -169,7 +169,37 @@ Windows 업데이트에서 Linux용 IoT Edge를 받으려면 다른 Microsoft �
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
 
-IoT Edge for Windows를 사용할 경우 IoT Edge가 Windows 디바이스에서 직접 실행됩니다. PowerShell 스크립트를 사용한 업데이트 지침은 [Azure IoT Edge for Windows 설치 및 관리](how-to-install-iot-edge-windows-on-windows.md)를 참조하세요.
+IoT Edge for Windows를 사용할 경우 IoT Edge가 Windows 디바이스에서 직접 실행됩니다.
+
+`Update-IoTEdge` 명령을 사용하여 보안 디먼을 업데이트합니다. 이 스크립트는 보안 디먼의 최신 버전을 자동으로 가져옵니다.
+
+```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge
+```
+
+Update-IoTEdge 명령을 실행하면 두 개의 런타임 컨테이너 이미지와 함께 디바이스에서 보안 디먼이 제거되고 업데이트됩니다. config.yaml 파일뿐 아니라 Moby 컨테이너 엔진의 데이터도 디바이스에서 유지됩니다. 구성 정보를 보존하면 업데이트 프로세스 중에 디바이스의 연결 문자열 또는 디바이스 프로비저닝 서비스 정보를 다시 제공할 필요가 없습니다.
+
+특정 버전의 보안 디먼으로 업데이트하려면 [IoT Edge 릴리스](https://github.com/Azure/azure-iotedge/releases)의 대상으로 지정할 1.1 릴리스 채널의 버전을 찾습니다. 해당 버전에서 **Microsoft-Azure-IoTEdge.cab** 파일을 다운로드합니다. 그런 다음 `-OfflineInstallationPath` 매개 변수를 사용하여 로컬 파일 위치를 가리킵니다. 예를 들면 다음과 같습니다.
+
+```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -OfflineInstallationPath <absolute path to directory>
+```
+
+>[!NOTE]
+>`-OfflineInstallationPath` 매개 변수는 제공된 디렉터리에서 **Microsoft-Azure-IoTEdge.cab** 이라는 파일을 찾습니다. 파일의 이름을 바꾸면 아키텍처 접미사가 있는 경우 해당 접미사는 제거됩니다.
+
+디바이스를 오프라인으로 업데이트하려면 [Azure IoT Edge 릴리스](https://github.com/Azure/azure-iotedge/releases)에서 대상으로 지정할 버전을 찾습니다. 해당 버전에서 *IoTEdgeSecurityDaemon.ps1* 및 *Microsoft-Azure-IoTEdge.cab* 파일을 다운로드합니다. 각 릴리스의 기능을 지원하기 위해 기능이 변경되기 때문에 사용하는 .cab 파일과 동일한 릴리스의 PowerShell 스크립트를 사용하는 것이 중요합니다.
+
+다운로드한 .cab 파일에 아키텍처 접미사가 있는 경우 파일 이름을 **Microsoft-Azure-IoTEdge.cab** 로 바꿉니다.
+
+오프라인 구성 요소를 사용하여 업데이트하려면 PowerShell 스크립트의 로컬 복사본을 [도트 소싱](/powershell/module/microsoft.powershell.core/about/about_scripts#script-scope-and-dot-sourcing)합니다. 그런 다음 `-OfflineInstallationPath` 매개 변수를 `Update-IoTEdge` 명령의 일부로 사용하고 파일 디렉터리에 대한 절대 경로를 제공합니다. 예제:
+
+```powershell
+. <path>\IoTEdgeSecurityDaemon.ps1
+Update-IoTEdge -OfflineInstallationPath <path>
+```
+
+업데이트 옵션에 대한 자세한 내용은 `Get-Help Update-IoTEdge -full` 명령을 사용하거나 [Windows 컨테이너를 포함하는 IoT Edge용 PowerShell 스크립트](reference-windows-scripts.md)를 참조하세요.
 
 :::moniker-end
 <!-- end 1.1 -->
@@ -245,7 +275,7 @@ IoT Edge 서비스는 최신 버전의 런타임 이미지를 끌어오고 해�
 * **libiothsm-std** 패키지가 더 이상 사용되지 않습니다. IoT Edge 릴리스의 일부로 제공된 표준 패키지를 사용한 경우 구성이 새 버전으로 이전될 수 있습니다. libiothsm-std의 다른 구현을 사용한 경우 디바이스 ID 인증서, 디바이스 CA, 신뢰 번들과 같은 사용자 제공 인증서를 다시 구성해야 합니다.
 * 새 ID 서비스인 **aziot-identity-service** 가 1.2 릴리스의 일부로 도입되었습니다. 이 서비스는 IoT Edge 및 IoT Hub와 통신해야 하는 기타 디바이스 구성 요소(예: [Device Update for IoT Hub](../iot-hub-device-update/understand-device-update.md))에 대한 ID 프로비저닝 및 관리를 처리합니다.
 * 기본 구성 파일이 새 이름과 위치를 갖게 되었습니다. 이전에 `/etc/iotedge/config.yaml`에 있었던 디바이스 구성 정보가 이제는 기본적으로 `/etc/aziot/config.toml`에 있을 것으로 예상됩니다. 구성 정보를 이전 위치와 구문에서 새 위치와 구문으로 이전하는 데 `iotedge config import` 명령을 사용하는 것이 도움이 될 수 있습니다.
-  * import 명령은 디바이스의 TPM(신뢰할 수 있는 플랫폼 모듈)에 대한 액세스 규칙을 감지하거나 수정할 수 없습니다. 디바이스에서 TPM 증명을 사용하는 경우 aziottpm 서비스에 대한 액세스 권한을 부여하려면 /etc/udev/rules.d/tpmaccess.rules 파일을 수동으로 업데이트해야 합니다. 자세한 내용은 [TPM에 대한 IoT Edge 액세스 권한 부여](how-to-provision-devices-at-scale-linux-tpm.md?view=iotedge-2020-11&preserve-view=true#give-iot-edge-access-to-the-tpm)를 참조하세요.
+  * import 명령은 디바이스의 TPM(신뢰할 수 있는 플랫폼 모듈)에 대한 액세스 규칙을 감지하거나 수정할 수 없습니다. 디바이스에서 TPM 증명을 사용하는 경우 aziottpm 서비스에 대한 액세스 권한을 부여하려면 /etc/udev/rules.d/tpmaccess.rules 파일을 수동으로 업데이트해야 합니다. 자세한 내용은 [TPM에 대한 IoT Edge 액세스 권한 부여](how-to-auto-provision-simulated-device-linux.md?view=iotedge-2020-11&preserve-view=true#give-iot-edge-access-to-the-tpm)를 참조하세요.
 * 버전 1.2의 워크로드 API는 암호화된 비밀을 새 형식으로 저장합니다. 이전 버전에서 버전 1.2로 업그레이드하는 경우 기존 마스터 암호화 키를 가져옵니다. 워크로드 API는 가져온 암호화 키를 사용하여 이전 형식으로 저장된 비밀을 읽을 수 있습니다. 그러나 워크로드 API는 암호화된 비밀을 이전 형식으로 쓸 수 없습니다. 비밀이 모듈에서 다시 암호화되면 새 형식으로 저장됩니다. 버전 1.2에서 암호화된 비밀은 버전 1.1의 동일한 모듈에서 읽을 수 없습니다. 암호화된 데이터를 호스트 탑재 폴더 또는 볼륨에 유지하는 경우 업그레이드하기 *전* 에 항상 데이터의 백업 복사본을 만들어 필요한 경우 다운그레이드 기능을 유지합니다.
 
 업데이트 프로세스를 자동화하기 전에 IoT Edge 버전 1.2가 테스트 머신에서 작동하는지 확인합니다.
@@ -320,7 +350,7 @@ IoT Edge 에이전트 및 허브 모듈에는 동일한 규칙으로 태그가 �
 
 이 문서의 섹션을 활용하여 IoT Edge 디바이스를 특정 버전의 보안 디먼 또는 런타임 모듈로 업데이트하는 방법을 알아보세요.
 
-기존 설치를 업그레이드하는 대신 IoT Edge를 설치하는 경우 [오프라인 또는 특정 버전 설치](how-to-install-iot-edge.md#offline-or-specific-version-installation-optional)의 단계를 사용합니다.
+기존 설치를 업그레이드하는 대신 IoT Edge를 설치하는 경우 [오프라인 또는 특정 버전 설치](how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional)의 단계를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

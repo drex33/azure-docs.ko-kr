@@ -4,12 +4,12 @@ description: MARS(Microsoft Azure Recovery Services) 에이전트에서 사용�
 ms.reviewer: mepand
 ms.topic: conceptual
 ms.date: 05/07/2021
-ms.openlocfilehash: 6c77ee568b4f6c7643672d38ba543f5eab7db369
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: d2d6868c787080ddd78b574d1b20434fa27d8574
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114295709"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130250334"
 ---
 # <a name="about-restore-using-the-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트를 사용한 복원 정보 
 
@@ -19,7 +19,7 @@ ms.locfileid: "114295709"
 
 - 최신 버전의 [MARS 에이전트](https://aka.ms/azurebackup_agent)가 설치되어 있는지 확인합니다.
 - [네트워크 대역폭 제한](backup-windows-with-mars-agent.md#enable-network-throttling)이 사용되지 않는지 확인합니다.
-- [에이전트 캐시 폴더](/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder)에 충분한 공간이 있는 고속 스토리지를 사용할 수 있는지 확인합니다.
+- [에이전트 캐시 폴더](./backup-azure-file-folder-backup-faq.yml)에 충분한 공간이 있는 고속 스토리지를 사용할 수 있는지 확인합니다.
 - 메모리와 CPU 리소스를 모니터링하고 데이터 압축 해제 및 암호 해독에 충분한 리소스를 사용할 수 있는지 확인합니다.
 - **즉시 복원** 기능을 사용하여 복구 지점을 디스크로 탑재하는 동안 다중 스레드 복사 옵션(/MT 스위치)과 함께 **robocopy** 를 사용하여 탑재된 복구 지점에서 파일을 효율적으로 복사합니다.
 

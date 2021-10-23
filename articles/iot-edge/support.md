@@ -7,12 +7,12 @@ ms.date: 09/30/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fd970e80f2b091d17c40b15d6c55699721fb1025
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 3c4b8c2578d0443077b29eb350ca53c3176e6dbf
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129349677"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234608"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge 지원 시스템
 
@@ -165,7 +165,7 @@ Windows 컨테이너의 지원되는 운영 체제에 관한 자세한 내용은
 | [Yocto](https://www.yoctoproject.org/) | ![Yocto + AMD64](./media/support/green-check.png) | ![Yocto + ARM32v7](./media/support/green-check.png) | ![Yocto + ARM64](./media/support/green-check.png) |
 | Raspberry Pi OS Buster |  | ![Raspberry Pi OS Buster + ARM32v7](./media/support/green-check.png) | ![Raspberry Pi OS Buster + ARM64](./media/support/green-check.png) |
 
-<sup>1</sup> [Azure IoT Edge for Linux 설치 또는 제거](how-to-install-iot-edge.md)의 Ubuntu Server 18.04 설치 단계는 Ubuntu 20.04에서 변경 없이 작동해야 합니다.
+<sup>1</sup> [Azure IoT Edge for Linux 설치 또는 제거](how-to-provision-single-device-linux-symmetric.md)의 Ubuntu Server 18.04 설치 단계는 Ubuntu 20.04에서 변경 없이 작동해야 합니다.
 
 ## <a name="releases"></a>릴리스
 
@@ -179,7 +179,7 @@ IoT Edge 릴리스 자산과 릴리스 정보는 [azure-iotedge 릴리스](https
 
 다음 표에서는 1.1 LTS 릴리스까지 각 릴리스에 포함된 구성 요소를 나열합니다. 이 표에 나열된 구성 요소는 개별적으로 설치하거나 업데이트할 수 있으며 이전 버전과 호환됩니다.
 
-IoT Edge 1.1은 첫 번째 LTS(장기 지원) 릴리스 채널입니다. 이 버전은 새로운 기능을 도입하지 않았지만 보안 업데이트 및 재발 방지용 수정 사항을 수신합니다. IoT Edge 1.1 LTS는 .NET Core 3.1을 사용하며, [.Net Core 및 .NET 5 릴리스 수명 주기](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)에 따라 2022년 12월 3일까지 지원됩니다.
+IoT Edge 1.1은 첫 번째 LTS (장기 지원) 릴리스 채널입니다. 이 버전은 새로운 기능을 도입하지 않았지만 보안 업데이트 및 재발 방지용 수정 사항을 수신합니다. IoT Edge 1.1 LTS는 .NET Core 3.1을 사용하며, [.Net Core 및 .NET 5 릴리스 수명 주기](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)에 따라 2022년 12월 3일까지 지원됩니다.
 
 | Release | iotedge | edgeHub<br>edgeAgent | libiothsm | moby |
 |--|--|--|--|--|

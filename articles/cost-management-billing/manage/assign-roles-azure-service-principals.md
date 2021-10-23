@@ -2,23 +2,24 @@
 title: Azure 기업계약 서비스 사용자 이름에 역할 할당
 description: 이 문서에서는 PowerShell 및 REST API를 사용하여 서비스 주체 이름에 역할을 할당할 수 있도록 도와줍니다.
 author: bandersmsft
-ms.reviewer: ruturajd
+ms.reviewer: sapnakeshari
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/12/2021
+ms.date: 10/22/2021
 ms.author: banders
-ms.openlocfilehash: 79e32c7514e561cc3c245464038130f5d4bef763
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 65f37b3f071286d143dc83674a7c7108a37cff44
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130001013"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130260383"
 ---
 # <a name="assign-roles-to-azure-enterprise-agreement-service-principal-names"></a>Azure 기업계약 서비스 사용자 이름에 역할 할당
 
-[Azure Enterprise 포털](https://ea.azure.com/)에서 EA(기업계약) 등록을 관리할 수 있습니다. 여러 역할을 만들어 조직을 관리하고, 비용을 살펴보고, 구독을 만들 수 있습니다. 이 문서에서는 Azure PowerShell 및 REST API와 함께 Azure SPN(서비스 주체 이름)을 사용하여 이러한 작업 중 일부를 자동화할 수 있도록 도와줍니다.
+[Azure Enterprise 포털](https://ea.azure.com/)에서 EA(기업계약) 등록을 관리할 수 있습니다. 이제 직접 Enterprise 고객은 Azure Portal [EA(기업계약)](https://portal.azure.com/)등록을 관리할 수 있습니다.
+여러 역할을 만들어 조직을 관리하고, 비용을 살펴보고, 구독을 만들 수 있습니다. 이 문서에서는 Azure PowerShell 및 REST API와 함께 Azure SPN(서비스 주체 이름)을 사용하여 이러한 작업 중 일부를 자동화할 수 있도록 도와줍니다.
 
 시작하기 전에 다음 문서를 숙지해야 합니다.
 

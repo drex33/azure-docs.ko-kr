@@ -3,12 +3,12 @@ title: Azure Service Fabric 클러스터 설정 변경
 description: 이 문서에서는 사용자 지정할 수 있는 패브릭 설정 및 패브릭 업그레이드 정책에 대해 설명합니다.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 5d6f15f4178b9f026be7205832a1f40c3dc01bab
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
-ms.translationtype: HT
+ms.openlocfilehash: 28355bfac8d052c847cf2f08770f5aa869c5a786
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114720684"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130237950"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric 클러스터 설정 사용자 지정
 이 문서에서는 사용자 지정할 수 있는 Service Fabric 클러스터의 다양한 패브릭 설정을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다. 자세한 내용은 [Azure 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md)를 참조하세요. 독립 실행형 클러스터의 경우 *ClusterConfig.json* 파일을 업데이트하고 클러스터에서 구성 업그레이드를 수행하여 설정을 사용자 지정합니다. 자세한 내용은 [독립 실행형 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)를 참조하세요.
@@ -567,7 +567,7 @@ ms.locfileid: "114720684"
 |MoveExistingReplicaForPlacement | bool, 기본값: true |동적|배치 중에 기존 복제본을 이동할지 여부를 결정하는 설정 |
 |MovementPerPartitionThrottleCountingInterval | time(초), 기본값: 600 |정적| 시간 간격은 초 단위로 지정합니다. MovementPerPartitionThrottleThreshold와 함께 사용되는 각 파티션에 대한 복제본 이동을 추적할 이전 간격의 길이를 나타냅니다. |
 |MovementPerPartitionThrottleThreshold | uint, 기본값: 50 |동적| 파티션의 복제본과 관련된 이동의 분산 수가 MovementPerPartitionThrottleCountingInterval로 표시된 이전 간격의 MovementPerFailoverUnitThrottleThreshold에 도달하거나 초과하면 해당 파티션에 대한 분산 관련 작업이 수행되지 않습니다. |
-|MoveParentToFixAffinityViolation | bool, 기본값: false |동적| 선호도 제약 조건을 수정하기 위해 부모 복제본을 이동할 수 있는지 여부를 결정하는 설정|
+|MoveParentToFixAffinityViolation | bool, 기본값: true |동적| 선호도 제약 조건을 수정하기 위해 부모 복제본을 이동할 수 있는지 여부를 결정하는 설정|
 |NodeTaggingEnabled | bool, 기본값: false |동적| true일 경우 NodeTagging 기능이 활성화됩니다. |
 |NodeTaggingConstraintPriority | int, 기본값: 0 |동적| 노드 태그 지정의 구성 가능한 우선 순위입니다. |
 |PartiallyPlaceServices | bool, 기본값: true |동적| 제한된 적합한 노드가 지정되면 클러스터에 있는 모든 서비스 복제본을 "모두 배치하거나 전혀 배치하지 않을지"를 결정합니다.|

@@ -4,12 +4,12 @@ description: 태그를 적용하여 대금 청구 및 관리를 위해 Azure 리
 ms.topic: conceptual
 ms.date: 07/29/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: cf8b4ceb70eec2ac6dbb79b8193276997f8e06f1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2ecb43876582e21fbee97e4d51732b16727b6c92
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128664526"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130248218"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>태그를 사용하여 Azure 리소스 및 관리 계층 구조 구성
 
@@ -848,6 +848,7 @@ REST API 작업에 대한 내용은 [Azure 청구 REST API 참조](/rest/api/bil
 
    > [!NOTE]
    > * Azure DNS 영역 및 Traffic Manager는 태그 또는 숫자로 시작하는 태그의 공백 사용을 지원하지 않습니다.
+   > * Azure DNS 태그 이름은 특수 및 유니코드 문자를 지원하지 않습니다. 값은 모든 문자를 포함할 수 있습니다.
    >
    > * Azure Front Door는 태그 이름에 `#` 또는 `:` 사용을 지원하지 않습니다.
    >

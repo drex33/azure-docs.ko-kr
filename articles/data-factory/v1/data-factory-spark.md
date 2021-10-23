@@ -7,13 +7,13 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
-ms.openlocfilehash: 65d7a45ab8e0432fa62d5e298fe50be50580804e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/22/2021
+ms.openlocfilehash: 8845bdf3d915b1ff94b301e820d191d7938426f2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128667258"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130263822"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory 파이프라인에서 Spark 프로그램 호출
 
@@ -233,7 +233,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 ### <a name="monitor-a-pipeline"></a>파이프라인 모니터링
 1. **데이터 팩터리** 블레이드에서 **모니터링 및 관리** 를 선택하여 다른 탭에서 모니터링 애플리케이션을 시작합니다.
 
-    :::image type="content" source="media/data-factory-spark/monitor-and-manage-tile.png" alt-text="& 관리 타일 모니터링":::
+    :::image type="content" source="media/data-factory-spark/monitor-and-manage-tile.png" alt-text="타일 모니터링 및 관리":::
 
 1. 위쪽의 **시작 시간** 필터를 **2/1/2017** 로 변경하고 **적용** 을 선택합니다.
 
@@ -322,7 +322,7 @@ getDebugInfo를 **Always** 로 설정했으므로 Blob 컨테이너의 pyFiles �
 
 다음 표에서는 JSON 정의에서 사용되는 JSON 속성을 설명합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | -------- | ----------- | -------- |
 | name | 파이프라인의 작업 이름입니다. | 예 |
 | description | 작업에서 수행하는 동작을 설명하는 텍스트입니다. | 예 |

@@ -5,16 +5,16 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 10/22/2021
 ms.author: abnarain
 ms.custom: devx-track-azurepowershell
 robots: noindex
-ms.openlocfilehash: 14f3a838fb5c2893e25828234121f053ee951afc
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: cb827e3603bb00e1c1aa435847dc58fe03d0a389
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128662004"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130255489"
 ---
 # <a name="data-management-gateway"></a>데이터 관리 게이트웨이
 > [!NOTE]

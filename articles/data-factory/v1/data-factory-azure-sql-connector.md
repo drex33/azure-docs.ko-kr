@@ -5,15 +5,15 @@ author: linda33wj
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 10/22/2021
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6879fd1d616268c48114573f0a7c33b0250c6ed3
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0a194a6ceb9445e695435882527245f76ca73c7e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128554131"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226492"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Database 간 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -58,7 +58,7 @@ Azure SQL Database 커넥터는 기본 인증을 지원합니다.
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 Azure SQL Database를 데이터 팩터리에 연결하는 Azure SQL 연결된 서비스입니다. 다음 테이블은 Azure SQL 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | type |형식 속성은 **AzureSqlDatabase** |예 |
 | connectionString |Azure SQL Database 인스턴스에 연결하는 데 필요한 정보를 connectionString 속성에 대해 지정합니다. 기본 인증만 지원됩니다. |예 |
@@ -73,7 +73,7 @@ Azure SQL Database에서 입력 또는 출력 데이터를 표시할 데이터 �
 
 typeProperties 섹션은 데이터 세트의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **AzureSqlTable** 데이터 세트 형식의 데이터 세트에 대한 **typeProperties** 섹션에는 다음 속성이 있습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 Azure SQL Database 인스턴스에서 테이블 또는 보기의 이름입니다. |예 |
 

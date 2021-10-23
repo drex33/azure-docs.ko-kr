@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: f79e436f1fcce346304b2e88f213ff298b27aa04
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: f4b706c296c6f6d4f5921675dd87ec8f4052b9a5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112300834"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256670"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Azure에서 서비스 맵 솔루션 사용
 
@@ -25,7 +25,7 @@ ms.locfileid: "112300834"
 * Windows 컴퓨터 또는 Linux 서버에 설치된 [종속성 에이전트](vminsights-enable-overview.md#agents)
 
 >[!NOTE]
->서비스 맵을 이미 배포한 경우에는 VM 상태 및 성능을 모니터링하는 추가 기능이 포함된 VM 인사이트에서 맵을 볼 수 있습니다. 자세히 알아보려면 [VM 인사이트 개요](../vm/vminsights-overview.md)를 참조하세요. 서비스 맵 솔루션과 VM 인사이트 맵 기능 간의 차이점에 대해 알아보려면 다음 [FAQ](/azure/azure-monitor/faq#vm-insights)를 참조하세요.
+>서비스 맵을 이미 배포한 경우에는 VM 상태 및 성능을 모니터링하는 추가 기능이 포함된 VM 인사이트에서 맵을 볼 수 있습니다. 자세히 알아보려면 [VM 인사이트 개요](../vm/vminsights-overview.md)를 참조하세요. 서비스 맵 솔루션과 VM 인사이트 맵 기능 간의 차이점에 대해 알아보려면 다음 [FAQ](../faq.yml)를 참조하세요.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 

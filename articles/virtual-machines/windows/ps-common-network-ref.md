@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: a99450a5762e619c167913ce22b126a2be13f8c4
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: f055a4df57bff95a0db800cec293bde72922920b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694842"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130222972"
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>Azure Virtual Networks에 대한 공통 PowerShell 명령
 
@@ -34,7 +34,7 @@ ms.locfileid: "122694842"
 | ---- | ------- |
 | 서브넷 구성 만들기 |$subnet1 = [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) -Name "mySubnet1" -AddressPrefix XX.X.X.X/XX<BR>$subnet2 = New-AzVirtualNetworkSubnetConfig -Name "mySubnet2" -AddressPrefix XX.X.X.X/XX<BR><BR>일반적인 네트워크는 [인터넷 연결 부하 분산 장치](../../load-balancer/load-balancer-overview.md)에 대한 서브넷 및 [내부 부하 분산 장치](../../load-balancer/load-balancer-overview.md)에 대한 별도 서브넷을 가질 수도 있습니다. |
 | 가상 네트워크 만들기 |$vnet = [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) -Name "myVNet" -ResourceGroupName $myResourceGroup -Location $location -AddressPrefix XX.X.X.X/XX -Subnet $subnet1, $subnet2 |
-| 고유한 도메인 이름에 대한 테스트 |[Test-AzDnsAvailability](/powershell/module/az.network/test-azdnsavailability) -DomainNameLabel "myDNS" -Location $location<BR><BR>Azure 관리 DNS 서버에서 공용 IP 주소에 대한 domainname.location.cloudapp.azure.com 매핑을 만드는 [공용 IP 리소스](../../virtual-network/public-ip-addresses.md)에 대한 DNS 도메인 이름을 지정할 수 있습니다. 이 이름에는 문자, 숫자 및 하이픈만 포함할 수 있습니다. 첫 번째 및 마지막 문자는 문자 또는 숫자여야 하며 도메인 이름은 Azure 위치 내에서 고유해야 합니다. **True** 가 반환된 경우 제안한 이름이 전역적으로 고유합니다. |
+| 고유한 도메인 이름에 대한 테스트 |[Test-AzDnsAvailability](/powershell/module/az.network/test-azdnsavailability) -DomainNameLabel "myDNS" -Location $location<BR><BR>Azure 관리 DNS 서버에서 공용 IP 주소에 대한 domainname.location.cloudapp.azure.com 매핑을 만드는 [공용 IP 리소스](../../virtual-network/ip-services/public-ip-addresses.md)에 대한 DNS 도메인 이름을 지정할 수 있습니다. 이 이름에는 문자, 숫자 및 하이픈만 포함할 수 있습니다. 첫 번째 및 마지막 문자는 문자 또는 숫자여야 하며 도메인 이름은 Azure 위치 내에서 고유해야 합니다. **True** 가 반환된 경우 제안한 이름이 전역적으로 고유합니다. |
 | 공용 IP 주소 만들기 |$pip = [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) -Name "myPublicIp" -ResourceGroupName $myResourceGroup -DomainNameLabel "myDNS" -Location $location -AllocationMethod Dynamic<BR><BR>공용 IP 주소는 이전에 테스트했고 부하 분산 장치의 프런트 엔드 구성에서 사용되는 도메인 이름을 사용합니다. |
 | 프런트 엔드 IP 구성 만들기 |$frontendIP = [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) -Name "myFrontendIP" -PublicIpAddress $pip<BR><BR>프런트 엔드 구성은 들어오는 네트워크 트래픽에 대해 이전에 만든 공용 IP 주소를 포함합니다. |
 | 백 엔드 주소 풀 만들기 |$beAddressPool = [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) -Name "myBackendAddressPool"<BR><BR>네트워크 인터페이스를 통해 액세스 하는 부하 분산 장치의 백 엔드에 대한 내부 주소를 제공합니다. |

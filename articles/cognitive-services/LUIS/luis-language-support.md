@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/09/2019
-ms.openlocfilehash: ed819b22caab25fea8ae002d482cf2df5d0bf60c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/22/2021
+ms.openlocfilehash: c175389b7714c2b48620f1ef618a9a4f5d6204b0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124733064"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130247743"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS에 대한 언어 및 지역 지원
 
@@ -37,17 +37,17 @@ LUIS는 발화를 다음 언어로 이해합니다.
 | 프랑스어(캐나다) |`fr-CA` |-|-|-|✔|
 | 프랑스어(프랑스) |`fr-FR` |✔| ✔ |✔ |✔|
 | 독일어 |`de-DE` |✔| ✔ |✔ |✔|
-| 구자라트어 | `gu-IN`|-|-|-|-|
-| 힌디어 | `hi-IN`|-|✔|-|-|
+| 구자라트어 (미리 보기) | `gu-IN`|-|-|-|-|
+| 힌디어 (미리 보기) | `hi-IN`|-|✔|-|-|
 | 이탈리아어 |`it-IT` |✔| ✔ |✔|✔|
 | *[일본어](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|주요 구문만|
 | 한국어 |`ko-KR` |✔|-|-|주요 구문만|
-| 마라티어 | `mr-IN`|-|-|-|-|
+| 마라티어 (미리 보기) | `mr-IN`|-|-|-|-|
 | 포르투갈어(브라질) |`pt-BR` |✔| ✔ |✔ |일부 하위 문화권은 아님|
 | 스페인어(멕시코)|`es-MX` |-|✔|✔|✔|
 | 스페인어(스페인) |`es-ES` |✔| ✔ |✔|✔|
-| 타밀어 | `ta-IN`|-|-|-|-|
-| 텔루구어 | `te-IN`|-|-|-|-|
+| 타밀어 (미리 보기) | `ta-IN`|-|-|-|-|
+| 텔루구어 (미리 보기) | `te-IN`|-|-|-|-|
 | 터키어 | `tr-TR` |✔|✔|-|감정만|
 
 

@@ -63,8 +63,6 @@ items:
             href: 'https://azure.github.io/communication-ui-library/?path=/story/quickstarts-statefulclient--page'
           - name: UI 구성 요소 시작
             href: 'https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents--page'
-          - name: 모바일 앱에 복합 통화 추가
-            href: quickstarts/ui-library/get-started-call.md
       - name: TURN 릴레이 액세스
         href: quickstarts/relay-token.md
   - name: 자습서
@@ -137,10 +135,6 @@ items:
             href: concepts/ui-library/ui-library-overview.md
           - name: UI 라이브러리 사용 사례
             href: concepts/ui-library/ui-library-use-cases.md
-          - name: 모바일 UI 라이브러리 개요
-            href: concepts/ui-library/mobile-ui-library.md
-          - name: 모바일 UI 라이브러리 사용 사례
-            href: concepts/ui-library/mobile-ui-use-cases.md
       - name: SDK 및 REST API
         href: concepts/sdk-options.md
       - name: 클라이언트 및 서버 아키텍처

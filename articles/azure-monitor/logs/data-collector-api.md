@@ -4,13 +4,13 @@ description: REST API를 호출할 수 있는 모든 클라이언트에서 Azure
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/14/2020
-ms.openlocfilehash: e490d3a1b38c70e7d5ed7fa11ac5b5055225fb8b
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.date: 10/20/2021
+ms.openlocfilehash: 27935bdb66fae38de2943337ccac2caeb25c1f14
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129059121"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130248271"
 ---
 # <a name="send-log-data-to-azure-monitor-by-using-the-http-data-collector-api-preview"></a>HTTP 데이터 수집기 API를 사용하여 Azure Monitor에 로그 데이터 전송(미리 보기)
 

@@ -6,12 +6,12 @@ ms.service: azure
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: ae3f62141fdcdb1185f493eceeef7124fe11f869
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: ab469462d308435aed5f54e782803cbf5874c59b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535712"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238508"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
 
@@ -109,7 +109,7 @@ Azure Spring Cloud는 클라우드에서 애플리케이션을 빌드, 배포, �
 
 > **사용 시기:** 완전 관리형 서비스인 Azure Spring Cloud는 Azure에서 Spring Boot/Spring Cloud 기반 마이크로 서비스를 실행할 때의 운영 비용을 최소화하는 데 적합합니다. 
 >
-> **시작하기:** [첫 번째 Azure Spring Cloud 애플리케이션을 배포합니다](../../spring-cloud/quickstart.md).
+> **시작 하기:** [Azure 스프링 클라우드에서 첫 번째 스프링 부팅 앱을 배포](../../spring-cloud/quickstart.md)합니다.
 
 
 ### <a name="enhance-your-applications-with-azure-services"></a>Azure 서비스를 사용하여 애플리케이션 개선

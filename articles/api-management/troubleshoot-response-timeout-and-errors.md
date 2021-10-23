@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/04/2020
 ms.author: danlep
 ms.service: api-management
-ms.openlocfilehash: d7b6f8ed20f1af7b4a6f512b9aa4611936f784fd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 18f117f64c6f97ee847f2e82d0e8fea509e17514
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128623915"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130253443"
 ---
 # <a name="troubleshooting-client-response-timeouts-and-errors-with-api-management"></a>API Management의 클라이언트 응답 시간 초과 및 오류 문제 해결
 
@@ -61,7 +61,7 @@ APIM 인스턴스에서 백 엔드 서비스의 동일한 대상 IP 및 대상 �
 
 백 엔드 API가 App Service와 같은 서비스 엔드포인트를 지원하는 Azure 서비스에서 호스트되는 경우 APIM 인스턴스와 백 엔드 서비스를 동일한 가상 네트워크에 배치하고 [서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md) 또는 [프라이빗 엔드포인트](../private-link/private-endpoint-overview.md)를 통해 노출하여 SNAT 포트 소모 문제를 방지할 수 있습니다. 공용 VNet을 사용하고 통합 서브넷에 서비스 엔드포인트를 배치하면 APIM 인스턴스에서 해당 서비스로의 아웃바운드 트래픽이 인터넷을 우회하므로 SNAT 포트 제한을 피할 수 있습니다. 마찬가지로 VNet과 프라이빗 엔드포인트를 사용하는 경우에는 해당 대상으로의 아웃바운드 SNAT 포트 문제가 발생하지 않습니다.
 
-자세한 내용은 [가상 네트워크에서 Azure API Management를 사용하는 방법](api-management-using-with-vnet.md) 및 [Azure 가상 네트워크에 App Service 통합](../app-service/web-sites-integrate-with-vnet.md)을 참조하세요.
+자세한 내용은 [가상 네트워크에서 Azure API Management를 사용하는 방법](api-management-using-with-vnet.md) 및 [Azure 가상 네트워크에 App Service 통합](../app-service/overview-vnet-integration.md)을 참조하세요.
 
 ### <a name="place-your-apim-in-a-virtual-network-and-route-outbound-calls-to-azure-firewall"></a>가상 네트워크에 APIM을 배치하고 아웃바운드 호출을 Azure 방화벽으로 라우팅
 

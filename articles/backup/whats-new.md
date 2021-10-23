@@ -3,12 +3,12 @@ title: Azure Backup의 새로운 기능
 description: Azure Backup의 새로운 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/05/2021
-ms.openlocfilehash: f2c4e3fa492a4dfe3c42ffb615442d3c6c449404
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: e05b98e61a632ee494689eeb1cf013996150bcb3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122538154"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130244232"
 ---
 # <a name="whats-new-in-azure-backup"></a>Azure Backup의 새로운 기능
 
@@ -117,7 +117,7 @@ Azure Disk Backup은 스냅샷 생성을 정기적으로 자동화하고 백업 
 
 이제 Azure Backup은 Azure VM에서 호스트되는 SAP HANA 데이터베이스용 증분 백업을 지원합니다. 이를 통해 SAP HANA 데이터를 보다 빠르고 비용 효율적으로 백업할 수 있습니다.
 
-자세한 내용은 [백업 정책을 만드는 동안 사용할 수 있는 다양한 옵션](/azure/backup/sap-hana-faq-backup-azure-vm#policy) 및 [SAP HANA 데이터베이스용 백업 정책을 만드는 방법](tutorial-backup-sap-hana-db.md#creating-a-backup-policy)을 참조하세요.
+자세한 내용은 [백업 정책을 만드는 동안 사용할 수 있는 다양한 옵션](./sap-hana-faq-backup-azure-vm.yml) 및 [SAP HANA 데이터베이스용 백업 정책을 만드는 방법](tutorial-backup-sap-hana-db.md#creating-a-backup-policy)을 참조하세요.
 
 ## <a name="backup-center-in-preview"></a>백업 센터(미리 보기)
 

@@ -4,18 +4,18 @@ description: 모든 아웃바운드 공용 IP 주소에 대한 액세스를 제�
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/20/2021
-ms.openlocfilehash: 6cc4a73c08d945f5a5ce26cef9c3774ffb5772d0
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 457e72f50b24b5850311b2869ab6daa956512ae6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130069143"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215450"
 ---
 # <a name="restrict-public-connectivity-in-azure-hdinsight"></a>Azure HDInsight 공용 연결 제한
 
 Azure HDInsight [기본 가상 네트워크 아키텍처에서](./hdinsight-virtual-network-architecture.md) HDInsight 리소스 공급자는 공용 네트워크를 통해 클러스터와 통신합니다. 이 문서에서는 인바운드 연결이 프라이빗 네트워크로 제한되는 제한된 HDInsight 클러스터를 만드는 데 사용할 수 있는 고급 컨트롤에 대해 알아봅니다. 
 
-HDInsight 클러스터와 종속 리소스 간에 공용 연결을 원하는 경우 [Azure HDInsight 네트워크 트래픽 제어의](./control-network-traffic.md)지침에 따라 클러스터의 연결을 제한하는 것이 좋습니다. 공용 연결을 제한하는 것 외에도 HDInsight 클러스터에서 사용할 Azure Private Link 지원 종속성 리소스를 구성할 수 있습니다.
+HDInsight 클러스터와 종속 리소스 간의 공용 연결을 원하는 경우 [Azure HDInsight 네트워크 트래픽 제어의](./control-network-traffic.md)지침에 따라 클러스터 연결을 제한하는 것이 좋습니다. 공용 연결을 제한하는 것 외에도 HDInsight 클러스터에서 사용할 Azure Private Link 지원 종속성 리소스를 구성할 수 있습니다.
 
 다음 다이어그램은 가 아웃바운드 로 설정된 경우 잠재적인 HDInsight 가상 네트워크 아키텍처가 어떻게 표시되는지 보여줍니다. `resourceProviderConnection` 
 
@@ -148,7 +148,7 @@ HDInsight 클러스터는 여전히 공용 인터넷에 연결하여 아웃바�
 
 ```json
 networkProperties: {
-    "resourceProviderConnection": "Inbound" | "Outbound"
+    "resourceProviderConnection": "Outbound"
 }
 ```
 

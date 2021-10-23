@@ -8,12 +8,12 @@ metadata:
   ms.topic: conceptual
   ms.date: 09/28/2021
   ms.author: victorh
-  ms.openlocfilehash: 92ea30808101b60f24796e973820453dcd65d72d
-  ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+  ms.openlocfilehash: 98f226f85c9dac3d3ab17396e42759291e5a0007
+  ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/29/2021
-  ms.locfileid: "129215665"
+  ms.lasthandoff: 10/18/2021
+  ms.locfileid: "130138370"
 title: Azure Firewall FAQ
 summary: ''
 sections:
@@ -135,7 +135,7 @@ sections:
 
       $vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
 
-      $pip= Get-AzureRmPublicIpAddress -Name "azfwpublicip" -ResourceGroupName "RG Name"
+      $pip= Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "azfwpublicip"
 
       $mgmtPip2 = Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "mgmtpip"
 

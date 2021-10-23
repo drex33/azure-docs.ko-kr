@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: b-juche
-ms.openlocfilehash: 2df332450c996c1a7b1b9b5e35b06d4fb226ed93
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
-ms.translationtype: HT
+ms.openlocfilehash: 8b2fa319237c31db2e40cc602c17691e60384d13
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108794469"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265153"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Azure NetApp Files 비용 모델 
 
@@ -61,4 +61,4 @@ Azure NetApp Files의 스냅샷 사용량은 부모 볼륨의 할당량 대비 �
 * [볼륨 용량 모니터링](monitor-volume-capacity.md)
 * [용량 풀 또는 볼륨 크기 조정](azure-netapp-files-resize-capacity-pools-or-volumes.md)
 * [태그를 사용하여 청구 관리](manage-billing-tags.md)
-* [용량 관리 FAQ](azure-netapp-files-faqs.md#capacity-management-faqs)
+* [용량 관리 FAQ](faq-capacity-management.md)

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/19/2021
 ms.author: msangapu
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: 37b876b177b7879c57255619d3f5e7e113a2a284
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 7d69eb2e7a5adc669d5299f2309cfa2244b6678e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129278070"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257255"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>상태 검사를 사용하여 App Service 인스턴스 모니터링
 
@@ -81,7 +81,7 @@ ms.locfileid: "129278070"
 
 ### <a name="are-the-health-check-requests-sent-over-http-or-https"></a>상태 검사 요청이 HTTP와 HTTPS 중에서 어떤 프로토콜을 통해 전송되나요?
 
-사이트에 대해 [HTTPS 전용](configure-ssl-bindings.md#enforce-https)이 사용하도록 설정된 경우 상태 검사 요청은 HTTPS를 통해 전송됩니다. 그렇지 않으면 HTTP를 통해 전송됩니다.
+Windows App Service 사이트에서 HTTPS만 사용하도록 설정된 경우 [HTTPS를](configure-ssl-bindings.md#enforce-https) 통해 상태 검사 요청이 전송됩니다. 그렇지 않으면 HTTP를 통해 전송됩니다. Linux App Service 상태 검사 요청은 HTTP를 통해서만 전송되며 현재 HTTP **S를** 통해 전송될 수 없습니다.
 
 ### <a name="what-if-i-have-multiple-apps-on-the-same-app-service-plan"></a>동일한 App Service 플랜에 여러 앱이 있는 경우 어떻게 되나요?
 

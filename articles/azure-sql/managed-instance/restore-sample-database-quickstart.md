@@ -12,12 +12,12 @@ author: misliplavo
 ms.author: mlazic
 ms.reviewer: mathoma
 ms.date: 09/13/2021
-ms.openlocfilehash: f683bbd008e47a154fac11d89e8d06f0e07b87f2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3c8df890cb8772c919d70e790f7a2c62eb757e87
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128674214"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130041288"
 ---
 # <a name="quickstart-restore-a-database-to-azure-sql-managed-instance-with-ssms"></a>빠른 시작: SSMS를 사용하여 Azure SQL Managed Instance로 데이터베이스 복원
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -51,69 +51,69 @@ SSMS에서 다음 단계에 따라 복원 마법사를 사용하여 Wide World I
 1. SSMS를 열고 관리형 인스턴스에 연결합니다.
 2. **개체 탐색기** 에서 관리형 인스턴스의 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **데이터베이스 복원** 을 선택하여 복원 마법사를 엽니다.
 
-    ![복원 마법사를 여는 것을 보여주는 스크린샷](./media/restore-sample-database-quickstart/restore-wizard-start.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-start.png" alt-text="복원 마법사를 여는 것을 보여주는 스크린샷":::
 
 3. 새 복원 마법사에서 줄임표( **...** )를 선택하고, 사용할 백업 파일의 원본을 선택합니다.
 
-    ![새 복원 마법사 창을 여는 것을 보여주는 스크린샷](./media/restore-sample-database-quickstart/new-restore-wizard.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/new-restore-wizard.png" alt-text="새 복원 마법사 창을 여는 것을 보여주는 스크린샷":::
 
 4. **백업 디바이스 선택** 에서 **추가** 를 선택합니다. **백업 미디어 유형** 에서 **URL** 은 유일하게 지원되는 원본 유형이므로 유일하게 선택 가능한 옵션입니다. **확인** 을 선택합니다.
 
-    ![디바이스를 선택하는 것을 보여주는 스크린샷](./media/restore-sample-database-quickstart/restore-wizard-select-device.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-select-device.png" alt-text="디바이스를 선택하는 것을 보여주는 스크린샷":::
 
 5. **백업 파일 위치 선택** 에서 다음 세 가지 옵션 중에 선택하여 백업 파일의 위치에 대한 정보를 제공할 수 있습니다.
     - 드롭다운에서 미리 등록된 스토리지 컨테이너를 선택합니다.
     - 새 스토리지 컨테이너 및 공유 액세스 서명을 입력합니다. (새 SQL 자격 증명이 자동으로 등록됩니다.) 
     - **추가** 를 선택하여 Azure 구독에서 더 많은 스토리지 컨테이너를 찾습니다.
 
-    ![백업 파일 위치를 선택하는 것을 보여주는 스크린샷](./media/restore-sample-database-quickstart/restore-wizard-backup-file-location.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-backup-file-location.png" alt-text="백업 파일 위치를 선택하는 것을 보여주는 스크린샷":::
 
     **추가** 단추를 선택하는 경우 다음 단계를 완료합니다. 다른 방법을 사용하여 백업 파일 위치를 제공하는 경우 12단계로 이동합니다.
 6. **Microsoft 구독에 연결** 에서 **로그인** 을 선택하여 Azure 구독에 로그인합니다.
 
-    ![Azure 구독 로그인을 보여주는 스크린샷](./media/restore-sample-database-quickstart/restore-wizard-connect-subscription-sign-in.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-connect-subscription-sign-in.png" alt-text="Azure 구독 로그인을 보여주는 스크린샷":::
 
 7. 다음과 같이 Microsoft 계정에 로그인하여 Azure에서 세션을 시작합니다.
 
-    ![Azure에 로그인하는 것을 보여주는 스크린샷](./media/restore-sample-database-quickstart/restore-wizard-sign-in-session.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-sign-in-session.png" alt-text="Azure에 로그인하는 것을 보여주는 스크린샷":::
 
 8. 백업 파일이 포함된 스토리지 계정이 있는 구독을 선택합니다.
 
-    ![구독을 선택하는 것을 보여주는 스크린샷](./media/restore-sample-database-quickstart/restore-wizard-select-subscription.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-select-subscription.png" alt-text="구독을 선택하는 것을 보여주는 스크린샷":::
 
 9. 백업 파일이 있는 스토리지 계정을 선택합니다.
 
-    ![스토리지 계정을 보여주는 스크린샷](./media/restore-sample-database-quickstart/restore-wizard-select-storage-account.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-select-storage-account.png" alt-text="스토리지 계정을 보여주는 스크린샷":::
 
 10. 백업 파일이 있는 Blob 컨테이너를 선택합니다.
 
-    ![Blob 컨테이너 선택](./media/restore-sample-database-quickstart/restore-wizard-select-container.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-select-container.png" alt-text="Blob 컨테이너 선택":::
 
 11. 공유 액세스 정책의 만료 날짜를 지정하고 **자격 증명 만들기** 를 선택합니다. 올바른 권한이 있는 공유 액세스 서명이 만들어집니다. **확인** 을 선택합니다.
 
-    ![공유 액세스 서명이 생성되는 것을 보여주는 스크린샷](./media/restore-sample-database-quickstart/restore-wizard-generate-shared-access-signature.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-generate-shared-access-signature.png" alt-text="공유 액세스 서명이 생성되는 것을 보여주는 스크린샷":::
 
 12. 왼쪽 창에서 폴더 구조를 확장하여 백업 파일이 있는 폴더를 표시합니다. 복원할 백업 세트와 관련된 모든 백업 파일을 선택한 다음, **확인** 을 선택합니다.
 
-    ![백업 파일을 선택하는 것을 보여주는 스크린샷](./media/restore-sample-database-quickstart/restore-wizard-backup-file-selection.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-backup-file-selection.png" alt-text="백업 파일을 선택하는 것을 보여주는 스크린샷":::
 
     SSMS가 백업 세트의 유효성을 검사합니다. 백업 세트의 크기에 따라 이 프로세스가 완료될 때까지 몇 초 정도 걸립니다.
 
 13. 백업이 유효한 것으로 확인되면 대상 데이터베이스 이름을 지정하거나 백업 세트의 데이터베이스 이름을 그대로 두고 **확인** 을 선택합니다.
 
-    ![복원 시작을 보여주는 스크린샷](./media/restore-sample-database-quickstart/restore-wizard-start-restore.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-start-restore.png" alt-text="복원 시작을 보여주는 스크린샷":::
 
     복원이 시작됩니다. 복원에 걸리는 시간은 백업 세트의 크기에 따라 달라집니다.
 
-    ![복원 실행을 보여주는 스크린샷](./media/restore-sample-database-quickstart/restore-wizard-running-restore.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-running-restore.png" alt-text="복원 실행을 보여주는 스크린샷":::
 
 14. 복원이 완료되면 복원이 성공했다는 대화 상자가 표시됩니다. **확인** 을 선택합니다.
 
-    ![복원이 완료된 것을 보여주는 스크린샷](./media/restore-sample-database-quickstart/restore-wizard-finish-restore.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-finish-restore.png" alt-text="복원이 완료된 것을 보여주는 스크린샷":::
 
 15. 다음과 같이 개체 탐색기에서 복원된 데이터베이스를 확인합니다.
 
-    ![복원된 데이터베이스를 보여주는 스크린샷](./media/restore-sample-database-quickstart/restore-wizard-restored-database.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-restored-database.png" alt-text="복원된 데이터베이스를 보여주는 스크린샷":::
 
 
 ## <a name="restore-from-a-backup-file-using-t-sql"></a>T-SQL을 사용하여 백업 파일에서 복원
@@ -133,7 +133,7 @@ SQL Server Management Studio에서 이러한 단계에 따라 SQL Managed Instan
    , SECRET = 'sv=2017-11-09&ss=bfqt&srt=sco&sp=rwdlacup&se=2028-09-06T02:52:55Z&st=2018-09-04T18:52:55Z&spr=https&sig=WOTiM%2FS4GVF%2FEEs9DGQR9Im0W%2BwndxW2CQ7%2B5fHd7Is%3D'
    ```
 
-    ![자격 증명 만들기](./media/restore-sample-database-quickstart/credential.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/credential.png" alt-text="자격 증명 만들기":::
 
 4. 자격 증명을 확인하려면 [컨테이너](https://azure.microsoft.com/services/container-instances/) URL을 사용하여 백업 파일 목록을 가져오는 다음 스크립트를 실행합니다.
 
@@ -142,7 +142,7 @@ SQL Server Management Studio에서 이러한 단계에 따라 SQL Managed Instan
       'https://mitutorials.blob.core.windows.net/databases/WideWorldImporters-Standard.bak'
    ```
 
-    ![파일 목록](./media/restore-sample-database-quickstart/file-list.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/file-list.png" alt-text="파일 목록":::
 
 5. Wide World Importers 데이터베이스를 복원하려면 다음 스크립트를 실행합니다.
 
@@ -151,7 +151,7 @@ SQL Server Management Studio에서 이러한 단계에 따라 SQL Managed Instan
      'https://mitutorials.blob.core.windows.net/databases/WideWorldImporters-Standard.bak'
    ```
 
-    ![스크린샷은 성공 메시지와 함께 개체 탐색기에서 실행되는 스크립트를 보여줍니다.](./media/restore-sample-database-quickstart/restore.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore.png" alt-text="스크린샷은 성공 메시지와 함께 개체 탐색기에서 실행되는 스크립트를 보여줍니다.":::
 
 6. 다음 스크립트를 실행하여 복원 상태를 추적합니다.
 

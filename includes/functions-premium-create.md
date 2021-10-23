@@ -1,19 +1,15 @@
 ---
-title: 포함 파일
-description: 포함 파일
-services: functions
-author: jeffhollan
+author: ggailey777
 ms.service: azure-functions
 ms.topic: include
 ms.date: 04/24/2020
-ms.author: jehollan, glenga
-ms.custom: include file
-ms.openlocfilehash: cdeba09c91bee72508632b8468126150017df7cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: glenga
+ms.openlocfilehash: 398790187fe29eb96a910765b052ad94a827051e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98187364"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265415"
 ---
 1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기** 를 선택합니다.
 

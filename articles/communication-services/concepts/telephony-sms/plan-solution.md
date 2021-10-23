@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.service: azure-communication-services
 ms.subservice: pstn
-ms.openlocfilehash: 879dcefc787185b51ab6019c1ad8e2a5f8befb16
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d04c6d298d84b9739564124a02ae8a7710186d0e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128636005"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233078"
 ---
 # <a name="phone-number-types-in-azure-communication-services"></a>Azure Communication Services의 전화 번호 유형
 
@@ -85,7 +85,7 @@ Communication Services는 **현지** 및 **무료** 라는 두 가지 유형의 
 ### <a name="quickstarts"></a>빠른 시작
 
 - [전화 번호 받기](../../quickstarts/telephony-sms/get-phone-number.md)
-- [전화 걸기](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- [전화 걸기](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 - [SMS 보내기](../../quickstarts/telephony-sms/send.md)
 
 ### <a name="conceptual-documentation"></a>개념 설명서

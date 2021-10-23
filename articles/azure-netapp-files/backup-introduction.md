@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/13/2021
 ms.author: b-juche
 ms.custom: references_regions
-ms.openlocfilehash: 81d14b6c03e8ef27697e8f069a5d9ebd5ff38d7f
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 3836dc37a6be1b21a46424cbcf14a8960908969d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129993134"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256327"
 ---
 # <a name="understand-azure-netapp-files-backup"></a>Azure NetApp Files 백업 이해
 
@@ -71,5 +71,5 @@ Azure NetApp Files 백업의 가격은 백업에서 사용 하는 저장소의 �
 * [볼륨에 대 한 백업 기능 사용 안 함](backup-disable.md)
 * [볼륨의 백업 삭제](backup-delete.md)
 * [볼륨 백업 메트릭](azure-netapp-files-metrics.md#volume-backup-metrics)
-* [Azure NetApp Files 백업 FAQ](azure-netapp-files-faqs.md#azure-netapp-files-backup-faqs)
+* [Azure NetApp Files 백업 FAQ](faq-backup.md)
 * [Azure NetApp Files 스냅샷 작동 방식](snapshots-introduction.md)

@@ -3,12 +3,12 @@ title: Live Video Analytics를 사용하여 Windows의 Linux용 IoT Edge에 배�
 description: 이 문서에서는 Live Video Analytics를 사용하여 Windows의 Linux용 IoT Edge 디바이스에 배포하는 방법에 대한 지침을 제공합니다.
 ms.topic: how-to
 ms.date: 02/18/2021
-ms.openlocfilehash: c504ecf2bb7405ee49d6e9ee94f069336924f5c0
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
-ms.translationtype: HT
+ms.openlocfilehash: 315501540e38340285e113dace2b68a46c3f6493
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378098"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225721"
 ---
 # <a name="deploy-to-an-iot-edge-for-linux-on-windows-eflow-device-with-live-video-analytics"></a>Live Video Analytics를 사용하여 IoT EFLOW(Edge for Linux on Windows) 디바이스에 배포
 
@@ -18,7 +18,7 @@ ms.locfileid: "110378098"
 
 ## <a name="prerequisites"></a>필수 구성 요소 
 
-* 활성 구독이 있는 Azure 계정. 계정이 아직 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 수 있습니다.
+* 활성 구독이 있는 Azure 계정. 계정이 아직 없는 경우 [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
     > [!NOTE]
     > 서비스 주체를 만들 수 있는 권한이 있는 Azure 구독이 필요합니다(**소유자 역할** 이 이를 제공함). 적절한 권한이 없는 경우 계정 관리자에게 문의하여 적절한 권한을 부여합니다.
@@ -31,7 +31,7 @@ ms.locfileid: "110378098"
 
 :::image type="content" source="./media/deploy-iot-edge-linux-on-windows/eflow.png" alt-text="IoT EFLOW(Edge for Linux on Windows) 다이어그램":::
 
-1. Windows 디바이스에 [EFLOW를 설치](../../iot-edge/how-to-install-iot-edge-on-windows.md)합니다. 
+1. Windows 디바이스에 [EFLOW를 설치](../../iot-edge/how-to-provision-single-device-linux-on-windows-symmetric.md)합니다. 
 
     1. Windows PC를 사용하는 경우 [Windows Admin Center](/windows-server/manage/windows-admin-center/overview) 시작 페이지의 연결 목록 아래에 Windows Admin Center를 실행하는 PC를 나타내는 로컬 호스트 연결이 표시됩니다. 
     1. 관리하는 모든 추가 서버, PC 또는 클러스터도 여기에 표시됩니다.

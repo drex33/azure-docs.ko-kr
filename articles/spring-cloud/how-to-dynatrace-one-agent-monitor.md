@@ -1,22 +1,22 @@
 ---
-title: Dynatrace Java OneAgent를 사용하여 Azure Spring Cloud 애플리케이션을 모니터링하는 방법
-description: Dynatrace Java OneAgent를 사용하여 Azure Spring Cloud 애플리케이션을 모니터링하는 방법
+title: Dynatrace Java OneAgent를 사용하여 Spring Boot 앱을 모니터링하는 방법
+description: Dynatrace Java OneAgent를 사용하여 Azure Spring Cloud 실행되는 Spring Boot 애플리케이션을 모니터링하는 방법
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 08/31/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: ea4ce0946239dd6355174674f443a1f29c2b9d06
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 20625461d27108c201f44458eff3f96d77f81132
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123438879"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225532"
 ---
-# <a name="how-to-monitor-azure-spring-cloud-applications-with-dynatrace-java-oneagent"></a>Dynatrace Java OneAgent를 사용하여 Azure Spring Cloud 애플리케이션을 모니터링하는 방법
+# <a name="how-to-monitor-spring-boot-apps-with-dynatrace-java-oneagent"></a>Dynatrace Java OneAgent를 사용하여 Spring Boot 앱을 모니터링하는 방법
 
-이 문서에서는 Dynatrace OneAgent를 사용하여 Azure Spring Cloud 애플리케이션을 모니터링하는 방법을 설명합니다.
+이 문서에서는 Dynatrace OneAgent를 사용하여 Azure Spring Cloud 실행되는 Spring Boot 애플리케이션을 모니터링하는 방법을 설명합니다.
 
 Dynatrace OneAgent로 다음을 수행할 수 있습니다.
 
@@ -94,11 +94,11 @@ Azure Portal을 사용하여 키/값 쌍을 추가하려면 다음 단계를 사
 
    :::image type="content" source="media/dynatrace-oneagent/configuration-application.png" alt-text="애플리케이션 구성 섹션의 '환경 변수' 탭 스크린샷" lightbox="media/dynatrace-oneagent/configuration-application.png":::
 
-## <a name="automation"></a>Automation
+## <a name="automate-provisioning"></a>프로비저닝 자동화
 
 Terraform 또는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 프로비저닝 자동화 파이프라인을 실행할 수도 있습니다. 이 파이프라인은 사용자가 만들고 배포하는 모든 새 애플리케이션을 계측하고 모니터링하기 위한 완전한 자동 환경을 제공할 수 있습니다.
 
-### <a name="terraform"></a>Terraform
+### <a name="automate-provisioning-using-terraform"></a>Terraform을 사용하여 프로비저닝 자동화
 
 Terraform 템플릿에서 환경 변수를 구성하려면 템플릿에 다음 코드를 추가하고 *\<...>* 자리 표시자를 고유한 값으로 바꿉니다. 자세한 내용은 [활성 Azure Spring Cloud 배포 관리](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_active_deployment)를 참조하세요.
 
@@ -111,7 +111,7 @@ environment_variables = {
 }
 ```
 
-### <a name="arm-template"></a>ARM 템플릿
+### <a name="automate-provisioning-using-an-arm-template"></a>ARM 템플릿을 사용하여 프로비저닝 자동화
 
 ARM 템플릿에서 환경 변수를 구성하려면 템플릿에 다음 코드를 추가하고 *\<...>* 자리 표시자를 고유한 값으로 바꿉니다. 자세한 내용은 [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json)를 참조하세요.
 
@@ -167,13 +167,13 @@ ARM 템플릿에서 환경 변수를 구성하려면 템플릿에 다음 코드�
 
 :::image type="content" source="media/dynatrace-oneagent/spring-cloud-dynatrace-database-backtrace.png" alt-text="역추적 보고서의 스크린샷." lightbox="media/dynatrace-oneagent/spring-cloud-dynatrace-database-backtrace.png":::
 
-## <a name="dynatrace-oneagent-logging"></a>Dynatrace OneAgent 로깅
+## <a name="view-dynatrace-oneagent-logs"></a>Dynatrace OneAgent 로그 보기
 
 기본적으로 Azure Spring Cloud는 Dynatrace OneAgent의 *정보* 수준 로그를 `STDOUT`에 인쇄합니다. 로그는 애플리케이션 로그와 혼합됩니다. 애플리케이션 로그에서 명시적 에이전트 버전을 확인할 수 있습니다.
 
 다음 위치에서 Dynatrace 에이전트의 로그를 가져올 수도 있습니다.
 
-* Azure Spring Cloud 로그
+* 로그 Azure Spring Cloud
 * Azure Spring Cloud Application Insights
 * Azure Spring Cloud LogStream
 

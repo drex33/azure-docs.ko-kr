@@ -2,18 +2,21 @@
 title: Azure Application Insights를 사용하여 ASP.NET에 대한 모니터링 구성 | Microsoft Docs
 description: Azure 또는 온-프레미스에 호스트되는 ASP.NET 웹 사이트에 대한 성능, 가용성 및 사용자 동작 분석 도구를 구성합니다.
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 10/12/2021
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: a0a262564306448fd587a699b24982595506df50
-ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
+ms.openlocfilehash: 7334755259c70506aa36a4a17070a13be803755e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129740705"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256784"
 ---
 # <a name="configure-application-insights-for-your-aspnet-website"></a>ASP.NET 웹 사이트용 Application Insights 구성
 
 이 절차에서는 Azure Monitor 서비스의 [Azure Application Insights](./app-insights-overview.md) 기능으로 원격 분석을 보내도록 ASP.NET 웹앱을 구성합니다. 이 절차는 사용자 고유의 IIS 서버 온-프레미스 또는 클라우드에서 호스트되는 ASP.NET 앱에서 작동합니다. 
+
+> [!NOTE]
+> 미리 보기 [OpenTelemetry 기반 .NET 제품을](opentelemetry-enable.md?tabs=net) 사용할 수 있습니다. [자세한 정보를 알아보세요](opentelemetry-overview.md).
 
 ## <a name="prerequisites"></a>사전 요구 사항
 Application Insights를 ASP.NET 웹 사이트에 추가하려면 다음을 수행해야 합니다.
@@ -44,7 +47,7 @@ Application Insights를 ASP.NET 웹 사이트에 추가하려면 다음을 수�
 
 이 섹션에서는 템플릿 기반 ASP.NET 웹앱에 Application Insights를 자동으로 추가하는 방법을 안내합니다. Visual Studio의 ASP.NET 웹앱 프로젝트 내에서:
 
-1. **Project**  >  **추가 Application Insights 원격 분석**  >  **Application Insights Sdk (로컬)**  >  **다음**  >  **마침**  >  **닫기** 를 선택 합니다.
+1. **애플리케이션 추가 Insights** 원격 분석 애플리케이션  >  **Insights**  >  **Sdk(로컬) Project** 선택하고  >  **다음으로**  >  **닫기를 마칩니다.**  >  
 2. *ApplicationInsights.config* 파일을 엽니다. 
 3. 닫는 `</ApplicationInsights>` 태그 앞에 Application Insights 리소스에 대한 계측 키가 포함된 줄을 추가합니다.  계측 키는 이 문서에서 필수 조건의 일부로 새로 만든 Application Insights 리소스의 개요 창에서 찾을 수 있습니다.
 

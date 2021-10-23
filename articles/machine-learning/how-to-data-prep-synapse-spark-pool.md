@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
 ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4
-ms.openlocfilehash: 927b672aa4bd17efcfa491b0ec0092db9a2118c0
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 625a49930b68f2f5d76110a3548ad6e422ebf451
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429797"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251550"
 ---
 # <a name="data-wrangling-with-apache-spark-pools-preview"></a>Apache Spark 풀을 사용한 데이터 랭글링(미리 보기) 
 
@@ -96,7 +96,7 @@ env.register(workspace=ws)
 Apache Spark 풀 및 사용자 지정 환경에서 데이터 준비를 시작하려면 Apache Spark 풀 이름과 Apache Spark 세션 중에 사용할 환경을 지정합니다. 또한 구독 ID, 기계 학습 작업 영역 리소스 그룹 및 기계 학습 작업 영역의 이름을 제공할 수 있습니다.
 
 >[!IMPORTANT]
-> 연결된 Synapse 작업 영역에서 [세션 수준 패키지 허용](../synapse-analytics/spark/apache-spark-manage-python-packages.md#session-scoped-packages-preview)이 사용하도록 설정되었는지 확인합니다.
+> 연결된 Synapse 작업 영역에서 [세션 수준 패키지 허용](../synapse-analytics/spark/apache-spark-manage-python-packages.md#session-scoped-packages)이 사용하도록 설정되었는지 확인합니다.
 >
 >![세션 수준 패키지 사용](media/how-to-data-prep-synapse-spark-pool/enable-session-level-package.png)
 

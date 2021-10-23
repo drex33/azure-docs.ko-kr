@@ -3,12 +3,12 @@ title: 클레임할 수 있는 VM 만들기 및 관리
 description: Azure Portal을 사용하여 Azure DevTest Labs에서 클레임할 수 있는 가상 머신을 추가하는 방법을 알아보고 가상 머신을 클레임/클레임 취소하기 위해 수행하는 프로세스를 살펴봅니다.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 8fb89e77308751a1a40a849991740228a6c465f5
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 68c82c359f5fe0a0c146756cd3a9e1f74e33f6b3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128660940"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130218131"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Azure DevTest Labs에서 클레임할 수 있는 VM 생성 및 관리
 클레임할 수 있는 VM은 [표준 VM을 추가](devtest-lab-add-vm.md)하는 것과 유사한 방식으로([사용자 지정 이미지](devtest-lab-create-template.md), [수식](devtest-lab-manage-formulas.md) 또는 [Marketplace 이미지](devtest-lab-configure-marketplace-images.md)를 *기반* 으로) 랩에 추가합니다. 이 자습서에서는 Azure Portal을 사용하여 클레임할 수 있는 VM을 DevTest Labs의 랩에 추가하는 단계를 안내하고 VM을 클레임 및 클레임 취소하기 위해 따라야 하는 프로세스를 보여줍니다.
@@ -31,7 +31,9 @@ ms.locfileid: "128660940"
         먼저 키 자격 증명 모음에 비밀을 저장한 다음, 랩에서 VM을 만드는 동안 사용할 수 있습니다. 자세한 내용은 [키 자격 증명 모음에 비밀 저장](devtest-lab-store-secrets-in-key-vault.md)을 참조하세요. 키 자격 증명 모음에 저장된 암호를 사용하려면 **저장된 비밀 사용** 을 선택하고 비밀(암호)에 해당하는 키 값을 지정합니다.
     4. **기타 옵션** 섹션에서 **크기 변경** 을 선택합니다. 만드는 VM의 프로세서 코어 수, RAM 크기 및 하드 드라이브 크기를 지정하는 미리 정의된 항목 중 하나를 선택합니다.
     5. **아티팩트 추가 또는 제거** 를 선택합니다. 기본 이미지에 추가하려는 아티팩트를 선택하고 구성합니다.
-    **참고:** DevTest Lab을 처음 접하거나 아티팩트를 구성 중인 경우 [VM에 기존 아티팩트 추가](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) 섹션을 참조한 다음 완료되면 여기로 돌아옵니다.
+    
+    >[!NOTE] 
+    >DevTest Labs를 처음 접하는 경우 또는 아티팩트를 구성 하는 경우 [설치 후 아티팩트 추가](./devtest-lab-add-vm.md#add-artifacts-after-installation) 섹션을 참조 한 다음 완료 되 면 여기로 돌아옵니다.
 2. 위쪽에 있는 **고급 설정** 탭으로 전환하고 다음 작업을 수행합니다.
     1. VM이 있는 가상 네트워크를 변경하려면 **VNet 변경** 을 선택합니다.
     2. 서브넷을 변경하려면 **서브넷 변경** 을 선택합니다.

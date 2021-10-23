@@ -9,14 +9,14 @@ ms.topic: reference
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma, bonova, danil
-ms.date: 8/18/2021
+ms.date: 10/21/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 1f8d848c87979419b4c2605560c3c371edfa5147
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 17782d880c8a874ab4dedc717f4a71b5f0771a13
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130045695"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130239250"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>SQL Server와 Azure SQL Managed Instance 간의 T-SQL 차이점
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -38,7 +38,7 @@ SQL Managed Instance에 도입된 일부 PaaS 제한 사항이 있으며 SQL Ser
 
 이러한 기능 중 대부분은 아키텍처 제약 조건이며 서비스 기능을 나타냅니다.
 
-SQL Managed Instance에서 검색 되 고 나중에 해결 될 수 있는 일시적인 알려진 문제는 [새로운 기능](doc-changes-updates-release-notes-whats-new.md)에 설명 되어 있습니다.
+SQL Managed Instance 검색되고 나중에 해결될 일시적인 알려진 문제는 [새로운](doc-changes-updates-release-notes-whats-new.md)내용에 설명되어 있습니다.
 
 ## <a name="availability"></a>가용성
 
@@ -70,7 +70,7 @@ SQL Managed Instance에는 자동 백업이 있으므로 사용자는 전체 데
 - SQL Managed Instance를 사용하는 경우 최대 32개의 스트라이프가 있는 백업에 인스턴스 데이터베이스를 백업할 수 있습니다. 이 개수는 백업 압축을 사용할 경우 최대 4TB의 데이터베이스에 충분합니다.
 - 서비스 관리 TDE(투명한 데이터 암호화)로 암호화된 데이터베이스에서는 `BACKUP DATABASE ... WITH COPY_ONLY`를 실행할 수 없습니다. 서비스 관리 TDE는 내부 TDE 키를 사용하여 백업을 암호화합니다. 키를 내보낼 수 없어 백업을 복원할 수 없습니다. 자동 백업 및 특정 시점 복원을 사용하거나 [고객 관리(BYOK) TDE](../database/transparent-data-encryption-tde-overview.md#customer-managed-transparent-data-encryption---bring-your-own-key)를 대신 사용합니다. 데이터베이스에서 암호화를 사용하지 않도록 설정할 수 있습니다.
 - Managed Instance에서 가져온 기본 백업은 SQL Server로 복원할 수 없습니다. 이는 Managed Instance가 SQL Server의 모든 버전과 비교하여 내부 데이터베이스 버전이 더 높기 때문입니다.
-- Azure storage에서 데이터베이스를 백업 하거나 복원 하려면 SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한을 부여 하는 URI를 만들어야 합니다. [이에 대해 자세히 알아보세요](restore-sample-database-quickstart.md#restore-from-a-backup-file-using-t-sql). 이러한 시나리오에는 액세스 키를 사용 하는 것은 지원 되지 않습니다.
+- Azure Storage에서 데이터베이스를 백업하거나 복원하려면 리소스에 대한 제한된 액세스 권한을 부여하는 SAS(공유 액세스 서명)를 만들어야 Azure Storage [리소스에 대해 자세히 알아보세요.](restore-sample-database-quickstart.md#restore-from-a-backup-file-using-t-sql) 이러한 시나리오에는 액세스 키를 사용할 수 없습니다.
 - SQL Managed Instance에서 `BACKUP` 명령을 사용한 최대 백업 스트라이프 크기는 최대 BLOB 크기인 195GB입니다. 개별 스트라이프 크기를 줄이고 이 제한 내로 유지하려면 백업 명령에서 스트라이프 수를 늘립니다.
 
     > [!TIP]
@@ -145,14 +145,14 @@ SQL Managed Instance는 파일에 액세스할 수 없으므로 암호화 공급
     SQL Managed Instance는 `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER` 구문을 사용하여 Azure AD 데이터베이스 보안 주체를 지원합니다. 이 기능을 Azure AD 포함된 데이터베이스 사용자라고도 합니다.
 
 - `CREATE LOGIN ... FROM WINDOWS` 구문으로 만든 Windows 로그인은 지원되지 않습니다. Azure Active Directory 로그인 및 사용자를 사용합니다.
-- 인스턴스를 만든 Azure AD 사용자에게는 [무제한 관리자 권한](../database/logins-create-manage.md)이 있습니다.
+- 인스턴스에 대한 Azure AD 관리자에게는 [무제한 관리자 권한이 있습니다.](../database/logins-create-manage.md)
 - 관리자가 아닌 Azure AD 데이터베이스 수준 사용자는 `CREATE USER ... FROM EXTERNAL PROVIDER` 구문을 사용하여 만들 수 있습니다. [CREATE USER ... FROM EXTERNAL PROVIDER](../database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)를 참조하세요.
 - Azure AD 서버 보안 주체(로그인)는 단일 SQL Managed Instance 내에서만 SQL 기능을 지원합니다. 인스턴스 간 상호 작용이 필요한 기능은 동일한 Azure AD 테넌트에 있는지 또는 다른 테넌트 내에 있는지에 관계없이 Azure AD 사용자에게 지원되지 않습니다. 이러한 기능의 예는 다음과 같습니다.
 
   - SQL 트랜잭션 복제
   - 링크 서버
 
-- Azure AD 그룹에 매핑된 Azure AD 로그인을 데이터베이스 소유자로 설정할 수 없습니다.
+- Azure AD 그룹에 매핑된 Azure AD 로그인을 데이터베이스 소유자로 설정할 수 없습니다. 데이터베이스에서 로그인이 생성 되지 않은 경우에도 Azure AD 그룹의 구성원은 데이터베이스 소유자가 될 수 있습니다.
 - [EXECUTE AS](/sql/t-sql/statements/execute-as-transact-sql) 절과 같이, 다른 Azure AD 보안 주체를 사용하여 Azure AD 서버 수준 보안 주체를 가장할 수 있습니다. EXECUTE AS 제한 사항은 다음과 같습니다.
 
   - 이름이 로그인 이름과 다른 경우 EXECUTE AS USER는 Azure AD 사용자에 대해 지원되지 않습니다. 예를 들어 CREATE USER [myAadUser] FROM LOGIN [john@contoso.com]을 통해 사용자를 만들고 EXEC AS USER = _myAadUser_ 를 통해 가장을 시도하는 경우입니다. Azure AD 서버 보안 주체(로그인)에서 **USER** 를 만들 때 **LOGIN** 에서 user_name을 동일한 login_name으로 지정합니다.
@@ -175,15 +175,13 @@ SQL Managed Instance는 파일에 액세스할 수 없으므로 암호화 공급
 - 로그인이 SQL 보안 주체인 경우 `sysadmin` 역할에 포함된 로그인만 create 명령을 사용하여 Azure AD 계정에 대한 로그인을 만들 수 있습니다.
 - Azure AD 로그인은 Azure SQL Managed Instance에 사용되는 것과 동일한 디렉터리 내의 Azure AD 구성원이어야 합니다.
 - Azure AD 서버 보안 주체(로그인)는 SQL Server Management Studio 18.0 미리 보기 5부터 개체 탐색기에 표시됩니다.
-- Azure AD 서버 보안 주체(로그인)를 Azure AD 관리자 계정과 겹칠 수 있습니다. 보안 주체를 확인하고 SQL Managed Instance에 대한 사용 권한을 적용할 때 Azure AD 서버 보안 주체(로그인)가 Azure AD 관리자보다 우선합니다.
+- 인스턴스에 대해 사용 하도록 설정 되 면 Azure AD 관리자 계정에 대 한 *sysadmin* 액세스 수준의 서버 보안 주체가 자동으로 만들어집니다.
 - 인증 중에 인증 보안 주체를 확인하기 위해 적용되는 시퀀스는 다음과 같습니다.
 
     1. Azure AD 계정이 Azure AD 서버 보안 주체(로그인)에 직접 매핑된 경우(sys.server_principals에서 "E" 형식으로), 액세스 권한을 부여하고 Azure AD 서버 보안 주체(로그인)의 사용 권한을 적용합니다.
-    2. Azure AD 계정이 Azure AD 서버 보안 주체(로그인)에 직접 매핑된 Azure AD 그룹의 멤버인 경우(sys.server_principals에서 "X" 형식으로), 액세스 권한을 부여하고 Azure AD 그룹 로그인의 사용 권한을 적용합니다.
-    3. Azure AD 계정이 포털에서 구성된 SQL Managed Instance에 대한 특수 Azure AD 관리자인 경우(SQL Managed Instance 시스템 뷰에 없음), SQL Managed Instance(레거시 모드)에 대해 Azure AD 관리자의 수정된 특수 사용 권한을 적용합니다.
-    4. Azure AD 계정이 데이터베이스의 Azure AD 사용자에 직접 매핑된 경우(sys.database_principals에서 "E" 형식으로), 액세스 권한을 부여하고 Azure AD 데이터베이스 사용자의 사용 권한을 적용합니다.
-    5. Azure AD 계정이 데이터베이스의 Azure AD 사용자에 매핑된 Azure AD 그룹의 멤버인 경우(sys.database_principals에서 "X" 형식으로), 액세스 권한을 부여하고 Azure AD 그룹 로그인의 사용 권한을 적용합니다.
-    6. Azure AD 사용자 계정 또는 Azure AD 그룹 계정에 매핑되어 사용자 인증으로 확인되는 Azure AD 로그인이 있는 경우, 이 Azure AD 로그인의 모든 사용 권한이 적용됩니다.
+    1. Azure AD 계정이 Azure AD 서버 보안 주체(로그인)에 직접 매핑된 Azure AD 그룹의 멤버인 경우(sys.server_principals에서 "X" 형식으로), 액세스 권한을 부여하고 Azure AD 그룹 로그인의 사용 권한을 적용합니다.
+    1. Azure AD 계정이 데이터베이스의 Azure AD 사용자에 직접 매핑된 경우(sys.database_principals에서 "E" 형식으로), 액세스 권한을 부여하고 Azure AD 데이터베이스 사용자의 사용 권한을 적용합니다.
+    1. Azure ad 계정이 데이터베이스에서 Azure AD 사용자에 매핑되는 Azure ad 그룹의 멤버인 경우 (예를 들어, "X" 형식으로 제공 되며, Azure AD 그룹 사용자의 액세스 권한 부여 및 적용 권한으로 sys.database_principals.
 
 ### <a name="service-key-and-service-master-key"></a>서비스 키 및 서비스 마스터 키
 
@@ -561,6 +559,6 @@ SQL Managed Instance는 자세한 정보를 오류 로그에 배치합니다. �
 
 - SQL Managed Instance에 대한 자세한 내용은 [SQL Managed Instance란?](sql-managed-instance-paas-overview.md)을 참조하세요.
 - 기능 및 비교 목록은 [ Azure SQL Managed Instance 기능](../database/features-comparison.md)을 참조하세요.
-- 릴리스 업데이트는 [새로운 것을 참조하세요.](doc-changes-updates-release-notes-whats-new.md)
-- 문제, 해결 방법 및 해결 방법을 보려면 [알려진 문제를](doc-changes-updates-known-issues.md)참조하세요.
+- 릴리스 업데이트는 [새로운 기능](doc-changes-updates-release-notes-whats-new.md)을 참조 하세요.
+- 문제, 해결 방법 및 해결 방법에 대해서는 [알려진 문제](doc-changes-updates-known-issues.md)를 참조 하세요.
 - 새 SQL Managed Instance를 만드는 방법을 보여 주는 빠른 시작은 [ 만들기](instance-create-quickstart.md)를 참조하세요.

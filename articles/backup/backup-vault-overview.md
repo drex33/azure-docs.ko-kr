@@ -4,12 +4,12 @@ description: Backup 자격 증명 모음 개요입니다.
 ms.topic: conceptual
 ms.date: 09/08/2021
 ms.custom: references_regions
-ms.openlocfilehash: 8d617dd2d2b1fa61a797d14c709ce285dc28b9bf
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: afe103e7fb6c2cb59634029c5ae9a75acadf0afc
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124799534"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130235889"
 ---
 # <a name="backup-vaults-overview"></a>Backup 자격 증명 모음 개요
 
@@ -168,7 +168,7 @@ Backup Vault를 삭제하기 전에 제거해야 할 기존 백업 인스턴스 
 이동 작업이 완료되어 자격 증명 모음에서 다른 작업을 수행할 때까지 기다립니다. 이동이 진행되는 동안 수행된 경우 Backup 자격 증명 모음에서 수행된 모든 작업이 실패합니다. 프로세스가 완료되면 Backup 자격 증명 모음이 대상 리소스 그룹에 표시됩니다.
 
 >[!Important]
->자격 증명 모음을 이동하는 동안 오류가 발생하는 경우 [오류 코드 및 문제 해결 섹션을](#error-codes-and-troubleshooting)참조하세요.  
+>자격 증명 모음을 이동하는 동안 오류가 발생하면 [오류 코드 및 문제 해결 섹션을](#error-codes-and-troubleshooting)참조하세요.  
 
 ### <a name="use-azure-portal-to-move-backup-vault-to-a-different-subscription"></a>Azure Portal 사용하여 Backup 자격 증명 모음을 다른 구독으로 이동
 
@@ -188,7 +188,7 @@ Backup Vault를 삭제하기 전에 제거해야 할 기존 백업 인스턴스 
 
 1. **구독** 드롭다운 목록에서 기존 구독을 선택합니다.
 
-   구독 간에 자격 증명 모음을 이동하려면 대상 구독이 원본 구독과 동일한 테넌트 안에 있어야 합니다. 자격 증명 모음을 다른 테넌트로 이동하려면 [다른 디렉터리로 구독 전송을 참조하세요.](/azure/role-based-access-control/transfer-subscription)
+   구독 간에 자격 증명 모음을 이동하려면 대상 구독이 원본 구독과 동일한 테넌트 안에 있어야 합니다. 자격 증명 모음을 다른 테넌트로 이동하려면 [다른 디렉터리로 구독 전송을 참조하세요.](../role-based-access-control/transfer-subscription.md)
 
 1. 리소스 **그룹** 드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기를**  선택하여 새 리소스 그룹을 만듭니다.
 
@@ -196,7 +196,7 @@ Backup Vault를 삭제하기 전에 제거해야 할 기존 백업 인스턴스 
 
 1. 이동할 리소스 탭에서 **이동해야** 하는 Backup 자격 증명 모음은 유효성 검사를 거칩니다. 이 프로세스에 몇 분 정도 걸릴 수 있습니다. 유효성 검사가 완료 될 때까지 기다립니다.
 
-   :::image type="content" source="./media/backup-vault-overview/move-validation-process-to-move-to-another-subscription-inline.png" alt-text="다른 Azure 구독으로 이동할 Backup 자격 증명 모음의 유효성 검사 상태를 보여주는 스크린샷" lightbox="./media/backup-vault-overview/move-validation-process-to-move-to-another-subscription-expanded.png"::: 
+   :::image type="content" source="./media/backup-vault-overview/move-validation-process-to-move-to-another-subscription-inline.png" alt-text="다른 Azure 구독으로 이동할 Backup 자격 증명 모음의 유효성 검사 상태를 보여주는 스크린샷." lightbox="./media/backup-vault-overview/move-validation-process-to-move-to-another-subscription-expanded.png"::: 
 
 1. _이동된 리소스와 연결된 도구 및 스크립트가 새 리소스 ID를 사용하여 확인하도록 업데이트할 때까지 작동하지 않음_ 확인란을 선택한 다음, **이동을** 선택합니다.
  
@@ -206,7 +206,7 @@ Backup Vault를 삭제하기 전에 제거해야 할 기존 백업 인스턴스 
 이동 작업이 완료되어 자격 증명 모음에서 다른 작업을 수행할 때까지 기다립니다. 이동이 진행되는 동안 수행된 경우 Backup 자격 증명 모음에서 수행된 모든 작업이 실패합니다. 프로세스가 완료되면 Backup 자격 증명 모음이 대상 구독 및 리소스 그룹에 표시됩니다.
 
 >[!Important]
->자격 증명 모음을 이동하는 동안 오류가 발생하는 경우 [오류 코드 및 문제 해결 섹션을](#error-codes-and-troubleshooting)참조하세요.
+>자격 증명 모음을 이동하는 동안 오류가 발생하면 [오류 코드 및 문제 해결 섹션을](#error-codes-and-troubleshooting)참조하세요.
 
 ### <a name="error-codes-and-troubleshooting"></a>오류 코드 및 문제 해결
 

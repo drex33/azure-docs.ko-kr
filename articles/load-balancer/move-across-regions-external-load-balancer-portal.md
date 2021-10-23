@@ -6,12 +6,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: da37816b68e9984fdf801e3e84d50a57bf290e96
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: b9eabb4f49a533c97177dc0598e425ab63b20ec5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129273555"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258718"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Azure Portal을 사용하여 외부 부하 분산 장치를 다른 지역으로 이동
 
@@ -110,7 +110,7 @@ ms.locfileid: "129273555"
             },
         ```
 
-        기본 및 표준 SKU 공용 IP 간의 차이점에 대한 자세한 내용은 [공용 IP 주소 만들기, 변경 또는 삭제](../virtual-network/virtual-network-public-ip-address.md)를 참조하세요.
+        기본 및 표준 SKU 공용 IP 간의 차이점에 대한 자세한 내용은 [공용 IP 주소 만들기, 변경 또는 삭제](../virtual-network/ip-services/virtual-network-public-ip-address.md)를 참조하세요.
 
     * **공용 IP 할당 방법** 및 **유휴 제한**. **publicIPAllocationMethod** 속성을 **동적** 에서 **정적** 으로 또는 **정적** 에서 **동적** 으로 변경하여 공용 IP 할당 방법을 변경할 수 있습니다. **idleTimeoutInMinutes** 속성을 원하는 값으로 변경하여 유휴 시간 제한을 변경할 수 있습니다. 기본값은 **4** 입니다.
 
@@ -136,7 +136,7 @@ ms.locfileid: "129273555"
 
         ```
 
-        할당 방법 및 유휴 시간 제한 값에 대한 자세한 내용은 [공용 IP 주소 만들기, 변경 또는 삭제](../virtual-network/virtual-network-public-ip-address.md)를 참조하세요.
+        할당 방법 및 유휴 시간 제한 값에 대한 자세한 내용은 [공용 IP 주소 만들기, 변경 또는 삭제](../virtual-network/ip-services/virtual-network-public-ip-address.md)를 참조하세요.
 
  
 13. 온라인 편집기에서 **저장** 을 선택합니다.

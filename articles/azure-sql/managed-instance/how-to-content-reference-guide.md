@@ -11,12 +11,12 @@ ms.topic: guide
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 04/16/2019
-ms.openlocfilehash: dafe702121934a1267f01a861932dc49361e5258
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
-ms.translationtype: HT
+ms.openlocfilehash: 2b64353da7de0b7f7d29502695c9d7ea22d6a19f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114688553"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130244683"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Azure SQL Managed Instance 콘텐츠 참조
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "114688553"
 - [새 VNet 및 서브넷 만들기](virtual-network-subnet-create-arm-template.md): [네트워크 요구 사항](connectivity-architecture-overview.md#network-requirements)에 따라 가상 네트워크 및 서브넷을 구성합니다. 
 - [기존 VNet 및 서브넷 구성](vnet-existing-add-subnet.md): 네트워크 요구 사항을 확인하고 기존 가상 네트워크 및 서브넷을 구성하여 SQL Managed Instance를 배포합니다. 
 - [사용자 지정 DNS 구성](custom-dns-configure.md): db 메일 프로필의 연결된 서버를 통해 SQL Managed Instance에서 사용자 지정 도메인에 대한 외부 리소스 액세스 권한을 부여하도록 사용자 지정 DNS를 구성합니다. 
-- [동기화 네트워크 구성](azure-app-sync-network-configuration.md): [Azure 가상 네트워크와 앱을 통합](../../app-service/web-sites-integrate-with-vnet.md)한 후 연결을 설정할 수 없는 경우 네트워킹 구성 계획을 새로 고칩니다.
+- [동기화 네트워크 구성](azure-app-sync-network-configuration.md): [Azure 가상 네트워크와 앱을 통합](../../app-service/overview-vnet-integration.md)한 후 연결을 설정할 수 없는 경우 네트워킹 구성 계획을 새로 고칩니다.
 - [관리 엔드포인트 IP 주소 찾기](management-endpoint-find-ip-address.md): 관리 목적으로 SQL Managed Instance에서 사용하는 퍼블릭 엔드포인트를 결정합니다. 
 - [기본 제공 방화벽 보호 확인](management-endpoint-verify-built-in-firewall.md): SQL Managed Instance가 필수 포트와 기타 기본 제공 방화벽 규칙에 대한 트래픽만 허용하는지 확인합니다. 
 - [애플리케이션 연결](connect-application-instance.md): 애플리케이션을 SQL Managed Instance에 연결하는 데 사용할 수 있는 다양한 패턴에 대해 알아봅니다.

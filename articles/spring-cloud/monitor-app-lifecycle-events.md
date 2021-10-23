@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 08/19/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 77e6704808cf54f84f0261c07236bfa27d17a1f6
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
-ms.translationtype: HT
+ms.openlocfilehash: 8f35ec16b995eaca76e12fcd9a5d7800ec31aad6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835866"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251417"
 ---
 # <a name="monitor-app-lifecycle-events-using-azure-activity-log-and-azure-service-health"></a>Azure Activity 로그 및 Azure Service Health를 사용하여 앱 수명 주기 이벤트 모니터링
 
@@ -23,7 +23,7 @@ Azure Spring Cloud는 애플리케이션의 상태를 모니터링하는 기본 
 ## <a name="prerequisites"></a>필수 조건
 
 - Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-- 배포된 Azure Spring Cloud 서비스 인스턴스, 서비스 인스턴스에 이미 만들어진 하나 이상의 애플리케이션. 자세한 내용은 [빠른 시작 - 첫 번째 Azure Spring Cloud 애플리케이션 배포](quickstart.md)를 참조하세요. 
+- 배포된 Azure Spring Cloud 서비스 인스턴스, 서비스 인스턴스에 이미 만들어진 하나 이상의 애플리케이션. 자세한 내용은 [빠른 시작: Azure Spring Cloud 첫 번째 Spring Boot 앱 배포를 참조하세요.](quickstart.md) 
 
 ## <a name="monitor-app-lifecycle-events-triggered-by-users-in-azure-activity-logs"></a>Azure Activity 로그에서 사용자가 트리거한 앱 수명 주기 이벤트 모니터링
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/22/2021
 ms.author: oldoll
-ms.openlocfilehash: 1d6710500cbe18fe74d06aa324023486a7ec5c4e
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 8e723e39364207e1075d66eeafcdf12b74e16624
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130067885"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261389"
 ---
 # <a name="standard-version-of-azure-vm-extension-for-sap-solutions"></a>SAP 솔루션용 Azure VM 확장의 표준 버전
 [new-extension]:vm-extension-for-sap-new.md (SAP 솔루션용 Azure VM 확장의 새 버전)
@@ -194,7 +194,7 @@ Azure VM을 배포하고 SAP용 Azure 확장 관련을 설정한 후, Azure 확�
    >
    >
 
-SAP용 Azure 확장이 설치되어 있지 않거나 AzureEnhancedMonitoring 서비스가 실행되고 있지 않으면, 확장이 올바르게 구성되지 않은 것입니다. 확장 문제를 해결하는 방법에 대한 자세한 내용은 [Windows 문제 해결][troubleshoot-windows] 또는 [Linux 문제 해결을 참조하세요.][troubleshoot-linux]
+SAP용 Azure 확장이 설치되어 있지 않거나 AzureEnhancedMonitoring 서비스가 실행되고 있지 않으면, 확장이 올바르게 구성되지 않은 것입니다. 확장 문제를 해결 하는 방법에 대 한 자세한 내용은 [Linux의][troubleshoot-linux]Windows 또는 문제 해결 [에 대 한 문제 해결][troubleshoot-windows] 을 참조 하세요.
 
 > [!NOTE]
 > Azperflib.exe는 자체 용도로 사용할 수 없는 구성 요소입니다. 이 구성 요소는 VM 관련 Azure 인프라 데이터를 SAP 호스트 에이전트의 VM에 전달합니다.
@@ -217,7 +217,7 @@ Azperflib.exe 출력은 SAP용 Azure 성능 카운터가 모두 채워진 상태
 | **상태 정보** |반환 상태가 **OK** 를 표시하는 경우에만 OK입니다. |
 | **진단** |상태 정보에 대한 자세한 정보입니다. |
 
-**상태** 값이 **정상이** 아닌 경우 [SAP용 Azure 확장 구성에 대한 상태 검사의][healthcheck]지침을 따릅니다.
+**상태** 값이 **정상** 이 아닌 경우 [SAP 용 Azure 확장 구성에 대 한 상태 검사][healthcheck]의 지침을 따르세요.
  
 ##### <a name="run-the-readiness-check-on-a-linux-vm"></a>Linux VM에서 준비 검사 실행
 
@@ -268,13 +268,13 @@ Azperflib.exe 출력은 SAP용 Azure 성능 카운터가 모두 채워진 상태
 
 SAP NetWeaver ABAP 애플리케이션 서버가 이미 설치된 경우 트랜잭션 ST06을 열고 모니터링이 사용하도록 설정되어 있는지 여부를 확인합니다.
 
-이러한 검사가 실패하고 확장을 다시 배포하는 방법에 대한 자세한 내용은 [Linux 문제 해결][troubleshoot-linux] 또는 [Windows 문제 해결을][troubleshoot-windows]참조하세요.
+이러한 검사 중 하나라도 실패 하는 경우 확장을 다시 배포 하는 방법에 대 한 자세한 내용은 [Linux 용 문제 해결][troubleshoot-linux] 또는 [Windows에 대 한 문제 해결][troubleshoot-windows]을 참조 하세요.
 
 ## <a name="health-checks"></a><a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>상태 확인
 
-[준비 검사에][readiness-check]설명된 테스트에 표시된 대로 일부 인프라 데이터가 올바르게 전달되지 않는 경우 이 챕터에 설명된 상태 검사를 실행하여 Azure 인프라 및 SAP용 Azure 확장이 올바르게 구성되었는지 확인합니다.
+[준비 검사][readiness-check]에 설명 된 테스트에 표시 된 대로 일부 인프라 데이터가 올바르게 전달 되지 않으면이 챕터에 설명 된 상태 검사를 실행 하 여 azure 인프라 및 SAP 용 azure 확장이 올바르게 구성 되어 있는지 확인 합니다.
 
-### <a name="health-checks-using-powershell"></a>PowerShell을 사용하여 상태 검사
+### <a name="health-checks-using-powershell"></a>PowerShell을 사용 하 여 상태 검사
 
 1. [Azure PowerShell cmdlet 배포][deployment-guide-4.1]의 설명대로 Azure PowerShell cmdlet 최신 버전을 설치했는지 확인합니다.
 1. 다음 PowerShell cmdlet을 실행합니다. 사용 가능한 환경 목록을 보려면 `Get-AzEnvironment` cmdlet을 실행합니다. 전역 Azure를 사용하려면 **AzureCloud** 환경을 선택합니다. Azure 중국 21Vianet의 경우 **AzureChinaCloud** 를 선택합니다.
@@ -290,15 +290,15 @@ SAP NetWeaver ABAP 애플리케이션 서버가 이미 설치된 경우 트랜�
 
    ![SAP용 Azure 확장의 성공적인 테스트 출력][deployment-guide-figure-1300]
 
-모든 상태 검사 결과가 **OK** 인지 확인합니다. 일부 검사에서 **확인을** 표시하지 않는 경우 Azure CLI SAP [솔루션용 Azure VM 확장 구성][configure-linux] 또는 PowerShell을 통해 SAP 솔루션용 [Azure VM 확장 구성에][configure-windows]설명된 대로 업데이트 cmdlet을 실행합니다. 15분 정도 기다렸다가 [준비 검사][readiness-check] 및 이 챕터에 설명된 검사를 반복합니다. 검사에서 여전히 일부 또는 모든 카운터에 문제가 있는 경우 [Linux 문제 해결][troubleshoot-linux] 또는 [Windows 문제 해결을][troubleshoot-windows]참조하세요.
+모든 상태 검사 결과가 **OK** 인지 확인합니다. 일부 검사에서 **OK** 가 표시 되지 않는 경우 [Azure CLI를 사용 하 여 sap 솔루션에 대 한 Azure vm 확장 구성][configure-linux] 에서 설명한 대로 업데이트 Cmdlet을 실행 하거나 [POWERSHELL을 사용 하 여 Sap 솔루션에 대 한 azure vm 확장을 구성][configure-windows]합니다. 15 분 동안 기다린 후 [준비 검사][readiness-check] 및이 챕터에 설명 된 검사를 반복 합니다. 검사에서 여전히 일부 또는 모든 카운터에 문제가 있음을 나타내는 경우 [Linux 용 문제 해결][troubleshoot-linux] 또는 [Windows 문제 해결][troubleshoot-windows]을 참조 하세요.
 
 > [!Note]
-> 관리되는 표준 Azure 디스크를 사용하는 경우 일부 경고가 발생할 수 있습니다. 테스트에서 "확인"을 반환하는 대신 경고가 표시됩니다. 이 경고는 해당 디스크 형식의 경우 정상적이며 의도된 것입니다. [linux 문제 해결][troubleshoot-linux] 또는 [Windows 문제 해결도][troubleshoot-windows]참조하세요.
+> 관리되는 표준 Azure 디스크를 사용하는 경우 일부 경고가 발생할 수 있습니다. 테스트에서 "확인"을 반환하는 대신 경고가 표시됩니다. 이 경고는 해당 디스크 형식의 경우 정상적이며 의도된 것입니다. [Linux에 대 한 문제 해결][troubleshoot-linux] 또는 [Windows에 대 한 문제 해결][troubleshoot-windows]도 참조 하세요.
 >
 
-### <a name="health-checks-using-azure-cli"></a>Azure CLI 사용하여 상태 검사
+### <a name="health-checks-using-azure-cli"></a>Azure CLI를 사용 하 여 상태 검사
 
-Azure CLI 사용하여 SAP용 Azure VM 확장에 대한 상태 검사를 실행하려면 다음을 수행합니다.
+Azure CLI를 사용 하 여 SAP 용 Azure VM 확장에 대 한 상태 검사를 실행 하려면 다음을 수행 합니다.
  
 1. [Azure CLI 2.0][azure-cli-2]을 설치합니다. 버전 2.19.1 이상을 사용해야 합니다(최신 버전 사용). 
 1. Azure 계정으로 로그인합니다.
@@ -311,15 +311,15 @@ Azure CLI 사용하여 SAP용 Azure VM 확장에 대한 상태 검사를 실행�
    az extension add --name aem
    ```
 
-1. 확장 설치를 확인합니다. 
+1. 확장의 설치를 확인 합니다. 
    ```azurecliw
    az vm aem verify -g <resource-group-name> -n <vm name> 
    ```
 선택한 가상 컴퓨터의 구성을 테스트하는 스크립트입니다.
 
-모든 상태 검사 결과가 **OK** 인지 확인합니다. 일부 검사에서 **확인을** 표시하지 않는 경우 Azure CLI SAP [솔루션용 Azure VM 확장 구성][configure-linux] 또는 PowerShell을 통해 SAP 솔루션용 [Azure VM 확장 구성에][configure-windows]설명된 대로 업데이트 cmdlet을 실행합니다. 15분 정도 기다렸다가 [준비 검사][readiness-check] 및 이 챕터에 설명된 검사를 반복합니다. 검사에서 여전히 일부 또는 모든 카운터에 문제가 있는 경우 [Linux 문제 해결][troubleshoot-linux] 또는 [Windows 문제 해결을][troubleshoot-windows]참조하세요.
+모든 상태 검사 결과가 **OK** 인지 확인합니다. 일부 검사에서 **OK** 가 표시 되지 않는 경우 [Azure CLI를 사용 하 여 sap 솔루션에 대 한 Azure vm 확장 구성][configure-linux] 에서 설명한 대로 업데이트 Cmdlet을 실행 하거나 [POWERSHELL을 사용 하 여 Sap 솔루션에 대 한 azure vm 확장을 구성][configure-windows]합니다. 15 분 동안 기다린 후 [준비 검사][readiness-check] 및이 챕터에 설명 된 검사를 반복 합니다. 검사에서 여전히 일부 또는 모든 카운터에 문제가 있음을 나타내는 경우 [Linux 용 문제 해결][troubleshoot-linux] 또는 [Windows 문제 해결][troubleshoot-windows]을 참조 하세요.
 
-## <a name="troubleshooting-for-windows"></a><a name="f566b77e-5427-451b-b4ca-6b93114d51e8"></a>Windows 문제 해결
+## <a name="troubleshooting-for-windows"></a><a name="f566b77e-5427-451b-b4ca-6b93114d51e8"></a>Windows에 대 한 문제 해결
  
 ### <a name="azure-performance-counters-do-not-show-up-at-all"></a>Azure 성능 카운터가 전혀 표시되지 않습니다.
 AzureEnhancedMonitoring Windows 서비스에서 Azure의 성능 메트릭을 수집합니다. 서비스가 올바르게 설치되지 않은 경우 또는 VM에서 실행되지 않는 경우 성능 메트릭을 수집할 수 없습니다.
@@ -345,9 +345,9 @@ Azperflib.exe 출력에 오류가 발생합니다.
  
 ##### <a name="solution"></a>해결 방법
 
-서비스가 존재하지 않으면 SAP용 Azure 확장이 제대로 설치되지 않은 것입니다. [Azure CLI를 사용 하 여 sap 솔루션에 대 한 AZURE vm 확장 구성][configure-linux] 에서 설명한 대로 확장을 다시 배포 하거나 [PowerShell을 사용 하 여 sap 솔루션에 대 한 azure Vm 확장을 구성][configure-windows]합니다.
+서비스가 존재하지 않으면 SAP용 Azure 확장이 제대로 설치되지 않은 것입니다. Azure CLI SAP [솔루션용 Azure VM 확장 구성][configure-linux] 또는 [PowerShell을][configure-windows]통해 SAP 솔루션용 Azure VM 확장 구성에 설명된 대로 확장을 다시 배포합니다.
 
-확장을 배포한 후 azure VM에서 Azure 성능 카운터가 제공 되는지 여부를 다시 확인 합니다.
+확장을 배포한 후 Azure 성능 카운터가 Azure VM에 제공되는지 다시 확인합니다.
 
 #### <a name="service-for-azure-extension-for-sap-exists-but-fails-to-start"></a>SAP용 Azure 확장 관련 서비스가 존재하나 시작에 실패함
 ##### <a name="issue"></a>문제
@@ -360,7 +360,7 @@ AzureEnhancedMonitoring Windows 서비스에서 Azure의 성능 메트릭을 수
 
 SAP Note [1999351]을 사용한 문제 해결로 문제가 해결되지 않으면 `Set-AzVMAEMExtension` 구성 스크립트를 다시 실행합니다. 사용하도록 설정한 후 바로 스토리지 분석 또는 진단 카운터가 생성되지 않을 수 있으므로 1시간 동안 기다려야 할 수 있습니다. 문제가 지속되면 Windows용 BC-OP-NT-AZR 또는 Linux 가상 머신용 BC-OP-LNX-AZR 구성 요소에 대한 SAP 고객 지원 메시지를 엽니다.
 
-## <a name="troubleshooting-for-linux"></a><a name="a4dae567-e7fd-4d4b-8279-510b8e5fae4a"></a>Linux에 대 한 문제 해결
+## <a name="troubleshooting-for-linux"></a><a name="a4dae567-e7fd-4d4b-8279-510b8e5fae4a"></a>Linux 문제 해결
 
 ### <a name="azure-performance-counters-do-not-show-up-at-all"></a>Azure 성능 카운터가 전혀 표시되지 않습니다.
 Azure의 성능 메트릭은 데몬에 의해 수집됩니다. 데몬이 실행되지 않는 경우 성능 메트릭은 전혀 수집할 수 없습니다.
@@ -392,7 +392,7 @@ Azure에서 성능 메트릭은 여러 원본에서 데이터를 가져오는 �
 
 알려진 문제의 전체 최신 목록은 SAP용 Azure 확장 관련 문제 해결 정보를 추가로 포함하는 SAP Note [1999351]을 참조하세요.
 
-SAP Note [1999351] 을 사용 하 여 문제를 해결 해도 문제가 해결 되지 않으면 `Set-AzVMAEMExtension` Azure CLI를 사용 하 여 [sap 솔루션에 대 한 azure vm 확장 구성][configure-linux] 에서 설명한 대로 구성 스크립트를 다시 실행 하거나 [PowerShell을 사용 하 여 SAP 솔루션에 대 한 azure vm 확장을 구성][configure-windows]합니다. 사용하도록 설정한 후 바로 스토리지 분석 또는 진단 카운터가 생성되지 않을 수 있으므로 1시간 동안 기다려야 할 수 있습니다. 문제가 지속되면 Windows용 BC-OP-NT-AZR 또는 Linux 가상 머신용 BC-OP-LNX-AZR 구성 요소에 대한 SAP 고객 지원 메시지를 엽니다.
+SAP Note 1999351 사용하여 문제를 해결할 수 없는 경우 [Azure CLI] 사용하여 `Set-AzVMAEMExtension` SAP [솔루션용 Azure VM 확장 구성][configure-linux] 또는 PowerShell을 사용하여 SAP [솔루션용 Azure VM 확장 구성에][configure-windows]설명된 대로 구성 스크립트를 다시 실행합니다. 사용하도록 설정한 후 바로 스토리지 분석 또는 진단 카운터가 생성되지 않을 수 있으므로 1시간 동안 기다려야 할 수 있습니다. 문제가 지속되면 Windows용 BC-OP-NT-AZR 또는 Linux 가상 머신용 BC-OP-LNX-AZR 구성 요소에 대한 SAP 고객 지원 메시지를 엽니다.
 
 ## <a name="azure-extension-error-codes"></a>Azure 확장 오류 코드
 
@@ -464,7 +464,7 @@ sysprep을 실행한 일반화된 OS 이미지(SAP 소프트웨어 포함 가능
 
 SAP용 Azure 확장을 실행하는 Microsoft Azure 가상 머신에서 인터넷에 액세스할 수 있어야 합니다. Azure VM이 Azure Virtual Network 또는 온-프레미스 도메인에 포함된 경우 관련 프록시 설정이 지정되어 있는지 확인하세요. 이러한 설정은 인터넷에 액세스할 LocalSystem 계정에 대해서도 유효해야 합니다. 이 가이드의 [프록시 구성][configure-proxy] 장을 따르세요.
 
-또한 Azure VM에 대한 고정 IP 주소를 설정해야 하는 경우 Azure VM 내에서 수동으로 설정하지 말고 [Azure PowerShell](../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md), [Azure CLI](../../../virtual-network/virtual-networks-static-private-ip-arm-cli.md) 및 [Azure Portal](../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md)을 사용하여 설정합니다. 고정 IP는 Azure DHCP 서비스를 통해 전파됩니다.
+또한 Azure VM에 대한 고정 IP 주소를 설정해야 하는 경우 Azure VM 내에서 수동으로 설정하지 말고 [Azure PowerShell](../../../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md), [Azure CLI](../../../virtual-network/ip-services/virtual-networks-static-private-ip-arm-cli.md) 및 [Azure Portal](../../../virtual-network/ip-services/virtual-networks-static-private-ip-arm-pportal.md)을 사용하여 설정합니다. 고정 IP는 Azure DHCP 서비스를 통해 전파됩니다.
 
 Azure VM 내에서 고정 IP 주소를 수동으로 설정하는 것은 지원되지 않으며 SAP용 Azure 확장에 문제가 발생할 수 있습니다.
 

@@ -7,18 +7,18 @@ ms.service: azure-web-pubsub
 ms.topic: article
 ms.date: 07/13/2021
 ms.author: dayshen
-ms.openlocfilehash: 2f48b2b0f21c389df30cc11d79a919cdf94317a7
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
-ms.translationtype: HT
+ms.openlocfilehash: 00a9cf5c0eac035378248b03e316c6f211bfb52b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114342430"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130239080"
 ---
 # <a name="secure-azure-web-pubsub-outbound-traffic-through-shared-private-endpoints"></a>공유 프라이빗 엔드포인트를 통해 Azure Web PubSub 아웃바운드 트래픽 보호
 
-Azure Web PubSub 서비스에서 [이벤트 처리기](https://azure.github.io/azure-webpubsub/concepts/service-internals#event_handler)를 사용하는 경우 업스트림에 아웃바운드 트래픽이 있을 수 있습니다. 가상 네트워크 목록에서 연결을 허용하고 공용 네트워크에서 시작되는 외부 연결을 거부하도록 Azure Web App 및 Azure Functions 같은 업스트림을 구성할 수 있습니다. 이러한 엔드포인트에 도달하는 아웃바운드 [프라이빗 엔드포인트 연결](../private-link/private-endpoint-overview.md)을 만들 수 있습니다.
+Azure Web PubSub 서비스에서 [이벤트 처리기](concept-service-internals.md#event_handler)를 사용하는 경우 업스트림에 아웃바운드 트래픽이 있을 수 있습니다. 가상 네트워크 목록에서 연결을 허용하고 공용 네트워크에서 시작되는 외부 연결을 거부하도록 Azure Web App 및 Azure Functions 같은 업스트림을 구성할 수 있습니다. 이러한 엔드포인트에 도달하는 아웃바운드 [프라이빗 엔드포인트 연결](../private-link/private-endpoint-overview.md)을 만들 수 있습니다.
 
-   :::image type="content" alt-text="공유 프라이빗 엔드포인트 개요." source="media\howto-secure-shared-private-endpoints\shared-private-endpoint-overview.png" border="false" :::
+   :::image type="content" alt-text="공유 프라이빗 엔드포인트 개요" source="media\howto-secure-shared-private-endpoints\shared-private-endpoint-overview.png" border="false" :::
 
 이 아웃바운드 방법은 다음 요구 사항을 충족해야 합니다.
 
@@ -46,7 +46,7 @@ Azure Web PubSub Service API를 통해 만들어진 보안 리소스의 프라�
 [Azure CLI](/cli/azure/)로 다음 API 호출을 수행하여 공유 프라이빗 링크 리소스를 만들 수 있습니다.
 
 ```dotnetcli
-az rest --method put --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/webPubSub/contoso-webpubsub/sharedPrivateLinkResources/func-pe?api-version=2021-06-01-preview --body @create-pe.json
+az rest --method put --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/webPubSub/contoso-webpubsub/sharedPrivateLinkResources/func-pe?api-version=2021-06-01-preview --body @create-pe.json --debug
 ```
 
 API에 대한 요청 본문을 나타내는 *create-pe.js* 파일의 내용은 다음과 같습니다.
@@ -84,7 +84,7 @@ az rest --method get --uri https://management.azure.com/subscriptions/00000000-0
 > 이 섹션에서는 Azure Portal을 사용하여 프라이빗 엔드포인트에서 Azure Function으로 이동하는 승인 흐름을 안내합니다. 또는 App Service 공급자를 통해 사용할 수 있는 [REST API](/rest/api/appservice/web-apps/approve-or-reject-private-endpoint-connection)를 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> 프라이빗 엔드포인트 연결을 승인한 후에는 공용 네트워크에서 Function에 더 이상 액세스할 수 없습니다. Function 엔드포인트에 액세스하려면 자체 가상 네트워크에서 다른 프라이빗 엔드포인트를 만들어야 할 수도 있습니다.
+> 프라이빗 엔드포인트 연결을 승인한 후에는 퍼블릭 네트워크에서 Function에 더 이상 액세스할 수 없습니다. Function 엔드포인트에 액세스하려면 자체 가상 네트워크에서 다른 프라이빗 엔드포인트를 만들어야 할 수도 있습니다.
 
 1. Azure Portal에서 함수 앱의 **네트워킹** 탭을 선택하고 **프라이빗 엔드포인트 연결** 로 이동합니다. **프라이빗 엔드포인트 연결 구성** 을 클릭합니다. 비동기 작업이 성공한 후에는 이전 API 호출의 요청 메시지와 함께 프라이빗 엔드포인트 연결에 대한 요청이 있어야 합니다.
 
@@ -94,7 +94,7 @@ az rest --method get --uri https://management.azure.com/subscriptions/00000000-0
 
    다음 스크린샷과 같이 프라이빗 엔드포인트 연결이 표시되는지 확인합니다. 포털에서 상태를 업데이트하는 데 1~2분 정도 걸릴 수 있습니다.
 
-   :::image type="content" alt-text="프라이빗 엔드포인트 연결 창의 승인됨 상태를 보여 주는 Azure Portal의 스크린샷." source="media\howto-secure-shared-private-endpoints\portal-function-approved-private-endpoint.png" lightbox="media\howto-secure-shared-private-endpoints\portal-function-approved-private-endpoint.png" :::
+   :::image type="content" alt-text="프라이빗 엔드포인트 연결 창의 승인됨 상태를 보여 주는 Azure Portal의 스크린샷" source="media\howto-secure-shared-private-endpoints\portal-function-approved-private-endpoint.png" lightbox="media\howto-secure-shared-private-endpoints\portal-function-approved-private-endpoint.png" :::
 
 ### <a name="step-2b-query-the-status-of-the-shared-private-link-resource"></a>2b단계: 공유 프라이빗 링크 리소스의 상태 쿼리
 
@@ -126,7 +126,7 @@ az rest --method get --uri https://management.azure.com/subscriptions/00000000-0
 
 프라이빗 엔드포인트가 설정되면 업스트림 쪽에서 `X-Forwarded-For` 헤더를 확인하여 개인 IP에서 들어오는 호출을 확인할 수 있습니다.
 
-:::image type="content" alt-text="개인 IP에서 들어오는 요청을 보여 주는 Azure Portal의 스크린샷." source="media\howto-secure-shared-private-endpoints\portal-function-log.png" :::
+:::image type="content" alt-text="개인 IP에서 들어오는 요청을 보여 주는 Azure Portal의 스크린샷" source="media\howto-secure-shared-private-endpoints\portal-function-log.png" :::
 
 ## <a name="next-steps"></a>다음 단계
 

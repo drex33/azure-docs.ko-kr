@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: 79abb40532ad4b7940ecf94552b5ee5c0727f2b6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b9291a7d69bd2aeb5a9343d88d05d42d94d080e0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128636632"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249047"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>NAT 게이트웨이 리소스를 사용하여 가상 네트워크 설계
 
@@ -257,7 +257,7 @@ PAT가 수행되면 이러한 흐름은 다음과 같습니다.
 
 #### <a name="source-snat-port-reuse"></a>원본(SNAT) 포트 다시 사용
 
-NAT 게이트웨이 대해 선택적으로 원본(SNAT) 포트를 사용합니다.  다음은 이 개념을 이전 흐름 집합에 대한 추가 흐름으로 보여 줍니다.  예제의 VM은 65.52.0.2에 대한 흐름입니다.
+NAT 게이트웨이 대해 선택적으로 원본(SNAT) 포트를 사용합니다.  다음은이 개념을 이전 흐름 집합의 추가 흐름으로 보여 줍니다.  예제의 VM은 65.52.0.2에 대한 흐름입니다.
 
 | 흐름 | 원본 튜플 | 대상 튜플 |
 |:---:|:---:|:---:|
@@ -339,10 +339,6 @@ SNAT 포트는 5초 후에 동일한 대상 IP 주소 및 대상 포트에 다�
 - IPv4 주소 패밀리가 지원됩니다.  IPv6 주소 패밀리는 NAT와 상호 작용하지 않습니다.  NAT는 IPv6 접두사가 있는 서브넷에 배포할 수 없습니다.
 - NAT는 여러 가상 네트워크에 걸쳐 있을 수 없습니다.
 - IP 조각화는 지원되지 않습니다.
-
-## <a name="suggestions"></a>제안
-
-서비스를 향상시킬 수 있는 방법을 찾고 있습니다. 기능이 누락되었나요? 다음에 어떤 기능을 빌드해야 하는지 [UserVoice for NAT](https://aka.ms/natuservoice)에서 사례를 작성해 주세요.
 
 ## <a name="next-steps"></a>다음 단계
 

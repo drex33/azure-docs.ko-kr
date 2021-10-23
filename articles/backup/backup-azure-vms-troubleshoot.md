@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신의 백업 및 복원에서 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 06/02/2021
-ms.openlocfilehash: d3afc24f11400a5d2e7e099690ba9312e9b25ae7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 33525dbe53a385418cce78b135d6c11b5dc78dce
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128599870"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130244562"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Azure 가상 머신에서 백업 오류 문제 해결
 
@@ -423,4 +423,4 @@ IaaS VM 백업이 작동하려면 게스트 내에 DHCP를 사용하도록 설�
 PowerShell을 통해 고정 IP를 설정하는 방법에 대한 자세한 정보를 가져옵니다.
 
 * [기존 VM에 고정 내부 IP를 추가하는 방법](/powershell/module/az.network/set-aznetworkinterfaceipconfig#description)
-* [네트워크 인터페이스에 할당된 개인 IP 주소의 할당 방법 변경](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
+* [네트워크 인터페이스에 할당된 개인 IP 주소의 할당 방법 변경](../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md)

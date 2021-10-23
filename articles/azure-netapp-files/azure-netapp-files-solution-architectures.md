@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/07/2021
+ms.date: 10/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 3cbfd4349c96457e7278327d9edc3e31cd521211
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 948ded93edc4059d44be175872c46e4a8b11e5d8
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129659966"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130230219"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Azure NetApp Files를 사용하는 솔루션 아키텍처
 이 문서에서는 Azure NetApp Files 사용을 위한 솔루션 아키텍처를 이해하는 데 도움이 되는 모범 사례 참조를 제공합니다.  
@@ -163,6 +163,10 @@ ms.locfileid: "129659966"
 * [Azure NetApp Files: MS Azure의 SAS 그리드에 사용하는 공유 파일 시스템 - RHEL8.3/nconnect 업데이트](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/722261#M21648)
 * [SAS®에서의 Microsoft Azure 사용에 대한 모범 사례](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680)
 * [Azure의 SAS 아키텍처 가이드 - Azure 아키텍처 센터 | Azure NetApp Files](/azure/architecture/guide/sas/sas-overview#azure-netapp-files-nfs)
+
+### <a name="healthcare"></a>의료 
+
+* [Azure NetApp Files 사용하여 Microsoft Azure 에픽 EHR](https://www.netapp.com/pdf.html?item=/media/62375-tr-4909.pdf)
 
 ## <a name="azure-platform-services-solutions"></a>Azure 플랫폼 서비스 솔루션
 

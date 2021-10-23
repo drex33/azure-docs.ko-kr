@@ -3,12 +3,12 @@ title: IoT Edge for Linux on Windows에 배포 - Azure
 description: 이 문서에서는 IoT Edge for Linux on Windows 디바이스에 배포하는 방법에 대한 지침을 제공합니다.
 ms.topic: how-to
 ms.date: 08/25/2021
-ms.openlocfilehash: 18a08d903fc256790799d8c66d400226f8ac48ef
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
-ms.translationtype: HT
+ms.openlocfilehash: 01631b219149282d645de9d5b1126bc8b79cbcfc
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122968678"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236022"
 ---
 # <a name="deploy-to-an-iot-edge-for-linux-on-windows-eflow-device"></a>IoT EFLOW(Edge for Linux on Windows) 디바이스에 배포
 
@@ -19,7 +19,7 @@ ms.locfileid: "122968678"
 * 활성 구독이 있는 Azure 계정. 계정이 아직 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 수 있습니다.
 
 * 개발 컴퓨터의 [Visual Studio Code](https://code.visualstudio.com/). [Azure IoT Tools 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)이 있는지 확인합니다.
-* [EFLOW 정의](../../iot-edge/iot-edge-for-linux-on-windows.md)를 읽습니다.
+* [EFLOW 정의](../../iot-edge/how-to-provision-single-device-linux-on-windows-symmetric.md)를 읽습니다.
 
 ## <a name="deployment-steps"></a>배포 단계
 

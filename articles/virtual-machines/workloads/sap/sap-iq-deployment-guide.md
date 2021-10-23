@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/11/2021
 ms.author: depadia
-ms.openlocfilehash: 7ece73f467e2dc148e79512c7dd1a6fcc19cf270
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: b4bdebe8ce06ba402df9d798e346a43dfefd89a9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130072635"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261408"
 ---
 # <a name="sap-bw-nls-implementation-guide-with-sap-iq-on-azure"></a>Azure의 SAP IQ를 사용한 SAP BW NLS 구현 가이드
 
@@ -204,7 +204,7 @@ SAP IQ 바이너리 및 데이터베이스 파일이 Azure 공유 디스크(Wind
   
 DR 사이트에 독립 실행형 SAP IQ 인스턴스가 필요한 경우 [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md)를 사용하여 보조 지역에서 주 SAP IQ 가상 머신을 복제할 수 있습니다. 서버 및 연결된 모든 로컬 관리 디스크를 보조 지역에 복제하지만 Azure 공유 디스크 또는 Azure NetApp Files와 같은 네트워크 드라이브는 복제하지 않습니다. 
   
-Azure 공유 디스크 또는 네트워크 드라이브에서 데이터를 복사하려면 모든 파일 기반 복사 도구를 사용하여 Azure 지역 간에 데이터를 복제할 수 있습니다. 다른 지역의 Azure NetApp Files 볼륨을 복사하는 방법에 대한 자세한 내용은 [Azure NetApp Files에 대한 FAQ](../../../azure-netapp-files/azure-netapp-files-faqs.md#how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region)를 참조하세요.
+Azure 공유 디스크 또는 네트워크 드라이브에서 데이터를 복사하려면 모든 파일 기반 복사 도구를 사용하여 Azure 지역 간에 데이터를 복제할 수 있습니다. 다른 지역의 Azure NetApp Files 볼륨을 복사하는 방법에 대한 자세한 내용은 [Azure NetApp Files에 대한 FAQ](../../../azure-netapp-files/faq-data-migration-protection.md#how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

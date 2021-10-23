@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 06/28/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 8139d6c6309bf971ed9a955f5ef02f0c674b152b
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: c700ca1bdd1e596d3c393f1a857adba81116b576
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129372887"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130248985"
 ---
 # <a name="manage-a-public-ip-address-with-an-azure-application-gateway"></a>Azure Application Gateway를 사용하여 공용 IP 주소 관리
 
@@ -27,7 +27,7 @@ Application Gateway 프런트 엔드는 개인 IP 주소, 공용 IP 주소 또�
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- 구독에 두 개의 표준 SKU 공용 IP 주소가 있습니다. IP 주소를 리소스와 연결할 수 없습니다. 표준 SKU 공용 IP 주소를 만드는 방법에 대한 자세한 내용은 [공용 IP 주소 만들기 - Azure Portal](../../virtual-network/create-public-ip-portal.md)을 참조하세요.
+- 구독에 두 개의 표준 SKU 공용 IP 주소가 있습니다. IP 주소를 리소스와 연결할 수 없습니다. 표준 SKU 공용 IP 주소를 만드는 방법에 대한 자세한 내용은 [공용 IP 주소 만들기 - Azure Portal](./create-public-ip-portal.md)을 참조하세요.
     - 이 문서에 나오는 예제의 목적에 맞게 새 공용 IP 주소의 이름을 **myStandardPublicIP-1** 및 **myStandardPublicIP-2** 로 지정합니다.
 
 ## <a name="create-application-gateway-existing-public-ip"></a>기존 공용 IP를 사용하여 Application Gateway 만들기
@@ -117,5 +117,5 @@ Application Gateway는 만든 후 공용 IP 주소 변경을 지원하지 않습
 
 이 문서에서는 Application Gateway를 만들고 기존 공용 IP를 사용하는 방법을 알아보았습니다. 
 
-- Azure Virtual Network NAT 대한 자세한 내용은 [Azure Virtual Network NAT 무엇인가요?를 참조하세요.](../nat-gateway/nat-overview.md)
-- Azure의 공용 IP 주소에 대한 자세한 내용은 [공용 IP 주소](../../virtual-network/public-ip-addresses.md)를 참조하세요.
+- Azure Virtual Network NAT 대한 자세한 내용은 Azure Virtual Network NAT [무엇인가요?를 참조하세요.](../nat-gateway/nat-overview.md)
+- Azure의 공용 IP 주소에 대한 자세한 내용은 [공용 IP 주소](./public-ip-addresses.md)를 참조하세요.

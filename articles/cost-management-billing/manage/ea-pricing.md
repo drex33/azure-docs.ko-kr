@@ -7,15 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 01/07/2021
+ms.date: 10/19/2021
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: d563907d3567607e537eebfc5c91be02e27fd758
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
-ms.translationtype: HT
+ms.openlocfilehash: 8ee5cc31e0127ead62fa91f6b1bfab66854aac83
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014770"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130260413"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>조직의 Azure 가격 책정 보기 및 다운로드
 
@@ -27,12 +27,15 @@ Azure EA(기업계약), MCA(Microsoft 고객 계약) 또는 MPA(Microsoft 파트
 
 1. 엔터프라이즈 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. *Cost Management + 청구* 를 검색합니다.  
-   ![Azure Portal 검색을 보여 주는 스크린샷.](./media/ea-pricing/portal-cm-billing-search.png)
-1. 청구 계정에서 **사용량 + 요금** 을 선택합니다.  
+   ![Azure Portal 검색을 보여 주는 스크린샷](./media/ea-pricing/portal-cm-billing-search.png)
+1. 청구 프로필을 선택합니다. 액세스 권한에 따라 청구 계정을 먼저 선택해야 할 수도 있습니다.
+1. 탐색 메뉴에서 **사용량 + 요금** 을 선택 합니다.  
    ![청구 아래의 사용량 및 요금을 보여 주는 스크린샷](./media/ea-pricing/ea-pricing-usage-charges-nav.png)
 1. ![다운로드 아이콘](./media/ea-pricing/download-icon.png)을 선택합니다. 해당 월에 대해 **다운로드합니다**.
-1. **가격표** 아래에서 **csv 다운로드** 를 선택합니다.  
+1. 사용량 + 요금 다운로드 페이지의 가격표에서 **문서 준비** 를 선택 합니다. 파일을 준비 하는 데 시간이 걸릴 수 있습니다.  
     :::image type="content" source="./media/ea-pricing/download-enterprise-agreement-price-sheet-01.png" alt-text="사용량 다운로드 + 요금 옵션을 보여주는 스크린샷." :::
+1. 파일이 다운로드 될 준비가 되 면 **Csv 다운로드** 를 선택 합니다.
+
 
 ## <a name="download-pricing-for-an-mca-or-mpa-account"></a>MCA 또는 MPA 계정에 대한 가격 책정 다운로드
 

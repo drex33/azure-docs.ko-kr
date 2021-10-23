@@ -7,12 +7,12 @@ ms.date: 09/27/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 773b4dbe5bcabc459b832f450610c395a981650a
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: 869f2e4153a0ffe900ad34776f0e8493eae92bb7
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129155169"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130214855"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks"></a>VM 디스크의 확장성 및 성능 목표
 
@@ -24,7 +24,7 @@ ms.locfileid: "129155169"
 
 ## <a name="managed-virtual-machine-disks"></a>관리되는 가상 머신 디스크
 
-별표로 표시되는 크기는 현재 미리 보기로 제공됩니다. 제공되는 Azure 지역은 [FAQ](/azure/virtual-machines/faq-for-disks#new-disk-sizes-managed-and-unmanaged)를 참조하세요.
+별표로 표시되는 크기는 현재 미리 보기로 제공됩니다. 제공되는 Azure 지역은 [FAQ](./faq-for-disks.yml)를 참조하세요.
 
 [!INCLUDE [azure-storage-limits-vm-disks-managed](../../includes/azure-storage-limits-vm-disks-managed.md)]
 

@@ -7,14 +7,14 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 10/22/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8dc93266244c6dd806d7ab7457893d6d2c89ce13
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 631330195ec9f38f3a059b0515d4f6255cd23677
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128637651"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262188"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory 및 Batch를 사용하여 대규모 데이터 세트 처리
 > [!NOTE]
@@ -61,7 +61,7 @@ Data Factory는 기본 제공 작업을 포함합니다. 예를 들어 복사 �
 
 다이어그램은 Data Factory에서 데이터 이동 및 처리를 조정하는 방법을 보여줍니다. Batch에서 병렬 방식으로 데이터를 처리하는 방법도 보여줍니다. 쉽게 참조할 수 있도록 다이어그램을 다운로드하고 인쇄합니다(11x17인치 또는 A3 크기). 다이어그램을 인쇄할 수 있도록 액세스하려면 [Batch 및 Data Factory를 사용하여 HPC 및 데이터 오케스트레이션](https://go.microsoft.com/fwlink/?LinkId=717686)을 참조하세요.
 
-[:::image type="content" alt-text="대규모 데이터 처리 다이어그램." source="./media/data-factory-data-processing-using-batch/large-scale-data-processing-diagram.png":::
+[:::image type="content" alt-text="대규모 데이터 처리 다이어그램]" source="./media/data-factory-data-processing-using-batch/large-scale-data-processing-diagram.png":::
 
 다음 목록은 프로세스의 기본 단계를 제공합니다. 솔루션에는 엔드투엔드 솔루션을 빌드하는 코드와 설명이 포함되어 있습니다.
 

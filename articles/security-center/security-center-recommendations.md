@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 01/24/2021
+ms.date: 10/20/2021
 ms.author: memildin
-ms.openlocfilehash: 186c155ea1ec4d69abde6147997fe4659a3e833f
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 23ae72a4ea8759dcb4dd55ab51476ad7761e1a08
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130003607"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223237"
 ---
 # <a name="review-your-security-recommendations"></a>보안 권장 사항 검토
 
@@ -58,12 +58,15 @@ ms.locfileid: "130003607"
         > 관련 권장 사항이 회색으로 표시됩니다. 해당 종속성이 아직 완료되지 않았으므로 사용할 수 없습니다.
 
     1. **수정 단계** - 영향을 받는 리소스에 대한 보안 문제를 해결하는 데 필요한 수동 단계에 대한 설명입니다. **수정** 옵션**이 있는 권장 사항의 경우 제안된 수정 사항을 리소스에 적용하기 전에 **수정 논리 보기** 를 선택할 수 있습니다.
+
     1. **영향을 받는 리소스** - 리소스가 탭으로 그룹화됩니다.
         - **정상 리소스** – 영향을 받지 않거나 이미 문제를 해결한 관련 리소스입니다.
         - **비정상 리소스** – 여전히 식별된 문제의 영향을 받는 리소스입니다.
+        - **제거됨** - 평가 주기 간에 삭제된 리소스입니다(새로 고침 간격으로 정의됨).
         - **해당 없음 리소스** – 권장 사항에서 명확한 답변을 제공할 수 없는 리소스입니다. 해당 없음 탭에는 각 리소스에 대한 이유도 포함되어 있습니다. 
 
             :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="이유가 포함된 해당 없음 리소스":::
+
     1. 권장 사항을 재구성하거나 논리 앱을 트리거하는 작업 단추입니다.
 
 

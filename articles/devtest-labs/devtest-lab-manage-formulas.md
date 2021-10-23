@@ -3,12 +3,12 @@ title: Azure DevTest Labs 수식을 관리하여 VM 만들기
 description: 이 문서에서는 기본(사용자 지정 이미지, Marketplace 이미지 또는 다른 수식) 또는 기존 VM에서 수식을 만드는 방법을 보여 줍니다.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 632e05a566e1891afff3440563a2fabde0b669d3
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6aea6af48344e6dfbdb811281e4ca0e8203968d3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128678538"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226547"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Azure DevTest Labs 수식 관리
 
@@ -122,7 +122,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="related-blog-posts"></a>관련 블로그 게시물
-* [사용자 지정 이미지 또는 수식?](/azure/devtest-labs/devtest-lab-faq#what-is-the-difference-between-a-custom-image-and-a-formula)
+* [사용자 지정 이미지 또는 수식?](./devtest-lab-faq.yml)
 
 ## <a name="next-steps"></a>다음 단계
 VM을 만들 때 사용할 수식을 만들었으면 다음 단계는 [VM을 랩에 추가](devtest-lab-add-vm.md)하는 것입니다.

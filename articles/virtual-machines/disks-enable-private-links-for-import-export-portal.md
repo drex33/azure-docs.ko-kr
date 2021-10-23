@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/03/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: c38c1ec60b3a7fbeb65f85e4560c4495ab93a031
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 6ca686a9fcf2b2ba290e14687f090f833714502c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124754820"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225180"
 ---
 # <a name="restrict-importexport-access-for-managed-disks-using-azure-private-link"></a>Azure Private Link를 사용하여 관리 디스크에 대한 가져오기/내보내기 액세스 제한
 
@@ -119,5 +119,5 @@ Private Link를 사용하여 관리 디스크를 내보내거나 가져오려면
 
 - Azure에 VHD를 업로드하거나 관리 디스크를 다른 지역에 복사 - [Azure CLI](linux/disks-upload-vhd-to-managed-disk-cli.md) 또는 [Azure PowerShell 모듈](windows/disks-upload-vhd-to-managed-disk-powershell.md)
 - VHD 다운로드 - [Windows](windows/download-vhd.md) 또는 [Linux](linux/download-vhd.md)
-- [프라이빗 링크 및 관리 디스크에 대한 FAQ](/azure/virtual-machines/faq-for-disks#private-links-for-securely-exporting-and-importing-managed-disks)
+- [프라이빗 링크 및 관리 디스크에 대한 FAQ](./faq-for-disks.yml)
 - [PowerShell을 사용하여 관리 스냅샷을 VHD로 다른 지역의 스토리지 계정에 내보내기/복사](/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account)

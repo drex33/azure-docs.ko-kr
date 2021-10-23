@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/14/2021
+ms.date: 10/20/2021
 ms.author: b-juche
 ms.custom: references_regions
-ms.openlocfilehash: c8cef623e26882443379fff73edcc1999463ec3e
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 013b456bb3a101e29de5aaae954914615123224f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130045771"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233247"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Azure NetApp Files 볼륨의 지역 간 복제
 
@@ -35,6 +35,7 @@ Azure NetApp Files 볼륨 복제는 다양한 [Azure 지역 쌍](../best-practic
 | Geography | 지역 쌍 A | 지역 쌍 B  |
 |:--- |:--- |:--- |
 | 오스트레일리아 | 오스트레일리아 동부 | 오스트레일리아 남동부 |
+| 아시아 태평양 | 동아시아 | 동남아시아 |
 | Canada | 캐나다 중부 | 캐나다 동부 |
 | 유럽 | 북유럽 | 서유럽 |
 | 독일 | 독일 중서부 | 독일 북부 |
@@ -44,8 +45,10 @@ Azure NetApp Files 볼륨 복제는 다양한 [Azure 지역 쌍](../best-practic
 | 북아메리카 | 미국 동부 2 | 미국 중부 |
 | 북아메리카 | 미국 중북부 | 미국 중남부|
 | 노르웨이 | 노르웨이 동부 | 노르웨이 서부 |
+| 스위스 | 스위스 북부 | 스위스 서부 |
 | 영국 | 영국 남부 | 영국 서부 |
 | 아랍에미리트연합국 | 아랍에미리트 북부 | 아랍에미리트 중부 |
+| US Government | US Gov 애리조나 | US Gov 텍사스 |
 | US Government | US Gov 버지니아 | US Gov 텍사스 |
 
 ### <a name="azure-regional-non-standard-pairs"></a>Azure 지역 비표준 쌍
@@ -62,6 +65,7 @@ Azure NetApp Files 볼륨 복제는 다양한 [Azure 지역 쌍](../best-practic
 | 북아메리카 | 미국 중남부 | 미국 동부 2 |
 | 북아메리카 | 미국 중남부 | 미국 중부 |
 | 북아메리카 | 미국 서부 2 | 미국 동부 |
+| US Government | US Gov 애리조나 | US Gov 버지니아 |
 
 ## <a name="service-level-objectives"></a>서비스 수준 목표
 

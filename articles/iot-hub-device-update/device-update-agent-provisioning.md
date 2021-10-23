@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/16/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: e65dc85dff7692f82118871ab93c628efe6cecf8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ecfbd8ac385a3449ce2934ec93b10c255d621fe1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128661681"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130259078"
 ---
 # <a name="device-update-agent-provisioning"></a>디바이스 업데이트 에이전트 프로비저닝
 
@@ -87,7 +87,7 @@ IoT Hub에서 각 디바이스 ID 아래에 최대 50개의 모듈 ID를 만들 
 
 다음 지침에 따라 디바이스 업데이트 에이전트를 [IoT Edge 사용 디바이스](../iot-edge/index.yml)에 프로비저닝합니다.
 
-1. 지침에 따라 [Azure IoT Edge 런타임을 설치](../iot-edge/how-to-install-iot-edge.md?preserve-view=true&view=iotedge-2020-11)합니다.
+1. 지침에 따라 [단일 Linux IoT Edge 장치를 수동으로 프로 비전](../iot-edge/how-to-provision-single-device-linux-symmetric.md?preserve-view=true&view=iotedge-2020-11)합니다.
 
 1. Device Update 이미지 업데이트 에이전트를 설치합니다.
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 7327af790eb8a3ddda646f0da208083d4431934a
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: 5c62b183d55023b0b8a25dcde03aef21e0364a3e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112280228"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261903"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>MirrorMaker를 사용하여 HDInsight에서 Kafka와 함께 Apache Kafka 토픽 복제
 
@@ -136,11 +136,14 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
 
     자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-1. 다음 명령을 사용하여 기본 클러스터에 대한 Apache Zookeeper 호스트가 포함된 변수를 만듭니다. `ZOOKEEPER_IP_ADDRESS1`과 같은 문자열은 이전에 기록된 `10.23.0.11`와 `10.23.0.7`과 같은 실제 IP 주소로 바꾸어야 합니다 . 사용자 지정 DNS 서버에서 FQDN 해결을 사용하는 경우, [다음 단계](apache-kafka-get-started.md#getkafkainfo)에 따라 broker 및 zookeeper 이름을 가져옵니다.
+1. 다음 명령을 사용하여 Apache Zookeeper 호스트 및 주 클러스터에 대한 Broker 호스트를 사용하여 두 개의 환경 변수를 만듭니다. `ZOOKEEPER_IP_ADDRESS1`과 같은 문자열은 이전에 기록된 `10.23.0.11`와 `10.23.0.7`과 같은 실제 IP 주소로 바꾸어야 합니다 . 에도 `BROKER_IP_ADDRESS1` 마찬가지입니다. 사용자 지정 DNS 서버에서 FQDN 해결을 사용하는 경우, [다음 단계](apache-kafka-get-started.md#getkafkainfo)에 따라 broker 및 zookeeper 이름을 가져옵니다.
 
     ```bash
     # get the zookeeper hosts for the primary cluster
     export PRIMARY_ZKHOSTS='ZOOKEEPER_IP_ADDRESS1:2181, ZOOKEEPER_IP_ADDRESS2:2181, ZOOKEEPER_IP_ADDRESS3:2181'
+    
+    # get the broker hosts for the primary cluster
+    export PRIMARY_BROKERHOSTS='BROKER_IP_ADDRESS1:9092,BROKER_IP_ADDRESS2:9092,BROKER_IP_ADDRESS2:9092'
     ```
 
 1. `testtopic`이라는 토픽을 만들려면 다음 명령을 사용합니다.
@@ -157,15 +160,15 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
 
     응답에 `testtopic`이 있습니다.
 
-1. 다음을 사용하여 이 클러스터(**기본**)에 대한 Zookeeper 호스트 정보를 조회합니다.
+1. 이 **클러스터(기본**) 클러스터에 대한 Broker 호스트 정보를 보려면 다음을 사용합니다.
 
     ```bash
-    echo $PRIMARY_ZKHOSTS
+    echo $PRIMARY_BROKERHOSTS
     ```
 
     이 명령은 다음 텍스트와 비슷한 정보를 반환합니다.
 
-    `10.23.0.11:2181,10.23.0.7:2181,10.23.0.9:2181`
+    `10.23.0.11:9092,10.23.0.7:9092,10.23.0.9:9092`
 
     이 정보를 저장합니다. 해당 정보는 다음 섹션에서 사용됩니다.
 
@@ -190,11 +193,11 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
     `consumer.properties` 파일의 내용으로 다음 텍스트를 사용합니다.
 
     ```yaml
-    zookeeper.connect=PRIMARY_ZKHOSTS
+    bootstrap.servers=PRIMARY_BROKERHOSTS
     group.id=mirrorgroup
     ```
 
-    **PRIMARY_ZKHOSTS** 는 **기본** 클러스터의 Zookeeper IP 주소로 바꿉니다.
+    **PRIMARY_BROKERHOSTS** **주** 클러스터의 Broker 호스트 IP 주소로 대체합니다.
 
     이 파일은 기본 Kafka 클러스터에서 읽을 때 사용할 소비자 정보를 설명합니다. 소비자 구성에 대한 자세한 내용은 kafka.apache.org의 [소비자 구성](https://kafka.apache.org/documentation#consumerconfigs)(영문)을 참조하세요.
 
@@ -280,8 +283,7 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
 2. SSH 연결부터 **기본** 클러스터까지, 다음 명령을 사용하여 Producer를 시작하고 토픽에 메시지를 전송합니다.
 
     ```bash
-    export PRIMARY_BROKERHOSTS=BROKER_IP_ADDRESS1:9092,BROKER_IP_ADDRESS2:9092,BROKER_IP_ADDRESS2:9092
-    /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
+    /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $PRIMARY_BROKERHOSTS --topic testtopic
     ```
 
      커서로 빈 라인에 도달하면 몇 개의 텍스트 메시지를 입력합니다. 메시지는 **기본** 클러스터의 토픽으로 보내집니다. 완료되면 **Ctrl + C** 를 클릭하여 프로듀서 프로세스를 종료합니다.
@@ -289,7 +291,7 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
 3. **보조** 클러스터에 대한 SSH 연결에서 **Ctrl + C** 를 사용하여 MirrorMaker 프로세스를 종료합니다. 이 프로세스를 종료하는 데 몇 초 정도 걸릴 수 있습니다. 메시지가 보조에 복제되었는지 확인하려면 다음 명령을 사용합니다.
 
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $SECONDARY_ZKHOSTS --topic testtopic --from-beginning
+    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $SECONDARY_BROKERHOSTS --topic testtopic --from-beginning
     ```
 
     이제 토픽 목록에 MirrorMaster가 기본 클러스터에서 보조로 토픽을 미러링할 때 만들어진 `testtopic`이(가) 포함됩니다. 이 항목에서 검색한 메시지는 기본 클러스터에 입력한 것과 동일합니다.

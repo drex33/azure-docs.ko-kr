@@ -2,14 +2,14 @@
 title: SAP HANA Backup 지원 매트릭스
 description: 이 문서에서는 Azure Backup을 사용하여 Azure VM에 SAP HANA 데이터베이스를 백업할 때 지원되는 시나리오 및 제한 사항에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 09/01/2021
+ms.date: 10/22/2021
 ms.custom: references_regions
-ms.openlocfilehash: 09dab8a35c5ed06ec9680b2cb57ca6ac0d27109f
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: b9d642d0c70b06677aedcce99c1f21ac4b3a7d34
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123427942"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130244543"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Azure VM의 SAP HANA 데이터베이스 백업에 대한 지원 매트릭스
 
@@ -33,6 +33,7 @@ Azure Backup은 Azure에 SAP HANA 데이터베이스 백업을 지원합니다. 
 | **백업 유형**           | 전체, 차등, 증분 및 로그 백업                          |  스냅샷                                       |
 | **복원 유형**          | 지원되는 복원 유형에 대한 자세한 내용은 SAP HANA Note [1642148](https://launchpad.support.sap.com/#/notes/1642148)을 참조하세요. |                                                              |
 | **백업 제한**          | SAP HANA 인스턴스당 최대 8TB의 전체 백업 크기(소프트 제한)         |                                                              |
+| **하루 전체 백업 수**     |   하나는 예약 된 백업입니다.  <br><br>   3 번의 주문형 백업 <br><br> 하루에 3 개 이상의 백업을 트리거하지 않는 것이 좋습니다. 그러나 실패 한 시도의 경우 사용자 재시도를 허용 하기 위해 주문형 백업에 대 한 하드 한도는 9 회 시도로 설정 됩니다.  |
 | **특수 구성** |                                                              | SAP HANA + Dynamic Tiering <br>  LaMa를 통한 복제        |
 
 ------

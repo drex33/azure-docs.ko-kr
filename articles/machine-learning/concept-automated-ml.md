@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.date: 07/01/2021
 ms.custom: automl
-ms.openlocfilehash: 7f6f3a4b24753cf20284f69b2a1e2a06e6cb3522
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: c08eae9654e01fda15889ac6fe65f99de2d73bb6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129998405"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261808"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>자동화된 Machine Learning(AutoML)이란?
 
@@ -44,8 +44,8 @@ Azure Machine Learning은 자동화된 ML 작업을 위해 다음 두 가지 환
 | |Python SDK|스튜디오 웹 환경|
 |----|:----:|:----:|
 |**학습/유효성 검사 세트로 데이터 분할**| ✓|✓
-|**ML 작업 지원: 분류, 회귀, & 예측**| ✓| ✓
-|**컴퓨터 비전 작업 지원 (미리 보기): 이미지 분류, 개체 검색 & 인스턴스 구분**| ✓| 
+|**분류, 회귀 & 예측과 같은 ML 작업을 지원합니다.**| ✓| ✓
+|**Computer Vision 작업 지원(미리 보기): 이미지 분류, 개체 감지 & 인스턴스 구분**| ✓| 
 |**기본 메트릭 기반 최적화**| ✓| ✓
 |**Azure ML 컴퓨팅을 컴퓨팅 대상으로 지원** | ✓|✓
 |**예측 구간, 대상 지연 시간 및 롤링 기간 구성**|✓|✓
@@ -83,7 +83,7 @@ Azure Machine Learning은 자동화된 ML 작업을 위해 다음 두 가지 환
 |**가드 레일 가져오기**| ✓|✓|
 |**실행 일시 중지 및 다시 시작**| ✓| |
 
-## <a name="when-to-use-automl-classification-regression-forecasting--computer-vision"></a>AutoML을 사용 하는 경우: 분류, 재발, 예측 & 컴퓨터 비전
+## <a name="when-to-use-automl-classification-regression-forecasting--computer-vision"></a>AutoML을 사용하는 경우: 분류, 회귀, 예측 & 컴퓨터 비전
 
 Azure Machine Learning에서 지정한 대상 메트릭을 사용하여 모델을 학습시키고 튜닝하도록 하려면 자동화된 ML을 적용합니다. 자동화된 ML은 기계 학습 모델 개발 프로세스를 보편화하고, 데이터 과학 전문 지식과 관계없이 문제에 대한 엔드투엔드 기계 학습 파이프라인을 식별할 수 있도록 사용자의 역량을 강화합니다.
 
@@ -126,35 +126,35 @@ Azure Machine Learning에서 지정한 대상 메트릭을 사용하여 모델�
 
 예측에 대한 회귀 및 자동화된 Machine Learning의 예제는 [판매 예측](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb), [수요 예측](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) 및 [음료 생산 예측](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) Python Notebook을 참조하세요.
 
-### <a name="computer-vision-preview"></a>Computer Vision(미리 보기)
+### <a name="computer-vision-preview"></a>컴퓨터 비전 (미리 보기)
 
 > [!IMPORTANT]
 > 이 기능은 현재 공개 미리 보기로 제공됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공됩니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-이미지에 대한 자동화된 ML(미리 보기)는 이미지 분류 및 개체 감지와 같은 시나리오에 대해 이미지 데이터에 대해 학습된 모델을 쉽게 생성할 수 있는 Computer Vision 작업에 대한 지원을 추가합니다. 
+이미지에 대 한 자동화 된 ML (미리 보기)는 이미지 분류 및 개체 검색 등의 시나리오에서 이미지 데이터에 대해 학습 된 모델을 쉽게 생성할 수 있도록 하는 컴퓨터 비전 작업에 대 한 지원을 추가 합니다. 
 
 이 기능을 사용하여 다음을 수행할 수 있습니다. 
  
-* [Azure Machine Learning 데이터 레이블 지정](how-to-create-labeling-projects.md) 기능과 원활하게 통합
-* 이미지 모델을 생성하기 위해 레이블이 지정한 데이터 사용
-* 모델 알고리즘을 지정하고 하이퍼 부모 변수를 튜닝하여 모델 성능을 최적화합니다. 
-* 결과 모델을 Azure Machine Learning 웹 서비스로 다운로드하거나 배포합니다. 
-* Azure Machine Learning [MLOps](concept-model-management-and-deployment.md) 및 [ML Pipelines](concept-ml-pipelines.md) 기능을 활용하여 대규모로 운영합니다. 
+* [Azure Machine Learning 데이터 레이블](./how-to-create-image-labeling-projects.md) 기능과 원활 하 게 통합
+* 레이블이 지정 된 데이터를 사용 하 여 이미지 모델 생성
+* 모델 알고리즘을 지정 하 고 하이퍼 매개 변수를 조정 하 여 모델 성능을 최적화 합니다. 
+* 결과 모델을 Azure Machine Learning에서 웹 서비스로 다운로드 하거나 배포 합니다. 
+* Azure Machine Learning [mlops](concept-model-management-and-deployment.md) 및 [ML Pipelines](concept-ml-pipelines.md) 기능을 활용 하 여 규모에 운영. 
 
-비전 작업에 대한 AutoML 모델 작성은 Azure ML Python SDK를 통해 지원됩니다. 결과 실험 실행, 모델 및 출력은 Azure Machine Learning Studio UI에서 액세스할 수 있습니다.
+비전 작업을 위한 automl 모델 작성은 Azure ML Python SDK를 통해 지원 됩니다. 결과 실험 실행, 모델 및 출력은 Azure Machine Learning studio UI에서 액세스할 수 있습니다.
 
-[컴퓨터 비전 모델에 대한 AutoML 학습을 설정하는](how-to-auto-train-image-models.md)방법을 알아봅니다.
+[컴퓨터 비전 모델에 대해 AutoML 교육을 설정](how-to-auto-train-image-models.md)하는 방법에 대해 알아봅니다.
 
-![Computer Vision 작업 예제. 이미지 출처: http://cs231n.stanford.edu/slides/2021/lecture_15.pdf ](./media/concept-automated-ml/automl-computer-vision-tasks.png) 이미지 출처: http://cs231n.stanford.edu/slides/2021/lecture_15.pdf
+![컴퓨터 비전 작업 예. 이미지 원본: http://cs231n.stanford.edu/slides/2021/lecture_15.pdf ](./media/concept-automated-ml/automl-computer-vision-tasks.png) 이미지 원본: http://cs231n.stanford.edu/slides/2021/lecture_15.pdf
 
-이미지에 대한 자동화된 ML 다음과 같은 컴퓨터 비전 작업을 지원합니다. 
+이미지에 대 한 자동화 된 ML은 다음과 같은 컴퓨터 비전 작업을 지원 합니다. 
 
-작업 | Description
+작업 | 설명
 ----|----
-다중 클래스 이미지 분류 | 이미지가 클래스 집합의 단일 레이블로만 분류되는 작업-예: 각 이미지는 'cat' 또는 'dog' 또는 'dog'의 이미지로 분류됩니다.
-다중 레이블 이미지 분류 | 이미지에 레이블 집합의 레이블이 하나 이상 있을 수 있는 작업(예: 이미지에 'cat'과 'dog'를 둘 다 레이블로 지정할 수 있습니다.)
-개체 감지| 이미지에서 개체를 식별하고 경계 상자가 있는 각 개체를 찾는 작업(예: 이미지에서 모든 개와 고양이를 찾아 각각 경계 상자를 그립니다.)
-인스턴스 구분 | 이미지의 각 개체 주위에 다각형을 그려 픽셀 수준에서 이미지의 개체를 식별하는 작업입니다.
+다중 클래스 이미지 분류 | 이미지가 클래스 집합에서 단일 레이블만으로 분류 되는 작업-예를 들어 각 이미지는 ' cat ' 또는 ' dog ' 또는 ' 오리 '의 이미지로 분류 됩니다.
+다중 레이블 이미지 분류 | 이미지에 레이블 집합에서 하나 이상의 레이블이 있을 수 있는 작업 (예: 이미지에 ' cat ' 및 ' dog ' 모두 표시)
+개체 감지| 이미지의 개체를 식별 하 고 경계 상자를 사용 하 여 각 개체를 찾는 작업입니다. 예를 들어 이미지에서 모든 위치와 고양이를 찾고 각 개체 주위에 경계 상자를 그릴 수 있습니다.
+인스턴스 조각화 | 픽셀 수준에서 이미지의 개체를 식별 하는 작업으로, 이미지의 각 개체 주위에 다각형을 그립니다.
 
 ## <a name="how-automated-ml-works"></a>자동화된 ML 작동 방법
 
@@ -162,7 +162,7 @@ Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수�
 
 **Azure Machine Learning** 을 사용하면 다음 단계를 사용하여 자동화된 ML 학습 실험을 설계하고 실행할 수 있습니다.
 
-1. **해결할 ML** 문제(분류, 예측, 회귀 또는 컴퓨터 비전(미리 보기))를 식별합니다.
+1. 분류, 예측, 재발 또는 컴퓨터 비전 (미리 보기) **의 해결할 ML 문제를 식별** 합니다.
 
 1. **Python SDK 또는 스튜디오 웹 환경을 사용할지 선택**: [Python SDK와 스튜디오 웹 환경](#parity) 간의 패리티에 대해 알아봅니다.
 
@@ -264,7 +264,7 @@ Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수�
 | 데이터 스트리밍(큰 데이터 지원, 최대 100GB)          | ✓      |       | 
 | DNN-BERT 기반 텍스트 기능화 및 학습             | ✓      |       |
 | 기본 제공 GPU 지원(학습 및 추론)        | ✓      |       |
-| 이미지 분류(미리 보기) 및 레이블 지정 지원        | ✓      |       |
+| 이미지 분류 (미리 보기) 및 레이블 지정 지원        | ✓      |       |
 | 예측을 위한 Auto-ARIMA, Prophet 및 ForecastTCN 모델 | ✓      |       | 
 | 동시에 여러 실행/반복                       | ✓      |       |
 | AutoML 스튜디오 웹 환경 UI에서 해석력 있는 모델 만들기      | ✓      |       |
@@ -273,7 +273,7 @@ Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수�
 | Azure ML 파이프라인 워크플로 지원                         | ✓      |       |
 | 실행 계속                                             | ✓      |       |
 | 예측                                                | ✓      | ✓     |
-| Computer Vision(미리 보기)                                  | ✓      |       |
+| 컴퓨터 비전 (미리 보기)                                  | ✓      |       |
 | Notebook에서 실험 만들기 및 실행                    | ✓      | ✓     |
 | UI에서 실험 정보와 메트릭 등록 및 시각화 | ✓      | ✓     |
 | 데이터 가드 레일                                            | ✓      | ✓     |
@@ -285,7 +285,7 @@ Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수�
 
 Azure Machine Learning을 사용하면 자동화된 ML을 사용하여 Python 모델을 빌드하고 ONNX 형식으로 변환할 수 있습니다. 모델이 ONNX 형식이면 다양한 플랫폼과 디바이스에서 실행할 수 있습니다. [ONNX를 사용하여 ML 모델을 가속화하는 방법](concept-onnx.md)에 대해 자세히 알아보세요.
 
-[이 Jupyter Notebook 예제](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)에서 ONNX 형식으로 변환하는 방법을 참조하세요. [ONNX에서 지원되는 알고리즘](how-to-configure-auto-train.md#select-your-experiment-type)에 대해 알아보세요.
+[이 Jupyter Notebook 예제](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)에서 ONNX 형식으로 변환하는 방법을 참조하세요. [ONNX에서 지원되는 알고리즘](how-to-configure-auto-train.md#supported-models)에 대해 알아보세요.
 
 또한 ONNX 런타임은 C#을 지원하므로 REST 엔드포인트에서 도입하는 네트워크 대기 시간 또는 다시 코딩 없이도 C# 앱에서 자동으로 빌드되는 모델을 사용할 수 있습니다. [ML.NET을 사용하여 .NET 애플리케이션에서 AutoML ONNX 모델 사용](./how-to-use-automl-onnx-model-dotnet.md) 및 [ONNX 런타임 C# API를 사용하여 ONNX 모델 추론](https://onnxruntime.ai/docs/api/csharp-api.html)에 대해 자세히 알아봅니다. 
 

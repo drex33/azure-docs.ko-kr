@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 29826aba135c2d409a99489aeb9e2c71f6d6a7c4
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
-ms.translationtype: HT
+ms.openlocfilehash: 3a9d7f4f6c3413fe82cd1dde52ebde866d77eedf
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111754712"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262910"
 ---
 # <a name="identify-and-diagnose-issues-in-azure-virtual-desktop-classic"></a>Azure Virtual Desktop(클래식)의 문제 식별 및 진단
 
 >[!IMPORTANT]
->이 내용은 Azure Resource Manager의 Azure Virtual Desktop 개체를 지원하지 않는 Azure Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager의 Azure Virtual Desktop 개체를 관리하려는 경우 [이 문서](../diagnostics-role-service.md)를 참조하세요.
+>이 내용은 Azure Resource Manager의 Azure Virtual Desktop 개체를 지원하지 않는 Azure Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Azure Virtual Desktop 개체를 관리하려는 경우 [이 문서](../troubleshoot-set-up-overview.md)를 참조하세요.
 
 Azure Virtual Desktop은 관리자가 단일 인터페이스를 통해 문제를 식별할 수 있도록 지원하는 진단 기능을 제공합니다. Azure Virtual Desktop 역할은 사용자가 시스템과 상호 작용할 때마다 진단 작업을 로깅합니다. 각 로그에는 트랜잭션에 개입한 Azure Virtual Desktop 역할, 오류 메시지, 테넌트 정보, 사용자 정보와 같은 관련 정보가 포함됩니다. 진단 작업은 최종 사용자 작업과 관리자 작업 양쪽에 의해 생성되며, 다음과 같은 세 가지 버킷으로 구분됩니다.
 

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 04/15/2021
 ms.author: mbaldwin
-ms.openlocfilehash: dd32e421b678b9cfc6277bdc593a06f93fab447f
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
-ms.translationtype: HT
+ms.openlocfilehash: e63867a4c46f8249db93c13914ab7a7297252f48
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113136115"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238457"
 ---
 # <a name="azure-key-vault-security"></a>Azure Key Vault 보안
 
@@ -73,6 +73,12 @@ Key Vault에 대한 액세스는 두 인터페이스, 즉 **관리 평면** 및 
 - **서비스 주체** 는 애플리케이션 또는 서비스를 식별하는 보안 주체의 유형입니다. 즉, 사용자 또는 그룹이 아닌 코드 조각입니다. 서비스 주체의 개체 ID를 **클라이언트 ID** 라고 하며, 사용자 이름처럼 작동합니다. 서비스 주체의 **클라이언트 암호** 또는 **인증서** 는 암호처럼 작동합니다. 많은 Azure 서비스는 **클라이언트 ID** 와 **인증서** 의 자동 관리를 통해 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md) 할당을 지원합니다. 관리 ID는 Azure 내의 인증에서 가장 안전하고 권장되는 옵션입니다.
 
 Key Vault 인증에 대한 자세한 내용은 [Azure Key Vault에 대한 인증](authentication.md)을 참조하세요.
+
+## <a name="conditional-access"></a>조건부 액세스 
+
+Key Vault는 Azure Azure Active Directory 조건부 액세스 정책에 대 한 지원을 제공 합니다. 조건부 액세스 정책을 사용 하 여 조직의 보안을 유지 하 고 필요 하지 않을 때 사용자의 방식에 대 한 보안을 유지 하기 위해 필요한 경우 Key Vault에 적절 한 액세스 제어를 적용할 수 있습니다.
+
+자세한 내용은 [조건부 액세스 개요](../../active-directory/conditional-access/overview.md) 를 참조 하세요.
 
 ## <a name="privileged-access"></a>권한 있는 액세스
 

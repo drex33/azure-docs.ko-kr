@@ -4,12 +4,12 @@ description: 인바운드 및 아웃바운드 IP 주소가 Azure App Service에�
 ms.topic: article
 ms.date: 08/25/2020
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: f8354d52c43d786e3506cf6fcee0907f9f365ab6
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b637157def16a3d540e918890cbc24730797cde6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124836313"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224520"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Azure App Service의 인바운드 및 아웃바운드 IP 주소
 
@@ -82,7 +82,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 ```
 
 ## <a name="get-a-static-outbound-ip"></a>고정 아웃바운드 IP 가져오기
-가상 네트워크 NAT 게이트웨이와 함께 지역 VNet 통합을 사용하여 고정 공용 IP 주소를 통해 트래픽을 전달함으로써 앱에서 아웃바운드 트래픽의 IP 주소를 제어할 수 있습니다. [지역 VNet 통합](./web-sites-integrate-with-vnet.md)은 **표준**, **프리미엄**, **프리미엄V2**, **프리미엄V3** App Service 요금제에서 사용할 수 있습니다. 이 설정에 관한 자세한 내용은 [NAT 게이트웨이 통합](./networking/nat-gateway-integration.md)을 참조하세요.
+가상 네트워크 NAT 게이트웨이와 함께 지역 VNet 통합을 사용하여 고정 공용 IP 주소를 통해 트래픽을 전달함으로써 앱에서 아웃바운드 트래픽의 IP 주소를 제어할 수 있습니다. [지역 VNet 통합](./overview-vnet-integration.md)은 **표준**, **프리미엄**, **프리미엄V2**, **프리미엄V3** App Service 요금제에서 사용할 수 있습니다. 이 설정에 관한 자세한 내용은 [NAT 게이트웨이 통합](./networking/nat-gateway-integration.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

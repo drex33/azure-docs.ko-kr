@@ -1,24 +1,24 @@
 ---
 title: 예약 용량으로 Azure App Service 비용 절감
-description: Azure App Service Premium v3 및 isolated v2 예약 인스턴스 및 격리 된 스탬프 요금에 대 한 비용을 절감 하는 방법에 대해 알아봅니다.
+description: Azure App Service Premium v3 및 격리 v2 예약 인스턴스 및 격리 스탬프 요금에 대한 비용을 절감하는 방법을 알아봅니다.
 author: bandersmsft
-ms.reviewer: primittal
+ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/04/2021
+ms.date: 10/21/2021
 ms.author: banders
 ms.custom: references_regions
-ms.openlocfilehash: f3c45799d88601bb8ef9a2d652bb07d7d54aceb9
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 1227c20defc835ecdfb43fea10d3b2f65af802d9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129456616"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130244013"
 ---
 # <a name="save-costs-with-azure-app-service-reserved-instances"></a>Azure App Service 예약 인스턴스를 사용하여 비용 절감
 
-이 문서에서는 Premium v3 및 isolated v2 인스턴스와 격리 된 스탬프 요금에 대 한 Azure App Service 예약 인스턴스로 저장할 수 있는 방법을 설명 합니다.
+이 문서에서는 Premium v3 및 격리 v2 인스턴스 및 격리 스탬프 요금에 대해 Azure App Service 예약 인스턴스로 저장하는 방법을 설명합니다.
 
 ## <a name="save-with-premium-v3-reserved-instances"></a>Premium v3 예약 인스턴스를 사용하여 비용 절감
 
@@ -48,7 +48,7 @@ Azure App Service Premium v3 예약 인스턴스에 커밋하면 비용을 절�
 예약된 Premium v3 예약 인스턴스는 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D)에서 구매할 수 있습니다. 예약 요금은 [사전 결제 또는 월별 결제](prepare-buy-reservation.md)로 처리할 수 있습니다. Premium v3 예약 인스턴스 구매에 적용되는 요구 사항은 다음과 같습니다.
 
 - 하나 이상의 EA 구독 또는 종량제 요금이 적용되는 구독에 대한 소유자 역할에 속해야 합니다.
-- EA 구독의 경우 [EA 포털](https://ea.azure.com/)에서 **예약 인스턴스 추가** 옵션을 사용하도록 설정해야 합니다. 또는 해당 설정을 비활성화하려면 구독의 EA 관리자여야 합니다.
+- EA 구독의 경우 [EA 포털](https://ea.azure.com/)에서 **예약 인스턴스 추가** 옵션을 사용하도록 설정해야 합니다. 또는 해당 설정을 비활성화하려면 구독의 EA 관리자여야 합니다. 이제 직접 EA 고객은 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts) **예약 인스턴스** 설정을 업데이트할 수 있습니다. 정책 메뉴로 이동하여 설정을 변경합니다.
 - CSP(클라우드 솔루션 공급자) 프로그램의 경우 관리자 에이전트 또는 판매 에이전트는 예약 구매를 할 수 있습니다.
 
 인스턴스를 구매하려면
@@ -63,7 +63,7 @@ EA 계약이 있는 경우 **추가 옵션** 을 사용하여 인스턴스를 �
 | **필드** | **설명** |
 |---|---|
 | Subscription | 예약에 대해 비용을 지불하는 데 사용하는 구독입니다. 구독의 결제 방법으로 예약 요금이 청구됩니다. 구독 유형은 기업계약(제안 번호: MS-AZR-0017P or MS-AZR-0148P)이나 Microsoft 고객 계약 또는 종량제 요금의 개별 구독(제품 번호: MS-AZR-0003P 또는 MS-AZR-0023P)여야 합니다. 요금은 약정 잔액에서 차감되거나(있는 경우) 초과분 요금으로 청구됩니다. 종량제 요금이 적용되는 구독의 경우 요금은 구독의 신용 카드 또는 청구서 결제 방법으로 청구됩니다. |
-| 범위 | 예약 범위에는 하나의 구독 또는 여러 구독(공유 범위)이 포함될 수 있습니다. 다음을 선택하는 경우: <ul><li>**단일 리소스 그룹 범위** - 선택한 리소스 그룹의 일치하는 리소스에만 예약 할인을 적용합니다. </li><li>**단일 구독 범위** - 선택한 구독의 일치하는 리소스에만 예약 할인을 적용합니다.</li><li>**공유 범위** - 청구 컨텍스트에 있는 적격 구독의 일치하는 리소스에 예약 할인을 적용합니다. EA 고객의 경우 청구 컨텍스트는 등록입니다. 종량제 요금이 적용되는 개별 구독의 경우 청구 범위는 계정 관리자가 만든 모든 적격 구독입니다.</li><li>**관리 그룹** -관리 그룹 및 청구 범위의 일부인 구독 목록에서 일치 하는 리소스에 예약 할인을 적용 합니다.</li></ul> |
+| 범위 | 예약 범위에는 하나의 구독 또는 여러 구독(공유 범위)이 포함될 수 있습니다. 다음을 선택하는 경우: <ul><li>**단일 리소스 그룹 범위** - 선택한 리소스 그룹의 일치하는 리소스에만 예약 할인을 적용합니다. </li><li>**단일 구독 범위** - 선택한 구독의 일치하는 리소스에만 예약 할인을 적용합니다.</li><li>**공유 범위** - 청구 컨텍스트에 있는 적격 구독의 일치하는 리소스에 예약 할인을 적용합니다. EA 고객의 경우 청구 컨텍스트는 등록입니다. 종량제 요금이 적용되는 개별 구독의 경우 청구 범위는 계정 관리자가 만든 모든 적격 구독입니다.</li><li>**관리 그룹** - 관리 그룹 및 청구 범위의 일부인 구독 목록에서 일치하는 리소스에 예약 할인을 적용합니다.</li></ul> |
 | 지역 | 예약이 적용되는 Azure 지역입니다. |
 | Premium v3 예약 인스턴스 크기 | Premium v3 예약 인스턴스의 크기입니다. |
 | 용어 | 1년 또는 3년입니다. HBv2 Premium v3 예약 인스턴스에만 사용할 수 있는 5년 기간도 있습니다. |
@@ -74,7 +74,7 @@ EA 계약이 있는 경우 **추가 옵션** 을 사용하여 인스턴스를 �
 예약된 Isolated v2 예약 인스턴스는 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D)에서 구매할 수 있습니다. 예약 요금은 [사전 결제 또는 월별 결제](prepare-buy-reservation.md)로 처리할 수 있습니다. Isolated v2 예약 인스턴스 구매에 적용되는 요구 사항은 다음과 같습니다.
 
 - 하나 이상의 EA 구독 또는 종량제 요금이 적용되는 구독에 대한 소유자 역할에 속해야 합니다.
-- EA 구독의 경우 [EA 포털](https://ea.azure.com/)에서 **예약 인스턴스 추가** 옵션을 사용하도록 설정해야 합니다. 또는 해당 설정을 비활성화하려면 구독의 EA 관리자여야 합니다.
+- EA 구독의 경우 [EA 포털](https://ea.azure.com/)에서 **예약 인스턴스 추가** 옵션을 사용하도록 설정해야 합니다. 또는 해당 설정을 비활성화하려면 구독의 EA 관리자여야 합니다. 이제 직접 EA 고객은 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts) **예약 인스턴스** 설정을 업데이트할 수 있습니다. 정책 메뉴로 이동하여 설정을 변경합니다.
 - CSP(클라우드 솔루션 공급자) 프로그램의 경우 관리자 에이전트 또는 판매 에이전트는 예약 구매를 할 수 있습니다.
 
 인스턴스를 구매하려면

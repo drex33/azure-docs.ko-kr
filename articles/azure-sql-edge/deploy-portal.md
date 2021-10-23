@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 5d7d232ada814d5d3c30e7b012c6289f847d641f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: b801fdb7093e69853c01ed1922ff577962040ac5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93395090"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262416"
 ---
 # <a name="deploy-azure-sql-edge"></a>Azure SQL Edge 배포 
 
@@ -25,9 +25,9 @@ Azure SQL Edge는 IoT 및 Azure IoT Edge 배포에 최적화된 관계형 데이
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 * [Azure IoT Hub](../iot-hub/iot-hub-create-through-portal.md)를 만듭니다.
-* [Azure IoT Edge 디바이스](../iot-edge/how-to-install-iot-edge.md)를 만듭니다.
+* [Azure IoT Edge 디바이스](../iot-edge/how-to-provision-single-device-linux-symmetric.md)를 만듭니다.
 
-> [!NOTE]   
+> [!NOTE]
 > Azure Linux VM을 IoT Edge 디바이스로 배포하려면 이 [빠른 시작 가이드](../iot-edge/quickstart-linux.md)를 참조하세요.
 
 ## <a name="deploy-sql-edge-module-from-azure-marketplace"></a>Azure Marketplace의 SQL Edge 모듈 배포

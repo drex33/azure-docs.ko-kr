@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 2ace40157681b250b56fcd595486260f07ec80c3
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: 0bd470650ca3a2d6a8fd2d672d2eac0e5790dc89
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129400708"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130241006"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-azure-virtual-desktop"></a>Azure Virtual Desktop에 대한 GPU(그래픽 처리 장치) 가속 구성
 
@@ -82,6 +82,9 @@ Azure Virtual Desktop에서 Azure N 시리즈 VM의 GPU 기능을 활용하려�
 3. 원격 데스크톱 세션에서 로그아웃합니다.
 
 ## <a name="configure-fullscreen-video-encoding"></a>전체 화면 비디오 인코딩 구성
+
+>[!NOTE]
+>GPU가 없는 경우에도 전체 화면 비디오 인코딩을 사용 하도록 설정할 수 있습니다.
 
 3D 모델링, CAD/CAM 및 비디오 애플리케이션과 같이 높은 프레임 속도의 콘텐츠를 생성하는 애플리케이션을 자주 사용하는 경우 원격 세션에 대해 전체 화면 비디오 인코딩을 사용하도록 선택할 수 있습니다. 전체 화면 비디오 프로필은 네트워크 대역폭과 세션 호스트 및 클라이언트 리소스를 모두 사용하여 이러한 애플리케이션에 더 높은 프레임 속도와 더 나은 사용자 경험을 제공합니다. 전체 화면 비디오 인코딩에는 GPU 가속 프레임 인코딩을 사용하는 것이 좋습니다. 세션 호스트에 대한 그룹 정책을 구성하여 전체 화면 비디오 인코딩을 사용하도록 설정합니다. 위의 단계를 계속합니다.
 

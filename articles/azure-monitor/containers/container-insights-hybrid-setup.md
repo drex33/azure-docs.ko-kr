@@ -3,12 +3,12 @@ title: Container Insights를 사용하여 하이브리드 Kubernetes 클러스�
 description: 이 문서에서는 Azure Stack 또는 다른 환경에서 호스트되는 Kubernetes 클러스터를 모니터하도록 Container Insights를 구성하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 90a4c14397df8e70fc8f3d88bc339f826bb1ccc9
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
-ms.translationtype: HT
+ms.openlocfilehash: f9fe3e20ec7486d9c6f18d1494ec3bedbdc17e86
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767026"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130231554"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-container-insights"></a>Container Insights를 사용하여 하이브리드 Kubernetes 클러스터 구성
 
@@ -38,7 +38,7 @@ Container Insights는 AKS(Azure Kubernetes Service) 및 Azure에서 호스트되
 
 - [Log Analytics 작업 영역](../logs/design-logs-deployment.md)
 
-    컨테이너 인사이트는 Azure [지역별 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)에 나열된 지역에서 Log Analytics 작업 영역을 지원합니다. 사용자 고유의 작업 영역을 만들려면 [Azure Resource Manager](../logs/resource-manager-workspace.md), [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)을 통해 또는 [Azure Portal](../logs/quick-create-workspace.md)에서 만들 수 있습니다.
+    컨테이너 인사이트는 Azure [지역별 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)에 나열된 지역에서 Log Analytics 작업 영역을 지원합니다. 사용자 고유의 작업 영역을 만들려면 [Azure Resource Manager](../logs/resource-manager-workspace.md), [PowerShell](../logs/powershell-workspace-configuration.md?toc=%2fpowershell%2fmodule%2ftoc.json)을 통해 또는 [Azure Portal](../logs/quick-create-workspace.md)에서 만들 수 있습니다.
 
     >[!NOTE]
     >동일한 Log Analytics 작업 영역에 대해 동일한 클러스터 이름의 여러 클러스터 모니터링을 사용하도록 설정하는 것은 지원되지 않습니다. 클러스터 이름은 고유해야 합니다.

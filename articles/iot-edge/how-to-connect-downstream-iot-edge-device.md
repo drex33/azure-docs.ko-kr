@@ -11,12 +11,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 08e68fc4a5aa2de2c2b0e0bbd326620fadc11022
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: c0bbc7bb40c292675374a3198fe0514b720adfca
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129455840"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226113"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway"></a>다운스트림 IoT Edge 디바이스를 Azure IoT Edge 게이트웨이에 연결
 
@@ -118,7 +118,7 @@ Azure CLI에 대한 [azure-iot](/cli/azure/iot) 확장은 IoT 리소스를 관�
 
 보안 연결을 사용하려면 게이트웨이 시나리오의 모든 IoT Edge 디바이스를 고유한 디바이스 CA 인증서와 게이트웨이 계층 구조의 모든 디바이스에서 공유하는 루트 CA 인증서의 복사본으로 구성해야 합니다.
 
-디바이스에 IoT Edge가 이미 설치되어 있어야 합니다. 그렇지 않은 경우 [IoT Hub에 IoT Edge 디바이스를 등록](how-to-register-device.md)하는 단계를 수행한 다음 [Azure IoT Edge 런타임을 설치](how-to-install-iot-edge.md)합니다.
+디바이스에 IoT Edge가 이미 설치되어 있어야 합니다. 그렇지 않은 경우 [단일 Linux IoT Edge 디바이스를 수동으로 프로비전하는](how-to-provision-single-device-linux-symmetric.md)단계를 수행합니다.
 
 이 섹션의 단계에서는 이 문서의 앞부분에서 설명한 **루트 CA 인증서** 및 **디바이스 CA 인증서와 프라이빗 키** 를 참조합니다. 다른 디바이스에서 인증서를 만든 경우 이 디바이스에서 해당 인증서를 사용할 수 있도록 합니다. USB 드라이브와 같이 [Azure Key Vault](../key-vault/general/overview.md)와 같은 서비스 또는 [보안 파일 복사](https://www.ssh.com/ssh/scp/)와 같은 기능을 사용하여 파일을 물리적으로 전송할 수 있습니다.
 

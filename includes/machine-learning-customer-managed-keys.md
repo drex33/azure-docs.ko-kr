@@ -4,19 +4,19 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 09/14/2021
 ms.author: larryfr
-ms.openlocfilehash: 757179959035c6bfce77b1feaaf5bfeff5aab001
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 71810ecc6526364e37fe9a578d1e88d334db0d20
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128621600"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238338"
 ---
 > [!IMPORTANT]
 > 이 Cosmos DB 인스턴스는 __구독__ 의 Microsoft 관리되는 리소스 그룹에 생성됩니다. 다음 서비스는 이 리소스 그룹에도 만들어지며 고객 관리형 키 구성에서 사용됩니다.
 > * Azure Storage 계정
 > * Azure Search
 >
-> 이러한 서비스는 Azure 구독에서 만들어지기 때문에 이러한 서비스 인스턴스에 대한 요금이 청구됩니다. 구독에 Azure Cosmos DB 서비스에 대 한 할당량이 충분 하지 않으면 오류가 발생 합니다. 할당량에 대 한 자세한 내용은 [Azure Cosmos DB 서비스 할당량](/azure/cosmos-db/concepts-limits) 을 참조 하세요.
+> 이러한 서비스는 Azure 구독에서 만들어지기 때문에 이러한 서비스 인스턴스에 대한 요금이 청구됩니다. 구독에 Azure Cosmos DB 서비스에 대한 할당량이 충분하지 않으면 오류가 발생합니다. 할당량에 대한 자세한 내용은 [Azure Cosmos DB 서비스 할당량을 참조하세요.](../articles/cosmos-db/concepts-limits.md)
 >
 > 관리형 리소스 그룹의 이름은 `<AML Workspace Resource Group Name><GUID>` 형식으로 지정됩니다. Azure Machine Learning 작업 영역에서 프라이빗 엔드포인트를 사용하는 경우 가상 네트워크도 이 리소스 그룹에 만들어집니다. 이 VNet은 이 리소스 그룹의 서비스와 Azure Machine Learning 작업 영역 간의 통신을 보호하는 데 사용됩니다.
 > 

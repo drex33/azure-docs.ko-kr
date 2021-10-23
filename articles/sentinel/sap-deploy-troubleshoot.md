@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.custom: mvc
 ms.date: 08/09/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: 525048346edc184744a69c70c8fd4dc0db1bd554
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
-ms.translationtype: HT
+ms.openlocfilehash: 45bef2c4e6cbbe9ae2c6b1f316987eb613a4509a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681208"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258471"
 ---
 # <a name="troubleshooting-your-azure-sentinel-sap-solution-deployment"></a>Azure Sentinel SAP 솔루션 배포 문제 해결
 
@@ -52,7 +52,7 @@ docker logs -f sapcon-[SID]
 예를 들어 SID `A4H`의 경우:
 
 ```bash
-wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/loggingconfig_DEV.y
+wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/loggingconfig_DEV.yaml
               cp loggingconfig.yaml ~/sapcon/A4H
               docker restart sapcon-A4H
 ```

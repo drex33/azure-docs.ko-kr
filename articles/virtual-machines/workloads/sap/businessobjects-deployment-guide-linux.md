@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 0d7d68f9452f5f551361a48580e223b0dd614a09
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e3cc7420a976812d462b3f5c5e60878ba67641ff
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124818124"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249156"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Azure의 Linux용 SAP BusinessObjects BI 플랫폼 배포 가이드
 
@@ -702,7 +702,7 @@ Linux에서 실행되는 SAP BOBI 플랫폼의 경우, 파일 공유 시 기본�
 
 파일 저장소는 보고서, BI 문서와 같은 실제 파일이 저장되는 디스크 디렉터리입니다. 파일 저장소의 모든 파일이 재해 복구 지역에 동기화되는 것이 중요합니다. Linux에서 실행되는 SAP BOBI 플랫폼용으로 사용하는 파일 공유 서비스의 유형에 따라 콘텐츠를 동기화하려면 적절한 재해 복구 전략을 채택해야 합니다.
 
-- **Azure NetApp Files** 는 NFS 및 SMB 볼륨을 제공하므로, 모든 파일 기반 복사 도구를 사용하여 Azure 지역 간에 데이터를 복제할 수 있습니다. 다른 지역의 볼륨을 복사하는 방법에 대한 자세한 내용은 [Azure NetApp Files에 대한 FAQ](../../../azure-netapp-files/azure-netapp-files-faqs.md#how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region)를 참조하세요.
+- **Azure NetApp Files** 는 NFS 및 SMB 볼륨을 제공하므로, 모든 파일 기반 복사 도구를 사용하여 Azure 지역 간에 데이터를 복제할 수 있습니다. 다른 지역의 볼륨을 복사하는 방법에 대한 자세한 내용은 [Azure NetApp Files에 대한 FAQ](../../../azure-netapp-files/faq-data-migration-protection.md#how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region)를 참조하세요.
 
   현재 [미리 보기](https://azure.microsoft.com/blog/azure-netapp-files-cross-region-replication-and-new-enhancements-in-preview/)로 제공되는 Azure NetApp Files 지역 간 복제를 사용할 수 있습니다. 변경된 블록만이 압축된 효과적인 형태로 네트워크를 통해 전송됩니다. 이는 지역 간에 복제하는 데 필요한 데이터의 양을 최소화하여 데이터 전송 비용을 절약해 줍니다. 복제 시간이 단축되어 더 작은 RPO도 달성할 수 있습니다. 자세한 내용은 [지역 간 복제 사용에 대한 요구 사항 및 고려 사항](../../../azure-netapp-files/cross-region-replication-requirements-considerations.md)을 참조하세요.
 

@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Azure 의료 Api (미리 보기) 설명서
-summary: FHIR, DICOM 및 데이터 변환을 포함 하 여 모든 Azure 의료 Api (미리 보기) 서비스에 대 한 설명서입니다.
+summary: FHIR, DICOM 및 IoT 커넥터의 기능을 포함 하 여 모든 Azure 의료 Api (미리 보기) 기능에 대 한 설명서입니다.
 metadata:
   title: Azure 의료 Api 설명서
-  description: FHIR, DICOM 및 데이터 변환을 포함 하 여 모든 Azure 의료 Api 제품 및 서비스에 대 한 설명서
+  description: FHIR, DICOM 및 IoT 커넥터를 비롯 한 모든 Azure 의료 Api 제품 및 서비스에 대 한 설명서
   services: healthcare-apis
   ms.service: healthcare-apis
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   author: msjasteppe
   ms.author: jasteppe
   ms.date: 10/05/2021
-  ms.openlocfilehash: dc71d1a28dd572c1635c22f8505409c0905d397c
-  ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+  ms.openlocfilehash: 79c3b6f970db22bf94b77df0dd785fd7c83f0c3e
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/05/2021
-  ms.locfileid: "129545343"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130259396"
 landingContent:
 - title: 의료 Api 란?
   linkLists:

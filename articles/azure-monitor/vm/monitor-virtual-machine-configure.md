@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2021
-ms.openlocfilehash: ceb57d364cca4b05d170ad6e42e8894f9a1ce86e
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 4e6ef102a4cf0a4528125e336e21ecf709bb37bc
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129710248"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130240018"
 ---
 # <a name="monitor-virtual-machines-with-azure-monitor-configure-monitoring"></a>Azure Monitor를 사용하여 가상 머신 모니터링: 모니터링 구성
 이 문서는 [Azure Monitor에서 가상 머신 및 해당 워크로드 모니터링](monitor-virtual-machine.md) 시나리오의 일부입니다. Azure Monitor에서 Azure 및 하이브리드 가상 머신의 모니터링을 구성하는 방법을 설명합니다.
@@ -79,21 +79,21 @@ Azure Private Link를 사용하여 Log Analytics 작업 영역에 대한 프라�
 
 Azure Arc 사용 서버에 대 한 비용은 더 이상 없지만, 사용 하도록 설정 하는 다른 옵션에 대 한 비용이 있을 수 있습니다. 자세한 내용은 [Azure Arc 가격](https://azure.microsoft.com/pricing/details/azure-arc/)을 참조하세요. 하이브리드 컴퓨터가 VM 인사이트에 사용하도록 설정되면 작업 영역에서 수집된 데이터에 대한 비용이 있습니다.
 
-### <a name="machines-that-cant-use-azure-arc-enabled-servers"></a>Azure Arc 사용 서버를 사용할 수 없는 컴퓨터
-다음 기준과 일치 하는 하이브리드 컴퓨터가 있는 경우 Azure Arc 사용 서버를 사용할 수 없습니다.
+### <a name="machines-that-cant-use-azure-arc-enabled-servers"></a>Azure Arc 지원 서버를 사용할 수 없는 컴퓨터
+다음 기준과 일치하는 하이브리드 컴퓨터가 있는 경우 Azure Arc 지원 서버를 사용할 수 없습니다.
 
 - 컴퓨터의 운영 체제는 Azure Arc에서 사용하도록 설정된 서버 에이전트에서 지원되지 않습니다. 자세한 내용은 [지원되는 운영 체제](../../azure-arc/servers/agent-overview.md#prerequisites)를 참조하세요.
-- 보안 정책은 컴퓨터에서 Azure에 직접 연결하도록 허용하지 않습니다. Log Analytics 에이전트는 Azure Arc 사용 서버가 설치 되어 있는지 여부에 관계 없이 [Log Analytics 게이트웨이](../agents/gateway.md) 를 사용할 수 있습니다. Azure Arc에서 사용하도록 설정된 서버 에이전트에서 Azure에 직접 연결해야 합니다.
+- 보안 정책은 컴퓨터에서 Azure에 직접 연결하도록 허용하지 않습니다. Log Analytics 에이전트는 Azure Arc 지원 서버가 설치되어 있는지 여부에 관계없이 [Log Analytics 게이트웨이를](../agents/gateway.md) 사용할 수 있습니다. Azure Arc에서 사용하도록 설정된 서버 에이전트에서 Azure에 직접 연결해야 합니다.
 
 Azure Monitor를 사용하여 이러한 컴퓨터를 모니터링할 수 있지만 해당 에이전트를 수동으로 설치해야 합니다. Log Analytics 에이전트 및 종속성 에이전트를 이러한 하이브리드 컴퓨터에 수동으로 설치하려면 [하이브리드 가상 머신에 대한 VM 인사이트 사용](vminsights-enable-hybrid.md)을 참조하세요.
 
 > [!NOTE]
-> Azure Arc 사용 서버에 대 한 개인 끝점은 현재 공개 미리 보기로 제공 됩니다. 엔드포인트를 사용하면 하이브리드 컴퓨터에서 가상 네트워크의 개인 IP 주소를 사용하여 Azure에 안전하게 연결할 수 있습니다.
+> Azure Arc 지원 서버의 프라이빗 엔드포인트는 현재 공개 미리 보기로 제공됩니다. 엔드포인트를 사용하면 하이브리드 컴퓨터에서 가상 네트워크의 개인 IP 주소를 사용하여 Azure에 안전하게 연결할 수 있습니다.
 
 ## <a name="enable-vm-insights-on-machines"></a>컴퓨터에서 VM 인사이트 사용
 컴퓨터에서 VM 인사이트를 사용하도록 설정하면 Log Analytics 에이전트 및 종속성 에이전트를 설치하고, 작업 영역에 연결하고, 성능 데이터 수집을 시작합니다. 성능 보기 및 통합 문서를 사용하여 다양한 게스트 운영 체제 메트릭에 대한 추세를 분석하고, 실행되는 프로세스와 컴퓨터 간의 종속성을 분석하기 위해 VM 인사이트의 맵 기능을 사용하도록 설정하고, 다양한 경고 규칙을 만드는 데 필요한 데이터를 수집할 수 있습니다.
 
-Azure virtual machines 및 Azure Arc 사용 서버에 대해 동일한 방법을 사용 하 여 개별 컴퓨터에서 VM insights를 사용 하도록 설정할 수 있습니다. 이러한 방법에는 Azure Portal 또는 Azure Resource Manager 템플릿을 사용하여 개별 컴퓨터를 온보딩하거나 Azure Policy를 사용하여 컴퓨터를 규모에 맞게 사용하도록 설정하는 방법이 포함됩니다. VM 인사이트에 대한 직접적인 비용은 없지만 Log Analytics 작업 영역에서 수집된 데이터의 수집 및 보존에 대한 비용이 있습니다.
+Azure 가상 머신 및 Azure Arc 지원 서버에 대해 동일한 방법을 사용하여 개별 머신에서 VM 인사이트를 사용하도록 설정할 수 있습니다. 이러한 방법에는 Azure Portal 또는 Azure Resource Manager 템플릿을 사용하여 개별 컴퓨터를 온보딩하거나 Azure Policy를 사용하여 컴퓨터를 규모에 맞게 사용하도록 설정하는 방법이 포함됩니다. VM 인사이트에 대한 직접적인 비용은 없지만 Log Analytics 작업 영역에서 수집된 데이터의 수집 및 보존에 대한 비용이 있습니다.
 
 VM 인사이트를 컴퓨터에 사용하도록 설정하는 다양한 옵션은 [VM 인사이트 사용 개요](vminsights-enable-overview.md)를 참조하세요. 새 컴퓨터가 만들어질 때 VM 인사이트를 자동으로 사용하도록 설정하는 정책을 만들려면 [Azure Policy를 사용하여 VM 인사이트 사용](vminsights-enable-policy.md)을 참조하세요.
 
@@ -110,9 +110,9 @@ Azure Monitor 에이전트에는 수집해야 하는 데이터와 해당 데이�
 
 Log Analytics 에이전트에서 이미 수집 중인 데이터와 중복될 수 있으므로 데이터를 로그에 보내지 않도록 주의해야 합니다.
 
-Azure virtual machines 및 Azure Arc 사용 서버에 동일한 방법을 사용 하 여 개별 컴퓨터에 Azure Monitor 에이전트를 설치할 수 있습니다. 이러한 방법에는 Azure Portal 또는 Resource Manager 템플릿을 사용하여 개별 컴퓨터를 온보딩하거나 Azure Policy를 사용하여 컴퓨터를 규모에 맞게 사용하도록 설정하는 방법이 포함됩니다. Azure Arc 사용 서버를 사용할 수 없는 하이브리드 컴퓨터의 경우 에이전트를 수동으로 설치 합니다.
+Azure 가상 머신 및 Azure Arc 지원 서버에 대해 동일한 방법을 사용하여 개별 머신에 Azure Monitor 에이전트를 설치할 수 있습니다. 이러한 방법에는 Azure Portal 또는 Resource Manager 템플릿을 사용하여 개별 컴퓨터를 온보딩하거나 Azure Policy를 사용하여 컴퓨터를 규모에 맞게 사용하도록 설정하는 방법이 포함됩니다. Azure Arc 지원 서버를 사용할 수 없는 하이브리드 머신의 경우 에이전트를 수동으로 설치합니다.
 
-Azure Portal을 사용하여 DCR을 만들고 Azure Monitor 에이전트를 하나 이상의 에이전트에 배포하려면 [Azure Portal에서 규칙 및 연결 만들기](../agents/data-collection-rule-azure-monitor-agent.md)를 참조하세요. 다른 설치 방법은 [Azure Monitor 에이전트 설치](../agents/azure-monitor-agent-install.md)에서 설명하고 있습니다. 에이전트 및 DCR이 만들어질 때 새 컴퓨터에 자동으로 배포하는 정책을 만들려면 [Azure Policy를 사용하여 대규모로 Azure Monitor 배포](../deploy-scale.md#azure-monitor-agent)를 참조하세요.
+Azure Portal을 사용하여 DCR을 만들고 Azure Monitor 에이전트를 하나 이상의 에이전트에 배포하려면 [Azure Portal에서 규칙 및 연결 만들기](../agents/data-collection-rule-azure-monitor-agent.md)를 참조하세요. 다른 설치 방법은 [Azure Monitor 에이전트 설치](../agents/azure-monitor-agent-install.md)에서 설명하고 있습니다. 에이전트 및 DCR이 만들어질 때 새 컴퓨터에 자동으로 배포하는 정책을 만들려면 [Azure Policy를 사용하여 대규모로 Azure Monitor 배포](../best-practices.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

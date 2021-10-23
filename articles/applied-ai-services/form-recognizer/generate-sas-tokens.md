@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.date: 09/23/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: bed6b3e8d40beab403b8295b9c17fc8b6f6eefbe
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 70ab13f1ca1eee2d5c01d3aa1af6255bc06aeb3d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129659263"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233661"
 ---
 # <a name="generate-sas-tokens-for-storage-containers"></a>저장소 컨테이너에 대 한 SAS 토큰 생성
 
@@ -44,20 +44,20 @@ Azure Blob Storage는 다음과 같은 세 가지 유형의 리소스를 제공 
 시작하려면 다음이 필요합니다.
 
 * 활성 [Azure 계정](https://azure.microsoft.com/free/cognitive-services/). 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/free/)에 만들 수 있습니다.
-* [폼 인식기](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) 또는 [Cognitive Services 다중 서비스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) 리소스입니다.
-* **표준 성능** [Azure Blob Storage 계정](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). 스토리지 계정 내에서 Blob 데이터를 저장하고 구성하는 컨테이너를 만듭니다. 컨테이너를 사용 하 여 Azure storage 계정을 만드는 방법을 모를 경우 다음 빠른 시작을 따르세요.
+* [Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) 또는 [Cognitive Services 다중 서비스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) 리소스
+* **표준 성능** [Azure Blob Storage 계정](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)입니다. 스토리지 계정 내에서 Blob 데이터를 저장하고 구성하는 컨테이너를 만듭니다. 컨테이너를 사용하여 Azure 스토리지 계정을 만드는 방법을 모르는 경우 다음 빠른 시작을 따릅니다.
 
-  * [스토리지 계정 만들기](/azure/storage/common/storage-account-create) 저장소 계정을 만들 때 **인스턴스 세부 정보** 성능 필드에서 **표준** 성능을 선택  >   합니다.
-  * [컨테이너를 만듭니다](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container). 컨테이너를 만들 때 **새 컨테이너** 창에서 **공용 액세스 수준** 을 **컨테이너** (컨테이너 및 blob에 대 한 익명 읽기 권한)로 설정 합니다.
+  * [스토리지 계정 만들기](../../storage/common/storage-account-create.md) 저장소 계정을 만들 때 **인스턴스 세부 정보** 성능 필드에서 **표준** 성능을 선택  >   합니다.
+  * [컨테이너를 만듭니다](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). 컨테이너를 만들 때 **새 컨테이너** 창에서 **공용 액세스 수준** 을 **컨테이너** (컨테이너 및 blob에 대 한 익명 읽기 권한)로 설정 합니다.
 
 ## <a name="upload-your-documents"></a>문서 업로드
 
-1. [Azure 포털](https://ms.portal.azure.com/#home)로 이동합니다. **저장소 계정**  >  **데이터 저장소**  >  **컨테이너** 를 선택 합니다.
+1. [Azure Portal](https://ms.portal.azure.com/#home)로 이동합니다. **저장소 계정**  >  **데이터 저장소**  >  **컨테이너** 를 선택 합니다.
 
    :::image type="content" source="media/sas-tokens/data-storage-menu.png" alt-text="Azure Portal의 데이터 저장 메뉴를 보여 주는 스크린샷":::
 
-1. 목록에서 컨테이너를 선택 합니다.
-1. 페이지 맨 위에 있는 메뉴에서 **업로드** 를 선택 합니다.
+1. 목록에서 컨테이너를 선택합니다.
+1. 페이지 위쪽의 메뉴에서 **업로드** 를 선택합니다.
 
     :::image type="content" source="media/sas-tokens/container-upload-button.png" alt-text="Azure Portal의 컨테이너 업로드 단추를 보여 주는 스크린샷":::
 
@@ -67,7 +67,7 @@ Azure Blob Storage는 다음과 같은 세 가지 유형의 리소스를 제공 
     :::image type="content" source="media/sas-tokens/upload-blob-window.png" alt-text="Azure Portal에서 업로드 blob 창을 보여 주는 스크린샷":::
 
 > [!NOTE]
-> 기본적으로 REST API는 컨테이너의 루트에 있는 양식 문서를 사용 합니다. API 호출에 지정 된 경우 하위 폴더에 구성 된 데이터를 사용할 수도 있습니다. 자세한 내용은 [하위 폴더의 데이터 구성](/azure/applied-ai-services/form-recognizer/build-training-data-set#organize-your-data-in-subfolders-optional)을 참조 하세요.
+> 기본적으로 REST API는 컨테이너의 루트에 있는 양식 문서를 사용 합니다. API 호출에 지정 된 경우 하위 폴더에 구성 된 데이터를 사용할 수도 있습니다. 자세한 내용은 [하위 폴더의 데이터 구성](./build-training-data-set.md#organize-your-data-in-subfolders-optional)을 참조 하세요.
 
 ## <a name="create-a-shared-access-signature-with-the-azure-portal"></a>Azure Portal를 사용 하 여 공유 액세스 서명 만들기
 
@@ -76,7 +76,7 @@ Azure Blob Storage는 다음과 같은 세 가지 유형의 리소스를 제공 
 > 저장소 계정 자체가 아니라 컨테이너에 대 한 공유 액세스 서명을 생성 하 고 검색 합니다.
 
 1. [Azure Portal](https://ms.portal.azure.com/#home)에서 **저장소 계정**  >  **컨테이너** 를 선택 합니다.
-1. 목록에서 컨테이너를 선택 합니다.
+1. 목록에서 컨테이너를 선택합니다.
 1. 주 창의 오른쪽으로 이동 하 고 선택한 컨테이너와 연결 된 세 개의 줄임표를 선택 합니다.
 1. 드롭다운 메뉴에서 **Sas 생성** 을 선택 하 여 **sas 생성** 창을 엽니다.
 
@@ -94,8 +94,8 @@ Azure Blob Storage는 다음과 같은 세 가지 유형의 리소스를 제공 
     >
     >     :::image type="content" source="media/sas-tokens/need-permissions.png" alt-text="사용 권한 경고가 없다는 것을 보여 주는 스크린샷":::
     >
-     > * Azure RBAC ( [역할 기반 액세스 제어](/azure/role-based-access-control/overview) )는 azure 리소스에 대 한 액세스를 관리 하는 데 사용 되는 권한 부여 시스템입니다. Azure RBAC를 사용 하 여 Azure 리소스에 대 한 액세스 및 권한을 관리할 수 있습니다.
-    > * [Blob 데이터에 대 한 액세스를 위한 azure 역할 할당](/azure/role-based-access-control/role-assignments-portal?tabs=current) 은 azure storage 컨테이너에 대 한 읽기, 쓰기 및 삭제 권한을 허용 하는 역할을 할당 하는 방법을 보여 줍니다. 예를 들어 [Storage Blob 데이터 참가자](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)를 참조 하세요.
+     > * Azure RBAC ( [역할 기반 액세스 제어](../../role-based-access-control/overview.md) )는 azure 리소스에 대 한 액세스를 관리 하는 데 사용 되는 권한 부여 시스템입니다. Azure RBAC를 사용 하 여 Azure 리소스에 대 한 액세스 및 권한을 관리할 수 있습니다.
+    > * [Blob 데이터에 대 한 액세스를 위한 azure 역할 할당](../../role-based-access-control/role-assignments-portal.md?tabs=current) 은 azure storage 컨테이너에 대 한 읽기, 쓰기 및 삭제 권한을 허용 하는 역할을 할당 하는 방법을 보여 줍니다. 예를 들어 [Storage Blob 데이터 참가자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)를 참조 하세요.
 
 1. 서명된 키 **시작** 및 **만료** 시간을 지정합니다. 만료 시간에 대 한 값은 공유 액세스 서명의 시작 부분에서 최대 7 일입니다.
 
@@ -122,7 +122,7 @@ Azure Blob Storage는 다음과 같은 세 가지 유형의 리소스를 제공 
 
 1. 컨테이너에서 사용자 위임 SAS에 대해 지원 되는 권한에는 추가 (a), 만들기 (c), 삭제 (d), 목록 (l), 읽기 (r) 및 쓰기 (w)가 있습니다. **R**, **w**, **d** 및 **l** 이 사용 권한 매개 변수의 일부로 포함 되어 있는지 확인 합니다.
 
-1. Azure CLI를 사용 하 여 사용자 위임 SAS를 만들 때 사용자 위임 키가 유효한 최대 간격은 시작 날짜 로부터 7 일입니다. 시작 시간 7 일 이내에 공유 액세스 서명에 대 한 만료 시간을 지정 합니다. 자세한 내용은 [Azure CLI를 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기](/azure/storage/blobs/storage-blob-user-delegation-sas-create-cli#use-azure-ad-credentials-to-secure-a-sas)를 참조 하세요.
+1. Azure CLI를 사용 하 여 사용자 위임 SAS를 만들 때 사용자 위임 키가 유효한 최대 간격은 시작 날짜 로부터 7 일입니다. 시작 시간 7 일 이내에 공유 액세스 서명에 대 한 만료 시간을 지정 합니다. 자세한 내용은 [Azure CLI를 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기](../../storage/blobs/storage-blob-user-delegation-sas-create-cli.md#use-azure-ad-credentials-to-secure-a-sas)를 참조 하세요.
 
 ### <a name="example"></a>예제
 

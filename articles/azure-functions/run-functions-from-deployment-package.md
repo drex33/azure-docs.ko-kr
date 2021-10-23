@@ -3,12 +3,12 @@ title: 패키지 파일에서 Azure Functions를 실행합니다.
 description: 함수 앱 프로젝트 파일을 포함하는 배포 패키지 파일을 탑재하여 Azure Functions 런타임이 함수를 실행하게 합니다.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: 0be037d5a9270d60c16f8fc128030705be8b81ef
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
-ms.translationtype: HT
+ms.openlocfilehash: c2c0797f256cfd302f4b8a5a80300ef4469355e4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113136889"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256992"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>패키지에서 Azure Functions 실행
 
@@ -62,6 +62,36 @@ Azure의 함수 앱의 배포 패키지 파일에서 직접 함수를 실행할 
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
+
+## <a name="example-workflow-for-manually-uploading-a-package-hosted-in-azure-storage"></a>Azure Storage 호스팅되는 패키지를 수동으로 업로드하는 예제 워크플로
+
+URL 옵션을 사용할 때 압축된 패키지를 배포하려면 .zip 압축된 배포 패키지를 만들어 대상에 업로드해야 합니다. 이 예제에서는 Blob Storage 컨테이너를 사용합니다. 
+
+1. 선택한 유틸리티를 사용하여 프로젝트에 대한 .zip 패키지를 만듭니다.
+
+1. [Azure Portal](https://portal.azure.com)스토리지 계정 이름을 검색하거나 스토리지 계정에서 찾습니다.
+ 
+1. 스토리지 계정의 **데이터 스토리지** 에서 **컨테이너를** 선택합니다.
+
+1. **+ 컨테이너를** 선택하여 계정에 새 Blob Storage 컨테이너를 만듭니다.
+
+1. 새 **컨테이너** 페이지에서 **이름(예:** "배포")을 제공하고, **공용 액세스 수준이** **프라이빗인지** 확인하고, **만들기를** 선택합니다.
+
+1. 만든 컨테이너를 **선택하고, 업로드** 선택하고, 프로젝트에서 만든 .zip 파일의 위치를 찾은 **다음, 업로드** 선택합니다.
+
+1. 업로드가 완료되면 업로드된 Blob 파일을 선택하고 URL을 복사합니다. [ID를 사용하지](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity) 않는 경우 SAS URL을 생성해야 할 수 있습니다.
+
+1. 함수 앱을 검색하거나 **함수 앱** 페이지에서 찾습니다. 
+
+1. 함수 앱의 **설정** 아래에서 **구성을** 선택합니다.
+
+1. 애플리케이션 **설정** 탭에서 **새 애플리케이션 설정을** 선택합니다.
+
+1. 이름 에 대한 값을 `WEBSITE_RUN_FROM_PACKAGE` 입력하고 Blob Storage 패키지의 URL을 **값으로** 붙여넣습니다.
+
+1. **확인** 을 선택합니다. 그런   >  **다음, 계속** 저장을 선택하여 설정을 저장하고 앱을 다시 시작합니다.
+
+이제 Azure에서 함수를 실행하여 배포 패키지 .zip 파일을 사용하여 배포가 성공했는지 확인할 수 있습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: bef6439ae51c6e15f7be997758acbbd3722ae4ff
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: 8e4bc76203ee84d71f4a9f201dac6e63d4728c34
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223263"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238063"
 ---
 # <a name="troubleshoot"></a>문제 해결
 
@@ -37,9 +37,9 @@ GPU가 2개인 랩톱에서 작업하는 경우 실행 중인 GPU가 기본적�
 
 ## <a name="retrieve-sessionconversion-status-fails"></a>세션 검색/변환 상태 실패
 
-REST API 명령을 너무 자주 보내면 서버가 제한되고 결국 실패를 반환합니다. 제한 사례의 http 상태 코드는 429입니다("요청이 너무 많음"). 일반적으로 **후속 호출 간에 5~10초** 지연이 발생합니다.
+REST API 명령을 너무 자주 보내면 서버가 제한되고 결국 실패를 반환합니다. 조정 사례의 HTTP 상태 코드는 429 ("요청이 너무 많음")입니다. 일반적으로 **후속 호출 간에 5~10초** 지연이 발생합니다.
 
-이 제한은 직접 호출될 때 REST API 호출에 영향을 줄 뿐만 아니라 `Session.GetPropertiesAsync`, `Session.RenewAsync` 또는 `Frontend.GetAssetConversionStatusAsync` 등의 C#/C++와 같은 항목에도 영향을 줄 수 있습니다.
+이 제한은 직접 호출될 때 REST API 호출에 영향을 줄 뿐만 아니라 `Session.GetPropertiesAsync`, `Session.RenewAsync` 또는 `Frontend.GetAssetConversionStatusAsync` 등의 C#/C++와 같은 항목에도 영향을 줄 수 있습니다. 일부 함수는 다시 시도할 때 정보를 반환 하기도 합니다. 예를 들어 `RenderingSessionPropertiesResult.MinimumRetryDelay` 다른 검사를 시도 하기 전에 대기 하는 시간 (초)을 지정 합니다. 가능 하면 이러한 반환 값을 사용 하는 것이 가장 좋습니다. 제한 없이 가능한 한 자주 검사를 수행할 수 있기 때문입니다.
 
 서버 쪽 제한이 발생하는 경우 호출을 덜 자주 수행하도록 코드를 변경합니다. 서버는 1분마다 제한 상태를 초기화하므로 1분 후에 코드를 다시 실행하는 것이 안전합니다.
 

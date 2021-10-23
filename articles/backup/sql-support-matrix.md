@@ -2,14 +2,14 @@
 title: Azure VM의 SQL Server 백업에 대한 Azure Backup 지원 매트릭스
 description: Azure Backup 서비스를 사용하여 Azure VM에서 SQL Server를 백업할 때의 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
-ms.date: 08/20/2021
+ms.date: 10/22/2021
 ms.custom: references_regions
-ms.openlocfilehash: 78dace2a60ff566af3485e6be0b7d9efc42d8654
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: c0b46a1c75c47b85985946646bf3216c9ab719f5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123103881"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219265"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Azure VM의 SQL Server Backup에 대한 지원 매트릭스
 
@@ -24,7 +24,7 @@ Azure Backup을 사용하여 Microsoft Azure 클라우드 플랫폼에서 호스
 **지원되는 운영 체제** | Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2008 R2 SP1 <br/><br/> Linux는 현재 지원되지 않습니다.
 **지원되는 SQL Server 버전** | [제품 수명 주기 페이지 검색](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017)에 설명된 SQL Server 2019, SQL Server 2017, [제품 수명 주기 페이지 검색](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack)에 설명된 SQL Server 2016 및 SP, SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer, Express<br><br>Express Local DB 버전은 지원되지 않습니다.
 **지원되는 .NET 버전** | VM에 설치된 .NET Framework 4.5.2 이상
-**지원되는 배포** | SQL Marketplace Azure VM 및 비 Marketplace(수동으로 설치되는 SQL Server) VM이 지원됩니다. 독립 실행형 인스턴스는 [가용성 그룹](backup-sql-server-on-availability-groups.md)에서 항상 지원됩니다.
+**지원되는 배포** | SQL Marketplace Azure VM 및 비 Marketplace(수동으로 설치되는 SQL Server) VM이 지원됩니다. 독립 실행형 인스턴스에 대한 지원은 항상 [가용성 그룹](backup-sql-server-on-availability-groups.md)에 있습니다.
 
 ## <a name="feature-considerations-and-limitations"></a>기능 고려 사항 및 제한 사항
 
@@ -33,6 +33,7 @@ Azure Backup을 사용하여 Microsoft Azure 클라우드 플랫폼에서 호스
 |서버 및 자격 증명 모음에서 보호할 수 있는 데이터베이스 수    |   2000      |
 |지원되는 데이터베이스 크기(이 크기를 넘을 경우 성능 문제가 발생할 수 있음)   |   6TB*      |
 |데이터베이스에서 지원되는 파일 수    |   1000      |
+|하루에 지원되는 전체 백업 수    |    예약된 백업 1개. <br><br> 주문형 백업 3개. <br><br> 하루에 3개 이상의 백업을 트리거하지 않는 것이 좋습니다. 그러나 실패한 시도 시 사용자 재시도를 허용하기 위해 주문형 백업에 대한 하드 제한은 9회 시도로 설정됩니다. |
 
 _* 데이터베이스 크기 제한은 지원되는 데이터 전송 속도와 백업 시간 제한 구성에 따라 달라지며, 고정된 한도가 아닙니다. [백업 처리량 성능](#backup-throughput-performance)에 대해 자세히 알아보세요._
 
@@ -41,8 +42,8 @@ _* 데이터베이스 크기 제한은 지원되는 데이터 전송 속도와 �
 * 모든 백업 형식(전체/차등/로그) 및 복구 모델(단순/전체/대량 로그)이 지원됩니다.
 * **읽기 전용** 데이터베이스의 경우: 전체 및 복사 전용 전체 백업만 지원되는 백업 형식입니다.
 * SQL 네이티브 압축은 백업 정책에서 사용자가 명시적으로 사용하도록 설정한 경우에만 지원됩니다. Azure Backup은 사용자가 설정한 대로 이 컨트롤의 값에 따라 COMPRESSION/NO_COMPRESSION 절을 사용하여 인스턴스 수준 기본값을 재정의합니다.
-* TDE 지원 데이터베이스 백업이 지원됩니다. TDE 암호화된 데이터베이스를 다른 SQL Server로 복원하려면, 먼저 [대상 서버로 인증서를 복원](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server)해야 합니다. SQL Server 2016 이상 버전에 대한 TDE 지원 데이터베이스의 백업 압축을 사용할 수 있지만 [여기](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593)에 설명된 대로 낮은 전송 크기만 사용할 수 있습니다.
-* 미러 데이터베이스와 데이터베이스 스냅샷에 대한 백업 및 복원 작업은 지원되지 않습니다.
+* TDE 지원 데이터베이스 백업이 지원됩니다. TDE 암호화된 데이터베이스를 다른 SQL Server로 복원하려면, 먼저 [대상 서버로 인증서를 복원](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server)해야 합니다. SQL Server 2016 이상 버전의 TDE 지원 데이터베이스에 대한 백업 압축을 사용할 수 있지만 [여기에](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593)설명된 대로 전송 크기는 낮습니다.
+* 미러 데이터베이스 및 데이터베이스 스냅샷에 대한 백업 및 복원 작업은 지원되지 않습니다.
 * SQL Server **FCI(장애 조치(Failover) 클러스터 인스턴스)** 는 지원되지 않습니다.
 
 ## <a name="backup-throughput-performance"></a>백업 처리량 성능

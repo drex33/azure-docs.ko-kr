@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 10/01/2021
-ms.openlocfilehash: e8691fd357b8f8cbde87309f4881fa7424f7f44e
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 9418afa9d9afc7ec7de713de9bd8a7bd282ce2fb
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129389080"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219662"
 ---
 # <a name="string-functions-for-bicep"></a>Bicep에 대한 문자열 함수
 
@@ -52,7 +52,7 @@ output toJsonOutput object = base64ToJson(base64Object)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
@@ -95,7 +95,7 @@ output toJsonOutput object = base64ToJson(base64Object)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
@@ -139,7 +139,7 @@ output toJsonOutput object = base64ToJson(base64Object)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
@@ -157,11 +157,11 @@ output concatOutput string = '${prefix}And${uniqueString(resourceGroup().id)}'
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | concatOutput | String | prefixAnd5yj4yjf5mbg72 |
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ## <a name="contains"></a>포함
 
@@ -169,7 +169,7 @@ output concatOutput string = '${prefix}And${uniqueString(resourceGroup().id)}'
 
 배열에 값이 포함되는지, 개체에 키가 포함되는지 또는 문자열에 하위 문자열이 포함되는지를 확인합니다. 문자열 비교에서는 대/소문자를 구분합니다. 그러나 개체에 키가 포함되어 있는지를 테스트할 때는 비교에서 대/소문자를 구분하지 않습니다.
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -211,7 +211,7 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | False |
@@ -226,7 +226,7 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 
 값을 데이터 URI로 변환합니다.
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -252,7 +252,7 @@ output toStringOutput string = dataUriToString(dataFormattedString)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Hello, World! |
@@ -263,7 +263,7 @@ output toStringOutput string = dataUriToString(dataFormattedString)
 
 데이터 URI로 형식이 지정된 값을 문자열로 변환합니다.
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -289,7 +289,7 @@ output toStringOutput string = dataUriToString(dataFormattedString)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Hello, World! |
@@ -300,7 +300,7 @@ output toStringOutput string = dataUriToString(dataFormattedString)
 
 배열, 개체 또는 문자열이 비어 있는지를 확인합니다.
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -328,7 +328,7 @@ output stringEmpty bool = empty(testString)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -368,7 +368,7 @@ output endsFalse bool = endsWith('abcdef', 'e')
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
@@ -412,7 +412,7 @@ output stringOutput string = first('One Two Three')
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | String | one |
 | stringOutput | String | O |
@@ -451,7 +451,7 @@ output formatTest string = format('{0}, {1}. Formatted number: {2:N0}', greeting
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | formatTest | String | Hello, User. 형식이 지정된 숫자: 8,175,133 |
 
@@ -543,7 +543,7 @@ output notFound int = indexOf('abcdef', 'z')
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | Int | 3 |
@@ -559,7 +559,7 @@ output notFound int = indexOf('abcdef', 'z')
 
 유효한 JSON 문자열을 JSON 데이터 형식으로 변환합니다. 자세한 내용은 [json 함수](./bicep-functions-object.md#json)를 참조하세요.
 
-네임스페이스: [sys .](bicep-functions.md#namespaces-for-functions)
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ## <a name="last"></a>last
 
@@ -567,7 +567,7 @@ output notFound int = indexOf('abcdef', 'z')
 
 문자열의 마지막 문자 또는 배열의 마지막 요소를 반환합니다.
 
-네임스페이스: [sys .](bicep-functions.md#namespaces-for-functions)
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -596,7 +596,7 @@ output stringOutput string = last('One Two Three')
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | String | three |
 | stringOutput | String | e |
@@ -607,7 +607,7 @@ output stringOutput string = last('One Two Three')
 
 문자열 내 값의 마지막 위치를 반환합니다. 비교는 대/소문자를 구분합니다.
 
-네임스페이스: [sys .](bicep-functions.md#namespaces-for-functions)
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -634,7 +634,7 @@ output notFound int = indexOf('abcdef', 'z')
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | Int | 3 |
@@ -648,7 +648,7 @@ output notFound int = indexOf('abcdef', 'z')
 
 문자열의 문자 수, 배열의 요소 수 또는 개체의 루트 수준 속성 수를 반환합니다.
 
-네임스페이스: [sys .](bicep-functions.md#namespaces-for-functions)
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -688,7 +688,7 @@ output objectLength int = length(objectToTest)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -734,7 +734,7 @@ output guidOutput string = guidValue
 
 이전 예제의 출력은 각 배포마다 다르지만 다음과 유사합니다.
 
-| 이름 | 유형 | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | guidOutput | 문자열 | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
@@ -760,7 +760,7 @@ output nameOutput string = storageName
 
 이전 예제의 출력은 각 배포마다 다르지만 다음과 유사합니다.
 
-| 이름 | 유형 | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | nameOutput | 문자열 | storagenziwvyru7uxie |
 
@@ -798,7 +798,7 @@ output stringOutput string = padLeft(testString, 10, '0')
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | stringOutput | String | 0000000123 |
 
@@ -835,7 +835,7 @@ output secondOutput string = replace(testString, '1234', 'xxxx')
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | firstOutput | String | 1231231234 |
 | secondOutput | String | 123-123-xxxx |
@@ -846,7 +846,7 @@ output secondOutput string = replace(testString, '1234', 'xxxx')
 
 지정된 문자 수 이후의 모든 문자를 포함하는 문자열 또는 지정된 요소 수 이후의 모든 요소를 포함하는 배열을 반환합니다.
 
-네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -879,7 +879,7 @@ output stringOutput string = skip(testString, charactersToSkip)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
 | stringOutput | String | two three |
@@ -890,7 +890,7 @@ output stringOutput string = skip(testString, charactersToSkip)
 
 지정된 구분 기호로 구분되는 입력 문자열의 부분 문자열을 포함하는 문자열의 배열을 반환합니다.
 
-네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -922,7 +922,7 @@ output secondOutput array = split(secondString, delimiters)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | firstOutput | Array | [“one”, “two”, “three”] |
 | secondOutput | Array | [“one”, “two”, “three”] |
@@ -933,7 +933,7 @@ output secondOutput array = split(secondString, delimiters)
 
 문자열이 값으로 시작하는지 여부를 결정합니다. 비교는 대/소문자를 구분합니다.
 
-네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -961,7 +961,7 @@ output endsFalse bool = endsWith('abcdef', 'e')
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
@@ -976,7 +976,7 @@ output endsFalse bool = endsWith('abcdef', 'e')
 
 지정한 값을 문자열로 변환합니다.
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1011,7 +1011,7 @@ output intOutput string = string(testInt)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | objectOutput | String | {“valueA”:10,“valueB”:“Example Text”} |
 | arrayOutput | String | [“a”,“b”,“c”] |
@@ -1023,7 +1023,7 @@ output intOutput string = string(testInt)
 
 지정된 문자 위치에서 시작하고 지정한 개수의 문자를 포함하는 부분 문자열을 반환합니다.
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1058,7 +1058,7 @@ output substringOutput string = substring(testString, 4, 3)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | substringOutput | String | two |
 
@@ -1068,7 +1068,7 @@ output substringOutput string = substring(testString, 4, 3)
 
 문자열 시작부터 지정된 수의 문자를 포함하는 문자열 또는 배열 시작부터 지정된 수의 요소를 포함하는 배열을 반환합니다.
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1101,7 +1101,7 @@ output stringOutput string = take(testString, charactersToTake)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
 | stringOutput | String | On |
@@ -1112,7 +1112,7 @@ output stringOutput string = take(testString, charactersToTake)
 
 지정된 문자열을 소문자로 변환합니다.
 
-네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1137,7 +1137,7 @@ output toUpperOutput string = toUpper(testString)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | toLowerOutput | String | one two three |
 | toUpperOutput | String | ONE TWO THREE |
@@ -1148,7 +1148,7 @@ output toUpperOutput string = toUpper(testString)
 
 지정된 문자열을 대문자로 변환합니다.
 
-네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1173,7 +1173,7 @@ output toUpperOutput string = toUpper(testString)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | toLowerOutput | String | one two three |
 | toUpperOutput | String | ONE TWO THREE |
@@ -1184,7 +1184,7 @@ output toUpperOutput string = toUpper(testString)
 
 지정된 문자열에서 모든 선행 및 후행 공백 문자를 제거합니다.
 
-네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1208,7 +1208,7 @@ output return string = trim(testString)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | return | String | one two three |
 
@@ -1218,7 +1218,7 @@ output return string = trim(testString)
 
 매개 변수로 제공된 값을 기반으로 결정 해시 문자열을 만듭니다.
 
-네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1264,7 +1264,7 @@ resource mystorage 'Microsoft.Storage/storageAccounts@@2018-07-01' = {
 }
 ```
 
-Bicep 파일을 배포할 때마다 새 고유 이름을 만들어야 하고 리소스를 업데이트 하지 않으려는 경우 uniqueString에 [utcNow](./bicep-functions-date.md#utcnow) 함수를 사용할 수 있습니다. 이 방법은 테스트 환경에서 사용할 수 있습니다. 예제는 [utcNow](./bicep-functions-date.md#utcnow)를 참조하세요. utcNow 함수는 매개 변수의 기본값에 대한 식 내에서만 사용할 수 있습니다.
+Bicep 파일을 배포할 때마다 새 고유 이름을 만들어야 하고 리소스를 업데이트 하지 않으려는 경우 uniqueString에 [utcNow](./bicep-functions-date.md#utcnow) 함수를 사용할 수 있습니다. 이 방법은 테스트 환경에서 사용할 수 있습니다. 예제는 [utcNow](./bicep-functions-date.md#utcnow)를 참조하세요. 참고 utcNow 함수는 매개 변수의 기본값에 대해서만 식 내에서 사용할 수 있습니다.
 
 ### <a name="return-value"></a>반환 값
 
@@ -1285,7 +1285,7 @@ output uniqueDeploy string = uniqueString(resourceGroup().id, deployment().name)
 
 baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1332,7 +1332,7 @@ output toStringOutput string = uriComponentToString(uriEncoded)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
@@ -1344,7 +1344,7 @@ output toStringOutput string = uriComponentToString(uriEncoded)
 
 URI를 인코딩합니다.
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1373,7 +1373,7 @@ output toStringOutput string = uriComponentToString(uriEncoded)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
@@ -1385,7 +1385,7 @@ output toStringOutput string = uriComponentToString(uriEncoded)
 
 URI로 인코딩된 값의 문자열을 반환합니다.
 
-네임스페이스: [sys](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1414,7 +1414,7 @@ output toStringOutput string = uriComponentToString(uriEncoded)
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
@@ -1423,5 +1423,5 @@ output toStringOutput string = uriComponentToString(uriEncoded)
 ## <a name="next-steps"></a>다음 단계
 
 * Bicep 파일의 섹션에 대한 설명은 [Bicep 파일의 구조 및 구문 이해](./file.md)를 참조하세요.
-* 리소스 종류를 생성할 때 지정된 횟수만큼 반복하려면 [Bicep에 여러 리소스 인스턴스 배포](./loop-resources.md)를 참조하세요.
+* 리소스 형식을 만들 때 지정 된 횟수 만큼 반복 하려면 [Bicep의 반복 루프](loops.md)를 참조 하세요.
 * 생성한 Bicep 파일을 배포하는 방법을 알아보려면 [Bicep 및 Azure PowerShell을 사용하여 리소스 배포](./deploy-powershell.md)를 참조하세요.

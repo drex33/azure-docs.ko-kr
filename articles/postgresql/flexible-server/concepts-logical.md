@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/01/2021
-ms.openlocfilehash: 5298b572c24d174842da1c9e29b01a1d98f47a39
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 13326622dae32c0ebd8fa86035967d51ab734c2a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129387357"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130241595"
 ---
 # <a name="logical-replication-and-logical-decoding-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버에서 논리 복제 및 논리 디코딩
 
@@ -20,24 +20,24 @@ ms.locfileid: "129387357"
 Azure Database for PostgreSQL - 유연한 서버는 다음과 같은 논리적 데이터 추출 및 복제 방법론을 지원합니다.
 1. **논리적 복제**
    1. PostgreSQL [원시 논리 복제](https://www.postgresql.org/docs/12/logical-replication.html)를 사용하여 데이터 개체를 복제합니다. 논리 복제를 사용하면 테이블 수준 데이터 복제를 비롯하여 데이터 복제를 세부적으로 제어할 수 있습니다.
-   2. 논리 스트리밍 복제를 제공하는 [pglogical](https://github.com/2ndQuadrant/pglogical) 확장을 사용하면 데이터베이스의 초기 스키마 복사, TRUNCATE 지원, DDL 복제 기능 등의 추가 기능을 제공합니다. 
+   2. 논리 스트리밍 복제를 제공 하는 [pglogical](https://github.com/2ndQuadrant/pglogical) 확장을 사용 하 여 데이터베이스의 초기 스키마 복사, TRUNCATE 지원, DDL 복제 기능 등의 추가 기능을 제공 합니다. 
 2. **논리 디코딩** 은 WAL(미리 쓰기 로그)의 콘텐츠를 [디코딩](https://www.postgresql.org/docs/12/logicaldecoding-explanation.html)하여 구현합니다. 
 
 ## <a name="comparing-logical-replication-and-logical-decoding"></a>논리 복제 및 논리 디코딩 비교
-논리 복제 및 논리 디코딩은 여러 유사성을 가집니다. 공통적인 성격은 다음과 같습니다.
+논리 복제 및 논리 디코딩은 여러 유사성을 가집니다. 두 가지 모두 있습니다.
 * Postgres에서 데이터를 복제할 수 있습니다.
-* 변경 내용 소스로 [WAL(미리 쓰기 로그)](https://www.postgresql.org/docs/current/wal.html)을 사용합니다.
-* [논리 복제 슬롯](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html#LOGICALDECODING-REPLICATION-SLOTS)을 사용하여 데이터를 보냅니다. 슬롯은 변경 내용의 스트림을 나타냅니다.
-* 테이블의 [REPLICA IDENTITY 속성](https://www.postgresql.org/docs/current/sql-altertable.html#SQL-CREATETABLE-REPLICA-IDENTITY)을 사용하여 보낼 수 있는 변경 내용을 확인합니다.
-* DDL 변경 내용을 복제하지 않습니다.
+* 변경 내용 소스로 [WAL (미리 쓰기 로그)](https://www.postgresql.org/docs/current/wal.html) 을 사용 합니다.
+* [논리적 복제 슬롯](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html#LOGICALDECODING-REPLICATION-SLOTS) 을 사용 하 여 데이터를 전송 합니다. 슬롯은 변경 내용의 스트림을 나타냅니다.
+* 테이블의 [복제본 id 속성](https://www.postgresql.org/docs/current/sql-altertable.html#SQL-CREATETABLE-REPLICA-IDENTITY) 을 사용 하 여 보낼 수 있는 변경 내용을 확인 합니다.
+* DDL 변경 내용을 복제 하지 않습니다.
 
 
-두 기술의 차이점은 논리 복제입니다. 
+두 기술의 차이점은 다음과 같습니다. 논리적 복제: 
 * 복제할 테이블 또는 테이블 집합을 지정할 수 있습니다.
-* PostgreSQL 인스턴스 간에 데이터를 복제합니다.
+* PostgreSQL 인스턴스 간에 데이터를 복제 합니다.
 
-논리 디코딩 
-* 데이터베이스의 모든 테이블에서 변경 내용을 추출합니다. 
+논리적 디코딩:
+* 데이터베이스의 모든 테이블에서 변경 내용을 추출 합니다.
 * PostgreSQL 인스턴스 간에 데이터를 직접 보낼 수 없습니다.
 
 >[!NOTE]
@@ -104,7 +104,7 @@ Azure Database for PostgreSQL - 유연한 서버는 다음과 같은 논리적 �
 
 ### <a name="pglogical-extension"></a>pglogical 확장
 
-다음은 공급자 데이터베이스 서버와 구독자에서 pglogical을 구성하는 예입니다. 자세한 내용은 [pglogical 확장 설명서](https://www.2ndquadrant.com/en/resources/pglogical/pglogical-docs) 를 참조 하세요. 또한 위에 나열된 필수 구성 조건 작업을 수행했는지 확인합니다.
+다음은 공급자 데이터베이스 서버와 구독자에서 pglogical을 구성하는 예입니다. 자세한 내용은 [pglogical 확장 설명서](https://github.com/2ndQuadrant/pglogical#usage) 를 참조 하세요. 또한 위에 나열된 필수 구성 조건 작업을 수행했는지 확인합니다.
 
 
 1. 공급자와 구독자 데이터베이스 서버 모두의 데이터베이스에 pglogical 확장을 설치합니다.
@@ -112,7 +112,7 @@ Azure Database for PostgreSQL - 유연한 서버는 다음과 같은 논리적 �
    \C myDB
    CREATE EXTENSION pglogical;
    ```
-2. 복제 사용자가 서버 관리 사용자 (서버를 만든 사용자)가 아닌 경우 `azure_pg_admin` `replication` 사용자에 게 및 권한을 할당 했는지 확인 합니다. 또는 복제 사용자에 게 관리자 사용자를 부여할 수 있습니다. 자세한 내용은 [pglogical 설명서](https://www.2ndquadrant.com/en/resources/pglogical/pglogical-docs/#limitations-and-restrictions) 를 참조 하세요.
+2. 복제 사용자가 서버 관리 사용자 (서버를 만든 사용자)가 아닌 경우 `azure_pg_admin` `replication` 사용자에 게 및 권한을 할당 했는지 확인 합니다. 또는 복제 사용자에 게 관리자 사용자를 부여할 수 있습니다. 자세한 내용은 [pglogical 설명서](https://github.com/2ndQuadrant/pglogical#limitations-and-restrictions) 를 참조 하세요.
    ```SQL
    GRANT azure_pg_admin, replication to myUser;
    ```
@@ -243,10 +243,9 @@ SELECT * FROM pg_replication_slots;
 ## <a name="limitations"></a>제한 사항
 * **논리 복제** 제한 사항은 [여기](https://www.postgresql.org/docs/12/logical-replication-restrictions.html)에서 설명한 대로 적용됩니다.
 * **읽기 복제본** - Azure Database for PostgreSQL 읽기 복제본은 현재 유연한 서버에서 지원되지 않습니다.
-* **슬롯 및 HA 장애 조치(failover)** - 주 서버의 논리 복제 슬롯은 보조 AZ의 대기 서버에서 사용할 수 없습니다. 이는 서버에서 영역 중복 고가용성 옵션을 사용하는 경우에 적용됩니다. 대기 서버에 대한 장애 조치(failover)가 발생하는 경우 대기 서버에서 논리 복제 슬롯을 사용할 수 없습니다.
+* **슬롯 및 HA 장애 조치(failover)** - 주 서버의 논리 복제 슬롯은 보조 AZ의 대기 서버에서 사용할 수 없습니다. 서버에서 영역 중복 고가용성 옵션을 사용하는 경우 이 상황이 적용됩니다. 대기 서버에 대한 장애 조치(failover)가 발생하는 경우 대기 서버에서 논리 복제 슬롯을 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [네트워킹 옵션](concepts-networking.md)에 관한 자세한 정보
 * 유연한 서버에서 사용할 수 있는 [확장](concepts-extensions.md)에 대한 자세한 정보
 * [고가용성](concepts-high-availability.md)에 대해 자세한 정보
-

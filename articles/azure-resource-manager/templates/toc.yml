@@ -121,7 +121,7 @@
     - name: 블록체인
       items:
         - name: 블록체인
-          href: ../../blockchain/service/create-member-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+          href: 'https://azure.microsoft.com/solutions/blockchain/?toc=%2fazure%2fazure-resource-manager%2ftemplates%2ftoc.json'
     - name: 컴퓨팅
       items:
         - name: Batch

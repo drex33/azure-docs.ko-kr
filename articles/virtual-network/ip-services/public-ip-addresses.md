@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: conceptual
 ms.date: 04/29/2021
 ms.author: allensu
-ms.openlocfilehash: 205cb1ea608d2e6ee82206e6cf5f85f4d1f3dfcb
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 5f24b2478acc0b305595b70b579d744320f0da3a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129373059"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261199"
 ---
 # <a name="public-ip-addresses"></a>공용 IP 주소
 
@@ -42,10 +42,10 @@ Virtual Machine Scale Sets의 경우 [공용 IP 접두사](public-ip-address-pre
 | 인터넷 연결 부하 분산 장치 |프런트 엔드 구성 |예 | 예 | 예 |예 |
 | 가상 네트워크 게이트웨이(VPN) |게이트웨이 IP 구성 |예(비 AZ만 해당) |예(AZ만 해당) | 아니요 |아니요 |
 | 가상 네트워크 게이트웨이(ER) |게이트웨이 IP 구성 |Yes | 아니요 | 예(미리 보기) |No |
-| NAT 게이트웨이 |게이트웨이 IP 구성 |아니요 |예 | 예 |아니요 |
+| NAT 게이트웨이 |게이트웨이 IP 구성 |아니요 |예 | 아니요 |아니요 |
 | 프런트 엔드 |프런트 엔드 구성 |예(V1에만 해당) |예(V2에만 해당) | 아니요 | 아니요 |
-| Azure Firewall | 프런트 엔드 구성 | 아니요 | 예 | 예 | 아니요 |
-| 베스천 호스트 | 공용 IP 구성 | 아니요 | 예 | 예 | 아니요 |
+| Azure Firewall | 프런트 엔드 구성 | 아니요 | 예 | 아니요 | 아니요 |
+| 베스천 호스트 | 공용 IP 구성 | 아니요 | 예 | 아니요 | 아니요 |
 
 ## <a name="ip-address-version"></a>IP 주소 버전
 
@@ -86,10 +86,10 @@ IPv4 또는 IPv6 주소를 사용하여 공용 IP 주소를 만들 수 있습니
 - [라우팅 기본 설정](routing-preference-overview.md) 또는 [지역 간 부하 분산 장치](../../load-balancer/cross-region-overview.md) 기능을 지원하지 않습니다.
 
 > [!NOTE]
-> 표준 SKU에 만든 후 기본 SKU IPv4 주소를 업그레이드할 수 있습니다.  SKU 업그레이드에 관한 자세한 내용은 [공용 IP 업그레이드](public-ip-upgrade-portal.md)를 참조하세요.
+> 기본 SKU IPv4 주소는 만든 후 표준 SKU로 업그레이드할 수 있습니다.  SKU 업그레이드에 관한 자세한 내용은 [공용 IP 업그레이드](public-ip-upgrade-portal.md)를 참조하세요.
 
 >[!IMPORTANT]
-> 부하 분산 장치 및 공용 IP 리소스에 일치하는 SKU가 필요합니다. 기본 SKU 리소스와 표준 SKU 리소스를 혼합 하 여 사용할 수 없습니다. 독립 실행형 가상 머신, 가용성 집합 리소스의 가상 머신 또는 가상 머신 확장 집합 리소스를 두 SKU에 동시에 연결할 수 없습니다.  새 디자인에서는 표준 SKU 리소스를 사용하도록 고려해야 합니다.  자세한 내용은 [표준 Load Balancer](../../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 검토하세요.
+> 부하 분산 장치 및 공용 IP 리소스에 일치하는 SKU가 필요합니다. 기본 SKU 리소스와 표준 SKU 리소스를 혼합할 수 없습니다. 독립 실행형 가상 머신, 가용성 집합 리소스의 가상 머신 또는 가상 머신 확장 집합 리소스를 두 SKU에 동시에 연결할 수 없습니다.  새 디자인에서는 표준 SKU 리소스를 사용하도록 고려해야 합니다.  자세한 내용은 [표준 Load Balancer](../../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 검토하세요.
 
 ## <a name="ip-address-assignment"></a>IP 주소 할당
 
@@ -126,7 +126,7 @@ FQDN(정규화된 도메인 이름)인 **contoso.westus.cloudapp.azure.com** 은
 > [!IMPORTANT]
 > 생성된 각 도메인 이름은 Azure 위치 내에서 고유해야 합니다.  
 
-공용 IP를 사용 하는 서비스에 사용자 지정 도메인을 사용 하는 경우 DNS 레코드에 대 한 [Azure DNS](../../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) 또는 외부 dns 공급자를 사용할 수 있습니다.
+공용 IP를 사용하는 서비스에 대해 사용자 지정 도메인을 원하는 경우 [DNS 레코드에 Azure DNS](../../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) 또는 외부 DNS 공급자를 사용할 수 있습니다.
 
 ## <a name="other-public-ip-address-features"></a>기타 공용 IP 주소 기능
 
@@ -163,4 +163,4 @@ Azure의 IPv6에 대한 자세한 내용은 [여기](ipv6-overview.md)를 참조
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure의 개인 IP 주소](private-ip-addresses.md)에 관한 자세한 정보
-* [Azure 포털을 사용하여 고정 공용 IP를 사용하는 VM 배포](../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md)
+* [Azure 포털을 사용하여 고정 공용 IP를 사용하는 VM 배포](./virtual-network-deploy-static-pip-arm-portal.md)

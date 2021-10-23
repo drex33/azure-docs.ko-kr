@@ -1,30 +1,30 @@
 ---
 title: Bicep을 사용하기 위한 Azure 리소스 및 JSON ARM 템플릿 마이그레이션
-description: Bicep을 사용하도록 Azure 리소스 및 JSON ARM 템플릿을 마이그레이션할 때 권장되는 워크플로를 설명합니다.
+description: Bicep를 사용 하도록 Azure 리소스 및 JSON ARM 템플릿을 마이그레이션할 때 권장 되는 워크플로를 설명 합니다.
 author: joshuawaddell
 ms.author: jowaddel
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: e9ec55ac41cb30a902b337184cc75a4f976700bf
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9afa64e394c9b7daee4d81a3d995f1b383a02fc7
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128705725"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216355"
 ---
 # <a name="migrate-to-bicep"></a>Bicep으로 마이그레이션
 
-Bicep에서 Azure 리소스를 정의하는 데는 간단한 구문, 모듈화, 자동 종속성 관리, 형식 유효성 검사 및 IntelliSense, 향상된 제작 환경 등 다양한 이점이 있습니다.
+Bicep에는 간단한 구문, 모듈화, 자동 종속성 관리, 형식 유효성 검사 및 IntelliSense, 향상 된 제작 환경을 포함 하 여 Azure 리소스를 정의 하는 여러 가지 이점이 있습니다.
 
-기존 JSON Azure Resource Manager 템플릿(ARM 템플릿) 및/또는 배포된 리소스가 있고 Bicep으로 안전하게 마이그레이션하려는 경우 다음 5단계로 구성된 권장 워크플로를 따르는 것이 좋습니다.
+기존 JSON Azure Resource Manager 템플릿 (ARM 템플릿) 및/또는 배포 된 리소스가 있고이를 Bicep로 안전 하 게 마이그레이션하려면 다음 5 단계로 구성 된 권장 워크플로를 수행 하는 것이 좋습니다.
 
-:::image type="content" source="./media/migrate/five-phases.png" alt-text="Azure 리소스를 Bicep으로 마이그레이션하기 위한 5단계인 변환, 마이그레이션, 리팩터링, 테스트 및 배포의 다이어그램" border="false":::
+:::image type="content" source="./media/migrate/five-phases.png" alt-text="Azure 리소스를 Bicep로 마이그레이션하기 위한 5 단계 다이어그램: 변환, 마이그레이션, 리팩터링, 테스트 및 배포." border="false":::
 
-프로세스의 첫 번째 단계는 Azure 리소스가 없는 경우 JSON 파일로 캡처하는 것입니다. 그런 다음, JSON 파일을 초기 Bicep 파일로 디컴파일하여 리팩터링하여 개선합니다. 작업 파일이 있는 경우 Azure 환경의 주요 변경 위험을 최소화하는 프로세스를 사용하여 테스트하고 배포합니다.
+프로세스의 첫 번째 단계는 Azure 리소스를 JSON 파일로 캡처하는 것입니다 (이미 존재 하지 않는 경우). 그런 다음 JSON 파일을 초기 Bicep 파일로 디컴파일 합니다 .이 파일은 리팩터링에 따라 개선 됩니다. 작업 파일이 있는 경우 Azure 환경에 대 한 주요 변경의 위험을 최소화 하는 프로세스를 사용 하 여 테스트 하 고 배포 합니다.
 
 :::image type="content" source="./media/migrate/migrate-bicep.png" alt-text="Azure 리소스를 Bicep으로 마이그레이션하기 위한 권장 워크플로의 다이어그램" border="false":::
 
-이 문서에서는 이 권장 워크플로를 요약합니다. 자세한 지침은 Microsoft Learn [Bicep을 사용하도록 Azure 리소스 및 JSON ARM 템플릿 마이그레이션을](/learn/modules/migrate-azure-resources-bicep/) 참조하세요.
+이 문서에서는이 권장 워크플로를 요약 합니다. 자세한 지침은 Microsoft Learn에서 [Bicep를 사용 하도록 Azure 리소스 및 JSON ARM 템플릿 마이그레이션](/learn/modules/migrate-azure-resources-bicep/) 을 참조 하세요.
 
 ## <a name="phase-1-convert"></a>1단계: 변환
 
@@ -32,9 +32,9 @@ Bicep에서 Azure 리소스를 정의하는 데는 간단한 구문, 모듈화, 
 
 변환 단계는 순서대로 완료하는 두 단계로 구성됩니다.
 
-1. **Azure 리소스의 JSON 표현을 캡처합니다.** Bicep으로 변환하려는 기존 JSON 템플릿이 있는 경우 첫 번째 단계는 간단합니다. 원본 템플릿 이미 있습니다. 포털 또는 다른 도구를 통해 배포된 Azure 리소스를 변환하는 경우 리소스 정의를 *내보낸* 다음, Bicep으로 변환해야 합니다. Azure Portal, Azure CLI, Azure PowerShell cmdlet을 사용하여 단일 리소스, 여러 리소스, 전체 리소스 그룹을 내보낼 수 있습니다.
+1. **Azure 리소스의 JSON 표현을 캡처합니다.** Bicep으로 변환하려는 기존 JSON 템플릿이 있는 경우 첫 번째 단계는 간단합니다. 원본 템플릿 이미 있습니다. 포털 또는 다른 도구를 통해 배포 된 Azure 리소스를 변환 하는 경우 리소스 정의를 *내보낸* 다음 Bicep로 변환 해야 합니다. Azure Portal, Azure CLI, Azure PowerShell cmdlet을 사용하여 단일 리소스, 여러 리소스, 전체 리소스 그룹을 내보낼 수 있습니다.
 
-1. **_decompile_ 명령을 사용하여 JSON 표현을 Bicep으로 변환합니다.** [Bicep 도구에는 `decompile` 템플릿을 변환하는 명령이 포함되어 있습니다.](decompile.md) Azure CLI 또는 Bicep CLI에서 `decompile` 명령을 호출할 수 있습니다. 디컴파일 프로세스는 최상의 프로세스이며 JSON에서 Bicep으로의 전체 매핑을 보장하지 않습니다. 파일을 사용하여 리소스를 배포하기 전에 템플릿 모범 사례를 충족하도록 생성된 Bicep 파일을 수정해야 할 수 있습니다.
+1. **_디컴파일_ 명령을 사용 하 여 JSON 표현을 Bicep로 변환 합니다.** [Bicep 도구에는 `decompile` 템플릿을 변환 하는 명령이 포함 되어 있습니다.](decompile.md) Azure CLI 또는 Bicep CLI에서 `decompile` 명령을 호출할 수 있습니다. 디컴파일 프로세스는 최상의 프로세스이며 JSON에서 Bicep으로의 전체 매핑을 보장하지 않습니다. 파일을 사용하여 리소스를 배포하기 전에 템플릿 모범 사례를 충족하도록 생성된 Bicep 파일을 수정해야 할 수 있습니다.
 
 ## <a name="phase-2-migrate"></a>2단계: 마이그레이션
 
@@ -46,30 +46,30 @@ Bicep에서 Azure 리소스를 정의하는 데는 간단한 구문, 모듈화, 
 
 1. **디컴파일된 템플릿에서 각 리소스를 복사합니다.** 변환된 Bicep 파일에서 새 Bicep 파일로 각 리소스를 개별적으로 복사합니다. 이 프로세스는 리소스별로 문제를 해결하고 템플릿 크기가 커짐에 따른 혼동을 방지하는 데 도움이 됩니다.
 
-1. **누락된 리소스를 식별하고 다시 만듭니다.** Azure Portal, Azure CLI 또는 Azure PowerShell을 통해 모든 Azure 리소스 종류를 내보낼 수 있는 것은 아닙니다. 예를 들어 DependencyAgentWindows 및 MMAExtension(Microsoft Monitoring Agent)과 같은 가상 머신 확장은 내보내기를 지원하는 리소스 종류가 아닙니다. 가상 머신 확장과 같이 내보내지 않은 리소스의 경우 새 Bicep 파일에서 해당 리소스를 다시 만들어야 합니다. [Azure Resource Explorer,](/azure/azure-resource-manager/templates/view-resources?azure-portal=true#use-resource-explorer) [Bicep](/azure/templates/?azure-portal=true)및 ARM 템플릿 참조 설명서 및 Azure 빠른 시작 템플릿 사이트를 포함하여 리소스를 다시 만들기 위해 사용할 수 있는 여러 도구와 방법이 [있습니다.](https://azure.microsoft.com/resources/templates?azure-portal=true)
+1. **누락 된 리소스를 확인 하 고 다시 만듭니다.** Azure Portal, Azure CLI 또는 Azure PowerShell을 통해 모든 Azure 리소스 종류를 내보낼 수 있는 것은 아닙니다. 예를 들어 DependencyAgentWindows 및 MMAExtension(Microsoft Monitoring Agent)과 같은 가상 머신 확장은 내보내기를 지원하는 리소스 종류가 아닙니다. 가상 머신 확장과 같이 내보내지 않은 리소스의 경우 새 Bicep 파일에서 해당 리소스를 다시 만들어야 합니다. [Azure Resource Explorer](../templates/export-template-portal.md?azure-portal=true), [Bicep 및 ARM 템플릿 참조 설명서](/azure/templates/?azure-portal=true)와 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates?azure-portal=true) 사이트를 포함 하 여 리소스를 다시 만드는 데 사용할 수 있는 여러 가지 도구와 방법이 있습니다.
 
 ## <a name="phase-3-refactor"></a>3단계: 리팩터링
 
-리소스를 Bicep으로 마이그레이션하는 _리팩터링_ 단계에서 목표는 Bicep 코드의 품질을 개선하는 것입니다. 개선 사항으로는 템플릿 표준에 맞게 템플릿을 가져오는 코드 주석 추가와 같은 변경 사항이 포함될 수 있습니다.
+Bicep에 대 한 자원을 마이그레이션하는 _리팩터링_ 단계에서 목표는 Bicep 코드의 품질을 향상 시키는 것입니다. 개선 사항으로는 템플릿 표준에 맞게 템플릿을 가져오는 코드 주석 추가와 같은 변경 사항이 포함될 수 있습니다.
 
 배포 단계는 순서에 따라 완료되는 8단계로 구성됩니다.
 
 1. **리소스 API 버전을 검토합니다.** Azure 리소스를 내보낼 때 내보낸 템플릿에는 리소스 종류에 대한 최신 API 버전이 없을 수도 있습니다. 향후 배포에 필요한 특정 속성이 있는 경우 API를 적절한 버전으로 업데이트합니다. 내보낸 각 리소스에 대한 API 버전을 검토하는 것이 좋습니다.
 
-1. **새 Bicep 파일에서 linter 제안을 검토합니다.** [Visual Studio Code Bicep 확장을 사용하여 Bicep](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep&azure-portal=true)파일을 만들 때 [Bicep linter는](linter.md) 자동으로 실행되며 코드의 제안 사항 및 오류를 강조 표시합니다. 대부분의 제안 및 오류에는 문제에 대한 빠른 수정을 적용하는 옵션이 포함되어 있습니다. 해당 권장 사항을 검토하고 Bicep 파일을 조정합니다.
+1. **새 Bicep 파일의 linter 제안 사항을 검토 합니다.** [Visual Studio Code에 대 한 Bicep 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep&azure-portal=true)을 사용 하 여 Bicep 파일을 만들 때 [Bicep linter](linter.md) 이 자동으로 실행 되 고 코드의 제안 및 오류가 강조 표시 됩니다. 대부분의 제안 및 오류에는 문제에 대 한 빠른 수정을 적용 하는 옵션이 포함 되어 있습니다. 해당 권장 사항을 검토하고 Bicep 파일을 조정합니다.
 
-1. **매개 변수, 변수 및 기호 이름을 수정합니다.** 디컴파일러에 의해 생성된 매개 변수, 변수, 기호 이름의 이름이 표준 명명 규칙과 일치하지 않을 수 있습니다. 생성된 이름을 검토하고 필요에 따라 조정합니다.
+1. **매개 변수, 변수 및 기호화 된 이름을 수정 합니다.** 디컴파일러에 의해 생성된 매개 변수, 변수, 기호 이름의 이름이 표준 명명 규칙과 일치하지 않을 수 있습니다. 생성된 이름을 검토하고 필요에 따라 조정합니다.
 
-1. **식을 단순화합니다.** 디컴파일 프로세스에서 Bicep의 일부 기능을 항상 활용하는 것은 아닙니다. 변환에서 생성된 식을 검토하고 단순화합니다. 예를 들어 디컴퓨션된 템플릿에는 문자열 보간 을 `concat()` 사용하여 간소화할 수 있는 또는 함수가 포함될 `format()` 수 있습니다. [](bicep-functions-string.md#concat) Linter의 제안 사항을 검토하고 필요에 따라 조정합니다.
+1. **식 단순화.** 디컴파일 프로세스에서 Bicep의 일부 기능을 항상 활용하는 것은 아닙니다. 변환에서 생성된 식을 검토하고 단순화합니다. 예를 들어, 디컴파일된 템플릿은 `concat()` `format()` [문자열 보간을](bicep-functions-string.md#concat)사용 하 여 단순화할 수 있는 또는 함수를 포함할 수 있습니다. Linter의 제안 사항을 검토하고 필요에 따라 조정합니다.
 
-1. **자식 및 확장 리소스를 검토합니다.** Bicep을 사용하면 리소스 이름 연결, 키워드 사용 및 중첩된 리소스 사용을 포함하여 [자식](child-resource-name-type.md) 리소스 및 [확장 리소스를](scope-extension-resources.md)선언하는 여러 가지 방법이 `parent` 있습니다. 디컴파일 후 해당 리소스를 검토하고 구조가 표준을 충족하는지 확인하는 것이 좋습니다. 예를 들어 문자열 연결을 사용하여 자식 리소스 이름을 만들지 마세요. `parent` 속성이나 중첩된 리소스를 사용해야 합니다. 마찬가지로 서브넷은 가상 네트워크의 속성으로 참조되거나 별도의 리소스로 참조될 수 있습니다.
+1. **자식 및 확장 리소스를 검토 합니다.** Bicep를 사용 하면 리소스의 이름을 연결 하 고, 키워드를 사용 하 고, 중첩 된 리소스를 사용 하는 등 [자식 리소스](child-resource-name-type.md) 및 [확장 리소스](scope-extension-resources.md)를 선언 하는 여러 가지 방법이 있습니다 `parent` . 디컴파일 후 해당 리소스를 검토하고 구조가 표준을 충족하는지 확인하는 것이 좋습니다. 예를 들어 문자열 연결을 사용하여 자식 리소스 이름을 만들지 마세요. `parent` 속성이나 중첩된 리소스를 사용해야 합니다. 마찬가지로 서브넷은 가상 네트워크의 속성으로 참조되거나 별도의 리소스로 참조될 수 있습니다.
 
-1. **모듈화.** 리소스가 많은 템플릿을 변환하는 경우 간단한 설명을 위해 개별 리소스 종류를 [모듈로 분리하는](modules.md) 것이 좋습니다. Bicep 모듈은 배포의 복잡성을 줄이고 Bicep 코드의 재사용 가능성을 높이는 데 도움이 됩니다.
+1. **모듈화.** 리소스가 많은 템플릿을 변환 하는 경우 간단 하 게 하기 위해 개별 리소스 유형을 [모듈로](modules.md) 분리 하는 것이 좋습니다. Bicep 모듈을 통해 배포의 복잡성을 줄이고 Bicep 코드의 재사용 가능성을 높일 수 있습니다.
 
     > [!NOTE]
     > Bicep 배포에서 JSON 템플릿을 모듈으로 사용할 수 있습니다. Bicep에는 JSON 모듈을 인식하고 Bicep 모듈을 사용하는 방법과 유사하게 참조하는 기능이 있습니다.
 
-1. **주석 및 설명을 추가합니다.** 좋은 Bicep 코드는 _자체 문서화_ 합니다. Bicep을 사용하면 인프라를 문서화하는 데 도움이 되는 주석과 특성을 코드에 추가할 `@description()` 수 있습니다. Bicep은 `//` 문자 시퀀스를 사용하는 한 줄 주석과 `/*`로 시작하고 `*/`로 끝나는 여러 줄 주석을 모두 지원합니다. 코드의 특정 줄 및 코드 섹션에 주석을 추가할 수 있습니다.
+1. **설명 및 설명을 추가 합니다.** 좋은 Bicep 코드는 _자체 문서화_ 합니다. Bicep를 사용 하면 `@description()` 인프라를 문서화 하는 데 도움이 되는 주석과 특성을 코드에 추가할 수 있습니다. Bicep은 `//` 문자 시퀀스를 사용하는 한 줄 주석과 `/*`로 시작하고 `*/`로 끝나는 여러 줄 주석을 모두 지원합니다. 코드의 특정 줄과 코드 섹션에 주석을 추가할 수 있습니다.
 
 1. **Bicep 모범 사례를 따릅니다.** Bicep 파일이 표준 권장 사항을 준수하는지 확인합니다. 놓쳤을 수도 있는 모든 사항을 대상으로 [Bicep 모범 사례](best-practices.md) 참조 문서를 검토합니다.
 
@@ -77,11 +77,11 @@ Bicep에서 Azure 리소스를 정의하는 데는 간단한 구문, 모듈화, 
 
 리소스를 Bicep으로 마이그레이션하는 _테스트_ 단계의 목표는 마이그레이션된 템플릿의 무결성을 확인하고 테스트 배포를 수행하는 것입니다.
 
-테스트 단계는 다음 두 단계로 구성되며, 순서대로 완료합니다.
+테스트 단계는 순서 대로 완료 하는 두 단계로 구성 됩니다.
 
 1. **ARM 템플릿 배포 가상 작업을 실행합니다.** 배포 전에 변환된 템플릿을 확인하는 데 도움이 되는 [Azure Resource Manager 템플릿 배포 가상 작업](../templates/deploy-what-if.md)을 사용할 수 있습니다. 환경의 현재 상태를 템플릿에 정의된 원하는 상태와 비교합니다. 이 도구는 환경에 변경 사항을 적용하지 *않고* 변경 사항 목록을 출력합니다. 증분 및 전체 모드 배포 모두에서 가상 작업을 사용할 수 있습니다. 증분 모드를 사용하여 템플릿을 배포할 계획인 경우에도 전체 모드에서 가상 작업을 실행하는 것이 좋습니다.
 
-1. **테스트 배포를 수행합니다.** 변환된 Bicep 템플릿을 프로덕션에 도입하기 전에 여러 테스트 배포를 실행하는 것이 좋습니다. 여러 환경(예: 개발, 테스트 및 프로덕션)이 있는 경우 먼저 비프로덕션 환경 중 하나에 템플릿을 배포하려고 할 수 있습니다. 배포 후에는 일관성을 위해 원래 리소스를 새 리소스 배포와 비교합니다.
+1. **테스트 배포를 수행합니다.** 변환된 Bicep 템플릿을 프로덕션에 도입하기 전에 여러 테스트 배포를 실행하는 것이 좋습니다. 여러 환경 (예: 개발, 테스트 및 프로덕션)이 있는 경우 먼저 비프로덕션 환경 중 하나에 템플릿을 배포 하려고 할 수 있습니다. 배포 후에는 일관성을 위해 원래 리소스를 새 리소스 배포와 비교합니다.
 
 ## <a name="phase-5-deploy"></a>5단계: 배포
 
@@ -89,14 +89,14 @@ Bicep에서 Azure 리소스를 정의하는 데는 간단한 구문, 모듈화, 
 
 배포 단계는 순서에 따라 완료되는 네 단계로 구성됩니다.
 
-1. **롤백 계획을 준비합니다.** 실패한 배포에서 복구하는 능력은 매우 중요합니다. 환경에 주요 변경 내용이 도입된 경우 롤백 계획을 개발합니다. 가상 머신, 웹앱, 데이터베이스와 같은 배포되는 리소스 종류에 대한 목록을 만듭니다. 각 리소스의 데이터 평면도 고려합니다. 가상 머신 및 그 데이터를 복구하는 방법이 있나요? 삭제 후 데이터베이스를 복구 하는 방법이 있나요? 배포에서 문제가 발생 하는 경우에는 잘 개발 된 롤백 계획을 통해 가동 중지 시간을 최소로 유지할 수 있습니다.
+1. **롤백 계획을 준비합니다.** 실패한 배포에서 복구하는 능력은 매우 중요합니다. 환경에 도입 된 주요 변경 내용이 발생 하는 경우 롤백 계획을 개발 합니다. 가상 머신, 웹앱, 데이터베이스와 같은 배포되는 리소스 종류에 대한 목록을 만듭니다. 각 리소스의 데이터 평면도 고려합니다. 가상 머신 및 그 데이터를 복구하는 방법이 있나요? 삭제 후 데이터베이스를 복구하는 방법이 있나요? 잘 개발된 롤백 계획은 배포에서 문제가 발생하는 경우 가동 중지 시간을 최소로 유지하는 데 도움이 됩니다.
 
 1. **프로덕션에 가상 작업을 실행합니다.** 최종 Bicep 파일을 프로덕션에 배포하기 전에 프로덕션 환경에 대한 가상 작업을 실행하고 프로덕션 매개 변수 값을 사용하도록 하며 결과를 문서화하는 것이 좋습니다.
 
-1. **수동으로 배포.** 파이프라인에서 변환 된 템플릿 (예: [Azure DevOps](add-template-to-azure-pipelines.md) 또는 [GitHub 작업](deploy-github-actions.md))을 사용 하려는 경우 먼저 로컬 컴퓨터에서 배포를 실행 하는 것이 좋습니다. 템플릿을 프로덕션 파이프라인에 추가하기 전에 템플릿의 기능을 확인하는 것이 좋습니다. 이렇게 하면 문제가 있더라도 신속하게 대응할 수 있습니다.
+1. **수동으로 배포합니다.** Azure DevOps 또는 [GitHub](add-template-to-azure-pipelines.md) [작업과](deploy-github-actions.md)같은 파이프라인에서 변환된 템플릿을 사용하려는 경우 먼저 로컬 컴퓨터에서 배포를 실행하는 것이 좋습니다. 템플릿을 프로덕션 파이프라인에 추가하기 전에 템플릿의 기능을 확인하는 것이 좋습니다. 이렇게 하면 문제가 있더라도 신속하게 대응할 수 있습니다.
 
-1. **스모크 테스트를 실행 합니다.** 배포가 완료된 후 일련의 *스모크 테스트* 를 실행해 보는 것이 좋습니다. 스모크 테스트는 애플리케이션이나 워크로드가 제대로 작동하는지 유효성을 확인하는 간단한 검사입니다. 예를 들어, 웹앱이 퍼블릭 인터넷이나 회사 VPN과 같은 일반 액세스 채널을 통해 액세스할 수 있는지 테스트합니다. 데이터베이스의 경우 데이터베이스 연결을 시도하고 일련의 쿼리를 실행합니다. 가상 머신의 경우 가상 머신에 로그인하고 모든 서비스가 실행 중인지 확인합니다.
+1. **스모크 테스트를 실행합니다.** 배포가 완료된 후 일련의 *스모크 테스트* 를 실행해 보는 것이 좋습니다. 스모크 테스트는 애플리케이션이나 워크로드가 제대로 작동하는지 유효성을 확인하는 간단한 검사입니다. 예를 들어, 웹앱이 퍼블릭 인터넷이나 회사 VPN과 같은 일반 액세스 채널을 통해 액세스할 수 있는지 테스트합니다. 데이터베이스의 경우 데이터베이스 연결을 시도하고 일련의 쿼리를 실행합니다. 가상 머신의 경우 가상 머신에 로그인하고 모든 서비스가 실행 중인지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Bicep 디컴파일러에 대 한 자세한 내용은 [디컴파일 ARM 템플릿 JSON To Bicep을](decompile.md)참조 하세요.
+Bicep 디컴파일러에 대한 자세한 내용은 [ARM 템플릿 JSON을 Bicep으로 디컴파일을](decompile.md)참조하세요.

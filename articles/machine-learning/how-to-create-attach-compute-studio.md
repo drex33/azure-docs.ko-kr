@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/16/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 57a3f1f9d9665e23ba40479062f0f60e59608b66
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: e20b1ded0e4468bf600ee4022db18165b5edcbc3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129707429"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251588"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Azure Machine Learning 스튜디오에서 모델 학습 및 배포용 컴퓨팅 대상 만들기
 
@@ -172,7 +172,7 @@ Azure Machine Learning 작업 영역 외부에서 만든 컴퓨팅 대상을 사
 [!INCLUDE [arc-enabled-machine-learning-create-training-compute](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
 > [!IMPORTANT]
-> AKS(Azure Kubernetes Services) 또는 Azure Arc 지원 Kubernetes 클러스터를 연결하려면 구독 소유자이거나 구독에서 AKS 클러스터 리소스에 액세스할 수 있는 권한이 있어야 합니다. 그렇지 않으면 “새 컴퓨팅 연결” 페이지의 클러스터 목록이 비어 있습니다.
+> AKS (Azure Kubernetes Services) 또는 Azure Arc 사용 Kubernetes 클러스터를 연결 하려면 구독 소유자 이거나 구독에서 AKS 클러스터 리소스에 액세스할 수 있는 권한이 있어야 합니다. 그렇지 않으면 “새 컴퓨팅 연결” 페이지의 클러스터 목록이 비어 있습니다.
 
 컴퓨팅을 분리하려면 다음 단계를 사용합니다.
 
@@ -204,6 +204,9 @@ SSH 액세스를 사용하도록 설정된 컴퓨팅 인스턴스 또는 컴퓨�
       `ssh -i <keyname.pem> azureuser@... (rest of connection string)`
 
 1. Linux 사용자의 경우 [Azure에서 Linux VM에 대한 SSH 키 쌍 만들기 및 사용](../virtual-machines/linux/mac-create-ssh-keys.md)의 단계를 수행합니다.
+1. SCP 사용: 
+
+   `scp -i key.pem -P {port} {fileToCopyFromLocal }  azureuser@yourComputeInstancePublicIP:~/{destination}`
 
 ## <a name="next-steps"></a>다음 단계
 

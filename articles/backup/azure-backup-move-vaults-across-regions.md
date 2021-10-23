@@ -4,12 +4,12 @@ description: 이 문서에서는 지역 간에 리소스를 이동한 후 지속
 ms.topic: conceptual
 ms.date: 09/24/2021
 ms.custom: how-to
-ms.openlocfilehash: 658b4965c008105957165a858987442f23630c14
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 2b3804a0a73329d7b2e4e2449fe773918791dcea
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129058883"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130264944"
 ---
 # <a name="back-up-resources-in-recovery-services-vault-after-moving-across-regions"></a>지역 간 이동 후 Recovery Services 자격 증명 모음의 리소스 백업
 
@@ -28,17 +28,17 @@ Recovery Services 자격 증명 모음으로 보호되는 Azure VM(Virtual Machi
 
 VM을 이동하기 전에 다음 필수 조건이 충족되는지 확인합니다.
 
-1. [VM 이동과 관련된 필수 구성을 확인하고 VM을](/azure/resource-mover/tutorial-move-region-virtual-machines#prerequisites) 이동할 수 있는지 확인합니다.
+1. [VM 이동과 관련된 필수 구성을 확인하고 VM을](../resource-mover/tutorial-move-region-virtual-machines.md#prerequisites) 이동할 수 있는지 확인합니다.
 1. [](./backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) 기존 자격 증명 모음 대시보드의 백업 항목 탭에서 VM을 선택하고, 요구 사항에 따라 **보호 중지,** 데이터 보존/삭제를 선택합니다. 데이터 보존으로 VM의 백업 데이터를 중지하면 복구 지점이 영구적으로 유지되고 어떤 정책도 준수하지 않습니다. 이렇게 하면 항상 백업 데이터를 복원할 준비가 된 것입니다.
    >[!Note]
    >이전 자격 증명 모음에 데이터를 보관하면 백업 비용이 발생합니다. 청구를 방지하기 위해 더 이상 데이터를 보관하지 않으려면 [데이터 삭제 옵션](./backup-azure-manage-vms.md#delete-backup-data)을 사용하여 보관된 백업 데이터를 삭제해야 합니다.
-1. VM이 켜져 있는지 확인합니다. 대상 지역에서 사용할 수 있어야 하는 모든 VM의 디스크는 VM에서 연결되고 초기화됩니다.
+1. VM이 켜져 있는지 확인합니다. 대상 지역에서 사용할 수 있어야 하는 모든 VM의 디스크는 VM에 연결되고 초기화됩니다.
 1. VM에 신뢰할 수 있는 최신 루트 인증서와 업데이트된 CRL(인증서 해지 목록)이 있는지 확인합니다. 이를 수행하려면:
    - Windows VM에서 최신 Windows 업데이트를 설치합니다.
    - Linux VM에서 배포자 지침을 참조하여 머신에 최신 인증서 및 CRL이 있는지 확인합니다.
 1. 다음과 같이 VM에서 아웃바운드 연결을 허용합니다.
-   - URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어하는 경우 이러한 URL에 대한 액세스를 [허용합니다.](/azure/resource-mover/support-matrix-move-region-azure-vm#url-access)
-   - NSG(네트워크 보안 그룹) 규칙을 사용하여 아웃바운드 연결을 제어하는 경우 [이러한 서비스 태그 규칙을](/azure/resource-mover/support-matrix-move-region-azure-vm#nsg-rules)만듭니다.
+   - URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어하는 경우 이러한 URL에 대한 액세스를 [허용합니다.](../resource-mover/support-matrix-move-region-azure-vm.md#url-access)
+   - NSG(네트워크 보안 그룹) 규칙을 사용하여 아웃바운드 연결을 제어하는 경우 [이러한 서비스 태그 규칙을](../resource-mover/support-matrix-move-region-azure-vm.md#nsg-rules)만듭니다.
 
 ### <a name="move-azure-vms"></a>Azure VM 이동
 
@@ -58,8 +58,8 @@ Azure Backup은 현재 Azure Files에 대한 [스냅샷 관리 솔루션](./back
 
 Storage 계정을 이동하기 전에 다음 필수 조건이 충족되는지 확인합니다.
 
-1.  Storage [계정을 이동하려면 필수 구성 Storage 참조하세요.](/azure/storage/common/storage-account-move?tabs=azure-portal#prerequisites) 
-1. 리소스 이동 템플릿을 내보내고 수정합니다. 자세한 내용은 [지역 이동을 위한 Storage 계정 준비를 참조하세요.](/azure/storage/common/storage-account-move?tabs=azure-portal#prepare)
+1.  Storage [계정을 이동하려면 필수 구성 Storage 참조하세요.](../storage/common/storage-account-move.md?tabs=azure-portal#prerequisites) 
+1. 리소스 이동 템플릿을 내보내고 수정합니다. 자세한 내용은 [지역 이동을 위한 Storage 계정 준비를 참조하세요.](../storage/common/storage-account-move.md?tabs=azure-portal#prepare)
 
 ### <a name="move-azure-file-share"></a>Azure 파일 공유 이동
 
@@ -84,7 +84,7 @@ SQL 또는 SAP HANA 서버를 실행하는 VM을 다른 지역으로 이동하�
 
 VM에서 실행되는 SQL Server/SAP HANA 새 지역으로 이동하기 전에 다음 필수 조건이 충족되는지 확인합니다.
 
-1. [VM 이동과 관련된 필수 구성을 확인하고 VM을](/azure/resource-mover/tutorial-move-region-virtual-machines#prerequisites) 이동할 수 있는지 확인합니다. 
+1. [VM 이동과 관련된 필수 구성을 확인하고 VM을](../resource-mover/tutorial-move-region-virtual-machines.md#prerequisites) 이동할 수 있는지 확인합니다. 
 1. 기존 자격 증명 모음 대시보드의 [백업 항목 탭에서](./backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) VM을 선택하고 백업을 중지해야 하는 _데이터베이스를_ 선택합니다. **보호 중지** 를 선택한 다음 요구 사항에 따라 데이터 유지/삭제를 선택합니다. 데이터 유지로 백업 데이터를 중지하면 복구 지점이 영구적으로 유지되며 정책을 준수하지 않습니다. 이렇게 하면 백업 데이터를 항상 복원할 수 있습니다.
    >[!Note]
    >이전 자격 증명 모음에 데이터를 보관하면 백업 비용이 발생합니다. 청구를 방지하기 위해 더 이상 데이터를 보관하지 않으려면 [데이터 삭제 옵션](./backup-azure-manage-vms.md#delete-backup-data)을 사용하여 보관된 백업 데이터를 삭제해야 합니다.
@@ -93,8 +93,8 @@ VM에서 실행되는 SQL Server/SAP HANA 새 지역으로 이동하기 전에 �
    - Windows VM에서 최신 Windows 업데이트를 설치합니다.
    - Linux VM에서 배포자 지침을 참조하고 머신에 최신 인증서 및 CRL이 있는지 확인합니다.
 1. 다음과 같이 VM에서 아웃바운드 연결을 허용합니다.
-   - URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어하는 경우 이러한 URL에 대한 액세스를 [허용합니다.](/azure/resource-mover/support-matrix-move-region-azure-vm#url-access)
-   - NSG(네트워크 보안 그룹) 규칙을 사용하여 아웃바운드 연결을 제어하는 경우 [이러한 서비스 태그 규칙을](/azure/resource-mover/support-matrix-move-region-azure-vm#nsg-rules)만듭니다.
+   - URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어하는 경우 이러한 URL에 대한 액세스를 [허용합니다.](../resource-mover/support-matrix-move-region-azure-vm.md#url-access)
+   - NSG(네트워크 보안 그룹) 규칙을 사용하여 아웃바운드 연결을 제어하는 경우 [이러한 서비스 태그 규칙을](../resource-mover/support-matrix-move-region-azure-vm.md#nsg-rules)만듭니다.
 
 ### <a name="move-sql-serversap-hana-in-azure-vm"></a>Azure VM에서 SQL Server/SAP HANA 이동
 

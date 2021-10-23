@@ -2,18 +2,18 @@
 title: 네트워크 기능 관리자 FAQ
 titleSuffix: Azure Network Function Manager
 description: 네트워크 기능 관리자에 대한 FAQ를 알아봅니다.
-author: cherylmc
+author: prmitt
 ms.service: network-function-manager
 ms.topic: article
 ms.date: 06/30/2021
-ms.author: cherylmc
+ms.author: prmitt
 ms.custom: references_regions
-ms.openlocfilehash: 902b53e48b7d16f06511a0d21495cf6e191f92e2
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
-ms.translationtype: HT
+ms.openlocfilehash: 64994838cd173ff1d48dcfce9bd75d2a69aadf91
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122567846"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232217"
 ---
 # <a name="azure-network-function-manager-faq-preview"></a>Azure 네트워크 기능 관리자 FAQ(미리 보기)
 

@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: mathoma, bonova, vanto
 ms.date: 08/20/2021
-ms.openlocfilehash: 3acd77d986d22af08ac7042da751a6aa8c7fc24b
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
-ms.translationtype: HT
+ms.openlocfilehash: a1cb62bce41ce0003628ce4223fe06e6587317f5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122607582"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130250503"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>애플리케이션을 Azure SQL Managed Instance에 연결
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -84,9 +84,9 @@ SQL Managed Instance에서 다른 가상 네트워크 내에 있는 경우 애�
 
 ## <a name="connect-azure-app-service"></a>Azure App Service 연결 
 
-Azure App Service에서 호스트되는 애플리케이션을 연결할 수도 있습니다. 가상 네트워크를 통해 Azure App Service에서 액세스하려면 먼저 애플리케이션과 SQL Managed Instance 가상 네트워크 간에 연결을 만들어야 합니다. [Azure 가상 네트워크와 앱 통합](../../app-service/web-sites-integrate-with-vnet.md)을 참조하세요. 가상 네트워크 외부에서 관리되는 인스턴스에 대한 데이터 액세스는 [Azure SQL Managed Instance에서 퍼블릭 엔드포인트 구성](./public-endpoint-configure.md)을 참조하세요. 
+Azure App Service에서 호스트되는 애플리케이션을 연결할 수도 있습니다. 가상 네트워크를 통해 Azure App Service에서 액세스하려면 먼저 애플리케이션과 SQL Managed Instance 가상 네트워크 간에 연결을 만들어야 합니다. [Azure 가상 네트워크와 앱 통합](../../app-service/overview-vnet-integration.md)을 참조하세요. 가상 네트워크 외부에서 관리되는 인스턴스에 대한 데이터 액세스는 [Azure SQL Managed Instance에서 퍼블릭 엔드포인트 구성](./public-endpoint-configure.md)을 참조하세요. 
 
-가상 네트워크를 통한 Azure App Service 액세스 문제 해결은 [가상 네트워크 및 애플리케이션 문제 해결](../../app-service/web-sites-integrate-with-vnet.md#troubleshooting)을 참조하세요. 연결을 설정할 수 없는 경우 [네트워킹 구성 동기화](azure-app-sync-network-configuration.md)를 시도하세요.
+가상 네트워크를 통한 Azure App Service 액세스 문제 해결은 [가상 네트워크 및 애플리케이션 문제 해결](../../app-service/overview-vnet-integration.md#troubleshooting)을 참조하세요. 연결을 설정할 수 없는 경우 [네트워킹 구성 동기화](azure-app-sync-network-configuration.md)를 시도하세요.
 
 Azure App Service를 SQL Managed Instance에 연결하는 특수한 경우는 SQL Managed Instance 가상 네트워크에 피어링된 네트워크에 Azure App Service를 통합하는 경우입니다. 해당 경우에는 다음 구성을 설정해야 합니다.
 
@@ -143,7 +143,7 @@ Azure App Service를 SQL Managed Instance에 연결하는 특수한 경우는 SQ
 
 - 가상 네트워크 피어링을 사용하는 경우 [게이트웨이 전송 허용 및 원격 게이트웨이 사용](#connect-from-on-premises) 설정을 위한 지침을 따랐는지 확인합니다.
 
-- 가상 네트워크 피어링을 사용하여 Azure App Service에서 호스트된 애플리케이션을 연결하고 SQL Managed Instance 가상 네트워크에 공용 IP 주소 범위가 있는 경우 호스트된 애플리케이션 설정에서 아웃바운드 트래픽을 공용 IP 네트워크로 라우팅할 수 있도록 해야 합니다. [지역 가상 네트워크 통합](../../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)의 지침을 따릅니다.
+- 가상 네트워크 피어링을 사용하여 Azure App Service에서 호스트된 애플리케이션을 연결하고 SQL Managed Instance 가상 네트워크에 공용 IP 주소 범위가 있는 경우 호스트된 애플리케이션 설정에서 아웃바운드 트래픽을 공용 IP 네트워크로 라우팅할 수 있도록 해야 합니다. [지역 가상 네트워크 통합](../../app-service/overview-vnet-integration.md#regional-vnet-integration)의 지침을 따릅니다.
 
 ## <a name="required-versions-of-drivers-and-tools"></a>드라이버 및 도구의 필요한 버전
 

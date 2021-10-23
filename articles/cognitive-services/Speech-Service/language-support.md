@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: pafarley
 ms.custom: references_regions
-ms.openlocfilehash: 0628af8b495fccd834179edfc9cf0e5c32baf350
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 4494901935b5d9b6cf82f473f317502bac2f6965
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130000464"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130247667"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -98,7 +98,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | 아일랜드어(아일랜드)                    | `ga-IE` | 텍스트<br>발음                  |                           |                          |
 | 이탈리아어(이탈리아)                    | `it-IT` | 오디오(20201016)<br>텍스트<br>발음|      예                     |                          |
 | 일본어(일본)                   | `ja-JP` | 텍스트                                   |      예                     |                          |
-| 카나다어(인도)                   | `kn-IN` | 텍스트                                   |                           |                          |
+| 카나다어 (인도)                   | `kn-IN` | 텍스트                                   |                           |                          |
 | 한국어(한국)                     | `ko-KR` | 오디오(20201015)<br>텍스트                 |      예                     |                          |
 | 라트비아어(라트비아)                   | `lv-LV` | 텍스트<br>발음                  |                           |                          |
 | 리투아니아어(리투아니아)             | `lt-LT` | 텍스트<br>발음                  |                           |                          |
@@ -163,27 +163,59 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 
 | 언어 | Locale | 성별 | 음성 이름 | 스타일 지원 |
 |---|---|---|---|---|
+| 아프리칸스어(남아프리카 공화국) | af-ZA | Female | `af-ZA-AdriNeural` <sup>새로 생성</sup>  | 일반 |
+| 아프리칸스어(남아프리카 공화국) | af-ZA | Male | `af-ZA-WillemNeural` <sup>새로 생성</sup>  | 일반 |
+| 암하라어(에티오피아) | am-ET | Female | `am-ET-MekdesNeural` <sup>새로 생성</sup>  | 일반 |
+| 암하라어(에티오피아) | am-ET | Male | `am-ET-AmehaNeural` <sup>새로 생성</sup>  | 일반 |
+| 아랍어(알제리아) | ar-DZ | Female | `ar-DZ-AminaNeural` <sup>새로 생성</sup>  | 일반 |
+| 아랍어(알제리아) | ar-DZ | Male | `ar-DZ-IsmaelNeural` <sup>새로 생성</sup>  | 일반 |
+| Arabic (Bahrain) | ar-BH | Female | `ar-BH-LailaNeural` <sup>새로 생성</sup>  | 일반 |
+| Arabic (Bahrain) | ar-BH | Male | `ar-BH-AliNeural` <sup>새로 생성</sup>  | 일반 |
 | 아랍어(이집트) | `ar-EG` | Female | `ar-EG-SalmaNeural` | 일반 |
 | 아랍어(이집트) | `ar-EG` | Male | `ar-EG-ShakirNeural` | 일반 |
+| 아랍어(이라크) | ar-IQ | Female | `ar-IQ-RanaNeural` <sup>새로 생성</sup>  | 일반 |
+| 아랍어(이라크) | ar-IQ | Male | `ar-IQ-BasselNeural` <sup>새로 생성</sup>  | 일반 |
+| 아랍어(요르단) | ar-JO | Female | `ar-JO-Sana Neural` <sup>새로 생성</sup>  | 일반 |
+| 아랍어(요르단) | ar-JO | Male | `ar-JO-Taim Neural` <sup>새로 생성</sup>  | 일반 |
+| 아랍어(쿠웨이트) | ar-KW | Female | `ar-KW-NouraNeural` <sup>새로 생성</sup>  | 일반 |
+| 아랍어(쿠웨이트) | ar-KW | Male | `ar-KW-FahedNeural` <sup>새로 생성</sup>  | 일반 |
+| 아랍어(리비아) | ar | Female | `ar-LY-ImanNeural` <sup>새로 생성</sup>  | 일반 |
+| 아랍어(리비아) | ar | Male | `ar-LY-OmarNeural` <sup>새로 생성</sup>  | 일반 |
+| 아랍어(모로코) | ar-MA | Female | `ar-MA-MounaNeural` <sup>새로 생성</sup>  | 일반 |
+| 아랍어(모로코) | ar-MA | Male | `ar-MA-JamalNeural` <sup>새로 생성</sup>  | 일반 |
+| 아랍어(카타르) | ar-QA | Female | `ar-QA-AmalNeural` <sup>새로 생성</sup>  | 일반 |
+| 아랍어(카타르) | ar-QA | Male | `ar-QA-MoazNeural` <sup>새로 생성</sup>  | 일반 |
 | 아랍어(사우디아라비아) | `ar-SA` | Female | `ar-SA-ZariyahNeural` | 일반 |
 | 아랍어(사우디아라비아) | `ar-SA` | Male | `ar-SA-HamedNeural` | 일반 |
+| 아랍어(시리아) | ar-SY | Female | `ar-SY-AmanyNeural` <sup>새로 생성</sup>  | 일반 |
+| 아랍어(시리아) | ar-SY | Male | `ar-SY-LaithNeural` <sup>새로 생성</sup>  | 일반 |
+| 아랍어(튀니지) | ar-TN | Female | `ar-TN-ReemNeural` <sup>새로 생성</sup>  | 일반 |
+| 아랍어(튀니지) | ar-TN | Male | `ar-TN-HediNeural` <sup>새로 생성</sup>  | 일반 |
+| 아랍어(아랍에미리트) | ar-AE | Female | `ar-AE-FatimaNeural` <sup>새로 생성</sup>  | 일반 |
+| 아랍어(아랍에미리트) | ar-AE | Male | `ar-AE-HamdanNeural` <sup>새로 생성</sup>  | 일반 |
+| 아랍어(예멘) | ar-YE | Female | `ar-YE-MaryamNeural` <sup>새로 생성</sup>  | 일반 |
+| 아랍어(예멘) | ar-YE | Male | `ar-YE-SalehNeural` <sup>새로 생성</sup>  | 일반 |
+| 벵골어(방글라데시) | bn-BD | Female | `bn-BD-NabanitaNeural` <sup>새로 생성</sup>  | 일반 |
+| 벵골어(방글라데시) | bn-BD | Male | `bn-BD-PradeepNeural` <sup>새로 생성</sup>  | 일반 |
 | 불가리아어(불가리아) | `bg-BG` | Female | `bg-BG-KalinaNeural` | 일반 |
 | 불가리아어(불가리아) | `bg-BG` | Male | `bg-BG-BorislavNeural` | 일반 |
+| 버마어어(대만) | my-MM | Female | `my-MM-NilarNeural` <sup>새로 생성</sup>  | 일반 |
+| 버마어어(대만) | my-MM | Male | `my-MM-ThihaNeural` <sup>새로 생성</sup>  | 일반 |
 | 카탈로니아어(스페인) | `ca-ES` | Female | `ca-ES-AlbaNeural` | 일반 |
 | 카탈로니아어(스페인) | `ca-ES` | Female | `ca-ES-JoanaNeural` | 일반 |
 | 카탈로니아어(스페인) | `ca-ES` | Male | `ca-ES-EnricNeural` | 일반 |
 | 중국어(광둥어, 번체) | `zh-HK` | Female | `zh-HK-HiuGaaiNeural` | 일반 |
 | 중국어(광둥어, 번체) | `zh-HK` | Female | `zh-HK-HiuMaanNeural` | 일반 |
 | 중국어(광둥어, 번체) | `zh-HK` | Male | `zh-HK-WanLungNeural` | 일반 |
-| 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoxiaoNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 일반, 여러 음성 스타일 |
-| 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoyouNeural` | 이야기 내레이션에 최적화된 어린이 음성 |
-| 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaomoNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 일반, 여러 역할 재생 및 스타일 |
-| 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoxuanNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 일반, 여러 역할 재생 및 스타일 |
 | 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaohanNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 일반, 여러 스타일 |
+| 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaomoNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 일반, 여러 역할 재생 및 스타일 |
 | 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoruiNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 시니어 음성, 여러 스타일 |
+| 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoxiaoNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 일반, 여러 음성 스타일 |
+| 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoxuanNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 일반, 여러 역할 재생 및 스타일 |
+| 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoyouNeural` | 이야기 내레이션에 최적화된 어린이 음성 |
+| 중국어(북경어, 간체) | `zh-CN` | Male   | `zh-CN-YunxiNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 일반, 여러 스타일 |
 | 중국어(북경어, 간체) | `zh-CN` | Male | `zh-CN-YunyangNeural` | 뉴스 읽기에 최적화되어 있습니다.<br /> [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 여러 음성 스타일 |
 | 중국어(북경어, 간체) | `zh-CN` | Male | `zh-CN-YunyeNeural` | 이야기 내레이션에 최적화 |
-| 중국어(북경어, 간체) | `zh-CN` | Male   | `zh-CN-YunxiNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 일반, 여러 스타일 |
 | 중국어(대만어) | `zh-TW` | Female | `zh-TW-HsiaoChenNeural` | 일반 |
 | 중국어(대만어) | `zh-TW` | Female | `zh-TW-HsiaoYuNeural` | 일반 |
 | 중국어(대만어) | `zh-TW` | Male | `zh-TW-YunJheNeural` | 일반 |
@@ -202,41 +234,49 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 영어(오스트레일리아) | `en-AU` | Male | `en-AU-WilliamNeural` | 일반 |
 | 영어(캐나다) | `en-CA` | Female | `en-CA-ClaraNeural` | 일반 |
 | 영어(캐나다) | `en-CA` | Male | `en-CA-LiamNeural` | 일반 |
-| 영어(홍콩) | `en-HK` | Female | `en-HK-YanNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(홍콩) | `en-HK` | Male | `en-HK-SamNeural` <sup>새로 생성</sup> | 일반 |
+| 영어(홍콩) | `en-HK` | Female | `en-HK-YanNeural` | 일반 |
+| 영어(홍콩) | `en-HK` | Male | `en-HK-SamNeural` | 일반 |
 | 영어(인도) | `en-IN` | Female | `en-IN-NeerjaNeural` | 일반 |
 | 영어(인도) | `en-IN` | Male | `en-IN-PrabhatNeural` | 일반 |
 | 영어(아일랜드) | `en-IE` | Female | `en-IE-EmilyNeural` | 일반 |
 | 영어(아일랜드) | `en-IE` | Male | `en-IE-ConnorNeural` | 일반 |
-| 영어(뉴질랜드) | `en-NZ` | Female | `en-NZ-MollyNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(뉴질랜드) | `en-NZ` | Male | `en-NZ-MitchellNeural` <sup>새로 생성</sup> | 일반 |
+| 영어 (케냐) | en-KE | Female | `en-KE-AsiliaNeural` <sup>새로 생성</sup>  | 일반 |
+| 영어 (케냐) | en-KE | Male | `en-KE-ChilembaNeural` <sup>새로 생성</sup>  | 일반 |
+| 영어(뉴질랜드) | `en-NZ` | Female | `en-NZ-MollyNeural` | 일반 |
+| 영어(뉴질랜드) | `en-NZ` | Male | `en-NZ-MitchellNeural` | 일반 |
+| 영어(나이지리아) | en-us | Female | `en-NG-EzinneNeural` <sup>새로 생성</sup>  | 일반 |
+| 영어(나이지리아) | en-us | Male | `en-NG-AbeoNeural` <sup>새로 생성</sup>  | 일반 |
 | 영어(필리핀) | `en-PH` | Female | `en-PH-RosaNeural` | 일반 | 
 | 영어(필리핀) | `en-PH` | Male | `en-PH-JamesNeural` | 일반 | 
-| 영어(싱가포르) | `en-SG` | Female | `en-SG-LunaNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(싱가포르) | `en-SG` | Male | `en-SG-WayneNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(남아프리카 공화국) | `en-ZA` | Female | `en-ZA-LeahNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(남아프리카 공화국) | `en-ZA` | Male | `en-ZA-LukeNeural` <sup>새로 생성</sup> | 일반 |
+| 영어(싱가포르) | `en-SG` | Female | `en-SG-LunaNeural` | 일반 |
+| 영어(싱가포르) | `en-SG` | Male | `en-SG-WayneNeural` | 일반 |
+| 영어(남아프리카 공화국) | `en-ZA` | Female | `en-ZA-LeahNeural` | 일반 |
+| 영어(남아프리카 공화국) | `en-ZA` | Male | `en-ZA-LukeNeural` | 일반 |
+| 영어(탄자니아) | en-us-TZ | Female | `en-TZ-ImaniNeural` <sup>새로 생성</sup>  | 일반 |
+| 영어(탄자니아) | en-us-TZ | Male | `en-TZ-ElimuNeural` <sup>새로 생성</sup>  | 일반 |
 | 영어(영국) | `en-GB` | Female | `en-GB-LibbyNeural` | 일반 |
-| 영어(영국) | `en-GB` | Female | `en-GB-SoniaNeural` <sup>새로 생성</sup> | 일반 |
-| 영어(영국) | `en-GB` | Female | `en-GB-MiaNeural`<sup>10월 30일 사용이 사용되었습니다. 아래 참조</sup> | 일반 |
+| 영어(영국) | `en-GB` | Female | `en-GB-MiaNeural`<sup>받아볼 10 월 30 일, 아래 참조</sup> | 일반 |
+| 영어(영국) | `en-GB` | Female | `en-GB-SoniaNeural` | 일반 |
 | 영어(영국) | `en-GB` | Male | `en-GB-RyanNeural` | 일반 |
-| 영어(미국) | `en-US` | Female | `en-US-AriaNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 일반, 여러 음성 스타일 |
-| 영어(미국) | `en-US` | Female | `en-US-JennyNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 일반, 여러 음성 스타일 |
-| 영어(미국) | `en-US` | Male | `en-US-GuyNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 일반, 여러 음성 스타일 |
-| 영어(미국) | `en-US` | Female | `en-US-SaraNeural` <sup>새로 생성</sup> | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 일반, 여러 음성 스타일 |
 | 영어(미국) | `en-US` | Female | `en-US-AmberNeural` | 일반 |
+| 영어(미국) | `en-US` | Female | `en-US-AriaNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 일반, 여러 음성 스타일 |
 | 영어(미국) | `en-US` | Female | `en-US-AshleyNeural` | 일반 |
 | 영어(미국) | `en-US` | Female | `en-US-CoraNeural` | 일반 |
 | 영어(미국) | `en-US` | Female | `en-US-ElizabethNeural` | 일반 |
+| 영어(미국) | `en-US` | Female | `en-US-JennyNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 일반, 여러 음성 스타일 |
 | 영어(미국) | `en-US` | Female | `en-US-MichelleNeural`| 일반 |
 | 영어(미국) | `en-US` | Female | `en-US-MonicaNeural` | 일반 |
+| 영어(미국) | `en-US` | Female | `en-US-SaraNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 일반, 여러 음성 스타일 |
 | 영어(미국) | `en-US` | Kid | `en-US-AnaNeural`| 일반 |
 | 영어(미국) | `en-US` | Male | `en-US-BrandonNeural` | 일반 |
 | 영어(미국) | `en-US` | Male | `en-US-ChristopherNeural`  | 일반 |
-| 영어(미국) | `en-US` | Male | `en-US-JacobNeural` | 일반 |
 | 영어(미국) | `en-US` | Male | `en-US-EricNeural` | 일반 |
+| 영어(미국) | `en-US` | Male | `en-US-GuyNeural` | [SSML을 통해](speech-synthesis-markup.md#adjust-speaking-styles) 사용 가능한 일반, 여러 음성 스타일 |
+| 영어(미국) | `en-US` | Male | `en-US-JacobNeural` | 일반 |
 | 에스토니아어(에스토니아) | `et-EE` | Female | `et-EE-AnuNeural` | 일반 |
 | 에스토니아어(에스토니아) | `et-EE` | Male | `et-EE-KertNeural` | 일반 |
+| 필리핀어(필리핀) | fil-PH | Female | `fil-PH-BlessicaNeural` <sup>새로 생성</sup>  | 일반 |
+| 필리핀어(필리핀) | fil-PH | Male | `fil-PH-AngeloNeural` <sup>새로 생성</sup>  | 일반 |
 | 핀란드어(핀란드) | `fi-FI` | Female | `fi-FI-NooraNeural` | 일반 |
 | 핀란드어(핀란드) | `fi-FI` | Female | `fi-FI-SelmaNeural` | 일반 |
 | 핀란드어(핀란드) | `fi-FI` | Male | `fi-FI-HarriNeural` | 일반 |
@@ -249,6 +289,8 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 프랑스어(프랑스) | `fr-FR` | Male | `fr-FR-HenriNeural` | 일반 |
 | 프랑스어(스위스) | `fr-CH` | Female | `fr-CH-ArianeNeural` | 일반 |
 | 프랑스어(스위스) | `fr-CH` | Male | `fr-CH-FabriceNeural` | 일반 |
+| 갈리시아어(스페인) | gl-ES | Female | `gl-ES-SabelaNeural` <sup>새로 생성</sup>  | 일반 |
+| 갈리시아어(스페인) | gl-ES | Male | `gl-ES-RoiNeural` <sup>새로 생성</sup>  | 일반 |
 | 독일어(오스트리아) | `de-AT` | Female | `de-AT-IngridNeural` | 일반 |
 | 독일어(오스트리아) | `de-AT` | Male | `de-AT-JonasNeural` | 일반 |
 | 독일어(독일) | `de-DE` | Female | `de-DE-KatjaNeural` | 일반 |
@@ -257,8 +299,8 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 독일어(스위스) | `de-CH` | Male | `de-CH-JanNeural` | 일반 |
 | 그리스어(그리스) | `el-GR` | Female | `el-GR-AthinaNeural` | 일반 |
 | 그리스어(그리스) | `el-GR` | Male | `el-GR-NestorasNeural` | 일반 |
-| 구자라트어(인도) | `gu-IN` | Female | `gu-IN-DhwaniNeural` <sup>새로 생성</sup> | 일반 |
-| 구자라트어(인도) | `gu-IN` | Male | `gu-IN-NiranjanNeural` <sup>새로 생성</sup> | 일반 |
+| 구자라트어(인도) | `gu-IN` | Female | `gu-IN-DhwaniNeural` | 일반 |
+| 구자라트어(인도) | `gu-IN` | Male | `gu-IN-NiranjanNeural` | 일반 |
 | 히브리어(이스라엘) | `he-IL` | Female | `he-IL-HilaNeural` | 일반 |
 | 히브리어(이스라엘) | `he-IL` | Male | `he-IL-AvriNeural` | 일반 |
 | 힌디어(인도) | `hi-IN` | Female | `hi-IN-SwaraNeural` | 일반 |
@@ -274,6 +316,10 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 이탈리아어(이탈리아) | `it-IT` | Male | `it-IT-DiegoNeural` | 일반 |
 | 일본어(일본) | `ja-JP` | Female | `ja-JP-NanamiNeural` | 일반 |
 | 일본어(일본) | `ja-JP` | Male | `ja-JP-KeitaNeural` | 일반 |
+| Javanese(포르투갈어) | jv-ID | Female | `jv-ID-SitiNeural` <sup>새로 생성</sup>  | 일반 |
+| Javanese(포르투갈어) | jv-ID | Male | `jv-ID-DimasNeural` <sup>새로 생성</sup>  | 일반 |
+| 크메르어(캄보디아) | km-KH | Female | `km-KH-SreymomNeural` <sup>새로 생성</sup>  | 일반 |
+| 크메르어(캄보디아) | km-KH | Male | `km-KH-PisethNeural` <sup>새로 생성</sup>  | 일반 |
 | 한국어(한국) | `ko-KR` | Female | `ko-KR-SunHiNeural` | 일반 |
 | 한국어(한국) | `ko-KR` | Male | `ko-KR-InJoonNeural` | 일반 |
 | 라트비아어(라트비아) | `lv-LV` | Female | `lv-LV-EveritaNeural` | 일반 |
@@ -284,11 +330,13 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 말레이어(말레이시아) | `ms-MY` | Male | `ms-MY-OsmanNeural` | 일반 |
 | 몰타어(몰타) | `mt-MT` | Female | `mt-MT-GraceNeural` | 일반 |
 | 몰타어(몰타) | `mt-MT` | Male | `mt-MT-JosephNeural` | 일반 |
-| 마라티어(인도) | `mr-IN` | Female | `mr-IN-AarohiNeural` <sup>새로 생성</sup> | 일반 |
-| 마라티어(인도) | `mr-IN` | Male | `mr-IN-ManoharNeural` <sup>새로 생성</sup> | 일반 |
+| 마라티어(인도) | `mr-IN` | Female | `mr-IN-AarohiNeural` | 일반 |
+| 마라티어(인도) | `mr-IN` | Male | `mr-IN-ManoharNeural` | 일반 |
 | 노르웨이어(복말)(노르웨이) | `nb-NO` | Female | `nb-NO-IselinNeural` | 일반 |
 | 노르웨이어(복말)(노르웨이) | `nb-NO` | Female | `nb-NO-PernilleNeural` | 일반 |
 | 노르웨이어(복말)(노르웨이) | `nb-NO` | Male | `nb-NO-FinnNeural` | 일반 |
+| 페르시아어(이란) | fa-IR | Female | `fa-IR-DilaraNeural` <sup>새로 생성</sup>  | 일반 |
+| 페르시아어(이란) | fa-IR | Male | `fa-IR-FaridNeural` <sup>새로 생성</sup>  | 일반 |
 | 폴란드어(폴란드) | `pl-PL` | Female | `pl-PL-AgnieszkaNeural` | 일반 |
 | 폴란드어(폴란드) | `pl-PL` | Female | `pl-PL-ZofiaNeural` | 일반 |
 | 폴란드어(폴란드) | `pl-PL` | Male | `pl-PL-MarekNeural` | 일반 |
@@ -306,23 +354,67 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 슬로바키아어(슬로바키아) | `sk-SK` | Male | `sk-SK-LukasNeural` | 일반 |
 | 슬로베니아어(슬로베니아) | `sl-SI` | Female | `sl-SI-PetraNeural` | 일반 |
 | 슬로베니아어(슬로베니아) | `sl-SI` | Male | `sl-SI-RokNeural` | 일반 |
-| 스페인어(아르헨티나) | `es-AR` | Female | `es-AR-ElenaNeural` <sup>새로 생성</sup> | 일반 |
-| 스페인어(아르헨티나) | `es-AR` | Male | `es-AR-TomasNeural` <sup>새로 생성</sup> | 일반 |
-| 스페인어(콜롬비아) | `es-CO` | Female | `es-CO-SalomeNeural` <sup>새로 생성</sup> | 일반 |
-| 스페인어(콜롬비아) | `es-CO` | Male | `es-CO-GonzaloNeural` <sup>새로 생성</sup> | 일반 |
+| 소말리아 (소말리아) | 따라서 | Female | `so-SO-UbaxNeural` <sup>새로 생성</sup>  | 일반 |
+| 소말리아 (소말리아) | 따라서 | Male | `so-SO-MuuseNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(아르헨티나) | `es-AR` | Female | `es-AR-ElenaNeural` | 일반 |
+| 스페인어(아르헨티나) | `es-AR` | Male | `es-AR-TomasNeural` | 일반 |
+| 스페인어(볼리비아) | es-BO | Female | `es-BO-SofiaNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(볼리비아) | es-BO | Male | `es-BO-MarceloNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(칠레) | es-CL | Female | `es-CL-CatalinaNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(칠레) | es-CL | Male | `es-CL-LorenzoNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(콜롬비아) | `es-CO` | Female | `es-CO-SalomeNeural` | 일반 |
+| 스페인어(콜롬비아) | `es-CO` | Male | `es-CO-GonzaloNeural` | 일반 |
+| 스페인어(코스타리카) | es-CR | Female | `es-CR-MariaNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(코스타리카) | es-CR | Male | `es-CR-JuanNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(쿠바) | es-CU | Female | `es-CU-BelkysNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(쿠바) | es-CU | Male | `es-CU-ManuelNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(도미니카 공화국) | es-DO | Female | `es-DO-RamonaNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(도미니카 공화국) | es-DO | Male | `es-DO-EmilioNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(에콰도르) | es-EC | Female | `es-EC-AndreaNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(에콰도르) | es-EC | Male | `es-EC-LuisNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(엘살바도르) | es-SV | Female | `es-SV-LorenaNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(엘살바도르) | es-SV | Male | `es-SV-RodrigoNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(적도 기니) | es-GQ | Female | `es-GQ-TeresaNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(적도 기니) | es-GQ | Male | `es-GQ-JavierNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(과테말라) | es-GT | Female | `es-GT-MartaNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(과테말라) | es-GT | Male | `es-GT-AndresNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(온두라스) | es-HN | Female | `es-HN-KarlaNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(온두라스) | es-HN | Male | `es-HN-CarlosNeural` <sup>새로 생성</sup>  | 일반 |
 | 스페인어(멕시코) | `es-MX` | Female | `es-MX-DaliaNeural` | 일반 |
 | 스페인어(멕시코) | `es-MX` | Male | `es-MX-JorgeNeural` | 일반 |
+| 스페인어(니카라과) | es-NI | Female | `es-NI-YolandaNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(니카라과) | es-NI | Male | `es-NI-FedericoNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(파나마) | es-PA | Female | `es-PA-MargaritaNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(파나마) | es-PA | Male | `es-PA-RobertoNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(파라과이) | es-PY | Female | `es-PY-TaniaNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(파라과이) | es-PY | Male | `es-PY-MarioNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(페루) | es-PE | Female | `es-PE-CamilaNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(페루) | es-PE | Male | `es-PE-AlexNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(푸에르토리코) | es-PR | Female | `es-PR-Karina Neural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(푸에르토리코) | es-PR | Male | `es-PR-Victor Neural` <sup>새로 생성</sup>  | 일반 |
 | 스페인어(스페인) | `es-ES` | Female | `es-ES-ElviraNeural` | 일반 |
 | 스페인어(스페인) | `es-ES` | Male | `es-ES-AlvaroNeural` | 일반 |
-| 스페인어(미국) | `es-US` | Female | `es-US-PalomaNeural` <sup>새로 생성</sup> | 일반 |
-| 스페인어(미국) | `es-US` | Male | `es-US-AlonsoNeural` <sup>새로 생성</sup> | 일반 |
-| 스와힐리어(케냐) | `sw-KE` | Female | `sw-KE-ZuriNeural` <sup>새로 생성</sup> | 일반 |
-| 스와힐리어(케냐) | `sw-KE` | Male | `sw-KE-RafikiNeural` <sup>새로 생성</sup> | 일반 |
+| 스페인어(우루과이) | es-UY | Female | `es-UY-ValentinaNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(우루과이) | es-UY | Male | `es-UY-MateoNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(미국) | `es-US` | Female | `es-US-PalomaNeural` | 일반 |
+| 스페인어(미국) | `es-US` | Male | `es-US-AlonsoNeural` | 일반 |
+| 스페인어(베네수엘라) | es-VE | Female | `es-VE-PaolaNeural` <sup>새로 생성</sup>  | 일반 |
+| 스페인어(베네수엘라) | es-VE | Male | `es-VE-SebastianNeural` <sup>새로 생성</sup>  | 일반 |
+| 순다어어(대만어) | su-ID | Female | `su-ID-TutiNeural` <sup>새로 생성</sup>  | 일반 |
+| 순다어어(대만어) | su-ID | Male | `su-ID-JajangNeural` <sup>새로 생성</sup>  | 일반 |
+| 스와힐리어(케냐) | `sw-KE` | Female | `sw-KE-ZuriNeural` | 일반 |
+| 스와힐리어(케냐) | `sw-KE` | Male | `sw-KE-RafikiNeural` | 일반 |
+| 스와힐리(스웨덴) | sw-TZ | Female | `sw-TZ-RehemaNeural` <sup>새로 생성</sup>  | 일반 |
+| 스와힐리(스웨덴) | sw-TZ | Male | `sw-TZ-DaudiNeural` <sup>새로 생성</sup>  | 일반 |
 | 스웨덴어(스웨덴) | `sv-SE` | Female | `sv-SE-HilleviNeural` | 일반 |
 | 스웨덴어(스웨덴) | `sv-SE` | Female | `sv-SE-SofieNeural` | 일반 |
 | 스웨덴어(스웨덴) | `sv-SE` | Male | `sv-SE-MattiasNeural` | 일반 |
 | 타밀어(인도) | `ta-IN` | Female | `ta-IN-PallaviNeural` | 일반 |
 | 타밀어(인도) | `ta-IN` | Male | `ta-IN-ValluvarNeural` | 일반 |
+| 타밀어(싱가포르) | ta-SG | Female | `ta-SG-VenbaNeural` <sup>새로 생성</sup>  | 일반 |
+| 타밀어(싱가포르) | ta-SG | Male | `ta-SG-AnbuNeural` <sup>새로 생성</sup>  | 일반 |
+| 타밀어(스리루) | ta-LK | Female | `ta-LK-SaranyaNeural` <sup>새로 생성</sup>  | 일반 |
+| 타밀어(스리루) | ta-LK | Male | `ta-LK-KumarNeural` <sup>새로 생성</sup>  | 일반 |
 | 텔루구어(인도) | `te-IN` | Female | `te-IN-ShrutiNeural` | 일반 |
 | 텔루구어(인도) | `te-IN` | Male | `te-IN-MohanNeural` | 일반 |
 | 태국어(태국) | `th-TH` | Female | `th-TH-AcharaNeural` | 일반 |
@@ -332,16 +424,22 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 터키어(터키) | `tr-TR` | Male | `tr-TR-AhmetNeural` | 일반 |
 | 우크라이나어(우크라이나) | `uk-UA` | Female | `uk-UA-PolinaNeural` | 일반 | 
 | 우크라이나어(우크라이나) | `uk-UA` | Male | `uk-UA-OstapNeural` | 일반 | 
+| 우르두어 (인도) | 사용자 | Female | `ur-IN-GulNeural` <sup>새로 생성</sup>  | 일반 |
+| 우르두어 (인도) | 사용자 | Male | `ur-IN-SalmanNeural` <sup>새로 생성</sup>  | 일반 |
 | 우르두어(파키스탄) | `ur-PK` | Female | `ur-PK-UzmaNeural`  | 일반 | 
 | 우르두어(파키스탄) | `ur-PK` | Male | `ur-PK-AsadNeural` | 일반 | 
+| 우즈베크어 (우즈베키스탄) | uz-UZ | Female | `uz-UZ-MadinaNeural` <sup>새로 생성</sup>  | 일반 |
+| 우즈베크어 (우즈베키스탄) | uz-UZ | Male | `uz-UZ-SardorNeural` <sup>새로 생성</sup>  | 일반 |
 | 베트남어(베트남) | `vi-VN` | Female | `vi-VN-HoaiMyNeural` | 일반 |
 | 베트남어(베트남) | `vi-VN` | Male | `vi-VN-NamMinhNeural` | 일반 |
 | 웨일스어(영국) | `cy-GB` | Female | `cy-GB-NiaNeural` | 일반 | 
 | 웨일스어(영국) | `cy-GB` | Male | `cy-GB-AledNeural` | 일반 | 
+| 줄루어 (남아프리카 공화국) | zu-za-ZA | Female | `zu-ZA-ThandoNeural` <sup>새로 생성</sup>  | 일반 |
+| 줄루어 (남아프리카 공화국) | zu-za-ZA | Male | `zu-ZA-ThembaNeural` <sup>새로 생성</sup>  | 일반 |
 
 > [!IMPORTANT]
-> 영어(영국) `en-GB-MiaNeural` 음성은 **2021년 10월 30일에** 사용 중지됩니다. 에 대한 모든 서비스 `en-GB-MiaNeural` 요청은 `en-GB-SoniaNeural` **2021년 10월 30일** 이후에 자동으로 다시 지시됩니다.
-> 컨테이너 신경망 TTS를 사용하는 경우 **2021년 10월 30일** 이전의 최신 버전을 [다운로드하여](speech-container-howto.md#get-the-container-image-with-docker-pull) 배포하세요. **2021년 10월 30일** 이후에는 이전 버전의 모든 요청이 거부됩니다.
+> 영어 (영국) 음성은 `en-GB-MiaNeural` **2021 년 10 월 30** 일에 사용 중지 됩니다. 에 대 한 모든 서비스 요청 `en-GB-MiaNeural` 은 `en-GB-SoniaNeural` **30 년 10 2021 월 30** 일 이후에 자동으로 다시 전달 됩니다.
+> 컨테이너 신경망을 사용 하는 경우 **2021 년 10 월 30** 일 전에 최신 버전을 [다운로드](speech-container-howto.md#get-the-container-image-with-docker-pull) 하 여 배포 하세요. **2021 년 10 월 30** 일 이후에는 이전 버전의 모든 요청이 거부 됩니다.
 
 #### <a name="neural-voices-in-preview"></a>미리 보기로 제공되는 인공신경망 음성
 
@@ -350,7 +448,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 언어                         | Locale  | 성별 | 음성 이름                             | 스타일 지원 |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
 | 영어(미국) | `en-US` | Female | `en-US-JennyMultilingualNeural` <sup>새로 생성</sup> | [SSML을 사용](speech-synthesis-markup.md#create-an-ssml-document)하여 사용할 수 있는 일반적인 다국어 기능 |
-| 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaochenNeural` <sup>새로 생성</sup> | 컨버지드 대화에 최적화 |
+| 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaochenNeural` <sup>새로 생성</sup> | 갑작스런 대화에 최적화 됨 |
 | 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoyanNeural` <sup>새로 생성</sup> | 고객 서비스에 최적화 |
 | 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoshuangNeural` <sup>새로 생성</sup> | 자식 스토리 및 채팅에 최적화된 자식 음성 [SSML을 사용하여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 음성 스타일|
 | 중국어(북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaoqiuNeural` <sup>새로 생성</sup> | 내레이션에 최적화 |
@@ -505,7 +603,7 @@ Custom Voice는 인공신경망 계층(즉, 사용자 지정 신경망 음성)�
 
 ## <a name="speech-translation"></a>음성 번역
 
-**Speech Translation** API는 음성 간 음성 및 음성을 텍스트로 번역에 대해 다른 언어를 지원합니다. 원본 언어는 항상 음성 텍스트 변환 언어 테이블에 나와 있는 것이어야 합니다. 사용 가능한 대상 언어는 번역 대상이 음성인지 또는 텍스트인지에 따라 달라집니다. 들어오는 음성을  [지원되는 언어](https://www.microsoft.com/translator/business/languages/)로 번역할 수 있습니다. [음성 합성](language-support.md#text-languages)에 언어의 하위 집합을 사용할 수 있습니다.
+**Speech Translation** API는 음성 간 음성 및 음성을 텍스트로 번역에 대해 다른 언어를 지원합니다. 원본 언어는 항상 음성 텍스트 변환 언어 테이블에 나와 있는 것이어야 합니다. 사용 가능한 대상 언어는 번역 대상이 음성인지 또는 텍스트인지에 따라 달라집니다. 들어오는 음성을  [지원 되는 언어](https://www.microsoft.com/translator/business/languages/)중 하나로 변환할 수 있습니다. [음성 합성](language-support.md#text-languages)에 언어의 하위 집합을 사용할 수 있습니다.
 
 ### <a name="text-languages"></a>텍스트 언어
 

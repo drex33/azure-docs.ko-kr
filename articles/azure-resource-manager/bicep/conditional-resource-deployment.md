@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 07/30/2021
-ms.openlocfilehash: be7e52cb093eb9920be5b6e8e9971b7f882f7f06
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 0c2f154a0c45dd46a56a4321aa67a75e2263b317
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124793838"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219605"
 ---
 # <a name="conditional-deployment-in-bicep"></a>Bicep의 조건부 배포
 
@@ -46,7 +46,7 @@ module dnsZone 'dnszones.bicep' = if (deployZone) {
 }
 ```
 
-조건은 종속성 선언에 사용할 수 있습니다. [명시적 종속성](resource-declaration.md#set-resource-dependencies)의 경우 리소스가 배포되지 않으면 Azure Resource Manager가 필수 종속성에서 해당 종속성을 자동으로 제거합니다. 암시적 종속성의 경우 조건부 리소스의 속성을 참조하는 것은 허용되지만 배포 오류가 발생할 수 있습니다.
+조건은 종속성 선언에 사용할 수 있습니다. [명시적 종속성](resource-declaration.md#dependencies)의 경우 리소스가 배포되지 않으면 Azure Resource Manager가 필수 종속성에서 해당 종속성을 자동으로 제거합니다. 암시적 종속성의 경우 조건부 리소스의 속성을 참조하는 것은 허용되지만 배포 오류가 발생할 수 있습니다.
 
 ## <a name="new-or-existing-resource"></a>신규 또는 기존 리소스
 
@@ -113,4 +113,4 @@ output mgmtStatus string = ((!empty(logAnalytics)) ? 'Enabled monitoring for VM!
 
 * 조건 및 루프에 대한 Microsoft Learn 모듈은 [조건 및 루프를 사용하여 유연한 Bicep 템플릿 빌드](/learn/modules/build-flexible-bicep-templates-conditions-loops/)를 참조하세요.
 * Bicep 파일 만들기에 대한 권장 사항은 [Bicep 모범 사례](best-practices.md)를 참조하세요.
-* 리소스의 여러 인스턴스를 만들려면 [Bicep의 리소스 반복](loop-resources.md)을 참조하세요.
+* 리소스의 여러 인스턴스를 만들려면 [Bicep의 반복 루프를](loops.md)참조하세요.

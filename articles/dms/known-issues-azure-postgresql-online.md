@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: fdefcabdda64402610f115832976ec9f7af81b80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: a2c3aa5442f89879ddad4859029292027eef3d39
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99258832"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130259583"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>PostgreSQL에서 Azure DB for PostgreSQL로의 온라인 마이그레이션과 관련된 알려진 문제/마이그레이션 제한 사항
 
@@ -82,7 +82,7 @@ ms.locfileid: "99258832"
      ```
 
 ## <a name="size-limitations"></a>크기 제한
-- 단일 DMS 서비스를 사용하여 PostgreSQL에서 Azure DB for PostgreSQL로 최대 2TB의 데이터를 마이그레이션할 수 있습니다.
+- 단일 DMS 서비스를 사용하여 PostgreSQL에서 Azure DB for PostgreSQL 최대 1 TB의 데이터를 마이그레이션할 수 있습니다.
 ## <a name="datatype-limitations"></a>데이터 형식 제한 사항
 
   **제한**: 테이블에 기본 키가 없으면 변경 사항이 대상 데이터베이스에 동기화되지 않을 수 있습니다.

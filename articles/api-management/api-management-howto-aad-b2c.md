@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 09/28/2021
 ms.author: danlep
-ms.openlocfilehash: 553f7ce69d63ceebcdaacc3b29b0abc2a01987f7
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 3fa10f238b3047b97e5d4d4c8c472010cfff883b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129984557"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130222536"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Azure API Management에서 Azure Active Directory B2C를 사용하여 개발자 계정에 권한을 부여하는 방법
 
@@ -116,7 +116,7 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 애플리케이
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 > [!NOTE]
-> B2C을 레거시 개발자 포털과 적절히 통합 하려면 **표준 v1** 사용자 흐름을 사용 하 여 [암호 재설정](/azure/active-directory-b2c/user-flow-self-service-password-reset) 을 사용 하도록 설정 하 고 Azure Active Directory B2C를 사용 하 여 개발자 계정에 로그인 합니다. 
+> B2C을 레거시 개발자 포털과 적절히 통합 하려면 **표준 v1** 사용자 흐름을 사용 하 여 [암호 재설정](../active-directory-b2c/add-password-reset-policy.md) 을 사용 하도록 설정 하 고 Azure Active Directory B2C를 사용 하 여 개발자 계정에 로그인 합니다. 
 
 1. 새 브라우저 창을 열고 레거시 개발자 포털로 이동 합니다. **등록** 단추를 클릭합니다.
 

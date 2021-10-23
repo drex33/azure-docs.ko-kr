@@ -2,18 +2,18 @@
 title: Azure Marketplace
 description: EA 고객이 Azure Marketplace를 사용하는 방법을 설명합니다.
 author: bandersmsft
-ms.reviewer: baolcsva
+ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 10/21/2021
 ms.author: banders
-ms.openlocfilehash: d7514f4f3b1280bd65eaf8913e4f97f21b92fa28
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f22dd59be380a7535d8bdc724d48152eeec4041f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128616444"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130244194"
 ---
 # <a name="azure-marketplace"></a>Azure Marketplace
 
@@ -21,7 +21,7 @@ ms.locfileid: "128616444"
 
 ## <a name="azure-marketplace-for-ea-customers"></a>EA 고객용 Azure Marketplace
 
-직접 고객의 경우 Azure Marketplace 요금은 Azure Enterprise Portal에 표시됩니다. Azure Marketplace 구매 및 소비량은 분기별 또는 월간 주기 및 미지급에 대한 Azure 선불 외의 금액으로 청구됩니다.
+직접 고객의 경우 Azure Marketplace 요금은 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts)에 표시 됩니다. Azure Marketplace 구매 및 소비량은 분기별 또는 월간 주기 및 미지급에 대한 Azure 선불 외의 금액으로 청구됩니다. [Azure Portal에서 Azure Marketplace 관리를](direct-ea-administration.md#enable-azure-marketplace-purchases)참조 하세요.
 
 간접 고객은 Azure Enterprise Portal의 **구독 관리** 페이지에서 Azure Marketplace 구독을 찾을 수 있지만, 가격은 숨겨집니다. 고객은 Azure Marketplace 요금에 대한 자세한 내용을 LSP(라이선스 솔루션 공급자)에 문의해야 합니다.
 
@@ -52,12 +52,21 @@ LSP는 Azure Enterprise Portal의 가격표 페이지에서 Azure Marketplace �
 
 고객이 Azure 구독을 Azure Enterprise Portal의 등록에 직접 연결하여 자신의 직접 Azure 구독을 Azure EA로 변환할 수 있지만, 이 경우 자식 구독을 자동으로 변환하지 않습니다.
 
-Azure Marketplace 구매를 사용하도록 설정하려면 다음을 수행합니다.
+Azure Enterprise Portal에서 Azure Marketplace 구매를 사용 하도록 설정 하려면 다음을 수행 합니다.
 
 1. 엔터프라이즈 관리자 권한으로 Azure Enterprise Portal에 로그인합니다.
 1. **관리** 로 이동합니다.
 1. **등록 세부 정보** 아래에서 **Azure Marketplace** 품목 옆에 있는 연필 아이콘을 선택합니다.
 1. **사용/사용 안 함** 또는 무료 **BYOL SKU만** 을 적절하게 전환합니다.
+1. **저장** 을 선택합니다.
+
+직접 고객은 Azure Portal에서 Azure Marketplace 구매를 사용 하도록 설정할 수 있습니다.
+
+1. Azure Portal에 로그인합니다.
+1. **Cost Management + 청구** 로 이동합니다.
+1. 왼쪽 메뉴에서 청구 범위를 선택한 다음 청구 계정 범위를 선택 합니다.
+1. 왼쪽 메뉴에서 **정책** 을 선택 합니다.
+1. Azure Marketplace에서 정책을 **켜기** 로 설정 합니다.
 1. **저장** 을 선택합니다.
 
 > [!NOTE]

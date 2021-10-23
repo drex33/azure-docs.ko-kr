@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.custom: devx-track-csharp
 ms.reviewer: mbullwin
-ms.openlocfilehash: 2bba7516637bedf6e81747cbb27f926964c63f53
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3723896da2cd14762fd3fe81fa50caaa4b74b0b8
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128556512"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130250714"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Application Insights의 원격 분석 채널
 
@@ -94,7 +94,7 @@ public void ConfigureServices(IServiceCollection services)
 ```
 
 > [!IMPORTANT]
-> ASP.NET Core 애플리케이션에는 `TelemetryConfiguration.Active`를 사용하여 채널을 구성 하지 않는 것이 좋습니다.
+> 를 사용하여 채널을 구성하는 `TelemetryConfiguration.Active` 것은 ASP.NET Core 애플리케이션에서 지원되지 않습니다.
 
 ### <a name="configuration-in-code-for-netnet-core-console-applications"></a>.NET/.NET Core 콘솔 애플리케이션에 대한 코드 구성
 
@@ -111,7 +111,7 @@ TelemetryConfiguration.Active.TelemetryChannel = serverTelemetryChannel;
 
 `ServerTelemetryChannel`는 도착 항목을 메모리 내 버퍼에 저장합니다. 항목은 30초마다, 또는 500개 항목이 버퍼링될 때 `Transmission` 인스턴스로 serialize, 압축 및 저장됩니다. 단일 `Transmission` 인스턴스는 최대 500개 항목을 포함하며, 단일 HTTPS 호출을 통해 Application Insights 서비스에 전송되는 원격 분석의 배치(Batch)를 나타냅니다.
 
-기본값으로 최대 10개의 `Transmission` 인스턴스를 병렬로 전송할 수 있습니다. 원격 분석이 더 빠른 속도로 도착하거나, 네트워크 또는 Application Insights 백 엔드가 느려지는 경우, `Transmission` 인스턴스는 메모리에 저장됩니다. 이 메모리 내 `Transmission` 버퍼의 기본 용량은 5MB입니다. 메모리 내 용량이 초과되면 `Transmission` 인스턴스는 50MB 한도까지 로컬 디스크에 저장됩니다. `Transmission` 인스턴스는 네트워크 문제가 있는 경우에도 로컬 디스크에 저장됩니다. 로컬 디스크에 저장되는 항목만 애플리케이션 작동 중단에도 유지됩니다. 이 항목은 애플리케이션이 다시 시작될 때마다 전송됩니다. 네트워크 문제가 지속 되는 경우는 `ServerTelemetryChannel` 원격 분석 전송을 다시 시도 하기 전에 10 초에서 1 시간 사이의 지 수 백오프 논리를 사용 합니다. 
+기본값으로 최대 10개의 `Transmission` 인스턴스를 병렬로 전송할 수 있습니다. 원격 분석이 더 빠른 속도로 도착하거나, 네트워크 또는 Application Insights 백 엔드가 느려지는 경우, `Transmission` 인스턴스는 메모리에 저장됩니다. 이 메모리 내 `Transmission` 버퍼의 기본 용량은 5MB입니다. 메모리 내 용량이 초과되면 `Transmission` 인스턴스는 50MB 한도까지 로컬 디스크에 저장됩니다. `Transmission` 인스턴스는 네트워크 문제가 있는 경우에도 로컬 디스크에 저장됩니다. 로컬 디스크에 저장되는 항목만 애플리케이션 작동 중단에도 유지됩니다. 이 항목은 애플리케이션이 다시 시작될 때마다 전송됩니다. 네트워크 문제가 지속되면 는 `ServerTelemetryChannel` 원격 분석 전송을 다시 시도하기 전에 10초에서 1시간 범위의 지수 백오프 논리를 사용합니다. 
 
 ## <a name="configurable-settings-in-channels"></a>채널의 구성 가능한 설정
 
@@ -147,7 +147,9 @@ TelemetryConfiguration.Active.TelemetryChannel = serverTelemetryChannel;
 
 1. Windows에서 원격 분석을 저장하는 기본 디스크 위치는 %LOCALAPPDATA% or %TEMP%입니다. 이러한 위치는 일반적으로 컴퓨터에 로컬로 있습니다. 애플리케이션이 물리적으로 한 위치에서 다른 위치로 마이그레이션되면, 원래 위치에 저장된 원격 분석은 모두 손실됩니다.
 
-1. Windows의 웹앱에서, 기본 디스크 스토리지 위치는 D:\local\LocalAppData입니다. 이 위치는 계속 유지되지 않습니다. 앱을 다시 시작하고, 스케일 아웃하며, 기타 작업을 수행하는 경우 이러한 위치가 삭제되어, 여기에 저장된 원격 분석의 손실을 초래합니다. 기본값을 재정의해서 D:\home과 같은 지속형 위치로 스토리지를 지정할 수 있습니다. 그러나 이러한 지속형 위치는 원격 스토리지에서 제공되므로 속도가 느려질 수 있습니다.
+1. Windows Azure Web Apps 기본 디스크 스토리지 위치는 D:\local\LocalAppData입니다. 이 위치는 계속 유지되지 않습니다. 앱을 다시 시작하고, 스케일 아웃하며, 기타 작업을 수행하는 경우 이러한 위치가 삭제되어, 여기에 저장된 원격 분석의 손실을 초래합니다. 기본값을 재정의해서 D:\home과 같은 지속형 위치로 스토리지를 지정할 수 있습니다. 그러나 이러한 지속형 위치는 원격 스토리지에서 제공되므로 속도가 느려질 수 있습니다.
+
+그러나 채널이 중복 된 원격 분석 항목을 발생 시킬 수도 있습니다. 이 오류는 `ServerTelemetryChannel` 원격 분석이 실제로 백 엔드로 전달 된 경우 네트워크 오류/시간 제한으로 인해 다시 시도 하지만 네트워크 문제로 인해 응답이 손실 되었거나 시간이 초과 된 경우에 발생 합니다.
 
 ### <a name="does-servertelemetrychannel-work-on-systems-other-than-windows"></a>ServerTelemetryChannel는 Windows 이외의 시스템에서 작동 하나요?
 

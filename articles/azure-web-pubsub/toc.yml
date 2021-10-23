@@ -51,16 +51,24 @@
       items:
         - name: WebSocket 클라이언트 만들기
           href: howto-websocket-connect.md
+    - name: 모니터
+      items:
+        - name: Azure Policy를 사용하여 규정 준수 감사
+          href: howto-monitor-azure-policy.md
     - name: 보안
       items:
         - name: 액세스 키 보호
           href: howto-secure-rotate-access-key.md
+        - name: Azure Service 태그 사용
+          href: howto-service-tags.md
         - name: Azure 프라이빗 엔드포인트 사용
           href: howto-secure-private-endpoints.md
         - name: 네트워크 액세스 제어 관리
           href: howto-secure-network-access-control.md
         - name: 공유 프라이빗 엔드포인트를 통해 아웃바운드 트래픽 보호
           href: howto-secure-shared-private-endpoints.md
+        - name: 관리 ID 사용
+          href: howto-use-managed-identity.md
     - name: 문제 해결
       items:
         - name: 네트워크 추적 수집

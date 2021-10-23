@@ -11,12 +11,12 @@ metadata:
   author: KumudD
   ms.author: kumud
   ms.date: 01/28/2021
-  ms.openlocfilehash: bb05b2a2b3aa42cc83f4f014aa00082dc00e6aa9
-  ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+  ms.openlocfilehash: 12e03cad862d3ef1f9704639f2e386312369fd10
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/20/2021
-  ms.locfileid: "122514535"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130257768"
 landingContent:
 - title: Virtual Network 정보
   linkLists:
@@ -53,7 +53,7 @@ landingContent:
     - text: 가상 네트워크 보안 FAQ
       url: virtual-networks-faq.md#security
     - text: 기본 아웃바운드 액세스
-      url: default-outbound-access.md
+      url: ./ip-services/default-outbound-access.md
   - linkListType: tutorial
     links:
     - text: 네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링
@@ -111,31 +111,31 @@ landingContent:
   - linkListType: concept
     links:
     - text: IP 주소 유형 및 할당 방법
-      url: ./public-ip-addresses.md
+      url: ./ip-services/public-ip-addresses.md
   - linkListType: how-to-guide
     links:
     - text: 공용 IP 주소 만들기, 변경 또는 삭제
-      url: virtual-network-public-ip-address.md
+      url: ./ip-services/virtual-network-public-ip-address.md
     - text: VM에 공용 IP 주소 추가
-      url: associate-public-ip-address-vm.md
+      url: ./ip-services/associate-public-ip-address-vm.md
     - text: 고정 IP 주소를 사용하여 VM 만들기
-      url: virtual-network-deploy-static-pip-arm-portal.md
+      url: ./ip-services/virtual-network-deploy-static-pip-arm-portal.md
     - text: VM의 고정 개인 IP 주소 구성
-      url: virtual-networks-static-private-ip-arm-pportal.md
+      url: ./ip-services/virtual-networks-static-private-ip-arm-pportal.md
     - text: VM에 여러 IP 주소 할당
-      url: virtual-network-multiple-ip-addresses-powershell.md
+      url: ./ip-services/virtual-network-multiple-ip-addresses-powershell.md
 - title: 가상 네트워크용 IPv6 만들기
   linkLists:
   - linkListType: concept
     links:
     - text: Azure 가상 네트워크용 IPv6란?
-      url: ipv6-overview.md
+      url: ./ip-services/ipv6-overview.md
   - linkListType: deploy
     links:
     - text: IPV6 이중 스택 애플리케이션 배포 - 표준 Load Balancer
-      url: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+      url: ../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
     - text: IPV6 이중 스택 애플리케이션 배포 - 기본 Load Balancer
-      url: virtual-network-ipv4-ipv6-dual-stack-powershell.md
+      url: ../load-balancer/virtual-network-ipv4-ipv6-dual-stack-powershell.md
 - title: 가상 네트워크 모니터링
   linkLists:
   - linkListType: concept
@@ -153,19 +153,19 @@ landingContent:
   - linkListType: concept
     links:
     - text: IP 주소 유형 및 할당 방법
-      url: ./public-ip-addresses.md
+      url: ./ip-services/public-ip-addresses.md
     - text: Azure 가상 네트워크용 IPv6란?
-      url: ipv6-overview.md
+      url: ./ip-services/ipv6-overview.md
     - text: 공용 IP 주소 접두사
-      url: public-ip-address-prefix.md
+      url: ./ip-services/public-ip-address-prefix.md
   - linkListType: how-to-guide
     links:
     - text: 공용 IP 주소 만들기, 변경 또는 삭제
-      url: virtual-network-public-ip-address.md
+      url: ./ip-services/virtual-network-public-ip-address.md
     - text: IPV6 이중 스택 애플리케이션 배포
-      url: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+      url: ../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
     - text: 공용 IP 주소 접두사 만들기, 변경 또는 삭제
-      url: manage-public-ip-address-prefix.md
+      url: ./ip-services/manage-public-ip-address-prefix.md
 - title: 참조
   linkLists:
   - linkListType: reference

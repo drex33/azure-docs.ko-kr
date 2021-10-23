@@ -7,12 +7,12 @@ ms.date: 8/26/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 83eec8682291a74bc9b23bf4ff1326cee7134e7f
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: fb3619ed95f0636ae83829e1ee1c818545dc86c9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129534948"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227343"
 ---
 # <a name="download-the-open-service-mesh-osm-client-library"></a>OSM (Open Service 메시) 클라이언트 라이브러리를 다운로드 합니다.
 이 문서에서는 AKS에 대 한 OSM 추가 기능을 작동 하 고 구성 하는 데 사용할 OSM 클라이언트 라이브러리를 다운로드 하는 방법을 설명 합니다.
@@ -41,4 +41,4 @@ ms.locfileid: "129534948"
 > `osm install`을 사용하여 이진에서 OSM을 설치하지 마세요. 이렇게 하면 AKS에 대한 추가 기능으로 통합되지 않은 OSM 설치가 발생합니다.
 
 > [!NOTE]
-> OSM CLI를 사용 하기 전에 이진을 설치한 후 [OSM AKS addon 환경을 사용자 지정](/open-service-mesh-customize-addon-experience.md) 하도록 OSM CLI를 구성 하는 것이 좋습니다. 
+> OSM CLI를 사용 하기 전에 이진을 설치한 후 [OSM AKS addon 환경을 사용자 지정](./open-service-mesh-customize-add-on-experience.md) 하도록 OSM CLI를 구성 하는 것이 좋습니다.

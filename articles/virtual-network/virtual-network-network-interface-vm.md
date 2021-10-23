@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 847f8dbd2d8f4064f12333348a4f03e5c5fcc611
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
-ms.translationtype: HT
+ms.openlocfilehash: fcdc5c86c1b5cf39fb4140afc1db661db8ead11d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107774272"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224857"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>가상 머신에 네트워크 인터페이스 추가 또는 제거
 
 Azure VM(가상 머신)을 만들 때 기존 네트워크 인터페이스를 추가하는 방법을 알아봅니다. 또한 정지된(할당이 취소된) 상태의 기존 VM에서 네트워크 인터페이스를 추가하거나 제거하는 방법을 알아봅니다. 네트워크 인터페이스를 사용하면 Azure VM에서 인터넷, Azure 및 온-프레미스 리소스와 통신할 수 있습니다. VM에는 하나 이상의 네트워크 인터페이스가 있습니다. 
 
-네트워크 인터페이스용 IP 주소를 추가, 변경 또는 제거해야 하는 경우 [네트워크 인터페이스 IP 주소 관리](virtual-network-network-interface-addresses.md)를 참조하세요. 네트워크 인터페이스를 만들기, 변경 또는 삭제하려면 [네트워크 인터페이스 관리](virtual-network-network-interface.md)를 참조하세요.
+네트워크 인터페이스용 IP 주소를 추가, 변경 또는 제거해야 하는 경우 [네트워크 인터페이스 IP 주소 관리](./ip-services/virtual-network-network-interface-addresses.md)를 참조하세요. 네트워크 인터페이스를 만들기, 변경 또는 삭제하려면 [네트워크 인터페이스 관리](virtual-network-network-interface.md)를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -36,9 +36,9 @@ Azure VM(가상 머신)을 만들 때 기존 네트워크 인터페이스를 추
 
 - **포털 사용자**: Azure 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-- **PowerShell 사용자**: [Azure Cloud Shell](https://shell.azure.com/powershell)에서 명령을 실행하거나 또는 사용자의 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. Azure Cloud Shell 브라우저 탭에서 **환경 선택** 드롭다운 목록을 찾은 다음, **PowerShell** 을 선택합니다(아직 선택하지 않은 경우).
+- **PowerShell 사용자**: [Azure Cloud Shell](https://shell.azure.com/powershell)에서 명령을 실행하거나 사용자의 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. Azure Cloud Shell 브라우저 탭에서 **환경 선택** 드롭다운 목록을 찾은 다음, **PowerShell** 을 선택합니다(아직 선택하지 않은 경우).
 
-    PowerShell을 로컬로 실행하는 경우 Azure PowerShell 모듈 버전 1.0.0 이상을 사용하세요. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az.Network`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. `Connect-AzAccount`를 실행하여 Azure와 연결합니다.
+    PowerShell을 로컬로 실행하는 경우 Azure PowerShell 모듈 버전 1.0.0 이상을 사용합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az.Network`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. `Connect-AzAccount`를 실행하여 Azure와 연결합니다.
 
 - **Azure CLI(명령줄 인터페이스) 사용자**: [Azure Cloud Shell](https://shell.azure.com/bash)에서 명령을 실행할 수도 있고, 사용자의 컴퓨터에서 CLI를 실행할 수도 있습니다. Azure CLI를 로컬로 실행하는 경우 Azure CLI 버전 2.0.26 이상을 사용하세요. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. `az login`를 실행하여 Azure와 연결합니다.
 
@@ -96,7 +96,7 @@ VM에 현재 연결된 네트워크 인터페이스를 보고 각 네트워크 �
 
 3. VM 메뉴 모음에서 **네트워킹** 을 선택합니다.
 
-네트워크 인터페이스 설정 및 변경 방법에 대한 자세한 내용은 [네트워크 인터페이스 관리](virtual-network-network-interface.md)를 참조하세요. 네트워크 인터페이스에 할당된 IP 주소를 추가, 변경 또는 제거하는 방법을 알아보려면 [네트워크 인터페이스 IP 주소 관리](virtual-network-network-interface-addresses.md)를 참조하세요.
+네트워크 인터페이스 설정 및 변경 방법에 대한 자세한 내용은 [네트워크 인터페이스 관리](virtual-network-network-interface.md)를 참조하세요. 네트워크 인터페이스에 할당된 IP 주소를 추가, 변경 또는 제거하는 방법을 알아보려면 [네트워크 인터페이스 IP 주소 관리](./ip-services/virtual-network-network-interface-addresses.md)를 참조하세요.
 
 ### <a name="commands"></a>명령
 
@@ -147,7 +147,7 @@ VM에 현재 연결된 네트워크 인터페이스를 보고 각 네트워크 �
 
 - 동일한 VM에 있는 네트워크 인터페이스를 가상 네트워크 내의 다른 서브넷에 연결할 수 있습니다. 그러나 네트워크 인터페이스는 모두 동일한 가상 네트워크에 연결되어 있어야 합니다.
 
-- 기본 또는 보조 네트워크 인터페이스의 IP 구성에 대한 IP 주소를 Azure Load Balancer 백 엔드 풀에 추가할 수 있습니다. 이전에 기본 네트워크 인터페이스의 기본 IP 주소만 백 엔드 풀에 추가할 수 있었습니다. IP 주소 및 구성에 대한 자세한 내용은 [IP 주소 추가, 변경 또는 제거](virtual-network-network-interface-addresses.md)를 참조하세요.
+- 기본 또는 보조 네트워크 인터페이스의 IP 구성에 대한 IP 주소를 Azure Load Balancer 백 엔드 풀에 추가할 수 있습니다. 이전에 기본 네트워크 인터페이스의 기본 IP 주소만 백 엔드 풀에 추가할 수 있었습니다. IP 주소 및 구성에 대한 자세한 내용은 [IP 주소 추가, 변경 또는 제거](./ip-services/virtual-network-network-interface-addresses.md)를 참조하세요.
 
 - VM을 삭제해도 연결된 네트워크 인터페이스는 삭제되지 않습니다. VM을 삭제하면 VM에서 네트워크 인터페이스가 분리됩니다. 네트워크 인터페이스를 다른 VM에 추가하거나 삭제할 수 있습니다.
 
@@ -162,5 +162,5 @@ VM에 현재 연결된 네트워크 인터페이스를 보고 각 네트워크 �
 |Task|도구|
 |---|---|
 |여러 NIC를 사용하여 VM 만들기|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|여러 IPv4 주소가 있는 단일 NIC VM 만들기|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
+|여러 IPv4 주소가 있는 단일 NIC VM 만들기|[CLI](./ip-services/virtual-network-multiple-ip-addresses-cli.md), [PowerShell](./ip-services/virtual-network-multiple-ip-addresses-powershell.md)|
 |Azure Load Balancer 뒤에 프라이빗 IPv6 주소가 있는 단일 NIC VM 만들기|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Azure Resource Manager 템플릿](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|

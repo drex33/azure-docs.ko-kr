@@ -3,12 +3,12 @@ title: Azure VMware Solution과 Azure NetApp Files 통합
 description: Azure NetApp Files를 Azure VMware Solution VM과 함께 사용하여 온-프레미스 서버, Azure VMware Solution VM, 클라우드 인프라 간에 데이터를 마이그레이션하고 동기화합니다.
 ms.topic: how-to
 ms.date: 06/08/2021
-ms.openlocfilehash: 4c07765bd54e59109f15f8a0cdfd067f48dd14b4
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 7335434c30b88e54fbfd15b18f3604954cbdef0f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114443819"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226776"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-vmware-solution"></a>Azure VMware Solution과 Azure NetApp Files 통합
 
@@ -99,4 +99,5 @@ Azure NetApp Files 공유가 Azure VMware Solution VM에 액세스할 수 있도
 - [Azure NetApp Files에 대한 리소스 제한](../azure-netapp-files/azure-netapp-files-resource-limits.md#resource-limits)
 - [Azure NetApp Files 네트워크 계획 지침](../azure-netapp-files/azure-netapp-files-network-topologies.md)
 - [Azure NetApp Files 볼륨의 지역 간 복제](../azure-netapp-files/cross-region-replication-introduction.md) 
-- [Azure NetApp Files에 대한 FAQ](../azure-netapp-files/azure-netapp-files-faqs.md)
+- [NFS FAQ Azure NetApp Files](../azure-netapp-files/faq-nfs.md)
+- [Azure NetApp Files SMB FAQ](../azure-netapp-files/faq-smb.md)

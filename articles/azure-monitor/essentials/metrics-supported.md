@@ -6,19 +6,19 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 10/05/2021
 ms.author: robb
-ms.openlocfilehash: e0843f9e25b3059bbdd0102e4a830f151b0e87b0
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 06d7fb0569572bc688f81154a4e149032cf996ed
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129996915"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252885"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 
 > [!NOTE]
 > 이 목록은 대부분 자동으로 생성됩니다. GitHub 통해 이 목록을 수정한 내용은 경고 없이 작성될 수 있습니다. 영구적으로 업데이트하는 방법에 대한 자세한 내용은 이 문서의 작성자에게 문의하세요.
 
-Azure Monitor 메트릭을 Azure Portal 차트로 작성하거나, REST API 통해 액세스하거나, PowerShell 또는 Azure CLI 사용하여 쿼리하는 등 메트릭과 상호 작용하는 여러 가지 방법을 제공합니다. 
+Azure Monitor Azure Portal 차트를 작성하거나, REST API 통해 액세스하거나, PowerShell 또는 Azure CLI 사용하여 메트릭을 쿼리하는 등 메트릭과 상호 작용하는 여러 가지 방법을 제공합니다. 
 
 이 문서는 현재 Azure Monitor 통합 메트릭 파이프라인에서 사용할 수 있는 모든 플랫폼(즉, 자동으로 수집된) 메트릭의 전체 목록입니다. 이 문서의 맨 위에 있는 날짜 이후에 변경되거나 추가된 메트릭이 목록에 아직 표시되지 않을 수 있습니다. 메트릭 목록을 프로그래밍 방식으로 쿼리하고 액세스하려면 [2018-01-01 api-version 을](/rest/api/monitor/metricdefinitions)사용합니다. 이 목록에 없는 다른 메트릭은 포털 또는 레거시 API를 통해 사용할 수 있습니다.
 
@@ -31,12 +31,12 @@ Azure Monitor 메트릭을 Azure Portal 차트로 작성하거나, REST API 통�
 - [메트릭 REST API](/rest/api/monitor/metrics/list)사용합니다.
 - [진단 설정을](../essentials/diagnostic-settings.md) 사용하여 플랫폼 메트릭을 다음으로 라우팅합니다. 
     - Azure Storage.
-    - Azure Monitor 로그(및 Log Analytics).
+    - Azure Monitor 로그(Log Analytics)
     - Event Hubs는 Microsoft가 아닌 시스템에 이를 제공하는 방법입니다. 
 
 메트릭을 라우팅하는 가장 쉬운 방법은 진단 설정을 사용하는 것이지만 몇 가지 제한 사항이 있습니다. 
 
-- **내보내기 기능 입니다.** 모든 메트릭은 REST API 통해 내보낼 수 있지만 Azure Monitor 백 엔드의 복잡성으로 인해 진단 설정을 통해 내보낼 수 없는 메트릭도 있습니다. 다음 표의 "진단 설정 통해 내보낼 수 있습니다." 열에는 이러한 방식으로 내보낼 수 있는 메트릭이 나열되어 있습니다.  
+- **내보내기 기능 입니다.** 모든 메트릭은 REST API 통해 내보낼 수 있지만 일부는 Azure Monitor 백 엔드의 복잡성으로 인해 진단 설정을 통해 내보낼 수 없습니다. 다음 표의 "진단 설정 통해 내보낼 수 있습니다." 열에는 이러한 방식으로 내보낼 수 있는 메트릭이 나열되어 있습니다.  
 
 - **다차원 메트릭.** 진단 설정을 통해 다른 위치로 다차원 메트릭을 보내는 것은 현재 지원되지 않습니다. 차원이 있는 메트릭은 평면화된 1차원 메트릭으로 내보내지고 차원 값 간에 집계됩니다. 
 
@@ -53,7 +53,7 @@ Azure Virtual Machines, Service Fabric 및 Cloud Services 실행되는 게스트
 >
 > 또는 동일한 에이전트를 사용하여 게스트 OS 메트릭을 Azure Monitor 로그로 보낼 수 있습니다. Log Analytics를 사용하여 비메트릭 데이터와 함께 해당 메트릭을 쿼리할 수 있습니다. 
 
-Azure Monitor 에이전트는 이전에 게스트 OS 라우팅에 사용된 Azure Diagnostics 확장 및 Log Analytics 에이전트를 대체합니다. 중요한 추가 정보는 [Azure Monitor 에이전트 개요를 참조하세요.](../agents/agents-overview.md)
+Azure Monitor 에이전트는 이전에 게스트 OS 라우팅에 사용되었던 Azure Diagnostics 확장 및 Log Analytics 에이전트를 대체합니다. 중요한 추가 정보는 [Azure Monitor 에이전트 개요를 참조하세요.](../agents/agents-overview.md)
 
 ## <a name="table-formatting"></a>테이블 서식 지정
 
@@ -142,7 +142,7 @@ Azure Monitor 에이전트는 이전에 게스트 OS 라우팅에 사용된 Azur
 |SuccessfulRequests|예|성공적인 게이트웨이 요청(사용되지 않음)|개수|합계|성공한 게이트웨이 요청 횟수 - GatewayResponseCodeCategory 차원에서 다차원 요청 메트릭을 대신 사용합니다.|위치, 호스트 이름|
 |TotalRequests|예|총 게이트웨이 요청(사용되지 않음)|개수|합계|게이트웨이 요청 횟수 - GatewayResponseCodeCategory 차원에서 다차원 요청 메트릭을 대신 사용합니다.|위치, 호스트 이름|
 |UnauthorizedRequests|예|권한이 없는 게이트웨이 요청(사용되지 않음)|개수|합계|권한 없는 게이트웨이 요청 횟수 - GatewayResponseCodeCategory 차원에서 다차원 요청 메트릭을 대신 사용합니다.|위치, 호스트 이름|
-|WebSocketMessages|Yes|WebSocket 메시지(미리 보기)|개수|합계|선택한 원본 및 대상을 기반으로 하는 WebSocket 메시지 수|위치, 원본, 대상|
+|WebSocketMessages|Yes|WebSocket 메시지 (미리 보기)|개수|합계|선택한 원본 및 대상을 기준으로 하는 WebSocket 메시지 수|위치, 원본, 대상|
 
 
 ## <a name="microsoftappconfigurationconfigurationstores"></a>Microsoft.AppConfiguration/configurationStores
@@ -173,7 +173,7 @@ Azure Monitor 에이전트는 이전에 게스트 OS 라우팅에 사용된 Azur
 |gen-1-size|예|gen-1-size|바이트|평균|1세대 힙 크기|배포, AppName, Pod|
 |gen-2-gc-count|예|gen-2-gc-count|개수|평균|2세대 GC 수|배포, AppName, Pod|
 |gen-2-size|예|gen-2-size|바이트|평균|2세대 힙 크기|배포, AppName, Pod|
-|IngressBytesReceived|예|수신된 바이트|바이트|평균|클라이언트에서 Azure 스프링 클라우드에서 받은 바이트 수|호스트 이름, HttpStatus|
+|IngressBytesReceived|예|수신된 바이트|바이트|평균|클라이언트에서 Azure Spring Cloud 받은 바이트 수|호스트 이름, HttpStatus|
 |IngressBytesReceivedRate|Yes|처리량(바이트/s)|초당 바이트 수|평균|클라이언트에서 Azure Spring Cloud 초당 받은 바이트 수|호스트 이름, HttpStatus|
 |IngressBytesSent|예|보낸 바이트|바이트|평균|클라이언트에 Azure Spring Cloud 보낸 바이트 수|호스트 이름, HttpStatus|
 |IngressBytesSentRate|Yes|처리량 아웃(바이트/s)|초당 바이트 수|평균|클라이언트에 Azure Spring Cloud 초당 보낸 바이트 수|호스트 이름, HttpStatus|
@@ -229,7 +229,7 @@ Azure Monitor 에이전트는 이전에 게스트 OS 라우팅에 사용된 Azur
 |TotalUpdateDeploymentRuns|예|총 업데이트 배포 실행|개수|합계|총 소프트웨어 업데이트 배포 실행 횟수|SoftwareUpdateConfigurationName, 상태|
 
 
-## <a name="microsoftavsprivateclouds"></a>microsoft.avs/privateClouds
+## <a name="microsoftavsprivateclouds"></a>microsoft avs/privateClouds
 
 |메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
@@ -955,7 +955,7 @@ Azure Monitor 에이전트는 이전에 게스트 OS 라우팅에 사용된 Azur
 |소비한 VM 캐시 IOPS 백분율|예|소비한 VM 캐시 IOPS 백분율|백분율|평균|VM에서 소비한 캐시 디스크 IOPS의 백분율|차원 없음|
 |VM 캐시되지 않은 대역폭 사용량 백분율|예|VM 캐시되지 않은 대역폭 사용량 백분율|백분율|평균|VM에서 소비한 캐시되지 않은 디스크 대역폭의 백분율|차원 없음|
 |VM 캐시되지 않은 IOPS 사용량 백분율|예|VM 캐시되지 않은 IOPS 사용량 백분율|백분율|평균|VM에서 소비한 캐시되지 않은 디스크 IOPS의 백분율|차원 없음|
-|VmAvailabilityMetric|Yes|VM 가용성 메트릭(미리 보기)|개수|평균|시간에 따라 가상 머신의 가용성 측정값입니다. 참고: 이 메트릭은 데이터 품질 및 일관성 개선의 우선 순위를 지정하기 때문에 현재 소수의 고객에게만 미리 볼 수 있습니다. 데이터 표준을 개선함에 따라 이 기능을 단계적 방식으로 전 세계로 롤아웃할 예정입니다.|차원 없음|
+|VmAvailabilityMetric|Yes|VM 가용성 메트릭 (미리 보기)|개수|평균|시간에 따라 가상 머신의 가용성 측정값입니다. 참고: 이 메트릭은 데이터 품질 및 일관성 개선의 우선 순위를 지정하기 때문에 현재 소수의 고객에게만 미리 볼 수 있습니다. 데이터 표준을 개선함에 따라 이 기능을 단계적 방식으로 전 세계로 롤아웃할 예정입니다.|차원 없음|
 
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualmachineScaleSets
@@ -1075,14 +1075,14 @@ Azure Monitor 에이전트는 이전에 게스트 OS 라우팅에 사용된 Azur
 
 |메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
-|ClaimsProviderRequestLatency|예|클레임 요청 실행 시간|밀리초|평균|고객 클레임 공급자 엔드포인트에 대한 요청의 평균 실행 시간(밀리초)|VehicleId, DeviceName, IsSuccessful, FailureCategory|
-|ClaimsProviderRequests|예|클레임 공급자 요청|개수|합계|클레임 공급자에 대한 요청 수|VehicleId, DeviceName, IsSuccessful, FailureCategory|
-|ConnectionServiceRequestRuntime|예|차량 연결 서비스 요청 실행 시간|밀리초|평균|차량 연결 요청 실행 시간 평균(밀리초)|VehicleId, DeviceName, IsSuccessful, FailureCategory|
-|ConnectionServiceRequests|예|차량 연결 서비스 요청|개수|합계|차량 연결 요청의 총 수|VehicleId, DeviceName, IsSuccessful, FailureCategory|
-|DataPipelineMessageCount|Yes|데이터 파이프라인 메시지 수|개수|합계|스토리지를 위해 MCVP 데이터 파이프라인으로 전송된 총 메시지 수입니다.|VehicleId, DeviceName, IsSuccessful, FailureCategory|
-|ExtensionInvocationCount|Yes|확장 호출 수|개수|합계|확장이 호출된 총 횟수입니다.|VehicleId, DeviceName, ExtensionName, IsSuccessful, FailureCategory|
-|ExtensionInvocationRuntime|Yes|확장 호출 실행 시간|밀리초|평균|확장 내에서 소요된 평균 실행 시간(밀리초)입니다.|VehicleId, DeviceName, ExtensionName, IsSuccessful, FailureCategory|
-|ProvisionerServiceRequestRuntime|예|차량 프로비저닝 실행 시간|밀리초|평균|차량 프로비저닝 요청의 평균 실행 시간(밀리초)|VehicleId, DeviceName, IsSuccessful, FailureCategory|
+|ClaimsProviderRequestLatency|예|클레임 요청 실행 시간|밀리초|평균|고객 클레임 공급자 엔드포인트에 대한 요청의 평균 실행 시간(밀리초)|VehicleId, 장치 이름, IsSuccessful, FailureCategory|
+|ClaimsProviderRequests|예|클레임 공급자 요청|개수|합계|클레임 공급자에 대한 요청 수|VehicleId, 장치 이름, IsSuccessful, FailureCategory|
+|ConnectionServiceRequestRuntime|예|차량 연결 서비스 요청 실행 시간|밀리초|평균|차량 연결 요청 실행 시간 평균(밀리초)|VehicleId, 장치 이름, IsSuccessful, FailureCategory|
+|ConnectionServiceRequests|예|차량 연결 서비스 요청|개수|합계|차량 연결 요청의 총 수|VehicleId, 장치 이름, IsSuccessful, FailureCategory|
+|DataPipelineMessageCount|Yes|데이터 파이프라인 메시지 수|개수|합계|저장소에 대해 MCVP 데이터 파이프라인에 전송 된 총 메시지 수입니다.|VehicleId, 장치 이름, IsSuccessful, FailureCategory|
+|ExtensionInvocationCount|Yes|확장 호출 수|개수|합계|확장을 호출한 총 횟수입니다.|VehicleId, 장치 이름, ExtensionName, IsSuccessful, FailureCategory|
+|ExtensionInvocationRuntime|Yes|확장 호출 실행 시간|밀리초|평균|확장 내에 소요 된 평균 실행 시간 (밀리초)입니다.|VehicleId, 장치 이름, ExtensionName, IsSuccessful, FailureCategory|
+|ProvisionerServiceRequestRuntime|예|차량 프로비저닝 실행 시간|밀리초|평균|차량 프로비저닝 요청의 평균 실행 시간(밀리초)|VehicleId, 장치 이름, IsSuccessful, FailureCategory|
 |ProvisionerServiceRequests|예|차량 프로비저닝 서비스 요청|개수|합계|차량 프로비저닝 요청의 총 수|VehicleId, 장치 이름, IsSuccessful, FailureCategory|
 |StateStoreReadRequestLatency|예|상태 저장소 읽기 실행 시간|밀리초|평균|상태 저장소 읽기 요청 실행 시간 평균(밀리초)|VehicleId, 장치 이름, ExtensionName, IsSuccessful, FailureCategory|
 |StateStoreReadRequests|예|상태 저장소 읽기 요청|개수|합계|상태 저장소에 대한 읽기 요청 수|VehicleId, 장치 이름, ExtensionName, IsSuccessful, FailureCategory|
@@ -1584,7 +1584,7 @@ Azure Monitor 에이전트는 이전에 게스트 OS 라우팅에 사용된 Azur
 |---|---|---|---|---|---|---|
 |AddRegion|예|추가된 지역|개수|개수|추가된 지역|지역|
 |AutoscaleMaxThroughput|예|자동 스케일링 최대 처리량|개수|최대|자동 스케일링 최대 처리량|DatabaseName, CollectionName|
-|AvailableStorage|예|(사용되지 않음) 사용 가능한 스토리지|바이트|합계|"사용 가능한 스토리지"는 2023년 9월 말에 Azure Monitor에서 제거됩니다. 이제 Cosmos DB 컬렉션 스토리지 크기는 제한되지 않습니다. 유일한 제한 사항으로 각 논리 파티션 키의 스토리지 크기가 20GB로 제한됩니다. 진단 로그에서 PartitionKeyStatistics를 사용하도록 설정하여 상위 파티션 키에 사용되는 스토리지 사용량을 파악할 수 있습니다. Cosmos DB 스토리지 할당량에 대한 자세한 내용은 문서 [https://docs.microsoft.com/azure/cosmos-db/concepts-limits](/azure/cosmos-db/concepts-limits)을 참조하세요. 사용 중단 후, 사용되지 않는 메트릭에 여전히 정의된 나머지 경고 규칙은 사용 중단 날짜 이후에 자동으로 비활성화됩니다.|CollectionName, DatabaseName, 지역|
+|AvailableStorage|예|(사용되지 않음) 사용 가능한 스토리지|바이트|합계|"사용 가능한 스토리지"는 2023년 9월 말에 Azure Monitor에서 제거됩니다. 이제 Cosmos DB 컬렉션 스토리지 크기는 제한되지 않습니다. 유일한 제한 사항으로 각 논리 파티션 키의 스토리지 크기가 20GB로 제한됩니다. 진단 로그에서 PartitionKeyStatistics를 사용하도록 설정하여 상위 파티션 키에 사용되는 스토리지 사용량을 파악할 수 있습니다. Cosmos DB 스토리지 할당량에 대한 자세한 내용은 문서 [https://docs.microsoft.com/azure/cosmos-db/concepts-limits](../../cosmos-db/concepts-limits.md)을 참조하세요. 사용 중단 후, 사용되지 않는 메트릭에 여전히 정의된 나머지 경고 규칙은 사용 중단 날짜 이후에 자동으로 비활성화됩니다.|CollectionName, DatabaseName, 지역|
 |CassandraConnectionClosures|예|Cassandra 연결 차단|개수|합계|종료된 Cassandra 연결 수. 1분 단위로 보고됩니다.|APIType, Region, ClosureReason|
 |CassandraConnectorAvgReplicationLatency|예|Cassandra 커넥터 평균 ReplicationLatency|밀리초|평균|Cassandra 커넥터 평균 ReplicationLatency|차원 없음|
 |CassandraConnectorReplicationHealthStatus|예|Cassandra 커넥터 복제 상태|개수|개수|Cassandra 커넥터 복제 상태|NotStarted, ReplicationInProgress, 오류|
@@ -1621,10 +1621,10 @@ Azure Monitor 에이전트는 이전에 게스트 OS 라우팅에 사용된 Azur
 |IntegratedCacheItemHitRate|아니요|IntegratedCacheItemHitRate|백분율|평균|최종 일관성을 적용하여 통합 캐시를 사용한 지점 읽기 수를 전용 게이트웨이를 통해 라우팅된 지점 읽기 수로 나눈 값|Region, CacheEntryType|
 |IntegratedCacheQueryExpirationCount|아니요|IntegratedCacheQueryExpirationCount|개수|평균|TTL 만료로 인해 통합 캐시에서 제거된 쿼리 수|Region, CacheEntryType|
 |IntegratedCacheQueryHitRate|아니요|IntegratedCacheQueryHitRate|백분율|평균|최종 일관성을 적용하여 통합 캐시를 사용한 쿼리 수를 전용 게이트웨이를 통해 라우팅된 쿼리 수로 나눈 값|Region, CacheEntryType|
-|MaterializedViewCatchupGapInMinutes|No|구체화 된 뷰 Catchup 간격 (분)|개수|최대|원본 컨테이너의 데이터와 구체화 된 뷰로 전파 되는 데이터 사이의 최대 시간 차이 (분)|Region, TargetContainerName, BuildType|
-|MaterializedViewsBuilderAverageCPUUsage|No|구체화 된 뷰 작성기 평균 CPU 사용량|백분율|평균|구체화 된 뷰에서 데이터를 채우는 데 사용 되는 구체화 된 뷰 작성기 인스턴스의 평균 CPU 사용량|Region, MetricType|
-|MaterializedViewsBuilderAverageMemoryUsage|No|구체화 된 뷰 작성기 평균 메모리 사용량|바이트|평균|구체화 된 뷰에서 데이터를 채우는 데 사용 되는 구체화 된 뷰 작성기 인스턴스의 평균 메모리 사용량|지역|
-|MaterializedViewsBuilderMaximumCPUUsage|No|구체화 된 뷰 작성기 최대 CPU 사용량|백분율|평균|구체화 된 뷰에서 데이터를 채우는 데 사용 되는 구체화 된 뷰 작성기 인스턴스의 평균 최대 CPU 사용량|Region, MetricType|
+|MaterializedViewCatchupGapInMinutes|No|구체화된 뷰 Catchup 간격(분)|개수|최대|원본 컨테이너의 데이터와 구체화된 뷰에 전파된 데이터 간의 최대 시간 차이(분)|Region, TargetContainerName, BuildType|
+|MaterializedViewsBuilderAverageCPUUsage|No|구체화된 뷰 작성기 평균 CPU 사용량|백분율|평균|구체화된 뷰에서 데이터를 채우는 데 사용되는 구체화된 뷰 작성기 인스턴스의 평균 CPU 사용량|Region, MetricType|
+|MaterializedViewsBuilderAverageMemoryUsage|No|구체화된 뷰 작성기 평균 메모리 사용량|바이트|평균|구체화된 뷰에서 데이터를 채우는 데 사용되는 구체화된 뷰 작성기 인스턴스의 평균 메모리 사용량|Region|
+|MaterializedViewsBuilderMaximumCPUUsage|No|구체화된 뷰 작성기 최대 CPU 사용량|백분율|평균|구체화된 뷰에서 데이터를 채우는 데 사용되는 구체화된 뷰 작성기 인스턴스의 평균 최대 CPU 사용량|Region, MetricType|
 |MetadataRequests|예|메타데이터 요청|개수|개수|메타데이터 요청 수. Cosmos DB는 컬렉션, 데이터베이스 등과 해당 구성을 무료로 열거할 수 있는 각 계정에 대한 시스템 메타데이터 컬렉션을 유지 관리합니다.|DatabaseName, CollectionName, Region, StatusCode, Role|
 |MongoCollectionCreate|예|생성된 Mongo 컬렉션|개수|개수|생성된 Mongo 컬렉션|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest, OperationType|
 |MongoCollectionDelete|예|삭제된 Mongo 컬렉션|개수|개수|삭제된 Mongo 컬렉션|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, OperationType|
@@ -2217,7 +2217,7 @@ Azure Monitor 에이전트는 이전에 게스트 OS 라우팅에 사용된 Azur
 |StreamingPolicyCount|예|스트리밍 정책 수|개수|평균|현재 미디어 서비스 계정에서 이미 만든 스트리밍 정책 수|차원 없음|
 |StreamingPolicyQuota|예|스트리밍 정책 할당량|개수|평균|현재 미디어 서비스 계정에 대해 허용되는 스트리밍 정책 수|차원 없음|
 |StreamingPolicyQuotaUsedPercentage|예|사용된 스트리밍 정책 할당량 백분율|백분율|평균|현재 미디어 서비스 계정에서 사용되는 스트리밍 정책 백분율|차원 없음|
-|TransformQuota|Yes|할당량 변환|개수|평균|현재 미디어 서비스 계정에 대 한 변환 할당량입니다.|차원 없음|
+|TransformQuota|Yes|변환 할당량|개수|평균|현재 미디어 서비스 계정에 대한 변환 할당량입니다.|차원 없음|
 
 
 ## <a name="microsoftmediamediaservicesliveevents"></a>Microsoft.Media/mediaservices/liveEvents
@@ -2241,11 +2241,11 @@ Azure Monitor 에이전트는 이전에 게스트 OS 라우팅에 사용된 Azur
 |SuccessE2ELatency|예|성공 엔드투엔드 대기 시간|밀리초|평균|성공한 요청의 평균 대기 시간(밀리초)|OutputFormat|
 
 
-## <a name="microsoftmediavideoanalyzers"></a>Microsoft. 미디어/비디오 분석기
+## <a name="microsoftmediavideoanalyzers"></a>Microsoft.Media/videoanalyzers
 
 |메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
-|IngressBytes|Yes|수신 바이트|바이트|합계|파이프라인 노드에서 수신 바이트 수입니다.|PipelineTopology, 파이프라인, 노드|
+|IngressBytes|Yes|수신 바이트|바이트|합계|파이프라인 노드에서 수신된 바이트 수입니다.|PipelineTopology, Pipeline, Node|
 
 
 ## <a name="microsoftmixedrealityremoterenderingaccounts"></a>Microsoft.MixedReality/remoteRenderingAccounts
@@ -3035,9 +3035,9 @@ Azure Monitor 에이전트는 이전에 게스트 OS 라우팅에 사용된 Azur
 |cpu_percent|예|CPU 비율|백분율|평균|CPU 비율|차원 없음|
 |cpu_used|예|사용된 CPU|개수|평균|사용된 CPU. vCore 기반 데이터베이스에 적용됩니다.|차원 없음|
 |교착 상태|예|교착 상태|개수|합계|교착 상태. 데이터 웨어하우스에는 적용되지 않습니다.|차원 없음|
-|delta_num_of_bytes_read|예|원격 데이터 읽기|바이트|합계|원격 데이터 읽기(바이트)|차원 없음|
-|delta_num_of_bytes_total|Yes|읽고 쓴 총 원격 바이트 수|바이트|합계|컴퓨팅에서 읽고 쓴 총 원격 바이트 수|차원 없음|
-|delta_num_of_bytes_written|예|원격 로그 쓰기|바이트|합계|원격 로그 쓰기(바이트)|차원 없음|
+|delta_num_of_bytes_read|예|원격 데이터 읽기|바이트|합계|원격 데이터 읽기 (바이트)|차원 없음|
+|delta_num_of_bytes_total|Yes|읽고 쓴 총 원격 바이트 수|바이트|합계|계산에서 읽고 쓴 총 원격 바이트 수|차원 없음|
+|delta_num_of_bytes_written|예|원격 로그 쓰기|바이트|합계|원격 로그 쓰기 (바이트)|차원 없음|
 |diff_backup_size_bytes|예|차등 백업 스토리지 크기|바이트|최대|누적 차등 백업 스토리지 크기. vCore 기반 데이터베이스에 적용됩니다. 하이퍼스케일 데이터베이스에는 적용되지 않습니다.|차원 없음|
 |dtu_consumption_percent|예|DTU 비율|백분율|평균|DTU 백분율. DTU 기반 데이터베이스에 적용됩니다.|차원 없음|
 |dtu_limit|예|DTU 제한|개수|평균|DTU 제한. DTU 기반 데이터베이스에 적용됩니다.|차원 없음|
@@ -3502,7 +3502,7 @@ Azure Monitor 에이전트는 이전에 게스트 OS 라우팅에 사용된 Azur
 |AverageResponseTime|예|평균 응답 시간(사용 되지 않음)|초|평균|앱에서 요청을 처리하는 데 걸린 평균 소요 시간(초) WebApps 및 FunctionApps용.|인스턴스|
 |BytesReceived|예|데이터 입력|바이트|합계|앱에서 사용한 들어오는 대역폭 양(MiB)입니다. WebApps 및 FunctionApps용.|인스턴스|
 |BytesSent|예|데이터 출력|바이트|합계|앱에서 사용한 나가는 대역폭 양(MiB)입니다. WebApps 및 FunctionApps용.|인스턴스|
-|CpuTime|예|CPU 시간|초|합계|앱에서 사용한 CPU의 양(초)입니다. 이 메트릭에 대한 자세한 내용은 https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (CPU 시간 및 CPU 비율)에서 확인할 수 있습니다. WebApps에만 해당합니다.|인스턴스|
+|CpuTime|예|CPU 시간|초|합계|앱에서 사용한 CPU의 양(초)입니다. 이 메트릭에 대한 자세한 내용은 https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (CPU 시간 및 CPU 비율)에서 확인할 수 있습니다. WebApps에만 해당 합니다.|인스턴스|
 |CurrentAssemblies|예|현재 어셈블리|개수|평균|이 애플리케이션의 모든 AppDomains에 로드된 어셈블리의 현재 개수입니다. WebApps 및 FunctionApps용.|인스턴스|
 |FileSystemUsage|예|파일 시스템 사용량|바이트|평균|앱에서 사용하는 파일 시스템 할당량(백분율) WebApps 및 FunctionApps용.|차원 없음|
 |FunctionExecutionCount|예|함수 실행 횟수|개수|합계|함수 실행 횟수. FunctionApps 전용.|인스턴스|
@@ -3592,12 +3592,12 @@ Azure Monitor 에이전트는 이전에 게스트 OS 라우팅에 사용된 Azur
 |SiteHits|예|SiteHits|개수|합계|SiteHits|인스턴스|
 
 
-## <a name="wandiscofusionmigrators"></a>Wandisco.Fusion/migrators
+## <a name="wandiscofusionmigrators"></a>Wandisco/migrators
 
 |메트릭|진단 설정을 통해 내보내기 가능?|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|---|
-|초당 바이트 수|Yes|초당 바이트 수입니다.|초당 바이트 수|평균|마이그레이션자에 사용 중인 바이트/초의 처리량 속도입니다.|차원 없음|
-|DirectoriesCreatedCount|Yes|만든 디렉터리 수|개수|합계|이렇게 하면 마이그레이션의 일부로 생성된 디렉터리 수를 확인할 수 있습니다.|차원 없음|
+|초당 바이트 수|Yes|초당 바이트 수입니다.|초당 바이트 수|평균|Migrator에 대해 utilised 되는 초당 바이트의 처리량 속도입니다.|차원 없음|
+|DirectoriesCreatedCount|Yes|만든 디렉터리 수|개수|합계|그러면 마이그레이션의 일부로 생성 된 디렉터리 수를 실행 하는 보기가 제공 됩니다.|차원 없음|
 |FileMigrationCount|Yes|파일 마이그레이션 횟수|개수|합계|이는 마이그레이션된 파일 수의 누계를 제공 합니다.|차원 없음|
 |InitialScanDataMigratedInBytes|Yes|초기 검색 데이터 마이그레이션 (바이트)|바이트|합계|이를 통해 온-프레미스 파일 시스템의 초기 검색 결과로 새 migrator 전송 된 총 바이트 수를 볼 수 있습니다. 초기 검색 마이그레이션 후 마이그레이션에 추가 되는 모든 데이터는이 메트릭에 포함 되지 않습니다.|차원 없음|
 |LiveDataMigratedInBytes|Yes|라이브 데이터 마이그레이션 (바이트)|개수|합계|마이그레이션이 시작 된 후 클라이언트 작업으로 인해 변경 된 사용 중인 데이터의 누계를 제공 합니다.|차원 없음|

@@ -62,7 +62,7 @@
                 - name: Azure를 사용하여 가용성 영역에 VM 부하 분산(CLI)
                   href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
         - name: 공용 IP 주소
-          href: ../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address
+          href: ../virtual-network/ip-services/virtual-network-public-ip-address.md#create-a-public-ip-address
         - name: SQL Database
           items:
             - name: SQL Database 범용 계층을 사용하는 가용성 영역

@@ -6,18 +6,18 @@ author: bwren
 ms.author: bwren
 ms.date: 09/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: 8eb9a6ad285bea2a5ac6e69ebb5ebef48b135899
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 50ab3c65abd6fe57941f18f58ff277de6822389c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129713126"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216488"
 ---
 # <a name="azure-monitor-agent-overview"></a>Azure Monitor 에이전트 개요
 AMA(Azure Monitor 에이전트)는 Azure 가상 머신의 게스트 운영 체제에서 모니터링 데이터를 수집하여 이를 Azure Monitor에 전달합니다. 이 문서는 Azure Monitor 에이전트에 대한 개요를 제공하고 설치 방법 및 데이터 수집 구성 방법에 대한 정보를 포함하고 있습니다.
 
 ## <a name="relationship-to-other-agents"></a>다른 에이전트와의 관계
-Azure Monitor 에이전트는 현재 Azure Monitor에서 가상 머신으로부터 게스트 데이터를 수집하는 데 사용하는 다음 레거시 에이전트를 대체합니다([알려진 차이점 보기](/azure/azure-monitor/faq#is-the-new-azure-monitor-agent-at-parity-with-existing-agents)).
+Azure Monitor 에이전트는 현재 Azure Monitor에서 가상 머신으로부터 게스트 데이터를 수집하는 데 사용하는 다음 레거시 에이전트를 대체합니다([알려진 차이점 보기](../faq.yml)).
 
 - [Log Analytics 에이전트](./log-analytics-agent.md): 데이터를 Log Analytics 작업 영역으로 보내고 VM Insights 및 모니터링 솔루션을 지원합니다.
 - [진단 확장](./diagnostics-extension-overview.md): 데이터를 Azure Monitor 메트릭(Windows에만 해당), Azure Event Hubs 및 Azure Storage에 보냅니다.
@@ -54,7 +54,7 @@ Azure Monitor 에이전트는 [Azure Monitor용 레거시 에이전트](agents-o
 - **환경 요구 사항:** Azure Monitor 에이전트는 현재 [이러한 운영 체제](./agents-overview.md#supported-operating-systems)를 지원합니다. 향후 운영 체제 버전, 환경 지원 및 네트워킹 요구 사항에 대한 지원은 이 새 에이전트에서 제공될 가능성이 높습니다. 
  
   Azure Monitor 에이전트가 내 환경을 지원하는지를 평가합니다. 지원하지 않는 경우 현재 에이전트를 유지해야 할 수 있습니다. Azure Monitor 에이전트가 현재 환경을 지원한다면 전환을 고려합니다.
-- **현재 및 새 기능 요구 사항:** Azure Monitor 에이전트에는 필터링, 범위 지정, 멀티 호밍과 같은 몇 가지 새로운 기능이 도입되었습니다. 그러나 사용자 정의 로그 수집 및 모든 솔루션과의 통합과 같은 다른 기능에 대한 현재 에이전트와 아직 동등하지 않습니다. ([미리 보기의 솔루션을 참조하세요](/azure/azure-monitor/faq#which-log-analytics-solutions-are-supported-on-the-new-azure-monitor-agent).) 
+- **현재 및 새 기능 요구 사항:** Azure Monitor 에이전트에는 필터링, 범위 지정, 멀티 호밍과 같은 몇 가지 새로운 기능이 도입되었습니다. 그러나 사용자 정의 로그 수집 및 모든 솔루션과의 통합과 같은 다른 기능에 대한 현재 에이전트와 아직 동등하지 않습니다. ([미리 보기의 솔루션을 참조하세요](../faq.yml).) 
  
   Azure Monitor의 대부분의 새로운 기능은 Azure Monitor 에이전트에서만 사용할 수 있습니다. 시간이 지나면 새 에이전트에서만 더 많은 기능을 사용할 수 있습니다. Azure Monitor 에이전트에 필요한 기능이 있는지와 새 에이전트에서 다른 중요한 기능을 가져오지 않고 일시적으로 수행할 수 있는 몇 가지 기능이 있는지를 고려합니다. 
   

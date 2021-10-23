@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 98a74903f5472807ff7eb562ea9db9e12ceeb4be
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
-ms.translationtype: HT
+ms.openlocfilehash: c34577d0c62e1f00c432d5b48e7678711b6477f0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113108696"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261827"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Azure 공용 Load Balancer 업그레이드
 [Azure 표준 Load Balancer](load-balancer-overview.md)는 영역 중복을 통해 다양한 기능 및 고가용성 집합을 제공합니다. Load Balancer SKU에 대한 자세한 내용은 [비교 표](./skus.md#skus)를 참조하세요.
@@ -115,7 +115,7 @@ Azure Az 모듈이 설치되어 있는지 확인하려면 `Get-InstalledModule -
 
 ### <a name="how-long-does-the-upgrade-take"></a>업그레이드는 얼마나 걸립니까?
 
-스크립트를 완료하는 데는 일반적으로 약 5-10분이 소요되며 Load Balancer 구성의 복잡성에 따라 시간이 오래 걸릴 수 있습니다. 따라서 가동 중지 시간을 염두에 두고 필요한 경우 장애 조치(failover)를 계획합니다.
+일반적으로 스크립트를 완료하는 데 몇 분 정도 걸리며 Load Balancer 구성의 복잡성에 따라 시간이 더 오래 걸릴 수 있습니다. 따라서 가동 중지 시간을 염두에 두고 필요한 경우 장애 조치(failover)를 계획합니다.
 
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>또한 Azure PowerShell 스크립트는 기본 Load Balancer에서 새로 만든 표준 Load Balancer로 트래픽을 전환하나요?
 

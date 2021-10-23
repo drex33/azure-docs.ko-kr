@@ -3,19 +3,22 @@ title: ASP.NET Core 애플리케이션용 Azure Application Insights | Microsoft
 description: ASP.NET Core 웹 애플리케이션의 가용성, 성능 및 사용량을 모니터링합니다.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 04/30/2020
-ms.openlocfilehash: f12385d5514d999785980622530861cd1f714ac3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 10/12/2021
+ms.openlocfilehash: 3610ba035a88b6496d1e40acc24c77af62b8ee1a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528922"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130245041"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 애플리케이션용 Application Insights
 
 이 문서에서는 Application Insights를 [ASP.NET Core](/aspnet/core) 애플리케이션에 사용하도록 설정하는 방법에 대해 설명합니다. 이 문서의 지침을 완료하면 Application Insights에서 ASP.NET Core 애플리케이션으로부터 요청, 종속성, 예외, 성능 카운터, 하트비트 및 로그를 수집합니다.
 
 여기서 사용하는 예제는 `netcoreapp3.0`을 대상으로 하는 [MVC 애플리케이션](/aspnet/core/tutorials/first-mvc-app)입니다. 이러한 지침은 모든 ASP.NET Core 애플리케이션에 적용할 수 있습니다. [Worker Service](/aspnet/core/fundamentals/host/hosted-services#worker-service-template)를 사용하는 경우 [여기](./worker-service.md)의 지침을 사용하세요.
+
+> [!NOTE]
+> Preview [OpenTelemetry 기반 .net 제품](opentelemetry-enable.md?tabs=net) 을 사용할 수 있습니다. [자세히 알아보기](opentelemetry-overview.md).
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 

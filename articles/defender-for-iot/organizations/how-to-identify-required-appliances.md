@@ -3,16 +3,16 @@ title: 필수 어플라이언스 식별
 description: 인증된 Defender for IoT 센서 및 온-프레미스 관리 콘솔의 하드웨어 및 가상 어플라이언스에 대해 알아봅니다.
 ms.date: 06/21/2021
 ms.topic: how-to
-ms.openlocfilehash: c124ccd69257b9a0b7a57c53b6fa6b0817d95fb6
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: 22a79bc1f78536df1dd1c248b75eb3b4db8b443d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129754352"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238551"
 ---
 # <a name="identify-required-appliances"></a>필수 어플라이언스 식별
 
-이 문서에서는 인증된 Defender for IoT 센서 어플라이언스의 정보를 제공합니다. Defender for IoT는 물리적 및 가상 어플라이언스에 배포할 수 있습니다.
+이 문서에서는 인증된 Defender for IoT 센서 어플라이언스의 정보를 제공합니다. IoT 용 Defender는 물리적 및 가상 어플라이언스에 배포할 수 있습니다.
 
 여기에는 소프트웨어가 이미 설치된 인증된 *사전 구성된* 어플라이언스가 포함되며, 필수 소프트웨어를 다운로드하여 설치할 수 있고 구성되지 않은 인증된 어플라이언스가 포함됩니다.
 
@@ -32,7 +32,7 @@ Defender for IoT는 물리적 배포와 가상 배포를 모두 지원합니다.
 
 ### <a name="physical-sensors"></a>실제 센서
 
-이 섹션에서는 사용할 수 있는 실제 센서 모델의 개요를 제공합니다. 미리 구성된 소프트웨어로 센서를 구입하거나 미리 구성되지 않은 센서를 구입할 수 있습니다.
+이 섹션에서는 사용할 수 있는 실제 센서 모델의 개요를 제공합니다. 미리 구성 된 소프트웨어 또는 미리 구성 되지 않은 구입 센서를 사용 하 여 센서를 구입할 수 있습니다.
 
 | 배포 유형 | 회사 | Enterprise | SMB 랙 탑재| SMB 러기드 |
 |--|--|--|--|--|
@@ -40,7 +40,7 @@ Defender for IoT는 물리적 배포와 가상 배포를 모두 지원합니다.
 | 모델 | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 | HPE EL300 |
 | 포트 모니터링 | 최대 15개의 RJ45 또는 8개의 OPT | 최대 8개의 RJ45 또는 6개의 OPT | 최대 4개의 RJ45 | 최대 5개의 RJ45 |
 | 최대 대역폭 [1](#anchortext) | 3Gb/초 | 1Gb/초 | 200Mb/초 | 100Mb/초 |
-| 최대 보호 디바이스 | 10000 | 10000 | 1,000 | 800 |
+| 최대 보호 디바이스 | 12,000 | 10000 | 1,000 | 800 |
 
 공급업체 세부 정보는 [어플라이언스 사양](#appliance-specifications)을 참조하세요.
 
@@ -54,12 +54,12 @@ Defender for IoT는 물리적 배포와 가상 배포를 모두 지원합니다.
 
 ### <a name="virtual-sensors"></a>가상 센서
 
-이 섹션에서는 사용할 수 있는 가상 센서에 대해 설명합니다.
+이 섹션에서는 사용할 수 있는 가상 센서에 대해 설명 합니다.
 
 | 배포 유형 | 회사 | Enterprise | SMB |
 |--|--|--|--|
 | 최대 대역폭 | 2.5Gb/초 | 800Mb/초 | 160Mb/초 |
-| 최대 보호 디바이스 | 10000 | 10000 | 800 |
+| 최대 보호 디바이스 | 12,000 | 10000 | 800 |
 
 ## <a name="on-premises-management-console-appliance"></a>온-프레미스 관리 콘솔 어플라이언스
 
@@ -97,7 +97,7 @@ Defender for IoT는 물리적 배포와 가상 배포를 모두 지원합니다.
 | 칩셋 | Intel C621 |
 | 메모리 | 32GB = 2 x 16GB 2666MT/s DDR4 ECC UDIMM |
 | 스토리지 | Hot-Plug 하드 드라이브의 6 x 1.2TB SAS 12G 엔터프라이즈 10K SFF(2.5인치) - RAID 5 |
-| 네트워크 컨트롤러 | 온-보드: 2 x 1GB Broadcom BCM5720<br>온-보드 LOM: iDRAC 포트 카드 1GB Broadcom BCM5720<br><br>외부: 1 x Intel 이더넷 i350 QP 1GB 서버 어댑터, 낮은 프로필 |
+| 네트워크 컨트롤러 | 온-보드: 2 x 1GB <br>온-보드: iLO 포트 카드 1GB <br>외부: 1 x HPE 이더넷 1-GB 4-포트 366FLR 어댑터 |
 | 관리 | HPE iLO 고급 |
 | 디바이스 액세스 | 두 개의 후면 USB 3.0<br>한 개의 전면 USB 2.0<br>단일 내부 USB 3.0 |
 | 고급 | 2 x HPE 500W 플렉스 슬롯 플래티넘 핫 플러그 저 할로겐 전원 공급 장치 키트 |

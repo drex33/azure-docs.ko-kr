@@ -6,12 +6,12 @@ author: yossi-y
 ms.author: yossiy
 ms.date: 07/29/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 0b7dfd314f745565a4beca8432d1e452c95df403
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: c56b2a5f3cc601f2c66b6577d250eed813228271
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130001241"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130248196"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor 로그 전용 클러스터
 
@@ -53,21 +53,6 @@ Log Analytics 전용 클러스터는 최소 500 g b/일의 약정 계층 (이전
 
 Log Analytics 전용 클러스터 청구에 대한 자세한 내용은 [여기](./manage-cost-storage.md#log-analytics-dedicated-clusters)에서 확인할 수 있습니다.
 
-## <a name="asynchronous-operations-and-status-check"></a>비동기 작업 및 상태 검사
-
-구성 단계 중 일부는 빨리 완료할 수 없으므로 비동기적으로 실행됩니다. 응답의 상태는 오류 코드를 포함하여 *InProgress*, *Updating*, *Deleting*, *Succeeded* 또는 *Failed* 중 하나일 수 있습니다. REST를 사용할 때 응답은 처음에 HTTP 상태 코드 202(수락됨) 및 Azure-AsyncOperation 속성이 있는 헤더를 반환합니다.
-
-```JSON
-"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2021-06-01"
-```
-
-GET 요청을 Azure-AsyncOperation 헤더 값으로 보내 비동기 작업의 상태를 확인할 수 있습니다.
-
-```rest
-GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2021-06-01
-Authorization: Bearer <token>
-```
-
 ## <a name="create-a-dedicated-cluster"></a>전용 클러스터 만들기
 
 새 전용 클러스터를 만들 때 다음 속성을 지정해야 합니다.
@@ -91,12 +76,13 @@ cluster 리소스를 만든 후에는 *sku*, *keyVaultProperties 또는 *billing
 
 **CLI**
 ```azurecli
-Set-AzContext -SubscriptionId "cluster-subscription-id"
+az account set --subscription "cluster-subscription-id"
 
 az monitor log-analytics cluster create --no-wait --resource-group "resource-group-name" --name "cluster-name" --location "region-name" --sku-capacity "daily-ingestion-gigabyte"
 
-# Wait for job completion
-az resource wait --created --ids /subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.operationalinsights/clusters/cluster-name --include-response-body true
+# Wait for job completion when `--no-wait` was used
+$clusterResourceId = az monitor log-analytics cluster list --resource-group "resource-group-name" --query "[?contains(name, "cluster-name")].[id]" --output tsv
+az resource wait --created --ids $clusterResourceId --include-response-body true
 ```
 
 **PowerShell**
@@ -106,7 +92,7 @@ Select-AzSubscription "cluster-subscription-id"
 
 New-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -Location "region-name" -SkuCapacity "daily-ingestion-gigabyte" -AsJob
 
-# Check when the job is done
+# Check when the job is done when `-AsJob` was used
 Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 ```
 
@@ -145,7 +131,7 @@ Log Analytics 클러스터 프로비전을 완료하는 데는 시간이 걸립�
 **CLI**
 
 ```azurecli
-Set-AzContext -SubscriptionId "cluster-subscription-id"
+az account set --subscription "cluster-subscription-id"
 
 az monitor log-analytics cluster show --resource-group "resource-group-name" --name "cluster-name"
 ```
@@ -230,15 +216,16 @@ Log Analytics 작업 영역이 전용 클러스터에 연결 된 경우 기존 �
 **CLI**
 ```azurecli
 # Find cluster resource ID
-Set-AzContext -SubscriptionId "cluster-subscription-id"
+az account set --subscription "cluster-subscription-id"
 $clusterResourceId = az monitor log-analytics cluster list --resource-group "resource-group-name" --query "[?contains(name, "cluster-name")].[id]" --output tsv
 
 # Link workspace
-Set-AzContext -SubscriptionId "workspace-subscription-id"
+az account set --subscription "workspace-subscription-id"
 az monitor log-analytics workspace linked-service create --no-wait --name cluster --resource-group "resource-group-name" --workspace-name "workspace-name" --write-access-resource-id $clusterResourceId
 
-# Wait for job completion
-az resource wait --created --ids /subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.operationalinsights/clusters/cluster-name --include-response-body true
+# Wait for job completion when `--no-wait` was used
+$workspaceResourceId = az monitor log-analytics workspace list --resource-group "resource-group-name" --query "[?contains(name, "workspace-name")].[id]" --output tsv
+az resource wait --deleted --ids $workspaceResourceId --include-response-body true
 ```
 
 **PowerShell**
@@ -284,14 +271,11 @@ Content-type: application/json
 
 ### <a name="check-workspace-link-status"></a>작업 영역 연결 상태 확인
   
-클러스터가 고객 관리형 키로 구성된 경우 연결 작업 완료 후 작업 영역에 수집된 데이터는 관리형 키로 암호화되어 저장됩니다. 작업 영역 연결 작업을 완료하는 데 최대 90분이 걸릴 수 있으며 다음 두 가지 방법으로 상태를 확인할 수 있습니다.
-
-- 응답에서 Azure-AsyncOperation URL 값을 복사하고 비동기 작업 상태 검사를 수행합니다.
-- 작업 영역에서 Get 작업을 수행하고 *features* 아래의 응답에 *clusterResourceId* 속성이 있는지 관찰합니다.
+클러스터가 고객 관리형 키로 구성된 경우 연결 작업 완료 후 작업 영역에 수집된 데이터는 관리형 키로 암호화되어 저장됩니다. 작업 영역 링크 작업을 완료하는 데 최대 90분이 걸릴 수 있으며, Get request to workspace를 전송하여 상태를 확인하고 *기능* 아래의 응답에 *clusterResourceId* 속성이 있는지 확인할 수 있습니다.
 
 **CLI**
 ```azurecli
-Set-AzContext -SubscriptionId "workspace-subscription-id"
+az account set --subscription "workspace-subscription-id"
 
 az monitor log-analytics workspace show --resource-group "resource-group-name" --workspace-name "workspace-name"
 ```
@@ -370,7 +354,7 @@ Authorization: Bearer <token>
 **CLI**
 
 ```azurecli
-Set-AzContext -SubscriptionId "cluster-subscription-id"
+az account set --subscription "cluster-subscription-id"
 
 az monitor log-analytics cluster list --resource-group "resource-group-name"
 ```
@@ -438,7 +422,7 @@ Authorization: Bearer <token>
 **CLI**
 
 ```azurecli
-Set-AzContext -SubscriptionId "cluster-subscription-id"
+az account set --subscription "cluster-subscription-id"
 
 az monitor log-analytics cluster list
 ```
@@ -473,7 +457,7 @@ Authorization: Bearer <token>
 **CLI**
 
 ```azurecli
-Set-AzContext -SubscriptionId "cluster-subscription-id"
+az account set --subscription "cluster-subscription-id"
 
 az monitor log-analytics cluster update --resource-group "resource-group-name" --name "cluster-name"  --sku-capacity 500
 ```
@@ -540,7 +524,7 @@ Content-type: application/json
 **CLI**
 
 ```azurecli
-Set-AzContext -SubscriptionId "workspace-subscription-id"
+az account set --subscription "workspace-subscription-id"
 
 az monitor log-analytics workspace linked-service delete --resource-group "resource-group-name" --workspace-name "workspace-name" --name cluster
 ```
@@ -559,22 +543,19 @@ Remove-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-nam
 
 ## <a name="delete-cluster"></a>클러스터 삭제
 
-전용 클러스터를 삭제하기 전에 전용 클러스터에서 모든 작업 영역의 연결을 해제해야 합니다. 이 작업을 수행하려면 클러스터 리소스에 대한 ‘쓰기’ 권한이 필요합니다. 
+삭제하기 전에 전용 클러스터에서 모든 작업 영역의 연결을 해제하는 것이 좋습니다. 클러스터 리소스에 대한 *쓰기* 권한이 있어야 합니다. 클러스터를 삭제할 때 연결된 작업 영역 및 이전에 연결된 작업 영역에서 클러스터에 수집된 모든 데이터에 대한 액세스 권한이 손실됩니다. 이 작업은 되돌릴 수 없습니다. 작업 영역이 연결될 때 클러스터를 삭제하면 자동으로 연결되지 않고 새 데이터가 Log Analytics 스토리지에 수집됩니다.
 
-클러스터 리소스가 삭제되면 물리적인 클러스터의 제거 및 삭제 프로세스가 진행됩니다. 클러스터를 삭제하면 클러스터에 저장된 모든 데이터가 삭제됩니다. 이러한 데이터는 과거에 이 클러스터와 연결된 작업 영역에서 나온 것일 수 있습니다.
-
-지난 14일 동안 삭제된 클러스터 리소스는 일시 삭제 상태에 있으므로 해당 데이터를 사용하여 복구할 수 있습니다. 모든 작업 영역이 클러스터 리소스 삭제를 통해 클러스터 리소스에서 연결 해제되었으므로 복구 후에 작업 영역을 다시 연결해야 합니다. 복구 작업은 사용자가 수행할 수 없으므로 Microsoft 채널 또는 고객 지원팀에 문의하여 복구 요청을 하세요.
-
-삭제 후 14일 이내에는 클러스터 리소스 이름이 예약되어 있으므로 다른 리소스에서 사용할 수 없습니다.
+지난 14일 동안 삭제된 클러스터 리소스는 일시 삭제 상태로 유지되고 해당 이름은 예약된 상태로 유지됩니다. 일시 삭제 기간이 지나면 클러스터가 영구적으로 삭제되고 이름을 사용할 수 있습니다.
 
 > [!WARNING] 
-> 구독당 클러스터 3개로 제한됩니다. 활성 삭제 및 일시 삭제된 클러스터가 모두 여기에 계산됩니다. 고객은 클러스터를 만들고 삭제하는 되풀이 프로시저를 만들면 안 됩니다. 이렇게 하면 Log Analytics 백 엔드 시스템에 상당한 영향을 미치게 됩니다.
+> - 일시 삭제된 클러스터의 복구는 지원되지 않으며 삭제된 후에는 복구할 수 없습니다.
+> - 구독당 4개의 클러스터로 제한됩니다. 활성 삭제 및 일시 삭제된 클러스터가 모두 여기에 계산됩니다. 고객은 클러스터를 만들고 삭제하는 되풀이 프로시저를 만들면 안 됩니다. 이렇게 하면 Log Analytics 백 엔드 시스템에 상당한 영향을 미치게 됩니다.
 
 클러스터를 삭제하려면 다음 명령을 사용합니다.
 
 **CLI**
 ```azurecli
-Set-AzContext -SubscriptionId "cluster-subscription-id"
+az account set --subscription "cluster-subscription-id"
 
 az monitor log-analytics cluster delete --resource-group "resource-group-name" --name $clusterName
 ```
@@ -621,18 +602,16 @@ Authorization: Bearer <token>
 - 현재 중국에서는 Lockbox를 사용할 수 없습니다. 
 
 - [이중 암호화](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)는 지원되는 지역에서 2020년 10월부터 만들어진 클러스터에 자동으로 구성됩니다. 클러스터에서 GET 요청을 보내고 이중 암호화가 사용 가능한 클러스터의 `isDoubleEncryptionEnabled` 값이 `true`인지 관찰하여 클러스터가 이중 암호화로 구성되었는지 확인할 수 있습니다. 
-  - 클러스터를 만들고 "지역 이름에서 클러스터의 이중 암호화를 지원 하지 않습니다." 라는 오류 메시지가 표시 되 면 `"properties": {"isDoubleEncryptionEnabled": false}` REST 요청 본문에를 추가 하 여 이중 암호화 없이 클러스터를 만들 수 있습니다.
+  - 클러스터를 만들고 "region-name은 클러스터에 이중 암호화를 지원하지 않습니다."라는 오류가 발생하면 REST 요청 본문에 를 추가하여 이중 암호화 없이 클러스터를 만들 수 `"properties": {"isDoubleEncryptionEnabled": false}` 있습니다.
   - 클러스터를 만든 후에는 이중 암호화 설정을 변경할 수 없습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
-- 클러스터를 만들 때 충돌 오류가 발생 하는 경우 마지막 14 일 동안 클러스터를 삭제 했 고 일시 삭제 상태에 있을 수 있습니다. 클러스터 이름은 일시 삭제 기간 동안 예약된 상태로 유지되며, 해당 이름을 사용하여 새 클러스터를 만들 수 없습니다. 클러스터가 영구적으로 삭제되면 일시 삭제 기간 후에 이름이 해제됩니다.
+- 클러스터를 만들 때 충돌 오류가 발생하면 지난 14일 동안 클러스터를 삭제했으며 일시 삭제 상태일 수 있습니다. 클러스터 이름은 일시 삭제 기간 동안 예약된 상태로 유지되며, 해당 이름을 사용하여 새 클러스터를 만들 수 없습니다. 클러스터가 영구적으로 삭제되면 일시 삭제 기간 후에 이름이 해제됩니다.
 
 - 클러스터를 프로비저닝하거나 상태를 업데이트하는 동안 클러스터를 업데이트하는 경우 업데이트는 실패합니다.
 
-- 일부 작업은 길이가 길고 완료하는 데 시간이 걸릴 수 있습니다. 해당 작업은 ‘클러스터 만들기’, ‘클러스터 키 업데이트’, ‘클러스터 삭제’입니다.   두 가지 방법으로 작동 상태를 확인할 수 있습니다.
-  - REST를 사용할 때 응답에서 Azure-AsyncOperation URL 값을 복사하고 [비동기 작업 상태 검사](#asynchronous-operations-and-status-check)를 수행합니다.
-  - 클러스터 또는 작업 영역에 GET 요청을 보내고 응답을 관찰합니다. 예를 들어 연결되지 않은 작업 영역에는 *features* 아래에 *clusterResourceId* 가 없습니다.
+- 일부 작업은 길이가 길고 완료하는 데 시간이 걸릴 수 있습니다. 해당 작업은 ‘클러스터 만들기’, ‘클러스터 키 업데이트’, ‘클러스터 삭제’입니다.   GET 요청을 클러스터 또는 작업 영역으로 전송하여 작업 상태를 확인하고 응답을 관찰할 수 있습니다. 예를 들어 연결되지 않은 작업 영역에는 *features* 아래에 *clusterResourceId* 가 없습니다.
 
 - 다른 클러스터에 연결된 경우에는 클러스터에 대한 작업 영역 링크가 실패합니다.
 
@@ -655,7 +634,7 @@ Authorization: Bearer <token>
 
 -  400 -- 클러스터가 삭제 중 상태입니다. 비동기 작업이 진행 중입니다. 업데이트 작업을 수행하기 전에 클러스터에서 해당 작업을 완료해야 합니다.
 -  400 -- KeyVaultProperties가 비어 있지 않지만 형식이 잘못되었습니다. [키 식별자 업데이트](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details)를 참조하세요.
--  400 -- 키 자격 증명 모음의 키 유효성을 검사하지 못했습니다. 권한이 부족 하거나 키가 없는 경우에 발생할 수 있습니다. 키 자격 증명 모음에서 [키 및 액세스 정책을 설정](../logs/customer-managed-keys.md#grant-key-vault-permissions)했는지 확인합니다.
+-  400 -- 키 자격 증명 모음의 키 유효성을 검사하지 못했습니다. 권한이 부족하거나 키가 없는 경우일 수 있습니다. 키 자격 증명 모음에서 [키 및 액세스 정책을 설정](../logs/customer-managed-keys.md#grant-key-vault-permissions)했는지 확인합니다.
 -  400 -- 키를 복구할 수 없습니다. Key Vault를 일시 삭제 및 제거 보호로 설정해야 합니다. [Key Vault 설명서](../../key-vault/general/soft-delete-overview.md)를 참조하세요.
 -  400 -- 지금은 작업을 실행할 수 없습니다. 비동기 작업이 완료될 때까지 기다렸다가 다시 시도하세요.
 -  400 -- 클러스터가 삭제 중 상태입니다. 비동기 작업이 완료될 때까지 기다렸다가 다시 시도하세요.
@@ -670,12 +649,12 @@ Authorization: Bearer <token>
 
 ### <a name="workspace-link"></a>작업 영역 연결
 
--  404 -- 작업 영역을 찾을 수 없습니다. 지정한 작업 영역이 존재 하지 않거나 삭제 되었습니다.
+-  404 -- 작업 영역을 찾을 수 없습니다. 지정한 작업 영역이 없거나 삭제되었습니다.
 -  409 -- 작업 영역 연결 또는 연결 해제 작업이 진행 중입니다.
--  400--클러스터를 찾을 수 없습니다. 지정한 클러스터가 없거나 삭제 되었습니다. 해당 이름을 사용하여 클러스터를 만들려고 하며, 충돌하는 경우 클러스터는 14일 동안 일시 삭제 상태가 됩니다. 지원 서비스에 문의하여 복구할 수 있습니다.
+-  400 -- 클러스터를 찾을 수 없거나 지정한 클러스터가 없거나 삭제되었습니다. 해당 이름을 사용하여 클러스터를 만들려고 하며, 충돌하는 경우 클러스터는 14일 동안 일시 삭제 상태가 됩니다. 지원 서비스에 문의하여 복구할 수 있습니다.
 
 ### <a name="workspace-unlink"></a>작업 영역 연결 해제
--  404 -- 작업 영역을 찾을 수 없습니다. 지정한 작업 영역이 존재 하지 않거나 삭제 되었습니다.
+-  404 -- 작업 영역을 찾을 수 없습니다. 지정한 작업 영역이 없거나 삭제되었습니다.
 -  409 -- 작업 영역 연결 또는 연결 해제 작업이 진행 중입니다.
 
 ## <a name="next-steps"></a>다음 단계

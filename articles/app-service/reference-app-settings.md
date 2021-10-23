@@ -3,12 +3,12 @@ title: 환경 변수 및 앱 설정 참조
 description: 일반적으로 사용되는 환경 변수와 앱 설정을 사용하여 수정할 수 있는 환경 변수에 대해 설명합니다.
 ms.topic: article
 ms.date: 06/14/2021
-ms.openlocfilehash: 3a51f620cefef67e8e2cd2256ad6dba19b915bf4
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: d945b34eb4803da8d94f4cdcfc8a998212e24afa
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130005132"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224359"
 ---
 # <a name="environment-variables-and-app-settings-in-azure-app-service"></a>Azure App Service 환경 변수 및 앱 설정
 
@@ -270,7 +270,7 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 
 | 설정 이름| 설명 | 예제 |
 |-|-|-|
-| `WEBSITE_DNS_SERVER` | 나가는 연결(예: 백 엔드 서비스)에 대한 기본 DNS 서버의 IP 주소. App Service에 대한 기본 DNS 서버는 IP 주소가 `168.63.129.16`인 Azure DNS입니다. 앱이 [VNet 통합](web-sites-integrate-with-vnet.md)을 사용하거나 [App Service environment](environment/intro.md)에 있는 경우, 기본적으로 VNet에서 DNS 서버 구성을 상속합니다. | `10.0.0.1` |
+| `WEBSITE_DNS_SERVER` | 나가는 연결(예: 백 엔드 서비스)에 대한 기본 DNS 서버의 IP 주소. App Service에 대한 기본 DNS 서버는 IP 주소가 `168.63.129.16`인 Azure DNS입니다. 앱이 [VNet 통합](./overview-vnet-integration.md)을 사용하거나 [App Service environment](environment/intro.md)에 있는 경우, 기본적으로 VNet에서 DNS 서버 구성을 상속합니다. | `10.0.0.1` |
 | `WEBSITE_DNS_ALT_SERVER` | 나가는 연결에 대한 대체 DNS 서버의 IP 주소. `WEBSITE_DNS_SERVER`을 참조하세요. | |
 
 <!-- 
@@ -429,14 +429,14 @@ NEGOTIATE_CLIENT_CERT
 
 ## <a name="networking"></a>네트워킹
 
-다음 환경 변수는 [하이브리드 연결](app-service-hybrid-connections.md) 및 [VNET 통합](web-sites-integrate-with-vnet.md)과 관련이 있습니다.
+다음 환경 변수는 [하이브리드 연결](app-service-hybrid-connections.md) 및 [VNET 통합](./overview-vnet-integration.md)과 관련이 있습니다.
 
 | 설정 이름 | 설명 |
 |-|-|
 | `WEBSITE_RELAYS` | 읽기 전용입니다. 엔드포인트 및 서비스 버스 데이터를 포함하여 하이브리드 연결을 구성하는 데 필요한 데이터입니다. |
 | `WEBSITE_REWRITE_TABLE` | 읽기 전용입니다. 런타임에 조회를 수행하여 연결을 적절하게 다시 작성하는 데 사용됩니다. | 
-| `WEBSITE_VNET_ROUTE_ALL` | 기본적으로 [지역 VNet 통합](web-sites-integrate-with-vnet.md#regional-vnet-integration)을 사용하는 경우, 앱은 RFC1918 트래픽만 VNet으로 라우팅합니다. 모든 아웃바운드 트래픽을 VNet으로 라우팅하고 동일한 NSG 및 UDR을 적용하려면 `1`로 설정합니다. 이 설정을 사용하면 VNet을 통해 비 RFC1918 엔드포인트에 액세스하고, 앱에서 나가는 모든 아웃바운드 트래픽을 보호하고, 선택한 네트워크 어플라이언스에 모든 아웃바운드 트래픽을 강제로 터널링할 수 있습니다. |
-| `WEBSITE_PRIVATE_IP` | 읽기 전용입니다. [VNet 와 통합](web-sites-integrate-with-vnet.md)될 때 앱과 연결된 IP 주소. 지역 VNet 통합의 경우, 값은 위임된 서브넷의 주소 범위에 속하는 IP이고 VNet 통합이 필요한 게이트웨이의 경우 값은 Virtual Network Gateway에 구성된 지점 및 사이트 간 주소 풀의 주소 범위에 속하는 IP입니다. 이 IP는 앱이 VNet을 통해 리소스에 연결하는 데 사용합니다. 또한 설명된 주소 범위 내에서 변경할 수 있습니다. |
+| `WEBSITE_VNET_ROUTE_ALL` | 기본적으로 [지역 VNet 통합](./overview-vnet-integration.md#regional-vnet-integration)을 사용하는 경우, 앱은 RFC1918 트래픽만 VNet으로 라우팅합니다. 모든 아웃바운드 트래픽을 VNet으로 라우팅하고 동일한 NSG 및 UDR을 적용하려면 `1`로 설정합니다. 이 설정을 사용하면 VNet을 통해 비 RFC1918 엔드포인트에 액세스하고, 앱에서 나가는 모든 아웃바운드 트래픽을 보호하고, 선택한 네트워크 어플라이언스에 모든 아웃바운드 트래픽을 강제로 터널링할 수 있습니다. |
+| `WEBSITE_PRIVATE_IP` | 읽기 전용입니다. [VNet 와 통합](./overview-vnet-integration.md)될 때 앱과 연결된 IP 주소. 지역 VNet 통합의 경우, 값은 위임된 서브넷의 주소 범위에 속하는 IP이고 VNet 통합이 필요한 게이트웨이의 경우 값은 Virtual Network Gateway에 구성된 지점 및 사이트 간 주소 풀의 주소 범위에 속하는 IP입니다. 이 IP는 앱이 VNet을 통해 리소스에 연결하는 데 사용합니다. 또한 설명된 주소 범위 내에서 변경할 수 있습니다. |
 | `WEBSITE_PRIVATE_PORTS` | 읽기 전용입니다. VNet 통합에서 앱에서 다른 노드와 통신하는 데 사용할 수 있는 포트를 보여줍니다. |
 
 <!-- | WEBSITE_SLOT_POLL_WORKER_FOR_CHANGE_NOTIFICATION | Poll worker before pinging the site to detect when change notification has been processed. |

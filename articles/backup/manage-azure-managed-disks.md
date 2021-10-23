@@ -3,12 +3,12 @@ title: Azure Managed Disks 관리
 description: Azure Portal Azure Managed Disk 관리에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/23/2021
-ms.openlocfilehash: 4b40a71a71ce543c66bf347ec745fea6ae384779
-ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.openlocfilehash: 38f131d9656f604ee4d53b5d1de0f16ffa56b9ba
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128708916"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215994"
 ---
 # <a name="manage-azure-managed-disks"></a>Azure Managed Disks 관리
 
@@ -96,7 +96,7 @@ ms.locfileid: "128708916"
 예약된 모든 백업 작업을 중지하고 기존 백업을 모두 삭제하도록 선택한 경우 **백업 인스턴스 삭제를** 사용합니다.
 
 >[!Note]
->스냅샷 리소스 그룹이 수동으로 삭제되거나 Backup 자격 증명 모음의 관리 ID에 대한 권한이 취소되면 백업 인스턴스를 삭제하지 못합니다. 이러한 오류의 경우 스냅샷 리소스 그룹(동일한 이름 사용)을 일시적으로 만들고 [여기에](/azure/backup/backup-managed-disks-ps#assign-permissions)설명된 대로 필요한 역할 권한이 있는 Backup 자격 증명 모음의 관리 ID를 제공합니다. **Backup 인스턴스** 화면의 **Essentials** 탭에서 스냅샷 리소스 그룹의 이름을 찾을 수 있습니다. 
+>스냅샷 리소스 그룹이 수동으로 삭제되거나 Backup 자격 증명 모음의 관리 ID에 대한 권한이 취소되면 백업 인스턴스를 삭제하지 못합니다. 이러한 오류의 경우 스냅샷 리소스 그룹(동일한 이름 사용)을 일시적으로 만들고 [여기에](./backup-managed-disks-ps.md#assign-permissions)설명된 대로 필요한 역할 권한이 있는 Backup 자격 증명 모음의 관리 ID를 제공합니다. **Backup 인스턴스** 화면의 **Essentials** 탭에서 스냅샷 리소스 그룹의 이름을 찾을 수 있습니다. 
 
 디스크 백업 인스턴스를 삭제하려면 다음 단계를 수행합니다.
 

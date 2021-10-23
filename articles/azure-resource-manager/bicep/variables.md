@@ -4,13 +4,13 @@ description: Bicep에서 변수를 정의하는 방법을 설명합니다.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/10/2021
-ms.openlocfilehash: 040e40d20fe81bb72493f087c9d0583a911b1ee7
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/19/2021
+ms.openlocfilehash: 13cb7847019e6b8a4e6e00c6be8d5949a03b3072
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124733340"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219567"
 ---
 # <a name="variables-in-bicep"></a>Bicep의 변수
 
@@ -20,7 +20,13 @@ Resource Manager는 배포 작업을 시작하기 전에 변수를 확인합니�
 
 ## <a name="define-variable"></a>변수 정의
 
-변수를 정의할 때 변수에 대한 [데이터 형식](data-types.md)을 지정하지 않습니다. 대신 값 또는 템플릿 식을 제공합니다. 변수 형식은 확인된 값에서 유추됩니다. 다음 예제에서는 변수를 문자열로 설정합니다.
+변수를 정의하는 구문은 다음과 같습니다.
+
+```bicep
+var <variable-name> = <variable-value>
+```
+
+변수의 [데이터 형식은](data-types.md) 지정하지 않습니다. 형식은 값에서 유추됩니다. 다음 예제에서는 변수를 문자열로 설정합니다.
 
 ```bicep
 var stringVar = 'example value'
@@ -29,50 +35,92 @@ var stringVar = 'example value'
 변수를 생성할 때 매개 변수 또는 다른 변수의 값을 사용할 수 있습니다.
 
 ```bicep
-param inputValue string = 'deployment Parameter'
+param inputValue string = 'deployment parameter'
 
-var stringVar = 'myVariable'
-
+var stringVar = 'preset variable'
 var concatToVar =  '${stringVar}AddToVar'
 var concatToParam = '${inputValue}AddToParam'
+
+output addToVar string = concatToVar
+output addToParam string = concatToParam
 ```
 
-[Bicep 함수](bicep-functions.md)를 사용하여 변수 값을 생성할 수 있습니다. [reference](bicep-functions-resource.md#reference) 및 [list](bicep-functions-resource.md#list) 함수는 변수를 선언할 때 유효합니다.
+앞의 예제는 다음을 반환합니다.
 
-다음 예제에서는 스토리지 계정 이름에 대한 문자열 값을 만듭니다. 여러 Bicep 함수를 사용하여 매개 변수 값을 가져오고 이를 고유한 문자열에 연결합니다.
+```json
+{
+  "addToParam": {
+    "type": "String",
+    "value": "deployment parameterAddToParam"
+  },
+  "addToVar": {
+    "type": "String",
+    "value": "preset variableAddToVar"
+  }
+}
+```
+
+[Bicep 함수](bicep-functions.md)를 사용하여 변수 값을 생성할 수 있습니다. 다음 예제에서는 Bicep 함수를 사용하여 스토리지 계정 이름에 대한 문자열 값을 만듭니다.
 
 ```bicep
+param storageNamePrefix string = 'stg'
 var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'
+
+output uniqueStorageName string = storageName
 ```
 
-다음 예제에서는 리소스를 배포하지 않습니다. 다양한 형식의 변수를 선언하는 방법을 보여줍니다.
+앞의 예제에서는 다음과 같은 값을 반환합니다.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/variables/variables.bicep":::
+```json
+"uniqueStorageName": {
+  "type": "String",
+  "value": "stghzuunrvapn6sw"
+}
+```
 
-루프를 사용하여 동적 개수의 요소가 있는 배열 변수를 선언할 수 있습니다. 자세한 내용은 [Bicep의 변수 반복을 참조하세요.](loop-variables.md)
+변수를 정의할 때 반복 루프를 사용할 수 있습니다. 다음 예제에서는 세 가지 속성을 가진 개체의 배열을 만듭니다.
+
+```bicep
+param itemCount int = 3
+
+var objectArray = [for i in range(0, itemCount): {
+  name: 'myDataDisk${(i + 1)}'
+  diskSizeGB: '1'
+  diskIndex: i
+}]
+
+output arrayResult array = objectArray
+```
+
+출력은 다음 값을 가진 배열을 반환합니다.
+
+```json
+[
+  {
+    "name": "myDataDisk1",
+    "diskSizeGB": "1",
+    "diskIndex": 0
+  },
+  {
+    "name": "myDataDisk2",
+    "diskSizeGB": "1",
+    "diskIndex": 1
+  },
+  {
+    "name": "myDataDisk3",
+    "diskSizeGB": "1",
+    "diskIndex": 2
+  }
+]
+```
+
+변수와 함께 사용할 수 있는 루프 형식에 대한 자세한 내용은 [Bicep의 반복 루프를](loops.md)참조하세요.
 
 ## <a name="use-variable"></a>변수 사용
 
 다음 예제에서는 리소스 속성에 대한 변수를 사용하는 방법을 설명합니다. 변수의 이름(`storageName`)을 제공하여 변수의 값을 참조합니다.
 
-```bicep
-param rgLocation string = resourceGroup().location
-param storageNamePrefix string = 'STG'
-
-var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'
-
-resource demoAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
-  name: storageName
-  location: rgLocation
-  kind: 'Storage'
-  sku: {
-    name: 'Standard_LRS'
-    tier: 'Standard'
-  }
-}
-
-output stgOutput string = storageName
-```
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/variables/variableswithfunction.bicep" highlight="4,7,15" :::
 
 스토리지 계정 이름은 소문자를 사용해야 하므로 `storageName` 변수는 `toLower` 함수를 사용하여 `storageNamePrefix` 값을 소문자로 만듭니다. `uniqueString` 함수는 리소스 그룹 ID에서 고유한 값을 만듭니다. 값은 문자열에 연결됩니다.
 
@@ -85,4 +133,4 @@ output stgOutput string = storageName
 ## <a name="next-steps"></a>다음 단계
 
 - 변수에 사용할 수 있는 속성에 대한 자세한 내용은 [Bicep 파일의 구조 및 구문 이해](file.md)를 참조하세요.
-- 변수 선언과 함께 루프를 사용하는 방법에 대한 자세한 내용은 [Bicep의 변수 반복을](loop-variables.md)참조하세요.
+- 루프 구문을 사용하는 방법에 대한 자세한 내용은 [Bicep의 반복 루프를](loops.md)참조하세요.

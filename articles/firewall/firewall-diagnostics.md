@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 08/03/2021
+ms.date: 10/22/2021
 ms.author: victorh
-ms.openlocfilehash: 62659116599a60d5a9407fea4d2b1f06594ef475
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d421986ebeb308efb0e076b1a80f537d49082ec5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124824442"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130242352"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Azure Firewall 로그 및 메트릭 모니터링
 
@@ -55,11 +55,15 @@ ms.locfileid: "124824442"
 
 PowerShell을 사용하여 진단 로깅을 사용하도록 설정하려면 다음 단계를 따릅니다.
 
-1. 로그 데이터를 저장할 로그 분석 작업 영역의 리소스 ID를 적어 둡니다. 이 값의 형식은 `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>`입니다.
+1. 로그 데이터를 저장할 로그 분석 작업 영역의 리소스 ID를 적어 둡니다. 이 값은 다음과 같은 형식입니다.
+
+   `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>`
 
    구독의 모든 작업 영역을 사용할 수 있습니다. Azure Portal을 사용하여 이 정보를 찾을 수 있습니다. 정보는 리소스 **속성** 페이지에 있습니다.
 
-2. 방화벽의 리소스 ID를 적어둡니다. 이 값의 형식은 `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`입니다.
+2. 방화벽의 리소스 ID를 적어둡니다. 이 값은 다음과 같은 형식입니다.
+
+   `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`
 
    포털을 사용하여 이 정보를 찾을 수 있습니다.
 
@@ -81,11 +85,15 @@ PowerShell을 사용하여 진단 로깅을 사용하도록 설정하려면 다�
 
 Azure CLI를 사용하여 진단 로깅을 사용하도록 설정하려면 다음 단계를 따릅니다.
 
-1. 로그 데이터를 저장할 로그 분석 작업 영역의 리소스 ID를 적어 둡니다. 이 값의 형식은 `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`입니다.
+1. 로그 데이터를 저장할 로그 분석 작업 영역의 리소스 ID를 적어 둡니다. 이 값은 다음과 같은 형식입니다.
+
+   `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>`
 
    구독의 모든 작업 영역을 사용할 수 있습니다. Azure Portal을 사용하여 이 정보를 찾을 수 있습니다. 정보는 리소스 **속성** 페이지에 있습니다.
 
-2. 방화벽의 리소스 ID를 적어둡니다. 이 값의 형식은 `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`입니다.
+2. 방화벽의 리소스 ID를 적어둡니다. 이 값은 다음과 같은 형식입니다.
+
+   `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`
 
    포털을 사용하여 이 정보를 찾을 수 있습니다.
 

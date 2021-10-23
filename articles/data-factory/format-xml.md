@@ -1,20 +1,20 @@
 ---
 title: XML 형식
 titleSuffix: Azure Data Factory & Azure Synapse
-description: 이 항목에서는 Azure Data Factory 및 Synapse Analytics 파이프라인에서 XML 형식을 처리 하는 방법에 대해 설명 합니다.
+description: 이 항목에서는 Azure Data Factory 및 Synapse Analytics 파이프라인에서 XML 형식을 처리하는 방법에 대해 설명합니다.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/18/2021
 ms.author: jianleishen
-ms.openlocfilehash: 202c2ea7014ea0295fb342b1fc7fabd70d87ac29
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: c23245f05f44ff3ca0d730d41982d168dc08458e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124743555"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130247120"
 ---
 # <a name="xml-format-in-azure-data-factory-and-synapse-analytics-pipelines"></a>Azure Data Factory 및 Synapse Analytics 파이프라인의 XML 형식
 
@@ -28,7 +28,7 @@ XML 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 XML 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-| 속성         | Description                                                  | 필수 |
+| 속성         | 설명                                                  | 필수 |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | 데이터 세트의 형식 속성을 **Xml** 로 설정해야 합니다. | 예      |
 | 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 `location`의 고유한 위치 형식 및 지원되는 속성이 있습니다. **자세한 내용은 커넥터 문서 -> 데이터 세트 속성 섹션을 참조하세요**. | 예      |
@@ -81,7 +81,7 @@ XML 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S
 
 `formatSettings`에서 지원되는 **XML 읽기 설정**:
 
-| 속성      | Description                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | formatSettings의 형식을 **XmlReadSettings** 로 설정해야 합니다. | 예      |
 | validationMode | XML 스키마의 유효성을 검사할지 여부를 지정합니다.<br>허용되는 값은 **none**(기본값, 유효성 검사하지 않음), **xsd**(XSD를 사용하여 유효성 검사), **dtd**(DTD를 사용하여 유효성 검사)입니다. | 예 |
@@ -94,7 +94,7 @@ XML 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S
 
 ## <a name="mapping-data-flow-properties"></a>매핑 데이터 흐름 속성
 
-매핑 데이터 흐름에서는 [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) 같은 데이터 저장소에서 XML 형식을 읽을 수 있습니다. XML 데이터 세트나 [인라인 데이터 세트](data-flow-source.md#inline-datasets)를 사용하여 XML 파일을 가리킬 수 있습니다.
+데이터 흐름 매핑에서는 [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties), [Amazon S3](connector-amazon-simple-storage-service.md#mapping-data-flow-properties)의 데이터 저장소에서 XML 형식을 읽을 수 있습니다. XML 데이터 세트나 [인라인 데이터 세트](data-flow-source.md#inline-datasets)를 사용하여 XML 파일을 가리킬 수 있습니다.
 
 ### <a name="source-properties"></a>원본 속성
 

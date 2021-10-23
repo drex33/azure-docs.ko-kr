@@ -10,12 +10,12 @@ ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: 44f41d0adebe21eaec28aced556f67e8c1aeda1d
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 6df2a24ca029f14a4743b28641b8ac4c2b88e851
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130047231"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223792"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>연속 창에 따라 파이프라인을 실행하는 트리거 만들기
 
@@ -199,7 +199,7 @@ ms.locfileid: "130047231"
 
 ---
 
-## <a name="sample-for-azure-powershell-and-azure-cli"></a>Azure PowerShell 및 Azure CLI에 대 한 샘플
+## <a name="sample-for-azure-powershell-and-azure-cli"></a>Azure PowerShell 및 Azure CLI 샘플
 
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
@@ -213,7 +213,7 @@ ms.locfileid: "130047231"
 
 - **Azure PowerShell**. [PowerShellGet을 사용하여 Windows에 Azure PowerShell 설치](/powershell/azure/install-az-ps)의 지침을 따르세요. 
 
-- **Azure Data Factory**. [PowerShell을 사용 하 여 Azure Data Factory 만들기](/azure/data-factory/quickstart-create-data-factory-powershell) 의 지침에 따라 데이터 팩터리 및 파이프라인을 만듭니다.
+- **Azure Data Factory**. [PowerShell을 사용하여 Azure Data Factory 만들기의](./quickstart-create-data-factory-powershell.md) 지침에 따라 데이터 팩터리 및 파이프라인을 만듭니다.
 
 ### <a name="sample-code"></a>샘플 코드
 
@@ -286,20 +286,20 @@ ms.locfileid: "130047231"
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-이 섹션에서는 Azure CLI를 사용 하 여 트리거를 만들고 시작 하 고 모니터링 하는 방법을 보여 줍니다.
+이 섹션에서는 Azure CLI 사용하여 트리거를 만들고, 시작하고, 모니터링하는 방법을 보여줍니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-- [Azure CLI를 사용 하 여 Azure Data Factory 만들기](/azure/data-factory/quickstart-create-data-factory-azure-cli) 의 지침에 따라 데이터 팩터리 및 파이프라인을 만듭니다.
+- [Azure CLI 사용하여 Azure Data Factory 만들기의](./quickstart-create-data-factory-azure-cli.md) 지침에 따라 데이터 팩터리 및 파이프라인을 만듭니다.
 
 ### <a name="sample-code"></a>샘플 코드
 
-1. 작업 디렉터리에서 트리거의 속성을 사용 하 여 **mytrigger. json** 이라는 json 파일을 만듭니다. 이 샘플에서는 다음 콘텐츠를 사용 합니다.
+1. 작업 디렉터리에서 트리거의 속성을 사용하여 **MyTrigger.json이라는 JSON** 파일을 만듭니다. 이 샘플의 경우 다음 콘텐츠를 사용합니다.
 
     > [!IMPORTANT]
-    > JSON 파일을 저장 하기 전에 **Referencename** 값을 파이프라인 이름으로 설정 합니다. **StartTime** 요소의 값을 현재 UTC 시간으로 설정 합니다. **endTime** 요소의 값을 현재 UTC 시간의 한 시간 이후로 설정합니다.
+    > JSON 파일을 저장하기 전에 **referenceName** 값을 파이프라인 이름으로 설정합니다. **startTime** 요소의 값을 현재 UTC 시간으로 설정합니다. **endTime** 요소의 값을 현재 UTC 시간의 한 시간 이후로 설정합니다.
 
     ```json
     {
@@ -330,34 +330,34 @@ ms.locfileid: "130047231"
     }
     ```
 
-2. [Az datafactory trigger create](/cli/azure/datafactory/trigger#az_datafactory_trigger_create) 명령을 사용 하 여 트리거를 만듭니다.
+2. [az datafactory trigger create](/cli/azure/datafactory/trigger#az_datafactory_trigger_create) 명령을 사용하여 트리거를 만듭니다.
 
     > [!IMPORTANT]
-    > 이 단계에서는 모든 후속 단계를 `ResourceGroupName` 리소스 그룹 이름으로 바꿉니다. `DataFactoryName`데이터 팩터리의 이름으로 대체 합니다.
+    > 이 단계 및 모든 후속 단계에서는 `ResourceGroupName` 를 리소스 그룹 이름으로 대체합니다. `DataFactoryName`을 데이터 팩터리의 이름으로 대체합니다.
 
     ```azurecli
     az datafactory trigger create --resource-group "ResourceGroupName" --factory-name "DataFactoryName"  --name "MyTrigger" --properties @MyTrigger.json  
     ```
 
-3. [Az datafactory trigger show](/cli/azure/datafactory/trigger#az_datafactory_trigger_show) 명령을 사용 하 여 트리거의 상태가 **중지** 됨 인지 확인 합니다.
+3. [az datafactory](/cli/azure/datafactory/trigger#az_datafactory_trigger_show) trigger show 명령을 사용하여 트리거 상태가 **Stopped인지** 확인합니다.
 
     ```azurecli
     az datafactory trigger show --resource-group "ResourceGroupName" --factory-name "DataFactoryName" --name "MyTrigger" 
     ```
 
-4. [Az datafactory trigger start](/cli/azure/datafactory/trigger#az_datafactory_trigger_start) 명령을 사용 하 여 트리거를 시작 합니다.
+4. [az datafactory trigger start](/cli/azure/datafactory/trigger#az_datafactory_trigger_start) 명령을 사용하여 트리거를 시작합니다.
 
     ```azurecli
     az datafactory trigger start --resource-group "ResourceGroupName" --factory-name "DataFactoryName" --name "MyTrigger" 
     ```
 
-5. [Az datafactory trigger show](/cli/azure/datafactory/trigger#az_datafactory_trigger_show) 명령을 사용 하 여 트리거의 상태가 **시작** 됨 인지 확인 합니다.
+5. [az datafactory trigger show](/cli/azure/datafactory/trigger#az_datafactory_trigger_show) 명령을 사용하여 트리거 상태가 **시작인지** 확인합니다.
 
     ```azurecli
     az datafactory trigger show --resource-group "ResourceGroupName" --factory-name "DataFactoryName" --name "MyTrigger" 
     ```
 
-6. [Az datafactory trigger-run query by factory](/cli/azure/datafactory/trigger-run#az_datafactory_trigger_run_query_by_factory) 명령을 사용 하 여 Azure CLI에서 트리거 실행을 가져옵니다. 트리거 실행에 대한 정보를 가져오려면 다음 명령을 주기적으로 실행합니다. 트리거 정의의 값과 일치 하도록 **마지막 업데이트-이후** 및  **마지막으로 업데이트** 된 값을 업데이트 합니다.
+6. [az datafactory trigger-run query-by-factory](/cli/azure/datafactory/trigger-run#az_datafactory_trigger_run_query_by_factory) 명령을 사용하여 Azure CLI 트리거 실행을 얻습니다. 트리거 실행에 대한 정보를 가져오려면 다음 명령을 주기적으로 실행합니다. 트리거 정의의 값과 일치하도록 **last-updated-after** 및  **last-updated-before** 값을 업데이트합니다.
 
     ```azurecli
     az datafactory trigger-run query-by-factory --resource-group "ResourceGroupName" --factory-name "DataFactoryName" --filters operand="TriggerName" operator="Equals" values="MyTrigger" --last-updated-after "2017-12-08T00:00:00Z" --last-updated-before "2017-12-08T01:00:00Z"

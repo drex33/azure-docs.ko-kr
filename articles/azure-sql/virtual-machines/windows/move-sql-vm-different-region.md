@@ -15,12 +15,12 @@ ms.date: 07/30/2019
 ms.author: pamela
 ms.reviewer: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d35912c6edafed201a037c8c865746fb299cb1d7
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 00b2b42090e88d375f12daccdae37ad0b2ba28b9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130163802"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219378"
 ---
 # <a name="move-a-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery"></a>Azure Site Recovery를 사용하여 Azure 내의 다른 지역으로 SQL Server VM 이동
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -66,7 +66,7 @@ SQL Server VM을 다른 지역으로 이동하려면 다음 단계를 수행해�
 - 원본 VM 구성에 따라 관련성이 있는 가장 일반적으로 사용되는 네트워크 리소스를 만들려면 다음 문서를 참조하세요. 
     - [네트워크 보안 그룹](../../../virtual-network/tutorial-filter-network-traffic.md) 
     - [부하 분산 장치](../../../load-balancer/quickstart-load-balancer-standard-internal-portal.md)
-    - [공용 IP 주소](../../../virtual-network/virtual-network-public-ip-address.md)
+    - [공용 IP 주소](../../../virtual-network/ip-services/virtual-network-public-ip-address.md)
     - 기타 네트워킹 구성 요소는 [네트워킹 설명서](../../../virtual-network/virtual-networks-overview.md)를 참조하세요.
 - 대상 Azure 지역으로 최종 이동을 수행하기 전에 구성을 테스트하려면 수동으로 대상 Azure 지역에 비-프로덕션 네트워크를 만듭니다. 이 단계는 프로덕션 네트워크를 최소로만 중단하므로 권장됩니다. 
 
@@ -156,4 +156,4 @@ SQL Server VM을 다른 지역으로 이동하려면 다음 단계를 수행해�
 * [Windows VM에서 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Windows VM의 SQL Server FAQ](frequently-asked-questions-faq.yml)
 * [Windows VM의 SQL Server 가격 책정 가이드](pricing-guidance.md)
-* [Azure vm에서 SQL Server의 새로운 기능](doc-changes-updates-release-notes-whats-new.md)
+* [Azure VM의 SQL Server 새로운 내용](doc-changes-updates-release-notes-whats-new.md)

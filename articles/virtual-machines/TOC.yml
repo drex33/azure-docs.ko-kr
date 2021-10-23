@@ -1366,31 +1366,31 @@
     - name: VM 만들기 - 고정 공용 IP
       items:
         - name: Azure portal
-          href: ../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?context=/azure/virtual-machines/context/context
+          href: ../virtual-network/ip-services/virtual-network-deploy-static-pip-arm-portal.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: Azure PowerShell
-          href: ../virtual-network/virtual-network-deploy-static-pip-arm-ps.md?context=/azure/virtual-machines/context/context
+          href: ../virtual-network/ip-services/virtual-network-deploy-static-pip-arm-ps.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: Azure CLI
-          href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?context=/azure/virtual-machines/context/context
+          href: ../virtual-network/ip-services/virtual-network-deploy-static-pip-arm-cli.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: 기존 VM에 공용 IP 주소 추가
-          href: ../virtual-network/associate-public-ip-address-vm.md?context=/azure/virtual-machines/context/context
+          href: ../virtual-network/ip-services/associate-public-ip-address-vm.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: VM에서 공용 IP 주소 분리
-          href: ../virtual-network/remove-public-ip-address-vm.md?context=/azure/virtual-machines/context/context
+          href: ../virtual-network/ip-services/remove-public-ip-address-vm.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: VM 만들기 - 고정 개인 IP
       items:
         - name: Azure portal
-          href: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md?context=/azure/virtual-machines/context/context
+          href: ../virtual-network/ip-services/virtual-networks-static-private-ip-arm-pportal.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: Azure PowerShell
-          href: ../virtual-network/virtual-networks-static-private-ip-arm-ps.md?context=/azure/virtual-machines/context/context
+          href: ../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: Azure CLI
-          href: ../virtual-network/virtual-networks-static-private-ip-arm-cli.md?context=/azure/virtual-machines/context/context
+          href: ../virtual-network/ip-services/virtual-networks-static-private-ip-arm-cli.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: VM 만들기 - 여러 IP
       items:
         - name: Azure portal
-          href: ../virtual-network/virtual-network-multiple-ip-addresses-portal.md?context=/azure/virtual-machines/context/context
+          href: ../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: Azure PowerShell
-          href: ../virtual-network/virtual-network-multiple-ip-addresses-powershell.md?context=/azure/virtual-machines/context/context
+          href: ../virtual-network/ip-services/virtual-network-multiple-ip-addresses-powershell.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: Azure CLI
-          href: ../virtual-network/virtual-network-multiple-ip-addresses-cli.md?context=/azure/virtual-machines/context/context
+          href: ../virtual-network/ip-services/virtual-network-multiple-ip-addresses-cli.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
         - name: 네트워크 인터페이스 추가 또는 제거
           href: ../virtual-network/virtual-network-network-interface-vm.md?context=/azure/virtual-machines/context/context
         - name: VM 만들기 - 여러 NIC
@@ -1435,7 +1435,7 @@
           displayName: port nsg network security group
           href: ./windows/nsg-quickstart-portal.md
     - name: 공용 IP 주소 할당
-      href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?context=/azure/virtual-machines/context/context
+      href: ../virtual-network/ip-services/virtual-network-deploy-static-pip-arm-cli.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: 사용자 지정 도메인 이름 사용
       href: custom-domain.md
     - name: 여러 NIC 사용
@@ -1518,10 +1518,10 @@
               href: ../bastion/create-host-cli.md
             - name: Bastion SSH 연결
               displayName: 'Create a Bastion host, SSH, connect'
-              href: ../bastion/bastion-connect-vm-ssh.md
+              href: ../bastion/bastion-connect-vm-ssh-linux.md
             - name: Bastion RDP 연결
               displayName: 'Create a Bastion host, connect, remote desktop, rdp'
-              href: ../bastion/bastion-connect-vm-rdp.md
+              href: ../bastion/bastion-connect-vm-rdp-windows.md
         - name: 액세스 제어 사용
           href: ../role-based-access-control/overview.md
         - name: 주요 자격 증명 모음 만들기
@@ -1684,7 +1684,7 @@
           href: ../azure-monitor/agents/agents-overview.md?context=/azure/virtual-machines/context/context
         - name: FAQ
           displayName: Agents
-          href: /azure/azure-monitor/faq#agents
+          href: ../azure-monitor/faq.yml
         - name: Azure Diagnostics 확장
           items:
             - name: 개요

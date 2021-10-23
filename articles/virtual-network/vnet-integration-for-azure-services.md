@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: kumud
-ms.openlocfilehash: 8630451fe4ff8b3468b5c31168a417a72e8769f3
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
-ms.translationtype: HT
+ms.openlocfilehash: d420c535ba7d230c357337c1500d0e2b187ec25a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114386285"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262815"
 ---
 # <a name="integrate-azure-services-with-virtual-networks-for-network-isolation"></a>네트워크 격리를 위해 가상 네트워크와 Azure 서비스 통합
 
@@ -131,6 +131,6 @@ VNet 통합은 Azure 서비스에 네트워크 격리의 이점을 제공하고 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 네트워크와 앱을 통합](../app-service/web-sites-integrate-with-vnet.md)하는 방법에 대해 알아봅니다.
+- [Azure 네트워크와 앱을 통합](../app-service/overview-vnet-integration.md)하는 방법에 대해 알아봅니다.
 - [서비스 태그를 사용하여 리소스에 대한 액세스를 제한](tutorial-restrict-network-access-to-resources.md)하는 방법에 대해 알아봅니다.
 - [Azure Private Link를 사용하여 Azure Cosmos 계정에 비공개로 연결](../private-link/tutorial-private-endpoint-cosmosdb-portal.md)하는 방법을 알아봅니다.

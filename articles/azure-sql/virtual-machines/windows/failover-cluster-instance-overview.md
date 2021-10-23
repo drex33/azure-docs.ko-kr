@@ -3,7 +3,7 @@ title: 장애 조치(Failover) 클러스터 인스턴스
 description: Azure Virtual Machines에서 SQL Server를 사용하는 FCI(장애 조치(failover) 클러스터 인스턴스)에 대해 알아봅니다.
 services: virtual-machines
 documentationCenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -12,13 +12,13 @@ ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
-ms.author: mathoma
-ms.openlocfilehash: 030aadf55f692b19109582fb85320023159005a3
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.author: rsetlem
+ms.openlocfilehash: 317c02a71f555328dfd4d646eb294541df11a0b7
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111569425"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130161526"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

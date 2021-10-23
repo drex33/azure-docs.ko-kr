@@ -5,16 +5,16 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 09/30/2021
-ms.openlocfilehash: 4cfbac80e9783dd9424a4b2ee63607fb6f2a7f17
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: bc0fbd90ba29c9ab6b0940863cd2ec290992f5d7
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129361905"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130264963"
 ---
 # <a name="resource-functions-for-bicep"></a>Bicep의 리소스 함수
 
-이 문서에서는 리소스 값을 가져오는 Bicep 함수에 대해 설명 합니다.
+이 문서에서는 리소스 값을 얻기 위한 Bicep 함수에 대해 설명합니다.
 
 현재 배포에서 값을 가져오려면 [배포 값 함수](./bicep-functions-deployment.md)를 참조하세요.
 
@@ -24,7 +24,7 @@ ms.locfileid: "129361905"
 
 해당 기능에 추가하기 위해 다른 리소스에 적용되는 리소스 종류에 해당하는 [확장 리소스](../management/extension-resource-types.md)에 대한 리소스 ID를 반환합니다.
 
-네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 extensionResourceId 함수는 Bicep 파일에서 사용할 수 있지만 일반적으로는 필요하지 않습니다. 대신 리소스에 대한 기호 이름을 사용하고 `id` 속성에 액세스합니다.
 
@@ -112,7 +112,7 @@ Azure Key Vault에서 비밀 반환 `getSecret` 함수는 `Microsoft.KeyVault/va
 
 Key Vault에는 `true`로 설정된 `enabledForTemplateDeployment`가 있어야 합니다. Bicep 파일을 배포하는 사용자가 비밀에 액세스할 수 있어야 합니다. 자세한 내용은 [Azure Key Vault를 사용하여 Bicep 배포 중에 보안 매개 변수 값 전달](key-vault-parameter.md)을 참조하세요.
 
-함수를 리소스 형식과 함께 사용 하기 때문에 [네임 스페이스 한정자](bicep-functions.md#namespaces-for-functions) 가 필요 하지 않습니다.
+함수가 리소스 종류와 함께 사용되므로 [네임스페이스 한정자도](bicep-functions.md#namespaces-for-functions) 필요하지 않습니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -176,9 +176,9 @@ module sql './sql.bicep' = {
 
 이 함수의 구문은 목록 작업의 이름에 따라 다릅니다. 또한 반환된 값은 연산에 따라 달라집니다. Bicep은 현재 `list*` 함수 완성 및 유효성 검사를 지원하지 않습니다.
 
-**Bicep 버전 0.4.412 이상** 에서는 [접근자 연산자](operators-access.md#function-accessor)를 사용하여 목록 함수를 호출합니다. `stg.listKeys()`)을 입력합니다.
+**Bicep 버전 0.4.412 이상** 에서는 [접근자 연산자](operators-access.md#function-accessor)를 사용하여 목록 함수를 호출합니다. 예: `stg.listKeys()`.
 
-함수를 리소스 형식과 함께 사용 하기 때문에 [네임 스페이스 한정자](bicep-functions.md#namespaces-for-functions) 가 필요 하지 않습니다.
+함수가 리소스 종류와 함께 사용되므로 [네임스페이스 한정자도](bicep-functions.md#namespaces-for-functions) 필요하지 않습니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -191,7 +191,7 @@ module sql './sql.bicep' = {
 
 list 함수는 리소스 정의의 속성에서만 사용할 수 있습니다. Bicep 파일의 출력 섹션에서 중요한 정보를 노출하는 목록 함수를 사용하지 마세요. 출력 값은 배포 기록에 저장되며 악의적인 사용자가 이를 검색할 수 있습니다.
 
-[속성 반복](./loop-properties.md)과 함께 사용하는 경우 식이 리소스 속성에 할당되기 때문에 `input`에 목록 함수를 사용할 수 있습니다. list 함수를 확인하기 전에 개수를 결정해야 하므로 `count`와 함께 사용할 수 없습니다.
+[반복 루프](loops.md)와 함께 사용하는 경우 `input` 식이 리소스 속성에 할당되므로 에 대한 목록 함수를 사용할 수 있습니다. list 함수를 확인하기 전에 개수를 결정해야 하므로 `count`와 함께 사용할 수 없습니다.
 
 조건부로 배포되는 리소스에서 **list** 함수를 사용하는 경우 리소스가 배포되지 않은 경우에도 함수가 평가됩니다. **list** 함수가 존재하지 않는 리소스를 참조하는 경우 오류가 발생합니다. [조건식 **?:** 연산자](./operators-logical.md#conditional-expression--)를 사용하여 리소스가 배포될 때만 함수가 평가되도록 합니다.
 
@@ -417,7 +417,7 @@ list 작업이 있는 리소스 유형을 확인할 수 있게 다음 PowerShell
 
 리소스 종류가 지역에 대한 영역을 지원하는지 여부를 결정합니다.
 
-네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -468,7 +468,7 @@ output notSupportedType array = pickZones('Microsoft.Cdn', 'profiles', 'westus2'
 
 이전 예제의 출력은 3개의 배열을 반환합니다.
 
-| Name | 유형 | 값 |
+| Name | Type | 값 |
 | ---- | ---- | ----- |
 | 지원됨 | array | [ "1" ] |
 | notSupportedRegion | array | [] |
@@ -480,7 +480,7 @@ pickZones의 응답을 사용하여 영역에 대해 null을 제공하거나 다
 
 **providers 함수는 더 이상 사용되지 않습니다.** 더는 사용하지 않는 것이 좋습니다. 리소스 공급자의 API 버전을 가져오기 위해 이 함수를 사용한 경우 템플릿에 특정 API 버전을 제공하는 것이 좋습니다. 버전 간에 속성이 변경된 경우 동적으로 반환된 API 버전을 사용하면 템플릿이 손상될 수 있습니다.
 
-네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 ## <a name="reference"></a>reference
 
@@ -488,7 +488,7 @@ pickZones의 응답을 사용하여 영역에 대해 null을 제공하거나 다
 
 리소스의 런타임 상태를 나타내는 개체를 반환합니다.
 
-네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 참조 함수는 Bicep 파일에서 사용할 수 있지만 일반적으로는 필요하지 않습니다. 대신 리소스에 대해 기호화된 이름을 사용합니다.
 
@@ -531,7 +531,7 @@ output blobAddress string = stg.properties.primaryEndpoints.blob
 
 리소스의 고유 식별자를 반환합니다.
 
-네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 resourceId 함수는 Bicep 파일에서 사용할 수 있지만 일반적으로는 필요하지 않습니다. 대신 리소스에 대한 기호 이름을 사용하고 `id` 속성에 액세스합니다.
 
@@ -574,7 +574,7 @@ output storageID string = stg.id
 
 구독 수준에서 배포된 리소스의 고유 식별자를 반환합니다.
 
-네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 subscriptionResourceId 함수는 Bicep 파일에서 사용할 수 있지만 일반적으로는 필요하지 않습니다. 대신 리소스에 대한 기호 이름을 사용하고 `id` 속성에 액세스합니다.
 
@@ -636,7 +636,7 @@ resource myRoleAssignment 'Microsoft.Authorization/roleAssignments@2018-09-01-pr
 
 테넌트 수준에서 배포된 리소스의 고유 식별자를 반환합니다.
 
-네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 tenantResourceId 함수는 Bicep 파일에서 사용할 수 있지만 일반적으로는 필요하지 않습니다. 대신 리소스에 대한 기호 이름을 사용하고 `id` 속성에 액세스합니다.
 
@@ -675,4 +675,4 @@ resource myPolicyAssignment 'Microsoft.Authorization/policyAssignments@2019-09-0
 ## <a name="next-steps"></a>다음 단계
 
 * 현재 배포에서 값을 가져오려면 [배포 값 함수](./bicep-functions-deployment.md)를 참조하세요.
-* 리소스 종류를 생성할 때 지정된 횟수만큼 반복하려면 [Bicep에 여러 리소스 인스턴스 배포](./loop-resources.md)를 참조하세요.
+* 리소스 형식을 만들 때 지정된 횟수를 반복하려면 [Bicep의 반복 루프를 참조하세요.](loops.md)

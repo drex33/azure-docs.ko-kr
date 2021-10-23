@@ -4,12 +4,12 @@ description: 파일 또는 타사 라이브러리를 가져오는 방법 알아�
 ms.date: 4/6/2020
 ms.topic: article
 zone_pivot_groups: bring-third-party-dependency-programming-functions
-ms.openlocfilehash: 3cd1139e8c733650acc879bf1d0d5d9efb2f6fb4
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
-ms.translationtype: HT
+ms.openlocfilehash: be01f07a9906da58d080060185104aef29f78b77
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109716381"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265308"
 ---
 # <a name="bring-dependencies-or-third-party-library-to-azure-functions"></a>종속성 또는 타사 라이브러리를 Azure Functions로 가져오기
 
@@ -205,7 +205,7 @@ az webapp config storage-account add \
 
 ### <a name="uploading-the-dependencies-to-azure-files"></a>Azure Files에 종속성 업로드
 
-종속성을 Azure Files에 업로드하는 한 가지 옵션은 Azure Portal을 통한 업로드입니다. 포털을 사용하여 종속성을 업로드하는 지침은 이 [가이드](../storage/files/storage-how-to-use-files-portal.md#upload-a-file)를 참조하세요. [Azure CLI](../storage/files/storage-how-to-use-files-cli.md#upload-a-file) 및 [PowerShell](../storage/files/storage-how-to-use-files-powershell.md#upload-a-file)을 통해 종속성을 Azure Files에 업로드하는 다른 옵션도 있습니다.
+종속성을 Azure Files에 업로드하는 한 가지 옵션은 Azure Portal을 통한 업로드입니다. 포털을 사용하여 종속성을 업로드하는 지침은 이 [가이드](../storage/files/storage-how-to-use-files-portal.md#upload-a-file)를 참조하세요. [Azure CLI](../storage/files/storage-how-to-use-files-portal.md#upload-a-file) 및 [PowerShell](../storage/files/storage-how-to-use-files-portal.md#upload-a-file)을 통해 종속성을 Azure Files에 업로드하는 다른 옵션도 있습니다.
 
 
 ### <a name="accessing-the-dependencies-in-your-code"></a>코드의 종속성에 액세스

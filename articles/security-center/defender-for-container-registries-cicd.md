@@ -7,12 +7,12 @@ ms.date: 05/25/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: eb7309f067c350eac0d9455767b137377caf588b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 6215318bc5e32fd83673e63981dd33d7a99c70c2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536111"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251474"
 ---
 # <a name="identify-vulnerable-container-images-in-your-cicd-workflows"></a>CI/CD 워크플로에서 취약한 컨테이너 이미지 식별
 
@@ -67,6 +67,10 @@ GitHub 워크플로에서 이미지의 취약성 검사를 사용하도록 설�
 
     > [!TIP]
     > 아래와 같이 YAML 파일에서 참조할 수 있도록 리포지토리에 두 개의 비밀을 만드는 것이 좋습니다. 자신만의 명명 규칙에 따라 비밀의 이름을 지정할 수 있습니다. 이 예시에서는 비밀이 **AZ_APPINSIGHTS_CONNECTION_STRING** 및 **AZ_SUBSCRIPTION_TOKEN** 으로 참조됩니다.
+
+    > [!IMPORTANT]
+    >  레지스트리에 대한 푸시는 결과가 게시되기 전에 발생해야 합니다.
+
 
 
     ```yml

@@ -1,5 +1,5 @@
 ---
-title: Azure NetApp Files에 대한 지역 간 복제 문제 해결 | Microsoft Docs
+title: Azure NetApp Files | 대한 지역 간 복제 오류 문제 해결 Microsoft Docs
 description: Azure NetApp Files에 대한 지역 간 복제 문제를 해결하는 데 도움이 될 수 있는 오류 메시지 및 해결 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 03/10/2021
 ms.author: b-juche
-ms.openlocfilehash: d3d944646689e9e6189b0343e8bf67c8fb0abcbd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: bae0ed7fc15843c50af9dca860367d2074af33ec
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104590928"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256276"
 ---
-# <a name="troubleshoot-cross-region-replication"></a>지역 간 복제 문제 해결
+# <a name="troubleshoot-cross-region-replication-errors"></a>지역 간 복제 오류 문제 해결
 
 이 문서에서는 Azure NetApp Files에 대한 지역 간 복제 문제를 해결하는 데 도움이 될 수 있는 오류 메시지 및 해결 방법을 설명합니다. 
 

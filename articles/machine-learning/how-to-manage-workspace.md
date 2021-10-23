@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 04/22/2021
 ms.topic: how-to
 ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 9d4ad2b71d9ef5e3632344cb715926d2e5ebd343
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: a8dd26019d94cbaeca620d4dbb6e1bdf9dabdb2d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130072666"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130246457"
 ---
 # <a name="manage-azure-machine-learning-workspaces-in-the-portal-or-with-the-python-sdk"></a>Azure Portal에서 또는 Python SDK를 사용하여 Azure Machine Learning 작업 영역 관리
 
@@ -171,7 +171,7 @@ Azure Machine Learning Python SDK는 프라이빗 엔드포인트를 사용하�
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. 기본 네트워크 구성은 공용 인터넷에서 액세스할 수 있는 __퍼블릭 엔드포인트__ 를 사용하는 것입니다. 작업 영역에 대한 액세스를 사용자가 만든 Azure Virtual Network로 제한하려면 그 대신에 __프라이빗 엔드포인트__(미리 보기)를 __연결 방법__ 으로 선택한 다음, __+ 추가__ 를 사용하여 엔드포인트를 구성할 수 있습니다.   
+1. 기본 네트워크 구성은 공용 인터넷에서 액세스할 수 있는 __퍼블릭 엔드포인트__ 를 사용하는 것입니다. 만든 Azure Virtual Network 작업 영역에 대 한 액세스를 제한 하려면 대신 __연결 방법__ 으로 __개인 끝점__ 을 선택 하 고 __+ 추가__ 를 사용 하 여 끝점을 구성 하면 됩니다. 
 
    :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="프라이빗 엔드포인트 선택":::  
 
@@ -182,10 +182,6 @@ Azure Machine Learning Python SDK는 프라이빗 엔드포인트를 사용하�
 1. 네트워킹 구성을 마쳤으면 __검토 + 만들기__ 를 선택하거나 선택적 __고급__ 구성을 진행할 수 있습니다.
 
 ---
-
-> [!IMPORTANT]  
-> Azure Machine Learning 작업 영역에서의 프라이빗 엔드포인트 사용은 현재 공개 미리 보기로 제공됩니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.     
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ### <a name="vulnerability-scanning"></a>취약성 검색
 

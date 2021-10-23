@@ -10,13 +10,13 @@ ms.topic: how-to
 author: scoriani
 ms.author: scoriani
 ms.reviewer: mathoma
-ms.date: 01/25/2019
-ms.openlocfilehash: 316f1c6558cf033ac315f413f4e081b4f920343b
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.date: 10/18/2021
+ms.openlocfilehash: a27957a289f3ab94e0c55462715a668b9f85e215
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110705540"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130239511"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Elastic Database 도구 시작하기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -89,7 +89,7 @@ JAR 파일을 빌드하고 샘플 프로젝트를 시작하려면 다음을 수�
 
 3. 시작 프로젝트로 *ElasticScaleStarterKit* 프로젝트를 설정합니다.
 
-4. *ElasticScaleStarterKit* 프로젝트에서 *App.config* 파일을 여십시오. 그런 다음, 파일의 지침에 따라 서버 이름 및 로그인 정보(사용자 이름과 암호)를 추가합니다.
+4. *ElasticScaleStarterKit* 프로젝트에서 *App.config* 파일을 여십시오. 그런 다음 파일의 지침에 따라 서버 이름과 로그인 정보(사용자 이름 및 암호)를 추가합니다.
 
 5. 애플리케이션을 빌드 및 실행합니다. 메시지가 표시되면 Visual Studio가 솔루션의 NuGet 패키지를 복원하도록 허용합니다. 그러면 NuGet에서 최신 버전의 Elastic Database 클라이언트 라이브러리가 다운로드됩니다.
 
@@ -135,7 +135,6 @@ Elastic Database 도구에 대한 자세한 내용은 다음 페이지를 참조
   * [Azure SQL용 Elastic Database 도구 - Entity Framework 통합](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
   * [스크립트 센터의 분할된 데이터베이스 탄력성](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * 블로그: [탄력적인 확장 발표](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)
-* 채널 9: [탄력적인 확장 개요 비디오](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 * 토론 포럼: [Azure SQL Database에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-sql-database.html)
 * 성능 측정을 위한: [분할된 맵 관리자에 대한 성능 카운터](elastic-database-client-library.md)
 

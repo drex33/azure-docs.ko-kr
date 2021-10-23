@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 04/01/2021
-ms.openlocfilehash: ac6a6964c738cfb970b7bd65a6d7e3b12f796b2a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5239812bdd916b19571059aa2641eb738ef5ba09
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128705601"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249460"
 ---
 # <a name="point-in-time-restore-of-a-azure-database-for-mysql---flexible-server-with-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL - 유연한 서버의 특정 시점 복원
 
@@ -65,10 +65,10 @@ az mysql flexible-server restore --restore-time
 **예:** 이 ```2021-03-03T13:10:00Z``` 백업 스냅샷에서 서버를 복원합니다.
 
 ```azurecli
-az mysql server restore \
+az mysql flexible-server restore \
 --name mydemoserver-restored \
 --resource-group myresourcegroup \
---restore-point-in-time "2021-03-03T13:10:00Z" \
+--restore-time "2021-03-03T13:10:00Z" \
 --source-server mydemoserver
 ```
 복원하는 데 걸리는 시간은 서버에 저장된 데이터의 크기에 따라 달라집니다.

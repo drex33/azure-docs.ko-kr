@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 8/26/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
-ms.openlocfilehash: 4e1df1275e225b42bf01bd2a4092cea07f9c4c12
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: dbe97b74f573a1e02514b70ff24506a020b7ccdb
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129057817"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233718"
 ---
 # <a name="open-service-mesh-osm-monitoring-and-observability-using-azure-monitor-and-applications-insights"></a>Azure Monitor 및 Application Insights를 사용한 OSM(Open Service Mesh) 모니터링 및 가시성
 
@@ -25,7 +25,7 @@ OSM AKS 추가 기능은 이러한 Azure 서비스 둘 다에 긴밀 하 게 통
 
 AKS 클러스터에서 OSM AKS 추가 기능을 사용 하도록 설정한 후에는 Azure Portal를 통해 클러스터에서 Azure Monitor를 사용 하도록 설정 해야 합니다. AKS 클러스터를 클릭 하 고 "모니터링" 아래의 "Insights" 탭으로 이동 하 고 "사용"을 선택 합니다. 
 
-Azure Monitor 사용 하도록 설정 되 면 kube 네임 스페이스에서 다음 로그를 볼 수 있습니다. 
+Azure Monitor 사용 하도록 설정 되 면 kube 네임 스페이스에서 다음 pod를 볼 수 있습니다. 
 
 ```
 kube-system     omsagent-5pn4c                        1/1     Running   0          24m
@@ -39,18 +39,18 @@ kube-system     omsagent-rs-74b8f7dfd8-rp5vx          1/1     Running   1       
 메시에 서 모니터링 하는 특정 네임 스페이스에서 메트릭을 스크랩 하려면 다음 명령을 실행 해야 합니다.
 
 ```sh
-osm metrics enable --osm-namespace <namespace>
+osm metrics enable --namespace <namespace>
 ```
 
-예를 들어, 서 [점 데모](https://docs.openservicemesh.io/docs/getting_started/quickstart/manual_demo/)를 실행 하는 경우 `osm metrics enable` 다음 네임 스페이스에 대해 명령을 실행 합니다.
+예를 들어, 서 [점 데모](https://release-v0-11.docs.openservicemesh.io/docs/getting_started/quickstart/manual_demo/)를 실행 하는 경우 `osm metrics enable` 다음 네임 스페이스에 대해 명령을 실행 합니다.
 
 ```sh
-osm metrics enable --osm-namespace bookbuyer
-osm metrics enable --osm-namespace bookstore
-osm metrics enable --osm-namespace bookthief
-osm metrics enable --osm-namespace bookwarehouse
+osm metrics enable --namespace bookbuyer
+osm metrics enable --namespace bookstore
+osm metrics enable --namespace bookthief
+osm metrics enable --namespace bookwarehouse
 ```
-## <a name="apply-configmaps"></a>ConfigMaps 적용
+## <a name="apply-configmap"></a>ConfigMap 적용
 
 에서 `kube-system` 모니터링 해야 하는 네임 스페이스를 AzMon 알려주는 다음 ConfigMap을 만듭니다. 예를 들어 bookbuyer/서 점 데모의 경우 ConfigMap은 다음과 같이 표시 됩니다. 
 
@@ -70,23 +70,6 @@ metadata:
   name: container-azm-ms-osmconfig
   namespace: kube-system
 
-```
-
-그런 다음 [monitor_kubernetes_pods를 true로](https://github.com/microsoft/Docker-Provider/blob/24b709f9e3c3b18779102b491fc98b87a99d1335/kubernetes/container-azm-ms-agentconfig.yaml#L72)설정 하기 위해 두 번째 configmap을 만들어야 합니다.
-
-```yaml
-kind: ConfigMap
-apiVersion: v1
-metadata:
-  name: container-azm-ms-agentconfig
-  namespace: kube-system
-data:
-  schema-version: v1
-  config-version: ver1
-  prometheus-data-collection-settings: |-
-    [prometheus_data_collection_settings.cluster]
-        interval = "30s"
-        monitor_kubernetes_pods = true
 ```
 
 ## <a name="view-metrics-in-the-azure-portal"></a>Azure Portal에서 메트릭 보기

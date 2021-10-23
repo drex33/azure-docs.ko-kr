@@ -4,12 +4,12 @@ description: Azure Portal를 사용하여 서버를 사용하지 않는 실행�
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 336e531f4ec64141770fc26d7e6eea9ebfedf922
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
-ms.translationtype: HT
+ms.openlocfilehash: 60bea9c14c9f97193fc467b7e29a6d2f32fcf08f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107517152"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130248586"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Azure Portal에서 첫 번째 Azure Function을 만듭니다.
 
@@ -23,6 +23,10 @@ Azure Functions를 사용하면 먼저 VM(가상 머신)을 만들거나 웹 애
 | Visual Studio Code | 터미널/명령 프롬프트 | Visual Studio |
 | --- | --- | --- |
 |  &bull;&nbsp;[C# 시작](./create-first-function-vs-code-csharp.md)<br/>&bull;&nbsp;[Java 시작](./create-first-function-vs-code-java.md)<br/>&bull;&nbsp;[JavaScript 시작](./create-first-function-vs-code-node.md)<br/>&bull;&nbsp;[PowerShell 시작](./create-first-function-vs-code-powershell.md)<br/>&bull;&nbsp;[Python 시작](./create-first-function-vs-code-python.md) |&bull;&nbsp;[C# 시작](./create-first-function-cli-csharp.md)<br/>&bull;&nbsp;[Java 시작](./create-first-function-cli-java.md)<br/>&bull;&nbsp;[JavaScript 시작](./create-first-function-cli-node.md)<br/>&bull;&nbsp;[PowerShell 시작](./create-first-function-cli-powershell.md)<br/>&bull;&nbsp;[Python 시작](./create-first-function-cli-python.md) | [C# 시작](functions-create-your-first-function-visual-studio.md) |
+
+[!INCLUDE [functions-portal-language-support](../../includes/functions-portal-language-support.md)]
+
+## <a name="prerequisites"></a>사전 요구 사항 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

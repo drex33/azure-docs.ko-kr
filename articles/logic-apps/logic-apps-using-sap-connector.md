@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, azla
 ms.topic: how-to
-ms.date: 09/13/2021
+ms.date: 10/21/2021
 tags: connectors
-ms.openlocfilehash: 46e0373b7c95b559dd6037d20f00324cd89209d7
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 3951ae0b6ea1d3764c60723c476a989712fce6e5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130045884"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130218001"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps에서 SAP 시스템에 연결
 
@@ -1800,7 +1800,13 @@ Logic Apps에서 SAP로 트랜잭션을 보낼 때 SAP 문서 [트랜잭션 RFC 
 
 1. **트랜잭션 ID** 에 변수 이름을 다시 입력합니다. 예들 들어 `IDOCtransferID`입니다.
 
-1. 필요에 따라 테스트 환경에서 중복 제거의 유효성을 검사합니다. 이전 단계에서 사용한 것과 동일한 **트랜잭션 ID** GUID를 사용하여 **\[IDOC] SAP에 문서 보내기** 작업을 반복합니다.
+1. 필요에 따라 테스트 환경에서 중복 제거의 유효성을 검사합니다.
+
+    1. 이전 단계에서 사용한 것과 동일한 **트랜잭션 ID** GUID를 사용하여 **\[IDOC] SAP에 문서 보내기** 작업을 반복합니다.
+    
+    1. **\[ IDOC] SAP로 문서 보내기** 작업에 대 한 각 호출 후에 할당 된 idoc 번호를 확인 하려면 동일한 **트랜잭션 ID** 와 **수신** 방향을 사용 하 여 **\[ 트랜잭션 작업에 대해 idoc] Get idoc 목록을** 사용 합니다.
+    
+       두 호출에 대해 동일한 단일 IDoc 번호가 반환 되는 경우 IDoc는 중복 제거 되었습니다.
 
    동일한 IDoc를 두 번 보내면 SAP에서 tRFC 호출의 중복을 식별할 수 있는지 확인하고 단일 인바운드 IDoc 메시지에 대한 두 번의 호출을 확인할 수 있습니다.
 
@@ -1818,7 +1824,7 @@ Logic Apps에서 SAP로 트랜잭션을 보낼 때 SAP 문서 [트랜잭션 RFC 
 
 * 현재 SAP 커넥터는 SAP 라우터 문자열을 지원하지 않습니다. 온-프레미스 데이터 게이트웨이가 연결하려는 SAP 시스템과 동일한 LAN에 있어야 합니다.
 
-* **\[ BAPI] SAP** 작업의 호출 메서드에서 자동 커밋 기능은 작업에서 반환된 **CallBapiResponse** 개체에 하나 이상의 경고가 있는 경우 BAPI 변경 내용을 커밋하지 않습니다. 경고에도 불구하고 BAPI 변경 내용을 커밋하려면 **\[ BAPI - RFC] 상태 저장** 세션 작업 만들기를 사용하여 세션을 명시적으로 만들고, SAP 작업에서 **\[ BAPI 호출 메서드에서** 자동 커밋 기능을 사용하지 않도록 설정하고, 대신 **\[ BAPI] 트랜잭션 커밋** 작업을 호출합니다.
+* SAP 작업 **\[ 의 Bapi] Call 메서드에서** , 동작에서 반환 된 **callbapiresponse** 개체에 하나 이상의 경고가 있으면 자동 커밋 기능이 bapi 변경 내용을 커밋하지 않습니다. 경고에도 불구 하 고 BAPI 변경 내용을 커밋하려면 **\[ bapi-RFC] 상태 저장 세션 만들기** 작업을 사용 하 여 명시적으로 세션을 만들고, SAP 작업 **\[ 에서 bapi] 호출 메서드에서** 자동 커밋 기능을 사용 하지 않도록 설정 하 고, **\[ bapi] 트랜잭션** 작업을 대신 호출 합니다.
 
 * [ISE의 논리 앱에서는](connect-virtual-network-vnet-isolated-environment-overview.md) 이 커넥터의 ISE 레이블 지정 버전이 [ISE 메시지 한도](logic-apps-limits-and-config.md#message-size-limits)를 대신 사용합니다.
 

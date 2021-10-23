@@ -12,13 +12,13 @@ ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
 ms.reviewer: mathoma
-ms.date: 06/25/2019
-ms.openlocfilehash: 55490fdafb1e494492e4768ddacc9f8c451acebe
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.date: 10/18/2021
+ms.openlocfilehash: ac16a952c4697c99d224153fdb3dfb2684c66dc9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130163192"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130260648"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database--azure-sql-managed-instance"></a>Azure SQL Database와 Azure SQL Managed Instance를 사용한 비즈니스 연속성 개요
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -42,14 +42,14 @@ ms.locfileid: "130163192"
 
 로컬 하드웨어 및 소프트웨어 오류를 완화하기 위해 SQL Database는 최대 99.995%의 가용성 SLA로 이러한 오류로부터 자동 복구를 보장하는 [고가용성 아키텍처](high-availability-sla.md)를 포함합니다.  
 
-데이터 손실로부터 비즈니스를 보호하기 위해 SQL Database 및 SQL Managed Instance는 매주 전체 데이터베이스 백업, 12시간마다 차등 데이터베이스 백업 및 5-10분마다 트랜잭션 로그 백업을 자동으로 작성합니다. 백업은 모든 서비스 계층에 최소 7일 동안 RA-GRS 스토리지에 저장됩니다. 기본 지원을 제외한 모든 서비스 계층은 특정 시점 복원을 위해 구성 가능한 백업 보존 기간을 최대 35일까지 지원합니다.
+데이터 손실로부터 비즈니스를 보호하기 위해 SQL Database 및 SQL Managed Instance는 매주 전체 데이터베이스 백업, 12시간마다 차등 데이터베이스 백업 및 5-10분마다 트랜잭션 로그 백업을 자동으로 작성합니다. 백업은 모든 서비스 계층에 대해 최소 7 일 동안 GRS 저장소에 저장 됩니다. 기본 지원을 제외한 모든 서비스 계층은 특정 시점 복원을 위해 구성 가능한 백업 보존 기간을 최대 35일까지 지원합니다.
 
 SQL Database 및 SQL Managed Instance는 다양한 돌발 시나리오를 완화하는 데 유용한 몇 가지 비즈니스 연속성 기능도 제공합니다.
 
 - [temporal 테이블](../temporal-tables.md)을 사용하면 특정 시점의 행 버전을 복원할 수 있습니다.
 - [기본 제공 자동 백업](automated-backups-overview.md) 및 [특정 시점 복원](recovery-using-backups.md#point-in-time-restore) 을 사용하면 전체 데이터베이스를 지난 35일 이내의 특정 시점으로 복원할 수 있습니다.
 - [삭제된 데이터베이스를 삭제된 시점으로 복원](recovery-using-backups.md#deleted-database-restore) 하는 기능은 **논리 서버가 삭제되지 않았** 다면 사용 가능합니다.
-- [장기 백업 보존](long-term-retention-overview.md)을 사용하면 백업을 최대 10년 동안 유지할 수 있습니다. 이 기능은 SQL Managed Instance에서 제한된 공개 미리 보기로 제공됩니다.
+- [장기 백업 보존](long-term-retention-overview.md)을 사용하면 백업을 최대 10년 동안 유지할 수 있습니다. 이는 SQL Managed Instance에 대해 제한 된 공개 미리 보기 상태입니다.
 - [활성 지역 복제를](active-geo-replication-overview.md) 사용하면 데이터 센터 가동 중단 또는 응용 프로그램 업그레이드 시 읽기 가능한 복제본을 만들고 모든 복제본에 수동으로 장애 조치(failover)를 취할 수 있습니다.
 - [자동 장애 조치(failover) 그룹](auto-failover-group-overview.md#terminology-and-capabilities) 을 사용하면 데이터 센터 가동 중단 시 응용 프로그램에서 자동으로 복구할 수 있습니다.
 
@@ -84,9 +84,9 @@ SQL Database 및 SQL Managed Instance는 다양한 돌발 시나리오를 완화
 
 비즈니스 연속성 계획을 개발할 때는 중단 이벤트가 발생한 후 애플리케이션이 완전히 복구되기까지 허용되는 최대 시간을 이해해야 합니다. 응용 프로그램을 완전히 복구하는 데 필요한 시간을 RTO(복구 시간 목표)라고 합니다. 또한 우발적인 중단 이벤트가 발생한 후 복구될 때 응용 프로그램에서 손실을 허용할 수 있는 최근 데이터 업데이트의 최대 기간(시간 간격)도 감안해야 합니다. 잠재적인 데이터 손실을 RPO(복구 지점 목표)라고 합니다.
 
-복구 방법마다 다른 수준의 RPO 및 RTO를 제공합니다. 특정 복구 방법을 선택하거나 방법을 조합하여 전체 응용 프로그램을 복구할 수 있습니다. 다음 표에서는 각 복구 옵션의 RPO 및 RTO를 비교합니다. 자동 장애 조치(failover) 그룹은 지역에서 복제의 배포 및 사용을 간소화하고 다음 표에 설명된 대로 추가 기능을 더합니다.
+복구 방법마다 다른 수준의 RPO 및 RTO를 제공합니다. 특정 복구 방법을 선택하거나 방법을 조합하여 전체 응용 프로그램을 복구할 수 있습니다. 다음 표에서는 각 복구 옵션의 RPO 및 RTO를 비교합니다. 자동 장애 조치 그룹은 지역에서 복제의 배포 및 사용을 간소화 하 고 다음 표에 설명 된 대로 추가 기능을 추가 합니다.
 
-| 복구 방법 | RTO | RPO |
+| **복구 방법** | **RTO** | **RPO** |
 | --- | --- | --- |
 | 지리적으로 복제된 백업에서 지역 복원 | 12 h | 1 h |
 | 자동 장애 조치 그룹 | 1 h | 5초 |
@@ -104,9 +104,6 @@ SQL Database 및 SQL Managed Instance는 다양한 돌발 시나리오를 완화
 - 데이터 변경률이 높고 1시간에 해당하는 데이터 손실은 허용할 수 없는 수준입니다.
 - 활성 지역 복제를 사용할 때 발생하는 추가적인 비용이 잠재적인 재무적 책임과 연계된 비즈니스 손실보다 낮습니다.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
->
-
 응용 프로그램 요구 사항에 따라 데이터베이스 백업 및 활성 지역 복제를 함께 사용하도록 선택할 수 있습니다. 독립 실행형 데이터베이스 및 비즈니스 연속성 기능을 사용하는 탄력적 풀의 설계 고려 사항에 대한 논의는 [클라우드 재해 복구를 위한 응용 프로그램 디자인](designing-cloud-solutions-for-disaster-recovery.md) 및 [탄력적 풀 재해 복구 전략](disaster-recovery-strategies-for-applications-with-elastic-pool.md)을 참조하세요.
 
 다음 섹션에서는 데이터베이스 백업 또는 활성 지역 복제를 사용하는 복구 단계를 대략적으로 설명합니다. 계획의 요구 사항, 복구 후 단계, 가동 중단을 시뮬레이션하여 재해 복구 훈련을 수행하는 방법을 포함한 자세한 단계는 [중단 상태에서 SQL Database의 데이터베이스 복구](disaster-recovery-guidance.md)를 참조하세요.
@@ -115,7 +112,7 @@ SQL Database 및 SQL Managed Instance는 다양한 돌발 시나리오를 완화
 
 어떤 비즈니스 연속성 기능을 사용하든 관계없이 다음 작업을 수행해야 합니다.
 
-- 서버 수준 IP 방화벽 규칙, 로그인 및 master 데이터베이스 수준 사용 권한을 포함한 대상 서버를 식별하고 준비합니다.
+- 서버 수준 IP 방화벽 규칙, 로그인 및 데이터베이스 수준 사용 권한을 포함 하 여 대상 서버를 식별 하 고 준비 `master` 합니다.
 - 클라이언트 및 클라이언트 애플리케이션을 새 서버로 리디렉션하는 방법을 결정합니다.
 - 감사 설정 및 경고와 같은 다른 종속성을 문서화합니다.
 

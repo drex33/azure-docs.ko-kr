@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 748d3db418ee41164f7151dc6a62d7cc73a99604
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 57862739ec73dffb6ba6fde657a212d878f6da6d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129373046"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251151"
 ---
 # <a name="private-ip-addresses"></a>개인 IP 주소
 개인 IP를 사용하면 Azure의 리소스 간 통신이 가능합니다. 
@@ -105,4 +105,4 @@ IP 주소 지정에 적용되는 제한은 Azure에서 [네트워킹 제한](../
 
 ## <a name="next-steps"></a>다음 단계
 [Azure의 공용 IP 주소](public-ip-addresses.md)에 대해 알아보기
-* [Azure Portal을 사용하여 고정 개인 IP 주소를 사용하는 VM 배포](../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md)
+* [Azure Portal을 사용하여 고정 개인 IP 주소를 사용하는 VM 배포](./virtual-networks-static-private-ip-arm-pportal.md)

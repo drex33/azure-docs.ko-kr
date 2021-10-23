@@ -4,12 +4,12 @@ description: Microsoft Azure에서 스토리지에 진단 및 사용량 데이�
 ms.topic: conceptual
 ms.date: 02/19/2021
 ms.custom: references_regions
-ms.openlocfilehash: 8a302717ed962971069ee56a07d78747d82b00df
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: 1d4a9a6e60d39b01ea1ebe99289c9bb3a1c50c2b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110455050"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233529"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights에서 원격 분석 내보내기
 표준 보존 기간 보다 오랫동안 원격 분석을 유지하시겠습니까? 또는 일부 특수한 방식으로 처리하시겠습니까? 그렇다면 연속 내보내기가 적합합니다. Application Insights 포털에 표시되는 이벤트는 JSON 형식으로 Microsoft Azure에서 스토리지로 내보낼 수 있습니다. 여기에서 데이터를 다운로드하고 프로세스에 필요한 모든 코드를 작성할 수 있습니다.  
@@ -216,7 +216,7 @@ private IEnumerable<T> DeserializeMany<T>(string folderName)
 ## <a name="export-samples"></a>내보내기 샘플
 
 * [Stream Analytics를 사용하여 SQL로 내보내기][exportasa]
-* [Stream Analytics 샘플 2](export-stream-analytics.md)
+* [Stream Analytics 샘플 2](../../stream-analytics/app-insights-export-stream-analytics.md)
 
 더 큰 규모에서는 [HDInsight](https://azure.microsoft.com/services/hdinsight/) (클라우드의 Hadoop 클러스터)를 고려합니다. HDInsight는 빅 데이터에 대한 다양한 관리 분석 기술을 제공하므로 이를 사용하여 Application Insights에서 내보낸 데이터를 처리할 수 있습니다.
 
@@ -249,7 +249,7 @@ private IEnumerable<T> DeserializeMany<T>(string folderName)
 
 ## <a name="code-samples"></a>코드 샘플
 
-* [Stream Analytics 샘플](export-stream-analytics.md)
+* [Stream Analytics 샘플](../../stream-analytics/app-insights-export-stream-analytics.md)
 * [Stream Analytics를 사용하여 SQL로 내보내기][exportasa]
 * [속성 형식 및 값에 대한 자세한 데이터 모델 참조입니다.](export-data-model.md)
 
@@ -268,6 +268,5 @@ private IEnumerable<T> DeserializeMany<T>(string folderName)
 
 <!--Link references-->
 
-[exportasa]: ./code-sample-export-sql-stream-analytics.md
+[exportasa]: ../../stream-analytics/app-insights-export-sql-stream-analytics.md
 [roles]: ./resources-roles-access-control.md
-

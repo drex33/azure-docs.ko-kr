@@ -8,12 +8,12 @@ ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 3016fb18827c0c1323cb151024303a15a2454c5a
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 02c0d31ec07c210197968e514573e372ef24dd59
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130177938"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219113"
 ---
 # <a name="known-issues"></a>알려진 문제
 이 문서에서는 Azure Communication Services Calling SDK 및 Azure Communication Services Call Automation API와 관련된 제한 사항 및 알려진 문제에 대한 정보를 제공합니다.
@@ -49,15 +49,20 @@ ms.locfileid: "130177938"
 
 macOS에서 Safari를 사용하는 경우 앱은 Communication Services 디바이스 관리자를 통해 스피커를 열거/선택할 수 없습니다. 이 시나리오에서는 OS를 통해 디바이스를 선택해야 합니다. macOS에서 Chrome을 사용하는 경우 앱은 Communication Services 디바이스 관리자를 통해 디바이스를 열거/선택할 수 있습니다.
 
-#### <a name="audio-connectivity-is-lost-when-receiving-sms-messages-or-calls-during-an-ongoing-voip-call"></a>진행 중인 VoIP 통화 중에 SMS 메시지 또는 통화를 받을 때 오디오 연결이 끊어졌습니다.
-이 문제는 여러 가지 이유로 인해 발생할 수 있습니다.
+#### <a name="device-will-get-muted-and-incoming-video-will-stop-rendering-when-an-interruption-occurs-that-takes-over-device-access"></a>장치는 음소거를 받고 들어오는 비디오는 장치 액세스를 통해 발생 하는 중단이 발생 하면 렌더링을 중지 합니다.
+이 문제는 주로 다른 응용 프로그램이 나 마이크 또는 카메라의 제어를 가져오는 OS에서 발생할 수 있습니다. 몇 가지 예를 아래 볼 수 있습니다.
 
-- 일부 모바일 브라우저는 백그라운드 상태에서 연결을 유지하지 않습니다. 이렇게 하면 애플리케이션을 백그라운드에 푸시하는 이벤트에 의해 VoIP 통화가 중단된 경우 통화 환경이 저하될 수 있습니다. 
-- 경우에 따라 SMS 또는 PSTN 통화가 오디오 사운드를 캡처하고, 음성을 VoIP 통화로 다시 릴리스하지 않습니다. Apple은 iOS 버전 14.4.1+에서 이 문제를 해결했습니다. 
+- 사용자가 호출 중에 들어오는 PSTN 호출이 도착 하 고 마이크 장치 액세스를 캡처합니다.
+- 사용자가를 호출 하는 동안 사용자는 마이크나 카메라에 대 한 액세스를 캡처하는 다른 네이티브 응용 프로그램으로 이동 합니다. 예를 들어 YouTube 비디오를 재생 하거나 FaceTime 호출을 시작 합니다.
+- 사용자가를 호출 하는 동안 사용자가 마이크에 대 한 액세스를 다시 캡처하는 Siri를 사용 하도록 설정 합니다.
+
+이러한 모든 경우를 복구 하려면 사용자가 응용 프로그램으로 돌아가서 비디오를 다시 시작 하 고 비디오를 시작 하 여 중단 후 오디오 및 비디오를 이동 해야 합니다.
+
+일부 경우에는 장치 (마이크 또는 카메라)가 시간에 릴리스되지 않으며 원래 호출에 문제가 발생할 수 있습니다. 예를 들어, YouTube 비디오를 시청 하는 동안 사용자가 음소거를 시도 하는 동안 또는 PSTN 호출이 동시에 활성화 되는 경우가 있습니다. 
 
 <br/>클라이언트 라이브러리: 통화(JavaScript)
-<br/>브라우저: Safari, Chrome
-<br/>운영 체제: iOS, Android
+<br/>브라우저: Safari
+<br/>운영 체제: iOS
 
 #### <a name="repeatedly-switching-video-devices-may-cause-video-streaming-to-temporarily-stop"></a>비디오 디바이스를 반복적으로 전환하면 비디오 스트리밍이 일시적으로 중지될 수 있습니다.
 
@@ -104,8 +109,8 @@ Communication Services 사용자가 JavaScript 통화 SDK를 사용하여 통화
 ##### <a name="possible-causes"></a>가능한 원인
 확인 중입니다.
 
-#### <a name="enumeratingaccessing-devices-for-safari-on-macos-and-ios"></a>MacOS 및 iOS에서 Safari용 디바이스 열거/액세스 
-디바이스에 대한 액세스 권한이 부여되면 일정 시간 후에 디바이스 사용 권한이 초기화됩니다. MacOS 및 iOS의 Safari는 스트림을 획득하지 않는 한 매우 긴 시간 동안 사용 권한을 유지하지 않습니다. 이 문제를 해결하는 가장 간단한 방법은 디바이스 관리자의 디바이스 열거형 API(DeviceManager.getCameras(), DeviceManager.getSpeakers() 및 DeviceManager.getMicrophones())를 호출하기 전에 DeviceManager.askDevicePermission() API를 호출하는 것입니다. 사용 권한이 있는 경우 사용자에게 아무것도 표시되지 않습니다. 없는 경우 메시지가 다시 표시됩니다.
+#### <a name="enumeratingaccessing-devices-for-safari-on-macos-and-ios"></a>MacOS 및 iOS에서 Safari 용 장치 열거/액세스 
+디바이스에 대한 액세스 권한이 부여되면 일정 시간 후에 디바이스 사용 권한이 초기화됩니다. MacOS 및 iOS의 Safari는 획득 한 스트림이 없는 한 매우 긴 시간 동안 사용 권한을 유지 하지 않습니다. 이 문제를 해결하는 가장 간단한 방법은 디바이스 관리자의 디바이스 열거형 API(DeviceManager.getCameras(), DeviceManager.getSpeakers() 및 DeviceManager.getMicrophones())를 호출하기 전에 DeviceManager.askDevicePermission() API를 호출하는 것입니다. 사용 권한이 있는 경우 사용자에게 아무것도 표시되지 않습니다. 없는 경우 메시지가 다시 표시됩니다.
 
 <br/>영향을 받는 디바이스: iPhone
 <br/>클라이언트 라이브러리: 통화(JavaScript)
@@ -118,8 +123,8 @@ Communication Services 사용자가 JavaScript 통화 SDK를 사용하여 통화
 #### <a name="using-3rd-party-libraries-to-access-gum-during-the-call-may-result-in-audio-loss"></a>통화 중에 타사 라이브러리를 사용하여 GUM에 액세스하면 오디오 손실이 발생할 수 있습니다.
 애플리케이션 내에서 getUserMedia를 별도로 사용하면 타사 라이브러리가 ACS 라이브러리의 디바이스 액세스를 인수하므로 오디오 스트림이 손실됩니다.
 개발자는 다음을 수행하는 것이 좋습니다.
-1. 통화 중에 내부적으로 GetUserMedia API를 사용하는 타사 라이브러리를 사용하지 마세요.
-2. 타사 라이브러리를 계속 사용해야 하는 경우 복구할 수 있는 유일한 방법은 선택한 디바이스를 변경하거나(사용자에게 두 개 이상의 디바이스가 있는 경우), 통화를 다시 시작하는 것입니다.
+- 통화 중에 내부적으로 GetUserMedia API를 사용하는 타사 라이브러리를 사용하지 마세요.
+- 타사 라이브러리를 계속 사용해야 하는 경우 복구할 수 있는 유일한 방법은 선택한 디바이스를 변경하거나(사용자에게 두 개 이상의 디바이스가 있는 경우), 통화를 다시 시작하는 것입니다.
 
 <br/>브라우저: Safari
 <br/>운영 체제: iOS
@@ -128,7 +133,7 @@ Communication Services 사용자가 JavaScript 통화 SDK를 사용하여 통화
 일부 브라우저(예: Safari)에서는 동일한 디바이스에서 사용자 고유의 스트림을 가져오면 경합 상태를 실행하는 부작용이 발생합니다. 다른 디바이스에서 스트림을 가져오면 USB/IO 대역폭이 부족해질 수 있으며 sourceUnavailableError 비율이 급증할 수 있습니다.  
 
 #### <a name="support-for-simulcast"></a>Simulcast 지원
-Simulcast는 클라이언트가 서로 다른 해상도 및 비트 전송률에서 동일한 비디오 스트림을 두 번 인코딩하고 ACS intrastrucutre가 클라이언트에서 받아야 하는 스트림을 결정 하는 데 사용할 수 있는 기술입니다. Windows, Android 또는 iOS 용 ACS 호출 라이브러리 SDK는 simulcast 스트림을 보내는 기능을 지원 합니다. ACS 웹 SDK는 현재 simulcast 스트림 전송을 지원 하지 않습니다.
+Simulcast는 클라이언트가 동일한 비디오 스트림을 서로 다른 해상도 및 비트 전송률로 인코딩하고 ACS 인프라가 클라이언트에서 받아야 하는 스트림을 결정 하는 데 사용할 수 있는 기술입니다. Windows, Android 또는 iOS 용 ACS 호출 라이브러리 SDK는 simulcast 스트림을 보내는 기능을 지원 합니다. ACS 웹 SDK는 현재 simulcast 스트림 전송을 지원 하지 않습니다.
 
 ## <a name="azure-communication-services-call-automation-apis"></a>Azure Communication Services Call Automation API
 

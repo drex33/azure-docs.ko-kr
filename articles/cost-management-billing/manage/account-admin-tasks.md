@@ -7,15 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 10/22/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 545f7377e79e7f83182e85aa0f05f62e353051d9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7fb94b8e714c62a92b0fe9411af97f69e0a50423
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128628556"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130229563"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Azure Portal의 계정 관리자 작업
 
@@ -184,6 +184,58 @@ Azure in Open 라이선스 구독이 있는 경우 제품 키를 사용하거나
     - 추가하려는 크레딧의 양을 지정합니다.
 
 1. **적용** 을 클릭합니다.
+
+## <a name="usage-details-files-comparison"></a>사용 세부 정보 파일 비교
+
+다음 정보를 사용 하 여 계정 포털에서 파일의 v1 및 v2 버전에서 사용할 수 있는 필드와 Azure Portal에서 사용 세부 정보 파일의 최신 버전에 대 한 매핑을 찾을 수 있습니다.
+
+| V1 | V2 | Azure Portal |
+| --- | --- | --- |
+| 추가 정보 | 추가 정보 | AdditionalInfo |
+| 통화 | 통화 | BillingCurrency |
+| 청구 기간 | 청구 기간 | BillingPeriodEndDate |
+| 청구 기간 | 청구 기간 | BillingPeriodStartDate |
+| 서비스 | 사용되는 서비스 | ConsumedService |
+| 값 | 값 | 비용 |
+| 사용 날짜 | 사용 날짜 | Date |
+| Name | 미터 범주 | MeterCategory |
+| ResourceGuid | 측정기 ID | MeterId |
+| Region | 미터 영역 | MeterRegion |
+| 리소스 | 미터 이름 | MeterName  |
+| 형식 | 미터 하위 범주 | MeterSubcategory |
+| 사용 | Consumed Quantity | 수량 |
+| 구성 요소 | 리소스 그룹 | ResourceGroup |
+|   | 인스턴스 ID | ResourceId |
+| 하위 지역 | 리소스 위치 | ResourceLocation |
+| 서비스 정보 1 | 서비스 정보 1 | ServiceInfo1 |
+| 서비스 정보 2 | 서비스 정보 2 | ServiceInfo2 |
+| 구독 ID | 구독 ID | SubscriptionId |
+| Subscription Name | Subscription Name | SubscriptionName |
+|   | 태그 | 태그 |
+| 단위 | 단위 | UnitOfMeasure |
+| | 비용 | UnitPrice |
+
+최신 사용 세부 정보 파일에서 사용할 수 있는 필드에 대 한 자세한 내용은 [Azure 사용량 및 요금 파일의 용어 이해](../understand/understand-usage.md)를 참조 하세요.
+
+다음 필드는 계정 포털에서 파일의 v1 및 v2 버전을 기반으로 합니다. 최신 사용 세부 정보 파일에서 더 이상 사용할 수 없습니다.
+
+| V1 | V2 |
+| --- | --- |
+| 주문 Id | 주문 Id |
+| Description | Description |
+| 청구 날짜 (기념일) | 청구 날짜 (기념일) |
+| 제품 이름 | 제품 이름 |
+| 서비스 이름 | 서비스 이름 |
+| Sub 상태 | Sub 상태 |
+| Sub 추가 상태 | Sub 추가 상태 |
+| 프로비전 상태 | 프로비전 상태 |
+| SKU | SKU |
+| 포함 | 포함된 수량 |
+| 청구 대상 | 초과량 |
+| 약정 기간 내 | 약정 기간 내 |
+| 약정 요율 | 약정 요율 |
+| 초과분 | 초과분 |
+| 구성 요소 |  |
 
 ## <a name="troubleshooting"></a>문제 해결
 가상 카드 또는 선불 카드는 지원하지 않습니다. 유효한 신용 카드를 추가하거나 업데이트할 때 오류가 발생하면 프라이빗 모드에서 브라우저를 열어 보세요.

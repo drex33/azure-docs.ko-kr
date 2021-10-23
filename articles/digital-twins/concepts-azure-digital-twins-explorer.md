@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Azure Digital Twins Explorer의 기능 및 용도 이해
 author: baanders
 ms.author: baanders
-ms.date: 8/24/2021
+ms.date: 10/19/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 8006a98f91434243a94d24f6f7154e5856321744
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: dda87e7551d63f8800a96f1c8965ee2824958c58
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123227082"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262052"
 ---
 # <a name="azure-digital-twins-explorer-preview"></a>Azure Digital Twins Explorer(미리 보기)
 
@@ -46,10 +46,11 @@ Azure Digital Twins Explorer는 트윈 그래프를 탐색하고 그래프 컨�
 Azure Digital Twins Explorer는 패널로 구성되며, 각 패널은 모델, 트윈 및 관계를 탐색하고 관리하기 위한 다양한 기능 집합을 포함합니다.
 
 탐색기의 섹션은 다음과 같습니다.
-* **모델**: 목록 뷰에서 모델의 세부 정보를 추가, 제거 및 확인합니다.
-* **모델 그래프**: 모델을 시각화하고 사용자 지정 가능한 모델 그래프의 형태로 상호 연결하는 방법을 시각화합니다.
-* **트윈 그래프**: 사용자 지정 가능 트윈 그래프로 트윈 및 관계를 시각화합니다. 트윈 및 관계를 만들고 삭제하고, 해당 속성을 보거나 편집합니다.
 * **쿼리 탐색기**: 트윈 그래프에 대해 쿼리를 실행하고 **트윈 그래프** 패널에서 시각적 결과를 확인합니다.
+* **모델**: 모델 목록을 보고 모델 세부 정보 추가, 제거 및 보기와 같은 모델 동작을 수행 합니다.
+* **쌍**: 쌍 및 연결 된 관계의 목록을 표시 합니다.
+* **트윈 그래프**: 사용자 지정 가능 트윈 그래프로 트윈 및 관계를 시각화합니다. 트윈 및 관계를 만들고 삭제하고, 해당 속성을 보거나 편집합니다.
+* **모델 그래프**: 모델을 시각화하고 사용자 지정 가능한 모델 그래프의 형태로 상호 연결하는 방법을 시각화합니다.
 
 :::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-panels.png" alt-text="위에 설명된 각 패널에 대한 강조 표시를 포함하는 Azure Digital Twins Explorer의 스크린샷" lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-panels.png":::
 

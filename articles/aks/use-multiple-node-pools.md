@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)에서 클러스터에 대한 여러 �
 services: container-service
 ms.topic: article
 ms.date: 02/11/2021
-ms.openlocfilehash: 19e10b43fbf0dac05da531570376b77d22840312
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: 6d378b9380f2aa70b88bca0c1f0aaa58f03c26ff
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538819"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236697"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터에 대한 여러 노드 풀 만들기 및 관리
 
@@ -959,7 +959,7 @@ Windows Server 컨테이너 노드 풀을 만들고 사용하려면 [AKS에서 W
 [vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
 [az-list-ips]: /cli/azure/vmss?view=azure-cli-latest&preserve-view=true#az_vmss_list_instance_public_ips
 [reduce-latency-ppg]: reduce-latency-ppg.md
-[public-ip-prefix-benefits]: ../virtual-network/public-ip-address-prefix.md
+[public-ip-prefix-benefits]: ../virtual-network/ip-services/public-ip-address-prefix.md
 [az-public-ip-prefix-create]: /cli/azure/network/public-ip/prefix?view=azure-cli-latest&preserve-view=true#az_network_public_ip_prefix_create
 [node-image-upgrade]: node-image-upgrade.md
 [fips]: /azure/compliance/offerings/offering-fips-140-2

@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: da26939d6973792c237c84777daf2254ae27699d
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
-ms.translationtype: HT
+ms.openlocfilehash: 8bd454d7f49b0dce46ba827c8cc5c133c56ad0d3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113105636"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227248"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Azure 웹앱용 프라이빗 엔드포인트 사용
 
@@ -71,7 +71,7 @@ VNet과 웹앱 사이에 보안 연결이 필요한 경우 서비스 엔드포�
 기본적으로 프라이빗 엔드포인트를 사용하지 않는 웹 앱의 공개 이름은 클러스터에 대한 정식 이름입니다.
 예를 들어 이름 확인은 다음과 같습니다.
 
-|이름 |유형 |값 |
+|이름 |Type |값 |
 |-----|-----|------|
 |mywebapp.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
 |clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
@@ -81,7 +81,7 @@ VNet과 웹앱 사이에 보안 연결이 필요한 경우 서비스 엔드포�
 프라이빗 엔드포인트를 배포할 때 정식 이름 mywebapp.privatelink.azurewebsites.net을 가리키도록 DNS 항목을 업데이트합니다.
 예를 들어 이름 확인은 다음과 같습니다.
 
-|이름 |유형 |값 |설명 |
+|이름 |Type |값 |설명 |
 |-----|-----|------|-------|
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
 |mywebapp.privatelink.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
@@ -92,7 +92,7 @@ VNet과 웹앱 사이에 보안 연결이 필요한 경우 서비스 엔드포�
 만들어야 하는 DNS 영역은 **privatelink.azurewebsites.net** 입니다. A 레코드와 프라이빗 엔드포인트 IP를 사용하여 웹 앱에 대한 레코드를 등록합니다.
 예를 들어 이름 확인은 다음과 같습니다.
 
-|이름 |유형 |값 |설명 |
+|이름 |Type |값 |설명 |
 |-----|-----|------|-------|
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|<--Azure 공용 DNS에서 이 항목을 만들어 앱 서비스가 privatelink를 가리키도록 합니다. 이 항목은 Microsoft에서 관리합니다.|
 |mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|<--프라이빗 엔드포인트 IP 주소를 가리키도록 DNS 시스템 에서 이 항목을 관리합니다.|
@@ -104,7 +104,7 @@ VNet과 웹앱 사이에 보안 연결이 필요한 경우 서비스 엔드포�
 
 Kudu 콘솔 또는 Kudu REST API(예: Azure DevOps 자체 호스팅 에이전트로 배포)의 경우, Azure DNS 프라이빗 영역 또는 사용자 지정 DNS 서버에서 두 개의 레코드를 만들어야 합니다. 
 
-| 이름 | 유형 | 값 |
+| 이름 | Type | 값 |
 |-----|-----|-----|
 | mywebapp.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
 | mywebapp.scm.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
@@ -140,7 +140,7 @@ Private Link 기능 및 프라이빗 엔드포인트는 정기적으로 개선�
 <!--Links-->
 [serviceendpoint]: ../../virtual-network/virtual-network-service-endpoints-overview.md
 [privatelink]: ../../private-link/private-link-overview.md
-[vnetintegrationfeature]: ../web-sites-integrate-with-vnet.md
+[vnetintegrationfeature]: ../overview-vnet-integration.md
 [disablesecuritype]: ../../private-link/disable-private-endpoint-network-policy.md
 [accessrestrictions]: ../app-service-ip-restrictions.md
 [tcpproxy]: ../../private-link/private-link-service-overview.md#getting-connection-information-using-tcp-proxy-v2

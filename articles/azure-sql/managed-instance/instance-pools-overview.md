@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: urosmil
 ms.author: urmilano
 ms.reviewer: mathoma
-ms.date: 09/05/2019
-ms.openlocfilehash: b84ff58517d413be884b81b6498f5b626ba02016
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.date: 10/21/2021
+ms.openlocfilehash: 66a19e87368e6d833020f5b0f7d581ec0963e429
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110697239"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233311"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>Azure SQL Managed Instance 풀(미리 보기)이란?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -82,7 +82,7 @@ Azure SQL Managed Instance의 인스턴스 풀을 통해 편리하고 비용 효
     - vCore 풀 8개는 최대 200개의 데이터베이스를 지원합니다.
     - vCores 풀 16개는 최대 400개의 데이터베이스를 지원합니다.
     - 24개 이상의 vCores 풀은 최대 500개의 데이터베이스를 지원합니다.
-- AAD 관리자는 인스턴스 풀 내에 배포된 인스턴스에 대해 설정할 수 없으므로 AAD 인증을 사용할 수 없습니다.
+- 플래그를 사용하여 관리되는 인스턴스를 만들거나 설정하면 Azure AD 인증을 사용할 수 `-AssignIdentity` 있습니다. 자세한 내용은 [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) 및 [Set-AzSqlInstance 를 참조하세요.](/powershell/module/az.sql/set-azsqlinstance) 그런 다음, 사용자는 Azure AD 관리자 [프로비전(SQL Managed Instance)](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance)에 따라 인스턴스에 대한 Azure AD 관리자를 설정할 수 있습니다.
 
 모든 인스턴스의 전체 스토리지 할당과 데이터베이스의 수는 인스턴스 풀에서 노출하는 제한과 같거나 작아야 합니다.
 

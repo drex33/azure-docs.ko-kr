@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 1640cfae4925c1ef3699ea72778e392e4249db9b
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
-ms.translationtype: HT
+ms.openlocfilehash: 970e20135fab85cbcc6c67a7add1ca7527cefba6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110666604"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130260439"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Azure SQL Database 및 Azure Synapse Analytics 네트워크 액세스 제어
 
@@ -131,7 +131,7 @@ IP 규칙 외에도 서버 방화벽을 사용하여 *가상 네트워크 규칙
 
 Azure SQL Database 방화벽을 사용하여 SQL Database에 대한 통신이 수락되는 IP 주소 범위를 지정할 수 있습니다. 이 방법은 Azure 프라이빗 네트워크 외부에 있는 안정적인 IP 주소에 적합합니다. 하지만 Azure 프라이빗 네트워크 내의 가상 머신(VM)은 *동적* IP 주소로 구성됩니다. 동적 IP 주소는 VM이 다시 시작된 다음 IP 기반 방화벽 규칙을 무효화할 때 변경될 수 있습니다. 프로덕션 환경의 방화벽 규칙에서는 동적 IP 주소를 지정하면 안 됩니다.
 
-VM에 대한 *고정* IP 주소를 가져오면 이러한 제한을 해결할 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 고정 공용 IP 주소로 가상 머신 만들기](../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md)를 참조하세요. 하지만 고정 IP 방법은 관리가 어려워질 수 있고 대규모로 이루어질 경우 비용이 많이 듭니다.
+VM에 대한 *고정* IP 주소를 가져오면 이러한 제한을 해결할 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 고정 공용 IP 주소로 가상 머신 만들기](../../virtual-network/ip-services/virtual-network-deploy-static-pip-arm-portal.md)를 참조하세요. 하지만 고정 IP 방법은 관리가 어려워질 수 있고 대규모로 이루어질 경우 비용이 많이 듭니다.
 
 가상 네트워크 규칙은 VM이 포함된 특정 서브넷의 액세스를 설정하고 관리하는 보다 쉬운 방법입니다.
 

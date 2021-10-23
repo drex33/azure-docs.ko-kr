@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/12/2021
 ms.author: kgremban
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 5db37717356cd06b257867615623e24a1c36a335
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: e9b47d3cfdb648a63156164f2341b05b4eeec4a1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528882"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234777"
 ---
 # <a name="azure-iot-edge-for-linux-on-windows-virtual-switch-creation"></a>Azure IoT Edge for Linux on Windows 가상 스위치 만들기
 Azure IoT Edge for Linux on Windows는 호스트 머신의 가상 스위치를 사용하여 가상 머신과 통신합니다. Windows 데스크톱 버전에는 사용할 수 있는 기본 스위치가 함께 제공되지만 Windows Server는 그렇지 않습니다. IoT Edge for Linux on Windows를 Windows Server 디바이스에 배포하려면 먼저 가상 스위치를 만들어야 합니다. 또한 필요한 경우 이 가이드를 사용하여 사용자 지정 가상 스위치를 만들 수 있습니다. 
@@ -26,7 +26,7 @@ Azure IoT Edge for Linux on Windows는 호스트 머신의 가상 스위치를 �
 
 ## <a name="prerequisites"></a>필수 구성 요소
 - Windows 디바이스. 지원되는 Windows 버전은 [운영 체제](support.md#operating-systems)를 참조하세요.
-- Hyper-V 역할이 Windows 디바이스에 설치되어 있어야 합니다. Hyper-V를 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure IoT Edge for Linux on a Windows 디바이스 설치 및 프로비저닝](./how-to-install-iot-edge-on-windows.md?tabs=powershell#prerequisites)을 참조하세요.
+- Hyper-V 역할이 Windows 디바이스에 설치되어 있어야 합니다. Hyper-V를 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure IoT Edge for Linux on a Windows 디바이스 설치 및 프로비저닝](./how-to-provision-single-device-linux-on-windows-symmetric.md?tabs=powershell#prerequisites)을 참조하세요.
 
 ## <a name="create-virtual-switch"></a>가상 스위치 만들기 
 이 섹션의 다음 단계는 가상 스위치 만들기에 대한 일반 가이드입니다. 가상 스위치 구성이 네트워킹 환경에 부합해야 합니다.
@@ -99,4 +99,4 @@ Azure IoT Edge for Linux on Windows는 호스트 머신의 가상 스위치를 �
    ```
 
 ## <a name="next-steps"></a>다음 단계
-[Windows 디바이스에서 Azure IoT Edge 설치 및 프로비저닝](how-to-install-iot-edge-on-windows.md) 단계에 따라 Windows에서 Linux용 IoT Edge를 사용하여 디바이스를 설정합니다.
+[Windows 디바이스에서 Azure IoT Edge 설치 및 프로비저닝](how-to-provision-single-device-linux-on-windows-symmetric.md) 단계에 따라 Windows에서 Linux용 IoT Edge를 사용하여 디바이스를 설정합니다.

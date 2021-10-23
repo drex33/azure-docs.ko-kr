@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 6f7073ee2c0901d1aefc1124c61ee9e2602b8070
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 154c22734bb39f5cb27232b2aaa0e4c5677a9892
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123253137"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130246646"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>PowerShell을 사용하여 여러 IP 구성의 부하 분산
 
@@ -60,7 +60,7 @@ ms.locfileid: "123253137"
 
     그런 다음 [Windows VM 만들기](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm?toc=%2fazure%2fload-balancer%2ftoc.json)의 6.3 ~ 6.8단계를 완료합니다.
 
-5. 각각의 VM에 두 번째 IP 구성을 추가합니다. [가상 머신에 여러 IP 주소 할당](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md#add) 문서의 지침을 따릅니다. 다음 구성 설정을 사용합니다.
+5. 각각의 VM에 두 번째 IP 구성을 추가합니다. [가상 머신에 여러 IP 주소 할당](../virtual-network/ip-services/virtual-network-multiple-ip-addresses-powershell.md#add) 문서의 지침을 따릅니다. 다음 구성 설정을 사용합니다.
 
     ```powershell
     $NicName = "VM1-NIC2"

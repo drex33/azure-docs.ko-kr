@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: conceptual
 ms.date: 08/17/2021
 ms.author: allensu
-ms.openlocfilehash: 27c4340071e80cdcac806b80c28873e0955cd586
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.openlocfilehash: d8ca819e7a63c7a0c4d507709c8495b604d19002
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539246"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257673"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Azure의 가상 네트워크 및 가상 머신
 
@@ -54,7 +54,7 @@ VM에 연결된 각각의 NIC는 해당 VM과 동일한 위치와 구독에 있�
 
 ## <a name="ip-addresses"></a>IP 주소
 
-Azure에서 네트워크 인터페이스에 다음 유형의 [IP 주소](../virtual-network/public-ip-addresses.md)를 할당할 수 있습니다.
+Azure에서 네트워크 인터페이스에 다음 유형의 [IP 주소](./ip-services/public-ip-addresses.md)를 할당할 수 있습니다.
 
 - **공용 IP 주소** - 인터넷과 가상 네트워크에 연결되지 않은 다른 Azure 리소스와 인바운드 및 아웃바운드(NAT(Network Address Translation) 사용 안 함) 통신하는 데 사용됩니다. 공용 IP 주소를 NIC에 할당하는 것은 선택 사항입니다. 공용 IP 주소에는 명목 상의 요금이 청구되며, 구독당 사용할 수 있는 최대 개수가 있습니다.
 - **개인 IP 주소** - 가상 네트워크, 온-프레미스 네트워크, 인터넷(NAT 사용) 내 통신에 사용됩니다. 하나 이상의 개인 IP 주소를 VM에 할당해야 합니다. Azure의 NAT에 대한 자세한 내용은 [Azure에서 아웃바운드 연결 이해](../load-balancer/load-balancer-outbound-connections.md)를 참조하세요.
@@ -79,9 +79,9 @@ VM의 IP 주소를 동일하게 유지하려면 정적 할당 방법을 명시�
 
 | 방법 | Description |
 | ------ | ----------- |
-| [Azure Portal](../virtual-network/virtual-network-deploy-static-pip-arm-portal.md) | 기본적으로 공용 IP 주소는 동적입니다. VM이 중지되거나 삭제되면 IP 주소가 변경될 수 있습니다. VM에서 항상 동일한 공용 IP 주소를 사용하도록 하려면 정적 공용 IP 주소를 만들어야 합니다. 기본적으로 포털은 VM을 만들 때 동적 개인 IP 주소를 NIC에 할당합니다. 이 IP 주소는 VM을 만든 후에 고정으로 변경할 수 있습니다.|
-| [Azure PowerShell](../virtual-network/virtual-network-deploy-static-pip-arm-ps.md) | Dynamic 또는 Static인 **`-AllocationMethod`** 매개 변수와 함께 [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용합니다. |
-| [Azure CLI](../virtual-network/virtual-network-deploy-static-pip-arm-cli.md) | Dynamic 또는 Static인 **`--allocation-method`** 매개 변수와 함께 [az network public-ip create](/cli/azure/network/public-ip)를 사용합니다. |
+| [Azure Portal](./ip-services/virtual-network-deploy-static-pip-arm-portal.md) | 기본적으로 공용 IP 주소는 동적입니다. VM이 중지되거나 삭제되면 IP 주소가 변경될 수 있습니다. VM에서 항상 동일한 공용 IP 주소를 사용하도록 하려면 정적 공용 IP 주소를 만들어야 합니다. 기본적으로 포털은 VM을 만들 때 동적 개인 IP 주소를 NIC에 할당합니다. 이 IP 주소는 VM을 만든 후에 고정으로 변경할 수 있습니다.|
+| [Azure PowerShell](./ip-services/virtual-network-deploy-static-pip-arm-ps.md) | Dynamic 또는 Static인 **`-AllocationMethod`** 매개 변수와 함께 [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용합니다. |
+| [Azure CLI](./ip-services/virtual-network-deploy-static-pip-arm-cli.md) | Dynamic 또는 Static인 **`--allocation-method`** 매개 변수와 함께 [az network public-ip create](/cli/azure/network/public-ip)를 사용합니다. |
 | [템플릿](../virtual-network/template-samples.md) | 템플릿을 사용하여 공용 IP 주소를 배포하는 방법에 관한 자세한 내용은 [공용 IP 주소를 사용하는 가상 네트워크의 네트워크 인터페이스](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/nic-publicip-dns-vnet)를 참조하세요. |
 
 공용 IP 주소를 만든 후에는 이 주소를 NIC에 할당하여 VM과 연결할 수 있습니다.
@@ -158,7 +158,7 @@ NSG를 NIC에 연결하는 경우 NSG의 네트워크 액세스 규칙은 NIC에
 
 다음 표에서는 인터넷 연결 부하 분산 장치를 만드는 데 사용할 수 있는 방법을 나열하고 있습니다.
 
-| 방법 | 설명 |
+| 방법 | Description |
 | ------ | ----------- |
 | Azure portal |  [Azure Portal을 사용하여 인터넷 트래픽 부하를 VM에 분산](../load-balancer/quickstart-load-balancer-standard-public-portal.md)할 수 있습니다. |
 | [Azure PowerShell](../load-balancer/quickstart-load-balancer-standard-public-powershell.md) | 공용 IP 주소의 식별자를 제공하려면 **`-PublicIpAddress`** 매개 변수와 함께 [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig)를 사용합니다. [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig)를 사용하여 백 엔드 주소 풀의 구성을 만듭니다. [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig)를 사용하여 사용자가 만든 프런트 엔드 IP 구성과 연결되는 인바운드 NAT 규칙을 만듭니다. [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig)를 사용하여 필요한 프로브를 작성합니다. [New-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig)를 사용하여 부하 분산 장치 구성을 만듭니다. [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer)를 사용하여 부하 분산 장치를 만듭니다.|
@@ -167,16 +167,12 @@ NSG를 NIC에 연결하는 경우 NSG의 네트워크 액세스 규칙은 NIC에
 
 다음 표에서는 내부 부하 분산 장치를 만드는 데 사용할 수 있는 방법을 나열하고 있습니다.
 
-| 방법 | 설명 |
+| 방법 | Description |
 | ------ | ----------- |
 | Azure portal | [Azure Portal에서 부하 분산 장치로 내부 트래픽을 부하 분산](../load-balancer/quickstart-load-balancer-standard-internal-portal.md)할 수 있습니다. |
 | [Azure PowerShell](../load-balancer/quickstart-load-balancer-standard-internal-powershell.md) | 개인 IP 주소를 네트워크 서브넷에 제공하려면 **`-PrivateIpAddress`** 매개 변수와 함께 [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig)를 사용합니다. [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig)를 사용하여 백 엔드 주소 풀의 구성을 만듭니다. [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig)를 사용하여 사용자가 만든 프런트 엔드 IP 구성과 연결되는 인바운드 NAT 규칙을 만듭니다. [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig)를 사용하여 필요한 프로브를 작성합니다. [New-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig)를 사용하여 부하 분산 장치 구성을 만듭니다. [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer)를 사용하여 부하 분산 장치를 만듭니다.|
 | [Azure CLI](../load-balancer/quickstart-load-balancer-standard-internal-cli.md) | [az network lb create](/cli/azure/network/lb) 명령을 사용하여 초기 부하 분산 장치 구성을 만듭니다. 개인 IP 주소를 정의하려면 **`--private-ip-address`** 매개 변수와 함께 [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip)를 사용합니다. [az network lb address-pool create](/cli/azure/network/lb/address-pool)를 사용하여 백 엔드 주소 풀의 구성을 추가합니다. [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule)를 사용하여 NAT 규칙을 추가합니다. [az network lb rule create](/cli/azure/network/lb/rule)를 사용하여 부하 분산 장치 규칙을 추가합니다. [az network lb probe create](/cli/azure/network/lb/probe)를 사용하여 프로브를 추가합니다.|
 | [템플릿](../load-balancer/quickstart-load-balancer-standard-internal-template.md) | 템플릿을 사용하여 부하 분산 장치를 배포하기 위한 지침으로 [Load Balancer의 2개 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/2-vms-internal-load-balancer)을 사용합니다. |
-
-## <a name="virtual-machine-scale-sets"></a>가상 머신 크기 집합
-
-부하 분산 장치 및 가상 머신 확장 집합에 대한 자세한 내용은 [Azure 가상 머신 확장 집합에 대한 네트워킹](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md)을 참조하세요.
 
 ## <a name="virtual-machines"></a>가상 머신
 
@@ -203,6 +199,8 @@ NAT를 사용하여 각 서브넷에 대한 아웃바운드 연결을 정의할 
 NAT는 표준 SKU 공용 IP 주소 리소스, 공용 IP 접두사 리소스 또는 이 둘의 조합과 호환됩니다. 공용 IP 접두사를 직접 사용하거나 접두사의 공용 IP 주소를 여러 NAT 게이트웨이 리소스에 배포할 수 있습니다. NAT는 모든 트래픽을 접두사의 IP 주소 범위로 그루밍합니다. 배포의 모든 IP를 더 쉽게 필터링할 수 있습니다.
 
 고객이 구성하지 않고도 NAT에서 서브넷의 모든 아웃바운드 트래픽을 자동으로 처리합니다. 사용자 정의 경로는 필요하지 않습니다. NAT는 다른 아웃바운드 시나리오보다 우선적으로 적용되며 서브넷의 기본 인터넷 대상을 대체합니다.
+
+Virtual machine scale sets에서 만든 가상 머신 유연한 오케스트레이션 모드에는 기본 아웃 바운드 액세스가 없습니다. Virtual network NAT는 가상 머신 확장 집합의 유연한 오케스트레이션 모드에 권장 되는 아웃 바운드 액세스 방법입니다.
 
 NAT 게이트웨이 리소스와 가상 네트워크 NAT에 관한 자세한 내용은 [Azure Virtual Network NAT란?](./nat-gateway/nat-overview.md)을 참조하세요.
 

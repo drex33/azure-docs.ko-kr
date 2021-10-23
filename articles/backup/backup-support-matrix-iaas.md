@@ -2,14 +2,14 @@
 title: Azure VM Backup의 지원 매트릭스
 description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
-ms.date: 09/17/2021
+ms.date: 10/19/2021
 ms.custom: references_regions
-ms.openlocfilehash: 17cd2ca7d4b42e79d1b5012fa36e09a509fa28fe
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: fe657d7a7dba8b8708b335e4aa5695414698190b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129090973"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130235870"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -43,7 +43,7 @@ Azure VM의 직접 백업(Windows만 해당)  | 특정 파일/폴더/볼륨 백�
 VM의 백업 정책 수정 | 지원됩니다.<br/><br/> VM은 새 정책의 일정 및 보존 설정을 사용하여 백업됩니다. 보존 설정이 연장될 경우 기존 복구 지점이 표시되고 유지됩니다. 보존 설정이 축소될 경우 다음 정리 작업에서 기존 복구 지점이 정리되고 결과적으로 삭제됩니다.
 백업 작업 취소| 스냅샷 프로세스 동안 지원됩니다.<br/><br/> 스냅샷이 자격 증명 모음으로 전송될 때는 지원되지 않습니다.
 다른 지역 또는 구독에 VM 백업 |지원되지 않습니다.<br><br>성공적으로 백업하려면 가상 머신이 백업용 자격 증명 모음과 동일한 구독에 있어야 합니다.
-매일 백업(Azure VM 확장을 통해) | 하루에 4개의 백업 - 백업 정책에 따라 예약된 백업 1개와 주문형 백업 3개    <br><br>    그러나 실패한 시도의 경우 사용자 재시도를 허용하기 위해 주문형 백업에 대한 하드 제한은 9회 시도로 설정됩니다.
+매일 백업(Azure VM 확장을 통해) | 하루에 4개의 백업 - 백업 정책에 따라 예약된 백업 1개와 주문형 백업 3개    <br><br>    그러나 실패한 시도 시 사용자 재시도를 허용하기 위해 주문형 백업에 대한 하드 제한은 9회 시도로 설정됩니다.
 매일 백업(MARS 에이전트를 통해) | 매일 3회 백업 예약
 매일 백업(DPM/MABS를 통해) | 매일 2회 백업 예약
 월별/연도별 백업| Azure VM 확장을 사용하여 백업하는 경우에는 지원되지 않습니다. 일별 및 주별만 지원됩니다.<br/><br/> 월별/연도별 보존 기간에 대해 일별/주별 백업을 유지하도록 정책을 설정할 수 있습니다.
@@ -84,13 +84,13 @@ Azure VM Linux 백업의 경우 Azure Backup은 [Azure 인증 Linux 배포 목�
 - Azure Backup은 Python 버전 2.7이 설치되어 있지 않은 경우 프록시 구성 Linux VM을 지원하지 않습니다.
 - Azure Backup은 스토리지 또는 다른 NFS 서버에서 Linux 또는 Windows 머신으로 탑재된 NFS 파일의 백업을 지원하지 않습니다. VM에 로컬로 연결된 디스크만 백업합니다.
 
-## <a name="support-matrix-for-managed-pre-post-scripts-for-linux-databases"></a>Linux 데이터베이스용 관리 되는 사전 사후 스크립트에 대 한 지원 매트릭스
+## <a name="support-matrix-for-managed-pre-post-scripts-for-linux-databases"></a>Linux 데이터베이스에 대한 관리되는 사후 전 스크립트에 대한 지원 매트릭스
 
-Azure Backup은 고객이 자신의 사전 사후 스크립트를 작성 하도록 지원 합니다.
+Azure Backup 고객이 자체 사전 게시 스크립트를 작성할 수 있도록 지원합니다.
 
-|지원 되는 데이터베이스  |OS 버전  |데이터베이스 버전  |
+|지원되는 데이터베이스  |OS 버전  |데이터베이스 버전  |
 |---------|---------|---------|
-|Azure Vm의 Oracle     |   [Oracle Linux](../virtual-machines/linux/endorsed-distros.md)      |    Oracle 4.x 이상     |
+|Azure VM의 Oracle     |   [Oracle Linux](../virtual-machines/linux/endorsed-distros.md)      |    Oracle 12.x 이상     |
 
 
 ## <a name="backup-frequency-and-retention"></a>백업 빈도 및 보존
@@ -174,7 +174,7 @@ Azure VM 데이터 디스크 수 | 디스크가 최대 32개인 Azure VM의 백�
 스토리지 유형 | 표준 HDD, 표준 SSD 및 프리미엄 SSD
 관리 디스크 | 지원됩니다.
 암호화된 디스크 | 지원됩니다.<br/><br/> Azure Disk Encryption을 사용하도록 설정된 Azure VM을 백업할 수 있습니다(Azure AD 앱 사용 또는 사용 안 함).<br/><br/> 암호화된 VM은 파일/폴더 수준에서 복구할 수 없습니다. 전체 VM을 복구해야 합니다.<br/><br/> Azure Backup에서 이미 보호되는 VM에 암호화를 사용하도록 설정할 수 있습니다.
-Write Accelerator가 설정된 디스크 | 현재 WA 디스크 백업이 있는 Azure VM은 모든 Azure 퍼블릭 지역에서 미리 보기로 제공됩니다. <br><br> 할당량이 초과되면 GA까지 승인된 목록을 더 이상 변경할 수 없습니다. <br><br> 지원되지 않는 구독에 대한 WA 디스크 스냅샷은 WA 디스크가 제외되기 때문에 스냅샷에 포함되지 않습니다. <br><br>**중요** <br> WA 디스크가 있는 가상 머신을 성공적으로 백업하려면 해당 디스크가 백업에서 제외된 경우에도 인터넷 연결이 필요합니다.
+Write Accelerator가 설정된 디스크 | 현재 WA 디스크 백업이 있는 Azure VM은 모든 Azure 퍼블릭 지역에서 미리 보기로 제공됩니다. <br><br> WA 디스크에 대 한 구독을 등록 하려면에 씁니다 [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com) . <br><br> 지원되지 않는 구독에 대한 WA 디스크 스냅샷은 WA 디스크가 제외되기 때문에 스냅샷에 포함되지 않습니다. <br><br>**중요** <br> WA 디스크가 있는 가상 머신을 성공적으로 백업하려면 해당 디스크가 백업에서 제외된 경우에도 인터넷 연결이 필요합니다.
 중복 제거된 VM/디스크 백업 및 복원 | Azure Backup은 중복 제거를 지원하지 않습니다. 자세한 내용은 관련 [문서](./backup-support-matrix.md#disk-deduplication-support)를 참조하세요. <br/> <br/>  - Azure Backup은 Recovery Services 자격 증명 모음의 VM 간에 중복 제거되지 않습니다. <br/> <br/>  - 복원 중에 중복 제거 상태의 VM이 있는 경우 자격 증명 모음에서 형식을 인식하지 않기 때문에 파일을 복원할 수 없습니다. 그러나 전체 VM 복원은 성공적으로 수행할 수 있습니다.
 보호된 VM에 디스크 추가 | 지원됩니다.
 보호된 VM에서 디스크 크기 조정 | 지원됩니다.

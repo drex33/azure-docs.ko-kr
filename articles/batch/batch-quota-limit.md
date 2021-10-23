@@ -4,12 +4,12 @@ description: 기본 Azure Batch 할당량, 한도 및 제약 조건에 대해 �
 ms.topic: conceptual
 ms.date: 07/20/2021
 ms.custom: seodec18
-ms.openlocfilehash: ad5701c65f9f2068a1a68084b755f8d0a013b8c8
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 799258258e1215977aea5b176d133bd121624bd6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114465577"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130239118"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 서비스 할당량 및 제한
 
@@ -138,7 +138,7 @@ Azure 할당량 REST API를 사용하여 구독 수준 또는 배치 계정 수�
 가상 네트워크의 100개 풀 노드 각각에 대해 다음 리소스가 생성됩니다.
 
 - [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md#network-security-groups) 1개
-- [공용 IP 주소](../virtual-network/public-ip-addresses.md) 1개
+- [공용 IP 주소](../virtual-network/ip-services/public-ip-addresses.md) 1개
 - [부하 분산 장치](../load-balancer/load-balancer-overview.md) 1개
 
 이러한 리소스는 구독의 [리소스 할당량](../azure-resource-manager/management/azure-subscription-service-limits.md)으로 제한됩니다. 가상 네트워크에서 대규모 풀 배포를 계획하는 경우 해당 리소스 중 하나 이상에 대해 할당량 증가를 요청해야 할 수 있습니다.

@@ -14,12 +14,12 @@ ms.custom:
 - mvc
 - devx-track-azurecli
 - mode-arm
-ms.openlocfilehash: 5934c20c2c7749b75b05bdb80b6d9dee85d6d3c1
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: da540d63c78e9029addf098b76ec24773e63a782
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112007016"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131071"
 ---
 # <a name="quickstart-create-an-key-vault-managed-hsm-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Key Vault 관리형 HSM 만들기
 
@@ -81,7 +81,7 @@ az ad user show --id <your-email-address> --query "objectId"
 
     - **구독**: Azure 구독을 선택합니다.
     - **리소스 그룹**: **새로 만들기** 를 선택하고 리소스 그룹의 고유한 이름을 입력한 다음, **확인** 을 클릭합니다.
-    - **위치**: 위치를 선택합니다. 예를 들어 **미국 중남부** 입니다.
+    - **위치**: 위치를 선택합니다. 예: **미국 중부**
     - **managedHSMName**: 관리형 HSM의 이름을 입력합니다.
     - **테넌트 ID**: 템플릿 함수는 테넌트 ID를 자동으로 검색하므로 기본값을 변경하지 마세요.  값이 없는 경우 [필수 구성 요소](#prerequisites)에서 검색한 테넌트 ID를 입력합니다.
     * **initialAdminObjectIds**: [필수 구성 요소](#prerequisites)에서 검색한 개체 ID를 입력합니다.

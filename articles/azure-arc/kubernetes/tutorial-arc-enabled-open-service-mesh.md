@@ -6,12 +6,12 @@ ms.date: 07/23/2021
 ms.topic: article
 author: mayurigupta13
 ms.author: mayg
-ms.openlocfilehash: 16e13238ffd471678eab9bdd0245aa708b7c4419
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: d09bed41ff7553e79a4d05e616e07fabf85d71a9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129389364"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227134"
 ---
 # <a name="azure-arc-enabled-open-service-mesh-preview"></a>Azure Arc 지원 Open Service Mesh(미리 보기)
 
@@ -369,7 +369,7 @@ osm namespace add <namespace_name>
 
 ### <a name="configure-osm-with-service-mesh-interface-smi-policies"></a>SMI(서비스 메시 인터페이스) 정책을 통해 OSM 구성
 
-[데모 애플리케이션](https://docs.openservicemesh.io/docs/getting_started/quickstart/manual_demo/#deploy-applications)으로 시작하거나 테스트 환경을 사용하여 SMI 정책을 사용해 볼 수 있습니다.
+[데모 애플리케이션](https://release-v0-11.docs.openservicemesh.io/docs/getting_started/quickstart/manual_demo/#deploy-applications)으로 시작하거나 테스트 환경을 사용하여 SMI 정책을 사용해 볼 수 있습니다.
 
 > [!NOTE] 
 > 실행하는 북스토어 애플리케이션 버전이 클러스터에 설치된 OSM 확장 버전과 일치하는지 확인합니다. 예: OSM 확장의 v0.8.4를 사용하는 경우 OSM 업스트림 리포지토리의 release-v0.8 분기에서 북스토어 데모를 사용합니다.

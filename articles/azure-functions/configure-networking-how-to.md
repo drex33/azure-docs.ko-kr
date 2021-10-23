@@ -4,12 +4,12 @@ description: Azure Functions에 대해 특정 가상 네트워킹 작업을 수�
 ms.topic: conceptual
 ms.date: 3/13/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 0a431abe5d32bdc59bb163f32e4c5f636c870335
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 6465a1c5e9b39bcef29fb28ebf2e19c7203da648
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130063049"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257046"
 ---
 # <a name="how-to-configure-azure-functions-with-a-virtual-network"></a>가상 네트워크를 사용하여 Azure Functions를 구성하는 방법
 
@@ -49,7 +49,6 @@ ms.locfileid: "130063049"
     | `WEBSITE_CONTENTSHARE` | 파일 공유 | 보안 스토리지 계정에 생성된 파일 공유(여기에 프로젝트 배포 파일이 상주)의 이름입니다. |
     | `WEBSITE_CONTENTOVERVNET` | 1 | 새 설정 |
     | `WEBSITE_VNET_ROUTE_ALL` | 1 | 모든 아웃바운드 트래픽이 가상 네트워크를 통과하도록 강제합니다. 스토리지 계정에서 프라이빗 엔드포인트 연결을 사용 중인 경우에 필요합니다. |
-    | `WEBSITE_DNS_SERVER` | `168.63.129.16` | 앱에서 사용하는 DNS 서버입니다. 스토리지 계정에서 프라이빗 엔드포인트 연결을 사용 중인 경우에 필요합니다. |
 
 1. **저장** 을 선택하여 애플리케이션 설정을 저장합니다. 앱 설정을 변경하면 앱이 다시 시작됩니다.  
 

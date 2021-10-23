@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/30/2021
 ms.author: b-juche
-ms.openlocfilehash: fcba2424c457d97a45096af9a35b5f2afa4086ba
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.openlocfilehash: 419ae4e99ce5b8327ced306dea398ef82d5588db
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407250"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265115"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>용량 풀 또는 볼륨 크기 조정
 볼륨 또는 용량 풀이 가득 찰 때와 같이, 필요에 따라 용량 풀 또는 볼륨의 크기를 변경할 수 있습니다. 
@@ -89,4 +89,4 @@ Azure NetApp Files에 대한 REST API 사양과 예제 코드는 [resource-manag
 - [볼륨의 서비스 수준을 동적으로 변경](dynamic-change-volume-service-level.md) 
 - [볼륨 할당량 이해](volume-quota-introduction.md)
 - [볼륨 용량 모니터링](monitor-volume-capacity.md)
-- [용량 관리 FAQ](azure-netapp-files-faqs.md#capacity-management-faqs)
+- [용량 관리 FAQ](faq-capacity-management.md)

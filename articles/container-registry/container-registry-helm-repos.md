@@ -2,19 +2,22 @@
 title: Helm 차트 저장
 description: Azure Container Registry의 리포지토리를 사용하여 Kubernetes 애플리케이션에 대한 Helm 차트를 저장하는 방법을 알아봅니다.
 ms.topic: article
-ms.date: 07/19/2021
-ms.openlocfilehash: cdc4b0c6fb5aabdb96597cfbbe151598b16a2cc0
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.date: 10/20/2021
+ms.openlocfilehash: 9bf771fae26d61a457299244910eff1cc6724b84
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114438911"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232983"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Azure 컨테이너 레지스트리에 Helm 차트 푸시 및 끌어오기
 
 Kubernetes용 애플리케이션을 빠르게 관리하고 배포하려는 경우 [오픈 소스 Helm 패키지 관리자][helm]를 사용할 수 있습니다. Helm 사용 시 애플리케이션 패키지는 [Helm 차트 리포지토리](https://helm.sh/docs/topics/chart_repository/)에 수집되고 저장되는 [차트](https://helm.sh/docs/topics/charts/)로 정의됩니다.
 
 이 문서에서는 Helm 3 명령을 사용하고 차트를 [OCI 아티팩트](container-registry-image-formats.md#oci-artifacts)로 저장하여 Azure Container Registry에서 Helm 차트 리포지토리를 호스트하는 방법을 보여 줍니다. 대부분의 시나리오에서는 개발하는 애플리케이션용으로 차트를 직접 작성하여 업로드합니다. 사용자 고유의 Helm 차트를 작성하는 방법에 대한 자세한 내용은 [차트 템플릿 개발자 가이드][develop-helm-charts]를 참조하세요. 다른 Helm 리포지토리의 기존 Helm 차트를 저장할 수도 있습니다.
+
+> [!IMPORTANT]
+> 이 문서는 버전 **3.7.1부터** Helm 3 명령으로 업데이트되었습니다. Helm 3.7.1에는 Helm CLI 명령 및 이전 버전의 Helm 3에 도입된 OCI 지원이 변경되었습니다. 
 
 ## <a name="helm-3-or-helm-2"></a>Helm 3 또는 Helm 2?
 
@@ -25,8 +28,8 @@ Helm 3은 Azure Container Registry에서 Helm 차트를 호스트하는 데 사�
 * Azure Container Registry의 리포지토리에 Helm 차트를 저장하고 관리할 수 있습니다.
 * Helm 차트를 레지스트리에 [OCI 아티팩트](container-registry-image-formats.md#oci-artifacts)로 저장합니다. Azure Container Registry는 Helm 차트를 포함하여 OCI 아티팩트에 대한 GA 지원을 제공합니다.
 * `helm registry login` 또는 `az acr login` 명령을 사용하여 레지스트리로 인증합니다.
-* `helm chart` 명령을 사용하여 레지스트리에서 Helm 차트 푸시, 풀 및 관리
-* `helm install`을 사용하여 로컬 리포지토리 캐시에서 Kubernetes 클러스터에 차트를 설치합니다.
+* `helm` 명령을 사용하여 레지스트리에서 Helm 차트 푸시, 풀 및 관리
+* `helm install`레지스트리에서 Kubernetes 클러스터에 차트를 설치하는 데 사용합니다.
 
 ### <a name="feature-support"></a>기능 지원
 
@@ -63,7 +66,7 @@ Azure Container Registry는 Helm 3(현재) 또는 Helm 2(더 이상 사용되지
 이 문서의 시나리오에는 다음 리소스가 필요합니다.
 
 - Azure 구독의 **Azure 컨테이너 레지스트리** 필요한 경우 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용하여 레지스트리를 만듭니다.
-- **Helm 클라이언트 버전 3.1.0 이상** - `helm version`을 실행하여 현재 버전을 찾습니다. Helm을 설치하고 업그레이드하는 방법에 대한 자세한 내용은 [Helm 설치][helm-install]를 참조하세요.
+- **Helm 클라이언트 버전 3.7.1 이상** - `helm version` 를 실행하여 현재 버전을 찾습니다. Helm을 설치하고 업그레이드하는 방법에 대한 자세한 내용은 [Helm 설치][helm-install]를 참조하세요. 이전 버전의 Helm 3에서 업그레이드하는 경우 릴리스 정보 를 [검토합니다.](https://github.com/helm/helm/releases)
 - Helm 차트를 설치하는 **Kubernetes 클러스터** 필요한 경우 [Azure Kubernetes Service 클러스터][aks-quickstart]를 만듭니다. 
 - **Azure CLI 버전 2.0.71 이상** - `az --version`을 실행하여 버전을 확인합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
@@ -114,24 +117,21 @@ EOF
 
 이 예제를 만들고 실행하는 방법에 대한 자세한 내용은 Helm 문서에서 [시작](https://helm.sh/docs/chart_template_guide/getting_started/)을 참조하세요.
 
-## <a name="save-chart-to-local-registry-cache"></a>로컬 레지스트리 캐시에 차트 저장
+## <a name="save-chart-to-local-archive"></a>로컬 보관에 차트 저장
 
-디렉터리를 `hello-world` 하위 디렉터리로 변경합니다. 그런 다음, `helm chart save`를 실행하여 차트의 복사본을 로컬에 저장하고 레지스트리의 정규화된 이름(모두 소문자)과 대상 리포지토리 및 태그를 사용하여 별칭을 만듭니다. 
+디렉터리를 `hello-world` 하위 디렉터리로 변경합니다. 그런 다음 를 `helm package` 실행하여 차트를 로컬 보관에 저장합니다. 
 
-다음 예에서 레지스트리 이름은 *mycontainerregistry*, 대상 리포지토리는 *helm/hello-world*, 대상 차트 태그는 *0.1.0* 입니다. 종속성을 성공적으로 가져오려면 대상 차트 이미지 이름 및 태그가 `Chart.yaml`의 이름 및 버전과 일치해야 합니다.
+다음 예제에서 차트는 의 이름과 버전으로 `Chart.yaml` 저장됩니다.
 
 ```console
 cd ..
-helm chart save . hello-world:0.1.0
-helm chart save . mycontainerregistry.azurecr.io/helm/hello-world:0.1.0
+helm package .
 ```
 
-`helm chart list`를 실행하여 로컬 레지스트리 캐시에 차트를 저장했는지 확인합니다. 출력은 다음과 비슷합니다.
+출력은 다음과 비슷합니다.
 
-```console
-REF                                                      NAME            VERSION DIGEST  SIZE            CREATED
-hello-world:0.1.0                                        hello-world      0.1.0   5899db0 3.2 KiB        2 minutes 
-mycontainerregistry.azurecr.io/helm/hello-world:0.1.0    hello-world      0.1.0   5899db0 3.2 KiB        2 minutes
+```output
+Successfully packaged chart and saved it to: /my/path/hello-world-0.1.0.tgz
 ```
 
 ## <a name="authenticate-with-the-registry"></a>레지스트리로 인증
@@ -149,23 +149,19 @@ echo $spPassword | helm registry login mycontainerregistry.azurecr.io \
 > [!TIP]
 > [개별 Azure AD ID](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad)로 레지스트리에 로그인하여 Helm 차트를 푸시하고 풀할 수도 있습니다.
 
-## <a name="push-chart-to-registry"></a>레지스트리에 차트 푸시
+## <a name="push-chart-to-registry-as-oci-artifact"></a>OCI 아티팩트로 레지스트리에 차트 푸시
 
-Helm 3 CLI에서 `helm chart push` 명령을 실행하여 차트를 정규화된 대상 리포지토리로 푸시합니다.
+Helm `helm push` 3 CLI에서 명령을 실행하여 차트 보관 파일을 정규화된 대상 리포지토리로 푸시합니다. 다음 예제에서 대상 리포지토리 네임스페이스는 `helm/hello-world` 이고 차트에는 태그가 지정됩니다. `0.1.0`
 
 ```console
-helm chart push mycontainerregistry.azurecr.io/helm/hello-world:0.1.0
+helm push hello-world-0.1.0.tgz oci://mycontainerregistry.azurecr.io/helm
 ```
 
 푸시가 성공적으로 완료되면 출력은 다음과 유사합니다.
 
 ```output
-The push refers to repository [mycontainerregistry.azurecr.io/helm/hello-world]
-ref:     mycontainerregistry.azurecr.io/helm/hello-world:0.1.0
-digest:  5899db028dcf96aeaabdadfa5899db025899db025899db025899db025899db02
-size:    3.2 KiB
-name:    hello-world
-version: 0.1.0
+Pushed: mycontainerregistry.azurecr.io/helm/hello-world:0.1.0
+digest: sha256:5899db028dcf96aeaabdadfa5899db025899db025899db025899db025899db02
 ```
 
 ## <a name="list-charts-in-the-repository"></a>리포지토리의 차트 목록 표시
@@ -190,9 +186,9 @@ az acr repository show \
     "readEnabled": true,
     "writeEnabled": true
   },
-  "createdTime": "2020-03-20T18:11:37.6701689Z",
+  "createdTime": "2021-10-05T12:11:37.6701689Z",
   "imageName": "helm/hello-world",
-  "lastUpdateTime": "2020-03-20T18:11:37.7637082Z",
+  "lastUpdateTime": "2021-10-05T12:11:37.7637082Z",
   "manifestCount": 1,
   "registry": "mycontainerregistry.azurecr.io",
   "tagCount": 1
@@ -214,70 +210,29 @@ az acr repository show-manifests \
   {
     [...]
     "configMediaType": "application/vnd.cncf.helm.config.v1+json",
-    "createdTime": "2020-03-20T18:11:37.7167893Z",
+    "createdTime": "2021-10-05T12:11:37.7167893Z",
     "digest": "sha256:0c03b71c225c3ddff53660258ea16ca7412b53b1f6811bf769d8c85a1f0663ee",
     "imageSize": 3301,
-    "lastUpdateTime": "2020-03-20T18:11:37.7167893Z",
+    "lastUpdateTime": "2021-10-05T12:11:37.7167893Z",
     "mediaType": "application/vnd.oci.image.manifest.v1+json",
     "tags": [
       "0.1.0"
     ]
 ```
 
-## <a name="pull-chart-to-local-cache"></a>로컬 캐시로 차트 끌어오기
-
-Kubernetes에 Helm 차트를 설치하려면 차트가 로컬 캐시에 있어야 합니다. 이 예제에서는 먼저 `helm chart remove`를 실행하여 `mycontainerregistry.azurecr.io/helm/hello-world:0.1.0`이라는 기존 로컬 차트를 제거합니다.
-
-```console
-helm chart remove mycontainerregistry.azurecr.io/helm/hello-world:0.1.0
-```
-
-`helm chart pull`을 실행하여 Azure 컨테이너 레지스트리에서 로컬 캐시로 차트를 다운로드합니다.
-
-```console
-helm chart pull mycontainerregistry.azurecr.io/helm/hello-world:0.1.0
-```
-
-## <a name="export-helm-chart"></a>Helm 차트 내보내기
-
-차트를 추가로 작업하려면 `helm chart export`를 사용하여 로컬 디렉터리로 내보냅니다. 예를 들어 끌어온 차트를 `install` 디렉터리로 내보냅니다.
-
-```console
-helm chart export mycontainerregistry.azurecr.io/helm/hello-world:0.1.0 \
-  --destination ./install
-```
-
-리포지토리의 내보낸 차트에 대한 정보를 보려면 차트를 내보낸 디렉터리에서 `helm show chart` 명령을 실행합니다.
-
-```console
-cd install
-helm show chart hello-world
-```
-
-다음의 샘플 출력과 같이 Helm이 최신 버전의 차트에 대한 세부 정보를 반환합니다.
-
-```output
-apiVersion: v2
-appVersion: 1.16.0
-description: A Helm chart for Kubernetes
-name: hello-world
-type: application
-version: 0.1.0    
-```
-
 ## <a name="install-helm-chart"></a>Helm 차트 설치
 
-`helm install`을 실행하여 로컬 캐시로 끌어온 Helm 차트를 설치하고 내보냅니다. *myhelmtest* 와 같은 릴리스 이름을 지정하거나 `--generate-name` 매개 변수를 전달합니다. 예를 들면 다음과 같습니다.
+`helm install`를 실행하여 레지스트리에 푸시한 Helm 차트를 설치합니다. 차트 태그는 매개 변수를 사용하여 `--version` 전달됩니다. *myhelmtest* 와 같은 릴리스 이름을 지정하거나 `--generate-name` 매개 변수를 전달합니다. 예를 들면 다음과 같습니다.
 
 ```console
-helm install myhelmtest ./hello-world
+helm install myhelmtest oci://mycontainerregistry.azurecr.io/helm/hello-world --version 0.1.0
 ```
 
 성공적인 차트 설치 후의 출력은 다음과 유사합니다.
 
 ```console
 NAME: myhelmtest
-LAST DEPLOYED: Fri Mar 20 14:14:42 2020
+LAST DEPLOYED: Tue Oct  4 16:59:51 2021
 NAMESPACE: default
 STATUS: deployed
 REVISION: 1
@@ -296,6 +251,14 @@ helm get manifest myhelmtest
 
 ```console
 helm uninstall myhelmtest
+```
+
+## <a name="pull-chart-to-local-archive"></a>로컬 보관 파일로 차트 끌어오기
+
+필요에 따라 를 사용하여 컨테이너 레지스트리에서 로컬 보관 파일로 차트를 끌어올 수 `helm pull` 있습니다. 차트 태그는 매개 변수를 사용하여 `--version` 전달됩니다. 로컬 보관이 현재 경로에 있는 경우 이 명령은 이를 덮어씁니다.
+
+```console
+helm pull oci://mycontainerregistry.azurecr.io/helm/hello-world --version 0.1.0
 ```
 
 ## <a name="delete-chart-from-the-registry"></a>레지스트리에서 차트 삭제
@@ -345,17 +308,18 @@ myregistry/wordpress            9.0.3           5.3.2           Web publishing p
 [...]
 ```
 
-### <a name="save-charts-as-oci-artifacts"></a>차트를 OCI 아티팩트로 저장
+### <a name="pull-chart-archives-locally"></a>로컬로 끌어오기 차트 보관
 
-리포지토리의 각 차트에 대해 차트를 로컬로 가져와 OCI 아티팩트로 저장합니다. 예:
+리포지전의 각 차트에 대해 차트 보관 파일을 로컬로 끌어오고 파일 이름을 기록해 둡다.
 
 ```console 
-helm pull myregisry/ingress-nginx --untar
-cd ingress-nginx
-helm chart save . myregistry.azurecr.io/ingress-nginx:3.20.1
+helm pull myregisry/ingress-nginx
+ls *.tgz
 ```
 
-### <a name="push-charts-to-registry"></a>차트를 레지스트리에 푸시
+와 같은 로컬 차트 `ingress-nginx-3.20.1.tgz` 보관이 만들어집니다.
+
+### <a name="push-charts-as-oci-artifacts-to-registry"></a>레지스트리에 OCI 아티팩트로 차트 푸시
 
 레지스트리에 로그인:
 
@@ -363,10 +327,10 @@ helm chart save . myregistry.azurecr.io/ingress-nginx:3.20.1
 az acr login --name myregistry
 ```
 
-각 차트를 레지스트리에 푸시합니다.
+레지스트리에 각 차트 보관 파일을 푸시합니다. 예:
 
 ```console
-helm chart push myregistry.azurecr.io/ingress-nginx:3.20.1
+helm push ingress-nginx-3.20.1.tgz oci://myregistry.azurecr.io/helm
 ```
 
 차트를 푸시한 후 레지스트리에 저장되었는지 확인합니다.

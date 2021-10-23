@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 3ac75e3cf3ae08d9b7d49077cf54d05fdbabdbad
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 2a916c83cc3249b304648d090f739e66bb6b7dd3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130039052"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130245591"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -113,10 +113,10 @@ VNet 내에서 TCP, UDP 및 ICMP TCP/IP 프로토콜을 사용할 수 있습니�
 예. VNet에서 사용되는 CIDR 블록을 추가, 제거 및 수정할 수 있습니다.
 
 ### <a name="if-i-am-running-my-services-in-a-vnet-can-i-connect-to-the-internet"></a>VNet에서 서비스를 실행 중인 경우 인터넷에 연결할 수 있습니까?
-예. VNet 내에 배포된 모든 서비스는 인터넷에 아웃바운드로 연결할 수 있습니다. Azure의 아웃바운드 인터넷 연결에 대해 자세히 알아보려면 [아웃바운드 연결](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. Resource Manager를 통해 배포된 리소스에 인바운드로 연결하려면 리소스에 공용 IP 주소가 할당되어 있어야 합니다. 공용 IP 주소에 대해 자세히 알아보려면 [공용 IP 주소](virtual-network-public-ip-address.md)를 참조하세요. Azure에서 배포된 모든 Azure Cloud Service에는 공개적으로 주소를 지정할 수 있는 VIP가 할당되어 있습니다. 이러한 서비스가 인터넷 연결을 허용하도록 하려면 PaaS 역할에 대한 입력 엔드포인트 및 가상 머신에 대한 엔드포인트를 정의해야 합니다.
+예. VNet 내에 배포된 모든 서비스는 인터넷에 아웃바운드로 연결할 수 있습니다. Azure의 아웃바운드 인터넷 연결에 대해 자세히 알아보려면 [아웃바운드 연결](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. Resource Manager를 통해 배포된 리소스에 인바운드로 연결하려면 리소스에 공용 IP 주소가 할당되어 있어야 합니다. 공용 IP 주소에 대해 자세히 알아보려면 [공용 IP 주소](./ip-services/virtual-network-public-ip-address.md)를 참조하세요. Azure에서 배포된 모든 Azure Cloud Service에는 공개적으로 주소를 지정할 수 있는 VIP가 할당되어 있습니다. 이러한 서비스가 인터넷 연결을 허용하도록 하려면 PaaS 역할에 대한 입력 엔드포인트 및 가상 머신에 대한 엔드포인트를 정의해야 합니다.
 
 ### <a name="do-vnets-support-ipv6"></a>VNet은 IPv6를 지원합니까?
-예, VNet은 IPv4 전용 또는 이중 스택(IPv4 + IPv6)이 될 수 있습니다.  자세한 내용은 [Azure 가상 네트워크의 IPv6 개요](./ipv6-overview.md)를 참조하세요.
+예, VNet은 IPv4 전용 또는 이중 스택(IPv4 + IPv6)이 될 수 있습니다.  자세한 내용은 [Azure 가상 네트워크의 IPv6 개요](./ip-services/ipv6-overview.md)를 참조하세요.
 
 ### <a name="can-a-vnet-span-regions"></a>VNet을 사용하여 지역을 확장할 수 있습니까?
 아니요. VNet은 단일 지역으로 제한됩니다. 그러나 가상 네트워크는 가용성 영역을 확장합니다. 사용 가능한 영역에 대한 자세한 내용은 [가용성 영역 개요](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요. 가상 네트워크 피어링을 사용하여 다른 지역의 가상 네트워크를 연결할 수 있습니다. 자세한 내용은 [가상 네트워크 피어링 개요](virtual-network-peering-overview.md)를 참조하세요.
@@ -162,7 +162,7 @@ Azure에서 제공하는 DNS를 사용한 테넌트 간 이름 확인에 대한 
   - **Resource Manager**: 동적 또는 정적 메서드로 할당된 개인 IP 주소는 리소스가 삭제될 때까지 가상 머신(Resource Manager)에 할당된 상태로 유지됩니다. 차이점은 정적 방법을 사용하면 할당할 주소를 사용자가 선택하고 동적 방법을 사용하면 Azure에서 선택된다는 점입니다. 
   - **클래식**: 가상 머신(클래식) VM이 중지(할당 취소됨)된 상태에서 다시 시작될 때 동적 메서드로 할당된 개인 IP 주소가 변경될 수 있습니다. 클래식 배포 모델을 통해 배포된 리소스의 개인 IP 주소가 절대 변경되지 않도록 하려면 정적 메서드로 개인 IP 주소를 할당합니다.
 
-* **공용:** 필요에 따라 Azure Resource Manager 배포 모델을 통해 배포된 VM에 연결된 NIC에 할당됩니다. 정적 또는 동적 할당 메서드를 사용하여 주소를 할당할 수 있습니다. 클래식 배포 모델을 통해 배포된 모든 VM 및 Cloud Services 역할 인스턴스는 클라우드 서비스 내에 존재하며 *동적*, 공용 VIP(가상 IP) 주소가 할당됩니다. [예약된 IP 주소](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip)라고 하는 공용 *정적* IP 주소는 필요에 따라 VIP로 할당될 수 있습니다. 클래식 배포 모델을 통해 배포된 개별 VM 또는 Cloud Services 역할 인스턴스에 공용 IP 주소를 할당할 수 있습니다. 이러한 주소를 [ILPIP(인스턴스 수준 공용 IP)](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) 주소라고 하며 동적으로 할당할 수 있습니다.
+* **공용:** 필요에 따라 Azure Resource Manager 배포 모델을 통해 배포된 VM에 연결된 NIC에 할당됩니다. 정적 또는 동적 할당 메서드를 사용하여 주소를 할당할 수 있습니다. 클래식 배포 모델을 통해 배포된 모든 VM 및 Cloud Services 역할 인스턴스는 클라우드 서비스 내에 존재하며 *동적*, 공용 VIP(가상 IP) 주소가 할당됩니다. [예약된 IP 주소](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip)라고 하는 공용 *정적* IP 주소는 필요에 따라 VIP로 할당될 수 있습니다. 클래식 배포 모델을 통해 배포된 개별 VM 또는 Cloud Services 역할 인스턴스에 공용 IP 주소를 할당할 수 있습니다. 이러한 주소를 [ILPIP (인스턴스 수준 공용 IP)](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) 주소 라고 하며 동적으로 할당할 수 있습니다.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>나중에 만들 VM에 대한 개인 IP 주소를 예약할 수 있나요?
 아니요. 개인 IP 주소를 예약할 수 없습니다. 개인 IP 주소가 사용 가능한 경우 DHCP 서버에서 VM 또는 역할 인스턴스에 할당됩니다. VM은 개인 IP 주소를 할당하려는 VM일 수도 있고 그렇지 않을 수도 있습니다. 그러나 이미 만든 VM의 개인 IP 주소를 사용 가능한 모든 개인 IP 주소로 변경할 수 있습니다.
@@ -171,7 +171,7 @@ Azure에서 제공하는 DNS를 사용한 테넌트 간 이름 확인에 대한 
 경우에 따라 다릅니다. Resource Manager를 통해 VM이 배포된 경우 IP 주소가 정적 할당 메서드로 할당되었는지 또는 동적 할당 메서드로 할당되었는지에 관계없이 변경되지 않습니다. 클래식 배포 모델을 통해 VM을 배포한 경우 동적 IP 주소는 VM이 중지된(할당 취소됨) 상태에서 시작될 때 변경될 수 있습니다. 이 주소는 VM을 삭제할 때 두 배포 모델 중 하나를 통해 배포된 VM에서 해제됩니다
 
 ### <a name="can-i-manually-assign-ip-addresses-to-nics-within-the-vm-operating-system"></a>VM 운영 체제 내에서 IP 주소를 NIC에 수동으로 할당할 수 있습니까?
-예. 하지만 가상 머신에 여러 IP 주소를 할당하는 경우와 같이 필요한 경우가 아니면 권장하지 않습니다. 자세한 내용은 [가상 머신에 여러 IP 주소 추가](virtual-network-multiple-ip-addresses-portal.md#os-config)를 참조하세요. VM에 연결된 Azure NIC에 할당된 IP 주소가 변경되고 VM 운영 체제 내의 IP 주소가 다르면, VM에 대한 연결이 끊어집니다.
+예. 하지만 가상 머신에 여러 IP 주소를 할당하는 경우와 같이 필요한 경우가 아니면 권장하지 않습니다. 자세한 내용은 [가상 머신에 여러 IP 주소 추가](./ip-services/virtual-network-multiple-ip-addresses-portal.md#os-config)를 참조하세요. VM에 연결된 Azure NIC에 할당된 IP 주소가 변경되고 VM 운영 체제 내의 IP 주소가 다르면, VM에 대한 연결이 끊어집니다.
 
 ### <a name="if-i-stop-a-cloud-service-deployment-slot-or-shutdown-a-vm-from-within-the-operating-system-what-happens-to-my-ip-addresses"></a>클라우드 서비스 배포 슬롯을 중지하거나 운영 체제 내에서 VM을 종료하는 경우 IP 주소는 어떻게 됩니까?
 아무 일도 일어나지 않습니다. IP 주소(공용 VIP, 공용 및 프라이빗)는 클라우드 서비스 배포 슬롯 또는 VM에 할당된 상태로 유지됩니다.
@@ -195,7 +195,7 @@ Azure에서 제공하는 DNS를 사용한 테넌트 간 이름 확인에 대한 
 
 * [App Service 네트워킹 기능](../app-service/networking-features.md)
 * [App Service 환경에서 Web Apps 만들기](../app-service/environment/using.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-* [Azure Virtual Network에 앱 통합](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+* [Azure Virtual Network에 앱 통합](../app-service/overview-vnet-integration.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [App Service 액세스 제한](../app-service/app-service-ip-restrictions.md)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>VNet에서 웹 및 작업자 역할(PaaS)을 사용하여 Cloud Services를 배포할 수 있습니까?
@@ -258,7 +258,7 @@ VNet 피어링(또는 가상 네트워크 피어링)을 통해 가상 네트워�
 - Redis Cache 
 - Application Gateway(v1) SKU
 - Service Fabric
-- API Management(stv1)
+- API Management (stv1)
 - ADDS(Active Directory Domain Service)
 - Logic Apps
 - HDInsight
@@ -403,7 +403,7 @@ Azure 서비스에 연결하려면 NSG에서 아웃바운드 연결을 허용해
 가상 네트워크에 대한 쓰기 권한이 있는 사용자는 가상 네트워크에서 독립적으로 서비스 엔드포인트를 구성할 수 있습니다. VNet에 대한 Azure 서비스 리소스를 보호하려면 사용자는 추가되는 서브넷에 대한 사용 권한 **Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action** 을 갖고 있어야 합니다. 이 권한은 기본적으로 기본 제공 서비스 관리자 역할에 포함되고 사용자 지정 역할을 만들어 수정할 수 있습니다. 기본 제공 역할 및 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 특정 권한 할당에 대해 자세히 알아보세요.
  
 
-### <a name="can-i-filter-virtual-network-traffic-to-azure-services-allowing-only-specific-azure-service-resources-over-vnet-service-endpoints"></a>VNet 서비스 끝점을 통해 특정 Azure 서비스 리소스만 허용 하 여 Azure 서비스에 대 한 가상 네트워크 트래픽을 필터링 할 수 있나요? 
+### <a name="can-i-filter-virtual-network-traffic-to-azure-services-allowing-only-specific-azure-service-resources-over-vnet-service-endpoints"></a>VNet 서비스 엔드포인트를 통해 특정 Azure 서비스 리소스만 허용하여 Azure 서비스에 대한 가상 네트워크 트래픽을 필터링할 수 있나요? 
 
 VNet(가상 네트워크) 서비스 엔드포인트 정책을 통해 가상 네트워크 트래픽을 Azure 서비스로 필터링하여 서비스 엔드포인트를 통해 특정 Azure 서비스 리소스만 허용할 수 있습니다. 엔드포인트 정책은 Azure 서비스로 전송되는 가상 네트워크 트래픽에 대한 세부적인 액세스 제어를 제공합니다. [여기서](virtual-network-service-endpoint-policies-overview.md) 서비스 엔드포인트 정책에 대해 자세히 알아볼 수 있습니다.
 
@@ -426,8 +426,4 @@ Azure AD(Azure Active Directory )는 서비스 엔드포인트를 기본적으�
 |Azure Data Lake Store V1|  100|
  
 >[!NOTE]
-> 제한은 Azure 서비스에서 임의로 변경될 수 있습니다. 서비스에 대한 자세한 내용은 해당 서비스 문서를 참조하세요. 
-
-
-
-
+> 제한은 Azure 서비스에서 임의로 변경될 수 있습니다. 서비스에 대한 자세한 내용은 해당 서비스 문서를 참조하세요.

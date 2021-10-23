@@ -3,12 +3,12 @@ title: 지정한 공용 IP 주소를 사용하여 풀 만들기
 description: 사용자 고유의 공용 IP 주소를 사용하는 Batch 풀을 만드는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 10/08/2020
-ms.openlocfilehash: e822311718847e173763847d503335f71457308b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: fc652a7f4719d5cc23e84caaef63ec9d1c5f7ff1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91849331"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130255701"
 ---
 # <a name="create-an-azure-batch-pool-with-specified-public-ip-addresses"></a>지정한 공용 IP 주소를 사용하여 Azure Batch 풀 만들기
 
@@ -24,7 +24,7 @@ Azure Batch 풀을 만들 때 지정한 [Azure VNet(가상 네트워크)의 서�
 
 - **Azure VNet**. 풀과 IP 주소를 만드는 Azure 구독의 [가상 네트워크](batch-virtual-network.md)를 사용해야 합니다. Azure Resource Manager 기반 VNet만 사용할 수 있습니다. VNet이 [일반적인 요구 사항](batch-virtual-network.md#vnet-requirements)을 모두 충족하는지 확인합니다.
 
-- **하나 이상의 Azure 공용 IP 주소**. 하나 이상의 공용 IP 주소를 만들려면 [Azure Portal](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address), [Azure CLI(명령줄 인터페이스)](/cli/azure/network/public-ip#az-network-public-ip-create) 또는 [Azure PowerShell](/powershell/module/az.network/new-azpublicipaddress)을 사용할 수 있습니다. 아래에 나열된 요구 사항을 준수해야 합니다.
+- **하나 이상의 Azure 공용 IP 주소**. 하나 이상의 공용 IP 주소를 만들려면 [Azure Portal](../virtual-network/ip-services/virtual-network-public-ip-address.md#create-a-public-ip-address), [Azure CLI(명령줄 인터페이스)](/cli/azure/network/public-ip#az_network_public_ip_create) 또는 [Azure PowerShell](/powershell/module/az.network/new-azpublicipaddress)을 사용할 수 있습니다. 아래에 나열된 요구 사항을 준수해야 합니다.
 
 > [!NOTE]
 > Batch는 공용 IP 주소를 포함하는 리소스 그룹에 추가 네트워킹 리소스를 자동으로 할당합니다. Batch는 일반적으로 100개 전용 노드마다 NSG(네트워크 보안 그룹)와 부하 분산 장치를 하나씩 할당합니다. 리소스는 구독의 리소스 할당량으로 제한됩니다. 대형 풀을 사용하는 경우 하나 이상의 리소스에 대해 [할당량 증가를 요청](batch-quota-limit.md#increase-a-quota)해야 할 수도 있습니다.
@@ -100,4 +100,3 @@ client-request-id: 00000000-0000-0000-0000-000000000000
 - 풀, 노드, 작업 및 태스크와 같은 [Batch 서비스 워크플로 및 기본 리소스](batch-service-workflow-features.md)에 대해 알아봅니다.
 - [Azure 가상 네트워크의 서브넷에서 풀을 만드는 방법](batch-virtual-network.md)을 알아봅니다.
 - [공용 IP 주소가 없는 Azure Batch 풀을 만드는 방법](./batch-pool-no-public-ip-address.md)을 알아봅니다.
-

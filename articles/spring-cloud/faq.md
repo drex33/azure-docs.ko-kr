@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 5cc02d09efda462a2feaaa77ff74dff9dedd2041
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: 94e2f388c2fbfc92605922ac7462cca0ff30da4f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537298"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258357"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure Spring Cloud FAQ
 
@@ -56,6 +56,9 @@ Azure Spring Cloud에는 다음과 같이 알려진 제한 사항이 있습니�
 어떤 것을 사용해야 하며 각 계층의 제한은 무엇인가요?
 
 * Azure Spring Cloud는 기본 및 표준의 두 가지 가격 책정 계층을 제공합니다. 기본 계층은 개발/테스트 및 Azure Spring Cloud 사용을 대상으로 합니다. 표준 계층은 범용 프로덕션 트래픽을 실행하도록 최적화되어 있습니다. 제한 및 기능 수준 비교에 대한 자세한 내용은 [Azure Spring Cloud 가격 책정 정보](https://azure.microsoft.com/pricing/details/spring-cloud/)를 참조하세요.
+
+### <a name="whats-the-difference-between-service-binding-and-service-connector"></a>서비스 바인딩과 서비스 커넥터의 차이점은 무엇인가요?
+Service Connector라는 새로운 Azure 전체 솔루션을 위해 서비스 바인딩에 대한 추가 기능을 적극적으로 개발하지 않습니다. 한편, 새 솔루션은 azure의 앱 호스팅 서비스(예: App Service)에서 일관된 통합 환경을 제공합니다. 반면, MySQL, SQL DB, Cosmos DB, Postgres DB, Redis, Storage 등 가장 많이 사용되는 10개 이상의 대상 Azure 서비스를 지원하여 요구 사항을 더 잘 처리합니다. 서비스 커넥터는 현재 공개 미리 보기로 제공됩니다. 새로운 환경을 사용해 보시기 위해 초대합니다.
 
 ### <a name="how-can-i-provide-feedback-and-report-issues"></a>피드백 및 보고서 문제를 제출하려면 어떻게 해야 하나요?
 
@@ -206,15 +209,7 @@ Azure Spring Cloud에 적용 가능한 중요 보안 패치(CVE 점수> = 9)는 
 ::: zone pivot="programming-language-java"
 ### <a name="what-are-the-best-practices-for-migrating-existing-spring-cloud-microservices-to-azure-spring-cloud"></a>기존 Spring Cloud 마이크로서비스를 Azure Spring Cloud로 마이그레이션하기 위한 모범 사례는 무엇인가요?
 
-기존 Spring Cloud 마이크로서비스를 Azure Spring Cloud로 마이그레이션할 때 다음 모범 사례를 준수하는 것이 좋습니다.
-
-* 모든 애플리케이션 종속성을 확인해야 합니다.
-* Azure Spring Cloud의 배포와 비교할 수 있도록 구성 항목, 환경 변수 및 JVM 매개 변수를 준비합니다.
-* 서비스 바인딩을 사용하려면 Azure 서비스를 살펴보고 적절한 액세스 권한을 설정했는지 확인합니다.
-* 서비스 검색 서비스, Config 서버 등과 같이 Azure Spring Cloud에서 관리하는 서비스와 충돌할 수 있는 포함된 서비스를 제거하거나 사용하지 않도록 설정하는 것이 좋습니다.
-* 공식적이고 안정적인 Pivotal Spring 라이브러리를 사용하는 것이 좋습니다. Pivotal Spring 라이브러리의 비공식, 베타 또는 분기 버전은 SLA(서비스 수준 계약)를 지원하지 않습니다.
-
-마이그레이션 후에는 CPU/RAM 메트릭과 네트워크 트래픽을 모니터링하여 애플리케이션 인스턴스의 크기를 적절하게 조정해야 합니다.
+자세한 내용은 [Spring Cloud 애플리케이션을 Azure Spring Cloud 마이그레이션을](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud)참조하세요.
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"

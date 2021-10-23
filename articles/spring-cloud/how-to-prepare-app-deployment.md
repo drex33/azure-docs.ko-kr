@@ -8,19 +8,19 @@ ms.date: 07/06/2021
 ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 9def9f39e28851498c7bf87d5b6b2e7d0a26f2c2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7f04dac2ab3a9848d17903f9d75f6c3eb294c38e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128599414"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258129"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Azure Spring Cloud에 배포할 애플리케이션 준비
 
 ::: zone pivot="programming-language-csharp"
 Azure Spring Cloud는 Steeltoe 앱을 호스팅, 모니터링, 크기 조정, 업데이트하기 위한 강력한 서비스를 제공합니다. 이 아티클에서는 Azure Spring Cloud에 배포하기 위해 기존 Steeltoe 애플리케이션을 준비하는 방법을 보여줍니다.
 
-이 문서에서는 Azure Spring Cloud에서 .NET Core Steeltoe 앱을 실행하는 데 필요한 종속성, 구성 및 코드를 설명합니다. Azure Spring Cloud에 애플리케이션을 배포하는 방법에 대한 자세한 내용은 [첫 번째 Azure Spring Cloud 애플리케이션 배포](./quickstart.md)를 참조하세요.
+이 문서에서는 Azure Spring Cloud에서 .NET Core Steeltoe 앱을 실행하는 데 필요한 종속성, 구성 및 코드를 설명합니다. Azure 스프링 클라우드에 응용 프로그램을 배포 하는 방법에 대 한 자세한 내용은 [Azure 스프링 클라우드에서 첫 번째 스프링 부팅 앱 배포](./quickstart.md)를 참조 하세요.
 
 >[!Note]
 > Azure Spring Cloud에 대한 Steeltoe 지원은 현재 공개 미리 보기로 제공됩니다. 퍼블릭 미리 보기 제품을 통해 고객은 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다.  퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다.  미리 보기 동안 제공되는 지원에 대한 자세한 내용은 [FAQ](https://azure.microsoft.com/support/faq/)를 참조하거나 [지원 요청](../azure-portal/supportability/how-to-create-azure-support-request.md)을 제출하세요.

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 93a217a88b75ec6c472972d3f12cb33e33561f2c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: cfa116f91978ea5f9bc076c7d666a0428f3b6c72
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128579788"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130259189"
 ---
 # <a name="powershell-functions-for-iot-edge-for-linux-on-windows"></a>IoT Edge for Linux on Windows용 PowerShell 함수
 
@@ -21,7 +21,7 @@ ms.locfileid: "128579788"
 
 IoT Edge for Linux on Windows(EFLOW) 가상 머신을 배포, 프로비저닝하고 상태를 확인하는 PowerShell 함수를 이해합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 문서에 설명된 명령은 `AzureEFLOW.psm1` 파일에서 가져온 것입니다. 이 파일은 `C:\Program Files\WindowsPowerShell\Modules\AzureEFLOW` 아래의 `WindowsPowerShell` 디렉터리에 있는 시스템에서 찾을 수 있습니다.
 
@@ -257,4 +257,4 @@ Get-EflowVM | Select -ExpandProperty VmConfiguration | Format-List
 
 다음 문서에서 이러한 명령을 사용하여 IoT Edge for Linux on Windows를 설치 및 프로비저닝하는 방법을 알아봅니다.
 
-* [Azure IoT Edge for Linux on Windows 설치](./how-to-install-iot-edge-on-windows.md)
+* [Azure IoT Edge for Linux on Windows 설치](./how-to-provision-single-device-linux-on-windows-symmetric.md)

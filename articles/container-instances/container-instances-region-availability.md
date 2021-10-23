@@ -4,12 +4,12 @@ description: 여러 다른 Azure 지역의 Azure Container Instances 서비스�
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: d48f9a13b24caab86b6d2cdfba039583f1b75c70
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 556d018a020aca7e6df11ff635719145af5bb8de
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129998545"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252044"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Azure 지역의 Azure Container Instances에 대한 리소스 가용성
 
@@ -77,7 +77,7 @@ ms.locfileid: "129998545"
 
 ## <a name="windows-container-groups"></a>Windows 컨테이너 그룹
 
-다음 지역 및 최대 리소스는 [지원 및 미리 보기](/azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported) Windows Server 컨테이너를 사용하는 컨테이너 그룹에 사용할 수 있습니다.
+다음 지역 및 최대 리소스는 [지원 및 미리 보기](./container-instances-faq.yml) Windows Server 컨테이너를 사용하는 컨테이너 그룹에 사용할 수 있습니다.
 
 > [!IMPORTANT]
 > 현재는 Windows 컨테이너 그룹을 사용한 배포가 Azure 가상 네트워크 배포에서 지원되지 않습니다.

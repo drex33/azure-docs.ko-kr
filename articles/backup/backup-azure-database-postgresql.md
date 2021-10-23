@@ -3,12 +3,12 @@ title: 백업 Azure Database for PostgreSQL
 description: 장기 보존(미리 보기)을 사용한 Azure Database for PostgreSQL 백업에 대해 알아보기
 ms.topic: conceptual
 ms.date: 09/22/2021
-ms.openlocfilehash: 25304aee2a759b55b8b3139aa2ae57511c967595
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: a012ef97db27b97039fa7aac7b108ca86afb9314
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129389877"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219624"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>장기 보존(미리 보기)을 사용한 Azure Database for PostgreSQL 백업
 
@@ -24,7 +24,7 @@ ms.locfileid: "129389877"
 
    :::image type="content" source="./media/backup-azure-database-postgresql/adding-backup-details-inline.png" alt-text="백업 정보를 추가 하는 옵션을 보여 주는 스크린샷" lightbox="./media/backup-azure-database-postgresql/adding-backup-details-expanded.png":::
 
-   또는 [백업 센터](/azure/backup/backup-center-overview)에서이 페이지로 이동할 수 있습니다. 
+   또는 [백업 센터](./backup-center-overview.md)에서이 페이지로 이동할 수 있습니다. 
 
 1. 백업 일정 및 보존 기간을 정의 하는[백업 정책을](#create-backup-policy) 선택/만듭니다.
 

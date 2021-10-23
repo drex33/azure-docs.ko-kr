@@ -4,12 +4,12 @@ description: Azure Storage 계정으로 전송 파이프라인을 만들어 한 
 ms.topic: article
 ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: a82bee4c0750004db11753c56f06b2ef19badf1c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: fcec85f44b7538bfd741a6e6c890a4e92b5a9fb0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566217"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130229468"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>다른 레지스트리에 아티팩트 전송
 
@@ -30,7 +30,7 @@ ms.locfileid: "122566217"
 > [!IMPORTANT]
 > 이 기능은 현재 미리 보기로 제공됩니다. [부속 사용 약관][terms-of-use]에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **컨테이너 레지스트리** - 전송할 아티팩트가 있는 기존 원본 레지스트리 및 대상 레지스트리가 필요합니다. ACR 전송은 물리적으로 연결이 끊어진 클라우드에서 이동하기 위한 기능입니다. 테스트를 위해 원본 및 대상 레지스트리는 동일하거나 다른 Azure 구독, Active Directory 테넌트 또는 클라우드에 있을 수 있습니다. 
 
@@ -210,7 +210,7 @@ ImportPipeline Resource Manager [템플릿 파일](https://github.com/Azure/acr/
 |---------|---------|
 |registryName     | 대상 컨테이너 레지스트리의 이름      |
 |importPipelineName     |  가져오기 파이프라인에 대해 선택하는 이름       |
-|sourceUri     |  대상 환경에서 스토리지 컨테이너의 URI(가져오기 파이프라인의 원본)<br/>예: `https://targetstorage.blob.core.windows.net/transfer/`|
+|sourceUri     |  대상 환경에서 스토리지 컨테이너의 URI(가져오기 파이프라인의 원본)<br/>예: `https://targetstorage.blob.core.windows.net/transfer`|
 |keyVaultName     |  대상 Key Vault의 이름 |
 |sasTokenSecretName     |  대상 Key Vault의 SAS 토큰 비밀 이름<br/>예: acr importsas |
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/20/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: cbc41f6e58be523b1a5dc6ad55c9e78b563d2ae8
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
-ms.translationtype: HT
+ms.openlocfilehash: 6d7a391bcd90d54c7024da6deeef74849c178039
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144352"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232078"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -286,7 +286,7 @@ Azure 가용성 집합을 설정하는 방법에 대한 자세한 내용은 [이
 
 - SAP 애플리케이션이 배포된 가상 네트워크는 인터넷에 액세스할 수 없습니다.
 - 데이터베이스 VM은 애플리케이션 계층과 동일한 가상 네트워크에서 실행되고, SAP 애플리케이션 계층과는 다른 서브넷으로 구분됩니다.
-- 가상 네트워크 내의 VM에는 개인 IP 주소의 정적 할당이 있습니다. 자세한 내용은 [Azure에서 IP 주소 형식 및 할당 메서드](../../../virtual-network/public-ip-addresses.md)를 참조하세요.
+- 가상 네트워크 내의 VM에는 개인 IP 주소의 정적 할당이 있습니다. 자세한 내용은 [Azure에서 IP 주소 형식 및 할당 메서드](../../../virtual-network/ip-services/public-ip-addresses.md)를 참조하세요.
 - DBMS VM 간의 라우팅 제한은 로컬 DBMS VM에 설치된 방화벽으로 설정되지 *않습니다*. 대신 트래픽 라우팅은 [NSG(네트워크 보안 그룹)](../../../virtual-network/network-security-groups-overview.md)로 정의됩니다.
 - 트래픽을 DBMS VM으로 분리하고 격리하려면 다른 NIC를 VM에 할당합니다. 모든 NIC는 서로 다른 IP 주소를 가지며 모든 NIC는 다른 가상 네트워크 서브넷에 할당됩니다. 모든 서브넷의 NSG 규칙은 서로 다릅니다. 네트워크 트래픽 격리 또는 분리는 라우팅에 대한 측정값입니다. 네트워크 처리량에 대한 할당량을 설정하는 데 사용되지 않습니다.
 

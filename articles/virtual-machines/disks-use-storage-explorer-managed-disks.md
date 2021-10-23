@@ -7,12 +7,12 @@ ms.date: 09/07/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 84b2ea53ebb0b6102edf5bc501e0e1b9b6f21726
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3206eb5b7092a43561cd114082ac567a63bff61b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124781730"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130237931"
 ---
 # <a name="use-azure-storage-explorer-to-manage-azure-managed-disks"></a>Azure Storage Explorer를 사용하여 Azure 관리 디스크 관리
 
@@ -94,7 +94,7 @@ Storage Explorer Azure에 연결되지 않은 경우 리소스를 관리하는 �
 
     [![다운로드 단추의 위치를 강조 표시한 Azure Storage Explorer 스크린샷.](media/disks-upload-vhd-to-managed-disk-storage-explorer/download-button-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/download-button-lrg.png#lightbox)
 
-1. **저장을** 선택하여 다운로드를 시작합니다. 다운로드 상태는 활동 **에** 표시됩니다.
+1. **저장을** 선택하여 다운로드를 시작합니다. 다운로드 상태가 활동 **에** 표시됩니다.
 
     [![다운로드 상태 메시지와 함께 활동 창의 위치를 강조 표시한 Azure Storage Explorer 스크린샷.](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-downloading-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-downloading-lrg.png#lightbox)
 
@@ -124,13 +124,13 @@ Storage Explorer를 사용하면 지역 내에서 또는 지역 간에 관리 �
 
 1. **붙여넣기를** 선택하여 디스크 복사를 시작합니다. 상태는 활동 **에** 표시됩니다.
 
-    [![상태 메시지 복사 및 붙여넣기와 함께 활동 창의 위치를 강조 표시한 Azure Storage Explorer 스크린샷.](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-copying-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-copying-lrg.png#lightbox)
+    [![복사 및 붙여넣기 상태 메시지가 있는 활동 창의 위치를 강조 표시한 Azure Storage Explorer 스크린샷.](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-copying-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-copying-lrg.png#lightbox)
 
 ## <a name="create-a-snapshot"></a>스냅샷 만들기
 
 1. **탐색기** 창에서 **디스크를** 확장하고 스냅샷할 디스크가 포함된 리소스 그룹을 선택합니다.
 
-    [![디스크 스냅샷을 만들기 위한 디스크 노드의 위치를 강조 표시하는 Azure Storage Explorer 스크린샷.](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-dl-lrg.png#lightbox)
+    [![디스크 스냅샷을 만들기 위한 디스크 노드의 위치를 강조 표시하는 Azure Storage Explorer 스크린샷](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-sml.png)](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1-dl-lrg.png#lightbox)
 
 1. 리소스 그룹 세부 정보 창에서 스냅샷을 만들려는 디스크를 선택하고 **스냅샷 만들기를** 선택합니다.
 
@@ -146,5 +146,5 @@ Storage Explorer를 사용하면 지역 내에서 또는 지역 간에 관리 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Portal 사용하여 VHD에서 가상 머신 만들기](/azure/virtual-machines/windows/create-vm-specialized-portal)
-- [Azure Portal 사용하여 관리되는 데이터 디스크를 Windows 가상 머신에 연결합니다.](/azure/virtual-machines/windows/attach-managed-disk-portal)
+- [Azure Portal 사용하여 VHD에서 가상 머신 만들기](./windows/create-vm-specialized-portal.md)
+- [Azure Portal 사용하여 관리되는 데이터 디스크를 Windows 가상 머신에 연결합니다.](./windows/attach-managed-disk-portal.md)

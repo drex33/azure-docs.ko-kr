@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 12/07/2020
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 1f8f8d81af6fb06bba9c48f5ae7d1fbb7f5d2e59
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: ed6d0e397a8b0b6b8a3ad69e5dd91b4c60709e35
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566514"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130231841"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Azure Portal에서 App Service 앱 구성
 
@@ -19,7 +19,7 @@ ms.locfileid: "122566514"
 
 ## <a name="configure-app-settings"></a>앱 설정 구성
 
-App Service에서 앱 설정은 애플리케이션 코드에 환경 변수로 전달되는 변수입니다. Linux 앱 및 사용자 지정 컨테이너의 경우, App Service는 `--env` 플래그를 사용하여 컨테이너에 앱 설정을 전달하고 컨테이너에서 환경 변수를 설정합니다. 두 경우 모두 앱을 시작할 때 앱 환경에 삽입됩니다. 앱 설정을 추가, 제거 또는 편집하는 경우 App Service는 앱 다시 시작을 트리거합니다.
+App Service에서 앱 설정은 애플리케이션 코드에 환경 변수로 전달되는 변수입니다. Linux 앱 및 사용자 지정 컨테이너의 경우, App Service는 `--env` 플래그를 사용하여 컨테이너에 앱 설정을 전달하고 컨테이너에서 환경 변수를 설정합니다. 두 경우 모두 앱을 시작할 때 앱 환경에 삽입됩니다. 앱 설정을 추가, 제거 또는 편집하는 경우 App Service는 앱 다시 시작을 트리거합니다. 앱 설정 이름에는 마침표 ()를 사용할 수 없습니다 `.` . 앱 설정에 마침표가 포함 된 경우 마침표는 컨테이너의 밑줄로 바뀝니다.
 
 [Azure Portal]에서 **App Services** 를 검색하여 선택한 다음, 앱을 선택합니다. 
 

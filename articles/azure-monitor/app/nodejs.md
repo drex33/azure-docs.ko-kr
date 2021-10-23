@@ -2,14 +2,14 @@
 title: Azure Application Insights를 사용하여 Node.js 서비스 모니터링 | Microsoft Docs
 description: Application Insights를 사용하여 Node.js 서비스의 성능을 모니터링하고 문제를 진단합니다.
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 10/12/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 3148dccc9bf6e99d528e34fe54643c871d4a28b5
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 40477ecc4e5b76ee351b74c9d1056f2b7ef91c38
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130162863"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130245022"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Application Insights를 사용하여 Node.js 서비스 및 앱 모니터링
 
@@ -20,6 +20,9 @@ ms.locfileid: "130162863"
 Node.js SDK는 들어오고 나가는 HTTP 요청, 예외 및 여러 시스템 메트릭을 자동으로 모니터링할 수 있습니다. 0\.20 버전부터 SDK는 MongoDB, MySQL 및 Redis와 같은 일반적인 [타사 패키지](https://github.com/microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers#currently-supported-modules) 일부를 모니터링할 수 있습니다. 들어오는 HTTP 요청과 관련된 모든 이벤트는 좀 더 빠른 문제 해결을 위해 상호 관계가 지정됩니다.
 
 TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측면을 수동으로 계측하고 모니터링 할 수 있습니다. TelemetryClient API는 이 문서의 뒷부분에 더 자세히 설명합니다.
+
+> [!NOTE]
+> 미리 보기 [OpenTelemetry 기반 Node.js 제품을](opentelemetry-enable.md?tabs=nodejs) 사용할 수 있습니다. [자세히 알아보기](opentelemetry-overview.md).
 
 ## <a name="get-started"></a>시작
 
@@ -71,7 +74,7 @@ TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측
 5. `appInsights.start();`를 호출하면 데이터를 자동으로 수집하고 전송하기 시작합니다.
 
 > [!NOTE]
-> Application Insights 계측 사용의 일부로 Microsoft에 진단 데이터를 수집 하 여 보냅니다. 이 데이터는 Application Insights를 실행 하 고 개선 하는 데 도움이 됩니다. 필수가 아닌 데이터 수집을 사용 하지 않도록 설정할 수 있는 옵션이 있습니다. [자세한 정보](./statsbeat.md).
+> Application Insights 계측을 사용하는 과정의 일환으로 진단 데이터를 수집하고 Microsoft에 보냅니다. 이 데이터는 애플리케이션 Insights 실행하고 개선하는 데 도움이 됩니다. 필수가 아닌 데이터 수집을 사용하지 않도록 설정하는 옵션이 있습니다. [자세한 정보](./statsbeat.md).
 
 ### <a name="monitor-your-app"></a><a name="monitor"></a> 앱 모니터링
 

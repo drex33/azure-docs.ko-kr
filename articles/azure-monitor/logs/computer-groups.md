@@ -4,16 +4,16 @@ description: Azure Monitor의 컴퓨터 그룹을 사용하여 로그 쿼리의 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/05/2019
-ms.openlocfilehash: d8702b498e08561175aa7ee975c7b6b46fdf1687
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 10/20/2021
+ms.openlocfilehash: dd724da3d200f26122ae780c740aa6fe4c84b08c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031092"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130244965"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 컴퓨터 그룹
-Azure Monitor의 컴퓨터 그룹을 사용 하 여 [로그 쿼리의](./log-query-overview.md) 범위를 특정 컴퓨터 집합으로 지정할 수 있습니다.  각 그룹에는 사용자가 정의를 사용하거나 여러 원본에서 그룹을 가져와 컴퓨터가 채워집니다.  로그 쿼리에 그룹을 포함하면 결과가 그룹의 컴퓨터와 일치하는 레코드로 제한됩니다.
+Azure Monitor 컴퓨터 그룹을 사용하면 [로그 쿼리의](./log-query-overview.md) 범위를 특정 컴퓨터 집합으로 설정할 수 있습니다.  각 그룹에는 사용자가 정의를 사용하거나 여러 원본에서 그룹을 가져와 컴퓨터가 채워집니다.  로그 쿼리에 그룹을 포함하면 결과가 그룹의 컴퓨터와 일치하는 레코드로 제한됩니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -25,7 +25,7 @@ Azure Monitor에서 다음 표의 방법 중 하나를 사용하여 컴퓨터 �
 | 로그 쿼리 |컴퓨터 목록을 반환하는 로그 쿼리를 만듭니다. |
 | 로그 검색 API |로그 검색 API를 사용하여 로그 쿼리 결과에 따라 프로그래밍 방식으로 컴퓨터 그룹을 만듭니다. |
 | Active Directory |Active Directory 도메인의 구성원인 에이전트 컴퓨터의 그룹 구성원을 자동으로 검색하고 Azure Monitor에서 각 보안 그룹에 대한 그룹을 만듭니다. (Windows 머신에만 해당)|
-| 구성 관리자 | Microsoft Endpoint Configuration Manager에서 컬렉션을 가져오고 각각에 대해 Azure Monitor에 그룹을 만듭니다. |
+| 구성 관리자 | Microsoft Endpoint Configuration Manager 컬렉션을 가져오고 각각에 대한 Azure Monitor 그룹을 만듭니다. |
 | Windows Server Update Services |WSUS 서버나 클라이언트에서 대상 그룹을 자동으로 검색하고 Azure Monitor에서 각 대상 그룹에 대한 그룹을 만듭니다. |
 
 ### <a name="log-query"></a>로그 쿼리
@@ -60,32 +60,20 @@ Active Directory 그룹 멤버 자격을 가져오도록 Azure Monitor를 구성
 > [!NOTE]
 > 가져온 Active Directory 그룹에는 Windows 머신만 포함됩니다.
 
-Azure Portal의 Log Analytics 작업 영역에 있는 **고급 설정** 에서 Active Directory 보안 그룹을 가져오도록 Azure Monitor를 구성합니다.  **컴퓨터 그룹**, **Active Directory**, 및 **컴퓨터에서 Active Directory 그룹 멤버 자격을 가져오기** 를 차례로 선택합니다.  추가 구성은 필요 없습니다.
-
-![Active Directory의 컴퓨터 그룹](media/computer-groups/configure-activedirectory.png)
-
-그룹을 가져올 때는 검색된 그룹 멤버 자격 및 가져온 그룹 수와 함께 컴퓨터 수가 메뉴에 나열됩니다.  이 링크 중 하나를 클릭하여 **ComputerGroup** 레코드와 이 정보를 반환할 수 있습니다.
+Azure Portal Log Analytics 작업 영역의 **컴퓨터 그룹** 메뉴 항목에서 Active Directory 보안 그룹을 가져오도록 Azure Monitor 구성합니다.  Active **Directory** 탭을 선택한 다음 **컴퓨터에서 Active Directory 그룹 멤버 자격을 가져옵니다.**  그룹을 가져올 때는 검색된 그룹 멤버 자격 및 가져온 그룹 수와 함께 컴퓨터 수가 메뉴에 나열됩니다.  이 링크 중 하나를 클릭하여 **ComputerGroup** 레코드와 이 정보를 반환할 수 있습니다.
 
 ### <a name="windows-server-update-service"></a>Windows Server 업데이트 서비스
 WSUS 그룹 멤버 자격을 가져오도록 Azure Monitor를 구성하면 Log Analytics 에이전트를 사용하여 컴퓨터의 대상 그룹 멤버 자격을 분석합니다.  클라이언트 쪽 대상을 사용하는 경우 Azure Monitor에 연결되고 WSUS 대상 그룹에 속해 있는 모든 컴퓨터의 그룹 멤버 자격을 Azure Monitor로 가져옵니다. 서버 쪽 대상을 사용하는 경우 그룹 멤버 자격 정보를 Azure Monitor로 가져오려면 WSUS 서버에 Log Analytics 에이전트를 설치해야 합니다.  이 멤버 자격은 4시간 간격으로 계속 업데이트됩니다. 
 
-Azure Portal의 Log Analytics 작업 영역에 있는 **고급 설정** 에서 WSUS 그룹을 가져오도록 Azure Monitor를 구성합니다.  **컴퓨터 그룹**, **WSUS**, 및 **WSUS 그룹 멤버 자격을 가져오기** 를 차례로 선택합니다.  추가 구성은 필요 없습니다.
-
-![WSUS의 컴퓨터 그룹](media/computer-groups/configure-wsus.png)
-
-그룹을 가져올 때는 검색된 그룹 멤버 자격 및 가져온 그룹 수와 함께 컴퓨터 수가 메뉴에 나열됩니다.  이 링크 중 하나를 클릭하여 **ComputerGroup** 레코드와 이 정보를 반환할 수 있습니다.
+Azure Portal Log Analytics 작업 영역의 컴퓨터 **그룹** 메뉴 항목에서 WSUS 그룹을 가져오도록 Azure Monitor 구성합니다.  Windows **Server Update Service** 탭을 선택한 **다음, WSUS 그룹 멤버 자격을 가져옵니다.**  그룹을 가져올 때는 검색된 그룹 멤버 자격 및 가져온 그룹 수와 함께 컴퓨터 수가 메뉴에 나열됩니다.  이 링크 중 하나를 클릭하여 **ComputerGroup** 레코드와 이 정보를 반환할 수 있습니다.
 
 ### <a name="configuration-manager"></a>구성 관리자
-구성 관리자 컬렉션 멤버 자격을 가져오도록 Azure Monitor를 구성하면 각 컬렉션에 대한 컴퓨터 그룹을 만듭니다.  컬렉션 멤버 자격 정보는 컴퓨터 그룹을 최신 상태로 유지하기 위해 3시간 마다 검색됩니다. 
+구성 관리자 컬렉션 멤버 자격을 가져오도록 Azure Monitor를 구성하면 각 컬렉션에 대한 컴퓨터 그룹을 만듭니다.  컬렉션 멤버 자격 정보는 컴퓨터 그룹을 최신 상태로 유지하기 위해 3시간 마다 검색됩니다. 구성 관리자 컬렉션을 가져오려면 먼저 [Configuration Manager를 Azure Monitor에 연결](collect-sccm.md)해야 합니다.  
 
-구성 관리자 컬렉션을 가져오려면 먼저 [Configuration Manager를 Azure Monitor에 연결](collect-sccm.md)해야 합니다.  
-
-![SCCM의 컴퓨터 그룹](media/computer-groups/configure-sccm.png)
-
-컬렉션이 들여오기 될 때 검색된 그룹 멤버 자격 및 가져온 그룹 수와 함께 컴퓨터 수가 메뉴에 나열됩니다.  이 링크 중 하나를 클릭하여 **ComputerGroup** 레코드와 이 정보를 반환할 수 있습니다.
+Azure Portal Log Analytics 작업 영역의 컴퓨터 **그룹** 메뉴 항목에서 WSUS 그룹을 가져오도록 Azure Monitor 구성합니다.  **System Center Configuration Manager** 탭을 선택한 다음, **컬렉션 멤버 자격을 구성 관리자 가져옵니다.** 컬렉션이 들여오기 될 때 검색된 그룹 멤버 자격 및 가져온 그룹 수와 함께 컴퓨터 수가 메뉴에 나열됩니다.  이 링크 중 하나를 클릭하여 **ComputerGroup** 레코드와 이 정보를 반환할 수 있습니다.
 
 ## <a name="managing-computer-groups"></a>컴퓨터 그룹 관리
-Azure Portal의 Log Analytics 작업 영역에 있는 **고급 설정** 에서 로그 쿼리 또는 로그 검색 API를 통해 생성된 컴퓨터 그룹을 볼 수 있습니다.  **컴퓨터 그룹** 을 선택한 후 **저장된 그룹** 을 선택합니다.  
+로그 쿼리에서 만든 컴퓨터 그룹 또는 로그 검색 API는 Azure Portal Log Analytics 작업 영역의 **컴퓨터 그룹** 메뉴 항목에서 볼 수 있습니다.  저장된 **그룹** 탭을 선택하여 그룹 목록을 봅니다.  
 
 **제거** 열에서 **x** 를 클릭하여 컴퓨터 그룹을 삭제합니다.  그룹에 대한 **멤버 보기** 아이콘을 클릭하여 멤버를 반환하는 그룹의 로그 검색을 실행합니다.  컴퓨터 그룹을 수정할 수는 없지만 대신 삭제한 다음 수정된 설정으로 다시 만들어야 합니다.
 

@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: article
 ms.date: 09/14/2020
 ms.author: victorh
-ms.openlocfilehash: 36c43448abba82ef084a16e13e70700ddf12bdc2
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: a7aebbe0b454c1db49e001bb4caaab96c2903090
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130042016"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251645"
 ---
 # <a name="what-are-the-azure-firewall-manager-architecture-options"></a>Azure Firewall Manager 아키텍처 옵션은 무엇인가요?
 
@@ -38,7 +38,7 @@ Azure Firewall Manager는 다음 두 가지 네트워크 아키텍처 유형에 
 |**SDWAN을 사용하는 자동 분기 연결**      |지원되지 않음|지원됨|
 |**지역별 허브**     |지역별 여러 가상 네트워크|지역당 여러 Virtual Hub|
 |**Azure Firewall - 여러 공용 IP 주소**      |고객이 제공|자동 생성|
-|**Azure Firewall 가용성 영역**     |지원됨|아직 사용할 수 없음|
+|**Azure Firewall 가용성 영역**     |지원됨|지원됨|
 |**타사 보안을 서비스 파트너로 사용하는 고급 인터넷 보안**     |선택한 파트너 서비스에 대해 고객이 설정 및 관리하는 VPN 연결|보안 파트너 공급자 흐름 및 파트너 관리 환경을 통해 자동화|
 |**트래픽을 허브로 라우팅하는 중앙 집중형 경로 관리**     |고객이 관리하는 사용자 정의 경로|BGP를 사용하여 지원|
 |**여러 보안 공급자 지원**|타사 방화벽에 대한 수동으로 구성된 강제 터널링을 사용하여 지원|두 보안 공급자, 즉 프라이빗 트래픽 필터링을 위한 Azure Firewall과 인터넷 필터링을 위한 타사에 대한 자동화 지원|

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: dcc1b584956bb4cee2865cd264b91b389ace19e4
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: 848d3264dbc31d01a767871d1e4783c8d383841d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110689328"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258699"
 ---
 # <a name="move-azure-external-load-balancer-to-another-region-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 외부 Load Balancer를 다른 지역으로 이동
 
@@ -33,7 +33,7 @@ Azure 외부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
 
 - Azure 구독에서 사용되는 대상 Azure 지역에 외부 부하 분산 장치를 만들 수 있도록 허용하는지 확인합니다. 필요한 할당량을 사용하려면 지원 팀에 문의하세요.
 
-- 구독에 이 프로세스에 대한 부하 분산 장치 추가를 지원할 수 있는 충분한 리소스가 있는지 확인합니다.  [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)을 참조하세요.
+- 구독에 이 프로세스에 대한 부하 분산 장치 추가를 지원할 충분한 리소스가 있는지 확인합니다.  [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)을 참조하세요.
 
 
 ## <a name="prepare-and-move"></a>준비 및 이동
@@ -132,7 +132,7 @@ Azure 외부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
                     },
          ```
 
-         기본 및 표준 sku 퍼블릭 IP 간의 차이점에 대한 자세한 내용은 [퍼블릭 IP 주소 만들기, 변경 또는 삭제](../virtual-network/virtual-network-public-ip-address.md)를 참조하세요.
+         기본 및 표준 sku 퍼블릭 IP 간의 차이점에 대한 자세한 내용은 [퍼블릭 IP 주소 만들기, 변경 또는 삭제](../virtual-network/ip-services/virtual-network-public-ip-address.md)를 참조하세요.
 
     * **퍼블릭 IP 할당 방법** 및 **유휴 시간 제한** - **publicIPAllocationMethod** 속성을 **Dynamic** 에서 **Static** 으로 또는 **Static** 에서 **Dynamic** 으로 변경하여 템플릿에서 이러한 옵션을 모두 변경할 수 있습니다. **idleTimeoutInMinutes** 속성을 원하는 크기만큼 변경하여 유휴 시간 제한을 변경할 수 있습니다.  기본값은 **4** 입니다.
 
@@ -159,7 +159,7 @@ Azure 외부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
                 }            
          ```
 
-        할당 방법 및 유휴 시간 제한 값에 대한 자세한 내용은 [퍼블릭 IP 주소 만들기, 변경 또는 삭제](../virtual-network/virtual-network-public-ip-address.md)를 참조하세요.
+        할당 방법 및 유휴 시간 제한 값에 대한 자세한 내용은 [퍼블릭 IP 주소 만들기, 변경 또는 삭제](../virtual-network/ip-services/virtual-network-public-ip-address.md)를 참조하세요.
 
 
 9. **\<resource-group-name>.json** 파일을 저장합니다.

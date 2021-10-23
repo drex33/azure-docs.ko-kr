@@ -1,5 +1,5 @@
 ---
-title: Azure NetApp Files에 대한 용량 풀 문제 해결 | Microsoft Docs
+title: Azure NetApp Files | 대한 용량 풀 오류 문제 해결 Microsoft Docs
 description: 용량 풀을 관리하는 경우 발생할 수 있는 잠재적인 문제에 대해 설명하고 문제 해결 방법을 제공합니다.
 services: azure-netapp-files
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 7ca7f042aaa97967d47dd9f35afaa647e0d37361
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.openlocfilehash: e637c80f864592f89252e52f27325762cd43582b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407269"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219776"
 ---
-# <a name="troubleshoot-capacity-pool-issues"></a>용량 풀 문제 해결
+# <a name="troubleshoot-capacity-pool-errors"></a>용량 풀 오류 문제 해결
 
 이 문서에서는 풀 변경 작업을 포함하여 용량 풀을 관리할 때 발생할 수 있는 문제에 대한 해결 방법을 설명합니다. 
 

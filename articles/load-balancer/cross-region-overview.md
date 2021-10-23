@@ -13,22 +13,22 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: cf094664fab07e9a75c890899dff9cd0118d12fc
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: d8b8cebfe18b52de7b904989907d587a4519c8e3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129614406"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130254630"
 ---
 # <a name="cross-region-load-balancer-preview"></a>지역 간 부하 분산 장치(미리 보기)
 
-Azure 표준 Load Balancer는 다음과 같은 지역 중복 고가용성 시나리오를 가능 하 게 하는 지역 간 부하 분산을 지원 합니다.
+Azure 표준 Load Balancer 지역 간 부하 분산을 지원하여 다음과 같은 지역 중복 고가용성 시나리오를 지원합니다.
 
 * 여러 지역에서 발생하여 들어오는 트래픽.
 * 다음으로 최적인 지역 배포로의 [즉각적인 전역 장애 조치(failover)](#regional-redundancy).
 * [매우 낮은 대기 시간](#ultra-low-latency)으로 가장 가까운 Azure 지역에 지역 간 로드 분산.
 * 단일 엔드포인트 뒤에서의 [스케일 업/스케일 다운](#ability-to-scale-updown-behind-a-single-endpoint) 기능.
-* [고정 IP](#static-ip)
+* 정적 anycast 전역 IP 주소
 * [클라이언트 IP 유지](#client-ip-preservation)
 * 학습 곡선 없이 [기존 부하 분산 장치 솔루션에 빌드](#build-cross-region-solution-on-existing-azure-load-balancer)
 
@@ -79,8 +79,8 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
-### <a name="static-ip"></a>고정 IP
-지역 간 부하 분산 장치에는 IP 주소가 동일하게 유지되는 고정 공용 IP가 제공됩니다. 고정 IP에 대해 자세히 알아보려면 [여기](../virtual-network/public-ip-addresses.md#ip-address-assignment)를 참조하세요.
+### <a name="static-anycast-global-ip-address"></a>정적 anycast 전역 IP 주소
+지역 간 부하 분산 장치에는 IP 주소가 동일하게 유지되는 고정 공용 IP가 제공됩니다. 고정 IP에 대해 자세히 알아보려면 [여기](../virtual-network/ip-services/public-ip-addresses.md#ip-address-assignment)를 참조하세요.
 
 ### <a name="client-ip-preservation"></a>클라이언트 IP 유지
 지역 간 부하 분산 장치는 레이어-4 통과 네트워크 부하 분산 장치입니다. 이 통과는 패킷의 원래 IP를 유지합니다.  원래 IP는 가상 머신에서 실행되는 코드에 사용할 수 있습니다. 이러한 유지는 IP 주소와 관련된 논리를 적용할 수 있게 해 줍니다.
@@ -104,7 +104,7 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 > [!NOTE]
 > 위 7개 지역 중 하나의 전역 계층에서만 지역 간 부하 분산 장치 또는 공용 IP만 배포할 수 있습니다.
 
-참여 하는 **지역은** 부하 분산 장치의 전역 공용 IP를 보급 하는 위치입니다.
+**참여하는 지역은** 부하 분산 프로그램의 글로벌 공용 IP가 보급되는 위치입니다.
 
 사용자가 시작한 트래픽은 Microsoft 코어 네트워크를 통해 가장 가까운 참여 지역으로 이동합니다. 
 

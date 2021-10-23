@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: d2e0dcb7d973a4e4b2b6f4438aab5f08187ae44b
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: 076574173f0bfd4daff4845ab354e730ec0844d9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953118"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233266"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>서비스 공급자를 위한 Azure Monitor 로그
 
@@ -76,7 +76,7 @@ Log Analytics 작업 영역에 관련된 서비스 공급자에 대해 세 가�
 
 1. 중앙 작업 영역: 서비스 공급자는 해당 테넌트에서 작업 영역을 만들고 [데이터 수집 API](../logs/data-collector-api.md)와 함께 [쿼리 API](https://dev.loganalytics.io/)를 활용하는 스크립트를 사용하여 데이터를 다양한 작업 영역에서 중앙 위치로 가져올 수 있습니다. 스크립트 외에 사용 가능한 또 다른 옵션은 [Azure Logic Apps](../../logic-apps/logic-apps-overview.md)를 사용하는 것입니다.
 
-2. 중앙 위치인 Power BI: Power BI는 다양한 작업 영역이 Log Analytics 작업 영역과 [Power BI](../visualize/powerbi.md) 간의 통합을 사용하여 데이터를 내보내는 경우 중앙 위치로 작동할 수 있습니다.
+2. 중앙 위치인 Power BI: Power BI는 다양한 작업 영역이 Log Analytics 작업 영역과 [Power BI](./log-powerbi.md) 간의 통합을 사용하여 데이터를 내보내는 경우 중앙 위치로 작동할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -86,6 +86,6 @@ Log Analytics 작업 영역에 관련된 서비스 공급자에 대해 세 가�
 
 * [경고](../alerts/alerts-overview.md)를 사용하여 기존 시스템과 통합
 
-* [Power BI](../visualize/powerbi.md)를 사용하여 요약 보고서 생성
+* [Power BI](./log-powerbi.md)를 사용하여 요약 보고서 생성
 
 * [Azure 위임 리소스 관리](../../lighthouse/concepts/architecture.md)에 고객 온보딩.

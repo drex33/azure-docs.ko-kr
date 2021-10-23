@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: 69dbe496745ebbe3fbc9547a1ffc381ec0cae905
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: 94b4aa840e268bee19c99235b64ddefe986ca4a7
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529502"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130245875"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Azure Spring Cloud 재해 복구
 
@@ -67,4 +67,4 @@ Traffic Manager 프로필은 다음과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [빠른 시작: 첫 번째 Azure Spring Cloud 애플리케이션 배포](./quickstart.md)
+* [빠른 시작: Azure Spring Cloud 첫 번째 Spring Boot 앱 배포](./quickstart.md)

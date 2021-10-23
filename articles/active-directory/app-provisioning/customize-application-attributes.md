@@ -3,7 +3,7 @@ title: 자습서 - 애플리케이션 프로비저닝에서 Azure Active Directo
 description: Azure Active Directory 애플리케이션 프로비저닝의 SaaS(Software as a Service) 앱에 대한 어떤 특성 매핑이 있고 어떻게 비즈니스 요구 사항에 맞게 수정하는지를 알아봅니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/07/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: a7839ec1b131377cd9a6614c570dacd829c6c46a
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 1e08dc5c0dc0d8e427de9ae1ebc53f16cb8e015a
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123310976"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130043608"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>자습서 - Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비저닝 특성 매핑 사용자 지정
 
@@ -120,7 +120,7 @@ ServiceNow, Box 및 G Suite와 같은 일부 애플리케이션은 그룹 개체
 
 
 > [!NOTE]
-> 애플리케이션과 시스템의 스키마를 사용자 지정했으며, 사용자 지정 특성이 정의된 방식에 대한 실무 지식이 있는 관리자일 경우 또는 소스 특성이 Azure Portal UI에 자동으로 표시되지 않는 경우에만 지원되는 특성 목록을 편집하는 것이 좋습니다. 애플리케이션이나 시스템에서 제공하는 API 및 개발자 도구를 잘 알아야 하는 경우가 많습니다. 지원되는 특성 목록을 편집하는 기능은 기본적으로 잠겨 있지만 고객은 https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true URL로 이동하여 기능을 사용하도록 설정할 수 있습니다. 그런 다음, [위](#editing-the-list-of-supported-attributes)에 설명된 대로 애플리케이션으로 이동하여 특성 목록을 볼 수 있습니다. 
+> 애플리케이션과 시스템의 스키마를 사용자 지정했으며, 사용자 지정 특성이 정의된 방식에 대한 실무 지식이 있는 관리자일 경우 또는 소스 특성이 Azure Portal UI에 자동으로 표시되지 않는 경우에만 지원되는 특성 목록을 편집하는 것이 좋습니다. 애플리케이션이나 시스템에서 제공하는 API 및 개발자 도구를 잘 알아야 하는 경우가 많습니다. 지원되는 특성 목록을 편집하는 기능은 기본적으로 잠겨 있지만 고객은 https://portal.azure.com/?Microsoft_AAD_Connect_Provisioning_forceSchemaEditorEnabled=true URL로 이동하여 기능을 사용하도록 설정할 수 있습니다. 그런 다음, [위](#editing-the-list-of-supported-attributes)에 설명된 대로 애플리케이션으로 이동하여 특성 목록을 볼 수 있습니다. 
 
 지원되는 특성 목록을 편집할 때는 다음과 같은 속성이 제공됩니다.
 

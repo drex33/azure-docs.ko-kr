@@ -9,12 +9,12 @@ author: amjads1
 ms.collection: windows
 ms.date: 07/20/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6de81e9df2b66a27a15ff9578646aa8c6fb09c45
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
-ms.translationtype: HT
+ms.openlocfilehash: 8e5118b25238a9483eba3e74a65fe97186d32168
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110663228"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236849"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure Virtual Machines 에이전트 개요
 Microsoft Azure VM 에이전트(가상 머신 에이전트)는 Azure 패브릭 컨트롤러와 VM(가상 머신)의 상호 작용을 관리하는 안전하고 간단한 프로세스입니다. VM 에이전트는 Azure 가상 머신 확장을 설정하고 실행하는 데 기본적인 역할을 수행합니다. VM 확장을 사용하면 소프트웨어 설치 및 구성과 같은 VM의 배포 후 구성을 설정할 수 있습니다. 또한 VM 확장을 사용하면 VM의 관리 암호를 다시 설정하는 등의 복구 기능도 사용할 수 있습니다. Azure VM 에이전트가 없으면 VM 확장을 실행할 수 없습니다.
@@ -70,7 +70,7 @@ $vm | Update-AzVM
 
 - VM에 IP 주소 168.63.129.16에 대한 액세스 권한이 있는지 확인합니다. 자세한 내용은 [IP 주소 168.63.129.16이란?](../../virtual-network/what-is-ip-address-168-63-129-16.md) 페이지를 참조하세요.
 
-- 게스트 VM 내에 DHCP가 사용하도록 설정되어 있는지 확인합니다. 이는 DHCP에서 호스트 또는 패브릭 주소를 가져와서 IaaS VM 에이전트 및 확장이 작동하도록 하기 위해 필요합니다. 정적 프라이빗 IP가 필요한 경우 Azure Portal 또는 PowerShell을 통해 구성해야 하며 VM 내 DHCP 옵션을 사용할 수 있는지 확인합니다. PowerShell을 사용하여 고정 IP 주소를 설정하는 방법에 대해 [자세히 알아봅니다](../../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface).
+- 게스트 VM 내에 DHCP가 사용하도록 설정되어 있는지 확인합니다. 이는 DHCP에서 호스트 또는 패브릭 주소를 가져와서 IaaS VM 에이전트 및 확장이 작동하도록 하기 위해 필요합니다. 정적 프라이빗 IP가 필요한 경우 Azure Portal 또는 PowerShell을 통해 구성해야 하며 VM 내 DHCP 옵션을 사용할 수 있는지 확인합니다. PowerShell을 사용하여 고정 IP 주소를 설정하는 방법에 대해 [자세히 알아봅니다](../../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md).
 
 
 ## <a name="detect-the-vm-agent"></a>VM 에이전트 검색

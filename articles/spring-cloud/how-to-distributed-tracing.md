@@ -8,21 +8,23 @@ ms.date: 10/06/2019
 ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: bacf4f808a7e963c11e8790636dabe1f3f4e4a47
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 702b2fcd2c5cb88adf7c610287dbb9be7089268b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129044192"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258319"
 ---
-# <a name="use-distributed-tracing-with-azure-spring-cloud-deprecated"></a>Azure Spring Cloud 분산 추적 사용(사용되지 않습니다.)
+# <a name="use-distributed-tracing-with-azure-spring-cloud-deprecated"></a>Azure 스프링 클라우드에서 분산 추적 사용 (사용 되지 않음)
+> [!NOTE]
+> 분산 추적은 사용 되지 않습니다. 자세한 내용은 [Azure 스프링 클라우드의 Application Insights Java In-Process 에이전트](./how-to-application-insights.md)를 참조 하세요.
 
 Azure Spring Cloud의 분산 추적 도구를 사용하면 복잡한 문제를 쉽게 디버그하고 모니터링할 수 있습니다. Azure Spring Cloud는 [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth)를 Azure의 [Application Insights](../azure-monitor/app/app-insights-overview.md)와 통합합니다. 이러한 통합은 Azure Portal의 강력한 분산 추적 기능을 제공합니다.
 
 ::: zone pivot="programming-language-csharp"
 이 문서에서는 .NET Core Steeltoe 앱에서 분산 추적을 사용하도록 설정하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이러한 절차를 따르려면 사전에 [Azure Spring Cloud에 배포하기 위해 준비한](how-to-prepare-app-deployment.md) Steeltoe 앱이 필요합니다.
 
@@ -105,7 +107,7 @@ Steeltoe 3.0.0의 경우 다음 NuGet 패키지를 추가합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-다음 절차를 수행하려면 이미 프로비저닝되어 실행 중인 Azure Spring Cloud 서비스가 필요합니다. [첫 번째 Azure Spring Cloud 애플리케이션 배포](./quickstart.md)를 완료하여 Azure Spring Cloud 서비스를 프로비전하고 실행합니다.
+다음 절차를 수행하려면 이미 프로비저닝되어 실행 중인 Azure Spring Cloud 서비스가 필요합니다. Azure 스프링 클라우드 서비스를 프로 비전 하 고 실행 하려면 [Azure 스프링 클라우드 빠른 시작에서 첫 번째 스프링 부팅 앱 배포](./quickstart.md) 를 완료 합니다.
 
 ## <a name="add-dependencies"></a>종속성 추가
 

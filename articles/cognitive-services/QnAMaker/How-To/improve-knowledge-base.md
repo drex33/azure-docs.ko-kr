@@ -6,12 +6,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: f2ae3cd54f47e804b9bdd78433f96f96034d16ee
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: e5625907b0401919940a514586a86b34867b8e57
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130047212"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252215"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>기술 자료의 활성 학습 추천 질문 수락
 
@@ -22,7 +22,7 @@ ms.locfileid: "130047212"
 
 ## <a name="turn-on-active-learning"></a>활성 학습 설정
 
-추천 질문을 보려면 QnA Maker 리소스에 대해 [활성 학습을 켜야](../concepts/active-learning-suggestions.md)합니다.
+추천 질문을 보려면 QnA Maker 리소스에 대해 [활성 학습을 켜야](../index.yml)합니다.
 
 ## <a name="view-suggested-questions"></a>추천 질문 보기
 
@@ -143,7 +143,7 @@ ms.locfileid: "130047212"
 
 클라이언트 애플리케이션에서 사용자가 자신의 의도를 가장 적절하게 반영하는 _단일 질문_ 을 선택할 수 있는 옵션과 함께 질문을 표시합니다.
 
-사용자가 기존 질문 중 하나를 선택하면 클라이언트 애플리케이션은 QnA Maker 학습 API를 사용하여 사용자의 선택 사항을 피드백으로 보냅니다. 이 피드백으로 활성 학습 피드백 루프가 완료됩니다.
+사용자가 기존 질문 중 하나를 선택 하면 클라이언트 응용 프로그램은 QnA Maker 학습 API를 사용 하 여 사용자의 선택 항목을 사용자 의견으로 보냅니다. 이 피드백으로 활성 학습 피드백 루프가 완료됩니다.
 
 ## <a name="train-api"></a>학습 API
 
@@ -226,7 +226,7 @@ JSON 본문 예는 다음과 같습니다.
 사용자의 쿼리를 활성 학습에 사용해야 하는 경우 Bot Framework 코드에서 학습 API를 호출해야 합니다. 작성하는 코드로는 다음과 같이 두 가지가 있습니다.
 
 * 쿼리가 활성 학습에 사용되어야 하는지 결정하는 코드
-* 활성 학습을 위해 쿼리를 QnA Maker 학습 API로 다시 보내기
+* 활성 학습을 위한 QnA Maker 학습 API로 쿼리를 다시 보냅니다.
 
 [Azure Bot 샘플](https://github.com/microsoft/BotBuilder-Samples)에서 이러한 활동이 모두 프로그래밍되었습니다.
 

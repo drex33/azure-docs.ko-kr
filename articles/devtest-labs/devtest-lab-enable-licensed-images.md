@@ -1,14 +1,14 @@
 ---
-title: 랩에서 사용이 허가 된 이미지 사용
+title: 랩에서 사용이 허가된 이미지 사용
 description: Azure Portal을 사용하여 Azure DevTest Labs에서 라이선스 이미지를 사용하도록 설정하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 4c96661688d7b64884f0a02e15eb2c7b208bdfba
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c7f0ce7998d4c77596bb04559465135015da9846
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128643957"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130254936"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩의 라이선스 이미지 사용
 
@@ -78,7 +78,7 @@ Azure DevTest Labs에서 라이선스 이미지는 일반적으로 타사의 사
 
 ## <a name="related-blog-posts"></a>관련 블로그 게시물
 
-- [사용자 지정 이미지 또는 수식?](/azure/devtest-labs/devtest-lab-faq#blog-post)
+- [사용자 지정 이미지 또는 수식?](./devtest-lab-faq.yml#blog-post)
 - [Azure DevTest Labs 간의 사용자 지정 이미지 복사](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>다음 단계

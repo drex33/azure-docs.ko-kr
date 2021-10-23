@@ -10,13 +10,13 @@ ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: mathoma
-ms.date: 06/26/2019
-ms.openlocfilehash: 43a2ca496ee9cb03ee76c293e3a980573a50753c
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.date: 10/18/2021
+ms.openlocfilehash: 945afcb2a4158ee4c80bd9d36a9697d6692d0d19
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110691341"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130250429"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance에서 temporal 테이블 시작하기
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -31,7 +31,7 @@ temporal 테이블은 사용자 지정 코딩을 필요로 하지 않고 데이�
 
 ![스키마](./media/temporal-tables/AzureTemporal1.png)
 
-다행스럽게도 이 작업 정보를 유지하기 위해 앱에서 애쓸 필요가 없습니다. temporal 테이블로 이 프로세스를 자동화하여 웹 사이트를 디자인하는 동안 충분한 유연성을 제공하고 데이터 분석 자체에 초점을 두는 데 시간을 할애합니다. 이를 위해 **WebSiteInfo** 테이블을 [임시 시스템 버전](/sql/relational-databases/tables/temporal-tables#what-is-a-system-versioned-temporal-table)으로 구성하기만 하면 됩니다. 이 시나리오에서 temporal 테이블을 활용하는 정확한 단계는 다음과 같습니다.
+다행스럽게도 이 작업 정보를 유지하기 위해 앱에서 애쓸 필요가 없습니다. temporal 테이블로 이 프로세스를 자동화하여 웹 사이트를 디자인하는 동안 충분한 유연성을 제공하고 데이터 분석 자체에 초점을 두는 데 시간을 할애합니다. 테이블이 `WebSiteInfo` [temporal 시스템 버전](/sql/relational-databases/tables/temporal-tables#what-is-a-system-versioned-temporal-table)으로 구성되었는지 확인하는 것만 수행하면 됩니다. 이 시나리오에서 temporal 테이블을 활용하는 정확한 단계는 다음과 같습니다.
 
 ## <a name="step-1-configure-tables-as-temporal"></a>1단계: 임시로 테이블 구성
 
@@ -42,11 +42,11 @@ temporal 테이블은 사용자 지정 코딩을 필요로 하지 않고 데이�
 
 ### <a name="create-new-table"></a>새 테이블 만들기
 
-SSMS 개체 탐색기에서 상황에 맞는 메뉴 항목인 "새 시스템 버전 테이블"을 사용하여 임시 테이블 템플릿 스크립트로 쿼리 편집기를 열고 "템플릿 매개 변수에 대한 값 지정"(Ctrl+Shift+M)을 사용하여 템플릿을 채웁니다.
+SSMS 개체 탐색기 상황에 맞는 메뉴 항목 "새 System-Versioned 테이블"을 사용하여 임시 테이블 템플릿 스크립트로 쿼리 편집기를 연 다음"템플릿 매개 변수 값 지정"(Ctrl+Shift+M)을 사용하여 템플릿을 채웁다.
 
 ![SSMSNewTable](./media/temporal-tables/AzureTemporal2.png)
 
-SSDT에서 새 항목을 데이터베이스 프로젝트에 추가하는 경우 "임시 테이블(시스템 버전 있음)" 템플릿을 선택합니다. 그러면 테이블 디자이너가 열리고 쉽게 테이블 레이아웃을 지정할 수 있습니다.
+SSDT에서 데이터베이스 프로젝트에 새 항목을 추가할 때 "임시 테이블(시스템 버전)" 템플릿을 선택합니다. 그러면 테이블 디자이너가 열리고 쉽게 테이블 레이아웃을 지정할 수 있습니다.
 
 ![SSDTNewTable](./media/temporal-tables/AzureTemporal3.png)
 
@@ -86,7 +86,7 @@ WITH (DROP_EXISTING = ON);
 
 ### <a name="alter-existing-table-to-temporal"></a>기존 테이블을 임시 테이블로 변경
 
-WebsiteUserInfo 테이블이 이미 존재하지만 변경 기록을 유지하도록 디자인되지 않은 다른 시나리오를 살펴보겠습니다. 이 경우에 다음 예제와 같이 기존 테이블을 간단히 확장하여 임시 테이블을 만들 수 있습니다.
+WebsiteUserInfo 테이블이 이미 있지만 변경 기록을 유지하도록 설계되지 않은 대체 시나리오를 살펴보겠습니다. 이 경우에 다음 예제와 같이 기존 테이블을 간단히 확장하여 임시 테이블을 만들 수 있습니다.
 
 ```sql
 ALTER TABLE WebsiteUserInfo
@@ -110,14 +110,14 @@ WITH (DROP_EXISTING = ON);
 
 temporal 테이블의 주요 장점은 변경 내용 추적을 사용하는 방식으로 웹 사이트를 변경하거나 조정할 필요가 없다는 것입니다. temporal 테이블은 한 번 만들면 데이터에 수정 작업을 수행할 때마다 이전 행 버전을 분명하게 유지합니다.
 
-특정 시나리오에 대한 자동 변경 내용 추적을 활용하기 위해 사용자가 웹 사이트에서 세션을 종료할 때마다 **PagesVisited** 열을 업데이트하겠습니다.
+이 특정 시나리오에 대한 자동 변경 내용 추적을 활용하기 위해 사용자가 웹 사이트에서 세션을 종료할 때마다 **PagesVisited** 열을 업데이트하겠습니다.
 
 ```sql
 UPDATE WebsiteUserInfo  SET [PagesVisited] = 5
 WHERE [UserID] = 1;
 ```
 
-실제 작업이 발생 했을 때 정확한 시간 및 기록 데이터가 이후 분석을 위해 유지되는 방법을 업데이트 쿼리에서 알 필요는 없습니다. 두 측면 모두 Azure SQL Database 및 Azure SQL Managed Instance에 의해 자동으로 처리됩니다. 다음 다이어그램에서는 모든 업데이트에서 기록 데이터를 생성하는 방법을 보여줍니다.
+업데이트 쿼리는 실제 작업이 발생한 정확한 시간이나 향후 분석을 위해 기록 데이터가 유지되는 방식을 알 필요가 없다는 점에 유의해야 합니다. 두 측면 모두 Azure SQL Database 및 Azure SQL Managed Instance에 의해 자동으로 처리됩니다. 다음 다이어그램에서는 모든 업데이트에서 기록 데이터를 생성하는 방법을 보여줍니다.
 
 ![TemporalArchitecture](./media/temporal-tables/AzureTemporal5.png)
 
@@ -201,4 +201,3 @@ ALTER TABLE dbo.WebsiteUserInfo
 ## <a name="next-steps"></a>다음 단계
 
 - temporal 테이블에 대한 자세한 내용은 [temporal 테이블](/sql/relational-databases/tables/temporal-tables)을 참조하세요.
-- Channel 9을 방문하여 [고객 temporal 구현 성공 사례](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions)를 듣고 [라이브 temporal 데모](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016)를 시청합니다.

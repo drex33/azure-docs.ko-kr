@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: 9c9c6bb5281f506e278ca05266afe9631baae36f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d11eca42ee264626ee994bdf10db8882418fdfa4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529148"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265672"
 ---
 # <a name="metrics-advisor-whats-new-in-the-docs"></a>Metrics Advisor: 문서에 있는 새로운 기능
 
@@ -52,4 +52,4 @@ Metrics Advisor 클라이언트 SDK의 최신 업데이트에 대해 알아보�
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
-* [Metric Advisor가 다차원 메트릭에 대한 인시던트 트리를 빌드하는 방법에 대한 업데이트](/azure/applied-ai-services/metrics-advisor/faq#how-does-metric-advisor-build-a-diagnostic-tree-for-multi-dimensional-metrics)
+* [Metric Advisor가 다차원 메트릭에 대한 인시던트 트리를 빌드하는 방법에 대한 업데이트](./faq.yml)

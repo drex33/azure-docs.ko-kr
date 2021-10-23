@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 06/28/2021
 ms.custom: template-how-to
-ms.openlocfilehash: a21b734ee1825a86c9276a2e603d04d723bd8d46
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: d7c1f9faeb196f73fd6b336421591cfd895407fe
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129373018"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249004"
 ---
 # <a name="manage-a-public-ip-address-with-an-azure-virtual-machine"></a>Azure Virtual Machine으로 공용 IP 주소 관리
 
@@ -29,9 +29,9 @@ Azure Virtual Machines는 Azure의 주요 컴퓨팅 서비스입니다. 고객�
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- 구독에 두 개의 표준 SKU 공용 IP 주소가 있습니다. IP 주소를 리소스에 연결할 수 없습니다. 표준 SKU 공용 IP 주소를 만드는 방법에 대한 자세한 내용은 [공용 IP 주소 만들기 - Azure Portal](../../virtual-network/create-public-ip-portal.md)을 참조하세요.
+- 구독에 두 개의 표준 SKU 공용 IP 주소가 있습니다. IP 주소를 리소스에 연결할 수 없습니다. 표준 SKU 공용 IP 주소를 만드는 방법에 대한 자세한 내용은 [공용 IP 주소 만들기 - Azure Portal](./create-public-ip-portal.md)을 참조하세요.
     - 이 문서의 예시에 대해 새 공용 IP 주소 이름을 **myStandardPublicIP-1** 및 **myStandardPublicIP-2** 로 지정합니다.
-- 구독에서 **인터넷** 의 라우팅 기본 설정이 포함된 하나의 표준 SKU 공용 IP 주소입니다. **인터넷** 라우팅 기본 설정이 포함된 공용 IP 만들기에 대한 자세한 내용은 [Azure Portal을 사용하여 공용 IP 주소에 대한 라우팅 기본 설정 구성](../../virtual-network/routing-preference-portal.md)을 참조하세요.
+- 구독에서 **인터넷** 의 라우팅 기본 설정이 포함된 하나의 표준 SKU 공용 IP 주소입니다. **인터넷** 라우팅 기본 설정이 포함된 공용 IP 만들기에 대한 자세한 내용은 [Azure Portal을 사용하여 공용 IP 주소에 대한 라우팅 기본 설정 구성](./routing-preference-portal.md)을 참조하세요.
     - 이 문서의 예시에 대해 새 공용 IP 주소 이름을 **myStandardPublicIP-3** 으로 지정합니다.
 ## <a name="create-virtual-machine-existing-public-ip"></a>가상 머신 기존 공용 IP 만들기
 
@@ -120,9 +120,9 @@ Azure Virtual Machines는 Azure의 주요 컴퓨팅 서비스입니다. 고객�
 
 이 섹션에서는 가상 머신에 공용 IP 구성을 추가합니다. 
 
-여러 IP 주소 추가에 대한 자세한 내용은 [Azure Portal을 사용하여 가상 머신에 여러 IP 주소 할당](../../virtual-network/virtual-network-multiple-ip-addresses-portal.md)을 참조하세요. 
+여러 IP 주소 추가에 대한 자세한 내용은 [Azure Portal을 사용하여 가상 머신에 여러 IP 주소 할당](./virtual-network-multiple-ip-addresses-portal.md)을 참조하세요. 
 
-라우팅 기본 설정 유형을 모두 사용하는 방법은 [가상 머신에 대한 라우팅 기본 설정 옵션 모두 구성](../../virtual-network/routing-preference-mixed-network-adapter-portal.md)을 참조하세요.
+라우팅 기본 설정 유형을 모두 사용하는 방법은 [가상 머신에 대한 라우팅 기본 설정 옵션 모두 구성](./routing-preference-mixed-network-adapter-portal.md)을 참조하세요.
 
 1. 포털 맨 위에 있는 검색 상자에 **가상 머신** 을 입력합니다.
 
@@ -178,4 +178,4 @@ Azure Virtual Machines는 Azure의 주요 컴퓨팅 서비스입니다. 고객�
 
 이 문서에서는 가상 머신을 만들고 기존 공용 IP를 사용하는 방법을 알아봤습니다. 기본 IP 구성의 공용 IP를 변경했습니다. 마지막으로 인터넷 라우팅 기본 설정을 사용하여 방화벽에 공용 IP 구성을 추가했습니다.
 
-- Auzre의 공용 IP 주소에 대한 자세한 내용은 [공용 IP 주소](../../virtual-network/public-ip-addresses.md)를 참조하세요.
+- Auzre의 공용 IP 주소에 대한 자세한 내용은 [공용 IP 주소](./public-ip-addresses.md)를 참조하세요.

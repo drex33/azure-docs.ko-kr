@@ -7,13 +7,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 05/11/2021
-ms.openlocfilehash: 781cce588654ab5babcd74277a3fca97f9f906c1
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.date: 10/21/2021
+ms.openlocfilehash: 3d72b151e73b9adc39f71cd89362027ae2cd9e0f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123252568"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256241"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Azure SQL을 사용하는 Azure Active Directory 서비스 주체
 
@@ -51,14 +51,14 @@ SQL Database 및 SQL Managed Instance는 다음과 같은 Azure AD 개체를 지
 
 Azure AD 애플리케이션 대신 SQL Database에서 Azure AD 개체 만들기를 사용하려면 다음과 같은 설정이 필요합니다.
 
-1. 서버 ID를 할당합니다. 할당된 서버 ID는 MSI(관리 서비스 ID)를 나타냅니다. 현재 Azure SQL의 서버 ID는 UMI(사용자 관리 ID)를 지원하지 않습니다.
+1. 서버 ID를 할당합니다. 할당된 서버 ID는 MSI(관리 서비스 ID)를 나타냅니다. 현재 Azure SQL에 대 한 서버 id는 사용자 할당 관리 id (UMI)를 지원 하지 않습니다.
     - 새 Azure SQL 논리 서버의 경우 다음 PowerShell 명령을 실행합니다.
     
     ```powershell
     New-AzSqlServer -ResourceGroupName <resource group> -Location <Location name> -ServerName <Server name> -ServerVersion "12.0" -SqlAdministratorCredentials (Get-Credential) -AssignIdentity
     ```
 
-    자세한 내용은 [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) 명령을 참조하세요.
+    자세한 내용은 [AzSqlServer](/powershell/module/az.sql/new-azsqlserver) 명령 또는 SQL Managed Instance에 대 한 [AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) 명령을 참조 하세요.
 
     - 기존 Azure SQL 논리 서버의 경우 다음 명령을 실행합니다.
     
@@ -66,7 +66,7 @@ Azure AD 애플리케이션 대신 SQL Database에서 Azure AD 개체 만들기�
     Set-AzSqlServer -ResourceGroupName <resource group> -ServerName <Server name> -AssignIdentity
     ```
 
-    자세한 내용은 [Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver) 명령을 참조하세요.
+    자세한 내용은 SQL Managed Instance에 대 한 [AzSqlServer](/powershell/module/az.sql/set-azsqlserver) 명령 또는 [AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance) 명령을 참조 하세요.
 
     - 서버 ID가 서버에 할당되었는지 확인하려면 Get-AzSqlServer 명령을 실행합니다.
 

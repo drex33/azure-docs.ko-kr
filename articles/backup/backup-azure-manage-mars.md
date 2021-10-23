@@ -4,12 +4,12 @@ description: Azure Backup 서비스를 사용하여 MARS(Microsoft Azure Recover
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/05/2021
-ms.openlocfilehash: 525bdff82c224b02b941354983276747b483ae56
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: db7bd057cc2f781b1a55b62f28170fe462b11f39
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129535124"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233566"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Azure Backup 서비스를 사용하여 MARS(Microsoft Azure Recovery Services) 에이전트 백업 관리
 
@@ -170,7 +170,7 @@ ms.locfileid: "129535124"
 
 ## <a name="validate-passphrase"></a>암호 유효성 검사
 
-MARS 에이전트 버전 2.0.9190.0 이상에서는 암호의 유효성을 검사하여 [업데이트된 요구 사항을](/azure/backup/backup-azure-file-folder-backup-faq#what-characters-are-allowed-for-the-passphrase-)충족하는지 확인해야 합니다.
+MARS 에이전트 버전 2.0.9190.0 이상에서는 암호의 유효성을 검사하여 [업데이트된 요구 사항을](./backup-azure-file-folder-backup-faq.yml#what-characters-are-allowed-for-the-passphrase-)충족하는지 확인해야 합니다.
 
 암호의 유효성을 검사하려면 다음 단계를 수행합니다.
 
@@ -215,7 +215,7 @@ DPM/MABS의 경우 관리자 권한 명령 프롬프트에서 암호 유효성 �
 1. 관리 콘솔에서 **관리** 탭으로 이동하고 **온라인**  ->  **구성을** 선택합니다.
 1. 구독 **구성 설정 마법사** 에 따라 **암호화 설정** 단계에서 업데이트된 암호를 제공합니다.
 
-:::image type="content" source="./media/backup-azure-manage-mars/configure-subscription-settings-wizard.png" alt-text="구독 구성 설정 마법사에 따라 암호를 제공하는 프로세스를 보여주는 스크린샷.":::
+:::image type="content" source="./media/backup-azure-manage-mars/configure-subscription-settings-wizard.png" alt-text="구독 설정 구성 마법사 다음의 암호를 제공하는 프로세스를 보여주는 스크린샷.":::
 
 ## <a name="generate-security-pin"></a>보안 PIN 생성
 

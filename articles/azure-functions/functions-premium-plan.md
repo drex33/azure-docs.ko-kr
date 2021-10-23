@@ -9,12 +9,12 @@ ms.custom:
 - references_regions
 - fasttrack-edit
 - devx-track-azurecli
-ms.openlocfilehash: 2bbef3190a38d1c0f9b058f2c57050ecd85756e3
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: c549f29e729eec4403f2943f51e8acb4a9f21b37
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129984766"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130248396"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions 프리미엄 플랜
 
@@ -98,7 +98,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 ## <a name="private-network-connectivity"></a>프라이빗 네트워크 연결
 
-프리미엄 플랜에 배포된 함수 앱은 [웹앱용 VNet 통합](../app-service/web-sites-integrate-with-vnet.md)을 활용할 수 있습니다. 구성된 앱은 VNet 내의 리소스와 통신하거나 서비스 엔드포인트를 통해 보호할 수 있습니다. 들어오는 트래픽을 제한하기 위해 앱에서 IP 제한을 사용할 수도 있습니다.
+프리미엄 플랜에 배포된 함수 앱은 [웹앱용 VNet 통합](../app-service/overview-vnet-integration.md)을 활용할 수 있습니다. 구성된 앱은 VNet 내의 리소스와 통신하거나 서비스 엔드포인트를 통해 보호할 수 있습니다. 들어오는 트래픽을 제한하기 위해 앱에서 IP 제한을 사용할 수도 있습니다.
 
 프리미엄 플랜에서 함수 앱에 서브넷을 할당할 때 각 잠재적 인스턴스에 대해 충분한 IP 주소가 있는 서브넷이 필요합니다. 사용 가능한 주소가 100개 이상인 IP 블록이 필요합니다.
 

@@ -30,6 +30,8 @@ items:
   - name: 리소스
     expanded: true
     items:
+      - name: FAQ
+        href: iot-connector-faqs.md
       - name: 오픈 소스 프로젝트
         href: iot-git-projects.md
       - name: 문제 해결 가이드

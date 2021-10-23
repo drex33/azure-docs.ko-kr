@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: dbd544a3b8a2a55b6eafa51115277f6ef142b41c
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: 362916e0c4c35907fee7a781c758bc11b8f7f003
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537366"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234116"
 ---
 # <a name="security-controls-for-azure-spring-cloud-service"></a>Azure Spring Cloud Service의 보안 컨트롤
 
@@ -38,4 +38,4 @@ ms.locfileid: "122537366"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [빠른 시작: 첫 번째 Azure Spring Cloud 애플리케이션 배포](./quickstart.md)
+* [빠른 시작: Azure 스프링 클라우드에서 첫 번째 스프링 부팅 앱 배포](./quickstart.md)

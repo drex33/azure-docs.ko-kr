@@ -3,12 +3,12 @@ title: IoT Edge 보안 모듈 배포
 description: IoT Edge에 Defender for IoT 보안 에이전트를 배포하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/23/2021
-ms.openlocfilehash: f5d6dbf45745629fb656812bf75a3b69381260eb
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 67c60841d4d1e9080c95cf50a71be6ad4a845ef1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128678576"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238627"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>IoT Edge 디바이스에 보안 모듈 배포
 
@@ -24,7 +24,7 @@ ms.locfileid: "128678576"
 
 ### <a name="prerequisites"></a>필수 구성 요소
 
-1. IoT Hub에서 디바이스가 [새 디바이스 등록](../../iot-edge/how-to-register-device.md#register-a-new-device)인지 확인합니다.
+1. IoT Hub에서 디바이스가 [새 디바이스 등록](../../iot-edge/how-to-provision-single-device-linux-symmetric.md#register-your-device)인지 확인합니다.
 
 1. Defender for IoT Edge 모듈을 사용하려면 IoT Edge 디바이스에 [AuditD 프레임워크](https://linux.die.net/man/8/auditd)가 설치되어 있어야 합니다.
 

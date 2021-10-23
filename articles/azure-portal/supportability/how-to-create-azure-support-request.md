@@ -3,13 +3,13 @@ title: Azure 지원 요청을 만드는 방법
 description: 지원이 필요한 고객은 Azure Portal을 사용하여 셀프 서비스 솔루션을 찾고, 지원 요청을 만들고 관리할 수 있습니다.
 ms.topic: how-to
 ms.custom: support-help-page
-ms.date: 09/30/2021
-ms.openlocfilehash: 4598cc16173100749ad3f1bdefd3165020554465
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.date: 10/20/2021
+ms.openlocfilehash: 8c1a9e841c291bc6a7a6139b7aff4217975a0bcd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129358273"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265001"
 ---
 # <a name="create-an-azure-support-request"></a>Azure 지원 요청 만들기
 
@@ -78,9 +78,9 @@ Azure Portal의 어디에서나 지원 요청을 시작하려면 다음을 수�
 
 1. 문제에 대한 **자세한 정보를** 확인할 수 있도록 문제 세부 정보를 완료합니다. 가능하면 문제가 시작된 시기와 문제를 재현 하는 단계를 알려 주세요. 로그 파일 또는 진단의 출력과 같은 파일을 업로드할 수 있습니다. 파일 업로드에 대한 자세한 내용은 [파일 업로드 지침](how-to-manage-azure-support-request.md#file-upload-guidelines)을 참조하세요.
 
-1. **진단 정보 공유** 섹션에서 **예** 또는 **아니요** 를 선택합니다. **예** 를 사용하면 Azure 지원이 사용자의 Azure 리소스에서 [진단 정보](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/)를 수집할 수 있습니다. 이 정보를 공유하지 않으려는 경우 **아니요** 를 선택합니다. 수집할 수 있는 파일 형식에 대한 자세한 내용은 [고급 진단 정보 로그](#advanced-diagnostic-information-logs) 섹션을 참조하세요.
+1. 고급 **진단 정보** 섹션에서 **예** 또는 **아니요를** 선택합니다. **예를** 선택하면 Azure 지원에서 Azure 리소스에서 [고급 진단 정보를](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 수집할 수 있습니다. 이 정보를 공유하지 않으려는 경우 **아니요** 를 선택합니다. 수집할 수 있는 파일 형식에 대한 자세한 내용은 [고급 진단 정보 로그](#advanced-diagnostic-information-logs) 섹션을 참조하세요.
 
-  경우에 따라 선택할 수 있는 추가 옵션이 있습니다. 예를 들어 특정 유형의 Virtual Machine 문제 유형에 대해 [가상 머신의 메모리 에 대한 액세스를 허용할지](#memory-dump-collection)여부를 선택할 수 있습니다.
+  경우에 따라 선택할 수 있는 추가 옵션이 있습니다. 예를 들어 특정 유형의 Virtual Machine 문제 유형에 대해 가상 머신의 메모리 에 [대한 액세스를 허용할지](#memory-dump-collection)여부를 선택할 수 있습니다.
 
 1. 지원 **방법** 섹션에서 영향의 심각도를 선택합니다. 최대 심각도 수준은 [지원 플랜](https://azure.microsoft.com/support/plans)에 따라 다릅니다.
 
@@ -117,7 +117,7 @@ Azure Portal의 어디에서나 지원 요청을 시작하려면 다음을 수�
 
 덤프는 동일한 데이터 센터 내에서 디버깅하기 위해 컴퓨팅 노드(Azure 호스트)에서 다른 서버로 복사됩니다. 데이터가 Azure의 보안 경계를 벗어나지 않으므로 고객 데이터는 보호됩니다.
 
-덤프 파일은 VM의 Hyper-V 저장 상태를 생성하여 만들어집니다. 그러면 VM이 최대 10분 동안 일시 중지되고, 그 후에 VM이 다시 시작됩니다. VM은 이 프로세스의 일부로 다시 시작되지 않습니다.
+덤프 파일은 VM의 Hyper-V 저장 상태를 생성하여 만들어집니다. 이렇게 하면 VM이 최대 10분 동안 일시 중지되고, 그 후 VM이 다시 시작됩니다. VM은 이 프로세스의 일부로 다시 시작되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

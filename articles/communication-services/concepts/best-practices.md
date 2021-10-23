@@ -8,12 +8,12 @@ ms.author: srahaman
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 47d690b53b6e8fe9ccc2660e48283ce05e262d30
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: 99dee059eb337bf51eb0a723e20a2744140e3032
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129154188"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130250277"
 ---
 # <a name="best-practices-azure-communication-services-calling-sdks"></a>모범 사례: Azure Communication Services 통화 SDK
 이 문서에서는 SDK를 호출하는 ACS(Azure Communication Services)와 관련된 모범 사례에 대한 정보를 제공합니다.
@@ -27,36 +27,18 @@ ms.locfileid: "129154188"
 통화 시작 시 사용 가능한 마이크가 없는 경우 마이크를 사용할 수 있게 되면 "noMicrophoneDevicesEnumerated" 통화 진단 이벤트가 발생합니다.
 이 경우 애플리케이션은 `askDevicePermission`을 호출하여 디바이스 열거에 대한 사용자 동의를 얻어야 합니다. 그런 다음 사용자는 마이크를 음소거/음소거 해제할 수 있습니다.
 
-### <a name="stop-video-on-page-hide"></a>페이지 숨기기에서 동영상 중지
-사용자가 통화 탭에서 벗어나면 동영상 스트리밍이 중지됩니다. 일부 디바이스는 마지막 프레임을 계속 스트리밍합니다. 이 문제를 방지하기 위해 개발자는 사용자가 활성 동영상 지원 통화에서 벗어날 때 동영상 스트리밍을 중지하는 것이 좋습니다. `call.stopVideo` API를 호출하여 동영상을 중지할 수 있습니다.
-```JavaScript
-document.addEventListener("visibilitychange", function() {
-    if (document.visibilityState === 'visible') {
-        // Start Video if it was stopped on visibility change (flag true)
-    } else {
-        // Stop Video if it's on and set flag = true to keep track
-    }
-});
-```
-
 ### <a name="dispose-video-stream-renderer-view"></a>동영상 스트리밍 렌더러 삭제 보기
 Communication Services 애플리케이션은 더 이상 필요하지 않을 때 `VideoStreamRendererView` 또는 상위 `VideoStreamRenderer` 인스턴스를 삭제해야 합니다.
 
 ### <a name="hang-up-the-call-on-onbeforeunload-event"></a>onbeforunload 이벤트에서 통화 중단
 애플리케이션은 `onbeforeunload` 이벤트가 발생할 때 `call.hangup`을 호출해야 합니다.
 
-### <a name="handling-multiple-calls-on-multiple-tabs-on-mobile"></a>모바일의 여러 탭에서 여러 호출 처리
-디바이스의 마이크 및 카메라에 대한 리소스 할당으로 인해 정의되지 않은 동작이 발생할 수 있기 때문에 애플리케이션은 여러 브라우저 탭의 호출에 동시에 연결해서는 안 됩니다. 개발자는 새 호출을 시작하기 전에 백그라운드에서 완료되면 항상 호출을 중단하는 것이 좋습니다.
-```JavaScript 
-document.addEventListener("visibilitychange", function() {
-    if (document.visibilityState != 'visible') {
-            // call.hangUp
-    }
-});
- ```
+### <a name="handling-multiple-calls-on-multiple-tabs-on-mobile"></a>모바일에서 여러 탭에 대 한 여러 호출 처리
+응용 프로그램은 장치에서 마이크 및 카메라에 대 한 리소스 할당으로 인해 정의 되지 않은 동작이 발생할 수 있으므로 동시에 여러 브라우저 탭에서 호출에 연결 해서는 안 됩니다. 개발자는 새 작업을 시작 하기 전에 백그라운드에서 완료 될 때 항상 호출을 중지 하는 것이 좋습니다.
 
-### <a name="handle-os-muting-call-when-phone-call-comes-in"></a>전화 통화가 들어오면 OS 음소거 통화를 처리합니다.
-ACS 통화 중(iOS 및 Android 모두) OS에서 전화 통화가 들어오면 사용자 마이크와 카메라가 자동으로 음소거됩니다. Android에서 전화 통화가 자동으로 음소거 해제되고 전화 통화가 종료된 후 비디오가 다시 시작됩니다. iOS에서는 사용자 작업이 "음소거 해제" 및 "비디오 시작"을 다시 수행해야 합니다. 의 품질 이벤트로 마이크가 예기치 않게 음소거되었다는 알림을 수신 대기할 수 `microphoneMuteUnexpectedly` 있습니다. 호출에 다시 올바르게 다시 참여하려면 SDK 1.2.2-beta.1을 사용해야 합니다.
+### <a name="handle-os-muting-call-when-phone-call-comes-in"></a>전화 통화가 들어오면 OS 음소거 통화를 처리 합니다.
+전화 통화가 제공 되거나 음성 길잡이가 활성화 된 경우 ACS 호출 (iOS 및 Android 모두)에서, OS는 사용자 마이크와 카메라를 자동으로 음소거 합니다. Android에서 호출은 전화 통화가 끝난 후 자동으로 unmutes 하 고 비디오를 다시 시작 합니다. IOS에서 사용자 작업은 "음소거" 및 "비디오 시작"을 다시 수행 해야 합니다. 의 품질 이벤트를 사용 하 여 마이크가 예기치 않게 음소거 되었다는 알림을 수신할 수 있습니다 `microphoneMuteUnexpectedly` . 호출에 올바르게 다시 참가할 수 있도록 하려면 SDK 1.2.3-beta. 1 이상을 사용 해야 합니다.
+
 ```JavaScript
 const latestMediaDiagnostic = call.api(SDK.Features.Diagnostics).media.getLatest();
 const isIosSafari = (getOS() === OSName.ios) && (getPlatformName() === BrowserName.safari);
@@ -64,7 +46,7 @@ if (isIosSafari && latestMediaDiagnostic.microphoneMuteUnexpectedly && latestMed
   // received a QualityEvent on iOS that the microphone was unexpectedly muted - notify user to unmute their microphone and to start their video stream
 }
  ```
-애플리케이션은 를 `call.startVideo(localVideoStream);` 호출하여 비디오 스트림을 시작하고 를 사용하여 `this.currentCall.unmute();` 오디오를 음소거 해제해야 합니다.
+응용 프로그램은를 호출 `call.startVideo(localVideoStream);` 하 여 비디오 스트림을 시작 하 고를 사용 하 여 오디오를 음소거 해제 해야 합니다 `this.currentCall.unmute();` .
 
 ### <a name="device-management"></a>디바이스 관리
 Azure Communication Services SDK를 사용하여 디바이스 및 미디어 작업을 관리할 수 있습니다.

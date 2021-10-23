@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/18/2021
 ms.author: jianleishen
-ms.openlocfilehash: dbee4a0c4aa82d34df6b5ea6e3e7274868be5d62
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 970778c36b426fd30af632ca56443c9fb240c389
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124743847"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223748"
 ---
 # <a name="json-format-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 JSON 형식
 
@@ -22,7 +22,21 @@ ms.locfileid: "124743847"
 
 **JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면** 이 문서의 내용을 따르세요. 
 
-JSON 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md), [SFTP](connector-sftp.md) 커넥터에 지원됩니다.
+JSON 형식은 다음 커넥터에 대해 지원됩니다. 
+
+- [Amazon S3](connector-amazon-simple-storage-service.md)
+- [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md)
+- [Azure Blob](connector-azure-blob-storage.md)
+- [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
+- [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
+- [Azure 파일](connector-azure-file-storage.md)
+- [파일 시스템](connector-file-system.md)
+- [FTP](connector-ftp.md)
+- [Google Cloud Storage](connector-google-cloud-storage.md)
+- [HDFS](connector-hdfs.md)
+- [HTTP](connector-http.md)
+- [Oracle Cloud Storage](connector-oracle-cloud-storage.md)
+- [SFTP](connector-sftp.md)
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
@@ -73,7 +87,7 @@ JSON 파일에서 데이터를 추출하고 [스키마 매핑](copy-activity-sch
 
 복사 작업 ***\*source\**** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성      | Description                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 type 속성을 **JSONSource** 로 설정해야 합니다. | 예      |
 | formatSettings | 속성 그룹입니다. 아래의 **JSON 읽기 설정** 표를 참조하세요. | 예       |
@@ -198,7 +212,7 @@ JSON 파일에서 데이터를 복사하는 경우 복사 작업은 다음과 �
 
 ## <a name="mapping-data-flow-properties"></a>매핑 데이터 흐름 속성
 
-매핑 데이터 흐름에서는 [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties)같은 데이터 저장소에서 JSON 형식을 읽고 쓸 수 있습니다.
+[매핑 데이터 흐름에서](concepts-data-flow-overview.md) [Azure Blob](connector-azure-blob-storage.md#mapping-data-flow-properties)Storage, Azure Data Lake Storage Gen1 및 Azure [Data Lake Storage Gen2](connector-azure-data-lake-store.md#mapping-data-flow-properties) 등의 [](connector-azure-data-lake-storage.md#mapping-data-flow-properties)데이터 저장소에서 JSON 형식을 읽고 쓸 수 있으며 [Amazon S3에서](connector-amazon-simple-storage-service.md#mapping-data-flow-properties)JSON 형식을 읽을 수 있습니다.
 
 ### <a name="source-properties"></a>원본 속성
 
@@ -416,6 +430,15 @@ JSON 구조를 수동으로 추가하려면 새 열을 추가하고 편집기에
     ]
 )
 ```
+
+## <a name="related-connectors-and-formats"></a>관련 커넥터 및 형식
+
+다음은 JSON 형식과 관련된 몇 가지 일반적인 커넥터 및 형식입니다.
+
+- Azure Blob Storage(connector-azure-blob-storage.md)
+- 구분 기호로 분리된 텍스트 형식(format-delimited-text.md)
+- OData 커넥터(connector-odata.md)
+- Parquet 형식(format-parquet.md)
 
 ## <a name="next-steps"></a>다음 단계
 

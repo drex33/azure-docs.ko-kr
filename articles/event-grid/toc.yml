@@ -129,7 +129,17 @@
             - name: Azure Blob Storage
               href: event-schema-blob-storage.md
             - name: Azure Communication Services
-              href: event-schema-communication-services.md
+              items:
+                - name: 개요
+                  href: event-schema-communication-services.md
+                - name: 채팅 이벤트
+                  href: communication-services-chat-events.md
+                - name: 전화 통신 및 SMS 이벤트
+                  href: communication-services-telephony-sms-events.md
+                - name: 음성 및 비디오 통화 이벤트
+                  href: communication-services-voice-video-events.md
+                - name: 현재 상태 이벤트
+                  href: communication-services-presence-events.md
             - name: Azure Container Registry
               href: event-schema-container-registry.md
             - name: Azure Event Hubs

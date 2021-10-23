@@ -3,12 +3,12 @@ title: Azure VM의 SAP HANA 데이터 백업 정보
 description: 이 문서에서는 Azure 가상 머신에서 실행되는 SAP HANA 데이터베이스를 백업하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/27/2021
-ms.openlocfilehash: 053d57518e91292105475753279e6fefec19e7a4
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 470635afee7e6b483ec9ae6e79071cd4ef9975dc
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129081038"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130264582"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Azure VM의 SAP HANA 데이터 백업 정보
 
@@ -29,15 +29,15 @@ Azure Backup을 사용하여 SAP HANA 데이터베이스를 백업 및 복원하
 
 ## <a name="backup-architecture"></a>백업 아키텍처
 
-Azure VM 내에서 실행 되는 SAP HANA 데이터베이스를 백업 하 고 백업 데이터를 Azure Recovery Services 자격 증명 모음에 직접 스트리밍할 수 있습니다.
+Azure VM 내에서 실행되는 SAP HANA 데이터베이스를 백업하고 백업 데이터를 Azure Recovery Services 자격 증명 모음에 직접 스트리밍할 수 있습니다.
 
 ![백업 아키텍처 다이어그램](./media/sap-hana-db-about/backup-architecture.png)
 
 * 백업 프로세스는 먼저 Azure에서 [Recovery Services 자격 증명 모음을 만듭니다](./tutorial-backup-sap-hana-db.md#create-a-recovery-services-vault). 이 자격 증명 모음은 시간에 따라 생성된 백업 및 복구 지점을 저장하는 데 사용됩니다.
 * SAP HANA 서버를 실행하는 Azure VM은 자격 증명 모음에 등록되며 백업할 데이터베이스가 [검색](./tutorial-backup-sap-hana-db.md#discover-the-databases)됩니다. Azure Backup 서비스에서 데이터베이스를 검색할 수 있도록 하려면 HANA 서버에서 루트 사용자로 [preregistration 스크립트](https://go.microsoft.com/fwlink/?linkid=2173610)를 실행해야 합니다.
-* 이 스크립트는 **AZUREWLBACKUPHANAUSER** 데이터베이스 사용자를 만들고 사용자가 이미 만든 사용자 지정 백업 사용자를 사용한 다음 **hdbuserstore** 에 동일한 이름을 사용 하 여 해당 키를 만듭니다. 스크립트의 기능에 [대해 자세히 알아보세요](/azure/backup/tutorial-backup-sap-hana-db#what-the-pre-registration-script-does) .
+* 이 스크립트는 **AZUREWLBACKUPHANAUSER** 데이터베이스 사용자를 만들고 이미 만든 사용자 지정 Backup 사용자를 사용한 다음 **hdbuserstore** 에서 동일한 이름의 해당 키를 만듭니다. 스크립트의 기능에 대해 [자세히 알아보세요.](./tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does)
 * Azure Backup Service는 이제 등록된 SAP HANA 서버에 **HANA용 Azure Backup 플러그인** 을 설치합니다.
-* 작성 전 등록 스크립트/사용자 지정 백업 사용자가 만든 **AZUREWLBACKUPHANAUSER** 데이터베이스 사용자 (등록 전 스크립트에 입력으로 추가 됨)는 **HANA에 대 한 Azure Backup 플러그 인** 에서 모든 백업 및 복원 작업을 수행 하는 데 사용 됩니다. 이 스크립트를 실행 하지 않고 SAP HANA 데이터베이스에 대 한 백업을 구성 하려고 하면 **UserErrorHanaScriptNotRun** 오류가 발생할 수 있습니다.
+* 사용자가 만들고 사전 등록 스크립트에 입력으로 추가한 사전 등록 스크립트/사용자 지정 백업 사용자가 만든 **AZUREWLBACKUPHANAUSER** 데이터베이스 사용자는 **HANA용 Azure Backup 플러그 인에서** 모든 백업 및 복원 작업을 수행하는 데 사용됩니다. 이 스크립트를 실행하지 않고 SAP HANA 데이터베이스에 대한 백업을 구성하려고 하면 **UserErrorHanaScriptNotRun** 오류가 발생할 수 있습니다.
 * 검색된 데이터베이스에 [백업을 구성](./tutorial-backup-sap-hana-db.md#configure-backup)하려면 필요한 백업 정책을 선택하고 백업을 사용하도록 설정합니다.
 
 * 백업이 구성되면 Azure Backup 서비스는 보호된 SAP HANA 서버에서 데이터베이스 수준에서 다음과 같은 Backint 매개 변수를 설정합니다.

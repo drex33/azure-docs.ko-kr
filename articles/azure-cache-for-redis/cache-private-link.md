@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 3/31/2021
-ms.openlocfilehash: 25572c32eff7fcdaffe3bad2bbf349bc8ca885f7
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: a79f33f084c4ed12837b4af92351a9eac0e33152
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130045809"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265460"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link"></a>Azure Private Link를 사용하는 Azure Cache for Redis
 
@@ -52,7 +52,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 Azur
 
 4. **가상 네트워크 만들기** 의 **기본** 탭에서 다음 정보를 입력하거나 선택합니다.
 
-   | 설정      | 제안 값  | Description |
+   | 설정      | 제안 값  | 설명 |
    | ------------ |  ------- | -------------------------------------------------- |
    | **구독** | 드롭다운하여 구독을 선택합니다. | 가상 네트워크를 만들 구독입니다. |
    | **리소스 그룹** | 드롭다운하여 리소스 그룹을 선택하거나, **새로 만들기** 를 선택하고 새 리소스 그룹 이름을 입력합니다. | 가상 네트워크 및 기타 리소스를 만들 리소스 그룹의 이름입니다. 모든 앱 리소스를 하나의 리소스 그룹에 배치하면 앱 리소스를 쉽게 관리하거나 삭제할 수 있습니다. |
@@ -85,7 +85,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 Azur
 
 1. **새 Redis Cache** 페이지에서 새 캐시의 설정을 구성합니다.
 
-   | 설정      | 제안 값  | Description |
+   | 설정      | 제안 값  | 설명 |
    | ------------ |  ------- | -------------------------------------------------- |
    | **DNS 이름** | 전역적으로 고유한 이름을 입력합니다. | 이 캐시 이름은 1~63자 사이의 문자열이어야 합니다. 문자열에는 숫자, 문자 또는 하이픈만 포함해야 합니다. 이름은 숫자 또는 문자로 시작하고 끝나야 하며 연속 하이픈을 포함할 수 없습니다. 캐시 인스턴스의 *호스트 이름* 은 *\<DNS name>.redis.cache.windows.net* 입니다. |
    | **구독** | 드롭다운하여 구독을 선택합니다. | 이 구독 아래에 새 Azure Cache for Redis 인스턴스가 만들어집니다. |
@@ -141,7 +141,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 Azur
 
 1. **가상 네트워크 만들기** 의 **기본** 탭에서 다음 정보를 입력하거나 선택합니다.
 
-   | 설정      | 제안 값  | Description |
+   | 설정      | 제안 값  | 설명 |
    | ------------ |  ------- | -------------------------------------------------- |
    | **구독** | 드롭다운하여 구독을 선택합니다. | 가상 네트워크를 만들 구독입니다. |
    | **리소스 그룹** | 드롭다운하여 리소스 그룹을 선택하거나, **새로 만들기** 를 선택하고 새 리소스 그룹 이름을 입력합니다. | 가상 네트워크 및 기타 리소스를 만들 리소스 그룹의 이름입니다. 모든 앱 리소스를 하나의 리소스 그룹에 배치하면 앱 리소스를 쉽게 관리하거나 삭제할 수 있습니다. |
@@ -180,7 +180,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 Azur
 
 1. **프라이빗 엔드포인트 만들기 페이지** 에서 프라이빗 엔드포인트에 대한 설정을 구성합니다.
 
-   | 설정      | 제안 값  | Description |
+   | 설정      | 제안 값  | 설명 |
    | ------------ |  ------- | -------------------------------------------------- |
    | **구독** | 드롭다운하여 구독을 선택합니다. | 프라이빗 엔드포인트를 만들 구독입니다. |
    | **리소스 그룹** | 드롭다운하여 리소스 그룹을 선택하거나, **새로 만들기** 를 선택하고 새 리소스 그룹 이름을 입력합니다. | 프라이빗 엔드포인트 및 기타 리소스를 만들 리소스 그룹의 이름입니다. 모든 앱 리소스를 하나의 리소스 그룹에 배치하면 앱 리소스를 쉽게 관리하거나 삭제할 수 있습니다. |
@@ -223,11 +223,14 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 Azur
 
 ### <a name="why-cant-i-connect-to-a-private-endpoint"></a>프라이빗 엔드포인트에 연결되지 않는 이유는 무엇인가요?
 
-캐시가 이미 VNet에 주입된 캐시인 경우 프라이빗 엔드포인트는 캐시 인스턴스와 함께 사용할 수 없습니다. 캐시 인스턴스가 아래에 나열된 지원되지 않는 기능을 사용하고 있는 경우 프라이빗 엔드포인트 인스턴스에 연결할 수 없습니다.
+- 캐시가 이미 VNet 삽입 캐시 인 경우 개인 끝점을 캐시 인스턴스와 함께 사용할 수 없습니다.
+- 클러스터 된 캐시에 대 한 개인 링크는 한 개로 제한 됩니다. 다른 모든 캐시의 경우 100 개인 링크 제한이 있습니다.
+- 방화벽 규칙이 적용 되는 [저장소 계정에 데이터를 유지](cache-how-to-premium-persistence.md) 하려고 하면 개인 링크를 만들지 못할 수 있습니다.
+- 캐시 인스턴스가 [지원 되지 않는 기능](#what-features-arent-supported-with-private-endpoints)을 사용 하는 경우 개인 끝점에 연결 하지 못할 수 있습니다.
 
 ### <a name="what-features-arent-supported-with-private-endpoints"></a>프라이빗 엔드포인트에서 지원되지 않는 기능은 무엇인가요?
 
-현재는 포털 콘솔 지원 및 방화벽 저장소 계정에 대 한 지 속성이 지원 되지 않습니다.
+Azure Portal 콘솔에서 연결을 시도 하는 것은 연결 실패를 표시 하는 지원 되지 않는 시나리오입니다.
 
 ### <a name="how-do-i-verify-if-my-private-endpoint-is-configured-correctly"></a>내 개인 끝점이 올바르게 구성 되어 있는지 확인 어떻게 할까요??
 
@@ -238,7 +241,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 Azur
 ### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access"></a>공용 네트워크 액세스에서 프라이빗 엔드포인트를 사용하지 않도록 혹은 사용하도록 설정하려면 어떻게 해야 하나요?
 
 기본적으로 `Disabled` 상태인 `publicNetworkAccess` 플래그가 있습니다.
-로 설정 되 면 `Enabled` 이 플래그를 사용 하 여 공용 및 개인 끝점에서 캐시에 액세스할 수 있습니다. 로 설정 되 면 `Disabled` 개인 끝점 액세스만 허용 됩니다. `Disabled` `Enabled` Azure Portal 또는 RESTFUL API PATCH 요청을 사용 하 여 값을 또는로 설정할 수 있습니다.
+로 설정 되 면 `Enabled` 이 플래그를 사용 하 여 공용 및 개인 끝점에서 캐시에 액세스할 수 있습니다. 로 설정 되 면 `Disabled` 개인 끝점 액세스만 허용 됩니다. `Disabled`Azure Portal 또는 RESTful API PATCH 요청을 사용하여 값을 또는 로 설정할 수 `Enabled` 있습니다.
 
 Azure Portal에서 값을 변경하려면 다음 단계를 수행합니다.
 

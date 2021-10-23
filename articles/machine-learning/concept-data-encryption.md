@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 08/02/2021
-ms.openlocfilehash: e367f6685e73cb6cdfd9e777e6cb554c186c616c
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: d697375b3eec9a49f404a9af9771b431938aeb4d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429227"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238476"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 데이터 암호화
 
@@ -66,10 +66,13 @@ Azure Machine Learning은 Azure Cosmos DB 인스턴스에 메타데이터를 저
 
 * Azure Machine Learning 작업 영역을 만들 때는 다음 매개 변수를 사용합니다. 두 매개 변수 모두 필수이며 SDK, Azure CLI, REST API, Resource Manager 템플릿에서 지원됩니다.
 
+    * `cmk_keyvault`: 이 매개 변수는 구독에 있는 키 자격 증명 모음의 리소스 ID입니다. 이 키 자격 증명 모음은 Azure Machine Learning 작업 영역에 사용할 동일한 지역 및 구독에 있어야 합니다. 
+
     * `resource_cmk_uri`: 이 매개 변수는 [키의 버전 정보](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning)를 포함하여 키 자격 증명 모음에서 고객 관리형 키의 전체 리소스 URI입니다. 
 
-    * `cmk_keyvault`: 이 매개 변수는 구독에 있는 키 자격 증명 모음의 리소스 ID입니다. 이 키 자격 증명 모음은 Azure Machine Learning 작업 영역에 사용할 동일한 지역 및 구독에 있어야 합니다. 
-    
+        > [!NOTE]
+        > 자격 증명 모음을 삭제 하는 경우 실수로 인 한 데이터 손실을 방지 하기 위해 암호화 된 기계 학습 작업 영역을 만들기 전에 CMK 키 자격 증명 모음 인스턴스에서 일시 삭제 및 제거 보호를 사용 하도록 설정 해야 합니다.
+        
         > [!NOTE]
         > 이 키 자격 증명 모음 인스턴스는 작업 영역을 프로비저닝할 때 Azure Machine Learning에서 생성된 키 자격 증명 모음과 다를 수 있습니다. 작업 영역에 동일한 키 자격 증명 모음 인스턴스를 사용하려면 [key_vault parameter](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)를 사용하여 작업 영역을 프로비저닝하는 동안 동일한 키 자격 증명 모음을 전달합니다. 
 

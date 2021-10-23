@@ -7,14 +7,14 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/09/2021
 ms.author: duau
-ms.openlocfilehash: c8d12e533da11f1cf1db2be800b8f1ac3ed02d90
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: fb7f606b0427a5b3f5293fd82bfd9a0544bc945f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129669172"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226341"
 ---
-# <a name="add-ipv6-support-for-private-peering-using-the-azure-portal-preview"></a>Azure Portal를 사용하여 개인 피어링에 대한 IPv6 지원 추가(미리 보기)
+# <a name="add-ipv6-support-for-private-peering-using-the-azure-portal"></a>Azure Portal를 사용 하 여 개인 피어 링에 대 한 IPv6 지원 추가
 
 이 문서에서는 Azure Portal를 사용하여 Azure에서 ExpressRoute를 통해 Azure의 리소스에 연결하기 위해 IPv6 지원을 추가하는 방법을 설명합니다.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 10/04/2021
 ms.author: b-juche
-ms.openlocfilehash: 546f3ad04a371277903f9b11f6d62bba50794051
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 738e3d6cb3b27180cd8337e09a72fbe3a0639edf
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129536241"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130240056"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
@@ -171,6 +171,6 @@ Windows SMB 클라이언트에서 개체 속성의 **보안** 탭을 사용하�
 * [Azure NetApp Files에 대해 TLS를 통한 ADDS LDAP 구성](configure-ldap-over-tls.md) 
 * [기존 SMB 볼륨에서 지속적인 가용성 사용](enable-continuous-availability-existing-SMB.md)
 * [SMB 암호화](azure-netapp-files-smb-performance.md#smb-encryption)
-* [SMB 또는 이중 프로토콜 볼륨 문제 해결](troubleshoot-dual-protocol-volumes.md)
+* [Azure NetApp Files 볼륨 오류 문제 해결](troubleshoot-volumes.md)
 * [Azure 서비스에 대한 가상 네트워크 통합에 대해 알아보기](../virtual-network/virtual-network-for-azure-services.md)
 * [Azure 명령줄 인터페이스를 사용하여 새 Active Directory 포리스트 설치](/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: aarathin
 ms.author: aarathin
 ms.date: 05/21/2021
-ms.openlocfilehash: ec24d4df5a792166812693ad90f21396771ecdd6
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
-ms.translationtype: HT
+ms.openlocfilehash: 1f9ad2fd05e11d981dd374919e2cc43d1b8d1f97
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111537893"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232312"
 ---
 # <a name="pre-certification-checklist-for-iot-edge-modules"></a>IoT Edge 모듈의 사전 인증 검사 목록
 
@@ -55,7 +55,7 @@ Edge 모듈은 Azure에서 만든 Edge 디바이스에 배포됩니다.
 #### <a name="steps"></a>단계
 
 1. 만들어진 디바이스/VM에 Putty를 통해 액세스할 수 있는지 확인합니다.
-1. [IoT Edge 런타임](../iot-edge/how-to-install-iot-edge.md)을 디바이스에 다운로드합니다.
+1. [IoT Edge 런타임](../iot-edge/how-to-provision-single-device-linux-symmetric.md)을 디바이스에 다운로드합니다.
 1. 5단계에서 복사한 연결 문자열을 config.yaml 파일로 업데이트합니다.
 1. Edge 모듈을 `sudo systemctl restart iotedge`을 이용해 다시 시작합니다.
 1. 모듈이 디바이스에 배포되었는지 `sudo iotedge list`로 확인합니다. 실행 상태여야 합니다.

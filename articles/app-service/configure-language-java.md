@@ -11,12 +11,12 @@ ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: 47e9e221bd57453a0c799318f939de59b84feb86
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: d994716f24c0a5dff4fd42f8152a08cabc4fe12c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129356077"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130253424"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Azure App Service용 Java 앱 구성
 
@@ -107,7 +107,7 @@ mvn package azure-webapp:deploy
 ```
 
 #### <a name="gradle"></a>Gradle
-1. 플러그 인을 에 추가하여 [Azure Web Apps Gradle 플러그](https://github.com/microsoft/azure-gradle-plugins/tree/master/azure-webapp-gradle-plugin) 인을 설치합니다. `build.gradle`
+1. 플러그 인을 에 추가하여 [Azure Web Apps 대한 Gradle 플러그](https://github.com/microsoft/azure-gradle-plugins/tree/master/azure-webapp-gradle-plugin) 인을 설치합니다. `build.gradle`
     ```groovy
     plugins {
       id "com.microsoft.azure.azurewebapp" version "1.2.0"
@@ -144,8 +144,8 @@ mvn package azure-webapp:deploy
     
 ### <a name="ides"></a>IDE
 Azure는 다음을 포함하여 인기 있는 Java ID에서 원활한 Java App Service 개발 환경을 제공합니다.
-- *VS Code:* [java Web Apps with Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp#_deploy-web-apps-to-the-cloud)
-- *IntelliJ IDEA:*[IntelliJ를 사용하여 Azure App Service Hello World 웹앱 만들기](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app)
+- *VS Code:* java [Web Apps with Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp#_deploy-web-apps-to-the-cloud)
+- *IntelliJ IDEA:*[IntelliJ를 사용하여 Azure App Service 위한 Hello World 웹앱 만들기](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app)
 - *Eclipse: Eclipse를*[사용하여 Azure App Service 위한 Hello World 웹앱 만들기](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)
 
 ### <a name="kudu-api"></a>Kudu API
@@ -154,7 +154,7 @@ Azure는 다음을 포함하여 인기 있는 Java ID에서 원활한 Java App S
 Java SE에 .jar 파일을 배포하려면 Kudu 사이트의 `/api/publish/` 엔드포인트를 사용합니다. 이 API에 대한 자세한 내용은 [이 설명서](./deploy-zip.md#deploy-warjarear-packages)를 참조하세요. 
 
 > [!NOTE]
->  .jar 애플리케이션의 이름을 App Service에서 `app.jar`로 정해야 애플리케이션을 식별하고 실행할 수 있습니다. 위에서 언급한 Maven 플러그인은 배포 중에 애플리케이션의 이름을 자동으로 바꿉니다. JAR 이름을 *app.jar* 로 변경하고 싶지 않은 경우에는 .jar 앱을 실행하는 명령이 포함된 셸 스크립트를 업로드하면 됩니다. 그런 다음, Portal의 구성 섹션에 있는 [시작 파일](/azure/app-service/faq-app-service-linux#built-in-images) 텍스트 상자에 이 스크립트의 절대 경로를 붙여 넣습니다. 시작 스크립트는 배치된 디렉터리에서 실행되지 않습니다. 따라서 항상 절대 경로를 사용하여 시작 스크립트의 파일을 참조해야 합니다(예: `java -jar /home/myapp/myapp.jar`).
+>  .jar 애플리케이션의 이름을 App Service에서 `app.jar`로 정해야 애플리케이션을 식별하고 실행할 수 있습니다. 위에서 언급한 Maven 플러그인은 배포 중에 애플리케이션의 이름을 자동으로 바꿉니다. JAR 이름을 *app.jar* 로 변경하고 싶지 않은 경우에는 .jar 앱을 실행하는 명령이 포함된 셸 스크립트를 업로드하면 됩니다. 그런 다음, Portal의 구성 섹션에 있는 [시작 파일](./faq-app-service-linux.yml) 텍스트 상자에 이 스크립트의 절대 경로를 붙여 넣습니다. 시작 스크립트는 배치된 디렉터리에서 실행되지 않습니다. 따라서 항상 절대 경로를 사용하여 시작 스크립트의 파일을 참조해야 합니다(예: `java -jar /home/myapp/myapp.jar`).
 
 #### <a name="tomcat"></a>Tomcat
 
@@ -943,7 +943,7 @@ JDBC(Java Database Connectivity) 또는 JPA(Java Persistence API)를 사용하�
 
 #### <a name="shared-server-level-resources"></a>공유 서버 수준 리소스
 
-공유 서버 수준 데이터 원본을 추가하려면 Tomcat의 server.xml을 편집해야 합니다. 먼저 [시작 스크립트](/azure/app-service/faq-app-service-linux#built-in-images)를 업로드하고 **구성** > **시작 명령** 의 스크립트에 대한 경로를 설정합니다. [FTP](deploy-ftp.md)를 사용하여 시작 스크립트를 업로드할 수 있습니다.
+공유 서버 수준 데이터 원본을 추가하려면 Tomcat의 server.xml을 편집해야 합니다. 먼저 [시작 스크립트](./faq-app-service-linux.yml)를 업로드하고 **구성** > **시작 명령** 의 스크립트에 대한 경로를 설정합니다. [FTP](deploy-ftp.md)를 사용하여 시작 스크립트를 업로드할 수 있습니다.
 
 시작 스크립트는 server.xml 파일의 [xsl 변환](https://www.w3schools.com/xml/xsl_intro.asp) 파일을 만들고 결과 xml 파일을 `/usr/local/tomcat/conf/server.xml`로 출력합니다. 시작 스크립트는 apk를 통해 libxslt를 설치해야 합니다. FTP를 통해 xsl 파일 및 시작 스크립트를 업로드할 수 있습니다. 다음은 예제 시작 스크립트입니다.
 

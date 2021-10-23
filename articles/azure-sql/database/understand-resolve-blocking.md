@@ -14,12 +14,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 3/02/2021
-ms.openlocfilehash: cedd161a392af9df52ed94aa4ed60379cf28776a
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
-ms.translationtype: HT
+ms.openlocfilehash: faf2d60162a7cd39b901414aedb8cda1406173f2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413540"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226936"
 ---
 # <a name="understand-and-resolve-azure-sql-database-blocking-problems"></a>Azure SQL Database 차단 문제의 이해 및 해결
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -425,7 +425,6 @@ Waittype, Open_Tran 및 Status 열은 [sys.dm_exec_request](/sql/relational-data
 ## <a name="learn-more"></a>자세한 정보
 
 * [Azure SQL Database: 자동 튜닝을 사용하여 성능 튜닝 향상](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Improving-Performance-Tuning-with-Automatic-Tuning)
-* [자동 튜닝으로 Azure SQL Database 성능 향상](https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning)
 * [Azure SQL을 사용하여 일관된 성능 제공](/learn/modules/azure-sql-performance/)
 * [Azure SQL Database 및 Azure SQL Managed Instance의 연결 문제 및 기타 오류 문제 해결](troubleshoot-common-errors-issues.md)
 * [일시적인 오류 처리](/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling)

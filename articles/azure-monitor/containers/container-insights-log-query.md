@@ -3,12 +3,12 @@ title: 컨테이너 인사이트에서 로그를 쿼리하는 방법
 description: 컨테이너 인사이트는 메트릭 및 로그 데이터를 수집합니다. 이 문서에서는 레코드를 설명하며 샘플 쿼리가 포함되어 있습니다.
 ms.topic: conceptual
 ms.date: 07/19/2021
-ms.openlocfilehash: 07ff7a65f6f4ed0865a45e92288caa362051fd20
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: ff2ce2fa2e70400b4b591f4e8f3dbb50e3dc6415
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123428023"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130240132"
 ---
 # <a name="how-to-query-logs-from-container-insights"></a>컨테이너 인사이트에서 로그를 쿼리하는 방법
 
@@ -78,7 +78,8 @@ Perf
 InsightsMetrics
 | where Name == "requests_count"
 | summarize Val=any(Val) by TimeGenerated=bin(TimeGenerated, 1m)
-| sort by TimeGenerated asc<br> &#124; project RequestsPerMinute = Val - prev(Val), TimeGenerated
+| sort by TimeGenerated asc
+| project RequestsPerMinute = Val - prev(Val), TimeGenerated
 | render barchart 
 ```
 ### <a name="pods-by-name-and-namespace"></a>이름 및 네임스페이스별 Pod

@@ -2,14 +2,14 @@
 title: Bicep 개발 및 배포 환경 설정
 description: Bicep 개발 및 배포 환경을 구성하는 방법
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 10/20/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: db0fe243dea09a431adc47f064d87c5e9a2ee7a8
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: c1d81208ddb2d0999770b57829a0b71911645fb4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129363646"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130260686"
 ---
 # <a name="install-bicep-tools"></a>Bicep 도구 설치
 
@@ -31,6 +31,45 @@ Bicep 파일을 만들려면 적절한 Bicep 편집기가 필요합니다. 다�
 확장을 설치했는지 확인하려면 `.bicep` 파일 확장명을 사용하여 파일을 엽니다. 오른쪽 아래 모퉁이의 언어 모드가 **Bicep** 으로 변경된 것을 볼 수 있습니다.
 
 :::image type="content" source="./media/install/language-mode.png" alt-text="Bicep 언어 모드":::
+
+### <a name="troubleshoot"></a>문제 해결
+
+Visual Studio Code 용 Bicep 확장을 설치 하는 경우 다음 오류 메시지가 나타날 수 있습니다.
+
+```error
+Failed to install .NET runtime v5.0
+```
+
+```error
+Failed to download .NET 5.0.x ....... Error!
+```
+
+이 문제를 해결 하려면 .net [웹 사이트](https://aka.ms/dotnet-core-download)에서 .net을 수동으로 설치한 다음 기존 .net 설치를 다시 사용 하도록 Visual Studio Code를 구성할 수 있습니다. 다음 설정을 사용 합니다.
+
+**Windows**
+
+```json
+"dotnetAcquisitionExtension.existingDotnetPath": [
+  {
+    "extensionId": "msazurermtools.azurerm-vscode-tools",
+    "path": "C:\\Program Files\\dotnet\\dotnet.exe"
+  }
+]
+
+```
+
+**macOS**
+
+```json
+"dotnetAcquisitionExtension.existingDotnetPath": [
+  {
+    "extensionId": "ms-azuretools.vscode-bicep",
+    "path": "/usr/local/share/dotnet/dotnet"
+  }
+]
+```
+
+Visual Studio Code 설정을 구성 하려면 [사용자 및 작업 영역 설정](https://code.visualstudio.com/docs/getstarted/settings) 를 참조 하세요.
 
 ## <a name="deployment-environment"></a>배포 환경
 
@@ -121,7 +160,7 @@ bicep --help
 
 ### <a name="macos"></a>macOS
 
-#### <a name="via-homebrew"></a>homebrew를 통해
+#### <a name="via-homebrew"></a>Via homebrew
 
 ```sh
 # Add the tap for bicep

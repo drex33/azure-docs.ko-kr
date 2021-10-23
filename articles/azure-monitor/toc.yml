@@ -151,6 +151,8 @@
           href: alerts/alerts-unified-log.md
         - name: 활동 로그 경고
           href: alerts/activity-log-alerts.md
+    - name: 데이터 시각화
+      href: visualizations.md
     - name: 파트너 통합
       href: partners.md
     - name: 보안
@@ -164,18 +166,6 @@
   items:
     - name: 시나리오
       items:
-        - name: Azure Monitor 모범 사례
-          items:
-            - name: 개요
-              href: best-practices.md
-            - name: 계획
-              href: best-practices-plan.md
-            - name: 데이터 수집 구성
-              href: best-practices-data-collection.md
-            - name: 분석 및 시각화
-              href: best-practices-analysis.md
-            - name: 경고 및 자동화된 작업
-              href: best-practices-alerts.md
         - name: Azure 리소스 모니터링
           href: essentials/monitor-azure-resource.md
         - name: 가상 머신 모니터링
@@ -195,6 +185,13 @@
           displayname: VM
         - name: Kubernetes 모니터링
           href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
+    - name: 배포
+      items:
+        - name: Azure Monitor 배포
+          href: deploy.md
+        - name: 대규모 배포
+          displayName: 'Azure Policy, Policy'
+          href: deploy-scale.md
     - name: 관리 및 구성
       items:
         - name: 역할 권한 및 보안
@@ -405,6 +402,9 @@
             - name: 데이터 수집
               displayname: 'data collection rule,Azure Monitor agent'
               href: agents/data-collection-rule-azure-monitor-agent.md
+            - name: 대규모 배포
+              displayname: Deploy Azure Monitor agent at scale
+              href: deploy-scale.md#azure-monitor-agent
             - name: 레거시 에이전트에서 마이그레이션
               displayname: Migrate to Azure Monitor agent
               href: agents/azure-monitor-agent-migration.md
@@ -1342,7 +1342,7 @@
               href: visualize/view-designer-conversion-tasks.md
             - name: 타일 변환
               href: visualize/view-designer-conversion-tiles.md
-            - name: 예제
+            - name: 예
               href: visualize/view-designer-conversion-examples.md
     - name: 기타 시각화
       items:

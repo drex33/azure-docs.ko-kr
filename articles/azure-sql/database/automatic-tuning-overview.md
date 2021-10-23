@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: NikaKinska
 ms.author: nnikolic
 ms.reviewer: mathoma, wiassaf
-ms.date: 03/23/2021
-ms.openlocfilehash: 8ea21993103e5c461a8cea84f7739160338605a4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 10/18/2021
+ms.openlocfilehash: 564b82854769d0cff730c82f3cd4b99a67b08a41
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536736"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130247975"
 ---
 # <a name="automatic-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance의 자동 튜닝
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -48,10 +48,6 @@ Azure SQL Database의 데이터베이스에 적용되는 튜닝 작업은 가장
 
 Azure SQL Database 자동 튜닝은 데이터베이스 엔진의 SQL Server 자동 튜닝 기능과 핵심 논리를 공유합니다. 기본 제공 인텔리전스 메커니즘에 대한 추가 기술 정보는 [SQL Server 자동 조정](/sql/relational-databases/automatic-tuning/automatic-tuning)을 참조하세요.
 
-자동 조정이 작동하는 방법과 일반적인 사용 시나리오에 대한 개요는 다음에 포함된 비디오를 참조하세요.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-automatic-tuning/player]
-
 ## <a name="enable-automatic-tuning"></a>자동 튜닝 사용
 
 - [Azure Portal](automatic-tuning-enable.md) 또는 [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true) T-SQL 문을 사용하여 Azure SQL Database에 대해 자동 튜닝을 사용하도록 설정합니다.
@@ -73,7 +69,7 @@ Azure SQL Database에 대한 자동 튜닝은 **CREATE INDEX**, **DROP INDEX** �
 
 Azure Portal을 사용하여 수동으로 튜닝 권장 사항을 적용하거나 자동 튜닝이 자동으로 튜닝 권장 사항을 적용하도록 할 수 있습니다. 시스템에서 조정 권장 사항이 자율적으로 적용되도록 하는 경우 좋은 점은 워크로드 성능에 긍정적인 이득이 있는지 자동으로 확인하고, 뛰어난 성능 향상이 감지되지 않는 경우에는 조정 권장 사항을 자동으로 되돌립니다. 자주 실행되지 않는 조정 권장 사항의 영향을 받는 쿼리에 대한 유효성 검사 단계는 최대 72시간이 소요될 수 있습니다.
 
-T-SQL을 통해 튜닝 권장 사항을 적용하는 경우 자동 성능 유효성 검사 및 반전 메커니즘을 사용할 수 없습니다. 이러한 방식으로 적용되는 권장 사항은 활성 상태로 유지되며 24~48시간에 대한 튜닝 권장 사항 목록에 표시됩니다. 그 이후에 시스템에서 자동으로 인출합니다. 권장 사항을 더 일찍 제거하려면 Azure Portal에서 취소할 수 있습니다.
+T-SQL을 통해 튜닝 권장 사항을 적용하는 경우 자동 성능 유효성 검사 및 반전 메커니즘을 사용할 수 없습니다. 이러한 방식으로 적용된 권장 사항 활성 상태로 유지되고 시스템이 자동으로 튜닝을 취소하기 전에 24-48시간 동안 튜닝 권장 사항 목록에 표시됩니다. 권장 사항을 더 일찍 제거하려면 Azure Portal에서 취소할 수 있습니다.
 
 자동 튜닝 옵션은 데이터베이스별로 별도로 설정 또는 해제하거나 서버 수준에서 구성하고 서버에서 설정을 상속하는 모든 데이터베이스에서 적용할 수 있습니다. 서버는 자동 튜닝 설정에 대한 Azure 기본값을 상속할 수 있습니다. 현재 Azure에서는 기본적으로 FORCE_LAST_GOOD_PLAN 및 CREATE_INDEX는 사용하고 DROP_INDEX는 사용하지 않도록 설정됩니다.
 

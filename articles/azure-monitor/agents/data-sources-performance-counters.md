@@ -5,18 +5,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/26/2021
-ms.openlocfilehash: f4bddc1666d1165d6a1e4c749fdbc96ede37747a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 380eed0d2d1c42613fbc8087bd30775555593a91
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102036782"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236209"
 ---
-# <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Log Analytics 에이전트를 사용 하 여 Windows 및 Linux 성능 데이터 원본 수집
+# <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Log Analytics 에이전트로 Windows 및 Linux 성능 데이터 원본 수집
 Windows와 Linux의 성능 카운터는 하드웨어 구성 요소, 운영 체제 및 애플리케이션의 성능에 대한 정보를 자세히 제공합니다.  장기적인 분석 및 보고를 위해 성능 데이터를 집계 하는 것 외에도, NRT (거의 실시간) 분석을 위해 Log Analytics 에이전트에서 성능 카운터를 자주 수집할 수 Azure Monitor.
 
 > [!IMPORTANT]
-> 이 문서에서는 Azure Monitor에서 사용 하는 에이전트 중 하나인 [Log Analytics 에이전트](./log-analytics-agent.md) 를 사용 하 여 성능 데이터를 수집 하는 방법을 설명 합니다. 다른 에이전트는 다른 데이터를 수집 하 고 다르게 구성 됩니다. 사용 가능한 에이전트 목록 및 수집할 수 있는 데이터에 대 한 [Azure Monitor 에이전트 개요](../agents/agents-overview.md) 를 참조 하세요.
+> 이 문서에서는 Azure Monitor에서 사용 하는 에이전트 중 하나인 [Log Analytics 에이전트](./log-analytics-agent.md) 를 사용 하 여 성능 데이터를 수집 하는 방법을 설명 합니다. 다른 에이전트는 다른 데이터를 수집하고 다르게 구성됩니다. 사용 가능한 에이전트 및 수집할 수 있는 데이터 목록은 [Azure Monitor 에이전트 개요](../agents/agents-overview.md)를 참조하세요.
 
 ![성능 카운터](media/data-sources-performance-counters/overview.png)
 
@@ -27,7 +27,7 @@ Log Analytics 작업 영역에 대 한 [에이전트 구성 메뉴](../agents/ag
 
 Windows 성능 카운터의 경우, 각 성능 카운터에 대해 특정 인스턴스를 선택할 수 있습니다. Linux 성능 카운터의 경우, 선택하는 각 카운터의 인스턴스는 부모 카운터의 모든 자식 카운터에 적용됩니다. 다음 테이블은 Linux와 Windows 성능 카운터 모두에서 사용할 수 있는 공통 인스턴스를 보여줍니다.
 
-| 인스턴스 이름 | Description |
+| 인스턴스 이름 | 설명 |
 | --- | --- |
 | \_합계 |모든 인스턴스의 총계 |
 | \* |모든 인스턴스 |
@@ -134,13 +134,13 @@ Azure Portal을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux
 | 프로세서 | % 권한이 부여된 시간 |
 | 프로세서 | % Processor Time |
 | 프로세서 | % 사용자 시간 |
-| System | 사용 가능한 실제 메모리 |
-| System | 페이징 파일에 사용 가능한 공간 |
-| System | 사용 가능한 가상 메모리 |
-| System | 프로세스 |
-| System | 페이징 파일에 저장된 크기 |
-| System | 작동 시간 |
-| System | 사용자 |
+| 시스템 | 사용 가능한 실제 메모리 |
+| 시스템 | 페이징 파일에 사용 가능한 공간 |
+| 시스템 | 사용 가능한 가상 메모리 |
+| 시스템 | 프로세스 |
+| 시스템 | 페이징 파일에 저장된 크기 |
+| 시스템 | 작동 시간 |
+| 시스템 | 사용자 |
 
 
 다음은 성능 메트릭에 대한 기본 구성입니다.
@@ -180,7 +180,7 @@ Azure Portal을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux
 ```
 
 ## <a name="data-collection"></a>데이터 수집
-Azure Monitor는 카운터가 설치된 모든 에이전트에서 지정된 모든 성능 카운터를 지정된 샘플 간격으로 수집합니다.  데이터는 집계 되지 않으며, log analytics 작업 영역에 지정 된 기간 동안 모든 로그 쿼리 보기에서 원시 데이터를 사용할 수 있습니다.
+Azure Monitor는 카운터가 설치된 모든 에이전트에서 지정된 모든 성능 카운터를 지정된 샘플 간격으로 수집합니다.  데이터는 집계되지 않으며 로그 분석 작업 영역에서 지정한 기간 동안 모든 로그 쿼리 뷰에서 원시 데이터를 사용할 수 있습니다.
 
 ## <a name="performance-record-properties"></a>성능 레코드 속성
 성능 레코드에는 **Perf** 라는 type과 다음 테이블의 속성이 포함됩니다.
@@ -189,7 +189,7 @@ Azure Monitor는 카운터가 설치된 모든 에이전트에서 지정된 모�
 |:--- |:--- |
 | Computer |이벤트가 수집된 컴퓨터입니다. |
 | CounterName |성능 카운터의 이름입니다. |
-| CounterPath |Form \\ \\ \<Computer> \\ 개체 (인스턴스) 카운터에 있는 카운터의 전체 경로 \\ 입니다. |
+| CounterPath |\\ \\ \<Computer> object(instance) 카운터 형식의 카운터 전체 \\ \\ 경로입니다. |
 | CounterValue |카운터의 숫자 값입니다. |
 | InstanceName |이벤트 인스턴스의 이름입니다.  인스턴스가 없으면 비어 있게 됩니다. |
 | ObjectName |성능 개체의 이름입니다. |
@@ -199,7 +199,7 @@ Azure Monitor는 카운터가 설치된 모든 에이전트에서 지정된 모�
 ## <a name="sizing-estimates"></a>예상 크기 조정
  10초 간격으로 특정 카운터가 수집되는 양은 인스턴스당 일별 약 1MB입니다.  다음 수식을 사용하여 특정 카운터의 스토리지 요구 사항을 예측할 수 있습니다.
 
-> 1mb x (카운터 수) x (에이전트 수) x (인스턴스 수)
+> 1MB x(카운터 수) x(에이전트 수) x(인스턴스 수)
 
 ## <a name="log-queries-with-performance-records"></a>성능 레코드를 통한 로그 쿼리
 다음 표에서는 성능 레코드를 검색하는 로그 쿼리의 다양한 예제를 제공합니다.
@@ -209,10 +209,10 @@ Azure Monitor는 카운터가 설치된 모든 에이전트에서 지정된 모�
 | Perf |모든 성능 데이터 |
 | Perf &#124; where Computer == "MyComputer" |특정 컴퓨터의 모든 성능 데이터 |
 | Perf &#124; where CounterName == "Current Disk Queue Length" |특정 컴퓨터에 대한 모든 성능 데이터 |
-| ObjectName = = "Processor" 및 CounterName = = "% Processor Time" 및 InstanceName = = "_Total" &#124; 컴퓨터 별로 AVGCPU = avg (CounterValue)를 요약 하는 성능 &#124; |모든 컴퓨터의 평균 CPU 사용률 |
-| CounterName = = "% Processor Time" &#124; 컴퓨터 별로 AggregatedValue = max (CounterValue)를 요약 하는 성능 &#124; |모든 컴퓨터의 최대 CPU 사용률 |
-| ObjectName = = "논리 디스크" 및 CounterName = = "Current Disk Queue Length" 및 Computer = = "MyComputerName" &#124; 요약 AggregatedValue = avg (CounterValue) by InstanceName &#124; |지정된 컴퓨터의 모든 인스턴스의 평균 현재 디스크 큐 길이 |
-| 성능 &#124; 여기서 CounterName = = "Disk transfer/sec" &#124; AggregatedValue = 백분위 수 (CounterValue, 95)를 컴퓨터별로 요약 합니다. |모든 컴퓨터에 대한 디스크 전송/초의 95 백분위수 |
+| Perf &#124; where ObjectName == "Processor" and CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AVGCPU = avg(CounterValue) by Computer |모든 컴퓨터의 평균 CPU 사용률 |
+| Perf &#124; where CounterName == "% Processor Time" &#124; summarize AggregatedValue = max(CounterValue) by Computer |모든 컴퓨터의 최대 CPU 사용률 |
+| Perf &#124; where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and Computer == "MyComputerName" &#124; summarize AggregatedValue = avg(CounterValue) by InstanceName |지정된 컴퓨터의 모든 인스턴스의 평균 현재 디스크 큐 길이 |
+| Perf &#124; where CounterName == "Disk Transfers/sec" &#124; summarize AggregatedValue = percentile(CounterValue, 95) by Computer |모든 컴퓨터에 대한 디스크 전송/초의 95 백분위수 |
 | Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), Computer |모든 컴퓨터에서 시간별 평균 CPU 사용량 |
 | Perf &#124; where Computer == "MyComputer" and CounterName startswith_cs "%" and InstanceName == "_Total" &#124; summarize AggregatedValue = percentile(CounterValue, 70) by bin(TimeGenerated, 1h), CounterName | 특정 컴퓨터에 대한 % 백분율 카운터당 시간별 70백분위수 |
 | Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" and Computer == "MyComputer" &#124; summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer |특정 컴퓨터의 시간별 평균, 최소, 최대, 75백분위수 CPU 사용량 |
@@ -224,4 +224,4 @@ Azure Monitor는 카운터가 설치된 모든 에이전트에서 지정된 모�
 ## <a name="next-steps"></a>다음 단계
 * MySQL 및 Apache HTTP 서버를 포함하여 [Linux 애플리케이션에서 성능 카운터를 수집](data-sources-linux-applications.md)합니다.
 * 데이터 원본 및 솔루션에서 수집한 데이터를 분석하는 [로그 쿼리](../logs/log-query-overview.md)에 대해 알아봅니다.  
-* 추가적인 시각화 및 분석을 위해, 수집된 데이터를 [Power BI](../visualize/powerbi.md) 로 내보냅니다.
+* 추가적인 시각화 및 분석을 위해, 수집된 데이터를 [Power BI](../logs/log-powerbi.md) 로 내보냅니다.

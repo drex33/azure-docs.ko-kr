@@ -9,12 +9,12 @@ ms.author: dashe
 ms.reviewer: sawinark
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: 9cced212913ad8f31f71445a6bf3e70fc3bb3f8e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b7d6605f1a387a917c9d106078ead404842ea02c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124743117"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251930"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Azure Data Factory에서 SSIS Integration Runtime 문제 해결
 
@@ -172,7 +172,7 @@ Azure-SSIS IR을 Azure Virtual Network에 참가하는 경우 IR이 특정 IP �
 | 제공된 고정 공용 IP 주소가 이미 사용 중입니다. Azure-SSIS Integration Runtime에 사용하지 않는 두 개의 주소를 제공하세요. | 사용하지 않는 고정 공용 IP 주소 두 개를 선택하거나 지정된 공용 IP 주소에 대한 현재 참조를 제거한 후 Azure-SSIS IR을 다시 시작해야 합니다. |
 | 제공된 고정 공용 IP 주소에 DNS 이름이 없습니다. Azure-SSIS IR에 대한 DNS 이름 두 개를 제시하세요. | 아래 그림처럼 Azure Portal에서 공용 IP 주소의 DNS 이름을 설정할 수 있습니다. 구체적인 단계는 다음과 같습니다. (1) Azure Portal을 열고 해당 공용 IP 주소의 리소스 페이지로 이동. (2) **구성** 섹션을 선택하고 DNS 이름을 설정한 다음 **저장** 버튼 클릭. (3) Azure-SSIS IR 다시 시작. |
 | Azure-SSIS IR에 제공된 VNet 및 고정 공용 IP 주소는 동일한 위치에 있어야 합니다. | Azure 네트워크 요구 사항에 따라 고정 공용 IP 주소와 가상 네트워크는 동일한 위치 및 구독에 있어야 합니다. 두 개의 유효한 고정 공용 IP 주소를 제공하고 Azure-SSIS IR을 다시 시작하세요. |
-| 제공된 고정 공용 IP 주소는 기본 IP 주소입니다. Azure-SSIS IR에 대해 IP 두 개의 표준 주소를 제공하세요. | 도움이 필요하면 [공용 IP 주소의 SKU](../virtual-network/public-ip-addresses.md#sku)를 참조하세요. |
+| 제공된 고정 공용 IP 주소는 기본 IP 주소입니다. Azure-SSIS IR에 대해 IP 두 개의 표준 주소를 제공하세요. | 도움이 필요하면 [공용 IP 주소의 SKU](../virtual-network/ip-services/public-ip-addresses.md#sku)를 참조하세요. |
 
 :::image type="content" source="media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png" alt-text="Azure-SSIS IR":::
 

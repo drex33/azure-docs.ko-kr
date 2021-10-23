@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: redhat
 ms.assetid: 9b37b2c4-5927-4271-85c7-19adf33d838b
 ms.date: 05/25/2021
-ms.openlocfilehash: 3c819367f35cb4a8174abaac1380eb439ace206a
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: 6682c5301861732189d532641060e136250957b9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769708"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261484"
 ---
 # <a name="deploy-red-hat-jboss-enterprise-platform-eap-on-azure-vms-and-virtual-machine-scale-sets-using-the-azure-marketplace-offer"></a>Azure Marketplace 제품을 사용하여 Azure VM 및 가상 머신 확장 집합 기반 Red Hat JBoss EAP(Enterprise Platform) 배포
 
@@ -111,7 +111,7 @@ JBoss EAP는 BYOS 모델을 통해서만 Azure에 제공됩니다. RHEL 플랜 �
 ## <a name="after-a-successful-deployment"></a>성공적으로 배포한 후
 
 1. 다른 Virtual Network에서 [VNet 피어링을 사용하여 점프 VM을 생성](../../windows/quick-create-portal.md#create-virtual-machine)하고 [가상 네트워크 피어링](../../../virtual-network/tutorial-connect-virtual-networks-portal.md#peer-virtual-networks)을 사용하여 서버에 액세스하고 애플리케이션을 노출합니다.
-2. [공용 IP를 만들어](../../../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address) 서버와 애플리케이션에 액세스합니다.
+2. [공용 IP를 만들어](../../../virtual-network/ip-services/virtual-network-public-ip-address.md#create-a-public-ip-address) 서버와 애플리케이션에 액세스합니다.
 3. 동일한 VNet의 다른 서브넷(새 서브넷)에 있는 [동일한VNet(Virtual Network)에 점프 VM을 생성](../../windows/quick-create-portal.md#create-virtual-machine)하고 점프 VM을 통해 서버에 액세스합니다. 점프 VM을 사용하여 애플리케이션을 노출할 수 있습니다.
 4. [Application Gateway](../../../application-gateway/quick-create-portal.md#create-an-application-gateway)를 사용하여 애플리케이션을 노출합니다.
 5. ELB(외부 부하 분산 장치)를 사용하여 애플리케이션을 노출합니다.
@@ -128,7 +128,7 @@ JBoss EAP는 BYOS 모델을 통해서만 Azure에 제공됩니다. RHEL 플랜 �
 
 ### <a name="2-create-a-public-ip-to-access-the-rhel-vm-and-jboss-eap-admin-console"></a>2. RHEL VM 및 JBoss EAP 관리 콘솔에 액세스하는 공용 IP 만들기
 
-1. 만든 RHEL VM에 공용 IP가 연결되어 있지 않습니다. VM에 액세스할 수 있는 [공용 IP를 만들고](../../../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address) [공용 IP를 VM에 연결](../../../virtual-network/associate-public-ip-address-vm.md)할 수 있습니다. Azure Portal 또는 [Azure PowerShell](/powershell/) 명령이나 [Azure CLI](/cli/azure/install-azure-cli) 명령을 사용하여 공용 IP를 만들 수 있습니다.
+1. 만든 RHEL VM에 공용 IP가 연결되어 있지 않습니다. VM에 액세스할 수 있는 [공용 IP를 만들고](../../../virtual-network/ip-services/virtual-network-public-ip-address.md#create-a-public-ip-address) [공용 IP를 VM에 연결](../../../virtual-network/ip-services/associate-public-ip-address-vm.md)할 수 있습니다. Azure Portal 또는 [Azure PowerShell](/powershell/) 명령이나 [Azure CLI](/cli/azure/install-azure-cli) 명령을 사용하여 공용 IP를 만들 수 있습니다.
 2. VM의 공용 IP 가져오기 - VM 세부 정보 페이지로 이동하여 공용 IP를 복사합니다. 공용 IP를 사용하여 VM과 JBoss EAP 관리 콘솔에 액세스합니다.
 3. Azure 기반 JBoss EAP 웹 페이지 보기 - 웹 브라우저를 열고 *http://<PUBLIC_HOSTNAME>:8080/* 으로 이동합니다. 그러면 기본 EAP 시작 페이지가 표시되어야 합니다.
 4. JBoss EAP 관리 콘솔에 로그인 - 웹 브라우저를 열고 *http://<PUBLIC_HOSTNAME>:9990* 으로 이동합니다. 로그인할 JBoss EAP 사용자 이름과 암호를 입력합니다.

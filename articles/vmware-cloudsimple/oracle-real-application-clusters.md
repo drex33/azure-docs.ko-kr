@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c6413d6237cb8bab903b3c98a844fe05c943539e
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 098f9a65af4537dace4f6ac0edb2ff71df34c3d2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129616292"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232012"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Oracle RAC 설치를 위해 CloudSimple 프라이빗 클라우드 최적화
 
@@ -44,16 +44,16 @@ Oracle RAC 가상 머신에는 특정 기능에 사용되는 여러 디스크가
 
 다음 예에서는 아래 표에 정의된 디스크를 사용합니다.
 
-| 디스크                                      | 목적                                       | 공유 디스크 |
+| 디스크                                      | 용도                                       | 공유 디스크 |
 |-------------------------------------------|-----------------------------------------------|-------------|
 | OS                                        | 운영 체제 디스크                         | 아니요          |
-| GRID                                      | Oracle Grid 소프트웨어의 설치 위치     | 예          |
+| GRID                                      | Oracle Grid 소프트웨어의 설치 위치     | 아니요          |
 | DATABASE                                  | Oracle 데이터베이스 소프트웨어의 설치 위치 | 아니요          |
-| ORAHOME                                   | Oracle 데이터베이스 이진 파일의 기본 위치    | 예          |
-| DATA1, DATA2, DATA3, DATA4                | Oracle 데이터베이스 파일이 저장되는 디스크   | 예         |
-| REDO1, REDO2, REDO3, REDO4, REDO5, REDO6  | 다시 실행 로그 디스크                                | 예         |
-| OCR1, OCR2, OCR3, OCR4, OCR5              | 투표 디스크                                  | 예         |
-| FRA1, FRA2                                | 빠른 복구 영역 디스크                      | 예         |
+| ORAHOME                                   | Oracle 데이터베이스 이진 파일의 기본 위치    | 아니요          |
+| DATA1, DATA2, DATA3, DATA4                | Oracle 데이터베이스 파일이 저장되는 디스크   | Yes         |
+| REDO1, REDO2, REDO3, REDO4, REDO5, REDO6  | 다시 실행 로그 디스크                                | Yes         |
+| OCR1, OCR2, OCR3, OCR4, OCR5              | 투표 디스크                                  | Yes         |
+| FRA1, FRA2                                | 빠른 복구 영역 디스크                      | Yes         |
 
 ![Oracle 가상 머신 디스크 구성](media/oracle-vmdk.png)
 
@@ -262,4 +262,3 @@ VM-호스트 선호도 규칙은 VM이 원하는 호스트에서 실행되도록
 ## <a name="references"></a>참조
 
 * [vSAN 정책 정보](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.virtualsan.doc/GUID-08911FD3-2462-4C1C-AE81-0D4DBC8F7990.html)
-* [공유 VMDK에 대한 VMware 다중 기록기 특성](https://docs.vmware.com/en/VMware-Cloud-on-AWS/solutions/VMware-Cloud-on-AWS.df6735f8b729fee463802083d46fdc75/GUID-A7642A82B3D6C5F7806DB40A3F2766D9.html)

@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 10/17/2021
+ms.date: 10/20/2021
 ms.author: memildin
-ms.openlocfilehash: bd75b5fff78c213bc9d0541fb1824969b7a798a3
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: ee093b8300ab2140d72d5d72c7863b9a169f54f2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130129152"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249479"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -34,7 +34,9 @@ Security Center는 현재 개발 중이며 지속적으로 향상된 기능을 �
 - [취약성 평가 솔루션은 이제 자동으로 사용 하도록 설정할 수 있습니다 (미리 보기).](#vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview)
 - [자산 인벤토리에 추가 된 소프트웨어 인벤토리 필터 (미리 보기)](#software-inventory-filters-added-to-asset-inventory-in-preview)
 - [일부 경고 형식의 접두사가 "ARM_"에서 "VM_" (으)로 변경 되었습니다.](#changed-prefix-of-some-alert-types-from-arm_-to-vm_)
+- [Kubernetes 클러스터에 대 한 보안 권장 사항의 논리 변경 내용](#changes-to-the-logic-of-a-security-recommendation-for-kubernetes-clusters)
 - [이제 권장 사항 세부 정보 페이지에 관련 권장 사항이 표시 됩니다.](#recommendations-details-pages-now-show-related-recommendations)
+- [Azure Defender for Kubernetes (미리 보기)에 대 한 새 경고](#new-alerts-for-azure-defender-for-kubernetes-in-preview)
 
 
 ### <a name="microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution-in-preview"></a>취약성 평가 솔루션 (미리 보기)로 추가 된 Microsoft 위협 및 취약성 관리
@@ -111,6 +113,12 @@ Azure 리소스 Graph에 대 한 샘플 kusto 쿼리를 비롯 한 전체 세부
 
 [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) 및 [서버용 Azure Defender](defender-for-servers-introduction.md) 계획에 대해 자세히 알아봅니다.
 
+### <a name="changes-to-the-logic-of-a-security-recommendation-for-kubernetes-clusters"></a>Kubernetes 클러스터에 대 한 보안 권장 사항의 논리 변경 내용
+
+"Kubernetes 클러스터에서 기본 네임 스페이스를 사용 하지 않아야 합니다."는 리소스 형식에 대 한 기본 네임 스페이스의 사용을 금지 합니다. 이 권장 구성에 포함 된 두 리소스 유형 (ConfigMap 및 Secret)이 제거 되었습니다. 
+
+이 권장 사항에 대해 자세히 알아보고 [Kubernetes 클러스터에 대 한 Azure Policy 이해](../governance/policy/concepts/policy-for-kubernetes.md)에서 Kubernetes 클러스터를 강화 하세요.
+
 ### <a name="recommendations-details-pages-now-show-related-recommendations"></a>이제 권장 사항 세부 정보 페이지에 관련 권장 사항이 표시 됩니다.
 
 여러 권장 사항 간의 관계를 명확 하 게 설명 하기 위해 많은 권장 사항에 대 한 세부 정보 페이지에 **관련 권장 사항** 영역을 추가 했습니다. 
@@ -138,29 +146,43 @@ Security Center 지원 되는 취약점 평가 솔루션을 찾지 못하면 검
 
 따라서
 
- - 권장 사항 #1은 권장 사항의 필수 조건 #2입니다.
- - 권장 사항 #2는 권장 사항 #1에 따라 달라집니다.
+ - 권장 사항 #1 권장 구성에 대 한 필수 구성 요소 #2
+ - 권장 사항은 권장 사항에 따라 #2 #1
 
-:::image type="content" source="media/release-notes/related-recommendations-solution-not-found.png" alt-text="취약성 평가 솔루션을 배포하기 위한 권장 사항의 스크린샷.":::
+:::image type="content" source="media/release-notes/related-recommendations-solution-not-found.png" alt-text="취약성 평가 솔루션을 배포 하기 위한 권장 사항 스크린샷":::
 
-:::image type="content" source="media/release-notes/related-recommendations-vulnerabilities-found.png" alt-text="검색된 취약성을 해결하기 위한 권장 사항의 스크린샷":::
+:::image type="content" source="media/release-notes/related-recommendations-vulnerabilities-found.png" alt-text="검색 된 취약성을 해결 하기 위한 권장 사항 스크린샷":::
 
 
+
+### <a name="new-alerts-for-azure-defender-for-kubernetes-in-preview"></a>Azure Defender for Kubernetes (미리 보기)에 대 한 새 경고
+
+Azure Defender for Kubernetes에서 제공 하는 위협 보호를 확장 하기 위해 두 개의 미리 보기 경고를 추가 했습니다.
+
+이러한 경고는 새로운 기계 학습 모델과 Kubernetes 고급 분석을 기반으로 생성 되며, 클러스터의 이전 작업과 Azure Defender에서 모니터링 하는 모든 클러스터에 대해 여러 배포 및 역할 할당 특성을 측정 합니다.
+
+| 경고(경고 유형)                                                                 | Description                                                                                                                                                                                                                                                                                                                                                      | MITRE 전술 | 심각도 |
+|------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------:|----------|
+| **비정상 pod 배포 (미리 보기)**<br>(K8S_AnomalousPodDeployment)             | Kubernetes 감사 로그 분석에서 이전 pod 배포 작업을 기반으로 비정상적인 pod 배포를 검색 했습니다. 이 활동은 배포 작업에 표시 되는 다양 한 기능이 서로 간의 관계에 있는 방법을 고려 하는 경우 변칙으로 간주 됩니다. 이 분석을 통해 모니터링 되는 기능에는 사용 되는 컨테이너 이미지 레지스트리, 배포를 수행 하는 계정,이 계정이 pod 배포를 수행 하는 빈도, 작업에 사용 되는 사용자 에이전트 등이 포함 됩니다. 비정상적인 활동으로 인해이 경고가 발생 하는 가장 중요 한 이유는 경고 확장 속성에 자세히 설명 되어 있습니다. | 실행 | 중간 |
+| **Kubernetes 클러스터에 할당 된 과도 한 역할 권한 (미리 보기)**<br>(K8S_ServiceAcountPermissionAnomaly) | Kubernetes 감사 로그를 분석 하 여 클러스터에 대 한 과도 한 권한 역할 할당을 검색 했습니다. 역할 할당 검사에서 나열 된 사용 권한은 특정 서비스 계정에 일반적이 지 않습니다. 이 검색은 Azure에서 모니터링 하는 클러스터에서 동일한 서비스 계정에 대 한 이전 역할 할당, 권한 당 볼륨 및 특정 사용 권한의 영향을 고려 합니다. 이 경고에 사용 되는 변칙 검색 모델은 Azure Defender에서 모니터링 하는 모든 클러스터에서이 사용 권한을 사용 하는 방법을 고려 합니다. | 권한 상승 | 낮음 |
+|||
+
+Kubernetes 경고의 전체 목록은 [Kubernetes 클러스터에 대한 경고](alerts-reference.md#alerts-k8scluster)를 참조하세요.
 
 ## <a name="september-2021"></a>2021년 9월
 
-9월에는 다음 업데이트가 릴리스되었습니다.
+9 월에는 다음 업데이트가 릴리스 되었습니다.
 
-### <a name="two-new-recommendations-to-audit-os-configurations-for-azure-security-baseline-compliance-in-preview"></a>Azure 보안 기준 준수에 대한 OS 구성을 감사하기 위한 두 가지 새로운 권장 사항(미리 보기)
+### <a name="two-new-recommendations-to-audit-os-configurations-for-azure-security-baseline-compliance-in-preview"></a>Azure 보안 기준 준수에 대 한 OS 구성을 감사 하기 위한 두 가지 새로운 권장 사항 (미리 보기)
 
-Windows 보안 기준 및 [Linux](../governance/policy/samples/guest-configuration-baseline-linux.md) [보안 기준을](../governance/policy/samples/guest-configuration-baseline-windows.md) 사용하여 머신의 규정 준수를 평가하기 위해 다음 두 가지 권장 사항이 릴리스되었습니다.
+다음 두 가지 권장 사항은 [Windows 보안 기준](../governance/policy/samples/guest-configuration-baseline-windows.md) 및 [Linux 보안 기준](../governance/policy/samples/guest-configuration-baseline-linux.md)으로 컴퓨터의 호환성을 평가 하기 위해 릴리스 되었습니다.
 
-- Windows 컴퓨터의 경우 Windows 컴퓨터의 보안 구성 취약성을 [수정해야 합니다(게스트 구성에서 구동).](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1f655fb7-63ca-4980-91a3-56dbc2b715c6)
-- Linux 머신의 경우 [Linux 머신의 보안 구성 취약성을 수정해야 합니다(게스트 구성에서 구동).](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8c3d9ad0-3639-4686-9cd2-2b2ab2609bda)
+- Windows 컴퓨터의 경우 [Windows 컴퓨터에서 보안 구성의 취약성을 재구성 해야 합니다 (게스트 구성에서 구동 됨)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1f655fb7-63ca-4980-91a3-56dbc2b715c6) .
+- Linux 컴퓨터의 경우 [linux 컴퓨터에서 보안 구성의 취약성을 재구성 해야 합니다 (게스트 구성에서 구동)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8c3d9ad0-3639-4686-9cd2-2b2ab2609bda) .
 
-이러한 권장 사항은 Azure Policy 게스트 구성 기능을 사용하여 컴퓨터의 OS 구성을 [Azure Security Benchmark](/security/benchmark/azure/overview)에 정의된 기준과 비교합니다.
+이러한 권장 사항은 Azure Policy의 게스트 구성 기능을 사용 하 여 컴퓨터의 OS 구성을 [Azure 보안 벤치 마크](/security/benchmark/azure/overview)에 정의 된 기준선과 비교 합니다.
 
-게스트 구성을 사용하여 [컴퓨터의 OS 구성 강화에서](apply-security-baseline.md)이러한 권장 사항을 사용하는 방법에 대해 자세히 알아보세요.
+[게스트 구성을 사용 하 여 컴퓨터의 OS 구성 강화](apply-security-baseline.md)에서 이러한 권장 사항을 사용 하는 방법에 대해 자세히 알아보세요.
 
 ## <a name="august-2021"></a>2021년 8월
 
@@ -192,7 +214,7 @@ Windows 보안 기준 및 [Linux](../governance/policy/samples/guest-configurati
 
 ### <a name="two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview"></a>엔드포인트 보호 솔루션 관리를 위한 두 가지 새로운 권장 사항(미리 보기)
 
-컴퓨터에 엔드포인트 보호 솔루션을 배포하고 유지 관리하기 위한 두 가지 새로운 **미리 보기** 권장 사항을 추가했습니다. 두 권장 사항에는 Azure 가상 머신 및 Azure Arc 지원 서버에 연결된 머신에 대한 지원이 포함됩니다.
+컴퓨터에 엔드포인트 보호 솔루션을 배포하고 유지 관리하기 위한 두 가지 새로운 **미리 보기** 권장 사항을 추가했습니다. 두 권장 사항에는 azure Arc 사용 서버에 연결 된 Azure virtual machines 및 컴퓨터에 대 한 지원이 포함 됩니다.
 
 |권장 |Description |심각도 |
 |---|---|---|
@@ -429,7 +451,7 @@ Azure Defender를 Azure Sentinel에 연결하면 Azure Sentinel로 수집된 Azu
 
 Key Vault용 Azure Defender에서 제공하는 위협 방지 기능을 확장하기 위해 다음과 같은 경고를 추가했습니다.
 
-| 경고(경고 유형)                                                                 | 설명                                                                                                                                                                                                                                                                                                                                                      | MITRE 전술 | 심각도 |
+| 경고(경고 유형)                                                                 | Description                                                                                                                                                                                                                                                                                                                                                      | MITRE 전술 | 심각도 |
 |------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------:|----------|
 | 의심스러운 IP 주소에서 Key Vault에 액세스<br>(KV_SuspiciousIPAccess)  | Microsoft 위협 인텔리전스에서 의심스러운 IP 주소로 식별된 IP를 통해 Key Vault에 액세스했습니다. 이것은 인프라가 손상되었음을 나타낼 수 있습니다. 추가 조사가 권장됩니다. [Microsoft 위협 인텔리전스 기능](https://go.microsoft.com/fwlink/?linkid=2128684)에 대해 자세히 알아보세요. | 자격 증명 액세스                            | 중간   |
 |||
@@ -552,7 +574,7 @@ Azure Security Center에서 오픈 소스 관계형 데이터베이스를 포괄
 
 Resource Manager용 Azure Defender에서 제공하는 위협 방지 기능을 확장하기 위해 다음과 같은 경고를 추가했습니다.
 
-| 경고(경고 유형)                                                                                                                                                | 설명                                                                                                                                                                                                                                                                                                                                                                                                                              | MITRE 전술 | 심각도 |
+| 경고(경고 유형)                                                                                                                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                              | MITRE 전술 | 심각도 |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------:|----------|
 |**Azure 환경에 대해 비정상적인 방식으로 RBAC 역할에 대해 사용 권한이 부여됨(미리 보기)**<br>(ARM_AnomalousRBACRoleAssignment)|Resource Manager용 Azure Defender가 할당 시간, 할당자 위치, 할당자, 인증 방법, 할당된 엔터티, 사용되는 클라이언트 소프트웨어, 할당 익스텐트 등의 변칙으로 인해 테넌트의 동일한 담당자에 대해 동일한 할당자가 수행한 다른 할당과 비교할 때 일반적이지 않은 RBAC 역할 할당을 감지했습니다. 조직의 합법적인 사용자가 이 작업을 수행했을 수 있습니다. 또는 조직의 계정이 위반되었으며 위협 행위자가 소유한 추가 사용자 계정에 사용 권한을 부여하려고 시도하고 있음을 나타낼 수 있습니다.|수평 이동, 방어 우회|중간|
 |**구독에 대해 권한 있는 사용자 지정 역할이 의심스러운 방식으로 생성됨(미리 보기)**<br>(ARM_PrivilegedRoleDefinitionCreation)|Resource Manager용 Azure Defender가 구독에서 의심스러운 방식으로 생성된 권한 있는 사용자 지정 역할 정의를 감지했습니다. 조직의 합법적인 사용자가 이 작업을 수행했을 수 있습니다. 또는 조직의 계정이 위반되었으며 위협 행위자가 나중에 우회하는 데 사용할 권한 있는 역할을 만들려고 하는 것임을 나타낼 수 있습니다.|수평 이동, 방어 우회|낮음|
@@ -589,13 +611,13 @@ Security Center에는 VM, SQL Server 및 해당 호스트, 컨테이너 레지�
 
 이 변경으로 **쿼리 열기** 단추를 사용하여 보안 결과를 보여 주는 쿼리도 열 수 있습니다.
 
-:::image type="content" source="media/release-notes/open-query-menu-security-findings.png" alt-text="이제 열기 쿼리 단추는 취약성 스캐너 관련 권장 사항에 대한 보안 결과를 보여주는 심층 쿼리에 대한 옵션을 제공합니다.":::
+:::image type="content" source="media/release-notes/open-query-menu-security-findings.png" alt-text="이제 쿼리 열기 단추를 클릭 하면 취약성 스캐너 관련 권장 사항에 대 한 보안 결과를 보여 주는 심층 쿼리 옵션이 제공 됩니다.":::
 
-**쿼리 열기** 단추는 관련된 다른 권장 사항에 대한 추가 옵션을 제공합니다.
+**쿼리 열기** 단추는 관련 된 기타 권장 사항에 대 한 추가 옵션을 제공 합니다.
 
 Security Center 취약성 검사기에 대한 자세한 정보:
 
-- [Azure Defender 및 하이브리드 머신용 Qualys 통합 취약성 스캐너](deploy-vulnerability-assessment-vm.md)
+- [Azure 및 하이브리드 컴퓨터용 azure Defender의 통합 Qualys 취약성 스캐너](deploy-vulnerability-assessment-vm.md)
 - [SQL Server용 Azure Defender 통합 취약성 평가 검사기](defender-for-sql-on-machines-vulnerability-assessment.md)
 - [컨테이너 레지스트리용 Azure Defender 통합 취약성 평가 검사기](defender-for-container-registries-usage.md)
 

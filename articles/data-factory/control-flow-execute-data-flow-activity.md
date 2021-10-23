@@ -9,12 +9,12 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 09/09/2021
-ms.openlocfilehash: 14fa6484a3cba97602d33cf2b302d62bf6ef2871
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: c42ba6008f80f3fe625d9716c6a6d62f3fb60d2a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124743888"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130260287"
 ---
 # <a name="data-flow-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 데이터 흐름 작업
 
@@ -107,11 +107,11 @@ Azure Synapse Analytics를 싱크 또는 원본으로 사용하는 경우 PolyBa
 
 데이터 흐름 싱크의 기본 동작은 각 싱크를 순차적으로 실행하고 싱크에서 오류가 발생할 경우 데이터 흐름이 실패하도록 하는 것입니다. 또한 데이터 흐름 속성으로 이동하여 싱크에 대해 다른 우선 순위를 설정하지 않는 한 모든 싱크는 기본적으로 동일한 그룹으로 지정됩니다.
 
+:::image type="content" source="media/data-flow/sink-properties.png" alt-text="싱크 속성":::
+
 ### <a name="first-row-only"></a>첫 행 전용
 
 이 옵션은 “작업에 출력”에 대해 캐시 싱크를 사용하는 것으로 설정된 데이터 흐름에만 사용할 수 있습니다. 파이프라인에 직접 삽입되는 데이터 흐름의 출력은 2MB로 제한됩니다. “첫 행 전용”을 설정하면 데이터 흐름 활동 출력을 파이프라인에 직접 삽입하는 경우 데이터 흐름에서 데이터 출력을 제한할 수 있습니다.
-
-:::image type="content" source="media/data-flow/sink-properties.png" alt-text="싱크 속성":::
 
 ## <a name="parameterizing-data-flows"></a>데이터 흐름 매개 변수화
 

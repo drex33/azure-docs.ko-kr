@@ -1,6 +1,6 @@
 ---
 title: Azure Cost Management 데이터에 대한 액세스 할당
-description: 이 문서에서는 다양한 액세스 범위에 대한 데이터를 Cost Management 권한을 할당하는 방법을 안내합니다.
+description: 이 문서에서는 다양 한 액세스 범위에 대 한 Cost Management 데이터에 대 한 사용 권한을 할당 하는 방법을 안내 합니다.
 author: bandersmsft
 ms.author: banders
 ms.date: 10/07/2021
@@ -9,16 +9,16 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: secdec18
-ms.openlocfilehash: dddb6292530687e75e4b5e697f4fc754d98040fb
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 00d8b5b2e9a3792c3dd9212607916317c7eb41f8
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129706249"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130247519"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Cost Management 데이터에 대한 액세스 할당
 
-Azure Enterprise 계약을 체결한 사용자의 경우 Azure Portal 부여된 권한과 EA(Enterprise) 포털의 조합은 Cost Management 데이터에 대한 사용자의 액세스 수준을 정의합니다. 다른 Azure 계정 유형을 사용하는 사용자의 경우 Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 Cost Management 데이터에 대한 사용자의 액세스 수준을 정의하는 것이 더 간편합니다. 이 문서에서는 Cost Management 데이터에 대한 액세스 권한을 할당하는 방법을 안내합니다. 권한 조합이 할당되면 사용자는 액세스 권한이 있는 범위와 Azure Portal에서 선택한 범위에 따라 Cost Management에서 데이터를 봅니다.
+Azure Enterprise 규약을 사용 하는 사용자의 경우 Azure Portal 및 EA (Enterprise) 포털에서 부여 된 사용 권한 조합을 통해 사용자의 Cost Management 데이터 액세스 수준을 정의 합니다. 다른 Azure 계정 유형을 사용하는 사용자의 경우 Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 Cost Management 데이터에 대한 사용자의 액세스 수준을 정의하는 것이 더 간편합니다. 이 문서에서는 Cost Management 데이터에 대한 액세스 권한을 할당하는 방법을 안내합니다. 권한 조합이 할당되면 사용자는 액세스 권한이 있는 범위와 Azure Portal에서 선택한 범위에 따라 Cost Management에서 데이터를 봅니다.
 
 사용자가 선택한 범위는 Cost Management 전체에서 데이터 통합을 제공하고 비용 정보에 대한 액세스를 제어하는 데 사용됩니다. 범위를 사용하는 경우 사용자는 여러 개의 범위를 선택하지 않습니다. 대신 자식 범위가 롤업하는 더 큰 범위를 선택한 다음, 보려는 대상으로 필터링합니다. 일부 사용자는 자식 범위가 롤업하는 부모 범위에 액세스할 수 없으므로 데이터 통합을 이해해야 합니다.
 
@@ -47,6 +47,7 @@ Azure EA 구독의 비용 데이터를 보려면 사용자에게 적어도 다�
 
 <sup>2</sup> 등록 계정은 계정 소유자라고도 합니다.
 
+직접 엔터프라이즈 관리자는 [Azure Portal](https://portal.azure.com/)에서 청구 계정, 부서 및 등록 계정 범위를 할당할 수 있습니다. 자세한 내용은 [직접 Enterprise 계약에 대 한 Azure Portal 관리](../manage/direct-ea-administration.md)를 참조 하세요.
 
 ## <a name="other-azure-account-scopes"></a>다른 Azure 계정 범위
 
@@ -56,7 +57,7 @@ Azure EA 구독의 비용 데이터를 보려면 사용자에게 적어도 다�
 - 구독
 - Resource group
 
-파트너가 Microsoft 고객 계약을 체결한 후에는 다양한 범위를 사용할 수 있습니다. CSP 고객은 CSP 파트너가 사용하도록 설정된 경우 Cost Management 기능을 사용할 수 있습니다. 자세한 내용은 [파트너용 Cost Management 시작을 참조하세요.](get-started-partners.md)
+파트너가 Microsoft 고객 계약을 체결한 후에는 다양한 범위를 사용할 수 있습니다. CSP 고객은 CSP 파트너가 사용하도록 설정된 경우 Cost Management 기능을 사용할 수 있습니다. 자세한 내용은 [파트너용 Cost Management 시작](get-started-partners.md)을 참조하세요.
 
 ## <a name="enable-access-to-costs-in-the-azure-portal"></a>Azure Portal에서 비용에 대한 액세스를 사용하도록 설정
 
@@ -124,6 +125,8 @@ EA 포털에서 옵션을 사용하려면 다음을 수행합니다.
 
 등록 계정 범위에 액세스하려면 EA 포털에서 계정 소유자(AO 요금 보기) 액세스 권한이 있어야 합니다. 계정 소유자는 해당 등록 계정에서 생성된 구독과 관련된 비용 및 사용량 데이터를 볼 수 있습니다. Azure Portal에서는 어떠한 작업도 필요하지 않습니다.
 
+직접 엔터프라이즈 관리자는 Azure Portal 부서 관리자 액세스 권한을 할당할 수 있습니다. 자세한 내용은 [Azure Portal 부서 관리자 추가를](../manage/direct-ea-administration.md#add-a-department-administrator)참조하세요.
+
 1. [https://ea.azure.com](https://ea.azure.com)의 EA 포털에 엔터프라이즈 관리자 계정으로 로그인합니다.
 2. 왼쪽 창에서 **관리** 를 선택합니다.
 3. **등록** 탭에서 관리하려는 등록을 선택합니다.
@@ -140,9 +143,10 @@ EA 포털에서 옵션을 사용하려면 다음을 수행합니다.
 
 관리 그룹 범위를 보기 위해 액세스하려면 Cost Management Reader(또는 Reader) 이상의 권한이 필요합니다. Azure Portal에서 관리 그룹에 대한 권한을 구성할 수 있습니다. 다른 사람들의 액세스가 가능하도록 설정하려면 관리 그룹에 대해 사용자 액세스 관리자(또는 소유자) 이상의 권한이 있어야 합니다. 그리고 Azure EA 계정의 경우 EA 포털에서 **AO 요금 보기** 설정을 사용하도록 설정해야 합니다.
 
-
 - Cost Management 읽기 권한자 역할을 관리 그룹 범위의 사용자에게 할당합니다.  
      세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
+
+직접 엔터프라이즈 관리자는 Azure Portal 계정 소유자 액세스 권한을 할당할 수 있습니다. 자세한 내용은 [Azure Portal 계정 소유자 추가를 참조하세요.](../manage/direct-ea-administration.md#add-an-account-and-account-owner)
 
 ## <a name="assign-subscription-scope-access"></a>구독 범위 액세스 할당
 

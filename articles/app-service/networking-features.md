@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/20/2021
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: aa54c96864476cfd42d1d91e61ce293e919f9069
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 08723d72c24145ac39e1563ee3a60b0f201382f4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128592701"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227324"
 ---
 # <a name="app-service-networking-features"></a>App Service 네트워킹 기능
 
@@ -199,9 +199,9 @@ App Service 하이브리드 연결은 연결 외에 수행하고 있는 작업�
 
 이 기능은 다른 가상 네트워크에 있는 리소스에 액세스하는 문제를 해결합니다. 가상 네트워크를 통해 다른 가상 네트워크 또는 온-프레미스에 연결하는 데에도 사용할 수 있습니다. ExpressRoute 연결 가상 네트워크에서는 작동하지 않지만 사이트 간 VPN 연결 네트워크에서는 작동합니다. ASE(App Service Environment)가 이미 가상 네트워크에 있으므로 ASE의 앱에서 이 기능을 사용하는 것은 일반적으로 적합하지 않습니다. 이 기능에 대한 사용 사례:
 
-* 클래식 가상 네트워크에서 개인 IP의 리소스에 액세스합니다.
+* 클래식 가상 네트워크의 개인 Ip에 있는 리소스에 액세스 합니다.
 * 사이트 간 VPN이 있는 경우 온-프레미스 리소스에 액세스.
-* 해당 지역의 VNet에 피어되지 않은 지역 간 VNet의 리소스에 액세스합니다. 
+* 지역 내 VNet에 피어 링 되지 않는 지역 간 Vnet의 리소스에 액세스 합니다. 
 
 이 기능을 사용하도록 설정하면 앱은 대상 가상 네트워크가 구성된 DNS 서버를 사용합니다. 이 기능에 대한 자세한 내용은 [App Service VNet 통합][vnetintegrationp2s]을 참조하세요. 
 
@@ -209,13 +209,13 @@ App Service 하이브리드 연결은 연결 외에 수행하고 있는 작업�
 
 필수 게이트웨이 VNet 통합은 유용하지만 ExpressRoute 전체에서 리소스에 액세스하는 문제를 해결하지는 않습니다. ExpressRoute 연결을 통해 연결해야 할 뿐만 아니라 앱은 서비스 엔드포인트로 보안이 설정된 서비스를 호출할 수 있어야 합니다. 다른 VNet 통합 기능이 이러한 요구 사항을 충족할 수 있습니다. 
 
-지역 VNet 통합 기능을 사용하면 앱과 동일한 지역의 Resource Manager 가상 네트워크에 있는 서브넷에 앱의 백 엔드를 배치할 수 있습니다. 이 기능은 이미 가상 네트워크에 있는 App Service Environment에서 사용할 수 없습니다. 이 기능에 대한 사용 사례:
+지역 VNet 통합 기능을 사용 하면 앱의 백 엔드를 앱과 동일한 지역에 있는 리소스 관리자 가상 네트워크의 서브넷에 둘 수 있습니다. 이 기능은 이미 가상 네트워크에 있는 App Service Environment에서 사용할 수 없습니다. 이 기능에 대한 사용 사례:
 
 * 동일한 지역에 있는 Resource Manager 가상 네트워크의 리소스에 액세스.
-* 지역 간 연결을 포함하여 피어된 가상 네트워크의 리소스에 액세스합니다.
+* 지역 간 연결을 포함 하 여 피어 링 가상 네트워크의 리소스에 액세스 합니다.
 * 서비스 엔드포인트로 보안이 설정된 리소스에 액세스. 
 * ExpressRoute 또는 VPN 연결을 통해 액세스할 수 있는 리소스에 액세스.
-* Virtual Network 게이트웨이의 필요와 비용 없이 프라이빗 네트워크의 리소스에 액세스합니다.
+* Virtual Network 게이트웨이의 요구와 비용 없이 개인 네트워크의 리소스에 액세스 합니다.
 * 모든 아웃바운드 트래픽을 보호하도록 도움.
 * 모든 아웃바운드 트래픽을 강제로 터널링.
 
@@ -231,9 +231,9 @@ ASE(App Service Environment)는 가상 네트워크에서 실행되는 Azure App
 * ExpressRoute를 통해 리소스에 액세스.
 * 가상 네트워크에서 개인 주소를 사용하여 앱 노출. 
 * 서비스 엔드포인트를 통해 리소스에 액세스. 
-* 프라이빗 엔드포인트에서 리소스에 액세스합니다. 
+* 개인 끝점에서 리소스에 액세스 합니다. 
 
-ASE를 사용하면 ASE가 이미 가상 네트워크에 있으므로 VNet 통합을 사용할 필요가 없습니다. 서비스 엔드포인트를 통해 SQL 또는 Azure Storage와 같은 리소스에 액세스하려면 ASE 서브넷에서 서비스 엔드포인트를 사용하도록 설정합니다. 가상 네트워크의 리소스 또는 가상 네트워크의 프라이빗 엔드포인트에 액세스하려는 경우 추가 구성을 수행할 필요가 없습니다. ExpressRoute를 통해 리소스에 액세스하려는 경우 가상 네트워크에 이미 있는 것이고 ASE 또는 그 안에 있는 앱에서 아무 것도 구성할 필요가 없습니다. 
+Ase를 사용 하면 ASE가 이미 가상 네트워크에 있기 때문에 VNet 통합을 사용할 필요가 없습니다. 서비스 엔드포인트를 통해 SQL 또는 Azure Storage와 같은 리소스에 액세스하려면 ASE 서브넷에서 서비스 엔드포인트를 사용하도록 설정합니다. 가상 네트워크의 리소스 또는 가상 네트워크의 전용 끝점에 있는 리소스에 액세스 하려는 경우에는 추가 구성을 수행할 필요가 없습니다. ExpressRoute를 통해 리소스에 액세스하려는 경우 가상 네트워크에 이미 있는 것이고 ASE 또는 그 안에 있는 앱에서 아무 것도 구성할 필요가 없습니다. 
 
 ILB ASE의 앱은 개인 IP 주소에 노출될 수 있으므로, 인터넷에 연결하려는 앱만 노출하고 나머지 보안을 유지하기 위해 WAF 디바이스를 쉽게 추가할 수 있습니다. 이 기능을 사용하면 다중 계층 애플리케이션을 보다 쉽게 개발할 수 있습니다. 
 
@@ -321,8 +321,8 @@ App Service를 검색하는 경우 인바운드 연결을 위해 노출되는 �
 [iprestrictions]: ./app-service-ip-restrictions.md
 [serviceendpoints]: ./app-service-ip-restrictions.md
 [hybridconn]: ./app-service-hybrid-connections.md
-[vnetintegrationp2s]: ./web-sites-integrate-with-vnet.md
-[vnetintegration]: ./web-sites-integrate-with-vnet.md
+[vnetintegrationp2s]: ./overview-vnet-integration.md
+[vnetintegration]: ./overview-vnet-integration.md
 [networkinfo]: ./environment/network-info.md
 [appgwserviceendpoints]: ./networking/app-gateway-with-service-endpoints.md
 [privateendpoints]: ./networking/private-endpoint.md

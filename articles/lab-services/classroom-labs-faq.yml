@@ -2,15 +2,15 @@
 metadata:
   title: Azure Lab Services의 랩 - FAQ | Microsoft Docs
   description: 이 문서는 Azure Lab Services의 랩에 대한 FAQ(자주 묻는 질문)에 대한 답변을 제공합니다.
-  ms.topic: article
+  ms.topic: how-to
   ms.service: lab-services
   ms.date: 06/26/2020
-  ms.openlocfilehash: 0e129eebbc74c3f400195995e0d4bcec81c18ed2
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.openlocfilehash: 50aed3f3b515a2387efcefbfdf19fb9b1f51d905
+  ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122253764"
+  ms.lasthandoff: 10/19/2021
+  ms.locfileid: "130181258"
 title: Azure Lab Services의 랩 - FAQ(자주 묻는 질문)
 summary: Azure Lab Services의 랩에 관해 가장 자주 묻는 질문에 대한 답변을 확인합니다.
 sections:

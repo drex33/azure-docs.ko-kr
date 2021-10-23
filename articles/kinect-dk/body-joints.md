@@ -8,12 +8,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, 이식, 신체, 추적, 관절, 계층 구조, 뼈, 연결
-ms.openlocfilehash: 4cf6ac13a93d0674f9fa144abcc3153a2d7c3350
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 2616573d0474addb14abe5f6e932181b097bed46
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "85276996"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223458"
 ---
 # <a name="azure-kinect-body-tracking-joints"></a>Azure Kinect 신체 추적 관절
 
@@ -25,12 +25,14 @@ Azure Kinect 신체 추적은 동시에 여러 인체를 추적할 수 있습니
 
 ## <a name="joint-coordinates"></a>관절 좌표
 
-각 관절의 위치와 방향은 자체적인 관절 좌표계를 형성합니다. 모든 관절 좌표계는 깊이 카메라 3D 좌표계에 상대적인 절대 좌표계입니다.
+각 조인의 위치와 방향은 고유한 오른쪽 좌표계를 형성합니다. 모든 조인 좌표계는 깊이 카메라 3D 좌표계의 절대 좌표계입니다.
 
 > [!NOTE]
-> 축 방향에 관절 좌표가 있습니다. 축 방향은 상업적 아바타, 게임 엔진, 렌더링 소프트웨어에서 널리 사용됩니다. 축 방향 사용은 예를 들어 양쪽 팔을 20도 올리는 것과 같은 미러링된 움직임을 간단하게 합니다.
+> 본문의 양쪽에 걸쳐 있는 해당 조인에 대해 대칭 이동 축 방향을 선택하는 것은 미러 이동을 간소화하기 위한 것입니다. 예를 들어 상용 아바타, 게임 엔진 및 렌더링 소프트웨어에서 공통적으로 두 개의 암을 +20도 높이도록 합니다.
 
 ![관절 좌표](./media/concepts/joint-coordinates.png)
+
+범례: | x축 = 빨간색 | y축 = 녹색 | z축 = 파란색 |
 
 ## <a name="joint-hierarchy"></a>관절 계층 구조
 

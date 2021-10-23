@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: 76f65bffb2762735424084561dc0098f128bb7a2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4dd60b3cf5a0e4ff6398a4f8304d24a1d910ad46
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128548678"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252747"
 ---
 # <a name="monitor-your-sql-deployments-with-sql-insights-preview"></a>SQL 인사이트를 사용하여 SQL 배포 모니터링(미리 보기)
 SQL 인사이트는 [AZURE SQL 제품군](../../azure-sql/index.yml)의 모든 제품을 모니터링하는 포괄적인 솔루션입니다. SQL 인사이트는 [동적 관리 뷰를](../../azure-sql/database/monitoring-with-dmvs.md) 사용하여 상태를 모니터링하고, 문제를 진단하고, 성능을 조정하는 데 필요한 데이터를 노출합니다.  
@@ -57,11 +57,11 @@ SQL 인사이트를 열려면 다음을 수행합니다.
 
 1. Azure Portal **Azure Monitor** 메뉴로 이동합니다.
 1. **Insights** 섹션에서 **SQL(미리 보기)** 를 선택합니다. 
-1. 모니터링하는 SQL 리소스에 대한 환경을 로드할 타일을 선택합니다.
+1. 타일을 선택하여 모니터링 중인 SQL 리소스에 대한 환경을 로드합니다.
 
-:::image type="content" source="media/sql-insights/portal.png" alt-text="Azure Portal SQL 인사이트를 보여 주는 스크린샷":::
+:::image type="content" source="media/sql-insights/portal.png" alt-text="Azure Portal SQL 인사이트를 보여 주는 스크린샷.":::
 
-자세한 지침은 [SQL 인사이트 사용](sql-insights-enable.md) 및 [SQL 인사이트 문제 해결을 참조하세요.](sql-insights-troubleshoot.md)
+자세한 지침은 [SQL 인사이트 사용](sql-insights-enable.md) 및 SQL [인사이트 문제 해결을 참조하세요.](sql-insights-troubleshoot.md)
 
 ## <a name="collected-data"></a>수집된 데이터
 SQL 인사이트는 원격으로 모든 모니터링을 수행합니다. SQL Server 실행하는 가상 머신에는 에이전트가 설치되어 있지 않습니다. 
@@ -81,7 +81,7 @@ Azure SQL Database, Azure SQL Managed Instance 및 SQL Server에 대해 여러 �
 - **기본 수집 빈도:** 기본적으로 데이터가 수집되는 빈도입니다.
 
 ### <a name="data-for-azure-sql-database"></a>Azure SQL Database용 데이터 
-| 이름 | 구성 이름 | 네임스페이스 | DMV | 기본적으로 사용하도록 설정됨 | 기본 컬렉션 빈도 |
+| 식별 이름 | 구성 이름 | 네임스페이스 | DMV | 기본적으로 사용하도록 설정됨 | 기본 컬렉션 빈도 |
 |:---|:---|:---|:---|:---|:---|
 | DB 대기 통계 | AzureSQLDBWaitStats | sqlserver_azuredb_waitstats | sys.dm_db_wait_stats | No | 해당 없음 |
 | DBO 대기 통계 | AzureSQLDBOsWaitstats | sqlserver_waitstats |sys.dm_os_wait_stats | Yes | 60초 |
@@ -96,7 +96,7 @@ Azure SQL Database, Azure SQL Managed Instance 및 SQL Server에 대해 여러 �
 
 ### <a name="data-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance용 데이터 
 
-| 이름 | 구성 이름 | 네임스페이스 | DMV | 기본적으로 사용하도록 설정됨 | 기본 컬렉션 빈도 |
+| 식별 이름 | 구성 이름 | 네임스페이스 | DMV | 기본적으로 사용하도록 설정됨 | 기본 컬렉션 빈도 |
 |:---|:---|:---|:---|:---|:---|
 | 대기 통계 | AzureSQLMIOsWaitstats | sqlserver_waitstats | sys.dm_os_wait_stats | Yes | 60초 |
 | 메모리 클럭 | AzureSQLMIMemoryClerks | sqlserver_memory_clerks | sys.dm_os_memory_clerks | Yes | 60초 |
@@ -110,7 +110,7 @@ Azure SQL Database, Azure SQL Managed Instance 및 SQL Server에 대해 여러 �
 
 ### <a name="data-for-sql-server"></a>SQL Server용 데이터
 
-| 이름 | 구성 이름 | 네임스페이스 | DMV | 기본적으로 사용하도록 설정됨 | 기본 컬렉션 빈도 |
+| 식별 이름 | 구성 이름 | 네임스페이스 | DMV | 기본적으로 사용하도록 설정됨 | 기본 컬렉션 빈도 |
 |:---|:---|:---|:---|:---|:---|
 | 대기 통계 | SQLServerWaitStatsCategorized | sqlserver_waitstats | sys.dm_os_wait_stats | Yes | 60초 | 
 | 메모리 클럭 | SQLServerMemoryClerks | sqlserver_memory_clerks | sys.dm_os_memory_clerks | Yes | 60초 |
@@ -126,4 +126,4 @@ Azure SQL Database, Azure SQL Managed Instance 및 SQL Server에 대해 여러 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- SQL insights에 대 한 자주 묻는 질문은 질문과 [대답](/azure/azure-monitor/faq#sql-insights-preview)을 참조 하세요.
+- SQL insights에 대 한 자주 묻는 질문은 질문과 [대답](../faq.yml)을 참조 하세요.

@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 06/28/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 729e02427b823550a8621380261b7f7db4ff2fe5
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: fa553360085a2793dba43e91cb08fde74eebf52e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129372905"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233926"
 ---
 # <a name="manage-a-public-ip-address-with-a-vpn-gateway"></a>VPN Gateway를 사용하여 공용 IP 주소 관리
 
@@ -29,7 +29,7 @@ VPN Gateway는 구성하려면 공용 IP 주소가 필요합니다. 공용 IP �
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- 구독의 표준 SKU 공용 IP 주소 1개. IP 주소를 리소스에 연결할 수 없습니다. 표준 SKU 공용 IP 주소를 만드는 방법에 대한 자세한 내용은 [공용 IP 만들기 - Azure Portal](../../virtual-network/create-public-ip-portal.md)을 참조하세요.
+- 구독의 표준 SKU 공용 IP 주소 1개. IP 주소를 리소스에 연결할 수 없습니다. 표준 SKU 공용 IP 주소를 만드는 방법에 대한 자세한 내용은 [공용 IP 만들기 - Azure Portal](./create-public-ip-portal.md)을 참조하세요.
     - 이 문서에 나오는 예의 목적에 맞게 새 공용 IP 주소의 이름을 **myStandardPublicIP** 로 지정합니다.
 
 ## <a name="create-vpn-gateway-existing-public-ip"></a>공용 IP가 있는 VPN Gateway 만들기
@@ -124,5 +124,5 @@ VPN Gateway는 만든 후 공용 IP 주소 변경을 지원하지 않습니다.
 
 이 문서에서는 VPN Gateway을 만들고 기존 공용 IP를 사용하는 방법을 알아보았습니다. 
 
-- Azure의 공용 IP 주소에 대한 자세한 내용은 [공용 IP 주소](../../virtual-network/public-ip-addresses.md)를 참조하세요.
+- Azure의 공용 IP 주소에 대한 자세한 내용은 [공용 IP 주소](./public-ip-addresses.md)를 참조하세요.
 - VPN Gateway에 대한 자세한 내용은 [VPN Gateway란?](../../vpn-gateway/vpn-gateway-about-vpngateways.md)을 참조하세요.

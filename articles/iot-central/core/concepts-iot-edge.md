@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: 15d6da6b5fe458e34847469faf230222f20efb38
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
-ms.translationtype: HT
+ms.openlocfilehash: a8d57f2d9f17b0a20f029ed4849e244af308bb0f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123273142"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130246740"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 Azure IoT Edge 디바이스 연결
 
@@ -315,8 +315,8 @@ IoT Edge 런타임을 실행할 수 있는 위치에 대한 자세한 내용은 
 
 다음 환경에서 IoT Edge 런타임을 설치할 수도 있습니다.
 
-* [Linux용 Azure IoT Edge 설치 또는 제거](../../iot-edge/how-to-install-iot-edge.md)
-* [Windows 디바이스에서 Linux용 Azure IoT Edge 설치 및 프로비저닝(미리 보기)](../../iot-edge/how-to-install-iot-edge-on-windows.md)
+* [Linux용 Azure IoT Edge 설치 또는 제거](../../iot-edge/how-to-provision-single-device-linux-symmetric.md)
+* [Windows 디바이스에서 Linux용 Azure IoT Edge 설치 및 프로비저닝(미리 보기)](../../iot-edge/how-to-provision-single-device-linux-on-windows-symmetric.md)
 * [Azure의 Ubuntu Virtual Machines에서 Azure IoT Edge 실행](../../iot-edge/how-to-install-iot-edge-ubuntuvm.md)
 
 ## <a name="iot-edge-gateway-devices"></a>IoT Edge 게이트웨이 디바이스

@@ -6,12 +6,12 @@ author: an-emma
 ms.author: raan
 ms.topic: how-to
 ms.date: 03/15/2021
-ms.openlocfilehash: 544abb1e39710330d8d2529a83349c8669deae40
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0e632298c616c124cdd10b7a35672661bcde2d91
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128638257"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258148"
 ---
 # <a name="run-azure-stream-analytics-on-azure-stack"></a>Azure Stack에서 Azure Stream Analytics 실행
 
@@ -41,8 +41,8 @@ Azure Stack Hub에서 Stream Analytics를 실행하려면 디바이스에 IoT Ed
 
 다음 문서에서는 디바이스 또는 VM에서 IoT Edge 런타임을 설정하는 방법을 보여줍니다.
 
-* [Windows에 Azure IoT Edge 런타임 설치](../iot-edge/how-to-install-iot-edge.md)
-* [Debian 기반 Linux 시스템에서 Azure IoT Edge 런타임 설치](../iot-edge/how-to-install-iot-edge.md)
+* [Windows에 Azure IoT Edge 런타임 설치](../iot-edge/how-to-provision-single-device-linux-on-windows-symmetric.md)
+* [Debian 기반 Linux 시스템에서 Azure IoT Edge 런타임 설치](../iot-edge/how-to-provision-single-device-linux-symmetric.md)
 
 
 ## <a name="create-an-azure-stream-analytics-edge-job"></a>Azure Stream Analytics Edge 작업 만들기

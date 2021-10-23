@@ -1,22 +1,22 @@
 ---
-title: 'Azure ExpressRoute: Azure CLI 사용하여 IPv6 지원 추가'
-description: IPv6 지원을 추가하여 Azure CLI 사용하여 Azure 배포에 연결하는 방법을 알아봅니다.
+title: 'Azure Express 경로: Azure CLI을 사용 하 여 IPv6 지원 추가'
+description: Azure CLI를 사용 하 여 Azure 배포에 연결 하기 위해 IPv6 지원을 추가 하는 방법을 알아봅니다.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 09/27/2021
 ms.author: duau
-ms.openlocfilehash: 1c0b751d6a5107dcf9b7d04423b0b96e0036615d
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 9341d61229ed5b28eed838271fd0108c1a45d8b5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129730416"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130228979"
 ---
-# <a name="add-ipv6-support-for-private-peering-using-azure-cli-preview"></a>Azure CLI 사용하여 프라이빗 피어링에 대한 IPv6 지원 추가(미리 보기)
+# <a name="add-ipv6-support-for-private-peering-using-azure-cli"></a>Azure CLI를 사용 하 여 개인 피어 링에 대 한 IPv6 지원 추가
 
-이 문서에서는 Azure CLI 사용하여 ExpressRoute를 통해 Azure의 리소스에 연결하는 IPv6 지원을 추가하는 방법을 설명합니다.
+이 문서에서는 Azure CLI를 사용 하 여 Azure에서 Express 경로를 통해 Azure의 리소스에 연결 하기 위해 IPv6 지원을 추가 하는 방법을 설명 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -28,13 +28,13 @@ ms.locfileid: "129730416"
 
 ## <a name="add-ipv6-private-peering-to-your-expressroute-circuit"></a>ExpressRoute 회로에 IPv6 개인 피어링 추가
 
-1. [ExpressRoute 회로를 만들거나](howto-circuit-cli.md) 기존 회로를 사용합니다. 다음을 실행하여 회로 세부 정보를 봅니다.
+1. [ExpressRoute 회로를 만들거나](howto-circuit-cli.md) 기존 회로를 사용합니다. 다음을 실행 하 여 회로 세부 정보를 봅니다.
 
     ```azurecli-interactive
     az network express-route show --resource-group "<ExpressRouteResourceGroup>" --name "<MyCircuit>"
     ```
 
-2. 다음을 실행하여 회로에 대한 프라이빗 피어링 구성을 봅니다.
+2. 다음을 실행 하 여 회로에 대 한 개인 피어 링 구성을 확인 합니다.
 
     ```azurecli-interactive
     az network express-route peering show -g "<ExpressRouteResourceGroup>" --circuit-name "<MyCircuit>" --name AzurePrivatePeering
@@ -50,7 +50,7 @@ ms.locfileid: "129730416"
 
 IPv6 개인 피어링을 사용하려는 Azure 리소스의 기존 환경이 있는 경우 다음 단계를 수행합니다.
 
-1. ExpressRoute 회로가 연결된 가상 네트워크에 IPv6 주소 공간을 추가합니다.
+1. Express 경로 회로가 연결 된 가상 네트워크에 IPv6 주소 공간을 추가 합니다.
 
     ```azurecli-interactive
     az network vnet update -g "<MyResourceGroup>" -n "<MyVNet>" --address-prefixes "X:X:X:X::/64"
@@ -68,7 +68,7 @@ IPv6 개인 피어링을 사용하려는 Azure 리소스의 기존 환경이 있
     az network vnet-gateway update --name "<GatewayName>" --resource-group "<MyResourceGroup>"
     ```
 >[!NOTE]
-> 영역 중복이 아닌 기존 게이트웨이(표준, 고성능 또는 울트라 성능 SKU)가 있고 기본 SKU의 공용 IP 주소를 사용하는 경우 SKU 및 표준, 고정 공용 IP 주소를 사용하여 [게이트웨이를](expressroute-howto-add-gateway-resource-manager.md#add-a-gateway) 삭제하고 다시 만들어야 합니다.
+> 영역 중복 되지 않는 기존 게이트웨이 (표준, 고성능 또는 Ultra Performance SKU)가 있고 기본 SKU의 공용 IP 주소를 사용 하는 경우 SKU 및 표준 고정 공용 IP 주소를 사용 하 여 게이트웨이를 삭제 하 고 [다시 만들어야](expressroute-howto-add-gateway-resource-manager.md#add-a-gateway) 합니다.
 
 ## <a name="create-a-connection-to-a-new-virtual-network"></a>새 가상 네트워크에 대한 연결 만들기
 
@@ -83,9 +83,9 @@ IPv6 프라이빗 피어링을 사용하여 새로운 Azure 리소스 집합에 
 4. [가상 네트워크를 ExpressRoute 회로에 연결합니다](howto-linkvnet-cli.md).
 
 ## <a name="limitations"></a>제한 사항
-IPv6 지원은 글로벌 Azure 지역의 배포에 연결할 수 있지만 다음 사용 사례는 지원하지 않습니다.
+글로벌 Azure 지역의 배포에 대 한 연결에는 IPv6 지원을 사용할 수 있지만 다음과 같은 사용 사례를 지원 하지 않습니다.
 
-* 영역 중복이 아닌 *기존* ExpressRoute 게이트웨이에 대한 연결입니다. 표준 고정 IP 주소를 사용하는 모든 SKU(영역 중복 및 비)의 *새로* 만든 ExpressRoute 게이트웨이는 이중 스택 ExpressRoute 연결에 사용할 수 있습니다.
+* 영역 중복 되지 않는 *기존* express 경로 게이트웨이에 대 한 연결입니다. 표준 고정 IP 주소를 사용 하 여 모든 SKU (영역 중복 및 아님 모두)의 *새로* 만든 express 경로 게이트웨이는 이중 스택 express 경로 연결에 사용할 수 있습니다.
 * ExpressRoute 회로 간의 Global Reach 연결
 * 가상 WAN으로 ExpressRoute 사용
 * 비ExpressRoute Direct 회로가 있는 FastPath

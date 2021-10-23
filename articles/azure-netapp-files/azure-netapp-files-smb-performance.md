@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/10/2021
 ms.author: b-juche
-ms.openlocfilehash: 6c29c1804e5587a2a1a3bae3e2f566a5938350cf
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
-ms.translationtype: HT
+ms.openlocfilehash: dd909362950d961b4dcf944ab608c5103840e9a7
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112004784"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130239999"
 ---
 # <a name="smb-performance-best-practices-for-azure-netapp-files"></a>Azure NetApp Files의 SMB 성능 모범 사례
 
@@ -165,5 +165,5 @@ SMB용 클라이언트에서 여러 NIC를 구성할 수는 없습니다. SMB �
 
 ## <a name="next-steps"></a>다음 단계  
 
-- [Azure NetApp Files에 대한 FAQ](azure-netapp-files-faqs.md)
+- [SMB FAQ](faq-smb.md)
 - Azure NetApp Files와 함께 SMB 파일 공유를 사용하는 방법에 대해서는 [Azure NetApp Files: SMB 워크로드를 위한 관리되는 Enterprise 파일 공유](https://cloud.netapp.com/hubfs/Resources/ANF%20SMB%20Quickstart%20doc%20-%2027-Aug-2019.pdf?__hstc=177456119.bb186880ac5cfbb6108d962fcef99615.1550595766408.1573471687088.1573477411104.328&__hssc=177456119.1.1573486285424&__hsfp=1115680788&hsCtaTracking=cd03aeb4-7f3a-4458-8680-1ddeae3f045e%7C5d5c041f-29b4-44c3-9096-b46a0a15b9b1)를 참조하세요.

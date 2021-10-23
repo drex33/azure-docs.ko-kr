@@ -1,7 +1,7 @@
 ---
 title: Azure Red Hat OpenShift 4 클러스터에서 Open Liberty/WebSphere Liberty로 Java 애플리케이션 배포
 description: Azure Red Hat OpenShift 4 클러스터에서 Open Liberty/WebSphere Liberty로 Java 애플리케이션을 배포합니다.
-author: jiangma
+author: majguo
 ms.author: jiangma
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.custom:
 - devx-track-javaee
 - devx-track-javaee-liberty
 - devx-track-javaee-liberty-aro
-ms.openlocfilehash: 9f3b9d7909f0d433f79d979337ff555efcfedddd
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 5207d0928fd293a10bd88222660bfaec4198db0e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129984652"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234268"
 ---
 # <a name="deploy-a-java-application-with-open-libertywebsphere-liberty-on-an-azure-red-hat-openshift-4-cluster"></a>Azure Red Hat OpenShift 4 클러스터에서 Open Liberty/WebSphere Liberty로 Java 애플리케이션 배포
 

@@ -3,12 +3,12 @@ title: Azure Monitor 리소스 로그에 대해 지원 되는 범주
 description: Azure Monitor 리소스 로그에 대해 지원 되는 서비스 및 이벤트 스키마를 이해 합니다.
 ms.topic: reference
 ms.date: 10/05/2021
-ms.openlocfilehash: bf7d5371a170f28e79828619aef9fc16e15a303a
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 11233e33d7dc5dffbdfc65acec9eac9223a96f2b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130006378"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130231535"
 ---
 # <a name="supported-categories-for-azure-monitor-resource-logs"></a>Azure Monitor 리소스 로그에 대해 지원 되는 범주
 
@@ -19,7 +19,7 @@ ms.locfileid: "130006378"
 
 이전에는 리소스 로그를 진단 로그라고 했습니다. Azure Monitor에서 수집하는 로그 유형이 Azure 리소스 이상을 포함하도록 전환하면서 2019년 10월에 이름이 변경되었습니다.
 
-리소스 종류 (속성에서 사용 가능 `resourceId` )와 범주에서 스키마를 고유 하 게 식별 하는 조합입니다. 서비스 관련 필드를 포함 하는 모든 리소스 로그에 대 한 공통 스키마가 있으며, 다른 로그 범주에 대해 추가 되었습니다. 자세한 내용은 [Azure 리소스 로그의 일반 및 서비스별 스키마](/azure/azure-monitor/essentials/resource-logs-schema)를 참조 하세요.
+리소스 종류 (속성에서 사용 가능 `resourceId` )와 범주에서 스키마를 고유 하 게 식별 하는 조합입니다. 서비스 관련 필드를 포함 하는 모든 리소스 로그에 대 한 공통 스키마가 있으며, 다른 로그 범주에 대해 추가 되었습니다. 자세한 내용은 [Azure 리소스 로그의 일반 및 서비스별 스키마](./resource-logs-schema.md)를 참조 하세요.
 
 ## <a name="costs"></a>비용
 
@@ -86,7 +86,7 @@ ms.locfileid: "130006378"
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
 |GatewayLogs|ApiManagement 게이트웨이 관련 로그|No|
-|WebSocketConnectionLogs|Websocket 연결과 관련 된 로그|Yes|
+|WebSocketConnectionLogs|Websocket 연결과 관련된 로그|Yes|
 
 
 ## <a name="microsoftappconfigurationconfigurationstores"></a>Microsoft.AppConfiguration/configurationStores
@@ -136,7 +136,7 @@ ms.locfileid: "130006378"
 |요청|요청|Yes|
 
 
-## <a name="microsoftavsprivateclouds"></a>microsoft avs/privateClouds
+## <a name="microsoftavsprivateclouds"></a>microsoft.avs/privateClouds
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
@@ -438,11 +438,11 @@ ms.locfileid: "130006378"
 |관리|관리|No|
 
 
-## <a name="microsoftdesktopvirtualizationscalingplans"></a>Microsoft DesktopVirtualization/scalingplans
+## <a name="microsoftdesktopvirtualizationscalingplans"></a>Microsoft.DesktopVirtualization/scalingplans
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|자동 확장|로그 자동 크기 조정|Yes|
+|자동 확장|자동 조정 로그|Yes|
 
 
 ## <a name="microsoftdesktopvirtualizationworkspaces"></a>Microsoft.DesktopVirtualization/workspaces
@@ -584,7 +584,7 @@ ms.locfileid: "130006378"
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|ExPCompute|ExPCompute|Yes|
+|계산|계산|Yes|
 |요청|요청|No|
 
 
@@ -647,7 +647,7 @@ ms.locfileid: "130006378"
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
 |AuditEvent|감사 로그|No|
-|Azurepolics\ationdetails|Azure Policy 평가 정보|Yes|
+|AzurePolicyEvaluationDetails|Azure Policy 평가 세부 정보|Yes|
 
 
 ## <a name="microsoftkustoclusters"></a>Microsoft.Kusto/Clusters
@@ -718,7 +718,7 @@ ms.locfileid: "130006378"
 |MediaAccount|미디어 계정 상태|Yes|
 
 
-## <a name="microsoftmediavideoanalyzers"></a>Microsoft. 미디어/비디오 분석기
+## <a name="microsoftmediavideoanalyzers"></a>Microsoft.Media/videoanalyzers
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
@@ -837,11 +837,11 @@ ms.locfileid: "130006378"
 |TunnelDiagnosticLog|터널 진단 로그|No|
 
 
-## <a name="microsoftnetworkfunctionazuretrafficcollectors"></a>Microsoft NetworkFunction/azureTrafficCollectors
+## <a name="microsoftnetworkfunctionazuretrafficcollectors"></a>Microsoft.NetworkFunction/azureTrafficCollectors
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|ExpressRouteCircuitIpfix|Express 경로 회로 ipfix Flow 레코드|Yes|
+|ExpressRouteCircuitIpfix|Express Route 회로 IPFIX Flow 레코드|Yes|
 
 
 ## <a name="microsoftnotificationhubsnamespaces"></a>Microsoft.NotificationHubs/namespaces
@@ -923,7 +923,7 @@ ms.locfileid: "130006378"
 |OperationLogs|작업 로그|예|
 
 
-## <a name="microsoftsecurityinsightssettings"></a>microsoft securityinsights/설정
+## <a name="microsoftsecurityinsightssettings"></a>microsoft.securityinsights/settings
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
@@ -949,9 +949,9 @@ ms.locfileid: "130006378"
 
 |범주|범주 표시 이름|내보낼 비용|
 |---|---|---|
-|ConnectivityLogs|Azure 웹 PubSub 서비스에 대 한 연결 로그입니다.|Yes|
-|HttpRequestLogs|Azure 웹 PubSub 서비스에 대 한 Http 요청 로그입니다.|Yes|
-|MessagingLogs|Azure 웹 PubSub 서비스에 대 한 메시징 로그.|Yes|
+|ConnectivityLogs|Azure Web PubSub 서비스에 대한 연결 로그.|Yes|
+|HttpRequestLogs|Azure Web PubSub 서비스에 대한 Http 요청 로그입니다.|Yes|
+|MessagingLogs|Azure Web PubSub 서비스에 대한 메시징 로그.|Yes|
 
 
 ## <a name="microsoftsingularityaccounts"></a>microsoft.singularity/accounts

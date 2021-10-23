@@ -7,16 +7,16 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 09/27/2021
-ms.openlocfilehash: 96a51e4ca3ab1f145b5d2820b43290f9a5f98d48
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 6310fab1e35526d73dadd8cc64e64466b92bd036
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129214825"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130245913"
 ---
 # <a name="supported-data-stores"></a>지원되는 데이터 저장소
 
-Purview는 다음의 데이터 저장소를 지원합니다. 각 데이터 저장소를 선택하여 지원되는 기능 및 해당 구성을 자세히 알아봅니다.
+Purview는 다음의 데이터 저장소를 지원합니다. 각 데이터 저장소를 선택 하 여 지원 되는 기능 및 해당 구성에 대해 자세히 알아보세요.
 
 ## <a name="purview-data-sources"></a>Purview 데이터 소스
 
@@ -27,14 +27,16 @@ Purview는 다음의 데이터 저장소를 지원합니다. 각 데이터 저�
 ||[Azure Data Explorer](register-scan-azure-data-explorer.md)|예| 예| 예| 예| 예| 예|
 ||[Azure Data Lake Storage Gen1](register-scan-adls-gen1.md)|예| 예| 예| 예| 예| 예|
 ||[Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)|예| 예| 예| 예| 예| 예|
-||[Azure 전용 SQL 풀(이전 SQL DW)](register-scan-azure-synapse-analytics.md)|예| 예| 아니요| 예| 예| 예|
-||[Azure SQL Database](register-scan-azure-sql-database.md)|예| 예| 아니요| 예| 예| 예|
-||[Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)|예| 예| 아니요| 예| 예| 예|
-||[Azure Synapse Analytics(작업 영역)](register-scan-synapse-workspace.md)|예| 예| 아니요| 예| 예| 예|
+||[Azure 전용 SQL 풀(이전 SQL DW)](register-scan-azure-synapse-analytics.md)|예| 예| 예| 예| 예| 예|
+||[Azure SQL Database](register-scan-azure-sql-database.md)|예| 예| 예| 예| 예| 예|
+||[Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)|예| 예| 예| 예| 예| 예|
+||[Azure Synapse Analytics(작업 영역)](register-scan-synapse-workspace.md)|예| 예| 예| 예| 예| 예|
+||[Azure Database for MySQL](register-scan-azure-mysql-database.md)|예| 예| 예*| 예| 예| 예|
+||[Azure Database for PostgreSQL](register-scan-azure-postgresql.md)|예| 예| 아니요| 예| 예| 예|
 |데이터베이스|[Cassandra](register-scan-cassandra-source.md)|예| 예| 아니요| 아니요| 아니요| 예|
 ||[Google BigQuery](register-scan-google-bigquery-source.md)|예| 예| 아니요| 아니요| 아니요| 예|
 ||[Hive 메타스토어 DB](register-scan-oracle-source.md)|예| 예| 아니요| 아니요| 아니요| 예|
-||[Oracle DB](register-scan-oracle-source.md)|예| 예| 예| 예| 아니요| 예|
+||[Oracle DB](register-scan-oracle-source.md)|예| 예| 아니요| 아니요| 아니요| 예|
 ||[SQL Server](register-scan-on-premises-sql-server.md)|예| 예| 아니요| 예| 예| 예|
 ||[Teradata](register-scan-teradata-source.md)|예| 예| 아니요| 아니요| 아니요| 예|
 |파일|[Amazon S3](register-scan-amazon-s3.md)|예| 예| 예| 예| 예| 예|
@@ -43,6 +45,11 @@ Purview는 다음의 데이터 저장소를 지원합니다. 각 데이터 저�
 ||[Power BI](register-scan-power-bi-tenant.md)|예| 예| 아니요| 아니요| 아니요| 예|
 ||[SAP ECC](register-scan-sapecc-source.md)|예| 예| 아니요| 아니요| 아니요| 예|
 ||[SAP S4HANA](register-scan-saps4hana-source.md)|예| 예| 아니요| 아니요| 아니요| 예|
+
+\* Purview는 증분 검색을 위해 Azure Database for MySQL UPDATE_TIME 메타데이터를 기반으로 합니다. 경우에 따라 이 필드가 데이터베이스에 유지되지 않고 전체 검색이 수행됩니다. 자세한 내용은 The [INFORMATION_SCHEMA TABLES Table](https://dev.mysql.com/doc/refman/5.7/en/information-schema-tables-table.html) for MySQL을 참조하세요. 
+
+> [!NOTE]
+> 현재 Purview는 이름에 , 또는 가 있는 자산을 검색할 수 `/` `\` `#` 없습니다. 검사 범위를 지정하고 자산 이름에 해당 문자가 있는 자산을 검사하지 않으려면 [Azure SQL Database 등록 및 검색의 예제를](register-scan-azure-sql-database.md#creating-and-running-a-scan)사용합니다.
 
 ## <a name="scan-regions"></a>지역 검사
 다음은 Purview 검사기가 실행되는 모든 Azure 데이터 원본(데이터 센터) 지역의 목록입니다. Azure 데이터 원본이 이 목록 외부의 지역에 있는 경우 검사기는 Purview 인스턴스의 지역에서 실행됩니다.

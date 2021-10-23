@@ -3,17 +3,17 @@ title: Azure EA VM 예약 인스턴스
 description: 이 문서에서는 VM 예약 인스턴스에 대한 Azure 예약을 통해 엔터프라이즈 등록과 관련된 비용을 절감할 수 있는 방법을 요약합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/17/2021
+ms.date: 10/22/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: boalcsva
-ms.openlocfilehash: 0378e05d8d606d04b90ca20aa3e0399132e9f0ef
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.reviewer: sapnakeshari
+ms.openlocfilehash: feac3cf4e2418fc7d85ab3cdebbba1d08b112e95
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110095845"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130250068"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Azure EA VM 예약 인스턴스
 
@@ -28,6 +28,8 @@ ms.locfileid: "110095845"
 EA 고객이 Azure 선불(이전에는 현금 약정 금액이라고 함)이 아닌 초과분을 사용하여 구매한 예약을 반환하면 부분 환불 처리됩니다.
 
 환불은 EA 포털에 전월의 마이너스 조정으로 표시되고 이번 달에 플러스 조정으로 표시됩니다. 예약 교환과 유사하게 표시됩니다. 크레딧 메모는 원래 청구서 번호를 참조합니다. 따라서 크레딧 메모로 초기 구매를 조정하려면 원래 청구서 번호를 참조하세요.
+
+직접 Enterprise 고객은 Azure Portal에서 환불 정보를 볼 수 있습니다. **예약 상환 메뉴로 이동** 하 여 예약 상환을 봅니다.
 
 ## <a name="reservation-costs-and-usage"></a>예약 비용 및 사용량
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: duau
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: af70296b886f7e1fb736c1df1b041e2f43451327
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: 5c2da05dd68951cada82fc888d54a0f423ce18c7
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110701951"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130242287"
 ---
 # <a name="create-and-manage-expressroute-public-peering"></a>ExpressRoute 퍼블릭 피어링 만들기 및 관리
 
@@ -31,7 +31,7 @@ ms.locfileid: "110701951"
 
 ## <a name="connectivity"></a>연결
 
-연결은 항상 사용자의 WAN에서 Microsoft Azure 서비스로 시작됩니다. Microsoft Azure 서비스가 라우팅 도메인을 통해 네트워크로의 연결을 시작할 수 없습니다. Azure 퍼블릭 피어링에 ExpressRoute 회로를 사용할 수 있는 경우 회로를 통해 [Azure에서 사용되는 공용 IP 범위](../virtual-network/public-ip-addresses.md#public-ip-addresses)에 액세스할 수 있습니다.
+연결은 항상 사용자의 WAN에서 Microsoft Azure 서비스로 시작됩니다. Microsoft Azure 서비스가 라우팅 도메인을 통해 네트워크로의 연결을 시작할 수 없습니다. Azure 퍼블릭 피어링에 ExpressRoute 회로를 사용할 수 있는 경우 회로를 통해 [Azure에서 사용되는 공용 IP 범위](../virtual-network/ip-services/public-ip-addresses.md#public-ip-addresses)에 액세스할 수 있습니다.
 
 퍼블릭 피어링을 사용하도록 설정한 후에는 대부분의 Azure 서비스에 연결할 수 있습니다. Microsoft에서 경로를 보급하는 서비스는 사용자가 선택할 수 없습니다.
 

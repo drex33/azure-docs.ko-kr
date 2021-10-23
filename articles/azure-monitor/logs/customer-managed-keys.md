@@ -6,12 +6,12 @@ author: yossi-y
 ms.author: yossiy
 ms.date: 07/29/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: fdf632c298eeee10bac000f9695fc5e568043acd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fc85d2f124cab1b1ff66f2b458f1b7cab046da56
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128607789"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130244935"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor 고객 관리형 키 
 
@@ -73,37 +73,6 @@ Azure Monitor는 관리 ID를 사용하여 Azure Key Vault에 대한 액세스 �
 
 고객 관리형 키 구성은 현재 Azure Portal에서 지원되지 않으며 [PowerShell](/powershell/module/az.operationalinsights/), [CLI](/cli/azure/monitor/log-analytics) 또는 [REST](/rest/api/loganalytics/) 요청을 통해 프로비저닝을 수행할 수 있습니다.
 
-### <a name="asynchronous-operations-and-status-check"></a>비동기 작업 및 상태 검사
-
-구성 단계 중 일부는 빨리 완료할 수 없으므로 비동기적으로 실행됩니다. 응답의 `status`는 '진행 중', '업데이트 중', '삭제 중', '성공함' 또는 '실패함'(오류 코드 포함) 중 하나일 수 있습니다.
-
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
-
-해당 없음
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-해당 없음
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-해당 없음
-
-# <a name="rest"></a>[REST (영문)](#tab/rest)
-
-REST를 사용할 때 응답은 처음에 HTTP 상태 코드 202(수락됨) 및 *Azure-AsyncOperation* 속성이 있는 헤더를 반환합니다.
-```json
-"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2021-06-01"
-```
-
-GET 요청을 *Azure-AsyncOperation* 헤더의 엔드포인트로 보내 비동기 작업의 상태를 확인할 수 있습니다.
-```rst
-GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2021-06-01
-Authorization: Bearer <token>
-```
-
----
-
 ## <a name="storing-encryption-key-kek"></a>암호화 키(KEK) 저장
 
 클러스터가 계획되는 지역에서 기존 Azure Key Vault를 만들거나 사용한 다음, 로그 암호화에 사용할 키를 생성하거나 가져옵니다. Azure Monitor에서 키와 데이터에 대한 액세스를 보호하기 위해 Azure Key Vault를 복구 가능으로 구성해야 합니다. 이 구성은 Key Vault의 속성에서 확인할 수 있습니다. *일시 삭제* 및 *제거 보호* 를 모두 사용하도록 설정되어 있어야 합니다.
@@ -117,7 +86,7 @@ Authorization: Bearer <token>
 
 ## <a name="create-cluster"></a>클러스터 만들기
 
-클러스터는 시스템 할당 관리 ID를 지원하며 ID `type` 속성은 `SystemAssigned`로 설정되어야 합니다. ID는 클러스터 만들기와 함께 자동으로 만들어지며 나중에 래핑 및 래핑 해제 작업을 위해 Key Vault에 대한 스토리지 액세스 권한을 부여하는 데 사용할 수 있습니다. 
+클러스터는 Key Vault 데이터 암호화에 관리 ID를 사용합니다. `type`래핑 및 래핑 해제 작업을 위해 Key Vault 액세스할 수 있도록 클러스터를 만들 때 ID 속성을 로 `SystemAssigned` 구성합니다. 
   
   시스템이 할당한 관리 ID에 대한 클러스터의 ID 설정
   ```json
@@ -164,16 +133,24 @@ Azure Monitor 데이터에 대한 액세스와 키를 보호하기 위해 Key Va
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
-Set-AzContext -SubscriptionId "cluster-subscription-id"
+az account set --subscription "cluster-subscription-id"
 
-az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --key-name "key-name" --key-vault-uri "key-uri" --key-version "key-version"
+az monitor log-analytics cluster update --no-wait --name "cluster-name" --resource-group "resource-group-name" --key-name "key-name" --key-vault-uri "key-uri" --key-version "key-version"
+
+# Wait for job completion when `--no-wait` was used
+$clusterResourceId = az monitor log-analytics cluster list --resource-group "resource-group-name" --query "[?contains(name, "cluster-name")].[id]" --output tsv
+az resource wait --created --ids $clusterResourceId --include-response-body true
+
 ```
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 Select-AzSubscription "cluster-subscription-id"
 
-Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -KeyVaultUri "key-uri" -KeyName "key-name" -KeyVersion "key-version"
+Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -KeyVaultUri "key-uri" -KeyName "key-name" -KeyVersion "key-version" -AsJob
+
+# Check when the job is done when `-AsJob` was used
+Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 ```
 
 # <a name="rest"></a>[REST (영문)](#tab/rest)
@@ -199,9 +176,7 @@ Content-type: application/json
 
 **응답**
 
-키 전파를 완료하는 데 시간이 걸립니다. 업데이트 상태는 다음 두 가지 방법으로 확인할 수 있습니다.
-1. 응답에서 Azure-AsyncOperation URL 값을 복사하고 [비동기 작업 상태 검사](#asynchronous-operations-and-status-check)를 수행합니다.
-2. 클러스터의 GET 요청을 보내고 *KeyVaultProperties* 값을 확인합니다. 최근 업데이트된 키가 응답에서 반환되어야 합니다.
+키 전파를 완료하는 데 시간이 걸립니다. 클러스터에서 GET 요청을 전송하여 업데이트 상태를 확인하고 *KeyVaultProperties* 속성을 확인할 수 있습니다. 최근 업데이트된 키가 응답에서 반환되어야 합니다.
 
 키 업데이트가 완료되면 GET 요청에 대한 응답이 다음과 같이 표시됨: 202(수락됨) 및 헤더
 ```json
@@ -301,7 +276,7 @@ BYOS(Bring Your Own Storage)를 작업 영역에 연결하면 서비스에서 *s
 ```azurecli
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
 
-Set-AzContext -SubscriptionId "workspace-subscription-id"
+az account set --subscription "workspace-subscription-id"
 
 az monitor log-analytics workspace linked-storage create --type Query --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
 ```
@@ -351,7 +326,7 @@ Content-type: application/json
 ```azurecli
 $storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
 
-Set-AzContext -SubscriptionId "workspace-subscription-id"
+az account set --subscription "workspace-subscription-id"
 
 az monitor log-analytics workspace linked-storage create --type ALerts --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
 ```
@@ -460,9 +435,7 @@ Azure Monitor에서 Log Analytics 전용 클러스터에 연결된 작업 영역
 
 - Key Vault에서 키 버전을 업데이트하고 클러스터의 새 키 식별자 세부 정보를 업데이트하지 않으면 Log Analytics 클러스터에서 이전 키를 계속 사용하므로 데이터에 액세스할 수 없게 됩니다. 클러스터의 새 키 식별자 세부 정보를 업데이트하여 데이터 수집 및 데이터 쿼리 기능을 다시 시작합니다.
 
-- 일부 작업은 완료하는 데 시간이 오래 걸릴 수 있습니다(클러스터 만들기, 클러스터 키 업데이트 및 클러스터 삭제). 두 가지 방법으로 작동 상태를 확인할 수 있습니다.
-  1. REST를 사용할 때 응답에서 Azure-AsyncOperation URL 값을 복사하고 [비동기 작업 상태 검사](#asynchronous-operations-and-status-check)를 수행합니다.
-  2. 클러스터 또는 작업 영역에 GET 요청을 보내고 응답을 관찰합니다. 예를 들어 연결되지 않은 작업 영역에는 *features* 아래에 *clusterResourceId* 가 없습니다.
+- 일부 작업은 완료하는 데 시간이 오래 걸릴 수 있습니다(클러스터 만들기, 클러스터 키 업데이트 및 클러스터 삭제). 클러스터 또는 작업 영역에 GET 요청을 전송 하 고 응답을 관찰 하 여 작업 상태를 확인할 수 있습니다. 예를 들어 연결되지 않은 작업 영역에는 *features* 아래에 *clusterResourceId* 가 없습니다.
 
 - 오류 메시지
   

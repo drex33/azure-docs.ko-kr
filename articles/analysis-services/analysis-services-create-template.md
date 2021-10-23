@@ -3,18 +3,18 @@ title: 빠른 시작 - Azure Resource Manager 템플릿을 사용하여 Azure An
 description: 빠른 시작 - Azure Resource Manager 템플릿을 사용하여 Azure Analysis Services 서버 리소스 만들기
 author: minewiskan
 ms.author: owend
-ms.date: 08/31/2020
+ms.date: 10/12/2021
 ms.topic: quickstart
 ms.service: azure-analysis-services
 tags:
 - azure-resource-manager
 ms.custom: devx-track-azurepowershell - subject-armqs - references_regions - mode-arm
-ms.openlocfilehash: 5d54ac9a7bbf8d63f160f95d67723bc82fa3e1c2
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: b8010df6b4e6284a1050d479e9ab312fb8e7bb97
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111895409"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998830"
 ---
 # <a name="quickstart-create-a-server---arm-template"></a>빠른 시작: 서버 만들기 - ARM 템플릿
 
@@ -33,7 +33,7 @@ ms.locfileid: "111895409"
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/analysis-services-create/)에서 나온 것입니다.
+이 빠른 시작에 사용되는 템플릿은 [Azure 템플릿](https://azure.microsoft.com/resources/templates/analysis-services-create/)에서 가져온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.analysisservices/analysis-services-create/azuredeploy.json":::
 

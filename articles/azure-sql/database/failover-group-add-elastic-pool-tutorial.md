@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: tutorial
-author: BustosMSFT
-ms.author: robustos
+author: emlisa
+ms.author: emlisa
 ms.reviewer: mathoma
 ms.date: 08/27/2019
-ms.openlocfilehash: 0bd944f6e34383ea68dbf7fc410f6ae8b1050b2c
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
+ms.openlocfilehash: 4999433a7aeeae113bae758c72e489268a4f308b
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112541845"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165730"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>자습서: Azure SQL Database 탄력적 풀을 장애 조치(failover) 그룹에 추가
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

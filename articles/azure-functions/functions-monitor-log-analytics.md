@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 8323f3a917cfe51fdc358d28b865db3055f28172
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: ed9bdbeff68bd653b7c19fb4030524c4c1f836dc
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130178223"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130260819"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용한 Azure Functions 모니터링
 
@@ -34,7 +34,7 @@ Azure Monitor는 Azure Data Explorer에서 사용되는 [Kusto 쿼리 언어](/a
 
    **FunctionAppLogs** 테이블에는 원하는 로그가 포함되어 있습니다.
 
-1. **대상 세부 정보** 에서 **Log Analytics에 보내기** 를 선택한 다음, **Log Analytics 작업 영역** 을 선택합니다. 
+1. **대상 세부 정보** 에서 **Log Analytics 보내기를** 선택 하 고 **Log Analytics 작업 영역** 을 선택 합니다. 
 
 1. **진단 설정 이름** 을 입력한 다음, **저장** 을 선택합니다.
 

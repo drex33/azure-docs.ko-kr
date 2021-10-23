@@ -11,12 +11,12 @@ ms.author: jhirono
 author: jhirono
 ms.date: 09/24/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions
-ms.openlocfilehash: 7f0d206b9327cad0c58cc92dbec16227c1c22644
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: d41c6537d597e34c826a4f0e7e6fecc75684d9a4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130000135"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130241874"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>가상 네트워크에서 Azure Machine Learning 학습 환경 보호
 
@@ -226,7 +226,7 @@ except ComputeTargetException:
 
 **공용 IP가** 사용하도록 설정되지 않은 컴퓨팅 클러스터에는 공용 IP 컴퓨팅 클러스터에 대한 인바운드 통신 요구 사항과 비교하여 공용 인터넷의 **인바운드 통신 요구 사항이 없습니다.** 특히 인바운드 NSG 규칙( `BatchNodeManagement` , `AzureMachineLearning` )은 모두 필요하지 않습니다. VirtualNetwork 원본 및 모든 포트 원본에서 **VirtualNetwork의** 대상 및 **29876, 29877의** 대상 포트까지 인바운드를 허용해야 합니다.
 
-공용 IP 클러스터는 [Azure Machine Learning](how-to-configure-private-link.md) 작업 영역에 대한 Azure Private Link 종속되지 **않습니다.** **공용 IP가 없는** 컴퓨팅 클러스터에서는 프라이빗 엔드포인트 네트워크 정책 및 프라이빗 링크 서비스 네트워크 정책을 사용하지 않도록 설정해야 합니다. 이러한 요구 사항은 Azure 프라이빗 링크 서비스 및 프라이빗 엔드포인트에서 비롯되며 Azure Machine Learning 구체적이지 않습니다. [Private Link 서비스에 대한 네트워크 정책 사용 안 함의 지침에](../private-link/disable-private-link-service-network-policy.md) 따라 가상 네트워크 서브넷에서 및 매개 `disable-private-endpoint-network-policies` `disable-private-link-service-network-policies` 변수를 설정합니다.
+공용 IP 클러스터는 [Azure Machine Learning](how-to-configure-private-link.md) 작업 영역에 대한 Azure Private Link 종속되지 **않습니다.** **공용 IP가 없는** 컴퓨팅 클러스터에서는 프라이빗 엔드포인트 네트워크 정책 및 프라이빗 링크 서비스 네트워크 정책을 사용하지 않도록 설정해야 합니다. 이러한 요구 사항은 Azure 프라이빗 링크 서비스 및 프라이빗 엔드포인트에서 비롯되며 Azure Machine Learning 구체적이지 않습니다. [Private Link 서비스에 대한 네트워크 정책 사용 안 함의](../private-link/disable-private-link-service-network-policy.md) 지침에 따라 가상 네트워크 서브넷에서 및 매개 `disable-private-endpoint-network-policies` `disable-private-link-service-network-policies` 변수를 설정합니다.
 
 **아웃바운드 연결이** 작동하려면 사용자 정의 경로를 사용하여 Azure Firewall과 같은 송신 방화벽을 설정해야 합니다. 예를 들어 [인바운드/아웃바운드 구성으로](how-to-access-azureml-behind-firewall.md) 설정된 방화벽을 사용하고 컴퓨팅 클러스터가 배포된 서브넷에 경로 테이블을 정의하여 트래픽을 라우팅할 수 있습니다. 경로 테이블 항목은 주소 접두사 0.0.0.0/0으로 방화벽의 개인 IP 주소에 대한 다음 홉을 설정할 수 있습니다.
 
@@ -239,7 +239,7 @@ ARM 템플릿을 통해 공용 IP 컴퓨팅 클러스터를 만들 수도 없습
 
 **문제 해결**
 
-* 클러스터를 만드는 동안 이 오류 메시지가 발생하면 "지정된 서브넷에 PrivateLinkServiceNetworkPolicies 또는 PrivateEndpointNetworkEndpoints가 활성화되어 있습니다." 메시지가 표시된 경우 [Private Link 서비스에 대한 네트워크 정책 사용 안 함](../private-link/disable-private-link-service-network-policy.md) 및 프라이빗 [엔드포인트에 대한 네트워크 정책 사용 안 함](../private-link/disable-private-endpoint-network-policy.md)의 지침을 따르세요.
+* 클러스터를 만드는 동안 이 오류 메시지가 발생하면 "지정된 서브넷에 PrivateLinkServiceNetworkPolicies 또는 PrivateEndpointNetworkEndpoints가 활성화되어 있습니다." 메시지가 표시된 경우 [Private Link 서비스에 대한 네트워크 정책 사용 안 함](../private-link/disable-private-link-service-network-policy.md) 및 프라이빗 [엔드포인트에 대한 네트워크 정책 사용 안 함의](../private-link/disable-private-endpoint-network-policy.md)지침을 따르세요.
 
 * ACR 또는 Azure Storage 대한 연결 문제로 작업 실행이 실패하는 경우 고객이 서브넷에 ACR 및 Azure Storage 서비스 엔드포인트/프라이빗 엔드포인트를 추가하고 ACR/Azure Storage 서브넷에서의 액세스를 허용하는지 확인합니다.
 
@@ -261,6 +261,10 @@ ARM 템플릿을 통해 공용 IP 컴퓨팅 클러스터를 만들 수도 없습
 
 스튜디오에서 공용 IP 주소 컴퓨팅 인스턴스 없음(미리 보기 기능)을 만들려면 가상 네트워크 섹션에서 **공용 IP** 없음 확인란을 설정합니다.
 ARM 템플릿을 통해 공용 IP 컴퓨팅 인스턴스를 만들 수도 없습니다. ARM 템플릿에서 enableNodePublicIP 매개 변수를 false로 설정합니다.
+
+다음 단계:
+* [사용자 지정 DNS 사용](how-to-custom-dns.md)
+* [방화벽 사용](how-to-access-azureml-behind-firewall.md)
 
 [!INCLUDE [no-public-ip-info](../../includes/machine-learning-no-public-ip-availibility.md)]
 

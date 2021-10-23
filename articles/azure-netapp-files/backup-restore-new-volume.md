@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/27/2021
 ms.author: b-juche
-ms.openlocfilehash: 1a0b2e59f2d11caf1db9985cfba937e2df0f44c7
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 5e6302893884674708f584b0261204b2cc891c6c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129095803"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256384"
 ---
 # <a name="restore-a-backup-to-a-new-volume"></a>새 볼륨으로 백업 복원
 
@@ -67,7 +67,4 @@ ms.locfileid: "129095803"
 * [볼륨에 대한 백업 기능 사용 안 함](backup-disable.md)
 * [볼륨의 백업 삭제](backup-delete.md)
 * [볼륨 백업 메트릭](azure-netapp-files-metrics.md#volume-backup-metrics)
-* [Azure NetApp Files 백업 FAQ](azure-netapp-files-faqs.md#azure-netapp-files-backup-faqs)
-
-
-
+* [Azure NetApp Files 백업 FAQ](faq-backup.md)

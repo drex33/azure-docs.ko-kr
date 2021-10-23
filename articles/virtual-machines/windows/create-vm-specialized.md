@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2a10d58dc36304afdbd37c3fd1c3c41dd819d022
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 650065e45afa3b03098c948b8636ed2943b22140
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122693457"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130222991"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>PowerShell을 사용하여 특수 디스크에서 Windows VM 만들기
 
@@ -201,7 +201,7 @@ $nsg = New-AzNetworkSecurityGroup `
 엔드포인트 및 NSG 규칙에 대한 자세한 내용은 [PowerShell을 사용하여 Azure에서 VM으로 포트 열기](nsg-quickstart-powershell.md)를 참조하세요.
 
 ### <a name="create-a-public-ip-address-and-nic"></a>공용 IP 주소 및 NIC 만들기
-가상 네트워크에서 가상 머신과 통신하도록 설정하려면 [공용 IP 주소](../../virtual-network/public-ip-addresses.md) 및 네트워크 인터페이스가 필요합니다.
+가상 네트워크에서 가상 머신과 통신하도록 설정하려면 [공용 IP 주소](../../virtual-network/ip-services/public-ip-addresses.md) 및 네트워크 인터페이스가 필요합니다.
 
 1. 공용 IP를 만듭니다. 이 예제에서는 공용 IP 주소 이름을 *myIP* 로 설정합니다.
    

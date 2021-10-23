@@ -2,13 +2,13 @@
 title: 800개 개수 제한이 없는 리소스
 description: 리소스 그룹에 800개가 넘는 인스턴스를 포함할 수 있는 Azure 리소스 종류를 나열합니다.
 ms.topic: conceptual
-ms.date: 07/13/2021
-ms.openlocfilehash: 123148a863f74a6490a524ecc2d39bc44e65299d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/20/2021
+ms.openlocfilehash: 728e41167fcabb6d30fa7af79cdb17f5aaad07d6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124807046"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130260667"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>리소스 그룹당 인스턴스가 800개로 제한되지 않는 리소스
 
@@ -16,7 +16,7 @@ ms.locfileid: "124807046"
 
 일부 리소스 종류의 경우 800개 인스턴스 제한을 제거하려면 고객 지원팀에 문의해야 합니다. 해당 리소스 종류는 이 문서에 나와 있습니다.
 
-일부 리소스는 지역별 number instances에 대 한 제한이 있습니다. 이 제한은 리소스 그룹당 800 인스턴스와 다릅니다. 지역별 인스턴스를 확인 하려면 Azure Portal을 사용 합니다. 왼쪽 창에서 구독 및 **사용량 + 할당량** 을 선택 합니다. 자세한 내용은 [제한에 대 한 리소스 사용 확인](../../networking/check-usage-against-limits.md)을 참조 하세요. 
+일부 리소스는 지역별 number instances에 대 한 제한이 있습니다. 이 제한은 리소스 그룹당 800 인스턴스와 다릅니다. 지역별 인스턴스를 확인 하려면 Azure Portal을 사용 합니다. 왼쪽 창에서 구독 및 **사용량 + 할당량** 을 선택 합니다. 자세한 내용은 [제한에 대 한 리소스 사용 확인](../../networking/check-usage-against-limits.md)을 참조 하세요.
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
@@ -137,6 +137,7 @@ ms.locfileid: "124807046"
 * netAppAccounts/capacityPools/volumes
 * netAppAccounts/capacityPools/volumes/mountTargets
 * netAppAccounts/capacityPools/volumes/snapshots
+* netAppAccounts/capacityPools/볼륨/하위 볼륨
 * netAppAccounts/snapshotPolicies
 * netAppAccounts/volumeGroups
 

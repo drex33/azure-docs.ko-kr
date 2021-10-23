@@ -3,12 +3,12 @@ title: Azure Managed Disks 백업
 description: Azure Portal에서 Azure Managed Disks를 백업하는 방법을 알아보세요.
 ms.topic: conceptual
 ms.date: 09/17/2021
-ms.openlocfilehash: 4561ff53588c6662759b0e86529f20e7cf837bbe
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6da98c8229d626edb5f1872ede5380f9cc61aa0b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128668141"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224383"
 ---
 # <a name="back-up-azure-managed-disks"></a>Azure Managed Disks 백업
 
@@ -81,47 +81,47 @@ Backup 자격 증명 모음은 PostgreSQL용 Azure Database 서버 및 Azure Dis
 
 ## <a name="configure-backup"></a>백업 구성
 
-- Azure Disk Backup은 운영 계층 백업만 지원합니다. 자격 증명 모음 스토리지 계층에 백업 복사는 현재 지원되지 않습니다. LRS/GRS(Backup 자격 증명 모음 스토리지 중복 설정)는 운영 계층에 저장된 백업에 적용되지 않습니다. 
-  증분 스냅샷은 부모 디스크의 선택한 스토리지 유형에 관계없이 표준 HDD 스토리지에 저장됩니다. 추가 안정성을 위해 증분 스냅샷은 ZRS 지원 지역에서 기본적으로 ZRS(영역 [중복 Storage)에](/azure/storage/common/storage-redundancy) 저장됩니다.
+- Azure Disk backup은 운영 계층 백업만 지원 합니다. 자격 증명 모음 저장소 계층에 대 한 백업 복사는 현재 지원 되지 않습니다. 백업 자격 증명 모음 저장소 중복성 설정 (LRS/GRS)은 운영 계층에 저장 된 백업에 적용 되지 않습니다. 
+  증분 스냅숏은 선택한 부모 디스크의 저장소 유형과 관계 없이 표준 HDD 저장소에 저장 됩니다. 추가 안정성을 위해 증분 스냅숏은 기본적으로 ZRS 지원 지역에 ZRS ( [영역 중복 Storage](../storage/common/storage-redundancy.md) )에 저장 됩니다.
 
-- Azure Disk Backup은 한 구독의 백업 자격 증명 모음과 다른 구독의 원본 디스크를 통해 구독 간 백업 및 복원을 지원합니다. 따라서 지역 간 백업 및 복원은 지원되지 않으며 이를 통해 Backup 자격 증명 모음과 디스크를 동일하거나 다른 구독에서 백업할 수 있습니다. 그러나 백업할 백업 자격 증명 모음과 디스크는 모두 동일한 지역에 있어야 합니다.
+- Azure 디스크 백업은 한 구독에서 백업 자격 증명 모음을 사용 하 여 구독을 백업 하 고 다른 구독에서 원본 디스크를 복원 합니다. 따라서 지역 간 백업 및 복원은 지원 되지 않으며,이를 통해 백업 자격 증명 모음 및 디스크를 동일한 구독 또는 다른 구독에서 백업할 수 있습니다. 그러나 백업할 백업 자격 증명 모음과 디스크는 동일한 지역에 있어야 합니다.
 
-- 디스크 백업을 구성한 후에는 백업 인스턴스에 할당된 스냅샷 리소스 그룹을 변경할 수 없습니다.
+- 디스크 백업을 구성한 후에는 백업 인스턴스에 할당 된 스냅숏 리소스 그룹을 변경할 수 없습니다.
 
-디스크 백업을 구성하려면 다음 단계를 수행합니다.
+디스크 백업을 구성 하려면 다음 단계를 수행 합니다.
 
-1. 백업 **센터**  ->  **개요로** 이동하여 **+ 백업을** 클릭하여 디스크의 백업 구성을 시작합니다.
+1. **Backup 센터**  ->  **개요** 로 이동 하 고 **+ backup** 을 클릭 하 여 디스크의 백업 구성을 시작 합니다.
 
-   :::image type="content" source="./media/backup-managed-disks/start-configuring-backup-of-disk-inline.png" alt-text="Azure Disk 백업을 시작하는 옵션을 보여주는 스크린샷." lightbox="./media/backup-managed-disks/start-configuring-backup-of-disk-expanded.png":::
+   :::image type="content" source="./media/backup-managed-disks/start-configuring-backup-of-disk-inline.png" alt-text="Azure Disk backup을 시작 하는 옵션을 보여 주는 스크린샷" lightbox="./media/backup-managed-disks/start-configuring-backup-of-disk-expanded.png":::
 
-1. **데이터 원본 유형** 드롭다운 목록에서 Azure **디스크를** 선택한 다음 **계속을** 클릭합니다.
+1. **Datasource 유형** 드롭다운 목록에서 **Azure 디스크** 를 선택 하 고 **계속** 을 클릭 합니다.
 
-   :::image type="content" source="./media/backup-managed-disks/select-azure-disks-as-datasource-type-inline.png" alt-text="Azure Disks를 데이터 보호 유형으로 선택하는 프로세스를 보여주는 스크린샷." lightbox="./media/backup-managed-disks/select-azure-disks-as-datasource-type-expanded.png":::
+   :::image type="content" source="./media/backup-managed-disks/select-azure-disks-as-datasource-type-inline.png" alt-text="Azure 디스크를 데이터 보호 유형으로 선택 하는 프로세스를 보여 주는 스크린샷" lightbox="./media/backup-managed-disks/select-azure-disks-as-datasource-type-expanded.png":::
 
-1. Backup 자격 증명 모음을 선택하고 **다음을** 클릭하여 계속 진행합니다.
-
-   >[!Note]
-   >- 백업 자격 증명 모음과 백업할 디스크가 모두 동일한 위치에 있는지 확인합니다.
-   >- Azure Backup 관리 디스크의 [_증분 스냅샷을_](/azure/virtual-machines/disks-incremental-snapshots#restrictions) 사용합니다. 이 스냅샷은 부모 디스크의 스토리지 유형에 관계없이 디스크에 대한 델타 변경 내용만 표준 HDD 스토리지의 마지막 스냅샷으로 저장합니다. 추가 안정성을 위해 증분 스냅샷은 기본적으로 ZRS 지원 지역의 ZRS(영역 중복 Storage)에 저장됩니다. 현재 Azure Disk Backup은 백업을 Backup 자격 증명 모음 스토리지에 복사하지 않는 관리 디스크의 운영 백업을 지원합니다. 따라서 Backup 자격 증명 모음의 백업 스토리지 중복 설정은 복구 지점에 적용되지 않습니다.
-
-   :::image type="content" source="./media/backup-managed-disks/select-backup-vault-inline.png" alt-text="Backup 자격 증명 모음을 선택하는 프로세스를 보여주는 스크린샷." lightbox="./media/backup-managed-disks/select-backup-vault-expanded.png":::
-
-1. 백업 **정책** 탭에서 백업 정책을 선택합니다.
-
-   :::image type="content" source="./media/backup-managed-disks/choose-backup-policy-inline.png" alt-text="Backup 정책을 선택하는 프로세스를 보여주는 스크린샷." lightbox="./media/backup-managed-disks/choose-backup-policy-expanded.png":::
-
-1. 데이터 **원본** 탭에서 **+ 추가/편집을** 클릭하여 백업을 구성할 하나 이상의 Azure Managed Disks 선택합니다.
-
-   :::image type="content" source="./media/backup-managed-disks/choose-azure-managed-disks-inline.png" alt-text="Azure Managed Disks 선택하는 프로세스를 보여주는 스크린샷." lightbox="./media/backup-managed-disks/choose-azure-managed-disks-expanded.png":::
+1. 백업 자격 증명 모음을 선택 하 고 **다음** 을 클릭 하 여 계속 진행 합니다.
 
    >[!Note]
-   >포털에서는 여러 디스크를 선택하고 백업을 구성할 수 있지만 각 디스크는 개별 백업 인스턴스입니다. 현재 Azure Disk Backup은 개별 디스크의 백업만 지원합니다. 가상 머신에 연결된 여러 디스크의 특정 시점 백업은 지원되지 않습니다.
-   >
-   >Azure Portal 동일한 구독 내의 디스크만 선택할 수 있습니다. 백업할 디스크가 여러 개 있거나 디스크가 다른 구독에 있는 경우 스크립트([PowerShell](/azure/backup/backup-managed-disks-ps) / [CLI)를](/azure/backup/backup-managed-disks-cli)사용하여 자동화할 수 있습니다. 
-   >
-   >Azure Disk 백업 지역 가용성, 지원되는 시나리오 및 제한에 대한 자세한 내용은 지원 [매트릭스를](/azure/backup/disk-backup-support-matrix) 참조하세요.
+   >- 백업 자격 증명 모음과 백업할 디스크가 모두 같은 위치에 있는지 확인 합니다.
+   >- Azure Backup는 관리 디스크의 [_증분 스냅숏을_](../virtual-machines/disks-incremental-snapshots.md#restrictions) 사용 합니다 .이 스냅숏은 부모 디스크의 저장소 유형과 관계 없이 디스크에 대 한 델타 변경 내용만 표준 HDD 저장소에 마지막 스냅숏으로 저장 합니다. 추가 안정성을 위해 증분 스냅숏은 기본적으로 ZRS 지원 지역에 ZRS (영역 중복 Storage)에 저장 됩니다. 현재 Azure Disk Backup은 백업 자격 증명 모음 저장소에 백업을 복사 하지 않는 관리 디스크의 운영 백업을 지원 합니다. 따라서 백업 자격 증명 모음의 백업 저장소 중복성 설정은 복구 점에 적용 되지 않습니다.
 
-1. **스냅샷 리소스 그룹을** 선택하고 **유효성 검사를** 클릭하여 필수 조건 검사를 시작합니다.
+   :::image type="content" source="./media/backup-managed-disks/select-backup-vault-inline.png" alt-text="백업 자격 증명 모음을 선택 하는 프로세스를 보여 주는 스크린샷" lightbox="./media/backup-managed-disks/select-backup-vault-expanded.png":::
+
+1. **백업 정책** 탭에서 백업 정책을 선택 합니다.
+
+   :::image type="content" source="./media/backup-managed-disks/choose-backup-policy-inline.png" alt-text="백업 정책을 선택 하는 프로세스를 보여 주는 스크린샷" lightbox="./media/backup-managed-disks/choose-backup-policy-expanded.png":::
+
+1. **데이터 원본** 탭에서 **+ 추가/편집** 을 클릭 하 여 백업을 구성 하려는 하나 이상의 Azure Managed Disks를 선택 합니다.
+
+   :::image type="content" source="./media/backup-managed-disks/choose-azure-managed-disks-inline.png" alt-text="Azure Managed Disks를 선택 하는 프로세스를 보여 주는 스크린샷" lightbox="./media/backup-managed-disks/choose-azure-managed-disks-expanded.png":::
+
+   >[!Note]
+   >포털에서는 여러 디스크를 선택하고 백업을 구성할 수 있지만 각 디스크는 개별 백업 인스턴스입니다. 현재 Azure Disk Backup은 개별 디스크의 백업만 지원 합니다. 가상 머신에 연결된 여러 디스크의 특정 시점 백업은 지원되지 않습니다.
+   >
+   >Azure Portal에서 동일한 구독 내의 디스크만 선택할 수 있습니다. 백업할 디스크가 여러 개인 경우 또는 디스크가 다른 구독에 상주 하는 경우 스크립트 ([PowerShell](./backup-managed-disks-ps.md) / [CLI](./backup-managed-disks-cli.md))를 사용 하 여 자동화할 수 있습니다. 
+   >
+   >Azure 디스크 백업 지역 가용성, 지원 되는 시나리오 및 제한 사항에 대 한 자세한 내용은 [지원 매트릭스](./disk-backup-support-matrix.md) 를 참조 하세요.
+
+1. **스냅숏 리소스 그룹** 을 선택 하 고 **유효성 검사** 를 클릭 하 여 필수 구성 요소 검사를 시작 합니다.
 
    스냅샷 저장 및 관리를 위한 리소스 그룹 선택:
 
@@ -131,11 +131,11 @@ Backup 자격 증명 모음은 PostgreSQL용 Azure Database 서버 및 Azure Dis
 
    - 이 리소스 그룹을 사용하여 백업 중이거나 백업 예정인 여러 디스크에 스냅샷을 저장할 수 있습니다.
 
-   - 해당 디스크의 구독 외부에 있는 특정 디스크에 대해 증분 스냅샷을 만들 수 없습니다. 따라서 디스크를 백업해야 하는 동일한 구독 내에서 리소스 그룹을 선택합니다. 관리 디스크의 증분 스냅샷에 대해 [자세히 알아보세요.](/azure/virtual-machines/disks-incremental-snapshots#restrictions)
+   - 해당 디스크의 구독 외부에 있는 특정 디스크에 대해 증분 스냅샷을 만들 수 없습니다. 따라서 디스크를 백업 해야 하는 동일한 구독 내에서 리소스 그룹을 선택 합니다. 관리 디스크의 증분 스냅숏에 대해 [자세히 알아보세요](../virtual-machines/disks-incremental-snapshots.md#restrictions) .
 
-   - 디스크의 백업을 구성한 후에는 백업 인스턴스에 할당된 스냅샷 리소스 그룹을 변경할 수 없습니다.
+   - 디스크의 백업을 구성한 후에는 백업 인스턴스에 할당 된 스냅숏 리소스 그룹을 변경할 수 없습니다.
 
-   - 백업 작업 중에 Azure Backup 스냅샷 리소스 그룹에 Storage 계정을 만듭니다. 스냅숏 리소스 그룹당 하나의 Storage 계정만 생성 됩니다. 이 계정은 스냅숏 리소스 그룹과 같은 리소스 그룹을 사용 하는 여러 디스크 백업 인스턴스에서 다시 사용 됩니다.
+   - 백업 작업 중 Azure Backup은 스냅숏 리소스 그룹에 Storage 계정을 만듭니다. 스냅숏 리소스 그룹당 하나의 Storage 계정만 생성 됩니다. 이 계정은 스냅숏 리소스 그룹과 같은 리소스 그룹을 사용 하는 여러 디스크 백업 인스턴스에서 다시 사용 됩니다.
 
      - Storage 계정은 스냅숏을 저장 하지 않습니다. 관리 디스크의 증분 스냅숏은 Storage 계정이 아닌 리소스 그룹에 생성 된 ARM 리소스입니다.
      - Storage 계정 각 복구 지점에 대 한 메타 데이터를 저장 합니다. Azure Backup 서비스는 디스크 백업 인스턴스당 blob 컨테이너를 만듭니다. 각 복구 지점에는 작은 공간(몇 KiB)을 차지하는 복구 지점(예: 구독, 디스크 ID, 디스크 특성 등)을 설명하는 메타데이터를 저장하기 위해 블록 Blob이 생성됩니다.
@@ -155,7 +155,7 @@ Backup 자격 증명 모음은 PostgreSQL용 Azure Database 서버 및 Azure Dis
    >[!Note]
    >유효성 검사를 완료 하는 데 몇 분 정도 걸릴 수 있습니다. 다음과 같은 경우 유효성 검사가 실패할 수 있습니다.
    >
-   >- 디스크가 지원 되지 않습니다. 지원 되지 않는 시나리오는 [지원 매트릭스](/azure/backup/disk-backup-support-matrix) 를 참조 하세요.
+   >- 디스크가 지원 되지 않습니다. 지원 되지 않는 시나리오는 [지원 매트릭스](./disk-backup-support-matrix.md) 를 참조 하세요.
    >- 백업 자격 증명 모음 관리 id에 백업할 _디스크_ 또는 증분 스냅숏이 저장 된 _스냅숏 리소스 그룹_ 에 대 한 올바른 역할 할당이 없습니다.
 
    **백업 준비** 열에 _역할 할당 안 함_ 오류 메시지가 표시 되 면 백업 자격 증명 모음 관리 id에 선택한 디스크 및/또는 스냅숏 리소스 그룹에 대 한 역할 권한이 있어야 합니다. 
@@ -167,7 +167,7 @@ Backup 자격 증명 모음은 PostgreSQL용 Azure Database 서버 및 Azure Dis
    >[!Note]
    >백업 자격 증명 모음은 관리 ID를 사용하여 다른 Azure 리소스에 액세스합니다. 관리 디스크의 백업을 구성 하려면 백업 자격 증명 모음의 관리 되는 id에 스냅숏이 만들어지고 관리 되는 원본 디스크 및 리소스 그룹에 대 한 권한 집합이 필요 합니다.
 
-   시스템 할당 관리 id는 리소스 당 하나로 제한 되며이 리소스의 수명 주기에 연결 됩니다. 관리 id에 사용 권한을 부여 하려면 azure RBAC (역할 기반 액세스 제어)를 사용 합니다. 관리 ID는 Azure 리소스에서만 사용할 수 있는 특수 유형의 서비스 주체입니다. [관리 ID](/azure/active-directory/managed-identities-azure-resources/overview)에 대해 자세히 알아보세요.
+   시스템 할당 관리 id는 리소스 당 하나로 제한 되며이 리소스의 수명 주기에 연결 됩니다. 관리 id에 사용 권한을 부여 하려면 azure RBAC (역할 기반 액세스 제어)를 사용 합니다. 관리 ID는 Azure 리소스에서만 사용할 수 있는 특수 유형의 서비스 주체입니다. [관리 ID](../active-directory/managed-identities-azure-resources/overview.md)에 대해 자세히 알아보세요.
 
    - 백업 해야 하는 원본 디스크에서 백업 자격 증명 모음 관리 id에 **디스크 백업 읽기 권한자** 역할을 할당 합니다.
    - Azure Backup 서비스에서 백업을 만들고 관리하는 리소스 그룹에서 백업 자격 증명 모음 관리 ID에 디스크 스냅샷 기여자 역할을 할당합니다. 디스크 스냅샷은 구독 내의 리소스 그룹에 저장됩니다. Azure Backup 서비스에서 스냅숏을 만들고 저장 하 고 관리할 수 있도록 하려면 백업 자격 증명 모음에 대 한 사용 권한을 제공 해야 합니다.

@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 10/07/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: fbd291494554c7bbb6e7f79a932717bf81a124c6
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 7a9d7424394d28e7a967866233cb83dc524a01b5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129667595"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130220042"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -264,11 +264,11 @@ context.bindingData
 
 ### <a name="contextdone-method"></a>context.done 메서드
 
-**context.done** 메서드는 동기 메서드에서 사용됩니다.
+**Context. done** 메서드는 동기 메서드에서 사용 됩니다.
 
-|동기 실행|[비동기](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) 실행<br>(노드 8 이상, Functions 런타임 2 이상)|
+|동기 실행|[비동기](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) 실행<br>(노드 8 이상, 함수 런타임 2 이상)|
 |--|--|
-|필수: `context.done([err],[propertyBag])` 함수가 완료되었다는 것을 런타임에 알릴 수 있습니다. 실행이 누락된 경우 시간 초과가 발생합니다.<br>`context.done` 메서드를 사용하면 출력 바인딩 데이터가 포함된 JSON 개체와 런타임에 사용자 정의 오류를 다시 전달할 수 있습니다. `context.done`에 전달된 속성은 `context.bindings` 개체에 설정된 내용을 덮어씁니다.|필수가 `context.done` 아닙니다. - 암시적으로 호출됩니다.| 
+|필수: `context.done([err],[propertyBag])` 함수가 완료 되었음을 런타임에 알립니다. 실행이 누락된 경우 시간 초과가 발생합니다.<br>`context.done` 메서드를 사용하면 출력 바인딩 데이터가 포함된 JSON 개체와 런타임에 사용자 정의 오류를 다시 전달할 수 있습니다. `context.done`에 전달된 속성은 `context.bindings` 개체에 설정된 내용을 덮어씁니다.|필요 하지 않음: `context.done` -암시적으로 호출 됩니다.| 
 
 
 ```javascript
@@ -507,6 +507,7 @@ HTTP 트리거로 작업할 때 여러 가지 방법으로 HTTP 요청 및 응�
 
 | Functions 버전 | 노드 버전(Windows) | 노드 버전(Linux) |
 |---|---| --- |
+| 4.x(미리 보기) | `~14` | `node|14` |
 | 3.x(권장) | `~14`(권장)<br/>`~12`<br/>`~10` | `node|14`(권장)<br/>`node|12`<br/>`node|10` |
 | 2.x  | `~12`<br/>`~10`<br/>`~8` | `node|10`<br/>`node|8`  |
 | 1.x | 6.11.2(런타임에 의해 잠김) | 해당 없음 |

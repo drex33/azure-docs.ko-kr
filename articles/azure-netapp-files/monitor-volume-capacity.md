@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/30/2021
 ms.author: b-juche
-ms.openlocfilehash: 14bbd15fec0015073eefbe2421d03a73fac45d75
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: 8f2dfe5d185b7de08dca189a83d856ac04d5404e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111968377"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224120"
 ---
 # <a name="monitor-the-capacity-of-a-volume"></a>볼륨 용량 모니터링  
 
@@ -73,4 +73,4 @@ Azure NetApp Files에 대한 REST API 사양과 예제 코드는 [resource-manag
 * [볼륨 할당량 이해](volume-quota-introduction.md)
 * [Azure NetApp Files 비용 모델](azure-netapp-files-cost-model.md)
 * [용량 풀 또는 볼륨 크기 조정](azure-netapp-files-resize-capacity-pools-or-volumes.md)
-* [용량 관리 FAQ](azure-netapp-files-faqs.md#capacity-management-faqs)
+* [용량 관리 FAQ](faq-capacity-management.md)

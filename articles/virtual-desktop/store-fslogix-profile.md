@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: ba1ae8c108f02dbd104361e1efe39f5583011124
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
-ms.translationtype: HT
+ms.openlocfilehash: 78dae3bbf31d4f22047288861afeebb11ee4648f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111755702"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232099"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-azure-virtual-desktop"></a>Azure Virtual Desktop의 FSLogix 프로필 컨테이너에 대한 스토리지 옵션
 
@@ -29,7 +29,7 @@ Azure Virtual Desktop은 FSLogix 프로필 컨테이너를 권장 사용자 프�
 |플랫폼 서비스|예, Azure 네이티브 솔루션|예, Azure 네이티브 솔루션|아니요, 자체 관리|
 |국가별 가용성|모든 지역|[지역 선택](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|모든 지역|
 |중복|로컬 중복/영역 중복/지역 중복/지역 영역 중복|로컬 중복|로컬 중복/영역 중복/지역 중복|
-|계층 및 성능| 표준(트랜잭션 최적화)<br>Premium<br>공유당 최대 100K IOPS, 공유당 10GBps, 약 3ms의 대기 시간|Standard<br>Premium<br>Ultra<br>볼륨당 최대 4.5GBps, 약 1ms의 대기 시간. IOPS 및 성능 세부 정보는 [Azure NetApp Files 성능 고려 사항](../azure-netapp-files/azure-netapp-files-performance-considerations.md) 및 [FAQ](../azure-netapp-files/azure-netapp-files-faqs.md#how-do-i-convert-throughput-based-service-levels-of-azure-netapp-files-to-iops)를 참조하세요.|표준 HDD: 디스크당 최대 500 IOPS 제한<br>표준 SSD: 디스크당 최대 4k IOPS 제한<br>프리미엄 SSD: 디스크당 최대 20k IOPS 제한<br>스토리지 공간 다이렉트 프리미엄 디스크를 권장합니다.|
+|계층 및 성능| 표준(트랜잭션 최적화)<br>Premium<br>공유당 최대 100K IOPS, 공유당 10GBps, 약 3ms의 대기 시간|Standard<br>Premium<br>Ultra<br>볼륨당 최대 4.5GBps, 약 1ms의 대기 시간. IOPS 및 성능 세부 정보는 [Azure NetApp Files 성능 고려 사항](../azure-netapp-files/azure-netapp-files-performance-considerations.md) 및 [FAQ](../azure-netapp-files/faq-performance.md#how-do-i-convert-throughput-based-service-levels-of-azure-netapp-files-to-iops)를 참조하세요.|표준 HDD: 디스크당 최대 500 IOPS 제한<br>표준 SSD: 디스크당 최대 4k IOPS 제한<br>프리미엄 SSD: 디스크당 최대 20k IOPS 제한<br>스토리지 공간 다이렉트 프리미엄 디스크를 권장합니다.|
 |용량|공유당 100TiB, 범용 계정당 최대 5PiB |볼륨당 100TiB, 구독당 최대 12.5PiB|디스크당 최대 32TiB|
 |필요한 인프라|최소 공유 크기 1GiB|최소 용량 풀 4TiB, 최소 볼륨 크기 100GiB|Azure IaaS(+ 클라우드 감시)의 VM 2개 또는 디스크 비용 없이 VM 3개 이상|
 |프로토콜|SMB 3.0/2.1, NFSv4.1(미리 보기), REST|NFSv3, NFSv4.1(미리 보기), SMB 3.x/2.x|NFSv3, NFSv4.1, SMB 3.1|
@@ -41,7 +41,7 @@ Azure Virtual Desktop은 FSLogix 프로필 컨테이너를 권장 사용자 프�
 |Access|클라우드, 온-프레미스 및 하이브리드(Azure 파일 동기화)|클라우드, 온-프레미스(ExpressRoute를 통해)|클라우드, 온-프레미스|
 |Backup|Azure 백업 스냅샷 통합|Azure NetApp Files 스냅샷|Azure 백업 스냅샷 통합|
 |보안 및 규정 준수|[모든 Azure 지원 인증서](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|ISO 완료|[모든 Azure 지원 인증서](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|
-|Azure Active Directory 통합|[네이티브 Active Directory 및 Azure Active Directory Domain Services](../storage/files/storage-files-active-directory-overview.md)|[Azure Active Directory Domain Services 및 네이티브 Active Directory](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|네이티브 Active Directory 또는 Azure Active Directory Domain Services 지원만|
+|Azure Active Directory 통합|[네이티브 Active Directory 및 Azure Active Directory Domain Services](../storage/files/storage-files-active-directory-overview.md)|[Azure Active Directory Domain Services 및 네이티브 Active Directory](../azure-netapp-files/faq-smb.md#does-azure-netapp-files-support-azure-active-directory)|네이티브 Active Directory 또는 Azure Active Directory Domain Services 지원만|
 
 스토리지 메서드를 선택했으면 [Azure Virtual Desktop 가격 책정](https://azure.microsoft.com/pricing/details/virtual-desktop/)에서 가격 책정 계획에 대한 정보를 확인하세요.
 

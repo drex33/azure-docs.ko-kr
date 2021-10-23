@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/02/2021
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 452c0479834ab7929696af2c95454662adfecfab
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 5c8a6974778e76afc6f2ca7018e034ad5655690c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538330"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262530"
 ---
 # <a name="security-recommendations-for-app-service"></a>App Service에 대한 보안 권장 사항
 
@@ -49,14 +49,14 @@ ms.locfileid: "123538330"
 |-|-|
 | 고정 IP 제한 사용 | Windows에서 Azure App Service를 사용하면 앱에 액세스할 수 있는 IP 주소 목록을 정의할 수 있습니다. 허용 목록에는 서브넷 마스크에서 정의된 개별 IP 주소 또는 IP 주소 범위가 포함될 수 있습니다. 자세한 내용은 [Azure App Service 고정 IP 제한](app-service-ip-restrictions.md)을 참조하세요.  |
 | 격리된 가격 책정 계층 사용 | 격리된 가격 책정 계층을 제외한 모든 계층은 Azure App Service의 공유 네트워크 인프라에서 앱을 실행합니다. 격리 계층은 전용 [App Service 환경](environment/intro.md) 내에서 앱을 실행하여 완벽한 네트워크 격리를 제공합니다. App Service 환경은 [Azure Virtual Network](../virtual-network/index.yml)의 사용자 인스턴스에서 실행됩니다.|
-| 온-프레미스 리소스에 액세스할 때 보안 연결 사용 | [하이브리드 연결](app-service-hybrid-connections.md), [Virtual Network 통합](web-sites-integrate-with-vnet.md) 또는 [App Service 환경](environment/intro.md)을 사용하여 온-프레미스 리소스에 연결할 수 있습니다. |
+| 온-프레미스 리소스에 액세스할 때 보안 연결 사용 | [하이브리드 연결](app-service-hybrid-connections.md), [Virtual Network 통합](./overview-vnet-integration.md) 또는 [App Service 환경](environment/intro.md)을 사용하여 온-프레미스 리소스에 연결할 수 있습니다. |
 | 인바운드 네트워크 트래픽에 대한 노출 제한 | 네트워크 보안 그룹을 사용하면 네트워크 액세스를 제한하고 노출된 엔드포인트 수를 제어할 수 있습니다. 자세한 내용은 [App Service Environment로의 인바운드 트래픽을 제어하는 방법](environment/app-service-app-service-environment-control-inbound-traffic.md)을 참조하세요. |
 
 ## <a name="monitoring"></a>모니터링
 
 | 권장 | 주석 |
 |-|-|
-|App Service Azure Security Center Azure Defender 사용 | [App Service 대한 Azure Defender](../security-center/defender-for-app-service-introduction.md) 기본적으로 Azure App Service 통합됩니다. Security Center App Service 계획에서 다루는 리소스를 평가하고 해당 결과에 따라 보안 권장 사항을 생성합니다. [이러한 권장 사항의]()자세한 지침을 사용합니다. /security-center/recommendations-reference.md#appservices-recommendations)를 사용하여 App Service 리소스를 강화합니다. 또한 Azure Defender 위협 방지 기능을 제공하며, 사전 공격부터 명령 및 제어까지 거의 모든 MITRE ATT&CK 전술 목록을 포함하는 다양한 위협을 검색할 수 있습니다. Azure App Service 경고의 전체 목록은 [App Service 경고에 대한 Azure Defender 참조하세요.](../security-center/alerts-reference.md#alerts-azureappserv)|
+|App Service Azure Security Center Azure Defender 사용 | [App Service 대한 Azure Defender](../security-center/defender-for-app-service-introduction.md) 기본적으로 Azure App Service 통합됩니다. Security Center App Service 계획에서 다루는 리소스를 평가하고 그 결과에 따라 보안 권장 사항을 생성합니다. [이러한 권장 사항의]()자세한 지침을 사용합니다. /security-center/recommendations-reference.md#appservices-recommendations)를 사용하여 App Service 리소스를 강화합니다. 또한 Azure Defender 위협 방지 기능을 제공하며, 사전 공격부터 명령 및 제어까지 거의 모든 MITRE ATT&CK 전술 목록을 포함하는 다양한 위협을 검색할 수 있습니다. Azure App Service 경고의 전체 목록은 [App Service 경고에 대한 Azure Defender 참조하세요.](../security-center/alerts-reference.md#alerts-azureappserv)|
 
 ## <a name="next-steps"></a>다음 단계
 

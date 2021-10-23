@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: oracle
 ms.collection: linux
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 10/15/2021
 ms.author: kegorman
 ms.reviewer: tigorman
-ms.openlocfilehash: f6f7312590b98474d5edab02ea8e73725aded229
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 3a5b7d99c0995ae0e91056520945c0ed1a78d136
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122690080"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223047"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Azure에서 Oracle 데이터베이스 설계 및 구현
 
@@ -200,12 +200,13 @@ I/O 요구 사항에 대해 명확히 알고 있으면 이러한 요구 사항�
 
 **권장 사항**
 
-처리량을 최대화하려면 가능하면 항상 호스트 캐싱에 대해 **ReadOnly** 로 시작하는 것이 좋습니다. Premium Storage의 경우 **ReadOnly** 옵션을 사용하여 파일 시스템을 탑재할 때 "barrier"를 사용하지 않도록 설정해야 합니다. /etc/fstab 파일을 UUID로 디스크에 업데이트합니다.
+처리량을 최대화하려면 가능하면 항상 호스트 캐싱에 대해 **ReadOnly** 로 시작하는 것이 좋습니다. Premium Storage의 경우 **ReadOnly** 옵션을 사용하여 파일 시스템을 탑재할 때 "barrier"를 사용하지 않도록 설정해야 합니다. UUID를 `/etc/fstab` 사용 하 여 디스크에 파일을 업데이트 합니다.
 
 ![ReadOnly 및 None 옵션을 보여 주는 관리 디스크 페이지의 스크린샷](./media/oracle-design/premium_disk02.png)
 
-- OS 디스크의 경우 기본 **읽기/쓰기** 캐싱을 사용하고 Oracle 워크로드 VM에 프리미엄 SSD를 사용합니다.  또한 교환에 사용되는 볼륨이 프리미엄 SSD에 있는지도 확인합니다.
-- 모든 데이터 파일의 경우 캐싱에 **ReadOnly** 를 사용합니다. ReadOnly 캐싱은 프리미엄 관리 디스크, P30 이상에서만 사용할 수 있습니다.  ReadOnly 캐싱에 사용할 수 있는 4095GiB 볼륨의 제한이 있습니다.  더 큰 할당은 기본적으로 호스트 캐싱을 사용하지 않습니다.
+- **OS 디스크** 의 경우 **읽기/쓰기 호스트 캐싱과 함께 프리미엄 SSD** 를 사용 합니다.
+- Oracle 데이터 파일를 포함 하는 **데이터 디스크** , tempfiles, controlfiles, 변경 내용 추적 파일, bfiles, 외부 테이블에 대 한 파일, 플래시 백 로그를 포함 하는 데이터 디스크의 경우 **읽기 전용 호스트 캐싱에 premium SSD** 를 사용 합니다.
+- **Oracle 온라인 다시 실행 로그 파일을 포함 하는 데이터 디스크** 의 경우 **호스트 캐싱 없이 Premium SSD 또는 UltraDisk를 사용 합니다 (없음)**. Oracle 보관 된 다시 실행 로그 파일 및 RMAN 백업 세트은 온라인 다시 실행 로그 파일에도 상주할 수 있습니다. 호스트 캐싱은 4095 GiB으로 제한 되므로 호스트 캐싱을 사용 하 여 P50 보다 큰 프리미엄 SSD를 할당 하지 않습니다. 저장소 TiB 4 개 이상이 필요한 경우 RAID-0은 Linux LVM2을 사용 하거나 Oracle ASM을 사용 하 여 여러 프리미엄 SSD를 스트라이프 합니다.
 
 낮과 저녁 사이에 워크로드가 크게 달라지고 IO 워크로드가 이를 지원할 수 있는 경우 버스팅을 사용하는 P1-P20 프리미엄 SSD는 야간 시간 일괄 처리 로드 또는 제한된 IO 수요 중에 필요한 성능을 제공할 수 있습니다.  
 

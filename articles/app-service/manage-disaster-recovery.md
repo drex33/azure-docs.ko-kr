@@ -4,12 +4,12 @@ description: Azure App Service가 BCDR(비즈니스 연속성 및 재해 복구)
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 77ba7e71570e235de297bd0eabc466b5ea180ece
-ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
-ms.translationtype: HT
+ms.openlocfilehash: 418c5077a685e8f5289644f4652638e605b6d456
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112895232"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130240474"
 ---
 # <a name="move-an-app-service-app-to-another-region"></a>App Service 앱을 다른 지역으로 이동
 
@@ -30,7 +30,7 @@ App Service 리소스는 지역에 따라 달라지므로 지역 간에 이동�
 - [배포 슬롯](deploy-staging-slots.md)
 - [Azure에서 구매한 사용자 지정 도메인](manage-custom-dns-buy-domain.md)
 - [TLS/SSL 인증서](configure-ssl-certificate.md)
-- [Azure Virtual Network 통합](web-sites-integrate-with-vnet.md)
+- [Azure Virtual Network 통합](./overview-vnet-integration.md)
 - [하이브리드 연결](app-service-hybrid-connections.md)
 - [관리 ID](overview-managed-identity.md)
 - [백업 설정](manage-backup.md)

@@ -7,12 +7,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
 ms.date: 05/17/2021
-ms.openlocfilehash: 2da352a10f5ff9bacdfb28de8752e5ffefa3fd82
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: 78932885ee7c1ec3650de08efe340e998a54acf7
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110068197"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130240037"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 탑재 해제 
 
@@ -60,7 +60,7 @@ ms.locfileid: "110068197"
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure NetApp Files에 대한 NFSv4.1 기본 도메인 구성](azure-netapp-files-configure-nfsv41-domain.md)
-* [NFS FAQ](./azure-netapp-files-faqs.md#nfs-faqs)
+* [NFS FAQ](faq-nfs.md)
 * [네트워크 파일 시스템 개요](/windows-server/storage/nfs/nfs-overview)
 * [NFS Kerberos 볼륨 마운트](configure-kerberos-encryption.md#kerberos_mount)
 * [NFSv4.1 볼륨에 액세스하기 위해 동일한 호스트 이름으로 두개의 VM 구성](configure-nfs-clients.md#configure-two-vms-with-the-same-hostname-to-access-nfsv41-volumes) 

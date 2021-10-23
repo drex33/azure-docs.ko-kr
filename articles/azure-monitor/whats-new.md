@@ -3,12 +3,12 @@ title: Azure Monitor 설명서의 새로운 기능
 description: Azure Monitor 설명서의 새로운 기능
 ms.topic: conceptual
 ms.date: 09/07/2021
-ms.openlocfilehash: 735c94026695e6eb89005c6e1bbc4bbdbe46f64b
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 3c7a433ed3c13e7853cab9a72bdd6b7a447bb3a0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130178693"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219892"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Azure Monitor 설명서의 새로운 기능
 
@@ -19,11 +19,11 @@ ms.locfileid: "130178693"
 
 **업데이트된 문서**
 
-- [Azure Policy 사용하여 대규모로 Azure Monitor 배포](deploy-scale.md)
+- [Azure Policy를 사용 하 여 규모에 Azure Monitor 배포](./best-practices.md)
 - [Azure Monitor 파트너 통합](partners.md)
 - [Azure Monitor에 대한 Resource Manager 템플릿 샘플](resource-manager-samples.md)
 - [Azure Monitor의 역할, 권한 및 보안](roles-permissions-security.md)
-- [Azure Monitor 사용량 및 예상 비용 모니터링](usage-estimated-costs.md)
+- [Azure Monitor의 사용량 및 예상 비용 모니터링](usage-estimated-costs.md)
 
 ### <a name="agents"></a>에이전트
 
@@ -35,18 +35,18 @@ ms.locfileid: "130178693"
 
 **새 문서**
 
-- [Azure App Service 및 ASP.NET 대한 애플리케이션 모니터링](app/azure-web-apps-net.md)
-- [Azure App Service 및 Java용 애플리케이션 모니터링](app/azure-web-apps-java.md)
-- [Azure App Service 및 ASP.NET Core 대한 애플리케이션 모니터링](app/azure-web-apps-net-core.md)
-- [Azure App Service 및 Node.js대한 애플리케이션 모니터링 ](app/azure-web-apps-nodejs.md)
+- [Azure App Service 및 ASP.NET에 대 한 응용 프로그램 모니터링](app/azure-web-apps-net.md)
+- [Azure App Service 및 Java에 대 한 응용 프로그램 모니터링](app/azure-web-apps-java.md)
+- [Azure App Service 및 ASP.NET Core에 대 한 응용 프로그램 모니터링](app/azure-web-apps-net-core.md)
+- [Azure App Service 및 Node.js에 대 한 응용 프로그램 모니터링 ](app/azure-web-apps-nodejs.md)
 
 **업데이트된 문서**
 
-- [Azure App Service 및 ASP.NET 대한 애플리케이션 모니터링](app/azure-web-apps-net.md)
+- [Azure App Service 및 ASP.NET에 대 한 응용 프로그램 모니터링](app/azure-web-apps-net.md)
 - [Application Insights SDK에서 원격 분석 필터링 및 전처리](app/api-filtering-sampling.md)
 - [Microsoft.ApplicationInsights.SnapshotCollector에 대한 릴리스 정보](app/snapshot-collector-release-notes.md)
-- [Azure Monitor Application Insights에 대한 자동 계측이란?](app/codeless-overview.md)
-- [Azure App Service 대한 애플리케이션 모니터링 개요](app/azure-web-apps.md)
+- [Azure Monitor application insights에 대 한 자동 계측 이란?](app/codeless-overview.md)
+- [Azure App Service 개요에 대 한 응용 프로그램 모니터링](app/azure-web-apps.md)
 
 ### <a name="containers"></a>컨테이너
 
@@ -76,7 +76,7 @@ ms.locfileid: "130178693"
 - [Azure Monitor의 에이전트 상태 솔루션](insights/solution-agenthealth.md)
 - [Azure Monitor의 모니터링 솔루션](insights/solutions.md)
 - [SQL 인사이트를 사용하여 SQL 배포 모니터링(미리 보기)](insights/sql-insights-overview.md)
-- [SQL 인사이트 문제 해결(미리 보기)](insights/sql-insights-troubleshoot.md)
+- [SQL insights (미리 보기) 문제 해결](insights/sql-insights-troubleshoot.md)
 
 ### <a name="logs"></a>로그
 
@@ -90,9 +90,9 @@ ms.locfileid: "130178693"
 - [Azure Monitor 고객 관리형 키](logs/customer-managed-keys.md)
 - [Azure Monitor 로그 전용 클러스터](logs/logs-dedicated-clusters.md)
 - [Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기(미리 보기)](logs/logs-data-export.md)
-- [Azure Portal 사용하여 Log Analytics 작업 영역을 다른 지역으로 이동](logs/move-workspace-region.md)
+- [Azure Portal를 사용 하 여 Log Analytics 작업 영역을 다른 영역으로 이동](logs/move-workspace-region.md)
 
-## <a name="august-2021"></a>2021년 8월
+## <a name="august-2021"></a>8 월, 2021
 
 ### <a name="agents"></a>에이전트
 
@@ -140,7 +140,7 @@ ms.locfileid: "130178693"
 
 **새 문서**
 
-- [로그에 대한 Azure AD 인증](logs/azure-ad-authentication-logs.md)
+- [로그에 대 한 Azure AD 인증](logs/azure-ad-authentication-logs.md)
 - [Azure Portal을 사용하여 Log Analytics 작업 영역을 다른 지역으로 이동](logs/move-workspace-region.md)
 - [Azure Monitor의 가용성 영역](logs/availability-zones.md)
 - [Azure CLI에서 Azure Monitor 로그 관리](logs/azure-cli-log-analytics-workspace-sample.md)
@@ -173,7 +173,7 @@ ms.locfileid: "130178693"
 **업데이트된 문서**
 
 - [Azure Monitor 질문과 대답](faq.yml)
-- [Azure Policy를 사용하여 대규모로 Azure Monitor 배포](deploy-scale.md)
+- [Azure Policy를 사용하여 대규모로 Azure Monitor 배포](./best-practices.md)
 
 ### <a name="agents"></a>에이전트
 
@@ -349,4 +349,3 @@ ms.locfileid: "130178693"
 
 - [VM 인사이트 게스트 상태 문제 해결(미리 보기)](vm/vminsights-health-troubleshoot.md)
 - [통합 문서를 사용하여 대화형 보고서 VM 인사이트 만들기](vm/vminsights-workbooks.md)
-

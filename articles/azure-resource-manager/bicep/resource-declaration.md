@@ -4,35 +4,67 @@ description: Bicep에 배포할 리소스를 선언하는 방법을 설명합니
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 10/07/2021
-ms.openlocfilehash: 4b3b355016057af00c361a118aed2728948768dd
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.date: 10/19/2021
+ms.openlocfilehash: 89dd46b42784083eb30aea53cc8476275ae634bf
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129659624"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130244664"
 ---
 # <a name="resource-declaration-in-bicep"></a>Bicep의 리소스 선언
 
-Bicep 파일을 통해 리소스를 배포하려면 `resource` 키워드를 사용하여 리소스 선언을 추가합니다.
+이 문서에서는 Bicep 파일에 리소스를 추가 하는 데 사용 하는 구문을 설명 합니다.
 
-## <a name="set-resource-type-and-version"></a>리소스 유형 및 버전 설정
+## <a name="declaration"></a>선언
 
-Bicep 파일에 리소스를 추가하는 경우 리소스 유형 및 API 버전을 설정하여 시작합니다. 이러한 값은 리소스에 사용할 수 있는 다른 속성을 결정합니다.
-
-다음 예제에서는 스토리지 계정에 리소스 유형 및 API 버전을 설정하는 방법을 보여 줍니다. 예제에는 전체 리소스 선언이 표시되지 않습니다.
+키워드를 사용 하 여 리소스 선언을 추가 `resource` 합니다. 리소스에 대한 기호화된 이름을 설정합니다. 기호화된 이름이 리소스 이름과 동일하지 않습니다. 심볼 이름을 사용하여 Bicep 파일의 다른 부분에 있는 리소스를 참조할 수 있습니다.
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+resource <symbolic-name> '<full-type-name>@<api-version>' = {
+  <resource-properties>
+}
+```
+
+따라서 저장소 계정에 대 한 선언은 다음과 같이 시작할 수 있습니다.
+
+```bicep
+resource stg 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   ...
 }
 ```
 
-리소스에 대한 기호화된 이름을 설정합니다. 앞의 예제에서 기호화된 이름은 `stg`입니다.  기호화된 이름이 리소스 이름과 동일하지 않습니다. 심볼 이름을 사용하여 Bicep 파일의 다른 부분에 있는 리소스를 참조할 수 있습니다. 기호화 된 이름은 대/소문자를 구분 합니다.  문자, 숫자 및 _를 포함할 수 있습니다. 숫자로 시작할 수 없습니다.
+기호화 된 이름은 대/소문자를 구분 합니다.  문자, 숫자 및 _를 포함할 수 있습니다. 숫자로 시작할 수 없습니다.
 
-Bicep은 [ARM 템플릿(Azure Resource Manager 템플릿) JSON](../templates/syntax.md)에서 사용할 수 있는 `apiProfile`을 지원하지 않습니다.
+사용 가능한 리소스 유형 및 버전은 [Bicep 리소스 참조](/azure/templates/)를 참조 하세요. Bicep은 [ARM 템플릿(Azure Resource Manager 템플릿) JSON](../templates/syntax.md)에서 사용할 수 있는 `apiProfile`을 지원하지 않습니다.
 
-## <a name="set-resource-name"></a>리소스 이름 설정
+리소스를 조건부로 배포 하려면 `if` 구문을 사용 합니다. 자세한 내용은 [Bicep의 조건부 배포](conditional-resource-deployment.md)를 참조 하세요.
+
+```bicep
+resource <symbolic-name> '<full-type-name>@<api-version>' = if (condition) {
+  <resource-properties>
+}
+```
+
+리소스의 인스턴스를 둘 이상 배포 하려면 `for` 구문을 사용 합니다. 자세한 내용은 [Bicep의 반복 루프](loops.md)를 참조 하세요.
+
+```bicep
+resource <symbolic-name> '<full-type-name>@<api-version>' = [for <item> in <collection>: {
+  <properties-to-repeat>
+}]
+```
+
+`for`리소스 속성에 대 한 구문을 사용 하 여 배열을 만들 수도 있습니다.
+
+```bicep
+resource <symbolic-name> '<full-type-name>@<api-version>' = {
+  properties: {
+    <array-property>: [for <item> in <collection>: <value-to-repeat>]
+  }
+}
+```
+
+## <a name="resource-name"></a>리소스 이름
 
 각 리소스는 하나의 이름을 갖습니다. 리소스 이름을 설정할 때, [리소스 이름에 대한 규칙 및 제한 사항](../management/resource-name-rules.md)에 주의하십시오.
 
@@ -56,7 +88,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 }
 ```
 
-## <a name="set-location"></a>위치 설정
+## <a name="location"></a>위치
 
 많은 리소스에는 위치가 필요합니다. 리소스에 intellisense 또는 [템플릿 참조](/azure/templates/)를 통해 위치가 필요한지 여부를 판단할 수 있습니다. 다음 예제에서는 스토리지 계정에 사용되는 위치 매개 변수를 추가합니다.
 
@@ -100,11 +132,11 @@ az provider show \
 
 ---
 
-## <a name="set-tags"></a>태그 설정
+## <a name="tags"></a>태그
 
 배포 중 리소스에 태그를 적용할 수 있습니다. 태그를 통해 배포된 리소스를 논리적으로 구성할 수 있습니다. 태그를 지정할 수 있는 다양한 방법의 예는 [ARM 템플릿 태그](../management/tag-resources.md#arm-templates)를 참조하세요.
 
-## <a name="set-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID 설정
+## <a name="managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID
 
 일부 리소스는 [Azure 리소스에 대한 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 지원합니다. 이러한 리소스에는 리소스 선언의 루트 수준에 ID 개체가 있습니다.
 
@@ -138,11 +170,11 @@ resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
   }
 ```
 
-## <a name="set-resource-specific-properties"></a>리소스 관련 속성 설정
+## <a name="resource-specific-properties"></a>리소스 관련 속성
 
 위의 속성은 대부분의 리소스 형식에 대해 일반적입니다. 이러한 값을 설정한 후에는 배포하고 있는 리소스 유형과 관련된 속성을 설정해야 합니다.
 
-Intellisense 또는 [템플릿 참조](/azure/templates/)를 사용하여 사용 가능한 속성과 필요한 속성을 판단합니다. 다음 예제에서는 스토리지 계정에 나머지 속성을 설정합니다.
+Intellisense 또는 [Bicep 리소스 참조](/azure/templates/) 를 사용 하 여 사용 가능한 속성과 필요한 속성을 확인 합니다. 다음 예제에서는 스토리지 계정에 나머지 속성을 설정합니다.
 
 ```bicep
 resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
@@ -159,7 +191,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 }
 ```
 
-## <a name="set-resource-dependencies"></a>리소스 종속성 설정
+## <a name="dependencies"></a>종속성
 
 리소스를 배포할 때 일부 리소스가 다른 리소스보다 먼저 존재하는지 확인해야 할 수 있습니다. 예를 들어 데이터베이스를 배포하기 전에 논리 SQL Server가 필요합니다. 하나의 리소스를 다른 리소스에 종속된 것으로 표시하여 이 관계를 설정합니다. 리소스 배포 순서는 [암시적 종속성](#implicit-dependency) 및 [명시적 종속성](#explicit-dependency)의 두 가지 방법으로 영향을 받을 수 있습니다.
 
@@ -233,7 +265,7 @@ Visual Studio Code는 종속성을 시각화하기 위한 도구를 제공합니
 
 :::image type="content" source="./media/resource-declaration/bicep-resource-visualizer.png" alt-text="Visual Studio Code Bicep 리소스 시각화 도우미 스크린샷":::
 
-## <a name="reference-existing-resources"></a>기존 리소스 참조
+## <a name="existing-resources"></a>기존 리소스
 
 현재 Bicep 파일 외부에 있는 리소스를 참조하려면 리소스 선언에서 `existing` 키워드를 사용합니다.
 

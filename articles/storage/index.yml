@@ -43,7 +43,7 @@ additionalContent:
           links:
             - url: ./blobs/data-lake-storage-introduction.md
               text: 엔터프라이즈 데이터 레이크용 스토리지에 대한 자세한 정보
-            - url: ./blobs/data-lake-storage-data-scenarios.md
+            - url: ./blobs/data-lake-storage-best-practices.md
               text: 빅 데이터를 처리하는 옵션 및 도구 이해
         - title: 클라우드 호스팅 파일 공유
           links:

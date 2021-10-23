@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 06/28/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 68c400b2ec8ef85db494b85a04f8e70c32e0b6cb
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 1d3f8f07412e55da49c8502fde57b9e45dc4a786
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129373038"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130217414"
 ---
 # <a name="manage-a-public-ip-address-with-a-load-balancer"></a>부하 분산 장치를 사용하여 공용 IP 주소 관리
 
@@ -38,9 +38,9 @@ ms.locfileid: "129373038"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- 구독에 두 개의 표준 SKU 공용 IP 주소가 있습니다. IP 주소를 리소스와 연결할 수 없습니다. 표준 SKU 공용 IP 주소를 만드는 방법에 대한 자세한 내용은 [공용 IP 주소 만들기 - Azure Portal](../../virtual-network/create-public-ip-portal.md)을 참조하세요.
+- 구독에 두 개의 표준 SKU 공용 IP 주소가 있습니다. IP 주소를 리소스와 연결할 수 없습니다. 표준 SKU 공용 IP 주소를 만드는 방법에 대한 자세한 내용은 [공용 IP 주소 만들기 - Azure Portal](./create-public-ip-portal.md)을 참조하세요.
     - 이 문서에 나오는 예제의 목적에 맞게 새 공용 IP 주소의 이름을 **myStandardPublicIP-1** 및 **myStandardPublicIP-2** 로 지정합니다.
-- 구독의 공용 IP 접두사. 공용 IP 주소 접두사를 만드는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 공용 IP 주소 접두사 만들기](../../virtual-network/create-public-ip-prefix-portal.md)를 참조하세요.
+- 구독의 공용 IP 접두사. 공용 IP 주소 접두사를 만드는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 공용 IP 주소 접두사 만들기](./create-public-ip-prefix-portal.md)를 참조하세요.
     - 이 문서에 나오는 예제의 목적에 맞게 새 공용 IP 접두사를 **myPublicIPPrefixOutbound** 로 지정합니다.
 
 ## <a name="create-load-balancer-existing-public-ip"></a>부하 분산 장치 만들기 기존 공용 IP
@@ -155,7 +155,7 @@ IP를 변경하려면 이전에 만든 새 공용 IP 주소를 부하 분산 장
 
 ## <a name="caveats"></a>제한 사항
 
-* 표준 퍼블릭 부하 분산 장치는 표준 SKU 고정 IPv6 주소를 프런트 엔드 공용 IP 또는 공용 IP 접두사로 사용할 수 있습니다.  모든 배포는 IPv4 및 IPv6 프런트 엔드가 모두 포함된 이중 스택이어야 합니다. NAT64 변환은 사용할 수 없습니다. 자세한 내용은 [Azure에서 IPv6 이중 스택 애플리케이션 배포 - PowerShell](../../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)을 참조하세요(기본 퍼블릭 부하 분산 장치는 기본 SKU 동적 IPv6 주소를 프런트 엔드 공용 IP로 사용할 수 있습니다.)
+* 표준 퍼블릭 부하 분산 장치는 표준 SKU 고정 IPv6 주소를 프런트 엔드 공용 IP 또는 공용 IP 접두사로 사용할 수 있습니다.  모든 배포는 IPv4 및 IPv6 프런트 엔드가 모두 포함된 이중 스택이어야 합니다. NAT64 변환은 사용할 수 없습니다. 자세한 내용은 [Azure에서 IPv6 이중 스택 애플리케이션 배포 - PowerShell](../../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)을 참조하세요(기본 퍼블릭 부하 분산 장치는 기본 SKU 동적 IPv6 주소를 프런트 엔드 공용 IP로 사용할 수 있습니다.)
 
 * 공용 부하 분산 장치에 여러 프런트 엔드가 할당된 경우 특정 IP에서 송신하도록 특정 백 엔드 인스턴스의 흐름을 할당하는 방법이 없습니다.  자세한 내용은 [Azure Load Balancer의 다중 프런트 엔드](../../load-balancer/load-balancer-multivip-overview.md)를 참조하세요.
 ## <a name="next-steps"></a>다음 단계
@@ -167,4 +167,4 @@ IP를 변경하려면 이전에 만든 새 공용 IP 주소를 부하 분산 장
 마지막으로, 공용 IP 접두사를 사용하도록 아웃바운드 프런트 엔드 구성을 변경했습니다.
 
 - Azure Load Balancer에 대한 자세한 내용은 [Azure Load Balancer란?](../../load-balancer/load-balancer-overview.md)를 참조하세요.
-- Auzre의 공용 IP 주소에 대한 자세한 내용은 [공용 IP 주소](../../virtual-network/public-ip-addresses.md)를 참조하세요.
+- Auzre의 공용 IP 주소에 대한 자세한 내용은 [공용 IP 주소](./public-ip-addresses.md)를 참조하세요.

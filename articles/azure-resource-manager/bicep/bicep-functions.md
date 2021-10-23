@@ -3,12 +3,12 @@ title: Bicep 함수
 description: Bicep 파일에서 값을 검색하고, 문자열과 숫자로 작업하고, 배포 정보를 검색하는 데 사용하는 함수를 설명합니다.
 ms.topic: conceptual
 ms.date: 10/15/2021
-ms.openlocfilehash: 429dca8bd4544e1dd8b22406811e53d0ed2ea623
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 4a4f057fe7c29b3ee9b76aa03992ff1efd70079c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130070568"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226913"
 ---
 # <a name="bicep-functions"></a>Bicep 함수
 
@@ -167,5 +167,5 @@ Bicep은 문자열 작업을 위해 다음과 같은 함수를 제공합니다. 
 ## <a name="next-steps"></a>다음 단계
 
 * Bicep 파일의 섹션에 대한 설명은 [Bicep 파일의 구조 및 구문 이해](./file.md)를 참조하세요.
-* 리소스 종류를 생성할 때 지정된 횟수만큼 반복하려면 [Bicep에 여러 리소스 인스턴스 배포](./loop-resources.md)를 참조하세요.
+* 리소스 형식을 만들 때 지정 된 횟수 만큼 반복 하려면 [Bicep의 반복 루프](loops.md)를 참조 하세요.
 * 생성한 Bicep 파일을 배포하는 방법을 알아보려면 [Bicep 및 Azure PowerShell을 사용하여 리소스 배포](./deploy-powershell.md)를 참조하세요.

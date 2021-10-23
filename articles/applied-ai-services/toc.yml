@@ -12,7 +12,7 @@
 - name: 빠른 시작
   items:
     - name: Azure Form Recognizer
-      href: ./form-recognizer/quickstarts/get-started-with-form-recognizer.md
+      href: ./form-recognizer/quickstarts/try-sample-label-tool.md
     - name: Azure Metrics Advisor
       href: ./metrics-advisor/quickstarts/web-portal.md
     - name: Azure 몰입형 리더

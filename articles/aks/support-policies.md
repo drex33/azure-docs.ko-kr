@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service) 지원 정책, 공유 책임 및 미�
 services: container-service
 ms.topic: article
 ms.date: 09/18/2020
-ms.openlocfilehash: 1e85effa5a8efca59bfc88aada050ee5ddcc7fcf
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
-ms.translationtype: HT
+ms.openlocfilehash: 759d2714f755c39e0b189d7578e90cd268cd53c5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114666444"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130222460"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대한 지원 정책
 
@@ -18,7 +18,7 @@ ms.locfileid: "114666444"
 ## <a name="service-updates-and-releases"></a>서비스 업데이트 및 릴리스
 
 * 릴리스 정보는 [AKS 릴리스 정보](https://github.com/Azure/AKS/releases)를 참조하세요.
-* 미리 보기 상태인 기능에 대한 자세한 내용은 [AKS 미리 보기 기능 및 관련 프로젝트](https://awesomeopensource.com/projects/aks?categoryPage=11)를 참조하세요.
+* 미리 보기의 기능에 대한 자세한 내용은 [AKS 로드맵](https://github.com/Azure/AKS/projects/1)을 참조하세요.
 
 ## <a name="managed-features-in-aks"></a>AKS의 관리 기능
 

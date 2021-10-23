@@ -4,14 +4,14 @@ description: Azure Monitor의 Log Analytics 작업 영역은 온-프레미스 �
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/26/2020
+ms.date: 10/20/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a1b0c77646b8b57a2b1175367d6a9e91388f4874
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: fb4f053c0bab838467ebce742cafdc909d4ce5c9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538654"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219873"
 ---
 # <a name="create-and-configure-a-log-analytics-workspace-in-azure-monitor-using-powershell"></a>PowerShell을 사용하여 Azure Monitor에서 Log Analytics 작업 영역 만들기 및 구성
 이 문서에서는 Azure Monitor에서 Log Analytics 작업 영역을 만들고 구성하는 방법을 보여 줍니다.  

@@ -1,19 +1,19 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 author: linda33wj
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: include
-ms.date: 11/19/2018
+ms.date: 10/22/2021
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 6f3af8c4efa31a8d82a6a8e42d3cdcf2b2159b23
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1720542986d5597537bd652fedf6881bbdeda412
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128554124"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223897"
 ---
 |범주 | 데이터 저장소 |  
 | :-------- | :----- |  

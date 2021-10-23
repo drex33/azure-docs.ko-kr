@@ -9,22 +9,22 @@ ms.subservice: flexible-scale-sets
 ms.date: 10/13/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-ms.openlocfilehash: 6b1f1468b85695facac7143389f863599d9f9d3e
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: b5c52d2ab3b788a1f06edbc59d8dab05cc8285dd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130161954"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257996"
 ---
 # <a name="flexible-orchestration-for-virtual-machine-scale-sets-in-azure"></a>Azure의 가상 머신 확장 집합에 대한 유연한 오케스트레이션
 
 **적용 대상:** :heavy_check_mark: 유연한 확장 집합
 
-유연한 오케스트레이션을 사용 하는 가상 머신 확장 집합을 사용 하면 [단일 오케스트레이션 모드에서 가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md) 의 확장성을 [가용성 집합](availability-set-overview.md)의 지역별 가용성 보증과 결합할 수 있습니다.
+유연한 오케스트레이션이 있는 가상 머신 확장 집합을 사용하면 [균일한 오케스트레이션 모드에서 가상 머신 확장 집합의](../virtual-machine-scale-sets/overview.md) 확장성을 [가용성 집합의](availability-set-overview.md)지역 가용성 보장과 결합할 수 있습니다.
 
 Azure 가상 머신 확장 집합을 사용하면 부하 분산된 VM의 그룹을 만들고 관리할 수 있습니다. VM 인스턴스의 수는 요구 또는 정의된 일정에 따라 자동으로 늘리거나 줄일 수 있습니다. 확장 집합에서 제공하는 주요 이점은 다음과 같습니다.
 - 손쉬운 여러 VM 만들기 및 관리
-- 가용성 영역 또는 장애 도메인 간에 Vm을 분산 하 여 고가용성 및 응용 프로그램 복원 력을 제공 합니다.
+- 가용성 영역 또는 장애 도메인에 VM을 배포하여 고가용성 및 애플리케이션 복원력을 제공합니다.
 - 리소스 수요 변화에 따라 자동으로 애플리케이션 크기 조정
 - 대규모 작업
 
@@ -37,7 +37,7 @@ Flexible 오케스트레이션을 사용하면 Azure는 Azure VM 에코시스템
 - 기존 가용성 집합 애플리케이션
 
 > [!IMPORTANT]
-> 이 문서에서는 모든 새 확장 집합 배포에를 사용 하는 것이 좋습니다. 유연한 오케스트레이션 모드의 가상 머신 확장 집합에 대 한 정보를 제공 합니다. 균일 한 확장 집합에 대 한 정보에 액세스 하려면 [단일 오케스트레이션 모드 설명서의 가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md) 으로 이동 합니다.
+> 이 문서에서는 모든 새 확장 집합 배포에 를 사용하는 것이 좋습니다. 유연한 오케스트레이션 모드의 가상 머신 확장 집합에 대해 자세히 알아보겠습니다. 균일한 확장 집합에 대한 정보에 액세스하려면 [균일 오케스트레이션 모드 설명서의 가상 머신 확장 집합으로](../virtual-machine-scale-sets/overview.md) 이동합니다.
 
 단일 확장 집합과 [오케스트레이션 모드](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md)의 유연한 확장 집합 간의 차이점에 대해 자세히 알아보세요.
 
@@ -74,7 +74,7 @@ Azure 가상 머신 확장 집합은 많은 VM에서 실행되는 애플리케�
 [Azure Portal](flexible-virtual-machine-scale-sets-portal.md), [Azure CLI](flexible-virtual-machine-scale-sets-cli.md), [Azure PowerShell](flexible-virtual-machine-scale-sets-powershell.md), [ARM Template](flexible-virtual-machine-scale-sets-rest-api.md)을 통해 확장 집합에 대한 유연한 오케스트레이션 모드를 시작하세요. 
 
 > [!IMPORTANT]
-> 명시적인 아웃 바운드 네트워크 연결이 있는지 확인 합니다. [Azure의 가상 네트워크 및 가상 머신에서](../virtual-network/network-overview.md) 이에 대해 자세히 알아보고 azure의 네트워킹 [모범 사례를 준수](../virtual-network/concepts-and-best-practices.md)하는지 확인 합니다.
+> 명시적 아웃바운드 네트워크 연결이 있는지 확인합니다. [Azure의 가상 네트워크 및 가상 머신에서](../virtual-network/network-overview.md) 이에 대해 자세히 알아보고 Azure의 네트워킹 모범 사례를 따르고 있는지 [확인합니다.](../virtual-network/concepts-and-best-practices.md)
 
 
 ## <a name="add-instances-with-autoscaling-or-manually"></a>자동 크기 조정 또는 수동으로 인스턴스
@@ -90,98 +90,97 @@ Azure 가상 머신 확장 집합은 많은 VM에서 실행되는 애플리케�
 
 - **VM을 만들 때 확장 집합 지정**
 
-    VM을 만들 때 가상 머신 확장 집합에 추가되도록 선택적으로 지정할 수 있습니다. VM은 VM을 만들 때만 확장 집합에 추가할 수 있습니다. 새로 만든 VM은 배포 방법에 관계 없이 유연한 확장 집합과 동일한 리소스 그룹에 있어야 합니다.
+    VM을 만들 때 가상 머신 확장 집합에 추가되도록 선택적으로 지정할 수 있습니다. VM은 VM을 만들 때만 확장 집합에 추가할 수 있습니다. 새로 만든 VM은 배포 방법에 관계없이 유연한 확장 집합과 동일한 리소스 그룹에 있어야 합니다.
 
-유연한 오케스트레이션 모드는 Azure에 배포 된 모든 IaaS Vm의 90%를 포함 하는 [메모리 보존 업데이트 또는 실시간 마이그레이션을](../virtual-machines/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot)지 원하는 VM sku와 함께 사용할 수 있습니다. 여기에는 B-, D-, E-및 F 시리즈 Vm과 같은 일반적인 용도의 크기 패밀리가 포함 됩니다. 현재 유연한 모드는 G-, H-, L-, M, N 시리즈 Vm을 포함 하 여 메모리 보존 업데이트를 지원 하지 않는 VM Sku 또는 패밀리를 통해 오케스트레이션 할 수 없습니다. [계산 리소스 SKU API](/rest/api/compute/resource-skus/list) 를 사용 하 여 특정 VM SKU가 지원 되는지 여부를 확인할 수 있습니다.
+유연한 오케스트레이션 모드는 Azure에 배포된 모든 IaaS VM의 90%를 포함하는 [메모리 유지 업데이트 또는 실시간 마이그레이션을](../virtual-machines/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot)지원하는 VM S SK와 함께 사용할 수 있습니다. 여기에는 B-, D-, E- 및 F 시리즈 VM과 같은 범용 제품군이 광범위하게 포함됩니다. 현재 유연한 모드는 G-, H-, L-, M-, N 시리즈 VM을 포함하여 메모리 유지 업데이트를 지원하지 않는 VM S SK 또는 제품군을 오케스트레이션할 수 없습니다. 컴퓨팅 리소스 [SKU API를](/rest/api/compute/resource-skus/list) 사용하여 특정 VM SKU가 지원되는지 여부를 확인할 수 있습니다.
 
 ```azurecli-interactive
 az vm list-skus -l eastus --size standard_d2s_v3 --query "[].capabilities[].[name, value]" -o table
 ```
 
 ## <a name="features"></a>기능
-다음 표에는 유연한 오케스트레이션 모드 기능과 적절 한 설명서에 대 한 링크가 나와 있습니다.
+다음 표에는 유연한 오케스트레이션 모드 기능 및 해당 설명서에 대한 링크가 나와 있습니다.
 
 ### <a name="basic-setup"></a>기본 설정
 
-| 기능 | 확장 집합에 대 한 유연한 오케스트레이션에 서 지원 됨 |
+| 기능 | 확장 집합에 대한 유연한 오케스트레이션에서 지원 |
 |---|---|
-| 가상 머신 유형  | 표준 Azure IaaS VM (Microsoft. compute/virtualmachines)  |
-| 최대 인스턴스 수 (FD 보장 포함)  | 1000  |
-| 지원되는 SKU  | D 시리즈, E 시리즈, F 시리즈, A 시리즈, B 시리즈, Intel, AMD; 전문 Sku (G, H, L, M, N)는 지원 되지 않습니다. |
+| 가상 머신 유형  | 표준 Azure IaaS VM(Microsoft.compute/virtualmachines)  |
+| 최대 인스턴스 수(FD 보장 포함)  | 1000  |
+| 지원되는 SKU  | D 시리즈, E 시리즈, F 시리즈, A 시리즈, B 시리즈, Intel, AMD; 특수 S SKU(G, H, L, M, N)는 지원되지 않습니다. |
 | VM, NIC, 디스크에 대한 모든 컨트롤  | 예  |
-| RBAC 권한 필요  | VMSS 쓰기, 계산 VM 쓰기, 네트워크 계산 |
+| RBAC 권한 필요  | 컴퓨팅 VMSS 쓰기, 컴퓨팅 VM 쓰기, 네트워크 |
 | 가속화된 네트워킹  | 예  |
 | 스폿 인스턴스 및 가격 책정   | 예, 스폿 및 일반 우선 순위 인스턴스를 모두 사용할 수 있습니다  |
 | 혼합 운영 체제  | 예, Linux 및 Windows는 동일한 Flexible 확장 집합에 상주할 수 있습니다.  |
-| 디스크 유형  | Managed disks, 모든 저장소 유형  |
+| 디스크 유형  | 관리 디스크만, 모든 스토리지 유형  |
 | 쓰기 가속기   | 예  |
 | 근접 배치 그룹   | 예, [근접 배치 그룹 설명서](../virtual-machine-scale-sets/proximity-placement-groups.md)를 참조하세요 |
 | Azure 전용 호스트   | 예  |
-| 관리 ID  | 사용자 할당 ID만  |
+| 관리 ID  | 사용자 할당 Id만  |
 | 그룹에 기존 VM 추가/제거  | 예  |
 | Service Fabric  | 예  |
-| Azure Kubernetes Service(AKS) / AKE / k8s 노드 풀  | 아니요  |
-| UserData  | 부분, 개별 VM에 대해 UserData를 지정할 수 있습니다. |
+| AKS (Azure Kubernetes Service)/이렇게/k8s 노드 풀  | No  |
+| UserData  | 부분, 개별 Vm에 대해 UserData를 지정할 수 있습니다. |
 
 
-### <a name="autoscaling-and-instance-orchestration"></a>자동 조정 및 인스턴스 오케스트레이션
+### <a name="autoscaling-and-instance-orchestration"></a>자동 크기 조정 및 인스턴스 오케스트레이션
 
-| 기능 | 확장 집합에 대한 유연한 오케스트레이션에서 지원 |
+| 기능 | 확장 집합에 대 한 유연한 오케스트레이션에 서 지원 됨 |
 |---|---|
-| 집합의 VM 나열 | 예 |
+| 집합의 VM 나열 | Yes |
 | 자동 크기 조정(수동, 메트릭 기반, 일정 기반) | 예 |
-| VM 인스턴스를 삭제할 때 NIC 및 디스크 자동 제거 | 예 |
+| VM 인스턴스를 삭제할 때 NIC 및 디스크 자동 제거 | Yes |
 | 업그레이드 정책(VM 확장 집합) | 아니요, 업그레이드 정책은 생성 중에 null 또는 []이어야 합니다 |
 | 자동 OS 업데이트(VM 확장 집합) | 예 |
 | 게스트 보안 패치 중 | 예 |
 | 알림 종료(VM 확장 집합) | 예, [종료 알림 설명서](../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md)를 참조하세요 |
 | 애플리케이션 상태 모니터링 | 애플리케이션 상태 확장 |
 | 인스턴스 복구(VM 확장 집합) | 예, [인스턴스 복구 설명서](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md)를 참조하세요 |
-| 인스턴스 보호 | 아니요, [Azure 리소스 잠금](../azure-resource-manager/management/lock-resources.md) 사용 |
-| 규모 확장 정책 | 아니요 |
-| VMSS 인스턴스 보기 얻기 | 아니요 |
-| 유지 보수 수행 | VM API를 사용하여 각 인스턴스에 대한 유지 관리 트리거 |
-| VM 일괄 처리 작업(모두 시작, 모두 중지, 하위 집합 삭제 등) | 아니요(VM API를 사용하여 각 인스턴스에서 작업을 트리거할 수 있습니다.) |
+| 인스턴스 보호 | 아니요, [Azure 리소스 잠금을](../azure-resource-manager/management/lock-resources.md) 사용 합니다. |
+| 정책에서 크기 조정 | No |
+| VMSS 인스턴스 뷰 가져오기 | No |
+| VM 일괄 처리 작업 (모두 시작, 모두 중지, 하위 집합 삭제 등) | 아니요 (VM API를 사용 하 여 각 인스턴스에 대 한 작업을 트리거할 수 있음) |
 
 ### <a name="high-availability"></a>고가용성 
 
-| 기능 | 확장 집합에 대한 유연한 오케스트레이션에서 지원 |
+| 기능 | 확장 집합에 대 한 유연한 오케스트레이션에 서 지원 됨 |
 |---|---|
-| 가용성 SLA | 장애 도메인에 분산된 인스턴스의 경우 99.95% 여러 영역에 분산된 인스턴스의 경우 99.99% |
+| 가용성 SLA | 장애 도메인에 분산 되는 인스턴스의 경우 99.95% 여러 영역에 걸쳐 있는 인스턴스의 경우 99.99% |
 | 가용성 영역 | 1, 2 또는 3개의 가용성 영역에 인스턴스를 지정합니다 |
-| 특정 가용성 영역에 VM 할당 | 예 |
+| 특정 가용성 영역에 VM 할당 | Yes |
 | 장애 도메인 – 최대 분산(Azure는 최대 확산 인스턴스) | 예 |
-| 장애 도메인 – 고정 분산 | 2-3 FD(지역 최대 FD 수에 따라 다름); 영역 배포의 경우 1 |
+| 장애 도메인 – 고정 분산 | 2-3 FDs (지역별 최대 FD 수에 따라 다름) 영역 배포의 경우 1 |
 | 특정 장애 도메인에 VM 할당 | 예 |
-| 업데이트 도메인 | 감가상각(FD에서 FD로 수행된 플랫폼 유지 관리) |
-| 유지 보수 수행 | VM API를 사용하여 각 인스턴스에 대한 유지 관리 트리거 | 예 | 해당 없음 |
+| 업데이트 도메인 | 사용 (플랫폼 유지 관리에서 FD로 FD가 수행) |
+| 유지 보수 수행 | VM API를 사용 하 여 각 인스턴스에서 유지 관리 트리거 |
 
 ### <a name="networking"></a>네트워킹 
 
-| 기능 | 확장 집합에 대한 유연한 오케스트레이션에서 지원 |
+| 기능 | 확장 집합에 대 한 유연한 오케스트레이션에 서 지원 됨 |
 |---|---|
-| 기본 아웃바운드 연결 | 아니요, [명시적 아웃바운드 연결이](../virtual-network/ip-services/default-outbound-access.md) 있어야 합니다. |
+| 기본 아웃 바운드 연결 | 아니요, [명시적 아웃 바운드 연결이](../virtual-network/ip-services/default-outbound-access.md) 있어야 합니다. |
 | Azure Load Balancer 표준 SKU | 예 |
 | Application Gateway | 예 |
 | Infiniband 네트워킹 | 예 |
 | Basic SLB | 예 |
-| 네트워크 포트 전달 | 예(개별 인스턴스에 대한 NAT 규칙) |
+| 네트워크 포트 전달 | 예 (개별 인스턴스에 대 한 NAT 규칙) |
 
 ### <a name="backup-and-recovery"></a>Backup 및 복구 
 
-| 기능 | 확장 집합에 대한 유연한 오케스트레이션에서 지원 |
+| 기능 | 확장 집합에 대 한 유연한 오케스트레이션에 서 지원 됨 |
 |---|---|
 | Azure Backup  | 예 |
-| Azure Site Recovery | 예(PowerShell을 통해) |
+| Azure Site Recovery | 예 (PowerShell을 통해) |
 | Azure Alerts  | 예 |
-| VM 인사이트  | 개별 VM에 설치할 수 있습니다. |
+| VM 인사이트  | 개별 Vm에 설치할 수 있습니다. |
 
 ### <a name="unsupported-parameters"></a>지원되지 않는 매개 변수
 
-다음 가상 머신 확장 집합 매개 변수는 현재 유연한 오케스트레이션 모드의 가상 머신 확장 집합에서 지원되지 않습니다.
-- 단일 배치 그룹 - 선택해야 합니다. `singlePlacementGroup=False`
+다음 가상 머신 확장 집합 매개 변수는 현재 유연한 오케스트레이션 모드의 가상 머신 확장 집합에서 지원 되지 않습니다.
+- 단일 배치 그룹-선택 해야 합니다. `singlePlacementGroup=False`
 - 특수 SKU를 사용하여 배포: G, H, L, M, N 시리즈 VM 제품군
-- Ultra Disk 구성: `diskIOPSReadWrite` , `diskMBpsReadWrite`
+- Ultra disk 구성: `diskIOPSReadWrite` , `diskMBpsReadWrite`
 - VMSS 오버프로비전
 - 이미지 기반 자동 OS 업그레이드
 - SLB 상태 프로브를 통한 애플리케이션 상태 - 인스턴스에서 애플리케이션 상태 확장 사용

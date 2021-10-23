@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 82f23c1fea29e2a88dd2a67ec9c89c7bf05bfff7
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
-ms.translationtype: HT
+ms.openlocfilehash: 6dd46099a3f4450dd175d0e61c2a6817de0f76f3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783506"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224826"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>네트워크 보안 그룹을 만들기, 변경 또는 삭제
 
@@ -163,12 +163,12 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
     | 설정 | 값 | 세부 정보 |
     | ------- | ----- | ------- |
     | **원본** | 다음 중 하나:<ul><li>**임의**</li><li>**IP 주소**</li><li>**서비스 태그**(인바운드 보안 규칙) 또는 **VirtualNetwork**(아웃바운드 보안 규칙)</li><li>**애플리케이션&nbsp;보안&nbsp;그룹**</li></ul> | <p>**IP 주소** 를 선택하는 경우 **원본 IP 주소/CIDR 범위** 를 지정해야 합니다.</p><p>**서비스 태그** 를 선택하는 경우 **원본 서비스 태그** 를 선택할 수도 있습니다.</p><p>**애플리케이션 보안 그룹** 을 선택하는 경우 기존 애플리케이션 보안 그룹도 선택해야 합니다. **원본** 및 **대상** 둘 다에 대해 **애플리케이션 보안 그룹** 을 선택하는 경우 두 애플리케이션 보안 그룹 내 네트워크 인터페이스가 동일한 가상 네트워크에 있어야 합니다.</p> |
-    | **원본 IP 주소/CIDR 범위** | 쉼표로 구분된 IP 주소 목록 및 CIDR(Classless Interdomain Routing) 범위 | <p>이 설정은 **원본** 을 **IP 주소** 로 변경하는 경우 나타납니다. 단일 값 또는 쉼표로 구분된 다중 값 목록을 지정해야 합니다. 다중 값의 예는 `10.0.0.0/16, 192.188.1.1`입니다. 지정할 수 있는 값의 수에는 제한이 있습니다. 자세한 내용은 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.</p><p>지정하는 IP 주소를 Azure VM에 할당하는 경우 공용 IP 주소가 아닌 해당 개인 IP 주소를 지정합니다. Azure는 공용 IP 주소를 인바운드 보안 규칙의 개인 IP 주소로 변환한 후, 개인 IP 주소를 아웃바운드 규칙의 공용 IP 주소로 변환하기 전에 보안 규칙을 처리합니다. Azure에서 공용 및 개인 IP 주소에 대한 자세히 알려면 [IP 주소 형식](./public-ip-addresses.md)을 참조합니다.</p> |
+    | **원본 IP 주소/CIDR 범위** | 쉼표로 구분된 IP 주소 목록 및 CIDR(Classless Interdomain Routing) 범위 | <p>이 설정은 **원본** 을 **IP 주소** 로 변경하는 경우 나타납니다. 단일 값 또는 쉼표로 구분된 다중 값 목록을 지정해야 합니다. 다중 값의 예는 `10.0.0.0/16, 192.188.1.1`입니다. 지정할 수 있는 값의 수에는 제한이 있습니다. 자세한 내용은 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.</p><p>지정하는 IP 주소를 Azure VM에 할당하는 경우 공용 IP 주소가 아닌 해당 개인 IP 주소를 지정합니다. Azure는 공용 IP 주소를 인바운드 보안 규칙의 개인 IP 주소로 변환한 후, 개인 IP 주소를 아웃바운드 규칙의 공용 IP 주소로 변환하기 전에 보안 규칙을 처리합니다. Azure에서 공용 및 개인 IP 주소에 대한 자세히 알려면 [IP 주소 형식](./ip-services/public-ip-addresses.md)을 참조합니다.</p> |
     | **원본 서비스 태그** | 드롭다운 목록의 서비스 태그 | 인바운드 보안 규칙에 대한 **원본** 을 **서비스 태그** 로 설정하는 경우 이 선택적 설정이 표시됩니다. 서비스 태그는 IP 주소 범주에 대한 사전 정의된 식별자입니다. 사용할 수 있는 서비스 태그 및 각 태그의 의미에 대해 자세히 알려면 [서비스 태그](./network-security-groups-overview.md#service-tags)를 참조합니다. |
     | **원본 애플리케이션 보안 그룹** | 기존 애플리케이션 보안 그룹 | 이 설정은 **원본** 을 **애플리케이션 보안 그룹** 으로 설정하는 경우 표시됩니다. 네트워크 인터페이스와 동일한 지역에 있는 애플리케이션 보안 그룹을 선택합니다. [애플리케이션 보안 그룹을 만드는](#create-an-application-security-group) 방법을 알아봅니다. |
     | **원본 포트 범위** | 다음 중 하나:<ul><li>단일 포트(예: `80`)</li><li>포트의 범위(예: `1024-65535`)</li><li>단일 포트 및/또는 포트 범위의 쉼표로 구분된 목록(예: `80, 1024-65535`)</li><li>모든 포트에 트래픽을 허용하려면 별표(`*`)</li></ul> | 이 설정은 규칙에서 트래픽을 허용하거나 거부하는 포트를 지정합니다. 지정할 수 있는 포트의 수에는 제한이 있습니다. 자세한 내용은 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요. |
     | **대상** | 다음 중 하나:<ul><li>**임의**</li><li>**IP 주소**</li><li>**서비스 태그**(아웃바운드 보안 규칙) 또는 **VirtualNetwork**(인바운드 보안 규칙)</li><li>**애플리케이션&nbsp;보안&nbsp;그룹**</li></ul> | <p>**IP 주소** 를 선택하는 경우, **대상 IP 주소/CIDR 범위** 를 지정합니다.</p><p>**VirtualNetwork** 를 선택하는 경우 가상 네트워크의 주소 공간 내 모든 IP 주소에 대한 트래픽이 허용됩니다. **VirtualNetwork** 는 서비스 태그입니다.</p><p>**애플리케이션 보안 그룹** 을 선택하는 경우 기존 애플리케이션 보안 그룹도 선택해야 합니다. [애플리케이션 보안 그룹을 만드는](#create-an-application-security-group) 방법을 알아봅니다.</p> |
-    | **대상 IP 주소/CIDR 범위** | IP 주소 및 CIDR 범위의 쉼표로 구분된 목록 | <p>이 설정은 **원본** 을 **IP 주소** 로 변경하는 경우 나타납니다. **원본** 및 **원본 IP 주소/CIDR 범위** 와 유사하게 단일 또는 여러 주소나 범위를 지정할 수 있습니다. 지정할 수 있는 수에는 제한이 있습니다. 자세한 내용은 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.</p><p>지정하는 IP 주소가 Azure VM에 할당된 경우 공용 IP 주소가 아닌 해당 개인 IP 주소를 지정합니다. Azure는 공용 IP 주소를 인바운드 보안 규칙의 개인 IP 주소로 변환한 후, 개인 IP 주소를 아웃바운드 규칙의 공용 IP 주소로 변환하기 전에 보안 규칙을 처리합니다. Azure에서 공용 및 개인 IP 주소에 대한 자세히 알려면 [IP 주소 형식](./public-ip-addresses.md)을 참조합니다.</p> |
+    | **대상 IP 주소/CIDR 범위** | IP 주소 및 CIDR 범위의 쉼표로 구분된 목록 | <p>이 설정은 **원본** 을 **IP 주소** 로 변경하는 경우 나타납니다. **원본** 및 **원본 IP 주소/CIDR 범위** 와 유사하게 단일 또는 여러 주소나 범위를 지정할 수 있습니다. 지정할 수 있는 수에는 제한이 있습니다. 자세한 내용은 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.</p><p>지정하는 IP 주소가 Azure VM에 할당된 경우 공용 IP 주소가 아닌 해당 개인 IP 주소를 지정합니다. Azure는 공용 IP 주소를 인바운드 보안 규칙의 개인 IP 주소로 변환한 후, 개인 IP 주소를 아웃바운드 규칙의 공용 IP 주소로 변환하기 전에 보안 규칙을 처리합니다. Azure에서 공용 및 개인 IP 주소에 대한 자세히 알려면 [IP 주소 형식](./ip-services/public-ip-addresses.md)을 참조합니다.</p> |
     | **대상 서비스 태그** | 드롭다운 목록의 서비스 태그 | 이 선택적 설정은 아웃바운드 보안 규칙에 대한 **대상** 을 **서비스 태그** 로 변경하는 경우에 나타납니다. 서비스 태그는 IP 주소 범주에 대한 사전 정의된 식별자입니다. 사용할 수 있는 서비스 태그 및 각 태그의 의미에 대해 자세히 알려면 [서비스 태그](./network-security-groups-overview.md#service-tags)를 참조합니다. |
     | **대상 애플리케이션 보안 그룹** | 기존 애플리케이션 보안 그룹 | 이 설정은 **대상** 을 **애플리케이션 보안 그룹** 으로 설정하는 경우 표시됩니다. 네트워크 인터페이스와 동일한 지역에 있는 애플리케이션 보안 그룹을 선택합니다. [애플리케이션 보안 그룹을 만드는](#create-an-application-security-group) 방법을 알아봅니다. |
     | **대상 포트 범위** | 다음 중 하나:<ul><li>단일 포트(예: `80`)</li><li>포트의 범위(예: `1024-65535`)</li><li>단일 포트 및/또는 포트 범위의 쉼표로 구분된 목록(예: `80, 1024-65535`)</li><li>모든 포트에 트래픽을 허용하려면 별표(`*`)</li></ul> | **원본 포트 범위** 와 마찬가지로 단일 또는 여러 포트와 범위를 지정할 수 있습니다. 지정할 수 있는 수에는 제한이 있습니다. 자세한 내용은 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요. |
@@ -355,7 +355,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 
 ### <a name="network-security-group"></a>네트워크 보안 그룹
 
-| 작업                                                        |   속성                                                                |
+| 작업                                                        |   이름                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/read                  |   네트워크 보안 그룹 가져오기                                          |
 | Microsoft.Network/networkSecurityGroups/write                 |   네트워크 보안 그룹 만들기 또는 업데이트                             |
@@ -369,7 +369,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 
 ### <a name="network-security-group-rule"></a>네트워크 보안 그룹 규칙
 
-| 작업                                                        |   속성                                                                |
+| 작업                                                        |   이름                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/securityRules/read            |   규칙 가져오기                                                            |
 | Microsoft.Network/networkSecurityGroups/securityRules/write           |   규칙 만들기 또는 업데이트                                               |
@@ -377,7 +377,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 
 ### <a name="application-security-group"></a>애플리케이션 보안 그룹
 
-| 작업                                                                     | 속성                                                     |
+| 작업                                                                     | 이름                                                     |
 | --------------------------------------------------------------             | -------------------------------------------              |
 | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | IP 구성을 애플리케이션 보안 그룹에 조인|
 | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | 보안 규칙을 애플리케이션 보안 그룹에 조인    |

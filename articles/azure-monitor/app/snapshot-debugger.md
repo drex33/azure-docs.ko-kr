@@ -3,16 +3,16 @@ title: .NET 앱용 Azure Application Insights 스냅샷 디버거
 description: 프로덕션 .NET 앱에서 예외가 throw되면 디버그 스냅샷이 자동으로 수집됨
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-ms.date: 10/23/2019
+ms.date: 10/12/2021
 author: cweining
 ms.author: cweining
 ms.reviewer: cweining
-ms.openlocfilehash: c377f6b1ff84f04506badf581dc7c12d64e68e0d
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
-ms.translationtype: HT
+ms.openlocfilehash: e189967068fc55b61622b54539c1dc478f9ae370
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109839386"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265192"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 앱의 예외에 대한 디버그 스냅샷
 예외가 발생할 때 라이브 웹 애플리케이션에서 자동으로 디버그 스냅샷을 수집할 수 있습니다. 스냅샷은 예외가 throw되었을 때의 소스 코드 및 변수의 상태를 보여 줍니다. [Azure Application Insights](./app-insights-overview.md)의 스냅샷 디버거는 웹앱에서 예외 원격 분석을 모니터링합니다. 프로덕션에서 문제를 진단하는 데 필요한 정보를 유지하도록 많이 throw되는 예외에 대한 스냅샷을 수집합니다. 애플리케이션에 [스냅샷 수집기 NuGet 패키지](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector)를 포함하고 선택적으로 [ApplicationInsights.config](./configuration-with-applicationinsights-config.md)에서 컬렉션 매개 변수를 구성합니다. 스냅샷은 Application Insights 포털의 [예외](./asp-net-exceptions.md)에 표시됩니다.
@@ -82,7 +82,7 @@ ms.locfileid: "109839386"
 ## <a name="view-snapshots-in-visual-studio-2017-enterprise-or-above"></a>Visual Studio 2017 Enterprise 이상에서 스냅샷 보기
 1. **스냅샷 다운로드** 단추를 클릭하여 Visual Studio Enterprise에서 열 수 있는 `.diagsession` 파일을 다운로드합니다.
 
-2. `.diagsession` 파일을 열려면 스냅샷 디버거 Visual Studio 구성 요소를 설치해야 합니다. 스냅샷 디버거 구성 요소는 Visual Studio에서 ASP.net 워크로드의 필수 구성 요소이며 Visual Studio 설치 관리자의 개별 구성 요소 목록에서 선택할 수 있습니다. Visual Studio 2017 버전 15.5 이전 버전의 Visual Studio를 사용하는 경우 [Visual Studio Marketplace](https://aka.ms/snapshotdebugger)에서 확장을 설치해야 합니다.
+2. `.diagsession` 파일을 열려면 스냅샷 디버거 Visual Studio 구성 요소를 설치해야 합니다. 스냅샷 디버거 구성 요소는 Visual Studio ASP.NET 워크로드의 필수 구성 요소이며 Visual Studio 설치 관리자의 개별 구성 요소 목록에서 선택할 수 있습니다. Visual Studio 2017 버전 15.5 이전 버전의 Visual Studio 사용하는 경우 [Visual Studio Marketplace에서](https://aka.ms/snapshotdebugger)확장을 설치해야 합니다.
 
 3. 스냅샷 파일을 연 후에 Visual Studio에서 미니덤프 디버깅 페이지가 표시됩니다. **관리 코드 디버그** 를 클릭하여 스냅샷을 디버깅하기 시작합니다. 예외가 throw되는 코드 줄에 스냅샷이 열리고 프로세스의 현재 상태를 디버그할 수 있습니다.
 
@@ -111,7 +111,7 @@ ms.locfileid: "109839386"
 
 ## <a name="limitations"></a>제한 사항
 
-기본 데이터 보존 기간은 15일입니다. Application Insights 인스턴스마다 하루에 최대 50개의 스냅샷이 허용됩니다.
+기본 데이터 보존 기간은 15일입니다. 각 애플리케이션 Insights 인스턴스에 대해 하루에 최대 50개의 스냅샷이 허용됩니다.
 
 ### <a name="publish-symbols"></a>기호 게시
 스냅샷 디버거를 사용하려면 Visual Studio에서 변수를 디코딩하고 디버깅 환경을 제공하기 위해 프로덕션 서버에 기호 파일이 있어야 합니다.
@@ -124,8 +124,8 @@ Visual Studio 2017의 15.2 버전 이상은 App Service에 게시할 때 기본�
 Azure Compute 및 기타 형식의 경우 기호 파일이 주 애플리케이션 .dll의 동일한 폴더(일반적으로 `wwwroot/bin`)에 있거나 현재 경로에서 사용할 수 있는지 확인합니다.
 
 > [!NOTE]
-> 사용할 수 있는 다른 기호 옵션에 관한 자세한 내용은 [Visual Studio 설명서](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019&preserve-view=true#output
-)를 참조하세요. 최상의 결과를 위해서는 “전체”, “이식 가능” 또는 “포함”을 사용하는 것이 좋습니다.
+> 사용할 수 있는 다른 기호 옵션에 대 한 자세한 내용은 [Visual Studio 설명서](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019&preserve-view=true#output
+)를 참조 하세요. 최상의 결과를 위해서는 “전체”, “이식 가능” 또는 “포함”을 사용하는 것이 좋습니다.
 
 ### <a name="optimized-builds"></a>최적화된 빌드
 경우에 따라 JIT 컴파일러에서 적용한 최적화로 인해 릴리스 빌드에서 지역 변수가 표시되지 않습니다.

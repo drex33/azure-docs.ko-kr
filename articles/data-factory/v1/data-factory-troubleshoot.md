@@ -4,18 +4,18 @@ description: Azure 데이터 팩터리 사용과 관련된 문제를 해결하�
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 10/22/2021
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.custom: devx-track-azurepowershell
 robots: noindex
-ms.openlocfilehash: e3a2eed5dea712d7309955dbf14b18b5ab9587f8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6bfb9c4df7a7fc402a9fa06172d224b550d1fe38
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128654231"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130242825"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>데이터 팩터리 문제 해결
 > [!NOTE]

@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 09/22/2021
-ms.openlocfilehash: 4897b557626be5071a21d2cc1a6a8194eaed8994
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: 4eba2beee118ee641c7dad6ab8f6f0b1e7e6b95f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129154283"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130254406"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 컴퓨팅 인스턴스 만들고 관리
 
@@ -123,7 +123,7 @@ az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
 1. <a name="advanced-settings"></a> 다음을 수행하려면 **다음: 고급 설정** 을 선택합니다.
 
     * SSH 액세스를 사용하도록 설정합니다.  아래의 [자세한 SSH 액세스 지침](#enable-ssh)을 따르세요.
-    * Virtual Network를 사용하도록 설정합니다. **리소스 그룹**, **가상 네트워크** 및 **서브넷** 을 지정하여 Azure VNet(Azure Virtual Network) 내에 컴퓨팅 인스턴스를 만듭니다. 공용 IP __없음(미리__ 보기) 을 선택하여 프라이빗 링크 작업 영역이 필요한 공용 IP 주소가 생성되지 않도록 할 수도 있습니다. 또한 가상 [네트워크 설정에 대한](./how-to-secure-training-vnet.md) 이러한 네트워크 요구 사항을 충족해야 합니다. 
+    * Virtual Network를 사용하도록 설정합니다. **리소스 그룹**, **가상 네트워크** 및 **서브넷** 을 지정하여 Azure VNet(Azure Virtual Network) 내에 컴퓨팅 인스턴스를 만듭니다. 공용 ip 주소 __없음__ (미리 보기)을 선택 하 여 개인 링크 작업 영역이 필요한 공용 ip 주소를 만들지 않도록 할 수도 있습니다. 또한 가상 네트워크 설정에 대 한 이러한 [네트워크 요구 사항도](./how-to-secure-training-vnet.md) 충족 해야 합니다. 
     * 컴퓨터를 다른 사용자에게 할당합니다. 다른 사용자에게 할당하는 방법에 대한 자세한 내용은 [대신 만들기](#on-behalf)를 참조하세요.
     * 설정 스크립트로 프로비저닝(미리 보기) - 설정 스크립트를 만들고 사용하는 방법에 대한 자세한 내용은 [스크립트로 컴퓨팅 인스턴스 사용자 지정](#setup-script)을 참조하세요.
     * 일정을 추가합니다(미리 보기). 컴퓨팅 인스턴스가 자동으로 시작 및/또는 종료되는 시간을 예약합니다. 아래의 [일정 세부 정보](#schedule)를 참조하세요.
@@ -419,7 +419,7 @@ Resource Manager [템플릿](https://github.com/Azure/azure-quickstart-templates
 컴퓨팅 인스턴스가 시간과 요일에 따라 자동으로 시작 및 중지되도록 [일정을 만들](#schedule) 수 있습니다.
 
 > [!TIP]
-> 컴퓨팅 인스턴스에 120GB OS 디스크가 있습니다. 디스크 공간이 부족한 경우에는 [터미널을 사용](how-to-access-terminal.md)하여 최소 1~2GB를 지운 후 컴퓨팅 인스턴스를 중지하거나 다시 시작해야 합니다. 터미널에서 sudo shutdown을 실행하여 컴퓨팅 인스턴스를 중지하지 마세요.
+> 컴퓨팅 인스턴스에 120GB OS 디스크가 있습니다. 디스크 공간이 부족한 경우에는 [터미널을 사용](how-to-access-terminal.md)하여 최소 1~2GB를 지운 후 컴퓨팅 인스턴스를 중지하거나 다시 시작해야 합니다. 터미널에서 sudo shutdown을 실행하여 컴퓨팅 인스턴스를 중지하지 마세요. 컴퓨팅 인스턴스의 임시 디스크 크기는 선택한 VM 크기에 따라 달라지고 /mnt에 탑재됩니다.
 
 # <a name="python"></a>[Python](#tab/python)
 

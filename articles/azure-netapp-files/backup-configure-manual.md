@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/27/2021
 ms.author: b-juche
-ms.openlocfilehash: 827268fee96227f056029c8b2a75629353861d7e
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: fda75ec22d4573a1730d29fc4f9a34c1f4de239a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129095792"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224258"
 ---
 # <a name="configure-manual-backups-for-azure-netapp-files"></a>Azure NetApp Files 수동 백업 구성 
 
@@ -49,7 +49,7 @@ Azure NetApp Files 백업은 볼륨 수준에서 정책 기반(예약된) 백업
 1. **볼륨으로** 이동하여 백업을 사용하도록 설정할 특정 볼륨을 선택합니다.
 2. **구성** 을 선택합니다.
 3. 백업 구성 페이지에서 **사용** 설정을 **켜기로 전환합니다.**   
-    자격 증명 모음 필드가 미리 미리 준비되었습니다. 
+    자격 증명 모음 필드가 미리 미리 미리 준비되었습니다. 
 4. **확인** 을 클릭합니다.   
 
 ![백업 구성 창의 사용 설정을 보여 주는 스크린샷](../media/azure-netapp-files/backup-configure-enabled.png)
@@ -91,6 +91,6 @@ Azure NetApp Files 백업은 볼륨 수준에서 정책 기반(예약된) 백업
 * [볼륨에 대한 백업 기능 사용 안 함](backup-disable.md)
 * [볼륨의 백업 삭제](backup-delete.md)
 * [볼륨 백업 메트릭](azure-netapp-files-metrics.md#volume-backup-metrics)
-* [Azure NetApp Files 백업 FAQ](azure-netapp-files-faqs.md#azure-netapp-files-backup-faqs)
+* [Azure NetApp Files 백업 FAQ](faq-backup.md)
 
 

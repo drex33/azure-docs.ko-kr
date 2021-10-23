@@ -11,12 +11,12 @@ ms.date: 05/11/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: 문서 처리
-ms.openlocfilehash: 43e7da4eea864bf0ac2767718ff8ed04ed58c54e
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 23f525449edfa8d37a7bd8e3ebeff1fb9cdff601
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129715182"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224501"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -210,7 +210,7 @@ v2.1에서 학습 문서의 값이 채워져 있지 않으면 해당 값이 있�
 * `time`
 * `integer`
   * 정수 값으로 서식이 지정됩니다. 
-  * 예제: 문서의 1234.98은 출력의 123498 형식이 지정됩니다.
+  * 예제: 문서의 1234.98은 출력에서 123498 형식이 지정됩니다.
 * `selectionMark`
 
 > [!NOTE]
@@ -254,7 +254,7 @@ v2.1에서 학습 문서의 값이 채워져 있지 않으면 해당 값이 있�
 
 왼쪽 창에서 [학습] 아이콘을 선택하여 [학습] 페이지를 엽니다. 그런 다음, **학습** 단추를 선택하여 모델 학습을 시작합니다. 학습 프로세스가 완료되면 다음 정보가 표시됩니다.
 
-* **모델 ID** - 만들어지고 학습된 모델의 ID입니다. 각 학습 호출은 고유한 ID를 사용하여 새 모델을 만듭니다. [REST API](quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1) 또는 [클라이언트 라이브러리 가이드](quickstarts/client-library.md)를 통해 예측 호출을 수행하려면 이 문자열이 필요하므로 안전한 위치에 복사합니다.
+* **모델 ID** - 만들어지고 학습된 모델의 ID입니다. 각 학습 호출은 고유한 ID를 사용하여 새 모델을 만듭니다. [REST API](./quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api&tabs=preview%2cv2-1) 또는 [클라이언트 라이브러리 가이드](./quickstarts/try-sdk-rest-api.md)를 통해 예측 호출을 수행하려면 이 문자열이 필요하므로 안전한 위치에 복사합니다.
 * **평균 정확도** - 모델의 평균 정확도입니다. 레이블을 추가 양식에 지정하고 새 모델을 만들기 위해 다시 학습시키면 모델 정확도를 향상시킬 수 있습니다. 먼저 5개의 양식에 레이블을 지정하고, 필요에 따라 더 많은 양식을 추가하는 것이 좋습니다.
 * 태그 목록 및 태그당 예상 정확도
 
@@ -314,4 +314,4 @@ v2.1에서 학습 문서의 값이 채워져 있지 않으면 해당 값이 있�
 > [Python을 사용하여 레이블로 학습](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 
 * [Form Recognizer란?](overview.md)
-* [Form Recognizer 빠른 시작](quickstarts/client-library.md)
+* [Form Recognizer 빠른 시작](./quickstarts/try-sdk-rest-api.md)

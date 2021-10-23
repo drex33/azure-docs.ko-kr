@@ -1,5 +1,5 @@
 ---
-title: Azure NetApp Files에 대한 스냅샷 정책 문제 해결 | Microsoft Docs
+title: Azure NetApp Files에 대 한 스냅숏 정책 오류 문제 해결 | Microsoft Docs
 description: Azure NetApp Files에 대한 스냅샷 정책 관리 문제를 해결하는 데 도움이 되는 오류 메시지 및 해결 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/23/2020
 ms.author: b-juche
-ms.openlocfilehash: e86761ed15089ef8544ec80b23f3ab585522df7a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e6348e28b187b9d09f25eb50264b23aa3a521aae
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128613121"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224052"
 ---
-# <a name="troubleshoot-snapshot-policies"></a>스냅샷 정책 문제 해결
+# <a name="troubleshoot-snapshot-policy-errors"></a>스냅숏 정책 오류 문제 해결
 
 이 문서에서는 Azure NetApp Files 스냅샷 정책을 관리할 때 발생할 수 있는 오류 시나리오를 설명합니다. 이슈를 해결하는 데 도움이 되는 솔루션도 제공합니다.
 

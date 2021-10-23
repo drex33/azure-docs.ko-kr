@@ -2,17 +2,17 @@
 title: Azure Monitor로 Python 애플리케이션 모니터링 | Microsoft Docs
 description: OpenCensus Python과 Azure Monitor를 연결하는 지침을 제공합니다.
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 10/12/2021
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
 author: lzchen
 ms.author: lechen
-ms.openlocfilehash: 14aef56cc84b505afcc58f7f3662ed133bf829c5
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 12c455eb2cd3114b043e19ddd37ca3497143914b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130162706"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130244984"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Python 애플리케이션용 Azure Monitor 설정
 
@@ -24,10 +24,13 @@ Python용 다른 원격 분석 SDK는 지원되지 않으며 원격 분석 솔�
 
 OpenCensus가 [OpenTelemetry](https://opentelemetry.io/)로 통합되고 있음을 인지했을 수도 있습니다. 그러나 OpenTelemetry가 점진적으로 완성되는 동안 OpenCensus가 계속 권장됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+> [!NOTE]
+> Preview [OpenTelemetry 기반 Python 제품](opentelemetry-enable.md?tabs=python) 을 사용할 수 있습니다. [자세한 정보를 알아보세요](opentelemetry-overview.md).
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-- Python 설치. 다른 버전의 경우 약간 변경되어 작동할 가능성이 있으므로 이 문서에서는 [Python 3.7.0](https://www.python.org/downloads/release/python-370/)을 사용합니다. Opencensus Python SDK는 Python v2.7 및 v3.4 이상만 지원합니다.
+- Python 설치. 다른 버전의 경우 약간 변경되어 작동할 가능성이 있으므로 이 문서에서는 [Python 3.7.0](https://www.python.org/downloads/release/python-370/)을 사용합니다. Opencensus Python SDK는 Python v 2.7 및 v 3.4 +만 지원 합니다.
 - Application Insights [리소스](./create-new-resource.md)를 만듭니다. 리소스에 대한 자체 계측 키(ikey)가 할당됩니다.
 
 ## <a name="introducing-opencensus-python-sdk"></a>Opencensus Python SDK 소개
@@ -146,7 +149,7 @@ SDK는 세 가지 Azure Monitor 내보내기를 사용하여 Azure Monitor에 �
     ```
 
 > [!NOTE]
-> Application Insights 계측을 사용하는 과정의 일환으로 진단 데이터를 수집하고 Microsoft에 보냅니다. 이 데이터는 애플리케이션 Insights 실행하고 개선하는 데 도움이 됩니다. 필수가 아닌 데이터 수집을 사용하지 않도록 설정하는 옵션이 있습니다. [자세한 정보](./statsbeat.md).
+> Application Insights 계측 사용의 일부로 Microsoft에 진단 데이터를 수집 하 여 보냅니다. 이 데이터는 Application Insights를 실행 하 고 개선 하는 데 도움이 됩니다. 필수가 아닌 데이터 수집을 사용 하지 않도록 설정할 수 있는 옵션이 있습니다. [자세한 정보](./statsbeat.md).
 
 #### <a name="configure-logging-for-django-applications"></a>Django 애플리케이션에 대한 로깅 구성
 

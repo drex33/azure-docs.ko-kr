@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 08/31/2021
-ms.openlocfilehash: 658d8c8c43bd2795a6a25730ff85ffb6bbd3a63c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 500ec9c14dea994b528528389ed03d2b561c1a56
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128598178"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130241823"
 ---
 # <a name="secure-traffic-between-virtual-networks-and-single-tenant-workflows-in-azure-logic-apps-using-private-endpoints"></a>프라이빗 엔드포인트를 사용하여 Azure Logic Apps에서 가상 네트워크와 단일 테넌트 워크플로 간의 트래픽 보호
 
@@ -124,18 +124,18 @@ ms.locfileid: "128598178"
 
 논리 앱에서 아웃바운드 트래픽을 보호하려면 논리 앱을 가상 네트워크와 통합할 수 있습니다. 기본적으로 논리 앱의 아웃바운드 트래픽은 `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`과 같은 프라이빗 주소로 이동할 때 네트워크 보안 그룹(NSG) 및 사용자 정의 경로(UDR)의 영향을 받습니다.
 
-가상 네트워크에서 자체 DNS(도메인 이름 서버)를 사용하는 경우 논리 앱 리소스의 `WEBSITE_DNS_SERVER` 앱 설정을 DNS의 IP 주소로 설정합니다. 보조 DNS가 있는 경우 라는 다른 앱 설정을 `WEBSITE_DNS_ALT_SERVER` 추가하고 값을 DNS의 IP로 설정합니다. 또한 내부 IP 주소에서 프라이빗 엔드포인트를 가리키도록 DNS 레코드를 업데이트합니다. 프라이빗 엔드포인트는 특정 리소스에 대한 공용 주소가 아닌 개인 주소에 DNS 조회를 전송하여 작동합니다. 자세한 내용은 [프라이빗 엔드포인트 - Azure 가상 네트워크와 앱 통합을 검토하세요.](../app-service/web-sites-integrate-with-vnet.md#private-endpoints)
+사용자 고유의 DNS (도메인 이름 서버)를 가상 네트워크와 함께 사용 하는 경우 논리 앱 리소스의 `WEBSITE_DNS_SERVER` 앱 설정을 dns에 대 한 IP 주소로 설정 합니다. 보조 DNS가 있는 경우 라는 다른 앱 설정을 추가 `WEBSITE_DNS_ALT_SERVER` 하 고 DNS의 IP에도 값을 설정 합니다. 또한 내부 IP 주소에서 개인 끝점을 가리키도록 DNS 레코드를 업데이트 합니다. 전용 끝점은 특정 리소스에 대 한 공용 주소가 아니라 개인 주소로 DNS 조회를 전송 하 여 작동 합니다. 자세한 내용은 [개인 끝점 검토-Azure virtual network와 앱 통합](../app-service/overview-vnet-integration.md#private-endpoints)을 참조 하세요.
 
 > [!IMPORTANT]
-> Azure Logic Apps 런타임이 작동하려면 백 엔드 스토리지에 중단 없이 연결해야 합니다. Azure 호스팅 관리 커넥터가 작동하려면 관리 API 서비스에 중단 없이 연결해야 합니다.
+> Azure Logic Apps 런타임이 작동 하려면 백 엔드 저장소에 지속적으로 연결 해야 합니다. Azure 호스팅 관리 커넥터가 작동하려면 관리 API 서비스에 중단 없이 연결해야 합니다.
 
 ### <a name="considerations-for-outbound-traffic-through-private-endpoints"></a>프라이빗 엔드포인트를 통한 아웃바운드 트래픽에 대한 고려 사항
 
-가상 네트워크 통합 설정은 아웃바운드 트래픽에만 영향을 미칩니다. App Service 공유 엔드포인트를 계속 사용하는 인바운드 트래픽을 보호하려면 프라이빗 엔드포인트를 [통해 인바운드 트래픽 설정을 검토합니다.](#set-up-inbound)
+가상 네트워크 통합 설정은 아웃 바운드 트래픽에만 영향을 줍니다. App Service 공유 끝점을 계속 사용 하는 인바운드 트래픽을 보호 하려면 [개인 끝점을 통해 인바운드 트래픽 설정](#set-up-inbound)을 검토 합니다.
 
 자세한 내용은 다음 설명서를 검토하세요.
 
-- [Azure 가상 네트워크에 앱 통합](../app-service/web-sites-integrate-with-vnet.md)
+- [Azure 가상 네트워크에 앱 통합](../app-service/overview-vnet-integration.md)
 
 - [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)
 
@@ -143,36 +143,36 @@ ms.locfileid: "128598178"
 
 ## <a name="connect-to-storage-account-with-private-endpoints"></a>프라이빗 엔드포인트를 사용하여 스토리지 계정에 연결
 
-가상 네트워크 내의 리소스만 연결할 수 있도록 스토리지 계정 액세스를 제한할 수 있습니다. Azure Storage는 스토리지 계정에 프라이빗 엔드포인트를 추가하는 것을 지원합니다. 그러면 논리 앱 워크플로에서 이러한 엔드포인트를 사용하여 스토리지 계정과 통신할 수 있습니다. 자세한 내용은 [Azure Storage 프라이빗 엔드포인트 사용을 검토하세요.](../storage/common/storage-private-endpoints.md)
+가상 네트워크 내의 리소스만 연결할 수 있도록 스토리지 계정 액세스를 제한할 수 있습니다. Azure Storage는 스토리지 계정에 프라이빗 엔드포인트를 추가하는 것을 지원합니다. 그러면 논리 앱 워크플로에서 이러한 끝점을 사용 하 여 저장소 계정과 통신할 수 있습니다. 자세한 내용은 [Azure Storage 전용 끝점 사용](../storage/common/storage-private-endpoints.md)을 참조 하세요.
 
 > [!NOTE]
-> 다음 단계에서는 스토리지 계정에 대한 공용 액세스를 일시적으로 사용하도록 설정해야 합니다. 조직의 정책으로 인해 공용 액세스를 사용하도록 설정할 수 없는 경우에도 프라이빗 스토리지 계정을 사용하여 논리 앱을 배포할 수 있습니다. 그러나 배포에 ARM 템플릿(Azure Resource Manager 템플릿)을 사용해야 합니다. ARM 템플릿 예제는 [프라이빗 엔드포인트가 있는 보안 스토리지 계정을 사용하여 논리 앱 배포를 검토합니다.](https://github.com/VeeraMS/LogicApp-deployment-with-Secure-Storage)
+> 다음 단계를 수행 하려면 저장소 계정에 대 한 공용 액세스를 일시적으로 설정 해야 합니다. 조직의 정책으로 인해 공용 액세스를 사용 하도록 설정할 수 없는 경우에도 개인 저장소 계정을 사용 하 여 논리 앱을 배포할 수 있습니다. 그러나 배포를 위해 Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 해야 합니다. ARM 템플릿 예제를 보려면 [개인 끝점을 사용 하 여 보안 저장소 계정을 사용 하 여 논리 앱 배포](https://github.com/VeeraMS/LogicApp-deployment-with-Secure-Storage)를 검토 하세요.
 
 1. 각 테이블, 큐, Blob 및 파일 스토리지 서비스에 대해 서로 다른 프라이빗 엔드포인트를 만듭니다.
 
-1. 논리 앱을 배포할 때 스토리지 계정에서 임시 공용 액세스를 사용하도록 설정합니다.
+1. 논리 앱을 배포할 때 저장소 계정에서 임시 공용 액세스를 사용 하도록 설정 합니다.
 
-   1. [Azure Portal](https://portal.azure.com)스토리지 계정 리소스를 엽니다.
+   1. [Azure Portal](https://portal.azure.com)에서 저장소 계정 리소스를 엽니다.
 
-   1. 스토리지 계정 리소스 메뉴의 **보안 + 네트워킹에서** **네트워킹을** 선택합니다.
+   1. 저장소 계정 리소스 메뉴의 **보안 + 네트워킹** 에서 **네트워킹** 을 선택 합니다.
 
-   1. **네트워킹** 창의 **방화벽 및 가상 네트워크** 탭에 있는 에서 액세스 **허용 아래에서** **모든 네트워크를** 선택합니다.
+   1. **네트워킹** 창의 **방화벽 및 가상 네트워크** 탭에 있는 **액세스 허용에서** **모든 네트워크** 를 선택 합니다.
 
-1. Azure Portal 또는 Visual Studio Code 사용하여 논리 앱 리소스를 배포합니다.
+1. Azure Portal 또는 Visual Studio Code를 사용 하 여 논리 앱 리소스를 배포 합니다.
 
-1. 배포가 완료되면 논리 앱과 스토리지 계정에 연결되는 가상 네트워크 또는 서브넷의 프라이빗 엔드포인트 간에 통합을 사용하도록 설정합니다.
+1. 배포가 완료 되 면 논리 앱과 저장소 계정에 연결 되는 가상 네트워크 또는 서브넷의 개인 끝점 간의 통합을 사용 하도록 설정 합니다.
 
-   1. [Azure Portal](https://portal.azure.com)논리 앱 리소스를 엽니다.
+   1. [Azure Portal](https://portal.azure.com)에서 논리 앱 리소스를 엽니다.
 
-   1. 논리 앱 리소스 메뉴의 **설정** 아래에서 **네트워킹을** 선택합니다.
+   1. 논리 앱 리소스 메뉴의 **설정** 아래에서 **네트워킹** 을 선택 합니다.
 
-   1. 프라이빗 엔드포인트에 대한 논리 앱과 IP 주소 간에 필요한 연결을 설정합니다.
+   1. 논리 앱과 개인 끝점의 IP 주소 간에 필요한 연결을 설정 합니다.
 
-   1. 가상 네트워크를 통해 논리 앱 워크플로 데이터에 액세스 하려면 논리 앱 리소스 설정에서 `WEBSITE_CONTENTOVERVNET` 설정을로 설정 합니다 `1` .
+   1. 가상 네트워크를 통해 논리 앱 워크플로 데이터에 액세스하려면 논리 앱 리소스 설정에서 `WEBSITE_CONTENTOVERVNET` 설정을 로 `1` 설정합니다.
 
-   사용자 고유의 DNS (도메인 이름 서버)를 가상 네트워크와 함께 사용 하는 경우 논리 앱 리소스의 `WEBSITE_DNS_SERVER` 앱 설정을 dns에 대 한 IP 주소로 설정 합니다. 보조 DNS가 있는 경우 라는 다른 앱 설정을 추가 `WEBSITE_DNS_ALT_SERVER` 하 고 DNS의 IP에도 값을 설정 합니다. 또한 내부 IP 주소에서 개인 끝점을 가리키도록 DNS 레코드를 업데이트 합니다. 전용 끝점은 특정 리소스에 대 한 공용 주소가 아니라 개인 주소로 DNS 조회를 전송 하 여 작동 합니다. 자세한 내용은 [개인 끝점 검토-Azure virtual network와 앱 통합](../app-service/web-sites-integrate-with-vnet.md#private-endpoints)을 참조 하세요.
+   가상 네트워크에서 고유한 DNS(도메인 이름 서버)를 사용하는 경우 논리 앱 리소스의 `WEBSITE_DNS_SERVER` 앱 설정을 DNS의 IP 주소로 설정합니다. 보조 DNS가 있는 경우 라는 다른 앱 설정을 `WEBSITE_DNS_ALT_SERVER` 추가하고 값을 DNS의 IP로 설정합니다. 또한 내부 IP 주소에서 프라이빗 엔드포인트를 가리키도록 DNS 레코드를 업데이트합니다. 프라이빗 엔드포인트는 특정 리소스에 대한 공용 주소가 아닌 개인 주소에 DNS 조회를 전송하여 작동합니다. 자세한 내용은 [프라이빗 엔드포인트 - Azure 가상 네트워크와 앱 통합을 검토하세요.](../app-service/overview-vnet-integration.md#private-endpoints)
 
-1. 이러한 앱 설정을 적용 한 후에는 저장소 계정에서 공용 액세스를 제거할 수 있습니다.
+1. 이러한 앱 설정을 적용한 후 스토리지 계정에서 공용 액세스를 제거할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

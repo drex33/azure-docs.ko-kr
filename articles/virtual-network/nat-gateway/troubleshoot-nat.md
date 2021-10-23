@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/20/2020
 ms.author: allensu
-ms.openlocfilehash: 51bc4233393be6d914578581597e8cce9d0373b0
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
-ms.translationtype: HT
+ms.openlocfilehash: ee98cfbe079d9d31a7a8a3b45210c25dbaaa16ef
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113439289"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130228190"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Azure Virtual Network NAT 연결 문제 해결
 
@@ -177,7 +177,7 @@ _**해결 방법:**_
 
 ### <a name="ipv6-coexistence"></a>IPv6 공존
 
-[Virtual Network NAT](nat-overview.md)에서는 IPv4 UDP 및 TCP 프로토콜을 지원하지만, IPv6 접두사를 사용하는 서브넷에 대한 배포는 [지원하지 않습니다](nat-overview.md#limitations).
+[NAT Virtual Network](nat-overview.md) IPv4 UDP 및 TCP 프로토콜을 지원 하 고 IPv6 접두사가 있는 서브넷에서의 배포는 지원 되지 않습니다.
 
 _**해결 방법:**_ NAT 게이트웨이를 IPv6 접두사가 없는 서브넷에 배포합니다.
 

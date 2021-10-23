@@ -7,14 +7,14 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 62616465b98feca1052ac3e45932120fdf0ffd42
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 04248f1cf0e0d9ecb659ca3271000a0a28a6a97b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128584511"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130242315"
 ---
-# <a name="add-ipv6-support-for-private-peering-using-azure-powershell-preview"></a>Azure PowerShell을 사용하여 개인 피어링을 위한 IPv6 지원 추가(미리 보기)
+# <a name="add-ipv6-support-for-private-peering-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 개인 피어 링에 대 한 IPv6 지원 추가
 
 이 문서에서는 Azure PowerShell을 사용하여 ExpressRoute를 통해 Azure의 리소스에 연결하기 위해 IPv6 지원을 추가하는 방법을 설명합니다.
 

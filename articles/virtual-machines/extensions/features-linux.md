@@ -8,12 +8,12 @@ author: amjads1
 ms.author: amjads
 ms.collection: linux
 ms.date: 03/30/2018
-ms.openlocfilehash: 347293a0cd8647df110c10d9a94c99a978f36041
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 19520e2eeb65ca6cce77e913534fb2c82020c49f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123424657"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130245667"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Linux용 가상 머신 확장 및 기능
 
@@ -210,9 +210,9 @@ VM 확장을 실행하는 경우 자격 증명, 스토리지 계정 이름 및 �
 
 ### <a name="how-do-agents-and-extensions-get-updated"></a>에이전트 및 확장을 업데이트하는 방법
 
-에이전트 및 확장은 동일한 업데이트 메커니즘을 공유합니다. 일부 업데이트는 추가 방화벽 규칙을 필요로 하지 않습니다.
+에이전트 및 확장은 동일한 자동 업데이트 메커니즘을 공유합니다.
 
-업데이트를 사용할 수 있는 경우 확장에 대한 변경 내용이 있는 경우에만 VM에 설치되고 다른 VM 모델이 변경됩니다.
+업데이트를 사용할 수 있고 자동 업데이트를 사용하도록 설정하면 확장이 변경된 후에 또는 다음과 같은 다른 VM 모델이 변경된 후에만 업데이트가 VM에 설치됩니다.
 
 - 데이터 디스크
 - 확장
@@ -221,7 +221,13 @@ VM 확장을 실행하는 경우 자격 증명, 스토리지 계정 이름 및 �
 - VM 크기
 - 네트워크 프로필
 
+> [!IMPORTANT]
+> 업데이트는 VM 모델이 변경된 후에만 설치됩니다.
+
 게시자는 다른 시간에 지역에서 업데이트를 사용할 수 있도록 하므로 다른 지역에는 다른 버전의 VM이 있을 수 있습니다.
+
+> [!NOTE]
+> 일부 업데이트에는 추가 방화벽 규칙이 필요할 수 있습니다. [네트워크 액세스를](#network-access)참조하세요.
 
 #### <a name="agent-updates"></a>에이전트 업데이트
 
@@ -257,7 +263,9 @@ Goal state agent: 2.2.18
 
 #### <a name="extension-updates"></a>확장 업데이트
 
-확장 업데이트를 사용할 수 있는 경우 Linux 에이전트는 확장을 다운로드하고 업그레이드합니다. 자동 확장 업데이트는 *부 버전* 또는 *핫픽스* 중 하나입니다. 확장을 프로비전할 때 *부 버전* 업데이트를 옵트인하거나 옵트아웃할 수 있습니다. 다음 예제에서는 *autoUpgradeMinorVersion": true,'* 를 사용하여 Resource Manager 템플릿에서 부 버전을 자동으로 업그레이드하는 방법을 보여줍니다.
+확장 업데이트를 사용할 수 있고 자동 업데이트를 사용하도록 설정하면 [VM 모델이 변경된](#how-do-agents-and-extensions-get-updated) 후 Linux 에이전트가 확장을 다운로드하고 업그레이드합니다.
+
+자동 확장 업데이트는 *부 버전* 또는 *핫픽스* 중 하나입니다. 확장을 프로비전할 때 확장 *부* 업데이트를 옵트인하거나 옵트아웃할 수 있습니다. 다음 예제에서는 *"autoUpgradeMinorVersion"을* 사용하여 Resource Manager 템플릿에서 부 버전을 자동으로 업그레이드하는 방법을 보여줍니다. true, :
 
 ```json
     "publisher": "Microsoft.Azure.Extensions",
@@ -272,6 +280,8 @@ Goal state agent: 2.2.18
 ```
 
 최신 부 릴리스 버그를 수정하려면 확장 배포에서 자동 업데이트를 선택하는 것이 좋습니다. 보안 또는 주요 버그 수정을 제공하는 핫픽스 업데이트는 옵트아웃될 수 없습니다.
+
+확장 자동 업데이트를 사용하지 않도록 설정하거나 주 버전을 업그레이드해야 하는 경우 [az vm extension set를](/cli/azure/vm/extension#az_vm_extension_set) 사용하고 대상 버전을 지정합니다.
 
 ### <a name="how-to-identify-extension-updates"></a>확장 업데이트를 식별하는 방법
 

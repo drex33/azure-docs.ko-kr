@@ -4,12 +4,12 @@ description: 함수에 대한 로그를 거의 실시간으로 스트리밍하�
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2, devx-track-azurepowershell
-ms.openlocfilehash: 6abf93be2d63434996fa2de7f400c742f9962575
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
-ms.translationtype: HT
+ms.openlocfilehash: 6073654abbcd8a157f7552e21d1e74ee4f535684
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114668462"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130245079"
 ---
 # <a name="enable-streaming-execution-logs-in-azure-functions"></a>Azure Functions에서 실행 로그 스트림 사용
 
@@ -39,7 +39,7 @@ ms.locfileid: "114668462"
 
 ### <a name="live-metrics-stream"></a>라이브 메트릭 스트림
 
-앱의 라이브 메트릭 스트림을 보려면 함수 앱의 **개요** 탭을 선택합니다. Application Insights를 사용하도록 설정하면 **구성된 기능** 에 **Application Insights** 링크가 표시됩니다. 이 링크를 누르면 앱의 Application Insights 페이지로 이동합니다.
+앱의 라이브 메트릭 스트림을 보려면 함수 앱의 **개요** 탭을 선택합니다. 애플리케이션 Insights 사용하도록 설정된 경우 **구성된 기능** 아래에 **애플리케이션 Insights** 링크가 표시됩니다. 이 링크를 누르면 앱의 Application Insights 페이지로 이동합니다.
 
 Application Insights에서 **라이브 메트릭 스트림** 을 선택합니다. [샘플링된 로그 항목](configure-monitoring.md#configure-sampling)이 **샘플 원격 분석** 아래에 표시됩니다.
 

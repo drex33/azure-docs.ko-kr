@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/15/2021
-ms.openlocfilehash: fd4f7d583df6c949fd549cfdc3020f15468f0e2c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 699906e99adabdd14520eb0b391d7b1d6018ffa5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128661225"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219075"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Azure Cosmos DB에서 페이지 매김
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -23,7 +23,7 @@ Azure Cosmos DB에서 쿼리는 여러 결과 페이지를 가질 수 있습니�
 
 쿼리 결과가 여러 페이지에 걸쳐 분할되는 경우가 있습니다. 각 페이지의 결과는 별도의 쿼리 실행에 따라 생성됩니다. 단일 실행으로 쿼리 결과를 반환할 수 없는 경우 Azure Cosmos DB는 자동으로 결과를 여러 페이지로 분할합니다.
 
-`MaxItemCount`를 설정하여 쿼리에서 반환되는 최대 항목 수를 지정할 수 있습니다. `MaxItemCount`는 요청별로 지정되며 쿼리 엔진에서 해당 항목 수 이하를 반환하도록 지시합니다. 쿼리 실행당 결과 수에 제한을 두지 않으려는 경우 `MaxItemCount`를 `-1`로 설정할 수 있습니다.
+`MaxItemCount`를 설정하여 쿼리에서 반환되는 최대 항목 수를 지정할 수 있습니다. 는 `MaxItemCount` 요청당 지정 되며 쿼리 엔진에서 해당 항목 수를 반환 하도록 지시 합니다. 쿼리 실행당 결과 수에 제한을 두지 않으려는 경우 `MaxItemCount`를 `-1`로 설정할 수 있습니다.
 
 또한 쿼리 엔진이 쿼리 결과를 여러 페이지로 분할해야 하는 여러 다른 이유들이 있습니다. 여기에는 다음이 포함됩니다.
 
@@ -47,12 +47,13 @@ Azure Cosmos DB에서 쿼리는 여러 결과 페이지를 가질 수 있습니�
 
 ## <a name="continuation-tokens"></a>연속 토큰
 
-필요에 따라 .NET SDK 및 Java SDK에서 연속 토큰을 쿼리의 진행에 대한 책갈피로 사용할 수 있습니다. Azure Cosmos DB 쿼리 실행은 서버 쪽에서 상태 비저장이며, 연속 토큰을 사용하여 언제든지 다시 시작할 수 있습니다. 연속 토큰은 Node.js SDK에서 지원되지 않습니다. Python SDK의 경우 단일 파티션 쿼리에 지원되며, 쿼리 자체에 PK를 포함하기에 충분하지 않으므로 옵션 개체에 PK를 지정해야 합니다.
+.NET SDK 및 Java SDK에서 필요에 따라 연속 토큰을 쿼리의 진행에 대 한 책갈피로 사용할 수 있습니다. Azure Cosmos DB 쿼리 실행은 서버 쪽에서 상태 비저장이며, 연속 토큰을 사용하여 언제든지 다시 시작할 수 있습니다. Python SDK 및 Node.js SDK의 경우 단일 파티션 쿼리에서 지원 되며, PK는 쿼리 자체에 포함 하기에 충분 하지 않으므로 옵션 개체에 지정 해야 합니다.
 
 연속 토큰을 사용하는 몇 가지 예는 다음과 같습니다.
 
 - [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs#L230)
 - [Java SDK](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L216)
+- [Node.js SDK](https://github.com/Azure/azure-sdk-for-js/blob/2186357a6e6a64b59915d0cf3cba845be4d115c4/sdk/cosmosdb/cosmos/samples/src/BulkUpdateWithSproc.ts#L16-L31)
 - [Python SDK](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/test/test_query.py#L533)
 
 쿼리가 연속 토큰을 반환하는 경우 추가 쿼리 결과가 생깁니다.

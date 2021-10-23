@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/31/2021
-ms.openlocfilehash: 95a3d04ce8af0e83072e214e2b3fac72c78b28c0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/21/2021
+ms.openlocfilehash: 4c78184c55fc992e1acea0c56563b151d2e0f766
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128669591"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130255809"
 ---
 # <a name="azure-ad-only-authentication-with-azure-sql"></a>Azure SQL을 사용한 Azure AD 전용 인증
 
@@ -29,12 +29,9 @@ Azure Portal, Azure CLI, PowerShell 또는 REST API를 사용하여 Azure AD 전
 
 Azure SQL 인증에 대한 자세한 내용은 [인증 및 권한 부여](logins-create-manage.md#authentication-and-authorization)를 참조하세요.
 
-> [!IMPORTANT]
-> 현재 Azure SQL Managed Instance에 대한 Azure AD 전용 인증은 Azure Portal에서 관리할 수 없습니다. Azure AD 전용 인증을 사용하도록 설정하는 다른 방법에 대한 자습서는 [자습서: Azure SQL을 사용한 인증 Azure Active Directory만 사용](authentication-azure-ad-only-authentication-tutorial.md)을 참조하세요.
-
 ## <a name="feature-description"></a>기능 설명
 
-Azure AD 전용 인증을 사용하는 경우 [SQL 인증](logins-create-manage.md#authentication-and-authorization)이 서버 수준에서 사용하지 않도록 설정되므로 SQL 인증 자격 증명을 기준으로 하는 모든 인증이 방지됩니다. SQL 인증 사용자는 모든 데이터베이스를 포함하여 Azure SQL Database 논리 [서버에](logical-servers.md) 연결할 수 없습니다. SQL 인증을 사용하지 않도록 설정해도 적절한 권한이 있는 Azure AD 계정으로 새 SQL 인증 로그인 및 사용자를 계속 만들 수 있습니다. 새로 만든 SQL 인증 계정은 서버에 연결할 수 없습니다. Azure AD 전용 인증을 사용하도록 설정해도 기존 SQL 인증 로그인 및 사용자 계정이 제거되지는 않습니다. 이 기능은 이러한 계정으로 서버와 이 서버에 대해 만들어진 모든 데이터베이스에 연결하는 것만 방지합니다.
+Azure AD 전용 인증을 사용하도록 설정하면 서버 또는 관리되는 인스턴스 수준에서 [SQL 인증이](logins-create-manage.md#authentication-and-authorization) 비활성화되고 SQL 인증 자격 증명을 기반으로 하는 모든 인증이 차단됩니다. SQL 인증 사용자는 모든 데이터베이스를 포함하여 Azure SQL Database 또는 관리되는 인스턴스의 [논리 서버에](logical-servers.md) 연결할 수 없습니다. SQL 인증을 사용하지 않도록 설정해도 적절한 권한이 있는 Azure AD 계정으로 새 SQL 인증 로그인 및 사용자를 계속 만들 수 있습니다. 새로 만든 SQL 인증 계정은 서버에 연결할 수 없습니다. Azure AD 전용 인증을 사용하도록 설정해도 기존 SQL 인증 로그인 및 사용자 계정이 제거되지는 않습니다. 이 기능은 이러한 계정으로 서버와 이 서버에 대해 만들어진 모든 데이터베이스에 연결하는 것만 방지합니다.
 
 Azure Policy 사용하여 Azure AD 전용 인증을 사용하도록 설정된 서버를 강제로 만들 수도 있습니다. 자세한 내용은 [Azure AD 전용 인증에 대한 Azure Policy 참조하세요.](authentication-azure-ad-only-authentication-policy.md)
 
@@ -400,10 +397,28 @@ SELECT SERVERPROPERTY('IsExternalAuthenticationOnly')
 - 적절한 권한이 있는 Azure AD 사용자는 기존 SQL 사용자를 가장할 수 있습니다.
     - Azure AD 전용 인증 기능을 사용하도록 설정한 경우에도 SQL 인증 사용자 간에 가장이 계속 작동합니다.
 
-## <a name="known-issues"></a>알려진 문제
+### <a name="limitations-for-azure-ad-only-authentication-in-sql-database"></a>SQL Database Azure AD 전용 인증에 대한 제한 사항
 
-- Azure AD 전용 인증을 사용하도록 설정한 경우 서버 관리자 암호를 다시 설정할 수 없습니다. 현재, Portal에서는 암호 다시 전송 작업이 성공적으로 수행되지만 SQL 엔진에서 실패합니다. 이러한 오류는 서버 활동 로그에 표시됩니다. 서버 관리자 암호를 다시 설정하기 위해 Azure AD 전용 인증 기능을 사용하지 않도록 설정해야 합니다.
+SQL Database 대해 Azure AD 전용 인증을 사용하도록 설정하면 다음 기능이 지원되지 않습니다.
 
+- [Azure SQL Database 서버 역할](security-server-roles.md)
+- [탄력적 작업](job-automation-overview.md)
+- [SQL 데이터 동기화](sql-data-sync-data-sql-server-sql-database.md)
+- [CDC(변경 데이터 캡처)](/sql/relational-databases/track-changes/about-change-data-capture-sql-server)
+- [트랜잭션 복제](/azure/azure-sql/managed-instance/replication-transactional-overview) - 복제 참가자 간의 연결에 SQL 인증이 필요하므로 Azure AD 전용 인증을 사용하는 경우 트랜잭션 복제를 사용하여 Azure SQL Managed Instance, 온-프레미스 SQL Server 또는 Azure에서 변경한 내용을 푸시하는 시나리오에 SQL Database 트랜잭션 복제가 지원되지 않습니다.  VM SQL Server 인스턴스를 의 데이터베이스에 Azure SQL Database
+- [SQL 인사이트](/azure/azure-monitor/insights/sql-insights-overview)
+- Azure AD 그룹 구성원 계정에 대한 EXEC AS 문
+
+### <a name="limitations-for-azure-ad-only-authentication-in-managed-instance"></a>Managed Instance Azure AD 전용 인증에 대한 제한 사항
+
+Managed Instance 대해 Azure AD 전용 인증을 사용하도록 설정하면 다음 기능이 지원되지 않습니다.
+
+- [트랜잭션 복제](/azure/azure-sql/managed-instance/replication-transactional-overview) 
+- [Managed Instance SQL 에이전트 작업은](../managed-instance/job-automation-managed-instance.md) Azure AD 전용 인증을 지원합니다. 그러나 관리되는 인스턴스에 액세스할 수 있는 Azure AD 그룹의 구성원인 Azure AD 사용자는 SQL 에이전트 작업을 소유할 수 없습니다.
+- [SQL 인사이트](/azure/azure-monitor/insights/sql-insights-overview)
+- Azure AD 그룹 구성원 계정에 대한 EXEC AS 문
+
+자세한 제한은 [SQL Server & Azure SQL Managed Instance 간의 T-SQL 차이점을 참조하세요.](../managed-instance/transact-sql-tsql-differences-sql-server.md#logins-and-users)
 
 ## <a name="next-steps"></a>다음 단계
 

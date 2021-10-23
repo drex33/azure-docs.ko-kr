@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 10/19/2021
 ms.author: allensu
-ms.openlocfilehash: 7a4688c196551f3ab6b5713d8939f53af161d1e3
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
-ms.translationtype: HT
+ms.openlocfilehash: 3d89d3621593abc77bf61b5cb32655df00748a86
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106505011"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226719"
 ---
 # <a name="how-caching-works"></a>캐싱 작동 방식
 
@@ -133,6 +133,10 @@ Azure CDN은 캐시 기간과 캐시 공유를 정의하는 다음과 같은 HTT
 **원본 사용**: 지원되는 캐시 지시문 헤더가 원본 서버의 HTTP 응답에 존재하는 경우 사용할지 여부를 지정합니다.
 
 **CDN 캐시 기간**: Azure CDN에 리소스가 캐시되는 시간의 길이를 지정합니다. 하지만 **원본 사용** 이 예이고 원본 서버의 HTTP 응답에 캐시 지시문 헤더 `Expires` 또는 `Cache-Control: max-age`가 포함되어 있으면 Azure CDN은 헤더에 지정된 기간 값을 대신 사용합니다. 
+
+> [!NOTE]
+> Azure CDN 개체가 캐시에 저장되는 최소 시간을 보장하지 않습니다. 캐시된 콘텐츠는 더 자주 요청되는 콘텐츠를 위한 공간을 확보하기 위해 콘텐츠를 자주 요청하지 않는 경우 만료되기 전에 CDN 캐시에서 제거될 수 있습니다.
+> 
 
 ## <a name="next-steps"></a>다음 단계
 

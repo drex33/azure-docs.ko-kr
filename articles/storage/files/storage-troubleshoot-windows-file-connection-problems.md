@@ -8,12 +8,12 @@ ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b1541acc9ab6871418d1cb750d74d285f3228f92
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
-ms.translationtype: HT
+ms.openlocfilehash: 067d069dc06c0621f8ac6484b16cccf75e9412c2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529561"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130241215"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Windows에서 Azure Files 문제 해결(SMB)
 
@@ -128,7 +128,7 @@ Azure 파일 동기화는 온-프레미스 Windows Server를 Azure 파일 공유
 IT 부서 또는 ISP와 협력하여 [Azure IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 대한 포트 445 아웃바운드를 엽니다.
 
 #### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>해결 방법 4 - Storage Explorer/Powershell 같은 REST API 기반 도구 사용
-Azure Files는 SMB 외에 REST도 지원합니다. REST 액세스는 포트 443(표준 TCP)을 통해 작동합니다. 다양한 UI 환경을 가능하게 하는 REST API를 사용하여 작성된 다양한 도구가 있습니다. [Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)가 그중 하나입니다. [Storage Explorer를 다운로드하여 설치하고](https://azure.microsoft.com/features/storage-explorer/) Azure Files에서 지원하는 파일 공유에 연결합니다. [PowerShell](./storage-how-to-use-files-powershell.md) 및 REST API를 사용할 수도 있습니다.
+Azure Files는 SMB 외에 REST도 지원합니다. REST 액세스는 포트 443(표준 TCP)을 통해 작동합니다. 다양한 UI 환경을 가능하게 하는 REST API를 사용하여 작성된 다양한 도구가 있습니다. [Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows)가 그중 하나입니다. [Storage Explorer를 다운로드하여 설치하고](https://azure.microsoft.com/features/storage-explorer/) Azure Files에서 지원하는 파일 공유에 연결합니다. [PowerShell](./storage-how-to-use-files-portal.md) 및 REST API를 사용할 수도 있습니다.
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>원인 2: NTLMv1 사용
 

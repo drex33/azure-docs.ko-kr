@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
-ms.date: 03/19/2019
-ms.openlocfilehash: d534736e72bb97caa96b1001d379aefd7e3c7c6b
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.date: 10/18/2021
+ms.openlocfilehash: ebad0e9da1595d06dc2966d9b0c83dad9680556e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110698813"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226795"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance의 메모리 내 기술을 사용하여 성능 최적화
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -48,18 +48,10 @@ columnstore 인덱스 및 메모리 내 OLTP는 각각 SQL Server 제품 2012 �
 
 메모리 내 기술을 사용하면 보다 효율적인 쿼리 및 트랜잭션 처리로 인해 비용을 줄일 수도 있습니다. 일반적으로는 성능 향상을 위해 데이터베이스의 가격 책정 계층을 업그레이드할 필요가 없습니다. 일부 경우에 가격 책정 계층을 줄이는 동시에 메모리 내 기술의 성능이 향상된 것을 확인할 수도 있습니다.
 
-메모리 내 OLTP가 성능을 크게 향상시키는 방법의 두 가지 예는 다음과 같습니다.
-
-- 메모리 내 OLTP를 사용하여 [Quorum Business Solutions은 DTU를 70%까지 개선하면서 작업량을 두 배로 늘릴 수 있었습니다](https://resources.quorumsoftware.com/case-studies/quorum-doubles-key-database-s-workload-while-lowering-dtu).
-- 비디오 [메모리 내 OLTP Video](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB)에서 샘플 워크로드에서 리소스 소비가 크게 향상되었음을 보여 줍니다. 자세한 내용은 해당 블로그 게시물([메모리 내 OLTP](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/))을 참조
+메모리 내 OLTP를 사용하여 [Quorum Business Solutions은 DTU를 70%까지 개선하면서 작업량을 두 배로 늘릴 수 있었습니다](https://resources.quorumsoftware.com/case-studies/quorum-doubles-key-database-s-workload-while-lowering-dtu). 자세한 내용은 [메모리 내 OLTP](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)블로그 게시물을 참조 하세요.
 
 > [!NOTE]  
 > 메모리 내 기술은 프리미엄 및 중요 비즈니스용 계층에서 제공됩니다.
-
-다음 비디오에서는 메모리 내 기술을 포함한 잠재적인 성능 향상에 대해 설명합니다. 향상된 성능은 워크로드 및 데이터의 특성, 데이터베이스 등의 액세스 패턴을 포함한 많은 요인에 따라 달라 집니다.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-In-Memory-Technologies/player]
->
 
 이 문서에서는 Azure SQL Database 및 Azure SQL Managed Instance와 관련된 메모리 내 OLTP 및 columnstore 인덱스의 측면을 설명하며, 다음과 같은 샘플도 제공합니다.
 
@@ -88,12 +80,7 @@ SQL Server의 메모리 내에 대한 자세한 내용은 다음을 참조하세
 > [!Note]
 > 메모리 내 OLTP 기술은 완전히 메모리에 상주할 수 있는 데이터 구조를 위해 설계되었습니다. 메모리 내 데이터는 디스크에 오프로드될 수 없으므로 충분한 메모리가 있는 데이터베이스를 사용하고 있는지 확인합니다. 자세한 내용은 [메모리 내 OLTP의 데이터 크기 및 스토리지 제한](#data-size-and-storage-cap-for-in-memory-oltp)을 참조하세요.
 
-메모리 내 OLTP에 대한 빠른 입문서: [빠른 시작 1: 더 빠른 T-SQL 성능을 위한 메모리 내 OLTP 기술](/sql/relational-databases/in-memory-oltp/survey-of-initial-areas-in-in-memory-oltp)(처음 시작하는 데 유용한 다른 문서)
-
-기술에 대한 자세한 비디오:
-
-- [메모리 내 OLTP](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB)(성능 이점에 대한 시연 및 이 결과를 사용자 스스로 재현하는 단계 포함)
-- [메모리 내 OLTP 비디오: 기능 정의 및 사용 시기/방법](/archive/blogs/sqlserverstorageengine/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it)
+- In-Memory oltp에 대 한 빠른 입문: 빠른 시작 [1: 더 빠른 T SQL 성능을 위한 oltp 기술을 In-Memory](/sql/relational-databases/in-memory-oltp/survey-of-initial-areas-in-in-memory-oltp)합니다.
 
 지정된 데이터베이스가 메모리 내 OLTP를 지원하는지 여부를 프로그래밍 방식으로 이해할 수 있습니다. 다음 Transact-SQL 쿼리를 실행할 수 있습니다.
 
@@ -198,7 +185,7 @@ columnstore 인덱스는 메모리에 적합할 필요가 없습니다. 따라�
 
 ### <a name="deeper-information"></a>자세한 정보
 
-- [쿼럼이 SQL Database의 메모리 내 OLTP을 사용하여 DTU를 70% 줄이는 동시에 키 데이터베이스의 워크로드를 두 배로 증가시키는 방법에 대해 알아보기](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+- [쿼럼이 In-Memory OLTP를 통해 DTU를 70% 낮추면서 주요 데이터베이스의 워크로드를 두 배로 줄이는 방법을 알아봅니다SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 - [메모리 내 OLTP 블로그 게시물](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 - [메모리 내 OLTP에 대해 알아보기](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
 - [columnstore 인덱스에 대해 알아보기](/sql/relational-databases/indexes/columnstore-indexes-overview)

@@ -4,12 +4,12 @@ description: Azure Functions에서 함수를 사용하지 않도록 설정하고
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: devx-track-csharp, devx-track-azurepowershell
-ms.openlocfilehash: 24ee2ce703287e62f1271c14f639048bb88da404
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e2df38182dd8b199ca13d7e5a9b7484aee004f52
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128663690"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265384"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Azure Functions에서 함수를 사용하지 않도록 설정하는 방법
 
@@ -177,7 +177,7 @@ public static class QueueFunctions
 
 + 이 문서에서 설명하는 방법을 사용하여 HTTP 트리거 함수를 사용하지 않도록 설정하면 로컬 컴퓨터에서 실행 중일 때도 엔드포인트에 계속 액세스할 수 있습니다.  
 
-+ 현재 하이픈(`-`)이 포함된 함수 이름은 전용(App Service) 계획의 Linux에서 실행할 때 사용하지 않도록 설정할 수 없습니다. Linux에서 Dedicated 플랜을 실행할 때 함수를 사용하지 않도록 설정해야 하는 경우 함수 이름에 하이픈을 사용하지 마세요.
++ 현재는 Linux 계획에서 실행할 때 하이픈()이 포함된 함수 이름을 `-` 비활성화할 수 없습니다. Linux 계획에서 실행할 때 함수를 사용하지 않도록 설정해야 하는 경우 함수 이름에 하이픈을 사용하지 마세요.
 
 ## <a name="next-steps"></a>다음 단계
 

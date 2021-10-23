@@ -9,18 +9,18 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: pstn
-ms.openlocfilehash: 66e39f0ec9beea775c18f0c1619cc8517e9b80a8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9cda3c4f91c3e70d19c33d4fa06343d26f6ff6ee
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609653"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130218999"
 ---
 # <a name="telephony-concepts"></a>전화 통신 개념
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
-Azure Communication Services Calling SDK를 사용하여 전화 통신 및 공중 전화망 액세스를 애플리케이션에 추가할 수 있습니다. 이 페이지에는 주요 전화 통신 개념 및 기능이 요약되어 있습니다. 특정 SDK 언어 및 기능에 대해 자세히 알아보려면 [통화 라이브러리](../../quickstarts/voice-video-calling/calling-client-samples.md)를 참조하세요.
+Azure Communication Services Calling SDK를 사용하여 전화 통신 및 공중 전화망 액세스를 애플리케이션에 추가할 수 있습니다. 이 페이지에는 주요 전화 통신 개념 및 기능이 요약되어 있습니다. 특정 SDK 언어 및 기능에 대해 자세히 알아보려면 [통화 라이브러리](../../quickstarts/voice-video-calling/getting-started-with-calling.md)를 참조하세요.
 
 ## <a name="overview-of-telephony"></a>전화 통신 개요
 사용자가 기존 전화 번호와 상호 작용할 때마다 PSTN(공중 교환 전화망) 음성 통화를 통해 통화가 지원됩니다. PSTN 호출을 수행 및 수신하려면 Azure Communication Services 리소스에 전화 통신 기능을 추가해야 합니다. 이 경우 신호와 미디어는 IP 기반 및 PSTN 기반 기술의 조합을 사용하여 사용자를 연결합니다. Communication Services는 PSTN 네트워크에 연결하는 두 가지 방법, 즉 음성 통화(PSTN) 및 Azure 직접 라우팅을 제공합니다.

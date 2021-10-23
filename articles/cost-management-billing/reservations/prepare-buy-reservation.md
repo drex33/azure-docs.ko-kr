@@ -2,18 +2,18 @@
 title: Azure 예약 구매
 description: Azure 예약을 구매하는 데 도움이 되는 중요 사항에 대해 알아보세요.
 author: bandersmsft
-ms.reviewer: primattal
+ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 10/21/2021
 ms.author: banders
-ms.openlocfilehash: bbd57ed54171785ab8f2aedea93fa8c56cc0319c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f7c9551b3edee5c4e491cd4218e7b7973f01f287
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128653377"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130244156"
 ---
 # <a name="buy-a-reservation"></a>예약 구입
 
@@ -23,7 +23,9 @@ Azure Reservations는 여러 Azure 리소스의 1년 또는 3년 플랜에 따�
 
 예약을 구매하려면 엔터프라이즈(MS-AZR-0017P 또는 MS-AZR-0148P), 종량제(MS-AZR-0003P 또는 MS-AZR-0023P) 또는 Microsoft 고객 계약 유형의 Azure 구독에 대한 소유자 역할 또는 예약 구매자 역할이 있어야 합니다. 클라우드 솔루션 공급자는 Azure Portal 또는  [파트너 센터](/partner-center/azure-reservations) 를 사용하여 Azure 예약을 구매할 수 있습니다.
 
-EA(기업계약) 고객은 EA Portal에서 **예약 인스턴스 추가** 옵션을 해제하여 EA 관리자만 구매 가능하도록 제한할 수 있습니다. EA 관리자는 예약을 구매하려면 하나 이상의 EA 구독에 대한 소유자 또는 예약 구매자 액세스 권한이 있어야 합니다. 이 옵션은 중앙 집중식 팀에서 예약을 구매하려는 기업에 유용합니다.
+EA(기업계약) 고객은 EA Portal에서 **예약 인스턴스 추가** 옵션을 해제하여 EA 관리자만 구매 가능하도록 제한할 수 있습니다. 이제 직접 EA 고객은 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts)예약 인스턴스 설정을 사용하지 않도록 설정할 수 있습니다. 정책 메뉴로 이동하여 설정을 변경합니다.
+
+EA 관리자는 예약을 구매하려면 하나 이상의 EA 구독에 대한 소유자 또는 예약 구매자 액세스 권한이 있어야 합니다. 이 옵션은 중앙 집중식 팀에서 예약을 구매하려는 기업에 유용합니다.
 
 예약 할인은 엔터프라이즈, CSP(클라우드 솔루션 공급자), Microsoft 고객 계약 및 종량제 요금을 사용하는 개별 플랜을 통해 구매한 구독과 연결된 리소스에만 적용됩니다.
 

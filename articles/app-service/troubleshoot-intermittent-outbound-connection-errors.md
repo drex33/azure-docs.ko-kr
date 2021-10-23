@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/19/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
-ms.openlocfilehash: fe746ed4fe8c24afa0667d8c2559d9c46fee5211
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 1b85dd7bdab820cd66f1ac4f2421191f354a073c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129660080"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130220380"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Azure App Service의 간헐적인 아웃 바운드 연결 오류 문제 해결
 
@@ -47,7 +47,7 @@ SNAT 포트 제한을 방지할 수 있는 몇 가지 솔루션이 있습니다.
 
 SNAT 포트 문제를 방지하는 것은 동일한 호스트 및 포트에 대한 새 연결을 반복적으로 만드는 것을 방지하는 것입니다. 연결 풀은 이 문제를 해결하는 보다 분명한 방법 중 하나입니다.
 
-대상이 서비스 엔드포인트를 지원하는 Azure 서비스인 경우 [지역 VNet 통합](./web-sites-integrate-with-vnet.md) 및 서비스 엔드포인트나 프라이빗 엔드포인트를 사용하여 SNAT 포트 소모 문제를 방지할 수 있습니다. 지역 VNet 통합을 사용하고 통합 서브넷에 서비스 엔드포인트를 추가하는 경우 해당 서비스에 대한 아웃바운드 트래픽에는 아웃바운드 SNAT 포트 제한이 적용되지 않습니다. 마찬가지로, 지역 VNet 통합 및 프라이빗 엔드포인트를 사용하는 경우에는 해당 대상에 대한 아웃바운드 SNAT 포트 문제가 발생하지 않습니다. 
+대상이 서비스 엔드포인트를 지원하는 Azure 서비스인 경우 [지역 VNet 통합](./overview-vnet-integration.md) 및 서비스 엔드포인트나 프라이빗 엔드포인트를 사용하여 SNAT 포트 소모 문제를 방지할 수 있습니다. 지역 VNet 통합을 사용하고 통합 서브넷에 서비스 엔드포인트를 추가하는 경우 해당 서비스에 대한 아웃바운드 트래픽에는 아웃바운드 SNAT 포트 제한이 적용되지 않습니다. 마찬가지로, 지역 VNet 통합 및 프라이빗 엔드포인트를 사용하는 경우에는 해당 대상에 대한 아웃바운드 SNAT 포트 문제가 발생하지 않습니다. 
 
 대상이 Azure 외부의 외부 엔드포인트인 경우 [NAT 게이트웨이를 사용](./networking/nat-gateway-integration.md)하면 64k 아웃바운드 SNAT 포트가 제공됩니다. 또한 누구와도 공유하지 않는 전용 아웃바운드 주소도 제공됩니다. 
 
@@ -156,6 +156,7 @@ TCP 연결 및 SNAT 포트는 직접적인 관련성이 없습니다. TCP 연결
 * 프로토콜, IP 주소 또는 포트에서 흐름이 서로 다른 경우 SNAT 포트는 다른 흐름에서 공유할 수 있습니다. TCP 연결 메트릭은 모든 TCP 연결을 계산합니다.
 * TCP 연결 제한은 작업자 인스턴스 수준에서 발생합니다. Azure 네트워크 아웃바운드 부하 분산에서는 SNAT 포트 제한에 TCP 연결 메트릭을 사용하지 않습니다.
 * TCP 연결 제한은 [샌드박스 VM 간 숫자 제한 - TCP 연결](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)에 설명되어 있습니다.
+* Azure App Service 원본 포트에서 새 아웃 바운드 TCP 세션을 실행 하면 기존 TCP 세션이 실패 합니다. 단일 IP를 사용 하거나 백 엔드 풀 멤버를 다시 구성 하 여 충돌을 방지할 수 있습니다.
 
 |제한 이름|Description|작음(A1)|보통(A2)|큼(A3)|격리 계층(ASE)|
 |---|---|---|---|---|---|

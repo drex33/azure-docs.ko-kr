@@ -10,12 +10,12 @@ ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 09/09/2021
 ms.custom: devx-track-python, devx-track-azurepowershell, synapse
-ms.openlocfilehash: c21d06a97acd433445ee73e90833684c5cc36dac
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a712fcbd256f80f1402bf29c96bb6e17c7409072
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124815006"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223938"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>일정에 따라 파이프라인을 실행하는 트리거 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "124815006"
 
 다음 섹션에서는 다양한 방식으로 일정 트리거를 만드는 단계를 제공합니다. 
 
-## <a name="ui-experience"></a>UI 환경
+## <a name="azure-data-factory-and-synapse-portal-experience"></a>Azure Data Factory 및 Synapse 포털 환경
 
 **스케줄러 트리거** 를 만들어 파이프라인이 주기적으로(매시간, 매일 등) 실행되도록 예약할 수 있습니다. 
 
@@ -110,6 +110,14 @@ ms.locfileid: "124815006"
 
 이 섹션에서는 Azure PowerShell을 사용하여 일정 트리거를 만들고 시작 및 모니터링하는 방법을 보여줍니다. 이 샘플이 작동하는지 확인하려면 먼저 [빠른 시작: Azure PowerShell을 사용하여 Data Factory 만들기](quickstart-create-data-factory-powershell.md)를 진행하세요. 그런 다음 15분마다 실행되는 일정 트리거를 만들고 시작하는 다음 코드를 주 메서드에 추가하세요. 트리거는 빠른 시작의 일부로 만든 **Adfv2QuickStartPipeline** 이라는 파이프라인과 연결되어 있습니다.
 
+### <a name="prerequisites"></a>사전 요구 사항
+
+- **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다. 
+
+- **Azure PowerShell**. [PowerShellGet을 사용하여 Windows에 Azure PowerShell 설치](/powershell/azure/install-az-ps)의 지침을 따르세요. 
+
+### <a name="sample-code"></a>샘플 코드
+
 1. 다음 내용을 포함하는 **MyTrigger.json** 이라는 JSON 파일을 C:\ADFv2QuickStartPSH\ 폴더에 만듭니다.
 
     > [!IMPORTANT]
@@ -158,31 +166,31 @@ ms.locfileid: "124815006"
     - 트리거는 **Adfv2QuickStartPipeline** 파이프라인과 연결되어 있습니다. 여러 파이프라인을 트리거와 연결하려면 **pipelineReference 섹션** 섹션을 더 추가하세요.
     - 빠른 시작의 파이프라인은 **inputPath** 및 **outputPath** 라는 두 개의 **parameters** 값을 사용합니다. 또한 이러한 매개 변수 값을 트리거에서 전달합니다.
 
-1. **Set-AzDataFactoryV2Trigger** cmdlet을 사용하여 트리거를 만듭니다.
+1. [Set-AzDataFactoryV2Trigger](/powershell/module/az.datafactory/set-azdatafactoryv2trigger) cmdlet을 사용하여 트리거를 만듭니다.
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-1. **Get-AzDataFactoryV2Trigger** cmdlet을 사용하여 트리거의 상태가 **중지됨** 인지 확인합니다.
+1. [Get-AzDataFactoryV2Trigger](/powershell/module/az.datafactory/get-azdatafactoryv2trigger) cmdlet을 사용하여 트리거의 상태가 **중지됨** 인지 확인합니다.
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-1. **Start-AzDataFactoryV2Trigger** cmdlet을 사용하여 트리거를 시작합니다.
+1. [Start-AzDataFactoryV2Trigger](/powershell/module/az.datafactory/start-azdatafactoryv2trigger) cmdlet을 사용하여 트리거를 시작합니다.
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-1. **Get-AzDataFactoryV2Trigger** cmdlet을 사용하여 트리거의 상태가 **시작됨** 인지 확인합니다.
+1. [Get-AzDataFactoryV2Trigger](/powershell/module/az.datafactory/get-azdatafactoryv2trigger) cmdlet을 사용하여 트리거의 상태가 **시작됨** 인지 확인합니다.
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-1.  **Get-AzDataFactoryV2TriggerRun** cmdlet을 사용하여 Azure PowerShell에서 트리거 실행을 가져옵니다. 트리거 실행에 대한 정보를 가져오려면 다음 명령을 주기적으로 실행합니다. **TriggerRunStartedAfter** 및 **TriggerRunStartedBefore** 값을 업데이트하여 트리거 정의의 값과 일치시킵니다.
+1.  [Get-AzDataFactoryV2TriggerRun](/powershell/module/az.datafactory/get-azdatafactoryv2triggerrun) cmdlet을 사용하여 Azure PowerShell에서 트리거 실행을 가져옵니다. 트리거 실행에 대한 정보를 가져오려면 다음 명령을 주기적으로 실행합니다. **TriggerRunStartedAfter** 및 **TriggerRunStartedBefore** 값을 업데이트하여 트리거 정의의 값과 일치시킵니다.
 
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
@@ -190,6 +198,97 @@ ms.locfileid: "124815006"
     
     > [!NOTE]
     > 일정 트리거의 트리거 시간은 UTC 타임스탬프에서 지정됩니다. _TriggerRunStartedAfter_ 및 _TriggerRunStartedBefore_ 에도 UTC 타임스탬프가 필요합니다.
+
+    Azure Portal에서 트리거 실행 및 파이프라인 실행을 모니터링하려면 [파이프라인 실행 모니터링](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline)을 참조하세요.
+
+## <a name="azure-cli"></a>Azure CLI
+
+이 섹션에서는 Azure CLI 사용하여 일정 트리거를 만들고, 시작하고, 모니터링하는 방법을 보여줍니다. 이 샘플이 작동하는지 확인하려면 먼저 [빠른 시작: Azure CLI 사용하여 Azure Data Factory 만들기를](./quickstart-create-data-factory-azure-cli.md)진행합니다. 그런 다음 아래 단계에 따라 15분마다 실행되는 일정 트리거를 만들고 시작합니다. 트리거는 빠른 시작의 일부로 만든 **Adfv2QuickStartPipeline** 이라는 파이프라인과 연결되어 있습니다.
+
+### <a name="prerequisites"></a>사전 요구 사항
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+### <a name="sample-code"></a>샘플 코드
+
+1. 작업 중인 작업에서 트리거의 속성을 사용하여 **MyTrigger.json이라는 JSON** 파일을 만듭니다. 이 예제에서는 다음 콘텐츠를 사용합니다.
+
+    > [!IMPORTANT]
+    > JSON 파일을 저장하기 전에 **startTime** 요소의 값을 현재 UTC 시간으로 설정합니다. **endTime** 요소의 값을 현재 UTC 시간의 한 시간 이후로 설정합니다.
+
+    ```json
+    {
+        "name": "MyTrigger",
+        "type": "ScheduleTrigger",
+        "typeProperties": {
+            "recurrence": {
+                "frequency": "Minute",
+                "interval": 15,
+                "startTime": "2017-12-08T00:00:00Z",
+                "endTime": "2017-12-08T01:00:00Z",
+                "timeZone": "UTC"
+            }
+        },
+        "pipelines": [{
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "Adfv2QuickStartPipeline"
+                },
+                "parameters": {
+                    "inputPath": "adftutorial/input",
+                    "outputPath": "adftutorial/output"
+                }
+            }
+        ]
+    }
+    ```
+
+    JSON 코드 조각에서 다음을 수행합니다.
+    - 트리거의 **형식** 요소는 "ScheduleTrigger"로 설정됩니다.
+    - **빈도** 요소는 "분"으로 설정되고 **간격** 요소는 15로 설정됩니다. 따라서 트리거는 시작 시간과 종료 시간 사이에 15분마다 파이프라인을 실행합니다.
+    - **timeZone** 요소는 트리거가 만들어지는 표준 시간대를 지정합니다. 이 설정은 **startTime** 및 **endTime** 에 모두 영향을 줍니다.
+    - **endTime** 요소는 **startTime** 요소 값 이후 1시간입니다. 따라서 트리거는 시작 시간 이후 15분, 30분, 45분에 파이프라인을 실행합니다. 시작 시간을 현재 UTC 시간으로 업데이트하고, 종료 시간을 시작 시간의 1시간 후로 업데이트하는 것에 유의하세요. 
+
+        > [!IMPORTANT]
+        > UTC 표준 시간대의 경우 startTime 및 endTime이 'yyyy-MM-ddTHH:mm:ss **Z**' 형식을 따라야 하고, 다른 표준 시간대의 경우 startTime 및 endTime이 'yyyy-MM-ddTHH:mm:ss' 형식을 따라야 합니다. 
+        > 
+        > ISO 8601 표준에 따라 타임스탬프의 _Z_ 접미사는 날짜/시간을 UTC 표준 시간대로 표시하고, timeZone 필드를 무의미하게 만듭니다. UTC 표준 시간대의 경우 _Z_ 접미사가 없으면 트리거 _활성화_ 시 오류가 발생합니다.
+
+    - 트리거는 **Adfv2QuickStartPipeline** 파이프라인과 연결되어 있습니다. 여러 파이프라인을 트리거와 연결하려면 **pipelineReference 섹션** 섹션을 더 추가하세요.
+    - 빠른 시작의 파이프라인은 **inputPath** 및 **outputPath** 라는 두 개의 **parameters** 값을 사용합니다. 또한 이러한 매개 변수 값을 트리거에서 전달합니다.
+
+1. [az datafactory trigger create](/cli/azure/datafactory/trigger#az_datafactory_trigger_create) 명령을 사용하여 트리거를 만듭니다.
+
+    ```azurecli
+    az datafactory trigger create --resource-group "ADFQuickStartRG" --factory-name "ADFTutorialFactory"  --name "MyTrigger" --properties @MyTrigger.json  
+    ```
+
+1. [az datafactory](/cli/azure/datafactory/trigger#az_datafactory_trigger_show) trigger show 명령을 사용하여 트리거 상태가 **Stopped인지** 확인합니다.
+
+    ```azurecli
+    az datafactory trigger show --resource-group "ADFQuickStartRG" --factory-name "ADFTutorialFactory" --name "MyTrigger" 
+    ```
+
+1. [az datafactory trigger start](/cli/azure/datafactory/trigger#az_datafactory_trigger_start) 명령을 사용하여 트리거를 시작합니다.
+
+    ```azurecli
+    az datafactory trigger start --resource-group "ADFQuickStartRG" --factory-name "ADFTutorialFactory" --name "MyTrigger" 
+    ```
+
+1. [az datafactory trigger show](/cli/azure/datafactory/trigger#az_datafactory_trigger_show) 명령을 사용하여 트리거 상태가 **시작인지** 확인합니다.
+
+    ```azurecli
+    az datafactory trigger show --resource-group "ADFQuickStartRG" --factory-name "ADFTutorialFactory" --name "MyTrigger" 
+    ```
+
+1. [az datafactory trigger-run query-by-factory](/cli/azure/datafactory/trigger-run#az_datafactory_trigger_run_query_by_factory) 명령을 사용하여 Azure CLI 트리거 실행을 얻습니다. 트리거 실행에 대한 정보를 가져오려면 다음 명령을 주기적으로 실행합니다. 트리거 정의의 값과 일치하도록 **last-updated-after** 및  **last-updated-before** 값을 업데이트합니다.
+
+    ```azurecli
+    az datafactory trigger-run query-by-factory --resource-group "ADFQuickStartRG" --factory-name "ADFTutorialFactory" --filters operand="TriggerName" operator="Equals" values="MyTrigger" --last-updated-after "2017-12-08T00:00:00" --last-updated-before "2017-12-08T01:00:00"
+    ```
+
+    > [!NOTE]
+    > 일정 트리거의 트리거 시간은 UTC 타임스탬프에서 지정됩니다. _last-updated-after_ 및 _last-updated-before에도_ UTC 타임스탬프가 있습니다.
 
     Azure Portal에서 트리거 실행 및 파이프라인 실행을 모니터링하려면 [파이프라인 실행 모니터링](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline)을 참조하세요.
 
@@ -415,7 +514,7 @@ Azure Data Factory 버전 1은 **SliceStart**, **SliceEnd**, **WindowStart** 및
 | IST(인도 표준시) | +5:30 | `India Standard Time` | 예 | `'yyyy-MM-ddTHH:mm:ss'` |
 | 중국 표준시 | +8 | `China Standard Time` | 예 | `'yyyy-MM-ddTHH:mm:ss'` |
 
-이 목록은 완전하지 않습니다. 전체 표준 시간대 옵션 목록은 포털 [트리거 만들기 페이지](#ui-experience)에서 살펴보세요.
+이 목록은 완전하지 않습니다. 전체 표준 시간대 옵션 목록은 포털 [트리거 만들기 페이지](#azure-data-factory-and-synapse-portal-experience)에서 살펴보세요.
 
 ### <a name="starttime-property"></a>startTime 속성
 다음 표는 **startTime** 속성이 트리거 실행을 제어하는 방법을 보여줍니다.

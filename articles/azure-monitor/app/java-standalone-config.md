@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 ms.custom: devx-track-java
 author: mattmccleary
 ms.author: mmcc
-ms.openlocfilehash: c5de4ed71de7f6cb6534620cbfd1bc62226123e5
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: cb1690e2181924f8ab9f4ff1058d21555ad84834
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130132800"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256727"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>구성 옵션 - Java용 Azure Monitor Application Insights
 
@@ -39,14 +39,14 @@ ms.locfileid: "130132800"
 
 ## <a name="configuration-file-path"></a>구성 파일 경로
 
-기본적으로 Application Insights Java 3.x는 구성 파일의 이름을 `applicationinsights.json`으로 지정하고 `applicationinsights-agent-3.2.0.jar`와 동일한 디렉터리에 위치하도록 합니다.
+기본적으로 Application Insights Java 3.x는 구성 파일의 이름을 `applicationinsights.json`으로 지정하고 `applicationinsights-agent-3.2.1.jar`와 동일한 디렉터리에 위치하도록 합니다.
 
 다음 중 하나를 사용하여 사용자 고유의 구성 파일 경로를 지정할 수 있습니다.
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` 환경 변수 또는
 * `applicationinsights.configuration.file` Java 시스템 속성
 
-상대 경로를 지정하면 `applicationinsights-agent-3.2.0.jar`이 있는 디렉터리를 기준으로 확인됩니다.
+상대 경로를 지정하면 `applicationinsights-agent-3.2.1.jar`이 있는 디렉터리를 기준으로 확인됩니다.
 
 ## <a name="connection-string"></a>연결 문자열
 
@@ -180,9 +180,9 @@ ms.locfileid: "130132800"
 > [!NOTE]
 > 버전 3.0.2부터 `service.version`이라는 사용자 지정 차원을 추가하는 경우 값은 사용자 지정 차원이 아닌 Application Insights Logs 테이블의 `application_Version` 열에 저장됩니다.
 
-## <a name="inherited-attribute-preview"></a>상속된 특성(미리 보기)
+## <a name="inherited-attribute-preview"></a>상속 된 특성 (미리 보기)
 
-버전 3.2.0부터 요청 원격 분석에서 프로그래밍 방식으로 사용자 지정 차원을 설정하고 다음에 오는 종속성 원격 분석에서 상속하려는 경우:
+3.2.0 버전부터 요청 원격 분석에 대해 프로그래밍 방식으로 사용자 지정 차원을 설정 하 고 다음을 수행 하는 종속성 원격 분석을 통해 해당 차원을 상속 하는 경우에 시작 합니다.
 
 ```json
 {
@@ -348,11 +348,16 @@ Application Insights에 대해 구성된 기본 수준은 `INFO`입니다. 이 �
       },
       "springIntegration": {
         "enabled": true
-      }
+      },
+      "akka": { 
+        "enabled": true
+      },
     }
   }
 }
 ```
+> [!NOTE]
+> Akka streams 계측은 버전 3.2.1부터 사용할 수 있습니다.
 
 ## <a name="heartbeat"></a>하트비트
 
@@ -458,7 +463,7 @@ Application Insights Java 3.x는 설정된 경우 전역 `https.proxyHost` 및 `
 
 `level`은 `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG` 또는 `TRACE` 중 하나일 수 있습니다.
 
-`path`는 절대 또는 상대 경로일 수 있습니다. 상대 경로는 `applicationinsights-agent-3.2.0.jar`이 있는 디렉터리를 기준으로 확인됩니다.
+`path`는 절대 또는 상대 경로일 수 있습니다. 상대 경로는 `applicationinsights-agent-3.2.1.jar`이 있는 디렉터리를 기준으로 확인됩니다.
 
 `maxSizeMb`는 롤오버되기 전에 로그 파일의 최대 크기입니다.
 

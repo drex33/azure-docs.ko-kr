@@ -3,12 +3,12 @@ title: Azure Application Insights에서 Power BI로 내보내기 | Microsoft Doc
 description: 분석 쿼리를 Power BI에서 표시할 수 있습니다.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: e0644a083021956316595d299a69a69b321a87d9
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
-ms.translationtype: HT
+ms.openlocfilehash: 0d1c5d58b668a23618b482bbc3ce82897ad760dd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108164132"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256972"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights에서 Power BI 공급
 
@@ -17,7 +17,7 @@ ms.locfileid: "108164132"
 Power BI에 Application Insights 데이터를 내보내는 세 가지 방법이 있습니다.
 
 * [**Analytics 쿼리 내보내기**](#export-analytics-queries). 이는 선호되는 방법입니다. 원하는 쿼리를 작성하여 Power BI에 내보냅니다. 이 쿼리를 다른 데이터와 함께 대시보드에 배치할 수 있습니다.
-* [**연속 내보내기 및 Azure Stream Analytics**](./export-stream-analytics.md). 이 방법은 데이터를 오랜 기간 저장하려는 경우에 유용합니다. 데이터를 오랜 기간 보존해야 할 필요가 없다면 분석 쿼리를 내보내는 방법을 사용하세요. 연속 내보내기 및 Stream Analytics의 경우 추가 설정 작업이 필요하고 스토리지 오버헤드가 추가로 발생합니다.
+* [**연속 내보내기 및 Azure Stream Analytics**](../../stream-analytics/app-insights-export-stream-analytics.md). 이 방법은 데이터를 오랜 기간 저장하려는 경우에 유용합니다. 데이터를 오랜 기간 보존해야 할 필요가 없다면 분석 쿼리를 내보내는 방법을 사용하세요. 연속 내보내기 및 Stream Analytics의 경우 추가 설정 작업이 필요하고 스토리지 오버헤드가 추가로 발생합니다.
 * **Power BI 어댑터**. 일련의 차트가 미리 정의되어 있으나, 다른 원본에서 직접 쿼리를 추가할 수 있습니다.
 
 > [!NOTE]

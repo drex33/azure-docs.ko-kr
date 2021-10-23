@@ -6,13 +6,13 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.custom: devx-track-java
 ms.author: ssarwa
-ms.date: 08/06/2021
-ms.openlocfilehash: eb9bf7de3b89dc39a110a87796a1704780e0d270
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.date: 10/12/2021
+ms.openlocfilehash: caa5e21fc573809993e9873b40bb4301d36a3086
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122272358"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002988"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-using-bicep"></a>빠른 시작: Bicep을 사용하여 Azure Spring Cloud 프로비저닝
 

@@ -2,17 +2,17 @@
 title: Bicep 모듈에 대한 프라이빗 레지스트리 만들기
 description: 프라이빗 Bicep 모듈에 대한 Azure 컨테이너 레지스트리를 설정하는 방법 알아보기
 ms.topic: conceptual
-ms.date: 10/14/2021
-ms.openlocfilehash: ccdb8685fe230f19e31ce2802f7c9fc54a33a8a0
-ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.date: 10/22/2021
+ms.openlocfilehash: 1f14b29fb9d6740d661f74328c82758a74427355
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130138719"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224071"
 ---
 # <a name="create-private-registry-for-bicep-modules-preview"></a>Bicep 모듈용 프라이빗 레지스트리 만들기(미리 보기)
 
-조직 내에서 [모듈을](modules.md) 공유하려면 프라이빗 모듈 레지스트리를 만들 수 있습니다. 해당 레지스트리에 모듈을 게시하고 모듈을 배포해야 하는 사용자에게 읽기 권한을 부여합니다. 레지스트리에서 모듈을 공유한 후 Bicep 파일에서 참조할 수 있습니다.
+조직 내에서 [모듈을](modules.md) 공유하려면 프라이빗 모듈 레지스트리를 만들 수 있습니다. 해당 레지스트리에 모듈을 게시하고 모듈을 배포해야 하는 사용자에게 읽기 권한을 부여합니다. 레지스트리에서 모듈을 공유한 후에는 Bicep 파일에서 모듈을 참조할 수 있습니다.
 
 모듈 레지스트리를 사용하려면 Bicep CLI 버전 **0.4.1008 이상이어야** 합니다.
 
@@ -73,5 +73,5 @@ az bicep publish storage.bicep --target br:exampleregistry.azurecr.io/bicep/modu
 ## <a name="next-steps"></a>다음 단계
 
 * 모듈에 대한 자세한 내용은 [Bicep 모듈을 참조하세요.](modules.md)
-* 모듈 레지스트리에 대한 별칭을 구성하려면 [Bicep 구성 파일 에서 사용자 지정 설정 추가를](private-module-registry.md)참조하세요.
+* 모듈 레지스트리에 대한 별칭을 구성하려면 [Bicep 구성 파일 에서 사용자 지정 설정 추가를](bicep-config.md)참조하세요.
 * 모듈 게시 및 복원에 대한 자세한 내용은 [Bicep CLI 명령 를 참조하세요.](bicep-cli.md)

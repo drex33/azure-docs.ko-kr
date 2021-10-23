@@ -4,20 +4,20 @@ description: OMS 포털은 Azure Portal로 이동하면서 모든 기능이 종�
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/22/2019
-ms.openlocfilehash: fc9da5c9bc6c9f1b5afd0dbcd74b19d13fe42222
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 10/20/2021
+ms.openlocfilehash: 40c9b2947577a7b48132eb1d9c3e94809ad5607f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102032061"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130220004"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Azure로 이동하는 OMS 포털
 
 > [!NOTE]
 > 이 문서는 별도로 명시된 곳을 제외하고 Azure 퍼블릭 클라우드 및 정부 클라우드 모두에 적용됩니다.
 
-**Azure 공용 클라우드의 OMS 포털은 공식적으로 사용 중지 되었습니다. Azure 미국 정부 클라우드의 OMS 포털은 2019 년 5 월 15 일에 공식적으로 사용이 중지 되었습니다.** Azure Portal로 이동하게 돼 기쁘며 이 전환이 쉬울 것이라 예상합니다. 그러나 변경은 어려우며 중단될 수 있음을 이해합니다. 이 문서의 나머지 부분에서는 주요 시나리오 및 이 전환에 대한 로드맵을 살펴봅니다.
+**Azure 퍼블릭 클라우드용 OMS 포털이 공식적으로 사용 중지되었습니다. Azure 미국 정부 클라우드용 OMS 포털은 2019년 5월 15일에 공식적으로 사용 중지되었습니다.** Azure Portal로 이동하게 돼 기쁘며 이 전환이 쉬울 것이라 예상합니다. 그러나 변경은 어려우며 중단될 수 있음을 이해합니다. 이 문서의 나머지 부분에서는 주요 시나리오 및 이 전환에 대한 로드맵을 살펴봅니다.
 
 Azure Portal은 모든 Azure 서비스의 허브이며, 리소스 고정을 위한 대시보드, 리소스를 찾기 위한 지능형 검색, 리소스 관리를 위한 태그 지정 같은 기능을 통해 다양한 관리 환경을 제공합니다. 모니터링 및 관리 워크플로를 간소화하고 통합하기 위해 Azure Portal에 OMS 포털 기능을 추가하기 시작했습니다. OMS 포털의 모든 기능은 이제 Azure Portal의 일부입니다. 사실, 트래픽 분석 같은 새 기능 중 일부는 Azure Portal에서만 사용할 수 있습니다. Azure Portal 등을 사용하여 OMS 포털에서 하던 모든 것을 수행할 수 있습니다. 아직 그렇게 하지 않은 경우 지금 Azure Portal의 사용을 시작하는 것이 좋습니다!
 
@@ -43,7 +43,7 @@ Azure Portal은 모든 Azure 서비스의 허브이며, 리소스 고정을 위�
 Azure Portal로 전환하는 방법에 대한 자세한 내용은 [Log Analytics 사용자를 위한 OMS 포털에서 Azure Portal로 전환에 대한 일반적인 질문](../overview.md)을 참조하세요. 
 
 ## <a name="user-access-and-role-migration"></a>사용자 액세스 및 역할 마이그레이션
-Azure Portal 액세스 관리는 OMS 포털에서 액세스 관리보다 더욱 풍부하고 더욱 강력합니다. Log Analytics 액세스 관리에 대 한 자세한 내용은 [Azure Monitor 로그 작업 영역 디자인](../logs/design-logs-deployment.md) 을 참조 하세요.
+Azure Portal 액세스 관리는 OMS 포털에서 액세스 관리보다 더욱 풍부하고 더욱 강력합니다. Log [Analytics에서](../logs/design-logs-deployment.md) 액세스 관리에 대한 자세한 내용은 Azure Monitor 로그 작업 영역 디자인을 참조하세요.
 
 > [!NOTE]
 > 이 문서의 이전 버전은 사용 권한이 OMS 포털에서 Azure Portal로 자동으로 변환되는 것을 명시했습니다. 이 자동 대화는 더 이상 계획에 없으며, 스스로 변환을 수행해야 합니다.
@@ -69,7 +69,7 @@ OMS 포털을 사용하여 더 이상 새 작업 영역을 만들 수 없습니�
 
 ### <a name="alert-extension"></a>경고 확장  
 
-경고는 기존 경고가 OMS 포털에 계속 나열 되 [Azure Portal으로 확장](../alerts/alerts-unified-log.md) 되었지만 Azure Portal 에서만 관리할 수 있습니다. Log Analytics 경고 REST API 또는 Log Analytics 경고 리소스 템플릿을 사용하여 프로그래밍 방식으로 경고에 액세스하는 경우 API 호출, Azure Resource Manager 템플릿 및 PowerShell 명령에서 작업 대신 작업 그룹을 사용해야 합니다.
+경고는 [Azure Portal OMS](../alerts/alerts-unified-log.md) 포털에 계속 나열되지만 Azure Portal 관리만 할 수 있습니다. Log Analytics 경고 REST API 또는 Log Analytics 경고 리소스 템플릿을 사용하여 프로그래밍 방식으로 경고에 액세스하는 경우 API 호출, Azure Resource Manager 템플릿 및 PowerShell 명령에서 작업 대신 작업 그룹을 사용해야 합니다.
 
 ### <a name="alert-management-solution"></a>경고 관리 솔루션
 이전 알림의 변경으로 [경고 관리 솔루션](../insights/alert-management-solution.md)은 계속 사용할 수 있으며 Azure Portal에서 완전히 지원됩니다. Azure Marketplace에서 솔루션을 계속 설치할 수 있습니다.
@@ -84,7 +84,7 @@ OMS 모바일 앱은 OMS 포털과 함께 종료됩니다. OMS 모바일 앱 대
 ## <a name="application-insights-connector-and-solution"></a>Application Insights 커넥터 및 솔루션
 [Application Insights 커넥터](../logs/app-insights-connector.md)는 Application Insights 데이터를 Log Analytics 작업 영역으로 포함할 수 있는 방법을 제공합니다. 이 데이터 중복은 인프라 및 애플리케이션 데이터에서 시각화를 사용하는 데 필요했습니다. 2019년 3월부터 지원 예정인 Application Insights 확장 데이터 보존 기능과 [리소스 간 쿼리](../logs/cross-workspace-query.md) 수행 기능, 그리고 [여러 Azure Monitor Application Insights 리소스를 확인](./unify-app-resource-data.md)하는 기능을 사용하면 Application Insights 리소스에서 데이터를 복제하여 Log Analytics로 전송하지 않아도 됩니다. 또한 커넥터는 리소스 간 쿼리에서 향상된 유연성을 제공하여 애플리케이션 속성의 하위 집합을 Log Analytics에 전송합니다.  
 
-따라서 Application Insights 커넥터는 사용 되지 않으며, 2019 년 3 월 30 일에 OMS 포털 사용 중단과 함께 Azure Marketplace에서 제거 되었습니다. 기존 연결은 2019년 6월 30일까지 계속 작동합니다. OMS 포털 사용 중단으로 포털에서 기존 연결을 구성하고 제거할 방법이 없습니다. 2019년 1월에 사용할 수 있는 REST API를 사용하여 지원되며 [Azure 업데이트](https://azure.microsoft.com/updates/)에 알림이 게시됩니다. 
+따라서 Application Insights Connector는 2019년 3월 30일에 OMS 포털 사용 중단과 함께 Azure Marketplace 사용되지 않으며 제거되었습니다. 기존 연결은 2019년 6월 30일까지 계속 작동합니다. OMS 포털 사용 중단으로 포털에서 기존 연결을 구성하고 제거할 방법이 없습니다. 2019년 1월에 사용할 수 있는 REST API를 사용하여 지원되며 [Azure 업데이트](https://azure.microsoft.com/updates/)에 알림이 게시됩니다. 
 
 ## <a name="azure-network-security-group-analytics"></a>Azure 네트워크 보안 그룹 분석
 [Azure 네트워크 보안 그룹 분석 솔루션](../insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-azure-monitor)은 최근에 시작된 [트래픽 분석](https://azure.microsoft.com/blog/traffic-analytics-in-preview/)으로 대체되어 클라우드 네트워크에서 사용자 및 애플리케이션 작업에 대한 가시성을 제공합니다. 트래픽 분석은 조직의 네트워크 활동을 감사하고, 애플리케이션 및 데이터를 보호하고, 워크로드 성능을 최적화하고, 준수 상태를 유지하는 데 도움이 됩니다. 

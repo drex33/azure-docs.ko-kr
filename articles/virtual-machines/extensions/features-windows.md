@@ -9,12 +9,12 @@ ms.author: amjads
 ms.collection: windows
 ms.date: 03/30/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8ab6b3d00f748fb5b3935988522191c749fa4fd9
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 4eda8d1891081399c26a864e0976e6eee34a6b64
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129275281"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258053"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Windows용 가상 머신 확장 및 기능
 
@@ -121,7 +121,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -Run "Create-File.ps1" -Location "West US"
 ```
 
-다음 예제에서는VM 액세스 확장을 사용하여 Windows VM의 관리자 암호를 임시 암호로 다시 설정합니다. VM 액세스 확장에 대한 자세한 내용은 [Windows VM에서 원격 데스크톱 서비스 다시 설정](/troubleshoot/azure/virtual-machines/reset-rdp)을 참조하세요. 일단 실행하면 첫 번째 로그인 시 암호를 다시 설정해야 합니다.
+다음 예제에서는VM 액세스 확장을 사용하여 Windows VM의 관리자 암호를 임시 암호로 다시 설정합니다. VM 액세스 확장에 대한 자세한 내용은 [Windows VM에서 원격 데스크톱 서비스 다시 설정](/troubleshoot/azure/virtual-machines/reset-rdp)을 참조하세요. 이 작업을 실행한 후에는 처음 로그인할 때 암호를 다시 설정해야 합니다.
 
 ```powershell
 $cred=Get-Credential
@@ -252,9 +252,9 @@ VM 확장을 실행하는 경우 자격 증명, 스토리지 계정 이름 및 �
 
 ### <a name="how-do-agents-and-extensions-get-updated"></a>에이전트 및 확장을 업데이트하는 방법
 
-에이전트 및 확장은 동일한 업데이트 메커니즘을 공유합니다. 일부 업데이트는 추가 방화벽 규칙을 필요로 하지 않습니다.
+에이전트 및 확장은 동일한 자동 업데이트 메커니즘을 공유합니다.
 
-업데이트를 사용할 수 있는 경우 확장에 대한 변경 내용이 있는 경우에만 VM에 설치되고 다른 VM 모델이 변경됩니다.
+업데이트를 사용할 수 있고 자동 업데이트를 사용하도록 설정하면 확장 또는 다른 VM 모델 변경 내용이 변경된 후에만 업데이트가 VM에 설치됩니다.
 
 - 데이터 디스크
 - 확장
@@ -263,7 +263,13 @@ VM 확장을 실행하는 경우 자격 증명, 스토리지 계정 이름 및 �
 - VM 크기
 - 네트워크 프로필
 
+> [!IMPORTANT]
+> 업데이트는 VM 모델이 변경된 후에만 설치됩니다.
+
 게시자는 다른 시간에 지역에서 업데이트를 사용할 수 있도록 하므로 다른 지역에는 다른 버전의 VM이 있을 수 있습니다.
+
+> [!NOTE]
+> 일부 업데이트에는 추가 방화벽 규칙이 필요할 수 있습니다. [네트워크 액세스를](#network-access)참조하세요.
 
 #### <a name="listing-extensions-deployed-to-a-vm"></a>VM에 배포된 확장 나열
 
@@ -288,7 +294,10 @@ Windows 게스트 에이전트에는 *확장 처리 코드* 만 포함됩니다.
 
 #### <a name="extension-updates"></a>확장 업데이트
 
-확장 업데이트를 사용할 수 있는 경우 Windows 게스트 에이전트는 확장을 다운로드하고 업그레이드합니다. 자동 확장 업데이트는 *부 버전* 또는 *핫픽스* 중 하나입니다. 확장을 프로비전할 때 *부 버전* 업데이트를 옵트인하거나 옵트아웃할 수 있습니다. 다음 예제에서는 *autoUpgradeMinorVersion": true,'* 를 사용하여 Resource Manager 템플릿에서 부 버전을 자동으로 업그레이드하는 방법을 보여줍니다.
+
+확장 업데이트를 사용할 수 있고 자동 업데이트를 사용하도록 설정한 경우 [VM 모델을 변경한](#how-do-agents-and-extensions-get-updated) 후 Windows 게스트 에이전트가 확장을 다운로드하고 업그레이드합니다.
+
+자동 확장 업데이트는 *부 버전* 또는 *핫픽스* 중 하나입니다. 확장을 프로비전할 때 확장 *부* 업데이트를 옵트인하거나 옵트아웃할 수 있습니다. 다음 예제에서는 *"autoUpgradeMinorVersion"을* 사용하여 Resource Manager 템플릿에서 부 버전을 자동으로 업그레이드하는 방법을 보여줍니다. true, :
 
 ```json
     "properties": {
@@ -304,6 +313,8 @@ Windows 게스트 에이전트에는 *확장 처리 코드* 만 포함됩니다.
 ```
 
 최신 부 릴리스 버그를 수정하려면 확장 배포에서 자동 업데이트를 선택하는 것이 좋습니다. 보안 또는 주요 버그 수정을 제공하는 핫픽스 업데이트는 옵트아웃될 수 없습니다.
+
+확장 자동 업데이트를 사용하지 않도록 설정하거나 주 버전을 업그레이드해야 하는 경우 [Set-AzVMExtension을](/powershell/module/az.compute/set-azvmextension) 사용하고 대상 버전을 지정합니다.
 
 ### <a name="how-to-identify-extension-updates"></a>확장 업데이트를 식별하는 방법
 

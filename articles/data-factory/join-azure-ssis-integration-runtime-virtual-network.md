@@ -8,12 +8,12 @@ ms.date: 07/16/2021
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 023b6898b5ba7d7d5b457f1e0f9c9051d74a1126
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: c89dd88c7163f74abb9246d57d72c485c1ed7efc
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129399777"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130218885"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 
@@ -42,7 +42,7 @@ Data Factory를 사용하면 클래식 배포 모델 또는 Azure Resource Manag
 - 서브넷에서 NSG(네트워크 보안 그룹)를 사용하는 경우.
 - Azure ExpressRoute 또는 UDR(사용자 정의 경로)을 사용하는 경우.
 - 사용자 지정 Azure-SSIS IR을 사용하는 경우.
-- Azure PowerShell 프로비저닝을 사용하는 경우
+- Azure PowerShell 프로 비전을 사용 하는 경우.
 
 ## <a name="access-to-on-premises-data-stores"></a>온-프레미스 데이터 저장소 액세스
 
@@ -70,9 +70,9 @@ Azure-SSIS IR을 가상 네트워크에 조인하는 경우 다음과 같은 중
 
 ## <a name="access-to-data-sources-protected-by-ip-firewall-rule"></a>IP 방화벽 규칙으로 보호되는 데이터 원본에 대한 액세스
 
-SSIS 패키지가 특정 고정 공용 IP 주소만 허용하는 데이터 저장소/리소스에 액세스하고 Azure-SSIS IR에서 해당 리소스에 대한 액세스를 보호하려는 경우, Azure-SSIS IR을 가상 네트워크에 조인할 때 [공용 IP 주소](../virtual-network/virtual-network-public-ip-address.md)를 가상 네트워크에 연결한 다음 해당 IP 주소에서의 액세스를 허용하는 IP 방화벽 규칙을 관련 리소스에 추가할 수 있습니다. 이렇게 하는 두 가지 방법이 있습니다. 
+SSIS 패키지가 특정 고정 공용 IP 주소만 허용하는 데이터 저장소/리소스에 액세스하고 Azure-SSIS IR에서 해당 리소스에 대한 액세스를 보호하려는 경우, Azure-SSIS IR을 가상 네트워크에 조인할 때 [공용 IP 주소](../virtual-network/ip-services/virtual-network-public-ip-address.md)를 가상 네트워크에 연결한 다음 해당 IP 주소에서의 액세스를 허용하는 IP 방화벽 규칙을 관련 리소스에 추가할 수 있습니다. 이렇게 하는 두 가지 방법이 있습니다. 
 
-- Azure-SSIS IR 만들 때 고유한 공용 IP 주소를 [가져와서 Azure Data Factory Studio UI](join-azure-ssis-integration-runtime-virtual-network-ui.md) 또는 Azure PowerShell [SDK를](join-azure-ssis-integration-runtime-virtual-network-powershell.md)통해 지정할 수 있습니다. Azure-SSIS IR의 아웃바운드 인터넷 연결만 제공된 공용 IP 주소를 사용하고, 서브넷의 다른 디바이스는 이를 사용하지 않습니다.
+- Azure-SSIS IR 만들 때 사용자 고유의 공용 IP 주소를 가져와서 [Azure Data Factory Studio UI](join-azure-ssis-integration-runtime-virtual-network-ui.md) 또는 [Azure PowerShell SDK](join-azure-ssis-integration-runtime-virtual-network-powershell.md)를 통해 지정할 수 있습니다. Azure-SSIS IR의 아웃바운드 인터넷 연결만 제공된 공용 IP 주소를 사용하고, 서브넷의 다른 디바이스는 이를 사용하지 않습니다.
 - Azure-SSIS IR이 조인할 서브넷에 [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md)를 설정할 수도 있습니다. 그러면 이 서브넷의 모든 아웃바운드 연결이 지정된 공용 IP 주소를 사용합니다.
 
 어느 경우든 가상 네트워크는 Azure Resource Manager 배포 모델을 통해서만 배포할 수 있습니다.
@@ -80,8 +80,8 @@ SSIS 패키지가 특정 고정 공용 IP 주소만 허용하는 데이터 저�
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure-SSIS 통합 런타임 가상 네트워크 구성 세부 정보](azure-ssis-integration-runtime-virtual-network-configuration.md)
-- [Azure Data Factory Studio UI를 사용하여 가상 네트워크에 Azure-SSIS 통합 런타임 조인](join-azure-ssis-integration-runtime-virtual-network-ui.md)
-- [Azure PowerShell 사용하여 가상 네트워크에 Azure-SSIS 통합 런타임 조인](join-azure-ssis-integration-runtime-virtual-network-powershell.md)
+- [Azure Data Factory Studio UI를 사용 하 여 Azure SSIS 통합 런타임을 가상 네트워크에 조인](join-azure-ssis-integration-runtime-virtual-network-ui.md)
+- [Azure PowerShell를 사용 하 여 Azure SSIS 통합 런타임을 가상 네트워크에 조인](join-azure-ssis-integration-runtime-virtual-network-powershell.md)
 
 Azure-SSIS IR에 대한 자세한 내용은 다음 문서를 참조하세요. 
 - [Azure SSIS IR](concepts-integration-runtime.md#azure-ssis-integration-runtime). 이 문서에서는 Azure-SSIS IR 등 IR에 대한 일반적인 개념적 정보를 제공합니다. 

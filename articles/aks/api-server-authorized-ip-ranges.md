@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)에서 API 서버에 액세스할 수 
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: c64d2e683ade2413e9c548ea548b2e1a6e0efef6
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 96c9e21c210a9aab4bc0b69d8e50b4a015c78993
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123542965"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227419"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 권한 있는 IP 주소 범위를 사용하는 안전한 API 서버 액세스
 
@@ -27,7 +27,7 @@ Azure CLI 버전 2.0.76 이상이 설치되고 구성되어 있어야 합니다.
 
 API 서버 권한이 있는 IP 범위 기능에는 다음과 같은 제한 사항이 있습니다.
 - API 서버 권한이 있는 IP 주소 범위의 미리 보기 기간이 2019년 10월에 종료된 이후 생성된 클러스터에 대해서는 API 서버 권한이 있는 IP 주소 범위는 ‘표준’ SKU 부하 분산 장치에서만 지원됩니다. ‘기본’ SKU 부하 분산 장치 및 API 서버 권한이 있는 IP 주소 범위가 구성되어 있는 기존 클러스터는 계속 작동하지만 ‘표준’ SKU 부하 분산 장치로 마이그레이션할 수는 없습니다.  기존 클러스터는 Kubernetes 버전이나 컨트롤 플레인이 업그레이드되는 경우에도 계속 작동합니다. API 서버 권한이 있는 IP 주소 범위는 프라이빗 클러스터에 대해서는 지원되지 않습니다.
-- 관련 기능은 [노드당 공용 IP](use-multiple-node-pools.md#assign-a-public-ip-per-node-for-your-node-pools)를 사용하는 클러스터와 호환되지 않습니다.
+- [노드당 공용](use-multiple-node-pools.md#assign-a-public-ip-per-node-for-your-node-pools)ip를 사용 하는 클러스터에서이 기능을 사용 하는 경우 노드당 공용 ip를 사용 하는 노드 풀은 공용 ip 접두사를 사용 해야 하며 이러한 접두사는 권한이 부여 된 범위로 추가 되어야 합니다.
 
 ## <a name="overview-of-api-server-authorized-ip-ranges"></a>API 서버 권한이 있는 IP 범위의 개요
 

@@ -8,12 +8,12 @@ ms.subservice: enterprise
 ms.topic: conceptual
 ms.date: 10/11/2021
 ms.author: banders
-ms.openlocfilehash: a4e5342e73ea374cf54b7bce2e81f17bb2a2bb80
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: b613a917793f522a081a3460d28edf84a9c03d09
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129753521"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130255527"
 ---
 # <a name="azure-ea-pricing"></a>Azure EA 가격 책정
 
@@ -33,7 +33,9 @@ Microsoft는 등록 기간 동안 개별 Azure 서비스에 대한 현재 기업
 
 ### <a name="current-effective-pricing"></a>현재 실효 가격 책정
 
-고객 및 채널 파트너는 [Azure Enterprise Portal](https://ea.azure.com/)에 로그인하고 등록에 대한 가격표 페이지를 표시하여 해당 등록의 현재 가격 책정을 볼 수 있습니다. 채널 파트너 중 하나를 통해 Azure를 간접적으로 구매하는 경우 고객의 등록에 대한 가격 인상 가격 책정을 표시하도록 설정하지 않았으면 채널 파트너로부터 가격 책정 업데이트를 얻어야 합니다.
+고객 및 채널 파트너는 [Azure Enterprise Portal](https://ea.azure.com/)에 로그인하고 등록에 대한 가격표 페이지를 표시하여 해당 등록의 현재 가격 책정을 볼 수 있습니다. 직접 EA 고객은 이제 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts)에서 **가격표** 를 보고 다운로드할 수 있습니다. [View price sheet](ea-pricing.md#download-pricing-for-an-enterprise-agreement)를 참조 하세요.
+
+채널 파트너 중 하나를 통해 Azure를 간접적으로 구매하는 경우 고객의 등록에 대한 가격 인상 가격 책정을 표시하도록 설정하지 않았으면 채널 파트너로부터 가격 책정 업데이트를 얻어야 합니다.
 
 ### <a name="introduction-of-new-azure-services"></a>새 Azure 서비스 도입
 

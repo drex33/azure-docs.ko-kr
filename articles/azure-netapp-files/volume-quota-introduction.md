@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: b-juche
-ms.openlocfilehash: d648630e02cbf8c1e7c771f77a3d2342fd9731f7
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
-ms.translationtype: HT
+ms.openlocfilehash: ffcc36cecc4dbba32a8f3927ab88a5632018a9bb
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108294187"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219757"
 ---
 # <a name="understand-volume-quota"></a>볼륨 할당량 이해
 
@@ -29,7 +29,7 @@ ms.locfileid: "108294187"
 
 * Azure NetApp Files 볼륨의 저장소 용량은 볼륨의 집합 크기(할당량)로 제한됩니다. 
 
-* 볼륨 소비가 최대를 초과하면 볼륨과 기본 용량 풀이 자동으로 증가하지 않습니다. 대신 볼륨이 "공간 부족" 조건을 수신하게 됩니다. 그러나 필요에 따라 [용량 풀 또는 볼륨의 크기를 조정](azure-netapp-files-resize-capacity-pools-or-volumes.md)할 수 있습니다. 적극적으로 기본 용량 풀 및 [볼륨의 용량을 모니터링](monitor-volume-capacity.md)해야 합니다.
+* 볼륨 소비가 최대를 초과하면 볼륨과 기본 용량 풀이 자동으로 증가하지 않습니다. 대신 볼륨이 "공간 부족" 상태로 됩니다. 그러나 필요에 따라 [용량 풀 또는 볼륨의 크기를 조정](azure-netapp-files-resize-capacity-pools-or-volumes.md)할 수 있습니다. 적극적으로 기본 용량 풀 및 [볼륨의 용량을 모니터링](monitor-volume-capacity.md)해야 합니다.
 
 * 용량 풀 유형에 따라 Azure NetApp Files 볼륨의 크기(할당량)는 대역폭 성능 및 프로비저닝된 용량에 영향을 줍니다.  세부 정보는 [자동 QoS 풀 유형](azure-netapp-files-understand-storage-hierarchy.md#qos_types)을 참조하세요. 
 
@@ -44,4 +44,4 @@ ms.locfileid: "108294187"
 * [Azure NetApp Files 비용 모델](azure-netapp-files-cost-model.md)
 * [볼륨 용량 모니터링](monitor-volume-capacity.md)
 * [용량 풀 또는 볼륨 크기 조정](azure-netapp-files-resize-capacity-pools-or-volumes.md)
-* [용량 관리 FAQ](azure-netapp-files-faqs.md#capacity-management-faqs)
+* [용량 관리 FAQ](faq-capacity-management.md)

@@ -1,18 +1,18 @@
 ---
 title: ARM을 사용하여 ILB ASE 만들기
 description: Azure Resource Manager 템플릿을 사용하여 내부 부하 분산 장치(ILB ASE)로 App Service 환경을 만드는 방법을 알아봅니다. 인터넷에서 앱을 완전히 격리합니다.
-author: ccompy
+author: madsd
 ms.assetid: 0f4c1fa4-e344-46e7-8d24-a25e247ae138
 ms.topic: quickstart
 ms.date: 09/16/2020
-ms.author: ccompy
+ms.author: madsd
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 331a91f645c64f0b70ff6c4de922b455eb344ce2
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: ae6e4be378df9b626f17b6bd5b0fd2b620a17392
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113433259"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130005170"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>내부 Load Balancer App Service Environment 만들기 및 사용 
 > [!NOTE]
@@ -171,7 +171,7 @@ WAF 디바이스를 사용하여 ILB ASE를 구성하는 방법에 대한 자세
 [ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
-[ASEWAF]: app-service-app-service-environment-web-application-firewall.md
+[ASEWAF]: integrate-with-application-gateway.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [customdomain]: ../app-service-web-tutorial-custom-domain.md
 [linuxapp]: ../overview.md#app-service-on-linux

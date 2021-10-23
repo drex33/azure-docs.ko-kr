@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/04/2021
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 851e1a04b7fa5ac14848c9d679118a8ebf4ada77
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: e5a6f2fe52a9b74f74047a5a9512e40bb267161f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536416"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130245287"
 ---
 # <a name="virtual-network-nat-gateway-integration"></a>Virtual Network NAT 게이트웨이 통합
 
@@ -34,8 +34,8 @@ NAT 게이트웨이는 아웃바운드 인터넷 연결 트래픽에 대한 예�
 
 App Service와 NAT 게이트웨이 통합을 구성하려면 다음 단계를 완료해야 합니다.
 
-* [Azure 가상 네트워크와 앱 통합](../web-sites-integrate-with-vnet.md)에 설명된 대로 앱과 지역별 VNet 통합을 구성합니다.
-* 인터넷 바인딩된 트래픽이 VNet 경로의 영향을 받도록 VNet 통합에 대해 [모두 라우팅](../web-sites-integrate-with-vnet.md#routes)이 사용하도록 설정되었는지 확인합니다.
+* [Azure 가상 네트워크와 앱 통합](../overview-vnet-integration.md)에 설명된 대로 앱과 지역별 VNet 통합을 구성합니다.
+* 인터넷 바인딩된 트래픽이 VNet 경로의 영향을 받도록 VNet 통합에 대해 [모두 라우팅](../overview-vnet-integration.md#routes)이 사용하도록 설정되었는지 확인합니다.
 * 공용 IP를 사용하여 NAT 게이트웨이를 프로비저닝하고 VNet 통합 서브넷과 연결합니다.
 
 포털을 통해 NAT 게이트웨이를 설정합니다.
@@ -84,4 +84,4 @@ NAT 게이트웨이는 공용 IP 주소와 공용 IP 접두사를 둘 다 지원
 ## <a name="next-steps"></a>다음 단계
 NAT 게이트웨이에 대한 자세한 내용은 [NAT 게이트웨이 설명서](../../virtual-network/nat-gateway/nat-overview.md)를 참조하세요.
 
-VNet 통합에 대한 자세한 내용은 [VNet 통합 설명서](../web-sites-integrate-with-vnet.md)를 참조하세요.
+VNet 통합에 대한 자세한 내용은 [VNet 통합 설명서](../overview-vnet-integration.md)를 참조하세요.

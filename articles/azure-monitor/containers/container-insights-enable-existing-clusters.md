@@ -3,13 +3,13 @@ title: 배포된 AKS(Azure Kubernetes Service) 클러스터 모니터링 | Micro
 description: 구독에 이미 배포된 Container insights를 사용하여 AKS(Azure Kubernetes Service) 클러스터의 모니터링을 사용하도록 설정하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.custom: devx-track-terraform, devx-track-azurecli
-ms.openlocfilehash: fba12fb8dd5c6c91883a88d4acfdca6c6d332c24
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.custom: devx-track-terraform, devx-track-azurepowershell
+ms.openlocfilehash: ea45fafbd1db7a3b0d227f8693d3d8c85777f116
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109627"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130240113"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>이미 배포된 AKS(Azure Kubernetes Service) 클러스터의 모니터링 사용
 
@@ -160,7 +160,7 @@ Azure Portal의 AKS 클러스터 중 하나에서 직접 모니터링을 사용�
 >템플릿을 클러스터와 동일한 리소스 그룹에 배포해야 합니다.
 >
 
-Azure PowerShell 또는 CLI를 사용하여 모니터링을 사용하도록 설정하기 전에 Log Analytics 작업 영역을 만들어야 합니다. 작업 영역을 만들려면 [Azure Resource Manager](../logs/resource-manager-workspace.md)나 [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)을 통해 또는 [Azure Portal](../logs/quick-create-workspace.md)에서 설정할 수 있습니다.
+Azure PowerShell 또는 CLI를 사용하여 모니터링을 사용하도록 설정하기 전에 Log Analytics 작업 영역을 만들어야 합니다. 작업 영역을 만들려면 [Azure Resource Manager](../logs/resource-manager-workspace.md)나 [PowerShell](../logs/powershell-workspace-configuration.md?toc=%2fpowershell%2fmodule%2ftoc.json)을 통해 또는 [Azure Portal](../logs/quick-create-workspace.md)에서 설정할 수 있습니다.
 
 템플릿을 사용하여 리소스를 배포하는 개념에 익숙하지 않은 경우 다음을 참조하십시오.
 

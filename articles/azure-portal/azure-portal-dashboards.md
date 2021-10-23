@@ -2,13 +2,13 @@
 title: Azure Portal에서 대시보드 만들기
 description: 이 문서에서는 Azure Portal에서 대시보드를 만들고 사용자 지정하는 방법을 설명합니다.
 ms.topic: how-to
-ms.date: 08/19/2021
-ms.openlocfilehash: af26cc36f73088c9a4231e59f3414efaa828d452
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
-ms.translationtype: HT
+ms.date: 10/19/2021
+ms.openlocfilehash: 57de040263fdc6ae7a3aaa366b7cabc4f98235b3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122597725"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219852"
 ---
 # <a name="create-a-dashboard-in-the-azure-portal"></a>Azure Portal에서 대시보드 만들기
 
@@ -31,7 +31,7 @@ Azure Portal은 기본 대시보드를 시작점으로 제공합니다. 기본 �
 
     :::image type="content" source="media/azure-portal-dashboards/portal-menu-dashboard.png" alt-text="대시보드가 선택된 Azure Portal의 스크린샷":::
 
-1. **새 대시보드**, **빈 대시보드** 를 차례로 선택합니다.
+1. **새 대시보드를** 선택한 **다음, 빈 대시보드** 를 선택합니다.
 
     :::image type="content" source="media/azure-portal-dashboards/create-new-dashboard.png" alt-text="새 대시보드 옵션의 스크린샷":::
 

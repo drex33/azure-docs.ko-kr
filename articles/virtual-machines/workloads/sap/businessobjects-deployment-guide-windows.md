@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/08/2021
 ms.author: depadia
-ms.openlocfilehash: bd65c77d8be0cef06a81f0f7699b04134e0e1706
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d230c000eedf4cb6a4d01b7dc20f48e5712862c4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567244"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225089"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-windows-on-azure"></a>Azure의 Windows용 SAP BusinessObjects BI 플랫폼 배포 가이드
 
@@ -499,7 +499,7 @@ Load Balancer는 SAP BOBI 플랫폼의 웹 애플리케이션 서버 간에 트�
 파일 저장소는 보고서, BI 문서와 같은 실제 파일이 저장되는 디스크 디렉터리입니다. 파일 저장소의 모든 파일이 DR 지역에 동기화되는 것이 중요합니다. Windows에서 실행 중인 SAP BOBI 플랫폼에 사용되는 파일 공유 서비스 유형에 따라 콘텐츠를 동기화하는 데 필요한 DR 전략을 채택해야 합니다. 예를 들면 다음과 같습니다.
 
 - **Azure Premium Files** 는 LRS와 ZRS만 지원합니다. Azure Premium Files DR 전략의 경우 [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) 또는 [Azure PowerShell](/powershell/module/az.storage/?preserve-view=true&view=azps-5.8.0)을 사용하여 다른 지역의 다른 스토리지 계정에 파일을 복사할 수 있습니다. 자세한 내용은 [재해 복구 및 저장소 계정 장애 조치(failover)](../../../storage/common/storage-disaster-recovery-guidance.md)를 참조하세요.
-- **Azure NetApp Files** 는 NFS 및 SMB 볼륨을 제공하므로 모든 파일 기반 복사 도구를 사용하여 Azure 지역 간에 데이터를 복제할 수 있습니다. 다른 지역의 Azure NetApp Files 볼륨을 복사하는 방법에 대한 자세한 내용은 [Azure NetApp Files에 대한 FAQ](../../../azure-netapp-files/azure-netapp-files-faqs.md#how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region)를 참조하세요.
+- **Azure NetApp Files** 는 NFS 및 SMB 볼륨을 제공하므로 모든 파일 기반 복사 도구를 사용하여 Azure 지역 간에 데이터를 복제할 수 있습니다. 다른 지역의 Azure NetApp Files 볼륨을 복사하는 방법에 대한 자세한 내용은 [Azure NetApp Files에 대한 FAQ](../../../azure-netapp-files/faq-data-migration-protection.md#how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region)를 참조하세요.
 
   Azure NetApp Files 지역 간 복제를 사용할 수 있습니다. NetApp SnapMirror 기술을 사용하는 이 복제 기능은 현재 [미리 보기](https://azure.microsoft.com/blog/azure-netapp-files-cross-region-replication-and-new-enhancements-in-preview/)로 제공됩니다. 이 기술을 사용하면 변경된 블록만이 압축된 효과적인 형태로 네트워크를 통해 전송됩니다. 이 독점적 기술은 지역 간에 복제하는 데 필요한 데이터 양을 최소화하여 데이터 전송 비용을 절감합니다. 복제 시간이 단축되므로 RPO를 줄일 수도 있습니다. 자세한 내용은 [지역 간 복제 사용에 대한 요구 사항 및 고려 사항](../../../azure-netapp-files/cross-region-replication-requirements-considerations.md)을 참조하세요.
 

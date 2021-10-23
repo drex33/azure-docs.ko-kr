@@ -5,15 +5,15 @@ author: linda33wj
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 10/22/2021
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1ab7ed3435cd49e6671e5a05623db964ce551e86
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 28bd04a30be053a683209cf9cff421dcbb830152
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128676849"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130242919"
 ---
 # <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Cognitive Search 인덱스에 데이터 푸시
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -51,7 +51,7 @@ ms.locfileid: "128676849"
 
 다음 표에는 Azure Cognitive Search 연결 서비스와 관련된 JSON 요소에 대한 설명이 나와 있습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | -------- | ----------- | -------- |
 | type | 형식 속성은 **AzureSearch** 로 설정되어야 합니다. | 예 |
 | url | 검색 서비스에 대한 URL입니다. | 예 |
@@ -61,7 +61,7 @@ ms.locfileid: "128676849"
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 세트의 정책과 같은 섹션이 모든 데이터 세트 형식에 대해 유사합니다. **typeProperties** 섹션은 데이터 세트의 각 형식마다 다릅니다. **AzureSearchIndex** 데이터 세트 형식의 데이터 세트에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | -------- | ----------- | -------- |
 | type | 형식 속성은 **AzureSearchIndex** 로 설정되어야 합니다.| 예 |
 | indexName | 검색 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. 인덱스는 Azure Cognitive Search에 있어야 합니다. | 예 |

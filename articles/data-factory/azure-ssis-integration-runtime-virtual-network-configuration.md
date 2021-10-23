@@ -1,6 +1,6 @@
 ---
-title: Azure SSIS 통합 런타임에 대 한 Azure 가상 네트워크 구성
-description: Azure SSIS 통합 런타임에 대 한 Azure 가상 네트워크를 구성 하는 방법에 대해 알아봅니다.
+title: Azure-SSIS 통합 런타임에 대한 Azure 가상 네트워크 구성
+description: Azure-SSIS 통합 런타임에 대한 Azure 가상 네트워크를 구성하는 방법을 알아봅니다.
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.date: 07/16/2021
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c6e66487211ed3928f393bb028ae9f4c06e3b0eb
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: b4274144e8437bd47adad0854fec5c3ed9550ffb
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129403378"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130229411"
 ---
-# <a name="virtual-network-configuration-for-an-azure-ssis-integration-runtime"></a>Azure SSIS 통합 런타임에 대 한 가상 네트워크 구성
+# <a name="virtual-network-configuration-for-an-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임에 대한 가상 네트워크 구성
 
 다음 요구 사항을 충족하도록 가상 네트워크를 설정합니다. 
 
@@ -69,7 +69,7 @@ Azure-SSIS IR을 가상 네트워크에 조인하는 동안 Azure-SSIS IR의 자
 
 - 다른 Azure 리소스에 아직 연결되지 않은 사용하지 않는 주소를 정확히 두 개 제공해야 합니다. 추가 주소 하나는 Azure-SSIS IR을 정기적으로 업그레이드할 때 사용됩니다. 활성 Azure SSIS IR 간에 하나의 공용 IP 주소를 공유할 수 없습니다.
 
-- 둘 다 표준 형식의 고정 주소여야 합니다. 자세한 내용은 [공용 IP 주소의 SKU](../virtual-network/public-ip-addresses.md#sku)를 참조하세요.
+- 둘 다 표준 형식의 고정 주소여야 합니다. 자세한 내용은 [공용 IP 주소의 SKU](../virtual-network/ip-services/public-ip-addresses.md#sku)를 참조하세요.
 
 - 둘 다 DNS 이름이 있어야 합니다. 만들 때 DNS 이름을 제공하지 않은 경우 Azure Portal에서 DNS 이름을 제공할 수 있습니다.
 
@@ -196,7 +196,7 @@ else
 
 -   대상이 Azure SQL Database인 포트 1433, 11000~11999(가상 네트워크의 Azure-SSIS IR 노드가 서버에서 호스트되는 SSISDB에 액세스하는 경우에만 필요).
 
-    Azure Firewall 사용하는 경우 Azure SQL 서비스 태그를 사용하여 네트워크 규칙을 지정할 수 있습니다. 그렇지 않으면 방화벽 어플라이언스에서 특정 Azure SQL URL로 대상을 허용할 수 있습니다.
+    azure 방화벽을 사용 하는 경우 azure SQL Service 태그를 사용 하 여 네트워크 규칙을 지정할 수 있습니다. 그렇지 않으면 방화벽 어플라이언스에서 대상을 특정 Azure SQL URL로 허용할 수 있습니다.
 
 -   대상이 Azure Storage인 포트 445(Azure Files에 저장된 SSIS 패키지를 실행하는 경우에만 필요).
 
@@ -244,14 +244,14 @@ Azure-SSIS IR은 가상 네트워크와 동일한 리소스 그룹에 특정 네
 
   공용 IP 주소를 노출하지 않으려면 가상 네트워크에 Azure-SSIS IR를 조인하는 대신 [자체 호스팅 IR을 Azure-SSIS IR의 프록시로 구성](./self-hosted-integration-runtime-proxy-ssis.md)하는 것이 좋습니다(시나리오에 적용되는 경우).
  
-- 내 Azure-SSIS IR 공용 IP 주소를 내 데이터 원본에 대한 방화벽의 허용 목록에 추가할 수 있나요?
+- 내 Azure-SSIS IR의 공용 IP 주소를 데이터 원본에 대 한 방화벽의 allowlist 추가할 수 있나요?
 
-  이제 Azure-SSIS IR의 자체 고정 공용 IP 주소를 가져올 수 있습니다. 이 경우 데이터 원본에 대한 방화벽의 허용 목록에 IP 주소를 추가할 수 있습니다. 시나리오에 따라 Azure-SSIS IR에서의 데이터 액세스를 보호하는 아래와 같은 다른 옵션도 고려할 수 있습니다.
+  이제 Azure-SSIS IR의 자체 고정 공용 IP 주소를 가져올 수 있습니다. 이 경우 데이터 원본에 대 한 방화벽의 allowlist에 IP 주소를 추가할 수 있습니다. 시나리오에 따라 Azure-SSIS IR에서의 데이터 액세스를 보호하는 아래와 같은 다른 옵션도 고려할 수 있습니다.
 
-  - 데이터 원본이 온-프레미스에 있는 경우 가상 네트워크를 온-프레미스 네트워크에 연결하고 Azure-SSIS IR 가상 네트워크 서브넷에 조인한 후 해당 서브넷의 개인 IP 주소 범위를 데이터 원본에 대한 방화벽의 허용 목록에 추가할 수 있습니다.
+  - 온-프레미스 네트워크에 가상 네트워크를 연결 하 고 Azure-SSIS IR를 가상 네트워크 서브넷에 조인한 후 데이터 원본이 온-프레미스에 있는 경우 해당 서브넷의 개인 IP 주소 범위를 데이터 원본에 대 한 방화벽의 allowlist에 추가할 수 있습니다.
   - 데이터 원본이 가상 네트워크 서비스 엔드포인트를 지원하는 Azure 서비스인 경우 가상 네트워크 서브넷에서 가상 네트워크 서비스 엔드포인트를 구성하고 해당 서브넷에 Azure-SSIS IR을 조인할 수 있습니다. 그런 다음 해당 서브넷을 사용하여 가상 네트워크 규칙을 데이터 원본의 방화벽에 추가할 수 있습니다.
-  - 데이터 원본이 Azure 클라우드 서비스가 아닌 경우 UDR을 사용하여 고정 공용 IP 주소를 통해 Azure-SSIS IR에서 NVA/Azure Firewall로 아웃바운드 트래픽을 라우팅할 수 있습니다. 그런 다음 NVA/Azure Firewall 고정 공용 IP 주소를 데이터 원본에 대한 방화벽의 허용 목록에 추가할 수 있습니다.
-  - 위의 옵션 중 요구 사항을 충족하는 옵션이 없는 경우 [자체 호스팅 IR을 Azure-SSIS IR 프록시로 구성](./self-hosted-integration-runtime-proxy-ssis.md)하는 것을 고려해 보세요. 그런 다음 자체 호스팅 IR을 호스트하는 컴퓨터의 고정 공용 IP 주소를 데이터 원본에 대한 방화벽의 허용 목록에 추가할 수 있습니다.
+  - 데이터 원본이 Azure 클라우드 서비스가 아닌 경우 UDR을 사용하여 고정 공용 IP 주소를 통해 Azure-SSIS IR에서 NVA/Azure Firewall로 아웃바운드 트래픽을 라우팅할 수 있습니다. 그런 다음 데이터 원본에 대 한 방화벽의 allowlist에 NVA/Azure 방화벽의 고정 공용 IP 주소를 추가할 수 있습니다.
+  - 위의 옵션 중 요구 사항을 충족하는 옵션이 없는 경우 [자체 호스팅 IR을 Azure-SSIS IR 프록시로 구성](./self-hosted-integration-runtime-proxy-ssis.md)하는 것을 고려해 보세요. 그런 다음 자체 호스팅 IR을 호스트 하는 컴퓨터의 고정 공용 IP 주소를 데이터 원본에 대 한 방화벽의 allowlist 추가할 수 있습니다.
 
 - Azure-SSIS IR의 자체 고정 공용 IP 주소를 가져오려면 두 개의 고정 공용 주소를 제공해야 하는 이유는 무엇인가요?
 
@@ -259,13 +259,13 @@ Azure-SSIS IR은 가상 네트워크와 동일한 리소스 그룹에 특정 네
 
 - Azure-SSIS IR의 고정 공용 IP 주소를 가져왔지만 여전히 내 데이터 원본에 액세스할 수 없는 이유는 무엇인가요?
 
-  - 두 개의 고정 공용 IP 주소가 모두 데이터 원본에 대한 방화벽의 허용 목록에 추가되어 있는지 확인합니다. Azure-SSIS IR이 업그레이드될 때마다 해당 고정 공용 IP 주소는 사용자가 가져온 두 주소 간에 전환됩니다. 이 중 하나만 허용 목록에 추가하면 업그레이드 후 Azure-SSIS IR 대한 데이터 액세스가 끊어지게 됩니다.
-  - 데이터 원본이 Azure 서비스인 경우 가상 네트워크 서비스 엔드포인트를 사용하여 구성했는지 확인하세요. 이 경우 Azure-SSIS IR 데이터 원본으로의 트래픽은 Azure 서비스에서 관리하는 개인 IP 주소를 사용하도록 전환되며 데이터 원본에 대한 방화벽의 허용 목록에 사용자 고유의 고정 공용 IP 주소를 추가해도 적용되지 않습니다.
+  - 두 개의 고정 공용 IP 주소가 데이터 원본에 대 한 방화벽의 allowlist에 추가 되었는지 확인 합니다. Azure-SSIS IR이 업그레이드될 때마다 해당 고정 공용 IP 주소는 사용자가 가져온 두 주소 간에 전환됩니다. Allowlist에이 중 하나만 추가 하면 업그레이드 후 Azure-SSIS IR에 대 한 데이터 액세스가 중단 됩니다.
+  - 데이터 원본이 Azure 서비스인 경우 가상 네트워크 서비스 엔드포인트를 사용하여 구성했는지 확인하세요. 해당 하는 경우 데이터 원본에 대 한 Azure-SSIS IR 트래픽을 Azure 서비스에서 관리 하는 개인 IP 주소를 사용 하도록 전환 하 고 사용자 고유의 고정 공용 IP 주소를 데이터 원본에 대 한 방화벽의 allowlist에 추가 하면 적용 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [가상 네트워크에 Azure-SSIS 통합 런타임 조인 - 개요](join-azure-ssis-integration-runtime-virtual-network.md)
-- [Azure Data Factory Studio UI를 사용하여 가상 네트워크에 Azure-SSIS 통합 런타임 조인](join-azure-ssis-integration-runtime-virtual-network-ui.md)
-- [Azure PowerShell 사용하여 가상 네트워크에 Azure-SSIS 통합 런타임 조인](join-azure-ssis-integration-runtime-virtual-network-powershell.md)
+- [가상 네트워크에 Azure SSIS 통합 런타임 조인-개요](join-azure-ssis-integration-runtime-virtual-network.md)
+- [Azure Data Factory Studio UI를 사용 하 여 Azure SSIS 통합 런타임을 가상 네트워크에 조인](join-azure-ssis-integration-runtime-virtual-network-ui.md)
+- [Azure PowerShell를 사용 하 여 Azure SSIS 통합 런타임을 가상 네트워크에 조인](join-azure-ssis-integration-runtime-virtual-network-powershell.md)
 
 Azure-SSIS IR에 대한 자세한 내용은 다음 문서를 참조하세요. 
 - [Azure SSIS IR](concepts-integration-runtime.md#azure-ssis-integration-runtime). 이 문서에서는 Azure-SSIS IR 등 IR에 대한 일반적인 개념적 정보를 제공합니다. 
@@ -273,4 +273,3 @@ Azure-SSIS IR에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [Azure-SSIS IR 만들기](create-azure-ssis-integration-runtime.md). 이 문서는 자습서를 더 자세히 설명합니다. 가상 네트워크에서 가상 네트워크 서비스 엔드포인트 또는 SQL Managed Instance와 함께 Azure SQL Database를 사용하여 SSIS 카탈로그를 호스트하는 방법에 대한 지침을 제공합니다. 이 문서는 Azure-SSIS IR을 가상 네트워크에 조인하는 방법을 보여 줍니다. 
 - [Azure-SSIS IR 모니터링](monitor-integration-runtime.md#azure-ssis-integration-runtime). 이 문서는 Azure-SSIS IR에 대한 정보를 가져오는 방법을 보여 줍니다. 반환된 정보의 상태 설명도 제공합니다. 
 - [Azure-SSIS IR 관리](manage-azure-ssis-integration-runtime.md). 이 문서에서는 Azure-SSIS IR을 중지하거나, 시작하거나, 삭제하는 방법을 설명합니다. 또한 노드를 추가하여 Azure-SSIS IR을 규모 확장하는 방법을 보여줍니다.
-

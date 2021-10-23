@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: e52e7151bc30a19bd6f6041d52effdd799a87c99
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 6a41a2a522d082fa04c60cd58d095ab9b20401f9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91776972"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130229921"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>QnA Maker의 기술 자료 수명 주기
 QnA Maker는 모델 변경, 발언 예제, 게시, 엔드포인트 쿼리의 데이터 수집으로 구성된 반복 주기에서 가장 잘 학습합니다.
@@ -88,4 +88,4 @@ QnA Maker KB(기술 자료) 엔드포인트는 KB의 콘텐츠를 기반으로 �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [활성 학습 제안](./active-learning-suggestions.md)
+> [활성 학습 제안](../index.yml)

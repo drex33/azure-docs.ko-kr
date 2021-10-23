@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/09/2021
 ms.custom: devx-track-java
 ms.author: cynthn
-ms.openlocfilehash: fa4d2f5dc33553cb92a5733e5946c055d6a12941
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: daf1c7738539f225f116edbb839d86965f4e38cd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129810879"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234021"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Java를 사용하여 Azure에서 Windows VM 만들기 및 관리
 
@@ -141,7 +141,7 @@ AvailabilitySet availabilitySet = azure.availabilitySets()
 ```
 ### <a name="create-the-public-ip-address"></a>공용 IP 주소 만들기
 
-[공용 IP 주소](../../virtual-network/public-ip-addresses.md)는 가상 머신과 통신해야 합니다.
+[공용 IP 주소](../../virtual-network/ip-services/public-ip-addresses.md)는 가상 머신과 통신해야 합니다.
 
 가상 머신의 공용 IP 주소를 만들려면 Main 메서드의 try 블록에 이 코드를 추가합니다.
 

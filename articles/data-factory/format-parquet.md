@@ -7,21 +7,56 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/18/2021
 ms.author: jianleishen
-ms.openlocfilehash: f0391e0993470bc8980a60ab6398d3e144b04acc
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 9f481a49016f3f0f07484cb92a4b53295d37671f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124743751"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130255368"
 ---
 # <a name="parquet-format-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 Parquet 형식
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 **Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰려면** 이 문서의 내용을 따르세요. 
 
-Parquet 형식이 지원되는 커넥터는 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md), [SFTP](connector-sftp.md)입니다.
+Parquet 형식은 다음 커넥터에 대해 지원 됩니다. 
+
+- [Amazon S3](connector-amazon-simple-storage-service.md)
+- [Amazon S3 호환 스토리지](connector-amazon-s3-compatible-storage.md)
+- [Azure Blob](connector-azure-blob-storage.md)
+- [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
+- [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
+- [Azure 파일](connector-azure-file-storage.md)
+- [파일 시스템](connector-file-system.md)
+- [FTP](connector-ftp.md)
+- [Google Cloud Storage](connector-google-cloud-storage.md)
+- [HDFS](connector-hdfs.md)
+- [HTTP](connector-http.md)
+- [Oracle Cloud Storage](connector-oracle-cloud-storage.md)
+- [SFTP](connector-sftp.md)
+
+사용 가능한 모든 커넥터에 대해 지원 되는 기능 목록은 [커넥터 개요](connector-overview.md) 문서를 참조 하세요.
+
+## <a name="using-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 사용
+
+> [!IMPORTANT]
+> 자체 호스팅 통합 런타임에 권한을 부여한 복사(예: 온-프레미스 및 클라우드 데이터 저장소 간)의 경우 Parquet 파일을 **있는 그대로** 복사하지 않으면 IR 머신에 **64-bit JRE 8(Java Runtime Environment) 또는 OpenJDK** 및 **Microsoft Visual C++ 2010 재배포 가능 패키지** 를 설치해야 합니다. 자세한 내용은 다음 단락을 참조하세요.
+
+자체 호스팅 IR에서 Parquet 파일 serialization/deserialization을 사용하여 실행되는 복사의 경우 서비스는 먼저 JRE에 대한 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* 레지스트리를 검사하고, 없는 경우 OpenJDK에 대한 *`JAVA_HOME`* 시스템 변수를 검사하여 Java 런타임을 찾습니다.
+
+- **JRE 사용**: 64비트 IR에는 64비트 JRE가 필요합니다. [여기](https://go.microsoft.com/fwlink/?LinkId=808605)서 찾을 수 있습니다.
+- **OpenJDK 사용**: IR 버전 3.13부터 지원됩니다. 다른 모든 필수 OpenJDK 어셈블리와 함께 jvm.dll을 자체 호스팅 IR 머신으로 패키지하고, 이에 따라 JAVA_HOME 시스템 환경 변수를 설정합니다.
+- **Visual C++ 2010 재배포 가능 패키지 설치**: Visual C++ 2010 재배포 가능 패키지는 자체 호스팅 IR 설치와 함께 설치되지 않습니다. [여기](https://www.microsoft.com/download/details.aspx?id=26999)서 찾을 수 있습니다.
+
+> [!TIP]
+> 자체 호스팅 Integration Runtime을 사용하여 데이터를 Parquet 형식으로 또는 그 반대로 복사하고 “java를 호출할 때 오류가 발생함, 메시지: **java.lang.OutOfMemoryError:Java heap space**”라는 오류가 발생하는 경우 JVM의 최소/최대 힙 크기를 조정하도록 자체 호스팅 IR을 호스트하는 머신에서 `_JAVA_OPTIONS` 환경 변수를 추가하여 그러한 복사 기능을 강화한 다음, 파이프라인을 다시 실행할 수 있습니다.
+
+:::image type="content" source="./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png" alt-text="자체 호스팅 IR에서 JVM 힙 크기 설정":::
+
+예: 변수 `_JAVA_OPTIONS`를 `-Xms256m -Xmx16g` 값으로 설정합니다. 플래그 `Xms`는 JVM(Java Virtual Machine)의 초기 메모리 할당 풀을 지정하고, `Xmx`는 최대 메모리 할당 풀을 지정합니다. 즉, JVM은 `Xms`의 메모리 양으로 시작하고 최대 `Xmx`의 메모리 양을 사용할 수 있음을 의미합니다. 기본적으로 서비스는 최소 64MB 및 최대 1G를 사용합니다.
+
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
@@ -68,7 +103,7 @@ Parquet 형식이 지원되는 커넥터는 [Amazon S3](connector-amazon-simple-
 
 복사 작업 ***\*source\**** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성      | Description                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 type 속성은 **ParquetSource** 로 설정해야 합니다. | 예      |
 | storeSettings | 데이터 저장소에서 데이터를 읽는 방법에 대한 속성 그룹입니다. 각 파일 기반 커넥터에는 `storeSettings` 아래에 고유의 지원되는 읽기 설정이 있습니다. **자세한 내용은 커넥터 문서 -> 복사 작업 속성 섹션을 참조하세요**. | 예       |
@@ -77,7 +112,7 @@ Parquet 형식이 지원되는 커넥터는 [Amazon S3](connector-amazon-simple-
 
 복사 작업 ***\*sink\**** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성      | Description                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 싱크의 type 속성은 **ParquetSink** 로 설정해야 합니다. | 예      |
 | formatSettings | 속성 그룹입니다. 아래의 **Parquet 쓰기 설정** 표를 참조하세요. |    예      |
@@ -85,7 +120,7 @@ Parquet 형식이 지원되는 커넥터는 [Amazon S3](connector-amazon-simple-
 
 `formatSettings`에서 지원되는 **Parquet 쓰기 설정**:
 
-| 속성      | Description                                                  | 필수                                              |
+| 속성      | 설명                                                  | 필수                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | formatSettings의 type을 **ParquetWriteSettings** 로 설정해야 합니다. | 예                                                   |
 | maxRowsPerFile | 폴더에 데이터를 쓸 때 여러 파일에 쓰도록 선택하고 파일당 최대 행 수를 지정할 수 있습니다.  | 예 |
@@ -93,7 +128,7 @@ Parquet 형식이 지원되는 커넥터는 [Amazon S3](connector-amazon-simple-
 
 ## <a name="mapping-data-flow-properties"></a>매핑 데이터 흐름 속성
 
-매핑 데이터 흐름에서는 [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties)같은 데이터 저장소에서 parquet 형식을 읽고 쓸 수 있습니다.
+매핑 데이터 흐름에서 [Azure Blob Storage, Azure](connector-azure-blob-storage.md#mapping-data-flow-properties)Data Lake Storage Gen1 및 [Azure Data Lake Storage Gen2](connector-azure-data-lake-store.md#mapping-data-flow-properties) [](connector-azure-data-lake-storage.md#mapping-data-flow-properties)데이터 저장소에서 parquet 형식을 읽고 쓸 수 있으며 [Amazon S3에서](connector-amazon-simple-storage-service.md#mapping-data-flow-properties)parquet 형식을 읽을 수 있습니다.
 
 ### <a name="source-properties"></a>원본 속성
 
@@ -157,24 +192,6 @@ ParquetSource sink(
 ## <a name="data-type-support"></a>데이터 형식 지원
 
 Parquet 복합 데이터 형식(예: MAP, LIST, STRUCT)은 현재 복사 작업이 아니라 데이터 흐름에서만 지원됩니다. 데이터 흐름에서 복합 형식을 사용하려면 데이터 세트에 파일 스키마를 가져오지 마세요. 데이터 세트에서 스키마를 비워두다가 원본 변환에서 프로젝션을 가져옵니다.
-
-## <a name="using-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 사용
-
-> [!IMPORTANT]
-> 자체 호스팅 통합 런타임에 권한을 부여한 복사(예: 온-프레미스 및 클라우드 데이터 저장소 간)의 경우 Parquet 파일을 **있는 그대로** 복사하지 않으면 IR 머신에 **64-bit JRE 8(Java Runtime Environment) 또는 OpenJDK** 및 **Microsoft Visual C++ 2010 재배포 가능 패키지** 를 설치해야 합니다. 자세한 내용은 다음 단락을 참조하세요.
-
-자체 호스팅 IR에서 Parquet 파일 serialization/deserialization을 사용하여 실행되는 복사의 경우 서비스는 먼저 JRE에 대한 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* 레지스트리를 검사하고, 없는 경우 OpenJDK에 대한 *`JAVA_HOME`* 시스템 변수를 검사하여 Java 런타임을 찾습니다.
-
-- **JRE 사용**: 64비트 IR에는 64비트 JRE가 필요합니다. [여기](https://go.microsoft.com/fwlink/?LinkId=808605)서 찾을 수 있습니다.
-- **OpenJDK 사용**: IR 버전 3.13부터 지원됩니다. 다른 모든 필수 OpenJDK 어셈블리와 함께 jvm.dll을 자체 호스팅 IR 머신으로 패키지하고, 이에 따라 JAVA_HOME 시스템 환경 변수를 설정합니다.
-- **Visual C++ 2010 재배포 가능 패키지 설치**: Visual C++ 2010 재배포 가능 패키지는 자체 호스팅 IR 설치와 함께 설치되지 않습니다. [여기](https://www.microsoft.com/download/details.aspx?id=26999)서 찾을 수 있습니다.
-
-> [!TIP]
-> 자체 호스팅 Integration Runtime을 사용하여 데이터를 Parquet 형식으로 또는 그 반대로 복사하고 “java를 호출할 때 오류가 발생함, 메시지: **java.lang.OutOfMemoryError:Java heap space**”라는 오류가 발생하는 경우 JVM의 최소/최대 힙 크기를 조정하도록 자체 호스팅 IR을 호스트하는 머신에서 `_JAVA_OPTIONS` 환경 변수를 추가하여 그러한 복사 기능을 강화한 다음, 파이프라인을 다시 실행할 수 있습니다.
-
-:::image type="content" source="./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png" alt-text="자체 호스팅 IR에서 JVM 힙 크기 설정":::
-
-예: 변수 `_JAVA_OPTIONS`를 `-Xms256m -Xmx16g` 값으로 설정합니다. 플래그 `Xms`는 JVM(Java Virtual Machine)의 초기 메모리 할당 풀을 지정하고, `Xmx`는 최대 메모리 할당 풀을 지정합니다. 즉, JVM은 `Xms`의 메모리 양으로 시작하고 최대 `Xmx`의 메모리 양을 사용할 수 있음을 의미합니다. 기본적으로 서비스는 최소 64MB 및 최대 1G를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

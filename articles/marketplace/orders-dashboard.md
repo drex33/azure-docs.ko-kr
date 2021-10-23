@@ -8,12 +8,12 @@ author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
 ms.date: 09/27/2021
-ms.openlocfilehash: 95d0ced24ee4f7426cac96ff2e550f2be88d8d02
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 85352f2cb1b2a0fe042b36fbe795435250385f65
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129083368"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130246345"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 주문 대시보드
 
@@ -43,16 +43,16 @@ ms.locfileid: "129083368"
 #### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
-1. 홈 페이지에서 **Insights** 타일을 선택합니다.
+1. 홈 페이지에서 **Insights** 타일을 선택 합니다.
 
     [![파트너 센터 홈 페이지의 Insights 타일을 보여 줍니다. ](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
 
-1. 왼쪽 메뉴에서 **주문을** 선택합니다.
+1. 왼쪽 메뉴에서 **Orders** 를 선택 합니다.
 
 #### <a name="current-view"></a>[현재 보기](#tab/current-view)
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
-1. 왼쪽 탐색에서 상업용 **Marketplace** 주문  >    >  **분석을** 선택합니다.
+1. 왼쪽 탐색 창에서 **상업적 Marketplace**  >    >  **주문** 분석을 선택 합니다.
 
 ---
 
@@ -148,7 +148,7 @@ SaaS 제품은 각 계획에 대한 두 가지 가격 책정 모델 중 하나�
 | MonthStartDate | 월 시작 날짜 | 월 시작 날짜는 구매 월을 나타냅니다. yyyy-mm-dd 형식입니다. | MonthStartDate |
 | 제품 유형 | 제품 유형 | 상업용 Marketplace 제품의 유형입니다. | OfferType |
 | Azure 라이선스 유형 | Azure 라이선스 유형 | Azure 구매 고객이 체결하는 라이선싱 계약 유형입니다. 채널이라고도 합니다. 가능한 값은 다음과 같습니다.<ul><li>[클라우드 솔루션 공급자](cloud-solution-providers.md)</li><li>Enterprise</li><li>재판매인을 통한 Enterprise</li><li>종량제</li><li>GTM</li></ul> | AzureLicenseType |
-| Marketplace 라이선스 유형 | Marketplace 라이선스 유형 | 상업용 Marketplace 제품의 청구 방법입니다. 다른 값은 다음과 같습니다.<ul><li>Azure를 통해 청구</li><li>사용자 라이선스 필요</li><li>무료</li><li>Microsoft 대리점</li></ul> | MarketplaceLicenseType |
+| Marketplace 라이선스 유형 | Marketplace 라이선스 유형 | 상업용 Marketplace 제품의 청구 방법입니다. 다른 값은 다음과 같습니다.<ul><li>[클라우드 솔루션 공급자](cloud-solution-providers.md) (CSP)</li><li>Enterprise (EA)</li><li>대리점을 통해 Enterprise</li><li>종량제</li><li>[시장으로 이동](co-sell-overview.md) (GTM)</li></ul> | MarketplaceLicenseType |
 | SKU | SKU | 제품에 연결된 플랜 | SKU |
 | 고객 국가 | 고객 국가/지역 | 고객이 입력한 국가/지역 이름. 국가/지역은 고객의 Azure 구독에서 국가/지역과 다를 수 있습니다. | CustomerCountry |
 | 미리 보기 SKU | 미리 보기 SKU | 이 값은 SKU를 "미리 보기"로 태그 지정한 경우를 알려 줍니다. 이에 따라 SKU가 태그 지정된 경우 값은 "예"이며, 사용자가 승인한 Azure 구독만 이 이미지를 배포하고 사용할 수 있습니다. SKU가 "미리 보기"로 식별되지 않은 경우 값은 "아니요"입니다. | IsPreviewSKU |

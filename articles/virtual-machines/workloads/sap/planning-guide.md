@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 26b5e7f65ca688eb1f849fa582f2f02af6e470c0
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 6a707f349d4153c7b7a5dca78e2a739625cc7db5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130131394"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232236"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -593,7 +593,7 @@ Azure Virtual Network 내의 VM에 고정 또는 예약된 IP 주소를 할당�
 
 
 ##### <a name="secondary-ip-addresses-for-sap-hostname-virtualization"></a>SAP 호스트 이름 가상화를 위한 보조 IP 주소
-각 Azure 가상 머신의 네트워크 인터페이스 카드에는 여러 IP 주소가 할당되어 있을 수 있습니다. 이러한 보조 IP는 필요한 경우 DNS A/PTR 레코드에 매핑되는 SAP 가상 호스트 이름에 사용할 수 있습니다. 보조 IP 주소는 [본 문서](../../../virtual-network/virtual-network-multiple-ip-addresses-portal.md)에 따라 Azure vNIC IP 구성에 할당되어야 하며, 보조 IP가 DHCP를 통해 할당되지 않기 때문에 OS 내에서도 구성되어야 합니다. 각 보조 IP는 vNIC가 바인딩된 동일한 서브넷에 있어야 합니다. Azure Load Balancer 부동 IP 사용은 Pacemaker 클러스터와 같은 보조 IP 구성에 대해 보조로 [지원되지 않습니다.](../../../load-balancer/load-balancer-multivip-overview.md#limitations) 이러한 경우 부하 분산 장치 IP를 통해 SAP 가상 호스트 이름을 사용할 수 있습니다. 가상 호스트 이름을 사용하는 방법에 대한 일반적인 참고 자료는 SAP Note [#962955](https://launchpad.support.sap.com/#/notes/962955)를 참조하세요.
+각 Azure 가상 머신의 네트워크 인터페이스 카드에는 여러 IP 주소가 할당되어 있을 수 있습니다. 이러한 보조 IP는 필요한 경우 DNS A/PTR 레코드에 매핑되는 SAP 가상 호스트 이름에 사용할 수 있습니다. 보조 IP 주소는 [본 문서](../../../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.md)에 따라 Azure vNIC IP 구성에 할당되어야 하며, 보조 IP가 DHCP를 통해 할당되지 않기 때문에 OS 내에서도 구성되어야 합니다. 각 보조 IP는 vNIC가 바인딩된 동일한 서브넷에 있어야 합니다. Azure Load Balancer 부동 IP 사용은 Pacemaker 클러스터와 같은 보조 IP 구성에 대해 보조로 [지원되지 않습니다.](../../../load-balancer/load-balancer-multivip-overview.md#limitations) 이러한 경우 부하 분산 장치 IP를 통해 SAP 가상 호스트 이름을 사용할 수 있습니다. 가상 호스트 이름을 사용하는 방법에 대한 일반적인 참고 자료는 SAP Note [#962955](https://launchpad.support.sap.com/#/notes/962955)를 참조하세요.
 
 
 ##### <a name="multiple-nics-per-vm"></a>VM당 여러 NIC
@@ -724,17 +724,17 @@ Windows PowerShell은 Azure에서 많은 수의 시스템을 배포하는 고객
 
 Azure PowerShell cmdlet을 사용할 수 있도록 로컬 데스크톱/랩톱을 설정하는 프로세스와 Azure 구독에서 이러한 cmdlet을 사용하도록 구성하는 방법은 [이 문서][powershell-install-configure]에서 설명하고 있습니다.
 
-Azure PowerShell cmdlet을 설치, 업데이트 및 구성 하는 방법에 대 한 자세한 단계는 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)에서 찾을 수도 있습니다.
-지금까지 사용자 환경은 PowerShell을 통해 Vm을 배포 하 고 Vm 배포에서 사용자 지정 단계를 만들 수 있는 강력한 도구입니다. Azure에서 SAP 인스턴스를 실행 하는 모든 고객은 PowerShell cmdlet을 사용 하 여 Azure Portal에서 수행 하는 관리 작업을 보완 하거나 PowerShell cmdlet을 사용 하 여 Azure에서 배포를 관리 하기도 합니다. Azure 관련 cmdlet은 2,000개가 넘는 Windows 관련 cmdlet과 동일한 명명 규칙을 공유하기 때문에 Windows 관리자가 이러한 cmdlet을 활용하는 것은 쉽습니다.
+Azure PowerShell cmdlet을 설치, 업데이트 및 구성하는 방법에 대한 자세한 단계는 [Azure PowerShell 모듈 설치에서도](/powershell/azure/install-az-ps)확인할 수 있습니다.
+지금까지의 고객 환경은 PowerShell이 VM을 배포하고 VM 배포에서 사용자 지정 단계를 만드는 데 있어 확실히 더 강력한 도구입니다. Azure에서 SAP 인스턴스를 실행하는 모든 고객은 PowerShell cmdlet을 사용하여 Azure Portal 수행하거나 PowerShell cmdlet을 단독으로 사용하여 Azure에서 배포를 관리하는 관리 작업을 보완합니다. Azure 관련 cmdlet은 2,000개가 넘는 Windows 관련 cmdlet과 동일한 명명 규칙을 공유하기 때문에 Windows 관리자가 이러한 cmdlet을 활용하는 것은 쉽습니다.
 
 예제는 <https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>에서 참조하세요.
 
 
 Azure Extension for SAP(이 문서의 [Azure Extension for SAP][planning-guide-9.1] 챕터 참조)의 배포는 PowerShell 또는 CLI를 통해서만 가능합니다. 따라서 Azure에서 SAP NetWeaver 시스템을 배포 또는 관리하는 경우 PowerShell 또는 CLI를 반드시 설치하고 구성해야 합니다.
 
-Azure에서 더 많은 기능을 제공 하므로 cmdlet 업데이트를 필요로 하는 새 PowerShell cmdlet이 추가 될 예정입니다. 따라서 매월 한 번 이상 Azure 다운로드 사이트 <https://azure.microsoft.com/downloads/>를 확인하여 새 버전의 cmdlet이 있는지 확인하는 것이 좋습니다. 새 버전은 이전 버전이 그대로 유지된 상태로 설치됩니다.
+Azure에서 더 많은 기능을 제공하므로 cmdlet을 업데이트해야 하는 새로운 PowerShell cmdlet이 추가될 예정입니다. 따라서 매월 한 번 이상 Azure 다운로드 사이트 <https://azure.microsoft.com/downloads/>를 확인하여 새 버전의 cmdlet이 있는지 확인하는 것이 좋습니다. 새 버전은 이전 버전이 그대로 유지된 상태로 설치됩니다.
 
-Azure 관련 PowerShell 명령의 일반 목록은 [Azure PowerShell 설명서][azure-ps]를 참조 하세요.
+Azure 관련 PowerShell 명령의 일반적인 목록은 [Azure PowerShell 설명서를 참조하세요.][azure-ps]
 
 ### <a name="management-via-microsoft-azure-cli-commands"></a>Microsoft Azure CLI 명령을 통한 관리
 
@@ -745,7 +745,7 @@ Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령
 
 * [Azure 클래식 CLI 설치][xplat-cli]
 * [Azure CLI 2.0 설치][azure-cli-install]
-* [Azure Resource Manager 템플릿 및 Azure CLI를 사용하여 가상 머신 배포 및 관리](/articles/virtual-machines/linux/create-ssh-secured-vm-from-template)
+* [Azure Resource Manager 템플릿 및 Azure CLI를 사용하여 가상 머신 배포 및 관리](../../linux/create-ssh-secured-vm-from-template.md)
 * [Azure Resource Manager에서 Mac, Linux 및 Windows용 Azure 클래식 CLI 사용][xplat-cli-azure-resource-manager]
 
 
@@ -780,7 +780,7 @@ OS 또는 DBMS 버전의 특정 패치 요구 사항으로 인해 Azure Marketpl
 ---
 > ![Windows 로고입니다.][Logo_Windows] Windows
 >
-> 자세한 내용은 [일반화된 Windows VHD 업로드 읽고 Azure에서 새 VM을 만드는 데 사용합니다.](/azure/virtual-machines/windows/upload-generalized-managed) Windows 설정(예: Windows SID 및 호스트 이름)은 sysprep 명령을 통해 온-프레미스 VM에서 추상화/일반화되어야 합니다.
+> 자세한 내용은 [일반화된 Windows VHD 업로드 읽고 Azure에서 새 VM을 만드는 데 사용합니다.](../../windows/upload-generalized-managed.md) Windows 설정(예: Windows SID 및 호스트 이름)은 sysprep 명령을 통해 온-프레미스 VM에서 추상화/일반화되어야 합니다.
 >
 >
 > ![Linux 로고.][Logo_Linux] Linux
@@ -1080,8 +1080,8 @@ Azure Portal에서는 이 작업을 수행할 수 없습니다. Azure PowerShell
 
 PowerShell cmdlet 논리의 기본 흐름은 다음과 같습니다.
 
-* *AzStorageContext* 를 사용 하 여 **원본** 저장소 계정에 대 한 저장소 계정 컨텍스트를 만듭니다. [AzStorageContext](/powershell/module/az.storage/new-azstoragecontext) 을 참조 하세요.
-* *AzStorageContext* 를 사용 하 여 **대상** 저장소 계정에 대 한 저장소 계정 컨텍스트를 만듭니다. [AzStorageContext](/powershell/module/az.storage/new-azstoragecontext) 을 참조 하세요.
+* *New-AzStorageContext를* 사용하여 **원본** 스토리지 계정에 대한 스토리지 계정 컨텍스트 만들기 - [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext) 참조
+* *New-AzStorageContext를* 사용하여 **대상** 스토리지 계정에 대한 스토리지 계정 컨텍스트 만들기 - [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext) 참조
 * 복사 시작
 
 ```powershell
@@ -1689,12 +1689,12 @@ SAP Change and Transport System(TMS)은 지형 내에서 시스템 간에 전송
 
 사이트 간에 연결된 크로스-프레미스 시나리오에서 온-프레미스와 Azure 간의 대기 시간이 여전히 길 수 있습니다. 개발 및 테스트 시스템에서 프로덕션으로 개체를 전송하는 순서를 따르거나 전송 또는 지원 패키지를 다른 시스템에 적용하려는 경우 중앙 전송 디렉터리의 위치에 따라, 일부 시스템에서 중앙 전송 디렉터리에서 데이터를 읽거나 쓸 때 긴 대기 시간이 발생합니다. 이러한 상황은 데이터 센터 간에 멀리 떨어져 있는 서로 다른 데이터 센터에 여러 다른 시스템이 분산되어 있는 SAP 지형 구성과 유사합니다.
 
-이러한 대기 시간 문제를 해결하고 시스템이 더 빠르게 전송 디렉터리에서 읽거나 전송 디렉터리로 쓸 수 있도록 하려면 두 개의 STMS 전송 도메인(온-프레미스용 1개와 Azure의 시스템을 포함하는 1개)을 설정하고 전송 도메인을 연결할 수 있습니다. SAP TMS에서 이 개념의 원칙을 설명하는 이 [설명서를](https://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm)확인하세요.
+이러한 대기 시간 문제를 해결하고 시스템이 더 빠르게 전송 디렉터리에서 읽거나 전송 디렉터리로 쓸 수 있도록 하려면 두 개의 STMS 전송 도메인(온-프레미스용 1개와 Azure의 시스템을 포함하는 1개)을 설정하고 전송 도메인을 연결할 수 있습니다. SAP TMS에서이 개념의 원칙을 설명 하는이 [설명서](https://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm)를 확인 하세요.
 
 
 방법:
 
-* 트랜잭션 STMS를 사용하여 각 위치(온-프레미스 및 Azure)에서 [전송 도메인 설정](https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/44b4a0b47acc11d1899e0000e829fbbd.html?q=Set%20up%20a%20transport%20domain)
+* 트랜잭션 STMS를 사용 하 여 각 위치 (온-프레미스 및 Azure)에서 [전송 도메인 설정](https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/44b4a0b47acc11d1899e0000e829fbbd.html?q=Set%20up%20a%20transport%20domain)
 * [도메인 링크를 사용하여 도메인을 연결](https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/14c795388d62e450e10000009b38f889.html?q=Link%20the%20domains%20with%20a%20domain%20link)하고 두 도메인 간의 연결을 확인합니다.
 * 연결된 시스템으로 구성을 배포합니다.
 

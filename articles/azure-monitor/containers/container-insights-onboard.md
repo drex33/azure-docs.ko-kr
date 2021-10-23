@@ -3,12 +3,12 @@ title: Container Insights 사용 | Microsoft Docs
 description: 이 문서에서는 컨테이너의 성능과 어떤 성능 관련 문제가 확인되었는지 이해할 수 있도록 Container Insights를 사용하도록 설정하고 구성하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: de7475ddb5a8057ef1b58d4ed21c55a1d10a4dd8
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: be2dcaeb088d2996df1d09e3f373e48866db3eb9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129708947"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233453"
 ---
 # <a name="enable-container-insights"></a>Container Insights 사용
 
@@ -51,7 +51,7 @@ AKS kubernetes 클러스터의 경우에는 모니터링을 사용 하도록 설
    
    작업 영역을 직접 만들도록 선택하는 경우 다음을 통해 만들 수 있습니다. 
    - [Azure Resource Manager](../logs/resource-manager-workspace.md)
-   - [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+   - [PowerShell](../logs/powershell-workspace-configuration.md?toc=%2fpowershell%2fmodule%2ftoc.json)
    - [Azure 포털](../logs/quick-create-workspace.md) 
    
    기본 작업 영역에 사용할 수 있는 지원되는 매핑 쌍 목록은 [Container Insights에 대한 지역 매핑](container-insights-region-mapping.md)을 참조하세요.
@@ -121,7 +121,7 @@ Container Insights는 공식적으로 다음 구성을 지원합니다.
 
 Container Insights를 사용하도록 설정하려면 다음 표에 설명된 방법 중 하나를 사용합니다.
 
-| 배포 상태 | 메서드 | 설명 |
+| 배포 상태 | 메서드 | Description |
 |------------------|--------|-------------|
 | 새 Kubernetes 클러스터 | [Azure CLI를 사용하여 AKS 클러스터 만들기](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Azure CLI를 사용하여 만든 새 AKS 클러스터에 대한 모니터링을 사용하도록 설정할 수 있습니다. |
 | | [Terraform을 사용하여 AKS 클러스터 만들기](container-insights-enable-new-cluster.md#enable-using-terraform)| 오픈 소스 도구인 Terraform을 사용하여 만든 새 AKS 클러스터에 대한 모니터링을 사용하도록 설정할 수 있습니다. |
@@ -132,9 +132,9 @@ Container Insights를 사용하도록 설정하려면 다음 표에 설명된 �
 | | [Azure Monitor에서 AKS 클러스터에 사용](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| Azure Monitor의 다중 클러스터 페이지에서 이미 배포된 하나 이상의 AKS 클러스터에 대해 모니터링을 사용하도록 설정할 수 있습니다. |
 | | [AKS 클러스터에서 사용](container-insights-enable-existing-clusters.md#enable-directly-from-aks-cluster-in-the-portal)| Azure Portal의 AKS 클러스터에서 직접 모니터링을 사용하도록 설정할 수 있습니다. |
 | | [Azure Resource Manager 템플릿을 사용하여 AKS 클러스터에 사용](container-insights-enable-existing-clusters.md#enable-using-an-azure-resource-manager-template)| 미리 구성된 Azure Resource Manager 템플릿을 사용하여 AKS 클러스터에 대해 모니터링을 사용하도록 설정할 수 있습니다. |
-| 기존 비 AKS Kubernetes 클러스터 | [Azure CLI 사용하여 비 AKS Kubernetes 클러스터에 대해 를 사용하도록 설정합니다.](container-insights-enable-arc-enabled-clusters.md#create-extension-instance-using-azure-cli) | Azure 외부에서 호스트되고 Azure Arc 사용하도록 설정된 Kubernetes 클러스터에 대한 모니터링을 사용하도록 설정할 수 있습니다. 여기에는 Azure CLI 사용하는 하이브리드, OpenShift 및 다중 클라우드가 포함됩니다. |
-| | [Azure Resource Manager 템플릿을 사용하여 비 AKS Kubernetes 클러스터에 대해 사용](container-insights-enable-arc-enabled-clusters.md#create-extension-instance-using-azure-resource-manager) | 미리 구성된 Azure Resource Manager 템플릿을 사용하여 Arc에서 사용하도록 설정된 클러스터에 대한 모니터링을 사용하도록 설정할 수 있습니다. |
-| | [Azure Monitor 비 AKS Kubernetes 클러스터에 대해 사용하도록 설정](container-insights-enable-arc-enabled-clusters.md#create-extension-instance-using-azure-portal) | Azure Monitor 다중 클러스터 페이지에서 이미 배포된 Arc를 사용하여 사용하도록 설정된 하나 이상의 클러스터에 대한 모니터링을 사용하도록 설정할 수 있습니다. |
+| 기존 비 AKS Kubernetes 클러스터 | [Azure CLI를 사용 하 여 AKS Kubernetes 클러스터에 대해를 사용 하도록 설정](container-insights-enable-arc-enabled-clusters.md#create-extension-instance-using-azure-cli)합니다. | Azure 외부에서 호스트 되 고 Azure Arc에서 사용 하도록 설정 된 Kubernetes 클러스터에 대 한 모니터링을 사용 하도록 설정할 수 있습니다. 여기에는 하이브리드, OpenShift 및 Azure CLI를 사용 하는 다중 클라우드가 포함 됩니다. |
+| | [Azure Resource Manager 템플릿을 사용 하 여 비 AKS Kubernetes 클러스터에 대해 사용](container-insights-enable-arc-enabled-clusters.md#create-extension-instance-using-azure-resource-manager) | 미리 구성 된 Azure Resource Manager 템플릿을 사용 하 여 Arc에서 사용 하도록 설정 된 클러스터에 대 한 모니터링을 사용 하도록 설정할 수 있습니다. |
+| | [Azure Monitor에서 비 AKS Kubernetes 클러스터에 대해 사용](container-insights-enable-arc-enabled-clusters.md#create-extension-instance-using-azure-portal) | Azure Monitor의 multicluster 페이지에서 이미 배포 된 하나 이상의 클러스터에 대해 모니터링을 사용 하도록 설정할 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

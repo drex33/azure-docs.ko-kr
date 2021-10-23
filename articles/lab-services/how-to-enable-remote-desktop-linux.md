@@ -3,12 +3,12 @@ title: Azure Lab Services에서 Linux용 그래픽 원격 데스크톱을 사용
 description: Azure Lab Services의 랩에서 Linux 가상 머신에 대해 원격 데스크톱을 활성화하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: c870faf1f85c192f12739c17809cc9c9088ac1fd
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: aaeec2cc74e24061c9c022fdc4526732030c1f97
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130180327"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232682"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Azure Lab Services에서 Linux 가상 머신에 대해 그래픽 원격 데스크톱을 사용하도록 설정
 이 문서에서는 다음 작업을 수행하는 방법을 보여 줍니다.
@@ -19,21 +19,21 @@ ms.locfileid: "130180327"
 ## <a name="set-up-graphical-remote-desktop-solution"></a>그래픽 원격 데스크톱 솔루션 설정
 **Linux** 이미지에서 랩이 만들어지면 강사가 SSH를 사용하여 명령줄에서 템플릿 VM에 연결할 수 있도록 **SSH**(Secure Shell) 액세스가 자동으로 구성됩니다.  마찬가지로 템플릿 VM이 게시되면 학생이 SSH를 사용하여 VM에 연결할 수도 있습니다.
 
-**GUI**(그래픽 사용자 인터페이스)를 사용하여 Linux VM에 연결하려면 **RDP** 또는 **X2Go** 를 사용하는 것이 좋습니다.  이 문서의 나머지 부분에는 랩의 템플릿 VM에서 RDP 또는 X2Go를 설정하는 단계가 표시됩니다.
+**GUI**(그래픽 사용자 인터페이스)를 사용하여 Linux VM에 연결하려면 **RDP** 또는 **X2Go** 를 사용하는 것이 좋습니다.  이 문서의 나머지 부분에서는 랩의 템플릿 VM에서 RDP 또는 X2Go를 설정 하는 단계를 보여 줍니다.
 
 > [!NOTE]
-> Linux는 [Xrdp라는](https://en.wikipedia.org/wiki/Xrdp)RDP의 오픈 소스 버전을 사용합니다.  간단히 하기 위해 이 문서 전체에서 RDP라는 용어를 사용합니다.
+> Linux는 [xrdp](https://en.wikipedia.org/wiki/Xrdp)라는 RDP의 오픈 소스 버전을 사용 합니다.  간단히 하기 위해이 문서 전체에서 RDP 라는 용어를 사용 합니다.
 
 ### <a name="rdp-setup"></a>RDP 설정
 강사는 RDP를 사용하기 위해 다음을 수행해야 합니다.
   - 원격 데스크톱 연결을 사용하도록 설정합니다. 이 설정은 특히 RDP의 VM 포트를 여는 데 필요합니다.
   - RDP 원격 데스크톱 서버를 설치합니다.
-  - Linux 그래픽 데스크톱 환경을 설치합니다.
+  - Linux 그래픽 데스크톱 환경을 설치 합니다.
 
 ### <a name="x2go-setup"></a>X2Go 설정
 강사는 X2Go를 사용하기 위해 다음을 수행해야 합니다.
 - X2Go 원격 데스크톱 서버를 설치합니다.
-- Linux 그래픽 데스크톱 환경을 설치합니다.
+- Linux 그래픽 데스크톱 환경을 설치 합니다.
 
 X2Go는 SSH에 대해 이미 사용하도록 설정된 것과 동일한 포트를 사용합니다.  따라서 X2Go용 VM에서 포트를 여는 데 필요한 추가 구성은 없습니다.
 
@@ -57,9 +57,9 @@ X2Go는 SSH에 대해 이미 사용하도록 설정된 것과 동일한 포트�
 
 ## <a name="install-rdp-or-x2go"></a>RDP 또는 X2Go 설치
 
-강사는 랩이 만들어진 후 템플릿 VM에 그래픽 데스크톱 환경과 원격 데스크톱 서버가 설치되어 있는지 확인해야 합니다.  강사는 먼저 SSH를 사용하여 템플릿 VM에 연결하여 다음을 위한 패키지를 설치해야 합니다.
+강사는 랩이 만들어진 후 템플릿 VM에 그래픽 데스크톱 환경과 원격 데스크톱 서버가 설치되어 있는지 확인해야 합니다.  강사는 먼저 다음에 대 한 패키지를 설치 하기 위해 SSH를 사용 하 여 템플릿 VM에 연결 해야 합니다.
 - RDP 또는 X2Go 원격 데스크톱 서버 중 하나
-- [GNOME,](https://www.gnome.org/) [MATE,](https://mate-desktop.org/) [XFCE,](https://www.xfce.org/) [Xubuntu](https://xubuntu.org/)등과 같은 그래픽 데스크톱 환경
+- 그래픽 데스크톱 환경 (예: [GNOME](https://www.gnome.org/), [면맞춤](https://mate-desktop.org/), [xfce](https://www.xfce.org/), [xubuntu](https://xubuntu.org/)등)
 
 강사는 이 설정을 마친 후 **RDP(Microsoft 원격 데스크톱)** 클라이언트 또는 **X2Go** 클라이언트를 사용하여 템플릿 VM에 연결할 수 있습니다.
 
@@ -75,18 +75,23 @@ X2Go는 SSH에 대해 이미 사용하도록 설정된 것과 동일한 포트�
  
     ![SSH 연결 문자열](./media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
 
-4. 마지막으로 선택한 그래픽 데스크톱 환경과 함께 RDP 또는 X2Go를 설치합니다.
+1. 마지막으로 선택한 그래픽 데스크톱 환경과 함께 RDP 또는 X2Go를 설치 합니다.
 
-최적의 성능을 위해 일반적으로 XFCE 그래픽 데스크톱을 사용하고 사용자가 X2Go를 사용하여 데스크톱에 연결하는 것이 좋습니다.  Ubuntu에서 X2Go를 사용하여 XFCE를 설정하려면 다음 지침을 사용합니다.
-  - [X2Go 설치 및 구성](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/LinuxGraphicalDesktopSetup/XFCE_Xubuntu/ReadMe.md)
+  최적의 성능을 위해 일반적으로 XFCE 그래픽 바탕 화면을 사용 하 고 사용자가 X2Go를 사용 하 여 데스크톱에 연결 하는 것이 좋습니다.  Ubuntu에서 X2Go를 사용 하 여 XFCE를 설정 하려면 다음 지침을 사용 합니다.
+    - [X2Go 설치 및 구성](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/LinuxGraphicalDesktopSetup/XFCE_Xubuntu/ReadMe.md)
 
-대신 사용자가 RDP를 사용하여 그래픽 데스크톱에 연결해야 하는 경우 Ubuntu에 대해 다음 지침을 사용합니다.
-  - [RDP 설치 및 구성](../virtual-machines/linux/use-remote-desktop.md)
+  대신 사용자가 RDP를 사용 하 여 그래픽 데스크톱에 연결 해야 하는 경우 Ubuntu에 대해 다음 지침을 사용 합니다.
+    - [RDP 설치 및 구성](../virtual-machines/linux/use-remote-desktop.md)
 
-GNOME 또는 MATE 그래픽 데스크톱 환경의 경우 VM이 Azure Lab Services 제대로 작동하는 데 필요한 Azure Linux 에이전트와 네트워킹 충돌이 발생할 수 있습니다.  예를 들어 기본적으로 GNOME 또는 MATE가 설치된 Ubuntu 18.04 LTS 이미지에서 랩을 만드는 경우 다음 오류 메시지와 함께 랩 만들기가 **실패합니다. VM 에이전트를 사용하여 통신을 설정할 수 없습니다.  VM 에이전트가 사용하도록 설정되어 있고 작동하는지 확인하세요.**  마찬가지로, 이 네트워킹 충돌로 인해 학생 VM을 프로비전하려고 할 때 게시가 중단됩니다.
+### <a name="using-gnome-or-mate-graphical-desktops"></a>GNOME 또는 면맞춤 그래픽 바탕 화면 사용
 
-Ubuntu에서 GNOME 또는 MATE 그래픽 데스크톱을 설정하려면 다음 지침을 사용하는 것이 좋습니다.  이러한 지침에는 Ubuntu 18.04 LTS와 함께 존재하는 네트워킹 충돌에 대한 수정이 포함됩니다.  또한 Ubuntu 20.04 LTS 및 21.04 LTS도 지원합니다.
- - [GNOME/RDP 및 MATE/X2go 설치 및 구성](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/LinuxGraphicalDesktopSetup/GNOME_MATE/ReadMe.md)
+GNOME 또는 면맞춤 된 그래픽 데스크톱 환경의 경우 Vm이 Azure Lab Services에서 제대로 작동 하는 데 필요한 Azure Linux 에이전트와의 네트워킹 충돌이 발생할 수 있습니다.  이 네트워킹 충돌은 Ubuntu 18.04 LTS가 GNOME 또는 면맞춤 설치와 함께 사용 될 때 다음과 같은 부작용을 일으킵니다.
+ - 이미지를 사용 하 여 랩 만들기가 실패 하 고 오류 메시지가 나타납니다 **. VM 에이전트와의 통신을 설정할 수 없습니다.  VM 에이전트가 사용 하도록 설정 되어 있고 작동 하는지 확인 하십시오.**  
+ - 자동 종료 설정을 사용 하도록 설정한 경우 학생 Vm을 게시 하면 응답 하지 않습니다.
+ - 학생 VM 암호를 다시 설정 하면 응답 하지 않습니다.
+
+Ubuntu에서 GNOME 또는 면맞춤 그래픽 데스크톱을 설정 하려면 다음 지침을 사용 하는 것이 좋습니다.  이러한 지침에는 Ubuntu 18.04 LTS와 함께 존재 하는 네트워킹 충돌에 대 한 픽스가 포함 되어 있습니다.  Ubuntu 20.04 LTS 및 21.04 LTS에 GNOME 및 면맞춤 설치도 지원 합니다.
+ - [GNOME/RDP 및 면맞춤/X2go 설치 및 구성](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/LinuxGraphicalDesktopSetup/GNOME_MATE/ReadMe.md)
 
 ## <a name="connect-to-the-template-vm-via-the-gui"></a>GUI를 통해 템플릿 VM에 연결
 

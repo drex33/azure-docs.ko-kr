@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 10/07/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: 55e3d529b0f0e713be1c19e9f2ae4736d9b6a9ca
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: ef5514b44ad2d35870674a85958c28f5f780c308
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130177520"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233699"
 ---
 # <a name="how-to-use-custom-and-composed-models"></a>방법: 사용자 지정 및 구성 된 모델 사용
 
@@ -25,7 +25,7 @@ Form Recognizer는 고급 기계 학습 기술을 사용하여 문서 이미지�
 
 * **구성형 모델**. 구성형 모델은 사용자 지정 모델 컬렉션을 가져와서 사용자의 양식 유형을 포함하는 단일 모델에 할당하여 만듭니다. 구성형 모델에 문서가 제출되면 이 서비스에서는 분류 단계를 수행하여 분석용으로 제공된 양식을 정확히 나타내는 사용자 지정 모델을 결정합니다.
 
-이 문서에서는 [폼 인식기 샘플 레이블 도구](label-tool.md), [REST api](quickstarts/client-library.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model)또는 [클라이언트 라이브러리 Sdk](quickstarts/client-library.md?branch=main&pivots=programming-language-csharp#train-a-custom-model)를 사용 하 여 양식 인식기 사용자 지정 및 구성 된 모델을 만드는 방법을 살펴보겠습니다.
+이 문서에서는 [폼 인식기 샘플 레이블 도구](label-tool.md), [REST api](./quickstarts/try-sdk-rest-api.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model)또는 [클라이언트 라이브러리 Sdk](./quickstarts/try-sdk-rest-api.md?branch=main&pivots=programming-language-csharp#train-a-custom-model)를 사용 하 여 양식 인식기 사용자 지정 및 구성 된 모델을 만드는 방법을 살펴보겠습니다.
 
 ## <a name="try-it-sample-labeling-tool"></a>사용해 보기: 샘플 레이블 지정 도구
 
@@ -71,7 +71,7 @@ Form Recognizer는 고급 기계 학습 기술을 사용하여 문서 이미지�
 
 ## <a name="train-your-custom-model"></a>사용자 지정 모델 학습
 
-레이블이 지정된 데이터 세트를 사용하거나 사용하지 않고 [모델을 학습시킬 수](quickstarts/client-library.md#train-a-custom-model) 있습니다. 레이블이 지정되지 않은 데이터 세트는 사용자 입력을 추가하지 않고 키 정보를 검색하여 식별하는 [레이아웃 API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync)만 사용합니다. 레이블이 지정된 데이터 세트도 레이아웃 API를 사용하지만 사용자의 특정 레이블 및 필드 위치와 같은 추가 사용자 입력이 포함됩니다. 레이블이 지정된 데이터와 레이블이 지정되지 않은 데이터를 모두 사용하려면 레이블이 지정된 학습 데이터에 대해 동일한 유형으로 완성된 5개 이상의 양식으로 시작한 다음, 레이블이 지정되지 않은 데이터를 필요한 데이터 세트에 추가합니다.
+레이블이 지정된 데이터 세트를 사용하거나 사용하지 않고 [모델을 학습시킬 수](./quickstarts/try-sdk-rest-api.md#train-a-custom-model) 있습니다. 레이블이 지정되지 않은 데이터 세트는 사용자 입력을 추가하지 않고 키 정보를 검색하여 식별하는 [레이아웃 API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync)만 사용합니다. 레이블이 지정된 데이터 세트도 레이아웃 API를 사용하지만 사용자의 특정 레이블 및 필드 위치와 같은 추가 사용자 입력이 포함됩니다. 레이블이 지정된 데이터와 레이블이 지정되지 않은 데이터를 모두 사용하려면 레이블이 지정된 학습 데이터에 대해 동일한 유형으로 완성된 5개 이상의 양식으로 시작한 다음, 레이블이 지정되지 않은 데이터를 필요한 데이터 세트에 추가합니다.
 
 ### <a name="train-without-labels"></a>레이블 없이 학습
 
@@ -113,13 +113,13 @@ Form Recognizer 샘플 레이블 지정 도구, REST API 또는 클라이언트 
 
 ### <a name="rest-api"></a>[**REST API**](#tab/rest-api)
 
-[**REST API**](quickstarts/client-library.md?pivots=programming-language-rest-api#train-a-custom-model)는 **위치** 헤더가 포함된 `201 (Success)` 응답을 받게 됩니다. 이 헤더의 마지막 매개 변수 값은 새로 학습된 모델의 모델 ID입니다.
+[**REST API**](./quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#train-a-custom-model)는 **위치** 헤더가 포함된 `201 (Success)` 응답을 받게 됩니다. 이 헤더의 마지막 매개 변수 값은 새로 학습된 모델의 모델 ID입니다.
 
 :::image type="content" source="media/model-id.png" alt-text="스크린샷: 모델 ID를 포함하고 있는 반환된 위치 헤더":::
 
 ### <a name="client-library-sdks"></a>[**클라이언트 라이브러리 SDK**](#tab/sdks)
 
- [**클라이언트 라이브러리 SDK**](quickstarts/client-library.md?pivots=programming-language-csharp#train-a-custom-model)는 학습된 모델 ID를 반환하도록 쿼리할 수 있는 모델 개체를 반환합니다.
+ [**클라이언트 라이브러리 SDK**](./quickstarts/try-sdk-rest-api.md?pivots=programming-language-csharp#train-a-custom-model)는 학습된 모델 ID를 반환하도록 쿼리할 수 있는 모델 개체를 반환합니다.
 
 * C\#  | [CustomFormModel 클래스](/dotnet/api/azure.ai.formrecognizer.training.customformmodel?view=azure-dotnet&preserve-view=true#properties "Azure SDK for .NET")
 
@@ -205,11 +205,11 @@ REST API를 사용하면 문서를 분석하고 키-값 쌍 및 테이블 데이
 
 ---
 
-학습 데이터 세트에 포함되지 않은 [분석 양식](quickstarts/client-library.md#analyze-forms-with-a-custom-model)을 사용하여 새로 학습된 모델을 테스트합니다. 보고된 정확도에 따라 모델을 향상시키기 위해 추가 학습을 수행하는 것이 좋습니다. 추가 학습을 계속 진행하여 [결과를 개선](label-tool.md#improve-results)할 수 있습니다.
+학습 데이터 세트에 포함되지 않은 [분석 양식](./quickstarts/try-sdk-rest-api.md#analyze-forms-with-a-custom-model)을 사용하여 새로 학습된 모델을 테스트합니다. 보고된 정확도에 따라 모델을 향상시키기 위해 추가 학습을 수행하는 것이 좋습니다. 추가 학습을 계속 진행하여 [결과를 개선](label-tool.md#improve-results)할 수 있습니다.
 
 ## <a name="manage-your-custom-models"></a>사용자 지정 모델 관리
 
-사용자 지정 모델의 수명 주기 내에는 언제든지 구독 중인 [모든 사용자 지정 모델의 목록](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetCustomModels)을 보거나, [특정 사용자 지정 모델](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetCustomModel)에 대한 정보를 검색하거나, 계정에서 [사용자 지정 모델](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/DeleteCustomModel)을 삭제하여 [사용자 지정 모델을 관리](quickstarts/client-library.md#manage-custom-models)할 수 있습니다.
+사용자 지정 모델의 수명 주기 내에는 언제든지 구독 중인 [모든 사용자 지정 모델의 목록](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetCustomModels)을 보거나, [특정 사용자 지정 모델](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetCustomModel)에 대한 정보를 검색하거나, 계정에서 [사용자 지정 모델](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/DeleteCustomModel)을 삭제하여 [사용자 지정 모델을 관리](./quickstarts/try-sdk-rest-api.md#manage-custom-models)할 수 있습니다.
 
 좋습니다! 사용자 지정 모델 및 구성형 모델을 만들어 Form Recognizer 프로젝트 및 애플리케이션에 사용하는 단계를 배웠습니다.
 
@@ -220,4 +220,3 @@ API 참조 문서를 검색하여 Form Recognizer 클라이언트 라이브러�
 > [!div class="nextstepaction"]
 > [Form Recognizer API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)
 >
-

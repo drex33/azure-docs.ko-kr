@@ -3,12 +3,12 @@ title: Live Video Analytics를 사용하여 gRPC 유추 서버 개발 및 배포
 description: 이 문서에서는 Live Video Analytics를 사용하여 gRPC 유추 서버를 개발하고 배포하는 방법에 대한 지침을 제공합니다.
 ms.topic: how-to
 ms.date: 12/02/2020
-ms.openlocfilehash: d7d636803ac49d78aae78dad256598d9de3e7448
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
-ms.translationtype: HT
+ms.openlocfilehash: 1e685a4c363a58e19295da8f5d563114db84df9b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371577"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232350"
 ---
 # <a name="develop-and-deploy-a-grpc-inference-server-with-live-video-analytics"></a>Live Video Analytics를 사용하여 gRPC 유추 서버 개발 및 배포
 
@@ -30,7 +30,7 @@ ms.locfileid: "110371577"
 
 * [지원되는 Linux 운영 체제](../../iot-edge/support.md#operating-systems) 또는 Windows 머신 중 하나를 실행하는 x86-64 또는 ARM64 디바이스
 * 머신에 [Docker를 설치](https://docs.docker.com/desktop/#download-and-install)합니다.
-* [IoT Edge 런타임](../../iot-edge/how-to-install-iot-edge.md?tabs=linux)을 설치합니다.
+* [IoT Edge 런타임](../../iot-edge/how-to-provision-single-device-linux-symmetric.md)을 설치합니다.
 
 ## <a name="grpc-implementation-steps"></a>gRPC 구현 단계
 

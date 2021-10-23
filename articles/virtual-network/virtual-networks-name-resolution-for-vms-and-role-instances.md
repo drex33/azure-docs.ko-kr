@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4fe0354f3d8e4d2b3ac2938f1cd03baa2ca2ce4d
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: 13185cdb0c75b2d88bf8b0fa5a4158789ac85e79
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530710"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130228210"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 리소스에 대한 이름 확인
 
@@ -48,8 +48,8 @@ IaaS, PaaS, 하이브리드 솔루션 호스팅에 Azure를 어떻게 사용할�
 | 한 가상 네트워크의 App Service Web Apps로부터 다른 가상 네트워크의 VM까지 이름을 확인합니다. |Azure(DNS 프록시)에서 이름을 확인할 수 있도록 가상 네트워크 간에 쿼리를 전달하는 고객이 관리하는 DNS 서버. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
 | Azure의 VM 또는 역할 인스턴스에서 온-프레미스 컴퓨터와 서비스 이름을 확인합니다. |고객이 관리하는 DNS 서버(예: 온-프레미스 도메인 컨트롤러, 로컬 읽기 전용 도메인 컨트롤러 또는 영역 전송을 사용하여 동기화된 DNS 보조). [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
 | 온-프레미스 컴퓨터에서 Azure 호스트 이름 확인. |해당 가상 네트워크에서 고객이 관리하는 DNS 프록시 서버에 쿼리를 전달하면 프록시 서버는 이름 확인을 위해 Azure에 쿼리를 전달합니다. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
-| 내부 IP에 대한 역방향 DNS |[Azure DNS 프라이빗 영역](../dns/private-dns-overview.md) 또는 [Azure 제공 이름 확인](#azure-provided-name-resolution) 또는 [자체 DNS 서버를 사용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |적용할 수 없음 |
-| 서로 다른 클라우드 서비스에 위치하며 가상 네트워크에 존재하지 않는 VM 또는 역할 인스턴스 간 이름 확인 |해당 사항 없음 가상 네트워크 외부에 있는 VM과 역할 인스턴스가 서로 다른 클라우드 서비스에 위치한 경우에는 연결을 지원하지 않습니다. |적용할 수 없음|
+| 내부 IP에 대한 역방향 DNS |[Azure DNS 프라이빗 영역](../dns/private-dns-overview.md) 또는 [Azure 제공 이름 확인](#azure-provided-name-resolution) 또는 [자체 DNS 서버를 사용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |해당 없음 |
+| 서로 다른 클라우드 서비스에 위치하며 가상 네트워크에 존재하지 않는 VM 또는 역할 인스턴스 간 이름 확인 |해당 사항 없음 가상 네트워크 외부에 있는 VM과 역할 인스턴스가 서로 다른 클라우드 서비스에 위치한 경우에는 연결을 지원하지 않습니다. |해당 없음|
 
 ## <a name="azure-provided-name-resolution"></a>Azure에서 제공하는 이름 확인
 
@@ -192,7 +192,7 @@ Azure에 전달하는 쿼리가 사용자 요구에 적합하지 않은 경우 �
 
 ### <a name="web-apps"></a>웹앱
 가상 네트워크 또는 동일한 가상 네트워크의 VM에 연결된 App Service를 사용하여 빌드된 웹앱에서 이름 확인을 수행해야 한다고 가정합니다. Azure(가상 IP 168.63.129.16)로 쿼리를 전달하는 DNS 전달자가 있는 사용자 지정 DNS 서버를 설정하는 것 외에 다음 단계를 수행합니다.
-1. [가상 네트워크와 앱 통합](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에서 설명한 대로 웹앱에 대해 가상 네트워크 통합을 사용하도록 설정합니다(아직 수행하지 않은 경우).
+1. [가상 네트워크와 앱 통합](../app-service/overview-vnet-integration.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에서 설명한 대로 웹앱에 대해 가상 네트워크 통합을 사용하도록 설정합니다(아직 수행하지 않은 경우).
 2. Azure Portal에서 웹앱을 호스트하는 AppService 계획에 대해 **네트워킹** 의 **가상 네트워크 통합** 에서 **네트워크 동기화** 를 선택합니다.
 
     ![가상 네트워크 이름 확인 스크린샷](./media/virtual-networks-name-resolution-for-vms-and-role-instances/webapps-dns.png)
@@ -202,7 +202,7 @@ Azure에 전달하는 쿼리가 사용자 요구에 적합하지 않은 경우 �
 * Azure의 재귀 확인자(가상 IP 168.63.129.16)에도 쿼리를 전달할 수 있는 VM에서 대상 가상 네트워크에 DNS 서버를 설정합니다. 예제 DNS 전달자는 [Azure 빠른 시작 템플릿 갤러리](https://azure.microsoft.com/resources/templates/dns-forwarder/) 및 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/dns-forwarder)에서 사용할 수 있습니다.
 * VM에서 원본 가상 네트워크의 DNS 전달자를 설정합니다. 대상 가상 네트워크의 DNS 서버로 쿼리를 전달하도록 이 DNS 전달자를 구성합니다.
 * 원본 가상 네트워크의 설정에 원본 DNS 서버를 구성합니다.
-* [가상 네트워크와 앱 통합](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)의 지침에 따라 원본 가상 네트워크에 웹앱을 연결하기 위해 가상 네트워크 통합을 사용하도록 설정합니다.
+* [가상 네트워크와 앱 통합](../app-service/overview-vnet-integration.md?toc=%2fazure%2fvirtual-network%2ftoc.json)의 지침에 따라 원본 가상 네트워크에 웹앱을 연결하기 위해 가상 네트워크 통합을 사용하도록 설정합니다.
 * Azure Portal에서 웹앱을 호스트하는 AppService 계획에 대해 **네트워킹** 의 **가상 네트워크 통합** 에서 **네트워크 동기화** 를 선택합니다.
 
 ## <a name="specify-dns-servers"></a>DNS 서버 지정

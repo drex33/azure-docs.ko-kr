@@ -7,20 +7,18 @@ ms.topic: conceptual
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 06/22/2021
-ms.openlocfilehash: d593b234e33eefeb5116bc69aeb7ad990ac24536
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: 71088777412bd99e6c306ef4da0cf06766562fbf
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129153827"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232331"
 ---
 # <a name="publish-an-integrated-solution"></a>통합 솔루션 게시
 
 이 문서에서는 상업용 Marketplace에 통합 솔루션을 게시하기 위한 전체 프로세스 및 요구 사항을 설명합니다. 단일 번들로 제공되는 제품의 통합 솔루션에서는 소프트웨어 공급업체의 포인트 솔루션 기술을 서비스 파트너의 배포 및 지원과 결합합니다. 서비스 파트너는 Microsoft AppSource 또는 Azure Marketplace에 제품을 [컨설팅 서비스](./plan-consulting-service-offer.md)로 나열합니다.
 
 통합 솔루션은 특정 고객의 요구 또는 시나리오를 해결하는 것을 목표로 합니다. 공급자는 업계의 당면 과제나 불만 사항을 파악하는 것으로 시작합니다. 그런 다음 두 개 이상의 최상의 기술을 통합하여 고객을 위한 통합 및 반복 가능한 배포 환경을 만듭니다. 공급자는 고객이 신속하게 적용하여 실행하도록 합니다. 관련한 사용자 지정, 컨설팅 및 솔루션 지원을 제공하는 단일 연락 지점을 고객에게 제공합니다. 이를 통해 기술 및 서비스를 포함하는 통합 솔루션이 제공됩니다.
-
-통합 솔루션 프로그램의 개요는 [파트너 개요 동영상](https://partner.microsoft.com/asset/detail/integrated-solutions-program-overview-for-partners-mp4)을 시청하세요.
 
 ## <a name="benefits-of-integrated-solutions-in-the-marketplace"></a>Marketplace에서 통합 솔루션의 이점
 
@@ -31,7 +29,6 @@ ms.locfileid: "129153827"
 
 ## <a name="eligibility-criteria"></a>자격 기준
 
-* 참여하는 파트너는 MPN ID가 있어야 합니다.
 * 참여하는 서비스 공급자는 [공동 판매를 준비](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)해야 합니다.
 * 참여하는 소프트웨어 공급업체는 [IP 공동 판매를 준비](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)해야 합니다.
 * 하나 이상의 참여 파트너는 다음 영역 중 하나에서 골드 역량이 있어야 합니다.
@@ -49,13 +46,7 @@ ms.locfileid: "129153827"
 * 통합 솔루션의 IP는 단순히 소프트웨어 공급업체의 IP 및 기본 서비스 공급자 제품과 차별화되어야 합니다.
 * 모든 파트너는 Microsoft AppSource 또는 Azure Marketplace(또는 둘 다)를 통해 나열되고 궁극적으로 트랜잭션될 수 있는 반복 가능한 제품을 만드는 목표를 공유합니다.
 
-## <a name="submit-a-nomination"></a>추천 제출
-
-프로그램에 참여하려는 파트너는 작업하려는 다른 파트너를 식별해야 합니다. [통합 솔루션 추천 양식](https://go.microsoft.com/fwlink/?linkid=2172593)을 작성해야 합니다. 통합 솔루션 프로그램 팀은 추천을 검토하고 영업일 10일 이내에 수행합니다. 팀에서 승인하고 다음 단계로 진행합니다.
-
-## <a name="develop-an-integrated-solution"></a>통합 솔루션 개발
-
-추천이 승인된 후에는 연결된 프로그램 리소스를 사용하여 통합 솔루션을 개발합니다. 다음 단계를 수행하세요.
+## <a name="best-practices-when-developing-an-integrated-solution"></a>통합 솔루션을 개발할 때의 모범 사례
 
 1. 솔루션 및 통합 방법을 정의하기 위해 워크샵 형식으로 핵심 비즈니스 및 기술 토론을 통해 결론을 도출합니다.
 
@@ -87,13 +78,7 @@ ms.locfileid: "129153827"
 
 4. Microsoft AppSource 또는 Azure Marketplace에서 솔루션 가격 책정 및 단일 가격대를 결정합니다.
 
-5. 다음을 포함하여 Microsoft AppSource 또는 Azure Marketplace 목록을 위해 마케팅 참고 자료를 작성합니다.
-
-    * 결합된 솔루션 이름.
-    * 통합 솔루션의 목록 설명. [제품 목록 모범 사례](./gtm-offer-listing-best-practices.md)를 따릅니다.
-    * 고객에 대한 한 장 요약 설명. [한 장 요약 템플릿](https://aka.ms/AA5s08a)을 사용합니다.
-    * 고객 프레젠테이션. [프레젠테이션 템플릿](https://aka.ms/AA5s7ql)을 사용합니다.
-    * 결합된 솔루션의 로고.
+5. Microsoft AppSource 또는 Azure Marketplace 목록에 필요한 마케팅 데이터 정렬을 완료합니다.
 
 ## <a name="publish-your-integrated-solution"></a>통합 솔루션을 게시합니다.
 
@@ -103,8 +88,8 @@ ms.locfileid: "129153827"
 
 ## <a name="go-to-market-with-your-integrated-solution"></a>통합 솔루션을 사용하여 시장 진출
 
-솔루션이 Microsoft AppSource 또는 Azure Marketplace에서 라이브 상태인 경우 마케팅 활동을 통해 인식 및 수요를 촉진하려고 합니다. [프로젝트 계획 및 타임라인](https://aka.ms/AA5qiuc)에 나열된 작업을 검토합니다. 이 리소스에는 파트너가 추진하는 자신의 팀 내의 활동과 다른 팀과 협력할 활동이 포함됩니다. 그런 다음 Marketplace에 게시하는 파트너에 대한 [Go-To-Market 혜택](./gtm-your-marketplace-benefits.md#list-trial-and-consulting-benefits)에 액세스합니다. 모든 통합 솔루션 제품으로 평가판 수준의 혜택을 받을 수 있습니다.
+솔루션이 Microsoft AppSource 또는 Azure Marketplace에서 라이브 상태인 경우 마케팅 활동을 통해 인식 및 수요를 촉진하려고 합니다. 마켓플레이스에 [게시하는](./gtm-your-marketplace-benefits.md#list-trial-and-consulting-benefits) 파트너의 시장 진출 혜택을 활용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [통합 솔루션 추천 양식](https://aka.ms/AA5qicu)
+- [활성화 Marketplace Rewards](marketplace-rewards.md)

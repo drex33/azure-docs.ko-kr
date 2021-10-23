@@ -3,12 +3,12 @@ title: Azure Backup 에이전트 문제 해결
 description: 이 문서에서는 Azure Backup 에이전트의 설치 및 등록 문제를 해결하는 방법에 대해 알아봅니다.
 ms.topic: troubleshooting
 ms.date: 06/04/2021
-ms.openlocfilehash: 5ad3b4d5d87564f77f071ec8c54eec8fe461e118
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: c3e253f04e74ed2e6042a905e4a8165af93d0012
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114298075"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233190"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트 문제 해결
 
@@ -21,7 +21,7 @@ MARS(Microsoft Azure Recovery Services) 에이전트 문제 해결을 시작하�
 - [MARS 에이전트가 최신 상태인지 확인](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)합니다.
 - [MARS 에이전트와 Azure 간에 네트워크 연결이 있는지 확인](#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)합니다.
 - 서비스 콘솔에서 MARS가 실행 중인지 확인합니다. 필요한 경우 다시 시작하고 작업을 다시 시도합니다.
-- [스크래치 폴더 위치에서 5~10%의 볼륨 여유 공간을 사용할 수 있는지 확인](/azure/backup/backup-azure-file-folder-backup-faq#what-s-the-minimum-size-requirement-for-the-cache-folder-)합니다.
+- [스크래치 폴더 위치에서 5~10%의 볼륨 여유 공간을 사용할 수 있는지 확인](./backup-azure-file-folder-backup-faq.yml#what-s-the-minimum-size-requirement-for-the-cache-folder-)합니다.
 - [다른 프로세스 또는 바이러스 백신 소프트웨어가 Azure Backup을 방해하는지 확인합니다](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup).
 - 백업 작업이 완료되었지만 경고가 표시되면 [경고와 함께 완료된 백업 작업](#backup-jobs-completed-with-warning)을 참조하세요.
 - 예약 백업은 실패하지만 수동 백업은 작동하는 경우 [예약에 따라 백업이 실행되지 않음](#backups-dont-run-according-to-schedule)을 참조하세요.
@@ -99,7 +99,7 @@ MARS(Microsoft Azure Recovery Services) 에이전트 문제 해결을 시작하�
   | 오류 코드             | 이유                                             | 권장 사항                                              |
   | ---------------------- | --------------------------------------------------- | ------------------------------------------------------------ |
   | 0x80070570             | 파일 또는 디렉터리가 손상되어 읽을 수 없습니다. | 원본 볼륨에서 **chkdsk** 를 실행합니다.                             |
-  | 0x80070002, 0x80070003 | 시스템에서 지정된 파일을 찾을 수 없습니다.         | [스크래치 폴더가 꽉 차지 않았는지 확인](/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder)합니다.  <br><br>  스크래치 공간이 구성된 볼륨이 있는지 확인합니다(삭제 안 됨).  <br><br>   [MARS 에이전트가 머신에 설치된 바이러스 백신에서 제외되어 있는지 확인](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)합니다.  |
+  | 0x80070002, 0x80070003 | 시스템에서 지정된 파일을 찾을 수 없습니다.         | [스크래치 폴더가 꽉 차지 않았는지 확인](./backup-azure-file-folder-backup-faq.yml)합니다.  <br><br>  스크래치 공간이 구성된 볼륨이 있는지 확인합니다(삭제 안 됨).  <br><br>   [MARS 에이전트가 머신에 설치된 바이러스 백신에서 제외되어 있는지 확인](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)합니다.  |
   | 0x80070005             | 액세스 거부됨                                    | [바이러스 백신 또는 기타 타사 소프트웨어가 액세스를 차단하는지 확인](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)합니다.     |
   | 0x8007018b             | 클라우드 파일에 대한 액세스가 거부되었습니다.                | OneDrive 파일, Git 파일 또는 머신에서 오프라인 상태일 수 있는 기타 파일 |
 
@@ -117,13 +117,13 @@ MARS(Microsoft Azure Recovery Services) 에이전트 문제 해결을 시작하�
 
 | Error  | 가능한 원인 | 권장 작업 |
 |---------|---------|---------|
-|<br />정품 인증이 완료되지 않았습니다. 내부 서비스 오류 [0x1FC07]로 인해 현재 작업이 실패했습니다. 잠시 후 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요.     | <li> 스크래치 폴더가 공간이 부족한 볼륨에 있습니다. <li> 스크래치 폴더가 잘못 이동되었습니다. <li> OnlineBackup.KEK 파일이 없습니다.         | <li>[최신 버전](https://aka.ms/azurebackup_agent)의 MARS 에이전트로 업그레이드합니다.<li>스크래치 폴더 또는 캐시 위치를 백업 데이터 전체 크기의 5~10%에 사이의 여유 공간이 있는 볼륨으로 이동합니다. 캐시 위치를 올바르게 이동하려면 [파일 및 폴더 백업에 대한 일반적인 질문](/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder)에 나오는 단계를 참조하세요.<li> OnlineBackup.KEK 파일이 있는지 확인합니다. <br>*스크래치 폴더 또는 캐시 경로의 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch입니다*.        |
+|<br />정품 인증이 완료되지 않았습니다. 내부 서비스 오류 [0x1FC07]로 인해 현재 작업이 실패했습니다. 잠시 후 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요.     | <li> 스크래치 폴더가 공간이 부족한 볼륨에 있습니다. <li> 스크래치 폴더가 잘못 이동되었습니다. <li> OnlineBackup.KEK 파일이 없습니다.         | <li>[최신 버전](https://aka.ms/azurebackup_agent)의 MARS 에이전트로 업그레이드합니다.<li>스크래치 폴더 또는 캐시 위치를 백업 데이터 전체 크기의 5~10%에 사이의 여유 공간이 있는 볼륨으로 이동합니다. 캐시 위치를 올바르게 이동하려면 [파일 및 폴더 백업에 대한 일반적인 질문](./backup-azure-file-folder-backup-faq.yml)에 나오는 단계를 참조하세요.<li> OnlineBackup.KEK 파일이 있는지 확인합니다. <br>*스크래치 폴더 또는 캐시 경로의 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch입니다*.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>암호화 암호가 올바르게 구성되지 않았습니다.
 
 | Error  | 가능한 원인 | 권장 작업 |
 |---------|---------|---------|
-| <br />34506 오류입니다. 이 컴퓨터에 저장된 암호화 암호가 제대로 구성되지 않았습니다.    | <li> 스크래치 폴더가 공간이 부족한 볼륨에 있습니다. <li> 스크래치 폴더가 잘못 이동되었습니다. <li> OnlineBackup.KEK 파일이 없습니다.        | <li>[최신 버전](https://aka.ms/azurebackup_agent)의 MARS 에이전트로 업그레이드합니다.<li>스크래치 폴더 또는 캐시 위치를 백업 데이터 전체 크기의 5~10%에 사이의 여유 공간이 있는 볼륨으로 이동합니다. 캐시 위치를 올바르게 이동하려면 [파일 및 폴더 백업에 대한 일반적인 질문](/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder)에 나오는 단계를 참조하세요.<li> OnlineBackup.KEK 파일이 있는지 확인합니다. <br>*스크래치 폴더 또는 캐시 경로의 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch입니다*.         |
+| <br />34506 오류입니다. 이 컴퓨터에 저장된 암호화 암호가 제대로 구성되지 않았습니다.    | <li> 스크래치 폴더가 공간이 부족한 볼륨에 있습니다. <li> 스크래치 폴더가 잘못 이동되었습니다. <li> OnlineBackup.KEK 파일이 없습니다.        | <li>[최신 버전](https://aka.ms/azurebackup_agent)의 MARS 에이전트로 업그레이드합니다.<li>스크래치 폴더 또는 캐시 위치를 백업 데이터 전체 크기의 5~10%에 사이의 여유 공간이 있는 볼륨으로 이동합니다. 캐시 위치를 올바르게 이동하려면 [파일 및 폴더 백업에 대한 일반적인 질문](./backup-azure-file-folder-backup-faq.yml)에 나오는 단계를 참조하세요.<li> OnlineBackup.KEK 파일이 있는지 확인합니다. <br>*스크래치 폴더 또는 캐시 경로의 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch입니다*.         |
 
 ## <a name="backups-dont-run-according-to-schedule"></a>백업이 일정에 따라 실행되지 않음
 

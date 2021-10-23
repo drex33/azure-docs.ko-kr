@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/11/2021
 ms.author: shpathak
-ms.openlocfilehash: 02b5c4bd42abc9c36ef971b053979d590d1e602d
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: dd7bb63204ccaa38379b49cfe3946372319dfc44
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129808840"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252904"
 ---
 # <a name="connection-resilience"></a>연결 복원력
 
@@ -64,7 +64,7 @@ ms.locfileid: "129808840"
 많은 클라이언트 인스턴스를 다시 연결하는 경우 연결된 클라이언트 수가 급증하지 않도록 새 연결에는 시차를 두는 것이 좋습니다.
 
 > [!NOTE]
-> `StackExchange.Redis` 클라이언트 라이브러리를 사용하는 경우 연결 문자열에서 `abortConnect`를 `false`로 설정합니다.  `ConnectionMultiplexer`에서 다시 연결을 처리하도록 하는 것이 좋습니다. 자세한 내용은 [StackExchange.Redis 모범 사례](/azure/azure-cache-for-redis/cache-management-faq#stackexchangeredis-best-practices)를 참조하세요.
+> `StackExchange.Redis` 클라이언트 라이브러리를 사용하는 경우 연결 문자열에서 `abortConnect`를 `false`로 설정합니다.  `ConnectionMultiplexer`에서 다시 연결을 처리하도록 하는 것이 좋습니다. 자세한 내용은 [StackExchange.Redis 모범 사례](./cache-management-faq.yml#stackexchangeredis-best-practices)를 참조하세요.
 
 ## <a name="avoid-leftover-connections"></a>연결 남기지 않기
 

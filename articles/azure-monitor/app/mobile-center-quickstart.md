@@ -2,17 +2,14 @@
 title: Azure Monitor Application Insights를 사용하여 모바일 앱 모니터링
 description: Azure Monitor Application Insights 및 App Center를 사용하여 모니터링하도록 모바일 앱을 빠르게 설정하는 지침을 제공합니다.
 ms.topic: quickstart
-author: lgayhardt
-ms.author: lagayhar
 ms.date: 06/26/2019
-ms.reviewer: daviste
 ms.custom: mvc
-ms.openlocfilehash: d0d95a323e496b3b6d8a93f674535710d4099ef0
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: ddc8a10d3f68642a9fa17c02b937a536c150e3b7
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384717"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131717"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>App Center 및 Application Insights를 사용하여 모바일 앱 분석 시작
 
@@ -74,7 +71,7 @@ Analytics.trackEvent("Video clicked")
 
     구성 상자가 표시됩니다. 아래 표를 사용하여 입력 필드를 채웁니다.
 
-    | 설정        |  값           | 설명  |
+    | 설정        |  값           | Description  |
    | ------------- |:-------------|:-----|
    | **이름**      | "myApp-iOS" 등의 일부 전역적으로 고유 값 | 모니터링하는 응용 프로그램을 식별하는 이름입니다. |
      | **리소스 그룹**     | 새 리소스 그룹, 또는 메뉴의 기존 리소스 그룹 | 새 Application Insights 리소스를 만들 리소스 그룹 |

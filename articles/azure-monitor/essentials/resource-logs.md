@@ -6,17 +6,17 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
-ms.openlocfilehash: 2435e4ed16889d9d4701b6047c0a1f602ee7ae91
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: ac4ada3fe234428216d50edd85caa16fed10a5d2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102558698"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130231573"
 ---
 # <a name="azure-resource-logs"></a>Azure 리소스 로그
 Azure 리소스 로그는 Azure 리소스 내에서 수행된 작업에 대한 인사이트를 제공하는 [플랫폼 로그](../essentials/platform-logs-overview.md)입니다. 이러한 로그의 내용은 Azure 서비스와 리소스 종류에 따라 달라집니다. 리소스 로그는 기본적으로 수집되지 않습니다. 각 Azure 리소스에 대한 진단 설정을 만들어 [Azure Monitor Logs](../logs/data-platform-logs.md)에 사용하기 위한 Log Analytics 작업 영역으로 전송하거나, Azure 외부로 전달하기 위해 Azure Event Hubs로 전송하거나, 보관을 위해 Azure Storage로 전송합니다.
 
-진단 설정 만들기에 대한 자세한 내용은 [플랫폼 로그 및 메트릭을 다양한 대상에 전송하는 진단 설정 만들기](../essentials/diagnostic-settings.md)를, Azure Policy를 사용하여 만드는 각 Azure 리소스에 대한 진단 설정을 자동으로 만드는 방법에 대한 자세한 내용은 [Azure Policy를 통한 대규모 Azure Monitor 배포](../deploy-scale.md)를 참조하세요.
+진단 설정 만들기에 대한 자세한 내용은 [플랫폼 로그 및 메트릭을 다양한 대상에 전송하는 진단 설정 만들기](../essentials/diagnostic-settings.md)를, Azure Policy를 사용하여 만드는 각 Azure 리소스에 대한 진단 설정을 자동으로 만드는 방법에 대한 자세한 내용은 [Azure Policy를 통한 대규모 Azure Monitor 배포](../best-practices.md)를 참조하세요.
 
 ## <a name="send-to-log-analytics-workspace"></a>Log Analytics 작업 영역으로 보내기
  다음을 포함하는 [Azure Monitor Logs](../logs/data-platform-logs.md) 기능을 사용할 수 있도록 리소스 로그를 Log Analytics 작업 영역으로 전송합니다.

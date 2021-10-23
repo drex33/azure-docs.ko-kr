@@ -3,12 +3,12 @@ title: Azure Batch의 비용 분석 가져오기 및 예산 설정
 description: Batch 워크로드를 실행하는 데 사용되는 기본 컴퓨팅 리소스 및 소프트웨어 라이선스의 비용 분석을 수행하고 예산을 설정하며 비용을 절감하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 10/04/2021
-ms.openlocfilehash: b88b69c4debf34cb97368d7cfb6ac5e611c77334
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 3590aad01216e5ca7401ce1edd55efb88bf26848
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130071818"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219208"
 ---
 # <a name="get-cost-analysis-and-set-budgets-for-azure-batch"></a>Azure Batch의 비용 분석 가져오기 및 예산 설정
 
@@ -48,7 +48,7 @@ Batch 솔루션과 함께 사용하는 서비스에 따라 추가 요금이 발�
 
 ## <a name="view-cost-analysis-and-create-budgets"></a>비용 분석 보기 및 예산 만들기
 
-[Azure Cost Management](/azure/cost-management-billing/cost-management-billing-overview) 사용하면 지출을 계획, 분석 및 줄여 클라우드 투자를 최대화할 수 있습니다. Azure Batch 포함하여 모든 Azure 서비스에 대한 사용 비용을 사용할 수 있습니다. 일괄 처리 비용을 보고 필터링하고, 향후 비용을 예측하고, 해당 한도에 도달하면 경고를 사용하여 지출 한도를 설정할 수 있습니다.
+[Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) 사용하면 지출을 계획, 분석 및 줄여 클라우드 투자를 최대화할 수 있습니다. Azure Batch 포함하여 모든 Azure 서비스에 대한 사용 비용을 사용할 수 있습니다. 일괄 처리 비용을 보고 필터링하고, 향후 비용을 예측하고, 해당 한도에 도달하면 경고를 사용하여 지출 한도를 설정할 수 있습니다.
 
 Azure Portal에서 Batch 풀 또는 Batch 계정에 대한 예산 및 지출 경고를 만들 수 있습니다. 예산 및 경고는 지출 경고가 지연되고 예산을 약간 초과할 수 있지만 초과 지출의 위험을 관련자에게 알리는 데 유용합니다.
 
@@ -88,7 +88,7 @@ Batch 서비스 풀 할당 모드로 만든 Batch 계정의 경우:
 1. **필터 추가** 를 선택합니다. 첫 번째 드롭다운에서 **태그를** 선택합니다.
 1. 두 번째 드롭다운에서 **poolname을** 선택합니다.
 1. 세 번째 드롭다운에서 Batch 풀을 선택합니다. 풀을 선택하면 풀에 대한 비용 분석이 표시됩니다. 아래 스크린샷은 예제 데이터를 보여줍니다.
-   :::image type="content" source="media/batch-budget/user-subscription-pool.png" alt-text="Azure Portal 사용자 구독 Batch 풀의 비용 분석을 보여주는 스크린샷":::
+   :::image type="content" source="media/batch-budget/user-subscription-pool.png" alt-text="Azure Portal 사용자 구독 Batch 풀의 비용 분석을 보여주는 스크린샷.":::
 
 사용자 구독 Batch 계정의 모든 풀에 대한 비용 데이터를 보려면 두 번째 드롭다운에서 **batchaccountname을** 선택하고 세 번째 드롭다운에서 Batch 계정의 이름을 선택할 수 있습니다. 
 
@@ -151,5 +151,5 @@ Batch를 장기간 사용하려는 경우 워크로드에 [Azure Reservations](.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Cost Management + Billing](/azure/cost-management-billing/cost-management-billing-overview)대해 자세히 알아보세요.
+- [Azure Cost Management + Billing](../cost-management-billing/cost-management-billing-overview.md)대해 자세히 알아보세요.
 - [Batch에서 우선 순위가 낮은 VM을 사용](batch-low-pri-vms.md)하는 방법에 대해 알아보세요.

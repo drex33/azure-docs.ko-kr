@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: AlainDormehlMSFT
 ms.author: aldorme
 ms.reviewer: mathoma, wiassaf
-ms.date: 06/12/2020
-ms.openlocfilehash: f05770143719b616aa0e195d6b719ae28da9dcd9
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
-ms.translationtype: HT
+ms.date: 10/18/2021
+ms.openlocfilehash: 3277952383d7a328c08a15b5958289ce322e01dd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111593047"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130239455"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>인공 지능을 사용하여 데이터베이스 성능을 모니터링하고 문제를 해결하는 Intelligent Insights(미리 보기)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -59,11 +59,6 @@ Intelligent Insights는 마지막 1시간의 데이터베이스 워크로드와 
 | 검색 | 이벤트의 시간 동안 데이터베이스에서 식별된 검색합니다. 15가지 검색 패턴이 있습니다. 자세한 내용은 [인텔리전스 Insights를 사용하여 데이터베이스 성능 문제 해결](intelligent-insights-troubleshoot-performance.md)을 참조하세요. |
 | 근본 원인 분석 | 인간이 읽을 수 있는 형식으로 식별된 문제의 근본 원인 분석입니다. 가능한 경우 일부 정보에는 성능 개선 권장 사항이 있을 수 있습니다. |
 |||
-
-Azure SQL 분석을 사용해 Intelligent Insights를 사용하는 방법에 대한 실무 중심 개요 및 일반적인 사용 시나리오는 다음 영상을 참조하세요.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
->
 
 Intelligent Insights는 데이터베이스 성능 문제를 검색하고 해결하는 데 특히 유용합니다. Intelligent Insights를 사용하여 데이터베이스 성능 문제를 해결하는 방법에 대한 자세한 내용은 [Intelligent Insights를 사용하여 성능 문제 해결](intelligent-insights-troubleshoot-performance.md)을 참조하세요.
 

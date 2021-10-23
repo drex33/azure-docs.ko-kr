@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/26/2018
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ae5dcbee8ef2240ddffdfaa6c7a837e083d5648f
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 7e09a94270ee440f462e538492a13bde263c6163
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689676"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234060"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Windows를 실행하는 Azure 가상 머신에 연결하고 로그온하는 방법
 
@@ -45,7 +45,7 @@ Mac에서 Windows VM에 연결하려면 [Microsoft 원격 데스크톱](https://
 
 
    > [!TIP]
-   > 포털의 **연결** 단추가 회색으로 표시되고 [Express 경로](../../expressroute/expressroute-introduction.md) 또는 [사이트 간 VPN](../../vpn-gateway/tutorial-site-to-site-portal.md) 연결을 통해 Azure에 연결되지 않는 경우 RDP를 사용하려면 먼저 공용 IP 주소를 만들고 VM에 할당해야 합니다. 자세한 내용은 [Azure의 공용 IP 주소](../../virtual-network/public-ip-addresses.md)를 참조하세요.
+   > 포털의 **연결** 단추가 회색으로 표시되고 [Express 경로](../../expressroute/expressroute-introduction.md) 또는 [사이트 간 VPN](../../vpn-gateway/tutorial-site-to-site-portal.md) 연결을 통해 Azure에 연결되지 않는 경우 RDP를 사용하려면 먼저 공용 IP 주소를 만들고 VM에 할당해야 합니다. 자세한 내용은 [Azure의 공용 IP 주소](../../virtual-network/ip-services/public-ip-addresses.md)를 참조하세요.
    > 
    > 
 

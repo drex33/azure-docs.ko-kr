@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: lajanuar
-ms.openlocfilehash: ddecc748443a6596c611fae857301e1f80f57a66
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 8d118d72b267cc42780f198a1fb0dc63f0f0d965
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130039375"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233604"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
@@ -24,28 +24,28 @@ Form Recognizer 서비스는 지속적으로 업데이트됩니다. 릴리스 �
 
 ## <a name="october-2021"></a>2021년 10월
 
-### <a name="form-recognizer-new-preview-release"></a>폼 인식기 새 미리 보기 릴리스
+### <a name="form-recognizer-new-preview-release"></a>새 미리 보기 릴리스 Form Recognizer
 
- 양식 인식기 새로운 미리 보기 릴리스에는 다음과 같은 몇 가지 새로운 기능 및 기능이 도입 되었습니다.
+ Form Recognizer 새 미리 보기 릴리스에는 다음과 같은 몇 가지 새로운 기능이 도입되었습니다.
 
-* [**일반 문서**](concept-general-document.md) 모델은 미리 학습 된 모델을 사용 하 여 폼과 문서에서 텍스트, 테이블, 구조, 키-값 쌍 및 명명 된 엔터티를 추출 하는 새로운 API입니다.
-* [**호텔 수령**](concept-receipt.md) 모델이 미리 작성 된 수신 처리에 추가 되었습니다.
-* [**Id 문서의 확장 된 필드**](concept-id-document.md) id 모델은 미국 드라이버 라이선스에서 인증, 제한 및 차량 분류 추출을 지원 합니다.
-* [**서명 필드**](concept-custom.md) 는 양식 필드에서 서명의 존재를 검색 하기 위한 사용자 지정 양식의 새 필드 형식입니다.
+* [**일반 문서**](concept-general-document.md) 모델은 미리 학습된 모델을 사용하여 양식 및 문서에서 텍스트, 테이블, 구조, 키-값 쌍 및 명명된 엔터티를 추출하는 새로운 API입니다.
+* 호텔 [**영수증**](concept-receipt.md) 모델이 미리 배달된 영수증 처리에 추가되었습니다.
+* [**ID 문서에 대한 확장된 필드**](concept-id-document.md) ID 모델은 미국 운전면허에서 보증, 제한 및 차량 분류 추출을 지원합니다.
+* [**서명 필드는**](concept-custom.md) 양식 필드에 서명이 있는지 검색하는 사용자 지정 양식의 새 필드 형식입니다.
 
-* [**언어 확장**](language-support.md) 122 언어 (인쇄) 및 7 개 언어 (필기)를 지원 합니다. 양식 인식기 레이아웃 및 사용자 지정 양식은 최신 미리 보기를 사용 하 여 [지원 되는 언어](language-support.md) 를 122으로 확장 합니다. 여기에는 러시아어, 불가리아어, 기타 키릴 자모 및 기타 라틴어를 비롯 한 49 새로운 언어의 인쇄 텍스트에 대 한 텍스트 추출이 포함 됩니다. 또한 필기 텍스트를 추출 하면 영어를 포함 하는 7 가지 언어 및 중국어 간체, 프랑스어, 독일어, 이탈리아어, 포르투갈어 및 스페인어 미리 보기가 지원 됩니다.
+* [**언어 확장**](language-support.md) 122개 언어(인쇄) 및 7개 언어(필기)를 지원합니다. Form Recognizer 레이아웃 및 사용자 지정 양식은 [지원되는 언어를](language-support.md) 최신 미리 보기로 122로 확장합니다. 여기에는 러시아어, 라틴어 및 기타 키릴 자식 언어를 비롯한 49개의 새로운 언어로 된 인쇄 텍스트에 대한 텍스트 추출이 포함됩니다. 또한 필기 텍스트 추출은 이제 영어를 포함하는 7개 언어와 중국어 간체, 프랑스어, 독일어, 이탈리아어, 포르투갈어 및 스페인어의 새로운 미리 보기를 지원합니다.
 
-* **테이블 및 텍스트 추출 기능 향상** 이제 레이아웃에서 키-값 테이블이 라고도 하는 단일 행 테이블을 추출할 수 있습니다. 텍스트 추출의 향상 된 기능에는 일반 성능과 함께 id 문서에서 디지털 Pdf 및 MRZ (컴퓨터 판독 가능 영역) 텍스트가 더 효율적으로 처리 됩니다.
+* **향상된 테이블 및 텍스트 추출 기능** 이제 레이아웃은 키-값 테이블이라고도 하는 단일 행 테이블 추출을 지원합니다. 텍스트 추출 기능 향상에는 일반 성능과 함께 ID 문서에서 디지털 PDF 및 MRZ(Machine Readable Zone) 텍스트의 더 나은 처리가 포함됩니다.
 
-* [**폼 인식기 스튜디오**](https://formrecognizer.appliedai.azure.com) 서비스의 사용을 간소화 하기 위해 이제 폼 인식기 Studio에 액세스 하 여 미리 작성 된 다른 모델 또는 레이블을 테스트 하 고 사용자 지정 모델을 학습 시킬 수 있습니다.
+* [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com) 서비스 사용을 간소화하기 위해 이제 Form Recognizer Studio에 액세스하여 다른 미리 붙는 모델을 테스트하거나 사용자 지정 모델에 레이블을 지정하고 학습할 수 있습니다.
 
-새 [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm), [Python](quickstarts/try-v3-python-sdk.md) 또는 [.net](quickstarts/try-v3-csharp-sdk.md) SDK for v 3.0 preview API를 사용 하 여 시작을 받으세요.
+v3.0 미리 보기 API용 새 [REST API,](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) [Python](quickstarts/try-v3-python-sdk.md) 또는 [.NET](quickstarts/try-v3-csharp-sdk.md) SDK를 사용하세요.
 
- #### <a name="form-recognizer-model-data-extraction"></a>폼 인식기 모델 데이터 추출
+ #### <a name="form-recognizer-model-data-extraction"></a>모델 데이터 추출 Form Recognizer
 
   | **모델**   | **텍스트 추출** |**키-값 쌍** |**선택 표시**   | **테이블**   |**엔터티** |
   | --- | :---: |:---:| :---: | :---: |:---: |
-  |🆕 일반 문서  | ✓  |  ✓ | ✓  | ✓  | ✓  |
+  |🆕일부 문서  | ✓  |  ✓ | ✓  | ✓  | ✓  |
   | Layout  | ✓  |   | ✓  | ✓  |   |
   | 청구서  | ✓ | ✓  | ✓  | ✓ ||
   |Receipt  | ✓  |   ✓ |   |  ||
@@ -55,22 +55,22 @@ Form Recognizer 서비스는 지속적으로 업데이트됩니다. 릴리스 �
 
 ## <a name="september-2021"></a>2021년 9월
 
-* [Azure 메트릭 탐색기 고급 기능은](/azure/azure-monitor/essentials/metrics-charts) Azure Portal의 양식 인식기 리소스 개요 페이지에서 사용할 수 있습니다.
+* [Azure 메트릭 탐색기 고급 기능은](../../azure-monitor/essentials/metrics-charts.md) Azure Portal Form Recognizer 리소스 개요 페이지에서 사용할 수 있습니다.
 
     ### <a name="monitoring-menu"></a>모니터링 메뉴
 
-    :::image type="content" source="media/portal-metrics.png" alt-text="Azure Portal의 모니터링 메뉴를 보여 주는 스크린샷":::
+    :::image type="content" source="media/portal-metrics.png" alt-text="Azure Portal 모니터링 메뉴를 보여주는 스크린샷":::
 
     ### <a name="charts"></a>차트
 
-    :::image type="content" source="media/portal-metrics-charts.png" alt-text="Azure Portal 메트릭 차트의 예를 보여 주는 스크린샷":::
+    :::image type="content" source="media/portal-metrics-charts.png" alt-text="Azure Portal 예제 메트릭 차트를 보여주는 스크린샷":::
 
-*  **ID 문서** 모델 업데이트: 접미사를 포함 하거나 마침표 (전체 중지)를 포함 하거나 제외 하 고 이름을 지정 하면 성공적으로 처리 됩니다.
+*  **ID 문서** 모델 업데이트: 마침표(전체 중지)를 포함하거나 포함하지 않는 접미사를 포함한 지정된 이름은 성공적으로 처리됩니다.
 
-    |입력 텍스트 | 업데이트 포함 결과 |
+    |입력 텍스트 | 업데이트가 있는 결과 |
     |------------|-------------------------------------------|
-    | William Isaac Kirby Jr. |**FirstName**: William Isaac</br></br>**LastName**: Kirby Jr. |
-    | Henry Caleb Ross Sr | **FirstName**: Henry caleb </br></br> **LastName**: Ross Sr |
+    | 2018년 10월 20일, 2 |**FirstName:일본부**</br></br>**LastName**: 이진수. |
+    | 2018년 3월 20일, 2016년 | **FirstName**:일본 Caleb </br></br> **LastName**: 사용자 이름 |
 
 ## <a name="july-2021"></a>2021년 7월
 
@@ -122,15 +122,15 @@ Form Recognizer 기능은 이제 6개 기능 컨테이너인 **레이아웃**, *
 * Form Recognizer 2.1은 일반 공급됩니다. GA(일반 공급) 릴리스는 이전 2.1 미리 보기 패키지 버전에 도입된 변경 내용의 안정성을 표시합니다. 이 릴리스를 사용하면 다음에서 정보 및 데이터를 검색하고 추출할 수 있습니다.
 
 * [문서](concept-layout.md)
-* [Receipts](concept-receipts.md)
-* [명함](concept-business-cards.md)
-* [송장](concept-invoices.md)
-* [ID 문서](concept-identification-cards.md)
+* [Receipts](./concept-receipt.md)
+* [명함](./concept-business-card.md)
+* [송장](./concept-invoice.md)
+* [ID 문서](./concept-id-document.md)
 * [사용자 지정 양식](concept-custom.md)
 
 #### <a name="get-started"></a>시작
 
-[Form Recognizer 샘플 도구](https://fott-2-1.azurewebsites.net/)로 이동하고 [빠른 시작](quickstarts/get-started-with-form-recognizer.md)을 따릅니다.
+[Form Recognizer 샘플 도구](https://fott-2-1.azurewebsites.net/)로 이동하고 [빠른 시작](./quickstarts/try-sample-label-tool.md)을 따릅니다.
 
 ### <a name="layout-adds-table-headers"></a>레이아웃에 테이블 머리글이 추가됨
 
@@ -263,7 +263,7 @@ NuGet 패키지 버전 3.1.0-beta.4
 
    **StartRecognizeIdDocumentsAsync**
 
-   필드 값 목록은 Form Recognizer 설명서에서 [추출된 필드](concept-identification-cards.md#fields-extracted)를 _참조하세요_.
+   필드 값 목록은 Form Recognizer 설명서에서 [추출된 필드](./concept-id-document.md)를 _참조하세요_.
 
 * **[StartRecognizeContent](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient.startrecognizecontent?view=azure-dotnet-preview&preserve-view=true)** 메서드에 제공할 수 있는 문서 언어 세트가 확장되었습니다.
 
@@ -298,7 +298,7 @@ Maven 아티팩트 패키지 종속성 버전 3.1.0-beta.3
 
   **[beginRecognizeIdDocuments]**
 
-   필드 값 목록은 Form Recognizer 설명서에서 [추출된 필드](concept-identification-cards.md#fields-extracted)를 _참조하세요_.
+   필드 값 목록은 Form Recognizer 설명서에서 [추출된 필드](./concept-id-document.md)를 _참조하세요_.
 
 * **`FormContentType` 열거형의 사용자 지정 양식 및 학습 메서드에 대한 비트맵 이미지 파일(.bmp) 지원**:
 
@@ -336,7 +336,7 @@ npm 패키지 버전 3.1.0-beta.3
 
     **[beginRecognizeIdDocuments](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-preview&preserve-view=true&branch=main#beginRecognizeIdDocuments_FormRecognizerRequestBody__BeginRecognizeIdDocumentsOptions_)**
 
-    필드 값 목록은 Form Recognizer 설명서에서 [추출된 필드](concept-identification-cards.md#fields-extracted)를 _참조하세요_.
+    필드 값 목록은 Form Recognizer 설명서에서 [추출된 필드](./concept-id-document.md)를 _참조하세요_.
 
 * **FieldValue 인터페이스에 추가된 새 필드 값**:
 
@@ -361,7 +361,7 @@ pip 패키지 버전 3.1.0b4
 
   **[begin_recognize_id_documents](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python&preserve-view=true)**
 
-  필드 값 목록은 Form Recognizer 설명서에서 [추출된 필드](concept-identification-cards.md#fields-extracted)를 _참조하세요_.
+  필드 값 목록은 Form Recognizer 설명서에서 [추출된 필드](./concept-id-document.md)를 _참조하세요_.
 
 * **[FieldValueType](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.fieldvaluetype?view=azure-python-preview&preserve-view=true) 열거형에 추가된 새 필드 값**:
 
@@ -409,13 +409,13 @@ pip 패키지 버전 3.1.0b4
 
 * **새롭게 미리 빌드된 ID 모델** 새롭게 미리 빌드된 ID 모델로 고객은 ID를 가져오고 구조화된 데이터를 반환하여 처리를 자동화할 수 있습니다. 강력한 OCR(광학 인식) 기능을 ID 해석 모델과 결합하여 여권 및 미국 운전 면허증에서 이름, 생년월일, 발급일, 만료일 등의 주요 정보를 추출합니다.
 
-  [미리 빌드된 ID 모델에 대한 자세한 정보](concept-identification-cards.md)
+  [미리 빌드된 ID 모델에 대한 자세한 정보](./concept-id-document.md)
 
    :::image type="content" source="./media/id-canada-passport-example.png" alt-text="여권 예" lightbox="./media/id-canada-passport-example.png":::
 
 * **송장 모델에 대 한 줄 항목 추출** -이제 미리 작성 한 송장 모델에서 줄 항목 추출을 지원 합니다. 이제 전체 항목과 해당 부분 (설명, 수량, 수량, 제품 ID, 날짜 등)을 추출 합니다. 간단한 API/SDK 호출로 청구서에서 유용한 데이터(텍스트, 표, 키-값 쌍, 품목)를 추출할 수 있습니다.
 
-   [송장 모델에 대 한 자세한 정보](concept-invoices.md)
+   [송장 모델에 대 한 자세한 정보](./concept-invoice.md)
 
 * **감독된 표 레이블 지정 및 학습, 빈 값 레이블 지정** - Form Recognizer의 [최신 딥 러닝 자동 표 추출 기능](https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011) 외에도 이제는 고객이 표에 대해 레이블을 지정하고 학습시킬 수 있습니다. 이 새 릴리스에는 품목/표(동적 및 고정)에 대해 레이블을 지정하고 학습시키는 기능과 키-값 쌍 및 품목을 추출하는 사용자 지정 모델을 학습시키는 기능이 포함됩니다. 모델을 학습시키고 나면 모델은 documentResults 섹션에서 JSON 출력의 일부로 품목을 추출합니다.
 
@@ -439,7 +439,7 @@ pip 패키지 버전 3.1.0b4
 
 * **새롭게 미리 빌드된 청구서 모델** - 새롭게 미리 빌드된 청구서 모델로 고객은 다양한 형식의 청구서를 가져오고 구조화된 데이터를 반환하여 청구서 처리를 자동화할 수 있습니다. 강력한 OCR(광학 인식) 기능을 청구서 해석 딥 러닝 모델과 결합하여 영어로 된 청구서에서 주요 정보를 추출합니다. 키 텍스트, 표 및 고객, 공급업체, 청구서 ID, 청구서 기한, 총액, 지불액, 세금, 배송지, 청구지 등과 같은 정보를 추출합니다.
 
-  > [미리 빌드된 청구서 모델에 대한 자세한 정보](concept-invoices.md)
+  > [미리 빌드된 청구서 모델에 대한 자세한 정보](./concept-invoice.md)
 
   :::image type="content" source="./media/invoice-example.jpg" alt-text="청구서 예" lightbox="./media/invoice-example.jpg":::
 
@@ -449,7 +449,7 @@ pip 패키지 버전 3.1.0b4
 
   > [레이아웃 추출에 대한 자세한 정보](concept-layout.md)
 
-* **클라이언트 라이브러리 업데이트** - .Net, Python, Java, JavaScript용 [클라이언트 라이브러리](quickstarts/client-library.md)의 최신 버전은 Form Recognizer 2.1 API를 지원합니다.
+* **클라이언트 라이브러리 업데이트** - .Net, Python, Java, JavaScript용 [클라이언트 라이브러리](./quickstarts/try-sdk-rest-api.md)의 최신 버전은 Form Recognizer 2.1 API를 지원합니다.
 * **지원되는 새 언어: 일본어** - 이제 다음 새 언어가 지원됩니다. `AnalyzeLayout` 및 `AnalyzeCustomForm`에 대해 일본어(`ja`)가 지원됩니다. [언어 지원](language-support.md)
 * **텍스트 줄 스타일 표시(필기/기타)(라틴어에만 해당)** - 이제 Form Recognizer에서 각 텍스트 줄이 필기 스타일인지 아닌지를 분류하는 `appearance` 개체를 신뢰도 점수와 함께 출력합니다. 이 기능은 라틴어에 대해서만 지원됩니다.
 * **품질 개선 사항** - 한 자릿수 추출 개선 사항을 포함하여 추출 기능이 개선되었습니다.
@@ -473,13 +473,13 @@ pip 패키지 버전 3.1.0b4
 * **확인란/선택 표시 검색** – Form Recognizer는 확인란 및 라디오 단추와 같은 선택 표시에 대한 검색 및 추출을 지원합니다. 선택 표시는 `Layout`에서 추출되며 이제 `Train Custom Model` - _레이블을 사용하여 학습_ 에서 레이블을 지정하고 학습시켜 선택 표시에 대한 키 값 쌍을 추출할 수도 있습니다.
 * **모델 작성** - 단일 모델 ID로 여러 개의 모델을 작성하고 호출할 수 있습니다. 작성된 모델 ID로 분석하기 위해 문서를 제출하면 먼저 분류 단계를 수행하여 올바른 사용자 지정 모델로 라우팅합니다. 모델 작성 기능은 `Train Custom Model` - _레이블을 사용하여 학습_ 에서 사용할 수 있습니다.
 * **모델 이름** - 더 쉽게 관리하고 추적할 수 있도록 사용자 지정 모델에 식별 이름을 추가합니다.
-* **[새롭게 미리 빌드된 명함용 모델](concept-business-cards.md)** 영어 명함에서 일반 필드를 추출하는 데 사용됩니다.
-* **[미리 빌드된 영수증용 새로운 로캘](concept-receipts.md)** EN-US 외에 이제 EN-AU, EN-CA, EN-GB, EN-IN에 대한 지원이 제공됩니다.
+* **[새롭게 미리 빌드된 명함용 모델](./concept-business-card.md)** 영어 명함에서 일반 필드를 추출하는 데 사용됩니다.
+* **[미리 빌드된 영수증용 새로운 로캘](./concept-receipt.md)** EN-US 외에 이제 EN-AU, EN-CA, EN-GB, EN-IN에 대한 지원이 제공됩니다.
 * **품질 개선 사항** `Layout`, `Train Custom Model` - _레이블 없이 학습_ 및 _레이블을 사용하여 학습_.
 
 **v2.0** 에는 다음 업데이트가 포함됩니다.
 
-* .NET, Python, Java, JavaScript용 [클라이언트 라이브러리](quickstarts/client-library.md)가 일반 공급에 들어갔습니다.
+* .NET, Python, Java, JavaScript용 [클라이언트 라이브러리](./quickstarts/try-sdk-rest-api.md)가 일반 공급에 들어갔습니다.
 
 **새 샘플** 은 GitHub에서 사용할 수 있습니다.
 
@@ -616,7 +616,7 @@ Form Recognizer 샘플 레이블 지정 도구에 대한 자세한 내용은 [Gi
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자가 선택한 개발 언어로 Form Recognizer를 사용하여 양식 처리 앱 작성을 시작하려면 [빠른 시작](quickstarts/client-library.md)을 완료하세요.
+사용자가 선택한 개발 언어로 Form Recognizer를 사용하여 양식 처리 앱 작성을 시작하려면 [빠른 시작](./quickstarts/try-sdk-rest-api.md)을 완료하세요.
 
 ## <a name="see-also"></a>참조
 

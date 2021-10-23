@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/01/2020
+ms.date: 10/21/2021
 ms.author: allensu
-ms.openlocfilehash: fc474bf8a6df613a8dc1e95169b4730251ff22b7
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: fef02d3defc578b4c356677fc346dfbc2e41e4c7
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114472853"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130254547"
 ---
 # <a name="azure-load-balancer-skus"></a>Azure Load Balancer SKU
 
@@ -53,7 +53,7 @@ Azure Load Balancer에는 두 가지 SKU가 있습니다.
 
 ## <a name="limitations"></a>제한 사항
 
-- SKU는 변경할 수 없습니다. 기존 리소스의 SKU는 변경할 수 없습니다.
+- Load Balancer [S SKU를 업그레이드할](upgrade-basic-standard.md)수 있습니다.
 - 독립 실행형 가상 머신 리소스, 가용성 집합 리소스 또는 가상 머신 확장 집합 리소스는 하나의 SKU만 참조할 수 있습니다.
 - [이동 작업](../azure-resource-manager/management/move-resource-group-and-subscription.md):
   - 리소스 그룹 이동 작업(동일한 구독 내)은 표준 Load Balancer 및 표준 공용 IP에 대해 **지원됩니다.** 

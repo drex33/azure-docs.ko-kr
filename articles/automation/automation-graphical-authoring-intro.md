@@ -3,21 +3,25 @@ title: Azure Automation에서 그래픽 Runbook 작성
 description: 이 문서에서는 코드를 사용하지 않고 그래픽 Runbook을 작성하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/16/2018
+ms.date: 10/21/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: af5a1a8353435d9f54b28bce46897f55f8b560a7
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 2ce84a91fcb91be0326571a95cfa92fdfa3b33ef
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124812653"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130220267"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Azure Automation에서 그래픽 Runbook 작성
 
 Azure Automation의 모든 Runbook은 Windows PowerShell 워크플로입니다. 그래픽 Runbook 및 그래픽 PowerShell 워크플로 Runbook은 Automation 작업자가 실행하지만 사용자는 보거나 수정할 수 없는 PowerShell 코드를 생성합니다. 그래픽 Runbook을 그래픽 PowerShell 워크플로 Runbook으로 변환하거나 그 반대로 변환할 수 있습니다. 그러나 이러한 Runbook을 텍스트 Runbook으로 변환할 수는 없습니다. 또한 Automation 그래픽 편집기는 텍스트 Runbook을 가져올 수 없습니다.
 
 그래픽 작성을 통해 기본 Windows PowerShell 또는 PowerShell 워크플로 코드의 복잡성 없이 Azure Automation용 Runbook을 만들 수 있습니다. cmdlet 및 Runbook의 라이브러리에서 캔버스에 활동을 추가하고, 이들 함께 연결하고, 하나의 워크플로를 생성하도록 구성할 수 있습니다. System Center Orchestrator 또는 SMA(Service Management Automation)로 작업한 적이 있다면 그래픽 저작이 익숙하게 느껴지실 것입니다. 이 문서에서는 그래픽 Runbook 만들기를 시작하는 데 필요한 개념을 소개합니다.
+
+> [!NOTE]
+> 그래픽 runbook에는 디지털 서명을 추가할 수 없습니다. 이 기능은 Azure Automation 지원 되지 않습니다.
+>
 
 ## <a name="overview-of-graphical-editor"></a>그래픽 편집기 개요
 
@@ -255,7 +259,7 @@ Runbook을 작성할 때 Runbook 도구 모음에서 **입력 및 출력** 을 �
 
 각 입력 매개 변수는 다음 표의 속성으로 정의됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | 속성 | 필수 사항입니다. 매개 변수의 이름입니다. 이름은 Runbook 내에서 고유해야 합니다. 문자로 시작해야 하며, 문자, 숫자, 밑줄만 사용할 수 있습니다. 이름은 공백을 포함할 수 없습니다. |
 | Description |(선택 사항) 입력 매개 변수의 용도에 대한 설명입니다. |

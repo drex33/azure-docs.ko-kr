@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 8f745a3569d8d90ad1ccd7daea6a70a4574e6ddf
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 8e4b2a24d881822e24101872394e225dc9cb0947
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130069523"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265289"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Azure Functions의 Azure Blob Storage 바인딩 개요
 
@@ -36,9 +36,9 @@ Azure Functions는 [트리거 및 바인딩](./functions-triggers-bindings.md)�
 
 #### <a name="storage-extension-5x-and-higher"></a>스토리지 확장 5.x 이상
 
-새 버전의 Storage 바인딩 확장은 미리 보기에서 사용할 수 있습니다. [비밀 대신 id를 사용 하 여 연결](./functions-reference.md#configure-an-identity-based-connection)하는 기능이 도입 되었습니다. .NET 애플리케이션의 경우 `WindowsAzure.Storage` 및 `Microsoft.Azure.Storage`의 형식이 [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs)의 최신 형식으로 바뀌어 사용자가 바인딩할 수 있는 형식도 변경됩니다. [Azure.Storage.Blobs 마이그레이션 가이드](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/AzureStorageNetMigrationV12.md)에서 이러한 새로운 유형의 차이점과 마이그레이션 방법에 대해 자세히 알아봅니다.
+새 버전의 Storage 바인딩 확장은 미리 보기에서 사용할 수 있습니다. [비밀 대신 ID를 사용하여 연결하는](./functions-reference.md#configure-an-identity-based-connection)기능을 소개합니다. 관리 ID를 통해 함수 앱을 구성하는 방법에 대한 자습서는 ID 기반 연결을 통해 함수 앱 만들기 자습서를 [참조하세요.](./functions-identity-based-connections-tutorial.md) .NET 애플리케이션의 경우 새 확장 버전도 바인딩할 수 있는 형식을 변경하여 및 의 형식을 `WindowsAzure.Storage` `Microsoft.Azure.Storage` Azure.Storage 최신 형식으로 [바꿉니다. Blob .](/dotnet/api/azure.storage.blobs) [Azure.Storage.Blobs 마이그레이션 가이드](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/AzureStorageNetMigrationV12.md)에서 이러한 새로운 유형의 차이점과 마이그레이션 방법에 대해 자세히 알아봅니다.
 
-이 확장 버전은 [미리 보기 NuGet 패키지로] 사용할 수 있거나, 파일에 다음을 추가 하 여 미리 보기 확장 번들 v3에서 추가할 수 있습니다 `host.json` .
+이 확장 버전은 [미리 보기 NuGet 패키지로] 제공되거나 파일에 다음을 추가하여 미리 보기 확장 번들 v3에서 추가할 수 있습니다. `host.json`
 
 ```json
 {
@@ -50,9 +50,9 @@ Azure Functions는 [트리거 및 바인딩](./functions-triggers-bindings.md)�
 }
 ```
 
-자세히 알아보려면 [확장 업데이트]를 참조 하세요.
+자세한 내용은 [확장 업데이트를 참조하세요.]
 
-[NuGet 패키지 미리 보기]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/5.0.0-beta.5
+[미리 보기 NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/5.0.0-beta.5
 [core tools]: ./functions-run-local.md
 [확장 번들]: ./functions-bindings-register.md#extension-bundles
 [NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
@@ -67,10 +67,10 @@ Functions 1.x 앱은 [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Mi
 
 ## <a name="hostjson-settings"></a>host.json 설정
 
-이 섹션에서는이 바인딩이 사용 하는 함수에 사용할 수 있는 함수 앱 구성 설정에 대해 설명 합니다. 이러한 설정은 [확장 버전 5.0.0 이상을](#storage-extension-5x-and-higher)사용 하는 경우에만 적용 됩니다. 아래 예제 host.json 파일에는 이 바인딩에 대한 버전 2.x+ 설정만 포함되어 있습니다. 버전 2.x 이상 버전의 함수 앱 구성 설정에 대 한 자세한 내용은 [Azure Functions에 대 한 호스트 json 참조](functions-host-json.md)를 참조 하세요.
+이 섹션에서는 이 바인딩하는 함수에 사용할 수 있는 함수 앱 구성 설정을 설명합니다. 이러한 설정은 [확장 버전 5.0.0 이상 을](#storage-extension-5x-and-higher)사용하는 경우에만 적용됩니다. 아래 예제 host.json 파일에는 이 바인딩에 대한 버전 2.x+ 설정만 포함되어 있습니다. 버전 2.x 이상 버전의 함수 앱 구성 설정에 대한 자세한 내용은 [Azure Functions 대한 host.json 참조를 참조하세요.](functions-host-json.md)
 
 > [!NOTE]
-> 이 섹션은 5.0.0 이전 확장 버전에는 적용 되지 않습니다. 이러한 이전 버전의 경우 blob에 대 한 함수 앱 전체 구성 설정이 없습니다.
+> 이 섹션은 5.0.0 이전의 확장 버전에는 적용되지 않습니다. 이전 버전의 경우 Blob에 대한 함수 앱 전체 구성 설정이 없습니다.
 
 ```json
 {

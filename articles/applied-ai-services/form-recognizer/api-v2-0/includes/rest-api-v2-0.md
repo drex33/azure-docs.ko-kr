@@ -8,12 +8,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/25/2021
 ms.author: lajanuar
-ms.openlocfilehash: 8bc01edf8c89376fe0757deb0e8813ca53be80cb
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 482710246b8d1755d63568f1cdc897e73e50c50c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128641796"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265881"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -197,7 +197,7 @@ JSON 콘텐츠가 포함된 `200 (success)` 응답을 받게 됩니다.
 
 ## <a name="analyze-receipts"></a>영수증 분석
 
-이 섹션에서는 사전 학습된 영수증 모델을 사용하여 미국 영수증의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 영수증 분석에 대한 자세한 내용은 [영수증 개념 가이드](../../concept-receipts.md)를 참조하세요. 영수증 분석을 시작하기 위해, 아래 cURL 명령을 사용하여 **[Analyze Receipt](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync)** API를 호출합니다. 명령을 실행하기 전에 다음과 같이 변경합니다.
+이 섹션에서는 사전 학습된 영수증 모델을 사용하여 미국 영수증의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 영수증 분석에 대한 자세한 내용은 [영수증 개념 가이드](../../concept-receipt.md)를 참조하세요. 영수증 분석을 시작하기 위해, 아래 cURL 명령을 사용하여 **[Analyze Receipt](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync)** API를 호출합니다. 명령을 실행하기 전에 다음과 같이 변경합니다.
 
 1. `{Endpoint}`를 Form Recognizer 구독에서 얻은 엔드포인트로 바꿉니다.
 1. `{your receipt URL}`을 영수증 이미지의 URL 주소로 바꿉니다.

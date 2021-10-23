@@ -5,15 +5,15 @@ author: linda33wj
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/05/2018
+ms.date: 10/22/2021
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 02b51ff93b14adcbf0dc4c628421a7521fdc49c7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 67a66e618206b182983ada474b1f0d3788526e1e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128599813"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223912"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage 사이에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -77,7 +77,7 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
 
 **typeProperties** 섹션은 데이터 세트의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치, 서식 등에 대한 정보를 제공합니다. **AzureBlob** 데이터 세트 형식의 데이터 세트에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | folderPath |Blob Storage에서 컨테이너 및 폴더에 대한 경로입니다. 예제: myblobcontainer\myblobfolder\ |예 |
 | fileName |Blob의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다.<br/><br/>filename을 지정하는 경우 활동(복사 포함)은 특정 Blob에서 작동합니다.<br/><br/>fileName을 지정하지 않으면 복사는 입력 데이터 세트에 대한 folderPath에 모든 Blob을 포함합니다.<br/><br/>**fileName** 이 출력 데이터 세트에 대해 지정되지 않고 **preserveHierarchy** 가 활동 싱크에 지정되지 않은 경우, 생성된 파일의 이름은 다음 형식을 사용합니다. `Data.<Guid>.txt`(예: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |예 |
@@ -213,7 +213,7 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
     3. Azure 구독을 선택하거나 **Azure 구독** 에 대해 **모두 선택** 을 유지합니다.
     4. 선택한 구독에서 사용할 수 있는 Azure Storage 계정 목록에서 **Azure Storage 계정** 을 선택합니다. **계정 선택 방법** 으로 **수동으로 입력** 옵션을 선택하여 스토리지 계정 설정을 수동으로 입력할 수도 있습니다.
     5. **다음** 을 클릭합니다.  
-        :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png" alt-text="복사 도구 - Azure Blob Storage 계정 지정":::
+        :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png" alt-text="복사 도구 - Azure Blob Storage 계정 지정 페이지":::
 5. **입력 파일 또는 폴더 선택** 페이지에서 다음을 수행합니다.
     1. **adfblobcontainer** 를 두 번 클릭합니다.
     2. **input** 을 선택하고 **선택** 을 클릭합니다. 이 연습에서는 입력 폴더를 선택합니다. 대신 폴더에서 emp.txt 파일을 선택할 수도 있습니다.

@@ -9,12 +9,12 @@ ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 7c984f418ba35290f9c482efad83f3dd4d06c9b8
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ea17d86bb4e5e4a6b5c5106c7d831c6691018b12
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124823537"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130214741"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 대한 네트워킹
 
@@ -535,7 +535,7 @@ PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/provid
 - Windows VM을 활성화하려면 VM 인스턴스에서 Windows 활성화 키 관리 서비스(KMS)로의 아웃바운드 연결을 정의해야 합니다. 더 많은 정보는 [Azure Windows VM 활성화 문제 해결](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems)을 참조하세요.  
 - 스토리지 계정 또는 Key Vault에 액세스합니다. Azure 서비스 연결은 [프라이빗 링크](../private-link/private-link-overview.md)를 통해 설정할 수도 있습니다. 
 
-안전한 아웃바운드 연결을 정의하는 방법에 대한 세부 정보는 [Azure에서 기본값 아웃바운드 액세스](https://aka.ms/defaultoutboundaccess)를 참조하세요.
+안전한 아웃바운드 연결을 정의하는 방법에 대한 세부 정보는 [Azure에서 기본값 아웃바운드 액세스](../virtual-network/ip-services/default-outbound-access.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

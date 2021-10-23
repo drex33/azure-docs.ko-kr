@@ -911,20 +911,6 @@
     - name: 개요
       displayName: 'availability and scale, availability, scale, autoscale'
       href: availability.md
-    - name: 가용성 집합
-      items:
-        - name: 개요
-          displayName: 'availability and scale, availability, scale, autoscale, availability sets, AV sets'
-          href: availability-set-overview.md
-        - name: CLI
-          displayName: 'availability and scale, availability, scale, autoscale, availability sets, AV sets'
-          href: ./linux/tutorial-availability-sets.md
-        - name: PowerShell
-          displayName: 'availability and scale, availability, scale, autoscale, availability sets, AV sets'
-          href: ./windows/tutorial-availability-sets.md
-        - name: 가용성 집합 변경
-          displayName: 'availability and scale, availability, scale, autoscale, availability sets, AV sets'
-          href: ./windows/change-availability-set.md
     - name: 가용성 영역
       items:
         - name: 개요
@@ -955,33 +941,47 @@
           href: ./windows/proximity-placement-groups-portal.md
     - name: 가상 머신 크기 집합
       items:
-        - name: 유연한 VM 확장 집합 개요(미리 보기)
+        - name: 개요
           displayName: Flexible orchestration mode for virtual machine scale sets
           href: flexible-virtual-machine-scale-sets.md
-        - name: 포털(미리 보기)
+        - name: 포털
           displayName: Flexible orchestration mode for virtual machine scale sets
           href: flexible-virtual-machine-scale-sets-portal.md
-        - name: CLI(미리 보기)
+        - name: CLI
           displayName: Flexible orchestration mode for virtual machine scale sets
           href: flexible-virtual-machine-scale-sets-cli.md
-        - name: PowerShell(미리 보기)
+        - name: PowerShell
           displayName: Flexible orchestration mode for virtual machine scale sets
           href: flexible-virtual-machine-scale-sets-powershell.md
-        - name: ARM 템플릿(미리 보기)
+        - name: ARM 템플릿
           displayName: Flexible orchestration mode for virtual machine scale sets
           href: flexible-virtual-machine-scale-sets-rest-api.md
         - name: 자동 크기 조정
           href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
-        - name: 오케스트레이션 모드(미리 보기)
-          displayName: 'VMSS, flex, scale set, scale, virtual machine sacle set'
+        - name: 오케스트레이션 모드
+          displayName: 'VMSS, flex, scale set, scale, virtual machine scale set'
           href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
-        - name: 균일한 VM 확장 집합 개요
-          displayName: 'virtual machine scale sets, VMSS, VM scale set, scale set'
-          href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
+        - name: 마이그레이션 및 고려 사항
+          displayName: 'VMSS, flex, scale set, scale, virtual machine scale set'
+          href: flexible-virtual-machine-scale-sets-migration-resources.md
     - name: VM 재부팅 이해
       href: understand-vm-reboots.md
     - name: Azure 지역
       href: regions.md
+    - name: 가용성 집합
+      items:
+        - name: 개요
+          displayName: 'availability and scale, availability, scale, autoscale, availability sets, AV sets'
+          href: availability-set-overview.md
+        - name: CLI
+          displayName: 'availability and scale, availability, scale, autoscale, availability sets, AV sets'
+          href: ./linux/tutorial-availability-sets.md
+        - name: PowerShell
+          displayName: 'availability and scale, availability, scale, autoscale, availability sets, AV sets'
+          href: ./windows/tutorial-availability-sets.md
+        - name: 가용성 집합 변경
+          displayName: 'availability and scale, availability, scale, autoscale, availability sets, AV sets'
+          href: ./windows/change-availability-set.md
 - name: 디스크
   items:
     - name: 개요

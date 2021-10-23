@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/06/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f97f01ecb1b11af6ca4292c8b2bfd3ebdb50e943
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 12734d32322fe6cdc0fcaa48486d76d9d7bddd70
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129360260"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047685"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>자습서: Computer Vision을 사용하여 Azure Storage에서 이미지 메타데이터 생성
 
@@ -419,7 +419,7 @@ Azure 계정에 대한 Computer Vision 리소스를 만들어야 합니다. 이 
 1. 다음으로, **Upload** 메서드로 이동합니다. 이 메서드는 이미지를 변환하고 Blob 스토리지에 업로드합니다. `// Generate a thumbnail`로 시작하는 블록 바로 뒤(또는 image-blob-creation 프로세스의 끝)에 다음 코드를 추가합니다. 이 코드는 이미지(`photo`)가 포함된 Blob을 가져오고, Computer Vision을 사용하여 해당 이미지에 대한 설명을 생성합니다. 또한 Computer Vision API에서 이미지에 적용되는 키워드 목록도 생성합니다. 생성된 설명과 키워드는 나중에 검색할 수 있도록 Blob의 메타데이터에 저장됩니다.
 
     ```csharp
-    // Submit the image to Azure's Computer Vision API
+    // Submit the image to the Azure Computer Vision API
     ComputerVisionClient vision = new ComputerVisionClient(
         new ApiKeyServiceClientCredentials(ConfigurationManager.AppSettings["SubscriptionKey"]),
         new System.Net.Http.DelegatingHandler[] { });

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: dlepow
 ms.author: danlep
 ms.date: 07/12/2021
-ms.openlocfilehash: e2f56f8886a387158c148edaf9ae557deac3783f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 87684e6a4bc2c349a2b65faefe825c455be413d5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128659156"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215524"
 ---
 # <a name="azure-api-management-as-an-event-grid-source-preview"></a>Event Grid 원본으로 Azure API Management 사용(미리 보기)
 
@@ -123,7 +123,7 @@ API Management는 다음 이벤트 유형을 내보냅니다.
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}",
   "subject": "/apis/myapi;Rev=1",
   "data": {
-    "resourceUri": "/subscriptions/subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/apis/myapi;Rev=1"
+    "resourceUri": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/apis/myapi;Rev=1"
   },
   "eventType": "Microsoft.ApiManagement.APIUpdated",
   "dataVersion": "1",
@@ -157,7 +157,7 @@ API Management는 다음 이벤트 유형을 내보냅니다.
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | `topic` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -172,7 +172,7 @@ API Management는 다음 이벤트 유형을 내보냅니다.
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | `source` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -186,7 +186,7 @@ API Management는 다음 이벤트 유형을 내보냅니다.
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | `resourceUri` | 문자열 | 리소스 이름과 리소스 형식을 포함하여 준수 상태 변경이 적용되는 리소스의 정규화된 ID입니다. `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>/Microsoft.ApiManagement/service/<ServiceName>/<ResourceType>/<ResourceName>` 형식 사용 |
 

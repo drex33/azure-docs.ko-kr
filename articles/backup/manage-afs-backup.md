@@ -3,12 +3,12 @@ title: Azure 파일 공유 백업 관리
 description: 이 문서에서는 Azure Backup에 의해 백업된 Azure 파일 공유를 관리하고 모니터링하는 일반적인 작업에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 10/08/2021
-ms.openlocfilehash: e955ed1cf01c055ea72218076799d7da31d096b7
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 421162387b28777acf1c4f86288796d8066468a6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129714317"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216051"
 ---
 # <a name="manage-azure-file-share-backups"></a>Azure 파일 공유 백업 관리
 
@@ -28,55 +28,55 @@ ms.locfileid: "129714317"
 
    ![워크로드 이름](./media/manage-afs-backup/workload-name.png)
 
-## <a name="monitor-using-azure-backup-reports"></a>Azure Backup 보고서를 사용 하 여 모니터링
+## <a name="monitor-using-azure-backup-reports"></a>Azure Backup 보고서를 사용하여 모니터링
 
-Azure Backup [Azure Monitor 로그](../azure-monitor/logs/log-analytics-tutorial.md) 및 [Azure 통합 문서](../azure-monitor/visualize/workbooks-overview.md)를 사용 하는 보고 솔루션을 제공 합니다. 이러한 리소스는 백업에 대 한 풍부한 통찰력을 얻는 데 도움이 됩니다. 이러한 보고서를 활용 하 여 Azure Files 백업 항목, 항목 수준의 작업 및 활성 정책의 세부 정보를 파악할 수 있습니다. 백업 보고서에서 사용할 수 있는 전자 메일 보고서 기능을 사용 하면 자동화 된 작업을 만들어 전자 메일을 통해 정기적으로 보고서를 받을 수 있습니다. Azure Backup 보고서를 구성 하 고 보는 방법에 [대해 알아봅니다](/azure/backup/configure-reports#get-started) .
+Azure Backup [Azure Monitor 로그](../azure-monitor/logs/log-analytics-tutorial.md) 및 Azure 통합 문서를 사용하는 보고 솔루션을 [제공합니다.](../azure-monitor/visualize/workbooks-overview.md) 이러한 리소스는 백업에 대한 풍부한 인사이트를 얻는 데 도움이 됩니다. 이러한 보고서를 활용하여 Azure Files 백업 항목, 항목 수준의 작업 및 활성 정책의 세부 정보를 파악할 수 있습니다. Backup 보고서 사용할 수 있는 이메일 보고서 기능을 사용하여 자동화된 작업을 만들어 이메일을 통해 주기적인 보고서를 받을 수 있습니다. Azure Backup 보고서를 구성하고 보는 방법을 [알아봅니다.](./configure-reports.md#get-started)
 
 ## <a name="create-a-new-policy"></a>새 정책 만들기
 
 Recovery Services 자격 증명 모음의 **백업 정책** 섹션에서 Azure 파일 공유를 백업하는 새 정책을 만들 수 있습니다. 파일 공유에 대한 백업을 구성할 때 만든 모든 정책은 **정책 유형** 이 **Azure 파일 공유** 로 표시됩니다.
 
-새 백업 정책을 만들려면 다음 단계를 수행 합니다.
+새 백업 정책을 만들려면 다음 단계를 수행합니다.
 
-1. Recovery Services 자격 증명 모음의 **백업 정책** 창에서 **+ 추가** 를 선택 합니다.
+1. Recovery Services 자격 증명 모음의 **백업 정책** 창에서 **+ 추가를** 선택합니다.
 
-   :::image type="content" source="./media/manage-afs-backup/new-backup-policy.png" alt-text="새 백업 정책 만들기를 시작 하는 옵션을 보여 주는 스크린샷":::
+   :::image type="content" source="./media/manage-afs-backup/new-backup-policy.png" alt-text="새 백업 정책 만들기를 시작하는 옵션을 보여주는 스크린샷.":::
 
 1. **추가** 창에서 **Azure 파일 공유** 를 **정책 유형** 으로 선택합니다.
 
-   :::image type="content" source="./media/manage-afs-backup/define-policy-type.png" alt-text="Azure 파일 공유를 정책 형식으로 선택 하는 것을 보여 주는 스크린샷":::
+   :::image type="content" source="./media/manage-afs-backup/define-policy-type.png" alt-text="정책 유형으로 Azure 파일 공유를 선택하는 방법을 보여주는 스크린샷.":::
 
-1. **Azure 파일 공유** 에 대 한 **백업 정책** 창이 열리면 정책 이름을 지정 합니다.
+1. **Azure 파일 공유에** 대한 **백업 정책** 창이 열리면 정책 이름을 지정합니다.
 
-1. **백업 일정** 에서 백업에 대 한 적절 한 빈도 ( **매일** 또는 **매시간**)를 선택 합니다.
+1. **백업 일정** 에서 백업에 대한 적절한 빈도(매일 또는  **매시간)를** 선택합니다.
 
-   :::image type="content" source="./media/manage-afs-backup/backup-frequency-types.png" alt-text="백업 빈도 유형을 보여 주는 스크린샷":::
+   :::image type="content" source="./media/manage-afs-backup/backup-frequency-types.png" alt-text="백업 빈도 유형을 보여주는 스크린샷.":::
 
-   - **매일**: 하루에 한 번 백업을 트리거합니다. 일별 빈도에서 적절 한 값을 선택 합니다.
+   - **매일:** 하루에 하나의 백업을 트리거합니다. 매일 빈도로 적절한 값을 선택합니다.
 
-     - **시간**: 백업 작업을 트리거해야 하는 타임 스탬프입니다.
-     - **표준 시간대**: 백업 작업에 해당 하는 표준 시간대입니다.
+     - **시간:** 백업 작업을 트리거해야 하는 타임스탬프입니다.
+     - **표준 시간대:** 백업 작업에 해당하는 표준 시간대입니다.
 
-   - **매시간**: 하루에 여러 백업을 트리거합니다. 매시간 빈도에 대해 적절 한 값을 선택 합니다.
+   - **매시간:** 하루에 여러 백업을 트리거합니다. 시간별 빈도로 적절한 값을 선택합니다.
    
-     - **일정**: 연속 백업 간의 시간 간격 (시간)입니다.
-     - **시작 시간**: 해당 요일의 첫 번째 백업 작업을 트리거해야 하는 시간입니다.
-     - **기간**: 선택한 일정에 따라 백업 작업을 트리거해야 하는 시간 범위 (시간)를 나타냅니다.
-     - **표준 시간대**: 백업 작업에 해당 하는 표준 시간대입니다.
+     - **일정:** 연속 백업 간의 시간 간격(시간)입니다.
+     - **시작 시간:** 하루의 첫 번째 백업 작업을 트리거해야 하는 시간입니다.
+     - **기간:** 백업 기간(시간)을 나타냅니다. 즉, 선택한 일정에 따라 백업 작업을 트리거해야 하는 시간 범위를 나타냅니다.
+     - **표준 시간대:** 백업 작업에 해당하는 표준 시간대입니다.
      
-     예를 들어 RPO (복구 지점 목표) 요구 사항은 4 시간이 고 작업 시간은 오전 9 시에서 오후 9 시 사이입니다. 이러한 요구 사항을 충족 하기 위해 백업 일정에 대 한 구성은 다음과 같습니다.
+     예를 들어 RPO(복구 지점 목표) 요구 사항은 4시간이고 근무 시간은 오전 9시에서 오후 9시까지입니다. 이러한 요구 사항을 충족하기 위해 백업 일정에 대한 구성은 다음과 같습니다.
     
-     - 일정: 4 시간 마다
-     - 시작 시간: 오전 9 시 
-     - 기간: 12 시간 
+     - 일정: 4시간마다
+     - 시작 시간: 오전 9시 
+     - 기간: 12시간 
      
-     :::image type="content" source="./media/manage-afs-backup/hourly-backup-frequency-values-scenario.png" alt-text="시간별 백업 빈도 값의 예를 보여 주는 스크린샷":::
+     :::image type="content" source="./media/manage-afs-backup/hourly-backup-frequency-values-scenario.png" alt-text="시간별 백업 빈도 값의 예를 보여주는 스크린샷":::
 
-     선택 사항에 따라 백업 작업 세부 정보 (백업 작업이 트리거될 때의 타임 스탬프)가 backup 정책 블레이드에 표시 됩니다.
+     선택한 항목에 따라 백업 작업 세부 정보(백업 작업이 트리거될 때 타임스탬프)가 백업 정책 블레이드에 표시됩니다.
 
-1. **보존 범위** 에서 매일, 매주, 매월 또는 매년으로 태그가 지정 된 백업에 대 한 적절 한 보존 값을 지정 합니다.
+1. **보존 범위에서** 백업에 대해 매일, 매주, 매월 또는 매년 태그가 지정된 적절한 보존 값을 지정합니다.
 
-1. 정책의 모든 특성을 정의한 후 **만들기** 를 클릭 합니다.
+1. 정책의 모든 특성을 정의한 후 **만들기를** 클릭합니다.
   
 ### <a name="view-policy"></a>정책 보기
 
@@ -84,11 +84,11 @@ Recovery Services 자격 증명 모음의 **백업 정책** 섹션에서 Azure �
 
 1. 파일 공유의 백업을 구성하는 데 사용한 Recovery Services 자격 증명 모음을 엽니다. Recovery Services 자격 증명 모음 메뉴에서 **관리** 섹션 아래의 **백업 정책** 을 선택합니다. 자격 증명 모음에 구성된 모든 백업 정책이 표시됩니다.
 
-   :::image type="content" source="./media/manage-afs-backup/all-backup-policies.png" alt-text="모든 백업 정책을 보여 주는 스크린샷":::
+   :::image type="content" source="./media/manage-afs-backup/all-backup-policies.png" alt-text="모든 백업 정책을 보여주는 스크린샷.":::
 
 1. **Azure 파일 공유** 와 관련된 정책을 보려면 오른쪽 위의 드롭다운 목록에서 **Azure 파일 공유** 를 선택합니다.
 
-   :::image type="content" source="./media/manage-afs-backup/azure-file-share.png" alt-text="Azure 파일 공유를 선택 하는 프로세스를 보여 주는 스크린샷":::
+   :::image type="content" source="./media/manage-afs-backup/azure-file-share.png" alt-text="Azure 파일 공유를 선택하는 프로세스를 보여주는 스크린샷.":::
 
 ## <a name="modify-policy"></a>정책 수정
 

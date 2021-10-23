@@ -92,6 +92,8 @@
               href: linter.md
             - name: Linter 규칙
               items:
+                - name: 관리 사용자 이름이 리터럴이 아닙니다.
+                  href: linter-rule-admin-username-should-not-be-literal.md
                 - name: 하드코딩된 환경 URL 없음
                   href: linter-rule-no-hardcoded-environment-urls.md
                 - name: 사용하지 않는 매개 변수 없음
@@ -157,7 +159,7 @@
     - name: 데이터 형식
       href: data-types.md
       displayName: 'supported types,arrays,booleans,integers,objects,strings,secure'
-    - name: Bicep 구성 파일
+    - name: 구성 파일
       href: bicep-config.md
     - name: 함수
       items:

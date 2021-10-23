@@ -7,12 +7,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: b00fca8cf39bc44e0e53a112a332e6f6c5f0194e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 6deb906d55f74cc3d418473a669a81d3d2ddf5e4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98218606"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130214666"
 ---
 # <a name="move-azure-public-ip-configuration-to-another-region-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure 공용 IP 구성을 다른 지역으로 이동
 
@@ -90,7 +90,7 @@ ms.locfileid: "98218606"
              ]
     ```
 
-11. 지역 위치 코드를 가져오려면 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조하세요.  지역 코드는 공백이 없는 지역 이름인 **미국 중부** = **centralus** 입니다.
+11. 지역 위치 코드를 가져오려면 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조하세요.  지역 코드는 공백이 없는 지역 이름입니다(예: **Central US** = **centralus**).
 
 12. 또한 선택하는 경우 템플릿의 다른 매개 변수를 변경할 수 있으며 요구 사항에 따라 선택적입니다.
 
@@ -109,7 +109,7 @@ ms.locfileid: "98218606"
             },
         ```
 
-        기본 및 표준 sku 공용 IP의 차이점에 대한 자세한 정보는 [공용 IP 주소 만들기, 변경 또는 삭제](./virtual-network-public-ip-address.md)를 참조하세요.
+        기본 및 표준 sku 공용 IP의 차이점에 대한 자세한 정보는 [공용 IP 주소 만들기, 변경 또는 삭제](./ip-services/virtual-network-public-ip-address.md)를 참조하세요.
 
     * **퍼블릭 IP 할당 방법** 및 **유휴 시간 제한** - **publicIPAllocationMethod** 속성을 **Dynamic** 에서 **Static** 으로 또는 **Static** 에서 **Dynamic** 으로 변경하여 템플릿에서 이러한 옵션을 모두 변경할 수 있습니다. **idleTimeoutInMinutes** 속성을 원하는 크기만큼 변경하여 유휴 시간 제한을 변경할 수 있습니다.  기본값은 **4** 입니다.
 
@@ -135,7 +135,7 @@ ms.locfileid: "98218606"
 
         ```
 
-        할당 방법 및 유휴 시간 제한 값에 대한 자세한 내용은 [퍼블릭 IP 주소 만들기, 변경 또는 삭제](./virtual-network-public-ip-address.md)를 참조하세요.
+        할당 방법 및 유휴 시간 제한 값에 대한 자세한 내용은 [퍼블릭 IP 주소 만들기, 변경 또는 삭제](./ip-services/virtual-network-public-ip-address.md)를 참조하세요.
 
 
 13. 온라인 편집기에서 **저장** 을 클릭합니다.

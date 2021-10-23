@@ -8,16 +8,19 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
-ms.openlocfilehash: 00d094b0e535c3e3a5c465e248a0a4e88f538da8
-ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
+ms.openlocfilehash: c4ad34729b81d6ca13bb2ff52c30dc77cd1614b9
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112323127"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130167380"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>가상 머신 확장 집합이란?
+
 Azure 가상 머신 확장 집합을 사용하면 부하 분산된 VM의 그룹을 만들고 관리할 수 있습니다. VM 인스턴스의 수는 요구 또는 정의된 일정에 따라 자동으로 늘리거나 줄일 수 있습니다. 확장 집합은 애플리케이션에 고가용성을 제공하고 많은 수의 VM을 중앙에서 관리, 구성 및 업데이트할 수 있게 합니다. 가상 머신 확장 집합을 사용하면 컴퓨팅, 빅 데이터 및 컨테이너 작업과 같은 영역에 대한 대규모 서비스를 구축할 수 있습니다.
 
+> [!IMPORTANT]
+> 이 문서는 단일 오케스트레이션 모드의 가상 머신 확장 집합에 대한 것입니다. 유연한 확장 집합에 대해 자세히 알아보려면 [가상 머신 확장 집합에 대한 유연한 오케스트레이션 모드](../virtual-machines/flexible-virtual-machine-scale-sets.md)로 이동하세요.
 
 ## <a name="why-use-virtual-machine-scale-sets"></a>가상 머신 확장 집합을 사용하는 이유는?
 중복성과 향상된 성능을 제공하기 위해 애플리케이션은 일반적으로 여러 인스턴스 간에 분산됩니다. 고객은 애플리케이션 인스턴스 중 하나에 요청을 배포하는 부하 분산 장치를 통해 애플리케이션에 액세스할 수 있습니다. 유지 관리를 수행하거나 애플리케이션 인스턴스를 업데이트해야 하는 경우, 고객은 사용 가능한 다른 애플리케이션 인스턴스에 배포되어야 합니다. 추가 고객 요구에 맞추려면 애플리케이션을 실행하는 애플리케이션 인스턴스의 수를 늘려야 할 수도 있습니다.

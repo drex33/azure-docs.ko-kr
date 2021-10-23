@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/07/2021
-ms.openlocfilehash: 9bb40b02df8de4bbd5fc7e59f55c7f31052b3480
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: cd08a4cb752ede0f958adde438cb516791f4ae76
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429892"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215144"
 ---
 # <a name="configure-a-private-endpoint-for-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역용 프라이빗 엔드포인트 구성
 
@@ -191,11 +191,11 @@ ws.delete_private_endpoint_connection(private_endpoint_connection_name=connectio
 * 별도의 VNet에 있는 AKS (Azure Kubernetes Service) 클러스터.
 * 별도의 VNet에 있는 다른 Azure 서비스. 예를 들어 Azure Synapse 및 Azure Data Factory은 Microsoft에서 관리 하는 가상 네트워크를 사용할 수 있습니다. 두 경우 모두 해당 서비스에서 사용 하는 관리 되는 VNet에 작업 영역에 대 한 개인 끝점을 추가할 수 있습니다. 이러한 서비스에서 관리 되는 가상 네트워크를 사용 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
-    * [Synapse 관리 되는 전용 끝점](/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints)
-    * [Azure Data Factory 관리 되는 가상 네트워크](/azure/data-factory/managed-virtual-network-private-endpoint)입니다.
+    * [Synapse 관리 되는 전용 끝점](../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md)
+    * [Azure Data Factory 관리 되는 가상 네트워크](../data-factory/managed-virtual-network-private-endpoint.md)입니다.
 
     > [!IMPORTANT]
-    > [Synapse의 데이터 반출](/azure/synapse-analytics/security/workspace-data-exfiltration-protection) 는 Azure Machine Learning에서 지원 되지 않습니다.
+    > [Synapse의 데이터 반출](../synapse-analytics/security/workspace-data-exfiltration-protection.md) 는 Azure Machine Learning에서 지원 되지 않습니다.
 
 > [!IMPORTANT]
 > 작업 영역에 대 한 개인 끝점을 포함 하는 각 VNet은 작업 영역에서 사용 하는 Azure Storage 계정, Azure Key Vault 및 Azure Container Registry에도 액세스할 수 있어야 합니다. 예를 들어 각 VNet에서 서비스에 대 한 개인 끝점을 만들 수 있습니다.

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 09/24/2020
-ms.openlocfilehash: d1c095be1d0525cc843c04a3b83e14bb4211b175
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 5375649d8bf5bdf1a6a24babc6f05d30d40c93b9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101721262"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215187"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Azure Monitor 로그를 설정하고 Azure Logic Apps에 대한 진단 데이터 수집
 
@@ -178,7 +178,7 @@ Azure Monitor 로그와 마찬가지로 다른 Azure 서비스와 함께 논리 
 * [스토리지 계정에 Azure 리소스 로그 보관](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 * [Azure Event Hubs로 Azure 플랫폼 로그 스트림](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)
 
-그런 다음 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 및 [Power BI](../azure-monitor/visualize/powerbi.md)와 같은 다른 서비스의 원격 분석 및 분석을 사용하여 실시간으로 모니터링할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+그런 다음 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 및 [Power BI](../azure-monitor/logs/log-powerbi.md)와 같은 다른 서비스의 원격 분석 및 분석을 사용하여 실시간으로 모니터링할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 * [Event Hub에서 Stream Analytics로 데이터 스트림](../stream-analytics/stream-analytics-define-inputs.md)
 * [Stream Analytics를 사용하여 스트리밍 데이터 분석 및 Power BI에서 실시간 분석 대시보드 만들기](../stream-analytics/stream-analytics-power-bi-dashboard.md)

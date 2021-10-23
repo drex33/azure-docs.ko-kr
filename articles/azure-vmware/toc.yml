@@ -187,27 +187,27 @@
         - name: 일반
           href: ./faq.yml
         - name: 결제
-          href: /azure/azure-vmware/faq#billing
+          href: ./faq.yml
         - name: 고객 커뮤니케이션
-          href: /azure/azure-vmware/faq#customer-communication
+          href: ./faq.yml
         - name: 구성 및 설정
-          href: /azure/azure-vmware/faq#configuration-and-setup
+          href: ./faq.yml
         - name: VMware 소프트웨어
-          href: /azure/azure-vmware/faq#vmware-software
+          href: ./faq.yml
         - name: 타사 백업 솔루션
-          href: /azure/azure-vmware/faq#third-party-backup-and-recovery
+          href: ./faq.yml
         - name: 컴퓨팅
-          href: /azure/azure-vmware/faq#compute
+          href: ./faq.yml
         - name: 네트워킹 및 상호 연결
-          href: /azure/azure-vmware/faq#networking-and-interconnectivity
+          href: ./faq.yml
         - name: 스토리지
-          href: /azure/azure-vmware/faq#storage
+          href: ./faq.yml
         - name: '호스트, 클러스터 및 프라이빗 클라우드'
-          href: '/azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds'
+          href: ./faq.yml
         - name: ID 관리
-          href: /azure/azure-vmware/faq#identity-management
+          href: ./faq.yml
         - name: CSP 및 다중 테넌트
-          href: /azure/azure-vmware/faq#csp-and-multi-tenancy
+          href: ./faq.yml
     - name: 동영상
       items:
         - name: 재생 목록

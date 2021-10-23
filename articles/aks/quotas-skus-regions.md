@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service)의 기본 할당량, 제한된 노드
 services: container-service
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: 6e965bd958b23598f7b11dcf9a12dafb33f26680
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 257598f1a1ea8bbc578fe44c40b8e2dafef36837
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123437909"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130266052"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 할당량, 가상 머신 크기 제한 및 지역 가용성
 
@@ -33,25 +33,13 @@ ms.locfileid: "123437909"
 
 ## <a name="supported-vm-sizes"></a>지원되는 VM 크기
 
-AKS에서 지원 되는 VM 크기 목록은 Azure의 새로운 VM Sku 릴리스와 진화 하 고 있습니다. [AKS 릴리스 정보](https://github.com/Azure/AKS/releases) 를 참조 하 여 지원 되는 새 sku에 대 한 정보를 계속 받을 수 있습니다.
+AKS에서 지원되는 VM 크기 목록은 Azure에서 새 VM S SKU가 릴리스되면서 진화하고 있습니다. [AKS 릴리스 정보에](https://github.com/Azure/AKS/releases) 따라 지원되는 새로운 S SKU에 대한 정보를 확인하세요.
 
 ## <a name="restricted-vm-sizes"></a>제한된 VM 크기
 
-AKS 클러스터의 각 노드에는 vCPU 및 메모리 같은 고정된 양의 컴퓨팅 리소스가 포함되어 있습니다. AKS 노드에 컴퓨팅 리소스가 부족한 경우 Pod가 제대로 실행되지 않을 수 있습니다. 필수 *kube-system* Pod 및 애플리케이션을 안정적으로 예약할 수 있도록 하려면 **AKS에서 다음 VM SKU를 사용하지 마세요**.
+CPU가 2개 미만인 VM 크기는 AKS에서 사용할 수 없습니다.
 
-- Standard_A0
-- Standard_A1
-- Standard_A1_v2
-- Standard_B1ls
-- Standard_B1s
-- Standard_B1ms
-- Standard_F1
-- Standard_F1s
-- Standard_A2
-- Standard_D1
-- Standard_D1_v2
-- Standard_DS1
-- Standard_DS1_v2
+AKS 클러스터의 각 노드에는 vCPU 및 메모리 같은 고정된 양의 컴퓨팅 리소스가 포함되어 있습니다. AKS 노드에 컴퓨팅 리소스가 부족한 경우 Pod가 제대로 실행되지 않을 수 있습니다. 필요한 *kube-system Pod* 및 애플리케이션을 안정적으로 예약할 수 있도록 하려면 AKS에서 노드가 > 2개의 CPU가 있는 VM 크기를 사용해야 합니다.
 
 VM 유형 및 해당 컴퓨팅 리소스에 대한 자세한 내용은 [Azure의 가상 머신 크기][vm-skus]를 참조하세요.
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2021
 ms.author: allensu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9b2e38ca43bfa3bc8dcd229d6538f8a7784f9882
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: e632f7313582bfe33da59569f25319fbb90b13f0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129372856"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215018"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-azure-powershell"></a>Azure PowerShell을 사용하여 공용 IP 주소에 대한 라우팅 기본 설정을 구성합니다.
 
@@ -65,7 +65,7 @@ $publicIp = New-AzPublicIpAddress  `
 -IpAddressVersion IPv4
 ```
 
-위에서 만든 공용 IP 주소를 [Windows](../../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신과 연결할 수 있습니다. 자습서 페이지의 CLI 섹션을 사용합니다. [공용 IP 주소를 가상 머신에 연결](../../virtual-network/associate-public-ip-address-vm.md#azure-cli)하여 공용 IP를 VM에 연결합니다. 위에서 만든 공용 IP 주소를 부하 분산 장치 **프런트 엔드** 구성에 할당하여 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md)와 연결할 수도 있습니다. 공용 IP 주소는 부하가 분산된 VIP(가상 IP 주소)로 사용됩니다.
+위에서 만든 공용 IP 주소를 [Windows](../../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신과 연결할 수 있습니다. 자습서 페이지의 CLI 섹션을 사용합니다. [공용 IP 주소를 가상 머신에 연결](./associate-public-ip-address-vm.md#azure-cli)하여 공용 IP를 VM에 연결합니다. 위에서 만든 공용 IP 주소를 부하 분산 장치 **프런트 엔드** 구성에 할당하여 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md)와 연결할 수도 있습니다. 공용 IP 주소는 부하가 분산된 VIP(가상 IP 주소)로 사용됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -78,4 +78,4 @@ Remove-AzResourceGroup -Name myResourceGroup
 ## <a name="next-steps"></a>다음 단계
 
 - [공용 IP 주소의 라우팅 기본 설정](routing-preference-overview.md)에 대해 자세히 알아봅니다.
-- [Azure PowerShell을 사용하여 VM에 대한 라우팅 기본 설정을 구성합니다](../../virtual-network/configure-routing-preference-virtual-machine-powershell.md).
+- [Azure PowerShell을 사용하여 VM에 대한 라우팅 기본 설정을 구성합니다](./configure-routing-preference-virtual-machine-powershell.md).

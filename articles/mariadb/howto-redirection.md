@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/8/2020
-ms.openlocfilehash: 3f26de72839fcaa39bff4d827aba757721736934
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 0e99d08e638569c68043bb67f090bc7ce41982ca
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98664905"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215037"
 ---
 # <a name="connect-to-azure-database-for-mariadb-with-redirection"></a>리디렉션을 사용하여 Azure Database for MariaDB에 연결
 
@@ -21,6 +21,9 @@ ms.locfileid: "98664905"
 [Azure Portal](https://portal.azure.com)에 로그인합니다. 엔진 버전 10.2 또는 10.3을 사용하여 Azure Database for MariaDB 서버를 만듭니다. 
 
 자세한 내용은 [Azure Portal](quickstart-create-mariadb-server-database-using-azure-portal.md) 또는 [Azure CLI](quickstart-create-mariadb-server-database-using-azure-cli.md)를 사용하여 Azure Database for MariaDB 서버를 만드는 방법을 참조하세요.
+
+> [!IMPORTANT]
+> 현재는 [Azure Database for MariaDB에 대 한 개인 링크](concepts-data-access-security-private-link.md)를 사용 하 여 리디렉션을 지원 하지 않습니다.
 
 ## <a name="enable-redirection"></a>리디렉션 사용
 

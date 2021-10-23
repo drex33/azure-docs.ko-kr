@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/25/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0adc8638eeffedf1f8b2b31357b43fc38e67773f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 186def3e179bc5cefdb9eb93d95e852bbe35bc1b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128546336"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262929"
 ---
 # <a name="azure-security-baseline-for-azure-virtual-desktop"></a>Azure Virtual Desktop에 대한 Azure 보안 기준
 
@@ -136,7 +136,7 @@ Azure AD는 Microsoft 계정이 없는 사용자가 애플리케이션 및 리�
 
 - [Azure AD의 ID 보안 점수란?](../active-directory/fundamentals/identity-secure-score.md)
 
-- [Azure Virtual Desktop을 운영하는 데 필요한 역할](/azure/virtual-desktop/faq#what-are-the-minimum-admin-permissions-i-need-to-manage-objects)
+- [Azure Virtual Desktop을 운영하는 데 필요한 역할](./faq.yml)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -254,7 +254,7 @@ Azure Virtual Desktop는 기본 암호 정책이 있는 클라우드 전용 계�
 
 - [Azure 구독 관리자](../cost-management-billing/manage/add-change-subscription-administrator.md)
 
-- [Azure Virtual Desktop을 관리하는 데 필요한 최소 관리자 권한](/azure/virtual-desktop#what-are-the-minimum-admin-permissions-i-need-to-manage-objects)
+- [Azure Virtual Desktop을 관리하는 데 필요한 최소 관리자 권한](./index.yml)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -500,7 +500,7 @@ Azure Virtual Desktop의 모든 로그를 사용자 지정 위협 탐지를 설�
 
 - [Azure Security Center 보안 경고 참조 지침](../security-center/alerts-reference.md)
 
-- [위협 탐지를 위한 사용자 지정 분석 규칙 만들기](../sentinel/tutorial-detect-threats-custom.md) 
+- [위협 탐지를 위한 사용자 지정 분석 규칙 만들기](../sentinel/detect-threats-custom.md) 
 
 - [Azure Sentinel을 사용한 사이버 위협 인텔리전스](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)
 
@@ -640,11 +640,11 @@ Azure 리소스에 대한 위험을 식별하는 데 도움이 되도록 내보�
 
 Azure Sentinel은 거의 모든 로그 원본 및 사례 관리 포털에서 광범위한 데이터 분석을 제공하여 인시던트의 전체 수명 주기를 관리합니다. 조사 중에 인텔리전스 정보는 추적 및 보고를 위해 인시던트에 연결할 수 있습니다. 
 
-- [컴퓨터의 디스크 스냅숏 만들기](../virtual-machines/windows/snapshot-copy-managed-disk.md)
+- [컴퓨터의 디스크 스냅샷](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 
 - [Microsoft Azure 지원 진단 정보 및 메모리 덤프 수집](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 
 
-- [Azure Sentinel을 사용하여 인시던트 조사](../sentinel/tutorial-investigate-cases.md)
+- [Azure Sentinel을 사용하여 인시던트 조사](../sentinel/investigate-cases.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 

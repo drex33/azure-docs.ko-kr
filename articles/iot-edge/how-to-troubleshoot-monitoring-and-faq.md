@@ -9,12 +9,12 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 zone_pivot_groups: how-to-troubleshoot-monitoring-and-faq-zpg
-ms.openlocfilehash: 9d3e89ee74dd1f0274ad742cae4a9706f54b7780
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
-ms.translationtype: HT
+ms.openlocfilehash: 8c4e74bbd72abdbfaf365afe720149f0eb7fe8ae
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537458"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215394"
 ---
 # <a name="faq-and-troubleshooting"></a>FAQ 및 문제 해결
 
@@ -38,7 +38,7 @@ IoT Edge 시스템 모듈에서 노출되는 기본 제공 메트릭 엔드포�
 
 ### <a name="update-moby-engine"></a>Moby 엔진 업데이트
 
-Linux 호스트에서 최신 버전의 컨테이너 엔진을 사용하고 있는지 확인합니다. [설치 지침](how-to-install-iot-edge.md#install-a-container-engine)에 따라 최신 버전으로 업데이트하는 것이 좋습니다.
+Linux 호스트에서 최신 버전의 컨테이너 엔진을 사용하고 있는지 확인합니다. [설치 지침](how-to-provision-single-device-linux-symmetric.md#install-iot-edge)에 따라 최신 버전으로 업데이트하는 것이 좋습니다.
 
 ## <a name="how-do-i-collect-logs-along-with-metrics"></a>로그를 메트릭과 함께 수집하려면 어떻게 해야 하나요?
 

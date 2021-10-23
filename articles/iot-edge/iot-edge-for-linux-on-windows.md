@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/18/2021
 ms.author: kgremban
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 6723b203215d650b1fe6718630ae3914c8313256
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: ba5c01bcdae869ebb2e1df41b6e3db87e7018f3f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537190"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215431"
 ---
 # <a name="what-is-azure-iot-edge-for-linux-on-windows"></a>Windows에서 Linux용 Azure IoT Edge란?
 
@@ -24,7 +24,7 @@ Windows에서 Linux용 Azure IoT Edge를 사용하면 Windows IoT 배포에서 W
 
 Windows에서 Linux용 IoT Edge은 Windows 디바이스에서 Linux 가상 머신을 실행하여 작동합니다. Linux 가상 머신은 IoT Edge 런타임과 함께 미리 설치되어 제공됩니다. 디바이스에 배포된 모든 IoT Edge 모듈은 가상 머신 내에서 실행됩니다. 한편 Windows 호스트 디바이스에서 실행되는 Windows 애플리케이션은 Linux 가상 머신에서 실행되는 모듈과 통신할 수 있습니다.
 
-지금 [시작하세요](how-to-install-iot-edge-on-windows.md).
+지금 [시작하세요](how-to-provision-single-device-linux-on-windows-symmetric.md).
 
 ## <a name="components"></a>구성 요소
 
@@ -60,4 +60,4 @@ IoT Edge 지원 및 피드백 채널을 사용하여 Windows에서 Linux용 IoT 
 
 자세한 내용 및 작동 샘플은 [Windows 10 IoT Enterprise에서 Linux용 IoT Edge](https://aka.ms/azeflow-show)를 확인하세요.
 
-[Windows 디바이스에서 Azure IoT Edge 설치 및 프로비저닝](how-to-install-iot-edge-on-windows.md) 단계에 따라 Windows에서 Linux용 IoT Edge를 사용하여 디바이스를 설정합니다.
+[Windows 장치에서 linux 용 단일 Azure IoT Edge 수동 프로 비전](how-to-provision-single-device-linux-on-windows-symmetric.md) 의 단계에 따라 Windows에서 linux 용 IoT Edge를 사용 하 여 장치를 설정 합니다.

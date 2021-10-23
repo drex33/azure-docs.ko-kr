@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: tutorial
 ms.date: 09/07/2021
 ms.author: cherylmc
-ms.openlocfilehash: 0aa2efb84c207592131d3b7c3060aebc22cc49f6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0bac9ef5d9a636fb4772352c93de537d21483139
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128668902"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179309"
 ---
 # <a name="tutorial-configure-bastion-and-connect-to-a-windows-vm"></a>자습서: Bastion을 구성하고 Windows VM에 연결
 
@@ -82,7 +82,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 1. Bastion 페이지에서 **+ 만들기** 를 클릭하여 **Bastion 만들기** 페이지를 엽니다.
 1. **Bastion 만들기** 페이지에서 새 Bastion 리소스를 구성합니다.
 
-   :::image type="content" source="./media/tutorial-create-host-portal/review-create.png" alt-text="Bastion 포털 만들기 페이지의 스크린샷" lightbox="./media/tutorial-create-host-portal/create-expand.png":::
+   :::image type="content" source="./media/tutorial-create-host-portal/review-create.png" alt-text="Bastion 포털 만들기 페이지의 스크린샷" lightbox="./media/tutorial-create-host-portal/create.png":::
 
 ### <a name="project-details"></a>프로젝트 세부 정보
 

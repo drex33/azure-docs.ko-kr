@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/17/2021
 ms.author: phjensen
-ms.openlocfilehash: 0fb0b0fc0734cc05952457e0e6fc6dc5ff5151b2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f44ad9257f6fbc6b8ca232964f9bee29cea57384
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128614337"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256492"
 ---
 # <a name="troubleshoot-azure-application-consistent-snapshot-tool"></a>Azure 애플리케이션 일치 스냅샷 도구 문제 해결
 
@@ -68,7 +68,7 @@ Azure Portal을 통해 Cloud Shell를 사용 하 여 서비스 사용자가 올�
 
 **해결 방법:**
 
-1. Azure Portal에서 [Cloud Shell](/azure/cloud-shell/overview) 세션을 엽니다. 
+1. Azure Portal에서 [Cloud Shell](../cloud-shell/overview.md) 세션을 엽니다. 
 1. 테스트 디렉터리를 만듭니다 (예: `mkdir azacsnap` ).
 1. cd를 azacsnap 디렉터리로 이동 하 여 최신 버전의 azacsnap 도구를 다운로드 합니다.
     

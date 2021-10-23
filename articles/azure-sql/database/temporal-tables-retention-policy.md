@@ -10,20 +10,20 @@ ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: mathoma
-ms.date: 09/25/2018
-ms.openlocfilehash: bd1884785f5c6e84abd4aae5af29805ec4c004cb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 10/18/2021
+ms.openlocfilehash: d3cf9b884dd1d2610aabe0aa0869ab8ad528da01
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528907"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216236"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>보존 정책을 사용하여 임시 테이블에서 과거 데이터 관리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 임시 테이블은 특히 과거 데이터를 장기간 보관할 경우에 일반 테이블보다 데이터베이스 크기를 더 늘릴 수 있습니다. 따라서 과거 데이터에 대한 재방문 주기 정책은 모든 임시 테이블의 수명 주기를 계획하고 관리하는 데 있어서 중요한 측면입니다. Azure SQL Database 및 Azure SQL Managed Instance의 임시 테이블은 이 작업을 수행하는 데 유용한 사용하기 쉬운 보존 메커니즘과 함께 제공됩니다.
 
-Temporal 기록 보존은 개별 테이블 수준에서 구성할 수 있으므로 사용자가 유연한 에이징 정책을 만들 수 있습니다. Temporal 보존 적용은 간단해서, 테이블을 만들거나 스키마를 변경할 때 매개 변수 하나만 설정하면 됩니다.
+Temporal 기록 보존은 개별 테이블 수준에서 구성할 수 있으며,이를 통해 사용자는 유연한 에이징 정책을 만들 수 있습니다. Temporal 보존 적용은 간단해서, 테이블을 만들거나 스키마를 변경할 때 매개 변수 하나만 설정하면 됩니다.
 
 보존 정책을 정의한 후에는 Azure SQL Database 및 Azure SQL Managed Instance가 자동으로 데이터 정리에 적합한 기록 행이 있는지 정기적으로 확인하기 시작합니다. 일치하는 행을 식별하고 기록 테이블에서 제거하는 작업은 시스템에서 예약하고 실행하는 백그라운드 태스크로 투명하게 수행됩니다. 기록 테이블 행의 기간 조건은 SYSTEM_TIME 기간의 종료를 나타내는 열을 기준으로 확인됩니다. 예를 들어 보존 기간이 6개월로 설정된 경우 정리할 수 있는 테이블 행은 다음 조건을 만족합니다.
 
@@ -182,7 +182,5 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 ## <a name="next-steps"></a>다음 단계
 
 응용 프로그램에서 임시 테이블을 사용하는 방법을 알아보려면 [임시 테이블 시작](../temporal-tables.md)을 확인하세요.
-
-Channel 9을 방문하여 [고객 임시 구현 성공 사례](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions)를 듣고 [라이브 임시 데모](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016)를 시청하세요.
 
 임시 테이블에 대한 자세한 내용은 [임시 테이블](/sql/relational-databases/tables/temporal-tables)을 검토하세요.

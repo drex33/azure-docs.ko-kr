@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 ms.custom: mvc
-ms.openlocfilehash: d911f5f0ee1670177e6de23b7afd647582253a8a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6fd1592e1f0b7d5da44fac15e20b03b8f237ad0a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121748782"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997348"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 IoT 공간 분석 구현
 
@@ -116,7 +116,7 @@ IoT 시나리오에서는 일반적으로 시간과 공간에서 발생하는 �
 
 다음으로, [Postman 앱](https://www.getpostman.com)을 사용하여 Azure Maps에 [지오펜스를 업로드](./geofence-geojson.md)합니다. 지오펜스는 렌트 차량에 허가된 지리적 영역을 정의합니다. Azure 함수에 지오펜스를 사용하여 자동차가 지오펜스 영역 밖으로 이동했는지 여부를 확인합니다.
 
-다음 단계에 따라 Azure Maps 데이터 업로드 API를 사용하여 지오펜스를 업로드합니다. 
+다음 단계에 따라 Azure Maps 데이터 업로드 API를 사용하여 지오펜스를 업로드합니다.
 
 1. Postman 앱을 열고 **새로 만들기** 를 다시 선택합니다. **새로 만들기** 창에서 **HTTP 요청** 을 선택하고, 해당 요청의 이름을 입력합니다.
 
@@ -246,7 +246,6 @@ Event Grid 구독을 Azure 함수에 추가하면 지정된 IoT 허브에 메시
     dotnet run
     ```
 
-
   로컬 터미널은 다음과 같습니다.
 
 :::image type="content" source="./media/tutorial-iot-hub-maps/terminal.png" alt-text="터미널 출력 스크린샷":::
@@ -283,7 +282,6 @@ IoT용 Azure Certified인 디바이스 목록을 가져오려면 다음을 방�
 ## <a name="next-steps"></a>다음 단계
 
 디바이스에서 클라우드로 또는 그 반대로 원격 분석을 보내는 방법에 대한 자세한 내용은 다음을 참조하세요.
-
 
 > [!div class="nextstepaction"]
 > [디바이스에서 원격 분석 데이터 보내기](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)

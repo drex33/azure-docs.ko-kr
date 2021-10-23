@@ -6,12 +6,12 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: yossi-y
 ms.author: yossiy
 ms.date: 10/17/2021
-ms.openlocfilehash: 25d1d07edabdc8ee3d46175a51d8a20c5d9cc9eb
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 631aea3e75961763a010717b8b8dfc45849793a6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130133115"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216412"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기(미리 보기)
 Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기를 사용하면 데이터를 수집하는 동안 Log Analytics 작업 영역에서 선택한 테이블의 데이터를 Azure Storage 계정 또는 Azure Event Hubs로 계속 내보낼 수 있습니다. 이 문서에서는 이 기능 및 작업 영역에서 데이터 내보내기를 구성하는 단계에 대한 세부 정보를 제공합니다.
@@ -34,7 +34,7 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
 
 - 구성은 현재 CLI 또는 REST 요청을 사용하여 수행할 수 있습니다. Azure Portal 또는 PowerShell은 아직 지원되지 않습니다.
 - CLI 및 REST의 `--export-all-tables` 옵션은 지원되지 않으며 제거될 예정입니다. 내보내기 규칙에서 테이블 목록을 명시적으로 제공해야 합니다.
-- 지원되는 테이블은 아래 [지원되는 테이블](#supported-tables) 섹션에 지정된 테이블로 제한됩니다. 
+- 지원되는 테이블은 아래 지원되는 테이블 섹션에 지정된 [테이블로](#supported-tables) 제한됩니다. 
 - 기존 사용자 지정 로그 테이블은 내보내기에서 지원되지 않습니다. 2022년 3월에 사용할 수 있는 새 사용자 지정 로그 버전이 지원됩니다.
 - 데이터 내보내기 규칙에 지원되지 않는 테이블이 포함되어 있으면 작업이 성공하지만 테이블이 지원될 때까지 해당 테이블에 대한 데이터를 내보내지 않습니다. 
 - 데이터 내보내기 규칙에 존재하지 않는 테이블이 포함되어 있으면 `Table <tableName> does not exist in the workspace` 오류와 함께 실패합니다.
@@ -95,7 +95,7 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
 > [!NOTE]
 > 적절한 수신 속도 할당을 위해 별도의 스토리지 계정을 사용하고 제한, 실패 및 대기 시간 이벤트를 줄이는 것이 좋습니다.
 
-2021년 10월 15일부터 Blob은 *WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/ \<resource-group\> /providers/microsoft.operationalinsights/workspaces/ \<workspace\> /y= \<four-digit numeric year\> /m= \<two-digit numeric month\> /d= \<two-digit numeric day\> /h= \<two-digit 24-hour clock hour\> /m= \<two-digit 60-minute clock minute\> /PT05M.json* 경로 구조의 5분 폴더에 저장됩니다. 추가 Blob은 스토리지에서 50K 쓰기로 제한되므로 추가 수가 많으면 내보낸 Blob 수가 확대될 수 있습니다. 이러한 경우 Blob에 대한 명명 패턴은 PT05M_#.json*입니다. 여기서 #은 증분 Blob 수입니다.
+2021년 10월 15일부터 Blob은 *WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/ \<resource-group\> /providers/microsoft.operationalinsights/workspaces/ \<workspace\> /y= \<four-digit numeric year\> /m= \<two-digit numeric month\> /d= \<two-digit numeric day\> /h= \<two-digit 24-hour clock hour\> /m= \<two-digit 60-minute clock minute\> /PT05M.json* 경로 구조의 5분 폴더에 저장됩니다. 추가 Blob은 스토리지에서 50K 쓰기로 제한되므로 추가 수가 많으면 내보낸 Blob 수가 확대될 수 있습니다. 이러한 경우 Blob의 명명 패턴은 PT05M_#.json*입니다. 여기서 #은 증분 Blob 수입니다.
 
 스토리지 계정 데이터 형식은 [JSON 줄](../essentials/resource-logs-blob-format.md)입니다. 즉, 각 레코드는 외부 레코드 배열이 없고 JSON 레코드 간에 쉼표가 없는 새줄로 구분됩니다. 
 
@@ -110,10 +110,10 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
 데이터가 Azure Monitor 도달하면 이벤트 허브로 전송됩니다. 이벤트 허브는 내보내는 각 데이터 형식에 대해 생성되며 이름은 *am-* 뒤에 테이블 이름이 지정됩니다. 예를 들어 *SecurityEvent* 테이블은 *am-SecurityEvent* 라는 이름의 이벤트 허브로 전송됩니다. 내보낸 데이터를 특정 이벤트 허브에 연결하려는 경우 또는 이름이 47자 제한을 초과하는 테이블이 있는 경우, 고유한 이벤트 허브 이름을 제공하고 정의된 테이블의 모든 데이터를 내보낼 수 있습니다.
 
 > [!NOTE]
-> - '기본' 이벤트 허브 계층은 더 낮은 이벤트 크기 [제한을](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers) 지원하며 작업 영역의 일부 로그가 이를 초과하여 삭제될 수 있습니다. 내보내기 대상에 '표준', 'Premium' 또는 '전용' 계층을 사용합니다.
-> - 내보낸 데이터의 볼륨은 시간이 지남에 따라 증가하며, 더 높은 수신 속도를 위해서는 결과 크기 조정이 필요합니다. 자동 **확장** 기능을 사용하여 사용량 요구 사항에 맞게 처리량 단위 수를 자동으로 확장하고 늘림 Azure Event Hubs [처리량 단위 자동 강화를 참조하세요.](../../event-hubs/event-hubs-auto-inflate.md)
-> - 적절한 수신 속도 할당 및 제한, 실패 및 대기 시간 이벤트를 줄이기 위해 별도의 이벤트 허브 네임스페이스를 사용합니다.
-> - 가상 네트워크를 사용하도록 설정하면 데이터 내보내기에서 이벤트 허브 리소스에 연결할 수 없습니다. Event Hubs 리소스에 대한 액세스 권한을 부여하려면 신뢰할 수 있는 **Microsoft 서비스** 이벤트 허브에서 이 방화벽을 무시하도록 허용 설정을 사용하도록 설정해야 합니다.
+> - ' 기본 ' 이벤트 허브 계층은 낮은 이벤트 크기 [제한을](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers) 지원 하 고 작업 영역의 일부 로그는이를 초과 하 여 삭제할 수 있습니다. 내보내기 대상에 ' Standard ', ' Premium ' 또는 ' 전용 ' 계층을 사용 하세요.
+> - 시간이 지남에 따라 내보낸 데이터의 양이 증가 하 고 더 높은 수신 속도를 위해 결과 크기 조정이 필요 합니다. **자동 확장 기능을** 사용 하 여 사용 요구에 맞게 자동으로 확장 하 고 처리량 단위 수를 늘립니다. [Azure Event Hubs 처리량 단위 자동 확장](../../event-hubs/event-hubs-auto-inflate.md)을 참조 하세요.
+> - 적절 한 수신 요금 할당을 위해 별도의 이벤트 허브 네임 스페이스를 사용 하 고 제한, 오류 및 대기 시간 이벤트를 줄입니다.
+> - 가상 네트워크를 사용 하는 경우 데이터 내보내기는 이벤트 허브 리소스에 도달할 수 없습니다. Event Hubs 리소스에 대 한 액세스 권한을 부여 하려면 이벤트 허브에서 **신뢰할 수 있는 Microsoft 서비스** 이 방화벽을 무시 하도록 허용 설정을 사용 하도록 설정 해야 합니다.
 
 > [!IMPORTANT]
 > ['기본' 및 '표준' 네임스페이스 계층당 지원되는 이벤트 허브 수는 10개입니다](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). 10개가 넘는 테이블을 내보내는 경우, 여러 이벤트 허브 네임스페이스에 대한 여러 내보내기 규칙으로 테이블을 분할하거나, 내보내기 규칙에 이벤트 허브 이름을 지정하고 모든 테이블을 해당 이벤트 허브로 내보냅니다.
@@ -144,38 +144,39 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.insights
 [![스토리지 계정 방화벽 및 가상 네트워크](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
 
 ### <a name="create-or-update-data-export-rule"></a>데이터 내보내기 규칙 만들기 또는 업데이트
-데이터 내보내기 규칙은 데이터를 내보내고 대상을 지정하는 테이블을 정의합니다. 작업 영역에서 10개 사용 규칙을 사용할 수 있으며, 추가 규칙을 추가할 수 있지만 '사용 안 함' 상태입니다. 대상은 작업 영역의 모든 내보내기 규칙에서 고유해야 합니다.
+데이터 내보내기 규칙은 데이터를 내보내고 대상으로 하는 테이블을 정의 합니다. 작업 영역에서 10 개의 활성화 된 규칙을 사용할 수 있으며, ' 사용 안 함 ' 상태에서 추가 규칙을 추가할 수 있습니다. 대상은 작업 영역의 모든 내보내기 규칙에서 고유 해야 합니다.
 
-데이터 내보내기 대상에는 제한이 있으며 내보내기 제한, 오류 및 대기 시간을 최소화하기 위해 모니터링해야 합니다. [스토리지 계정 확장성](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) 및 [이벤트 허브 네임스페이스 할당량을](../../event-hubs/event-hubs-quotas.md)참조하세요.
+데이터 내보내기 대상에는 제한이 있으며 내보내기 제한, 실패 및 대기 시간을 최소화 하려면 모니터링 해야 합니다. [저장소 계정 확장성](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) 및 [이벤트 허브 네임 스페이스 할당량](../../event-hubs/event-hubs-quotas.md)을 참조 하세요.
 
-#### <a name="recommendations-for-storage-account"></a>스토리지 계정에 대한 권장 사항 
+#### <a name="recommendations-for-storage-account"></a>저장소 계정에 대 한 권장 사항 
 
-1. 내보내기를 위해 별도의 스토리지 계정 사용
-1. 다음 설정을 사용하여 아래 메트릭에 대한 경고를 구성합니다. 
+1. 내보내기에 별도의 저장소 계정 사용
+1. 아래 메트릭에 다음 설정을 사용 하 여 경고를 구성 합니다. 
 
     | 범위 | 메트릭 네임스페이스 | 메트릭 | 집계 | 임계값 |
     |:---|:---|:---|:---|:---|
-    | storage-name | 계정 | 수신 | 합계 | 최대 스토리지 수신 속도의 80%입니다. 예를 들어 미국 서부의 범용 v2의 경우 60Gbps입니다. |
+    | 저장소 이름 | 계정 | 수신 | 합계 | 최대 저장소 수신 비율의 80%입니다. 예: 미국 서 부에서 범용 v2의 경우 60Gbps |
   
 1. 경고 수정 작업
-    - 내보내기를 위해 별도의 스토리지 계정 사용
-    - Azure Storage 표준 계정은 요청에 따라 더 높은 수신 제한을 지원합니다. 증가를 요청하려면 [Azure 지원](https://azure.microsoft.com/support/faq/) 문의합니다.
-    - 추가 스토리지 계정 간에 테이블 분할
+    - 내보내기에 별도의 저장소 계정 사용
+    - Azure Storage 표준 계정은 요청당 더 높은 수신 제한을 지원 합니다. 증가를 요청 하려면 [Azure 지원](https://azure.microsoft.com/support/faq/) 에 문의 하세요.
+    - 추가 저장소 계정 간에 테이블 분할
 
-#### <a name="recommendations-for-event-hub"></a>이벤트 허브에 대한 권장 사항
+#### <a name="recommendations-for-event-hub"></a>이벤트 허브에 대 한 권장 사항
 
 1. [메트릭 경고](../../event-hubs/monitor-event-hubs-reference.md)구성:
   
     | 범위 | 메트릭 네임스페이스 | 메트릭 | 집계 | 임계값 |
     |:---|:---|:---|:---|:---|
-    | namespaces-name | 이벤트 허브 표준 메트릭 | 들어오는 바이트 | 합계 | 5분당 최대 수신의 80%입니다. 예를 들어 단위당 1MB/s(TU 또는 PU)입니다. |
-    | namespaces-name | 이벤트 허브 표준 메트릭 | 들어오는 요청 | 개수 | 5분당 최대 이벤트의 80%입니다. 예를 들어 단위당 1000/s(TU 또는 PU)입니다. |
-    | namespaces-name | 이벤트 허브 표준 메트릭 | 할당량 초과 오류 | 개수 | 요청의 1%~5% 사이 |
+    | 네임 스페이스-이름 | 이벤트 허브 표준 메트릭 | 들어오는 바이트 | 합계 | 5 분당 최대 수신의 80%입니다. 예를 들어 단위당 1MB/s (TU 또는 PU)입니다. |
+    | 네임 스페이스-이름 | 이벤트 허브 표준 메트릭 | 들어오는 요청 | 개수 | 5 분당 최대 이벤트의 80% 예를 들어 단위당 1000/s (TU 또는 PU)입니다. |
+    | 네임 스페이스-이름 | 이벤트 허브 표준 메트릭 | 할당량 초과 오류 | 개수 | 요청의 1% ~ 5% |
 
 1. 경고 수정 작업
-   - 단위 수 증가(TU 또는 PU)
-   - 추가 네임스페이스 간에 테이블 분할
-   - 더 높은 처리량을 위해 'Premium' 또는 '전용' 계층 사용
+   - 자동 [확장 기능을](../../event-hubs/event-hubs-auto-inflate.md) 구성 하 여 사용 요구에 맞게 자동으로 확장 하 고 처리량 단위 수를 늘립니다.
+   - 부하에 맞게 처리량 단위 증가 확인
+   - 추가 네임 스페이스 간에 테이블 분할
+   - 높은 처리량을 위해 ' Premium ' 또는 ' 전용 ' 계층 사용
 
 내보내기 규칙은 작업 영역에 있는 테이블을 포함해야 합니다. 작업 영역에서 사용 가능한 테이블 목록에 대해 이 쿼리를 실행합니다.
 
@@ -185,13 +186,13 @@ find where TimeGenerated > ago(24h) | distinct Type
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-Azure Portal **Log Analytics 작업 영역** 메뉴의 **설정** 섹션에서 데이터 **내보내기를** 선택하고 가운데 창 위쪽에서 **새 내보내기 규칙을** 클릭합니다.
+Azure Portal **Log Analytics 작업 영역** 메뉴의 **설정** 섹션에서 **데이터 내보내기** 를 선택 하 고 가운데 창 맨 위에서 **새 내보내기 규칙** 을 클릭 합니다.
 
-![create 내보내기](media/logs-data-export/export-create-1.png)
+![내보내기 만들기](media/logs-data-export/export-create-1.png)
 
-단계를 따라 **만들기를** 클릭합니다. 
+단계를 수행 하 고 **만들기** 를 클릭 합니다. 
 
-<img src="media/logs-data-export/export-create-2.png" alt="export rule configuration" title="내보내기 규칙 구성" width="80%"/>
+<img src="media/logs-data-export/export-create-2.png" alt="export rule configuration" title="규칙 구성 내보내기" width="80%"/>
 
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
@@ -785,7 +786,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | NWConnectionMonitorTestResult |  |
 | OfficeActivity | 정부 클라우드의 부분 지원 – 일부 데이터가 O365에서 LA로 웹후크를 통해 수집됩니다. 현재 이 부분은 내보내기에서 누락됩니다. |
 | 작업 | 부분 지원 – 일부 데이터가 내보내기에 대해 지원되지 않는 내부 서비스를 통해 수집됩니다. 현재 이 부분은 내보내기에서 누락됩니다. |
-| Perf | 부분 지원 – 현재 Windows 성능 데이터만 지원 됩니다. 현재 Linux 성능 데이터는 내보내기에서 누락됩니다. |
+| Perf | 부분 지원 – 현재 Windows perf 데이터만 지원됩니다. 현재 Linux 성능 데이터는 내보내기에서 누락됩니다. |
 | PowerBIDatasetsWorkspace |  |
 | PurviewScanStatusLogs |  |
 | SCCMAssessmentRecommendation |  |

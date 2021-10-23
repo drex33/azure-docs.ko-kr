@@ -3,7 +3,7 @@ title: Azure AD 온-프레미스 애플리케이션 프로비저닝 아키텍처
 description: 온-프레미스 애플리케이션 프로비저닝 아키텍처의 개요를 제공합니다.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
@@ -11,12 +11,12 @@ ms.date: 05/28/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdd7995c50ef63b4ec88e65c949a4c098a4b9330
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fd3b716cd754c26c0a3fe0b1f95183c86bac941f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609938"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129991207"
 ---
 # <a name="azure-ad-on-premises-application-provisioning-architecture"></a>Azure AD 온-프레미스 애플리케이션 프로비저닝 아키텍처
 

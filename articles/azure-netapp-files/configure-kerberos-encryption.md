@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/15/2021
 ms.author: b-juche
-ms.openlocfilehash: a12df50ac6fe2e1dc2bf793316538a90ba0f901d
-ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
-ms.translationtype: HT
+ms.openlocfilehash: 8fd2656af426464ccddfaed50124b4ba189254f9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114361338"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256346"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFSv4.1 Kerberos 암호화 구성
 
@@ -118,8 +118,9 @@ NFSv4.1 볼륨, 테스트된 성능 벡터 및 kerberos의 예상 성능 영향�
 ## <a name="next-steps"></a>다음 단계  
 
 * [NFSv4.1 볼륨에서 Kerberos의 성능 영향](performance-impact-kerberos.md)
-* [NFSv4.1 Kerberos 볼륨 문제 해결](troubleshoot-nfsv41-kerberos-volumes.md)
-* [Azure NetApp Files에 대한 FAQ](azure-netapp-files-faqs.md)
+* [Azure NetApp Files 볼륨 오류 문제 해결](troubleshoot-volumes.md)
+* [NFS FAQ](faq-nfs.md)
+* [성능 FAQ](faq-performance.md)
 * [Azure NetApp Files에 대한 NFS 볼륨 만들기](azure-netapp-files-create-volumes.md)
 * [Active Directory 연결 만들기](create-active-directory-connections.md)
 * [Azure NetApp Files에 대한 NFS 클라이언트 구성](configure-nfs-clients.md) 

@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 05/26/2021
 ms.author: mbullwin
-ms.openlocfilehash: 2bb387863baffdd014eedb20d94ea1273860b8c4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 9d5d111e86623b3de63bc9aa5d77f5a14c37fabd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528471"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216773"
 ---
 # <a name="how-to-connect-different-data-sources"></a>방법: 여러 데이터 원본 연결
 
@@ -185,7 +185,7 @@ ms.locfileid: "122528471"
         Data Source=<URI Server>;Initial Catalog=<Database>
         ```
 
-    * **관리 ID**: Azure 리소스에 대한 관리 ID를 사용하여 Blob 및 큐 데이터에 대한 액세스 권한 부여할 수 있습니다. 관리 ID는 Azure 가상 머신, 함수 앱, 가상 머신 확장 집합 및 기타 서비스에서 실행되는 애플리케이션에서 Azure AD 자격 증명을 사용합니다. Azure AD 인증과 함께 Azure 리소스에 대한 관리 ID를 사용하면 클라우드에서 실행되는 애플리케이션에 자격 증명을 저장할 필요가 없습니다. [관리 ID로 권한 부여](../../storage/common/storage-auth-aad-msi.md#enable-managed-identities-on-a-vm) 방법을 알아봅니다. 
+    * **관리 ID**: Azure 리소스에 대한 관리 ID를 사용하여 Blob 및 큐 데이터에 대한 액세스 권한 부여할 수 있습니다. 관리 ID는 Azure 가상 머신, 함수 앱, 가상 머신 확장 집합 및 기타 서비스에서 실행되는 애플리케이션에서 Azure AD 자격 증명을 사용합니다. Azure AD 인증과 함께 Azure 리소스에 대한 관리 ID를 사용하면 클라우드에서 실행되는 애플리케이션에 자격 증명을 저장할 필요가 없습니다. [관리 ID로 권한 부여](../../storage/blobs/authorize-managed-identity.md#enable-managed-identities-on-a-vm) 방법을 알아봅니다. 
     
         Azure Data Explorer(Kusto)에 대한 Azure Portal에서 관리 ID를 만들 수 있습니다. **권한** > **추가** 를 선택합니다. 제안되는 역할 유형은 **관리자/보기 권한자** 입니다.
         
@@ -413,7 +413,7 @@ Azure Monitor 로그는 인증 유형으로 기본, 서비스 주체 및 Key Vau
         ```
     
         > [!NOTE]
-        > `MI Name`은 Metrics Advisor에서 관리 ID 이름입니다(서비스 주체의 경우 서비스 주체 이름으로 대체해야 함). 자세한 내용은 [관리 ID로 권한 부여](../../storage/common/storage-auth-aad-msi.md#enable-managed-identities-on-a-vm)를 참조하세요. 
+        > `MI Name`은 Metrics Advisor에서 관리 ID 이름입니다(서비스 주체의 경우 서비스 주체 이름으로 대체해야 함). 자세한 내용은 [관리 ID로 권한 부여](../../storage/blobs/authorize-managed-identity.md#enable-managed-identities-on-a-vm)를 참조하세요. 
             
         다음은 연결 문자열의 예입니다. 
        

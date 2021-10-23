@@ -4,13 +4,13 @@ description: Azure Monitor의 사용자 지정 필드를 사용하면 수집된 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/23/2019
-ms.openlocfilehash: f9ddc35aeff63c164c4e8dda0d08f6075be40460
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
-ms.translationtype: HT
+ms.date: 10/20/2021
+ms.openlocfilehash: fc3f65fc696879642cabe2bf5d29c0a19e795833
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107948908"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216450"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Azure Monitor(미리 보기)의 Log Analytics 작업 영역에 사용자 지정 필드 만들기
 

@@ -3,7 +3,7 @@ title: '자습서: 인증 코드 흐름을 사용하여 인증할 수 있도록 
 titleSuffix: Microsoft identity platform
 description: 이 자습서에서는 Microsoft ID 플랫폼을 사용하여 사용자를 로그인하고 사용자를 대신해 Microsoft Graph API를 호출하도록 액세스 토큰을 가져오면서 인증 코드 흐름을 사용하는 Angular SPA(단일 페이지 앱)를 빌드합니다.
 services: active-directory
-author: joarroyo
+author: jo-arroyo
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/14/2021
 ms.author: joarroyo
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 01c35297a35b41b58b83aaf361aaa47a76cfecee
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: b116c7481dcbbdf05bf7aba476feeef853c0c87f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129230858"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993666"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application-spa-using-auth-code-flow"></a>자습서: 인증 코드 흐름을 사용하여 Angular SPA(단일 페이지 애플리케이션)에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -449,7 +449,7 @@ ng generate component profile                       # To add a profile page
 1. `MsalBroadcastService`를 *src/app/app.component.ts* 에 추가하고 식별 가능한 `inProgress$`를 구독하여 UI를 렌더링하기 전에 상호 작용이 완료되고 계정이 로그인되었는지 확인합니다. 이제 코드가 다음과 비슷할 것입니다.
 
     ```javascript
-    import { Component, OnInit } from '@angular/core';
+    import { Component, OnInit, OnDestroy } from '@angular/core';
     import { MsalService, MsalBroadcastService } from '@azure/msal-angular';
     import { InteractionStatus } from '@azure/msal-browser';
     import { Subject } from 'rxjs';
@@ -460,7 +460,7 @@ ng generate component profile                       # To add a profile page
       templateUrl: './app.component.html',
       styleUrls: ['./app.component.css']
     })
-    export class AppComponent implements OnInit {
+    export class AppComponent implements OnInit, OnDestroy {
       title = 'msal-angular-tutorial';
       isIframe = false;
       loginDisplay = false;
@@ -653,7 +653,7 @@ MSAL Angular는 경로를 보호하는 데 사용할 수 있고 보호된 경로
 3. *src/app/app.component.ts* 에서 로그인 호출을 조정하여 가드 구성에 있는 `authRequest` 세트를 고려합니다. 지금 코드는 다음과 같습니다.
 
     ```javascript
-    import { Component, OnInit, Inject } from '@angular/core';
+    import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
     import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
     import { InteractionStatus, RedirectRequest } from '@azure/msal-browser';
     import { Subject } from 'rxjs';
@@ -664,7 +664,7 @@ MSAL Angular는 경로를 보호하는 데 사용할 수 있고 보호된 경로
       templateUrl: './app.component.html',
       styleUrls: ['./app.component.css']
     })
-    export class AppComponent implements OnInit {
+    export class AppComponent implements OnInit, OnDestroy {
       title = 'msal-angular-tutorial';
       isIframe = false;
       loginDisplay = false;
@@ -873,7 +873,7 @@ MSAL Angular는 알려진 보호된 리소스에 Angular `http` 클라이언트�
 *src/app/app.component.ts* 에서 코드를 업데이트하여 리디렉션을 사용해 사용자를 로그아웃합니다.
 
 ```javascript
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
 import { InteractionStatus, RedirectRequest } from '@azure/msal-browser';
 import { Subject } from 'rxjs';
@@ -884,7 +884,7 @@ import { filter, takeUntil } from 'rxjs/operators';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'msal-angular-tutorial';
   isIframe = false;
   loginDisplay = false;
@@ -935,7 +935,7 @@ export class AppComponent implements OnInit {
 *src/app/app.component.ts* 에서 코드를 업데이트하여 팝업을 사용해 사용자를 로그아웃합니다.
 
 ```javascript
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
 import { InteractionStatus, PopupRequest } from '@azure/msal-browser';
 import { Subject } from 'rxjs';
@@ -946,7 +946,7 @@ import { filter, takeUntil } from 'rxjs/operators';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'msal-angular-tutorial';
   isIframe = false;
   loginDisplay = false;

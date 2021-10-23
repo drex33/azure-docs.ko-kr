@@ -9,12 +9,12 @@ ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: bed5c6b1b1cf21de0105e0eeb2096d359177c115
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
-ms.translationtype: HT
+ms.openlocfilehash: 952e0b325fe37345db42d1dcd8d6c521f8235366
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109815003"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225401"
 ---
 # <a name="manage-scala-and-java-packages-for-apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 Apache Spark용 Scala 및 Java 패키지 관리
 
@@ -82,7 +82,7 @@ Spark 풀에 라이브러리를 업데이트하거나 추가하려면:
 >
 > 이 설정을 선택하지 않으면 현재 Spark 세션이 종료될 때까지 기다리거나 수동으로 중지해야 합니다. 세션이 종료되면 풀을 다시 시작하도록 해야 합니다.
 
-#### <a name="track-installation-progress-preview"></a>설치 진행률 추적(미리 보기)
+#### <a name="track-installation-progress"></a>설치 진행률 추적 
 시스템 예약 Spark 작업은 새 라이브러리 집합으로 풀이 업데이트될 때마다 시작됩니다. 이 Spark 작업은 라이브러리 설치 상태를 모니터링하는 데 유용합니다. 라이브러리 충돌이나 기타 문제로 인해 설치가 실패하는 경우 Spark 풀이 이전 또는 기본 상태로 되돌아갑니다. 
 
 또한 사용자는 설치 로그를 검사하여 종속성 충돌을 식별하거나 풀 업데이트 중에 설치된 라이브러리를 확인할 수도 있습니다.

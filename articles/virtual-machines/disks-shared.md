@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/03/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 56ba97d5a13744ee034024f510eac70d4f343877
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: f66c1528058fd2d03098c00a54928fb0fbbd4057
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129052807"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225157"
 ---
 # <a name="share-an-azure-managed-disk"></a>Azure 관리 디스크 공유
 
@@ -161,7 +161,7 @@ Ultra Disk는 수정 가능한 특성을 제공하고 수정할 수 있도록 �
 
 **Q: 공유 디스크를 지원하는 지역은 무엇인가요?**
 
-**A:** 지역 정보는 개념 [문서](/azure/virtual-machines/disks-shared)를 참조하세요.
+**A:** 지역 정보는 개념 [문서]()를 참조하세요.
 
 **Q: 공유 디스크를 OS 디스크로 사용할 수 있나요?**
 
@@ -169,7 +169,7 @@ Ultra Disk는 수정 가능한 특성을 제공하고 수정할 수 있도록 �
 
 **Q: 공유 디스크를 지원하는 디스크 크기는 무엇인가요?**
 
-**A:** 지원되는 크기는 [개념 문서](/azure/virtual-machines/disks-shared)를 참조하세요.
+**A:** 지원되는 크기는 [개념 문서]()를 참조하세요.
 
 **Q: 기존 디스크가 있는 경우 공유 디스크를 사용하도록 설정할 수 있나요?**
 

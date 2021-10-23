@@ -11,15 +11,15 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/07/2021
+ms.date: 10/15/2021
 ms.author: rolyon
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 5df6b591cc7ba3795104957b9cd11de814e2472a
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 96064811bf0d82ab37a338adf3ed2ac4568c57f1
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111591905"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130069175"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여
 
@@ -35,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -68,7 +68,7 @@ Azure RBAC에서 액세스 권한을 부여하기 위해 Azure 역할을 할당�
    ![리소스 그룹에 대한 액세스 제어(IAM) 페이지.](./media/shared/rg-role-assignments.png)
 
 
-1. **추가** > **역할 할당 추가(미리 보기)** 를 클릭합니다.
+1. **추가** > **역할 할당 추가** 를 클릭합니다.
 
    역할을 할당할 수 있는 권한이 없으면 역할 할당 추가 옵션이 비활성화됩니다.
 

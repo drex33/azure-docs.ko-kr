@@ -9,18 +9,18 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 253433c98ce2da8e69fadf82ff9e5902e5a990ef
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 93b66a1cd8aa6f39cd12284d0a7bd3234d9b8ef5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123542236"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225068"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>IaaS 리소스를 2023년 3월 1일까지 Azure Resource Manager로 마이그레이션합니다. 
 
 **적용 대상:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VM
 
-2014년에 [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)에서 IaaS(서비스로써의 인프라)를 시작했습니다. 그때부터 계속해서 기능을 발전해 왔습니다. 이제 Azure Resource Manager가 모든 IaaS 기능과 기타 고급 기능을 갖추고 있기 때문에 [ASM](/azure/virtual-machines/migration-classic-resource-manager-faq#what-is-azure-service-manager-and-what-does-it-mean-by-classic)(Azure Service Manager)을 통한 IaaS VM(가상 머신)의 관리는 2020년 2월 28일부로 사용되지 않습니다. 이 기능은 2023년 3월 1일부로 완전히 사용 중지됩니다. 
+2014년에 [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)에서 IaaS(서비스로써의 인프라)를 시작했습니다. 그때부터 계속해서 기능을 발전해 왔습니다. 이제 Azure Resource Manager가 모든 IaaS 기능과 기타 고급 기능을 갖추고 있기 때문에 [ASM](./migration-classic-resource-manager-faq.yml)(Azure Service Manager)을 통한 IaaS VM(가상 머신)의 관리는 2020년 2월 28일부로 사용되지 않습니다. 이 기능은 2023년 3월 1일부로 완전히 사용 중지됩니다. 
 
 현재 IaaS VM의 90%가량이 Azure Resource Manager를 사용하고 있습니다. ASM을 통해 IaaS 리소스를 사용하고 계시다면 이제 마이그레이션 계획을 시작하세요. [Azure Resource Manager](../azure-resource-manager/management/index.yml)를 활용하려면 2023년 3월 1일까지 이를 완료하세요.
 
@@ -37,7 +37,7 @@ ms.locfileid: "123542236"
 - VM(클래식)이 사용하지 *않는* 가상 네트워크 
 - 기타 클래식 리소스
 
-Azure Cloud Services (클래식) 사용 중지가 [여기](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/) 에서 8 월 2021에 발표 되었습니다.
+Azure Cloud Services(클래식) 중지는 2021년 8월에 [발표되었습니다.](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/)
 
 ## <a name="what-resources-are-available-for-this-migration"></a>이번 마이그레이션에 사용할 수 있는 리소스는 무엇인가요?
 

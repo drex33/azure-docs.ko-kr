@@ -3,7 +3,7 @@ title: 로그인하는 동안 사용자 이름 조회 - Azure Active Directory |
 description: Azure Active Directory에서 로그인하는 동안 화면 메시지에서 사용자 이름 조회를 반영하는 방법
 services: active-directory
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: enterprise-users
@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ec804029919f0b9c4be26b044cd7a3eeddf6690
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1ca9aa2d0d90d048a8fe3a4399bf3dd579be3de4
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96547834"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129985545"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Azure Active Directory 로그인 페이지에 대한 홈 영역 검색
 

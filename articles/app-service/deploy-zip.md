@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/13/2021
 ms.reviewer: sisirap
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: a73d03d97e2b5d5d743b1db3980c8e587a0f454b
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: be58de78ba82c3c5e99475b00649e2a7ebfdf5e4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225436"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216942"
 ---
 # <a name="deploy-files-to-app-service"></a>App Service에 파일 배포
 
@@ -93,7 +93,7 @@ curl -X POST -u <username> https://<app-name>.scm.azurewebsites.net/api/publish 
 
 배포가 진행 중일 때 오른쪽 위 모서리의 아이콘에서는 진행률을 백분율로 보여줍니다. 페이지도 탐색기 영역 아래에서 작업에 대한 자세한 정보 메시지를 표시합니다. 작업이 완료되면 `Deployment successful`이라는 마지막 배포 메시지가 표시됩니다.
 
-지금은 위의 엔드포인트가 Linux App Services에 대해 작동하지 않습니다. 대신 FTP 또는 [ZIP 배포 API](/azure/app-service/faq-app-service-linux#continuous-integration-and-deployment)를 사용하는 것이 좋습니다.
+지금은 위의 엔드포인트가 Linux App Services에 대해 작동하지 않습니다. 대신 FTP 또는 [ZIP 배포 API](./faq-app-service-linux.yml)를 사용하는 것이 좋습니다.
 
 -----
 

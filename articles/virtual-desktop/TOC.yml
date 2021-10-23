@@ -100,8 +100,20 @@
           href: set-up-customize-master-image.md
         - name: 마스터 VHD 이미지에 Office 설치
           href: install-office-on-wvd-master-image.md
-    - name: 자동으로 세션 호스트 크기 조정
-      href: set-up-scaling-script.md
+    - name: Azure Automation을 사용하여 세션 호스트 크기 조정
+      items:
+        - name: 크기 조정 스크립트 설정
+          href: set-up-scaling-script.md
+    - name: 자동 크기 조정(미리 보기)
+      items:
+        - name: 자동 크기 조정 기능 사용(미리 보기)
+          href: autoscale-scaling-plan.md
+        - name: 자동 크기 조정 세션 호스트(미리 보기)
+          href: autoscale-new-existing-host-pool.md
+        - name: 자동 크기 진단(미리 보기)
+          href: autoscale-diagnostics.md
+        - name: 자동 크기 조정 기능 FAQ(미리 보기)
+          href: autoscale-faq.yml
     - name: 피드 사용자 지정
       href: customize-feed-for-virtual-desktop-users.md
     - name: 서비스 진단 사용

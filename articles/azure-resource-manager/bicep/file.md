@@ -3,12 +3,12 @@ title: Bicep 파일 구조 및 구문
 description: 선언 구문을 사용하여 Bicep 파일의 구조 및 속성을 설명합니다.
 ms.topic: conceptual
 ms.date: 10/07/2021
-ms.openlocfilehash: 8cdeb75aa676b9121d69ba8bf612067157328ee0
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 7fa9126326bc1bc3922379c52a937013a33abd13
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130067158"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216317"
 ---
 # <a name="understand-the-structure-and-syntax-of-bicep-files"></a>Bicep 파일의 구조 및 구문 이해
 
@@ -295,7 +295,7 @@ resource storageAccountResources 'Microsoft.Storage/storageAccounts@2019-06-01' 
 
 `batchSize`데코레이터는 [sys 네임스페이스](bicep-functions.md#namespaces-for-functions)에 있습니다. 이 데코레이터를 동일한 이름의 다른 항목과 구별해야 하는 경우 데코레이터의 앞면에 **sys를 두세요.**`@sys.batchSize(2)`
 
-자세한 내용은 [일괄 처리로 배포](loop-resources.md#deploy-in-batches)를 참조하세요.
+자세한 내용은 [일괄 처리로 배포](loops.md#deploy-in-batches)를 참조하세요.
 
 ## <a name="outputs"></a>출력
 

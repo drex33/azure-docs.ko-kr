@@ -8,12 +8,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 05/20/2021
 ms.custom: template-how-to
-ms.openlocfilehash: f436cd2d113909a65b62891f9fbfb5965d06a981
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: a40806f6328c513fe6a835ca3a81b46ad962b86d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129373052"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224952"
 ---
 # <a name="upgrade-a-public-ip-address-using-the-azure-portal"></a>Azure Portal을 사용하여 공용 IP 주소 업그레이드
 
@@ -24,7 +24,7 @@ Azure 공용 IP 주소는 기본 또는 표준 SKU를 사용하여 만듭니다.
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-* 구독의 고정 기본 SKU 공용 IP 주소입니다. 자세한 내용은 [공용 IP 주소 만들기 - Azure Portal](../../virtual-network/create-public-ip-portal.md#create-a-basic-sku-public-ip-address)을 참조하세요.
+* 구독의 고정 기본 SKU 공용 IP 주소입니다. 자세한 내용은 [공용 IP 주소 만들기 - Azure Portal](./create-public-ip-portal.md#create-a-basic-sku-public-ip-address)을 참조하세요.
 
 ## <a name="upgrade-public-ip-address"></a>공용 IP 주소 업그레이드
 
@@ -73,5 +73,4 @@ Azure 공용 IP 주소는 기본 또는 표준 SKU를 사용하여 만듭니다.
 Azure의 공용 IP 주소에 대한 자세한 내용은 다음을 참조하세요.
 
 - [Azure의 공용 IP 주소](public-ip-addresses.md)
-- [공용 IP 만들기 - Azure Portal](../../virtual-network/create-public-ip-portal.md)
-
+- [공용 IP 만들기 - Azure Portal](./create-public-ip-portal.md)

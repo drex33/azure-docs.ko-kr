@@ -6,16 +6,14 @@ ms.date: 04/16/2020
 ms.custom: devx-track-java
 author: mattmccleary
 ms.author: mmcc
-ms.openlocfilehash: 4bd6127d12cca9c2b5fb5fbcc1305189a567a239
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 054cfbe337cbe6b82c9a3e53fe6036c874ab03e6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130133826"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256690"
 ---
-# <a name="adding-the-jvm-arg---azure-monitor-application-insights-for-java"></a>JVM 인수 추가 - Java용 Azure Monitor Application Insights
-
-
+# <a name="tips-for-updating-your-jvm-args---azure-monitor-application-insights-for-java"></a>JVM args 업데이트에 대한 팁 - Java용 Azure Monitor 애플리케이션 Insights
 
 ## <a name="azure-environments"></a>Azure 환경
 
@@ -23,24 +21,24 @@ ms.locfileid: "130133826"
 
 ## <a name="spring-boot"></a>Spring Boot
 
-`-jar` 앞 어딘가에 JVM 인수 `-javaagent:path/to/applicationinsights-agent-3.2.0.jar`을 추가합니다. 예를 들면 다음과 같습니다.
+`-jar` 앞 어딘가에 JVM 인수 `-javaagent:path/to/applicationinsights-agent-3.2.1.jar`을 추가합니다. 예를 들면 다음과 같습니다.
 
 ```
-java -javaagent:path/to/applicationinsights-agent-3.2.0.jar -jar <myapp.jar>
+java -javaagent:path/to/applicationinsights-agent-3.2.1.jar -jar <myapp.jar>
 ```
 
 ## <a name="spring-boot-via-docker-entry-point"></a>Docker 진입점을 통한 Spring Boot
 
-*exec* 양식을 사용하는 경우 `"-jar"` 매개 변수 앞의 매개 변수 목록에 매개 변수 `"-javaagent:path/to/applicationinsights-agent-3.2.0.jar"`을 추가합니다. 예를 들면 다음과 같습니다.
+*exec* 양식을 사용하는 경우 `"-jar"` 매개 변수 앞의 매개 변수 목록에 매개 변수 `"-javaagent:path/to/applicationinsights-agent-3.2.1.jar"`을 추가합니다. 예를 들면 다음과 같습니다.
 
 ```
-ENTRYPOINT ["java", "-javaagent:path/to/applicationinsights-agent-3.2.0.jar", "-jar", "<myapp.jar>"]
+ENTRYPOINT ["java", "-javaagent:path/to/applicationinsights-agent-3.2.1.jar", "-jar", "<myapp.jar>"]
 ```
 
-*shell* 양식을 사용하는 경우 `-jar` 앞 어딘가에 JVM 인수 `-javaagent:path/to/applicationinsights-agent-3.2.0.jar`을 추가합니다. 예를 들면 다음과 같습니다.
+*shell* 양식을 사용하는 경우 `-jar` 앞 어딘가에 JVM 인수 `-javaagent:path/to/applicationinsights-agent-3.2.1.jar`을 추가합니다. 예를 들면 다음과 같습니다.
 
 ```
-ENTRYPOINT java -javaagent:path/to/applicationinsights-agent-3.2.0.jar -jar <myapp.jar>
+ENTRYPOINT java -javaagent:path/to/applicationinsights-agent-3.2.1.jar -jar <myapp.jar>
 ```
 
 ## <a name="tomcat-8-linux"></a>Tomcat 8(Linux)
@@ -50,7 +48,7 @@ ENTRYPOINT java -javaagent:path/to/applicationinsights-agent-3.2.0.jar -jar <mya
 `apt-get` 또는 `yum`을 통해 Tomcat를 설치한 경우에는 `/etc/tomcat8/tomcat8.conf` 파일이 있어야 합니다.  해당 파일 끝에 다음 줄을 추가합니다.
 
 ```
-JAVA_OPTS="$JAVA_OPTS -javaagent:path/to/applicationinsights-agent-3.2.0.jar"
+JAVA_OPTS="$JAVA_OPTS -javaagent:path/to/applicationinsights-agent-3.2.1.jar"
 ```
 
 ### <a name="tomcat-installed-via-download-and-unzip"></a>다운로드 및 압축 해제를 통해 설치된 Tomcat
@@ -58,10 +56,10 @@ JAVA_OPTS="$JAVA_OPTS -javaagent:path/to/applicationinsights-agent-3.2.0.jar"
 [https://tomcat.apache.org](https://tomcat.apache.org)에서 다운로드 및 압축 해제를 통해 Tomcat을 설치한 경우에는 `<tomcat>/bin/catalina.sh` 파일이 있어야 합니다.  다음 내용이 포함된 `<tomcat>/bin/setenv.sh`라는 동일한 디렉터리에 새 파일을 만듭니다.
 
 ```
-CATALINA_OPTS="$CATALINA_OPTS -javaagent:path/to/applicationinsights-agent-3.2.0.jar"
+CATALINA_OPTS="$CATALINA_OPTS -javaagent:path/to/applicationinsights-agent-3.2.1.jar"
 ```
 
-파일 `<tomcat>/bin/setenv.sh`가 이미 있으면 해당 파일을 수정하고 `-javaagent:path/to/applicationinsights-agent-3.2.0.jar`을 `CATALINA_OPTS`에 추가합니다.
+파일 `<tomcat>/bin/setenv.sh`가 이미 있으면 해당 파일을 수정하고 `-javaagent:path/to/applicationinsights-agent-3.2.1.jar`을 `CATALINA_OPTS`에 추가합니다.
 
 
 ## <a name="tomcat-8-windows"></a>Tomcat 8(Windows)
@@ -71,36 +69,36 @@ CATALINA_OPTS="$CATALINA_OPTS -javaagent:path/to/applicationinsights-agent-3.2.0
 파일 `<tomcat>/bin/catalina.bat`를 찾습니다.  다음 내용이 포함된 `<tomcat>/bin/setenv.bat`라는 동일한 디렉터리에 새 파일을 만듭니다.
 
 ```
-set CATALINA_OPTS=%CATALINA_OPTS% -javaagent:path/to/applicationinsights-agent-3.2.0.jar
+set CATALINA_OPTS=%CATALINA_OPTS% -javaagent:path/to/applicationinsights-agent-3.2.1.jar
 ```
 
 따옴표는 필요하지는 않지만 이를 포함하려는 경우 적절한 배치는 다음과 같습니다.
 
 ```
-set "CATALINA_OPTS=%CATALINA_OPTS% -javaagent:path/to/applicationinsights-agent-3.2.0.jar"
+set "CATALINA_OPTS=%CATALINA_OPTS% -javaagent:path/to/applicationinsights-agent-3.2.1.jar"
 ```
 
-파일 `<tomcat>/bin/setenv.bat`가 이미 있으면 해당 파일을 수정하고 `-javaagent:path/to/applicationinsights-agent-3.2.0.jar`을 `CATALINA_OPTS`에 추가하기만 하면 됩니다.
+파일 `<tomcat>/bin/setenv.bat`가 이미 있으면 해당 파일을 수정하고 `-javaagent:path/to/applicationinsights-agent-3.2.1.jar`을 `CATALINA_OPTS`에 추가하기만 하면 됩니다.
 
 ### <a name="running-tomcat-as-a-windows-service"></a>Windows 서비스로 Tomcat 실행
 
-파일 `<tomcat>/bin/tomcat8w.exe`를 찾습니다.  해당 실행 파일을 실행하고 `Java` 탭 아래의 `Java Options`에 `-javaagent:path/to/applicationinsights-agent-3.2.0.jar`을 추가합니다.
+파일 `<tomcat>/bin/tomcat8w.exe`를 찾습니다.  해당 실행 파일을 실행하고 `Java` 탭 아래의 `Java Options`에 `-javaagent:path/to/applicationinsights-agent-3.2.1.jar`을 추가합니다.
 
 
 ## <a name="jboss-eap-7"></a>JBoss EAP 7
 
 ### <a name="standalone-server"></a>독립 실행형 서버
 
-파일 `JBOSS_HOME/bin/standalone.conf`(Linux) 또는 `JBOSS_HOME/bin/standalone.conf.bat`(Windows)의 기존 `JAVA_OPTS` 환경 변수에 `-javaagent:path/to/applicationinsights-agent-3.2.0.jar`을 추가합니다.
+파일 `JBOSS_HOME/bin/standalone.conf`(Linux) 또는 `JBOSS_HOME/bin/standalone.conf.bat`(Windows)의 기존 `JAVA_OPTS` 환경 변수에 `-javaagent:path/to/applicationinsights-agent-3.2.1.jar`을 추가합니다.
 
 ```java    ...
-    JAVA_OPTS="-javaagent:path/to/applicationinsights-agent-3.2.0.jar -Xms1303m -Xmx1303m ..."
+    JAVA_OPTS="-javaagent:path/to/applicationinsights-agent-3.2.1.jar -Xms1303m -Xmx1303m ..."
     ...
 ```
 
 ### <a name="domain-server"></a>도메인 서버
 
-`JBOSS_HOME/domain/configuration/host.xml`의 기존 `jvm-options`에 `-javaagent:path/to/applicationinsights-agent-3.2.0.jar`을 추가합니다.
+`JBOSS_HOME/domain/configuration/host.xml`의 기존 `jvm-options`에 `-javaagent:path/to/applicationinsights-agent-3.2.1.jar`을 추가합니다.
 
 ```xml
 ...
@@ -110,7 +108,7 @@ set "CATALINA_OPTS=%CATALINA_OPTS% -javaagent:path/to/applicationinsights-agent-
         <jvm-options>
             <option value="-server"/>
             <!--Add Java agent jar file here-->
-            <option value="-javaagent:path/to/applicationinsights-agent-3.2.0.jar"/>
+            <option value="-javaagent:path/to/applicationinsights-agent-3.2.1.jar"/>
             <option value="-XX:MetaspaceSize=96m"/>
             <option value="-XX:MaxMetaspaceSize=256m"/>
         </jvm-options>
@@ -150,20 +148,20 @@ set "CATALINA_OPTS=%CATALINA_OPTS% -javaagent:path/to/applicationinsights-agent-
 
 ```
 --exec
--javaagent:path/to/applicationinsights-agent-3.2.0.jar
+-javaagent:path/to/applicationinsights-agent-3.2.1.jar
 ```
 
 
 ## <a name="payara-5"></a>Payara 5
 
-`glassfish/domains/domain1/config/domain.xml`의 기존 `jvm-options`에 `-javaagent:path/to/applicationinsights-agent-3.2.0.jar`을 추가합니다.
+`glassfish/domains/domain1/config/domain.xml`의 기존 `jvm-options`에 `-javaagent:path/to/applicationinsights-agent-3.2.1.jar`을 추가합니다.
 
 ```xml
 ...
 <java-config ...>
     <!--Edit the JVM options here-->
     <jvm-options>
-        -javaagent:path/to/applicationinsights-agent-3.2.0.jar>
+        -javaagent:path/to/applicationinsights-agent-3.2.1.jar>
     </jvm-options>
         ...
 </java-config>
@@ -179,7 +177,7 @@ Java and Process Management > Process definition >  Java Virtual Machine
 ```
 "일반 JVM 인수"에서 다음을 추가합니다.
 ```
--javaagent:path/to/applicationinsights-agent-3.2.0.jar
+-javaagent:path/to/applicationinsights-agent-3.2.1.jar
 ```
 그런 다음, 애플리케이션 서버를 저장하고 다시 시작합니다.
 
@@ -188,5 +186,9 @@ Java and Process Management > Process definition >  Java Virtual Machine
 
 서버 디렉터리(예: `<openliberty>/usr/servers/defaultServer`)에 새 파일 `jvm.options`를 만들고 다음 줄을 추가합니다.
 ```
--javaagent:path/to/applicationinsights-agent-3.2.0.jar
+-javaagent:path/to/applicationinsights-agent-3.2.1.jar
 ```
+
+## <a name="others"></a>Others
+
+JVM args를 추가하는 방법은 애플리케이션 서버 설명서를 참조하세요.

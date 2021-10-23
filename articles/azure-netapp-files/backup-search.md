@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/27/2021
 ms.author: b-juche
-ms.openlocfilehash: 71fcf944f0664c1d3e4d07e96348d109042047a8
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 0ed10fbe492a49f61a989e9159bed1cf4b60e513
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129095799"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256308"
 ---
 # <a name="search-backups-of-azure-netapp-files-volumes"></a>Azure NetApp Files 볼륨의 백업 검색
 
@@ -66,7 +66,7 @@ ms.locfileid: "129095799"
 ## <a name="next-steps"></a>다음 단계  
 
 * [Azure NetApp Files 백업 이해](backup-introduction.md)
-* [Azure NetApp Files 백업에 대 한 요구 사항 및 고려 사항](backup-requirements-considerations.md)
+* [Azure NetApp Files 백업에 대한 요구 사항 및 고려 사항](backup-requirements-considerations.md)
 * [Azure NetApp Files에 대한 리소스 제한](azure-netapp-files-resource-limits.md)
 * [정책 기반 백업 구성](backup-configure-policy-based.md)
 * [수동 백업 구성](backup-configure-manual.md)
@@ -75,4 +75,4 @@ ms.locfileid: "129095799"
 * [볼륨에 대 한 백업 기능 사용 안 함](backup-disable.md)
 * [볼륨의 백업 삭제](backup-delete.md)
 * [볼륨 백업 메트릭](azure-netapp-files-metrics.md#volume-backup-metrics)
-* [Azure NetApp Files 백업 FAQ](azure-netapp-files-faqs.md#azure-netapp-files-backup-faqs)
+* [Azure NetApp Files 백업 FAQ](faq-backup.md)

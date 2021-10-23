@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 0796716e61c900d475a961277e969e57b994805f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2f892af6b876d81d9312e1f93785265e55f960a2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128634252"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226018"
 ---
 # <a name="create-and-provision-iot-edge-devices-at-scale-on-windows-using-symmetric-keys"></a>대칭 키를 사용 하 여 Windows에서 대규모로 IoT Edge 장치 만들기 및 프로 비전
 
@@ -166,7 +166,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 IoT Edge 보안 디먼은 IoT Edge 디바이스에서 보안 표준을 제공하고 유지 관리합니다. 디먼은 부팅할 때마다 시작되며, 나머지 IoT Edge 런타임을 시작하여 디바이스를 부트스트랩합니다.
 
-이 섹션의 단계는 인터넷에 연결 된 장치에 최신 버전을 설치 하는 일반적인 프로세스를 나타냅니다. 시험판 버전과 같은 특정 버전을 설치 해야 하거나 오프 라인 상태에서 설치 해야 하는 경우 [오프 라인 또는 특정 버전의 설치 단계](how-to-install-iot-edge.md#offline-or-specific-version-installation-optional)를 따르세요.
+이 섹션의 단계는 인터넷에 연결 된 장치에 최신 버전을 설치 하는 일반적인 프로세스를 나타냅니다. 시험판 버전과 같은 특정 버전을 설치 해야 하거나 오프 라인 상태에서 설치 해야 하는 경우 [오프 라인 또는 특정 버전의 설치 단계](how-to-provision-single-device-windows-symmetric.md#offline-or-specific-version-installation-optional)를 따르세요.
 
 1. PowerShell을 관리자 권한으로 실행합니다.
 
@@ -212,7 +212,7 @@ IoT Edge 보안 디먼은 IoT Edge 디바이스에서 보안 표준을 제공하
 
    `{scope_id}`, `{registration_id}` 및`{symmetric_key}`의 자리 표시자 값을 앞에서 수집한 데이터로 바꿉니다.
 
-   `-RegistrationId {registration_id}`장치 id를 id 인증서의 CN 이름 이외의 이름으로 설정 하려는 경우 매개 변수를 추가 합니다.
+   디바이스 `-RegistrationId {registration_id}` ID를 ID 인증서의 CN 이름이 아닌 다른 이름으로 설정하려면 매개 변수를 추가합니다.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
@@ -229,7 +229,7 @@ Device Provisioning Service에서 만든 개별 등록이 사용되었는지 확
 
 # <a name="group-enrollment"></a>[그룹 등록](#tab/group-enrollment)
 
-장치 프로 비전 서비스에서 만든 그룹 등록이 사용 되었는지 확인할 수 있습니다. Azure Portal에서 Device Provisioning Service 인스턴스로 이동합니다. 만든 그룹 등록에 대 한 등록 정보를 엽니다. **등록 레코드** 탭으로 이동 하 여 해당 그룹에 등록 된 모든 장치를 볼 수 있습니다.
+Device Provisioning Service에서 만든 그룹 등록이 사용되었는지 확인할 수 있습니다. Azure Portal에서 Device Provisioning Service 인스턴스로 이동합니다. 만든 그룹 등록에 대한 등록 세부 정보를 엽니다. **등록 레코드** 탭으로 이동하여 해당 그룹에 등록된 모든 디바이스를 봅니다.
 
 ---
 

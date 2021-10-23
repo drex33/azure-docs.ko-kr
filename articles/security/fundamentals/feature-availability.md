@@ -6,12 +6,12 @@ ms.author: terrylan
 ms.service: security
 ms.topic: reference
 ms.date: 09/13/2021
-ms.openlocfilehash: 918743544aeaf60932f14d1d1eed609775b29efd
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 2c75831e31717b59b20b9a6e731189be0db9aa59
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129710551"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225513"
 ---
 # <a name="cloud-feature-availability-for-us-government-customers"></a>미국 정부 고객을 위한 클라우드 기능 가용성
 
@@ -107,7 +107,7 @@ Azure Security Center는 데이터 센터의 보안 상태를 강화하고, 온-
 
 <sup><a name="footnote3" /></a>3</sup> 컨테이너 레지스트리용 Azure Defender가 필요합니다.
 
-<sup> <a name="footnote4" /> </a> 4</sup> 부분 GA: Azure Arc 사용 클러스터에 대 한 지원은 공개 미리 보기 상태 이며 Azure Government에서 사용할 수 없습니다.
+<sup><a name="footnote4" /></a>4</sup> 부분 GA: Azure Arc 지원 클러스터에 대한 지원은 공개 미리 보기로 제공되며 Azure Government에서 사용할 수 없습니다.
 
 <sup><a name="footnote5" /></a>5</sup> Azure Defender for Kubernetes가 필요합니다.
 
@@ -138,9 +138,9 @@ Microsoft Azure Sentinel은 확장성 있는 클라우드 네이티브, SIEM(보
 |- [SOC 인시던트 감사 메트릭](../../sentinel/manage-soc-with-incident-metrics.md) | GA | GA |
 |- [관심 목록](../../sentinel/watchlists.md) | GA | GA |
 | **위협 인텔리전스 지원** | | |
-| - [위협 인텔리전스 - TAXII 데이터 커넥터](../../sentinel/understand-threat-intelligence.md)  | GA | 사용할 수 없음 |
+| - [위협 인텔리전스 - TAXII 데이터 커넥터](../../sentinel/understand-threat-intelligence.md)  | GA | GA |
 | - [위협 인텔리전스 플랫폼 데이터 페이지](../../sentinel/understand-threat-intelligence.md)  | 공개 미리 보기 | 사용할 수 없음 |
-| - [위협 인텔리전스 리서치 블레이드](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-threat-intelligence-menu-item-in-public-preview/ba-p/1646597)  | GA | 사용할 수 없음 |
+| - [위협 인텔리전스 리서치 블레이드](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-threat-intelligence-menu-item-in-public-preview/ba-p/1646597)  | GA | GA |
 | - [URL 데토네이션](https://techcommunity.microsoft.com/t5/azure-sentinel/using-the-new-built-in-url-detonation-in-azure-sentinel/ba-p/996229) | 공개 미리 보기 | 사용할 수 없음 |
 | - [위협 인텔리전스 통합 문서](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)  | GA | 사용할 수 없음 |
 |**검색 지원** | | |
@@ -228,7 +228,7 @@ Microsoft Azure Sentinel은 확장성 있는 클라우드 네이티브, SIEM(보
 | - [Symantec VIP](../../sentinel/data-connectors-reference.md#symantec-vip-preview)                                     | 공개 미리 보기 | 공개 미리 보기 |
 | - [Syslog](../../sentinel/connect-syslog.md)                                           | GA             | GA             |
 | - [위협 인텔리전스 플랫폼](../../sentinel/connect-threat-intelligence-tip.md)                   | 공개 미리 보기 | 사용할 수 없음      |
-| - [위협 인텔리전스 TAXII](../../sentinel/connect-threat-intelligence-tip.md)                       | 공개 미리 보기 | 사용할 수 없음      |
+| - [위협 인텔리전스 TAXII](../../sentinel/connect-threat-intelligence-tip.md)                       | GA | GA      |
 | - [Thycotic 비밀 서버](../../sentinel/data-connectors-reference.md#thycotic-secret-server-preview)                          | 공개 미리 보기 | 공개 미리 보기 |
 | - [Trend Micro Deep Security](../../sentinel/data-connectors-reference.md#trend-micro-deep-security)                       | GA             | GA             |
 | - [Trend Micro TippingPoint](../../sentinel/data-connectors-reference.md#trend-micro-tippingpoint-preview)                         | 공개 미리 보기 | 공개 미리 보기 |
@@ -310,21 +310,21 @@ Azure Defender for IoT를 사용하면 모든 IoT/OT 디바이스에서 포괄�
 | [ArcSight](../../defender-for-iot/organizations/how-to-accelerate-alert-incident-response.md#accelerate-incident-workflows-by-using-alert-groups) | GA | GA |
 | [ClearPass (경고 & 인벤토리)](../../defender-for-iot/organizations/how-to-install-software.md#attach-a-span-virtual-interface-to-the-virtual-switch) | GA | GA |
 | [CyberArk PSM](../../defender-for-iot/organizations/concept-key-concepts.md#integrations) | GA | GA |
-| [Email](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#email-address-action) | GA | GA |
+| [이메일](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#email-address-action) | GA | GA |
 | [FortiGate](../../defender-for-iot/organizations/tutorial-fortinet.md) | GA | GA |
 | [FortiSIEM](../../defender-for-iot/organizations/tutorial-fortinet.md) | GA | GA |
-| [Microsoft 센티널](../../defender-for-iot/organizations/how-to-configure-with-sentinel.md) | 공개 미리 보기 | 공개 미리 보기 |
-| [NetWitness 모니터](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#netwitness-action) | GA | GA |
+| [Microsoft Sentinel](../../defender-for-iot/organizations/how-to-configure-with-sentinel.md) | 공개 미리 보기 | 공개 미리 보기 |
+| [NetWitness](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#netwitness-action) | GA | GA |
 | [Palo Alto NGFW](../../defender-for-iot/organizations/tutorial-palo-alto.md) | GA | GA |
-| [Palo Alto 파노라마](../../defender-for-iot/organizations/tutorial-palo-alto.md) | GA | GA |
-| [ServiceNow (경고 & 인벤토리)](../../defender-for-iot/organizations/tutorial-servicenow.md) | GA | GA |
+| [Palo Alto Panorama](../../defender-for-iot/organizations/tutorial-palo-alto.md) | GA | GA |
+| [ServiceNow(경고 & 인벤토리)](../../defender-for-iot/organizations/tutorial-servicenow.md) | GA | GA |
 | [SNMP MIB 모니터링](../../defender-for-iot/organizations/how-to-set-up-snmp-mib-monitoring.md) | GA | GA |
 | [Splunk](../../defender-for-iot/organizations/tutorial-splunk.md) | GA | GA |
-| [SYSLOG 서버 (CEF 형식)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
-| [SYSLOG 서버 (LEEF 형식)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
-| [SYSLOG 서버 (개체)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
-| [SYSLOG 서버 (문자 메시지)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
-| [웹 콜백 (Webhook)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#webhook-server-action) | GA | GA |
+| [SYSLOG 서버(CEF 형식)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
+| [SYSLOG 서버(LEEF 형식)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
+| [SYSLOG 서버(개체)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
+| [SYSLOG 서버(문자 메시지)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
+| [웹 콜백(웹후크)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#webhook-server-action) | GA | GA |
 
 ### <a name="for-device-builders"></a>디바이스 빌더의 경우
 

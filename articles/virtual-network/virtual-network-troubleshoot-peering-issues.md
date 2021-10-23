@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: cfdb79885563cbc0791ae3f3b2effd54ea3123a7
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.openlocfilehash: 6840ceb7a6b89820e14465812490cfb30b305d3a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867492"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224764"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>가상 네트워크 피어링 문제 해결
 
@@ -218,7 +218,7 @@ NVA 디바이스 설정 및 라우팅 문제 해결에 도움이 필요한 경�
 
 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure 가상 네트워크에 앱 통합](../app-service/web-sites-integrate-with-vnet.md)
+* [Azure 가상 네트워크에 앱 통합](../app-service/overview-vnet-integration.md)
 * [지점 및 사이트 간 VPN 라우팅 정보](../vpn-gateway/vpn-gateway-about-point-to-site-routing.md)
 
 ## <a name="troubleshoot-a-virtual-network-peering-configuration-error-message"></a>가상 네트워크 피어링 구성 오류 메시지 문제 해결 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 06/15/2021
 ms.author: memildin
-ms.openlocfilehash: 3dbf8b3e15380b1e267be4f1b4af382aa9097a48
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: a1581742e599c24f69e6aa56bf7caf694726ae66
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567103"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225646"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Kubernetes 워크로드 보호
 
@@ -91,7 +91,6 @@ Azure Security Center에는 **Kubernetes용 Azure Policy 추가 기능** 을 설
     | 권한 상승을 포함하는 컨테이너를 사용하지 않아야 함                       | 액세스 및 사용 권한 관리            | 예                     |
     | Kubernetes 클러스터는 자동 탑재 API 자격 증명을 사용하지 않도록 설정해야 함             | 액세스 및 사용 권한 관리            | 예                     |
     | 변경 불가능한(읽기 전용) 루트 파일 시스템을 컨테이너에 적용해야 함     | 액세스 및 사용 권한 관리            | 예                     |
-    | 권한 상승을 포함하는 컨테이너를 사용하지 않아야 함                       | 액세스 및 사용 권한 관리            | 예                     |
     | 컨테이너를 루트 사용자로 실행하지 않아야 함                           | 액세스 및 사용 권한 관리            | 예                     |
     | 중요한 호스트 네임스페이스를 공유하는 컨테이너를 사용하지 않아야 함              | 액세스 및 사용 권한 관리            | 예                     |
     | 컨테이너 CPU 및 메모리 한도를 적용해야 함                          | DDoS 공격으로부터 애플리케이션 보호 | 예                     |

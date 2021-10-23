@@ -7,14 +7,14 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 09/27/2021
-ms.openlocfilehash: 72505a4e3c9003032c29b55e8cfa2152617bc928
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 764875272975e6a7698b6dafc452e597c8195000
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129080108"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225702"
 ---
-# <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Dynamics 365 for Customer Engagement 및 PowerApps 제품 만들기
+# <a name="create-a-dynamics-365-for-customer-engagement--power-apps-offer"></a>Dynamics 365 for Customer Engagement 및 Power Apps 제품 만들기
 
 이 문서에서는 Dynamics 365 for Customer Engagement 및 Power Apps 제안을 만드는 방법에 대해 설명합니다. 모든 Dynamics 365 제안은 인증 프로세스를 통과해야 합니다. 평가판 환경을 사용하면 사용자가 솔루션을 라이브 Dynamics 365 환경에 배포할 수 있습니다.
 
@@ -31,9 +31,9 @@ ms.locfileid: "129080108"
 #### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
-1. 홈 페이지에서 **Marketplace 제품** 타일을 선택 합니다.
+1. 홈페이지에서 **Marketplace 상품** 타일을 선택합니다.
 
-    [![파트너 센터 홈 페이지의 Marketplace 제품 타일을 보여 줍니다. ](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+    [ ![파트너 센터 홈페이지에서 보여 주는 Marketplace 제안 타일](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
 1. Marketplace 제품 페이지에서 **+ New 제공**  >  **Dynamics 365 for Customer Engagement & Power Apps** 를 선택 합니다.
 

@@ -5,12 +5,12 @@ author: emaher
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 6436a157c91c7594cd328be53dfaf6e0856412dd
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: efd33b95bd1a32c73712c7f094107717b4e5b973
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130180669"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225778"
 ---
 # <a name="how-to-create-a-lab-with-a-shared-resource-in-azure-lab-services"></a>Azure Lab Services에서 공유 리소스가 있는 랩 만드는 방법
 
@@ -38,7 +38,7 @@ ms.locfileid: "130180669"
 라이선스 서버는 랩으로 피어링된 가상 네트워크에 연결되어야 하므로 랩 계정과 동일한 지역에 있어야 합니다.
 
 #### <a name="static-private-ip-and-mac-address"></a>정적 개인 IP 및 MAC 주소
-기본적으로 가상 머신에는 동적 개인 IP가 있습니다. [소프트웨어를 설정하기 전에 개인 IP를 정적으로 설정](../virtual-network/virtual-networks-static-private-ip-arm-pportal.md)해야 합니다. 그러면 개인 IP와 MAC 주소가 정적으로 설정됩니다.  
+기본적으로 가상 머신에는 동적 개인 IP가 있습니다. [소프트웨어를 설정하기 전에 개인 IP를 정적으로 설정](../virtual-network/ip-services/virtual-networks-static-private-ip-arm-pportal.md)해야 합니다. 그러면 개인 IP와 MAC 주소가 정적으로 설정됩니다.  
 
 #### <a name="control-access"></a>액세스 제어
 라이선스 서버에 대한 액세스 제어가 핵심입니다.  VM을 설정한 후에도 계속해서 유지 관리, 문제 해결 및 업데이트를 위해 액세스해야 합니다.  이를 수행하는 몇 가지 방법이 있습니다.

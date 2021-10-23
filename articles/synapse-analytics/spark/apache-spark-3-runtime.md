@@ -9,22 +9,21 @@ ms.subservice: spark
 ms.date: 09/22/2021
 ms.author: midesa
 ms.custom: has-adal-ref
-ms.openlocfilehash: 32ef54e9db80879f822ea08cba6b0374697c806b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 59510405dab8b73f648fc7c459280bda46d167d4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128583533"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225351"
 ---
 # <a name="azure-synapse-runtime-for-apache-spark-31"></a>Apache Spark 3.1용 Azure Synapse 런타임 
 
 Azure Synapse Analytics는 Apache Spark에 여러 런타임을 지원합니다. 이 문서에서는 Apache Spark 3.1용 Azure Synapse 런타임의 런타임 구성 요소 및 버전을 다룹니다. 
 
-## <a name="known-issues-in-preview"></a>Preview의 알려진 문제
+## <a name="known-issues"></a>알려진 문제
 * Synapse 파이프라인/데이터 흐름 지원이 곧 제공될 예정입니다.
 * 다음 커넥터 지원이 곧 제공될 예정입니다.
   * Azure Data Explorer 커넥터
-  * CosmosDB
   * SQL Server
 * 하이퍼스페이스, Spark Cruise 및 동적 할당 실행기가 곧 제공될 예정입니다.
 
@@ -48,7 +47,7 @@ JLargeArrays-1.5.jar
 
 JTransforms-3.1.jar
 
-태핑비트맵-0.9.0.jar
+IngBitmap-0.9.0.jar
 
 ST4-4.0.4.jar
 
@@ -398,13 +397,13 @@ json-simple-1.1.jar
 
 json-smart-2.3.jar
 
-json4s-ast_2.12-3.7.0-M5.jar
+json4s ast_2 12-3.7.0-M5.
 
-json4s-core_2.12-3.7.0-M5.jar
+json4s core_2 12-3.7.0-M5.
 
-json4s-jackson_2.12-3.7.0-M5.jar
+json4s jackson_2 12-3.7.0-M5.
 
-json4s-scalap_2.12-3.7.0-M5.jar
+json4s scalap_2 12-3.7.0-M5.
 
 jsp-api-2.1.jar
 
@@ -444,11 +443,11 @@ kerby-xdr-1.0.1.jar
 
 kryo-shaded-4.0.2.jar
 
-kusto-data-2.7.0.jar
+kusto-data-합니다
 
-kusto-ingest-2.7.0.jar
+kusto-ingest-합니다
 
-kusto-spark_3.0_2.12-2.7.5.jar
+kusto spark_3.0_ 2.12-2.7.5
 
 leveldbjni-all-1.8.jar
 
@@ -456,7 +455,7 @@ libfb303-0.9.3.jar
 
 libthrift-0.12.0.jar
 
-lightgbmlib-3.2.110.jar
+lightgbmlib-3.2.110
 
 listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar
 
@@ -480,7 +479,7 @@ metrics-json-4.1.1.jar
 
 metrics-jvm-4.1.1.jar
 
-microsoft-catalog-metastore-client-1.0.57.jar
+microsoft-catalog-metastore-client-1.0.57
 
 microsoft-log4j-etwappender-1.0.jar
 
@@ -488,45 +487,45 @@ microsoft-spark.jar
 
 minlog-1.3.0.jar
 
-mmlspark-1.0.0-rc3-150-8eda1df8-SNAPSHOT.jar
+mmlspark-rc3-150 -8eda1df8-SNAPSHOT jar
 
-mmlspark-cognitive-1.0.0-rc3-150-8eda1df8-SNAPSHOT.jar
+mmlspark-rc3-150 -8eda1df8-SNAPSHOT jar
 
-mmlspark-core-1.0.0-rc3-150-8eda1df8-SNAPSHOT.jar
+mmlspark-core-rc3-150 -8eda1df8-SNAPSHOT jar
 
-mmlspark-deep-learning-1.0.0-rc3-150-8eda1df8-SNAPSHOT.jar
+mmlspark-심층 학습-rc3-150 -8eda1df8-SNAPSHOT jar
 
-mmlspark-lightgbm-1.0.0-rc3-150-8eda1df8-SNAPSHOT.jar
+mmlspark-lightgbm-rc3-150 -8eda1df8-SNAPSHOT jar
 
-mmlspark-opencv-1.0.0-rc3-150-8eda1df8-SNAPSHOT.jar
+mmlspark-opencv-rc3-150 -8eda1df8-SNAPSHOT jar
 
-mmlspark-vw-1.0.0-rc3-150-8eda1df8-SNAPSHOT.jar
+mmlspark-vw-rc3-150 -8eda1df8-SNAPSHOT jar
 
 mssql-jdbc-8.4.1.jre8.jar
 
 mysql-connector-java-8.0.18.jar
 
-netty-all-4.1.51.Final.jar
+netty-all-4.1.51
 
 nimbus-jose-jwt-4.41.1.jar
 
-notebook-utils-3.0.0-20210820.5.jar
+notebook-utils-3.0.0-20210820.5
 
-objenesis-2.6.jar
+objenesis-2.6
 
 okhttp-2.7.5.jar
 
-okio-1.14.0.jar
+okio-1.14.0
 
 opencsv-2.3.jar
 
 opencv-3.2.0-1.jar
 
-orc-core-1.5.12.jar
+orc-core-1.5.12
 
-orc-mapreduce-1.5.12.jar
+orc-mapreduce-1.5.12
 
-orc-shims-1.5.12.jar
+orc-shims-1.5.12
 
 oro-2.0.8.jar
 
@@ -546,7 +545,7 @@ parquet-hadoop-1.10.1.jar
 
 parquet-jackson-1.10.1.jar
 
-peregrine-spark-0.9.jar
+peregrine-spark-0.9
 
 postgresql-42.2.9.jar
 
@@ -580,7 +579,7 @@ scalactic_2.12-3.0.5.jar
 
 shapeless_2.12-2.3.3.jar
 
-shims-0.9.0
+shims-0.9.0.jar
 
 slf4j-api-1.7.30.jar
 
@@ -588,61 +587,61 @@ slf4j-log4j12-1.7.16.jar
 
 snappy-java-1.1.8.2.jar
 
-spark-3.1 listener_2-12-1.0.0. j a.
+spark-3.1-rpc-history-server-app-listener_2.12-1.0.0.jar
 
-spark-3.1 core_2-12-1.0.0. jar
+spark-3.1-rpc-history-server-core_2.12-1.0.0.jar
 
-spark-avro_2 12-3.1.2.5.0 -43944377
+spark-avro_2.12-3.1.2.5.0-43944377.jar
 
-spark-catalyst_2 12-3.1.2.5.0 -43944377
+spark-catalyst_2.12-3.1.2.5.0-43944377.jar
 
-spark-core_2 12-3.1.2.5.0 -43944377
+spark-core_2.12-3.1.2.5.0-43944377.jar
 
-spark-enhancement_2 12-3.1.2.5.0 -43944377
+spark-enhancement_2.12-3.1.2.5.0-43944377.jar
 
 spark-enhancementui_2.12-1.1.0.jar
 
-spark-graphx_2 12-3.1.2.5.0 -43944377
+spark-graphx_2.12-3.1.2.5.0-43944377.jar
 
-spark-hadoop-cloud_2 12-3.1.2.5.0 -43944377
+spark-hadoop-cloud_2.12-3.1.2.5.0-43944377.jar
 
-spark-hive-thriftserver_2 12-3.1.2.5.0 -43944377
+spark-hive-thriftserver_2.12-3.1.2.5.0-43944377.jar
 
-spark-hive_2 12-3.1.2.5.0 -43944377
+spark-hive_2.12-3.1.2.5.0-43944377.jar
 
-spark-kusto-synapse-connector_3.1_2.0.
+spark-kusto-synapse-connector_3.1_2.12-1.0.0.jar
 
-spark-kvstore_2 12-3.1.2.5.0 -43944377
+spark-kvstore_2.12-3.1.2.5.0-43944377.jar
 
-spark-launcher_2 12-3.1.2.5.0 -43944377
+spark-launcher_2.12-3.1.2.5.0-43944377.jar
 
-spark-microsoft telemetry_2 12-3.1.2.5.0 -43944377
+spark-microsoft-telemetry_2.12-3.1.2.5.0-43944377.jar
 
-spark-microsoft tools_2 12-3.1.2.5.0 -43944377
+spark-microsoft-tools_2.12-3.1.2.5.0-43944377.jar
 
-spark-mllib-local_2 12-3.1.2.5.0 -43944377
+spark-mllib-local_2.12-3.1.2.5.0-43944377.jar
 
-spark-mllib_2 12-3.1.2.5.0 -43944377
+spark-mllib_2.12-3.1.2.5.0-43944377.jar
 
-12-3.1.2.5.0 -43944377입니다. common_2
+spark-network-common_2.12-3.1.2.5.0-43944377.jar
 
-12-3.1.2.5.0 -43944377입니다. shuffle_2
+spark-network-shuffle_2.12-3.1.2.5.0-43944377.jar
 
-spark-repl_2 12-3.1.2.5.0 -43944377
+spark-repl_2.12-3.1.2.5.0-43944377.jar
 
-spark-sketch_2 12-3.1.2.5.0 -43944377
+spark-sketch_2.12-3.1.2.5.0-43944377.jar
 
-spark-sql_2 12-3.1.2.5.0 -43944377
+spark-sql_2.12-3.1.2.5.0-43944377.jar
 
-spark-streaming_2 12-3.1.2.5.0 -43944377
+spark-streaming_2.12-3.1.2.5.0-43944377.jar
 
-spark-tags_2 12-3.1.2.5.0 -43944377
+spark-tags_2.12-3.1.2.5.0-43944377.jar
 
-spark-unsafe_2 12-3.1.2.5.0 -43944377
+spark-unsafe_2.12-3.1.2.5.0-43944377.jar
 
-spark-yarn_2 12-3.1.2.5.0 -43944377
+spark-yarn_2.12-3.1.2.5.0-43944377.jar
 
-spark_diagnostic_cli-1.0.7_spark 3.1.2
+spark_diagnostic_cli-1.0.7_spark-3.1.2.jar
 
 spire-macros_2.12-0.17.0-M1.jar
 
@@ -654,7 +653,7 @@ spire_2.12-0.17.0-M1.jar
 
 spray-json_2.12-1.3.2.jar
 
-sqlanalyticsconnector_3.1.2-1.0.0
+sqlanalyticsconnector_3.1.2-1.0.0.jar
 
 stax-api-1.0.1.jar
 
@@ -662,7 +661,7 @@ stax2-api-3.1.4.jar
 
 stream-2.9.6.jar
 
-structuredstreamforspark_2 12-3.0.1-2.1.3
+structuredstreamforspark_2.12-3.0.1-2.1.3.jar
 
 super-csv-2.2.0.jar
 
@@ -674,7 +673,7 @@ token-provider-1.0.1.jar
 
 transaction-api-1.1.jar
 
-univocity-parsers-2.9.1
+unitycity-parsers-2.9.1.jar
 
 velocity-1.5.jar
 
@@ -688,32 +687,32 @@ xbean-asm7-shaded-4.15.jar
 
 xz-1.5.jar
 
-zookeeper-3.4.8.5.0 -43944377
+zookeeper-3.4.8.5.0-43944377.jar
 
-zstd-jni-1.4.8 -1
+zstd-jni-1.4.8-1.jar
 
 
 ## <a name="python-libraries"></a>Python 라이브러리 
 
 _openmp_mutex=4.5
 
-_py-xgboost-뮤텍스 = 2.0
+_py-xgboost-mutex=2.0
 
-abseil-.cpp = 20210324.0
+abseil-cpp=20210324.0
 
-absl-py = 0.13.0
+absl-py=0.13.0
 
-adal = 1.2.7
+adal=1.2.7
 
-adlfs = 0.7.7
+adlfs=0.7.7
 
-aiohttp = 3.7.4. post0
+aiohttp=3.7.4.post0
 
-alsa-lib = 1.2.3
+alsa-lib=1.2.3
 
 appdirs=1.4.4
 
-화살표-.cpp = 3.0.0
+arrow-cpp=3.0.0
 
 astor=0.8.1
 
@@ -721,61 +720,61 @@ astunparse=1.6.3
 
 async-timeout=3.0.1
 
-attrs = 21.2.0
+attrs=21.2.0
 
 azure-datalake-store=0.0.51
 
-azure-identity = 2021.03.15 b1
+azure-identity=2021.03.15b1
 
-azure-storage-blob = 12.8.1
+azure-storage-blob=12.8.1
 
-backcall = 0.2.0
+backcall=0.2.0
 
-backports = 1.0
+backports=1.0
 
-backports.functools_lru_cache = 1.6.4
+backports.functools_lru_cache=1.6.4
 
 beautifulsoup4=4.9.3
 
-blas = 2.109
+blas=2.109
 
-blas-devel = 3.9.0
+blas-devel=3.9.0
 
-blinker = 1.4
+blinker=1.4
 
-blosc = 1.21.0
+blosc=1.21.0
 
-bokeh = 2.3.2
+bokeh=2.3.2
 
-brotli = 1.0.9
+brotli=1.0.9
 
-brotli-bin = 1.0.9
+brotli-bin=1.0.9
 
-brotli-python = 1.0.9
+brotli-python=1.0.9
 
-brotlipy = 0.7.0
+brotlipy=0.7.0
 
-brunsli = 0.1
+일선=0.1
 
-bzip2 = 1.0.8
+bzip2=1.0.8
 
-c-ares = 1.17.1
+c-ares=1.17.1
 
-ca-인증서 = 2021.7.5
+ca-certificates=2021.7.5
 
-cachetools = 4.2.2
+cachetools=4.2.2
 
-카이로 = 1.16.0
+1.16.0
 
-certifi = 2021.5.30
+certifi=2021.5.30
 
-cffi = 1.14.5
+cffi=1.14.5
 
-chardet = 4.0.0
+chardet=4.0.0
 
-charls = 2.2.0
+일본값=2.2.0
 
-= 8.0.1를 클릭 합니다.
+click=8.0.1
 
 cloudpickle=1.6.0
 
@@ -987,399 +986,399 @@ libgfortran-ng=9.3.0
 
 libgfortran5=9.3.0
 
-libglib=2.68.3
+라이브러리 = 2.68.3
 
 libiconv=1.16
 
 liblapack=3.9.0
 
-liblapacke=3.9.0
+liblapacke = 3.9.0
 
-libllvm10=10.0.1
+libllvm10 = 10.0.1
 
-libllvm11=11.1.0
+libllvm11 = 11.1.0
 
-libnghttp2=1.43.0
+libnghttp2 = 1.43.0
 
-libogg=1.3.5
+libogg = 1.3.5
 
-libopus=1.3.1
+libopus = 1.3.1
 
-libpng=1.6.37
+1.6.37 png =
 
-libpq=13.3
+libpq = 13.3
 
-libprotobuf=3.15.8
+libprotobuf = 3.15.8
 
-libs=1.0.18
+libsodium = 1.0.18
 
 libssh2=1.9.0
 
 libstdcxx-ng=9.3.0
 
-libthrift=0.14.1
+libthrift = 0.14.1
 
-libtiff=4.2.0
+4.2.0 tiff =
 
-libutf8proc=2.6.1
+libutf8proc = 2.6.1
 
-libuuid=2.32.1
+li2.32.1 uid =
 
-libuv=1.41.1
+li1.41.1 v =
 
-libvorbis=1.3.7
+libvorbis = 1.3.7
 
-libwebp-base=1.2.0
+웹 파트 = 1.2.0
 
-libxcb=1.14
+libxcb = 1.14
 
-libxgboost=1.4.0
+보강 = 1.4.0
 
-libxkbcommon=1.0.3
+공용 = 1.0.3
 
-libxml2=2.9.12
+libxml2 = 2.9.12
 
-libzopfli=1.0.3
+libzopfli = 1.0.3
 
-lightgbm=3.2.1
+lightgbm = 3.2.1
 
-0.2.0.1
+라임 = 0.2.0.1
 
-llvm-openmp=11.1.0
+llvm-openmp = 11.1.0
 
-llvmlite=0.36.0
+llvmlite = 0.36.0
 
-locket=0.2.1
+locket = 0.2.1
 
-lz4-c=1.9.3
+lz4-c = 1.9.3
 
-markdown=3.3.4
+markdown = 3.3.4
 
-markupsafe=2.0.1
+markupsafe = 2.0.1
 
-matplotlib=3.4.2
+matplotlib = 3.4.2
 
-matplotlib-base=3.4.2
+matplotlib = 3.4.2
 
-matplotlib-inline=0.1.2
+matplotlib-inline = 0.1.2
 
-mkl=2021.2.0
+mkl = 2021.2.0
 
-mkl-devel=2021.2.0
+mkl-devel = 2021.2.0
 
-mkl-include=2021.2.0
+mkl-include = 2021.2.0
 
-mleap=0.17.0
+mleap = 0.17.0
 
-mlflow-flow=1.18.0
+mlflow-skinny = 1.18.0
 
-msal=2021.06.08
+msal = 2021.06.08
 
-msal-extensions=2021.06.08
+msal-extensions = 2021.06.08
 
-msrest=2021.06.01
+msrest = 2021.06.01
 
-multidict=5.1.0
+multidict = 5.1.0
 
-mysql-common=8.0.25
+mysql-common = 8.0.25
 
-mysql-libs=8.0.25
+mysql-라이브러리 = 8.0.25
 
 ncurses=6.2
 
-networkx=2.5.1
+networkx = 2.5.1
 
-ninja=1.10.2
+ninja = 1.10.2
 
-nltk=3.6.2
+nltk = 3.6.2
 
-nspr=4.30
+nspr = 4.30
 
-nss=3.67
+nss = 3.67
 
-0.53.1=0.53.1
+numba = 0.53.1
 
-numpy=1.19.4
+numpy = 1.19.4
 
-oauthlib=3.1.1
+oauthlib = 3.1.1
 
 olefile=0.46
 
-onnx=1.9.0
+onnx = 1.9.0
 
-onnxconverter-common=1.7.0
+onnxconverter-common = 1.7.0
 
-onnxmltools=1.7.0
+onnxmltools = 1.7.0
 
-onnxruntime=1.7.2
+onnxruntime = 1.7.2
 
-openegeg=2.4.0
+openjpeg = 2.4.0
 
-openpyxl=3.0.7
+openpyxl = 3.0.7 이상을
 
-openssl=1.1.1k
+openssl = 1.1.1 k
 
-opt_einsum=3.3.0
+opt_einsum = 3.3.0
 
-orc=1.6.7
+orc = 1.6.7
 
-packaging=21.0
+패키징 = 21.0
 
-pandas=1.2.3
+pandas = 1.2.3
 
-parquet-cpp=1.5.1
+parquet = 1.5.1
 
-parso=0.8.2
+parso =
 
-partd=1.2.0
+partd = 1.2.0
 
 patsy=0.5.1
 
-pcre=8.45
+pcre = 8.45
 
-pexpect=4.8.0
+pexpect = 4.8.0
 
 pickleshare=0.7.5
 
-8.2.0
+pillow = 8.2.0
 
-pip=21.1.1
+pip = 21.1.1
 
-pixman=0.40.0
+pixman = 0.40.0
 
-plotly=4.14.3
+plotly = 4.14.3
 
-pmdarima=1.8.2
+pmdarima = 1.8.2
 
-pooch=1.4.0
+pooch = 1.4.0
 
 portalocker=1.7.1
 
-prompt-toolkit=3.0.19
+프롬프트-toolkit = 3.0.19
 
-protobuf=3.15.8
+protobuf = 3.15.8
 
-psutil=5.8.0
+psutil = 5.8.0
 
-ptyprocess=0.7.0
+ptyprocess = 0.7.0
 
-py-xgboost=1.4.0
+py-xgboost = 1.4.0
 
-py4j=0.10.9
+py4j = 0.10.9
 
-pyarrow=3.0.0
+pyarrow = 3.0.0
 
 pyasn1=0.4.8
 
 pyasn1-modules=0.2.8
 
-pycairo=1.20.1
+pycairo = 1.20.1
 
-pycosat=0.6.3
+pycosat = 0.6.3
 
 pycparser=2.20
 
-pygments=2.9.0
+pygments = 2.9.0
 
-pygobject=3.40.1
+pygobject = 3.40.1
 
-pyjwt=2.1.0
+pyjwt = 2.1.0
 
 pyodbc=4.0.30
 
-pyopenssl=20.0.1
+pyopenssl = 20.0.1
 
 pyparsing=2.4.7
 
-pyqt=5.12.3
+pyqt = 5.12.3
 
-pyqt-impl=5.12.3
+pyqt = 5.12.3
 
-pyqt5-sip=4.19.18
+pyqt5-sip = 4.19.18
 
-pyqtchart=5.12
+pyqtchart = 5.12
 
-pyqtwebengine=5.12.1
+pyqtwebengine = 5.12.1
 
-pysocks=1.7.1
+pysocks = 1.7.1 for
 
-pyspark=3.1.2
+pyspark = 3.1.2
 
-python=3.8.10
+python = 3.8.10
 
 python-dateutil=2.8.1
 
-python-flatbuffers=1.12
+python-flatbuffers = 1.12
 
-python_abi=3.8
+python_abi = 3.8
 
-pytorch=1.8.1
+pytorch = 1.8.1
 
-pytz=2021.1
+pytz = 2021.1
 
-pyu2f=0.1.5
+pyu2f = 0.1.5
 
-pywavelets=1.1.1
+pywavelets = 1.1.1
 
-pyyaml=5.4.1
+pyyaml = 5.4.1
 
-pyzmq=22.1.0
+pyzmq = 22.1.0
 
-qt=5.12.9
+qt = 5.12.9
 
-re2=2021.04.01
+re2 = 2021.04.01
 
-readline=8.1
+readline = 8.1
 
-regex=2021.7.6
+regex = 2021.7.6
 
-requests=2.25.1
+요청 = 2.25.1
 
 requests-oauthlib=1.3.0
 
 retrying=1.3.3
 
-rsa=4.7.2
+rsa = 4.7.2
 
-ruamel_yaml=0.15.100
+ruamel_yaml = 0.15.100
 
-s2n=1.0.10
+s2n = 1.0.10
 
-salib=1.3.11
+salib = 1.3.11
 
-scikit-image=0.18.1
+scikit = 0.18.1
 
-scikit-learn=0.23.2
+scikit-배우기 = 0.23.2
 
-scipy=1.5.3
+scipy = 1.5.3
 
-seaborn=0.11.1
+seaborn = 0.11.1
 
-seaborn-base=0.11.1
+seaborn = 0.11.1
 
-setuptools=49.6.0
+setuptools = 49.6.0
 
-shap=0.39.0
+shap = 0.39.0
 
-6=1.16.0
+6 = 1.16.0
 
-skl2onnx=1.8.0.1
+skl2onnx = 1.8.0.1
 
-sklearn-pandas=2.2.0
+비 기능 학습-pandas = 2.2.0
 
-slicer=0.0.7
+슬라이서 = 0.0.7
 
-smart_open=5.1.0
+smart_open = 5.1.0
 
-smmap=3.0.5
+smmap = 3.0.5
 
-snappy=1.1.8
+snappy = 1.1.8
 
-2.2.1
+soupsieve = 2.2.1
 
-sqlite=3.36.0
+sqlite = 3.36.0
 
-statsmodels=0.12.2
+statsmodels = 0.12.2
 
-tabulate=0.8.9
+표로 = 0.8.9
 
-tenacity=7.0.0
+tenacity = 7.0.0
 
-tensorboard=2.4.1
+tensorboard = 2.4.1
 
-tensorboard-plugin-wit=1.8.0
+tensorboard-wit = 1.8.0
 
-tensorflow=2.4.1
+tensorflow = 2.4.1
 
-tensorflow-base=2.4.1
+tensorflow = 2.4.1
 
-tensorflow-estimator=2.4.0
+tensorflow-평가기 = 2.4.0
 
 termcolor=1.1.0
 
 textblob=0.15.3
 
-threadpoolctl=2.1.0
+threadpoolctl = 2.1.0
 
-tifffile=2021.4.8
+tifffile = 2021.4.8
 
-tk=8.6.10
+tk = 8.6.10
 
 toolz=0.11.1
 
 tornado=6.1
 
-tqdm=4.61.2
+tqdm = 4.61.2
 
-traitlets=5.0.5
+traitlets = 5.0.5
 
-typing-extensions=3.10.0.0
+입력-확장명 = 3.10.0.0
 
-typing_extensions=3.10.0.0
+typing_extensions = 3.10.0.0
 
 unixodbc=2.3.9
 
-urllib3=1.26.4
+urllib3 = 1.26.4
 
 wcwidth=0.2.5
 
 webencodings=0.5.1
 
-werkzeug=2.0.1
+werkzeug = 2.0.1
 
-wheel=0.36.2
+wheel = 0.36.2
 
-wrapt=1.12.1
+wrapt = 1.12.1
 
-xgboost=1.4.0
+xgboost = 1.4.0
 
-xorg-kbproto=1.0.7
+xorg-kbproto = 1.0.7
 
-xorg-libice=1.0.10
+xorg ice = 1.0.10
 
-xorg-libsm=1.2.3
+xorg sm = 1.2.3
 
-xorg-libx11=1.7.2
+xorg-libx11 = 1.7.2
 
-xorg-libxext=1.3.4
+xorg-1.3.4
 
-xorg-libxrender=0.9.10
+xorg-0.9.10
 
-xorg-renderproto=0.11.1
+xorg-renderproto = 0.11.1
 
-xorg-xextproto=7.3.0
+xorg-xextproto = 7.3.0
 
-xorg-xproto=7.0.31
+xorg-xproto = 7.0.31
 
 xz=5.2.5
 
 yaml=0.2.5
 
-yarl=1.6.3
+yarl = 1.6.3
 
-zeromq=4.3.4
+zeromq = 4.3.4
 
-zfp=0.5.5
+zfp = 0.5.5
 
-zipp=3.5.0
+zipp = 3.5.0
 
 zlib=1.2.11
 
-zope.event=4.5.0
+zope =
 
-zope.interface=5.4.0
+zope. interface = 5.4.0
 
-zstd=1.4.9
+zstd = 1.4.9
 
-azure-common=1.1.27
+azure-common = 1.1.27
 
-azure-core=1.16.0
+azure-core = 1.16.0
 
 azure-graphrbac=0.61.1
 
 azure-mgmt-authorization=0.61.0
 
-azure-mgmt-containerregistry=8.0.0
+azure-mgmt-microsoft.containerregistry = 8.0.0
 
 azure-mgmt-core=1.3.0
 

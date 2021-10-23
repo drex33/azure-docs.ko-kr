@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 04/23/2021
 ms.author: duau
-ms.openlocfilehash: 672fac2b33ef1d8fd9be1948d0c7da332f8ce43b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 719ad0681e9d66828fc0e030394a2c910017a3ad
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566644"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130259564"
 ---
 # <a name="about-expressroute-virtual-network-gateways"></a>ExpressRoute 가상 네트워크 게이트웨이 정보
 
@@ -109,11 +109,6 @@ Azure Availability Zones에 ExpressRoute 게이트웨이를 배포할 수도 있
 * ErGw3AZ
 
 새 게이트웨이 SKU는 사용자의 요구 사항에 가장 적합한 다른 배포 옵션도 지원합니다. 새 게이트웨이 SKU를 사용하여 가상 네트워크 게이트웨이를 만들 때 특정 영역에 게이트웨이를 배포하는 옵션도 제공됩니다. 이를 영역 게이트웨이라고 합니다. 영역 게이트웨이를 배포하면 게이트웨이의 모든 인스턴스가 동일한 가용성 영역에 배포됩니다.
-
-> [!IMPORTANT]
-> ExpressRoute를 통해 IPv6 기반 개인 피어링을 사용하려는 경우 이중 스택 게이트웨이 서브넷에 배포하는 게이트웨이에 대해 AZ SKU를 선택해야 합니다.
-> 
->
 
 ## <a name="fastpath"></a><a name="fastpath"></a>FastPath
 

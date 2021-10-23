@@ -4,23 +4,18 @@ description: Azure Monitor의 Windows용 Log Analytics 에이전트에서 발생
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/21/2019
-ms.openlocfilehash: 7ab67602ebba2ae5446ecc0052ef4b03bba1e1bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 10/21/2021
+ms.openlocfilehash: 691bc47fbeeedfb5a2256520552ccb4f81f642cf
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952986"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262568"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Windows용 Log Analytics 에이전트의 문제를 해결하는 방법 
 
 이 문서에서는 Azure Monitor의 Windows용 Log Analytics 에이전트에서 발생할 수 있는 오류 해결을 도와주고, 가능한 해결 방법을 제안합니다.
 
-이 문서의 단계를 수행해도 문제가 해결되지 않으면 다음 지원 채널을 사용할 수 있습니다.
-
-* 프리미어 지원 혜택을 받는 고객은 [프리미어](https://premier.microsoft.com/)를 사용하여 지원 요청을 열 수 있습니다.
-* Azure 지원 계약을 맺은 고객은 [Azure Portal](https://azure.microsoft.com/support/options/)에서 지원 요청을 열 수 있습니다.
-* 제출된 아이디어와 버그를 검토하거나 새로운 아이디어를 제출하려면 Log Analytics 피드백 페이지([https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback))를 방문하세요. 
 
 ## <a name="log-analytics-troubleshooting-tool"></a>Log Analytics 문제 해결 도구
 

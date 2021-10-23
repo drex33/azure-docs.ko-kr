@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/02/2021
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 77dc45d71a4a9706dd645289dd5839ee97c17314
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: e485efa572dd1b786b714b74b4d6df49d7a44853
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123472023"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236453"
 ---
 # <a name="mount-azure-storage-as-a-local-share-in-a-container-app-in-app-service"></a>App Service의 컨테이너 앱에서 로컬 공유로 Azure Storage 탑재
 
@@ -20,7 +20,7 @@ ms.locfileid: "123472023"
 > [!NOTE]
 >App Service Windows 컨테이너의 Azure Storage는 현재 **미리 보기** 로 제공되며 **프로덕션 시나리오** 를 **지원하지 않습니다**.
 
-이 가이드에서는 Azure Storage Files를 App Service의 Windows 컨테이너에 네트워크 공유로 탑재하는 방법을 보여줍니다. [Azure Files 공유](../storage/files/storage-how-to-use-files-cli.md)와 [프리미엄 파일 공유](../storage/files/storage-how-to-create-file-share.md)만 지원됩니다. 사용자 지정 탑재 스토리지의 이점은 다음과 같습니다.
+이 가이드에서는 Azure Storage Files를 App Service의 Windows 컨테이너에 네트워크 공유로 탑재하는 방법을 보여줍니다. [Azure Files 공유](../storage/files/storage-how-to-use-files-portal.md)와 [프리미엄 파일 공유](../storage/files/storage-how-to-create-file-share.md)만 지원됩니다. 사용자 지정 탑재 스토리지의 이점은 다음과 같습니다.
 
 ::: zone-end
 
@@ -39,7 +39,7 @@ ms.locfileid: "123472023"
 
 다음은 Windows 컨테이너에서 지원되는 기능입니다.
 
-- [개인 링크](../storage/common/storage-private-endpoints.md) 를 사용 하 여 저장소 계정에 대 한 보안 액세스 ( [VNET 통합](web-sites-integrate-with-vnet.md) 이 사용 되는 경우) [서비스 끝점](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) 지원은 현재 사용할 수 없습니다.
+- [개인 링크](../storage/common/storage-private-endpoints.md) 를 사용 하 여 저장소 계정에 대 한 보안 액세스 ( [VNET 통합](./overview-vnet-integration.md) 이 사용 되는 경우) [서비스 끝점](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) 지원은 현재 사용할 수 없습니다.
 - Azure Files(읽기/쓰기)
 - 앱당 최대 5개의 탑재 지점
 - 드라이브 문자 할당 ( `C:` `Z:` )
@@ -50,7 +50,7 @@ ms.locfileid: "123472023"
 
 다음은 Linux 컨테이너에서 지원되는 기능입니다.
 
-- [서비스 엔드포인트](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) 및 [프라이빗 링크](../storage/common/storage-private-endpoints.md)를 통해([VNET 통합](web-sites-integrate-with-vnet.md)을 사용하는 경우) 스토리지 계정에 안전하게 액세스
+- [서비스 엔드포인트](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) 및 [프라이빗 링크](../storage/common/storage-private-endpoints.md)를 통해([VNET 통합](./overview-vnet-integration.md)을 사용하는 경우) 스토리지 계정에 안전하게 액세스
 - Azure Files(읽기/쓰기)
 - Azure Blob(읽기 전용)
 - 앱당 최대 5개의 탑재 지점
@@ -62,7 +62,7 @@ ms.locfileid: "123472023"
 ::: zone pivot="container-windows"
 
 - [Azure App Service의 기존 Windows 컨테이너 앱](quickstart-custom-container.md)
-- [Azure 파일 공유 만들기](../storage/files/storage-how-to-use-files-cli.md)
+- [Azure 파일 공유 만들기](../storage/files/storage-how-to-use-files-portal.md)
 - [Azure 파일 공유에 파일 업로드](../storage/files/storage-how-to-create-file-share.md)
 
 ::: zone-end
@@ -71,7 +71,7 @@ ms.locfileid: "123472023"
 
 - 기존 [App Service on Linux 앱](index.yml)
 - [Azure Storage 계정](../storage/common/storage-account-create.md?tabs=azure-cli)
-- [Azure 파일 공유 및 디렉터리](../storage/files/storage-how-to-use-files-cli.md)
+- [Azure 파일 공유 및 디렉터리](../storage/files/storage-how-to-use-files-portal.md)
 
 ::: zone-end
 
@@ -85,7 +85,7 @@ ms.locfileid: "123472023"
 
 - 네이티브 Windows(컨테이너화되지 않은) 앱에는 스토리지 탑재가 지원되지 않습니다.
 - Azure blob은 지원 되지 않습니다.
-- [Storage 방화벽](../storage/common/storage-network-security.md) 은 [개인 끝점](../storage/common/storage-private-endpoints.md) ( [VNET 통합](web-sites-integrate-with-vnet.md) 이 사용 되는 경우)을 통해서만 지원 됩니다. 현재는 탑재된 Azure Storage 계정에서 프라이빗 엔드포인트를 사용하는 경우에는 사용자 지정 DNS 지원을 사용할 수 없습니다.
+- [Storage 방화벽](../storage/common/storage-network-security.md) 은 [개인 끝점](../storage/common/storage-private-endpoints.md) ( [VNET 통합](./overview-vnet-integration.md) 이 사용 되는 경우)을 통해서만 지원 됩니다. 현재는 탑재된 Azure Storage 계정에서 프라이빗 엔드포인트를 사용하는 경우에는 사용자 지정 DNS 지원을 사용할 수 없습니다.
 - 탑재된 스토리지에 대한 FTP/FTPS 액세스는 지원되지 않습니다([Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) 사용).
 - `[C-Z]:\` `[C-Z]:\home` `/` `/home` 사용자 지정 탑재 저장소에 대 한,, 및 매핑은 지원 되지 않습니다.
 - 스토리지 탑재는 [배포 슬롯](deploy-staging-slots.md)을 만드는 동안 복제 설정 옵션과 함께 사용할 수 없습니다.
@@ -95,7 +95,7 @@ ms.locfileid: "123472023"
 
 ::: zone pivot="container-linux"
 
-- [스토리지 방화벽](../storage/common/storage-network-security.md)은 [서비스 엔드포인트](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) 및 [프라이빗 엔드포인트](../storage/common/storage-private-endpoints.md)를 통해서만 제공됩니다([VNET 통합](web-sites-integrate-with-vnet.md)을 사용하는 경우). 현재는 탑재된 Azure Storage 계정에서 프라이빗 엔드포인트를 사용하는 경우에는 사용자 지정 DNS 지원을 사용할 수 없습니다.
+- [스토리지 방화벽](../storage/common/storage-network-security.md)은 [서비스 엔드포인트](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) 및 [프라이빗 엔드포인트](../storage/common/storage-private-endpoints.md)를 통해서만 제공됩니다([VNET 통합](./overview-vnet-integration.md)을 사용하는 경우). 현재는 탑재된 Azure Storage 계정에서 프라이빗 엔드포인트를 사용하는 경우에는 사용자 지정 DNS 지원을 사용할 수 없습니다.
 - 사용자 지정 탑재 스토리지에 대한 FTP/FTPS 액세스는 지원되지 않습니다([Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) 사용).
 - Azure CLI, Azure PowerShell 및 Azure SDK 지원은 미리 보기로 제공됩니다.
 - `/` 또는 `/home`을 사용자 지정 탑재 스토리지에 매핑할 수 없습니다.
@@ -118,7 +118,7 @@ ms.locfileid: "123472023"
 1. 다음 표에 따라 스토리지 탑재를 구성합니다. 완료되었으면 **확인** 을 클릭합니다.
 
     ::: zone pivot="container-windows"
-    | 설정 | Description |
+    | 설정 | 설명 |
     |-|-|
     | **이름** | 탑재 구성의 이름입니다. 공백은 허용되지 않습니다. |
     | **구성 옵션** | 저장소 계정에서 [전용 끝점](../storage/common/storage-private-endpoints.md)을 사용 하지 않는 경우 **기본** 을 선택 합니다. 사용하고 있으면 **고급** 를 선택합니다. |
@@ -128,7 +128,7 @@ ms.locfileid: "123472023"
     | **탑재 경로** | Azure Storage에 탑재할 Windows 컨테이너 내의 디렉터리입니다. 루트 디렉터리 ( `[C-Z]:\` 또는 `/` ) 또는 `home` 디렉터리 (또는 `[C-Z]:\home` )를 사용 하지 마십시오 `/home` .|
     ::: zone-end
     ::: zone pivot="container-linux"
-    | 설정 | Description |
+    | 설정 | 설명 |
     |-|-|
     | **이름** | 탑재 구성의 이름입니다. 공백은 허용되지 않습니다. |
     | **구성 옵션** | 스토리지 계정에서 [서비스 엔드포인트](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) 또는 [프라이빗 엔드포인트](../storage/common/storage-private-endpoints.md)를 사용하고 있지 않으면 **기본** 을 선택합니다. 사용하고 있으면 **고급** 를 선택합니다. |

@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 31a65c31558940ba7e39e21c8b6e33ffa8e7c9b9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 12132e5143546abc2b12a83e3e6cd92a43069e1e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128633660"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130263044"
 ---
 # <a name="troubleshoot-common-azure-virtual-desktop-agent-issues"></a>일반적인 Azure Virtual Desktop 에이전트 문제 해결
 
@@ -144,7 +144,7 @@ Azure Virtual Desktop 에이전트는 다음과 같은 여러 요인으로 인�
 3. [에이전트 서비스가 실행 중](#error-the-rdagentbootloader-andor-remote-desktop-agent-loader-has-stopped-running)이고 [스택 수신기가 작동 중](#error-stack-listener-isnt-working-on-windows-10-2004-vm)인지 확인합니다.
 4. [에이전트가 broker에 연결할 수 있는지](#error-agent-cannot-connect-to-broker-with-invalid_form) 확인합니다.
 5. [VM에 유효한 등록 토큰이 있는지](#error-invalid_registration_token) 확인합니다.
-6. [VM 등록 토큰이 만료되지 않았는지](/azure/virtual-desktop/faq#how-often-should-i-turn-my-vms-on-to-prevent-registration-issues) 확인합니다. 
+6. [VM 등록 토큰이 만료되지 않았는지](./faq.yml) 확인합니다. 
 
 ## <a name="error-installmsiexception"></a>오류: InstallMsiException
 

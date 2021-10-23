@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 09/09/2021
 ms.author: aahi
-ms.openlocfilehash: 3d6466f97e3126bb20028f1e99e75c2b365a6033
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 126e5e2de1bae847d81c39a9d044720b62093150
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129533869"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130260363"
 ---
 # <a name="azure-cognitive-services-container-image-tags-and-release-notes"></a>Azure Cognitive Services 컨테이너 이미지 태그 및 릴리스 정보
 
@@ -140,8 +140,8 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공합니다. �
 `2.15.0-amd64`에 대한 릴리스 정보:
 
 **수정 프로그램**
-* 고객이 일부 RHEL 환경에서 실행할 때 발생할 수 있는 컨테이너 시작 문제를 해결합니다.
-* 고객이 사용자 지정된 모델을 다운로드할 때 모델 다운로드 nil 오류 문제가 수정되었습니다.
+* 고객이 일부 RHEL 환경에서 실행할 때 발생할 수 있는 컨테이너 시작 문제를 수정 합니다.
+* 고객이 사용자 지정 모델을 다운로드 하는 경우 모델 다운로드 nil 오류 문제를 수정 합니다.
 
 구문 목록 기능으로 인해 이 컨테이너 이미지의 크기가 증가했습니다.
 
@@ -2272,7 +2272,7 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공합니다. �
 
 `3.0.017010001-onprem-amd64`에 대한 릴리스 정보:
 
-* 이제 [클라이언트 라이브러리를 사용 하 여 상태 컨테이너에 Text Analytics](../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare#run-the-container-with-client-library-support) 를 사용할 수 있습니다. 
+* 이제 [클라이언트 라이브러리에서 상태 컨테이너에 대한 Text Analytics](../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare#run-the-container-with-client-library-support) 사용할 수 있습니다. 
 
 | 이미지 태그                    | 메모 |
 |-------------------------------|:------|
@@ -2306,7 +2306,7 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공합니다. �
 
 [ad-containers]: ../anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: ../computer-vision/computer-vision-how-to-install-containers.md
-[fa-containers]: ../face/face-how-to-install-containers.md
+[fa-containers]: ../face/overview.md
 [fr-containers]: ../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md
 [lu-containers]: ../luis/luis-container-howto.md
 [sp-stt]: ../speech-service/speech-container-howto.md?tabs=stt

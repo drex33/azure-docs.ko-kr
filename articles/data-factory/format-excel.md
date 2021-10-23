@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/18/2021
 ms.author: jianleishen
-ms.openlocfilehash: 66f0f310faa32e65dea657d7b15ceae7e4f84ba0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: c1a84fb149ebfaa39fc6704602782c0f872476e2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124831343"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238815"
 ---
 # <a name="excel-file-format-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 Excel 파일 형식
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -104,7 +104,7 @@ Excel 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon
 
 ## <a name="mapping-data-flow-properties"></a>매핑 데이터 흐름 속성
 
-매핑 데이터 흐름에서는 [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties)같은 데이터 저장소에서 Excel 형식을 읽을 수 있습니다. Excel 데이터 세트 또는 [인라인 데이터 세트](data-flow-source.md#inline-datasets)를 사용하여 Excel 파일을 가리킬 수 있습니다.
+데이터 흐름 매핑에서는 [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties)및 [Amazon S3](connector-amazon-simple-storage-service.md#mapping-data-flow-properties)데이터 저장소에서 Excel 형식을 읽을 수 있습니다. Excel 데이터 세트 또는 [인라인 데이터 세트](data-flow-source.md#inline-datasets)를 사용하여 Excel 파일을 가리킬 수 있습니다.
 
 ### <a name="source-properties"></a>원본 속성
 

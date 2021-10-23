@@ -1,14 +1,14 @@
 ---
 title: Azure Arc 사용 서버로 VM 확장 관리
 description: Azure Arc 사용 서버에서는 Azure가 아닌 VM을 사용하여 배포 후 구성 및 자동화 작업을 제공하는 가상 머신 확장 배포 기능을 관리할 수 있습니다.
-ms.date: 09/30/2021
+ms.date: 10/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 83fb74673b5da94cc656b512886ce1ee5d772ac1
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 05362b675d68b8394875eb021a0a7fcb8b7ce649
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130064402"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261028"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Azure Arc 사용 서버로 가상 머신 확장 관리
 
@@ -50,7 +50,7 @@ VM 확장 기능은 [지원되는 지역](overview.md#supported-regions) 목록�
 Azure Connected Machine 에이전트 패키지 및 확장 에이전트 구성 요소에 대 한 자세한 내용을 알아보려면 [에이전트 개요](agent-overview.md#agent-component-details)를 참조 하세요.
 
 > [!NOTE]
-> 최근에 Azure Arc 지원 서버에 대한 DSC VM 확장 지원이 제거되었습니다. 그 대신에 사용자 지정 스크립트 확장을 사용하여 서버 또는 컴퓨터의 배포 후 구성을 관리하는 것이 좋습니다.
+> 최근에 DSC VM 확장에 대한 지원이 Azure Arc 지원 서버에 대해 제거되었습니다. 그 대신에 사용자 지정 스크립트 확장을 사용하여 서버 또는 컴퓨터의 배포 후 구성을 관리하는 것이 좋습니다.
 
 Arc 지원 서버는 구성에 영향을 주지 않고 리소스 그룹 또는 다른 Azure 구독 간에 하나 이상의 VM 확장이 설치된 머신을 이동할 수 있도록 지원합니다. 원본 및 대상 구독은 동일한 [Azure Active Directory 테넌트](../../active-directory/develop/quickstart-create-new-tenant.md) 내에 있어야 합니다. 이 지원은 Connected Machine 에이전트 버전 **1.8.21197.005** 부터 사용할 수 있습니다. 계속하기 전에 리소스 이동 및 고려 사항에 대한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md)을 참조하세요.
 
@@ -92,7 +92,9 @@ Arc 지원 서버는 구성에 영향을 주지 않고 리소스 그룹 또는 �
 
 ### <a name="log-analytics-vm-extension"></a>Log Analytics VM 확장
 
-Linux용 Log Analytics 에이전트 VM 확장을 사용하려면 대상 컴퓨터에 Python 2.x가 설치되어 있어야 합니다.
+Linux용 Log Analytics 에이전트 VM 확장을 사용하려면 대상 컴퓨터에 Python 2.x가 설치되어 있어야 합니다. 
+
+확장을 설치하기 전에 [Log Analytics 에이전트에 대한 배포 옵션을](concept-log-analytics-extension-deployment.md) 검토하여 사용 가능한 다양한 방법과 요구 사항을 충족하는 방법을 이해하는 것이 좋습니다.
 
 ### <a name="azure-key-vault-vm-extension"></a>Azure Key Vault VM 확장
 

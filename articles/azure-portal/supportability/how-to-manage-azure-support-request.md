@@ -1,15 +1,15 @@
 ---
 title: Azure 지원 요청 관리
-description: 지원 요청을 보고, 메시지를 보내고, 요청 심각도 수준을 변경하고, Azure 지원과 진단 정보를 공유하고, 닫힌 지원 요청을 다시 열고, 파일을 업로드하는 방법을 설명합니다.
+description: 지원 요청을 보고, 메시지를 보내고, 심각도 수준을 변경하고, 고급 진단 정보의 수집을 허용 또는 거부하고, 닫힌 지원 요청을 다시 열고, 파일을 업로드하는 방법을 설명합니다.
 tags: billing
 ms.topic: how-to
-ms.date: 09/30/2021
-ms.openlocfilehash: 8e7b074883fe2dcfb79913e54cf7180e26f29c2a
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.date: 10/20/2021
+ms.openlocfilehash: f59d5d799b4db86669798dacd44697c8f678b031
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129353199"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262504"
 ---
 # <a name="manage-an-azure-support-request"></a>Azure 지원 요청 관리
 
@@ -50,15 +50,15 @@ ms.locfileid: "129353199"
 
         :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="새 심각도 수준을 선택할 수 없음":::
 
-## <a name="share-diagnostic-information-with-azure-support"></a>Azure 지원과 진단 정보 공유
+## <a name="allow-collection-of-advanced-diagnostic-information"></a>고급 진단 정보 수집 허용
 
-지원 요청을 만들 때 **진단 정보 공유** 섹션에서 **예** 또는 **아니요** 를 선택할 수 있습니다. 이 옵션은 Azure 지원에서 잠재적으로 문제를 해결 하는 데 도움이 될 수 있는 Azure 리소스의 [로그 파일과](how-to-create-azure-support-request.md#advanced-diagnostic-information-logs) 같은 [진단 정보](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 를 수집할 수 있는지 여부를 결정 합니다.
+지원 요청을 만들 때 **고급 진단 정보** 섹션에서 **예** 또는 **아니요를** 선택할 수 있습니다. 이 옵션은 Azure 지원에서 잠재적으로 문제를 해결하는 데 도움이 될 수 있는 Azure 리소스의 [로그 파일과](how-to-create-azure-support-request.md#advanced-diagnostic-information-logs) 같은 [진단 정보를](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 수집할 수 있는지 여부를 결정합니다.
 
-요청이 생성된 후 **공유 진단 정보** 선택을 변경하려면 다음을 수행합니다.
+요청을 만든 후 **고급 진단 정보** 선택을 변경하려면 다음을 수행합니다.
 
 1. **모든 지원 요청** 페이지에서 지원 요청을 선택합니다.
 
-1. **지원 요청** 페이지에서 **진단 정보 공유** 를 찾은 다음, **변경** 을 선택합니다.
+1. 지원 **요청** 페이지에서 고급 **진단 정보를** 찾은 **다음, 변경을** 선택합니다.
 
 1. **예** 또는 **아니요** 를 선택한 후 **확인** 을 선택하여 확인합니다.
 

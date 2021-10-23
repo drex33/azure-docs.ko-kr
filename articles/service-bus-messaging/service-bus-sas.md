@@ -4,12 +4,12 @@ description: 공유 액세스 서명을 사용한 Azure Service Bus 액세스 �
 ms.topic: article
 ms.date: 10/18/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5a31ce93c603f1bc1f0765fb2de438476e1f63de
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 86da611f3d64b4b3b913dc49da7f90c69562d8fc
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130164966"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130263309"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>공유 액세스 서명을 사용한 Service Bus 액세스 제어
 
@@ -263,7 +263,7 @@ AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니
 | **규칙.** | | |
 | 규칙 만들기 | 수신 대기 |../myTopic/Subscriptions/mySubscription |
 | 규칙 삭제 | 수신 대기 |../myTopic/Subscriptions/mySubscription |
-| 규칙 열거 | 수신 대기 |../myTopic/Subscriptions/mySubscription/Rules
+| 규칙 열거 | 관리 또는 수신 |../myTopic/Subscriptions/mySubscription/Rules
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6f2732f03b990d10b3ae15e472bf7600114c3a33
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: fc89cbfd01ef827be277d332ecd770b3fa6d7016
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528332"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249802"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>모듈에 디바이스의 로컬 스토리지에 대한 액세스 권한 부여
 
@@ -75,14 +75,25 @@ Azure 스토리지 서비스를 사용하거나 디바이스의 컨테이너 스
 
 예를 들어 Linux 시스템에서는 `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]`는 컨테이너에서 **/iotedge/storage/** 디렉터리에 매핑된 사용자의 호스트 시스템의 **/etc/iotedge/storage** 디렉터리를 의미합니다. 또 다른 예로 Windows 시스템에서는 `"Binds":["C:\\temp:C:\\contemp"]` 호스트 시스템의 **c: \\ temp** 디렉터리가 컨테이너의 **c: \\**  \ 디렉터리에 매핑되어 있음을 의미합니다.
 
-또한 Linux 디바이스에서는 모듈의 사용자 프로필에 호스트 시스템 디렉터리에 대한 읽기, 쓰기, 실행 권한이 있어야 합니다. IoT Edge 허브가 디바이스의 로컬 스토리지에 메시지를 저장하도록 설정하는 이전 예제에서는, UID 1000 사용자 프로필에 권한을 부여해야 합니다. (IoT Edge 에이전트는 루트로 작동하므로 추가 권한이 필요하지 않습니다.) `chown`을 사용하여 디렉터리 소유자를 변경한 다음 `chmod`로 권한을 변경하는 등 Linux 시스템에서 디렉터리 권한을 관리하는 방법에는 여러 가지가 있습니다.
+옵션 만들기에 대한 자세한 내용은 [Docker 문서](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate)를 참조하세요.
+
+## <a name="host-system-permissions"></a>호스트 시스템 권한
+
+Linux 장치에서 모듈의 사용자 프로필에 호스트 시스템 디렉터리에 대 한 읽기, 쓰기 및 실행 권한이 있어야 합니다. IoT Edge 허브가 디바이스의 로컬 스토리지에 메시지를 저장하도록 설정하는 이전 예제에서는, UID 1000 사용자 프로필에 권한을 부여해야 합니다. 를 사용 하 여 `chown` 디렉터리 소유자를 변경한 다음 권한을 변경 하는 등 Linux 시스템에서 디렉터리 권한을 관리 하는 방법에는 여러 가지가 있습니다 `chmod` .
 
 ```bash
 sudo chown 1000 <HostStoragePath>
 sudo chmod 700 <HostStoragePath>
 ```
 
-옵션 만들기에 대한 자세한 내용은 [Docker 문서](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate)를 참조하세요.
+Windows 장치에서 호스트 시스템 디렉터리에 대 한 사용 권한을 구성 해야 합니다. PowerShell을 사용 하 여 사용 권한을 설정할 수 있습니다.
+
+```powershell
+$acl = get-acl <HostStoragePath>
+$ace = new-object system.security.AccessControl.FileSystemAccessRule('Authenticated Users','FullControl','Allow')
+$acl.AddAccessRule($ace)
+$acl | Set-Acl
+```
 
 ## <a name="encrypted-data-in-module-storage"></a>모듈 스토리지의 암호화된 데이터
 

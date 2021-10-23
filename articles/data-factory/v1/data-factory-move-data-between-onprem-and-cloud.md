@@ -6,14 +6,14 @@ ms.author: abnarain
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 10/22/2021
 robots: noindex
-ms.openlocfilehash: cb3e020f1ac22daa6d0432ad0abaf1aa215d1048
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 90fd10d9ccde297989f6c372562bc088240783a7
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128580699"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130264259"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동
 > [!NOTE]
@@ -51,7 +51,7 @@ ms.locfileid: "128580699"
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **리소스 만들기** 를 클릭하고 **인텔리전스 + 분석** 및 **데이터 팩터리** 를 차례로 클릭합니다.
 
-   :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png" alt-text="New->DataFactory":::  
+   :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png" alt-text="새로 만들기->DataFactory":::  
 3. **새 데이터 팩터리** 페이지에서 이름으로 **ADFTutorialOnPremDF** 를 입력합니다.
 
     :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/OnPremNewDataFactoryAddToStartboard.png" alt-text="시작 보드에 추가":::

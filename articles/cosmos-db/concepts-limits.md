@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2021
-ms.openlocfilehash: befd0daa9926f96411e1f870efb29ab68b0a8d15
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 06f60aa645ac4f9e38b61fb86ccaae3213acaf67
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129387775"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262169"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
@@ -197,6 +197,7 @@ Azure Cosmos DB는 각 계정에 대한 시스템 메타데이터를 유지 관�
 |분당 최대 컬렉션 생성률|    100|
 |분당 최대 데이터베이스 생성률|    100|
 |분당 최대 프로비저닝된 처리량 업데이트 속도|    5|
+|메타데이터 작업에 대해 계정에서 지원하는 최대 처리량 | 240 RU/s |
 
 ## <a name="limits-for-autoscale-provisioned-throughput"></a>자동 스케일링 프로비저닝 처리량 제한
 

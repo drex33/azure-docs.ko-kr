@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/17/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0e0d3c131f5cd53684580d0035c8836a2537d780
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 8f485ef5d49ff2f0b9bfec4c6abc6db1b78c3826
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130070828"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130288128"
 ---
 현재 울트라 디스크에서 사용할 수 있는 인프라 중복 옵션은 가용성 영역뿐입니다. 다른 중복 옵션을 사용하는 VM은 울트라 디스크를 연결할 수 없습니다.
 
@@ -24,9 +24,9 @@ ms.locfileid: "130070828"
 
 | 중복 옵션 | 영역 |
 |--------------------|---------|
-| **단일 Vm** | 오스트레일리아 중부<br/>브라질 남부<br/>인도 중부<br/>동아시아<br/>독일 중서부<br/>한국 중부<br/>미국 중 북부, 미국 중부, 미국 서 부<br/>US Gov 애리조나, US Gov 텍사스, US Gov 버지니아<br/> |
-| **두 개의 가용성 영역** | 오스트레일리아 동부<br/>캐나다 중부<br/>북유럽, 서유럽<br/>일본 동부<br/>동남아시아<br/>영국 남부<br/>미국 중부, 미국 동부, 미국 동부 2, 미국 서 부 2|
-| **세 개의 가용성 영역** | 프랑스 중부 |
+| **단일 Vm** | 오스트레일리아 중부<br/>브라질 남부<br/>인도 중부<br/>동아시아<br/>독일 중서부<br/>한국 중부<br/>미국 중 북부, 미국 중부, 미국 서 부<br/>US Gov 애리조나, US Gov 텍사스, US Gov 버지니아 |
+| **두 개의 가용성 영역** | 프랑스 중부 |
+| **세 개의 가용성 영역** | 오스트레일리아 동부<br/>캐나다 중부<br/>북유럽, 서유럽<br/>일본 동부<br/>동남아시아<br/>영국 남부<br/>미국 중부, 미국 동부, 미국 동부 2, 미국 서 부 2 |
 
 모든 VM 크기를 울트라 디스크가 있는 지원되는 모든 지역에서 사용할 수 있는 것은 아닙니다. 다음 표에서는 ultra disks와 호환 되는 VM 시리즈를 나열 합니다.
 

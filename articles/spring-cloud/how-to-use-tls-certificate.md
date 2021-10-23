@@ -8,14 +8,14 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 10/08/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 44ea16782bb3bfdd51e89fd140f123f34fe4b44d
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 9a8671e6a52210bc7f49b6654383e12fd3090b63
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130067889"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258110"
 ---
-# <a name="use-a-tlsssl-certificate-in-your-application-in-azure-spring-cloud"></a>Azure 스프링 클라우드의 응용 프로그램에서 TLS/SSL 인증서 사용
+# <a name="use-tlsssl-certificates-in-your-application-in-azure-spring-cloud"></a>Azure 스프링 클라우드의 응용 프로그램에서 TLS/SSL 인증서 사용
 
 이 문서에서는 응용 프로그램에 대해 Azure 스프링 클라우드에서 공용 인증서를 사용 하는 방법을 보여 줍니다. 앱이 클라이언트 역할을 하 고 인증서 인증을 필요로 하는 외부 서비스에 액세스 하거나 암호화 작업을 수행 해야 할 수 있습니다.  
 

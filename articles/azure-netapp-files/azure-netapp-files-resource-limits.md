@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/27/2021
 ms.author: b-juche
-ms.openlocfilehash: 4a97b89957a4f451aaa9c7305535f87980234db2
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 9404d6052093880ff25ded0492e4a3fb87202f09
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129094294"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252500"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Azure NetApp Files에 대한 리소스 제한
 
@@ -31,11 +31,11 @@ Azure NetApp Files에 대한 리소스 제한을 이해하면 볼륨을 관리�
 
 |  리소스  |  기본 제한  |  지원 요청을 통해 조정 가능  |
 |----------------|---------------------|--------------------------------------|
-|  [구독당 지역 용량 할당량](#regional-capacity-quota)   |  25TiB  |  Yes  |
+|  [구독당 지역 용량 할당량](regional-capacity-quota.md)   |  25TiB  |  Yes  |
 |  구독당 Azure 지역별 NetApp 계정 수  |  10    |  예   |
 |  NetApp 계정당 용량 풀 수   |    25     |   예   |
-|  구독당 볼륨 수   |    500     |   예   |
-|  용량 풀당 볼륨 수     |    500   |    예     |
+|  구독당 볼륨 수   |    500     |   Yes   |
+|  용량 풀당 볼륨 수     |    500   |    Yes     |
 |  볼륨당 스냅샷 수       |    255     |    No        |
 |  Azure Virtual Network당 Azure NetApp Files(Microsoft.NetApp/볼륨)에 위임된 서브넷 수    |   1   |    아니요    |
 |  Azure NetApp Files를 사용하는 VNet(즉시 피어링된 VNet 포함)의 사용된 IP 수   |    1000   |    No   |
@@ -46,17 +46,17 @@ Azure NetApp Files에 대한 리소스 제한을 이해하면 볼륨을 관리�
 |  단일 파일의 최대 크기     |    16TiB    |    No    |    
 |  단일 디렉터리에서 디렉터리 메타데이터의 최대 크기      |    320MB    |    No    |    
 |  단일 디렉터리의 최대 파일 수  | *약* 4백만입니다. <br> [디렉터리가 제한 크기에 도달하고 있는지 확인](#directory-limit)을 참조하세요.  |    No    |   
-|  볼륨당 최대 파일 수([maxfiles](#maxfiles))     |    1억    |    예    |    
+|  볼륨당 최대 파일 수([maxfiles](#maxfiles))     |    1억    |    Yes    |    
 |  볼륨당 최대 내보내기 정책 규칙 수     |    5  |    No    | 
 |  수동 QoS 볼륨에 할당된 최소 처리량     |    1MiB/s   |    No    |    
 |  수동 QoS 볼륨에 할당된 최대 처리량     |    4,500MiB/s    |    No    |    
 |  지역 간 복제 데이터 보호 볼륨(대상 볼륨) 수     |    10    |    예    |     
-|  볼륨 당 정책 기반 (예약 된) 백업의 최대 수  | <ul><li> 일별 보존 횟수: 1 (최소값) ~ 1019 (최대값) </li> <li> 주간 보존 횟수: 1 (최소값) ~ 1019 (최대값) </li> <li> 월간 보존 횟수: 1 (최소값) ~ 1019 (최대값) </ol></li> <br> 최대 일별, 주별 및 월별 백업 *보존 횟수는 1019입니다.*  |  N  |
-|  보호 된 볼륨의 최대 크기  |  100TiB  |  N  |
-|  구독당 백업할 수 있는 최대 볼륨 수   |  5  |  Y  |
-|  매일 볼륨당 최대 수동 백업 수 |  5  |  Y  |
+|  볼륨당 최대 정책 기반(예약된) 백업 수  | <ul><li> 일일 보존 수: 1(최소) ~ 1019(최대) </li> <li> 주간 보존 수: 1(최소) ~ 1019(최대) </li> <li> 월간 보존 수: 1(최소) ~ 1019(최대) </ol></li> <br> 결합된 최대 일일, 주별 및  월별 백업 보존 수는 1019개입니다.  |  N  |
+|  보호된 볼륨의 최대 크기  |  100TiB  |  N  |
+|  구독당 백업할 수 있는 최대 볼륨 수   |  5  |  지원  |
+|  일별 볼륨당 최대 수동 백업 수 |  5  |  지원  |
 
-자세한 내용은 [용량 관리 FAQ](azure-netapp-files-faqs.md#capacity-management-faqs)를 참조하세요.
+자세한 내용은 [용량 관리 FAQ](faq-capacity-management.md)를 참조하세요.
 
 ## <a name="determine-if-a-directory-is-approaching-the-limit-size"></a>디렉터리가 제한 크기 <a name="directory-limit"></a>에 도달하고 있는지 확인  
 
@@ -98,21 +98,6 @@ Azure NetApp Files 볼륨에는 *maxfiles* 라는 한도가 있습니다. Maxfil
 
 볼륨 할당량이 20TiB 이상인 경우 maxfiles 한도를 5억 개로 늘릴 수 있습니다. <!-- ANF-11854 --> 
 
-## <a name="regional-capacity-quota"></a>지역 용량 할당량
-
-Azure NetApp Files의 설정에서 **할당량** 을 클릭하여 지역의 현재 및 기본 할당량 크기를 표시할 수 있습니다. 
-
-예를 들면 다음과 같습니다. 
-
-![할당량 정보를 표시하는 방법을 보여주는 스크린샷.](../media/azure-netapp-files/quota-display.png) 
-
-추가 비용 없이 지원 용량 할당량을 늘리기 위해 [지원 요청을 제출](#request-limit-increase)할 수 있습니다. 제출한 지원 요청은 처리를 위해 Azure 용량 관리 팀에 전송됩니다. 일반적으로 영업일 기준 2일 이내에 응답을 받게 됩니다. 대용량 요청이 있는 경우 Azure 용량 관리 팀에서 연락할 수 있습니다.  
-
-지역 용량 할당량 증가는 청구 증가를 발생시키지 않습니다. 요금은 여전히 프로비저닝된 용량 풀을 기반으로 합니다.
-예를 들어 현재 프로비저닝된 용량이 25TiB인 경우 35TiB로 할당량 증가를 요청할 수 있습니다.  영업일 2일 이내에 할당량 증가가 요청된 지역에 적용됩니다. 할당량 증가가 적용되면 현재 프로비저닝된 용량(25TiB)에 대해서만 비용을 지불합니다. 하지만 추가 10TiB를 실제로 프로비저닝하는 경우 35TiB에 대한 요금이 청구됩니다.
-
-Azure NetApp Files에 대한 현재 [리소스 제한](#resource-limits)은 변경되지 않습니다. 여전히 500TiB 용량 풀을 프로비저닝할 수 있습니다. 하지만 그 전에 지역 용량 할당량을 500TiB로 늘려야 합니다.
-
 ## <a name="request-limit-increase"></a>제한 증가 요청
 
 Azure 지원 요청을 만들어 [리소스 제한](#resource-limits) 표에서 조정 가능한 한도를 늘릴 수 있습니다. 
@@ -143,3 +128,4 @@ Azure 지원 요청을 만들어 [리소스 제한](#resource-limits) 표에서 
 
 - [Azure NetApp Files의 스토리지 계층 구조 이해](azure-netapp-files-understand-storage-hierarchy.md)
 - [Azure NetApp Files 비용 모델](azure-netapp-files-cost-model.md)
+- [Azure NetApp Files에 대 한 지역 용량 할당량](regional-capacity-quota.md)

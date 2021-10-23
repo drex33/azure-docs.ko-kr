@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: kumud
-ms.openlocfilehash: 9ed060c1f3fc47aa7050c0f9b25c757953fa22fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: fff105eadfffb8b38ebe5e95b3cfb0c79df0929b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98220340"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130248947"
 ---
 # <a name="plan-virtual-networks"></a>가상 네트워크 계획
 
@@ -49,7 +49,7 @@ ms.locfileid: "98220340"
 
 - 트래픽을 별도의 가상 네트워크로 격리하기 위해 존재하는 조직의 보안 요구 사항이 있나요? 가상 네트워크의 연결 여부를 선택할 수 있습니다. 가상 네트워크를 연결하는 경우 방화벽과 같은 네트워크 가상 어플라이언스를 구현하여 가상 네트워크 간의 트래픽 흐름을 제어할 수 있습니다. 자세한 내용은 [보안](#security) 및 [연결](#connectivity)을 참조하세요.
 - 가상 네트워크를 별도의 [구독](#subscriptions) 또는 [지역](#regions)으로 격리하기 위해 존재하는 조직의 요구 사항이 있나요?
-- [네트워크 인터페이스](virtual-network-network-interface.md)를 사용하면 VM에서 다른 리소스와 통신할 수 있습니다. 각 네트워크 인터페이스에는 하나 이상의 개인 IP 주소가 할당되어 있습니다. 가상 네트워크에 필요한 네트워크 인터페이스 및 [개인 IP 주소](./private-ip-addresses.md)는 몇 개인가요? 가상 네트워크에서 유지할 수 있는 네트워크 인터페이스 및 개인 IP 주소의 개수에는 [제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)이 있습니다.
+- [네트워크 인터페이스](virtual-network-network-interface.md)를 사용하면 VM에서 다른 리소스와 통신할 수 있습니다. 각 네트워크 인터페이스에는 하나 이상의 개인 IP 주소가 할당되어 있습니다. 가상 네트워크에 필요한 네트워크 인터페이스 및 [개인 IP 주소](./ip-services/private-ip-addresses.md)는 몇 개인가요? 가상 네트워크에서 유지할 수 있는 네트워크 인터페이스 및 개인 IP 주소의 개수에는 [제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)이 있습니다.
 - 가상 네트워크를 다른 가상 네트워크 또는 온-프레미스 네트워크에 연결하고 싶으신가요? 일부 가상 네트워크는 서로 또는 온-프레미스 네트워크에 연결하고, 나머지 가상 네트워크는 연결하지 않을 수 있습니다. 자세한 내용은 [연결](#connectivity)을 참조하세요. 다른 가상 네트워크 또는 온-프레미스 네트워크에 연결하는 각 가상 네트워크에는 고유한 주소 공간이 있어야 합니다. 각 가상 네트워크에는 해당 주소 공간에 할당된 하나 이상의 공용 또는 프라이빗 주소 범위가 있습니다. 주소 범위는 CIDR(클래스 없는 인터넷 도메인 라우팅) 형식(예: 10.0.0.0/16)으로 지정됩니다. 가상 네트워크의 [주소 범위](manage-virtual-network.md#add-or-remove-an-address-range)에 대해 자세히 알아보세요.
 - 여러 가상 네트워크의 리소스에 대한 조직의 관리 요구 사항이 있나요? 그렇다면 리소스를 별도의 가상 네트워크로 구분하여 조직의 개인에 대한 [사용 권한 할당](#permissions)을 간소화하거나 가상 네트워크마다 다른 정책을 할당할 수 있습니다.
 - 일부 Azure 서비스 리소스를 가상 네트워크에 배포하는 경우 고유한 가상 네트워크가 만들어집니다. Azure 서비스에서 자체 가상 네트워크를 만들지 여부를 결정하면 [가상 네트워크에 배포할 수 있는 각 Azure 서비스](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network)에 대한 정보를 참조하세요.

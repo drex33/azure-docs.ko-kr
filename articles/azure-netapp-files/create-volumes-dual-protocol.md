@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 10/04/2021
 ms.author: b-juche
-ms.openlocfilehash: 4fc34329ec7f318d79dd04e271db7b37b7e1cc59
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 266ff9dd24ac01347f359ea44f46e7950f8b432f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129533628"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252481"
 ---
 # <a name="create-a-dual-protocol-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 이중 프로토콜 볼륨 만들기
 
@@ -111,7 +111,7 @@ NFS 볼륨을 만들려면 [NFS 볼륨 만들기](azure-netapp-files-create-volu
         ![서브넷 만들기](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
     * **네트워크 기능**  
-        지원되는 지역에서는 볼륨에 **기본** 또는 **표준** 네트워크 기능을 사용할지 여부를 지정할 수 있습니다. 자세한 내용은 [볼륨에 대한 네트워크 기능 구성](configure-network-features.md) 및 Azure NetApp Files 네트워크 계획에 대한 [지침을](azure-netapp-files-network-topologies.md) 참조하세요.
+        지원 되는 지역에서는 볼륨에 대 한 **기본** 또는 **표준** 네트워크 기능을 사용할지 여부를 지정할 수 있습니다. 자세한 내용은 [볼륨의 네트워크 기능 구성](configure-network-features.md) 및 [Azure NetApp Files 네트워크 계획에 대 한 지침](azure-netapp-files-network-topologies.md) 을 참조 하세요.
 
     * 볼륨에 기존 스냅샷 정책을 적용하려면 **고급 섹션 표시** 를 클릭하여 확장하고, 스냅샷 경로를 숨길지 여부를 지정하고, 풀 다운 메뉴에서 스냅샷 정책을 선택합니다. 
 
@@ -221,9 +221,9 @@ LDAP 사용자 및 LDAP 그룹에 대해 다음 특성을 설정해야 합니다
     `gidNumber: 555`
 * 모든 사용자와 그룹에 각각 고유한 `uidNumber` 및 `gidNumber`가 있어야 합니다. 
 
-에 지정된 `objectClass` 값은 별도의 항목입니다. 예를 들어 다중값 문자열 편집기에서 `objectClass` `user` 는 LDAP 사용자에 대해 다음과 같이 지정된 별도의 값( 및 )을 갖습니다. `posixAccount`   
+에 지정 된 값은 `objectClass` 별도의 항목입니다. 예를 들어 다중값 문자열 편집기에서 `objectClass` `user` `posixAccount` LDAP 사용자에 대 한 별도의 값 (및)이 다음과 같이 지정 됩니다.   
 
-![개체 클래스에 지정된 여러 값을 보여 주는 다중값 문자열 편집기의 스크린샷.](../media/azure-netapp-files/multi-valued-string-editor.png) 
+![개체 클래스에 대해 지정 된 여러 값을 보여 주는 다중 값 문자열 편집기의 스크린샷](../media/azure-netapp-files/multi-valued-string-editor.png) 
 
 AADDS(Azure Active Directory Domain Services)를 사용하는 경우 조직 AADDC 사용자 OU에 생성된 사용자와 그룹의 POSIX 특성을 수정할 수 없습니다. 해결 방법으로, 사용자 지정 OU를 만들고 사용자 지정 OU에 사용자와 그룹을 만들 수 있습니다.
 
@@ -251,5 +251,4 @@ NFS 클라이언트를 구성하려면 [Azure NetApp Files에 대한 NFS 클라�
 * [Unix 권한 구성 및 소유권 모드 변경](configure-unix-permissions-change-ownership-mode.md) 
 * [Azure NetApp Files용 TLS를 통한 ADDS LDAP 구성](configure-ldap-over-tls.md)
 * [NFS 볼륨 액세스에 대한 확장 그룹을 사용하여 ADDS LDAP 구성](configure-ldap-extended-groups.md)
-* [SMB 또는 이중 프로토콜 볼륨 문제 해결](troubleshoot-dual-protocol-volumes.md)
-* [LDAP 볼륨 문제 해결](troubleshoot-ldap-volumes.md)
+* [Azure NetApp Files 볼륨 오류 문제 해결](troubleshoot-volumes.md)

@@ -1,14 +1,14 @@
 ---
 title: 테넌트 간 관리 환경
 description: Azure Lighthouse는 여러 Azure 서비스에서 테넌트 간 환경을 사용하도록 설정하고 개선합니다.
-ms.date: 09/30/2021
+ms.date: 10/21/2021
 ms.topic: conceptual
-ms.openlocfilehash: 90ff0396a467f3137d6501ac34cf707577e43bdf
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 115f71148ddd2d18cd99be883bdef77b1c27ad1b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129714793"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249688"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -50,7 +50,7 @@ Azure REST API의 [Subscriptions-Get](/rest/api/resources/subscriptions/get) 및
 
 [Azure Arc](../../azure-arc/index.yml):
 
-- 대규모 하이브리드 서버 관리 - [Azure Arc 지원 서버:](../../azure-arc/servers/overview.md)
+- 대규모로 하이브리드 서버 관리 - [Azure Arc 지원 서버:](../../azure-arc/servers/overview.md)
   - Azure에서 위임된 구독 및/또는 리소스 그룹에 [연결된 Azure 외부의 Windows Server 또는 Linux 시스템 관리](../../azure-arc/servers/onboard-portal.md)
   - Azure Policy 및 태그 지정과 같은 Azure 구문을 사용하여 연결된 컴퓨터 관리
   - 고객의 하이브리드 환경에 동일한 정책 집합이 적용되는지 확인
@@ -103,6 +103,7 @@ Azure REST API의 [Subscriptions-Get](/rest/api/resources/subscriptions/get) 및
 - 웹 후크를 통해 관리 테넌트에서 Azure Automation Runbook 또는 Azure Functions와 같은 자동화를 트리거하는 고객 테넌트에서 경고를 만듭니다.
 - 고객 테넌트에서 만든 작업 영역에서 [진단 설정을](../..//azure-monitor/essentials/diagnostic-settings.md) 만들어 관리 테넌트에서 작업 영역으로 리소스 로그 보내기
 - SAP 워크로드의 경우 [고객 테넌트 전체에서 집계된 보기를 사용하여 SAP 솔루션 메트릭을 모니터링](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)합니다.
+- Azure AD B2C 경우 로그인 [및 감사 로그를](../../active-directory-b2c/azure-monitor.md) 다른 모니터링 솔루션으로 라우팅합니다.
 
 [Azure 네트워킹](../../networking/fundamentals/networking-overview.md):
 

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e9306d9931a34a192d0fb77caf1ab6147f2020a5
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 858e8ed781ce28406fed89d61be370c8eefdafd9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130071932"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257065"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions의 Azure Service Bus 바인딩
 
@@ -43,7 +43,7 @@ Azure Functions는 [트리거 및 바인딩](./functions-triggers-bindings.md)�
 
 #### <a name="service-bus-extension-5x-and-higher"></a>Service Bus 확장 5.x 이상
 
-새 버전의 Service Bus 바인딩 확장은 미리 보기에서 사용할 수 있습니다. [비밀 대신 id를 사용 하 여 연결](./functions-reference.md#configure-an-identity-based-connection)하는 기능이 도입 되었습니다. .NET 애플리케이션의 경우 `Microsoft.ServiceBus.Messaging` 및 `Microsoft.Azure.ServiceBus`의 형식이 [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus)의 최신 형식으로 바뀌어 사용자가 바인딩할 수 있는 형식도 변경됩니다.
+새 버전의 Service Bus 바인딩 확장은 미리 보기에서 사용할 수 있습니다. [비밀 대신 id를 사용 하 여 연결](./functions-reference.md#configure-an-identity-based-connection)하는 기능이 도입 되었습니다. 관리 id를 사용 하 여 함수 앱을 구성 하는 방법에 대 한 자습서는 [id 기반 연결을 사용 하 여 함수 앱 만들기 자습서](./functions-identity-based-connections-tutorial.md)를 참조 하세요. .NET 응용 프로그램의 경우에는 새 확장 버전 에서도 바인딩할 수 있는 형식을 변경 하 여 `Microsoft.ServiceBus.Messaging` `Microsoft.Azure.ServiceBus` [ServiceBus](/dotnet/api/azure.messaging.servicebus)의 새 형식으로 형식을 바꿉니다.
 
 이 확장 버전은 [미리 보기 NuGet 패키지로] 사용할 수 있거나, 파일에 다음을 추가 하 여 미리 보기 확장 번들 v3에서 추가할 수 있습니다 `host.json` .
 

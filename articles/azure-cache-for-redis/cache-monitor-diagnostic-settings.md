@@ -8,12 +8,12 @@ ms.service: cache
 ms.topic: how-to
 ms.date: 09/30/2021
 ms.custom: template-how-to
-ms.openlocfilehash: e62215649a79f16fcb9cbfc20cfe16bc98f2251f
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 2662ba2f2e87f79b034ae8138bba31fc9358d8d6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129812666"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236174"
 ---
 # <a name="monitor-azure-cache-for-redis-data-using-diagnostic-settings"></a>진단 설정을 사용하여 Azure Cache for Redis 데이터 모니터링
 
@@ -28,7 +28,7 @@ Azure Cache for Redis 인스턴스에 대한 진단 설정을 켜고 리소스 �
 - **이벤트 허브** - 가상 네트워크를 사용하도록 설정하면 진단 설정이 이벤트 허브 리소스에 액세스할 수 없습니다. 이벤트 허브에서 신뢰할 수 있는 **Microsoft 서비스 이 방화벽을 무시하도록 허용?** 설정을 사용하도록 설정하여 이벤트 허브 리소스에 대한 액세스 권한을 부여합니다. 이벤트 허브는 캐시와 동일한 지역에 있어야 합니다.
 - **Storage 계정** - 캐시와 동일한 지역에 있어야 합니다.
 
-진단 요구 사항에 대한 자세한 내용은 [진단 설정을 참조하세요.](/azure/azure-monitor/essentials/diagnostic-settings?tabs=CMD)
+진단 요구 사항에 대한 자세한 내용은 [진단 설정을 참조하세요.](../azure-monitor/essentials/diagnostic-settings.md?tabs=CMD)
 
 두 대상에 진단 로그를 보낼 때 스토리지 계정 및 이벤트 허브 사용량에 대한 일반 데이터 요금이 청구됩니다. Azure Cache for Redis 않은 Azure Monitor 요금이 청구됩니다.
 자세한 가격 책정 정보는 [가격 책정을 Azure Monitor.](https://azure.microsoft.com/pricing/details/monitor/)
@@ -45,7 +45,7 @@ Azure Cache for Redis 인스턴스에 대한 진단 설정을 켜고 리소스 �
 
    |범주  | 정의  | 키 속성   |
    |---------|---------|---------|
-   |ConnectedClientList |  정기적으로 기록된 캐시에 연결된 클라이언트의 IP 주소 및 개수입니다. | `connectedClients` 및 중첩: `ip` , `count` , `privateLinkIpv6` |
+   |ConnectedClientList |  정기적으로 기록된 캐시에 연결된 클라이언트의 IP 주소 및 개수입니다. | `connectedClients`및 는 `ip` , , 내에 중첩됩니다. `count``privateLinkIpv6` |
   
 1. 범주 세부 **정보를** 선택하면 원하는 대상으로 로그를 보냅니다. 오른쪽의 정보를 선택합니다.
 
@@ -53,7 +53,7 @@ Azure Cache for Redis 인스턴스에 대한 진단 설정을 켜고 리소스 �
 
 ## <a name="create-diagnostic-setting-via-rest-api"></a> REST API를 통해 진단 설정 만들기
 
-대화형 콘솔을 통해 진단 설정을 만드는 데 Azure Monitor REST API를 사용합니다. 자세한 내용은 [만들기 또는 업데이트](/rest/api/monitor/diagnostic-settings/create-or-update.md)를 참조하세요.
+대화형 콘솔을 통해 진단 설정을 만드는 데 Azure Monitor REST API를 사용합니다. 자세한 내용은 [만들기 또는 업데이트](/rest/api/monitor/diagnostic-settings/create-or-update)를 참조하세요.
 
 ### <a name="request"></a>요청
 

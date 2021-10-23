@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/18/2021
 ms.author: jianleishen
-ms.openlocfilehash: 4b21aa5d63f371749081d7bc71577c7d0f5a2d49
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3542ddd7a3276d0ba5b7aaac591f4d4ff936cd86
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124787682"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238966"
 ---
 # <a name="delimited-text-format-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 구분된 텍스트 형식
 
@@ -22,7 +22,21 @@ ms.locfileid: "124787682"
 
 **구분된 텍스트 파일을 구문 분석하거나 데이터를 구분된 텍스트 형식으로 쓰려면** 이 문서의 내용을 따르세요. 
 
-구분된 텍스트 형식이 지원되는 커넥터는 [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md), [SFTP](connector-sftp.md)입니다.
+구분 기호로 분리된 텍스트 형식은 다음 커넥터에서 지원됩니다. 
+
+- [Amazon S3](connector-amazon-simple-storage-service.md)
+- [Amazon S3 호환 스토리지](connector-amazon-s3-compatible-storage.md)
+- [Azure Blob](connector-azure-blob-storage.md)
+- [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
+- [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
+- [Azure 파일](connector-azure-file-storage.md)
+- [파일 시스템](connector-file-system.md)
+- [FTP](connector-ftp.md)
+- [Google Cloud Storage](connector-google-cloud-storage.md)
+- [HDFS](connector-hdfs.md)
+- [HTTP](connector-http.md)
+- [Oracle Cloud Storage](connector-oracle-cloud-storage.md)
+- [SFTP](connector-sftp.md)
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
@@ -143,7 +157,7 @@ ms.locfileid: "124787682"
 
 ## <a name="mapping-data-flow-properties"></a>매핑 데이터 흐름 속성
 
-매핑 데이터 흐름에서는 [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) 및 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties)같은 데이터 저장소에서 구분된 텍스트 형식을 읽고 쓸 수 있습니다.
+매핑 데이터 흐름에서 [Azure Blob](connector-azure-blob-storage.md#mapping-data-flow-properties)Storage, Azure Data Lake Storage Gen1 및 Azure Data [Lake Storage](connector-azure-data-lake-store.md#mapping-data-flow-properties) [Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties)데이터 저장소에서 구분된 텍스트 형식을 읽고 쓸 수 있으며 [Amazon S3에서](connector-amazon-simple-storage-service.md#mapping-data-flow-properties)구분된 텍스트 형식을 읽을 수 있습니다.
 
 ### <a name="source-properties"></a>원본 속성
 
@@ -208,6 +222,21 @@ CSVSource sink(allowSchemaDrift: true,
     skipDuplicateMapInputs: true,
     skipDuplicateMapOutputs: true) ~> CSVSink
 ```
+
+## <a name="related-connectors-and-formats"></a>관련 된 커넥터 및 형식
+
+다음은 분리 된 텍스트 형식과 관련 된 몇 가지 일반적인 커넥터 및 형식입니다.
+
+- Azure Blob Storage (connector-azure-blob-storage.md)
+- 이진 형식 (format-binary.md)
+- Dataverse (커넥터-dynamics-365.md)
+- 델타 형식 (delta.md)
+- Excel 형식 (excel.md)
+- 파일 시스템 (system.md)
+- FTP (커넥터-ftp.md)
+- HTTP (커넥터-http.md)
+- JSON 형식 (json.md)
+- Parquet format (parquet.md)
 
 ## <a name="next-steps"></a>다음 단계
 

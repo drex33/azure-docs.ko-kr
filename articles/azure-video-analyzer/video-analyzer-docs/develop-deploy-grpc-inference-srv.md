@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Video Analyzer와 함께 사용할 gRPC �
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: 5d0e09bc4d1f542de0e59a7dc6da37248d2e0674
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
-ms.translationtype: HT
+ms.openlocfilehash: 0456ff121df2c6a7149261ec162907b61aceb107
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114601442"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262226"
 ---
 # <a name="develop-and-deploy-grpc-inference-server"></a>gRPC 유추 서버 개발 및 배포
 
@@ -27,7 +27,7 @@ ms.locfileid: "114601442"
 
 * [지원되는 Linux 운영 체제](../../iot-edge/support.md#operating-systems) 또는 Windows 머신 중 하나를 실행하는 x86-64 또는 ARM64 디바이스
 * 머신에 [Docker를 설치](https://docs.docker.com/desktop/#download-and-install)합니다.
-* [IoT Edge 런타임](../../iot-edge/how-to-install-iot-edge.md?tabs=linux)을 설치합니다.
+* [IoT Edge 런타임](../../iot-edge/how-to-provision-single-device-linux-symmetric.md)을 설치합니다.
 
 ## <a name="grpc-implementation-steps"></a>gRPC 구현 단계
 

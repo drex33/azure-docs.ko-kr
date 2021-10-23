@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: apseth, divswa, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: 8c00d2e4f622bcfad7b2468013336f0d936e318c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: e0df7b263ef5d62b064a5afe537cffc926230b0a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87048663"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238703"
 ---
 # <a name="send-related-messages-in-order-by-using-a-sequential-convoy-in-azure-logic-apps-with-azure-service-bus"></a>Azure Service Bus가 포함된 Azure Logic Apps에서 순차 호위(convoy)를 사용하여 순서대로 관련 메시지 보내기
 
@@ -283,7 +283,7 @@ ms.locfileid: "87048663"
 
 * `isDone` 변수가 `true`로 설정되었는지 확인합니다.
 
-  * `isDone`이 `true`로 설정되지 않으면 워크플로가 계속 메시지를 처리하므로 워크플로가 큐의 세션에서 잠금을 갱신하고 루프 조건을 다시 확인합니다.
+  * 가 로 설정된 경우 `isDone` `true` 워크플로는 여전히 메시지를 처리하므로 워크플로는 큐의 세션에 대한 잠금을 갱신하고 루프 조건을 다시 확인합니다.
 
     Service Bus 작업, [**큐의 세션에서 잠금 갱신**](#renew-lock-on-session)에서는 Service Bus 큐의 이름을 입력해야 합니다.
 

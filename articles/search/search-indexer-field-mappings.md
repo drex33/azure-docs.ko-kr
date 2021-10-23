@@ -7,44 +7,49 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/10/2021
-ms.openlocfilehash: e1af69db6f70d5a6a977c6e3fa715e84cbc2673b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 10/19/2021
+ms.openlocfilehash: 9fdff284d3b183ef9a0589d9dee4c568249b854b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528650"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238007"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Azure Cognitive Search 인덱서를 사용한 필드 매핑 및 변환
 
 ![인덱서 단계](./media/search-indexer-field-mappings/indexer-stages-field-mappings.png "인덱서 단계")
 
-Azure Cognitive Search 인덱서를 사용할 때 입력 데이터가 대상 인덱스의 스키마와 완전히 일치하지 않을 수 있습니다. 이러한 경우 인덱싱 프로세스 중에 **필드 매핑** 을 사용하여 데이터의 모양을 변경할 수 있습니다.
+Azure Cognitive Search 인덱서 사용 시 인덱서가 데이터 원본의 필드를 대상 인덱스 필드로 자동으로 매핑하며 필드 이름과 형식이 호환된다고 가정합니다. 경우에 따라 입력 데이터가 대상 인덱스의 스키마와 일치하지 않습니다. 한 가지 해결 방법은 *필드 매핑을* 사용하여 인덱싱 프로세스 중에 데이터 경로를 구체적으로 설정하는 것입니다.
 
-필드 매핑이 유용한 일부 상황:
+필드 매핑을 사용하여 다음 시나리오를 해결할 수 있습니다.
 
-* 데이터 원본에 `_id`라는 필드가 있지만 Azure Cognitive Search는 밑줄로 시작하는 필드 이름을 허용하지 않습니다. 필드 매핑을 사용하면 필드 이름을 효과적으로 바꿀 수 있습니다.
-* 동일한 데이터 원본 데이터를 사용하여 인덱스에서 여러 필드를 채우려고 합니다. 예를 들어 이러한 필드에 다른 분석기를 적용해야 합니다.
-* 두 개 이상의 데이터 원본에 있는 데이터를 사용하여 인덱스 필드를 채우려고 합니다. 데이터 원본은 각각 다른 필드 이름을 사용합니다.
-* 데이터를 Base64 인코딩 또는 디코딩해야 합니다. 필드 매핑은 Base64 인코딩 및 디코딩에 대한 함수를 포함한 여러 **매핑 함수** 를 지원합니다.
++ 필드 이름이 일치하지 않습니다. 데이터 원본에 라는 필드가 있다고 `_id` 가정합니다. Azure Cognitive Search 밑으로 시작하는 필드 이름을 허용하지 않는 경우 필드 매핑을 사용하면 필드 이름을 효과적으로 바꿀 수 있습니다.
+
++ 하나의 필드에서 여러 필드로. 동일한 데이터 원본 데이터에서 인덱스에서 여러 필드를 채울 수 있습니다. 예를 들어 각 필드에 서로 다른 분석기를 적용할 수 있습니다.
+
++ 여러 필드를 하나의 필드로 합니다. 두 개 이상의 데이터 원본에 있는 데이터를 사용하여 인덱스 필드를 채우려고 합니다. 데이터 원본은 각각 다른 필드 이름을 사용합니다.
+
++ 데이터의 Base64 인코딩 또는 디코딩 필드 매핑은 Base64 인코딩 및 디코딩을 위한 함수를 포함하여 여러 [**매핑 함수를**](#mappingFunctions)지원합니다.
+
++ 문자열을 분할하거나 JSON 배열을 문자열 컬렉션으로 다시 캐스팅합니다. 필드 매핑 함수는 이 기능을 제공합니다.
 
 인덱서의 필드 매핑은 경량 데이터 변환 기능을 사용하여 데이터 필드를 인덱스 필드에 매핑하는 간단한 방법입니다. 더 복잡한 데이터는 인덱싱이 용이한 형식으로 변형하기 위해 전처리가 필요할 수 있습니다. 고려할 수 있는 한 가지 옵션은 [Azure Data Factory](../data-factory/index.yml)입니다.
 
 > [!NOTE]
-> 필드 매핑은 검색 인덱스에만 적용됩니다. [정보 저장소](knowledge-store-concept-intro.md)를 생성하는 인덱서의 경우, 필드 매핑이 무시됩니다.
+> 필드 매핑은 검색 인덱스에만 적용됩니다. 지식 [저장소를](knowledge-store-concept-intro.md)만드는 인덱서의 경우 데이터 셰이프 및 프로젝션에 따라 필드 연결이 결정되고 인덱서의 모든 필드 매핑 및 출력 필드 매핑이 무시됩니다.
 
 ## <a name="set-up-field-mappings"></a>필드 매핑 설정
 
 필드 매핑은 다음 세 부분으로 구성됩니다.
 
-1. `sourceFieldName`은(는) 데이터 원본의 필드를 나타냅니다. 이 속성은 필수입니다.
-2. 선택 사항 `targetFieldName`은(는) 검색 인덱스의 필드를 나타냅니다. 생략된 경우 데이터 원본과 동일한 이름이 사용됩니다.
-3. 선택 사항 `mappingFunction`은(는) 미리 정의된 여러 함수 중 하나를 사용하여 데이터를 변환할 수 있습니다. 이는 입력 및 출력 필드 매핑 모두에 적용될 수 있습니다. 함수의 전체 목록은 [아래](#mappingFunctions)입니다.
++ 데이터 원본의 필드를 나타내는 "sourceFieldName"입니다. 이 속성은 필수입니다.
++ 검색 인덱스의 필드를 나타내는 선택적 "targetFieldName"입니다. 생략하면 대상에 "sourceFieldName" 값이 사용됩니다.
++ 몇 가지 [미리 정의된 함수](#mappingFunctions)중 하나를 사용하여 데이터를 변환할 수 있는 선택적 "mappingFunction"입니다. 이는 입력 및 출력 필드 매핑 모두에 적용될 수 있습니다.
 
-필드 매핑은 인덱서 정의의 `fieldMappings` 배열에 추가됩니다.
+필드 매핑은 인덱서 정의의 "fieldMappings" 배열에 추가됩니다.
 
 > [!NOTE]
-> 필드 매핑이 추가되지 않은 경우 인덱서는 데이터 원본 필드가 동일한 이름의 인덱스 필드에 매핑되어야 한다고 가정합니다. 필드 매핑을 추가하면 원본 및 대상 필드에 대한 기본 필드 매핑이 제거됩니다. [Blob Storage 인덱서](search-howto-indexing-azure-blob-storage.md) 같은 일부 인덱서는 인덱스 키 필드에 대한 기본 필드 매핑을 추가합니다.
+> 필드 매핑이 없는 경우 인덱서는 데이터 원본 필드를 동일한 이름의 인덱스 필드에 매핑해야 한다고 가정합니다. 필드 매핑을 추가하면 원본 및 대상 필드에 대한 이러한 기본 필드 매핑이 재정의됩니다. [Blob Storage 인덱서](search-howto-indexing-azure-blob-storage.md) 같은 일부 인덱서는 인덱스 키 필드에 대한 기본 필드 매핑을 추가합니다.
 
 ## <a name="map-fields-using-rest"></a>REST를 사용하여 필드 매핑
 
@@ -79,28 +84,26 @@ api-key: [admin key]
 
 ## <a name="map-fields-using-net"></a>.NET을 사용하여 필드 매핑
 
-.NET SDK에서 [FieldMapping](/dotnet/api/azure.search.documents.indexes.models.fieldmapping) 클래스를 사용하여 필드 매핑을 정의합니다. 이 클래스는 `SourceFieldName` 및 `TargetFieldName` 속성과 선택적 `MappingFunction` 참조를 포함합니다.
+"SourceFieldName" 및 "TargetFieldName" 속성과 선택적 "MappingFunction" 참조가 있는 [FieldMapping](/dotnet/api/azure.search.documents.indexes.models.fieldmapping) 클래스를 사용하여 .NET SDK에서 필드 매핑을 정의할 수 있습니다.
 
-인덱서를 생성할 때 또는 나중에 `Indexer.FieldMappings` 속성을 직접 설정하여 필드 매핑을 지정할 수 있습니다.
+인덱서 생성 시 또는 나중에 [SearchIndexer.FieldMappings](/dotnet/api/azure.search.documents.indexes.models.searchindexer.fieldmappings)를 직접 설정하여 필드 매핑을 지정할 수 있습니다.
 
 다음 C# 예제에서는 인덱서를 생성할 때 필드 매핑을 설정합니다.
 
 ```csharp
-  List<FieldMapping> map = new List<FieldMapping> {
-    // removes a leading underscore from a field name
-    new FieldMapping("_custId", "custId"),
-    // URL-encodes a field for use as the index key
-    new FieldMapping("docPath", "docId", FieldMappingFunction.Base64Encode() )
-  };
+var indexer = new SearchIndexer("hotels-sql-idxr", dataSource.Name, searchIndex.Name)
+{
+    Description = "SQL data indexer",
+    Schedule = schedule,
+    Parameters = parameters,
+    FieldMappings =
+    {
+        new FieldMapping("_id") {TargetFieldName = "HotelId", FieldMappingFunction.Base64Encode()},
+        new FieldMapping("Amenities") {TargetFieldName = "Tags"}
+    }
+};
 
-  Indexer sqlIndexer = new Indexer(
-    name: "azure-sql-indexer",
-    dataSourceName: sqlDataSource.Name,
-    targetIndexName: index.Name,
-    fieldMappings: map,
-    schedule: new IndexingSchedule(TimeSpan.FromDays(1)));
-
-  await searchService.Indexers.CreateOrUpdateAsync(indexer);
+await indexerClient.CreateOrUpdateIndexerAsync(indexer);
 ```
 
 <a name="mappingFunctions"></a>
@@ -109,12 +112,12 @@ api-key: [admin key]
 
 필드 매핑 함수는 인덱스에 저장되기 전에 필드의 내용을 변환합니다. 현재 지원되는 매핑 함수는 다음과 같습니다.
 
-* [base64Encode](#base64EncodeFunction)
-* [base64Decode](#base64DecodeFunction)
-* [extractTokenAtPosition](#extractTokenAtPositionFunction)
-* [jsonArrayToStringCollection](#jsonArrayToStringCollectionFunction)
-* [urlEncode](#urlEncodeFunction)
-* [urlDecode](#urlDecodeFunction)
++ [base64Encode](#base64EncodeFunction)
++ [base64Decode](#base64DecodeFunction)
++ [extractTokenAtPosition](#extractTokenAtPositionFunction)
++ [jsonArrayToStringCollection](#jsonArrayToStringCollectionFunction)
++ [urlEncode](#urlEncodeFunction)
++ [urlDecode](#urlDecodeFunction)
 
 <a name="base64EncodeFunction"></a>
 
@@ -124,12 +127,11 @@ api-key: [admin key]
 
 #### <a name="example---document-key-lookup"></a>예제 - 문서 키 조회
 
-고객은 [조회 API](/rest/api/searchservice/lookup-document)를 사용하여 문서를 처리할 수 있어야 하기 때문에 URL이 안전히 지원되는 문자만 Azure Cognitive Search 문서 키에 나타날 수 있습니다. 키의 원본 필드에 URL이 안전히 지원되지 않는 문자가 포함된 경우 `base64Encode` 함수를 사용하여 인덱싱할 때 변환할 수 있습니다. 그러나 문서 키는 1,024자를 초과할 수 없습니다(변환 전후 모두).
+URL이 안전한 문자만 Azure Cognitive Search 문서 키에 표시할 수 [있습니다(조회 API를](/rest/api/searchservice/lookup-document)사용하여 문서의 주소를 지정할 수 있도록). 키의 원본 필드에 URL이 안전히 지원되지 않는 문자가 포함된 경우 `base64Encode` 함수를 사용하여 인덱싱할 때 변환할 수 있습니다. 그러나 문서 키는 1,024자를 초과할 수 없습니다(변환 전후 모두).
 
-검색 시 인코딩된 키를 검색하는 경우 `base64Decode` 함수를 사용하여 원래 키 값을 가져온 다음 이를 사용하여 원본 문서를 검색할 수 있습니다.
+검색 시 인코딩된 키를 검색하는 경우 함수를 사용하여 `base64Decode` 원래 키 값을 가져와서 원본 문서를 검색하는 데 사용합니다.
 
 ```JSON
-
 "fieldMappings" : [
   {
     "sourceFieldName" : "SourceKey",
@@ -146,7 +148,6 @@ api-key: [admin key]
 [Blob Storage 인덱서](search-howto-indexing-azure-blob-storage.md)는 필드 매핑이 지정되지 않은 경우 Blob의 URI `metadata_storage_path`에 있는 필드 매핑을 인덱스 키 필드에 자동으로 추가합니다. 이 값은 Base64로 인코딩되므로 Azure Cognitive Search 문서 키로 사용해도 안전합니다. 다음 예제에서는 'URL이 안전히 지원되는' Base64 인코딩된 버전의 `metadata_storage_path`를 `index_key` 필드에 동시에 매핑하고 원래 값을 `metadata_storage_path` 필드에 유지하는 방법을 보여 줍니다.
 
 ```JSON
-
 "fieldMappings": [
   {
     "sourceFieldName": "metadata_storage_path",
@@ -177,7 +178,6 @@ Azure Cognitive Search는 두 가지의 Base64 인코딩을 지원합니다. 동
 원본 데이터에는 일반 텍스트로 검색하려는 Blob 메타데이터 문자열 또는 웹 URL과 같은 Base64 인코딩 문자열이 포함될 수 있습니다. `base64Decode` 함수를 사용하여 검색 인덱스를 채울 때 인코딩된 데이터를 일반 문자열로 다시 전환할 수 있습니다.
 
 ```JSON
-
 "fieldMappings" : [
   {
     "sourceFieldName" : "Base64EncodedMetadata",
@@ -202,7 +202,7 @@ Azure Cognitive Search는 URL이 안전히 지원되는 base64 인코딩 및 일
 인코딩 및 디코딩을 위한 `useHttpServerUtilityUrlTokenEncode` 또는 `useHttpServerUtilityUrlTokenDecode` 매개 변수가 각각 `true`로 설정되면 `base64Encode`는 [HttpServerUtility.UrlTokenEncode](/dotnet/api/system.web.httpserverutility.urltokenencode)처럼 작동하고, `base64Decode`는 [HttpServerUtility.UrlTokenDecode](/dotnet/api/system.web.httpserverutility.urltokendecode)처럼 작동합니다.
 
 > [!WARNING]
-> 키 값을 생성하는 데 `base64Encode`를 사용하는 경우에는 `useHttpServerUtilityUrlTokenEncode`를 true로 설정해야 합니다. 키 값에는 URL이 안전히 지원되는 base64 인코딩만 사용할 수 있습니다. 키 값의 문자에 대한 전체 제한 사항은 [명명 규칙&#40;Azure Cognitive Search&#41;](/rest/api/searchservice/naming-rules)을 참조하세요.
+> 키 값을 생성하는 데 `base64Encode`를 사용하는 경우에는 `useHttpServerUtilityUrlTokenEncode`를 true로 설정해야 합니다. 키 값에는 URL이 안전히 지원되는 base64 인코딩만 사용할 수 있습니다. 키 값의 문자에 대한 전체 제한 사항은 [명명 규칙을](/rest/api/searchservice/naming-rules) 참조하세요.
 
 Azure Cognitive Search의 .NET 라이브러리는 기본 제공 인코딩을 제공하는 전체 .NET Framework를 가정합니다. `useHttpServerUtilityUrlTokenEncode` 및 `useHttpServerUtilityUrlTokenDecode` 옵션은 이 기본 제공 기능을 활용합니다. .NET Core 또는 다른 프레임워크를 사용하는 경우 해당 옵션을 `false`로 설정하고 프레임워크의 인코딩 및 디코딩 함수를 직접 호출하는 것이 좋습니다.
 
@@ -223,8 +223,8 @@ Azure Cognitive Search의 .NET 라이브러리는 기본 제공 인코딩을 제
 
 이 함수는 다음 매개 변수를 사용합니다.
 
-* `delimiter`: 입력 문자열을 분할할 때 구분 기호로 사용할 문자열입니다.
-* `position`: 입력 문자열을 분할한 후 선택할 정수 0부터 시작하는 토큰의 위치입니다.
++ `delimiter`: 입력 문자열을 분할할 때 구분 기호로 사용할 문자열입니다.
++ `position`: 입력 문자열을 분할한 후 선택할 정수 0부터 시작하는 토큰의 위치입니다.
 
 예를 들어 입력은 `Jane Doe`, `delimiter`는 `" "`(공백), `position`은 0인 경우 결과는 `Jane`입니다. `position`이 1이면 결과는 `Doe`입니다. 위치가 없는 토큰을 참조하는 경우 오류가 반환됩니다.
 
@@ -233,7 +233,6 @@ Azure Cognitive Search의 .NET 라이브러리는 기본 제공 인코딩을 제
 데이터 원본이 `PersonName` 필드를 포함하고 두 개의 개별 `FirstName` 및 `LastName` 필드로 인덱싱하려고 합니다. 구분 기호로 공백 문자를 사용하여 입력을 분할하는 데 이 함수를 사용할 수 있습니다.
 
 ```JSON
-
 "fieldMappings" : [
   {
     "sourceFieldName" : "PersonName",
@@ -260,7 +259,6 @@ JSON 문자열 배열 형식으로 생성된 문자열을 인덱스의 `Collecti
 Azure SQL Database는 Azure Cognitive Search의 `Collection(Edm.String)` 필드에 자연스럽게 매핑하는 기본 제공 데이터 형식이 없습니다. 문자열 컬렉션 필드를 채우려면 원본 데이터를 JSON 문자열 배열로 전처리한 다음 `jsonArrayToStringCollection` 매핑 함수를 사용할 수 있습니다.
 
 ```JSON
-
 "fieldMappings" : [
   {
     "sourceFieldName" : "tags", 
@@ -283,7 +281,6 @@ URL이 안전히 지원되지 않는 문자만 변환하고 다른 문자는 그
 검색 시 인코딩된 키를 검색하는 경우 `urlDecode` 함수를 사용하여 원래 키 값을 가져온 다음 이를 사용하여 원본 문서를 검색할 수 있습니다.
 
 ```JSON
-
 "fieldMappings" : [
   {
     "sourceFieldName" : "SourceKey",
@@ -296,16 +293,15 @@ URL이 안전히 지원되지 않는 문자만 변환하고 다른 문자는 그
 
  <a name="urlDecodeFunction"></a>
 
- ### <a name="urldecode-function"></a>urlDecode 함수
+### <a name="urldecode-function"></a>urlDecode 함수
 
  이 함수는 UTF-8 인코딩 형식을 사용하여 URL 인코딩된 문자열을 디코딩된 문자열로 변환합니다.
 
- ### <a name="example---decode-blob-metadata"></a>예제 - Blob 메타데이터 디코딩
+### <a name="example---decode-blob-metadata"></a>예제 - Blob 메타데이터 디코딩
 
  일부 Azure Storage 클라이언트는 ASCII가 아닌 문자를 포함하는 경우 Blob 메타데이터를 자동으로 인코딩합니다. 그러나 이러한 메타데이터를 일반 텍스트로 검색할 수 있게 하려면 검색 인덱스를 채울 때 `urlDecode` 함수를 사용하여 인코딩된 데이터를 일반 문자열로 다시 변환할 수 있습니다.
 
  ```JSON
-
 "fieldMappings" : [
   {
     "sourceFieldName" : "UrlEncodedMetadata",
@@ -318,11 +314,11 @@ URL이 안전히 지원되지 않는 문자만 변환하고 다른 문자는 그
  
  <a name="fixedLengthEncodeFunction"></a>
  
- ### <a name="fixedlengthencode-function"></a>fixedLengthEncode 함수
+### <a name="fixedlengthencode-function"></a>fixedLengthEncode 함수
  
  이 함수는 임의의 길이의 문자열을 고정 길이 문자열로 변환합니다.
  
- ### <a name="example---map-document-keys-that-are-too-long"></a>예제 - 너무 긴 문서 키 매핑
+### <a name="example---map-document-keys-that-are-too-long"></a>예제 - 너무 긴 문서 키 매핑
  
 문서 키가 1,024자 보다 길어 오류가 발생하는 경우 이 함수를 적용하여 문서 키의 길이를 줄일 수 있습니다.
 

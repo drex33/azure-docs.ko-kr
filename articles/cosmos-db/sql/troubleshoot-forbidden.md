@@ -8,12 +8,12 @@ ms.date: 10/06/2021
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: dcef0eccc6ca314c51b436025fb10c25dbbe04fa
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 9a5f1590e73388429f613a1c6b078f5c315397d6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129658237"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238947"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-forbidden-exceptions"></a>Azure Cosmos DB 사용할 수 없음 예외 진단 및 문제 해결
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -21,19 +21,32 @@ ms.locfileid: "129658237"
 HTTP 상태 코드 403은 요청을 완료할 수 없음을 나타냅니다.
 
 ## <a name="firewall-blocking-requests"></a>방화벽 차단 요청
-이 시나리오에서는 아래와 같은 오류가 발생하는 것이 일반적입니다.
 
-```
-Request originated from client IP {...} through public internet. This is blocked by your Cosmos DB account firewall settings.
-```
+데이터 평면 요청은 다음 3개의 경로를 통해 Cosmos DB에 올 수 있습니다.
 
-```
-Request is blocked. Please check your authorization token and Cosmos DB account firewall settings
-```
+- 공용 인터넷(IPv4)
+- 서비스 엔드포인트
+- 프라이빗 엔드포인트
+
+403 사용할 수 없음으로 데이터 평면 요청이 차단되면 위의 3개 경로 중 요청이 Cosmos DB에 전달된 경로를 통해 오류 메시지가 지정됩니다.
+
+- `Request originated from client IP {...} through public internet.`
+- `Request originated from client VNET through service endpoint.`
+- `Request originated from client VNET through private endpoint.`
 
 ### <a name="solution"></a>솔루션
-현재 [방화벽 설정](../how-to-configure-firewall.md)이 올바른지 확인하고 연결하려는 IP 또는 네트워크를 포함합니다.
-최근에 업데이트한 경우 변경 내용을 **적용하는 데 최대 15분** 이 걸릴 수 있다는 점에 유의하세요.
+
+Cosmos DB에 올 **것으로 예상되는** 경로를 이해합니다.
+   - 예상 경로를 통해 요청이 Cosmos DB에 들어오지 않았다는 오류 메시지가 표시되면 클라이언트 쪽 설정에서 문제가 발생할 수 있습니다. 다음 설명서에 따라 클라이언트 쪽 설정을 다시 확인하세요.
+      - 공용 인터넷: [Azure Cosmos DB에서 IP 방화벽을 구성합니다.](../how-to-configure-firewall.md)
+      - 서비스 엔드포인트: [VNet(가상 네트워크)에서 Azure Cosmos DB에 대한 액세스를 구성합니다.](../how-to-configure-vnet-service-endpoint.md) 예를 들어 서비스 엔드포인트를 사용할 것으로 예상하지만 공용 인터넷을 통해 요청이 DB에 Cosmos 경우 클라이언트가 실행 중인 서브넷이 서비스 엔드포인트를 Cosmos DB를 사용하도록 설정하지 않았을 수 있습니다.
+      - 프라이빗 엔드포인트: [Azure Cosmos 계정에 대한 Azure Private Link 구성합니다.](../how-to-configure-private-endpoints.md) 예를 들어 프라이빗 엔드포인트를 사용할 것으로 예상하지만 공용 인터넷을 통해 요청이 DB에 Cosmos 경우 VM의 DNS가 계정 엔드포인트를 개인 IP로 확인하도록 구성되지 않아 계정의 공용 IP를 대신 통과했을 수 있습니다.
+   - 요청이 예상 경로를 통해 DB에 Cosmos 경우 원본 네트워크 ID가 계정에 대해 허용되도록 구성되지 않았기 때문에 요청이 차단되었습니다. 요청이 Cosmos DB에 온 경로에 따라 계정 설정을 확인합니다.
+      - 공용 인터넷: 계정의 [공용 네트워크 액세스](../how-to-configure-private-endpoints.md#blocking-public-network-access-during-account-creation) 및 IP 범위 필터 구성을 확인합니다.
+      - 서비스 엔드포인트: 계정의 [공용 네트워크 액세스](../how-to-configure-private-endpoints.md#blocking-public-network-access-during-account-creation) 및 VNET 필터 구성을 확인합니다.
+      - 프라이빗 엔드포인트: 계정의 프라이빗 엔드포인트 구성 및 클라이언트의 프라이빗 DNS 구성을 확인합니다. 이는 다른 계정에 대해 설정된 프라이빗 엔드포인트에서 계정에 액세스하기 때문일 수 있습니다.
+
+최근에 계정의 방화벽 구성을 업데이트한 경우 변경 내용을 **적용하는 데 최대 15분이** 걸릴 수 있습니다.
 
 ## <a name="partition-key-exceeding-storage"></a>스토리지를 초과하는 파티션 키
 이 시나리오에서는 아래와 같은 오류가 발생하는 것이 일반적입니다.

@@ -7,12 +7,12 @@ author: gitralf
 ms.author: ralfwi
 ms.service: germany
 ms.custom: bfmigrate, devx-track-azurepowershell
-ms.openlocfilehash: 6fe6d653712e034c13f3b755e906de491b4dd49a
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: 0843adb3060ca4ce8769b79eef3f05e043d4dc5d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "122528071"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130259602"
 ---
 # <a name="migrate-database-resources-to-global-azure"></a>데이터베이스 리소스를 글로벌 Azure로 마이그레이션
 
@@ -143,7 +143,7 @@ Azure 독일에서 글로벌 Azure로 Azure SQL 데이터베이스를 마이그�
 
 1. 백업 복사를 시작하기 전에 글로벌 Azure에서 LTR 백업을 복사하는 대상 데이터베이스가 있어야 합니다. 먼저 [활성 지역 복제](#migrate-sql-database-using-active-geo-replication)를 사용하여 원본 데이터베이스를 마이그레이션한 다음, LTR 백업 복사를 시작하는 것이 좋습니다. 이렇게 하면 데이터베이스 백업이 올바른 대상 데이터베이스에 복사됩니다. 삭제된 데이터베이스의 LTR 백업을 통해 복사하는 경우에는 이 단계가 필요하지 않습니다. 삭제된 데이터베이스의 LTR 백업을 복사할 때 대상 지역에 더미 DatabaseID가 만들어집니다. 
 2. 이 [PowerShell Az 모듈](https://www.powershellgallery.com/packages/Az.Sql/3.0.0-preview)을 설치합니다.
-3. 시작하기 전에 필요한 [Azure RBAC 역할](../azure-sql/database/long-term-backup-retention-configure.md#azure-roles-to-manage-long-term-retention)이 **구독** 또는 **리소스 그룹** 범위에서 부여되었는지 확인합니다. 참고: 삭제된 서버에 속한 LTR 백업에 액세스하려면 해당 서버의 구독 범위에서 권한이 부여되어야 합니다. . 
+3. 시작하기 전에 필요한 [Azure RBAC 역할](../azure-sql/database/long-term-backup-retention-configure.md#prerequisites)이 **구독** 또는 **리소스 그룹** 범위에서 부여되었는지 확인합니다. 참고: 삭제된 서버에 속한 LTR 백업에 액세스하려면 해당 서버의 구독 범위에서 권한이 부여되어야 합니다. . 
 
 
 ### <a name="limitations"></a>제한 사항  

@@ -5,15 +5,15 @@ author: linda33wj
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 05/02/2018
+ms.date: 10/22/2021
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b6c267c3234e0861a394c75cf47bd198b1209b58
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 94cb4f6a3429084fe555f1d2a54ab80f7c230a36
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128589989"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130260002"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 FTP 서버에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -58,7 +58,7 @@ FTP 서버로 동일한 온-프레미스 컴퓨터 또는 IaaS VM에 게이트�
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 테이블은 FTP 연결 서비스에만 해당하는 JSON 요소에 대해 설명합니다.
 
-| 속성 | Description | 필수 | 기본값 |
+| 속성 | 설명 | 필수 | 기본값 |
 | --- | --- | --- | --- |
 | type |FtpServer로 설정합니다. |예 |&nbsp; |
 | host |FTP 서버의 이름 또는 IP 주소를 지정합니다. |예 |&nbsp; |
@@ -148,7 +148,7 @@ FTP 서버로 동일한 온-프레미스 컴퓨터 또는 IaaS VM에 게이트�
 
 **typeProperties** 섹션은 데이터 세트의 각 형식마다 다릅니다. 데이터 세트 형식에 대한 정보를 제공합니다. **FileShare** 형식의 데이터 세트에 대한 **typeProperties** 섹션에는 다음과 같은 속성이 있습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | folderPath |폴더의 하위 경로입니다. 문자열의 특수 문자에 이스케이프 문자 ‘\’를 사용합니다. 예제를 살펴보려면 연결된 서비스 및 데이터 세트 정의 샘플을 참조하세요.<br/><br/>이 속성을 **partitionBy** 와 결합하여 조각 시작 및 종료 날짜-시간을 기준으로 폴더 경로를 지정할 수 있습니다. |예 |
 | fileName |테이블이 폴더의 특정 파일을 참조하도록 하려는 경우 **folderPath** 에 파일 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 세트에 대한 **fileName** 이 지정되지 않은 경우 생성되는 파일의 이름 형식은 다음과 같습니다. <br/><br/>`Data.<Guid>.txt`(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |예 |

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: d56760b85bfca74cb18481ebf08ece2e4255d389
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: e75fb11379ccbdff90d1acd1a3bce36b62bd8a1d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130178014"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130250866"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Azure App Configuration 모범 사례
 
@@ -31,7 +31,7 @@ App Configuration은 다음과 같이 키를 구성하는 두 가지 옵션을 �
 
 두 옵션 중 하나 또는 두 옵션 모두를 사용하여 키를 그룹화할 수 있습니다.
 
-*키 접두사* 는 키의 시작 부분입니다. 키의 이름에 동일한 키 접두사를 사용하여 키 집합을 논리적으로 그룹화할 수 있습니다. 키 접두사는 네임스페이스를 구성하기 위해 `/`과 같이 URL 경로와 유사한 구분 기호로 연결된 여러 구성 요소를 포함할 수 있습니다. 이러한 계층은 하나의 앱 구성 저장소에 많은 응용 프로그램 및 마이크로 서비스에 대 한 키를 저장 하는 경우에 유용 합니다.
+*키 접두사* 는 키의 시작 부분입니다. 키의 이름에 동일한 키 접두사를 사용하여 키 집합을 논리적으로 그룹화할 수 있습니다. 키 접두사는 네임스페이스를 구성하기 위해 `/`과 같이 URL 경로와 유사한 구분 기호로 연결된 여러 구성 요소를 포함할 수 있습니다. 이러한 계층 구조는 여러 애플리케이션 및 마이크로 서비스용 키를 하나의 App Configuration 저장소에 저장할 때 유용합니다.
 
 명심해야 할 점은 키가 애플리케이션 코드에서 해당 설정의 값을 검색하기 위해 참조하는 것이라는 것입니다. 키를 변경해서는 안 되고, 변경 시에는 코드를 수정해야 합니다.
 
@@ -57,13 +57,13 @@ configBuilder.AddAzureAppConfiguration(options => {
 
 [다른 환경에 대해 각기 다른 구성을 설정하도록 레이블 사용](./howto-labels-aspnet-core.md)은 전체 예제를 제공합니다.
 
-## <a name="references-to-external-data"></a>외부 데이터에 대 한 참조
+## <a name="references-to-external-data"></a>외부 데이터에 대한 참조
 
-앱 구성은 일반적으로 구성 파일 또는 환경 변수에 저장 하는 모든 구성 데이터를 저장 하도록 설계 되었습니다. 그러나 일부 형식의 데이터는 다른 원본에 있는 것이 더 적합할 수 있습니다. 예를 들어 Key Vault, Azure Storage 파일, Azure AD 그룹의 멤버 자격 정보 또는 데이터베이스의 고객 목록에 암호를 저장 합니다.
+App Configuration 일반적으로 구성 파일 또는 환경 변수에 저장하는 모든 구성 데이터를 저장하도록 설계되었습니다. 그러나 일부 데이터 형식은 다른 원본에 상주하는 것이 더 적합할 수 있습니다. 예를 들어 Key Vault, Azure Storage 파일, Azure AD 그룹의 멤버 자격 정보 또는 데이터베이스의 고객 목록에 비밀을 저장합니다.
 
-키-값에 외부 데이터에 대 한 참조를 저장 하 여 앱 구성을 계속 활용할 수 있습니다. 응용 프로그램이 참조를 읽을 때 참조 된 소스에서 데이터를 로드 합니다. 외부 데이터의 위치를 변경 하는 경우 전체 응용 프로그램을 업데이트 하 고 다시 배포 하는 대신 앱 구성에서 참조를 업데이트 하기만 하면 됩니다.
+외부 데이터에 대한 참조를 키-값에 저장하여 App Configuration 활용할 수 있습니다. 콘텐츠 [형식을 사용하여](./concept-key-value.md#use-content-type) 각 데이터 원본을 구분할 수 있습니다. 애플리케이션이 참조를 읽을 때 참조된 원본에서 데이터를 로드합니다. 외부 데이터의 위치를 변경하는 경우 전체 애플리케이션을 업데이트하고 다시 배포하는 대신 App Configuration 참조만 업데이트하면 됩니다.
 
-이 경우 앱 구성 [Key Vault 참조](use-key-vault-references-dotnet-core.md) 기능이 예입니다. 이를 통해 기본 비밀 자체가 Key Vault에 유지 되는 동안 필요에 따라 응용 프로그램에 필요한 암호를 업데이트할 수 있습니다.
+이 경우 App Configuration [Key Vault 참조](use-key-vault-references-dotnet-core.md) 기능이 예제입니다. 기본 비밀 자체는 Key Vault 동안 필요에 따라 애플리케이션을 업데이트하는 데 필요한 비밀을 사용할 수 있습니다.
 
 ## <a name="app-configuration-bootstrap"></a>App Configuration 부트스트랩
 
@@ -73,7 +73,7 @@ App Configuration 저장소에 액세스하기 위해, Azure Portal에서 이용
 
 ## <a name="app-or-function-access-to-app-configuration"></a>App Configuration에 앱 또는 함수 액세스
 
-다음 방법 중 하나를 사용 하 여 Web Apps 또는 Azure Functions에 대 한 앱 구성에 대 한 액세스를 제공할 수 있습니다.
+다음 방법 중 원하는 방법을 사용하여 Web Apps 또는 Azure Functions 대한 App Configuration 대한 액세스를 제공할 수 있습니다.
 
 * Azure Portal을 통해 App Service의 애플리케이션 설정에서 App Configuration 저장소에 대한 연결 문자열을 입력합니다.
 * Key Vault에서 App Configuration 저장소에 연결 문자열을 저장하고 [App Service에서 이를 참조합니다](../app-service/app-service-key-vault-references.md).
@@ -88,11 +88,13 @@ App Configuration으로 보내는 과도한 요청은 대역폭 제한 또는 �
 
 * 개별 키를 관찰하는 대신 단일 *센티널 키* 만을 관찰합니다. 센티널 키가 변경되는 경우에만 모든 구성을 새로 고칩니다. [ASP.NET Core 앱에서 동적 구성 사용](enable-dynamic-configuration-aspnet-core.md)을 참조하세요.
 
-* 변경 사항을 지속적으로 폴링하는 대신 Azure Event Grid를 사용하여 구성 변경 시 알림을 받을 수 있습니다. 자세한 내용은 [Azure App Configuration 이벤트를 웹 엔드포인트로 라우팅](./howto-app-configuration-event.md)을 참조하세요.
+* 변경 사항을 지속적으로 폴링하는 대신 Azure Event Grid를 사용하여 구성 변경 시 알림을 받을 수 있습니다. 자세한 내용은 [App Configuration 데이터 변경 알림에 Event Grid 사용을 참조하세요.](./howto-app-configuration-event.md)
+
+* 여러 App Configuration 저장소에 요청을 분산합니다. 예를 들어 전역적으로 배포된 애플리케이션에 대해 각 지리적 지역의 다른 저장소를 사용합니다. 각 App Configuration 저장소에는 자체 요청 할당량이 있습니다. 이 설정은 확장성을 위한 모델을 제공하고 단일 실패 지점을 방지합니다.
 
 ## <a name="importing-configuration-data-into-app-configuration"></a>구성 데이터를 App Configuration으로 가져오기
 
-App Configuration에서는 Azure Portal 또는 CLI를 사용하여 현재 구성 파일에서 구성 설정을 대량으로 [가져올](./howto-import-export-data.md) 수 있는 옵션을 제공합니다. 동일한 옵션을 사용 하 여 앱 구성에서 키-값을 내보낼 수도 있습니다 (예: 관련 저장소). GitHub 또는 Azure DevOps에서 리포지토리를 사용 하 여 진행 중인 동기화를 설정 하려는 경우 앱 구성의 혜택을 받을 때 기존 원본 제어 사례를 계속 사용할 수 있도록 [GitHub 작업](./concept-github-action.md) 또는 [Azure 파이프라인 푸시 작업](./push-kv-devops-pipeline.md) 을 사용할 수 있습니다.
+App Configuration에서는 Azure Portal 또는 CLI를 사용하여 현재 구성 파일에서 구성 설정을 대량으로 [가져올](./howto-import-export-data.md) 수 있는 옵션을 제공합니다. 같은 옵션을 사용하여 App Configuration 키-값을 내보낼 수도 있습니다(예: 관련 저장소 간). GitHub 또는 Azure DevOps 리포지션과의 지속적인 동기화를 설정하려는 경우 [GitHub 작업](./concept-github-action.md) 또는 Azure Pipeline [Push Task를](./push-kv-devops-pipeline.md) 사용하여 App Configuration 이점을 얻는 동시에 기존 소스 제어 방법을 계속 사용할 수 있습니다.
 
 ## <a name="multi-region-deployment-in-app-configuration"></a>App Configuration에서 여러 하위 지역 배포
 

@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 08/21/2021
 ms.author: allensu
-ms.openlocfilehash: d2f54b8ea7161f297528ac6ea82fde548827033a
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
-ms.translationtype: HT
+ms.openlocfilehash: f3c93d590036c0e9f16caad6cbfc55f32053d4ba
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681190"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249555"
 ---
 # <a name="outbound-only-load-balancer-configuration"></a>아웃바운드 전용 부하 분산 장치 구성
 
@@ -26,7 +26,7 @@ ms.locfileid: "122681190"
 >
 > Azure Virtual Network NAT 및 NAT 게이트웨이를 사용하여 아웃바운드 전용 부하 분산 장치 구성을 배포하려면 [자습서: NAT 게이트웨이를 내부 부하 분산 장치와 통합 - Azure Portal](../virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal.md)을 참조하세요.
 >
-> Azure 및 기본 아웃바운드 액세스의 아웃바운드 연결에 대한 자세한 내용은 [아웃바운드 연결을 위한 SNAT(Source Network Address Translation)](load-balancer-outbound-connections.md) 및 [기본 아웃바운드 액세스](../virtual-network/default-outbound-access.md)를 참조하세요.
+> Azure 및 기본 아웃바운드 액세스의 아웃바운드 연결에 대한 자세한 내용은 [아웃바운드 연결을 위한 SNAT(Source Network Address Translation)](load-balancer-outbound-connections.md) 및 [기본 아웃바운드 액세스](../virtual-network/ip-services/default-outbound-access.md)를 참조하세요.
 
 :::image type="content" source="./media/egress-only/load-balancer-egress-only.png" alt-text="그림: 송신 전용 부하 분산 장치 구성" border="true":::
 
@@ -57,7 +57,7 @@ ms.locfileid: "122681190"
     | 리소스 그룹   | **새로 만들기** 를 선택합니다. </br> **이름** 에 **myResourceGroupLB** 를 입력합니다. </br> **확인** 을 선택합니다. |
     | **인스턴스 세부 정보** |                                                                 |
     | 속성             | **myVNet** 입력                                    |
-    | 지역           | **(미국) 미국 동부 2** 를 선택합니다. |
+    | 지역           | **(미국) 미국 동부 2** 선택 |
 
 4. **IP 주소** 탭을 선택하거나 페이지 하단의 **다음: IP 주소** 단추를 선택합니다.
 
@@ -102,7 +102,7 @@ ms.locfileid: "122681190"
 
 3. **부하 분산 장치 만들기** 페이지의 **기본 사항** 탭에서 다음 정보를 입력하거나 선택합니다. 
 
-    | Setting                 | 값                                              |
+    | 설정                 | 값                                              |
     | ---                     | ---                                                |
     | **프로젝트 세부 정보** |   |
     | Subscription               | 구독을 선택합니다.    |    
@@ -113,7 +113,7 @@ ms.locfileid: "122681190"
     | Type          | **내부** 를 선택합니다.                                        |
     | SKU           | 기본값인 **표준** 을 그대로 둡니다. |
 
-4. 페이지 아래쪽에서 **다음: 프런트 엔드 IP 구성** 을 선택합니다.
+4. 페이지 하단에서 **다음: 프런트 엔드 IP 구성** 을 선택합니다.
 
 5. **프런트 엔드 IP 구성** 에서 **+ 프런트 엔드 IP 추가** 를 선택합니다.
 
@@ -121,9 +121,9 @@ ms.locfileid: "122681190"
 
 7. **서브넷** 에서 **myBackendSubnet** 을 선택합니다.
 
-8. **할당** 에 **동적** 을 선택합니다.
+8. **할당** 에서 **동적** 을 선택합니다.
 
-9. **가용성 영역** 에 **영역 중복** 을 선택합니다.
+9. **가용성 영역** 에서 **영역 중복** 을 선택합니다.
 
     > [!NOTE]
     > [가용성 영역](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)이 있는 지역에서는 영역 없음(기본 옵션), 특정 영역 또는 영역 중복을 선택하는 옵션이 있습니다. 선택은 특정 도메인 오류 요구 사항에 따라 달라집니다. 가용성 영역이 없는 지역에서는 이 필드가 표시되지 않습니다. </br> 가용성 영역에 대한 자세한 내용은 [가용성 영역 개요](../availability-zones/az-overview.md)를 참조하세요.
@@ -138,11 +138,11 @@ ms.locfileid: "122681190"
 
 14. **백 엔드 풀 구성** 에 **NIC** 또는 **IP 주소** 를 선택합니다.
 
-15. **IP 버전** 을 **IPv4** 또는 **IPv6** 으로 선택합니다.
+15. **IP 버전** 에 대해 **IPv4** 또는 **IPv6** 를 선택합니다.
 
 16. **추가** 를 선택합니다.
 
-17. 페이지 아래쪽에서 파란색 **검토 + 만들기** 단추를 선택합니다.
+17. 페이지 하단에 있는 파란색 **검토 + 만들기** 단추를 선택합니다.
 
 18. **만들기** 를 선택합니다.
 
@@ -156,7 +156,7 @@ ms.locfileid: "122681190"
 
 3. **부하 분산 장치 만들기** 페이지의 **기본 사항** 탭에서 다음 정보를 입력하거나 선택합니다. 
 
-    | Setting                 | 값                                              |
+    | 설정                 | 값                                              |
     | ---                     | ---                                                |
     | **프로젝트 세부 정보** |   |
     | Subscription               | 구독을 선택합니다.    |    
@@ -168,27 +168,27 @@ ms.locfileid: "122681190"
     | SKU           | 기본값인 **표준** 을 그대로 둡니다. |
     | 계층          | 기본 **지역** 을 그대로 둡니다. |
 
-4. 페이지 아래쪽에서 **다음: 프런트 엔드 IP 구성** 을 선택합니다.
+4. 페이지 하단에서 **다음: 프런트 엔드 IP 구성** 을 선택합니다.
 
 5. **프런트 엔드 IP 구성** 에서 **+ 프런트 엔드 IP 추가** 를 선택합니다.
 
 6. **이름** 에 **LoadBalancerFrontend** 를 입력합니다.
 
-7. **IP 버전** 을 **IPv4** 또는 **IPv6** 으로 선택합니다.
+7. **IP 버전** 에 대해 **IPv4** 또는 **IPv6** 를 선택합니다.
 
     > [!NOTE]
-    > IPv6은 현재 라우팅 기본 설정 또는 지역 간 부하 분산(글로벌 계층)에서 지원되지 않습니다.
+    > IPv6는 현재 라우팅 기본 설정 또는 지역 간 부하 분산(글로벌 계층)에서 지원되지 않습니다.
 
-8. **IP 형식** 에 **IP 주소** 를 선택합니다.
+8. **IP 형식** 으로 **IP 주소** 를 선택합니다.
 
     > [!NOTE]
-    > IP 접두사에 대한 자세한 내용은 [Azure 공용 IP 주소 접두사](../virtual-network/public-ip-address-prefix.md)를 참조하세요.
+    > IP 접두사에 대한 자세한 내용은 [Azure 공용 IP 주소 접두사](../virtual-network/ip-services/public-ip-address-prefix.md)를 참조하세요.
 
-9. **공용 IP 주소** 에 **새로 만들기** 를 선택합니다.
+9. **공용 IP 주소** 에서 **새로 만들기** 를 선택합니다.
 
 10. **공용 IP 주소 추가** 에서 **이름** 에 **myPublicIP** 를 입력합니다.
 
-11. **가용성 영역** 에 **영역 중복** 을 선택합니다.
+11. **가용성 영역** 에서 **영역 중복** 을 선택합니다.
 
     > [!NOTE]
     > [가용성 영역](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)이 있는 지역에서는 영역 없음(기본 옵션), 특정 영역 또는 영역 중복을 선택하는 옵션이 있습니다. 선택은 특정 도메인 오류 요구 사항에 따라 달라집니다. 가용성 영역이 없는 지역에서는 이 필드가 표시되지 않습니다. </br> 가용성 영역에 대한 자세한 내용은 [가용성 영역 개요](../availability-zones/az-overview.md)를 참조하세요.
@@ -209,11 +209,11 @@ ms.locfileid: "122681190"
 
 19. **백 엔드 풀 구성** 에 **NIC** 또는 **IP 주소** 를 선택합니다.
 
-20. **IP 버전** 을 **IPv4** 또는 **IPv6** 으로 선택합니다.
+20. **IP 버전** 에 대해 **IPv4** 또는 **IPv6** 를 선택합니다.
 
 21. **추가** 를 선택합니다.
 
-22. 페이지 아래쪽에서 파란색 **검토 + 만들기** 단추를 선택합니다.
+22. 페이지 하단에 있는 파란색 **검토 + 만들기** 단추를 선택합니다.
 
 23. **만들기** 를 선택합니다.
 
@@ -250,7 +250,7 @@ ms.locfileid: "122681190"
   
 5. [네트워킹] 탭에서 다음을 선택하거나 입력합니다.
 
-    | Setting | 값 |
+    | 설정 | 값 |
     |-|-|
     | **네트워크 인터페이스** |  |
     | 가상 네트워크 | **myVNet** |
@@ -324,14 +324,14 @@ ms.locfileid: "122681190"
     | ------- | ----- |
     | 이름 | **myOutboundRule** 을 입력합니다. |
     | 프런트 엔드 IP 주소 | **LoadBalancerFrontEnd** 를 선택합니다.|
-    | 프로토콜 | **허용**(기본값)을 그대로 둡니다. |
+    | 프로토콜 | 기본값을 **모두** 로 유지합니다. |
     | 유휴 제한 시간(분) | 슬라이더를 **15분** 으로 이동합니다.|
     | TCP 재설정 | **사용** 을 선택합니다.|
     | 백 엔드 풀 | **myPublicBackendPool** 를 선택합니다.|
     | **포트 할당** |  |
-    | 포트 할당 | **아웃바운드 포트 수 수동 선택** 을 선택합니다. |
+    | 포트 할당 | **수동으로 아웃바운드 포트 수 선택** 을 선택합니다. |
     | **아웃바운드 포트** |  |
-    | 선택 기준 | **인스턴스당 포트 수** 를 선택합니다. |
+    | 선택 기준 | **인스턴스당 포트** 를 선택합니다. |
     | 인스턴스당 포트 수 | **10000** 을 입력합니다.
 
 6. **추가** 를 선택합니다.
@@ -369,4 +369,3 @@ ms.locfileid: "122681190"
 이 구성을 사용하면 퍼블릭 인바운드 연결을 계속 방지하면서도 들어오는 내부 트래픽을 백 엔드 풀로 부하 분산할 수 있습니다.
 
 Azure Load Balancer에 대한 자세한 내용은 [Azure Load Balancer란?](load-balancer-overview.md) 및 [Azure Bastion이란?](../bastion/bastion-overview.md)을 참조하세요.
-

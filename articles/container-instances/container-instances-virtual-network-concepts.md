@@ -3,12 +3,12 @@ title: 가상 네트워크를 사용하는 시나리오
 description: Azure 가상 네트워크에 컨테이너 그룹을 배포하는 시나리오, 리소스 및 제한 사항입니다.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 4d56ba43480182077acc114200ebc69569835bca
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 7f0e2719d6949037e2268f66bf1dce8904530992
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536462"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130247497"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>가상 네트워크 시나리오 및 리소스
 
@@ -47,7 +47,7 @@ Azure Virtual Network에 컨테이너 그룹을 배포하는 경우 다음과 �
 * 가상 네트워크에 배포할 때는 네트워킹 리소스가 추가로 사용되므로 대개 표준 컨테이너 인스턴스를 배포할 때보다 속도가 느립니다.
 * 포트 25에 대한 아웃바운드 연결은 현재 지원되지 않습니다.
 * 컨테이너 그룹을 Azure Storage 계정에 연결하는 경우 해당 리소스에 [서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 추가해야 합니다.
-* 현재 [IPv6 주소](../virtual-network/ipv6-overview.md)는 지원되지 않습니다. 
+* 현재 [IPv6 주소](../virtual-network/ip-services/ipv6-overview.md)는 지원되지 않습니다. 
 
 ## <a name="required-network-resources"></a>필요한 네트워크 리소스
 

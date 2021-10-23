@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 05/27/2021
 ms.author: pdecarlo
-ms.openlocfilehash: 5600702d43d0583324dc9e3b6942318ab52c5cbd
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: 6865a89eae0df708d73d9062dd07c18c46ece4f8
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110702878"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130263765"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Ubuntu Virtual Machines에서 Azure IoT Edge 실행
 
@@ -53,7 +53,7 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
 
     **관리자 사용자 이름**: 배포에 대한 루트 권한이 제공되는 사용자 이름입니다.
 
-    **디바이스 연결 문자열**: 의도한 [IoT Hub](../iot-hub/about-iot-hub.md) 내에 만들어진 디바이스에 대한 [디바이스 연결 문자열](./how-to-register-device.md)입니다.
+    **디바이스 연결 문자열**: 의도한 [IoT Hub](../iot-hub/about-iot-hub.md) 내에 만들어진 디바이스에 대한 [디바이스 연결 문자열](./how-to-provision-single-device-linux-symmetric.md#view-registered-devices-and-retrieve-provisioning-information)입니다.
 
     **VM 크기**: 배포할 가상 머신의 [크기](../cloud-services/cloud-services-sizes-specs.md)입니다.
 

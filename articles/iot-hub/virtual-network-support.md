@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 10/20/2021
 ms.author: jlian
-ms.openlocfilehash: 726e482f64f7d9c1513f5ce362c232e225b9ee27
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
-ms.translationtype: HT
+ms.openlocfilehash: bd5a88bb8fc47e5f4815aea57544d6093281999b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109712859"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258870"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Private Link 및 관리 ID를 사용하는 가상 네트워크에 대한 IoT Hub 지원
 
@@ -50,9 +50,9 @@ ms.locfileid: "109712859"
 
 프라이빗 엔드포인트는 디바이스-클라우드 메시지와 같은 IoT Hub 디바이스 API 및 서비스 API(예: 디바이스 만들기 및 업데이트)에 대해 작동합니다.
 
-1. Azure portal에서 **네트워킹**, **프라이빗 엔드포인트 연결** 을 선택하고 **+ 프라이빗 엔드포인트** 를 클릭합니다.
+1. Azure Portal에서 **네트워킹**, **개인 액세스** 를 선택 하 고 **+ 개인 끝점 만들기** 옵션을 클릭 합니다.
 
-    :::image type="content" source="media/virtual-network-support/private-link.png" alt-text="IoT Hub의 프라이빗 엔드포인트를 추가할 곳을 보여 주는 스크린샷":::
+    :::image type="content" source="media/virtual-network-support/private-link.png" alt-text="IoT Hub의 프라이빗 엔드포인트를 추가할 곳을 보여 주는 스크린샷" border="true":::
 
 1. 새 프라이빗 엔드포인트를 만들 구독, 리소스 그룹, 이름, 영역을 지정합니다. 프라이빗 엔드포인트는 허브와 같은 영역에 만드는 것이 가장 좋습니다.
 

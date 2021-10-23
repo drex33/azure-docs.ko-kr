@@ -3,12 +3,12 @@ title: 게스트 구성에 대한 PowerShell Desired State Configuration의 동�
 description: 이 문서에서는 Azure Policy를 통해 컴퓨터에 구성 변경 내용을 제공하는 데 사용되는 플랫폼의 개요를 제공합니다.
 ms.date: 05/31/2021
 ms.topic: how-to
-ms.openlocfilehash: b501305513e99963ec9d00a49e6e7aa1c74b3683
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 6118ec0ce0bb8b0296153d32dbad559a6b53ebb8
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130045335"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261865"
 ---
 # <a name="changes-to-behavior-in-powershell-desired-state-configuration-for-guest-configuration"></a>게스트 구성에 대한 PowerShell Desired State Configuration의 동작 변경 사항
 
@@ -16,7 +16,7 @@ ms.locfileid: "130045335"
 
 [이 문서의 동영상 연습 사용 가능](https://youtu.be/nYd55FiKpgs).
 
-게스트 구성은 [DSC(Desired State Configuration)](/powershell/scripting/dsc/overview/overview) 버전 3을 사용하여 머신을 감사하고 구성합니다. DSC 구성은 컴퓨터가 충족해야 하는 상태를 정의합니다. 게스트 구성에서 DSC를 구현하는 방법에는 중요한 차이점이 많이 있습니다.
+게스트 구성은 [DSC(Desired State Configuration)](/powershell/scripting/dsc/overview/overview) 버전 3을 사용하여 머신을 감사하고 구성합니다. DSC 구성은 컴퓨터가 충족해야 하는 상태를 정의합니다. 게스트 구성에서 DSC가 구현 되는 방법에는 주목할 만한 여러 가지 차이점이 있습니다.
 
 ## <a name="guest-configuration-uses-powershell-7-cross-platform"></a>게스트 구성은 PowerShell 7 교차 플랫폼을 사용합니다
 
@@ -28,7 +28,31 @@ ms.locfileid: "130045335"
 
 ## <a name="multiple-configurations"></a>여러 구성
 
-게스트 구성은 동일한 컴퓨터에 여러 구성 할당을 지원합니다. 게스트 구성 확장의 운영 체제 내에서 특별한 단계가 필요하지 않습니다. [부분 구성](/powershell/scripting/dsc/pull-server/partialConfigs) 을 구성할 필요가 없습니다.
+게스트 구성은 동일한 컴퓨터에 여러 구성 할당을 지원합니다. 게스트 구성 확장의 운영 체제 내에는 특별 한 단계가 필요 하지 않습니다. [부분 구성](/powershell/scripting/dsc/pull-server/partialConfigs) 을 구성할 필요가 없습니다.
+
+## <a name="dependencies-are-managed-per-configuration"></a>종속성은 구성 별로 관리 됩니다.
+
+[사용 가능한 도구를 사용 하 여 구성을 패키지 하](../how-to/guest-configuration-create.md)는 경우 구성에 필요한 종속성이 .zip 파일에 포함 됩니다.
+컴퓨터는 각 구성에 대해 고유한 폴더로 콘텐츠를 추출 합니다.
+게스트 구성 확장에서 제공 하는 에이전트는 `$Env:PSModulePath` 패키지를 추출한 경로로만 자동 모듈 로드를 제한 하는를 사용 하 여 각 구성에 대 한 전용 PowerShell 세션을 만듭니다.
+
+이러한 변경으로 인해 여러 가지 이점이 있습니다.
+
+- 동일한 컴퓨터에서 각 구성에 대해 차이점 모듈 버전을 사용할 수 있습니다.
+- 컴퓨터에서 구성이 더 이상 삭제 되지 않으면 구성에서 공유 종속성을 관리할 필요 없이 에이전트가 추출 된 전체 폴더를 에이전트에서 안전 하 게 삭제할 수 있습니다.
+- 중앙 서비스에서 모듈의 여러 버전을 관리할 필요는 없습니다.
+  
+## <a name="artifacts-are-managed-as-packages"></a>Artifacts는 패키지로 관리 됩니다.
+
+Azure Automation 상태 구성 기능에는 모듈 및 구성 스크립트에 대 한 아티팩트 관리가 포함 되어 있습니다. 서비스에 둘 다 게시 된 후에는 스크립트를 MOF 형식으로 컴파일할 수 있습니다. 마찬가지로, 끌어오기 서버 Windows 웹 서비스 인스턴스에서 구성 및 모듈을 관리 해야 합니다. 이와 대조적으로 DSC 확장에는 모든 아티팩트가 함께 패키지 되 고 HTTPS 요청을 사용 하 여 대상 컴퓨터에서 액세스할 수 있는 위치에 저장 되는 단순화 된 모델이 있습니다 (Azure Blob Storage는 인기 있는 옵션).
+
+게스트 구성은 모든 아티팩트가 함께 패키지 되 고 HTTPS를 통해 대상 컴퓨터에서 액세스할 수 있는 간소화 된 모델만 사용 합니다.
+서비스에서 모듈, 스크립트 또는 컴파일을 게시 하지 않아도 됩니다. 한 가지 변경 내용은 패키지에 항상 컴파일된 MOF가 포함 되어야 한다는 것입니다. 패키지에 스크립트 파일을 포함 하 고 대상 컴퓨터에서 컴파일할 수는 없습니다.
+
+## <a name="maximum-size-of-custom-configuration-package"></a>사용자 지정 구성 패키지의 최대 크기
+
+Azure Automation State Configuration에서 DSC 구성은 [크기가 제한](../../../automation/automation-dsc-compile.md#compile-your-dsc-configuration-in-windows-powershell)됩니다.
+게스트 구성은 전체 패키지 크기인 100 (압축 전)를 지원 합니다. 패키지 내의 MOF 파일 크기에 대 한 특정 제한은 없습니다.
 
 ## <a name="configuration-mode-is-set-in-the-package-artifact"></a>구성 모드는 패키지 아티팩트에서 설정됩니다
 
@@ -46,7 +70,11 @@ ms.locfileid: "130045335"
 
 게스트 구성 할당에 값을 전달하는 Azure Policy의 매개 변수는 _문자열_ 형식이어야 합니다. DSC 리소스가 배열을 지원해도 매개 변수를 통해 배열을 전달할 수 없습니다.
 
-## <a name="sequence-of-events"></a>이벤트 시퀀스
+## <a name="trigger-set-from-outside-machine"></a>외부 컴퓨터에서 트리거 설정
+
+이전 버전의 DSC에서 발생 하는 문제는 사용자 지정 코드가 많지 않고 WinRM 원격 연결에 의존 하는 것이 아니라 규모의 드리프트를 수정 하는 것입니다. 게스트 구성은 이 문제를 해결합니다. 게스트 구성 사용자는 [주문형 수정](./guest-configuration-policy-effects.md#remediation-on-demand-applyandmonitor)을 통해 드리프트 수정을 제어할 수 있습니다.
+
+## <a name="sequence-includes-get-method"></a>시퀀스에 Get 메서드가 포함 됩니다.
 
 게스트 구성이 컴퓨터를 감사하거나 구성하는 경우, Windows 및 Linux 모두 동일한 이벤트 시퀀스가 사용됩니다. 동작의 주목할 만한 변경은 `Get` 메서드가 머신 상태에 대한 세부 정보를 반환하기 위해 서비스에서 호출되는 것입니다.
 
@@ -56,15 +84,6 @@ ms.locfileid: "130045335"
    `Test` 메서드에서 False가 반환되면, `Set`가 실행됩니다. `Test`에서 True를 반환하면, `Set`가 실행되지 않습니다.
 1. 마지막으로, 공급자는 `Get`를 실행하여 각 설정의 현재 상태를 반환하므로 컴퓨터가 규정을 준수하지 않는 이유 및 현재 상태가 규정을 준수하는지 확인하기 위한 세부 정보를 사용할 수 있습니다.
 
-## <a name="trigger-set-from-outside-machine"></a>외부 컴퓨터에서 트리거 설정
-
-이전 버전의 DSC에서는 WinRM 원격 연결에 의존하지 않고 많은 사용자 지정 코드 없이 대규모로 드리프트를 수정해야 했습니다. 게스트 구성은 이 문제를 해결합니다. 게스트 구성 사용자는 [주문형 수정](./guest-configuration-policy-effects.md#remediation-on-demand-applyandmonitor)을 통해 드리프트 수정을 제어할 수 있습니다.
-
-## <a name="maximum-size-of-custom-configuration-package"></a>사용자 지정 구성 패키지의 최대 크기
-
-Azure Automation State Configuration에서 DSC 구성은 [크기가 제한](../../../automation/automation-dsc-compile.md#compile-your-dsc-configuration-in-windows-powershell)됩니다.
-게스트 구성은 압축 전 100MB의 총 패키지 크기를 지원합니다. 패키지 내의 MOF 파일 크기에 대한 구체적 제한은 없습니다.
-
 ## <a name="special-requirements-for-get"></a>Get에 대한 특별 요구 사항
 
 함수 `Get` 메서드에는 Windows PowerShell Desired State Configuration에 필요하지 않은 Azure Policy 게스트 구성에 대한 특별 요구 사항이 있습니다.
@@ -72,7 +91,7 @@ Azure Automation State Configuration에서 DSC 구성은 [크기가 제한](../.
 - 반환되는 해시 테이블에 **Reasons** 라는 속성이 포함되어야 합니다.
 - Reasons 속성은 배열이어야 합니다.
 - 배열의 각 항목은 **Code** 및 **Phrase** 라는 키가 있는 hashtable이어야 합니다.
-- 해시 가능 이외의 다른 값은 반환할 수 없습니다.
+- Hashtable 이외의 다른 값은 반환 되지 않습니다.
 
 서비스는 Reasons 속성을 사용하여 준수 정보를 표시하는 방식을 표준화합니다. Reasons의 각 항목은 리소스가 규정을 준수하거나 준수하지 않는 "이유"라고 간주할 수 있습니다. 두 가지 이상의 이유로 리소스가 규정을 준수하지 않을 수 있으므로 속성은 배열입니다.
 
@@ -95,7 +114,7 @@ return @{
 }
 ```
 
-명령줄 도구를 사용하여 Get에 반환되는 정보를 얻을 때 도구가 예상하지 못한 출력을 반환하는 것을 확인할 수 있습니다. PowerShell에서 출력을 캡처하더라도 출력이 표준 오류로 기록되었을 수도 있습니다. 이 문제를 방지하려면 출력을 null로 리디렉션하는 것이 좋습니다.
+명령줄 도구를 사용 하 여 Get에서 반환 되는 정보를 가져오는 경우 도구에서 예상치 못한 출력이 반환 되는 것을 확인할 수 있습니다. PowerShell에서 출력을 캡처하는 경우에도 출력은 표준 오류에 기록 될 수도 있습니다. 이 문제를 방지 하려면 출력을 null로 리디렉션하는 것이 좋습니다.
 
 ### <a name="the-reasons-property-embedded-class"></a>Reasons 속성 포함 클래스
 
@@ -165,20 +184,20 @@ class Example {
 
 ## <a name="common-dsc-features-not-available-during-guest-configuration-public-preview"></a>게스트 구성 공개 미리 보기 중에는 사용할 수 없는 일반적인 DSC 기능
 
-공개 미리 보기 중에 게스트 구성은 "WaitFor*" 리소스를 사용하여 [컴퓨터 간 의존성 지정](/powershell/scripting/dsc/configurations/crossnodedependencies)을 지원하지 않습니다. 한 컴퓨터가 진행되기 전에 다른 컴퓨터가 상태에 도달할 때까지 모니터링하고 기다릴 수는 없습니다.
+공개 미리 보기 중 게스트 구성은 "WaitFor *" 리소스를 사용 하 여 [컴퓨터 간 종속성을 지정 하](/powershell/scripting/dsc/configurations/crossnodedependencies) 는 것을 지원 하지 않습니다. 한 컴퓨터가 진행되기 전에 다른 컴퓨터가 상태에 도달할 때까지 모니터링하고 기다릴 수는 없습니다.
 
 [재부팅 처리](/powershell/scripting/dsc/configurations/reboot-a-node)는 게스트 구성의 공개 미리 보기 릴리스에서 사용할 수 없으며 `$global:DSCMachineStatus`에서 사용할 수 없습니다. 구성은 구성 중에 또는 구성이 끝날 때 노드를 재부팅할 수 없습니다.
 
 ## <a name="known-compatibility-issues-with-supported-modules"></a>지원되는 모듈의 알려진 호환성 문제
 
-Microsoft는 PowerShell Gallery의 `PsDscResources` 모듈 및 Windows 함께 제공되는 `PSDesiredStateConfiguration` 모듈을 지원하며, 이는 DSC에 일반적으로 사용되는 리소스 집합입니다. DSCv3용 `PSDscResources` 모듈이 업데이트될 때까지, 다음과 같은 알려진 호환성 문제에 유의해야 합니다.
+`PsDscResources`PowerShell 갤러리 모듈 및 `PSDesiredStateConfiguration` Windows 함께 사용되는 모듈은 Microsoft에서 지원되며 DSC에 일반적으로 사용되는 리소스 집합입니다. DSCv3용 `PSDscResources` 모듈이 업데이트될 때까지, 다음과 같은 알려진 호환성 문제에 유의해야 합니다.
 
-- Windows와 함께 제공되는 `PSDesiredStateConfiguration` 모듈의 리소스를 사용하지 마세요. 대신 `PSDscResources`로 전환합니다.
-- `PsDscResources`에 있는 `WindowsFeature` 및 `WindowsFeatureSet` 리소스를 사용하지 마세요. 대신 `WindowsOptionalFeature` 및 `WindowsOptionalFeatureSet` 리소스로 전환합니다.
+- `PSDesiredStateConfiguration`Windows 함께 있는 모듈의 리소스를 사용하지 마세요. 대신 `PSDscResources`로 전환합니다.
+- 에서 및 리소스를 사용하지 `WindowsFeature` `WindowsFeatureSet` `PsDscResources` 마세요. 대신 `WindowsOptionalFeature` 및 `WindowsOptionalFeatureSet` 리소스로 전환합니다.
   
 Linux용 DSC 리포지션에 포함된 [Linux용](https://github.com/microsoft/PowerShell-DSC-for-Linux/tree/master/Providers) "nx" 리소스는 C 및 Python 언어의 조합으로 작성되었습니다. Linux에서 DSC에 대한 경로는 PowerShell을 사용하는 것이므로 기존 "nx" 리소스는 DSCv3과 호환되지 않습니다. Linux에 대해 지원되는 리소스를 포함하는 새 모듈을 사용할 수 있게 될 때까지 사용자 지정 리소스를 작성해야 합니다.
 
-## <a name="coexistance-with-dsc-version-3-and-previous-versions"></a>DSC 버전 3 및 이전 버전과 공존
+## <a name="coexistence-with-dsc-version-3-and-previous-versions"></a>DSC 버전 3 및 이전 버전과 공존
 
 게스트 구성의 DSC 버전 3은 [Windows](/powershell/scripting/dsc/getting-started/wingettingstarted) 및 [Linux](/powershell/scripting/dsc/getting-started/lnxgettingstarted)에 설치된 이전 버전과 공존할 수 있습니다.
 구현은 별개입니다. 그러나 DSC 버전 간에 충돌 검색이 없으므로 동일한 설정을 관리하지 마세요.

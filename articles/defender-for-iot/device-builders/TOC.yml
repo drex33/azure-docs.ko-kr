@@ -69,8 +69,8 @@
           href: concept-security-alerts.md
         - name: IoT Hub에 대한 사용자 지정 보안 경고
           href: concept-customizable-security-alerts.md
-        - name: IoT Hub에 대한 보안 추천 사항
-          href: concept-recommendations.md
+    - name: IoT Hub에 대한 보안 추천 사항
+      href: concept-recommendations.md
     - name: Classic
       items:
         - name: Defender-IoT-micro-agent

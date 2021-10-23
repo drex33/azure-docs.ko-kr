@@ -3,12 +3,12 @@ title: VM 및 PaaS 테스트 환경에 Azure DevTest Labs 사용
 description: VM 및 PaaS 테스트 환경 시나리오에 Azure DevTest Labs를 사용하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 6e08eaa43d556d47724dbf184bb1b06856e999e3
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0eb9ee8a42fdbcb4ee6937542fa2955d49d0ac0f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128629316"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251740"
 ---
 # <a name="use-azure-devtest-labs-for-vm-and-paas-test-environments"></a>VM 및 PaaS 테스트 환경에 Azure DevTest Labs 사용
 
@@ -48,7 +48,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
    | --- | --- |
    | [Azure Marketplace 이미지 구성](devtest-lab-configure-marketplace-images.md) |테스터용으로 원하는 이미지만 선택할 수 있도록 Azure Marketplace 이미지를 허용하는 방법을 알아봅니다.|
    | [사용자 지정 이미지 만들기](devtest-lab-create-template.md) |테스터가 사용자 지정 이미지를 사용하여 신속하게 VM을 만들 수 있도록 필요한 소프트웨어를 미리 설치하여 사용자 지정 이미지를 만듭니다.|
-   | [이미지 팩터리에 대한 자세한 정보](/azure/devtest-labs/devtest-lab-faq#blog-post) |이미지 팩터리를 설정 및 사용하는 방법을 설명하는 비디오를 시청하세요.|
+   | [이미지 팩터리에 대한 자세한 정보](./devtest-lab-faq.yml#blog-post) |이미지 팩터리를 설정 및 사용하는 방법을 설명하는 비디오를 시청하세요.|
 
 3. **테스트 컴퓨터에 재사용 가능한 템플릿 만들기** 
    
@@ -102,7 +102,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
    | Task | 학습 내용 |
    | --- | --- |
    | [랩 정책 정의](devtest-lab-set-lab-policy.md) |랩에 정책을 설정하여 비용을 제어합니다. |
-   | [PowerShell 스크립트를 사용하여 모든 랩 VM 삭제](/azure/devtest-labs/devtest-lab-faq#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |테스트가 완료되면 한 번에 모든 랩을 삭제합니다.|
+   | [PowerShell 스크립트를 사용하여 모든 랩 VM 삭제](./devtest-lab-faq.yml) |테스트가 완료되면 한 번에 모든 랩을 삭제합니다.|
 
 1. **랩에 가상 네트워크 추가** 
    
@@ -118,7 +118,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
 
 6. **각 테스터와 랩 공유**
    
-    테스터와 공유하는 링크를 사용하여 랩에 직접 액세스할 수 있습니다. [Microsoft 계정](/azure/devtest-labs/devtest-lab-faq#what-is-a-microsoft-account)이 있으면 Azure 계정이 없어도 됩니다. 테스터는 다른 테스터가 만든 VM을 볼 수 없습니다.  
+    테스터와 공유하는 링크를 사용하여 랩에 직접 액세스할 수 있습니다. [Microsoft 계정](./devtest-lab-faq.yml)이 있으면 Azure 계정이 없어도 됩니다. 테스터는 다른 테스터가 만든 VM을 볼 수 없습니다.  
    
     다음 표에 있는 링크를 클릭하면 자세히 알아볼 수 있습니다.
    
@@ -126,7 +126,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
    | --- | --- |
    | [Azure DevTest Labs에서 랩에 테스터 추가](devtest-lab-add-devtest-user.md) |랩에 테스터를 추가하려면 Azure Portal을 사용합니다.|
    | [PowerShell 스크립트를 사용하여 랩에 테스터 추가](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |PowerShell을 사용하여 랩에 테스터를 자동으로 추가합니다. |
-   | [랩에 대한 링크 가져오기](/azure/devtest-labs/devtest-lab-faq#how-do-i-share-a-direct-link-to-my-lab) |테스터가 하이퍼링크를 통해 랩에 직접 액세스하는 방법을 알아봅니다.|
+   | [랩에 대한 링크 가져오기](./devtest-lab-faq.yml) |테스터가 하이퍼링크를 통해 랩에 직접 액세스하는 방법을 알아봅니다.|
 
 7. **추가 팀을 위한 랩 생성 자동화** 
    
@@ -136,6 +136,6 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
    
    | Task | 학습 내용 |
    | --- | --- |
-   | [Resource Manager 템플릿을 사용하여 랩 만들기](/azure/devtest-labs/devtest-lab-faq#how-do-i-create-a-lab-from-a-resource-manager-template) |Resource Manager 템플릿을 사용하여 Azure DevTest Labs에서 랩을 만듭니다. |
+   | [Resource Manager 템플릿을 사용하여 랩 만들기](./devtest-lab-faq.yml) |Resource Manager 템플릿을 사용하여 Azure DevTest Labs에서 랩을 만듭니다. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

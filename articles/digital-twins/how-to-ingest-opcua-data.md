@@ -7,12 +7,12 @@ ms.author: dahellem
 ms.date: 8/27/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: be6d4dd328d3b8cd0f02bede7bcba7b6a4e32ae9
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 41ae76350ef5483323edd0a5b244c3b64e08c674
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129534538"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130263923"
 ---
 # <a name="ingesting-opc-ua-data-with-azure-digital-twins"></a>Azure Digital Twins를 사용하여 OPC UA 데이터 수집
 
@@ -61,7 +61,7 @@ OPC UA 서버 데이터가 Azure Digital Twins로 이동하게 하려면 다양�
 
 이러한 각 부분을 설치하는 방법에 대한 자세한 내용은 다음 리소스를 참조하세요.
 * [Azure IoT Edge에서 OPC 게시자를 설치하기 위한 단계별 가이드](https://www.linkedin.com/pulse/step-by-step-guide-installing-opc-publisher-azure-iot-kevin-hilscher) 
-* [Linux에 IoT Edge 설치](../iot-edge/how-to-install-iot-edge.md) 
+* [Linux에 IoT Edge 설치](../iot-edge/how-to-provision-single-device-linux-symmetric.md) 
 * [GitHub의 OPC 게시자](https://github.com/Azure/iot-edge-opc-publisher)
 * [OPC 게시자 구성](/previous-versions/azure/iot-accelerators/howto-opc-publisher-configure)
 
@@ -163,7 +163,7 @@ OPC UA 서버 데이터를 IoT Hub로 가져오려면 OPC 게시자 모듈을 �
 
 #### <a name="install-iot-edge-container"></a>IoT Edge 컨테이너 설치
 
-지침에 따라 [Linux에 IoT Edge를 설치](../iot-edge/how-to-install-iot-edge.md)합니다.
+지침에 따라 [Linux에 IoT Edge를 설치](../iot-edge/how-to-provision-single-device-linux-symmetric.md)합니다.
 
 설치가 완료되면 다음 명령을 실행하여 설치 상태를 확인합니다.
 
@@ -334,7 +334,7 @@ OPC UA 서버에서 Azure IoT Hub로 이동하는 데이터를 만들었으므�
 
 항목에 대한 스키마는 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | NodeId | OPC UA 노드의 값입니다. 예: ns=3;i={value} | ✔ |
 | TwinId | 원격 분석 값을 저장하려는 트윈의 TwinId($dtId)입니다. | ✔ |
@@ -377,7 +377,7 @@ OPC UA 서버에서 Azure IoT Hub로 이동하는 데이터를 만들었으므�
 
 세 가지 애플리케이션 설정을 만들어야 합니다.
 
-| 설정 | Description | 필수 |
+| 설정 | 설명 | 필수 |
 | --- | --- | --- |
 | ADT_SERVICE_URL | Azure Digital Twins 인스턴스에 대한 URL입니다. 예: `https://example.api.eus.digitaltwins.azure.net` | ✔ |
 | JSON_MAPPINGFILE_URL | opcua-mapping.json에 대한 공유 액세스 서명의 URL | ✔ |
@@ -436,7 +436,7 @@ az webapp log tail –name <function-name> --resource-group <resource-group-name
 다음으로, 다음 리소스를 사용하여 이 문서에서 사용된 지원 도구 및 프로세스에 대해 자세히 읽어보세요.
 
 * [Azure IoT Edge에서 OPC 게시자를 설치하기 위한 단계별 가이드](https://www.linkedin.com/pulse/step-by-step-guide-installing-opc-publisher-azure-iot-kevin-hilscher) 
-* [Linux에 IoT Edge 설치](../iot-edge/how-to-install-iot-edge.md) 
+* [Linux에 IoT Edge 설치](../iot-edge/how-to-provision-single-device-linux-symmetric.md) 
 * [OPC 게시자](https://github.com/Azure/iot-edge-opc-publisher)
 * [OPC 게시자 구성](/previous-versions/azure/iot-accelerators/howto-opc-publisher-configure)
 * [UANodeSetWebViewer](https://github.com/barnstee/UANodesetWebViewer) 

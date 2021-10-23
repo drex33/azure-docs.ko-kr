@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: b95b3cfdf8fea6e31015d945566803569b4ba064
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 64aa913f6c9c5041356f193dcf0c9945deb852fb
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98222924"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257787"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Azure Virtual Network 컨테이너 네트워크 인터페이스 플러그 인 배포
 
@@ -95,9 +95,9 @@ Kubernetes 클러스터의 모든 Azure 가상 머신에 플러그 인을 설치
 1. [플러그 인을 다운로드하여 설치합니다](#download-and-install-the-plug-in).
 2. Pod에 IP 주소를 할당할 모든 가상 머신에서 가상 네트워크 IP 주소 풀을 미리 할당합니다. 모든 Azure 가상 머신의 각 네트워크 인터페이스에서는 기본 가상 네트워크 개인 IP 주소가 제공됩니다. Pod용 IP 주소 풀은 다음 옵션 중 하나를 사용하여 가상 머신 네트워크 인터페이스에서 보조 주소(*ipconfigs*)로 추가됩니다.
 
-   - **CLI**: [Azure CLI를 사용해 여러 IP 주소 할당](virtual-network-multiple-ip-addresses-cli.md)
-   - **PowerShell**: [PowerShell을 사용해 여러 IP 주소 할당](virtual-network-multiple-ip-addresses-powershell.md)
-   - **포털**: [Azure Portal을 사용해 여러 IP 주소 할당](virtual-network-multiple-ip-addresses-portal.md)
+   - **CLI**: [Azure CLI를 사용해 여러 IP 주소 할당](./ip-services/virtual-network-multiple-ip-addresses-cli.md)
+   - **PowerShell**: [PowerShell을 사용해 여러 IP 주소 할당](./ip-services/virtual-network-multiple-ip-addresses-powershell.md)
+   - **포털**: [Azure Portal을 사용해 여러 IP 주소 할당](./ip-services/virtual-network-multiple-ip-addresses-portal.md)
    - **Azure Resource Manager 템플릿**: [템플릿을 사용해 여러 IP 주소 할당](./template-samples.md)
 
    가상 머신에 표시하려는 모든 Pod에 할당하기에 충분한 IP 주소를 추가해야 합니다.

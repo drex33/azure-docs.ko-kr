@@ -8,12 +8,12 @@ ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 912d13e5a9c05916e209ee42cf5629b8a363e686
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: bd450569298dfe8782f1a37b6c565daff0ae6175
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567313"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130259170"
 ---
 # <a name="powershell-scripts-for-iot-edge-with-windows-containers"></a>Windows 컨테이너를 사용하는 IoT Edge용 PowerShell 스크립트
 
@@ -105,4 +105,4 @@ Initialize-IoTEdge 명령은 디바이스 연결 문자열 및 작업 세부 정
 
 다음 문서에서 이러한 명령을 사용하는 방법을 알아봅니다.
 
-* [Windows용 Azure IoT Edge 설치 또는 제거](how-to-install-iot-edge-windows-on-windows.md)
+* 대칭 키를 사용 하거나 [x.509 인증서를 사용](how-to-provision-single-device-windows-x509.md) [하 여 Windows에 대 한 Azure IoT Edge 설치 또는 제거](how-to-provision-single-device-windows-symmetric.md)

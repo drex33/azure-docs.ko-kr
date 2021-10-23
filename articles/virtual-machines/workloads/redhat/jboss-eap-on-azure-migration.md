@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: redhat
 ms.assetid: 9b37b2c4-5927-4271-85c7-19adf33d838b
 ms.date: 06/08/2021
-ms.openlocfilehash: 188e40f9bc3d2d23035549578cdc6440af60a3e5
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: ab19ecb14f3aa7701205e038fe59b92e297decbd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129359234"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262967"
 ---
 # <a name="how-to-migrate-java-applications-to-jboss-eap-on-azure-vms-and-virtual-machine-scale-sets"></a>Azure VM 기반 JBoss EAP 및 가상 머신 확장 집합에서 Java 애플리케이션을 마이그레이션하는 방법
 
@@ -89,7 +89,7 @@ Red Hat MTA를 사용하면 다른 애플리케이션 서버에서 Red Hat JBoss
 
 ### <a name="validate-the-compatibility"></a>호환성 유효성 검사
 
-마이그레이션을 계획하기 전에 현재 배포 모델 및 버전의 유효성을 검사하는 것이 좋습니다. 현재 버전이 지원 되지 않는 경우 응용 프로그램을 크게 변경 해야 할 수 있습니다.
+마이그레이션을 계획하기 전에 현재 배포 모델 및 버전의 유효성을 검사하는 것이 좋습니다. 현재 버전이 지원되지 않는 경우 애플리케이션을 크게 변경해야 할 수 있습니다.
 
 MTA는 Oracle WebLogic Server와 같은 타사 엔터프라이즈 애플리케이션 서버에서 JBoss EAP로의 마이그레이션 및 JBoss EAP 최신 릴리스로의 업그레이드를 지원합니다.
 
@@ -237,7 +237,7 @@ JMS 영구 저장소가 구성된 경우 해당 구성을 캡처하여 마이그
 
 환경에 적합한 방법을 사용하여 애플리케이션을 노출할 수 있습니다.
 
-* [공용 IP를 생성](../../../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)하여 서버 및 애플리케이션에 액세스합니다.
+* [공용 IP를 생성](../../../virtual-network/ip-services/virtual-network-public-ip-address.md#create-a-public-ip-address)하여 서버 및 애플리케이션에 액세스합니다.
 * 동일한 VNet의 다른 서브넷(새 서브넷)에 있는 [동일한 VNet(Virtual Network)에 점프 VM을 생성](../../windows/quick-create-portal.md#create-virtual-machine)하고 점프 VM을 통해 서버에 액세스합니다. 이 점프 VM을 사용하여 애플리케이션을 노출할 수 있습니다.
 * 다른 Virtual Network에서 [VNet 피어링을 사용하여 점프 VM을 생성](../../windows/quick-create-portal.md#create-virtual-machine)하고 [가상 네트워크 피어링](../../../virtual-network/tutorial-connect-virtual-networks-portal.md#peer-virtual-networks)을 사용하여 서버에 액세스하고 애플리케이션을 노출합니다.
 * [Application Gateway](../../../application-gateway/quick-create-portal.md#create-an-application-gateway)를 사용하여 애플리케이션 노출

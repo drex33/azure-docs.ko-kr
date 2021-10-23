@@ -1,43 +1,53 @@
 ---
-title: IoT 커넥터용 관련 GitHub 프로젝트-Azure 의료 api
-description: IoT 커넥터용 모든 오픈 소스 (GitHub) 리포지토리 나열
+title: IoT 커넥터에 대한 관련 GitHub 프로젝트 - Azure Healthcare API
+description: IoT 커넥터에 대한 모든 GitHub(오픈 소스) 리포지토리 나열
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 10/18/2021
+ms.date: 10/19/2021
 ms.author: jasteppe
-ms.openlocfilehash: 0092482af2f9f4f6f9a090a00cc387ae901e5b68
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: e66a6f3e2603645be4efeb68211ffd4d785067db
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130187780"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130259414"
 ---
 # <a name="open-source-projects"></a>오픈 소스 프로젝트
 
-원본 코드와 IoT 커넥터를 사용 하 여 다양 한 용도로 서비스를 배포 하는 지침을 제공 하는 GitHub에서 오픈 소스 프로젝트를 확인 하세요. 
+IoT 커넥터를 사용하여 다양한 용도로 서비스를 배포하기 위한 소스 코드와 지침을 제공하는 GitHub 오픈 소스 프로젝트를 확인하세요. 
 
 ## <a name="iot-connector-github-projects"></a>IoT 커넥터 GitHub 프로젝트
 
-#### <a name="integration-with-iot-hub-and-iot-central"></a>IoT Hub 및 IoT Central와 통합
+#### <a name="fhir-integration"></a>FHIR 통합
 
-* [microsoft/iomt r](https://github.com/microsoft/iomt-fhir): IoT Hub 또는 IoT Central와 통합 되어 정규화 된 데이터의 데이터 정규화 및 fhir 변환으로 신속한 의료 기능 상호 운용성 리소스 (fhir&#174;)를 통합 합니다.
-* 정규화: 추가 처리를 위해 장치 데이터 정보가 공통 형식으로 추출 됩니다.
-* FHIR 변환: 정규화 된 데이터와 그룹화 된 데이터는 FHIR에 매핑됩니다. 관찰은 구성 된 템플릿에 따라 만들어지거나 업데이트 되며 장치 및 환자에 연결 됩니다.
+* [microsoft/iomt-fhir:](https://github.com/microsoft/iomt-fhir)Azure Healthcare API IoT 커넥터 관리형 서비스의 오픈 소스 버전입니다. FHIR R7&#174;지원하는 모든 [전자 의료 기록 교환(FHIR&#174;)](https://https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491) 서비스와 함께 사용할 수 있습니다.
 
-#### <a name="device-and-fhir-destination-mappings-authoring-and-troubleshooting"></a>장치 및 FHIR 대상 매핑 작성 및 문제 해결
+#### <a name="device-and-fhir-destination-mappings"></a>디바이스 및 FHIR 대상 매핑
 
-* [장치 및 fhir 대상 매핑을 빌드하는 데 도움이](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper)되는 도구: 장치 입력 데이터를 표준화 하 고 fhir 리소스로 변환 하기 위한 매핑 구성을 시각화 합니다. 개발자는이 도구를 사용 하 여 장치 매핑과 FHIR 대상 매핑을 편집 하 고 테스트할 수 있습니다. Azure Portal에서 IoT connector로 업로드 하기 위해 내보냅니다.
+* [IoMT 커넥터 데이터 매퍼:](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper)IoT 커넥터 디바이스 및 FHIR 대상 매핑을 편집, 테스트 및 문제 해결을 위한 도구입니다. Azure Portal IoT 커넥터에 업로드하기 위한 매핑을 내보내거나 오픈 소스 버전과 함께 사용합니다.
 
-#### <a name="healthkit-and-fhir-integration"></a>HealthKit 및 FHIR 통합
+#### <a name="wearables-integration"></a>웨어러블 통합
 
-* [microsoft/healthkit r](https://github.com/microsoft/healthkit-on-fhir): fhir 서비스에 대 한 Apple healthkit 데이터 내보내기를 자동화 하는 Swift 라이브러리입니다.
+Fitbit
+
+* [microsoft/fitbit-on-fhir:](https://github.com/microsoft/FitbitOnFHIR)Fitbit&#174; 데이터를 FHIR 서비스로 가져옵니다.
+
+HealthKit
+
+* [microsoft/healthkit-on-fhir:](https://github.com/microsoft/healthkit-on-fhir)Apple&#174; HealthKit&#174; 데이터를 FHIR 서비스로 가져옵니다.
+
+* [microsoft/healthkit-to-fhir:](https://github.com/microsoft/healthkit-to-fhir)HKObjects에서 FHIR 리소스를 만드는 간단한 방법을 제공합니다.
+
+상태 데이터 동기화
+
+* [microsoft/health-data-sync:](https://github.com/microsoft/health-data-sync)HealthKit 데이터를 외부 저장소로 내보내기를 간소화하고 자동화하는 Swift 라이브러리입니다.
 
 ## <a name="next-steps"></a>다음 단계
-Azure Portal에서 IoT connector를 배포 하는 방법을 알아봅니다.
+Azure Portal IoT 커넥터를 배포하는 방법을 알아봅니다.
 
 >[!div class="nextstepaction"]
->[IoT connector 관리 서비스 배포](deploy-iot-connector-in-azure.md)
+>[IoT 커넥터 관리 서비스 배포](deploy-iot-connector-in-azure.md)
 
-(FHIR&#174;)는 [HL7](https://hl7.org/fhir/) 의 등록 상표 이며 HL7의 사용 권한과 함께 사용 됩니다.
+(FHIR&#174;)는 HL7의 등록 상표이며 [HL7의](https://hl7.org/fhir/) 사용 권한으로 사용됩니다.

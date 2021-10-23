@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt, devx-track-azurecli
-ms.openlocfilehash: 3901f624f5df8770a235c6cd184aca4a3409c26b
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: f712f3f9928816e237504f504ec8ef28ec45d0e6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129547136"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130263569"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>IoT Hub에서 클라우드-디바이스 메시지 보내기
 
@@ -94,7 +94,7 @@ IoT Hub의 **최대 배달 횟수** 속성은 *큐에 넣음* 및 *숨김* 상�
 
 본문은 각각 다음과 같은 속성이 있는 레코드의 JSON으로 직렬화된 배열입니다.
 
-| 속성           | Description |
+| 속성           | 설명 |
 | ------------------ | ----------- |
 | enqueuedTimeUtc    | 메시지의 결과가 발생한 시간을 나타내는 타임스탬프입니다(예를 들어 허브에서 피드백 메시지를 받았거나 원래 메시지가 만료됨). |
 | OriginalMessageId  | 이 피드백 정보와 관련된 클라우드-디바이스 메시지의 *MessageId* 입니다. |
@@ -144,9 +144,9 @@ IoT Hub의 **최대 배달 횟수** 속성은 *큐에 넣음* 및 *숨김* 상�
 
 다음 방법의 하나로 구성 옵션을 설정할 수 있습니다.
 
-* **Azure Portal**: IoT Hub의 **설정** 에서 **기본 제공 엔드포인트** 를 선택하고 **클라우드-디바이스 메시징** 을 확장합니다. (**feedback.maxDeliveryCount** 및 **feedback.lockDurationAsIso8601** 속성 설정은 현재 Azure Portal에서 지원되지 않습니다.)
+* **Azure Portal:** IoT **Hub의 허브 설정에서** **기본 제공 엔드포인트를** 선택하고 **클라우드-디바이스 메시징으로** 이동합니다. (**feedback.maxDeliveryCount** 및 **feedback.lockDurationAsIso8601** 속성 설정은 현재 Azure Portal에서 지원되지 않습니다.)
 
-    ![포털에서 클라우드-디바이스 메시지에 대한 구성 옵션 설정](./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png)
+:::image type="content" source="./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png" alt-text="포털에서 클라우드-디바이스 메시지에 대한 구성 옵션 설정" border="true":::
 
 * **Azure CLI**: [az iot hub update](/cli/azure/iot/hub#az_iot_hub_update) 명령을 사용합니다.
 

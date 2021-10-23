@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/03/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: e2df24a85b39d1a66a162a826dbc3985a3908d53
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
-ms.translationtype: HT
+ms.openlocfilehash: 9d5710e78b323af65a12b1f92095cdfa1f385ecb
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109508438"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130287549"
 ---
 <!-- This tells how to create a custom shared access policy that has service connect and registry RW permissions for your IoT hub and get the connection string for it-->
 
@@ -23,16 +23,16 @@ ms.locfileid: "109508438"
 
 1. 허브의 왼쪽 창에서 **공유 액세스 정책** 을 선택합니다.
 
-1. 정책 목록 위의 상단 메뉴에서 **추가** 를 선택합니다.
+1. 정책 목록 위의 메뉴에서 공유 **액세스 정책 추가를** 선택합니다.
 
-1. **공유 액세스 정책 추가** 에서 정책에 대한 설명형 이름(예: *serviceAndRegistryReadWrite*)을 입력합니다. **권한** 에서 **레지스트리 쓰기** 및 **서비스 연결** 을 선택한 다음, **만들기** 를 선택합니다. (레지스트리 **읽기** 권한은 **레지스트리 쓰기** 를 선택하면 자동으로 포함됩니다.)
+1. **공유 액세스 정책 추가** 에서 정책에 대한 설명형 이름(예: *serviceAndRegistryReadWrite*)을 입력합니다. **권한에서** 레지스트리 **쓰기** 및 **서비스 연결** 를 선택한 다음, **추가를** 선택합니다. (레지스트리 **읽기** 권한은 **레지스트리 쓰기** 를 선택하면 자동으로 포함됩니다.)
 
-    ![새 공유 액세스 정책을 추가하는 방법 표시](./media/iot-hub-include-find-service-regrw-connection-string/iot-hub-add-svc-regrw-policy.png)
+    :::image type="content" source="./media/iot-hub-include-find-service-regrw-connection-string/iot-hub-add-svc-regrw-policy.png" alt-text="새 공유 액세스 정책을 추가하는 방법을 보여 주는 화면 캡처" border="true":::
 
 1. 정책 목록에서 새 정책을 선택합니다.
 
-1. **공유 액세스 키** 에서 **연결 문자열 -- 기본 키** 에 대한 복사 아이콘을 선택하고 값을 저장합니다.
+1. **공유 액세스 키** 아래에서 기본 연결 **문자열의** 복사 아이콘을 선택하고 값을 저장합니다.
 
-    ![연결 문자열을 검색하는 방법 표시](./media/iot-hub-include-find-service-regrw-connection-string/iot-hub-get-connection-string.png)
+    :::image type="content" source="./media/iot-hub-include-find-service-regrw-connection-string/iot-hub-get-connection-string.png" alt-text="연결 문자열을 검색하는 방법을 보여 주는 화면 캡처" border="true":::
 
 IoT Hub 공유 액세스 정책 및 사용 권한에 대한 자세한 내용은 [액세스 제어 및 권한](../articles/iot-hub/iot-hub-dev-guide-sas.md#access-control-and-permissions)을 참조하세요.

@@ -2,13 +2,13 @@
 title: Azure Backup 보고서 메일 보내기
 description: 메일을 통해 정기적으로 보고서를 받을 수 있는 자동화된 작업 만들기
 ms.topic: conceptual
-ms.date: 03/01/2021
-ms.openlocfilehash: d3ec76fa1a23657578979e65c0e54bb428722244
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.date: 10/19/2021
+ms.openlocfilehash: dd5e31663262463449df4377329edc6604ffb691
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561341"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130235984"
 ---
 # <a name="email-azure-backup-reports"></a>Azure Backup 보고서 메일 보내기
 
@@ -52,7 +52,7 @@ Backup 보고서를 통해 메일 작업을 구성하려면 다음 단계를 수
 
 ## <a name="contents-of-the-email"></a>메일의 콘텐츠
 
-* 포털에 표시된 모든 차트와 그래프는 메일에서 인라인 콘텐츠로 사용할 수 있습니다.
+* 포털에 표시된 모든 차트와 그래프는 메일에서 인라인 콘텐츠로 사용할 수 있습니다. Backup 보고서 표시된 정보에 대해 [자세히 알아보세요.](configure-reports.md)
 * 포털에 표시된 그리드는 메일에서 *.csv 첨부 파일로 사용할 수 있습니다.
 * 메일에 표시되는 데이터는 메일 작업을 만들 때 보고서에서 사용자가 선택한 모든 보고서 수준 필터를 사용합니다.
 * **백업 인스턴스 이름**, **정책 이름** 등의 탭 수준 필터는 적용되지 않습니다. 이에 대한 유일한 예외는 **보존 최적화** 그리드로, **최적화** 탭에 있습니다. 최적화 탭에는 **일간**, **주간**, **월간** 그리고 **연간** RP 보존 필터가 적용됩니다.

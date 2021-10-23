@@ -4,12 +4,12 @@ description: 이 문서에서는 애플리케이션 마이그레이션 및 통�
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 3dbd2e45074d78bbef535773c17b7036fcaf3e72
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a76da1aa62444c3bf7b9cd99216779774766299a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128606422"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251759"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Azure DevTest Labs 인프라의 거버넌스 - 애플리케이션 마이그레이션 및 통합
 개발/테스트 랩 환경을 설정한 후에는 다음 사항을 고려해야 합니다.
@@ -50,14 +50,14 @@ Azure Marketplace 이미지와 고유한 사용자 지정 조직 이미지는 �
 사용자 지정 조직 이미지를 DevTest Labs 환경으로 가져오기 위해 손쉽게 반복 가능한 프로세스를 설정하려면 어떻게 해야 하나요?
 
 ### <a name="answer"></a>답변
-[이 비디오에서 Image Factory 패턴](/azure/devtest-labs/devtest-lab-faq#blog-post)을 확인해 보세요. 이 시나리오는 고급 방식이며 샘플 스크립트만 제공합니다. 스크립트를 변경해야 하는 경우 환경에서 사용되는 스크립트를 직접 유지하고 관리해야 합니다.
+[이 비디오에서 Image Factory 패턴](./devtest-lab-faq.yml#blog-post)을 확인해 보세요. 이 시나리오는 고급 방식이며 샘플 스크립트만 제공합니다. 스크립트를 변경해야 하는 경우 환경에서 사용되는 스크립트를 직접 유지하고 관리해야 합니다.
 
 DevTest Labs를 사용하여 Azure Pipelines에서 사용자 지정 이미지 파이프라인 만들기:
 
-- [소개: Azure DevTest Labs에서 이미지 팩터리를 설정하여 몇 분 내에 VM 준비](/azure/devtest-labs/devtest-lab-faq#blog-post)
-- [Image Factory – Part 2! VM 생성을 위한 Azure Pipelines 및 Factory Lab 설정](/azure/devtest-labs/devtest-lab-faq#blog-post)
-- [Image Factory – 3부: 사용자 지정 이미지 저장 및 여러 랩에 배포](/azure/devtest-labs/devtest-lab-faq#blog-post)
-- [비디오: Azure DevTest Labs를 통해 사용자 지정 Image Factory 만들기](/azure/devtest-labs/devtest-lab-faq#blog-post)
+- [소개: Azure DevTest Labs에서 이미지 팩터리를 설정하여 몇 분 내에 VM 준비](./devtest-lab-faq.yml#blog-post)
+- [Image Factory – Part 2! VM 생성을 위한 Azure Pipelines 및 Factory Lab 설정](./devtest-lab-faq.yml#blog-post)
+- [Image Factory – 3부: 사용자 지정 이미지 저장 및 여러 랩에 배포](./devtest-lab-faq.yml#blog-post)
+- [비디오: Azure DevTest Labs를 통해 사용자 지정 Image Factory 만들기](./devtest-lab-faq.yml#blog-post)
 
 ## <a name="patterns-to-set-up-network-configuration"></a>네트워크 구성을 설정하는 패턴
 

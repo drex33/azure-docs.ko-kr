@@ -3,14 +3,14 @@ author: baanders
 description: Azure Digital Twins 제한에 대한 포함 파일
 ms.service: digital-twins
 ms.topic: include
-ms.date: 4/8/2021
+ms.date: 10/20/2021
 ms.author: baanders
-ms.openlocfilehash: fae919afc12afd5a6169dd119b57ae72ae7c14f0
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 9c64606f4816491da803d2c5116ff4ad248ec29a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114472881"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130287360"
 ---
 ### <a name="functional-limits"></a>기능 제한
 
@@ -22,11 +22,13 @@ ms.locfileid: "114472881"
 | 영역형 | 기능 | 기본 제한 | 조정 가능 |
 | --- | --- | --- | --- |
 | Azure 리소스 | 구독당 지역의 Azure Digital Twins 인스턴스 수 | 10 | 예 |
-| Digital Twins | Azure Digital Twins 인스턴스의 트윈 수 | 200,000 | 예 |
+| Digital Twins | Azure Digital Twins 인스턴스의 트윈 수 | 500,000 | 예 |
 | Digital Twins | 단일 쌍으로 들어오는 관계 수 | 5,000 | 아니요 |
 | Digital Twins | 단일 쌍에서 나가는 관계 수 | 5,000 | 아니요 |
 | Digital Twins | 단일 쌍의 최대 크기(PUT 또는 PATCH 요청의 JSON 본문) | 32KB | 아니요 |
 | Digital Twins | 최대 요청 페이로드 크기 | 32KB | 아니요 | 
+| Digital Twins | 문자열 속성 값의 최대 크기 (UTF-8) | 4KB | 아니요|
+| Digital Twins | 속성이 이름의 최대 크기 | 1KB | 아니요| 
 | 라우팅 | 단일 Azure Digital Twins 인스턴스의 엔드포인트 수 | 6 | 아니요 |
 | 라우팅 | 단일 Azure Digital Twins 인스턴스의 경로 수 | 6 | 예 |
 | 모델 | 단일 Azure Digital Twins 인스턴스 내의 모델 수 | 10000 | 예 |

@@ -6,22 +6,22 @@ ms.date: 06/24/2021
 ms.custom: devx-track-java
 author: mattmccleary
 ms.author: mmcc
-ms.openlocfilehash: c732762b825a38560c1191371565331271bc18b5
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 4ea03fc759395d1bdda7329cd4a1538559b86207
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130162734"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256746"
 ---
 # <a name="azure-monitor-opentelemetry-based-auto-instrumentation-for-java-applications"></a>Java 응용 프로그램용 Azure Monitor OpenTelemetry 기반 자동 계측
 
 이 문서에서는 OpenTelemetry 기반 Azure Monitor Java 제품을 사용 하도록 설정 하 고 구성 하는 방법을 설명 합니다. 이 문서의 지침을 완료 하면 Azure Monitor Application Insights를 사용 하 여 응용 프로그램을 모니터링할 수 있습니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 코드를 변경 하지 않고 Java 자동 계측을 사용 하도록 설정할 수 있습니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
-- 버전 8 +를 사용 하는 Java 응용 프로그램
+### <a name="prerequisites"></a>사전 요구 사항
+- Java 8 +를 사용 하는 java 응용 프로그램
 - Azure 구독 - [체험용 Azure 구독 만들기](https://azure.microsoft.com/free/)
 - Application Insights 리소스- [Application Insights 리소스 만들기](create-workspace-resource.md#create-workspace-based-resource)
 
@@ -30,7 +30,7 @@ ms.locfileid: "130162734"
 
 #### <a name="1-download-jar-file"></a>1. jar 파일 다운로드
 
-[Applicationinsights-agent-3.2.0](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.2.0/applicationinsights-agent-3.2.0.jar) 파일을 다운로드 합니다.
+[Applicationinsights-agent-3.2.1](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.2.1/applicationinsights-agent-3.2.1.jar) 파일을 다운로드 합니다.
 
 > [!WARNING]
 > 
@@ -52,7 +52,7 @@ ms.locfileid: "130162734"
 
 #### <a name="2-point-the-jvm-to-the-jar-file"></a>2. JVM을 jar 파일로 가리키기
 
-애플리케이션의 JVM 인수에 `-javaagent:path/to/applicationinsights-agent-3.2.0.jar` 추가 
+애플리케이션의 JVM 인수에 `-javaagent:path/to/applicationinsights-agent-3.2.1.jar` 추가 
 
 > [!TIP]
 > 애플리케이션의 JVM 인수 구성에 관한 도움말은 [JVM 인수 업데이트를 위한 팁](./java-standalone-arguments.md)을 참조하세요.
@@ -65,7 +65,7 @@ ms.locfileid: "130162734"
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
-또는 `applicationinsights.json`이라는 구성 파일을 작성하고 다음 내용으로 `applicationinsights-agent-3.2.0.jar`과 동일한 디렉터리에 배치합니다.
+또는 `applicationinsights.json`이라는 구성 파일을 작성하고 다음 내용으로 `applicationinsights-agent-3.2.1.jar`과 동일한 디렉터리에 배치합니다.
 
 ```json
 {
@@ -210,15 +210,15 @@ Java 3.x에는 다음과 같은 계측 라이브러리가 포함 되어 있습�
 ## <a name="modify-telemetry"></a>원격 분석 수정
 
 ### <a name="add-span-attributes"></a>범위 특성 추가
-를 사용하여 범위에 특성을 추가할 수 `opentelemetry-api` 있습니다. 이러한 특성에는 원격 분석용 사용자 지정 비즈니스 차원 추가가 포함될 수 있습니다. 특성을 사용하여 사용자 ID 또는 클라이언트 IP와 같은 애플리케이션 Insights 스키마에서 선택적 필드를 설정할 수도 있습니다.
+를 사용 하 여 `opentelemetry-api` 범위에 특성을 추가할 수 있습니다. 이러한 특성에는 원격 분석에 사용자 지정 비즈니스 차원을 추가 하는 작업이 포함 될 수 있습니다. 특성을 사용 하 여 사용자 ID 또는 클라이언트 IP와 같은 Application Insights 스키마의 선택적 필드를 설정할 수도 있습니다.
 
 #### <a name="add-custom-dimension"></a>사용자 지정 차원 추가
-하나 이상의 사용자 지정 차원을 추가하면 요청, 의존성 및/또는 예외 테이블의 _customDimensions_ 필드가 채워집니다.
+하나 이상의 사용자 지정 차원을 추가 하면 요청, 종속성 및/또는 예외 테이블의 _Customdimensions_ 필드가 채워집니다.
 
 > [!NOTE]
-> 이 기능은 3.2.0 이상에만 있습니다.
+> 이 기능은 3.2.0 이상에만 해당 됩니다.
 
-`opentelemetry-api-1.6.0.jar`애플리케이션에 추가
+`opentelemetry-api-1.6.0.jar`응용 프로그램에 추가
 
 ```xml
 <dependency>
@@ -237,15 +237,15 @@ Span.current().setAttribute("mycustomdimension", "myvalue1");
 ```
 
 #### <a name="set-user-id"></a>사용자 ID 설정
-요청, 의존성 및/또는 예외 테이블에서 사용자 ID 필드를 채웁니다.
+요청, 종속성 및/또는 예외 테이블의 사용자 ID 필드를 채웁니다.
 
 > [!IMPORTANT]
-> 인증된 사용자 ID를 설정하기 전에 관련 개인 정보 보호법을 참조합니다.
+> 인증 된 사용자 ID를 설정 하기 전에 적용 가능한 개인 정보 보호법을 참조 하십시오.
 
 > [!NOTE]
-> 이 기능은 3.2.0 이상에만 있습니다.
+> 이 기능은 3.2.0 이상에만 해당 됩니다.
 
-`opentelemetry-api-1.6.0.jar`애플리케이션에 추가
+`opentelemetry-api-1.6.0.jar`응용 프로그램에 추가
 
 ```xml
 <dependency>
@@ -263,14 +263,14 @@ import io.opentelemetry.api.trace.Span;
 Span.current().setAttribute("enduser.id", "myuser");
 ```
 
-### <a name="get-trace-id-or-span-id"></a>추적 ID 또는 범위 ID를 얻습니다.
+### <a name="get-trace-id-or-span-id"></a>추적 ID 또는 범위 ID 가져오기
 
-를 사용하여 추적 ID 또는 범위 ID를 얻을 수 `opentelemetry-api` 있습니다. 이 작업은 문제를 디버깅하고 진단할 때 상관 관계를 개선하기 위해 이러한 식별자를 기존 로깅 원격 분석 에 추가하기 위해 수행할 수 있습니다.
+`opentelemetry-api`를 사용 하 여 추적 id 또는 범위 id를 가져올 수 있습니다. 이러한 식별자는 기존 로깅 원격 분석에 추가 하 여 문제를 디버깅 하 고 진단할 때 상관 관계를 향상 시키기 위해 수행할 수 있습니다.
 
 > [!NOTE]
-> 이 기능은 3.2.0 이상에만 있습니다.
+> 이 기능은 3.2.0 이상에만 해당 됩니다.
 
-`opentelemetry-api-1.6.0.jar`애플리케이션에 추가
+`opentelemetry-api-1.6.0.jar`응용 프로그램에 추가
 
 ```xml
 <dependency>
@@ -280,7 +280,7 @@ Span.current().setAttribute("enduser.id", "myuser");
 </dependency>
 ```
 
-및 는 코드에서 요청 추적 ID 및 범위 ID를 얻습니다.
+코드에서 요청 추적 ID와 범위 ID를 가져옵니다.
 
 ```java
 import io.opentelemetry.api.trace.Span;
@@ -297,7 +297,7 @@ Application Insights Java 3.x는 이러한 API를 통해 전송되는 원격 분
 
 ### <a name="supported-custom-telemetry"></a>지원되는 사용자 지정 원격 분석
 
-아래 표에서는 Java 3.x 에이전트를 보완하기 위해 사용할 수 있는 현재 지원되는 사용자 지정 원격 분석 유형을 나타냅니다. 요약하자면, 사용자 지정 메트릭은 마이크로 분석을 통해 지원되고, 사용자 지정 예외 및 추적은 로깅 프레임워크, 사용자 지정 요청, 의존성 및 예외를 통해 사용하도록 설정할 수 `opentelemetry-api` 있으며, [Application Insights Java 2.x SDK를](#send-custom-telemetry-using-the-2x-sdk)통해 모든 유형의 사용자 지정 원격 분석이 지원됩니다.
+아래 표에서는 Java 3.x 에이전트를 보완하기 위해 사용할 수 있는 현재 지원되는 사용자 지정 원격 분석 유형을 나타냅니다. 요약 하자면, 사용자 지정 메트릭은 마이크로 측정기를 통해 지원 되 고, 사용자 지정 예외 및 추적은 로깅 프레임 워크, 사용자 지정 요청, 종속성 및 예외를 통해 사용 하도록 설정할 수 있으며, `opentelemetry-api` [Java 2.x SDK Application Insights](#send-custom-telemetry-using-the-2x-sdk)을 통해 사용자 지정 원격 분석의 모든 형식이 지원 됩니다.
 
 |                     | 마이크로미터 | Log4j, logback, JUL | 2.x SDK | opentelemetry-api |
 |---------------------|------------|---------------------|---------|-------------------|

@@ -3,15 +3,15 @@ title: Azure Automation Runbook 형식
 description: 이 문서에서는 Azure Automation에서 사용할 수 있는 Runbook의 유형 및 사용할 형식을 결정하기 위한 고려 사항을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/05/2021
+ms.date: 10/21/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 58bc105a088e2ed06fb710d9a2e38e406e375bd9
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 705b3f746a9e2abc55c5fa5767683c5198a09a48
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129534332"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236365"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation Runbook 형식
 
@@ -53,10 +53,11 @@ Azure Portal에서 그래픽 편집기를 사용하여 그래픽 및 그래픽 P
 * [텍스트 형식](automation-runbook-types.md) 중 하나로 변환할 수 없으며 텍스트 Runbook을 그래픽 형식으로 변환할 수 없습니다. 
 * 그래픽 워크플로가 만든 PowerShell 코드를 보거나 직접 편집할 수 없습니다. 코드 작업에서 만든 코드를 볼 수 있습니다.
 * Linux Hybrid Runbook Worker에서 Runbook을 실행할 수 없습니다. [Hybrid Runbook Worker를 사용하여 데이터 센터 또는 클라우드의 리소스 자동화](automation-hybrid-runbook-worker.md)를 참조하세요.
+* 그래픽 runbook은 디지털 서명할 수 없습니다.
 
 ## <a name="powershell-runbooks"></a>PowerShell Runbook
 
-PowerShell Runbook은 Windows PowerShell을 기반으로 합니다. Azure 포털의 텍스트 편집기를 사용하여 Runbook을 직접 편집합니다.  오프라인 텍스트 편집기도 사용할 수 있고 Azure Automation으로 [Runbook 가져오기](manage-runbooks.md) 가 가능합니다.
+PowerShell Runbook은 Windows PowerShell을 기반으로 합니다. Azure 포털의 텍스트 편집기를 사용하여 Runbook을 직접 편집합니다. 오프라인 텍스트 편집기도 사용할 수 있고 Azure Automation으로 [Runbook 가져오기](manage-runbooks.md) 가 가능합니다.
 
 ### <a name="advantages"></a>장점
 

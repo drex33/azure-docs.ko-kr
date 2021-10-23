@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2021
-ms.openlocfilehash: b272d4cb11ab948043f6c47b5be12fc0488d070f
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.openlocfilehash: b06d7c573514e0fe0471e13df3476bf5b13f20e3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122531059"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252690"
 ---
 # <a name="monitor-virtual-machines-with-azure-monitor-alerts"></a>Azure Monitor 경고를 사용하여 Azure 가상 머신 모니터링
 
@@ -48,7 +48,7 @@ Azure Monitor에서 가장 일반적인 경고 규칙 유형은 [메트릭 경�
 ### <a name="target-resource-and-impacted-resource"></a>대상 리소스 및 영향을 받는 리소스
 
 > [!NOTE]
-> 현재 공개 미리 보기로 제공되는 리소스 중심 로그 경고 규칙은 가상 머신에 대한 로그 쿼리 경고를 간소화 하고 현재 메트릭 측정 쿼리에서 제공하는 기능을 대체합니다. 컴퓨터를 규칙의 대상으로 사용하여 영향을 받는 리소스로 식별할 수 있습니다. 특정 리소스 그룹 또는 설명의 모든 컴퓨터에 단일 경고 규칙을 적용할 수도 있습니다. 리소스 센터 로그 쿼리 경고가 일반화되면 이 시나리오의 지침이 업데이트됩니다.
+> 현재 공개 미리 보기로 제공되는 리소스 중심 로그 경고 규칙은 가상 머신에 대한 로그 쿼리 경고를 간소화 하고 현재 메트릭 측정 쿼리에서 제공하는 기능을 대체합니다. 컴퓨터를 규칙의 대상으로 사용하여 영향을 받는 리소스로 식별할 수 있습니다. 특정 리소스 그룹 또는 구독의 모든 머신에 단일 경고 규칙을 적용할 수도 있습니다. 리소스 센터 로그 쿼리 경고가 일반화되면 이 시나리오의 지침이 업데이트됩니다.
 > 
 Azure Monitor의 각 경고에는 **영향을 받는 리소스** 속성이 있습니다 .이 속성은 규칙의 대상에 의해 정의됩니다. 메트릭 경고 규칙의 경우 영향을 받는 리소스는 컴퓨터이므로 표준 경고 보기에서 쉽게 식별할 수 있습니다. 각 컴퓨터에 대한 경고를 생성 하는 메트릭 측정 경고를 사용하는 경우에도 로그 쿼리 경고는 컴퓨터 대신 작업 영역 리소스와 연결됩니다. 영향을 받은 컴퓨터를 보려면 경고의 세부 정보를 확인해야 합니다.
 
@@ -133,7 +133,7 @@ InsightsMetrics
  InsightsMetrics
  | where Origin == "vm.azm.ms"
  | where _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" and (_ResourceId contains "/providers/Microsoft.Compute/virtualMachines/" or _ResourceId contains "/providers/Microsoft.Compute/virtualMachineScaleSets/") 
- | where Namespace == "Processor" and Name == "UtilizationPercentage"<br>\| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), _ResourceId
+ | where Namespace == "Processor" and Name == "UtilizationPercentage" | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), _ResourceId
 ```
 
 **리소스 그룹의 모든 컴퓨팅 리소스에 대한 CPU 사용률** 
@@ -142,7 +142,7 @@ InsightsMetrics
 InsightsMetrics
 | where Origin == "vm.azm.ms"
 | where _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/" or _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachineScaleSets/"
-| where Namespace == "Processor" and Name == "UtilizationPercentage"<br>\| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), _ResourceId 
+| where Namespace == "Processor" and Name == "UtilizationPercentage" | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), _ResourceId 
 ```
 
 ### <a name="memory-alerts"></a>메모리 경고
@@ -171,7 +171,7 @@ InsightsMetrics
 InsightsMetrics
 | where Origin == "vm.azm.ms"
 | where Namespace == "Memory" and Name == "AvailableMB"
-| extend TotalMemory = toreal(todynamic(Tags)["vm.azm.ms/memorySizeMB"])<br>\| extend AvailableMemoryPercentage = (toreal(Val) / TotalMemory) * 100.0
+| extend TotalMemory = toreal(todynamic(Tags)["vm.azm.ms/memorySizeMB"]) | extend AvailableMemoryPercentage = (toreal(Val) / TotalMemory) * 100.0
 | summarize AggregatedValue = avg(AvailableMemoryPercentage) by bin(TimeGenerated, 15m), Computer  
 ``` 
 
@@ -299,7 +299,7 @@ InsightsMetrics
 ```
 
 #### <a name="alert-rule"></a>경고 규칙
-로그 분석은 Azure Monitor 메뉴의 **로그** 에서 엽니다. 범위에 대해 올바른 작업 영역이 선택되어 있는지 확인합니다. 그렇지 않은 경우 왼쪽 위에서 **범위 선택을** 클릭하고 올바른 작업 영역을 선택합니다. 원하는 논리가 있는 쿼리에 붙여넣고 **실행** 을 선택하여 올바른 결과가 반환되는지 확인합니다.
+로그 분석은 Azure Monitor 메뉴의 **로그** 에서 엽니다. 범위에 대해 올바른 작업 영역이 선택되어 있는지 확인합니다. 그렇지 않은 경우 왼쪽 위에서 **범위 선택** 을 클릭하고 올바른 작업 영역을 선택합니다. 원하는 논리가 있는 쿼리에 붙여넣고 **실행** 을 선택하여 올바른 결과가 반환되는지 확인합니다.
 
 :::image type="content" source="media/monitor-virtual-machines/log-alert-metric-query-results.png" alt-text="메트릭 측정값 경고 쿼리 결과를 보여 주는 스크린샷." lightbox="media/monitor-virtual-machines/log-alert-metric-query-results.png":::
 

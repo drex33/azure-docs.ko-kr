@@ -4,16 +4,16 @@ description: SQL Server 저장 프로시저 작업을 사용하여 Data Factory 
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 10/22/2021
 author: nabhishek
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: bc69be48f172267c2d8894eb2a82f32a4970386f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a062bd4717cf13c7428da15e928a1e97cfde755d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128559343"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130250030"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server 저장 프로시저 작업
 > [!div class="op_single_selector" title1="변환 작업"]
@@ -301,7 +301,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 
 다음 표에서는 이러한 JSON 속성에 대해 설명합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | name | 작업의 이름 |예 |
 | description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |예 |

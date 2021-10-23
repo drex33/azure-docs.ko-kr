@@ -4,12 +4,12 @@ description: PowerShell을 사용하여 VHD 파일에서 Azure DevTest Labs에 �
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e0a44b51ae96eca8abef9dd5fc17107264f83b2a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 812a0062caab01131b84465cc67c625b8253469e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128675244"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130235173"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>PowerShell을 사용하여 VHD 파일에서 사용자 지정 이미지 만들기
 
@@ -96,7 +96,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name Cr
 
 ## <a name="related-blog-posts"></a>관련 블로그 게시물
 
-- [사용자 지정 이미지 또는 수식?](/azure/devtest-labs/devtest-lab-faq#blog-post)
+- [사용자 지정 이미지 또는 수식?](./devtest-lab-faq.yml#blog-post)
 - [Azure DevTest Labs 간의 사용자 지정 이미지 복사](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>다음 단계

@@ -8,18 +8,20 @@ keywords: 암호화, byok, aro, 배포, openshift, red hat
 ms.topic: how-to
 ms.date: 10/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: f9b60767f929f8fc9d40836daa6435d0c69d110f
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 460867bfd62859a86395cb64219396233ae27d06
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130134437"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238082"
 ---
 # <a name="encrypt-os-disks-with-a-customer-managed-key-cmk-on-azure-red-hat-openshift-aro-preview"></a>Azure Red Hat OpenShift (ARO) (미리 보기)에서 고객이 관리 하는 키 (CMK)를 사용 하 여 OS 디스크 암호화
 
 기본적으로 Azure Red Hat OpenShift 클러스터에 있는 가상 머신의 OS 디스크는 Microsoft Azure에서 관리 하는 자동 생성 키로 암호화 되었습니다. 추가 보안을 위해 고객은 ARO 클러스터를 배포할 때 자체 관리 키를 사용 하 여 OS 디스크를 암호화할 수 있습니다. 이 기능을 통해 고객 관리 키를 사용 하 여 기밀 데이터를 암호화 하 여 더 많은 제어를 할 수 있습니다.
 
 고객 관리 키를 사용 하 여 만든 클러스터에는 해당 키를 사용 하는 기본 저장소 클래스가 있습니다. 따라서 이러한 키로 OS 디스크와 데이터 디스크를 모두 암호화 합니다. 고객 관리 키는 Azure Key Vault에 저장 됩니다. Azure Key Vault를 사용 하 여 키를 만들고 유지 관리 하는 방법에 대 한 자세한 내용은 Microsoft Azure 설명서의 [Azure 디스크 저장소의 서버 쪽 암호화](../key-vault/general/basic-concepts.md) 를 참조 하세요.
+
+호스트 기반 암호화를 사용 하 여 ARO 에이전트 노드의 vm 호스트에 저장 된 데이터는 미사용 및 Storage 서비스로 암호화 된 흐름에서 암호화 됩니다. 즉, 임시 디스크는 플랫폼 관리형 키를 사용하여 미사용 암호화됩니다. OS 및 데이터 디스크의 캐시는 해당 디스크에 설정된 암호화 유형에 따라 플랫폼 관리형 키 또는 고객 관리형 키를 사용하여 미사용 암호화됩니다. 기본적으로 ARO를 사용할 때 OS 및 데이터 디스크는 플랫폼 관리 키를 사용 하 여 미사용으로 암호화 됩니다. 즉, 이러한 디스크에 대 한 캐시도 플랫폼 관리 키를 사용 하 여 미사용에서 기본적으로 암호화 됩니다. 아래 암호화 단계를 수행 하 여 고유한 관리 키를 지정할 수 있습니다. 또한 이 단계에서 지정한 키를 사용하여 이러한 디스크에 대한 캐시도 암호화합니다.
 
 > [!IMPORTANT]
 > ARO 미리 보기 기능은 셀프 서비스에서 사용할 수 있습니다(옵트인 방식). 미리 보기 기능은 "있는 그대로" 제공 되며 "사용 가능"으로 제공 되며 서비스 수준 계약 및 제한 된 보증에서 제외 됩니다. 미리 보기 기능은 최고의 노력으로 고객 지원팀에서 부분적으로 다룹니다. 따라서 이러한 기능은 프로덕션 용도로 사용할 수 없습니다.

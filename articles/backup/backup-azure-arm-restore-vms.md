@@ -4,12 +4,12 @@ description: 지역 간 복원 기능을 포함한 Azure Portal을 사용하여 
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/27/2021
-ms.openlocfilehash: 2c3dac941e766ae2d3889b3800e0b6864df16ebc
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: a848a36632a4c0474c9f20de58c415bd779da198
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130047911"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265039"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Azure Portal에서 Azure VM 데이터를 복원하는 방법
 
@@ -225,7 +225,7 @@ VM을 복원해야 하는 일반적인 시나리오는 여러 가지가 있습�
 **하이브리드 사용 혜택을 사용하여 VM 복원** | Windows VM에서 [HUB(하이브리드 사용 혜택) 라이선스](../virtual-machines/windows/hybrid-use-benefit-licensing.md)를 사용하는 경우, 디스크를 복원하고 제공된 템플릿(**라이선스 유형** 이 **Windows_Server** 로 설정됨) 또는 PowerShell을 사용하여 새 VM을 만듭니다.  이 설정은 VM을 만든 후에 적용할 수도 있습니다.
 **Azure 데이터 센터 재해 중 VM 복원** | 자격 증명 모음에서 GRS를 사용하고 VM에 대한 기본 데이터 센터의 작동이 중단되면, Azure Backup에서 쌍을 이루는 데이터 센터로 백업된 VM을 복원할 수 있습니다. 쌍을 이루는 데이터 센터에서 스토리지 계정을 선택하고 정상적으로 복원합니다. Azure Backup은 쌍을 이루는 지역에서 컴퓨팅 서비스를 사용하여 복원된 VM을 만듭니다. 데이터 센터 복원력에 대해 [자세히 알아보세요](/azure/architecture/resiliency/recovery-loss-azure-region).<br><br> 자격 증명 모음에서 GRS를 사용하는 경우 새 기능인 [지역 간 복원](#cross-region-restore)을 선택할 수 있습니다. 이를 통해 전체 또는 부분 중단 시나리오에서 또는 중단이 전혀 없는 경우에도 두 번째 지역으로 복원할 수 있습니다.
 **완전 복원** | Azure VM과 온-프레미스 하이퍼바이저의 주요 차이점은 Azure에서 사용할 수 있는 VM 콘솔이 없다는 것입니다. BMR(완전 복구) 유형 백업을 사용한 복구와 같은 특정 시나리오에서는 콘솔이 필요합니다. 하지만 자격 증명 모음의 VM 복원이 BMR로 완전히 대체됩니다.
-**특수 네트워크 구성이 있는 VM 복원** | 특수 네트워크 구성에는 내부 또는 외부 부하 분산을 사용하거나, 여러 NICS를 사용하거나, 예약된 여러 IP 주소를 사용하는 VM이 포함되어 있습니다. [디스크 복원 옵션](#restore-disks)을 사용하여 이러한 VM을 복원합니다. 이 옵션은 VHD 복사본을 지정된 스토리지 계정에 만듭니다. 그러면 구성에 따라 [내부](../load-balancer/quickstart-load-balancer-standard-internal-powershell.md) 또는 [외부](../load-balancer/quickstart-load-balancer-standard-public-powershell.md) 부하 분산 장치, [여러 NICS](../virtual-machines/windows/multiple-nics.md) 또는 [예약된 여러 IP 주소](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md)가 있는 VM을 만들 수 있습니다.
+**특수 네트워크 구성이 있는 VM 복원** | 특수 네트워크 구성에는 내부 또는 외부 부하 분산을 사용하거나, 여러 NICS를 사용하거나, 예약된 여러 IP 주소를 사용하는 VM이 포함되어 있습니다. [디스크 복원 옵션](#restore-disks)을 사용하여 이러한 VM을 복원합니다. 이 옵션은 VHD 복사본을 지정된 스토리지 계정에 만듭니다. 그러면 구성에 따라 [내부](../load-balancer/quickstart-load-balancer-standard-internal-powershell.md) 또는 [외부](../load-balancer/quickstart-load-balancer-standard-public-powershell.md) 부하 분산 장치, [여러 NICS](../virtual-machines/windows/multiple-nics.md) 또는 [예약된 여러 IP 주소](../virtual-network/ip-services/virtual-network-multiple-ip-addresses-powershell.md)가 있는 VM을 만들 수 있습니다.
 **NIC/서브넷의 NSG(네트워크 보안 그룹)** | Azure VM 백업은 vnet, 서브넷 및 NIC 수준에서 NSG 정보의 백업 및 복원을 지원합니다.
 **영역 고정 VM** | Azure Backup을 사용하여 영역에 고정된 Azure VM을 백업하는 경우 고정된 동일한 영역에서 복원할 수 있습니다. [자세한 정보](../availability-zones/az-overview.md)
 **모든 가용성 집합에서 VM 복원** | 포털에서 VM을 복원하는 경우 가용성 집합을 선택할 수 있는 옵션이 없습니다. 복원된 VM에는 가용성 집합이 없습니다. 디스크 복원 옵션을 사용하는 경우 제공된 템플릿 또는 PowerShell을 사용하여 디스크에서 VM을 만들 때 [가용성 집합을 지정](../virtual-machines/windows/tutorial-availability-sets.md)할 수 있습니다.

@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: virtual-machines
 author: msmbaldwin
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 1e0ec6d37990fbddcdebf7a1d2efd063cd9e4ea6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a12e81e00b58206a7220b436128167df448ff174
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128908926"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130288076"
 ---
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -151,7 +151,7 @@ Azure Disk Encryption은 키 자격 증명 모음 비밀 및 KEK URL의 일부�
 Azure CLI [az keyvault key create](/cli/azure/keyvault/key#az_keyvault_key_create) 명령을 사용하여 새 KEK를 생성하고 키 자격 증명 모음에 저장합니다.
 
 ```azurecli-interactive
-az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA
+az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA --size 4096
 ```
 
 대신 Azure CLI [az keyvault key import](/cli/azure/keyvault/key#az_keyvault_key_import) 명령을 사용하여 프라이빗 키를 가져올 수 있습니다.
@@ -167,7 +167,7 @@ az vm encryption enable -g "MyResourceGroup" --name "myVM" --disk-encryption-key
 Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet을 사용하여 새 KEK를 생성하고 키 자격 증명 모음에 저장합니다.
 
  ```powershell-interactive
-Add-AzKeyVaultKey -Name "myKEK" -VaultName "<your-unique-keyvault-name>" -Destination "HSM"
+Add-AzKeyVaultKey -Name "myKEK" -VaultName "<your-unique-keyvault-name>" -Destination "HSM" -Size 4096
 ```
 
 대신 Azure PowerShell [az keyvault key import](/cli/azure/keyvault/key#az_keyvault_key_import) 명령을 사용하여 프라이빗 키를 가져올 수 있습니다.

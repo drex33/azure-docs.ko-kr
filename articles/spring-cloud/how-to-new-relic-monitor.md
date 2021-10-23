@@ -1,23 +1,23 @@
 ---
-title: New Relic Java 에이전트를 사용하여 모니터링하는 방법
+title: 새 유물 Java 에이전트를 사용 하 여 스프링 부팅 앱을 모니터링 하는 방법
 titleSuffix: Azure Spring Cloud
-description: New Relic Java 에이전트를 사용하여 Azure Spring Cloud 앱을 모니터링하는 방법을 알아봅니다.
+description: 새 유물 Java agent를 사용 하 여 스프링 부팅 응용 프로그램을 모니터링 하는 방법에 대해 알아봅니다.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/07/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 4f8773660846dfeef87c27ccbe0755a0ce37d325
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 740193a9526bf19efb0e98f937c6f77c30b50b61
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122529958"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258300"
 ---
-# <a name="how-to-monitor-with-new-relic-java-agent-preview"></a>New Relic Java 에이전트를 사용하여 모니터링하는 방법(미리 보기)
+# <a name="how-to-monitor-spring-boot-apps-using-new-relic-java-agent-preview"></a>새 유물 Java 에이전트를 사용 하 여 스프링 부팅 앱을 모니터링 하는 방법 (미리 보기)
 
-이 기능을 사용하면 New Relic Java 에이전트를 사용하여 Azure Spring Cloud 앱을 모니터링할 수 있습니다.
+이 기능을 사용 하면 새 유물 Java 에이전트로 Azure 스프링 클라우드에서 실행 되는 스프링 부팅 응용 프로그램을 모니터링할 수 있습니다.
 
 New Relic Java 에이전트를 사용하면 다음을 수행할 수 있습니다.
 * New Relic Java 에이전트를 사용합니다.
@@ -35,7 +35,7 @@ New Relic Java 에이전트를 사용하면 다음을 수행할 수 있습니다
 * [New Relic](https://newrelic.com/) 계정
 * [Azure CLI 버전 2.0.67 이상](/cli/azure/install-azure-cli)
 
-## <a name="leverage-the-new-relic-java-in-process-agent"></a>프로세스 에이전트에서 New Relic Java 사용
+## <a name="activate-the-new-relic-java-in-process-agent"></a>프로세스 에이전트의 새 유물 Java 활성화
 
 다음 절차에 따라 에이전트에 액세스합니다.
 
@@ -57,11 +57,11 @@ New Relic Java 에이전트를 사용하면 다음을 수행할 수 있습니다
        --env NEW_RELIC_APP_NAME=appName NEW_RELIC_LICENSE_KEY=newRelicLicenseKey
     ```
 
-Azure Spring Cloud는 New Relic Java 에이전트를 */opt/agents/newrelic/java/newrelic-agent.jar* 에 미리 설치합니다. 고객은 애플리케이션의 **JVM 옵션** 에서 에이전트를 활용할 뿐만 아니라 [New Relic Java 에이전트 환경 변수](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables)를 사용하여 에이전트를 구성할 수 있습니다.
+Azure Spring Cloud는 New Relic Java 에이전트를 */opt/agents/newrelic/java/newrelic-agent.jar* 에 미리 설치합니다. 고객은 응용 프로그램의 **JVM 옵션** 에서 에이전트를 활성화할 수 있을 뿐만 아니라 [새 유물 Java 에이전트 환경 변수](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables)를 사용 하 여 에이전트를 구성할 수 있습니다.
 
 ## <a name="portal"></a>포털
 
-다음 절차를 통해 Portal에서 이 에이전트를 활용할 수도 있습니다.
+다음 절차를 사용 하 여 포털에서이 에이전트를 활성화할 수도 있습니다.
 
 1. 탐색 창의 **설정**/**앱** 에서 앱을 찾습니다.
 
@@ -99,13 +99,48 @@ Azure Spring Cloud는 New Relic Java 에이전트를 */opt/agents/newrelic/java/
 
    [ ![애플리케이션 프로필](media/new-relic-monitoring/profile-app.png) ](media/new-relic-monitoring/profile-app.png)
 
-## <a name="new-relic-java-agent-logging"></a>New Relic Java 에이전트 로깅
+## <a name="automate-provisioning"></a>프로비저닝 자동화
 
-기본적으로 Azure Spring Cloud는 New Relic Java 에이전트의 로그를 `STDOUT`에 출력합니다. 애플리케이션 로그와 결합됩니다. 애플리케이션 로그에서 명시적 에이전트 버전을 확인할 수 있습니다.
+Terraform 또는 Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 하 여 프로 비전 자동화 파이프라인을 실행할 수도 있습니다. 이 파이프라인은 사용자가 만들고 배포하는 모든 새 애플리케이션을 계측하고 모니터링하기 위한 완전한 자동 환경을 제공할 수 있습니다.
 
-다음에서 New Relic 에이전트의 로그를 가져올 수도 있습니다.
+### <a name="automate-provisioning-using-terraform"></a>Terraform을 사용 하 여 프로 비전 자동화
 
-* Azure Spring Cloud 로그
+Terraform 템플릿에서 환경 변수를 구성하려면 템플릿에 다음 코드를 추가하고 *\<...>* 자리 표시자를 고유한 값으로 바꿉니다. 자세한 내용은 [활성 Azure Spring Cloud 배포 관리](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_active_deployment)를 참조하세요.
+
+```terraform
+resource "azurerm_spring_cloud_java_deployment" "example" {
+  ...
+  jvm_options = "-javaagent:/opt/agents/newrelic/java/newrelic-agent.jar"
+  ...
+    environment_variables = {
+      "NEW_RELIC_APP_NAME": "<app-name>",
+      "NEW_RELIC_LICENSE_KEY": "<new-relic-license-key>"
+  }
+}
+```
+
+### <a name="automate-provisioning-using-an-arm-template"></a>ARM 템플릿을 사용 하 여 프로 비전 자동화
+
+ARM 템플릿에서 환경 변수를 구성하려면 템플릿에 다음 코드를 추가하고 *\<...>* 자리 표시자를 고유한 값으로 바꿉니다. 자세한 내용은 [Microsoft.AppPlatform Spring/apps/deployments](/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json)를 참조하세요.
+
+```ARM template
+"deploymentSettings": {
+  "environmentVariables": {
+    "NEW_RELIC_APP_NAME" : "<app-name>",
+    "NEW_RELIC_LICENSE_KEY" : "<new-relic-license-key>"
+  },
+  "jvmOptions": "-javaagent:/opt/agents/newrelic/java/newrelic-agent.jar",
+  ...
+}
+```
+
+## <a name="view-new-relic-java-agent-logs"></a>새 유물 Java 에이전트 로그 보기
+
+기본적으로 Azure Spring Cloud는 New Relic Java 에이전트의 로그를 `STDOUT`에 출력합니다. 로그는 애플리케이션 로그와 혼합됩니다. 애플리케이션 로그에서 명시적 에이전트 버전을 확인할 수 있습니다.
+
+또한 다음 위치에서 새 유물 에이전트의 로그를 가져올 수 있습니다.
+
+* Azure 스프링 클라우드 로그
 * Azure Spring Cloud Application Insights
 * Azure Spring Cloud LogStream
 

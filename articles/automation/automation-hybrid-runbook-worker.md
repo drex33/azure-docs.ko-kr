@@ -3,40 +3,41 @@ title: Azure Automation Hybrid Runbook Worker 개요
 description: 이 문서에서는 로컬 데이터 센터 또는 클라우드 공급자의 머신에서 Runbook을 실행하는 데 사용할 수 있는 Hybrid Runbook Worker에 대한 개요를 제공합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/28/2021
+ms.date: 10/06/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bcc115e2eb8e380217246b2a401cea93f922aa81
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: e5b6a6036514d1d6391c242563afbf9c185ba71e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129272159"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130253118"
 ---
 # <a name="automation-hybrid-runbook-worker-overview"></a>Automation Hybrid Runbook Worker 개요
 
-Azure Automation의 Runbook은 Azure 클라우드 플랫폼에서 실행되므로 다른 클라우드 또는 온-프레미스 환경의 리소스에 액세스하지 못할 수도 없습니다. Azure Automation의 Hybrid Runbook Worker 기능을 사용 하 여 역할을 호스트 하는 컴퓨터 및 환경의 리소스에 대해 runbook을 직접 실행 하 여 해당 로컬 리소스를 관리할 수 있습니다. Runbook은 Azure Automation에 저장 및 관리된 후 하나 이상의 할당된 컴퓨터에 전달됩니다.
+Azure Automation의 Runbook은 Azure 클라우드 플랫폼에서 실행되므로 다른 클라우드 또는 온-프레미스 환경의 리소스에 액세스하지 못할 수도 없습니다. Azure Automation Hybrid Runbook Worker 기능을 사용하여 역할을 호스트하는 머신에서 직접 Runbook을 실행하고 환경의 리소스에 대해 Runbook을 실행하여 로컬 리소스를 관리할 수 있습니다. Runbook은 Azure Automation에 저장 및 관리된 후 하나 이상의 할당된 컴퓨터에 전달됩니다.
 
-Azure Automation는 Azure VM (가상 컴퓨터) 확장 프레임 워크를 통해 Hybrid Runbook Worker 역할의 기본 통합을 제공 합니다. azure vm 에이전트는 Windows 및 Linux vm에서 azure vm에 대 한 확장을 관리 하 고 Arc 사용 서버 연결 된 컴퓨터 에이전트를 통해 비 azure 컴퓨터에 대 한 관리를 담당 합니다. 이제 Azure Automation에서 지 원하는 두 개의 Hybrid Runbook Worker 설치 플랫폼이 있습니다.
+Azure Automation Azure VM(가상 머신) 확장 프레임워크를 통해 Hybrid Runbook Worker 역할의 네이티브 통합을 제공합니다. Azure VM 에이전트는 Arc 지원 서버 Connected Machine 에이전트를 통해 Windows 및 Linux VM의 Azure VM 및 비 Azure 머신에서 확장을 관리합니다. 이제 Azure Automation 지원하는 두 개의 Hybrid Runbook Workers 설치 플랫폼이 있습니다.
 
 | 플랫폼 | Description |
 |---|---|
-|에이전트 기반 (V1)  |Azure Monitor [Log Analytics 작업 영역](../azure-monitor/logs/design-logs-deployment.md) 에 대 한 [Log Analytics 에이전트](../azure-monitor/agents/log-analytics-agent.md) 보고가 완료 된 후에 설치 됩니다.|
-|확장 기반 (V2)  |Azure Monitor Log Analytics 작업 영역에 보고 하는 Log Analytics 에이전트에 대 한 종속성 없이 [HYBRID RUNBOOK WORKER VM 확장](./extension-based-hybrid-runbook-worker-install.md)을 사용 하 여 설치 됩니다. 이것이 권장 되는 플랫폼입니다.|
+|에이전트 기반(V1)  |[log Analytics 에이전트가](../azure-monitor/agents/log-analytics-agent.md) Azure Monitor [Log Analytics 작업 영역에](../azure-monitor/logs/design-logs-deployment.md) 보고한 후 설치됩니다.|
+|확장 기반(V2)  |Azure Monitor Log Analytics 작업 영역에 보고하는 Log Analytics 에이전트에 대한 종속성 없이 Hybrid Runbook Worker [VM 확장을](./extension-based-hybrid-runbook-worker-install.md)사용하여 설치됩니다. 권장되는 플랫폼입니다.|
 
-:::image type="content" source="./media/automation-hybrid-runbook-worker/hybrid-worker-group-platform.png" alt-text="플랫폼 필드를 표시 하는 Hybrid worker 그룹":::
+:::image type="content" source="./media/automation-hybrid-runbook-worker/hybrid-worker-group-platform.png" alt-text="플랫폼 필드를 표시하는 Hybrid Worker 그룹":::
 
-확장 기반 Hybrid Runbook Worker 역할과 함께 사용할 수 있는 이점 목록은 다음과 같습니다. 
+확장 기반 Hybrid Runbook Worker 역할에서 사용할 수 있는 혜택 목록은 다음과 같습니다.
 
 | 이점 | 설명 |
 |---|---|
-|원활한 온 보 딩| 다중 단계 프로세스, 시간이 오래 걸리고 오류가 발생 하기 쉬운 Hybrid Runbook Worker를 등록 하기 위한 Log Analytics 솔루션에 대 한 종속성을 제거 합니다. |
-|통합 온 보 딩 환경| Azure 및 비 Azure 컴퓨터에 대해 지원 되는 동일한 방법을 사용 하 여 설치를 관리 합니다. |
-|관리 용이성| 하이브리드 작업자에 대 한 ARM id와의 기본 통합 및 정책 및 템플릿을 통해 규모의 거 버 넌 스에 대 한 유연성을 제공 합니다. |
-|Azure AD 기반 인증| Azure AD에서 제공 하는 VM 시스템 할당 id를 사용 합니다. 이는 id 및 리소스 자격 증명을 중앙 집중식으로 제어 하 고 관리 합니다.|
+|원활한 온보딩| 다단계 프로세스인 Hybrid Runbook Workers를 온보딩하기 위한 Log Analytics 솔루션에 대한 종속성을 제거합니다. 이 프로세스는 시간이 오래 걸리고 오류가 발생하기 쉽습니다. |
+|통합 온보딩 환경| 설치는 Azure 및 비 Azure 머신에 대해 지원되는 동일한 방법을 사용하여 관리됩니다. |
+|관리 용이성| Hybrid Runbook Worker ARM ID와 네이티브 통합을 통해 정책 및 템플릿을 통해 대규모로 유연하게 거버넌스할 수 있습니다. |
+|Azure AD 기반 인증| Azure AD에서 제공하는 VM 시스템 할당 ID를 사용합니다. 이렇게 하면 ID 및 리소스 자격 증명의 제어 및 관리가 중앙 집중화됩니다.|
 
-설치 후 Hybrid Runbook Worker 작업의 경우 Hybrid Runbook Worker에서 runbook을 실행 하는 프로세스는 동일 합니다. 확장 기반 방법의 목적은 Hybrid Runbook Worker 역할의 설치 및 관리를 간소화 하 고 에이전트 기반 버전으로 작업 하는 복잡성을 제거 하는 것입니다. 새 확장 기반 설치는 에이전트 기반 Hybrid Runbook Worker 역할의 설치 나 관리에 영향을 주지 않습니다. 두 형식은 동일한 컴퓨터에 공존할 수 있습니다.
-확장 기반 Hybrid Runbook Worker은 사용자 Hybrid Runbook Worker 유형만 지원 하며 업데이트 관리 기능에 필요한 시스템 Hybrid Runbook Worker를 포함 하지 않습니다. 확장 기반 Hybrid Runbook Worker 설치에 대 한 PowerShell 지원은 현재 지원 되지 않습니다.
+설치 후 Hybrid Runbook Worker 작업의 경우 Hybrid Runbook Workers에서 Runbook을 실행하는 프로세스는 동일합니다. 확장 기반 접근 방식의 목적은 Hybrid Runbook Worker 역할의 설치 및 관리를 간소화하고 에이전트 기반 버전으로 작업하는 복잡성을 제거하는 것입니다. 새 확장 기반 설치는 에이전트 기반 Hybrid Runbook Worker 역할의 설치 또는 관리에 영향을 미치지 않습니다. 두 유형이 모두 동일한 컴퓨터에 공존할 수 있습니다.
+
+확장 기반 Hybrid Runbook Worker 사용자 Hybrid Runbook Worker 유형만 지원하며 업데이트 관리 기능에 필요한 시스템 Hybrid Runbook Worker 포함하지 않습니다. 확장 기반 Hybrid Runbook Worker 설치에 대한 PowerShell 지원은 현재 지원되지 않습니다.
 
 ## <a name="runbook-worker-types"></a>Runbook Worker 유형
 
@@ -44,12 +45,12 @@ Runbook Worker에는 시스템과 사용자라는 두 가지 유형이 있습니
 
 |형식 | 설명 |
 |-----|-------------|
-|**System** |Windows 및 Linux 컴퓨터에 사용자 지정 업데이트를 설치하도록 디자인된 업데이트 관리 기능에서 사용하는 숨겨진 Runbook 집합을 지원합니다.<br> 이 유형의 Hybrid Runbook Worker는 Hybrid Runbook Worker 그룹의 구성원이 아니므로 Runbook Worker 그룹을 대상으로 하는 runbook을 실행 하지 않습니다. |
+|**System** |Windows 및 Linux 컴퓨터에 사용자 지정 업데이트를 설치하도록 디자인된 업데이트 관리 기능에서 사용하는 숨겨진 Runbook 집합을 지원합니다.<br> 이 유형의 Hybrid Runbook Worker Hybrid Runbook Worker 그룹의 구성원이 아니므로 Runbook Worker 그룹을 대상으로 하는 Runbook을 실행하지 않습니다. |
 |**사용자** |하나 이상의 Runbook Worker 그룹의 멤버인 Windows 및 Linux 컴퓨터에서 직접 실행하기 위한 사용자 정의 Runbook을 지원합니다. |
 
-에이전트 기반 (V1) Hybrid Runbook Worker는 [Log Analytics 에이전트](../azure-monitor/agents/log-analytics-agent.md) 보고를 사용 하 여 Azure Monitor [Log Analytics 작업 영역](../azure-monitor/logs/design-logs-deployment.md)에 의존 합니다. 작업 영역에서 지원 되는 운영 체제에 대 한 컴퓨터를 모니터링 하는 것 뿐만 아니라 Hybrid Runbook Worker를 설치 하는 데 필요한 구성 요소를 다운로드할 수 있습니다.
+에이전트 기반(V1) Hybrid Runbook Workers는 [Azure Monitor Log Analytics](../azure-monitor/agents/log-analytics-agent.md) 작업 영역에 보고하는 Log [Analytics](../azure-monitor/logs/design-logs-deployment.md)에이전트를 사용합니다. 작업 영역은 컴퓨터에서 모니터링 데이터를 수집하는 것뿐만 아니라 Hybrid Runbook Worker 설치하는 데 필요한 구성 요소를 다운로드하는 데도 필요합니다.
 
-Azure Automation [업데이트 관리](./update-management/overview.md)를 사용하도록 설정하면 Log Analytics 작업 영역에 연결된 모든 컴퓨터가 시스템 Hybrid Runbook Worker로 자동으로 구성됩니다. 사용자 Windows Hybrid Runbook Worker로 구성 하려면 자동화 및 Linux [에서 에이전트 기반 Windows Hybrid Runbook Worker 배포](automation-windows-hrw-install.md) 를 참조 하세요. [자동화에서 에이전트 기반 linux Hybrid Runbook Worker 배포](./automation-linux-hrw-install.md)를 참조 하세요.
+Azure Automation [업데이트 관리](./update-management/overview.md)를 사용하도록 설정하면 Log Analytics 작업 영역에 연결된 모든 컴퓨터가 시스템 Hybrid Runbook Worker로 자동으로 구성됩니다. 사용자 Windows Hybrid Runbook Worker 구성하려면 [Automation에서 에이전트 기반 Windows Hybrid Runbook Worker 배포](automation-windows-hrw-install.md) 및 Linux의 경우 Automation에서 [에이전트 기반 Linux Hybrid Runbook Worker 배포를 참조하세요.](./automation-linux-hrw-install.md)
 
 ## <a name="runbook-worker-limits"></a>Runbook Worker 한도
 
@@ -64,9 +65,9 @@ Azure Automation [업데이트 관리](./update-management/overview.md)를 사�
 
 ![Hybrid Runbook Worker 개요](media/automation-hybrid-runbook-worker/automation.png)
 
-각 사용자 Hybrid Runbook Worker는 작업자를 설치할 때 지정한 Hybrid Runbook Worker 그룹의 멤버입니다. 그룹에 단일 작업자가 포함될 수도 있지만 고가용성을 위해 그룹에 여러 작업자를 설치할 수 있습니다. 각 컴퓨터는 하나의 Automation 계정에 보고 한 Hybrid Runbook Worker를 호스트할 수 있습니다. 하이브리드 작업자를 여러 Automation 계정에 등록할 수 없습니다. 하이브리드 작업자는 단일 Automation 계정의 작업만 수신 대기할 수 있습니다. 업데이트 관리에 의해 관리되는 시스템 Hybrid Runbook Worker를 호스트하는 컴퓨터는 Hybrid Runbook Worker 그룹에 추가할 수 있습니다. 단, 업데이트 관리 및 Hybrid Runbook Worker 그룹 멤버 자격 모두에 대해 동일한 Automation 계정을 사용해야 합니다.
+각 사용자 Hybrid Runbook Worker는 작업자를 설치할 때 지정한 Hybrid Runbook Worker 그룹의 멤버입니다. 그룹에 단일 작업자가 포함될 수도 있지만 고가용성을 위해 그룹에 여러 작업자를 설치할 수 있습니다. 각 컴퓨터는 하나의 Automation 계정에 하나의 Hybrid Runbook Worker 보고를 호스트할 수 있습니다. 여러 Automation 계정에서 Hybrid Worker를 등록할 수 없습니다. 하이브리드 작업자는 단일 Automation 계정의 작업만 수신 대기할 수 있습니다. 업데이트 관리에 의해 관리되는 시스템 Hybrid Runbook Worker를 호스트하는 컴퓨터는 Hybrid Runbook Worker 그룹에 추가할 수 있습니다. 단, 업데이트 관리 및 Hybrid Runbook Worker 그룹 멤버 자격 모두에 대해 동일한 Automation 계정을 사용해야 합니다.
 
-사용자 Hybrid Runbook Worker에서 Runbook을 시작할 경우 이를 실행할 그룹을 지정합니다. 그룹의 각 작업자는 Azure Automation을 폴링하여 사용할 수 있는 작업이 있는지 확인합니다. 작업을 사용할 수 있는 경우 작업을 가져올 수 있는 첫 번째 작업자가 해당 작업을 수행합니다. 작업 큐의 처리 시간은 하이브리드 작업자 하드웨어 프로필 및 로드에 따라 달라집니다. 특정 작업자를 지정할 수 없습니다. 하이브리드 작업자는 폴링 메커니즘(30초마다)에 따라 작동하며 선착순 순서를 따릅니다. 작업을 밀어넣은 시기에 따라 어느 하이브리드 작업자가 ping하는지에 상관없이 Automation 서비스가 작업을 선택합니다. 단일 하이브리드 작업자는 일반적으로 ping당(즉, 30초마다) 4개의 작업을 선택할 수 있습니다. 푸시 작업의 속도가 30 초를 초과 하는 경우에는 Hybrid Runbook Worker 그룹의 다른 hybrid worker가 작업을 선택할 가능성이 높습니다.
+사용자 Hybrid Runbook Worker에서 Runbook을 시작할 경우 이를 실행할 그룹을 지정합니다. 그룹의 각 작업자는 Azure Automation을 폴링하여 사용할 수 있는 작업이 있는지 확인합니다. 작업을 사용할 수 있는 경우 작업을 가져올 수 있는 첫 번째 작업자가 해당 작업을 수행합니다. 작업 큐의 처리 시간은 하이브리드 작업자 하드웨어 프로필 및 로드에 따라 달라집니다. 특정 작업자를 지정할 수 없습니다. 하이브리드 작업자는 폴링 메커니즘(30초마다)에 따라 작동하며 선착순 순서를 따릅니다. 작업을 밀어넣은 시기에 따라 어느 하이브리드 작업자가 ping하는지에 상관없이 Automation 서비스가 작업을 선택합니다. 단일 하이브리드 작업자는 일반적으로 ping당(즉, 30초마다) 4개의 작업을 선택할 수 있습니다. 푸시 작업 비율이 30초당 4개보다 높은 경우 Hybrid Runbook Worker 그룹의 다른 Hybrid Worker가 작업을 선택할 가능성이 높습니다.
 
 Hybrid Runbook Worker에는 디스크 공간, 메모리 또는 네트워크 소켓에 대한 [Azure 샌드박스](automation-runbook-execution.md#runbook-execution-environment) 리소스 [한도](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)가 별로 없습니다. 하이브리드 작업자에 대한 한도는 작업자의 자체 리소스와만 관련되며, Azure 샌드박스에 있는 [공평 분배](automation-runbook-execution.md#fair-share) 시간 한도로 제한되지 않습니다.
 
@@ -78,9 +79,9 @@ Hybrid Runbook Worker를 설치하는 프로세스는 운영 체제에 따라 �
 
 |운영 체제  |배포 유형  |
 |---------|---------|
-|Windows | [자동](automation-windows-hrw-install.md#automated-deployment)<br>[수동](automation-windows-hrw-install.md#manual-deployment) |
+|Windows | [자동](automation-windows-hrw-install.md#automated-deployment)<br>[수동](automation-windows-hrw-install.md#manual-deployment). |
 |Linux   | [수동](automation-linux-hrw-install.md#install-a-linux-hybrid-runbook-worker) |
-|여기서는  | 사용자 Hybrid Runbook worker의 경우 [Automation에서 확장 기반 Windows 또는 Linux 사용자 Hybrid Runbook Worker 배포](./extension-based-hybrid-runbook-worker-install.md)를 참조 하세요. 이것이 권장된 방법입니다. |
+|여기서는  | 사용자 Hybrid Runbook Workers의 경우 [Automation에서 확장 기반 Windows 또는 Linux 사용자 Hybrid Runbook Worker 배포를 참조하세요.](./extension-based-hybrid-runbook-worker-install.md) 이것이 권장된 방법입니다. |
 
 ## <a name="network-planning"></a><a name="network-planning"></a>네트워크 계획
 
@@ -92,7 +93,7 @@ Azure Automation과 Log Analytics 에이전트를 실행하는 컴퓨터 간의 
 
 ### <a name="firewall-use"></a>방화벽 사용
 
-방화벽을 사용하여 인터넷 액세스를 제한하는 경우 액세스를 허용하도록 방화벽을 구성해야 합니다. Log Analytics 게이트웨이를 프록시로 사용 하는 경우 Hybrid Runbook Worker에 대해 구성 되었는지 확인 합니다. [Automation Hybrid Runbook Worker에 대한 Log Analytics 게이트웨이 구성](../azure-monitor/agents/gateway.md)을 참조하세요.
+방화벽을 사용하여 인터넷 액세스를 제한하는 경우 액세스를 허용하도록 방화벽을 구성해야 합니다. Log Analytics 게이트웨이를 프록시로 사용하는 경우 Hybrid Runbook Workers에 대해 구성되었는지 확인합니다. [Automation Hybrid Runbook Worker에 대한 Log Analytics 게이트웨이 구성](../azure-monitor/agents/gateway.md)을 참조하세요.
 
 ### <a name="service-tags"></a>서비스 태그
 
@@ -133,7 +134,7 @@ Azure Automation Hybrid Runbook Worker를 Azure Government에서 사용하여 �
 
 Hybrid Runbook Worker 작업은 Windows의 경우 로컬 **시스템** 계정으로 실행되고, Linux의 경우 [nxautomation 계정](automation-runbook-execution.md#log-analytics-agent-for-linux)으로 실행됩니다. Azure Automation은 Azure 샌드박스에서 실행되는 작업과 다른 방식으로 Hybrid Runbook Worker에 대한 작업을 처리합니다. [Runbook 실행 환경](automation-runbook-execution.md#runbook-execution-environment)을 참조하세요.
 
-Hybrid Runbook Worker 호스트 머신이 다시 부팅되면, 실행 중인 모든 Runbook 작업이 처음부터 다시 시작되거나 PowerShell 워크플로 Runbook의 마지막 검사점에서 다시 시작됩니다. Runbook 작업이 세 번 이상 다시 시작 되 면 일시 중단 됩니다.
+Hybrid Runbook Worker 호스트 머신이 다시 부팅되면, 실행 중인 모든 Runbook 작업이 처음부터 다시 시작되거나 PowerShell 워크플로 Runbook의 마지막 검사점에서 다시 시작됩니다. Runbook 작업이 세 번 이상 다시 시작되면 일시 중단됩니다.
 
 ### <a name="runbook-permissions-for-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에 대한 Runbook 권한
 

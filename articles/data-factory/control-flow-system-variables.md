@@ -10,12 +10,12 @@ ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: e5594ea57dce2d7cf03989da9288ab2869e28e06
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a272e5c7f4d467dadfe618f6d70b9a36225c48ff
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124743804"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130175829"
 ---
 # <a name="system-variables-supported-by-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics에서 지원하는 시스템 변수
 
@@ -72,6 +72,9 @@ ms.locfileid: "124743804"
 | @triggerBody().fileName  |생성 또는 삭제로 인해 트리거가 실행된 파일의 이름입니다.   |
 | @triggerBody().folderPath  |`@triggerBody().fileName`로 지정된 파일을 포함하는 폴더의 경로입니다. 폴더 경로의 첫 번째 세그먼트는 Azure Blob Storage 컨테이너의 이름입니다.  |
 | @trigger().startTime |트리거가 파이프라인 실행을 실행한 시간입니다. |
+
+   > [!NOTE]
+   > [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md)에서 파이프라인 및 트리거를 만드는 경우 `@trigger().outputs.body.fileName` 및 `@trigger().outputs.body.folderPath`를 매개 변수로 사용해야 합니다. 이러한 두 속성은 Blob 정보를 캡처합니다. `@triggerBody().fileName` 및 `@triggerBody().folderPath`를 사용하는 대신 이러한 속성을 사용합니다.
 
 ## <a name="custom-event-trigger-scope"></a>사용자 지정 이벤트 트리거 범위
 

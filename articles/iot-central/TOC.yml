@@ -20,36 +20,8 @@
           href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-may-2021/'
         - name: 2021년 4월 새로운 기능 및 업데이트된 기능
           href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-april-2021/'
-        - name: 2021년 3월 새로운 기능 및 업데이트된 기능
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-march-2021/'
-        - name: 2021년 2월 새로운 기능 및 업데이트된 기능
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-february-2021/'
-        - name: 2021년 1월 새로운 기능 및 업데이트된 기능
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-january-2021/'
-        - name: 2020년 11월 새로운 기능 및 업데이트된 기능
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-november-2020/'
-        - name: 2020년 10월 새로운 기능 및 업데이트된 기능
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-upadates-october-2020/'
-        - name: 2020년 9월 새로운 기능 및 업데이트된 기능
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-september-2020/'
-        - name: 2020년 8월 새로운 기능 및 업데이트된 기능
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-august-2020/'
-        - name: 2020년 7월 새로운 기능 및 업데이트된 기능
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-july-2020/'
-        - name: 2020년 6월 새로운 기능 및 업데이트된 기능
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-june-2020/'
-        - name: 2020년 6월 UI 및 문서 업데이트
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-ui-documenation-updates-june-2020/'
-        - name: 2020년 5월 작업 및 메트릭 업데이트
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-jobs-and-metrics-feature-updates-may-2020/'
-        - name: 2020년 5월 대시보드 업데이트
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-may-2020-dashboard-updates/'
-        - name: 2020년 4월 새 기능
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-april-2020-new-features/'
-        - name: 2020년 4월 업데이트
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-april-2020-updates/'
-        - name: 2020년 3월
-          href: 'https://azure.microsoft.com/updates/azure-iot-central-march-2020-updates/'
+        - name: 업데이트 기록
+          href: 'https://azure.microsoft.com/updates/?status=nowavailable&updateType=features&category=iot&query=azure%20iot%20central'
 - name: 빠른 시작
   expanded: true
   items:

@@ -12,12 +12,12 @@ author: sasapopo
 ms.author: sasapopo
 ms.reviewer: mathoma
 ms.date: 10/08/2020
-ms.openlocfilehash: 4a3e96c33a0bef8e533b4f7f563c701a2c0a8044
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 454b5c20c7e1e28c87e2be38662c12055f14079e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130042204"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226814"
 ---
 # <a name="use-server-trust-groups-to-set-up-and-manage-trust-between-sql-managed-instances"></a>서버 신뢰 그룹을 사용하여 SQL Managed Instance 간 신뢰 설정 및 관리
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -66,7 +66,7 @@ ms.locfileid: "130042204"
    :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete-confirm.png" alt-text="서버 신뢰 그룹 삭제 확인":::
 
 > [!NOTE]
-> 서버 신뢰 그룹을 삭제해도 두 Managed Instance 간의 신뢰가 즉시 제거되지 않을 수 있습니다. Managed Instance의 [장애 조치(failover)](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover)를 호출하여 신뢰 제거를 적용할 수 있습니다. 이 문제에 대한 최신 업데이트는 [알려진 문제](../database/doc-changes-updates-release-notes.md?tabs=managed-instance#known-issues)를 확인하시기 바랍니다.
+> 서버 신뢰 그룹을 삭제해도 두 Managed Instance 간의 신뢰가 즉시 제거되지 않을 수 있습니다. Managed Instance의 [장애 조치(failover)](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover)를 호출하여 신뢰 제거를 적용할 수 있습니다. 이 문제에 대한 최신 업데이트는 [알려진 문제](../database/doc-changes-updates-release-notes-whats-new.md?tabs=managed-instance)를 확인하시기 바랍니다.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -82,5 +82,5 @@ ms.locfileid: "130042204"
 ## <a name="next-steps"></a>다음 단계
 
 * Azure SQL Managed Instance의 분산 트랜잭션에 대한 자세한 내용은 [분산 트랜잭션](../database/elastic-transactions-overview.md)을 참조하세요.
-* 릴리스 업데이트 및 알려진 문제 상태는 새로운 것을 [참조하세요.](doc-changes-updates-release-notes-whats-new.md)
+* 릴리스 업데이트 및 알려진 문제 상태는 [새로운 기능](doc-changes-updates-release-notes-whats-new.md)을 참조 하세요.
 * 기능 요청이 있는 경우 [Managed Instance 포럼](https://feedback.azure.com/forums/915676-sql-managed-instance)에 추가하세요.

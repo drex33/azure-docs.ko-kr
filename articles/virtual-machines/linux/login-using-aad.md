@@ -4,24 +4,24 @@ description: Azure Active Directory 인증을 사용하여 로그인하기 위�
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 05/11/2021
+ms.date: 10/21/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7679c10a5b40edb163974c246fe7fb219ec8effa
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 4d17c3c5f71692e5be1841cfb3a3e39df9820a26
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129274637"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251284"
 ---
 # <a name="deprecated-login-to-a-linux-virtual-machine-in-azure-with-azure-active-directory-using-device-code-flow-authentication"></a>사용 중단: 디바이스 코드 흐름 인증을 사용하여 Azure Active Directory에서 Azure의 Linux 가상 머신에 로그인합니다.
 
 > [!CAUTION]
-> **이 문서에서 설명하는 퍼블릭 미리 보기 기능은 2021년 8월 15일에 사용 중단될 예정입니다.**
+> **이 문서에 설명된 공개 미리 보기 기능은 2021년 8월 15일 사용되지 않습니다.**
 > 
 > 이 기능은 인증서 기반 인증을 통해 Azure AD 및 SSH를 사용하는 기능으로 대체됩니다. 자세한 내용은 [미리 보기: Azure에서 SSH 인증서 기반 인증을 사용하여 Azure Active Directory로 Linux 가상 머신에 로그인](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md) 문서를 참조하세요. 이전 버전에서 이 버전으로 마이그레이션하려면 [이전 버전에서 마이그레이션 미리 보기](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md#migration-from-previous-preview)를 참조하세요.
 

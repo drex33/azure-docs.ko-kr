@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/12/2010
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7149d7ac2625eb60a1d0d22253b93b68a99475de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 5f0519b60d3b02c8312e15861441060ca89ab002
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99592095"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234135"
 ---
 # <a name="use-the-azure-frontend-apis-for-authentication"></a>인증을 위해 Azure Frontend API 사용
 
@@ -20,6 +20,7 @@ ms.locfileid: "99592095"
 > [!CAUTION]
 > 이 장에서 설명하는 함수는 내부적으로 서버에서 REST 호출을 실행합니다. 모든 REST 호출과 마찬가지로 이러한 명령을 너무 자주 보내면 서버가 제한을 초과하여 결국 오류가 반환됩니다. `SessionGeneralContext.HttpResponseCode`이 경우 멤버의 값은 429("요청이 너무 많음")입니다. 일반적으로 **후속 호출 간에 5~10초** 지연이 발생합니다.
 
+또한 일부 함수는 다시 시도하기 위해 저장할 때 정보를 반환합니다. 예를 들어 `RenderingSessionPropertiesResult.MinimumRetryDelay` 다른 검사를 시도하기 전에 대기할 시간(초)을 지정합니다. 사용 가능한 경우 제한 없이 가능한 한 자주 검사를 수행할 수 있기 때문에 이러한 반환된 값을 사용하는 것이 가장 좋습니다.
 
 ## <a name="sessionconfiguration"></a>SessionConfiguration
 

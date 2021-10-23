@@ -17,12 +17,12 @@ ms.date: 9/01/2021
 ms.author: adbadram
 ms.reviewer: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b5a0aa73a2017323657a6e1300bc18775824b1f6
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: e5a122fb23b7ebcfbbbf008dacc675eddf0c3cb0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130163732"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130247962"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>SQL Server IaaS 에이전트 확장을 사용하여 관리 자동화
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -75,7 +75,7 @@ SQL Server IaaS 에이전트 확장은 SQL Server VM 관리에 대한 다양한 
 | 기능 | 설명 |
 | --- | --- |
 | **포털 관리** | [포털에서 관리](manage-sql-vm-portal.md)가 가능해 단일 위치에서 모든 SQL Server VM을 볼 수 있고 포털에서 직접 특정 SQL 기능을 사용 또는 사용하지 않도록 설정할 수 있습니다. <br/> 관리 모드: 경량 및 전체|  
-| **자동화된 백업** |VM에 있는 SQL Server의 기본 인스턴스나 [제대로 설치된](/azure/azure-sql/virtual-machines/windows/frequently-asked-questions-faq#administration) 명명된 인스턴스에 대한 모든 데이터베이스 백업 예약을 자동화합니다. 자세한 내용은 [Azure 가상 머신에서 SQL Server에 대한 자동화된 백업(Resource Manager)](automated-backup-sql-2014.md)을 참조하세요. <br/> 관리 모드: 전체|
+| **자동화된 백업** |VM에 있는 SQL Server의 기본 인스턴스나 [제대로 설치된](./frequently-asked-questions-faq.yml) 명명된 인스턴스에 대한 모든 데이터베이스 백업 예약을 자동화합니다. 자세한 내용은 [Azure 가상 머신에서 SQL Server에 대한 자동화된 백업(Resource Manager)](automated-backup-sql-2014.md)을 참조하세요. <br/> 관리 모드: 전체|
 | **자동화된 패치** |워크로드가 가장 많은 시간에 업데이트하지 않도록 VM에 대한 중요한 Windows 및 SQL Server 보안 업데이트가 수행될 유지 관리 기간을 구성할 수 있습니다. 자세한 내용은 [Azure 가상 머신에서 SQL Server에 대한 자동화된 패치(Resource Manager)](automated-patching.md)를 참조하세요. <br/> 관리 모드: 전체|
 | **Azure Key Vault 통합** |SQL Server VM에서 Azure Key Vault를 자동으로 설치하고 구성할 수 있습니다. 자세한 내용은 [Azure Virtual Machines에서 SQL Server에 대한 Azure Key Vault 통합 구성(Resource Manager)](azure-key-vault-integration-configure.md)을 참조하세요. <br/> 관리 모드: 전체|
 | **포털에서 디스크 사용률 보기** | Azure Portal에서 SQL 데이터 파일의 디스크 사용률에 대한 그래픽 표현을 볼 수 있습니다.  <br/> 관리 모드: 전체 | 
@@ -166,8 +166,8 @@ SQL IaaS 에이전트 확장은 다음만 지원합니다.
 
 - Azure Resource Manager를 통해 배포된 SQL Server VM. 클래식 모델을 통해 배포된 SQL Server VM은 지원되지 않습니다. 
 - 공용 또는 Azure Government 클라우드에 배포된 SQL Server VM. 다른 프라이빗 또는 정부 클라우드로의 배포는 지원되지 않습니다. 
-- 경량 모드의 FCI(장애 조치(failover) 클러스터 인스턴스) 
-- 경량 모드의 단일 VM에 여러 인스턴스가 있는 명명된 인스턴스. 
+- 경량 모드에서 FCIs (장애 조치 (Failover) 클러스터 인스턴스) 
+- 경량 모드의 단일 VM에 여러 인스턴스가 있는 명명 된 인스턴스 
 
 
 

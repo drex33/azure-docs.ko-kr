@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/29/2021
 ms.author: pafarley
-ms.openlocfilehash: 58de8de28b796d67f9368224ced24c9c592cfdb6
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: f88c5d4746fbafaf8255f2a767cef1cc2f145954
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112033818"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074516"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>자습서: Azure Content Moderator를 사용하여 Facebook 게시물 및 의견 조정
 
@@ -121,7 +121,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     > [!IMPORTANT]
     > 2018년에 Facebook은 Facebook 앱에 대해 보다 엄격한 심사를 구현했습니다. Facebook 검토 팀에서 앱을 검토하고 승인하지 않으면 섹션 2, 3 및 4를 실행할 수 없습니다.
 
-    1. [Facebook](https://www.facebook.com/bookmarks/pages)으로 이동하고 **새 Facebook 페이지** 를 만듭니다.
+    1. [Facebook](https://www.facebook.com/pages)으로 이동하고 **새 Facebook 페이지** 를 만듭니다.
     1. Facebook 앱에서 이러한 단계를 따라 이 페이지에 액세스하도록 허용합니다.
         1. [Graph API 탐색기](https://developers.facebook.com/tools/explorer/)로 이동합니다.
         1. **애플리케이션** 을 선택합니다.

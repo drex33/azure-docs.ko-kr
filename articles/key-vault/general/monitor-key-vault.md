@@ -10,18 +10,18 @@ ms.topic: how-to
 ms.date: 09/21/2021
 ms.author: mbaldwin
 ms.custom: subject-monitoring
-ms.openlocfilehash: 59fb467c2494fa6fa15c10fe9556975b87e0780e
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 229b7ace69c3b91f38f0cfb6e764f7771b4ff495
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130000008"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234551"
 ---
 # <a name="monitoring-azure-key-vault"></a>Azure Key Vault 모니터링
 
 Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 프로세스가 있는 경우 이와 같은 리소스의 가용성, 성능 및 작업을 모니터링할 수 있습니다. Azure Key Vault 경우 키 자격 증명 모음으로 전송되는 요청 수가 증가하므로 크기 조정을 시작할 때 서비스를 모니터링하는 것이 중요합니다. 이로 인해 요청 대기 시간이 증가하고 극단적인 경우 요청이 제한되어 서비스 성능에 영향을 줄 수 있습니다.
 
-이 문서에서는 Key Vault 생성된 모니터링 데이터에 대해 설명합니다. Key Vault [Azure Monitor](/azure/azure-monitor/overview)을 사용합니다. 이 기능을 사용하는 모든 Azure 서비스에 공통되는 Azure Monitor 기능에 익숙하지 않은 경우, [Azure Monitor로 Azure 리소스 모니터링](/azure/azure-monitor/essentials/monitor-azure-resource)을 읽어 보세요.
+이 문서에서는 Key Vault 생성된 모니터링 데이터에 대해 설명합니다. Key Vault [Azure Monitor](../../azure-monitor/overview.md)을 사용합니다. 이 기능을 사용하는 모든 Azure 서비스에 공통되는 Azure Monitor 기능에 익숙하지 않은 경우, [Azure Monitor로 Azure 리소스 모니터링](../../azure-monitor/essentials/monitor-azure-resource.md)을 읽어 보세요.
 
 ## <a name="monitoring-overview-page-in-azure-portal"></a>Azure Portal의 모니터링 개요 페이지
 
@@ -47,9 +47,9 @@ Key Vault 인사이트는 Key Vault 요청, 성능, 실패 및 대기 시간에 
 
 ## <a name="monitoring-data"></a>데이터 모니터링
 
-Key Vault Azure 리소스에서 데이터 모니터링에 설명된 다른 Azure 리소스와 동일한 종류의 [모니터링 데이터를 수집합니다.](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data-from-Azure-resources)
+Key Vault Azure 리소스에서 데이터 모니터링에 설명된 다른 Azure 리소스와 동일한 종류의 [모니터링 데이터를 수집합니다.](../../azure-monitor/essentials/monitor-azure-resource.md)
 
-Key Vault 만든 메트릭 및 로그 메트릭에 대한 자세한 내용은 모니터링 Key Vault [데이터 참조를  ](monitor-key-vault-reference.md) 참조하세요.
+Key Vault 생성된 메트릭 및 로그 메트릭에 대한 자세한 내용은 모니터링 Key Vault [데이터 참조를  ](monitor-key-vault-reference.md) 참조하세요.
 
 ## <a name="collection-and-routing"></a>수집 및 라우팅
 
@@ -57,23 +57,23 @@ Key Vault 만든 메트릭 및 로그 메트릭에 대한 자세한 내용은 �
 
 리소스 로그는 진단 설정을 만들고 하나 이상의 위치로 라우팅할 때까지 수집 및 저장되지 않습니다.
 
-Azure Portal, CLI 또는 PowerShell을 사용한 진단 설정 만들기의 자세한 프로세스는 [Azure에서 플랫폼 로그 및 메트릭을 수집하는 진단 설정 만들기](../../azure-monitor/platform/diagnostic-settings.md)를 참조하세요. 진단 설정을 만들 때 수집할 로그 범주를 지정합니다. *Key Vault* 범주는 Key Vault 모니터링 데이터 [참조](monitor-key-vault-reference.md#resource-logs)에 나열됩니다.
+Azure Portal, CLI 또는 PowerShell을 사용한 진단 설정 만들기의 자세한 프로세스는 [Azure에서 플랫폼 로그 및 메트릭을 수집하는 진단 설정 만들기](../../azure-monitor/essentials/diagnostic-settings.md)를 참조하세요. 진단 설정을 만들 때 수집할 로그 범주를 지정합니다. *Key Vault* 범주는 Key Vault 모니터링 데이터 [참조](monitor-key-vault-reference.md#resource-logs)에 나열됩니다.
 
 키 자격 증명 모음에 대한 진단 설정을 만들려면 [Key Vault 로깅 사용을](howto-logging.md)참조하세요.  수집할 수 있는 메트릭 및 로그에 대해서는 다음 섹션에서 설명합니다.
 
 ## <a name="analyzing-metrics"></a>메트릭 분석
 
-Azure Monitor 메뉴에서 메트릭을 열어 메트릭 탐색기를 사용하여 다른 Azure 서비스의 메트릭으로 **Key Vault** **메트릭을** 분석할 수 있습니다. 이 도구 사용에 대한 자세한 내용은 [Azure 메트릭 탐색기 시작](/azure/azure-monitor/platform/metrics-getting-started)을 참조하세요.
+Azure Monitor 메뉴에서 메트릭을 열어 메트릭 탐색기를 사용하여 다른 Azure 서비스의 메트릭으로 **Key Vault** **대한 메트릭을** 분석할 수 있습니다. 이 도구 사용에 대한 자세한 내용은 [Azure 메트릭 탐색기 시작](../../azure-monitor/essentials/metrics-getting-started.md)을 참조하세요.
 
-Key Vault 대해 수집된 플랫폼 메트릭 목록은 Key Vault 데이터 [참조 메트릭 모니터링을 참조하세요.](monitor-key-vault-reference.md#metrics)  
+Key Vault 대해 수집된 플랫폼 메트릭 목록은 모니터링 Key Vault [데이터 참조 메트릭을 참조하세요.](monitor-key-vault-reference.md#metrics)  
 
 ## <a name="analyzing-logs"></a>로그 분석
 
 Azure Monitor Logs의 데이터는 테이블마다 고유한 자체 속성 집합이 있는 테이블에 저장됩니다.  
 
-Azure Monitor의 모든 리소스 로그에는 동일한 필드와 그 뒤에 오는 서비스별 필드가 있습니다. 공용 스키마는 Azure Monitor [리소스 로그 스키마에](../../azure-monitor/platform/diagnostic-logs-schema.md#top-level-resource-logs-schema) 설명되어 있습니다. 
+Azure Monitor의 모든 리소스 로그에는 동일한 필드와 그 뒤에 오는 서비스별 필드가 있습니다. 공용 스키마는 Azure Monitor [리소스 로그 스키마에](../../azure-monitor/essentials/resource-logs-schema.md) 설명되어 있습니다. 
 
-[활동 로그](../../azure-monitor/platform/activity-log.md)는 구독 수준의 이벤트에 대한 인사이트를 제공하는 Azure의 플랫폼 로그 유형입니다. 활동 로그는 독립적으로 보거나 Azure Monitor Logs로 라우팅할 수 있습니다. 여기서 Log Analytics를 사용하여 훨씬 더 복잡한 쿼리를 수행할 수 있습니다.  
+[활동 로그](../../azure-monitor/essentials/activity-log.md)는 구독 수준의 이벤트에 대한 인사이트를 제공하는 Azure의 플랫폼 로그 유형입니다. 활동 로그는 독립적으로 보거나 Azure Monitor Logs로 라우팅할 수 있습니다. 여기서 Log Analytics를 사용하여 훨씬 더 복잡한 쿼리를 수행할 수 있습니다.  
 
 Key Vault 대해 수집된 리소스 로그 유형 목록은 모니터링 Key Vault [데이터 참조를 참조하세요.](monitor-key-vault-reference.md#resource-logs)  
 
@@ -84,7 +84,7 @@ Azure Monitor Logs에서 사용하고 Log Analytics에서 쿼리할 수 있는 �
 > [!IMPORTANT]
 > Key Vault 메뉴에서 **로그를** 선택하면 쿼리 범위가 현재 키 자격 증명 모음으로 설정된 상태로 Log Analytics가 열립니다. 즉, 로그 쿼리에는 해당 리소스의 데이터만 포함됩니다. 다른 키 자격 증명 모음의 데이터 또는 다른 Azure 서비스의 데이터가 포함된 쿼리를 실행하려면 **Azure Monitor** 메뉴에서 **로그를** 선택합니다. 자세한 내용은 [Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위](/azure/azure-monitor/log-query/scope/)를 참조하세요.
 
-다음은 **로그 검색** 표시줄에 입력하여 Key Vault 리소스를 모니터링하는 데 도움이 되는 몇 가지 쿼리입니다. 이러한 쿼리는 [새 언어](/azure/azure-monitor/logs/log-query-overview)에서 작동합니다.
+다음은 **로그 검색** 표시줄에 입력하여 Key Vault 리소스를 모니터링하는 데 도움이 되는 몇 가지 쿼리입니다. 이러한 쿼리는 [새 언어](../../azure-monitor/logs/log-query-overview.md)에서 작동합니다.
 
 * 느린 요청이 있나요?
 
@@ -178,9 +178,9 @@ Azure Monitor Logs에서 사용하고 Log Analytics에서 쿼리할 수 있는 �
 
 ## <a name="alerts"></a>경고
 
-Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견될 때 사용자에게 사전에 알립니다. 이를 통해 시스템의 문제를 선제적으로 식별하고 해결할 수 있습니다. [메트릭](../../azure-monitor/platform/alerts-metric-overview.md), [로그](../../azure-monitor/platform/alerts-unified-log.md) 및 [활동 로그](../../azure-monitor/platform/activity-log-alerts.md)에서 경고를 설정할 수 있습니다.  
+Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견될 때 사용자에게 사전에 알립니다. 이를 통해 시스템의 문제를 선제적으로 식별하고 해결할 수 있습니다. [메트릭](../../azure-monitor/alerts/alerts-metric-overview.md), [로그](../../azure-monitor/alerts/alerts-unified-log.md) 및 [활동 로그](../../azure-monitor/alerts/activity-log-alerts.md)에서 경고를 설정할 수 있습니다.  
 
-Azure Key Vault 실행되는 애플리케이션을 만들거나 실행하는 경우 Azure Monitor [애플리케이션 Insights](/azure/azure-monitor/overview#application-insights) 추가 유형의 경고를 제공할 수 있습니다.
+Azure Key Vault 실행되는 애플리케이션을 만들거나 실행하는 경우 Azure Monitor [애플리케이션 Insights](../../azure-monitor/overview.md#application-insights) 추가 유형의 경고를 제공할 수 있습니다.
 
 다음은 Azure Key Vault 대한 몇 가지 일반적이고 권장되는 경고 규칙입니다.
 
@@ -194,6 +194,6 @@ Azure Key Vault 실행되는 애플리케이션을 만들거나 실행하는 경
 
 ## <a name="next-steps"></a>다음 단계
 
-- Key Vault 생성된 메트릭, 로그 및 기타 중요한 값에 대한 참조는 모니터링 Azure Key Vault [데이터 참조를](monitor-key-vault-reference.md) 참조하세요.
-- Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](/azure/azure-monitor/insights/monitor-azure-resource)을 참조하세요.
+- Key Vault 만든 메트릭, 로그 및 기타 중요한 값에 대한 참조는 모니터링 Azure Key Vault [데이터 참조를](monitor-key-vault-reference.md) 참조하세요.
+- Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](../../azure-monitor/essentials/monitor-azure-resource.md)을 참조하세요.
 - [Azure Key Vault 경고로 보입니다.](alert.md)

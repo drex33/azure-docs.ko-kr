@@ -12,17 +12,17 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: mathoma, bonova
 ms.date: 12/13/2018
-ms.openlocfilehash: 76391ab62852c4c3d3fa6ef3ae5dc25c1e70ad57
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d1421b84c9156862f25c6dcf35b70b42dd8f2862
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535493"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130239369"
 ---
 # <a name="sync-networking-configuration-for-azure-app-service-hosting-plan-with-azure-sql-managed-instance"></a>Azure App Service 호스팅 계획에 대한 네트워킹 구성을 Azure SQL Managed Instance와 동기화
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-[Azure Virtual Network와 앱을 통합](../../app-service/web-sites-integrate-with-vnet.md)했더라도 SQL Managed Instance에 연결을 설정할 수 없는 문제가 발생할 수 있습니다. 서비스 계획에 대한 네트워킹 구성을 새로 고치거나 동기화하면 이 문제를 해결할 수 있습니다. 
+[Azure Virtual Network와 앱을 통합](../../app-service/overview-vnet-integration.md)했더라도 SQL Managed Instance에 연결을 설정할 수 없는 문제가 발생할 수 있습니다. 서비스 계획에 대한 네트워킹 구성을 새로 고치거나 동기화하면 이 문제를 해결할 수 있습니다. 
 
 ## <a name="sync-network-configuration"></a>네트워크 구성 동기화 
 

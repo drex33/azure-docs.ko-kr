@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 1a51af8fd34516ca87d7ab98332221a308480193
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 4c74181ef587469daf003bca5c2276e2bf26fbb3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129217150"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130246008"
 ---
 # <a name="create-and-manage-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 관리
 
@@ -40,8 +40,11 @@ ms.locfileid: "129217150"
 - 자체 호스팅 통합 런타임 머신에 권장되는 최소 구성은 코어 4개, 8GB RAM 및 80GB 여유가 있는 하드 드라이브 공간을 포함하는 2GHz 프로세서입니다. 시스템 요구 사항에 대한 세부 정보는 [다운로드](https://www.microsoft.com/download/details.aspx?id=39717)를 참조하세요.
 - 호스트 머신이 최대 절전 모드로 전환된 경우, 자체 호스팅 통합 런타임이 데이터 요청에 응답하지 않습니다. 따라서 자체 호스팅 통합 런타임을 설치하기 전에 컴퓨터에서 전원 관리 옵션을 적절하게 구성하세요. 머신이 최대 절전 모드로 전환된 경우, 자체 호스팅 통합 런타임 설치 관리자가 메시지를 표시합니다.
 - 자체 호스팅 통합 런타임을 성공적으로 설치 및 구성하기 위해서는 머신의 관리자여야 합니다.
-- 검색 실행은 설정한 일정에 따라 특정 빈도로 발생 합니다. 머신의 프로세서 및 RAM 사용량은 최대 및 유휴 시간과 동일한 패턴을 따릅니다. 리소스 사용량은 검색 되는 데이터의 양에 따라 크게 달라 집니다. 여러 검색 작업이 진행 중인 경우 사용량이 많은 시간 동안 리소스 사용량이 증가 하는 것을 볼 수 있습니다.
+- 검사 실행은 설정한 일정에 따라 특정 빈도로 발생합니다. 머신의 프로세서 및 RAM 사용량은 최대 및 유휴 시간과 동일한 패턴을 따릅니다. 또한 리소스 사용량은 검사되는 데이터의 양에 따라 크게 달라집니다. 여러 검사 작업이 진행 중인 경우 사용량이 많은 시간 동안 리소스 사용량이 증가한 것을 볼 수 있습니다.
 - Parquet, ORC 또는 Avro 형식의 데이터를 추출하는 동안 작업이 실패할 수 있습니다.
+
+> [!IMPORTANT]
+> Self-Hosted Integration Runtime을 사용하여 Parquet 파일을 검사하려면 IR 머신에 **64비트 JRE 8(Java Runtime Environment) 또는 OpenJDK를** 설치해야 합니다. 설치 가이드는 [페이지 아래쪽의 Java Runtime Environment 섹션을](#java-runtime-environment-installation) 확인하세요.
 
 ## <a name="setting-up-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 설정
 
@@ -49,11 +52,11 @@ ms.locfileid: "129217150"
 
 ## <a name="create-a-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 만들기
 
-1. [부서의 범위 Studio](https://web.purview.azure.com/resource/)홈 페이지의 왼쪽 탐색 창에서 **데이터 맵** 을 선택 합니다.
+1. [Purview Studio](https://web.purview.azure.com/resource/)홈페이지의 왼쪽 탐색 창에서 **데이터 맵** 선택합니다.
 
 2. 왼쪽 창의 **원본 및 스캔** 에서 **통합 런타임** 을 선택한 다음 **+ 새로 만들기** 를 선택합니다.
 
-   :::image type="content" source="media/manage-integration-runtimes/select-integration-runtimes.png" alt-text="IR을 선택 합니다.":::
+   :::image type="content" source="media/manage-integration-runtimes/select-integration-runtimes.png" alt-text="IR에서 를 선택합니다.":::
 
 3. **통합 런타임 설정** 페이지에서 **자체 호스팅** 을 선택하여 자체 호스팅 IR을 만든 다음 **계속** 을 선택합니다.
 
@@ -121,13 +124,23 @@ ms.locfileid: "129217150"
 
 ## <a name="manage-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 관리
 
-**관리 센터** 에서 **통합 런타임** 으로 이동 하 고 IR을 선택한 다음 편집을 선택 하 여 자체 호스팅 통합 런타임을 편집할 수 있습니다. 이제 설명을 업데이트하거나, 키를 복사하거나, 새 키를 다시 생성할 수 있습니다.
+**관리 센터에서** 통합 런타임으로 이동하여 IR을 선택한 다음, 편집을 선택하여 자체 호스팅 **통합 런타임을** 편집할 수 있습니다. 이제 설명을 업데이트하거나, 키를 복사하거나, 새 키를 다시 생성할 수 있습니다.
 
 :::image type="content" source="media/manage-integration-runtimes/edit-integration-runtime.png" alt-text="IR을 편집합니다.":::
 
 :::image type="content" source="media/manage-integration-runtimes/edit-integration-runtime-settings.png" alt-text="IR 세부 정보를 편집합니다.":::
 
-관리 센터에서 **통합 런타임** 으로 이동 하 고 IR을 선택한 다음 **삭제** 를 선택 하 여 자체 호스팅 통합 런타임을 삭제할 수 있습니다. IR이 삭제되면 IR을 사용하는 진행 중인 검사가 실패합니다.
+관리 센터에서 통합 런타임으로 이동하여 IR을 선택한 다음, 삭제를 선택하여 자체 호스팅 **통합 런타임을** **삭제할** 수 있습니다. IR이 삭제되면 IR을 사용하는 진행 중인 검사가 실패합니다.
+
+## <a name="java-runtime-environment-installation"></a>Java Runtime Environment 설치
+
+Purview와 함께 Self-Hosted Integration Runtime을 사용하여 Parquet 파일을 검사하는 경우 자체 호스팅 IR 머신에 Java Runtime Environment 또는 OpenJDK를 설치해야 합니다.
+
+자체 호스팅 IR을 사용하여 Parquet 파일을 검색할 때 서비스는 먼저 JRE에 대한 레지스트리를 확인하여 Java 런타임을 찾습니다( *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* 없는 경우). 두 번째로 *`JAVA_HOME`* OpenJDK에 대한 시스템 변수를 확인합니다.
+
+- **JRE 사용**: 64비트 IR에는 64비트 JRE가 필요합니다. [여기](https://go.microsoft.com/fwlink/?LinkId=808605)서 찾을 수 있습니다.
+- **OpenJDK 사용**: IR 버전 3.13부터 지원됩니다. 다른 모든 필수 OpenJDK 어셈블리와 함께 jvm.dll을 자체 호스팅 IR 머신으로 패키지하고, 이에 따라 JAVA_HOME 시스템 환경 변수를 설정합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

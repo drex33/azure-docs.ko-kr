@@ -3,7 +3,7 @@ title: 자습서 - Azure Active Directory에서 앱에 대한 사용자 프로�
 description: SCIM(도메인 간 ID 관리를 위한 시스템)은 자동 사용자 프로비저닝을 표준화합니다. 이 자습서에서는 SCIM 엔드포인트를 개발하고, SCIM API를 Azure Active Directory와 통합하고, 프로비저닝 사용자 및 그룹을 클라우드 애플리케이션으로 자동화하는 방법을 알아봅니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/26/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 539daea27b83203794fb4bf09969a288e2e570dd
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 03e2ce2c2d40c5edfa35515dd746802307d05f4b
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124759874"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990656"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint-in-azure-active-directory"></a>자습서: Azure Active Directory에서 SCIM 엔드포인트에 대한 프로비저닝 개발 및 계획
 

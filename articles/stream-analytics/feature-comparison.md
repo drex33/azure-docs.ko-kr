@@ -6,12 +6,12 @@ ms.author: raan
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 0cb51198fec12590b497f94b23fce8b32b67bb8c
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
-ms.translationtype: HT
+ms.openlocfilehash: 26ef280950d14f7bb3a833edd466912540ff1059
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122530766"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130263195"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Azure Stream Analytics 기능 비교
 
@@ -43,8 +43,7 @@ Azure Stream Analytics를 통해, [Azure Portal](stream-analytics-quick-create-p
 |사용자 지정 메시지 속성     |예         |예         |예       |
 |C# 사용자 지정 코드 함수 및 역직렬 변환기|읽기 전용 모드|예|예|
 |JavaScript UDF 및 UDA     |예         |예         |Windows만         |
-|Machine Learning Service     |예        |예         |예         |
-|Azure Machine Learning Studio(클래식)|예, 하지만 쿼리를 테스트할 수 없습니다.        |예 |예         |
+|Azure Machine Learning      |예        |예         |예         |
 |호환성 수준     |1.0</br>1.1</br>1.2(기본값)         |1.0</br>1.1</br>1.2(기본값)           |1.0</br>1.1</br>1.2(기본값)           |
 |기본 제공 ML 기반 변칙 검색 함수     |예         |예         |예         |
 |기본 제공 지리 공간적 함수     |예         |예         |예         |

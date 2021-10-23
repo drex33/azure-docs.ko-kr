@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 73c91e1c4d72fce5757b0b1a0caafc22e0fbcc60
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
-ms.translationtype: HT
+ms.openlocfilehash: 764f6585aab43ba1f6db29a234cc2bc554b78c58
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114230520"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236678"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 공용 표준 Load Balancer 사용
 
@@ -127,7 +127,7 @@ AKS에서 만든 공용 IP는 AKS 관리 리소스로 간주됩니다. 즉, 공�
 
 - 사용자 지정 공용 IP 주소를 사용자가 만들고 소유해야 합니다. AKS에서 생성한 관리 공용 IP는 사용자 고유 IP로 재사용할 수 없습니다. 관리 충돌 문제를 일으킬 수 있기 때문입니다.
 - AKS 클러스터 ID(서비스 주체 또는 관리 ID)에 아웃바운드 IP에 액세스할 수 있는 권한이 있는지 확인해야 합니다. [필요한 공용 IP 권한 목록](kubernetes-service-principal.md#networking)에 따릅니다.
-- 아웃바운드 IP 또는 아웃바운드 IP 접두사를 구성하는 데 필요한 [필수 조건 및 제약 조건](../virtual-network/public-ip-address-prefix.md#limitations)을 충족하는지 확인합니다.
+- 아웃바운드 IP 또는 아웃바운드 IP 접두사를 구성하는 데 필요한 [필수 조건 및 제약 조건](../virtual-network/ip-services/public-ip-address-prefix.md#limitations)을 충족하는지 확인합니다.
 
 #### <a name="update-the-cluster-with-your-own-outbound-public-ip"></a>사용자 고유 아웃바운드 공용 IP로 클러스터를 업데이트합니다.
 

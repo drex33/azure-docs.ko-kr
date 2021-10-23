@@ -3,17 +3,17 @@ title: Azure EA 계약 및 수정안
 description: 이 문서에서는 Azure EA 계약 및 수정안이 Azure EA 포털 사용에 미치는 영향을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/19/2021
+ms.date: 10/22/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: boalcsva
-ms.openlocfilehash: d03ae5062cc81b3e042ed3b714838e14929dbba2
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: HT
+ms.reviewer: sapnakeshari
+ms.openlocfilehash: 200b71b84bd4c09e40b7c19426b9f1e1d09bf943
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104778222"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130247424"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Azure EA 계약 및 수정안
 
@@ -33,7 +33,7 @@ ms.locfileid: "104778222"
 
 **보류 중** - 등록 관리자가 Azure EA 포털에 로그인해야 합니다. 로그인하면 등록이 **활성** 상태로 전환됩니다.
 
-**활성** - 등록에 액세스할 수 있으며 사용할 수 있습니다. Azure EA 포털에서 계정 및 구독을 만들 수 있습니다. 등록은 기업계약 종료 날짜가 될 때까지 활성 상태로 유지됩니다.
+**활성** - 등록에 액세스할 수 있으며 사용할 수 있습니다. Azure EA 포털에서 계정 및 구독을 만들 수 있습니다. 직접 고객은 [Azure Portal](https://portal.azure.com)부서, 계정 및 구독을 만들 수 있습니다. 등록은 기업계약 종료 날짜가 될 때까지 활성 상태로 유지됩니다. 
 
 **무기한** - 무기한 상태는 기업계약 종료 날짜 후에도 발생합니다. EA 등록이 기업계약 종료 날짜에 도달하기 전에 등록 관리자는 다음을 결정해야 합니다.
 
@@ -168,6 +168,8 @@ OMS(Operations Management Suite) 구독을 예로 들 수 있습니다. OMS는 �
 1. 오른쪽 위 모서리에서 '다운로드' 아이콘을 클릭합니다.
 1. "포함된 수량" 열에서 필터를 사용하여 해당하는 플랜 SKU 부품 번호를 찾고, "0"보다 큰 값을 선택합니다.
 
+직접 고객은 Azure Portal 가격표를 볼 수 있습니다. [Azure Portal 에서 가격표 보기를](ea-pricing.md#download-pricing-for-an-enterprise-agreement)참조하세요.
+
 ### <a name="existingnew-account-owners-to-create-new-subscriptions"></a>새 구독을 만들 기존/새 계정 소유자
 
 **1단계: 계정에 로그인**
@@ -190,6 +192,8 @@ OMS(Operations Management Suite) 구독을 예로 들 수 있습니다. OMS는 �
 새 구독이 구독 목록에 전파될 때까지 최대 24시간이 걸릴 수 있습니다.
 
 오직 계정 소유자만이 구독을 보고 관리할 수 있습니다.
+
+직접 고객은 Azure Portal 구독을 만들고 편집할 수 있습니다. [Azure Portal 구독 관리를](direct-ea-administration.md#create-a-subscription)참조하세요.
 
 ### <a name="troubleshooting"></a>문제 해결
 

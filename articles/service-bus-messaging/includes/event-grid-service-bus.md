@@ -5,15 +5,15 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: include
-ms.date: 02/04/2021
+ms.date: 10/20/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 8115e79a0cf747fbf5980d717331883097012077
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
-ms.translationtype: HT
+ms.openlocfilehash: 491d8cb7cc11d0a904ad70fac8d54c9c6e16670d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112413004"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130287434"
 ---
 ## <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
 
@@ -23,8 +23,8 @@ Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 | ---------- | ----------- |
 | Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners | 큐 또는 구독에 활성 메시지가 있고 수신 대기 중인 수신기가 없는 경우 발생합니다. |
 | Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListeners | 배달 못한 편지 큐에 활성 메시지가 있고 수신 대기 중인 수신기가 없는 경우 발생합니다. |
-| Microsoft.ServiceBus.ActiveMessagesAvailablePeriodicNotifications | 큐 또는 구독에 활성 메시지가 있는 경우 해당 특정 큐 또는 구독에 활성 수신기가 있는 경우에도 주기적으로 발생합니다. |
-| Microsoft.ServiceBus.DeadletterMessagesAvailablePeriodicNotifications | 큐 또는 구독의 배달 못한 편지 엔터티에 메시지가 있는 경우 해당 특정 큐 또는 구독에 배달 못한 편지에 대한 활성 수신기가 있는 경우에도 주기적으로 발생합니다. | 
+| Microsoft.ServiceBus.ActiveMessagesAvailablePeriodicNotifications | 특정 큐 또는 구독에 활성 수신기가 있더라도 큐 또는 구독에 활성 메시지가 있는 경우 30초마다 발생합니다. 활성 메시지 수가 0에서 큐 또는 구독에 대한 양수 값으로 전환될 때도 발생합니다. |
+| Microsoft.ServiceBus.DeadletterMessagesAvailablePeriodicNotifications | 특정 큐 또는 구독의 비활성 문자 엔터티에 활성 수신기가 있더라도 큐 또는 구독의 데드 문자 엔터티에 메시지가 있는 경우 30초마다 발생합니다. 또한 데드 문자 메시지 수가 큐 또는 구독의 데드 문자 엔터티에 대해 0에서 양수 값으로 전환될 때 발생합니다. | 
 
 ## <a name="example-event"></a>예제 이벤트
 

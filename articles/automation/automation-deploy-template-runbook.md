@@ -6,22 +6,22 @@ ms.subservice: process-automation
 ms.date: 09/23/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 61ff25cd9878ee94ce0ba6db7b2c4e4ac8e649de
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 8dd1c0269b9211900a5532e7a0d9e7d119830f68
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129057760"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265634"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-automation-powershell-runbook"></a>Automation PowerShell runbook에서 Azure Resource Manager 템플릿 배포
 
-[Azure Resource Manager 템플릿을](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)사용 하 여 Azure 리소스를 배포 하는 [Automation PowerShell runbook](./learn/automation-tutorial-runbook-textual-powershell.md) 을 작성할 수 있습니다. 템플릿을 사용 하면 Azure Automation를 사용 하 여 Azure 리소스 배포를 자동화할 수 있습니다. Azure Storage와 같은 안전한 중앙 위치에서 Resource Manager 템플릿을 유지 관리할 수 있습니다.
+[Azure Resource Manager 템플릿을](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)사용 하 여 Azure 리소스를 배포 하는 [Automation PowerShell runbook](./learn/powershell-runbook-managed-identity.md) 을 작성할 수 있습니다. 템플릿을 사용 하면 Azure Automation를 사용 하 여 Azure 리소스 배포를 자동화할 수 있습니다. Azure Storage와 같은 안전한 중앙 위치에서 Resource Manager 템플릿을 유지 관리할 수 있습니다.
 
 이 문서에서는 [Azure Storage](../storage/common/storage-introduction.md)에 저장된 Resource Manager 템플릿을 사용하여 새 Azure Storage 계정을 배포하는 PowerShell Runbook을 만듭니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 사용자 할당 관리 ID가 하나 이상 있는 Azure Automation 계정. 자세한 내용은 [Azure Automation 계정에 대해 사용자 할당 관리 ID 사용](./add-user-assigned-identity.md)을 참조하세요.
 
@@ -29,7 +29,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 * [Azure Storage 계정](../storage/common/storage-account-create.md). Resource Manager 템플릿을 저장하는 위치입니다.
 
-* 로컬 머신에 설치된 Azure PowerShell. Azure PowerShell을 가져오는 방법에 대한 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 모듈 [Az. ManagedServiceIdentity](/powershell/module/az.managedserviceidentity)도 필요 합니다. `Az.ManagedServiceIdentity` 는 미리 보기 모듈 이며 Az module의 일부로 설치 되지 않습니다. 설치 하려면를 실행 합니다. `Install-Module -Name Az.ManagedServiceIdentity`
+* 로컬 머신에 설치된 Azure PowerShell. Azure PowerShell을 가져오는 방법에 대한 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 모듈 [Az. ManagedServiceIdentity](/powershell/module/az.managedserviceidentity)도 필요 합니다. `Az.ManagedServiceIdentity`는 미리 보기 모듈이며 Az 모듈의 일부로 설치되지 않습니다. 설치 하려면를 실행 합니다. `Install-Module -Name Az.ManagedServiceIdentity`
 
 ## <a name="assign-permissions-to-managed-identities"></a>관리 ID에 권한 할당
 

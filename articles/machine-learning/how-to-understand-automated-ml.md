@@ -9,12 +9,12 @@ ms.subservice: automl
 ms.date: 12/09/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2, automl
-ms.openlocfilehash: 2b9384b53b1fa5ac8681f6acab4df6d923d95703
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 36f55ad8e9cc05b4d7734aef6219895eec445bb3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130162892"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232592"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>자동화된 Machine Learning 실험 결과 평가
 
@@ -75,21 +75,24 @@ ms.locfileid: "130162892"
 
 |메트릭|Description|계산|
 |--|--|---|
-|AUC | AUC는 [수신자 조작 특성 곡선](#roc-curve) 아래 면적입니다.<br><br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원되는 메트릭 이름에는 다음이 포함됩니다. <li>`AUC_macro`, 각 클래스에 대한 AUC의 산술 평균입니다.<li> `AUC_micro`- 다중 레이블 방식으로 계산됩니다. 모든 샘플에 대해 각 클래스는 독립적인 `0/1` 예측으로 처리됩니다. 올바른 클래스는 `true` 클래스가 되고 나머지는 `false` 클래스가 됩니다. 그런 다음 모든 샘플을 결합하여 새 이진 분류 작업에 대해 AUC를 계산합니다. <li> `AUC_weighted`, 각 클래스의 실제 인스턴스 수를 가중치로 적용하여 계산된 각 클래스에 대한 점수의 산술 평균입니다. <li> `AUC_binary`- 하나의 특정 클래스를 클래스로 처리하고 다른 모든 클래스를 `true` 클래스로 결합하여 AUC의 `false` 값입니다.<br><br>|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.roc_auc_score.html) | 
+|AUC | AUC는 [수신자 조작 특성 곡선](#roc-curve) 아래 면적입니다.<br><br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원되는 메트릭 이름에는 다음이 포함됩니다. <li>`AUC_macro`, 각 클래스에 대한 AUC의 산술 평균입니다.<li> `AUC_micro`- 총 참 긍정, 가음성 및 가양성 수를 계산하여 계산됩니다. <li> `AUC_weighted`, 각 클래스의 실제 인스턴스 수를 가중치로 적용하여 계산된 각 클래스에 대한 점수의 산술 평균입니다. <li> `AUC_binary`- 하나의 특정 클래스를 클래스로 처리하고 다른 모든 클래스를 `true` 클래스로 결합하여 AUC의 `false` 값입니다.<br><br>|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.roc_auc_score.html) | 
 |accuracy| Accuracy(정확도)는 실제 클래스 레이블과 정확히 일치하는 예측 비율입니다. <br> <br>**목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.accuracy_score.html)|
-|average_precision|Average precision(평균 정밀도)은 정밀도-재현율 곡선을 이전 임계값에서의 재현율 증가를 가중치로 사용하여 계산한 각 임계값에서 도달된 정밀도의 가중 평균으로 요약합니다. <br><br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원되는 메트릭 이름에는 다음이 포함됩니다.<li>`average_precision_score_macro`, 각 클래스의 평균 정밀도 점수의 산술 평균입니다.<li> `average_precision_score_micro`- 다중 레이블 방식으로 계산됩니다. 모든 샘플에 대해 각 클래스는 독립적인 `0/1` 예측으로 처리됩니다. 올바른 클래스는 `true` 클래스가 되고 나머지는 `false` 클래스가 됩니다. 그런 다음 모든 샘플을 결합하여 새 이진 분류 작업에 대해 평균 전체 자릿수를 계산합니다.<li>`average_precision_score_weighted`, 각 클래스의 실제 인스턴스 수를 가중치로 적용하여 계산된 각 클래스의 평균 정밀도 점수의 산술 평균입니다. <li> `average_precision_score_binary`- 하나의 특정 클래스를 클래스로 처리하고 다른 모든 클래스를 클래스로 결합하여 평균 전체 자릿수 `true` `false` 값입니다.|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.average_precision_score.html)|
+|average_precision|Average precision(평균 정밀도)은 정밀도-재현율 곡선을 이전 임계값에서의 재현율 증가를 가중치로 사용하여 계산한 각 임계값에서 도달된 정밀도의 가중 평균으로 요약합니다. <br><br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원되는 메트릭 이름에는 다음이 포함됩니다.<li>`average_precision_score_macro`, 각 클래스의 평균 정밀도 점수의 산술 평균입니다.<li> `average_precision_score_micro`- 총 참 긍정, 가음성 및 가양성 수를 계산하여 계산됩니다.<li>`average_precision_score_weighted`, 각 클래스의 실제 인스턴스 수를 가중치로 적용하여 계산된 각 클래스의 평균 정밀도 점수의 산술 평균입니다. <li> `average_precision_score_binary`- 한 특정 클래스를 클래스로 처리하고 다른 모든 클래스를 클래스로 결합하여 평균 정밀도 `true` `false` 값입니다.|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.average_precision_score.html)|
 balanced_accuracy|Balanced accuracy(균형 정확도)는 각 클래스 재현율의 산술 평균입니다.<br> <br>**목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.recall_score.html)|
-f1_score|F1 score(F1 점수)는 정밀도 및 재현율의 조화 평균입니다. 가양성 및 가음성 모두에 대해 적절한 균형 측정값입니다. 그러나 진음성은 고려하지 않습니다. <br> <br>**목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원되는 메트릭 이름에는 다음이 포함됩니다.<li>  `f1_score_macro`: 각 클래스에 대한 F1 점수의 산술 평균입니다. <li> `f1_score_micro`: 진양성, 가음성, 가양성의 총 개수를 세어 계산됩니다. <li> `f1_score_weighted`: 각 클래스에 대한 F1 점수의 클래스 빈도에 따른 가중 평균입니다. <li> `f1_score_binary`- 특정 클래스 하나를 클래스로 처리하고 다른 모든 클래스를 클래스로 결합하여 f1의 `true` `false` 값입니다. <br><br>참고: `f1_score_micro` 의 값은 항상 의 값과 `accuracy` 같습니다.|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.f1_score.html)|
+f1_score|F1 score(F1 점수)는 정밀도 및 재현율의 조화 평균입니다. 가양성 및 가음성 모두에 대해 적절한 균형 측정값입니다. 그러나 진음성은 고려하지 않습니다. <br> <br>**목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원되는 메트릭 이름에는 다음이 포함됩니다.<li>  `f1_score_macro`: 각 클래스에 대한 F1 점수의 산술 평균입니다. <li> `f1_score_micro`: 진양성, 가음성, 가양성의 총 개수를 세어 계산됩니다. <li> `f1_score_weighted`: 각 클래스에 대한 F1 점수의 클래스 빈도에 따른 가중 평균입니다. <li> `f1_score_binary`- 특정 클래스 하나를 클래스로 처리하고 다른 모든 클래스를 클래스로 결합하여 f1의 `true` `false` 값입니다.|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.f1_score.html)|
 log_loss|이것은 (다항) 로지스틱 회귀와 그 확장(예: 신경망)에 사용되는 손실 함수로, 확률적 분류자의 예측이 주어진 경우 실제 레이블의 음의 로그 유사도로 정의됩니다. <br><br> **목표:** 0에 가까울수록 좋음 <br> **범위:** [0, inf)|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.log_loss.html)|
 norm_macro_recall| Normalized macro recall(정규화된 매크로 재현율)은 매크로 평균이면서 정규화되어 있는 재현율이므로, 임의 성능 점수는 0이고 완벽 성능 점수는 1이 됩니다. <br> <br>**목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1] |`(recall_score_macro - R)`&nbsp;/&nbsp;`(1 - R)` <br><br>여기서 `R`은 임의 예측에 대해 예상되는 `recall_score_macro`값입니다.<br><br>`R = 0.5`&nbsp;&nbsp;이진&nbsp;분류의 경우입니다. <br>`R = (1 / C)` C-클래스 분류 문제의 경우입니다.|
 matthews_correlation | Matthews 상관(Matthews correlation) 계수는 정확도의 균형 측정값으로서, 한 클래스에 다른 클래스보다 훨씬 더 많은 샘플이 포함된 경우에도 사용할 수 있습니다. 계수 1은 완벽 예측, 0은 임의 예측, -1은 역예측을 나타냅니다.<br><br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [-1, 1]|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.matthews_corrcoef.html)|
-정밀도|Precision(정밀도)은 음성 샘플을 양성으로 레이블을 지정하지 않도록 하는 모델의 기능입니다. <br><br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원되는 메트릭 이름에는 다음이 포함됩니다. <li> `precision_score_macro`, 각 클래스에 대한 정밀도의 산술 평균입니다. <li> `precision_score_micro`, 진양성과 가양성의 총 개수를 세어 전역적으로 계산됩니다. <li> `precision_score_weighted`, 각 클래스의 실제 인스턴스 수를 가중치로 적용하여 계산된 각 클래스에 대한 정밀도의 산술 평균입니다. <li> `precision_score_binary`한 특정 클래스를 클래스로 처리하고 다른 모든 클래스를 클래스로 결합하여 전체 자릿수 `true` `false` 값입니다.<br><br>참고: `precision_score_micro` 의 값은 항상 의 값과 `accuracy` 같습니다.|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.precision_score.html)|
-재현율| Recall(재현율)은 양성 샘플 모두를 검색하는 모델의 기능입니다. <br><br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원되는 메트릭 이름에는 다음이 포함됩니다. <li>`recall_score_macro`: 각 클래스에 대한 재현율의 산술 평균입니다. <li> `recall_score_micro`: 진양성, 가음성, 가양성의 총 개수를 세어 전역적으로 계산됩니다.<li> `recall_score_weighted`: 각 클래스의 실제 인스턴스 수를 가중치로 적용하여 계산된 각 클래스에 대한 재현율의 산술 평균입니다. <li> `recall_score_binary`- 특정 클래스 하나를 클래스로 처리하고 다른 모든 클래스를 클래스로 결합하여 회수하는 `true` `false` 값입니다.<br><br>참고: `recall_score_micro` 의 값은 항상 의 값과 `accuracy` 같습니다.|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.recall_score.html)|
+정밀도|Precision(정밀도)은 음성 샘플을 양성으로 레이블을 지정하지 않도록 하는 모델의 기능입니다. <br><br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원되는 메트릭 이름에는 다음이 포함됩니다. <li> `precision_score_macro`, 각 클래스에 대한 정밀도의 산술 평균입니다. <li> `precision_score_micro`, 진양성과 가양성의 총 개수를 세어 전역적으로 계산됩니다. <li> `precision_score_weighted`, 각 클래스의 실제 인스턴스 수를 가중치로 적용하여 계산된 각 클래스에 대한 정밀도의 산술 평균입니다. <li> `precision_score_binary`한 특정 클래스를 클래스로 처리하고 다른 모든 클래스를 클래스로 결합하여 전체 자릿수 `true` `false` 값입니다.|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.precision_score.html)|
+재현율| Recall(재현율)은 양성 샘플 모두를 검색하는 모델의 기능입니다. <br><br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원되는 메트릭 이름에는 다음이 포함됩니다. <li>`recall_score_macro`: 각 클래스에 대한 재현율의 산술 평균입니다. <li> `recall_score_micro`: 진양성, 가음성, 가양성의 총 개수를 세어 전역적으로 계산됩니다.<li> `recall_score_weighted`: 각 클래스의 실제 인스턴스 수를 가중치로 적용하여 계산된 각 클래스에 대한 재현율의 산술 평균입니다. <li> `recall_score_binary`- 특정 클래스 하나를 클래스로 처리하고 다른 모든 클래스를 클래스로 결합하여 회수하는 `true` `false` 값입니다.|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.recall_score.html)|
 weighted_accuracy|Weighted accuracy(가중치가 적용된 정확도)는 각 샘플에 동일한 클래스에 속하는 샘플의 총 수로 가중치가 적용된 정확도입니다. <br><br>**목표:** 1에 가까울수록 좋음 <br>**범위:** [0, 1]|[계산](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.accuracy_score.html)|
 
 ### <a name="binary-vs-multiclass-classification-metrics"></a>이진 및 다중 클래스 분류 메트릭
 
 자동화된 ML 데이터가 이진인지 자동으로 검색하고, 클래스를 지정하여 데이터가 다중 클래스인 경우에도 사용자가 이진 분류 메트릭을 활성화할 수 있도록 `true` 합니다. 데이터 세트에 두 개의 클래스 또는 두 개 이상의 클래스가 있는 경우와 관계없이 다중 클래스 분류 메트릭이 보고됩니다. 이진 분류 메트릭은 데이터가 이진이거나 사용자가 옵션을 활성화할 때만 보고됩니다. 
+
+> [!Note]
+> 이진 분류 작업이 검색되면 를 사용하여 `numpy.unique` 레이블 집합을 찾고 이후 레이블이 `true` 클래스로 사용됩니다. 에 정렬 프로시저가 있기 때문에 `numpy.unique` 클래스 선택은 `true` 안정적입니다.
 
 다중 클래스 분류 메트릭은 다중 클래스 분류를 위한 것입니다. 예상대로 이러한 메트릭은 이진 데이터 세트에 적용될 때 클래스를 `true` 클래스로 처리하지 않습니다. 명확하게 다중 클래스용인 메트릭은 `micro`, `macro` 또는 `weighted`가 접미사로 붙습니다. 이러한 예로 `average_precision_score`, `f1_score`, `precision_score`, `recall_score` 및 `AUC`가 있습니다. 예를 들어, `tp / (tp + fn)`으로 재현율을 계산하는 대신 다중 클래스 평균 재현율(`micro`, `macro` 또는 `weighted`)은 이진 분류 데이터 세트의 두 클래스에 대한 평균입니다. 이는 `true` 클래스와 `false` 클래스에 대해 개별적으로 재현율을 계산하고 나서 둘의 평균을 구하는 것과 같습니다.
 
@@ -205,12 +208,12 @@ spearman_correlation| Spearman correlation(Spearman 상관 관계)은 두 데이
 
 ### <a name="metric-normalization"></a>메트릭 정규화
 
-자동화된 ML 회귀 및 예측 메트릭을 정규화하여 서로 다른 데이터에 대해 학습된 모델 간의 비교를 가능하게 합니다. 일반적으로 범위가 더 큰 데이터에서 학습된 모델은 해당 오류가 정규화되지 않는 한 더 작은 범위의 데이터에 대해 학습된 동일한 모델보다 오류가 높습니다.
+자동화된 ML은 회귀 및 예측 메트릭을 정규화하여 다른 범위의 데이터에 대해 학습된 모델 간의 비교를 가능하게 합니다. 범위가 더 큰 데이터에 대해 학습된 모델은 해당 오차를 정규화하지 않으면 더 작은 범위의 데이터로 학습된 동일한 모델보다 높은 오차를 갖습니다.
 
-오류 메트릭을 정규화하는 표준 방법은 없지만 자동화된 ML 오류를 데이터 범위로 나누는 일반적인 접근 방식을 `normalized_error = error / (y_max - y_min)` 취합니다. 
+오차 메트릭을 정규화하는 표준 방법은 없지만 자동화된 ML은 오차를 데이터 범위로 나누는 일반적인 접근 방식을 사용합니다. `normalized_error = error / (y_max - y_min)`
 
-> [!Note]
-> 데이터 범위는 모델과 함께 저장되지 않습니다. 홀드아웃 테스트 집합에서 동일한 모델로 유추하고 `y_min` 테스트 데이터에 따라 변경될 수 있는 경우 `y_max` 정규화된 메트릭은 학습 및 테스트 집합에서 모델의 성능을 비교하는 데 직접 사용되지 않을 수 있습니다. 학습 집합에서 및 의 값을 `y_min` `y_max` 전달하여 비교를 공평하게 만들 수 있습니다.
+>[!Note]
+>데이터 범위는 모델과 함께 저장 되지 않습니다. 홀드 아웃 테스트 집합에서 동일한 모델을 사용 하 여 유추를 수행 하는 경우 `y_min` `y_max` 테스트 데이터에 따라 변경 될 수 있으며, 정규화 된 메트릭은 학습 및 테스트 집합에 대 한 모델의 성능을 비교 하는 데 직접 사용 되지 않을 수 있습니다. `y_min`학습 집합에서 및 값을 전달 `y_max` 하 여 비교를 공평 하 게 만들 수 있습니다.
 
 시계열 데이터에 대한 예측 모델을 평가할 때 자동화된 ML은 시계열 ID(그레인)별로 정규화가 이루어지도록 추가 단계를 수행하는데 이는 각 시계열은 대상 값의 분포가 다를 수 있기 때문입니다.
 ## <a name="residuals"></a>잔차
@@ -239,57 +242,57 @@ spearman_correlation| Spearman correlation(Spearman 상관 관계)은 두 데이
 ### <a name="predicted-vs-true-chart-for-a-bad-model"></a>나쁜 모델의 예측 대 실제 차트
 ![나쁜 모델의 예측 대 실제 차트](./media/how-to-understand-automated-ml/chart-predicted-true-bad.png)
 
-## <a name="metrics-for-image-models-preview"></a>이미지 모델에 대한 메트릭(미리 보기)
+## <a name="metrics-for-image-models-preview"></a>이미지 모델에 대 한 메트릭 (미리 보기)
 
-자동화된 ML 유효성 검사 데이터 세트의 이미지를 사용하여 모델의 성능을 평가합니다. 모델의 성능은 **Epoch 수준에서** 측정되어 학습이 진행되는 방식을 이해합니다. Epoch는 전체 데이터 세트가 신경망을 통해 정확히 한 번 앞뒤로 전달될 때 경과합니다. 
+자동화 된 ML는 유효성 검사 데이터 집합의 이미지를 사용 하 여 모델의 성능을 평가 합니다. 모델의 성능은 **epoch 수준** 으로 측정 되어 학습의 진행 방식을 파악 합니다. 전체 데이터 집합이 신경망을 정확 하 게 한 번 전달 하면 epoch가 발생 합니다. 
 
 ### <a name="image-classification-metrics"></a>이미지 분류 메트릭
 
-평가를 위한 기본 메트릭은 이진 및 다중 클래스 분류 모델의 **정확도와** 다중 레이블 분류 모델의 **경우 IoU(공용** [공용선과](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.jaccard_score.html#sklearn.metrics.jaccard_score)교집합)입니다.
-이미지 분류 모델에 대한 분류 메트릭은 분류 메트릭 섹션에 정의된 것과 [동일합니다.](#classification-metrics) Epoch와 연결된 손실 값도 기록되어 학습 진행 방식을 모니터링하고 모델이 과잉 맞춤인지 또는 과잉 맞춤인지 확인하는 데 도움이 될 수 있습니다.
+평가에 대 한 기본 메트릭은 이진 및 다중 클래스 분류 모델에 대 한 **정확도** 이며 다중 레이블 분류 모델에 대 한 **Iou** ([Union over Union](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.jaccard_score.html#sklearn.metrics.jaccard_score))입니다.
+이미지 분류 모델에 대 한 분류 메트릭은 [분류 메트릭](#classification-metrics) 섹션에 정의 된 것과 동일 합니다. 또한 epoch와 연결 된 손실 값이 기록 되어 학습의 진행 방식을 모니터링 하 고 모델이 과도 하 게 연결 되어 있는지 또는 낮은 지를 확인 하는 데 도움이 될 수 있습니다.
 
-분류 모델의 모든 예측은 예측이 이루어진 신뢰도 수준을 나타내는 신뢰도 점수와 연결됩니다. 다중 레이블 이미지 분류 모델은 기본적으로 점수 임계값이 0.5로 평가됩니다. 즉, 이 신뢰도 이상의 예측만 관련 클래스에 대한 긍정 예측으로 간주됩니다. 다중 클래스 분류는 점수 임계값을 사용하지 않고 대신 최대 신뢰도 점수를 가진 클래스를 예측으로 간주합니다. 
+분류 모델의 모든 예측에는 예측이 적용 된 신뢰도 수준을 나타내는 신뢰도 점수가 연결 됩니다. 다중 레이블 이미지 분류 모델은 기본적으로이 수준 이상의 신뢰도를 가진 예측만 관련 된 클래스에 대 한 긍정 예측으로 간주 되는 0.5의 점수 임계값으로 평가 됩니다. 다중 클래스 분류는 점수 임계값을 사용 하지 않고 대신 신뢰도 점수가 최대 인 클래스를 예측으로 간주 합니다. 
 
-#### <a name="epoch-level-metrics-for-image-classification"></a>이미지 분류에 대한 Epoch 수준 메트릭
-테이블 형식 데이터 세트에 대한 분류 메트릭과 달리 이미지 분류 모델은 아래와 같이 Epoch 수준에서 모든 분류 메트릭을 기록합니다.
+#### <a name="epoch-level-metrics-for-image-classification"></a>이미지 분류를 위한 Epoch 수준 메트릭
+테이블 형식 데이터 집합의 분류 메트릭과 달리 이미지 분류 모델은 아래와 같이 epoch 수준에서 모든 분류 메트릭을 기록 합니다.
 
 ![이미지 분류를 위한 Epoch 수준 차트](./media/how-to-understand-automated-ml/image-classification-accuracy.png)
 
-#### <a name="summary-metrics-for-image-classification"></a>이미지 분류에 대한 요약 메트릭
+#### <a name="summary-metrics-for-image-classification"></a>이미지 분류에 대 한 요약 메트릭
 
-Epoch 수준에서 기록되는 스칼라 메트릭 외에도 이미지 분류 모델은 [혼동 행렬,](#confusion-matrix)ROC 곡선, 정밀도-회수 곡선 및 가장 높은 기본 메트릭(정확도) 점수를 얻는 최상의 Epoch에서 모델에 대한 분류 보고서를 포함한 [분류 차트와](#roc-curve) 같은 요약 메트릭을 기록합니다.
+Epoch 수준에서 기록 된 스칼라 메트릭과는 별도로, 이미지 분류 모델은 ROC 곡선, 가장 높은 기본 메트릭 (정확도) 점수가 있는 가장 좋은 epoch에서 모델에 대 한 전체 자릿수 리콜 곡선 및 분류 보고서 [를 포함 하](#roc-curve) 는 요약 메트릭과 [혼동 행렬](#confusion-matrix)을 기록 합니다.
 
-분류 보고서는 정밀도, 회수, f1 점수, 지원, auc 및 average_precision 같은 메트릭에 대한 클래스 수준 값을 제공하며, 다양한 평균 수준(마이크로, 매크로 및 아래와 같이 가중치)을 제공합니다.
-분류 메트릭 섹션에서 [메트릭](#classification-metrics) 정의를 참조하세요.
+분류 보고서는 아래 표시 된 것과 같이 전체 자릿수, 회수, f1-점수, 지원, 지 수, 다양 한 수준의 평균 마이크로, 매크로 및 가중치가 적용 된 average_precision와 같은 메트릭에 대 한 클래스 수준 값을 제공 합니다.
+[분류 메트릭](#classification-metrics) 섹션에서 메트릭 정의를 참조 하세요.
 
-![이미지 분류에 대한 분류 보고서](./media/how-to-understand-automated-ml/image-classification-report.png)
+![이미지 분류에 대 한 분류 보고서](./media/how-to-understand-automated-ml/image-classification-report.png)
 
-### <a name="object-detection-and-instance-segmentation-metrics"></a>개체 검색 및 인스턴스 구분 메트릭
+### <a name="object-detection-and-instance-segmentation-metrics"></a>개체 검색 및 인스턴스 조각화 메트릭
 
-이미지 개체 검색 또는 인스턴스 구분 모델의 모든 예측은 신뢰도 점수와 연결됩니다.
-신뢰도 점수가 점수 임계값보다 큰 예측은 예측으로 출력되고 메트릭 계산에 사용되며, 기본값은 모델별이며 [하이퍼 매개문자 튜닝](how-to-auto-train-image-models.md#model-specific-hyperparameters) 페이지( 하이퍼 매개문자)에서 참조할 수 `box_score_threshold` 있습니다.
+이미지 개체 검색 또는 인스턴스 조각화 모델의 모든 예측은 신뢰도 점수와 연결 됩니다.
+신뢰도 점수가 점수 보다 큰 예측은 예측으로 출력 되 고 메트릭 계산에 사용 되며, 기본 값은 모델에 따라 달라 지 며 하이퍼 [매개 변수 조정](how-to-auto-train-image-models.md#model-specific-hyperparameters) 페이지 (하이퍼 매개 변수)에서 참조할 수 있습니다 `box_score_threshold` .
 
-이미지 개체 감지 및 인스턴스 구분 모델의 메트릭 계산은 **IoU(** [Union과 교집합)라는](https://en.wikipedia.org/wiki/Jaccard_index)메트릭에 의해 정의된 겹침 측정값을 기반으로 합니다. 이 메트릭은 지면 진리와 예측 간의 겹침 영역을 지상 진리와 예측의 합집합 영역으로 나누어 계산합니다. 모든 예측에서 계산된 IoU는 IoU **임계값이라는 겹침 임계값과** 비교됩니다. 이 임계값은 예측이 긍정 예측으로 간주되기 위해 사용자 주석이 추가된 기초 진리와 겹쳐야 하는 양을 결정합니다. 예측에서 계산된 IoU가 겹치는 임계값보다 작은 경우 예측은 연결된 클래스에 대한 긍정 예측으로 간주되지 않습니다.
+이미지 개체 검색 및 인스턴스 조각화 모델의 메트릭 계산은 **Iou** ([교집합 over Union](https://en.wikipedia.org/wiki/Jaccard_index)) 라는 메트릭에 의해 정의 된 중첩 측정을 기반으로 합니다 .이는 그라운드와 예측 사이의 겹치는 영역을 그라운드와 예측의 합집합 영역으로 나누어 계산 합니다. 모든 예측에서 계산 된 IoU는 긍정 예측으로 간주 될 수 있도록 주석 처리 된 사용자와 겹치는 예측의 양을 결정 하는 IoU 임계값 이라는 **겹치는 임계값** 과 비교 됩니다. 예측에서 계산 된 IoU가 겹치는 임계값 보다 작은 경우 예측은 관련 클래스에 대 한 긍정 예측으로 간주 되지 않습니다.
 
-이미지 개체 검색 및 인스턴스 구분 모델 평가의 기본 메트릭은 **평균 평균 정밀도(mAP)** 입니다. mAP는 모든 클래스에서 평균 정밀도(AP)의 평균 값입니다. 자동화된 ML 개체 검색 모델은 아래 두 가지 인기 있는 방법을 사용하여 mAP 계산을 지원합니다.
+이미지 개체 검색 및 인스턴스 조각화 모델의 평가에 대 한 기본 메트릭은 **평균 평균 전체 자릿수 (mAP)** 입니다. 맵은 모든 클래스의 평균 평균 전체 자릿수 (AP)의 평균 값입니다. 자동화 된 ML 개체 검색 모델은 아래 두 가지 인기 있는 메서드를 사용 하 여 mAP 계산을 지원 합니다.
 
-**파스칼 VOC 메트릭:** 
+**파스칼 VOC 메트릭**: 
 
-[파스칼 VOC](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/htmldoc/devkit_doc.html#SECTION00044000000000000000) mAP는 개체 검색/인스턴스 구분 모델에 대한 mAP 계산의 기본 방법입니다. 파스칼 VOC 스타일 mAP 메서드는 정밀도-회수 곡선의 버전에서 영역을 계산합니다. 첫 번째 p(ri) - 모든 고유 회수 값에 대해 계산됩니다. 그런 다음 p(ri)는 회수 r' >= ri에 대해 얻은 최대 정밀도로 대체됩니다. 정밀도 값은 이 곡선 버전에서 단조로 감소합니다. 파스칼 VOC mAP 메트릭은 기본적으로 IoU 임계값 0.5로 평가됩니다. 이 개념에 대한 자세한 설명은 이 [블로그에서](https://jonathan-hui.medium.com/map-mean-average-precision-for-object-detection-45c121a31173)확인할 수 있습니다.
+[파스칼 VOC](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/htmldoc/devkit_doc.html#SECTION00044000000000000000) map은 개체 검색/인스턴스 조각화 모델에 대 한 맵 계산의 기본 방법입니다. 파스칼 VOC style mAP 메서드는 precision 리콜 곡선의 버전 아래 영역을 계산 합니다. 첫 번째 p (ri)는 리콜에서 전체 자릿수가 모든 고유 회수 값에 대해 계산 됩니다. 그러면 p (ri)가 회수 r ' >= ri에 대해 얻은 최대 전체 자릿수로 바뀝니다. 이 버전의 곡선에서는 전체 자릿수 값이 일정 하 게 감소 합니다. 파스칼 VOC mAP 메트릭은 기본적으로 IoU 임계값 0.5을 사용 하 여 평가 됩니다. 이 개념에 대 한 자세한 설명은이 [블로그](https://jonathan-hui.medium.com/map-mean-average-precision-for-object-detection-45c121a31173)에서 확인할 수 있습니다.
 
 
-**COCO 메트릭:** 
+공동 **co 메트릭**: 
 
-[COCO 평가 방법은](https://cocodataset.org/#detection-eval) 평균 10개 이상의 IoU 임계값과 함께 AP 계산에 101포인트 보간된 메서드를 사용합니다. AP@[.5:.95]는 단계 크기가 0.05인 0.5에서 0.95까지의 IoU 평균 AP에 해당합니다. 자동화된 ML AP 및 AR(평균 회수)을 포함하여 COCO 메서드에서 정의한 모든 12개의 메트릭을 애플리케이션 로그의 다양한 규모로 기록하고, 메트릭 사용자 인터페이스는 IoU 임계값 0.5에서 mAP만 표시합니다. 
+[Coco evaluation 메서드](https://cocodataset.org/#detection-eval) 는 AP 계산에 101 지점 보간된 메서드를 사용 하 고 10 개 이상의 iou 임계값을 사용 합니다. AP@ [. 5:. 95]는 0.5에서 0.95 까지의 IoU의 평균 AP에 해당 하 고, 단계 크기는 0.05입니다. 자동 ML는 응용 프로그램 로그의 다양 한 눈금에서 AP 및 AR (평균 회수)를 포함 하 여 coco 메서드로 정의 된 12 개 메트릭을 모두 기록 하는 반면, 메트릭 사용자 인터페이스는 iou 임계값 0.5의 맵으로 표시 합니다. 
 
 > [!TIP]
-> `validation_metric_type`하이퍼 매개문자 [튜닝](how-to-auto-train-image-models.md#task-specific-hyperparameters) 섹션에 설명된 대로 하이퍼 매개문자가 'coco'로 설정된 경우 이미지 개체 검색 모델 평가에서 coco 메트릭을 사용할 수 있습니다.
+> 하이퍼 `validation_metric_type` [매개 변수 튜닝](how-to-auto-train-image-models.md#task-specific-hyperparameters) 섹션에 설명 된 대로 하이퍼 매개 변수 변수가 ' coco '로 설정 된 경우 이미지 개체 검색 모델 평가에서 coco 메트릭을 사용할 수 있습니다.
 
-#### <a name="epoch-level-metrics-for-object-detection-and-instance-segmentation"></a>개체 검색 및 인스턴스 구분에 대한 Epoch 수준 메트릭
-mAP, 전체 자릿수 및 회수 값은 이미지 개체 감지/인스턴스 구분 모델에 대한 Epoch 수준에서 기록됩니다. mAP, 정밀도 및 회수 메트릭도 이름이 'per_label_metrics'인 클래스 수준에서 기록됩니다. 'per_label_metrics'은 테이블로 표시되어야 합니다. 
+#### <a name="epoch-level-metrics-for-object-detection-and-instance-segmentation"></a>개체 검색 및 인스턴스 조각화를 위한 Epoch 수준 메트릭
+지도, 전체 자릿수 및 회수 값은 이미지 개체 검색/인스턴스 조각화 모델에 대해 epoch 수준에서 기록 됩니다. 지도, 전체 자릿수 및 회수 메트릭은 이름이 ' per_label_metrics ' 인 클래스 수준 에서도 기록 됩니다. ' Per_label_metrics '은 (는) 테이블로 표시 되어야 합니다. 
 
 > [!NOTE]
-> 정밀도, 회수 및 per_label_metrics 대한 Epoch 수준 메트릭은 'coco' 메서드를 사용할 때 사용할 수 없습니다.
+> ' Coco ' 메서드를 사용 하는 경우 전체 자릿수, 회수 및 per_label_metrics에 대 한 Epoch 수준 메트릭은 사용할 수 없습니다.
 
 ![개체 검색을 위한 Epoch 수준 차트](./media/how-to-understand-automated-ml/image-object-detection-map.png)
 

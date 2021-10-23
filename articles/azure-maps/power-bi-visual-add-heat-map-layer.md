@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: eriklind
 ms.custom: ''
-ms.openlocfilehash: 95d35c3f0ed7ab70ca64249323b22a11eca8f5a9
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 37b03d96e67016bb9a250cd889da93fb30578d54
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130008779"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130240189"
 ---
 # <a name="add-a-heat-map-layer-to-the-azure-maps-visual-for-power-bi"></a>Power BI에 대 한 Azure Maps 시각적 개체에 열 지도 계층을 추가 합니다.
 
@@ -32,8 +32,8 @@ ms.locfileid: "130008779"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- [Power BI에 대 한 Azure Maps 시각적 개체 시작](/power-bi-visual-getting-started.md)
-- [Power BI에 대 한 Azure Maps 시각적 개체의 레이어 이해](/power-bi-visual-understanding-layers.md)
+- [Power BI에 대 한 Azure Maps 시각적 개체 시작](/azure/azure-maps/power-bi-visual-getting-started)
+- [Power BI에 대 한 Azure Maps 시각적 개체의 레이어 이해](/azure/azure-maps/power-bi-visual-understanding-layers)
 
 ## <a name="add-the-heat-map-layer"></a>열 지도 계층 추가
 
@@ -55,7 +55,7 @@ ms.locfileid: "130008779"
 
 다음 표에서는 **서식** 창의 **열 지도** 섹션에서 사용할 수 있는 기본 설정을 보여 줍니다.
 
-| 설정              | Description      |
+| 설정              | 설명      |
 |----------------------|------------------|
 | 반지름 | 열 지도에 있는 각 데이터 요소의 반경입니다.<br /><br />Unit = ' 픽셀 ' 인 경우 유효한 값: 1-200. 기본값: **20**<br />Unit = ' 미터 ' 인 경우 유효한 값: 1-400만|
 | 단위  | 반지름의 거리 단위입니다. 가능한 값은 다음과 같습니다.<br /><br />**픽셀**. 픽셀 (픽셀)로 설정 하면 확대/축소 수준에 관계 없이 각 데이터 요소의 크기가 항상 동일 하 게 됩니다.<br />**미터**. 미터로 설정 하면 데이터 요소의 크기가 확대/축소 수준에 따라 크기가 조정 되어 반지름이 공간적으로 정확 하 게 유지 됩니다.<br /><br /> 기본값: **픽셀**  |

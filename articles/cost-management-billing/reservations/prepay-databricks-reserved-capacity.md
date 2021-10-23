@@ -2,18 +2,18 @@
 title: 사전 구매를 사용하여 Azure Databricks 비용 최적화
 description: 요금을 절감하기 위해 예약된 용량으로 Azure Databricks 요금을 선불할 수 있는 방법에 대해 알아봅니다.
 author: bandersmsft
-ms.reviewer: primittal
+ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 10/19/2021
 ms.author: banders
-ms.openlocfilehash: 8047c57c929deeffcb69943ce17fa5fe81d31af1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 72bb3403a49431d1dbc1cbd9d15ac37348818118
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128645059"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130243831"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>사전 구매를 사용하여 Azure Databricks 비용 최적화
 
@@ -42,8 +42,8 @@ Databricks 사전 구매는 모든 Databricks 워크로드 및 계층에 적용�
 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D)에서 Databricks 플랜을 구매할 수 있습니다. 예약된 용량을 구매하려면 하나 이상의 Enterprise 구독의 소유자 역할이 있어야 합니다.
 
 - 하나 이상의 기업계약(제품 번호: MS-AZR-0017P or MS-AZR-0148P)이나 Microsoft 고객 계약 또는 종량제 요금의 개별 구독(제품 번호: MS-AZR-0003P 또는 MS-AZR-0023P)여야 합니다.
-- EA 구독의 경우 EA 포털에서 예약 인스턴스 추가 옵션을 활성화해야 합니다. 또는 해당 설정을 비활성화하려면 구독의 EA 관리자여야 합니다.
-- Enterprise 구독의 경우 [EA 포털](https://ea.azure.com/)에서 **예약 인스턴스 추가** 를 활성화해야 합니다. 또는 해당 설정을 비활성화하려면 구독의 EA 관리자여야 합니다.
+- Enterprise 구독의 경우 [EA 포털](https://ea.azure.com/)에서 **예약 인스턴스 추가** 를 활성화해야 합니다. 또는이 설정을 사용 하지 않도록 설정 하는 경우 구독을 사용 하도록 설정 하려면 EA 관리자 여야 합니다. 직접 EA 고객은 이제 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes)의 **예약 인스턴스** 설정을 업데이트할 수 있습니다. 정책 메뉴로 이동 하 여 설정을 변경 합니다.
+
 
 **구매하려면 다음을 수행합니다.**
 

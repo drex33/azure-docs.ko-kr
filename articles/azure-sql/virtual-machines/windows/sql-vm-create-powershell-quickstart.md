@@ -3,7 +3,7 @@ title: Azure PowerShell을 사용하여 Windows 가상 머신에서 SQL Server �
 description: 이 자습서에서는 Azure PowerShell을 사용하여 SQL Server 2017을 실행하는 Windows 가상 머신을 만드는 방법을 보여줍니다.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: deployment
@@ -11,15 +11,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 12/21/2018
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: pamela
+ms.reviewer: mathoma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8bfcd62558fd7e10bd4e4d80d3f0e8c04f5ba233
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: b063badd26207b7bda9f959476c2e93f71a16b9e
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220653"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165985"
 ---
 # <a name="quickstart-create-sql-server-on-a-windows-virtual-machine-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Windows 가상 머신에서 SQL Server 만들기
 

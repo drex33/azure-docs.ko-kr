@@ -2,20 +2,20 @@
 title: Azure 비용 관리 계획
 description: Azure 비용 관리를 계획하고 Azure 계정에 대한 비용 추적 및 관리 기능을 사용하는 방법을 알아봅니다.
 author: bandersmsft
-ms.reviewer: amberb
+ms.reviewer: sapnakeshari
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 10/07/2021
+ms.date: 10/20/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: d1a76078db3acd79d1f59ce43852d538edac7964
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 63542b241d26964d1f24fbe6744b4cbd6bccd6c1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129710890"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215729"
 ---
 # <a name="plan-to-manage-azure-costs"></a>Azure 비용 관리 계획
 
@@ -95,7 +95,7 @@ Azure 서비스가 실행되면 비용을 정기적으로 확인하여 Azure 지
 
 ## <a name="optimize-and-reduce-costs"></a>비용 최적화 및 절감
 
-비용 관리 원칙에 익숙하지 않은 경우 [Cost Management 사용하여 클라우드 투자를 최적화하는 방법을](../costs/cost-mgt-best-practices.md)읽어보세요.
+Cost management의 원칙에 익숙하지 않은 경우 Cost Management를 사용 하 [여 클라우드 투자를 최적화 하는 방법](../costs/cost-mgt-best-practices.md)을 참조 하세요.
 
 Azure Portal에서 VM에 대한 자동 종료 및 Advisor 권장 지침을 사용하여 Azure 비용을 최적화하고 절감할 수도 있습니다.
 
@@ -152,6 +152,7 @@ Azure [청구](/rest/api/billing/) 및 [사용량](/rest/api/consumption/) API�
     - 사용자는 부서 관리자이며 등록 관리자가 **DA 보기 요금** 설정을 비활성화했습니다.  등록 관리자에게 액세스 권한을 문의하세요.
     - 채널 파트너를 통해 Azure를 구매했고 파트너가 가격 정보를 릴리스하지 않았습니다.  
 - 비용과 관련된 설정을 업데이트하는 경우 엔터프라이즈 포털에서 액세스하면 변경 내용이 Azure Portal에 표시될 때까지 몇 분 정도 지연됩니다.
+- 직접 EA 고객은 [Azure Portal](https://portal.azure.com/)에서 비용 관련 설정을 업데이트할 수 있습니다. 정책 메뉴로 이동 하 여 설정을 변경 합니다.
 - 지출 한도 및 송장 지침은 EA 구독에 적용되지 않습니다.
 
 ### <a name="check-your-subscription-and-access"></a>구독 및 액세스 권한 확인

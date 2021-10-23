@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: duau
-ms.openlocfilehash: 08878f4fe13c270b6da3bfb74bed88c2476ad5de
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: a9402ac0a69cff3cd2b420754aceeb452811e1a1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129399625"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130246778"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -88,7 +88,7 @@ ExpressRoute는 다양한 서비스 유형에 개인 피어링, Microsoft 피어
 
 ### <a name="microsoft-peering"></a>Microsoft 피어링
 
-Azure Microsoft 피어링에 ExpressRoute 회로를 사용하도록 설정하면 회로를 통해 Azure에서 사용되는 [공용 IP 주소 범위](../virtual-network/public-ip-addresses.md#public-ip-addresses)에 액세스할 수 있습니다. Azure Microsoft 피어링은 현재 Azure에서 호스팅되는 서비스에 대한 액세스를 제공합니다(회로의 SKU에 따라 지리적 제한 적용). 특정 서비스에 대한 가용성의 유효성을 검사하려면 해당 서비스에 대한 설명서를 보고 해당 서비스에 예약된 범위가 게시되었는지 확인합니다. 그런 다음, 대상 서비스의 IP 범위를 조회하고 [Azure IP 범위 및 서비스 태그 – 퍼블릭 클라우드 XML 파일](https://www.microsoft.com/download/details.aspx?id=56519)에 나열된 범위와 비교합니다. 또는 확인을 위해 해당 서비스의 지원 티켓을 열 수 있습니다.
+Azure Microsoft 피어링에 ExpressRoute 회로를 사용하도록 설정하면 회로를 통해 Azure에서 사용되는 [공용 IP 주소 범위](../virtual-network/ip-services/public-ip-addresses.md#public-ip-addresses)에 액세스할 수 있습니다. Azure Microsoft 피어링은 현재 Azure에서 호스팅되는 서비스에 대한 액세스를 제공합니다(회로의 SKU에 따라 지리적 제한 적용). 특정 서비스에 대한 가용성의 유효성을 검사하려면 해당 서비스에 대한 설명서를 보고 해당 서비스에 예약된 범위가 게시되었는지 확인합니다. 그런 다음, 대상 서비스의 IP 범위를 조회하고 [Azure IP 범위 및 서비스 태그 – 퍼블릭 클라우드 XML 파일](https://www.microsoft.com/download/details.aspx?id=56519)에 나열된 범위와 비교합니다. 또는 확인을 위해 해당 서비스의 지원 티켓을 열 수 있습니다.
 
 **지원됨:**
 
@@ -110,7 +110,7 @@ Azure Microsoft 피어링에 ExpressRoute 회로를 사용하도록 설정하면
 
 ### <a name="public-peering"></a>공용 피어링
 
-공용 피어링이 새 ExpressRoute 회로에서 사용되지 않도록 설정되었습니다. 이제 Azure 서비스를 Microsoft 피어링에서 사용할 수 있습니다. 공용 피어링이 사용되지 않기 전에 만들어진 회로가 있는 경우 원하는 서비스에 따라 Microsoft 피어링 또는 공용 피어링을 사용하도록 선택할 수 있습니다.
+공용 피어링이 새 ExpressRoute 회로에서 사용되지 않도록 설정되었습니다. 이제 Azure 서비스를 Microsoft 피어링에서 사용할 수 있습니다. 공용 피어 링이 더 이상 사용 되지 않는 회로를 사용 하는 경우 원하는 서비스에 따라 Microsoft 피어 링 또는 공용 피어 링을 사용 하도록 선택할 수 있습니다.
 
 공용 피어링에 대한 자세한 내용 및 구성 단계는 [ExpressRoute 공용 피어링](about-public-peering.md)을 참조하세요.
 

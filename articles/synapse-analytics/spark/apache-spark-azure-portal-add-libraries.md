@@ -9,12 +9,12 @@ ms.date: 03/01/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: e8ad6d072af6979eb8509068c1dcd239e7840950
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 4ad54fe95bc646d7ed3c96ad901ae2ba1337ab7b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104598017"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251341"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark용 라이브러리 관리
 라이브러리는 프로그램 또는 프로젝트에 포함하는 것이 좋은 재사용 가능한 코드를 제공합니다. 
@@ -39,8 +39,8 @@ Synapse에서 작업 영역 패키지는 사용자 지정 또는 프라이빗 wh
 
 작업 영역 라이브러리를 관리하는 방법에 대한 자세한 내용을 보려면 다음 방법 가이드를 참조하세요.
 
-- [Python 작업 영역 패키지(미리 보기): ](./apache-spark-manage-python-packages.md#install-wheel-files) Python wheel 파일을 작업 영역 패키지로 업로드하고 나중에 해당 패키지를 특정 서버리스 Apache Spark 풀에 추가합니다.
-- [Scala/Java 작업 영역 패키지(미리 보기): ](./apache-spark-manage-scala-packages.md#workspace-packages) Scala 및 Java jar 파일을 작업 영역 패키지로 업로드하고 나중에 해당 패키지를 특정 서버리스 Apache Spark 풀에 추가합니다.
+- [Python 작업 영역 패키지:](./apache-spark-manage-python-packages.md#install-wheel-files) Python 휠 파일을 작업 영역 패키지로 업로드 나중에 이러한 패키지를 특정 서버리스 Apache Spark 풀에 추가합니다.
+- [Scala/Java 작업 영역 패키지:](./apache-spark-manage-scala-packages.md#workspace-packages) Scala 및 Java jar 파일을 작업 영역 패키지로 업로드 나중에 이러한 패키지를 특정 서버리스 Apache Spark 풀에 추가합니다.
 
 ## <a name="pool-packages"></a>풀 패키지
 경우에 따라 주어진 Apache Spark 풀에서 사용되는 패키지 집합을 표준화하는 것이 좋습니다. 표준화는 팀의 여러 사람이 동일한 패키지를 공통적으로 설치하는 경우에 유용할 수 있습니다. 
@@ -63,7 +63,7 @@ Azure Synapse Analytics 풀 관리 기능을 사용하여 주어진 서버리스
 
 세션 범위 패키지를 관리하는 방법에 대한 자세한 내용은 다음 방법 가이드를 참조하세요.
 
-- [Python 세션 패키지(미리 보기):](./apache-spark-manage-python-packages.md) 세션을 시작할 때 인기 있는 리포지토리에서 추가 Python 패키지를 설치하는 Conda *environment.yml* 을 제공합니다. 
+- [Python 세션 패키지:](./apache-spark-manage-python-packages.md) 세션 시작 시 Conda *environment.yml을* 제공하여 인기 있는 리포지토리에서 추가 Python 패키지를 설치합니다. 
 - [Scala/Java 세션 패키지: ](./apache-spark-manage-scala-packages.md) 세션 시작 시에 `%%configure`를 사용하여 jar 파일 목록을 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계

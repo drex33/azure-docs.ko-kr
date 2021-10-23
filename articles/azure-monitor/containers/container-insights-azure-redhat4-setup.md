@@ -3,12 +3,12 @@ title: 컨테이너 인사이트로 Azure Red Hat OpenShift v4.x 구성 | Micros
 description: 이 문서에서는 Azure Red Hat OpenShift 버전 4 이상에서 호스트되는 Azure Monitor를 사용하여 Kubernetes 클러스터에 대한 모니터링을 구성하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 03/05/2021
-ms.openlocfilehash: 7c44a7c6eea6182316d626e3e8501f9aa63eef78
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
-ms.translationtype: HT
+ms.openlocfilehash: 4f9bdaf07903294ede0b8530a28e716c27d9cd9e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106221520"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130231515"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-container-insights"></a>컨테이너 인사이트로 Azure Red Hat OpenShift v4.x 구성
 
@@ -20,7 +20,7 @@ ms.locfileid: "106221520"
 
 이 문서에 설명된 지원되는 메서드를 사용하여 Azure Red Hat OpenShift v4.x의 하나 이상의 기존 배포에 대한 컨테이너 인사이트를 사용하도록 설정할 수 있습니다.
 
-기존 클러스터의 경우 [Azure CLI에서 이 Bash 스크립트](/cli/azure/openshift#az-openshift-create&preserve-view=true)를 실행합니다.
+기존 클러스터의 경우 [Azure CLI에서 이 Bash 스크립트](/cli/azure/openshift#az_openshift_create&preserve-view=true)를 실행합니다.
 
 ## <a name="supported-and-unsupported-features"></a>지원되는/지원되지 않는 기능
 
@@ -43,7 +43,7 @@ ms.locfileid: "106221520"
 
 - [Log Analytics 작업 영역](../logs/design-logs-deployment.md)
 
-    컨테이너 인사이트는 Azure [지역별 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)에 나열된 지역에서 Log Analytics 작업 영역을 지원합니다. 사용자 고유의 작업 영역을 만들려면 [Azure Resource Manager](../logs/resource-manager-workspace.md), [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)을 통해 또는 [Azure Portal](../logs/quick-create-workspace.md)에서 만들 수 있습니다.
+    컨테이너 인사이트는 Azure [지역별 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)에 나열된 지역에서 Log Analytics 작업 영역을 지원합니다. 사용자 고유의 작업 영역을 만들려면 [Azure Resource Manager](../logs/resource-manager-workspace.md), [PowerShell](../logs/powershell-workspace-configuration.md?toc=%2fpowershell%2fmodule%2ftoc.json)을 통해 또는 [Azure Portal](../logs/quick-create-workspace.md)에서 만들 수 있습니다.
 
 - 컨테이너 인사이트에서 기능을 사용하도록 설정하고 액세스하려면 최소한 Azure 구독에 Azure *기여자* 역할이 있어야 하고, 컨테이너 인사이트로 구성된 Log Analytics 작업 영역에 [*Log Analytics 기여자*](../logs/manage-access.md#manage-access-using-azure-permissions) 역할이 있어야 합니다.
 
@@ -129,7 +129,7 @@ ms.locfileid: "106221520"
 export azureAroV4ClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>"
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 `bash enable-monitoring.sh --resource-id $azureAroV4ClusterResourceId 
 

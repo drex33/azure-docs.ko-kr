@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.topic: how-to
 ms.date: 09/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: 688fd2391d12f74b46a16954706b3c9e0ee1fb8a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b6a25b832c3acc65d6a7b343901cf23cdd17f98a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124771853"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130255790"
 ---
 # <a name="create-and-use-managed-identity"></a>관리 ID 만들기 및 사용
 
@@ -28,7 +28,7 @@ ms.locfileid: "124771853"
 
 관리 ID는 프라이빗 및 퍼블릭 액세스가 가능한 Azure Blob Storage 계정을 둘 다 지원합니다.  **공용 액세스 권한이 있는** 저장소 계정의 경우 SAS (공유 액세스 서명)를 사용 하 여 제한 된 액세스 권한을 부여 하도록 선택할 수 있습니다.  이 문서에서는 시스템이 할당한 관리 ID를 사용하여 Azure Blob Storage 계정에서 번역 문서에 대한 액세스를 관리하는 방법을 살펴봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음이 필요합니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "124771853"
   * 주 창에서 **선택한 네트워크에서 액세스 허용** 을 선택 합니다.
   :::image type="content" source="../media/managed-identities/firewalls-and-virtual-networks.png" alt-text="스크린샷: 선택한 네트워크 라디오 단추를 선택 합니다.":::
 
-  * 선택한 네트워크 페이지에서 **예외** 범주로 이동 하 고  [**신뢰할 수 있는 서비스 목록에 대 한 Azure 서비스에서이 저장소 계정에 액세스 하도록 허용**](/azure/storage/common/storage-network-security?tabs=azure-portal#manage-exceptions) 확인란을 사용 하도록 설정 합니다.
+  * 선택한 네트워크 페이지에서 **예외** 범주로 이동 하 고  [**신뢰할 수 있는 서비스 목록에 대 한 Azure 서비스에서이 저장소 계정에 액세스 하도록 허용**](../../../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) 확인란을 사용 하도록 설정 합니다.
 
     :::image type="content" source="../media/managed-identities/allow-trusted-services-checkbox-portal-view.png" alt-text="스크린샷: 신뢰할 수 있는 서비스 허용 확인란, 포털 보기":::
 

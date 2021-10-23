@@ -11,16 +11,16 @@ ms.subservice: automl
 ms.date: 09/27/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack, contperf-fy22q1
-ms.openlocfilehash: 473cf460460bf6fb13353587d49509cb192219b7
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 159452c18418508cb0640e909a49474e77ca3ce9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130044652"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130246419"
 ---
 # <a name="set-up-automl-training-with-python"></a>Python을 사용하여 AutoML 학습 설정
 
-이 가이드에서는 자동화 된 ML를 사용 하 Azure Machine Learning 여 [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) 를 사용 하 여 자동화 된 기계 학습, automl, 학습 실행을 설정 하는 방법에 대해 알아봅니다. 자동화된 ML은 알고리즘과 하이퍼 매개 변수를 자동으로 선택하고 배포할 준비가 된 모델을 생성합니다. 이 가이드에서는 자동화 된 ML 실험을 구성 하는 데 사용할 수 있는 다양 한 옵션에 대해 자세히 설명 합니다.
+이 가이드에서는 Azure Machine Learning 자동화된 ML 사용하여 [Azure Machine Learning Python SDK를](/python/api/overview/azure/ml/intro) 사용하여 자동화된 Machine Learning, AutoML, 학습 실행을 설정하는 방법을 알아봅니다. 자동화된 ML은 알고리즘과 하이퍼 매개 변수를 자동으로 선택하고 배포할 준비가 된 모델을 생성합니다. 이 가이드에서는 자동화된 ML 실험을 구성하는 데 사용할 수 있는 다양한 옵션에 대해 자세히 설명합니다.
 
 엔드투엔드 예제는 [자습서: AutoML - 회귀 모델 학습](tutorial-auto-train-models.md)을 참조하세요.
 
@@ -35,7 +35,7 @@ ms.locfileid: "130044652"
     SDK를 설치하려면 다음 중 하나를 수행할 수 있습니다. 
     * SDK를 자동으로 설치하고 ML 워크플로에 대해 미리 구성된 컴퓨팅 인스턴스를 만듭니다. 자세한 내용은 [Azure Machine Learning 컴퓨팅 인스턴스 만들기 및 관리](how-to-create-manage-compute-instance.md)를 참조하세요. 
 
-    * [`automl` 패키지를 직접 설치](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment)합니다. 여기에는 SDK의 [기본 설치](/python/api/overview/azure/ml/install#default-install)가 포함됩니다.
+    * [`automl` 패키지를 직접 설치](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment)합니다. 여기에는 SDK의 [기본 설치](/python/api/overview/azure/ml/install#default-install)가 포함됩니다.
 
     [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
     
@@ -124,7 +124,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 * 데스크톱이나 랩톱 같은 사용자의 **로컬** 머신 - 일반적으로 데이터 세트가 작은 경우 및 아직 탐색 단계에 있는 경우입니다. 로컬 계산 예는 [이 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) 을 참조하세요. 
  
-* 클라우드의 **원격 머신** - [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute)는 Azure Virtual Machines 클러스터에서 기계 학습 모델을 학습할 수 있도록 하는 관리형 서비스입니다. 계산 인스턴스는 계산 대상으로도 지원 됩니다.
+* 클라우드의 **원격 머신** - [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute)는 Azure Virtual Machines 클러스터에서 기계 학습 모델을 학습할 수 있도록 하는 관리형 서비스입니다. 컴퓨팅 인스턴스는 컴퓨팅 대상으로도 지원됩니다.
 
     Azure Machine Learning Managed Compute를 사용하는 원격 예는 [이 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)을 참조하세요. 
 
@@ -136,7 +136,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 자동화된 ML 실험을 구성하는 데 사용할 수 있는 몇 가지 옵션이 있습니다. 이러한 매개 변수는 `AutoMLConfig` 개체를 인스턴스화하여 설정됩니다. 매개 변수의 전체 목록은 [AutoMLConfig 클래스](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)를 참조하세요.
 
-다음은 분류 태스크에 대 한 예입니다. 실험에서는 [기본 메트릭으로](#primary-metric) 로가는가 중 되 고 실험 시간 제한이 30 분으로 설정 되 고 교차 유효성 검사 접기가 2로 설정 됩니다.
+다음 예제는 분류 작업에 대한 것입니다. 이 실험에서는 [기본 메트릭으로](#primary-metric) AUC 가중치를 사용하며 실험 시간 초과가 30분 및 교차 유효성 검사 접기 2개로 설정됩니다.
 
 ```python
     automl_classifier=AutoMLConfig(task='classification',
@@ -147,7 +147,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
                                    label_column_name=label,
                                    n_cross_validations=2)
 ```
-추가로 설치 해야 하는 예측 작업을 구성할 수도 있습니다. 자세한 내용은 [시계열 예측을 위한 AutoML 설정](how-to-auto-train-forecast.md) 문서를 참조 하세요. 
+추가 설정이 필요한 예측 작업을 구성할 수도 있습니다. 자세한 내용은 [Time-Series 예측에 AutoML 설정](how-to-auto-train-forecast.md) 문서를 참조하세요. 
 
 ```python
     time_series_settings = {
@@ -189,7 +189,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 [의사 결정 트리](https://scikit-learn.org/stable/modules/tree.html#decision-trees)* |[의사 결정 트리](https://scikit-learn.org/stable/modules/tree.html#regression)* |[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
 [K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)* |[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)* | [경사 부스팅](https://scikit-learn.org/stable/modules/ensemble.html#regression)
 [선형 SVC](https://scikit-learn.org/stable/modules/svm.html#classification)* |[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)* | [Decision Tree](https://scikit-learn.org/stable/modules/tree.html#regression)
-[SVC(Support Vector Classification)](https://scikit-learn.org/stable/modules/svm.html#classification)* |[SGD(Stochastic Gradient Descent)](https://scikit-learn.org/stable/modules/sgd.html#regression)* | [Decision Tree](https://scikit-learn.org/stable/modules/tree.html#regression)
+[SVC(Support Vector Classification)](https://scikit-learn.org/stable/modules/svm.html#classification)* |[SGD(Stochastic Gradient Descent)](https://scikit-learn.org/stable/modules/sgd.html#regression)* | Arimax
 [임의 포리스트](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* | [Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests) | [LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
 [Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* | [Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* | [SGD(Stochastic Gradient Descent)](https://scikit-learn.org/stable/modules/sgd.html#regression)
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* |[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* | [Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
@@ -200,7 +200,6 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 ||| 평균
 ||| SeasonalAverage
 ||| [ExponentialSmoothing](https://www.statsmodels.org/v0.10.2/generated/statsmodels.tsa.holtwinters.ExponentialSmoothing.html)
-||| Arimax
 
 ### <a name="primary-metric"></a>기본 메트릭
 
@@ -380,7 +379,7 @@ run = experiment.submit(automl_config, show_output=True)
 자식 실행 및 수행 가능한 시기를 관리하는 데 도움이 되도록 실험당 전용 클러스터를 만들고 실험의 `max_concurrent_iterations` 수를 클러스터의 노드 수와 일치시키는 것이 좋습니다. 이러한 방식으로 클러스터의 모든 노드를 동시에 사용하여 원하는 동시 자식 실행/반복 횟수를 지정할 수 있습니다.
 
 `AutoMLConfig` 개체에서 `max_concurrent_iterations`를 구성합니다. 구성되지 않은 경우에는 기본적으로 실험당 하나의 동시 자식 실행/반복만 허용됩니다.
-계산 인스턴스의 경우 `max_concurrent_iterations` 계산 인스턴스 VM의 코어 수와 동일 하 게 설정할 수 있습니다.
+컴퓨팅 인스턴스의 경우 을 `max_concurrent_iterations` 컴퓨팅 인스턴스 VM의 코어 수와 동일하게 설정할 수 있습니다.
 
 ## <a name="explore-models-and-metrics"></a>모델 및 메트릭 탐색
 
@@ -418,7 +417,7 @@ def print_model(model, prefix=""):
             print()   
 ```
 
-동일한 실험 노트북 내에서 제출 및 학습 된 로컬 또는 원격 실행의 경우, 메서드를 사용 하 여 최상의 모델을 전달할 수 있습니다 `get_output()` . 
+동일한 실험 Notebook 내에서 제출되고 학습된 로컬 또는 원격 실행의 경우 메서드를 사용하여 최상의 모델을 전달할 수 `get_output()` 있습니다. 
 
 ```python
 best_run, fitted_model = run.get_output()
@@ -534,9 +533,9 @@ model = run.register_model(model_name = model_name,
 
 모델 해석력을 통해 모델이 예측을 수행한 이유와 기본 기능 중요도 값을 이해할 수 있습니다. SDK에는 로컬 모델과 배포된 모델의 학습 및 유추 시간에 모델 해석력 기능을 사용할 수 있도록 다양한 패키지가 포함되어 있습니다.
 
-자동화 된 ML 실험 내에서 특히 [interpretability 기능을 사용 하도록 설정](how-to-machine-learning-interpretability-automl.md) 하는 방법을 참조 하세요.
+특히 자동화된 ML 실험 내에서 [해석 기능 기능을 사용하도록 설정하는](how-to-machine-learning-interpretability-automl.md) 방법을 참조하세요.
 
-자동화 된 machine learning 외부에서 SDK의 다른 영역에 모델 설명과 기능 중요도를 사용 하도록 설정 하는 방법에 대 한 일반적인 내용은 [interpretability의 개념 문서](how-to-machine-learning-interpretability.md) 를 참조 하세요.
+자동화된 기계 학습 이외의 SDK의 다른 영역에서 모델 설명 및 기능 중요도를 사용하도록 설정하는 방법에 대한 일반적인 내용은 [해석력에 대한 개념 문서를 참조하세요.](how-to-machine-learning-interpretability.md)
 
 > [!NOTE]
 > ForecastTCN 모델은 현재 설명 클라이언트에서 지원되지 않습니다. 이 모델은 최상의 모델로 반환되고 주문형 설명 실행을 지원하지 않는 경우 설명 대시보드를 반환하지 않습니다.

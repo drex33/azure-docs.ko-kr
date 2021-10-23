@@ -4,25 +4,17 @@ description: Azure Monitor의 Linux용 Log Analytics 에이전트에서 발생�
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/21/2019
-ms.openlocfilehash: e3e65bd40bfceb6a48d4ce917c274f6532aa30e7
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.date: 10/21/2021
+ms.openlocfilehash: fce62f3bbe5a3eca29f89cb47c98df6485d1d123
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122529747"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216564"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트의 문제를 해결하는 방법
 
 이 문서에서는 Azure Monitor의 Linux용 Log Analytics 에이전트에서 발생할 수 있는 오류를 해결하기 위한 유용하고, 사용 가능한 솔루션을 제안합니다.
-
-이 문서의 단계를 수행해도 문제가 해결되지 않으면 다음 지원 채널을 사용할 수 있습니다.
-
-* 프리미어 지원 혜택을 받는 고객은 [프리미어](https://premier.microsoft.com/)를 사용하여 지원 요청을 열 수 있습니다.
-* Azure 지원 계약을 맺은 고객은 [Azure Portal](https://azure.microsoft.com/support/options/)에서 지원 요청을 열 수 있습니다.
-* [OMI 문제 해결 가이드](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md)를 사용하여 OMI 문제를 진단합니다.
-* [GitHub 문제](https://github.com/Microsoft/OMS-Agent-for-Linux/issues)를 제출합니다.
-* 제출된 아이디어와 버그를 검토하거나 새로운 아이디어를 제출하려면 Log Analytics 피드백 페이지([https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback))를 방문하세요.
 
 ## <a name="log-analytics-troubleshooting-tool"></a>Log Analytics 문제 해결 도구
 
@@ -36,9 +28,10 @@ Log Analytics 에이전트가 있는 컴퓨터의 터미널 창에 다음 명령
 
 문제 해결 도구는 Log Analytics 에이전트 설치 시 자동으로 포함됩니다. 그러나 설치에 실패하는 경우 다음 단계를 수행하여 수동으로 설치할 수도 있습니다.
 
-1. 문제 해결사 번들을 컴퓨터에 복사합니다. `wget https://raw.github.com/microsoft/OMS-Agent-for-Linux/master/source/code/troubleshooter/omsagent_tst.tar.gz`
-2. 번들의 압축을 풉니다. `tar -xzvf omsagent_tst.tar.gz`
-3. 수동 설치를 실행합니다. `sudo ./install_tst`
+1. 문제 해결사가 [GDB(GNU Project Debugger)를](https://www.gnu.org/software/gdb/) 사용하는 컴퓨터에 설치되어 있는지 확인합니다.
+2. 문제 해결사 번들을 컴퓨터에 복사합니다. `wget https://raw.github.com/microsoft/OMS-Agent-for-Linux/master/source/code/troubleshooter/omsagent_tst.tar.gz`
+3. 번들의 압축을 풉니다. `tar -xzvf omsagent_tst.tar.gz`
+4. 수동 설치를 실행합니다. `sudo ./install_tst`
 
 ### <a name="scenarios-covered"></a>적용되는 시나리오
 
@@ -59,7 +52,7 @@ Log Analytics 에이전트가 있는 컴퓨터의 터미널 창에 다음 명령
 
 ## <a name="purge-and-re-install-the-linux-agent"></a>Linux 에이전트 제거 및 재설치
 
-에이전트를 완전히 다시 설치하면 대부분의 문제가 해결됩니다. 실제로 에이전트를 깨끗한 상태로 전환하는 이 방법이 지원 팀에서 처음 제안하는 방법일 수 있습니다. 문제 해결사를 실행하여 로그를 수집하고 새로 설치하면 문제를 보다 신속하게 해결할 수 있습니다.
+에이전트를 완전히 다시 설치하면 대부분의 문제가 해결됩니다. 실제로 이는 지원 팀에서 에이전트를 무정전 상태로 전환하기 위한 지원의 첫 번째 제안일 수 있습니다. 문제 해결사를 실행하여 로그를 수집하고 새로 설치하면 문제를 보다 신속하게 해결할 수 있습니다.
 
 1. 제거 스크립트를 다운로드합니다.
 - `$ wget https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/tools/purge_omsagent.sh`
@@ -494,3 +487,17 @@ sudo sh ./onboard_agent.sh --purge
     ```
 
 3. `sudo sh ./omsagent-*.universal.x64.sh --upgrade` 명령을 실행하여 패키지를 업그레이드합니다.
+
+## <a name="issue-installation-is-failing-saying-python2-cannot-support-ctypes-even-though-python3-is-being-used"></a>문제: Python3를 사용 하는 경우에도 Python2가 ctypes를 지원할 수 없다는 오류 메시지가 설치 되지 않습니다.
+
+### <a name="probable-causes"></a>가능한 원인
+
+알려진 문제가 있습니다. VM의 언어가 영어가 아니면 사용 중인 Python 버전을 확인할 때 검사가 실패 합니다. 그러면 에이전트가 항상 Python2을 사용 하 고 있다고 가정 하 고 Python2 없는 경우 오류가 발생 합니다.
+
+### <a name="resolution"></a>해결 방법
+
+VM의 환경 언어를 영어로 변경 합니다.
+
+```
+export LANG=en_US.UTF-8
+```

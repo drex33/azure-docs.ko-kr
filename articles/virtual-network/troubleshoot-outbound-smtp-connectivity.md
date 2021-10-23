@@ -12,16 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/28/2021
 ms.author: genli
-ms.openlocfilehash: 3cc4cb587a7b2d5d06c249cc8f25bc78cdb86739
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
-ms.translationtype: HT
+ms.openlocfilehash: 5c4c129514ccf2fe3b55fc173d3fd4b87fd50715
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108165266"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130248966"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-problems-in-azure"></a>Azure에서 아웃바운드 SMTP 연결 문제 해결
 
 VM(가상 머신)에서 TCP 포트 25의 외부 도메인(예: outlook.com 및 gmail.com)으로 직접 전송되는 아웃바운드 이메일 메시지는 특정 구독 유형으로 VM을 배포하는 경우에만 가능합니다.
+
+> [!IMPORTANT]
+> 아래 모든 예제에서 프로세스는 Virtual Machines & VM Scale Sets 리소스 ()에 *만* 적용 됩니다 `Microsoft.Compute/virtualMachines`  &  `Microsoft.Compute/virtualMachineScaleSets` . 포트 25에서 전자 메일을 보내는 것은 [Azure App Service](https://azure.microsoft.com/services/app-service) 및 [Azure Functions](https://azure.microsoft.com/services/functions)를 비롯 한 모든 Azure PaaS (Platform as a Service) 리소스에서 지원 되지 않습니다.
 
 ## <a name="recommended-method-of-sending-email"></a>이메일을 전송하는 권장 방법
 

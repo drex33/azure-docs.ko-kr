@@ -3,7 +3,7 @@ title: Azure Portal의 Windows 가상 머신에서 SQL Server 만들기| Microso
 description: 이 자습서에서는 Azure Portal에서 SQL Server 2017을 사용하여 Windows 가상 머신을 만드는 방법을 보여줍니다.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: deployment
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 07/11/2019
-ms.author: mathoma
-ms.reviewer: jroth
-ms.openlocfilehash: c1186d6c138b555144d59414d7b1d9293474390d
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.author: pamela
+ms.reviewer: mathoma
+ms.openlocfilehash: 9890c3b6068fd7e11e8b0e1de663aa262b87399e
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079628"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162592"
 ---
 # <a name="quickstart-create-sql-server-2017-on-a-windows-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure Portal의 Windows 가상 머신에서 SQL Server 2017 만들기
 

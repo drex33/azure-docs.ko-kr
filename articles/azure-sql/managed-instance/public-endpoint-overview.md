@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, sstein
 ms.date: 05/08/2019
-ms.openlocfilehash: 7c949579d23e3acfbecde3111534209151ed61ac
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
-ms.translationtype: HT
+ms.openlocfilehash: 2718816adfeaa8fa98c93ea1ed394c6634b5cb7b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108314556"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130250448"
 ---
 # <a name="use-azure-sql-managed-instance-securely-with-public-endpoints"></a>퍼블릭 엔드포인트로 안전하게 Azure SQL Managed Instance 사용
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -50,7 +50,7 @@ Azure SQL Managed Instance는 가상 네트워크 내부에서 연결할 수 있
 
 클라이언트가 온-프레미스 네트워크에서 연결을 시작해야 하는 경우 원래 주소가 잘 알려진 IP 주소 집합으로 변환되었는지 확인합니다. 해당 작업을 수행할 수 없는 경우(예: 모바일 인력이 일반적인 시나리오인 경우) [지점 및 사이트 간 VPN 연결과 프라이빗 엔드포인트](point-to-site-p2s-configure.md)를 사용하는 것이 좋습니다.
 
-Azure에서 연결을 시작한 경우 잘 알려진 할당된 [가상 IP 주소](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip)(예: 가상 머신)에서 트래픽이 들어오는 것이 좋습니다. VIP(가상 IP) 주소 관리가 용이하도록 [공용 IP 주소 접두사](../../virtual-network/public-ip-address-prefix.md)를 사용할 수도 있습니다.
+Azure에서 연결을 시작한 경우 잘 알려진 할당된 [가상 IP 주소](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip)(예: 가상 머신)에서 트래픽이 들어오는 것이 좋습니다. VIP(가상 IP) 주소 관리가 용이하도록 [공용 IP 주소 접두사](../../virtual-network/ip-services/public-ip-address-prefix.md)를 사용할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

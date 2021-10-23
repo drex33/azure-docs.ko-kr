@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 43203a756bcb42c7d00de9c11e9223f1d8b9e2a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: db75c020b39ef680b9f425f7592f01e82a13f426
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87001590"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130241956"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>PowerShell을 사용하여 리소스 관리자에 대한 IPv6를 포함한 인터넷 연결 부하 분산 장치 만들기 시작
 
@@ -29,7 +29,7 @@ ms.locfileid: "87001590"
 > * [템플릿](load-balancer-ipv6-internet-template.md)
 
 >[!NOTE] 
->이 문서에서는 기본 부하 분산 장치에서 IPv4 및 IPv6 연결을 모두 제공할 수 있도록 하는 초기 IPv6 기능에 대해 설명합니다. 이제 IPv6 연결을 가상 네트워크와 통합하고 IPv6 네트워크 보안 그룹 규칙, IPv6 사용자 정의 라우팅, IPv6 기본 및 표준 부하 분산 등의 주요 기능을 포함하는 [Azure VNET용 IPv6](../virtual-network/ipv6-overview.md)에서 포괄적인 IPv6 연결을 사용할 수 있습니다.  Azure VNET용 IPv6은 Azure의 IPv6 애플리케이션에 권장되는 표준입니다. [Azure VNET용 IPv6 PowerShell 배포](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)를 참조하세요. 
+>이 문서에서는 기본 부하 분산 장치에서 IPv4 및 IPv6 연결을 모두 제공할 수 있도록 하는 초기 IPv6 기능에 대해 설명합니다. 이제 IPv6 연결을 가상 네트워크와 통합하고 IPv6 네트워크 보안 그룹 규칙, IPv6 사용자 정의 라우팅, IPv6 기본 및 표준 부하 분산 등의 주요 기능을 포함하는 [Azure VNET용 IPv6](../virtual-network/ip-services/ipv6-overview.md)에서 포괄적인 IPv6 연결을 사용할 수 있습니다.  Azure VNET용 IPv6은 Azure의 IPv6 애플리케이션에 권장되는 표준입니다. [Azure VNET용 IPv6 PowerShell 배포](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)를 참조하세요. 
 
 Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 부하 분산 장치는 부하 분산 장치 집합에 있는 클라우드 서비스 또는 가상 머신의 정상 서비스 인스턴스 간에 들어오는 트래픽을 배포하여 고가용성을 제공합니다. Azure Load Balancer는 여러 포트, 여러 IP 주소 또는 둘 다에서 이러한 서비스를 제공할 수도 있습니다.
 
@@ -231,5 +231,3 @@ VM 만들기에 대한 자세한 내용은 [리소스 관리자 및 Azure PowerS
     $vm2 = Set-AzVMOSDisk -VM $vm2 -Name 'myNrpIPv6VM1osdisk' -VhdUri $osDisk2Uri -CreateOption FromImage
     New-AzVM -ResourceGroupName NRP-RG -Location 'West US' -VM $vm2
     ```
-
-

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 60a01c9e3a3e8643ad7d993db34d299fdc5ef145
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
-ms.translationtype: HT
+ms.openlocfilehash: 5c7e7cc2434c9c55043ae6e504d868a103da35db
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537422"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226246"
 ---
 # <a name="collect-and-transport-metrics-preview"></a>메트릭 수집 및 전송(미리 보기)
 
@@ -219,7 +219,7 @@ metricToSelect{quantile=0.5,otherLabel=~Re[ge]*|x}[http://VeryNoisyModule:9001/m
   * `=` 제공된 문자열과 정확히 일치하는(대/소문자 구분) 레이블을 검색합니다.
   * `!=` 제공된 문자열과 정확히 일치하지 않는 레이블을 검색합니다.
   * `=~` 제공된 정규식과 일치하는 레이블을 검색합니다. 예: `label=~CPU|Mem|[0-9]*`
-  * `!=` 제공된 정규식과 맞지 않는 레이블을 검색합니다.
+  * `!~` 제공된 정규식과 맞지 않는 레이블을 검색합니다.
   * 정규식은 완전히 고정됩니다(^ 및 $는 각 정규식의 시작과 끝에 자동으로 추가됨).
   * 이 구성 요소는 메트릭 선택기에서 선택 사항입니다.
 
@@ -228,15 +228,15 @@ metricToSelect{quantile=0.5,otherLabel=~Re[ge]*|x}[http://VeryNoisyModule:9001/m
 * URL은 `MetricsEndpointsCSV`에 나열된 URL과 정확히 일치해야 합니다.
 * 이 구성 요소는 메트릭 선택기에서 선택 사항입니다.
 
-메트릭은 지정된 선택기의 모든 부분과 일치해야 선택할 수 있습니다. 이름과 일치하고, , 모든 동일한 태그가 일치하는 값을 가지며, 지정된 엔드포인트에서 가져온 것이어야 합니다. 예를 들어 `mem{quantile=0.5,otherLabel=foobar}[http://VeryNoisyModule:9001/metrics]`는 `mem{quantile=0.5,otherLabel=~foo|bar}[http://VeryNoisyModule:9001/metrics]` 선택기와 일치하지 않습니다. 여러 선택기를 사용하여 and 유사 동작 대신 or 유사 동작을 만들어야 합니다.
+메트릭은 지정된 선택기의 모든 부분과 일치해야 선택할 수 있습니다. *이름과 일치 해야 하며, 일치* *하는 값을* 가진 동일한 레이블이 모두 있고 지정 된 끝점에서 가져와야 합니다. 예를 들어 `mem{quantile=0.5,otherLabel=foobar}[http://VeryNoisyModule:9001/metrics]`는 `mem{quantile=0.5,otherLabel=~foo|bar}[http://VeryNoisyModule:9001/metrics]` 선택기와 일치하지 않습니다. 여러 선택기를 사용하여 and 유사 동작 대신 or 유사 동작을 만들어야 합니다.
 
-예를 들어, 모듈 `module1`(태그)의 메트릭 `mem`을 허용할 뿐만 아니라 태그 `agg=p99`가 지정된 `module2`의 동일한 메트릭을 허용하려면 `AllowedMetrics`에 다음 선택기를 추가할 수 있습니다.
+예를 들어, 모듈의 모든 레이블에 사용자 지정 메트릭을 허용 하 고 `mem` `module1` 레이블과 동일한 메트릭이 허용 되도록 하려면 `module2` `agg=p99` 다음 선택기를에 추가할 수 있습니다 `AllowedMetrics` .
 
 ```query
 mem{}[http://module1:9001/metrics] mem{agg="p99"}[http://module2:9001/metrics]
 ```
 
-또는 메트릭 `mem` 및 `cpu`를 허용하려면(태그 또는 엔드포인트) 다음을 `AllowedMetrics`에 추가합니다.
+또는 사용자 지정 메트릭과 `mem` `cpu` 레이블 또는 끝점에 대 한를 허용 하려면 다음을에 추가 합니다 `AllowedMetrics` .
 
 ```query
 mem cpu

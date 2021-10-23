@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 10/14/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: f8abe1cc793b5e7e5528d377ee0a7226d5415909
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 435f26a7fba7939ffc7ac370c648f6aae0d7a67f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130045297"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234040"
 ---
 # <a name="troubleshooting-overview-feedback-and-support-for-azure-virtual-desktop"></a>Azure Virtual Desktop용 문제 해결 개요, 피드백 및 지원
 
@@ -22,7 +22,7 @@ ms.locfileid: "130045297"
 
 ## <a name="troubleshoot-deployment-and-connection-issues"></a>배포 및 연결 문제 해결
 
-[Windows 가상 데스크톱에 대 한 Azure Monitor](azure-monitor.md) 는 Windows 가상 데스크톱 환경에서 신속 하 게 문제를 해결 하 고 문제를 식별할 수 있는 Azure Monitor 통합 문서를 기반으로 하는 대시보드입니다. Kusto 쿼리 작업을 선호 하는 경우 기본 제공 진단 기능인 [Log Analytics](diagnostics-log-analytics.md)를 대신 사용 하는 것이 좋습니다.
+[Windows Virtual Desktop에 대한 Azure Monitor](azure-monitor.md) Windows Virtual Desktop 환경에서 문제를 신속하게 해결하고 식별할 수 있는 Azure Monitor 통합 문서를 기반으로 하는 대시보드입니다. Kusto 쿼리를 사용하려면 기본 제공 진단 기능인 Log [Analytics](diagnostics-log-analytics.md)를 대신 사용하는 것이 좋습니다.
 
 ## <a name="report-issues"></a>문제 보고
 
@@ -34,7 +34,7 @@ Azure Resource Manager 통합으로 Azure Virtual Desktop에 대한 문제를 �
 
 다른 무언가를 하기 전에 [Azure 상태 페이지](https://status.azure.com/status) 및 [Azure Service Health](https://azure.microsoft.com/features/service-health/)를 사용하여 Azure 서비스가 올바르게 실행 중인지 확인하세요.
 
-다음 표를 사용하여 원격 데스크톱 클라이언트 사용을 통해 환경을 설정할 때 발생할 수 있는 문제를 식별 및 해결할 수 있습니다. 환경을 설정한 후에는 새로운 [진단 서비스](diagnostics-role-service.md)를 사용하여 일반적인 시나리오에 대한 문제를 식별할 수 있습니다.
+다음 표를 사용하여 원격 데스크톱 클라이언트 사용을 통해 환경을 설정할 때 발생할 수 있는 문제를 식별 및 해결할 수 있습니다. 환경을 설정한 후에는 새로운 [진단 서비스]()를 사용하여 일반적인 시나리오에 대한 문제를 식별할 수 있습니다.
 
 | **문제점**                                                            | **추천 솔루션**  |
 |----------------------------------------------------------------------|-------------------------------------------------|

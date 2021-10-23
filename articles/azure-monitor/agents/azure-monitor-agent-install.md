@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 09/21/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 3e8430499edde638bf32cca2f9a36fb3c3583863
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 82892945e4226a28d49e0e20f397c9bd3d4f6d09
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130178059"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256822"
 ---
 # <a name="install-the-azure-monitor-agent"></a>Azure Monitor 에이전트 설치
 이 문서에서는 Azure virtual machines 및 Azure Arc 사용 서버에 [Azure Monitor 에이전트](azure-monitor-agent-overview.md) 를 설치 하는 데 사용할 수 있는 여러 옵션을 제공 하며, 에이전트가 수집 해야 하는 데이터를 정의 하는 [데이터 수집 규칙을 사용 하 여 연결](data-collection-rule-azure-monitor-agent.md) 을 만드는 옵션도 제공 합니다.
@@ -35,7 +35,7 @@ Azure Monitor 에이전트는 다음 테이블의 세부 정보를 사용하여 
 | 속성 | Windows | Linux |
 |:---|:---|:---|
 | Publisher | Microsoft.Azure.Monitor  | Microsoft.Azure.Monitor |
-| 유형      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
+| 형식      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
 | TypeHandlerVersion  | 1.0 | 1.5 |
 
 ## <a name="extension-versions"></a>확장 버전
@@ -46,7 +46,7 @@ Azure Monitor 에이전트는 다음 테이블의 세부 정보를 사용하여 
 | 2021년 6월 | 일반 공급 지원을 발표했습니다. <ul><li>이제 메트릭 대상을 제외한 모든 기능 공급됨</li><li>프로덕션 품질, 보안 및 규정 준수</li><li>모든 공용 지역에서 사용 가능</li><li>더 높은 EPS의 성능 및 확장성 향상</li></ul> [자세한 정보](https://azure.microsoft.com/updates/azure-monitor-agent-and-data-collection-rules-now-generally-available/) | 1.0.12.0 | 1.9.1.0 |
 | 2021년 7월 | <ul><li>직접 프록시 지원</li><li>Log Analytics 게이트웨이 지원</li></ul> [자세한 정보](https://azure.microsoft.com/updates/general-availability-azure-monitor-agent-and-data-collection-rules-now-support-direct-proxies-and-log-analytics-gateway/) | 1.1.1.0 | 1.10.5.0 |
 | 2021년 8월 | Azure Monitor 메트릭을 유일한 대상으로 허용하는 문제 해결 | 1.1.2.0 | 1.10.9.0(1.10.7.0 사용 금지) |
-| 2021년 9월 | 에이전트를 다시 시작 하는 동안 데이터 손실을 유발 하는 문제가 해결 되었습니다. | 1.1.3.1 (1.1.3.1 사용 안 함) | 1.12.2.0 |
+| 2021년 9월 | <ul><li>에이전트를 다시 시작 하는 동안 데이터 손실을 유발 하는 문제가 해결 되었습니다.</li><li>1.1.3.1 for Arc Windows 서버에서 도입 된 회귀 처리</li></ul> | 1.1.3.1 (1.1.3.1 사용 안 함) | 1.12.2.0 |
 
 
 ## <a name="install-with-azure-portal"></a>Azure Portal을 사용하여 설치
@@ -138,15 +138,15 @@ Windows 및 Linux 가상 머신에 대 한 정책 이니셔티브는 다음과 �
 - 가상 컴퓨터에 Azure Monitor 에이전트 확장을 설치 합니다.
 - 연결을 만들고 배포 하 여 가상 머신을 데이터 수집 규칙에 연결 합니다.
 
-![Azure Monitor 에이전트를 구성 하기 위한 두 가지 기본 제공 정책 이니셔티브를 보여 주는 Azure Policy 정의 페이지의 부분 스크린샷](media/azure-monitor-agent-install/built-in-ama-dcr-initiatives.png)  
+![Azure Monitor 에이전트를 구성하기 위한 두 가지 기본 제공 정책 이니셔티브를 보여 주는 Azure Policy 정의 페이지의 부분 스크린샷](media/azure-monitor-agent-install/built-in-ama-dcr-initiatives.png)  
 
 ### <a name="built-in-policies"></a>기본 제공 정책 
 필요에 따라 해당 정책 이니셔티브의 개별 정책을 사용하도록 선택할 수 있습니다. 예를 들어 에이전트를 자동으로 설치하려는 경우 다음 예제와 같이 이니셔티브의 첫 번째 정책을 사용합니다.  
 
-![Azure Monitor 에이전트를 구성하기 위한 이니셔티브 내에 포함된 정책을 보여 주는 Azure Policy 정의 페이지의 부분 스크린샷](media/azure-monitor-agent-install/built-in-ama-dcr-policy.png)  
+![Azure Monitor 에이전트를 구성하기 위한 이니셔티브 내에 포함된 정책을 보여 주는 Azure Policy 정의 페이지의 부분 스크린샷.](media/azure-monitor-agent-install/built-in-ama-dcr-policy.png)  
 
 ### <a name="remediation"></a>수정
-이니셔티브 또는 정책은 생성될 때 각 가상 머신에 적용됩니다. [수정 작업은](../../governance/policy/how-to/remediate-resources.md) 이니셔티브의 정책 정의를 기존 리소스 에 배포하므로 이미 생성된 모든 *리소스에* 대해 Azure Monitor 에이전트를 구성할 수 있습니다. 
+이니셔티브 또는 정책은 생성될 때 각 가상 머신에 적용됩니다. [수정 작업은](../../governance/policy/how-to/remediate-resources.md) 이니셔티브의 정책 정의를 기존 리소스 에 배포하므로 이미 만들어진 모든 *리소스에* 대해 Azure Monitor 에이전트를 구성할 수 있습니다. 
 
 Azure Portal 사용하여 할당을 만들 때 동시에 수정 작업을 만들 수 있습니다. 수정에 대한 자세한 내용은 [Azure Policy을 사용하여 비준수 리소스 수정](../../governance/policy/how-to/remediate-resources.md)을 참조하세요.
 

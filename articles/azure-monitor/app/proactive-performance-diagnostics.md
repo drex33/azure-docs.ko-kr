@@ -4,12 +4,12 @@ description: 스마트 검색은 앱 원격 분석을 분석하고 잠재적인 
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 0090171b83a25618b862e766ccd2ef39a4adb970
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
-ms.translationtype: HT
+ms.openlocfilehash: 4bcbac5aa9d02aa7e996951b1d1bb334be5b2c9d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111536721"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227030"
 ---
 # <a name="smart-detection---performance-anomalies"></a>스마트 검색 - 성능 이상
 
@@ -74,7 +74,7 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 
   * 아직은 가능하지 않지만 다음 작업은 가능합니다.
     * 메트릭 임계값을 초과할 때 알리도록 [경고를 설정](../alerts/alerts-log.md)할 수 있습니다.
-    * 직접 분석할 수 있는 [데이터베이스](./code-sample-export-sql-stream-analytics.md), [Power BI](./export-power-bi.md)에 [원격 분석을 내보냅니다](./export-telemetry.md).
+    * 직접 분석할 수 있는 [데이터베이스](../../stream-analytics/app-insights-export-sql-stream-analytics.md), [Power BI](./export-power-bi.md)에 [원격 분석을 내보냅니다](./export-telemetry.md).
 * *어라만 자주 분석을 수행하나요?*
 
   * 원격 분석 데이터에 대한 분석은 전날부터 매일 실행됩니다(UTC 표준 시간대로 하루 종일).

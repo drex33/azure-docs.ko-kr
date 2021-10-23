@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 08/24/2021
+ms.date: 10/21/2021
 ms.author: alkohli
-ms.openlocfilehash: 471d5bff3fa3a4be092f1294f64b0bb8c3fdf9a8
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.openlocfilehash: 019d4da7654c3cdf2eec7fc3b6f2434e1f42cd47
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "129220408"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130218169"
 ---
 # <a name="review-copy-errors-in-uploads-from-azure-data-box-and-azure-data-box-heavy-devices"></a>Azure Data Box 및 Azure Data Box Heavy 디바이스의 업로드에서 복사 오류 검토
 
@@ -159,4 +159,4 @@ Azure Portal에서 다음과 같은 알림이 표시됩니다. **DATA COPY PATH*
 ## <a name="next-steps"></a>다음 단계
 
 - [일반적인 REST API 오류 검토](/rest/api/storageservices/common-rest-api-error-codes)
-- [Azure에 대한 데이터 업로드 확인](data-box-deploy-picked-up.md?tabs=in-us-canada-europe#verify-data-upload-to-azure-8)
+- [Azure에 대한 데이터 업로드 확인](data-box-deploy-picked-up.md#verify-data-upload-to-azure)

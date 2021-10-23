@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/27/2021
 ms.author: lajanuar
-ms.openlocfilehash: 47695a2445e0b61f972f6481471305ed5219b5d7
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: 397f3c05d42837ffb5e9bb4fdb465a4aee352fbd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122567999"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233680"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>사용자 지정 모델용 학습 데이터 세트 빌드
 
@@ -72,7 +72,7 @@ Form Recognizer 사용자 지정 모델을 사용하는 경우 해당 모델에�
 
 이제 학습 데이터 세트를 빌드하는 방법을 알아보았으므로 빠른 시작에 따라 사용자 지정 Form Recognizer 모델을 학습시키고 양식에서 사용하기 시작합니다.
 
-* [클라이언트 라이브러리 또는 REST API를 사용하여 모델 학습 및 양식 데이터 추출](./quickstarts/client-library.md)
+* [클라이언트 라이브러리 또는 REST API를 사용하여 모델 학습 및 양식 데이터 추출](./quickstarts/try-sdk-rest-api.md)
 * [샘플 레이블 지정 도구에서 레이블을 사용하여 학습](label-tool.md)
 
 ## <a name="see-also"></a>참조

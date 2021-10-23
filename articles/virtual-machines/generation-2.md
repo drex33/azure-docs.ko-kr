@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/26/2021
 ms.author: jushiman
-ms.openlocfilehash: 48dd300148cdcccc9caf754a5e5bcc69e7c5c0e7
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: a8e6133d0b4e7d0595524bb4142e51610226ad7f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129216558"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130214690"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure의 2세대 VM 지원
 
@@ -87,7 +87,7 @@ Azure는 현재 온-프레미스 Hyper-V가 2세대 VM에 대해 지원하는 �
 | 보안 부팅                         | :heavy_check_mark:  | 신뢰할 수 있는 시작(미리 보기)   |
 | 보호된 VM                         | :heavy_check_mark:  | :x:   |
 | vTPM                                | :heavy_check_mark:  | 신뢰할 수 있는 시작(미리 보기)  |
-| VBS(가상화 기반 보안) | :heavy_check_mark:  | 신뢰할 수 있는 시작(미리 보기)   |
+| VBS(가상화 기반 보안) | :heavy_check_mark:  | :heavy_check_mark:   |
 | VHDX 형식                         | :heavy_check_mark:  | :x:   |
 
 자세한 내용은 [신뢰할 수 있는 시작(미리 보기)](trusted-launch.md)을 참조하세요.

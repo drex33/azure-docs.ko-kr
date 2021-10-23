@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: 8a462809ca7be524e0e5149808bdcbe28f49dd77
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4485b41c10322a9a289a22e7822031fd64cf98cf
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128649041"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130237855"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>진단 설정을 사용하여 로그 및 메트릭 분석
 
@@ -229,7 +229,7 @@ Azure Monitor는 Log Analytics를 사용하여 애플리케이션 로그를 쿼�
 </configuration>
 ```
 
-그런 다음 아래와 같이 Log Analytics의 줄 바꿈 문자로 토큰을 바꿀 수 있습니다.
+그런 다음, 아래와 같이 Log Analytics에서 토큰을 줄임표 문자로 바꿀 수 있습니다.
 
 ```sql
 AppPlatformLogsforSpring
@@ -240,4 +240,4 @@ AppPlatformLogsforSpring
 
 ## <a name="next-steps"></a>다음 단계
 
-* [빠른 시작: 첫 번째 Azure Spring Cloud 애플리케이션 배포](./quickstart.md)
+* [빠른 시작: Azure Spring Cloud 첫 번째 Spring Boot 앱 배포](./quickstart.md)

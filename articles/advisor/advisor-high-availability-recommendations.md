@@ -3,12 +3,12 @@ title: Azure Advisor를 사용하여 애플리케이션의 안정성 향상
 description: Azure Advisor를 사용하여 중요 비즈니스용 Azure 배포의 안정성을 보장하고 개선합니다.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: 8d0c8902c41d50f4391a5431aba7a58faa917208
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
-ms.translationtype: HT
+ms.openlocfilehash: 480f22c19285c566a88023869bb654f95810509d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111887549"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130240550"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Azure Advisor를 사용하여 애플리케이션의 안정성 향상
 
@@ -58,6 +58,9 @@ Azure Advisor는 기본 SKU를 사용하는 VPN 게이트웨이를 확인하고 
 - 활성-활성 구성 옵션. 
 - 사용자 지정 Ipsec/IKE 정책. 
 - 더 높은 안정성 및 가용성.
+
+## <a name="ensure-reliable-outbound-connectivity-with-vnet-nat"></a>VNet NAT를 사용 하 여 신뢰할 수 있는 아웃 바운드 연결 확인
+표준 Load Balancer 또는 다른 Azure 리소스에서 제공 하는 기본 아웃 바운드 연결은 않음를 사용 하는 것은 연결 실패 (SNAT 포트 소모 라고도 함)로 인해 프로덕션 워크 로드에는 권장 되지 않습니다. 이와 관련 하 여 connectivty의 오류를 방지 하는 VNet NAT를 사용 하는 것이 좋습니다. NAT는 응용 프로그램이 포트를 초과 하지 않도록 원활 하 게 확장할 수 있습니다. [VNET NAT에 대해 자세히 알아보세요](../virtual-network/nat-gateway/nat-overview.md).
 
 ## <a name="ensure-virtual-machine-fault-tolerance-temporarily-disabled"></a>가상 머신 내결함성 보장(일시적으로 사용할 수 없음)
 
@@ -130,4 +133,4 @@ Advisor 권장 사항에 대한 자세한 내용은 다음을 참조하세요.
 * [Advisor 비용 권장 사항](advisor-cost-recommendations.md)
 * [Advisor 성능 권장 사항](advisor-performance-recommendations.md)
 * [Advisor 보안 권장 사항](advisor-security-recommendations.md)
-* [Advisor 운영 우수성 권장 사항](advisor-operational-excellence-recommendations.md)
+* [Advisor 뛰어난 운영 권장 사항](advisor-operational-excellence-recommendations.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/22/2021
-ms.openlocfilehash: 8728371fab634c9673e264e9cb9fa99c54931e01
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: bef4be2970430dd520cf1a2adb8854e3742a6d58
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129710330"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130260738"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Azure Monitor 에이전트 개요
 
@@ -44,7 +44,7 @@ ms.locfileid: "129710330"
 | **데이터 전송 대상** | Azure Monitor 로그<br>Azure Monitor 메트릭<sup>1</sup> | Azure Storage<br>이벤트 허브 | Azure Monitor 메트릭 | Azure Monitor 로그 | Azure Monitor 로그<br>(Log Analytics 에이전트를 통해) |
 | **서비스 및**<br>**features**<br>**지원** | Log Analytics<br>메트릭 탐색기 | | 메트릭 탐색기 | VM 인사이트<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | VM 인사이트<br>서비스 맵 |
 
-<sup>1</sup> Azure Monitor 메트릭을 사용 하는 다른 제한 사항을 검토 하려면 [여기를 클릭](../essentials/metrics-custom-overview.md#quotas-and-limits) 하세요. Linux에서 Azure Monitor 메트릭은 유일한 대상이 1.10.9.0 이상에서 지원 됩니다. 
+<sup>1</sup> Azure Monitor 메트릭 사용에 대한 다른 제한 내용을 [검토하려면 여기를 클릭하세요.](../essentials/metrics-custom-overview.md#quotas-and-limits) Linux에서는 Azure Monitor 메트릭을 유일한 대상으로 사용하는 것이 v.1.10.9.0 이상에서 지원됩니다. 
 
 ## <a name="azure-monitor-agent"></a>Azure Monitor 에이전트
 
@@ -52,9 +52,9 @@ ms.locfileid: "129710330"
 
 다음 작업을 수행해야 하는 경우 Azure Monitor 에이전트를 사용합니다.
 
-- Azure의 모든 머신, 다른 클라우드 또는 온-프레미스에서 게스트 로그 및 메트릭을 수집합니다. Azure 외부의 컴퓨터에는[Azure Arc 사용 서버가](../../azure-arc/servers/overview.md) 필요 합니다. 
+- Azure의 모든 머신, 다른 클라우드 또는 온-프레미스에서 게스트 로그 및 메트릭을 수집합니다. (Azure Arc 사용[가능한 서버는](../../azure-arc/servers/overview.md) Azure 외부의 머신에 필요합니다.) 
 - [데이터 수집 규칙](./data-collection-rule-overview.md)을 사용하여 중앙에서 데이터 수집 구성을 관리하고 전체 관리를 위해 ARM(Azure Resource Manager) 템플릿 또는 정책을 사용합니다.
-- Azure Monitor를 사용 하 여 분석을 위해 Azure Monitor 로그 및 Azure Monitor 메트릭 (미리 보기)에 데이터를 보냅니다. 
+- Azure Monitor 사용하여 분석을 위해 Azure Monitor 로그 및 Azure Monitor 메트릭(미리 보기)에 데이터를 보냅니다. 
 - Windows 및 Linux에서 로그에 대한 Windows 이벤트 필터링 또는 멀티 호밍 활용
 <!--- Send data to Azure Storage for archiving.
 - Send data to third-party tools using [Azure Event Hubs](./diagnostics-extension-stream-event-hubs.md).
@@ -129,7 +129,7 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 
 - 종속성 에이전트를 사용하려면 Log Analytics 에이전트를 동일한 머신에 설치해야 합니다.
 - Linux 머신에서는 Azure 진단 확장 전에 Log Analytics 에이전트를 설치해야 합니다.
-- Dependency Agent의 Windows 및 Linux 버전 모두에서 데이터 수집은 사용자 공간 서비스 및 커널 드라이버를 사용 하 여 수행 됩니다. 
+- Windows 및 Linux 버전의 Dependency Agent 데이터 수집은 사용자 공간 서비스 및 커널 드라이버를 사용하여 수행됩니다. 
 
 ## <a name="virtual-machine-extensions"></a>가상 머신 확장
 
@@ -181,7 +181,7 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 | Oracle Linux 7                                              | X | X |   | X |
 | Oracle Linux 6                                              |   | X |   |   |
 | Oracle Linux 6.4 이상                                           |   | X |   | X |
-| Red Hat Enterprise Linux Server 8.2, 8.3, 8.4               | X <sup>3</sup> | X | X |   |
+| Red Hat Enterprise Linux Server 8.1, 8.2, 8.3, 8.4          | X <sup>3</sup> | X | X |   |
 | Red Hat Enterprise Linux Server 8                           | X <sup>3</sup> | X | X |   |
 | Red Hat Enterprise Linux Server 7                           | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                           |   | X | X |   |
@@ -206,7 +206,9 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 
 | 배포 | OS 버전 | 커널 버전 |
 |:---|:---|:---|
-|  Red Hat Linux 8   | 8.2     | 4.18.0-193.\*el8_2.x86_64 |
+|  Red Hat Linux 8   | 8.4     | 4.18.0-305. \* el8.x86_64, 4.18.0-305. \* el8_4.x86_64 |
+|                    | 8.3     |  4.18.0-240. \* el8_3.x86_64 |
+|                    | 8.2     | 4.18.0-193.\*el8_2.x86_64 |
 |                    | 8.1     | 4.18.0-147.\*el8_1.x86_64 |
 |                    | 8.0     | 4.18.0-80.\*el8.x86_64<br>4.18.0-80.\*el8_0.x86_64 |
 |  Red Hat Linux 7   | 7.9     | 3.10.0-1160 |
@@ -217,7 +219,9 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 |                    | 7.4     | 3.10.0-693  |
 | Red Hat Linux 6    | 6.10    | 2.6.32-754 |
 |                    | 6.9     | 2.6.32-696  |
-| CentOS Linux 8     | 8.2     | 4.18.0-193.\*el8_2.x86_64 |
+| CentOS Linux 8     | 8.4     | 4.18.0-305. \* el8.x86_64, 4.18.0-305. \* el8_4.x86_64 |
+|                    | 8.3     | 4.18.0-240. \* el8_3.x86_64 |
+|                    | 8.2     | 4.18.0-193.\*el8_2.x86_64 |
 |                    | 8.1     | 4.18.0-147.\*el8_1.x86_64 |
 |                    | 8.0     | 4.18.0-80.\*el8.x86_64<br>4.18.0-80.\*el8_0.x86_64 |
 | CentOS Linux 7     | 7.9     | 3.10.0-1160 |
@@ -229,10 +233,12 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 |                    | 18.04   | 5.3.0-1020<br>5.0(Azure 조정 커널 포함)<br>4.18 *<br>4.15* |
 |                    | 16.04.3 | 4.15.\* |
 |                    | 16.04   | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
-| SUSE Linux 12 Enterprise Server | 15     | 4.12.14-150\*
-|                                 | 12 SP4 | 4.12.*(Azure 조정 커널 포함) |
-|                                 | 12 SP3 | 4.4.* |
-|                                 | 12 SP2 | 4.4.* |
+| SUSE Linux 12 Enterprise Server | 12 SP5     | 4.12.14-122. \* -default, 4.12.14-16. \* -azure|
+|                                 | 12 SP4 | 4.12. \* (Azure 튜닝 커널 포함) |
+|                                 | 12 SP3 | 4.4.\* |
+|                                 | 12 SP2 | 4.4.\* |
+| SUSE Linux 15 Enterprise Server | 15 SP1 | 4.12.14-197. \* -default, 4.12.14-8. \* -azure |
+|                                 | 15     | 4.12.14-150. \* -default |
 | Debian                          | 9      | 4.9  | 
 
 ## <a name="next-steps"></a>다음 단계

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: danlep
-ms.openlocfilehash: fc160dd2dbf6e9ef189baddec3ca15cd38ec06f8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 711eb5ed6e92a50ba43565b393c25f270566a36b
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128582974"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047421"
 ---
 # <a name="import-a-soap-api-and-convert-to-rest"></a>SOAP API 가져오기 및 REST로 변환
 
@@ -43,7 +43,7 @@ ms.locfileid: "128582974"
 
     ![SOAP API](./media/restify-soap-api/wsdl-api.png)
 3. **WSDL 사양** 에 SOAP API가 상주하는 URL을 입력합니다.
-4. **SOAP를 REST로** 라디오 단추를 클릭합니다. 이 옵션을 클릭하면 APIM은 XML과 JSON 간 자동 변환을 시도합니다. 이 경우 소비자는 JSON을 반환하는 restful API로 API를 호출해야 합니다. APIM은 각 요청을 SOAP 호출로 변환합니다.
+4. **SOAP를 REST로** 라디오 단추를 클릭합니다. 이 옵션을 클릭하면 APIM은 XML과 JSON 간 자동 변환을 시도합니다. 이 경우 소비자는 JSON을 반환하는 RESTful API로 API를 호출해야 합니다. APIM은 각 요청을 SOAP 호출로 변환합니다.
 
     ![SOAP를 REST로](./media/restify-soap-api/soap-to-rest.png)
 

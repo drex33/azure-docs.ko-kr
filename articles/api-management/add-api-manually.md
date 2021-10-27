@@ -8,12 +8,13 @@ ms.service: api-management
 ms.topic: tutorial
 ms.date: 04/26/2021
 ms.author: danlep
-ms.openlocfilehash: 2e88bef36179a0e923ad6dfa8c7744f20d0a4d33
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 07b200c67b831b7d7fb01ea8da657e9bcc9b3b18
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128623972"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997008"
 ---
 # <a name="add-an-api-manually"></a>API를 수동으로 추가
 
@@ -110,6 +111,9 @@ Azure Portal에서 작업을 테스트합니다.  또는 **개발자 포털** �
 1. **보내기** 를 누릅니다.
 
     "http://httpbin.org/headers" 작업이 생성하는 응답이 표시됩니다. 작업을 변환하려면 [API 변환 및 보호](transform-api.md)를 참조하세요.
+  
+>[!NOTE] 
+> 통합하려는 백 엔드 API의 호스트가 작업 URL에서 후행 슬래시를 처리하는 방법을 이해하는 것이 중요할 수 있습니다. 자세한 내용은 이 [API Management FAQ](./api-management-faq.yml#how-does-api-management-handle-trailing-slashes-when-calling-backend-services-)를 참조하세요.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

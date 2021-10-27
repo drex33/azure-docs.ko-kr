@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 05/17/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 15774ad99391dee3cc89bec6fa09bb808715a4ef
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.openlocfilehash: 94c46b0c911d8f9e6ba0bee34d207bd7c1d4b8e5
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122830296"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130044746"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>자습서: .NET 채팅 봇에서 Personalizer 사용
 
@@ -331,7 +331,7 @@ public class PersonalizerChatbot : ActivityHandler
 
 #### <a name="calling-rank-api-and-display-results"></a>순위 API 호출 및 결과 표시
 
-`ChooseRankAsync` 메서드는 기능 및 컨텍스트 기능이 포함된 작업을 수집하여 Personalizer의 순위 API에 보낼 JSON 데이터를 작성합니다.
+`ChooseRankAsync` 메서드는 기능 및 컨텍스트 기능이 포함된 작업을 수집하여 Personalizer 순위 API에 보낼 JSON 데이터를 작성합니다.
 
 ```csharp
 private async Task<RankResponse> ChooseRankAsync(ITurnContext turnContext, string eventId, CancellationToken cancellationToken)
@@ -400,7 +400,7 @@ private async Task<RankResponse> ChooseRankAsync(ITurnContext turnContext, strin
 
 #### <a name="calling-reward-api-and-display-results"></a>보상 API 호출 및 결과 표시
 
-`RewardAsync` 메서드는 점수를 확인하여 Personalizer의 보상 API에 보낼 JSON 데이터를 작성합니다. 점수는 사용자 텍스트에서 식별된 LUIS 의도에 따라 결정되며 `OnTurnAsync` 메서드에서 보냅니다.
+`RewardAsync` 메서드는 점수를 확인하여 Personalizer 보상 API에 보낼 JSON 데이터를 작성합니다. 점수는 사용자 텍스트에서 식별된 LUIS 의도에 따라 결정되며 `OnTurnAsync` 메서드에서 보냅니다.
 
 ```csharp
 private async Task RewardAsync(ITurnContext turnContext, string eventId, double reward, CancellationToken cancellationToken)

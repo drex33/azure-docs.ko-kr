@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: concepts
 ms.topic: overview
 ms.date: 07/14/2021
-ms.openlocfilehash: 090b0eaca0e46969aa98e6ac7878da3333602ab6
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 23c4da30e149f10971c4cdec7b99b63e02c45808
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129533489"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130164718"
 ---
 # <a name="whats-new-in-azure-data-factory"></a>Azure Data Factory의 새로운 기능
 
@@ -38,7 +38,8 @@ Azure Data Factory 서비스는 지속적으로 개선되고 있습니다. 최�
 <tr><td>IR(Azure Integration Runtime)의 기존 인스턴스에 대한 데이터 흐름 속성 편집</td><td>IR(Azure Integration Runtime)이 기존 IR에 대한 데이터 흐름 속성을 편집할 수 있도록 업데이트 되었습니다. 이제 새 Azure IR을 만들 필요 없이 데이터 흐름 계산 속성을 수정할 수 있습니다.<br><a href="concepts-integration-runtime.md">자세한 정보</a></td></tr>
 <tr><td>파이프라인 작업 실행 시작 시간을 향상시키기 위한 Azure Synapse TTL 설정</td><td>Azure Synapse Analytics는 데이터 흐름 파이프라인 작업이 몇 초 만에 실행을 시작할 수 있도록 Azure Integration Runtime에 TTL을 추가하여 데이터 흐름 파이프라인의 런타임을 최소화합니다.<br><a href="control-flow-execute-data-flow-activity.md#data-flow-integration-runtime">자세한 정보</a></td></tr>
 <tr><td><b>통합 런타임</b></td><td>Azure Data Factory 관리형 vNet이 GA로 이동</td><td>이제 관리 Virtual Network의 일부로 Azure Integration Runtime를 프로비전하고 개인 엔드포인트를 활용하여 지원되는 데이터 저장소에 안전하게 연결할 수 있습니다. 데이터 트래픽은 데이터 원본에 대한 보안 연결을 제공하는 Azure 개인 링크를 통해 이동합니다. 또한 공용 인터넷으로 데이터가 반출되는 일을 방지합니다.<br><a href="managed-virtual-network-private-endpoint.md">자세한 정보</a></td></tr>
-<tr><td><b>오케스트레이션</b></td><td>데이터 파이프라인용 SLA의 운영 및 제공</td><td>Data Factory 경고와 결합된 새로운 경과된 시간 파이프라인 실행 메트릭은 데이터 파이프라인 개발자들이 고객에게 SLA를 보다 잘 제공할 수 있게 해줍니다. 즉 파이프라인이 실행되어야 하는 기간을 알려주시면 파이프라인이 예상보다 오래 실행될 때 미리 알려드립니다.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/operationalize-and-provide-sla-for-data-pipelines/ba-p/2767768">자세한 정보</a></td></tr>
+<tr><td rowspan=2><b>오케스트레이션</b></td><td>데이터 파이프라인용 SLA의 운영 및 제공</td><td>Data Factory 경고와 결합된 새로운 경과된 시간 파이프라인 실행 메트릭은 데이터 파이프라인 개발자들이 고객에게 SLA를 보다 잘 제공할 수 있게 해줍니다. 즉 파이프라인이 실행되어야 하는 기간을 알려주시면 파이프라인이 예상보다 오래 실행될 때 미리 알려드립니다.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/operationalize-and-provide-sla-for-data-pipelines/ba-p/2767768">자세한 정보</a></td></tr>
+<tr><td>실패 작업(공개 미리 보기)</td><td>새 실패 작업을 사용하면 어떤 이유로든 파이프라인에서 의도적으로 오류를 throw할 수 있습니다. 예를 들어 조회 작업이 일치하는 데이터를 반환하지 않거나 사용자 지정 작업이 내부 오류로 완료되는 경우 실패 작업을 사용할 수 있습니다.<br><a href="control-flow-fail-activity.md">자세한 정보</a></td></tr>
 </table>
 
 ## <a name="august-2021"></a>2021년 8월
@@ -74,7 +75,7 @@ Azure Data Factory 서비스는 지속적으로 개선되고 있습니다. 최�
 <tr><td>ADLS Gen2 또는 Azure Blob에 싱크할 때 복사 작업에서 사용자 지정 메타데이터를 설정할 수 있습니다.</td><td>ADLS Gen2 또는 Azure Blob에 쓸 때 복사 작업에서 사용자 지정 메타데이터를 설정하거나 원본 파일의 마지막으로 수정된 정보를 메타데이터로 저장할 수 있습니다.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/support-setting-custom-metadata-when-writing-to-blob-adls-gen2/ba-p/2545506#M490">자세한 정보</a></td></tr>
 <tr><td rowspan=4 valign="middle"><b>데이터 흐름</b></td><td>이제 SQL Server가 데이터 흐름의 원본 및 싱크로 지원됨</td><td>이제 SQL Server가 데이터 흐름의 원본 및 싱크로 지원됩니다. Azure Integration Runtime 관리형 VNET 기능을 사용하여 온-프레미스 SQL Server와 클라우드 VM 기반 인스턴스에 통신하도록 네트워킹을 구성하는 방법에 대한 지침을 보려면 링크를 따르세요.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/new-data-flow-connector-sql-server-as-source-and-sink/ba-p/2406213">자세한 정보</a></td></tr>
 <tr><td>이제 모든 새 Azure Integration Runtime에서 데이터 흐름 클러스터 빠른 시작 재사용이 기본적으로 사용하도록 설정됨</td><td>ADF에서 인기 있는 데이터 흐름 빠른 시작 재사용 기능이 일반 공급됨을 알려 드립니다. 이제 모든 새 Azure Integration Runtime에서 빠른 시작 재사용이 기본적으로 사용하도록 설정됩니다.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/how-to-startup-your-data-flows-execution-in-less-than-5-seconds/ba-p/2267365">자세한 정보</a></td></tr>
-<tr><td>ADF 퍼블릭 미리 보기의 파워 쿼리 작업</td><td>이제 Azure Data Factory 데이터 랭글링을 사용하여 파워 쿼리 싱크에 대한 복합 필드 매핑을 빌드할 수 있습니다. 이 업데이트를 수용하기 위해 이제 싱크가 파워 쿼리(미리 보기) 작업의 파이프라인에서 구성됩니다.<br><a href="wrangling-tutorial.md">자세한 정보</a></td></tr>
+<tr><td>파워 쿼리 작업(공개 미리 보기)</td><td>이제 Azure Data Factory 데이터 랭글링을 사용하여 파워 쿼리 싱크에 대한 복합 필드 매핑을 빌드할 수 있습니다. 이 업데이트를 수용하기 위해 이제 싱크가 파워 쿼리(공개 미리 보기) 작업의 파이프라인에서 구성됩니다.<br><a href="wrangling-tutorial.md">자세한 정보</a></td></tr>
 <tr><td>Azure Data Factory의 업데이트된 데이터 흐름 모니터링 UI</td><td>Azure Data Factory의 모니터링 UI가 데이터 흐름 ETL 작업 실행을 보면서 성능 튜닝 영역을 빠르게 식별하기 쉽도록 새롭게 업데이트되었습니다.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/updated-data-flows-monitoring-ui-in-adf-amp-synapse/ba-p/2432199">자세한 정보</a></td></tr>
 <tr><td><b>SSIS(SQL Server Integration Services)</b></td><td>Azure Data Factory에서 SSIS를 사용하여 간단한 3단계로 어디서나 SQL 실행</td><td>이 게시물에서는 Azure Data Factory에서 SSIS를 사용하여 어디서나 SQL 문/스크립트를 실행하는 간단한 3단계를 제공합니다.<ol><li>자체 호스팅 통합 런타임/SSIS Integration Runtime을 준비합니다.</li><li>Azure Data Factory 파이프라인에서 SSIS 패키지 실행 작업을 준비합니다.</li><li>자체 호스팅 통합 런타임/SSIS Integration Runtime에서 SSIS 패키지 실행 작업을 실행합니다.</li></ol><a href="https://techcommunity.microsoft.com/t5/sql-server-integration-services/run-any-sql-anywhere-in-3-easy-steps-with-ssis-in-azure-data/ba-p/2457244">자세한 정보</a></td></tr>
 </table>

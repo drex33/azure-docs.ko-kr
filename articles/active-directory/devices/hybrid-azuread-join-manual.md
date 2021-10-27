@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 755c3eaf90cd12fcebc032f33189fb07c6ce9d1a
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: aec31961b3ee9df699f08b8ee6bd2322f9f75f44
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129234284"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130044936"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>자습서: 하이브리드 Azure Active Directory 조인 디바이스를 수동으로 구성
 
@@ -567,7 +567,7 @@ Windows 하위 수준 디바이스를 등록하려면 다운로드 센터에서 
 ### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
 1. [직접 링크](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices)를 사용하여 디바이스 페이지로 이동합니다.
-2. 디바이스를 찾는 방법에 대한 정보는 [Azure Portal을 사용하여 디바이스 ID를 관리하는 방법](./device-management-azure-portal.md#manage-devices)에서 찾을 수 있습니다.
+2. 디바이스를 찾는 방법에 대한 정보는 [Azure Portal을 사용하여 디바이스 ID 관리](./device-management-azure-portal.md)에서 찾을 수 있습니다.
 3. **Registered** 열에 **보류 중** 이 표시되면 하이브리드 Azure AD 조인이 완료되지 않은 것입니다. 페더레이션된 환경에서는 등록에 실패하고 AAD 연결이 디바이스를 동기화하도록 구성된 경우에만 이 문제가 발생할 수 있습니다.
 4. **Registered** 열에 **날짜/시간** 이 포함되어 있으면 하이브리드 Azure AD 조인이 완료된 것입니다.
 

@@ -117,14 +117,24 @@
   items:
     - name: IoT Edge 디바이스 만들기
       items:
-        - name: IoT Hub에 디바이스 등록
-          href: how-to-register-device.md
-        - name: IoT Edge 설치 및 프로비전
+        - name: 단일 디바이스 수동 프로비전
           items:
-            - name: Linux용 IoT Edge 설치
-              href: how-to-install-iot-edge.md
-            - name: Windows에서 Linux용 IoT Edge 설치
-              href: how-to-install-iot-edge-on-windows.md
+            - name: X.509 인증서 증명
+              items:
+                - name: Linux
+                  href: how-to-provision-single-device-linux-x509.md
+                - name: Windows의 Linux 컨테이너
+                  href: how-to-provision-single-device-linux-on-windows-x509.md
+                - name: Windows
+                  href: how-to-provision-single-device-windows-x509.md
+            - name: 대칭 키 증명
+              items:
+                - name: Linux
+                  href: how-to-provision-single-device-linux-symmetric.md
+                - name: Windows의 Linux 컨테이너
+                  href: how-to-provision-single-device-linux-on-windows-symmetric.md
+                - name: Windows
+                  href: how-to-provision-single-device-windows-symmetric.md
         - name: IoT Edge 업데이트
           href: how-to-update-iot-edge.md
         - name: 디바이스 인증서 관리
@@ -137,8 +147,6 @@
           href: gpu-acceleration.md
     - name: 대체 디바이스 시나리오
       items:
-        - name: Windows 컨테이너로 IoT Edge 실행
-          href: how-to-install-iot-edge-windows-on-windows.md
         - name: Kubernetes의 IoT Edge 실행
           href: how-to-install-iot-edge-kubernetes.md
         - name: ARM 템플릿을 사용하여 IoT Edge VM 배포

@@ -1,5 +1,5 @@
 ---
-title: '자습서: Check Point Infinity Portal과 Azure Active Directory SSO(Single Sign-On) 통합 | Microsoft Docs'
+title: '자습서: Check Point Infinity Portal과 Azure AD SSO 통합'
 description: Azure Active Directory와 Check Point Infinity Portal 간에 Single Sign-On(SSO)을 구성하는 방법을 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/14/2021
+ms.date: 10/12/2021
 ms.author: jeedes
-ms.openlocfilehash: 25511f956d61a16efbfe589f8b4df4cb16a406a7
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3dbb0cde804ac913a139cdffdd142fa6e22b5206
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124747657"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993742"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-infinity-portal"></a>자습서: Check Point Infinity Portal과 Azure Active Directory SSO(Single Sign-On) 통합
+# <a name="tutorial-azure-ad-sso-integration-with-check-point-infinity-portal"></a>자습서: Check Point Infinity Portal과 Azure AD SSO 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Check Point Infinity Portal을 통합하는 방법에 대해 알아봅니다. Azure AD와 Check Point Infinity Portal을 통합하면 다음을 수행할 수 있습니다.
 
@@ -112,7 +112,56 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user&quot;></a>Azure AD 테스트 사용자 만들기
+다음과 같은 두 가지 방법으로 사용자를 인증할 수 있습니다.
+
+* Azure AD 포털에서 Check Point Infinity Portal 애플리케이션 사용자 역할 구성
+
+* Check Point Infinity Portal에서 Check Point Infinity Portal 애플리케이션 사용자 역할 구성
+
+#### <a name="configure-check-point-infinity-portal-application-user-roles-in-azure-ad-portal"></a>Azure AD 포털에서 Check Point Infinity Portal 애플리케이션 사용자 역할 구성
+
+이 섹션에서는 Azure Portal에서 관리자 및 읽기 전용 역할을 만듭니다.
+
+1. Azure Portal의 왼쪽 창에서 **앱 등록** 을 선택하고 **모든 애플리케이션** 을 선택한 다음, **Check Point Infinity Portal** 애플리케이션을 선택합니다.
+
+2. 왼쪽 창에서 **앱 역할** 을 선택하고, **앱 역할 만들기** 를 클릭하고, 다음 단계를 수행합니다.
+
+   a. **표시 이름** 필드에 **관리자** 를 입력합니다.
+
+   b. **허용되는 멤버 유형** 에서 **사용자/그룹** 을 선택합니다.
+   
+   c. **값** 필드에 **관리자** 를 입력합니다.
+
+   d. **설명** 필드에 **Check Point Infinity Portal 관리자 역할** 을 입력합니다.
+
+   e. **이 앱 역할 활성화** 옵션이 선택되었는지 확인합니다.
+
+   f. **적용** 을 클릭합니다.
+
+   g. **앱 역할 만들기** 를 다시 클릭합니다.
+
+   h. **표시 이름** 필드에 **읽기 전용** 을 입력합니다.
+
+   i. **허용되는 멤버 유형** 에서 **사용자/그룹** 을 선택합니다.
+
+   j. **값** 필드에 **읽기 전용** 을 입력합니다.
+
+   k. **설명** 필드에 **Check Point Infinity Portal 관리자 역할** 을 입력합니다.
+
+   l. **이 앱 역할 활성화** 옵션이 선택되었는지 확인합니다.
+
+   m. **적용** 을 클릭합니다.
+
+#### <a name="configure-check-point-infinity-portal-application-user-roles-in-check-point-infinity-portal"></a>Check Point Infinity Portal에서 Check Point Infinity Portal 애플리케이션 사용자 역할 구성
+
+이 구성은 Azure AD의 Check Point Infinity Portal 애플리케이션에 할당된 그룹에만 적용됩니다.
+
+이 섹션에서는 관련 Azure AD 그룹에 대한 전역 및 서비스 역할을 보유하는 사용자 그룹을 하나 이상 만듭니다.
+
+* Check Point Infinity Portal 사용자 그룹과 함께 사용하기 위해 할당된 그룹의 ID를 복사합니다.
+* 사용자 그룹 구성의 경우 [Infinity Portal 관리자 가이드](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/Infinity-Portal-Admin-Guide/Default.htm#cshid=user_groups)를 참조하세요.
+
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
@@ -124,7 +173,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
-### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Azure AD 테스트 사용자 할당
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 Check Point Infinity Portal에 대한 액세스 권한을 부여합니다.
 
@@ -133,16 +182,16 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 &quot;기본 액세스&quot; 역할이 선택된 것으로 표시됩니다.
+1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-## <a name=&quot;configure-check-point-infinity-portal-sso&quot;></a>Check Point Infinity Portal SSO 구성
+## <a name="configure-check-point-infinity-portal-sso"></a>Check Point Infinity Portal SSO 구성
 
 1. Check Point Infinity Portal 회사 사이트에 관리자 권한으로 로그인합니다.
 
 2. **전역 설정** > **계정 설정** 으로 이동한 후 SSO 인증에서 **정의** 를 클릭합니다.
    
-   ![계정](./media/checkpoint-infinity-portal-tutorial/define.png &quot;계정") 
+   ![계정](./media/checkpoint-infinity-portal-tutorial/define.png "계정") 
 
 3. **SSO 인증** 페이지에서 **SAML 2.0** 을 **ID 공급자** 로 선택하고 **다음** 을 클릭합니다.
      

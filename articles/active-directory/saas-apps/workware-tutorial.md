@@ -1,5 +1,5 @@
 ---
-title: '자습서: Workware와 Azure Active Directory SSO(Single Sign-On) 통합 | Microsoft Docs'
+title: '자습서: Workware와 Azure AD SSO 통합'
 description: Azure Active Directory와 Workware 간에 Single Sign-On을 구성하는 방법을 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/21/2020
+ms.date: 10/12/2021
 ms.author: jeedes
-ms.openlocfilehash: 5ed4be15346e1f3248773472b68e8972457c34fb
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 9d213c63be608f2b28ec28f6597d33ff622b8cb5
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124785461"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130005773"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workware"></a>자습서: Workware와 Azure Active Directory SSO(Single Sign-On) 통합
+# <a name="tutorial-azure-ad-sso-integration-with-workware"></a>자습서: Workware와 Azure AD SSO 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Workware를 통합하는 방법에 대해 알아봅니다. Azure AD와 Workware를 통합하면 다음을 수행할 수 있습니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "124785461"
 
 * Workware에서 **IDP** 시작 SSO를 지원합니다.
 
-## <a name="adding-workware-from-the-gallery"></a>갤러리에서 Workware 추가
+## <a name="add-workware-from-the-gallery"></a>갤러리에서 Workware 추가
 
 Workware가 Azure AD에 통합되도록 구성하려면 갤러리에서 Workware를 관리형 SaaS 앱 목록에 추가해야 합니다.
 
@@ -50,7 +50,6 @@ Workware가 Azure AD에 통합되도록 구성하려면 갤러리에서 Workware
 1. **갤러리에서 추가** 섹션의 검색 상자에서 **Workware** 를 입력합니다.
 1. 결과 패널에서 **Workware** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-
 ## <a name="configure-and-test-azure-ad-sso-for-workware"></a>Workware에 대한 Azure AD SSO 구성 및 테스트
 
 **B.Simon** 이라는 테스트 사용자를 사용하여 Workware에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Workware의 관련 사용자 간에 연결 관계를 설정해야 합니다.
@@ -58,10 +57,10 @@ Workware가 Azure AD에 통합되도록 구성하려면 갤러리에서 Workware
 Workware에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 수행합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-    * **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
-    * **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 1. **[Workware SSO 구성](#configure-workware-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-    * **[Workware 테스트 사용자 만들기](#create-workware-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Workware에 만듭니다.
+    1. **[Workware 테스트 사용자 만들기](#create-workware-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Workware에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
 ## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
@@ -70,15 +69,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Azure Portal의 **Workware** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾고, **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **SAML로 Single Sign-On 설정** 페이지에서 다음 필드에 값을 입력합니다.
+1. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    a. **식별자** 텍스트 상자에서 `<WORKWARE_URL>/WW/AuthServices` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에 `<WORKWARE_URL>/WW/AuthServices` 패턴을 사용하여 값을 입력합니다.
 
-    b. **회신 URL** 텍스트 상자에서 `<WORKWARE_URL>/WW/AuthServices/Acs` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 `<WORKWARE_URL>/WW/AuthServices/Acs` 패턴을 사용하여 값을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 해당 값을 얻으려면 [Workware 클라이언트 지원 팀](mailto:support@activeops.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -90,6 +89,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **Workware 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
@@ -126,27 +126,26 @@ Workware에서 SSO 기능을 사용하려면 다음 설정을 완료해야 합�
 
 #### <a name="set-up-sso-authentication-in-workware"></a>Workware에서 SSO 인증 설정
 
-1. **System Settings(시스템 설정)** 페이지로 이동하여 **SSO Authentication(SSO 인증)** 을 클릭합니다.
+1. **시스템 설정** 페이지로 이동하여 **SSO 인증** 을 클릭합니다.
 
 1. **SSO Authentication** 섹션에서 **Add SSO Authentication(SSO 인증 추가)** 단추를 클릭하고, 다음 단계를 수행합니다. 
 
     ![SSO Authentication](./media/workware-tutorial/authentication.png)
 
     1. **External Identity Provider(외부 ID 공급자)** 에서 IDP 이름을 입력합니다.
-    1. **Authentication Type(인증 유형)** 으로 **SAML2.0** 을 선택합니다.
+    1. **인증 유형** 으로 **SAML2.0** 을 선택합니다.
     1. Azure Portal에서 복사한 **로그인 URL** 값을 **Identity Provider SignIn URL(ID 공급자 로그인 URL)** 텍스트 상자에 입력합니다.
     1. Azure Portal에서 복사한 **Azure AD 식별자** 값을 **Identity Provider Issuer URL(ID 공급자 발급자 URL)** 텍스트 상자에 입력합니다.
     1. Azure Portal에서 복사한 **로그아웃 URL** 값을 **Identity Provider Logout URL(ID 공급자 로그아웃 URL)** 텍스트 상자에 입력합니다.
     1. **Enable(사용)** 을 클릭합니다.
     1. 다운로드한 **Certificate(인증서)** 를 Azure Portal의 **ID 공급자 인증서** 에 업로드합니다.
-    1. 페이지 맨 아래에 있는 **저장**
-
+    1. **저장** 을 클릭합니다.
 
 ### <a name="create-workware-test-user"></a>Workware 테스트 사용자 만들기
 
 1. 관리자 권한으로 Workware 웹 사이트에 로그인합니다.
 
-1. **Admin(관리) > Create/View(만들기/보기) > User Accounts(사용자 계정) > Add New(새로 추가)** 를 차례로 선택합니다.
+1. **관리 > 만들기/보기 > 사용자 계정 > 새로 추가** 를 차례로 선택합니다.
 
 1. 다음 페이지에서 다음 단계를 수행합니다.
 
@@ -162,10 +161,9 @@ Workware에서 SSO 기능을 사용하려면 다음 설정을 완료해야 합�
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-* Azure Portal에서 [이 애플리케이션 테스트]를 클릭합니다. 그러면 SSO를 설정한 Workware에 자동으로 로그인됩니다.
+* Azure Portal에서 [이 애플리케이션 테스트]를 클릭하면 SSO를 설정한 Workware에 자동으로 로그인됩니다.
 
-* Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 Workware 타일을 클릭하면 SSO를 설정한 Workware에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
-
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Workware 타일을 클릭하면 SSO를 설정한 Workware에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

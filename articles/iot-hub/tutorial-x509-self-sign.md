@@ -11,19 +11,16 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: b6e79ee61440ffeb9fdd5f05cdb840480112a14a
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 552475edc586c015d89fb12db91376852fa88460
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123304796"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165464"
 ---
 # <a name="tutorial-using-openssl-to-create-self-signed-certificates"></a>자습서: OpenSSL을 사용하여 자체 서명된 인증서 만들기
 
-두 개의 자체 서명된 디바이스 인증서를 사용하여 IoT Hub에 디바이스를 인증할 수 있습니다. 인증서에는 IoT 허브에 제출하는 지문(해시 값)이 포함되어 있기 때문에 이를 지문 인증이라고도 합니다. 다음 단계에서는 두 개의 자체 서명된 인증서를 만드는 방법을 설명합니다.
-
-> [!NOTE]
-> 이 예제는 Windows용 Cygwin64를 사용하여 만들어졌습니다. Cygwin은 Linux와 같은 인터페이스 내에서 Windows의 Unix 또는 Linux 애플리케이션을 실행할 수 있는 오픈 소스 도구 컬렉션입니다. CygWin64는 OpenSSL과 함께 번들로 제공됩니다. Linux를 사용하는 경우 OpenSSL이 이미 설치되어 있을 수 있습니다. 
+두 개의 자체 서명된 디바이스 인증서를 사용하여 IoT Hub에 디바이스를 인증할 수 있습니다. 인증서에는 IoT 허브에 제출하는 지문(해시 값)이 포함되어 있기 때문에 이를 지문 인증이라고도 합니다. 다음 단계에서는 두 개의 자체 서명된 인증서를 만드는 방법을 설명합니다. 이 유형의 인증서는 주로 테스트에 사용됩니다.
 
 ## <a name="step-1---create-a-key-for-the-first-certificate"></a>1단계 - 첫 번째 인증서에 대한 키 만들기
 
@@ -111,4 +108,8 @@ Azure Portal에서 IoT Hub로 이동하고 다음 특성을 가진 새 IoT 디�
 
 ## <a name="next-steps"></a>다음 단계
 
-[인증서 인증 테스트](tutorial-x509-test-certificate.md)로 이동하여 인증서가 디바이스를 IoT Hub에 인증할 수 있는지 확인합니다.
+[인증서 인증 테스트](tutorial-x509-test-certificate.md)로 이동하여 인증서가 디바이스를 IoT Hub에 인증할 수 있는지 확인합니다. 해당 페이지의 코드를 사용하려면 PFX 인증서를 사용해야 합니다. 다음 OpenSSL 명령을 사용하여 디바이스 .crt 인증서를 .pfx 형식으로 변환합니다.
+
+```bash
+openssl pkcs12 -export -in device.crt -inkey device.key -out device.pfx
+```

@@ -5,14 +5,14 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 05/13/2021
+ms.date: 10/15/2021
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 86795c29f5eaaedb1ea08975a69b6afde9d755c1
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 9f9043b7ff667903ed9d2318e4ec20363cae71f9
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122271489"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063662"
 ---
 # <a name="quickstart-integrate-azure-spring-cloud-with-azure-database-for-mysql"></a>빠른 시작: Azure Spring Cloud와 Azure Database for MySQL 통합
 
@@ -34,6 +34,10 @@ export MYSQL_DATABASE_NAME=petclinic
 
 ## <a name="prepare-an-azure-database-for-mysql-instance"></a>Azure Database for MySQL 인스턴스 준비
 
+1. 이전 빠른 시작에서 다음 명령을 실행하지 않은 경우 CLI 기본값을 설정합니다.
+    ```azcli
+    az configure --defaults group=<resource group name> spring-cloud=<service name>
+    ```
 1. Azure Database for MySQL 서버를 만듭니다. 
 
     ```azcli
@@ -162,5 +166,5 @@ az spring-cloud app update --name visits-service \
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Database for MySQL 인스턴스를 Azure Spring Cloud 애플리케이션에 바인딩](how-to-bind-mysql.md)
-* [관리 ID를 사용하여 Azure SQL Database를 Azure Spring Cloud 앱에 연결](./connect-managed-identity-to-azure-sql.md)
+* [Azure Database for MySQL 인스턴스를 Azure Spring Cloud의 애플리케이션에 바인딩](how-to-bind-mysql.md)
+* [관리 ID를 사용하여 Azure SQL Database를 Azure Spring Cloud의 앱에 연결](./connect-managed-identity-to-azure-sql.md)

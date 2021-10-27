@@ -302,6 +302,9 @@
         - name: Elastic
           tocHref: /azure/partner-solutions/elastic/
           topicHref: /azure/partner-solutions/elastic/overview
+        - name: Logz.io
+          tocHref: /azure/partner-solutions/logzio/
+          topicHref: /azure/partner-solutions/logzio/overview
     - name: SignalR Service
       tocHref: /azure/azure-signalr/
       topicHref: /azure/azure-signalr/
@@ -1008,7 +1011,7 @@
         - name: Microsoft 고객 계약
           tocHref: /azure/cost-management-billing/microsoft-customer-agreement/
           topicHref: /azure/cost-management-billing/microsoft-customer-agreement/
-        - name: 범위 수준 Azure 하이브리드 혜택
+        - name: 중앙에서 관리되는 Azure 하이브리드 혜택
           tocHref: /azure/cost-management-billing/scope-level
           topicHref: /azure/cost-management-billing/scope-level
     - name: Purview

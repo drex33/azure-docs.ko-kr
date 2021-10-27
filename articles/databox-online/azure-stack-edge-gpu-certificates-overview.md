@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 09/01/2021
 ms.author: alkohli
-ms.openlocfilehash: e082ae9343ff935ceeda168573be9648c6cee631
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: c5ea156773335ed31fe6c6e728f496f91c6de634
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129358841"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215636"
 ---
 # <a name="what-are-certificates-on-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro GPU의 인증서는 무엇인가요?
 
@@ -59,7 +59,7 @@ Azure Stack Edge 디바이스에서 자체 서명된 인증서를 사용하거�
     
 - Kubernetes 인증서
 
-    - Edge Container Registry 인증서
+    - Edge 컨테이너 레지스트리 인증서
     - Kubernetes 대시보드 인증서
     
 - Wi-Fi 인증서
@@ -158,31 +158,31 @@ Azure Stack Edge 디바이스에서 자체 서명된 인증서를 사용하거�
 
 - IoT Edge 인증서는 `.pem` 형식으로 업로드됩니다. 
 
-IoT Edge 인증서에 대한 자세한 내용은 [Azure IoT Edge 인증서 세부 정보](../iot-edge/iot-edge-certs.md#iot-edge-certificates) 및 [IoT Edge 프로덕션 인증서 만들기](/azure/iot-edge/how-to-manage-device-certificates?view=iotedge-2020-11&preserve-view=true#create-production-certificates)를 참조하세요.
+IoT Edge 인증서에 대한 자세한 내용은 [Azure IoT Edge 인증서 세부 정보](../iot-edge/iot-edge-certs.md#iot-edge-certificates) 및 [IoT Edge 프로덕션 인증서 만들기](../iot-edge/how-to-manage-device-certificates.md?preserve-view=true&view=iotedge-2020-11#create-production-certificates)를 참조하세요.
 
 ## <a name="kubernetes-certificates"></a>Kubernetes 인증서
 
-다음 Kubernetes 인증서를 Azure Stack Edge 장치와 함께 사용할 수 있습니다.
+다음 Kubernetes 인증서는 Azure Stack Edge 디바이스에서 사용할 수 있습니다.
 
-- **Edge 컨테이너 레지스트리 인증서**: 장치에 edge 컨테이너 레지스트리가 있는 경우 장치에서 레지스트리에 액세스 하는 클라이언트와의 보안 통신을 위해에 지 Container Registry 인증서가 필요 합니다.
-- **대시보드 끝점 인증서**: 장치에서 Kubernetes 대시보드에 액세스 하려면 대시보드 끝점 인증서가 필요 합니다.
+- **Edge 컨테이너 레지스트리 인증서**: Edge 컨테이너 레지스트리가 디바이스에 있는 경우 디바이스의 레지스트리에 액세스하는 클라이언트와의 보안 통신을 위해 Edge 컨테이너 레지스트리 인증서가 필요합니다.
+- **대시보드 엔드포인트 인증서**: 디바이스의 Kubernetes 대시보드에 액세스하려면 대시보드 엔드포인트 인증서가 필요합니다.
 
 
 #### <a name="caveats"></a>제한 사항
 
-- 에 지 Container Registry 인증서는 다음을 수행 해야 합니다. 
-    - PEM 형식 인증서 여야 합니다.
-    - SAN (주체 대체 이름) 또는 형식의 CName (CN)을 포함 합니다. `*.<endpoint suffix>` `ecr.<endpoint suffix>` `*.dbe-1d6phq2.microsoftdatabox.com OR ecr.dbe-1d6phq2.microsoftdatabox.com`
+- Edge 컨테이너 레지스트리 인증서는 다음과 같아야 합니다. 
+    - PEM 형식 인증서여야 합니다.
+    - `*.<endpoint suffix>` 또는 `ecr.<endpoint suffix>` 형식의 SAN(주체 대체 이름) 또는 CN(CName)을 포함해야 합니다. 예: `*.dbe-1d6phq2.microsoftdatabox.com OR ecr.dbe-1d6phq2.microsoftdatabox.com`
 
 
-- 대시보드 인증서는 다음을 수행 해야 합니다.
-    - PEM 형식 인증서 여야 합니다.
-    - SAN (주체 대체 이름) 또는 형식의 CName (CN)을 포함 합니다. `*.<endpoint-suffix>` `kubernetes-dashboard.<endpoint-suffix>` 예를 들어 `*.dbe-1d6phq2.microsoftdatabox.com` 또는 `kubernetes-dashboard.dbe-1d6phq2.microsoftdatabox.com`입니다. 
+- 대시보드 인증서는 다음과 같아야 합니다.
+    - PEM 형식 인증서여야 합니다.
+    - `*.<endpoint-suffix>` 또는 `kubernetes-dashboard.<endpoint-suffix>` 형식의 SAN(주체 대체 이름) 또는 CN(CName)을 포함해야 합니다. 예를 들어 `*.dbe-1d6phq2.microsoftdatabox.com` 또는 `kubernetes-dashboard.dbe-1d6phq2.microsoftdatabox.com`입니다. 
 
 
 ## <a name="vpn-certificates"></a>VPN 인증서
 
-VPN(지점 및 사이트 간)이 디바이스에 구성된 경우 자체 VPN 인증서를 가져와 통신을 신뢰하는지 확인할 수 있습니다. 루트 인증서는 Azure VPN Gateway에 설치 되며 클라이언트 인증서는 지점 및 사이트 간 연결을 사용 하 여 가상 네트워크에 연결 하는 각 클라이언트 컴퓨터에 설치 됩니다.
+VPN(지점 및 사이트 간)이 디바이스에 구성된 경우 자체 VPN 인증서를 가져와 통신을 신뢰하는지 확인할 수 있습니다. 루트 인증서는 Azure VPN Gateway에 설치되고, 클라이언트 인증서는 지점 및 사이트 간 연결을 사용하여 가상 네트워크에 연결하는 각 클라이언트 컴퓨터에 설치됩니다.
 
 #### <a name="caveats"></a>제한 사항
 

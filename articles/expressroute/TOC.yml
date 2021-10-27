@@ -136,7 +136,7 @@
           href: expressroute-howto-set-global-reach.md
         - name: Azure CLI
           href: expressroute-howto-set-global-reach-cli.md
-    - name: 개인 피어링을 위한 IPv6 지원 추가(미리 보기)
+    - name: 개인 피어링을 위한 IPv6 지원 추가
       items:
         - name: Azure Portal
           href: expressroute-howto-add-ipv6-portal.md

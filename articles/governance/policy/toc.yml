@@ -290,7 +290,7 @@
       items:
         - name: 대규모로 Azure Monitor 배포
           displayName: 'monitor, diagnostic settings, dependency agent'
-          href: ../../azure-monitor/deploy-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+          href: ../../azure-monitor/best-practices.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
         - name: VM용 Azure Monitor 사용(미리 보기)
           displayName: 'monitor, insights, log analytics, builtin'
           href: ../../azure-monitor/vm/vminsights-enable-policy.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
@@ -396,8 +396,8 @@
           href: /answers/topics/azure-policy.html
         - name: Azure 지원 티켓
           href: 'https://azure.microsoft.com/support/create-ticket/'
-        - name: UserVoice
-          href: 'https://feedback.azure.com/forums/915958-azure-governance?category_id=345055'
+        - name: Azure Governance 아이디어
+          href: 'https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0#'
     - name: 동영상
       items:
         - name: 거버넌스 YouTube 채널

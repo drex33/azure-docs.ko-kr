@@ -3,12 +3,12 @@ title: 고급 쿼리 샘플
 description: Azure Resource Graph를 사용하여 열 작업, 사용된 태그 나열 및 정규식과 일치하는 리소스를 비롯한 일부 고급 쿼리를 실행합니다.
 ms.date: 10/01/2021
 ms.topic: sample
-ms.openlocfilehash: 7c24a3c660587e1ff70c9d208e6bf87c84c5bf1e
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 53c478a051f279da6a307e65da6daee51fce1f57
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129355235"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045903"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>고급 Resource Graph 쿼리 샘플
 
@@ -39,7 +39,7 @@ Azure CLI(확장을 통해) 및 Azure PowerShell(모듈을 통해)은 Azure Reso
 
 ## <a name="show-resource-types-and-api-versions"></a><a name="apiversion"></a>리소스 유형 및 API 버전 표시
 
-Resource Graph는 주로 업데이트 중에 리소스 속성을 `GET`하는 데 가장 최근의 미리 보기 버전이 아닌 리소스 공급자 API를 사용합니다. 경우에 따라 사용되는 API 버전이 재정의되어 결과에 더 최신 속성 또는 널리 사용되는 속성이 제공되었습니다. 다음 쿼리는 각 리소스 유형에서 속성을 수집하는 데 사용되는 API 버전을 자세히 설명합니다.
+Resource Graph는 업데이트 중에 `GET` 리소스 속성에 대한 리소스 공급자 API의 미리 보기가 아닌 최신 버전을 주로 사용합니다. 경우에 따라 사용되는 API 버전이 재정의되어 결과에 더 최신 속성 또는 널리 사용되는 속성이 제공되었습니다. 다음 쿼리는 각 리소스 유형에서 속성을 수집하는 데 사용되는 API 버전을 자세히 설명합니다.
 
 ```kusto
 Resources

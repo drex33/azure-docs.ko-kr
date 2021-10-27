@@ -12,12 +12,12 @@ ms.date: 02/16/2021
 ms.author: mbullwin
 keywords: 변칙 검색, 기계 학습, 알고리즘
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 30764913ae92670a9034f709f9bb3f50a309374f
-ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
+ms.openlocfilehash: 24d30a475071667fa9f701776302aa81c652fbe2
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2021
-ms.locfileid: "113296886"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045050"
 ---
 # <a name="what-is-the-anomaly-detector-univariate-api"></a>Anomaly Detector 일변량 API란?
 
@@ -27,7 +27,7 @@ Anomaly Detector API를 사용하면 기계 학습을 몰라도 시계열 데이
 
 ![서비스 요청의 패턴 변경 내용 검색](./media/anomaly_detection2.png)
 
-Anomaly Detector 사용에는 기계 학습에 대한 사전 지식이 필요하지 않으며 RESTful API를 통해 애플리케이션과 프로세스에 서비스를 쉽게 통합할 수 있습니다.
+Anomaly Detector 사용에는 기계 학습에 대한 사전 지식이 필요하지 않으며 REST API를 통해 애플리케이션과 프로세스에 서비스를 쉽게 통합할 수 있습니다.
 
 이 설명서에는 다음과 같은 유형의 문서가 포함되어 있습니다.
 * [빠른 시작](./Quickstarts/client-libraries.md)은 서비스를 호출하고 짧은 시간 내에 결과를 얻을 수 있는 단계별 지침입니다. 

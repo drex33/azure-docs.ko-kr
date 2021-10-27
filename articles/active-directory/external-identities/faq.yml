@@ -6,19 +6,19 @@ metadata:
   ms.service: active-directory
   ms.subservice: B2B
   ms.topic: reference
-  ms.date: 05/27/2021
+  ms.date: 10/13/2021
   ms.author: mimart
   author: msmimart
   manager: celestedg
   ms.reviewer: mal
   ms.custom: it-pro, seo-update-azuread-jan
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 91048761eaaf81d2bdb582669e926cf106cdca4c
-  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+  ms.openlocfilehash: a714fbb9f5483c8b52480d5fbe41229d655609c8
+  ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/10/2021
-  ms.locfileid: "111953454"
+  ms.lasthandoff: 10/15/2021
+  ms.locfileid: "130072560"
 title: Azure Active Directory B2B 협업 FAQ
 summary: >
   Azure Active Directory(Azure AD) 기업 간(B2B) 협업에 대한 이러한 질문과 대답(FAQ)은 새 항목을 포함하도록 정기적으로 업데이트됩니다.
@@ -28,7 +28,7 @@ summary: >
 
   > - **2021년 1월 4일부터** Google은 [WebView 로그인 지원을 중단](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html)합니다. Gmail에서 Google 페더레이션 또는 셀프 서비스 등록을 사용하는 경우 [기간 업무 네이티브 애플리케이션의 호환성을 테스트](google-federation.md#deprecation-of-web-view-sign-in-support)해야 합니다.
 
-  > - **2021년 10월부터** Microsoft는 B2B 협업 시나리오에 대해 관리되지 않는 Azure AD 계정과 테넌트를 만들어 더 이상 초대 상환을 지원하지 않습니다. 준비 단계로 고객은 현재 일반 공급 중인 [메일 일회용 암호 인증](one-time-passcode.md)을 옵트인하는 것이 좋습니다.
+  > - **2021년 11월 1일부터** Microsoft는 B2B 협업 시나리오에 대해 관리되지 않는 Azure AD 계정과 테넌트를 만들어 더 이상 초대 상환을 지원하지 않습니다. 이때 모든 기존 테넌트의 이메일 일회용 암호 기능을 켜고 기본적으로 새 테넌트에서 사용하도록 설정하는 변경 작업을 롤아웃하기 시작합니다. 이 기능을 원하지 않는다면 [사용하지 않도록 설정](one-time-passcode.md#disable-email-one-time-passcode)할 수 있습니다.
 sections:
 - name: 일반
   questions:
@@ -49,17 +49,17 @@ sections:
     answer: >
       [B2B 초대 API](customize-invitation-api.md)를 사용하여 거의 모든 초대자 프로세스를 사용자 지정할 수 있습니다.
   - question: >
-      게스트 사용자가 Multi-Factor Authentication 방법을 재설정할 수 있나요?
+      게스트 사용자가 다단계 인증 방법을 재설정할 수 있나요?
     answer: >
-      예. 게스트 사용자는 일반 사용자와 동일한 방식으로 Multi-Factor Authentication 방법을 재설정할 수 있습니다.
+      그렇습니다. 게스트 사용자는 일반 사용자와 동일한 방식으로 다단계 인증 방법을 재설정할 수 있습니다.
   - question: >
-      어떤 조직이 Multi-Factor Authentication 라이선스를 담당하나요?
+      어떤 조직이 다단계 인증 라이선스를 담당하나요?
     answer: >
-      초대하는 조직은 Multi-Factor Authentication을 수행합니다. 초대하는 조직은 Multi-Factor Authentication을 사용하는 자신의 B2B 사용자에게 라이선스를 충분히 제공해야 합니다.
+      초대하는 조직은 다단계 인증을 수행합니다. 초대하는 조직은 다단계 인증을 사용하는 자신의 B2B 사용자에게 라이선스를 충분히 제공해야 합니다.
   - question: >
-      파트너 조직이 이미 Multi-Factor Authentication을 설정한 경우에 어떻게 하나요? 해당 Multi-Factor Authentication을 신뢰하고 자체적인 Multi-Factor Authentication을 사용하지 않나요?
+      파트너 조직이 이미 다단계 인증을 설정한 경우에 어떻게 해야 하나요? 해당 다단계 인증을 신뢰하고 자체 다단계 인증을 사용하지 않나요?
     answer: >
-      이 기능은 현재 지원되지 않습니다. 조직 리소스에 액세스하려면 다단계 인증이 필요한 경우, 파트너 조직은 (초대하는) 조직의 다단계 인증에 등록해야 합니다.
+      이 기능은 현재 지원되지 않습니다. 조직 리소스에 액세스하기 위해 다단계 인증이 필요한 경우, 파트너 조직은 (초대하는) 조직의 다단계 인증에 등록해야 합니다.
   - question: >
       지연된 초대는 어떻게 사용할 수 있나요?
     answer: >
@@ -67,7 +67,7 @@ sections:
   - question: >
       게스트 사용자를 Exchange 전역 주소 목록에 표시할 수 있나요?
     answer: >
-      예. 기본적으로 게스트 개체는 조직의 전체 주소 목록(GAL)에 표시되지 않지만, Azure Active Directory PowerShell을 사용하면 볼 수 있습니다. [게스트 사용자를 전체 주소 목록에 표시할 수 있나요?](/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list)를 참조하세요.
+      예. 기본적으로 게스트 개체는 조직의 글로벌 주소 목록에 표시되지 않지만, Azure Active Directory PowerShell을 사용하여 표시할 수 있습니다. 자세한 내용은 [Microsoft 365 그룹별 게스트 액세스 문서](/microsoft-365/solutions/per-group-guest-access)에서 "전체 주소 목록에 게스트 추가"를 참조하세요.
   - question: >
       게스트 사용자를 제한된 관리자로 지정할 수 있나요?
     answer: >
@@ -80,9 +80,9 @@ sections:
       게스트 사용자를 위해 Azure Portal에 대한 액세스를 차단할 수 있습니까?
     answer: "예 모든 게스트/외부 사용자가 Azure Portal에 액세스하지 못하도록 차단하는 조건부 액세스 정책을 만들 수 있습니다. 이 정책을 구성할 경우 실수로 구성원과 관리자에 대한 액세스를 차단하지 않도록 주의하세요.\n\n1. [Azure Portal](https://portal.azure.com/)에 보안 관리자 또는 조건부 액세스 관리자 권한으로 로그인합니다.\n2. Azure Portal에서 **Azure Active Directory** 를 선택합니다. \n3. **관리** 에서 **보안** 을 선택 합니다.\n4. **보호** 에서 **조건부 액세스** 를 선택합니다. **새 정책** 을 선택합니다.\n5. **새로 만들기** 페이지의 **이름** 텍스트 상자에 정책의 이름을 입력합니다(예: \"게스트가 포털에 액세스하지 못하도록 차단\").\n6. **할당** 에서 **사용자 및 그룹** 을 선택합니다.\n7. **포함** 탭에서 **사용자 및 그룹 선택** 을 선택한 다음 **모든 게스트 및 외부 사용자(미리 보기)** 를 선택합니다.\n9. **완료** 를 선택합니다.\n10. **새로 만들기** 페이지의 **할당** 섹션에서 **클라우드 앱 또는 작업** 을 선택합니다.\n11. **클라우드 앱 또는 작업** 페이지에서 **앱 선택** 과 **선택** 을 차례로 선택합니다.\n12. **선택** 페이지에서 **Microsoft Azure 관리** 를 선택한 후 **선택** 을 선택합니다.\n13. **클라우드 앱 또는 작업** 페이지에서 **완료** 를 선택합니다.\n"
   - question: >
-      Azure AD B2B 협업에서는 Multi-Factor Authentication 및 소비자 이메일 계정을 지원하나요?
+      Azure AD B2B 협업에서는 다단계 인증 및 소비자 이메일 계정을 지원하나요?
     answer: >
-      예. Multi-Factor Authentication 및 소비자 이메일 계정은 둘 다 Azure AD B2B 협업에 지원됩니다.
+      그렇습니다. 다단계 인증 및 소비자 이메일 계정은 둘 다 Azure AD B2B 협업에 지원됩니다.
   - question: >
       Azure AD B2B 협업 사용자를 위한 암호 재설정을 지원하나요?
     answer: "Azure AD 테넌트가 사용자의 홈 디렉터리이면 Azure portal에서 [사용자의 암호를 다시 설정](../fundamentals/active-directory-users-reset-password-azure-portal.md)할 수 있습니다. 하지만 다른 Azure AD 디렉터리 또는 외부 ID 공급자가 관리하는 계정으로 로그인한 게스트 사용자에 대한 암호는 직접 재설정할 수는 없습니다. 게스트 사용자 또는 사용자의 홈 디렉터리에 있는 관리자만 암호를 재설정할 수 있습니다. 다음은 게스트 사용자에 대해 암호 재설정이 작동하는 방식에 대한 몇 가지 예입니다.\n \n* \"Guest\"(UserType==Guest)로 표시되는 Azure AD 테넌트의 게스트 사용자는 [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)을(를) 통해 SSPR에 등록할 수 없습니다. 이러한 유형의 게스트 사용자는 [https://aka.ms/sspr](https://aka.ms/sspr)을(를) 통해서만 SSPR를 수행할 수 있습니다. \n* Microsoft 계정(예: guestuser@live.com)으로 로그인한 게스트 사용자는 Microsoft 계정 SSPR(셀프 서비스 암호 재설정)을 사용하여 사용자 고유의 암호를 재설정할 수 있습니다. [Microsoft 계정 암호를 재설정하는 방법](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password)을 참조하세요.\n* Google 계정 또는 다른 외부 ID 공급자로 로그인한 게스트 사용자는 ID 공급자의 SSPR 메서드를 사용하여 사용자 고유의 암호를 재설정할 수 있습니다. 예를 들어 Google 계정 guestuser@gmail.com을 사용하는 게스트 사용자는 [암호 변경 또는 재설정](https://support.google.com/accounts/answer/41078)의 지침에 따라 자신의 암호를 재설정할 수 있습니다.\n* ID 테넌트가 JIT(Just-In-Time) 또는 “바이럴” 테넌트(별개의 관리되지 않는 Azure 테넌트를 의미)인 경우 게스트 사용자만 암호를 재설정할 수 있습니다. 직원이 회사 이메일 주소를 사용하여 서비스에 가입할 때 생성된 [바이럴 테넌트 관리를 인계](../enterprise-users/domains-admin-takeover.md)받는 조직도 있습니다. 조직이 바이럴 테넌트를 인계받고 나면 해당 조직의 관리자만이 사용자 암호를 재설정하거나 SSPR을 사용하도록 설정할 수 있습니다. 필요한 경우 초대 조직 관리자는 디렉터리에서 게스트 사용자 계정을 제거하고 초대를 다시 보낼 수 있습니다.\n\n* 게스트 사용자의 홈 디렉터리가 Azure AD 테넌트인 경우 사용자의 암호를 재설정할 수 있습니다. 예를 들어 온-프레미스 Active Directory에서 사용자를 만들거나 동기화하고 UserType을 Guest로 설정할 수 있습니다. 이 사용자는 디렉터리에 속해 있기 때문에 Azure Portal에서 암호를 재설정할 수 있습니다.\n"
@@ -119,12 +119,12 @@ sections:
       어떤 애플리케이션 및 서비스에서 Azure B2B 게스트 사용자를 지원하나요?
     answer: "모든 Azure AD 통합 애플리케이션이 Azure B2B 게스트 사용자를 지원할 수 있지만, 게스트 사용자를 인증하려면 테넌트로 설정된 엔드포인트를 사용해야 합니다. 게스트 사용자가 앱을 인증할 때 발행되는 SAML 토큰에서 [클레임을 사용자 지정](claims-mapping.md)해야 할 수도 있습니다. \n"
   - question: >
-      파트너가 Multi-Factor Authentication을 설치하지 않은 경우 B2B 게스트 사용자에 대해 Multi-Factor Authentication을 강제할 수 있나요?
+      파트너가 다단계 인증을 설치하지 않은 경우 B2B 게스트 사용자에 대해 다단계 인증을 강제할 수 있나요?
     answer: >
       예. 자세한 내용은 [B2B 협업 사용자에 대한 조건부 액세스](conditional-access.md)를 참조하세요.
   - question: >
       SharePoint에서 외부 사용자에 대한 "허용" 또는 "거부" 목록을 정의할 수 있습니다. Azure에서 수행할 수 있나요?
-    answer: "예. Azure AD B2B 협업은 허용 목록 및 거부 목록을 지원합니다. \n"
+    answer: "예. Azure AD B2B 협업은 허용 목록 및 차단 목록을 지원합니다. \n"
   - question: >
       Azure AD B2B를 사용해야 하는 라이선스는 무엇인가요?
     answer: >

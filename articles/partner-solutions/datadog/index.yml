@@ -1,0 +1,49 @@
+### YamlMime:Landing
+title: Azure Monitor와 Datadog 통합
+summary: 대규모 애플리케이션을 위한 모니터링 및 분석 기능을 제공합니다.
+metadata:
+  title: Azure가 포함된 Datadog 설명서
+  description: Azure가 포함된 Datadog는 대규모 애플리케이션을 위한 모니터링 및 분석 기능을 제공합니다.
+  ms.service: partner-services
+  ms.topic: landing-page
+  ms.collection: na
+  author: tfitzmac
+  ms.author: tomfitz
+  ms.date: 10/22/2021
+  ms.openlocfilehash: 721d810132a78c2de2f6fef5e880f9a8b8e82748
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130269109"
+landingContent:
+- title: Azure의 Datadog 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Datadog란?
+      url: overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Datadog 리소스 관리
+      url: manage.md
+- title: Datadog 리소스 만들기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 새 인스턴스를 만들어서 Datadog 시작
+      url: create.md
+    - text: 기존 Datadog 조직에 연결
+      url: link-to-existing-organization.md
+  - linkListType: how-to-guide
+    links:
+    - text: Datadog 배포 전에 환경 구성
+      url: prerequisites.md
+    - text: Azure의 Datadog에 대한 일반적인 오류 수정
+      url: troubleshoot.md
+- title: 참조 콘텐츠 탐색
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure CLI
+      url: /cli/azure/datadog

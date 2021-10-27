@@ -14,12 +14,18 @@
       href: tutorial-connect-cluster.md
     - name: 3 - ARO 클러스터 삭제
       href: tutorial-delete-cluster.md
+- name: 빠른 시작
+  items:
+    - name: Azure Portal을 통해 ARO 클러스터 배포
+      href: quickstart-portal.md
 - name: 방법 가이드
   items:
     - name: 클러스터 작업
       items:
         - name: ARO 클러스터 업그레이드
           href: howto-upgrade.md
+        - name: 스폿 노드 사용
+          href: howto-spot-nodes.md
     - name: 네트워킹
       items:
         - name: 프라이빗 ARO 클러스터 만들기

@@ -4,7 +4,7 @@ description: Azure Active Directory의 로그인 진단에 대한 일반적인 �
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/07/2021
+ms.date: 09/30/2021
 ms.author: markvi
 ms.reviewer: tspring
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30ec59a2b74ffb1a9de8bbf03271bf4699c98b6b
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: 99e3999eaa137a26680ff5741f38d434d2a9f618
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113552653"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998906"
 ---
 # <a name="what-is-the-sign-in-diagnostic-in-azure-ad"></a>Azure AD의 로그인 진단이란?
 
@@ -50,29 +50,39 @@ Azure AD에서 로그인 시도는 다음에 의해 제어됩니다.
 
 진단 프로세스를 시작하여 완료하려면 다음을 수행해야 합니다.   
 
-1. **이벤트 식별** - 로그인 이벤트에 대한 정보를 입력합니다. 
+1. **이벤트 식별**  - 진단을 시작하고 사용자에게 지원을 요청하는 플래그가 지정된 이벤트를 검토하거나 조사할 로그인 이벤트에 대한 정보를 입력합니다. 
 
-2. **이벤트 선택** - 공유 정보를 기반으로 하여 이벤트를 선택합니다. 
+2. **이벤트 선택**  - 공유 정보를 기반으로 이벤트를 선택합니다. 
 
-3. **작업 수행** - 진단 결과를 검토하고 단계를 수행합니다.
+3. **작업 수행**  - 진단 결과를 검토하고 단계를 수행합니다. 
+
 
 
 ### <a name="identify-event"></a>이벤트 식별 
 
-적절한 이벤트를 식별하기 위해 다음 옵션을 기준으로 필터링할 수 있습니다.
+진단을 통해 다음 두 가지 방법으로 조사할 이벤트를 찾을 수 있습니다.  
 
-- 사용자의 이름
+- 로그인 오류 사용자에게 [지원 플래그가 지정](overview-flagged-sign-ins.md)되어 있습니다. 
+- 사용자 및 추가 조건에 따라 특정 이벤트를 검색합니다. 
+
+플래그가 지정된 로그인은 최대 100개의 목록에 자동으로 표시됩니다. 이벤트를 클릭하여 즉시 진단을 실행할 수 있습니다.  
+
+플래그가 지정된 로그인이 있는 경우에도 검색 탭을 선택하여 특정 이벤트를 검색할 수 있습니다. 특정 이벤트를 검색하는 경우 다음 옵션을 기준으로 필터링할 수 있습니다. 
+
+- 사용자의 이름 
+
 - 애플리케이션 
-- 상관 관계 ID 또는 요청 ID입니다. 
-- 날짜 및 시간
 
-![필터를 보여 주는 스크린샷](./media/overview-sign-in-diagnostics/sign-in-diagnostics.png)
+- 상관 관계 ID 또는 요청 ID입니다. 
+
+- 날짜 및 시간 
 
 
 
 ### <a name="select-event"></a>이벤트 선택  
 
-Azure AD는 검색 조건에 따라 일치하는 모든 로그인 이벤트를 검색하여 인증 요약 목록 보기에 표시합니다.  
+플래그가 지정된 로그인의 경우 또는 검색이 완료되면 Azure AD는 일치하는 로그인 이벤트를 모두 검색하여 인증 요약 목록 보기에 표시합니다. 
+
 
 ![인증 요약 목록을 보여 주는 스크린샷](./media/overview-sign-in-diagnostics/review-sign-ins.png)
 

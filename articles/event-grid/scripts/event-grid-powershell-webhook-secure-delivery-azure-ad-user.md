@@ -4,16 +4,23 @@ description: Azure Event Grid를 사용하여 Azure AD 사용자가 보호하는
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 09/29/2021
-ms.openlocfilehash: 4b0f445572099dbf8b555f26be5474f84062d42a
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 91cdc4f4959d417e8f68dc9712737d234248e4bd
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129621453"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063700"
 ---
 # <a name="secure-webhook-delivery-with-azure-ad-user-in-azure-event-grid"></a>Azure Event Grid에서 Azure AD 사용자를 사용하여 보안 웹후크 전달
 
 이 스크립트는 Azure Event Grid를 사용하여 Azure AD 사용자가 보호하는 HTTPS 엔드포인트에 이벤트를 전달하는 구성을 제공합니다.
+
+다음은 스크립트의 상위 수준 단계입니다.
+
+1. **Microsoft.EventGrid** 에 대한 서비스 주체(아직 없는 경우)를 만듭니다.
+1. **Webhook용 Azure AD 앱** 에서 **AzureEventGridSecureWebhookSubscriber** 라는 역할을 만듭니다.
+1. AzureEventGridSecureWebhookSubscriber 역할에 구독을 만들 사용자의 서비스 주체를 추가합니다.
+1. AzureEventGridSecureWebhookSubscriber에 Microsoft.EventGrid의 서비스 주체를 추가합니다.
 
 ## <a name="sample-script---stable"></a>샘플 스크립트 - 안정적
 

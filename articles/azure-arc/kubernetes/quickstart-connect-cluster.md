@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/09/2021
 ms.custom: template-quickstart
 keywords: Kubernetes, Arc, Azure, 클러스터
-ms.openlocfilehash: e876ecf11de197e523c9d34825a5a52284af871b
-ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
+ms.openlocfilehash: 6716ae8b85893b9af4b439ea76eca631bff525bf
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129740458"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066455"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>빠른 시작: Azure Arc에 기존 Kubernetes 클러스터 연결
 
@@ -85,8 +85,8 @@ ms.locfileid: "129740458"
 ## <a name="meet-network-requirements"></a>네트워크 요구 사항 충족
 
 > [!IMPORTANT]
-> Azure Arc 에이전트가 작동하려면 다음 프로토콜/포트/아웃바운드 URL이 필요합니다.
-> * 포트 443의 TCP: `https://:443`
+> Azure Arc 에이전트가 작동하려면 함수에 대한 `https://:443`에서 다음 아웃바운드 URL이 필요합니다.
+> `*.servicebus.windows.net`의 경우 방화벽 및 프록시에 대한 아웃바운드 액세스에 대해 websocket을 사용하도록 설정해야 합니다.
 
 | 엔드포인트(DNS) | Description |
 | ----------------- | ------------- |

@@ -1,5 +1,5 @@
 ---
-title: '자습서: AnswerHub와 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: AnswerHub와 Azure AD SSO 통합'
 description: Azure Active Directory 및 AnswerHub 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -9,33 +9,29 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 10/12/2021
 ms.author: jeedes
-ms.openlocfilehash: dfc36a877ea7c21d580a25fe8987d202d80d0aac
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b4e701cb930a9d65a49be2cd83d2e6bf81c3a18b
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124763199"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129985608"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>자습서: AnswerHub와 Azure Active Directory 통합
+# <a name="tutorial-azure-ad-sso-integration-with-answerhub"></a>자습서: AnswerHub와 Azure AD SSO 통합
 
-이 자습서에서는 Azure AD(Azure Active Directory)와 AnswerHub를 통합하는 방법에 대해 알아봅니다.
-AnswerHub와 Azure AD를 통합하면 이러한 이점이 제공됩니다.
+이 자습서에서는 Azure AD(Azure Active Directory)와 AnswerHub를 통합하는 방법에 대해 알아봅니다. Azure AD와 AnswerHub를 통합하면 다음을 수행할 수 있습니다.
 
-* Azure AD를 사용하여 AnswerHub에 대한 액세스 권한이 있는 사용자를 제어할 수 있습니다.
-* 사용자가 자신의 Azure AD 계정으로 AnswerHub에 자동으로 로그인(Single Sign-On)되게 할 수 있습니다.
-* 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
-
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+* AnswerHub에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어합니다.
+* 사용자가 해당 Azure AD 계정으로 AnswerHub에 자동으로 로그인되도록 설정합니다.
+* 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-AnswerHub와 Azure AD의 통합을 구성하려면 다음이 필요합니다.
+시작하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 Azure AD 환경이 없으면 [1개월 평가판](https://azure.microsoft.com/pricing/free-trial/)을 사용할 수 있습니다.
-* Single Sign-On을 사용하도록 설정된 AnswerHub 구독입니다.
+* Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
+* AnswerHub SSO(Single Sign-On)가 설정된 구독.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -45,68 +41,46 @@ AnswerHub와 Azure AD의 통합을 구성하려면 다음이 필요합니다.
 
 ## <a name="add-answerhub-from-the-gallery"></a>갤러리에서 AnswerHub 추가
 
-AnswerHub와 Azure AD의 통합을 설정하려면 갤러리의 AnswerHub를 관리형 SaaS 앱에 추가해야 합니다.
+AnswerHub의 Azure AD 통합을 구성하려면 갤러리의 AnswerHub를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
-**갤러리에서 AnswerHub를 추가하려면:**
+1. Azure Portal에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
+1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
+1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
+1. **갤러리에서 추가** 섹션의 검색 상자에 **AnswerHub** 를 입력합니다.
+1. 결과 패널에서 **AnswerHub** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 창에서 **Azure Active Directory** 를 선택합니다.
+## <a name="set-up-and-test-azure-ad-sso-for-answerhub"></a>AnswerHub에 대한 Azure AD SSO 설정 및 테스트
 
-    ![Azure Active Directory 단추](common/select-azuread.png)
+**B.Simon** 이라는 테스트 사용자를 사용하여 AnswerHub에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 AnswerHub의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
-2. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
+AnswerHub에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 수행합니다.
 
-    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
+1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+1. **[AnswerHub SSO 구성](#configure-answerhub-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
+    1. **[AnswerHub 테스트 사용자 만들기](#create-answerhub-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 AnswerHub에 만듭니다.
+1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
-3. 애플리케이션을 추가하려면 창 위쪽에 있는 **새 애플리케이션** 을 선택합니다.
+## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
-    ![새 애플리케이션 단추](common/add-new-app.png)
+Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-4. 검색 상자에 **AnswerHub** 를 입력합니다. 결과 목록에서 **AnswerHub** 를 선택한 다음, **추가** 를 선택합니다.
+1. Azure Portal의 **AnswerHub** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On** 을 선택합니다.
+1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
-    ![결과 목록의 AnswerHub](common/search-new-app.png)
-
-## <a name="set-up-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 설정 및 테스트
-
-이 섹션에서는 Britta Simon이라는 테스트 사용자를 통해 AnswerHub에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
-Single Sign-On의 경우 Azure AD 사용자와 AnswerHub의 해당 사용자 간에 연결을 설정해야 합니다.
-
-AnswerHub에서 Azure AD Single Sign-On을 구성하고 테스트하려면 이러한 작업을 완료해야 합니다.
-
-1. [Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on) - 사용자가 이 기능을 사용할 수 있도록 설정합니다.
-2. [AnswerHub Single Sign-On 구성](#configure-answerhub-single-sign-on) - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-3. Britta Simon이라는 [Azure AD 테스트 사용자를 만듭니다](#create-an-azure-ad-test-user).
-4. [Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user) - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. Azure AD 테스트 사용자에 해당하고 연결되는 AnswerHub 테스트 사용자를 만듭니다.
-6. [Single Sign-On 테스트](#test-single-sign-on) - 구성이 작동하는지 확인합니다.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
-
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 설정합니다.
-
-**AnswerHub를 사용하여 Azure AD Single Sign-On을 구성하려면:**
-
-1. [Azure Portal](https://portal.azure.com/)의 **AnswerHub** 애플리케이션 통합 페이지에서 **Single Sign-On** 을 선택합니다.
-
-    ![Single Sign-On 단추](common/select-sso.png)
-
-2. **Single Sign-On 선택 방법** 대화 상자에서 **SAML/WS-Fed** 모드를 선택하여 Single Sign-On을 사용하도록 설정합니다.
-
-    ![Single Sign-On 선택 방법 대화 상자](common/select-saml-option.png)
-
-3. **SAML로 Single Sign-On 설정** 페이지에서 편집 아이콘을 선택하여 **기본 SAML 구성** 대화 상자를 엽니다.
-
-    ![SAML로 Single Sign-On 설정 페이지](common/edit-urls.png)
+   ![기본 SAML 구성 편집](common/edit-urls.png)
 
 4. **기본 SAML 구성** 섹션에서 다음 단계를 완료합니다.
 
-    ![기본 SAML 구성 섹션](common/sp-identifier.png)
-
-    a. **로그온 URL** 상자에 이 패턴이 있는 URL `https://<company>.answerhub.com`을 입력합니다.
-
-    b. **식별자(엔터티 ID)** 상자에 이 패턴이 있는 URL `https://<company>.answerhub.com`을 입력합니다.
+    a. **식별자(엔터티 ID)** 상자에 이 패턴이 있는 URL `https://<company>.answerhub.com`을 입력합니다.
+    
+    b. **로그온 URL** 상자에 이 패턴이 있는 URL `https://<company>.answerhub.com`을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 값을 얻으려면 [AnswerHub 지원 팀](mailto:success@answerhub.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 해당 값을 실제 식별자 및 로그온 URL로 업데이트합니다. 값을 얻으려면 [AnswerHub 지원 팀](mailto:success@answerhub.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 요구 사항에 따라 **인증서(Base64)** 옆의 **다운로드** 링크를 선택하고 해당 인증서를 컴퓨터에 저장합니다.
 
@@ -116,14 +90,31 @@ AnswerHub에서 Azure AD Single Sign-On을 구성하고 테스트하려면 이�
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
-   이러한 URL을 복사할 수 있습니다.
-    - 로그인 URL
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
-    - Azure AD 식별자
+이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-    - 로그아웃 URL
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
+1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
+1. **사용자** 속성에서 다음 단계를 수행합니다.
+   1. **이름** 필드에 `B.Simon`을 입력합니다.  
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
+   1. **만들기** 를 클릭합니다.
 
-### <a name="configure-answerhub-single-sign-on"></a>AnswerHub Single Sign-On 구성
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
+
+이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 AnswerHub에 대한 액세스 권한을 부여합니다.
+
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 애플리케이션 목록에서 **AnswerHub** 를 선택합니다.
+1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
+1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+
+## <a name="configure-answerhub-sso"></a>AnswerHub SSO 구성
 
 이 섹션에서는 AnswerHub의 Single Sign-On을 설정합니다.  
 
@@ -140,7 +131,7 @@ AnswerHub에서 Azure AD Single Sign-On을 구성하고 테스트하려면 이�
 
 4. **IDP 구성** 탭에서 다음 단계를 완료합니다.
 
-    ![스크린샷은 사용자 및 그룹 탭이 선택된 AnswerHub 페이지를 보여줍니다.](./media/answerhub-tutorial/ic785172.png "SAML 설정")  
+    ![스크린샷은 사용자 및 그룹 탭이 선택된 AnswerHub 페이지를 보여줍니다.](./media/answerhub-tutorial/admin.png "SAML 설정")  
 
     a. **IDP 로그인 URL** 상자에 Azure Portal에서 복사한 **로그인 URL** 을 붙여넣습니다.
 
@@ -152,7 +143,7 @@ AnswerHub에서 Azure AD Single Sign-On을 구성하고 테스트하려면 이�
 
 5. **키 및 인증서** 섹션에서 다음 단계를 완료합니다.
 
-    ![키 및 인증서 섹션](./media/answerhub-tutorial/ic785173.png "키 및 인증서")  
+    ![키 및 인증서 섹션](./media/answerhub-tutorial/users.png "키 및 인증서")  
 
     a. 메모장의 Azure Portal에서 다운로드한 Base64로 인코딩된 인증서를 열고 콘텐츠를 복사한 다음, **IDP 공유 키(x509 형식)** 상자에 붙여넣습니다.
 
@@ -160,64 +151,7 @@ AnswerHub에서 Azure AD Single Sign-On을 구성하고 테스트하려면 이�
 
 6. **IDP 구성** 탭에서 다시 **저장** 을 선택합니다.
 
-### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
-
-이 섹션에서는 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만듭니다.
-
-**Azure AD 테스트 사용자를 만들려면:**
-
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
-
-    ![Azure Active Directory, 사용자, 모든 사용자 선택](common/users.png)
-
-2. 화면 위쪽에서 **새 사용자** 를 선택합니다.
-
-    ![새 사용자 단추](common/new-user.png)
-
-3. 사용자 속성에서 다음 단계를 완료합니다.
-
-    ![사용자 속성](common/user-properties.png)
-
-    a. **이름** 상자에 **BrittaSimon** 을 입력합니다.
-
-    b. **사용자 이름** 상자에 **brittasimon\@<yourcompanydomain.extension>** 을 입력합니다.  
-    BrittaSimon@contoso.com)을 입력합니다.
-
-    다. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
-
-    d. **만들기** 를 선택합니다.
-
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
-
-이 섹션에서는 사용자 Britta Simon에게 AnswerHub에 대한 액세스 권한을 부여하여 Azure AD Single Sign-On을 사용하도록 설정합니다.
-
-**Azure AD 테스트 사용자를 할당하려면:**
-
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **AnswerHub** 를 차례로 선택합니다.
-
-    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
-
-2. 애플리케이션 목록에서 **AnswerHub** 를 선택합니다.
-
-    ![애플리케이션 목록](common/all-applications.png)
-
-3. 왼쪽 메뉴에서 **사용자 및 그룹** 을 선택합니다.
-
-    ![사용자 및 그룹 선택](common/users-groups-blade.png)
-
-4. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
-
-    ![할당 추가 창](common/add-assign-user.png)
-
-5. **사용자 및 그룹** 대화 상자의 **사용자** 목록에서 **Britta Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 선택합니다.
-
-6. SAML 어설션의 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에게 적합한 역할을 선택합니다. 
-
-7. 화면 아래쪽에 있는 **선택** 단추를 선택합니다.
-
-8. **할당 추가** 대화 상자에서 **할당** 을 선택합니다.
-
-### <a name="create-an-answerhub-test-user&quot;></a>AnswerHub 테스트 사용자 만들기
+### <a name="create-answerhub-test-user"></a>AnswerHub 테스트 사용자 만들기
 
 Azure AD 사용자가 AnswerHub에 로그인하도록 설정하려면 해당 사용자를 AnswerHub에 추가해야 합니다. AnswerHub에서 이 작업은 수동으로 수행됩니다.
 
@@ -231,23 +165,23 @@ Azure AD 사용자가 AnswerHub에 로그인하도록 설정하려면 해당 사
 
 4. 왼쪽 창의 **사용자 관리** 섹션에서 **사용자 만들기 또는 가져오기** 를 선택한 다음, **사용자 및 그룹** 을 선택합니다.
 
-    ![스크린샷은 사용자 및 그룹 탭이 선택되고 사용자 만들기 또는 가져오기 링크가 호출된 AnswerHub 페이지를 보여줍니다.](./media/answerhub-tutorial/ic785175.png &quot;사용자 및 그룹")
+    ![스크린샷은 사용자 및 그룹 탭이 선택되고 사용자 만들기 또는 가져오기 링크가 호출된 AnswerHub 페이지를 보여줍니다.](./media/answerhub-tutorial/groups.png "사용자 및 그룹")
 
 5. 추가하려는 유효한 Azure AD 계정의 **이메일 주소**, **사용자 이름** 및 **암호** 를 적절한 상자에 입력한 다음, **저장** 을 선택합니다.
 
 > [!NOTE]
 > 기타 모든 사용자 계정 생성 도구 또는 AnswerHub에서 제공된 API를 사용하여 Azure AD 사용자 계정을 설정할 수 있습니다.
 
-### <a name="test-single-sign-on"></a>Single Sign-On 테스트
+## <a name="test-sso"></a>SSO 테스트
 
-이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
+이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-액세스 패널에서 AnswerHub 타일을 선택하면 SSO를 설정한 AnswerHub에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)를 참조하세요.
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 AnswerHub 로그온 URL로 리디렉션됩니다. 
 
-## <a name="additional-resources"></a>추가 리소스
+* AnswerHub 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-- [Azure Active Directory와 SaaS 앱 통합에 대한 자습서](./tutorial-list.md)
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 AnswerHub 타일을 클릭하면 AnswerHub 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
+AnswerHub를 구성하면 세션 제어를 적용하여 조직의 중요한 데이터 반출과 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

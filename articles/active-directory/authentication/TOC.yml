@@ -58,6 +58,8 @@
           href: /office365/admin/security-and-compliance/set-up-multi-factor-authentication
         - name: FAQ
           href: multi-factor-authentication-faq.yml
+        - name: 운영자 지원
+          href: concept-authentication-operator-assistance.md
     - name: 암호 보호
       items:
         - name: 결합된 암호 정책 확인

@@ -17,12 +17,12 @@ ms.date: 07/08/2021
 ms.author: markvi
 ms.reviewer: tspring
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c327de515699ed0d0d8b74e0c393d206864fef85
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: 4301caa11079604a19b8679311daf1e082b35b1f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113553131"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993495"
 ---
 # <a name="sign-in-diagnostics-for-azure-ad-scenarios"></a>Azure AD의 로그인 진단 시나리오
 
@@ -278,7 +278,13 @@ Azure AD의 로그인 진단은 다음 시나리오를 지원합니다.
 자세한 내용은 [위험 정책을 구성하고 사용하도록 설정하는 방법](../identity-protection/howto-identity-protection-configure-risk-policies.md)을 참조하세요. 
 
 
+### <a name="pass-through-authentication"></a>통과 인증 
 
+통과 인증은 온-프레미스 및 클라우드 인증 기술의 통합이므로 문제가 있는 위치를 파악하기 어려울 수 있습니다. 이 진단은 이러한 시나리오를 보다 쉽게 진단하고 해결할 수 있도록 하기 위한 것입니다. 
+
+이 진단 시나리오는 사용 중인 인증 방법이 PTA(통과 인증)이고 PTA 관련 오류가 있는 경우 사용자별 로그인 문제를 식별합니다. PTA 인증을 사용하는 경우에도 다른 문제로 인한 오류는 여전히 올바르게 진단됩니다. 
+
+진단은 실패 및 사용자 로그인에 대한 상황별 정보, 로그인이 실패한 추가 이유 및 관리자가 문제를 해결하기 위해 수행할 수 있는 권장 조치를 보여줍니다. 자세한 내용은 [Azure AD Connect: 통과 인증 문제 해결](../hybrid/tshoot-connect-pass-through-authentication.md)을 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

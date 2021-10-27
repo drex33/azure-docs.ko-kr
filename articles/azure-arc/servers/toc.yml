@@ -24,6 +24,8 @@
       href: ./resource-graph-samples.md
 - name: 개념
   items:
+    - name: Log Analytics 에이전트 배포 옵션
+      href: concept-log-analytics-extension-deployment.md
     - name: 보안
       items:
         - name: Azure Policy의 보안 컨트롤

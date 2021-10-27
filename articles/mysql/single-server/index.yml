@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/10/2021
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 3986e2b63db40b2222bcb37fc69a8913ebe2ef63
-  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+  ms.openlocfilehash: fdf4c52b5f5b7fdc212d887d5b22ea1839fcb089
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/13/2021
-  ms.locfileid: "124796878"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130214999"
 landingContent:
 - title: 단일 서버 정보
   linkLists:
@@ -95,6 +95,10 @@ landingContent:
     links:
     - text: 서버 매개 변수 구성
       url: ../howto-server-parameters.md
+    - text: Azure Database for MySQL로 마이그레이션하기 위한 적합한 도구 선택
+      url: ../how-to-decide-on-right-migration-tools.md
+    - text: 단일 서버에서 유동 서버로 마이그레이션
+      url: ../howto-migrate-single-flexible-minimum-downtime.md
     - text: Data Migration Service를 사용하여 마이그레이션
       url: ../howto-migrate-online.md
     - text: 덤프 및 복원을 사용하여 마이그레이션

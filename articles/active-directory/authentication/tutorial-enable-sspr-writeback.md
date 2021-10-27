@@ -11,12 +11,12 @@ author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: ff38cf413f6e1812c72d410c31088b965af1b3dd
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: a2b716d2b0187e90e71156f2259a380d6fde7db4
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123213925"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073262"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>자습서: 온-프레미스 환경에 Azure Active Directory 셀프 서비스 암호 재설정 쓰기 저장 사용
 
@@ -36,7 +36,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)을 사�
 > * Azure AD Connect에서 비밀번호 쓰기 저장 옵션 사용
 > * Azure AD SSPR에서 비밀번호 쓰기 저장 사용
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
@@ -92,7 +92,7 @@ SSPR 쓰기 저장을 제대로 사용하려면 Azure AD Connect에 지정된 �
 그룹 정책을 업데이트하는 경우 업데이트된 정책이 복제될 때까지 기다리거나 `gpupdate /force` 명령을 사용합니다.
 
 > [!Note]
-> 암호를 즉시 변경하려면 비밀번호 쓰기 저장을 0으로 설정해야 합니다. 그러나 사용자가 온-프레미스 정책을 준수하고 *최소 암호 사용 기간* 을 0보다 큰 값으로 설정한 경우 온-프레미스 정책을 평가한 후에도 비밀번호 쓰기 저장이 계속 작동합니다.
+> 암호를 즉시 변경하려면 *최소 암호 사용 기간* 을 0으로 설정해야 합니다. 그러나 사용자가 온-프레미스 정책을 준수하고 *최소 암호 사용 기간* 을 0보다 큰 값으로 설정한 경우 온-프레미스 정책을 평가한 후에도 비밀번호 쓰기 저장이 계속 작동합니다.
 
 ## <a name="enable-password-writeback-in-azure-ad-connect"></a>Azure AD Connect에서 비밀번호 쓰기 저장 사용
 

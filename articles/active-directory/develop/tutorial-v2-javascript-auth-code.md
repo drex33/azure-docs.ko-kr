@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 07/17/2020
+ms.date: 10/12/2021
 ms.author: marsma
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: d9944b2e3ac68cc2b04b4a6052e9dd0647fe91ad
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: ffd447d4fcacad1185d8ad95778e0a9d22cb16ce
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129229623"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066018"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>자습서: 권한 부여 코드 흐름을 사용하여 사용자 로그인 및 JavaScript SPA(단일 페이지 앱)에서 Microsoft Graph API 호출
 
@@ -49,13 +49,13 @@ MSAL.js 2.0은 암시적 권한 부여 흐름 대신 브라우저의 권한 부�
 
 ## <a name="get-the-completed-code-sample"></a>완성된 코드 샘플 가져오기
 
-대신 이 자습서의 완성된 샘플 프로젝트를 다운로드하는 것이 좋습니다. Node.js와 같은 로컬 웹 서버를 사용하여 프로젝트를 실행하려면 [ms-identity-javascript-v2](https://github.com/Azure-Samples/ms-identity-javascript-v2) 리포지토리를 복제합니다.
+대신 이 자습서의 완성된 샘플 프로젝트를 다운로드하는 것이 좋습니다. [ms-identity-javascript-v2](https://github.com/Azure-Samples/ms-identity-javascript-v2) 리포지토리를 복제합니다. 
 
 `git clone https://github.com/Azure-Samples/ms-identity-javascript-v2`
 
-그런 다음, 코드 샘플을 실행하기 전에 구성하려면 [구성 단계](#register-your-application)로 건너뜁니다.
+로컬 개발 환경에서 다운로드한 프로젝트를 실행하려면 [프로젝트 만들기](#create-your-project)의 1단계에 설명된 대로 애플리케이션에 대한 localhost 서버를 만들어 시작합니다. 완료되면 [구성 단계](#register-your-application)로 건너뛰어 코드 샘플을 구성할 수 있습니다.
 
-자습서를 계속 진행하여 애플리케이션을 직접 빌드하려면 다음 [사전 요구 사항](#prerequisites) 섹션으로 이동합니다.
+자습서를 계속 진행하여 애플리케이션을 직접 빌드하려면 다음 섹션인 [프로젝트 만들기](#create-your-project)로 이동합니다.
 
 ## <a name="create-your-project"></a>프로젝트 만들기
 
@@ -325,7 +325,7 @@ const tokenRequest = {
   - 기본(또는 *글로벌*) Azure 클라우드의 경우 `https://login.microsoftonline.com`을 입력합니다.
   - **국가별** 클라우드(예: 중국)의 경우 [국가별 클라우드](authentication-national-cloud.md)에서 적절한 값을 찾을 수 있습니다.
 - `Enter_the_Tenant_info_here`는 다음 중 하나여야 합니다.
-  - 애플리케이션에서 *이 조직 디렉터리의 계정* 을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름** 으로 바꿉니다. `contoso.microsoft.com`)을 입력합니다.
+  - 애플리케이션에서 *이 조직 디렉터리의 계정* 을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름** 으로 바꿉니다. 예들 들어 `contoso.microsoft.com`입니다.
   - 애플리케이션에서 *모든 조직 디렉터리의 계정* 을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
   - 애플리케이션에서 *모든 조직 디렉터리의 계정 및 개인 Microsoft 계정* 을 지원하는 경우 이 값을 `common`으로 바꿉니다.
   - *개인 Microsoft 계정만* 지원하도록 제한하려면 이 값을 `consumers`로 바꿉니다.

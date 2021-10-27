@@ -3,17 +3,25 @@ title: Azure PowerShell - Azure Event Grid에서 Azure AD 애플리케이션을 
 description: Azure Event Grid를 사용하여 Azure AD 애플리케이션이 보호하는 HTTPS 엔드포인트에 이벤트를 전달하는 방법을 설명합니다.
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 09/29/2021
-ms.openlocfilehash: d05b8d5eb42e6b656b07e7d573a4fc67841a071a
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.date: 10/14/2021
+ms.openlocfilehash: d32676858c72685dfc70da476fb6fd8297194cfb
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129621533"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066588"
 ---
 # <a name="secure-webhook-delivery-with-azure-ad-application-in-azure-event-grid"></a>Azure Event Grid에서 Azure AD 애플리케이션을 사용하여 보안 WebHook 전달
 
 이 스크립트는 Azure Event Grid를 사용하여 Azure AD 애플리케이션이 보호하는 HTTPS 엔드포인트에 이벤트를 전달하는 구성을 제공합니다.
+
+다음은 스크립트의 상위 수준 단계입니다.
+
+1. **Microsoft.EventGrid** 에 대한 서비스 주체(아직 없는 경우)를 만듭니다.
+1. **Webhook용 Azure AD 앱** 에서 **AzureEventGridSecureWebhookSubscriber** 라는 역할을 만듭니다.
+1. **이벤트 구독 기록기 앱** 이 아직 없는 경우 해당 앱에 대한 서비스 주체를 만듭니다.
+1. AzureEventGridSecureWebhookSubscriber 역할에 이벤트 구독 기록기 Azure AD 앱의 서비스 주체 추가 
+1. AzureEventGridSecureWebhookSubscriber 역할에도 Microsoft.EventGrid의 서비스 주체 추가
 
 ## <a name="sample-script---stable"></a>샘플 스크립트 - 안정적
 

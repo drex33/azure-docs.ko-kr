@@ -12,21 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/05/2021
+ms.date: 10/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 2dff42fcf855a41e2e907563b1aecccad0a1661a
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 78f8b282e701e181dd3a2c137ba254227651b048
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129545928"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130036858"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Azure NetApp Files의 새로운 기능
 
 Azure NetApp Files는 정기적으로 업데이트됩니다. 이 문서에서는 새로운 최신 기능과 향상된 기능에 대한 요약을 제공합니다. 
-
-    
+ 
 ## <a name="october-2021"></a>2021년 10월
+
+* [Azure NetApp Files 지역 간 복제](cross-region-replication-introduction.md)는 이제 GA(일반 공급)입니다.
+
+    이제 지역 간 복제 기능은 일반 공급입니다. 이 기능을 사용하기 전에 더 이상 등록할 필요가 없습니다.
 
 * [표준 네트워크 기능](configure-network-features.md)(미리 보기)
 

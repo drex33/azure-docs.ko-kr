@@ -4,16 +4,16 @@ description: 이 빠른 시작에서는 Azure Spring Cloud에 Spring Cloud 애�
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 10/23/2020
+ms.date: 10/12/2021
 ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 7976adb7fa4f9b1bfa8f8a2bac1a2c055e28ae31
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 33718af136a6f9675e7cc9360f7f18dd79935e09
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129855387"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129984513"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>빠른 시작: 첫 번째 Azure Spring Cloud 애플리케이션 배포
 
@@ -24,7 +24,6 @@ ms.locfileid: "129855387"
 > Azure Spring Cloud에 대한 Steeltoe 지원은 현재 공개 미리 보기로 제공됩니다. 퍼블릭 미리 보기 제품을 통해 고객은 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다.  퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다.  미리 보기 동안 제공되는 지원에 대한 자세한 내용은 [FAQ](https://azure.microsoft.com/support/faq/)를 참조하거나 [지원 요청](../azure-portal/supportability/how-to-create-azure-support-request.md)을 제출하세요.
 
 이 빠른 시작을 통해 다음을 수행하는 방법을 알아봅니다.
-
 > [!div class="checklist"]
 > * 기본 Steeltoe .NET Core 프로젝트 생성
 > * Azure Spring Cloud 서비스 인스턴스 프로비저닝
@@ -333,16 +332,17 @@ info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
 
 * [JDK 8 또는 JDK 11 설치](/java/azure/jdk/)
 * [Azure 구독에 가입](https://azure.microsoft.com/free/)
-* (선택 사항) [Azure CLI 버전 2.0.67 이상을 설치](/cli/azure/install-azure-cli)하고 다음 명령을 사용하여 Azure Spring Cloud 확장을 설치합니다. `az extension add --name spring-cloud`
+* (선택 사항) [Azure CLI 버전 2.0.67 이상을 설치](/cli/azure/install-azure-cli)하고 `az extension add --name spring-cloud` 명령을 사용하여 Azure Spring Cloud 확장을 설치합니다.
+* (선택 사항) [IntelliJ IDEA 설치](https://www.jetbrains.com/idea/)
 * (선택 사항) [Azure Toolkit for IntelliJ를 설치](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/)하고 [로그인](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)합니다.
-* (선택 사항) [Maven을 설치합니다](https://maven.apache.org/download.cgi). Azure Cloud Shell을 사용하는 경우 이 설치가 필요하지 않습니다.
+* (선택 사항) [Maven을 설치합니다](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html). Azure Cloud Shell을 사용하는 경우 이 설치가 필요하지 않습니다.
 
 ## <a name="generate-a-spring-cloud-project"></a>Spring Cloud 프로젝트 생성
 
-[Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.5&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client)를 시작하여 Azure Spring Cloud의 권장 종속성이 있는 샘플 프로젝트를 생성합니다. 이 링크는 다음 URL을 사용하여 기본 설정을 제공합니다. 
+[Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.5&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client)를 시작하여 Azure Spring Cloud의 권장 종속성이 있는 샘플 프로젝트를 생성합니다. 이 링크는 다음 URL을 사용하여 기본 설정을 제공합니다. 
 
 ```url
-https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.5&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client
+https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.5&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client
 ```
 다음 그림은 이 샘플 프로젝트에 대해 설정된 권장 Initializr를 보여 줍니다. 
 
@@ -350,7 +350,8 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.5
 
 ![Initializr 페이지](media/spring-cloud-quickstart-java/initializr-page.png)
 
-1. 모든 종속성이 설정된 경우 **생성** 을 선택합니다. 패키지를 다운로드하고 압축을 푼 다음, 다음과 같이 `src/main/java/com/example/hellospring/HelloController.java`를 추가하여 간단한 웹 애플리케이션에 대한 웹 컨트롤러를 만듭니다.
+1. 모든 종속성이 설정된 경우 **생성** 을 선택합니다. 
+1. 패키지를 다운로드하고 압축을 푼 후, 다음 콘텐츠가 포함된 *src/main/java/com/example/hellospring/HelloController.java* 파일을 추가하여 간단한 웹 애플리케이션용 웹 컨트롤러를 만듭니다.
 
     ```java
     package com.example.hellospring;
@@ -375,9 +376,9 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.5
 
 1. 새 탭에서 [Azure Portal](https://ms.portal.azure.com/)을 엽니다.
 
-2. 상단 검색 상자에서 *Azure Spring Cloud* 를 검색합니다.
+2. 상단 검색 상자에서 **Azure Spring Cloud** 를 검색합니다.
 
-3. 결과에서 *Azure Spring Cloud* 를 선택합니다.
+3. 결과에서 **Azure Spring Cloud** 를 선택합니다.
 
     ![ASC 아이콘 시작](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
 
@@ -434,7 +435,7 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.5
 1. 앱에 대한 Jar 파일을 배포합니다(Windows 경우 `target\hellospring-0.0.1-SNAPSHOT.jar`).
 
     ```azurecli
-    az spring-cloud app deploy -n hellospring -s <service instance name> -g <resource group name> --artifact-path <jar file path>
+    az spring-cloud app deploy -n hellospring -s <service instance name> -g <resource group name> --artifact-path <jar file path>/hellospring-0.0.1-SNAPSHOT.jar
     ```
 
 1. 애플리케이션 배포를 완료하는 데 몇 분이 걸립니다. 배포되었는지 확인하려면 Azure Portal의 **앱** 블레이드로 이동합니다. 애플리케이션의 상태가 표시되어야 합니다.
@@ -445,21 +446,21 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.5
 
 ### <a name="import-project"></a>프로젝트 가져오기
 
-1. IntelliJ **시작** 대화 상자를 열고, **프로젝트 가져오기** 를 선택하여 가져오기 마법사를 엽니다.
-1. `hellospring` 폴더를 선택합니다.
+1. IntelliJ **시작** 대화 상자를 연 다음, **열기** 를 선택하여 가져오기 마법사를 엽니다.
+1. **hellospring** 폴더를 선택합니다.
 
     ![프로젝트 가져오기](media/spring-cloud-quickstart-java/intellij-new-project.png)
 
 ### <a name="deploy-the-app"></a>앱 배포
 
-Azure에 배포하려면 Azure 계정으로 로그인하고 구독을 선택해야 합니다.  로그인 세부 정보는 [설치 및 로그인](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)을 참조하세요.
+Azure에 배포하려면 Azure 계정으로 로그인한 다음, 구독을 선택해야 합니다.  로그인 세부 정보는 [설치 및 로그인](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)을 참조하세요.
 
-1. IntelliJ 프로젝트 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Azure** -> **Azure Spring Cloud에 배포** 를 선택합니다.
+1. IntelliJ 프로젝트 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **Azure** -> **Azure Spring Cloud에 배포** 를 선택합니다.
 
-    [ ![Azure 1에 배포](media/spring-cloud-quickstart-java/intellij-deploy-azure-1.png) ](media/spring-cloud-quickstart-java/intellij-deploy-azure-1.png#lightbox)
+    [![Azure 1에 배포](media/spring-cloud-quickstart-java/intellij-deploy-azure-1.png)](media/spring-cloud-quickstart-java/intellij-deploy-azure-1.png#lightbox)
 
 1. **이름** 필드에서 앱 이름을 적용합니다. **이름** 은 앱 이름이 아니라 구성을 나타냅니다. 사용자는 일반적으로 변경할 필요가 없습니다.
-1. **Artifact** 텍스트 상자에서 *hellospring-0.0.1-SNAPSHOT.jar* 을 선택합니다.
+1. **Artifact** 텍스트 상자에서 *Maven : com.example:hellospring-0.0.1-SNAPSHOT* 을 선택합니다.
 1. **구독** 텍스트 상자에서 구독을 확인합니다.
 1. **Spring Cloud** 텍스트 상자에서 [Azure Spring Cloud 인스턴스 프로비저닝](./quickstart-provision-service-instance.md)에서 만든 Azure Spring Cloud의 인스턴스를 선택합니다.
 1. **퍼블릭 엔드포인트** 를 *사용* 으로 설정합니다.
@@ -474,7 +475,7 @@ Azure에 배포하려면 Azure 계정으로 로그인하고 구독을 선택해�
 
 배포가 완료되면 `https://<service instance name>-hellospring.azuremicroservices.io/`에서 앱에 액세스할 수 있습니다.
 
-[ ![브라우저에서 앱에 액세스](media/spring-cloud-quickstart-java/access-app-browser.png) ](media/spring-cloud-quickstart-java/access-app-browser.png#lightbox)
+[![브라우저에서 앱에 액세스](media/spring-cloud-quickstart-java/access-app-browser.png)](media/spring-cloud-quickstart-java/access-app-browser.png#lightbox)
 
 ## <a name="streaming-logs-in-real-time"></a>실시간으로 로그 스트리밍
 
@@ -500,17 +501,17 @@ az spring-cloud app logs -n hellospring -s <service instance name> -g <resource 
 1. 드롭다운 목록에서 **스트리밍 로그** 를 선택합니다.
 1. 인스턴스를 선택합니다.
 
-    [ ![스트리밍 로그 선택](media/spring-cloud-quickstart-java/intellij-get-streaming-logs.png) ](media/spring-cloud-quickstart-java/intellij-get-streaming-logs.png)
+    [![스트리밍 로그 선택](media/spring-cloud-quickstart-java/intellij-get-streaming-logs.png)](media/spring-cloud-quickstart-java/intellij-get-streaming-logs.png)
 
 1. 스트리밍 로그는 출력 창에 표시됩니다.
 
-    [ ![스트리밍 로그 출력](media/spring-cloud-quickstart-java/intellij-streaming-logs-output.png) ](media/spring-cloud-quickstart-java/intellij-streaming-logs-output.png)
+    [![스트리밍 로그 출력](media/spring-cloud-quickstart-java/intellij-streaming-logs-output.png)](media/spring-cloud-quickstart-java/intellij-streaming-logs-output.png)
 
 ---
 
 고급 로그 분석 기능은 [Azure Portal](https://portal.azure.com/) 메뉴에서 **로그** 탭을 방문하세요. 여기에서 로그의 대기 시간은 몇 분입니다.
 
-[ ![로그 분석](media/spring-cloud-quickstart-java/logs-analytics.png) ](media/spring-cloud-quickstart-java/logs-analytics.png#lightbox)
+[![로그 분석](media/spring-cloud-quickstart-java/logs-analytics.png)](media/spring-cloud-quickstart-java/logs-analytics.png#lightbox)
 
 ::: zone-end
 
@@ -519,7 +520,7 @@ az spring-cloud app logs -n hellospring -s <service instance name> -g <resource 
 이전 단계에서는 구독에 남아 있는 동안 요금이 계속 청구되는 Azure 리소스를 만들었습니다. 나중에 이러한 리소스가 필요하지 않을 경우 리소스 그룹을 포털에서 삭제하거나 Azure CLI에서 다음 명령을 실행하여 삭제합니다.
 
 ```azurecli
-az group delete --name <your resource group name; for example: hellospring-1558400876966-rg> --yes
+az group delete --name <your resource group name> --yes
 ```
 
 ## <a name="next-steps"></a>다음 단계

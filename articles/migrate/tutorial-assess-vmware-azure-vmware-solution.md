@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: 31bf3909012231996bd340cfa4d388f0fe20a4f5
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: a2637fbfcaf1e30b1df9f0739630ea2883eba3fa
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104782145"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994210"
 ---
 # <a name="tutorial-assess-vmware-servers-for-migration-to-avs"></a>자습서: AVS로 마이그레이션할 VMware 서버 평가
 
@@ -127,11 +127,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 AVS 평가는 다음을 설명합니다.
 
-- AVS 준비: 온-프레미스 서버가 AVS(Azure VMware Solution)로 마이그레이션하는 데 적합한지 여부입니다.
-- AVS 노드 수: 서버를 실행하는 데 필요한 예상 AVS 노드 수입니다.
-- AVS 노드에서의 사용률 모든 노드에서 예상되는 CPU, 메모리 및 스토리지 사용률입니다.
-    - 사용률에는 vCenter Server, NSX Manager(대규모), NSX Edge와 같은 다음 클러스터 관리 오버헤드의 초기 팩터링이 포함됩니다. HCX가 배포되는 경우 HCX Manager와 IX 어플라이언스도 압축 및 중복 제거 전에 ~ 44vCPU(11개 CPU), 75GB RAM 및 722GB의 스토리지를 사용합니다. 
-- 월별 예상 비용: 온-프레미스 서버를 실행하는 모든 AVS(Azure VMware Solution) 노드에 대한 월별 예상 비용입니다.
+- **AVS(Azure VMware Solution) 준비**: 온-프레미스 서버가 AVS(Azure VMware Solution)로 마이그레이션하는 데 적합한지 여부입니다.
+- **Azure VMware Solution 노드 수**: 서버를 실행하는 데 필요한 예상 Azure VMware Solution 노드 수입니다.
+- **AVS 노드에서의 사용률**: 모든 노드에서 예상되는 CPU, 메모리 및 스토리지 사용률입니다.
+    - 사용률에는 vCenter Server, NSX Manager(대규모), NSX Edge와 같은 다음 클러스터 관리 오버헤드의 초기 팩터링이 포함됩니다. HCX가 배포되는 경우 HCX Manager와 IX 어플라이언스도 압축 및 중복 제거 전에 ~ 44vCPU(11개 CPU), 75GB RAM 및 722GB의 스토리지를 사용합니다.
+    - 제한 요소는 리소스를 수용하는 데 필요한 호스트/노드 수를 결정합니다.
+- **월별 예상 비용**: 온-프레미스 VM을 실행하는 모든 AVS(Azure VMware Solution) 노드에 대한 월별 예상 비용입니다.
 
 ## <a name="view-an-assessment"></a>평가 보기
 
@@ -143,7 +144,7 @@ AVS 평가는 다음을 설명합니다.
 
     :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-summary.png" alt-text="AVS 평가 요약":::
 
-1. 평가 요약을 검토합니다. 평가 속성을 편집하거나 평가를 다시 계산할 수도 있습니다.
+1. 평가 요약을 검토합니다. **크기 조정 가정** 을 클릭하여 노드 크기 조정 및 리소스 사용률 계산에 따른 가정을 이해할 수 있습니다. 평가 속성을 편집하거나 평가를 다시 계산할 수도 있습니다.
  
 
 ### <a name="review-readiness"></a>준비 상태 검토
@@ -178,8 +179,6 @@ AVS 평가는 다음을 설명합니다.
 ### <a name="review-confidence-rating"></a>신뢰 등급 검토
 
 서버 평가는 성능 기반 평가에 신뢰 등급을 할당합니다. 등급은 별 1개(가장 낮음)부터 별 5개(가장 높음)까지입니다.
-
-![신뢰 등급](./media/tutorial-assess-vmware-azure-vmware-solution/confidence-rating.png)
 
 신뢰 등급은 평가에서 크기 추천 사항의 안정성을 예측하는 데 도움이 됩니다. 이 등급은 평가를 계산하는 데 필요한 데이터 요소의 가용성을 기반으로 합니다.
 

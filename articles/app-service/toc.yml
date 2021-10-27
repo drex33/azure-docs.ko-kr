@@ -5,7 +5,7 @@
     - name: App Service 정보
       href: overview.md
     - name: App Service Environment 정보
-      href: environment/intro.md
+      href: environment/overview.md
     - name: 호스팅 옵션 비교
       href: /azure/architecture/guide/technology-choices/compute-decision-tree
 - name: 빠른 시작
@@ -144,7 +144,7 @@
         - name: 하이브리드 연결
           href: app-service-hybrid-connections.md
         - name: 가상 네트워크 통합
-          href: web-sites-integrate-with-vnet.md
+          href: overview-vnet-integration.md
         - name: 애플리케이션 게이트웨이 통합
           href: networking/app-gateway-with-service-endpoints.md
         - name: NAT 게이트웨이 통합
@@ -301,6 +301,10 @@
           href: manage-disaster-recovery.md
         - name: Azure Arc에서 사용
           href: manage-create-arc-environment.md
+        - name: VNet 통합 사용
+          href: configure-vnet-integration-enable.md
+        - name: VNet 통합 라우팅 구성
+          href: configure-vnet-integration-routing.md
     - name: 앱 이동
       items:
         - name: 영역 간 이동

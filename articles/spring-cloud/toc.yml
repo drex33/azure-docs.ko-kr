@@ -138,6 +138,8 @@
           href: how-to-dynatrace-one-agent-monitor.md
         - name: New Relic Java In Process 에이전트
           href: how-to-new-relic-monitor.md
+        - name: AppDynamics In-Process 에이전트
+          href: how-to-appdynamics-java-agent-monitor.md
         - name: 앱 수명 주기 이벤트 모니터링
           href: monitor-app-lifecycle-events.md
     - name: 네트워크
@@ -192,7 +194,7 @@
           href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
           href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
-- name: 아키텍처
+- name: Architecture
   items:
     - name: 참조 아키텍처
       href: reference-architecture.md

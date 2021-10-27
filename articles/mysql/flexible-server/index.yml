@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/10/2021
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 876bdc57f2d97cf4254cc0c4bba381df812bdda5
-  ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+  ms.openlocfilehash: 81c0d46d58b39b0d4b6698da1f1b39d5c36eb587
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/06/2021
-  ms.locfileid: "129616648"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130246195"
 landingContent:
 - title: 유연한 서버(미리 보기) 정보
   linkLists:
@@ -109,6 +109,10 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Azure Database for MySQL로 마이그레이션하기 위한 적합한 도구 선택
+      url: ../how-to-decide-on-right-migration-tools.md
+    - text: 단일 서버에서 유동 서버로 마이그레이션
+      url: ../howto-migrate-single-flexible-minimum-downtime.md
     - text: 온라인 마이그레이션
       url: ../howto-migrate-online.md
     - text: 데이터 내부 복제를 사용하여 RDS for MySQL 마이그레이션

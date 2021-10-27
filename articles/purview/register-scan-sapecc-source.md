@@ -6,13 +6,13 @@ ms.author: kchandra
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 09/27/2021
-ms.openlocfilehash: 6d6764d98b71c01abef66fbd7392017fe638ba5a
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 10/18/2021
+ms.openlocfilehash: 37371081cd9ef132491dbed4a840517853dad475
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129212056"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130181372"
 ---
 # <a name="register-and-scan-sap-ecc-source"></a>SAP ECC 원본 등록 및 검사
 
@@ -24,8 +24,10 @@ SAP ECC 원본은 SAP ECC 인스턴스에서 메타데이터를 추출할 수 �
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-1.  최신 [자체 호스팅 통합 런타임](https://www.microsoft.com/download/details.aspx?id=39717)을 설정합니다.
-    자세한 내용은 [자체 호스팅 통합 런타임 만들기 및 구성](../data-factory/create-self-hosted-integration-runtime.md)을 참조하세요.
+1.  최신 [자체 호스팅 통합 런타임](https://www.microsoft.com/download/details.aspx?id=39717)을 설정합니다. 자세한 내용은 [자체 호스팅 통합 런타임 만들기 및 구성](../data-factory/create-self-hosted-integration-runtime.md)을 참조하세요. 
+
+    >[!NOTE] 
+    >SAP ECC를 검색하는 작업은 메모리를 많이 사용하는 작업이므로 대용량 메모리가 있는 머신에 자체 호스팅 통합 런타임을 설치하는 것이 좋습니다(예: 128GB).
 
 2.  자체 호스팅 통합 런타임이 설치된 가상 머신에 [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)이 설치되어 있는지 확인합니다.
 
@@ -104,10 +106,8 @@ SAP ECC 원본에 대해 유일하게 지원되는 인증은 **기본 인증** �
 
     e.  **JCo 라이브러리 경로**: JCo 라이브러리가 위치하는 디렉터리 경로입니다.
 
-    f.  **사용 가능한 최대 메모리:** 고객의 VM에서 검사 프로세스를 수행하는 데 사용할 수 있는 최대 메모리(GB)입니다. 이는 검사할 SAP ECC 원본의 크기에 따라 달라집니다.
-    > [!Note] 
-    > 일반적으로 1,000개 테이블당 1GB 메모리를 제공하세요.
-
+    f.  **사용 가능한 최대 메모리:** 검사 프로세스에서 사용할 자체 호스팅 통합 런타임에서 사용할 수 있는 최대 메모리(GB)입니다. 이는 검사할 SAP ECC 원본의 크기에 따라 달라집니다. 사용 가능한 큰 메모리(예: 100)를 제공하는 것이 좋습니다.
+    
     :::image type="content" source="media/register-scan-sapecc-source/scan-sapecc.png" alt-text="SAPECC 검사" border="true":::
 
 6.  **계속** 을 선택합니다.

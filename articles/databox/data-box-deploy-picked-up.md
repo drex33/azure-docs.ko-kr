@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 05/07/2021
+ms.date: 10/17/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 86609d42a7c8f0e78df6b3a0019d97c951b5d378
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 8b51cbf8af938a71faea05b2cadbea904b508d26
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109736238"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130138653"
 ---
 ::: zone target="docs"
 
@@ -36,7 +36,7 @@ ms.locfileid: "109736238"
 
 > [!div class="checklist"]
 >
-> * 필수 구성 요소
+> * 사전 요구 사항
 > * 배송 준비
 > * Microsoft에 Data Box 배송
 > * Azure에 대한 데이터 업로드 확인
@@ -76,11 +76,15 @@ ms.locfileid: "109736238"
 
 디바이스에 대한 데이터 복사가 완료되고 **배송 준비** 실행이 성공했는지 확인합니다. 디바이스를 배송하는 지역에 따라 절차가 다릅니다.
 
+### <a name="microsoft-managed-shipping"></a>Microsoft 관리형 배송
+
+Microsoft 관리형 배송을 사용하는 경우 배송할 지역에 대한 지침을 따르세요.
+
 ::: zone-end
 
-## <a name="us-canada-europe"></a>[미국, 캐나다, 유럽](#tab/in-us-canada-europe)
+## <a name="us--canada"></a>[미국 및 캐나다](#tab/in-us-canada)
 
-미국, 캐나다 또는 유럽에서 디바이스를 반송하는 경우 다음 단계를 수행합니다.
+미국 또는 캐나다에서 디바이스를 반송하는 경우 다음 단계를 수행합니다.
 
 1. 디바이스의 전원이 꺼져 있고 케이블이 분리되었는지 확인합니다.
 2. 디바이스와 함께 제공된 전원 코드를 디바이스 뒷면에 스풀링하고 안전하게 고정합니다.
@@ -93,6 +97,53 @@ ms.locfileid: "109736238"
 
     픽업을 예약하는 대신 가장 가까운 반납 위치에 Data Box를 반납할 수도 있습니다.
 4. 운송업체에서 Data Box를 픽업하고 나면 포털의 주문 상태가 **픽업됨** 으로 업데이트됩니다. 추적 ID도 표시됩니다.
+
+::: zone target="chromeless"
+
+## <a name="verify-data-upload-to-azure"></a>Azure에 대한 데이터 업로드 확인
+
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+
+## <a name="erasure-of-data-from-data-box"></a>Data Box에서 데이터 지우기
+
+Azure에 대한 업로드가 완료되면 Data Box 디스크의 데이터가 [NIST SP800-88 개정 1 지침](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi)에 따라 지워집니다.
+
+::: zone-end
+
+## <a name="europe"></a>[유럽](#tab/in-europe)
+
+유럽에서 디바이스를 반송하는 경우 다음 단계를 수행합니다.
+
+1. 디바이스의 전원이 꺼져 있고 케이블이 분리되었는지 확인합니다.
+2. 디바이스와 함께 제공된 전원 코드를 디바이스 뒷면에 스풀링하고 안전하게 고정합니다.
+3. 배송 레이블이 E-ink 디스플레이에 표시되는지 확인하고 운송업체에 픽업을 예약합니다. 레이블이 손상 또는 손실되었거나 E-ink 디스플레이에 표시되지 않으면 Microsoft 지원에 문의하세요. 고객 지원팀에서 제안하는 경우 Azure Portal에서 **개요 > 배송 레이블 다운로드** 로 차례로 이동합니다. 배송 레이블을 다운로드하여 디바이스에 부착합니다.
+1. **독일 또는 스위스에서 배송하는 경우** Azure 데이터 센터에는 모든 디바이스 반환에 대한 사전 알림이 필요합니다.
+    1. 다음 템플릿을 사용하여 Azure Data Box 작업에 이메일을 보내 인바운드 ID를 받습니다. [adbops@microsoft.com](mailto:adbops@microsoft.com)에 이메일을 보냅니다.
+
+       ```
+       To: adbops@microsoft.com
+       Subject: Request for Azure Data Box Inbound ID: <orderName> 
+       Body: 
+        
+       I am ready to return an Azure Data Box and would like to request an Inbound ID for the following order:
+       
+       Order Name: <orderName>
+       Return Tracking Number: <returnTracking#>
+       ```
+
+    1. Azure Data Box 작업에서 제공하는 인바운드 ID 번호를 적어 두고 반환 레이블 근처에 명확하게 표시되는 단위에 붙여넣습니다.
+1. 디바이스를 반송하는 경우 UPS로 픽업을 예약합니다. 픽업을 예약하려면 다음을 수행합니다.
+
+    * 로컬 UPS(국가/지역별 무료 전화 번호)에 전화합니다.
+    * 통화에서 E-ink 디스플레이 또는 인쇄된 레이블에서 표시한 대로 역방향 배송 추적 번호를 알려줍니다. 추적 번호를 알려주지 않으면 픽업 중에 UPS에 추가 요금이 부과됩니다.
+    * 픽업을 예약하는 동안 문제가 발생하거나 추가 요금을 지불하라는 메시지가 표시되면 Azure Data Box Operations에 문의하세요. [adbops@microsoft.com](mailto:adbops@microsoft.com)에 이메일을 보냅니다.
+
+    픽업을 예약하는 대신 가장 가까운 반납 위치에 Data Box를 반납할 수도 있습니다.
+
+    **독일 또는 스위스에서 배송하는 경우**, [자체 관리형 배송을 사용](data-box-deploy-picked-up.md#self-managed-shipping)할 수도 있습니다.
+
+4. 운송업체에서 Data Box를 픽업하고 나면 포털의 주문 상태가 **픽업됨** 으로 업데이트됩니다. 추적 ID도 표시됩니다.
+
 
 ::: zone target="chromeless"
 
@@ -279,7 +330,7 @@ Azure에 대한 업로드가 완료되면 Data Box 디스크의 데이터가 [NI
 
 ::: zone-end
 
-## <a name="united-arab-emirates"></a>[아랍에미리트연합국](#tab/in-uae)
+## <a name="uae"></a>[아랍에미리트](#tab/in-uae)
 
 1. 반품 배송을 위해 디바이스를 배송하는 데 사용된 원래 상자를 보관하세요.
 2. 디바이스로의 데이터 복사가 완료되고 **배송 준비** 단계가 성공적으로 완료되었는지 확인합니다.
@@ -349,9 +400,13 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 ::: zone-end
 -->
 
-## <a name="self-managed"></a>[자체 관리](#tab/in-selfmanaged)
+---
 
-미국 정부, 일본, 싱가포르, 대한민국, 인도, 남아프리카, 영국, 서유럽, 오스트레일리아 또는 브라질에서 Data Box를 사용 중이고 주문을 생성할 때 자체 관리형 배송을 선택한 경우 다음 지침을 따르세요.
+### <a name="self-managed-shipping"></a>자체 관리형 배송
+
+Microsoft 관리형 배송을 사용하는 경우 배송할 지역에 대한 지침을 따르세요.
+
+미국 정부, 일본, 싱가포르, 대한민국, 인도, 남아프리카, 영국, 독일, 스위스, 서유럽, 오스트레일리아 또는 브라질에서 Data Box를 사용 중이고 주문을 생성할 때 자체 관리형 배송을 선택한 경우 다음 지침을 따르세요.
 
 1. 이 단계가 성공적으로 완료된 후 Data Box에 대한 로컬 웹 UI의 **배송 준비** 페이지에 표시된 인증 코드를 적어둡니다.
 2. 디바이스의 전원을 끄고 케이블을 분리합니다. 디바이스와 함께 제공된 전원 코드를 디바이스 뒷면에 스풀링하고 안전하게 고정합니다.

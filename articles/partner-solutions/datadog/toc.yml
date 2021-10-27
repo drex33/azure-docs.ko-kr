@@ -1,0 +1,30 @@
+- name: Datadog Azure 통합 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Datadog란?
+      href: overview.md
+      displayName: 'Datadog, Monitoring'
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: 새 Datadog org 만들기
+      href: create.md
+    - name: 기존 Datadog org에 연결
+      href: link-to-existing-organization.md
+- name: 방법
+  items:
+    - name: 배포 전 구성
+      href: prerequisites.md
+    - name: 관리
+      href: manage.md
+    - name: 문제 해결
+      items:
+        - name: 지원 받기
+          href: get-support.md
+        - name: 일반 오류 수정
+          href: troubleshoot.md
+- name: 참조
+  items:
+    - name: Azure CLI
+      href: /cli/azure/datadog

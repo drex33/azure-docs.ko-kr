@@ -1,5 +1,5 @@
 ---
-title: '자습서: AppNeta Performance Manager와 Azure Active Directory SSO(Single Sign-On) 통합 | Microsoft Docs'
+title: '자습서: AppNeta Performance Manager와 Azure AD SSO 통합'
 description: Azure Active Directory와 AppNeta Performance Managerr 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/28/2020
+ms.date: 10/12/2021
 ms.author: jeedes
-ms.openlocfilehash: ceb7c2fcec92e89c65e03fa11db142af514090af
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 43abd1fef96a6730405fae438e3441f4982ae79c
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128619859"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129995124"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-appneta-performance-manager"></a>자습서: AppNeta Performance Manager와 Azure Active Directory SSO(Single Sign-On) 통합
+# <a name="tutorial-azure-ad-sso-integration-with-appneta-performance-manager"></a>자습서: AppNeta Performance Manager와 Azure AD SSO 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 AppNeta Performance Manager를 통합하는 방법에 대해 알아봅니다. AppNeta Performance Manager를 Azure AD와 통합하면 다음을 수행할 수 있습니다.
 
@@ -90,7 +90,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![SAML 토큰의 기본 특성을 보여 주는 스크린샷](./media/appneta-tutorial/edit-attribute.png)
 
-1. 위에서 언급한 특성 외에도 AppNeta Performance Manager 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
+1. 위에서 언급한 특성 외에도 AppNeta Performance Manager 애플리케이션에는 아래에서 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
    | Name      | 원본 특성       |
    | --------- | ---------------------- |
@@ -104,19 +104,27 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
    |           |                        |
 
 1. "groups" SAML 어설션을 제대로 전달하려면 앱 역할을 구성하고 AppNeta Performance Manager 내에서 설정된 역할 매핑과 일치하도록 값을 설정해야 합니다. **Azure Active Directory** > **앱 등록** >  **모든 애플리케이션** 아래에서 **Appneta Performance Manager** 를 선택합니다.
-1. 왼쪽 창에서 **앱 역할** 을 클릭합니다.
+
+   ![아래쪽에 Appneta Performance Manager를 사용한 앱 등록을 보여주는 스크린샷. ](./media/appneta-tutorial/app-registrations.png)
+
+1. 왼쪽 창에서 **앱 역할** 을 클릭합니다. 다음 화면이 나타납니다.
+
+   ![아래쪽에 Appneta Performance Manager가 있는 앱 역할을 보여주는 스크린샷. ](./media/appneta-tutorial/app-roles.png)
+
 1. **앱 역할 만들기** 를 클릭합니다.
-1. **앱 역할 만들기** 창에서 다음 단계를 완료합니다.
-   1. **표시 이름** 에서 역할 이름을 입력합니다.
-   1. **허용되는 멤버 유형** 에서 **사용자/그룹** 을 선택합니다.
-   1. **값** 에서 AppNeta Performance Manager 역할 매핑에 설정된 보안 그룹의 값을 입력합니다.
-   1. **설명** 에서 역할에 대한 설명을 입력합니다.
+1. **앱 역할 만들기** 화면에서 다음 단계를 수행합니다.
+   1. **표시 이름** 필드에 역할 이름을 입력합니다.
+   1. **허용되는 멤버 유형** 필드에서 **사용자/그룹** 을 선택합니다.
+   1. **값** 필드에서 AppNeta Performance Manager 역할 매핑에 설정된 보안 그룹의 값을 입력합니다.
+   1. **설명** 필드에 역할에 대한 설명을 입력합니다.
    1. **적용** 을 클릭합니다.
 
-1. 역할이 만들어지면 해당 역할을 사용자 및 그룹에 매핑해야 합니다. **Azure Active Directory** > **엔터프라이즈 애플리케이션** > **Appneta Performance Manager** > **사용자 및 그룹** 으로 차례로 이동합니다.
-1. 사용자 또는 그룹을 선택한 다음, 해당 사용자 또는 그룹에 대한 관련 앱 역할을 할당합니다.
-1. 앱 역할이 매핑되면 **Azure Active Directory** > **엔터프라이즈 애플리케이션** > **Appneta Performance Manager** > **Single Sign-On** 으로 차례로 이동합니다.
-1. **SAML로 Single Sign-On 설정** 창의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
+   ![설명된 대로 필드가 채워진 앱 역할 만들기 대화 상자의 스크린샷. ](./media/appneta-tutorial/create-app-role.png)
+
+1. 역할을 만든 후에는 사용자/그룹에 매핑해야 합니다. **Azure Active Directory** > **엔터프라이즈 애플리케이션** > **Appneta Performance Manager** > **사용자 및 그룹** 으로 이동합니다.
+1. 사용자/그룹을 선택한 다음, 원하는 앱 역할을 할당합니다(이전 단계에서 생성됨).
+1. 앱 역할이 매핑되면 **Azure Active Directory** > **엔터프라이즈 애플리케이션** > **Appneta Performance Manager** > **Single Sign-On** 으로 이동합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
    ![인증서 다운로드 링크](common/metadataxml.png)
 

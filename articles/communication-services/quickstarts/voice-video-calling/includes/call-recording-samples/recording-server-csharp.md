@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: joseys
-ms.openlocfilehash: f025f33a041dd40970b3ea34ff723e1270d16ea6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3f3b673da2809e45af88ae887eb289edb4e5c65f
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121803121"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130050552"
 ---
 ## <a name="sample-code"></a>샘플 코드
 [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ServerRecording)에서 이 빠른 시작에 대한 최종 코드를 찾습니다.
@@ -93,6 +93,19 @@ CallingServerClient callingServerClient = new CallingServerClient("<Resource_Con
 
 ```csharp
 var startRecordingResponse = await callingServerClient.InitializeServerCall("<servercallid>").StartRecordingAsync("<callbackuri>").ConfigureAwait(false);
+```
+`StartRecordingAsync` API 응답에는 녹음/녹화 세션의 녹음/녹화 ID가 포함됩니다.
+
+## <a name="start-recording-session-with-options-using-startrecordingasync-server-api"></a>‘StartRecordingAsync’ 서버 API를 사용하는 옵션을 통해 녹음/녹화 세션 시작
+
+통화를 시작하는 동안 수신한 서버 통화 ID를 사용합니다.
+
+- RecordingContent는 녹음/녹화 콘텐츠 형식을 전달하는 데 사용됩니다. 예: audio/audiovideo.
+- RecordingChannel은 녹음 채널 형식을 전달하는 데 사용됩니다. 예: 혼합/혼합되지 않습니다.
+- RecordingFormat은 녹음/녹화 형식을 전달하는 데 사용됩니다. 예: mp4/mp3/wav.
+
+```csharp
+var startRecordingResponse = await callingServerClient.InitializeServerCall("<servercallid>").StartRecordingAsync("<callbackuri>","<RecordingContent>","<RecordingChannel>","<RecordingFormat>").ConfigureAwait(false);
 ```
 `StartRecordingAsync` API 응답에는 녹음/녹화 세션의 녹음/녹화 ID가 포함됩니다.
 

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 06/21/2021
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 48b1eaa6e01bf25b11ca269e0771b4fd03530bba
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 02654c3f196b6c3bc199e636b3601777ed372a99
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129533221"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129992537"
 ---
 # <a name="what-is-optical-character-recognition"></a>OCR(광학 문자 인식)이란?
 
@@ -32,7 +32,7 @@ OCR(광학 문자 인식)을 사용하면 문서&mdash;송장, 청구서, 재무
 
 ## <a name="read-api"></a>읽기 API 
 
-Computer Vision [읽기 API](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)는 이미지 및 다중 페이지 PDF 문서에서 인쇄된 텍스트(여러 언어로), 필기 텍스트(영어 전용), 숫자 및 통화 기호를 추출하는 Azure의 최신 OCR 기술([새로운 기능](./whats-new.md))입니다. 여러 언어가 혼합된 텍스트를 많이 사용한 이미지 및 다중 페이지 PDF에서 텍스트를 추출하는 데 최적화되어 있습니다. 동일한 이미지나 문서에서 인쇄된 텍스트와 필기 텍스트를 모두 검색하는 것을 지원합니다.
+Computer Vision [Read API](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)는 이미지 및 다중 페이지 PDF 문서에서 인쇄된 텍스트(여러 언어로), 필기 텍스트(여러 언어로), 숫자 및 통화 기호를 추출하는 Azure의 최신 OCR 기술([새로운 기능 알아보기](./whats-new.md))입니다. 여러 언어가 혼합된 텍스트를 많이 사용한 이미지 및 다중 페이지 PDF에서 텍스트를 추출하는 데 최적화되어 있습니다. 동일한 이미지나 문서에서 인쇄된 텍스트와 필기 텍스트를 모두 검색하는 것을 지원합니다.
 
 ![OCR이 이미지 및 문서를 추출된 텍스트가 포함된 구조화된 출력으로 변환하는 방식](./Images/how-ocr-works.svg)
 

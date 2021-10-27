@@ -6,12 +6,12 @@ ms.author: chrhar
 ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 01/25/2021
-ms.openlocfilehash: 63bbc978f4927dc6922d92e1f339282f74e4fb4e
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: a048937226f979db58996eb4bf996b9f254d9182
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109814301"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132462"
 ---
 # <a name="tutorial-access-data-in-cosmos-db-using-mongoose-with-azure-static-web-apps"></a>자습서: Azure Static Web Apps에서 Mongoose를 사용하여 Cosmos DB의 데이터에 액세스
 
@@ -44,16 +44,14 @@ Azure 구독이 없는 경우 [평가판 계정](https://azure.microsoft.com/fre
 3. 검색 상자에 **Azure Cosmos DB** 를 입력합니다.
 4. **Azure Cosmos DB** 를 클릭합니다.
 5. **생성**
-6. 다음 정보를 사용하여 Azure Cosmos DB 계정을 구성합니다.
+6. **Azure Cosmos DB API for MongoDB** 에서 **만들기** 를 선택합니다.
+7. 다음 정보를 사용하여 Azure Cosmos DB 계정을 구성합니다.
     - 구독: 사용하려는 구독 선택
     - 리소스: **새로 만들기** 를 클릭하고 이름을 **aswa-mongoose** 로 설정합니다.
     - 계정 이름: 고유한 값이 필요합니다.
-    - API: **Azure Cosmos DB for MongoDB API**
-    - Notebooks(미리 보기): **끄기**
     - 위치: **미국 서부 2**
     - 용량 모드: **서버리스(미리 보기)**
-    - 버전: **3.6**
-    - 가용성 영역: **사용 안 함**
+    - 버전: **4.0**
 :::image type="content" source="media/add-mongoose/cosmos-db.png" alt-text="새 Cosmos DB 인스턴스 만들기":::
 7. **검토 + 만들기** 를 클릭합니다.
 8. **생성**
@@ -80,27 +78,26 @@ Azure 구독이 없는 경우 [평가판 계정](https://azure.microsoft.com/fre
     - 지역: **미국 서부 2**
     - **GitHub로 로그인** 을 클릭합니다.
     - Azure Static Web Apps가 GitHub Action을 만들어 배포를 지원하도록 허용할지 묻는 메시지가 표시되면 **권한 부여** 를 클릭합니다.
-    - 조직: 계정 이름
+    - 조직: GitHub 계정 이름
     - 리포지토리: **aswa-mongoose-tutorial**
     - 분기: **main**
     - 빌드 사전 설정: **사용자 지정** 을 선택합니다.
     - 앱 위치: **/public**
     - API 위치: **api**
-    - 앱 아티팩트 위치: *빈 상태로 둡니다.* 
+    - 출력 위치: *빈 상태로 둡니다.*
     :::image type="content" source="media/add-mongoose/azure-static-web-apps.png" alt-text="완성된 Azure Static Web Apps 양식":::
 11. **검토 후 만들기** 를 클릭합니다.
 12. **생성**
-
-만들기 프로세스는 몇 분 정도 걸리며, 앱이 프로비전되면 **리소스로 이동** 을 클릭할 수 있습니다.
+13. 만들기 프로세스는 몇 분 정도 걸립니다. 정적 웹앱이 프로비전되면 **리소스로 이동** 을 클릭합니다.
 
 ## <a name="configure-database-connection-string"></a>데이터베이스 연결 문자열 구성
 
-웹앱이 데이터베이스와 통신할 수 있도록 데이터베이스 연결 문자열이 애플리케이션 설정으로 저장됩니다. 설정 값은 Node.js에서 `process.env` 개체를 사용하여 액세스할 수 있습니다.
+웹앱이 데이터베이스와 통신할 수 있도록 데이터베이스 연결 문자열이 [애플리케이션 설정](application-settings.md)으로 저장됩니다. 설정 값은 Node.js에서 `process.env` 개체를 사용하여 액세스할 수 있습니다.
 
 1. Azure Portal의 왼쪽 상단 모서리에서 **홈** 을 클릭합니다(또는 [https://portal.azure.com](https://portal.azure.com)으로 다시 이동).
 2. **리소스 그룹** 을 클릭합니다.
 3. **aswa-mongoose** 를 클릭합니다.
-4. 데이터베이스 계정의 이름을 클릭합니다. **Azure Cosmos DB 계정** 유형이 있습니다.
+4. 데이터베이스 계정의 이름을 클릭합니다. **Azure Cosmos DB API for Mongo DB** 유형이 있습니다.
 5. **설정** 에서 **연결 문자열** 을 클릭합니다.
 6. **기본 연결 문자열** 에 나열된 연결 문자열을 복사합니다.
 7. 이동 경로에서 **aswa-mongoose** 를 클릭합니다.
@@ -119,6 +116,8 @@ Azure 구독이 없는 경우 [평가판 계정](https://azure.microsoft.com/fre
 1. **개요** 를 클릭합니다.
 1. 오른쪽 상단에 표시되는 URL을 클릭합니다.
     1. `https://calm-pond-05fcdb.azurestaticapps.net`과 유사합니다.
+1. **작업 목록을 보려면 [로그인 하세요]** 를 클릭합니다.
+1. **동의 부여** 를 클릭하여 애플리케이션에 액세스합니다.
 1. 제목을 입력하고 **작업 추가** 를 클릭하여 새 작업을 만듭니다.
 1. 작업이 표시되는지 확인합니다(잠시 시간이 걸릴 수 있음).
 1. **확인란을 클릭** 하여 작업을 완료 상태로 표시합니다.

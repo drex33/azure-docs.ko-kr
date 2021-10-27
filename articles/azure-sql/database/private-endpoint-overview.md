@@ -10,22 +10,22 @@ ms.topic: overview
 ms.custom: sqldbrb=1, fasttrack-edit
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: dd9fe79249fe5e02ad8a4adaf8dda02e72c954c6
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 2c63e6c858ec4d6ed35faec16c0778cb1246ef17
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123039161"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004581"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse Analytics에 대한 Azure Private Link
-[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
+[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa-formerly-sqldw.md)] 
 
 Private Link를 사용하면 **프라이빗 엔드포인트** 를 통해 Azure의 다양한 PaaS 서비스에 연결할 수 있습니다. Private Link 기능을 지원하는 PaaS 서비스 목록을 보려면 [Private Link 설명서](../../private-link/index.yml) 페이지로 이동하세요. 프라이빗 엔드포인트는 특정 [VNet](../../virtual-network/virtual-networks-overview.md) 및 서브넷 내의 개인 IP 주소입니다.
 
 > [!IMPORTANT]
-> 이 문서는 Azure SQL Database와 Azure Synapse Analytics 모두에 적용됩니다. 편의상 '데이터베이스'라는 용어는 Azure SQL Database 및 Azure Synapse Analytics의 데이터베이스를 모두 나타냅니다. 마찬가지로 '서버'에 대한 모든 참조는 Azure SQL Database 및 Azure Synapse Analytics를 호스트하는 [논리 SQL 서버](logical-servers.md)를 참조하는 것입니다. 이 문서는 **Azure SQL Managed Instance** 에 적용되지 *않습니다*.
+> 이 문서는 Azure SQL Database와 Azure Synapse Analytics의 [전용 SQL 풀(이전의 SQL DW)](../../synapse-analytics\sql-data-warehouse\sql-data-warehouse-overview-what-is.md) 모두에 적용됩니다. 이 설정은 서버와 연결된 모든 SQL Database 및 전용 SQL 풀(이전의 SQL DW) 데이터베이스에 적용됩니다. 편의상 '데이터베이스'라는 용어는 Azure SQL Database 및 Azure Synapse Analytics의 데이터베이스를 모두 나타냅니다. 마찬가지로 '서버'에 대한 모든 참조는 Azure SQL Database 및 Azure Synapse Analytics의 전용 SQL 풀(이전의 SQL DW)을 호스트하는 [논리 SQL 서버](logical-servers.md)를 나타냅니다. 이 문서는 Azure SQL Managed Instance 또는 Azure Synapse Analytics 작업 영역의 전용 SQL 풀에는 적용되지 *않습니다*.
 
-## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Azure SQL Database용 Private Link를 설정하는 방법 
+## <a name="how-to-set-up-private-link"></a>Private Link 설정 방법 
 
 ### <a name="creation-process"></a>만들기 프로세스
 프라이빗 엔드포인트는 Azure Portal, PowerShell 또는 Azure CLI를 사용하여 만들 수 있습니다.

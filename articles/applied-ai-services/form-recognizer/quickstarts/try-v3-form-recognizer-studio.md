@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 09/14/2021
 ms.author: sajagtap
-ms.openlocfilehash: 032669d298ef0aeda3663c303f5575e24cd02354
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 8c0fee509dabc0d7d0462dd28e14c453615af52e
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129809769"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000533"
 ---
 # <a name="get-started-form-recognizer-studio--preview"></a>시작: Form Recognizer Studio | 미리 보기
 
@@ -38,6 +38,22 @@ Azure 계정 및 Form Recognizer 또는 Cognitive Services 리소스 외에도 �
 
   * [**스토리지 계정 만들기**](/azure/storage/common/storage-account-create). 스토리지 계정을 만드는 경우 **인스턴스 세부 정보 → 성능** 필드에서 **표준** 성능을 선택해야 합니다.
   * [**컨테이너 만들기**](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container). 컨테이너를 만드는 경우 **새 컨테이너** 창에서 **퍼블릭 액세스 수준** 필드를 **컨테이너**(컨테이너 및 Blob에 대한 익명 읽기 액세스)로 설정합니다.
+
+### <a name="configure-cors"></a>CORS 구성
+
+[CORS(원본 간 리소스 공유)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)는 Form Recognizer Studio에서 액세스할 수 있도록 Azure 스토리지 계정에 구성되어야 합니다. Azure Portal에서 CORS를 구성하려면 스토리지 계정의 CORS 블레이드에 액세스해야 합니다.
+
+:::image type="content" source="../media/quickstarts/storage-cors-example.png" alt-text="스토리지 계정에 대한 CORS 구성을 보여주는 스크린샷.":::
+
+1. 스토리지 계정에 대한 CORS 블레이드를 선택합니다.
+2. Blob 서비스에서 새 CORS 항목을 만들어 시작합니다.
+3. **허용된 원본** 을 **https://formrecognizer.appliedai.azure.com** 로 설정합니다.
+4. **허용된 메서드** 에 사용할 수 있는 8가지 옵션을 모두 선택합니다.
+5. 각 필드에 *를 입력하여 **허용된 헤더** 및 **노출된 헤더** 를 모두 승인합니다.
+6. **Max Age** 를 120초 또는 허용되는 값으로 설정합니다.
+7. 페이지 위쪽에 있는 저장 단추를 클릭하여 변경 내용을 저장합니다.
+
+이제 Form Recognizer Studio의 스토리지 계정을 사용하도록 CORS를 구성해야 합니다.
 
 ### <a name="sample-documents-set"></a>샘플 문서 세트
 
@@ -150,15 +166,15 @@ Azure 계정 및 Form Recognizer 또는 Cognitive Services 리소스 외에도 �
 
 ## <a name="labeling-as-tables"></a>테이블로 레이블 지정
 
-사용자 지정 모델을 만드는 동안 문서에서 값 컬렉션을 추출해야 할 수 있습니다. 이러한 컬렉션은 다양한 형식으로 표시됩니다. 예를 들어:
+사용자 지정 모델을 만드는 동안 문서에서 데이터 컬렉션을 추출해야 할 수 있습니다. 이러한 형식은 몇 가지 형식으로 나타날 수 있습니다. 테이블을 시각적 패턴으로 사용:
 
-* 지정된 필드(열) 세트에 대한 값(행)의 동적 컬렉션
+* 지정된 필드(열) 세트에 대한 동적 또는 변수 값(행)의 개수
 
-* 두 번째 필드(행 또는 열) 세트를 기준으로 그룹화된 고정 값 컬렉션
+* 지정된 필드(열 및/또는 행) 세트에 대한 특정 값(행)의 컬렉션
 
 ### <a name="label-as-dynamic-table"></a>동적 테이블로 레이블 지정
 
-지정된 필드 세트에 대한 데이터의 동적 행에 레이블을 지정하는 경우:
+동적 테이블을 사용하여 지정된 필드(열) 세트에 대한 값(행)의 변수 수를 추출합니다.
 
 1. 새 "테이블" 형식 레이블을 추가하고, "동적 테이블" 형식을 선택한 다음, 레이블 이름을 지정합니다.
 
@@ -170,7 +186,7 @@ Azure 계정 및 Form Recognizer 또는 Cognitive Services 리소스 외에도 �
 
 ### <a name="label-as-fixed-table"></a>고정 테이블로 레이블 지정
 
-두 개의 필드 세트를 기준으로 그룹화된 데이터의 고정 컬렉션에 레이블을 지정하는 경우:
+고정 테이블을 사용하여 지정된 필드(열 및/또는 행) 세트에 대한 특정 값(행)의 컬렉션을 추출합니다.
 
 1. 새 "테이블" 형식 레이블을 만들고, "고정 테이블" 형식을 선택한 다음, 이름을 지정합니다.
 
@@ -193,5 +209,9 @@ Azure 계정 및 Form Recognizer 또는 Cognitive Services 리소스 외에도 �
 :::image border="true" type="content" source="../media/quickstarts/custom-signature.gif" alt-text="Form Recognizer 서명 검색에 대한 레이블 지정 예":::
 
 ## <a name="next-steps"></a>다음 단계
+
+* 이전 버전의 REST API와의 차이점을 알아보려면 [**Form Recognizer v3.0 마이그레이션 가이드**](../v3-migration-guide.md)를 따르세요.
+* 새 SDK를 통해 애플리케이션에서 미리 보기 기능을 사용해 보려면 [**미리 보기 SDK 빠른 시작**](try-v3-python-sdk.md)을 살펴보세요.
+* 새 REST API를 통해 미리 보기 기능을 사용해 보려면 [**미리 보기 REST API 빠른 시작**](try-v3-rest-api.md)을 참조하세요.
 
 [Form Recognizer Studio 미리 보기를 시작](https://formrecognizer.appliedai.azure.com)합니다.

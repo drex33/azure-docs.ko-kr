@@ -9,12 +9,12 @@ metadata:
   ms.date: 02/19/2020
   ms.author: alkemper
   ms.custom: references_regions
-  ms.openlocfilehash: fdfc62b4b5c61cd1b064e6623464147d01dbc58e
-  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+  ms.openlocfilehash: e68cc85c5c4512fe5f60344b77e38920d703b015
+  ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/24/2021
-  ms.locfileid: "128603109"
+  ms.lasthandoff: 10/19/2021
+  ms.locfileid: "130179350"
 title: Azure App Configuration FAQ
 summary: 이 문서에는 Azure App Configuration에 대해 자주 묻는 질문과 대답이 나와 있습니다.
 sections:
@@ -60,7 +60,11 @@ sections:
 
       App Service와 App Configuration 간에 설정을 가져오고 내보낼 수도 있습니다. 이 기능을 사용하면 기존 App Service 설정에 따라 새로운 App Configuration 저장소를 신속하게 설정할 수 있습니다. App Service 설정을 사용하는 기존 앱과 구성을 공유할 수도 있습니다.
   - question: App Configuration에 저장되는 키와 값에 대한 크기 제한이 있나요?
-    answer: 단일 키-값 항목은 10KB로 제한됩니다.
+    answer: >
+      레이블, 콘텐츠 유형, 태그 및 기타 메타데이터와 같은 특성을 포함하여 단일 키 값에 대해 10KB로 제한됩니다.
+
+
+      이 제한은 대부분의 애플리케이션에서 단일 설정을 사용할 때 충분해야 합니다. 설정이 이 제한보다 큰 경우 다른 곳에 데이터를 저장하고 App Configuration에서 [해당 데이터의 참조를 추가](./howto-best-practices.md#references-to-external-data)하는 것을 고려할 수 있습니다.
   - question: 여러 환경(테스트, 스테이징, 프로덕션 등)의 구성을 저장하려면 어떻게 해야 하나요?
     answer: >
       저장소별 수준에서 App Configuration에 액세스할 수 있는 사람을 제어합니다. 서로 다른 권한이 필요한 각 환경에 별도의 저장소를 사용합니다. 이 방법은 최상의 보안 격리를 제공합니다.
@@ -161,7 +165,7 @@ sections:
       보존 기간이 경과할 때까지 다른 구독/리소스 그룹에 App Configuration 저장소를 만들 수 없습니다. 그러나 리소스는 원래 구독/리소스 그룹에서 다시 만든 다음 [이 지침](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal)에 따라 새 구독/리소스 그룹으로 이동할 수 있습니다.
 
 
-      보존 기간 동안 App Configuration 저장소를 다시 만드는 것은 현재 Azure CLI에서 [여기](/cli/azure/appconfig?view=azure-cli-latest#az_appconfig_create)에 자세히 설명된 `az appconfig create` 명령을 사용해서만 지원됩니다.
+      보존 기간 동안 App Configuration 저장소를 다시 만드는 것은 현재 `az appconfig create` [명령](/cli/azure/appconfig?view=azure-cli-latest#az_appconfig_create)을 사용하는 Azure CLI에서만 지원됩니다.
   - question: 실수로 삭제한 App Configuration 저장소를 복원하려면 어떻게 해야 하나요?
     answer: >
       표준 계층 App Configuration 저장소는 삭제 후 7일 이내에 복구할 수 있습니다. 실수로 삭제한 App Configuration 저장소를 복구하려면 Microsoft 지원에 문의하세요.

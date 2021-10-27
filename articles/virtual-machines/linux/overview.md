@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 89766dd612a43a60456199ae1fdc9de35c9dd061
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b419b816de822c72e3c33acddd9d9b6c50745b7f
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124774218"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047854"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Azure의 Linux 가상 머신
 
@@ -44,7 +44,7 @@ Azure에서 애플리케이션 인프라를 구축하는 경우에는 언제나 
 * VM에 필요한 관련 리소스
 
 ### <a name="locations"></a>위치
-Azure에서 만든 리소스는 모두 전 세계의 여러 [지리적 지역](https://azure.microsoft.com/regions/)에 걸쳐 배포됩니다. 일반적으로 VM을 만들 때 지역을 **위치** 라고 합니다. VM의 경우 가상 하드 디스크가 저장되는 위치가 지정됩니다.
+Azure 리소스를 만들 수 있는 전 세계 여러 [지리적 지역](https://azure.microsoft.com/regions/)이 있습니다. 일반적으로 VM을 만들 때 지역을 **위치** 라고 합니다. VM의 경우 가상 하드 디스크가 저장되는 위치가 지정됩니다.
 
 아래 표에서는 사용할 수 있는 위치 목록을 가져올 수 있는 몇 가지 방법을 보여 줍니다.
 

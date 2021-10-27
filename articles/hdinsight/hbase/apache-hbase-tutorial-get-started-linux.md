@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/22/2021
-ms.openlocfilehash: fa1ac05766a95754631c5a6c78f80b9abdc4e3a7
-ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
+ms.openlocfilehash: a8d5b2ca155917c5b08f11167da6309da9df7e6b
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112573673"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047174"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache HBase 사용
 
@@ -221,9 +221,9 @@ HBase 데이터는 ESP 사용 HBase를 사용하여 Hive에서 쿼리할 수도 
 > [!NOTE]
 > 클러스터 중 하나의 크기가 조정되면 `/etc/hosts`를 다시 추가해야 합니다.
 
-## <a name="use-hbase-rest-apis-using-curl"></a>Curl을 사용하여 HBase REST API 사용
+## <a name="use-the-hbase-rest-api-via-curl"></a>Curl을 통해 HBase REST API 사용
 
-REST API는 [기본 인증](https://en.wikipedia.org/wiki/Basic_access_authentication)을 통해 보안됩니다. 자격 증명이 안전하게 서버에 전송되도록 하려면 항상 보안 HTTP(HTTPS)를 사용하여 요청해야 합니다.
+HBase REST API는 [기본 인증](https://en.wikipedia.org/wiki/Basic_access_authentication)을 통해 보호됩니다. 자격 증명이 안전하게 서버에 전송되도록 하려면 항상 보안 HTTP(HTTPS)를 사용하여 요청해야 합니다.
 
 1. HDInsight 클러스터에서 HBase REST API를 사용하도록 설정하려면 다음 사용자 지정 시작 스크립트를 **스크립트 동작** 섹션에 추가합니다. 시작 스크립트는 클러스터를 만들 때 또는 클러스터를 만든 후에 추가할 수 있습니다. **노드 형식** 에 대해 **영역 서버** 를 선택하여 스크립트가 HBase 영역 서버에서만 실행되도록 합니다.
 

@@ -1,0 +1,17 @@
+- name: Elastic Azure 통합 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Elastic이란?
+      href: overview.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: Elastic 리소스 만들기
+      href: create.md
+- name: 방법
+  items:
+    - name: 통합 관리
+      href: manage.md
+    - name: 문제 해결
+      href: troubleshoot.md

@@ -1,6 +1,6 @@
 ---
 title: Microsoft 상업용 마켓플레이스란?
-description: Microsoft 상업용 마켓플레이스에서 솔루션을 나열하는 Microsoft 파트너의 혜택과 옵션에 대해 간략히 설명합니다.
+description: 상업용 Marketplace에서 솔루션을 나열하는 Microsoft 파트너의 혜택과 옵션에 대해 간략히 설명합니다.
 author: mingshen-ms
 ms.author: mingshen
 ms.service: marketplace
@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: overview
 ms.custom: contperf-fy21q4
 ms.date: 10/15/2020
-ms.openlocfilehash: 9764afb8bbb0dd6e627336e360ed5b5edc5b8d14
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 6a3d9dbb81bffc628e574d22aa56526a9abeeaa1
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129855976"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070965"
 ---
 # <a name="what-is-the-microsoft-commercial-marketplace"></a>Microsoft 상업용 마켓플레이스란?
 
@@ -61,11 +61,11 @@ AppSource의 제품 목록 페이지에 대한 예는 다음과 같습니다.
 
 고객은 Microsoft 365, Dynamics 365, Power Platform 및 Azure를 통해 AppSource 제안에 액세스할 수도 있습니다. 다음 예에서는 Power BI **파일** 메뉴에서 AppSource 추가 기능에 액세스하는 방법을 보여 줍니다.
 
-:::image type="content" source="media/overview/power-bi.png" alt-text="Power BI 파일 메뉴에서 AppSource의 Power BI 시각적 개체에 액세스하는 방법을 보여 줍니다."::: 
+:::image type="content" source="media/overview/power-bi.png" alt-text="Power BI 파일 메뉴에서 AppSource의 Power BI 시각적 개체에 액세스하는 방법을 보여주는 스크린샷.":::
 
 이 옵션을 사용하면 고객이 이름 또는 범주별로 Power BI 추가 기능을 검색할 수 있는 창이 열립니다. 
 
-:::image type="content" source="media/overview/power-bi-apps.png" alt-text="Power BI 내에서 AppSource 추가 기능 목록을 보여 줍니다."::: 
+:::image type="content" source="media/overview/power-bi-apps.png" alt-text="Power BI 내에서 AppSource 추가 기능 목록을 보여주는 스크린샷.":::
 
 ### <a name="azure-marketplace"></a>Azure Marketplace
 
@@ -73,17 +73,17 @@ AppSource의 제품 목록 페이지에 대한 예는 다음과 같습니다.
 
 Azure Marketplace의 제품 목록 페이지에 대한 예는 다음과 같습니다.
 
-:::image type="content" source="media/overview/example-marketplace.png" alt-text="Azure Marketplace의 제안 목록 페이지를 보여 줍니다."::: 
+:::image type="content" source="media/overview/example-marketplace.png" alt-text="Azure Marketplace의 제안 목록 페이지를 보여 줍니다.":::
 
 #### <a name="azure-marketplace-in-the-azure-portal"></a>Azure Portal의 Azure Marketplace
 
 Azure 고객은 [Azure Portal](https://portal.azure.com/)의 **리소스 만들기** 옵션을 통해 Azure Marketplace 솔루션을 검색하고 배포할 수 있습니다.
 
-:::image type="content" source="media/overview/create-resource.png" alt-text="Azure Portal의 리소스 만들기 옵션을 보여 줍니다."::: 
+:::image type="content" source="media/overview/create-resource.png" alt-text="Azure Portal의 리소스 만들기 옵션을 보여 주는 스크린샷":::
 
 이 옵션을 사용하면 Azure Portal 내에서 이름 또는 범주별로 솔루션을 검색할 수 있는 Azure Marketplace가 열립니다.
 
-:::image type="content" source="media/overview/search-portal.png" alt-text="Azure Portal 내에서 Azure Marketplace 검색 옵션을 보여 줍니다."::: 
+:::image type="content" source="media/overview/search-portal.png" alt-text="Azure Portal 내의 Azure Marketplace 검색 옵션을 보여주는 스크린샷.":::
 
 ### <a name="which-store-should-i-choose"></a>어떤 스토어를 선택해야 하나요?
 파트너 센터에서 상업용 Marketplace 제품이 만들어지면 선택한 제품 유형, 범주 및 기타 옵션에 따라 어느 스토어에든 해당 제품이 나열될 수 있습니다. 드물지만 제안이 두 온라인 스토어 모두의 사용자와 관련되는 경우 둘 다에 표시될 수 있습니다. 자세한 내용은 [온라인 스토어별 목록 및 가격 옵션](determine-your-listing-type.md#listing-and-pricing-options-by-online-store)을 참조하세요.

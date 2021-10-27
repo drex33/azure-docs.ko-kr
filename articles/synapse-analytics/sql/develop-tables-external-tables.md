@@ -2,19 +2,19 @@
 title: Synapse SQL에서 외부 테이블 사용
 description: Synapse SQL에서 외부 테이블로 데이터 파일 읽거나 쓰기
 services: synapse-analytics
-author: julieMSFT
+author: ma77b
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 04/26/2021
-ms.author: jrasnick
-ms.reviewer: jrasnick
-ms.openlocfilehash: 834feed476c307bc1a16bf95719b630389e58511
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 07/23/2021
+ms.author: maburd
+ms.reviewer: wiassaf
+ms.openlocfilehash: a229bd769afa30b93cae9ca0f2073ad8a0621cdd
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123430795"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001393"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Synapse SQL에서 외부 테이블 사용
 
@@ -22,15 +22,15 @@ ms.locfileid: "123430795"
 
 외부 데이터 원본의 유형에 따라 다음과 같은 두 가지 유형의 외부 테이블을 사용할 수 있습니다.
 - CSV, Parquet 및 ORC와 같은 다양한 데이터 형식의 데이터를 읽고 내보낼 수 있는 Hadoop 외부 테이블. Hadoop 외부 테이블은 전용 SQL 풀에서 사용할 수 있지만 서버리스 SQL 풀에서는 사용할 수 없습니다.
-- CSV 및 Parquet과 같은 다양한 데이터 형식의 데이터를 읽고 내보낼 수 있는 네이티브 외부 테이블. 네이티브 외부 테이블은 서버리스 SQL 풀에서 사용할 수 있으며 전용 Synapse SQL 풀에서는 미리 보기 상태입니다.
+- CSV 및 Parquet과 같은 다양한 데이터 형식의 데이터를 읽고 내보낼 수 있는 네이티브 외부 테이블. 네이티브 외부 테이블은 서버리스 SQL 풀에서 사용할 수 있으며 전용 SQL 풀에서 **공개 미리 보기** 로 제공됩니다.
 
 Hadoop과 네이티브 외부 테이블의 주요 차이점은 다음 표에 정리되어 있습니다.
 
 | 외부 테이블 유형 | Hadoop은 | 기본 |
 | --- | --- | --- |
-| 전용 SQL 풀 | 사용 가능 | Parquet 테이블은 **제어된 미리 보기** 로 제공됩니다. 전용 SQL 풀을 제어된 미리 보기에 추가할 수 있는지 확인하려면 Microsoft 기술 계정 관리자 또는 클라우드 솔루션 설계자에게 문의하세요. |
+| 전용 SQL 풀 | 사용 가능 | Parquet 테이블은 **공개 미리 보기** 에서 사용할 수 있습니다. |
 | 서버리스 SQL 풀 | 사용할 수 없음 | 사용 가능 |
-| 지원되는 형식 | 구분 기호로 분리됨/CSV, Parquet, ORC, Hive RC 및 RC | 서버리스 SQL 풀: 구분됨/CSV, Parquet 및 Delta Lake(미리 보기)<br/>전용 SQL 풀: Parquet |
+| 지원되는 형식 | 구분 기호로 분리됨/CSV, Parquet, ORC, Hive RC 및 RC | 서버리스 SQL 풀: 구분됨/CSV, Parquet 및 [Delta Lake(미리 보기)](query-delta-lake-format.md)<br/>전용 SQL 풀: Parquet |
 | 폴더 파티션 제거 | No | Synapse 작업 영역의 Apache Spark 풀에서 서버리스 SQL 풀과 동기화된 분할된 테이블에만 해당 |
 | 위치의 사용자 지정 형식 | 예 | 예. `/year=*/month=*/day=*`와 같은 와일드카드 사용 |
 | 재귀 폴더 검색 | No | 위치 경로의 끝에 `/**`가 지정된 경우 서버리스 SQL 풀에만 해당 |
@@ -38,7 +38,7 @@ Hadoop과 네이티브 외부 테이블의 주요 차이점은 다음 표에 정
 | 스토리지 인증 | SAK(스토리지 액세스 키), AAD 통과, 관리 ID, 사용자 지정 애플리케이션 Azure AD ID | SAS(공유 액세스 서명), AAD 통과, 관리 ID |
 
 > [!NOTE]
-> Delta Lake 형식의 네이티브 외부 테이블은 공개 미리 보기로 제공됩니다. [CETAS](develop-tables-cetas.md)는 Delta Lake 형식의 콘텐츠 내보내기를 지원하지 않습니다.
+> Delta Lake 형식의 네이티브 외부 테이블은 공개 미리 보기로 제공됩니다. 자세한 내용은 [Delta Lake 파일 쿼리(미리 보기)](query-delta-lake-format.md)를 참조하세요. [CETAS](develop-tables-cetas.md)는 Delta Lake 형식의 콘텐츠 내보내기를 지원하지 않습니다.
 
 ## <a name="external-tables-in-dedicated-sql-pool-and-serverless-sql-pool"></a>전용 SQL 풀 및 서버리스 SQL 풀의 외부 테이블
 

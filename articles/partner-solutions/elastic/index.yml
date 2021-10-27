@@ -1,0 +1,39 @@
+### YamlMime:Landing
+title: Azure와 Elastic 통합
+summary: 로그, 메트릭 및 추적 분석을 중앙 집중화합니다.
+metadata:
+  title: Azure가 포함된 Elastic 설명서
+  description: Azure와 Elastic 통합을 통해 모니터링 솔루션을 제공합니다.
+  ms.service: partner-services
+  ms.topic: landing-page
+  ms.collection: na
+  author: tfitzmac
+  ms.author: tomfitz
+  ms.date: 10/22/2021
+  ms.openlocfilehash: be8330927e12a65d92467dd293b64b02f9266ea3
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130269192"
+landingContent:
+- title: Azure가 포함된 Elastic 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure와 Elastic의 통합이 무엇인가요?
+      url: overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Azure를 사용한 Elastic 통합 관리
+      url: manage.md
+- title: Elastic 리소스 만들기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Elastic 시작
+      url: create.md
+  - linkListType: how-to-guide
+    links:
+    - text: Azure와 Elastic 통합 문제 해결
+      url: troubleshoot.md

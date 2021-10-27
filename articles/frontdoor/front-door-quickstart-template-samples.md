@@ -8,14 +8,14 @@ ms.service: frontdoor
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/14/2021
+ms.date: 10/15/2021
 ms.author: duau
-ms.openlocfilehash: 28c25e060b4bab0ab588cd45bc01ef44e17927da
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: c76b78b8ed834b1cd3c86cab1bdbf5cb98141956
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112295024"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073243"
 ---
 # <a name="azure-resource-manager-deployment-model-templates-for-front-door"></a>Front Door에 대한 Azure Resource Manager 배포 모델 템플릿
 
@@ -25,7 +25,8 @@ ms.locfileid: "112295024"
 | ---| ---|
 | [기본 Front Door 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-create-basic)| 단일 백 엔드를 사용하여 기본 Front Door 구성을 만듭니다. |
 | [다중 백 엔드 및 백 엔드 풀과 URL 기반 라우팅을 사용하여 Front Door 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-create-multiple-backends)| URL 경로를 기준으로 백 엔드 풀의 여러 백 엔드 및 백 엔드 풀 간에 부하 분산이 구성된 Front Door를 만듭니다. |
-| [Front Door를 사용하여 사용자 지정 도메인 온보딩](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-custom-domain)| Front Door에 사용자 지정 도메인을 추가합니다. |
+| [Front Door를 사용하여 사용자 지정 도메인 및 관리형 TLS 인증서 등록](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-custom-domain)| 사용자 지정 도메인을 Front Door에 추가하고 Front Door 관리형 TLS 인증서를 사용합니다. |
+| [Front Door를 사용하여 사용자 지정 도메인 및 고객 관리형 TLS 인증서 등록](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-custom-domain-customer-certificate)| 사용자 지정 도메인을 Front Door에 추가하고 Key Vault를 통해 사용자 고유의 TLS 인증서를 사용합니다. |
 | [지역 필터링을 사용하여 Front Door 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-geo-filtering)| 특정 국가/지역의 트래픽을 허용/차단하는 Front Door를 만듭니다. |
 | [Front Door에서 백 엔드에 대한 상태 프로브 제어](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-health-probes)| 프로브 경로 및 프로브가 전송되는 간격을 업데이트하여 Front Door를 업데이트함으로써 상태 프로브 설정을 변경합니다. |
 | [활성/대기 백 엔드 구성을 사용하여 Front Door 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-priority-lb)| 활성/대기 애플리케이션 토폴로지에 대한 우선 순위 기반 라우팅을 보여 주는 Front Door를 만듭니다. 이러한 Front Door는 기본적으로 기본(최고 우선 순위) 백 엔드가 사용 불가능해질 때까지 이 백 엔드로 모든 트래픽을 전송합니다. |

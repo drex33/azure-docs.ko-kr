@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 10/07/2021
 ms.author: lajanuar
-ms.openlocfilehash: fc23ef0b4311a01e5d7bae1904f9a04ef77a0478
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 3b2ff000a43618442da5670aac9dc1a094f0cbf2
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129716861"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130161172"
 ---
 # <a name="get-started-form-recognizer-rest-api---preview"></a>시작: Form Recognizer REST API | 미리 보기
 
@@ -70,7 +70,7 @@ Azure Cognitive Services Form Recognizer는 기계 학습을 사용하여 문서
 
 1. `{endpoint}`를 Form Recognizer 구독에서 얻은 엔드포인트로 바꿉니다.
 1. `{subscription key}`를 이전 단계에서 복사한 구독 키로 바꿉니다.
-1. `\"{your-document-url}`을 샘플 양식 문서 URL로 바꿉니다.
+1. `{your-document-url}`을 샘플 양식 문서 URL로 바꿉니다.
 
 #### <a name="request"></a>요청
 
@@ -82,11 +82,11 @@ Azure Cognitive Services Form Recognizer는 기계 학습을 사용하여 문서
 
 **Operation-Location** 헤더를 포함하는 `202 (Success)` 응답을 받게 됩니다. 이 헤더 값에는 비동기 작업 상태를 쿼리하고 결과를 가져오는 데 사용할 수 있는 결과 ID가 포함되어 있습니다.
 
-https:\//{host}/formrecognizer/documentModels/{modelId}/analyzeResults/ **{resultId}** ?api-version=2021-07-30-preview
+https://{host}/formrecognizer/documentModels/{modelId}/analyzeResults/**{resultId}**?api-version=2021-07-30-preview
 
 ### <a name="get-general-document-results"></a>일반 문서 결과 가져오기
 
-**[문서 분석](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)** API를 호출한 후 **[분석 결과 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResult)** API를 호출하여 작업 상태와 추출된 데이터를 가져옵니다. 명령을 실행하기 전에 다음과 같이 변경합니다.
+**[문서 분석](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-document:analyze?api-version=2021-09-30-preview&stringIndexType=textElements)** API를 호출한 후 **[분석 결과 가져오기](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-document/analyzeResults/{resultId}?api-version=2021-09-30-preview)** API를 호출하여 작업 상태와 추출된 데이터를 가져옵니다. 명령을 실행하기 전에 다음과 같이 변경합니다.
 
 1. `{endpoint}`를 Form Recognizer 구독에서 얻은 엔드포인트로 바꿉니다.
 1. `{subscription key}`를 이전 단계에서 복사한 구독 키로 바꿉니다.
@@ -327,7 +327,7 @@ JSON 출력이 포함된 `200 (Success)` 응답을 받게 됩니다. 작업의 �
 
 1. `{endpoint}`를 Form Recognizer 구독에서 얻은 엔드포인트로 바꿉니다.
 1. `{subscription key}`를 이전 단계에서 복사한 구독 키로 바꿉니다.
-1. `\"{your-document-url}`을 예제 URL 중 하나로 바꿉니다.
+1. `"{your-document-url}`을 예제 URL 중 하나로 바꿉니다.
 
 #### <a name="request"></a>요청
 
@@ -342,9 +342,9 @@ bash
 
 `https://{host}/formrecognizer/documentModels/{modelId}/analyzeResults/**{resultId}**?api-version=2021-07-30-preview`
 
-### <a name="get-general-document-results"></a>일반 문서 결과 가져오기
+### <a name="get-layout-results"></a>레이아웃 결과 가져오기
 
-**[문서 분석](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)** API를 호출한 후 **[분석 결과 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResult)** API를 호출하여 작업 상태와 추출된 데이터를 가져옵니다. 명령을 실행하기 전에 다음과 같이 변경합니다.
+**[문서 분석](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2021-09-30-preview&stringIndexType=textElements)** API를 호출한 후 **[분석 결과 가져오기](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-layout/analyzeResults/{resultId}?api-version=2021-09-30-preview)** API를 호출하여 작업 상태와 추출된 데이터를 가져옵니다. 명령을 실행하기 전에 다음과 같이 변경합니다.
 
 1. `{endpoint}`를 Form Recognizer 구독에서 얻은 엔드포인트로 바꿉니다.
 1. `{subscription key}`를 이전 단계에서 복사한 구독 키로 바꿉니다.
@@ -354,7 +354,7 @@ bash
 #### <a name="request"></a>요청
 
 ```bash
-curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/prebuilt-document/analyzeResults/{resultId}?api-version=2021-09-30-preview&api-version=2021-09-30-preview"
+curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/prebuilt-layout/analyzeResults/{resultId}?api-version=2021-09-30-preview&api-version=2021-09-30-preview"
 ```
 
 ### <a name="examine-the-response"></a>응답 검사
@@ -395,9 +395,9 @@ bash
 
 https:\//{host}/formrecognizer/documentModels/{modelId}/analyzeResults/ **{resultId}** ?api-version=2021-07-30-preview
 
-### <a name="get-general-document-results"></a>일반 문서 결과 가져오기
+### <a name="get-invoice-results"></a>청구서 결과 가져오기
 
-**[문서 분석](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)** API를 호출한 후 **[분석 결과 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResult)** API를 호출하여 작업 상태와 추출된 데이터를 가져옵니다. 명령을 실행하기 전에 다음과 같이 변경합니다.
+**[문서 분석](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-invoice:analyze?api-version=2021-09-30-preview&stringIndexType=textElements)** API를 호출한 후 **[분석 결과 가져오기](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-invoice/analyzeResults/{resultId}?api-version=2021-09-30-preview)** API를 호출하여 작업 상태와 추출된 데이터를 가져옵니다. 명령을 실행하기 전에 다음과 같이 변경합니다.
 
 1. `{endpoint}`를 Form Recognizer 구독에서 얻은 엔드포인트로 바꿉니다.
 1. `{subscription key}`를 이전 단계에서 복사한 구독 키로 바꿉니다.

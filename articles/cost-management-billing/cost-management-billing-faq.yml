@@ -8,14 +8,14 @@ metadata:
   ms.service: cost-management-billing
   ms.subservice: common
   ms.topic: conceptual
-  ms.date: 09/16/2021
+  ms.date: 10/13/2021
   ms.author: banders
-  ms.openlocfilehash: 7edae913ea733002aa3ad0736cf744f969003cdb
-  ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+  ms.openlocfilehash: cc2ee1984af35b357f1c67c03fecacbf17444d22
+  ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2021
-  ms.locfileid: "129706213"
+  ms.lasthandoff: 10/14/2021
+  ms.locfileid: "129993058"
 title: Cost Management + Billing 질문과 대답(FAQ)
 summary: ''
 sections:
@@ -121,6 +121,9 @@ sections:
   - question: 비용 할당 규칙(원본/대상)이 겹치면 어떻게 되나요?
     answer: >
       <a name="rule-overlap"></a>원본 또는 대상이 겹치는 규칙은 권장하지 않습니다. 비용 할당 규칙은 만든 날짜 순으로 적용되므로 비용 할당 규칙이 겹치면 만든 날짜가 가장 빠른 할당 규칙이 우선 적용됩니다.
+  - question: Cost Management에서 Azure 외에 새로운 상거래 라이선스 및 소비 제품을 볼 수 있나요?
+    answer: >
+      그렇습니다. MCA 계약을 체결한 파트너는 파트너 센터에서 새로운 상거래 라이선스 및 소비 제품을 구매할 수 있습니다. 제품은 Azure 제품과 함께 청구되며 Cost Management에서 요금을 볼 수 있습니다. "공급자" 차원은 Azure와 Microsoft 365 및 Dynamics 365와 같은 라이선스 기반 제품을 구분하는 데 도움이 됩니다.
 - name: Cost Management + Billing API 관련 질문
   questions:
   - question: EA Reporting API는 언제 사용 중단될 예정인가요?

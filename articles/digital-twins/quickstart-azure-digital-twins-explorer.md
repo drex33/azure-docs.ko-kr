@@ -1,24 +1,24 @@
 ---
 title: 빠른 시작 - Azure Digital Twins Explorer 시작
 titleSuffix: Azure Digital Twins
-description: 빠른 시작 - Azure Digital Twins Explorer 샘플을 사용하여 미리 작성된 시나리오를 시각화하고 살펴봅니다.
+description: 모델을 사용하여 트윈을 인스턴스화하고 트윈 그래프와 상호 작용하는 이 데모에 따라 Azure Digital Twins Explorer를 사용하는 방법을 알아봅니다.
 author: baanders
 ms.author: baanders
-ms.date: 4/27/2021
+ms.date: 10/4/2021
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 92b1eeb5317f5a7535406d1b3781a4b0b66cad45
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 174efb47f8770496fbac8fa781b26b93c1b6b601
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129272456"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130133028"
 ---
 # <a name="quickstart---get-started-with-a-sample-scenario-in-azure-digital-twins-explorer"></a>빠른 시작 - Azure Digital Twins Explorer에서 샘플 시나리오 시작
 
-Azure Digital Twins를 사용하면 실제 환경의 라이브 모델을 만들어 이와 상호 작용할 수 있습니다. 먼저 개별 요소를 **디지털 트윈** 으로 모델링합니다. 그런 다음, 라이브 이벤트에 응답하고 정보를 쿼리할 수 있는 기술 자료 **그래프** 에 연결합니다.
+이 빠른 시작에서는 [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md)를 사용하여 미리 빌드된 Azure Digital Twins 그래프를 살펴봅니다. 이 도구를 사용하면 Azure Portal 내에서 Azure Digital Twins 데이터를 시각화하고 상호 작용할 수 있습니다.
 
-이 빠른 시작에서는 [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md)를 사용하여 미리 빌드된 Azure Digital Twins 그래프를 살펴봅니다. 이 도구는 Azure Portal 내에서 Azure Digital Twins 데이터를 시각화하고 상호 작용할 수 있는 도구입니다. 
+Azure Digital Twins를 사용하면 보다 광범위한 IoT 솔루션의 일부가 될 수 있는 실제 환경의 라이브 모델을 만들고 상호 작용할 수 있습니다. 먼저 개별 요소를 **디지털 트윈** 으로 모델링합니다. 그런 다음, 라이브 이벤트에 응답하고 정보를 쿼리할 수 있는 기술 자료 **그래프** 에 연결합니다.
 
 다음 단계를 완료하게 됩니다.
 
@@ -28,7 +28,7 @@ Azure Digital Twins를 사용하면 실제 환경의 라이브 모델을 만들�
 1. 그래프 변경
 1. 경험을 통해 학습한 내용을 검토합니다.
 
-작업할 샘플 그래프는 두 개의 층과 두 개의 방이 있는 건물을 나타냅니다. Floor0에는 Room0이 포함되고 Floor1에는 Room1이 포함됩니다. 그래프는 다음 이미지와 비슷합니다.
+작업할 Azure Digital Twins 예제 그래프는 두 개의 층과 두 개의 방이 있는 건물을 나타냅니다. Floor0에는 Room0이 포함되고 Floor1에는 Room1이 포함됩니다. 그래프는 다음 이미지와 비슷합니다.
 
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="Azure Digital Twins Explorer에서 화살표로 연결된 4개의 원형 노드로 구성된 그래프의 스크린샷":::
 
@@ -39,10 +39,10 @@ Azure Digital Twins를 사용하면 실제 환경의 라이브 모델을 만들�
 
 이 빠른 시작을 완료하려면 Azure 구독이 필요합니다. 아직 없는 경우 지금 [체험 구독을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
-빠른 시작에서 사용되는 샘플 그래프의 자료를 다운로드해야 합니다. 아래 링크와 지침을 사용하여 필요한 파일 3개를 [digital-twins-explorer GitHub repository](https://github.com/Azure-Samples/digital-twins-explorer)에서 다운로드하세요.
-* [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Room.json): 링크로 이동하여 화면에서 아무 곳이나 마우스 오른쪽 단추로 클릭하고 브라우저의 오른쪽 클릭 메뉴에서 **다른 이름으로 저장** 을 선택합니다. 다른 이름으로 저장 창을 사용하여 컴퓨터의 어딘가에 **Room.json** 이라는 이름으로 파일을 저장합니다.
-* [Floor.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Floor.json): 링크로 이동하여 화면에서 아무 곳이나 마우스 오른쪽 단추로 클릭하고 브라우저의 오른쪽 클릭 메뉴에서 **다른 이름으로 저장** 을 선택합니다. 다른 이름으로 저장 창을 사용하여 **Room.json** 과 동일한 위치에 **Floor.json** 이라는 이름으로 파일을 저장합니다.
-* [buildingScenario.xlsx](https://github.com/Azure-Samples/digital-twins-explorer/blob/main/client/examples/buildingScenario.xlsx): 링크로 이동하여 **다운로드** 단추를 선택합니다. 파일이 기본 다운로드 위치에 다운로드됩니다.
+빠른 시작에서 사용되는 샘플 그래프의 자료를 다운로드해야 합니다. 아래 링크와 지침을 사용하여 필요한 파일 3개를 [digital-twins-explorer GitHub repository](https://github.com/Azure-Samples/digital-twins-explorer)에서 다운로드하세요. 나중에 추가 지침에 따라 Azure Digital Twins에 업로드합니다.
+* [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Room.json): 건물의 공간을 나타내는 모델 파일입니다. 링크로 이동하여 화면에서 아무 곳이나 마우스 오른쪽 단추로 클릭하고 브라우저의 오른쪽 클릭 메뉴에서 **다른 이름으로 저장** 을 선택합니다. 다른 이름으로 저장 창을 사용하여 컴퓨터의 어딘가에 **Room.json** 이라는 이름으로 파일을 저장합니다.
+* [Floor.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Floor.json): 건물의 층을 나타내는 모델 파일입니다. 링크로 이동하여 화면에서 아무 곳이나 마우스 오른쪽 단추로 클릭하고 브라우저의 오른쪽 클릭 메뉴에서 **다른 이름으로 저장** 을 선택합니다. 다른 이름으로 저장 창을 사용하여 **Room.json** 과 동일한 위치에 **Floor.json** 이라는 이름으로 파일을 저장합니다.
+* [buildingScenario.xlsx](https://github.com/Azure-Samples/digital-twins-explorer/blob/main/client/examples/buildingScenario.xlsx): 이 파일에는 방과 층 트윈의 그래프와 이들 간의 관계가 포함되어 있습니다. 링크로 이동하여 **다운로드** 단추를 선택합니다. 파일이 기본 다운로드 위치에 다운로드됩니다.
 
     :::image type="content" source="media/quickstart-azure-digital-twins-explorer/download-building-scenario.png" alt-text="GitHub의 digital-twins-explorer/client/examples/buildingScenario.xlsx 파일 스크린샷. 다운로드 단추에 강조 표시가 있습니다." lightbox="media/quickstart-azure-digital-twins-explorer/download-building-scenario.png":::
 
@@ -85,9 +85,9 @@ Azure Digital Twins를 사용하는 첫 번째 단계는 Azure Digital Twins 인
 
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/explorer-blank.png" alt-text="인터넷 브라우저의 Azure Digital Twins Explorer 스크린샷" lightbox="media/quickstart-azure-digital-twins-explorer/explorer-blank.png":::
 
-## <a name="add-the-sample-data"></a>샘플 데이터 추가
+## <a name="upload-the-sample-materials"></a>샘플 자료 업로드
 
-다음으로, 샘플 시나리오와 그래프를 Azure Digital Twins Explorer로 가져옵니다. 샘플 시나리오는 [필수 조건](#prerequisites) 섹션에서 다운로드한 **digital-twins-explorer-main** 폴더에 있습니다.
+다음으로, 샘플 모델과 그래프를 Azure Digital Twins Explorer로 가져옵니다. [필수 구성 요소](#prerequisites) 섹션에서 머신에 다운로드한 모델 파일 및 그래프 파일을 사용합니다.
 
 ### <a name="models"></a>모델
 
@@ -106,9 +106,9 @@ Azure Digital Twins 솔루션의 첫 번째 단계는 환경의 어휘를 정의
 * Floor
 * 공간
 
-#### <a name="upload-models"></a>모델 업로드
+#### <a name="upload-the-models-json-files"></a>모델 업로드(.json 파일)
 
-다음 단계에 따라 모델을 업로드합니다.
+다음 단계에 따라 모델(이전에 다운로드한 *.json* 파일)을 업로드합니다.
 
 1. **모델** 패널에서 **모델 업로드** 아이콘(구름을 가리키는 화살표)을 선택합니다.
 
@@ -142,9 +142,9 @@ Azure Digital Twins Explorer는 모델 파일을 Azure Digital Twins 인스턴�
 * Floor1
     - Room1 포함
 
-#### <a name="import-the-graph"></a>그래프 가져오기
+#### <a name="import-the-graph-xlsx-file"></a>그래프(.xlsx 파일) 가져오기
 
-다음 단계에 따라 그래프를 가져옵니다.
+다음 단계에 따라 그래프(이전에 다운로드한 *.xlsx* 파일)를 가져옵니다.
 
 1. **트윈 그래프** 패널에서 **그래프 가져오기** 아이콘(구름을 가리키는 화살표)을 선택합니다.
 
@@ -156,13 +156,7 @@ Azure Digital Twins Explorer는 모델 파일을 Azure Digital Twins 인스턴�
 
 3. 그래프 업로드를 확인하려면 그래프 미리 보기 패널의 오른쪽 위 모서리에서 **저장** 아이콘을 선택합니다.
 
-   :::row:::
-    :::column:::
-        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png" alt-text="그래프 미리 보기 창에 저장 아이콘이 강조 표시되어 있는 Azure Digital Twins Explorer 스크린샷" lightbox="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-   :::row-end:::
+    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png" alt-text="그래프 미리 보기 창에 저장 아이콘이 강조 표시되어 있는 Azure Digital Twins Explorer 스크린샷" lightbox="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png":::
 
 4. Azure Digital Twins Explorer는 업로드된 파일을 사용하여 요청된 트윈 및 이들 트윈 간의 관계를 만듭니다. 완료되면 대화 상자가 나타납니다. **닫기** 를 선택합니다.
 

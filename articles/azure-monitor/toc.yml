@@ -151,8 +151,6 @@
           href: alerts/alerts-unified-log.md
         - name: 활동 로그 경고
           href: alerts/activity-log-alerts.md
-    - name: 데이터 시각화
-      href: visualizations.md
     - name: 파트너 통합
       href: partners.md
     - name: 보안
@@ -166,6 +164,18 @@
   items:
     - name: 시나리오
       items:
+        - name: Azure Monitor 모범 사례
+          items:
+            - name: 개요
+              href: best-practices.md
+            - name: 계획
+              href: best-practices-plan.md
+            - name: 데이터 수집 구성
+              href: best-practices-data-collection.md
+            - name: 분석 및 시각화
+              href: best-practices-analysis.md
+            - name: 경고 및 자동화된 작업
+              href: best-practices-alerts.md
         - name: Azure 리소스 모니터링
           href: essentials/monitor-azure-resource.md
         - name: 가상 머신 모니터링
@@ -185,13 +195,6 @@
           displayname: VM
         - name: Kubernetes 모니터링
           href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
-    - name: 배포
-      items:
-        - name: Azure Monitor 배포
-          href: deploy.md
-        - name: 대규모 배포
-          displayName: 'Azure Policy, Policy'
-          href: deploy-scale.md
     - name: 관리 및 구성
       items:
         - name: 역할 권한 및 보안
@@ -390,7 +393,7 @@
         - name: 개요
           href: agents/agents-overview.md
         - name: FAQ
-          href: /azure/azure-monitor/faq#agents
+          href: ./faq.yml
         - name: Azure Monitor 에이전트
           items:
             - name: 개요
@@ -402,15 +405,12 @@
             - name: 데이터 수집
               displayname: 'data collection rule,Azure Monitor agent'
               href: agents/data-collection-rule-azure-monitor-agent.md
-            - name: 대규모 배포
-              displayname: Deploy Azure Monitor agent at scale
-              href: deploy-scale.md#azure-monitor-agent
             - name: 레거시 에이전트에서 마이그레이션
               displayname: Migrate to Azure Monitor agent
               href: agents/azure-monitor-agent-migration.md
             - name: FAQ
               displayname: Azure Monitor agent FAQ
-              href: /azure/azure-monitor/faq#azure-monitor-agent
+              href: ./faq.yml
         - name: Log Analytics 에이전트
           items:
             - name: 개요
@@ -661,7 +661,7 @@
           href: app/app-insights-overview.md
         - name: FAQ
           href: /azure/azure-monitor/faq#application-insights
-        - name: 코드 기반 모니터링
+        - name: Application Insights SDK
           items:
             - name: .NET
               items:
@@ -736,7 +736,7 @@
               href: app/api-custom-events-metrics.md
             - name: Application Insights 제거
               href: app/remove-application-insights.md
-        - name: 코드 없는 모니터링
+        - name: 자동 계측
           items:
             - name: 개요
               href: app/codeless-overview.md
@@ -762,7 +762,7 @@
               href: app/monitor-functions.md
             - name: Azure Kubernetes Service
               href: app/kubernetes-codeless.md
-            - name: 온-프레미스 서버
+            - name: 모든 환경
               items:
                 - name: ASP.NET
                   items:
@@ -779,7 +779,7 @@
                       href: app/status-monitor-v2-api-reference.md
                 - name: Java
                   href: app/java-on-premises.md
-        - name: OpenTelemetry
+        - name: OpenTelemetry 기반 계측
           items:
             - name: 개요
               href: app/opentelemetry-overview.md
@@ -814,7 +814,7 @@
             - name: Python
               href: app/opentelemetry-enable.md?tabs=python
             - name: FAQ
-              href: /azure/azure-monitor/faq#opentelemetry
+              href: ./faq.yml
         - name: 리소스 만들기(클래식)
           href: app/create-new-resource.md
         - name: 리소스 만들기(작업 영역 기반)
@@ -1054,7 +1054,7 @@
         - name: 상용 서비스 관련 FAQ
           href: vm/vminsights-ga-release-faq.yml
         - name: FAQ
-          href: /azure/azure-monitor/faq#vm-insights
+          href: ./faq.yml
         - name: 작업 영역 구성
           href: vm/vminsights-configure-workspace.md
         - name: 에이전트 설치
@@ -1106,7 +1106,7 @@
         - name: 개요
           href: containers/container-insights-overview.md
         - name: FAQ
-          href: /azure/azure-monitor/faq#container-insights
+          href: ./faq.yml
         - name: 모니터링 사용
           items:
             - name: 모니터링 사용 개요
@@ -1200,7 +1200,7 @@
             - name: 개요
               href: insights/sql-insights-overview.md
             - name: FAQ
-              href: /azure/azure-monitor/faq#sql-insights-(preview)
+              href: ./faq.yml
             - name: 사용
               href: insights/sql-insights-enable.md
             - name: 경고
@@ -1342,7 +1342,7 @@
               href: visualize/view-designer-conversion-tasks.md
             - name: 타일 변환
               href: visualize/view-designer-conversion-tiles.md
-            - name: 예
+            - name: 예제
               href: visualize/view-designer-conversion-examples.md
     - name: 기타 시각화
       items:

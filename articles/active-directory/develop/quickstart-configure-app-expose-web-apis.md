@@ -13,12 +13,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 820bc7dfe9123db495c151cd5cd0ea5ae337619f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d5f4a92955aab2d920c21e73ec71bdf56bf76e9
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100103977"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130044349"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>빠른 시작: 웹 API를 공개하는 애플리케이션 구성
 
@@ -55,10 +55,12 @@ ms.locfileid: "100103977"
 1. 아직 **애플리케이션 ID URI** 를 구성하지 않은 경우 설정하라는 메시지가 표시됩니다.
 
    앱 ID URI는 API 코드에서 참조할 범위의 접두사 역할을 하며 전역적으로 고유해야 합니다. `api://<application-client-id>` 형식으로 제공되는 기본값을 사용해도 되고, `https://contoso.com/api`처럼 좀 더 읽기 쉬운 URI를 지정해도 됩니다.
+   
+   유효한 앱 ID URI 패턴에 대한 자세한 내용은 [Azure AD 앱 매니페스트 참조](reference-app-manifest.md)에서 확인할 수 있습니다.
 
 1. 다음으로 **범위 추가** 창에서 범위 특성을 지정합니다. 이 연습에서는 예제 값을 사용해도 되고, 직접 값을 지정해도 됩니다.
 
-    | 필드 | 설명 | 예제 |
+    | 필드 | Description | 예제 |
     |-------|-------------|---------|
     | **범위 이름** | 범위의 이름입니다. 일반적인 범위 명명 규칙은 `resource.operation.constraint`입니다. | `Employees.Read.All` |
     | **동의할 수 있는 사람** | 이 범위를 사용자가 동의할 수 있는지 아니면 관리자 동의가 필요한지 여부를 지정합니다. 높은 권한을 적용하려면 **관리자만** 을 선택합니다. | **관리자 및 사용자** |

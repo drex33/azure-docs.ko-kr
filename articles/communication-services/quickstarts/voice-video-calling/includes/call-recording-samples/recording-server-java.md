@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: joseys
-ms.openlocfilehash: e29973b55d3f74942f6d85fa28209b73773ad717
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b71ae256329d9fe8d28f0b5154f0b732de61009f
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121801038"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130050660"
 ---
 ## <a name="sample-code"></a>샘플 코드
 [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/ServerRecording)에서 이 빠른 시작에 대한 최종 코드를 찾습니다.
@@ -101,9 +101,27 @@ CallingServerClientBuilder builder = new CallingServerClientBuilder().httpClient
 URI recordingStateCallbackUri = new URI("<CallbackUri>");
 
 Response<StartCallRecordingResult> response = this.callingServerClient.initializeServerCall("<serverCallId>")
-.startRecordingWithResponse(String.valueOf(recordingStateCallbackUri),null);
+.startRecordingWithResponse(String.valueOf(recordingStateCallbackUri), null, null);
 ```
 `startRecordingWithResponse` API 응답에는 녹음/녹화 세션의 녹음/녹화 ID가 포함됩니다.
+
+## <a name="start-recording-session-with-startrecordingoptions-using-startrecordingwithresponse-server-api"></a>'startRecordingWithResponse' 서버 API를 사용하여 StartRecordingOptions로 녹음/녹화 세션 시작
+
+통화 시작 시 수신한 서버 통화 ID를 사용합니다.
+
+- RecordingContent는 녹음/녹화 콘텐츠 형식을 전달하는 데 사용됩니다. 예: AUDIO/AUDIO_VIDEO.
+- RecordingChannel은 녹음 채널 형식을 전달하는 데 사용됩니다. 예: 혼합/혼합되지 않습니다.
+- RecordingFormat은 녹음/녹화 형식을 전달하는 데 사용됩니다. 예: MP4/MP3/WAV.
+
+```java
+URI recordingStateCallbackUri = new URI("<CallbackUri>");
+StartRecordingOptions recordingOptions = new StartRecordingOptions();
+recordingOptions.setRecordingContent(RecordingContent.AUDIO_VIDEO);
+recordingOptions.setRecordingChannel(RecordingChannel.MIXED);
+recordingOptions.setRecordingFormat(RecordingFormat.MP4);
+Response<StartCallRecordingResult> response = this.callingServerClient.initializeServerCall("<serverCallId>")
+.startRecordingWithResponse(String.valueOf(recordingStateCallbackUri), recordingOptions, null);
+```
 
 ## <a name="stop-recording-session-using-stoprecordingwithresponse-server-api"></a>'stopRecordingWithResponse' 서버 API를 사용하여 녹음/녹화 세션 중지
 

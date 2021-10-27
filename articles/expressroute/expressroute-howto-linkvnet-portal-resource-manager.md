@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/10/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 91e95bd6b269558353d74cbaa51dce94539001c1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 66b22007636ef7ffb6452e5ce19cee7cfa15ba1f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128606402"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000994"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>자습서: 포털을 사용하여 ExpressRoute 회로에 가상 네트워크 연결
 
@@ -33,7 +33,7 @@ ms.locfileid: "128606402"
 > - 다른 구독에 있는 회로에 가상 네트워크를 연결합니다.
 > - 가상 네트워크와 ExpressRoute 회로 간의 연결을 삭제합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md), [라우팅 요구 사항](expressroute-routing.md) 및 [워크플로](expressroute-workflows.md)를 검토합니다.
 
@@ -127,6 +127,9 @@ ms.locfileid: "128606402"
 :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-authorization-key.png" alt-text="권한 부여 키 삭제":::
 
 연결을 삭제하지만 권한 부여 키를 유지하려는 경우 회로의 연결 페이지에서 연결을 삭제할 수 있습니다.
+> [!NOTE]
+  > 다른 구독에서 사용하는 연결은 회로 연결 페이지에 표시되지 않습니다. 권한 부여가 사용된 구독으로 이동하여 최상위 연결 리소스를 삭제합니다.
+  >
 
 :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-connection-owning-circuit.png" alt-text="연결 소유 회로 삭제":::
 

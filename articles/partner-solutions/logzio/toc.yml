@@ -1,0 +1,25 @@
+- name: Logz.io Azure 통합 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Logz.io란 무엇인가요?
+      href: overview.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: Logz.io 리소스 만들기
+      href: create.md
+- name: 방법
+  items:
+    - name: 관리
+      href: manage.md
+    - name: Single Sign-On 설정
+      href: setup-sso.md
+    - name: 문제 해결
+      href: troubleshoot.md
+- name: 참조
+  items:
+    - name: Java
+      href: /java/api/overview/azure/resourcemanager-logz-readme
+    - name: Python
+      href: /python/api/overview/azure/mgmt-logz-readme

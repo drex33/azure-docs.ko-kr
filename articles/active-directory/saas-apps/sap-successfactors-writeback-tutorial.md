@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 10/14/2020
+ms.date: 10/11/2021
 ms.author: chmutali
-ms.openlocfilehash: 3260787dec4ae26cd6ef7cc3bd562f39db8e3655
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 39bd92afa4de12eafce7bff9f73f6f43d6e18f42
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99526978"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993514"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>자습서: Azure AD에서 SAP SuccessFactors로 특성 쓰기 저장 구성
 이 자습서에서는 특성을 Azure AD에서 SAP SuccessFactors Employee Central로 쓰기 저장하는 단계를 보여 줍니다. 
@@ -290,6 +290,7 @@ SAP SuccessFactors에서 *선택 목록* 은 사용자가 선택할 수 있는 �
    | 11 | mobile | cellPhoneNumber | 이 매핑을 사용하여 *telephoneNumber* 를 Azure AD에서 SuccessFactors 회사/직장 전화 번호로 이동할 수 있습니다. |
    | 12 | 10606 | cellPhoneType | 이 상수 값은 휴대폰과 연결된 SuccessFactors ID 값입니다. SuccessFactors 환경과 일치하도록 이 값을 업데이트합니다. 이 값을 설정하는 단계는 섹션 [phoneType 상수 값 검색](#retrieve-constant-value-for-phonetype)을 참조하세요. |
    | 13 | false | cellPhoneIsPrimary | 이 특성을 사용하여 휴대폰 번호에 대한 기본 플래그를 설정합니다. 유효한 값은 true 또는 false입니다. |
+   | 14 | [extensionAttribute1-15] | userId | 이 매핑을 사용하여 동일한 사용자에 대한 여러 고용 레코드가 있는 경우 SuccessFactors의 활성 레코드가 업데이트되도록 합니다. 자세한 내용은 [UserID를 사용하여 쓰기 저장 활성화](../app-provisioning/sap-successfactors-integration-reference.md#enabling-writeback-with-userid)를 참조하세요. |
  
 1. 특성 매핑의 유효성을 검사하고 검토합니다. 
  

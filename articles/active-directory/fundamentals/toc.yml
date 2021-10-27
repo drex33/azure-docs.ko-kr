@@ -113,6 +113,16 @@
           href: active-directory-architecture.md
         - name: 모든 앱을 Azure AD와 통합
           href: five-steps-to-full-application-integration-with-azure-ad.md
+        - name: 다중 테넌트 사용자 관리
+          items:
+            - name: 다중 테넌트 사용자 관리 소개
+              href: multi-tenant-user-management-introduction.md
+            - name: 일반적인 시나리오
+              href: multi-tenant-user-management-scenarios.md
+            - name: 일반적인 고려 사항
+              href: multi-tenant-common-considerations.md
+            - name: 일반적인 솔루션
+              href: multi-tenant-common-solutions.md
         - name: 인증 및 프로비저닝 프로토콜
           items:
             - name: 개요

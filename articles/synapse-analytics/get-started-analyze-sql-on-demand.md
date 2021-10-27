@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 04/15/2021
-ms.openlocfilehash: 8a8e8fae151b0d9be318d4dfad832ead34ef04da
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 492f8d42a072418586a6646a9beed2e750849b31
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738089"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129996989"
 ---
 # <a name="analyze-data-with-a-serverless-sql-pool"></a>서버리스 SQL 풀을 사용하여 데이터 분석
 
@@ -58,7 +58,7 @@ ms.locfileid: "109738089"
 - 일부 데이터 원본 또는 데이터베이스 개체에 액세스할 권한이 있는 데이터베이스 사용자입니다.
 - 쿼리에서 사용할 수 있는 유틸리티 뷰, 프로시저 및 함수입니다.
 
-1. 이러한 개체를 사용할 별도의 데이터베이스를 만듭니다. `master` 데이터베이스에는 사용자 지정 데이터베이스 개체를 만들 수 없습니다 .
+1. `master` 데이터베이스를 사용하여 사용자 지정 데이터베이스 개체에 대한 별도의 데이터베이스를 만듭니다. `master` 데이터베이스에는 사용자 지정 데이터베이스 개체를 만들 수 없습니다 .
 
     ```sql
     CREATE DATABASE DataExplorationDB 
@@ -76,15 +76,15 @@ ms.locfileid: "109738089"
     ```
 
    > [!NOTE]
-   > 외부 데이터 원본은 자격 증명 없이 만들 수 있습니다. 이 경우 외부 데이터 원본에 액세스할 때 호출자의 ID가 사용됩니다.
+   > 외부 데이터 원본은 자격 증명 없이 만들 수 있습니다. 자격 증명이 없는 경우 호출자의 ID는 외부 데이터 원본에 액세스하는 데 사용됩니다.
 
-3. 필요에 따라 `DataExplorationDB`에 외부 데이터에 액세스하는 사용자에 대한 로그인을 만듭니다.
+3. 필요에 따라 'master' 데이터베이스를 사용하여 외부 데이터에 액세스하는 `DataExplorationDB`의 사용자에 대한 로그인을 만듭니다.
 
     ```sql
     CREATE LOGIN data_explorer WITH PASSWORD = 'My Very Strong Password 1234!';
     ```
 
-    `DataExplorationDB`에 로그인에 사용할 데이터베이스 사용자를 만들고 `ADMINISTER DATABASE BULK OPERATIONS` 권한을 부여합니다.
+    그런 다음, 로그인을 위해 `DataExplorationDB`에 데이터베이스 사용자를 만들고 `ADMINISTER DATABASE BULK OPERATIONS` 권한을 부여합니다.
     ```sql
     CREATE USER data_explorer FOR LOGIN data_explorer;
     GO

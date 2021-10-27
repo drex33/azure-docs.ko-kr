@@ -123,8 +123,8 @@ items:
             href: concepts/call-flows.md
           - name: 호출 흐름 토폴로지
             href: concepts/detailed-call-flows.md
-          - name: 통화 진단
-            href: concepts/voice-video-calling/call-diagnostics.md
+          - name: 사용자 관련 진단
+            href: concepts/voice-video-calling/user-facing-diagnostics.md
           - name: 웹 모범 사례
             href: concepts/best-practices.md
           - name: 알려진 문제

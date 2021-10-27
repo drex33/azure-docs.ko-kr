@@ -1,22 +1,27 @@
 ---
 title: Azure Digital Twins란?
 titleSuffix: Azure Digital Twins
-description: Azure Digital Twins로 수행할 수 있는 작업에 대한 개요입니다.
+description: Azure Digital Twins 개요, 서비스 구성 및 더 광범위한 클라우드 솔루션에서 사용할 수 있는 방법에 대해 설명합니다.
 author: baanders
 ms.author: baanders
-ms.date: 8/23/2021
+ms.date: 10/5/2021
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 6dfb4faac6fd5bb11dfc1fbb928d9ba377ec1fe3
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 818f001666baa55c1c015974932a5d291a82614d
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224388"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130134149"
 ---
 # <a name="what-is-azure-digital-twins"></a>Azure Digital Twins란?
 
-**Azure Digital Twins** 는 전체 환경의 디지털 모델을 기반으로 트윈 그래프를 만들 수 있는 PaaS(Platform as a Service) 제품입니다. 이러한 환경에는 건물, 공장, 농장, 에너지 네트워크, 철로, 경기장 - 심지어 도시 전체가 포함될 수 있습니다. 이러한 디지털 모델을 사용하 여 더 나은 제품, 최적화된 작업, 비용 절감 및 혁신적인 고객 환경을 구동하는 정보를 얻을 수 있습니다.
+**Azure Digital Twins** 는 건물, 공장, 농장, 에너지 네트워크, 철도, 경기장 등의 전체 환경(전체 도시)의 디지털 모델을 기반으로 트윈 그래프를 생성할 수 있는 PaaS(Platform as a Service) 제품입니다. 이러한 디지털 모델을 사용하 여 더 나은 제품, 최적화된 작업, 비용 절감 및 혁신적인 고객 환경을 구동하는 정보를 얻을 수 있습니다.
+
+Azure Digital Twins는 광범위한 클라우드 솔루션에서 실제 IoT 디바이스를 나타내는 디지털 트윈 아키텍처를 설계하는 데 사용할 수 있으며, IoT Hub 디바이스 쌍에 연결하여 실시간 데이터를 주고 받을 수 있습니다.
+
+> [!NOTE]
+> *IoT Hub 디지털 트윈* 은 Azure Digital Twins 서비스의 *디바이스 쌍* 과 다릅니다. *IoT Hub 디바이스 쌍* 은 연결하는 각 IoT 디바이스에 대해 IoT 허브에 의해 유지 관리되는 반면 *디지털 트윈* 은 디지털 모델에 의해 정의되고 Azure Digital Twins 내에서 인스턴스화된 모든 항목을 표현할 수 있습니다. 
 
 Azure Digital Twins 위에 도메인 전문 지식을 활용하여 다음과 같은 사용자 지정, 연결된 솔루션을 빌드합니다:
 * 모든 환경을 모델링하고 디지털 쌍을 확장 가능하고 안전한 방식으로 생활 속으로 가져옵니다.
@@ -80,7 +85,7 @@ REST API 또는 커넥터를 사용하여 다른 데이터 원본에서 Azure Di
 
 Azure Digital Twins는 일반적으로 더 큰 IoT 솔루션의 일부로써 다른 Azure 서비스와 함께 사용됩니다. 
 
-Azure Digital Twins를 사용하는 완전한 솔루션은 다음과 같은 부분을 포함할 수 있습니다:
+Azure Digital Twins를 사용하는 전체 솔루션의 샘플 아키텍처는 다음과 같습니다.
 * Azure Digital Twins 서비스 인스턴스입니다. 이 서비스를 통해 해당 상태 및 오케스트레이션 이벤트 처리와 함께 쌍 모델 및 쌍 그래프가 저장됩니다.
 * 모델을 구성하고 토폴로지를 만들고 쌍 그래프에서 인사이트를 추출하여 Azure Digital Twins 인스턴스를 구동하는 하나 이상의 클라이언트 앱입니다.
 * Azure Digital Twins에 의해 생성된 이벤트를 처리하는 하나 이상의 외부 계산 리소스 또는 장치와 같이 연결된 데이터 원본입니다. 계산 리소스를 제공하는 일반적인 방법 중 하나는 [Azure Functions](../azure-functions/functions-overview.md)을 통하는 것입니다.
@@ -101,6 +106,6 @@ Azure Digital Twins를 사용하는 완전한 솔루션은 다음과 같은 부�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Digital Twins Explorer 시작](quickstart-azure-digital-twins-explorer.md)에서 Azure Digital Twins 작업을 알아봅니다.
+* [Azure Digital Twins Explorer 시작](quickstart-azure-digital-twins-explorer.md) 및 [엔드투엔드 솔루션 빌드](tutorial-end-to-end.md)에서 Azure Digital Twins 작업에 대해 자세히 알아보려면 예제 시나리오를 참조하세요.
 
 * 또는 Azure Digital Twins 개념에 대해 [DTDL 모델](concepts-models.md)에서 자세히 알아보세요.

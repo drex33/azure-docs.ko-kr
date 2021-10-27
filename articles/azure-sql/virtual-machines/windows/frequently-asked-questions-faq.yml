@@ -4,7 +4,7 @@ metadata:
   description: 이 문서는 Azure VM에서 SQL Server를 실행하는 방법에 대한 질문과 대답을 제공합니다.
   services: virtual-machines-windows
   documentationcenter: ''
-  author: MashaMSFT
+  author: bluefooted
   editor: ''
   tags: azure-service-management
   ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
@@ -14,13 +14,13 @@ metadata:
   ms.tgt_pltfrm: vm-windows-sql-server
   ms.workload: iaas-sql-server
   ms.date: 9/01/2021
-  ms.author: mathoma
-  ms.openlocfilehash: 6b6b6ae343e5ac641e1fb855c7ca7d466fd91ba8
-  ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+  ms.author: pamela
+  ms.openlocfilehash: 0e3aeff84a7a7a8972872642b03df1b5b7c48aa2
+  ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/30/2021
-  ms.locfileid: "123221423"
+  ms.lasthandoff: 10/19/2021
+  ms.locfileid: "130166960"
 title: Azure VM의 SQL Server에 대해 자주 묻는 질문
 summary: >
   [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -182,6 +182,10 @@ sections:
   - question: >
       Azure SQL 가상 머신이 고객 데이터를 지역 외부로 이동하거나 저장하나요?
     answer: 아니요. 실제로 Azure SQL 가상 머신과 SQL IaaS 에이전트 확장은 고객 데이터를 저장하지 않습니다.
+  - question: "가용성 그룹의 클러스터 간 마이그레이션에 사용해야 하는 Azure Load Balancer SKU는 무엇인가요? \n"
+    answer: Azure VM의 SQL Server에서 [가용성 그룹의 클러스터 간 마이그레이션](http://download.microsoft.com/download/d/2/0/d20e1c5f-72ea-4505-9f26-fef9550efd44/alwayson%20ag%20os%20upgrade.docx)을 수행하려면 표준 [Azure Load Balancer SKU](/azure/load-balancer/skus)를 사용합니다.
+  - question: "Azure 프리미엄 파일 공유를 사용하여 SQL Server 독립 실행형 인스턴스에서 데이터베이스 파일을 호스트할 수 있나요?  \n"
+    answer: 그렇습니다. Azure 프리미엄 파일 공유는 [SMB 프로토콜](/sql/database-engine/install-windows/install-sql-server-with-smb-fileshare-as-a-storage-option)을 사용하여 장애 조치(failover) 클러스터 인스턴스와 SQL Server 독립 실행형 인스턴스 모두에 대해 지원됩니다.
 - name: SQL Server IaaS 에이전트 확장
   questions:
   - question: >

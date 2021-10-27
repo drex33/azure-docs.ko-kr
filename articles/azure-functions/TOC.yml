@@ -93,6 +93,12 @@
           href: functions-create-private-site-access.md
         - name: 아웃바운드 NAT 게이트웨이 사용
           href: functions-how-to-use-nat-gateway.md
+    - name: ID 기반 연결
+      items:
+        - name: 호스트 연결에 ID 사용
+          href: functions-identity-based-connections-tutorial.md
+        - name: 트리거 및 바인딩에 ID 사용
+          href: functions-identity-based-connections-tutorial-2.md
     - name: Event Grid를 사용하여 이미지 크기 조정
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: 서버를 사용하지 않는 웹앱 만들기

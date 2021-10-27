@@ -9,156 +9,164 @@ metadata:
   ms.service: azure-app-configuration
   ms.topic: landing-page
   ms.date: 02/03/2020
+  ms.openlocfilehash: 0cec6db0776190d37901a8a572b209bff79475ff
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130227096"
 landingContent:
-  - title: Azure App Configuration 정보
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Azure App Configuration이란?
-            url: overview.md
-          - text: 질문과 대답
-            url: faq.yml
-          - text: 모범 사례
-            url: howto-best-practices.md
-      - linkListType: video
-        links:
-          - text: Azure App Configuration 시작
-            url: 'https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration'
-          - text: 기능 관리
-            url: 'https://channel9.msdn.com/Shows/NET-Community-Standups/ASPNET-Community-Standup-May-21st-2019-Introducing-MicrosoftFeatureManagement'
-          - text: 중앙 집중식 구성 간소화
-            url: 'https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B210'
-          - text: Cloud Native Show의 Azure App Configuration
-            url: 'https://www.youtube.com/watch?v=DJqmA5PcfzE'
-          - text: 새 기능 롤아웃
-            url: 'https://channel9.msdn.com/Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553'
-      - linkListType: whats-new
-        links:
-          - text: 공지 팔로우
-            url: 'https://github.com/Azure/AppConfiguration-Announcements/issues/'
-          - text: Azure 업데이트 정보
-            url: 'https://azure.microsoft.com/updates/?query=%22App%20Configuration%22'
-      - linkListType: concept
-        links:
-          - text: 키 및 값
-            url: concept-key-value.md
-          - text: 지정 시간 스냅샷
-            url: concept-point-time-snapshot.md
-  - title: Azure App Configuration을 사용하여 만들기 및 코딩
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: ASP.NET Core 앱 코딩
-            url: quickstart-aspnet-core-app.md
-          - text: .NET Core 앱 코딩
-            url: quickstart-dotnet-core-app.md
-          - text: .NET Framework 앱 코딩
-            url: quickstart-dotnet-app.md
-          - text: C#에서 Azure Functions 앱 코딩
-            url: quickstart-azure-functions-csharp.md
-          - text: Java Spring 앱 코딩
-            url: quickstart-java-spring-app.md
-          - text: Python 앱 코딩
-            url: quickstart-python.md
-          - text: Azure Resource Manager 템플릿
-            url: quickstart-resource-manager.md
-          - text: Visual Studio에서 .NET 앱 코딩
-            url: /visualstudio/azure/vs-azure-tools-connected-services-app-configuration
-      - linkListType: tutorial
-        links:
-          - text: ASP.NET Core에서 동적 구성 사용
-            url: enable-dynamic-configuration-aspnet-core.md
-          - text: .NET Core에서 동적 구성 사용
-            url: enable-dynamic-configuration-dotnet-core.md
-          - text: .NET Framework에서 동적 구성 사용
-            url: enable-dynamic-configuration-dotnet.md
-          - text: Azure Functions에서 동적 구성 사용
-            url: enable-dynamic-configuration-azure-functions-csharp.md
-          - text: Spring Boot에서 동적 구성 사용
-            url: enable-dynamic-configuration-java-spring-app.md
-          - text: .NET Core에서 푸시 모델을 사용하여 동적 구성 통합
-            url: enable-dynamic-configuration-dotnet-core-push-refresh.md
-          - text: Java Spring에서 푸시 모델을 사용하여 동적 구성 통합
-            url: enable-dynamic-configuration-java-spring-push-refresh.md
-      - linkListType: tutorial
-        links:
-          - text: Azure Pipelines를 사용하여 데이터 푸시
-            url: push-kv-devops-pipeline.md
-          - text: Azure Pipelines를 사용하여 데이터 풀
-            url: pull-key-value-devops-pipeline.md
-          - text: GitHub Actions를 사용하여 데이터 푸시
-            url: concept-github-action.md
-          - text: 프로젝트 구성 파일로 내보내기
-            url: integrate-ci-cd-pipeline.md
-          - text: Helm을 사용하여 Kubernetes에 배포
-            url: integrate-kubernetes-deployment-helm.md
-      - linkListType: tutorial
-        links:
-          - text: ASP.NET Core 앱에서 Key Vault 참조 사용
-            url: use-key-vault-references-dotnet-core.md
-          - text: Spring Boot 앱에서 키 자격 증명 모음 참조 사용
-            url: use-key-vault-references-spring-boot.md
-      - linkListType: sample
-        links:
-          - text: Azure CLI에서 키-값 작업
-            url: scripts/cli-work-with-keys.md
-  - title: 앱에 기능 플래그 추가
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: 기능 플래그란?
-            url: concept-feature-management.md
-      - linkListType: quickstart
-        links:
-          - text: ASP.NET Core 앱
-            url: quickstart-feature-flag-aspnet-core.md
-          - text: .NET Core 앱
-            url: use-feature-flags-dotnet-core.md
-          - text: .NET Framework 앱
-            url: quickstart-feature-flag-dotnet.md
-          - text: Spring Boot 앱
-            url: quickstart-feature-flag-spring-boot.md
-      - linkListType: tutorial
-        links:
-          - text: 기능 플래그 관리
-            url: manage-feature-flags.md
-          - text: ASP.NET Core에서 기능 플래그 사용
-            url: use-feature-flags-dotnet-core.md
-          - text: Spring Boot에서 기능 플래그 사용
-            url: use-feature-flags-spring-boot.md
-          - text: 지정된 사용자/그룹에 대해 기능 사용
-            url: howto-targetingfilter-aspnet-core.md
-      - linkListType: reference
-        links:
-          - text: .NET Core 라이브러리
-            url: /dotnet/api/microsoft.featuremanagement
-          - text: .NET Core 필터 라이브러리
-            url: /dotnet/api/microsoft.featuremanagement.featurefilters
-  - title: 구성 SDK 및 샘플
-    linkLists:
-      - linkListType: sample
-        links:
-          - text: Azure CLI 샘플
-            url: cli-samples.md
-      - linkListType: reference
-        links:
-          - text: Azure CLI
-            url: /cli/azure/appconfig
-          - text: PowerShell
-            url: /powershell/module/az.appconfiguration/
-          - text: Terraform
-            url: 'https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html'
-          - text: .NET Core 공급자
-            url: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
-          - text: Spring Boot 공급자
-            url: 'https://github.com/microsoft/spring-cloud-azure/tree/master/'
-          - text: Azure SDK for .NET
-            url: 'https://go.microsoft.com/fwlink/?linkid=2092056'
-          - text: Java용 Azure SDK
-            url: 'https://go.microsoft.com/fwlink/?linkid=2098196'
-          - text: Python용 Azure SDK
-            url: 'https://go.microsoft.com/fwlink/?linkid=2103727'
-          - text: JavaScript용 Azure SDK
-            url: 'https://go.microsoft.com/fwlink/?linkid=2103664'
-          - text: 데이터 평면 REST API
-            url: rest-api.md
+- title: Azure App Configuration 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure App Configuration이란?
+      url: overview.md
+    - text: 질문과 대답
+      url: faq.yml
+    - text: 모범 사례
+      url: howto-best-practices.md
+  - linkListType: video
+    links:
+    - text: Azure App Configuration 시작
+      url: https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration
+    - text: 기능 관리
+      url: https://channel9.msdn.com/Shows/NET-Community-Standups/ASPNET-Community-Standup-May-21st-2019-Introducing-MicrosoftFeatureManagement
+    - text: 중앙 집중식 구성 간소화
+      url: https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B210
+    - text: Cloud Native Show의 Azure App Configuration
+      url: https://www.youtube.com/watch?v=DJqmA5PcfzE
+    - text: 새 기능 롤아웃
+      url: https://channel9.msdn.com/Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553
+  - linkListType: whats-new
+    links:
+    - text: 공지 팔로우
+      url: https://github.com/Azure/AppConfiguration-Announcements/issues/
+    - text: Azure 업데이트 정보
+      url: https://azure.microsoft.com/updates/?query=%22App%20Configuration%22
+  - linkListType: concept
+    links:
+    - text: 키 및 값
+      url: concept-key-value.md
+    - text: 지정 시간 스냅샷
+      url: concept-point-time-snapshot.md
+- title: Azure App Configuration을 사용하여 만들기 및 코딩
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: ASP.NET Core 앱 코딩
+      url: quickstart-aspnet-core-app.md
+    - text: .NET Core 앱 코딩
+      url: quickstart-dotnet-core-app.md
+    - text: .NET Framework 앱 코딩
+      url: quickstart-dotnet-app.md
+    - text: C#에서 Azure Functions 앱 코딩
+      url: quickstart-azure-functions-csharp.md
+    - text: Java Spring 앱 코딩
+      url: quickstart-java-spring-app.md
+    - text: Python 앱 코딩
+      url: quickstart-python.md
+    - text: Azure Resource Manager 템플릿
+      url: quickstart-resource-manager.md
+    - text: Visual Studio에서 .NET 앱 코딩
+      url: /visualstudio/azure/vs-azure-tools-connected-services-app-configuration
+  - linkListType: tutorial
+    links:
+    - text: ASP.NET Core에서 동적 구성 사용
+      url: enable-dynamic-configuration-aspnet-core.md
+    - text: ASP.NET(.NET Framework)에서 동적 구성 사용
+      url: enable-dynamic-configuration-aspnet-netfx.md
+    - text: .NET Core에서 동적 구성 사용
+      url: enable-dynamic-configuration-dotnet-core.md
+    - text: .NET Framework에서 동적 구성 사용
+      url: enable-dynamic-configuration-dotnet.md
+    - text: Azure Functions에서 동적 구성 사용
+      url: enable-dynamic-configuration-azure-functions-csharp.md
+    - text: Spring Boot에서 동적 구성 사용
+      url: enable-dynamic-configuration-java-spring-app.md
+    - text: .NET Core에서 푸시 모델을 사용하여 동적 구성 통합
+      url: enable-dynamic-configuration-dotnet-core-push-refresh.md
+    - text: Java Spring에서 푸시 모델을 사용하여 동적 구성 통합
+      url: enable-dynamic-configuration-java-spring-push-refresh.md
+  - linkListType: tutorial
+    links:
+    - text: Azure Pipelines를 사용하여 데이터 푸시
+      url: push-kv-devops-pipeline.md
+    - text: Azure Pipelines를 사용하여 데이터 풀
+      url: pull-key-value-devops-pipeline.md
+    - text: GitHub Actions를 사용하여 데이터 푸시
+      url: concept-github-action.md
+    - text: 프로젝트 구성 파일로 내보내기
+      url: integrate-ci-cd-pipeline.md
+    - text: Helm을 사용하여 Kubernetes에 배포
+      url: integrate-kubernetes-deployment-helm.md
+  - linkListType: tutorial
+    links:
+    - text: ASP.NET Core 앱에서 Key Vault 참조 사용
+      url: use-key-vault-references-dotnet-core.md
+    - text: Spring Boot 앱에서 키 자격 증명 모음 참조 사용
+      url: use-key-vault-references-spring-boot.md
+  - linkListType: sample
+    links:
+    - text: Azure CLI에서 키-값 작업
+      url: scripts/cli-work-with-keys.md
+- title: 앱에 기능 플래그 추가
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 기능 플래그란?
+      url: concept-feature-management.md
+  - linkListType: quickstart
+    links:
+    - text: ASP.NET Core 앱
+      url: quickstart-feature-flag-aspnet-core.md
+    - text: .NET Core 앱
+      url: use-feature-flags-dotnet-core.md
+    - text: .NET Framework 앱
+      url: quickstart-feature-flag-dotnet.md
+    - text: Spring Boot 앱
+      url: quickstart-feature-flag-spring-boot.md
+  - linkListType: tutorial
+    links:
+    - text: 기능 플래그 관리
+      url: manage-feature-flags.md
+    - text: ASP.NET Core에서 기능 플래그 사용
+      url: use-feature-flags-dotnet-core.md
+    - text: Spring Boot에서 기능 플래그 사용
+      url: use-feature-flags-spring-boot.md
+    - text: 지정된 사용자/그룹에 대해 기능 사용
+      url: howto-targetingfilter-aspnet-core.md
+  - linkListType: reference
+    links:
+    - text: .NET Core 라이브러리
+      url: /dotnet/api/microsoft.featuremanagement
+    - text: .NET Core 필터 라이브러리
+      url: /dotnet/api/microsoft.featuremanagement.featurefilters
+- title: 구성 SDK 및 샘플
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: Azure CLI 샘플
+      url: cli-samples.md
+  - linkListType: reference
+    links:
+    - text: Azure CLI
+      url: /cli/azure/appconfig
+    - text: PowerShell
+      url: /powershell/module/az.appconfiguration/
+    - text: Terraform
+      url: https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html
+    - text: .NET Core 공급자
+      url: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
+    - text: Spring Boot 공급자
+      url: https://github.com/microsoft/spring-cloud-azure/tree/master/
+    - text: Azure SDK for .NET
+      url: https://go.microsoft.com/fwlink/?linkid=2092056
+    - text: Java용 Azure SDK
+      url: https://go.microsoft.com/fwlink/?linkid=2098196
+    - text: Python용 Azure SDK
+      url: https://go.microsoft.com/fwlink/?linkid=2103727
+    - text: JavaScript용 Azure SDK
+      url: https://go.microsoft.com/fwlink/?linkid=2103664
+    - text: 데이터 평면 REST API
+      url: rest-api.md

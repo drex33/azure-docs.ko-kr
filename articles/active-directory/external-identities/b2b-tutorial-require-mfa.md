@@ -12,12 +12,12 @@ manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8df6d39401165c281af2c8b1a1896f60311c1b52
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: b9fa2dd3ab101a340b01f3adcbdb33f8ea36595e
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112579120"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130163621"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>자습서: B2B 게스트 사용자에 다단계 인증 적용
 
@@ -80,7 +80,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 4. **조건부 액세스** 페이지의 위쪽 도구 모음에서 **추가** 를 선택합니다.
 5. **새로 만들기** 페이지의 **이름** 텍스트 상자에 **B2B에 액세스하려면 MFA 필요** 를 입력합니다.
 6. **할당** 섹션에서 **사용자 및 그룹** 을 선택합니다.
-7. **사용자 및 그룹** 페이지에서 **사용자 및 그룹 선택** 을 선택한 후 **모든 게스트 사용자(미리 보기)** 를 선택합니다.
+7. **사용자 및 그룹** 페이지에서 **사용자 및 그룹 선택** 을 선택한 다음, **모든 게스트 및 외부 사용자** 를 선택합니다.
 
     ![선택한 모든 게스트 사용자를 보여 주는 스크린샷](media/tutorial-mfa/tutorial-mfa-policy-6.png)
 9. **완료** 를 선택합니다.

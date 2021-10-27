@@ -1,0 +1,35 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Virtual Desktop 자동 크기 조정 FAQ 미리 보기
+  description: Azure Virtual Desktop에 대한 자주 묻는 질문 및 모범 사례입니다.
+  author: Heidilohr
+  ms.topic: conceptual
+  ms.date: 10/19/2021
+  ms.author: helohr
+  ms.custom: devx-track-azurepowershell
+  manager: femila
+  ms.openlocfilehash: 7024b24b27e8a33cd79c3ad199dcd9e4040588d5
+  ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 10/19/2021
+  ms.locfileid: "130181796"
+title: Azure Virtual Desktop 자동 크기 조정(미리 보기) FAQ
+summary: 이 문서에서는 Azure Virtual Desktop에 자동 크기 조정 기능(미리 보기)을 사용하는 방법에 대한 질문과 대답을 제공합니다.
+sections:
+- name: 무시됨
+  questions:
+  - question: >
+      작업 시간 후에 0개의 세션 호스트를 실행하도록 자동 크기 조정을 구성하려면 어떻게 해야 하나요?
+    answer: "램프 다운 모드는 항상 가능한 가장 낮은 수의 세션 호스트를 사용합니다. 그러나 활성 세션이 있는 경우 사용 가능한 가장 낮은 세션 호스트 수는 0이 아닙니다. 시간 제한 정책을 구성하여 몇 시간 후에 세션 호스트를 사용할 수 없도록 연결이 끊긴 모든 사용자를 로그아웃합니다.\n \n"
+  - question: >
+      자동 크기 조정은 서비스 부하에 따라 VM(가상 머신)을 만들거나 삭제하나요?
+    answer: >
+      아니요.
+  - question: >
+      휴일과 같은 특정 날짜에 대한 크기 조정을 구성할 수 있나요?
+    answer: >
+      아니요. 자동 크기 조정은 현재 특정 날짜의 축소를 지원하지 않습니다.
+  - question: >
+      자동 크기 조정 기능을 사용하는 경우 추가 요금이 청구되나요?
+    answer: 아니요. 요금에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-desktop/)를 참조하세요.

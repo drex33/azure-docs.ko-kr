@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 09/03/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 9b3e559e2fe0ea02978593aa3d2725c4e1d3b71d
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: e79329c4c3a7786e58a0a6f76488f86d21260c11
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123536439"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130050768"
 ---
 ### <a name="count-azure-resources"></a>Azure 리소스 개수 계산
 
@@ -149,7 +149,7 @@ Search-AzGraph -Query "Resources | summarize resourceCount=count() by subscripti
 
 ### <a name="show-resource-types-and-api-versions"></a>리소스 유형 및 API 버전 표시
 
-Resource Graph는 주로 업데이트 중에 리소스 속성을 `GET`하는 데 가장 최근의 미리 보기 버전이 아닌 리소스 공급자 API를 사용합니다. 경우에 따라 사용되는 API 버전이 재정의되어 결과에 더 최신 속성 또는 널리 사용되는 속성이 제공되었습니다. 다음 쿼리는 각 리소스 유형에서 속성을 수집하는 데 사용되는 API 버전을 자세히 설명합니다.
+Resource Graph는 업데이트 중에 `GET` 리소스 속성에 대한 리소스 공급자 API의 미리 보기가 아닌 최신 버전을 주로 사용합니다. 경우에 따라 사용되는 API 버전이 재정의되어 결과에 더 최신 속성 또는 널리 사용되는 속성이 제공되었습니다. 다음 쿼리는 각 리소스 유형에서 속성을 수집하는 데 사용되는 API 버전을 자세히 설명합니다.
 
 ```kusto
 Resources

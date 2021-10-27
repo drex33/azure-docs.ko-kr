@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5f2ea76f9c1a27485e31a3e90f27b1d5d4e424cb
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 66c20cc564d52d62f71d28dd35fd616a228d088f
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114443542"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130130957"
 ---
 # <a name="managed-hsm-disaster-recovery"></a>관리형 HSM 재해 복구
 
@@ -48,11 +48,11 @@ ms.locfileid: "114443542"
 - Azure 위치
 - 초기 관리자 목록
 
-아래 예제에서는 **현재 로그인한 사용자** 를 유일한 관리자로 사용하여 **ContosoMHSM** 이라는 HSM을 **미국 동부 2** 위치에 있는 **ContosoResourceGroup** 리소스 그룹에 만듭니다.
+아래 예제에서는 **현재 로그인한 사용자** 를 유일한 관리자로 사용하여 **ContosoMHSM** 이라는 HSM을 **미국 중부** 위치에 있는 **ContosoResourceGroup** 리소스 그룹에 만듭니다.
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query objectId -o tsv)
-az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGroup" --location "East US 2" --administrators $oid
+az keyvault create --hsm-name "ContosoMHSM2" --resource-group "ContosoResourceGroup" --location "centralus" --administrators $oid
 ```
 
 > [!NOTE]
@@ -61,7 +61,7 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 이 명령의 출력에는 만든 관리형 HSM의 속성이 표시됩니다. 가장 중요한 두 개의 속성은 다음과 같습니다.
 
 * **name**: 이 예제에서 이름은 ContosoMHSM입니다. 이 이름은 다른 Key Vault 명령에 사용됩니다.
-* **hsmUri**: 이 예제에서 URI는 'https://contosohsm.managedhsm.azure.net '입니다. REST API를 통해 HSM을 사용하는 애플리케이션은 이 URI를 사용해야 합니다.
+* **hsmUri**: 이 예제에서 URI는 'https://contosomhsm2.managedhsm.azure.net '입니다. REST API를 통해 HSM을 사용하는 애플리케이션은 이 URI를 사용해야 합니다.
 
 Azure 계정에는 이제 이 관리형 HSM에서 모든 작업을 수행할 수 있는 권한이 부여됩니다. 아직까지는 권한이 부여된 사용자가 없습니다.
 

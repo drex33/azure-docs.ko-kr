@@ -126,6 +126,8 @@
           href: understand/mpa-overview.md
         - name: Azure EA 포털에서 시작
           href: manage/ea-portal-get-started.md
+        - name: 직접 EA에 대한 Azure Portal에서 시작
+          href: manage/ea-direct-portal-get-started.md
         - name: 원천 징수 크레딧 요청 - 인도
           href: manage/withholding-tax-credit-india.md
     - name: 보안

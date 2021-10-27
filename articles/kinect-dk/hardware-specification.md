@@ -13,12 +13,12 @@ ms.custom:
 audience: ITPro
 manager: dcscontentpm
 ms.localizationpriority: high
-ms.openlocfilehash: b5ec67537fe0bd8732b4068c0ed52861ed8f2c1a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: afbc0ab2680e2cde4c3b36f0a02407f7d90bba8e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "116986087"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130246721"
 ---
 # <a name="azure-kinect-dk-hardware-specifications"></a>Azure Kinect DK 하드웨어 사양
 
@@ -52,7 +52,7 @@ Azure Kinect 디바이스에 대한 STEP 파일은 [여기](https://github.com/m
 
 Azure Kinect DK는 다음과 같은 주변 조건에서 운영하는 개발자 및 상용 비즈니스를 위한 것입니다.
 
-- **온도**: 10-25<sup>0</sup>C
+- **온도**: 10-25 <sup>0</sup>C
 - **습도**: 8-90%(비응축) 상대 습도
 
 > [!NOTE]
@@ -155,7 +155,7 @@ Azure Kinect DK는 다음 하드웨어 엔드포인트를 운영 체제에 공�
 
 |    USB 인터페이스        |    PNP IP    |     메모            |
 |-------------------------|--------------|----------------------|
-|    USB3.1 1세대 허브    |    0x097A    |    주 허브    |
+|    USB3.1 2세대 허브    |    0x097A    |    주 허브    |
 |    USB 2.0 허브         |    0x097B    |    HS USB          |
 |    깊이 카메라       |    0x097C    |    USB3.0            |
 |    컬러 카메라       |    0x097D    |    USB3.0            |

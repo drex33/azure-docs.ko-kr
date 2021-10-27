@@ -10,12 +10,12 @@ ms.subservice: keys
 tags:
 - azure-resource-manager
 ms.custom: devx-track-azurepowershell - mode-api
-ms.openlocfilehash: 0658d715c7d7b2e7a34cd8fbd9ec3f76d9a67d10
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a9e4db26d2d40818c5b98c9aa5a8e46c272992b2
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128550462"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131090"
 ---
 # <a name="quickstart-set-and-retrieve-a-managed-key-from-azure-key-vault-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Key Vault에서 관리형 키 설정 및 검색
 
@@ -33,10 +33,10 @@ Login-AzAccount
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. Azure PowerShell [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet을 사용하여 *westus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다. 
+리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. Azure PowerShell [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet을 사용하여 *centralus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다. 
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name "myResourceGroup" -Location "WestUS"
+New-AzResourceGroup -Name "myResourceGroup" -Location "centralus"
 
 ## Get your principal ID
 
@@ -58,11 +58,11 @@ Azure PowerShell [New-AzKeyVaultManagedHsm](/powershell/module/az.keyvault/new-a
   > 각 관리형 HSM에는 고유한 이름이 있어야 합니다. 다음 예제에서 \<your-unique-managed-hsm-name\>을 관리형 HSM 이름으로 바꿉니다.
 
 - 리소스 그룹 이름: **myResourceGroup**
-- 위치: **EastUS**
+- 위치: **미국 중부**.
 - 사용자 보안 주체 ID: 마지막 섹션에서 가져온 Azure Active Directory 보안 주체 ID를 "Administrator" 매개 변수로 전달합니다. 
 
 ```azurepowershell-interactive
-New-AzKeyVaultManagedHsm -Name "<your-unique-managed-hsm-name>" -ResourceGroupName "myResourceGroup" -Location "West US" -Administrator "<your-principal-ID>"
+New-AzKeyVaultManagedHsm -Name "<your-unique-managed-hsm-name>" -ResourceGroupName "myResourceGroup" -Location "centralus" -Administrator "<your-principal-ID>"
 ```
 
 이 cmdlet의 출력은 새로 만든 관리형 HSM의 속성을 보여줍니다. 아래에 나열된 두 개의 속성을 기록합니다.

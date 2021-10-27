@@ -4,16 +4,17 @@ description: 클라우드에서 엔터프라이즈급 데이터 모델을 제공
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 03/29/2021
+ms.date: 10/12/2021
 ms.author: owend
 ms.reviewer: minewiskan
+recommendations: false
 ms.custom: references_regions
-ms.openlocfilehash: c3b95b92f2b76e669b4e207163f76f8cec2d3244
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 815fe276f4c44085eebfa91f33167c2428c31c1f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731686"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129992871"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 
@@ -129,13 +130,13 @@ Azure Analysis Services는 전 세계 지역에서 지원됩니다. 지원되는
 
 서버를 위쪽, 아래쪽으로 이동하거나 일시 중지합니다. Azure Portal을 사용하거나 즉시로 완전히 제어하려면 PowerShell을 사용합니다. 사용한 양만큼만 요금을 지급합니다.  
 
-### <a name="scale-out-resources-for-fast-query-responses"></a>빠른 쿼리 응답에 대한 리소스 스케일 아웃
+### <a name="scale-out-resources-for-fast-query-response"></a>빠른 쿼리 응답에 대한 리소스 스케일 아웃
 
 스케일 아웃하면 클라이언트 쿼리가 쿼리 풀의 여러 *쿼리 복제본* 에 배포됩니다. 쿼리 복제본은 테이블 형식 모델의 복사본을 동기화했습니다. 쿼리 작업을 확산하여 높은 쿼리 작업 동안 응답 시간을 줄일 수 있습니다. 모델 처리 작업은 클라이언트 쿼리가 작업 처리에 의해 부정적인 영향을 받지 않도록 쿼리 풀에서 구분될 수 있습니다. 
 
 최대 7개의 추가 쿼리 복제본으로 쿼리 풀을 만들 수 있습니다(총 8개, 서버 포함). 풀에 있을 수 있는 쿼리 복제본의 수는 선택한 계획 및 지역에 따라 다릅니다. 쿼리 복제본은 서버의 지역 밖에 분배될 수 없습니다. 쿼리 복제본은 서버와 동일한 요금으로 청구됩니다.
 
-계층 변경과 마찬가지로 필요에 따라 쿼리 복제본을 스케일 아웃할 수 있습니다. 포털에서 또는 REST API를 사용하여 스케일 아웃을 구성합니다. 자세한 내용은 [Azure Analysis Services 스케일 아웃](analysis-services-scale-out.md)을 참조하세요.
+계층 변경과 마찬가지로 필요에 따라 쿼리 복제본을 스케일 아웃할 수 있습니다. 포털에서 또는 REST API를 사용하여 확장을 구성합니다. 자세한 내용은 [Azure Analysis Services 확장](analysis-services-scale-out.md)을 참조하세요.
 
 ## <a name="pricing"></a>가격 책정
 
@@ -186,7 +187,7 @@ Azure Analysis Services에서는 Azure Blob Storage를 사용하여 Analysis Ser
 
 Analysis Services에서는 서버 및 데이터베이스 작업 모델, 개체 및 데이터에 대한 액세스를 부여하는 [역할 기반 권한 부여](/analysis-services/tabular-models/roles-ssas-tabular)를 사용합니다. 서버 또는 데이터베이스에 액세스하는 모든 사용자는 할당된 역할 내에서 Azure AD 사용자 계정을 사용하여 작업을 수행합니다. 서버 관리자 역할은 서버 리소스 수준입니다. 기본적으로 서버를 만들 때 사용되는 계정은 서버 관리자 역할에 자동으로 포함됩니다. 추가 사용자 및 그룹 계정은 포털, SSMS 또는 PowerShell을 사용하여 추가됩니다.
   
-데이터를 쿼리하는 관리자가 아닌 최종 사용자에게는 데이터베이스 역할을 통해 액세스 권한이 부여됩니다. 데이터베이스 역할은 별도의 개체로 데이터베이스에 생성되며, 해당 역할이 생성된 데이터베이스에만 적용됩니다. 데이터베이스 역할은 (데이터베이스) 관리자, 읽기 및 읽기와 처리 권한에 의해 정의됩니다. 사용자 및 그룹 계정은 SSMS 또는 PowerShell을 사용하여 추가됩니다.
+데이터를 쿼리하는 관리자가 아닌 사용자에게는 데이터베이스 역할을 통해 액세스 권한이 부여됩니다. 데이터베이스 역할은 별도의 개체로 데이터베이스에 생성되며, 해당 역할이 생성된 데이터베이스에만 적용됩니다. 데이터베이스 역할은 (데이터베이스) 관리자, 읽기 및 읽기와 처리 권한에 의해 정의됩니다. 사용자 및 그룹 계정은 SSMS 또는 PowerShell을 사용하여 추가됩니다.
 
 ### <a name="row-level-security"></a>행 수준 보안
 
@@ -194,7 +195,7 @@ Analysis Services에서는 서버 및 데이터베이스 작업 모델, 개체 �
 
 ### <a name="object-level-security"></a>개체 수준 보안 
 
-1400 호환성 수준에서 테이블 형식 모델은 개체 수준 보안을 지원합니다. 여기에는 테이블 수준 보안 및 열 수준 보안이 포함됩니다. 개체 수준 보안은 TOM 또는 TMSL을 사용하여 Model.bim 파일의 JSON 기반 메타데이터에서 설정됩니다. 자세한 내용은 [개체 수준 보안](/analysis-services/tabular-models/object-level-security)을 참조하세요.
+1400 이상의 호환성 수준에서 테이블 형식 모델은 개체 수준 보안을 지원합니다. 여기에는 테이블 수준 보안 및 열 수준 보안이 포함됩니다. 개체 수준 보안은 TMSL 또는 TOM을 사용하여 JSON 기반 메타데이터에서 설정됩니다. 자세한 내용은 [개체 수준 보안](/analysis-services/tabular-models/object-level-security)을 참조하세요.
 
 ### <a name="automation-through-service-principals"></a>서비스 주체를 통한 자동화
 

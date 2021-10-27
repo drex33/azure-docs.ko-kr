@@ -1,18 +1,19 @@
 ---
-title: '자습서: 웹 애플리케이션에서 Azure AD 확인 가능한 자격 증명 발급'
+title: '자습서: 웹 애플리케이션에서 Azure AD 확인 가능한 자격 증명 발급(미리 보기)'
 description: 이 자습서에서는 샘플 앱을 사용하여 확인 가능한 자격 증명을 발급하는 방법을 알아봅니다.
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 author: barclayn
+manager: karenh444
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 10/08/2021
-ms.openlocfilehash: ded592a6c33ce592aae70c98c757c8262fd8a42b
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 2e0d1028efab3b157c21c90944a8bcd41be04c55
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129731016"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070739"
 ---
 # <a name="issue-azure-ad-verifiable-credentials-from-an-application-preview"></a>애플리케이션에서 Azure AD 확인 가능한 자격 증명 발급(미리 보기)
 
@@ -37,7 +38,7 @@ ms.locfileid: "129731016"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- 시작하기 전에 [Azure AD 확인 가능한 자격 증명에 대한 테넌트를 설정](https://tbd-link-to-the-tenant-config-article/)해야 합니다.
+- 시작하기 전에 [Azure AD 확인 가능한 자격 증명에 대한 테넌트를 설정](/azure/active-directory/verifiable-credentials/verifiable-credentials-configure-tenant)해야 합니다.
 - 샘플 앱을 호스트하는 리포지토리를 복제하려면 [GIT](https://git-scm.com/downloads)을 설치합니다.
 - [Visual Studio Code](https://code.visualstudio.com/Download) 또는 이와 비슷한 코드 편집기
 - [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0)

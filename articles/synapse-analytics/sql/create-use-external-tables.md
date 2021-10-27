@@ -6,15 +6,15 @@ author: vvasic-msft
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 07/23/2021
 ms.author: vvasic
-ms.reviewer: jrasnick
-ms.openlocfilehash: 35a56131c55549cc5d33989579514fec3a0184c8
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.reviewer: jrasnick, wiassaf
+ms.openlocfilehash: 50464db5c62ffa0b5f6c48a323a9a23a43b06315
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123428239"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994027"
 ---
 # <a name="create-and-use-native-external-tables-using-sql-pools-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 SQL 풀을 사용하여 네이티브 외부 테이블 만들기 및 사용
 
@@ -25,7 +25,7 @@ ms.locfileid: "123428239"
 - 사용자가 SAS 자격 증명, Azure AD ID 또는 Synapse 작업 영역의 관리 ID를 사용하여 스토리지 파일에 액세스하는 보호된 스토리지입니다.
 
 > [!NOTE]
->  전용 SQL 풀에서는 Parquet 네이티브 외부 테이블만 사용할 수 있습니다. 네이티브 Parquet 외부 테이블은 아직 일부 지역에서 사용할 수 없으므로 전용 SQL 풀에서 제한된 공개 미리 보기 상태입니다. 공개 미리 보기에 참여하여 전용 풀에서 네이티브 Parquet 외부 테이블을 사용할 수 있는지 확인하려면 Microsoft 기술 계정 관리자/클라우드 솔루션 설계자에게 문의하세요. 전용 SQL 풀에서 일반적으로 사용 가능한 기능을 사용하거나 CSV 또는 ORC 파일에 액세스해야 하는 경우에는 Hadoop 외부 테이블을 사용합니다. 네이티브 외부 테이블은 서버리스 SQL 풀에 일반 공급됩니다.
+> 전용 SQL 풀에서는 Parquet 파일 형식을 사용하는 네이티브 외부 테이블만 사용할 수 있으며, 이 기능은 **공개 미리 보기** 로 제공됩니다. 전용 SQL 풀에서 일반적으로 사용 가능한 Parquet 리더 기능을 사용하거나 CSV 또는 ORC 파일에 액세스해야 하는 경우에는 Hadoop 외부 테이블을 사용합니다. 네이티브 외부 테이블은 서버리스 SQL 풀에 일반 공급됩니다.
 > [Synapse SQL에서 외부 테이블 사용](develop-tables-external-tables.md)에서 네이티브 외부 테이블과 Hadoop 외부 테이블의 차이점에 대해 자세히 알아보세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항

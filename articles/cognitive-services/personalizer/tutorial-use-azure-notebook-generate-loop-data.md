@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 66d32a61a3c8f3b88562bdff0c541ec5d88e65d8
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.openlocfilehash: 4814f7efa762be94dfa5950ab2a5d8ab65ee27a7
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122830980"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038501"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>자습서: Azure Notebook에서 Personalizer 사용
 
@@ -46,7 +46,7 @@ Personalizer 루프의 **목적** 은 가능한 한 많은 시간 동안 사용�
 
 ## <a name="how-the-simulation-works"></a>시뮬레이션 작동 방법
 
-실행 시스템의 초기에는 Personalizer의 제안이 20%에서 30% 사이에서만 성공합니다. 이 성공은 Personalizer의 보상 API로 다시 전송된 보상으로 표시되며 점수가 1입니다. 일부 순위 및 보상을 호출한 후에는 시스템이 향상됩니다.
+실행 시스템의 초기에는 Personalizer의 제안이 20%에서 30% 사이에서만 성공합니다. 이 성공은 Personalizer 보상 API로 다시 전송된 보상으로 표시되며 점수가 1입니다. 일부 순위 및 보상을 호출한 후에는 시스템이 향상됩니다.
 
 초기 요청 후에는 오프라인 평가를 실행합니다. 이렇게 하면 Personalizer에서 데이터를 검토하여 더 나은 학습 정책을 제안할 수 있습니다. 새 학습 정책을 적용하고 이전 요청 수의 20%로 Notebook을 다시 실행합니다. 루프는 새 학습 정책으로 더 잘 수행됩니다.
 

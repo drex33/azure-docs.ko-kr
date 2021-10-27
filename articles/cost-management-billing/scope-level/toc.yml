@@ -1,19 +1,19 @@
-- name: 범위 수준 Azure 하이브리드 혜택 설명서
+- name: 중앙에서 관리되는 Azure 하이브리드 혜택 설명서
   href: index.yml?toc=/azure/cost-management-billing/scope-level/toc.json
 - name: 개요
   expanded: true
   items:
-    - name: Azure 하이브리드 혜택의 범위 수준 관리란?
+    - name: 중앙에서 관리되는 Azure 하이브리드 혜택이란 무엇인가요?
       href: overview-azure-hybrid-benefit-scope.md?toc=/azure/cost-management-billing/scope-level/toc.json
 - name: 자습서
   expanded: true
   items:
-    - name: 범위 수준 Azure 하이브리드 혜택 최적화
+    - name: 중앙에서 관리되는 Azure 하이브리드 혜택 최적화
       href: tutorial-azure-hybrid-benefits-sql.md?toc=/azure/cost-management-billing/scope-level/toc.json
 - name: 개념
   expanded: false
   items:
-    - name: Azure에서 할당된 라이선스를 적용하는 방법
+    - name: Azure가 중앙에서 할당된 라이선스를 적용하는 방법
       href: manage-licenses-centrally.md?toc=/azure/cost-management-billing/scope-level/toc.json
     - name: SQL Server HADR 및 Azure 하이브리드 혜택
       href: sql-server-hadr-licenses.md?toc=/azure/cost-management-billing/scope-level/toc.json
@@ -22,7 +22,7 @@
   items:
     - name: SQL Server 라이선스 할당 만들기
       href: create-sql-license-assignments.md?toc=/azure/cost-management-billing/scope-level/toc.json
-    - name: 범위 수준 Azure 하이브리드 혜택으로 전환
+    - name: 중앙에서 관리되는 Azure 하이브리드 혜택으로 전환
       href: transition-existing.md?toc=/azure/cost-management-billing/scope-level/toc.json
 - name: 리소스
   items:

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f4bf378db5d9091cb48f2b0c813a92823bc72589
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 54069c9b37b33ab343c11b8eb3ef02712e29ea3e
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112031748"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038767"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>자습서: Azure Content Moderator를 사용하여 전자 상거래 제품 이미지 조정
 
@@ -37,7 +37,7 @@ ms.locfileid: "112031748"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Content Moderator 구독 키. [Cognitive Services 계정 만들기](../cognitive-services-apis-create-account.md)의 지침에 따라 Content Moderator 서비스를 구독하고 키를 가져옵니다.
 - Computer Vision 구독 키(위와 동일한 지침)
@@ -80,7 +80,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="evaluateadultracy-method"></a>EvaluateAdultRacy 메서드
 
-**Program** 클래스의 **EvaluateAdultRacy** 메서드를 살펴봅니다. 이 메서드는 이미지 URL 및 키-값 쌍의 배열을 매개 변수로 사용합니다. Content Moderator의 이미지 API를 호출(REST 사용)하여 이미지의 성인 및 외설 점수를 가져옵니다. 점수가 0.4보다 큰 경우(범위는 0에서 1 사이임) **ReviewTags** 배열의 해당 값을 **True** 로 설정합니다.
+**Program** 클래스의 **EvaluateAdultRacy** 메서드를 살펴봅니다. 이 메서드는 이미지 URL 및 키-값 쌍의 배열을 매개 변수로 사용합니다. Content Moderator 이미지 REST API를 호출하여 이미지의 성인 및 외설 점수를 가져옵니다. 점수가 0.4보다 큰 경우(범위는 0에서 1 사이임) **ReviewTags** 배열의 해당 값을 **True** 로 설정합니다.
 
 [!code-csharp[define EvaluateAdultRacy method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=73-113)]
 

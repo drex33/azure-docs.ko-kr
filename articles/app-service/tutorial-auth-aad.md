@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 09/23/2021
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: e7ee0deb84b6b7ef7c10c296eab236524a3ee487
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 14bc05787a589356eec6d4cbb9abd5eebba255a8
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129357336"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045582"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여
 
@@ -51,7 +51,7 @@ ms.locfileid: "129357336"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -100,7 +100,7 @@ ms.locfileid: "129357336"
 
 ::: zone pivot="platform-windows"  
 
-Cloud Shell에서 다음 명령을 실행하여 두 개의 Windows 웹앱을 만듭니다. _\<front-end-app-name>_ 및 _\<back-end-app-name>_ 를 전역적으로 고유한 두 개의 앱 이름(유효한 문자는 `a-z`, `0-9` 및 `-`)으로 바꿉니다. 각 명령에 대한 자세한 내용은 [Azure App Service에서 CORS를 사용한 RESTful API](app-service-web-tutorial-rest-api.md)를 참조하세요.
+Cloud Shell에서 다음 명령을 실행하여 두 개의 Windows 웹앱을 만듭니다. _\<front-end-app-name>_ 및 _\<back-end-app-name>_ 를 전역적으로 고유한 두 개의 앱 이름(유효한 문자는 `a-z`, `0-9` 및 `-`)으로 바꿉니다. 각 명령에 대한 자세한 내용은 [Azure App Service에서 CORS를 사용하여 RESTful API 호스트](app-service-web-tutorial-rest-api.md)를 참조하세요.
 
 ```azurecli-interactive
 az group create --name myAuthResourceGroup --location "West Europe"

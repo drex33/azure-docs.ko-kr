@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.openlocfilehash: 6140ba3573452e1285236e9848e2068fd77afc07
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fe3dcf7c56c72f259a456875f3ab2716ad609353
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128636100"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130250163"
 ---
 # <a name="build-a-custom-teams-endpoint"></a>사용자 지정 Teams 엔드포인트 빌드
 
@@ -24,7 +24,7 @@ ms.locfileid: "128636100"
 
 Azure Communication Services를 사용하여 Microsoft Teams 클라이언트 또는 다른 사용자 지정 Teams 엔드포인트와 통신하는 사용자 지정 Teams 엔드포인트를 빌드할 수 있습니다. 사용자 지정 Teams 엔드포인트를 사용하면 Teams 사용자에 대한 음성, 비디오, 채팅 및 화면 공유 환경을 사용자 지정할 수 있습니다.
 
-Azure Communication Services ID SDK를 사용하여 Teams의 액세스 토큰에 대한 Azure AD(Azure Active Directory) 사용자 토큰을 교환할 수 있습니다. 다음 섹션의 다이어그램에서는 가상 회사 Fabrikam이 가상 회사 Contoso의 고객인 다중테넌트 사용 사례를 보여줍니다.
+Azure Communication Services ID SDK를 사용하여 Teams 사용자의 Azure AD(Azure Active Directory) 액세스 토큰을 통신 ID 액세스 토큰으로 교환할 수 있습니다. 다음 섹션의 다이어그램에서는 가상 회사 Fabrikam이 가상 회사 Contoso의 고객인 다중테넌트 사용 사례를 보여줍니다.
 
 ## <a name="calling"></a>호출 
 

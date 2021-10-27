@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: fb69068ddac311a8020a76eec9b18fab3256fea6
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 09161b73c177642b327ed8bd57cbff13229085a4
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752537"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042129"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Azure Key Vault 인증서 정보
 
@@ -154,6 +154,19 @@ Key Vault를 사용하면 서로 다른 발급자 구성으로 여러 발급자 
 ## <a name="certificate-access-control"></a>인증서 액세스 제어
 
  인증서에 대한 액세스 제어는 Key Vault를 통해 관리되고, 해당 인증서를 포함하는 Key Vault를 통해 제공됩니다. 인증서에 대한 액세스 제어 정책은 동일한 Key Vault의 키 및 비밀에 대한 액세스 제어 정책과 다릅니다. 사용자는 인증서를 보관할 하나 이상의 자격 증명 모음을 만들어서 시나리오를 적절하게 세분화하고 인증서를 관리할 수 있습니다.  인증서 액세스 제어에 대한 자세한 내용은 [여기](certificate-access-control.md)를 참조하세요.
+
+
+## <a name="certificate-use-cases"></a>인증서 사용 사례
+
+### <a name="secure-communication-and-authentication"></a>보안 통신 및 인증
+
+TLS 인증서는 인터넷을 통한 통신을 암호화하고 웹 사이트의 ID를 설정하여 통신의 진입 지점과 모드를 안전하게 만드는 데 도움이 됩니다.  또한 공용 CA에서 서명한 체인된 인증서를 사용하면 인증서를 보유하는 엔터티가 자신이 주장하는 주체인지 확인할 수 있습니다. 예를 들어, 다음은 인증서를 사용하여 통신을 보호하고 인증을 활성화하는 몇 가지 좋은 사용 사례입니다.
+* 인트라넷/인터넷 웹 사이트: 인트라넷 사이트에 대한 액세스를 보호하고 TLS 인증서를 사용하여 인터넷을 통해 암호화된 데이터 전송을 보장합니다.
+* IoT 및 네트워킹 디바이스: 인증 및 통신용 인증서를 사용하여 디바이스를 보호합니다.
+* 클라우드/다중 클라우드: 온-프레미스, 클라우드 간 또는 클라우드 공급자의 테넌트에 있는 클라우드 기반 애플리케이션을 보호합니다.
+
+### <a name="code-signing"></a>코드 서명
+인증서를 사용하면 소프트웨어의 코드/스크립트를 보호하여 작성자가 악성 엔터티에 의해 변경되지 않고 인터넷을 통해 소프트웨어를 공유할 수 있습니다. 또한 작성자가 코드 서명 기술을 활용하는 인증서를 사용하여 코드에 서명하면 소프트웨어는 작성자 및 해당 웹 사이트를 표시하는 인증 스탬프로 표시됩니다. 따라서 코드 서명에 사용되는 인증서는 소프트웨어의 신뢰성을 확인하고 엔드투엔드 보안을 강화하는 데 도움이 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

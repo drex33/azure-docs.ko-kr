@@ -6,13 +6,13 @@ ms.author: kchandra
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 09/27/2021
-ms.openlocfilehash: 1a8956971e48529c75f07db54c196867a6c5955e
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 10/18/2021
+ms.openlocfilehash: 110f2b5847a1a56bfae91c4567762b88915ec6f7
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129216950"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130181410"
 ---
 # <a name="register-and-scan-oracle-source"></a>Oracle 원본 등록 및 검사
 
@@ -21,6 +21,8 @@ ms.locfileid: "129216950"
 ## <a name="supported-capabilities"></a>지원되는 기능
 
 Oracle 원본은 Oracle 데이터베이스에서 메타데이터를 추출할 수 있도록 **전체 검사** 를 지원하고, 데이터 자산 간의 **계보** 를 가져옵니다.
+
+Oracle 원본을 검색할 때 프록시 서버가 지원되지 않습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -39,31 +41,34 @@ Oracle 원본은 Oracle 데이터베이스에서 메타데이터를 추출할 �
 5.  지원되는 Oracle 데이터베이스 버전은 6i~19c입니다.
 
 6.  사용자 권한: 시스템 테이블에 대한 읽기 전용 액세스가 필요합니다. 사용자는 세션은 물론 SELECT\_CATALOG\_ROLE이 할당된 역할을 만들 권한을 보유해야 합니다. 또는 사용자가 이 커넥터가 다음으로부터 메타데이터를 쿼리하는 모든 개별 시스템 테이블에 대해 SELECT 권한을 부여했을 수 있습니다.
-       > grant create session to \[user\];\
-        grant select on all\_users to \[user\];\
-        grant select on dba\_objects to \[user\];\
-        grant select on dba\_tab\_comments to \[user\];\
-        grant select on dba\_external\_locations to \[user\];\
-        grant select on dba\_directories to \[user\];\
-        grant select on dba\_mviews to \[user\];\
-        grant select on dba\_clu\_columns to \[user\];\
-        grant select on dba\_tab\_columns to \[user\];\
-        grant select on dba\_col\_comments to \[user\];\
-        grant select on dba\_constraints to \[user\];\
-        grant select on dba\_cons\_columns to \[user\];\
-        grant select on dba\_indexes to \[user\];\
-        grant select on dba\_ind\_columns to \[user\];\
-        grant select on dba\_procedures to \[user\];\
-        grant select on dba\_synonyms to \[user\];\
-        grant select on dba\_views to \[user\];\
-        grant select on dba\_source to \[user\];\
-        grant select on dba\_triggers to \[user\];\
-        grant select on dba\_arguments to \[user\];\
-        grant select on dba\_sequences to \[user\];\
-        grant select on dba\_dependencies to \[user\];\
-        grant select on dba\_type\_attrs to \[user\];\
-        grant select on V\_\$INSTANCE to \[user\];\
-        grant select on v\_\$database to \[user\];
+
+    ```sql
+    grant create session to [user];
+    grant select on all_users to [user];
+    grant select on dba_objects to [user];
+    grant select on dba_tab_comments to [user];
+    grant select on dba_external_locations to [user];
+    grant select on dba_directories to [user];
+    grant select on dba_mviews to [user];
+    grant select on dba_clu_columns to [user];
+    grant select on dba_tab_columns to [user];
+    grant select on dba_col_comments to [user];
+    grant select on dba_constraints to [user];
+    grant select on dba_cons_columns to [user];
+    grant select on dba_indexes to [user];
+    grant select on dba_ind_columns to [user];
+    grant select on dba_procedures to [user];
+    grant select on dba_synonyms to [user];
+    grant select on dba_views to [user];
+    grant select on dba_source to [user];
+    grant select on dba_triggers to [user];
+    grant select on dba_arguments to [user];
+    grant select on dba_sequences to [user];
+    grant select on dba_dependencies to [user];
+    grant select on dba_type_attrs to [user];
+    grant select on V_$INSTANCE to [user];
+    grant select on v_$database to [user];
+    ```
     
 ## <a name="setting-up-authentication-for-a-scan"></a>검사 인증 설정
 
@@ -87,8 +92,11 @@ Oracle 원본에 대해 유일하게 지원되는 인증은 **기본 인증** �
 2.  Oracle 원본에 연결할 **호스트** 의 이름을 입력합니다. 이는 다음과 같을 수 있습니다.
     - JDBC에서 데이터베이스 서버에 연결하는 데 사용하는 호스트 이름. 예: MyDatabaseServer.com
     - IP 주소. 예: 192.169.1.2
-    - 정규화된 JDBC 연결 문자열. 예: ,\
-        jdbc:oracle:thin:@(DESCRIPTION=(LOAD\_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver1)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver2)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver3)(PORT=1521))(CONNECT\_DATA=(SERVICE\_NAME=orcl)))
+    - 정규화된 JDBC 연결 문자열. 예:
+
+        ```
+        jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver1)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver2)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orcl)))
+        ```
 
 3.  JDBC에서 데이터베이스 서버에 연결하는 데 사용할 **포트 번호** 를 입력합니다(Oracle의 경우 기본값 1521).
 

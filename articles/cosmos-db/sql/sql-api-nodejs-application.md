@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 08/26/2021
+ms.date: 10/18/2021
 ms.author: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: e83c245960815630891407a042303f1d8ae58b35
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: e9ee6ef04563466cb47f1bc6fe8f92929dd11950
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123118201"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177558"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>자습서: JavaScript SDK를 사용하여 Azure Cosmos DB의 SQL API 계정을 관리하는 Node.js 웹앱 빌드 
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -92,7 +92,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
 
 ## <a name="install-the-required-modules"></a><a name="install-modules"></a>필요한 모듈 설치
 
-**package.json** 파일은 프로젝트 루트에 생성되는 파일 중 하나입니다. 이 파일에는 Node.js 애플리케이션에 필요한 추가 모듈의 목록이 들어 있습니다. 이 애플리케이션을 Azure에 배포할 때, 애플리케이션을 지원하려면 어떤 모듈을 Azure에 설치해야 하는지 이 파일을 사용하여 확인합니다. 이 자습서에서는 다음 두 패키지를 더 설치합니다.
+**package.json** 파일은 프로젝트 루트에 생성되는 파일 중 하나입니다. 이 파일에는 Node.js 애플리케이션에 필요한 다른 모듈의 목록이 들어 있습니다. 이 애플리케이션을 Azure에 배포할 때, 애플리케이션을 지원하려면 어떤 모듈을 Azure에 설치해야 하는지 이 파일을 사용하여 확인합니다. 이 자습서에서는 다음 두 패키지를 더 설치합니다.
 
 1. npm을 통해 **\@azure/cosmos** 모듈을 설치합니다. 
 
@@ -455,25 +455,17 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
 
 5. 애플리케이션을 중지하려면 터미널 창에서 Ctrl+C를 누르고 **Y** 를 선택하여 배치 작업을 종료합니다.
 
-## <a name="deploy-your-application-to-web-apps"></a><a name="deploy-app"></a>Web Apps에 애플리케이션 배포
+## <a name="deploy-your-application-to-app-service"></a><a name="deploy-app"></a>App Service에 애플리케이션 배포
 
-애플리케이션이 로컬에서 성공하면 다음 단계를 사용하여 Azure에 배포할 수 있습니다.
+애플리케이션이 로컬에서 성공하면 Azure App Service에 배포할 수 있습니다. 터미널에서 *todo* 앱 디렉터리에 있는지 확인합니다. 다음 [az webapp up](/cli/azure/webapp?view=azure-cli-latest#az_webapp_up&preserve-view=true) 명령을 사용하여 로컬 폴더(todo)에 코드를 배포합니다.
 
-1. 아직 Web Apps 애플리케이션에 git 리포지토리를 사용하도록 설정하지 않은 경우 이를 사용하도록 설정합니다.
+```azurecli
+az webapp up --sku F1 --name <app-name>
+```
 
-2. Web Apps 애플리케이션을 git remote로 추가합니다.
-   
-   ```bash
-   git remote add azure https://username@your-azure-website.scm.azurewebsites.net:443/your-azure-website.git
-   ```
+<app_name>을 모든 Azure에서 고유한 이름으로 바꿉니다(유효한 문자는 a-z, 0-9 및 -임). 좋은 패턴은 회사 이름과 앱 식별자의 조합을 사용하는 것입니다. 앱 배포에 대해 자세히 알아보려면 [Azure에서 Node.js 앱 배포](../../app-service/quickstart-nodejs.md?tabs=linux&pivots=development-environment-cli#deploy-to-azure) 문서를 참조하세요.
 
-3. 원격에 푸시하여 애플리케이션을 배포합니다.
-   
-   ```bash
-   git push azure main
-   ```
-
-4. 몇 초 후 웹 애플리케이션이 게시되고 브라우저에서 시작됩니다.
+이 명령을 완료하는 데 몇 분 정도 걸릴 수 있습니다. 이 명령이 실행되는 동안 리소스 그룹, App Service 플랜 및 앱 리소스 만들기, 로깅 구성, ZIP 배포 수행에 대한 메시지가 제공됩니다. 그런 다음, Azure의 앱 URL인 `http://<app-name>.azurewebsites.net`에서 앱을 시작하기 위한 URL을 제공합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -482,12 +474,11 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
 ## <a name="next-steps"></a>다음 단계
 
 * Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
-    * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](../convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
-    * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.
+  * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](../convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
+  * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.
 
 > [!div class="nextstepaction"]
 > [Xamarin 및 Azure Cosmos DB를 사용하여 모바일 애플리케이션 빌드](mobile-apps-with-xamarin.md)
-
 
 [Node.js]: https://nodejs.org/
 [Git]: https://git-scm.com/

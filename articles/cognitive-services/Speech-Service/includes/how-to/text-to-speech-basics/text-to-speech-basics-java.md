@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 07/02/2021
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 011d13d68ad3cd9a3e6b1b5bab97a5561e8a355c
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 12f2b1edc4bc7d9f5106af9483da217fcd9eb402
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539409"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130143658"
 ---
 이 빠른 시작에서는 Speech SDK를 사용하여 텍스트 음성 변환을 수행하기 위한 일반적인 디자인 패턴에 대해 알아봅니다. 먼저 기본 구성 및 합성을 수행하고 다음과 같은 사용자 지정 애플리케이션 개발을 위한 고급 예제로 이동합니다.
 
@@ -75,6 +75,23 @@ public class Program
 }
 ```
 
+## <a name="select-synthesis-language-and-voice"></a>합성 언어 및 음성 선택
+
+Azure Text to Speech Service는 250개 넘는 음성과 70개 이상의 언어 및 변형을 지원합니다.
+[전체 목록](../../../language-support.md#neural-voices)을 가져오거나 [텍스트 음성 변환 데모](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features)에서 사용해 볼 수 있습니다.
+입력 텍스트와 일치하도록 [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig)의 언어 또는 음성을 지정하고 원하는 음성을 사용합니다.
+
+```java
+public static void main(String[] args) {
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    // Note: if only language is set, the default voice of that language is chosen.
+    config.setSpeechSynthesisLanguage("<your-synthesis-language>"); // e.g. "de-DE"
+    // The voice setting will overwrite language setting.
+    // The voice setting will not overwrite the voice element in input SSML.
+    config.setSpeechSynthesisVoiceName("<your-wanted-voice>");
+}
+```
+
 ## <a name="synthesize-speech-to-a-file"></a>음성을 파일로 합성
 
 다음으로, 텍스트 음성 변환을 실행하고 스피커, 파일 또는 기타 출력 스트림으로 출력하는 [`SpeechSynthesizer`](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer) 개체를 만듭니다. [`SpeechSynthesizer`](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer)는 이전 단계에서 만든 [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) 개체와 출력 결과를 처리하는 방법을 지정하는 [`AudioConfig`](/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig) 개체를 매개 변수로 수락합니다.
@@ -88,7 +105,7 @@ public static void main(String[] args) {
 }
 ```
 
-다음으로, `speechConfig` 개체와 `audioConfig` 개체를 매개 변수로 전달하는 `SpeechSynthesizer`를 인스턴스화합니다. 그러면 음성 합성 및 파일 쓰기를 실행하는 것은 텍스트 문자열을 사용하여 `SpeakText()`를 실행하는 것만큼 간단합니다.
+다음으로, `speechConfig` 개체와 `audioConfig` 개체를 매개 변수로 전달하는 `SpeechSynthesizer`를 인스턴스화합니다. 그러면 음성 합성을 실행하고 파일에 쓰는 작업이 텍스트 문자열을 사용하여 `SpeakText()`를 실행하는 것만큼 간단합니다.
 
 ```java
 public static void main(String[] args) {

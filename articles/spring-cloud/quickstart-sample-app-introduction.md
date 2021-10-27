@@ -5,15 +5,15 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 09/08/2020
+ms.date: 10/12/2021
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a44558f6d0a1351c5f9c61fba6d6686757fd3292
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 2966f77bb070269e11a01303204362d3b6950207
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122014755"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130005865"
 ---
 # <a name="introduction-to-the-sample-app"></a>샘플 앱 소개
 
@@ -77,7 +77,7 @@ PetClinic은 4개의 핵심 마이크로 서비스로 구성되어 있습니다.
 * **고객 서비스**: 애완 동물 및 소유자 정보(이름, 주소, 구/군/시, 전화)를 비롯한 일반적인 사용자 입력 논리 및 유효성 검사를 포함합니다.
 * **방문 서비스**: 각 애완 동물에 대한 소견이 포함된 방문 정보를 저장하고 표시합니다.
 * **수의사 서비스**: 수의사의 이름 및 전문 분야를 비롯한 정보를 저장하고 표시합니다.
-* **API 게이트웨이**: API 게이트웨이는 요청을 처리하고 적절한 서비스로 라우트하거나 여러 서비스를 호출하여 결과를 집계하는 데 사용되는 시스템의 단일 진입점입니다.  세 가지 핵심 서비스는 외부 API를 클라이언트에 노출합니다. 실제 시스템에서 함수 수는 시스템 복잡성으로 인해 매우 빠르게 증가할 수 있습니다. 수백 개의 서비스는 복잡한 웹 페이지 하나를 렌더링하는 데 사용할 수 있습니다.
+* **API 게이트웨이**: API 게이트웨이는 요청을 처리하고 적절한 서비스로 라우트하거나 여러 서비스를 호출하여 결과를 집계하는 데 사용되는 시스템의 단일 진입점입니다.  세 가지 핵심 서비스는 외부 API를 클라이언트에 노출합니다. 실제 시스템에서 함수 수는 시스템 복잡성으로 인해 매우 빠르게 증가할 수 있습니다. 복잡한 웹 페이지 하나를 렌더링하는 데 수 백개의 서비스가 필요할 수 있습니다.
 
 ## <a name="infrastructure-services-hosted-by-azure-spring-cloud"></a>Azure Spring Cloud에서 호스트되는 인프라 서비스
 

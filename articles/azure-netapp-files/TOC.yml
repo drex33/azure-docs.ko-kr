@@ -6,8 +6,8 @@
       href: azure-netapp-files-introduction.md
     - name: 새로운 기능
       href: whats-new.md
-    - name: Azure NetApp Files의 스토리지 계층 구조
-      href: azure-netapp-files-understand-storage-hierarchy.md
+    - name: Azure Government용 Azure NetApp Files
+      href: azure-government.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -15,12 +15,30 @@
       href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
 - name: 개념
   items:
-    - name: Azure NetApp Files에 대한 서비스 수준
-      href: azure-netapp-files-service-levels.md
-    - name: Azure NetApp Files에 대한 리소스 제한
-      href: azure-netapp-files-resource-limits.md
-    - name: Azure NetApp Files에 대한 메트릭
-      href: azure-netapp-files-metrics.md
+    - name: Azure NetApp Files 기본 정보
+      items:
+        - name: Azure NetApp Files의 스토리지 계층 구조
+          href: azure-netapp-files-understand-storage-hierarchy.md
+        - name: Azure NetApp Files에 대한 서비스 수준
+          href: azure-netapp-files-service-levels.md
+        - name: Azure NetApp Files 네트워크 계획 지침
+          href: azure-netapp-files-network-topologies.md
+        - name: Azure NetApp Files에 대한 리소스 제한
+          href: azure-netapp-files-resource-limits.md
+        - name: Azure NetApp Files에 대한 메트릭
+          href: azure-netapp-files-metrics.md
+        - name: 스토리지 서비스 추가 기능
+          href: storage-service-add-ons.md
+        - name: Azure NetApp Files 비용 모델
+          href: azure-netapp-files-cost-model.md
+    - name: 할당량
+      items:
+        - name: 볼륨 할당량 이해
+          href: volume-quota-introduction.md
+        - name: 볼륨 하드 할당량 이해
+          href: volume-hard-quota-guidelines.md
+        - name: 지역 용량 할당량
+          href: regional-capacity-quota.md
     - name: 성능
       items:
         - name: Azure NetApp Files의 성능 고려 사항
@@ -49,29 +67,25 @@
               href: azure-netapp-files-smb-performance.md
             - name: Azure 가상 머신 SKU 모범 사례
               href: performance-virtual-machine-sku.md
-    - name: Azure NetApp Files 비용 모델
-      href: azure-netapp-files-cost-model.md
-    - name: 볼륨 할당량 이해
-      href: volume-quota-introduction.md
-    - name: Azure NetApp Files 네트워크 계획 지침
-      href: azure-netapp-files-network-topologies.md
-    - name: 수동 QoS 용량 풀
-      href: manual-qos-capacity-pool-introduction.md
-    - name: Azure NetApp Files 스냅샷 작동 방식
-      href: snapshots-introduction.md
-    - name: Azure NetApp Files 백업
+    - name: 데이터 보호
       items:
-        - name: Azure NetApp Files 백업 이해
-          href: backup-introduction.md
-        - name: Azure NetApp Files 백업에 대한 요구 사항 및 고려 사항
-          href: backup-requirements-considerations.md
-    - name: 지역 간 복제
-      items:
-        - name: 지역 간 복제 이해
-          href: cross-region-replication-introduction.md
-        - name: 지역 간 복제에 대한 요구 사항 및 고려 사항
-          href: cross-region-replication-requirements-considerations.md
-    - name: 솔루션
+        - name: Azure NetApp Files 스냅샷 작동 방식
+          href: snapshots-introduction.md
+        - name: Azure NetApp Files 백업
+          items:
+            - name: Azure NetApp Files 백업 이해
+              href: backup-introduction.md
+            - name: Azure NetApp Files 백업에 대한 요구 사항 및 고려 사항
+              href: backup-requirements-considerations.md
+        - name: 지역 간 복제
+          items:
+            - name: 지역 간 복제 이해
+              href: cross-region-replication-introduction.md
+            - name: 지역 간 복제에 대한 요구 사항 및 고려 사항
+              href: cross-region-replication-requirements-considerations.md
+        - name: Azure Application Consistent Snapshot Tool이란?
+          href: azacsnap-introduction.md
+    - name: 솔루션 및 이점
       items:
         - name: Azure NetApp Files를 사용하는 솔루션 아키텍처
           href: azure-netapp-files-solution-architectures.md
@@ -85,16 +99,28 @@
               href: solutions-windows-virtual-desktop.md
             - name: SQL Server 배포에 Azure NetApp Files를 사용할 경우의 이점
               href: solutions-benefits-azure-netapp-files-sql-server.md
-    - name: Azure NetApp Files에 대한 FAQ
-      href: azure-netapp-files-faqs.md
-    - name: Azure Application Consistent Snapshot Tool이란?
-      href: azacsnap-introduction.md
-    - name: 스토리지 서비스 추가 기능
-      href: storage-service-add-ons.md
-    - name: 볼륨 하드 할당량 변경의 의미
-      href: volume-hard-quota-guidelines.md
-    - name: Azure Government용 Azure NetApp Files
-      href: azure-government.md
+    - name: FAQ
+      items:
+        - name: 네트워킹 FAQ
+          href: faq-networking.md
+        - name: 용량 관리 FAQ
+          href: faq-capacity-management.md
+        - name: NFS FAQ
+          href: faq-nfs.md
+        - name: SMB FAQ
+          href: faq-smb.md
+        - name: 성능 FAQ
+          href: faq-performance.md
+        - name: 애플리케이션 복원력 FAQ
+          href: faq-application-resilience.md
+        - name: 데이터 마이그레이션 및 보호 FAQ
+          href: faq-data-migration-protection.md
+        - name: Azure NetApp Files 백업 FAQ
+          href: faq-backup.md
+        - name: 보안 FAQ
+          href: faq-security.md
+        - name: 통합 FAQ
+          href: faq-integration.md
 - name: 방법 가이드
   items:
     - name: 등록 및 설정
@@ -219,20 +245,14 @@
           href: azure-netapp-files-sdk-cli.md
     - name: 문제 해결
       items:
-        - name: 용량 풀 문제 해결
+        - name: 용량 풀 오류 문제 해결
           href: troubleshoot-capacity-pools.md
-        - name: 지역 간 복제 문제 해결
-          href: troubleshoot-cross-region-replication.md
         - name: 볼륨 오류 해결
           href: troubleshoot-volumes.md
-        - name: SMB 또는 이중 프로토콜 볼륨 문제 해결
-          href: troubleshoot-dual-protocol-volumes.md
-        - name: NFSv4.1 Kerberos 볼륨 문제 해결
-          href: troubleshoot-nfsv41-kerberos-volumes.md
-        - name: 스냅샷 정책 문제 해결
+        - name: 스냅샷 정책 오류 문제 해결
           href: troubleshoot-snapshot-policies.md
-        - name: LDAP 볼륨 문제 해결
-          href: troubleshoot-ldap-volumes.md
+        - name: 지역 간 복제 오류 문제 해결
+          href: troubleshoot-cross-region-replication.md
         - name: 리소스 공급자 오류 문제 해결
           href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: 참조

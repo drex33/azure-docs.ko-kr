@@ -3,12 +3,12 @@ title: Azure Defender for IoT의 새로운 기능
 description: 이 문서에서는 최신 Defender for IoT 릴리스의 새로운 기능을 확인할 수 있습니다.
 ms.topic: overview
 ms.date: 05/05/2021
-ms.openlocfilehash: e731d45d527a3bb2a59e532065fefc78a3237fd5
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: bb039f53228b5b6abc05708ba7f6efd79c349672
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113011232"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179548"
 ---
 # <a name="whats-new-in-azure-defender-for-iot"></a>Azure Defender for IoT의 새로운 기능이란?  
 
@@ -30,6 +30,62 @@ Microsoft는 분기별로 한 번 이상 Azure Defender for IoT 업데이트를 
 |--|--|--|
 | 10.0 | 2021년 1월 | 2021년 10월 |
 | 10.3 | 2021년 4월 | 2022년 2월 |
+
+## <a name="october-2021"></a>2021년 10월
+
+다음 기능 개선 사항은 Azure Defender for IoT 버전 10.5.2에서 사용할 수 있습니다.
+
+- [PLC 운영 모드 검색(공개 미리 보기)](#plc-operating-mode-detections-public-preview)
+
+- [PCAP API](#pcap-api)
+
+- [온-프레미스 관리 콘솔 감사](#on-premises-management-console-audit)
+
+- [Webhook 확장](#webhook-extended)
+
+- [인증서 암호에 대한 유니코드 지원](#unicode-support-for-certificate-passphrases) 
+
+### <a name="plc-operating-mode-detections-public-preview"></a>PLC 운영 모드 검색(공개 미리 보기)
+
+이제 사용자는 PLC 운영 모드 상태, 변경 내용 및 위험을 볼 수 있습니다. PLC 운영 모드는 물리적 키 스위치가 PLC에 있는 경우 PLC 논리 실행 상태와 물리적 키 상태로 구성됩니다.
+이 새로운 기능은 *보안되지* 않은 PLC를 검색하여 보안을 강화하고, 그 결과 PLC 프로그램 다운로드와 같은 악의적인 공격을 방지할 수 있습니다. 2017년 석유화학 공장에 대한 Triton 공격은 이러한 위험의 영향을 보여줍니다.
+또한 이 정보는 운영 엔지니어에게 엔터프라이즈 PLC의 운영 모드에 대한 중요한 가시성을 제공합니다.
+
+#### <a name="what-is-an-unsecure-mode"></a>비보안 모드란?
+
+키 상태가 프로그램으로 검색되거나 실행 상태가 원격 또는 프로그램으로 검색되면 PLC는 Defender for IoT에서 *비보안* 으로 정의됩니다.
+
+#### <a name="visibility-and-risk-assessment"></a>가시성 및 위험 평가
+
+- 디바이스 인벤토리를 사용하여 컨텍스트 디바이스 정보뿐만 아니라 조직 PLC의 PLC 상태를 볼 수 있습니다. 디바이스 인벤토리 설정 대화 상자를 사용하여 이 열을 인벤토리에 추가할 수 있습니다.
+
+    :::image type="content" source="media/release-notes/device-inventory-plc.png" alt-text="plc 운영 모드를 보여주는 디바이스 인벤토리.":::
+
+- 디바이스 속성 화면의 특성 섹션에서 PLC 보안 상태 및 PLC별 마지막 변경 정보를 확인합니다. 키 상태가 프로그램으로 검색되거나 실행 상태가 원격 또는 프로그램으로 검색되면 PLC는 Defender for IoT에서 *비보안* 으로 정의됩니다. 디바이스 속성 PLC 보안 옵션이 false로 표시됩니다. 자세한 내용은 [디바이스 속성 보기 및 관리](how-to-work-with-the-sensor-device-map.md#view-and-manage-device-properties)를 참조하세요.
+
+    :::image type="content" source="media/release-notes/attributes-plc.png" alt-text="plc 정보를 보여주는 특성 화면.":::
+
+- PLC 운영 모드 정보가 포함된 데이터 마이닝을 만들어 모든 네트워크 PLC 실행 및 키 상태를 봅니다.
+
+    :::image type="content" source="media/release-notes/data-mining-plc.png" alt-text="plc 옵션을 보여주는 데이터 인벤토리 화면.":::
+
+- 위험 평가 보고서를 사용하여 비보안 모드의 네트워크 PLC 수와 안전하지 않은 PLC 위험을 완화하는 데 사용할 수 있는 추가 정보를 검토합니다.
+
+### <a name="pcap-api"></a>PCAP API
+
+새 PCAP API를 사용하면 사용자가 센서 자체에 직접 액세스하거나 액세스하지 않고 온-프레미스 관리 콘솔을 통해 센서에서 PCAP 파일을 검색할 수 있습니다. 이 작업을 수행하려면 관리 콘솔을 프록시로 사용합니다.
+
+### <a name="on-premises-management-console-audit"></a>온-프레미스 관리 콘솔 감사
+
+이제 센서 배포에 대한 감사 로그를 온-프레미스 관리 콘솔에서 사용할 수 있습니다.
+
+### <a name="webhook-extended"></a>Webhook 확장
+
+Webhook 확장을 사용하여 Webhook 경고의 모든 정보와 추가 데이터를 엔드포인트로 보낼 수 있습니다.
+
+### <a name="unicode-support-for-certificate-passphrases"></a>인증서 암호에 대한 유니코드 지원 
+
+이제 센서 인증서 암호로 작업할 때 유니코드 문자가 지원됩니다. 자세한 내용은 [인증서 정보](how-to-deploy-certificates.md#about-certificates)를 참조하세요.
 
 ## <a name="april-2021"></a>2021년 4월
 
@@ -103,20 +159,6 @@ Microsoft는 분기별로 한 번 이상 Azure Defender for IoT 업데이트를 
 이제 두 번째 네트워크 인터페이스를 온-프레미스 관리 콘솔에 추가하여 배포의 보안을 향상시킬 수 있습니다. 이 기능을 사용하면 온-프레미스 관리에서 센서를 하나의 보안 네트워크에 연결하고, 사용자가 별도의 두 번째 네트워크 인터페이스를 통해 온-프레미스 관리 콘솔에 액세스할 수 있습니다.
 
 이 기능은 버전 10.2 릴리스의 온-프레미스 관리 콘솔에서 사용할 수 있습니다.
-
-### <a name="device-builder---new-micro-agent-public-preview"></a>디바이스 빌더 - 새 마이크로 에이전트(공개 미리 보기)
-
-새 디바이스 빌더 모듈을 사용할 수 있습니다. 마이크로 에이전트라고 하는 모듈에서 수행할 수 있는 기능은 다음과 같습니다.
-
-- **Azure IoT Hub 및 Azure Defender for IoT와 통합** - Azure IoT Hub 및 Azure Defender for IoT에서 제공하는 모니터링 옵션과 통합하여 더 강력한 엔드포인트 보안을 IoT 디바이스에 직접 빌드합니다.
-- **표준 IoT 운영 체제를 지원하는 유연한 배포 옵션** - Linux 및 Azure RTOS와 같은 표준 IoT 운영 체제를 지원하여 이진 패키지 또는 수정 가능한 소스 코드로 배포할 수 있습니다.
-- **OS 커널 종속성이 없는 최소 리소스 요구 사항** - 공간이 작고, CPU 사용량이 낮으며, OS 커널 종속성이 없습니다.
-- **보안 상태 관리** – IoT 디바이스의 보안 상태를 사전에 모니터링합니다.
-- **연속 실시간 IoT/OT 위협 탐지** - 봇네트, 무차별 암호 대입 시도, 암호화 마이너 및 의심스러운 네트워크 활동과 같은 위협을 탐지합니다.
-
-더 이상 사용되지 않는 Defender-IoT-micro-agent 설명서는 *디바이스 빌더용 에이전트 기반 솔루션 > 클래식* 폴더로 이동됩니다.
-
-이 기능 세트는 현재 공개 미리 보기 클라우드 릴리스에서 사용할 수 있습니다.
 
 ## <a name="january-2021"></a>2021년 1월
 

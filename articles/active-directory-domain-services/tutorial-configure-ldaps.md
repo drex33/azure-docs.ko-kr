@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: justinha
-ms.openlocfilehash: ce3587d0e70c2dec04e60bed5a23f16bd6c7688b
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 3cbc6d9b0f51b939a03378c45845c50f91c4549f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129233034"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129991986"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>자습서: Azure Active Directory Domain Services 관리되는 도메인에 대한 보안 LDAP 구성
 
@@ -34,7 +34,7 @@ Azure AD DS를 사용하면 LDAPS(보안 Lightweight Directory Access Protocol)�
 
 Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
@@ -290,6 +290,9 @@ Thumbprint                                Subject
     ![LDP.exe를 사용하여 관리되는 도메인에서 개체 검색](./media/tutorial-configure-ldaps/ldp-query.png)
 
 특정 컨테이너를 직접 쿼리하려면 **보기 > 트리** 메뉴에서 **BaseDN**(예: *OU=AADDC Users,DC=AADDSCONTOSO,DC=COM* 또는 *OU=AADDC Computers,DC=AADDSCONTOSO,DC=COM*)을 지정할 수 있습니다. 쿼리를 형식 지정하고 만드는 방법에 대한 자세한 내용은 [LDAP 쿼리 기본 사항][ldap-query-basics]을 참조하세요.
+
+> [!NOTE]
+> 자체 서명된 인증서를 사용하는 경우 LDAPS가 LDP.exe와 작동하도록 신뢰할 수 있는 루트 인증 기관에 자체 서명된 인증서를 추가해야 합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

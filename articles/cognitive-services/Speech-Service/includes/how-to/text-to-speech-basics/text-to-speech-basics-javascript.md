@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 07/02/2021
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: 5a599e80dea9d172ddb42cdfe76325ff5e807fbc
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 67ce4e9ca3dc3bc8efc18dc35d834716628d5257
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129378318"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130143778"
 ---
 이 빠른 시작에서는 Speech SDK를 사용하여 텍스트 음성 변환을 수행하기 위한 일반적인 디자인 패턴에 대해 알아봅니다. 먼저 기본 구성 및 합성을 수행하고 다음과 같은 사용자 지정 애플리케이션 개발을 위한 고급 예제로 이동합니다.
 
@@ -84,6 +84,25 @@ const sdk = require("microsoft-cognitiveservices-speech-sdk");
 ```javascript
 function synthesizeSpeech() {
     const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+}
+
+synthesizeSpeech();
+```
+
+## <a name="select-synthesis-language-and-voice"></a>합성 언어 및 음성 선택
+
+Azure Text to Speech Service는 250개 넘는 음성과 70개 이상의 언어 및 변형을 지원합니다.
+[전체 목록](../../../language-support.md#neural-voices)을 가져오거나 [텍스트 음성 변환 데모](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features)에서 사용해 볼 수 있습니다.
+입력 텍스트와 일치하도록 [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig)의 언어 또는 음성을 지정하고 원하는 음성을 사용합니다.
+
+```javascript
+function synthesizeSpeech() {
+    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    // Note: if only language is set, the default voice of that language is chosen.
+    speechConfig.speechSynthesisLanguage = "<your-synthesis-language>"; // e.g. "de-DE"
+    // The voice setting will overwrite language setting.
+    // The voice setting will not overwrite the voice element in input SSML.
+    speechConfig.speechSynthesisVoiceName = "<your-wanted-voice>";
 }
 
 synthesizeSpeech();
@@ -259,10 +278,10 @@ function synthesizeSpeech() {
 
 ## <a name="use-ssml-to-customize-speech-characteristics"></a>SSML을 사용하여 음성 특성 사용자 지정
 
-SSML(Speech Synthesis Markup Language)을 사용하면 XML 스키마에서 요청을 제출하여 피치, 발음, 말하기 속도, 볼륨 및 더 많은 텍스트 음성 변환 출력을 미세 조정할 수 있습니다. 이 섹션에서는 음성을 변경하는 예를 보여주지만, 보다 자세한 가이드는 [SSML 방법 문서](../../../speech-synthesis-markup.md)를 참조하세요. 
+SSML(Speech Synthesis Markup Language)을 사용하면 XML 스키마에서 요청을 제출하여 피치, 발음, 말하기 속도, 볼륨 및 더 많은 텍스트 음성 변환 출력을 미세 조정할 수 있습니다. 이 섹션에서는 음성을 변경하는 예를 보여주지만, 보다 자세한 가이드는 [SSML 방법 문서](../../../speech-synthesis-markup.md)를 참조하세요.
 
 SSML을 사용자 지정에 사용하려면 음성을 전환하는 간단한 변경 작업을 수행합니다.
-먼저, SSML 구성에 대한 새 XML 파일(이 예제에서는 `ssml.xml`)을 루트 프로젝트 디렉터리에 만듭니다. 루트 요소는 항상 `<speak>`이며, 텍스트를 `<voice>` 요소에 래핑하면 `name` 매개 변수를 사용하여 음성을 변경할 수 있습니다. 지원되는 **인공신경망** 음성의 [전체 목록](../../../language-support.md#neural-voices)을 참조하세요. 
+먼저, SSML 구성에 대한 새 XML 파일(이 예제에서는 `ssml.xml`)을 루트 프로젝트 디렉터리에 만듭니다. 루트 요소는 항상 `<speak>`이며, 텍스트를 `<voice>` 요소에 래핑하면 `name` 매개 변수를 사용하여 음성을 변경할 수 있습니다. 지원되는 **인공신경망** 음성의 [전체 목록](../../../language-support.md#neural-voices)을 참조하세요.
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">

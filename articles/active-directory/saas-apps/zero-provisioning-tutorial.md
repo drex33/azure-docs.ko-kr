@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/27/2021
 ms.author: thwimmer
-ms.openlocfilehash: ffe327d2389ef86a8d11b802a3eb6d8e5e466a4f
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 9b50ef87ba6ea41d3ab983d1f93bcf94043064af
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129812484"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004809"
 ---
 # <a name="tutorial-configure-zero-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Zero 구성
 
@@ -30,7 +30,7 @@ ms.locfileid: "129812484"
 > * Zero에서 더 이상 액세스할 필요가 없는 사용자를 제거합니다.
 > * Azure AD와 Zero 간에 동기화된 사용자 특성을 유지합니다.
 > * Zero에서 그룹 및 그룹 멤버 자격을 프로비전합니다.
-> * Chaos에 대한 [Single Sign-On](../manage-apps/add-application-portal-setup-oidc-sso.md)(권장).
+> * Zero에 대한 [Single Sign-On](../manage-apps/add-application-portal-setup-oidc-sso.md)(권장).
 
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -48,7 +48,7 @@ ms.locfileid: "129812484"
 
 ## <a name="step-2-configure-zero-to-support-provisioning-with-azure-ad"></a>2단계. Azure AD에서 프로비저닝을 지원하도록 Zero 구성
 
-1. 먼저 Zero 관리자 계정이 있어야 합니다. 그런 다음, [Zero 지원](https://help.teamzero.com/)에 문의하여 SCIM 비밀 토큰을 가져옵니다. 이 값은 Azure Portal에서 Zero 애플리케이션의 프로비저닝 탭에 있는 비밀 토큰 필드에 입력됩니다.
+1. ZERO 계정 관리자가 [Zero 지원](https://help.teamzero.com/)에 문의하여 SCIM 비밀 토큰을 가져옵니다. 이 값은 Azure Portal에서 Zero 애플리케이션의 프로비저닝 탭에 있는 비밀 토큰 필드에 입력됩니다.
 1. 테넌트 URL은 `https://api.teamzero.com/scim/v2/`입니다. 이 값은 Azure Portal에서 Zero 애플리케이션의 프로비저닝 탭에 있는 테넌트 URL 필드에 입력됩니다.
 
 ## <a name="step-3-add-zero-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 애플리케이션 갤러리에서 Zero 추가

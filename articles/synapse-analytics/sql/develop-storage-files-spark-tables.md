@@ -2,19 +2,19 @@
 title: 서버리스 SQL 풀에서 외부 테이블 정의에 대한 Apache Spark 동기화
 description: 서버리스 SQL 풀을 사용하여 Spark 테이블 쿼리하는 방법 개요
 services: synapse-analytics
-author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 04/15/2020
-ms.author: jrasnick
-ms.reviewer: jrasnick
-ms.openlocfilehash: 642024d9554b51bc60df90cf3d5a7bdd799440b5
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 10/05/2021
+author: maburd
+ms.author: maburd
+ms.reviewer: jrasnick, wiassaf
+ms.openlocfilehash: d26dfd80e6faf0292cea35c82bc2ec529dc481ab
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123432093"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129996003"
 ---
 # <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-serverless-sql-pool"></a>서버리스 SQL 풀에서 Apache Spark for Azure Synapse 외부 테이블 정의 동기화
 
@@ -36,26 +36,7 @@ SELECT * FROM [db].dbo.[spark_table]
 
 ## <a name="apache-spark-data-types-to-sql-data-types-mapping"></a>Apache Spark 데이터 형식을 SQL 데이터 형식으로 매핑
 
-| Spark 데이터 형식 | SQL 데이터 형식 | 주석 |
-|---|---|---|
-| `LongType`, `long`, `bigint`                | `bigint`              | **Spark**: *LongType* 은 8바이트 부호 있는 정수를 나타냅니다. [참조](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql) |
-| `BooleanType`, `boolean`                    | `bit`(Parquet), `varchar(6)`(CSV)  | |
-| `DecimalType`, `decimal`, `dec`, `numeric`  | `decimal`             | **Spark**: *DecimalType* 은 임의 전체 자릿수의 부호 있는 10진수를 나타냅니다. java.math.BigDecimal에 의해 내부적으로 지원됩니다. BigDecimal은 소수 자릿수가 아닌 임의 전체 자릿수의 정수 값과 32비트 정수 소수 자릿수로 구성됩니다. <br> **SQL**: 고정 전체 자릿수 및 소수 자릿수의 숫자입니다. 최대 전체 자릿수를 사용하는 경우 유효한 값은 - 10^38 + 1부터 10^38 - 1까지입니다. 국제 표준화 기구에서 정한 decimal의 동의어는 dec 및 dec(p, s) 입니다. numeric은 decimal과 기능적으로 동일합니다. [참조](/sql/t-sql/data-types/decimal-and-numeric-transact-sql]) |
-| `IntegerType`, `Integer`, `int`             | `int`                 | **Spark**: *IntegerType* 은 4바이트 부호 있는 정수를 나타냅니다. [참조](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)|
-| `ByteType`, `Byte`, `tinyint`               | `smallint`            | **Spark**: *ByteType* 은 1바이트 부호 있는 정수[-128~127]를 나타내고, ShortType은 2바이트 부호 있는 정수[-32768~32767]를 나타냅니다. <br> **SQL**: Tinyint는 1바이트 부호 있는 정수[0, 255]를 나타내고, smallint는 2바이트 부호 있는 정수[-32768, 32767]를 나타냅니다. [참조](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)|
-| `ShortType`, `Short`, `smallint`            | `smallint`            | 위와 동일합니다. |
-| `DoubleType`, `Double`                      | `float`               | **Spark**: *DoubleType* 은 8바이트 배정밀도 부동 소수점 숫자를 나타냅니다. **SQL**: [이 페이지를 방문](/sql/t-sql/data-types/float-and-real-transact-sql)하세요.|
-| `FloatType`, `float`, `real`                | `real`                | **Spark**: *FloatType* 은 4바이트 배정밀도 부동 소수점 숫자를 나타냅니다. **SQL**: [이 페이지를 방문](/sql/t-sql/data-types/float-and-real-transact-sql)하세요.|
-| `DateType`, `date`                          | `date`                | **Spark**: *DateType* 은 표준 시간대가 없는 연도, 월 및 일 필드의 값으로 구성된 값을 나타냅니다.|
-| `TimestampType`, `timestamp`                | `datetime2`           | **Spark**: *TimestampType* 은 세션 현지 표준 시간대가 있는 연도, 월, 일, 시간, 분 및 초 필드의 값으로 구성된 값을 나타냅니다. 타임스탬프 값은 절대 시점을 나타냅니다.
-| `char`                                      | `char`                |
-| `StringType`, `String`, `varchar`           | `Varchar(n)`          | **Spark**: *StringType* 은 문자열 값을 나타냅니다. *VarcharType(n)* 은 길이 제한이 있는 StringType의 변형입니다. 입력 문자열이 길이 제한을 초과하면 데이터 쓰기가 실패합니다. 이 형식은 함수/연산자가 아닌 테이블 스키마에서만 사용할 수 있습니다.<br> *CharType(n)* 은 고정 길이인 *VarcharType(n)* 의 변형입니다. *CharType(n)* 형식의 열을 읽으면 항상 길이가 n인 문자열 값이 반환됩니다. Char 형식 열 비교는 짧은 열을 더 긴 길이로 채웁니다. <br> **SQL**: *Varchar(n)* 에서 n은 최대 8000일 수 있으며, 분할된 열인 경우 n은 최대 2048일 수 있습니다. <br> `Latin1_General_100_BIN2_UTF8` 데이터 정렬과 함께 사용합니다. |
-| `BinaryType`, `binary`                      | `varbinary(n)`        | **SQL**: *Varbinary(n)* 에서 n은 최대 8000일 수 있으며, 분할된 열인 경우 n은 최대 2048일 수 있습니다. |
-| `array`, `map`, `struct`                    | `varchar(max)`        | **SQL**: `Latin1_General_100_BIN2_UTF8` 데이터 정렬을 사용하여 JSON으로 직렬화합니다. |
-
-\* 데이터베이스 수준 데이터 정렬은 Latin1_General_100_CI_AS_SC_UTF8입니다. \* 문자열 열 수준 데이터 정렬은 Latin1_General_100_BIN2_UTF8입니다.
-
-\** ArrayType, MapType 및 StructType은 JSON으로 표시됩니다.
+Apache Spark 데이터 형식을 SQL 데이터 형식에 매핑하는 방법에 대한 자세한 내용은 [Azure Synapse Analytics 공유 메타데이터 테이블](../metadata/table.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

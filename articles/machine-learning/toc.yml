@@ -534,6 +534,8 @@
               href: how-to-understand-automated-ml.md
             - name: .NET 애플리케이션에서 ONNX 모델 사용
               href: how-to-use-automl-onnx-model-dotnet.md
+            - name: ONNX 모델을 사용한 유추 이미지 모델
+              href: how-to-inference-onnx-automl-image-models.md
             - name: 자동화된 ML 문제 해결
               href: how-to-troubleshoot-auto-ml.md
     - name: 모델 배포

@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: overview
 ms.date: 02/17/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 74d08095b8ea1df0ffb34264c2f0ca3af64b5dd8
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: ef1725161630e4a79b078a3c473f56e3d14a06ca
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772698"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994521"
 ---
 # <a name="about-keys"></a>키 정보
 
@@ -59,17 +59,17 @@ Key Vault는 RSA 및 EC 키를 지원합니다. 관리형 HSM은 RSA, EC 및 대
 
 |키 유형|자격 증명 모음(프리미엄 SKU에만 해당)|관리형 HSM|
 |--|--|--|
-|**EC-HSM**: 타원 곡선 키 | 지원됨 | 지원됨|
-|**RSA-HSM**: RSA 키|지원됨|지원됨|
-|**oct-HSM**: Symmetric 키|지원되지 않음|지원됨|
+|**EC-HSM**: 타원 곡선 키 | 지원됨(P-256, P-384, P-521, P-256K)| 지원됨(P-256, P-256K, P-384, P-521)|
+|**RSA-HSM**: RSA 키|지원됨(2048비트, 3072비트, 4096비트)|지원됨(2048비트, 3072비트, 4096비트)|
+|**oct-HSM**: Symmetric 키|지원되지 않음|지원됨(128비트, 192비트, 256비트)|
 |||
 
 ### <a name="software-protected-keys"></a>소프트웨어 보호 키
 
 |키 유형|자격 증명 모음|관리형 HSM|
 |--|--|--|
-**RSA**: "소프트웨어 보호" RSA 키|지원됨|지원되지 않음
-**EC**: "소프트웨어 보호" 타원 곡선 키|지원됨|지원되지 않음
+**RSA**: "소프트웨어 보호" RSA 키|지원됨(2048비트, 3072비트, 4096비트)|지원되지 않음
+**EC**: "소프트웨어 보호" 타원 곡선 키 |지원됨(P-256, P-384, P-521, P-256K)|지원되지 않음
 |||
 
 ### <a name="compliance"></a>규정 준수

@@ -1,19 +1,19 @@
 ---
-title: 빠른 시작 - Azure Spring Cloud 서비스 프로비저닝
+title: 빠른 시작 - Azure Spring Cloud 서비스 프로비전
 description: 앱 배포를 위한 Azure Spring Cloud 서비스 인스턴스를 만드는 방법을 설명합니다.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 09/08/2020
+ms.date: 10/12/2021
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: f96eeaaddbf49a0649cbec8737052b8d555b2681
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
+ms.openlocfilehash: ca7128cf360be3b102e7aa781afa8a270e1c3c9f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681250"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130005226"
 ---
 # <a name="quickstart-provision-an-azure-spring-cloud-service"></a>빠른 시작: Azure Spring Cloud 서비스 프로비저닝
 
@@ -88,14 +88,14 @@ az extension add --name spring-cloud
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-Azure Portal 또는 Azure CLI를 사용하여 Azure Spring Cloud를 인스턴스화할 수 있습니다.  두 방법 모두 다음 절차에 설명되어 있습니다.
+Azure Portal 또는 Azure CLI를 사용하여 Azure Spring Cloud 서비스의 인스턴스를 프로비전할 수 있습니다.  두 방법 모두 다음 절차에 설명되어 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [JDK 8 설치](/java/azure/jdk/)
+* [JDK 8 또는 JDK 11 설치](/azure/developer/java/fundamentals/java-jdk-install)
 * [Azure 구독에 가입](https://azure.microsoft.com/free/)
 * (선택 사항) [Azure CLI 버전 2.0.67 이상을 설치](/cli/azure/install-azure-cli)하고 `az extension add --name spring-cloud` 명령을 사용하여 Azure Spring Cloud 확장을 설치합니다.
-* (선택 사항) [Azure Toolkit for IntelliJ를 설치](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/)하고 [로그인](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)합니다.
+* (선택 사항) [Azure Toolkit for IntelliJ IDEA를 설치](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/)하고 [로그인](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)합니다.
 
 ## <a name="provision-an-instance-of-azure-spring-cloud"></a>Azure Spring Cloud의 인스턴스 프로비저닝
 
@@ -118,11 +118,10 @@ Azure Portal 또는 Azure CLI를 사용하여 Azure Spring Cloud를 인스턴스
 5. Azure Spring Cloud **만들기** 페이지에 있는 양식을 채웁니다.  다음 지침을 고려하세요.
 
     - **구독**: 이 리소스 대한 요금이 청구될 구독을 선택합니다.
-    - **리소스 그룹**: 새 리소스에 대한 리소스 그룹을 새로 만드는 것이 가장 좋습니다. 이는 이후 단계에서 **\<resource group name\>** 로 사용됩니다.
+    - **리소스 그룹**: 새 리소스에 대한 리소스 그룹을 새로 만드는 것이 가장 좋습니다. 이후 단계에서 이 값을 **\<resource group name\>** 로 사용합니다.
     - **서비스 세부 정보/이름**: **\<service instance name\>** 를 지정합니다.  이름은 4-32자 사이여야 하며, 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있습니다.  서비스 이름의 첫 글자는 문자여야 하며 마지막 문자는 문자 또는 숫자여야 합니다.
     - **위치**: 서비스 인스턴스에 대한 위치를 선택합니다.
-    - **가격 책정 계층** 옵션에 대해 *표준* 을 선택합니다.
-    - **애플리케이션 인사이트** 탭에서 **Java In Process 에이전트 사용** 에 대해 *예* 를 선택합니다.
+    - **가격 책정 계층** 옵션에 대해 **표준** 을 선택합니다.
 
     ![ASC 포털 시작](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 
@@ -155,7 +154,7 @@ Azure Portal 또는 Azure CLI를 사용하여 Azure Spring Cloud를 인스턴스
 
     ```azurecli
     az group create --name <resource group name>
-    az spring-cloud create -n <service instance name> -g <resource group name> --enable-java-agent
+    az spring-cloud create -n <service instance name> -g <resource group name>
     ```
 
     [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)에 대해 자세히 알아봅니다.

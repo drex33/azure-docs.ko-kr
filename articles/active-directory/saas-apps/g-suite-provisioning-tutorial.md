@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/18/2021
 ms.author: thwimmer
-ms.openlocfilehash: eb283ab73180bed43c90f57fd7ad09c045f82bc4
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: fca85673ba31b71eda9e9b4242062093ae588aed
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113763826"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130046984"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 G Suite 구성
 
@@ -110,11 +110,11 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 이 섹션에서는 Azure AD의 사용자 및/또는 그룹 할당에 따라 TestApp에서 사용자 및/또는 그룹을 만들고, 업데이트하고, 사용 해제하도록 Azure AD 프로비저닝 서비스를 구성하는 단계를 안내합니다.
 
 > [!NOTE]
-> G Suite의 디렉터리 API 엔드포인트에 대한 자세한 내용은 [디렉터리 API](https://developers.google.com/admin-sdk/directory)를 참조하세요.
+> G Suite 디렉터리 API 엔드포인트에 대한 자세한 내용은 [디렉터리 API 참조 설명서](https://developers.google.com/admin-sdk/directory)를 참조하세요.
 
 ### <a name="to-configure-automatic-user-provisioning-for-g-suite-in-azure-ad"></a>Azure AD에서 G Suite에 대한 자동 사용자 프로비저닝을 구성하려면 다음을 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션** 을 차례로 선택합니다. 사용자가 portal.azure.com에 로그인해야 하며, aad.portal.azure.com은 사용할 수 없습니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션** 을 차례로 선택합니다. 사용자가 `portal.azure.com`에 로그인해야 하며, `aad.portal.azure.com`은 사용할 수 없습니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](./media/g-suite-provisioning-tutorial/enterprise-applications.png)
 

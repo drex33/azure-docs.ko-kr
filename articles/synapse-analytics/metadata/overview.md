@@ -1,24 +1,24 @@
 ---
 title: 공유 메타데이터 모델
-description: Azure Synapse Analytics를 사용하면 여러 작업 영역 컴퓨팅 엔진이 서버리스 Spark Apache 풀과 서버리스 SQL 풀 및 전용 SQL 풀 간에 데이터베이스와 테이블을 공유할 수 있습니다.
+description: Azure Synapse Analytics를 사용하면 여러 작업 영역 컴퓨팅 엔진이 서버리스 Spark Apache 풀과 서버리스 SQL 풀 간에 데이터베이스와 테이블을 공유할 수 있습니다.
 services: synapse-analytics
-author: MikeRys
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: metadata
-ms.date: 05/01/2020
-ms.author: mrys
-ms.reviewer: jrasnick
-ms.openlocfilehash: b10b6f011fa7daee4094f0cc7b819d36127fedcd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 10/05/2021
+author: ma77b
+ms.author: maburd
+ms.reviewer: wiassaf
+ms.openlocfilehash: 4f9feff8a88e5f8058af808b22ca07191193e41d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96460347"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129987122"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Azure Synapse Analytics 공유 메타데이터
 
-Azure Synapse Analytics를 사용하면 여러 작업 영역 컴퓨팅 엔진이 서버리스 Spark Apache 풀과 서버리스 SQL 풀 간에 데이터베이스와 테이블을 공유할 수 있습니다.
+Azure Synapse Analytics를 사용하면 다른 작업 영역 계산 엔진에서 Apache Spark 풀과 서버리스 SQL 풀 간에 데이터베이스와 테이블을 공유할 수 있습니다.
 
 이러한 공유는 최신 데이터 웨어하우스 패턴을 지원하며, Spark로 만든 데이터베이스 및 테이블에 대한 액세스 권한을 작업 영역 SQL 엔진에 제공합니다. 또한 SQL 엔진이 다른 엔진과 공유되지 않는 고유한 개체를 만들 수 있게 해줍니다.
 
@@ -30,7 +30,7 @@ Azure Synapse Analytics를 사용하면 여러 작업 영역 컴퓨팅 엔진이
 
 2. Spark에서 만든 데이터베이스와 모든 테이블은 모든 Azure Synapse 작업 영역 Spark 풀 인스턴스에 표시되며 모든 Spark 작업에서 사용할 수 있습니다. 작업 영역의 모든 Spark 풀이 동일한 기본 카탈로그 메타 저장소를 공유하므로 이 기능에는 [권한](#security-model-at-a-glance)이 적용됩니다.
 
-3. Spark에서 만든 데이터베이스와 Parquet 지원 테이블은 작업 영역 서버리스 SQL 풀에 표시됩니다. [데이터베이스](database.md)는 서버리스 SQL 풀 메타데이터에 자동으로 생성되고, Spark 작업에서 만든 [외부 테이블 및 관리형 테이블](table.md)은 해당 데이터베이스의 `dbo` 스키마에 있는 서버리스 SQL 풀 메타데이터에서 외부 테이블로 액세스할 수 있게 됩니다. 
+3. Spark에서 만든 데이터베이스 및 해당 Parquet 지원 또는 CSV 지원 테이블이 작업 영역 서버리스 SQL 풀에 표시됩니다. [데이터베이스](database.md)는 서버리스 SQL 풀 메타데이터에 자동으로 생성되고, Spark 작업에서 만든 [외부 테이블 및 관리형 테이블](table.md)은 해당 데이터베이스의 `dbo` 스키마에 있는 서버리스 SQL 풀 메타데이터에서 외부 테이블로 액세스할 수 있게 됩니다. 
 
 <!--[INSERT PICTURE]-->
 
@@ -40,7 +40,7 @@ Azure Synapse Analytics를 사용하면 여러 작업 영역 컴퓨팅 엔진이
 
 ## <a name="shared-metadata-objects"></a>공유 메타데이터 개체
 
-Spark를 사용하면 데이터베이스, 외부 테이블, 관리형 테이블 및 보기를 만들 수 있습니다. Spark 보기는 Spark SQL 문의 정의를 처리하는 Spark 엔진이 필요하며, SQL 엔진에서 처리할 수 없으므로 Parquet 스토리지 형식을 사용하는 데이터베이스와 데이터베이스에 포함된 외부 및 관리형 테이블만 작업 영역 SQL 엔진과 공유됩니다. Spark 보기는 Spark 풀 인스턴스 간에만 공유됩니다.
+Spark를 사용하면 데이터베이스, 외부 테이블, 관리형 테이블 및 보기를 만들 수 있습니다. Spark 보기는 Spark SQL 문의 정의를 처리하는 Spark 엔진이 필요하며, SQL 엔진에서 처리할 수 없으므로 Parquet 또는 CSV 스토리지 형식을 사용하는 데이터베이스와 데이터베이스에 포함된 외부 및 관리형 테이블만 작업 영역 SQL 엔진과 공유됩니다. Spark 보기는 Spark 풀 인스턴스 간에만 공유됩니다.
 
 ## <a name="security-model-at-a-glance"></a>보안 모델 개요
 

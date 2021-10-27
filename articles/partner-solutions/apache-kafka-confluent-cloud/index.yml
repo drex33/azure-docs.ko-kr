@@ -1,0 +1,51 @@
+### YamlMime:Landing
+title: Azure와 Confluent Cloud 통합을 위한 Apache Kafka
+summary: Apache Kafka를 서비스로 사용하도록 설정합니다.
+metadata:
+  title: Azure가 포함된 Confluent Cloud 설명서
+  description: Confluent Cloud는 Azure와 통합되어 Apache Kafka를 서비스로 제공합니다.
+  ms.service: partner-services
+  ms.topic: landing-page
+  ms.collection: na
+  author: tfitzmac
+  ms.author: tomfitz
+  ms.date: 10/22/2021
+  ms.openlocfilehash: 415012ddb93d0f64e89b82ce6d822b0fd128ce63
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130269125"
+landingContent:
+- title: Azure의 Confluent Cloud 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Confluent Cloud의 Apache Kafka는 무엇인가요?
+      url: overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Confluent Cloud 리소스 관리
+      url: manage.md
+- title: Confluent 리소스 만들기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Apache Kafka for Confluent Cloud 시작 - Azure Portal
+      url: create.md
+    - text: Apache Kafka for Confluent Cloud 시작 - Azure CLI
+      url: create-cli.md
+  - linkListType: how-to-guide
+    links:
+    - text: Confluent 클라우드에 커넥터를 추가합니다.
+      url: add-connectors.md
+    - text: Apache Kafka for Confluent Cloud 솔루션
+      url: troubleshoot.md
+- title: 참조 콘텐츠 탐색
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure CLI
+      url: /cli/azure/confluent
+    - text: Azure PowerShell
+      url: /powershell/module/az.confluent/#confluent

@@ -1,24 +1,24 @@
 ---
 title: 사용자 지정 설정 구성
 description: 전체 Azure App Service 환경에 적용되는 설정을 구성합니다. Azure Resource Manager 템플릿을 사용하여 이 작업을 수행하는 방법을 알아봅니다.
-author: ccompy
+author: madsd
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
 ms.date: 01/29/2021
-ms.author: ccompy
+ms.author: madsd
 ms.custom: mvc, seodec18
-ms.openlocfilehash: e871778576266d772f37c23ee174dda7df6a6a75
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: e95f8a4434f0ca27c57791edfe8663df9e77bbaa
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112027428"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002716"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>App Service Environment에 대한 사용자 지정 구성 설정
 ## <a name="overview"></a>개요
 ASE(App Service Environment)는 단일 고객에게 격리되므로 App Service Environment에만 적용할 수 있는 특정 구성 설정이 있습니다. 이 문서에서는 App Service Environment에 사용 가능한 다양한 App Service Environment 관련 사용자 지정 항목을 설명합니다.
 
-App Service Environment가 없는 경우 [App Service Environment를 만드는 방법](app-service-web-how-to-create-an-app-service-environment.md)을 참조하세요.
+App Service Environment가 없는 경우 [템플릿에서 ASEv1을 만드는 방법](app-service-app-service-environment-create-ilb-ase-resourcemanager.md)을 참조하세요.
 
 새 **clusterSettings** 특성의 배열을 사용하여 App Service Environment 사용자 지정을 저장할 수 있습니다. 이 특성은 *hostingEnvironments* Azure Resource Manager 엔터티의 "속성" 사전에 있습니다.
 

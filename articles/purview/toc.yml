@@ -40,16 +40,18 @@ items:
         href: use-purview-studio.md
       - name: 모범 사례 및 지침
         items:
+          - name: 가격 책정 지침
+            href: concept-guidelines-pricing.md
           - name: 배포 모범 사례
             href: deployment-best-practices.md
           - name: 계정 아키텍처
             href: concept-best-practices-accounts.md
           - name: 컬렉션 아키텍처
             href: concept-best-practices-collections.md
-          - name: 가격 책정 지침
-            href: concept-guidelines-pricing.md
           - name: 네트워크 아키텍처
             href: concept-best-practices-network.md
+          - name: 검사 모범 사례
+            href: concept-best-practices-scanning.md
       - name: Azure Purview 권한
         href: catalog-permissions.md
       - name: 데이터 맵
@@ -233,8 +235,6 @@ items:
             href: classification-insights.md
           - name: 민감도 레이블 인사이트 보기
             href: sensitivity-insights.md
-          - name: 파일 이름 확장명 인사이트 보기
-            href: file-extension-insights.md
       - name: 네트워킹 및 보안
         items:
           - name: 프라이빗 엔드포인트

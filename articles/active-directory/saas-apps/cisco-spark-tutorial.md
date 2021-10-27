@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2021
 ms.author: jeedes
-ms.openlocfilehash: 851a396fe848306223f2e875ac81fc7b2fcb5da1
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 94e025c3a76ac2a6722e0fa21b39718624d8645c
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124803038"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042829"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>자습서: Cisco Webex와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -26,7 +26,7 @@ ms.locfileid: "124803038"
 * 사용자가 해당 Azure AD 계정으로 Cisco Webex에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -91,7 +91,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     d. **로그온 URL** 텍스트 상자에서 다음과 같은 패턴을 사용하여 URL을 입력합니다. `https://web.ciscospark.com/idb/Consumer/metaAlias/<ID>/sp`
     
     > [!NOTE]
-    > 이 값은 실제 값이 아닙니다. 측면 회신 URL 값을 복사하고 이 값을 `https://web.ciscospark.com/`에 추가하여 실제 로그온 URL 값을 작성합니다.
+    > 이 값은 실제 값이 아닙니다. 리터럴 회신 URL 값을 복사하고 이 값을 `https://web.ciscospark.com/`에 추가하여 실제 로그온 URL 값을 작성합니다.
 
 1. Cisco Webex 애플리케이션은 특정 서식에서 SAML 어설션이 필요합니다. 이를 위해서는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
 

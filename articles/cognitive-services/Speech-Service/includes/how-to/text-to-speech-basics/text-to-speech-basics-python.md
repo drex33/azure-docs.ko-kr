@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/02/2021
 ms.author: pafarley
-ms.openlocfilehash: 3aa8b987c51691d9f13df83945e39931ae0743ca
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 8c7adb5a8f76082e34171daeec1a8a79b0170c27
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539380"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130143719"
 ---
 이 빠른 시작에서는 Speech SDK를 사용하여 텍스트 음성 변환을 수행하기 위한 일반적인 디자인 패턴에 대해 알아봅니다. 먼저 기본 구성 및 합성을 수행하고 다음과 같은 사용자 지정 애플리케이션 개발을 위한 고급 예제로 이동합니다.
 
@@ -65,6 +65,20 @@ from azure.cognitiveservices.speech.audio import AudioOutputConfig
 
 ```python
 speech_config = SpeechConfig(subscription="<paste-your-speech-key-here>", region="<paste-your-speech-location/region-here>")
+```
+
+## <a name="select-synthesis-language-and-voice"></a>합성 언어 및 음성 선택
+
+Azure Text to Speech Service는 250개 넘는 음성과 70개 이상의 언어 및 변형을 지원합니다.
+[전체 목록](../../../language-support.md#neural-voices)을 가져오거나 [텍스트 음성 변환 데모](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features)에서 사용해 볼 수 있습니다.
+입력 텍스트와 일치하도록 [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig)의 언어 또는 음성을 지정하고 원하는 음성을 사용합니다.
+
+```python
+# Note: if only language is set, the default voice of that language is chosen.
+speech_config.speech_synthesis_language = "<your-synthesis-language>" # e.g. "de-DE"
+# The voice setting will overwrite language setting.
+# The voice setting will not overwrite the voice element in input SSML.
+speech_config.speech_synthesis_voice_name ="<your-wanted-voice>"
 ```
 
 ## <a name="synthesize-speech-to-a-file"></a>음성을 파일로 합성

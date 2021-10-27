@@ -1,21 +1,21 @@
 ---
-title: Azure Active Directory B2C와 앱 통합 샘플 | Microsoft Docs
+title: Azure Active Directory B2C와 앱 통합 샘플
 description: Azure AD B2C와 모바일, 데스크톱, 웹 및 단일 페이지 애플리케이션을 통합하기 위한 코드 샘플입니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
-ms.author: mimart
+author: kengaderdus
+manager: CelesteDG
+ms.author: kengaderdus
 ms.date: 10/02/2020
 ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 007873ea1e1ffbfa31fd8be7284a6ec5e0e02979
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: b42b59977ffd1ed09dbaecf01fbc955f7817356b
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114479682"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038862"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Azure Active Directory B2C 코드 샘플
 

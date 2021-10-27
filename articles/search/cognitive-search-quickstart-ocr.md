@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/07/2021
-ms.openlocfilehash: 84647ef7aef1955f03d8d5fd58f27c278c1e6247
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 68fc76ab80320a41cd9c9f0884dec8dc7771bccc
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129716709"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065277"
 ---
 # <a name="quickstart-apply-ocr-and-image-analysis-using-the-import-data-wizard"></a>빠른 시작: 데이터 가져오기 마법사를 사용하여 OCR 및 이미지 분석 적용
 
@@ -55,7 +55,9 @@ Azure Cognitive Search의 AI 보강이 OCR(광학 문자 인식) 및 이미지 �
    1. "signs"라는 [컨테이너를 만듭니다](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). 기본 공용 액세스 수준을 사용합니다.
    1. "signs" 컨테이너에서 **업로드** 를 선택하여 로컬 **unsplash-images\jpg-signs** 폴더에서 파일을 업로드합니다.
 
-기호 사진이 포함된 10개의 파일이 있어야 합니다. 랜드마크 빌딩을 포함하는 두 번째 하위 폴더가 있습니다. 검색 서비스가 기본 이상인 경우 텍스트 사진을 포함하지 않는 파일에 대한 이미지 분석을 평가하려는 경우 두 번째 파일 세트를 포함합니다.
+기호 사진이 포함된 10개의 파일이 있어야 합니다.
+
+랜드마크 빌딩을 포함하는 두 번째 하위 폴더가 있습니다. [Cognitive Services 키를 연결](cognitive-search-attach-cognitive-services.md)하려는 경우 이러한 파일도 포함하여 임베디드 텍스트를 포함하지 않는 이미지 파일에 대해 이미지 분석이 작동하는 방식을 확인할 수 있습니다. 사용 가능한 할당량을 초과하는 작업의 경우 키가 필요합니다.
 
 이제 데이터 가져오기 마법사로 이동할 준비가 되었습니다.
 

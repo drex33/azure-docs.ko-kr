@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: quickstart
 ms.date: 06/21/2021
 ms.author: mbaldwin
-ms.openlocfilehash: f47ce2ea3d805bfc5e5cdd4fd328195c12fe516d
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 13eba035fc81b6ca26ccf56cefc8c955d9af972e
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122821589"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132230"
 ---
 # <a name="quickstart-provision-and-activate-a-managed-hsm-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 관리형 HSM 프로비저닝 및 활성화
 
@@ -41,10 +41,10 @@ az login
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *eastus2* 위치에 *ContosoResourceGroup* 이라는 리소스 그룹을 만듭니다.
+리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *centralus* 위치에 *ContosoResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
-az group create --name "ContosoResourceGroup" --location eastus2
+az group create --name "ContosoResourceGroup" --location centralus
 ```
 
 ## <a name="create-a-managed-hsm"></a>관리형 HSM 만들기
@@ -62,11 +62,11 @@ az group create --name "ContosoResourceGroup" --location eastus2
 - Azure 위치입니다.
 - 초기 관리자 목록
 
-아래 예제에서는 **현재 로그인한 사용자** 를 유일한 관리자로 사용하고 일시 삭제에 대해 **28일 보존 기간** 을 사용하여 **ContosoMHSM** 이라는 HSM을 **미국 동부 2** 위치에 있는 **ContosoResourceGroup** 리소스 그룹에 만듭니다. [관리되는 HSM 일시 삭제](soft-delete-overview.md)에 관해 자세히 알아보기
+아래 예제에서는 **현재 로그인한 사용자** 를 유일한 관리자로 사용하고 일시 삭제에 대해 **28일 보존 기간** 을 사용하여 **ContosoMHSM** 이라는 HSM을 **미국 중부** 위치에 있는 **ContosoResourceGroup** 리소스 그룹에 만듭니다. [관리되는 HSM 일시 삭제](soft-delete-overview.md)에 관해 자세히 알아보기
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query objectId -o tsv)
-az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGroup" --location "East US 2" --administrators $oid --retention-days 28
+az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGroup" --location "centralus" --administrators $oid --retention-days 28
 ```
 
 > [!NOTE]

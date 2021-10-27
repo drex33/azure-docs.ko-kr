@@ -6,12 +6,12 @@ ms.author: rywinter
 ms.service: iot-develop
 ms.topic: overview
 ms.date: 01/11/2021
-ms.openlocfilehash: 7b23569b07893ebbecf86336a40e52cd8627851a
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 128bea34a2e391a44b4dba68d844c68f7331cb06
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111590075"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994540"
 ---
 # <a name="what-is-azure-iot-device-and-application-development"></a>Azure IoT 디바이스 및 애플리케이션 개발이란?
 
@@ -33,10 +33,10 @@ Azure IoT는 IoT 디바이스를 연결, 모니터링 및 제어하는 관리형
 ### <a name="device-application-development"></a>디바이스 애플리케이션 개발
 디바이스 애플리케이션 개발자는 클라우드에 연결하고 IoT 솔루션에 통합하도록 기존 디바이스를 조정하고 있습니다. 이러한 디바이스는 C# 또는 Python과 같은 상위 언어를 지원할 수 있으며, Windows 또는 Linux와 같은 강력한 범용 운영 체제를 지원하는 경우가 많습니다. 일반적인 대상 디바이스에는 PC, 컨테이너, Raspberry Pi 및 모바일 디바이스가 포함됩니다. 
 
-이러한 개발자는 제한된 디바이스를 규모에 맞게 개발하는 대신, 클라우드 솔루션에 필요한 특정 IoT 시나리오를 사용하도록 설정하는 데 중점을 둡니다. 이러한 개발자 중 일부는 클라우드 솔루션에 맞는 제한된 디바이스에 집중하고 있습니다. 제한된 디바이스를 사용하는 개발자의 경우 아래의 [ 포함 디바이스 개발](#embedded-device-development) 경로를 참조하세요.
+이러한 개발자는 제한된 디바이스를 규모에 맞게 개발하는 대신, 클라우드 솔루션에 필요한 특정 IoT 시나리오를 사용하도록 설정하는 데 중점을 둡니다. 이러한 개발자 중 일부는 클라우드 솔루션에 맞는 제한된 디바이스에 집중하고 있습니다. 리소스가 제한된 디바이스를 사용하는 개발자의 경우 아래의 [임베디드 디바이스 개발](#embedded-device-development) 경로를 참조하세요.
 
-> [!TIP]
-> 시작하려면 [제한되지 않은 디바이스 SDK](about-iot-sdks.md#unconstrained-device-sdks)를 참조하세요.
+> [!IMPORTANT]
+> 시작하려면 [디바이스 SDK](about-iot-sdks.md#device-sdks)를 참조하세요.
 
 ### <a name="embedded-device-development"></a>포함 디바이스 개발
 포함 개발은 메모리와 처리가 제한되는 제한된 디바이스를 대상으로 합니다. 제한된 디바이스는 기존 개발 플랫폼과 비교하여 달성할 수 있는 항목을 제한합니다.
@@ -47,8 +47,8 @@ Azure IoT는 IoT 디바이스를 연결, 모니터링 및 제어하는 관리형
 
 디바이스에서 범용 운영 체제를 실행할 수 있는 경우 [디바이스 애플리케이션 개발](#device-application-development) 경로를 따르는 것이 좋습니다. 다양한 개발 옵션 세트를 제공합니다.
 
-> [!TIP]
-> 시작하려면 [제한된 디바이스 SDK](about-iot-sdks.md#constrained-device-sdks)를 참조하세요.
+> [!IMPORTANT]
+> 시작하려면 [임베디드 디바이스 SDK](about-iot-sdks.md#embedded-device-sdks)를 참조하세요.
 
 ## <a name="choosing-your-hardware"></a>하드웨어 선택
 Azure IoT 디바이스는 IoT 솔루션의 기본 구성 요소이며, 환경을 관찰하고 상호 작용하는 역할을 수행합니다. 다양한 유형의 IoT 디바이스가 있으며, 존재하는 디바이스의 종류와 이러한 디바이스가 개발 프로세스에 미치는 영향을 이해하는 것이 좋습니다.

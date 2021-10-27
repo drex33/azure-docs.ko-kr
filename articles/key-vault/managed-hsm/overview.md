@@ -10,16 +10,18 @@ ms.custom: mvc
 ms.date: 06/21/2021
 ms.author: mbaldwin
 author: msmbaldwin
-ms.openlocfilehash: 5cbb4496b9317e64c0cdec8e78bf825d19d8bd38
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 8a83c26a5aaf5bc06609b0e8e889c18fadce1d2a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123258616"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003102"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm"></a>Azure Key Vault 관리형 HSM이란?
 
-Azure Key Vault 관리형 HSM(하드웨어 보안 모듈)은 **FIPS 140-2 수준 3** 유효성이 검사된 HSM을 사용하여 클라우드 애플리케이션용 암호화 키를 보호할 수 있는 완전 관리형 고가용 단일 테넌트 표준 규격 클라우드 서비스입니다. 가격 책정 정보는 [Azure Key Vault 가격 책정 페이지](https://azure.microsoft.com/pricing/details/key-vault/)의 관리형 HSM 풀 섹션을 참조하세요. 
+Azure Key Vault 관리형 HSM(하드웨어 보안 모듈)은 **FIPS 140-2 수준 3** 유효성이 검사된 HSM을 사용하여 클라우드 애플리케이션용 암호화 키를 보호할 수 있는 완전 관리형 고가용 단일 테넌트 표준 규격 클라우드 서비스입니다. 
+
+가격 책정 정보는 [Azure Key Vault 가격 책정 페이지](https://azure.microsoft.com/pricing/details/key-vault/)의 관리형 HSM 풀 섹션을 참조하세요. 지원되는 키 형식은 [키 정보](../keys/about-keys.md)를 참조하세요.
 
 ## <a name="why-use-managed-hsm"></a>관리형 HSM을 사용하는 이유
 

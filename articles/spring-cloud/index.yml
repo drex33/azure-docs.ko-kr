@@ -11,12 +11,12 @@ metadata:
   author: karlerickson
   ms.author: karler
   ms.date: 09/26/2019
-  ms.openlocfilehash: b9802ea4398ec138ef17245dcd1a1fbe5b4b4a39
-  ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+  ms.openlocfilehash: 1c5fbd1314d4296efb42afa8fecc94acb87b2a39
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/13/2021
-  ms.locfileid: "122015531"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130245837"
 landingContent:
 - title: Azure Spring Cloud 정보
   linkLists:
@@ -30,7 +30,7 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: 빠른 시작 - 첫 번째 Azure Spring Cloud 애플리케이션 배포
+    - text: 빠른 시작 - Azure Spring Cloud에서 첫 번째 Spring Boot 앱 배포
       url: quickstart.md
     - text: PiggyMetrics 샘플 앱 소개
       url: quickstart-sample-app-introduction.md

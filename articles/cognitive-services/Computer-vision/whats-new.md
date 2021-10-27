@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 05/24/2021
 ms.author: pafarley
-ms.openlocfilehash: 395b9d2670a488ab0743a987b1e8b857f6f2fb2f
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: c2cdf1dc396a04adb106ee1b3777eb11e7c36279
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129708323"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045487"
 ---
 # <a name="whats-new-in-computer-vision"></a>Computer Vision의 새로운 기능
 
@@ -80,7 +80,7 @@ Computer Vision API v3.2 공개 미리 보기가 업데이트되었습니다. �
 ## <a name="february-2021"></a>2021년 2월
 
 ### <a name="read-api-v32-public-preview-with-ocr-support-for-73-languages"></a>73개 언어에 대한 OCR 지원이 포함된 Read API v3.2 공개 미리 보기
-클라우드 서비스 및 Docker 컨테이너로 사용할 수 있는 Computer Vision의 Read API v3.2 공개 미리 보기에는 다음 업데이트가 포함되어 있습니다.
+클라우드 서비스 및 Docker 컨테이너로 사용할 수 있는 Computer Vision Read API v3.2 공개 미리 보기에는 다음 업데이트가 포함되어 있습니다.
 * 중국어 간체 및 번체, 일본어, 한국어 및 라틴어를 포함한 [73개 언어에 대한 OCR](./language-support.md#optical-character-recognition-ocr)
 * 텍스트 줄 출력의 자연스러운 읽기 순서(라틴어 언어에만 해당)
 * 텍스트 줄의 필기 스타일 분류와 신뢰도 점수(라틴어 언어에만 해당).
@@ -123,7 +123,7 @@ Computer Vision API v3.2 공개 미리 보기가 업데이트되었습니다. �
 [공간 분석 컨테이너](spatial-analysis-container.md)는 현재 미리 보기로 제공됩니다. Computer Vision의 공간 분석 기능을 사용하면 실시간 스트리밍 비디오를 분석하여 사용자와 사용자의 물리적 환경 간 이동의 공간 관계를 이해할 수 있습니다. 공간 분석은 온-프레미스에서 사용할 수 있는 Docker 컨테이너입니다. 
 
 ### <a name="read-api-v31-public-preview-adds-ocr-for-japanese"></a>Read API v3.1 공개 미리 보기에 일본어용 OCR 추가
-Computer Vision의 Read API v3.1 공개 미리 보기에 다음 기능이 추가되었습니다.
+Computer Vision Read API v3.1 공개 미리 보기에 다음 기능이 추가되었습니다.
 * 일본어용 OCR
 * 각 텍스트 줄에 글꼴이 필기체인지, 활자체인지와 신뢰도 점수(라틴어만 해당)를 지정합니다.
 * 다중 페이지 문서의 경우 선택한 페이지 또는 페이지 범위에 대해서만 텍스트를 추출합니다.
@@ -138,7 +138,7 @@ Computer Vision의 Read API v3.1 공개 미리 보기에 다음 기능이 추가
 ## <a name="july-2020"></a>2020년 7월
 
 ### <a name="read-api-v31-public-preview-with-ocr-for-simplified-chinese"></a>Read API v3.1 공개 미리 보기에 중국어(간체)용 OCR 추가
-Computer Vision의 Read API v3.1 공개 미리 보기에는 중국어(간체) 지원이 추가되었습니다.
+Computer Vision Read API v3.1 공개 미리 보기에는 중국어(간체) 지원이 추가되었습니다.
 
 * 이 미리 보기 버전의 Read API는 영어, 네덜란드어, 프랑스어, 독일어, 이탈리아어, 포르투갈어, 중국어 간체 및 스페인어를 지원합니다.
 

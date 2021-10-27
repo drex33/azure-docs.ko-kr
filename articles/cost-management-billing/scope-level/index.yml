@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Azure 하이브리드 혜택 범위 수준 관리
-summary: Azure 하이브리드 혜택은 활성 Software Assurance(또는 구독)가 있는 온-프레미스 코어 기반 Windows Server 및 SQL Server 라이선스를 Azure로 가져올 수 있는 라이선스 혜택입니다. 이를 통해 클라우드에서 워크로드를 실행하는 비용을 크게 줄일 수 있습니다. 이제 Azure Portal에서 전체 Azure 구독 또는 전체 청구 계정의 범위에 라이선스를 할당하여 SQL Server에 대한 Azure 하이브리드 혜택을 관리할 수 있습니다.
+title: 중앙에서 관리되는 Azure 하이브리드 혜택
+summary: Azure 하이브리드 혜택은 활성 Software Assurance(또는 구독)가 있는 온-프레미스 코어 기반 Windows Server 및 SQL Server 라이선스를 Azure로 가져올 수 있는 라이선스 혜택입니다. 이를 통해 클라우드에서 워크로드를 실행하는 비용을 크게 줄일 수 있습니다. 이제 Azure Portal에서 전체 Azure 구독 또는 전체 청구 계정의 범위에 라이선스를 할당하여 SQL Server에 대한 Azure 하이브리드 혜택을 중앙에서 관리할 수 있습니다.
 metadata:
   title: Azure 하이브리드 혜택 설명서
-  description: Azure 하이브리드 혜택은 활성 Software Assurance(또는 구독)가 있는 온-프레미스 코어 기반 Windows Server 및 SQL Server 라이선스를 Azure로 가져올 수 있는 라이선스 혜택입니다. 이를 통해 클라우드에서 워크로드를 실행하는 비용을 크게 줄일 수 있습니다. 이제 Azure Portal에서 전체 Azure 구독 또는 전체 청구 계정의 범위에 라이선스를 할당하여 SQL Server에 대한 Azure 하이브리드 혜택을 관리할 수 있습니다.
+  description: Azure 하이브리드 혜택은 활성 Software Assurance(또는 구독)가 있는 온-프레미스 코어 기반 Windows Server 및 SQL Server 라이선스를 Azure로 가져올 수 있는 라이선스 혜택입니다. 이를 통해 클라우드에서 워크로드를 실행하는 비용을 크게 줄일 수 있습니다. 이제 Azure Portal에서 전체 Azure 구독 또는 전체 청구 계정의 범위에 라이선스를 할당하여 SQL Server에 대한 Azure 하이브리드 혜택을 중앙에서 관리할 수 있습니다.
   ms.service: cost-management-billing
   ms.subservice: ahb
   ms.topic: landing-page
@@ -11,22 +11,22 @@ metadata:
   author: bandersmsft
   ms.author: banders
   ms.date: 09/30/2021
-  ms.openlocfilehash: ae18a0f65423219f6ba0035c8ebe7fe6df1aeba6
-  ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+  ms.openlocfilehash: f9383ccbda8bedef23435b2b909a5025529f28c3
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/05/2021
-  ms.locfileid: "129547170"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130226605"
 landingContent:
-- title: 시작
+- title: 시작하기
   linkLists:
   - linkListType: overview
     links:
-    - text: 범위 수준 관리란?
+    - text: 중앙 집중식 관리란 무엇인가요?
       url: overview-azure-hybrid-benefit-scope.md?toc=/azure/cost-management-billing/scope-level/toc.json
   - linkListType: tutorial
     links:
-    - text: 범위 수준 Azure 하이브리드 혜택 최적화
+    - text: 중앙에서 관리되는 Azure 하이브리드 혜택 최적화
       url: tutorial-azure-hybrid-benefits-sql.md?toc=/azure/cost-management-billing/scope-level/toc.json
   - linkListType: how-to-guide
     links:
@@ -36,7 +36,7 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: 범위 수준 Azure 하이브리드 혜택으로 전환
+    - text: 중앙에서 관리되는 Azure 하이브리드 혜택으로 전환
       url: transition-existing.md?toc=/azure/cost-management-billing/scope-level/toc.json
   - linkListType: reference
     links:

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 8c93eb34fe577684c212c0f22b5b724a7e3ac247
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 809e400bd2dc8e5426670fde9cafd298c8e64ec8
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113760479"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045676"
 ---
 # <a name="tutorial-configure-zscaler-beta-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 Zscaler Beta 구성
 
@@ -100,7 +100,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 4. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
-    ![프로비저닝 모드 드롭다운 목록에서 자동 모드가 선택되어 있습니다. Zscaler Beta의 API에 연결하는 데 사용되는 관리자 자격 증명 필드 및 연결 테스트 단추가 있습니다.](./media/zscaler-beta-provisioning-tutorial/provisioning-credentials.png)
+    ![프로비저닝 모드 드롭다운 목록에서 자동 모드가 선택되어 있습니다. Zscaler Beta API에 연결하는 데 사용되는 관리자 자격 증명 필드 및 연결 테스트 단추가 있습니다.](./media/zscaler-beta-provisioning-tutorial/provisioning-credentials.png)
 
 5. **관리자 자격 증명** 섹션 아래에서 6단계에서 설명한 대로 Zscaler Beta 계정의 **테넌트 URL** 및 **비밀 토큰** 을 입력합니다.
 

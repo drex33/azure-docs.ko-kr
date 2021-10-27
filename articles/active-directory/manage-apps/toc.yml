@@ -41,10 +41,6 @@
 - name: 개념
   expanded: true
   items:
-    - name: 앱 관리 모범 사례
-      href: application-management-fundamentals.md
-    - name: 앱 관리 공통 시나리오
-      href: common-scenarios.md
     - name: 홈 영역 검색 정책
       href: home-realm-discovery-policy.md
     - name: 클라우드 앱 통합 계획
@@ -148,8 +144,10 @@
               href: f5-aad-integration.md
             - name: Azure IaaS에 F5 BIG-IP VE 배포
               href: f5-bigip-deployment-guide.md
-            - name: 암호 없는 VPN용 Azure AD를 사용하는 F5 Big-IP
+            - name: 암호 없는 VPN용 Azure AD를 사용하는 F5 BIG-IP
               href: f5-aad-password-less-vpn.md
+            - name: 양식 기반 인증 SSO용 Azure AD를 사용하는 F5 BIG-IP
+              href: f5-big-ip-forms-advanced.md
         - name: Silverfort
           href: silverfort-azure-ad-integration.md
     - name: Single Sign-On

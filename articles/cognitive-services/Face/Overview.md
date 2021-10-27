@@ -11,12 +11,12 @@ ms.date: 09/27/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 얼굴 인식, 얼굴 인식 소프트웨어, 얼굴 분석, 얼굴 일치, 얼굴 인식 앱, 이미지별 얼굴 검색, 얼굴 인식 검색
-ms.openlocfilehash: 3cb63bb5fb98eddee84677bb8e2d8d11ed86c876
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 90a2b656d66c15eed10d68be8e5af5c35f35d135
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129362755"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130005694"
 ---
 # <a name="what-is-the-azure-face-service"></a>Azure Face 서비스란?
 
@@ -57,7 +57,7 @@ ID 검증: 여권 또는 운전면허증이나 기타 등록 이미지와 같은
 
 ### <a name="identification"></a>Identification(식별)
 
-얼굴 식별은 이미지의 한 면을 보안 리포지토리의 얼굴 세트와 일치시키는 "일 대 다"를 처리할 수 있습니다. 얼굴 데이터가 쿼리 얼굴과 일치하는 정도에 따라 일치 후보가 반환됩니다. 이 시나리오는 특정 사용자 그룹에 대한 빌드 액세스 권한을 부여하거나 디바이스의 사용자를 확인하는 데 사용됩니다.
+얼굴 식별은 이미지의 한 면을 보안 리포지토리의 얼굴 세트와 일치시키는 "일 대 다"를 처리할 수 있습니다. 얼굴 데이터가 쿼리 얼굴과 일치하는 정도에 따라 일치 후보가 반환됩니다. 이 시나리오는 특정 그룹의 사용자에게 빌딩 또는 공항 액세스 권한을 부여하거나 디바이스의 사용자를 확인하는 데 사용됩니다.
 
 다음 이미지는 `"myfriends"`라는 데이터베이스의 예를 보여 줍니다. 각 그룹은 최대 1백만 개의 서로 다른 사람 개체를 포함할 수 있습니다. 각 사람 개체에 대해 최대 248개의 얼굴을 등록할 수 있습니다.
 
@@ -69,9 +69,7 @@ ID 검증: 여권 또는 운전면허증이나 기타 등록 이미지와 같은
 
 확인 작업은 "이 두 얼굴이 동일한 사람의 것인가요?"라는 질문에 답합니다. 
 
-또한 이미지의 한 면을 보안 리포지토리 또는 사진의 한 면으로 "일 대 일"로 일치시킵니다.
-
-ID 확인 또는 액세스 제어 시나리오에서 확인을 사용하여 사진이 이전에 캡처한 이미지(예: 정부 발급 ID 카드의 사진)와 일치하는지 확인할 수 있습니다.
+또한 확인은 이미지의 얼굴을 보안 리포지토리 또는 사진의 단일 얼굴로 일치시켜 동일한 개인인지 확인하는 "일대일" 일치이기도 합니다. 확인은 자신의 ID를 확인하기 위해 사진을 찍어 원격으로 신용 계좌를 개설할 수 있는 은행 앱과 같은 ID 확인에 사용할 수 있습니다. 
 
 ID 검증에 대한 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) 및 [Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) API 참조 설명서를 확인하세요.
 

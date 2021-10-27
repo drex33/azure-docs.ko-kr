@@ -1,0 +1,49 @@
+### YamlMime:Landing
+title: Azure와 Logz.io 통합
+summary: 로그, 메트릭 및 추적 분석을 중앙 집중화합니다.
+metadata:
+  title: Azure가 포함된 Logz.io 설명서
+  description: Azure와 Logz.io 통합을 통해 모니터링 솔루션을 제공합니다.
+  ms.service: partner-services
+  ms.topic: landing-page
+  ms.collection: na
+  author: tfitzmac
+  ms.author: tomfitz
+  ms.date: 10/22/2021
+  ms.openlocfilehash: 2c032528416c2a9cef1d511cc2155af90b73dd61
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130269141"
+landingContent:
+- title: Azure가 포함된 Logz.io 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure와의 Logz.io 통합이란 무엇인가요?
+      url: overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Azure에서 Logz.io 통합 관리
+      url: manage.md
+- title: Logz.io 리소스 만들기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Azure Portal에서 Logz.io 리소스 만들기
+      url: create.md
+  - linkListType: how-to-guide
+    links:
+    - text: Logz.io Single Sign-On 설정
+      url: setup-sso.md
+    - text: Azure와 Logz.io 통합 문제 해결
+      url: troubleshoot.md
+- title: 참조 콘텐츠 탐색
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Java
+      url: /java/api/overview/azure/resourcemanager-logz-readme
+    - text: Python
+      url: /python/api/overview/azure/mgmt-logz-readme

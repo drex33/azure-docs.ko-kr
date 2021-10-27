@@ -2,21 +2,21 @@
 title: 자습서 - 사용자 흐름 및 사용자 지정 정책 만들기 - Azure Active Directory B2C
 description: 이 자습서에 따라 Azure Portal에서 사용자 흐름 및 사용자 지정 정책을 만들어 Azure Active Directory B2C에서 애플리케이션에 대한 등록, 로그인 및 사용자 프로필 편집을 사용하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/20/2021
-ms.author: mimart
+ms.date: 10/18/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 07c3b88bd4cb5b7c0b0121bc2b9e12b7f9d5a441
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 63af3b70ebfde53078d71955a95e55e03a6c591b
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128598045"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162482"
 ---
 # <a name="tutorial-create-user-flows-and-custom-policies-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 사용자 흐름 및 사용자 지정 정책 만들기
 
@@ -53,7 +53,7 @@ ms.locfileid: "128598045"
 
 - Azure 구독에 연결된 [Azure AD B2C 테넌트](tutorial-create-tenant.md)가 아직 없으면 만듭니다.
 - [웹 애플리케이션을 등록](tutorial-register-applications.md)하고 [ID 토큰 암시적 부여를 사용하도록 설정](tutorial-register-applications.md#enable-id-token-implicit-grant)합니다.
-- [Facebook 애플리케이션을 만듭니다](identity-provider-facebook.md#create-a-facebook-application). [Facebook 계정으로 가입 및 로그인 설정](identity-provider-facebook.md) 문서의 필수 조건과 나머지 단계를 건너뜁니다. Facebook 애플리케이션은 사용자 지정 정책을 사용하는 데 필요하지 않지만 이 연습에서 사용자 지정 정책에 소셜 로그인을 사용하도록 설정하는 방법을 보여 주기 위해 사용되었습니다.
+
 
 ::: zone-end
 
@@ -171,16 +171,6 @@ ms.locfileid: "128598045"
 1. **키 사용** 에는 **암호화** 를 선택합니다.
 1. **만들기** 를 선택합니다.
 
-### <a name="create-the-facebook-key"></a>Facebook 키 만들기
-
-Facebook 애플리케이션의 [앱 비밀](identity-provider-facebook.md)을 정책 키로 추가합니다. 이 문서의 사전 요구 사항에 따라 만든 애플리케이션의 앱 비밀을 사용할 수 있습니다.
-
-1. **정책 키**, **추가** 를 차례로 선택합니다.
-1. **옵션** 으로는 `Manual`을 선택합니다.
-1. **이름** 에 `FacebookSecret`를 입력합니다. `B2C_1A_` 접두사가 자동으로 추가될 수 있습니다.
-1. **비밀** 에 Facebook 애플리케이션의 *앱 비밀*(developers.facebook.com)을 입력합니다. 이 값은 애플리케이션 ID가 아닌 비밀입니다.
-1. **키 사용** 으로는 **서명** 을 선택합니다.
-1. **만들기** 를 선택합니다.
 
 ## <a name="register-identity-experience-framework-applications"></a>Identity Experience Framework 애플리케이션 등록
 
@@ -226,8 +216,11 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하려면 **앱 등록** �
 다음으로, 애플리케이션을 퍼블릭 클라이언트로 처리하도록 지정합니다.
 
 1. 왼쪽 메뉴의 **관리** 아래에서 **인증** 을 선택합니다.
-1. **고급 설정** 의 **퍼블릭 클라이언트 흐름 허용** 섹션에서 **다음 모바일 및 데스크톱 흐름 사용** 을 **예** 로 설정합니다. 애플리케이션 매니페스트에 **"allowPublicClient": true** 가 설정되었는지 확인합니다. 
+1. **고급 설정** 의 **퍼블릭 클라이언트 흐름 허용** 섹션에서 **다음 모바일 및 데스크톱 흐름 사용** 을 **예** 로 설정합니다. 
 1. **저장** 을 선택합니다.
+1. 애플리케이션 매니페스트에 **"allowPublicClient": true** 가 설정되었는지 확인합니다.
+    1. 왼쪽 메뉴의 **관리** 아래에서 **매니페스트** 를 선택하여 애플리케이션 매니페스트를 엽니다.
+    1. **allowPublicClient** 키를 찾아 해당 값이 **true** 로 설정되어 있는지 확인합니다.
 
 이제 앞서 *IdentityExperienceFramework* 등록 시 제공한 API 범위에 권한을 부여합니다.
 
@@ -236,10 +229,9 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하려면 **앱 등록** �
 1. **내 API** 탭을 선택한 후 **IdentityExperienceFramework** 애플리케이션을 선택합니다.
 1. **권한** 에서 이전에 정의한 **user_impersonation** 범위를 선택합니다.
 1. **권한 추가** 를 선택합니다. 안내에 따라 몇 분 정도 기다린 후 다음 단계를 진행하세요.
-1. **(테넌트 이름)에 대한 관리자 동의 허용** 을 선택합니다.
-1. 현재 로그인된 관리자 계정을 선택하거나 Azure AD B2C 테넌트에서 최소한 *클라우드 애플리케이션 관리자* 역할이 할당된 계정으로 로그인합니다.
-1. **수락** 을 선택합니다.
-1. **새로 고침** 을 선택한 다음, offline_access, openid 및 user_impersonation 범위의 **상태** 아래에 "다음에 대해 허용됨"이 표시되는지 확인합니다. 권한이 전파되려면 몇 분 정도 걸릴 수 있습니다.
+1. ***<테넌트 이름)>*에 대한 관리자 동의 허용 **을 선택합니다.
+1. **Yes** 를 선택합니다.
+1. **새로 고침** 을 선택한 다음, 범위의 **상태** 아래에 "...에 대해 허용됨"이 표시되는지 확인합니다.
 
 * * *
 
@@ -255,6 +247,7 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하려면 **앱 등록** �
 시작 팩 각각에는 다음이 포함됩니다.
 
 - **기본 파일** - 몇 가지 수정이 필요합니다. 예제: *TrustFrameworkBase.xml*
+- **지역화 파일** - 이 파일은 지역화 변경이 수행되는 위치입니다. 예: *TrustFrameworkLocalization.xml*
 - **확장 파일** - 이 파일은 대부분의 구성이 변경되었습니다. 예제: *TrustFrameworkExtensions.xml*
 - **신뢰 당사자 파일** - 애플리케이션에서 호출하는 작업 관련 파일입니다. 예제: *SignUpOrSignin.xml*, *ProfileEdit.xml*, *PasswordReset.xml*
 
@@ -289,10 +282,11 @@ GitHub에서 사용자 지정 정책 시작 팩을 가져온 다음, Azure AD B2
 1. **사용자 지정 정책 업로드** 를 선택합니다.
 1. 이 순서로 정책 파일을 업로드합니다.
     1. *TrustFrameworkBase.xml*
-    1. *TrustFrameworkExtensions.xml*
-    1. *SignUpOrSignin.xml*
-    1. *ProfileEdit.xml*
-    1. *PasswordReset.xml*
+    2. *TrustFrameworkLocalization.xml*
+    3. *TrustFrameworkExtensions.xml*
+    4. *SignUpOrSignin.xml*
+    5. *ProfileEdit.xml*
+    6. *PasswordReset.xml*
 
 파일을 업로드하면 Azure에서 각 파일에 `B2C_1A_` 접두사를 추가합니다.
 
@@ -305,14 +299,35 @@ GitHub에서 사용자 지정 정책 시작 팩을 가져온 다음, Azure AD B2
 1. 사용자 지정 정책의 개요 페이지에 있는 **애플리케이션 선택** 에서 이전에 등록한 *webapp1* 이라는 웹 애플리케이션을 선택합니다.
 1. **회신 URL** `https://jwt.ms`인지 확인합니다.
 1. **지금 실행** 을 선택합니다.
-1. 이메일 주소를 사용하여 가입합니다.
+1. 이메일 주소를 사용하여 가입합니다. 아직 **Facebook** 옵션을 사용하지 마세요. 
 1. **지금 실행** 을 다시 선택합니다.
 1. 동일한 계정으로 로그인하여 올바르게 구성되었는지 확인합니다.
 
 ## <a name="add-facebook-as-an-identity-provider"></a>Facebook을 ID 공급자로 추가
 
-[사전 요구 사항](#prerequisites)에 설명된 것처럼, Facebook 은 사용자 지정 정책을 사용하는 데 필요하지 *않지만* 여기서는 사용자 지정 정책에서 페더레이션된 소셜 로그인을 사용하도록 설정하는 방법을 보여 주기 위해 사용되었습니다.
+**SocialAndLocalAccounts** 스타터 팩에는 Facebook 소셜 로그인이 포함되어 있습니다. Facebook은 사용자 지정 정책을 사용하는 데 필요하지 *않지만* 여기서는 사용자 지정 정책에서 페더레이션된 소셜 로그인을 사용하도록 설정하는 방법을 보여주기 위해 사용되었습니다.
 
+### <a name="create-facebook-application"></a>Facebook 애플리케이션 만들기
+
+[Facebook 애플리케이션 만들기](identity-provider-facebook.md#create-a-facebook-application)에 설명된 단계를 사용하여 Facebook *앱 ID* 및 *앱 비밀* 을 가져옵니다. [Facebook 계정으로 가입 및 로그인 설정](identity-provider-facebook.md) 문서의 필수 조건과 나머지 단계를 건너뜁니다. 
+
+### <a name="create-the-facebook-key"></a>Facebook 키 만들기
+
+Facebook 애플리케이션의 [앱 비밀](identity-provider-facebook.md)을 정책 키로 추가합니다. 이 문서의 사전 요구 사항에 따라 만든 애플리케이션의 앱 비밀을 사용할 수 있습니다.
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
+1. 개요 페이지의 **정책** 에서 **Identity Experience Framework** 를 선택합니다.
+1. **정책 키**, **추가** 를 차례로 선택합니다.
+1. **옵션** 으로는 `Manual`을 선택합니다.
+1. **이름** 에 `FacebookSecret`를 입력합니다. `B2C_1A_` 접두사가 자동으로 추가될 수 있습니다.
+1. **비밀** 에 Facebook 애플리케이션의 *앱 비밀*(developers.facebook.com)을 입력합니다. 이 값은 애플리케이션 ID가 아닌 비밀입니다.
+1. **키 사용** 으로는 **서명** 을 선택합니다.
+1. **만들기** 를 선택합니다.
+
+### <a name="update-trustframeworkextensionsxml-in-custom-policy-starter-pack"></a>사용자 지정 정책 스타터 팩에서 TrustFrameworkExtensions.xml 업데이트
 1. `SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`** 파일에서 `client_id`의 값을 Facebook 애플리케이션 ID로 바꿉니다.
 
    ```xml

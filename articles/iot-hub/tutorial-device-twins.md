@@ -7,7 +7,7 @@ ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 06/21/2019
+ms.date: 10/13/2021
 ms.custom:
 - mvc
 - mqtt
@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: IoT Device'
 - devx-track-js
 - devx-track-azurecli
-ms.openlocfilehash: 7dbc0404679927bcef1647dfdf46ce3360216a79
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 21055be377dff564753844e779cae287cab63b03
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821576"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176019"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -261,7 +261,7 @@ az group delete --name tutorial-iot-hub-rg
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 디바이스와 IoT 허브 간에 상태 정보를 동기화하는 방법을 알아보았습니다. 디바이스 쌍을 사용하여 펌웨어 업데이트 프로세스를 구현하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
+이 자습서에서는 디바이스와 IoT 허브 간에 상태 정보를 동기화하는 방법을 알아보았습니다. 디바이스 쌍을 사용하여 디바이스 업데이트 프로세스를 구현하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [디바이스 펌웨어 업데이트 프로세스 구현](tutorial-firmware-update.md)
+> [Raspberry Pi 3 B+ 참조 이미지를 사용하여 Azure IoT Hub 자습서에 대한 디바이스 업데이트를 구현](../iot-hub-device-update/device-update-raspberry-pi.md)합니다.

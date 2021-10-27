@@ -5,21 +5,21 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 10/10/2021
+ms.date: 10/13/2021
 ms.author: memildin
-ms.openlocfilehash: 6a98a5dfbdf47ad9e2b74415786c240b32b3b499
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: e019e0acefe8acb8bf56f829fad38c6ac2a3c1c2
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129754694"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130129019"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Azure Security Center에 예정된 중요한 변경
 
 > [!IMPORTANT]
 > 이 페이지의 정보는 시험판 제품 또는 기능과 관련이 있으며, 이는 상업적으로 릴리스되기 전에 대폭 수정될 수 있습니다. Microsoft는 여기에 제공된 정보와 관련하여 어떠한 명시적 또는 묵시적 약속 또는 보증도 하지 않습니다.
 
-이 페이지에서는 Security Center에 계획된 변경에 대해 알아봅니다. 보안 점수 또는 워크플로와 같은 항목에 영향을 줄 수 있는 제품에 대한 계획된 수정을 설명합니다.
+이 페이지에서는 Security Center에 계획된 변경에 대해 알아봅니다. 이 페이지에서는 보안 점수 또는 워크플로와 같은 항목에 영향을 줄 수 있는 제품에 대한 계획된 수정 사항을 설명합니다.
 
 최신 릴리스 정보를 찾고 있으면 [Azure Security Center의 새로운 기능](release-notes.md)에서 확인할 수 있습니다.
 
@@ -33,6 +33,7 @@ ms.locfileid: "129754694"
 | [엔드포인트 보호 솔루션 관리를 위한 권장 사항 변경](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | 2021년 11월| 
 | [온-프레미스 머신의 인벤토리 표시는 리소스 이름에 대해 다른 템플릿을 사용합니다.](#inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name)    | 2021년 11월    |
 | [ID 권장 사항에 대한 여러 변경 사항](#multiple-changes-to-identity-recommendations)                                                                                          | 2021년 11월    |
+| [Azure Defender for Storage의 보안 경고 변경 내용](#changes-to-a-security-alert-from-azure-defender-for-storage)  | 2021년 11월    |
 | [SQL 데이터베이스의 중요한 데이터 분류에 대한 개선된 권장 사항](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                              | 2022년 1분기    |
 |||
 
@@ -123,7 +124,7 @@ Security Center에는 사용자 및 계정 관리를 개선하기 위한 여러 
     |---------|---------|---------|
     |평가 키     | e52064aa-6853-e252-a11e-dffc675689c2        | 변경 안 됨|
     |이름     |[소유자 권한이 있는 사용되지 않는 계정은 구독에서 제거해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e52064aa-6853-e252-a11e-dffc675689c2)         |Active Directory에서 차단되고 소유자 권한이 있는 계정에서 구독을 제거해야 합니다.        |
-    |설명     |로그인할 수 없도록 차단된 사용자 계정은 구독에서 제거해야 합니다.<br>이러한 계정은 검색하지 않고 데이터에 액세스하는 방법을 찾으려는 공격자의 대상이 될 수 있습니다.|Active Directory 로그인이 차단된 사용자 계정은 구독에서 제거해야 합니다. 이러한 계정은 검색하지 않고 데이터에 액세스하는 방법을 찾으려는 공격자의 대상이 될 수 있습니다.<br>[Azure Identity Management 및 액세스 제어 보안 모범 사례](/azure/security/fundamentals/identity-management-best-practices.md)에서 ID 경계를 보호하는 방법에 대해 자세히 알아보세요.|
+    |설명     |로그인할 수 없도록 차단된 사용자 계정은 구독에서 제거해야 합니다.<br>이러한 계정은 검색하지 않고 데이터에 액세스하는 방법을 찾으려는 공격자의 대상이 될 수 있습니다.|Active Directory 로그인이 차단된 사용자 계정은 구독에서 제거해야 합니다. 이러한 계정은 검색하지 않고 데이터에 액세스하는 방법을 찾으려는 공격자의 대상이 될 수 있습니다.<br>[Azure Identity Management 및 액세스 제어 보안 모범 사례](/azure/security/fundamentals/identity-management-best-practices)에서 ID 경계를 보호하는 방법에 대해 자세히 알아보세요.|
     |관련 정책     |[소유자 권한이 있는 사용되지 않는 계정은 구독에서 제거해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2febb62a0c-3560-49e1-89ed-27e074e9f8ad)         |Active Directory에서 차단되고 소유자 권한이 있는 계정에서 구독을 제거해야 합니다. |
     |||
 
@@ -131,12 +132,31 @@ Security Center에는 사용자 및 계정 관리를 개선하기 위한 여러 
     |---------|---------|---------|
     |평가 키     | 00c6d40b-e990-6acf-d4f3-471e747a27c4        | 변경 안 됨|
     |이름     |[더 이상 사용되지 않는 계정은 구독에서 제거해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/00c6d40b-e990-6acf-d4f3-471e747a27c4)|Active Directory에서 차단되고, 읽기 및 쓰기 권한이 있는 계정에서 구독을 제거해야 합니다.|
-    |설명     |로그인할 수 없도록 차단된 사용자 계정은 구독에서 제거해야 합니다.<br>이러한 계정은 검색하지 않고 데이터에 액세스하는 방법을 찾으려는 공격자의 대상이 될 수 있습니다.|Active Directory 로그인이 차단된 사용자 계정은 구독에서 제거해야 합니다. 이러한 계정은 검색하지 않고 데이터에 액세스하는 방법을 찾으려는 공격자의 대상이 될 수 있습니다.<br>[Azure Identity Management 및 액세스 제어 보안 모범 사례](/azure/security/fundamentals/identity-management-best-practices.md)에서 ID 경계를 보호하는 방법에 대해 자세히 알아보세요.|
+    |설명     |로그인할 수 없도록 차단된 사용자 계정은 구독에서 제거해야 합니다.<br>이러한 계정은 검색하지 않고 데이터에 액세스하는 방법을 찾으려는 공격자의 대상이 될 수 있습니다.|Active Directory 로그인이 차단된 사용자 계정은 구독에서 제거해야 합니다. 이러한 계정은 검색하지 않고 데이터에 액세스하는 방법을 찾으려는 공격자의 대상이 될 수 있습니다.<br>[Azure Identity Management 및 액세스 제어 보안 모범 사례](/azure/security/fundamentals/identity-management-best-practices)에서 ID 경계를 보호하는 방법에 대해 자세히 알아보세요.|
     |관련 정책     |[더 이상 사용되지 않는 계정은 구독에서 제거해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6b1cbf55-e8b6-442f-ba4c-7246b6381474)|Active Directory에서 차단되고, 읽기 및 쓰기 권한이 있는 계정에서 구독을 제거해야 합니다.|
     |||
  
 
 
+
+
+### <a name="changes-to-a-security-alert-from-azure-defender-for-storage"></a>Azure Defender for Storage의 보안 경고 변경 내용
+
+**변경 예상 날짜:** 2021년 11월
+
+Azure Defender for Storage에서 제공하는 미리 보기 경고 중 하나는 검색된 의심스러운 이벤트에 대한 보다 명확한 설명을 제공하기 위해 두 개의 새로운 권장 사항으로 나뉩니다. 이 경고는 Azure Blob Storage에만 해당됩니다.
+
+**경고 유형도 변경되고 있습니다.**
+
+- 변경 전 경고는 다음과 같습니다.<br>
+    "미리 보기 - 공용 스토리지 컨테이너의 익명 검색"<br>(Storage.Blob_ContainerAnonymousScan)
+
+- 이 변경 내용에는 두 가지 권장 사항이 있습니다.
+
+    - "외부 검사 도구 또는 스크립트를 통해 검색된 스토리지 컨테이너 열기"<br>(Storage.Blob_OpenContainersScanning.FailedAttempt)
+    - "외부 검사 스크립트 또는 도구를 통해 열린 스토리지 컨테이너의 성공적인 검색"<br>(Storage.Blob_OpenContainersScanning.SuccessfulDiscovery)
+
+이러한 경고에 대한 자세한 내용은 변경 내용을 릴리스할 때 게시됩니다.
 
 
 ### <a name="enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases"></a>SQL 데이터베이스의 중요한 데이터 분류에 대한 개선된 권장 사항

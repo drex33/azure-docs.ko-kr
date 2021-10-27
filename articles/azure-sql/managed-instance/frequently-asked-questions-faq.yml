@@ -13,12 +13,12 @@ metadata:
   ms.author: mathoma
   ms.reviewer: urmilano, danil, nnikolic
   ms.date: 09/21/2020
-  ms.openlocfilehash: 9e908764ce860c045403048623d0a50b7b5d738b
-  ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+  ms.openlocfilehash: 7cc6b21fac7efbb183a57506c9fd966a4320544c
+  ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/26/2021
-  ms.locfileid: "114690276"
+  ms.lasthandoff: 10/15/2021
+  ms.locfileid: "130046395"
 title: Azure SQL Managed Instance FAQ(질문과 대답)
 summary: >
   [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -47,14 +47,14 @@ sections:
       ### <a name="where-can-i-find-known-issues-and-defects"></a>알려진 문제 및 결함은 어디서 찾을 수 있나요?
 
 
-      제품 결함 및 알려진 문제는 [알려진 문제](../database/doc-changes-updates-release-notes.md#known-issues)를 참조하세요.
+      제품 결함 및 알려진 문제는 [알려진 문제](doc-changes-updates-known-issues.md)를 참조하세요.
   - question: >
       새로운 기능
     answer: >
       ### <a name="where-can-i-find-latest-features-and-the-features-in-public-preview"></a>공개 미리 보기의 최신 기능과 특징은 어디서 찾을 수 있나요?
 
 
-      새 기능과 미리 보기 기능은 [릴리스 정보](../database/doc-changes-updates-release-notes.md?tabs=managed-instance)를 참조하세요.
+      새 기능과 미리 보기 기능은 [새로운 기능](doc-changes-updates-release-notes-whats-new.md)을 참조하세요.
   - question: >
       SQL Managed Instance 만들기, 업데이트, 삭제 또는 이동
     answer: "### <a name=\"how-can-i-provision-sql-managed-instance\"></a>SQL Managed Instance를 프로비저닝하려면 어떻게 할까요?\n\n[Azure Portal](instance-create-quickstart.md), [PowerShell](scripts/create-configure-managed-instance-powershell.md), [Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) 및 [ARM 템플릿](/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates)에서 인스턴스를 프로비저닝할 수 있습니다.\n\n### <a name=\"can-i-provision-managed-instances-in-an-existing-subscription\"></a>기존 구독에서 Managed Instance를 프로비저닝할 수 있나요?\n\n예, 구독이 [지원되는 구독 형식](resource-limits.md#supported-subscription-types)에 속하는 경우 기존 구독에서 Managed Instance를 프로비저닝할 수 있습니다.\n\n### <a name=\"why-couldnt-i-provision-a-managed-instance-in-the-subnet-which-name-starts-with-a-digit\"></a>이름이 숫자로 시작하는 서브넷에 Managed Instance를 프로비저닝할 수 없는 이유는 무엇인가요?\n\n이는 regex ^[a-zA-Z_][^\\\\\\/\\:\\*\\?\\\"\\<\\>\\|\\`\\'\\^]*(?<![\\.\\s])$에 대해 서브넷 이름을 확인하는 기본 구성 요소의 현재 제한 사항입니다. regex를 통과하고 유효한 서브넷 이름인 모든 이름이 현재 지원됩니다.\n\n### <a name=\"how-can-i-scale-my-managed-instance\"></a>관리형 인스턴스는 어떻게 스케일링할 수 있나요?\n\n[Azure portal](../database/service-tiers-vcore.md?tabs=azure-portal), [PowerShell](/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [Azure CLI](/cli/azure/sql/mi#az_sql_mi_update) 또는 [ARM 템플릿](/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates)에서 관리형 인스턴스를 스케일링할 수 있습니다.\n\n### <a name=\"can-i-move-my-managed-instance-from-one-region-to-another\"></a>Managed Instance를 한 지역에서 다른 지역으로 이동할 수 있나요?\n\n예, 할 수 있습니다. 지침은 [영역 간 리소스 이동](../database/move-resources-across-regions.md)을 참조하세요.\n\n### <a name=\"how-can-i-delete-my-managed-instance\"></a>Managed Instance는 어떻게 삭제할 수 있나요?\n\nAzure Portal, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance), [Azure CLI](/cli/azure/sql/mi#az_sql_mi_delete) 또는 [Resource Manager REST API](/rest/api/sql/managedinstances/delete)를 통해 Managed Instance를 삭제할 수 있습니다.\n\n### <a name=\"how-much-time-does-it-take-to-create-or-update-an-instance-or-to-restore-a-database\"></a>인스턴스를 만들거나 업데이트 또는 데이터베이스를 복원하려면 시간이 얼마나 걸리나요?\n\n관리형 인스턴스를 새로 만들거나 서비스 계층(vCore, 스토리지)을 변경하는 데 걸리는 예상 시간은 여러 요소에 따라 달라집니다. [관리 작업](sql-managed-instance-paas-overview.md#management-operations)을 참조하세요.\n \n"

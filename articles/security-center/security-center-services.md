@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/18/2021
 ms.custom: references_regions
 ms.author: memildin
-ms.openlocfilehash: 21c453da9a2e84e4e936b92f04748854cbd928d3
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 4bb46ed8146067c44f2d4a602f3c8b1831340d7a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129710740"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003537"
 ---
 # <a name="feature-coverage-for-machines"></a>머신에 대한 기능 적용 범위
 
@@ -93,8 +93,13 @@ ms.locfileid: "129710740"
 | Symantec v12.1.1100+                                      | Windows Server(전체)                                   | 예                           | 예                       |
 | McAfee v10+                                               | Windows Server(전체)                                   | 예                           | 예                       |
 | McAfee v10+                                               | Linux(미리 보기)                                        | 예                           | 예                       |
+| Linux의 엔드포인트용 Microsoft Defender<sup>[1](#footnote1)</sup>  | Linux(미리 보기)                                        | 확장을 통해                | No                        |  
 | Sophos V9+                                                | Linux(미리 보기)                                        | 예                           | 예                       |
 |                                                           |                                                        |                              |                           |
+
+<sup><a name="footnote1" /></a>1</sup> Linux 머신에 엔드포인트용 Microsoft Defender를 사용하는 것만으로는 충분하지 않습니다. AV 구성 요소가 활성 상태인 경우에만 컴퓨터가 정상으로 표시됩니다.
+기본적으로 AV 구성 요소는 다른 AV 소프트웨어와의 충돌을 방지하기 위해 **비활성화** 되어 있습니다.
+
 
 
 

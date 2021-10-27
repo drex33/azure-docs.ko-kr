@@ -1,0 +1,33 @@
+- name: Confluent Cloud Azure 통합 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure의 Confluent Cloud란?
+      href: overview.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: Azure portal
+      href: create.md
+    - name: Azure CLI
+      href: create-cli.md
+      displayName: 'Azure CLI, az confluent organization create, az confluent organization wait, az confluent organization list, az confluent organization show'
+- name: 방법
+  items:
+    - name: 커넥터 추가
+      href: add-connectors.md
+    - name: 관리
+      href: manage.md
+      displayName: 'Azure CLI, az confluent organization delete'
+    - name: 문제 해결
+      items:
+        - name: 지원 받기
+          href: get-support.md
+        - name: 일반 오류 수정
+          href: troubleshoot.md
+- name: 참조
+  items:
+    - name: Azure CLI
+      href: /cli/azure/confluent
+    - name: Azure PowerShell
+      href: /powershell/module/az.confluent/#confluent

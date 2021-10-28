@@ -3,12 +3,12 @@ title: '빠른 시작: .NET용 QnA Maker 클라이언트 라이브러리'
 description: 이 빠른 시작에서는 .NET용 QnA Maker 클라이언트 라이브러리를 시작하는 방법을 보여줍니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다.  QnA Maker를 사용하면 FAQ 문서, URL 및 제품 설명서와 같은 반구조적 내용에서 질문과 대답 서비스를 사용할 수 있습니다.
 ms.topic: quickstart
 ms.date: 04/28/2021
-ms.openlocfilehash: e59f2137af303242ef2747e2b3430dd9e081c6aa
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 65b0ec019061f0cd2fc38983441fec12edd50b99
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110487319"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130287362"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/version-1)
 
@@ -346,7 +346,7 @@ JSON 개체를 전송하여 기술 자료를 관리합니다. 즉각적인 작�
 
 QnAMakerRuntimeClient를 사용하여 다음을 수행합니다.
 * 기술 자료에서 답변을 가져와서
-* [활성 학습](../concepts/active-learning-suggestions.md)에 대한 기술 자료에 새로운 제안 질문을 보냅니다.
+* [활성 학습](../index.yml)에 대한 기술 자료에 새로운 제안 질문을 보냅니다.
 
 ## <a name="generate-an-answer-from-the-knowledge-base"></a>기술 자료에서 답변 생성
 

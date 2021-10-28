@@ -4,7 +4,7 @@ description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 editor: ''
 ms.service: active-directory
 ms.subservice: pim
@@ -14,12 +14,12 @@ ms.date: 04/20/2021
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd211c284ef5240e3f658d90c5d801018a02b9bf
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 36f78327459c8bf6efc3a1cad9d4c5b306e4ba1f
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790184"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129668317"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할에 대한 작업 및 감사 기록 보기
 

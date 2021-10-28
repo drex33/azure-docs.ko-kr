@@ -3,22 +3,22 @@ title: AD FS 지원(Java용 MSAL)
 titleSuffix: Microsoft identity platform
 description: MSAL4j(Java용 Microsoft 인증 라이브러리)의 AD FS(Active Directory Federation Services) 지원에 대해 알아봅니다.
 services: active-directory
-author: sangonzal
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/21/2019
-ms.author: sagonzal
+ms.author: marsma
 ms.reviewer: nacanuma
 ms.custom: aaddev, devx-track-java
-ms.openlocfilehash: 82e3f3b32c6d96b83ec1d0402f344e7d65788c06
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9eea63573d2da462d055a784353a18bcee822998
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98063708"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601162"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-java"></a>Java용 MSAL의 Active Directory Federation Services 지원
 

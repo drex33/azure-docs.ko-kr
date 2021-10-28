@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: daf339a1ba79212f82a853a209068c97c13b29f8
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 7c3e4441289b2b17cf772df73f3c53caa465813e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111966010"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124732578"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>모든 앱을 Azure AD와 통합하는 5단계
 
@@ -74,7 +74,7 @@ Azure AD(Azure Active Directory)에는 수천 개의 사전 통합 애플리케�
 
 ![다이어그램은 온-프레미스 앱, LOB(기간 업무) 앱, SaaS 앱, 그리고 Azure AD를 경유하는 Office 365 등이 모두 점선으로 Active Directory 및 AD FS에 연결된 모습을 보여줍니다.](\media\five-steps-to-full-application-integration-with-azure-ad\adfs-integration-1.png)
 
-이 구성은 ID 관리 솔루션의 [중심을 ADFS에서 AZURE AD로 변경](../manage-apps/migrate-adfs-apps-to-azure.md)하면 업그레이드가 가능합니다. 이렇게 하면 직원들이 액세스하려고 하는 모든 앱에 로그온할 수 있으며, 위에서 언급한 기타 혜택 외에도 직원이 [MyApps 포털](../user-help/my-apps-portal-end-user-access.md)을 통해 필요한 모든 비즈니스 애플리케이션을 쉽게 찾을 수 있습니다.
+이 구성은 ID 관리 솔루션의 [중심을 ADFS에서 AZURE AD로 변경](../manage-apps/migrate-adfs-apps-to-azure.md)하면 업그레이드가 가능합니다. 이렇게 하면 직원들이 액세스하려고 하는 모든 앱에 로그온할 수 있으며, 위에서 언급한 기타 혜택 외에도 직원이 [MyApps 포털](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)을 통해 필요한 모든 비즈니스 애플리케이션을 쉽게 찾을 수 있습니다.
 
 ![다이어그램은 Active Directory 및 AD FS를 경유하는 온-프레미스 앱, LOB(기간 업무) 앱, SaaS 앱, Office 365 등이 모두 점선으로 Azure Active Directory에 연결된 모습을 보여줍니다.](\media\five-steps-to-full-application-integration-with-azure-ad\adfs-integration-2.png)
 

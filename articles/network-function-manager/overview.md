@@ -1,18 +1,18 @@
 ---
 title: Azure 네트워크 기능 관리자 정보
 description: Azure Portal을 사용하는 일관된 하이브리드 환경을 위해 Azure Stack Edge Pro with GPU에서 네트워크 함수를 배포하고 프로비저닝할 수 있는 완전 관리형 클라우드 네이티브 오케스트레이션 서비스인 Azure Network Function Manager에 관해 알아봅니다.
-author: cherylmc
+author: prmitt
 ms.service: network-function-manager
 ms.topic: overview
 ms.date: 06/16/2021
-ms.author: cherylmc
+ms.author: prmitt
 ms.custom: references_regions
-ms.openlocfilehash: df063a5b19e9287e1275683719d2d41a13200b5e
-ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
+ms.openlocfilehash: c64dd8ca25ee4b39533022e83e572442cc7529c5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113128933"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130263347"
 ---
 # <a name="what-is-azure-network-function-manager-preview"></a>Azure 네트워크 기능 관리자란? (미리 보기)
 

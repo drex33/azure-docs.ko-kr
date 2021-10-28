@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: duau
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e65c021cf858a634fc7ee9466cd502257c613d52
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 79d49a7a9acd30a9af03921c774e6b2430dc848b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110702473"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130228947"
 ---
 # <a name="tutorial-create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>자습서: PowerShell을 사용하여 ExpressRoute 회로의 피어링 만들기 및 수정
 
@@ -163,11 +163,6 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ## <a name="azure-private-peering"></a><a name="private"></a>Azure 프라이빗 피어링
 
 이 섹션은 ExpressRoute 회로에 Azure 프라이빗 피어링 구성을 만들고 가져오며 업데이트하고 삭제하는 데 도움이 됩니다.
-
-> [!IMPORTANT]
-> 개인 피어링에 대한 IPv6 지원은 현재 **공개 미리 보기** 로 제공됩니다. 
-> 
-> 
 
 ### <a name="to-create-azure-private-peering"></a>Azure 프라이빗 피어링을 만들려면
 

@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04f7b5a7757d402035e36aaf085de9033d046ba2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 52e50aa4097dbb405b0c37a96426440fdf002810
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535511"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763142"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Azure Active Directory 개요에 대해 결합된 보안 정보 등록
 
@@ -32,7 +32,7 @@ ms.locfileid: "122535511"
 
 ![사용자에 대해 등록된 보안 정보를 표시하는 내 계정](media/concept-registration-mfa-sspr-combined/combined-security-info-defaults-registered.png)
 
-새 환경을 사용하도록 설정하기 전에 이 기능의 기능과 영향을 이해할 수 있도록 이 관리자 중심 설명서 및 사용자 중심의 설명서를 검토합니다. 학습은 [사용자용 설명 문서](../user-help/security-info-setup-signin.md)를 기반으로 하여 사용자가 새로운 환경을 준비하도록 하고 성공적인 출시를 보장하는 데 도움이 됩니다.
+새 환경을 사용하도록 설정하기 전에 이 기능의 기능과 영향을 이해할 수 있도록 이 관리자 중심 설명서 및 사용자 중심의 설명서를 검토합니다. 학습은 [사용자용 설명 문서](https://support.microsoft.com/account-billing/set-up-your-security-info-from-a-sign-in-prompt-28180870-c256-4ebf-8bd7-5335571bf9a8)를 기반으로 하여 사용자가 새로운 환경을 준비하도록 하고 성공적인 출시를 보장하는 데 도움이 됩니다.
 
 Azure AD 결합 보안 정보 등록은 Azure US Government에서 사용할 수 있지만 Azure 독일 또는 Azure 중국 21Vianet에서는 사용할 수 없습니다.
 

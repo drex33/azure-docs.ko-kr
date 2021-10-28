@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: b95286169df2960d8e7297a493354b8f01e2f667
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 1bde9622dd649d24de26f38a282d075a46bbaee2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112029696"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124773762"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication용 NPS 확장의 오류 메시지 해결
 
@@ -51,14 +51,14 @@ Azure AD Multi-Factor Authentication용 NPS 확장에서 오류가 발생하는 
 | 오류 코드 | 오류 메시지 | 문제 해결 단계 |
 | ---------- | ------------- | --------------------- |
 | **AccessDenied** | 호출자 테넌트에 사용자를 인증하기 위한 액세스 권한이 없습니다. | 테넌트 도메인 및 UPN(사용자 계정 이름)의 도메인이 동일한지 확인합니다. 예를 들어 user@contoso.com이 Contoso 테넌트에서 인증을 받으려고 하는지 확인합니다. UPN은 Azure의 테넌트에 대해 유효한 사용자를 나타냅니다. |
-| **AuthenticationMethodNotConfigured** | 지정된 인증 방법이 사용자에 대해 구성되지 않았습니다. | [2단계 인증을 위한 설정 관리](../user-help/multi-factor-authentication-end-user-manage-settings.md)의 지침에 따라 사용자가 확인 방법을 추가하거나 확인하도록 합니다. |
+| **AuthenticationMethodNotConfigured** | 지정된 인증 방법이 사용자에 대해 구성되지 않았습니다. | [2단계 인증을 위한 설정 관리](https://support.microsoft.com/account-billing/change-your-two-step-verification-method-and-settings-c801d5ad-e0fc-4711-94d5-33ad5d4630f7)의 지침에 따라 사용자가 확인 방법을 추가하거나 확인하도록 합니다. |
 | **AuthenticationMethodNotSupported** | 지정된 인증 방법이 지원되지 않습니다. | 이 오류를 포함하는 모든 로그를 수집하고 [지원 서비스에 문의](#contact-microsoft-support)합니다. 지원 서비스에 문의할 때 사용자 이름 및 오류를 트리거한 2차 확인 방법을 제공합니다. |
-| **BecAccessDenied** | MSODS Bec 호출이 액세스 거부 오류를 반환했습니다. 테넌트에 사용자 이름이 정의되지 않은 것 같습니다. | 사용자가 온-프레미스의 Active Directory에 있으나 AD Connect에 의해 Azure AD와 동기화되지 않았습니다. 또는 테넌트에 해당 사용자가 없습니다. Azure AD에 사용자를 추가하고 [2단계 인증을 위한 설정 관리](../user-help/multi-factor-authentication-end-user-manage-settings.md)의 지침에 따라 확인 방법을 추가하도록 합니다. |
+| **BecAccessDenied** | MSODS Bec 호출이 액세스 거부 오류를 반환했습니다. 테넌트에 사용자 이름이 정의되지 않은 것 같습니다. | 사용자가 온-프레미스의 Active Directory에 있으나 AD Connect에 의해 Azure AD와 동기화되지 않았습니다. 또는 테넌트에 해당 사용자가 없습니다. Azure AD에 사용자를 추가하고 [2단계 인증을 위한 설정 관리](https://support.microsoft.com/account-billing/change-your-two-step-verification-method-and-settings-c801d5ad-e0fc-4711-94d5-33ad5d4630f7)의 지침에 따라 확인 방법을 추가하도록 합니다. |
 | **InvalidFormat** 또는 **StrongAuthenticationServiceInvalidParameter** | 전화 번호가 인식할 수 없는 형식입니다. | 사용자가 해당 확인 전화 번호를 수정하도록 합니다. |
 | **InvalidSession** | 지정된 세션이 유효하지 않거나 만료되었을 수 있습니다. | 세션이 완료되는 데 3분 넘게 걸렸습니다. 사용자가 인증 요청을 시작하고 3분 이내에 확인 코드를 입력하는지 또는 앱 알림 인증 요청에 응답하는지 확인합니다. 그러도 문제가 해결되지 않으면 클라이언트, 서버 NAS, NPS 서버 및 Azure AD MFA 엔드포인트 간에 네트워크 대기 시간이 없는지 확인합니다.  |
-| **NoDefaultAuthenticationMethodIsConfigured** | 사용자에 대해 기본 인증 방법이 구성되지 않았습니다. | [2단계 인증을 위한 설정 관리](../user-help/multi-factor-authentication-end-user-manage-settings.md)의 지침에 따라 사용자가 확인 방법을 추가하거나 확인하도록 합니다. 사용자가 기본 인증 방법을 선택했는지와 계정에 대해 해당 방법을 구성했는지 확인합니다. |
+| **NoDefaultAuthenticationMethodIsConfigured** | 사용자에 대해 기본 인증 방법이 구성되지 않았습니다. | [2단계 인증을 위한 설정 관리](https://support.microsoft.com/account-billing/change-your-two-step-verification-method-and-settings-c801d5ad-e0fc-4711-94d5-33ad5d4630f7)의 지침에 따라 사용자가 확인 방법을 추가하거나 확인하도록 합니다. 사용자가 기본 인증 방법을 선택했는지와 계정에 대해 해당 방법을 구성했는지 확인합니다. |
 | **OathCodePinIncorrect** | 잘못된 코드 및 PIN을 입력했습니다. | NPS 확장에서는 이 오류가 발생하지 않습니다. 이 오류가 발생하는 경우 [지원 서비스](#contact-microsoft-support)에서 문제 해결을 위한 지원을 받습니다. |
-| **ProofDataNotFound** | 지정된 인증 방법에 대해 교정 데이터가 구성되지 않았습니다. | 사용자에게 [2단계 인증을 위한 설정 관리](../user-help/multi-factor-authentication-end-user-manage-settings.md)의 지침에 따라 다른 확인 방법을 시도하거나 새 확인 방법을 추가하도록 합니다. 확인 방법이 올바르게 설정되었는지 확인한 후에도 이 오류가 계속 발생하면 [지원 서비스에 문의](#contact-microsoft-support)합니다. |
+| **ProofDataNotFound** | 지정된 인증 방법에 대해 교정 데이터가 구성되지 않았습니다. | 사용자에게 [2단계 인증을 위한 설정 관리](https://support.microsoft.com/account-billing/change-your-two-step-verification-method-and-settings-c801d5ad-e0fc-4711-94d5-33ad5d4630f7)의 지침에 따라 다른 확인 방법을 시도하거나 새 확인 방법을 추가하도록 합니다. 확인 방법이 올바르게 설정되었는지 확인한 후에도 이 오류가 계속 발생하면 [지원 서비스에 문의](#contact-microsoft-support)합니다. |
 | **SMSAuthFailedWrongCodePinEntered** | 잘못된 코드 및 PIN을 입력했습니다. (OneWaySMS) | NPS 확장에서는 이 오류가 발생하지 않습니다. 이 오류가 발생하는 경우 [지원 서비스](#contact-microsoft-support)에서 문제 해결을 위한 지원을 받습니다. |
 | **TenantIsBlocked** | 테넌트가 차단되었습니다. | Azure Portal의 Azure AD 속성 페이지에서 *테넌트 ID* 로 [지원 서비스에 문의](#contact-microsoft-support)합니다. |
 | **UserNotFound** | 지정된 사용자를 찾을 수 없습니다. | 테넌트가 더 이상 Azure AD에서 활성으로 표시되지 않습니다. 구독이 활성 상태인지와 자사 앱을 요청했는지 확인합니다. 또한 인증서 주체의 테넌트가 예상과 같은지 및 인증서가 여전히 유효하고 서비스 사용자에 등록되어 있는지 확인합니다. |
@@ -95,7 +95,7 @@ Azure AD Multi-Factor Authentication용 NPS 확장에서 오류가 발생하는 
 
 ### <a name="troubleshoot-user-accounts"></a>사용자 계정 문제 해결
 
-사용자에게 [2단계 인증 문제가 발생하면](../user-help/multi-factor-authentication-end-user-troubleshoot.md) 문제를 자체 진단하도록 도와주세요.
+사용자에게 [2단계 인증 문제가 발생하면](https://support.microsoft.com/account-billing/common-problems-with-two-step-verification-for-a-work-or-school-account-63acbb9b-16a1-47b9-8619-6a865e8071a5) 문제를 자체 진단하도록 도와주세요.
 
 ### <a name="health-check-script"></a>상태 확인 스크립트
 

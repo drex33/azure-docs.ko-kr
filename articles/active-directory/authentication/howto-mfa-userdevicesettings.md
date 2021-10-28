@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc0be7e50c5cce511fafd7d8b407626bd57659bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: abd69e65f5c280eaac8acb41138cf265be0af113
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98183135"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124763028"
 ---
 # <a name="manage-user-authentication-methods-for-azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication용 사용자 인증 방법 관리
 
@@ -118,4 +118,4 @@ Microsoft Graph API를 사용하여 인증 방법을 관리할 수도 있습니�
 
 이 문서에서는 개별 사용자 설정을 구성하는 방법을 살펴봤습니다. 전체 Azure AD Multi-Factor Authentication 서비스 설정을 구성하려면 [Azure AD Multi-Factor Authentication 설정 구성](howto-mfa-mfasettings.md)을 참조하세요.
 
-사용자에게 도움이 필요한 경우 [Azure AD Multi-Factor Authentication 사용자 가이드](../user-help/multi-factor-authentication-end-user-first-time.md)를 참조하세요.
+사용자에게 도움이 필요한 경우 [Azure AD Multi-Factor Authentication 사용자 가이드](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)를 참조하세요.

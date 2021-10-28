@@ -3,7 +3,7 @@ title: Azure AD ECMA 커넥터 호스트에서 사용할 Microsoft Identity Mana
 description: Azure AD ECMA 커넥터 호스트와 함께 사용할 MIM 동기화에서 커넥터를 만들고 내보내는 방법을 설명합니다.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
@@ -11,12 +11,12 @@ ms.date: 06/01/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0731e35eab3a2872cd3c07e5401577fd51c33323
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 0044f96f58ba3aa868577b0d0664d71daeddbc7f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114437300"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129991074"
 ---
 # <a name="export-a-microsoft-identity-manager-connector-for-use-with-the-azure-ad-ecma-connector-host"></a>Azure AD ECMA 커넥터 호스트에서 사용할 Microsoft Identity Manager 커넥터 내보내기
 
@@ -55,7 +55,4 @@ MIM 동기화에서 이미 ECMA 커넥터가 구성된 경우 10단계로 건너
 ## <a name="next-steps"></a>다음 단계
 
 - [앱 프로비저닝](user-provisioning.md)
-- [Azure AD ECMA 커넥터 호스트 필수 조건](on-premises-ecma-prerequisites.md)
-- [Azure AD ECMA 커넥터 호스트 설치](on-premises-ecma-install.md)
-- [Azure AD ECMA 커넥터 호스트 구성](on-premises-ecma-configure.md)
 - [일반 SQL 커넥터](on-premises-sql-connector-configure.md)

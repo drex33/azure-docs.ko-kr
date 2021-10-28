@@ -3,7 +3,7 @@ title: MSAL을 사용하여 Android에서 앱 간 SSO를 사용하도록 설정�
 titleSuffix: Microsoft identity platform
 description: Android용 MSAL(Microsoft 인증 라이브러리)을 사용하여 모든 애플리케이션에서 Single Sign-On을 사용하도록 설정하는 방법입니다.
 services: active-directory
-author: hamiltonha
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.author: hahamil
+ms.author: marsma
 ms.reviewer: marsma
-ms.openlocfilehash: 8f5e096f5f313f785311c4a6acbaf87fbfe2a38c
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 877ebb2ab58af978896e4cb61989e12bb5731a7c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123034389"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128628917"
 ---
 # <a name="enable-cross-app-sso-on-android-using-msal"></a>MSAL을 사용하여 Android에서 앱 간 SSO 사용
 

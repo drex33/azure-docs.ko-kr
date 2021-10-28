@@ -8,16 +8,16 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 7/15/2021
+ms.date: 09/20/2021
 ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 80d2ad6d011633a3db6a63a37f04db5d22f517ba
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: a983da4159f41ae6dfe261b7f42ce20c2d2fa3a4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122537819"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128594748"
 ---
 # <a name="tutorial-configure-azure-active-directory-b2c-with-bloksec-for-passwordless-authentication"></a>자습서: 암호 없는 인증을 위해 BlokSec를 사용하여 Azure Active Directory B2C 구성
 
@@ -114,22 +114,18 @@ BlokSec 통합에는 다음 구성 요소가 포함됩니다.
 ### <a name="part-2---add-a-new-identity-provider-in-azure-ad-b2c"></a>2부 - Azure AD B2C에서 새 ID 공급자 추가
 
 1. Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/#home)에 로그인합니다.
-
-2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
-
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다. 
-
-4. **대시보드 >Azure Active Directory B2C >ID 공급자** 로 이동합니다.
-
-5. 새 **OpenID Connect 공급자** 를 선택합니다.
-
-6. **추가** 를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다. 
+1. **대시보드 >Azure Active Directory B2C >ID 공급자** 로 이동합니다.
+1. 새 **OpenID Connect 공급자** 를 선택합니다.
+1. **추가** 를 선택합니다.
 
 ### <a name="part-3---configure-an-identity-provider"></a>3부 - ID 공급자 구성
 
 1. **ID 공급자 유형 > OpenID Connect** 를 선택합니다.
 
-2. 양식을 작성하여 ID 공급자를 설정합니다.
+1. 양식을 작성하여 ID 공급자를 설정합니다.
 
 |속성  |값  |
 |:---------|:---------|
@@ -141,11 +137,11 @@ BlokSec 통합에는 다음 구성 요소가 포함됩니다.
 |응답 형식|코드|
 |도메인 힌트|yuID|
 
-3. **확인** 을 선택합니다.
+1. **확인** 을 선택합니다.
 
-4. **이 ID 공급자의 클레임 매핑** 을 선택합니다.
+1. **이 ID 공급자의 클레임 매핑** 을 선택합니다.
 
-5. 양식을 작성하여 ID 공급자를 매핑합니다.
+1. 양식을 작성하여 ID 공급자를 매핑합니다.
 
 |속성  |값  |
 |:---------|:---------|
@@ -155,15 +151,15 @@ BlokSec 통합에는 다음 구성 요소가 포함됩니다.
 |Surname|family_name|
 |메일|이메일|
 
-6. **저장** 을 선택하여 새 OIDC ID 공급자에 대한 설정을 완료합니다.  
+1. **저장** 을 선택하여 새 OIDC ID 공급자에 대한 설정을 완료합니다.  
 
 ### <a name="part-4---user-registration"></a>4부 - 사용자 등록
 
 1. 이전에 제공된 자격 증명을 사용하여 BlokSec 관리 콘솔에 로그인합니다.
 
-2. 이전에 만든 Azure AD B2C 애플리케이션으로 이동합니다. 오른쪽 상단에서 기어 아이콘을 선택한 다음 **계정 만들기** 를 선택합니다.  
+1. 이전에 만든 Azure AD B2C 애플리케이션으로 이동합니다. 오른쪽 상단에서 기어 아이콘을 선택한 다음 **계정 만들기** 를 선택합니다.  
 
-3. 계정 만들기 양식에 사용자 정보를 입력하고 계정 이름을 기록한 다음 **제출** 을 선택합니다.  
+1. 계정 만들기 양식에 사용자 정보를 입력하고 계정 이름을 기록한 다음 **제출** 을 선택합니다.  
 
 사용자는 제공한 이메일 주소로 **계정 등록 이메일** 을 받게 됩니다. 사용자가 BlokSec yuID 앱이 설치된 모바일 디바이스에서 등록 링크를 따르도록 합니다.
 
@@ -173,23 +169,23 @@ BlokSec 통합에는 다음 구성 요소가 포함됩니다.
 
 1. Azure AD B2C 테넌트에서, **정책** 아래 **사용자 흐름** 을 선택합니다.  
 
-2. **새 사용자 흐름** 을 선택합니다.
+1. **새 사용자 흐름** 을 선택합니다.
 
-3. **가입 및 로그인** > **버전** > **만들기** 를 선택합니다.
+1. **가입 및 로그인** > **버전** > **만들기** 를 선택합니다.
 
-4. 정책의 **이름** 을 입력합니다.
+1. 정책의 **이름** 을 입력합니다.
 
-5. ID 공급자 섹션에서 새로 만든 BlokSec ID 공급자를 선택합니다.  
+1. ID 공급자 섹션에서 새로 만든 BlokSec ID 공급자를 선택합니다.  
 
-6. 이메일 및 암호 기반 인증을 사용하지 않도록 설정하려면 로컬 계정에 대해 **없음** 을 선택합니다.
+1. 이메일 및 암호 기반 인증을 사용하지 않도록 설정하려면 로컬 계정에 대해 **없음** 을 선택합니다.
 
-7. **사용자 흐름 실행** 을 선택합니다.
+1. **사용자 흐름 실행** 을 선택합니다.
 
-8. 양식에서 회신 URL을 입력합니다(예: https://jwt.ms ).
+1. 양식에서 회신 URL을 입력합니다(예: https://jwt.ms ).
 
-9. 브라우저가 BlokSec 로그인 페이지로 리디렉션됩니다. 사용자 등록 시 등록한 계정 이름을 입력합니다. 사용자는 BlokSec yuID 애플리케이션이 설치된 모바일 디바이스로 푸시 알림을 받게 됩니다. 알림을 열면 사용자에게 인증 질문이 표시됩니다.
+1. 브라우저가 BlokSec 로그인 페이지로 리디렉션됩니다. 사용자 등록 시 등록한 계정 이름을 입력합니다. 사용자는 BlokSec yuID 애플리케이션이 설치된 모바일 디바이스로 푸시 알림을 받게 됩니다. 알림을 열면 사용자에게 인증 질문이 표시됩니다.
 
-10. 인증 질문이 수락되면 브라우저가 사용자를 회신 URL로 리디렉션합니다.  
+1. 인증 질문이 수락되면 브라우저가 사용자를 회신 URL로 리디렉션합니다.  
 
 ## <a name="next-steps"></a>다음 단계 
 
@@ -211,24 +207,16 @@ BlokSec 통합에는 다음 구성 요소가 포함됩니다.
 이전에 Azure AD B2C 테넌트에서 기록했던 클라이언트 암호를 저장합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-
-2. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 최상위 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 테넌트가 포함된 디렉터리를 선택합니다.
-
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
-
-4. 개요 페이지에서 **ID 경험 프레임워크** 를 선택합니다.
-
-5. **정책 키**, **추가** 를 차례로 선택합니다.
-
-6. **옵션** 으로는 `Manual`을 선택합니다.
-
-7. 정책 키의 **이름** 을 입력합니다. `BlokSecAppSecret`)을 입력합니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
-
-8. 이전에 기록해 두었던 클라이언트 비밀을 **비밀** 에 입력합니다.
-
-9. **키 사용** 에서 `Signature`를 선택합니다.
-
-10. **만들기** 를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+1. 개요 페이지에서 **ID 경험 프레임워크** 를 선택합니다.
+1. **정책 키**, **추가** 를 차례로 선택합니다.
+1. **옵션** 으로는 `Manual`을 선택합니다.
+1. 정책 키의 **이름** 을 입력합니다. 예들 들어 `BlokSecAppSecret`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
+1. 이전에 기록해 두었던 클라이언트 비밀을 **비밀** 에 입력합니다.
+1. **키 사용** 에서 `Signature`를 선택합니다.
+1. **만들기** 를 선택합니다.
 
 ### <a name="part-3---configure-bloksec-as-an-identity-provider"></a>3부 - BlokSec를 ID 공급자로 구성
 
@@ -347,23 +335,18 @@ BlokSec 통합에는 다음 구성 요소가 포함됩니다.
 ### <a name="part-7---upload-the-custom-policy"></a>7부 - 사용자 지정 정책 업로드
 
 1. [Azure Portal](https://portal.azure.com/#home)에 로그인합니다.
-
-2. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
-
-3. [Azure Portal](https://portal.azure.com/#home)에서 **Azure AD B2C** 를 검색하고 선택합니다.
-
-4. 정책에서 **Identity Experience Framework** 를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/#home)에서 **Azure AD B2C** 를 검색하고 선택합니다.
+1. 정책에서 **Identity Experience Framework** 를 선택합니다.
 **사용자 지정 정책 업로드** 를 선택한 다음, 변경한 두 정책 파일을 확장 정책(예: `TrustFrameworkExtensions.xml`), 신뢰 당사자 정책(예: `SignUpSignIn.xml`) 순으로 업로드합니다.
 
 ### <a name="part-8---test-your-custom-policy"></a>8부 - 사용자 지정 정책 테스트
 
 1. 신뢰 당사자 정책(예: `B2C_1A_signup_signin`)을 선택합니다.
-
-2. **애플리케이션** 에서 [이전에 등록된](./tutorial-register-applications.md) 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
-
-3. **지금 실행** 단추를 선택합니다.
-
-4. 등록 또는 로그인 페이지에서 **Google** 을 선택하여 Google 계정으로 로그인합니다.
+1. **애플리케이션** 에서 [이전에 등록된](./tutorial-register-applications.md) 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **지금 실행** 단추를 선택합니다.
+1. 등록 또는 로그인 페이지에서 **Google** 을 선택하여 Google 계정으로 로그인합니다.
 
 로그인 프로세스가 성공하면 브라우저가 Azure AD B2C에서 반환된 토큰의 내용을 표시하는 `https://jwt.ms`로 리디렉션됩니다.
 

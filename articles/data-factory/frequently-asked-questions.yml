@@ -5,14 +5,15 @@ metadata:
   author: ssabat
   ms.author: susabat
   ms.service: data-factory
+  ms.subservice: 
   ms.topic: conceptual
   ms.date: 07/23/2021
-  ms.openlocfilehash: 2954ccd8eb20458cbd286463d3c914a63a85dd56
-  ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-  ms.translationtype: HT
+  ms.openlocfilehash: 792d61cf017fc098db92b0ac1ec4670a08456069
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+  ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/27/2021
-  ms.locfileid: "123104232"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "130555840"
 title: Azure Data Factory FAQ
 summary: "[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]\n\n이 아티클에서는 Azure Data Factory에 대한 질문과 대답을 제공합니다.  \n"
 sections:

@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: b8fc67076418678f6c53331dc6d0fbe0e7e7a0b1
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 8a43995dd125a658e2efd397745a91d7bd822e00
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111410030"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226037"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-package-agent-on-ubuntu-server-1804-x64"></a>Ubuntu Server 18.04 x64에서 패키지 에이전트를 사용하는 Azure IoT Hub에 대한 디바이스 업데이트 자습서
 
@@ -35,7 +35,7 @@ IoT Hub에 대한 디바이스 업데이트는 이미지 기반 및 패키지 �
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * 아직 수행하지 않은 경우 IoT Hub 구성을 포함하여 [디바이스 업데이트 계정 및 인스턴스](create-device-update-account.md)를 만듭니다.
-* [IoT Edge 디바이스에 대한 연결 문자열](../iot-edge/how-to-register-device.md?view=iotedge-2020-11&preserve-view=true#view-registered-devices-and-retrieve-connection-strings)
+* [IoT Edge 디바이스에 대한 연결 문자열](../iot-edge/how-to-provision-single-device-linux-symmetric.md?view=iotedge-2020-11&preserve-view=true#view-registered-devices-and-retrieve-provisioning-information)
 
 ## <a name="prepare-a-device"></a>디바이스 준비
 ### <a name="using-the-automated-deploy-to-azure-button"></a>자동화된 Azure에 배포 단추 사용
@@ -59,7 +59,7 @@ IoT Hub에 대한 디바이스 업데이트는 이미지 기반 및 패키지 �
 
     **관리자 사용자 이름**: 배포에 대한 루트 권한이 제공되는 사용자 이름입니다.
 
-    **디바이스 연결 문자열**: 의도한 [IoT Hub](../iot-hub/about-iot-hub.md) 내에 만들어진 디바이스에 대한 [디바이스 연결 문자열](../iot-edge/how-to-register-device.md)입니다.
+    **디바이스 연결 문자열**: 의도한 [IoT Hub](../iot-hub/about-iot-hub.md) 내에 만들어진 디바이스에 대한 [디바이스 연결 문자열](../iot-edge/how-to-provision-single-device-linux-symmetric.md#view-registered-devices-and-retrieve-provisioning-information)입니다.
 
     **VM 크기**: 배포할 가상 머신의 [크기](../cloud-services/cloud-services-sizes-specs.md)입니다.
 
@@ -88,7 +88,7 @@ IoT Hub에 대한 디바이스 업데이트는 이미지 기반 및 패키지 �
 ### <a name="optional-manually-prepare-a-device"></a>(선택 사항) 수동으로 디바이스 준비
 [클라우드 초기화 스크립트](https://github.com/Azure/iotedge-vm-deploy/blob/1.2.0-rc4/cloud-init.txt)에 의해 자동화된 단계와 유사하게 디바이스를 설치하고 구성하는 수동 단계는 다음과 같습니다. 이러한 단계는 물리적 디바이스를 준비하는 데 사용할 수 있습니다.
 
-1. 지침에 따라 [Azure IoT Edge 런타임을 설치](../iot-edge/how-to-install-iot-edge.md?view=iotedge-2020-11&preserve-view=true)합니다.
+1. 지침에 따라 [Azure IoT Edge 런타임을 설치](../iot-edge/how-to-provision-single-device-linux-symmetric.md?view=iotedge-2020-11&preserve-view=true)합니다.
    > [!NOTE]
    > 디바이스 업데이트 패키지 에이전트는 IoT Edge에 종속되지 않습니다. 그러나 IoT Edge(1.2.0 이상)와 함께 설치되는 IoT ID 서비스 디먼을 사용하여 ID를 가져오고 IoT Hub에 연결합니다.
    >

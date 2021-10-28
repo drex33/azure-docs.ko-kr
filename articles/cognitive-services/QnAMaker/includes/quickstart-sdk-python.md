@@ -3,12 +3,12 @@ title: '빠른 시작: Python용 QnA Maker 클라이언트 라이브러리'
 description: 이 빠른 시작에서는 Python용 QnA Maker 클라이언트 라이브러리를 시작하는 방법을 보여줍니다.
 ms.topic: include
 ms.date: 06/18/2020
-ms.openlocfilehash: d64946d60162f322d940d4bee7203bfd4b77a4f5
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: b013e65ac28119d1b6bf9547054c92b3f1078a5e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110487205"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130287557"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/version-1)
 
@@ -275,7 +275,7 @@ JSON 개체를 전송하여 기술 자료를 관리합니다. 즉각적인 작�
 
 [!code-python[Authenticate the runtime](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/quickstart.py?name=AuthorizationQuery)]
 
-QnAMakerRuntimeClient를 사용하여 기술 자료에서 답변을 얻거나 새로 제안된 질문을 [활성 학습](../concepts/active-learning-suggestions.md)에 대한 기술 자료에 보냅니다.
+QnAMakerRuntimeClient를 사용하여 기술 자료에서 답변을 얻거나 새로 제안된 질문을 [활성 학습](../index.yml)에 대한 기술 자료에 보냅니다.
 
 ### <a name="generate-an-answer-from-the-knowledge-base"></a>기술 자료에서 답변 생성
 

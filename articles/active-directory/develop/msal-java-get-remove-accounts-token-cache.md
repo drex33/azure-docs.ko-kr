@@ -3,22 +3,22 @@ title: 토큰 캐시에서 계정 가져오기 및 제거(MSAL4j) | Azure
 titleSuffix: Microsoft identity platform
 description: Java용 Microsoft 인증 라이브러리를 사용하여 토큰 캐시에서 계정을 보고 제거하는 방법을 알아봅니다.
 services: active-directory
-author: sangonzal
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 11/07/2019
-ms.author: sagonzal
+ms.author: marsma
 ms.reviewer: navyasri.canumalla
 ms.custom: aaddev, devx-track-java
-ms.openlocfilehash: fc039e06c8c9d75608b60c2f48e86bc5503e5aec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8ea51bfd356e7479f421a6db804ec94bf656284a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96344864"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128612532"
 ---
 # <a name="get-and-remove-accounts-from-the-token-cache-using-msal-for-java"></a>Java용 MSAL을 사용하여 토큰 캐시에서 계정 가져오기 및 제거
 

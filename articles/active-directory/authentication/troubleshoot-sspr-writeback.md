@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 08/11/2021
+ms.date: 08/25/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a96181c86faf983abd349dcb9b287e2f3ac344de
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2f90f98f8e2f46f3f914ec61d2fea4e1946f1604
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536758"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129987806"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>Azure Active Directory의 셀프 서비스 비밀번호 재설정 쓰기 저장 문제 해결
 
@@ -53,13 +53,13 @@ Azure [GOV 엔드포인트](../../azure-government/compare-azure-government-glob
 URL 및 포트에 대한 액세스가 환경에서 제한되는지 확인하려면 다음 cmdlet을 실행합니다.
 
 ```powershell
-Test-NetConnection -ComputerName https://ssprdedicatedsbprodncu.servicebus.windows.net -Port 443
+Test-NetConnection -ComputerName ssprdedicatedsbprodscu.servicebus.windows.net -Port 443
 ```
 
 또는 다음을 실행합니다.
 
 ```powershell
-Invoke-WebRequest -Uri https://ssprdedicatedbprodscu.windows.net -Verbose
+Invoke-WebRequest -Uri https://ssprdedicatedsbprodscu.servicebus.windows.net -Verbose
 ```
 
 자세한 내용은 [Azure AD Connect에 대한 연결 사전 요구 사항](../hybrid/how-to-connect-install-prerequisites.md)을 참조하세요.

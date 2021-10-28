@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/02/2021
-ms.openlocfilehash: 66a00319d2223879c693f8a670ca15808838459c
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 073b8f4efd7651a8ee56b54319d36122cf0e9bc1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121861738"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226303"
 ---
 # <a name="quickstart-connect-an-mxchip-az3166-devkit-to-iot-central"></a>빠른 시작: MXCHIP AZ3166 DevKit를 IoT Central에 연결
 
@@ -31,7 +31,7 @@ ms.locfileid: "121861738"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Microsoft Windows 10을 실행하는 PC
+* Windows 10을 실행하는 PC
 * 리포지토리를 복제하기 위한 [Git](https://git-scm.com/downloads)
 * 하드웨어
 

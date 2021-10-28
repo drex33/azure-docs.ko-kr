@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 1c01488f23b67d3aad54986fa73c4567a6f28365
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f40088be5e4a232d5036f682697e2c25d3ab86c3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749558"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130242107"
 ---
 # <a name="tutorial-develop-c-iot-edge-modules-using-windows-containers"></a>자습서: Windows 컨테이너를 사용하여 C IoT Edge 모듈 개발
 
@@ -53,7 +53,7 @@ Windows 컨테이너를 사용하여 C 모듈을 개발하고 배포하는 옵�
 이 자습서를 시작하기 전에 [Windows 컨테이너를 사용하여 IoT Edge 모듈 개발](tutorial-develop-for-windows.md) 자습서의 지침에 따라 개발 환경을 설정합니다. 설정을 완료하면 다음과 같은 필수 구성 요소가 환경에 포함됩니다.
 
 * Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)입니다.
-* [Azure IoT Edge를 실행하는 Windows 디바이스](how-to-install-iot-edge-windows-on-windows.md)
+* [Azure IoT Edge를 실행하는 Windows 디바이스](how-to-provision-single-device-windows-symmetric.md)
 * [Azure Container Registry](../container-registry/index.yml)와 같은 컨테이너 레지스트리
 * [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) 확장을 사용하여 구성된 [Visual Studio 2019](/visualstudio/install/install-visual-studio)
 * Windows 컨테이너를 실행하도록 구성된 [Docker Desktop](https://docs.docker.com/docker-for-windows/install/)

@@ -3,20 +3,20 @@ title: Azure Active Directory B2C와 itsme OpenID Connect
 titleSuffix: Azure AD B2C
 description: Client_secret 사용자 흐름 정책을 사용하여 itsme OIDC와 Azure AD B2C 인증을 통합하는 방법에 대해 알아봅니다. itsme은 디지털 ID 앱입니다. 카드 판독기, 암호, 2-단계 인증 및 여러 PIN 코드 없이 안전하게 로그인할 수 있습니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/30/2020
-ms.author: mimart
+ms.date: 09/20/2021
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: ba7875caa6a1db7638bfeafcfea1efa7b2462152
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d33746fb39d54fdeb9ed6a6754f22aea14a2a7c
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87489518"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130035907"
 ---
 # <a name="configure-itsme-openid-connect-oidc-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 itsme OpenID Connect (OIDC) 구성
 
@@ -59,11 +59,11 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 1. Itsme를 사용하여 계정을 만들려면 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace)에서 itsme를 방문하세요.
 
-2. onboarding@itsme.be에 이메일을 보내 itsme 계정을 활성화합니다. B2C 설정에 필요한 **파트너 코드** 및 **서비스 코드** 를 받게 됩니다.
+1. onboarding@itsme.be에 이메일을 보내 itsme 계정을 활성화합니다. B2C 설정에 필요한 **파트너 코드** 및 **서비스 코드** 를 받게 됩니다.
 
-3. itsme 파트너 계정이 활성화된 후에는 **클라이언트 암호** 에 대한 일회성 링크를 포함하는 이메일을 받게 됩니다.
+1. itsme 파트너 계정이 활성화된 후에는 **클라이언트 암호** 에 대한 일회성 링크를 포함하는 이메일을 받게 됩니다.
 
-4. [itsme](https://business.itsme.be/en)의 지침에 따라 구성을 완료합니다.
+1. [itsme](https://business.itsme.be/en)의 지침에 따라 구성을 완료합니다.
 
 ## <a name="integrate-with-azure-ad-b2c"></a>Azure AD B2C와 통합
 
@@ -72,13 +72,11 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 > [!NOTE]
 > Azure 구독에 연결된 [Azure AD B2C 테넌트](tutorial-create-tenant.md)가 아직 없으면 만듭니다.
 
-1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
-
-2. **Azure 서비스** 에서 **Azure AD B2C** 를 선택(하거나, **추가 서비스** 를 선택하고 **모든 서비스** 검색 상자를 사용하여 *Azure AD B2C* 를 검색합니다).
-
-3. **ID 공급자** 를 선택한 다음, **새 OpenID Connect 공급자** 를 선택합니다.
-
-4. 다음 정보로 양식을 작성합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. **Azure 서비스** 에서 **Azure AD B2C** 를 선택(하거나, **추가 서비스** 를 선택하고 **모든 서비스** 검색 상자를 사용하여 *Azure AD B2C* 를 검색합니다).
+1. **ID 공급자** 를 선택한 다음, **새 OpenID Connect 공급자** 를 선택합니다.
+1. 다음 정보로 양식을 작성합니다.
 
    |속성 | 값 |
    |------------ |------- |
@@ -94,27 +92,27 @@ Please clarify step 1 in the description below - we don't have steps in this tut
    |표시 이름 | name |
    |이름 | given_name |
    |Surname | family_name |
-   |Email | 이메일|
+   |메일 | 이메일|
 
-5. **저장** 을 선택합니다.
+1. **저장** 을 선택합니다.
 
 ### <a name="configure-a-user-flow"></a>사용자 흐름 구성
 
 1. Azure AD B2C 테넌트에서, **정책** 아래 **사용자 흐름** 을 선택합니다.
 
-2. **새 사용자 흐름** 을 선택합니다.
+1. **새 사용자 흐름** 을 선택합니다.
 
-3. **등록 및 로그인** 을 선택하고, 버전을 선택한 다음, **만들기** 를 선택합니다.
+1. **등록 및 로그인** 을 선택하고, 버전을 선택한 다음, **만들기** 를 선택합니다.
 
-4. **이름** 을 입력합니다.
+1. **이름** 을 입력합니다.
 
-5. **ID 공급자** 섹션에서 **itsme** 를 선택합니다.
+1. **ID 공급자** 섹션에서 **itsme** 를 선택합니다.
 
-6. **만들기** 를 선택합니다.
+1. **만들기** 를 선택합니다.
 
-7. 사용자 흐름 이름을 선택하여 새로 만든 사용자 흐름을 엽니다.
+1. 사용자 흐름 이름을 선택하여 새로 만든 사용자 흐름을 엽니다.
 
-8. **속성** 을 선택하고 다음 값을 조정합니다.
+1. **속성** 을 선택하고 다음 값을 조정합니다.
 
    * **액세스 및 ID 토큰 수명(분)** 를 **5** 로 바꿉니다.
    * **새로 고침 토큰 슬라이딩 윈도우 수명** 을 **만료 없음** 으로 변경합니다.
@@ -123,11 +121,11 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 1. B2C 테넌트에서 **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
 
-2. 애플리케이션의 **이름** 을 입력하고 **리디렉션 URI** 를 입력합니다. 테스트를 위해 `https://jwt.ms`을 입력하십시오.
+1. 애플리케이션의 **이름** 을 입력하고 **리디렉션 URI** 를 입력합니다. 테스트를 위해 `https://jwt.ms`을 입력하십시오.
 
-3. 다단계 인증을 **사용하지 않도록** 설정했는지 확인합니다.
+1. 다단계 인증을 **사용하지 않도록** 설정했는지 확인합니다.
 
-4. **등록** 을 선택합니다.
+1. **등록** 을 선택합니다.
 
    a. 테스트 목적인 경우 **인증** 을 선택하고 **암시적 권한 부여** 에서 **액세스 토큰** 및 **ID 토큰** 확인란을 선택합니다.  
 
@@ -137,24 +135,24 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 1. Azure AD B2C 테넌트에서 **정책** 아래 **사용자 흐름** 을 선택합니다.
 
-2. 이전에 만든 사용자 흐름을 선택합니다.
+1. 이전에 만든 사용자 흐름을 선택합니다.
 
-3. **사용자 흐름 실행** 을 선택합니다.
+1. **사용자 흐름 실행** 을 선택합니다.
 
    a. **애플리케이션**: *등록된 앱을 선택합니다*
 
    b. **회신 URL**: *리디렉션 URL을 선택합니다*
 
-4. itsme **식별** 페이지가 나타납니다.  
+1. itsme **식별** 페이지가 나타납니다.  
 
-5. 휴대폰 번호를 입력한 후 **전송** 을 선택합니다.
+1. 휴대폰 번호를 입력한 후 **전송** 을 선택합니다.
 
-6. itsme 앱에서 작업을 확인합니다.
+1. itsme 앱에서 작업을 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 문서를 참조하세요:
+자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure AD B2C의 사용자 지정 정책](custom-policy-overview.md)
 
-* [Azure AD B2C의 사용자 지정 정책 시작하기](custom-policy-get-started.md?tabs=applications)
+* [Azure AD B2C의 사용자 지정 정책 시작하기](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

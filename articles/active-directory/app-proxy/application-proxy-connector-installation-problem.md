@@ -3,20 +3,20 @@ title: Azure Active Directory 애플리케이션 프록시 에이전트 커넥�
 description: Azure Active Directory용 애플리케이션 프록시 에이전트 커넥터를 설치할 때 발생하는 문제를 해결하는 방법입니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: 5e44dcb52639b8080938ab6d4deea1c165080b52
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.reviewer: ashishj
+ms.openlocfilehash: a3821cbdf6dc7f61d704e4d3c1756dc262398783
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108187049"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129989668"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>애플리케이션 프록시 에이전트 커넥터를 설치할 때 문제 발생
 

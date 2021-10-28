@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 03/18/2020
+ms.date: 10/19/2021
 ms.custom: seodec18
-ms.openlocfilehash: 0981d325b3c5982793ada480a87afc48bf58acf7
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 65852a13188490c3e36cd7481ab967033e0d6e93
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066581"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232369"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>자습서: Azure Container Instance에서 이미지 분류 모델 배포
 
@@ -138,6 +138,7 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
 
 ```python
 %%time
+import uuid
 from azureml.core.webservice import Webservice
 from azureml.core.model import InferenceConfig
 from azureml.core.environment import Environment
@@ -151,8 +152,9 @@ model = Model(ws, 'sklearn_mnist')
 myenv = Environment.get(workspace=ws, name="tutorial-env", version="1")
 inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 
+service_name = 'sklearn-mnist-svc-' + str(uuid.uuid4())[:4]
 service = Model.deploy(workspace=ws, 
-                       name='sklearn-mnist-svc3', 
+                       name=service_name, 
                        models=[model], 
                        inference_config=inference_config, 
                        deployment_config=aciconfig)
@@ -257,7 +259,7 @@ row_sums = conf_mx.sum(axis=1, keepdims=True)
 norm_conf_mx = conf_mx / row_sums
 np.fill_diagonal(norm_conf_mx, 0)
 
-fig = plt.figure(figsize=(8, 5))
+fig = plt.figure(figsize=(8,5))
 ax = fig.add_subplot(111)
 cax = ax.matshow(norm_conf_mx, cmap=plt.cm.bone)
 ticks = np.arange(0, 10, 1)
@@ -312,7 +314,7 @@ for s in sample_indices:
     font_color = 'red' if y_test[s] != result[i] else 'black'
     clr_map = plt.cm.gray if y_test[s] != result[i] else plt.cm.Greys
     
-    plt.text(x=10, y=-10, s=result[i], fontsize=18, color=font_color)
+    plt.text(x=10, y =-10, s=result[i], fontsize=18, color=font_color)
     plt.imshow(X_test[s].reshape(28, 28), cmap=clr_map)
     
     i = i + 1
@@ -329,7 +331,7 @@ import requests
 random_index = np.random.randint(0, len(X_test)-1)
 input_data = "{\"data\": [" + str(list(X_test[random_index])) + "]}"
 
-headers = {'Content-Type': 'application/json'}
+headers = {'Content-Type':'application/json'}
 
 # for AKS deployment you'd need to the service key in the header as well
 # api_key = service.get_key()
@@ -345,7 +347,8 @@ print("prediction:", resp.text)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다른 자습서 및 탐색을 위해 리소스 그룹과 작업 영역을 유지하려면 이 API 호출을 사용하여 Container Instances 배포만 삭제하면 됩니다.
+다른 자습서 및 탐색을 위해 리소스 그룹 및 작업 영역을 유지하려면 이 API 호출을 사용하여 ACI 배포만 삭제하면 됩니다.
+
 
 ```python
 service.delete()

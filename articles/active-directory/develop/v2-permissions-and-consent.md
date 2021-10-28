@@ -12,12 +12,12 @@ ms.date: 07/06/2021
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40, has-adal-ref
-ms.openlocfilehash: fca6234742958f363d45c02780c2d01246ac58a9
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 292bca70ae9ebb8b864e95d9f5eda125a90a597d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539119"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632978"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Microsoft ID 플랫폼의 권한 및 동의
 
@@ -182,6 +182,9 @@ Microsoft 리소스에 있는 일부 높은 수준의 권한은 관리 제한(*a
 * `User.Read.All`을 사용하여 모든 사용자의 전체 프로필 읽기
 * `Directory.ReadWrite.All`를 사용하여 조직의 디렉터리에 데이터 쓰기
 * `Groups.Read.All`을 사용하여 조직 디렉터리의 모든 그룹 읽기
+
+> [!NOTE]
+>Microsoft ID 플랫폼에 대한 권한 부여, 토큰 또는 동의 엔드포인트에 대한 요청에서 리소스 식별자가 범위 매개 변수에서 생략되는 경우 리소스를 Microsoft Graph로 간주됩니다. 예를 들어 `scope=User.Read`는 `https://graph.microsoft.com/User.Read`와 같습니다.
 
 소비자인 사용자가 이러한 종류의 데이터에 대한 액세스 권한을 애플리케이션에 부여할 수 있더라도 조직 사용자는 동일한 종류의 중요한 회사 데이터 세트에 대한 액세스 권한을 부여할 수 없습니다. 애플리케이션이 조직 사용자에게 이러한 사용 권한 중 하나에 대한 액세스를 요청하는 경우 사용자에게는 앱의 사용 권한에 동의할 권한이 부여되지 않음을 나타내는 오류 메시지가 표시됩니다.
 

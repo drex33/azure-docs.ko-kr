@@ -13,12 +13,12 @@ ms.date: 07/16/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 866eb949d124e8d705785c6552672730fe67ece1
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 2ee33ec1ff87a73e31e55f06fe70672314384a6e
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464168"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129059476"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Microsoft ID 플랫폼 및 OAuth 2.0 리소스 소유자 암호 자격 증명
 
@@ -35,7 +35,7 @@ Microsoft ID 플랫폼은 [OAuth 2.0 ROPC(리소스 소유자 암호 자격 증�
 > * 암호가 없는 계정은 ROPC로 로그인할 수 없습니다. 즉, SMS 로그인, FIDO 및 Authenticator 앱과 같은 기능이 해당 흐름에서 작동하지 않습니다. 앱 또는 사용자에게 이러한 기능이 필요한 경우 ROPC가 아닌 다른 흐름을 사용합니다.
 > * 사용자가 [MFA(Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)를 사용하여 애플리케이션에 로그인해야 하는 경우, 사용자가 차단됩니다.
 > * ROPC는 [하이브리드 ID 페더레이션](../hybrid/whatis-fed.md) 시나리오에서 지원되지 않습니다(예: 온-프레미스 계정을 인증하는 데 사용되는 Azure AD 및 ADFS). 사용자가 전체 페이지에서 온-프레미스 ID 공급자로 리디렉션될 경우, Azure AD는 해당 ID 공급자에 대해 사용자 이름 및 암호를 테스트할 수 없습니다. 그러나 [통과 인증](../hybrid/how-to-connect-pta.md)은 ROPC에서 지원됩니다.
-> * 하이브리드 ID 페더레이션 시나리오의 예외는 다음과 같습니다. AllowCloudPasswordValidation이 TRUE로 설정된 홈 영역 검색 정책을 사용하면 온-프레미스 암호가 클라우드와 동기화될 때 ROPC 흐름이 페더레이션된 사용자에 대해 작동할 수 있습니다. 자세한 내용은 [레거시 애플리케이션에 페더레이션된 사용자의 직접 ROPC 인증 사용](../manage-apps/configure-authentication-for-federated-users-portal.md#enable-direct-ropc-authentication-of-federated-users-for-legacy-applications)을 참조하세요.
+> * 하이브리드 ID 페더레이션 시나리오의 예외는 다음과 같습니다. AllowCloudPasswordValidation이 TRUE로 설정된 홈 영역 검색 정책을 사용하면 온-프레미스 암호가 클라우드와 동기화될 때 ROPC 흐름이 페더레이션된 사용자에 대해 작동할 수 있습니다. 자세한 내용은 [레거시 애플리케이션에 페더레이션된 사용자의 직접 ROPC 인증 사용](../manage-apps/home-realm-discovery-policy.md#enable-direct-ropc-authentication-of-federated-users-for-legacy-applications)을 참조하세요.
 
 [!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 

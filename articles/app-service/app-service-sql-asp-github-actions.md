@@ -6,16 +6,16 @@ ms.topic: tutorial
 ms.date: 09/13/2021
 ms.author: jukullam
 ms.custom: github-actions-azure
-ms.openlocfilehash: 01d4293b33eb0756dec8bc9ae870a972959ced89
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a63a51299cf6ffac98dd7514e79c762b2acb67bd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128701967"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236564"
 ---
 # <a name="tutorial-use-github-actions-to-deploy-to-app-service-and-connect-to-a-database"></a>자습서: GitHub Actions를 사용하여 App Service에 배포 및 데이터베이스에 연결
 
-[Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) 백 엔드를 사용하여 ASP.NET Core 애플리케이션을 배포하는 GitHub Actions 워크플로를 설정하는 방법을 알아봅니다. 완료되면 ASP.NET 앱이 Azure에서 실행되고 SQL Database에 연결됩니다. 먼저 [ARM 템플릿](/azure/azure-resource-manager/templates/overview)을 사용하여 리소스를 만듭니다.
+[Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) 백 엔드를 사용하여 ASP.NET Core 애플리케이션을 배포하는 GitHub Actions 워크플로를 설정하는 방법을 알아봅니다. 완료되면 ASP.NET 앱이 Azure에서 실행되고 SQL Database에 연결됩니다. 먼저 [ARM 템플릿](../azure-resource-manager/templates/overview.md)을 사용하여 리소스를 만듭니다.
 
 이 자습서에서는 컨테이너를 사용하지 않습니다. 컨테이너화된 ASP.NET Core 애플리케이션에 배포하려면 [GitHub Actions를 사용하여 컨테이너에 대한 App Service에 배포 및 데이터베이스에 연결](app-service-sql-github-actions.md)을 참조하세요.
 
@@ -89,7 +89,7 @@ az group create --name {resource-group-name} --location {resource-group-location
  
 ## <a name="create-azure-resources"></a>Azure 리소스 만들기
 
-Azure 리소스 만들기 워크플로는 [ARM 템플릿](/azure/azure-resource-manager/templates/overview)을 실행하여 Azure에 리소스를 배포합니다. 워크플로는 다음을 수행합니다.
+Azure 리소스 만들기 워크플로는 [ARM 템플릿](../azure-resource-manager/templates/overview.md)을 실행하여 Azure에 리소스를 배포합니다. 워크플로는 다음을 수행합니다.
 
 - [체크 아웃 작업](https://github.com/marketplace/actions/checkout)을 사용하여 소스 코드를 체크 아웃합니다.
 - [Azure 로그인 작업](https://github.com/marketplace/actions/azure-login)을 사용하여 Azure에 로그인하고 환경 및 Azure 리소스 정보를 수집합니다.

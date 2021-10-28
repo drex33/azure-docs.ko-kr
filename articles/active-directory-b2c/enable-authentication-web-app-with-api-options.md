@@ -2,21 +2,21 @@
 title: Azure Active Directory B2C를 사용하여 웹 API 옵션을 호출하는 웹 애플리케이션을 사용하도록 설정합니다.
 description: 이 문서에서는 여러 가지 방법으로 웹 API 옵션을 호출하는 웹 애플리케이션의 사용을 설정하는 방법에 대해 설명합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 07/05/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 7bc5982d6f0ce4631ba1225964efb4ac2bc9fda4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e6d43846307ddf97983a408c244ff3470bea2641
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642237"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130040876"
 ---
 # <a name="configure-authentication-options-in-a-web-app-that-calls-a-web-api-by-using-azure-ad-b2c"></a>Azure AD B2C를 사용하여 웹 API를 호출하는 웹앱에서 인증 구성 
 

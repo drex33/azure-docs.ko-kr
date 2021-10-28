@@ -3,7 +3,7 @@ title: 매핑을 위해 Azure Active Directory에 특성 동기화
 description: Azure Active Directory 및 SaaS 앱을 사용하여 사용자 프로비저닝을 구성하는 경우 디렉터리 확장 기능을 사용하여 기본값으로 동기화되지 않은 원본 특성을 추가합니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 08/24/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 12679b5e8affe7691cc3bf40d2e4f2f9860d074f
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 12e4423b0b48b2c5abb6f289c7fcf783c40a4d59
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122822547"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990580"
 ---
 # <a name="syncing-extension-attributes-for-azure-active-directory-application-provisioning"></a>Azure Active Directory 애플리케이션 프로비저닝을 위한 확장 특성 동기화
 

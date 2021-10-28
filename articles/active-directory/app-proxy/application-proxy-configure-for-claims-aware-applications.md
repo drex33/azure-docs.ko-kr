@@ -3,20 +3,20 @@ title: 클레임 인식 앱 - Azure Active Directory 애플리케이션 프록�
 description: 사용자의 안전한 원격 액세스를 위해 AD FS 클레임을 허용하는 온-프레미스 ASP.NET 애플리케이션을 게시하는 방법입니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: 0ff8f785589cf35f1b3ff93fe4973c5587c48c74
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.reviewer: ashishj
+ms.openlocfilehash: 50f0f4ead9b44da13eb2a45a96db1caed81a5471
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108187210"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990010"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>애플리케이션 프록시에서 클레임 인식 앱으로 작업
 [클레임 인식 앱](/previous-versions/windows/desktop/legacy/bb736227(v=vs.85))은 STS(보안 토큰 서비스)에 대한 리디렉션을 수행합니다. STS는 토큰의 교환으로 사용자의 자격 증명을 요청한 다음 애플리케이션에 사용자를 리디렉션합니다. 애플리케이션 프록시를 이러한 리디렉션과 함께 작동하도록 하는 몇 가지 방법이 있습니다. 이 문서를 사용하여 클레임 인식 앱에 대한 배포를 구성합니다. 

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d476be7a417cfc31cca76d3409074aaaa281a56
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d9c22974ec3452df9597999eb62569a08eb85dc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98724613"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754404"
 ---
 # <a name="build-resilience-with-device-states"></a>디바이스 상태를 사용하여 복원력 빌드
 
@@ -42,7 +42,7 @@ PRT를 사용하여 애플리케이션에 대한 액세스를 요청하는 경�
 
 * PRT를 사용하여 웹 애플리케이션에 대해 Seamless SSO가 설정된 [지원되는](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji) [확장](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb)에서 [Microsoft Edge](/deployedge/microsoft-edge-security-identity) 또는 Google Chrome을 사용하도록 사용자 브라우저 액세스를 표준화합니다.
 
-* 개인 또는 회사 소유의 iOS 및 Android 디바이스에는 [Microsoft Authenticator 앱](../user-help/user-help-auth-app-overview.md)을 배포합니다. Multi-Factor Authentication 및 암호 없는 로그인 기능 외에도, Microsoft Authenticator 앱에서는 최종 사용자에게 표시되는 인증 프롬프트 수를 줄이면서 [조정된 인증](../develop/msal-android-single-sign-on.md)을 통해 네이티브 애플리케이션에서 Single Sign-On 방식으로 로그인할 수 있도록 합니다.
+* 개인 또는 회사 소유의 iOS 및 Android 디바이스에는 [Microsoft Authenticator 앱](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)을 배포합니다. Multi-Factor Authentication 및 암호 없는 로그인 기능 외에도, Microsoft Authenticator 앱에서는 최종 사용자에게 표시되는 인증 프롬프트 수를 줄이면서 [조정된 인증](../develop/msal-android-single-sign-on.md)을 통해 네이티브 애플리케이션에서 Single Sign-On 방식으로 로그인할 수 있도록 합니다.
 
 * 개인 또는 회사 소유의 iOS 및 Android 디바이스에 대해 [모바일 애플리케이션 관리](/mem/intune/apps/app-management)를 사용하여 인증 요청 수를 줄이면서 회사 리소스에 안전하게 액세스할 수 있습니다. 
 
@@ -59,7 +59,7 @@ PRT를 사용하여 애플리케이션에 대한 액세스를 요청하는 경�
 
 * [하이브리드 인증에서 복원력 빌드](resilience-in-hybrid.md)
 
-* [애플리케이션 프록시를 사용하여 애플리케이션 액세스에서 복원력 빌드](resilience-on-premises-access.md)
+* [응용 프로그램 프록시를 사용하여 응용 프로그램 액세스에서 복원력 빌드](resilience-on-premises-access.md)
 
 
 개발자를 위한 복원력 리소스

@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.openlocfilehash: 893ed45046cef2feb10c64464952dafa34d16021
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 95b094620dd9cb3b36ce5f6de664a6aaf8c7990f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128676944"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130247553"
 ---
 # <a name="record-and-download-calls-with-event-grid"></a>Event Grid를 사용하여 통화 녹화 및 다운로드
 
@@ -219,5 +219,5 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 자세한 내용은 다음 문서를 참조하세요.
 
 - [웹 통화 샘플](../../samples/web-calling-sample.md) 확인
-- [통화 SDK 기능](./calling-client-samples.md?pivots=platform-web)에 대해 알아보기
+- [통화 SDK 기능](./getting-started-with-calling.md?pivots=platform-web)에 대해 알아보기
 - [호출 작동 방식](../../concepts/voice-video-calling/about-call-types.md)에 대해 자세히 알아보기

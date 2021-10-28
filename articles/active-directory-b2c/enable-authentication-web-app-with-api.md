@@ -2,21 +2,21 @@
 title: Azure Active Directory B2C 구성 요소를 사용하여 웹 API를 호출하는 웹앱에서 인증을 사용하도록 설정
 description: 이 문서에서는 Azure Active Directory B2C를 사용하여 웹 API를 호출하는 ASP.NET 웹앱의 구성 요소에 대해 설명합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/25/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: fd1d47f879ead2913d5fbfa85febde50a8950907
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 439483f34cc6ebf6ad4b9172307d3a5dd4976c57
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535512"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130040838"
 ---
 # <a name="enable-authentication-in-web-apps-that-call-a-web-api-by-using-azure-ad-b2c"></a>Azure AD B2C를 사용하여 웹 API를 호출하는 웹앱에서 인증 사용
 

@@ -3,22 +3,22 @@ title: 사용자 지정 정책을 사용하여 OpenID Connect ID 공급자로 AD
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 OpenID Connect 프로토콜 및 사용자 지정 정책을 사용하여 AD FS 2016 설정
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 09/16/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 69803dc374e92b8fcc856237cb8b791dac5cb40c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 511f546437d12714ae77d1e3a99f15feda31e33f
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528140"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130228133"
 ---
 # <a name="add-ad-fs-as-an-openid-connect-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 OpenID Connect ID 공급자로 AD FS 추가
 
@@ -77,7 +77,8 @@ Azure AD B2C(Azure Active Directory B2C)에서 사용자가 AD FS 계정으로 �
 ## <a name="configure-ad-fs-as-an-identity-provider"></a>AD FS를 ID 공급자로 구성
 
 1. Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
 1. **ID 공급자** 를 선택한 다음, **새 OpenID Connect 공급자** 를 선택합니다.
 1. **이름** 을 입력합니다. 예를 들면 *Contoso* 입니다.

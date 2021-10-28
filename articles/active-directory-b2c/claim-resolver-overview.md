@@ -3,20 +3,20 @@ title: 사용자 지정 정책의 클레임 해결 프로그램
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 사용자 지정 정책에서 클레임 해결 프로그램을 사용하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/04/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 929463e346311d58da5ac75b28c774bcfe258f08
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 50b386c353e947aadbc196d3040f5cec2b995f82
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557533"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130037874"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C 사용자 지정 정책의 클레임 해결 프로그램 정보
 
@@ -46,7 +46,7 @@ Azure AD B2C(Azure Active Directory B2C) [사용자 지정 정책](custom-policy
 
 ### <a name="culture"></a>문화권
 
-| 클레임 | Description | 예제 |
+| 클레임 | 설명 | 예제 |
 | ----- | ----------- | --------|
 | {Culture:LanguageName} | 언어에 대한 2자 ISO 코드 | en |
 | {Culture:LCID}   | 언어 코드의 LCID | 1033 |
@@ -55,7 +55,7 @@ Azure AD B2C(Azure Active Directory B2C) [사용자 지정 정책](custom-policy
 
 ### <a name="policy"></a>정책
 
-| 클레임 | Description | 예제 |
+| 클레임 | 설명 | 예제 |
 | ----- | ----------- | --------|
 | {Policy:PolicyId} | 신뢰 당사자 정책 이름입니다. | B2C_1A_signup_signin |
 | {Policy:RelyingPartyTenantId} | 신뢰 당사자 정책의 테넌트 ID입니다. | your-tenant.onmicrosoft.com |
@@ -64,7 +64,7 @@ Azure AD B2C(Azure Active Directory B2C) [사용자 지정 정책](custom-policy
 
 ### <a name="openid-connect"></a>OpenID Connect
 
-| 클레임 | Description | 예제 |
+| 클레임 | 설명 | 예제 |
 | ----- | ----------- | --------|
 | {OIDC:AuthenticationContextReferences} |`acr_values` 쿼리 문자열 매개 변수입니다. | 해당 없음 |
 | {OIDC:ClientId} |`client_id` 쿼리 문자열 매개 변수입니다. | 00000000-0000-0000-0000-000000000000 |
@@ -81,7 +81,7 @@ Azure AD B2C(Azure Active Directory B2C) [사용자 지정 정책](custom-policy
 
 ### <a name="context"></a>Context
 
-| 클레임 | Description | 예제 |
+| 클레임 | 설명 | 예제 |
 | ----- | ----------- | --------|
 | {Context:BuildNumber} | ID 경험 프레임워크 버전(빌드 번호)입니다.  | 1.0.507.0 |
 | {Context:CorrelationId} | 상관관계 ID입니다.  | 00000000-0000-0000-0000-000000000000 |
@@ -93,7 +93,7 @@ Azure AD B2C(Azure Active Directory B2C) [사용자 지정 정책](custom-policy
 
 ### <a name="claims"></a>클레임 
 
-| 클레임 | Description | 예제 |
+| 클레임 | 설명 | 예제 |
 | ----- | ----------- | --------|
 | {Claim:claim type} | 정책 파일 또는 상위 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다.  예를 들어 `{Claim:displayName}` 또는 `{Claim:objectId}`가 있습니다. | 클레임 유형 값.|
 
@@ -102,7 +102,7 @@ Azure AD B2C(Azure Active Directory B2C) [사용자 지정 정책](custom-policy
 
 OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 사용자 경험에서 클레임에 매핑될 수 있습니다. 예를 들어, 애플리케이션의 요청에는 이름이 `app_session`, `loyalty_number` 또는 사용자 지정 쿼리 문자열인 쿼리 문자열 매개 변수가 포함될 수 있습니다.
 
-| 클레임 | Description | 예제 |
+| 클레임 | 설명 | 예제 |
 | ----- | ----------------------- | --------|
 | {OAUTH-KV:campaignId} | 쿼리 문자열 매개 변수입니다. | Hawaii |
 | {OAUTH-KV:app_session} | 쿼리 문자열 매개 변수입니다. | A3C5R |
@@ -111,7 +111,7 @@ OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 
 
 ### <a name="oauth2"></a>OAuth2
 
-| 클레임 | Description | 예제 |
+| 클레임 | 설명 | 예제 |
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | 액세스 토큰. | 해당 없음 |
 | {oauth2:refresh_token} | 토큰 새로 고침. | 해당 없음 |
@@ -119,7 +119,7 @@ OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 
 
 ### <a name="saml"></a>SAML
 
-| 클레임 | Description | 예제 |
+| 클레임 | 설명 | 예제 |
 | ----- | ----------- | --------|
 | {SAML:AuthnContextClassReferences} | SAML 요청의 `AuthnContextClassRef` 요소 값입니다. | urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport |
 | {SAML:NameIdPolicyFormat} | SAML 요청의 `NameIDPolicy` 요소에 있는 `Format` 특성입니다. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |

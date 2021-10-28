@@ -3,7 +3,7 @@ title: SCIM(System for Cross-Domain Identity Management) 2.0 프로토콜 준수
 description: SCIM 2.0을 지원하는 비갤러리 애플리케이션을 Azure AD에 추가할 때 발생하는 일반적인 프로토콜 호환성 문제를 해결하는 방법
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/25/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 9cf7fd49562f83976a10150d953a0afc8b994ed4
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 68eaef6943bea96261e73abc141c87362071665d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123102795"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129991948"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Azure AD 사용자 프로비저닝 서비스의 SCIM 2.0 프로토콜 준수와 관련하여 알려진 문제 및 해결 방법
 
@@ -106,33 +106,27 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
         "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
     "Operations": [
-        {
-            "op": "Add",
-            "path": "nickName",
-            "value": [
-                {
-                    "value": "Babs"
-                }
-            ]
-        }
-    ]
-}   
+    {
+        "op": "Add",
+        "path": "nickName",
+        "value": "Babs"
+     }
+   ]
+}
+
   ```
 
 **기능 플래그 포함**
   ```json
-  {
-    "schemas": [
-        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
-    ],
-    "Operations": [
-        {
-            "op": "add",
-            "value": {
-                "nickName": "Babs"
-            }
-        }
-    ]
+{
+  "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+  "Operations": [
+    {
+      "op": "add",
+      "path": "nickName",
+      "value": "Babs"
+    }
+  ]
 }
   ```
 

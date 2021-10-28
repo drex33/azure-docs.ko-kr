@@ -3,20 +3,20 @@ title: 사용자 지정 정책에서 ID 토큰 힌트 기술 프로필 정의
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 사용자 지정 정책에서 ID 토큰 힌트 기술 프로필을 정의합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/30/2021
-ms.author: mimart
+ms.date: 09/16/2021
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 6477283b3eb96579b943baf0aa34c2737bf43a58
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 557977f3de6e59ff592af65b6ff0357cdc4bfa5d
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110059616"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130036927"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 ID 토큰 힌트 기술 프로필 정의
 
@@ -82,18 +82,18 @@ Id_token_hint는 유효한 JWT 토큰이어야 합니다. 다음 표에는 필�
 
 다음 메타데이터는 대칭 키를 사용할 때 관련됩니다. 
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 발급자 | 예 | 보안 토큰 서비스(토큰 발급자)를 식별합니다. 이 값은 JWT 토큰 클레임 내의 `iss` 클레임과 동일해야 합니다. | 
 | IdTokenAudience | 예 | 토큰의 의도한 수신자를 식별합니다. JWT 토큰 클레임 내의 `aud` 클레임과 동일해야 합니다. | 
 
 다음 메타데이터는 비대칭 키를 사용할 때 관련됩니다. 
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | METADATA| 예 | OpenID의 잘 알려진 구성 엔드포인트라고도 하는 토큰 발급자 구성 문서를 가리키는 URL입니다.   |
-| 발급자 | No | 보안 토큰 서비스(토큰 발급자)를 식별합니다. 이 값은 메타데이터에 구성된 값을 덮어쓰는 데 사용할 수 있으며 `iss` JWT 토큰 클레임 내의 클레임과 동일해야 합니다. |  
-| IdTokenAudience | No | 토큰의 의도한 수신자를 식별합니다. JWT 토큰 클레임 내의 `aud` 클레임과 동일해야 합니다. |  
+| 발급자 | 예 | 보안 토큰 서비스(토큰 발급자)를 식별합니다. 이 값은 메타데이터에 구성된 값을 덮어쓰는 데 사용할 수 있으며 `iss` JWT 토큰 클레임 내의 클레임과 동일해야 합니다. |  
+| IdTokenAudience | 예 | 토큰의 의도한 수신자를 식별합니다. JWT 토큰 클레임 내의 `aud` 클레임과 동일해야 합니다. |  
 
 [!INCLUDE [active-directory-b2c-https-cipher-tls-requirements](../../includes/active-directory-b2c-https-cipher-tls-requirements.md)]
 
@@ -101,7 +101,7 @@ Id_token_hint는 유효한 JWT 토큰이어야 합니다. 다음 표에는 필�
 
 대칭 키를 사용하는 경우 **CryptographicKeys** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | client_secret | 예 | JWT 토큰 서명의 유효성을 검사하는 데 사용되는 암호화 키입니다.|
 
@@ -130,7 +130,8 @@ $newClientSecret
 토큰 발급자에 사용되는 것과 동일한 키를 Azure AD B2C 정책 키에 만들어야 합니다.  
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
 1. 개요 페이지의 **정책** 에서 **Identity Experience Framework** 를 선택합니다.
 1. **정책 키** 선택 

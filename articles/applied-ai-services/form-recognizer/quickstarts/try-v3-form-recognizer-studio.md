@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 09/14/2021
 ms.author: sajagtap
-ms.openlocfilehash: 8c0fee509dabc0d7d0462dd28e14c453615af52e
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: bb1c2ee770380b5f8689b1dd8f25712293a0bcb2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130000533"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130220222"
 ---
 # <a name="get-started-form-recognizer-studio--preview"></a>시작: Form Recognizer Studio | 미리 보기
 
@@ -36,14 +36,14 @@ Azure 계정 및 Form Recognizer 또는 Cognitive Services 리소스 외에도 �
 
 **표준 성능** [**Azure Blob Storage 계정**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)입니다. 스토리지 계정 내에서 Blob 데이터를 저장하고 구성하는 컨테이너를 만듭니다. 컨테이너를 사용하여 Azure 스토리지 계정을 만드는 방법을 모르는 경우 다음 빠른 시작을 따릅니다.
 
-  * [**스토리지 계정 만들기**](/azure/storage/common/storage-account-create). 스토리지 계정을 만드는 경우 **인스턴스 세부 정보 → 성능** 필드에서 **표준** 성능을 선택해야 합니다.
-  * [**컨테이너 만들기**](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container). 컨테이너를 만드는 경우 **새 컨테이너** 창에서 **퍼블릭 액세스 수준** 필드를 **컨테이너**(컨테이너 및 Blob에 대한 익명 읽기 액세스)로 설정합니다.
+  * [**스토리지 계정 만들기**](../../../storage/common/storage-account-create.md). 스토리지 계정을 만드는 경우 **인스턴스 세부 정보 → 성능** 필드에서 **표준** 성능을 선택해야 합니다.
+  * [**컨테이너 만들기**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). 컨테이너를 만드는 경우 **새 컨테이너** 창에서 **퍼블릭 액세스 수준** 필드를 **컨테이너**(컨테이너 및 Blob에 대한 익명 읽기 액세스)로 설정합니다.
 
 ### <a name="configure-cors"></a>CORS 구성
 
 [CORS(원본 간 리소스 공유)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)는 Form Recognizer Studio에서 액세스할 수 있도록 Azure 스토리지 계정에 구성되어야 합니다. Azure Portal에서 CORS를 구성하려면 스토리지 계정의 CORS 블레이드에 액세스해야 합니다.
 
-:::image type="content" source="../media/quickstarts/storage-cors-example.png" alt-text="스토리지 계정에 대한 CORS 구성을 보여주는 스크린샷.":::
+:::image type="content" source="../media/quickstarts/cors-updated-image.png" alt-text="스토리지 계정에 대한 CORS 구성을 보여주는 스크린샷.":::
 
 1. 스토리지 계정에 대한 CORS 블레이드를 선택합니다.
 2. Blob 서비스에서 새 CORS 항목을 만들어 시작합니다.
@@ -74,7 +74,7 @@ Azure 계정 및 Form Recognizer 또는 Cognitive Services 리소스 외에도 �
     :::image border="true" type="content" source="../media/sas-tokens/upload-blob-window.png" alt-text="스크린샷: Azure Portal의 Blob 업로드 창":::
 
 > [!NOTE]
-> 기본적으로 Studio는 컨테이너의 루트에 있는 양식 문서를 사용합니다. 그러나 사용자 지정 양식 프로젝트 만들기 단계에서 지정한 경우 폴더에 구성된 데이터를 사용할 수 있습니다. [**하위 폴더에 데이터 구성**](/azure/applied-ai-services/form-recognizer/build-training-data-set#organize-your-data-in-subfolders-optional)을 *참조하세요*.
+> 기본적으로 Studio는 컨테이너의 루트에 있는 양식 문서를 사용합니다. 그러나 사용자 지정 양식 프로젝트 만들기 단계에서 지정한 경우 폴더에 구성된 데이터를 사용할 수 있습니다. [**하위 폴더에 데이터 구성**](../build-training-data-set.md#organize-your-data-in-subfolders-optional)을 *참조하세요*.
 
 ## <a name="sign-into-the-form-recognizer-studio-preview"></a>Form Recognizer Studio 미리 보기에 로그인
 

@@ -3,20 +3,20 @@ title: 사용자 지정 정책에서 OAuth2 사용자 지정 오류 기술 프�
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 사용자 지정 정책에서 OAuth2 사용자 지정 오류 기술 프로필을 정의합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 05/26/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 6fc4f9e7be394a8c63bb95969a2928c63b0c122d
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 1126ce99c660860f7ee0f4abc9afcb9ed5cd1afc
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111962323"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130036249"
 ---
 # <a name="define-an-oauth2-custom-error-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 OAuth2 사용자 지정 오류 기술 프로필 정의
 
@@ -125,4 +125,4 @@ CryptographicKeys 요소는 다음 키를 포함합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[UserJourneys](userjourneys.md)에 대한 자세한 정보
+[UserJourneys](userjourneys.md) 에 대한 자세한 정보

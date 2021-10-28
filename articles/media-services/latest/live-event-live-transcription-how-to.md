@@ -59,7 +59,7 @@ Azure 미디어 서비스는 다양한 프로토콜에서 비디오, 오디오, 
 PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview&autoStart=true 
 ```
 
-작업에는 다음 본문이 있습니다. 여기서 통과 라이브 이벤트는 RTMP을 수집 프로토콜로 사용하여 생성됩니다. 전사 속성이 추가되었습니다.
+작업에는 다음 본문이 있습니다(여기서 기본 통과 라이브 이벤트는 RTMP를 사용하여 생성되는 프로토콜). 전사 속성이 추가되었습니다.
 
 ```
 {
@@ -93,7 +93,7 @@ PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:r
       }
     },
     "encoding": {
-      "encodingType": "None"
+      "encodingType": "PassthroughBasic"
     },
     "transcriptions": [
       {

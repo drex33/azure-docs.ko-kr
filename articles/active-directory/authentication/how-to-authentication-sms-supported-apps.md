@@ -11,12 +11,12 @@ author: aanjusingh
 manager: daveba
 ms.reviewer: anjusingh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f5b0ff9c70c84a1f3adda2e93c74ce388ceb322
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: 7fd77e9a31d8ce49eeab411378726ef712040962
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122538230"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130245484"
 ---
 # <a name="app-support-for-sms-based-authentication"></a>SMS 기반 인증을 위한 앱 지원
 
@@ -35,6 +35,7 @@ SMS 기반 인증은 Microsoft ID 플랫폼(Azure AD)과 통합된 Microsoft 앱
 | Microsoft Stream | ● |   |
 | Microsoft Power Apps | ● |   |
 | Microsoft Azure | ● | ● |
+| Microsoft Authenticator |   | ● |
 | Azure Virtual Desktop | ● |  | 
 
 *_SMS 로그인은 Word, Excel 등과 같은 Office 애플리케이션에서 웹에 직접 액세스한 경우 사용할 수 없으나, [Office 365 웹앱](https://www.office.com)_ 을 통해 액세스한 경우에는 가능합니다.

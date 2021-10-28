@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0c1a3362c4f1dfd3396ccd4704933d06d2611414
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: f18174b1d3c38e571d2efaedfc41debec29f40ac
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107814121"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130263499"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 
@@ -56,11 +56,11 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 현재 버전을 클릭하면 이전 단계에서 지정한 값을 볼 수 있습니다.
 
-![비밀 속성](../media/quick-create-portal/current-version-hidden.png)
+:::image type="content" source="../media/quick-create-portal/current-version-hidden.png" alt-text="비밀 속성":::
 
 오른쪽 창에서 "비밀 값 표시" 단추를 클릭하면 숨겨진 값을 볼 수 있습니다. 
 
-![표시된 비밀 값](../media/quick-create-portal/current-version-shown.png)
+:::image type="content" source="../media/quick-create-portal/current-version-shown.png" alt-text="표시된 비밀 값":::
 
 [Azure CLI]() 또는 [Azure PowerShell]()을 사용하여 이전에 만든 비밀을 검색할 수도 있습니다.
 

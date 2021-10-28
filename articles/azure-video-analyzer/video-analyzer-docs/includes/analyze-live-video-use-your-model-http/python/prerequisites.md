@@ -2,14 +2,14 @@
 author: Juliako
 ms.service: azure-video-analyzer
 ms.topic: include
-ms.date: 04/07/2021
+ms.date: 09/10/2021
 ms.author: juliako
-ms.openlocfilehash: 60f8968a3377479457cbe0faceae28bc83835453
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 75e0e274bd8cdb9dc7029815910f867dffdaef3c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113735781"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "130239205"
 ---
 * 활성 구독이 있는 Azure 계정. 계정이 아직 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 수 있습니다.
 
@@ -43,4 +43,4 @@ HTTP 확장 노드는 프록시 역할을 수행합니다. samplingOptions 필�
 * 결과를 해석합니다.
 * 리소스를 정리합니다.
 ## <a name="set-up-your-development-environment"></a>개발 환경 설정
-[!INCLUDE [setup development environment](./../../../includes/set-up-dev-environment/csharp/csharp-set-up-dev-env.md)]
+[!INCLUDE [setup development environment](./../../../includes/set-up-dev-environment/python/python-set-up-dev-env.md)]

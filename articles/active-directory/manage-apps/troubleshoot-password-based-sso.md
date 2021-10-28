@@ -1,6 +1,7 @@
 ---
-title: Azure Active Directory에서 암호 기반 Single Sign-On 문제 해결
+title: 암호 기반 Single Sign-On 문제 해결
 description: 암호 기반 Single Sign-On에 대해 구성된 Azure AD 앱의 문제를 해결합니다.
+titleSuffix: Azure AD
 author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
@@ -10,16 +11,16 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: davidmu
 ms.reviewer: ergreenl
-ms.openlocfilehash: 32b099b72a55e768087f6123e684f0107e1e1e57
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1b33398a9188b55eae3d0ec54fcfe1acc6b6a589
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528861"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129613702"
 ---
-# <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Azure AD에서 암호 기반 Single Sign-On 문제 해결
+# <a name="troubleshoot-password-based-single-sign-on-in-azure-active-directory"></a>Azure Active Directory에서 암호 기반 Single Sign-On 문제 해결
 
-내 앱에서 암호 기반 SSO(Single Sign-On)를 사용하려면 브라우저 확장을 설치해야 합니다. 암호 기반 SSO에 대해 구성된 앱을 선택하면 확장이 자동으로 다운로드됩니다. 최종 사용자 관점에서 내 앱 사용에 대해 알아보려면 [내 앱 포털 도움말](../user-help/my-apps-portal-end-user-access.md)을 참조하세요.
+내 앱에서 암호 기반 SSO(Single Sign-On)를 사용하려면 브라우저 확장을 설치해야 합니다. 암호 기반 SSO에 대해 구성된 앱을 선택하면 확장이 자동으로 다운로드됩니다. 최종 사용자 관점에서 내 앱 사용에 대해 알아보려면 [내 앱 포털 도움말](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)을 참조하세요.
 
 ## <a name="my-apps-browser-extension-not-installed"></a>내 앱 브라우저 확장이 설치되지 않음
 
@@ -251,7 +252,9 @@ SSO를 설정하고 사용자를 할당할 때 오류 메시지가 표시되는 
 
 - **오류 복사**: **오류 복사** 텍스트 상자의 오른쪽에 있는 **복사 아이콘** 을 선택하여 지원팀에 도움이 되는 알림 세부 정보를 복사할 수 있습니다.
 
-    예: ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
+    예제:
+    
+    `{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}`
 
 ## <a name="next-steps"></a>다음 단계
 

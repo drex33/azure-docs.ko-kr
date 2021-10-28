@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 01/11/2021
 ms.author: duau
-ms.openlocfilehash: c4f76a02a88b91c082106566ca236abe25d4ed88
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cc7eba43ad9706fd76526f99a9d041053b735179
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567351"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130246797"
 ---
 # <a name="tutorial-create-and-modify-peering-for-an-expressroute-circuit-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 ExpressRoute 회로의 피어링 만들기 및 수정
 
@@ -122,11 +122,6 @@ ExpressRoute 회로에 대해 개인 피어링 및 Microsoft 피어링을 구성
 ## <a name="azure-private-peering"></a><a name="private"></a>Azure 프라이빗 피어링
 
 이 섹션은 ExpressRoute 회로에 Azure 프라이빗 피어링 구성을 만들고 가져오며 업데이트하고 삭제하는 데 도움이 됩니다.
-
-> [!IMPORTANT]
-> 개인 피어링에 대한 IPv6 지원은 현재 **공개 미리 보기** 로 제공됩니다. IPv6 기반 개인 피어링이 구성된 ExpressRoute 회로에 가상 네트워크를 연결하려면 가상 네트워크가 이중 스택인지 확인하고 [여기](../virtual-network/ipv6-overview.md)에 설명된 지침을 따르세요.
-> 
-> 
 
 ### <a name="to-create-azure-private-peering"></a>Azure 프라이빗 피어링을 만들려면
 

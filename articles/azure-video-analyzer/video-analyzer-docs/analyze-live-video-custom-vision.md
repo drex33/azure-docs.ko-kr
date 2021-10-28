@@ -4,12 +4,12 @@ description: 이 자습서에서는 IoT Edge 및 Azure Custom Vision에서 Azure
 ms.topic: tutorial
 ms.date: 06/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
-ms.openlocfilehash: efb89b8ac28ca2d4ddfb72c75d420ace705d92ba
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: b70f93670abcba2212b0c6ab42315e7fb423fae1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114603384"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130247894"
 ---
 # <a name="tutorial-analyze-live-video-with-azure-video-analyzer-on-iot-edge-and-azure-custom-vision"></a>자습서: IoT Edge의 Azure Video Analyzer 및 Azure Custom Vision을 사용하여 라이브 비디오 분석
 
@@ -378,7 +378,7 @@ HTTP 확장 프로세서 노드는 Custom Vision 컨테이너에서 유추 결�
 고급 사용자에 대한 추가 문제를 검토합니다.
 
 - RTSP 시뮬레이터를 사용하는 대신 RTSP를 지원하는 [IP 카메라](https://en.wikipedia.org/wiki/IP_camera)를 사용합니다. [ONVIF 규격](https://www.onvif.org/conformant-products/) 제품 페이지에서 RTSP를 지원하는 IP 카메라를 검색할 수 있습니다. G, S 또는 T 프로필을 준수하는 디바이스를 찾습니다.
-- Azure Linux VM 대신 AMD64 또는 x64 Linux 디바이스를 사용합니다. 이 디바이스는 IP 카메라와 동일한 네트워크에 있어야 합니다. [Linux에 Azure IoT Edge 런타임 설치](../../iot-edge/how-to-install-iot-edge.md)의 지침을 따릅니다.
+- Azure Linux VM 대신 AMD64 또는 x64 Linux 디바이스를 사용합니다. 이 디바이스는 IP 카메라와 동일한 네트워크에 있어야 합니다. [Linux에 Azure IoT Edge 런타임 설치](../../iot-edge/how-to-provision-single-device-linux-symmetric.md)의 지침을 따릅니다.
 
 그런 다음, [가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포](../../iot-edge/quickstart-linux.md)의 지침에 따라 디바이스를 Azure IoT Hub에 등록합니다.  
 

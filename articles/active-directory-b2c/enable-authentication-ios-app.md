@@ -2,21 +2,21 @@
 title: Azure AD B2C를 사용하여 iOS Swift 앱에서 인증 사용
 description: 이 문서에서는 Azure Active Directory B2C 구성 요소를 사용하여 iOS Swift 애플리케이션에서 인증을 사용하도록 설정하는 방법에 대해 설명합니다. Azure AD B2C를 사용하여 iOS Swift 애플리케이션에 사용자를 로그인하고 가입하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 07/29/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: bb590ee57cc78c27c0e6cec7dc54cc15a9fd7648
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 404a38def1f90a145a3763d23cba2ec7a55a6782
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123186104"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130041408"
 ---
 # <a name="enable-authentication-in-your-own-ios-swift-app-by-using-azure-ad-b2c"></a>Azure AD B2C를 사용하여 자체 iOS Swift 앱에서 인증 사용
 
@@ -188,7 +188,7 @@ self.updateLoggingText(text: "Access token is \(self.accessToken ?? "Empty")")
 
 [토큰 기반 권한 부여 웹 API](enable-authentication-web-api.md)를 호출하려면 앱에 유효한 액세스 토큰이 필요합니다. 앱은 다음 작업을 수행합니다.
 
-1. 웹 API 엔드포인트에 필요한 권한(범위)이 있는 액세스 토큰을 획득합니다.
+1. 웹 API 엔드포인트에 필요한 권한(범위)을 사용하여 액세스 토큰을 획득합니다.
 1. 다음 형식을 사용하여 액세스 토큰을 HTTP 요청의 권한 부여 헤더에 전달자 토큰으로 전달합니다.
 
 ```http

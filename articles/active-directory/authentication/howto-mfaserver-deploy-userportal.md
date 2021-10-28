@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61cefacc4147ab1eb105af9cb21365129dd1950e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f07ddd744481b80e5a74a7b4b597167964f4f183
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96742462"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124750141"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버의 사용자 포털
 
@@ -31,14 +31,14 @@ ms.locfileid: "96742462"
 > [!IMPORTANT]
 > 2019년 7월 1일부터 Microsoft는 더 이상 새 배포를 위한 MFA 서버를 제공하지 않습니다. 로그인 이벤트 중에 MFA(다단계 인증)를 요구하려는 신규 고객은 클라우드 기반 Azure AD Multi-Factor Authentication을 사용해야 합니다.
 >
-> 클라우드 기반 MFA를 시작하려면 [자습서: Azure AD Multi-Factor Authentication으로 사용자 로그인 이벤트 보안](tutorial-enable-azure-mfa.md)을 참조하세요.
+> 클라우드 기반 MFA를 시작하려면 [자습서: Azure AD Multi-Factor Authentication을 사용하여 사용자 로그인 이벤트 보안](tutorial-enable-azure-mfa.md)을 참조하세요.
 >
 > 2019년 7월 1일 이전에 MFA 서버를 활성화한 기존 고객은 종전과 같이 최신 버전 및 이후 업데이트를 다운로드하고 활성화 자격 증명을 생성할 수 있습니다.
 
 ![MFA 서버 사용자 포털 로그인 페이지](./media/howto-mfaserver-deploy-userportal/portal.png)
 
 > [!NOTE]
-> Multi-Factor Authentication 서버에서만 사용자 포털을 사용할 수 있습니다. 클라우드에서 Multi-Factor Authentication을 사용하는 경우 사용자는 [2단계 인증을 위한 계정 설정](../user-help/multi-factor-authentication-end-user-first-time.md) 또는 [2단계 인증을 위한 설정 관리](../user-help/multi-factor-authentication-end-user-manage-settings.md)를 참조합니다.
+> Multi-Factor Authentication 서버에서만 사용자 포털을 사용할 수 있습니다. 클라우드에서 Multi-Factor Authentication을 사용하는 경우 사용자는 [2단계 인증을 위한 계정 설정](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) 또는 [2단계 인증을 위한 설정 관리](https://support.microsoft.com/account-billing/change-your-two-step-verification-method-and-settings-c801d5ad-e0fc-4711-94d5-33ad5d4630f7)를 참조합니다.
 
 ## <a name="install-the-web-service-sdk"></a>웹 서비스 SDK 설치
 

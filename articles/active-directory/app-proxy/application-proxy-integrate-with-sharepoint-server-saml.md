@@ -3,20 +3,20 @@ title: Azure Active Directory 애플리케이션 프록시를 사용하여 온-�
 description: 온-프레미스 SharePoint 팜을 SAML용 Azure Active Directory 애플리케이션 프록시와 통합하는 방법에 대한 기본 사항을 다룹니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: 9ef88340c7bac7f09a532c12ba5a2ab69248046e
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.reviewer: ashishj
+ms.openlocfilehash: 2821cfeb2fc3df05d0b8862ad67adf9dd719ebd8
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113727871"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129989288"
 ---
 # <a name="integrate-azure-active-directory-application-proxy-with-sharepoint-saml"></a>Azure Active Directory 애플리케이션 프록시를 SharePoint(SAML)와 통합
 

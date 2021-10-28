@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: d4dae509d65ef2d090439fe1f532f6878a2139b4
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 361eca16094f48c957437eeb5ebdbf9b701d1049
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123439473"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265234"
 ---
 # <a name="tutorial-migrate-web-service-from-bing-maps"></a>자습서: Bing Maps에서 웹 서비스 마이그레이션
 
@@ -58,7 +58,7 @@ Azure Maps에는 다음과 같은 몇 가지 흥미로운 추가 REST 웹 서비
 -   [지도 타일](/rest/api/maps/render/getmaptile) – 래스터 및 벡터 타일로 Azure Maps의 도로 및 이미지 타일에 액세스합니다.
 -   [일괄 처리 라우팅](/rest/api/maps/route/postroutedirectionsbatchpreview) – 일정 기간 동안 단일 일괄 처리에서 최대 1,000개의 경로 요청을 만들 수 있습니다. 처리 속도를 높이기 위해 서버에서 경로가 병렬로 계산됩니다.
 -   [트래픽](/rest/api/maps/traffic) 흐름 – 래스터 및 벡터 타일로 실시간 트래픽 흐름 데이터에 액세스합니다.
--   [지리적 위치 API(미리 보기)](/rest/api/maps/geolocation/getiptolocationpreview) - IP 주소의 위치를 가져옵니다.
+-   [지리적 위치 API(미리 보기)](/rest/api/maps/geolocation/get-ip-to-location) - IP 주소의 위치를 가져옵니다.
 -   [날씨 서비스](/rest/api/maps/weather) – 실시간 및 예측 날씨 데이터에 대한 액세스 권한을 얻습니다.
 
 다음 모범 사례 가이드도 꼭 검토하세요.

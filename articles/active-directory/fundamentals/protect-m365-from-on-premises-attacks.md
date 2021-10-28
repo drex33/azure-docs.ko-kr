@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 456f635e3cd7be91064a15b87c0da627678fdc45
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 73bd6ed2c94ca696eefd4e7a3dfcf5b78cc6dd99
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113732983"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251189"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>온-프레미스 공격으로부터 Microsoft 365 보호
 
@@ -283,7 +283,7 @@ Azure AD 조건부 액세스를 사용하여 신호를 해석하고 이를 통�
 
    * 위험 이벤트 
 
-    Azure AD는 로그인 활동 로그 및 감사 로그에 대한 [Azure Monitor 통합](../reports-monitoring/concept-activity-logs-azure-monitor.md)을 제공합니다. 위험 이벤트는 [Microsoft Graph API](/graph/api/resources/identityriskevent)를 통해 수집할 수 있습니다. [Azure AD 로그를 Azure Monitor 로그로 스트리밍](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)할 수 있습니다.
+    Azure AD는 로그인 활동 로그 및 감사 로그에 대한 [Azure Monitor 통합](../reports-monitoring/concept-activity-logs-azure-monitor.md)을 제공합니다. 위험 이벤트는 [Microsoft Graph API](/graph/api/resources/identityprotection-root)를 통해 수집할 수 있습니다. [Azure AD 로그를 Azure Monitor 로그로 스트리밍](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)할 수 있습니다.
 
 * **하이브리드 인프라 OS 보안 로그**: 모든 하이브리드 ID 인프라 OS 로그는 노출 영역 영향으로 인해 계층 0 시스템으로 보관하고 신중하게 모니터링해야 합니다. 다음 요소를 포함합니다. 
 

@@ -4,13 +4,13 @@ description: Azure Monitor 로그 쿼리를 배포하기 위한 Azure Resource M
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 05/18/2020
-ms.openlocfilehash: 82c99ea320ac06df8ce3a4309ccade90598f5033
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 10/20/2021
+ms.openlocfilehash: 39d8661f38854f8b3fccf60cad73067aabc4c0e2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953148"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130231630"
 ---
 # <a name="resource-manager-template-samples-for-log-queries-in-azure-monitor"></a>Azure Monitor의 로그 쿼리에 대한 Resource Manager 템플릿 샘플
 이 문서에는 Azure Monitor에서 로그 쿼리를 만들고 구성하기 위한 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/syntax.md) 샘플이 포함되어 있습니다. 각 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.

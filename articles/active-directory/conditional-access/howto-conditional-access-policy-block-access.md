@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c792888b65f331332c320deecbcd2b5f8d7e2ee3
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 11191d1a0b3ec275184617a16b7dc2dce767d8d6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108175769"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128618137"
 ---
 # <a name="conditional-access-block-access"></a>조건부 액세스: 액세스 차단
 
@@ -87,6 +87,6 @@ Microsoft 365 사용자를 위한 다단계 인증 또는 호환 디바이스를
 
 [조건부 액세스 일반 정책](concept-conditional-access-policy-common.md)
 
-[조건부 액세스 보고 전용 모드를 사용하여 영향 확인](howto-conditional-access-insights-reporting.md)
+[조건부 액세스 보고서 전용 모드를 사용하여 영향 확인](howto-conditional-access-insights-reporting.md)
 
 [조건부 액세스 What If 도구를 사용하여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)

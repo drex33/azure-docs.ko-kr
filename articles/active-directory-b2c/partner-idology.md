@@ -3,20 +3,20 @@ title: Azure Active Directory B2C와 IDology 통합
 titleSuffix: Azure AD B2C
 description: IDology에서 Azure AD B2C의 샘플 온라인 결제 앱을 통합하는 방법을 알아봅니다. IDology는 여러 솔루션을 포함하는 IID 확인 및 교정 공급자입니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: df0fcaf7987e30f9c2599346aaef5fcabb4f04e9
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 5069ef001ad20024ce72387d0bc02a840514aa74
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256653"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130036040"
 ---
 # <a name="tutorial-for-configuring-idology-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 IDology를 구성하기 위한 자습서 
 
@@ -27,7 +27,7 @@ ms.locfileid: "107256653"
 시작하려면 다음이 필요합니다.
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-* Azure 구독에 연결된 [Azure AD B2C 테넌트](tutorial-create-tenant.md).
+* [Azure AD B2C 테넌트](tutorial-create-tenant.md)를 Azure 구독에 연결
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -41,7 +41,7 @@ IDology 통합에는 다음 구성 요소가 포함됩니다.
 
 ![IDology 아키텍처 다이어그램](media/partner-idology/idology-architecture-diagram.png)
 
-| 단계 | Description |
+| 단계 | 설명 |
 |------|------|
 |1     | 사용자가 로그인 페이지에 도착합니다. |
 |2     | 사용자가 등록을 선택하여 새 계정을 만들고 페이지에 정보를 입력합니다. Azure AD B2C가 사용자 특성을 수집합니다. |

@@ -11,12 +11,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 10/01/2021
 ms.custom: devx-track-python, automl, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 1cbd1a3a43b7693c62c2955ae89b11c35f7d375e
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 13440b0d504effa4faf231cc181731cca7053dc3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129426570"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234394"
 ---
 # <a name="tutorial-train-a-regression-model-with-automl-and-python"></a>자습서: AutoML 및 Python을 사용하여 회귀 모델 학습
 
@@ -50,7 +50,7 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
     1. *tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb* Notebook을 엽니다.
 
 이 자습서는 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials)에도 제공되기 때문에 자체 [로컬 환경](how-to-configure-environment.md#local)에서도 실행할 수 있습니다. 필요한 패키지를 가져오려면 
-* [전체 `automl` 클라이언트를 설치](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment)합니다.
+* [전체 `automl` 클라이언트를 설치](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment)합니다.
 * `pip install azureml-opendatasets azureml-widgets`을 실행하여 필요한 패키지를 가져옵니다.
 
 ## <a name="download-and-prepare-data"></a>데이터 다운로드 및 준비

@@ -2,16 +2,16 @@
 title: 자습서 - 템플릿 만들기 및 배포
 description: 첫 번째 ARM 템플릿(Azure Resource Manager 템플릿)을 만듭니다. 이 자습서에서는 템플릿 파일 구문 및 스토리지 계정을 배포하는 방법에 대해 알아봅니다.
 author: mumian
-ms.date: 10/01/2021
+ms.date: 10/20/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7263a72f19d9dfea8044e55451a52ebdec29ec7d
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: ef50a1136080358fc6de27da1ab42467c337f252
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129390238"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130239736"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>자습서: 첫 번째 ARM 템플릿 만들기 및 배포
 
@@ -157,7 +157,7 @@ New-AzResourceGroupDeployment `
 이 배포 명령을 실행하려면 Azure CLI의 [최신 버전](/cli/azure/install-azure-cli)이 있어야 합니다.
 
 ```azurecli
-$templateFile="{provide-the-path-to-the-template-file}"
+templateFile="{provide-the-path-to-the-template-file}"
 az deployment group create \
   --name blanktemplate \
   --resource-group myResourceGroup \

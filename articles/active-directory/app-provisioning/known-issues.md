@@ -3,7 +3,7 @@ title: Azure Active Directory에서의 애플리케이션 프로비저닝에 대
 description: Azure Active Directory에서 자동화된 애플리케이션 프로비저닝을 사용할 때 알려진 문제에 대해 알아봅니다.
 author: kenwith
 ms.author: kenwith
-manager: mtillman
+manager: karenh444
 services: active-directory
 ms.service: active-directory
 ms.subservice: app-provisioning
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/07/2021
 ms.reviewer: arvinh
-ms.openlocfilehash: 1180852bdaa88f1c717ab6a44d85d84412c5b155
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 6c790baf2dfc7c08306bdf96598e33e8bdc6b9c6
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114449610"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129991226"
 ---
 # <a name="known-issues-for-application-provisioning-in-azure-active-directory"></a>Azure Active Directory에서의 애플리케이션 프로비저닝에 대해 알려진 문제
 이 문서에서는 앱 프로비저닝을 사용할 때 알고 있어야 하는 알려진 문제에 대해 설명합니다. UserVoice에서 애플리케이션 프로비저닝 서비스에 대한 피드백을 제공하려면 [Azure AD(Azure Active Directory) 애플리케이션 프로비저닝 UserVoice](https://aka.ms/appprovisioningfeaturerequest)를 참조하세요. Microsoft에서는 서비스를 개선할 수 있도록 UserVoice를 면밀하게 모니터링하고 있습니다.

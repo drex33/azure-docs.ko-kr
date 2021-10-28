@@ -8,15 +8,15 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/20/2021
+ms.date: 09/20/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: c6b3802add796184714f389b813765945a8d20a4
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: d090d6c97a26b78799adf8c5927e6e680c43938a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122530171"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596508"
 ---
 # <a name="tutorial-configure-biocatch-with-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 BioCatch 구성하기
 
@@ -352,24 +352,18 @@ document.getElementById("clientSessionId").style.display = 'none';
 Azure AD B2C에 정책 파일을 추가하려면 다음 단계를 수행합니다.
 
 1. Azure AD B2C 테넌트의 전역 관리자로  [**Azure Portal**](https://portal.azure.com/)에 로그인합니다.
-
-2. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 최상위 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 테넌트가 포함된 디렉터리를 선택합니다.
-
-3. Azure Portal의 왼쪽 상단 모서리에서  **전체 서비스** 를 선택하고 Azure AD B2C를 검색하여 선택합니다.
-
-4.  **Azure AD B2C** > **Identity Experience Framework** 로 이동합니다.
-
-3. 테넌트에 모든 정책 파일을 업로드합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서  **전체 서비스** 를 선택하고 Azure AD B2C를 검색하여 선택합니다.
+1.  **Azure AD B2C** > **Identity Experience Framework** 로 이동합니다.
+1. 테넌트에 모든 정책 파일을 업로드합니다.
 
 ## <a name="test-the-solution"></a>솔루션 테스트
 
 1. [JWT.MS로 리디렉션하는 더미 애플리케이션 등록](./tutorial-register-applications.md?tabs=app-reg-ga)  
-
-2. **Identity Experience Framework** 에서 만든 정책을 선택합니다.
-
-3. 정책 창에서 더미 JWT.MS 애플리케이션을 선택하고 **지금 실행** 을 선택합니다.
-
-4. 등록 흐름을 따라 계정 만들기 JWT.MS로 반환된 토큰에는 riskLevel 및 점수에 대한 2배의 클레임이 있어야 합니다. 예제를 따릅니다.  
+1. **Identity Experience Framework** 에서 만든 정책을 선택합니다.
+1. 정책 창에서 더미 JWT.MS 애플리케이션을 선택하고 **지금 실행** 을 선택합니다.
+1. 등록 흐름을 따라 계정 만들기 JWT.MS로 반환된 토큰에는 riskLevel 및 점수에 대한 2배의 클레임이 있어야 합니다. 예제를 따릅니다.  
 
     ```JavaScript
     { 

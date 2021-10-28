@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/26/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 937cdae8c1f191bc8e6b03d680829d8f674b8d62
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 03ab5ed10dcb9127c5b62850228d22222b4225be
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123077498"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124814421"
 ---
 # <a name="view-update-and-sign-in-activities-for-managed-identities"></a>관리 ID에 대한 업데이트 및 로그인 활동 보기
 
@@ -115,5 +115,5 @@ ms.locfileid: "123077498"
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure 리소스에 대한 관리 ID](./overview.md)
-* [Azure 활동 로그](/azure/azure-monitor/essentials/activity-log)
-* [Azure Active Directory 로그인 로그](/azure/active-directory/reports-monitoring/concept-sign-ins )
+* [Azure 활동 로그](../../azure-monitor/essentials/activity-log.md)
+* [Azure Active Directory 로그인 로그](../reports-monitoring/concept-sign-ins.md)

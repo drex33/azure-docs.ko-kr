@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f42329632b384ad2217f4deac97a9b984d17da7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 07ea682d65bde9748a4cd55ed066eb8f31eb418a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536317"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784093"
 ---
 # <a name="how-to-export-risk-data"></a>방법: 위험 데이터 내보내기
 
@@ -73,7 +73,7 @@ Azure Event Hubs는 Azure AD Identity Protection과 같은 원본에서 들어�
 
 ## <a name="other-options"></a>기타 옵션
 
-조직은 추가 처리를 위해 [Azure Sentinel에 Azure AD 데이터를 연결하도록](../../sentinel/connect-azure-ad-identity-protection.md) 선택할 수 있습니다.
+조직은 추가 처리를 위해 [Azure Sentinel에 Azure AD 데이터를 연결하도록](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection) 선택할 수 있습니다.
 
 조직은 [Microsoft Graph API를 사용하여 프로그래밍 방식으로 위험 이벤트와 상호 작용](howto-identity-protection-graph-api.md)할 수 있습니다.
 
@@ -81,6 +81,6 @@ Azure Event Hubs는 Azure AD Identity Protection과 같은 원본에서 들어�
 
 - [Azure Active Directory 모니터링이란?](../reports-monitoring/overview-monitoring.md)
 - [Azure Active Directory용 로그 분석 보기 설치 및 사용](../reports-monitoring/howto-install-use-log-analytics-views.md)
-- [Azure AD(Azure Active Directory) Identity Protection에서 데이터 연결](../../sentinel/connect-azure-ad-identity-protection.md)
+- [Azure AD(Azure Active Directory) Identity Protection에서 데이터 연결](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection)
 - [Azure Active Directory Identity Protection과 Microsoft Graph PowerShell SDK](howto-identity-protection-graph-api.md)
 - [자습서: Azure 이벤트 허브로 Azure Active Directory 로그 스트리밍](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)

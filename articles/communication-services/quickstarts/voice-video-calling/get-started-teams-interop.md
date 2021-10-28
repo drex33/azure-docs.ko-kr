@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-plat-web-ios-android-windows
-ms.openlocfilehash: 4bb6bf44de0dc98d0a7febbd22e42eea2fa838d0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b585e21a5c8daa425a52d3212dec6ddfb64934f9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128671757"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215899"
 ---
 # <a name="quickstart-join-your-calling-app-to-a-teams-meeting"></a>빠른 시작: 통화 앱으로 Teams 미팅 참가
 
@@ -55,5 +55,5 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 자세한 내용은 다음 문서를 참조하세요.
 
 - [영웅 샘플 호출](../../samples/calling-hero-sample.md) 체크 아웃
-- [통화 SDK 기능](./calling-client-samples.md)에 대해 알아보기
+- [통화 SDK 기능](./getting-started-with-calling.md)에 대해 알아보기
 - [호출 작동 방식](../../concepts/voice-video-calling/about-call-types.md)에 대해 자세히 알아보기

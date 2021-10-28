@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 05/13/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa53a92d905cdb4eb3e7f4ed6b8996976c8077be
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: bf98534827274fb61cb152826ac2596abfb5e4da
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110070843"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128630132"
 ---
 # <a name="common-conditional-access-policies"></a>일반 조건부 액세스 정책
 

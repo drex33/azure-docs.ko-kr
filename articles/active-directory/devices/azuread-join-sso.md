@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 930fecda6a962c031b3e358fc640a41cc7b85d68
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: a9a48cf9d6912fae91cd789ae16bb68e1d95a4a9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112075100"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128585430"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>온-프레미스 리소스에 대한 SSO가 Azure AD 조인 디바이스에서 작동하는 방식
 
@@ -42,7 +42,7 @@ Azure AD 조인 디바이스는 온-프레미스 AD 환경에 조인되어 있�
 >[!NOTE]
 > Azure AD 조인 디바이스에서 온-프레미스 SSO를 사용하도록 설정하려면 비즈니스용 Windows Hello를 추가로 구성해야 합니다. 자세한 내용은 [비즈니스용 Windows Hello를 사용하여 온-프레미스 Single Sign-On에 대한 Azure AD 조인 디바이스 구성](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base)을 참조하세요. 
 >
-> Windows 10에서 FIDO2 보안 키 기반 암호 없는 인증을 사용하려면 Azure AD 조인 디바이스에서 온-프레미스 SSO를 사용하도록 설정하기 위한 추가 구성이 필요합니다. 자세한 내용은 [Azure Active Directory를 사용하여 온-프레미스 리소스에 대한 암호 없는 보안 키 로그인 사용](/azure/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises)을 참조하세요. 
+> Windows 10에서 FIDO2 보안 키 기반 암호 없는 인증을 사용하려면 Azure AD 조인 디바이스에서 온-프레미스 SSO를 사용하도록 설정하기 위한 추가 구성이 필요합니다. 자세한 내용은 [Azure Active Directory를 사용하여 온-프레미스 리소스에 대한 암호 없는 보안 키 로그인 사용](../authentication/howto-authentication-passwordless-security-key-on-premises.md)을 참조하세요. 
 
 사용자의 온-프레미스 환경에서 Kerberos 또는 NTLM을 요청하는 리소스에 대한 액세스를 시도하는 동안, 디바이스는
 
@@ -75,4 +75,4 @@ Azure AD 조인 디바이스에서 다른 사용자와 파일을 공유할 수 �
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 [Azure Active Directory에서 디바이스 관리란?](overview.md)을 참조하세요. 
+자세한 내용은 [Azure Active Directory에서 디바이스 관리란?](overview.md)을 참조하세요.

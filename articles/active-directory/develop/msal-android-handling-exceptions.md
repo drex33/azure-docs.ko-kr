@@ -3,21 +3,21 @@ title: 오류와 예외(MSAL Android) | Azure
 titleSuffix: Microsoft identity platform
 description: MSAL Android 애플리케이션에서 오류와 예외, 조건부 액세스 및 클레임 챌린지를 처리하는 방법을 알아봅니다.
 services: active-directory
-author: hamiltonha
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 08/07/2020
-ms.author: hahamil
+ms.author: marsma
 ms.reviewer: marsma
-ms.openlocfilehash: 4185206e92a78c2684ba1690f03700ef2532cc5e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a4efe81fae5e98c588141e6dff85544dea2961a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98761387"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128567994"
 ---
 # <a name="handle-exceptions-and-errors-in-msal-for-android"></a>Android용 MSAL에서 예외 및 오류 처리
 

@@ -6,12 +6,12 @@ metadata:
   ms.service: azure-functions
   ms.date: 4/11/2019
   ms.reviewer: glenga
-  ms.openlocfilehash: 2fd3a00ef0ee01c5d7f535fcdb5021f831ff20d3
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.openlocfilehash: c75cd261eae3e5756162570c899b239ff954e679
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122253829"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130260716"
 title: Azure Functions의 네트워킹에 대한 질문과 대답
 summary: >
   이 문서에서는 Azure Functions의 네트워킹에 대한 질문과 대답을 나열합니다. 보다 포괄적인 개요는 [Functions 네트워킹 옵션](functions-networking-options.md)을 참조하세요.
@@ -58,4 +58,4 @@ sections:
 
 
       가상 네트워크 리소스에 대한 단방향 액세스 또는 포괄성이 낮은 네트워크 격리만 필요한 시나리오의 경우 [Functions 네트워킹 개요](functions-networking-options.md)를 참조하세요.
-additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\n네트워킹 및 함수에 대한 자세한 내용은 다음을 확인하세요. \n        \n* [가상 네트워크 통합 시작하기에 관한 자습서 따라하기](./functions-create-vnet.md)\n* [Azure Functions의 네트워킹 옵션에 대해 자세히 알아보기](./functions-networking-options.md)\n* [App Service 및 Functions와 가상 네트워크의 통합에 대해 자세히 알아보기](../app-service/web-sites-integrate-with-vnet.md)\n* [Azure의 가상 네트워크에 대해 자세히 알아보기](../virtual-network/virtual-networks-overview.md)\n* [App Service Environment로 제어 및 네트워킹 기능 활성화](../app-service/environment/intro.md)"
+additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\n네트워킹 및 함수에 대한 자세한 내용은 다음을 확인하세요. \n        \n* [가상 네트워크 통합 시작하기에 관한 자습서 따라하기](./functions-create-vnet.md)\n* [Azure Functions의 네트워킹 옵션에 대해 자세히 알아보기](./functions-networking-options.md)\n* [App Service 및 Functions와 가상 네트워크의 통합에 대해 자세히 알아보기](../app-service/overview-vnet-integration.md)\n* [Azure의 가상 네트워크에 대해 자세히 알아보기](../virtual-network/virtual-networks-overview.md)\n* [App Service Environment로 제어 및 네트워킹 기능 활성화](../app-service/environment/intro.md)"

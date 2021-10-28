@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/09/2021
-ms.openlocfilehash: aea20a9f8a6f0725220a60e425b48e22c6aa8794
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 36e4a46cbe71b39550c1a6c066670be6008ab1c2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862124"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130259471"
 ---
 # <a name="quickstart-connect-an-mxchip-az3166-devkit-to-iot-hub"></a>빠른 시작: MXCHIP AZ3166 DevKit를 IoT Hub에 연결
 
@@ -32,9 +32,9 @@ ms.locfileid: "121862124"
 * Azure CLI를 사용하여 MXCHIP DevKit가 안전하게 연결할 Azure IoT Hub를 만들고 관리
 * Azure IoT Explorer를 사용하여 IoT Hub에 디바이스를 등록하고, 디바이스 속성을 보고, 디바이스 원격 분석을 보고, 디바이스에서 직접 명령 호출
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Microsoft Windows 10을 실행하는 PC
+* Windows 10을 실행하는 PC
 * Azure 구독이 아직 없는 경우 시작하기 전에 [무료 구독을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * 리포지토리를 복제하기 위한 [Git](https://git-scm.com/downloads)
 * Azure CLI. 이 빠른 시작에서 Azure CLI 명령을 실행하기 위한 두 가지 옵션이 있습니다.

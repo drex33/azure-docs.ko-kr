@@ -8,12 +8,12 @@ manager: karenh444
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 10/08/2021
-ms.openlocfilehash: d480696acf10586f41aa9c5c70a8dcf6e2c7651f
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 7f5ad896307466363845c66c89136879e4f92a96
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130070017"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227476"
 ---
 # <a name="configure-your-tenant-for-azure-ad-verifiable-credentials-preview"></a>Azure AD 확인 가능한 자격 증명에 대한 테넌트 구성(미리 보기)
 
@@ -67,7 +67,7 @@ Azure AD(Azure Active Directory) 확인 가능한 자격 증명 서비스를 사
 
 ## <a name="step-2-create-a-key-vault"></a>2단계. 주요 자격 증명 모음 만들기
 
-[Azure Key Vault](/azure/key-vault/general/basic-concepts)는 비밀 및 키의 보안 스토리지 및 액세스를 가능하게 하는 클라우드 서비스입니다. 확인 가능한 자격 증명 서비스는 Azure Key Vault에 공개 키 및 프라이빗 키를 저장합니다. 이러한 키는 자격 증명에 서명하고 확인하는 데 사용됩니다.
+[Azure Key Vault](../../key-vault/general/basic-concepts.md)는 비밀 및 키의 보안 스토리지 및 액세스를 가능하게 하는 클라우드 서비스입니다. 확인 가능한 자격 증명 서비스는 Azure Key Vault에 공개 키 및 프라이빗 키를 저장합니다. 이러한 키는 자격 증명에 서명하고 확인하는 데 사용됩니다.
 
 Azure Key Vault 인스턴스가 없는 경우 Azure Portal을 사용하여 다음 단계에 따라 키 자격 증명 모음을 만듭니다.
 
@@ -78,7 +78,7 @@ Azure Key Vault 인스턴스가 없는 경우 Azure Portal을 사용하여 다�
 
 Azure 확인 가능한 자격 증명 서비스가 온보딩되면 서비스에서 메시지 보안을 제공하는 데 사용되는 키 세트를 생성합니다. 이러한 키는 키 자격 증명 모음에 저장됩니다. 키 세트를 발급하거나 확인하는지 여부는 확인 가능한 자격 증명의 서명, 업데이트 및 복구에 계속 사용됩니다.
 
-Key Vault [액세스 정책](/azure/key-vault/general/assign-access-policy)은 지정된 보안 주체에서 Key Vault 비밀 및 키에 대한 작업을 수행할 수 있는지 여부를 정의합니다. Azure Key Vault에서 Azure AD 확인 가능한 자격 증명 서비스의 관리자 계정과 만든 요청 서비스 API 보안 주체 모두에 대한 액세스 정책을 설정합니다.
+Key Vault [액세스 정책](../../key-vault/general/assign-access-policy.md)은 지정된 보안 주체에서 Key Vault 비밀 및 키에 대한 작업을 수행할 수 있는지 여부를 정의합니다. Azure Key Vault에서 Azure AD 확인 가능한 자격 증명 서비스의 관리자 계정과 만든 요청 서비스 API 보안 주체 모두에 대한 액세스 정책을 설정합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 이 자습서에 사용하는 **Key Vault** 로 이동합니다.
 

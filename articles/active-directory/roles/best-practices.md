@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48d424a64df215a7506130a44d57fc45d638255d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c40d1ae4d24f24feafa138b75aefc3f9b711287e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566950"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124762876"
 ---
 # <a name="best-practices-for-azure-ad-roles"></a>Azure AD 역할 모범 사례
 
@@ -62,7 +62,7 @@ ms.locfileid: "122566950"
 - 악의적인 행위자가 계정을 손상시킬 수 있습니다.
 - 사용자가 회사 내에서 팀을 이동합니다. 감사가 없으면 시간이 지남에 따라 불필요한 액세스 권한이 축적될 수 있습니다.
  
-역할의 액세스 검토에 관한 정보는 [PIM에서 Azure AD 역할의 액세스 검토 만들기](../privileged-identity-management/pim-how-to-start-security-review.md)를 참조하세요. 역할이 할당된 그룹의 액세스 검토에 관한 정보는 [Azure AD 액세스 검토에서 그룹 및 애플리케이션의 액세스 검토 만들기](../governance/create-access-review.md)를 참조하세요.
+역할의 액세스 검토에 관한 정보는 [PIM에서 Azure AD 역할의 액세스 검토 만들기](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md)를 참조하세요. 역할이 할당된 그룹의 액세스 검토에 관한 정보는 [Azure AD 액세스 검토에서 그룹 및 애플리케이션의 액세스 검토 만들기](../governance/create-access-review.md)를 참조하세요.
 
 ## <a name="5-limit-the-number-of-global-administrators-to-less-than-5"></a>5. 전역 관리자 수를 5개 미만으로 제한
 

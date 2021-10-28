@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: tutorial
 ms.date: 06/29/2021
-ms.openlocfilehash: 2ef5e68f9629feab42a4417b4e08697038947495
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 781841ff8a65d36a9ed712efa5d0bdf8480995bf
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128661833"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130229374"
 ---
 # <a name="retirement-of-data-flow-compute-optimized-option"></a>데이터 흐름 컴퓨팅 최적화 옵션 사용 중지
 
@@ -38,5 +38,5 @@ Azure Data Factory 및 Azure Synapse Analytics 데이터 흐름은 그래픽 디
 | 컴퓨팅 최적화 데이터 흐름(사용되지 않음). | 프로덕션 워크로드에는 권장되지 않습니다. |
 
 * [범용 및 메모리 최적화 데이터 흐름에 사용할 수 있는 업데이트된 최신 가격 책정은 Azure Data Factory 가격 책정 페이지를 방문하세요.](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
-* [데이터 흐름 FAQ에서 자세한 내용을 확인하세요.](/azure/data-factory/frequently-asked-questions#mapping-data-flows)  
+* [데이터 흐름 FAQ에서 자세한 내용을 확인하세요.](./frequently-asked-questions.yml#mapping-data-flows)  
 * [Microsoft Q&A에서 데이터 흐름에 대한 질문 게시 및 답변 찾기](https://aka.ms/datafactoryqa)

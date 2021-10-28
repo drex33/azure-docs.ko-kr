@@ -7,12 +7,12 @@ ms.custom: references_regions
 ms.date: 08/06/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 8e33c165cd249b578bd4cba9ef4f25446287d7ec
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: cf379d2eb5c20c8f8922631d5a467e961ea8f800
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124766448"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130228471"
 ---
 # <a name="tutorial-create-a-host-pool"></a>자습서: 호스트 풀 만들기
 
@@ -155,7 +155,7 @@ Azure Portal 호스트 풀 설정 프로세스 내에서 가상 머신을 설정
 
 3. 가상 머신을 만들려는 **가상 머신 위치** 를 선택합니다. 호스트 풀에 대해 선택한 지역과 같거나 다를 수 있습니다. VM 가격은 지역에 따라 달라지며 성능을 극대화하려면 VM 위치가 가능한 한 사용자와 가까운 곳에 있어야 합니다. 자세한 내용은 [Azure Virtual Desktop의 데이터 위치](data-locations.md)에서 확인하세요.
    
-4. 다음으로, 요구 사항에 가장 적합한 가용성 옵션을 선택합니다. 사용자에게 적합한 옵션에 대해 자세히 알아보려면 [Azure의 가상 머신에 대한 가용성 옵션](../virtual-machines/availability.md) 및 [FAQ](/azure/virtual-desktop/faq#which-availability-option-is-best-for-me)를 참조하세요.
+4. 다음으로, 요구 사항에 가장 적합한 가용성 옵션을 선택합니다. 사용자에게 적합한 옵션에 대해 자세히 알아보려면 [Azure의 가상 머신에 대한 가용성 옵션](../virtual-machines/availability.md) 및 [FAQ](./faq.yml#which-availability-option-is-best-for-me-)를 참조하세요.
    
    > [!div class="mx-imgBorder"]
    > ![가용성 영역 드롭다운 메뉴의 스크린샷. "가용성 영역" 옵션이 강조 표시됩니다.](media/availability-zone.png)
@@ -182,7 +182,7 @@ Azure Portal 호스트 풀 설정 프로세스 내에서 가상 머신을 설정
 
     - **Storage Blob** 을 선택하면 Hyper-V 또는 Azure VM을 통해 고유한 이미지 빌드를 사용할 수 있습니다. 스토리지 Blob에 있는 이미지의 위치를 URI로 입력하면 됩니다.
    
-   이미지의 위치는 가용성 옵션과 독립적이지만 이미지의 영역 복원력에 따라 해당 이미지를 가용성 영역과 함께 사용할 수 있는지 여부가 결정됩니다. 이미지를 만드는 동안 가용성 영역을 선택하는 경우 영역 복원력이 활성화된 갤러리에서 이미지를 사용하고 있는지 확인합니다. 사용해야 하는 영역 복원력 옵션에 대한 자세한 내용은 [FAQ](/azure/virtual-desktop/faq#which-availability-option-is-best-for-me)를 참조하세요.
+   이미지의 위치는 가용성 옵션과 독립적이지만 이미지의 영역 복원력에 따라 해당 이미지를 가용성 영역과 함께 사용할 수 있는지 여부가 결정됩니다. 이미지를 만드는 동안 가용성 영역을 선택하는 경우 영역 복원력이 활성화된 갤러리에서 이미지를 사용하고 있는지 확인합니다. 사용해야 하는 영역 복원력 옵션에 대한 자세한 내용은 [FAQ](./faq.yml#which-availability-option-is-best-for-me-)를 참조하세요.
 
 6. 그런 다음, 사용할 **가상 머신 크기** 를 선택합니다. 기본 크기를 그대로 유지하거나 **크기 변경** 을 선택하여 크기를 변경할 수 있습니다. 표시되는 창에서 **크기 변경** 을 선택하는 경우 워크로드에 적합한 가상 머신의 크기를 선택합니다. 가상 머신 크기 및 선택해야 하는 크기에 관한 자세한 내용은 [가상 머신 크기 조정 지침](/windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context)을 참조하세요.
 

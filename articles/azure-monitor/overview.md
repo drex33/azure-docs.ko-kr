@@ -5,12 +5,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2019
-ms.openlocfilehash: 02a568d48ca99a58778adfd4068c359b4748ab43
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 639386e1a64ff40375fac5baafc10b6a3a1cb84d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130181850"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227058"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor 개요
 
@@ -121,7 +121,7 @@ Azure Monitor의 경고 규칙은 고유한 수신자 집합 및 여러 규칙 �
 ![Workbooks 예제](media/overview/workbooks.png)
 
 ### <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com)는 다양한 데이터 원본에서 대화형 시각화를 제공하는 비즈니스 분석 서비스입니다. 조직 내부 및 외부의 다른 사람들이 데이터를 사용할 수 있도록 하는 효과적인 수단입니다. [Azure Monitor에서 자동으로 로그 데이터를 가져오도록](./visualize/powerbi.md) Power BI를 구성하여 이러한 추가 시각화를 활용할 수 있습니다.
+[Power BI](https://powerbi.microsoft.com)는 다양한 데이터 원본에서 대화형 시각화를 제공하는 비즈니스 분석 서비스입니다. 조직 내부 및 외부의 다른 사람들이 데이터를 사용할 수 있도록 하는 효과적인 수단입니다. [Azure Monitor에서 자동으로 로그 데이터를 가져오도록](./logs/log-powerbi.md) Power BI를 구성하여 이러한 추가 시각화를 활용할 수 있습니다.
 
 
 ![Power BI](media/overview/power-bi.png)

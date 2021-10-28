@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 06/17/2021
 ms.author: justinha
-ms.openlocfilehash: d78416308647af62bac1e44366b0ea978670889b
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: dc82c2c2793495009b9200ac0976c796ef2ccc9c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112284440"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128603755"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>CentOS Linux 가상 머신을 Azure Active Directory Domain Services 관리되는 도메인에 조인
 
@@ -35,6 +35,7 @@ ms.locfileid: "112284440"
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
     * 필요한 경우 첫 번째 자습서에서 [Azure Active Directory Domain Services 관리되는 도메인을 만들고 구성합니다][create-azure-ad-ds-instance].
 * 관리되는 도메인의 일부인 사용자 계정입니다.
+* Active Directory에서 충돌을 일으킬 수 있는 잘린 이름을 방지하기 위한 최대 15자의 고유한 Linux VM 이름
 
 ## <a name="create-and-connect-to-a-centos-linux-vm"></a>CentOS Linux VM 만들기 및 연결
 

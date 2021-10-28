@@ -3,7 +3,7 @@ title: 관리되지 않는 Azure AD 조직에서 회사 또는 학교 계정 사
 description: 관리되지 않는 Azure Active Directory에서 회사 또는 학교 계정을 사용 중지하는 방법.
 services: active-directory
 author: rolyon
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14a2dea0445a866f7c352eedf64d631d83b1b0f0
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: b5e4466f86b4ffa0242bd86cfbb71809393e5999
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864410"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129985260"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-azure-ad-organization"></a>관리되지 않는 Azure AD 조직에서 회사 또는 학교 계정 사용 중지
 

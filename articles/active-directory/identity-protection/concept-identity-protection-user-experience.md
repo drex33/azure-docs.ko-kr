@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0bbb1df9821879dd34956d1cb16d2b37850d1d6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 484136b1c01cf93515971a42030eacfdda51715e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566683"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124784169"
 ---
 # <a name="user-experiences-with-azure-ad-identity-protection"></a>Azure AD ID 보호를 사용하는 사용자 환경
 
@@ -29,7 +29,7 @@ Azure Active Directory ID 보호를 사용하여 다음을 수행할 수 있습�
 
 ## <a name="multi-factor-authentication-registration"></a>Multi-Factor Authentication 등록
 
-다단계 인증 등록을 요구하고 모든 사용자를 대상으로 하는 ID 보호 정책을 사용하도록 설정하면 사용자가 나중에 Azure AD MFA를 사용하여 스스로 수정할 수 있습니다. 이 정책을 구성하면 사용자에게 등록을 선택할 수 있는 14일 기간을 제공하고 기간이 끝나면 등록이 강제로 적용됩니다. 사용자 환경에 대한 개요가 아래에 설명되어 있습니다. 자세한 내용은 [2단계 인증 및 회사 또는 학교 계정에 대한 개요](../user-help/multi-factor-authentication-end-user-first-time.md) 문서의 최종 사용자 설명서에서 찾을 수 있습니다.
+다단계 인증 등록을 요구하고 모든 사용자를 대상으로 하는 ID 보호 정책을 사용하도록 설정하면 사용자가 나중에 Azure AD MFA를 사용하여 스스로 수정할 수 있습니다. 이 정책을 구성하면 사용자에게 등록을 선택할 수 있는 14일 기간을 제공하고 기간이 끝나면 등록이 강제로 적용됩니다. 사용자 환경에 대한 개요가 아래에 설명되어 있습니다. 자세한 내용은 [2단계 인증 및 회사 또는 학교 계정에 대한 개요](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) 문서의 최종 사용자 설명서에서 찾을 수 있습니다.
 
 ### <a name="registration-interrupt"></a>등록 인터럽트
 

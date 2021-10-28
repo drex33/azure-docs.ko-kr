@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: anjusingh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 284a1c9d8b79a0d4e9c479afea9713a09c8c0fa4
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 6cf0cc0ebc60a5b401ac8bd9726e39d23d8504a0
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122531022"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124766107"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory"></a>Azure Active Directory를 사용한 SMS 기반 인증 구성 및 사용자 활성화 
 
@@ -88,7 +88,7 @@ Azure AD 테넌트에서 SMS 기반 인증을 사용하도록 설정한 상태�
 
 ## <a name="set-a-phone-number-for-user-accounts"></a>사용자 계정에 대한 전화 번호 설정
 
-이제 사용자가 SMS 기반 인증을 사용할 수 있지만 로그인하려면 사용자의 전화 번호가 Azure AD의 사용자 프로필과 연결되어 있어야 합니다. 사용자가 ‘내 계정’에서 [직접 해당 전화 번호를 설정](../user-help/sms-sign-in-explainer.md)하거나 관리자가 Azure Portal을 사용하여 전화 번호를 할당할 수 있습니다. 전화 번호는 전역 관리자, 인증 관리자 또는 권한 있는 인증 관리자가 설정할 수 있습니다.
+이제 사용자가 SMS 기반 인증을 사용할 수 있지만 로그인하려면 사용자의 전화 번호가 Azure AD의 사용자 프로필과 연결되어 있어야 합니다. 사용자가 ‘내 계정’에서 [직접 해당 전화 번호를 설정](https://support.microsoft.com/account-billing/set-up-sms-sign-in-as-a-phone-verification-method-0aa5b3b3-a716-4ff2-b0d6-31d2bcfbac42)하거나 관리자가 Azure Portal을 사용하여 전화 번호를 할당할 수 있습니다. 전화 번호는 전역 관리자, 인증 관리자 또는 권한 있는 인증 관리자가 설정할 수 있습니다.
 
 SMS 서명에 대해 설정된 전화 번호는 [Azure AD Multi-Factor Authentication][tutorial-azure-mfa] 및 [셀프 서비스 암호 재설정][tutorial-sspr]에도 사용될 수 있습니다.
 
@@ -137,7 +137,7 @@ SMS 기반 로그인을 설정 및 사용하는 데 문제가 있는 경우 다�
 
 계정에 이미 설정된 전화 번호가 있는 사용자는 **내 프로필** 페이지에 SMS 로그인에 사용 단추가 표시됩니다. 해당 단추를 선택하면 계정이 SMS 기반 로그인 및 이전 Azure AD Multi-Factor Authentication 또는 SSPR 등록에 사용할 수 있도록 설정됩니다.
 
-최종 사용자 환경에 대한 자세한 내용은 [SMS 로그인 사용자 환경 - 전화 번호 사용](../user-help/sms-sign-in-explainer.md)을 참조하세요.
+최종 사용자 환경에 대한 자세한 내용은 [SMS 로그인 사용자 환경 - 전화 번호 사용](https://support.microsoft.com/account-billing/set-up-sms-sign-in-as-a-phone-verification-method-0aa5b3b3-a716-4ff2-b0d6-31d2bcfbac42)을 참조하세요.
 
 ### <a name="error-when-trying-to-set-a-phone-number-on-a-users-account"></a>사용자 계정에 전화 번호를 설정하는 동안 오류가 발생
 

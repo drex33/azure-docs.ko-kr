@@ -1,33 +1,26 @@
 ---
 title: 'Azure AD Connect: Microsoft 365 리소스에 대한 기본 데이터 위치 구성'
 description: Azure Active Directory Connect 동기화를 사용하여 Microsoft 365 사용자 리소스를 사용자에게 가깝게 배치하는 방법을 설명합니다.
-services: active-directory
-documentationcenter: ''
 author: billmath
-manager: mtillman
-editor: ''
-ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 06/09/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: edbc8c0151be2bc65dd653e996413d4c7877b1ef
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: 7b709932114ad9e527b82a1457310ff01d2cff38
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114229763"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124768556"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Azure Active Directory Connect 동기화: Microsoft 365 리소스에 대한 기본 데이터 위치 구성
 이 토픽의 목적은 Azure AD(Azure Active Directory) Connect 동기화에서 기본 데이터 위치에 대한 특성을 구성하는 방법을 안내하는 것입니다. 누군가 Microsoft 365에서 Multi-Geo 기능을 사용하는 경우 이 특성으로 사용자의 Microsoft 365 데이터의 지리적 위치를 지정합니다. *region(지역)* 과 *Geo(지역)* 라는 용어는 서로 바꿔 사용할 수 있습니다.
 
 ## <a name="supported-multi-geo-locations"></a>지원되는 다중 지역 위치
-Azure AD Connect에서 지원하는 모든 지역 목록은 [Microsoft 365 다중 지역 가용성](/microsoft-365/enterprise/microsoft-365-multi-geo?view=o365-worldwide#microsoft-365-multi-geo-availability)을 참조하세요.
+Azure AD Connect에서 지원하는 모든 지역 목록은 [Microsoft 365 다중 지역 가용성](/microsoft-365/enterprise/microsoft-365-multi-geo#microsoft-365-multi-geo-availability)을 참조하세요.
 
 ## <a name="enable-synchronization-of-preferred-data-location"></a>기본 데이터 위치의 동기화 사용
 기본적으로 사용자를 위한 Microsoft 365 리소스는 Azure AD 테넌트와 같은 지역에 있습니다. 예를 들어 테넌트가 북아메리카에 있는 경우 사용자의 Exchange 사서함도 북아메리카에 있습니다. 다국적 조직의 경우 이 상황은 최적이 아닐 수 있습니다.
@@ -37,7 +30,7 @@ Azure AD Connect에서 지원하는 모든 지역 목록은 [Microsoft 365 다�
 > [!IMPORTANT]
 > 다중 지역은 현재 활성 기업 계약이 있고 최소 250개의 Microsoft 365 Services 구독이 있는 고객이 사용할 수 있습니다. 자세한 내용은 Microsoft 담당자에게 문의하세요.
 >
-> Azure AD Connect에서 지원하는 모든 지역 목록은 [Microsoft 365 다중 지역 가용성](/microsoft-365/enterprise/microsoft-365-multi-geo?view=o365-worldwide#microsoft-365-multi-geo-availability)을 참조하세요.
+> Azure AD Connect에서 지원하는 모든 지역 목록은 [Microsoft 365 다중 지역 가용성](/microsoft-365/enterprise/microsoft-365-multi-geo#microsoft-365-multi-geo-availability)을 참조하세요.
 
 
 

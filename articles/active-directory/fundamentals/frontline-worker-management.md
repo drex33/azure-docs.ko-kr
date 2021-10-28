@@ -10,12 +10,12 @@ ms.author: cchiedo
 author: Chrispine-Chiedo
 manager: CelesteDG
 ms.reviewer: stevebal
-ms.openlocfilehash: 32cee4ca0558166c44ff83c5ce9d61360e79e535
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 26d7e967ceb0208d6e852db9946ac0c260751dd3
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105975729"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124732573"
 ---
 # <a name="frontline-worker-management"></a>최전방 직원 관리
 
@@ -48,6 +48,6 @@ Azure AD(Azure Active Directory)는 [내 직원 포털](../roles/my-staff-config
 
 ## <a name="next-steps"></a>다음 단계
 
-- 위임된 사용자 관리에 대한 자세한 내용은 [내 직원 사용자 설명서](../user-help/my-staff-team-manager.md)를 참조하세요.
+- 위임된 사용자 관리에 대한 자세한 내용은 [내 직원 사용자 설명서](https://support.microsoft.com/account-billing/manage-front-line-users-with-my-staff-c65b9673-7e1c-4ad6-812b-1a31ce4460bd)를 참조하세요.
 - SAP SuccessFactors의 인바운드 사용자 프로비저닝에 대한 자세한 내용은 [SAP SuccessFactors에서 Active Directory 사용자 프로비저닝 구성](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md) 자습서를 참조하세요.
 - Workday의 인바운드 사용자 프로비저닝에 대한 자세한 내용은 [Workday에서 자동 사용자 프로비저닝 구성](../saas-apps/workday-inbound-tutorial.md) 자습서를 참조하세요.

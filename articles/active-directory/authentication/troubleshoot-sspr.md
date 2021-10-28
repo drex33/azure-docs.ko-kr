@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76b4469b9b0e6fcb23f9c12fa648a8204b06eb79
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 5451c8b5211fec91872b05eba5c30d9622f51dc9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113004955"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124787304"
 ---
 # <a name="troubleshoot-self-service-password-reset-in-azure-active-directory"></a>Azure Active Directory에서 셀프 서비스 암호 재설정 문제 해결
 
@@ -121,12 +121,12 @@ SSPR을 사용하여 본인 또는 사용자에게 문제가 있는 경우 다�
 
 | Error | 세부 정보 | 기술 세부 정보 |
 | --- | --- | --- |
-| TenantSSPRFlagDisabled = 9 | 죄송합니다. 관리자가 조직에 대해 암호 재설정을 비활성화했기 때문에 지금은 암호를 재설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 이 기능을 활성화하도록 요청하세요.<br /><br />자세한 내용은 [Azure AD 암호를 잊어버렸어요. 도와주세요!](../user-help/active-directory-passwords-update-your-own-password.md#common-problems-and-their-solutions)를 참조하세요. | SSPR_0009: 관리자에 의해 암호 재설정이 활성화되지 않은 것을 감지했습니다. 관리자에게 문의하고 조직에 대한 암호 재설정을 활성화하도록 요청하세요. |
+| TenantSSPRFlagDisabled = 9 | 죄송합니다. 관리자가 조직에 대해 암호 재설정을 비활성화했기 때문에 지금은 암호를 재설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 이 기능을 활성화하도록 요청하세요.<br /><br />자세한 내용은 [Azure AD 암호를 잊어버렸어요. 도와주세요!](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e#common-problems-and-their-solutions)를 참조하세요. | SSPR_0009: 관리자에 의해 암호 재설정이 활성화되지 않은 것을 감지했습니다. 관리자에게 문의하고 조직에 대한 암호 재설정을 활성화하도록 요청하세요. |
 | WritebackNotEnabled = 10 |죄송합니다. 관리자가 조직에 필요한 서비스를 활성화하지 않았기 때문에 지금은 암호를 재설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 조직의 구성을 확인하도록 요청하세요.<br /><br />이 필요한 서비스에 대한 자세한 내용은 [비밀번호 쓰기 저장 구성](./tutorial-enable-sspr-writeback.md)을 참조하세요. | SSPR_0010: 비밀번호 쓰기 저장이 활성화되지 않은 것을 감지했습니다. 관리자에게 문의하고 비밀번호 쓰기 저장을 활성화하도록 요청하세요. |
 | SsprNotEnabledInUserPolicy = 11 | 죄송합니다. 관리자가 조직에 대해 암호 재설정을 구성하지 않았기 때문에 지금은 암호를 재설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 암호 재설정을 구성하도록 요청하세요.<br /><br />비밀번호 재설정 구성에 대한 자세한 내용은 [빠른 시작: Azure AD 셀프 서비스 암호 재설정](./tutorial-enable-sspr.md)을 참조하세요. | SSPR_0011: 조직에서 암호 재설정 정책을 정의하지 않았습니다. 관리자에게 문의하고 암호 재설정 정책을 정의하도록 요청하세요. |
 | UserNotLicensed = 12 | 죄송합니다. 조직에서 필요한 라이선스가 누락되었기 때문에 지금은 암호를 재설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 라이선스 할당을 확인하도록 요청하세요.<br /><br />라이선스에 대한 자세한 내용은 [Azure AD 셀프 서비스 암호 재설정의 라이선스 요구 사항](./concept-sspr-licensing.md)을 참조하세요. | SSPR_0012: 조직에 암호 재설정을 수행하는 데 필요한 필수 라이선스가 없습니다. 관리자에게 문의하고 라이선스 할당을 검토하도록 요청하세요. |
 | UserNotMemberOfScopedAccessGroup = 13 | 죄송합니다. 관리자가 암호 재설정을 사용하도록 계정을 구성하지 않았기 때문에 지금은 암호를 재설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 암호 재설정에 대한 계정을 구성하도록 요청하세요.<br /><br />암호 재설정에 대한 계정 구성에 대한 자세한 내용은 [사용자 암호 재설정 롤아웃](./howto-sspr-deployment.md)을 참조하세요. | SSPR_0013: 암호를 재설정할 수 있는 그룹의 구성원이 아닙니다. 관리자에게 문의하고 그룹에 추가되도록 요청하세요. |
-| UserNotProperlyConfigured = 14 | 죄송합니다. 계정에서 필요한 정보가 누락되었기 때문에 지금은 암호를 재설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 암호를 다시 설정하도록 요청하세요. 계정에 다시 액세스할 수 잇게 되면 필요한 정보를 등록해야 합니다.<br /><br />정보를 등록하려면 [셀프 서비스 암호 재설정 등록](../user-help/active-directory-passwords-reset-register.md) 문서의 단계를 따르세요. | SSPR_0014: 암호를 재설정하기 위해 추가 보안 정보가 필요합니다. 계속하려면 관리자에게 문의하고 암호를 다시 설정하도록 요청하세요. 계정에 대한 액세스를 얻은 후 https://aka.ms/ssprsetup 에서 추가 보안 정보를 등록할 수 있습니다. 관리자는 [암호 재설정에 대한 인증 데이터 설정 및 읽기](howto-sspr-authenticationdata.md)의 단계를 따라 계정에 추가 보안 정보를 추가할 수 있습니다. |
+| UserNotProperlyConfigured = 14 | 죄송합니다. 계정에서 필요한 정보가 누락되었기 때문에 지금은 암호를 재설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 암호를 다시 설정하도록 요청하세요. 계정에 다시 액세스할 수 잇게 되면 필요한 정보를 등록해야 합니다.<br /><br />정보를 등록하려면 [셀프 서비스 암호 재설정 등록](https://support.microsoft.com/account-billing/register-the-password-reset-verification-method-for-a-work-or-school-account-47a55d4a-05b0-4f67-9a63-f39a43dbe20a) 문서의 단계를 따르세요. | SSPR_0014: 암호를 재설정하기 위해 추가 보안 정보가 필요합니다. 계속하려면 관리자에게 문의하고 암호를 다시 설정하도록 요청하세요. 계정에 대한 액세스를 얻은 후 https://aka.ms/ssprsetup 에서 추가 보안 정보를 등록할 수 있습니다. 관리자는 [암호 재설정에 대한 인증 데이터 설정 및 읽기](howto-sspr-authenticationdata.md)의 단계를 따라 계정에 추가 보안 정보를 추가할 수 있습니다. |
 | OnPremisesAdminActionRequired = 29 | 죄송합니다. 조직의 암호 재설정 구성 문제 때문에 지금은 암호를 다시 설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 조사하도록 요청하세요. <br /><br />또는<br /><br />조직의 암호 재설정 구성 문제 때문에 지금은 암호를 다시 설정할 수 없습니다. 이 문제 해결을 위해 수행할 수 있는 추가 작업이 없습니다. 관리자에게 문의하고 조사하도록 요청하세요.<br /><br />잠재적 문제에 대한 자세한 내용은 [비밀번호 쓰기 저장 문제 해결](troubleshoot-sspr-writeback.md)을 참조하세요. | SSPR_0029: 온-프레미스 구성의 오류로 인해 암호를 다시 설정할 수 없습니다. 관리자에게 문의하고 조사하도록 요청하세요. |
 | OnPremisesConnectivityError = 30 | 죄송합니다. 조직에 대한 연결 문제 때문에 지금은 암호를 다시 설정할 수 없습니다. 지금 바로 수행할 작업이 없지만 나중에 다시 시도하면 문제를 해결할 수 있습니다. 문제가 계속되면 관리자에게 문의하고 조사하도록 요청하세요.<br /><br />연결 문제에 대해 알아보려면 [비밀번호 쓰기 저장 연결 문제 해결](troubleshoot-sspr-writeback.md)을 참조하세요. | SSPR_0030: 온-프레미스 환경과의 불안정한 연결로 인해 암호를 재설정할 수 없습니다. 관리자에게 문의하고 조사하도록 요청하세요.|
 

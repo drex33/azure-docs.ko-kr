@@ -4,23 +4,24 @@ description: Azure AD PIM(Privileged Identity Management)에서 역할 할당 �
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/27/2020
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a3b6dad33ce678478a201dc8b7b612f4b8507c0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c07c654e5a4baf0f817cefa8c48be9c49cebae4
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91536990"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129668222"
 ---
 # <a name="approve-activation-requests-for-privileged-access-group-members-and-owners-preview"></a>권한 있는 액세스 그룹 구성원 및 소유자에 대한 활성화 요청 승인(미리 보기)
 
@@ -67,7 +68,7 @@ Azure 리소스 역할 요청이 승인 보류 중일 때는 위임된 승인자
 워크플로 알림에 대한 일부 정보는 다음과 같습니다.
 
 - 그룹 할당 요청이 검토 보류 중이면 승인자는 메일 알림을 받게 됩니다. 메일 알림에는 승인자가 승인 또는 거부할 수 있는 요청에 대한 직접 링크가 포함되어 있습니다.
-- 승인 또는 거부하는 첫 번째 승인자가 요청을 해결합니다.
+- 요청은 승인하거나 거부하는 첫 번째 승인자가 해결합니다.
 - 한 승인자가 요청에 응답하면 모든 승인자는 해당 작업에 대한 알림을 받게 됩니다.
 
 >[!Note]

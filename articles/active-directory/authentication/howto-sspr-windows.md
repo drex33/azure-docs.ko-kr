@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc3defd1bf3e3052f45f00eeeec0078ce0f6bbde
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d4b704e1226348f834be8f4af237443994cb456e
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528136"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124732722"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Windows 로그인 화면에서 Azure Active Directory 셀프 서비스 암호 재설정을 사용하도록 설정
 
@@ -186,7 +186,7 @@ Windows 디바이스에 SSPR을 구성하면 사용자에게 무엇이 바뀌나
 
 사용자가 로그인을 시도하면 셀프 서비스 암호 재설정 환경을 제공하는 **암호 재설정** 또는 **암호 찾기** 링크가 로그인 화면에 표시됩니다. 사용자는 이 기능을 사용하면 다른 디바이스를 사용하여 웹 브라우저에 액세스할 필요 없이 암호를 재설정할 수 있습니다.
 
-이 기능을 사용하는 사용자를 위한 자세한 내용은 [회사 또는 학교 암호 재설정](../user-help/active-directory-passwords-update-your-own-password.md)을 참조하세요.
+이 기능을 사용하는 사용자를 위한 자세한 내용은 [회사 또는 학교 암호 재설정](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

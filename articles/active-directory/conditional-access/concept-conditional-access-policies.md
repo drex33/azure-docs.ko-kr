@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 03/17/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a62afbcd120a7404b1677a8c8adb62723a119d5
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 674f4cf80d68095ebd7b134c679b60b45ff2a548
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110070267"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128619347"
 ---
 # <a name="building-a-conditional-access-policy"></a>조건부 액세스 정책 빌드
 
@@ -77,9 +77,9 @@ ms.locfileid: "110070267"
 
 #### <a name="client-apps"></a>클라이언트 앱
 
-기본적으로 조건부 액세스 정책은 최신 인증을 지원하는 브라우저 앱, 모바일 앱 및 데스크톱 클라이언트에 적용됩니다. 
+기본값으로 새로 만든 모든 조건부 액세스 정책은 클라이언트 앱 조건이 구성되지 않은 경우에도 모든 클라이언트 앱 형식에 적용됩니다.
 
-이 할당 조건을 통해 조건부 액세스 정책은 최신 인증을 사용하지 않는 특정 클라이언트 애플리케이션을 대상으로 지정할 수 있습니다. 해당 애플리케이션에는 Exchange ActiveSync 클라이언트, 최신 인증을 사용하지 않는 이전 Office 애플리케이션, 그리고 IMAP, MAPI, POP, SMTP 등의 메일 프로토콜이 포함됩니다.
+클라이언트 앱 조건의 동작은 2020년 8월에 업데이트되었습니다. 기존 조건부 액세스 정책이 있는 경우 변경되지 않은 상태로 유지됩니다. 그러나 기존 정책을 클릭하면 구성 토글이 제거되고 정책이 적용되는 클라이언트 앱이 선택됩니다.
 
 #### <a name="device-state"></a>디바이스 상태
 

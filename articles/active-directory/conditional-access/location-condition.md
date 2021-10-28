@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 06/21/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb, olhuan
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 46e256aaac608d65211aa4575fc14faa9824a4bb
-ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
+ms.openlocfilehash: 09dbcf3557dd45d005a61f9aed99e29abbc684e6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112574069"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626421"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>조건부 액세스 정책에서 위치 조건 사용 
 

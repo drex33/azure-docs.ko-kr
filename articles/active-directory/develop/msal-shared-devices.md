@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: cf8869002fb3e0170331709af3da5b971a098740
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6a6d66be619808ae7a6997966aef32e89b0b2226
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612401"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124786886"
 ---
 # <a name="overview-of-shared-device-mode"></a>공유 디바이스 모드 개요
 
@@ -54,7 +54,7 @@ Azure Active Directory는 **공유 디바이스 모드** 라는 기능을 사용
 
 ### <a name="build-applications-that-support-frontline-workers"></a>최전방 직원을 지원하는 애플리케이션 빌드
 
-MSAL(Microsoft 인증 라이브러리) 및 [Microsoft Authenticator 앱](../user-help/user-help-auth-app-overview.md)을 사용하여 '공유 디바이스 모드'라는 디바이스 상태를 설정하여 애플리케이션에서 최전방 직원을 지원할 수 있습니다. 디바이스가 공유 디바이스 모드에 있는 경우 Microsoft는 디바이스에서 사용자의 상태에 따라 해당 동작을 수정하여 사용자 데이터를 보호할 수 있는 정보를 애플리케이션에 제공합니다.
+MSAL(Microsoft 인증 라이브러리) 및 [Microsoft Authenticator 앱](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)을 사용하여 '공유 디바이스 모드'라는 디바이스 상태를 설정하여 애플리케이션에서 최전방 직원을 지원할 수 있습니다. 디바이스가 공유 디바이스 모드에 있는 경우 Microsoft는 디바이스에서 사용자의 상태에 따라 해당 동작을 수정하여 사용자 데이터를 보호할 수 있는 정보를 애플리케이션에 제공합니다.
 
 지원되는 기능:
 
@@ -73,7 +73,7 @@ MSAL(Microsoft 인증 라이브러리) 및 [Microsoft Authenticator 앱](../user
 
 애플리케이션에서 공유 디바이스 모드를 지원하고 필요한 데이터 및 보안 변경 내용을 포함한 후에는 최전방 직원이 사용할 수 있는 것으로 알릴 수 있습니다.
 
-조직의 디바이스 관리자는 Microsoft Intune와 같은 MDM(모바일 디바이스 관리) 솔루션을 통해 디바이스와 애플리케이션을 저장소 및 작업 영역에 배포할 수 있습니다. 프로비전 프로세스의 일부로 디바이스를 '공유 디바이스'로 표시하고 있습니다. 관리자는 [Microsoft Authenticator 앱](../user-help/user-help-auth-app-overview.md)을 배포하고 구성 매개 변수를 통해 공유 디바이스 모드를 설정하여 공유 디바이스 모드를 구성합니다. 이러한 단계를 수행한 후에는 공유 디바이스 모드를 지원하는 모든 애플리케이션에서 Microsoft Authenticator 애플리케이션을 사용하여 사용자 상태를 관리하고 디바이스와 조직의 보안 기능을 제공합니다.
+조직의 디바이스 관리자는 Microsoft Intune와 같은 MDM(모바일 디바이스 관리) 솔루션을 통해 디바이스와 애플리케이션을 저장소 및 작업 영역에 배포할 수 있습니다. 프로비전 프로세스의 일부로 디바이스를 '공유 디바이스'로 표시하고 있습니다. 관리자는 [Microsoft Authenticator 앱](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)을 배포하고 구성 매개 변수를 통해 공유 디바이스 모드를 설정하여 공유 디바이스 모드를 구성합니다. 이러한 단계를 수행한 후에는 공유 디바이스 모드를 지원하는 모든 애플리케이션에서 Microsoft Authenticator 애플리케이션을 사용하여 사용자 상태를 관리하고 디바이스와 조직의 보안 기능을 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

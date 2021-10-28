@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 06/15/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ec4457eeb60029783981824b93d2eadfaa1271b
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: d1e409fa879f4a541f1f3da7b1c68c06d01e1f8d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866322"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587122"
 ---
 # <a name="conditional-access-cloud-apps-actions-and-authentication-context"></a>조건부 액세스: 클라우드 앱, 작업, 인증 컨텍스트
 
@@ -175,7 +175,7 @@ Azure Portal에서 **새 인증 컨텍스트** 를 선택하여 새 인증 컨�
 
 애플리케이션의 인증 컨텍스트 사용에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [SharePoint 사이트를 보호하기 위한 Microsoft Information Protection 민감도 레이블](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#more-information-about-the-dependencies-for-the-authentication-context-option&preserve-view=true)
+- [SharePoint 사이트를 보호하기 위한 Microsoft Information Protection 민감도 레이블](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#more-information-about-the-dependencies-for-the-authentication-context-option)
 - [Microsoft Cloud App Security](/cloud-app-security/session-policy-aad?branch=pr-en-us-2082#require-step-up-authentication-authentication-context)
 - [사용자 지정 애플리케이션](../develop/developer-guide-conditional-access-authentication-context.md)
 

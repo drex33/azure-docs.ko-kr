@@ -3,27 +3,28 @@ title: Privileged Identity Management 배포를 계획하나요? - Azure AD | Mi
 description: Azure AD 조직에 PIM(Privileged Identity Management)을 배포하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: BarbaraSelden
-manager: martinco
+author: curtand
+manager: KarenH444
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: conceptual
-ms.date: 07/26/2021
-ms.author: baselden
+ms.date: 10/07/2021
+ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99bdfeff59f26f59c9d64bcca9226d9b1f70ec1d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 14109ab2eb32732d357c46182833b13bdd2c99c7
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529303"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129668526"
 ---
 # <a name="plan-a-privileged-identity-management-deployment"></a>Privileged Identity Management 배포 계획
 
-**PIM(Privileged Identity Management)** 은 중요한 리소스에 대한 과도한, 불필요한 또는 잘못 사용된 액세스 권한의 위험을 완화할 수 있도록 시간 기반 및 승인 기반 역할 활성화를 제공합니다. 여기에는 Azure AD(Azure Active Directory), Azure, Microsoft 365 또는 Microsoft Intune과 같은 기타 Microsoft Online Services의 리소스가 포함됩니다. 서비스(SaaS) 애플리케이션과 함께 PIM을 사용할 수도 있습니다.
+**PIM(Privileged Identity Management)** 은 중요한 리소스에 대한 과도한, 불필요한 또는 잘못 사용된 액세스 권한의 위험을 완화할 수 있도록 시간 기반 및 승인 기반 역할 활성화를 제공합니다. 여기에는 Azure AD(Azure Active Directory), Azure, Microsoft 365 또는 Microsoft Intune과 같은 기타 Microsoft Online Services의 리소스가 포함됩니다.
 
 PIM을 사용하면 특정 범위에서 특정 작업 세트를 허용할 수 있습니다. 주요 기능은 다음과 같습니다.
 
@@ -97,7 +98,7 @@ PIM을 사용하면 특정 범위에서 특정 작업 세트를 허용할 수 �
 
 ## <a name="plan-the-project"></a>프로젝트 계획
 
-기술 프로젝트가 실패하는 이유는 일반적으로 영향, 결과, 책임에 대한 기대 수준이 일치하지 않기 때문입니다. 이러한 문제를 방지하려면 [올바른 관련자를 참여](../fundamentals/active-directory-deployment-plans.md#include-the-right-stakeholders)시키고 프로젝트의 관련자 역할이 명확하게 이해되도록 해야 합니다.
+기술 프로젝트가 실패하는 이유는 일반적으로 영향, 결과 및 책임에 대한 기대 수준이 일치하지 않기 때문입니다. 이러한 문제를 방지하려면 [올바른 관련자를 참여](../fundamentals/active-directory-deployment-plans.md#include-the-right-stakeholders)시키고 프로젝트의 관련자 역할이 명확하게 이해되도록 해야 합니다.
 
 ### <a name="plan-a-pilot"></a>파일럿 계획
 
@@ -152,7 +153,7 @@ Azure AD 역할을 관리하기 위해 PIM을 준비하려면 다음 작업을 �
 
 조직에서 권한 있는 역할을 가진 담당자를 나열합니다. 할당된 사용자를 검토하고, 역할이 더 이상 필요하지 않은 관리자를 식별하여 할당에서 제거합니다. 
 
-[Azure AD 역할 액세스 검토](pim-how-to-start-security-review.md)를 사용하여 할당의 검색, 검토, 승인 또는 제거를 자동화할 수 있습니다.
+[Azure AD 역할 액세스 검토](./pim-create-azure-ad-roles-and-resource-roles-review.md)를 사용하여 할당의 검색, 검토, 승인 또는 제거를 자동화할 수 있습니다.
 
 ### <a name="determine-roles-to-be-managed-by-pim"></a>PIM으로 관리할 역할 결정
 
@@ -183,7 +184,7 @@ PIM의 Azure AD 역할의 경우 권한 있는 역할 관리자 또는 전역 �
 
 2.[적격 사용자가 해당 Azure AD 역할을 적시에 활성화할 수 있도록 허용](pim-how-to-activate-role.md)
 
-역할의 만료가 가까워지면 [PIM을 사용하여 역할을 확장하거나 갱신](pim-resource-roles-renew-extend.md)합니다. 사용자가 시작하는 두 작업은 글로벌 관리자 또는 권한 있는 역할 관리자의 승인이 필요합니다.  사용자가 시작하는 두 작업은 글로벌 관리자 또는 권한 있는 역할 관리자의 승인이 필요합니다. 
+역할의 만료가 가까워지면 [PIM을 사용하여 역할을 확장하거나 갱신](pim-resource-roles-renew-extend.md)합니다. 사용자가 시작하는 두 작업은 글로벌 관리자 또는 권한 있는 역할 관리자의 승인이 필요합니다.
 
 Azure AD 역할에서 이런 중요한 이벤트가 발생하면 PIM은 역할, 이벤트, 알림 설정에 따라 권한 관리자에게 [메일 알림 및 주간 다이제스트 메일을 보냅니다](pim-email-notifications.md). 이러한 이메일에는 역할 활성화 또는 갱신과 같은 관련 작업에 대한 링크도 포함될 수 있습니다. 
 
@@ -214,7 +215,7 @@ Azure 리소스 역할을 관리하기 위해 PIM을 준비하려면 다음 작�
 
 전역 관리자는 [액세스 권한을 상승시켜 모든 Azure 구독을 관리](../../role-based-access-control/elevate-access-global-admin.md)할 수 있습니다. 그런 다음, 각 구독 소유자를 찾고 해당 소유자와 협력하여 구독 내에서 불필요한 할당을 제거할 수 있습니다.
 
-[Azure 리소스에 대한 액세스 검토](pim-resource-roles-start-access-review.md)를 사용하여 불필요한 역할 할당을 감사하고 제거합니다. 
+[Azure 리소스에 대한 액세스 검토](./pim-create-azure-ad-roles-and-resource-roles-review.md)를 사용하여 불필요한 역할 할당을 감사하고 제거합니다. 
 
 ### <a name="determine-roles-to-be-managed-by-pim"></a>PIM으로 관리할 역할 결정
 
@@ -318,6 +319,4 @@ PIM으로 보호하려는 권한 있는 액세스 그룹에 대해 [설정을 �
 * PIM 관련 문제가 있는 경우 [PIM 문제 해결](pim-troubleshoot.md)을 참조하세요.
 
 * [다른 ID 기능 배포](../fundamentals/active-directory-deployment-plans.md)
-
- 
 

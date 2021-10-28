@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD 라이선스
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 editor: ''
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -16,12 +16,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: adc80cf579ce3086abd4171b065f859acd0b9294
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: df7188fa214e2b9407364b1f4d850a6f1c50cc27
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96546508"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129985830"
 ---
 # <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>개별 라이선스를 사용하는 사용자를 라이선스용 그룹으로 마이그레이션하는 방법
 

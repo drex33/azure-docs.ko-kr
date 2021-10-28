@@ -1,5 +1,6 @@
 ---
-title: 애플리케이션에 로그인할 때 예기치 않은 동의 확인 프롬프트 | Microsoft Docs
+title: 애플리케이션에 로그인할 때 예기치 않은 동의 확인 프롬프트
+titleSuffix: Azure AD
 description: 예기치 않게 사용자에게 Azure AD와 통합한 애플리케이션에 대한 동의 확인 프롬프트를 표시하는 경우 문제를 해결하는 방법
 services: active-directory
 author: davidmu1
@@ -12,12 +13,12 @@ ms.date: 07/11/2017
 ms.author: davidmu
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81640356eb60167e8cdefc67b962bf7f38783556
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7d10368a6225fe1e5d09e7d6088b500febd6b1ff
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536248"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129620757"
 ---
 # <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>애플리케이션에 로그인할 때 예기치 않은 동의 확인 프롬프트
 

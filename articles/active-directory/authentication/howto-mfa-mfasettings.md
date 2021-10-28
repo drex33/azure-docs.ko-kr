@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: d5aa2a2eba1cf6123d81813cab00d2ac7c5309b4
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.openlocfilehash: 22dd9bdfc8f26a46c7cd5989851fb748955732fe
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835370"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124773819"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Azure AD Multi-Factor Authentication 설정 구성
 
@@ -311,7 +311,7 @@ Azure AD Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 정�
 
 ## <a name="verification-methods"></a>확인 방법
 
-서비스 설정 포털에서 사용자가 사용할 수 있는 인증 방법을 선택할 수 있습니다. 사용자가 Azure AD Multi-Factor Authentication에 자신의 계정을 등록한 경우, 사용하도록 설정한 옵션에서 원하는 인증 방법을 선택합니다. 사용자 등록 프로세스에 대한 지침은 [다단계 인증에 내 계정 설정](../user-help/multi-factor-authentication-end-user-first-time.md)에 제공됩니다.
+서비스 설정 포털에서 사용자가 사용할 수 있는 인증 방법을 선택할 수 있습니다. 사용자가 Azure AD Multi-Factor Authentication에 자신의 계정을 등록한 경우, 사용하도록 설정한 옵션에서 원하는 인증 방법을 선택합니다. 사용자 등록 프로세스에 대한 지침은 [다단계 인증에 내 계정 설정](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)에 제공됩니다.
 
 다음과 같은 인증 방법을 사용할 수 있습니다.
 
@@ -341,7 +341,7 @@ _Multi-Factor Authentication 저장_ 기능을 통해 사용자는 Multi-Factor 
 > [!IMPORTANT]
 > 계정 또는 디바이스가 손상된 경우 신뢰할 수 있는 디바이스의 Multi-Factor Authentication을 저장해두는 것이 보안에 도움이 될 수 있습니다. 회사 계정이 손상되거나 신뢰할 수 있는 디바이스를 분실하거나 도난당한 경우 [MFA 세션을 취소](howto-mfa-userdevicesettings.md)해야 합니다.
 >
-> 복원 작업은 모든 디바이스에서 신뢰할 수 있는 상태를 철회하므로 사용자는 다단계 인증을 다시 수행해야 합니다. [다단계 인증을 위한 설정 관리](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device)에 설명된 것처럼 사용자에게 자신의 디바이스에서 Multi-Factor Authentication을 복원하도록 지시할 수도 있습니다.
+> 복원 작업은 모든 디바이스에서 신뢰할 수 있는 상태를 철회하므로 사용자는 다단계 인증을 다시 수행해야 합니다. [다단계 인증을 위한 설정 관리](https://support.microsoft.com/account-billing/change-your-two-step-verification-method-and-settings-c801d5ad-e0fc-4711-94d5-33ad5d4630f7#turn-on-two-factor-verification-prompts-on-a-trusted-device)에 설명된 것처럼 사용자에게 자신의 디바이스에서 Multi-Factor Authentication을 복원하도록 지시할 수도 있습니다.
 
 ### <a name="how-the-feature-works"></a>기능의 작동 원리
 

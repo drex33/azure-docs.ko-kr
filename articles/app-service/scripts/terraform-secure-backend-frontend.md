@@ -8,21 +8,21 @@ ms.date: 08/10/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: b4b2bf97b684ff83b2a4071ca676d30ffb28b87e
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: 99afad4cad2cddb706957c8a8b860c6dd55d3b71
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114721758"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257160"
 ---
 # <a name="create-two-web-apps-connected-securely-with-private-endpoint-and-vnet-integration"></a>Private Endpoint 및 VNet 통합으로 안전하게 연결된 두 개의 웹앱 만들기
 
-이 문서에서는 다음 단계에 따라 두 개의 웹앱(프런트 엔드 및 백 엔드)을 안전하게 연결하는 [Private Endpoint](../networking/private-endpoint.md) 및 지역 [VNet 통합](../web-sites-integrate-with-vnet.md)을 사용하는 예를 보여줍니다.
+이 문서에서는 다음 단계에 따라 두 개의 웹앱(프런트 엔드 및 백 엔드)을 안전하게 연결하는 [Private Endpoint](../networking/private-endpoint.md) 및 지역 [VNet 통합](../overview-vnet-integration.md)을 사용하는 예를 보여줍니다.
 - VNet 배포
 - 통합을 위한 첫 번째 서브넷 만들기
 - 프라이빗 엔드포인트에 대한 두 번째 서브넷을 만듭니다. 네트워크 정책을 사용하지 않도록 설정하려면 특정 매개 변수를 설정해야 합니다.
 - Private Endpoint 기능에 필요한 PremiumV2 또는 PremiumV3 형식의 App Service 계획 1개 배포
-- 특정 앱 설정을 통해 프런트 엔드 웹앱을 만들어 프라이빗 DNS 영역을 사용합니다. [자세한 정보](../web-sites-integrate-with-vnet.md#azure-dns-private-zones)
+- 특정 앱 설정을 통해 프런트 엔드 웹앱을 만들어 프라이빗 DNS 영역을 사용합니다. [자세한 정보](../overview-vnet-integration.md#azure-dns-private-zones)
 - 프런트 엔드 웹앱을 통합 서브넷에 연결
 - 백 엔드 웹앱 만들기
 - 웹앱 privatelink.azurewebsites.net에 대한 프라이빗 링크 영역 이름으로 DNS 프라이빗 영역을 만듭니다.

@@ -3,7 +3,7 @@ title: 동적 그룹 멤버 자격 관련 문제 해결 - Azure AD | Microsoft D
 description: Azure Active Directory의 동적 그룹 멤버 자격에 대한 문제 해결 팁
 services: active-directory
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: enterprise-users
@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 787017bd4c783e28a07870f61d708686fe6313fb
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 86aa2fb09180487efa5560f501054dabfd206a72
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122531139"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129986039"
 ---
 # <a name="troubleshoot-and-resolve-groups-issues"></a>그룹 문제 해결
 

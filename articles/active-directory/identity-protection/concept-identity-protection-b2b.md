@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1d275c4fe093992f1bf87f7d4b8c5965e448a41
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0f3a5efbb9c990173c7012b9ff6f938fed33f1ad
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536165"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124734565"
 ---
 # <a name="identity-protection-and-b2b-users"></a>ID 보호 및 B2B 사용자
 
@@ -32,7 +32,7 @@ ID 보호는 Azure AD 사용자의 손상된 자격 증명을 검색합니다. �
 
 조직에서 이 계정을 사용하도록 설정하는 경우 셀프 서비스 암호 재설정을 사용하여 계정 차단을 해제하고 자격 증명을 안전한 상태로 되돌릴 수 있습니다.
 1. [암호 재설정 포털](https://passwordreset.microsoftonline.com/)로 이동하여 암호 재설정을 시작합니다. 셀프 서비스 암호 재설정을 계정에 사용하도록 설정되어 있지 않고 계속 진행할 수 없는 경우 [아래](#how-to-remediate-a-users-risk-as-an-administrator) 정보를 사용하여 IT 관리자에게 문의하세요.
-2. 셀프 서비스 암호 재설정을 계정에 사용하도록 설정된 경우 암호를 변경하기 전에 보안 방법을 사용하여 ID를 확인하라는 메시지가 표시됩니다. 도움이 필요하면 [회사 또는 학교 암호 재설정](../user-help/active-directory-passwords-update-your-own-password.md) 문서를 참조하세요.
+2. 셀프 서비스 암호 재설정을 계정에 사용하도록 설정된 경우 암호를 변경하기 전에 보안 방법을 사용하여 ID를 확인하라는 메시지가 표시됩니다. 도움이 필요하면 [회사 또는 학교 암호 재설정](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e) 문서를 참조하세요.
 3. 암호를 성공적으로 안전하게 다시 설정하면 사용자 위험이 수정됩니다. 이제 게스트 사용자로 로그인을 다시 시도할 수 있습니다.
 
 암호를 다시 설정한 후에도 위험으로 인해 게스트 사용자로 차단되는 경우 조직의 IT 관리자에게 문의하세요.

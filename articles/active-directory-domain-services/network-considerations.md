@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/12/2021
 ms.author: justinha
-ms.openlocfilehash: 533d663b478ddd362ef18f81528afbe1b9393095
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 841d3b0db01938f42f56931bb370e25afe1651a6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567537"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216961"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services의 가상 네트워크 디자인 고려 사항 및 구성 옵션
 
@@ -94,7 +94,7 @@ VPN(가상 사설망)을 사용하는 방법에 대한 자세한 내용은 [Azur
 | Azure 리소스                          | Description |
 |:----------------------------------------|:---|
 | 네트워크 인터페이스 카드                  | Azure AD DS는 Windows Server에서 Azure VM으로 실행되는 두 개의 DC(도메인 컨트롤러)에서 관리되는 도메인을 호스트합니다. 각 VM에는 가상 네트워크 서브넷에 연결하는 가상 네트워크 인터페이스가 있습니다. |
-| 동적 표준 공용 IP 주소      | Azure AD DS는 표준 SKU 공용 IP 주소를 사용하여 동기화 및 관리 서비스와 통신합니다. 공용 IP 주소에 대한 자세한 내용은 [Azure의 IP 주소 유형과 할당 메서드](../virtual-network/public-ip-addresses.md)를 참조하세요. |
+| 동적 표준 공용 IP 주소      | Azure AD DS는 표준 SKU 공용 IP 주소를 사용하여 동기화 및 관리 서비스와 통신합니다. 공용 IP 주소에 대한 자세한 내용은 [Azure의 IP 주소 유형과 할당 메서드](../virtual-network/ip-services/public-ip-addresses.md)를 참조하세요. |
 | Azure 표준 부하 분산 장치            | Azure AD DS는 NAT(Network Address Translation) 및 부하 분산(보안 LDAP와 함께 사용되는 경우)에 표준 SKU 부하 분산 장치를 사용합니다. Azure 부하 분산 장치에 대한 자세한 내용은 [Azure Load Balancer란?](../load-balancer/load-balancer-overview.md)을 참조하세요. |
 | NAT(Network Address Translation) 규칙 | Azure AD DS는 부하 분산 장치에서 보안 PowerShell 원격에 대한 두 개의 인바운드 NAT 규칙을 만들고 사용합니다. 표준 SKU 부하 분산 장치를 사용하는 경우 아웃바운드 NAT 규칙도 있습니다. 기본 SKU 부하 분산 장치의 경우 아웃바운드 NAT 규칙이 필요하지 않습니다. |
 | 부하 분산 장치 규칙                     | TCP 포트 636에서 보안 LDAP에 대해 관리되는 도메인을 구성하면 부하 분산 장치에서 세 가지 규칙이 만들어지고 트래픽을 분산하는 데 사용됩니다. |
@@ -114,7 +114,7 @@ VPN(가상 사설망)을 사용하는 방법에 대한 자세한 내용은 [Azur
 
 | 인바운드 포트 번호 | 프로토콜 | 원본                             | 대상 | 작업 | 필수 | 목적 |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | 모두         | Allow  | 예      | 도메인 관리 |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | 모두         | 허용  | 예      | 도메인 관리 |
 | 3389        | TCP      | CorpNetSaw                         | 모두         | Allow  | Optional      | 지원 디버깅 |
 
 이러한 규칙을 적용하는 Azure 표준 부하 분산 장치가 생성됩니다. 이 네트워크 보안 그룹은 Azure AD DS를 보호하며, 관리되는 도메인이 제대로 작동하는 데 꼭 필요합니다. 이 네트워크 보안 그룹을 삭제하지 마세요. 이 보안 그룹이 없으면 부하 분산 장치가 제대로 작동하지 않습니다.

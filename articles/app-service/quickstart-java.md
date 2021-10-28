@@ -14,19 +14,19 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-java-uiex
-ms.openlocfilehash: e4e72cfce3781f4cf09e37b2c82b6ae9207c9ad5
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: b4b0243f6a626f84d751508256db02337f54a3fc
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130133864"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130253252"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>빠른 시작: Azure App Service에서 Java 앱 만들기
 
 [Azure App Service](overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작에서는 [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)과 함께 [Azure CLI](/cli/azure/get-started-with-azure-cli)를 사용하여 .jar 파일 또는 .war 파일을 배포하는 방법을 보여줍니다. 탭을 사용하여 Java SE와 Tomcat 지침 사이를 전환합니다.
 
 Maven이 선호하는 개발 도구가 아닌 경우 Java 개발자를 위한 유사한 자습서를 확인하세요.
-+ [Gradle](/azure/app-service/configure-language-java?pivots=platform-linux#gradle)
++ [Gradle](./configure-language-java.md?pivots=platform-linux#gradle)
 + [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app)
 + [Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)
 + [Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp)
@@ -274,7 +274,7 @@ JBoss EAP는 Linux 버전의 App Service에서만 사용할 수 있습니다. �
 
 필요한 경우 `pom.xml`에서 직접 App Service에 대한 구성을 수정할 수 있습니다. 몇 가지 일반적인 사항은 다음과 같습니다.
 
-속성 | 필수 | Description | 버전
+속성 | 필수 | 설명 | 버전
 ---|---|---|---
 `<schemaVersion>` | false | 구성 스키마의 버전을 지정합니다. 지원되는 값은 `v1`, `v2`입니다. | 1.5.2
 `<subscriptionId>` | false | 구독 ID를 지정합니다. | 0.1.0+

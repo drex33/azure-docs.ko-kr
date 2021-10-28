@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.openlocfilehash: da09d05650c231abf2e8a6e30440ba17982ae248
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 394181c73b2282dfa5b4cada49a0ba31cedc5ae9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128671567"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130255739"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>웹 통화 샘플 시작
 
@@ -84,7 +84,7 @@ PSTN 전화 번호로 전화를 거는 경우 대체 호출자 ID를 지정합�
 
 자세한 내용은 다음 문서를 참조하세요.
 
-- [통화 SDK 사용법](../quickstarts/voice-video-calling/calling-client-samples.md) 숙지
+- [통화 SDK 사용법](../quickstarts/voice-video-calling/getting-started-with-calling.md) 숙지
 - [통화 작동 방식](../concepts/voice-video-calling/about-call-types.md)에 대한 자세한 정보
 - [API 참조 문서](/javascript/api/azure-communication-services/@azure/communication-calling/) 검토
 - [Contoso Med 앱](https://github.com/Azure-Samples/communication-services-contoso-med-app) 샘플 검토

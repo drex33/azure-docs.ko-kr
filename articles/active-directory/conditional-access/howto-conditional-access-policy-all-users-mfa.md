@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e6185c4bde71285fc163cae2af46f64ba052195
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3019a4f1f7b82ad202e8a42f5edb070083fd1db7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95994760"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128578626"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>조건부 액세스: 모든 사용자용 MFA 필요
 
@@ -76,6 +76,6 @@ Microsoft의 ID 보안 디렉터리인 Alex Weinert의 블로그 게시물 [Your
 
 [조건부 액세스 일반 정책](concept-conditional-access-policy-common.md)
 
-[조건부 액세스 보고 전용 모드를 사용하여 영향 확인](howto-conditional-access-insights-reporting.md)
+[조건부 액세스 보고서 전용 모드를 사용하여 영향 확인](howto-conditional-access-insights-reporting.md)
 
 [조건부 액세스 What If 도구를 사용하여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)

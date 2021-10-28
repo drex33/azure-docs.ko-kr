@@ -16,12 +16,12 @@ ms.date: 7/6/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af0269d2ae698a025682929818b601cdebec06ad
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 864633246a673e331e65a1b9de329b9528ab701f
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114286521"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124814584"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Azure AD 권한 관리의 위임 및 역할
 
@@ -97,7 +97,7 @@ Hana가 마케팅, 재무 및 법무 부서에 액세스 거버넌스를 위임�
 | [연결된 조직 추가](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |  |
 | [새 카탈로그 만들기](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |  |
 | [카탈로그에 리소스 추가](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
-| [카탈로그 소유자 추가](entitlement-management-catalog-create.md#add-additional-catalog-owners) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+| [카탈로그 소유자 추가](entitlement-management-catalog-create.md#add-more-catalog-owners) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [카탈로그 편집](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [카탈로그 삭제](entitlement-management-catalog-create.md#delete-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [액세스 패키지 관리자에 위임](entitlement-management-delegate-managers.md) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |

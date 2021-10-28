@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 06/25/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 695786a43291bdb0cb679d79cfa4e6d08cf67770
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 7d8c0bf5ac063fbf300cf43cd46a22e8904cb6bf
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867222"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128548790"
 ---
 # <a name="conditional-access-grant"></a>조건부 액세스: 권한 부여
 

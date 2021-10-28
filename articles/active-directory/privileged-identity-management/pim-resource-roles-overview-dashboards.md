@@ -4,7 +4,7 @@ description: 리소스 대시보드를 사용하여 Azure AD PIM(Privileged Iden
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,16 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e95eaa5b0e86a7470fc48edc23b2dbfb47e4b10c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d87ff7dc27dea5b25995dcfbd7f969a6d01fec56
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84743731"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129669267"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review-in-privileged-identity-management"></a>리소스 대시보드를 사용하여 Privileged Identity Management에서 액세스 검토 수행
 
@@ -43,4 +44,4 @@ ms.locfileid: "84743731"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Privileged Identity Management의 Azure 리소스 역할에 대한 액세스 검토 시작](pim-resource-roles-start-access-review.md)
+- [Privileged Identity Management의 Azure 리소스 역할에 대한 액세스 검토 시작](./pim-create-azure-ad-roles-and-resource-roles-review.md)

@@ -6,12 +6,12 @@ metadata:
   ms.service: azure
   ms.date: 07/17/2020
   ms.custom: devx-track-azurepowershell, references_regions
-  ms.openlocfilehash: 55a8c385479b5a14407e07288d61ff9cd1eb21a5
-  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+  ms.openlocfilehash: 1bd63686c5dc726a238723991132e93c1b13863c
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/24/2021
-  ms.locfileid: "128650461"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130226417"
 title: Azure DevTest Labs FAQ
 summary: "\nAzure DevTest Labs에 대한 일반적인 질문에 대한 답변을 확인합니다.\n\n## <a name=\"blog-post\"></a>블로그 게시물\nDevTest Labs 팀 블로그는 2019년 3월 20일에 사용이 중지되었습니다. \n\n### <a name=\"where-can-i-track-feature-updates-from-now-on\"></a>이제부터 기능 업데이트는 어디에서 추적할 수 있나요?\n이제부터는 기능 업데이트와 유익한 블로그 게시물을 Azure 블로그와 Azure 업데이트에 게시할 예정입니다. 블로그 게시물은 필요할 때마다 설명서에도 연결됩니다.\n        \n[DevTest Labs Azure 블로그](https://azure.microsoft.com/blog/tag/azure-devtest-labs/)와 [DevTest Labs Azure 업데이트](https://azure.microsoft.com/updates/?product=devtest-lab)를 구독하면 DevTest Labs의 새로운 기능에 대한 정보가 제공됩니다.\n        \n### <a name=\"what-happens-to-the-existing-blog-posts\"></a>기존 블로그 게시물은 어떻게 되나요?\n현재 기존 블로그 게시물(정지 업데이트 제외)을 [DevTest Labs 설명서](devtest-lab-overview.md)로 마이그레이션하고 있습니다. MSDN 블로그가 더 이상 사용되지 않으면 DevTest Labs의 설명서 개요로 리디렉션될 예정입니다. 리디렉션되면 '제목으로 필터링'에서 원하는 문서를 검색할 수 있습니다. 일부 게시물은 아직 마이그레이션되지 않았지만 이달 말까지 완료할 예정입니다. \n        \n### <a name=\"where-do-i-see-outage-updates\"></a>중단 업데이트는 어디에서 볼 수 있나요?\n앞으로 중단 업데이트는 Twitter 핸들을 사용하여 게시할 예정입니다. Twitter에서 팔로우하고 중단 및 알려진 버그에 대한 최신 업데이트를 받으세요.\n\n### <a name=\"twitter\"></a>Twitter\nTwitter 핸들: [@azlabservices](https://twitter.com/azlabservices)\n"
 sections:
@@ -214,7 +214,7 @@ sections:
 
       - [Azure DevOps 작업 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)을 사용할 수 있습니다.
 
-      - VM을 만드는 동안 [Resource Manager 템플릿을 생성](devtest-lab-add-vm.md#save-azure-resource-manager-template)하고 [Windows PowerShell에서 Resource Manager 템플릿을 배포](../azure-resource-manager/templates/deploy-powershell.md)할 수 있습니다.
+      - VM을 만드는 동안 [Resource Manager 템플릿을 생성](devtest-lab-add-vm.md#create-and-add-virtual-machines)하고 [Windows PowerShell에서 Resource Manager 템플릿을 배포](../azure-resource-manager/templates/deploy-powershell.md)할 수 있습니다.
 
       - 가상 머신을 만드는 동안 생성할 머신 인스턴스를 둘 이상 지정할 수도 있습니다. 가상 머신의 여러 인스턴스 생성에 대한 자세한 내용을 보려면 [랩 가상 머신 생성](devtest-lab-add-vm.md)의 문서를 참조하세요.
   - question: >

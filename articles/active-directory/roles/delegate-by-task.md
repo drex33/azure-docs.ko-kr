@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a65ce79252c25d187ed61de3b637182deaf225db
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+ms.openlocfilehash: df3c243970709ad7ae4bc52f179117affc2d8613
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113136349"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124776438"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Azure Active Directory에서 관리 작업별 관리자 역할
 
@@ -166,7 +166,7 @@ ms.locfileid: "113136349"
 > [!div class="mx-tableFixed"]
 > | 작업 | 최소 권한 역할 | 추가 역할 |
 > | ---- | --------------------- | ---------------- |
-> | 카탈로그에 리소스를 추가합니다. | Identity Governance 관리자 | 권한 관리를 사용하여 이 작업을 카탈로그 소유자에게 위임할 수 있습니다([설명서 참조](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners)). |
+> | 카탈로그에 리소스를 추가합니다. | Identity Governance 관리자 | 권한 관리를 사용하여 이 작업을 카탈로그 소유자에게 위임할 수 있습니다([설명서 참조](../governance/entitlement-management-catalog-create.md#add-more-catalog-owners)). |
 > | 카탈로그에 SharePoint Online 사이트 추가 | SharePoint 관리자 |  |
 
 ## <a name="groups"></a>그룹

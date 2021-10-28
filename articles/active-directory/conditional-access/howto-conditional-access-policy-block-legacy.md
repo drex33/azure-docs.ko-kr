@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6358f5589e785cfadf243ee2017434aad5dd94a9
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 1c6bea41020b97244a29c719ca1dd5c60f607297
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108176039"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636234"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>조건부 액세스: 레거시 인증 차단
 
@@ -30,7 +30,7 @@ ms.locfileid: "108176039"
 1. **Azure Active Directory** > **Security** > **조건부 액세스** 로 이동합니다.
 1. **새 정책** 을 선택합니다.
 1. 정책에 이름을 지정합니다. 조직에서 정책 이름에 의미 있는 표준을 만드는 것이 좋습니다.
-1. **할당** 에서 **사용자 및 그룹** 을 선택합니다.
+1. **할당** 아래에서 **사용자 및 그룹** 을 선택합니다.
    1. **포함** 에서 **모든 사용자** 를 선택합니다.
    1. **제외** 에서 **사용자 및 그룹** 을 선택하고 레거시 인증 사용 기능을 유지해야 하는 계정을 선택합니다. 사용자 자신이 잠기지 않도록 하나 이상의 계정을 제외합니다. 계정을 제외하지 않으면이 정책을 만들 수 없습니다.
    1. **완료** 를 선택합니다.
@@ -51,7 +51,7 @@ ms.locfileid: "108176039"
 
 [조건부 액세스 일반 정책](concept-conditional-access-policy-common.md)
 
-[조건부 액세스 보고 전용 모드를 사용하여 영향 확인](howto-conditional-access-insights-reporting.md)
+[조건부 액세스 보고서 전용 모드를 사용하여 영향 확인](howto-conditional-access-insights-reporting.md)
 
 [조건부 액세스 What If 도구를 사용하여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)
 

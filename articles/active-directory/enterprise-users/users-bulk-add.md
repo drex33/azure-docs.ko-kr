@@ -4,7 +4,7 @@ description: Azure Active Directory의 Azure AD 관리 센터에서 사용자 �
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: daveba
+manager: KarenH444
 ms.date: 05/19/2021
 ms.topic: how-to
 ms.service: active-directory
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba10cad9db1431d9456120be5e7762ebb24953be
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 0c9bdc5635e602114f33a4e376881ac599596e67
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110536295"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129985469"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Azure Active Directory에서 사용자 대량 만들기
 

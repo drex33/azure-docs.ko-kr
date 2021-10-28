@@ -3,12 +3,12 @@ title: 클라우드에 이벤트 기반 비디오 녹화 및 클라우드에서 
 description: 이 자습서에서는 Azure Live Video Analytics on Azure IoT Edge를 사용하여 이벤트 기반 비디오를 클라우드에 녹화하고 클라우드에서 이를 재생하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: bf5bd39805aa581553bdf2e663f462251bf418d1
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: eab9ec29df297a8034d80ee79c6bd3930877add2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371542"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130254387"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud-with-live-video-analytics"></a>자습서: Live Video Analytics를 통해 클라우드에 이벤트 기반 비디오 녹화 및 클라우드에서 재생
 
@@ -54,7 +54,7 @@ ms.locfileid: "110371542"
 * Azure IoT Hub
 * Azure Storage 계정
 * Azure Media Services 계정
-* [IoT Edge 런타임](../../iot-edge/how-to-install-iot-edge.md)이 설치된 Azure의 Linux VM
+* [IoT Edge 런타임](../../iot-edge/how-to-provision-single-device-linux-symmetric.md)이 설치된 Azure의 Linux VM
 
 > [!TIP]
 > 만든 Azure 리소스와 관련된 문제가 발생하는 경우 **[문제 해결 가이드](troubleshoot-how-to.md#common-error-resolutions)** 를 참조하여 일반적으로 발생하는 문제를 해결하세요.
@@ -441,4 +441,4 @@ Azure Portal에 로그인하여 비디오를 보면 그래프에서 만든 Media
 ## <a name="next-steps"></a>다음 단계
 
 * RTSP 시뮬레이터 대신 RTSP를 지원하는 [IP 카메라](https://en.wikipedia.org/wiki/IP_camera)를 사용합니다. [ONVIF 규격](https://www.onvif.org/conformant-products/) 제품 페이지에서 프로필 G, S 또는 T를 준수하는 디바이스를 찾아 RTSP를 지원하는 IP 카메라를 검색할 수 있습니다.
-* Azure Linux VM 대신 AMD64 또는 X64 Linux 디바이스를 사용합니다. 이 디바이스는 IP 카메라와 동일한 네트워크에 있어야 합니다. [Linux에 Azure IoT Edge 런타임 설치](../../iot-edge/how-to-install-iot-edge.md)의 지침을 따릅니다. 그런 다음, [가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포](../../iot-edge/quickstart-linux.md) 빠른 시작의 지침에 따라 디바이스를 Azure IoT Hub에 등록합니다.
+* Azure Linux VM 대신 AMD64 또는 X64 Linux 디바이스를 사용합니다. 이 디바이스는 IP 카메라와 동일한 네트워크에 있어야 합니다. [Linux에 Azure IoT Edge 런타임 설치](../../iot-edge/how-to-provision-single-device-linux-symmetric.md)의 지침을 따릅니다. 그런 다음, [가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포](../../iot-edge/quickstart-linux.md) 빠른 시작의 지침에 따라 디바이스를 Azure IoT Hub에 등록합니다.

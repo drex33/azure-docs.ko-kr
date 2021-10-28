@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bddcb622a1baccb2d0e975e0d9a96f043f00aa82
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: f20eb91d18c85b21bd9623fec2129fbbde787764
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108176021"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128568291"
 ---
 # <a name="conditional-access-block-access-by-location"></a>조건부 액세스: 위치별 액세스 차단
 
@@ -44,7 +44,7 @@ ms.locfileid: "108176021"
 1. **Azure Active Directory** > **Security** > **조건부 액세스** 로 이동합니다.
 1. **새 정책** 을 선택합니다.
 1. 정책에 이름을 지정합니다. 조직에서 정책 이름에 의미 있는 표준을 만드는 것이 좋습니다.
-1. **할당** 에서 **사용자 및 그룹** 을 선택합니다.
+1. **할당** 아래에서 **사용자 및 그룹** 을 선택합니다.
    1. **포함** 에서 **모든 사용자** 를 선택합니다.
    1. **제외** 에서 **사용자 및 그룹** 을 선택하고 조직의 응급 액세스 또는 비상 계정을 선택합니다. 
    1. **완료** 를 선택합니다.
@@ -62,6 +62,6 @@ ms.locfileid: "108176021"
 
 [조건부 액세스 일반 정책](concept-conditional-access-policy-common.md)
 
-[조건부 액세스 보고 전용 모드를 사용하여 영향 확인](howto-conditional-access-insights-reporting.md)
+[조건부 액세스 보고서 전용 모드를 사용하여 영향 확인](howto-conditional-access-insights-reporting.md)
 
 [조건부 액세스 What If 도구를 사용하여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)

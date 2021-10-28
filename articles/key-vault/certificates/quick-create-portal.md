@@ -10,45 +10,26 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b7a3126aef94ccdef7f6c9120ddeb6f20d872ab5
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: c7559ed3f1a232cf39d2484b007a13b40b635ced
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107815777"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258772"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Key Vault에서 인증서 설정 및 검색
 
 Azure Key Vault는 보안 비밀 저장소를 제공하는 클라우드 서비스입니다. 키, 암호, 인증서 및 기타 비밀을 안전하게 저장할 수 있습니다. Azure Portal을 통해 Azure Key Vault를 만들고 관리할 수 있습니다. 이 빠른 시작에서는 Key Vault를 만든 다음, 인증서를 저장하는 데 사용합니다. Key Vault에 대한 자세한 내용을 보려면 [개요](../general/overview.md)를 검토합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+## <a name="prerequisites"></a>사전 요구 사항
+
+Azure Key Vault에 액세스하려면 Azure 구독이 필요합니다. 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+
+비밀에 대한 모든 액세스는 Azure Key Vault를 통해 수행됩니다. 이 빠른 시작에서는 [Azure Portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md) 또는 [Azure PowerShell](../general/quick-create-powershell.md)을 사용하여 키 자격 증명 모음을 만듭니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
 [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
-
-## <a name="create-a-vault"></a>자격 증명 모음 만들기
-
-1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기** 를 선택합니다.
-2. 검색 상자에 **Key Vault** 를 입력합니다.
-3. 결과 목록에서 **Key Vault** 를 선택합니다.
-4. Key Vault 섹션에서 **만들기** 를 선택합니다.
-5. **Key Vault 만들기** 섹션에서 다음 정보를 제공합니다.
-    - **Name**: 고유 이름은 필수입니다. 이 빠른 시작의 경우 **예제-자격 증명 모음** 을 사용합니다. 
-    - **구독**: 구독을 선택합니다.
-    - **리소스 그룹** 에서 **새로 만들기** 를 선택하고 리소스 그룹 이름을 입력합니다.
-    - **위치** 풀 다운 메뉴에서 위치를 선택합니다.
-    - 다른 옵션은 기본값으로 그대로 둡니다.
-6. 위의 정보를 제공한 후 **만들기** 를 선택합니다.
-
-아래에 나열된 두 개의 속성을 기록합니다.
-
-* **자격 증명 모음 이름**: 이 예제에서 이는 **예제-자격 증명 모음** 입니다. 다른 단계에서 이 이름을 사용합니다.
-* **자격 증명 모음 URI**: 이 예에서는 `https://example-vault.vault.azure.net/` 입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 애플리케이션은 URI를 사용해야 합니다.
-
-이때 사용자의 Azure 계정은 이 새 자격 증명 모음에서 작업을 수행할 권한이 있는 유일한 계정입니다.
-
-![Key Vault 만들기 완료 후 출력](../media/certificates/quick-create-portal/vault-properties.png)
 
 ## <a name="add-a-certificate-to-key-vault"></a>Key Vault에 인증서 추가
 
@@ -68,6 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ![인증서 속성](../media/certificates/quick-create-portal/current-version-hidden.png)
 
 ## <a name="export-certificate-from-key-vault"></a>Key Vault에서 인증서 내보내기
+
 "CER 형식으로 다운로드" 또는 "PFX/PEM 형식으로 다운로드" 단추를 클릭하면 인증서를 다운로드할 수 있습니다. 
 
 ![인증서 다운로드](../media/certificates/quick-create-portal/current-version-shown.png)

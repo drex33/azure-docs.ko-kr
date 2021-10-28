@@ -3,22 +3,22 @@ title: Salesforce 계정을 사용하여 등록 및 로그인 설정
 titleSuffix: Azure AD B2C
 description: 고객에게 Azure Active Directory B2C를 사용하여 애플리케이션에서 Salesforce 계정으로 등록 및 로그인을 제공합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 09/16/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 008d47fe7086322ea0bb7ef26a6c4b449f4269d2
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 5607a5aa1ac29fe89c156a0cf021434b60bb9ada
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028828"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130227754"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Salesforce 계정으로 등록 설정 및 로그인
 
@@ -61,7 +61,8 @@ Azure AD B2C(Azure Active Directory B2C)에서 사용자가 Salesforce 계정으
 
 ## <a name="configure-salesforce-as-an-identity-provider"></a>Salesforce를 ID 공급자로 구성
 
-1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
 1. **ID 공급자** 를 선택한 다음, **새 OpenID Connect 공급자** 를 선택합니다.
 1. **이름** 을 입력합니다. 예를 들어 *Salesforce* 를 입력합니다.
@@ -95,11 +96,11 @@ Azure AD B2C(Azure Active Directory B2C)에서 사용자가 Salesforce 계정으
 1. **소셜 ID 공급자** 에서 **Salesforce** 를 선택합니다.
 1. **저장** 을 선택합니다.
 1. 정책을 테스트하려면 **사용자 흐름 실행** 을 선택합니다.
-1. **애플리케이션** 에서 이전에 등록한 *testapp1* 이라는 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **애플리케이션** 의 경우 이전에 등록한 *testapp1* 이라는 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
 1. **사용자 흐름 실행** 단추를 선택합니다.
 1. 등록 또는 로그인 페이지에서 **Salesforce** 를 선택하여 Salesforce 계정으로 로그인합니다.
 
-로그인 프로세스가 성공하면 브라우저가 Azure AD B2C에서 반환된 토큰의 내용을 표시하는 `https://jwt.ms`로 리디렉션됩니다.
+로그인 프로세스가 성공하면 브라우저가 `https://jwt.ms`로 리디렉션되며, Azure AD B2C에서 반환된 토큰의 내용이 표시됩니다.
 
 ::: zone-end
 
@@ -110,15 +111,16 @@ Azure AD B2C(Azure Active Directory B2C)에서 사용자가 Salesforce 계정으
 이전에 Azure AD B2C 테넌트에서 기록했던 클라이언트 비밀을 저장해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 최상위 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 테넌트가 포함된 디렉터리를 선택합니다.
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
-4. 개요 페이지에서 **ID 경험 프레임워크** 를 선택합니다.
-5. **정책 키**, **추가** 를 차례로 선택합니다.
-6. **옵션** 으로는 `Manual`을 선택합니다.
-7. 정책 키의 **이름** 을 입력합니다. 예들 들어 `SalesforceSecret`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
-8. 이전에 기록해 두었던 클라이언트 비밀을 **비밀** 에 입력합니다.
-9. **키 사용** 에서 `Signature`를 선택합니다.
-10. **만들기** 를 클릭합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+1. 개요 페이지에서 **ID 경험 프레임워크** 를 선택합니다.
+1. **정책 키**, **추가** 를 차례로 선택합니다.
+1. **옵션** 으로는 `Manual`을 선택합니다.
+1. 정책 키의 **이름** 을 입력합니다. 예들 들어 `SalesforceSecret`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
+1. 이전에 기록해 두었던 클라이언트 비밀을 **비밀** 에 입력합니다.
+1. **키 사용** 에서 `Signature`를 선택합니다.
+1. **만들기** 를 클릭합니다.
 
 ## <a name="configure-salesforce-as-an-identity-provider"></a>Salesforce를 ID 공급자로 구성
 
@@ -204,7 +206,7 @@ Azure AD B2C(Azure Active Directory B2C)에서 사용자가 Salesforce 계정으
 1. **지금 실행** 단추를 선택합니다.
 1. 등록 또는 로그인 페이지에서 **Salesforce** 를 선택하여 Salesforce 계정으로 로그인합니다.
 
-로그인 프로세스가 성공하면 브라우저가 Azure AD B2C에서 반환된 토큰의 내용을 표시하는 `https://jwt.ms`로 리디렉션됩니다.
+로그인 프로세스가 성공하면 브라우저가 `https://jwt.ms`로 리디렉션되며, Azure AD B2C에서 반환된 토큰의 내용이 표시됩니다.
 
 
 ::: zone-end

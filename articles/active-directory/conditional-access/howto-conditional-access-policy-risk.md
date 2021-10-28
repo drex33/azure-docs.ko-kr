@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 05/04/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99d8fbf65cdfd4a56f4e7bec197131a1274b0beb
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: a9eb7caebf2e2b8bc122e9e1a42d4bc008580396
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110612804"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128619730"
 ---
 # <a name="conditional-access-sign-in-risk-based-conditional-access"></a>조건부 액세스: 로그인 위험 기반 조건부 액세스
 

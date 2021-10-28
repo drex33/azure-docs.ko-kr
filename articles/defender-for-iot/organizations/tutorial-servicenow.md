@@ -6,12 +6,12 @@ ms.author: v-ekrieg
 ms.topic: tutorial
 ms.date: 07/27/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 506af89773f9639df2bd3fcc07a204531d0dcf6e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5f4fe7e30fef715bdd09380b7b7bb9ad342571ae
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124749009"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130229354"
 ---
 # <a name="tutorial-integrate-servicenow-with-azure-defender-for-iot"></a>자습서: Azure Defender for IoT와 ServiceNow 통합
 
@@ -111,7 +111,7 @@ ServiceNow 내에서 Defender for IoT 애플리케이션에 액세스하려면 S
 
 1. **작업** 창에서 다음 매개 변수를 설정합니다.
 
-      | 매개 변수 | Description |
+      | 매개 변수 | 설명 |
       |--|--|
       | 도메인 | ServiceNow 서버 IP 주소를 입력합니다. |
       | 사용자 이름 | ServiceNow 서버 사용자 이름을 입력합니다. |
@@ -224,7 +224,7 @@ Defender for IoT는 통합에 사용되는 기본 포트를 변경할 수 있도
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 ServiceNow 통합을 시작하는 방법을 알아보았습니다. 계속하여 [Cisco 통합](./integration-forescout.md)에 대해 알아보세요.
+이 자습서에서는 ServiceNow 통합을 시작하는 방법을 알아보았습니다. 계속하여 [Cisco 통합](./tutorial-forescout.md)에 대해 알아보세요.
 
 > [!div class="nextstepaction"]
-> [다음 단계 단추](./integration-forescout.md)
+> [다음 단계 단추](./tutorial-forescout.md)

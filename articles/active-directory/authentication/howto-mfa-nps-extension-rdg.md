@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f50792ec45570f7e90893a97150ea26b63ebf9c
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: f1ccaf6daabc661a8d4249aaeed322e2ab01dd66
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107829839"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124773914"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>NPS(네트워크 정책 서버) 확장 및 Azure AD를 사용하여 원격 데스크톱 게이트웨이 인프라 통합
 
@@ -59,7 +59,7 @@ Azure용 NPS 확장을 NPS 및 원격 데스크톱 게이트웨이와 통합한 
 1. 확장이 설치된 NPS 서버에서 RD CAP 정책에 대한 RADIUS 액세스 허용 메시지를 원격 데스크톱 게이트웨이 서버로 보냅니다.
 1. 사용자에게 RD 게이트웨이를 통해 요청된 네트워크 리소스에 대한 액세스 권한이 부여됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 섹션에서는 Azure AD MFA와 원격 데스크톱 게이트웨이를 통합하기 전에 필요한 전제 조건에 대해 자세히 설명합니다. 이 문서를 시작하기 전에 다음과 같은 필수 구성 요소가 있어야 합니다.  
 
@@ -109,7 +109,7 @@ Azure AD 사용자가 MFA를 사용하도록 설정하려면 [클라우드에서
 
 계정에서 MFA를 사용하도록 설정하면 2단계 인증을 사용하여 인증한 두 번째 인증 요소에 사용할 신뢰할 수 있는 디바이스를 성공적으로 구성할 때까지는 MFA 정책이 적용되는 리소스에 로그인할 수 없습니다.
 
-[Azure AD 다단계 인증은 무엇을 의미하나요?](../user-help/multi-factor-authentication-end-user-first-time.md)의 단계에 따라 사용자 계정으로 MFA용 디바이스를 이해하고 적절하게 구성하세요.
+[Azure AD 다단계 인증은 무엇을 의미하나요?](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)의 단계에 따라 사용자 계정으로 MFA용 디바이스를 이해하고 적절하게 구성하세요.
 
 > [!IMPORTANT]
 > 원격 데스크톱 게이트웨이에 대한 로그인 동작은 Azure AD 다단계 인증을 사용하여 확인 코드를 입력하는 옵션을 제공하지 않습니다. 휴대폰 확인 또는 푸시 알림이 있는 Microsoft Authenticator 앱에 대해 사용자 계정을 구성해야 합니다.

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/03/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 872f6efb6cc8df8ed63fec23af3807a18dde6201
-ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.openlocfilehash: 711f83a33a530aef99bba75a0010bcd131aa771b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128708488"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130228968"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
 > [!div class="op_single_selector"]
@@ -49,11 +49,6 @@ ms.locfileid: "128708488"
 * 게이트웨이 유형 = “ExpressRoute” Express 경로 구성에 이 유형이 필요합니다.
 
 구성을 시작하기 전에 이러한 단계의 [비디오](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)를 시청하십시오.
-
-> [!IMPORTANT]
-> 프라이빗 피어링에 대한 IPv6 지원은 현재 **퍼블릭 미리 보기** 로 제공됩니다. IPv6 기반 프라이빗 피어링이 구성된 ExpressRoute 회로에 가상 네트워크를 연결하려면 가상 네트워크가 이중 스택인지 확인하고 [Azure VNet용 IPv6](../virtual-network/ipv6-overview.md)에 대한 지침을 따르세요.
-> 
-> 
 
 ## <a name="create-the-gateway-subnet"></a>게이트웨이 서브넷 만들기
 

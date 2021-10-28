@@ -1,19 +1,19 @@
 ---
 title: Azure Active Directory Domain Services에 대한 기본 제공 정책 정의
 description: Azure Active Directory Domain Services에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 09/03/2021
+ms.date: 10/11/2021
 ms.service: active-directory
 ms.subservice: domain-services
 author: justinha
 ms.author: justinha
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: c792bba78c79c4dc87fbdeb69f44e8f052f72c0b
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 47899895605819470c97a4b8deb36e5e6d71172e
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123479549"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129807692"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대한 Azure Policy 기본 제공 정의
 

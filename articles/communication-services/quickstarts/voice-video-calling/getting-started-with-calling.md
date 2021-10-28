@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-plat-web-ios-android-windows
-ms.openlocfilehash: 75adda39e2a36bcbe03ccc72216f274264624deb
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 188cfe09aa75d79ef4e67b705ada0a1eec549231
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128671675"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130229639"
 ---
 # <a name="quickstart-add-voice-calling-to-your-app"></a>빠른 시작: 앱에 음성 통화 추가
 
@@ -49,5 +49,5 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 자세한 내용은 다음 문서를 참조하세요.
 
 - [영웅 샘플 호출](../../samples/calling-hero-sample.md) 체크 아웃
-- [통화 SDK 기능](./calling-client-samples.md)에 대해 알아보기
+- [통화 SDK 기능]()에 대해 알아보기
 - [호출 작동 방식](../../concepts/voice-video-calling/about-call-types.md)에 대해 자세히 알아보기

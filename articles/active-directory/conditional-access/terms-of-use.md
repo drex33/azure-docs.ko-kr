@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 07/12/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9afabe40426a5e86fdd3c6ef76969e1392a9b051
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+ms.openlocfilehash: 9f34d031bafd801cf068d19a4885bb9a818885c7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113649587"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128561920"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory 사용 약관
 
@@ -305,7 +305,7 @@ ToU 정책을 만들고 적용한 후에는 로그인하는 동안 범위 내에
 
 ### <a name="join-a-windows-10-device"></a>Windows 10 디바이스 연결
 
-사용자가 Windows 10 및 Microsoft Edge를 사용하는 경우 [해당 디바이스에 연결](../user-help/user-help-join-device-on-network.md#to-join-an-already-configured-windows-10-device)하기 위해 다음과 같은 메시지가 표시됩니다.
+사용자가 Windows 10 및 Microsoft Edge를 사용하는 경우 [해당 디바이스에 연결](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973#to-join-an-already-configured-windows-10-device)하기 위해 다음과 같은 메시지가 표시됩니다.
 
 ![디바이스를 등록해야 함을 나타내는 Windows 10 및 Microsoft Edge 메시지](./media/terms-of-use/per-device-win10-edge.png)
 

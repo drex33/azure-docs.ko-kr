@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/04/2021
-ms.openlocfilehash: 9a509d878729648ee2768d536d9cca586604662e
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: bc87e79df3a581e667926ab61cb3c3b40c908f7b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112122022"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130259509"
 ---
 # <a name="quickstart-connect-a-renesas-starter-kit-for-rx65n-2mb-to-iot-central"></a>빠른 시작: Renesas Starter Kit+ for RX65N-2MB를 IoT Central에 연결
 
@@ -31,7 +31,7 @@ ms.locfileid: "112122022"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Microsoft Windows 10을 실행하는 PC
+* Windows 10을 실행하는 PC
 * 리포지토리를 복제하기 위한 [Git](https://git-scm.com/downloads)
 * 하드웨어
 
@@ -277,7 +277,7 @@ IoT Central에서 디바이스 정보를 볼 수 있습니다.
 
 이 빠른 시작에서는 Azure RTOS 샘플 코드가 포함된 사용자 지정 이미지를 빌드한 다음, 해당 이미지를 Renesas RX65N 디바이스로 플래시했습니다. 또한 IoT Central 포털을 사용하여 Azure 리소스를 만들고, Renesas RX65N을 Azure에 안전하게 연결하고, 원격 분석을 보고, 메시지를 보냈습니다.
 
-다음 단계로, 다음 문서에서 IoT 디바이스 SDK를 사용하여 디바이스를 Azure IoT 연결하는 방법을 자세히 알아봅니다. 
+다음 단계로, 다음 문서에서 IoT 디바이스 SDK를 사용하여 디바이스를 Azure IoT에 연결하는 방법을 자세히 살펴봅니다. 
 
 > [!div class="nextstepaction"]
 > [IoT Hub에 시뮬레이션된 디바이스 연결](quickstart-send-telemetry-central.md)

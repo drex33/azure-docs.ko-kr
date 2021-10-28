@@ -4,8 +4,8 @@ description: Azure 관리 센터에서 대량 작업 시 그룹 멤버를 제거
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: daveba
-ms.date: 09/02/2021
+manager: KarenH444
+ms.date: 09/22/2021
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52aa3c4b2f9ec34139debf008a5cb291e443c689
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: b736fd59475de5bd569547fee8ebabba71c68d3a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123431967"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129986628"
 ---
 # <a name="bulk-remove-group-members-in-azure-active-directory"></a>Azure Active Directory에서 그룹 멤버 대량 제거
 
@@ -57,7 +57,7 @@ Azure AD(Azure Active Directory) Portal을 사용하면 CSV(쉼표로 구분된 
 
 1. CSV 파일을 열고 그룹에서 제거할 각 그룹 멤버에 대한 줄을 추가합니다(필수 값은 멤버 개체 ID 또는 사용자 계정 이름임). 그런 다음 파일을 저장합니다.
 
-    :::image type="content" source="./media/groups-bulk-import-members/csv-file.png" alt-text="CSV 파일에는 제거할 그룹 멤버의 이름 및 ID가 포함됨":::
+    :::image type="content" source="./media/groups-bulk-remove-members/csv-file.png" alt-text="CSV 파일에는 제거할 그룹 멤버의 이름 및 ID가 포함됨":::
 
 1. **그룹 멤버 대량 제거** 페이지의 **csv 파일 업로드** 에서 해당 파일을 찾습니다. 파일을 선택하면 CSV 파일의 유효성 검사가 시작됩니다.
 1. 파일 콘텐츠의 유효성 검사가 완료되면 대량 가져오기 페이지에 **파일 업로드 성공** 이 표시됩니다. 오류가 있는 경우 해당 오류를 해결해야 작업을 제출할 수 있습니다.

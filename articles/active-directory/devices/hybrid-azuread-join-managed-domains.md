@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 01/26/2021
+ms.date: 10/22/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45eb13f22d44edd215ab55b6f36de5f8f8871e78
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c76db99be355e0cf57a29aaf5a390df0112c644f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128633016"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224614"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>자습서: 관리되는 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -42,7 +42,7 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 > * 가입 디바이스 확인
 > * 문제 해결
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)(1.1.819.0 이상)
 - Azure AD 테넌트에 대한 글로벌 관리자의 자격 증명
@@ -72,6 +72,7 @@ Azure AD Connect에서 Azure AD에 조인된 하이브리드 Azure AD가 될 디
 - `https://login.microsoftonline.com`
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com`(Seamless SSO를 사용하거나 사용할 계획이 있는 경우)
+- `https://enterpriseregistration.windows.net`
 
 > [!WARNING]
 > 조직에서 데이터 손실 방지 또는 Azure AD 테넌트 제한과 같은 시나리오에 대한 SSL 트래픽을 가로채는 프록시 서버를 사용하는 경우 'https://device.login.microsoftonline.com '에 대한 트래픽을 TLS 중단-검사에서 제외해야 합니다. 'https://device.login.microsoftonline.com '을 제외하지 않으면 클라이언트 인증서 인증에 방해가 되어 디바이스 등록 및 디바이스 기반 조건부 액세스에 문제가 발생할 수 있습니다.

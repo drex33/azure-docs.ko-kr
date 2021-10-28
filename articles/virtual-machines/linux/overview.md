@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b419b816de822c72e3c33acddd9d9b6c50745b7f
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: b725577cadcde38117a2b21be31d37c2a8b02240
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130047854"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223066"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Azure의 Linux 가상 머신
 
@@ -48,7 +48,7 @@ Azure 리소스를 만들 수 있는 전 세계 여러 [지리적 지역](https:
 
 아래 표에서는 사용할 수 있는 위치 목록을 가져올 수 있는 몇 가지 방법을 보여 줍니다.
 
-| 메서드 | Description |
+| 메서드 | 설명 |
 | --- | --- |
 | Azure portal |VM을 만들 때 목록에서 위치를 선택합니다. |
 | Azure PowerShell |[Get-AzLocation](/powershell/module/az.resources/get-azlocation) 명령을 사용합니다. |
@@ -111,7 +111,7 @@ Azure는 Azure를 지원하는 대부분의 Linux 배포판에서 [cloud-init](h
 
 ## <a name="networking"></a>네트워킹
 * [Virtual Network 개요](../../virtual-network/virtual-networks-overview.md)
-* [Azure의 IP 주소](../../virtual-network/public-ip-addresses.md)
+* [Azure의 IP 주소](../../virtual-network/ip-services/public-ip-addresses.md)
 * [Azure에서 Linux VM에 포트 열기](nsg-quickstart.md)
 * [Azure 포털에서 정규화된 도메인 이름 만들기](../create-fqdn.md)
 

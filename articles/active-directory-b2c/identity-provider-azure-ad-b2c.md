@@ -3,22 +3,22 @@ title: 다른 Azure AD B2C 테넌트의 Azure AD B2C 계정을 사용하여 등�
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C를 통해 애플리케이션 내 다른 테넌트의 Azure AD B2C 계정을 사용하여 등록 및 로그인을 고객에게 제공합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/09/2021
-ms.author: mimart
+ms.date: 09/16/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 6ad2014b8fce21eada9ced1e63a3511daa5e1891
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 8aa68b99c4deaec0e20aedd663a3bfc7451d0742
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122529699"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130228001"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-azure-ad-b2c-account-from-another-azure-ad-b2c-tenant"></a>다른 Azure AD B2C 테넌트의 Azure AD B2C 계정을 사용하여 등록 및 로그인 설정
 
@@ -90,7 +90,8 @@ Azure AD B2C(예: Contoso)에서 다른 Azure AD B2C 테넌트(예: Fabrikam)의
 ## <a name="configure-azure-ad-b2c-as-an-identity-provider"></a>Azure AD B2C를 ID 공급자로 구성
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 페더레이션을 구성하려는 Azure AD B2C 테넌트가 포함된 디렉터리(예: Contoso)를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 테넌트(예: Contoso)가 포함된 디렉터리를 선택합니다.
+1. 페더레이션을 구성하려는 Azure AD B2C 테넌트가 포함된 디렉터리(예: Contoso)를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
 1. **ID 공급자** 를 선택한 다음, **새 OpenID Connect 공급자** 를 선택합니다.
 1. **이름** 을 입력합니다. 예를 들어 *Fabrikam* 을 입력합니다.
@@ -138,7 +139,8 @@ Azure AD B2C(예: Contoso)에서 다른 Azure AD B2C 테넌트(예: Fabrikam)의
 
 이전에 만든 애플리케이션 키를 Azure AD B2C 테넌트에 저장해야 합니다.
 
-1. 페더레이션을 구성하려는 Azure AD B2C 테넌트가 포함된 디렉터리(예: Contoso)를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 테넌트(예: Contoso)가 포함된 디렉터리를 선택합니다.
+1. 페더레이션을 구성하려는 Azure AD B2C 테넌트가 포함된 디렉터리(예: Contoso)를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
 1. **정책** 에서 **Identity Experience Framework** 를 선택합니다.
 1. **정책 키**, **추가** 를 차례로 선택합니다.

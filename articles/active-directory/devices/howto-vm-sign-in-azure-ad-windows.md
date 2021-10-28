@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 08/19/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea5ad0ed61ac0d2b9603752efc6bbc998cf189a6
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 0842de3ef0d3bc154193413987ae2a57d87ead38
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122608115"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128631536"
 ---
 # <a name="login-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Azure에서 Azure Active Directory 인증을 사용하여 Windows 가상 머신에 로그인
 

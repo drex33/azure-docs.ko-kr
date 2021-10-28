@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b7ee283ff61753a060e49a3340cd0a795b04faf9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 57aefd8cc8a246d485854f72b47c131f75dced0c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98755929"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124734819"
 ---
 # <a name="integrating-with-the-microsoft-identity-platform"></a>Microsoft ID 플랫폼과 통합
 
@@ -55,7 +55,7 @@ ms.locfileid: "98755929"
 
 **이미 Azure AD를 사용 중인 수백만 개의 조직에 애플리케이션을 홍보합니다.**   이러한 마켓플레이스를 검색하고 찾아보는 사용자는 자격 있는 클라우드 서비스 고객이 되어 이미 하나 이상의 클라우드 서비스를 사용하고 있습니다. [Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/)에서 애플리케이션 홍보하기에 대해 자세히 알아보세요.
 
-**사용자가 애플리케이션에 등록하면 사용자의 Azure AD 액세스 패널 및 Microsoft 365 앱 시작 관리자에 표시됩니다.**  사용자가 나중에 애플리케이션으로 쉽고 빠르게 돌아갈 수 있어 사용자 참여를 향상시킵니다. [Azure AD 액세스 패널](../user-help/my-apps-portal-end-user-access.md)에 대해 자세히 알아보세요.
+**사용자가 애플리케이션에 등록하면 사용자의 Azure AD 액세스 패널 및 Microsoft 365 앱 시작 관리자에 표시됩니다.**  사용자가 나중에 애플리케이션으로 쉽고 빠르게 돌아갈 수 있어 사용자 참여를 향상시킵니다. [Azure AD 액세스 패널](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)에 대해 자세히 알아보세요.
 
 ### <a name="secure-device-to-service-and-service-to-service-communication"></a>디바이스와 서비스 및 서비스와 서비스 간의 안전한 통신
 

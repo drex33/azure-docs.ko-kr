@@ -3,22 +3,22 @@ title: 앱에 ID 공급자 액세스 토큰 전달
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 사용자 흐름에서 OAuth 2.0 ID 공급자에 대한 액세스 토큰을 클레임으로 전달하는 방법에 대해 알아보세요.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 09/16/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a99d41f5f9fc9538aaf563bd3ae56075d269c94a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 73a4b909e5f6e54923aebd2ddec65f9ce80575b2
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97584649"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130217528"
 ---
 # <a name="pass-an-identity-provider-access-token-to-your-application-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 애플리케이션에 ID 공급자 액세스 토큰 전달
 
@@ -51,23 +51,24 @@ Azure AD B2C에서는 [OAuth 2.0](authorization-code-flow.md) 및 [OpenID Connec
 ## <a name="enable-the-claim"></a>클레임 사용
 
 1. Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 최상위 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 테넌트가 포함된 디렉터리를 선택합니다.
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
-4. **사용자 흐름(정책)** 을 선택한 다음 사용자 흐름을 선택하세요. 예를 들어 **B2C_1_signupsignin1** 으로 업데이트합니다.
-5. **애플리케이션 클레임** 을 선택합니다.
-6. **ID 공급자 액세스 토큰** 클레임을 사용하도록 설정하세요.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+1. **사용자 흐름(정책)** 을 선택한 다음 사용자 흐름을 선택하세요. 예를 들어 **B2C_1_signupsignin1** 으로 업데이트합니다.
+1. **애플리케이션 클레임** 을 선택합니다.
+1. **ID 공급자 액세스 토큰** 클레임을 사용하도록 설정하세요.
 
     ![ID 공급자 액세스 토큰 클레임 사용](./media/idp-pass-through-user-flow/identity-provider-pass-through-app-claim.png)
 
-7. **저장** 을 클릭하여 사용자 흐름을 저장합니다.
+1. **저장** 을 클릭하여 사용자 흐름을 저장합니다.
 
 ## <a name="test-the-user-flow"></a>사용자 흐름 테스트
 
 Azure AD B2C에서 애플리케이션을 테스트하는 경우 포함된 클레임을 검토하기 위해 Azure AD B2C 토큰이 `https://jwt.ms`로 반환되도록 하는 것이 유용할 수 있습니다.
 
 1. 사용자 흐름의 개요 페이지에서 **사용자 흐름 실행** 을 선택합니다.
-2. **애플리케이션** 은 이전에 등록한 애플리케이션을 선택합니다. 아래 예제에서 토큰을 보려면 **회신 URL** 에서 `https://jwt.ms`가 표시되어야 합니다.
-3. **사용자 흐름 실행** 을 클릭한 다음, 계정 자격 증명으로 로그인합니다. **idp_access_token** 클레임에 ID 공급자의 액세스 토큰이 표시되어야 합니다.
+1. **애플리케이션** 은 이전에 등록한 애플리케이션을 선택합니다. 아래 예제에서 토큰을 보려면 **회신 URL** 에서 `https://jwt.ms`가 표시되어야 합니다.
+1. **사용자 흐름 실행** 을 클릭한 다음, 계정 자격 증명으로 로그인합니다. **idp_access_token** 클레임에 ID 공급자의 액세스 토큰이 표시되어야 합니다.
 
     다음 예제와 비슷한 내용이 표시됩니다.
 
@@ -94,7 +95,7 @@ Azure AD B2C에서 애플리케이션을 테스트하는 경우 포함된 클레
     </BuildingBlocks>
     ```
 
-2. 액세스 토큰을 사용할 각 OAuth 2.0 공급자에 대해 **TechnicalProfile** 요소에 **OutputClaim** 요소를 추가합니다. 다음 예제는 Facebook 기술 프로필에 추가된 요소를 보여 줍니다.
+1. 액세스 토큰을 사용할 각 OAuth 2.0 공급자에 대해 **TechnicalProfile** 요소에 **OutputClaim** 요소를 추가합니다. 다음 예제는 Facebook 기술 프로필에 추가된 요소를 보여 줍니다.
 
     ```xml
     <ClaimsProvider>
@@ -110,8 +111,8 @@ Azure AD B2C에서 애플리케이션을 테스트하는 경우 포함된 클레
     </ClaimsProvider>
     ```
 
-3. TrustframeworkExtensions.xml 파일을 저장합니다.
-4. 신뢰 당사자 정책 파일(예: SignUpOrSignIn.xml)을 열고 **OutputClaim** 요소를 **TechnicalProfile** 에 추가합니다.
+1. TrustframeworkExtensions.xml 파일을 저장합니다.
+1. 신뢰 당사자 정책 파일(예: SignUpOrSignIn.xml)을 열고 **OutputClaim** 요소를 **TechnicalProfile** 에 추가합니다.
 
     ```xml
     <RelyingParty>
@@ -125,7 +126,7 @@ Azure AD B2C에서 애플리케이션을 테스트하는 경우 포함된 클레
     </RelyingParty>
     ```
 
-5. 정책 파일을 저장합니다.
+1. 정책 파일을 저장합니다.
 
 ## <a name="test-your-policy"></a>정책 테스트
 
@@ -134,19 +135,20 @@ Azure AD B2C에서 애플리케이션을 테스트하는 경우 포함된 클레
 ### <a name="upload-the-files"></a>파일 업로드
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 상단 메뉴에서 **디렉토리 + 구독** 필터를 클릭하고 테넌트가 포함된 디렉토리를 선택하여 Azure AD B2C 테넌트가 포함된 디렉토리를 사용하고 있는지 확인하세요.
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
-4. **ID 경험 프레임워크** 를 선택합니다.
-5. 사용자 지정 정책 페이지에서 **정책 업로드** 를 클릭합니다.
-6. **정책이 있는 경우 덮어쓰기** 를 선택한 후 TrustFrameworkExtensions.xml 파일을 찾아서 선택합니다.
-7. **업로드** 를 선택합니다.
-8. 신뢰 당사자 파일(예: SignUpOrSignIn.xml)에 대해 5~7단계를 반복합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+1. **ID 경험 프레임워크** 를 선택합니다.
+1. 사용자 지정 정책 페이지에서 **정책 업로드** 를 클릭합니다.
+1. **정책이 있는 경우 덮어쓰기** 를 선택한 후 TrustFrameworkExtensions.xml 파일을 찾아서 선택합니다.
+1. **업로드** 를 선택합니다.
+1. 신뢰 당사자 파일(예: SignUpOrSignIn.xml)에 대해 5~7단계를 반복합니다.
 
 ### <a name="run-the-policy"></a>정책 실행
 
 1. 변경한 정책을 엽니다. 예를 들어 B2C_1A_signup_signin입니다.
-2. **애플리케이션** 은 이전에 등록한 애플리케이션을 선택합니다. 아래 예제에서 토큰을 보려면 **회신 URL** 에서 `https://jwt.ms`가 표시되어야 합니다.
-3. **지금 실행** 을 선택합니다.
+1. **애플리케이션** 은 이전에 등록한 애플리케이션을 선택합니다. 아래 예제에서 토큰을 보려면 **회신 URL** 에서 `https://jwt.ms`가 표시되어야 합니다.
+1. **지금 실행** 을 선택합니다.
 
     다음 예제와 비슷한 내용이 표시됩니다.
 

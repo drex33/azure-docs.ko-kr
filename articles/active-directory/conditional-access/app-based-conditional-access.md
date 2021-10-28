@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 122cc6a2be17cb35e77b638a60fc5fa4f035c0d4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9f6a2d54b8669ddfbb2a1427ffffad97a7d539f5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91266142"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587198"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>방법: 조건부 액세스를 사용하여 클라우드 앱 액세스에 승인된 클라이언트 앱 요구
 

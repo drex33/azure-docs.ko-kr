@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/09/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: a25c35971d341c9ea6bce716931a76d682027e79
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 59bd93cf5c17675e99a14484d8a13821e287047a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732848"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234570"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 공용 부하 분산 장치 만들기
 
@@ -47,7 +47,7 @@ Azure Portal에서 Azure Load Balancer를 시작하여 공용 부하 분산 장�
     | **설정**          | **값**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **프로젝트 세부 정보**  |                                                                 |
-    | Subscription     | Azure 구독 선택                                  |
+    | 구독     | Azure 구독 선택                                  |
     | 리소스 그룹   | **새로 만들기** 를 선택합니다. </br> **이름** 에서 **CreatePubLBQS-rg** 를 입력합니다. </br> **확인** 을 선택합니다. |
     | **인스턴스 세부 정보** |                                                                 |
     | 속성             | **myVNet** 입력                                    |
@@ -169,7 +169,7 @@ Azure Portal에서 Azure Load Balancer를 시작하여 공용 부하 분산 장�
 8. **IP 형식** 으로 **IP 주소** 를 선택합니다.
 
     > [!NOTE]
-    > IP 접두사에 대한 자세한 내용은 [Azure 공용 IP 주소 접두사](../virtual-network/public-ip-address-prefix.md)를 참조하세요.
+    > IP 접두사에 대한 자세한 내용은 [Azure 공용 IP 주소 접두사](../virtual-network/ip-services/public-ip-address-prefix.md)를 참조하세요.
 
 9. **공용 IP 주소** 에서 **새로 만들기** 를 선택합니다.
 
@@ -247,7 +247,7 @@ Azure Portal에서 Azure Load Balancer를 시작하여 공용 부하 분산 장�
     | 설정 | 값                                          |
     |-----------------------|----------------------------------|
     | **프로젝트 세부 정보** |  |
-    | Subscription | Azure 구독 선택 |
+    | 구독 | Azure 구독 선택 |
     | 리소스 그룹 | **CreatePubLBQS-rg** 선택 |
     | **인스턴스 세부 정보** |  |
     | 가상 머신 이름 | **myVM1** 을 입력합니다. |
@@ -315,7 +315,7 @@ Azure Portal에서 Azure Load Balancer를 시작하여 공용 부하 분산 장�
     | **설정**          | **값**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **프로젝트 세부 정보**  |                                                                 |
-    | Subscription     | Azure 구독 선택                                  |
+    | 구독     | Azure 구독 선택                                  |
     | 리소스 그룹   | **새로 만들기** 를 선택합니다. </br> **이름** 에서 **CreatePubLBQS-rg** 를 입력합니다. </br> **확인** 을 선택합니다. |
     | **인스턴스 세부 정보** |                                                                 |
     | 속성             | **myVNet** 입력                                    |
@@ -370,7 +370,7 @@ Azure Portal에서 Azure Load Balancer를 시작하여 공용 부하 분산 장�
     | 설정 | 값                                          |
     |-----------------------|----------------------------------|
     | **프로젝트 세부 정보** |  |
-    | Subscription | Azure 구독 선택 |
+    | 구독 | Azure 구독 선택 |
     | 리소스 그룹 | **CreatePubLBQS-rg** 선택 |
     | **인스턴스 세부 정보** |  |
     | 가상 머신 이름 | **myVM1** 을 입력합니다. |

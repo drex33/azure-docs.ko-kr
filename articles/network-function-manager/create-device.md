@@ -1,17 +1,17 @@
 ---
 title: '자습서: Azure Network Function Manager용 디바이스 리소스 만들기'
 description: 이 자습서에서는 Azure Network Function Manager용 디바이스 리소스를 만드는 방법을 알아봅니다.
-author: cherylmc
+author: prmitt
 ms.service: network-function-manager
 ms.topic: tutorial
 ms.date: 06/30/2021
-ms.author: cherylmc
-ms.openlocfilehash: 048b086c407f5fbdc6239aec9dc509aceda7c8c2
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.author: prmitt
+ms.openlocfilehash: 41347c5afe8664955fd5b298330f4299244edb6a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114468199"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130263328"
 ---
 # <a name="tutorial-create-a-network-function-manager-device-resource-preview"></a>자습서: Network Function Manager 디바이스 리소스(미리 보기) 만들기
 

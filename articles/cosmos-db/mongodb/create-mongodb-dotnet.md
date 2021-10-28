@@ -9,18 +9,19 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 8/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2aadb79f306165543c7b8e7c6935b9ff066681e4
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: b528804385b9b47f6c586b49f2a33a4c688753b2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123307771"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130250201"
 ---
 # <a name="quickstart-build-a-net-web-api-using-azure-cosmos-dbs-api-for-mongodb"></a>빠른 시작: Azure Cosmos DB의 API for MongoDB를 사용하여 .NET 웹 API 빌드
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
+> * [Python](create-mongodb-python.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.JS](create-mongodb-nodejs.md)
 > * [Xamarin](create-mongodb-xamarin.md)
@@ -224,7 +225,7 @@ dotnet run
 이 빠른 시작에서는 API for MongoDB 계정을 만들고, 코드를 사용하여 데이터베이스 및 컬렉션을 만들고, 웹 API 앱을 실행하는 방법을 알아보았습니다. 이제 데이터베이스에 추가 데이터를 가져올 수 있습니다. 
 
 Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하나요? 용량 계획을 위해 기존 데이터베이스 클러스터에 대한 정보를 사용할 수 있습니다.
-* 기존 데이터베이스 클러스터의 vCore 및 서버 수만을 알고 있는 경우, [vCore 또는 vCPU를 사용하여 요청 단위 추정](../convert-vcore-to-request-unit.md)을 참조하세요 
+* 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](../convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
 * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-capacity-planner.md)에 대해 읽어보세요.
 
 > [!div class="nextstepaction"]

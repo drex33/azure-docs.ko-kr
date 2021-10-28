@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 09/23/2021
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 14bc05787a589356eec6d4cbb9abd5eebba255a8
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 2a77b03f4ea72e0cb22c790bbebab5127e4b0375
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130045582"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130220436"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여
 
@@ -133,8 +133,8 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 1. `main` 분기를 배포하고 있으므로 두 개의 App Service 앱의 기본 배포 분기를 `main`으로 설정해야 합니다([배포 분기 변경](deploy-local-git.md#change-deployment-branch) 참조). Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) 명령으로 `DEPLOYMENT_BRANCH` 앱 설정을 지정합니다. 
 
     ```azurecli-interactive
-    az webapp config appsettings set --name <front-end-app-name> --resource-group myAuthResourceGroup --settings DEPLOYMENT_BRANCH='main'
-    az webapp config appsettings set --name <back-end-app-name> --resource-group myAuthResourceGroup --settings DEPLOYMENT_BRANCH='main'
+    az webapp config appsettings set --name <front-end-app-name> --resource-group myAuthResourceGroup --settings DEPLOYMENT_BRANCH=main
+    az webapp config appsettings set --name <back-end-app-name> --resource-group myAuthResourceGroup --settings DEPLOYMENT_BRANCH=main
     ```
 
 1. 로컬 터미널 창으로 돌아가서 다음 Git 명령을 실행하여 백 엔드 앱에 배포합니다. _\<deploymentLocalGitUrl-of-back-end-app>_ 를 [Azure 리소스 만들기](#create-azure-resources)에 저장된 Git 원격의 URL로 바꿉니다. Git Credential Manager에서 자격 증명을 입력하라는 메시지가 표시되면 Azure Portal에 로그인하는 데 사용하는 자격 증명이 아닌 [배포 자격 증명](deploy-configure-credentials.md)을 입력해야 합니다.

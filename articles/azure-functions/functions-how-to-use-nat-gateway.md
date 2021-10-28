@@ -4,12 +4,12 @@ description: Azure 가상 네트워크에 연결된 함수에 대해 NAT를 구�
 ms.topic: tutorial
 ms.author: kyburns
 ms.date: 2/26/2021
-ms.openlocfilehash: 9b91ccd725fbd6ae1e3a974ecb70b4c01201adb4
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 0223ebe7401745fc9dfff9b3935b5f2252cfa39d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113432269"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265416"
 ---
 # <a name="tutorial-control-azure-functions-outbound-ip-with-an-azure-virtual-network-nat-gateway"></a>자습서: Azure 가상 네트워크 NAT 게이트웨이를 사용하여 Azure Functions 아웃바운드 IP 제어
 
@@ -30,7 +30,7 @@ ms.locfileid: "113432269"
 
 ![NAT 게이트웨이 통합에 대한 UI](./media/functions-how-to-use-nat-gateway/topology.png)
 
-프리미엄 플랜에서 실행되는 함수는 VNet 통합 기능을 포함하는 Azure App Service의 웹앱과 동일한 호스팅 기능을 제공합니다. 문제 해결 및 고급 구성을 포함하여 VNet 통합에 대한 자세한 내용은 [Azure 가상 네트워크에 앱 통합](../app-service/web-sites-integrate-with-vnet.md)을 참조하세요.
+프리미엄 플랜에서 실행되는 함수는 VNet 통합 기능을 포함하는 Azure App Service의 웹앱과 동일한 호스팅 기능을 제공합니다. 문제 해결 및 고급 구성을 포함하여 VNet 통합에 대한 자세한 내용은 [Azure 가상 네트워크에 앱 통합](../app-service/overview-vnet-integration.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

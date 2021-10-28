@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: dademath
-ms.openlocfilehash: 287c7c2cdc709f4026ddd4dfa744119568b7950c
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 2cf3875eef9dcad7ba85bcf12c52f03aa7103aca
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "114201263"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130288074"
 ---
 Azure Communication Services **iOS용 그룹 통화 주인공 샘플** 은 Communication Services 통화 iOS SDK를 사용하여 음성 및 비디오가 포함된 그룹 통화 환경을 구축하는 방법을 보여 줍니다. 이 샘플 빠른 시작에서는 샘플을 설정하고 실행하는 방법에 대해 알아봅니다. 상황에 맞는 샘플 개요가 제공됩니다.
 
@@ -101,7 +101,7 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 
 자세한 내용은 다음 문서를 참조하세요.
 
-- [통화 SDK 사용법](../../quickstarts/voice-video-calling/calling-client-samples.md) 숙지
+- [통화 SDK 사용법](../../quickstarts/voice-video-calling/getting-started-with-calling.md) 숙지
 - [통화 작동 방식](../../concepts/voice-video-calling/about-call-types.md)에 대한 자세한 정보
 
 ### <a name="additional-reading"></a>추가 자료

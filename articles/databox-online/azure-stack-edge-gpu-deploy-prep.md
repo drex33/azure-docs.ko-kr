@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 08/06/2021
 ms.author: alkohli
-ms.openlocfilehash: b223d428daf1a7080478f4f80b6a997fb97cd7a0
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: d87c0221bc5d6bfc8aa4eb308417234bca9f7b14
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322679"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249954"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>자습서: Azure Stack Edge Pro device with GPU 배포 준비 
 
@@ -71,7 +71,7 @@ Azure Stack Edge Pro를 배포하려면 먼저 환경을 준비해야 합니다.
 - Azure Stack Edge Pro, IoT Hub 및 Azure Storage 리소스에 대한 리소스 그룹 수준의 소유자 또는 기여자 액세스 권한이 있습니다.
 
     - Azure Stack Edge 리소스를 만들려면 리소스 그룹 수준에서 범위가 지정된 기여자(또는 그 이상) 권한이 있어야 합니다. 
-    - 또한 `Microsoft.DataBoxEdge` 및 `MicrosoftKeyVault` 리소스 공급자가 등록되었는지 확인해야 합니다. IoT Hub 리소스를 만들려면 `Microsoft.Devices` 공급자를 등록해야 합니다. 
+    - 또한 `Microsoft.DataBoxEdge` 및 `Microsoft.KeyVault` 리소스 공급자가 등록되었는지 확인해야 합니다. IoT Hub 리소스를 만들려면 `Microsoft.Devices` 공급자를 등록해야 합니다. 
         - 리소스 공급자를 등록하려면 Azure Portal에서 **홈 > 구독 > 사용자 구독 > 리소스 공급자** 로 이동합니다. 
         - 특정 리소스 공급자(예: `Microsoft.DataBoxEdge`)를 검색하고 리소스 공급자를 등록합니다. 
     - 스토리지 계정 리소스를 만들려면 리소스 그룹 수준에서 범위가 지정되는 기여자 이상의 액세스 권한이 다시 필요합니다. Azure Storage는 기본적으로 등록된 리소스 공급자입니다.

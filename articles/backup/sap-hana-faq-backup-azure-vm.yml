@@ -4,13 +4,13 @@ metadata:
   description: 이 문서에서는 Azure Backup 서비스를 사용하여 SAP HANA 데이터베이스를 백업하는 방법에 대한 일반적인 질문과 답변을 제공합니다.
   ms.topic: article
   ms.service: backup
-  ms.date: 06/23/2021
-  ms.openlocfilehash: 5983508897520ad6fe5b91df3bd6abf26244d09f
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
-  ms.translationtype: HT
+  ms.date: 09/27/2021
+  ms.openlocfilehash: fd2fee68735686a15720c87bc4fb1f3ce9f410b5
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122538487"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130555898"
 title: 자주 묻는 질문 – Azure VM의 SAP HANA 데이터베이스 백업
 summary: 이 문서에서는 Azure Backup 서비스를 사용하여 SAP HANA 데이터베이스를 백업하는 방법에 대한 일반적인 질문과 답변을 제공합니다.
 sections:
@@ -34,9 +34,16 @@ sections:
     answer: >
       현재 성공한 백업 작업에서는 경고가 생성되지 않습니다. 경고는 실패한 백업 작업에 대해서만 생성됩니다. Azure Portal을 사용하여 Backup 경고를 보는 [방법을 알아봅니다](backup-azure-monitoring-built-in-monitor.md).
   - question: >
+      내 백업 (예약/요청 시)이 성공적으로 실행 되었는지 확인 어떻게 할까요??
+    answer: "다음 위치 중 하나에서 백업 상태 (예약/요청 시)를 확인할 수 있습니다.\n\n1. **백업 작업**: Azure Backup은 Azure Portal의 backup 작업 섹션에서 수동으로 트리거된 모든 작업을 표시 합니다.  <br><br>   Azure Portal에 표시 되는 작업에는 데이터베이스 검색 및 등록 작업과 백업 및 복원 작업이 포함 됩니다. 로그 백업을 포함한 예약된 작업은 이 섹션에 표시되지 않습니다. SAP HANA native client에서 수동으로 트리거된 백업 (스튜디오/환경/DBA 환경)도 여기에 표시 되지 않습니다.\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/manually-triggered-jobs.png\" alt-text=\"Azure Portal의 Backup 작업 섹션에서 수동으로 트리거된 작업을 보여 주는 스크린샷\":::\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/jobs-and-operations-list.png\" alt-text=\"데이터베이스 검색 및 등록, 백업 및 복원 작업을 포함 하는 작업을 보여 주는 스크린샷\":::\n \n1. **백업 경고**: 경고는 SAP HANA 데이터베이스의 백업을 모니터링 하는 데 도움이 됩니다. 이러한 작업을 통해 필요한 이벤트에 집중할 수 있으므로 백업이 생성 하는 다 수의 이벤트를 자주 확인 하지 않아도 됩니다. 자세한 내용은 [백업 경고 보기](./sap-hana-db-manage.md#view-backup-alerts)를 참조 하세요.\n\n1. **백업 보고서**: 보고서는 백업 작업의 상태를 확인 하는 또 다른 방법입니다. 보고서는 다음과 같습니다.\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/backup-reports.png\" alt-text=\"Azure Portal의 보고서 유형을 보여 주는 스크린샷\":::\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/backup-reports-mabs.png\" alt-text=\"Azure Portal의 다른 보고서 유형을 보여 주는 스크린샷\":::\n\n   [Azure Backup 보고서를 구성 하는 방법](./configure-reports.md)에 대해 알아봅니다.\n\n1. **SAP HANA Native** client: SAP HANA 고객 인 경우 가장 일반적인 hana 클라이언트 중 하나인 hana Studio를 사용할 수도 있습니다. 이 클라이언트에서 backup **Console**  ->  **backup Catalog** 로 이동 하 여 **백업 상태** 를 확인 합니다.\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/sap-hana-native-client-reports.png\" alt-text=\"SAP HANA Native client의 보고서를 보여 주는 스크린샷\":::\n"
+  - question: >
       백업 작업 메뉴에서 예약된 백업 작업을 볼 수 있나요?
     answer: >
       백업 작업 메뉴는 진행 중이거나 성공했거나 실패한 주문형 백업 작업만 표시합니다. 예약된 작업을 보려면 [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md)를 사용하세요.
+  - question: >
+      LSNValidation 오류로 인해 트리거되는 자동 치료 전체 백업 보존 기간은 얼마 인가요?
+    answer: >
+      Azure Backup 자동 치료 전체 백업에서 명시적 보존 기간을 설정 하지 않습니다. 이 백업은 종속 델타 (차등 또는 증분) 및 로그 백업을 보존할 때까지 유지 됩니다. 이 자동 치료 백업에서 마지막 종속 백업을 삭제 하면 자동 치료 백업도 삭제 됩니다.
   - question: >
       이후 데이터베이스가 백업을 위해 자동으로 추가되나요?
     answer: >
@@ -106,7 +113,7 @@ sections:
 
       - [보호 중지](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) 실행(주 노드에서 데이터 보존 상태)
 
-      - 보조 노드에서 [등록 전 스크립트](https://aka.ms/scriptforpermsonhana) 실행
+      - 보조 노드에서 [등록 전 스크립트](https://go.microsoft.com/fwlink/?linkid=2173610) 실행
 
       - [데이터베이스를 검색](tutorial-backup-sap-hana-db.md#discover-the-databases) 을 보조 노드에서 실행하고 [백업 구성](tutorial-backup-sap-hana-db.md#configure-backup) 실행
 
@@ -144,6 +151,37 @@ sections:
 
 
       그런 다음 전체 백업이 노드 1에서 다시 트리거되고 완료된 후 로그 백업이 시작됩니다.
+
+
+      >[!Note]
+
+      >사용자 지정 백업 사용자를 입력으로 사용 하 여 [사전 등록 스크립트를 실행](./tutorial-backup-sap-hana-db.md#prerequisites) 하면 hsr 백업을 보다 효율적으로 관리할 수 있습니다. 이는 HSR 설정의 두 노드가 동일한 백업 키를 사용 하 여 백업 동기화 및 오류 문제를 줄일 수 있기 때문입니다.
+  - question: >
+      HSR 설정에서 보조/비활성 노드에 대 한 보호를 중지 (데이터 보존) 하지 않으면 어떻게 되나요?
+    answer: >
+      1. HSR (HANA system replication)의 경우 보조 노드에서 모든 연결을 허용 하지 않습니다. 백업이 구성 되 면 Azure Backup 서비스는 주기적으로 ping을 실행 하 고 실패 합니다. 경우에 따라 이러한 실패 한 시도는 주 노드에 반영 됩니다. 여러 번 실패 한 후에는 사용자가 잠기므로 주 노드가 _ODBCConnectionError_ 을 사용 하 여 실패 하기 시작 합니다.   <br><br>모든 사용자에 게이 문제가 발생 하지 않습니다. 보조 노드에서 사용자 연결에 실패 하는 경우 주 노드에서 잠기는 사용자의 원인을 조사 하는 것이 좋습니다.
+
+
+      1. 사전 등록 스크립트를 실행 하면 사용자 정보가 주 노드의 새 암호로 업데이트 됩니다. 그런 다음 백업을 시도 하는 연결이 다시 설정 됩니다. 하지만 동일한 시나리오가 발생할 수 있습니다.
+
+
+      1. 또한 보조 노드에서 실패 하는 백업 (전체 백업)은 경고를 생성 합니다.
+
+
+      위의 문제를 방지 하려면 노드가 보조로 전환 된 후 (연결이 시도 되지 않고 사용자가 잠기지 않음) 해당 노드에 대 한 보호를 중지 하 고 주 복제본이 되 면 해당 노드에 대 한 보호를 다시 시작 하는 것이 좋습니다. 이러한 잠금 상황을 HSR 설정에 적용 하지 않고 발생 하는 경고에 대해 잘 알고 있는 경우 서비스에서이를 처리 하 고 장애 복구 (failback)를 처리 하도록 두 노드에서 백업을 구성할 수 있습니다.
+  - question: >
+      Azure Backup에서 제공 하는 백업 및 복원 처리량 성능은 무엇이 고이 최대 처리량을 사용 하도록 HANA 시스템을 설정 하는 방법은 무엇 인가요?
+    answer: >
+      HANA 워크 로드에 대해 제공 되는 [백업 및 복원 처리량 성능을](./tutorial-backup-sap-hana-db.md#understanding-backup-and-restore-throughput-performance) 참조 Azure Backup. <br><br> 향상 된 성능을 활용 하도록 HANA 시스템을 설정 하려면 다음 리소스를 사용 합니다.
+
+       - [Azure IaaS VM에 대한 디스크 유형 선택 - 관리 디스크](../virtual-machines/disks-types.md)
+       - [Azure 관리 디스크의 성능 계층](../virtual-machines/disks-change-performance.md)
+       - [M 시리즈](../virtual-machines/m-series.md)
+       - [SAP HANA Azure 가상 머신 스토리지 구성](../virtual-machines/workloads/sap/hana-vm-operations-storage.md#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines)
+
+      >[!Note]
+
+      >또한 백업 처리량 성능을 제한할 수 있습니다. [자세히 알아보기](./tutorial-backup-sap-hana-db.md#limiting-backup-throughput-performance).
 - name: 복원
   questions:
   - question: >

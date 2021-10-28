@@ -11,12 +11,12 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 3f0e2baa7ac30e0e75167dc603de73fdd1df8d73
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: b495476a93d3cef76c866b3927aa4bfacdb98477
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123215358"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238753"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-windows-device"></a>빠른 시작: Windows 디바이스에 첫 번째 IoT Edge 모듈 배포
 
@@ -61,7 +61,7 @@ IoT Edge 디바이스가 다음 요구 사항을 충족하는지 확인합니다
   * 사용 가능한 최소 디스크 공간: 10GB
 
 >[!NOTE]
->이 빠른 시작에서는 PowerShell을 사용하여 Windows에서 Linux용 IoT Edge 배포판을 만듭니다. Windows Admin Center를 사용할 수도 있습니다. Windows Admin Center를 사용하여 배포판을 만들려면 [Windows 디바이스에 Linux용 Azure IoT Edge 설치 및 프로비저닝](how-to-install-iot-edge-on-windows.md?tabs=windowsadmincenter)하는 방법 가이드의 단계를 따르세요.
+>이 빠른 시작에서는 PowerShell을 사용하여 Windows에서 Linux용 IoT Edge 배포판을 만듭니다. Windows Admin Center를 사용할 수도 있습니다. Windows Admin Center를 사용하여 배포판을 만들려면 [Windows 디바이스에 Linux용 Azure IoT Edge 설치 및 프로비저닝](how-to-provision-single-device-linux-on-windows-symmetric.md?tabs=windowsadmincenter)하는 방법 가이드의 단계를 따르세요.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -151,7 +151,7 @@ Windows에서 Linux용 Azure IoT Edge를 배포하려는 대상 디바이스에�
 
 1. 기본 설정에 따라 'O' 또는 'R'을 입력하여 **선택적 진단 데이터** 를 설정하거나 해제합니다. 성공적인 배포는 다음과 같습니다.
 
-   ![성공적으로 배포되면 메시지 끝에 '배포 성공'이라고 표시됨](./media/how-to-install-iot-edge-on-windows/successful-powershell-deployment-2.png)
+   ![성공적으로 배포되면 메시지 끝에 '배포 성공'이라고 표시됨](./media/quickstart/successful-powershell-deployment.png)
 
 1. 이전 섹션에서 검색한 디바이스 연결 문자열을 사용하여 디바이스를 프로비전합니다. 자리 표시자 텍스트를 고유한 값으로 바꿉니다.
 

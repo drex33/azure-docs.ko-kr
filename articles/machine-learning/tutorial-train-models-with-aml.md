@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 04/26/2021
+ms.date: 10/19/2021
 ms.custom: seodec18, devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 9f8a3fc284fc04b6e9808ca90eb05ba106fa55d3
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 305ad833ea34ef51ca1ed0e636dd442238d7a654
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129428568"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238250"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-an-example-jupyter-notebook"></a>자습서: Jupyter Notebook 예제를 통해 이미지 분류 모델 학습 
 

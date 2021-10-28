@@ -3,15 +3,15 @@ author: v-dalc
 ms.service: databox
 ms.subservice: databox
 ms.topic: include
-ms.date: 09/08/2021
+ms.date: 10/21/2021
 ms.author: alkohli
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: 6f784c075d24fe26b7ec1ea9d5921dfb460e5298
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d5b7294a54db4e89e80ad577a87fda74c66b3695
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124743323"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130287337"
 ---
 디바이스를 주문하려면 Azure Portal에서 다음 단계를 수행합니다.
 
@@ -76,7 +76,7 @@ ms.locfileid: "124743323"
 
     ![Managed Disks 대상이 있는 Data Box 주문에 대한 데이터 대상 탭의 스크린샷. 데이터 대상 탭, Managed Disks 및 다음: 보안 단추가 강조 표시되어 있습니다.](media/data-box-order-portal/data-box-import-07.png)
 
-    관리형 디스크에 대해 지정한 스토리지 계정은 스테이징 스토리지 계정으로 사용됩니다. Data Box 서비스는 VHD를 관리형 디스크로 변환한 후 리소스 그룹으로 이동하기 전에 페이지 Blob으로 스테이징 스토리지 계정에 업로드합니다. 자세한 내용은 [Azure에 대한 데이터 업로드 확인](../articles/databox/data-box-deploy-picked-up.md#verify-data-upload-to-azure-8)을 참조하세요.
+    관리형 디스크에 대해 지정한 스토리지 계정은 스테이징 스토리지 계정으로 사용됩니다. Data Box 서비스는 VHD를 관리형 디스크로 변환한 후 리소스 그룹으로 이동하기 전에 페이지 Blob으로 스테이징 스토리지 계정에 업로드합니다. 자세한 내용은 [Azure에 대한 데이터 업로드 확인](../articles/databox/data-box-deploy-picked-up.md#verify-data-upload-to-azure)을 참조하세요.
 
    > [!NOTE]
    > 페이지 Blob이 관리 디스크로 성공적으로 변환되지 않은 경우 스토리지 계정에 유지되고 스토리지에 대한 요금이 청구됩니다.

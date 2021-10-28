@@ -4,12 +4,12 @@ description: Azure Site Recovery 서비스를 사용하여 재해 복구를 위�
 ms.topic: tutorial
 ms.date: 11/05/2020
 ms.custom: mvc
-ms.openlocfilehash: 99263c83d25542073d63c1cba394a147bd5b2170
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 692b6645b2446fa55233506a0479b95b0743b029
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93392781"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223161"
 ---
 # <a name="tutorial-fail-over-azure-vms-to-a-secondary-region"></a>자습서: Azure VM을 보조 지역으로 장애 조치(failover)
 
@@ -84,9 +84,6 @@ ms.locfileid: "93392781"
 8. 알림에서 커밋 진행률을 모니터링합니다.
 
     ![커밋 진행률 알림](./media/azure-to-azure-tutorial-failover-failback/notification-commit-start.png) ![커밋 성공 알림](./media/azure-to-azure-tutorial-failover-failback/notification-commit-finish.png)    
-
-9. Site Recovery는 장애 조치(failover) 후 원본 VM을 정리하지 않습니다. 정리는 수동으로 수행해야 합니다.
-
 
 ## <a name="reprotect-the-vm"></a>VM 다시 보호
 

@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 Node.js용 QnA Maker 클라이언트 라
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: c101458f9cee00fbc1f25f4c6679485439864eab
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d394928df4abae926922e075ae00e7547a17b08e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110487183"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130287834"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/version-1)
 
@@ -322,7 +322,7 @@ create 메서드가 반환되면 반환된 작업 ID를 [wait_for_operation](#ge
 
 [!code-javascript[Authenticate the runtime](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=AuthorizationQuery)]
 
-QnAMakerRuntimeClient를 사용하여 기술 자료에서 답변을 얻거나 새로 제안된 질문을 [활성 학습](../concepts/active-learning-suggestions.md)에 대한 기술 자료에 보냅니다.
+QnAMakerRuntimeClient를 사용하여 기술 자료에서 답변을 얻거나 새로 제안된 질문을 [활성 학습](../index.yml)에 대한 기술 자료에 보냅니다.
 
 ### <a name="generate-an-answer-from-the-knowledge-base"></a>기술 자료에서 답변 생성
 

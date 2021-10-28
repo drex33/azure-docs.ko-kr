@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: quickstart
 ms.date: 10/18/2021
 zone_pivot_groups: iot-develop-toolset
-ms.openlocfilehash: 2b2b0cdb4c81a8ca501c58fce9ddb4771a5bbaba
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 2d5d8aafb9eaae7617ee7ecc98cc8896339f23e6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130167598"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130218150"
 ---
 # <a name="quickstart-connect-a-microchip-atsame54-xpro-evaluation-kit-to-iot-central"></a>빠른 시작: Microchip ATSAME54-XPro 평가 키트를 IoT Central에 연결
 
@@ -39,7 +39,7 @@ ms.locfileid: "130167598"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Microsoft Windows 10을 실행하는 PC
+* Windows 10을 실행하는 PC
 * 리포지토리를 복제하기 위한 [Git](https://git-scm.com/downloads)
 * 하드웨어
 
@@ -237,9 +237,9 @@ Weather Click 센서 및 mikroBUS Xplained Pro 어댑터가 있는 경우 이 �
 :::zone-end
 :::zone pivot="iot-toolset-iar-ewarm"
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Microsoft Windows 10을 실행하는 PC
+* Windows 10을 실행하는 PC
 
 * 하드웨어
 
@@ -369,9 +369,9 @@ Telemetry message send: {"temperature":22}.
 :::zone-end
 :::zone pivot="iot-toolset-mplab"
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Microsoft Windows 10을 실행하는 PC
+* Windows 10을 실행하는 PC
 
 * 하드웨어
 

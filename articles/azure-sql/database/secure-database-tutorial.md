@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: af829349ba5fe4b6ad2bf9e443eb780e926da565
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a5f17382c651d0eb07978ae84531d9511e6737cd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751282"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216279"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>자습서: Azure SQL Database의 데이터베이스 보안
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -62,7 +62,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 SQL Database의 데이터베이스는 Azure에서 방화벽으로 보호됩니다. 기본적으로 서버 및 데이터베이스에 대한 모든 연결은 거부됩니다. 자세히 알아보려면 [서버 수준 및 데이터베이스 수준 방화벽 규칙 만들기](firewall-configure.md)를 참조하세요.
 
-가장 안전한 구성을 위해 **Azure 서비스 방문 허용** 을 **끄기** 로 설정합니다. 그런 다음, Azure VM 또는 클라우드 서비스와 같이 연결해야 하는 리소스에 대해 [예약된 IP(클래식 배포)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip)를 만들고, 해당 IP 주소만 방화벽을 통해 액세스하도록 허용합니다. [Resource Manager](../../virtual-network/public-ip-addresses.md) 배포 모델을 사용하는 경우 각 리소스에 대한 전용 공용 IP 주소가 필요합니다.
+가장 안전한 구성을 위해 **Azure 서비스 방문 허용** 을 **끄기** 로 설정합니다. 그런 다음, Azure VM 또는 클라우드 서비스와 같이 연결해야 하는 리소스에 대해 [예약된 IP(클래식 배포)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip)를 만들고, 해당 IP 주소만 방화벽을 통해 액세스하도록 허용합니다. [Resource Manager](../../virtual-network/ip-services/public-ip-addresses.md) 배포 모델을 사용하는 경우 각 리소스에 대한 전용 공용 IP 주소가 필요합니다.
 
 > [!NOTE]
 > SQL Database는 포트 1433을 통해 통신합니다. 회사 네트워크 내에서 연결을 시도하는 경우 포트 1433을 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 관리자가 1433 포트를 열어야 서버에 연결할 수 있습니다.

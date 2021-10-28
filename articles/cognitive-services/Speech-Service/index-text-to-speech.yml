@@ -5,18 +5,18 @@ metadata:
   title: 텍스트 음성 변환 설명서 - 자습서, API 참조 - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: laujan
+  author: PatrickFarley
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
-  ms.author: lajanuar
-  ms.openlocfilehash: 5bee75a36528253f584257849000f2b34427f581
-  ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
-  ms.translationtype: HT
+  ms.author: pafarley
+  ms.openlocfilehash: 9aeb502ce80ef0a008646850710327ec616259b3
+  ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+  ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/13/2021
-  ms.locfileid: "122529601"
+  ms.lasthandoff: 09/07/2021
+  ms.locfileid: "123537776"
 landingContent:
 - title: 텍스트 음성 변환 정보
   linkLists:

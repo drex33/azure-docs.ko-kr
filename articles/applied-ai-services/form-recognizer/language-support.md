@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 10/07/2021
 ms.author: lajanuar
-ms.openlocfilehash: 5c9df61e7f4430a623f354294863b2a1bc06b7c8
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: b9cd899516188dbac4671addd11d9c6cd05fc843
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130164277"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216659"
 ---
 # <a name="language-support-for-form-recognizer"></a>Form Recognizer에 대한 언어 지원
 
@@ -32,7 +32,7 @@ ms.locfileid: "130164277"
 >
 > Form Recognizer의 딥 러닝 기반 유니버설 모델은 혼합된 언어가 있는 텍스트 줄을 포함하여 문서의 다국어 텍스트를 모두 추출하며 언어 코드를 지정할 필요가 없습니다. 언어에 대해 잘 모르는 경우에는 언어 코드를 매개 변수로 제공하지 말고 서비스에서 관련 모델만 강제로 적용하도록 합니다. 그렇지 않으면 서비스에서 불완전하고 잘못된 텍스트를 반환할 수 있습니다.
 
-레이아웃 및 사용자 지정 모델에서 미리 보기 언어를 사용하려면 [v3.0 REST API 마이그레이션 가이드](/v3-migration-guide.md#changes-to-the-rest-api-endpoints)를 참조하여 v2.1 GA API와의 차이점을 이해하고, [v3.0 미리 보기 SDK 빠른 시작](quickstarts/try-v3-python-sdk.md) 및 [미리 보기 REST API 빠른 시작](quickstarts/try-v3-rest-api.md)을 살펴보세요.
+레이아웃 및 사용자 지정 모델에서 미리 보기 언어를 사용하려면 [v3.0 REST API 마이그레이션 가이드](/rest/api/media/#changes-to-the-rest-api-endpoints)를 참조하여 v2.1 GA API와의 차이점을 이해하고, [v3.0 미리 보기 SDK 빠른 시작](quickstarts/try-v3-python-sdk.md) 및 [미리 보기 REST API 빠른 시작](quickstarts/try-v3-rest-api.md)을 살펴보세요.
 
 ### <a name="handwritten-languages"></a>필기 언어
 다음 표에서는 Form Recognizer의 레이아웃 및 사용자 지정 모델 기능에서 지원하는 필기 언어를 보여줍니다.
@@ -118,7 +118,7 @@ ms.locfileid: "130164277"
 |코랴크어 |`kpy`| 미리 보기 |
 |코스라에어 |`kos`| 미리 보기 |
 |쿠믹어(키릴 자모) |`kum`| 미리 보기 |
-|쿠르드어(라틴 문자)| `kur` | |
+|쿠르드어(라틴 문자)| `ku` | |
 |키르기스어(키릴 자모) |`ky`| 미리 보기 |
 |라코타어 |`lkt`| 미리 보기 |
 |라틴어|`la`| 미리 보기 |
@@ -152,13 +152,13 @@ ms.locfileid: "130164277"
 |세르비아어(라틴 문자) | `sr-latn` | 미리 보기 |
 |스콜트 사미어|`sms`| 미리 보기 |
 |슬로바키아어 | `sk` | 미리 보기 |
-|슬로베니아어  | `slv` | |
+|슬로베니아어  | `sl` | |
 |남부 사미어|`sma`| 미리 보기 |
 |스페인어 | `es` | |
 |스와힐리어(라틴어)  | `sw` | |
 |스웨덴어 | `sv` | |
 |타지크어(키릴 자모)|`tg`| 미리 보기 |
-|타타르어 (라틴어)  | `tat` | |
+|타타르어 (라틴어)  | `tt` | |
 |테툼어    | `tet` |  |
 |통가어|`to`|(미리 보기) |
 |터키어 | `tr` | |

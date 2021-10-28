@@ -2,17 +2,17 @@
 title: '자습서: Azure Stack Edge에 네트워크 기능 배포'
 titleSuffix: Azure Network Function Manager
 description: 이 자습서에서는 네트워크 기능을 관리형 애플리케이션으로 배포하는 방법에 대해 알아봅니다.
-author: cherylmc
+author: prmitt
 ms.service: network-function-manager
 ms.topic: tutorial
 ms.date: 06/16/2021
-ms.author: cherylmc
-ms.openlocfilehash: af82a3b51da76e181c2e5856458d553051b0c409
-ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
+ms.author: prmitt
+ms.openlocfilehash: 0e45f8db150505b323f45cd79eed40215b3a44f8
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113129005"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223332"
 ---
 # <a name="tutorial-deploy-network-functions-on-azure-stack-edge-preview"></a>자습서: Azure Stack Edge에 네트워크 기능 배포(미리 보기)
 

@@ -1,5 +1,5 @@
 ---
-# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>필수 필드입니다. 자세한 내용은 aka.ms/skyeye/meta를 참조하세요.
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>필수 필드. 자세한 내용은 aka.ms/skyeye/meta를 참조하세요.
 제목: Streaming Endpoints (Origin) : Azure Media Services 설명: 콘텐츠를 클라이언트 플레이어 앱 또는 CDN(Content Delivery Network)으로 직접 배달하는 동적 패키징 및 스트리밍 서비스인 스트리밍 엔드포인트(원본)에 대해 알아봅니다. services: media-services documentationcenter: '' author: IngridAtMicrosoft 관리자: femila editor: ''
 
 ms.service: media-services ms.workload: ms.topic: conceptual ms.date: 02/13/2020 ms.author: inhenkel
@@ -29,7 +29,7 @@ Media Services 계정을 만들 경우 **기본** 스트리밍 엔드포인트�
 * 스트리밍 엔드포인트 이름은 최대 24자입니다.
 * 이름은 `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`와 같은 [regex](/dotnet/standard/base-types/regular-expression-language-quick-reference) 패턴을 따라야 합니다.
 
-## <a name="types"></a>유형
+## <a name="types"></a>형식
 
 **표준**(미리 보기) 및 **프리미엄** 의 두 가지 **스트리밍 엔드포인트** 유형이 있습니다. 이러한 유형은 스트리밍 엔드포인트에 할당하는 배율 단위(`scaleUnits`) 수로 정의됩니다.
 
@@ -128,7 +128,7 @@ CDN 포함 SU >= 1인 버전 1.0|CDN 포함된/없는 프리미엄|**중지됨**
 
 - `cdnProfile`: `cdnEnabled`가 true로 설정된 경우 `cdnProfile` 값도 전달할 수 있습니다. `cdnProfile`은 CDN 엔드포인트이 생성되는 CDN 프로필의 이름입니다. 기존 cdnProfile을 제공하거나 새로 만들 수 있습니다. 값이 NULL이고 `cdnEnabled`가 true이면 기본값 “AzureMediaStreamingPlatformCdnProfile”이 사용됩니다. 제공된 `cdnProfile`이 이미 있으면 그 아래에 엔드포인트가 생성됩니다. 프로필이 없으면 새 프로필이 자동으로 만들어집니다.
 - `cdnProvider`: CDN을 사용하도록 설정된 경우 `cdnProvider` 값을 전달할 수도 있습니다. `cdnProvider`는 사용할 공급자를 제어합니다. 현재, "StandardVerizon", "PremiumVerizon" 및 "StandardAkamai"의 세 가지 값이 지원됩니다. 값이 제공되지 않고 `cdnEnabled`가 true인 경우 “StandardVerizon”(기본값)이 사용됩니다.
-- `crossSiteAccessPolicies`: 다양한 클라이언트에 사이트 간 액세스 정책을 지정하는 데 사용됩니다. 자세한 내용은 [도메인 간 정책 파일 사양](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) 및 [여러 도메인 간에 서비스를 사용하도록 지정](/previous-versions/azure/azure-services/gg185950(v=azure.100))을 참조하세요. 설정은 부드러운 스트리밍에만 적용됩니다.
+- `crossSiteAccessPolicies`: 다양한 클라이언트에 사이트 간 액세스 정책을 지정하는 데 사용됩니다. 자세한 내용은 [도메인 간 정책 파일 사양](https://www.adobe.com/devnet-docs/acrobatetk/tools/AppSec/CrossDomain_PolicyFile_Specification.pdf) 및 [여러 도메인 간에 서비스를 사용하도록 지정](/previous-versions/azure/azure-services/gg185950(v=azure.100))을 참조하세요. 설정은 부드러운 스트리밍에만 적용됩니다.
 - `customHostNames`: 스트리밍 엔드포인트를 구성하는 데 사용되어 사용자 지정 호스트 이름으로 리디렉션되는 트래픽을 허용합니다. 이 속성은 표준 및 프리미엄 스트리밍 엔드포인트에서 유효하며 `cdnEnabled`: false일 때 설정할 수 있습니다.
 
     Media Services에서 도메인 이름의 소유권을 확인해야 합니다. Media Services는 Media Services 계정 ID를 포함하는 `CName` 레코드를 사용 중인 도메인에 추가할 구성 요소로 요구하여 도메인 이름 소유권을 확인합니다. 예를 들어 “sports.contoso.com”을 스트리밍 엔드포인트에 대한 사용자 지정 호스트 이름으로 사용하려면 Media Services 확인 호스트 이름 중 하나를 가리키도록 `<accountId>.contoso.com`에 대한 레코드를 구성해야 합니다. 확인 호스트 이름은 verifydns.`\<mediaservices-dns-zone>`으로 구성됩니다.

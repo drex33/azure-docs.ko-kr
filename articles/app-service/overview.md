@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/21/2021
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: 481ef611bb3bd48ae5096abc538bd43a1bac2423
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9893c5eae88d579979835866c6daa1d0d7908806
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121741527"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227172"
 ---
 # <a name="app-service-overview"></a>App Service 개요
 
@@ -29,7 +29,7 @@ App Service의 주요 기능은 다음과 같습니다.
 * **컨테이너화 및 Docker** - 앱을 Dockerize하고 App Service에서 사용자 지정 Windows 또는 Linux 컨테이너를 호스트합니다. Docker Compose를 사용하여 다중 컨테이너 앱을 실행합니다. Docker 기술을 App Service로 직접 마이그레이션합니다.
 * **DevOps 최적화** - Azure DevOps, GitHub, BitBucket, Docker 허브 또는 Azure Container Registry를 사용하여 [연속 통합 및 배포](deploy-continuous-deployment.md)를 설정합니다. [테스트 및 스테이징 환경](deploy-staging-slots.md)을 통해 업데이트를 승격합니다. [Azure PowerShell](/powershell/azure/) 또는 [플랫폼 간 CLI(명령줄 인터페이스)](/cli/azure/install-azure-cli)를 사용하여 App Service에서 앱을 관리합니다.
 * **고가용성을 가진 글로벌 규모 조정** - 수동 또는 자동으로 규모를 [강화](manage-scale-up.md) 또는 [확장](../azure-monitor/autoscale/autoscale-get-started.md)합니다. Microsoft의 글로벌 데이터 센터 인프라의 모든 위치에서 앱을 호스팅하고 App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) 를 사용하면 고가용성이 보장됩니다.
-* **SaaS 플랫폼 및 온-프레미스 데이터에 연결** - 엔터프라이즈 시스템(예: SAP), SaaS 서비스(예: Salesforce) 및 인터넷 서비스(예: Facebook)를 위해 50개 이상의 [커넥터](../connectors/apis-list.md)에서 선택합니다. [하이브리드 연결](app-service-hybrid-connections.md) 및 [Azure Virtual Networks](web-sites-integrate-with-vnet.md)를 사용하여 온-프레미스 데이터에 액세스합니다.
+* **SaaS 플랫폼 및 온-프레미스 데이터에 연결** - 엔터프라이즈 시스템(예: SAP), SaaS 서비스(예: Salesforce) 및 인터넷 서비스(예: Facebook)를 위해 50개 이상의 [커넥터](../connectors/apis-list.md)에서 선택합니다. [하이브리드 연결](app-service-hybrid-connections.md) 및 [Azure Virtual Networks](./overview-vnet-integration.md)를 사용하여 온-프레미스 데이터에 액세스합니다.
 * **보안 및 규정 준수** - App Service는 [ISO, SOC 및 PCI 규격](https://www.microsoft.com/en-us/trustcenter)입니다. [Azure Active Directory](configure-authentication-provider-aad.md), [Google](configure-authentication-provider-google.md), [Facebook](configure-authentication-provider-facebook.md), [Twitter](configure-authentication-provider-twitter.md) 또는 [Microsoft 계정](configure-authentication-provider-microsoft.md)으로 사용자를 인증합니다. [IP 주소 제한](app-service-ip-restrictions.md)을 만들고 [서비스 ID를 관리](overview-managed-identity.md)합니다.
 * **애플리케이션 템플릿** - [Azure Marketplace](https://azure.microsoft.com/marketplace/)(예: WordPress, Joomla 및 Drupal)의 광범위한 애플리케이션 템플릿 목록에서 선택합니다.
 * **Visual Studio와 Visual Studio Code 통합** - Visual Studio 및 Visual Studio Code의 전용 도구는 생성, 배포, 디버깅 작업을 간소화합니다.

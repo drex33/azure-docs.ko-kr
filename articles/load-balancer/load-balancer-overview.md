@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/25/2021
 ms.author: allensu
-ms.openlocfilehash: 3d3c1d9937382080ea5a735e3f67e9767919366f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 800d52ca0cbc574add0640c8acf41713ed401071
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124740780"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215243"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer란?
 
@@ -63,7 +63,7 @@ Azure 표준 Load Balancer를 사용하여 수행할 수 있는 주요 시나리
 
 - **[포트 전달](./tutorial-load-balancer-port-forwarding-portal.md)** 을 사용하여 공용 IP 주소 및 포트로 가상 네트워크의 가상 머신에 액세스합니다.
 
-- **[IPv6](../virtual-network/ipv6-overview.md)** 의 **[부하 분산](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** 을 위한 지원을 사용하도록 설정합니다.
+- **[IPv6](../virtual-network/ip-services/ipv6-overview.md)** 의 **[부하 분산](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** 을 위한 지원을 사용하도록 설정합니다.
 
 - 표준 부하 분산 장치는 [Azure Monitor](../azure-monitor/overview.md)를 통해 다차원 메트릭을 제공합니다.  이러한 메트릭은 지정된 차원에 대해 필터링, 그룹화 및 나눌 수 있습니다.  이러한 메트릭은 서비스의 성능과 상태에 대한 현재 및 이전 정보를 제공합니다. [Azure Load Balancer에 대한 인사이트](./load-balancer-insights.md)는 이러한 메트릭에 대한 유용한 시각화가 포함된 미리 구성된 대시보드를 제공합니다.  리소스 상태도 지원됩니다. 자세한 내용은 **[표준 부하 분산 장치 진단](load-balancer-standard-diagnostics.md)** 을 검토하세요.
 

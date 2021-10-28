@@ -8,17 +8,17 @@ metadata:
   ms.author: heidist
   ms.service: cognitive-search
   ms.topic: conceptual
-  ms.date: 04/10/2020
-  ms.openlocfilehash: 70fe8e6f82d51ddb55b1763556f4684ef6244ddc
-  ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
-  ms.translationtype: HT
+  ms.date: 09/24/2021
+  ms.openlocfilehash: 782c8d8801935779222903f52d3ffaa6ba6f7007
+  ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+  ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/22/2021
-  ms.locfileid: "112468105"
+  ms.lasthandoff: 09/29/2021
+  ms.locfileid: "130555855"
 title: Azure Cognitive Search - FAQ(질문과 대답)
 summary: Azure Cognitive Search와 관련된 개념, 코드, 시나리오에 대한 일반적인 질문의 답변을 알아봅니다.
 sections:
-- name: 플랫폼
+- name: Search 서비스
   questions:
   - question: >
       Azure Cognitive Search가 DBMS의 전체 텍스트 검색과 어떻게 다릅니까?
@@ -32,7 +32,7 @@ sections:
   questions:
   - question: >
       인덱스 또는 인덱스 스냅숏을 이동, 백업 및 복원하시겠습니까?
-    answer: "개발 단계에서 검색 서비스 간에 인덱스를 이동하고 싶을 수 있습니다. 예를 들어 기본 또는 무료 가격 책정 계층을 사용하여 인덱스를 개발한 다음, 프로덕션 사용을 위해 표준 또는 상위 계층으로 이동할 수 있습니다. \n\n또는 나중에 복원하는 데 사용할 수 있는 파일에 인덱스 스냅샷을 백업을 희망할 수 있습니다. \n\n이 [Azure Cognitive Search .NET 샘플 리포지토리의](https://github.com/Azure-Samples/azure-search-dotnet-samples) **인덱스-백업 복원** 샘플 코드를 사용하여 이러한 모든 작업을 수행할 수 있습니다. \n\nAzure Cognitive Search REST API를 사용하여 언제든지 [인덱스 정의를 가져올](/rest/api/searchservice/get-index) 수도 있습니다.\n\n현재 Azure Portal에는 기본적으로 제공되는 인덱스 추출, 스냅샷 또는 백업 복원 기능이 없습니다. 그러나 향후 릴리스에서는 백업 및 복원 기능을 추가하는 것을 고려하고 있습니다. 이 기능이 필요하면 [사용자 의견](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index)을 남겨주세요.\n"
+    answer: "개발 단계에서 검색 서비스 간에 인덱스를 이동하고 싶을 수 있습니다. 예를 들어 기본 또는 무료 가격 책정 계층을 사용하여 인덱스를 개발한 다음, 프로덕션 사용을 위해 표준 또는 상위 계층으로 이동할 수 있습니다. \n\n또는 나중에 복원하는 데 사용할 수 있는 파일에 인덱스 스냅샷을 백업을 희망할 수 있습니다. \n\n이 [Azure Cognitive Search .NET 샘플 리포지토리의](https://github.com/Azure-Samples/azure-search-dotnet-samples) **인덱스-백업 복원** 샘플 코드를 사용하여 이러한 모든 작업을 수행할 수 있습니다. \n\nAzure Cognitive Search REST API를 사용하여 언제든지 [인덱스 정의를 가져올](/rest/api/searchservice/get-index) 수도 있습니다.\n         \n"
   - question: >
       내 인덱스 또는 서비스가 삭제된 경우 복원할 수 있나요?
     answer: "아니요, Azure Cognitive Search 인덱스 또는 서비스를 삭제하는 경우 복구할 수 없습니다. Azure Cognitive Search 서비스를 삭제한 경우, 서비스의 모든 인덱스는 영구적으로 삭제됩니다. 또한 하나 이상의 Azure Cognitive Search 서비스를 포함하는 Azure 리소스 그룹을 삭제하는 경우 모든 서비스가 영구적으로 삭제됩니다.  \n\n인덱스, 인덱서, 데이터 원본 및 기술 세트 같은 리소스를 복원하려면 코드에서 다시 만들어야 합니다. \n\n인덱스를 다시 만들려면 외부 원본에서 데이터의 인덱스를 다시 만들어야 합니다. 따라서 Azure SQL Database 또는 Cosmos DB와 같은 다른 데이터 저장소에 원래 데이터의 마스터 복사본 또는 백업을 유지하는 것이 좋습니다.\n\n또는 이 [Azure Cognitive Search .NET 샘플 리포지토리의](https://github.com/Azure-Samples/azure-search-dotnet-samples) **인덱스-백업 복원** 샘플 코드를 사용하여 일련의 JSON 파일에 인덱스 정의와 인덱스 스냅샷을 백업할 수 있습니다. 나중에 필요한 경우 도구와 파일을 사용하여 인덱스를 복원할 수 있습니다.  \n"
@@ -49,7 +49,7 @@ sections:
   - question: >
       사용자 ID로 검색 인덱스 액세스를 제한할 수 있나요?
     answer: >
-      `search.in()` 필터를 사용하여 [보안 필터](./search-security-trimming-for-azure-search.md)를 구현할 수 있습니다. 이 필터는 [AAD(Azure Active Directory) 등의 ID 관리 서비스](./search-security-trimming-for-azure-search-with-aad.md)를 사용하여 정의된 사용자 그룹 멤버 자격에 따라 검색 결과를 자릅니다.
+      `search.in()` 필터를 사용하여 [보안 필터](./search-security-trimming-for-azure-search.md)를 구현할 수 있습니다. 이 필터는 정의 된 사용자 그룹 멤버 자격에 따라 검색 결과를 트리밍하는 [Azure Active Directory (Azure AD)와 같은 id 관리 서비스](./search-security-trimming-for-azure-search-with-aad.md) 에 적합 합니다. 현재 공개 미리 보기로 제공 되는 [역할 기반 액세스](search-security-rbac.md)에도 등록할 수 있습니다.
   - question: >
       유효하다고 알고 있는 용어에 대해 일치가 0인 이유는 무엇인가요?
     answer: >
@@ -60,7 +60,7 @@ sections:
   - question: >
       내 와일드카드 검색 속도가 느립니다.
     answer: >
-      접두사, 유사 항목 및 regex와 같은 대부분의 와일드카드 검색 쿼리는 검색 인덱스에서 일치하는 용어를 사용하여 내부적으로 다시 작성됩니다. 검색 인덱스를 검사하는 이 추가 처리로 인해 대기 시간이 추가됩니다. 예를 들어 많은 용어로 다시 작성될 가능성이 큰 `a*`와 같은 광범위한 검색 쿼리는 매우 느릴 수 있습니다. 고성능 와일드카드 검색을 수행하려면 [사용자 지정 분석기](/rest/api/searchservice/custom-analyzers-in-azure-search)를 정의하는 것이 좋습니다.
+      접두사, 유사 항목 및 regex와 같은 대부분의 와일드카드 검색 쿼리는 검색 인덱스에서 일치하는 용어를 사용하여 내부적으로 다시 작성됩니다. 이러한 추가 처리는 대기 시간에 추가 됩니다. 예를 들어 많은 용어로 다시 작성될 가능성이 큰 `a*`와 같은 광범위한 검색 쿼리는 매우 느릴 수 있습니다. 고성능 와일드카드 검색을 수행하려면 [사용자 지정 분석기](/rest/api/searchservice/custom-analyzers-in-azure-search)를 정의하는 것이 좋습니다.
   - question: >
       검색 순위가 일정하거나 모든 적중에 대해 점수가 1.0으로 같은 이유는 무엇인가요?
     answer: >
@@ -83,4 +83,4 @@ sections:
       특정 언어 검색을 구현하기 위한 가장 좋은 방법은 무엇인가요?
     answer: >
       대부분의 고객은 동일한 인덱스에서 다양한 로캘(언어)을 지원하기 위해 컬렉션보다 전용 필드를 선택합니다. 로캘 특정 필드를 사용하면 적합한 분석기를 할당할 수 있습니다. 예를 들어, 프랑스어 문자열이 들어간 필드에는 Microsoft French Analyzer를 할당합니다. 그렇게 하면 필터링도 간소화됩니다. 쿼리가 Fr-Fr 페이지에서 시작되었음을 알고 있다면 검색 결과를 이 필드로 제한할 수 있습니다. 또는 [점수 매기기 프로필](/rest/api/searchservice/add-scoring-profiles-to-a-search-index)을 만들어 해당 필드에 더 상대적인 가중치를 부여합니다. Azure Cognitive Search는 [50개 이상의 언어 분석기](./search-language-support.md)를 지원합니다.
-additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n   없는 기능 또는 특징에 대해 질문이 있으면 [사용자 의견 웹 사이트](https://feedback.azure.com/forums/263029-azure-search)에서 요청하세요.\n        \n## <a name=\"see-also\"></a>참고 항목\n   [StackOverflow: Azure Cognitive Search](https://stackoverflow.com/questions/tagged/azure-search)   \n   [Azure Cognitive Search의 전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md)  \n   [Azure Cognitive Search란?](search-what-is-azure-search.md)"
+additionalContent: "\n## <a name=\"see-also\"></a>참고 항목\n   [StackOverflow: Azure Cognitive Search](https://stackoverflow.com/questions/tagged/azure-search)   \n   [Azure Cognitive Search의 전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md)  \n   [Azure Cognitive Search란?](search-what-is-azure-search.md)"

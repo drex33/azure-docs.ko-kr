@@ -1,28 +1,23 @@
 ---
 title: Azure Active Directory에서 플래그가 지정된 로그인이란?
 description: Azure Active Directory에서 플래그가 지정된 로그인에 대해 간략히 설명합니다.
-services: active-directory
-documentationcenter: ''
 author: MarkusVi
 manager: karenhoran
-editor: ''
 ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
 ms.service: active-directory
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 09/28/2021
 ms.author: markvi
 ms.reviewer: tspring
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d2d830a5aa60418625698eb97cad9a0b3f79650
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 8c40295803d9389bfa1534880aa6cbb4bb0426d2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130007647"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233737"
 ---
 # <a name="what-are-flagged-sign-ins-in-azure-active-directory"></a>Azure Active Directory에서 플래그가 지정된 로그인이란?
 
@@ -77,7 +72,7 @@ Azure AD 로그인 이벤트는 테넌트의 사용자 로그인 및 인증 구�
  
 `https://graph.microsoft.com/beta/auditlogs/signins?&$filter=(flaggedForReview eq true)`
 
-로그인 Graph API를 사용하는 방법에 대한 자세한 내용은 [signIn 리소스 종류](https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-1.0&preserve-view=true)를 참조하세요.
+로그인 Graph API를 사용하는 방법에 대한 자세한 내용은 [signIn 리소스 종류](/graph/api/resources/signin?view=graph-rest-1.0&preserve-view=true)를 참조하세요.
 
 
 

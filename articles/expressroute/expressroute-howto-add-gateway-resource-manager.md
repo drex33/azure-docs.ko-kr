@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: e8bc2d0ed29cbac171e1d03bc9a6806b1ef64f1f
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: b69ed57ec67b7f08ef7beec8df73f1da20c06a0b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112465315"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130254884"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>자습서: PowerShell을 사용하여 ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
 > [!div class="op_single_selector"]
@@ -50,13 +50,8 @@ ms.locfileid: "112465315"
 | 게이트웨이 이름 | *GW* |   
 | 게이트웨이 IP 이름 | *GWIP* |
 | 게이트웨이 IP 구성 이름 | *gwipconf* |
-| 유형 | *ExpressRoute* |
+| Type | *ExpressRoute* |
 | 게이트웨이 공용 IP 이름  | *gwpip* |
-
-> [!IMPORTANT]
-> 프라이빗 피어링에 대한 IPv6 지원은 현재 **퍼블릭 미리 보기** 로 제공됩니다. IPv6 기반 개인 피어링이 구성된 ExpressRoute 회로에 가상 네트워크를 연결하려면 가상 네트워크가 이중 스택인지 확인하고 [여기](../virtual-network/ipv6-overview.md)에 설명된 지침을 따르세요.
-> 
-> 
 
 ## <a name="add-a-gateway"></a>게이트웨이를 추가합니다.
 

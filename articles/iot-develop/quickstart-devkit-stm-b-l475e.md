@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/02/2021
-ms.openlocfilehash: fe009eec23e940377e737938ea1986f515546138
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 30e64f70f713540574545200dc188342b63e2f01
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862135"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130242164"
 ---
 # <a name="quickstart-connect-an-stmicroelectronics-b-l475e-iot01a-or-b-l4s5i-iot01a-discovery-kit-to-iot-central"></a>빠른 시작: STMicroelectronics B-L475E-IOT01A 또는 B-L4S5I-IOT01A 검색 키트를 IoT Central에 연결
 
@@ -31,7 +31,7 @@ ms.locfileid: "121862135"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Microsoft Windows 10을 실행하는 PC
+* Windows 10을 실행하는 PC
 * 리포지토리를 복제하기 위한 [Git](https://git-scm.com/downloads)
 * 하드웨어
 

@@ -3,20 +3,20 @@ title: 자격 증명 공격 완화 - Azure AD B2C
 titleSuffix: Azure AD B2C
 description: 스마트 계정 잠금 기능을 포함하여 Azure Active Directory B2C의 자격 증명 공격(암호 공격)에 대한 검색 및 완화 기술에 대해 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/22/2021
-ms.author: mimart
+ms.date: 09/20/2021
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 8e17f6933695755a86c5d1e2fbcb7a14c183d0c4
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 3ec563e05f21ca1e9697300710def5ad89b10d02
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114602836"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042924"
 ---
 # <a name="mitigate-credential-attacks-in-azure-ad-b2c"></a>Azure AD B2C에서 자격 증명 공격 완화
 
@@ -36,7 +36,8 @@ Azure AD B2C는 좀 더 복잡한 계정 잠금 전략을 사용합니다. 계�
 잠금 임계값을 포함하여 암호 보호 설정을 관리하려면 다음을 수행합니다.
 
 1. [Azure 포털](https://portal.azure.com)
-1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 사용하여 Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. 왼쪽 메뉴에서 **Azure AD B2C** 를 선택합니다. 또는 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
 1. **보안** 에서 **인증 방법(미리 보기)** 를 선택한 후 **암호 보호** 를 선택합니다.
 1. **사용자 지정 스마트 잠금** 에서 원하는 암호 보호 설정을 입력합니다.

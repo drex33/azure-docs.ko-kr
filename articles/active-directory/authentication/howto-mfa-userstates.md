@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2e2212171f0be8d754ac1a86567641c2bad8a9a0
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 066e0a48442825785bc2c413c0e7d40ca470f45d
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114602775"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353239"
 ---
 # <a name="enable-per-user-azure-ad-multi-factor-authentication-to-secure-sign-in-events"></a>사용자별 Azure Multi-Factor Authentication을 사용하여 로그인 이벤트 보호
 
@@ -77,13 +77,13 @@ Azure AD 라이선스에 조건부 액세스가 포함되지 않고 보안 기�
 
 1. 열리는 팝업 창에서 선택한 내용을 확인합니다.
 
-사용자를 사용으로 설정한 후 전자 메일을 통해 알립니다. 사용자에게 다음에 로그인할 때 등록하도록 요청하라는 메시지가 표시됨을 알려 줍니다. 또한 조직에서 최신 인증을 지원하지 않는 비브라우저 앱을 사용하는 경우 앱 암호를 만들어야 합니다. 자세한 내용은 [Azure AD Multi-Factor Authentication 최종 사용자 가이드](../user-help/multi-factor-authentication-end-user-first-time.md)를 참조하여 시작하는 데 도움을 받으세요.
+사용자를 사용으로 설정한 후 전자 메일을 통해 알립니다. 사용자에게 다음에 로그인할 때 등록하도록 요청하라는 메시지가 표시됨을 알려 줍니다. 또한 조직에서 최신 인증을 지원하지 않는 비브라우저 앱을 사용하는 경우 앱 암호를 만들어야 합니다. 자세한 내용은 [Azure AD Multi-Factor Authentication 최종 사용자 가이드](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)를 참조하여 시작하는 데 도움을 받으세요.
 
 ### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>사용자별 MFA의 사용자를 조건부 액세스 기반 MFA로 변환
 
 사용자가 사용자별로 적용된 Azure AD Multi-Factor Authentication을 사용하도록 설정했다면 다음 PowerShell을 사용하여 조건부 액세스 기반 Azure AD Multi-Factor Authentication으로 변환하는 데 도움을 받을 수 있습니다.
 
-ISE 창에서 이 PowerShell을 실행하거나 로컬에 실행할 `.PS1` 파일로 저장합니다. [MSOnline 모듈](/powershell/module/msonline/?view=azureadps-1.0#msonline)을 통해서만 작업을 수행할 수 있습니다. 
+ISE 창에서 이 PowerShell을 실행하거나 로컬에 실행할 `.PS1` 파일로 저장합니다. [MSOnline 모듈](/powershell/module/msonline#msonline)을 통해서만 작업을 수행할 수 있습니다. 
 
 ```PowerShell
 # Sets the MFA requirement state

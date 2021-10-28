@@ -4,12 +4,12 @@ description: Azure Container Instances 서비스는 가상 머신을 관리하�
 ms.topic: overview
 ms.date: 03/22/2021
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 4574802b86e517eac5a908b03759dcca3f17d9b3
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 3628171c8c4a7994ac3237c533c1e15c061a01f1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114292314"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215805"
 ---
 # <a name="what-is-azure-container-instances"></a>Azure Container Instances란?
 
@@ -64,7 +64,7 @@ Azure Container Instances는 동일한 API로 Windows 및 Linux 컨테이너를 
 * [가상 네트워크 배포](container-instances-vnet.md)
 * [GPU 리소스](container-instances-gpu.md)(미리 보기)
 
-Windows 컨테이너 배포의 경우 일반적인 [Windows 기본 이미지](/azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported)를 기반으로 하는 이미지를 사용합니다.
+Windows 컨테이너 배포의 경우 일반적인 [Windows 기본 이미지](./container-instances-faq.yml#what-windows-base-os-images-are-supported-)를 기반으로 하는 이미지를 사용합니다.
 
 ## <a name="co-scheduled-groups"></a>공동 예약된 그룹
 

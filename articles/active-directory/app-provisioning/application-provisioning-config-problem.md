@@ -3,7 +3,7 @@ title: Azure Active Directory 갤러리 앱에 대한 사용자 프로비저닝 
 description: Azure Active Directory 애플리케이션 갤러리에 이미 나열된 애플리케이션에 대한 사용자 프로비저닝을 구성할 때 발생하는 일반적인 문제를 해결하는 방법
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: asteen, arvinh
-ms.openlocfilehash: 8267aa64ebdeefa12ac7f948314b4174d40049ce
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: f10813f94bd00488834cace3cd6985374f2c2d4d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783246"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129991872"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션에 대해 사용자 프로비전 구성 문제
 

@@ -1,22 +1,22 @@
 ---
-title: Azure Active Directory B2C에서 사용자 데이터 관리 | Microsoft Docs
+title: Azure Active Directory B2C에서 사용자 데이터 관리
 description: Azure AD B2C에서 사용자 데이터를 삭제하거나 내보내는 방법을 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 05/06/2018
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d9bdf7258296b82e65e03f6b8af8021b9a7be0f0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 03b21f0e7a9f3035a5bfad6494d49f69ba3b5fef
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94952474"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130041769"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 데이터 관리
 

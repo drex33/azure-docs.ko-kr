@@ -13,12 +13,12 @@ ms.subservice: compliance
 ms.date: 08/18/2021
 ms.author: sama
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05633ab0a46f3aa88ab3e520b493d40527717872
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: fcf38a949d15faa896f4ac673fc53814078a087e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129809321"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130231766"
 ---
 # <a name="tutorial-manage-the-lifecycle-of-your-group-based-licenses-in-azure-ad"></a>자습서: Azure AD에서 그룹 기반 라이선스의 수명 주기 관리
  
@@ -55,7 +55,7 @@ Azure AD 권한 관리를 사용하려면 다음 라이선스 중 하나가 있�
 
 1. **리소스 역할** 탭으로 이동하려면 **다음: 리소스 역할** 을 선택합니다.
 
-2. 이 탭에서 액세스 패키지에 포함할 리소스 및 리소스 역할을 선택합니다. 이 예제 시나리오에서는 **그룹 및 팀** 을 선택하고 [Office 라이선스](/azure/active-directory/enterprise-users/licensing-groups-assign)에 할당된 그룹을 검색합니다.
+2. 이 탭에서 액세스 패키지에 포함할 리소스 및 리소스 역할을 선택합니다. 이 예제 시나리오에서는 **그룹 및 팀** 을 선택하고 [Office 라이선스](../enterprise-users/licensing-groups-assign.md)에 할당된 그룹을 검색합니다.
 
 3. **역할** 목록에서 **멤버** 를 선택합니다.
 
@@ -141,4 +141,4 @@ Azure AD 권한 관리를 사용하려면 다음 라이선스 중 하나가 있�
 
 애플리케이션 및 사이트처럼 다른 종류의 리소스에 대한 액세스 권한을 관리하는 액세스 패키지를 만드는 방법을 알아봅니다. 
 
-[Azure AD 자격 관리에서 리소스에 대한 액세스 관리](/azure/active-directory/governance/entitlement-management-access-package-first)
+[Azure AD 자격 관리에서 리소스에 대한 액세스 관리](./entitlement-management-access-package-first.md)

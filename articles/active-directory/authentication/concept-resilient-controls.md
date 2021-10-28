@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/13/2021
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe5f9987cb99aa90d1452b4f442e326d4e95bcee
-ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
+ms.openlocfilehash: 3c4ea1a6b66980081597f301f22243bfd7397630
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113687806"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388340"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Azure Active Directory를 사용하여 복원력 있는 액세스 제어 관리 전략 수립
 
@@ -273,8 +273,8 @@ NPS 확장 사용 안 함:
  응급 상황이 발생했는데 조직에서 이전에 완화 또는 대체 계획을 구현하지 않은 경우 MFA를 강제 적용하는 조건부 액세스 정책을 이미 사용하고 있다면 [사용자 잠금 대체](#contingencies-for-user-lockout) 섹션의 권장 사항을 따릅니다.
 조직에서 사용자별 MFA 레거시 정책을 사용하는 경우 고려할 수 있는 대안은 다음과 같습니다.
 
-1. 회사 네트워크 아웃바운드 IP 주소가 있으면 회사 네트워크에만 인증할 수 있도록 이를 신뢰할 수 있는 IP로 추가합니다.
-   1. 아웃바운드 IP 주소의 인벤토리가 없거나 회사 네트워크 내부 및 외부에서 액세스할 수 있어야 하는 경우 0.0.0.0/1 및 128.0.0.0/1을 지정하여 전체 IPv4 주소 공간을 신뢰할 수 있는 IP로 추가할 수 있습니다.
+- 회사 네트워크 아웃바운드 IP 주소가 있으면 회사 네트워크에만 인증할 수 있도록 이를 신뢰할 수 있는 IP로 추가합니다.
+- 아웃바운드 IP 주소의 인벤토리가 없거나 회사 네트워크 내부 및 외부에서 액세스할 수 있어야 하는 경우 0.0.0.0/1 및 128.0.0.0/1을 지정하여 전체 IPv4 주소 공간을 신뢰할 수 있는 IP로 추가할 수 있습니다.
 
 >[!IMPORTANT]
  > 신뢰할 수 있는 IP 주소를 확장하여 액세스 차단을 해제하면 IP 주소와 관련된 위험 검색(예: 불가능한 이동 또는 알 수 없는 위치)이 생성되지 않습니다.

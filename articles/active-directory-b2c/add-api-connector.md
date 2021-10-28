@@ -5,18 +5,18 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 05/03/2021
-ms.author: mimart
-author: msmimart
-manager: celestedg
+ms.date: 08/24/2021
+ms.author: kengaderdus
+author: kengaderdus
+manager: CelesteDG
 ms.custom: it-pro
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 1e0af1080a2d56fc01bdeb4bfb5f6475c477b685
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: 661801e8eb184e8368cb5156d7f7b7f71612f8f2
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122777741"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130040154"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow"></a>등록 사용자 흐름에 API 커넥터 추가
 
@@ -45,18 +45,18 @@ ms.locfileid: "122777741"
 [API 커넥터](api-connectors-overview.md)를 사용하려면 먼저 API 커넥터를 만든 다음, 사용자 흐름에서 사용하도록 설정합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **Azure 서비스** 에서 **Azure AD B2C** 를 선택합니다.
-4. **API 커넥터** 를 선택한 다음, **새 API 커넥터** 를 선택합니다.
+1. **Azure 서비스** 에서 **Azure AD B2C** 를 선택합니다.
+1. **API 커넥터** 를 선택한 다음, **새 API 커넥터** 를 선택합니다.
 
    ![API 커넥터의 기본 구성 스크린샷](media/add-api-connector/api-connector-new.png)
 
-5. 호출의 표시 이름을 제공합니다. 예를 들어 **사용자 정보가 유효한지 검사** 합니다.
-6. API 호출에 대한 **엔드포인트 URL** 을 제공합니다.
-7. **인증 유형** 을 선택하고 API 호출에 대한 인증 정보를 구성합니다. [API 커넥터 보호](secure-rest-api.md) 방법에 대해 알아봅니다.
+1. 호출의 표시 이름을 제공합니다. 예를 들어 **사용자 정보가 유효한지 검사** 합니다.
+1. API 호출에 대한 **엔드포인트 URL** 을 제공합니다.
+1. **인증 유형** 을 선택하고 API 호출에 대한 인증 정보를 구성합니다. [API 커넥터 보호](secure-rest-api.md) 방법에 대해 알아봅니다.
 
-   ![API 커넥터의 인증 구성 스크린샷](media/add-api-connector/api-connector-config.png)
+   ![API 커넥터에 대한 인증 구성 스크린샷](media/add-api-connector/api-connector-config.png)
 
-8. **저장** 을 선택합니다.
+1. **저장** 을 선택합니다.
 
 ## <a name="the-request-sent-to-your-api"></a>API로 전송된 요청
 API 커넥터는 **HTTP POST** 요청으로 구체화하여 사용자 특성('클레임')을 JSON 본문의 키-값 쌍으로 보냅니다. 특성은 [Microsoft Graph](/graph/api/resources/user#properties) 사용자 속성과 유사하게 직렬화됩니다. 
@@ -97,13 +97,13 @@ Content-type: application/json
 사용자 지정 특성은 디렉터리의 **extension_\<extensions-app-id>_CustomAttribute** 형식으로 존재합니다. API는 동일한 직렬화된 형식으로 클레임을 수신해야 합니다. 사용자 지정 특성에 대한 자세한 내용은 [Azure AD B2C에서 사용자 지정 특성 정의](user-flow-custom-attributes.md)를 참조하세요.
 
 또한 이러한 클레임은 일반적으로 모든 요청에서 전송됩니다.
-- **UI 로캘('ui_locales')** - 디바이스에 구성된 최종 사용자의 로캘입니다. API에서 다국어 응답을 반환하는 데 사용할 수 있습니다.
+- **UI 로캘('ui_locales')** - 디바이스에 구성된 최종 사용자의 로캘입니다. 이는 API에서 다국어 응답을 반환하는 데 사용할 수 있습니다.
 - **단계('step')** - API 커넥터가 호출된 사용자 흐름의 단계 또는 지점입니다. 값은 다음과 같습니다.
   - `PostFederationSignup` - "가입하는 동안 ID 공급자와 페더레이션 후"에 해당합니다.
   - `PostAttributeCollection` - "사용자를 만들기 전"에 해당합니다.
   - `PreTokenIssuance` - "토큰을 보내기 전(미리 보기)"에 해당합니다. [이 단계에 대해 자세히 알아보세요](add-api-connector-token-enrichment.md).
 - **클라이언트 ID('client_id')** - 최종 사용자가 사용자 흐름에서 인증하는 애플리케이션의 `appId` 값입니다. 액세스 토큰에 있는 리소스 애플리케이션의 `appId`가 *아닙니다*.
-- **이메일 주소('email')** 또는 [**ID('ID')** ](/graph/api/resources/objectidentity) - 이러한 클레임은 API에서 애플리케이션에 인증하는 최종 사용자를 식별하는 데 사용할 수 있습니다.
+- **이메일 주소('email')** 또는 [**ID('ID')**](/graph/api/resources/objectidentity) - 이러한 클레임은 API에서 애플리케이션에 인증하는 최종 사용자를 식별하는 데 사용할 수 있습니다.
   
 > [!IMPORTANT]
 > API 엔드포인트가 호출 될 때 클레임에 값이 없으면 클레임은 API로 전송되지 않습니다. API는 클레임이 요청에 없는 경우를 명시적으로 확인하고 처리하도록 설계해야 합니다.
@@ -113,9 +113,9 @@ Content-type: application/json
 등록 사용자 흐름에 API 커넥터를 추가하려면 다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **Azure 서비스** 에서 **Azure AD B2C** 를 선택합니다.
-4. **사용자 흐름** 을 선택하고 API 커넥터를 추가하려는 사용자 흐름을 선택합니다.
-5. **API 커넥터** 를 선택하고 사용자 흐름의 다음 단계에서 호출하려는 API 엔드포인트를 선택합니다.
+1. **Azure 서비스** 에서 **Azure AD B2C** 를 선택합니다.
+1. **사용자 흐름** 을 선택하고 API 커넥터를 추가하려는 사용자 흐름을 선택합니다.
+1. **API 커넥터** 를 선택하고 사용자 흐름의 다음 단계에서 호출하려는 API 엔드포인트를 선택합니다.
 
    - **가입하는 동안 ID 공급자와 페더레이션 후**
    - **사용자를 만들기 전**
@@ -123,7 +123,7 @@ Content-type: application/json
 
    ![사용자 흐름의 단계에 대한 API 커넥터 선택](media/add-api-connector/api-connectors-user-flow-select.png)
 
-6. **저장** 을 선택합니다.
+1. **저장** 을 선택합니다.
 
 이러한 단계는 **가입 및 로그인(권장)** 과 **가입(권장)** 에만 존재하지만 환경의 가입 부분에만 적용됩니다.
 
@@ -648,7 +648,7 @@ REST API를 배포한 후에는 다음을 포함하여 고유한 REST API를 반
 1. **Azure AD B2C** 로 이동합니다.
 2. **활동** 아래에서 **감사 로그** 를 선택합니다.
 3. 목록 보기를 필터링합니다. **날짜** 에 대해 원하는 시간 간격을 선택하고 **작업** 에 대해 **사용자 흐름의 일부로 API가 호출됨** 을 선택합니다.
-4. 개별 로그를 검사합니다. 각 행은 사용자 흐름 중에 호출하려는 API 커넥터를 나타냅니다. API 호출이 실패하고 다시 시도하면 여전히 단일 행으로 표시됩니다. `numberOfAttempts`는 API가 호출된 횟수를 나타냅니다. 이 값은 `1` 또는 `2`입니다. API 호출에 대한 기타 정보는 로그에 자세히 설명되어 있습니다.
+4. 개별 로그를 검사합니다. 각 행은 사용자 흐름 중에 호출하려는 API 커넥터를 나타냅니다. API 호출이 실패하고 다시 시도하면 여전히 단일 행으로 표시됩니다. `numberOfAttempts`는 API가 호출된 횟수를 나타냅니다. 이 값은 `1` 또는 `2`일 수 있습니다. API 호출에 대한 기타 정보는 로그에 자세히 설명되어 있습니다.
 
 ![사용자 인증 동안 API 커넥터 트랜잭션의 예](media/add-api-connector/example-anonymized-audit-log.png)
 

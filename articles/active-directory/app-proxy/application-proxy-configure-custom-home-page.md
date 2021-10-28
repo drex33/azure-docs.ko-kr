@@ -3,7 +3,7 @@ title: 게시된 앱에 대한 사용자 지정 홈페이지 - Azure Active Dire
 description: Azure Active Directory 애플리케이션 프록시 커넥터에 대한 기본 사항 제공
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: harshja
-ms.openlocfilehash: d635d0c87cb6f759c15461abe9efc9dd42297ddb
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 8a74bbffc487117aa38f541093961fa21450eaa4
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111964908"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990067"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시를 사용하여 게시된 앱에 대한 사용자 지정 홈페이지 설정
 
@@ -32,7 +32,7 @@ ms.locfileid: "111964908"
 - `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx`를 홈페이지 URL로 설정하여 외부 사용자에게 로그인 페이지를 먼저 표시하려고 합니다.
 
 > [!NOTE]
-> 사용자에게 게시된 응용 프로그램에 대한 액세스 권한을 제공하면 [내 앱](../user-help/my-apps-portal-end-user-access.md) 및 [Office 365 앱 시작 관리자](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/)에 앱이 표시됩니다.
+> 사용자에게 게시된 응용 프로그램에 대한 액세스 권한을 제공하면 [내 앱](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) 및 [Office 365 앱 시작 관리자](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/)에 앱이 표시됩니다.
 
 ## <a name="before-you-start"></a>시작하기 전에
 

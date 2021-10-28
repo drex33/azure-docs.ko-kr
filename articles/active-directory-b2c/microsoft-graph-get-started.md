@@ -3,20 +3,20 @@ title: Microsoft Graph 애플리케이션 등록
 titleSuffix: Azure AD B2C
 description: 필요한 Graph API 권한이 부여된 애플리케이션을 등록하여 Microsoft Graph를 통해 Azure AD B2C 리소스를 관리할 준비를 합니다.
 services: B2C
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/05/2021
-ms.author: mimart
+ms.date: 09/20/2021
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 28e7a6be84a260c26b27b9e6042a6c323d4167ec
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 48f60c6769812e28a0981329885c60995d1d0e1b
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128760"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130036436"
 ---
 # <a name="register-a-microsoft-graph-application"></a>Microsoft Graph 애플리케이션 등록
 
@@ -47,7 +47,8 @@ OAuth 2.0 클라이언트 자격 증명 권한 부여 흐름은 현재 Azure AD 
 스크립트 및 애플리케이션이 [Microsoft Graph API][ms-graph-api]와 상호 작용하여 Azure AD B2C 리소스를 관리하려면 먼저 필요한 API 권한을 부여하는 애플리케이션 등록을 Azure AD B2C 테넌트에 만들어야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
 1. **앱 등록** 을 선택한 다음, **새 등록** 을 선택합니다.
 1. 애플리케이션의 **이름** 을 입력합니다. 예: *managementapp1*.
@@ -74,7 +75,9 @@ OAuth 2.0 클라이언트 자격 증명 권한 부여 흐름은 현재 Azure AD 
 
 *사용자 관리자* 역할을 추가하려면 다음 단계를 따르세요.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인하고 **디렉터리 + 구독** 필터를 사용하여 Azure AD B2C 테넌트로 전환합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. **Azure AD B2C** 를 검색하고 선택합니다.
 1. **관리** 아래에서 **역할 및 관리자** 를 선택합니다.
 1. **사용자 관리자** 역할을 선택합니다. 

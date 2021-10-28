@@ -8,12 +8,12 @@ manager: karenh444
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 10/08/2021
-ms.openlocfilehash: 2e0d1028efab3b157c21c90944a8bcd41be04c55
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: c2f3757c62399049c1ecdc51c5ee2b873dd6c154
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130070739"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236811"
 ---
 # <a name="issue-azure-ad-verifiable-credentials-from-an-application-preview"></a>애플리케이션에서 Azure AD 확인 가능한 자격 증명 발급(미리 보기)
 
@@ -38,7 +38,7 @@ ms.locfileid: "130070739"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- 시작하기 전에 [Azure AD 확인 가능한 자격 증명에 대한 테넌트를 설정](/azure/active-directory/verifiable-credentials/verifiable-credentials-configure-tenant)해야 합니다.
+- 시작하기 전에 [Azure AD 확인 가능한 자격 증명에 대한 테넌트를 설정](./verifiable-credentials-configure-tenant.md)해야 합니다.
 - 샘플 앱을 호스트하는 리포지토리를 복제하려면 [GIT](https://git-scm.com/downloads)을 설치합니다.
 - [Visual Studio Code](https://code.visualstudio.com/Download) 또는 이와 비슷한 코드 편집기
 - [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0)
@@ -49,11 +49,11 @@ ms.locfileid: "130070739"
 
 ## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-Azure Blob Storage는 클라우드를 위한 Microsoft의 개체 스토리지 솔루션입니다. Azure AD 확인 가능한 자격 증명 서비스는 확인 가능한 자격 증명을 발급할 때 [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction)를 사용하여 확인 가능한 자격 증명 구성 파일을 저장합니다.
+Azure Blob Storage는 클라우드를 위한 Microsoft의 개체 스토리지 솔루션입니다. Azure AD 확인 가능한 자격 증명 서비스는 확인 가능한 자격 증명을 발급할 때 [Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md)를 사용하여 확인 가능한 자격 증명 구성 파일을 저장합니다.
 
 다음 단계에 따라 Azure Blob Storage를 만들고 구성합니다.
 
-1. Azure Blob Storage 계정이 없는 경우 [스토리지 계정을 만듭니다](/azure/storage/common/storage-account-create).
+1. Azure Blob Storage 계정이 없는 경우 [스토리지 계정을 만듭니다](../../storage/common/storage-account-create.md).
 1. 스토리지 계정이 만들어지면 컨테이너를 만듭니다. 스토리지 계정의 왼쪽 메뉴에서 **데이터 스토리지** 섹션으로 스크롤한 다음, **컨테이너** 를 선택합니다.
 1. **+ 컨테이너** 단추를 선택합니다.
 1. 새 컨테이너의 **이름** 을 입력합니다. 컨테이너 이름은 소문자여야 하고, 문자 또는 숫자로 시작해야 하며, 문자, 숫자 및 대시(-) 문자만 포함할 수 있습니다. 예를 들어 *vc-container* 입니다.
@@ -87,7 +87,7 @@ Azure Blob Storage는 클라우드를 위한 Microsoft의 개체 스토리지 �
         ![새 역할 할당을 설정하는 방법을 보여 주는 스크린샷](media/verifiable-credentials-configure-issuer/add-role-assignment-container.png)
 
 >[!IMPORTANT]
->기본적으로 컨테이너 생성자는 소유자 역할을 할당받습니다. 소유자 역할만으로는 충분하지 않습니다. 사용 중인 계정에 Storage Blob 데이터 읽기 권한자 역할이 필요합니다. 자세한 내용은 [Azure Portal을 사용하여 Blob 및 큐 데이터에 액세스하기 위한 Azure 역할 할당](/azure/storage/blobs/assign-azure-role-data-access)을 참조하세요.
+>기본적으로 컨테이너 생성자는 소유자 역할을 할당받습니다. 소유자 역할만으로는 충분하지 않습니다. 사용 중인 계정에 Storage Blob 데이터 읽기 권한자 역할이 필요합니다. 자세한 내용은 [Azure Portal을 사용하여 Blob 및 큐 데이터에 액세스하기 위한 Azure 역할 할당](../../storage/blobs/assign-azure-role-data-access.md)을 참조하세요.
 
 ### <a name="upload-the-configuration-files"></a>구성 파일 업로드
 

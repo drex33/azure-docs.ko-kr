@@ -17,12 +17,12 @@ ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 31dd21a7c525bd1e5dc659b611f72c2c33c6f043
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 963c2d997bd75dadbeb6a37ea80d4237ea46cc35
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535632"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130240664"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Agent 설치
 
@@ -174,7 +174,7 @@ PowerShell 창이 열리고 에이전트 등록 프로세스가 시작됩니다.
 3. 오른쪽에서 **현재 로그 필터링** 을 선택합니다.
 4. **이벤트 원본** 에 **AD FS 감사** 를 선택합니다.
 
-    감사 로그에 대한 자세한 내용은 [작업 질문](/azure/active-directory/hybrid/reference-connect-health-faq#operations-questions)을 참조하세요.
+    감사 로그에 대한 자세한 내용은 [작업 질문](./reference-connect-health-faq.yml)을 참조하세요.
 
     ![현재 로그 필터링 창을 보여 주는 스크린샷. “이벤트 원본” 필드에 “AD FS 감사”가 선택되었습니다.](./media/how-to-connect-health-agent-install/adfsaudit.png)
 

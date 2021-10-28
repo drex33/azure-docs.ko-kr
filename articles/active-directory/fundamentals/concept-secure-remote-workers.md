@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c4301a61a79ab2351c18af0c76cccc3d07dd202
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 52c82b01b9c6bc45779e9bed04bb04e8ac3fcab7
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94836685"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083660"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Azure AD를 사용하여 ID 보안에 신속하게 대응
 
@@ -84,7 +84,7 @@ Azure AD Free, Office 365 또는 Microsoft 365 앱 고객이 사용자 ID를 보
 | [ADFS 스마트 잠금 사용](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection)(해당하는 경우) | 악의적인 활동으로부터 엑스트라넷 계정 잠금이 발생하지 않도록 사용자를 보호합니다. |
 | [Azure Active Directory 스마트 잠금 사용](../authentication/howto-password-smart-lockout.md)(관리 ID를 사용하는 경우) | 스마트 잠금은 사용자의 암호를 추측하려거나 무차별 암호 대입 공격을 사용하여 침입하려는 불량 작업자를 차단하도록 도와줍니다. |
 | [애플리케이션에 대한 최종 사용자 동의 사용 안함](../manage-apps/configure-user-consent.md) | 관리자 동의 워크플로는 관리자에게 관리자 승인이 필요한 애플리케이션에 대한 액세스 권한을 부여하는 안전한 방법을 제공합니다. 그래서 최종 사용자가 회사 데이터를 노출하지 않도록 할 수 있습니다. 노출 영역을 줄이고 위험을 완화하는 데 도움이 되도록 향후 모든 사용자 동의 작업을 사용하지 않도록 설정는 것이 좋습니다. |
-| [애플리케이션 프록시가 있는 온-프레미스 레거시 애플리케이션에 대한 원격 액세스 사용](../manage-apps/application-proxy-add-on-premises-application.md) | 사용자가 Azure AD 계정으로 로그인하여 온-프레미스 애플리케이션에 안전하게 액세스할 수 있도록 Azure AD 애플리케이션 프록시 사용하도록 설정하고 레거시 앱과 통합합니다. |
+| [애플리케이션 프록시가 있는 온-프레미스 레거시 애플리케이션에 대한 원격 액세스 사용](../app-proxy/application-proxy-add-on-premises-application.md) | 사용자가 Azure AD 계정으로 로그인하여 온-프레미스 애플리케이션에 안전하게 액세스할 수 있도록 Azure AD 애플리케이션 프록시 사용하도록 설정하고 레거시 앱과 통합합니다. |
 | [보안 하이브리드 액세스 사용: 기존 앱 배달 컨트롤러 및 네트워크를 사용하여 레거시 앱을 보호합니다](../manage-apps/secure-hybrid-access.md)(해당하는 경우). | 기존 애플리케이션 배달 컨트롤러나 네트워크를 사용하여 온-프레미스 및 클라우드 레거시 인증 애플리케이션을 Azure AD에 연결하여 게시 및 보호할 수 있습니다. |
 | [갤러리에서 지원되는 SaaS 애플리케이션을 Azure AD에 통합하고, Single Sign On을 사용하도록 설정](../manage-apps/add-application-portal.md) | Azure AD에는 수천 개의 사전 통합 애플리케이션이 들어 있는 갤러리가 있습니다. 조직에서 사용하는 애플리케이션 중 일부는 Azure Portal에서 직접 액세스할 수 있는 갤러리에 있을 것입니다. 향상된 사용자 환경(SSO)을 사용하여 원격으로 그리고 안전하게 회사 SaaS 애플리케이션에 대한 액세스를 제공합니다. |
 | [SaaS 애플리케이션에서 자동화된 사용자 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)(해당하는 경우) | 자동으로 사용자가 액세스해야 하는 클라우드(SaaS) 애플리케이션에서 사용자 ID와 역할을 만듭니다. 자동 프로비저닝에는 사용자 ID를 생성하는 것 외에도 상태 또는 역할이 변경될 때 사용자 ID의 유지 관리 및 제거가 포함되어, 조직의 보안을 강화합니다. |
@@ -116,7 +116,7 @@ Azure AD Free, Office 365 또는 Microsoft 365 앱 고객이 사용자 ID를 보
 | [ADFS 스마트 잠금 사용](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection)(해당하는 경우) | 악의적인 활동으로부터 엑스트라넷 계정 잠금이 발생하지 않도록 사용자를 보호합니다. |
 | [Azure Active Directory 스마트 잠금 사용](../authentication/howto-password-smart-lockout.md)(관리 ID를 사용하는 경우) | 스마트 잠금은 사용자의 암호를 추측하려거나 무차별 암호 대입 공격을 사용하여 침입하려는 불량 작업자를 차단하도록 도와줍니다. |
 | [애플리케이션에 대한 최종 사용자 동의 사용 안함](../manage-apps/configure-user-consent.md) | 관리자 동의 워크플로는 관리자에게 관리자 승인이 필요한 애플리케이션에 대한 액세스 권한을 부여하는 안전한 방법을 제공합니다. 그래서 최종 사용자가 회사 데이터를 노출하지 않도록 할 수 있습니다. 노출 영역을 줄이고 위험을 완화하는 데 도움이 되도록 향후 모든 사용자 동의 작업을 사용하지 않도록 설정는 것이 좋습니다. |
-| [애플리케이션 프록시가 있는 온-프레미스 레거시 애플리케이션에 대한 원격 액세스 사용](../manage-apps/application-proxy-add-on-premises-application.md) | 사용자가 Azure AD 계정으로 로그인하여 온-프레미스 애플리케이션에 안전하게 액세스할 수 있도록 Azure AD 애플리케이션 프록시 사용하도록 설정하고 레거시 앱과 통합합니다. |
+| [애플리케이션 프록시가 있는 온-프레미스 레거시 애플리케이션에 대한 원격 액세스 사용](../app-proxy/application-proxy-add-on-premises-application.md) | 사용자가 Azure AD 계정으로 로그인하여 온-프레미스 애플리케이션에 안전하게 액세스할 수 있도록 Azure AD 애플리케이션 프록시 사용하도록 설정하고 레거시 앱과 통합합니다. |
 | [보안 하이브리드 액세스 사용: 기존 앱 배달 컨트롤러 및 네트워크를 사용하여 레거시 앱을 보호합니다](../manage-apps/secure-hybrid-access.md)(해당하는 경우). | 기존 애플리케이션 배달 컨트롤러나 네트워크를 사용하여 온-프레미스 및 클라우드 레거시 인증 애플리케이션을 Azure AD에 연결하여 게시 및 보호할 수 있습니다. |
 | [갤러리에서 지원되는 SaaS 애플리케이션을 Azure AD에 통합하고, Single Sign On을 사용하도록 설정](../manage-apps/add-application-portal.md) | Azure AD에는 수천 개의 사전 통합 애플리케이션이 들어 있는 갤러리가 있습니다. 조직에서 사용하는 애플리케이션 중 일부는 Azure Portal에서 직접 액세스할 수 있는 갤러리에 있을 것입니다. 향상된 사용자 환경(SSO)을 사용하여 원격으로 그리고 안전하게 회사 SaaS 애플리케이션에 대한 액세스를 제공합니다. |
 | [SaaS 애플리케이션에서 자동화된 사용자 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)(해당하는 경우) | 자동으로 사용자가 액세스해야 하는 클라우드(SaaS) 애플리케이션에서 사용자 ID와 역할을 만듭니다. 자동 프로비저닝에는 사용자 ID를 생성하는 것 외에도 상태 또는 역할이 변경될 때 사용자 ID의 유지 관리 및 제거가 포함되어, 조직의 보안을 강화합니다. |

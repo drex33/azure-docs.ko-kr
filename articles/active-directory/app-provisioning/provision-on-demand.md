@@ -3,7 +3,7 @@ title: Azure Active Directory를 사용하는 주문형 사용자 프로비전
 description: Azure Active Directory에서 주문형 사용자를 프로비전하는 방법을 알아봅니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 56c86e5d0f06d66eea1841e5c1157432fd92f0ac
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 021e582887ec2927fa1e3180c41c522bd0e09fbf
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785010"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990960"
 ---
 # <a name="on-demand-provisioning-in-azure-active-directory"></a>Azure Active Directory의 주문형 프로비저닝
 주문형 프로비저닝을 사용하여 사용자를 몇 초 내에 애플리케이션에 프로비전합니다. 이 기능을 사용하는 주요 목적은 다음과 같습니다.

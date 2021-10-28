@@ -3,20 +3,20 @@ title: 디스플레이 컨트롤을 사용하여 클레임 확인
 titleSuffix: Azure AD B2C
 description: Azure AD B2C 디스플레이 컨트롤을 사용하여 사용자 지정 정책에서 제공하는 사용자 경험의 클레임을 확인하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 12/10/2019
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: bd90be6d93dc5ca399ac87daba0ca44fa7e88ff8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2a6a7a22d5d9ee19d396739b508de6afe9484c8e
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94532497"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130037294"
 ---
 # <a name="verification-display-control"></a>디스플레이 컨트롤 확인
 

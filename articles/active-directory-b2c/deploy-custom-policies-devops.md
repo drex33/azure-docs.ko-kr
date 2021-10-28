@@ -3,20 +3,20 @@ title: Azure Pipelines를 사용하여 사용자 지정 정책 배포
 titleSuffix: Azure AD B2C
 description: Azure Pipelines를 사용하여 CI/CD 파이프라인에 Azure AD B2C 사용자 지정 정책을 배포하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/26/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: d24e1cf8394b697348492ffcddc4634646ebbbb6
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: f042131bd67c27041ca464fde1be6f4d4915d7a6
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122967090"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130039660"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Azure Pipelines를 사용하여 사용자 지정 정책 배포
 
@@ -25,7 +25,7 @@ ms.locfileid: "122967090"
 > [!IMPORTANT]
 > Azure Pipelines를 사용하여 Azure AD B2C 사용자 지정 정책을 관리하기 위해 현재 Microsoft Graph API `/beta` 엔드포인트에서 사용할 수 있는 **미리 보기** 작업을 사용합니다. 프로덕션 애플리케이션에서는 이러한 API의 사용이 지원되지 않습니다. 자세한 내용은 [Microsoft Graph REST API 베타 엔드포인트 참조](/graph/api/overview?toc=.%2fref%2ftoc.json&view=graph-rest-beta&preserve-view=true)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Active Directory B2C에서 사용자 지정 정책을 사용하여 시작하기](tutorial-create-user-flows.md)에 있는 단계를 완료합니다.
 * DevOps 조직을 만들지 않은 경우 가입의 지침에 따라 조직을 만들고 [Azure DevOps에 로그인](/azure/devops/user-guide/sign-up-invite-teammates)합니다.  
@@ -176,13 +176,13 @@ exit 0
 
 
         ```PowerShell
-        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -Folder $(System.DefaultWorkingDirectory)/policyRepo/B2CAssets/ -Files "TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml,ProfileEdit.xml,PasswordReset.xml"
+        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -Folder $(System.DefaultWorkingDirectory)/policyRepo/B2CAssets/ -Files "TrustFrameworkBase.xml,TrustFrameworkLocalization.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml,ProfileEdit.xml,PasswordReset.xml"
         ```
         
         `-Files` 매개 변수는 배포할 정책 파일의 쉼표 구분 기호 목록입니다. 정책 파일로 목록을 업데이트합니다.
         
         > [!IMPORTANT]
-        >  정책이 올바른 순서로 업로드되었는지 확인합니다. 먼저 기본 정책, 확장 정책, 신뢰 당사자 정책입니다. 예: `TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml`.
+        >  정책이 올바른 순서로 업로드되었는지 확인합니다. 먼저 기본 정책, 확장 정책, 신뢰 당사자 정책입니다. 예: `TrustFrameworkBase.xml,TrustFrameworkLocalization.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml`.
         
 1. **저장** 을 선택하여 에이전트 작업을 저장합니다.
 

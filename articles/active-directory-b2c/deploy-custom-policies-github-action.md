@@ -3,20 +3,20 @@ title: GitHub Actions를 사용하여 사용자 지정 정책 배포
 titleSuffix: Azure AD B2C
 description: GitHub Actions를 사용하여 CI/CD 파이프라인에 Azure AD B2C 사용자 지정 정책을 배포하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/25/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 956803f14d9df49e99411eae2cb6a76db7636b03
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 7ce060e9e251313b93930200a73dde9b747c2d75
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123187876"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130037371"
 ---
 # <a name="deploy-custom-policies-with-github-actions"></a>GitHub Actions를 사용하여 사용자 지정 정책 배포
 
@@ -98,7 +98,7 @@ GitHub 워크플로는 사용자의 리포지토리에 추가하는 자동화된
           uses: azure-ad-b2c/deploy-trustframework-policy@v3
           with:
             folder: "./Policies"
-            files: "TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml"
+            files: "TrustFrameworkBase.xml,TrustFrameworkLocalization.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml"
             tenant: ${{ env.tenant }}
             clientId: ${{ env.clientId }}
             clientSecret: ${{ secrets.clientSecret }}
@@ -111,12 +111,13 @@ GitHub 워크플로는 사용자의 리포지토리에 추가하는 자동화된
     | `env` | `clientId` | [MS Graph 애플리케이션 등록](#register-a-microsoft-graph-application) 단계에서 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** |
     |`env`| `tenant` | 사용자의 Azure AD B2C [테넌트 이름](tenant-management.md#get-your-tenant-name)(예: contoso.onmicrosoft.com). |
     | `with`| `folder`| 사용자 지정 정책 파일이 저장 되는 폴더(예: `./Policies`)|
-    | `with`| `files` | 배포할 정책 파일의 쉼표로 구분 된 목록(예:`TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml`)|
+    | `with`| `files` | 배포할 정책 파일의 쉼표로 구분 된 목록(예:`TrustFrameworkBase.xml,TrustFrameworkLocalization.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml`)|
     
     > [!IMPORTANT]
     > 에이전트를 실행하고 정책 파일을 업로드하는 경우 올바른 순서로 업로드되었는지 확인합니다.
     >
     > 1. *TrustFrameworkBase.xml*
+    > 1. *TrustFrameworkLocalization.xml*
     > 1. *TrustFrameworkExtensions.xml*
     > 1. *SignUpOrSignin.xml*
     > 1. *ProfileEdit.xml*

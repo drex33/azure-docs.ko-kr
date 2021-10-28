@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: rifox
-ms.openlocfilehash: bf6fba4f8267c1fb52f6b6d5dbc09e033c81a99d
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 767fe99e7648b5f35995530f0404e0ceab8208f2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "123078435"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130288321"
 ---
 Azure Communication Services **그룹 통화 주인공 샘플** 은 Communication Services 통화 웹 SDK를 사용하여 그룹 통화 환경을 만드는 방법을 보여줍니다.
 
@@ -97,7 +97,7 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 
 자세한 내용은 다음 문서를 참조하세요.
 
-- [통화 SDK 사용법](../../quickstarts/voice-video-calling/calling-client-samples.md) 숙지
+- [통화 SDK 사용법](../../quickstarts/voice-video-calling/getting-started-with-calling.md) 숙지
 - [통화 작동 방식](../../concepts/voice-video-calling/about-call-types.md)에 대한 자세한 정보
 
 ### <a name="additional-reading"></a>추가 자료

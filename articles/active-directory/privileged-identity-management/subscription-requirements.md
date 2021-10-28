@@ -4,8 +4,8 @@ description: Azure AD PIM(Privileged Identity Management)을 사용하기 위한
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: markwahl-msft
+manager: KarenH444
+editor: ''
 ms.assetid: 34367721-8b42-4fab-a443-a2e55cdbf33d
 ms.service: active-directory
 ms.workload: identity
@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 04/05/2021
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6570e378aa75843c525cb21ed58c9da5fd4fb574
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: a68764822e2e4bb4a169680ea80e214e5b07e55b
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122531182"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667918"
 ---
 # <a name="license-requirements-to-use-privileged-identity-management"></a>Privileged Identity Management를 사용하기 위한 라이선스 요구 사항
 
@@ -73,5 +74,5 @@ Azure AD Premium P2, EMS E5 또는 평가판 라이선스가 만료되면 디렉
 - [Privileged Identity Management 배포](pim-deployment-plan.md)
 - [Privileged Identity Management 사용 시작](pim-getting-started.md)
 - [Privileged Identity Management에서 관리할 수 없는 역할](pim-roles.md)
-- [PIM에서 Azure 리소스 역할에 대한 액세스 검토 만들기](pim-resource-roles-start-access-review.md)
-- [PIM에서 Azure AD 역할에 대한 액세스 검토 만들기](pim-how-to-start-security-review.md)
+- [PIM에서 Azure 리소스 역할에 대한 액세스 검토 만들기](./pim-create-azure-ad-roles-and-resource-roles-review.md)
+- [PIM에서 Azure AD 역할에 대한 액세스 검토 만들기](./pim-create-azure-ad-roles-and-resource-roles-review.md)

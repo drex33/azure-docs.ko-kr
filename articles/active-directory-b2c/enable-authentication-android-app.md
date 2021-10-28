@@ -2,21 +2,21 @@
 title: Android 앱에서 인증 사용 - Azure AD B2C
 description: Azure Active Directory B2C 구성 요소를 사용하여 Android 애플리케이션에서 인증을 사용하도록 설정 다음으로, Azure AD B2C를 사용하여 Android 애플리케이션에 사용자를 로그인하고 등록하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/06/2021
-ms.author: mimart
+ms.date: 09/16/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support, has-adal-ref
-ms.openlocfilehash: 1e21be821a495dae95b0bc45b47aef4345802f38
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 74cb2971ee59a36e72a964a4b1b5202844801edd
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123186194"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130039641"
 ---
 # <a name="enable-authentication-in-your-own-android-app-by-using-azure-ad-b2c"></a>Azure AD B2C를 사용하여 사용자 자체 Android 앱에서 인증을 사용하도록 설정
 
@@ -142,7 +142,8 @@ packagingOptions{
 앱 리디렉션 URI를 사용하여 모바일 앱 등록을 업데이트하려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. **Azure AD B2C** 를 검색하고 선택합니다.
 1. **앱 등록** 을 선택한 후, [2.3단계: 모바일 앱 등록](configure-authentication-sample-android-app.md#step-23-register-the-mobile-app)에서 등록한 애플리케이션을 선택합니다.
 1. **인증** 을 선택합니다.

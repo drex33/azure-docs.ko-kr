@@ -3,20 +3,20 @@ title: 내 애플리케이션에 사용자가 프로비전되지 않음
 description: Azure AD로 사용자 프로비전을 구성한 Azure AD 갤러리 애플리케이션에 사용자가 표시되지 않는 일반적인 문제를 해결하는 방법
 services: active-directory
 author: kenwith
-manager: daveba
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/03/2020
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 429f993764273d6b6eb23d75d0132b374d5d0ca0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 98904c5e32e6a1c145dd696b5ac20c7db8e2840f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99256357"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129991929"
 ---
 # <a name="no-users-are-being-provisioned"></a>프로비전된 사용자 없음 
 >[!NOTE]
@@ -31,7 +31,7 @@ ms.locfileid: "99256357"
   
 사용자가 프로비전되지 않는 것이 관찰되면 Azure AD의 [프로비전 로그(미리 보기)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)를 참조하세요. 특정 사용자에 대한 로그 항목을 검색합니다.
 
-**활동** 섹션에서 **Azure Active Directory**&gt;**엔터프라이즈 앱**&gt;**프로비전 로그(미리 보기)** 를 선택하여 Azure Portal에서 프로비전 로그에 액세스할 수 있습니다. 원본 시스템이나 대상 시스템에서 사용자의 이름 또는 식별자를 기준으로 프로비전 데이터를 검색할 수 있습니다. 자세한 내용은 [프로비전 로그(미리 보기)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)를 참조하세요. 
+**활동** 섹션에서 **Azure Active Directory** &gt; **엔터프라이즈 앱** &gt; **프로비전 로그(미리 보기)** 를 선택하여 Azure Portal에서 프로비전 로그에 액세스할 수 있습니다. 원본 시스템이나 대상 시스템에서 사용자의 이름 또는 식별자를 기준으로 프로비전 데이터를 검색할 수 있습니다. 자세한 내용은 [프로비전 로그(미리 보기)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)를 참조하세요. 
 
 프로비전 로그는 프로비전 범위에 있는 할당된 사용자에 대한 Azure AD 쿼리, 해당 사용자의 존재에 대한 대상 앱 쿼리, 시스템 간의 사용자 객체 비교를 비롯하여 프로비전 서비스에서 수행한 모든 작업을 기록합니다. 그런 다음 비교를 기반으로 대상 시스템에서 사용자 계정을 추가, 업데이트 또는 비활성화합니다.
 

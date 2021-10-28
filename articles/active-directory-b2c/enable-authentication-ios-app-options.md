@@ -2,21 +2,21 @@
 title: Azure Active Directory B2C를 사용하여 iOS Swift 모바일 애플리케이션 옵션을 사용하도록 설정
 description: 이 문서에서는 Azure Active Directory B2C를 사용하여 iOS Swift 모바일 애플리케이션 옵션을 사용하도록 설정하는 여러 가지 방법을 설명합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 07/29/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 128c5000e6614e769100a92303007317eadaed96
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: b96e33bedcd4f92b6d75ecea02483e2d22c62ac8
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220697"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130041085"
 ---
 # <a name="enable-authentication-options-in-an-ios-swift-app-by-using-azure-ad-b2c"></a>Azure AD B2C를 사용하여 iOS Swift 앱에서 인증 옵션을 사용하도록 설정 
 
@@ -128,7 +128,7 @@ applicationContext.acquireToken(with: parameters) { (result, error) in
 [!INCLUDE [active-directory-b2c-app-integration-id-token-hint](../../includes/active-directory-b2c-app-integration-id-token-hint.md)]
 
 1. 사용자 지정 정책에서 [ID 토큰 힌트 기술 프로필](id-token-hint.md)을 정의합니다.
-1. 코드에서 ID 토큰을 생성하거나 획득한 다음 토큰을 변수로 설정합니다(예: `idToken`). 
+1. 코드에서 ID 토큰을 생성하거나 획득한 다음, 토큰을 변수로 설정합니다(예: `idToken`). 
 1. 기존 목록 개체를 만들거나 사용하여 추가 쿼리 매개 변수를 저장합니다.
 1. ID 토큰을 저장하는 해당 변수를 사용하여 `id_token_hint` 매개 변수를 추가합니다.
 1. 추가 쿼리 매개 변수 목록을 MSAL 구성 개체의 `extraQueryParameters` 특성에 전달합니다.

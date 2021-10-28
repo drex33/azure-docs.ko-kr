@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-csharp-java
-ms.openlocfilehash: 78ffdce7cbc4b8973407330a58e2ac3643bfac8b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e4d47fccb19504eb8e628963516f64c37362356c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128676983"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130264468"
 ---
 # <a name="quickstart-use-the-call-automation-apis"></a>빠른 시작: 호출 자동화 API 사용
 
@@ -42,5 +42,5 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 자세한 내용은 다음 문서를 참조하세요.
 
 - [영웅 샘플 호출](../../samples/calling-hero-sample.md) 체크 아웃
-- [통화 SDK 기능](./calling-client-samples.md)에 대해 알아보기
+- [통화 SDK 기능](./getting-started-with-calling.md)에 대해 알아보기
 - [호출 작동 방식](../../concepts/voice-video-calling/about-call-types.md)에 대해 자세히 알아보기

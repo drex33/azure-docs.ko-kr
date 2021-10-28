@@ -11,12 +11,12 @@ ms.date: 09/25/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: ffedd73860a9ef171d592689ef7a0d8a0cde82d0
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: ce5da1ae3ae87d3dbfc91b72fbda412ad179cfa9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130044178"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233964"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>자습서: Azure Active Directory B2C 테넌트 만들기
 
@@ -50,11 +50,11 @@ ms.locfileid: "130044178"
 1. 구독이 포함된 디렉터리를 선택합니다.
     1. Azure Portal 포털 도구 모음에서 **디렉터리 + 구독** 필터 아이콘을 선택합니다. 
     
-    ![디렉터리 + 구독 필터 아이콘](media/tutorial-create-tenant/directories-subscription-filter-icon.png)
+        ![디렉터리 + 구독 필터 아이콘](media/tutorial-create-tenant/directories-subscription-filter-icon.png)
 
     1. 구독이 포함된 디렉터리를 찾아서 옆에 있는 **전환** 단추를 선택합니다. 디렉터리를 전환하면 포털이 다시 로드됩니다.
 
-    ![전환 단추가 있는 디렉터리 + 구독](media/tutorial-create-tenant/switch-directory.png)
+        ![전환 단추가 있는 디렉터리 + 구독](media/tutorial-create-tenant/switch-directory.png)
 
 1. 사용 중인 Azure 구독에 대한 리소스 공급자로 **Microsoft.AzureActiveDirectory** 를 추가합니다([자세히 알아보기](../azure-resource-manager/management/resource-providers-and-types.md?WT.mc_id=Portal-Microsoft_Azure_Support#register-resource-provider-1)).
 

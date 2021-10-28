@@ -2,21 +2,21 @@
 title: Azure Active Directory B2C 구성 요소를 사용하여 웹앱에서 인증 사용
 description: 이 문서에서는 Azure Active Directory B2C의 구성 요소를 사용하여 ASP.NET 웹앱에서 사용자를 로그인하고 등록하는 방법에 대해 설명합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/11/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 44f3c777279d6f6b8d2df2600141e7fd66e44214
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 66b37e5464d548559b8d4e08922f1970e0c8bb7f
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123186302"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130040819"
 ---
 # <a name="enable-authentication-in-your-own-web-app-by-using-azure-ad-b2c"></a>Azure AD B2C를 사용하여 사용자 자체 웹앱에서 인증을 사용하도록 설정합니다.
 
@@ -280,12 +280,11 @@ Azure AD B2C ID 공급자 설정은 *appsettings.json* 파일에 저장됩니다
 ## <a name="step-7-run-your-application"></a>7단계: 애플리케이션 실행
 
 1. 프로젝트를 빌드하고 실행합니다.
-1. [https://localhost:5001](https://localhost:5001)으로 이동합니다. 
+1. `https://localhost:5001`로 이동합니다. 
 1. **등록/로그인** 을 선택합니다.
 1. 가입 또는 로그인 프로세스를 완료합니다.
 
 성공적으로 인증되면 탐색 모음에 표시 이름이 나타납니다. Azure AD B2C 토큰이 앱에 반환하는 클레임을 보려면 **클레임** 을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
-
 * [웹앱에 대한 Azure AD B2C 인증 환경 사용자 지정 및 개선](enable-authentication-web-application-options.md) 방법을 알아봅니다.

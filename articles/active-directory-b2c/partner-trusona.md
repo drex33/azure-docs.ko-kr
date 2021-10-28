@@ -3,20 +3,20 @@ title: Trusona 및 Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Azure AD B2C에서 ID 공급자로 Trusona를 추가하여 암호 없는 인증을 사용하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/30/2020
-ms.author: mimart
+ms.date: 09/20/2021
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 2efd5fdc49f5ae6724b9d1dc3b45d54329f17a61
-ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
+ms.openlocfilehash: a1f898861de55776e30227ac17d4a628c7481e00
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113223953"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130035888"
 ---
 # <a name="integrating-trusona-with-azure-active-directory-b2c"></a>Azure Active Directory B2C와 Trusona 통합
 
@@ -55,24 +55,24 @@ Trusona는 암호 없는 인증, 다단계 인증 및 디지털 라이선스 검
 
 1. [양식](https://www.trusona.com/)을 작성하여 Trusona 계정을 만들고 시작합니다.
 
-2. 앱 스토어에서 Trusona 모바일 앱을 다운로드합니다. 앱을 설치하고 이메일을 등록합니다.
+1. 앱 스토어에서 Trusona 모바일 앱을 다운로드합니다. 앱을 설치하고 이메일을 등록합니다.
 
-3. 소프트웨어에서 보낸 보안 "매직 링크"를 통해 이메일을 확인합니다.  
+1. 소프트웨어에서 보낸 보안 "매직 링크"를 통해 이메일을 확인합니다.  
 
-4. 셀프 서비스에 대한 [Trusona Developer의 대시보드](https://dashboard.trusona.com)로 이동합니다.
+1. 셀프 서비스에 대한 [Trusona Developer의 대시보드](https://dashboard.trusona.com)로 이동합니다.
 
-5. **준비됨** 을 선택하고 Trusona 앱을 사용하여 직접 인증합니다.
+1. **준비됨** 을 선택하고 Trusona 앱을 사용하여 직접 인증합니다.
 
-6. 왼쪽 탐색 패널에서 **OIDC 통합** 을 선택합니다.
+1. 왼쪽 탐색 패널에서 **OIDC 통합** 을 선택합니다.
 
-7. **OpenID Connect 통합 만들기** 를 선택합니다.
+1. **OpenID Connect 통합 만들기** 를 선택합니다.
 
-8. 선택한 **이름** 을 입력하고 **클라이언트 리디렉션 호스트 필드** 에서 이전에 제공한 도메인 정보(예: Contoso)를 사용합니다.  
+1. 선택한 **이름** 을 입력하고 **클라이언트 리디렉션 호스트 필드** 에서 이전에 제공한 도메인 정보(예: Contoso)를 사용합니다.  
 
    > [!NOTE]
    > Azure Active Directory의 초기 도메인 이름이 클라이언트 리디렉션 호스트로 사용됩니다.
 
-9. [Trusona 통합 가이드](https://docs.trusona.com/integrations/aad-b2c-integration/)의 지침을 따릅니다. 메시지가 표시되면 이전 단계에서 언급한 초기 도메인 이름(예: Contoso)을 사용합니다.  
+1. [Trusona 통합 가이드](https://docs.trusona.com/integrations/aad-b2c-integration/)의 지침을 따릅니다. 메시지가 표시되면 이전 단계에서 언급한 초기 도메인 이름(예: Contoso)을 사용합니다.  
 
 ## <a name="integrate-with-azure-ad-b2c"></a>Azure AD B2C와 통합
 
@@ -82,22 +82,18 @@ Trusona는 암호 없는 인증, 다단계 인증 및 디지털 라이선스 검
 > Azure 구독에 연결된 [Azure AD B2C 테넌트](tutorial-create-tenant.md)가 아직 없으면 만듭니다.
 
 1. Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-
-2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
-
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
-
-4. **대시보드** > **Azure Active Directory B2C** > **ID 공급자** 로 이동합니다.
-
-3. **ID 공급자** 를 선택합니다.
-
-4. **추가** 를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+1. **대시보드** > **Azure Active Directory B2C** > **ID 공급자** 로 이동합니다.
+1. **ID 공급자** 를 선택합니다.
+1. **추가** 를 선택합니다.
 
 ### <a name="configure-an-identity-provider"></a>ID 공급자 구성  
 
 1. **ID 공급자 유형** > **OpenID Connect(미리 보기)** 를 선택합니다.
 
-2. 양식을 작성하여 ID 공급자를 설정합니다.  
+1. 양식을 작성하여 ID 공급자를 설정합니다.  
 
    | 속성 | 값  |
    | :--- | :--- |
@@ -107,11 +103,11 @@ Trusona는 암호 없는 인증, 다단계 인증 및 디지털 라이선스 검
    | 응답 형식 | Id_token |
    | 응답 모드  | Form_post |
 
-3. **확인** 을 선택합니다.  
+1. **확인** 을 선택합니다.  
 
-4. **이 ID 공급자의 클레임 매핑** 을 선택합니다.  
+1. **이 ID 공급자의 클레임 매핑** 을 선택합니다.  
 
-5. 양식을 작성하여 ID 공급자를 매핑합니다.
+1. 양식을 작성하여 ID 공급자를 매핑합니다.
 
    | 속성 | 값  |
    | :--- | :--- |
@@ -121,7 +117,7 @@ Trusona는 암호 없는 인증, 다단계 인증 및 디지털 라이선스 검
    | Surname | Family_name |
    | 응답 모드 | 이메일 |
 
-6. **확인** 을 선택하여 새 OIDC ID 공급자에 대한 설정을 완료합니다.
+1. **확인** 을 선택하여 새 OIDC ID 공급자에 대한 설정을 완료합니다.
 
 ### <a name="create-a-user-flow-policy"></a>사용자 흐름 정책 만들기
 

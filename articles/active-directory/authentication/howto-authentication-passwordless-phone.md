@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/02/2021
+ms.date: 10/21/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f2f3a3c561b2fe82dcbeaaee1138c0d465ac6a4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4dadaa832e065163186ef590989c22c0f7e7700a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528747"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233907"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱으로 암호 없는 로그인을 사용하도록 설정 
 
@@ -37,11 +37,6 @@ Microsoft Authenticator 앱에서 휴대폰 로그인을 사용하도록 설정�
 Microsoft Authenticator 앱에서 암호 없는 휴대폰 로그인을 사용하려면 다음 사전 요구 사항을 충족해야 합니다.
 
 - Azure AD Multi-Factor Authentication, 푸시 알림이 확인 방법으로 허용됩니다. 스마트폰 또는 태블릿에 알림을 푸시하여 Authenticator 앱에서 계정에 대한 무단 액세스를 방지하고 사기성 트랜잭션을 중지하도록 할 수 있습니다. Authenticator 앱은 푸시 알림을 수행하도록 설정된 경우 자동으로 코드를 생성하므로 디바이스가 연결되지 않은 경우에도 사용자에게 백업 로그인 방법이 있습니다. 
-  
-  사용자가 휴대폰 로그인에 대한 푸시 알림을 등록할 수 있도록 하려면 Azure Multi-Factor Auth Connector를 사용하도록 설정해야 합니다.
-
-  ![사용하도록 설정된 Azure Multi-Factor Auth Connector 스크린샷](media/howto-authentication-passwordless-phone/connector.png)
-
 - iOS 8.0 이상 또는 Android 6.0 이상을 실행하는 디바이스에 설치된 최신 버전의 Microsoft Authenticator
 - Microsoft Authenticator 앱이 설치된 디바이스를 Azure AD 테넌트 내에 개별 사용자에게 등록해야 한다는 것입니다. 
 
@@ -51,10 +46,6 @@ Microsoft Authenticator 앱에서 암호 없는 휴대폰 로그인을 사용하
 ## <a name="enable-passwordless-authentication-methods"></a>암호 없는 인증 방법
 
 Azure AD에서 암호 없는 인증을 사용하려면 먼저 결합된 등록 환경을 사용하도록 설정한 다음 사용자가 암호를 사용하지 않는 방법으로 사용하도록 설정합니다.
-
-### <a name="enable-the-combined-registration-experience"></a>결합된 등록 환경 사용
-
-암호 없는 인증 방법에 대한 등록 기능은 결합된 등록 기능을 사용합니다. 사용자가 결합된 등록을 완료하도록 하려면 단계에 따라 [결합된 보안 정보 등록을 사용하도록 설정](howto-registration-mfa-sspr-combined.md)합니다.
 
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>암호 없는 휴대폰 로그인 인증 방법 사용
 
@@ -83,7 +74,7 @@ Azure AD를 사용하면 로그인 프로세스 중에 사용할 수 있는 인�
 1. **Microsoft Authenticator** 에서 등록된 계정에 대한 드롭다운 메뉴에서 **휴대폰 로그인 사용** 을 선택합니다.
 1. 앱의 지침에 따라 암호 없는 휴대폰 로그인에 대한 계정 등록을 완료합니다.
 
-조직에서는 암호를 사용하지 않고 사용자에게 전화를 통해 로그인하도록 지시할 수 있습니다. Microsoft Authenticator 앱을 구성하고 휴대폰 로그인을 사용하도록 설정하는 추가 지원이 필요한 경우 [Microsoft Authenticator 앱을 사용하여 계정에 로그인](../user-help/user-help-auth-app-sign-in.md)을 참조하세요.
+조직에서는 암호를 사용하지 않고 사용자에게 전화를 통해 로그인하도록 지시할 수 있습니다. Microsoft Authenticator 앱을 구성하고 휴대폰 로그인을 사용하도록 설정하는 추가 지원이 필요한 경우 [Microsoft Authenticator 앱을 사용하여 계정에 로그인](https://support.microsoft.com/account-billing/sign-in-to-your-accounts-using-the-microsoft-authenticator-app-582bdc07-4566-4c97-a7aa-56058122714c)을 참조하세요.
 
 > [!NOTE]
 > 정책에서 휴대폰 로그인을 사용하도록 허용하지 않은 사용자는 더 이상 Microsoft Authenticator 앱 내에서 사용하도록 설정할 수 없습니다.

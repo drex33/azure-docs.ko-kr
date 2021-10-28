@@ -3,7 +3,7 @@ title: Azure Active Directory 애플리케이션 프록시 애플리케이션을
 description: 몇 가지 간단한 단계를 통해 Azure Active Directory 애플리케이션 프록시 애플리케이션을 만들고 구성하는 방법 알아보기
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 1cefe1c3050b0005d0dd1acb21f42f3e12b45a85
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 40377abd1faffb51e686099a2574785db3811701
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108187329"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990333"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>애플리케이션 프록시 애플리케이션을 구성하는 방법
 

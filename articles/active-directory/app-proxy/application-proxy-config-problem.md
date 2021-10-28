@@ -3,7 +3,7 @@ title: Azure Active Directory 애플리케이션 프록시 애플리케이션을
 description: Azure Active Directory 관리 포털에서 애플리케이션 프록시 애플리케이션을 만들 때 발생하는 문제를 해결하는 방법
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: a3f60e63d4fb5257d7d822a8e1a9326adf9eb62d
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 513d75a0f5b2a0b0faf283000909e239f706d702
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108187314"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990409"
 ---
 # <a name="problem-creating-an-application-proxy-application"></a>애플리케이션 프록시 애플리케이션을 만들 때 문제 발생 
 

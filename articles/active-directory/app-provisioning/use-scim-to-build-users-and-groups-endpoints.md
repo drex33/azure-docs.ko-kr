@@ -3,7 +3,7 @@ title: Azure Active Directory에서 앱에 사용자 프로비전하기 위한 S
 description: SCIM 엔드포인트를 개발하고, SCIM API를 Azure Active Directory와 통합하고, 사용자 및 그룹을 클라우드 애플리케이션에 자동으로 프로비전하는 방법을 알아봅니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: ac876ff4370c20ca0b4db59575a3d8ab49b7b0a3
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 5f1799b6a8fe0ff4feb69797deec11c29c69a81c
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109784848"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990599"
 ---
 # <a name="tutorial-develop-a-sample-scim-endpoint-in-azure-active-directory"></a>자습서: Azure Active Directory에서 샘플 SCIM 엔드포인트 개발
 

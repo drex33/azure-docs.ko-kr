@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 07/30/2021
+ms.date: 09/28/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bebba34e8d323bc60d83151e7b211388776b7b76
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5f85ab5960aea247a8b47b20d2552cec6e2e534f
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536428"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235329"
 ---
 # <a name="use-azure-ad-groups-to-manage-role-assignments"></a>Azure AD 그룹을 사용하여 역할 할당 관리
 
@@ -41,7 +41,7 @@ Contoso 기업이 자신의 Azure AD 조직에서 직원들의 암호를 관리�
 - 새 그룹에 대해 `isAssignableToRole` 속성 또는 **Azure AD 역할을 그룹에 할당할 수 있음** 옵션만 설정할 수 있습니다.
 - `isAssignableToRole` 속성은 **변경 불가능** 합니다. 이 속성을 설정하여 그룹을 생성한 다음에는 변경할 수 없습니다.
 - 기존 그룹을 역할 할당 가능 그룹으로 만들 수 없습니다.
-- 단일 Azure AD 조직(테넌트)에서 최대 300개의 역할 할당 가능 그룹을 만들 수 있습니다.
+- 단일 Azure AD 조직(테넌트)에서 최대 400개의 역할 할당 가능 그룹을 만들 수 있습니다.
 
 ## <a name="how-are-role-assignable-groups-protected"></a>역할 할당 가능 그룹은 어떻게 보호되나요?
 
@@ -61,9 +61,6 @@ Contoso 기업이 자신의 Azure AD 조직에서 직원들의 암호를 관리�
 ## <a name="use-pim-to-make-a-group-eligible-for-a-role-assignment"></a>PIM을 사용하여 역할 할당에 적격하도록 그룹을 수정합니다.
 
 그룹 멤버가 특정 역할에 액세스하지 못하도록 하려면 [Azure AD PIM(Privileged Identity Management)](../privileged-identity-management/pim-configure.md)을 사용하여 역할 할당에 적격하도록 그룹을 수정할 수 있습니다. 그런 후 그룹의 각 멤버가 고정된 기간 동안 역할 할당을 활성화할 수 있는 자격이 부여됩니다.
-
-> [!Note]
-> Azure AD 역할을 그룹에 할당할 수 있으려면 업데이트된 PIM 버전을 사용해야 합니다. Azure AD 조직에 PIM API가 사용되기 때문에 이전 PIM이 사용될 수도 있습니다. pim_preview@microsoft.com으로 이메일을 전송하여 조직을 이동하고 API를 업데이트하세요. 자세한 내용은 [PIM의 Azure AD 역할 및 기능](../privileged-identity-management/pim-configure.md)을 참조하세요.
 
 ## <a name="scenarios-not-supported"></a>지원되지 않는 시나리오
 

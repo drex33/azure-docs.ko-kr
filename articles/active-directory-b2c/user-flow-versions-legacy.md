@@ -1,21 +1,21 @@
 ---
-title: Azure Active Directory B2C의 레거시 사용자 흐름 버전 | Microsoft Docs
+title: Azure Active Directory B2C의 레거시 사용자 흐름 버전
 description: Azure Active Directory B2C에서 사용할 수 있는 레거시 사용자 흐름 버전을 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 07/30/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 1fbe93c93b5ede2c6b031dab53a1450da473f802
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ccbcbc067fd117288c43e3200c2ee6354d3201ce
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102517806"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130043893"
 ---
 # <a name="legacy-user-flow-versions-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 레거시 사용자 흐름 버전
 

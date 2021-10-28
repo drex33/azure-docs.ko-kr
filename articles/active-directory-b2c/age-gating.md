@@ -1,22 +1,22 @@
 ---
-title: Azure Active Directory B2C에서 나이 제한 사용 | Microsoft Docs
+title: Azure Active Directory B2C에서 나이 제한 사용
 description: 애플리케이션을 사용하여 미성년자를 식별하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/17/2021
-ms.author: mimart
+ms.date: 08/24/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: f0502f11c9a6e900ae8f25209b6897f8384c2773
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: 5f7b5de592db569856fd50635eaa97d1c334e80f
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122777759"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130231954"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 나이 제한 사용
 
@@ -71,7 +71,7 @@ Azure AD B2C는 사용자가 입력하는 정보를 사용하여 미성년자인
 ## <a name="test-your-user-flow"></a>사용자 흐름 테스트
 
 1. 정책을 테스트하려면 **사용자 흐름 실행** 을 선택합니다.
-1. **애플리케이션** 의 경우 이전에 등록한 *testapp1* 이라는 이름의 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **애플리케이션** 의 경우 이전에 등록한 *testapp1* 이라는 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
 1. **사용자 흐름 실행** 단추를 선택합니다.
 1. 로컬 또는 소셜 계정으로 로그인합니다. 그런 다음, 거주 국가를 선택하고 미성년자의 생년월일을 선택합니다. 
 1. 테스트를 반복하여 성인의 생년월일을 선택합니다.  

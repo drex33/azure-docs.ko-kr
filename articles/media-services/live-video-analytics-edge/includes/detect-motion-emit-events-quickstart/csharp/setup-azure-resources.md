@@ -1,17 +1,17 @@
 ---
-ms.openlocfilehash: 6b1df49ed0f2c543706d7584a1ade5dc5554a564
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 456fc1be942ce51082cf671d77f2f24f5f9d6d3e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101750539"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130287487"
 ---
 이 자습서를 사용하려면 다음과 같은 Azure 리소스가 필요합니다.
 
 * IoT Hub
 * 스토리지 계정
 * Azure Media Services 계정
-* [IoT Edge 런타임](../../../../../iot-edge/how-to-install-iot-edge.md)이 설치된 Azure의 Linux VM
+* [IoT Edge 런타임](../../../../../iot-edge/how-to-provision-single-device-linux-symmetric.md)이 설치된 Azure의 Linux VM
 
 이 빠른 시작에서는 [Live Video Analytics 리소스 설치 스크립트](https://github.com/Azure/live-video-analytics/tree/master/edge/setup)를 사용하여 Azure 구독에 필요한 리소스를 배포하는 것이 좋습니다. 이렇게 하려면 다음 단계를 따르십시오.
 

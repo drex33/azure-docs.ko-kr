@@ -3,12 +3,12 @@ title: 자습서 - Azure VM에서 SAP HANA 데이터베이스 백업
 description: 이 자습서에서는 Azure VM에서 실행되는 SAP HANA 데이터베이스를 Azure Backup Recovery Services 자격 증명 모음에 백업하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 09/27/2021
-ms.openlocfilehash: 5469c10bb62164e7feea33a1b56cef3457d46efb
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 65691a2bb48c3dece51effef4fbc7b65d19d8449
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129349680"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130247800"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>자습서: Azure VM에서 SAP HANA 데이터베이스 백업
 
@@ -54,8 +54,8 @@ ms.locfileid: "129349680"
 | Azure Firewall FQDN 태그          | 필요한 FQDN이 자동으로 관리되어 관리가 더 쉬움 | Azure Firewall하고만 함께 사용할 수 있음                         |
 | 서비스 FQDN/IP에 대한 액세스 허용 | 추가 비용 없음   <br><br>  모든 네트워크 보안 어플라이언스 및 방화벽과 함께 작동 | 광범위한 IP 또는 FQDN 세트에 액세스해야 할 수 있음   |
 | HTTP 프록시 사용                 | VM에 대한 인터넷 액세스의 단일 지점                       | 프록시 소프트웨어로 VM을 실행하기 위해 추가 비용이 있음         |
-| [가상 네트워크 서비스 엔드포인트](/azure/virtual-network/virtual-network-service-endpoints-overview)    |     Azure Storage(= Recovery Services 자격 증명 모음)에 사용할 수 있습니다.     <br><br>     데이터 평면 트래픽의 성능을 최적화하는 데 큰 이점이 있습니다.          |         Azure AD, Azure Backup 서비스에 사용할 수 없습니다.    |
-| 네트워크 가상 어플라이언스      |      Azure Storage, Azure AD, Azure Backup 서비스에 사용할 수 있습니다. <br><br> **데이터 평면**   <ul><li>      Azure Storage: `*.blob.core.windows.net`, `*.queue.core.windows.net`  </li></ul>   <br><br>     **관리 평면**  <ul><li>  Azure AD: [Microsoft 365 Common 및 Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online)의 56 및 59 섹션에 언급된 FQDN에 대한 액세스를 허용합니다. </li><li>   Azure Backup 서비스: `.backup.windowsazure.com` </li></ul> <br>[Azure Firewall 서비스 태그](/azure/firewall/fqdn-tags#:~:text=An%20FQDN%20tag%20represents%20a%20group%20of%20fully,the%20required%20outbound%20network%20traffic%20through%20your%20firewall.)에 대해 자세히 알아보세요.       |  데이터 평면 트래픽에 오버헤드를 추가하고 처리량/성능을 저하시킵니다.  |
+| [가상 네트워크 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)    |     Azure Storage(= Recovery Services 자격 증명 모음)에 사용할 수 있습니다.     <br><br>     데이터 평면 트래픽의 성능을 최적화하는 데 큰 이점이 있습니다.          |         Azure AD, Azure Backup 서비스에 사용할 수 없습니다.    |
+| 네트워크 가상 어플라이언스      |      Azure Storage, Azure AD, Azure Backup 서비스에 사용할 수 있습니다. <br><br> **데이터 평면**   <ul><li>      Azure Storage: `*.blob.core.windows.net`, `*.queue.core.windows.net`  </li></ul>   <br><br>     **관리 평면**  <ul><li>  Azure AD: [Microsoft 365 Common 및 Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online)의 56 및 59 섹션에 언급된 FQDN에 대한 액세스를 허용합니다. </li><li>   Azure Backup 서비스: `.backup.windowsazure.com` </li></ul> <br>[Azure Firewall 서비스 태그](../firewall/fqdn-tags.md)에 대해 자세히 알아보세요.       |  데이터 평면 트래픽에 오버헤드를 추가하고 처리량/성능을 저하시킵니다.  |
 
 이러한 옵션을 사용하는 방법에 대한 자세한 내용은 아래에 나와 있습니다.
 
@@ -179,15 +179,15 @@ hdbuserstore list
 
 | 대상     |    시작    |    실행할 버전    |    의견    |
 | --- | --- | --- | --- |
-| `<sid>`adm(OS) |    HANA OS   | 자습서를 읽고 등록 전 스크립트를 다운로드합니다.  |    자습서: [Azure VM에서 HANA 데이터베이스 백업](/azure/backup/tutorial-backup-sap-hana-db)   <br><br>    [사전 등록 스크립트](https://go.microsoft.com/fwlink/?linkid=2173610)를 다운로드합니다. |
+| `<sid>`adm(OS) |    HANA OS   | 자습서를 읽고 등록 전 스크립트를 다운로드합니다.  |    자습서: [Azure VM에서 HANA 데이터베이스 백업]()   <br><br>    [사전 등록 스크립트](https://go.microsoft.com/fwlink/?linkid=2173610)를 다운로드합니다. |
 | `<sid>`adm(OS)    |    HANA OS    |   HANA 시작(HDB 시작)    |   설정하기 전에 HANA가 실행 중인지 확인합니다.   |
 | `<sid>`adm(OS)   |   HANA OS  |    명령 실행: <br>  `hdbuserstore Set`   |  `hdbuserstore Set SYSTEM <hostname>:3<Instance#>13 SYSTEM <password>`  <br><br>   **참고** <br>  IP 주소/FQDN 대신 호스트 이름을 사용해야 합니다.   |
 | `<sid>`adm(OS)   |  HANA OS    |   명령 실행:<br> `hdbuserstore List`   |  결과에 다음과 같은 기본 저장소가 포함되어 있는지 확인합니다. <br><br> `KEY SYSTEM`  <br> `ENV : <hostname>:3<Instance#>13`    <br>  `USER : SYSTEM`   |
 | 루트(OS)   |   HANA OS    |    [Azure Backup HANA 등록 전 스크립트](https://go.microsoft.com/fwlink/?linkid=2173610)를 실행합니다.     | `./msawb-plugin-config-com-sap-hana.sh -a --sid <SID> -n <Instance#> --system-key SYSTEM`    |
 | `<sid>`adm(OS)   |   HANA OS   |    명령 실행: <br> `hdbuserstore List`   |   결과에 다음과 같은 새 줄이 포함되어 있는지 확인합니다. <br><br>  `KEY AZUREWLBACKUPHANAUSER` <br>  `ENV : localhost: 3<Instance#>13`   <br> `USER: AZUREWLBACKUPHANAUSER`    |
-| Azure 기여자     |    Azure portal    |   Azure Backup 서비스, Azure AD 및 Azure Storage로 전송되는 아웃바운드 트래픽을 허용하도록 NSG, NVA, Azure Firewall 등을 구성합니다.     |    [네트워크 연결 설정](/azure/backup/tutorial-backup-sap-hana-db#set-up-network-connectivity)    |
+| Azure 기여자     |    Azure portal    |   Azure Backup 서비스, Azure AD 및 Azure Storage로 전송되는 아웃바운드 트래픽을 허용하도록 NSG, NVA, Azure Firewall 등을 구성합니다.     |    [네트워크 연결 설정](#set-up-network-connectivity)    |
 | Azure 기여자 |   Azure portal    |   Recovery Services 자격 증명 모음을 만들거나 연 다음, HANA 백업을 선택합니다.   |   백업할 모든 대상 HANA VM을 찾습니다.   |
-| Azure 기여자    |   Azure portal    |   HANA 데이터베이스를 검색하고 백업 정책을 구성합니다.   |  예를 들어: <br><br>  매주 백업: 매주 일요일 오전 2:00, 매주 백업은 12주, 매월 백업은 12개월, 매년 백업은 3년간 보존   <br>   차등 또는 증분: 매일, 일요일 제외    <br>   로그: 15분마다 백업은 35일간 보존    |
+| Azure 기여자    |   Azure portal    |   HANA 데이터베이스를 검색하고 백업 정책을 구성합니다.   |  다음은 그 예입니다. <br><br>  매주 백업: 매주 일요일 오전 2:00, 매주 백업은 12주, 매월 백업은 12개월, 매년 백업은 3년간 보존   <br>   차등 또는 증분: 매일, 일요일 제외    <br>   로그: 15분마다 백업은 35일간 보존    |
 | Azure 기여자  |   Azure portal    |    Recovery Service 자격 증명 모음 – 백업 항목 – SAP HANA     |   백업 작업(Azure 워크로드)을 확인합니다.    |
 | HANA 관리자    | HANA 스튜디오   | Backup 콘솔, Backup 카탈로그, backup.log, backint.log 및 globa.ini 확인   |    SYSTEMDB 및 테넌트 데이터베이스 둘 다   |
 
@@ -231,9 +231,9 @@ Recovery Services 자격 증명 모음을 만들려면:
 
 ## <a name="enable-cross-region-restore"></a>지역 간 복원을 사용하도록 설정
 
-Recovery Services 자격 증명 모음에서 지역 간 복원을 사용하도록 설정할 수 있습니다. HANA 데이터베이스에서 백업을 구성하고 보호하려면 먼저 지역 간 복원을 설정해야 합니다. [지역 간 복원을 켜는 방법](/azure/backup/backup-create-rs-vault#set-cross-region-restore)을 알아보세요.
+Recovery Services 자격 증명 모음에서 지역 간 복원을 사용하도록 설정할 수 있습니다. HANA 데이터베이스에서 백업을 구성하고 보호하려면 먼저 지역 간 복원을 설정해야 합니다. [지역 간 복원을 켜는 방법](./backup-create-rs-vault.md#set-cross-region-restore)을 알아보세요.
 
-지역 간 복원에 대해 [자세히 알아보세요](/azure/backup/backup-azure-recovery-services-vault-overview).
+지역 간 복원에 대해 [자세히 알아보세요](./backup-azure-recovery-services-vault-overview.md).
 
 ## <a name="discover-the-databases"></a>데이터베이스 검색
 

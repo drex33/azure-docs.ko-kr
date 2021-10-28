@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 399d2f71fa20d63dce89cf3be5c12ffd63264895
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fd03ce16f0695c23f30146cb8099eb67614982dc
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98724713"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754423"
 ---
 # <a name="build-resilience-with-credential-management"></a>자격 증명 관리를 사용하여 복원력 빌드
 
@@ -57,7 +57,7 @@ ms.locfileid: "98724713"
 
 * 비즈니스용 Windows Hello, 전화 인증 및 FIDO2 보안 키와 같은 [암호 없는 자격 증명](../authentication/howto-authentication-passwordless-deployment.md)을 배포하여 종속성을 줄입니다.
 
-* 두 번째 단계로 [Microsoft Authenticator 앱](../user-help/user-help-auth-app-overview.md)을 배포합니다.
+* 두 번째 단계로 [Microsoft Authenticator 앱](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)을 배포합니다.
 
 * Windows Server Active Directory에서 동기화되는 하이브리드 계정에 [암호 해시 동기화](../hybrid/whatis-phs.md)를 설정합니다. 이 옵션은 AD FS와 같은 페더레이션 서비스와 함께 사용하도록 설정할 수 있으며, 페더레이션 서비스에 오류가 발생하는 경우 대체를 제공합니다.
 
@@ -70,13 +70,13 @@ ms.locfileid: "98724713"
  
 * [디바이스 상태를 사용하여 복원력 빌드](resilience-with-device-states.md)
 
-* [CAE(지속적인 액세스 권한 평가)를 사용하여 복원력 빌드](resilience-with-continuous-access-evaluation.md)
+* [CAE(연속 액세스 평가)를 사용하여 복원력 빌드](resilience-with-continuous-access-evaluation.md)
 
 * [외부 사용자 인증에서 복원력 빌드](resilience-b2b-authentication.md)
 
 * [하이브리드 인증에서 복원력 빌드](resilience-in-hybrid.md)
 
-* [애플리케이션 프록시를 사용하여 애플리케이션 액세스에서 복원력 빌드](resilience-on-premises-access.md)
+* [응용 프로그램 프록시를 사용하여 응용 프로그램 액세스에서 복원력 빌드](resilience-on-premises-access.md)
 
 개발자를 위한 복원력 리소스
 

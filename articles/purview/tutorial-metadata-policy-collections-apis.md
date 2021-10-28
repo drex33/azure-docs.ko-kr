@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 09/24/2021
-ms.openlocfilehash: cfb62050da2b1c72ec8e620f9a4222552f50daa2
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 79848d8f54ea1d019f2a9e6cf93a61cc8b7c49f9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129728687"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130245932"
 ---
 # <a name="tutorial-use-rest-apis-to-manage-role-based-access-control-on-azure-purview-collections"></a>자습서: REST API를 사용하여 Azure Purview 컬렉션에 대한 역할 기반 액세스 제어 관리 
 
@@ -23,7 +23,7 @@ Azure Purview의 액세스 제어는 2021년 8월에 Azure IAM(ID 및 액세스 
 Azure Purview의 기본 제공 역할에 대한 자세한 내용은 [Azure Purview 권한 가이드](catalog-permissions.md#roles)를 참조하세요. 이 가이드는 역할을 사용자에게 부여된 액세스 권한 수준에 매핑합니다.
 
 ## <a name="metadata-policy-api-reference-summary"></a>메타데이터 정책 API 참조 요약
-다음 표에서는 [Azure Purview 메타데이터 정책 API 참조에 대한 개요](/rest/api/purview/metadatapolicydataplane/Metadata-Policy.yml)를 제공합니다. 
+다음 표에서는 [Azure Purview 메타데이터 정책 API 참조에 대한 개요](/rest/api/purview/metadatapolicydataplane/Metadata-Policy)를 제공합니다. 
 
 이러한 API를 실행하기 전에 {pv-acc-name}을 Azure Purview 계정의 이름으로 바꿉니다. 예를 들어 Purview 계정 이름이 *FabrikamPurviewAccount* 인 경우 API 엔드포인트는 *FabrikamPurviewAccount.purview.azure.com* 이 됩니다.
 

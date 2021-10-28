@@ -8,16 +8,16 @@ ms.service: ddos-protection
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/27/2021
+ms.date: 10/11/2021
 ms.author: yitoh
 ms.custom: subject-policy-reference
 ms.topic: include
-ms.openlocfilehash: b395bdf3553073f6bdb2b8fbf4184d916c91da65
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 5519d72d4d6d33381ce4381c7fd4e65c4d94d01f
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123112239"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "130555867"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-ddos-protection-standard"></a>Azure DDoS Protection 표준에 대한 Azure Policy 기본 제공 정의
 

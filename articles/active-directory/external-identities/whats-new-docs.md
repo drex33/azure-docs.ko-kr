@@ -1,7 +1,7 @@
 ---
 title: Azure Active Directory 외부 ID의 새로운 기능
 description: Azure Active Directory 외부 ID에 대한 신규 및 업데이트된 설명서입니다.
-ms.date: 08/03/2021
+ms.date: 10/05/2021
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -9,16 +9,39 @@ ms.workload: identity
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: 81a25af5dfa73cbeefdf5fc677da80515f20a2f1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3247f9e13e50a9fb7b4792be518af5b85767822a
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536660"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533646"
 ---
 # <a name="azure-active-directory-external-identities-whats-new"></a>Azure Active Directory 외부 ID: 새로운 기능
 
 Azure Active Directory 외부 ID 설명서의 새로운 기능을 시작합니다. 이 문서에는 추가된 새 문서와 지난 3개월 동안 중요한 업데이트를 수행한 문서가 나열되어 있습니다. 외부 ID 서비스의 새로운 기능에 대해 알아보려면 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md)을 참조하세요.
+
+## <a name="september-2021"></a>2021년 9월
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [게스트 사용자를 위한 SAML/WS-Fed ID 공급자와의 페더레이션(미리 보기)](direct-federation.md)
+- [Azure Portal에서 Azure Active Directory B2B Collaboration 사용자 추가](add-users-administrator.md)
+- [게스트 사용자로써 조직 나가기](leave-the-organization.md)
+- [내부 사용자를 B2B 협업에 초대](invite-internal-users.md)
+
+
+## <a name="august-2021"></a>2021년 8월
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [외부 ID용 ID 공급자](identity-providers.md)
+- [B2B 외부 협업을 사용하도록 설정 및 게스트를 초대할 수 있는 사용자 관리](delegate-invitations.md)
+- [Azure Active Directory B2B 협업 사용자 속성](user-properties.md)
+- [Google을 B2B 게스트 사용자에 대한 ID 공급자로 추가](google-federation.md)
+- [외부 ID에 대한 Azure AD(Azure Active Directory) ID 공급자](azure-ad-account.md)
+- [External Identities에 대한 MSA(Microsoft 계정) ID 공급자](microsoft-account.md)
+- [사용자 흐름에 API 커넥터 추가](self-service-sign-up-add-api-connector.md)
+
 
 ## <a name="july-2021"></a>2021년 7월
 

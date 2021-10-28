@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 10/01/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: ea18353a787918cbf0abe491b1a2437b9a7d3d4a
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: d45e48120c69eeb41ec8bf741e32437f77d2ec69
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129369662"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225027"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 공용 IP 주소 만들기
 
@@ -61,7 +61,7 @@ ms.locfileid: "129369662"
     | 유휴 제한 시간(분)  | 기본값 **4** 를 그대로 둡니다.        |
     | DNS 이름 레이블          | 이 값은 빈 상태로 둡니다.    |
     | Subscription            | 구독 선택   |
-    | 리소스 그룹          | **새로 만들기** 를 선택하고 **QuickStartCreateIP-rg** 를 입력합니다. </br> **확인** 을 선택합니다. |
+    | Resource group          | **새로 만들기** 를 선택하고 **QuickStartCreateIP-rg** 를 입력합니다. </br> **확인** 을 선택합니다. |
     | Location                | **(미국) 미국 동부 2** 선택     |
     | 가용성 영역       | **영역 없음** 선택 |
 
@@ -72,7 +72,7 @@ ms.locfileid: "129369662"
 > [!NOTE]
 > [가용성 영역](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)이 있는 지역에서는 영역 없음(기본 옵션), 특정 영역 또는 영역 중복을 선택하는 옵션이 있습니다. 선택은 특정 도메인 오류 요구 사항에 따라 달라집니다. 가용성 영역이 없는 지역에서는 이 필드가 표시되지 않습니다. </br> 가용성 영역에 대한 자세한 내용은 [가용성 영역 개요](../../availability-zones/az-overview.md)를 참조하세요.
 
-위에서 만든 공용 IP 주소를 [Windows](../../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신과 연결할 수 있습니다. 자습서 페이지의 CLI 섹션을 사용합니다. [공용 IP 주소를 가상 머신에 연결](../../virtual-network/associate-public-ip-address-vm.md#azure-cli)하여 공용 IP를 VM에 연결합니다. 위에서 만든 공용 IP 주소를 부하 분산 장치 **프런트 엔드** 구성에 할당하여 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md)와 연결할 수도 있습니다. 공용 IP 주소는 부하가 분산된 VIP(가상 IP 주소)로 사용됩니다.
+위에서 만든 공용 IP 주소를 [Windows](../../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신과 연결할 수 있습니다. 자습서 페이지의 CLI 섹션을 사용합니다. [공용 IP 주소를 가상 머신에 연결](./associate-public-ip-address-vm.md#azure-cli)하여 공용 IP를 VM에 연결합니다. 위에서 만든 공용 IP 주소를 부하 분산 장치 **프런트 엔드** 구성에 할당하여 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md)와 연결할 수도 있습니다. 공용 IP 주소는 부하가 분산된 VIP(가상 IP 주소)로 사용됩니다.
 
 # <a name="basic-sku"></a>[**기본 SKU**](#tab/option-1-create-public-ip-basic)
 
@@ -149,7 +149,7 @@ ms.locfileid: "129369662"
     | 유휴 제한 시간(분)  | 기본값 **4** 를 그대로 둡니다.        |
     | DNS 이름 레이블          | 이 값은 빈 상태로 둡니다.    |
     | Subscription            | 구독 선택   |
-    | 리소스 그룹          | **새로 만들기** 를 선택하고 **QuickStartCreateIP-rg** 를 입력합니다. </br> **확인** 을 선택합니다. |
+    | Resource group          | **새로 만들기** 를 선택하고 **QuickStartCreateIP-rg** 를 입력합니다. </br> **확인** 을 선택합니다. |
     | Location                | **(미국) 미국 동부 2** 선택     |
     | 가용성 영역       | **영역 중복** 을 선택합니다. |
 
@@ -163,7 +163,7 @@ ms.locfileid: "129369662"
 > [!NOTE]
 > [가용성 영역](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)이 있는 지역에서는 영역 없음(기본 옵션), 특정 영역 또는 영역 중복을 선택하는 옵션이 있습니다. 선택은 특정 도메인 오류 요구 사항에 따라 달라집니다. 가용성 영역이 없는 지역에서는 이 필드가 표시되지 않습니다. </br> 가용성 영역에 대한 자세한 내용은 [가용성 영역 개요](../../availability-zones/az-overview.md)를 참조하세요.
 
-위에서 만든 공용 IP 주소를 [Windows](../../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신과 연결할 수 있습니다. 자습서 페이지의 CLI 섹션을 사용합니다. [공용 IP 주소를 가상 머신에 연결](../../virtual-network/associate-public-ip-address-vm.md#azure-cli)하여 공용 IP를 VM에 연결합니다. 위에서 만든 공용 IP 주소를 부하 분산 장치 **프런트 엔드** 구성에 할당하여 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md)와 연결할 수도 있습니다. 공용 IP 주소는 부하가 분산된 VIP(가상 IP 주소)로 사용됩니다.
+위에서 만든 공용 IP 주소를 [Windows](../../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신과 연결할 수 있습니다. 자습서 페이지의 CLI 섹션을 사용합니다. [공용 IP 주소를 가상 머신에 연결](./associate-public-ip-address-vm.md#azure-cli)하여 공용 IP를 VM에 연결합니다. 위에서 만든 공용 IP 주소를 부하 분산 장치 **프런트 엔드** 구성에 할당하여 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md)와 연결할 수도 있습니다. 공용 IP 주소는 부하가 분산된 VIP(가상 IP 주소)로 사용됩니다.
 
 # <a name="tier"></a>[**서비스 계층**](#tab/option-1-create-public-ip-tier)
 
@@ -192,7 +192,7 @@ ms.locfileid: "129369662"
     | 유휴 제한 시간(분)  | 기본값 **4** 를 그대로 둡니다.        |
     | DNS 이름 레이블          | 이 값은 빈 상태로 둡니다.    |
     | Subscription            | 구독 선택   |
-    | 리소스 그룹          | **새로 만들기** 를 선택하고 **QuickStartCreateIP-rg** 를 입력합니다. </br> **확인** 을 선택합니다. |
+    | Resource group          | **새로 만들기** 를 선택하고 **QuickStartCreateIP-rg** 를 입력합니다. </br> **확인** 을 선택합니다. |
     | Location                | **(미국) 미국 동부 2** 선택     |
     | 가용성 영역       | **영역 중복** 을 선택합니다. |
 

@@ -4,7 +4,7 @@ description: Azure Active Directory의 Azure 관리 센터에서 사용자 레�
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: daveba
+manager: KarenH444
 ms.date: 01/04/2021
 ms.topic: how-to
 ms.service: active-directory
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c81a9912dc33a78d78f77fedecc58b658b4fac3e
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 5f094bfa6f7be93631d04c3e14c91b2ad47fefa9
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114443096"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129985393"
 ---
 # <a name="download-a-list-of-users-in-azure-active-directory-portal"></a>Azure Active Directory 포털에서 사용자 목록 다운로드
 

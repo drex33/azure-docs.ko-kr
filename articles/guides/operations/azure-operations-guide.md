@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: cfbca90fe4c0053816421ff392f0af93938ff5ee
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: e9496d3139861c41bbcc3467c8169e2350e5414b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123254167"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249783"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure IT 운영자를 위한 시작하기
 
@@ -342,7 +342,7 @@ PowerShell 모듈과 마찬가지로 Azure 명령줄 인터페이스는 배포 �
 
 ### <a name="access-and-security-for-virtual-machines"></a>가상 머신의 액세스 및 보안
 
-인터넷에서 가상 머신에 액세스하려면 관련 네트워크 인터페이스 또는 부하 분산 장치가 있어야 하며(해당하는 경우) 공용 IP 주소로 구성되어야 합니다. 공용 IP 주소에는 가상 머신 또는 부하 분산 장치로 확인되는 DNS 이름이 포함됩니다. 자세한 내용은 [Azure의 IP 주소](../../virtual-network/public-ip-addresses.md)를 참조하세요.
+인터넷에서 가상 머신에 액세스하려면 관련 네트워크 인터페이스 또는 부하 분산 장치가 있어야 하며(해당하는 경우) 공용 IP 주소로 구성되어야 합니다. 공용 IP 주소에는 가상 머신 또는 부하 분산 장치로 확인되는 DNS 이름이 포함됩니다. 자세한 내용은 [Azure의 IP 주소](../../virtual-network/ip-services/public-ip-addresses.md)를 참조하세요.
 
 NSG(네트워크 보안 그룹) 리소스를 사용하여 공용 IP 주소를 통해 가상 머신에 대한 액세스를 관리합니다. NSG는 방화벽과 같은 역할을 하며 정의된 포트 집합의 네트워크 인터페이스 또는 서브넷에서 트래픽을 허용하거나 거부합니다. 예를 들어 Azure VM을 사용하여 원격 데스크톱 세션을 만들려면 포트 3389에서 인바운드 트래픽을 허용하도록 NSG를 구성해야 합니다. 자세한 내용은 [Azure Portal을 사용하여 Azure에서 VM으로 포트 열기](../../virtual-machines/windows/nsg-quickstart-portal.md)를 참조하세요.
 

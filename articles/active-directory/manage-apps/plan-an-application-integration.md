@@ -1,6 +1,7 @@
 ---
 title: Azure Active Directory와 앱 통합 시작
 description: 이 문서는 온-프레미스 애플리케이션 및 클라우드 애플리케이션과 Azure Active Directory(AD)를 통합하는 시작 가이드입니다.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 04/05/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
-ms.openlocfilehash: f65ecaf5dcb94378a83cba091adc36e9b9d8783a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a19a0cebe3323e16b8f5cc7744c9e4db79393073
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567070"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615774"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>애플리케이션과 Azure Active Directory 통합 시작 가이드
 

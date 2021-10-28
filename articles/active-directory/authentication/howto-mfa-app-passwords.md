@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58344a385a8ad4d409748c039f8f1e7807e290b7
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: f79bca8626eca56c40f99f75daa2b8cb4da3a995
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114228382"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124773781"
 ---
 # <a name="enable-and-use-azure-ad-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>앱 암호를 사용하여 레거시 애플리케이션에서 Azure AD Multi-Factor Authentication 사용 설정 및 사용
 
@@ -42,7 +42,7 @@ Azure AD Multi-Factor Authentication에 대해 사용자 계정을 사용하도�
 * 사용자 계정에서 Azure AD Multi-Factor Authentication을 사용하도록 설정하면 Outlook 및 비즈니스용 Microsoft Skype와 같은 대부분의 비 브라우저 클라이언트에서 앱 암호를 사용할 수 있습니다. 그러나 Windows PowerShell과 같은 비 브라우저 애플리케이션을 통해 앱 암호를 사용하여 관리 작업을 수행할 수 없습니다. 이 작업은 사용자가 관리자 계정을 가지고 있는 경우에도 수행할 수 없습니다.
     * PowerShell 스크립트를 실행하려면 강력한 암호로 서비스 계정을 만들고 해당 계정에 2단계 인증을 사용하도록 설정하지 않습니다.
 * 사용자 계정이 손상된 것으로 의심되고 계정 암호를 취소/초기화하는 경우 앱 암호도 업데이트해야 합니다. 사용자 계정 암호가 취소/초기화될 때 앱 암호는 자동으로 취소되지 않습니다. 사용자는 기존 앱 암호를 삭제하고 새 암호를 만들어야 합니다.
-   * 자세한 내용은 [추가 보안 확인 페이지에서 앱 암호 생성 및 삭제](../user-help/multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page)를 참조하세요.
+   * 자세한 내용은 [추가 보안 확인 페이지에서 앱 암호 생성 및 삭제](https://support.microsoft.com/account-billing/manage-app-passwords-for-two-step-verification-d6dc8c6d-4bf7-4851-ad95-6d07799387e9#create-and-delete-app-passwords-from-the-additional-security-verification-page)를 참조하세요.
 
 >[!WARNING]
 > 앱 암호는 클라이언트가 온-프레미스 및 클라우드 자동 검색 엔드포인트와 통신하는 하이브리드 환경에서는 작동하지 않습니다. 온-프레미스를 인증하려면 도메인 암호가 필요합니다. 클라우드를 통해 인증하려면 앱 암호가 필요합니다.
@@ -102,8 +102,8 @@ Azure AD는 온-프레미스 AD DS(Active Directory Domain Services)를 통해 �
 사용자가 Azure AD Multi-Factor Authentication의 초기 등록을 완료하면 등록 프로세스의 마지막에 앱 암호를 만드는 옵션이 있습니다.
 
 사용자는 등록 후 앱 암호를 만들 수도 있습니다. 사용자에 대한 자세한 내용 및 자세한 단계는 다음 리소스를 참조하세요.
-* [Azure AD Multi-Factor Authentication의 앱 암호는 무엇인가요?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
-* [보안 정보 페이지에서 앱 암호 만들기](../user-help/security-info-app-passwords.md)
+* [Azure AD Multi-Factor Authentication의 앱 암호는 무엇인가요?](https://support.microsoft.com/account-billing/manage-app-passwords-for-two-step-verification-d6dc8c6d-4bf7-4851-ad95-6d07799387e9)
+* [보안 정보 페이지에서 앱 암호 만들기](https://support.microsoft.com/account-billing/create-app-passwords-from-the-security-info-preview-page-d8bc744a-ce3f-4d4d-89c9-eb38ab9d4137)
 
 ## <a name="next-steps"></a>다음 단계
 

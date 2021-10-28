@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-develop
 services: iot-develop
-ms.openlocfilehash: 44dca3cd3cd7803271fba6abae72de5c54782c1f
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: a0a5402f4947da149609f9563c7f28c6581cd14a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129457414"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130259452"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>자습서: IoT 플러그 앤 플레이 모듈 연결(C#)
 
@@ -229,7 +229,7 @@ git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
 컨테이너화된 모듈을 배포하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Ubuntu Virtual Machines에서 Azure IoT Edge 실행](../iot-edge/how-to-install-iot-edge-ubuntuvm.md)
-* [Debian 기반 Linux 시스템에서 Azure IoT Edge 런타임 설치](../iot-edge/how-to-install-iot-edge.md)
+* [Debian 기반 Linux 시스템에서 Azure IoT Edge 런타임 설치](../iot-edge/how-to-provision-single-device-linux-symmetric.md)
 
 Azure IoT 탐색기 도구를 사용하여 다음을 확인할 수 있습니다.
 

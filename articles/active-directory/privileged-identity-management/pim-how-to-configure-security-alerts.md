@@ -4,7 +4,7 @@ description: Azure Active Directory Privileged Identity Management에서 Azure A
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 editor: ''
 ms.service: active-directory
 ms.topic: how-to
@@ -12,14 +12,15 @@ ms.workload: identity
 ms.subservice: pim
 ms.date: 06/30/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88854bb08b9f1cffec7d6f2fde535f73a3241e18
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 87a31a810b82824f1d25d79e581e6dbd638bf5bb
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529301"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129668868"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대한 보안 경고 구성
 
@@ -43,7 +44,7 @@ PIM(Privileged Identity Management)은 사용자의 Azure AD(Azure Active Direct
 | --- | --- |
 | **이 경고가 표시된 이유는 무엇인가요?** | 사용자에게 필요 없는 권한 있는 역할이 할당되면 공격 위험이 증대됩니다. 또한 잘 사용되지 않는 계정에서는 공격자가 드러나지 않을 가능성이 더 큽니다. |
 | **해결 방법** | 목록의 사용자를 검토하고 필요 없는 권한 있는 역할에서 제거합니다. |
-| **방지** | 비즈니스 타당성이 있는 사용자에게만 권한 있는 역할을 할당합니다. </br>사용자가 액세스 권한이 계속 필요한지 확인하도록 정기적인 [액세스 검토](pim-how-to-start-security-review.md)를 예약합니다. |
+| **방지** | 비즈니스 타당성이 있는 사용자에게만 권한 있는 역할을 할당합니다. </br>사용자가 액세스 권한이 계속 필요한지 확인하도록 정기적인 [액세스 검토](./pim-create-azure-ad-roles-and-resource-roles-review.md)를 예약합니다. |
 | **포털 내 완화 작업** | 해당하는 권한 있는 역할에서 계정을 제거합니다. |
 | **트리거** | 사용자가 역할을 활성화하지 않고 지정된 기간(일)을 경과하면 트리거됩니다. |
 | **일 수** | 이 설정은 사용자가 역할을 활성화하지 않고 지낼 수 있는 최대 일 수를 0~100 사이에서 지정합니다.|
@@ -76,7 +77,7 @@ PIM(Privileged Identity Management)은 사용자의 Azure AD(Azure Active Direct
 | --- | --- |
 | **이 경고가 표시된 이유는 무엇인가요?** | 권한 있는 역할의 계정이 지난 90일 동안 암호를 변경하지 않았습니다. 이러한 계정은 유지되지 않고 공격자에게 취약한 서비스 또는 공유 계정일 수 있습니다. |
 | **해결 방법** | 목록에서 계정을 검토합니다. 액세스가 더 이상 필요하지 않으면 권한 있는 역할에서 제거합니다. |
-| **방지** | 암호를 아는 사용자에게 변경 내용이 있으면 공유되는 계정에서 강력한 암호가 회전되는지 확인합니다. </br>정기적으로 [액세스 검토](pim-how-to-start-security-review.md)를 사용하여 권한 있는 역할이 있는 계정을 검토하고, 더 이상 필요하지 않은 역할 할당을 제거합니다. |
+| **방지** | 암호를 아는 사용자에게 변경 내용이 있으면 공유되는 계정에서 강력한 암호가 회전되는지 확인합니다. </br>정기적으로 [액세스 검토](./pim-create-azure-ad-roles-and-resource-roles-review.md)를 사용하여 권한 있는 역할이 있는 계정을 검토하고, 더 이상 필요하지 않은 역할 할당을 제거합니다. |
 | **포털 내 완화 작업** | 해당하는 권한 있는 역할에서 계정을 제거합니다. |
 | **모범 사례** | 암호를 사용하여 인증하고 전역 관리자 또는 보안 관리자와 같이 권한이 높은 관리 역할에 할당된 공유, 서비스 및 응급 액세스 계정은 다음과 같은 경우에 자체의 암호를 회전시켜야 합니다.<ul><li>관리 액세스 권한의 남용 또는 손상과 관련된 보안 인시던트 이후</li><li>사용자의 권한이 변경되어 더 이상 관리자가 아닌 경우(예: 관리자였던 직원이 IT 부서 또는 조직을 퇴직한 후)</li><li>IT 직원에 대한 알려진 위반 또는 변경 사항이 없는 경우에도 정기적으로(예: 분기별 또는 연간)</li></ul>여러 사용자가 이러한 계정의 자격 증명에 액세스할 수 있으므로 해당 역할을 떠난 사용자가 더 이상 계정에 액세스할 수 없도록 자격 증명을 회전시켜야 합니다. [계정 보호에 대한 자세한 내용](../roles/security-planning.md)을 알아보세요. |
 

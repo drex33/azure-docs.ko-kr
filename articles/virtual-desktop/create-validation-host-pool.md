@@ -7,12 +7,12 @@ ms.date: 10/08/2021
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: c81fb82695d534864fa96d8a5bfff9b3cebd4a4e
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 29a86a476737df6f5a2787748c5551953984f6b6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129705295"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261598"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>자습서: 서비스 업데이트의 유효성을 검사하기 위한 호스트 풀 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "129705295"
 
 앱에서 최신 업데이트가 문제 없이 작동되려면 유효성 검사 호스트 풀이 비유효성 검사 환경의 호스트 풀과 최대한 유사해야 합니다. 사용자는 표준 호스트 풀에 연결하는 것만큼 유효성 검사 호스트 풀에도 자주 연결해야 합니다. 호스트 풀에 대한 테스트를 자동화한 경우 유효성 검사 호스트 풀에 자동화된 테스트를 포함해야 합니다.
 
-[진단 기능](diagnostics-role-service.md) 또는 [Azure Virtual Desktop 문제 해결 문서](troubleshoot-set-up-overview.md) 중 하나를 사용하여 유효성 검사 호스트 풀의 문제를 디버그할 수 있습니다.
+[진단 기능](./troubleshoot-set-up-overview.md) 또는 [Azure Virtual Desktop 문제 해결 문서](troubleshoot-set-up-overview.md) 중 하나를 사용하여 유효성 검사 호스트 풀의 문제를 디버그할 수 있습니다.
 
 >[!NOTE]
 > 모든 후속 업데이트를 테스트하기 위해 유효성 검사 호스트 풀을 그대로 두는 것이 좋습니다.

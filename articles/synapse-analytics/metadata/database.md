@@ -10,12 +10,12 @@ author: ma77b
 ms.author: maburd
 ms.reviewer: wiassaf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fae1b6a6d2c9e697a55bbacaa11aa2736970d5a5
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 6144afdca350e8e7ff609eec273f84a39b84d2a3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130002893"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130228490"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Azure Synapse Analytics 공유 데이터베이스
 
@@ -42,7 +42,7 @@ Spark 데이터베이스와 테이블은 SQL 엔진에서 동기화되는 해당
 
 데이터베이스를 만드는 보안 주체는 해당 데이터베이스의 소유자로 간주되며, 데이터베이스와 해당 개체에 대한 모든 권한을 갖습니다. Synapse 관리자 및 Synapse SQL 관리자는 기본적으로 서버리스 SQL 풀의 동기화된 개체에 대한 모든 권한을 갖습니다. 동기화된 SQL 데이터베이스에서 사용자 지정 개체(사용자 포함)를 만들 수 없습니다. 
 
-사용자, Azure AD 앱 또는 보안 그룹과 같은 보안 주체가 외부 테이블에 사용되는 기본 데이터에 액세스할 수 있도록 하려면 파일(예: 테이블의 기본 데이터 파일)의 `read (R)` 사용 권한과 파일이 루트까지 모든 상위 폴더에 저장되어 있는 폴더의 `execute (X)`에 사용 권한을 부여해야 합니다. [ACL(액세스 제어 목록)](/azure/storage/blobs/data-lake-storage-access-control) 페이지에서 이러한 권한에 대해 자세히 알아볼 수 있습니다. 
+사용자, Azure AD 앱 또는 보안 그룹과 같은 보안 주체가 외부 테이블에 사용되는 기본 데이터에 액세스할 수 있도록 하려면 파일(예: 테이블의 기본 데이터 파일)의 `read (R)` 사용 권한과 파일이 루트까지 모든 상위 폴더에 저장되어 있는 폴더의 `execute (X)`에 사용 권한을 부여해야 합니다. [ACL(액세스 제어 목록)](../../storage/blobs/data-lake-storage-access-control.md) 페이지에서 이러한 권한에 대해 자세히 알아볼 수 있습니다. 
 
 예를 들어, `https://<storage-name>.dfs.core.windows.net/<fs>/synapse/workspaces/<synapse_ws>/warehouse/mytestdb.db/myparquettable/`의 경우, 데이터베이스의 테이블을 읽을 수 있으려면 보안 주체가 `<fs>`에서 `myparquettable` 및 `R` 권한으로 시작하는 모든 폴더와 해당 폴더 내의 `myparquettable` 및 파일에 대해 `X` 권한을 가지고 있어야 합니다.
 

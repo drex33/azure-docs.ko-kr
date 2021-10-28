@@ -3,22 +3,22 @@ title: 사용자 특성 추가 및 사용자 입력 사용자 지정
 titleSuffix: Azure AD B2C
 description: 사용자 입력을 사용자 지정하고 Azure Active Directory B2C의 가입 또는 로그인 경험에 사용자 특성을 추가하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/03/2021
+ms.date: 10/15/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: eb700a4432082f75cf1ddf1ce007cee801597948
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 9ebc40c8777a4b49f0bd6aaeccff4b2f82d4f7a4
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111409454"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064422"
 ---
 #  <a name="add-user-attributes-and-customize-user-input-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 특성 추가 및 사용자 입력 사용자 지정
 
@@ -161,7 +161,7 @@ city 특성에 대한 값의 집합 목록을 제공하려면 다음을 수행�
       <UserInputType>DropdownSingleSelect</UserInputType>
       <Restriction>
         <Enumeration Text="Berlin" Value="berlin" />
-        <Enumeration Text="London" Value="bondon" />
+        <Enumeration Text="London" Value="london" />
         <Enumeration Text="Seattle" Value="seattle" />
       </Restriction>
     </ClaimType>
@@ -175,7 +175,7 @@ city 특성에 대한 값의 집합 목록을 제공하려면 다음을 수행�
 ```xml
 <Restriction>
   <Enumeration Text="Berlin" Value="berlin" />
-  <Enumeration Text="London" Value="bondon" SelectByDefault="true" />
+  <Enumeration Text="London" Value="london" SelectByDefault="true" />
   <Enumeration Text="Seattle" Value="seattle" />
 </Restriction>
 ```
@@ -322,7 +322,8 @@ city 클레임을 신뢰 당사자 애플리케이션에 다시 반환하려면 
 
 ## <a name="upload-and-test-your-updated-custom-policy"></a>업데이트된 사용자 지정 정책 업로드 및 테스트
 
-1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. **Azure AD B2C** 를 검색하고 선택합니다.
 1. **정책** 에서 **Identity Experience Framework** 를 선택합니다.
 1. **사용자 지정 정책 업로드** 를 선택합니다.

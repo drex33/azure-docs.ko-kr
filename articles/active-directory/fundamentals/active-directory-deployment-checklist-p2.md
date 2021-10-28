@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b746b1f7d35668759108580d4d695787ac8fa3bc
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: e2411ef1ba4878e43c7f6432b6aa3bd032f2842a
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733109"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129083717"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Azure Active Directory 기능 배포 가이드
 
@@ -92,7 +92,7 @@ ID 인프라를 잘 계획하고 실행해 두면 알려진 사용자와 디바�
 | Task | 세부 정보 | 필수 라이선스 |
 | ---- | ------ | ---------------- |
 | [Privileged Identity Management 사용 적용](../privileged-identity-management/pim-security-wizard.md) | 매일 사용하는 일반 사용자 계정에서 관리자 역할을 제거합니다. Multi-Factor Authentication 검사를 성공하고, 비즈니스 근거를 제공하거나 지정된 승인자의 승인을 요청한 후에 관리자가 해당 역할을 사용할 수 있도록 지정합니다. | Azure AD Premium P2 |
-| [PIM에서 Azure AD 디렉터리 역할에 대한 액세스 검토 완료](../privileged-identity-management/pim-how-to-start-security-review.md) | 보안 및 리더십 팀과 협의하여 조직의 정책을 기준으로 관리 액세스 권한을 검토하는 액세스 검토 정책을 만듭니다. | Azure AD Premium P2 |
+| [PIM에서 Azure AD 디렉터리 역할에 대한 액세스 검토 완료](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md) | 보안 및 리더십 팀과 협의하여 조직의 정책을 기준으로 관리 액세스 권한을 검토하는 액세스 검토 정책을 만듭니다. | Azure AD Premium P2 |
 | [동적 그룹 멤버 자격 정책 구현](../enterprise-users/groups-dynamic-membership.md) | 동적 그룹을 사용하여 부서, 직함, 지역 및 기타 속성과 같은 HR(또는 진실의 근원)의 특성을 기반으로 사용자를 그룹에 자동으로 할당합니다. |  |
 | [그룹 기반 애플리케이션 프로비전 구현](../manage-apps/what-is-access-management.md) | 그룹 기반 액세스 관리 프로비전을 사용하여 SaaS 애플리케이션에 사용자를 자동으로 프로비전합니다. |  |
 | [사용자 프로비전 및 프로비전 해제 자동화](../app-provisioning/user-provisioning.md) | 무단 액세스를 방지하려면 직원 계정 수명 주기에서 수동 단계를 제거합니다. HR 시스템(진실의 근원)의 ID를 Azure AD에 동기화합니다. |  |

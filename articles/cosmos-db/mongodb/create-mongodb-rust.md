@@ -8,18 +8,19 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: rust
 ms.topic: quickstart
 ms.date: 08/26/2021
-ms.openlocfilehash: 8fab3b577177c66e8999c5e7c594b165a310276a
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 4831c5f695baf923b5e687c3e3c0649262a9e361
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123033699"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233002"
 ---
 # <a name="quickstart-connect-a-rust-application-to-azure-cosmos-dbs-api-for-mongodb"></a>빠른 시작: Rust 애플리케이션을 Azure Cosmos DB의 API for MongoDB에 연결
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
+> * [Python](create-mongodb-python.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.JS](create-mongodb-nodejs.md)
 > * [Xamarin](create-mongodb-xamarin.md)

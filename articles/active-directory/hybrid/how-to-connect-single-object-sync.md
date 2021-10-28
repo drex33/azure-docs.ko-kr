@@ -11,12 +11,12 @@ ms.date: 06/24/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dec171c299bdd8ea6c5989794539b6c79e7d3fe
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: 34d0a6c4940032bc1957c787e05722586c792417
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114229692"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124814377"
 ---
 # <a name="azure-ad-connect-single-object-sync"></a>Azure AD Connect 단일 개체 동기화 
 
@@ -43,7 +43,7 @@ Azure AD Connect 단일 개체 동기화 도구는 Active Directory에서 Azure 
  9. Active Directory Connector 공간에서 개체를 동기화합니다. 
  10. Azure Active Directory Connector 공간에서 Azure Active Directory로 개체를 내보냅니다. 
 
-JSON 출력 외에도 이 도구는 동기화 작업에 대한 모든 세부 정보를 포함하는 HTML 보고서를 생성합니다. HTML 보고서는 **<date>** 에 있습니다. 필요한 경우 이 HTML 보고서를 지원 팀과 공유하여 추가 문제 해결을 수행할 수 있습니다. 
+JSON 출력 외에도 이 도구는 동기화 작업에 대한 모든 세부 정보를 포함하는 HTML 보고서를 생성합니다. HTML 보고서는 **\<date\>** 에 있습니다. 필요한 경우 이 HTML 보고서를 지원 팀과 공유하여 추가 문제 해결을 수행할 수 있습니다. 
 
 HTML 보고서에는 다음이 포함됩니다. 
 
@@ -58,7 +58,7 @@ HTML 보고서에는 다음이 포함됩니다.
 
 단일 개체 동기화 도구를 사용하려면 다음을 사용해야 합니다.  
  - 2021년 3월 릴리스([1.6.4.0](reference-connect-version-history.md#1640)) 이상의 Azure AD Connect
- -  [PowerShell 5.0](/powershell/scripting/windows-powershell/whats-new/what-s-new-in-windows-powershell-50?view=powershell-7.1)
+ -  [PowerShell 5.0](/powershell/scripting/windows-powershell/whats-new/what-s-new-in-windows-powershell-50)
 
 ### <a name="run-the-single-object-sync-tool"></a>단일 개체 동기화 도구 실행 
 

@@ -13,12 +13,12 @@ ms.date: 08/10/2021
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: 5b490ff71253739779089da92c87532f7abbdbcc
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: e03b288934ce01a25a8ee7b4ad3569af6507b8a6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122568067"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124734781"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Apple 디바이스용 Microsoft Enterprise SSO 플러그 인(미리 보기)
 
@@ -29,7 +29,7 @@ ms.locfileid: "122568067"
 
 Enterprise SSO 플러그 인은 현재 다음 앱의 기본 제공 기능입니다.
 
-* [Microsoft Authenticator](../user-help/user-help-auth-app-overview.md): iOS, iPadOS
+* [Microsoft Authenticator](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc): iOS, iPadOS
 * Microsoft Intune [회사 포털](/mem/intune/apps/apps-company-portal-macos): macOS
 
 ## <a name="features"></a>기능
@@ -46,15 +46,15 @@ Apple 디바이스용 Microsoft Enterprise SSO 플러그 인은 다음과 같은
 Apple 디바이스용 Microsoft Enterprise SSO 플러그 인을 사용하려면
 
 - 디바이스는 Apple 디바이스용 Microsoft Enterprise SSO 플러그 인을 *지원* 하고 이 플러그 인이 있는 앱이 설치되어야 합니다.
-  - iOS 13.0 이상: [Microsoft Authenticator 앱](../user-help/user-help-auth-app-overview.md)
-  - iPadOS 13.0 이상: [Microsoft Authenticator 앱](../user-help/user-help-auth-app-overview.md)
+  - iOS 13.0 이상: [Microsoft Authenticator 앱](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)
+  - iPadOS 13.0 이상: [Microsoft Authenticator 앱](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)
   - macOS 10.15 이상: [Intune 회사 포털 앱](/mem/intune/user-help/enroll-your-device-in-intune-macos-cp)
 - 디바이스를 *MDM에 등록* 해야 합니다(예: Microsoft Intune을 통해).
 - Enterprise SSO 플러그 인을 사용하도록 설정하려면 구성을 *디바이스에 푸시* 해야 합니다. Apple에는 이 보안 제약 조건이 필요합니다.
 
 ### <a name="ios-requirements"></a>iOS 요구 사항:
 - iOS 13.0 이상이 디바이스에 설치되어 있어야 합니다.
-- Apple 디바이스용 Microsoft Enterprise SSO 플러그 인을 제공하는 Microsoft 애플리케이션을 디바이스에 설치해야 합니다. 퍼블릭 미리 보기의 경우 이러한 애플리케이션은 [Microsoft Authenticator 앱](../user-help/user-help-auth-app-overview.md)입니다.
+- Apple 디바이스용 Microsoft Enterprise SSO 플러그 인을 제공하는 Microsoft 애플리케이션을 디바이스에 설치해야 합니다. 퍼블릭 미리 보기의 경우 이러한 애플리케이션은 [Microsoft Authenticator 앱](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)입니다.
 
 
 ### <a name="macos-requirements"></a>macOS 요구 사항:

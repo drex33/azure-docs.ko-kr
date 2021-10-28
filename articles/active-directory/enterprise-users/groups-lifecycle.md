@@ -4,7 +4,7 @@ description: Azure Active Directory에서 Microsoft 365 그룹에 대한 만료�
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: KarenH444
 editor: ''
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a68955cda6fce5fca89603aa6d498efca8ffa94d
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 834893a35c8284012f61d228bf44385cb9eb5549
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123427339"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129986457"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Microsoft 365 그룹에 대한 만료 정책 구성
 

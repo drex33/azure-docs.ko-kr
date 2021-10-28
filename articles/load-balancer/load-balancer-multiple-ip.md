@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 08/08/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 1d84de13820b23b52c09d3333799f45fd342763f
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: c0a5f441b27d379ff94db41fabfdf398a19ca667
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123260300"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130254668"
 ---
 # <a name="tutorial-load-balance-multiple-ip-configurations-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 여러 IP 구성의 부하 분산 
 
@@ -161,7 +161,7 @@ ms.locfileid: "123260300"
   
 4. [네트워킹] 탭에서 다음을 선택하거나 입력합니다.
 
-    | Setting | 값 |
+    | 설정 | 값 |
     |-|-|
     | **네트워크 인터페이스** |  |
     | 가상 네트워크 | **myVNet** |
@@ -445,7 +445,7 @@ ms.locfileid: "123260300"
 8. **IP 형식** 으로 **IP 주소** 를 선택합니다.
 
     > [!NOTE]
-    > IP 접두사에 대한 자세한 내용은 [Azure 공용 IP 주소 접두사](../virtual-network/public-ip-address-prefix.md)를 참조하세요.
+    > IP 접두사에 대한 자세한 내용은 [Azure 공용 IP 주소 접두사](../virtual-network/ip-services/public-ip-address-prefix.md)를 참조하세요.
 
 9. **공용 IP 주소** 에서 **새로 만들기** 를 선택합니다.
 
@@ -454,9 +454,9 @@ ms.locfileid: "123260300"
 11. **가용성 영역** 에서 **영역 중복** 을 선택합니다.
 
     > [!NOTE]
-    > [가용성 영역](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)이 있는 지역에서는 영역 없음(기본 옵션), 특정 영역 또는 영역 중복을 선택하는 옵션이 있습니다. 해당하는 도메인 장애 요구 사항에 따라 원하는 옵션을 선택하면 됩니다. 가용성 영역이 없는 지역에서는 이 필드가 표시되지 않습니다. </br> 가용성 영역에 대한 자세한 내용은 [가용성 영역 개요](../availability-zones/az-overview.md)를 참조하세요.
+    > [가용성 영역](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)이 있는 지역에서는 영역 없음(기본 옵션), 특정 영역 또는 영역 중복을 선택하는 옵션이 있습니다. 선택은 특정 도메인 오류 요구 사항에 따라 달라집니다. 가용성 영역이 없는 지역에서는 이 필드가 표시되지 않습니다. </br> 가용성 영역에 대한 자세한 내용은 [가용성 영역 개요](../availability-zones/az-overview.md)를 참조하세요.
 
-12. **라우팅 기본 설정** 에서는 **Microsoft 네트워크** 의 기본값을 그대로 둡니다.
+12. **라우팅 기본 설정** 에는 **Microsoft 네트워크** 의 기본값을 그대로 둡니다.
 
 13. **확인** 을 선택합니다.
 
@@ -544,7 +544,7 @@ ms.locfileid: "123260300"
 
 27. **부하 분산 규칙 추가** 에서 다음 정보를 입력하거나 선택합니다.
 
-    | Setting | 값 |
+    | 설정 | 값 |
     | ------- | ----- |
     | Name | **myHTTPRule-fabrikam** 입력 |
     | IP 버전 | **IPv4** 를 선택합니다. |

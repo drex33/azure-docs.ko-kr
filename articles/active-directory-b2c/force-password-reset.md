@@ -3,21 +3,21 @@ title: Azure AD B2C에서 암호 강제 재설정 흐름 구성
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 암호 강제 재설정 흐름을 설정하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/10/2021
-ms.author: mimart
+ms.date: 09/16/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a8fc74a298450ad2581a8a147eaff9f996dca8dc
-ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+ms.openlocfilehash: 7c350c04071dd5f01804aaea57dd7390dc00bad5
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112198803"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130236716"
 ---
 # <a name="set-up-a-force-password-reset-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 암호 강제 재설정 흐름 설정
 
@@ -44,7 +44,8 @@ ms.locfileid: "112198803"
 등록 또는 로그인 사용자 흐름에서 **Forced password reset(암호 강제 재설정)** 설정을 사용하려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
 1. **사용자 흐름** 을 선택합니다.
 1. 사용자 지정하려는 등록 및 로그인 또는 로그인 사용자 흐름(**권장** 형식)을 선택합니다.
@@ -55,7 +56,8 @@ ms.locfileid: "112198803"
 ## <a name="test-the-user-flow"></a>사용자 흐름 테스트
 
 1. 사용자 관리자 또는 암호 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다. 사용 가능한 역할에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](../active-directory/roles/permissions-reference.md#all-roles)을 참조하세요.
-1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
 1. **사용자** 를 선택합니다. 암호 재설정을 테스트하는 데 사용할 사용자를 검색하여 선택하고 **암호 재설정** 을 선택합니다.
 1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.

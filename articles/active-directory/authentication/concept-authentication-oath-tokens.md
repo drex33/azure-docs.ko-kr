@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5d5e34ee5013a6f4ad28779e92536ff2d8ef868
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 449a0ecd02e12816a9a9952fad0446f392ff4af7
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114730771"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352888"
 ---
 # <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Azure Active Directory의 인증 방법 - OATH 토큰 
 
@@ -58,6 +58,9 @@ CSV 파일의 크기에 따라 처리하는 데 몇 분 정도가 소요될 수 
 오류가 모두 처리되면 관리자는 토큰에 대해 **활성화** 를 선택하고 토큰에 표시된 OTP를 입력하여 각 키를 활성화할 수 있습니다. 5분마다 최대 200개의 OATH 토큰을 활성화할 수 있습니다. 
 
 사용자는 언제든지 사용할 수 있도록 구성된 Microsoft Authenticator 앱과 같은 인증자 애플리케이션 또는 최대 5개의 OATH 하드웨어 토큰을 조합할 수 있습니다. 하드웨어 OATH 토큰은 리소스 테넌트에서 게스트 사용자에게 할당할 수 없습니다.
+
+>[!IMPORTANT]
+>이 미리 보기는 Azure Government 또는 소버린 클라우드에서 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

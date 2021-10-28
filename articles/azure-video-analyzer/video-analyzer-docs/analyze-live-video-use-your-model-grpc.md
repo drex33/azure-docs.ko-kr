@@ -5,12 +5,12 @@ ms.service: azure-video-analyzer
 ms.topic: quickstart
 ms.date: 06/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
-ms.openlocfilehash: cb901ca96cde0d0a113b07429338464e24720650
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 7a7defc6ae0a3d577bd2adfdfbd0f15f85bc5f16
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114601681"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130239174"
 ---
 # <a name="quickstart-analyze-live-video-with-your-own-model---grpc"></a>빠른 시작: 자체 모델로 라이브 비디오 분석 - gRPC
 
@@ -288,4 +288,4 @@ gRPC 확장 프로세서 노드는 avaextension 모듈에서 유추 결과를 �
 - 고급 사용자에 대한 추가 문제를 검토합니다.
 
   - RTSP 시뮬레이터를 사용하는 대신 RTSP를 지원하는 [IP 카메라](https://en.wikipedia.org/wiki/IP_camera)를 사용합니다. [ONVIF 규격](https://www.onvif.org/conformant-products/) 제품 페이지에서 RTSP를 지원하는 IP 카메라를 검색할 수 있습니다. G, S 또는 T 프로필을 준수하는 디바이스를 찾습니다.
-  - Azure Linux VM 대신 AMD64 또는 x64 Linux 디바이스를 사용합니다. 이 디바이스는 IP 카메라와 동일한 네트워크에 있어야 합니다. [Linux에 Azure IoT Edge 런타임 설치](../../iot-edge/how-to-install-iot-edge.md?view=iotedge-2018-06&preserve-view=true)의 지침을 따릅니다. 그런 다음, [가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포](../../iot-edge/quickstart-linux.md?view=iotedge-2018-06&preserve-view=true)의 지침에 따라 디바이스를 Azure IoT Hub에 등록합니다.
+  - Azure Linux VM 대신 AMD64 또는 x64 Linux 디바이스를 사용합니다. 이 디바이스는 IP 카메라와 동일한 네트워크에 있어야 합니다. [Linux에 Azure IoT Edge 런타임 설치](../../iot-edge/how-to-provision-single-device-linux-symmetric.md?view=iotedge-2018-06&preserve-view=true)의 지침을 따릅니다. 그런 다음, [가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포](../../iot-edge/quickstart-linux.md?view=iotedge-2018-06&preserve-view=true)의 지침에 따라 디바이스를 Azure IoT Hub에 등록합니다.

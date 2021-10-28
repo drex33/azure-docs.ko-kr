@@ -13,12 +13,12 @@ ms.date: 07/23/2021
 ms.custom: template-concept
 ms.author: cchiedo
 ms.reviewer: johngarland, mamarxen, ianbe, marsma
-ms.openlocfilehash: 4dcdb90daa9bb8cd1df79ec399eb9372fca02c61
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: a3710d4af1b65b1220db8938b35cf9d6cb516579
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123037192"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124734720"
 ---
 # <a name="authorization-basics"></a>권한 부여 기본 사항
 
@@ -50,7 +50,7 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 고급 RBAC 구현에서 역할은 권한 컬렉션에 매핑될 수 있습니다. 여기서 권한은 수행할 수 있는 세분화된 작업을 설명합니다. 그런 다음, 역할은 권한 조합으로 구성됩니다. 엔터티가 할당된 다양한 역할에 부여된 권한을 교차하여 애플리케이션에 대한 엔터티 전체 권한 집합을 컴퓨팅합니다. 이 방법의 좋은 예는 Azure 구독의 리소스에 대한 액세스를 제어하는 RBAC 구현입니다.
 
 > [!NOTE]
-> [애플리케이션 RBAC](./custom-rbac-for-developers.md)는 [Azure RBAC](/azure/role-based-access-control/overview) 및 [Azure AD RBAC](../roles/custom-overview.md#understand-azure-ad-role-based-access-control)와 다릅니다. Azure 사용자 지정 역할 및 기본 제공 역할은 모두 Azure RBAC에 포함되며 Azure 리소스를 관리하는 데 도움이 됩니다. Azure AD RBAC를 사용하여 Azure AD 리소스를 관리할 수 있습니다.
+> [애플리케이션 RBAC](./custom-rbac-for-developers.md)는 [Azure RBAC](../../role-based-access-control/overview.md) 및 [Azure AD RBAC](../roles/custom-overview.md#understand-azure-ad-role-based-access-control)와 다릅니다. Azure 사용자 지정 역할 및 기본 제공 역할은 모두 Azure RBAC에 포함되며 Azure 리소스를 관리하는 데 도움이 됩니다. Azure AD RBAC를 사용하여 Azure AD 리소스를 관리할 수 있습니다.
 
 ### <a name="attribute-based-access-control"></a>특성 기반 액세스 제어 
 
@@ -75,4 +75,4 @@ Azure Active Directory를 사용하여 ABAC를 달성하는 한 가지 방법은
 
 - 애플리케이션의 사용자 지정 역할 기반 액세스 제어 구현에 대한 자세한 내용은 [애플리케이션 개발자를 위한 역할 기반 액세스 제어](./custom-rbac-for-developers.md)를 참조하세요.
 - Microsoft ID 플랫폼과 통합할 수 있도록 애플리케이션을 등록하는 프로세스에 대해 알아보려면 [애플리케이션 모델](./application-model.md)을 참조하세요.
-- 간단한 인증 기반 권한 부여를 구성하는 예는 [Azure AD 로그인을 사용하도록 App Service 또는 Azure Functions 앱 구성](/azure/app-service/configure-authentication-provider-aad)을 참조하세요.
+- 간단한 인증 기반 권한 부여를 구성하는 예는 [Azure AD 로그인을 사용하도록 App Service 또는 Azure Functions 앱 구성](../../app-service/configure-authentication-provider-aad.md)을 참조하세요.

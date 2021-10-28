@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdaef1c746ca23f2badf657e6e72e6e3988bcfa4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f3eb56d9de903fc6013600908e3b44e8e0f547ed
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566294"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128618118"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>방법: Azure AD 조인 구현 계획
 
@@ -199,7 +199,7 @@ Windows 10 2004 업데이트를 시작하면 사용자는 Azure AD에 등록된 
 
 다음 방법을 사용하여 Azure AD 조인을 프로비전할 수 있습니다.
 
-- **OOBE/설정에서 셀프 서비스** - 셀프 서비스 모드에서는 사용자가 Windows OOBE(첫 실행 경험) 동안 또는 Windows 설정에서 Azure AD 조인 프로세스를 진행합니다. 자세한 내용은 [회사 디바이스를 조직의 네트워크에 조인](../user-help/user-help-join-device-on-network.md)을 참조하세요. 
+- **OOBE/설정에서 셀프 서비스** - 셀프 서비스 모드에서는 사용자가 Windows OOBE(첫 실행 경험) 동안 또는 Windows 설정에서 Azure AD 조인 프로세스를 진행합니다. 자세한 내용은 [회사 디바이스를 조직의 네트워크에 조인](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973)을 참조하세요. 
 - **Windows Autopilot** - Windows Autopilot을 사용하여 디바이스를 미리 구성하면 OOBE에서 보다 원활하게 Azure AD 조인을 수행하는 환경을 구축할 수 있습니다. 자세한 내용은 [Windows Autopilot 개요](/windows/deployment/windows-autopilot/windows-10-autopilot)를 참조하세요. 
 - **대량 등록** - 대량 등록을 사용하면 대량 프로비전 도구를 사용하여 디바이스를 구성하는 관리자 중심 Azure AD 조인을 지원할 수 있습니다. 자세한 내용은 [Windows 디바이스 대량 등록](/intune/windows-bulk-enroll)을 참조하세요.
  
@@ -308,7 +308,7 @@ Azure AD 조인 디바이스에 대한 MDM 공급자가 구성된 경우 공급�
 
 > [!div class="nextstepaction"]
 > [첫 번째 실행 동안 새 Windows 10 디바이스를 Azure AD에 조인](azuread-joined-devices-frx.md)
-> [회사 디바이스를 조직의 네트워크에 조인](../user-help/user-help-join-device-on-network.md)
+> [회사 디바이스를 조직의 네트워크에 조인](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

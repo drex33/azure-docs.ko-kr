@@ -13,18 +13,18 @@ ms.date: 03/11/2021
 ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: d3ec7c9786a9b5d3774c05669ae6d51ad443e71d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c7f05973f7d609ab3f4dc0f2f567ede4ce0d0f64
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529063"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124830919"
 ---
 # <a name="manage-your-users-with-my-staff"></a>내 직원으로 사용자 관리
 
 내 직원을 사용하면 매장 관리자 또는 팀 리더와 같은 권위 있는 사람에게 권한을 위임하여 직원이 자신의 Azure AD 계정에 액세스하도록 할 수 있습니다. 조직에서는 암호 재설정 또는 전화번호 변경과 같은 일반적인 작업을 중앙 기술 지원팀에 의존하는 대신 로컬 팀 관리자에게 위임할 수 있습니다. 내 직원을 사용하면 기술 지원팀이나 IT 직원의 도움 없이도 자신의 계정에 액세스하지 못하는 사용자가 몇 번만 클릭하면 액세스 권한을 다시 얻을 수 있습니다.
 
-조직에 내 직원을 구성하기 전에 이 설명서와 [사용자 설명서](../user-help/my-staff-team-manager.md)를 검토하여 내 직원의 작동 방식 및 사용자에게 미치는 영향을 이해하는 것이 좋습니다. 사용자 설명서를 활용하여 사용자에게 새로운 경험에 대한 학습과 준비의 기회를 제공하고 성공적인 출시를 지원할 수 있습니다.
+조직에 내 직원을 구성하기 전에 이 설명서와 [사용자 설명서](https://support.microsoft.com/account-billing/manage-front-line-users-with-my-staff-c65b9673-7e1c-4ad6-812b-1a31ce4460bd)를 검토하여 내 직원의 작동 방식 및 사용자에게 미치는 영향을 이해하는 것이 좋습니다. 사용자 설명서를 활용하여 사용자에게 새로운 경험에 대한 학습과 준비의 기회를 제공하고 성공적인 출시를 지원할 수 있습니다.
 
 ## <a name="how-my-staff-works"></a>내 직원의 작동 방식
 
@@ -72,7 +72,7 @@ Azure AD 조건부 액세스 정책을 사용하여 내 직원 포털을 보호�
 
 ## <a name="using-my-staff"></a>내 직원 사용
 
-사용자가 내 직원으로 이동하면 자신에게 관리 권한이 있는 [관리 단위](administrative-units.md)의 이름이 표시됩니다. [내 직원 사용자 설명서](../user-help/my-staff-team-manager.md)에서 "위치"라는 용어는 관리 단위를 가리킵니다. 관리자의 권한에 관리 단위 범위가 없는 경우 해당 권한은 조직 전체에 적용됩니다. 내 직원을 사용하도록 설정한 후에는 사용 설정되고 관리 역할이 할당된 사용자는 [https://mystaff.microsoft.com](https://mystaff.microsoft.com)을 통해 내 직원에 액세스할 수 있습니다. 이들은 관리 단위를 선택하여 해당 단위에 있는 사용자를 보고 사용자를 선택하여 해당 사용자의 프로필을 열 수 있습니다.
+사용자가 내 직원으로 이동하면 자신에게 관리 권한이 있는 [관리 단위](administrative-units.md)의 이름이 표시됩니다. [내 직원 사용자 설명서](https://support.microsoft.com/account-billing/manage-front-line-users-with-my-staff-c65b9673-7e1c-4ad6-812b-1a31ce4460bd)에서 "위치"라는 용어는 관리 단위를 가리킵니다. 관리자의 권한에 관리 단위 범위가 없는 경우 해당 권한은 조직 전체에 적용됩니다. 내 직원을 사용하도록 설정한 후에는 사용 설정되고 관리 역할이 할당된 사용자는 [https://mystaff.microsoft.com](https://mystaff.microsoft.com)을 통해 내 직원에 액세스할 수 있습니다. 이들은 관리 단위를 선택하여 해당 단위에 있는 사용자를 보고 사용자를 선택하여 해당 사용자의 프로필을 열 수 있습니다.
 
 ## <a name="reset-a-users-password"></a>사용자의 암호 재설정
 
@@ -128,5 +128,5 @@ Azure AD 조건부 액세스 정책을 사용하여 내 직원 포털을 보호�
 
 ## <a name="next-steps"></a>다음 단계
 
-[내 직원 사용자 설명서](../user-help/my-staff-team-manager.md)
+[내 직원 사용자 설명서](https://support.microsoft.com/account-billing/manage-front-line-users-with-my-staff-c65b9673-7e1c-4ad6-812b-1a31ce4460bd)
 [관리 단위 설명서](administrative-units.md)

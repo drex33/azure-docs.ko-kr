@@ -3,20 +3,20 @@ title: Azure Active Directory 애플리케이션 프록시를 사용한 온-프�
 description: SAML 인증으로 보호되는 온-프레미스 애플리케이션에 대해 Single Sign-On을 제공하는 방법을 알아봅니다. 애플리케이션 프록시로 온-프레미스 앱에 대한 원격 액세스를 제공합니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: 6755aae60f09fad14f773c3976ae4f3d7e073744
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.reviewer: ashishj
+ms.openlocfilehash: 593858009c59c782119f9389bd36dcf894977a70
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108187177"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129989877"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>애플리케이션 프록시를 사용하는 온-프레미스 애플리케이션에 대한 SAML Single Sign-On
 
@@ -42,7 +42,7 @@ SAML 인증으로 보호되는 온-프레미스 애플리케이션에 SSO(Single
 
 4. Single Sign-On 방법으로 **SAML** 을 선택합니다.
 
-5. 회사 네트워크에서 SAML SSO를 설정하고 [갤러리에 없는 다른 애플리케이션 통합](../manage-apps/configure-saml-single-sign-on.md)의 기본 SAML 구성 섹션을 참조하여 애플리케이션에 대한 SAML 기반 인증을 구성합니다.
+5. 회사 네트워크에서 SAML SSO를 설정하고, [갤러리에 없는 다른 애플리케이션 통합](../manage-apps/configure-saml-single-sign-on.md)의 기본 SAML 구성 섹션을 참조하여 애플리케이션에 대한 SAML 기반 인증을 구성합니다.
 
 6. 애플리케이션에 하나 이상의 사용자를 추가하고 테스트 계정이 애플리케이션에 액세스할 수 있는지 확인합니다. 회사 네트워크에 연결되어 있는 동안 테스트 계정을 사용하여 애플리케이션에 대한 Single Sign-On이 있는지 확인합니다. 
 
@@ -81,7 +81,7 @@ SAML 인증으로 보호되는 온-프레미스 애플리케이션에 SSO(Single
    * SP 시작 흐름의 경우 인증 토큰 수신을 위해 백 엔드 애플리케이션에서 올바른 **회신 URL** 또는 Assertion Consumer Service URL을 지정하도록 해야 합니다.
 
     > [!NOTE]
-    > 백 엔드 애플리케이션에서 **회신 URL** 이 내부 URL이어야 하는 경우 [사용자 지정 도메인](application-proxy-configure-custom-domain.md)을 사용하여 일치하는 내부 및 외부 URL을 갖거나 사용자의 디바이스에 내 앱 보안 로그인 확장을 설치해야 합니다. 이 확장은 적절한 애플리케이션 프록시 서비스로 자동으로 리디렉션됩니다. 확장을 설치하려면 [내 앱 보안 로그인 확장](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension)을 참조하세요.
+    > 백 엔드 애플리케이션에서 **회신 URL** 이 내부 URL이어야 하는 경우 [사용자 지정 도메인](application-proxy-configure-custom-domain.md)을 사용하여 일치하는 내부 및 외부 URL을 갖거나 사용자의 디바이스에 내 앱 보안 로그인 확장을 설치해야 합니다. 이 확장은 적절한 애플리케이션 프록시 서비스로 자동으로 리디렉션됩니다. 확장을 설치하려면 [내 앱 보안 로그인 확장](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510#download-and-install-the-my-apps-secure-sign-in-extension)을 참조하세요.
     
 ## <a name="test-your-app"></a>앱 테스트
 

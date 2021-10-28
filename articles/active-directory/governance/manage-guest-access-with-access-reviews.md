@@ -16,12 +16,12 @@ ms.date: 4/16/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d07e287214e911f278450f645a6873ffe638f32b
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: 9f0ab3a8540a4b2c5050026c78de04796cbbd355
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110652603"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124823066"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용하여 게스트 액세스 관리
 
@@ -31,7 +31,7 @@ Azure AD(Azure Active Directory)를 사용하면 [Azure AD B2B 기능](../extern
 또한 게스트 사용자에게 적절한 액세스 권한을 쉽게 부여할 수도 있습니다. 게스트 본인 또는 의사 결정자에게 액세스 검토에 참여하고 게스트 액세스 권한을 다시 인증(또는 증명)하도록 요청할 수 있습니다. 검토자는 Azure AD에서의 제안 사항을 기반으로 각 사용자의 지속적인 액세스 요구 사항에 대한 입력을 제공할 수 있습니다. 액세스 검토가 완료되면 변경 사항을 적용하거나 액세스가 더 이상 필요 없는 게스트의 액세스를 제거할 수 있습니다.
 
 > [!NOTE]
-> 이 문서에서는 게스트 사용자의 액세스 검토에 중점을 둡니다. 게스트 뿐 아니라 모든 사용자의 액세스를 검토하려는 경우 [액세스 검토를 사용하여 사용자 액세스 관리](manage-user-access-with-access-reviews.md)를 참조하세요. 전역 관리자와 같은 관리 역할의 사용자의 구성원 자격을 검토하려면 [Azure AD Privileged Identity Management에서 액세스 검토를 시작하는 방법](../privileged-identity-management/pim-how-to-start-security-review.md)을 참조하세요.
+> 이 문서에서는 게스트 사용자의 액세스 검토에 중점을 둡니다. 게스트 뿐 아니라 모든 사용자의 액세스를 검토하려는 경우 [액세스 검토를 사용하여 사용자 액세스 관리](manage-user-access-with-access-reviews.md)를 참조하세요. 전역 관리자와 같은 관리 역할의 사용자의 구성원 자격을 검토하려면 [Azure AD Privileged Identity Management에서 액세스 검토를 시작하는 방법](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

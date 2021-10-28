@@ -9,12 +9,12 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: e3e4add97b63dc7ed6e375f90eb3d5d48a81ffef
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 0164d0ed578ea3f20392f333408553fa60f4d165
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123038995"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238589"
 ---
 # <a name="tutorial-develop-iot-edge-modules-using-windows-containers"></a>자습서: Windows 컨테이너를 사용하여 IoT Edge 모듈 개발
 
@@ -49,7 +49,7 @@ Visual Studio를 사용하여 IoT Edge를 실행하는 코드를 개발하고 Wi
 
 Windows의 Azure IoT Edge 디바이스:
 
-* [Windows 컨테이너를 사용하여 Azure IoT Edge를 설치하고 관리](how-to-install-iot-edge-windows-on-windows.md)합니다.
+* [Windows 컨테이너를 사용하여 Azure IoT Edge를 설치하고 관리](how-to-provision-single-device-windows-symmetric.md)합니다.
 * 개발 머신에서 IoT Edge를 실행하지 않고, 가능한 한 별도의 디바이스를 사용하는 것이 좋습니다. 이와 같이 개발 머신과 IoT Edge 디바이스를 구분하면 실제 배포 시나리오를 정확히 반영할 수 있고 개념 차이를 유지하는 데 도움이 됩니다.
 
 클라우드 리소스:

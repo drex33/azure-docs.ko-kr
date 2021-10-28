@@ -4,13 +4,13 @@ metadata:
   description: 이 문서에서는 다른 곳에서 다루지 않은 Apache Kafka 클라이언트에 대한 Azure Event Hubs 지원과 관련된 질문과 대답을 제공합니다.
   ms.topic: article
   ms.service: event-hubs
-  ms.date: 06/23/2020
-  ms.openlocfilehash: 662b74ac21e0b87c21c5d827377dad945c18d775
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
-  ms.translationtype: HT
+  ms.date: 09/20/2021
+  ms.openlocfilehash: d42b82273ff7f74c1987391ee9fe9c0a189237e6
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+  ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122538366"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "130555846"
 title: 질문과 대답 - Apache Kafka용 Event Hubs
 summary: 이 문서에서는 Apache Kafka용 Event Hubs로 마이그레이션하는 방법과 관련된 몇 가지 질문과 대답을 제공합니다.
 sections:

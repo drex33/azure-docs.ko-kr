@@ -3,21 +3,21 @@ title: 감사 로그 액세스 및 검토
 titleSuffix: Azure AD B2C
 description: Azure AD B2C 감사 로그를 프로그래밍 방식으로 Azure Portal에서 액세스하는 방법
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.date: 02/20/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 04d5a989fcaf3cef3eea3b782842fb3255d4b317
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 16aae510920216a433e985654ac98b4a4a741ba5
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98661105"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130043627"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Azure AD B2C 감사 로그 액세스
 

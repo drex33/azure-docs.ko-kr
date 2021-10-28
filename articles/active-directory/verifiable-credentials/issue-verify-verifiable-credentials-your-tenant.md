@@ -3,19 +3,20 @@ title: 자습서 - Azure 테넌트를 사용하여 확인 가능한 자격 증�
 description: Azure 테넌트에서 작동하도록 확인 가능한 자격 증명 코드 샘플 변경
 documentationCenter: ''
 author: barclayn
-manager: daveba
+manager: karenh444
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 07/20/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: c028e00ac52179ef6130ed01ea648ec9b82385f0
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3b2c4e49e7d7b892b581876918152acc4bbe6aa3
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114448103"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130006739"
 ---
 # <a name="tutorial---issue-and-verify-verifiable-credentials-using-your-tenant-preview"></a>자습서 - 테넌트를 사용하여 확인 가능한 자격 증명 발급 및 확인(미리 보기)
 

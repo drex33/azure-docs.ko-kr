@@ -8,15 +8,15 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 1/17/2021
+ms.date: 09/20/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: b817cfc347ee79ff7c9cbb4124e3f2b7e4d2b7ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc8bc67ca2fd7a023b68f6aa2e21527e26281dd3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101644258"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588431"
 ---
 # <a name="tutorial-configure-keyless-with-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 Keyless 구성하기
 
@@ -26,11 +26,11 @@ Keyless의 솔루션인 **Keyless Zero-Knowledge Biometric(ZKB™)** 은 고객 
 
 ## <a name="pre-requisites"></a>필수 구성 요소
 
-시작을 위해 필요한 사항:
+시작하려면 다음이 필요합니다.
 
 - Azure 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 
-- [Azure AD B2C 테넌트](./tutorial-create-tenant.md) 테넌트는 Azure 구독에 연결되어야 합니다.
+- [Azure AD B2C 테넌트](./tutorial-create-tenant.md). 테넌트는 Azure 구독에 연결되어야 합니다.
 
 - Keyless 클라우드 테넌트, 체험 [평가판 계정](https://keyless.io/go) 받기
 
@@ -65,23 +65,19 @@ Keyless 통합에는 다음 구성 요소가 포함됩니다.
 새 ID 공급자를 추가하려면 다음 단계를 따르세요.
 
 1. Azure AD B2C 테넌트의 전역 관리자로 **[Azure Portal](https://portal.azure.com/#home)** 에 로그인합니다.
-
-2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
-
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
-
-4. **대시보드** > **Azure Active Directory B2C** >  **ID 공급자** 로 이동합니다.
-
-5. **ID 공급자** 를 선택합니다.
-
-6. **추가** 를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+1. **대시보드** > **Azure Active Directory B2C** >  **ID 공급자** 로 이동합니다.
+1. **ID 공급자** 를 선택합니다.
+1. **추가** 를 선택합니다.
 
 ### <a name="configure-an-identity-provider"></a>ID 공급자 구성
 
 ID 공급자를 구성하려면 다음 단계를 따르세요.
 
 1. **ID 공급자 유형** > **OpenID 연결(미리 보기)** 를 선택합니다.
-2. 양식을 작성하여 ID 공급자를 설정합니다.
+1. 양식을 작성하여 ID 공급자를 설정합니다.
 
    |속성 | 값 |
    |:-----| :-----------|
@@ -93,11 +89,11 @@ ID 공급자를 구성하려면 다음 단계를 따르세요.
    | 응답 형식 | id_token |
    | 응답 모드 | form_post|
 
-3. **확인** 을 선택합니다.
+1. **확인** 을 선택합니다.
 
-4. **이 ID 공급자의 클레임 매핑** 을 선택합니다.
+1. **이 ID 공급자의 클레임 매핑** 을 선택합니다.
 
-5. 양식을 작성하여 ID 공급자를 매핑합니다.
+1. 양식을 작성하여 ID 공급자를 매핑합니다.
 
    |속성 | 값 |
    |:-----| :-----------|
@@ -105,7 +101,7 @@ ID 공급자를 구성하려면 다음 단계를 따르세요.
    | 표시 이름 | 원본 구독 |
    | 응답 모드 | 원본 구독 |
 
-6. **저장** 을 선택하여 새 OIDC(Open ID 연결) ID 공급자에 대한 설정을 완료합니다.
+1. **저장** 을 선택하여 새 OIDC(Open ID 연결) ID 공급자에 대한 설정을 완료합니다.
 
 ### <a name="create-a-user-flow-policy"></a>사용자 흐름 정책 만들기
 
@@ -155,8 +151,8 @@ ID 공급자를 구성하려면 다음 단계를 따르세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 문서를 검토하세요.
+자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C에서 사용자 지정 정책 시작](./custom-policy-get-started.md?tabs=applications)
+- [Azure AD B2C의 사용자 지정 정책 시작하기](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

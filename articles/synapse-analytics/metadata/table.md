@@ -10,12 +10,12 @@ author: ma77b
 ms.author: maburd
 ms.reviewer: wiassaf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7dd442c981b4a3d9ac04716d123269457f24bf9e
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 7bb66b9fedb0f1e906a522f393ffde32ee9e2e3e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130002779"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130263176"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Azure Synapse Analytics 공유 메타데이터 테이블
 
@@ -69,7 +69,7 @@ Spark 테이블은 Synapse SQL 엔진과 다른 데이터 형식을 제공합니
 |---|---|---|
 | `LongType`, `long`, `bigint`                | `bigint`              | **Spark**: *LongType* 은 8바이트 부호 있는 정수를 나타냅니다.<BR>**SQL**: [int, bigint, smallint 및 tinyint](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)를 참조하세요.|
 | `BooleanType`, `boolean`                    | `bit`(Parquet), `varchar(6)`(CSV)  | **Spark**: 부울.<BR>**SQL**: [/sql/t-sql/data-types/bit-transact-sql)을 참조하세요.|
-| `DecimalType`, `decimal`, `dec`, `numeric`  | `decimal`             | **Spark**: *DecimalType* 은 임의 전체 자릿수의 부호 있는 10진수를 나타냅니다. java.math.BigDecimal에 의해 내부적으로 지원됩니다. BigDecimal은 소수 자릿수가 아닌 임의 전체 자릿수의 정수 값과 32비트 정수 소수 자릿수로 구성됩니다. <br> **SQL**: 고정 전체 자릿수 및 소수 자릿수의 숫자입니다. 최대 전체 자릿수를 사용하는 경우 유효한 값은 - 10^38 + 1부터 10^38 - 1까지입니다. 국제 표준화 기구에서 정한 decimal의 동의어는 dec 및 dec(p, s) 입니다. numeric은 decimal과 기능적으로 동일합니다. [decimal 및 numeric](/sql/t-sql/data-types/decimal-and-numeric-transact-sql])을 참조하세요. |
+| `DecimalType`, `decimal`, `dec`, `numeric`  | `decimal`             | **Spark**: *DecimalType* 은 임의 전체 자릿수의 부호 있는 10진수를 나타냅니다. java.math.BigDecimal에 의해 내부적으로 지원됩니다. BigDecimal은 소수 자릿수가 아닌 임의 전체 자릿수의 정수 값과 32비트 정수 소수 자릿수로 구성됩니다. <br> **SQL**: 고정 전체 자릿수 및 소수 자릿수의 숫자입니다. 최대 전체 자릿수를 사용하는 경우 유효한 값은 - 10^38 + 1부터 10^38 - 1까지입니다. 국제 표준화 기구에서 정한 decimal의 동의어는 dec 및 dec(p, s) 입니다. numeric은 decimal과 기능적으로 동일합니다. [decimal 및 numeric](/sql/t-sql/data-types/decimal-and-numeric-transact-sql)을 참조하세요. |
 | `IntegerType`, `Integer`, `int`             | `int`                 | **Spark**: *IntegerType* 은 4바이트 부호 있는 정수를 나타냅니다. <BR>**SQL**: [int, bigint, smallint 및 tinyint](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)를 참조하세요.|
 | `ByteType`, `Byte`, `tinyint`               | `smallint`            | **Spark**: *ByteType* 은 1바이트 부호 있는 정수[-128~127]를 나타내고, ShortType은 2바이트 부호 있는 정수[-32768~32767]를 나타냅니다. <br> **SQL**: Tinyint는 1바이트 부호 있는 정수[0, 255]를 나타내고, smallint는 2바이트 부호 있는 정수[-32768, 32767]를 나타냅니다. [int, bigint, smallint 및 tinyint](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)를 참조하세요.|
 | `ShortType`, `Short`, `smallint`            | `smallint`            | 위와 동일합니다. |
@@ -197,5 +197,3 @@ id | name | birthdate
 
 - [Azure Synapse Analytics의 공유 메타데이터에 대한 자세한 정보](overview.md)
 - [Azure Synapse Analytics의 공유 메타데이터 데이터베이스에 대한 자세한 정보](database.md)
-
-

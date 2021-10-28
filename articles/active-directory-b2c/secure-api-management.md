@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C를 사용하여 Azure API Management API 보호
 description: Azure Active Directory B2C에서 발급한 액세스 토큰을 사용하여 Azure API Management API 엔드포인트를 보호하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/30/2020
-ms.author: mimart
+ms.date: 09/20/2021
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 4d1aab07514f4a42d011cf75a9a22b34246a5653
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d5d32f9a95c555cc69878d10e2c292ffaba4efda
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566684"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130035356"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Azure AD B2C를 사용하여 Azure API Management API 보호
 
@@ -40,7 +40,8 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하려면 새로운 통합
 # <a name="app-registrations"></a>[앱 등록](#tab/app-reg-ga/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. 왼쪽 창에서 **Azure AD B2C** 를 선택합니다. 또는 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택할 수 있습니다.
 1. **앱 등록** 을 선택하고 **소유한 애플리케이션** 탭을 선택합니다.
 1. *webapp1* 또는 이전에 만든 다른 애플리케이션에 대한 **애플리케이션(클라이언트) ID** 열의 값을 기록해 둡니다.
@@ -48,7 +49,8 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하려면 새로운 통합
 # <a name="applications-legacy"></a>[애플리케이션(레거시)](#tab/applications-legacy/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. 왼쪽 창에서 **Azure AD B2C** 를 선택합니다. 또는 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택할 수 있습니다.
 1. **관리** 아래에서 **애플리케이션(레거시)** 를 선택합니다.
 1. *webapp1* 또는 이전에 만든 다른 애플리케이션에 대한 **애플리케이션 ID** 열의 값을 기록해 둡니다.

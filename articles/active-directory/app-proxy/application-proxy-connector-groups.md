@@ -3,20 +3,20 @@ title: 커넥터 그룹을 통해 별도의 네트워크에 앱 게시 - Azure A
 description: Azure Active Directory 애플리케이션 프록시에서 커넥터 그룹을 만들고 관리하는 방법에 대해 설명합니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: f6ddda8b777424f526d74c9a6115fc57eded40a2
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.reviewer: ashishj
+ms.openlocfilehash: 175b908d9ca9baf40fbb5ff17dc3750d715433df
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108187065"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129989706"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>커넥터 그룹을 사용하여 별도의 네트워크 및 위치에서 애플리케이션 게시
 

@@ -3,12 +3,12 @@ title: 지역 코드 매핑
 description: 해당 지역과 매핑된 지역 코드를 알아봅니다.
 ms.topic: sample
 ms.date: 09/17/2021
-ms.openlocfilehash: a214d45a974308422cb57840c3eb04d55c53c5b2
-ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.openlocfilehash: 1192336476d25f5c0cc180e67d22c2db18015b36
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128709121"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130264563"
 ---
 # <a name="geo-code-mapping"></a>지역 코드 매핑
 
@@ -152,4 +152,4 @@ ms.locfileid: "128709121"
 
 ## <a name="next-steps"></a>다음 단계
 
-지역 코드를 사용하여 Azure Backup 프라이빗 엔드포인트의 DNS 영역을 만들고 추가하는 방법을 [알아봅니다](/azure/backup/private-endpoints).
+지역 코드를 사용하여 Azure Backup 프라이빗 엔드포인트의 DNS 영역을 만들고 추가하는 방법을 [알아봅니다](../private-endpoints.md).

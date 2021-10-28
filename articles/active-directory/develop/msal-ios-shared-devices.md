@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 3353d87291492563acbd3a85bbae266c711377f2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 92d52bcdd990d255a41c151b2312cc2b6494bd45
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105611806"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124787190"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>iOS 디바이스의 공유 디바이스 모드
 
@@ -31,7 +31,7 @@ ms.locfileid: "105611806"
 
 또한 공유 디바이스 모드는 디바이스의 Microsoft ID 지원 관리 기능을 제공 합니다.
 
-이 기능은 [Microsoft Authenticator 앱](../user-help/user-help-auth-app-overview.md)을 사용하여 디바이스의 사용자를 관리하고 [Apple 디바이스용 Microsoft Enterprise SSO 플러그 인](apple-sso-plugin.md)을 배포합니다.
+이 기능은 [Microsoft Authenticator 앱](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)을 사용하여 디바이스의 사용자를 관리하고 [Apple 디바이스용 Microsoft Enterprise SSO 플러그 인](apple-sso-plugin.md)을 배포합니다.
 
 ## <a name="create-a-shared-device-mode-app"></a>공유 디바이스 모드 앱 만들기
 
@@ -41,7 +41,7 @@ ms.locfileid: "105611806"
 
 1. **디바이스 관리자** 는 조직의 디바이스를 관리하는 Microsoft Intune과 같은 MDM(모바일 디바이스 관리) 공급자를 사용하여 디바이스를 공유할 준비를 합니다. MDM은 Microsoft Authenticator 앱을 디바이스에 푸시하고 디바이스에 대한 프로필 업데이트를 통해 각 디바이스에 대해 "공유 모드"를 설정합니다. 이 공유 모드 설정은 디바이스에서 지원되는 앱의 동작을 변경합니다. MDM 공급자의 이 구성은 디바이스에 대한 공유 디바이스 모드를 설정하고 공유 디바이스 모드에 필요한 [Apple 디바이스용 Microsoft Enterprise SSO 플러그 인](apple-sso-plugin.md)을 사용하도록 설정합니다.
 
-1. [**공개 미리 보기 중에만 필요**] [클라우드 디바이스 관리자](../roles/permissions-reference.md#cloud-device-administrator) 역할이 있는 사용자는 [Microsoft Authenticator 앱](../user-help/user-help-auth-app-overview.md)을 시작하고 조직에 디바이스를 연결해야 합니다.
+1. [**공개 미리 보기 중에만 필요**] [클라우드 디바이스 관리자](../roles/permissions-reference.md#cloud-device-administrator) 역할이 있는 사용자는 [Microsoft Authenticator 앱](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)을 시작하고 조직에 디바이스를 연결해야 합니다.
 
     Azure Portal에서 조직 역할의 멤버 자격 구성하기: **Azure Active Directory** > **역할 및 관리자** > **클라우드 디바이스 관리자**
 

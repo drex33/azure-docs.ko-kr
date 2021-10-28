@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c98269f9851272e8caa9b26ae0c57ed13e9a99f2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 327d04109be26e14f8fedc46e88266e51e733455
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89049131"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615418"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>조건부 액세스: 규격 디바이스 필요
 
@@ -37,7 +37,7 @@ Microsoft Intune을 배포한 조직은 디바이스에서 반환된 정보를 �
 1. **Azure Active Directory** > **Security** > **조건부 액세스** 로 이동합니다.
 1. **새 정책** 을 선택합니다.
 1. 정책에 이름을 지정합니다. 조직에서 정책 이름에 의미 있는 표준을 만드는 것이 좋습니다.
-1. **할당** 에서 **사용자 및 그룹** 을 선택합니다.
+1. **할당** 아래에서 **사용자 및 그룹** 을 선택합니다.
    1. **포함** 에서 **모든 사용자** 를 선택합니다.
    1. **제외** 에서 **사용자 및 그룹** 을 선택하고 조직의 응급 액세스 또는 비상 계정을 선택합니다. 
    1. **완료** 를 선택합니다.
@@ -61,7 +61,7 @@ Windows 7, iOS, Android, macOS 및 일부 타사 웹 브라우저에서 Azure AD
 
 [조건부 액세스 일반 정책](concept-conditional-access-policy-common.md)
 
-[조건부 액세스 보고 전용 모드를 사용하여 영향 확인](howto-conditional-access-insights-reporting.md)
+[조건부 액세스 보고서 전용 모드를 사용하여 영향 확인](howto-conditional-access-insights-reporting.md)
 
 [조건부 액세스 What If 도구를 사용하여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)
 

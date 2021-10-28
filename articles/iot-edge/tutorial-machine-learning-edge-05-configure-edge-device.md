@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp
-ms.openlocfilehash: 445163b0d33f404845a66b7d885815d6336dac46
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 103a3004f6bf4ec6e536d87b7fe72484f2bff974
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121726366"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130259115"
 ---
 # <a name="tutorial-configure-an-azure-iot-edge-device"></a>자습서: Azure IoT Edge 디바이스 구성
 
@@ -136,13 +136,13 @@ Azure Portal 또는 Azure CLI를 사용하여 가상 머신을 배포할 수 있
 
 1. 새로 시작된 창에서 사용 가능한 양식 필드를 채웁니다.
 
-   | 필드 | Description |
+   | 필드 | 설명 |
    | - | - |
    | **구독** | 가상 머신을 배포할 활성 Azure 구독입니다. |
    | **리소스 그룹** | 가상 머신 및 연결되는 해당 리소스를 포함할 기존 리소스 그룹 또는 새로 만든 리소스 그룹입니다. |
    | **DNS 레이블 접두사** | 가상 머신의 호스트 이름을 접두사로 지정하는 데 사용되는 선택 항목의 필수 값입니다. |
    | **관리자 사용자 이름** | 배포에 대한 루트 권한이 제공되는 사용자 이름입니다. |
-   | **디바이스 연결 문자열** | 의도한 [IoT Hub](../iot-hub/about-iot-hub.md) 내에서 만들어진 디바이스에 대한 [디바이스 연결 문자열](./how-to-register-device.md)입니다. |
+   | **디바이스 연결 문자열** | 의도한 [IoT Hub](../iot-hub/about-iot-hub.md) 내에서 만들어진 디바이스에 대한 [디바이스 연결 문자열](./how-to-provision-single-device-linux-symmetric.md#view-registered-devices-and-retrieve-provisioning-information)입니다. |
    | **VM 크기** | 배포할 가상 머신의 [크기](../cloud-services/cloud-services-sizes-specs.md)입니다.
    | **Ubuntu OS 버전** | 기본 가상 머신에 설치할 Ubuntu OS의 버전입니다. |
    | **위치** | 가상 머신을 배포할 [지리적 지역](https://azure.microsoft.com/global-infrastructure/locations/)입니다. 이 값은 기본적으로 선택한 리소스 그룹의 위치로 설정됩니다. |

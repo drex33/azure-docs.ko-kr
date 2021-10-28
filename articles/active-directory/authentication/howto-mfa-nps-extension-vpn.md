@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fd16df2d8f1dfff4f5a7bd1075a63cf9b0ec78b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1fc542d019e34848cd5fb907892b487f25383075
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535906"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124773857"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-ad-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure용 네트워크 정책 서버 확장을 사용하여 VPN 인프라를 Azure AD MFA와 통합
 
@@ -301,7 +301,7 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
 
 ## <a name="configure-multi-factor-authentication"></a>Multi-Factor Authentication 구성
 
-Multi-Factor Authentication에 대한 사용자를 구성할 때 도움이 필요한 경우 [클라우드 기반 Azure AD Multi-Factor Authentication 배포 계획](howto-mfa-getstarted.md#plan-conditional-access-policies) 및 [2단계 인증에 내 계정 설정](../user-help/multi-factor-authentication-end-user-first-time.md) 문서를 참조하세요.
+Multi-Factor Authentication에 대한 사용자를 구성할 때 도움이 필요한 경우 [클라우드 기반 Azure AD Multi-Factor Authentication 배포 계획](howto-mfa-getstarted.md#plan-conditional-access-policies) 및 [2단계 인증에 내 계정 설정](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) 문서를 참조하세요.
 
 ## <a name="install-and-configure-the-nps-extension"></a>NPS 확장 설치 및 구성
 

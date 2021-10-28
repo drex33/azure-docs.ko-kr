@@ -3,20 +3,20 @@ title: Azure AD B2C에서 지원하는 애플리케이션 형식
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에 사용할 수 있는 애플리케이션 형식을 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/17/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 6e4f54f736a47cc6b351ff02b8fb7f8bad1c5c56
-ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
+ms.openlocfilehash: fa2d193055bdeb696c5af360a6c8bb51ca1078ed
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112552697"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038007"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Active Directory B2C에서 사용할 수 있는 애플리케이션 형식
  

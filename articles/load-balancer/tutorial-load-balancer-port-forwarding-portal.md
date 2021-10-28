@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 8/26/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 0d36be9f0ba0fc9e1b29e3fdaf0b3f9857db2204
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 73dba00fa24eb42c32b0991381ad90a93f038d95
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123112140"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223275"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Load Balancer에서 포트 전달 구성
 
@@ -178,13 +178,13 @@ ms.locfileid: "123112140"
 8. **IP 형식** 으로 **IP 주소** 를 선택합니다.
 
     > [!NOTE]
-    > IP 접두사에 대한 자세한 내용은 [Azure 공용 IP 주소 접두사](../virtual-network/public-ip-address-prefix.md)를 참조하세요.
+    > IP 접두사에 대한 자세한 내용은 [Azure 공용 IP 주소 접두사](../virtual-network/ip-services/public-ip-address-prefix.md)를 참조하세요.
 
-9. **공용 IP 주소** 에 **새로 만들기** 를 선택합니다.
+9. **공용 IP 주소** 에서 **새로 만들기** 를 선택합니다.
 
 10. **공용 IP 주소 추가** 에서 **이름** 에 **myPublicIP** 를 입력합니다.
 
-11. **가용성 영역** 에 **영역 중복** 을 선택합니다.
+11. **가용성 영역** 에서 **영역 중복** 을 선택합니다.
 
     > [!NOTE]
     > [가용성 영역](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)이 있는 지역에서는 영역 없음(기본 옵션), 특정 영역 또는 영역 중복을 선택하는 옵션이 있습니다. 선택은 특정 도메인 오류 요구 사항에 따라 달라집니다. 가용성 영역이 없는 지역에서는 이 필드가 표시되지 않습니다. </br> 가용성 영역에 대한 자세한 내용은 [가용성 영역 개요](../availability-zones/az-overview.md)를 참조하세요.

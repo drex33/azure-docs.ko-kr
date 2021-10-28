@@ -13,12 +13,12 @@ ms.date: 04/08/2021
 ms.author: ryanwi
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 66e9817c6d3bbcd199418b9afd78eda016c5f291
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: ac1fa8db8d153365f990c4d3eff120a254ed8096
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107363889"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129060634"
 ---
 # <a name="configure-token-lifetime-policies-preview"></a>토큰 수명 정책 구성(미리 보기)
 Microsoft ID 플랫폼에서 발급된 액세스, SAML 또는 ID 토큰의 수명을 지정할 수 있습니다. 조직의 모든 앱, 다중 테넌트(다중 조직) 애플리케이션 또는 조직의 특정 서비스 주체에 대해 토큰 수명을 구성할 수 있습니다. 자세한 내용은 [구성 가능한 토큰 수명](active-directory-configurable-token-lifetimes.md)을 참조하세요.
@@ -94,11 +94,9 @@ Get-AzureADPolicyAppliedObject -id 1a37dad8-5da7-4cc8-87c7-efbc0326cf20
 # Uninstall the AzureAD Module
 UnInstall-Module AzureAD
 
-# Re-install the AzureAD Module
-Install-Module AzureAD
-
 # Install the AzureAD Preview Module adding the -AllowClobber
 Install-Module AzureADPreview -AllowClobber
+Note: You cannot install both the preview and the GA version on the same computer at the same time. 
 
 Connect-AzureAD
 Get-AzureADPolicy -All $true

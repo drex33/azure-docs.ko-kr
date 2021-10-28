@@ -3,7 +3,7 @@ title: Microsoft Graph API를 사용하여 프로비저닝 구성
 description: Microsoft Graph API로 자동 프로비저닝의 구성을 자동화하여 시간을 절약하는 방법을 알아보세요.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 06/03/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 4bede3a7f5c39f8665d47984fb91cf2503842cae
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b5e9fda1932c367555ff54c98c0079332d274528
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528943"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129991853"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>Microsoft Graph API를 사용하여 프로비저닝 구성
 

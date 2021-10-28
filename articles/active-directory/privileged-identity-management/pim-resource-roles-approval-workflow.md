@@ -4,23 +4,24 @@ description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 096da0547806680f62b569f7c7809a7bbb04cb86
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42940c078424f86ed8e3bba43232edd180c6a2c8
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84742082"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129669381"
 ---
 # <a name="approve-or-deny-requests-for-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할에 대한 요청 승인 또는 거부
 
@@ -38,7 +39,7 @@ Azure 리소스 역할 요청이 승인 보류 중일 때는 위임된 승인자
 
 1. **요청 승인** 을 선택합니다.
 
-    ![Azure 리소스 - 검토할 요청을 표시하는 Azure 리소스 페이지](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
+    ![요청 승인 - 검토할 요청이 표시되는 Azure 리소스 페이지](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
 
     **역할 활성화 요청** 섹션에서는 사용자의 승인이 보류 중인 요청 목록이 표시됩니다.
 
@@ -68,8 +69,8 @@ Azure 리소스 역할 요청이 승인 보류 중일 때는 위임된 승인자
 
 워크플로 알림에 대한 일부 정보는 다음과 같습니다.
 
-- 역할에 대한 요청이 해당 검토를 보류할 때 승인자는 메일을 통해 알림을 받습니다. 메일 알림에는 승인자가 승인 또는 거부할 수 있는 요청에 대한 직접 링크가 포함되어 있습니다.
-- 요청은 승인 또는 거부하는 첫 번째 승인자에 의해 해결됩니다.
+- 역할에 대한 요청이 해당 검토를 보류하는 경우 승인자는 메일을 통해 알림을 받습니다. 메일 알림에는 승인자가 승인 또는 거부할 수 있는 요청에 대한 직접 링크가 포함되어 있습니다.
+- 요청은 승인하거나 거부하는 첫 번째 승인자가 해결합니다.
 - 승인자가 요청에 응답하면 모든 승인자에게 해당 작업에 대한 알림이 표시됩니다.
 - 승인된 사용자가 해당 역할에서 활성화될 때 리소스 관리자에게 알림이 표시됩니다.
 

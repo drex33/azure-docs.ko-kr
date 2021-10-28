@@ -11,12 +11,12 @@ ms.date: 10/07/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-may-2021
 keywords: 문서 처리
-ms.openlocfilehash: 9c009a8d6d41d183596e5a28b1bd18f2e265ba04
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: c3b1037d4263a6565f76ffcf648e77bb692f7f34
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129716855"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265786"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -213,7 +213,7 @@ Form Recognizer의 미리 빌드된 모델을 사용하여 청구서, 판매 영
 
 왼쪽 창에서 [학습] 아이콘을 선택하여 [학습] 페이지를 엽니다. 그런 다음, **학습** 단추를 선택하여 모델 학습을 시작합니다. 학습 프로세스가 완료되면 다음 정보가 표시됩니다.
 
-* **모델 ID** - 만들어지고 학습된 모델의 ID입니다. 각 학습 호출은 고유한 ID를 사용하여 새 모델을 만듭니다. [REST API](./client-library.md?pivots=programming-language-rest-api) 또는 [클라이언트 라이브러리](./client-library.md)를 통해 예측 호출을 수행하려면 이 문자열이 필요하므로 안전한 위치에 복사합니다.
+* **모델 ID** - 만들어지고 학습된 모델의 ID입니다. 각 학습 호출은 고유한 ID를 사용하여 새 모델을 만듭니다. [REST API](./try-sdk-rest-api.md?pivots=programming-language-rest-api) 또는 [클라이언트 라이브러리](./try-sdk-rest-api.md)를 통해 예측 호출을 수행하려면 이 문자열이 필요하므로 안전한 위치에 복사합니다.
 * **평균 정확도** - 모델의 평균 정확도입니다. 레이블을 추가 양식에 지정하고 새 모델을 만들기 위해 다시 학습시키면 모델 정확도를 향상시킬 수 있습니다. 먼저 결과를 분석하고 테스트하는 5개의 양식에 레이블을 지정한 후 필요하다면 그에 따라 양식을 더 추가하는 것이 좋습니다.
 * 태그 목록 및 태그당 예상 정확도
 
@@ -232,4 +232,4 @@ Form Recognizer의 미리 빌드된 모델을 사용하여 청구서, 판매 영
 이 빠른 시작에서는 Form Recognizer 샘플 도구를 사용하여 레이아웃을 사용해 보고, 사용자 지정 모델을 미리 빌드 및 학습하고, 레이블이 수동으로 지정된 데이터로 사용자 지정 양식을 분석하는 방법에 대해 알아보았습니다. 이제 클라이언트 라이브러리 SDK 또는 REST API로 Form Recognizer를 사용해 볼 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [Form Recognizer 클라이언트 라이브러리 SDK 및 REST API 빠른 시작 살펴보기](client-library.md)
+> [Form Recognizer 클라이언트 라이브러리 SDK 및 REST API 빠른 시작 살펴보기](./try-sdk-rest-api.md)

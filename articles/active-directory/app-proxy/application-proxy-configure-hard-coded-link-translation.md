@@ -3,20 +3,20 @@ title: Azure Active Directory 애플리케이션 프록시의 링크 및 URL 변
 description: Azure Active Directory 애플리케이션 프록시를 통하여 게시된 앱에 대하여 하드 코드된 링크를 리디렉션하는 방법을 알아봅니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: 32fcbcd7c932eee36f5974b369d41e551c861ebf
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.reviewer: ashishj
+ms.openlocfilehash: 8d86a37d0bd15eae55cbe2dce10c40ce77d99720
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108187218"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990029"
 ---
 # <a name="redirect-hard-coded-links-for-apps-published-with-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시를 통하여 게시된 앱에 대하여 하드 코드된 링크를 리디렉션
 
@@ -57,7 +57,7 @@ MyApps 브라우저 확장을 사용하여 애플리케이션 프록시로 게�
 
 이 기능을 사용하려면 사용자가 확장을 다운로드하고 로그인해야 합니다. 관리자 또는 사용자에게 필요한 다른 구성은 없습니다. 
 
-해당 옵션 구성 방법 및 자세한 내용은 [MyApps 브라우저 확장](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) 설명서를 참조하세요.
+해당 옵션 구성 방법 및 자세한 내용은 [MyApps 브라우저 확장](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510#download-and-install-the-my-apps-secure-sign-in-extension) 설명서를 참조하세요.
 
 > [!NOTE]
 > MyApps 브라우저 확장은 와일드카드 URL에 대하여서는 링크 변환을 지원하지 않습니다.
@@ -142,10 +142,6 @@ Benefits 앱에 대해 링크 변환을 사용하도록 설정하면 Expenses �
 4. **저장** 을 선택하여 변경 내용을 적용합니다.
 
 이제 사용자가 이 애플리케이션에 액세스하면 프록시는 테넌트에서 애플리케이션 프록시를 통해 게시된 내부 URL을 자동으로 검사합니다.
-
-## <a name="send-feedback"></a>피드백 보내기
-
-이 기능이 모든 앱에서 작동하도록 하는 데 도움이 되도록 피드백을 보내 주세요. HTML 및 CSS에서 30개가 넘는 태그를 검색합니다. 생성된 링크 중 변환되지 않는 예가 있으면 [애플리케이션 프록시 피드백](mailto:aadapfeedback@microsoft.com)으로 코드 조각을 보내 주세요. 
 
 ## <a name="next-steps"></a>다음 단계
 동일한 내부 및 외부 URL을 사용하도록 [Azure AD 애플리케이션 프록시에서 사용자 지정 도메인 사용](application-proxy-configure-custom-domain.md)

@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1b944480ce7c09676b65216da4c74f4ffdacdcf
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 3091afbab67f65a1850bb4ffbd73487d0e0327c9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112292342"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124742559"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Azure AD 권한 관리의 일반적인 시나리오
 
@@ -40,7 +40,7 @@ ms.locfileid: "112292342"
 
 ### <a name="catalog-owner-delegate-management-of-resources"></a>카탈로그 소유자: 리소스 관리 위임
 
-1. [카탈로그에 공동 소유자 추가](entitlement-management-catalog-create.md#add-additional-catalog-owners)
+1. [카탈로그에 공동 소유자 추가](entitlement-management-catalog-create.md#add-more-catalog-owners)
 1. [카탈로그에 리소스 추가](entitlement-management-catalog-create.md#add-resources-to-a-catalog)
 
 ### <a name="catalog-owner-delegate-management-of-access-packages"></a>카탈로그 소유자: 액세스 패키지의 관리 위임

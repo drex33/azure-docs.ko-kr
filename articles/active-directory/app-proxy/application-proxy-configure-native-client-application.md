@@ -10,13 +10,13 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: 9208a36e3fa863dc7c9577f93f4614d8c4c1839f
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.reviewer: ashishj
+ms.openlocfilehash: bf6afd93833bb8e81046f4bc84d53203920d4733
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108187186"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129989896"
 ---
 # <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>네이티브 클라이언트 앱이 프록시 애플리케이션과 상호 작용할 수 있도록 설정하는 방법
 

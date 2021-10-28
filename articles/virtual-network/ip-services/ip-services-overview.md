@@ -8,12 +8,12 @@ ms.subService: ip-services
 ms.topic: overview
 ms.date: 10/01/2021
 ms.custom: template-overview
-ms.openlocfilehash: 4215fb4682e29a06a7003e30ae53656e09f6f246
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 7b9c1eb8e1e0a067da2f0ed29762ef14ce365690
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129369646"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257693"
 ---
 # <a name="what-is-azure-virtual-network-ip-services"></a>Azure Virtual Network IP 서비스란?
 
@@ -45,7 +45,7 @@ IP 서비스는 다음으로 구성됩니다.
 * Azure Firewall
 * 베스천 호스트
 
-공용 IP 주소에 관한 자세한 내용은 [공용 IP 주소](../../virtual-network/public-ip-addresses.md)와 [Azure 공용 IP 주소 만들기, 변경 또는 삭제](../../virtual-network/virtual-network-public-ip-address.md)를 참조하세요.
+공용 IP 주소에 관한 자세한 내용은 [공용 IP 주소](./public-ip-addresses.md)와 [Azure 공용 IP 주소 만들기, 변경 또는 삭제](./virtual-network-public-ip-address.md)를 참조하세요.
 
 ## <a name="public-ip-address-prefixes"></a>공용 IP 주소 접두사
 
@@ -62,7 +62,7 @@ IP 서비스는 다음으로 구성됩니다.
 
 구독에서 만든 접두사 수에 대한 제한은 없습니다. 만든 범위의 수는 구독에 허용할 수 있는 정적 공용 IP 주소 수를 초과할 수 없습니다. 자세한 내용은 [Azure 제한](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.
 
-공용 IP 주소 접두사에 관한 자세한 내용은 [공용 IP 주소 접두사](../../virtual-network/public-ip-address-prefix.md)와 [Azure 공용 IP 주소 접두사 만들기, 변경 또는 삭제](../../virtual-network/manage-public-ip-address-prefix.md)를 참조하세요.
+공용 IP 주소 접두사에 관한 자세한 내용은 [공용 IP 주소 접두사](./public-ip-address-prefix.md)와 [Azure 공용 IP 주소 접두사 만들기, 변경 또는 삭제](./manage-public-ip-address-prefix.md)를 참조하세요.
 
 ## <a name="private-ip-addresses"></a>개인 IP 주소
 
@@ -75,7 +75,7 @@ IP 서비스는 다음으로 구성됩니다.
 * 애플리케이션 게이트웨이
 * 프라이빗 엔드포인트
 
-개인 IP 주소에 관한 자세한 내용은 [개인 IP 주소](../../virtual-network/private-ip-addresses.md)를 참조하세요.
+개인 IP 주소에 관한 자세한 내용은 [개인 IP 주소](./private-ip-addresses.md)를 참조하세요.
 
 ## <a name="routing-preference"></a>라우팅 기본 설정
 
@@ -87,7 +87,7 @@ Azure 라우팅 기본 설정을 사용하면 Azure와 인터넷 간의 트래�
 
 * **퍼블릭 인터넷(ISP 네트워크)** - 새 라우팅 옵션으로 인터넷 라우팅을 선택하면 Microsoft 글로벌 네트워크에서 이동을 최소화하고 전송 ISP 네트워크를 사용하여 트래픽을 라우팅합니다. 이 라우팅을 ‘핫 포테이토’ 라우팅이라고도 합니다.
 
-라우팅 기본 설정에 관한 자세한 내용은 [라우팅 기본 설정이란?](../../virtual-network/routing-preference-overview.md)을 참조하세요.
+라우팅 기본 설정에 관한 자세한 내용은 [라우팅 기본 설정이란?](./routing-preference-overview.md)을 참조하세요.
 
 ## <a name="routing-preference-unmetered"></a>무제한 라우팅 기본 설정
 
@@ -99,13 +99,13 @@ Azure의 원본에서 CDN 공급자에게 송신하는 네트워크 트래픽을
 
 * CDN 공급자와 Azure 원본 간의 직접 연결은 사이에 홉이 없기 때문에 최적의 성능을 제공합니다. 이 연결은 원본에서 데이터를 자주 가져오는 CDN 워크로드에 유용합니다.
 
-무제한 라우팅 기본 설정에 관한 자세한 내용은 [무제한 라우팅 기본 설정이란?](../../virtual-network/routing-preference-unmetered.md)을 참조하세요.
+무제한 라우팅 기본 설정에 관한 자세한 내용은 [무제한 라우팅 기본 설정이란?](./routing-preference-unmetered.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 IP 서비스 리소스 만들기를 시작합니다.
 
-- [Azure Portal을 사용하여 공용 IP 주소를 만듭니다](../../virtual-network/create-public-ip-portal.md).
-- [Azure Portal을 사용하여 공용 IP 주소 접두사를 만듭니다](../../virtual-network/create-public-ip-prefix-portal.md).
-- [Azure Portal을 사용하여 VM의 개인 IP 주소를 구성합니다](../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md).
-- [Azure Portal을 사용하여 공용 IP 주소의 라우팅 기본 설정을 구성합니다](../../virtual-network/routing-preference-portal.md).
+- [Azure Portal을 사용하여 공용 IP 주소를 만듭니다](./create-public-ip-portal.md).
+- [Azure Portal을 사용하여 공용 IP 주소 접두사를 만듭니다](./create-public-ip-prefix-portal.md).
+- [Azure Portal을 사용하여 VM의 개인 IP 주소를 구성합니다](./virtual-networks-static-private-ip-arm-pportal.md).
+- [Azure Portal을 사용하여 공용 IP 주소의 라우팅 기본 설정을 구성합니다](./routing-preference-portal.md).

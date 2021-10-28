@@ -12,13 +12,13 @@ metadata:
   author: WilliamDAssafMSFT
   ms.author: wiassaf
   ms.reviewer: 
-  ms.date: 07/01/2021
-  ms.openlocfilehash: 51c5c876a9564593aebb1969a123932f98a80b19
-  ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
-  ms.translationtype: HT
+  ms.date: 10/18/2021
+  ms.openlocfilehash: ab2e8f72a2bdd175b6b6f6d0729c86b79ee85056
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/02/2021
-  ms.locfileid: "113218244"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130555900"
 landingContent:
 - title: 모니터링 및 성능 튜닝 시작
   linkLists:
@@ -46,10 +46,6 @@ landingContent:
       url: automatic-tuning-enable.md
     - text: 쿼리
       url: query-performance-insight-use.md
-  - linkListType: video
-    links:
-    - text: 자동 조정
-      url: https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player
 - title: Azure SQL Database 및 Azure SQL Managed Instance 리소스 제한
   linkLists:
   - linkListType: concept
@@ -84,10 +80,6 @@ landingContent:
       url: intelligent-insights-troubleshoot-performance.md
     - text: 인텔리전트 쿼리 처리
       url: /sql/relational-databases/performance/intelligent-query-processing
-  - linkListType: video
-    links:
-    - text: 인텔리전스 Insights
-      url: https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player
 - title: Azure SQL Database 및 Azure SQL Managed Instance에 대한 수동 성능 튜닝
   linkLists:
   - linkListType: overview
@@ -122,7 +114,3 @@ landingContent:
       url: ../managed-instance/sql-managed-instance-paas-overview.md#management-operations
     - text: 읽기 확장
       url: read-scale-out.md
-  - linkListType: video
-    links:
-    - text: 동적 확장성
-      url: https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player

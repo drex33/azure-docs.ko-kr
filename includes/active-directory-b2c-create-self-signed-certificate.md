@@ -1,16 +1,16 @@
 ---
-author: msmimart
+author: kengaderdus
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 01/27/2021
-ms.author: mimart
-ms.openlocfilehash: 19065a8a0bc828c30997edd05e9b268657e0fcb1
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.author: kengaderdus
+ms.openlocfilehash: 90c564956db3cfba02c9adee8c4f2fa2c5bac4fa
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123221530"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130050787"
 ---
 인증서가 아직 없는 경우 자체 서명된 인증서를 사용할 수 있습니다. 자체 서명된 인증서는 CA(인증 기관)가 서명하지 않은 보안 인증서이며, CA가 서명한 인증서의 보안 보장을 제공하지 않습니다. 
 

@@ -4,23 +4,24 @@ description: Azure AD PIM(Privileged Identity Management)에서 권한 있는 �
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/01/2021
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a95d2bc1d08870792d48fc61fb0fb6ec24440e3b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3a2088357859ec3f77e7a482ba1507f86e9fdf92
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566382"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129668242"
 ---
 # <a name="activate-my-privileged-access-group-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 권한 있는 액세스 그룹 역할 활성화
 

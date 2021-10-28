@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: ba3ca140abe36a31ffa03422420ea537bbe4f39a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 065b0ca66b2e8d253ae798ce672638877ddceef8
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97935753"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124732668"
 ---
 # <a name="azure-active-directory-governance-operations-reference-guide"></a>Azure Active Directory 거버넌스 작업 참조 가이드
 
@@ -27,7 +27,7 @@ ms.locfileid: "97935753"
 
 ## <a name="key-operational-processes"></a>주요 운영 프로세스
 
-### <a name="assign-owners-to-key-tasks"></a>키 작업에 소유자 할당
+### <a name="assign-owners-to-key-tasks"></a>주요 작업에 소유자 할당
 
 Azure Active Directory를 관리하려면 출시 프로젝트의 일부가 아닐 수 있는 주요 운영 작업 및 프로세스를 지속해서 실행해야 합니다. 환경을 최적화하기 위해 이 작업을 설정하는 것도 여전히 중요합니다. 핵심 작업과 권장 소유자는 다음과 같습니다.
 
@@ -96,7 +96,7 @@ Azure Active Directory를 관리하려면 출시 프로젝트의 일부가 아�
 
 조직에 권한 있는 계정을 관리하기 위한 프로세스가 없거나, 현재 일반 사용자 계정을 사용하여 서비스 및 리소스를 관리하는 관리자가 있는 경우, 계정을 즉시 분리해야 합니다(예: 하나는 일상적인 활동을 위한 계정, 다른 하나는 권한 있는 액세스 및 MFA를 사용한 구성이 포함된 계정). 조직에 Azure AD Premium P2 구독이 있는 경우 Azure PIM([Privileged Identity Management](../privileged-identity-management/pim-configure.md#license-requirements))을 즉시 배포하면 더 좋습니다. 동일한 토큰에서 권한 있는 계정도 검토하여 해당하는 경우 [권한이 더 적은 역할을 할당](../roles/security-planning.md)해야 합니다.
 
-구현해야 하는 권한 있는 계정 관리의 또 다른 측면은 [PIM을 통해 자동화된](../privileged-identity-management/pim-how-to-perform-security-review.md) 계정 또는 수동 계정에 대한 [액세스 검토](../governance/access-reviews-overview.md)를 정의하는 것입니다.
+구현해야 하는 권한 있는 계정 관리의 또 다른 측면은 [PIM을 통해 자동화된](../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md) 계정 또는 수동 계정에 대한 [액세스 검토](../governance/access-reviews-overview.md)를 정의하는 것입니다.
 
 #### <a name="privileged-account-management-recommended-reading"></a>권한 있는 계정 관리 권장 참조 항목
 

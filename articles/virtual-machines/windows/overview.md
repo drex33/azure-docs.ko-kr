@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 51a8bde53cf2e75501eadd185e0754ec6f0f673c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: afd5ca1c058945427ce78d3380ecc56e9a5cd0c4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124803715"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130240949"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Azure의 Windows 가상 머신
 
@@ -100,7 +100,7 @@ VM [확장](../extensions/features-windows.md?toc=/azure/virtual-machines/window
 | [리소스 그룹](../../azure-resource-manager/management/overview.md) |예 |VM은 리소스 그룹에 포함되어야 합니다. |
 | [스토리지 계정](../../storage/common/storage-account-create.md) |예 |가상 하드 디스크를 저장하기 위해 VM에 스토리지 계정이 필요합니다. |
 | [가상 네트워크](../../virtual-network/virtual-networks-overview.md) |예 |VM은 가상 네트워크의 구성원이어야 합니다. |
-| [공용 IP 주소](../../virtual-network/public-ip-addresses.md) |예 |원격으로 액세스하기 위해 VM에 할당된 공용 IP 주소가 있을 수 있습니다. |
+| [공용 IP 주소](../../virtual-network/ip-services/public-ip-addresses.md) |예 |원격으로 액세스하기 위해 VM에 할당된 공용 IP 주소가 있을 수 있습니다. |
 | [네트워크 인터페이스](../../virtual-network/virtual-network-network-interface.md) |예 |네트워크에서 통신하기 위해 VM에 네트워크 인터페이스가 필요합니다. |
 | [데이터 디스크](attach-managed-disk-portal.md) |예 |VM은 스토리지 기능을 확장하기 위해 데이터 디스크를 포함할 수 있습니다. |
 

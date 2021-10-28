@@ -3,21 +3,21 @@ title: 암시적 허용에서 권한 부여 코드 흐름으로 JavaScript 단�
 titleSuffix: Microsoft identity platform
 description: MSAL.js 1.x와 암시적 허용 흐름을 사용하는 JavaScript SPA를 MSAL.js 2.x와 PKCE 및 CORS를 지원하는 권한 부여 코드 흐름으로 업데이트하는 방법
 services: active-directory
-author: hahamil
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 07/17/2020
-ms.author: hahamil
+ms.author: marsma
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 3c11334fe1b4d77be6e64febfc1d3de6efa302c3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a38063e8b5311422ece4bafc9c22355262d631d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100365943"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636214"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>암시적 허용에서 권한 부여 코드 흐름으로 JavaScript 단일 페이지 앱 마이그레이션
 

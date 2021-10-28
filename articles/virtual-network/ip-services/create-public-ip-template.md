@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 10/01/2021
 ms.author: allensu
-ms.openlocfilehash: ef14611c6d5d981c61a69693b40cc8f3b8fd5185
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 017e782b322eb069f43fff399b0d6bc76f981ed1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129369173"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130231916"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-a-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 공용 IP 주소 만들기
 
@@ -224,6 +224,6 @@ IPv6 주소를 만들려면 **publicIPAddressVersion** 매개 변수를 **IPv6**
 이 문서에 나열된 공용 IP 속성에 대한 자세한 내용은 [공용 IP 주소 관리](virtual-network-public-ip-address.md#create-a-public-ip-address)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-- [공용 IP 주소를 가상 머신에](../../virtual-network/associate-public-ip-address-vm.md#azure-portal) 연결
+- [공용 IP 주소를 가상 머신에](./associate-public-ip-address-vm.md#azure-portal) 연결
 - Azure에서 [공용 IP 주소](public-ip-addresses.md#public-ip-addresses)에 대해 자세히 알아봅니다.
 - 모든 [공용 IP 주소 설정](virtual-network-public-ip-address.md#create-a-public-ip-address)에 대해 자세히 알아봅니다.

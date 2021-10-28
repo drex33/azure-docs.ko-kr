@@ -1,6 +1,7 @@
 ---
-title: Azure Active Directory에서 애플리케이션에 대한 사용자 액세스를 제거하는 방법
+title: 애플리케이션에 대한 사용자 액세스를 제거하는 방법
 description: Azure Active Directory에서 애플리케이션에 대한 사용자 액세스를 제거하는 방법을 이해합니다.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -11,14 +12,14 @@ ms.topic: how-to
 ms.date: 11/02/2020
 ms.author: davidmu
 ms.reviewer: phsignor
-ms.openlocfilehash: 7466cfda1f4a38ea1559d68f8b1fe4779efe97d7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9b0334c3766a789af7ed8c29fac3e76aaae25476
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536525"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129613798"
 ---
-# <a name="how-to-remove-a-users-access-to-an-application"></a>애플리케이션에 대한 사용자 액세스를 제거하는 방법
+# <a name="how-to-remove-a-users-access-to-an-application-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션에 대한 사용자 액세스를 제거하는 방법
 
 이 문서는 애플리케이션에 대한 사용자 액세스를 제거하는 방법을 이해하는 데 도움이 됩니다.
 

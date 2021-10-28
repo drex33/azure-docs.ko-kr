@@ -3,7 +3,7 @@ title: Azure Active Directory 사용자 프로비저닝을 위한 클라우드 H
 description: 이 문서에서는 Workday 또는 SuccessFactors와 같은 클라우드 HR 시스템을 Azure Active Directory와 통합하는 배포 프로세스를 설명합니다. Azure AD를 클라우드 HR 시스템과 통합하면 완전한 ID 수명 주기 관리 시스템이 구현됩니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/13/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 12b909b467b7f53d568e80f60c8b30f701820216
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 77a80ced74bfd841001952dbf962babedece0978
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113728519"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129991169"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Azure Active Directory 사용자 프로비저닝을 위한 클라우드 HR 애플리케이션 계획
 

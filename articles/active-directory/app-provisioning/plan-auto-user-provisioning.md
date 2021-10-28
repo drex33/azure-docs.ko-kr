@@ -3,7 +3,7 @@ title: Azure Active Directory에 대한 자동 사용자 프로비저닝 배포 
 description: Azure Active Directory에서 자동 사용자 프로비저닝 계획 및 실행을 위한 지침
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/13/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 9e58650a98539b815173040cf0e47c200045b2bb
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: e4be8f3bac712136fc2cbfea5a6a6febbd81e0e1
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113728501"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129991093"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment-in-azure-active-directory"></a>Azure Active Directory에서 자동 사용자 프로비저닝 배포 계획
 

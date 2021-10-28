@@ -9,18 +9,19 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 08/26/2021
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 51b6c1a6e480b8fdd383a970936e6b140aafd09d
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: ec9514f442e6b5b262dc634f8cdcd58ebd530736
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123037707"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226738"
 ---
 # <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>빠른 시작: Azure Cosmos DB에서 Java 및 MongoDB API를 사용하여 콘솔 앱 만들기
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
+> * [Python](create-mongodb-python.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.JS](create-mongodb-nodejs.md)
 > * [Xamarin](create-mongodb-xamarin.md)
@@ -29,7 +30,7 @@ ms.locfileid: "123037707"
 
 이 빠른 시작에서는 Azure Portal에서 Azure Cosmos DB for MongoDB API 계정을 생성 및 관리하고 GitHub에서 복제된 Java SDK 앱을 사용하여 데이터를 추가합니다. Azure Cosmos DB는 글로벌 배포 및 수평적 크기 조정 기능을 사용하여 문서, 테이블, 키 값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있는 다중 모델 데이터베이스 서비스입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 또는 Azure 구독 없이 [무료로 Azure Cosmos DB를 사용](https://azure.microsoft.com/try/cosmosdb/)할 수 있습니다. 연결 문자열 `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true`와 함께 [Azure Cosmos DB 에뮬레이터](https://aka.ms/cosmosdb-emulator)를 사용할 수도 있습니다.
 - [JDK(Java Development Kit) 버전 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). 
 - [Maven](https://maven.apache.org/download.cgi) 또는 `apt-get install maven`을 실행하여 Maven을 설치합니다.

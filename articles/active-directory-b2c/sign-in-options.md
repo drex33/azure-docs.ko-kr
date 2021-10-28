@@ -3,20 +3,20 @@ title: Azure AD B2C에서 지원하는 로그인 옵션
 titleSuffix: Azure AD B2C
 description: 사용자 이름 및 암호, 메일, 전화, 소셜 또는 외부 ID 공급자와의 페더레이션을 포함하여 Azure Active Directory B2C에서 사용할 수 있는 등록 및 로그인 옵션에 대해 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/10/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: efb526f9a7418c0d7d2316ec91f355a7c4431404
-ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+ms.openlocfilehash: 4f0a713eacb259348f04fe61fefde72a3142b419
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112204778"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130043247"
 ---
 # <a name="sign-in-options-in-azure-ad-b2c"></a>Azure AD B2C의 로그인 옵션
 

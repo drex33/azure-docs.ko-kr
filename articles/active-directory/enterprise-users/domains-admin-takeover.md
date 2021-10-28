@@ -4,7 +4,7 @@ description: 관리되지 않는 Azure AD 조직(섀도 테넌트)에서 DNS 도
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38ca8313620eda7c8adad52373aab94bcb151abe
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 0c4d98ead2812e4e8b0b6c3ce683a75df2f44329
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123425935"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129986951"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Microsoft Azure Active Directory에서 관리자로서 관리되지 않는 디렉터리 인수
 
@@ -119,7 +119,7 @@ SharePoint, OneDrive 또는 비즈니스용 Skype를 포함하는 서비스 계�
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>ForceTakeover 옵션에 대한 Microsoft Azure AD PowerShell cmdlets
 [PowerShell 예](#powershell-example)에서 사용되는 이러한 cmdlet을 참조할 수 있습니다.
 
-Cmdlet | 사용량
+Cmdlet | 사용
 ------- | -------
 `connect-msolservice` | 메시지가 표시되면 관리되는 조직에 로그인합니다.
 `get-msoldomain` | 현재 조직과 연결된 도메인 이름을 보여줍니다.

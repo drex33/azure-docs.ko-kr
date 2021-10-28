@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19e40d135316c1c7cd270d2804fff1f487937685
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b48fa334aedce144e274b8155edda3cc7b08b9a
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96858538"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124739938"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Azure Active Directory에서 사용자 계정 이름 변경 계획 및 문제 해결
 
@@ -168,9 +168,9 @@ Windows 10 하이브리드 Azure AD 조인된 디바이스에서 예기치 않�
 
 ## <a name="microsoft-authenticator-known-issues-and-workarounds"></a>Microsoft Authenticator의 알려진 문제 및 해결 방법
 
-조직에서 [Microsoft Authenticator 앱](../user-help/user-help-auth-app-overview.md)을 사용하여 로그인하고 조직 애플리케이션 및 데이터에 액세스하도록 요구할 수 있습니다. 사용자 이름이 앱에 나타날 수 있지만, 이 계정은 사용자가 등록 과정을 완료할 때까지는 확인 방법으로 사용되도록 설정되지 않습니다.
+조직에서 [Microsoft Authenticator 앱](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)을 사용하여 로그인하고 조직 애플리케이션 및 데이터에 액세스하도록 요구할 수 있습니다. 사용자 이름이 앱에 나타날 수 있지만, 이 계정은 사용자가 등록 과정을 완료할 때까지는 확인 방법으로 사용되도록 설정되지 않습니다.
 
-[Microsoft Authenticator 앱](../user-help/user-help-auth-app-overview.md)에는 네 가지 주요 기능이 있습니다.
+[Microsoft Authenticator 앱](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)에는 네 가지 주요 기능이 있습니다.
 
 * 푸시 알림 또는 확인 코드를 통한 다단계 인증
 
@@ -186,7 +186,7 @@ Microsoft Authenticator 앱은 대역 외 확인 옵션을 제공합니다. 로�
 
 **알려진 문제** 
 
-사용자의 UPN을 변경해도 이전 UPN이 사용자 계정에 계속 표시되고 알림이 수신되지 않을 수 있습니다. [확인 코드](../user-help/user-help-auth-app-faq.md)는 계속 작동합니다.
+사용자의 UPN을 변경해도 이전 UPN이 사용자 계정에 계속 표시되고 알림이 수신되지 않을 수 있습니다. [확인 코드](https://support.microsoft.com/account-billing/common-problems-with-the-microsoft-authenticator-app-12d283d1-bcef-4875-9ae5-ac360e2945dd)는 계속 작동합니다.
 
 **해결 방법**
 

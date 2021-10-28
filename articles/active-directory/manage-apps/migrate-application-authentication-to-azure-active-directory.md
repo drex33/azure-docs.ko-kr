@@ -12,12 +12,12 @@ ms.date: 02/05/2021
 ms.author: davidmu
 ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f8ee443f12ce4c28e5bb883be686a4610eeec38
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 2ef33a1fa80e443a51583551f2ec3ceb65da3f88
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768907"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124791653"
 ---
 # <a name="migrate-application-authentication-to-azure-active-directory"></a>Azure Active Directory에 애플리케이션 인증 마이그레이션
 
@@ -503,7 +503,7 @@ Azure AD에서 지원하는 앱 및 리소스에는 다음 두 가지 주요 범
 | ------------------------ | --------------------------------------------------- |
 | **OAuth / OpenID Connect** | **엔터프라이즈 애플리케이션&gt;권한** 을 선택하고 앱의 사용자 설정에서 애플리케이션에 동의했는지 확인합니다. |
 | **SAML 기반 SSO** | **Single Sign-On** 에 있는 [SAML 설정 테스트](./debug-saml-sso-issues.md) 단추를 사용합니다. |
-| **암호 기반 SSO** | [MyApps 보안 로그인 확장](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension)을 다운로드하고 설치합니다. 이 확장을 사용하면 SSO 프로세스를 사용해야 하는 조직의 클라우드 앱을 시작할 수 있습니다. |
+| **암호 기반 SSO** | [MyApps 보안 로그인 확장](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510#download-and-install-the-my-apps-secure-sign-in-extension)을 다운로드하고 설치합니다. 이 확장을 사용하면 SSO 프로세스를 사용해야 하는 조직의 클라우드 앱을 시작할 수 있습니다. |
 
 |  **[애플리케이션 프록시](../app-proxy/application-proxy.md)** | 커넥터가 실행 중이고 애플리케이션에 할당되었는지 확인합니다. 자세한 내용은 [애플리케이션 프록시 문제 해결 가이드](../app-proxy/application-proxy-troubleshoot.md)를 참조하세요. |
 
@@ -553,7 +553,7 @@ Azure AD에서 지원하는 앱 및 리소스에는 다음 두 가지 주요 범
 
 **검색할 수 있는 앱 만들기**
 
-**사용자에게 [MyApps](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) 포털 환경을 지정합니다**. 여기에서 모든 클라우드 기반 앱, [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md)를 사용하여 사용 가능하도록 설정한 앱 및 [애플리케이션 프록시](../app-proxy/application-proxy.md)를 사용하는 앱에 액세스할 수 있는 권한이 제공된 앱에 액세스할 수 있습니다.
+**사용자에게 [MyApps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510#download-and-install-the-my-apps-secure-sign-in-extension) 포털 환경을 지정합니다**. 여기에서 모든 클라우드 기반 앱, [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md)를 사용하여 사용 가능하도록 설정한 앱 및 [애플리케이션 프록시](../app-proxy/application-proxy.md)를 사용하는 앱에 액세스할 수 있는 권한이 제공된 앱에 액세스할 수 있습니다.
 
 사용자에게 앱을 검색하는 방법에 대해 안내할 수 있습니다.
 
@@ -623,7 +623,7 @@ Azure AD는 마이그레이션된 앱을 관리하는 중앙 액세스 위치를
 
 수많은 [배포 계획](../fundamentals/active-directory-deployment-plans.md)을 사용할 수 있으며, 점점 더 다양해질 것입니다.
 
-### <a name="contact-support"></a>기술 지원 서비스에 문의하십시오.
+### <a name="contact-support"></a>지원에 문의
 
 지원 티켓을 만들거나 추적하고 상태를 모니터링하려면 다음 지원 링크를 방문하세요.
 

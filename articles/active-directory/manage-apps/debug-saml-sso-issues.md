@@ -1,5 +1,6 @@
 ---
-title: SAML 기반 Single Sign-On 디버그 - Azure Active Directory
+title: SAML 기반 Single Sign-On 디버그
+titleSuffix: Azure AD
 description: Azure Active Directory에서 SAML 기반 Single Sign-On을 애플리케이션에 디버그합니다.
 services: active-directory
 ms.author: davidmu
@@ -11,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 02/18/2019
 ms.reviewer: ergreenl
-ms.openlocfilehash: 272e2d8a7234ca97646cf044be997f9ddba415e1
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 52bb2f004aaf37803ca2e0b8e46630274daffb9a
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772261"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129620681"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory에서 SAML 기반 Single Sign-On을 애플리케이션에 디버그
 
@@ -24,12 +25,12 @@ SAML 기반 Single Sign-On을 사용하는 Azure AD(Azure Active Directory)에�
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-[내 앱 보안 로그인 확장](../user-help/my-apps-portal-end-user-troubleshoot.md#im-having-trouble-installing-the-my-apps-secure-sign-in-extension)을 설치하는 것이 좋습니다. 이 브라우저 확장을 사용하면 Single Sign-On과 관련된 문제를 해결하는 데 필요한 SAML 요청 및 SAML 응답 정보를 쉽게 수집할 수 있습니다. 확장을 설치할 수 없는 경우 이 문서에서는 확장이 설치되거나 설치되지 않았을 때의 문제를 해결하는 방법을 보여줍니다.
+[내 앱 보안 로그인 확장](https://support.microsoft.com/account-billing/troubleshoot-problems-with-the-my-apps-portal-d228da80-fcb7-479c-b960-a1e2535cbdff#im-having-trouble-installing-the-my-apps-secure-sign-in-extension)을 설치하는 것이 좋습니다. 이 브라우저 확장을 사용하면 Single Sign-On과 관련된 문제를 해결하는 데 필요한 SAML 요청 및 SAML 응답 정보를 쉽게 수집할 수 있습니다. 확장을 설치할 수 없는 경우 이 문서에서는 확장이 설치되거나 설치되지 않았을 때의 문제를 해결하는 방법을 보여줍니다.
 
 내 앱 보안 로그인 확장을 다운로드하고 설치하려면 다음 링크 중 하나를 사용합니다.
 
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/my-apps-secure-signin-ex/gaaceiggkkiffbfdpmfapegoiohkiipl)
 
 ## <a name="test-saml-based-single-sign-on"></a>SAML 기반 Single Sign-On 테스트
 

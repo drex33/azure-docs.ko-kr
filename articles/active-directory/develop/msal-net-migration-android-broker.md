@@ -2,22 +2,22 @@
 title: 브로커를 사용하여 MSAL.NET으로 Xamarin Android 앱 마이그레이션
 titleSuffix: Microsoft identity platform
 description: Microsoft Authenticator 또는 Intune 회사 포털을 사용하는 Xamarin Android 앱을 ADAL.NET에서 MSAL.NET으로 마이그레이션하는 방법에 대해 알아봅니다.
-author: aiwang
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/31/2020
-ms.author: aiwang
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: eca1a3246853bafbf498dd3a751bf86f60c2bdde
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 8573666d5b3f590ca17779bfe03a035968c801ed
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122539026"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615038"
 ---
 # <a name="migrate-android-applications-that-use-a-broker-from-adalnet-to-msalnet"></a>ADAL.NET에서 MSAL.NET로 브로커를 사용하는 Android 애플리케이션 마이그레이션
 

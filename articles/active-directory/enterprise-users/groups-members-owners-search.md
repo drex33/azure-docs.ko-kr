@@ -4,7 +4,7 @@ description: Azure Portal에서 그룹 멤버 및 소유자를 검색하고 필�
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: KarenH444
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e45ccf6a2d6a11e0acc8bf1c7c3a00a4867e0d2a
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 2c1c30008a45130ba044cfaad91f4a3fd0726f00
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123433020"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129986362"
 ---
 # <a name="search-groups-and-members-preview-in-azure-active-directory"></a>Azure Active Directory에서 그룹 및 멤버 검색(미리 보기)
 

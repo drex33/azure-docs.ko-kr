@@ -3,12 +3,12 @@ title: IoT Edge의 Azure Live Video Analytics 시작
 description: 이 빠른 시작에서는 IoT Edge의 Azure Live Video Analytics를 시작하는 방법을 보여줍니다. 라이브 비디오 스트림에서 동작을 감지하는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 06a84a53db4e981802ad3de930288b6aa467f563
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 1d473824e7fd9a840e2ec349efb9058142e8f356
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371472"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130217887"
 ---
 # <a name="quickstart-get-started-with-live-video-analytics-on-iot-edge"></a>빠른 시작: IoT Edge의 Live Video Analytics 시작
 
@@ -27,7 +27,7 @@ IoT Edge에서 Live Video Analytics를 시작하는 방법에 대한 자세한 �
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* 활성 구독이 있는 Azure 계정. 계정이 아직 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 수 있습니다.
+* 활성 구독이 있는 Azure 계정. 계정이 아직 없는 경우 [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
   > [!NOTE]
   > 서비스 주체를 만들 수 있는 권한이 있는 Azure 구독이 필요합니다(**소유자 역할** 이 이를 제공함). 적절한 권한이 없는 경우 계정 관리자에게 문의하여 적절한 권한을 부여하세요.  
@@ -45,7 +45,7 @@ IoT Edge에서 Live Video Analytics를 시작하는 방법에 대한 자세한 �
 * IoT Hub
 * 스토리지 계정
 * Azure Media Services 계정
-* [IoT Edge 런타임](../../iot-edge/how-to-install-iot-edge.md)이 설치된 Azure의 Linux VM
+* [IoT Edge 런타임](../../iot-edge/how-to-provision-single-device-linux-symmetric.md)이 설치된 Azure의 Linux VM
 
 이 빠른 시작에서는 [Live Video Analytics 리소스 설치 스크립트](https://github.com/Azure/live-video-analytics/tree/master/edge/setup)를 사용하여 Azure 구독에 필요한 리소스를 배포하는 것이 좋습니다. 이렇게 하려면 다음 단계를 따르십시오.
 

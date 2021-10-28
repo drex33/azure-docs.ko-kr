@@ -8,12 +8,12 @@ ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 09/27/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 0054b41fdf12efa4bbd3f1bf34e66023b7ea2d75
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 5fc1369c20130d8c689abe853e321fc1507fa414
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129213151"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249574"
 ---
 # <a name="tutorial-register-and-scan-an-on-premises-sql-server"></a>자습서: 온-프레미스 SQL Server 등록 및 검사
 
@@ -33,7 +33,7 @@ Azure Purview는 중요한 데이터를 관리하고, 데이터 검색을 간소
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- 활성 [Azure Key Vault](../key-vault/certificates/quick-create-portal.md#create-a-vault)
+- 활성 [Azure Key Vault](../key-vault/general/quick-create-portal.md)
 - Azure Purview 계정. 아직 없는 경우 [빠른 시작 가이드에 따라 새로 생성](create-catalog-portal.md)할 수 있습니다.
 - [온-프레미스 SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads)
 

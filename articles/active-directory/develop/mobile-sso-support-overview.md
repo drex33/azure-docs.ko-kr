@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
 ms.custom: has-adal-ref
-ms.openlocfilehash: 49757ba5faaff1043bd9b113cad3cfa342bb51ce
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 43f66b7f44e7d30816da5ac59a9692807f257a2b
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122530878"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124787266"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>개발하는 모바일 앱의 Single Sign-On 및 앱 보호 정책 지원
 
@@ -67,7 +67,7 @@ Apple에는 iOS 애플리케이션에서 이 작업을 수행하기 위한 지�
 
 앱 보호 정책을 사용하도록 설정하려면 [Microsoft 인증 라이브러리(MSAL)](msal-overview.md)를 사용합니다. MSAL은 Microsoft ID 플랫폼의 인증 및 권한 부여 라이브러리이며 Intune SDK는 함께 작동하도록 개발되었습니다.
 
-또한 인증을 위해 broker 앱을 사용해야 합니다. broker를 사용하려면 앱이 앱을 준수하도록 애플리케이션 및 디바이스 정보를 제공해야 합니다. iOS 사용자는 [Microsoft Authenticator 앱](../user-help/user-help-auth-app-sign-in.md)을 사용하고 Android 사용자는 [조정된 인증](./msal-android-single-sign-on.md)을 위해 Microsoft Authenticator 앱 또는 [회사 포털 앱](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal)을 사용합니다. 기본적으로 MSAL은 인증 요청을 수행하기 위한 첫 번째 선택으로 broker를 사용하므로 MSAL을 사용할 때 인증에 broker를 사용하면 앱에 자동으로 사용하도록 설정됩니다.
+또한 인증을 위해 broker 앱을 사용해야 합니다. broker를 사용하려면 앱이 앱을 준수하도록 애플리케이션 및 디바이스 정보를 제공해야 합니다. iOS 사용자는 [Microsoft Authenticator 앱](https://support.microsoft.com/account-billing/sign-in-to-your-accounts-using-the-microsoft-authenticator-app-582bdc07-4566-4c97-a7aa-56058122714c)을 사용하고 Android 사용자는 [조정된 인증](./msal-android-single-sign-on.md)을 위해 Microsoft Authenticator 앱 또는 [회사 포털 앱](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal)을 사용합니다. 기본적으로 MSAL은 인증 요청을 수행하기 위한 첫 번째 선택으로 broker를 사용하므로 MSAL을 사용할 때 인증에 broker를 사용하면 앱에 자동으로 사용하도록 설정됩니다.
 
 마지막으로 앱에 [Intune SDK를 추가](/mem/intune/developer/app-sdk-get-started)하여 앱 보호 정책을 사용합니다. 대부분의 파트에 대한 SDK는 가로채기 모델을 따르며 앱 보호 정책을 자동으로 적용하여 앱에서 수행하는 작업이 허용되는지 여부를 확인합니다. 특정 작업에 대한 제한이 있는 경우 앱에 알리기 위해 수동으로 호출할 수 있는 API도 있습니다.
 

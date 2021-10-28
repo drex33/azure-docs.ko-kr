@@ -11,12 +11,12 @@ metadata:
   ms.date: 10/30/2018
   ms.author: genli
   ms.custom: devx-track-azurepowershell
-  ms.openlocfilehash: 6f8d30011a19c6d8210d9c63f4378a66237fe024
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
-  ms.translationtype: HT
+  ms.openlocfilehash: e6b214c5ead4be666b96992aec4c582a23e5c635
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122538451"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130555894"
 title: Azure의 Web Apps에 대한 구성 및 관리 FAQ
 summary: >
   이 문서에는 [Azure App Service Web Apps 기능](https://azure.microsoft.com/services/app-service/web/)의 구성 및 관리 문제에 대한 FAQ(질문과 대답)가 있습니다.
@@ -244,14 +244,7 @@ sections:
       현재는 ExpressRoute에 연결된 가상 네트워크에 지점 및 사이트 간 VPN을 연결할 수 없습니다. 동일한 가상 네트워크에 대해 지점 및 사이트 간 VPN 및 ExpressRoute를 함께 사용할 수 없습니다. 자세한 내용은 [ExpressRoute 및 사이트 간 VPN 연결 제한 및 제한 사항](../expressroute/expressroute-howto-coexist-classic.md#limits-and-limitations)을 참조하세요.
   - question: >
       App Service 웹앱을 정적 라우팅(정책 기반) 게이트웨이가 있는 가상 네트워크에 연결하려면 어떻게 하나요?
-    answer: "현재 App Service 웹앱을 정적 라우팅(정책 기반) 게이트웨이가 있는 가상 네트워크에 연결하는 기능은 지원되지 않습니다. 대상 가상 네트워크가 이미 있는 경우 동적 라우팅 게이트웨이와의 지점 및 사이트 간 VPN을 사용하도록 설정해야 해당 가상 네트워크를 웹앱에 연결할 수 있습니다. 게이트웨이가 정적 라우팅으로 설정되면 지점 및 사이트 간 VPN을 사용하도록 설정할 수 없습니다. \n\n자세한 내용은 [Azure 가상 네트워크에 앱 통합](web-sites-integrate-with-vnet.md)을 참조하세요.\n"
-  - question: >
-      내 App Service Environment에서 두 명의 작업자를 사용할 수 있는데 하나의 App Service 계획만 만들 수 있는 이유는 무엇인가요?
-    answer: >
-      내결함성을 제공하려면 App Service Environment에서 각 작업자 풀에 하나 이상의 추가 컴퓨팅 리소스가 필요합니다. 추가 컴퓨팅 리소스에는 워크로드를 할당할 수 없습니다.
-
-
-      자세한 내용은 [App Service Environment를 만드는 방법](environment/app-service-web-how-to-create-an-app-service-environment.md)을 참조하세요.
+    answer: "현재 App Service 웹앱을 정적 라우팅(정책 기반) 게이트웨이가 있는 가상 네트워크에 연결하는 기능은 지원되지 않습니다. 대상 가상 네트워크가 이미 있는 경우 동적 라우팅 게이트웨이와의 지점 및 사이트 간 VPN을 사용하도록 설정해야 해당 가상 네트워크를 웹앱에 연결할 수 있습니다. 게이트웨이가 정적 라우팅으로 설정되면 지점 및 사이트 간 VPN을 사용하도록 설정할 수 없습니다. \n\n자세한 내용은 [Azure 가상 네트워크에 앱 통합](./overview-vnet-integration.md)을 참조하세요.\n"
   - question: >
       App Service Environment를 만들려고 할 때 시간 제한이 표시되는 이유는 무엇인가요?
     answer: >

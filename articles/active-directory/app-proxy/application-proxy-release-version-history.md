@@ -3,20 +3,20 @@ title: 'Azure Active Directory 애플리케이션 프록시: 버전 릴리스 �
 description: 이 문서에서는 Azure Active Directory 애플리케이션 프록시의 모든 릴리스를 나열하고 새로운 기능과 해결된 문제를 설명합니다.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.date: 04/27/2021
 ms.subservice: app-proxy
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: c340d0b51e1d4326bba575094491cdd5ea756616
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.reviewer: ashishj
+ms.openlocfilehash: 7b00c6fb425f04d84c6f5d5c46b42865c05d5e02
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108764390"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129988907"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD 애플리케이션 프록시: 버전 릴리스 기록
 이 문서에서는 릴리스된 Azure AD(Azure Active Directory) 애플리케이션 프록시의 버전과 기능을 나열합니다. Azure AD 팀은 새로운 기능으로 애플리케이션 프록시를 정기적으로 업데이트합니다. 애플리케이션 프록시 커넥터는 [새 주 버전이 릴리스되면 자동으로 업데이트](application-proxy-faq.yml#why-is-my-connector-still-using-an-older-version-and-not-auto-upgraded-to-latest-version-)됩니다. 

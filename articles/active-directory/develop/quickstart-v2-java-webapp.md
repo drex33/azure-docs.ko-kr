@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 196500eb70a559339bd237670434ad8f562eda8c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8b965d54eab6f979b67382c91e09b23732278732
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128551173"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040212"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>빠른 시작: Java 웹앱에 Microsoft로 로그인 추가
 
@@ -29,7 +29,7 @@ ms.locfileid: "128551173"
 
 이 샘플을 실행하려면 다음이 필요합니다.
 
-- [JDK(Java Development Kit)](https://openjdk.java.net/) 8 이상 
+- [JDK(Java Development Kit)](https://openjdk.java.net/) 8 이상
 - [Maven](https://maven.apache.org/)
 
 > [!div renderon="docs"]
@@ -138,7 +138,6 @@ ms.locfileid: "128551173"
 >      ```
 >   1. 생성된 키 저장소 파일을 *resources* 폴더에 배치합니다.
 
-
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-run-the-code-sample"></a>3단계: 코드 샘플 실행
 > [!div renderon="docs"]
@@ -146,7 +145,7 @@ ms.locfileid: "128551173"
 
 프로젝트를 실행하려면 다음 단계 중 하나를 수행합니다.
 
-- 포함된 Spring Boot 서버를 사용하여 IDE에서 직접 실행합니다. 
+- 포함된 Spring Boot 서버를 사용하여 IDE에서 직접 실행합니다.
 - [Maven](https://maven.apache.org/plugins/maven-war-plugin/usage.html)을 사용하여 WAR 파일에 패키징한 다음, [Apache Tomcat](http://tomcat.apache.org/)과 같은 J2EE 컨테이너 솔루션에 배포합니다.
 
 ##### <a name="running-the-project-from-an-ide"></a>IDE에서 프로젝트 실행
@@ -210,7 +209,6 @@ IDE에서 웹 애플리케이션을 실행하려면 실행을 선택한 다음, 
 
 4. 파일이 배포된 후 브라우저를 사용하여 https://localhost:8443/msal4jsample 로 이동합니다.
 
-
 > [!IMPORTANT]
 > 이 빠른 시작 애플리케이션에서는 클라이언트 암호를 사용하여 자체를 기밀 클라이언트로 식별합니다. 클라이언트 암호는 보안상의 이유로 프로젝트 파일에 일반 텍스트로 추가되므로, 이 애플리케이션을 프로덕션 환경으로 사용하기 전에 클라이언트 암호 대신 인증서를 사용하는 것이 좋습니다. 인증서를 사용하는 방법에 대한 자세한 내용은 [애플리케이션 인증을 위한 인증서 자격 증명](./active-directory-certificate-credentials.md)을 참조하세요.
 
@@ -227,7 +225,7 @@ Maven이나 Gradle을 사용하여 MSAL4J를 애플리케이션에 추가하고 
 
 pom.xml에서:
 
-```XML
+```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>msal4j</artifactId>

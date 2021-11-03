@@ -3,12 +3,12 @@ title: .NET을 사용한 Application Insights 로깅
 description: .NET에서 ILogger 인터페이스와 함께 Application Insights를 사용하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/20/2021
-ms.openlocfilehash: 274fa5a9ab3fef94f892ed75fd69bc6cca6cccc9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 63ffa404c5f36bbb9bddfd86fd275f4bb740a66a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128617795"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079038"
 ---
 # <a name="application-insights-logging-with-net"></a>.NET을 사용한 Application Insights 로깅
 
@@ -154,7 +154,7 @@ namespace WebApplication
                     // or when you need to capture logs during application startup, such as
                     // in Program.cs or Startup.cs itself.
                     builder.AddApplicationInsights(
-                        context.Configuration["APPINSIGHTS_CONNECTIONSTRING"]);
+                        context.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"]);
 
                     // Capture all log-level entries from Program
                     builder.AddFilter<ApplicationInsightsLoggerProvider>(
@@ -168,7 +168,7 @@ namespace WebApplication
 }
 ```
 
-위의 코드에서 `ApplicationInsightsLoggerProvider`는 `"APPINSIGHTS_CONNECTIONSTRING"` 연결 문자열로 구성됩니다. 필터가 적용되어 로그 수준이 <xref:Microsoft.Extensions.Logging.LogLevel.Trace?displayProperty=nameWithType>으로 설정됩니다.
+위의 코드에서 `ApplicationInsightsLoggerProvider`는 `"APPLICATIONINSIGHTS_CONNECTION_STRING"` 연결 문자열로 구성됩니다. 필터가 적용되어 로그 수준이 <xref:Microsoft.Extensions.Logging.LogLevel.Trace?displayProperty=nameWithType>으로 설정됩니다.
 
 > [!IMPORTANT]
 > 계측 키보다 [연결 문자열](./sdk-connection-string.md?tabs=net)을 사용하는 것이 좋습니다. 새 Azure 지역에서는 계측 키 대신 연결 문자열을 *사용해야 합니다*. 

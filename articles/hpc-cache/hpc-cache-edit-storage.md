@@ -1,17 +1,17 @@
 ---
 title: Azure HPC Cache 스토리지 대상 업데이트
 description: Azure HPC Cache 스토리지 대상을 편집하는 방법
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 06/30/2021
-ms.author: v-erkel
-ms.openlocfilehash: 151186d3d42ad799707f4a352e76cd154d3443bb
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.author: femila
+ms.openlocfilehash: dd7c65e80df04172adb7b59d304ff8d616edf9cd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129276192"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131082572"
 ---
 # <a name="edit-storage-targets"></a>스토리지 대상 편집
 
@@ -179,6 +179,6 @@ ADLS-NFS 사용 모델에 대한 구성은 NFS 사용 모델 선택과 동일합
 
 ## <a name="next-steps"></a>다음 단계
 
-* 개별 [스토리지 대상을](manage-storage-targets.md) 중지, 삭제 및 플러시하는 자세한 내용은 스토리지 대상 보기 및 관리를 읽어보십시오.
+* 개별 저장소 대상 중지, 삭제 및 플러시에 대 한 자세한 내용은 [저장소 대상 보기 및 관리](manage-storage-targets.md) 를 참조 하세요.
 * 스토리지 대상 옵션에 대한 자세한 내용은 [스토리지 대상 추가](hpc-cache-add-storage.md)를 참조하세요.
 * 가상 경로 사용에 대한 자세한 팁은 [집계형 네임스페이스 계획](hpc-cache-namespace.md)을 참조하세요.

@@ -7,18 +7,18 @@ ms.date: 08/17/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 8b6084f411ec948eb7655c5c7c6b54bf7d2e2c30
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 380077339920071fa56d385e6de8f7e7a9e84321
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129858984"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072544"
 ---
-# <a name="troubleshooting-issues-with-implementing-azure-policy-on-key-vault"></a>Key Vault Azure 정책 구현과 관련된 문제 해결
+# <a name="troubleshoot-issues-with-implementing-azure-policy-on-key-vault"></a>Key Vault Azure 정책 구현과 관련된 문제 해결
 
 이 문서에서는 Key Vault [대한 Azure Policy](./azure-policy.md)설정할 때 발생할 수 있는 일반적인 오류를 해결하는 방법을 안내하고 이를 해결하는 방법을 제안합니다.
 
-## <a name="about-azure-policy-for-key-vault"></a>Key Vault 대한 Azure 정책 정보
+## <a name="about-azure-policy-for-key-vault"></a>azure policy for Key Vault 정보
 
 [Azure Policy](../../governance/policy/index.yml)는 사용자에게 대규모로 Azure 환경을 감사 및 관리하는 기능을 제공하는 거버넌스 도구입니다. Azure Policy는 할당된 정책 규칙을 준수하도록 Azure 리소스에 가드 레일을 적용하는 기능을 제공합니다. 이를 통해 사용자는 Azure 환경의 감사, 실시간 적용 및 수정을 수행할 수 있습니다. 정책에 의해 수행되는 감사 결과는 규정 준수 대시보드의 사용자가 사용할 수 있으며, 여기에서 어떤 리소스와 구성 요소가 규정을 준수하는지 드릴다운할 수 있습니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "129858984"
 > 
 > 
 
-개별 Blob은 JSON Blob 형식으로 텍스트로 저장됩니다. 키 정책에 대한 로그 항목 예제를 살펴보겠습니다. [키는 만료 날짜가 로 설정되어 있어야 합니다.](azure-policy.md?tabs=keys#secrets-should-have-expiration-date-set-preview) 이 정책은 키 자격 증명 모음의 모든 키를 평가하고 만료 날짜가 비준수로 설정되지 않은 키에 플래그를 지정합니다.
+개별 Blob은 JSON Blob 형식으로 텍스트로 저장됩니다. 키 정책에 대한 로그 항목 예제를 살펴보겠습니다. [키는 만료 날짜가 로 설정되어 있어야 합니다.](azure-policy.md?tabs=keys#secrets-should-have-expiration-date-set) 이 정책은 키 자격 증명 모음의 모든 키를 평가하고 만료 날짜가 비준수로 설정되지 않은 키에 플래그를 지정합니다.
 
 ```json
 {
@@ -77,8 +77,14 @@ ms.locfileid: "129858984"
 | **ObjectName** |개체의 이름 |
 | **ObjectType** |키 자격 증명 모음 개체의 유형입니다. 인증서, 비밀 또는 키 |
 | **IsComplianceCheck** |야간 감사 중에 평가가 발생한 경우 true, 리소스를 만들거나 업데이트하는 동안 평가가 발생한 경우 false입니다. |
-| **결과** | 정책 평가를 반환합니다. |
-| **ExpressionEvaluationDetails** | 평가 필드, 식 값에 대한 세부 정보 |
+| **AssignmentId** | 정책 할당의 ID |
+| **AssignmentDisplayName** | 정책 할당의 이름 |
+| **DefinitionId** | 할당에 대한 정책 정의의 ID |
+| **DefinitionDisplayName** | 할당에 대한 정책 정의의 이름 |
+| **결과** | 정책 평가 결과 |
+| **ExpressionEvaluationDetails** | 정책 평가 중에 수행되는 평가에 대한 세부 정보 |
+| **ExpressionValue** | 정책 평가 중 지정된 필드의 실제 값 |
+| **TargetValue** | 지정된 필드의 예상 값 |
 
 
 ### <a name="frequently-asked-questions"></a>질문과 대답

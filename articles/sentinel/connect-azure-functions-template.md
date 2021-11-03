@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/07/2021
 ms.author: yelevin
-ms.openlocfilehash: b6e38d6ce5944d09a089404ae1fe2ca81a951c18
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 7d921c1b1d44f8378a51fa6a419378cd199cd57d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124781307"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037297"
 ---
 # <a name="use-azure-functions-to-connect-azure-sentinel-to-your-data-source"></a>Azure Functions를 사용하여 Azure Sentinel을 데이터 원본에 연결
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [PowerShell](../azure-functions/functions-reference-powershell.md) 또는 Python과 같은 다양한 코딩 언어와 함께 [Azure Functions](../azure-functions/functions-overview.md)를 사용하여 호환되는 데이터 원본의 REST API 엔드포인트에 대한 서버리스 커넥터를 만들 수 있습니다. 그런 다음, Azure 함수 앱을 사용하면 Azure Sentinel 데이터 원본의 REST API에 연결하여 로그를 끌어올 수 있습니다.
 

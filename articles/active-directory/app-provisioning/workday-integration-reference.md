@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 06/01/2021
 ms.author: kenwith
 ms.reviewer: arvinh, chmutali
-ms.openlocfilehash: 1a1b0dfbdad6aaea91ca8e3fe7d11d74b1aa2967
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 0f0e3532960196b3c52279343de3bb04d5cb8535
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129990352"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068249"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-workday"></a>Azure Active Directory 프로비저닝이 Workday와 통합되는 방법
 
@@ -61,7 +61,7 @@ Workday 관리자와 협력하고 제한된 통합 시스템 보안 그룹을 �
 
 Workday 연결을 테스트하기 위해 Azure AD는 다음 *Get_Workers* Workday 웹 서비스 요청을 보냅니다. 
 
-```XML
+```xml
 <!-- Test connection query tries to retrieve one record from the first page -->
 <!-- Replace version with Workday Web Services version present in your connection URL -->
 <!-- Replace timestamps below with the UTC time corresponding to the test connection event -->
@@ -96,7 +96,7 @@ Workday 기반 프로비저닝의 컨텍스트에서 **전체 동기화** 는 Wo
 
 Azure AD는 다음 *Get_Workers* Workday 웹 서비스 요청을 보내 작업자 데이터를 검색합니다. 이 쿼리는 전체 동기화 실행에 해당하는 시간 동안 개시 날짜가 지정된 모든 작업자 항목에 대해 Workday 트랜잭션 로그를 조회합니다. 
 
-```XML
+```xml
 <!-- Workday full sync query -->
 <!-- Replace version with Workday Web Services version present in your connection URL -->
 <!-- Replace timestamps below with the UTC time corresponding to full sync run -->
@@ -156,7 +156,7 @@ Azure AD는 다음 *Get_Workers* Workday 웹 서비스 요청을 보내 작업�
 
 위의 쿼리에 대해 Workday의 *Get_Workers* 응답에는 작업자 레코드 수 및 페이지 수가 포함됩니다.
 
-```XML
+```xml
   <wd:Response_Results>
     <wd:Total_Results>509</wd:Total_Results>
     <wd:Total_Pages>17</wd:Total_Pages>
@@ -166,7 +166,7 @@ Azure AD는 다음 *Get_Workers* Workday 웹 서비스 요청을 보내 작업�
 ```
 결과 집합의 다음 페이지를 검색하기 위해 다음 *Get_Workers* 쿼리는 페이지 번호를 *Response_Filter* 의 매개 변수로 지정합니다.
 
-```XML
+```xml
   <p1:Response_Filter>
     <p1:As_Of_Effective_Date>2021-01-19T02:29:16.0094202Z</p1:As_Of_Effective_Date>
     <p1:As_Of_Entry_DateTime>2021-01-19T02:29:16.0094202Z</p1:As_Of_Entry_DateTime>

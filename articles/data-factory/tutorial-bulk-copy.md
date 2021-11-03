@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 02/18/2021
-ms.openlocfilehash: 692ec1db6e897774e3fe662e59d24339de55e723
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f09d05d5b3dab08aab0aa55a5b25e3bebbc1e8f7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124805910"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067587"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-using-powershell"></a>PowerShell을 통해 Azure Data Factory를 사용하여 여러 테이블 대량 복사
 
@@ -488,25 +488,25 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 
         if ($run) {
             if ($run.Status -ne 'InProgress') {
-                Write-Host "Pipeline run finished. The status is: " $run.Status -foregroundcolor "Yellow"
-                Write-Host "Pipeline run details:" -foregroundcolor "Yellow"
+                Write-Host "Pipeline run finished. The status is: " $run.Status -ForegroundColor "Yellow"
+                Write-Host "Pipeline run details:" -ForegroundColor "Yellow"
                 $run
                 break
             }
-            Write-Host  "Pipeline is running...status: InProgress" -foregroundcolor "Yellow"
+            Write-Host  "Pipeline is running...status: InProgress" -ForegroundColor "Yellow"
         }
 
         Start-Sleep -Seconds 15
     }
 
     $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
-    Write-Host "Activity run details:" -foregroundcolor "Yellow"
+    Write-Host "Activity run details:" -ForegroundColor "Yellow"
     $result
     ```
 
     샘플 실행의 출력은 다음과 같습니다.
 
-    ```console
+    ```output
     Pipeline run details:
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -553,7 +553,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 3. 다음과 같이 "**IterateAndCopySQLTables**" 파이프라인의 실행 ID를 가져오고, 자세한 작업 실행 결과를 확인할 수 있습니다.
 
     ```powershell
-    Write-Host "Pipeline 'IterateAndCopySQLTables' run result:" -foregroundcolor "Yellow"
+    Write-Host "Pipeline 'IterateAndCopySQLTables' run result:" -ForegroundColor "Yellow"
     ($result | Where-Object {$_.ActivityName -eq "TriggerCopy"}).Output.ToString()
     ```
 
@@ -573,6 +573,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 3. 싱크 Azure SQL Synapse Analytics에 연결하고 Azure SQL Database에서 데이터가 제대로 복사되었는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 이 자습서에서 다음 단계를 수행했습니다. 
 
 > [!div class="checklist"]
@@ -584,5 +585,6 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 > * 파이프라인 및 작업 실행을 모니터링합니다.
 
 원본에서 대상으로 데이터를 증분 방식으로 복사하는 방법을 알아보려면 다음 자습서로 진행하세요.
+
 > [!div class="nextstepaction"]
->[증분 방식으로 데이터 복사](tutorial-incremental-copy-powershell.md)
+> [증분 방식으로 데이터 복사](tutorial-incremental-copy-powershell.md)

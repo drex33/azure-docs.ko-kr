@@ -9,12 +9,13 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 10/07/2021
 ms.author: lajanuar
-ms.openlocfilehash: 8d076b43e2a6ea1c21394569b56a7e689a1ab5fc
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: e1ccf10041c36b26b70bf5c4e5a107c0f6bf19ac
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130250885"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131021622"
 ---
 # <a name="create-and-use-managed-identity-for-your-form-recognizer-resource"></a>Form Recognizer 리소스의 관리 ID 만들기 및 사용
 
@@ -33,7 +34,7 @@ Azure 관리 ID는 Azure 관리되는 리소스에 대한 Azure AD(Azure Active 
 
 > [!NOTE]
 >
-> * [**FOTT(Form Recognizer 샘플 레이블 지정 도구)**](https://fott-2-1.azurewebsites.net/)를 사용하여 스토리지 데이터를 분석하려면 VNet 또는 방화벽 뒤에 도구를 배포해야 합니다.
+> * [**FOTT (양식 인식기 샘플 레이블 도구)**](https://fott-2-1.azurewebsites.net/)를 사용 하 여 저장소 데이터를 분석 하려는 경우 VNet 또는 방화벽 뒤에 도구를 배포 해야 합니다.
 >
 > * 분석 [**수신**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync), [**비즈니스 카드**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync), [**송장**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291), [**ID 문서**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707)및 [**사용자 지정 양식**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) api는 요청을 원시 이진 콘텐츠로 게시 하 여 단일 문서에서 데이터를 추출할 수 있습니다. 이러한 시나리오에서는 관리 ID 자격 증명에 대한 요구 사항이 없습니다.
 

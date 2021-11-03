@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-js
-ms.openlocfilehash: 5a50a51d68154654d204149a5e76e5aa94e57683
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 1118fb9d41ace11adb55adedc4b3700c3c34e50a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697744"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131003450"
 ---
 # <a name="deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Azure에서 Azure DevOps Services 및 Azure Pipelines를 사용하여 Linux 가상 머신에 앱 배포
 
@@ -147,7 +147,7 @@ Nginx가 포함된 Linux VM이 아직 없는 경우 지금 Azure에서 [이 예�
 
 **스타터** 템플릿을 선택하고, Apache Maven을 사용하여 Java 프로젝트를 빌드하고 테스트를 실행하는 아래 YAML 코드 조각을 복사합니다.
 
-```YAML
+```yaml
 jobs:
 - job: Build
   displayName: Build Maven Project
@@ -172,7 +172,7 @@ jobs:
 
 **스타터** 템플릿을 선택하고 npm을 사용하여 일반 Node.js 프로젝트를 빌드하는 아래 YAML 코드 조각을 복사합니다.
 
-```YAML
+```yaml
 - stage: Build
   displayName: Build stage
   jobs:  
@@ -213,7 +213,7 @@ jobs:
 
 1. 아래 YAML 구문을 사용하여 이전에 사용했던 VM 리소스와 환경을 참조하여 [배포 작업](/azure/devops/pipelines/process/deployment-jobs)을 포함하도록 위의 파이프라인에 대한 YAML 파일을 변경합니다.
 
-   ```YAML
+   ```yaml
    jobs:  
    - deployment: VMDeploy
      displayName: web
@@ -230,7 +230,7 @@ jobs:
    `runOnce`는 모든 수명 주기 후크(즉, `preDeploy` `deploy`, `routeTraffic` 및 `postRouteTraffic`)가 한 번 실행되는 가장 간단한 배포 전략입니다. 그런 다음, `on:` `success` 또는 `on:` `failure`가 실행됩니다.
 
    `runOnce`의 YAML 코드 조각 예제는 다음과 같습니다.
-   ```YAML
+   ```yaml
    jobs:
    - deployment: VMDeploy
      displayName: web
@@ -248,7 +248,7 @@ jobs:
 
 4. 다음은 각 반복에서 최대 5개의 대상에 대한 가상 머신 업데이트의 롤링 전략을 정의하는 데 사용할 수 있는 YAML 코드 조각의 예제입니다. `maxParallel`은 동시에 배포할 수 있는 대상의 수를 결정합니다. 이 선택 항목은 배포되는 대상을 제외하고 언제든지 사용할 수 있어야 하는 대상의 절대 수 또는 백분율을 계산합니다. 또한 배포 중에 성공 및 실패 조건을 확인하는 데도 사용됩니다.
 
-   ```YAML
+   ```yaml
    jobs: 
    - deployment: VMDeploy
      displayName: web

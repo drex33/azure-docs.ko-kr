@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: oshezaf
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,20 +14,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2021
 ms.author: ofshezaf
-ms.openlocfilehash: dabb12e5c0e6bd95ebe1a8025b431ec57e42745b
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: c57b1db016ded00f813bd947d8b4226b751c3666
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129615375"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075373"
 ---
 # <a name="azure-sentinel-information-model-asim-schemas-public-preview"></a>ASIM(Azure Sentinel 정보 모델) 스키마(퍼블릭 미리 보기)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [ASIM](normalization.md) 스키마는 활동을 나타내는 필드 집합입니다. 쿼리에서 정규화된 스키마의 필드를 사용하면 쿼리가 정규화된 모든 원본에서 작동합니다.
 
 스키마 참조는 각 스키마를 구성하는 필드를 간략하게 설명합니다. ASIM은 현재 다음 스키마를 정의합니다.
 
- - [네트워크 세션](normalization-schema.md)
+ - [네트워크 세션](./network-normalization-schema.md)
  - [DNS 작업](dns-normalization-schema.md)
  - [DHCP 활동](dhcp-normalization-schema.md)
  - [프로세스 이벤트](process-events-normalization-schema.md)

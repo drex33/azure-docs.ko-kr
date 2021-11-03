@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/22/2021
 ms.author: jlian
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 20edf9c0977db3b9557214220df1a76e7363e704
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: b984b7ee718a051456f8f51e5c9a49c247b884b4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110695710"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040566"
 ---
 # <a name="use-ip-filters"></a>IP 필터 사용
 
@@ -27,7 +27,7 @@ IP 필터를 사용하여 지정된 범위의 IP 주소에서 오는 트래픽�
 
 IP 필터 설정 페이지로 이동하려면 **네트워킹**, **공용 액세스** 를 차례로 선택한 다음, **선택한 IP 범위** 를 선택합니다.
 
-:::image type="content" source="media/iot-hub-ip-filtering/ip-filter-default.png" alt-text="IoT Hub 기본 IP 필터 설정":::
+:::image type="content" source="media/iot-hub-ip-filtering/ip-filter-default.png" alt-text="기본 IP 필터 설정을 설정하는 방법을 보여주는 스크린샷.":::
 
 기본적으로 IoT Hub에 대한 포털의 **IP 필터** 그리드는 비어있습니다. 이 기본 설정은 허브가 모든 IP 주소의 연결을 차단한다는 것을 의미합니다. 이 기본 설정은 `0.0.0.0/0` IP 주소 범위를 차단하는 규칙과 같습니다.
 
@@ -35,11 +35,11 @@ IP 필터 설정 페이지로 이동하려면 **네트워킹**, **공용 액세�
 
 IP 필터 규칙을 추가하려면 **+ IP 필터 규칙 추가** 를 선택합니다. 컴퓨터의 IP 주소를 빠르게 추가하려면 **클라이언트 IP 주소 추가** 를 클릭합니다. 
 
-:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-add-rule.png" alt-text="IP 필터 규칙을 IoT 허브에 추가":::
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-add-rule.png" alt-text="IoT Hub에 IP 필터 규칙을 추가하는 방법을 보여주는 스크린샷":::
 
 **IP 필터 규칙 추가** 를 선택한 후 필드를 입력합니다. 클라이언트 IP 주소를 추가하도록 선택한 경우 해당 필드는 미리 채워집니다.
 
-:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png" alt-text="IP 필터 규칙 추가를 선택한 후":::
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png" alt-text="IP 필터 규칙을 추가한 후 수행할 작업을 보여 주는 스크린샷":::
 
 * IP 필터 규칙의 **이름** 을 제공합니다. 이름은 최대 128자 길이의 대/소문자를 구분하는 고유한 영숫자 문자열이어야 합니다. ASCII 7 비트 영숫자 및 `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`만 허용됩니다.
 
@@ -47,7 +47,7 @@ IP 필터 규칙을 추가하려면 **+ IP 필터 규칙 추가** 를 선택합�
 
 필드를 채운 후 **저장** 을 선택하여 규칙을 저장합니다. 업데이트가 진행 중임을 알리는 경고가 표시됩니다.
 
-:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png" alt-text="IP 필터 규칙 저장에 대한 알림":::
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png" alt-text="IP 필터 규칙 저장에 대한 알림을 보여 주는 스크린샷":::
 
 최대 10개의 IP 필터 규칙에 도달하면 **추가** 옵션이 비활성화됩니다.
 
@@ -57,13 +57,13 @@ IP 필터 규칙을 추가하려면 **+ IP 필터 규칙 추가** 를 선택합�
 
 IP 필터 규칙을 삭제하려면 해당 행에서 휴지통 아이콘을 선택하고 **저장** 을 선택합니다. 규칙이 제거되고 변경 내용이 저장됩니다.
 
-:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-delete-rule.png" alt-text="IoT Hub IP 필터 규칙 삭제":::
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-delete-rule.png" alt-text="IoT Hub IP 필터 규칙을 삭제하는 방법을 보여주는 스크린샷":::
 
 ## <a name="apply-ip-filter-rules-to-the-built-in-event-hub-compatible-endpoint"></a>기본 제공 Event Hub 호환 엔드포인트에 IP 필터 규칙 적용
 
 IP 필터 규칙을 기본 제공 Event Hub 호환 엔드포인트에 적용하려면 **기본 제공 엔드포인트에 IP 필터를 적용하시겠어요?** 옆에 있는 확인란을 선택하고 **저장** 을 선택합니다.
 
-:::image type="content" source="media/iot-hub-ip-filtering/ip-filter-built-in-endpoint.png" alt-text="기본 제공 엔드포인트의 토글과 저장을 표시하는 이미지":::
+:::image type="content" source="media/iot-hub-ip-filtering/ip-filter-built-in-endpoint.png" alt-text="기본 제공 엔드포인트에 대한 토글을 보여주는 스크린샷.":::
 
 > [!NOTE]
 > 체험용(F1) IoT 허브에서는 이 옵션을 사용할 수 없습니다. 기본 제공 엔드포인트에 IP 필터 규칙을 적용하려면 유료 IoT 허브를 사용해야 합니다.

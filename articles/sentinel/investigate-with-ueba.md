@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2021
 ms.author: bagol
-ms.openlocfilehash: 6e29b444f7a9e1afbea3ffc7f9d53c0279c6af8c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 3dbeae805c28b9cfbfe7871b49f021a1d3ad19c2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528235"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131023161"
 ---
 # <a name="tutorial-investigate-incidents-with-ueba-data"></a>자습서: UEBA 데이터를 사용하여 인시던트 조사
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 이 문서에서는 일반 조사 워크플로에서 [UEBA(사용자 엔터티 동작 분석)](identify-threats-with-entity-behavior-analytics.md)를 사용하기 위한 일반적인 방법 및 샘플 절차에 대해 설명합니다.
 

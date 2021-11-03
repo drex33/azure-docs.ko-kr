@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
 ms.date: 10/26/2020
-ms.openlocfilehash: 82e21038b143e0e32a58c3aa24b227ebe850fd06
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e86ae7d2e168946c00690810749051f15587b438
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124775016"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131004875"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>자습서: Azure Red Hat OpenShift 4 클러스터 만들기
 
@@ -75,6 +75,15 @@ ARO 끌어오기 비밀은 ARO에 대한 RH OpenShift 라이선스의 비용을 
     ```azurecli-interactive
     az provider register -n Microsoft.Authorization --wait
     ```
+    
+    1. Azure Red Hat Openshift는 이제 Azure Government에서 공개 미리 보기로 사용할 수 있습니다. 거기에 배포하려는 경우 다음 지침을 따르세요. 
+
+> [!IMPORTANT]
+> ARO 미리 보기 기능은 셀프 서비스에서 사용할 수 있습니다(옵트인 방식). 미리 보기 기능은 "있는 그대로" 및 "사용 가능한 상태로" 제공되며 서비스 수준 계약 및 제한 보증에서 제외됩니다. 미리 보기 기능은 최선을 다해 고객 지원팀에서 부분적으로 처리됩니다. 따라서 이러한 기능은 프로덕션 용도로 사용할 수 없습니다.
+
+```azurecli-interactive
+az feature register --namespace Microsoft.RedHatOpenShift --name preview
+```
 
 ### <a name="get-a-red-hat-pull-secret-optional"></a>Red Hat 풀 비밀 가져오기(선택 사항)
 

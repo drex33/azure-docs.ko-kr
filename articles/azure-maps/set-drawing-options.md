@@ -7,12 +7,12 @@ ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 ms.custom: devx-track-js
-ms.openlocfilehash: 260aac69c33efa7ef006f882af1cfd2c851eecc2
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: fd861e4ab92235ec4f2b3ec8051e854a08effd3c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123437727"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072373"
 ---
 # <a name="use-the-drawing-tools-module"></a>그리기 도구 모듈 사용
 
@@ -31,14 +31,14 @@ Azure Maps 웹 SDK는 *그리기 도구 모듈* 을 제공합니다. 이 모듈�
 
     - 또는 [azure-maps-drawing-tools](https://www.npmjs.com/package/azure-maps-drawing-tools) npm 패키지를 사용하여 Azure Maps 웹 SDK 소스 코드의 그리기 도구 모듈을 로컬로 로드한 다음 앱을 사용하여 호스트할 수 있습니다. 이 패키지에는 TypeScript 정의도 포함됩니다. 다음 명령을 실행합니다.
 
-        > **npm install azure-maps-drawing-tools**
+      `npm install azure-maps-drawing-tools`
 
-        그런 다음 파일의 `<head>` 요소에서 JavaScript 및 CSS 스타일시트에 대한 참조를 추가합니다.
+      그런 다음 파일의 `<head>` 요소에서 JavaScript 및 CSS 스타일시트에 대한 참조를 추가합니다.
 
-         ```html
-        <link rel="stylesheet" href="node_modules/azure-maps-drawing-tools/dist/atlas-drawing.min.css" type="text/css" />
-        <script src="node_modules/azure-maps-drawing-tools/dist/atlas-drawing.min.js"></script>
-         ```
+      ```html
+      <link rel="stylesheet" href="node_modules/azure-maps-drawing-tools/dist/atlas-drawing.min.css" type="text/css" />
+      <script src="node_modules/azure-maps-drawing-tools/dist/atlas-drawing.min.js"></script>
+      ```
 
 ## <a name="use-the-drawing-manager-directly"></a>그리기 관리자 직접 사용
 

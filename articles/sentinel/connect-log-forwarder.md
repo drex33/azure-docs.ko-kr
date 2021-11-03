@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
 ms.author: bagol
-ms.openlocfilehash: 5a7df5ba2de5b3d12e39b403be6a9e336734d144
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 02ffb7089ac0888fe918ca8f11898f479f273234
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123261216"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131014071"
 ---
 # <a name="deploy-a-log-forwarder-to-ingest-syslog-and-cef-logs-to-azure-sentinel"></a>로그 전달자를 배포하여 Syslog 및 CEF 로그를 Azure Sentinel로 수집
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 특히 Log Analytics 에이전트를 직접 설치할 수 없는 장치 및 어플라이언스에서 Syslog 및 CEF 로그를 Azure Sentinel로 수집하려면 장치에서 로그를 수집하고 Azure Sentinel 작업 영역으로 전달할 Linux 컴퓨터를 지정하고 구성해야 합니다. 이 컴퓨터는 온-프레미스 환경, Azure VM 또는 다른 클라우드의 VM에서 물리적 컴퓨터 또는 가상 머신일 수 있습니다. 
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: 8224ae4a48bb4915492240c414b90edb86a4c258
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 52b467401cfffeef4908750caea9c6d3ee88eb1b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93393135"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075033"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>가용성 영역으로 Azure VM 이동
 
@@ -81,7 +81,7 @@ VM을 특정 지역에 *단일 인스턴스* 로 배포했으며 이러한 VM을
 
     - [네트워크 보안 그룹](../virtual-network/manage-network-security-group.md)
     - [부하 분산 장치](../load-balancer/index.yml)
-    - [공용 IP](../virtual-network/virtual-network-public-ip-address.md)
+    - [공용 IP](../virtual-network/ip-services/virtual-network-public-ip-address.md)
     
    그 외의 네트워킹 구성 요소는 네트워킹 [설명서](../index.yml?pivot=products&panel=network)를 참조하세요.
 

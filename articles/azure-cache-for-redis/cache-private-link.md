@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 3/31/2021
-ms.openlocfilehash: a79f33f084c4ed12837b4af92351a9eac0e33152
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 4a98b229497aa3b11692fff044bb0f0347ada9d7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130265460"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131039528"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link"></a>Azure Private Link를 사용하는 Azure Cache for Redis
 
@@ -208,6 +208,116 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 Azur
 > 기본값으로 `Disabled`된 `publicNetworkAccess` 플래그가 있습니다.
 > 값을 `Disabled` 또는 `Enabled`로 설정할 수 있습니다. 사용으로 설정 되 면이 플래그를 사용 하 여 공용 및 개인 끝점에서 캐시에 액세스할 수 있습니다. 로 설정 되 면 `Disabled` 개인 끝점 액세스만 허용 됩니다. 값을 변경 하는 방법에 대 한 자세한 내용은 [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access)를 참조 하십시오.
 >
+## <a name="create-a-private-endpoint-using-azure-powershell"></a>Azure PowerShell을 사용하여 프라이빗 엔드포인트 만들기
+
+Redis 용 기존 Azure 캐시 인스턴스에 대해 *MyPrivateEndpoint* 이라는 개인 끝점을 만들려면 다음 PowerShell 스크립트를 실행 합니다. 변수 값을 사용자 환경에 대 한 세부 정보로 바꿉니다.
+
+```azurepowershell-interactive
+
+$SubscriptionId = "<your Azure subscription ID>"
+# Resource group where the Azure Cache for Redis instance and virtual network resources are located
+$ResourceGroupName = "myResourceGroup"
+# Name of the Azure Cache for Redis instance
+$redisCacheName = "mycacheInstance"
+
+# Name of the existing virtual network
+$VNetName = "myVnet"
+# Name of the target subnet in the virtual network
+$SubnetName = "mySubnet"
+# Name of the private endpoint to create
+$PrivateEndpointName = "MyPrivateEndpoint"
+# Location where the private endpoint can be created. The private endpoint should be created in the same location where your subnet or the virtual network exists
+$Location = "westcentralus"
+
+$redisCacheResourceId = "/subscriptions/$($SubscriptionId)/resourceGroups/$($ResourceGroupName)/providers/Microsoft.Cache/Redis/$($redisCacheName)"
+
+$privateEndpointConnection = New-AzPrivateLinkServiceConnection -Name "myConnectionPS" -PrivateLinkServiceId $redisCacheResourceId -GroupId "redisCache"
+ 
+$virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName  $ResourceGroupName -Name $VNetName  
+ 
+$subnet = $virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.Name -eq $SubnetName}  
+ 
+$privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $ResourceGroupName -Name $PrivateEndpointName -Location "westcentralus" -Subnet  $subnet -PrivateLinkServiceConnection $privateEndpointConnection
+```
+
+## <a name="retrieve-a-private-endpoint-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 개인 끝점 검색
+
+개인 끝점의 세부 정보를 가져오려면 다음 PowerShell 명령을 사용 합니다.
+
+```azurepowershell-interactive
+Get-AzPrivateEndpoint -Name $PrivateEndpointName -ResourceGroupName $ResourceGroupName
+```
+
+## <a name="remove-a-private-endpoint-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 개인 끝점 제거
+
+개인 끝점을 제거 하려면 다음 PowerShell 명령을 사용 합니다.
+
+```azurepowershell-interactive
+Remove-AzPrivateEndpoint -Name $PrivateEndpointName -ResourceGroupName $ResourceGroupName
+```
+
+## <a name="create-a-private-endpoint-using-azure-cli"></a>Azure CLI를 사용하여 Azure 프라이빗 엔드포인트 만들기
+
+Redis 용 기존 Azure 캐시 인스턴스에 대해 *myPrivateEndpoint* 라는 개인 끝점을 만들려면 다음 Azure CLI 스크립트를 실행 합니다. 변수 값을 사용자 환경에 대 한 세부 정보로 바꿉니다.
+
+```azurecli-interactive
+# Resource group where the Azure Cache for Redis and virtual network resources are located
+ResourceGroupName="myResourceGroup"
+
+# Subscription ID where the Azure Cache for Redis and virtual network resources are located
+SubscriptionId="<your Azure subscription ID>"
+
+# Name of the existing Azure Cache for Redis instance
+redisCacheName="mycacheInstance"
+
+# Name of the virtual network to create
+VNetName="myVnet"
+
+# Name of the subnet to create
+SubnetName="mySubnet"
+
+# Name of the private endpoint to create
+PrivateEndpointName="myPrivateEndpoint"
+
+# Name of the private endpoint connection to create
+PrivateConnectionName="myConnection"
+
+az network vnet create \
+    --name $VNetName \
+    --resource-group $ResourceGroupName \
+    --subnet-name $SubnetName
+
+az network vnet subnet update \
+    --name $SubnetName \
+    --resource-group $ResourceGroupName \
+    --vnet-name $VNetName \
+    --disable-private-endpoint-network-policies true
+
+az network private-endpoint create \
+    --name $PrivateEndpointName \
+    --resource-group $ResourceGroupName \
+    --vnet-name $VNetName  \
+    --subnet $SubnetName \
+    --private-connection-resource-id "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Cache/Redis/$redisCacheName" \
+    --group-ids "redisCache" \
+    --connection-name $PrivateConnectionName
+```
+
+## <a name="retrieve-a-private-endpoint-using-azure-cli"></a>Azure CLI를 사용 하 여 개인 끝점 검색
+
+개인 끝점의 세부 정보를 가져오려면 다음 CLI 명령을 사용 합니다.
+
+```azurecli-interactive
+az network private-endpoint show --name MyPrivateEndpoint --resource-group MyResourceGroup
+```
+
+## <a name="remove-a-private-endpoint-using-azure-cli"></a>Azure CLI를 사용 하 여 개인 끝점 제거
+
+개인 끝점을 제거 하려면 다음 CLI 명령을 사용 합니다.
+
+```azurecli-interactive
+az network private-endpoint delete --name MyPrivateEndpoint --resource-group MyResourceGroup
+```
 
 ## <a name="faq"></a>FAQ
 
@@ -225,23 +335,23 @@ Azure 프라이빗 엔드포인트는 Azure Private Link에서 제공하는 Azur
 
 - 캐시가 이미 VNet 삽입 캐시 인 경우 개인 끝점을 캐시 인스턴스와 함께 사용할 수 없습니다.
 - 클러스터 된 캐시에 대 한 개인 링크는 한 개로 제한 됩니다. 다른 모든 캐시의 경우 100 개인 링크 제한이 있습니다.
-- 방화벽 규칙이 적용 되는 [저장소 계정에 데이터를 유지](cache-how-to-premium-persistence.md) 하려고 하면 개인 링크를 만들지 못할 수 있습니다.
-- 캐시 인스턴스가 [지원 되지 않는 기능](#what-features-arent-supported-with-private-endpoints)을 사용 하는 경우 개인 끝점에 연결 하지 못할 수 있습니다.
+- 방화벽 규칙이 적용되는 [스토리지 계정에 데이터를 유지하려고](cache-how-to-premium-persistence.md) 하면 Private Link 만들 수 없습니다.
+- 캐시 인스턴스가 지원되지 않는 기능을 사용하는 경우 프라이빗 [엔드포인트에 연결하지 못할](#what-features-arent-supported-with-private-endpoints)수 있습니다.
 
 ### <a name="what-features-arent-supported-with-private-endpoints"></a>프라이빗 엔드포인트에서 지원되지 않는 기능은 무엇인가요?
 
-Azure Portal 콘솔에서 연결을 시도 하는 것은 연결 실패를 표시 하는 지원 되지 않는 시나리오입니다.
+Azure Portal 콘솔에서 연결을 시도하는 것은 연결 오류가 표시되는 지원되지 않는 시나리오입니다.
 
-### <a name="how-do-i-verify-if-my-private-endpoint-is-configured-correctly"></a>내 개인 끝점이 올바르게 구성 되어 있는지 확인 어떻게 할까요??
+### <a name="how-do-i-verify-if-my-private-endpoint-is-configured-correctly"></a>프라이빗 엔드포인트가 올바르게 구성되었는지 확인할 어떻게 할까요? 있나요?
 
-`nslookup`개인 끝점에 연결 된 VNet 내에서와 같은 명령을 실행 하 여 명령이 캐시의 개인 IP 주소로 확인 되는지 확인할 수 있습니다. 개인 IP 주소는 리소스에서 **개인 끝점** 을 선택 하 여 찾을 수 있습니다. 왼쪽의 리소스 메뉴에서 **DNS 구성** 을 선택 합니다. 오른쪽의 작업 창에 **네트워크 인터페이스** 에 대 한 IP 주소가 표시 됩니다.
+프라이빗 엔드포인트에 연결된 VNet 내에서 와 같은 명령을 `nslookup` 실행하여 명령이 캐시의 개인 IP 주소로 확인되는지 확인할 수 있습니다. 개인 IP 주소는 리소스에서 **프라이빗 엔드포인트를** 선택하여 찾을 수 있습니다. 왼쪽의 리소스 메뉴에서 DNS **구성** 을 선택합니다. 오른쪽의 작업 창에 **네트워크 인터페이스** 의 IP 주소가 표시됩니다.
 
-:::image type="content" source="media/cache-private-link/cache-private-ip-address.png" alt-text="Azure Portal에서 개인 끝점 D N S 설정입니다.":::
+:::image type="content" source="media/cache-private-link/cache-private-ip-address.png" alt-text="Azure Portal 프라이빗 엔드포인트 D N S 설정입니다.":::
 
 ### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access"></a>공용 네트워크 액세스에서 프라이빗 엔드포인트를 사용하지 않도록 혹은 사용하도록 설정하려면 어떻게 해야 하나요?
 
 기본적으로 `Disabled` 상태인 `publicNetworkAccess` 플래그가 있습니다.
-로 설정 되 면 `Enabled` 이 플래그를 사용 하 여 공용 및 개인 끝점에서 캐시에 액세스할 수 있습니다. 로 설정 되 면 `Disabled` 개인 끝점 액세스만 허용 됩니다. `Disabled`Azure Portal 또는 RESTful API PATCH 요청을 사용하여 값을 또는 로 설정할 수 `Enabled` 있습니다.
+로 설정하면 `Enabled` 이 플래그는 캐시에 대한 퍼블릭 및 프라이빗 엔드포인트 액세스를 모두 허용합니다. 로 설정하면 `Disabled` 프라이빗 엔드포인트 액세스만 허용됩니다. `Disabled`Azure Portal 또는 RESTful API PATCH 요청을 사용하여 값을 또는 로 설정할 수 `Enabled` 있습니다.
 
 Azure Portal에서 값을 변경하려면 다음 단계를 수행합니다.
 

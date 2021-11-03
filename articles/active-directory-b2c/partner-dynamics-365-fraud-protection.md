@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 5/12/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 219cb793da7835922ad707d0ad1ee7e122990ba8
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 83715b34578176ba08fb364cfae11df8b1cf1209
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111962196"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044725"
 ---
 # <a name="tutorial-configure-microsoft-dynamics-365-fraud-protection-with-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C을 사용하여 Microsoft Dynamics 365 Fraud Protection 구성
 
@@ -52,7 +52,7 @@ Microsoft EFP 통합에는 다음 구성 요소가 포함됩니다.
 
 ![Microsoft Dynamics 365 Fraud Protection 아키텍처 다이어그램을 보여 주는 이미지](./media/partner-dynamics365-fraud-protection/microsoft-dynamics-365-fraud-protection-diagram.png)
 
-|단계 | Description |
+|단계 | 설명 |
 |:-----| :-----------|
 | 1. | 사용자가 로그인 페이지에 도달합니다. 사용자는 등록을 선택하여 새 계정을 만들고 페이지에 정보를 입력합니다. Azure AD B2C는 사용자 특성을 수집합니다.
 | 2. | Azure AD B2C는 Microsoft DFP API를 호출하고 사용자 특성을 전달합니다.
@@ -76,12 +76,12 @@ Microsoft DFP를 사용하도록 [Azure AD 테넌트를 설정](/dynamics365/fra
 
 | 환경 | 서비스 | 도메인 |
 |:------------|:---------------|:---------------|
-| 개발 | Azure AD B2C | contoso-dev.b2clogin.com |
-| 개발 | Microsoft DFP 지문 인식 | fpt.dfp.microsoft-int.com |
-| UAT | Azure AD B2C | contoso-uat.b2clogin.com |
-| UAT | Microsoft DFP 지문 인식 | fpt.dfp.microsoft.com |
-| 프로덕션 | Azure AD B2C | login.contoso.com |
-| 프로덕션 | Microsoft DFP 지문 인식 | fpt.login.contoso.com |
+| 개발 | Azure AD B2C | `contoso-dev.b2clogin.com` |
+| 개발 | Microsoft DFP 지문 인식 | `fpt.dfp.microsoft-int.com` |
+| UAT | Azure AD B2C | `contoso-uat.b2clogin.com` |
+| UAT | Microsoft DFP 지문 인식 | `fpt.dfp.microsoft.com` |
+| 프로덕션 | Azure AD B2C | `login.contoso.com` |
+| 프로덕션 | Microsoft DFP 지문 인식 | `fpt.login.contoso.com` |
 
 ## <a name="deploy-the-ui-templates"></a>UI 템플릿 배포
 

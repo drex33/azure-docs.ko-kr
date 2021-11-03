@@ -8,12 +8,12 @@ ms.subservice: v1
 ms.topic: conceptual
 ms.date: 10/22/2021
 robots: noindex
-ms.openlocfilehash: 90fd10d9ccde297989f6c372562bc088240783a7
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: ac9b0d0105ed28847fbf0db4d7ba8cc420fa2328
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130264259"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059645"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동
 > [!NOTE]
@@ -187,7 +187,7 @@ ms.locfileid: "130264259"
 ### <a name="prepare-on-premises-sql-server-for-the-tutorial"></a>자습서에 필요한 온-프레미스 SQL Server 준비
 1. SQL Server에 연결된 서비스(**SqlServerLinkedService**)에 대해 지정된 데이터베이스에서, 다음 SQL 스크립트를 사용하여 데이터베이스에 **emp** 테이블을 만듭니다.
 
-    ```SQL   
+    ```sql
     CREATE TABLE dbo.emp
     (
         ID int IDENTITY(1,1) NOT NULL,
@@ -197,9 +197,10 @@ ms.locfileid: "130264259"
     )
     GO
     ```
+
 2. 테이블에 일부 샘플을 삽입합니다.
 
-    ```SQL
+    ```sql
     INSERT INTO emp VALUES ('John', 'Doe')
     INSERT INTO emp VALUES ('Jane', 'Doe')
     ```
@@ -207,10 +208,11 @@ ms.locfileid: "130264259"
 ### <a name="create-input-dataset"></a>입력 데이터 세트 만들기
 
 1. **Data Factory 편집기** 에서 **...추가** 를 클릭하고, 명령 모음에서 **새 데이터 세트** 를 클릭하고, **SQL Server 테이블** 을 클릭합니다.
+
 2. 오른쪽 창의 JSON을 다음 텍스트로 바꿉니다.
 
-    ```JSON   
-    {        
+    ```json
+    {
         "name": "EmpOnPremSQLTable",
         "properties": {
             "type": "SqlServerTable",
@@ -231,8 +233,9 @@ ms.locfileid: "130264259"
                 }
             }
         }
-    }     
-    ```       
+    }
+    ```
+
    다음 사항에 유의하세요.
 
    * **type** 을 **SqlServerTable** 로 설정합니다.
@@ -241,14 +244,15 @@ ms.locfileid: "130264259"
    * Azure Data Factory의 다른 파이프라인에서 생성하지 않은 입력 데이터 세트의 경우 **external** 을 **true** 로 설정해야 합니다. 이 섹션은 입력 데이터가 Azure Data Factory 서비스 외부에서 생성되었음을 나타냅니다. **Policy** 섹션에서 **externalData** 요소를 사용하여 외부 데이터 정책을 선택적으로 지정할 수 있습니다.    
 
    JSON 속성에 대한 자세한 내용은 [SQL Server 간 데이터 이동 데이터 이동](data-factory-sqlserver-connector.md)을 참조하세요.
-3. 명령 모음에서 **배포** 를 클릭하여 데이터 세트를 배포합니다.  
+
+3. 명령 모음에서 **배포** 를 클릭하여 데이터 세트를 배포합니다.
 
 ### <a name="create-output-dataset"></a>출력 데이터 세트 만들기
 
 1. **데이터 팩터리 편집기** 의 명령 모음에서 **새 데이터 세트** 을 클릭하고 **Azure Blob Storage** 를 클릭합니다.
 2. 오른쪽 창의 JSON을 다음 텍스트로 바꿉니다.
 
-    ```JSON   
+    ```json
     {
         "name": "OutputBlobTable",
         "properties": {
@@ -266,8 +270,9 @@ ms.locfileid: "130264259"
                 "interval": 1
             }
         }
-     }
-    ```   
+    }
+    ```
+
    다음 사항에 유의하세요.
 
    * **type** 을 **AzureBlob** 으로 설정합니다.
@@ -344,11 +349,10 @@ ms.locfileid: "130264259"
          "isPaused": false
        }
      }
-    ```   
+    ```
+
    > [!IMPORTANT]
    > **시작** 속성 값을 현재 날짜로 바꾸고 **종료** 값을 다음 날짜로 바꿉니다.
-   >
-   >
 
    다음 사항에 유의하세요.
 

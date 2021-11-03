@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 07/06/2021
-ms.openlocfilehash: 7030cb8329481e833a7dc34815da7b70b6c5482e
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 1765b671f09dc90506636cc643337e55957c95cd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538186"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084637"
 ---
 # <a name="prepare-for-vmware-agentless-migration"></a>VMware 에이전트 없는 마이그레이션에 대한 준비
 
@@ -23,8 +23,8 @@ Azure Migrate에서는 Linux 및 Windows 모두의 아래에 언급된 운영 �
 **하이드레이션이 지원되는 운영 체제 버전**
 
 - Windows Server 2008 이상
-- Red Hat Enterprise Linux 8, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x
-- CentOS 8, 7.7, 7.6, 7.5, 7.4, 6.x
+- Red Hat Enterprise Linux .x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x
+- CentOS .x, 7.7, 7.6, 7.5, 7.4, 6.x
 - SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12
 - Ubuntu 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS
 - Ubuntu 18.04LTS, 16.04LTS
@@ -271,7 +271,7 @@ Azure Migrate는 임시 VM을 호스트할 네트워크 인터페이스, 새 가
 
     Azure Migrate는 Linux 및 FreeBSD 프로비저닝 및 Azure Fabric Controller와의 VM 상호 작용을 관리하는 안전하고 간단한 프로세스인 Microsoft Azure Linux 에이전트(waagent)를 설치하려고 시도합니다.  Linux 에이전트를 통해 Linux 및 FreeBSD IaaS 배포에 사용할 수 있는 기능에 대해 [자세히 알아보세요](../virtual-machines/extensions/agent-linux.md).
 
-    Linux VM 에이전트를 설치하는 데 [필요한 패키지](../virtual-machines/extensions/agent-linux.md#requirements) 목록을 검토합니다. 에이전트 없는 VMware 마이그레이션 방법을 사용할 때, RHEL 8/7/6, CentOS 8/7/6, Ubuntu 14.04/16.04/18.04/19.04/19.10/20.04, SUSE 15 SP0/15 SP1/12, Debian 9/8/7, Oracle 7의 경우 Azure Migrate에서 Linux VM 에이전트를 자동으로 설치합니다. 다른 OS 버전에 대해 [Linux 에이전트를 수동으로 설치](../virtual-machines/extensions/agent-linux.md#installation)하려면 지침을 따르세요.
+    Linux VM 에이전트를 설치하는 데 [필요한 패키지](../virtual-machines/extensions/agent-linux.md#requirements) 목록을 검토합니다. Azure Migrate는 VMware 마이그레이션의 에이전트 없는 메서드를 사용 하는 경우 RHEL .x/7.x/6.x, CentOS 4.x/7.x/18.04/19.04/19.10, 20.04 15 SUSE/15 SP1/12, SP0 9/8/7 및 Oracle 7에 대해 자동으로 Linux VM 에이전트를 설치 합니다. 다른 OS 버전에 대해 [Linux 에이전트를 수동으로 설치](../virtual-machines/extensions/agent-linux.md#installation)하려면 지침을 따르세요.
 
     명령을 사용하여 Azure Linux 에이전트의 서비스 상태를 확인하여 실행되고 있는지 확인할 수 있습니다. 서비스 이름은 **walinuxagent** 또는 **waagent** 일 수 있습니다.
     하이드레이션 변경이 완료되면 스크립트는 탑재된 모든 파티션을 분리하고, 볼륨 그룹을 비활성화한 다음, 디바이스를 플러시합니다.

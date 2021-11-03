@@ -7,18 +7,16 @@ ms.prod: kinect-dk
 ms.date: 03/18/2021
 ms.topic: article
 keywords: Azure, Kinect, 사양, 하드웨어, DK, 기능, 깊이, 색, RGB, IMU, 마이크, 어레이, 깊이
-ms.custom:
-- CI 114092
-- CSSTroubleshooting
+ms.custom: CI 114092, CSSTroubleshooting
 audience: ITPro
 manager: dcscontentpm
 ms.localizationpriority: high
-ms.openlocfilehash: afbc0ab2680e2cde4c3b36f0a02407f7d90bba8e
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 45941395864bde4442748671c6b5c33da81b319d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130246721"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131082496"
 ---
 # <a name="azure-kinect-dk-hardware-specifications"></a>Azure Kinect DK 하드웨어 사양
 

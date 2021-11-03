@@ -1,6 +1,6 @@
 ---
 title: Hadoop 스트리밍 작업을 사용하여 데이터 변환
-description: Azure Data Factory 또는 Synapse Analytics 파이프라인에서 Hadoop 스트리밍 활동을 사용하여 Hadoop 클러스터에서 Hadoop 스트리밍 프로그램을 실행하여 데이터를 변환하는 방법을 알아봅니다.
+description: Hadoop 클러스터에서 Hadoop 스트리밍 프로그램을 실행하여 Azure Data Factory 또는 Synapse Analytics 파이프라인에서 Hadoop 스트리밍 활동을 사용하여 데이터를 변환하는 방법을 알아봅니다.
 titleSuffix: Azure Data Factory & Azure Synapse
 author: nabhishek
 ms.author: abnarain
@@ -9,12 +9,12 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 09/09/2021
-ms.openlocfilehash: b1767a38cb7661ab074ad579d22f0512e5994eac
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 710a00da839db0005a1cb7ca316a100872a1b894
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124806014"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080102"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics Hadoop 스트리밍 활동을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -23,9 +23,9 @@ ms.locfileid: "124806014"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure Data Factory 또는 Synapse Analytics [파이프라인의](concepts-pipelines-activities.md) HDInsight 스트리밍 작업은 [사용자 고유](compute-linked-services.md#azure-hdinsight-linked-service) 또는 주문형 HDInsight [클러스터에서](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Hadoop 스트리밍 프로그램을 실행합니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](transform-data.md) 문서에서 작성합니다.
+Azure Data Factory 또는 Synapse Analytics [파이프라인의](concepts-pipelines-activities.md) HDInsight 스트리밍 작업은 [사용자](compute-linked-services.md#azure-hdinsight-linked-service) 고유 또는 주문형 HDInsight [클러스터에서](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Hadoop 스트리밍 프로그램을 실행합니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](transform-data.md) 문서에서 작성합니다.
 
-자세한 내용은 이 문서를 읽기 전에 소개 문서를 통해 [Azure Data Factory](introduction.md) 및 [Synapse Analytics](../synapse-analytics/overview-what-is.md) [자습서: 데이터 변환을](tutorial-transform-data-spark-powershell.md) 수행하세요. 
+자세한 내용은 소개 문서를 통해 [Azure Data Factory](introduction.md) 및 [Synapse Analytics](../synapse-analytics/overview-what-is.md) [자습서: 데이터 변환을](tutorial-transform-data-spark-powershell.md) 수행한 후 이 문서를 읽어보세요. 
 
 ## <a name="json-sample"></a>JSON 샘플
 ```json
@@ -94,5 +94,4 @@ Azure Data Factory 또는 Synapse Analytics [파이프라인의](concepts-pipeli
 * [MapReduce 작업](transform-data-using-hadoop-map-reduce.md)
 * [Spark 작업](transform-data-using-spark.md)
 * [.NET 사용자 지정 작업](transform-data-using-dotnet-custom-activity.md)
-* [ML Studio(클래식) Batch Execution 작업](transform-data-using-machine-learning.md)
 * [저장 프로시저 작업](transform-data-using-stored-procedure.md)

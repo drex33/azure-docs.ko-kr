@@ -2,20 +2,20 @@
 title: 식 및 함수
 titleSuffix: Azure Data Factory & Azure Synapse
 description: 이 문서에서는 Azure Data Factory 및 Azure Synapse Analytics 파이프라인 엔터티를 만드는 데 사용할 수 있는 식 및 함수에 대한 정보를 제공합니다.
-author: minhe-msft
-ms.author: hemin
+author: jasonwhowell
+ms.author: jasonh
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: 9b378b4cfb9bb35f1fb2a555afed195ac6b84dc3
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f9b056f680ad575d59b1aa6cf43ca7804bfe646a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128678690"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068839"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 식 및 함수
 

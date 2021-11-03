@@ -130,3 +130,5 @@
       href: 'https://azure.microsoft.com/pricing/details/app-service/static/'
     - name: 할당량
       href: quotas.md
+    - name: 질문과 대답
+      href: faq.yml

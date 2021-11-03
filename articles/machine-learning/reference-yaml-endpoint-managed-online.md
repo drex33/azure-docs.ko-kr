@@ -10,12 +10,12 @@ author: rsethur
 ms.author: seramasu
 ms.date: 08/03/2021
 ms.reviewer: laobri
-ms.openlocfilehash: ebb4db34c802c1cd82e0065579cc97ffeb3fe642
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: de4a9c78501fd74fa65a453b593701891e04d345
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535874"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024261"
 ---
 # <a name="cli-v2-managed-online-endpoint-yaml-schema"></a>CLI(v2) 관리형 온라인 엔드포인트 YAML 스키마
 
@@ -26,7 +26,7 @@ ms.locfileid: "122535874"
 
 ## <a name="schema"></a>스키마
 
-원본 JSON 스키마는 https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json 에서 찾을 수 있습니다. 스키마는 편의상 JSON 및 YAML 형식으로 아래에 제공됩니다.
+원본 JSON 스키마는 https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json 에서 찾을 수 있습니다. 스키마는 편의를 위해 JSON 및 YAML 형식으로 아래에 제공됩니다.
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -84,4 +84,4 @@ ms.locfileid: "122535874"
 
 - [CLI(v2) 설치 및 사용](how-to-configure-cli.md)
 - [관리형 온라인 엔드포인트를 사용하여 모델을 배포](how-to-deploy-managed-online-endpoints.md)하는 방법 알아보기
-- [관리형 온라인 엔드포인트 배포 및 채점(미리 보기) 문제 해결](how-to-troubleshoot-managed-online-endpoints.md)
+- [관리형 온라인 엔드포인트 배포 및 채점(미리 보기) 문제 해결](./how-to-troubleshoot-online-endpoints.md)

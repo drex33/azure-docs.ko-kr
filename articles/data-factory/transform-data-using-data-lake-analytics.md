@@ -9,12 +9,12 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 09/09/2021
-ms.openlocfilehash: fae713e7998a2a5e9686b38bba1ae40b40a2bf32
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3cf224f3b24d318818e53a8c6342edc9f56063e9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124806318"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131077822"
 ---
 # <a name="process-data-by-running-u-sql-scripts-on-azure-data-lake-analytics-with-azure-data-factory-and-synapse-analytics"></a>Azure Data Factory 및 Synapse Analytics 사용하여 Azure Data Lake Analytics U-SQL 스크립트를 실행하여 데이터 처리
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -52,7 +52,7 @@ Azure Data Lake Analytics 연결된 서비스에는 Azure Data Lake Analytics �
 
 다음 속성을 지정하여 서비스 주체 인증을 사용합니다.
 
-| 속성                | Description                              | 필수 |
+| 속성                | 설명                              | 필수 |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | 애플리케이션의 클라이언트 ID를 지정합니다.     | 예      |
 | **servicePrincipalKey** | 애플리케이션의 키를 지정합니다.           | 예      |
@@ -116,7 +116,7 @@ Azure Data Lake Analytics 연결된 서비스에는 Azure Data Lake Analytics �
 
 다음 표에는 이 작업과 관련된 속성 이름과 설명이 나와 있습니다. 
 
-| 속성            | Description                              | 필수 |
+| 속성            | 설명                              | 필수 |
 | :------------------ | :--------------------------------------- | :------- |
 | name                | 파이프라인의 작업 이름입니다.     | 예      |
 | description         | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 예       |
@@ -195,5 +195,4 @@ Azure Data Lake Analytics 서비스에서 실행되는 작업에 대한 파이�
 * [Hadoop 스트리밍 작업](transform-data-using-hadoop-streaming.md)
 * [Spark 작업](transform-data-using-spark.md)
 * [.NET 사용자 지정 작업](transform-data-using-dotnet-custom-activity.md)
-* [ML Studio(클래식) Batch Execution 작업](transform-data-using-machine-learning.md)
 * [저장 프로시저 작업](transform-data-using-stored-procedure.md)

@@ -9,12 +9,13 @@ ms.subservice: sql
 ms.date: 07/23/2021
 ms.author: maburd
 ms.reviewer: wiassaf
-ms.openlocfilehash: a229bd769afa30b93cae9ca0f2073ad8a0621cdd
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 14341d2c623ab465e054c83b7b47a100a52f8ece
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130001393"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054631"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Synapse SQL에서 외부 테이블 사용
 
@@ -290,7 +291,7 @@ CREATE EXTERNAL TABLE 명령은 Synapse SQL에서 Azure Blob Storage 또는 Azur
 
 ### <a name="syntax-for-create-external-table"></a>CREATE EXTERNAL TABLE 구문
 
-```sql
+```syntaxsql
 CREATE EXTERNAL TABLE { database_name.schema_name.table_name | schema_name.table_name | table_name }
     ( <column_definition> [ ,...n ] )  
     WITH (
@@ -298,12 +299,21 @@ CREATE EXTERNAL TABLE { database_name.schema_name.table_name | schema_name.table
         DATA_SOURCE = external_data_source_name,  
         FILE_FORMAT = external_file_format_name
         [, TABLE_OPTIONS = N'{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}' ]
-    )  
-[;]  
+        [, <reject_options> [ ,...n ] ] 
+    )
+[;] 
 
 <column_definition> ::=
 column_name <data_type>
     [ COLLATE collation_name ]
+
+<reject_options> ::=  
+{  
+    | REJECT_TYPE = value,  
+    | REJECT_VALUE = reject_value,  
+    | REJECT_SAMPLE_VALUE = reject_sample_value,
+    | REJECTED_ROW_LOCATION = '/REJECT_Directory'
+}   
 ```
 
 ### <a name="arguments-create-external-table"></a>CREATE EXTERNAL TABLE 인수
@@ -317,11 +327,10 @@ column_name <data_type>
 CREATE EXTERNAL TABLE은 열 이름, 데이터 형식 및 데이터 정렬을 구성하는 기능을 지원합니다. 외부 테이블에 DEFAULT CONSTRAINT를 사용할 수 없습니다.
 
 >[!IMPORTANT]
->데이터 형식 및 열 수를 포함한 열 정의는 외부 파일의 데이터와 일치해야 합니다. 불일치가 있는 경우 실제 데이터를 쿼리할 때 파일 행이 거부됩니다.
+>데이터 형식 및 열 수를 포함한 열 정의는 외부 파일의 데이터와 일치해야 합니다. 불일치가 있는 경우 실제 데이터를 쿼리할 때 파일 행이 거부됩니다. 거부된 행 동작을 제어하려면 거부 옵션을 참조하세요.
 
 Parquet 파일에서 읽는 경우 읽으려는 열만 지정하고 나머지는 건너뛸 수 있습니다.
 
-#### <a name="location"></a>위치
 
 LOCATION = '*folder_or_filepath*'
 
@@ -330,14 +339,61 @@ Azure Blob Storage의 실제 데이터에 대한 폴더 또는 파일 경로 및
 ![외부 테이블에 대한 재귀적 데이터](./media/develop-tables-external-tables/folder-traversal.png)
 
 Hadoop 외부 테이블과 달리 네이티브 외부 테이블은 경로 끝에 /**를 지정하지 않는 한 하위 폴더를 반환하지 않습니다. 이 예제에서 서버리스 SQL 풀 쿼리인 LOCATION='/webdata/'인 경우 mydata.txt에서 행을 반환합니다. mydata2.txt 및 mydata3.txt는 하위 폴더에 있으므로 반환되지 않습니다. Hadoop 테이블은 모든 하위 폴더에 있는 모든 파일을 반환합니다.
- 
+
 Hadoop 및 네이티브 외부 테이블은 모두 밑줄(_) 또는 마침표(.)로 시작하는 이름의 파일을 건너뜁니다.
 
-#### <a name="data_source"></a>DATA_SOURCE
 
-DATA_SOURCE = *external_data_source_name* - 외부 데이터의 위치를 포함한 외부 데이터 원본의 이름을 지정합니다. 외부 데이터 원본을 만들려면 [CREATE EXTERNAL DATA SOURCE](#create-external-data-source)를 사용합니다.
+DATA_SOURCE = *external_data_source_name*
 
-FILE_FORMAT = *external_file_format_name* - 외부 데이터의 파일 형식 및 압축 방법을 저장하는 외부 파일 형식 개체의 이름을 지정합니다. 외부 파일 형식을 만들려면 [CREATE EXTERNAL FILE FORMAT](#create-external-file-format)을 사용합니다.
+외부 데이터 위치가 포함된 외부 데이터 원본의 이름을 지정합니다. 외부 데이터 원본을 만들려면 [CREATE EXTERNAL DATA SOURCE](#create-external-data-source)를 사용합니다.
+
+
+FILE_FORMAT = *external_file_format_name*
+
+외부 데이터에 대한 파일 형식과 압축 방법을 저장하는 외부 파일 형식 개체의 이름을 지정합니다. 외부 파일 형식을 만들려면 [CREATE EXTERNAL FILE FORMAT](#create-external-file-format)을 사용합니다.
+
+거부 옵션 
+
+> [!NOTE]
+> 거부된 행 기능은 공개 미리 보기로 제공됩니다.
+> 거부된 행 기능은 분리된 텍스트 파일 및 PARSER_VERSION 1.0에서 작동합니다.
+
+서비스가 외부 데이터 원본에서 검색하는 *더티* 레코드를 처리하는 방법을 결정하는 거부 매개 변수를 지정할 수 있습니다. 데이터 레코드는 실제 데이터 형식이 외부 테이블의 열 정의와 일치하지 않으면 '더티'로 간주됩니다.
+
+거부 옵션을 지정하거나 변경하지 않으면 서비스는 기본값을 사용합니다. 거부 매개 변수에 관한 이 정보는 CREATE EXTERNAL TABLE 문을 사용하여 외부 테이블을 만들 때 추가 메타데이터로 저장됩니다. 후속 SELECT 문 또는 SELECT INTO SELECT 문이 외부 테이블에서 데이터를 선택하는 경우 서비스는 거부 옵션을 사용하여 실제 쿼리가 실패하기 전 거부할 수 있는 행의 수를 결정합니다. 이 쿼리는 거부된 임계값이 초과될 때까지 (부분) 결과를 반환합니다. 그런 다음, 적절한 오류 메시지와 함께 실패합니다.
+
+
+REJECT_TYPE = **value** 
+
+현재 유일하게 지원되는 값입니다. REJECT_VALUE 옵션이 리터럴 값으로 지정되었음을 명확히 합니다.
+
+값 
+
+REJECT_VALUE는 리터럴 값입니다. 쿼리는 거부된 행 수가 *reject_value* 를 초과하면 실패합니다.
+
+예를 들어 REJECT_VALUE = 5이고 REJECT_TYPE = value인 경우, SELECT 쿼리는 5개 행이 거부된 후 실패합니다.
+
+
+REJECT_VALUE = *reject_value* 
+
+쿼리가 실패하기 전에 거부될 수 있는 행 수를 지정합니다.
+
+REJECT_TYPE = value인 경우, *reject_value* 는 0에서 2,147,483,647 사이의 정수여야 합니다.
+
+
+REJECTED_ROW_LOCATION = *디렉터리 위치*
+
+거부된 행과 해당 오류 파일을 작성해야 하는 외부 데이터 원본 내 디렉터리를 지정합니다. 지정된 경로가 존재하지 않으면 서비스는 사용자를 대신하여 경로를 만듭니다. "_rejectedrows"라는 이름의 하위 디렉터리가 생성됩니다. "_ " 문자는 위치 매개 변수에 명시적으로 명명되지 않는 한, 다른 데이터 처리를 위해 디렉터리를 이스케이프합니다. 이 디렉터리 내에는 로드 제출 시간을 기준으로 YearMonthDay_HourMinuteSecond_StatementID 형식에 따라 생성된 폴더가 있습니다(예: 20180330-173205-559EE7D2-196D-400A-806D-3BF5D007F891). 명령문 ID를 사용하여 폴더를 생성한 쿼리와 폴더의 상관 관계를 지정할 수 있습니다. 이 폴더에는 error.json 파일 및 데이터 파일이라는 두 개의 파일이 기록됩니다. 
+
+error.json 파일에는 거부된 행과 관련된 오류가 발생한 json 배열이 포함되어 있습니다. 오류를 나타내는 각 요소에는 다음 특성이 포함됩니다.
+
+| attribute | 설명                                                  |
+| --------- | ------------------------------------------------------------ |
+| Error     | 행이 거부된 이유입니다.                                  |
+| 행       | 파일의 행 서수를 거부했습니다.                         |
+| 열    | 열 서수를 거부했습니다.                              |
+| 값     | 열 값이 거부되었습니다. 값이 100자보다 크면 처음 100자만 표시됩니다. |
+| 파일      | 행이 속한 파일의 경로입니다.                            |
 
 #### <a name="table_options"></a>TABLE_OPTIONS
 

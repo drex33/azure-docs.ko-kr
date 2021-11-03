@@ -17,27 +17,27 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: f4179a79df5bb952ca4a374602cb4dea8bf4dbbd
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 0f5eb88a3694e492f01dcf8646753a522f7c478c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130178261"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064642"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>보안 프레임: 구성 관리 | 완화 
 | 제품/서비스 | 아티클 |
 | --------------- | ------- |
-| **웹 애플리케이션** | <ul><li>[CSP (콘텐츠 보안 정책)를 구현 하 고 인라인 JavaScript를 사용 하지 않도록 설정](#csp-js)</li><li>[브라우저의 XSS 필터를 사용하도록 설정](#xss-filter)</li><li>[ASP.NET 애플리케이션에서 배포 전에 추적 및 디버깅을 사용하지 않도록 설정](#trace-deploy)</li><li>[신뢰할 수 있는 원본 에서만 타사 Javascript에 액세스](#js-trusted)</li><li>[인증된 ASP.NET 페이지에 UI 변조(UI Redressing) 또는 클릭재킹(clickjacking) 방어 기능이 통합되어 있는지 확인](#ui-defenses)</li><li>[ASP.NET 웹 애플리케이션에서 CORS를 사용하도록 설정하는 경우 신뢰할 수 있는 원본만 허용되는지 확인](#cors-aspnet)</li><li>[ASP.NET 페이지에서 ValidateRequest 특성을 사용하도록 설정](#validate-aspnet)</li><li>[로컬로 호스팅되는 최신 버전의 JavaScript 라이브러리 사용](#local-js)</li><li>[자동 MIME 스니핑을 사용하지 않도록 설정](#mime-sniff)</li><li>[지문 인식을 방지하기 위해 Microsoft Azure 웹 사이트에서 표준 서버 헤더 제거](#standard-finger)</li></ul> |
+| **웹 애플리케이션** | <ul><li>[CSP(콘텐츠 보안 정책) 구현 및 인라인 JavaScript 사용 안 함](#csp-js)</li><li>[브라우저의 XSS 필터를 사용하도록 설정](#xss-filter)</li><li>[ASP.NET 애플리케이션에서 배포 전에 추적 및 디버깅을 사용하지 않도록 설정](#trace-deploy)</li><li>[신뢰할 수 있는 원본에서만 타사 Javascript에 액세스](#js-trusted)</li><li>[인증된 ASP.NET 페이지에 UI 변조(UI Redressing) 또는 클릭재킹(clickjacking) 방어 기능이 통합되어 있는지 확인](#ui-defenses)</li><li>[ASP.NET 웹 애플리케이션에서 CORS를 사용하도록 설정하는 경우 신뢰할 수 있는 원본만 허용되는지 확인](#cors-aspnet)</li><li>[ASP.NET 페이지에서 ValidateRequest 특성을 사용하도록 설정](#validate-aspnet)</li><li>[로컬로 호스트된 최신 버전의 JavaScript 라이브러리 사용](#local-js)</li><li>[자동 MIME 스니핑을 사용하지 않도록 설정](#mime-sniff)</li><li>[지문 인식을 방지하기 위해 Microsoft Azure 웹 사이트에서 표준 서버 헤더 제거](#standard-finger)</li></ul> |
 | **Database** | <ul><li>[데이터베이스 엔진 액세스에 대한 Windows 방화벽 구성](#firewall-db)</li></ul> |
 | **앱 API** | <ul><li>[ASP.NET Web API에서 CORS를 사용하도록 설정하는 경우 신뢰할 수 있는 원본만 허용되는지 확인](#cors-api)</li><li>[중요한 데이터가 포함된 Web API 구성 파일의 섹션 암호화](#config-sensitive)</li></ul> |
-| **IoT 디바이스** | <ul><li>[모든 관리 인터페이스를 강력한 자격 증명으로 보호하는지 확인](#admin-strong)</li><li>[디바이스에서 알 수 없는 코드를 실행할 수 없는지 확인](#unknown-exe)</li><li>[BitLocker를 사용 하 여 OS 및 IoT 장치의 기타 파티션 암호화](#partition-iot)</li><li>[디바이스에서 최소 서비스/기능만 사용하도록 설정되어 있는지 확인](#min-enable)</li></ul> |
-| **IoT 필드 게이트웨이** | <ul><li>[BitLocker를 사용 하 여 OS 및 IoT 필드 게이트웨이의 기타 파티션 암호화](#field-bit-locker)</li><li>[설치 중에 필드 게이트웨이의 기본 로그인 자격 증명이 변경되었는지 확인](#default-change)</li></ul> |
+| **IoT 디바이스** | <ul><li>[모든 관리 인터페이스를 강력한 자격 증명으로 보호하는지 확인](#admin-strong)</li><li>[디바이스에서 알 수 없는 코드를 실행할 수 없는지 확인](#unknown-exe)</li><li>[BitLocker를 사용하여 OS 및 기타 IoT 디바이스 파티션 암호화](#partition-iot)</li><li>[디바이스에서 최소 서비스/기능만 사용하도록 설정되어 있는지 확인](#min-enable)</li></ul> |
+| **IoT 필드 게이트웨이** | <ul><li>[BitLocker를 사용하여 OS 및 기타 IoT 필드 게이트웨이 파티션 암호화](#field-bit-locker)</li><li>[설치 중에 필드 게이트웨이의 기본 로그인 자격 증명이 변경되었는지 확인](#default-change)</li></ul> |
 | **IoT 클라우드 게이트웨이** | <ul><li>[클라우드 게이트웨이에서 연결된 디바이스 펌웨어를 최신 상태로 유지하는 프로세스를 구현하는지 확인](#cloud-firmware)</li></ul> |
 | **컴퓨터 신뢰 경계** | <ul><li>[디바이스에서 조직 정책에 따라 구성된 끝점 보안 제어를 사용하는지 확인](#controls-policies)</li></ul> |
 | **Azure Storage** | <ul><li>[Azure Storage 액세스 키의 보안 관리 확인](#secure-keys)</li><li>[Azure Storage에서 CORS를 사용하도록 설정하는 경우 신뢰할 수 있는 원본만 허용되는지 확인](#cors-storage)</li></ul> |
 | **WCF** | <ul><li>[WCF의 서비스 제한 기능을 사용하도록 설정](#throttling)</li><li>[WCF - 메타데이터를 통한 정보 공개](#info-metadata)</li></ul> | 
 
-## <a name="implement-content-security-policy-csp-and-disable-inline-javascript"></a><a id="csp-js"></a>CSP (콘텐츠 보안 정책)를 구현 하 고 인라인 JavaScript를 사용 하지 않도록 설정
+## <a name="implement-content-security-policy-csp-and-disable-inline-javascript"></a><a id="csp-js"></a>CSP(콘텐츠 보안 정책) 구현 및 인라인 JavaScript 사용 안 함
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -46,7 +46,7 @@ ms.locfileid: "130178261"
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [CPS(콘텐츠 보안 정책) 소개](https://www.html5rocks.com/en/tutorials/security/content-security-policy/)(영문), [콘텐츠 보안 정책 참조](https://content-security-policy.com/)(영문), [보안 기능](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/)(영문), [콘텐츠 보안 정책 소개](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy)(영문), [CSP를 사용할 수 있습니까?](https://caniuse.com/#feat=contentsecuritypolicy)(영문) |
-| **단계** | <p>CSP(콘텐츠 보안 정책)는 웹 애플리케이션 소유자가 자신의 사이트에 포함된 콘텐츠를 제어할 수 있게 하는 심층 방어 보안 메커니즘인 W3C 표준입니다. CSP는 웹 서버에 HTTP 응답 헤더로 추가되며 브라우저에서 클라이언트 쪽에 적용됩니다. 허용 되는 목록 기반 정책입니다. 웹 사이트에서 JavaScript와 같은 액티브 콘텐츠를 로드할 수 있는 트러스트 된 도메인 집합을 선언할 수 있습니다.</p><p>CSP는 다음과 같은 보안 이점을 제공합니다.</p><ul><li>**XSS 방지:** 페이지가 XSS에 취약 한 경우 공격자는 다음 두 가지 방법으로이를 악용할 수 있습니다.<ul><li>`<script>malicious code</script>`를 삽입합니다. 이 악용은 CSP의 기본 제한-1로 인해 작동하지 않습니다.</li><li>`<script src="http://attacker.com/maliciousCode.js"/>`를 삽입합니다. 공격자가 제어 하는 도메인은 CSP의 허용 된 도메인 목록에 없으므로이 익스플로잇은 작동 하지 않습니다.</li></ul></li><li>**데이터 유출 제어:** 웹 페이지의 악성 콘텐츠가 외부 웹 사이트에 연결하여 데이터를 도용하려고 하면 CSP에서 연결을 중단합니다. 이는 대상 도메인이 CSP의 허용 목록에 없기 때문입니다.</li><li>**클릭재킹에 대한 방어:** 클릭재킹은 악의적 사용자가 실제 웹 사이트를 구성하고 사용자가 UI 요소를 클릭하도록 강요하는 공격 기법입니다. 현재 클릭재킹에 대한 방어는 X-Frame-Options 응답 헤더를 구성하여 수행됩니다. 모든 브라우저에서 이 헤더를 사용하지는 않으며, CSP가 클릭재킹을 방어하기 위한 표준 방법이 됩니다.</li><li>**실시간 공격보고:** CSP 지원 웹 사이트에 대한 삽입 공격이 있는 경우 브라우저에서 자동으로 웹 서버에 구성된 엔드포인트로 알림을 트리거합니다. CSP는 이러한 방식으로 실시간 경고 시스템의 역할을 수행합니다.</li></ul> |
+| **단계** | <p>CSP(콘텐츠 보안 정책)는 웹 애플리케이션 소유자가 자신의 사이트에 포함된 콘텐츠를 제어할 수 있게 하는 심층 방어 보안 메커니즘인 W3C 표준입니다. CSP는 웹 서버에 HTTP 응답 헤더로 추가되며 브라우저에서 클라이언트 쪽에 적용됩니다. 허용된 목록 기반 정책입니다. 웹 사이트는 JavaScript와 같은 활성 콘텐츠를 로드할 수 있는 신뢰할 수 있는 도메인 집합을 선언할 수 있습니다.</p><p>CSP는 다음과 같은 보안 이점을 제공합니다.</p><ul><li>**XSS에 대한 보호:** 페이지가 XSS에 취약한 경우 공격자는 다음 두 가지 방법으로 악용할 수 있습니다.<ul><li>`<script>malicious code</script>`를 삽입합니다. 이 악용은 CSP의 기본 제한-1로 인해 작동하지 않습니다.</li><li>`<script src="http://attacker.com/maliciousCode.js"/>`를 삽입합니다. 공격자가 제어하는 도메인이 CSP에서 허용된 도메인 목록에 없으므로 이 악용은 작동하지 않습니다.</li></ul></li><li>**데이터 유출 제어:** 웹 페이지의 악성 콘텐츠가 외부 웹 사이트에 연결하여 데이터를 도용하려고 하면 CSP에서 연결을 중단합니다. 이는 대상 도메인이 CSP의 허용 목록에 없기 때문입니다.</li><li>**클릭재킹에 대한 방어:** 클릭재킹은 악의적 사용자가 실제 웹 사이트를 구성하고 사용자가 UI 요소를 클릭하도록 강요하는 공격 기법입니다. 현재 클릭재킹에 대한 방어는 X-Frame-Options 응답 헤더를 구성하여 수행됩니다. 모든 브라우저에서 이 헤더를 사용하지는 않으며, CSP가 클릭재킹을 방어하기 위한 표준 방법이 됩니다.</li><li>**실시간 공격보고:** CSP 지원 웹 사이트에 대한 삽입 공격이 있는 경우 브라우저에서 자동으로 웹 서버에 구성된 엔드포인트로 알림을 트리거합니다. CSP는 이러한 방식으로 실시간 경고 시스템의 역할을 수행합니다.</li></ul> |
 
 ### <a name="example"></a>예제
 예제 정책: 
@@ -78,7 +78,7 @@ Example: var str="alert(1)"; eval(str);
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [XSS 보호 필터](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)(영문) |
-| **단계** | <p>X-XSS-Protection 응답 헤더 구성은 브라우저의 사이트 간 스크립트 필터를 제어합니다. 이 응답 헤더의 값은 다음과 같습니다.</p><ul><li>`0:` - 필터를 비활성화합니다.</li><li>`1: Filter enabled` - 사이트 간 스크립팅 공격이 감지되면 공격을 중지하도록 브라우저에서 페이지를 삭제합니다.</li><li>`1: mode=block : Filter enabled`. 페이지를 삭제 하는 대신 XSS 공격이 감지 되 면 브라우저에서 페이지 렌더링을 방지 합니다.</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. 브라우저에서 페이지를 삭제하고 위반을 보고합니다.</li></ul><p>이는 CSP 위반 보고서를 활용하여 선택한 URI에 세부 정보를 보내는 Chromium 함수입니다. 마지막 두 옵션은 안전한 값으로 간주 됩니다.</p>|
+| **단계** | <p>X-XSS-Protection 응답 헤더 구성은 브라우저의 사이트 간 스크립트 필터를 제어합니다. 이 응답 헤더의 값은 다음과 같습니다.</p><ul><li>`0:` - 필터를 비활성화합니다.</li><li>`1: Filter enabled` - 사이트 간 스크립팅 공격이 감지되면 공격을 중지하도록 브라우저에서 페이지를 삭제합니다.</li><li>`1: mode=block : Filter enabled`. 페이지를 비우지 않고 XSS 공격이 감지되면 브라우저에서 페이지 렌더링을 방지합니다.</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. 브라우저에서 페이지를 삭제하고 위반을 보고합니다.</li></ul><p>이는 CSP 위반 보고서를 활용하여 선택한 URI에 세부 정보를 보내는 Chromium 함수입니다. 마지막 두 옵션은 안전한 값으로 간주 됩니다.</p>|
 
 ## <a name="aspnet-applications-must-disable-tracing-and-debugging-prior-to-deployment"></a><a id="trace-deploy"></a>ASP.NET 애플리케이션에서 배포 전에 추적 및 디버깅을 사용하지 않도록 설정
 
@@ -150,7 +150,7 @@ X-FRAME-OPTIONS 헤더는 IIS web.config를 통해 설정할 수 있습니다. �
 
 ### <a name="example"></a>예제
 Web.config에 액세스할 수 있는 경우 다음 코드를 통해 CORS를 추가할 수 있습니다. 
-```XML
+```xml
 <system.webServer>
     <httpProtocol>
       <customHeaders>
@@ -181,11 +181,11 @@ HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "https://exampl
 
 ### <a name="example"></a>예제
 그러나 이 기능은 다음과 같이 페이지 수준에서 사용하지 않도록 설정할 수 있습니다. 
-```XML
+```xml
 <%@ Page validateRequest="false" %> 
 ```
 또는 다음과 같이 애플리케이션 수준에서 사용하지 않도록 설정할 수 있습니다. 
-```XML
+```xml
 <configuration>
    <system.web>
       <pages validateRequest="false" />
@@ -218,7 +218,7 @@ HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "https://exampl
 
 ### <a name="example"></a>예제
 IIS(인터넷 정보 서비스) 7 이상에서 애플리케이션을 호스팅하는 경우 web.config 파일에 헤더를 추가합니다. 
-```XML
+```xml
 <system.webServer>
 <httpProtocol>
 <customHeaders>
@@ -577,7 +577,7 @@ EnableCors 특성의 원본 목록이 유한하고 신뢰할 수 있는 원본 �
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | 해당 없음  |
-| **단계** | 디바이스에 디스크 수준 암호화를 위한 BitLocker와 같은 엔드포인트 보안 제어, 업데이트된 서명이 있는 바이러스 백신, 호스트 기반 방화벽, OS 업그레이드, 그룹 정책 등이 조직의 보안 정책에 따라 구성되었는지 확인합니다. |
+| **단계** | 디바이스에 디스크 수준 암호화를 위한 BitLocker, 업데이트된 서명이 있는 바이러스 백신, 호스트 기반 방화벽, OS 업그레이드, 그룹 정책 등의 엔드포인트 보안 제어가 조직의 보안 정책에 따라 구성되었는지 확인합니다. |
 
 ## <a name="ensure-secure-management-of-azure-storage-access-keys"></a><a id="secure-keys"></a>Azure Storage 액세스 키의 보안 관리 확인
 

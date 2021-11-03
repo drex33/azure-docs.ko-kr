@@ -7,32 +7,32 @@ ms.topic: include
 ms.date: 04/28/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: bade266f219acfbd1636ba6650b2554383b5a4c0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b62bba14bd2a83e3776cfdde5ca8ef8c96fe08f1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128909471"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032761"
 ---
-[![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/pnp-device-sample)
+[![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples/pnp-device-sample)
 
-이 빠른 시작에서는 기본 Azure IoT 애플리케이션 개발 워크플로에 대해 알아봅니다. 먼저 디바이스 호스트를 위한 Azure IoT Central 애플리케이션을 만듭니다. 그런 다음 Azure IoT 디바이스 SDK 샘플을 사용하여 시뮬레이션된 온도 조절기를 실행하고 IoT Central에 안전하게 연결하고 원격 분석을 전송합니다.
+이 빠른 시작에서는 기본 Azure IoT 애플리케이션 개발 워크플로에 대해 알아봅니다. 먼저 디바이스 호스트를 위한 Azure IoT Central 애플리케이션을 만듭니다. 그런 다음 Azure IoT 디바이스 SDK 샘플을 사용하여 온도 컨트롤러를 만들고 IoT Central에 안전하게 연결하고 원격 분석을 보냅니다. 온도 컨트롤러 샘플 애플리케이션은 로컬 컴퓨터에서 실행되고 IoT Central에 보낼 시뮬레이션된 센서 데이터를 생성합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 - Java SE Development Kit 8 이상이 포함된 개발 머신. 여러 플랫폼용 Java 8(LTS) JDK는 [OpenJDK의 Zulu 빌드 다운로드](https://www.azul.com/downloads/zulu-community/)에서 다운로드할 수 있습니다. 설치 프로그램에서 **경로에 추가** 옵션을 선택합니다.
 - [Apache Maven 3](https://maven.apache.org/download.cgi). 로컬 폴더로 다운로드를 추출한 후 Maven */bin* 폴더의 전체 경로를 Windows PATH 변수에 추가합니다.
-- [Java용 Microsoft Azure IoT SDK](https://github.com/Azure/azure-iot-sdk-java) GitHub 리포지토리의 로컬 복사본입니다. [ZIP 다운로드](https://github.com/Azure/azure-iot-sdk-java/archive/refs/heads/master.zip)를 통해 리포지토리의 복사본을 다운로드하고 추출합니다.
+- [Java용 Microsoft Azure IoT SDK](https://github.com/Azure/azure-iot-sdk-java) GitHub 리포지토리의 로컬 복사본입니다. [ZIP 다운로드](https://github.com/Azure/azure-iot-sdk-java/archive/refs/heads/main.zip)를 통해 리포지토리의 복사본을 다운로드하고 추출합니다.
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
-## <a name="run-a-simulated-device"></a>시뮬레이트된 디바이스 실행
-이 섹션에서는 로컬 환경을 구성하고, Azure IoT Java 디바이스 SDK를 설치하고, 시뮬레이션된 온도 컨트롤러를 만드는 샘플을 실행합니다.
+## <a name="run-a-device"></a>디바이스 실행
+이 섹션에서는 로컬 환경을 구성하고, Azure IoT Java 디바이스 SDK를 설치하고, 온도 컨트롤러를 만드는 샘플을 실행합니다.
 
 ### <a name="configure-your-environment"></a>환경 구성
 
 1. Windows CMD, PowerShell 또는 Bash와 같은 콘솔을 엽니다.
 
-1. 콘솔에 적합한 명령을 사용하여 다음 환경 변수를 설정합니다. 시뮬레이션된 디바이스는 이 값을 사용하여 IoT Central에 연결합니다. `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY` 및 `IOTHUB_DEVICE_DPS_DEVICE_ID`의 경우 이전에 저장한 디바이스 연결 값을 사용합니다.
+1. 콘솔에 적합한 명령을 사용하여 다음 환경 변수를 설정합니다. 디바이스는 이러한 값을 사용하여 IoT Central에 연결합니다. `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY` 및 `IOTHUB_DEVICE_DPS_DEVICE_ID`의 경우 이전에 저장한 디바이스 연결 값을 사용합니다.
 
     **Windows CMD**
 
@@ -81,12 +81,12 @@ ms.locfileid: "128909471"
     cd device/iot-device-samples/pnp-device-sample/temperature-controller-device-sample
     ```
 
-1. 콘솔에서 다음 코드 샘플을 실행합니다. 샘플은 자동 온도 조절기 센서가 있는 시뮬레이션된 온도 컨트롤러를 만듭니다.
+1. 콘솔에서 다음 코드 샘플을 실행합니다. 샘플은 온도 조절기 센서가 있는 온도 컨트롤러를 만듭니다.
     ```console
     mvn exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.device.TemperatureController"
     ```
 
-    시뮬레이션된 디바이스가 IoT Central 애플리케이션에 연결되면 애플리케이션에서 만든 디바이스 인스턴스에 연결하고 원격 분석 전송을 시작합니다. 몇 가지 초기 프로비저닝 세부 정보를 제공한 후 콘솔은 온도 컨트롤러에 대한 원격 분석을 출력하기 시작합니다.
+    디바이스가 IoT Central 애플리케이션에 연결되면 애플리케이션에서 만든 디바이스 인스턴스에 연결하고 원격 분석 전송을 시작합니다. 몇 가지 초기 프로비저닝 세부 정보를 제공한 후 콘솔은 온도 컨트롤러에 대한 원격 분석을 출력하기 시작합니다.
     
     ```output
     2021-05-13 15:39:26.411 DEBUG Mqtt:253 - Sending MQTT SUBSCRIBE packet for topic $iothub/twin/res/#

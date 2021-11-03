@@ -10,12 +10,13 @@ ms.topic: how-to
 ms.date: 10/07/2021
 ms.author: vikurpad
 recommendations: false
-ms.openlocfilehash: 11010ebe6a4afa8698491dacfb495625a8445779
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: fd0c9c1ebaf177f6f10698631b96e2c27825603f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130240417"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131020828"
 ---
 # <a name="form-recognizer-v30-migration--preview"></a>v3.0 마이그레이션 | Form Recognizer 미리 보기
 
@@ -31,11 +32,11 @@ Form Recognizer v3.0(미리 보기)에는 다음과 같은 몇 가지 새로운 
 * [**ID 문서(v3.0)**](concept-id-document.md) 모델은 미국 운전면허에서 보증, 제한 및 차량 분류 추출을 지원합니다.
 * [**사용자 지정 모델 API(v3.0)는**](concept-custom.md) 사용자 지정 양식에 대한 서명 검색을 지원합니다.
 
-이 문서에서는 Form Recognizer v2.1과 v3.0의 차이점과 최신 버전의 API로 이동하는 방법을 알아봅니다.
+이 문서에서는 Form Recognizer v2.1과 v3.0 간의 차이점과 최신 버전의 API로 이동하는 방법을 알아봅니다.
 
 ## <a name="changes-to-the-rest-api-endpoints"></a>REST API 엔드포인트에 대한 변경 내용
 
- v3.0 REST API 레이아웃 분석, 미리 작성한 모델 및 사용자 지정 모델에 대한 분석 작업을 레이아웃 분석(미리 작성한 레이아웃) 및 미리 작성한 모델에 할당하여 단일 작업 쌍으로 **`documentModels`**  **`modelId`** 결합합니다.
+ v3.0 REST API 레이아웃 분석, 미리 작성한 모델 및 사용자 지정 모델에 대한 분석 작업을 **`documentModels`**  **`modelId`** 레이아웃 분석(미리 작성한 레이아웃) 및 미리 작성한 모델에 할당하여 단일 작업 쌍으로 결합합니다.
 
 ### <a name="post-request"></a>POST 요청
 
@@ -104,6 +105,7 @@ Base64 인코딩은 Form Recognizer v3.0에서도 지원됩니다.
 ## <a name="changes-to-analyze-result"></a>결과를 분석하기 위한 변경 내용
 
 분석 응답은 다중 페이지 요소를 지원하기 위해 다음과 같은 최상위 결과로 리팩터되었습니다.
+
 * 페이지
 * 테이블
 * keyValuePairs
@@ -249,6 +251,7 @@ Base64 인코딩은 Form Recognizer v3.0에서도 지원됩니다.
 ## <a name="build-or-train-model"></a>모델 빌드 또는 학습
 
 모델 개체에는 새 API의 두 가지 업데이트가 있습니다.
+
 * ```modelId``` 는 이제 사람이 읽을 수 있는 이름에 대해 모델에서 설정할 수 있는 속성입니다.
 * ```modelName```는 ```description```로 이름이 변경되었습니다.
 
@@ -268,6 +271,7 @@ POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:build
   }
 }
 ```
+
 ## <a name="changes-to-compose-model"></a>모델 작성에 대한 변경 내용
 
 이제 모델 작성이 단일 수준의 중첩으로 제한됩니다. 이제 구성된 모델은 및 속성을 추가하여 사용자 지정 ```modelId``` 모델과 ```description``` 일치합니다.
@@ -298,7 +302,8 @@ POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:compo
 * 의 HTTP 작업은 ```authorizeCopy``` 이제 POST 요청입니다.
 * 권한 부여 페이로드에는 복사 요청을 제출하는 데 필요한 모든 정보가 포함됩니다.
 
-복사본에 권한을 부여합니다.
+***복사본에 권한 부여***
+
 ```json
 POST https://{targetHost}/formrecognizer/documentModels:authorizeCopy?api-version=2021-09-30-preview
 {
@@ -306,6 +311,7 @@ POST https://{targetHost}/formrecognizer/documentModels:authorizeCopy?api-versio
   "description": "{targetModelDescription}",
 }
 ```
+
 권한 부여 작업의 응답 본문을 사용하여 복사에 대한 요청을 생성합니다.
 
 ```json
@@ -320,31 +326,34 @@ POST https://{sourceHost}/formrecognizer/documentModels/{sourceModelId}:copy-to?
 }
 ```
 
-## <a name="changes-to-list-models"></a>목록 모델의 변경 내용
+## <a name="changes-to-list-models"></a>목록 모델에 대한 변경 내용
 
-목록 모델은 이제 미리 작성되고 사용자 지정 모델을 반환하도록 확장되었습니다. 미리 작성 된 모든 모델 이름은로 시작 ```prebuilt-``` 합니다. 상태가 succeeded 인 모델만 반환 됩니다. 실패 했거나 진행 중인 모델을 나열 하려면 [작업 나열](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetModels)을 참조 하세요.
+목록 모델은 이제 미리 작성되고 사용자 지정 모델을 반환하도록 확장되었습니다. 미리 붙는 모든 모델 이름은 로 ```prebuilt-``` 시작합니다. 성공 상태의 모델만 반환됩니다. 실패했거나 진행 중인 모델을 나열하려면 [작업 나열을 참조하세요.](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetModels)
 
-샘플 목록 모델 요청
+***샘플 목록 모델 요청***
 
 ```json
 GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels?api-version=2021-09-30-preview
 ```
 
-## <a name="change-to-get-model"></a>모델 가져오기로 변경
+## <a name="change-to-get-model"></a>모델을 얻으려면 변경
 
-이제 get model에는 미리 빌드된 모델이 포함 되어 있으므로 get 작업은 사전을 반환 합니다 ```docTypes``` . 각 문서 유형은 이름, 선택적 설명, 필드 스키마 및 선택적 필드 신뢰도로 설명 됩니다. 필드 스키마는 문서 유형과 함께 반환 될 수 있는 필드 목록을 설명 합니다.
+이제 get 모델에 미리 구성된 모델이 포함됨에 따라 get 작업은 ```docTypes``` 사전을 반환합니다. 각 문서 유형은 이름, 선택적 설명, 필드 스키마 및 선택적 필드 신뢰도로 설명됩니다. 필드 스키마는 문서 유형과 함께 반환될 수 있는 필드 목록을 설명합니다.
 
 ```json
 GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}?api-version=2021-09-30-preview
 ```
 
-## <a name="new-get-info-operation"></a>새 정보 가져오기 작업
-```info```서비스에 대 한 작업은 사용자 지정 모델 수 및 사용자 지정 모델 제한을 반환 합니다.
+## <a name="new-get-info-operation"></a>새 정보 얻기 작업
+
+```info```서비스에 대한 작업은 사용자 지정 모델 수 및 사용자 지정 모델 제한을 반환합니다.
 
 ```json
 GET https://{your-form-recognizer-endpoint}/formrecognizer/info? api-version=2021-09-30-preview
 ```
-샘플 응답
+
+***샘플 응답***
+
 ```json
 {
   "customDocumentModels": {
@@ -356,7 +365,7 @@ GET https://{your-form-recognizer-endpoint}/formrecognizer/info? api-version=202
 
 ## <a name="next-steps"></a>다음 단계
 
-이 마이그레이션 가이드에서는 기존 양식 인식기 응용 프로그램을 업그레이드 하 여 v 3.0 Api를 사용 하는 방법을 알아보았습니다. 모든 GA 기능에 대해 2.1 API를 계속 사용 하 고 미리 보기 기능에 대해 3.0 API를 사용 합니다.
+이 마이그레이션 가이드에서는 v3.0 API를 사용하도록 기존 Form Recognizer 애플리케이션을 업그레이드하는 방법을 배웠습니다. 모든 GA 기능에 2.1 API를 계속 사용하고 미리 보기 기능에 3.0 API를 사용합니다.
 
 * [새 REST API 검토](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
 * [Form Recognizer란?](overview.md)

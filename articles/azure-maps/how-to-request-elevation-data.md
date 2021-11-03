@@ -7,12 +7,12 @@ ms.date: 05/18/2021
 ms.topic: how-to
 ms.service: azure-maps
 ms.custom: mvc
-ms.openlocfilehash: c7c9bcfa405abe21b335156862b0ee6d19e0a9ac
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 6562af274455297e12084353926478f1954c2407
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123438447"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131031407"
 ---
 # <a name="request-elevation-data-using-the-azure-maps-elevation-service"></a>Azure Maps Elevation Service를 사용한 상승 데이터 요청
 
@@ -122,7 +122,7 @@ Elevation service API를 사용하여 GeoJSON 형식의 상승 데이터를 요�
 
 8. **본문** 필드에서 다음의 좌표 포인트 정보를 작성하세요.
 
-     ```json
+    ```json
     [
         {
             "lon": -73.998672,
@@ -258,7 +258,7 @@ URL의 위도 및 경도는 WGS84(World Geodetic System)의 십진수이어야 �
 
 11. **본문** 필드에서 다음 좌표 포인트 정보를 작성하세요.
 
-     ```json
+    ```json
     [
         {
             "lon": 86.9797222,

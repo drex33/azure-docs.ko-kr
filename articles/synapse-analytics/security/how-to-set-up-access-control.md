@@ -10,12 +10,12 @@ ms.date: 8/05/2021
 ms.author: ronytho
 ms.reviewer: jrasnick, wiassaf
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 513b2edd432a274f155e79362e715fbc426a9f9e
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 3e90ab30e8eb916ef70248af32b7b95ff0a48428
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129081513"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131003545"
 ---
 # <a name="how-to-set-up-access-control-for-your-azure-synapse-workspace"></a>Azure Synapse 작업 영역에 대한 액세스 제어를 설정하는 방법 
 
@@ -181,16 +181,15 @@ SQL 풀, Apache Spark 풀 및 통합 런타임을 만들려면 사용자의 작�
 
 ## <a name="step-7-grant-access-to-sql-pools"></a>7단계: SQL 풀에 대한 액세스 권한 부여
 
-기본적으로 Synapse 관리자 역할이 할당된 모든 사용자에게는 작업 `db_owner` 영역의 전용 및 서버리스 SQL 풀에 대한 SQL 역할도 할당됩니다.
+기본적으로 Synapse 관리자 역할이 할당 된 모든 사용자는 `db_owner` 작업 영역에서 서버를 사용 하지 않는 SQL 풀에 SQL 역할을 할당 받습니다.
 
-다른 사용자를 위한 SQL 풀 및 작업 영역 MSI에 대한 액세스는 SQL 권한을 사용하여 제어됩니다.  SQL 사용 권한을 할당하려면 SQL 스크립트가 생성된 후 각 SQL 데이터베이스에서 실행되어야 합니다.  이러한 스크립트를 실행해야 하는 세 가지 사례가 있습니다.
+SQL 사용 권한을 사용 하 여 다른 사용자의 SQL 풀에 대 한 액세스를 제어 합니다.  SQL 사용 권한을 할당하려면 SQL 스크립트가 생성된 후 각 SQL 데이터베이스에서 실행되어야 합니다.  이러한 스크립트를 실행해야 하는 세 가지 사례가 있습니다.
 1. 다른 사용자에게 서버리스 SQL 풀, ‘기본 제공’, 해당 데이터베이스에 대한 액세스 권한 부여
-2. 전용 SQL 풀 데이터베이스에 대한 사용자 액세스 권한 부여
-3. SQL 풀 액세스가 필요한 파이프라인이 성공적으로 실행되도록 작업 영역 MSI 액세스 권한 부여
+2. 전용 SQL 풀 데이터베이스에 대 한 사용자 액세스 권한 부여
 
 예제 SQL 스크립트는 아래에 포함되어 있습니다.
 
-전용 SQL 풀 데이터베이스에 대한 액세스 권한을 부여하기 위해 작업 영역 작성자 또는 그룹 또는 그룹의 멤버가 스크립트를 실행할 수 `workspace1_SQLAdmins` `workspace1_SynapseAdministrators` 있습니다.  
+전용 SQL 풀 데이터베이스에 대한 액세스 권한을 부여하기 위해 작업 영역 생성자 또는 `workspace1_SynapseAdministrators` 그룹의 모든 구성원이 스크립트를 실행할 수 있습니다.  
 
 서버리스 SQL 풀, '기본 제공'에 대한 액세스 권한을 부여하기 위해 `workspace1_SQLAdmins` 그룹 또는 `workspace1_SynapseAdministrators` 그룹의 모든 구성원이 스크립트를 실행할 수 있습니다. 
 
@@ -268,36 +267,6 @@ ALTER SERVER ROLE sysadmin ADD MEMBER [alias@domain.com];
 
 사용자를 생성한 후 쿼리를 실행하여 서버리스 SQL 풀이 스토리지 계정을 쿼리할 수 있는지 확인합니다.
 
-### <a name="step-73-sql-access-control-for-azure-synapse-pipeline-runs"></a>7\.3단계: Azure Synapse 파이프라인 실행에 대한 SQL 액세스 제어
-
-### <a name="workspace-managed-identity"></a>작업 영역 관리 ID
-
-> [!IMPORTANT]
-> SQL 풀을 참조하는 데이터 세트 또는 활동이 포함된 파이프라인을 실행하려면 SQL 풀에 대한 액세스 권한을 작업 영역 ID에 부여해야 합니다.
-
-작업 영역 관리 ID에 대한 자세한 내용은 [Azure Synapse 작업 영역 관리 ID](synapse-workspace-managed-identity.md)를 참조하세요. 각 SQL 풀에서 다음 명령을 실행하여 작업 영역 관리 시스템 ID가 SQL 풀 데이터베이스에서 파이프라인을 실행할 수 있도록 허용합니다.  
-
->[!note]
->아래 스크립트에서 전용 SQL 풀 데이터베이스의 경우 `<databasename>`은 풀 이름과 동일합니다.  서버리스 SQL 풀 ‘기본 제공’ 내 데이터베이스의 경우 `<databasename>`은 데이터베이스 이름입니다.
-
-```sql
---Create a SQL user for the workspace MSI in database
-CREATE USER [<workspacename>] FROM EXTERNAL PROVIDER;
-
---Granting permission to the identity
-GRANT CONTROL ON DATABASE::<databasename> TO <workspacename>;
-```
-
-동일한 SQL 풀에서 다음 스크립트를 실행하여 이 권한을 제거할 수 있습니다.
-
-```sql
---Revoke permission granted to the workspace MSI
-REVOKE CONTROL ON DATABASE::<databasename> TO <workspacename>;
-
---Delete the workspace MSI user in the database
-DROP USER [<workspacename>];
-```
-
 ## <a name="step-8-add-users-to-security-groups"></a>8단계: 보안 그룹에 사용자 추가
 
 액세스 제어 시스템의 초기 구성이 완료되었습니다.
@@ -320,7 +289,7 @@ DROP USER [<workspacename>];
 
 이 가이드에서는 기본 액세스 제어 시스템을 설정하는 방법을 중점적으로 설명합니다. 추가 보안 그룹을 생성하고 이러한 그룹에 보다 구체적인 범위에서 보다 세분화된 역할을 할당하여 고급 시나리오를 지원할 수 있습니다. 다음과 같은 사례를 고려해 보세요.
 
-CI/CD를 비롯한 고급 개발 시나리오를 위해 작업 영역에 대한 **Git 지원 사용**.  Git 모드에서 Git 사용 권한은 사용자가 작업 분기에 대한 변경 내용을 커밋할 수 있는지 여부를 결정합니다.  서비스에 게시하는 작업은 협업 분기에서만 수행됩니다.  작업 분기에서 업데이트를 개발하고 디버그해야 하지만 라이브 서비스에 변경 내용을 게시할 필요가 없는 개발자를 위한 보안 그룹을 만드는 것을 고려해 보세요.
+CI/CD를 비롯한 고급 개발 시나리오를 위해 작업 영역에 대한 **Git 지원 사용**.  Git 모드에서 Git 권한 및 Synapse RBAC는 사용자가 작업 분기에 대 한 변경 내용을 커밋할 수 있는지 여부를 결정 합니다.  서비스에 게시하는 작업은 협업 분기에서만 수행됩니다.  작업 분기에서 업데이트를 개발하고 디버그해야 하지만 라이브 서비스에 변경 내용을 게시할 필요가 없는 개발자를 위한 보안 그룹을 만드는 것을 고려해 보세요.
 
 특정 리소스에 대한 **개발자 액세스를 제한** 합니다.  특정 리소스에만 액세스해야 하는 개발자를 위해 세분화된 추가 보안 그룹을 생성합니다.  특정 Spark 풀, 통합 런타임 또는 자격 증명으로 범위가 지정된 적절한 Azure Synapse 역할을 그룹에 할당합니다.
 

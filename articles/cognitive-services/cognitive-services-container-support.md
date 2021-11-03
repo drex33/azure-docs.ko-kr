@@ -5,18 +5,18 @@ description: Docker 컨테이너를 사용하여 온-프레미스에서 Cognitiv
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18, cog-serv-seo-aug-2020
+ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 09/24/2021
 ms.author: aahi
 keywords: 온-프레미스, Docker, 컨테이너, Kubernetes
-ms.openlocfilehash: 84e3a1690f68e9327eef3297f522535eb866aa7f
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 0057888a85acc2356660fecbf8a77071401e8e3c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130215956"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131033478"
 ---
 # <a name="azure-cognitive-services-containers"></a>Azure Cognitive Services 컨테이너
 
@@ -50,10 +50,10 @@ Azure Cognitive Services 컨테이너는 다음과 같은 Docker 컨테이너 �
 | 서비스 |  컨테이너 | Description | 가용성 |
 |--|--|--|--|
 | [LUIS][lu-containers] |  **LUIS**([이미지](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)) | LUIS 앱으로 알려진 학습된 또는 게시된 Language Understanding 모델을 Docker 컨테이너로 로드하고, 컨테이너의 API 엔드포인트에서 쿼리 예측에 대한 액세스를 제공합니다. 컨테이너에서 쿼리 로그를 수집하고 [LUIS 포털](https://www.luis.ai)에 다시 업로드하여 앱의 예측 정확도를 개선할 수 있습니다. | 일반 공급 |
-| [텍스트 분석][ta-containers-keyphrase] | **핵심 구 추출**([이미지](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | 핵심 구를 추출하여 주요 요소를 식별합니다. 예를 들어 "The food was delicious and there were wonderful staff"라는 입력 텍스트에 대해 이 API는 "food" 및 "wonderful staff"이라는 주요 논점을 반환합니다. | 미리 보기 |
-| [텍스트 분석][ta-containers-language] |  **텍스트 언어 감지**([이미지](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | 최대 120개 언어에 대해, 입력 텍스트를 쓴 언어를 감지하고 요청에 따라 제출된 모든 문서에 대해 단일 언어 코드를 보고합니다. 언어 코드가 점수와 쌍을 이루어 점수의 강도를 나타냅니다. | 일반 공급 |
-| [텍스트 분석][ta-containers-sentiment] | **감정 분석 v3** ([이미지](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | 원시 텍스트를 분석하여 긍정 또는 부정적인 감정에 대한 단서를 찾습니다. 이 버전의 감정 분석은 각 문서 및 문서 속 문장에 대한 감정 레이블(예: *긍정* 또는 *부정*)을 반환합니다. |  일반 공급 |
-| [텍스트 분석][ta-containers-health] |  **의료 분야 Text Analytics** | 비구조적 임상 텍스트에서 의료 정보를 추출하고 레이블을 지정합니다. | 미리 보기 |
+| [언어 서비스][ta-containers-keyphrase] | **핵심 구 추출**([이미지](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | 핵심 구를 추출하여 주요 요소를 식별합니다. 예를 들어 "The food was delicious and there were wonderful staff"라는 입력 텍스트에 대해 이 API는 "food" 및 "wonderful staff"이라는 주요 논점을 반환합니다. | 미리 보기 |
+| [언어 서비스][ta-containers-language] |  **텍스트 언어 감지**([이미지](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | 최대 120개 언어에 대해, 입력 텍스트를 쓴 언어를 감지하고 요청에 따라 제출된 모든 문서에 대해 단일 언어 코드를 보고합니다. 언어 코드가 점수와 쌍을 이루어 점수의 강도를 나타냅니다. | 일반 공급 |
+| [언어 서비스][ta-containers-sentiment] | **감정 분석**([이미지](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | 원시 텍스트를 분석하여 긍정 또는 부정적인 감정에 대한 단서를 찾습니다. 이 버전의 감정 분석은 각 문서 및 문서 속 문장에 대한 감정 레이블(예: *긍정* 또는 *부정*)을 반환합니다. |  일반 공급 |
+| [언어 서비스][ta-containers-health] |  **의료 분야 Text Analytics** | 비구조적 임상 텍스트에서 의료 정보를 추출하고 레이블을 지정합니다. | 미리 보기 |
 | [Translator][tr-containers] | **Translator** | 텍스트를 여러 언어 및 방언으로 번역합니다. | 게이트를 미리 봅니다. [액세스를 요청합니다](https://aka.ms/csgate-translator). | 
 
 ### <a name="speech-containers"></a>음성 컨테이너
@@ -123,7 +123,7 @@ Azure Cognitive Services의 컨테이너에서 제공하는 기능을 설치하�
 * [Face 컨테이너][fa-containers]
 * [LUIS(Language Understanding) 컨테이너][lu-containers]
 * [Speech Service API 컨테이너][sp-containers]
-* [Text Analytics 컨테이너][ta-containers]
+* [언어 서비스 컨테이너][ta-containers]
 * [Translator 컨테이너][tr-containers]
 
 <!--* [Personalizer containers](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
@@ -141,10 +141,10 @@ Azure Cognitive Services의 컨테이너에서 제공하는 기능을 설치하�
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts
 [sp-containers-ctts]: speech-service/speech-container-howto.md?tabs=ctts
 [sp-containers-ntts]: speech-service/speech-container-howto.md?tabs=ntts
-[ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
-[ta-containers-keyphrase]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=keyphrase
-[ta-containers-language]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language
-[ta-containers-sentiment]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment
-[ta-containers-health]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health
+[ta-containers]: language-service/overview.md#deploy-on-premises-using-docker-containers
+[ta-containers-keyphrase]: language-service/key-phrase-extraction/how-to/use-containers.md
+[ta-containers-language]: language-service/language-detection/how-to/use-containers.md
+[ta-containers-sentiment]: language-service/sentiment-opinion-mining/how-to/use-containers.md
+[ta-containers-health]: language-service/text-analytics-for-health/how-to/use-containers.md
 [tr-containers]: translator/containers/translator-how-to-install-container.md
 [request-access]: https://aka.ms/csgate

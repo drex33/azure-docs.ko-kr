@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/04/2020
-ms.openlocfilehash: e7cee47e90e6484a4258ba82e47af03725c41d34
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 10/25/2021
+ms.openlocfilehash: 8e73947a45f06420cf94119892b19e77802f65bb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102559293"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056474"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>상업용 Marketplace에 무료 또는 평가판 SaaS 제품용 방문 페이지 빌드
 
@@ -43,7 +43,9 @@ ms.locfileid: "102559293"
 
 ## <a name="create-an-azure-ad-app-registration"></a>Azure AD 앱 등록 만들기
 
-상업용 Marketplace는 Azure AD와 완전히 통합됩니다. 사용자는 [AZURE AD 계정 또는 Microsoft 계정(MSA)](../active-directory/fundamentals/active-directory-whatis.md#terminology)로 인증된 마켓플레이스에 도착합니다. 표시 전용 제품을 통해 무료 또는 평가판 구독을 획득한 후, 사용자가 상업용 Marketplace에서 개발자의 방문 페이지 URL로 이동하여 SaaS 애플리케이션에 대해 구독을 활성화하고 관리할 수 있습니다. 사용자가 Azure AD SSO를 사용하여 애플리케이션에 로그인하도록 허용해야 합니다. (방문 페이지 URL은 제품의 [기술 구성](plan-saas-offer.md#technical-information) 페이지에 지정되어 있습니다.
+상업용 Marketplace는 Azure AD와 완전히 통합됩니다. 사용자는 [AZURE AD 계정 또는 Microsoft 계정(MSA)](../active-directory/fundamentals/active-directory-whatis.md#terminology)로 인증된 마켓플레이스에 도착합니다. 표시 전용 제품을 통해 무료 또는 평가판 구독을 획득한 후, 사용자가 상업용 Marketplace에서 개발자의 방문 페이지 URL로 이동하여 SaaS 애플리케이션에 대해 구독을 활성화하고 관리할 수 있습니다. 사용자가 Azure AD SSO를 사용하여 애플리케이션에 로그인하도록 허용해야 합니다. 방문 페이지 URL은 제품의 [기술 구성](plan-saas-offer.md#technical-information) 페이지에 지정 되어 있습니다.
+
+[!INCLUDE [pound-sign-note](./includes/pound-sign-note.md)]
 
 ID를 사용할 때 첫 번째 단계는 방문 페이지가 Azure AD 애플리케이션으로 등록되어 있는지 확인하는 것입니다. 애플리케이션을 등록하면 Azure AD를 사용하여 사용자를 인증하고 사용자 리소스에 대한 액세스를 요청할 수 있습니다. 애플리케이션 정의로 간주될 수 있으며, 이를 통해 서비스가 앱의 설정에 따라 앱에 토큰을 발급하는 방법을 알 수 있습니다.
 

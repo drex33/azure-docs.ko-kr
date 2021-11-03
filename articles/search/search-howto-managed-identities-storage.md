@@ -2,17 +2,17 @@
 title: 관리 ID를 사용하여 스토리지 계정에 대한 연결 설정
 titleSuffix: Azure Cognitive Search
 description: 관리 ID를 사용하여 Azure Storage 계정에 인덱서 연결을 설정하는 방법 알아보기
-author: markheff
-ms.author: maheff
+author: nitinme
+ms.author: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/01/2021
-ms.openlocfilehash: 139fa020459804571129d63819a0e82e3f1737e2
-ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
+ms.openlocfilehash: 20669c08b00e75ed7e1ec87b67f3f12269512e3b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129418654"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056132"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>관리 ID를 사용하여 Azure Storage 계정에 대한 연결 설정
 

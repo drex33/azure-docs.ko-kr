@@ -6,13 +6,13 @@ ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
 ms.custom: subject-monitoring
-ms.date: 11/06/2020
-ms.openlocfilehash: c9e6107e981d2bae96c5d9f368c8122d3ce245f0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 10/26/2021
+ms.openlocfilehash: 9782190bb917492770f6870675bff768b80ff61a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100570945"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131061424"
 ---
 # <a name="monitoring-azure-iot-hub"></a>모니터링 Azure IoT Hub
 
@@ -82,7 +82,7 @@ IoT Hub 플랫폼 메트릭을 다른 위치로 라우팅하는 경우 다음에
 
 Azure Portal에서 IoT Hub의 왼쪽 창에 있는 **모니터링** 의 **메트릭** 을 선택하여 IoT Hub가 내보낸 플랫폼 메트릭에서 메트릭 탐색기 범위를 기본적으로 열 수 있습니다.
 
-:::image type="content" source="media/monitor-iot-hub/metrics-portal.png" alt-text="IoT Hub에 대한 메트릭 탐색기 페이지":::
+:::image type="content" source="media/monitor-iot-hub/metrics-portal.png" alt-text="IoT Hub에 대한 메트릭 탐색기 페이지를 보여주는 스크린샷." border="true":::
 
 Azure IoT Hub에 대해 수집되는 플랫폼 메트릭의 목록은 [모니터링 Azure IoT Hub 데이터의 메트릭 참조](monitor-iot-hub-reference.md#metrics)를 확인하세요. 모든 Azure 서비스에 대해 수집되는 플랫폼 메트릭 목록은 [Azure Monitor에서 지원되는 메트릭](../azure-monitor/essentials/metrics-supported.md)을 참조하세요.
 

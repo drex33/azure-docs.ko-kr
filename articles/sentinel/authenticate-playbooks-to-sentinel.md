@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2021
 ms.author: yelevin
-ms.openlocfilehash: 6c3e4de61d59841f2856af2194ec22a63b407b5c
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 8ac52d1c861ec41600ae882a4e12becb56619595
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123185438"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075489"
 ---
 # <a name="authenticate-playbooks-to-azure-sentinel"></a>Azure Sentinel로 플레이북 인증
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Logic Apps 작동 방식에 따라 Azure Sentinel 자체를 포함하여 상호 작용하는 모든 형식의 모든 리소스에 별도로 연결하고 개별적으로 인증해야 합니다. Logic Apps는 이 용도로 [특수 커넥터](/connectors/connector-reference/)를 사용하며, 각 리소스 종류에는 고유한 커넥터가 있습니다. 이 문서에서는 플레이북이 작업 영역의 테이블에 있는 정보에 액세스하기 위해 Azure Sentinel과 상호 작용하는 데 사용될 수 있는 [Logic Apps Azure Sentinel 커넥터](/connectors/azuresentinel/)의 연결 및 인증 유형에 대해 설명합니다.
 
@@ -43,10 +46,10 @@ Logic Apps의 Azure Sentinel 커넥터와 해당 구성 요소의 트리거 및 
 
 ### <a name="permissions-required"></a>필요한 사용 권한
 
-| 역할 \ 커넥터 구성 요소 | 트리거 | ‘Get’ 작업 | 인시던트 업데이트,<br>설명 추가 |
+| 역할 \ 커넥터 구성 요소 | 트리거 | “Get” 작업 | 인시던트 업데이트,<br>주석 추가 |
 | ------------- | :-----------: | :------------: | :-----------: |
 | **[Azure Sentinel 읽기 권한자](../role-based-access-control/built-in-roles.md#azure-sentinel-reader)** | &#10003; | &#10003; | &#10007; |
-| **Azure Sentinel [응답자](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)/[참가자](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)** | &#10003; | &#10003; | &#10003; |
+| **Azure Sentinel [응답자](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)/[기여자](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)** | &#10003; | &#10003; | &#10003; |
 | 
 
 [Azure Sentinel의 권한에 대해 자세히 알아보세요](./roles.md).

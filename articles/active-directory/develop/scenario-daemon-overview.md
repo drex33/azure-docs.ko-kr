@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 01/31/2020
+ms.date: 10/14/2021
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 00a70b585ddf522a25e81703fe5bdf55efbcb7e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1a9aa754d09333b1384fe46e424deaf3c5525ff3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99582777"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131018056"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>시나리오: 웹 API를 호출하는 디먼 애플리케이션
 
@@ -44,10 +44,9 @@ ms.locfileid: "99582777"
 
 ## <a name="specifics"></a>특수 적용 사항
 
-> [!IMPORTANT]
->
-> - 사용자는 디먼 애플리케이션과 상호 작용할 수 없습니다. 디먼 애플리케이션에는 고유한 ID가 필요합니다. 해당 유형의 애플리케이션은 애플리케이션 ID를 사용하고 애플리케이션 ID, 자격 증명(암호 또는 인증서), Azure AD에 대한 애플리케이션 ID URI 등을 제시하여 액세스 토큰을 요청합니다. 성공적으로 인증되면 디먼은 Microsoft ID 플랫폼에서 액세스 토큰과 새로 고침 토큰을 받습니다. 이 토큰은 웹 API를 호출하는 데 사용되며, 필요에 따라 새로 고쳐집니다.
-> - 사용자가 디먼 애플리케이션과 상호 작용할 수 없으므로 증분 동의가 불가능합니다. 모든 필수 API 권한은 애플리케이션 등록 시 구성해야 합니다. 애플리케이션 코드는 정적으로 정의된 사용 권한만 요청합니다. 이는 디먼 애플리케이션이 증분 동의를 지원하지 않는다는 의미이기도 합니다.
+사용자는 디먼 애플리케이션과 상호 작용할 수 없습니다. 디먼 애플리케이션에는 고유한 ID가 필요합니다. 해당 유형의 애플리케이션은 애플리케이션 ID를 사용하고 애플리케이션 ID, 자격 증명(암호 또는 인증서), Azure AD에 대한 애플리케이션 ID URI 등을 제시하여 액세스 토큰을 요청합니다. 성공적으로 인증되면 디먼은 Microsoft ID 플랫폼에서 액세스 토큰과 새로 고침 토큰을 받습니다. 이 토큰은 웹 API를 호출하는 데 사용되며, 필요에 따라 새로 고쳐집니다.
+
+사용자가 디먼 애플리케이션과 상호 작용할 수 없으므로 증분 동의가 불가능합니다. 모든 필수 API 권한은 애플리케이션 등록 시 구성해야 합니다. 애플리케이션 코드는 정적으로 정의된 사용 권한만 요청합니다. 이는 디먼 애플리케이션이 증분 동의를 지원하지 않는다는 의미이기도 합니다.
 
 개발자의 경우 이 시나리오에 대한 엔드투엔드 환경에는 다음과 같은 측면이 있습니다.
 

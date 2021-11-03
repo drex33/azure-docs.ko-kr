@@ -5,12 +5,12 @@ author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: 46efbf883e6dc0409e7f8d5f8d379693079acafc
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: cea4adc3ed6843e9d07670cd2959e27311c2f22a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124788442"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059721"
 ---
 # <a name="best-practices-for-bicep"></a>Bicep에 대한 모범 사례
 
@@ -42,7 +42,7 @@ Bicep 매개 변수에 대한 자세한 내용은 [Bicep의 매개 변수](param
 
 ## <a name="variables"></a>변수
 
-* 변수 이름에 카멜식 대/소문자를 사용합니다(예: `myVariableName`Bicep).
+* 같은 변수 이름에 대해 더 낮은 카멜식 대/소문자를 사용 `myVariableName` 합니다.
 
 * 변수를 정의할 때 [데이터 형식](data-types.md)은 필요하지 않습니다. 변수는 확인 값에서 형식을 유추합니다.
 

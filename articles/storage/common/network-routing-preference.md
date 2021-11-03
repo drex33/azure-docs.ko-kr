@@ -11,21 +11,21 @@ ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
 ms.custom: references_regions
-ms.openlocfilehash: 0a80fe8bc2cf2cfa86b5b8b1a9c78684d718e68f
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 0ff5515dce384a43cf54c8fb4d7e4c8fe71e251e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130038368"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054897"
 ---
 # <a name="network-routing-preference-for-azure-storage"></a>Azure Storage에 대한 네트워크 라우팅 기본 설정
 
-Azure 스토리지 계정의 네트워크 [라우팅 기본 설정](../../virtual-network/routing-preference-overview.md)을 구성하여 네트워크 트래픽이 인터넷을 통해 클라이언트에서 계정으로 라우팅되는 방식을 지정할 수 있습니다. 기본적으로 인터넷에서 들어오는 트래픽은 [Microsoft 글로벌 네트워크](../../networking/microsoft-global-network.md)를 통해 스토리지 계정의 퍼블릭 엔드포인트로 라우팅됩니다. Azure Storage는 스토리지 계정에 트래픽이 라우팅되는 방식을 구성하기 위한 추가 옵션을 제공합니다.
+Azure 스토리지 계정의 네트워크 [라우팅 기본 설정](../../virtual-network/ip-services/routing-preference-overview.md)을 구성하여 네트워크 트래픽이 인터넷을 통해 클라이언트에서 계정으로 라우팅되는 방식을 지정할 수 있습니다. 기본적으로 인터넷에서 들어오는 트래픽은 [Microsoft 글로벌 네트워크](../../networking/microsoft-global-network.md)를 통해 스토리지 계정의 퍼블릭 엔드포인트로 라우팅됩니다. Azure Storage는 스토리지 계정에 트래픽이 라우팅되는 방식을 구성하기 위한 추가 옵션을 제공합니다.
 
 라우팅 기본 설정을 구성하면 프리미엄 네트워크 성능 또는 비용에 맞게 트래픽을 자유롭게 최적화할 수 있습니다. 라우팅 기본 설정을 구성하는 경우 기본적으로 스토리지 계정의 퍼블릭 엔드포인트로 트래픽을 전송하는 방법을 지정합니다. 스토리지 계정의 경로별 엔드포인트를 게시할 수도 있습니다.
 
 > [!NOTE]
-> 이 기능은 ZRS(영역 중복 스토리지)를 사용하도록 구성된 Premium Performance Storage 계정 또는 계정에서 지원되지 않습니다.
+> 이 기능은 ZRS (영역 중복 저장소)를 사용 하도록 구성 된 계정 또는 premium performance storage 계정에서 지원 되지 않습니다.
 
 ## <a name="microsoft-global-network-versus-internet-routing"></a>Microsoft 글로벌 네트워크와 인터넷 라우팅 비교
 
@@ -37,7 +37,7 @@ Azure 스토리지 계정의 네트워크 [라우팅 기본 설정](../../virtua
 
 ![Azure Storage의 라우팅 옵션 개요](media/network-routing-preference/routing-options-diagram.png)
 
-Azure의 라우팅 기본 설정에 대한 자세한 내용은 [라우팅 기본 설정이란?](../../virtual-network/routing-preference-overview.md)을 참조하세요.
+Azure의 라우팅 기본 설정에 대한 자세한 내용은 [라우팅 기본 설정이란?](../../virtual-network/ip-services/routing-preference-overview.md)을 참조하세요.
 
 ## <a name="routing-configuration"></a>라우팅 구성
 
@@ -108,11 +108,11 @@ Azure Storage의 라우팅 기본 설정은 다음 지역에서 제공됩니다.
 
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 
-가격 책정 및 대금 청구에 대한 자세한 내용은 [라우팅 기본 설정이란?](../../virtual-network/routing-preference-overview.md#pricing)의 **가격 책정** 섹션을 참조하세요.
+가격 책정 및 대금 청구에 대한 자세한 내용은 [라우팅 기본 설정이란?](../../virtual-network/ip-services/routing-preference-overview.md#pricing)의 **가격 책정** 섹션을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [라우팅 기본 설정이란?](../../virtual-network/routing-preference-overview.md)
+- [라우팅 기본 설정이란?](../../virtual-network/ip-services/routing-preference-overview.md)
 - [네트워크 라우팅 기본 설정 구성](configure-network-routing-preference.md)
 - [Azure Storage 방화벽 및 가상 네트워크 구성](storage-network-security.md)
 - [Blob Storage에 대한 보안 권장 사항](../blobs/security-recommendations.md)

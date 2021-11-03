@@ -1,5 +1,5 @@
 ---
-title: 엔드포인트(미리 보기)란?
+title: 끝점 (미리 보기) 이란?
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning 엔드포인트(미리 보기)을 통해 기계 학습 배포를 단순화하는 방법을 알아봅니다.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: seramasu
 author: rsethur
 ms.reviewer: laobri
-ms.custom: devplatv2
-ms.date: 06/17/2021
-ms.openlocfilehash: 4a4cc34b3f3bb77e0c2405d3b0a29b40fa1cd616
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.custom: devplatv2, ignite-fall-2021
+ms.date: 10/21/2021
+ms.openlocfilehash: 02c927b55812e4b309e53679cf3548d889bdc12f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129427004"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079418"
 ---
 # <a name="what-are-azure-machine-learning-endpoints-preview"></a>Azure Machine Learning 엔드포인트(미리 보기)란? 
 
@@ -29,7 +29,7 @@ Azure Machine Learning 엔드포인트(미리 보기)를 사용하여 실시간 
 > * 엔드포인트
 > * 배포
 > * 관리형 온라인 엔드포인트
-> * AKS(Azure Kubernetes Service) 온라인 엔드포인트
+> * Kubernetes online 끝점
 > * 일괄 처리 유추 엔드포인트
 
 ## <a name="what-are-endpoints-and-deployments-preview"></a>엔드포인트 및 배포(미리 보기)란?
@@ -39,7 +39,7 @@ Azure Machine Learning 엔드포인트(미리 보기)를 사용하여 실시간 
 :::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="트래픽을 두 배포로 분할하는 엔드포인트를 보여주는 다이어그램":::
 
 **엔드포인트** 는 클라이언트가 학습된 모델의 유추(채점) 출력을 수신하기 위해 호출할 수 있는 HTTPS 엔드포인트입니다. 이 콘솔은 다음과 같은 기능을 제공합니다. 
-- "키 & 토큰" 기반 인증을 사용한 인증 
+- "키 & 토큰" 기반 인증을 사용 하는 인증 
 - SSL 종료 
 - 배포 간 트래픽 할당 
 - 안정적인 채점 URI(endpoint-name.region.inference.ml.azure.com)
@@ -95,7 +95,7 @@ Azure Machine Learning은 엔드포인트 및 배포 개념을 사용하여 [**�
 
 모든 온라인 엔드포인트는 Application Insights와 통합되어 SLA를 모니터링하고 문제를 진단합니다. 
 
-그러나 [관리형 온라인 엔드포인트](#managed-online-endpoints-vs-aks-online-endpoints-preview)에는 Azure 로그 및 Azure 메트릭과의 기본 통합도 포함됩니다.
+그러나 [관리형 온라인 엔드포인트](#managed-online-endpoints-vs-kubernetes-online-endpoints-preview)에는 Azure 로그 및 Azure 메트릭과의 기본 통합도 포함됩니다.
 
 ### <a name="security"></a>보안
 
@@ -104,25 +104,25 @@ Azure Machine Learning은 엔드포인트 및 배포 개념을 사용하여 [**�
 - 엔드포인트 호출을 위한 기본 SSL
 
 
-## <a name="managed-online-endpoints-vs-aks-online-endpoints-preview"></a>관리형 온라인 엔드포인트와 AKS 온라인 엔드포인트(미리 보기) 비교
+## <a name="managed-online-endpoints-vs-kubernetes-online-endpoints-preview"></a>관리 되는 온라인 끝점 vs Kubernetes online 끝점 (미리 보기)
 
-온라인 엔드포인트에는 **관리형 온라인 엔드포인트**(미리 보기)와 **AKS 온라인 엔드포인트**(미리 보기)의 두 가지 유형이 있습니다. 다음 표는 몇 가지 주요 차이점을 보여줍니다.
+온라인 끝점에 **는 관리 되는 온라인 끝점** (미리 보기)과 **Kubernetes online 끝점** (미리 보기)의 두 가지 유형이 있습니다. 다음 표는 몇 가지 주요 차이점을 보여줍니다.
 
-|  | 관리형 온라인 엔드포인트 | AKS 온라인 엔드포인트 |
+|  | 관리형 온라인 엔드포인트 | Kubernetes online 끝점 |
 |-|-|-|
-| **권장 사용자** | 관리 모델 배포 및 향상된 MLOps 환경을 원하는 사용자 | AKS(Azure Kubernetes Service)를 선호하고 인프라 요구 사항을 자체 관리할 수 있는 사용자 |
+| **권장 사용자** | 관리 모델 배포 및 향상된 MLOps 환경을 원하는 사용자 | Kubernetes를 선호 하 고 인프라 요구 사항을 자체 관리 하는 사용자 |
 | **인프라 관리** | 관리형 컴퓨팅 프로비전, 크기 조정, 호스트 OS 이미지 업데이트 및 보안 강화 | 사용자 책임 |
-| **컴퓨팅 형식** | 관리(AmlCompute) | AKS |
+| **컴퓨팅 형식** | 관리(AmlCompute) | Kubernetes 클러스터 (Kubernetes) |
 | **기본 모니터링** | [Azure 모니터링](how-to-monitor-online-endpoints.md) <br> (대기 시간 및 처리량과 같은 주요 메트릭 포함) | 지원되지 않음 |
-| **기본 로깅** | [엔드포인트 수준의 Azure Logs 및 Log Analytics](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) | 클러스터 수준에서 수동 설정 |
+| **기본 로깅** | [엔드포인트 수준의 Azure Logs 및 Log Analytics](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) | 지원됨 |
 | **Application Insights** | 지원 여부 | 지원 여부 |
-| **관리 ID** | [지원됨](tutorial-deploy-managed-endpoints-using-system-managed-identity.md) | 지원되지 않음 |
-| **Virtual Network(VNET)** | 지원되지 않음(공개 미리 보기) | 클러스터 수준에서 수동으로 구성 |
+| **관리 ID** | [지원됨](tutorial-deploy-managed-endpoints-using-system-managed-identity.md) | 지원됨 |
+| **Virtual Network(VNET)** | 지원되지 않음(공개 미리 보기) | 지원됨 |
 | **비용 보기** | [엔드포인트 및 배포 수준](how-to-view-online-endpoints-costs.md) | 클러스터 수준 |
 
 ### <a name="managed-online-endpoints"></a>관리형 온라인 엔드포인트
 
-관리형 온라인 엔드포인트는 배포 프로세스를 간소화하는 데 도움이 될 수 있습니다. 관리형 온라인 엔드포인트는 AKS 온라인 엔드포인트보다 다음과 같은 이점을 제공합니다.
+관리형 온라인 엔드포인트는 배포 프로세스를 간소화하는 데 도움이 될 수 있습니다. 관리 되는 온라인 끝점은 Kubernetes online 끝점에 비해 다음과 같은 이점을 제공 합니다.
 
 - 관리형 인프라
     - 컴퓨팅을 자동으로 프로비전하고 모델을 호스트(VM 유형 및 크기 조정 설정만 지정하면 됨) 

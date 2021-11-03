@@ -10,16 +10,14 @@ ms.service: virtual-network
 ms.workload: infrastructure
 ms.tgt_pltfrm: virtual-network
 ms.devlang: na
-tags:
-- azure-resource-manager
-ms.custom:
-- mode-portal
-ms.openlocfilehash: 43c45b43084656a45d2509ee2c7a4376cdc7c052
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+tags: azure-resource-manager
+ms.custom: mode-portal
+ms.openlocfilehash: 1ba52ed17f5eddafe4489ddf9d4277ac301c3e15
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531178"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131074254"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>빠른 시작: Azure 포털을 사용하여 가상 네트워크 만들기
 
@@ -89,7 +87,7 @@ ms.locfileid: "107531178"
     | 설정 | 값                                          |
     |-----------------------|----------------------------------|
     | **프로젝트 세부 정보** |  |
-    | 구독 | Azure 구독 선택 |
+    | Subscription | Azure 구독 선택 |
     | 리소스 그룹 | **myResourceGroup** 을 선택합니다. |
     | **인스턴스 세부 정보** |  |
     | 가상 머신 이름 | **myVM1** 을 입력합니다. |
@@ -132,7 +130,7 @@ ms.locfileid: "107531178"
     | 설정 | 값                                          |
     |-----------------------|----------------------------------|
     | **프로젝트 세부 정보** |  |
-    | 구독 | Azure 구독 선택 |
+    | Subscription | Azure 구독 선택 |
     | 리소스 그룹 | **myResourceGroup** 을 선택합니다. |
     | **인스턴스 세부 정보** |  |
     | 가상 머신 이름 | **myVM2** 입력 |

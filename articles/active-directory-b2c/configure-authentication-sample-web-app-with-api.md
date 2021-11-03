@@ -2,21 +2,21 @@
 title: Azure Active Directory B2C를 사용하여 웹 API를 호출하는 샘플 웹 애플리케이션에서 인증 구성
 description: 이 문서에서는 Azure Active Directory B2C를 사용하여 웹 API를 호출하는 ASP.NET 웹 애플리케이션에 사용자를 로그인하고 가입하는 방법을 소개합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 07/05/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: fec8af9d4153736738cf658e7e77bb1e9506fedd
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: f2f0f00bfc3b5f551d60817e3ea52924c78d98d8
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770180"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131007812"
 ---
 # <a name="configure-authentication-in-a-sample-web-app-that-calls-a-web-api-by-using-azure-ad-b2c"></a>Azure AD B2C를 사용하여 웹 API를 호출하는 샘플 웹앱에서 인증 구성
 
@@ -32,8 +32,8 @@ OIDC(OpenID Connect)는 OAuth 2.0을 기반으로 하는 인증 프로토콜입�
 로그인 흐름에 포함되는 단계는 다음과 같습니다.
 
 1. 사용자는 웹앱으로 이동하여 **로그인** 을 선택합니다.
-1. 앱에서 권한 부여 요청을 시작하고 사용자를 Azure AD B2C로 리디렉션합니다.
-1. 사용자는 [등록 또는 로그인](add-sign-up-and-sign-in-policy.md)하고 [암호를 초기화](add-password-reset-policy.md)합니다. 또는 [소셜 계정](add-identity-provider.md)으로 로그인할 수 있습니다.
+1. 앱에서 인증 요청을 시작하고 사용자를 Azure AD B2C로 리디렉션합니다.
+1. 사용자가 [가입 또는 로그인](add-sign-up-and-sign-in-policy.md)하고 [암호를 초기화](add-password-reset-policy.md)합니다. 또는 [소셜 계정](add-identity-provider.md)으로 로그인할 수 있습니다.
 1. 사용자가 로그인하면 Azure AD B2C는 앱에 인증 코드를 반환합니다.
 1. 그러면 앱에서 다음을 수행합니다.
  
@@ -184,8 +184,8 @@ git clone https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-op
 
 | 섹션 | Key | 값 |
 | --- | --- | --- |
-| AzureAdB2C | 인스턴스 | Azure AD B2C [테넌트 이름](tenant-management.md#get-your-tenant-name)의 첫 번째 부분입니다(예: `https://contoso.b2clogin.com`).|
-|AzureAdB2C|도메인| Azure AD B2C 테넌트 전체 [테넌트 이름](tenant-management.md#get-your-tenant-name)입니다(예: `contoso.onmicrosoft.com`).|
+| AzureAdB2C | 인스턴스 | Azure AD B2C [테넌트 이름](tenant-management.md#get-your-tenant-name)의 첫 번째 부분입니다.(예를 들어 `https://contoso.b2clogin.com`)|
+|AzureAdB2C|도메인| Azure AD B2C 테넌트 전체 [테넌트 이름](tenant-management.md#get-your-tenant-name)입니다. (예를 들어 `contoso.onmicrosoft.com`)|
 |AzureAdB2C|clientid| [2.3단계](#step-23-register-the-web-app)의 웹 애플리케이션 ID입니다.|
 |AzureAdB2C | ClientSecret | [2.4단계](#step-24-create-a-web-app-client-secret)의 웹 애플리케이션 비밀입니다. | 
 |AzureAdB2C|SignUpSignInPolicyId|사용자 흐름 또는 [1단계](#step-1-configure-your-user-flow)에서 만든 사용자 지정 정책입니다.|

@@ -4,12 +4,12 @@ description: Azure Service Fabric 애플리케이션 패키징 및 클러스터�
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 168e6d6dc7ab5bfeccc4e1dabc7bd50efcbe8f34
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: f575ea61f2406e8e1a636c2cf633a034753853bf
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98789705"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131003925"
 ---
 # <a name="package-an-application"></a>애플리케이션 패키지 작성
 
@@ -207,12 +207,11 @@ diff 프로비전이 옵션이 아니며 패키지를 포함해야 하는 경우
 ## <a name="create-an-sfpkg"></a>sfpkg 만들기
 
 버전 6.1부터 Service Fabric은 외부 저장소에서 프로비전을 허용합니다.
-이 옵션을 사용하는 경우 애플리케이션 패키지를 이미지 저장소에 복사할 필요가 없습니다. 대신 `sfpkg`를 만들고 외부 저장소에 업로드한 다음 프로비전할 때 다운로드 URI를 Service Fabric에 제공할 수 있습니다. 동일한 패키지는 여러 클러스터로 프로비전될 수 있습니다. 외부 저장소에서 프로비전하면 각 클러스터에 패키지를 복사하는 데 필요한 시간을 절약합니다.
+이 옵션을 사용하는 경우 애플리케이션 패키지를 이미지 저장소에 복사할 필요가 없습니다. 대신 파일을 만들어 `sfpkg` 외부 저장소에 업로드 한 다음 프로 비전 할 때 Service Fabric 다운로드 URI를 제공할 수 있습니다. 동일한 패키지는 여러 클러스터로 프로비전될 수 있습니다. 외부 저장소에서 프로비전하면 각 클러스터에 패키지를 복사하는 데 필요한 시간을 절약합니다.
 
-`sfpkg` 파일은 초기 애플리케이션 패키지를 포함하는 zip이며 확장명 ".sfpkg"를 갖습니다.
-zip 내의 애플리케이션 패키지는 압축되거나 압축이 풀릴 수 있습니다. zip 내의 애플리케이션 패키지의 압축은 [앞에서 언급한](service-fabric-package-apps.md#compress-a-package) 것처럼 코드, 구성 및 데이터 패키지 수준에서 수행됩니다.
+`sfpkg`파일은 초기 응용 프로그램 패키지를 포함 하 고 확장을 포함 하는 zip입니다 `.sfpkg` . zip 내의 애플리케이션 패키지는 압축되거나 압축이 풀릴 수 있습니다. zip 내의 애플리케이션 패키지의 압축은 [앞에서 언급한](service-fabric-package-apps.md#compress-a-package) 것처럼 코드, 구성 및 데이터 패키지 수준에서 수행됩니다.
 
-`sfpkg`를 만들려면 압축되거나 압축되지 않은 원래 애플리케이션 패키지를 포함하는 폴더를 시작합니다. 그런 다음 유틸리티를 사용하여 ".sfpkg" 확장명으로 폴더를 압축합니다. 예를 들어 [ZipFile.CreateFromDirectory](/dotnet/api/system.io.compression.zipfile.createfromdirectory#System_IO_Compression_ZipFile_CreateFromDirectory_System_String_System_String_System_IO_Compression_CompressionLevel_System_Boolean_)를 사용합니다.
+`sfpkg`파일을 만들려면 압축 된 원래 응용 프로그램 패키지를 포함 하는 폴더를 사용 하 여 시작 합니다. 그런 다음 유틸리티를 사용하여 ".sfpkg" 확장명으로 폴더를 압축합니다. 예를 들어 [ZipFile.CreateFromDirectory](/dotnet/api/system.io.compression.zipfile.createfromdirectory#System_IO_Compression_ZipFile_CreateFromDirectory_System_String_System_String_System_IO_Compression_CompressionLevel_System_Boolean_)를 사용합니다.
 
 ```csharp
 ZipFile.CreateFromDirectory(appPackageDirectoryPath, sfpkgFilePath);

@@ -1,6 +1,6 @@
 ---
 title: 예측 데이터 파이프라인 만들기
-description: Azure Data Factory 또는 Synapse Analytics에서 Azure Machine Learning Studio (클래식)-Batch 실행 작업을 사용 하 여 예측 파이프라인을 만드는 방법에 대해 알아봅니다.
+description: Azure Data Factory 또는 Synapse Analytics Machine Learning Studio(클래식) - 일괄 처리 실행 활동을 사용하여 예측 파이프라인을 만드는 방법을 알아봅니다.
 titleSuffix: Azure Data Factory & Azure Synapse
 author: nabhishek
 ms.author: abnarain
@@ -9,14 +9,14 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 09/09/2021
-ms.openlocfilehash: 5645dcf87906f1e88ffb5e680a3a02f59fbfdeea
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: fea9f928a42503448c249ed04c753ab416cce35f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124805985"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131020144"
 ---
-# <a name="create-a-predictive-pipeline-using-azure-machine-learning-studio-classic-with-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics를 사용 하 여 Azure Machine Learning Studio (클래식)를 사용 하 여 예측 파이프라인 만들기
+# <a name="create-a-predictive-pipeline-using-machine-learning-studio-classic-with-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics Machine Learning Studio(클래식)를 사용하여 예측 파이프라인 만들기
 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-azure-ml-batch-execution-activity.md)
@@ -30,10 +30,10 @@ ms.locfileid: "124805985"
 2. **예측 실험으로 변환**. 기존 데이터로 모델을 학습시키고 새 데이터의 점수를 매기는 데 사용할 준비가 되면, 점수 매기기를 위해 실험을 준비하고 간소화합니다.
 3. **웹 서비스로 배포**. 점수 매기기 실험을 Azure 웹 서비스로 게시할 수 있습니다. 이 웹 서비스 끝점을 통해 데이터를 모델로 전송하고 모델로부터 결과 예측을 받을 수 있습니다.
 
-### <a name="using-azure-machine-learning-studio-classic-with-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics에서 Azure Machine Learning Studio (클래식) 사용
-Azure Data Factory 및 Synapse analytics를 사용 하면 예측 분석을 위해 게시 된 [Azure Machine Learning Studio (클래식)](https://azure.microsoft.com/documentation/services/machine-learning) 웹 서비스를 사용 하는 파이프라인을 쉽게 만들 수 있습니다. 파이프라인에서 **batch 실행 작업** 을 사용 하 여 Azure Machine Learning Studio (클래식) 웹 서비스를 호출 하 여 일괄 처리로 데이터에 대 한 예측을 만들 수 있습니다.
+### <a name="using-machine-learning-studio-classic-with-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics Machine Learning Studio(클래식) 사용
+Azure Data Factory 및 Synapse Analytics 사용하면 예측 분석에 게시된 [Machine Learning Studio(클래식)](https://azure.microsoft.com/documentation/services/machine-learning) 웹 서비스를 사용하는 파이프라인을 쉽게 만들 수 있습니다. 파이프라인에서 **일괄 처리 실행 활동을** 사용하면 Machine Learning Studio(클래식) 웹 서비스를 호출하여 일괄 처리로 데이터를 예측할 수 있습니다.
 
-시간이 지남에 따라 Azure Machine Learning Studio(클래식) 점수 매기기 실험의 예측 모델에서 새 입력 데이터 세트를 사용하여 재학습해야 합니다. 다음 단계를 수행 하 여 파이프라인에서 모델을 다시 학습 수 있습니다.
+시간이 지남에 따라 Machine Learning Studio(클래식) 점수 매기기 실험의 예측 모델을 새 입력 데이터 세트를 사용하여 다시 학습해야 합니다. 다음 단계를 수행하여 파이프라인에서 모델을 다시 학습할 수 있습니다.
 
 1. 웹 서비스로 학습 실험(예측 실험 아님)을 게시합니다. 이전 시나리오에서 예측 실험을 웹 서비스로 공개했던 것처럼 ML Studio(클래식)에서 이 단계를 수행합니다.
 2. ML Studio(클래식) 일괄 처리 실행 작업을 사용하여 학습 실험을 위한 웹 서비스를 호출합니다. 기본적으로, ML Studio(클래식) 일괄 처리 실행 작업을 사용하여 학습 웹 서비스와 점수 매기기 웹 서비스를 모두 호출할 수 있습니다.
@@ -42,7 +42,7 @@ Azure Data Factory 및 Synapse analytics를 사용 하면 예측 분석을 위�
 
 ## <a name="ml-studio-classic-linked-service"></a>ML Studio(클래식) 연결 서비스
 
-Azure Machine Learning studio (클래식) 웹 서비스를 연결 하는 **Azure Machine Learning studio (클래식)** 연결 된 서비스를 만듭니다. Azure Machine Learning Studio(클래식) Batch Execution 작업 및 [업데이트 리소스 작업](update-machine-learning-models.md)에서 연결된 서비스를 사용합니다.
+**Machine Learning Studio(클래식)** 연결된 서비스를 만들어 Machine Learning Studio(클래식) 웹 서비스를 연결합니다. 연결된 서비스는 Machine Learning Studio(클래식) 일괄 처리 실행 작업 및 [업데이트 리소스 작업 에서](update-machine-learning-models.md)사용됩니다.
 
 ```JSON
 {
@@ -67,7 +67,7 @@ Azure Machine Learning studio (클래식) 웹 서비스를 연결 하는 **Azure
 
 JSON 정의에서 속성에 대한 설명은 [연결된 컴퓨팅 서비스](compute-linked-services.md) 문서를 참조하세요.
 
-Azure Machine Learning Studio(클래식)는 예측 실험에 클래식 웹 서비스 및 새 웹 서비스를 모두 지원합니다. Data Factory 또는 Synapse 작업 영역에서 사용할 올바른 항목을 선택할 수 있습니다. Azure Machine Learning Studio(클래식) 연결된 서비스를 만드는 데 필요한 정보를 가져오려면 모든 새 웹 서비스 및 클래식 웹 서비스가 나열된 https://services.azureml.net 으로 이동합니다. 액세스하려는 웹 서비스를 클릭하고 **사용** 페이지를 클릭합니다. **apiKey** 속성의 **기본 키** 및 **mlEndpoint** 속성의 **Batch 요청** 을 복사합니다.
+Machine Learning Studio(클래식)는 예측 실험에 대해 클래식 웹 서비스와 새 웹 서비스를 모두 지원합니다. Data Factory 또는 Synapse 작업 영역에서 사용할 적합한 작업 영역을 선택할 수 있습니다. Machine Learning Studio(클래식) 연결된 서비스를 만드는 데 필요한 정보를 얻으려면 https://services.azureml.net 모든 (새로운) 웹 서비스 및 클래식 웹 서비스가 나열된 로 이동합니다. 액세스하려는 웹 서비스를 클릭하고 **사용** 페이지를 클릭합니다. **apiKey** 속성의 **기본 키** 및 **mlEndpoint** 속성의 **Batch 요청** 을 복사합니다.
 
 :::image type="content" source="./media/transform-data-using-machine-learning/web-services.png" alt-text="ML Studio(클래식) 웹 서비스":::
 
@@ -137,7 +137,7 @@ Azure Machine Learning Studio(클래식)는 예측 실험에 클래식 웹 서�
 
 ### <a name="scenario-1-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>시나리오1: Azure Blob Storage의 데이터를 참조하는 웹 서비스 입력/출력을 사용하여 실험
 
-이 시나리오에서는 Azure Machine Learning Studio(클래식) 웹 서비스는 Azure Blob Storage의 파일에 있는 데이터를 사용하여 예측을 만들고 Blob Storage에 예측 결과를 저장합니다. 다음 JSON은 AzureMLBatchExecution 활동을 사용 하 여 파이프라인을 정의 합니다. Azure 블로그 스토리지의 입력 및 출력 데이터는 LinkedName 및 FilePath 쌍을 사용하여 참조됩니다. 입력 및 출력의 연결 된 샘플 서비스가 서로 다르기 때문에 서비스에 대 한 각 입/출력에 대해 서로 다른 연결 된 서비스를 사용 하 여 올바른 파일을 선택 하 고 Azure Machine Learning Studio (클래식) 웹 서비스로 보낼 수 있습니다.
+이 시나리오에서 Machine Learning Studio(클래식) 웹 서비스는 Azure Blob Storage에 있는 파일의 데이터를 사용하여 예측을 만들고 예측 결과를 Blob Storage에 저장합니다. 다음 JSON은 AzureMLBatchExecution 작업으로 파이프라인을 정의합니다. Azure 블로그 스토리지의 입력 및 출력 데이터는 LinkedName 및 FilePath 쌍을 사용하여 참조됩니다. 입력 및 출력의 연결된 서비스 샘플에서 서비스에 대한 각 입력/출력에 대해 서로 다른 연결된 서비스를 사용하여 올바른 파일을 선택하고 Machine Learning Studio(클래식) 웹 서비스로 보낼 수 있습니다.
 
 > [!IMPORTANT]
 > ML Studio(클래식) 실험에서 웹 서비스 입력 및 출력 포트와 전역 매개 변수에는 사용자 지정할 수 있는 기본 이름("input1", "input2")이 있습니다. WebServiceInputs, webServiceOutputs 및 globalParameters 설정에 대해 사용하는 이름은 실험에서의 이름과 정확히 일치해야 합니다. 예상된 매핑을 확인하기 위해 일괄 처리 실행 도움말 페이지에서 ML Studio(클래식) 엔드포인트에 대한 샘플 요청 페이로드를 볼 수 있습니다.

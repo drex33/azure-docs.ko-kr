@@ -3,12 +3,12 @@ title: 사이드카 컨테이너로 TLS 사용
 description: 사이드카 컨테이너에서 Nginx를 실행하여 Azure Container Instances에서 실행되는 컨테이너 그룹에 대한 SSL 또는 TLS 엔드포인트를 만듭니다.
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: d2bd750849f99229d6bc4b487e21b42702980ceb
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: bc9300176a63f96a53fc26108f5acf344d79d2d1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122530123"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080235"
 ---
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>사이드카 컨테이너에서 TLS 엔드포인트 사용
 
@@ -146,7 +146,7 @@ code deploy-aci.yaml
 
 `secret`에 표시된 base64 인코딩 파일의 콘텐츠를 입력합니다. 예를 들어 각 base64 인코딩 파일을 `cat`하여 해당 콘텐츠를 봅니다. 배포하는 동안 이러한 파일은 컨테이너 그룹의 [비밀 볼륨](container-instances-volume-secret.md)에 추가됩니다. 이 예제에서는 비밀 볼륨이 Nginx 컨테이너에 탑재됩니다.
 
-```YAML
+```yaml
 api-version: 2019-12-01
 location: westus
 name: app-with-ssl

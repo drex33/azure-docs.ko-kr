@@ -3,17 +3,17 @@ title: Azure Cognitive Services 개발 옵션
 description: 클라이언트 라이브러리, REST API, Logic Apps, Power Automate, Azure Functions, Azure App Service, Azure Databricks 등과 같은 다양한 개발 및 배포 옵션과 함께 Azure Cognitive Services를 사용하는 방법을 알아봅니다.
 services: cognitive-services
 manager: nitinme
-author: erhopf
-ms.author: erhopf
+author: PatrickFarley
+ms.author: pafarley
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 6f3cd38985b6bbf1f0095ef124d2690cce00181f
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: c06cdae9bd7e2b0d3830cd57327253206970b3c6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123473733"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131077936"
 ---
 # <a name="cognitive-services-development-options"></a>Cognitive Services 개발 옵션
 
@@ -95,7 +95,7 @@ Power Automate는 코드를 작성하지 않고도 앱과 서비스 간에 자�
 
 ### <a name="ai-builder"></a>AI Builder 
 
-[AI Builder](/ai-builder/overview)는 프로세스를 자동화하고 결과를 예측하여 비즈니스 성과를 개선하는 데 사용할 수 있는 Microsoft Power Platform 기능입니다. AI Builder는 포인트 앤 클릭 환경을 통해 AI의 강력한 기능을 솔루션에 제공합니다. Text Analytics 및 Computer Vision 같은 많은 Cognitive Services는 여기에 직접 통합되어 있으며 사용자 고유의 Cognitive Services 만들 필요가 없습니다. 
+[AI Builder](/ai-builder/overview)는 프로세스를 자동화하고 결과를 예측하여 비즈니스 성과를 개선하는 데 사용할 수 있는 Microsoft Power Platform 기능입니다. AI Builder는 포인트 앤 클릭 환경을 통해 AI의 강력한 기능을 솔루션에 제공합니다. Text Analytics 및 Computer Vision와 같은 여러 인식 서비스가 여기에 직접 통합 되었으며 고유한 Cognitive Services를 만들 필요가 없습니다. 
 
 * **대상 사용자**: 비즈니스 사용자(분석가) 및 SharePoint 관리자
 * **이점**: 포인트 클릭 환경을 통해 AI 기능을 제공하는 턴키 솔루션입니다. 코딩이나 데이터 과학 기술이 필요하지 않습니다.

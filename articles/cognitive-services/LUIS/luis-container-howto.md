@@ -9,15 +9,15 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/22/2021
+ms.date: 10/14/2021
 ms.author: aahi
 keywords: 온-프레미스, Docker, 컨테이너
-ms.openlocfilehash: f8e2197d5eb84c3ae25dc0b4ebe61ca085badca9
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
-ms.translationtype: HT
+ms.openlocfilehash: 7dc50f49bc352411c0f9e4cb48bad32eb2ae6aaa
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114603301"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131073608"
 ---
 # <a name="install-and-run-docker-containers-for-luis"></a>LUIS용 Docker 컨테이너 설치 및 실행
 
@@ -369,7 +369,7 @@ LUIS 포털에서 앱을 선택한 다음, **엔드포인트 로그 가져오기
 
 <!--  ## Validate container is running -->
 
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Container API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="stop-the-container"></a>컨테이너 중지
 
@@ -380,6 +380,8 @@ LUIS 포털에서 앱을 선택한 다음, **엔드포인트 로그 가져오기
 출력 [탑재](luis-container-configuration.md#mount-settings) 및 활성화된 로깅을 사용하여 컨테이너를 실행하는 경우 컨테이너는 컨테이너를 시작 또는 실행하는 동안 발생하는 문제를 해결하는 데 도움이 되는 로그 파일을 생성합니다.
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
+
+[!INCLUDE [Diagnostic container](../containers/includes/diagnostics-container.md)]
 
 ## <a name="billing"></a>결제
 

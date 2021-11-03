@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 222f54157732013309532a1ab38f3f2f8747908e
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: cf5377c872c086675136f5b1a52ceb15c8b3b461
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326528"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131039148"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>자습서: Azure Maps Route Service 및 지도 컨트롤을 사용하여 경로 방향을 표시하는 방법
 
@@ -89,20 +89,20 @@ ms.locfileid: "108326528"
 
 3. 다음 JavaScript 코드를 `GetMap` 함수에 추가합니다. 문자열 `<Your Azure Maps Key>`를 Maps 계정에서 복사한 기본 키로 바꿉니다.
 
-    ```JavaScript
-   //Instantiate a map object
-   var map = new atlas.Map("myMap", {
+    ```javascript
+    //Instantiate a map object
+    var map = new atlas.Map("myMap", {
         //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
         authOptions: {
            authType: 'subscriptionKey',
            subscriptionKey: '<Your Azure Maps Key>'
         }
-   });
-   ```
+    });
+    ```
 
 4. 파일을 저장하고 브라우저에서 엽니다. 간단하게 표시됩니다.
 
-     :::image type="content" source="./media/tutorial-route-location/basic-map.png" alt-text="지도 컨트롤의 기본 지도 렌더링":::
+    :::image type="content" source="./media/tutorial-route-location/basic-map.png" alt-text="지도 컨트롤의 기본 지도 렌더링":::
 
 ## <a name="define-route-display-rendering"></a>경로 표시 렌더링 정의
 

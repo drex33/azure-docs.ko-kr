@@ -11,12 +11,12 @@ ms.date: 06/25/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 535cecf04857810d002843159d7ef3ce968e169b
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: a42d8f356286e2936ca9d6bdd15151bbf9ef1064
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130041047"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007337"
 ---
 # <a name="enable-authentication-in-your-own-single-page-application-by-using-azure-ad-b2c"></a>Azure AD B2C를 사용하여 고객의 단일 페이지 애플리케이션에서 인증을 사용하도록 설정
 
@@ -106,12 +106,12 @@ SAP 앱 `index.html` 파일을 추가합니다. 이 파일은 부트스트랩 �
 |---|---|
 |MSAL.js 라이브러리| MSAL.js 인증 JavaScript 라이브러리 [CDN 경로](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/cdn-usage.md).|
 |[부트스트랩 스타일시트](https://getbootstrap.com/) | 더 빠르고 쉬운 웹 개발을 위한 무료 프런트 엔드 프레임워크입니다. 이 프레임워크에는 HTML 기반 및 CSS 기반 디자인 템플릿이 포함되어 있습니다. |
-|[policies.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/policies.js) | Azure AD B2C 사용자 지정 정책 및 사용자 흐름이 포함되어 있습니다. |
-|[authConfig.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/authConfig.js) | 인증 구성 매개 변수가 포함되어 있습니다.|
-|[authRedirect.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/authRedirect.js) | 인증 논리가 포함되어 있습니다. |
-|[apiConfig.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/apiConfig.js) | 웹 API 범위와 API 엔드포인트 위치가 포함되어 있습니다. |
-|[api.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/api.js) | API를 호출하고 응답을 처리하는 데 사용할 메서드를 정의합니다.|
-|[ui.js](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/ui.js) | UI 요소를 제어합니다. |
+|[`policies.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/policies.js) | Azure AD B2C 사용자 지정 정책 및 사용자 흐름이 포함되어 있습니다. |
+|[`authConfig.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/authConfig.js) | 인증 구성 매개 변수가 포함되어 있습니다.|
+|[`authRedirect.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/authRedirect.js) | 인증 논리가 포함되어 있습니다. |
+|[`apiConfig.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/apiConfig.js) | 웹 API 범위와 API 엔드포인트 위치가 포함되어 있습니다. |
+|[`api.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/api.js) | API를 호출하고 응답을 처리하는 데 사용할 메서드를 정의합니다.|
+|[`ui.js`](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/blob/main/App/ui.js) | UI 요소를 제어합니다. |
 | | |
 
 SPA 인덱스 파일을 렌더링하려면 *myApp* 폴더에 *index.html* 이라는 파일을 만듭니다. 이 파일에는 다음 HTML 코드 조각이 포함되어 있습니다.

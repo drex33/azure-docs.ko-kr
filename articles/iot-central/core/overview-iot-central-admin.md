@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 4ff2ea374768189881c9e1ff28511bc403dd6306
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
-ms.translationtype: HT
+ms.openlocfilehash: b91a9c451c0160523029cd8688dfa9a91f433b37
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537482"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131085927"
 ---
 # <a name="iot-central-administrator-guide"></a>IoT Central 관리자 가이드
 
@@ -22,6 +22,7 @@ IoT Central 애플리케이션을 사용하면 수백만 대의 디바이스를 
 IoT Central의 관리자는 다음을 수행합니다.
 
 - 애플리케이션의 사용자 및 역할을 관리합니다.
+- 조직을 만들고 관리 합니다.
 - 디바이스 인증 등의 보안 상황을 관리합니다.
 - 애플리케이션 설정을 구성합니다.
 - 애플리케이션을 업그레이드합니다.
@@ -34,6 +35,12 @@ IoT Central은 역할 기반 액세스 제어 시스템을 사용하여 애플�
 
 자세히 알아보려면 [IoT Central 애플리케이션의 사용자 및 역할 관리](howto-manage-users-roles.md)를 참조하세요.
 
+## <a name="organizations"></a>조직
+
+조직에서는 사용자가 IoT Central 응용 프로그램에서 어떤 장치를 볼 수 있는지를 관리 하는 데 사용 하는 계층을 정의할 수 있습니다. 사용자의 역할은 표시 하는 장치에 대 한 권한 및 사용자가 액세스할 수 있는 환경을 결정 합니다.
+
+자세히 알아보려면 [IoT Central 조직 만들기](howto-create-organizations.md)를 참조 하세요.
+
 ## <a name="application-security"></a>애플리케이션 보안
 
 IoT Central 애플리케이션에 연결하는 디바이스는 일반적으로 X.509 인증서 또는 SAS(공유 액세스 서명)를 자격 증명으로 사용합니다. 관리자는 디바이스 자격 증명이 파생된 그룹 인증서 또는 키를 관리합니다.
@@ -41,6 +48,12 @@ IoT Central 애플리케이션에 연결하는 디바이스는 일반적으로 X
 자세히 알아보려면 [X.509 그룹 등록](concepts-get-connected.md#x509-group-enrollment), [SAS 그룹 등록](concepts-get-connected.md#sas-group-enrollment), [X.509 디바이스 인증서를 롤하는 방법](how-to-roll-x509-certificates.md)을 참조하세요.
 
 또한 관리자는 클라이언트 애플리케이션이 IoT Central 애플리케이션을 통해 인증하는 데 사용하는 API 토큰을 만들고 관리할 수 있습니다. 클라이언트 애플리케이션은 REST API를 사용하여 IoT Central과 상호 작용합니다.
+
+데이터 내보내기의 경우 관리자는 [내보내기 대상](howto-export-data.md)에 대 한 연결을 보호 하도록 [관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md) 를 구성할 수 있습니다. 자세한 내용은 다음을 참조하세요.
+
+- [관리 id 구성 (Azure Portal)](howto-manage-iot-central-from-portal.md#configure-a-managed-identity)
+- [관리 id 구성 (REST API)](howto-manage-iot-central-with-rest-api.md)
+- [관리 id 구성 (Azure CLI)](howto-manage-iot-central-from-cli.md#configure-a-managed-identity)
 
 ## <a name="configure-an-application"></a>애플리케이션 구성
 

@@ -7,22 +7,22 @@ ms.topic: include
 ms.date: 09/10/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 0665035b31142f5be7fa825a83d8575b49e8e717
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: da7d554e695b70bab01e738c46ad3c977abcc3f9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128909137"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032838"
 ---
 [![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/pnp)
 
-이 빠른 시작에서는 기본 Azure IoT 애플리케이션 개발 워크플로에 대해 알아봅니다. 먼저 디바이스 호스트를 위한 Azure IoT Central 애플리케이션을 만듭니다. 그런 다음 Azure IoT 디바이스 SDK 샘플을 사용하여 시뮬레이션된 온도 조절기를 실행하고 IoT Central에 안전하게 연결하고 원격 분석을 전송합니다.
+이 빠른 시작에서는 기본 Azure IoT 애플리케이션 개발 워크플로에 대해 알아봅니다. 먼저 디바이스 호스트를 위한 Azure IoT Central 애플리케이션을 만듭니다. 그런 다음 Azure IoT 디바이스 SDK 샘플을 사용하여 온도 컨트롤러를 만들고 IoT Central에 안전하게 연결하고 원격 분석을 보냅니다. 온도 컨트롤러 샘플 애플리케이션은 로컬 컴퓨터에서 실행되고 IoT Central에 보낼 시뮬레이션된 센서 데이터를 생성합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 빠른 시작은 Windows, Linux 및 Raspberry Pi에서 실행됩니다. 다음 OS 및 디바이스 버전에서 테스트되었습니다.
 
 - Windows 10
-- WSL(Linux용 Windows 하위 시스템)에서 실행되는 Ubuntu 20.04 LTS
+- Ubuntu 20.04 LTS
 - Raspberry Pi 3 Model B+에서 실행되는 Raspberry Pi OS 버전 10(buster)
 
 운영 체제의 나머지 필수 구성 요소를 설치합니다.
@@ -56,14 +56,14 @@ Windows 에서 이 빠른 시작을 완료하려면 Visual Studio 2019를 설치
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
-## <a name="run-a-simulated-device"></a>시뮬레이트된 디바이스 실행
-이 섹션에서는 로컬 환경을 구성하고, Azure IoT C 디바이스 SDK를 설치하고, 시뮬레이션된 온도 컨트롤러를 만드는 샘플을 실행합니다.
+## <a name="run-a-device"></a>디바이스 실행
+이 섹션에서는 로컬 환경을 구성하고, Azure IoT C 디바이스 SDK를 설치하고, 온도 컨트롤러를 만드는 샘플을 실행합니다.
 
 ### <a name="configure-your-environment"></a>환경 구성
 
 1. 콘솔을 열어 Azure IoT C 디바이스 SDK를 설치하고 코드 샘플을 실행합니다. Windows의 경우 **시작** 메뉴에서 *Developer Command Prompt for VS 2019* 를 선택하여 콘솔을 엽니다. Linux 및 Raspberry Pi OS의 경우 Bash 명령에 대한 터미널을 엽니다. 
 
-1. 콘솔에 적합한 명령을 사용하여 다음 환경 변수를 설정합니다. 시뮬레이션된 디바이스는 이 값을 사용하여 IoT Central에 연결합니다. `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY` 및 `IOTHUB_DEVICE_DPS_DEVICE_ID`의 경우 이전에 저장한 디바이스 연결 값을 사용합니다.
+1. 콘솔에 적합한 명령을 사용하여 다음 환경 변수를 설정합니다. 디바이스는 이러한 값을 사용하여 IoT Central에 연결합니다. `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY` 및 `IOTHUB_DEVICE_DPS_DEVICE_ID`의 경우 이전에 저장한 디바이스 연결 값을 사용합니다.
 
     **CMD**
 
@@ -126,7 +126,7 @@ Windows 에서 이 빠른 시작을 완료하려면 Visual Studio 2019를 설치
     cmake/iothub_client/samples/pnp/pnp_temperature_controller/pnp_temperature_controller
     ```
 
-    시뮬레이션된 디바이스가 IoT Central 애플리케이션에 연결되면 애플리케이션에서 만든 디바이스 인스턴스에 연결하고 원격 분석 전송을 시작합니다. 연결 세부 정보 및 원격 분석 출력이 콘솔에 표시됩니다. 
+    디바이스가 IoT Central 애플리케이션에 연결되면 애플리케이션에서 만든 디바이스 인스턴스에 연결하고 원격 분석 전송을 시작합니다. 연결 세부 정보 및 원격 분석 출력이 콘솔에 표시됩니다. 
     
     ```output
     Info: Initiating DPS client to retrieve IoT Hub connection information

@@ -1,19 +1,19 @@
 ---
 title: Azure HPC Cache 스토리지 대상 관리
 description: Azure HPC 캐시 저장소 대상을 일시 중단, 제거, 강제 삭제 및 플러시하는 방법 및 저장소 대상 상태를 이해 하는 방법
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.author: v-erkel
-ms.openlocfilehash: 5b6127a43ebd93b89ea3a648533c2b739fc58691
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.author: femila
+ms.openlocfilehash: ebab51f480751e6a9d6c60cad09d6884c5d6cc7e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129274312"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051062"
 ---
-# <a name="view-and-manage-storage-targets"></a>저장소 대상 보기 및 관리
+# <a name="view-and-manage-storage-targets"></a>스토리지 대상 보기 및 관리
 
 저장소 대상 설정 페이지는 HPC 캐시의 각 저장소 대상에 대 한 정보를 표시 하 고 개별 저장소 대상을 관리 하는 옵션을 제공 합니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure CLI 또는 PowerShell에서 IoT Central 관리 | Microsoft Docs
-description: 이 문서에서는 Azure CLI 또는 PowerShell을 사용하여 IoT Central 애플리케이션을 만들고 관리하는 방법을 설명합니다. 이러한 도구를 사용하여 애플리케이션을 보고, 수정하고, 제거할 수 있습니다.
+description: 이 문서에서는 Azure CLI 또는 PowerShell을 사용하여 IoT Central 애플리케이션을 만들고 관리하는 방법을 설명합니다. 이러한 도구를 사용하여 애플리케이션을 보고, 수정하고, 제거할 수 있습니다. 보안 데이터 내보내기를 설정 하는 데 사용할 수 있는 관리 되는 시스템 id를 구성할 수도 있습니다.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom:
 - devx-track-azurecli
 - devx-track-azurepowershell
-ms.openlocfilehash: 05eca5bb95906ebb34e51f79d70a33cc003f2220
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 979da680c3a5a9b70973fa7da00613f7ffbcf86b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129091638"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131088080"
 ---
 # <a name="manage-iot-central-from-azure-cli-or-powershell"></a>Azure CLI 또는 PowerShell에서 IoT Central 관리
 
@@ -180,6 +180,30 @@ Remove-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
 ```
 
 ---
+
+## <a name="configure-a-managed-identity"></a>관리 ID 구성
+
+IoT Central 응용 프로그램은 시스템 할당 [관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하 여 [데이터 내보내기 대상](howto-export-data.md#connection-options)에 대 한 연결을 보호할 수 있습니다.
+
+관리 id를 사용 하려면 [관리 되는 id](howto-manage-iot-central-from-portal.md#configure-a-managed-identity) 또는 [REST API](howto-manage-iot-central-with-rest-api.md)Azure Portal 구성 합니다.
+
+:::image type="content" source="media/howto-manage-iot-central-from-cli/managed-identity.png" alt-text="Azure Portal에서 관리 되는 id를 보여 주는 스크린샷":::
+
+관리 id를 사용 하도록 설정한 후 CLI를 사용 하 여 역할 할당을 구성할 수 있습니다.
+
+[Az role 대입문 create](/cli/azure/role/assignment#az_role_assignment_create) 명령을 사용 하 여 역할 할당을 만들 수 있습니다. 예를 들어 다음 명령은 먼저 관리 id의 보안 주체 ID를 검색 합니다. 두 번째 명령은 `Azure Event Hubs Data Sender` 리소스 그룹의 범위에서 보안 주체 ID에 역할을 할당 합니다 `MyIoTCentralResourceGroup` .
+
+```azurecli-interactive
+spID=$(az resource list -n myiotcentralapp --query [*].identity.principalId --out tsv)
+az role assignment create --assignee $spID --role "Azure Event Hubs Data Sender" \
+  --scope /subscriptions/<your subscription id>/resourceGroups/MyIoTCentralResourceGroup
+```
+
+역할 할당에 대 한 자세한 내용은 다음을 참조 하세요.
+
+- [Azure Event Hubs에 대한 기본 제공 역할](../../event-hubs/authenticate-application.md#built-in-roles-for-azure-event-hubs)
+- [Azure Service Bus에 대한 Azure 기본 제공 역할](../../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus)
+- [Azure Storage Services에 대한 기본 제공 역할](/rest/api/storageservices/authorize-with-azure-active-directory#manage-access-rights-with-rbac)
 
 ## <a name="next-steps"></a>다음 단계
 

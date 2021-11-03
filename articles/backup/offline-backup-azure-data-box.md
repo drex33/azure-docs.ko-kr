@@ -3,12 +3,12 @@ title: Azure Data Box를 사용하여 오프라인 백업
 description: Azure Data Box를 사용하여 MARS 에이전트에서 Recovery Services 자격 증명 모음에 대량의 초기 백업 데이터를 오프라인으로 시드하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 7793259797a47eb0353de7ecb27686ea2eafa24c
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
-ms.translationtype: HT
+ms.openlocfilehash: 40fb046506238c5f02c7e36d6ce12b31ed44fcaa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123185906"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131020543"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Azure Data Box를 사용한 Azure Backup 오프라인 백업
 
@@ -109,7 +109,7 @@ AzureRM 모듈이 없음을 확인한 후 다음 방법 중 하나를 사용하�
     Install-Module -Name AzureRM -RequiredVersion 3.7.0
     ```
 
-Azure PowerShell은 msi 파일을 사용하여 설치할 수도 있습니다. 제거하려면 제어판의 **프로그램 제거** 옵션을 사용하여 제거합니다.
+Azure PowerShell MSI 파일을 사용하여 설치되었을 수도 있습니다. 제거하려면 제어판의 **프로그램 제거** 옵션을 사용하여 제거합니다.
 
 ### <a name="order-and-receive-the-data-box-device"></a>Data Box 디바이스 주문 및 수령
 

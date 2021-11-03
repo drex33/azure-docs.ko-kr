@@ -3,14 +3,17 @@ title: 디바이스 빌더를 위한 서비스 개요
 description: Defender for IoT 기능 및 서비스에 대해 알아보고, Defender for IoT가 종합적인 IoT 보안을 제공하는 방식을 이해합니다.
 ms.topic: overview
 ms.date: 07/08/2021
-ms.openlocfilehash: 03601eebde5a4da400f760cbdcbe44afb45c202e
-ms.sourcegitcommit: 555ea0d06da38dea1de6ecbe0ed746cddd4566f5
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: fe233733a217ff4294e72b67406eed3f7f2addce
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113516550"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080006"
 ---
 # <a name="welcome-to-azure-defender-for-iot-for-device-builders"></a>디바이스 빌더용 Azure Defender for IoT 시작
+
+[!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
 보안은 IoT를 구현하는 거의 모든 사람이 고민하는 문제입니다. IoT 디바이스는 엔드포인트 모니터링, 보안 상태 관리 및 위협 탐지에 대한 고유한 요구 사항이 있으며, 각각 매우 구체적인 성능 요구 사항이 있습니다. 
 

@@ -9,12 +9,13 @@ ms.subservice: sql
 ms.date: 9/23/2021
 ms.author: stefanazaric
 ms.reviewer: jrasnick, wiassaf
-ms.openlocfilehash: e0380c4d1b4fe9c82d6e9b82922b1a509f7dcdf4
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: c5057290f21a87a2a8c599de7d3fdd2c8b76ebb6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129545606"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046549"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>서버리스 SQL 풀에 대한 자가 진단
 
@@ -400,6 +401,10 @@ FROM
     AS [result]
 ```
 
+### <a name="incorrect-syntax-near-not"></a>'NOT' 근처의 잘못된 구문
+
+이 오류는 열 정의에 `NOT NULL` 제약 조건이 포함된 열이 있는 일부 외부 테이블이 있음을 나타냅니다. 테이블을 업데이트하여 열 정의에서 `NOT NULL`을 제거합니다.
+
 ## <a name="configuration"></a>구성
 
 ### <a name="query-fails-with-please-create-a-master-key-in-the-database-or-open-the-master-key-in-the-session-before-performing-this-operation"></a>다음 오류를 나타내며 쿼리가 실패합니다. 이 작업을 수행하기 전에 데이터베이스에서 마스터 키를 만들거나 세션의 마스터 키를 여세요.
@@ -492,6 +497,10 @@ Azure Synapse SQL은 다음과 같은 경우 트랜잭션 저장소에 표시되
 
 `WITH` 절에 지정된 값이 분석 스토리지의 기본 Cosmos DB 형식과 일치하지 않아 암시적으로 변환할 수 없습니다. 스키마에서 `VARCHAR` 형식을 사용합니다.
 
+### <a name="resolving-cosmosdb-path-has-failed"></a>CosmosDB 경로를 확인하지 못했습니다.
+
+`Resolving CosmosDB path has failed with error 'This request is not authorized to perform this operation.'` 오류가 발생하는 경우에는 Cosmos DB에서 프라이빗 엔드포인트를 사용하는지 확인합니다. SQL 서버리스에서 프라이빗 엔드포인트가 있는 분석 저장소에 액세스할 수 있도록 하려면 [Azure Cosmos DB 분석 저장소에 대한 프라이빗 엔드포인트를 구성](../../cosmos-db/analytical-store-private-endpoints.md#using-synapse-serverless-sql-pools)해야 합니다.
+
 ### <a name="cosmosdb-performance-issues"></a>CosmosDB 성능 문제
 
 예기치 않은 성능 문제가 발생하는 경우 다음과 같은 모범 사례를 적용했는지 확인합니다.
@@ -502,7 +511,7 @@ Azure Synapse SQL은 다음과 같은 경우 트랜잭션 저장소에 표시되
 
 ## <a name="delta-lake"></a>Delta Lake
 
-Delta Lake 지원은 현재 서버리스 SQL 풀에서 퍼블릭 미리 보기로 제공됩니다. 미리 보기 중에 나타날 수 있는 몇 가지 알려진 문제가 있습니다.
+서버리스 SQL 풀의 Delta Lake 지원에서 볼 수 있는 몇 가지 제한 사항 및 알려진 문제가 있습니다.
 - [OPENROWSET](./develop-openrowset.md) 함수 또는 외부 테이블 위치에서 루트 Delta Lake 폴더를 참조하고 있는지 확인합니다.
   - 루트 폴더에는 `_delta_log`라는 하위 폴더가 있어야 합니다. `_delta_log` 폴더가 없으면 쿼리가 실패합니다. 해당 폴더가 표시되지 않으면 Apache Spark 풀을 사용하여 [Delta Lake로 변환](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#convert-parquet-to-delta)해야 하는 일반 Parquet 파일을 참조하는 것입니다.
   - 파티션 스키마를 설명하는 와일드카드를 지정하지 마세요. Delta Lake 쿼리는 Delta Lake 파티션을 자동으로 식별합니다. 
@@ -732,7 +741,7 @@ from sys.server_principals where type in ('E', 'X')
 | 데이터베이스당 최대 데이터베이스 개체 수 | 데이터베이스에 있는 모든 개체 수의 합계는 2,147,483,647을 초과할 수 없습니다([SQL Server 데이터베이스 엔진의 제한 사항](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects) 참조). |
 | 최대 식별자 길이(문자 수) | 128([SQL Server 데이터베이스 엔진의 제한 사항](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects) 참조)|
 | 최대 쿼리 기간 | 30분 |
-| 결과 집합의 최대 크기 | 80GB(현재 실행 중인 모든 동시 쿼리 간에 공유) |
+| 결과 집합의 최대 크기 | 최대 200GB(동시 쿼리 간 공유) |
 | 최대 동시성 | 제한되지 않으며 쿼리 복잡성 및 검색된 데이터의 양에 따라 달라집니다. 하나의 서버리스 SQL 풀은 간단한 쿼리를 실행하는 1000개의 활성 세션을 동시에 처리할 수 있지만 쿼리가 더 복잡하거나 더 많은 양의 데이터를 검색하면 숫자가 줄어듭니다. |
 
 ## <a name="next-steps"></a>다음 단계

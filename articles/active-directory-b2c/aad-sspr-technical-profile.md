@@ -3,20 +3,20 @@ title: 사용자 지정 정책의 Azure AD SSPR 기술 프로필
 titleSuffix: Azure AD B2C
 description: Azure AD B2C의 Azure AD SSPR 기술 프로필에 대한 사용자 지정 정책 참조입니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/23/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 3e6fcf956639d827a8654c5ee80e7cab8cadf930
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c1bac41a0c70a2d9dff2a8ce1ac5544ad687fe5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85383600"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008373"
 ---
 # <a name="define-an-azure-ad-sspr-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Azure AD B2C 사용자 지정 정책에서 Azure AD SSPR 기술 프로필 정의
 
@@ -27,7 +27,7 @@ Azure AD B2C(Azure Active Directory B2C)는 SSPR(셀프 서비스 암호 재설�
 이 기술 프로필은 다음과 같은 특징이 있습니다.
 
 - 사용자와 상호 작용하기 위한 인터페이스를 제공하지 않습니다. 대신 사용자 인터페이스가 [자체 어설션된](self-asserted-technical-profile.md) 기술 프로필에서 호출되거나 [디스플레이 컨트롤](display-controls.md)이 [유효성 검사 기술 프로필](validation-technical-profile.md)로 호출됩니다.
-- Azure AD SSPR 서비스를 사용하여 코드를 생성하고 이메일 주소로 보낸 다음 코드를 확인합니다.  
+- Azure AD SSPR 서비스를 사용하여 코드를 생성하고 이메일 주소로 보낸 다음 코드를 확인합니다.
 - 확인 코드를 통해 이메일 주소의 유효성을 검사합니다.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
@@ -42,7 +42,7 @@ Web.TPEngine.Providers.AadSsprProtocolProvider, Web.TPEngine, Version=1.0.0.0, C
 
 다음 예제는 Azure AD SSPR 기술 프로필을 보여 줍니다.
 
-```XML
+```xml
 <TechnicalProfile Id="AadSspr-SendCode">
   <DisplayName>Send Code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AadSsprProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -60,7 +60,6 @@ Web.TPEngine.Providers.AadSsprProtocolProvider, Web.TPEngine, Version=1.0.0.0, C
 | ClaimReferenceId | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | emailAddress | 예 | 이메일 주소를 소유하는 사용자의 식별자입니다. 입력 클레임의 `PartnerClaimType` 속성을 `emailAddress`로 설정해야 합니다. |
-
 
 **InputClaimsTransformations** 요소는 Azure AD SSPR 서비스로 보내기 전에 입력 클레임을 수정하거나 새 입력 클레임을 생성하는 데 사용되는 **InputClaimsTransformation** 요소 컬렉션을 포함할 수 있습니다.
 
@@ -82,15 +81,14 @@ Azure AD SSPR 프로토콜 공급자는 **OutputClaims** 를 반환하지 않으
 
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| UserMessageIfInternalError | 예 | 서버에 내부 오류가 발생한 경우 사용자 오류 메시지입니다. |
+| UserMessageIfInternalError | 예 | 서버에 내부 오류가 발생한 경우의 사용자 오류 메시지입니다. |
 | UserMessageIfThrottled| 예 | 요청이 제한된 경우 사용자 오류 메시지입니다.|
-
 
 ### <a name="example-send-an-email"></a>예제: 이메일 보내기
 
 다음 예제에서는 이메일을 통해 코드를 보내는 데 사용되는 Azure AD SSPR 기술 프로필을 보여 줍니다.
 
-```XML
+```xml
 <TechnicalProfile Id="AadSspr-SendCode">
   <DisplayName>Send Code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AadSsprProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -146,7 +144,7 @@ Azure AD SSPR 프로토콜 공급자는 **OutputClaims** 를 반환하지 않으
 
 다음 예제는 코드를 확인하는 데 사용되는 Azure AD SSPR 기술 프로필을 보여 줍니다.
 
-```XML
+```xml
 <TechnicalProfile Id="AadSspr-VerifyCode">
   <DisplayName>Verify Code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AadSsprProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />

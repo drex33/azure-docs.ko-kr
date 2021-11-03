@@ -6,25 +6,25 @@ ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/15/2021
-ms.openlocfilehash: 1ee1411aba7724d76ed8626de9b8b038d02339dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 8d7c498f0052a3e0da024e8b4902579ab8a98fd0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103574257"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131083292"
 ---
-# <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Azure Machine Learning Studio(클래식) 함수를 사용하여 Stream Analytics 작업의 크기 조정
+# <a name="scale-your-stream-analytics-job-with-machine-learning-studio-classic-functions"></a>Machine Learning Studio (클래식) 함수를 사용 하 여 Stream Analytics 작업 크기 조정
 
 > [!TIP]
-> 성능 및 안정성 향상을 위해 Azure Machine Learning Studio(클래식) UDF 대신 [Azure Machine Learning UDF](machine-learning-udf.md)를 사용하는 것이 좋습니다.
+> 향상 된 성능 및 안정성을 위해 클래식 (Machine Learning Studio) udf 대신 [Azure Machine Learning udf](machine-learning-udf.md) 를 사용 하는 것이 좋습니다.
 
-이 문서에서는 Azure Machine Learning 스튜디오(클래식) 함수를 사용하는 Azure Stream Analytics 작업을 효율적으로 스케일링하는 방법을 설명합니다. Stream Analytics 작업의 크기를 조정하는 일반적인 방법은 [작업 크기 조정](stream-analytics-scale-jobs.md)을 참조하세요.
+이 문서에서는 Machine Learning Studio (클래식) 함수를 사용 하는 Azure Stream Analytics 작업을 효율적으로 확장 하는 방법을 설명 합니다. Stream Analytics 작업의 크기를 조정하는 일반적인 방법은 [작업 크기 조정](stream-analytics-scale-jobs.md)을 참조하세요.
 
 ## <a name="what-is-a-studio-classic-function-in-stream-analytics"></a>Stream Analytics의 스튜디오(클래식) 함수란 무엇인가요?
 
 Stream Analytics의 Machine Learning 스튜디오(클래식) 함수는 Stream Analytics 쿼리 언어에 일반 함수 호출처럼 사용할 수 있습니다. 그러나 내부를 들여다보면, 함수 호출이 실제로는 스튜디오(클래식) 웹 서비스 요청입니다.
 
-하나의 웹 서비스 API 호출에서 여러 행을 “일괄 처리”하여 스튜디오(클래식) 웹 서비스 요청의 처리량을 개선할 수 있습니다. 이러한 그룹화를 미니 매치라고 합니다. 자세한 내용은 [Azure Machine Learning Studio(클래식) 웹 서비스](../machine-learning/classic/consume-web-services.md)를 참조하세요. Stream Analytics에서 스튜디오(클래식)를 지원합니다.
+하나의 웹 서비스 API 호출에서 여러 행을 “일괄 처리”하여 스튜디오(클래식) 웹 서비스 요청의 처리량을 개선할 수 있습니다. 이러한 그룹화를 미니 매치라고 합니다. 자세한 내용은 [Machine Learning Studio (클래식) 웹 서비스](../machine-learning/classic/consume-web-services.md)를 참조 하세요. Stream Analytics에서 스튜디오(클래식)를 지원합니다.
 
 ## <a name="configure-a-stream-analytics-job-with-studio-classic-functions"></a>스튜디오(클래식) 함수를 사용하여 Stream Analytics 작업 구성
 

@@ -9,12 +9,12 @@ ms.subservice: v1
 ms.topic: conceptual
 robots: noindex
 ms.date: 10/22/2021
-ms.openlocfilehash: 2010081ca22751e5e3e1a7f36084dff53b1c0aef
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 3b28e8d4042377e7834fe619e15feabb916b2591
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130255184"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059626"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure 데이터 팩터리 - .NET API 변경 로그
 > [!NOTE]
@@ -145,7 +145,9 @@ ms.locfileid: "130255184"
 | SqlServerDataset |[SqlServerTableDataset](/dotnet/api/microsoft.azure.management.datafactories.models.sqlservertabledataset) |
 
 ## <a name="version-400"></a>버전 4.0.0
+
 ### <a name="breaking-changes"></a>주요 변경 내용
+
 * 다음 클래스/인터페이스의 이름이 변경되었습니다.
 
 | 이전 이름 | 새 이름 |
@@ -162,7 +164,7 @@ ms.locfileid: "130255184"
 
 * **List** 메서드는 이제 페이징된 결과를 반환합니다. 응답에 비어 있지 않은 **NextLink** 속성이 포함된 경우 클라이언트 애플리케이션은 모든 페이지가 반환될 때까지 다음 페이지를 계속 가져와야 합니다.  예를 들면 다음과 같습니다.
 
-    ```csharp
+  ```csharp
     PipelineListResponse response = client.Pipelines.List("ResourceGroupName", "DataFactoryName");
     var pipelines = new List<Pipeline>(response.Pipelines);
 
@@ -174,7 +176,8 @@ ms.locfileid: "130255184"
 
         nextLink = nextResponse.NextLink;
     }
-    ```
+  ```
+
 * **List** 파이프라인 API는 전체 세부 정보 대신 파이프라인의 요약만 반환합니다. 예를 들어 파이프라인 요약의 작업에는 이름과 형식만 포함됩니다.
 
 ### <a name="feature-additions"></a>기능 추가 사항

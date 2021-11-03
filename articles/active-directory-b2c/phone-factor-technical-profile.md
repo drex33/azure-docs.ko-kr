@@ -3,20 +3,20 @@ title: 사용자 지정 정책에서 전화 단계 기술 프로필 정의
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 사용자 지정 정책에서 전화 단계 기술 프로필을 정의합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 10/12/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 322e4b78fbfb38f1822fb7a7cdcdbfcc0738b303
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 17e21c28961346cd10b436adaa5eab8c8160bcd4
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91950400"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131012741"
 ---
 # <a name="define-a-phone-factor-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C의 사용자 지정 정책에서 전화 단계 기술 프로필 정의
 
@@ -76,7 +76,7 @@ InputClaims 요소는 다음 클레임을 포함해야 합니다. 클레임 이�
 
 OutputClaims 요소는 전화 단계 기술 프로필에서 반환된 클레임 목록을 포함합니다.
 
-|  데이터 형식| 필수 | Description |
+|  데이터 형식| 필수 | 설명 |
 |  -------- | ----------- |----------- |
 | boolean | 예 | 사용자가 새 전화 번호를 입력했는지 여부를 나타냅니다. 클레임 이름 또는 PartnerClaimType을 `newPhoneNumberEntered`로 설정해야 합니다.|
 | 문자열| 예 | 확인된 전화 번호입니다. 클레임 이름 또는 PartnerClaimType을 `Verified.OfficePhone`으로 설정해야 합니다.|

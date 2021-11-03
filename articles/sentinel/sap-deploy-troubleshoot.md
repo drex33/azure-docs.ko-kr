@@ -5,17 +5,19 @@ author: batamig
 ms.author: bagold
 ms.service: azure-sentinel
 ms.topic: troubleshooting
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.date: 08/09/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: 45bef2c4e6cbbe9ae2c6b1f316987eb613a4509a
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: d514ceee8f81943efd6024abcde510e910b6cc5f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130258471"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131013938"
 ---
 # <a name="troubleshooting-your-azure-sentinel-sap-solution-deployment"></a>Azure Sentinel SAP 솔루션 배포 문제 해결
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 ## <a name="useful-docker-commands"></a>유용한 Docker 명령
 

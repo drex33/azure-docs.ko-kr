@@ -9,13 +9,13 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sashan, moslake
 ms.date: 09/10/2021
-ms.custom: references_regions
-ms.openlocfilehash: a92dd67011d7ef7d5ad162983de51b98839c4a84
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: references_regions, ignite-fall-2021
+ms.openlocfilehash: fb168fad05acf84fd9b64f34c929176933a1fd2f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128634332"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131026035"
 ---
 # <a name="vcore-purchase-model-overview---azure-sql-database"></a>vCore 구매 모델 개요 - Azure SQL Database 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,13 +40,13 @@ vCore 구매 모델의 서비스 계층 옵션에는 범용, 중요 비즈니스
 |스토리지|원격 스토리지를 사용합니다.<br/>**SQL Database 프로비전된 컴퓨팅**:<br/>5GB~4TB<br/>**서버리스 컴퓨팅**:<br/>5GB - 3TB|로컬 SSD 스토리지를 사용합니다.<br/>**SQL Database 프로비전된 컴퓨팅**:<br/>5GB~4TB|필요에 따라 자동으로 증가하는 유연한 스토리지. 최대 100TB의 스토리지를 지원합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 스토리지에 대한 로컬 SSD 스토리지를 사용합니다. 마지막 장기 데이터 저장소인 Azure 원격 스토리지를 사용합니다. |
 |IOPS 및 처리량(근사치)|**SQL Database**: [단일 데이터베이스](resource-limits-vcore-single-databases.md) 및 [탄력적 풀](resource-limits-vcore-elastic-pools.md)에 대한 리소스 제한을 참조하세요.|[단일 데이터베이스](resource-limits-vcore-single-databases.md) 및 [탄력적 풀](resource-limits-vcore-elastic-pools.md)에 대한 리소스 제한을 참조하세요.|하이퍼스케일은 여러 수준에서 캐싱을 사용하는 다중 계층 아키텍처입니다. 효과적인 IOPS 및 처리량은 워크로드에 따라 달라집니다.|
 |가용성|복제본 1개, 읽기 확장 복제본 없음, <br/>영역 중복 HA(고가용성)(미리 보기)|3개 복제본, 1개 [읽기 크기 조정 복제본](read-scale-out.md),<br/>영역 중복 HA(고가용성)|1개 읽기/쓰기 복제본 및 0-4개 [읽기 크기 조정 복제본](read-scale-out.md)|
-|Backup|지역 중복, 영역 중복 또는 로컬 중복 \* 백업 스토리지 \* 선택, 1-35일 보존(기본값 7일)|지역 중복, 영역 중복 또는 로컬 중복 \* 백업 스토리지 \* 선택, 1-35일 보존(기본값 7일)|지역 중복, 영역 중복 또는 로컬 중복 \* \* \* \* 백업 스토리지, 7일 보존 중에서 선택할 수 있습니다.<p>Azure 원격 스토리지의 스냅샷 기반 백업. 복원은 빠른 복구를 위해 스냅샷을 사용합니다. 백업은 즉시 수행되며 컴퓨팅 I/O 성능에 영향을 주지 않습니다. 복원은 빠르며 데이터 크기 작업이 아닙니다(시간이 아닌 몇 분이 소요).|
+|Backup|지역 중복, 영역 중복\* 또는 로컬 중복\* 백업 스토리지 중에서 선택, 1~35일 보존(기본값 7일)|지역 중복, 영역 중복\* 또는 로컬 중복\* 백업 스토리지 중에서 선택, 1~35일 보존(기본값 7일)|지역 중복, 영역 중복 또는 로컬 중복 \* \* \* \* 백업 스토리지, 7일 보존 중에서 선택할 수 있습니다.<p>Azure 원격 스토리지의 스냅샷 기반 백업. 복원은 빠른 복구를 위해 스냅샷을 사용합니다. 백업은 즉시 수행되며 컴퓨팅 I/O 성능에 영향을 주지 않습니다. 복원은 빠르며 데이터 크기 작업이 아닙니다(시간이 아닌 몇 분이 소요).|
 |메모리 내|지원되지 않음|지원 여부|일부 지원. 메모리 최적화 테이블 형식, 테이블 변수 및 고유하게 컴파일된 모듈이 지원됩니다.|
 |||
 
 \* 미리 보기로 제공됩니다.
 
-\*\* 미리 보기에서 새 하이퍼스케일 데이터베이스에만 해당
+\*\* 미리 보기 상태, 새 하이퍼스케일 데이터베이스 전용
 
 ### <a name="choosing-a-service-tier"></a>서비스 계층 선택
 
@@ -164,7 +164,7 @@ Azure Portal에서 생성 시 SQL Database의 데이터베이스 또는 풀에 �
 
 #### <a name="gen4gen5"></a><a id="gen4gen5-1"></a> Gen4/Gen5
 
-Gen4 하드웨어는 [단계적으로 중단](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/)되며 더이상 새로운 배포에 사용할 수 없습니다. 새 데이터베이스는 모두 Gen5 하드웨어에 배포되어야 합니다.
+Gen4 하드웨어는 [단계적으로 중단](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/)되며 더이상 새로운 배포에 사용할 수 없습니다. 모든 새 데이터베이스는 이후 하드웨어 세대에 배포해야 합니다.
 
 Gen5는 전세계 모든 공용 지역에서 사용할 수 있습니다.
 

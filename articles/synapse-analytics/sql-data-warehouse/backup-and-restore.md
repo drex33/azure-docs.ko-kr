@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: d17f370739acf5280850beb1eb14ad8cdc0268a6
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 28a26537090dc2913ee83027c66ddc3c3416d03e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424939"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063692"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Azure Synapse 전용 SQL 풀에서 백업 및 복원
 
@@ -48,7 +48,7 @@ order by run_id desc
 해당 기능을 사용하면 스냅샷을 수동으로 트리거하여 대규모 수정 전후의 데이터 웨어하우스 복원 지점을 만들 수 있습니다. 해당 기능은 복원 지점을 논리적으로 일관되게 유지할 수 있도록 하여 작업 중단 또는 사용자 오류가 발생하는 경우 빠른 복구 시간을 위해 추가적인 데이터 보호 기능을 제공합니다. 사용자 정의 복원 지점은 7일 동안 사용할 수 있으며 자동으로 삭제됩니다. 사용자 정의 복원 지점의 보존 기간은 변경할 수 없습니다. 어떤 시점에서든 **42개의 사용자 정의 복원 지점** 만 지원되므로 다른 복원 지점을 만들기 전에 [삭제](/powershell/module/azurerm.sql/remove-azurermsqldatabaserestorepoint)해야 합니다. 사용자 정의 복원 지점은 [PowerShell](/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsont#examples) 또는 Azure Portal을 통해 스냅샷을 트리거하여 만들 수 있습니다.
 
 > [!NOTE]
-> 7일보다 더 긴 복원 시점이 필요한 경우 [여기서](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points) 이 기능에 대해 투표해 주세요. 또한 사용자 정의 복원 지점을 만들어 새로 만든 복원 지점에서 새 데이터 웨어하우스로 복원할 수 있습니다. 복원되면 전용 SQL 풀이 온라인 상태가 되며, 이를 무기한 일시 중지하여 컴퓨팅 비용을 절감할 수 있습니다. 일시 중지된 데이터베이스에는 Azure Synapse 스토리지 요금으로 스토리지 비용이 부과됩니다. 복원된 데이터 웨어하우스의 활성 복사본이 필요한 경우 몇 분 만에 다시 시작할 수 있습니다.
+> 7일보다 더 긴 복원 시점이 필요한 경우 [여기서](https://feedback.azure.com/d365community/idea/4c446fd9-0b25-ec11-b6e6-000d3a4f07b8) 이 기능에 대해 투표해 주세요. 또한 사용자 정의 복원 지점을 만들어 새로 만든 복원 지점에서 새 데이터 웨어하우스로 복원할 수 있습니다. 복원되면 전용 SQL 풀이 온라인 상태가 되며, 이를 무기한 일시 중지하여 컴퓨팅 비용을 절감할 수 있습니다. 일시 중지된 데이터베이스에는 Azure Synapse 스토리지 요금으로 스토리지 비용이 부과됩니다. 복원된 데이터 웨어하우스의 활성 복사본이 필요한 경우 몇 분 만에 다시 시작할 수 있습니다.
 
 ### <a name="restore-point-retention"></a>복원 지점 보존
 
@@ -74,7 +74,7 @@ order by run_id desc
 전용 SQL 풀에 대한 지역 백업이 필요하지 않은 경우 사용하지 않도록 설정하고 재해 복구 스토리지 비용을 절감할 수 있습니다. 지역 백업을 사용하지 않도록 설정하려면 [방법 가이드: 전용 SQL 풀(이전의 SQL DW)에 대해 지역 백업 비활성화](disable-geo-backup.md)를 참조하세요. 지역 백업을 사용하지 않도록 설정하면 기본 Azure 데이터 센터를 사용할 수 없는 경우 전용 SQL 풀을 쌍을 이루는 Azure 지역으로 복구할 수 없습니다. 
 
 > [!NOTE]
-> 지역 백업에 더 짧은 RPO가 필요한 경우 [여기에서](https://feedback.azure.com/forums/307516-sql-data-warehouse) 이 기능에 대해 투표해 주세요. 또한 사용자 정의 복원 지점을 만들어 새로 만든 복원 지점에서 다른 지역의 새 데이터 웨어하우스로 복원할 수 있습니다. 복원한 후에는 데이터 웨어하우스가 온라인 상태 이며 계산 비용을 절약 하기 위해 무기한 일시 중지할 수 있습니다. 일시 중지된 데이터베이스에는 Azure Premium Storage 요금으로 스토리지 비용이 부과됩니다. 더 짧은 복구 지점에 대 한 또 다른 일반적인 패턴은 데이터 웨어하우스의 기본 및 보조 인스턴스로 데이터를 병렬로 수집 하는 것입니다. 이 시나리오에서 데이터는 원본 (또는 원본)에서 수집 데이터 웨어하우스의 두 개의 개별 인스턴스 (기본 및 보조)로 유지 됩니다. 계산 비용을 절약 하기 위해 웨어하우스의 보조 인스턴스를 일시 중지할 수 있습니다. 데이터 웨어하우스의 활성 복사본이 필요한 경우 몇 분만 소요 되는 다시 시작할 수 있습니다.
+> 지역 백업에 더 짧은 RPO가 필요한 경우 [여기에서](https://feedback.azure.com/d365community/idea/dc4975e5-0b25-ec11-b6e6-000d3a4f07b8) 이 기능에 대해 투표해 주세요. 또한 사용자 정의 복원 지점을 만들어 새로 만든 복원 지점에서 다른 지역의 새 데이터 웨어하우스로 복원할 수 있습니다. 복원한 후에는 데이터 웨어하우스가 온라인 상태 이며 계산 비용을 절약 하기 위해 무기한 일시 중지할 수 있습니다. 일시 중지된 데이터베이스에는 Azure Premium Storage 요금으로 스토리지 비용이 부과됩니다. 더 짧은 복구 지점에 대 한 또 다른 일반적인 패턴은 데이터 웨어하우스의 기본 및 보조 인스턴스로 데이터를 병렬로 수집 하는 것입니다. 이 시나리오에서 데이터는 원본 (또는 원본)에서 수집 데이터 웨어하우스의 두 개의 개별 인스턴스 (기본 및 보조)로 유지 됩니다. 계산 비용을 절약 하기 위해 웨어하우스의 보조 인스턴스를 일시 중지할 수 있습니다. 데이터 웨어하우스의 활성 복사본이 필요한 경우 몇 분만 소요 되는 다시 시작할 수 있습니다.
 
 ## <a name="data-residency"></a>데이터 상주 
 
@@ -104,7 +104,7 @@ Azure Synapse 가격 책정에 대한 자세한 내용은 [Azure Synapse 가격 
 
 ## <a name="cross-subscription-restore"></a>구독 간 복원
 
-구독 간에 직접 복원해야 하는 경우 [여기](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore)에서 해당 기능에 투표하세요. 다른 서버로 복원하고 구독 간에 서버를 [‘이동’](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)하여 구독 간 복원을 수행합니다.
+구독 간에 직접 복원해야 하는 경우 [여기](https://feedback.azure.com/d365community/idea/dea9ea22-0a25-ec11-b6e6-000d3a4f07b8)에서 해당 기능에 투표하세요. 다른 서버로 복원하고 구독 간에 서버를 [‘이동’](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)하여 구독 간 복원을 수행합니다.
 
 ## <a name="geo-redundant-restore"></a>지역 중복 복원
 

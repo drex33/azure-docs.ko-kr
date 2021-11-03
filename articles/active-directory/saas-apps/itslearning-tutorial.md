@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2021
 ms.author: jeedes
-ms.openlocfilehash: 888f5d195cde3b226e4a25c5e46ed916e654c0b0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 4b333a8910277236c4d4f5f7f044f21f6ee03f74
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124809211"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067112"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itslearning"></a>자습서: itslearning과 Azure Active Directory 통합
 
@@ -78,24 +78,21 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    
-    a. **식별자(엔터티 ID)** 텍스트 상자에 `urn:mace:saml2v2.no:services:com.itslearning` URL을 입력합니다.
+    1. **식별자(엔터티 ID)** 텍스트 상자에 `urn:mace:saml2v2.no:services:com.itslearning` URL을 입력합니다.
 
-    b. **회신 URL** 텍스트 상자에서 다음 URL 중 하나를 입력합니다.
-    
-    | 회신 URL |
-    |-------------|
-    | `https://www.itsltest.com/elogin/AssertionConsumerService.aspx` |
-    | `https://www.itslearning.com/elogin/AssertionConsumerService.aspx` |
-    | 
-    
-    다. **로그온 URL** 텍스트 상자에서 다음 URL 중 하나를 입력합니다.
-    
-    | URL에 로그인 |
-    |-------------|
-    | `https://www.itslearning.com/index.aspx` |
-    | `https://us1.itslearning.com/index.aspx` |
-    |
+    1. **회신 URL** 텍스트 상자에서 다음 URL 중 하나를 입력합니다.
+
+       | 회신 URL |
+       |-------------|
+       | `https://www.itsltest.com/elogin/AssertionConsumerService.aspx` |
+       | `https://www.itslearning.com/elogin/AssertionConsumerService.aspx` |
+
+    1. **로그온 URL** 텍스트 상자에서 다음 URL 중 하나를 입력합니다.
+
+       | URL에 로그인 |
+       |-------------|
+       | `https://www.itslearning.com/index.aspx` |
+       | `https://us1.itslearning.com/index.aspx` |
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML** 을 다운로드하고 컴퓨터에 저장합니다.
 

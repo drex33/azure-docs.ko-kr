@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/20/2020
 ms.author: yelevin
-ms.openlocfilehash: 59550287dfa749e22334f9f238efa5be70b70252
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: c2063356b62a3b91bf3bf04453ea05f28788cab5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535594"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131009380"
 ---
 # <a name="work-with-incidents-in-many-workspaces-at-once"></a>한 번에 여러 작업 영역에서 인시던트 작업 
 
- Azure Sentinel의 기능을 최대한 활용하려면 단일 작업 영역 환경을 사용하는 것이 좋습니다. 그러나 일부 경우에는 여러 테넌트에 걸친 [MSSP(관리형 보안 서비스 공급자)](./multiple-tenants-service-providers.md) 및 고객의 경우와 같이 여러 작업 영역을 포함해야 하는 몇 가지 사용 사례가 있습니다. **여러 작업 영역 보기** 를 사용하면 테넌트 간에도 여러 작업 영역에서 동시에 보안 인시던트를 보고 사용하여 조직의 보안 응답성을 완벽하게 보고 제어할 수 있습니다.
+ [!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+Azure Sentinel의 기능을 최대한 활용하려면 단일 작업 영역 환경을 사용하는 것이 좋습니다. 그러나 일부 경우에는 여러 테넌트에 걸친 [MSSP(관리형 보안 서비스 공급자)](./multiple-tenants-service-providers.md) 및 고객의 경우와 같이 여러 작업 영역을 포함해야 하는 몇 가지 사용 사례가 있습니다. **여러 작업 영역 보기** 를 사용하면 테넌트 간에도 여러 작업 영역에서 동시에 보안 인시던트를 보고 사용하여 조직의 보안 응답성을 완벽하게 보고 제어할 수 있습니다.
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -58,4 +61,3 @@ Azure Sentinel을 열면 선택한 모든 테넌트 및 구독에서 액세스 �
 이 문서에서는 여러 Azure Sentinel 작업 영역에서 동시에 인시던트를 보고 사용하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [데이터에 대한 가시성을 얻고 재적 위협을 확인](get-visibility.md)하는 방법을 알아봅니다.
 - [Azure Sentinel을 사용하여 위협 검색](detect-threats-built-in.md)을 시작합니다.
-

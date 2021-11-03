@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: pafarley
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-fall-2021
 zone_pivot_groups: keyword-quickstart
-ms.openlocfilehash: 8cf0da3ca3787580513d818a2c0ebca5a07829b6
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 6604bdfc155d3369c1e17a92d928cc46d7f36cf5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123541102"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056759"
 ---
 # <a name="get-started-with-custom-keyword"></a>사용자 지정 키워드 시작
 
@@ -55,7 +55,7 @@ ms.locfileid: "123541102"
 
 1. 포털에서는 키워드에 대한 후보 발음을 만듭니다. 재생 단추를 클릭하여 각 후보를 듣고 잘못된 발음 옆에 있는 확인 표시를 제거합니다. 좋은 발음만 선택한 상태에서 **학습** 을 클릭하여 키워드 모델 생성을 시작합니다. 
 
-    ![올바른 발음을 선택하는 위치를 보여 주는 스크린샷](media/custom-keyword/custom-kws-portal-choose-prons.png)
+    ![올바른 발음를 선택 하는 위치를 보여 주는 스크린샷](media/custom-keyword/custom-kws-portal-choose-prons.png)
 
 1. 모델이 생성되는 데는 최대 30분이 걸릴 수 있습니다. 모델이 완료되면 키워드 목록이 **처리 중** 에서 **성공** 으로 변경됩니다. 그러면 파일을 다운로드할 수 있습니다.
 

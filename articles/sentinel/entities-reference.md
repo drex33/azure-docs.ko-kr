@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 5b1fc91868f420b2f156fbb4d219d08cf5ad2ab6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 44f8eb527901f5457a4eddfab0bfdd8191f60d0f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566342"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046834"
 ---
 # <a name="azure-sentinel-entity-types-reference"></a>Azure Sentinel 엔터티 형식 참조
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 ## <a name="entity-types-and-identifiers"></a>엔터티 형식 및 식별자
 
@@ -102,7 +104,7 @@ ms.locfileid: "122566342"
 
 ## <a name="host"></a>호스트
 
-| 필드 | 형식 | 설명 |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'host' |
 | DnsDomain | String | 이 호스트가 속한 DNS 도메인입니다. 알려진 경우 도메인에 대한 전체 DNS 접미사를 포함해야 합니다. |
@@ -208,7 +210,7 @@ IP 엔터티의 강한 식별자:
 
 *엔터티 이름: CloudApplication*
 
-| 필드 | 형식 | 설명 |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'cloud-application' |
 | AppId | Int | 애플리케이션의 기술 식별자입니다. 이는 [클라우드 애플리케이션 식별자](#cloud-application-identifiers) 목록에 정의된 값 중 하나여야 합니다. AppId 필드의 값은 선택 사항입니다. |
@@ -260,7 +262,7 @@ Azure 리소스 엔터티의 강한 식별자:
 
 *엔터티 이름: FileHash*
 
-| 필드 | 형식 | 설명 |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'filehash' |
 | 알고리즘 | 열거형 | 해시 알고리즘 형식입니다. 가능한 값은 다음과 같습니다.<li>Unknown<li>MD5<li>SHA1<li>SHA256<li>SHA256AC |
@@ -288,7 +290,7 @@ Azure 리소스 엔터티의 강한 식별자:
 
 *엔터티 이름: RegistryValue*
 
-| 필드 | 형식 | 설명 |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'registry-value' |
 | 키 | Entity (RegistryKey) | 레지스트리 키 엔터티입니다. |
@@ -322,7 +324,7 @@ Azure 리소스 엔터티의 강한 식별자:
 
 ## <a name="url"></a>URL
 
-| 필드 | 형식 | 설명 |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'url' |
 | Url | URI | 엔터티에서 가리키는 전체 URL입니다. |
@@ -338,7 +340,7 @@ URL 엔터티의 약한 식별자:
 
 *엔터티 이름: IoTDevice*
 
-| 필드 | 형식 | 설명 |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'iotdevice' |
 | IoTHub | Entity (AzureResource) | 디바이스가 속한 IoT Hub를 나타내는 AzureResource 엔터티입니다. |
@@ -365,7 +367,7 @@ IoT 디바이스 엔터티의 약한 식별자:
 
 ## <a name="mailbox"></a>사서함
 
-| 필드 | 형식 | 설명 |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'mailbox' |
 | MailboxPrimaryAddress | String | 사서함의 기본 주소입니다. |
@@ -412,7 +414,7 @@ IoT 디바이스 엔터티의 약한 식별자:
 
 *엔터티 이름: MailMessage*
 
-| 필드 | 형식 | 설명 |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'mail-message' |
 | 파일 | IList&lt;File&gt; | 이 메일 메시지의 첨부 파일에 대한 파일 엔터티입니다. |
@@ -446,7 +448,7 @@ IoT 디바이스 엔터티의 약한 식별자:
 
 *엔터티 이름: SubmissionMail*
 
-| 필드 | 형식 | 설명 |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'SubmissionMail' |
 | SubmissionId | GUID? | 제출 ID입니다. |

@@ -8,12 +8,12 @@ ms.author: pafarley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: b5074e3d07a1df199e189dfb906190c82bde6905
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 466e01a874e75221beeb12624199911136b9d5e1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124796593"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131048143"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>예: Form Recognizer 사용자 지정 기술 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "124796593"
 
 ## <a name="train-your-model"></a>모델 학습
 
-이 기술을 사용하기 전에 입력 양식을 사용하여 Form Recognizer 모델을 교육해야 합니다. 모델 학습 방법을 알아보려면 [cURL 빠른 시작](../applied-ai-services/form-recognizer/quickstarts/client-library.md?pivots=programming-language-rest-api)을 따릅니다. 해당 빠른 시작에 제공된 샘플 양식을 사용하거나 사용자 고유의 데이터를 사용할 수 있습니다. 모델을 학습한 후에는 해당 ID 값을 안전한 위치에 복사합니다.
+이 기술을 사용하기 전에 입력 양식을 사용하여 Form Recognizer 모델을 교육해야 합니다. 모델 학습 방법을 알아보려면 [cURL 빠른 시작](../applied-ai-services/form-recognizer/quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api)을 따릅니다. 해당 빠른 시작에 제공된 샘플 양식을 사용하거나 사용자 고유의 데이터를 사용할 수 있습니다. 모델을 학습한 후에는 해당 ID 값을 안전한 위치에 복사합니다.
 
 ## <a name="set-up-the-custom-skill"></a>사용자 지정 기술 설정
 

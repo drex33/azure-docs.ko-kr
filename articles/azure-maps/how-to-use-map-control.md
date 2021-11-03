@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ms.custom: devx-track-js
-ms.openlocfilehash: b46a0145f1b73520c2416bbc0c20fb3b805c17fb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d88cdf68ddf1abfc8beb3d3357943d5c08c94af9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567168"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131006756"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure Maps 맵 컨트롤 사용
 
@@ -88,7 +88,7 @@ ms.locfileid: "122567168"
 
     인증을 위해 구독 키를 사용하는 경우에는 다음 스크립트 요소를 복사하여 `<head>` 요소 내, 그리고 첫 번째 `<script>` 요소 아래에 붙여넣습니다. `<Your Azure Maps Key>`를 Azure Maps 기본 구독 키로 바꿉니다.
 
-     ```HTML
+    ```html
     <script type="text/javascript">
         function InitMap()
         {
@@ -199,9 +199,9 @@ ms.locfileid: "122567168"
 
    ![렌더링된 결과를 표시하는 맵 이미지](./media/how-to-use-map-control/map-of-seattle.png)
 
-## <a name="localizing-the-map&quot;></a>맵 지역화
+## <a name="localizing-the-map"></a>맵 지역화
 
-Azure Maps는 렌더링된 맵의 언어 및 지역 보기를 설정하는 두 가지 방법을 제공합니다. 첫 번째 옵션은 이 정보를 전체 `atlas` 네임스페이스에 추가하는 것입니다. 그러면 앱의 모든 맵 컨트롤 인스턴스가 기본적으로 이 설정으로 지정됩니다. 다음은 언어를 프랑스어(&quot;fr-FR")로 설정하고 지역 보기를 "Auto"로 설정합니다.
+Azure Maps는 렌더링된 맵의 언어 및 지역 보기를 설정하는 두 가지 방법을 제공합니다. 첫 번째 옵션은 이 정보를 전체 `atlas` 네임스페이스에 추가하는 것입니다. 그러면 앱의 모든 맵 컨트롤 인스턴스가 기본적으로 이 설정으로 지정됩니다. 다음은 언어를 프랑스어("fr-FR")로 설정하고 지역 보기를 "Auto"로 설정합니다.
 
 ```javascript
 atlas.setLanguage('fr-FR');

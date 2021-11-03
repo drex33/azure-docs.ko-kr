@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4bccc2922cf20262149ef54fbe2a1a821d9551ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 99a0c2e765d725731e24b680a135b1ecab1a9bad
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97673504"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131006699"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Azure Service Fabric, 클라우드 서비스, Virtual Machines에서 .NET 앱용 스냅샷 디버거 사용
 
@@ -156,11 +156,12 @@ ASP.NET 또는 ASP.NET Core 애플리케이션이 Azure App Service에서 실행
 2. [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 앱에 추가합니다.
 
 3. 스냅샷은 Application Insights에 보고되는 예외에 대해서만 수집됩니다. 예외를 보고하도록 코드를 수정해야 할 수도 있습니다. 예외 처리 코드는 애플리케이션의 구조에 따라 달라집니다. 예제는 다음과 같습니다.
-    ```csharp
-   TelemetryClient _telemetryClient = new TelemetryClient();
 
-   void ExampleRequest()
-   {
+    ```csharp
+    TelemetryClient _telemetryClient = new TelemetryClient();
+
+    void ExampleRequest()
+    {
         try
         {
             // TODO: Handle the request.
@@ -172,7 +173,7 @@ ASP.NET 또는 ASP.NET Core 애플리케이션이 Azure App Service에서 실행
 
             // TODO: Rethrow the exception if desired.
         }
-   }
+    }
     ```
 
 ## <a name="next-steps"></a>다음 단계

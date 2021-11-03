@@ -10,25 +10,27 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2021
 ms.author: yelevin
-ms.openlocfilehash: 4efc7411fe3755e7cbe14769ff061d2a2b6efa98
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 46a5bcf0db580d652f045efa0c4a381bdbd7143a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123252401"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075470"
 ---
 # <a name="azure-sentinel-data-connectors"></a>Azure Sentinel 데이터 커넥터
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 Azure Sentinel을 작업 영역에 온보딩한 후 데이터 원본을 연결하여 데이터를 Azure Sentinel로 수집하기 시작합니다. Azure Sentinel에는 즉시 사용 가능하고 실시간 통합을 제공하는 다양한 Microsoft 제품용 커넥터가 포함되어 있습니다. 예를 들어 서비스 간 커넥터로는 Microsoft 365 Defender 커넥터 및 Microsoft 365 원본(예: Office 365, Azure AD(Azure Active Directory), Microsoft Defender for Identity 및 Microsoft Cloud App Security)이 있습니다.
 
-타사 제품을 위한 광범위한 보안 에코시스템에 기본 제공 커넥터를 사용할 수도 있습니다. 예를 들어 [Syslog](#syslog), [CEF(Common Event Format)](#common-event-format-cef), [REST API](#rest-api-integration)를 사용하여 Azure Sentinel에 데이터 원본을 연결할 수 있습니다.
+또한 타사 제품의 광범위한 보안 에코시스템에 대한 첫 번째 커넥터를 사용하도록 설정할 수도 있습니다. 예를 들어 [Syslog](#syslog), [CEF(Common Event Format)](#common-event-format-cef), [REST API](#rest-api-integration)를 사용하여 Azure Sentinel에 데이터 원본을 연결할 수 있습니다.
 
 Azure Sentinel 탐색 메뉴에서 액세스할 수 있는 **데이터 커넥터** 페이지에는 Azure Sentinel에서 제공하는 커넥터의 전체 목록과 작업 영역의 해당 커넥터 상태가 표시됩니다. 연결하려는 커넥터를 선택하고 **커넥터 페이지 열기** 를 선택합니다.
 
@@ -117,7 +119,7 @@ CEF에서 데이터를 내보내는 데이터 원본의 경우 Syslog 에이전�
 
 ## <a name="service-to-service-integration"></a>서비스 간 통합
 
-Azure Sentinel은 Azure 기반을 사용하여 Microsoft 서비스와 Amazon Web Services를 위해 기본 제공 서비스 간 지원을 제공합니다.
+Azure Sentinel Azure Foundation을 사용하여 Microsoft 서비스 및 Amazon Web Services 기본 서비스 지원을 제공합니다.
 
 자세한 내용은 [Azure, Windows, Microsoft 및 Amazon 서비스에 연결](connect-azure-windows-microsoft-services.md) 및 [데이터 커넥터 참조](data-connectors-reference.md)를 참조하세요.
 
@@ -125,7 +127,7 @@ Azure Sentinel은 Azure 기반을 사용하여 Microsoft 서비스와 Amazon Web
 
 [Azure Sentinel 솔루션](sentinel-solutions.md)은 데이터 커넥터, 통합 문서, 분석 규칙, 플레이북 등을 비롯한 보안 콘텐츠 패키지를 제공합니다. 데이터 커넥터를 사용하여 솔루션을 배포하는 경우 동일한 배포에서 관련 콘텐츠와 함께 데이터 커넥터를 가져옵니다. 
 
-자세한 내용은 [Azure Sentinel 솔루션 검색 및 배포](sentinel-solutions-deploy.md) 및 [Azure Sentinel 솔루션 카탈로그](sentinel-solutions-catalog.md)를 참조하세요.
+자세한 내용은 [기본적으로 Azure Sentinel 콘텐츠 및 솔루션 검색 및 배포 및](sentinel-solutions-deploy.md) Azure Sentinel 솔루션 [카탈로그를 참조하세요.](sentinel-solutions-catalog.md)
 ## <a name="data-connector-support"></a>데이터 커넥터 지원
 
 Microsoft와 다른 조직 모두 Azure Sentinel 데이터 커넥터를 작성합니다. 각 데이터 커넥터에는 다음 지원 유형 중 하나가 있습니다.

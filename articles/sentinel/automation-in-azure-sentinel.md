@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2021
 ms.author: yelevin
-ms.openlocfilehash: 54d7c997ce17c927a692e84f6094e3a08f707af7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 8d846682062effff84aed263b312e3e3c2c3f72d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104609801"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037300"
 ---
 # <a name="security-orchestration-automation-and-response-soar-in-azure-sentinel"></a>Azure Sentinel의 SOAR(보안 오케스트레이션, 자동화, 응답)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 이 문서에서는 Azure Sentinel의 SOAR(보안 오케스트레이션, 자동화, 응답) 기능에 대해 설명하고, 보안 위협에 대한 대응으로 자동화 규칙과 플레이북을 사용하여 SOC의 효율성을 높이고 시간과 리소스를 절약하는 방법을 보여 줍니다.
 

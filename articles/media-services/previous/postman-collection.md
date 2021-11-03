@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: 64e7dd754f09a60163decfd419ce6c2cd2c6182d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 76f9475165423b5fb090e4342b25d9eea7232016
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103007807"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056417"
 ---
 # <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>주문형 스트리밍 작업으로 Postman 컬렉션 가져오기
 
@@ -31,7 +32,7 @@ ms.locfileid: "103007807"
     "info": {
         "name": "Azure Media Services Operations",
         "_postman_id": "3a9a704f-ec11-3433-a0dc-54e4fe39e9d8",
-        "description": "Azure Media Service REST API v 2.0 Collection\n\nSupports AD service principal authentication\nFor details see:https://docs.microsoft.com/azure/media-services/media-services-rest-connect-with-aad\n\n",
+        "description": "Azure Media Service REST API v 2.0 Collection\n\nSupports AD service principal authentication\nFor details see: https://docs.microsoft.com/azure/media-services/media-services-rest-connect-with-aad\n\n",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
     "item": [
@@ -5591,4 +5592,3 @@ ms.locfileid: "103007807"
     ]
 }
 ```
-

@@ -5,12 +5,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/28/2021
 ms.author: v-demjoh
-ms.openlocfilehash: 364ceacaea122e7ffda58ef0c7d4db072c8fee13
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 153276c1f3ccc63bbca0f286d3ae18c9e4de1b18
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122264837"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131253746"
 ---
 ## <a name="download-and-install"></a>다운로드 및 설치
 
@@ -33,7 +34,7 @@ Windows에 Speech CLI를 설치하려면 다음 단계를 수행합니다.
 ### <a name="font-limitations"></a>글꼴 제한 사항
 
 Windows에서 Speech CLI는 로컬 컴퓨터에서 명령 프롬프트에 사용할 수 있는 글꼴만 표시할 수 있습니다.
-[Windows 터미널](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701)은 Speech CLI에서 대화형으로 생성된 모든 글꼴을 지원합니다.
+[Windows 터미널](https://www.microsoft.com/p/windows-terminal/9n0dx20hk701)은 Speech CLI에서 대화형으로 생성된 모든 글꼴을 지원합니다.
 
 파일로 출력하면 메모장과 같은 텍스트 편집기나 Microsoft Edge와 같은 웹 브라우저도 모든 글꼴을 표시할 수 있습니다.
 

@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/09/2020
-ms.openlocfilehash: 8cf8ecaaafa9697286dcaa0ae61d00853d53a311
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b5bb939c787af16ca3affdf8ba131ea640f25ed4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124743487"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040968"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>컨트롤 테이블을 사용하여 데이터베이스에서 델타 복사
 
@@ -50,44 +50,44 @@ ms.locfileid: "124743487"
 
 1. 로드하려는 원본 테이블을 살펴보고 새로운 행 또는 업데이트된 행을 분할하는 데 사용할 수 있는 상위 워터마크 열을 정의합니다. 해당 열은 *datetime*, *INT*, 또는 이와 유사한 형식을 가질 수 있습니다. 새로운 행이 추가되면 해당 열의 값이 증가합니다. 다음 샘플 원본 테이블(data_source_table)에서 *LastModifytime* 열을 상위 워터마크 열로 사용할 수 있습니다.
 
-    ```sql
-            PersonID    Name    LastModifytime
-            1   aaaa    2017-09-01 00:56:00.000
-            2   bbbb    2017-09-02 05:23:00.000
-            3   cccc    2017-09-03 02:36:00.000
-            4   dddd    2017-09-04 03:21:00.000
-            5   eeee    2017-09-05 08:06:00.000
-            6   fffffff 2017-09-06 02:23:00.000
-            7   gggg    2017-09-07 09:01:00.000
-            8   hhhh    2017-09-08 09:01:00.000
-            9   iiiiiiiii   2017-09-09 09:01:00.000
+    ```output
+    PersonID    Name            LastModifytime
+    1           aaaa            2017-09-01 00:56:00.000
+    2           bbbb            2017-09-02 05:23:00.000
+    3           cccc            2017-09-03 02:36:00.000
+    4           dddd            2017-09-04 03:21:00.000
+    5           eeee            2017-09-05 08:06:00.000
+    6           fffffff         2017-09-06 02:23:00.000
+    7           gggg            2017-09-07 09:01:00.000
+    8           hhhh            2017-09-08 09:01:00.000
+    9           iiiiiiiii       2017-09-09 09:01:00.000
     ```
-    
+
 2. SQL Server 또는 Azure SQL Database에 델타 데이터 로드를 위한 상위 워터마크 값을 저장하는 컨트롤 테이블을 만듭니다. 다음 예제에서 컨트롤 테이블의 이름은 *watermarktable* 입니다. 해당 테이블에서 *WatermarkValue* 는 상위 워터마크 값을 저장하는 열이고, 해당 형식은 *datetime* 입니다.
 
     ```sql
-            create table watermarktable
-            (
-            WatermarkValue datetime,
-            );
-            INSERT INTO watermarktable
-            VALUES ('1/1/2010 12:00:00 AM')
+    create table watermarktable
+    (
+    WatermarkValue datetime,
+    );
+    INSERT INTO watermarktable
+    VALUES ('1/1/2010 12:00:00 AM')
     ```
-    
+
 3. 컨트롤 테이블을 만드는 데 사용한 것과 동일한 SQL Server 또는 Azure SQL 데이터베이스 인스턴스에 저장 프로시저를 만듭니다. 해당 저장 프로시저는 다음 델타 데이터 로드를 위해 새로운 상위 워터마크 값을 외부 컨트롤 테이블에 쓰는 데 사용됩니다.
 
     ```sql
-            CREATE PROCEDURE update_watermark @LastModifiedtime datetime
-            AS
+    CREATE PROCEDURE update_watermark @LastModifiedtime datetime
+    AS
 
-            BEGIN
+    BEGIN
 
-                UPDATE watermarktable
-                SET [WatermarkValue] = @LastModifiedtime 
+        UPDATE watermarktable
+        SET [WatermarkValue] = @LastModifiedtime 
 
-            END
+    END
     ```
-    
+
 4. **데이터베이스에서 델타 복사** 템플릿으로 이동합니다. 데이터를 복사하려는 원본 데이터베이스에 대해 **새** 연결을 만듭니다.
 
     :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable4.png" alt-text="원본 테이블에 대한 새 연결 만들기":::
@@ -125,11 +125,11 @@ ms.locfileid: "124743487"
 13. 원본 테이블에 새 행을 만들 수 있습니다. 새로운 행을 만드는 샘플 SQL 언어는 다음과 같습니다.
 
     ```sql
-            INSERT INTO data_source_table
-            VALUES (10, 'newdata','9/10/2017 2:23:00 AM')
+    INSERT INTO data_source_table
+    VALUES (10, 'newdata','9/10/2017 2:23:00 AM')
 
-            INSERT INTO data_source_table
-            VALUES (11, 'newdata','9/11/2017 9:01:00 AM')
+    INSERT INTO data_source_table
+    VALUES (11, 'newdata','9/11/2017 9:01:00 AM')
     ```
 
 14. 파이프라인을 다시 실행하려면 **디버그** 를 선택하고 **매개 변수** 를 입력한 다음 **마침** 을 선택합니다.

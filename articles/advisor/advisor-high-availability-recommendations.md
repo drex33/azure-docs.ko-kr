@@ -2,17 +2,17 @@
 title: Azure Advisor를 사용하여 애플리케이션의 안정성 향상
 description: Azure Advisor를 사용하여 중요 비즈니스용 Azure 배포의 안정성을 보장하고 개선합니다.
 ms.topic: article
-ms.date: 09/27/2020
-ms.openlocfilehash: 480f22c19285c566a88023869bb654f95810509d
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 10/26/2021
+ms.openlocfilehash: f7ea986424271315843af9557555aa82a708a12c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130240550"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045865"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Azure Advisor를 사용하여 애플리케이션의 안정성 향상
 
-Azure Advisor는 업무상 중요한 애플리케이션의 연속성을 보장하고 향상시키는 데 도움이 됩니다. Advisor 대시보드의 **안정성** 탭에서 Advisor의 안정성 권장 사항을 확인할 수 있습니다.
+Azure Advisor는 업무상 중요한 애플리케이션의 연속성을 보장하고 향상시키는 데 도움이 됩니다. [Azure Advisor](https://aka.ms/azureadvisordashboard)의 안정성 탭에서 **안정성** 권장 사항을 얻을 수 있습니다.
 
 ## <a name="check-the-version-of-your-check-point-network-virtual-appliance-image"></a>Check Point 네트워크 가상 어플라이언스 이미지의 버전 확인
 
@@ -59,8 +59,8 @@ Azure Advisor는 기본 SKU를 사용하는 VPN 게이트웨이를 확인하고 
 - 사용자 지정 Ipsec/IKE 정책. 
 - 더 높은 안정성 및 가용성.
 
-## <a name="ensure-reliable-outbound-connectivity-with-vnet-nat"></a>VNet NAT를 사용 하 여 신뢰할 수 있는 아웃 바운드 연결 확인
-표준 Load Balancer 또는 다른 Azure 리소스에서 제공 하는 기본 아웃 바운드 연결은 않음를 사용 하는 것은 연결 실패 (SNAT 포트 소모 라고도 함)로 인해 프로덕션 워크 로드에는 권장 되지 않습니다. 이와 관련 하 여 connectivty의 오류를 방지 하는 VNet NAT를 사용 하는 것이 좋습니다. NAT는 응용 프로그램이 포트를 초과 하지 않도록 원활 하 게 확장할 수 있습니다. [VNET NAT에 대해 자세히 알아보세요](../virtual-network/nat-gateway/nat-overview.md).
+## <a name="ensure-reliable-outbound-connectivity-with-vnet-nat"></a>VNet NAT를 통해 안정적인 아웃바운드 연결 보장
+표준 Load Balancer 또는 다른 Azure 리소스에서 제공하는 기본 아웃바운드 연결을 사용하면 연결 실패(SNAT 포트 소모라고도 함)가 발생하기 때문에 프로덕션 워크로드에는 권장되지 않습니다. 이 경우 연결 실패를 방지하는 VNet NAT를 사용하는 것이 좋습니다. NAT는 애플리케이션이 포트를 벗어나지 않도록 원활하게 확장할 수 있습니다. [VNet NAT 에 대해 자세히 알아봅니다.](../virtual-network/nat-gateway/nat-overview.md)
 
 ## <a name="ensure-virtual-machine-fault-tolerance-temporarily-disabled"></a>가상 머신 내결함성 보장(일시적으로 사용할 수 없음)
 
@@ -73,9 +73,9 @@ Azure Advisor는 기본 SKU를 사용하는 VPN 게이트웨이를 확인하고 
 
 애플리케이션에 중복성을 제공하기 위해 여러 개의 가상 머신을 가용성 집합으로 그룹화하는 것이 좋습니다. Advisor는 단일 가상 머신을 포함하는 가용성 집합을 식별하고 여기에 하나 이상의 가상 머신을 추가할 것을 권장합니다. 이 구성은 계획된 유지 관리 또는 계획되지 않은 유지 관리 중에 적어도 하나의 가상 머신을 사용할 수 있고 Azure 가상 머신 SLA가 충족되도록 합니다. 가상 머신을 만들거나 기존 가상 머신을 가용성 집합에 추가할 수 있습니다.  
 
-## <a name="use-managed-disks-to-improve-data-reliability-temporarily-disabled"></a>관리 디스크를 사용하여 데이터 안정성 향상(일시적으로 사용할 수 없음)
+## <a name="use-managed-disks-to-improve-data-reliability"></a>관리 디스크를 사용하여 데이터 안정성 향상
 
-여러 디스크가 스토리지 계정 또는 스토리지 배율 단위를 공유하는 가용성 세트의 가상 머신은 중단 시 단일 스토리지 배율 단위 오류에서 복원되지 않습니다. Advisor는 이러한 가용성 집합을 식별하고 Azure Managed Disks로 마이그레이션할 것을 권장합니다. 이러한 마이그레이션을 통해 가용성 집합의 가상 머신 디스크를 단일 실패 지점이 발생하지 않을 만큼 충분히 격리할 수 있습니다. 
+스토리지 계정 또는 스토리지 배율 단위를 공유하는 디스크가 있는 가용성 집합의 가상 머신은 중단 중에 단일 스토리지 배율 단위 오류에 대해 복원력이 없습니다. Azure Managed Disks로 마이그레이션하여 가용성 집합에 있는 다른 VM의 디스크가 단일 실패 지점을 방지하기에 충분히 격리되도록 합니다.
 
 ## <a name="repair-invalid-log-alert-rules"></a>잘못된 로그 경고 규칙 복구
 
@@ -116,13 +116,7 @@ Azure Advisor는 이전 버전의 Azure Cosmos DB Spark 커넥터를 사용하�
 [Azure Connected Machine 에이전트](../azure-arc/servers/manage-agent.md)는 버그 수정, 안정성 향상 및 새로운 기능을 통해 정기적으로 업데이트됩니다. 최신 버전의 컴퓨터 에이전트에서 작동하지 않는 리소스가 식별되었으며, 이 Advisor 권장 사항은 최상의 Azure Arc 환경을 위해 에이전트를 최신 버전으로 업그레이드할 것을 제안합니다.
 
 ## <a name="do-not-override-hostname-to-ensure-website-integrity"></a>웹 사이트 무결성을 보장하기 위해 호스트 이름을 재정의하지 마세요.
-Advisor는 Application Gateway를 구성할 때 호스트 이름을 재정의하지 않을 것을 권장합니다. Application Gateway 프런트 엔드에 백 엔드에 액세스하는 데 사용되는 도메인과 다른 도메인이 있으면 쿠키 또는 리디렉션 URL이 손상될 수 있습니다. 이는 모든 상황에서 발생하지 않을 수 있으며, 일반적으로 백 엔드의 특정 범주(예: REST API)는 이에 대해 영향을 적게 받습니다. 백 엔드에 대한 호스트 이름을 덮어쓸 필요가 없도록 백 엔드가 이를 처리하거나 Application Gateway 구성을 업데이트할 수 있는지 확인하세요. App Service와 함께 사용하는 경우 웹앱에 사용자 지정 도메인 이름을 연결하고 *백 엔드에 대한 .azurewebsites.net 호스트 이름* 을 사용하지 마세요. [사용자 지정 도메인에 대한 자세한 정보](../application-gateway/troubleshoot-app-service-redirection-app-service-url.md)
-
-## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Advisor의 고가용성 권장 사항에 액세스하는 방법
-
-1. [Azure Portal](https://portal.azure.com)에 로그인하고 [Advisor](https://aka.ms/azureadvisordashboard)를 엽니다.
-
-2.  Advisor 대시보드에서 **고가용성** 탭을 선택합니다.
+Advisor는 Application Gateway를 구성할 때 호스트 이름을 재정의하지 않을 것을 권장합니다. Application Gateway 프런트 엔드에 백 엔드에 액세스하는 데 사용되는 도메인과 다른 도메인이 있으면 잠재적으로 쿠키 또는 리디렉션 URL이 손상될 수 있습니다. 이는 모든 상황에서 발생하지 않을 수 있으며, 일반적으로 백 엔드의 특정 범주(예: REST API)는 이에 대해 영향을 적게 받습니다. 백 엔드에 대한 호스트 이름을 덮어쓸 필요가 없도록 백 엔드가 이를 처리하거나 Application Gateway 구성을 업데이트할 수 있는지 확인하세요. App Service 함께 사용하는 경우 웹앱에 사용자 지정 도메인 이름을 연결하고 호스트 이름을 백 엔드에 사용하지 않도록 `*.azurewebsites.net` 합니다. [사용자 지정 도메인에 대한 자세한 정보](../application-gateway/troubleshoot-app-service-redirection-app-service-url.md)
 
 ## <a name="next-steps"></a>다음 단계
 

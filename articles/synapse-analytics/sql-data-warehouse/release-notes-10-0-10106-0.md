@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: cf9b1f07c763f79be6dd284f2b81770f62e9ed1c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 931f5da55cd487b829fe39fabc73902d7d53950a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114457491"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131083159"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-release-notes"></a>Azure Synapse Analytics의 전용 SQL 풀(이전의 SQL DW) 릴리스 정보
 
@@ -67,7 +67,7 @@ ms.locfileid: "114457491"
 | --- | --- |
 |**열 수준 암호화(공개 미리 보기)**|Transact-SQL을 사용하여 데이터 열에 대칭형 암호화를 적용하여 Azure Synapse Analytics의 중요한 정보를 보호합니다. 열 수준 암호화에는 인증서, 암호, 대칭 키 또는 비대칭 키를 통해 추가로 보호되는 대칭 키를 사용하여 데이터를 암호화하는 데 사용할 수 있는 기본 제공 함수가 있습니다. 자세한 내용은 [데이터 열 암호화](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest&preserve-view=true)를 참조하세요.|
 |**호환성 수준 지원(GA)**|이 릴리스에서는 이제 사용자가 데이터베이스의 호환성 수준을 설정하여 특정 버전의 Synapse SQL 엔진에 대한 Transact-SQL 언어 및 쿼리 처리 동작을 얻을 수 있습니다. 자세한 내용은 [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 및 [Alter Database Scoped Configuration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 참조하세요.|
-|**행 수준 보안**|이 릴리스에는 RLS를 적용한 행에 대한 업데이트 및 삭제 작업에 대한 개선 사항이 포함되어 있습니다. 이 릴리스에서는 DML 대상 테이블의 열을 참조하지 않는 경우 ‘is_rolemember’와 같은 내장 함수를 사용한 업데이트 및 삭제 작업이 성공합니다. 이러한 개선 사항이 있기 전에는 기본 DML 작업의 제한으로 인해 이러한 작업이 실패했습니다.|
+|**행 수준 보안**|이 릴리스에는 RLS를 적용한 행에 대한 업데이트 및 삭제 작업에 대한 개선 사항이 포함되어 있습니다. 이 릴리스에서는 내장 함수가 DML 대상 테이블의 열을 참조 하지 않는 경우 ' is_rolemember ' 같은 내장 함수를 사용 하 여 업데이트 및 삭제 작업이 성공 합니다. 이러한 개선 사항이 있기 전에는 기본 DML 작업의 제한으로 인해 이러한 작업이 실패했습니다.|
 |**DBCC SHRINKDATABASE(GA)**|이제 지정된 데이터베이스에 있는 데이터 및 로그 파일의 크기를 축소할 수 있습니다. 자세한 내용은 [문서](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql?view=azure-sqldw-latest&preserve-view=true)를 참조하세요.|
 
 ## <a name="may-2020"></a>2020년 5월
@@ -118,7 +118,7 @@ ms.locfileid: "114457491"
 |**Copy(미리 보기)**|데이터 수집을 위한 간단하고 유연한 COPY 문의 퍼블릭 미리 보기를 발표하게 되어 기쁘게 생각합니다. 이 문 하나만 사용하면 높은 권한 없이도 보다 유연하면서 원활하게 데이터를 수집할 수 있습니다. 자세한 내용은 [COPY 명령 설명서](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조하세요.|
 |**워크로드 격리(미리 보기)**|고객의 데이터 웨어하우스를 보편화하도록 지원하기 위해 지능형 워크로드 관리를 위한 새로운 기능을 발표하게 되었습니다. 새 [워크로드 격리](sql-data-warehouse-workload-isolation.md) 기능을 사용하여 데이터 웨어하우스 리소스에 대해 유연성과 제어 능력을 제공하는 동시에 유형이 다른 워크로드의 실행을 관리할 수 있습니다. 이로 인해 실행 예측 가능성이 향상되고 미리 정의된 SLA를 충족하는 기능이 강화됩니다. </br>워크로드 격리 외에도 이제 [워크로드 분류](sql-data-warehouse-workload-classification.md)를 위한 추가 옵션도 사용할 수 있습니다.  로그인 분류 외에 [워크로드 분류자 만들기](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 구문은 쿼리 레이블, 세션 컨텍스트 및 시간을 기준으로 요청을 분류하는 기능을 제공합니다.|
 |**PREDICT(미리 보기)**|이제 데이터 웨어하우스 내에서 기계 학습 모델에 점수를 매기고 크고 복잡한 데이터를 이동하지 않아도 될 수 있습니다. T-SQL PREDICT 함수는 개방형 모델 프레임워크를 사용하고 데이터 및 기계 학습 모델을 입력으로 사용하여 예측을 생성합니다.
-|**SSDT CI/CD(GA)**|현재 SQL Analytics – SSDT(SQL Server Data Tools) 데이터베이스 프로젝트에 대해 [가장 많이 요청한 기능](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247--in-preview-database-project-from-visual-studio-t)을 일반 공급으로 제공하게 되었습니다. 이 릴리스에서는 엔터프라이즈 수준 배포에 대한 기본 제공 CI/CD(지속적인 통합 및 배포) 기능을 제공하는 Azure DevOps와의 네이티브 플랫폼 통합을 포함하는 SSDT(Visual Studio 2019 포함)가 지원됩니다. |
+|**SSDT CI/CD(GA)**|오늘 SSDT(SQL Analytics – SQL Server Data Tools) 데이터베이스 프로젝트에 대해 가장 많이 요청된 기능의 일반 공급이 발표됩니다. 이 릴리스에서는 엔터프라이즈 수준 배포에 대한 기본 제공 CI/CD(지속적인 통합 및 배포) 기능을 제공하는 Azure DevOps와의 네이티브 플랫폼 통합을 포함하는 SSDT(Visual Studio 2019 포함)가 지원됩니다. |
 |**구체화된 뷰(GA)**|구체화된 뷰는 뷰 정의 쿼리에서 반환되는 데이터를 유지하고 기본 테이블에서 데이터가 변경될 때 자동으로 업데이트됩니다. 간단한 유지 관리 작업을 제공하면서 복잡한 쿼리(일반적으로 조인 및 집계를 사용한 쿼리)의 성능을 향상시킵니다. 자세한 내용은 [구체화된 뷰로 성능 조정](performance-tuning-materialized-views.md)을 참조하세요.  구체화된 뷰를 스크립팅하기 위해 [SQL Server Management Studio 18.4 이상](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 설치합니다.|
 |**동적 데이터 마스킹(GA)**|DDM(동적 데이터 마스킹)은 사용자가 정의한 마스킹 규칙에 따라 쿼리 결과에서 중요한 데이터를 즉시 난독 처리하여 데이터 웨어하우스의 중요한 데이터에 무단으로 액세스하지 못하게 합니다. 자세한 내용은 [SQL 데이터베이스 동적 데이터 마스킹](../../azure-sql/database/dynamic-data-masking-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 참조하세요.|
 |**커밋된 스냅샷 격리 읽기(GA)**|ALTER DATABASE를 사용하여 사용자 데이터베이스에 대한 스냅샷 격리를 사용하거나 사용하지 않도록 설정할 수 있습니다. 현재 워크로드에 영향을 주지 않으려면 데이터베이스 유지 관리 기간 동안 이 옵션을 설정하거나 데이터베이스에 대한 다른 활성 연결이 없을 때까지 기다릴 수 있습니다. 자세한 내용은 [Alter database set 옵션](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 참조하세요.|

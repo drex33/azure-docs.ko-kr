@@ -7,15 +7,14 @@ ms.date: 01/26/2021
 ms.topic: quickstart
 ms.service: key-vault
 ms.subservice: keys
-tags:
-- azure-resource-manager
-ms.custom: devx-track-azurepowershell - mode-api
-ms.openlocfilehash: a9e4db26d2d40818c5b98c9aa5a8e46c272992b2
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+tags: azure-resource-manager
+ms.custom: devx-track-azurepowershell, mode-api
+ms.openlocfilehash: de359fd26c541e8e5f55f016363376fd48f7837e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130131090"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040597"
 ---
 # <a name="quickstart-set-and-retrieve-a-managed-key-from-azure-key-vault-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Key Vault에서 관리형 키 설정 및 검색
 

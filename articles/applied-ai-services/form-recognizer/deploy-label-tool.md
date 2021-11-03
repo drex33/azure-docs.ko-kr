@@ -1,7 +1,7 @@
 ---
-title: Form Recognizer 샘플 레이블 지정 도구 배포 방법
+title: 양식 인식기 샘플 레이블 지정 도구를 배포 하는 방법
 titleSuffix: Azure Applied AI Services
-description: 감독 학습에 도움이 되도록 Form Recognizer 샘플 레이블 지정 도구를 배포할 수 있는 다양한 방법을 알아봅니다.
+description: 감독 학습에 도움이 되도록 양식 인식기 샘플 레이블 지정 도구를 배포할 수 있는 다양 한 방법을 알아봅니다.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -9,30 +9,31 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 07/02/2021
 ms.author: lajanuar
-ms.openlocfilehash: e0555050b6457cc25a3d66d902d7de9232247ae3
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 5c5a260a1f5c1ab6cd6232dbd0ea9c1035a110cf
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538850"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131027021"
 ---
-# <a name="deploy-the-sample-labeling-tool"></a>샘플 레이블 지정 도구 배포
+# <a name="deploy-the-sample-labeling-tool"></a>샘플 레이블 도구 배포
 
-Form Recognizer 샘플 레이블 지정 도구는 간단한 UI(사용자 인터페이스)를 제공하는 애플리케이션으로, 감독 학습을 위해 양식(문서)에 레이블을 수동으로 지정하는 데 사용할 수 있습니다. 이 문서에서는 다음을 수행하는 방법을 설명하는 링크 및 지침을 제공합니다.
+양식 인식기 샘플 레이블 지정 도구는 간단한 UI (사용자 인터페이스)를 제공 하는 응용 프로그램으로, 감독 학습을 위해 양식 (문서)에 레이블을 수동으로 지정 하는 데 사용할 수 있습니다. 이 문서에서는 다음을 수행하는 방법을 설명하는 링크 및 지침을 제공합니다.
 
-* [로컬에서 샘플 레이블 지정 도구 실행](#run-the-sample-labeling-tool-locally)
-* [샘플 레이블 지정 도구를 ACI(Azure Container Instance)에 배포](#deploy-with-azure-container-instances-aci)
+* [로컬에서 샘플 레이블 도구 실행](#run-the-sample-labeling-tool-locally)
+* [샘플 레이블 지정 도구를 ACI (Azure Container Instance)에 배포](#deploy-with-azure-container-instances-aci)
 * [오픈 소스 OCR 양식 레이블 지정 도구에 사용하고 참여](#open-source-on-github)
 
-## <a name="run-the-sample-labeling-tool-locally"></a>로컬에서 샘플 레이블 지정 도구 실행
+## <a name="run-the-sample-labeling-tool-locally"></a>로컬에서 샘플 레이블 도구 실행
 
-데이터 레이블 지정을 시작하는 가장 빠른 방법은 샘플 레이블 지정 도구를 로컬에서 실행하는 것입니다. 다음 빠른 시작에서는 샘플 레이블 지정 도구에서 Form Recognizer REST API를 사용하여 수동으로 레이블이 지정된 데이터로 사용자 지정 모델을 학습시킵니다.
+데이터 레이블을 지정 하는 가장 빠른 방법은 샘플 레이블 도구를 로컬로 실행 하는 것입니다. 다음 퀵 스타트에서는 폼 인식기 REST API와 샘플 레이블 도구를 사용 하 여 수동으로 레이블이 지정 된 데이터를 사용 하 여 사용자 지정 모델을 학습 합니다.
 
 * [Azure Form Recognizer 시작](label-tool.md)
 
 ## <a name="deploy-with-azure-container-instances-aci"></a>ACI(Azure Container Instances)에 배포
 
-시작하기 전에 샘플 레이블 지정 도구를 ACI(Azure Container Instance)에 배포하는 두 가지 방법이 있습니다. 두 옵션 모두 ACI에서 샘플 레이블 지정 도구를 실행하는 데 사용됩니다.
+시작 하기 전에 샘플 레이블 도구를 ACI (Azure Container Instance)에 배포 하는 방법에는 두 가지가 있습니다. 두 옵션은 ACI를 사용 하 여 샘플 레이블 지정 도구를 실행 하는 데 사용 됩니다.
 
 * [Azure Portal 사용](#azure-portal)
 * [Azure CLI 사용](#azure-cli)
@@ -77,7 +78,7 @@ Azure Portal을 사용하여 새 리소스를 만들려면 다음 단계를 수�
 * 사용자 이름(선택 사항) - 사용자 이름을 만듭니다.
 * 암호(선택 사항) - 기억할 수 있는 안전한 암호를 만듭니다.
 * 이미지 및 태그 - `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-2.1`로 설정
-* 지속적인 배포 - 개발 팀에서 샘플 레이블 지정 도구를 변경할 때 자동 업데이트를 받으려면 **On** 으로 설정합니다.
+* 연속 배포-개발 팀이 샘플 레이블 지정 도구를 변경할 때 자동 업데이트를 받으려면 **On** 으로 설정 합니다.
 * 시작 명령 - `./run.sh eula=accept`로 설정합니다.
 
 > [!div class="mx-imgBorder"]
@@ -111,7 +112,7 @@ Azure Portal을 사용하는 대신 Azure CLI를 사용하여 리소스를 만�
 * 리소스를 만들 위치를 지정해야 합니다. `<region name>`을 웹앱에 대해 원하는 위치로 바꿉니다.
 * 이 명령은 자동으로 EULA에 동의합니다.
 
-Azure CLI에서 이 명령을 실행하여 샘플 레이블 지정 도구에 대한 웹앱 리소스를 만듭니다.
+Azure CLI에서이 명령을 실행 하 여 샘플 레이블 지정 도구에 대 한 웹 앱 리소스를 만듭니다.
 
 <!-- markdownlint-disable MD024 -->
 

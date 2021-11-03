@@ -8,13 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/27/2021
-ms.openlocfilehash: b91dac0889da88b81d4306dff6eda4c45bcb6080
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.date: 10/21/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 96f0f011382fb631416665cad58ca7d7324fcb24
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129713403"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131076620"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Azure Machine Learning에서 컴퓨팅 대상은 무엇인가요?
 
@@ -99,7 +100,7 @@ VM 크기를 선택하는 데는 몇 가지 예외 및 제한 사항이 있습�
 | [HBv2](../virtual-machines/hbv2-series.md) | 승인 필요 |  고성능 컴퓨팅 | 컴퓨팅 클러스터와 인스턴스 |
 | [HBv3](../virtual-machines/hbv3-series.md) | 승인 필요 |  고성능 컴퓨팅 | 컴퓨팅 클러스터와 인스턴스 |
 | [HC](../virtual-machines/hc-series.md) | 승인 필요 |  고성능 컴퓨팅 | 컴퓨팅 클러스터와 인스턴스 |
-| [LSv2](../virtual-machines/lsv2-series.md) | 없음 |  Storage | 컴퓨팅 클러스터와 인스턴스 |
+| [LSv2](../virtual-machines/lsv2-series.md) | 없음 |  Storage에 최적화 | 컴퓨팅 클러스터와 인스턴스 |
 | [M](../virtual-machines/m-series.md) | 승인 필요 | 메모리 최적화 | 컴퓨팅 클러스터와 인스턴스 |
 | [NC](../virtual-machines/nc-series.md) | 없음 |  GPU | 컴퓨팅 클러스터와 인스턴스 |
 | [NC Promo](../virtual-machines/nc-series.md) | 없음 | GPU | 컴퓨팅 클러스터와 인스턴스 |

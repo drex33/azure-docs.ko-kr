@@ -8,12 +8,12 @@ metadata:
   ms.topic: conceptual
   ms.date: 11/30/2020
   ms.custom: synapse-cosmos-db
-  ms.openlocfilehash: ce507f756b766869960a06bd00a8b6ea98711205
-  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-  ms.translationtype: HT
+  ms.openlocfilehash: a03572b75d12535dfd81e1539e2d4d27b1ffc2df
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/22/2021
-  ms.locfileid: "114442925"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131011411"
 title: Azure Cosmos DB용 Azure Synapse Link에 대한 질문과 대답
 summary: >
   [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -26,10 +26,6 @@ sections:
   - question: >
       Azure Synapse Link가 모든 Azure Cosmos DB API에 대해 지원되나요?
     answer: "Azure Synapse Link는 Azure Cosmos DB SQL(Core) API 및 MongoDB용 Azure Cosmos DB API에 지원됩니다. \n"
-  - question: >
-      Azure Synapse Link가 Azure Cosmos DB 서버리스에 대해 지원되나요?
-    answer: >
-      현재, 서버리스 계정에서는 Synapse Link 기능을 사용하도록 설정할 수 없습니다.
   - question: >
       다중 지역 Azure Cosmos DB 계정에 대해 Azure Synapse Link가 지원되나요?
     answer: >

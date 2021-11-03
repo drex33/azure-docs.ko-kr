@@ -9,15 +9,15 @@ ms.subservice: management
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 9/01/2021
+ms.date: 10/26/2021
 ms.custom: devx-track-azurepowershell
 ms.reviewer: mathoma
-ms.openlocfilehash: 7fa68f13438069990b035b182dee0fd44ab65d32
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 6a29c239b223c016d436136a225ca1bd8784b919
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130262397"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131071883"
 ---
 # <a name="automatic-registration-with-sql-iaas-agent-extension"></a>SQL IaaS 에이전트 확장을 사용하여 자동 등록
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,8 +41,13 @@ ms.locfileid: "130262397"
 
 구독에 대해 자동 등록을 사용하도록 설정하면 SQL Server가 설치된 모든 현재 및 향후 VM이 **가동 중지 시간 없이 SQL Server 서비스를 다시 시작하지 않고 경량 모드** 로 SQL IaaS 에이전트 확장에 등록됩니다. 전체 기능 집합을 활용하려면 여전히 [전체 관리 모드로 수동 업그레이드](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full)해야 합니다. 라이선스 유형은 자동으로 VM 이미지의 라이선스 유형으로 기본 설정됩니다. VM에 종량제 이미지를 사용하는 경우 라이선스 유형은 `PAYG`이고 그렇지 않은 경우 라이선스 유형은 기본적으로 `AHUB`입니다. 
 
+기본적으로 SQL Server 2016 이상 버전이 설치된 Azure VM은 [CEIP 서비스에서](/sql/sql-server/usage-and-diagnostic-data-configuration-for-sql-server)검색될 때 SQL IaaS 에이전트 확장에 자동으로 등록됩니다.  자세한 내용은 [SQL Server 개인 정보 제공](/sql/sql-server/sql-server-privacy#non-personal-data)을 참조하세요.
+
 > [!IMPORTANT]
 > SQL IaaS Agent 확장은 Azure Virtual Machines 내에서 SQL Server를 사용하는 고객에게 선택적 혜택을 제공하기 위한 목적으로 데이터를 수집합니다. Microsoft는 고객의 사전 동의 없이 라이선스 감사에 이 데이터를 사용하지 않습니다. 자세한 내용은 [SQL Server 개인 정보 제공](/sql/sql-server/sql-server-privacy#non-personal-data)을 참조하세요.
+
+
+
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

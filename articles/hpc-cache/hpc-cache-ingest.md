@@ -1,17 +1,17 @@
 ---
 title: Azure HPC Cache 클라우드 컨테이너로 데이터 이동하기
 description: Azure HPC Cache에서 사용할 Azure Blob Storage를 채우는 방법
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 06/30/2021
-ms.author: v-erkel
-ms.openlocfilehash: ccb052a9eacacdc18d954fedd940bcc6792fb361
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
-ms.translationtype: HT
+ms.author: femila
+ms.openlocfilehash: 1c139bce487f734d8ce522b1ed83efa55d7894ea
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113586927"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087821"
 ---
 # <a name="move-data-to-azure-blob-storage"></a>Azure Blob Storage로 데이터 이동하기
 

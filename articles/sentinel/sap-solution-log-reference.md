@@ -5,17 +5,19 @@ author: batamig
 ms.author: bagold
 ms.service: azure-sentinel
 ms.topic: reference
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.date: 07/21/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: a1511581e3cc80d5f2f71bb82dc1bcb0ba639acb
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
-ms.translationtype: HT
+ms.openlocfilehash: 15f057dbbc402ba42f5cdf15342827f14eb3895d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681508"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064243"
 ---
 # <a name="azure-sentinel-sap-solution-logs-reference-public-preview"></a>Azure Sentinel SAP 솔루션 로그 참조(공개 미리 보기)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 이 문서에서는 Azure Sentinel의 테이블 이름, 로그 용도 및 자세한 로그 스키마를 포함하여 Azure Sentinel SAP 데이터 커넥터에서 사용할 수 있는 SAP 로그에 대해 설명합니다. 스키마 필드 설명은 관련 [SAP 문서](https://help.sap.com/)의 필드 설명을 기반으로 합니다.
 
@@ -143,7 +145,7 @@ ms.locfileid: "122681508"
 
 ### <a name="abapcrlog_cl-log-schema"></a>ABAPCRLog_CL 로그 스키마
 
-| 필드        | Description                       |
+| 필드        | 설명                       |
 | ------------ | --------------------------------- |
 | 범주     | 범주(워크벤치, 사용자 지정) |
 | ClientID     | ABAP 클라이언트 ID(MANDT)            |
@@ -204,7 +206,7 @@ ms.locfileid: "122681508"
 
 ### <a name="abapos_gw_cl-log-schema"></a>ABAPOS_GW_CL 로그 스키마
 
-| 필드        | Description      |
+| 필드        | 설명      |
 | ------------ | ---------------- |
 | 호스트         | 호스트             |
 | 인스턴스     | 다음 구문의 ABAP 인스턴스: `<HOST>_<SYSID>_<SYSNR>`   |
@@ -226,7 +228,7 @@ ms.locfileid: "122681508"
 
 ### <a name="abapos_icm_cl-log-schema"></a>ABAPOS_ICM_CL 로그 스키마
 
-| 필드        | Description      |
+| 필드        | 설명      |
 | ------------ | ---------------- |
 | 호스트         | 호스트             |
 | 인스턴스     | 다음 구문의 ABAP 인스턴스: `<HOST>_<SYSID>_<SYSNR>`   |
@@ -537,7 +539,7 @@ ms.locfileid: "122681508"
 ### <a name="abapos_wp_cl-log-schema"></a>ABAPOS_WP_CL 로그 스키마
 
 
-| 필드        | Description         |
+| 필드        | 설명         |
 | ------------ | ------------------- |
 | 호스트         | 호스트                |
 | 인스턴스     | 다음 구문의 ABAP 인스턴스: `<HOST>_<SYSID>_<SYSNR>`   |

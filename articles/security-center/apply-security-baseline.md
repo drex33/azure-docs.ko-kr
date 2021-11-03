@@ -1,20 +1,23 @@
 ---
-title: Azure 보안 기준 및 Azure Security Center 통해 Windows 및 Linux OS 강화
-description: Azure Security Center 게스트 구성을 사용하여 OS 강화를 Azure Security Benchmark의 지침과 비교하는 방법을 알아봅니다.
+title: Azure 보안 기준 및 Microsoft Defender for Cloud를 사용하여 Windows 및 Linux OS 강화
+description: Microsoft Defender for Cloud가 게스트 구성을 사용하여 OS 강화를 Azure Security Benchmark의 지침과 비교하는 방법을 알아봅니다.
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
 ms.date: 10/04/2021
 ms.author: memildin
-ms.openlocfilehash: 9a15a87eb5f00316f88109e05e069032de795807
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: a48f95c3bedd291a3639f7aabc97eb92c25d735f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129436047"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131010406"
 ---
-# <a name="apply-azure-security-baselines-to-machines"></a>머신에 Azure 보안 기준 적용
+# <a name="apply-azure-security-baselines-to-machines"></a>컴퓨터에 Azure 보안 기준 적용
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 머신의 공격 노출을 줄이고 알려진 위험을 방지하려면 OS(운영 체제)를 최대한 안전하게 구성하는 것이 중요합니다.
 
@@ -37,18 +40,18 @@ Azure Security Benchmark에는 OS 강화에 대한 지침이 있으며, 이로 �
 
 ## <a name="what-are-the-hardening-recommendations"></a>강화 권장 사항은 무엇인가요?
 
-Azure Security Center 사용자 환경에서 Windows 및 Linux 머신의 구성이 Azure 보안 기준 구성을 충족하는지 확인하는 두 가지 권장 사항이 포함되어 있습니다.
+클라우드용 Microsoft Defender에는 사용자 환경에서 Windows 및 Linux 머신의 구성이 Azure 보안 기준 구성을 충족하는지 확인하는 두 가지 권장 사항이 포함되어 있습니다.
 
 - **Windows** 컴퓨터의 경우 [Windows 컴퓨터의 보안 구성 취약성을 수정해야 합니다(게스트 구성에서 구동)는](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1f655fb7-63ca-4980-91a3-56dbc2b715c6) 구성을 [Windows 보안 기준과](../governance/policy/samples/guest-configuration-baseline-windows.md)비교합니다.
-- **Linux** 머신의 경우 [Linux 머신의 보안 구성 취약성을 수정해야 합니다(게스트 구성에서 구동)는](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8c3d9ad0-3639-4686-9cd2-2b2ab2609bda) 구성을 [Linux 보안 기준](../governance/policy/samples/guest-configuration-baseline-linux.md)과 비교합니다.
+- **Linux 머신의** 경우 [Linux 머신의 보안 구성 취약성을 수정해야 합니다(게스트 구성에서 구동)는](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8c3d9ad0-3639-4686-9cd2-2b2ab2609bda) 구성을 [Linux 보안 기준](../governance/policy/samples/guest-configuration-baseline-linux.md)과 비교합니다.
 
-이러한 권장 사항은 Azure Policy 게스트 구성 기능을 사용하여 컴퓨터의 OS 구성을 Azure 보안 [벤치마크](/security/benchmark/azure/overview)에 정의된 기준과 비교합니다.
+이러한 권장 사항은 Azure Policy 게스트 구성 기능을 사용하여 컴퓨터의 OS 구성을 Azure Security [Benchmark](/security/benchmark/azure/overview)에 정의된 기준과 비교합니다.
 
 ## <a name="compare-machines-in-your-subscriptions-with-the-os-security-baselines"></a>구독의 머신을 OS 보안 기준과 비교
 
 컴퓨터를 OS 보안 기준과 비교하려면 다음을 수행합니다.
  
-1. Security Center 포털 페이지에서 **권장 사항** 페이지를 엽니다. 
+1. Defender for Cloud 포털 페이지에서 **권장 사항** 페이지를 엽니다. 
 1. 관련 권장 사항을 선택합니다.
     - **Windows** 컴퓨터의 경우 Windows 컴퓨터의 보안 구성 취약성을 [수정해야 합니다(게스트 구성에서 구동).](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1f655fb7-63ca-4980-91a3-56dbc2b715c6)
     - **Linux 머신의** 경우 [Linux 머신의 보안 구성 취약성을 수정해야 합니다(게스트 구성에서 구동).](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8c3d9ad0-3639-4686-9cd2-2b2ab2609bda)
@@ -78,7 +81,7 @@ Azure Security Center 사용자 환경에서 Windows 및 Linux 머신의 구성�
 
 ### <a name="how-do-i-deploy-the-prerequisites-for-the-security-configuration-recommendations"></a>보안 구성 권장 사항에 대한 필수 구성 어떻게 할까요? 배포해야 합니까?
 
-필수 구성 조건으로 게스트 구성 확장을 배포하려면 다음을 수행합니다.
+필수 구성으로 게스트 구성 확장을 배포하려면 다음을 수행합니다.
 
 - 선택한 컴퓨터의 경우 보안 모범 사례 구현 보안 컨트롤에서 **컴퓨터에 게스트 구성 확장을 설치해야 한다는** 보안 권장 **사항을** 따릅니다.
 
@@ -91,14 +94,14 @@ Azure Security Center 사용자 환경에서 Windows 및 Linux 머신의 구성�
 
 | 이유                                                            | 세부 정보                                                                                                                                                                        |
 |-------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **컴퓨터에서 사용할 수 있는 검사 데이터가 없음**                         | Azure Resource Graph 이 머신에 대한 준수 결과가 없습니다. 모든 준수 결과는 게스트 구성 확장에서 Graph Azure Resource에 기록됩니다. Azure Policy 게스트 구성 - 샘플 ARG 쿼리의 샘플 쿼리를 사용하여 Azure Resource Graph 데이터를 확인할 수 [있습니다.](../governance/policy/samples/resource-graph-samples.md?tabs=azure-cli#azure-policy-guest-configuration)|
+| **컴퓨터에서 사용할 수 있는 검사 데이터 없음**                         | Azure Resource Graph 이 머신에 대한 규정 준수 결과가 없습니다. 모든 준수 결과는 게스트 구성 확장에서 Graph Azure Resource에 기록됩니다. Azure Policy 게스트 구성 - 샘플 ARG 쿼리의 샘플 쿼리를 사용하여 Azure Resource Graph 데이터를 확인할 수 [있습니다.](../governance/policy/samples/resource-graph-samples.md?tabs=azure-cli#azure-policy-guest-configuration)|
 | **게스트 구성 확장이 컴퓨터에 설치되어 있지 않습니다.** | 컴퓨터에 게스트 구성 확장이 없습니다. 이 확장은 Azure 보안 기준 준수를 평가하기 위한 필수 조건입니다.                               |
 | **시스템 관리 ID가 컴퓨터에 구성되지 않음**      | 시스템이 할당한 관리 ID를 컴퓨터에 배포해야 합니다.                                                                                                           |
 | **권장 사항은 정책에서 사용하지 않도록 설정됩니다.**                      | OS 기준을 평가하는 정책 정의는 관련 머신을 포함하는 범위에서 비활성화됩니다.                                                               |
 |                                                                   |                                                                                                                                                                                |
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Security Center 게스트 구성 권장 사항을 사용하여 OS 강화를 Azure 보안 기준과 비교하는 방법을 배웠습니다.
+이 문서에서는 Defender for Cloud의 게스트 구성 권장 사항을 사용하여 OS 강화를 Azure 보안 기준과 비교하는 방법을 배웠습니다.
 
 이러한 구성 설정에 대한 자세한 내용은 다음을 참조하세요.
 

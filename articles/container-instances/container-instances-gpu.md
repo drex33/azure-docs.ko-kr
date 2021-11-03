@@ -3,12 +3,12 @@ title: GPU 지원 컨테이너 인스턴스 배포
 description: GPU 리소스를 사용하여 컴퓨팅 집약적 컨테이너 앱을 실행하기 위해 Azure Container Instances를 배포하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 07/22/2020
-ms.openlocfilehash: fd9441f0ba92f4753271df4daba88ed690c9ee30
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 8950858ff822a28272c17d18de8869d3e03d673d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123108381"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057878"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>GPU 리소스를 사용하는 컨테이너 인스턴스 배포
 
@@ -77,7 +77,7 @@ GPU 리소스를 추가하는 한 가지 방법은 [YAML 파일](container-insta
  > [!NOTE]
   > 다음 예제에서는 공용 컨테이너 이미지를 사용합니다. 안정성을 향상하려면 프라이빗 Azure Container Registry에서 이미지를 가져와 관리하고, 비공개로 관리되는 기본 이미지를 사용하도록 YAML을 업데이트합니다. [공용 이미지 사용에 대해 자세히 알아봅니다](../container-registry/buffer-gate-public-content.md).
 
-```YAML
+```yaml
 additional_properties: {}
 apiVersion: '2019-12-01'
 name: gpucontainergroup

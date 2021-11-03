@@ -1,28 +1,30 @@
 ---
-title: 모든 Azure Security Center 권장 사항에 대한 참조 테이블
-description: 이 문서에는 리소스를 강화하고 보호하는 데 도움이 되는 Azure Security Center의 보안 권장 사항이 나열되어 있습니다.
+title: 모든 Microsoft Defender for Cloud 권장 사항에 대 한 참조 테이블
+description: 이 문서에서는 리소스를 강화 하 고 보호 하는 데 도움이 되는 클라우드 보안 권장 사항에 대 한 Microsoft Defender를 나열 합니다.
 author: memildin
 ms.service: security-center
 ms.topic: reference
 ms.date: 09/05/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: a1fd045bebf4a5821d9f411f409d301b5d2c453d
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 34f970884c97105a3831734cf672376e17f43a98
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123536930"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131014470"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>보안 권장 사항 - 참조 가이드
 
-이 문서에는 Azure Security Center에서 볼 수 있는 권장 사항이 나열되어 있습니다. 환경에 표시되는 권장 사항은 보호하는 리소스 및 사용자 지정된 구성에 따라 다릅니다.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Security Center 권장 사항은 [Azure 보안 벤치마크](../security/benchmarks/introduction.md)를 기반으로 합니다. Azure 보안 벤치마크는 일반적인 규정 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 대해 Microsoft에서 작성한 Azure 관련 지침 세트입니다. 널리 인정받는 이 벤치마크는 클라우드 중심 보안에 초점을 맞춘 [CIS(Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) 및 [NIST(National Institute of Standards and Technology)](https://www.nist.gov/)의 컨트롤을 기반으로 합니다.
+이 문서에는 Microsoft Defender for Cloud에서 볼 수 있는 권장 사항이 나열 되어 있습니다. 환경에 표시되는 권장 사항은 보호하는 리소스 및 사용자 지정된 구성에 따라 다릅니다.
 
-이러한 권장 사항에 대응하는 방법에 대한 자세한 내용은 [Azure Security Center의 권장 사항 해결](security-center-remediate-recommendations.md)을 참조하세요.
+클라우드의 권장 사항은 [Azure 보안 벤치 마크](../security/benchmarks/introduction.md)를 기준으로 합니다. Azure 보안 벤치마크는 일반적인 규정 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 대해 Microsoft에서 작성한 Azure 관련 지침 세트입니다. 널리 인정받는 이 벤치마크는 클라우드 중심 보안에 초점을 맞춘 [CIS(Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) 및 [NIST(National Institute of Standards and Technology)](https://www.nist.gov/)의 컨트롤을 기반으로 합니다.
 
-보안 점수는 완료한 Security Center 권장 사항의 수를 기준으로 계산됩니다. 먼저 해결할 권장 사항을 결정하려면 각 권장 사항의 심각도와 보안 점수에 미치는 잠재적 영향을 살펴보면 됩니다.
+이러한 권장 사항에 응답 하는 방법에 대해 알아보려면 [Microsoft Defender For Cloud의 권장 사항](implement-security-recommendations.md)수정을 참조 하세요.
+
+보안 점수는 완료 한 클라우드 권장 사항에 대 한 Defender의 수를 기반으로 합니다. 먼저 해결할 권장 사항을 결정하려면 각 권장 사항의 심각도와 보안 점수에 미치는 잠재적 영향을 살펴보면 됩니다.
 
 > [!TIP]
 > 권장 사항의 설명에 "관련 정책 없음"이라고 표시되는 경우가 있는데, 이는 권장 사항이 다른 권장 사항 및 _해당_ 정책에 따라 달라지기 때문입니다. 예를 들어 "엔드포인트 보호 상태 오류를 수정해야 합니다..."라는 내용의 권장 사항은 엔드포인트 보호 솔루션의 _설치_ 여부를 확인하는 권장 사항("엔드포인트 보호 솔루션을 설치해야 합니다...")에 의존합니다. 기본 권장 사항에는 정책이 _있습니다_.
@@ -73,4 +75,4 @@ Security Center 권장 사항은 [Azure 보안 벤치마크](../security/benchma
 권장 사항에 대한 자세한 내용은 다음을 참조하세요.
 
 - [보안 정책, 이니셔티브 및 권장 사항은 무엇인가요?](security-policy-concept.md)
-- [보안 권장 사항 검토](security-center-recommendations.md)
+- [보안 권장 사항 검토](review-security-recommendations.md)

@@ -8,13 +8,13 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/25/2021
 ms.author: lajanuar
-ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 54bd889d4c6a82b911441b83fb76fe432bc8665c
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: devx-track-js, devx-track-csharp, ignite-fall-2021
+ms.openlocfilehash: 8885bafbe94665fd7dcbb265383c87b0f4e6cc08
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130265927"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131253036"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -27,7 +27,7 @@ ms.locfileid: "130265927"
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * 현재 버전의 [Node.js](https://nodejs.org/)
-* 학습 데이터 세트가 포함된 Azure Storage Blob. 학습 데이터 세트를 결합하는 옵션 및 팁에 대한 자세한 내용은 [사용자 지정 모델에 대한 학습 데이터 세트 빌드](../../build-training-data-set.md)를 참조하세요. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)의 **Train** 폴더에 있는 파일을 사용할 수 있습니다(*sample_data.zip* 다운로드 및 추출).
+* 학습 데이터 세트가 포함된 Azure Storage Blob. [사용자 지정 모델에 대한 학습 데이터 집합 빌드를](../../build-training-data-set.md)참조하세요. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)의 **Train** 폴더에 있는 파일을 사용할 수 있습니다(*sample_data.zip* 다운로드 및 추출).
 * Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Form Recognizer 리소스 만들기"  target="_blank">Form Recognizer 리소스 </a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 선택합니다.
   * 애플리케이션을 Form Recognizer API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
   * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
@@ -90,8 +90,8 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 
 `FormTrainingClient`는 다음에 대한 작업을 제공합니다.
 
-* 사용자 지정 양식에서 발견된 모든 필드와 값을 분석하도록 사용자 지정 모델을 학습시킵니다. 모델이 분석할 양식 유형과 각 양식 유형에 대해 추출할 필드를 나타내는 `CustomFormModel`이 반환됩니다. 자세한 내용은 [레이블이 없는 모델 학습에 대한 서비스의 문서](#train-a-model-without-labels)를 _참조_ 하세요.
-* 사용자 지정 양식에 레이블을 지정하여 사용자가 지정한 특정 필드 및 값을 분석하도록 사용자 지정 모델을 학습시킵니다. 모델이 추출하는 필드와 각 필드에 대한 예상 정확도를 나타내는 `CustomFormModel`이 반환됩니다. 학습 데이터 세트에 레이블을 적용하는 방법에 대한 자세한 설명은 [레이블이 지정된 모델 학습에 대한 서비스의 설명서](#train-a-model-with-labels)를 참조하세요.
+* 사용자 지정 양식에서 발견된 모든 필드와 값을 분석하도록 사용자 지정 모델을 학습시킵니다. 모델이 분석할 양식 유형과 각 양식 유형에 대해 추출할 필드를 나타내는 `CustomFormModel`이 반환됩니다. [레이블이 지정되지 않은 모델 학습에 대한 서비스의 설명서를](#train-a-model-without-labels) _참조하세요._
+* 사용자 지정 양식에 레이블을 지정하여 사용자가 지정한 특정 필드 및 값을 분석하도록 사용자 지정 모델을 학습시킵니다. `CustomFormModel`모델이 추출할 필드와 각 필드의 예상 정확도를 나타내는 가 반환됩니다. [레이블이 지정되는 모델 학습에 대한 서비스의 설명서를](#train-a-model-with-labels)참조하세요.
 * 계정에서 생성된 모델을 관리합니다.
 * 하나의 Form Recognizer 리소스에서 다른 리소스로 사용자 지정 모델을 복사합니다.
 
@@ -177,10 +177,10 @@ First receipt:
 
 ## <a name="train-a-custom-model"></a>사용자 지정 모델 학습
 
-이 섹션에서는 사용자 고유의 데이터로 모델을 학습시키는 방법을 보여 줍니다. 학습된 모델은 원본 양식 문서의 키/값 관계가 포함된 구조적 데이터를 출력할 수 있습니다. 모델이 학습되면 데이터를 더 많은 양식에서 안정적으로 추출하기 위해 필요에 따라 모델을 테스트, 재학습 및 최종적으로 사용할 수 있습니다.
+이 섹션에서는 사용자 고유의 데이터로 모델을 학습시키는 방법을 보여 줍니다. 학습된 모델은 원래 양식 문서의 키-값 관계를 포함하는 정형 데이터를 출력할 수 있습니다. 모델을 학습한 후 필요한 경우 테스트하고 다시 학습합니다. 결국 필요에 따라 더 많은 양식에서 데이터를 안정적으로 추출하는 데 사용합니다.
 
 > [!NOTE]
-> [Form Recognizer 샘플 레이블 지정 도구](../../label-tool.md)와 같은 그래픽 사용자 인터페이스를 사용하여 모델을 학습시킬 수도 있습니다.
+> Form Recognizer 샘플 레이블 지정 도구 와 같은 그래픽 사용자 인터페이스를 사용하여 모델을 학습할 수도 [있습니다.](../../label-tool.md)
 
 ### <a name="train-a-model-without-labels"></a>레이블 없이 모델 학습
 
@@ -192,7 +192,7 @@ First receipt:
 
 ### <a name="output"></a>출력
 
-[JavaScript SDK](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer)에서 사용할 수 있는 학습 데이터로 학습된 모델의 출력입니다. 가독성을 위해 이 샘플 출력이 잘렸습니다.
+다음은 학습 데이터로 학습된 모델에 대한 출력입니다. 코드는 [JavaScript SDK](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer)에서 사용할 수 있습니다. 가독성을 위해 이 샘플 출력이 잘렸습니다.
 
 ```console
 training status: creating
@@ -228,13 +228,13 @@ Document errors:
 
 ### <a name="train-a-model-with-labels"></a>레이블을 사용하여 모델 학습
 
-학습 문서에 레이블을 수동으로 지정하여 사용자 지정 모델을 학습시킬 수도 있습니다. 일부 시나리오에서는 레이블을 사용하여 학습시키면 성능이 향상됩니다. 레이블을 사용하여 학습하려면 학습 문서와 별도로 Blob 스토리지 컨테이너에 특별한 레이블 정보 파일(`\<filename\>.pdf.labels.json`)이 있어야 합니다. [Form Recognizer 샘플 레이블 지정 도구](../../label-tool.md)는 이러한 레이블 파일을 만드는 데 도움이 되는 UI를 제공합니다. 레이블 파일이 있으면 `true`로 설정된 `uselabels` 매개 변수를 사용하여 `beginTraining` 메서드를 호출할 수 있습니다.
+학습 문서에 레이블을 수동으로 지정하여 사용자 지정 모델을 학습시킬 수도 있습니다. 일부 시나리오에서는 레이블을 사용하여 학습시키면 성능이 향상됩니다. 레이블을 사용하여 학습하려면 학습 문서와 별도로 Blob 스토리지 컨테이너에 특별한 레이블 정보 파일(`\<filename\>.pdf.labels.json`)이 있어야 합니다. [Form Recognizer 샘플 레이블 지정 도구는](../../label-tool.md) 이러한 레이블 파일을 만드는 데 도움이 되는 UI를 제공합니다. 레이블 파일이 있으면 `true`로 설정된 `uselabels` 매개 변수를 사용하여 `beginTraining` 메서드를 호출할 수 있습니다.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_trainlabels)]
 
 ### <a name="output"></a>출력
 
-[JavaScript SDK](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)에서 사용할 수 있는 학습 데이터로 학습된 모델의 출력입니다. 가독성을 위해 이 샘플 출력이 잘렸습니다.
+다음은 [JavaScript SDK에서](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)사용할 수 있는 학습 데이터로 학습된 모델에 대한 출력입니다. 가독성을 위해 이 샘플 출력이 잘렸습니다.
 
 ```console
 training status: creating
@@ -328,7 +328,7 @@ Field Total has value 'undefined' with a confidence score of undefined
 
 ### <a name="get-list-of-models-in-account"></a>계정의 모델 목록 가져오기
 
-다음 코드 블록은 모델 생성 시기 및 현재 상태에 대한 정보를 포함하여 계정에서 사용 가능한 모델의 전체 목록을 제공합니다.
+다음 코드 블록은 계정에서 사용 가능한 모델의 전체 목록을 제공합니다. 여기에는 모델을 만든 시기와 현재 상태에 대한 정보가 포함됩니다.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_list)]
 
@@ -426,7 +426,7 @@ export DEBUG=azure*
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Form Recognizer JavaScript 클라이언트 라이브러리를 사용하여 다양한 방식으로 모델을 학습하고 양식을 분석했습니다. 다음으로, 더 나은 학습 데이터 세트를 만들고 더 정확한 모델을 생성하기 위한 팁에 대해 알아봅니다.
+이 빠른 시작에서는 Form Recognizer JavaScript SDK를 사용하여 모델을 학습시키고 다양한 방법으로 양식을 분석했습니다. 다음으로, 더 나은 학습 데이터 세트를 만들고 더 정확한 모델을 생성하기 위한 팁에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [학습 데이터 세트 빌드](../../build-training-data-set.md)

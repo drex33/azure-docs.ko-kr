@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: cawrites
 ms.date: 06/25/2021
-ms.openlocfilehash: 9d1ae8214467d38958597136877baca0309b2ffc
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
-ms.translationtype: HT
+ms.openlocfilehash: d00eb47a1e366d5ae9f3ba559a65e57f5c9c9baa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114675268"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131053605"
 ---
 # <a name="migration-guide-sql-server-to-azure-sql-managed-instance"></a>마이그레이션 가이드: SQL Server를 Azure SQL Managed Instance로
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -157,7 +157,7 @@ SQL Managed Instance에서 지원하는 데이터베이스 마이그레이션 �
 
 DMS를 사용하여 마이그레이션을 수행하려면 다음 단계를 수행합니다.
 
-1. 이 작업을 처음 수행하는 경우 구독에 **Microsoft.Datamigration** 리소스 공급자를 등록합니다.
+1. 이 작업을 처음 수행 하는 경우 구독에 [ **microsoft.datamigration** 리소스 공급자를 등록](../../../dms/quickstart-create-data-migration-service-portal.md#register-the-resource-provider) 합니다.
 1. 원하는 위치(대상 Azure SQL Managed Instance와 동일한 지역이 좋음)에 Azure Database Migration Service 인스턴스를 만들고, 기존 가상 네트워크를 선택하거나 DMS 인스턴스를 호스트할 새 가상 네트워크를 만듭니다.
 1. DMS 인스턴스를 만든 후, 새 마이그레이션 프로젝트를 만들고 원본 서버 유형을 **SQL Server** 로, 대상 서버 유형을 **Azure SQL Database Managed Instance** 로 각각 지정합니다. 프로젝트 만들기 블레이드에서 작업 유형(온라인 또는 오프라인 데이터 마이그레이션)을 선택합니다. 
 1.  **마이그레이션 원본** 세부 정보 페이지에서 원본 SQL Server의 세부 정보를, **마이그레이션 대상** 세부 정보 페이지에서 대상 Azure SQL Managed Instance의 세부 정보를 각각 지정합니다. **다음** 을 선택합니다.
@@ -208,7 +208,7 @@ DMS를 사용하여 마이그레이션을 수행하려면 다음 단계를 수�
    ```
 1. Azure Storage Blob 컨테이너에서 백업을 복원합니다. 예를 들면 다음과 같습니다. 
 
-    ```sql
+   ```sql
    RESTORE DATABASE [TargetDatabaseName] FROM URL =
      'https://mitutorials.blob.core.windows.net/databases/WideWorldImporters-Standard.bak'
    ```

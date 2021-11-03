@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/22/2021
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 67a66e618206b182983ada474b1f0d3788526e1e
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: cd797c58edb1d6918c8681f9cadffecdba8ef827
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130223912"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131011468"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage 사이에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -272,14 +272,16 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
 4. **활동 창** 목록에 5개의 활동 창이 표시됩니다. **WindowStart** 시간은 파이프라인 시작부터 파이프라인 종료 시간까지의 모든 날을 포함해야 합니다.
 5. 모든 활동 창의 상태가 준비로 설정될 때까지 **활동 창** 목록에 대한 **새로 고침** 단추를 몇 번 클릭합니다.
 6. 이제 출력 파일이 adfblobconnector 컨테이너의 출력 폴더에 생성되었는지 확인합니다. 출력 폴더에 다음 폴더 구조가 표시되어야 합니다.
-    ```
+
+    ```output
     2017/04/21
     2017/04/22
     2017/04/23
     2017/04/24
     2017/04/25
     ```
-   데이터 팩터리 모니터링 및 관리에 대한 자세한 내용은 [데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) 문서를 참조하세요.
+
+    데이터 팩터리 모니터링 및 관리에 대한 자세한 내용은 [데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) 문서를 참조하세요.
 
 ### <a name="data-factory-entities"></a>데이터 팩터리 엔터티
 이제 데이터 팩터리 홈 페이지로 다시 탭으로 전환합니다. 현재 데이터 팩터리에는 두 개의 연결된 서비스, 두 개의 데이터 세트 및 한 개의 파이프라인이 있습니다.

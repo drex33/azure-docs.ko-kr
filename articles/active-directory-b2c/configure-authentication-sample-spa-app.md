@@ -2,21 +2,21 @@
 title: Azure Active Directory B2C를 사용하여 샘플 단일 페이지 애플리케이션에서 인증 구성
 description: 이 문서에서는 Azure Active Directory B2C를 사용하여 단일 페이지 애플리케이션에 사용자를 로그인하고 가입하는 방법에 대해 설명합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/05/2021
-ms.author: mimart
+ms.date: 10/25/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: ffda1151054b887114523704498a97d2ab7f7c44
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 620afdfbcc62c3ce8e07c1572dd4ec20634ebd64
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528528"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007885"
 ---
 # <a name="configure-authentication-in-a-sample-single-page-application-by-using-azure-ad-b2c"></a>Azure AD B2C를 사용하여 샘플 단일 페이지 애플리케이션에서 인증 구성
 
@@ -84,8 +84,8 @@ OIDC(OpenID Connect)는 OAuth 2.0을 기반으로 하는 인증 프로토콜입�
 SPA 등록을 만들려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-
-1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. **Azure AD B2C** 를 검색하고 선택합니다.
 1. **앱 등록** 을 선택한 다음, **새 등록** 을 선택합니다.
 1. 애플리케이션의 **이름** 을 입력합니다(예: *MyApp*).

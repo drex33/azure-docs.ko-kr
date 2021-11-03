@@ -1,18 +1,16 @@
 ---
 title: '자습서: Azure Arc 지원 Kubernetes 클러스터를 사용하여 GitOps로 CI/CD 구현'
 description: 이 자습서에서는 Azure Arc 지원 Kubernetes 클러스터와 함께 GitOps를 사용하여 CI/CD 솔루션을 설정하는 과정을 안내합니다. 이 워크플로의 개념에 대한 내용은 GitOps - Azure Arc 지원 Kubernetes를 사용하는 CI/CD 워크플로 문서를 참조하세요.
-author: tcare
-ms.author: tcare
 ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.custom: template-tutorial, devx-track-azurecli
-ms.openlocfilehash: a325f248a4f634657d9b73e3d4b7929e0614a023
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b73cc2a6b04d5e851611841f01890a60de71daab
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124820730"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131039737"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>자습서: Azure Arc 지원 Kubernetes 클러스터를 사용하여 GitOps로 CI/CD 구현
 

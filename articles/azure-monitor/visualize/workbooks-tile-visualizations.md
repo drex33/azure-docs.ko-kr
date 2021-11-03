@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: fa486647f124e374087abab959ced16cbddad539
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: a2900b055f95372080d73b80e794b3b5d909db06
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130131641"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069960"
 ---
 # <a name="tile-visualizations"></a>타일 시각화
 
@@ -106,7 +106,7 @@ ms.locfileid: "130131641"
 
 * `fixed`(기본값)
 
-    타일의 기본 동작은 약 160픽셀인 동일한 고정 너비에 타일 주위 공간을 더한 것입니다.
+    타일의 기본 동작은 고정 폭이 고 약 160 픽셀 너비와 타일 주위의 공간을 합한 것입니다.
 
     ![고정 너비 타일을 표시하는 스크린샷](./media/workbooks-tile-visualizations/tiles-fixed.png)
 * `auto`

@@ -6,12 +6,12 @@ ms.date: 11/22/2020
 ms.custom: devx-track-java
 author: mattmccleary
 ms.author: mmcc
-ms.openlocfilehash: 53dc6c6f757c65842512ab9c215161058d451962
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: a73bfa9ab247cafff4c99ed481134974fd1715ac
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130134035"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079019"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java 웹 프로젝트에서 Application Insights 시작하기
 
@@ -50,7 +50,7 @@ Application Insights는 라이브 애플리케이션의 성능 및 사용을 이
 
 그런 다음 프로젝트 종속성을 새로 고쳐 다운로드한 이진을 가져옵니다.
 
-```XML
+```xml
     <dependencies>
       <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -92,7 +92,7 @@ Application Insights는 라이브 애플리케이션의 성능 및 사용을 이
 
 해당 계측 키를 Azure Portal에서 가져온 계측 키와 바꿉니다.
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
 
@@ -220,7 +220,7 @@ Application Insights Java SDK는 이제 [W3C 분산 추적](https://w3c.github.i
 ### <a name="customize-performance-counter-collection"></a>성능 카운터 수집 사용자 지정
 성능 카운터의 표준 집합 컬렉션을 사용하지 않으려면 *ApplicationInsights.xml* 파일의 루트 노드 아래에 다음 코드를 추가합니다.
 
-```XML
+```xml
     <PerformanceCounters>
        <UseBuiltIn>False</UseBuiltIn>
     </PerformanceCounters>
@@ -231,7 +231,7 @@ Application Insights Java SDK는 이제 [W3C 분산 추적](https://w3c.github.i
 
 #### <a name="jmx-counters-exposed-by-the-java-virtual-machine"></a>JMX 카운터(Java Virtual Machine을 통해 노출됨)
 
-```XML
+```xml
     <PerformanceCounters>
       <Jmx>
         <Add objectName="java.lang:type=ClassLoading" attribute="TotalLoadedClassCount" displayName="Loaded Class Count"/>
@@ -251,7 +251,7 @@ Application Insights Java SDK는 이제 [W3C 분산 추적](https://w3c.github.i
 #### <a name="windows-performance-counters"></a>Windows 성능 카운터
 각 [Windows 성능 카운터](/windows/win32/perfctrs/performance-counters-portal) 는 한 범주의 구성원입니다(필드가 클래스의 구성원인 것과 동일한 방식). 범주는 전역일 수 있으며, 번호 또는 이름이 지정된 인스턴스를 가질 수도 있습니다.
 
-```XML
+```xml
     <PerformanceCounters>
       <Windows>
         <Add displayName="Process User Time" categoryName="Process" counterName="%User Time" instanceName="__SELF__" />

@@ -4,12 +4,12 @@ description: 5분 안에 Java Service Fabric Reliable Actors 애플리케이션�
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.custom: devx-track-java
-ms.openlocfilehash: 7d87b72437f86d7dc1ca4e3cf9f3d67609691c70
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: d51bc288eac658f7b0fe2ef019fc77eaa83837c7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97655954"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131013748"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Linux에서 첫 번째 Java Service Fabric Reliable Actors 애플리케이션 만들기
 > [!div class="op_single_selector"]
@@ -18,7 +18,7 @@ ms.locfileid: "97655954"
 >
 >
 
-이 빠른 시작을 통해 몇 분만에 Linux 개발 환경에서 첫 번째 Azure Service Fabric Java 애플리케이션을 만들 수 있습니다.  작업이 완료되면 간단한 Java 단일 서비스 애플리케이션이 로컬 개발 클러스터에서 실행됩니다.  
+이 빠른 시작을 통해 몇 분만에 Linux 개발 환경에서 첫 번째 Azure Service Fabric Java 애플리케이션을 만들 수 있습니다.  작업이 완료되면 간단한 Java 단일 서비스 애플리케이션이 로컬 개발 클러스터에서 실행됩니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 시작하기 전에 [Linux 개발 환경](service-fabric-get-started-linux.md)에서 Service Fabric SDK, Service Fabric CLI, Yeoman을 설치하고, Java 개발 환경을 설정하고, 개발 클러스터를 설정합니다. Mac OS X을 사용하는 경우 [Docker를 사용하여 Mac에서 개발 환경 설정](service-fabric-get-started-mac.md)할 수 있습니다.
@@ -215,12 +215,12 @@ Maven에서 Service Fabric Java 종속성을 가져옵니다. Service Fabric Jav
 ## <a name="start-the-test-client-and-perform-a-failover"></a>테스트 클라이언트 시작 및 장애 조치 수행
 행위자는 자체적으로 아무 작업도 수행하지 않습니다. 따라서 메시지를 보낼 다른 서비스 또는 클라이언트가 필요합니다. 행위자 템플릿은 행위자 서비스와 상호 작용하는 데 사용할 수 있는 간단한 테스트 스크립트를 포함합니다.
 
-> [!Note]
+> [!NOTE]
 > 테스트 클라이언트는 행위자 서비스와 동일한 클러스터 내에서 실행해야 하며 동일한 IP 주소 공간을 공유해야 하는 ActorProxy 클래스를 사용하여 행위자와 통신합니다.  로컬 개발 클러스터와 동일한 컴퓨터에 테스트 클라이언트를 실행할 수 있습니다.  원격 클러스터의 작업자와 통신하려면 행위자와의 외부 통신을 처리하는 클러스터에서 게이트웨이를 배포해야 합니다.
 
 1. 행위자 서비스의 출력을 확인하려면 조사식 유틸리티를 사용하여 스크립트를 실행합니다.  테스트 스크립트는 행위자의 `setCountAsync()` 메서드를 호출하여 카운터를 증가시키고 행위자의 `getCountAsync()` 메서드를 호출하여 새 카운터 값을 가져오고 해당 값을 콘솔에 표시합니다.
 
-   MAC OS X의 경우 다음 추가 명령을 실행하여 HelloWorldTestClient 폴더를 컨테이너 내에서 동일한 위치에 복사해야 합니다.    
+   MAC OS X의 경우 다음 추가 명령을 실행하여 HelloWorldTestClient 폴더를 컨테이너 내에서 동일한 위치에 복사해야 합니다.
 
     ```bash
      docker cp HelloWorldTestClient [first-four-digits-of-container-ID]:/home
@@ -249,13 +249,13 @@ Maven에서 Service Fabric Java 종속성을 가져옵니다. Service Fabric Jav
 Service Fabric Explorer에서 애플리케이션이 표시되고 애플리케이션 형식이 **애플리케이션** 노드에 더 이상 표시되지 않습니다.
 
 ## <a name="service-fabric-java-libraries-on-maven"></a>Maven의 Service Fabric Java 라이브러리
-Service Fabric Java 라이브러리는 Maven에서 호스팅되었습니다. 프로젝트의 ``pom.xml`` 또는 ``build.gradle``에서 종속성을 추가하고 **mavenCentral** 에서 Service Fabric Java 라이브러리를 사용할 수 있습니다. 
+Service Fabric Java 라이브러리는 Maven에서 호스팅되었습니다. 프로젝트의 ``pom.xml`` 또는 ``build.gradle``에서 종속성을 추가하고 **mavenCentral** 에서 Service Fabric Java 라이브러리를 사용할 수 있습니다.
 
 ### <a name="actors"></a>행위자
 
 애플리케이션에 대한 Service Fabric Reliable Actor 지원입니다.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-actors</artifactId>
@@ -276,7 +276,7 @@ Service Fabric Java 라이브러리는 Maven에서 호스팅되었습니다. 프
 
 애플리케이션에 대한 Service Fabric Reliable Services 지원입니다.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-services</artifactId>
@@ -298,7 +298,7 @@ Service Fabric Java 라이브러리는 Maven에서 호스팅되었습니다. 프
 
 Service Fabric Java 애플리케이션에 대한 전송 계층 지원입니다. 전송 계층에서 프로그래밍하지 않으면 Reliable Actor 또는 Service 애플리케이션에 이 종속성을 명시적으로 추가할 필요가 없습니다.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-transport</artifactId>
@@ -319,7 +319,7 @@ Service Fabric Java 애플리케이션에 대한 전송 계층 지원입니다. 
 
 Service Fabric에 대한 시스템 수준 지원이며 네이티브 Service Fabric 런타임에 지시합니다. Reliable Actor 또는 Service 애플리케이션에 이 종속성을 명시적으로 추가할 필요가 없습니다. 그러면 위의 다른 종속성을 포함하는 경우 자동으로에서 Maven에서 가져옵니다.
 
-  ```XML
+  ```xml
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf</artifactId>

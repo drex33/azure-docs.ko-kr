@@ -2,13 +2,14 @@
 title: Azure Video Analyzer 릴리스 정보 - Azure
 description: 이 항목에서는 Azure Video Analyzer 릴리스, 개선 사항, 버그 수정 및 알려진 문제에 대한 릴리스 정보를 제공합니다.
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: f7189e6bda42ad77cb4bb6f426bf73209f46c363
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
-ms.translationtype: HT
+ms.date: 11/01/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 8b17c19d96699a6442bd6d606ffbc88b25088afe
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114601930"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087042"
 ---
 # <a name="azure-video-analyzer-release-notes"></a>Azure Video Analyzer 릴리스 정보
 
@@ -22,6 +23,39 @@ ms.locfileid: "114601930"
 * 사용되지 않는 기능
 
 <hr width=100%>
+
+## <a name="november-2-2021"></a>2021 년 11 월 2 일
+
+이 릴리스는 Video Analyzer edge 모듈 및 Video Analyzer 서비스에 대 한 업데이트입니다. Edge 모듈의 릴리스 태그는 다음과 같습니다.
+
+```
+mcr.microsoft.com/media/video-analyzer:1.1.0
+```
+
+> [!NOTE]
+> 빠른 시작 및 자습서에서 배포 매니페스트는 태그 1(video-analyzer: 1)을 사용합니다. 따라서 이러한 매니페스트를 다시 배포하면 최신 태그가 릴리스될 때 에지 디바이스의 모듈이 업데이트되어야 합니다.
+
+비디오 분석기 서비스의 ARM API 버전은 다음과 같습니다.
+
+```
+2021-11-01-preview
+```
+
+### <a name="new-functionalities"></a>새 기능
+
+* Computer Vision에서 비디오 분석기를 사용 하 여 Cognitive Services에서 [공간 분석](edge/computer-vision-for-spatial-analysis.md) AI 서비스를 사용 하는 경우 라이브 비디오에서 속도, 방향, 사람 기록 등의 새로운 정보를 생성 하 고 볼 수 있습니다.
+* Edge 장치의 로컬 서브넷에서 [ONVIF 지원 장치를 검색할](edge/camera-discovery.md) 수 있습니다.
+* [클라우드에서 라이브 비디오를 직접 캡처하고 녹음할](cloud/connect-cameras-to-cloud.md)수 있습니다.
+  * [대기 시간이 짧은 스트리밍을](playback-recordings-how-to.md#low-latency-streaming) 사용 하 여 RTSP 카메라에서 라이브 비디오를 볼 수 있습니다.
+  * RTSP 카메라에서 video [Analyzer IoT PnP 계약](cloud/connect-devices.md) 을 구현 하 여 장치에서 비디오 분석기 서비스로 비디오 캡처를 사용 하도록 설정할 수 있습니다.
+* 기록 된 [비디오의 원하는 부분](cloud/export-portion-of-video-as-mp4.md) 을 MP4 파일로 내보낼 수 있습니다.
+* 기록 된 비디오에 대 한 보존 정책을 지정할 수 있습니다. 그러면 서비스가 지정 된 기간 (일) 보다 오래 된 콘텐츠를 정기적으로 잘라냅니다.
+* Video Analyzer edge 모듈을 사용 하 여 기록 된 비디오는 [미리 보기 이미지](edge/enable-video-preview-images.md) 또는 미리 보기를 정기적으로 포함 하 여 더 나은 검색 환경을 제공 합니다.
+
+## <a name="october-1-2021"></a>2021년 10월 1일
+이제 오스트레일리아 동부에서 Video Analyzer 서비스를 미리 보기에서 사용할 수 있습니다. 최신 가용성 정보는 [여기](https://azure.microsoft.com/global-infrastructure/services/?products=video-analyzer&regions=all) 를 참조 하세요.
+
+[에서 비디오 분석기 위젯을 포함](embed-player-in-power-bi.md) 하는 방법을 설명 하는 새 문서가 추가 되었습니다 Power BI
 
 ## <a name="june-3-2021"></a>2021년 6월 3일
 
@@ -58,7 +92,7 @@ mcr.microsoft.com/media/video-analyzer:1.0.0
 * 자체 감지 모델로 감지된 개체 추적 
 * Video Analyzer 플레이어 위젯(웹 구성 요소)을 사용하여 녹화된 비디오 및 유추 메타데이터 재생
 * Azure Portal 또는 Visual Studio Code를 사용하여 IoT Hub를 통해 모듈 배포 및 구성
-* [직접 메서드](direct-methods.md) 호출을 사용하여 원격 또는 로컬로 [파이프라인 토폴로지](pipeline.md#pipeline-topologies) 관리
+<!--REDIRECT* Manage [pipeline topologies](pipeline.md#pipeline-topologies) remotely or locally using [direct method](direct-methods.md) calls-->
 
 ## <a name="next-steps"></a>다음 단계
 

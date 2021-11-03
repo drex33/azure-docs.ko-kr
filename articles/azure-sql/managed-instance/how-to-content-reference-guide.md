@@ -5,18 +5,18 @@ description: Azure SQL Managed Instance를 구성하고 관리하는 방법을 �
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, ignite-fall-2021
 ms.devlang: ''
 ms.topic: guide
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 04/16/2019
-ms.openlocfilehash: 2b64353da7de0b7f7d29502695c9d7ea22d6a19f
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 86511b0cb494ecd5cb9f60fb8aa825a11fe48065
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130244683"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045637"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Azure SQL Managed Instance 콘텐츠 참조
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -36,7 +36,8 @@ ms.locfileid: "130244683"
 
 - [서브넷 크기 확인](vnet-subnet-determine-size.md): SQL Managed Instance를 배포한 후 서브넷의 크기를 조정할 수 없음으로 서브넷에 배포하려는 관리되는 인스턴스의 수와 유형에 필요한 IP 주소 범위를 계산해야 합니다. 
 - [새 VNet 및 서브넷 만들기](virtual-network-subnet-create-arm-template.md): [네트워크 요구 사항](connectivity-architecture-overview.md#network-requirements)에 따라 가상 네트워크 및 서브넷을 구성합니다. 
-- [기존 VNet 및 서브넷 구성](vnet-existing-add-subnet.md): 네트워크 요구 사항을 확인하고 기존 가상 네트워크 및 서브넷을 구성하여 SQL Managed Instance를 배포합니다. 
+- [기존 VNet 및 서브넷 구성](vnet-existing-add-subnet.md): 네트워크 요구 사항을 확인하고 기존 가상 네트워크 및 서브넷을 구성하여 SQL Managed Instance를 배포합니다.
+- [Azure Storage에 대 한 서비스 끝점 정책 구성 (미리 보기)](service-endpoint-policies-configure.md): 권한이 없는 Azure Storage 계정에 대해 잘못 되거나 악의적인 데이터 반출에 대해 서브넷을 보호 합니다.
 - [사용자 지정 DNS 구성](custom-dns-configure.md): db 메일 프로필의 연결된 서버를 통해 SQL Managed Instance에서 사용자 지정 도메인에 대한 외부 리소스 액세스 권한을 부여하도록 사용자 지정 DNS를 구성합니다. 
 - [동기화 네트워크 구성](azure-app-sync-network-configuration.md): [Azure 가상 네트워크와 앱을 통합](../../app-service/overview-vnet-integration.md)한 후 연결을 설정할 수 없는 경우 네트워킹 구성 계획을 새로 고칩니다.
 - [관리 엔드포인트 IP 주소 찾기](management-endpoint-find-ip-address.md): 관리 목적으로 SQL Managed Instance에서 사용하는 퍼블릭 엔드포인트를 결정합니다. 

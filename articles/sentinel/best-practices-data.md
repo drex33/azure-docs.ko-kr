@@ -8,14 +8,17 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/21/2021
-ms.openlocfilehash: 7c29ae41acd800a3e8893ec50ef25cb77c89fe04
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 0ba9d4d1452b0a3248e7df817561ec080c95ca93
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124810178"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131047614"
 ---
 #  <a name="data-collection-best-practices"></a>데이터 수집 모범 사례
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 이 섹션에서는 Azure Sentinel 데이터 커넥터를 사용하여 데이터를 수집하는 방법의 모범 사례를 검토합니다. 자세한 내용은 [데이터 원본 연결](connect-data-sources.md), [Azure Sentinel 데이터 커넥터 참조](data-connectors-reference.md), [Azure Sentinel 솔루션 카탈로그](sentinel-solutions-catalog.md)를 참조하세요.
 

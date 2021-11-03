@@ -4,13 +4,13 @@ description: Bicep 파일에서 리소스에 대한 값을 검색하는 데 사�
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/30/2021
-ms.openlocfilehash: bc0fbd90ba29c9ab6b0940863cd2ec290992f5d7
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 10/25/2021
+ms.openlocfilehash: a14019e3cdf595efe0a32a7021333aa5b4f6a6b1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130264963"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087422"
 ---
 # <a name="resource-functions-for-bicep"></a>Bicep의 리소스 함수
 
@@ -182,7 +182,7 @@ module sql './sql.bicep' = {
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | apiVersion |예 |문자열 |이 매개 변수를 제공하지 않으면 리소스에 대한 API 버전이 사용됩니다. 함수를 특정 버전으로 실행해야 하는 경우에만 사용자 지정 API 버전을 제공합니다. **yyyy-mm-dd** 형식을 사용합니다. |
 | functionValues |예 |object | 함수에 대한 값이 있는 개체입니다. 스토리지 계정의 **listAccountSas** 같은 매개 변수 값을 가진 개체를 받는 것을 지원하는 함수에 대해 이 개체를 제공합니다. 함수 값을 전달하는 예제가 이 문서에 나와 있습니다. |
@@ -417,7 +417,7 @@ list 작업이 있는 리소스 유형을 확인할 수 있게 다음 PowerShell
 
 리소스 종류가 지역에 대한 영역을 지원하는지 여부를 결정합니다.
 
-네임스페이스: [az](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -522,8 +522,9 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
 output blobAddress string = stg.properties.primaryEndpoints.blob
 ```
 
-자세한 내용은 [참조 리소스](./compare-template-syntax.md#reference-resources) 및 [JSON 템플릿 참조 함수](../templates/template-functions-resource.md#reference)를 참조하세요.
+존재하지 않는 리소스를 참조하려고 하면 `NotFound` 오류가 발생하며 배포가 실패합니다.
 
+자세한 내용은 [참조 리소스](./compare-template-syntax.md#reference-resources) 및 [JSON 템플릿 참조 함수](../templates/template-functions-resource.md#reference)를 참조하세요.
 
 ## <a name="resourceid"></a>resourceId
 

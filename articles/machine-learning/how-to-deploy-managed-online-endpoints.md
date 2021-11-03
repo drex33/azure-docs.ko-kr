@@ -1,26 +1,26 @@
 ---
-title: 관리형 온라인 엔드포인트를 사용하여 ML 모델 배포(미리 보기)
+title: 온라인 엔드포인트를 사용하여 ML 모델 배포(미리 보기)
 titleSuffix: Azure Machine Learning
-description: 기계 학습 모델을 Azure에서 자동으로 관리하는 웹 서비스로 배포하는 방법을 알아봅니다.
+description: Azure에 있는 웹 서비스로 기계 학습 모델을 배포하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
-ms.date: 08/05/2021
+ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: how-to, devplatv2
-ms.openlocfilehash: 882f0d8d140d7394e82aa23bf9a5b72b477940e5
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.custom: how-to, devplatv2, ignite-fall-2021
+ms.openlocfilehash: c086523feb73ee6571776b825420c4375ae48da9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129423617"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131088144"
 ---
-# <a name="deploy-and-score-a-machine-learning-model-by-using-a-managed-online-endpoint-preview"></a>관리형 온라인 엔드포인트(미리 보기)를 사용하여 기계 학습 모델 배포 및 채점
+# <a name="deploy-and-score-a-machine-learning-model-by-using-an-online-endpoint-preview"></a>온라인 엔드포인트를 사용하여 기계 학습 모델 배포 및 점수 매기기(미리 보기)
 
-관리형 온라인 엔드포인트(미리 보기)를 사용하여 기본 인프라를 만들고 관리할 필요가 없도록 모델을 배포하는 방법을 알아봅니다. 먼저 로컬 머신에 모델을 배포하여 오류를 디버그한 다음, Azure에서 배포하고 테스트합니다. 
+기본 인프라를 만들고 관리할 필요가 없도록 온라인 엔드포인트(미리 보기)를 사용하여 모델을 배포하는 방법을 알아봅니다. 먼저 로컬 머신에 모델을 배포하여 오류를 디버그한 다음, Azure에서 배포하고 테스트합니다.
 
 로그를 보고 SLA(서비스 수준 약정)를 모니터링하는 방법도 알아봅니다. 모델로 시작하여 온라인/실시간 채점에 사용할 수 있는 확장 가능한 HTTPS/REST 엔드포인트로 끝납니다. 
 
@@ -116,11 +116,11 @@ set ENDPOINT_NAME=YOUR_ENDPOINT_NAME
 YAML 스키마에 대한 자세한 내용은 [온라인 엔드포인트 YAML 참조](reference-yaml-endpoint-managed-online.md)를 참조하세요.
 
 > [!NOTE]
-> AKS(Azure Kubernetes Service)를 관리형 엔드포인트 대신 컴퓨팅 대상으로 사용하려면 다음을 수행합니다.
-> 1. [Azure ML 스튜디오](how-to-create-attach-compute-studio.md#whats-a-compute-target)를 사용하여 AKS 클러스터를 만들고 Azure Machine Learning 작업 영역에 컴퓨팅 대상으로 연결합니다.
-> 1. 관리형 엔드포인트 YAML 대신 이 [엔드포인트 YAML](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/aks/simple-flow/1-create-aks-endpoint-with-blue.yml)을 대상 AKS에 사용합니다. `target`의 값을 등록된 컴퓨팅 대상의 이름으로 변경하려면 YAML을 편집해야 합니다.
+> 관리형 엔드포인트 대신 Kubernetes를 컴퓨팅 대상으로 사용하려면 다음을 수행합니다.
+> 1. Azure Machine Learning Studio 를 사용하여 Kubernetes 클러스터를 컴퓨팅 대상으로 만들고 [Azure Machine Learning](how-to-attach-arc-kubernetes.md?&tabs=studio#attach-arc-cluster)작업 영역에 연결합니다.
+> 1. [엔드포인트 YAML을](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/aks/simple-flow/1-create-aks-endpoint-with-blue.yml) 사용하여 관리형 엔드포인트 YAML 대신 Kubernetes를 대상으로 지정합니다. `target`의 값을 등록된 컴퓨팅 대상의 이름으로 변경하려면 YAML을 편집해야 합니다.
 >
-> 이 문서에서 사용되는 모든 명령(선택 사항인 SLA 모니터링 및 Azure Log Analytics 통합 제외)은 관리되는 엔드포인트 또는 AKS 엔드포인트와 함께 사용할 수 있습니다.
+> 이 문서에서 사용되는 모든 명령(선택적 SLA 모니터링 및 Azure Log Analytics 통합 제외)은 관리형 엔드포인트 또는 Kubernetes 엔드포인트에서 사용할 수 있습니다.
 
 ### <a name="register-your-model-and-environment-separately"></a>모델 및 환경을 별도로 등록
 
@@ -141,7 +141,7 @@ YAML 스키마에 대한 자세한 내용은 [온라인 엔드포인트 YAML 참
 ## <a name="understand-the-scoring-script"></a>채점 스크립트 이해
 
 > [!TIP]
-> 관리형 온라인 엔드포인트의 채점 스크립트 형식은 이전 버전의 CLI 및 Python SDK에서 사용된 것과 동일한 형식입니다.
+> 온라인 엔드포인트에 대한 점수 매기기 스크립트의 형식은 이전 버전의 CLI 및 Python SDK에서 사용된 것과 동일한 형식입니다.
 
 앞서 언급했듯이 `code_configuration.scoring_script`에는 `init()` 함수와 `run()` 함수가 있어야 합니다. 이 예제에서는 이 [score.py 파일](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/model-1/onlinescoring/score.py)을 사용합니다. 컨테이너가 초기화/시작되면 `init()` 함수가 호출됩니다. 초기화는 일반적으로 배포를 만들거나 업데이트한 직후에 발생합니다. 이 예제에서와 같이 메모리에 모델을 캐시하는 것과 같은 글로벌 초기화 작업을 수행하는 논리를 여기에 작성합니다. `run()` 함수는 엔드포인트를 호출할 때마다 호출되며, 실제 채점/예측을 수행해야 합니다. 이 예제에서는 JSON 입력에서 데이터를 추출하고, scikit-learn 모델의 `predict()` 메서드를 호출하고, 결과를 반환합니다.
 
@@ -212,7 +212,7 @@ YAML 구성을 클라우드에 배포하려면 다음 코드를 실행합니다.
 > [!TIP]
 > * CLI 콘솔을 차단하지 않으려는 경우 명령에 `--no-wait` 플래그를 추가할 수 있습니다. 그러나 이렇게 하면 배포 상태의 대화형 표시가 중지됩니다.
 >
-> * [관리형 온라인 엔드포인트 배포 문제 해결(미리 보기)](how-to-troubleshoot-managed-online-endpoints.md)을 사용하여 오류를 디버그합니다.
+> * [관리형 온라인 엔드포인트 배포 문제 해결(미리 보기)](./how-to-troubleshoot-online-endpoints.md)을 사용하여 오류를 디버그합니다.
 
 ### <a name="check-the-status-of-the-deployment"></a>배포 상태 확인
 
@@ -335,4 +335,4 @@ SLA에 따라 메트릭을 보고 알림을 설정하려면 [관리형 온라인
 - [일괄 처리 채점에 일괄 처리 엔드포인트(미리 보기) 사용](how-to-use-batch-endpoint.md)
 - [Azure Machine Learning 관리형 온라인 엔드포인트(미리 보기)에 대한 비용 보기](how-to-view-online-endpoints-costs.md)
 - [자습서: 관리형 온라인 엔드포인트 및 시스템 관리 ID를 사용하여 Azure 리소스에 액세스(미리 보기)](tutorial-deploy-managed-endpoints-using-system-managed-identity.md)
-- [관리형 온라인 엔드포인트 배포 문제 해결](how-to-troubleshoot-managed-online-endpoints.md)
+- [관리형 온라인 엔드포인트 배포 문제 해결](./how-to-troubleshoot-online-endpoints.md)

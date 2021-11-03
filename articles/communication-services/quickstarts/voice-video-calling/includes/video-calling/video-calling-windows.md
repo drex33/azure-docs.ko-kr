@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 91ed308ecbeeb839dfddb78c0151e2c8aafd0d3b
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: e90438e0987f26aa57264825cd2b2bae24f1c12e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123122512"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131253595"
 ---
 이 빠른 시작에서는 Windows용 Azure Communication Services Calling SDK를 사용하여 1:1 화상 통화를 시작하는 방법에 대해 알아봅니다.
 
@@ -35,7 +35,7 @@ Visual Studio에서 **비어 있는 앱(유니버설 Windows)** 템플릿을 사
 인터넷에 대한 인바운드 및 아웃바운드 액세스 권한을 얻으려면 `Internet (Client & Server)`을 선택합니다. 마이크의 오디오 피드에 액세스하려면 `Microphone`을 선택합니다. 디바이스의 카메라에 액세스하려면 `WebCam`을 선택합니다. 
 
 마우스 오른쪽 단추를 클릭하고 코드 보기를 선택하여 `Package.appxmanifest`에 다음 코드를 추가합니다. 
-```XML
+```xml
 <Extensions>
 <Extension Category="windows.activatableClass.inProcessServer">
 <InProcessServer>

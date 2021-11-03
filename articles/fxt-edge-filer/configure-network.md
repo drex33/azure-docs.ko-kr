@@ -1,17 +1,17 @@
 ---
 title: '자습서: Azure FXT Edge Filer 클러스터에서 네트워크 구성'
 description: Azure FXT Edge Filer 클러스터를 만든 후 네트워크 설정을 사용자 지정하는 방법
-author: ekpgh
-ms.author: v-erkel
+author: femila
+ms.author: femila
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 10/07/2021
-ms.openlocfilehash: c723214962e67ef04f9cf7659f63d29af87a4732
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 2af1e6308cd572115c43d3dfd27b25499ae590ed
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129670058"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131086040"
 ---
 # <a name="tutorial-configure-the-clusters-network-settings"></a>자습서: 클러스터의 네트워크 설정 구성
 

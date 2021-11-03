@@ -1,15 +1,15 @@
 ---
-title: NULL 및 0 값을 사용 하 여 메트릭 내보내기 동작
-description: 메트릭을 내보낼 때 NULL 값과 0 값을 설명 하 고 내보낼 수 없는 메트릭의 목록에 대 한 포인터를 설명 합니다.
+title: NULL 및 0 값을 사용하여 메트릭 내보내기 동작
+description: 메트릭을 내보낼 때 NULL 값과 0 값에 대한 설명 및 내보낼 수 없는 메트릭 목록에 대한 포인터입니다.
 services: azure-monitor
 ms.topic: reference
 ms.date: 07/22/2020
-ms.openlocfilehash: 47b98fe46ac1f2a3e2f3f1a8078ad9ca6f867554
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 53c5aad7061afb0479e9678a188fe99779893fef
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102048848"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131017885"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>진단 설정을 통해 내보낼 수 있는 Azure Monitor 플랫폼 메트릭
 
@@ -17,30 +17,30 @@ Azure Monitor는 기본적으로 구성 없이 [플랫폼 메트릭](../essentia
 
 ## <a name="metrics-not-exportable-via-diagnostic-settings"></a>진단 설정을 통해 내보낼 수 없는 메트릭
 
-이 위치에 있는 것으로 사용 된 콘텐츠가 [지원 되는 Azure Monitor 메트릭 목록](./metrics-supported.md#exporting-platform-metrics-to-other-locations)으로 이동 되었습니다.
+"exportable?"을 참조하세요. [지원되는 Azure Monitor 메트릭 목록의 열입니다.](./metrics-supported.md#exporting-platform-metrics-to-other-locations)
 
-진단 설정을 통해 메트릭을 내보내는 경우에는 제한 사항이 있습니다. 모든 메트릭은 REST API를 사용 하 여 내보낼 수 있습니다. 
+진단 설정을 통해 메트릭을 내보낼 때는 제한이 있습니다. 그러나 모든 메트릭은 REST API 사용하여 내보낼 수 있습니다.
 
-## <a name="exported-zero-vs-null-values"></a>0 및 NULL 값을 내보냈습니다. 
+## <a name="exported-zero-vs-null-values"></a>내보낸 0과 NULL 값
 
-0 또는 NULL 값을 처리할 때 메트릭은 다른 동작을 포함 합니다.  일부 메트릭은 http 오류에 대 한 메트릭과 같이 데이터를 얻지 못하는 경우 0을 보고 합니다. 다른 메트릭은 리소스가 오프 라인 상태임을 나타낼 수 있기 때문에 데이터를 가져올 수 없는 경우 Null을 저장 합니다. 이러한 메트릭을 차트에서 [파선](metrics-troubleshoot.md#chart-shows-dashed-line)으로 표시 되는 NULL 값으로 차트를 작성 하는 경우의 차이를 확인할 수 있습니다. 
+메트릭은 0 또는 NULL 값을 처리할 때 다른 동작을 갖습니다.  일부 메트릭은 데이터를 가져오지 못한 경우(예: http 오류에 대한 메트릭) 0을 보고합니다. 다른 메트릭은 리소스가 오프라인임을 나타낼 수 있으므로 데이터를 가져오지 않을 때 NUL을 저장합니다. NULL 값이 [파선으로](metrics-troubleshoot.md#chart-shows-dashed-line)표시되는 이러한 메트릭을 차트로 표시할 때 차이를 확인할 수 있습니다. 
 
-플랫폼 메트릭은 진단 설정을 통해 내보낼 수 있는 경우 메트릭의 동작과 일치 합니다. 즉, 리소스가 데이터를 보내지 않는 경우 Null을 내보냅니다.  ' 0 '은 기본 리소스에 의해 실제로 내보내지는 경우에만 내보냅니다. 
+진단 설정을 통해 플랫폼 메트릭을 내보낼 수 있는 경우 메트릭의 동작과 일치합니다. 즉, 리소스에서 데이터를 보내지 않을 때 NUL을 내보냅니다.  기본 리소스에서 실제로 내보낸 경우에만 '0'을 내보냅니다. 
 
-리소스 그룹 또는 특정 리소스를 삭제 하는 경우 영향을 받는 리소스의 메트릭 데이터가 더 이상 진단 설정 내보내기 대상에 전송 되지 않습니다. 즉, Event Hubs, Azure Storage 계정 및 Log Analytics 작업 영역에 더 이상 표시 되지 않습니다.
+리소스 그룹 또는 특정 리소스를 삭제하면 영향을 받는 리소스의 메트릭 데이터가 더 이상 진단 설정 내보내기 대상으로 전송되지 않습니다. 즉, 더 이상 Event Hubs, Azure Storage 계정 및 Log Analytics 작업 영역에 표시되지 않습니다.
 
-### <a name="metrics-that-used-to-export-zero-for-null"></a>NULL에 대해 0을 내보내는 데 사용 되는 메트릭
+### <a name="metrics-that-used-to-export-zero-for-null"></a>NULL에 대해 0을 내보내는 데 사용된 메트릭
 
-2020 년 6 월 1 일 이전에는 데이터가 없을 때 아래 메트릭이 ' 0 '을 내보내는 **데 사용** 되었습니다. 이러한 0은 Log Analytics 및 Azure storage와 같은 다운스트림 시스템으로 내보낼 수 있습니다.  이 동작으로 인해 실제 ' 0 s ' (리소스에 의해 내보내지는)와 해석 된 ' 0 s ' (Null) 사이에서 혼란이 발생 하므로 이전 섹션에서 설명한 대로 기본 메트릭의 동작과 일치 하도록 동작이 변경 되었습니다. 
+2020년 6월 1일 이전에는 데이터가 없을 때 아래 메트릭을 **사용하여** '0'을 내보났습니다. 그런 다음 이러한 0을 Log Analytics 및 Azure Storage와 같은 다운스트림 시스템으로 내보낼 수 있습니다.  이 동작은 실제 '0s'(리소스에서 내보내기)와 해석된 '0s'(NUL)를 혼동하여 이전 섹션에서 설명한 대로 기본 메트릭의 동작과 일치하도록 변경되었습니다. 
 
-모든 공용 및 사설 클라우드에서 변경이 발생 했습니다.
+모든 퍼블릭 및 프라이빗 클라우드에서 변경이 발생했습니다.
 
-변경 내용은 다음 환경의 동작에 영향을 주지 않습니다. 
-   - 진단 설정을 통해 내보낸 플랫폼 리소스 로그
+이 변경은 다음 환경의 동작에 영향을 주지 않았습니다. 
+   - 진단 설정 통해 내보낸 플랫폼 리소스 로그
    - 메트릭 탐색기의 메트릭 차트 작성
    - 플랫폼 메트릭에 대한 경고
  
-다음은 동작을 변경한 메트릭의 목록입니다. 
+다음은 동작이 변경된 메트릭 목록입니다. 
 
 | ResourceType                    | 메트릭               |  MetricDisplayName  | 
 |---------------------------------|----------------------|---------------------|
@@ -532,9 +532,9 @@ Azure Monitor는 기본적으로 구성 없이 [플랫폼 메트릭](../essentia
 | Microsoft.Sql/servers/databases | wlg_active_queries | 작업 그룹 활성 쿼리 | 
 | Microsoft.Sql/servers/databases | wlg_queued_queries | 작업 그룹 큐에 대기 중인 쿼리 | 
 | Microsoft.Sql/servers/databases | active_queries | 활성 쿼리 | 
-| Microsoft.Sql/servers/databases | queued_queries | 대기 중인 쿼리 | 
+| Microsoft.Sql/servers/databases | queued_queries | 큐에 대기 중인 쿼리 | 
 | Microsoft.Sql/servers/databases | wlg_active_queries_timeouts | 작업 그룹 쿼리 시간 제한 | 
-| Microsoft.Sql/servers/databases | wlg_queued_queries_timeouts | 작업 그룹 큐에 대기 중인 쿼리 시간 초과 | 
+| Microsoft.Sql/servers/databases | wlg_queued_queries_timeouts | 작업 그룹 대기 쿼리 시간 제한 | 
 | Microsoft.Sql/servers/databases | wlg_effective_min_resource_percent | 유효 최소 리소스 비율 | 
 | Microsoft.Sql/servers/databases | wlg_effective_cap_resource_percent | 유효 상한 리소스 비율 | 
 | Microsoft.Sql/servers/elasticPools | cpu_percent | CPU 비율 | 

@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/21/2020
-ms.openlocfilehash: f63b0b523184917097c73c852a7624b366fbbb24
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 36b3c29872c73122a0dc7913499f8a5a10df94e7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100595217"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131065174"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 모니터링
 서버에 대한 데이터를 모니터링하면 워크로드에 대한 문제를 해결하고 최적화할 수 있습니다. Azure Database for MariaDB는 서버의 동작에 대한 인사이트를 제공하는 다양한 메트릭을 제공합니다.
@@ -38,10 +38,10 @@ Azure Database for MariaDB에서는 다음 메트릭을 사용할 수 있습니�
 |storage_limit|스토리지 제한|바이트|이 서버의 최대 스토리지|
 |active_connections|활성 연결 수|개수|서버에 대한 활성 연결 수|
 |connections_failed|실패한 연결|개수|서버에 대해 실패한 연결 수|
-|seconds_behind_master|복제 지연 시간(초)|개수|복제본 서버가 원본 서버보다 지연되는 시간(초)입니다. (기본 계층 서버에는 적용되지 않음)|
+|seconds_behind_master|복제 지연 시간(초)|개수|원본 서버에 대해 복제본 서버가 지연되는 시간(초)입니다. (기본 계층 서버에는 적용되지 않음)|
 |network_bytes_egress|네트워크 아웃|바이트|활성 연결을 통한 네트워크 출력의 크기입니다.|
 |network_bytes_ingress|네트워크 인|바이트|활성 연결을 통한 네트워크 입력의 크기입니다.|
-|backup_storage_used|사용된 백업 스토리지|바이트|사용된 백업 스토리지 양. 이 메트릭은 서버에 설정된 백업 보존 기간에 따라 보존된 모든 전체 데이터베이스 백업, 차등 백업, 로그 백업에 사용된 스토리지의 합계를 나타냅니다. 백업 빈도는 서비스로 관리되며 [개념 문서](concepts-backup.md)에 설명되어 있습니다. 지역 중복 스토리지의 경우 백업 스토리지 사용량은 로컬 중복 스토리지의 두 배입니다.|
+|backup_storage_used|사용된 백업 스토리지|바이트|사용된 백업 스토리지 양. 이 메트릭은 서버에 설정된 백업 보존 기간에 따라 보존된 모든 전체 데이터베이스 백업, 차등 백업, 로그 백업에 사용된 스토리지의 합계를 나타냅니다. 백업 빈도는 서비스로 관리되며 [개념 문서](concepts-backup.md)에 설명되어 있습니다. 지리적 중복 스토리지의 경우 백업 스토리지 사용량은 로컬 중복 스토리지의 두 배입니다.|
 
 ## <a name="server-logs"></a>서버 로그
 
@@ -54,10 +54,6 @@ Azure Database for MariaDB에서는 다음 메트릭을 사용할 수 있습니�
 ## <a name="query-performance-insight"></a>쿼리
 
 [Query Performance Insight](concepts-query-performance-insight.md)는 쿼리 저장소와 함께 작동하여 Azure Portal에서 액세스할 수 있는 시각화를 제공합니다. 이러한 차트를 사용하면 성능에 영향을 주는 주요 쿼리를 식별할 수 있습니다. Query Performance Insight는 Azure Database for MariaDB 서버 포털 페이지의 **인텔리전트 성능** 섹션에서 액세스할 수 있습니다.
-
-## <a name="performance-recommendations"></a>성능 권장 사항
-
-[성능 권장 사항](concepts-performance-recommendations.md) 기능은 워크로드 성능을 향상시킬 수 있는 기회를 식별합니다. 성능 권장 사항에서는 워크로드 성능을 향상시킬 수 있는 새 인덱스를 만드는 방법에 대한 권장 사항을 제공합니다. 이 기능은 인덱스 권장 사항을 생성하기 위해 쿼리 저장소에서 보고한 스키마와 워크로드를 포함하여 다양한 데이터베이스 특성을 고려하고 있습니다. 성능 권장 사항이 구현되면 고객이 성능을 테스트하여 변경에 따른 영향을 평가해야 합니다.
 
 ## <a name="planned-maintenance-notification"></a>계획된 유지 관리 알림
 

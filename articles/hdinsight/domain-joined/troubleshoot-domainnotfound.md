@@ -4,12 +4,12 @@ description: Azure HDInsight 클러스터와 상호 작용할 때 문제에 대�
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/23/2020
-ms.openlocfilehash: 0f5734197c0c00bb43584215f8eb26ad85e823c0
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: 953feca9542d73776aee749eff416ba3f2e04921
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112284188"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079969"
 ---
 # <a name="scenario-cluster-creation-fails-with-domainnotfound-error-in-azure-hdinsight"></a>시나리오: Azure HDInsight DomainNotFound 오류로 클러스터 만들기 실패
 
@@ -37,7 +37,7 @@ Enterprise Security Package(HDI Secure) 클러스터 만들기가 `DomainNotFoun
 
 * 동일한 서브넷에 Windows VM 배포, 사용자 이름 및 암호를 사용하여 컴퓨터에 도메인 가입(제어판 UI를 통해 수행할 수 있음) 또는
 
-* 동일한 서브넷에 ubuntu VM 배포 및 컴퓨터에 도메인 가입
+* 동일한 서브넷에 Ubuntu VM 배포 및 머신에 도메인 가입
   * SSH를 컴퓨터에 실행
   * sudo su
   * 사용자 이름 및 암호로 스크립트 실행

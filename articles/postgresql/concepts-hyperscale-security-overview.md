@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 10/15/2021
-ms.openlocfilehash: eedad96af5baa6fe588788247c4f8a3a44bee0a0
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: dd3d359143185eb4d33ddce6396b7c69288fe841
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130075857"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084334"
 ---
 # <a name="security-in-azure-database-for-postgresql--hyperscale-citus"></a>Azure Database for PostgreSQL 보안 – 하이퍼스케일(Citus)
 
@@ -40,6 +40,6 @@ ms.locfileid: "130075857"
 ## <a name="next-steps"></a>다음 단계
 
 * [프라이빗 액세스를 사용하도록 설정하고 관리하는](howto-hyperscale-private-access.md) 방법 알아보기(미리 보기)
-* 프라이빗 [엔드포인트에](/azure/private-link/private-endpoint-overview) 대해 알아보기
-* 가상 [네트워크에](/azure/virtual-network/concepts-and-best-practices) 대해 알아보기
-* 프라이빗 DNS 영역에 대해 [알아보기](/azure/dns/private-dns-overview)
+* [프라이빗 엔드포인트](../private-link/private-endpoint-overview.md)에 대해 알아보기
+* [가상 네트워크](../virtual-network/concepts-and-best-practices.md)에 대해 알아보기
+* [프라이빗 DNS 영역](../dns/private-dns-overview.md)에 대해 알아보기

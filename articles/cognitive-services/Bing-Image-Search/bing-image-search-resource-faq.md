@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 4e62aa434efade2cb1fa3d82265eb44d523dd869
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: 560a93439618c320990484e89da0adc9d04206e7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773362"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131082412"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Bing Image Search API에 관한 FAQ(질문과 대답)
 
@@ -30,7 +30,7 @@ Azure에서 Azure Cognitive Services용 Bing Image Search API와 관련된 개�
 
 Bing Image Search API의 응답에 다음 헤더가 발생할 수 있습니다.
 
-| attribute           | Description   |
+| attribute           | 설명   |
 | ------------------- | ------------- |
 | `X-MSEdge-ClientID` |Bing에서 사용자에게 할당한 고유한 ID |
 | `BingAPIs-Market`   |요청을 이행하는 데 사용된 지역/국가 |
@@ -69,7 +69,7 @@ cors-proxy-server
 
 ## <a name="next-steps"></a>다음 단계
 
-없는 기능 또는 특징에 대해 질문이 있으면 [피드백 도구](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749)를 사용하여 요청하거나 투표하는 것이 좋습니다.
+없는 기능 또는 특징에 대해 질문이 있으면 [피드백 도구](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858)를 사용하여 요청하거나 투표하는 것이 좋습니다.
 
 ## <a name="see-also"></a>참고 항목
 

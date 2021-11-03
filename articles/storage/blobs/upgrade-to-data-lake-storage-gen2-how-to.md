@@ -6,12 +6,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 10/12/2021
 ms.author: normesta
-ms.openlocfilehash: 3f6b82e447fec4ce4e1c2e9b1f700f9b976d6a3d
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: ecf0988069bf023225354b4ad864537737999094
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129994394"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008711"
 ---
 #  <a name="upgrade-azure-blob-storage-with-azure-data-lake-storage-gen2-capabilities"></a>Azure Data Lake Storage Gen2 기능을 통해 Azure Blob Storage 업그레이드
 
@@ -26,7 +26,7 @@ ms.locfileid: "129994394"
 
 Data Lake Storage Gen2 사용 계정에서 아직 지원되지 않는 기능을 사용하도록 계정을 구성할 수 있습니다. 계정이 아직 지원되지 않는 기능을 사용하는 경우 업그레이드가 유효성 검사 단계를 통과하지 못합니다. 
 
-Azure Storage [계정의 Blob Storage 기능 지원을](storage-feature-support-in-storage-accounts.md) 검토하여 지원되지 않는 기능을 식별합니다. 계정에서 지원되지 않는 기능을 사용하는 경우 업그레이드를 시작하기 전에 사용하지 않도록 설정해야 합니다.
+지원되지 않는 기능을 식별하려면 Azure Storage 계정 문서에서 [Blob Storage](storage-feature-support-in-storage-accounts.md) 기능 지원을 검토합니다. 계정에서 지원되지 않는 기능을 사용하는 경우 업그레이드를 시작하기 전에 사용하지 않도록 설정해야 합니다.
 
 ## <a name="perform-the-upgrade"></a>업그레이드 수행
 
@@ -80,7 +80,7 @@ Azure Storage [계정의 Blob Storage 기능 지원을](storage-feature-support-
 7. 계정의 유효성을 성공적으로 검사한 후 **3단계: 계정 업그레이드** 섹션을 확장한 다음 **업그레이드 시작을** 클릭합니다.
 
    > [!IMPORTANT]
-   > 계정을 업그레이드하는 동안 쓰기 작업이 비활성화됩니다. 읽기 작업은 사용하지 않도록 설정되지 않지만 업그레이드 프로세스가 불안정해질 수 있으므로 읽기 작업을 일시 중단하는 것이 좋습니다.
+   > 계정이 업그레이드되는 동안에는 쓰기 작업을 사용할 수 없습니다. 읽기 작업은 사용하지 않도록 설정되지 않지만 업그레이드 프로세스가 불안정해질 수 있으므로 읽기 작업을 일시 중단하는 것이 좋습니다.
 
    마이그레이션이 성공적으로 완료되면 다음과 유사한 메시지가 나타납니다. 
 
@@ -162,7 +162,7 @@ Azure Storage [계정의 Blob Storage 기능 지원을](storage-feature-support-
    위의 유효성 검사 예제와 마찬가지로 이 예제에서는 스위치를 사용하여 `asJob` 백그라운드 작업에서 명령을 실행합니다. `Force`스위치는 업그레이드를 확인하는 프롬프트를 재정의합니다.  스위치를 사용하지 않는 경우 `AsJob` `Force` 프롬프트에 응답할 수 있으므로 스위치를 사용할 필요가 없습니다.
 
    > [!IMPORTANT]
-   > 계정을 업그레이드하는 동안 쓰기 작업이 비활성화됩니다. 읽기 작업은 사용하지 않도록 설정되지 않지만 업그레이드 프로세스가 불안정해질 수 있으므로 읽기 작업을 일시 중단하는 것이 좋습니다.
+   > 계정이 업그레이드되는 동안에는 쓰기 작업을 사용할 수 없습니다. 읽기 작업은 사용하지 않도록 설정되지 않지만 업그레이드 프로세스가 불안정해질 수 있으므로 읽기 작업을 일시 중단하는 것이 좋습니다.
 
    작업의 상태를 확인하려면 이전 단계에서 설명한 것과 동일한 기술을 사용합니다. 프로세스가 실행되면 **State** 속성이 **실행** 중으로 설정됩니다.
 
@@ -231,7 +231,7 @@ Azure Storage [계정의 Blob Storage 기능 지원을](storage-feature-support-
    ```
 
    > [!IMPORTANT]
-   > 계정을 업그레이드하는 동안 쓰기 작업이 비활성화됩니다. 읽기 작업은 사용하지 않도록 설정되지 않지만 업그레이드 프로세스가 불안정해질 수 있으므로 읽기 작업을 일시 중단하는 것이 좋습니다.
+   > 계정이 업그레이드되는 동안에는 쓰기 작업을 사용할 수 없습니다. 읽기 작업은 사용하지 않도록 설정되지 않지만 업그레이드 프로세스가 불안정해질 수 있으므로 읽기 작업을 일시 중단하는 것이 좋습니다.
 
    마이그레이션이 성공하면 프로세스가 완료되고 오류가 나타나지 않습니다.
 
@@ -269,7 +269,7 @@ az storage account hns-migration stop -n <storage-account-name> -g <resource-gro
 
 ## <a name="migrate-data-workloads-and-applications"></a>데이터, 워크 로드 및 응용 프로그램 마이그레이션 
 
-1. **Blob service** 끝점 또는 **Data Lake 저장소** 끝점을 가리키도록 [작업에서 서비스](data-lake-storage-integrate-with-azure-services.md) 를 구성 합니다.
+1. **Blob service** 끝점 또는 **Data Lake 저장소** 끝점을 가리키도록 [작업에서 서비스](./data-lake-storage-supported-azure-services.md) 를 구성 합니다.
 
    > [!div class="mx-imgBorder"]
    > ![계정 끝점](./media/upgrade-to-data-lake-storage-gen2-how-to/storage-endpoints.png)
@@ -285,6 +285,6 @@ az storage account hns-migration stop -n <storage-account-name> -g <resource-gro
    Blob Api를 사용 하는 경우에도 대부분의 스크립트는 수정 하지 않아도 작동 합니다. 그러나 필요한 경우 Data Lake Storage Gen2 [PowerShell cmdlet](data-lake-storage-directory-file-acl-powershell.md)및 [Azure CLI 명령을](data-lake-storage-directory-file-acl-cli.md)사용 하도록 스크립트 파일을 업그레이드할 수 있습니다.
  
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [Azure Data Lake storage Gen2 소개](data-lake-storage-introduction.md)

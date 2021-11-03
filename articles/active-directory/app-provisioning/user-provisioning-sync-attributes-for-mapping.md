@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 08/24/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 12e4423b0b48b2c5abb6f289c7fcf783c40a4d59
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 207936bd4b8fe29cfa15cd284b8ebba1e6a12164
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129990580"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057536"
 ---
 # <a name="syncing-extension-attributes-for-azure-active-directory-application-provisioning"></a>Azure Active Directory 애플리케이션 프로비저닝을 위한 확장 특성 동기화
 
@@ -123,7 +123,7 @@ Get-AzureADUser -ObjectId 0ccf8df6-62f1-4175-9e55-73da9e742690 | Select -ExpandP
    ![Azure Active Directory Connect 마법사 디렉터리 확장 선택 페이지](./media/user-provisioning-sync-attributes-for-mapping/attribute-mapping-extensions.png)
 
 > [!NOTE]
-> **managedby** 또는 **DN/DistinguishedName** 과 같은 온-프레미스 AD에서 참조 특성을 프로비저닝하는 기능은 현재 지원되지 않습니다. [사용자 의견](https://feedback.azure.com/forums/169401-azure-active-directory)에서 이 기능을 요청할 수 있습니다. 
+> **managedby** 또는 **DN/DistinguishedName** 과 같은 온-프레미스 AD에서 참조 특성을 프로비저닝하는 기능은 현재 지원되지 않습니다. [사용자 의견](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)에서 이 기능을 요청할 수 있습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

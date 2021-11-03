@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: spring-cloud
 ms.date: 09/17/2021
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: a65a6ea1fb2070b6a1879521b257c2738930bf3a
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: f3b0aec801598faea2fd741177d34ecdc127a9a8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129373012"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131083387"
 ---
 # <a name="how-to-configure-palo-alto-for-azure-spring-cloud"></a>Azure 스프링 클라우드에 대해 Palo Alto를 구성 하는 방법
 
@@ -20,9 +20,9 @@ ms.locfileid: "129373012"
 
 이 문서에서는 Palo Alto 방화벽과 함께 Azure 스프링 클라우드를 사용 하는 방법을 설명 합니다.
 
-예를 들어 [Azure 스프링 클라우드 참조 아키텍처](/azure/spring-cloud/reference-architecture) 는 응용 프로그램을 보호 하기 위한 azure 방화벽을 포함 합니다. 그러나 현재 배포에 Palo Alto 방화벽이 포함 되어 있는 경우이 문서에 설명 된 대로 Azure 스프링 클라우드 배포에서 Azure 방화벽을 생략 하 고 대신 Palo Alto를 사용할 수 있습니다.
+예를 들어 [Azure 스프링 클라우드 참조 아키텍처](./reference-architecture.md) 는 응용 프로그램을 보호 하기 위한 azure 방화벽을 포함 합니다. 그러나 현재 배포에 Palo Alto 방화벽이 포함 되어 있는 경우이 문서에 설명 된 대로 Azure 스프링 클라우드 배포에서 Azure 방화벽을 생략 하 고 대신 Palo Alto를 사용할 수 있습니다.
 
-규칙 및 주소 와일드 카드와 같은 구성 정보는 Git 리포지토리의 CSV 파일에 보관 해야 합니다. 이 문서에서는 자동화를 사용 하 여 이러한 파일을 Palo Alto에 적용 하는 방법을 보여 줍니다. Palo Alto에 적용 되는 구성을 이해 하려면 [VNET에서 Azure 스프링 클라우드를 실행 하는 고객 책임](/azure/spring-cloud/vnet-customer-responsibilities)을 참조 하세요. 
+규칙 및 주소 와일드 카드와 같은 구성 정보는 Git 리포지토리의 CSV 파일에 보관 해야 합니다. 이 문서에서는 자동화를 사용 하 여 이러한 파일을 Palo Alto에 적용 하는 방법을 보여 줍니다. Palo Alto에 적용 되는 구성을 이해 하려면 [VNET에서 Azure 스프링 클라우드를 실행 하는 고객 책임](./vnet-customer-responsibilities.md)을 참조 하세요. 
 
 > [!Note]
 > REST Api를 사용 하는 방법을 설명 하는이 문서에서는 PowerShell 변수 구문을 사용 하 여 판단에 남은 이름 및 값을 표시 합니다. 모든 단계에서 동일한 값을 사용 해야 합니다.
@@ -31,7 +31,7 @@ ms.locfileid: "129373012"
 >
 > Palo Alto REST Api에 대 한 참조로이 문서를 사용 하면 안 됩니다. 모든 예제는 데모용 으로만 제공 됩니다. 권한 있는 API에 대 한 자세한 내용은 Palo Alto 설명서의 [이동 OS REST API](https://docs.paloaltonetworks.com/pan-os/9-1/pan-os-panorama-api/get-started-with-the-pan-os-rest-api/pan-os-rest-api.html) 를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
 * Palo Alto 배포. 배포가 없는 경우 [Azure Marketplace에서 Palo Alto를](https://ms.portal.azure.com/#create/paloaltonetworks.vmseries-ngfwbundle2)프로 비전 할 수 있습니다.
@@ -53,7 +53,7 @@ ms.locfileid: "129373012"
 
 다음으로, 세 개의 CSV 파일을 만듭니다.
 
-첫 번째 파일의 이름을 *AzureSpringCloudServices.csv* 합니다. 이 파일에는 Azure 스프링 클라우드의 수신 포트가 포함 되어야 합니다. 다음 예의 값은 데모용 으로만 사용 됩니다. 모든 필수 값은 [VNET에서 Azure 스프링 클라우드를 실행 하는 고객 책임](/azure/spring-cloud/vnet-customer-responsibilities)의 [azure 스프링 클라우드 네트워크 요구 사항](/azure/spring-cloud/vnet-customer-responsibilities#azure-spring-cloud-network-requirements) 섹션을 참조 하세요.
+첫 번째 파일의 이름을 *AzureSpringCloudServices.csv* 합니다. 이 파일에는 Azure 스프링 클라우드의 수신 포트가 포함 되어야 합니다. 다음 예의 값은 데모용 으로만 사용 됩니다. 모든 필수 값은 [VNET에서 Azure 스프링 클라우드를 실행 하는 고객 책임](./vnet-customer-responsibilities.md)의 [azure 스프링 클라우드 네트워크 요구 사항](./vnet-customer-responsibilities.md#azure-spring-cloud-network-requirements) 섹션을 참조 하세요.
 
 ```CSV
 name,protocol,port,tag
@@ -64,7 +64,7 @@ ASC_445,tcp,445,AzureSpringCloud
 ASC_123,udp,123,AzureSpringCloud
 ```
 
-두 번째 파일의 이름을 *AzureSpringCloudUrlCategories.csv* 합니다. 이 파일은 Azure 스프링 클라우드에서 수신 하는 데 사용할 수 있는 주소 (와일드 카드 포함)를 포함 해야 합니다. 다음 예의 값은 데모용 으로만 사용 됩니다. 최신 값은 [Azure 스프링 클라우드 FQDN 요구 사항/응용 프로그램 규칙](/azure/spring-cloud/vnet-customer-responsibilities#azure-spring-cloud-fqdn-requirementsapplication-rules)을 참조 하세요.
+두 번째 파일의 이름을 *AzureSpringCloudUrlCategories.csv* 합니다. 이 파일은 Azure 스프링 클라우드에서 수신 하는 데 사용할 수 있는 주소 (와일드 카드 포함)를 포함 해야 합니다. 다음 예의 값은 데모용 으로만 사용 됩니다. 최신 값은 [Azure 스프링 클라우드 FQDN 요구 사항/응용 프로그램 규칙](./vnet-customer-responsibilities.md#azure-spring-cloud-fqdn-requirementsapplication-rules)을 참조 하세요.
 
 ```CSV
 name,description
@@ -82,7 +82,7 @@ crl.microsoft.com,
 crl3.digicert.com
 ```
 
-세 번째 파일의 이름을 *AzureMonitorAddresses.csv* 합니다. 이 파일에는 Azure Monitor를 사용 하는 경우 Azure Monitor를 통한 메트릭 및 모니터링에 사용할 수 있는 모든 주소와 IP 범위가 포함 되어야 합니다. 다음 예의 값은 데모용 으로만 사용 됩니다. 최신 값은 [Azure Monitor에서 사용 하는 IP 주소](/azure/azure-monitor/app/ip-addresses)를 참조 하세요.
+세 번째 파일의 이름을 *AzureMonitorAddresses.csv* 합니다. 이 파일에는 Azure Monitor를 사용 하는 경우 Azure Monitor를 통한 메트릭 및 모니터링에 사용할 수 있는 모든 주소와 IP 범위가 포함 되어야 합니다. 다음 예의 값은 데모용 으로만 사용 됩니다. 최신 값은 [Azure Monitor에서 사용 하는 IP 주소](../azure-monitor/app/ip-addresses.md)를 참조 하세요.
 
 ```CSV
 name,type,address,tag
@@ -429,6 +429,6 @@ az network route-table route create `
 
 ## <a name="next-steps"></a>다음 단계
 
-* [실시간으로 Azure Spring Cloud 앱 로그 스트림](/azure/spring-cloud/how-to-log-streaming)
-* [Azure 스프링 클라우드의 Application Insights Java In-Process 에이전트](/azure/spring-cloud/how-to-application-insights)
-* [Azure Spring Cloud에 대한 애플리케이션 배포 자동화](/azure/spring-cloud/how-to-cicd)
+* [실시간으로 Azure Spring Cloud 앱 로그 스트림](./how-to-log-streaming.md)
+* [Azure 스프링 클라우드의 Application Insights Java In-Process 에이전트](./how-to-application-insights.md)
+* [Azure Spring Cloud에 대한 애플리케이션 배포 자동화](./how-to-cicd.md)

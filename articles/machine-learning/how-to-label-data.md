@@ -1,7 +1,7 @@
 ---
 title: 이미지 및 텍스트 문서에 레이블 지정
 title.suffix: Azure Machine Learning
-description: 데이터 레이블 지정 도구를 사용 하 여 데이터 레이블 지정 프로젝트의 Machine Learning에 대 한 텍스트 또는 레이블 이미지의 레이블을 신속 하 게 지정할 수 있습니다.
+description: 데이터 레이블 지정 도구를 사용하여 데이터 레이블 지정 프로젝트에서 Machine Learning 텍스트 또는 레이블 이미지에 레이블을 빠르게 지정합니다.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
@@ -9,16 +9,16 @@ ms.subservice: mldata
 ms.topic: how-to
 ms.date: 09/24/2021
 ms.custom: data4ml, ignite-fall-2021
-ms.openlocfilehash: ba45fdb5d4dfcf0868cddfc60446feadb2df9650
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 3fae9f8f6e5c0e54d42751456b693a4bc094771c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131457490"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079380"
 ---
 # <a name="labeling-images-and-text-documents"></a>이미지 및 텍스트 문서에 레이블 지정
 
-프로젝트 관리자가 Azure Machine Learning에서 [이미지 데이터 레이블 지정 프로젝트](./how-to-create-image-labeling-projects.md) 또는 [텍스트 데이터 레이블 지정 프로젝트](./how-to-create-text-labeling-projects.md) 를 만든 후에는 레이블 지정 도구를 사용 하 여 Machine Learning 프로젝트에 대 한 데이터를 신속 하 게 준비할 수 있습니다. 이 문서에서는 다음을 설명합니다.
+프로젝트 관리자가 Azure Machine Learning [이미지 데이터 레이블 지정 프로젝트](./how-to-create-image-labeling-projects.md) 또는 텍스트 데이터 레이블 지정 [프로젝트를](./how-to-create-text-labeling-projects.md) 만든 후 레이블 지정 도구를 사용하여 Machine Learning 프로젝트에 대한 데이터를 신속하게 준비할 수 있습니다. 이 문서에서는 다음을 설명합니다.
 
 > [!div class="checklist"]
 > * 레이블 지정 프로젝트에 액세스하는 방법
@@ -54,7 +54,7 @@ ms.locfileid: "131457490"
 
 * 이미지
 
-    * 일부 데이터를 레이블 한 후에는 화면 위쪽에서 프로젝트 이름 옆에 **클러스터 된 작업이** 표시 될 수 있습니다.  즉, 동일한 페이지에 비슷한 이미지를 표시하도록 이미지가 그룹화됩니다.  그렇다면 여러 이미지 뷰 중 하나로 전환하여 그룹화를 활용합니다.  
+    * 일정량의 데이터에 레이블이 지정되고 나면 프로젝트 이름 옆에 화면 맨 위에 **클러스터된 작업이** 표시될 수 있습니다.  즉, 동일한 페이지에 비슷한 이미지를 표시하도록 이미지가 그룹화됩니다.  그렇다면 여러 이미지 뷰 중 하나로 전환하여 그룹화를 활용합니다.  
     
     * 나중에 프로젝트 이름 옆에 **미리 레이블이 지정된 작업** 이 표시될 수 있습니다.  그러면 기계 학습 분류 모델에서 제공하는 제안된 레이블로 항목이 표시됩니다. 어떤 기계 학습 모델도 100% 정확성을 가지고 있지는 않습니다. 모델을 신뢰할 수 있는 데이터만 사용하지만 이러한 데이터는 여전히 잘못된 레이블이 지정될 수 있습니다.  레이블이 표시되면 페이지를 제출하기 전에 잘못된 레이블을 수정합니다.  
     
@@ -64,11 +64,9 @@ ms.locfileid: "131457490"
 
 * 텍스트
     
-    * 특정 시점에 프로젝트 이름 옆에 미리 **레이블이 지정 된 작업이** 표시 될 수 있습니다.  그러면 기계 학습 분류 모델에서 제공하는 제안된 레이블로 항목이 표시됩니다. 어떤 기계 학습 모델도 100% 정확성을 가지고 있지는 않습니다. 모델을 신뢰할 수 있는 데이터만 사용하지만 이러한 데이터는 여전히 잘못된 레이블이 지정될 수 있습니다.  레이블이 표시되면 페이지를 제출하기 전에 잘못된 레이블을 수정합니다.
+    * 어느 시점에서 프로젝트 이름 옆에 **미리 레이블이 지정되어** 있는 작업이 표시될 수 있습니다.  그러면 기계 학습 분류 모델에서 제공하는 제안된 레이블로 항목이 표시됩니다. 어떤 기계 학습 모델도 100% 정확성을 가지고 있지는 않습니다. 모델을 신뢰할 수 있는 데이터만 사용하지만 이러한 데이터는 여전히 잘못된 레이블이 지정될 수 있습니다.  레이블이 표시되면 페이지를 제출하기 전에 잘못된 레이블을 수정합니다.
 
 특히 레이블 지정 프로젝트의 초기에 기계 학습 모델은 이미지의 작은 하위 세트에 레이블을 지정할 정도로만 정확할 수 있습니다. 이러한 이미지가 레이블 지정되면 레이블 지정 프로젝트가 수동 레이블 지정으로 반환되어 다음 라운드 모델 학습에 대한 추가 데이터를 수집합니다. 시간이 지남에 따라 모델은 더 높은 비율의 이미지에 대해 더 확실하게 되므로 나중에 프로젝트에서 더 많은 사전 레이블 작업을 진행합니다.
-
-더 이상 prelabled 작업을 수행 하지 않으면 레이블 확인 또는 수정 작업을 중지 하 고 수동으로 항목에 태그를 지정 하는 것으로 돌아갑니다.
 
 ## <a name="image-tasks"></a><a name="image-tasks"></a> 이미지 작업
 

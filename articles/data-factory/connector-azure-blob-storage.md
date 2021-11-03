@@ -9,12 +9,12 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 09/09/2021
-ms.openlocfilehash: 9de59b4510642ab70540c4217ef074347a34ac89
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f0d8822800ffba5da90f1ffdd68e0d0331963d44
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124764187"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045238"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 Azure Blob Storage에서 데이터 복사 및 변환
 
@@ -252,7 +252,7 @@ Azure Storage 서비스 주체 인증에 대한 일반적인 정보는 [Azure Ac
 
 Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | **type** 속성은 **AzureBlobStorage** 로 설정해야 합니다. | 예 |
 | serviceEndpoint | 패턴이 `https://<accountName>.blob.core.windows.net/`인 Azure Blob Storage 서비스 엔드포인트를 지정합니다. | 예 |
@@ -347,7 +347,7 @@ Azure Storage 인증에 대한 일반적인 정보는 [Azure Active Directory를
     - **원본으로** **액세스 제어(IAM)** 에서 최소한 **Storage Blob 데이터 읽기 권한자** 역할을 부여합니다.
     - **싱크의 경우** **액세스 제어(IAM)** 에서 **Storage Blob 데이터 기여자** 역할 이상을 부여합니다.
      
-2. 하나 이상의 사용자가 할당한 관리 ID를 데이터 팩터리에 할당하고 각 사용자가 할당한 관리 ID에 대한 [자격 증명을 만듭니다](data-factory-service-identity.md#credentials). 
+2. 하나 이상의 사용자가 할당한 관리 ID를 데이터 팩터리에 할당하고 각 사용자가 할당한 관리 ID에 대한 [자격 증명을 만듭니다](credentials.md). 
 
 
 Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같습니다.
@@ -402,7 +402,7 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
 
 형식 기반 데이터 세트의 `location` 설정에서 Azure Blob Storage에 다음 속성이 지원됩니다.
 
-| 속성   | Description                                                  | 필수 |
+| 속성   | 설명                                                  | 필수 |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | 데이터 세트에서 위치의 **type** 속성은 **AzureBlobStorageLocation** 으로 설정해야 합니다. | 예      |
 | container  | Blob 컨테이너입니다.                                          | 예      |
@@ -446,7 +446,7 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
 
 형식 기반 복사 원본의 `storeSettings` 설정의 Azure Blob Storage에 다음 속성이 지원됩니다.
 
-| 속성                 | Description                                                  | 필수                                      |
+| 속성                 | 설명                                                  | 필수                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | `storeSettings` 아래의 **type** 속성은 **AzureBlobStorageReadSettings** 로 설정해야 합니다. | 예                                           |
 | ***복사할 파일 찾기:*** |  |  |
@@ -591,7 +591,7 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
 
 다음 원본 폴더 구조가 있고 굵게 표시된 파일을 복사하려고 한다고 가정합니다.
 
-| 샘플 원본 구조                                      | FileListToCopy.txt의 콘텐츠                             | Configuration 
+| 샘플 원본 구조                                      | FileListToCopy.txt의 콘텐츠                             | 구성 
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
 | container<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;메타데이터<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **데이터 세트:**<br>- 컨테이너: `container`<br>- 폴더 경로: `FolderA`<br><br>**복사 작업 원본:**<br>- 파일 목록 경로: `container/Metadata/FileListToCopy.txt` <br><br>파일 목록 경로는 복사하려는 파일 목록이 포함된 동일한 데이터 저장소의 텍스트 파일을 가리키며, 데이터 세트에 구성된 경로의 상대 경로를 사용하여 한 줄에 하나의 파일을 가리킵니다. |
 
@@ -805,7 +805,7 @@ mazon S3, Azure Blob Storage 또는 Azure Data Lake Storage Gen2의 파일을 Az
 
 ### <a name="legacy-sink-model-for-the-copy-activity"></a>복사 작업을 위한 레거시 싱크 모델
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 `type` 속성을 `BlobSink`로 설정해야 합니다. | 예 |
 | copyBehavior | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 병합되는 파일 이름은 지정된 파일 또는 Blob 이름이 적용됩니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. | 예 |

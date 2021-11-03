@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 10/19/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 374fb9c6ea82b368bbebe6f8c833a4c984a11f29
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: e17d6026f9b655c6a08bc7e91939482d734a911d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130243510"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131070948"
 ---
 # <a name="use-azure-digital-twins-explorer-preview"></a>Azure Digital Twins Explorer 사용(미리 보기)
 
-[Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md)는 Azure Digital Twins를 시각화하고 작업하는 데 사용되는 도구입니다. 이 문서에서는 Azure Digital Twins Explorer의 기능과 이를 사용하여 Azure Digital Twins 인스턴스의 데이터를 관리하는 방법을 설명합니다. 클릭 또는 바로 가기 키를 사용하여 Azure Digital Twins Explorer 상호 작용할 수 [있습니다.](#accessibility-and-advanced-settings)
+[Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md)는 Azure Digital Twins를 시각화하고 작업하는 데 사용되는 도구입니다. 이 문서에서는 Azure Digital Twins Explorer의 기능과 이를 사용하여 Azure Digital Twins 인스턴스의 데이터를 관리하는 방법을 설명합니다. 클릭 또는 [바로 가기 키](#accessibility-and-advanced-settings)를 사용 하 여 Azure Digital Twins 탐색기와 상호 작용할 수 있습니다.
 
 >[!NOTE]
 >이 도구는 현재 **공개 미리 보기** 로 제공됩니다.
@@ -99,15 +99,15 @@ ms.locfileid: "130243510"
 
 #### <a name="view-twin-and-relationship-properties"></a>트윈 및 관계 속성 보기
 
-트윈 또는 관계의 속성 값을 보려면 **트윈 그래프** 에서 트윈 또는 관계를 선택하고 **속성 검사기 설정/해제** 단추를 사용하여 **속성** 패널을 확장합니다. 이 패널에는 해당 값과 함께 요소와 연결된 모든 속성이 표시됩니다. 또한 아직 설정되지 않은 속성에 대한 기본값을 포함합니다.
+쌍 또는 관계의 속성 값을 보려면 쌍 **Graph** 에서 쌍 또는 관계를 선택 하 고 **토글 속성 검사자** 단추를 사용 하 여 각각 쌍 **속성** 또는 **관계 속성** 패널을 확장 합니다. 이 패널에는 해당 값과 함께 요소와 연결된 모든 속성이 표시됩니다. 또한 아직 설정되지 않은 속성에 대한 기본값을 포함합니다.
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png" alt-text="Azure Digital Twins Explorer Twin Graph 패널의 스크린샷. FactoryA 쌍이 선택되고 트윈 속성 패널이 확장되어 트윈의 속성이 표시됩니다." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png" alt-text="Azure Digital twins 탐색기 쌍 Graph 패널의 스크린샷 FactoryA 쌍이 선택 되 고 쌍 속성 패널이 확장 되어 쌍의 속성을 표시 합니다." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png":::
 
-트윈 속성 패널에는 트윈 또는 일부 속성이 더 이상 해당 모델과 일치하지 않는 경우 오류 메시지가 표시됩니다. 트윈에 대한 모델을 찾을 수 없거나 속성이 트윈에서 사용하는 모델 정의의 일부가 아닌 경우 다음과 같은 오류 메시지가 표시될 수 있습니다.
+쌍 또는 해당 속성 중 일부가 해당 모델과 더 이상 일치 하지 않으면 쌍 속성 패널에 오류 메시지가 표시 됩니다. 쌍에 대 한 모델을 찾을 수 없거나 속성이 쌍을 사용 하는 모델 정의의 일부가 아닌 경우 다음과 같은 오류 메시지가 표시 될 수 있습니다.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/properties-errors.png" alt-text="두 개의 오류 메시지를 보여 Azure Digital Twins Explorer 쌍 쌍 속성 패널의 스크린샷. 한 오류는 모델이 누락되었음을 나타내고 다른 오류는 속성에 모델이 누락되었음을 나타냅니다. " lightbox="media/how-to-use-azure-digital-twins-explorer/properties-errors.png":::
+        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/properties-errors.png" alt-text="두 개의 오류 메시지를 표시 하는 Azure Digital Twins 탐색기 쌍 쌍 속성 패널의 스크린샷 한 가지 오류는 모델이 없다는 것을 나타내고, 다른 하나는 속성이 모델을 누락 했음을 나타냅니다. " lightbox="media/how-to-use-azure-digital-twins-explorer/properties-errors.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -125,9 +125,9 @@ ms.locfileid: "130243510"
 
 트윈 그래프 화면에서 트윈을 클릭하여 끌어서 다른 구성으로 다시 정렬할 수 있습니다.
 
-레이아웃 선택 메뉴의 옵션에서 그래프에 여러 **레이아웃** 알고리즘 중 하나를 적용할 수도 있습니다. 
+**레이아웃 선택** 메뉴의 옵션에서 그래프에 여러 레이아웃 알고리즘 중 하나를 적용할 수도 있습니다. 
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-layout.png" alt-text="Azure Digital Twins Explorer Twin Graph 패널의 스크린샷. 레이아웃 선택 단추가 강조 표시되어 있으며, 레이아웃 옵션이 있는 메뉴가 표시되어 있습니다." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-layout.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-layout.png" alt-text="Azure Digital twins 탐색기 쌍 Graph 패널의 스크린샷 레이아웃 선택 단추가 강조 표시 되 고 콜라, Dagre, fCoSE 및 Klay 레이아웃 옵션이 포함 된 메뉴가 표시 됩니다." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-layout.png":::
 
 ### <a name="control-twin-graph-expansion"></a>트윈 그래프 확장 제어
 
@@ -137,15 +137,15 @@ ms.locfileid: "130243510"
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-expansion-level.png" alt-text="Azure Digital Twins Explorer 트윈 그래프 패널의 스크린샷. 확장 수준 단추가 강조 표시됩니다." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-expansion-level.png":::
 
-확장할 때 따라야 할 관계 유형을 나타내려면 **확장 방향** 단추를 사용합니다. 이렇게 하면 들어오는 관계에서만 또는 나가는 관계에서만 선택할 수도 있고, 아니면 들어오고 나가는 관계 모두에서 선택할 수도 있습니다.
+확장할 때 따라야 하는 관계 유형을 나타내려면 **확장 방향** 단추를 사용 합니다. 이렇게 하면 들어오는 관계에서만 또는 나가는 관계에서만 선택할 수도 있고, 아니면 들어오고 나가는 관계 모두에서 선택할 수도 있습니다.
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-expansion-direction.png" alt-text="Azure Digital Twins Explorer Twin Graph 패널의 스크린샷. 확장 방향 단추가 강조 표시되어 In, Out 및 In/Out 옵션이 있는 메뉴를 표시합니다." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-expansion-direction.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-expansion-direction.png" alt-text="Azure Digital twins 탐색기 쌍 Graph 패널의 스크린샷 확장 방향 단추가 강조 표시 되 고 옵션 (In, Out 및 In/Out)이 포함 된 메뉴가 표시 됩니다." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-expansion-direction.png":::
 
 ### <a name="show-and-hide-twin-graph-elements"></a>트윈 그래프 요소 표시 및 숨기기
 
 그래프 보기에서 트윈 또는 관계를 숨기는 옵션을 설정/해제할 수 있습니다. 
 
-트윈 또는 관계를 숨기려면 **트윈 그래프** 창에서 해당 항목을 마우스 오른쪽 단추로 클릭합니다. 그러면 요소 또는 기타 관련 요소를 숨기는 옵션이 있는 메뉴가 표시됩니다.
+트윈 또는 관계를 숨기려면 **트윈 그래프** 창에서 해당 항목을 마우스 오른쪽 단추로 클릭합니다. 그러면 요소 또는 기타 관련 요소를 숨기는 옵션이 포함 된 메뉴가 표시 됩니다.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-hide.png" alt-text="Azure Digital Twins Explorer 트윈 그래프 패널의 스크린샷. FactoryA 트윈이 선택되어 있으며, 선택한 항목 숨기기, 선택한 항목 + 자식 숨기기, 기타 모든 항목 숨기기, 자식이 아닌 항목 숨기기 옵션이 포함된 메뉴가 있습니다." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-hide.png":::
 
@@ -170,7 +170,7 @@ CTRL/CMD 또는 SHIFT 키를 사용하여 그래프에서 동일한 유형의 �
 Azure Digital Twins Explorer는 인스턴스의 [트윈](concepts-twins-graph.md#digital-twins) 및 [관계](concepts-twins-graph.md#relationships-a-graph-of-digital-twins)를 관리하는 여러 가지 방법을 제공합니다.
 
 이 섹션에서는 다음과 같은 관리 작업을 수행하는 방법을 설명합니다.
-* [트윈 및 관계의 플랫 목록 보기](#view-flat-list-of-twins-and-relationships)
+* [쌍 및 관계의 단순 목록 보기](#view-flat-list-of-twins-and-relationships)
 * 초기 속성을 사용하거나 사용하지 않고 [트윈 만들기](#create-twins)
 * 트윈 간에 [관계 만들기](#create-relationships)
 * [트윈 및 관계 편집](#edit-twins-and-relationships)
@@ -178,9 +178,9 @@ Azure Digital Twins Explorer는 인스턴스의 [트윈](concepts-twins-graph.md
 
 트윈 및 관계의 보기 환경에 대한 자세한 내용은 [트윈 및 트윈 그래프 살펴보기](#explore-the-twin-graph)를 참조하세요.
 
-### <a name="view-flat-list-of-twins-and-relationships"></a>트윈 및 관계의 플랫 목록 보기
+### <a name="view-flat-list-of-twins-and-relationships"></a>쌍 및 관계의 단순 목록 보기
 
-**트윈** 패널에는 트윈 및 연결된 관계의 플랫 목록이 표시됩니다. 이름으로 쌍를 검색 하 고이를 확장 하 여 들어오고 나가는 관계에 대 한 세부 정보를 확인할 수 있습니다.
+**쌍** 패널에는 쌍의 단순 목록과 연결 된 관계가 표시 됩니다. 이름으로 쌍를 검색 하 고이를 확장 하 여 들어오고 나가는 관계에 대 한 세부 정보를 확인할 수 있습니다.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twins-panel.png" alt-text="Azure Digital Twins 탐색기 쌍 패널의 스크린샷 쌍이 강조 표시 되 고 해당 관계가 표시 됩니다." lightbox="media/how-to-use-azure-digital-twins-explorer/twins-panel.png":::
 
@@ -204,7 +204,7 @@ Azure Digital Twins Explorer는 인스턴스의 [트윈](concepts-twins-graph.md
 
 두 트윈 간에 관계를 만들려면 **트윈 그래프** 창에서 관계에 대한 원본 트윈을 선택하는 것부터 시작합니다. 다음으로, CTRL/CMD 또는 SHIFT 키를 누른 상태에서 두 번째 트윈을 선택하여 관계의 대상으로 지정합니다.
 
-두 트윈을 동시에 선택한 후에는 트윈 중 하나를 마우스 오른쪽 단추로 클릭합니다. 그러면 두 항목 간의 **관계를 추가** 하는 옵션이 포함된 메뉴가 표시됩니다.
+두 쌍을 동시에 선택한 후에는 대상 쌍을 마우스 오른쪽 단추로 클릭 합니다. 그러면 두 항목 간의 **관계를 추가** 하는 옵션이 포함된 메뉴가 표시됩니다.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-add-relationship.png" alt-text="Azure Digital Twins Explorer 트윈 그래프 패널의 스크린샷. FactoryA 및 Consumer 트윈이 선택되고 메뉴에 관계를 추가하는 옵션이 표시됩니다." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-add-relationship.png":::
 
@@ -212,11 +212,11 @@ Azure Digital Twins Explorer는 인스턴스의 [트윈](concepts-twins-graph.md
 
 ### <a name="edit-twins-and-relationships"></a>트윈 및 관계 편집
 
-트윈 또는 관계의 속성 값을 보려면 **트윈 그래프** 에서 요소를 선택하고 **속성 검사기 설정/해제** 단추를 사용하여 **속성** 패널을 확장합니다.
+쌍 또는 관계의 속성 값을 보려면 쌍 **Graph** 에서 요소를 선택 하 고 **토글 속성 검사자** 단추를 사용 하 여 각각 쌍 **속성** 또는 **관계 속성** 패널을 확장 합니다.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png" alt-text="Azure Digital twins 탐색기 쌍 Graph 패널의 스크린샷 FactoryA 쌍이 선택 되 고 쌍 속성 패널이 확장 되어 쌍의 속성을 표시 합니다." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png":::
 
-이 패널을 사용하여 쓰기 가능한 속성을 직접 편집할 수 있습니다. 값을 인라인으로 업데이트하고 패널 위쪽의 **패치 트윈**(저장) 단추를 클릭하여 변경 내용을 저장합니다. 업데이트를 저장하면 [업데이트 API](/rest/api/azure-digitaltwins/)에서 적용한 JSON 패치 작업을 보여 주는 모달 창이 화면에 표시됩니다.
+이 패널을 사용하여 쓰기 가능한 속성을 직접 편집할 수 있습니다. 값을 인라인으로 업데이트 하 고 패널 위쪽에서 **변경 내용 저장** 단추를 클릭 하 여 저장 합니다. 업데이트를 저장하면 [업데이트 API](/rest/api/azure-digitaltwins/)에서 적용한 JSON 패치 작업을 보여 주는 모달 창이 화면에 표시됩니다.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties-save.png" alt-text="Azure Digital Twins Explorer 트윈 그래프 패널의 스크린샷. 화면 가운데에는 JSON 패치 코드를 표시하는 경로 정보 모달이 표시됩니다." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties-save.png":::
 
@@ -377,11 +377,11 @@ Azure Digital Twins Explorer 화면의 왼쪽에 있는 **모델** 패널을 사
 
 모델 패널을 사용하여 개별 모델 또는 인스턴스의 모든 모델을 한 번에 삭제할 수 있습니다.
 
-단일 모델을 삭제하려면 목록에서 해당 모델을 찾고 모델 이름 옆에 있는 메뉴 점을 선택합니다. 그런 다음, **모델 삭제를** 선택합니다.
+단일 모델을 삭제 하려면 목록에서 해당 모델을 찾고 모델 이름 옆의 메뉴 점을 선택 합니다. 그런 다음 **모델 삭제** 를 선택 합니다.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-one.png" alt-text="Azure Digital Twins Explorer 모델 패널의 스크린샷. 단일 모델에 대한 메뉴 점이 강조 표시되고 모델 삭제 메뉴 옵션도 강조 표시됩니다." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-one.png":::
+        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-one.png" alt-text="Azure Digital Twins 탐색기 모델 패널의 스크린샷 단일 모델에 대 한 메뉴 점이 강조 표시 되 고 모델을 삭제 하는 메뉴 옵션도 강조 표시 됩니다." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-one.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -401,7 +401,7 @@ Azure Digital Twins Explorer 화면의 왼쪽에 있는 **모델** 패널을 사
 
 Azure Digital Twins Explorer를 열면 모델 패널에 사용자 환경에서 사용 가능한 모든 모델이 자동으로 표시됩니다. 
 
-그러나 언제든지 패널을 수동으로 새로 고쳐 Azure Digital Twins 인스턴스의 모든 모델 목록을 다시 로드할 수 있습니다. 이렇게 하려면 **모델 새로 고침** 아이콘을 선택합니다. 
+그러나 언제든지 패널을 수동으로 새로 고쳐 Azure Digital Twins 인스턴스의 모든 모델 목록을 다시 로드할 수 있습니다. 이렇게 하려면 **모델 새로 고침** 아이콘을 선택 합니다. 
 
 :::row:::
     :::column:::
@@ -513,22 +513,22 @@ Azure Digital Twins Explorer 환경을 다른 사람과 공유하여 작업에�
 
 그런 다음, 완료된 URL을 공유할 수 있습니다.
 
-## <a name="accessibility-and-advanced-settings"></a>접근성 및 고급 설정
+## <a name="accessibility-and-advanced-settings"></a>내게 필요한 옵션 및 고급 설정
 
-Azure Digital Twins Explorer 대한 몇 가지 고급 설정을 사용하도록 설정하여 환경을 사용자 지정하거나 더 쉽게 액세스할 수 있도록 할 수 있습니다.
+Azure Digital Twins 탐색기의 여러 고급 설정을 사용 하 여 환경을 사용자 지정 하거나 더 쉽게 액세스할 수 있습니다.
 
-오른쪽 위에 있는 바로 **가기 키** 아이콘을 사용 하 여 Azure Digital Twins 탐색기를 탐색 하는 데 사용할 수 있는 바로 가기 키 목록을 볼 수 있습니다.
+오른쪽 위 도구 모음의 **바로 가기 키** 아이콘을 사용하여 Azure Digital Twins Explorer 탐색하는 데 사용할 수 있는 바로 가기 키 목록을 볼 수 있습니다.
 
- :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/keyboard-shortcuts.png" alt-text="Azure Digital Twins 탐색기의 스크린샷 바로 가기 키 아이콘은 맨 위 도구 모음에 강조 표시 됩니다." lightbox="media/how-to-use-azure-digital-twins-explorer/keyboard-shortcuts.png":::
+ :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/keyboard-shortcuts.png" alt-text="Azure Digital Twins Explorer 스크린샷. 바로 가기 키 아이콘이 위쪽 도구 모음에 강조 표시됩니다." lightbox="media/how-to-use-azure-digital-twins-explorer/keyboard-shortcuts.png":::
 
-오른쪽 위 도구 모음의 설정 코그에서 액세스할 수 있는 몇 가지 고급 기능이 있습니다.
-* **즉시 로드**: 쿼리가 쿼리 결과에 포함 **되지** 않은 다른 쌍에 대 한 관계가 있는 쌍를 반환 하는 경우이 기능은 그래프를 렌더링 하기 전에 "누락 된" 쌍을 로드 합니다.
-* **캐싱**:이 기능을 사용 하도록 설정 하면 Azure Digital Twins 탐색기는 관계 및 모델의 로컬 캐시를 메모리에 보관 하 여 쿼리 성능을 향상 시킵니다. 이러한 캐시는 브라우저 새로 고침뿐만 아니라 관련 요소에 대한 쓰기 작업에서 지워집니다.
-* **콘솔**:이 기능을 사용 하면 그래프 작업에 간단한 셸 함수를 사용할 수 있는 콘솔 창을 표시할 수 있습니다.
-* **출력**:이 기능을 사용 하면 작업의 진단 추적을 보여 주는 출력 창을 표시할 수 있습니다.
-* **고대비**:이 기능은 Azure Digital Twins 탐색기의 색을 변경 하 여 더 높은 대비로 표시 되도록 합니다.
+오른쪽 위 도구 모음의 설정 톱니바구니 아래에서 액세스할 수 있는 몇 가지 고급 기능이 있습니다.
+* **Eager Loading:** 쿼리 결과에 포함되지 **않은** 다른 트윈과 관계가 있는 트윈을 쿼리에서 반환하는 경우 이 기능은 그래프를 렌더링하기 전에 "누락된" 트윈을 로드합니다.
+* **캐싱:** 이 기능을 사용하도록 설정하면 Azure Digital Twins Explorer 관계 및 모델의 로컬 캐시를 메모리에 유지하여 쿼리 성능을 향상시킵니다. 이러한 캐시는 브라우저 새로 고침뿐만 아니라 관련 요소에 대한 쓰기 작업에서 지워집니다.
+* **콘솔:** 이 기능을 사용하면 간단한 셸 함수를 사용하여 그래프 작업을 수행할 수 있는 콘솔 창을 표시할 수 있습니다.
+* **출력:** 이 기능을 사용하면 작업의 진단 추적을 표시하는 출력 창을 표시할 수 있습니다.
+* **고대비:** 이 기능은 더 큰 대비로 표시되도록 Azure Digital Twins Explorer 색을 변경합니다.
 
-Azure Digital twins 탐색기를 구성 하는 패널의 위치를 편집 하 여 **패널 레이아웃을 사용자 지정할** 수 있습니다 (쿼리 탐색기, 쌍, 모델, 쌍 Graph, 모델 Graph). 패널을 다른 위치로 이동하려면 패널 이름을 클릭하고 누른 상태로 원하는 새 위치로 끌어 놓습니다.
+Azure Digital Twins Explorer 구성하는 패널의 위치를 편집하여 **패널 레이아웃을 사용자 지정할** 수 있습니다(쿼리 탐색기, 트윈, 모델, 트윈 Graph, 모델 Graph). 패널을 다른 위치로 이동하려면 패널 이름을 클릭하고 누른 상태로 원하는 새 위치로 끌어 놓습니다.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/panels.png" alt-text="Azure Digital Twins Explorer의 스크린샷. 쿼리 탐색기, 모델, 트윈 그래프 및 모델 그래프 패널의 이름이 강조 표시됩니다." lightbox="media/how-to-use-azure-digital-twins-explorer/panels.png":::
 

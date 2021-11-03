@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: 549095da87473bfc132b13aa786db6ed9fb44410
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 6c98b3f5090dcc14dea92e5bcfa4b6c751225c5f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114289513"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008867"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>VMware VM 및 실제 서버에 대한 복제 문제 해결
 
@@ -147,7 +147,7 @@ PS(프로세스 서버)에서 하트비트가 없는 경우 다음을 확인합�
 **해결 방법**: 기술 자료 [문서](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component)를 참조하세요.
 
 #### <a name="cause-4-app-consistency-not-enabled-on-linux-servers"></a>원인 4: Linux 서버에서 앱 일관성이 사용하도록 설정되지 않음
-**해결 방법**: Linux 운영 체제용 Azure Site Recovery는 앱 일관성을 위한 애플리케이션 사용자 지정 스크립트를 지원합니다. 사전 및 사후 옵션이 포함된 사용자 지정 스크립트는 앱 일관성을 위해 Azure Site Recovery 모바일 에이전트에서 사용됩니다. 사용하도록 설정하는 단계는 [여기](/azure/site-recovery/site-recovery-faq#replication)를 참조하세요.
+**해결 방법**: Linux 운영 체제용 Azure Site Recovery는 앱 일관성을 위한 애플리케이션 사용자 지정 스크립트를 지원합니다. 사전 및 사후 옵션이 포함된 사용자 지정 스크립트는 앱 일관성을 위해 Azure Site Recovery 모바일 에이전트에서 사용됩니다. 사용하도록 설정하는 단계는 [여기](./site-recovery-faq.yml)를 참조하세요.
 
 ### <a name="more-causes-due-to-vss-related-issues"></a>VSS 관련 문제로 인한 추가 원인:
 

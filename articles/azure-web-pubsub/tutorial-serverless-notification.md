@@ -6,18 +6,18 @@ ms.author: jixin
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 08/24/2021
-ms.openlocfilehash: 98bb95800596ac54bae01efb501c6016767ca650
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f0811776692bcb12e25fa9757c13d7a0fb75c7fa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124785100"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080938"
 ---
 # <a name="tutorial-create-a-serverless-notification-app-with-azure-functions-and-azure-web-pubsub-service"></a>자습서: Azure Functions 및 Azure Web PubSub 서비스를 사용하여 서버리스 알림 앱 만들기
 
 Azure Web PubSub 서비스를 사용하면 WebSocket을 사용하여 실시간 메시징 웹 애플리케이션을 쉽게 빌드할 수 있습니다. Azure Functions는 인프라를 관리하지 않고 코드를 실행할 수 있는 서버리스 플랫폼입니다. 이 자습서에서는 Azure Web PubSub 서비스 및 Azure Functions를 사용하여 알림 시나리오의 실시간 메시징과 함께 서버리스 애플리케이션을 빌드하는 방법을 알아봅니다. 
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
 > * 서버리스 알림 앱 빌드
@@ -69,64 +69,69 @@ Azure Web PubSub 서비스를 사용하면 WebSocket을 사용하여 실시간 �
 
 1. `Microsoft.Azure.WebJobs.Extensions.WebPubSub` 함수 확장 패키지를 명시적으로 설치합니다.
 
-   a. 다음 단계에서 특정 확장 패키지를 설치할 수 있도록 `host.json`에서 `extensionBundle` 섹션을 제거합니다. 또는 호스트 json을 아래와 같이 간단히 지정합니다.
-    ```json
-    {
+   1. 다음 단계에서 특정 확장 패키지를 설치할 수 있도록 `host.json`에서 `extensionBundle` 섹션을 제거합니다. 또는 호스트 json을 아래와 같이 간단히 지정합니다.
+
+      ```json
+      {
         "version": "2.0"
-    }
-    ```
-   b. 특정 함수 확장 패키지를 설치하는 명령을 실행합니다.
-    ```bash
-    func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0-beta.3
-    ```
+      }
+      ```
+
+   1. 특정 함수 확장 패키지를 설치하는 명령을 실행합니다.
+
+      ```bash
+      func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0-beta.3
+      ```
 
 1. 클라이언트에 대한 정적 웹 페이지를 읽고 호스팅하는 `index` 함수를 만듭니다.
-    ```bash
-    func new -n index -t HttpTrigger
-    ```
+
+   ```bash
+   func new -n index -t HttpTrigger
+   ```
+
    # <a name="javascript"></a>[JavaScript](#tab/javascript)
    - `index/function.json`을 업데이트하고 다음 json 코드를 복사합니다.
-        ```json
-        {
-            "bindings": [
-                {
-                    "authLevel": "anonymous",
-                    "type": "httpTrigger",
-                    "direction": "in",
-                    "name": "req",
-                    "methods": [
-                      "get",
-                      "post"
-                    ]
-                },
-                {
-                    "type": "http",
-                    "direction": "out",
-                    "name": "res"
-                }
-            ]
-        }
-        ```
+     ```json
+     {
+         "bindings": [
+             {
+                 "authLevel": "anonymous",
+                 "type": "httpTrigger",
+                 "direction": "in",
+                 "name": "req",
+                 "methods": [
+                   "get",
+                   "post"
+                 ]
+             },
+             {
+                 "type": "http",
+                 "direction": "out",
+                 "name": "res"
+             }
+         ]
+     }
+     ```
    - `index/index.js`를 업데이트하고 다음 코드를 복사합니다.
-        ```js
-        var fs = require('fs');
-        module.exports = function (context, req) {
-            fs.readFile('index.html', 'utf8', function (err, data) {
-                if (err) {
-                    console.log(err);
-                    context.done(err);
-                }
-                context.res = {
-                    status: 200,
-                    headers: {
-                        'Content-Type': 'text/html'
-                    },
-                    body: data
-                };
-                context.done();
-            });
-        }
-        ```
+     ```js
+     var fs = require('fs');
+     module.exports = function (context, req) {
+         fs.readFile('index.html', 'utf8', function (err, data) {
+             if (err) {
+                 console.log(err);
+                 context.done(err);
+             }
+             context.res = {
+                 status: 200,
+                 headers: {
+                     'Content-Type': 'text/html'
+                 },
+                 body: data
+             };
+             context.done();
+         });
+     }
+     ```
 
    # <a name="c"></a>[C#](#tab/csharp)
    - `index.cs`를 업데이트하고 `Run` 함수를 다음 코드로 바꿉니다.

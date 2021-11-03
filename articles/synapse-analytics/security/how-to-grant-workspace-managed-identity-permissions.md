@@ -9,12 +9,12 @@ ms.date: 04/15/2020
 ms.author: mesrivas
 ms.reviewer: jrasnick
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 10244038ca2dee9551def5e0abcd102d42daa235
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 03c5d976010e136ab5b91efc632594253eedca1c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535805"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054669"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity"></a>작업 영역 관리 ID에 권한 부여
 
@@ -22,14 +22,6 @@ ms.locfileid: "122535805"
 
 >[!NOTE]
 >이 작업 영역 관리 ID는 이 문서의 나머지 부분에서 관리 ID라고 합니다.
-
-## <a name="grant-managed-identity-permissions-to-the-dedicated-sql-pool"></a>전용 SQL 풀에 관리 ID 권한 부여
-
-관리 ID는 작업 영역의 전용 SQL 풀에 사용 권한을 부여합니다. 권한이 부여된 경우 전용 SQL 풀 관련 작업을 수행하는 파이프라인을 오케스트레이션할 수 있습니다. Azure Portal을 사용하여 Azure Synapse 작업 영역을 만들 때 전용 SQL 풀에 관리 ID CONTROL 권한을 부여할 수 있습니다.
-
-Azure Synapse 작업 영역을 만들 때 **보안** 을 선택합니다. 그런 다음, **파이프라인(작업 영역 시스템 할당 ID로 실행)을 선택하여 SQL 풀에 액세스** 합니다.
-
-![전용 SQL 풀에 대한 CONTROL 권한](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-16.png)
 
 ## <a name="grant-the-managed-identity-permissions-to-adls-gen2-storage-account"></a>ADLS Gen2 스토리지 계정에 관리 ID 사용 권한 부여
 

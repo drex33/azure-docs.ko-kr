@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 10/12/2021
-  ms.openlocfilehash: 322abc6caf874aa7155b9385e376d066e2c82e11
-  ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+  ms.date: 10/26/2021
+  ms.openlocfilehash: e69309e5288ecb717d26e71ca4a0f6a7cfcf56ba
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/14/2021
-  ms.locfileid: "130003745"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131068498"
 landingContent:
 - title: IoT 커넥터 배포
   linkLists:

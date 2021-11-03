@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/11/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 381cc0d1114e60cbb9678c0df9a66176f3b51e99
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 74341e9f4c2436768a73591878f29e7f392b1f3a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128627599"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131006832"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions의 Key Vault 참조 사용
 
@@ -88,7 +88,7 @@ Key Vault 참조는 `@Microsoft.KeyVault({referenceString})` 형식이며, 여�
 
 ## <a name="rotation"></a>회전
 
-참조에 버전을 지정하지 않으면 앱은 Key Vault에 있는 최신 버전을 사용합니다. 순환 이벤트와 같이 최신 버전을 사용할 수 있게 되면 앱은 자동으로 업데이트되고 1일 이내에 최신 버전을 사용하기 시작합니다. 앱에 관한 모든 구성 변경으로 인해 참조된 모든 비밀이 최신 버전으로 즉시 업데이트됩니다.
+참조에 버전을 지정 하지 않으면 앱은 주요 자격 증명 모음에 있는 최신 버전을 사용 합니다. 순환 이벤트와 같이 최신 버전을 사용할 수 있게 되 면 앱은 자동으로 업데이트 되 고 24 시간 이내에 최신 버전을 사용 합니다. 지연 시간은 App Service 키 자격 증명 모음 참조의 값을 캐시 하 고 24 시간 간격으로 refetches 때문입니다. 앱에 대 한 모든 구성 변경으로 인해 참조 된 모든 암호가 즉시 다시 페치 됩니다.
 
 ## <a name="source-application-settings-from-key-vault"></a>Key Vault의 원본 애플리케이션 설정
 

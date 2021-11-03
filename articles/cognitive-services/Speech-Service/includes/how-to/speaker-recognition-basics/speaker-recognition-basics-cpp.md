@@ -4,13 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/28/2020
 ms.author: v-jawe
-ms.custom: references_regions
-ms.openlocfilehash: 655c5d80f1fb4e047a3cd9cc751a853815a70a68
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.custom: references_regions, ignite-fall-2021
+ms.openlocfilehash: 68e088b088c461b29311a1289e1867c4df9e5b1a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114671209"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069159"
 ---
 이 빠른 시작에서는 다음을 포함하여 Speech SDK를 사용하는 Speaker Recognition에 대한 기본적인 디자인 패턴을 알아봅니다.
 
@@ -18,7 +18,7 @@ ms.locfileid: "114671209"
 * 음성 그룹 간의 음성 샘플을 식별하는 화자 식별
 * 음성 프로필 삭제
 
-음성 인식 개념에 대한 간략한 설명은 [개요](../../../speaker-recognition-overview.md) 문서를 참조하세요.
+Speaker Recognition 개념에 대한 간략한 설명은 [개요](../../../speaker-recognition-overview.md) 문서를 참조하세요. 지원되는 플랫폼 목록은 왼쪽 탐색의 참조 노드를 참조하세요.
 
 ## <a name="skip-to-samples-on-github"></a>GitHub의 샘플로 건너뛰기
 
@@ -29,7 +29,7 @@ ms.locfileid: "114671209"
 이 문서에서는 여러분에게 Azure 계정 및 음성 서비스 구독이 있다고 가정합니다. 계정 및 구독이 없는 경우 [음성 서비스 평가판을 사용해 보세요](../../../overview.md#try-the-speech-service-for-free).
 
 > [!IMPORTANT]
-> Speaker Recognition는 현재 `westus` 지역에서 만든 Azure Speech 리소스에서만 지원되는 *유일한 것* 입니다.
+> Microsoft에서는 Speaker Recognition에 대한 액세스를 제한합니다. [Azure Cognitive Services Speaker Recognition 제한된 액세스 검토](https://aka.ms/azure-speaker-recognition)를 통해 사용을 신청합니다. 승인 후에는 Speaker Recognition API에 액세스할 수 있습니다. 
 
 ## <a name="install-the-speech-sdk"></a>Speech SDK 설치하기
 
@@ -91,10 +91,7 @@ Speaker Verification는 화자가 알려진 또는 **등록된** 음성으로 �
 
 ## <a name="text-independent-verification"></a>텍스트 독립 확인
 
-**텍스트-종속** 확인을 하는 것과 달리 **텍스트-독립** 을 확인합니다:
-
-* 특정 암호를 말할 필요가 없고, 모든 항목을 말할 수 있습니다.
-* 세 개의 오디오 샘플이 필요하지 않지만, 총 20초의 오디오가 *필요합니다*.
+**텍스트 종속** 확인과 달리 **텍스트 독립** 확인에는 3개의 오디오 샘플이 필요하지 않지만 총 20초의 오디오가 *필요합니다.*
 
 ### <a name="textindependentverification-function"></a>TextIndependentVerification 함수
 

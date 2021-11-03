@@ -1,22 +1,25 @@
 ---
-title: Azure Defender for Resource Manager 경고에 대응하는 방법
-description: Azure Defender for Resource Manager에서 경고에 대응하는 데 필요한 단계에 대해 알아봅니다.
+title: 리소스 관리자 경고에 대해 Microsoft Defender에 응답 하는 방법
+description: 리소스 관리자 Microsoft Defender에서 경고에 응답 하는 데 필요한 단계에 대해 알아봅니다.
 author: memildin
 ms.author: memildin
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 54790795aab8aac247e17198159130d7139dd38c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 7aa0dda56474b33175823cd2db331d136551760b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96754741"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131009703"
 ---
-# <a name="respond-to-azure-defender-for-resource-manager-alerts"></a>Azure Defender for Resource Manager 경고에 대한 대응
+# <a name="respond-to-microsoft-defender-for-resource-manager-alerts"></a>리소스 관리자 경고에 대해 Microsoft Defender에 응답
 
-Azure Defender for Resource Manager 경고를 수신하면 다음 설명대로 경고를 조사하고 대응하는 것을 추천합니다. Azure Defender for Resource Manager는 연결된 모든 리소스를 보호하므로 경고를 트리거한 애플리케이션이나 사용자에 대해 잘 알고 있는 경우에도 각 경고와 관련된 상황을 확인하는 것이 중요합니다.  
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+Microsoft Defender에서 리소스 관리자에 대 한 경고를 수신 하는 경우 아래 설명 된 대로 경고를 조사 하 고 응답 하는 것이 좋습니다. Microsoft Defender for 리소스 관리자는 연결 된 모든 리소스를 보호 하므로 경고를 트리거한 응용 프로그램이 나 사용자에 게 친숙 한 경우에도 모든 경고를 둘러싼 상황을 확인 하는 것이 중요 합니다.  
 
 
 ## <a name="step-1-contact"></a>1단계. 연락처
@@ -36,7 +39,7 @@ Azure Defender for Resource Manager 경고를 수신하면 다음 설명대로 �
     - 손상된 자동화 계정에서 익숙하지 않은 Runbook 제거
     - 구독에 대한 IAM 권한을 검토하고 익숙하지 않은 사용자 계정은 사용 권한을 제거
     - 구독에서 모든 Azure 리소스를 검토하고 익숙하지 않은 리소스는 삭제
-    - Azure Security Center에서 구독에 대한 보안 경고를 검토하고 조사
+    - Microsoft Defender for Cloud에서 구독에 대 한 보안 경고를 검토 하 고 조사 합니다.
     - Azure 활동 로그를 사용하여 구독에서 수행된 모든 작업을 검토하고 의심스러운 작업을 식별
 
 1. 손상된 가상 머신 재구성
@@ -47,8 +50,8 @@ Azure Defender for Resource Manager 경고를 수신하면 다음 설명대로 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 페이지에서는 Azure Defender for Resource Manager에서 경고에 대응하는 프로세스를 설명했습니다. 관련 정보는 다음 페이지를 참조하세요.
+이 페이지에서는 Microsoft Defender에서 리소스 관리자에 대 한 경고에 응답 하는 프로세스를 설명 했습니다. 관련 정보는 다음 페이지를 참조하세요.
 
-- [Azure Defender for Resource Manager 소개](defender-for-resource-manager-introduction.md)
-- [Azure Defender의 경고 표시 안 함](alerts-suppression-rules.md)
-- [Security Center 데이터 연속 내보내기](continuous-export.md)
+- [리소스 관리자 용 Microsoft Defender 소개](defender-for-resource-manager-introduction.md)
+- [보안 경고 표시 안 함](alerts-suppression-rules.md)
+- [클라우드 데이터를 위해 계속 Defender를 내보냅니다.](continuous-export.md)

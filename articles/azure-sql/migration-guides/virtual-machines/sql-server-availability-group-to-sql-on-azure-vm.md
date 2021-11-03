@@ -8,12 +8,12 @@ manager: bsiva
 ms.topic: how-to
 ms.date: 4/25/2021
 ms.author: rahugup
-ms.openlocfilehash: 26c068450b93272986a1a3c82af0530adfa30ebb
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
-ms.translationtype: HT
+ms.openlocfilehash: a432f62c3eb01843d20858bc37a5f30fdb437572
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113766464"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131081109"
 ---
 # <a name="migrate-availability-group-to-sql-server-on-azure-vm"></a>Azure VM의 SQL Server로 가용성 그룹 마이그레이션
 
@@ -110,7 +110,7 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
     - 이 단추를 선택한 후에는 이 프로젝트의 대상 지역을 변경할 수 없습니다.
     - 이후의 모든 마이그레이션은 이 지역으로 수행됩니다.
 
-1. **새 복제 어플라이언스를 설치하거나 기존 설치를 확장하시겠어요?** 에서 **복제 어플라이언스 설치** 를 선택합니다.
+1. **새 복제 어플라이언스를 설치하거나 기존 설치를 확장하시겠습니까?** 에서 **복제 어플라이언스 설치** 를 선택합니다.
 1. **복제 어플라이언스 소프트웨어를 다운로드하고 설치합니다.** 에서 어플라이언스 설치 관리자 및 등록 키를 다운로드합니다. 어플라이언스를 등록하려면 키가 필요합니다. 키는 다운로드한 후 5일 동안 유효합니다.
 
     ![공급자 다운로드](../../../migrate/media/tutorial-migrate-physical-virtual-machines/download-provider.png)
@@ -148,7 +148,7 @@ Mobility Service를 설치하려면 다음 단계를 수행합니다.
 
 1. 머신에 연결하고 설치 관리자 파일의 내용을 로컬 폴더(예: c:\temp)에 추출합니다. 관리자 명령 프롬프트에서 다음을 실행합니다. 
 
-    ```
+    ```cmd
     ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
     MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
     cd C:\Temp\Extracted
@@ -156,13 +156,13 @@ Mobility Service를 설치하려면 다음 단계를 수행합니다.
 
 2. Mobility Service 설치 관리자를 실행합니다.
 
-    ```
-   UnifiedAgent.exe /Role "MS" /Platform "VmWare" /Silent
+    ```cmd
+    UnifiedAgent.exe /Role "MS" /Platform "VmWare" /Silent
     ```
 
 3. 에이전트를 복제 어플라이언스에 등록합니다.
 
-    ```
+    ```cmd
     cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
     UnifiedAgentConfigurator.exe  /CSEndPoint <replication appliance IP address> /PassphraseFilePath <Passphrase File Path>
     ```
@@ -227,7 +227,7 @@ LoadBalancerName | 필수|생성할 부하 분산 장치의 이름을 지정합�
 
     ![게스트 자격 증명 필드가 강조 표시된 복제 화면에 있는 원본 설정 탭의 스크린샷.](../../../migrate/media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 
-1. **Virtual Machines** 의 **평가에서 마이그레이션 설정을 가져오시겠어요?** 에서 기본 설정인 **아니요, 수동으로 마이그레이션 설정 지정** 을 그대로 유지합니다.
+1. **Virtual Machines** 의 **평가에서 마이그레이션 설정을 가져오시겠습니까?** 에서 기본 설정인 **아니요, 수동으로 마이그레이션 설정 지정** 을 그대로 유지합니다.
 1. 마이그레이션하려는 각 VM을 선택합니다. 그런 다음, **다음: 대상 설정** 을 선택합니다.
 
     ![VM 선택](../../../migrate/media/tutorial-migrate-physical-virtual-machines/select-vms.png)

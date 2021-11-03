@@ -1,17 +1,17 @@
 ---
 title: Azure HPC Cache 데이터 수집 - 병렬 복사 스크립트
 description: 병렬 복사 스크립트를 사용하여 Azure HPC Cache에서 BLOB 스토리지 대상으로 데이터를 이동하는 방법
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 10/30/2019
-ms.author: v-erkel
-ms.openlocfilehash: ff7b15a36c5ef19a1fa6ffdca7697dd6ba97c29f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: femila
+ms.openlocfilehash: 0285a57fe0ebecce2f55bdb3d6723dd47ac0070a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87092357"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087783"
 ---
 # <a name="azure-hpc-cache-data-ingest---parallel-copy-script-method"></a>Azure HPC Cache 데이터 수집 - 병렬 복사 스크립트 메서드
 

@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 501294688446bdb944d93a0939cde0a5e4fea0df
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: ef90e8e75e22f55ca4c86fb12b361fd1f7a2af16
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123254163"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075584"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>보안 프레임: 통신 보안 | 완화 
 | 제품/서비스 | 아티클 |
@@ -120,7 +120,7 @@ ms.locfileid: "123254163"
 
 ### <a name="example"></a>예제
 다음 예제에는 들어오는 모든 트래픽이 강제로 HTTPS를 사용하도록 하는 기본 URL 다시 쓰기 규칙이 포함되어 있습니다.
-```XML
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
   <system.webServer>
@@ -228,7 +228,7 @@ namespace CertificatePinningExample
 {
     class CertificatePinningExample
     {
-        /* Note: In this example, we're hardcoding a the certificate's public key and algorithm for 
+        /* Note: In this example, we're hardcoding the certificate's public key and algorithm for 
            demonstration purposes. In a real-world application, this should be stored in a secure
            configuration area that can be updated as needed. */
 

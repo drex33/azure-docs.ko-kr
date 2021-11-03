@@ -4,12 +4,12 @@ description: ASP.NET Core 웹 애플리케이션의 가용성, 성능 및 사용
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 10/12/2021
-ms.openlocfilehash: 3610ba035a88b6496d1e40acc24c77af62b8ee1a
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 521cebd9117c1150e8c2abc2f5ff752e195a1808
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130245041"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131070055"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 애플리케이션용 Application Insights
 
@@ -491,7 +491,7 @@ Application Insights의 사용자 지정 데이터 보고에 대한 자세한 �
 
 ### <a name="can-i-enable-application-insights-monitoring-by-using-tools-like-azure-monitor-application-insights-agent-formerly-status-monitor-v2"></a>Azure Monitor Application Insights Agent(이전의 상태 모니터 v2)와 같은 도구를 사용하여 Application Insights 모니터링을 사용하도록 설정할 수 있나요?
 
-아니요, [Azure Monitor Application Insights Agent](./status-monitor-v2-overview.md)는 현재 ASP.NET 4.x만 지원합니다.
+ 예. [Application Insights Agent 2.0.0-beta1](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/2.0.0-beta1)부터 IIS에서 호스트되는 ASP.NET Core 애플리케이션이 지원됩니다.
 
 ### <a name="if-i-run-my-application-in-linux-are-all-features-supported"></a>내 애플리케이션을 Linux에서 실행하는 경우 모든 기능이 지원되나요?
 

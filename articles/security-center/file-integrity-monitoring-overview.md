@@ -1,24 +1,25 @@
 ---
-title: Microsoft Defender for Cloud에서 파일 무결성 모니터링
-description: 이 연습을 사용 하 여 클라우드의 Microsoft Defender에서 FIM (파일 무결성 모니터링)을 구성 하는 방법에 대해 알아봅니다.
+title: Microsoft Defender for Cloud의 파일 무결성 모니터링
+description: 이 연습을 사용하여 Microsoft Defender for Cloud에서 FIM(파일 무결성 모니터링)을 구성하는 방법을 알아봅니다.
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
 ms.date: 08/19/2021
 ms.author: memildin
-ms.openlocfilehash: 72493aafed4256f5d494d1a111b9ac44c4e71868
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 3cbe6b4c5cc4958eb471cb1b2d322cb73754a669
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131457250"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131052830"
 ---
-# <a name="file-integrity-monitoring-in-microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud에서 파일 무결성 모니터링
+# <a name="file-integrity-monitoring-in-microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud의 파일 무결성 모니터링
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-이 연습을 사용 하 여 클라우드의 Microsoft Defender에서 FIM (파일 무결성 모니터링)을 구성 하는 방법에 대해 알아봅니다.
+이 연습을 사용하여 Microsoft Defender for Cloud에서 FIM(파일 무결성 모니터링)을 구성하는 방법을 알아봅니다.
 
 
 ## <a name="availability"></a>가용성
@@ -26,15 +27,15 @@ ms.locfileid: "131457250"
 |양상|세부 정보|
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
-|가격 책정:|[서버용 Microsoft Defender](defender-for-servers-introduction.md)가 필요 합니다.<br>FIM은 Log Analytics 에이전트를 사용하여 Log Analytics 작업 영역에 데이터를 업로드합니다. 업로드하는 데이터의 양에 따라 데이터 요금이 부과됩니다. 자세한 내용은 [Log Analytics 가격](https://azure.microsoft.com/pricing/details/log-analytics/)을 참조하세요.|
+|가격 책정:|[서버용 Microsoft Defender가](defender-for-servers-introduction.md)필요합니다.<br>FIM은 Log Analytics 에이전트를 사용하여 Log Analytics 작업 영역에 데이터를 업로드합니다. 업로드하는 데이터의 양에 따라 데이터 요금이 부과됩니다. 자세한 내용은 [Log Analytics 가격](https://azure.microsoft.com/pricing/details/log-analytics/)을 참조하세요.|
 |필요한 역할 및 권한:|**작업 영역 소유자** 는 FIM을 사용하거나 사용하지 않도록 설정할 수 있습니다. 자세한 내용은 [Log Analytics에 대한 Azure 역할](/services-hub/health/azure-roles#azure-roles)을 참조하세요.<br>**읽기 권한자** 는 결과를 볼 수 있습니다.|
 |클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: 국가/소버린(Azure Government, Azure 중국 21Vianet)<br>Azure Automation의 변경 내용 추적 솔루션을 사용할 수 있는 지역에서만 지원됩니다.<br>:::image type="icon" source="./media/icons/yes-icon.png"::: [Azure Arc](../azure-arc/servers/overview.md) 지원 디바이스입니다.<br>[연결된 Log Analytics 작업 영역에 대해 지원되는 지역](../automation/how-to/region-mappings.md)을 참조하세요.<br>[변경 내용 추적에 대해 자세히 알아보세요](../automation/change-tracking/overview.md).|
 |||
 
-## <a name="what-is-fim-in-defender-for-cloud"></a>클라우드의 Defender에 대 한 FIM은 무엇 인가요?
+## <a name="what-is-fim-in-defender-for-cloud"></a>Defender for Cloud의 FIM이란?
 변경 모니터링이라고도 하는 FIM(파일 무결성 모니터링)은 운영 체제 파일, Windows 레지스트리, 애플리케이션 소프트웨어, Linux 시스템 파일 등을 검토하여 공격을 나타낼 수 있는 변경 사항을 찾습니다. 
 
-Defender for Cloud는 FIM을 사용 하 여 모니터링 하는 엔터티를 권장 하 고 사용자 고유의 FIM 정책 또는 모니터링할 엔터티를 정의할 수도 있습니다. FIM은 다음과 같은 의심스러운 활동에 대해 알려줍니다.
+Defender for Cloud는 FIM으로 모니터링할 엔터티를 권장하며, 모니터링할 사용자 고유의 FIM 정책 또는 엔터티를 정의할 수도 있습니다. FIM은 다음과 같은 의심스러운 활동에 대해 알려줍니다.
 
 - 파일 및 레지스트리 키 만들기 또는 제거
 - 파일 수정(파일 크기, 액세스 제어 목록 및 콘텐츠 해시의 변경)
@@ -56,13 +57,13 @@ Log Analytics 에이전트는 Log Analytics 작업 영역에 데이터를 업로
 FIM은 Azure 변경 내용 추적 솔루션을 사용하여 환경의 변경 내용을 추적하고 식별합니다. 파일 무결성 모니터링을 사용하도록 설정하면 **솔루션** 형식의 **변경 내용 추적** 리소스 종류가 있습니다. 데이터 수집 빈도에 대한 자세한 내용은 [변경 내용 추적 데이터 수집 세부 정보](../automation/change-tracking/overview.md#change-tracking-and-inventory-data-collection)를 참조하세요.
 
 > [!NOTE]
-> **변경 내용 추적** 리소스를 제거 하는 경우 클라우드에 대해 Defender에서 파일 무결성 모니터링 기능을 사용 하지 않도록 설정 합니다.
+> **변경 내용 추적** 리소스를 제거하면 Defender for Cloud에서 파일 무결성 모니터링 기능도 사용하지 않도록 설정됩니다.
 
 ## <a name="which-files-should-i-monitor"></a>어떤 파일을 모니터링해야 할까요?
 
 모니터링할 파일을 선택하는 경우 시스템 및 애플리케이션에 중요한 파일을 고려합니다. 계획 없이 변경할 것으로 예상되지 않는 파일을 모니터링합니다. 애플리케이션이나 운영 체제(예: 로그 파일 및 텍스트 파일)에서 자주 변경되는 파일을 선택하면 공격을 식별하기 어렵게 만드는 노이즈가 많이 발생합니다.
 
-클라우드 용 Defender는 알려진 공격 패턴을 기반으로 모니터링할 권장 항목 목록을 제공 합니다.
+Defender for Cloud는 알려진 공격 패턴에 따라 모니터링할 권장 항목의 다음 목록을 제공합니다.
 
 |Linux 파일|Windows 파일|Windows 레지스트리 키(HKLM = HKEY_LOCAL_MACHINE)|
 |:----|:----|:----|
@@ -99,9 +100,9 @@ FIM은 Azure 변경 내용 추적 솔루션을 사용하여 환경의 변경 내
 
 ## <a name="enable-file-integrity-monitoring"></a>파일 무결성 모니터링 사용 
 
-FIM은 Azure Portal의 클라우드 페이지 용 Defender에서 사용할 수 있습니다. 현재 FIM을 사용하기 위한 REST API는 없습니다.
+FIM은 Azure Portal Defender for Cloud 페이지에서만 사용할 수 있습니다. 현재 FIM을 사용하기 위한 REST API는 없습니다.
 
-1. **작업 보호** 대시보드의 **고급 보호** 영역에서 **파일 무결성 모니터링** 을 선택 합니다.
+1. **워크로드 보호** 대시보드의 **고급 보호** 영역에서 **파일 무결성 모니터링을** 선택합니다.
 
    :::image type="content" source="./media/file-integrity-monitoring-overview/open-file-integrity-monitoring.png" alt-text="FIM 시작." lightbox="./media/file-integrity-monitoring-overview/open-file-integrity-monitoring.png":::
 
@@ -118,7 +119,7 @@ FIM은 Azure Portal의 클라우드 페이지 용 Defender에서 사용할 수 �
 
     - 각 작업 영역의 상태 및 설정에 액세스 및 보기
 
-    - ![업그레이드 계획 아이콘.][4] 향상 된 보안 기능을 사용 하려면 작업 영역을 업그레이드 합니다. 이 아이콘은 작업 영역 또는 구독이 서버용 Microsoft Defender로 보호 되지 않음을 나타냅니다. FIM 기능을 사용 하려면 구독을이 계획으로 보호 해야 합니다. 자세한 내용은 [클라우드의 향상 된 보안 기능에 대 한 Microsoft Defender](enhanced-security-features-overview.md)를 참조 하세요.
+    - ![업그레이드 계획 아이콘.][4] 향상된 보안 기능을 사용하도록 작업 영역을 업그레이드합니다. 이 아이콘 작업 영역 또는 구독이 서버용 Microsoft Defender로 보호되지 않는다는 것을 나타냅니다. FIM 기능을 사용하려면 구독을 이 플랜으로 보호해야 합니다. 자세한 내용은 [클라우드용 Microsoft Defender의 향상된 보안 기능 를 참조하세요.](enhanced-security-features-overview.md)
 
     - ![사용 아이콘:][3] 작업 영역 아래의 모든 머신에서 FIM을 사용하도록 설정하고 FIM 옵션을 구성합니다. 이 아이콘은 작업 영역에 대해 FIM을 사용할 수 없음을 나타냅니다.
 
@@ -168,7 +169,7 @@ FIM을 사용하는 작업 영역에 대한 **파일 무결성 모니터링** �
 
 머신을 선택하면 선택한 기간 동안의 변경 내용을 식별하는 결과와 함께 쿼리가 나타납니다. 자세한 내용을 확인하려면 변경 내용을 펼칠 수 있습니다.
 
-:::image type="content" source="./media/file-integrity-monitoring-overview/query-machine-changes.png" alt-text="클라우드의 파일 무결성 모니터링을 위해 Microsoft Defender에서 식별 한 변경 내용을 보여 주는 Log Analytics 쿼리" lightbox="./media/file-integrity-monitoring-overview/query-machine-changes.png":::
+:::image type="content" source="./media/file-integrity-monitoring-overview/query-machine-changes.png" alt-text="클라우드용 Microsoft Defender의 파일 무결성 모니터링으로 식별된 변경 내용을 보여 주는 Log Analytics 쿼리" lightbox="./media/file-integrity-monitoring-overview/query-machine-changes.png":::
 
 **변경** 탭(아래 그림 참조)에는 선택한 기간 동안 작업 영역에 대한 모든 변경 내용이 나열됩니다. 대시보드에서 변경된 각 엔터티에 대해 나열하는 항목은 다음과 같습니다.
 
@@ -177,11 +178,11 @@ FIM을 사용하는 작업 영역에 대한 **파일 무결성 모니터링** �
 - 변경 범주(수정됨, 추가됨, 제거됨)
 - 변경 날짜 및 시간
 
-:::image type="content" source="./media/file-integrity-monitoring-overview/changes-tab.png" alt-text="Microsoft Defender for Cloud의 파일 무결성 모니터링 변경 내용 탭" lightbox="./media/file-integrity-monitoring-overview/changes-tab.png":::
+:::image type="content" source="./media/file-integrity-monitoring-overview/changes-tab.png" alt-text="클라우드용 Microsoft Defender의 파일 무결성 모니터링 변경 내용 탭" lightbox="./media/file-integrity-monitoring-overview/changes-tab.png":::
 
 검색 필드에서 변경 내용을 입력하거나 **변경** 탭 아래에 나열된 항목을 선택하면 **변경 세부 정보** 가 열립니다.
 
-:::image type="content" source="./media/file-integrity-monitoring-overview/change-details.png" alt-text="클라우드의 파일 무결성 모니터링에 대 한 Microsoft Defender에서 변경 내용에 대 한 세부 정보 창을 보여 줍니다." lightbox="./media/file-integrity-monitoring-overview/change-details.png":::
+:::image type="content" source="./media/file-integrity-monitoring-overview/change-details.png" alt-text="변경에 대한 세부 정보 창을 표시하는 클라우드용 Microsoft Defender의 파일 무결성 모니터링" lightbox="./media/file-integrity-monitoring-overview/change-details.png":::
 
 ## <a name="edit-monitored-entities"></a>모니터링된 엔터티 수정
 
@@ -197,9 +198,9 @@ FIM을 사용하는 작업 영역에 대한 **파일 무결성 모니터링** �
       - 파일 콘텐츠
       - Windows 서비스
 
-      각 탭에는 해당 범주에서 편집할 수 있는 엔터티가 나열됩니다. 나열 된 각 엔터티에 대해 Defender for Cloud는 FIM이 사용 (true) 되는지 아니면 사용 되지 않는지 (false)를 식별 합니다.  엔터티를 편집하면 FIM을 사용하거나 사용하지 않도록 설정할 수 있습니다.
+      각 탭에는 해당 범주에서 편집할 수 있는 엔터티가 나열됩니다. 나열된 각 엔터티에 대해 Defender for Cloud는 FIM을 사용할 수 있는지(true) 여부를 식별합니다(false).  엔터티를 편집하면 FIM을 사용하거나 사용하지 않도록 설정할 수 있습니다.
 
-    :::image type="content" source="./media/file-integrity-monitoring-overview/file-integrity-monitoring-workspace-configuration.png" alt-text="클라우드의 Microsoft Defender에서 파일 무결성 모니터링에 대 한 작업 영역 구성입니다.":::
+    :::image type="content" source="./media/file-integrity-monitoring-overview/file-integrity-monitoring-workspace-configuration.png" alt-text="Microsoft Defender for Cloud에서 파일 무결성 모니터링을 위한 작업 영역 구성입니다.":::
 
 1. 탭 중 하나에서 항목을 선택하고 **변경 내용 추적 편집** 창에서 사용 가능한 필드를 편집합니다. 다음 옵션을 사용할 수 있습니다.
 
@@ -224,7 +225,7 @@ FIM을 사용하는 작업 영역에 대한 **파일 무결성 모니터링** �
 
         이 예에서는 **Linux 파일** 을 선택했습니다.
 
-        :::image type="content" source="./media/file-integrity-monitoring-overview/file-integrity-monitoring-add-element.png" alt-text="클라우드 파일 무결성 모니터링을 위해 Microsoft Defender에서 모니터링할 요소 추가" lightbox="./media/file-integrity-monitoring-overview/file-integrity-monitoring-add-element.png":::
+        :::image type="content" source="./media/file-integrity-monitoring-overview/file-integrity-monitoring-add-element.png" alt-text="Microsoft Defender for Cloud의 파일 무결성 모니터링에서 모니터링할 요소 추가" lightbox="./media/file-integrity-monitoring-overview/file-integrity-monitoring-add-element.png":::
 
 1. **추가** 를 선택합니다. **변경 내용 추적에 추가** 가 열립니다.
 
@@ -250,7 +251,7 @@ FIM을 사용하지 않도록 설정하려면:
 1. **제거** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Defender for Cloud에서 FIM (파일 무결성 모니터링)을 사용 하는 방법을 배웠습니다. 클라우드 용 Defender에 대 한 자세한 내용은 다음 페이지를 참조 하세요.
+이 문서에서는 Defender for Cloud에서 FIM(파일 무결성 모니터링)을 사용하는 방법을 배웠습니다. Defender for Cloud에 대한 자세한 내용은 다음 페이지를 참조하세요.
 
 * [보안 정책 설정](tutorial-security-policy.md) - Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성하는 방법을 알아봅니다.
 * [보안 권장 사항 관리](review-security-recommendations.md) - 권장 사항을 통해 Azure 리소스를 보호하는 방법을 알아봅니다.

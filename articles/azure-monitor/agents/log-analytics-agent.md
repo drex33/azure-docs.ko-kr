@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: 0781d627052eaef14583739bba612d6c56aca56c
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 749d807f15419445ff82f8e4b621efca034885a7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129715797"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131074235"
 ---
 # <a name="log-analytics-agent-overview"></a>Log Analytics 에이전트 개요
 
@@ -26,7 +26,7 @@ Azure Monitor의 [Azure 진단 확장](./diagnostics-extension-overview.md)을 �
 
 - Azure Diagnostics 확장은 Azure Virtual Machines에만 사용할 수 있습니다. Log Analytics 에이전트는 Azure, 다른 클라우드 환경 및 온-프레미스의 가상 머신에 사용할 수 있습니다.
 - Azure Diagnostics 확장은 Azure Storage, [Azure Monitor Metrics](../essentials/data-platform-metrics.md)(Windows만 해당) 및 Event Hubs로 데이터를 보냅니다. Log Analytics 에이전트는 데이터를 [Azure Monitor 로그](../logs/data-platform-logs.md)에 보냅니다.
-- Log Analytics 에이전트는 [솔루션](../monitor-reference.md#insights-and-core-solutions), [VM 인사이트](../vm/vminsights-overview.md) 및 [Azure Security Center](../../security-center/index.yml) 등의 기타 서비스에 필요합니다.
+- Log Analytics 에이전트는 [솔루션](../monitor-reference.md#insights-and-curated-visualizations), [VM 인사이트](../vm/vminsights-overview.md) 및 [Azure Security Center](../../security-center/index.yml) 등의 기타 서비스에 필요합니다.
 
 ## <a name="costs"></a>비용
 

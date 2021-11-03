@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: normesta
 ms.custom: has-adal-ref, devx-track-python
-ms.openlocfilehash: e40780b0730b0b483a267ab2a92fd17ac50ff41e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2bb7afacaafa40319ceb39f9d9035e752cfb4ad0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128648060"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131077727"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Python을 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증
 > [!div class="op_single_selector"]
@@ -56,20 +56,20 @@ pip install azure-datalake-store
 
 ## <a name="create-a-new-python-application"></a>새 Python 애플리케이션 만들기
 
-1. 원하는 IDE에서 **mysample.py** 와 같이 새 Python 애플리케이션을 만듭니다.
+1. 원하는 IDE에서 새 Python 응용 프로그램을 만듭니다 (예:) `mysample.py` .
 
 2. 다음 코드 조각을 추가하여 필요한 모듈 가져오기
 
-    ```
-    ## Use this for Azure AD authentication
-    from msrestazure.azure_active_directory import AADTokenCredentials
+   ```python
+   ## Use this for Azure AD authentication
+   from msrestazure.azure_active_directory import AADTokenCredentials
 
-    ## Required for Azure Data Lake Storage Gen1 account management
-    from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
-    from azure.mgmt.datalake.store.models import DataLakeStoreAccount
+   ## Required for Azure Data Lake Storage Gen1 account management
+   from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
+   from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
-    ## Required for Azure Data Lake Storage Gen1 filesystem management
-    from azure.datalake.store import core, lib, multithread
+   ## Required for Azure Data Lake Storage Gen1 filesystem management
+   from azure.datalake.store import core, lib, multithread
 
     # Common Azure imports
     import adal
@@ -80,7 +80,7 @@ pip install azure-datalake-store
     import logging, pprint, uuid, time
     ```
 
-3. mysample.py의 변경 내용을 저장합니다.
+3. 변경 내용을에 저장 `mysample.py` 합니다.
 
 ## <a name="end-user-authentication-with-multi-factor-authentication"></a>다단계 인증을 사용하는 최종 사용자 인증
 

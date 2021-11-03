@@ -17,12 +17,12 @@ metadata:
   ms.subservice: hybrid
   ms.author: billmath
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 7d0a2c7416542d04c6dd744d99f35d0e6da683b6
-  ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+  ms.openlocfilehash: b7fe6594f5af980a159199b570010984085536d2
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/26/2021
-  ms.locfileid: "114690394"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131068081"
 title: 'Azure Active Directory Seamless Single Sign-On: 질문과 대답'
 summary: 이 문서에서는 Azure Active Directory Seamless SSO(Seamless Single Sign-On)에 대한 질문과 대답을 다룹니다. 새로운 내용을 계속 확인해 주세요.
 sections:
@@ -94,4 +94,4 @@ sections:
   - question: >
       Seamless SSO를 사용하지 않으려면 어떻게 해야 하나요?
     answer: "**1단계. 테넌트에서 기능 사용 안 함**\n\n**옵션 A: Azure AD Connect를 사용하여 비활성화**\n \n1. Azure AD Connect를 실행하고 **사용자 로그인 페이지 변경** 을 선택하고 **다음** 을 클릭합니다.\n2. **Single Sign-On 사용** 옵션의 선택을 취소합니다. 마법사를 계속 진행합니다.\n\n마법사를 완료하면 테넌트에서 Seamless SSO를 사용하지 않도록 설정됩니다. 그러나 다음과 같은 메시지가 화면에 표시됩니다.\n\n“Single Sign-On을 이제 사용하지 않도록 설정했습니다. 하지만 정리를 완료하기 위해 수행할 추가 수동 단계가 남아 있습니다. [자세한 정보](tshoot-connect-sso.md#step-3-disable-seamless-sso-for-each-active-directory-forest-where-youve-set-up-the-feature)”\n\n정리 과정을 완료하려면 Azure AD Connect를 실행 중인 온-프레미스 서버에서 2단계 및 3단계를 따릅니다.\n\n**옵션 B: PowerShell을 사용하여 비활성화**\n\nAzure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를 실행합니다.\n\n1. 먼저 [Azure AD PowerShell](/powershell/azure/active-directory/overview)을 다운로드한 후 설치합니다.\n2. `$env:ProgramFiles\"\\Microsoft Azure Active Directory Connect\"` 폴더로 이동합니다.\n3. 다음 명령을 사용하여 Seamless SSO PowerShell 모듈을 가져옵니다. `Import-Module .\\AzureADSSO.psd1`\n4. 관리자 권한으로 PowerShell을 실행합니다. PowerShell에서 `New-AzureADSSOAuthenticationContext`를 호출합니다. 이 명령으로 테넌트의 전역 관리자 자격 증명을 입력하라는 팝업 메시지가 표시됩니다.\n5. `Enable-AzureADSSO -Enable $false`을 호출합니다.\n\n이 시점에서 Seamless SSO는 사용하지 않게 설정되어 있지만, Seamless SSO를 다시 사용으로 설정하려는 경우 도메인은 구성된 상태로 유지됩니다. Seamless SSO 구성에서 도메인을 완전히 제거하려면 위의 5단계를 완료한 후 `Disable-AzureADSSOForest -DomainFqdn <fqdn>` cmdlet을 호출합니다.\n\n>[!IMPORTANT]\n>PowerShell을 사용하여 Seamless SSO를 사용하지 않도록 설정하면 Azure AD Connect의 상태를 변경하지 않습니다. Seamless SSO는 **사용자 로그인 변경** 페이지에서 사용하도록 설정된 것으로 표시됩니다.\n\n**2단계. Seamless SSO가 활성화된 AD 포리스트 목록 가져오기**\n\nAzure AD Connect를 사용하여 Seamless SSO를 사용하지 않도록 설정한 경우 아래의 태스크 1-4를 따릅니다. 대신 PowerShell을 사용하여 Seamless SSO를 사용하지 않도록 설정한 경우 아래의 태스크 5를 이동합니다.\n\n1. 먼저 [Azure AD PowerShell](/powershell/azure/active-directory/overview)을 다운로드한 후 설치합니다.\n2. `$env:ProgramFiles\"\\Microsoft Azure Active Directory Connect\"` 폴더로 이동합니다.\n3. 다음 명령을 사용하여 Seamless SSO PowerShell 모듈을 가져옵니다. `Import-Module .\\AzureADSSO.psd1`\n4. 관리자 권한으로 PowerShell을 실행합니다. PowerShell에서 `New-AzureADSSOAuthenticationContext`를 호출합니다. 이 명령으로 테넌트의 전역 관리자 자격 증명을 입력하라는 팝업 메시지가 표시됩니다.\n5. `Get-AzureADSSOStatus | ConvertFrom-Json`을 호출합니다. 사용하도록 설정된 AD 포리스트 목록(\"도메인\" 목록에 있음)이 표시됩니다.\n\n**3단계. 나열된 각 AD 포리스트에서 `AZUREADSSO` 컴퓨터 계정을 수동으로 삭제합니다.**\n"
-additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n- [**빠른 시작**](how-to-connect-sso-quick-start.md) - Azure AD Seamless SSO를 준비하고 실행합니다.\n- [**기술 심층 분석**](how-to-connect-sso-how-it-works.md) - 이 기능의 작동 방식을 이해합니다.\n- [**문제 해결**](tshoot-connect-sso.md) - 기능과 관련된 일반적인 문제를 해결하는 방법에 대해 알아봅니다.\n- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 새로운 기능 요청을 제출합니다."
+additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n- [**빠른 시작**](how-to-connect-sso-quick-start.md) - Azure AD Seamless SSO를 준비하고 실행합니다.\n- [**기술 심층 분석**](how-to-connect-sso-how-it-works.md) - 이 기능의 작동 방식을 이해합니다.\n- [**문제 해결**](tshoot-connect-sso.md) - 기능과 관련된 일반적인 문제를 해결하는 방법에 대해 알아봅니다.\n- [**UserVoice**](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789) - 새로운 기능 요청을 제출합니다."

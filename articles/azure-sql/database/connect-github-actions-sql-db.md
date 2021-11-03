@@ -10,12 +10,12 @@ ms.author: jukullam
 ms.date: 05/05/2021
 ms.custom: github-actions-azure
 ms.reviewer: mathoma
-ms.openlocfilehash: 54ef930cbc194f51fc9460da2aa3e4a553910849
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5da39e966165dea12934d0e2da6077a135feb554
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128632522"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087289"
 ---
 # <a name="use-github-actions-to-connect-to-azure-sql-database"></a>GitHub Actions를 사용하여 Azure SQL Database에 연결
 
@@ -151,7 +151,7 @@ Azure Portal에서 Azure SQL Database로 이동하여 **설정** > **연결 문�
 1. Azure에서 로그아웃하는 작업을 추가하여 워크플로를 완성합니다. 완성된 워크플로는 다음과 같습니다. 파일이 리포지토리의 `.github/workflows` 폴더에 표시됩니다.
 
     ```yaml
-   name: SQL for GitHub Actions
+    name: SQL for GitHub Actions
 
     on:
     push:

@@ -2,17 +2,17 @@
 title: 관리 ID를 사용하여 Cosmos DB 계정 연결 설정
 titleSuffix: Azure Cognitive Search
 description: 관리 ID를 사용하여 Cosmos DB 계정에 인덱서 연결을 설정하는 방법 알아보기
-author: markheff
-ms.author: maheff
+author: nitinme
+ms.author: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/02/2021
-ms.openlocfilehash: 38709d7799d09e38fdebc8eebd7484504ce4ebd2
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 0815f9c039a77c3589cb5bab0265288202f4b3d3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122537755"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131010634"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity"></a>관리 ID를 사용하여 Cosmos DB 데이터베이스에 인덱서 연결 설정
 
@@ -45,7 +45,7 @@ ms.locfileid: "122537755"
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. **+ 리소스 만들기** 를 선택합니다.
-1. “검색 서비스 및 마켓플레이스” 검색 창에서 “사용자가 할당한 관리 ID”를 검색하고 **만들기** 를 선택합니다.
+1. “검색 서비스 및 마켓플레이스” 검색 창에서 “사용자가 할당한 관리 ID”를 검색한 다음, **만들기** 를 선택합니다.
 1. ID에 설명이 포함된 이름을 지정합니다.
 
 그런 다음, 사용자가 할당한 관리 ID를 검색 서비스에 할당합니다. 이 작업은 [2021-04-01-preview 관리 API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update)를 사용하여 수행할 수 있습니다.

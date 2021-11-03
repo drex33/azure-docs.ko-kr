@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-java
-ms.openlocfilehash: 761bbd26ac20b4fad6f6ccb444504e4f2cfd1bac
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.openlocfilehash: 3d8c75f49f332361c0e1dcaefa30dda36ee7e1fa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113285749"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131039034"
 ---
 # <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>빠른 시작: Java 및 Bing News Search REST API를 사용하여 뉴스 검색 수행
 
@@ -121,7 +121,7 @@ ms.locfileid: "113285749"
 3. 애플리케이션의 main 메서드에서 검색 메서드를 호출하고 결과를 표시합니다.
 
     ```java
-   public static void main (String[] args) {
+    public static void main (String[] args) {
        System.out.println("Searching the Web for: " + searchTerm);
        SearchResults result = SearchNews(searchTerm);
     

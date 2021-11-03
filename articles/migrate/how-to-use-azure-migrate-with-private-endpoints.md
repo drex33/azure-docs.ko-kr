@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 05/10/2020
-ms.openlocfilehash: 773a22fb1fbd94540f8d56fb417a88bbcfccdd3a
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: a7398de8f9c853ca3c17f5052fdc126a33030594
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130003140"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084694"
 ---
 # <a name="use-azure-migrate-with-private-endpoints"></a>프라이빗 엔드포인트에서 Azure Migrate 사용
 
@@ -27,7 +27,7 @@ Private Link를 사용하는 ExpressRoute 개인 피어링 또는 사이트 간(
 
 ### <a name="supported-geographies"></a>지원되는 지역
 
-이 기능은 이제 지원되는 [퍼블릭 클라우드](/azure/migrate/migrate-support-matrix#supported-geographies-public-cloud) 및 정부 클라우드 지역에서 미리 [보기로 제공됩니다.](/azure/migrate/migrate-support-matrix#supported-geographies-azure-government)
+이 기능은 이제 지원 되는 [공용 클라우드](./migrate-support-matrix.md#supported-geographies-public-cloud) 및 [정부 클라우드 지역](./migrate-support-matrix.md#supported-geographies-azure-government) 에서 미리 보기로 제공 됩니다.
 
 ### <a name="required-permissions"></a>필요한 사용 권한
 

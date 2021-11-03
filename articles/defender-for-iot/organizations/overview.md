@@ -3,14 +3,17 @@ title: 조직에 대한 서비스 개요
 description: Defender for IoT 기능 및 서비스에 대해 자세히 알아보고, Defender for IoT가 종합적인 IoT 보안을 제공하는 방식을 이해합니다.
 ms.topic: overview
 ms.date: 05/27/2021
-ms.openlocfilehash: a87e6f6fcb8211e385bfe35030df2357d7585554
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: de58ffcc0f9097bd1e0b3fa4c1fac714b33d59e6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113011245"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131011217"
 ---
 # <a name="welcome-to-azure-defender-for-iot-for-organizations"></a>조직용 Azure Defender for IoT 시작
+
+[!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
 OT(운영 기술) 네트워크는 우리 사회의 가장 중요한 여러 요소를 움직이게 합니다. 그러나 이러한 기술 중 상당수는 설계 당시 보안을 염두에 두지 않았으며 기존의 IT 보안 컨트롤로 보호할 수 없습니다. 한편 IoT(사물 인터넷)는 수십억 개의 연결된 디바이스를 통해 새로운 혁신의 물결을 일으키면서 공격 노출 영역과 위험을 증가시키고 있습니다.  
 

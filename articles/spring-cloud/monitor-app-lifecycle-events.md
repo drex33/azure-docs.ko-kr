@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 08/19/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 8f35ec16b995eaca76e12fcd9a5d7800ec31aad6
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 594c8f48a51b386c687feda5d46a2423dd4e973b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130251417"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064034"
 ---
 # <a name="monitor-app-lifecycle-events-using-azure-activity-log-and-azure-service-health"></a>Azure Activity 로그 및 Azure Service Health를 사용하여 앱 수명 주기 이벤트 모니터링
 
@@ -63,6 +63,9 @@ Azure Spring Cloud는 애플리케이션의 상태를 모니터링하는 기본 
 플랫폼 유지 관리가 발생하면, Azure Spring Cloud 인스턴스의 **성능 저하** 상태도 표시됩니다. 플랫폼 유지 관리 중에 다시 시작해야하는 경우, Azure Spring Cloud가 롤링 업데이트를 수행하여 애플리케이션을 업데이트합니다. 롤링 업데이트는 가동 중지 시간 없이 워크로드를 업데이트하도록 설계되었습니다. 상태 기록 페이지에서 최신 상태를 찾을 수 있습니다.
 
 :::image type="content" source="media/monitor-app-lifecycle-events/planned-maintenance-in-progress.png" lightbox="media/monitor-app-lifecycle-events/planned-maintenance-in-progress.png" alt-text="진행 중인 계획된 유지 관리 로그 예시 스크린샷":::
+
+>[!NOTE]
+> 현재 Azure Spring Cloud 2~4개월마다 기본 Kubernetes 버전을 업그레이드하기 위해 하나의 정기 계획된 유지 관리를 수행합니다. 자세한 유지 관리 타임라인은 Azure Service Health 페이지에서 알림을 확인하세요.
 
 ## <a name="set-up-alerts"></a>경고 설정
 

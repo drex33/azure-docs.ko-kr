@@ -11,16 +11,16 @@ author: aanjusingh
 manager: daveba
 ms.reviewer: anjusingh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fd77e9a31d8ce49eeab411378726ef712040962
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 31a35994441ad2b0cd2ecdf39675ef51840dc0de
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130245484"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131027952"
 ---
 # <a name="app-support-for-sms-based-authentication"></a>SMS 기반 인증을 위한 앱 지원
 
-SMS 기반 인증은 Microsoft ID 플랫폼(Azure AD)과 통합된 Microsoft 앱에서 사용할 수 있습니다. 표에는 SMS 기반 인증을 지원하는 일부 웹 및 모바일 앱이 나열되어 있습니다. 앱을 추가하거나 유효성을 검사하려면 [문의하세요](https://feedback.azure.com/forums/169401-azure-active-directory). 
+SMS 기반 인증은 Microsoft ID 플랫폼(Azure AD)과 통합된 Microsoft 앱에서 사용할 수 있습니다. 표에는 SMS 기반 인증을 지원하는 일부 웹 및 모바일 앱이 나열되어 있습니다. 앱을 추가하거나 유효성을 검사하려면 [문의하세요](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789). 
 
 | 앱 | 웹/브라우저 앱 | 네이티브 모바일 앱 |
 | --- |:---:|:---:|

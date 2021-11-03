@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/15/2021
 ms.author: yelevin
-ms.openlocfilehash: 12a99c816ad3bf2b855c9ea48b7d7f27619d0e50
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 7442db85d7b6105278024c9fc23bca9eba20ab19
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124838672"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064396"
 ---
 # <a name="azure-sentinel-network-normalization-schema-legacy-version---public-preview"></a>Azure Sentinel 네트워크 정규화 스키마(레거시 버전 - 공개 미리 보기)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 네트워크 정규화 스키마는 보고된 네트워크 이벤트를 설명하는 데 사용되며 Azure Sentinel에서 원본 독립적 분석을 사용하도록 설정하는 데 사용됩니다.
 
@@ -196,20 +198,20 @@ Azure Sentinel 스키마에서 사용되는 용어는 다음과 같습니다.
 |
 
 
-## <a name="differences-between-the-version-01-and-version-02"></a><a name="changes"></a>버전 0.1과 버전 0.2의 차이점
+## <a name="differences-between-the-version-01-and-version-02"></a><a name="changes"></a>버전 0.1 및 버전 0.2의 차이점
 
-원래 버전의 Azure Sentinel 네트워크 세션 정규화 스키마 버전 0.1은 ASIM을 사용할 수 있기 전에 미리 보기로 릴리스되었습니다.
+Azure 센티널 네트워크 세션 정규화 스키마 버전 0.1의 원래 버전이 ASIM을 사용할 수 있게 되기 전에 미리 보기로 출시 되었습니다.
 
-이 문서에 설명된 버전 0.1과 [버전 0.2의](network-normalization-schema.md) 차이점은 다음과 같습니다.
+이 문서에서 설명 하는 버전 0.1과 [버전 0.2](network-normalization-schema.md) 의 차이점은 다음과 같습니다.
 
-- 버전 0.2에서는 소스에 구애받지 않는 파서 이름과 원본별 파서 이름이 표준 ASIM 명명 규칙을 준수하도록 변경되었습니다.
-- 버전 0.2는 특정 디바이스 유형을 수용하기 위해 특정 지침 및 소스에 구애받지 않은 파서가 추가되었습니다.
+- 버전 0.2에서는 표준 및 소스 관련 파서 이름이 표준 ASIM 명명 규칙을 준수 하도록 변경 되었습니다.
+- 버전 0.2에서는 특정 장치 유형을 수용 하기 위해 특정 지침과 소스에 관계 없는 파서를 추가 합니다.
 
-다음 섹션에서는 특정 필드에 대해 [버전 0.2가](network-normalization-schema.md) 어떻게 다른지 설명합니다.
+다음 섹션에서는 [버전 0.2](network-normalization-schema.md) 이 특정 필드와 어떻게 다른 지 설명 합니다.
 
-### <a name="added-fields-in-version-02"></a>버전 0.2에 필드가 추가되었습니다.
+### <a name="added-fields-in-version-02"></a>버전 0.2에 추가 된 필드
 
-다음 필드는 [버전 0.2에](network-normalization-schema.md) 추가되었으며 버전 0.1에는 없습니다.
+다음 필드는 [버전 0.2](network-normalization-schema.md) 에 추가 되었으며 버전 0.1에는 없습니다.
 
 :::row:::
    :::column span="":::
@@ -345,18 +347,18 @@ Azure Sentinel 스키마에서 사용되는 용어는 다음과 같습니다.
     |  FileMimeType  |   FileContentType      |
     |    |         |
 
-### <a name="removed-fields-in-version-02"></a>버전 0.2에서 필드가 제거되었습니다.
+### <a name="removed-fields-in-version-02"></a>버전 0.2에서 제거 되는 필드
 
-다음 필드는 버전 0.1에만 있으며 [버전 0.2에서 제거되었습니다.](network-normalization-schema.md)
+다음 필드는 버전 0.1에만 존재 하며 [버전 0.2](network-normalization-schema.md)에서 제거 되었습니다.
 
 |이유  |제거된 필드  |
 |---------|---------|
-|**필드 이름에 문자열이 없으므로 중복 항목이 있으므로 제거되었습니다. `Dvc`**     |  - DstDvcIpAddr<br> - DstDvcMacAddr<br>- SrcDvcIpAddr<br>- SrcDvcMacAddr       |
-|**URL의 ASIM 처리에 맞게 제거**     |  - UrlHostname       |
-|**이러한 필드는 일반적으로 네트워크 세션 이벤트의 일부로 제공되지 않으므로 제거됩니다.**<br><br>이벤트에 이러한 필드가 포함된 경우 [프로세스 이벤트 스키마를](process-events-normalization-schema.md) 사용하여 디바이스 속성을 설명하는 방법을 이해합니다. |     - SrcDvcOs<br>-&nbsp;SrcDvcModelName<br>-&nbsp;SrcDvcModelNumber<br>- DvcMacAddr<br>- DvcOs         |
-|**ASIM 파일 표현 지침에 맞게 제거되었습니다.**     |   - FilePath<br>- FileExtension      |
-|**이 필드는 [인증](authentication-normalization-schema.md)스키마 와 같은 다른 스키마를 사용해야 함을 나타내기 때문에 제거됩니다.**     |  - CloudAppOperation       |
-|**중복될 때 제거됩니다. `DstHostname`**     |  - DstDomainHostname         |
+|**필드 이름에 문자열이 없는 중복 항목이 있으므로 제거 됩니다. `Dvc`**     |  -DstDvcIpAddr<br> -DstDvcMacAddr<br>-SrcDvcIpAddr<br>-SrcDvcMacAddr       |
+|**Url의 ASIM 처리를 사용 하 여 맞추려면 제거 됨**     |  -UrlHostname       |
+|**이러한 필드는 일반적으로 네트워크 세션 이벤트의 일부로 제공 되지 않으므로 제거 됩니다.**<br><br>이벤트에 이러한 필드가 포함 된 경우 [프로세스 이벤트 스키마](process-events-normalization-schema.md) 를 사용 하 여 장치 속성을 설명 하는 방법을 이해 합니다. |     -SrcDvcOs<br>-&nbsp;SrcDvcModelName<br>-&nbsp;SrcDvcModelNumber<br>-DvcMacAddr<br>-DvcOs         |
+|**ASIM 파일 표시 지침에 맞게 제거 됨**     |   -FilePath<br>-FileExtension      |
+|**이 필드가 제거 되 면 [인증 스키마](authentication-normalization-schema.md)와 같은 다른 스키마를 사용 해야 함을 나타냅니다.**     |  - CloudAppOperation       |
+|**중복 될 때 제거 됨 `DstHostname`**     |  -DstDomainHostname         |
 |     |         |
 
 
@@ -370,4 +372,3 @@ Azure Sentinel 스키마에서 사용되는 용어는 다음과 같습니다.
 - [Azure Sentinel DNS 정규화 스키마 참조](dns-normalization-schema.md)
 - [Azure Sentinel 프로세스 이벤트 정규화 스키마 참조](process-events-normalization-schema.md)
 - [Azure Sentinel 레지스트리 이벤트 정규화 스키마 참조(퍼블릭 미리 보기)](registry-event-normalization-schema.md)
-

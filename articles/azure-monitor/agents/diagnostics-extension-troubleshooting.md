@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
-ms.openlocfilehash: 431b19595fbe2f5bc1f989e712c9c104af8e839b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 30715eee331547fe3747ff121797bb3e0939380f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101711521"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131012305"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure Diagnostics 문제 해결
 이 문서에서는 Azure Diagnostics 사용과 관련된 문제 해결 정보를 설명합니다. Azure 진단에 대한 자세한 내용은 [Azure Diagnostics 개요](diagnostics-extension-overview.md)를 참조하세요.
@@ -20,7 +20,7 @@ ms.locfileid: "101711521"
 
 **진단 플러그 인(DiagnosticsPlugin.exe)**: 모니터링 에이전트의 수명을 구성, 시작 및 관리합니다. 시작 관리자가 시작하는 주요 프로세스입니다.
 
-**모니터링 에이전트(MonAgent\*.exe 프로세스)**: 진단 데이터를 모니터링, 수집 및 전송합니다.  
+**모니터링 에이전트(MonAgent\*.exe 프로세스)**: 진단 데이터를 모니터링, 수집 및 전송합니다.
 
 ## <a name="logartifact-paths"></a>로그/아티팩트 경로
 다음은 중요한 몇 가지 로그 및 아티팩트에 대한 경로입니다. 문서의 나머지 부분에서 이 정보를 참조합니다.
@@ -77,13 +77,12 @@ Azure Diagnostics는 Azure Portal에 표시할 수 있는 메트릭 데이터를
 
 구성이 올바르게 설정되었지만 여전히 메트릭 데이터를 볼 수 없는 경우 다음 지침을 사용하여 문제를 해결해 보세요.
 
-
 ## <a name="azure-diagnostics-is-not-starting"></a>Azure Diagnostics가 시작되지 않음
 Azure Diagnostics가 시작하지 못한 이유에 대한 자세한 내용은 앞서 제공한 로그 파일 위치에서 **DiagnosticsPluginLauncher.log** 및 **DiagnosticsPlugin.log** 파일을 참조하세요.
 
 이러한 로그가 `Monitoring Agent not reporting success after launch`를 표시하는 경우 MonAgentHost.exe를 시작하지 못한 것을 의미합니다. 이전 섹션의 `MonAgentHost log file`에 대해 지정된 위치에서 해당 로그를 찾습니다.
 
-로그 파일의 마지막 줄에는 종료 코드가 포함됩니다.  
+로그 파일의 마지막 줄에는 종료 코드가 포함됩니다.
 
 ```
 DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] DiagnosticPlugin exited with code 0
@@ -111,7 +110,6 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 2. C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics 디렉터리 제거
 3. 에이전트 다시 설치
 
-
 ### <a name="part-of-the-data-is-missing"></a>일부 데이터가 누락됨
 전부가 아니라 일부 데이터만 가져온다는 것은 데이터 수집/전송 파이프라인은 올바르게 설정되었음을 의미합니다. 문제의 범위를 좁히려면 여기서 하위 섹션을 따릅니다.
 
@@ -121,7 +119,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 #### <a name="is-the-host-generating-data"></a>호스트에서 데이터를 생성하고 있습니까?
 - **성능 카운터**: perfmon을 열고 카운터를 확인합니다.
 
-- **추적 로그**: VM에 원격 액세스하고 앱의 구성 파일에 TextWriterTraceListener를 추가합니다.  https://msdn.microsoft.com/library/sk36c28t.aspx 문서를 참조하여 텍스트 수신기를 설정합니다.  `<trace>` 요소에 `<trace autoflush="true">`가 있는지 확인합니다.<br />
+- **추적 로그:** VM에 원격으로 액세스하고 앱의 구성 파일에 TextWriterTraceListener를 추가합니다.  https://msdn.microsoft.com/library/sk36c28t.aspx 문서를 참조하여 텍스트 수신기를 설정합니다.  `<trace>` 요소에 `<trace autoflush="true">`가 있는지 확인합니다.<br />
 생성된 추적 로그가 표시되지 않으면 누락된 추적 로그에 대한 자세한 정보를 참조하세요.
 
 - **ETW 추적**: VM에 원격 액세스하고 PerfView를 설치합니다.  PerfView에서 **파일** > **사용자 명령** > **Listen etwprovder1** > **etwprovider2** 등을 차례로 실행합니다. **Listen** 명령은 대/소문자를 구분하며, 쉼표로 구분된 ETW 공급자 목록 사이에는 공백이 없어야 합니다. 명령을 실행하지 못하는 경우 Perfview 도구의 오른쪽 아래에 있는 **로그** 단추를 선택하여 실행하려고 시도한 내용과 그 결과를 확인할 수 있습니다.  입력이 올바르다고 가정하면 새 창이 나타납니다. 몇 초 후 ETW 추적 보기를 시작합니다.
@@ -166,7 +164,7 @@ ETW 이벤트를 보유하는 Azure Storage의 테이블 이름은 다음 코드
 
 예를 들면 다음과 같습니다.
 
-```XML
+```xml
         <EtwEventSourceProviderConfiguration provider="prov1">
           <Event id="1" />
           <Event id="2" eventDestination="dest1" />
@@ -257,12 +255,12 @@ Cloud Service 역할의 경우 디스크에서 구성을 선택하면 데이터�
 ```
 `<relevantLogFile>.csv`라는 새 파일이 해당 `.tsf` 파일과 동일한 경로에 만들어집니다.
 
->[!NOTE]
+> [!NOTE]
 > 이 유틸리티는 기본 tsf 파일(예: PerformanceCountersTable.tsf)에 대해서만 실행해야 합니다. 그러면 첨부된 파일(예: PerformanceCountersTables_\*\*001.tsf, PerformanceCountersTables_\*\*002.tsf 등)이 자동으로 처리됩니다.
 
 ### <a name="more-about-missing-trace-logs"></a>누락된 추적 로그에 대한 자세한 정보
 
->[!NOTE]
+> [!NOTE]
 > 다음 정보는 주로 IaaS VM에서 실행되는 애플리케이션에 DiagnosticsMonitorTraceListener를 구성하지 않은 경우에만 Azure Cloud Services에 적용됩니다.
 
 - **DiagnosticMonitorTraceListener** 가 web.config 또는 app.config에서 구성되었는지 확인합니다. 클라우드 서비스 프로젝트에서는 기본적으로 구성되어 있습니다. 그러나 일부 고객은 추적 문이 진단에서 수집되지 않도록 이 부분을 주석화합니다.
@@ -271,7 +269,7 @@ Cloud Service 역할의 경우 디스크에서 구성을 선택하면 데이터�
 
 - **Diagnostics.Debug.WriteXXX** 대신 **Diagnostics.Trace.TraceXXX** 를 사용하고 있는지 확인합니다. Debug(디버그) 문은 릴리스 빌드에서 제거됩니다.
 
-- 컴파일된 코드에 **Diagnostics.Trace 줄** 이 실제로 있는지 확인합니다(Reflector, ildasm 또는 ILSpy를 통해 확인). TRACE 조건부 컴파일 기호를 사용하지 않으면 **Diagnostics.Trace** 명령이 컴파일된 이진 파일에서 제거됩니다. 이는 msbuild를 사용하여 프로젝트를 빌드할 때 발생하는 일반적인 문제입니다.   
+- 컴파일된 코드에 **Diagnostics.Trace 줄** 이 실제로 있는지 확인합니다(Reflector, ildasm 또는 ILSpy를 통해 확인). TRACE 조건부 컴파일 기호를 사용하지 않으면 **Diagnostics.Trace** 명령이 컴파일된 이진 파일에서 제거됩니다. 이는 msbuild를 사용하여 프로젝트를 빌드할 때 발생하는 일반적인 문제입니다.
 
 ## <a name="known-issues-and-mitigations"></a>알려진 문제 및 완화 방법
 다음은 알려진 문제 및 완화 방법을 보여 주는 목록입니다.

@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 9118070756dec9a4d8d7f8ef20e5c7ba589c6797
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: fb6e1baa35b8136e12e151f0b49d1ccb72a18acd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130073585"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063648"
 ---
 # <a name="ncv3-series"></a>NCv3 시리즈
 
@@ -27,7 +27,7 @@ NCv3 시리즈 VM은 NVIDIA Tesla V100 GPU로 구동됩니다. 이러한 GPU는 
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원되지 않음<br>
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
 [가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원되지 않음<br>
-[임시 OS 디스크](ephemeral-os-disks.md): 지원됨([미리 보기](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
+[임시 OS 디스크](ephemeral-os-disks.md): 지원됨<br>
 Nvidia NVLink Interconnect: 지원되지 않음<br>
 
 > [!IMPORTANT]

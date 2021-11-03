@@ -2,14 +2,14 @@
 author: v-dalc
 ms.service: databox
 ms.topic: include
-ms.date: 03/03/2021
+ms.date: 09/20/2021
 ms.author: alkohli
-ms.openlocfilehash: df3e040b80ac8a7f78a27e06a0433a1cf1d86be0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fe4af9325d86227716ae51796d12718286d3c1ca
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443535"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131005655"
 ---
 로컬 웹 UI를 사용하여 디바이스를 초기화하려면 다음 단계를 수행하세요.
 
@@ -18,7 +18,7 @@ ms.locfileid: "102443535"
 
     ![디바이스 다시 설정](media/azure-stack-edge-device-reset/device-reset-1.png)
 
-3. 확인 메시지가 나타나면 경고를 검토하고 **예** 를 선택하여 계속합니다.
+3. 확인 하 라는 메시지가 표시 되 면 경고를 검토 합니다. **예** 를 입력 하 고 **예** 를 선택 하 여 계속 합니다.
 
     ![초기화 확인](media/azure-stack-edge-device-reset/device-reset-2.png)  
 

@@ -5,18 +5,18 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 5/17/2021
+ms.date: 10/25/2021
 ms.author: cavoeg
-ms.openlocfilehash: f974cb0a5099ce23f9b7ecaf719c09239c21eca8
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 0a6ca1bd251b65b93baf1a262acc0d22102b1ad1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824532"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084849"
 ---
 # <a name="overview-of-search-in-azure-api-for-fhir"></a>Azure API for FHIR 검색 개요
 
-FHIR 사양은 FHIR 리소스 검색의 기본을 정의합니다. 이 문서에서는 FHIR에서 리소스를 검색하는 몇 가지 주요 측면을 안내합니다. FHIR 리소스 검색에 대한 자세한 내용은 HL7 FHIR 사양의 [검색을](https://www.hl7.org/fhir/search.html) 참조하세요. 이 문서 전체에서 검색 구문의 예제를 제공합니다. 각 검색은 일반적으로 URL이 인 FHIR 서버에 대해 `https://<FHIRSERVERNAME>.azurewebsites.net` 수행됩니다. 예제에서는 이 URL에 대한 자리 표시자 {{FHIR_URL}}를 사용합니다. 
+FHIR 사양은 FHIR 리소스 검색의 기본을 정의합니다. 이 문서에서는 FHIR에서 리소스를 검색하는 몇 가지 주요 측면을 안내합니다. FHIR 리소스 검색에 대한 자세한 내용은 HL7 FHIR 사양의 [검색을](https://www.hl7.org/fhir/search.html) 참조하세요. 이 문서 전체에서 검색 구문의 예제를 제공합니다. 각 검색은 일반적으로 URL이 인 FHIR 서버에 대해 `https://<FHIRSERVERNAME>.azurewebsites.net` 수행됩니다. 예제에서는 이 URL에 자리 표시자 {{FHIR_URL}}를 사용합니다. 
 
 FHIR 검색은 특정 리소스 종류, 지정된 [구획](https://www.hl7.org/fhir/compartmentdefinition.html)또는 모든 리소스에 대한 것일 수 있습니다. FHIR에서 검색을 실행하는 가장 간단한 방법은 요청을 사용하는 `GET` 것입니다. 예를 들어 데이터베이스의 모든 환자를 끌어오려면 다음 요청을 사용할 수 있습니다. 
 
@@ -26,7 +26,7 @@ GET {{FHIR_URL}}/Patient
 
 쿼리 문자열이 너무 긴 경우 유용한 를 사용하여 검색할 수도 `POST` 있습니다. 를 사용하여 검색하려면 `POST` 검색 매개 변수를 양식 본문으로 제출할 수 있습니다. 이렇게 하면 쿼리 문자열에서 보고 이해하기 어려울 수 있는 더 길고 복잡한 일련의 쿼리 매개 변수가 허용됩니다.
 
-검색 요청이 성공하면 형식의 FHIR 번들 응답을 받게 `searchset` 됩니다. 검색에 실패하면 검색이 실패한 이유를 이해하는 데 도움이 되는 오류 세부 정보를 에서 찾을 `OperationOutcome` 수 있습니다.
+검색 요청이 성공하면 형식의 FHIR 번들 응답을 받게 `searchset` 됩니다. 검색에 실패하면 검색에 실패한 이유를 이해하는 데 도움이 되는 오류 세부 정보를 에서 찾을 `OperationOutcome` 수 있습니다.
 
 다음 섹션에서는 검색과 관련된 다양한 측면을 다룹니다. 이러한 세부 정보를 검토한 후에는 Azure API for FHIR 만들 수 있는 검색 예제가 있는 [샘플 페이지를](search-samples.md) 참조하세요.
 
@@ -51,7 +51,7 @@ GET {{FHIR_URL}}/Patient
 
 ### <a name="common-search-parameters"></a>일반 검색 매개 변수
 
-모든 리소스에 적용되는 [일반적인 검색 매개 변수가](https://www.hl7.org/fhir/search.html#all) 있습니다. 다음은 Azure API for FHIR 내에서의 지원과 함께 아래에 나열되어 있습니다.
+모든 리소스에 적용되는 [일반적인 검색 매개 변수가](https://www.hl7.org/fhir/search.html#all) 있습니다. 다음은 Azure API for FHIR 내에서 지원되는 항목과 함께 나열됩니다.
 
 | **일반 검색 매개 변수** | **FHIR용 Azure API** | **Azure Healthcare API의 FHIR 서비스** | **설명**|
 | -------------------------  | -------------------- | ------------------------- | ------------|
@@ -131,15 +131,18 @@ Azure API for FHIR 통해 다음과 같은 검색 매개 변수 형식 페어링
 | **검색 결과 매개 변수**  | **FHIR용 Azure API** | **Azure Healthcare API의 FHIR 서비스** | **설명**|
 | -------------------------  | -------------------- | ------------------------- | ------------|
 | _elements                     | 예                  | 예                       |
-| _count                        | 예                  | 예                       | _count 1,000개의 리소스로 제한됩니다. 1000보다 높게 설정된 경우 1,000개만 반환되고 번들에 경고가 반환됩니다.                               |
+| _count                        | 예                  | 예                       | _count 1000개의 리소스로 제한됩니다. 1000보다 높게 설정된 경우 1,000개만 반환되고 번들에 경고가 반환됩니다.                               |
 | _include                      | 예                  | 예                       | 포함된 항목은 100으로 제한됩니다. Cosmos DB의 PaaS 및 OSS에 대한 _include :iterate [지원(#2137)을](https://github.com/microsoft/fhir-server/issues/2137)포함하지 않습니다.                               |
 | _revinclude                   | 예                  | 예                       |포함된 항목은 100으로 제한됩니다. Cosmos DB의 PaaS 및 OSS에 대한 _revinclude :iterate [지원(#2137)을](https://github.com/microsoft/fhir-server/issues/2137)포함하지 않습니다.  잘못된 요청에 대한 잘못된 상태 코드도 [있습니다.#1319](https://github.com/microsoft/fhir-server/issues/1319)                            |
 | _summary                      | 예             | 예                   |
 | _total                        | Partial              | Partial                   | _total = none 및 _total = 정확도                               |
-| _sort                         | Partial              | Partial                   | sort = _lastUpdated 지원 됩니다. 기본적으로는 레코드를 오름차순으로 정렬 합니다. '-' 접두사를 사용 하 여 내림차순으로 정렬할 수 있습니다. fhir 및 OSS 용 Azure API Cosmos DB 4 월 20 일 이후에 생성 된 데이터베이스의 경우 이름, 성 및 임상 날짜에서 2021 정렬도 지원 됩니다.          |
+| _sort                         | Partial              | Partial                   | sort = _lastUpdated은 FHIR 및 FHIR 서비스에 대 한 Azure API에서 지원 됩니다. fhir 서비스 및 OSS SQL DB fhir 서버에 대해 문자열 및 날짜/시간 필드를 기준으로 정렬이 지원 됩니다. 2021 년 4 월 20 일 이후에 생성 된 데이터베이스에 대 한 Azure API 및 OSS Cosmos DB의 경우 first name, last name 및 임상 date에서 정렬이 지원 됩니다.          |
 | _contained                    | 아니요                   | 아니요                        |
 | _containedType                | 아니요                   | 아니요                        |
 | _score                        | 아니요                   | 아니요                        |
+
+> [!NOTE]
+> 기본적으로 `_sort` 는 레코드를 오름차순으로 정렬 합니다. 접두사를 사용 하 여 `'-'` 내림차순으로 정렬할 수 있습니다. 또한 FHIR 서비스와 FHIR 용 Azure API를 사용 하면 한 번에 하나의 필드를 기준으로 정렬할 수 있습니다.
 
 기본적으로 FHIR 용 Azure API는 관대 처리로 설정 됩니다. 즉, 서버에서 알 수 없거나 지원 되지 않는 매개 변수를 무시 합니다. 엄격한 처리를 사용 하려면 **선호** 하는 헤더 및 집합을 사용할 수 있습니다 `handling=strict` .
 

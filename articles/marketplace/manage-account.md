@@ -1,27 +1,27 @@
 ---
-title: 파트너 센터에서 상업적 마켓플레이스 계정 관리
-description: 파트너 센터에서 상업적 marketplace 계정을 관리 합니다.
+title: 파트너 센터 상업용 Marketplace 계정 관리
+description: 파트너 센터 상업용 Marketplace 계정을 관리합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: varsha-sarah
 ms.author: vavargh
 ms.date: 09/27/2021
-ms.openlocfilehash: 115556f2118d34fa4fd2baf3ac84d97a1b9f5962
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 40ea8110ddf9a8f81395dea86beb656dba736cf7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130071666"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024337"
 ---
-# <a name="manage-a-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상업적 마켓플레이스 계정 관리
+# <a name="manage-a-commercial-marketplace-account-in-partner-center"></a>파트너 센터 상업용 Marketplace 계정 관리
 
 **적절한 역할**
 
 - 소유자
 - Manager
 
-[파트너 센터 계정을 만들었으면](./create-account.md) [상업적 마켓플레이스 대시보드](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) 를 사용 하 여 계정 및 제안을 관리할 수 있습니다.
+파트너 센터 계정을 [만들었으면](./create-account.md) [상업용 Marketplace 대시보드를](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) 사용하여 계정 및 제안을 관리합니다.
 
 ## <a name="access-your-account-settings"></a>계정 설정에 액세스
 
@@ -33,11 +33,11 @@ ms.locfileid: "130071666"
 
 1. 액세스하려는 계정으로 파트너 센터의 [상업용 Marketplace 대시보드](https://partner.microsoft.com/dashboard/home)에 로그인합니다. 여러 계정에 속하는 경우 다른 계정으로 로그인했으면 [계정을 전환](switch-accounts.md)할 수 있습니다.
 
-1. 오른쪽 위에서 **설정** (기어 아이콘), **계정 설정** 을 차례로 선택 합니다.
+1. 오른쪽 위에서 **설정(기어** 아이콘), **계정 설정을** 선택합니다.
 
     [ ![파트너 센터의 계정 설정 메뉴 스크린샷](./media/manage-accounts/settings-account-workspaces.png) ](./media/manage-accounts/settings-account-workspaces.png#lightbox)
 
-1. **계정 설정** 에서 **법률** 을 선택 하 고 **개발자** 탭을 선택 하 여 상업적 marketplace 계정과 관련 된 세부 정보를 확인 합니다.
+1. **계정 설정에서** **법적** 을 선택한 **다음, 개발자** 탭을 선택하여 상업용 Marketplace 계정과 관련된 세부 정보를 봅니다.
 
     [ ![계정 설정의 법률 페이지에 있는 개발자 탭 스크린샷](./media/manage-accounts/developer-tab-workspaces.png) ](./media/manage-accounts/developer-tab-workspaces.png#lightbox)
 
@@ -48,11 +48,11 @@ ms.locfileid: "130071666"
 1. 액세스하려는 계정으로 파트너 센터의 [상업용 Marketplace 대시보드](https://go.microsoft.com/fwlink/?linkid=2165290)에 로그인합니다. 여러 계정에 속하는 경우 다른 계정으로 로그인했으면 [계정을 전환](switch-accounts.md)할 수 있습니다.
 1. 오른쪽 위에서 **설정**(톱니 모양 아이콘)을 선택하고 **계정 설정** 을 선택합니다.
 
-   :::image type="content" source="media/manage-accounts/settings-account.png" alt-text="파트너 센터의 계정 설정 옵션을 보여 주는 스크린샷":::
+   :::image type="content" source="media/manage-accounts/settings-account.png" alt-text="파트너 센터 계정 설정 옵션을 보여주는 스크린샷.":::
 
-1. **계정 설정** 에서 **법률** 을 선택 하 고 **개발자** 탭을 선택 하 여 상업적 marketplace 계정과 관련 된 세부 정보를 확인 합니다.
+1. **계정 설정에서** **법적** 을 선택한 **다음, 개발자** 탭을 선택하여 상업용 Marketplace 계정과 관련된 세부 정보를 봅니다.
 
-   :::image type="content" source="media/manage-accounts/developer-tab.png" alt-text="개발자 탭을 보여 주는 스크린샷" lightbox="media/manage-accounts/developer-tab.png":::
+   :::image type="content" source="media/manage-accounts/developer-tab.png" alt-text="개발자 탭을 보여주는 스크린샷." lightbox="media/manage-accounts/developer-tab.png":::
 
 ---
 
@@ -115,7 +115,7 @@ GUID(Globally Unique Identifier)는 Azure 사용량을 추적하는 데 사용�
 
 각 제품에 대한 모든 제안 및 배포 채널에 대해 고유한 GUID를 만드는 것이 좋습니다. 보고를 분할하지 않으려면 제품의 여러 배포 채널에 대해 단일 GUID를 사용하도록 선택할 수 있습니다.
 
-템플릿을 사용 하 여 제품을 배포 하 고 Azure Marketplace 및 GitHub 둘 다에서 사용할 수 있는 경우 두 개의 고유 guid를 만들어 등록할 수 있습니다.
+템플릿을 사용하여 제품을 배포하고 Azure Marketplace 및 GitHub 모두 사용할 수 있는 경우 두 개의 고유GUID를 만들고 등록할 수 있습니다.
 
 - Azure Marketplace의 제품 A
 - GitHub의 제품 A
@@ -138,11 +138,11 @@ GUID(Globally Unique Identifier)는 Azure 사용량을 추적하는 데 사용�
 
 ## <a name="set-up-a-payout-profile"></a>지급 프로필 설정
 
-Azure Marketplace에서 불가능 제안을 보유 하려면 파트너 센터에서 세금 프로필 및 지불 프로필을 제출 하 고 유효성을 검사 해야 합니다.  지급 프로필을 만들려면 먼저 세금 프로필을 제출 해야 합니다. 세금 프로필 전송에서 유효성을 검사 하는 데 최대 48 시간이 걸릴 수 있습니다.
+거래 가능한 제안을 Azure Marketplace 위해 파트너 센터 세금 프로필 및 결제 프로필을 제출하고 유효성을 검사해야 합니다.  지급 프로필을 만들려면 먼저 세금 프로필을 제출해야 합니다. 세금 프로필 제출의 유효성을 검사하는 데 최대 48시간이 걸릴 수 있습니다.
 
-지급 프로필은 판매에서 수익금을 보내는 은행 계좌입니다. 이 은행 계좌는 파트너 센터 계정을 등록한 것과 동일한 국가나 지역에 있어야 합니다. 지급 프로필에 대 한 자세한 내용은 [지급 계정 및 세금 양식 설정](/partner-center/set-up-your-payout-account)을 참조 하세요.
+지급 프로필은 판매에서 수익금을 보내는 은행 계좌입니다. 이 은행 계좌는 파트너 센터 계정을 등록한 것과 동일한 국가나 지역에 있어야 합니다. 지급 프로필에 대한 자세한 내용은 [지급 계정 및 세금 양식 설정을 참조하세요.](/partner-center/set-up-your-payout-account)
 
-### <a name="to-set-up-your-payout-profile"></a>지급 프로필을 설정 하려면
+### <a name="to-set-up-your-payout-profile"></a>지급 프로필을 설정하려면
 
 #### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
 
@@ -152,14 +152,14 @@ Azure Marketplace에서 불가능 제안을 보유 하려면 파트너 센터에
 
     [ ![파트너 센터의 계정 설정 메뉴 스크린샷](./media/manage-accounts/settings-account-workspaces.png) ](./media/manage-accounts/settings-account-workspaces.png#lightbox)
 
-1. 왼쪽 메뉴의 **지급 및 세금** 에서 **지급 및 세금 프로필 할당** 을 선택 합니다.
+1. 왼쪽 메뉴의 **지급 및 세금** 아래에서 지급 및 **세금 프로필 할당을** 선택합니다.
 
     [![지급 및 세금 프로필 할당 페이지를 보여 줍니다. ](./media/manage-accounts/payout-and-tax-profile-assignment.png) ](./media/manage-accounts/payout-and-tax-profile-assignment.png#lightbox)
 
     > [!NOTE]
-    > 왼쪽 메뉴에 **지급 및 세금** 섹션이 표시 되지 않는 경우 전역 관리자 또는 계정 관리자에 게 권한을 문의 합니다.
+    > 왼쪽 메뉴에 지급 **및 세금** 섹션이 표시되지 않으면 전역 관리자 또는 계정 관리자에게 권한을 문의하세요.
 
-1. 지급 프로필을 설정 하는 방법에 대 한 자세한 내용은 [지급 계정 및 세금 양식 설정](/partner-center/set-up-your-payout-account)을 참조 하세요.
+1. 지급 프로필을 설정하는 자세한 내용은 [지급 계정 및 세금 양식 설정을 참조하세요.](/partner-center/set-up-your-payout-account)
 
 #### <a name="current-view"></a>[현재 보기](#tab/current-view)
 
@@ -167,9 +167,9 @@ Azure Marketplace에서 불가능 제안을 보유 하려면 파트너 센터에
 1. **프로필** 섹션에서 **지급 프로필** 옆에 있는 **업데이트** 를 선택합니다.
 
     > [!NOTE]
-    > 왼쪽 메뉴에 **지급 및 세금** 섹션이 표시 되지 않는 경우 전역 관리자 또는 계정 관리자에 게 권한을 문의 합니다.
+    > 왼쪽 메뉴에 지급 **및 세금** 섹션이 표시되지 않으면 전역 관리자 또는 계정 관리자에게 권한을 문의하세요.
 
-1. 지급 프로필을 설정 하는 방법에 대 한 자세한 내용은 [지급 계정 및 세금 양식 설정](/partner-center/set-up-your-payout-account)을 참조 하세요.
+1. 지급 프로필을 설정하는 자세한 내용은 [지급 계정 및 세금 양식 설정을 참조하세요.](/partner-center/set-up-your-payout-account)
 
 ---
 
@@ -234,7 +234,7 @@ Azure Marketplace에서 불가능 제안을 보유 하려면 파트너 센터에
 
 ## <a name="multi-user-account-management"></a>다중 사용자 계정 관리
 
-파트너 센터는 다중 사용자 계정 액세스 및 관리를 위해 [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)(Azure AD)를 사용합니다. 조직의 Azure AD는 등록 프로세스의 일부로 파트너 센터 계정과 자동으로 연결됩니다.
+파트너 센터는 다중 사용자 계정 액세스 및 관리를 위해 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)(Azure AD)를 사용합니다. 조직의 Azure AD는 등록 프로세스의 일부로 파트너 센터 계정과 자동으로 연결됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

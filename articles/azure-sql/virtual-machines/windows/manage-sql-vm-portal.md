@@ -13,12 +13,13 @@ ms.workload: iaas-sql-server
 ms.date: 05/30/2021
 ms.author: pamela
 ms.reviewer: mathoma
-ms.openlocfilehash: a25f5bf28feb8fcb3903094f45568e96388ec0bd
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 16b2a041dc384e8c04df077638a51db1a7823da2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130162163"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072119"
 ---
 # <a name="manage-sql-server-vms-by-using-the-azure-portal"></a>Azure Portal을 사용하여 SQL Server VM 관리
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -124,6 +125,13 @@ SQL 가상 머신 리소스의 **Security Center** 페이지를 사용하여 SQL
 
 ![SQL 가상 머신 리소스를 사용하여 Azure Portal의 SQL Server Security Center 설정 구성](./media/manage-sql-vm-portal/sql-vm-security-center.png)
 
+## <a name="sql-assessment-preview"></a>SQL 평가(미리 보기)
+
+SQL 가상 머신 리소스의 SQL **평가** 페이지를 사용하여 SQL Server VM의 상태를 평가합니다. 이 기능을 사용하도록 설정하면 SQL Server 인스턴스 및 데이터베이스가 검색되고 성능(인덱스, 통계, 추적 플래그 등)을 개선하고 누락된 모범 사례 구성을 식별하기 위한 권장 사항이 표시됩니다. SQL 평가는 현재 미리 보기로 제공됩니다. 
+
+:::image type="content" source="./media/manage-sql-vm-portal/sql-vm-assessment-workbook.png" alt-text="SQL 가상 머신 리소스 페이지의 Azure Portal SQL 평가를 봅니다." lightbox="./media/manage-sql-vm-portal/sql-vm-assessment-workbook.png":::
+
+자세한 내용은 [Azure VM에서 SQL Server SQL 평가를 참조하세요.](sql-assessment-for-sql-vm.md)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -132,6 +140,4 @@ SQL 가상 머신 리소스의 **Security Center** 페이지를 사용하여 SQL
 * [Windows VM에서 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Windows VM의 SQL Server FAQ](frequently-asked-questions-faq.yml)
 * [Windows VM의 SQL Server 가격 책정 가이드](pricing-guidance.md)
-* [Azure vm에서 SQL Server의 새로운 기능](doc-changes-updates-release-notes-whats-new.md)
-
-
+* [Azure VM의 SQL Server 새로운 내용](doc-changes-updates-release-notes-whats-new.md)

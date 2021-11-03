@@ -7,12 +7,12 @@ ms.date: 5/19/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: 7f3fbec3fd393bb354f7ea5df1614cf1c53bfbe2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: db5bebce41e8fd13cf0796e02fc0bfe91d63a6c9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733436"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060019"
 ---
 # <a name="tutorial-use-creator-to-create-indoor-maps"></a>자습서: Creator를 사용하여 실내 맵 만들기
 
@@ -128,7 +128,7 @@ ms.locfileid: "121733436"
 5. [그리기 패키지 업로드 상태 확인](#check-the-drawing-package-upload-status)에서 복사한 `resource Location URL`을 입력합니다. 요청은 다음 URL과 같습니다(`{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿈).
 
     ```http
-   https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 6. **보내기** 를 선택합니다.
@@ -413,7 +413,7 @@ ms.locfileid: "121733436"
 
 7. 응답이 반환되면 `unit` 기능 중 하나에 대한 기능 `id`를 복사합니다. 다음 예제에서 기능 `id`는 "UNIT26"입니다. 이 자습서에서는 다음 섹션에서 "UNIT26"을 기능 `id`로 사용합니다.
 
-     ```json
+    ```json
     {
         "type": "FeatureCollection",
         "features": [

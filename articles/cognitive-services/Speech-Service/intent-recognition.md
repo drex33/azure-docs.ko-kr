@@ -3,20 +3,18 @@ title: 의도 인식 개요 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: 의도 인식을 사용하여 미리 정의된 사용자 목표를 인식할 수 있습니다. 이 문서는 의도 인식 서비스의 이점과 기능을 개략적으로 설명합니다.
 services: cognitive-services
-author: v-demjoh
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.author: v-demjoh
 keywords: 의도 인식
-ms.openlocfilehash: c4a81c5f666b9cb42b642390ba79ca2a1bf7232b
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
-ms.translationtype: HT
+ms.openlocfilehash: bf84d9309974f645c2fb5011b82d2fb8159adca1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114710089"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024527"
 ---
 # <a name="what-is-intent-recognition"></a>의도 인식이란?
 

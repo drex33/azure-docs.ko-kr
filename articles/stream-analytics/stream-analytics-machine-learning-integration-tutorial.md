@@ -1,25 +1,25 @@
 ---
-title: Azure Machine Learning Studio와 Azure Stream Analytics 통합 (클래식)
-description: 이 문서에서는 사용자 정의 함수를 사용 하 여 Azure Machine Learning Studio (클래식)을 통합 하는 간단한 Azure Stream Analytics 작업을 신속 하 게 설정 하는 방법을 설명 합니다.
+title: Azure Stream Analytics Machine Learning Studio와 통합 (클래식)
+description: 이 문서에서는 사용자 정의 함수를 사용 하 여 Azure Machine Learning Studio (클래식)를 통합 하는 간단한 Azure Stream Analytics 작업을 신속 하 게 설정 하는 방법을 설명 합니다.
 ms.service: stream-analytics
 author: sidramadoss
 ms.author: sidram
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1ebe62c1b90e09b36dd75b5bda4054cca08d5759
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 32031960a928a10395b217524256f1d342d08b03
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102441213"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063768"
 ---
-# <a name="do-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Azure Stream Analytics 및 Azure Machine Learning Studio를 사용 하 여 감정 분석 (클래식)
+# <a name="do-sentiment-analysis-with-azure-stream-analytics-and-machine-learning-studio-classic"></a>Azure Stream Analytics 및 Machine Learning Studio를 사용 하 여 감정 분석 (클래식)
 
-이 문서에서는 감정 분석을 위해 Azure Machine Learning Studio (클래식)를 사용 하는 간단한 Azure Stream Analytics 작업을 설정 하는 방법을 보여 줍니다. Cortana Intelligence Gallery에서 Studio (클래식) 감정 분석 모델을 사용 하 여 스트리밍 텍스트 데이터를 분석 하 고 감정 점수를 확인 합니다.
+이 문서에서는 감정 분석을 위해 Machine Learning Studio (클래식)를 사용 하는 간단한 Azure Stream Analytics 작업을 설정 하는 방법을 보여 줍니다. Cortana Intelligence Gallery에서 Studio (클래식) 감정 분석 모델을 사용 하 여 스트리밍 텍스트 데이터를 분석 하 고 감정 점수를 확인 합니다.
 
 > [!TIP]
-> 성능 및 안정성 향상을 위해 Azure Machine Learning Studio(클래식) UDF 대신 [Azure Machine Learning UDF](machine-learning-udf.md)를 사용하는 것이 좋습니다.
+> 향상 된 성능 및 안정성을 위해 클래식 (Machine Learning Studio) udf 대신 [Azure Machine Learning udf](machine-learning-udf.md) 를 사용 하는 것이 좋습니다.
 
 문서에서 알아본 내용을 다음과 같은 시나리오에 적용할 수 있습니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "102441213"
 
 이 단계에서는 저장소 컨테이너에 CSV 파일을 업로드 합니다.
 
-1. Azure Portal에서 **리소스 만들기**  >  **저장소**  >  **저장소 계정** 을 선택 합니다.
+1. Azure Portal에서 **리소스 만들기**  >  **Storage**  >  **Storage 계정** 을 선택 합니다.
 
 2. 다음 세부 정보를 사용 *하 여 기본 탭을* 작성 하 고 나머지 필드에 대해서는 기본값을 그대로 둡니다.
 
@@ -58,7 +58,7 @@ ms.locfileid: "102441213"
 
 3. **검토 + 만들기** 를 선택합니다. 그런 다음 **만들기** 를 선택 하 여 저장소 계정을 배포 합니다.
 
-4. 배포가 완료 되 면 저장소 계정으로 이동 합니다. **Blob service** 에서 **컨테이너** 를 선택합니다. 그런 다음, **+ 컨테이너** 를 선택 하 여 새 컨테이너를 만듭니다.
+4. 배포가 완료 되 면 저장소 계정으로 이동 합니다. **Blob service** 아래에서 **컨테이너** 를 선택합니다. 그런 다음, **+ 컨테이너** 를 선택 하 여 새 컨테이너를 만듭니다.
 
    ![입력에 대한 Blob Storage 컨테이너 만들기](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account2.png)
 
@@ -66,7 +66,7 @@ ms.locfileid: "102441213"
 
    ![Blob 컨테이너 정보 지정](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account3.png)
 
-6. 새로 만든 컨테이너로 이동 하 고 **업로드** 를 선택 합니다. 이전에 다운로드 한 **sampleinput.csv** 파일을 업로드 합니다.
+6. 새로 만든 컨테이너로 이동 하 여 **업로드** 을 선택 합니다. 이전에 다운로드 한 **sampleinput.csv** 파일을 업로드 합니다.
 
    ![컨테이너의 '업로드' 단추](./media/stream-analytics-machine-learning-integration-tutorial/create-sa-upload-button.png)
 
@@ -78,7 +78,7 @@ ms.locfileid: "102441213"
 
 2. **Studio에서 열기 (클래식)를** 선택 합니다.  
    
-   ![Stream Analytics Azure Machine Learning Studio (클래식), Studio (클래식) 열기](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)  
+   ![Stream Analytics Machine Learning studio (클래식), studio (클래식) 열기](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)  
 
 3. 로그인하여 작업 영역으로 이동합니다. 위치를 선택합니다.
 
@@ -98,9 +98,9 @@ ms.locfileid: "102441213"
 
    ![스튜디오에서 테스트 결과 (클래식)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-test-results.png)  
 
-7. **앱** 열에서 excel **2010 또는 이전 통합 문서** 링크를 선택 하 여 excel 통합 문서를 다운로드 합니다. 통합 문서는 나중에 Stream Analytics 작업을 설정하는 데 필요한 API 키와 URL을 포함합니다.
+7. **앱** 열에서 **Excel 2010 또는 이전 통합 문서** 링크를 선택 하 여 Excel 통합 문서를 다운로드 합니다. 통합 문서는 나중에 Stream Analytics 작업을 설정하는 데 필요한 API 키와 URL을 포함합니다.
 
-    ![Stream Analytics Azure Machine Learning Studio (클래식), 빠른 보기](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
+    ![Stream Analytics Machine Learning Studio (클래식), 빠른 보기](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
 
 ## <a name="create-a-stream-analytics-job-that-uses-the-studio-classic-model"></a>Studio (클래식) 모델을 사용 하는 Stream Analytics 작업 만들기
 
@@ -214,7 +214,7 @@ Stream Analytics는 선언적인 SQL 기반 쿼리를 사용하여 입력을 검
 
 3. 생성된 CSV 파일을 엽니다. 다음 예제와 유사한 출력이 표시됩니다.  
 
-   ![Stream Analytics Azure Machine Learning Studio (클래식), CSV 뷰](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)  
+   ![Stream Analytics Machine Learning Studio (클래식), CSV 뷰](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)  
 
 ### <a name="view-metrics"></a>메트릭 보기
 

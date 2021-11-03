@@ -1,17 +1,17 @@
 ---
 title: Azure HPC Cache 사용 모델
 description: 다양한 캐시 사용 모델에 대해 알아보고 이러한 모델 중에서 선택하여 읽기 전용 또는 읽기/쓰기 캐싱을 설정하고 기타 캐싱 설정을 제어하는 방법을 설명합니다.
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/12/2021
-ms.author: v-erkel
-ms.openlocfilehash: b623bd074b327d8139082d3060a6cdb120c8acbb
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.author: femila
+ms.openlocfilehash: 84964e8a5f188d03fb9e5bcb98d4466610732c75
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114294914"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131015241"
 ---
 <!-- filename is referenced from GUI in aka.ms/hpc-cache-usagemodel -->
 

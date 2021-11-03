@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/22/2021
 ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 519ef3c4e53eb55bd00957d1d825c96375e241ae
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 71c376b93433a06d6b9ffee0c1e574c967e0629f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128604844"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040193"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-java-console-app-using-apps-identity"></a>빠른 시작: 앱의 ID를 사용하여 Java 콘솔 앱에서 토큰 가져오기 및 Microsoft Graph API 호출
 
@@ -26,7 +26,7 @@ ms.locfileid: "128604844"
 > [!div renderon="docs"]
 > ![이 빠른 시작에서 생성된 샘플 앱의 작동 방식 표시](media/quickstart-v2-java-daemon/java-console-daemon.svg)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 샘플을 실행하려면 다음이 필요합니다.
 
@@ -87,7 +87,6 @@ ms.locfileid: "128604844"
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
 
-
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-the-java-project"></a>3단계: Java 프로젝트 구성
 >
@@ -135,9 +134,9 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 ```
 
 > [!div renderon="docs"]
->> 위치:
->> * `Enter_the_Tenant_Id_Here` - 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: contoso.microsoft.com)으로 바꿉니다.
->> * `Enter_the_Application_Id_Here` - 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 입니다.
+> > 위치:
+> > * `Enter_the_Tenant_Id_Here` - 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: contoso.microsoft.com)으로 바꿉니다.
+> > * `Enter_the_Application_Id_Here` - 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 입니다.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-4-run-the-application"></a>4단계: 애플리케이션 실행
@@ -161,7 +160,6 @@ $ java -jar msal-client-credential-secret-1.0.0.jar
 
 실행 후 애플리케이션은 구성된 테넌트의 사용자 목록을 표시해야 합니다.
 
-
 > [!IMPORTANT]
 > 이 빠른 시작 애플리케이션에서는 클라이언트 비밀을 사용하여 자체를 기밀 클라이언트로 식별합니다. 클라이언트 비밀은 보안상의 이유로 프로젝트 파일에 일반 텍스트로 추가되므로, 이 애플리케이션을 프로덕션 애플리케이션으로 사용하는 방안을 고려하기 전에 클라이언트 비밀 대신 인증서를 사용하는 것이 좋습니다. 인증서를 사용하는 방법에 대한 자세한 내용은 이 샘플에 대한 동일한 GitHub 리포지토리의 두 번째 폴더 **msal-client-credential-certificate** 에 있는 [다음 지침](https://github.com/Azure-Samples/ms-identity-java-daemon/tree/master/msal-client-credential-certificate)을 참조하세요.
 
@@ -175,7 +173,7 @@ Maven이나 Gradle을 사용하여 MSAL4J를 애플리케이션에 추가하고 
 
 pom.xml에서:
 
-```XML
+```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>msal4j</artifactId>

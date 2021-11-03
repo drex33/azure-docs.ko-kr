@@ -2,18 +2,18 @@
 title: 보안 연결을 위한 프라이빗 엔드포인트 만들기
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search 서비스에 대한 보안 연결을 위해 가상 네트워크에서 프라이빗 엔드포인트를 설정합니다.
+author: nitinme
+ms.author: nitinme
 manager: nitinme
-author: markheff
-ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/16/2021
-ms.openlocfilehash: 8cad0611efe46a934560a89b9fda4d7fa57e4deb
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
-ms.translationtype: HT
+ms.openlocfilehash: 71a618daeeb2400e32a53b555e9499a5edd69b5f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082274"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131061089"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Azure Cognitive Search에 보안 연결을 위한 프라이빗 엔드포인트 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "112082274"
 
 ## <a name="why-use-a-private-endpoint-for-secure-access"></a>보안 액세스에 프라이빗 엔드포인트를 사용하는 이유는 무엇입니까?
 
-Azure Cognitive Search를 위한 [프라이빗 엔드포인트](../private-link/private-endpoint-overview.md)는 가상 네트워크의 클라이언트가 [Private Link](../private-link/private-link-overview.md)를 통해 검색 인덱스의 데이터에 안전하게 액세스할 수 있도록 합니다. 프라이빗 엔드포인트는 검색 서비스에 [가상 네트워크 주소 공간](../virtual-network/private-ip-addresses.md)의 IP 주소를 사용합니다. 클라이언트와 검색 서비스 간의 네트워크 트래픽은 가상 네트워크와 Microsoft 백본 네트워크의 프라이빗 링크를 통과하여 퍼블릭 인터넷에서 공개되지 않도록 합니다. Private Link를 지원하는 다른 PaaS 서비스 목록은 제품 설명서의 [가용성 섹션](../private-link/private-link-overview.md#availability)을 참조하세요.
+Azure Cognitive Search를 위한 [프라이빗 엔드포인트](../private-link/private-endpoint-overview.md)는 가상 네트워크의 클라이언트가 [Private Link](../private-link/private-link-overview.md)를 통해 검색 인덱스의 데이터에 안전하게 액세스할 수 있도록 합니다. 프라이빗 엔드포인트는 검색 서비스에 [가상 네트워크 주소 공간](../virtual-network/ip-services/private-ip-addresses.md)의 IP 주소를 사용합니다. 클라이언트와 검색 서비스 간의 네트워크 트래픽은 가상 네트워크와 Microsoft 백본 네트워크의 프라이빗 링크를 통과하여 퍼블릭 인터넷에서 공개되지 않도록 합니다. Private Link를 지원하는 다른 PaaS 서비스 목록은 제품 설명서의 [가용성 섹션](../private-link/private-link-overview.md#availability)을 참조하세요.
 
 검색 서비스에 대한 프라이빗 엔드포인트를 사용하면 다음이 가능합니다.
 

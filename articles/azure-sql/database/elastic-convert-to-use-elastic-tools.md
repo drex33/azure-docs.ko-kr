@@ -11,12 +11,12 @@ author: scoriani
 ms.author: scoriani
 ms.reviewer: mathoma
 ms.date: 01/25/2019
-ms.openlocfilehash: 18a78ef71143968327b290548b3307a8bbcfdfd2
-ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
-ms.translationtype: HT
+ms.openlocfilehash: acb8a03f4cbd719f348ae5a65974b1c326b10604
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112021594"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131006281"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>확장하기 위해 기존 데이터베이스 마이그레이션
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -168,7 +168,7 @@ Get-Mappings -ShardMap $ShardMap
 
 ## <a name="questions-and-feature-requests"></a>질문 및 기능 요청
 
-질문이 있으면 [SQL Database에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-sql-database.html)를 사용하고, 기능 요청이 있는 경우 해당 기능을 [SQL Database 피드백 포럼](https://feedback.azure.com/forums/217321-sql-database/)에 추가하세요.
+질문이 있으면 [SQL Database에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-sql-database.html)를 사용하고, 기능 요청이 있는 경우 해당 기능을 [SQL Database 피드백 포럼](https://feedback.azure.com/d365community/forum/04fe6ee0-3b25-ec11-b6e6-000d3a4f0da0)에 추가하세요.
 
 <!--Image references-->
 [1]: ./media/elastic-convert-to-use-elastic-tools/listmapping.png

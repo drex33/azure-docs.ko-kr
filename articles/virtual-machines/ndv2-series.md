@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 7d7666e82970114cad352c702cdf13e29c4f86f6
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 80f96605069e2bfdc7596831018a81c09a0c7a9a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130071970"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060424"
 ---
 # <a name="updated-ndv2-series"></a>업데이트된 NDv2 시리즈
 
@@ -42,7 +42,7 @@ NDv2 인스턴스는 CUDA GPU에 최적화된 계산 커널 및 GPU 가속화를
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원되지 않음<br>
 [VM 생성 지원](generation-2.md): 2세대<br>
 [가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨<br>
-[임시 OS 디스크](ephemeral-os-disks.md): 지원됨([미리 보기](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
+[임시 OS 디스크](ephemeral-os-disks.md): 지원됨<br>
 InfiniBand: 지원됨<br>
 Nvidia NVLink Interconnect: 지원됨<br>
 <br>

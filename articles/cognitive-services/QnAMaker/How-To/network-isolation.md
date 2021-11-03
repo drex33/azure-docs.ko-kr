@@ -4,21 +4,20 @@ description: 사용자는 QnA Maker 리소스에 대한 퍼블릭 액세스를 �
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/13/2021
-ms.openlocfilehash: eb00a9fa81b6fadd999c6c824ff7be06f76c8f4a
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 87726db1f0747c3f9383168321bc3054c685c8a9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123221772"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131038724"
 ---
 # <a name="recommended-settings-for-network-isolation"></a>네트워크 격리에 대한 권장 설정
 
 QnA Maker 리소스에 대한 공용 액세스를 제한하려면 다음 단계를 수행합니다. [가상 네트워크를 구성](../../cognitive-services-virtual-networks.md?tabs=portal)하여 퍼블릭 액세스에서 Cognitive Services 리소스를 보호합니다.
 
 ## <a name="restrict-access-to-app-service-qna-runtime"></a>App Service(QnA 런타임)에 대한 액세스 제한
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 ServiceTag `CognitiveServicesMangement`를 사용하여 App Service 또는 ASE(App Service Environment) 네트워크 보안 그룹 인바운드 규칙에 대한 인바운드 액세스를 제한할 수 있습니다. [가상 네트워크 서비스 태그 문서](../../../virtual-network/service-tags-overview.md)에서 서비스 태그에 대한 자세한 정보를 확인하세요. 
 
@@ -68,22 +67,13 @@ App Service Environment(ASE)는 QnA Maker App Service 인스턴스를 호스트�
 
 ### <a name="related-questions"></a>관련 질문
 
-#### <a name="can-qna-maker-be-deployed-to-an-internal-ase"></a>QnA Maker를 내부 ASE에 배포할 수 있나요? 
+#### <a name="can-qna-maker-be-deployed-to-an-internal-ase"></a>QnA Maker를 내부 ASE에 배포할 수 있나요?
 
 외부 ASE를 사용하는 주된 이유는 QnAMaker 서비스 백 엔드(저작 API)가 인터넷을 통해 App Service에 연결할 수 있기 때문입니다. 그러나 `CognitiveServicesManagement` 서비스 태그와 연결된 주소의 연결만 허용하도록 인바운드 액세스 제한을 추가하여 여전히 보호할 수 있습니다.
 
 내부 ASE를 계속 사용하려면 앱 게이트웨이 DNS TLS/SSL 인증서를 통해 공개 도메인의 ASE에 있는 특정 QnA Maker 앱을 노출해야 합니다. 자세한 내용은 이 [App Services의 엔터프라이즈 배포에 대한 문서](/azure/architecture/reference-architectures/enterprise-integration/ase-standard-deployment)를 참조하세요.
 
-    
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-앱 서비스는 사용자 지정 질문 답변과 함께 배포되지 않습니다.
-
----
-
 ## <a name="restrict-access-to-cognitive-search-resource"></a>Cognitive Search 리소스에 대한 액세스 제한
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 Cognitive Search 인스턴스는 QnA Maker 리소스를 만든 후 프라이빗 엔드포인트를 통해 격리할 수 있습니다. 액세스를 잠그려면 다음 단계를 따르세요.
 
@@ -117,9 +107,6 @@ Cognitive Search 인스턴스는 QnA Maker 리소스를 만든 후 프라이빗 
      > [!div class="mx-imgBorder"]
      > [![VNET 통합 UI 스크린샷.]( ../media/network-isolation/integration.png)](  ../media/network-isolation/integration.png#lightbox)
 
-
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
 Azure Search 리소스에 대한 [프라이빗 엔드포인트를 만듭니다](../reference-private-endpoint.md).
 
 QnA Maker 리소스에 대한 공용 액세스를 제한하려면 다음 단계를 수행합니다. [가상 네트워크를 구성](../../cognitive-services-virtual-networks.md?tabs=portal)하여 퍼블릭 액세스에서 Cognitive Services 리소스를 보호합니다.
@@ -131,6 +118,3 @@ VNet을 기반으로 Cognitive Service 리소스에 대한 액세스를 제한�
 
      > [!div class="mx-imgBorder"]
      > [![방화벽 및 가상 네트워크 구성 UI 스크린샷.]( ../media/network-isolation/firewall.png)](  ../media/network-isolation/firewall.png#lightbox)
-
----
-

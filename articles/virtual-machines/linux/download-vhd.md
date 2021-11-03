@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: cynthn
-ms.openlocfilehash: 4492eb9a346d89789f1527bf80b46a08cc74fe92
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 393706ca463d8a3cc6edaede2689feae3e867bfa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696091"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131074501"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Azure에서 Linux VHD 다운로드
 
@@ -45,10 +45,10 @@ VM을 중지하려면:
 5. **스냅샷 유형** 에 대해 **전체** 또는 **증분** 을 선택합니다.
 6. 완료되면 **검토 + 만들기** 를 선택합니다.
 
-스냅샷은 곧 만들어지며 다른 VM을 다운로드하거나 만드는 데 사용될 수 있습니다.
+스냅숏이 잠시 생성 되 고 다른 VM을 다운로드 하거나 만드는 데 사용할 수 있습니다.
 
 > [!NOTE]
-> VM을 먼저 중지하지 않으면 스냅샷이 정리되지 않습니다. 스냅샷은 VM의 전원을 껐다가 켜거나 VM이 스냅샷이 만들어진 시점에서 중단된 것과 동일한 상태가 됩니다.  일반적으로 안전하지만 당시 실행중인 애플리케이션이 충돌 방지 기능이 없으면 문제가 발생할 수 있습니다.
+> VM을 먼저 중지하지 않으면 스냅샷이 정리되지 않습니다. 스냅샷은 VM의 전원을 껐다가 켜거나 VM이 스냅샷이 만들어진 시점에서 중단된 것과 동일한 상태가 됩니다. 일반적으로 안전 하 게 작동 하는 동안 실행 중인 응용 프로그램이 작동 중단 되지 않는 경우 문제가 발생할 수 있습니다.
 >  
 > 이 방법은 단일 OS 디스크가 있는 VM에만 권장됩니다. 하나 이상의 데이터 디스크가 있는 VM은 다운로드하기 전에 또는 OS 디스크 및 각 데이터 디스크에 대한 스냅샷을 만들기 전에 중지해야 합니다.
 

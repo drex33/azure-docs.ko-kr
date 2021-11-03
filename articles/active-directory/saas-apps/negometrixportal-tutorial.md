@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/10/2021
 ms.author: jeedes
-ms.openlocfilehash: 7c4caff72983418631402adc4da8194a7b507e2e
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 3fdc55289c33482db7384eed51ae3a2e75f7ad99
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130001925"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051556"
 ---
 # <a name="tutorial-azure-ad-sso-integration-with-negometrixportal-single-sign-on-sso"></a>자습서: NegometrixPortal SSO(Single Sign On)와 Azure AD SSO 통합
 

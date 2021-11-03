@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 05/26/2021
 ms.author: mbullwin
-ms.openlocfilehash: 9d5d111e86623b3de63bc9aa5d77f5a14c37fabd
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 005886c0399a89fe2e58aa669a8f7c0d33821cd3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130216773"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131026641"
 ---
 # <a name="how-to-connect-different-data-sources"></a>방법: 여러 데이터 원본 연결
 
@@ -199,13 +199,13 @@ ms.locfileid: "130216773"
      
 * **쿼리**: 데이터를 가져와 다차원 시계열 데이터로 작성하려면 [Kusto 쿼리 언어](/azure/data-explorer/kusto/query)를 참조하세요. 쿼리에서 `@IntervalStart` 및 `@IntervalEnd` 변수를 사용할 수 있습니다. 형식은 `yyyy-MM-ddTHH:mm:ssZ`와 같이 지정해야 합니다.
 
-    샘플 쿼리:
+  샘플 쿼리:
     
-    ``` Kusto
-   [TableName] | where [TimestampColumn] >= datetime(@IntervalStart) and [TimestampColumn] < datetime(@IntervalEnd);    
-   ```
+  ```kusto
+  [TableName] | where [TimestampColumn] >= datetime(@IntervalStart) and [TimestampColumn] < datetime(@IntervalEnd);    
+  ```
 
-    자세한 내용은 [유효한 쿼리 작성에 대한 자습서](tutorials/write-a-valid-query.md)를 참조하세요.
+  자세한 내용은 [유효한 쿼리 작성에 대한 자습서](tutorials/write-a-valid-query.md)를 참조하세요.
 
 ## <a name="span-idadlazure-data-lake-storage-gen2span"></a><span id="adl">Azure Data Lake Storage Gen2</span>
 

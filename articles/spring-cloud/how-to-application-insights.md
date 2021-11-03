@@ -7,27 +7,27 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/04/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 328d99d2e690004f87d7224253e81ed6815a2e75
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 1886632101e7d453c2c7e4d4a5b84dbd57c2305a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129984048"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075014"
 ---
-# <a name="application-insights-java-in-process-agent-in-azure-spring-cloud"></a>Azure 스프링 클라우드의 Application Insights Java In-Process 에이전트
+# <a name="application-insights-java-in-process-agent-in-azure-spring-cloud"></a>Azure Spring Cloud Application Insights Java In-Process Agent
 
 이 글에서는 Azure Spring Cloud의 Application Insights Java 에이전트를 사용하여 앱 및 마이크로서비스를 모니터링하는 방법을 설명합니다.
 
 이 기능을 사용하면 다음을 수행할 수 있습니다.
 
 * 다양한 필터로 추적 데이터 검색
-* 마이크로 서비스의 종속성 맵을 봅니다.
+* 마이크로서비스의 종속성 맵을 봅니다.
 * 요청 성능을 확인합니다.
 * 실시간 라이브 메트릭을 모니터링합니다.
 * 요청 실패를 확인합니다.
 * 애플리케이션 메트릭을 확인합니다.
 
-Application Insights는 다음과 같은 많은 관찰 가능한 큐브 뷰를 제공할 수 있습니다.
+애플리케이션 Insights 다음과 같은 다양한 관찰 가능한 관점을 제공할 수 있습니다.
 
 * 애플리케이션 맵
 * 성능
@@ -38,11 +38,11 @@ Application Insights는 다음과 같은 많은 관찰 가능한 큐브 뷰를 �
 
 ## <a name="enable-java-in-process-agent-for-application-insights"></a>Application Insights에 대한 Java In-Process 에이전트 사용
 
-다음 절차를 사용 하 여 Java In-Process 에이전트를 사용 하도록 설정 합니다.
+다음 절차를 사용하여 Java In-Process 에이전트를 사용하도록 설정합니다.
 
 1. 서비스 인스턴스의 서비스 개요 페이지로 이동합니다.
-2. **모니터링** 창에서 **Application Insights** 항목을 선택 합니다.
-3. **Application Insights 사용** 을 선택 하 여 **Application Insights** 통합을 사용 하도록 설정 합니다.
+2. **모니터링** 창에서 **애플리케이션 Insights** 항목을 선택합니다.
+3. **애플리케이션 Insights 사용을** 선택하여 **애플리케이션 Insights** 통합을 사용하도록 설정합니다.
 4. Application Insights의 기존 인스턴스를 선택하거나 새 인스턴스를 만듭니다.
    여기에서 샘플링 주기를 0에서 100으로 사용자 지정할 수도 있습니다.
 5. **저장** 을 선택하여 변경 내용을 저장합니다.
@@ -51,12 +51,12 @@ Application Insights는 다음과 같은 많은 관찰 가능한 큐브 뷰를 �
 
 1. **서비스 | 개요** 페이지로 이동하여 **모니터링** 섹션에서 **Application Insights** 를 선택합니다.
 2. **Application Insights 사용** 을 선택하여 Azure Spring Cloud에서 Application Insights를 사용하도록 설정합니다.
-3. **Application Insights** 사용 하도록 설정 된 경우 선택적 샘플링 주기 (기본값 10.0%)를 구성할 수 있습니다.
+3. **애플리케이션 Insights** 사용하도록 설정하면 선택적 샘플링 비율(기본값 10.0%)을 하나 구성할 수 있습니다.
 
    [ ![IPA 0](media/spring-cloud-application-insights/insights-process-agent-0.png)](media/spring-cloud-application-insights/insights-process-agent-0.png)
 
 > [!Note]
-> 서로 다른 Azure 스프링 클라우드 인스턴스에서 동일한 AI를 사용 하지 마세요. 그렇지 않으면 혼합 된 데이터가 표시 됩니다.
+> 다른 Azure Spring Cloud 인스턴스에서 동일한 AI를 사용하지 마십시오. 그렇지 않으면 혼합된 데이터가 표시됩니다.
 
 ## <a name="using-the-application-insights-feature"></a>Application Insights 기능 사용
 
@@ -82,7 +82,7 @@ Application Insights는 다음과 같은 많은 관찰 가능한 큐브 뷰를 �
 
    [ ![IPA 7](media/spring-cloud-application-insights/insights-process-agent-5-metrics.png)](media/spring-cloud-application-insights/insights-process-agent-5-metrics.png)
 
-* 왼쪽 탐색 창에서 **라이브 메트릭** 을 선택 하 여 여러 차원에 대 한 실시간 메트릭을 확인 합니다.
+* 왼쪽 탐색 창에서 **라이브 메트릭을** 선택하여 다양한 차원에 대한 실시간 메트릭을 확인합니다.
 
    [ ![IPA 8](media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg)](media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg)
 
@@ -92,11 +92,11 @@ Application Insights는 다음과 같은 많은 관찰 가능한 큐브 뷰를 �
 
 ## <a name="automation"></a>Automation
 
-다음 섹션에서는 Azure Resource Manager 템플릿 (ARM 템플릿) 또는 Terraform을 사용 하 여 배포를 자동화 하는 방법을 설명 합니다.
+다음 섹션에서는 ARM 템플릿(Azure Resource Manager 템플릿) 또는 Terraform을 사용하여 배포를 자동화하는 방법을 설명합니다.
     
 ### <a name="arm-templates"></a>ARM 템플릿
 
-ARM 템플릿을 사용 하 여 배포 하려면 다음 콘텐츠를 *azuredeploy json* 파일에 복사 합니다. 자세한 내용은 [Microsoft AppPlatform 스프링/monitoringSettings](/azure/templates/microsoft.appplatform/spring/monitoringsettings)를 참조 하세요.
+ARM 템플릿을 사용하여 배포하려면 다음 콘텐츠를 *azuredeploy.json* 파일에 복사합니다. 자세한 내용은 [Microsoft.AppPlatform Spring/monitoringSettings를 참조하세요.](/azure/templates/microsoft.appplatform/spring/monitoringsettings)
 
 ```json
 {
@@ -130,7 +130,7 @@ ARM 템플릿을 사용 하 여 배포 하려면 다음 콘텐츠를 *azuredeplo
 
 ### <a name="terraform"></a>Terraform
 
-Terraform 배포의 경우 다음 템플릿을 사용 합니다. 자세한 내용은 [azurerm_spring_cloud_service](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_service)를 참조 하세요.
+Terraform 배포의 경우 다음 템플릿을 사용합니다. 자세한 내용은 [azurerm_spring_cloud_service.](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_service)
 
 ```terraform
 provider "azurerm" {
@@ -174,9 +174,9 @@ resource "azurerm_spring_cloud_service" "example" {
 
 ## <a name="cli"></a>CLI
 
-Azure CLI 명령을 사용 하 여 Application Insights를 관리할 수 있습니다. 다음 명령에서 *\<placeholder>* 텍스트를 설명 된 값으로 바꾸어야 합니다. *\<service-name>* 자리 표시자는 Azure 스프링 클라우드 인스턴스의 이름을 나타냅니다.
+Azure CLI 명령을 사용하여 애플리케이션 Insights 관리할 수 있습니다. 다음 명령에서 텍스트를 설명된 값으로 바꾸어야 *\<placeholder>* 합니다. *\<service-name>* 자리 표시자는 Azure Spring Cloud 인스턴스의 이름을 참조합니다.
 
-Azure 스프링 클라우드 인스턴스를 만들 때 Application Insights를 구성 하려면 다음 명령을 사용 합니다. 인수의 경우 `app-insights` Application Insights 이름 또는 리소스 ID를 지정할 수 있습니다.
+Azure Spring Cloud 인스턴스를 만들 때 Application Insights 구성하려면 다음 명령을 사용합니다. 인수의 경우 `app-insights` 애플리케이션 Insights 이름 또는 리소스 ID를 지정할 수 있습니다.
 
 ```azurecli
 az spring-cloud create \
@@ -186,7 +186,7 @@ az spring-cloud create \
     --sampling-rate <sampling-rate>
 ```
 
-다음 예제와 같이 Application Insights 연결 문자열 (기본 설정) 또는 계측 키를 사용할 수도 있습니다.
+다음 예제와 같이 Application Insights 연결 문자열(기본 설정) 또는 계측 키를 사용할 수도 있습니다.
 
 ```azurecli
 az spring-cloud create \
@@ -196,7 +196,7 @@ az spring-cloud create \
     --sampling-rate <sampling-rate>
 ```
 
-Azure 스프링 클라우드 인스턴스를 만들 때 Application Insights을 사용 하지 않도록 설정 하려면 다음 명령을 사용 합니다.
+Azure Spring Cloud 인스턴스를 만들 때 Application Insights 사용하지 않도록 설정하려면 다음 명령을 사용합니다.
 
 ```azurecli
 az spring-cloud create \
@@ -205,7 +205,7 @@ az spring-cloud create \
     --disable-app-insights
 ```
 
-기존 Azure 스프링 클라우드 인스턴스의 Application Insights 설정을 확인 하려면 다음 명령을 사용 합니다.
+기존 Azure Spring Cloud 인스턴스의 애플리케이션 Insights 설정을 확인하려면 다음 명령을 사용합니다.
 
 ```azurecli
 az spring-cloud app-insights show \
@@ -213,7 +213,7 @@ az spring-cloud app-insights show \
     --name <service-name>
 ```
 
-연결 문자열 (기본 설정) 또는 계측 키를 사용 하 여 Application Insights를 사용 하도록 설정 하려면 다음 명령을 사용 합니다.
+연결 문자열(기본 설정) 또는 계측 키를 사용하여 애플리케이션 Insights 사용하도록 설정하려면 다음 명령을 사용합니다.
 
 ```azurecli
 az spring-cloud app-insights update \
@@ -223,7 +223,7 @@ az spring-cloud app-insights update \
     --sampling-rate <sampling-rate>
 ```
 
-리소스 이름 또는 ID를 사용 하 여 Application Insights를 사용 하도록 설정 하려면 다음 명령을 사용 합니다.
+리소스 이름 또는 ID를 사용하여 애플리케이션 Insights 사용하도록 설정하려면 다음 명령을 사용합니다.
 
 ```azurecli
 az spring-cloud app-insights update \
@@ -233,7 +233,7 @@ az spring-cloud app-insights update \
     --sampling-rate <sampling-rate>
 ```
 
-기존 Azure 스프링 클라우드 인스턴스에서 Application Insights를 사용 하지 않도록 설정 하려면 다음 명령을 사용 합니다.
+기존 Azure Spring Cloud 인스턴스에서 애플리케이션 Insights 사용하지 않도록 설정하려면 다음 명령을 사용합니다.
 
 ```azurecli
 az spring-cloud app-insights update \
@@ -244,7 +244,7 @@ az spring-cloud app-insights update \
 
 ## <a name="java-agent-updateupgrade"></a>Java 에이전트 업데이트/업그레이드
 
-Java 에이전트는 JDK로 정기적으로 업데이트/업그레이드 되며 다음 시나리오에 영향을 줄 수 있습니다.
+Java 에이전트는 JDK를 통해 정기적으로 업데이트/업그레이드되며, 이는 다음 시나리오에 영향을 줄 수 있습니다.
 
 > [!Note]
 > JDK 버전은 매년 분기별로 업데이트/업그레이드됩니다.
@@ -258,7 +258,7 @@ Java 에이전트는 JDK로 정기적으로 업데이트/업그레이드 되며 
 Azure Spring Cloud 핫 로드 메커니즘을 사용하면 애플리케이션을 다시 시작하지 않고 에이전트 구성의 설정을 조정할 수 있습니다.
 
 > [!Note]
-> 핫 로딩 메커니즘에는 몇 분 안에 지연이 있습니다.
+> 핫 로딩 메커니즘은 몇 분 안에 지연됩니다.
 
 * 이전에 Java 에이전트를 사용하도록 설정한 경우 Application Insights 인스턴스 및/또는 SamplingRate를 변경해도 애플리케이션을 다시 시작할 필요가 없습니다.
 * Java 에이전트를 사용할 경우 애플리케이션을 다시 시작해야 합니다.
@@ -294,9 +294,9 @@ Azure Spring Cloud의 이름 `App Instance`는 다음 시나리오에서 변경�
 * [Azure Spring Cloud에서 분산 추적 사용](./how-to-distributed-tracing.md)
 * [로그 및 메트릭 분석](diagnostic-services.md)
 * [실시간으로 로그 스트리밍](./how-to-log-streaming.md)
-* [애플리케이션 맵](/azure/azure-monitor/app/app-map)
-* [라이브 메트릭](/azure/azure-monitor/app/live-stream)
-* [성능](/azure/azure-monitor/app/tutorial-performance)
-* [실패](/azure/azure-monitor/app/tutorial-runtime-exceptions)
-* [메트릭](/azure/azure-monitor/essentials/tutorial-metrics-explorer)
-* [로그](/azure/azure-monitor/logs/data-platform-logs)
+* [애플리케이션 맵](../azure-monitor/app/app-map.md)
+* [라이브 메트릭](../azure-monitor/app/live-stream.md)
+* [성능](../azure-monitor/app/tutorial-performance.md)
+* [실패](../azure-monitor/app/tutorial-runtime-exceptions.md)
+* [메트릭](../azure-monitor/essentials/tutorial-metrics-explorer.md)
+* [로그](../azure-monitor/logs/data-platform-logs.md)

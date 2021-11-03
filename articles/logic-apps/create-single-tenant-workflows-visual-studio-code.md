@@ -6,12 +6,13 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/13/2021
-ms.openlocfilehash: 960ade1209b6473884e75c660d658abaf6e73af7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 08690347f9a0dae5237ad74bfda9ad3eb6c8ef84
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609957"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072860"
 ---
 # <a name="create-an-integration-workflow-with-single-tenant-azure-logic-apps-standard-in-visual-studio-code"></a>Visual Studio Code에서 단일 테넌트 Azure Logic Apps(표준)를 사용하여 통합 워크플로 만들기
 
@@ -80,7 +81,7 @@ Visual Studio Code에서 로컬 개발의 경우 로컬 개발 환경에서 실�
 
   * [Visual Studio Code 확장용 C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)-F5 기능을 사용하여 논리 앱을 실행할 수 있습니다.
 
-  * MSI(Microsoft Installer) 버전(`func-cli-3.0.3477-x*.msi`)을 사용하여 [Azure Functions Core Tools 3.0.3477 이상](https://github.com/Azure/azure-functions-core-tools/releases/tag/3.0.3477).
+  * [Azure Functions Core Tools -](https://github.com/Azure/azure-functions-core-tools/releases) MSI(Microsoft Installer) 버전()을 사용하는 최신 버전입니다. `func-cli-X.X.XXXX-x*.msi`
 
     이러한 도구에는 Azure Logic Apps(표준) 확장이 Visual Studio Code에서 사용하는 Azure Functions 런타임을 구동하는 동일한 런타임 버전이 포함되어 있습니다.
 
@@ -542,7 +543,7 @@ Visual Studio Code에서 웹후크 기반 트리거 및 작업을 로컬로 실�
 
       ![요청 창이 열린 Postman을 보여주는 스크린샷](./media/create-single-tenant-workflows-visual-studio-code/postman-request-pane.png)
 
-   1. Visual Studio Code로 돌아갑니다. 워크플로 개요 페이지에서 **콜백 URL** 속성 값을 복사합니다.
+   1. Visual Studio Code로 돌아갑니다. 워크플로의 개요 페이지에서 **콜백 URL** 속성 값을 복사 합니다.
 
    1. Postman으로 돌아갑니다. 메서드 목록 옆의 요청 창을 보면 현재 기본 요청 메서드가 **가져오기** 로 표시됩니다. 이전에 복사한 콜백 URL을 주소 상자에 붙여 넣고 **보내기** 를 선택합니다.
 
@@ -561,7 +562,7 @@ Visual Studio Code에서 웹후크 기반 트리거 및 작업을 로컬로 실�
 
    ![실행 상태 및 기록이 포함된 워크플로의 개요 페이지를 보여주는 스크린샷](./media/create-single-tenant-workflows-visual-studio-code/post-trigger-call.png)
 
-   | 실행 상태 | Description |
+   | 실행 상태 | 설명 |
    |------------|-------------|
    | **중단됨** | 시스템이 중단되거나 Azure 구독이 만료되는 등의 외부 문제로 인해 실행이 중지되었거나 완료되지 않았습니다. |
    | **취소** | 실행이 트리거되고 시작되었지만 취소 요청이 수신되었습니다. |
@@ -726,6 +727,8 @@ Azure Portal에서 논리 앱 워크플로를 배포 및 실행하기 전에 환
 Visual Studio Code에서 **Logic App(표준)** 리소스 종류를 사용하여 논리 앱을 배포하는 Azure에 프로젝트를 직접 게시할 수 있습니다. 논리 앱을 새 리소스로 게시할 수 있습니다. 그러면 [함수 앱 요구 사항과 유사한 Azure 스토리지 계정](../azure-functions/storage-considerations.md)과 같이 필요한 리소스를 자동으로 만듭니다. 또는 이전에 배포된 **Logic App(표준)** 리소스에 논리 앱을 게시하여 해당 논리 앱을 덮어쓸 수 있습니다.
 
 **Logic App(표준)** 리소스 종류를 배포하려면 배포 중에 호스팅 계획과 가격 책정 계층을 선택해야 합니다. 자세한 내용은 [호스팅 계획과 가격 책정 계층](logic-apps-pricing.md#standard-pricing)을 참조하세요.
+
+<a name="publish-new-logic-app"></a>
 
 ### <a name="publish-to-a-new-logic-app-standard-resource"></a>새 Logic App(표준) 리소스에 게시
 
@@ -920,7 +923,7 @@ Visual Studio Code에서는 원래 **Logic Apps** 또는 **Logic App(표준)** �
 
    !["Azure Logic Apps(표준)" 확장 창이 열려 있고 배포된 워크플로가 있는 Visual Studio Code를 보여주는 스크린샷](./media/create-single-tenant-workflows-visual-studio-code/find-deployed-workflow-visual-studio-code.png)
 
-1. 논리 앱의 모든 워크플로를 보려면 논리 앱을 확장한 다음, **워크플로** 라는 이름의 노드를 확장합니다.
+1. 논리 앱의 모든 워크플로를 보려면 논리 앱을 확장한 다음 **워크플로** 노드를 확장합니다.
 
 1. 특정 워크플로를 보려면 워크플로의 바로 가기 메뉴를 열고 **디자이너에서 열기** 를 선택하여 읽기 전용 모드로 엽니다.
 

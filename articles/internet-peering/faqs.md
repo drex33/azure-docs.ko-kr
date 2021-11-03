@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: reference
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 9b0b2b08e01c99fc918c4bc5649197c9caa4978a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: c4c58a0550d35575721a1d27ce7a572ac0e00e90
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "75775499"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024205"
 ---
 # <a name="internet-peering---faqs"></a>인터넷 피어링 - FAQ
 
@@ -29,7 +29,7 @@ Azure PowerShell을 사용하여 설정된 피어링 연결은 Azure 리소스�
 
 **New-AzPeeringDirectConnectionObject가 호출되면 Microsoft 및 피어 디바이스에 제공되는 IP 주소는 무엇인가요?**
 
-New-AzPeeringDirectConnectionObject cmdlet을 호출하는 경우 /31 주소(a.b.c.d/31) 또는 /30 주소(a.b.c.d/30)가 입력됩니다. 첫 번째 IP 주소(a.b.c.d+0)가 피어의 디바이스에 지정되고 두 번째 IP 주소(a.b.c.d+1)가 Microsoft 디바이스에 제공됩니다.
+New-AzPeeringDirectConnectionObject cmdlet을 호출할 때 `/31` 주소 ( `a.b.c.d/31` ) 또는 `/30` 주소 ( `a.b.c.d/30` )가 입력 됩니다. 첫 번째 IP 주소 ( `a.b.c.d+0` )는 피어의 장치에 지정 되 고 두 번째 ip 주소 ( `a.b.c.d+1` )는 Microsoft 장치에 제공 됩니다.
 
 **New-AzPeeringDirectConnectionObject cmdlet에서 MaxPrefixesAdvertisedIPv4 및 MaxPrefixesAdvertisedIPv6 매개 변수란 무엇인가요?**
 

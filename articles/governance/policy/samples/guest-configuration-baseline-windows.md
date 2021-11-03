@@ -4,12 +4,12 @@ description: Azure Policy 게스트 구성을 통해 구현되는 Azure의 Windo
 ms.date: 08/24/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: c69a15fc97a605e1166a1721cb9e2fef9ce21ab7
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
-ms.translationtype: HT
+ms.openlocfilehash: b523a239c591d94f733a4d6339964dfb24eec8b1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122779172"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131016248"
 ---
 # <a name="windows-security-baseline"></a>Windows 보안 기준
 
@@ -201,7 +201,7 @@ ms.locfileid: "122779172"
 |속성<br /><sub>(ID)</sub> |세부 정보 |필요한 값<br /><sub>(형식)</sub> |심각도 |
 |---|---|---|---|
 |PNP 작업 감사<br /><sub>(AZ-WIN-00182)</sub> |**설명**: 이 정책 설정을 사용하면 플러그 앤 플레이에서 외부 디바이스를 검색할 때 감사할 수 있습니다. 이 설정의 권장 상태는 `Success`입니다. **참고:** 그룹 정책에서 이 값에 액세스하여 설정하려면 Windows 10, Server 2016 이상 OS가 필요합니다.<br />**키 경로**: {0CCE9248-69AE-11D9-BED3-505054503030}<br />**OS**: WS2016<br />**서버 유형**: 도메인 컨트롤러, 도메인 구성원, 작업 그룹 구성원 |\>\= Success<br /><sub>(감사)</sub> |위험 |
-|프로세스 만들기 감사<br /><sub>(CCE-36059-4)</sub> |**설명**: 이 하위 범주는 프로세스 생성과 프로그램 이름 또는 프로그램을 만든 사용자 이름을 보고합니다. 이 하위 범주에 대한 이벤트는 다음과 같습니다. - 4688: 새 프로세스를 만들었습니다. - 4696: 주 토큰을 프로세스에 할당했습니다. 이 설정에 대한 최신 정보는 Microsoft 기술 자료 문서 947226 [Windows Vista 및 Windows Server 2008의 보안 이벤트 설명](https://support.microsoft.com/en-us/kb/947226)을 참조하세요. 이 설정의 권장 상태는 `Success`입니다.<br />**키 경로**: {0CCE922B-69AE-11D9-BED3-505054503030}<br />**OS**: WS2008, WS2008R2, WS2012, WS2012R2, WS2016<br />**서버 유형**: 도메인 컨트롤러, 도메인 구성원, 작업 그룹 구성원 |\>\= Success<br /><sub>(감사)</sub> |위험 |
+|프로세스 만들기 감사<br /><sub>(CCE-36059-4)</sub> |**설명**: 이 하위 범주는 프로세스 생성과 프로그램 이름 또는 프로그램을 만든 사용자 이름을 보고합니다. 이 하위 범주에 대한 이벤트는 다음과 같습니다. - 4688: 새 프로세스를 만들었습니다. - 4696: 주 토큰을 프로세스에 할당했습니다. 이 설정의 권장 상태는 `Success`입니다.<br />**키 경로**: {0CCE922B-69AE-11D9-BED3-505054503030}<br />**OS**: WS2008, WS2008R2, WS2012, WS2012R2, WS2016<br />**서버 유형**: 도메인 컨트롤러, 도메인 구성원, 작업 그룹 구성원 |\>\= Success<br /><sub>(감사)</sub> |위험 |
 
 ## <a name="system-audit-policies---logon-logoff"></a>시스템 감사 정책 - 로그온-로그오프
 

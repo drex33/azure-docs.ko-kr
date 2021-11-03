@@ -1,17 +1,17 @@
 ---
 title: Azure HPC Cache에서 액세스 정책 사용
 description: 사용자 지정 액세스 정책을 만들고 적용하여 Azure HPC Cache의 스토리지 대상에 대한 클라이언트 액세스를 제한하는 방법
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/11/2021
-ms.author: v-erkel
-ms.openlocfilehash: eb9e71cc8ec463077e3b12b8738203a4945a2eab
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.author: femila
+ms.openlocfilehash: 9c4182ee334f85aabc7811484f4eaa20885d928a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103471788"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131015355"
 ---
 # <a name="control-client-access"></a>클라이언트 액세스 제어
 

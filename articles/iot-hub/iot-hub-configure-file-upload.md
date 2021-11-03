@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/20/2021
 ms.author: robinsh
-ms.openlocfilehash: bf8bf9d1b472ff1986596f6cae7e1f7b415d3bc6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 64d0c6120b5e74b1693f4d7965bb780c62583b53
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528445"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131015272"
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Azure Portal을 사용하여 IoT Hub 파일 업로드 구성
 
@@ -32,15 +32,13 @@ ms.locfileid: "122528445"
 
 1. [Azure Portal](https://portal.azure.com)에서 IoT 허브로 이동하고 **파일 업로드** 를 선택하여 파일 업로드 속성을 표시합니다. 그런 다음, **스토리지 컨테이너 설정** 에서 **Azure Storage 컨테이너** 를 선택합니다.
 
-    :::image type="content" source="./media/iot-hub-configure-file-upload/file-upload-settings.png" alt-text="포털에서 IoT Hub 파일 보기 설정 보기":::
+    :::image type="content" source="./media/iot-hub-configure-file-upload/file-upload-settings.png" alt-text="포털에서 파일 업로드 설정을 구성하는 방법을 보여 주는 스크린샷":::
 
-1. 현재 구독에 있는 Azure Storage 계정 및 Blob 컨테이너를 선택하여 IoT 허브와 연결합니다. 필요에 따라 **Storage 계정** 창에 Azure Storage 계정을 만들고 **컨테이너** 창에 Blob 컨테이너를 만들 수 있습니다. 
+1. 현재 구독에 있는 Azure Storage 계정 및 Blob 컨테이너를 선택하여 IoT 허브와 연결합니다. 필요에 따라 **Storage 계정** 창에 Azure Storage 계정을 만들고 **컨테이너** 창에 Blob 컨테이너를 만들 수 있습니다.
 
-   :::image type="content" source="./media/iot-hub-configure-file-upload/file-upload-container-selection.png" alt-text="포털에서 파일 업로드에 대한 스토리지 컨테이너 보기":::
+   :::image type="content" source="./media/iot-hub-configure-file-upload/file-upload-container-selection.png" alt-text="파일 업로드를 위해 스토리지 컨테이너를 보는 방법을 보여주는 스크린샷.":::
 
-1. Azure Storage 계정 및 Blob 컨테이너를 선택한 후 파일 업로드 속성의 나머지 부분을 구성합니다.    
-
-    :::image type="content" source="./media/iot-hub-configure-file-upload/file-upload-selected-container.png" alt-text="포털에서 IoT Hub 파일 업로드 구성":::
+1. Azure Storage 계정 및 Blob 컨테이너를 선택한 후 파일 업로드 속성의 나머지 부분을 구성합니다.
 
     * **업로드된 파일에 대한 알림 받기**: 토글을 통해 파일 업로드 알림을 사용하거나 사용하지 않도록 설정합니다.
 

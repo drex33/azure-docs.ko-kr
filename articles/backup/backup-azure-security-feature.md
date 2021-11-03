@@ -4,16 +4,16 @@ description: Azure Backup의 보안 기능을 사용하여 백업을 좀 더 안
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 04/26/2021
-ms.openlocfilehash: 6cf2af6016df358243b36d47766eab38dacc5db4
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
-ms.translationtype: HT
+ms.openlocfilehash: 10a3420003197fc76f9baefbfd4c58c40a6dacfc
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108064200"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073665"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Azure Backup을 사용하여 하이브리드 백업을 보호하기 위한 보안 기능
 
-맬웨어, 랜섬웨어 및 침입과 같은 보안 문제에 대한 우려는 증가하고 있습니다. 이러한 보안 문제는 돈과 데이터 측면 모두에서 비용이 많이 들 수 있습니다. 이러한 공격을 방지하기 위해 Azure Backup은 이제 하이브리드 백업을 보호하는 데 도움이 되는 보안 기능을 제공합니다. 이 문서는 Azure Recovery Services 에이전트와 Azure Backup Server를 사용하여 이러한 기능을 활성화하고 사용하는 방법을 다룹니다. 이러한 기능에는 다음이 포함됩니다.
+맬웨어, 랜섬웨어 및 침입과 같은 보안 문제에 대한 우려는 증가하고 있습니다. 이러한 보안 문제는 돈과 데이터 측면 모두에서 비용이 많이 들 수 있습니다. 이러한 공격을 방지하기 위해 Azure Backup은 이제 하이브리드 백업을 보호하는 데 도움이 되는 보안 기능을 제공합니다. 이 문서는 Azure Recovery Services 에이전트와 Azure Backup Server를 사용하여 이러한 기능을 활성화하고 사용하는 방법을 다룹니다. 이러한 기능으로는 다음이 포함됩니다.
 
 - **방지**. 암호 변경과 같은 중요한 작업이 수행될 때마다 추가적인 인증 계층이 제공됩니다. 이 유효성 검사는 유효한 Azure 자격 증명을 가진 사용자만 이러한 작업을 수행할 수 있는지 확인합니다.
 - **경고**. 백업 데이터 삭제와 같은 중요한 작업이 수행될 때마다 구독 관리자에게 전자 메일 알림이 전송됩니다. 이 전자 메일은 사용자에게 이러한 작업을 신속하게 알립니다.
@@ -51,13 +51,13 @@ Recovery Services 자격 증명 모음을 만드는 경우 모든 보안 기능�
 5. **Azure AD Multi-Factor Authentication을 구성했습니까?** 드롭다운 목록에서 값을 선택하여 [Azure AD Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md)을 사용하도록 설정했는지 확인합니다. 이 기능을 사용하도록 설정했으면 Azure Portal에 로그인하는 동안 다른 디바이스(예: 휴대폰)에서 인증을 받을지 묻는 메시지가 표시됩니다.
 
    Backup에서 중요한 작업을 수행할 때 Azure Portal에서 사용할 수 있는 보안 PIN을 입력해야 합니다. Azure AD Multi-Factor Authentication을 사용하도록 설정하면 보안 계층이 추가됩니다. 유효한 Azure 자격 증명을 가지며 두 번째 디바이스에서 인증을 받은 인증된 사용자만 Azure Portal에 액세스할 수 있습니다.
-6. 보안 설정을 저장하려면 **사용** 을 선택하고 **저장** 을 선택합니다. 이전 단계에서 **Azure AD Multi-Factor Authentication을 구성했습니까?** 목록에서 값을 선택한 후에만 **사용** 을 선택할 수 있습니다.
+6. 보안 설정을 저장하려면 **사용** 을 선택하고 **저장** 을 선택합니다.
 
     ![보안 설정의 스크린샷](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
 ## <a name="recover-deleted-backup-data"></a>삭제된 백업 데이터 복구
 
-Backup은 추가로 14일 동안 삭제된 백업 데이터를 유지하고, **백업 데이터 삭제 작업으로 백업 중지** 를 수행한 경우에도 백업 데이터를 즉시 삭제하지 않습니다. 이 데이터를 14일 기간 내 복원하려면 사용 중인 항목에 따라 다음 단계를 수행합니다.
+보안 기능 설정을 사용하도록 설정하면 Azure Backup 추가 14일 동안 삭제된 백업 데이터를 유지하고 **백업 데이터 삭제를** 사용하여 백업 중지 작업을 수행하는 경우 즉시 삭제하지 않습니다. 이 데이터를 14일 기간 내 복원하려면 사용 중인 항목에 따라 다음 단계를 수행합니다.
 
 **Azure Recovery Services 에이전트** 사용자의 경우:
 

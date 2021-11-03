@@ -7,12 +7,13 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 09/22/2021
 ms.author: cherylmc
-ms.openlocfilehash: 23d249bafca7b9ca89ab743d7aa1beb7ac60e868
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: faa6fe1b7fdccf81f83b591c1f0258d27dc9fdd0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130233116"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131071530"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Bastion 호스트 만들기
 
@@ -22,7 +23,7 @@ ms.locfileid: "130233116"
 * [Azure Portal](./tutorial-create-host-portal.md)
 * [Azure CLI](create-host-cli.md)
 
-[!INCLUDE [Note about SKU limitations for preview.](../../includes/bastion-preview-sku-note.md)]
+[!INCLUDE [About SKUs](../../includes/bastion-sku-note.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -59,9 +60,9 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
    ```azurepowershell-interactive
    $bastion = New-AzBastion -ResourceGroupName "myBastionRG" -Name "myBastion" -PublicIpAddress $publicip -VirtualNetwork $vnet
    ```
-## <a name="disassociate-the-vm-public-ip-address"></a>VM 공용 IP 주소 분리
+## <a name="disassociate-the-vm-public-ip-address"></a>VM 공용 IP 주소를 분리 합니다.
 
-Azure Bastion 공용 IP 주소를 사용하여 클라이언트 VM에 연결하지 않습니다. VM에 대한 공용 IP 주소가 필요하지 않은 경우 Azure VM에서 공용 IP 주소 분리 문서의 단계를 사용하여 [공용 IP 주소를](../virtual-network/ip-services/remove-public-ip-address-vm.md)분리할 수 있습니다.
+Azure 방호는 클라이언트 VM에 연결 하기 위해 공용 IP 주소를 사용 하지 않습니다. VM에 대 한 공용 IP 주소가 필요 하지 않은 경우 [AZURE vm에서 공용 ip 주소 분리](../virtual-network/ip-services/remove-public-ip-address-vm.md)문서의 단계를 사용 하 여 공용 ip 주소를 분리할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,19 +7,19 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 08/03/2021
-ms.openlocfilehash: 330f102dffb392540879d8d583e02a68fbe436c7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 349af1634f71f74dee85f99f69341b96cdb11b9e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536593"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084410"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL의 감사 로깅 - 하이퍼스케일(Citus)
 
 > [!IMPORTANT]
 > 하이퍼스케일(Citus) pgAudit 확장은 현재 미리 보기로 제공됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 >
-> [하이퍼스케일(Citus)의 미리 보기 기능](hyperscale-preview-features.md)에서 다른 새 기능의 전체 목록을 볼 수 있습니다.
+> [하이퍼스케일(Citus)의 미리 보기 기능](./hyperscale-product-updates.md)에서 다른 새 기능의 전체 목록을 볼 수 있습니다.
 
 Azure Database for PostgreSQL - 하이퍼스케일(Citus)의 데이터베이스 작업 감사 로깅은 PostgreSQL Audit 확장: [pgAudit](https://www.pgaudit.org/)을 통하여 사용할 수 있습니다. pgAudit은 자세한 세션 및/또는 개체 감사 로깅을 제공합니다.
 

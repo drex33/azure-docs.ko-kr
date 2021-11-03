@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.subservice: v1
 ms.topic: tutorial
 ms.date: 10/22/2021
-ms.openlocfilehash: 09ac4bda1841dd951fd7554f3c57b39ecee98d4a
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 8c26992ab292f0c75a5ad61000bad0de8eb8a8b7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130260116"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040778"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 첫 번째 Azure Data Factory 빌드
 > [!div class="op_single_selector"]
@@ -48,30 +48,40 @@ ms.locfileid: "130260116"
 이 단계에서는 Azure PowerShell을 사용하여 **FirstDataFactoryPSH** 라는 Azure Data Factory를 만듭니다. 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인에는 하나 이상의 작업이 있을 수 있습니다. 예를 들어 원본에서 대상 데이터 저장소에 데이터를 복사하는 복사 작업 및 입력 데이터를 변환할 Hive 스크립트를 실행하는 HDInsight Hive 작업입니다. 이 단계에서는 데이터 팩터리 만들기를 시작하겠습니다.
 
 1. Azure PowerShell을 시작하고 다음 명령을 실행합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 이러한 명령을 다시 실행해야 합니다.
+
    * 다음 명령을 실행하고 Azure 포털에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
-     ```PowerShell
+
+     ```powershell
      Connect-AzAccount
-     ```    
+     ```
+
    * 다음 명령을 실행하여 이 계정의 모든 구독을 확인합니다.
-     ```PowerShell
+
+     ```powershell
      Get-AzSubscription  
      ```
+
    * 다음 명령을 실행하여 사용하려는 구독을 선택합니다. 이 구독은 Azure 포털에서 사용한 것과 같아야 합니다.
-     ```PowerShell
+
+     ```powershell
      Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
-     ```     
+     ```
+
 2. 다음 명령을 실행하여 **ADFTutorialResourceGroup** 이라는 Azure 리소스 그룹을 만듭니다.
     
-    ```PowerShell
+    ```powershell
     New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
+
     이 자습서의 일부 단계에서는 ADFTutorialResourceGroup이라는 리소스 그룹을 사용한다고 가정합니다. 다른 리소스 그룹을 사용하는 경우 이 자습서에서 ADFTutorialResourceGroup 대신 해당 리소스 그룹을 사용해야 합니다.
+
 3. **FirstDataFactoryPSH** 라는 데이터 팩터리를 만드는 **New-AzDataFactory** cmdlet을 실행합니다.
 
-    ```PowerShell
+    ```powershell
     New-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH –Location "West US"
     ```
-   다음 사항에 유의하세요.
+
+다음 사항에 유의하세요.
 
 * Azure Data Factory 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 "FirstDataFactoryPSH"를 사용할 수 없습니다.** 오류가 표시되는 경우 이름을 변경합니다.(예: yournameFirstDataFactoryPSH) 이 자습서의 단계를 수행하는 동안 ADFTutorialFactoryPSH 대신 이 이름을 사용합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
 * 데이터 팩터리 인스턴스를 만들려면 Azure 구독의 참가자/관리자여야 합니다.
@@ -80,14 +90,16 @@ ms.locfileid: "130260116"
 
   * Azure PowerShell에서 다음 명령을 실행하여 데이터 팩터리 공급자를 등록합니다.
 
-    ```PowerShell
+    ```powershell
     Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
-      데이터 팩터리 공급자가 등록되어 있는지 확인하려면 다음 명령을 실행할 수 있습니다.
 
-    ```PowerShell
+    데이터 팩터리 공급자가 등록되어 있는지 확인하려면 다음 명령을 실행할 수 있습니다.
+
+    ```powershell
     Get-AzResourceProvider
     ```
+
   * Azure 구독을 사용하여 [Azure 포털](https://portal.azure.com) 에 로그인하고 데이터 팩터리 블레이드로 이동하거나 Azure 포털에 데이터 팩터리를 만듭니다. 이 작업은 공급자를 자동으로 등록합니다.
 
 파이프라인을 만들기 전에 먼저 몇 가지 데이터 팩터리 엔터티를 만들어야 합니다. 먼저 데이터 저장소에 데이터 저장소/계산을 연결하는 연결된 서비스를 만들고 연결된 데이터 저장소에서 데이터를 나타내는 입력 및 출력 데이터 세트를 정의한 다음, 이러한 데이터 세트를 사용하는 작업을 통해 파이프라인을 만듭니다.
@@ -116,19 +128,21 @@ ms.locfileid: "130260116"
 2. Azure PowerShell에서 ADFGetStarted 폴더로 전환합니다.
 3. 연결된 서비스를 만드는 **New-AzDataFactoryLinkedService** cmdlet을 사용할 수 있습니다. 이 자습서에서 사용하는 이 cmdlet 및 다른 데이터 팩터리 cmdlet의 경우 *ResourceGroupName* 및 *DataFactoryName* 매개 변수의 값을 전달해야 합니다. 또는 **Get-AzDataFactory** 를 사용하여 **DataFactory** 개체를 가져온 다음, cmdlet을 실행할 때마다 *ResourceGroupName* 및 *DataFactoryName* 을 입력하지 않고 개체를 전달할 수 있습니다. 다음 명령을 실행하여 **Get-AzDataFactory** cmdlet의 출력을 **$df** 변수에 할당합니다.
 
-    ```PowerShell
-    $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
+    ```powershell
+    $df = Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
     ```
 4. 이제 연결된 **StorageLinkedService** 서비스를 만드는 **New-AzDataFactoryLinkedService** cmdlet을 실행합니다.
 
-    ```PowerShell
+    ```powershell
     New-AzDataFactoryLinkedService $df -File .\StorageLinkedService.json
     ```
+
     **Get-AzDataFactory** cmdlet을 실행하고 출력을 **$df** 변수에 할당하지 않은 경우 *ResourceGroupName* 및 *DataFactoryName* 매개 변수의 값을 다음과 같이 지정해야 합니다.
 
-    ```PowerShell
+    ```powershell
     New-AzDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName FirstDataFactoryPSH -File .\StorageLinkedService.json
     ```
+
     자습서 도중에 Azure PowerShell을 닫은 경우 자습서를 완료하려면 다음에 Azure PowerShell을 시작할 때 **Get-AzDataFactory** cmdlet을 실행해야 합니다.
 
 ### <a name="create-azure-hdinsight-linked-service"></a>Azure HDInsight 연결된 서비스 만들기
@@ -169,8 +183,8 @@ ms.locfileid: "130260116"
 
      자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 를 참조하세요.
 2. HDInsightOnDemandLinkedService라는 연결된 서비스를 만드는 **New-AzDataFactoryLinkedService** cmdlet을 실행합니다.
-    
-    ```PowerShell
+
+    ```powershell
     New-AzDataFactoryLinkedService $df -File .\HDInsightOnDemandLinkedService.json
     ```
 
@@ -218,7 +232,7 @@ ms.locfileid: "130260116"
    | external |입력 데이터가 데이터 팩터리 서비스에서 생성되지 않는 경우 이 속성은 true로 설정됩니다. |
 2. Azure PowerShell에서 다음 명령을 실행하여 데이터 팩터리 데이터 세트를 만듭니다.
 
-    ```PowerShell
+    ```powershell
     New-AzDataFactoryDataset $df -File .\InputTable.json
     ```
 
@@ -247,10 +261,12 @@ Azure File Storage 정보가 포함된 파일이 없으면 이 섹션의 끝에 
       }
     }
     ```
+
     JSON은 **AzureBlobOutput** 이라는 데이터 세트를 정의하고 이는 파이프라인의 작업에 대한 출력 데이터를 나타냅니다. 또한 결과가 **adfgetstarted** 라는 Blob 컨테이너와 **partitioneddata** 라는 폴더에 저장되도록 지정합니다. **가용성** 섹션은 출력 데이터 세트가 월 단위로 생성되도록 지정합니다.
+
 2. Azure PowerShell에서 다음 명령을 실행하여 데이터 팩터리 데이터 세트를 만듭니다.
 
-    ```PowerShell
+    ```powershell
     New-AzDataFactoryDataset $df -File .\OutputTable.json
     ```
 
@@ -323,9 +339,10 @@ Azure File Storage 정보가 포함된 파일이 없으면 이 섹션의 끝에 
 
 2. Azure Blob Storage의 **adfgetstarted/inputdata** 폴더에서 **input.log** 파일이 표시되는지 확인하고 다음 명령을 실행하여 파이프라인을 배포합니다. **시작** 및 **종료** 시간이 과거에 설정되고 **isPaused** 가 false로 설정되었기 때문에 파이프라인(파이프라인의 활동)은 실행을 배포한 후에 즉시 실행됩니다.
 
-    ```PowerShell
+    ```powershell
     New-AzDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
     ```
+
 3. 축하합니다. Azure PowerShell을 사용하여 첫 번째 파이프라인 만들기를 완료하였습니다.
 
 ## <a name="monitor-pipeline"></a>파이프라인 모니터링
@@ -333,17 +350,19 @@ Azure File Storage 정보가 포함된 파일이 없으면 이 섹션의 끝에 
 
 1. **Get-AzDataFactory** 를 실행하고 출력을 **$df** 변수에 할당합니다.
 
-    ```PowerShell
-    $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
+    ```powershell
+    $df = Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
     ```
+
 2. **Get-AzDataFactorySlice** 를 실행하여 파이프라인의 출력 테이블인 **EmpSQLTable** 의 모든 조각에 대한 세부 정보를 가져옵니다.
 
-    ```PowerShell
+    ```powershell
     Get-AzDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2017-07-01
     ```
+
     여기에 지정하는 StartDateTime은 파이프라인 JSON에 지정된 것과 동일한 시작 시간입니다. 샘플 출력은 다음과 같습니다.
 
-    ```PowerShell
+    ```output
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : FirstDataFactoryPSH
     DatasetName       : AzureBlobOutput
@@ -355,15 +374,16 @@ Azure File Storage 정보가 포함된 파일이 없으면 이 섹션의 끝에 
     LatencyStatus     :
     LongRetryCount    : 0
     ```
+
 3. **Get-AzDataFactoryRun** 을 실행하여 특정 조각에 대한 작업 실행의 세부 정보를 가져옵니다.
 
-    ```PowerShell
+    ```powershell
     Get-AzDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2017-07-01
     ```
 
     샘플 출력은 다음과 같습니다. 
 
-    ```PowerShell
+    ```output
     Id                  : 0f6334f2-d56c-4d48-b427-d4f0fb4ef883_635268096000000000_635292288000000000_AzureBlobOutput
     ResourceGroupName   : ADFTutorialResourceGroup
     DataFactoryName     : FirstDataFactoryPSH
@@ -382,6 +402,7 @@ Azure File Storage 정보가 포함된 파일이 없으면 이 섹션의 끝에 
     PipelineName        : MyFirstPipeline
     Type                : Script
     ```
+
     **준비** 상태 또는 **실패** 상태에 조각이 표시될 때가지 이 cmdlet을 계속 실행합니다. 조각이 준비 상태에 있으면 출력 데이터에 대한 Blob Storage의 **adfgetstarted** 컨테이너에 있는 **partitioneddata** 폴더를 확인합니다.  주문형 HDInsight 클러스터 만들기는 일반적으로 시간이 소요됩니다.
 
     :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-powershell/three-ouptut-files.png" alt-text="출력 데이터":::

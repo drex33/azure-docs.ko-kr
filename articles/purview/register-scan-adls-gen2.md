@@ -1,170 +1,262 @@
 ---
 title: ADLS(Azure Data Lake Storage) Gen2 등록 및 검사
-description: 이 자습서에서는 Azure Data Lake Storage Gen2를 검사하는 방법을 설명합니다.
-author: shsandeep123
-ms.author: sandeepshah
+description: 이 문서에서는 Azure Data Lake Storage Gen2 소스를 인증 하 고 상호 작용 하는 지침을 포함 하 여 Azure 부서의 범위에 Azure Data Lake Storage Gen2 데이터 원본을 등록 하는 프로세스에 대해 간략하게 설명 합니다.
+author: athenads
+ms.author: athenadsouza
 ms.service: purview
-ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 05/08/2021
-ms.openlocfilehash: 0d2da12eed5bdfe393cb20c489df2591356b9012
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 11/02/2021
+ms.custom: template-how-to, ignite-fall-2021
+ms.openlocfilehash: 6459dc9cfccac5f17e0fac155121a817a0fad060
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129214867"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131038246"
 ---
-# <a name="register-and-scan-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 등록 및 검사
+# <a name="connect-to-azure-data-lake-gen2-in-azure-purview"></a>Azure 부서의 범위에서 Azure Data Lake Gen2에 커넥트
 
-이 문서에서는 Azure Purview에서 Azure Data Lake Storage Gen2를 데이터 원본으로 등록하고 검사를 설정하는 방법을 간략하게 설명합니다.
+이 문서에서는 Azure Data Lake Storage Gen2 소스를 인증 하 고 상호 작용 하는 지침을 포함 하 여 Azure 부서의 범위에 Azure Data Lake Storage Gen2 데이터 원본을 등록 하는 프로세스에 대해 간략하게 설명 합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-Azure Data Lake Storage Gen2 데이터 원본은 다음과 같은 기능을 지원합니다.
+|**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
+|---|---|---|---|---|---|---|
+| [예](#register) | [예](#scan)|[예](#scan) | [예](#scan)|[예](#scan)| 예 | [Data Factory 계보](how-to-link-azure-data-factory.md) |
 
-- Azure Data Lake Storage Gen2에서 메타데이터 및 분류를 캡처하기 위한 **전체 및 증분 검사**
+## <a name="prerequisites"></a>사전 요구 사항
 
-- ADF 복사/데이터 흐름에 대한 데이터 자산 간의 **계보**
+* 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-csv, tsv, psv, ssv와 같은 파일 형식의 경우 다음 논리가 있을 때 스키마가 추출됩니다.
+* 활성 [Purview 리소스](create-catalog-portal.md).
 
-1. 첫 번째 행 값이 비어 있지 않음
-2. 첫 번째 행 값이 고유함
-3. 첫 번째 행 값은 날짜 및 숫자가 아님
+* 원본을 등록하고 Purview Studio에서 관리하려면 데이터 원본 관리자 및 데이터 읽기 권한자여야 합니다. 자세한 내용은 [Azure Purview 권한 페이지](catalog-permissions.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="register"></a>등록
 
-데이터 원본을 등록하기 전에 Azure Purview 계정을 만듭니다. Purview 계정을 만드는 방법에 관한 자세한 내용은 [빠른 시작: Azure Purview 계정 만들기](create-catalog-portal.md)를 참조하세요.
+이 섹션에서는 ADLS Gen2 데이터 원본을 등록 하 고 적절 한 인증 메커니즘을 설정 하 여 데이터 원본을 성공적으로 검색할 수 있도록 합니다.
 
-### <a name="setting-up-authentication-for-a-scan"></a>검사 인증 설정
+### <a name="steps-to-register"></a>등록 단계
 
-Azure Data Lake Storage Gen2에 대해 다음 인증 방법이 지원됩니다.
+데이터 원본에 대 한 검색을 설정 하기 전에 Azure 부서의 범위에서 데이터 원본을 등록 하는 것이 중요 합니다.
 
-- 관리 ID
-- 서비스 사용자
-- 계정 키
+1. [Azure Portal](https://portal.azure.com)로 이동 하 여 **부서의 범위 계정** 페이지로 이동 하 고 _부서의 범위 계정을_ 클릭 합니다.
 
-#### <a name="managed-identity-recommended"></a>관리 ID(권장)
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-purview-acct.png" alt-text="데이터 원본을 등록 하는 데 사용 되는 부서의 범위 계정을 보여 주는 스크린샷":::
 
-**관리 ID** 를 선택하여 연결을 설정하려면 먼저 Purview 계정에 데이터 원본을 검사할 수 있는 권한을 부여해야 합니다.
+1. **부서의 범위 Studio를 열고** 데이터 맵으로 이동 합니다. **> 원본**
 
-1. ADLS Gen2 스토리지 계정으로 이동합니다.
-1. 왼쪽 탐색 메뉴에서 **액세스 제어(IAM)** 를 선택합니다. 
-1. **+추가** 를 선택합니다.
-1. **역할** 을 **스토리지 Blob 데이터 읽기 권한자** 로 설정하고 입력 **선택** 상자에 Azure Purview 계정 이름을 입력합니다. 그런 다음, **저장** 을 선택하여 Purview 계정에 이 역할을 할당합니다.
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-open-purview-studio.png" alt-text="부서의 범위 Studio 열기 링크를 보여 주는 스크린샷":::
+
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-sources.png" alt-text="데이터 맵의 원본 링크로 이동 하는 스크린샷":::
+
+1. **컬렉션 메뉴를** 사용 하 여 [컬렉션 계층 구조](./quickstart-create-collection.md) 를 만들고 필요에 따라 개별 하위 컬렉션에 사용 권한을 할당 합니다.
+
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-collections.png" alt-text="컬렉션 계층 구조를 만드는 컬렉션 메뉴를 보여 주는 스크린샷":::
+
+1. **소스** 메뉴에서 적절 한 컬렉션으로 이동 하 고 **등록** 아이콘을 클릭 하 여 새 ADLS Gen2 데이터 소스를 등록 합니다.
+
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-register-source.png" alt-text="데이터 원본을 등록 하는 데 사용 되는 컬렉션을 보여 주는 스크린샷":::
+
+1. **Azure Data Lake Storage Gen2** 데이터 원본을 선택 하 고 **계속** 을 클릭 합니다.
+
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-select-data-source.png" alt-text="데이터 소스를 선택할 수 있는 스크린샷":::
+
+1. 데이터 원본에 적합 한 **이름을** 제공 하 고, 관련 **Azure 구독**, 기존 **Data Lake Store 계정 이름** 및 **컬렉션** 을 선택 하 고, **적용** 을 클릭 합니다.
+
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-data-source-details.png" alt-text="데이터 원본을 등록 하기 위해 입력 해야 하는 세부 정보를 보여 주는 스크린샷":::
+
+1. ADLS Gen2 저장소 계정이 선택한 컬렉션 아래에 표시 됩니다.
+
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-data-source-collection.png" alt-text="검색을 시작 하기 위해 컬렉션에 매핑된 데이터 원본을 보여 주는 스크린샷":::
+
+## <a name="scan"></a>검사
+
+### <a name="prerequisites-for-scan"></a>검사를 위한 필수 구성 요소
+
+에서 데이터 원본을 검색할 수 있도록 하려면 ADLS Gen2 Storage 계정의 인증 방법을 구성 해야 합니다.
+다음과 같은 옵션이 지원됩니다.
+
+> [!Note]
+> 스토리지 계정에 대해 방화벽을 사용하도록 설정한 경우에는 검색을 설정할 때 관리 ID 인증 방법을 사용해야 합니다.
+
+* **관리 id (권장)** -Azure 부서의 범위 계정이 생성 되 면 azure AD 테 넌 트에서 시스템 **관리 id** 가 자동으로 생성 됩니다. 리소스 유형에 따라 Azure 부서의 범위 MSI에서 검사를 수행 하는 데 특정 RBAC 역할 할당이 필요 합니다.
+
+* **계정 키** -암호를 사용 하 여 데이터 원본을 안전 하 게 검색할 수 있도록 자격 증명을 저장 하기 위해 Azure Key Vault 내에 암호를 만들 수 있습니다. 암호는 저장소 계정 키 SQL 로그인 암호 또는 암호 일 수 있습니다.
+
+   > [!Note]
+   > 이 옵션을 사용 하는 경우 구독에 _azure key vault_ 리소스를 배포 하 고 azure _key vault_ 내에서 암호에 대 한 필수 액세스 권한을 사용 하 여 _azure 부서의 범위 계정_ MSI를 할당 해야 합니다.
+
+* **서비스 사용자** -이 방법에서는 새를 만들거나 Azure Active Directory 테 넌 트에서 기존 서비스 주체를 사용할 수 있습니다.
+
+### <a name="authentication-for-a-scan"></a>검색에 대 한 인증
+
+#### <a name="using-managed-identity-for-scanning"></a>관리 Id를 사용 하 여 검색
+
+부서의 범위 계정에 ADLS Gen2 데이터 원본을 검색할 수 있는 권한을 부여 하는 것이 중요 합니다. 검색 권한을 부여할 대상에 따라 구독, 리소스 그룹 또는 리소스 수준에서 카탈로그의 MSI를 추가할 수 있습니다.
+
+> [!Note]
+> Azure 리소스에 관리 ID를 추가하려면 구독의 소유자여야 합니다.
+
+1. [Azure Portal](https://portal.azure.com)에서 카탈로그를 검색할 수 있도록 허용 하려는 구독, 리소스 그룹 또는 리소스 (예: Azure Data Lake Storage Gen2 저장소 계정)를 찾습니다.
+
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-storage-acct.png" alt-text="저장소 계정을 보여 주는 스크린샷":::
+
+1. 왼쪽 탐색 영역에서 **Access Control (IAM)** 을 클릭 한 다음 **+ 추가**  -->  **역할 할당** 추가를 클릭 합니다.
+
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-access-control.png" alt-text="저장소 계정에 대 한 액세스 제어를 보여 주는 스크린샷":::
+
+1. **Blob 데이터 판독기 Storage** **역할** 을 설정 하 고 입력 상자 **선택** 상자에 _Azure 부서의 범위 계정 이름을_ 입력 합니다. 그런 다음, **저장** 을 선택하여 Purview 계정에 이 역할을 할당합니다.
+
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-assign-permissions.png" alt-text="부서의 범위 계정에 대 한 사용 권한을 할당 하는 세부 정보를 보여 주는 스크린샷":::
 
 > [!Note]
 > 자세한 내용은 [Azure Active Directory를 사용하여 Blob 및 큐에 대한 액세스 권한 부여](../storage/blobs/authorize-access-azure-active-directory.md)의 단계를 참조하세요.
-
-#### <a name="account-key"></a>계정 키
-
-선택한 인증 방법이 **계정 키** 인 경우 액세스 키를 가져와서 Key Vault에 저장해야 합니다.
-
-1. ADLS Gen2 스토리지 계정으로 이동합니다.
-1. **보안 + 네트워킹 > 액세스 키** 선택
-1. *키* 를 복사하고 다음 단계를 위해 저장
-1. 키 자격 증명 모음으로 이동
-1. **설정 > 비밀** 을 선택합니다.
-1. **+ 생성/가져오기** 를 선택하고 스토리지 계정의 *키* 로 **이름** 및 **값** 입력
-1. **만들기** 를 선택하여 완료합니다.
-1. 키 자격 증명 모음이 아직 Purview에 연결되지 않은 경우 [새 키 자격 증명 모음 연결을 생성](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)해야 합니다.
-1. 마지막으로 키를 사용하여 검사를 설정하기 위한 [새 자격 증명](manage-credentials.md#create-a-new-credential)을 만듭니다.
-
-#### <a name="service-principal"></a>서비스 사용자
-
-서비스 주체를 사용하려면 기존 주체를 사용하거나 새 주체를 만들 수 있습니다. 
-
-> [!Note]
-> 새 서비스 주체를 만들어야 하는 경우 다음 단계를 수행하세요.
-> 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
-> 1. 왼쪽 메뉴에서 **Azure Active Directory** 를 선택합니다.
-> 1. **앱 등록** 을 선택합니다.
-> 1. **+ 새 애플리케이션 등록** 을 선택합니다.
-> 1. **애플리케이션** 의 이름(서비스 사용자 이름)을 입력합니다.
-> 1. **이 조직 디렉터리의 계정만** 을 선택합니다.
-> 1. 리디렉션 URI에 대해 **웹** 을 선택하고 원하는 URL을 입력합니다. 실제 또는 작업 URL일 필요가 없습니다.
-> 1. 그런 다음, **등록** 을 선택합니다.
-
-서비스 주체의 애플리케이션 ID 및 비밀을 가져오는 데 필요합니다.
-
-1. [Azure Portal](https://portal.azure.com)에서 서비스 주체로 이동합니다.
-1. **개요** 에서 **애플리케이션(클라이언트) ID** 값을 복사하고, **인증서 및 비밀** 에서 **클라이언트 암호** 값을 복사합니다.
-1. 키 자격 증명 모음으로 이동
-1. **설정 > 비밀** 을 차례로 선택합니다.
-1. **+ 생성/가져오기** 를 선택하고, 선택한 **이름** 및 **값** 을 서비스 주체의 **클라이언트 암호** 로 입력합니다.
-1. **만들기** 를 선택하여 완료합니다.
-1. 키 자격 증명 모음이 아직 Purview에 연결되지 않은 경우 [새 키 자격 증명 모음 연결을 생성](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)해야 합니다.
-1. 마지막으로 서비스 주체를 통해 [새 자격 증명을 생성](manage-credentials.md#create-a-new-credential)하여 검사를 설정합니다.
-
-##### <a name="granting-the-service-principal-access-to-your-adls-gen2-account"></a>ADLS gen2 계정에 대한 서비스 주체 액세스 권한 부여
-
-1. 스토리지 계정으로 이동합니다.
-1. 왼쪽 탐색 메뉴에서 **액세스 제어(IAM)** 를 선택합니다. 
-1. **+추가** 를 선택합니다.
-1. **역할** 을 **스토리지 Blob 데이터 읽기 권한자** 로 설정하고 입력 **선택** 상자에 서비스 주체 이름 또는 개체 ID를 입력합니다. 그런 다음, **저장** 을 선택하여 서비스 주체에 이 역할을 할당합니다.
-### <a name="firewall-settings"></a>방화벽 설정
 
 > [!NOTE]
 > 스토리지 계정에 대해 방화벽을 사용하도록 설정한 경우에는 검색을 설정할 때 **관리 ID** 인증 방법을 사용해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 ADLS Gen2 스토리지 계정으로 이동
-1. **설정 > 네트워킹** 으로 이동
+1. **보안 + 네트워킹 > 네트워킹** 으로 이동 합니다.
+
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-networking.png" alt-text="방화벽 액세스를 제공 하는 세부 정보를 보여 주는 스크린샷":::
+
 1. **다음에서 액세스 허용** 에서 **선택한 네트워크** 선택
+
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-network-access.png" alt-text="선택한 네트워크에 대 한 액세스를 허용 하는 세부 정보를 보여 주는 스크린샷":::
+
 1. **예외** 섹션에서 **신뢰할 수 있는 Microsoft 서비스가 이 스토리지 계정에 액세스할 수 있도록 허용** 을 선택하고 **저장** 선택
 
-:::image type="content" source="./media/register-scan-adls-gen2/firewall-setting.png" alt-text="방화벽 설정을 보여 주는 스크린샷":::
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-permission-microsoft-services.png" alt-text="신뢰할 수 있는 Microsoft 서비스 저장소 계정에 액세스할 수 있도록 허용 하는 예외를 보여 주는 스크린샷":::
 
-## <a name="register-azure-data-lake-storage-gen2-data-source"></a>Azure Data Lake Storage Gen2 데이터 원본 등록
+#### <a name="using-account-key-for-scanning"></a>검색을 위해 계정 키 사용
 
-새 ADLS Gen2 계정을 데이터 카탈로그에 등록하려면 다음을 수행합니다.
+선택한 인증 방법이 **계정 키** 인 경우 액세스 키를 가져와서 Key Vault에 저장해야 합니다.
 
-1. Purview 계정으로 이동합니다.
-2. 왼쪽 탐색 메뉴에서 **데이터 맵** 을 선택합니다.
-3. **등록** 을 선택합니다.
-4. **원본 등록** 에서 **Azure Data Lake Storage Gen2** 를 선택합니다.
-5. **계속** 을 선택합니다.
+1. ADLS Gen2 스토리지 계정으로 이동합니다.
+1. **보안 + 네트워킹 > 액세스 키** 선택
 
-**원본 등록(Azure Data Lake Storage Gen2)** 화면에서 다음을 수행합니다.
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-access-keys.png" alt-text="저장소 계정의 액세스 키를 보여 주는 스크린샷":::
 
-1. 카탈로그에서 나열되는 데이터 원본의 **이름** 을 입력합니다.
-2. 스토리지 계정을 필터링하려면 구독을 선택합니다.
-3. 스토리지 계정을 선택합니다.
-4. 컬렉션을 선택하거나 새로 만듭니다(선택 사항).
-5. **등록** 을 선택하여 데이터 원본을 등록합니다.
+1. *키* 를 복사 하 여 다음 단계를 위해 별도로 저장 합니다.
 
-:::image type="content" source="media/register-scan-adls-gen2/register-sources.png" alt-text="원본 등록 옵션" border="true":::
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-key.png" alt-text="복사할 선택 키를 보여 주는 스크린샷":::
 
-## <a name="creating-and-running-a-scan"></a>검사 만들기 및 실행
+1. 키 자격 증명 모음으로 이동
 
-새 검색을 만들고 실행하려면 다음을 수행합니다.
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-key-vault.png" alt-text="주요 자격 증명 모음을 보여 주는 스크린샷":::
 
-1. [부서의 범위 Studio](https://web.purview.azure.com/resource/)의 왼쪽 창에서 **데이터 맵** 탭을 선택 합니다.
+1. 비밀을 생성 하는 키 자격 증명 모음 옵션을 보여 주는 **+ 생성/가져오기** 스크린샷을 클릭 하 **설정 > 비밀** 을 선택 
+ :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-generate-secret.png" alt-text="합니다"::: .
 
-1. 등록한 Azure Data Lake Storage Gen2 원본을 선택합니다.
+1. 저장소 계정의 *키* 로 **이름과** **값** 을 입력 합니다.
 
-1. **새 검사** 를 선택합니다.
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-secret-values.png" alt-text="비밀 값을 입력 하는 키 자격 증명 모음 옵션을 보여 주는 스크린샷":::
 
-1. 데이터 원본에 연결할 자격 증명을 선택합니다.
+1. **만들기** 를 선택하여 완료합니다.
 
-   :::image type="content" source="media/register-scan-adls-gen2/set-up-scan-adls-gen2.png" alt-text="검사 설정":::
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-secret.png" alt-text="비밀을 만들기 위한 주요 자격 증명 모음 옵션을 보여 주는 스크린샷":::
 
-1. 목록에서 적절한 항목을 선택하여 특정 폴더 또는 하위 폴더로 검색 범위를 지정할 수 있습니다.
+1. 키 자격 증명 모음이 아직 Purview에 연결되지 않은 경우 [새 키 자격 증명 모음 연결을 생성](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)해야 합니다.
+1. 마지막으로 키를 사용하여 검사를 설정하기 위한 [새 자격 증명](manage-credentials.md#create-a-new-credential)을 만듭니다.
 
-   :::image type="content" source="media/register-scan-adls-gen2/gen2-scope-your-scan.png" alt-text="검사 범위 지정":::
+#### <a name="using-service-principal-for-scanning"></a>검색을 위해 서비스 주체 사용
+
+##### <a name="creating-a-new-service-principal"></a>새 서비스 주체 만들기
+
+[새 서비스 주체를 만들어야](./create-service-principal-azure.md)하는 경우 Azure AD 테 넌 트에 응용 프로그램을 등록 하 고 데이터 원본에서 서비스 주체에 대 한 액세스를 제공 해야 합니다. Azure AD 전역 관리자 또는 응용 프로그램 관리자와 같은 다른 역할은이 작업을 수행할 수 있습니다.
+
+##### <a name="getting-the-service-principals-application-id"></a>서비스 주체의 응용 프로그램 ID를 가져오는 중
+
+1. 이미 만든 [_서비스 사용자_](./create-service-principal-azure.md) 의 **개요** 에 있는 **응용 프로그램 (클라이언트) ID** 를 복사 합니다.
+
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-sp-appln-id.png" alt-text="서비스 사용자의 응용 프로그램 (클라이언트) ID를 보여 주는 스크린샷":::
+
+##### <a name="granting-the-service-principal-access-to-your-adls-gen2-account"></a>ADLS Gen2 계정에 대 한 서비스 사용자 액세스 권한 부여
+
+서비스 주체에게 ADLS Gen2 데이터 원본을 검사할 수 있는 권한을 부여하는 것이 중요합니다. 검색 권한을 부여할 대상에 따라 구독, 리소스 그룹 또는 리소스 수준에서 카탈로그의 MSI를 추가할 수 있습니다.
+
+> [!Note]
+> Azure 리소스에 서비스 주체를 추가할 수 있으려면 구독의 소유자이어야 합니다.
+
+1. [Azure Portal](https://portal.azure.com)에서 카탈로그가 검색할 수 있도록 허용할 구독, 리소스 그룹 또는 리소스(예: Azure Data Lake Storage Gen2 스토리지 계정)를 찾습니다.
+
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-storage-acct.png" alt-text="스토리지 계정을 보여 주는 스크린샷":::
+
+1. 왼쪽 탐색 창에서 **Access Control(IAM)를** 클릭한 다음 + 역할 할당   -->  **추가를** 클릭합니다.
+
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-access-control.png" alt-text="스토리지 계정에 대한 액세스 제어를 보여 주는 스크린샷":::
+
+1. **역할을** Storage **Blob 데이터 판독기로** 설정하고 입력 **선택** 상자에 _서비스 주체를_ 입력합니다. 그런 다음, **저장** 을 선택하여 Purview 계정에 이 역할을 할당합니다.
+
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-sp-permission.png" alt-text="서비스 주체에 스토리지 계정 권한을 제공하는 세부 정보를 보여 주는 스크린샷":::
+
+### <a name="create-the-scan"></a>검사 만들기
+
+1. **Purview 계정을** 열고 **Purview Studio 열기를** 클릭합니다.
+1. **데이터 맵**  -->  **원본으로** 이동하여 컬렉션 계층 구조를 확인합니다.
+1. 이전에 등록된 ADLS Gen2 데이터 **원본** 아래에서 **새 검색** 아이콘을 클릭합니다.
+
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-new-scan.png" alt-text="새 검사를 만드는 화면을 보여 주는 스크린샷":::
+
+#### <a name="if-using-managed-identity"></a>관리 ID를 사용하는 경우
+
+1. 검사에 대한 **이름을** 제공하고, **자격 증명에서** **Purview MSI를** 선택하고, 검사에 적절한 컬렉션을 선택하고, **연결 테스트를** 클릭합니다. 연결이 성공적이면 **계속을** 클릭합니다.
+
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-managed-identity.png" alt-text="검사를 실행하는 관리 ID 옵션을 보여 주는 스크린샷":::
+
+#### <a name="if-using-account-key"></a>계정 키를 사용하는 경우
+
+1. 검사에 대한 **이름을** 제공하고, 검사에 적합한 컬렉션을 선택하고, **인증 방법을** _계정 키로_ 선택합니다.
+
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-acct-key.png" alt-text="검사를 위한 계정 키 옵션을 보여 주는 스크린샷":::
+
+#### <a name="if-using-service-principal"></a>서비스 주체를 사용하는 경우
+
+1. 검사에 대한 **이름을** 제공하고, 검사에 적합한 컬렉션을 선택하고, **자격 증명** 아래에서 **+ 새로** 만들기를 클릭합니다.
+
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-sp-option.png" alt-text="서비스 주체가 검사를 사용하도록 설정하는 옵션을 보여 주는 스크린샷":::
+
+1. _서비스 주체_ 를 만드는 동안 사용된 적절한 **키 자격** 증명 모음 연결 및 **비밀 이름을** 선택합니다. **서비스 주체 ID는** 이전에 복사한 **애플리케이션(클라이언트) ID입니다.**
+
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-service-principal-option.png" alt-text="서비스 주체 옵션을 보여 주는 스크린샷":::
+
+1. 연결 **테스트를** 클릭합니다. 연결이 성공적이면 **계속을** 클릭합니다.
+
+### <a name="scope-and-run-the-scan"></a>검사 범위 및 실행
+
+1. 목록에서 적절한 항목을 선택하여 검색 범위를 특정 폴더와 하위 폴더로 지정할 수 있습니다.
+
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-scope-scan.png" alt-text="검사 범위 지정":::
 
 1. 그런 다음, 검사 규칙 집합을 선택합니다. 시스템 기본값, 기존 사용자 지정 규칙 집합 중 하나를 선택하거나 새 규칙 집합을 인라인으로 만들 수 있습니다.
 
-   :::image type="content" source="media/register-scan-adls-gen2/gen2-scan-rule-set.png" alt-text="검사 규칙 집합":::
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-scan-rule-set.png" alt-text="검사 규칙 집합":::
+
+1. 새 검사 _규칙 집합을_ 만드는 경우 검색 규칙에 포함할 **파일 형식을** 선택합니다.
+
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-file-types.png" alt-text="검사 규칙 집합 파일 형식":::
+
+1. 검사 규칙에 포함할 **분류** 규칙을 선택할 수 있습니다.
+
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-classification rules.png" alt-text="검사 규칙 집합 분류 규칙":::
+
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-select-scan-rule-set.png" alt-text="검사 규칙 집합 선택":::
 
 1. 검사 트리거를 선택합니다. 일정을 설정하거나 검사를 한 번 실행할 수 있습니다.
 
-   :::image type="content" source="media/register-scan-adls-gen2/trigger-scan.png" alt-text="트리거":::
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-scan-trigger.png" alt-text="검사 트리거":::
 
 1. 검사를 검토하고 **저장 및 실행** 을 선택합니다.
+
+    :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-review-scan.png" alt-text="검사 검토":::
 
 [!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Purview 데이터 카탈로그 찾아보기](how-to-browse-catalog.md)
-- [Azure Purview Data Catalog 검색](how-to-search-catalog.md)
+이제 소스를 등록했으므로 아래 가이드에 따라 Purview 및 데이터에 대해 자세히 알아봅니다.
+
+- [Azure Purview의 데이터 인사이트](concept-insights.md)
+- [Azure Purview의 계보](catalog-lineage-user-guide.md)
+- [Data Catalog 검색](how-to-search-catalog.md)

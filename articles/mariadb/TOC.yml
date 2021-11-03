@@ -45,7 +45,7 @@
       href: howto-create-users.md
     - name: 서버 매개 변수 구성
       items:
-        - name: Azure portal
+        - name: Azure Portal
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-cli.md
@@ -85,7 +85,7 @@
           href: howto-create-manage-server-portal.md
     - name: 자동 증가 스토리지
       items:
-        - name: Azure portal
+        - name: Azure Portal
           href: howto-auto-grow-storage-portal.md
         - name: Azure CLI
           href: howto-auto-grow-storage-cli.md
@@ -93,7 +93,7 @@
           href: howto-auto-grow-storage-powershell.md
     - name: 서버 다시 시작
       items:
-        - name: Azure portal
+        - name: Azure Portal
           href: howto-restart-server-portal.md
         - name: Azure CLI
           href: howto-restart-server-cli.md
@@ -175,7 +175,7 @@
       href: concepts-backup.md
     - name: 서버 복원
       items:
-        - name: Azure portal
+        - name: Azure Portal
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md
@@ -200,8 +200,6 @@
       href: concepts-query-store.md
     - name: 쿼리
       href: concepts-query-performance-insight.md
-    - name: 성능 권장 사항
-      href: concepts-performance-recommendations.md
     - name: Azure Advisor 권장 사항
       href: concepts-azure-advisor-recommendations.md
 - name: 복제

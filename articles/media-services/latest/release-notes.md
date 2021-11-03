@@ -8,16 +8,16 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: na
-ms.custom: references_regions
+ms.custom: references_regions, ignite-fall-2021
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 90f6470171db4be4e0d883196495ddaba16772fb
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: c744f43fee7a49406b29768b6a0519da578eca01
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129362776"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131015317"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -34,43 +34,43 @@ ms.locfileid: "129362776"
 
 ### <a name="new-basic-pass-through-live-event-sku"></a>새로운 기본 통과 라이브 이벤트 SKU
 
-새로운 기본 통과 라이브 이벤트 SKU를 통해 고객은 [더 낮은 가격 책정 지점에서](https://azure.microsoft.com/pricing/details/media-services/)라이브 이벤트를 만들 수 있습니다. 표준 통과 라이브 이벤트와 비슷하지만 입력 대역폭 제한이 낮고, 라이브 출력이 더 적게 허용되고, DVR 창 길이 제한이 다르며, 라이브 전사에 액세스할 수 없습니다. 자세한 내용은 [라이브 이벤트 유형 비교를](./live-event-types-comparison-reference.md#types-comparison) 참조하세요.
+새로운 기본 통과 라이브 이벤트 SKU를 사용 하면 고객이 [더 낮은 가격](https://azure.microsoft.com/pricing/details/media-services/)으로 라이브 이벤트를 만들 수 있습니다. 표준 통과 라이브 이벤트와 유사 하지만 입력 대역폭 한도가 적고 라이브 출력은 허용 되지 않으며, 다른 DVR 창 길이 제한은 라이브 기록에 대 한 액세스 권한이 없습니다. 자세한 내용은 [라이브 이벤트 형식 비교](./live-event-types-comparison-reference.md#types-comparison) 를 참조 하세요.
 
-### <a name="improved-scale-management-and-monitoring-for-a-streaming-endpoint-in-the-portal"></a>포털에서 스트리밍 엔드포인트에 대한 확장 관리 및 모니터링 개선
+### <a name="improved-scale-management-and-monitoring-for-a-streaming-endpoint-in-the-portal"></a>포털에서 스트리밍 끝점에 대 한 규모 관리 및 모니터링 향상
 
-이제 스트리밍 엔드포인트 포털 페이지에서는 송신 용량을 관리하고 CDN 구성하지 않고도 대상의 도달 범위를 추정할 수 있는 쉬운 방법을 제공합니다.  배달 비트 전송률 및 예상 CDN 캐시 적중률을 조정하여 대상 그룹 크기를 빠르게 예측하고 더 많은 Premium 스트리밍 엔드포인트로 확장해야 하는지 확인하는 데 도움이 됩니다.
+이제 스트리밍 끝점 포털 페이지를 사용 하 여 송신 용량을 관리 하 고 사용자가 구성 된 CDN를 사용 하거나 사용 하지 않고 사용자에 게 도달 하는 것을 예측할 수 있습니다.  제공 비트 전송률을 신속 하 게 예측 하 여 대상 크기를 신속 하 게 예측 하 고 스트리밍 끝점을 더 많이 Premium 규모를 확장 해야 하는지 여부를 결정 하는 데 도움이 되도록 CDN 캐시 적중률을 조정 합니다.
 
-   [![포털에서 스트리밍 엔드포인트 크기 조정 및 모니터링 ](./media/release-notes/streaming-endpoint-monitor-inline.png) ](./media/release-notes/streaming-endpoint-monitor.png#lightbox)
+   [![포털 ](./media/release-notes/streaming-endpoint-monitor-inline.png) 에서 스트리밍 끝점 크기 조정 및 모니터링 ](./media/release-notes/streaming-endpoint-monitor.png#lightbox)
 
-### <a name="streaming-endpoint-portal-page-now-shows-cpu-egress-and-latency-metrics"></a>이제 스트리밍 엔드포인트 포털 페이지에 CPU, 송신 및 대기 시간 메트릭이 표시됩니다.
+### <a name="streaming-endpoint-portal-page-now-shows-cpu-egress-and-latency-metrics"></a>이제 스트리밍 끝점 포털 페이지에 CPU, 송신 및 대기 시간 메트릭이 표시 됩니다.
 
-이제 Azure Portal 스트리밍 엔드포인트에서 CPU 로드, 송신 대역폭 및 엔드투엔드 대기 시간 메트릭을 시각화할 수 있습니다. 이제 Azure Monitor 강력한 성능을 사용하여 포털에서 직접 CPU, 송신 또는 대기 시간 메트릭을 기반으로 모니터링 경고를 만들 수 있습니다.
+이제 Azure Portal의 스트리밍 끝점에서 CPU 부하, 송신 대역폭 및 종단 간 대기 시간 메트릭을 시각화할 수 있습니다. 이제 Azure Monitor 기능을 사용 하 여 포털에서 직접 CPU, 송신 또는 대기 시간 메트릭을 기반으로 하는 모니터링 경고를 만들 수 있습니다.
 
-### <a name="user-assigned-managed-identities-support-for-media-services-accounts"></a>Media Services 계정에 대한 관리 ID 지원 User-Assigned
+### <a name="user-assigned-managed-identities-support-for-media-services-accounts"></a>Media Services 계정에 대 한 관리 id 지원 User-Assigned
 
-이제 고객은 User-Assigned 관리 ID를 사용하여 스토리지 계정 및 연결된 키 자격 증명 모음의 보안을 향상할 수 있습니다. 고객 스토리지 계정 및 키 자격 증명 모음에 대한 액세스는 사용자가 할당한 관리 ID로 제한됩니다.  사용자 관리 ID의 수명을 완전히 제어할 수 있으며 필요에 따라 미디어 서비스 계정의 특정 스토리지 계정에 대한 액세스 권한을 쉽게 해지할 수 있습니다.
+이제 고객은 관리 Id User-Assigned 사용 하 여 저장소 계정 및 연결 된 키 자격 증명 모음에 대 한 보안을 향상 시킬 수 있습니다. 고객 저장소 계정 및 키 자격 증명 모음에 대 한 액세스는 사용자 할당 관리 id로 제한 됩니다.  사용자는 사용자 관리 id의 수명을 완전히 제어할 수 있으며, 필요에 따라 특정 저장소 계정에 대 한 미디어 서비스 계정의 액세스를 쉽게 해지할 수 있습니다.
 
-### <a name="media-services-storage-accounts-page-in-the-portal-now-support-both-uami-and-sami"></a>포털의 Media Services 스토리지 계정 페이지는 이제 UAMI와 SAMI를 모두 지원합니다.
+### <a name="media-services-storage-accounts-page-in-the-portal-now-support-both-uami-and-sami"></a>포털의 Media services 저장소 계정 페이지에서 이제 UAMI 및 SAMI를 모두 지원 합니다.
 
-이제 Media Services Azure Portal 스토리지 계정에 대해 사용자 할당 관리 ID(UAMI) 또는 시스템 할당 SAMI(관리 ID)를 직접 할당하고 관리할 수 있습니다.
+이제 Media Services에 대 한 Azure Portal에서 직접 저장소 계정에 대 한 사용자 할당 관리 id (UAMI) 또는 시스템 할당 관리 id (SAMI)를 할당 하 고 관리할 수 있습니다.
 
-### <a name="bring-your-own-key-page-now-also-supports-both-uami-and-sami"></a>Bring Your Own Key 페이지는 이제 UAMI와 SAMI도 모두 지원합니다.
-이제 Media Services 대한 키 관리 포털 페이지에서 UAMI(사용자 할당 관리 ID) 또는 SAMI(시스템 할당 관리 ID)의 구성 및 관리를 지원합니다.
+### <a name="bring-your-own-key-page-now-also-supports-both-uami-and-sami"></a>이제 사용자 고유의 키 페이지를 가져오면 UAMI와 SAMI를 모두 지원 합니다.
+이제 Media Services의 키 관리 포털 페이지에서 사용자 할당 관리 id (UAMI) 또는 시스템 할당 관리 id (SAMI)의 구성과 관리를 지원 합니다.
 
-   [![계정 암호화를 위한 사용자 고유의 키 가져오기](./media/release-notes/byok-managed-identity.png)](./media/release-notes/byok-managed-identity.png)
+   [![계정 암호화를 위한 고유한 키 가져오기](./media/release-notes/byok-managed-identity.png)](./media/release-notes/byok-managed-identity.png)
 
 
-### <a name="private-link-support-for-media-services"></a>Media Services에 대한 Private Link 지원
-이제 각 서비스에 대한 프라이빗 엔드포인트를 만들어 콘텐츠 보호 및 DRM에 대한 라이브 이벤트, 스트리밍 엔드포인트 및 키 배달 서비스 엔드포인트에 대한 공용 액세스를 제한할 수 있습니다. 이렇게 하면 이러한 각 서비스에 대한 공용 액세스가 제한됩니다. 프라이빗 엔드포인트에 구성된 구성된 VNET(가상 네트워크)에서 시작된 트래픽만 이러한 엔드포인트에 연결할 수 있습니다.
+### <a name="private-link-support-for-media-services"></a>Media services에 대 한 개인 링크 지원
+이제 각 서비스에 대 한 개인 끝점을 만들어 콘텐츠 보호 및 DRM에 대 한 라이브 이벤트, 스트리밍 끝점 및 키 배달 서비스 끝점에 대 한 공용 액세스를 제한할 수 있습니다. 이렇게 하면 이러한 각 서비스에 대 한 공용 액세스를 제한 합니다. 개인 끝점에서 구성 된, 구성 된 VNET (가상 네트워크)에서 발생 하는 트래픽만 이러한 끝점에 도달할 수 있습니다.
 
-### <a name="ip-allow-list-for-key-service"></a>키 서비스에 대한 IP 허용 목록
-이제 특정 공용 IP 주소가 DRM 및 콘텐츠 보호를 위해 키 배달 서비스에 액세스할 수 있도록 허용할 수 있습니다. 라이브 이벤트 및 스트리밍 엔드포인트는 해당 페이지에서 IP 허용 목록의 구성을 이미 지원합니다.
+### <a name="ip-allow-list-for-key-service"></a>키 서비스에 대 한 IP 허용 목록
+이제 특정 공용 IP 주소에서 DRM 및 콘텐츠 보호를 위한 키 배달 서비스에 대 한 액세스를 허용 하도록 선택할 수 있습니다. 라이브 이벤트 및 스트리밍 끝점은 해당 페이지에서 IP 허용 목록의 구성을 이미 지원 합니다.
 
-이제 미디어 서비스 계정에 대한 공용 인터넷 액세스를 허용/차단하는 계정 수준 기능 플래그도 있습니다.
+또한 media services 계정에 대 한 공용 인터넷 액세스를 허용 하거나 차단 하는 계정 수준 기능 플래그가 있습니다.
 
 ## <a name="july-2021"></a>2021년 7월
 
-### <a name="net-sdk-microsoftazuremanagementmedia--500-release-available-in-nuget"></a>.NET SDK(Microsoft.Azure.Management.Media) 5.0.0 릴리스는 NuGet
+### <a name="net-sdk-microsoftazuremanagementmedia--500-release-available-in-nuget"></a>NuGet에서 사용할 수 있는 .NET SDK (5.0.0) 릴리스
 
 [Microsoft.Azure.Management.Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/5.0.0) .NET SDK 버전 5.0.0이 이제 NuGet에서 출시되었습니다. 이 버전은 Open API(Swagger) ARM Rest API의 [2021-06-01 안정](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2021-06-01) 버전에서 작동하도록 생성되었습니다.
 
@@ -86,9 +86,9 @@ ms.locfileid: "129362776"
 #### <a name="breaking-changes-in-tht-500-net-sdk-release"></a>5\.0.0 .NET SDK 릴리스의 호환성이 손상되는 변경
 
 * **ApiErrorException** 은 다른 모든 Azure SDK와 일관성을 유지하기 위해 **ErrorResponseException** 으로 바뀌었습니다. 예외 본문이 변경되지 않았습니다.
-* 이제 404 찾을 수 없습니다를 반환하는 모든 호출은 null을 반환하는 대신 **ErrorResponseException을** 발생합니다. 이 변경은 다른 Azure SDK와 일치하도록 변경되었습니다.
+* 404을 반환 하는 모든 호출에서 이제 null을 반환 하는 대신 **Errorresponseexception** 이 발생 합니다. 이 변경 내용은 다른 Azure Sdk와 일치 하도록 변경 되었습니다.
 * 미디어 서비스 생성자에는 KeyDelivery 매개 변수 뒤에 새로운 선택적 PublicNetworkAccess 매개 변수가 있습니다.
-* **MediaServiceIdentity의** 형식 속성이 여러 쉼표로 구분된 값을 수용하도록 ManagedIdentityType 열거형에서 문자열로 변경되었습니다. 유효한 문자열은 **SystemAssigned** 또는 **UserAssigned** 입니다.
+* 쉼표로 구분 된 여러 값을 수용 하기 위해 **MediaServiceIdentity** 의 Type 속성이 ManagedIdentityType 열거형에서 string으로 변경 되었습니다. 유효한 문자열은 **systemassigned** 되거나 **userassigned** 됩니다.
 
 ## <a name="june-2021"></a>2021년 6월
 
@@ -110,9 +110,9 @@ Azure Private Link를 사용하면 가상 네트워크의 프라이빗 엔드포
 
 미국 서부 3 지역은 이제 GA이며 고객이 새 Media Services 계정을 만들 때 사용할 수 있습니다.
 
-### <a name="key-delivery-supports-ip-allow-list-restrictions"></a>키 배달은 IP 허용 목록 제한을 지원합니다.
+### <a name="key-delivery-supports-ip-allow-list-restrictions"></a>키 배달은 IP 허용 목록 제한을 지원 합니다.
 
-이제 키 배달에 대한 IP 허용 목록 제한으로 Media Services 계정을 구성할 수 있습니다. 새 허용 목록 설정은 포털 및 CLI뿐만 아니라 SDK를 통해 Media Services 계정 리소스에서 사용할 수 있습니다.
+이제 키 배달에 대 한 IP 허용 목록 제한을 사용 하 여 Media Services 계정을 구성할 수 있습니다. 새 허용 목록 설정은 SDK 뿐만 아니라 포털 및 CLI를 통해 Media Services 계정 리소스에서 사용할 수 있습니다.
 그러면 운영자는 DRM 라이선스 및 AES-128 콘텐츠 키의 전송을 특정 IPv4 범위로 제한할 수 있습니다.
 
 이 기능을 사용하여 DRM 라이선스 또는 AES-128 키의 모든 퍼블릭 인터넷 전송을 차단하고 개인 네트워크 엔드포인트로의 전송을 제한할 수도 있습니다.
@@ -201,7 +201,7 @@ Azure Media Services REST API와 .NET 및 Java용 클라이언트 SDK 버전 3�
 - .NET Core, Node.js, Python, Java, Go, Ruby용 ARM REST API, 클라이언트 SDK
 - 고객 관리형 키, 신뢰할 수 있는 스토리지 통합, 프라이빗 링크 지원 [등](./migrate-v-2-v-3-migration-benefits.md)
 
-v3 API 및 sdk에 대 한 업데이트의 일환으로 mru (미디어 예약 단위)는 로드에 따라 시스템이 자동으로 확장 및 축소 되기 때문에 Media Services 계정에 더 이상 필요 하지 않습니다. 자세한 내용은 [mru 마이그레이션 지침](./migrate-v-2-v-3-migration-scenario-based-media-reserved-units.md) 을 참조 하세요.
+v3 API 및 SDK 업데이트의 일부로 시스템이 부하에 따라 자동으로 확장 및 축소되기 때문에 Media Services 계정에 MRU(미디어 예약 단위)가 더 이상 필요하지 않습니다. 자세한 내용은 [MRU 마이그레이션 지침을](./migrate-v-2-v-3-migration-scenario-based-media-reserved-units.md) 참조하세요.
 
 #### <a name="action-required"></a>필요한 작업
 
@@ -212,7 +212,7 @@ v3 API 및 sdk에 대 한 업데이트의 일환으로 mru (미디어 예약 단
 
 ### <a name="standard-encoder-support-for-v2-api-features"></a>v2 API 기능에 대한 표준 인코더 지원
 
-HEVC (265) 인코딩에 추가 된 새로운 지원 이외에 다음 기능을 이제 2020-05-01 이상 버전의 encoding API에서 사용할 수 있습니다.
+HEVC(H.265) 인코딩에 대한 새로운 추가 지원 외에도, 이제 인코딩 API의 2020-05-01 이상 버전에서 다음 기능을 사용할 수 있습니다.
 
 - 이제 새 **JobInputClip** 지원을 사용한 여러 입력 파일 연결이 지원됩니다.
     - [두 자산을 함께 연결](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_StitchTwoAssets)하는 방법을 보여 주는 .NET의 예제를 사용할 수 있습니다.
@@ -314,7 +314,7 @@ Media Services 및 VOD(주문형 비디오)를 사용한 고가용성 [개요](.
 
 ### <a name="live-video-analytics-on-iot-edge-preview-release"></a>IoT Edge의 Live Video Analytics 미리 보기 릴리스
 
-IoT Edge의 Live Video Analytics의 미리 보기가 공개되었습니다. 자세한 내용은 [릴리스 정보](../live-video-analytics-edge/release-notes.md)를 참조하세요.
+IoT Edge의 Live Video Analytics의 미리 보기가 공개되었습니다. 
 
 IoT Edge의 Live Video Analytics는 미디어 서비스 제품군에 대한 확장입니다. 사용자의 에지 디바이스에서 선택한 AI 모델을 사용하여 라이브 비디오를 분석하고 필요에 따라 해당 비디오를 캡처 및 기록할 수 있습니다. 이제 라이브 비디오 파이프라인을 구축하고 작동하는 복잡성을 걱정하지 않고 에지에서 실시간 비디오 분석으로 앱을 빌드할 수 있습니다.
 

@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: yelevin
-ms.openlocfilehash: 839d235412b70669dd3cb9b9942509ef9af7b3c4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 6af40b8744a404d68eb52af6cbc2c4d3f699b3a0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536770"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064585"
 ---
 # <a name="bring-your-own-machine-learning-ml-into-azure-sentinel"></a>자체 ML(기계 학습)을 Azure Sentinel로 가져오기
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -117,25 +119,25 @@ Azure Sentinel의 자체 데이터를 기반으로 사용자 지정 ML 모델을
 az –version
 
 # Login with Azure CLI
- az login
+az login
 
 # List all Log Analytics clusters
- az monitor log-analytics cluster list
+az monitor log-analytics cluster list
 
 # Set to specific subscription
- az account set --subscription "SUBSCRIPTION_NAME"
+az account set --subscription "SUBSCRIPTION_NAME"
  
 # Export to Storage - all tables
- az monitor log-analytics workspace data-export create --resource-group "RG_NAME" --workspace-name "WS_NAME" -n LAExportCLIStr --destination “DESTINATION_NAME" --enable "true" --tables SecurityEvent
+az monitor log-analytics workspace data-export create --resource-group "RG_NAME" --workspace-name "WS_NAME" -n LAExportCLIStr --destination “DESTINATION_NAME" --enable "true" --tables SecurityEvent
  
 # Export to EventHub - all tables
- az monitor log-analytics workspace data-export create --resource-group "RG_NAME" --workspace-name "WS_NAME" -n LAExportCLIEH --destination “DESTINATION_NAME" --enable "true" --tables SecurityEvent Heartbeat"]
+az monitor log-analytics workspace data-export create --resource-group "RG_NAME" --workspace-name "WS_NAME" -n LAExportCLIEH --destination “DESTINATION_NAME" --enable "true" --tables SecurityEvent Heartbeat"]
 
 # List export settings
 az monitor log-analytics workspace data-export list --resource-group "RG_NAME" --workspace-name "WS_NAME"
 
 # Delete export setting
- az monitor log-analytics workspace data-export delete --resource-group "RG_NAME" --workspace-name "WS_NAME" --name "NAME"
+az monitor log-analytics workspace data-export delete --resource-group "RG_NAME" --workspace-name "WS_NAME" --name "NAME"
 ```
 
 ### <a name="export-custom-data"></a>사용자 지정 데이터 내보내기

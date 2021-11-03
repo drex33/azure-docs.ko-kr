@@ -3,16 +3,14 @@ title: Azure HDInsight에 대한 보관 릴리스 정보
 description: Azure HDInsight에 대한 보관된 릴리스 정보. Hadoop, Spark, R Server, Hive 등에 대한 개발 팁 및 세부 정보를 확인하세요.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom:
-- hdinsightactive
-- references_regions
+ms.custom: hdinsightactive, references_regions
 ms.date: 07/27/2021
-ms.openlocfilehash: e7e3442f397b4d3cfbb79f2f852269affdf3badc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 732d7ee085fdb7ff91ffe4e90ce8d996b9299b6c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529171"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073038"
 ---
 # <a name="archived-release-notes"></a>보관된 릴리스 정보
 

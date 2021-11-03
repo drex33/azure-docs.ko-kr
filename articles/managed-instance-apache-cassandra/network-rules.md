@@ -4,21 +4,17 @@ description: Apache Cassandra용 Azure Managed Instance에 필요한 아웃바�
 author: christopheranderson
 ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
-ms.date: 05/21/2021
+ms.date: 11/02/2021
 ms.author: chrande
-ms.openlocfilehash: b663a926732c116aa1a057b485b91fb6a8ed4f78
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 6d52f1c72765b3e7d3b7dd171c53c84e85138a20
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130241804"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131005236"
 ---
 # <a name="required-outbound-network-rules"></a>필수 아웃바운드 네트워크 규칙
-
-> [!IMPORTANT]
-> Apache Cassandra용 Azure Managed Instance는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Apache Casandra용 Azure Managed Instance 서비스는 서비스를 제대로 관리하기 위해 특정 네트워크 규칙이 필요합니다. 적절한 규칙이 노출되도록 하면 서비스를 안전하게 유지하고 운영 문제를 방지할 수 있습니다.
 

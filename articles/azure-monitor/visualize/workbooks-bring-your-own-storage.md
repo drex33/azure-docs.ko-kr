@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/11/2020
-ms.openlocfilehash: 5dc75b3f28198bd3686df48b1d46cb5a8e192a23
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: af32a91344d2201899757d806019f70eccd736ad
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130132515"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072278"
 ---
 # <a name="bring-your-own-storage-to-save-workbooks"></a>사용자 스토리지를 가져와 통합 문서 저장
 
@@ -27,11 +27,11 @@ ms.locfileid: "130132515"
 3. **저장** 단추를 선택하여 새 통합 문서를 저장합니다.
 4. `Save content to an Azure Storage Account` 옵션이 있습니다. 확인란을 선택하여 Azure Storage 계정에 저장합니다.
 
-    ![저장 대화 상자를 보여 주는 스크린샷](./media/workbooks-bring-your-own-storage/saved-dialog-default.png)
+    ![* * 저장 * * 대화 상자를 보여 주는 스크린샷](./media/workbooks-bring-your-own-storage/saved-dialog-default.png)
 
 5. 원하는 스토리지 계정 및 컨테이너를 선택합니다. 스토리지 계정 목록은 위에서 선택한 구독에서 가져온 것입니다.
 
-    ![스토리지 옵션이 있는 저장 대화 상자를 보여 주는 스크린샷](./media/workbooks-bring-your-own-storage/save-dialog-with-storage.png)
+    ![저장소 옵션을 사용 하 여 * * 저장 * * 대화 상자를 보여 주는 스크린샷](./media/workbooks-bring-your-own-storage/save-dialog-with-storage.png)
 
 6. 그런 다음 **변경** 을 선택하여 이전에 만든 관리 ID를 선택합니다.
 

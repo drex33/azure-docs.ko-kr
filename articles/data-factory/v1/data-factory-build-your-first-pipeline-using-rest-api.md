@@ -9,12 +9,12 @@ ms.subservice: v1
 ms.topic: tutorial
 ms.date: 10/22/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6fc40e48a9deb0c5e2f34e9e8283d867c4c33be7
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 16d1356403daf7e148a6259c127b766b52f157ca
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130260097"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040740"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>자습서: 데이터 팩터리 REST API를 사용하여 첫 번째 Azure Data Factory 빌드
 > [!div class="op_single_selector"]
@@ -326,10 +326,12 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
     Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
-      데이터 팩터리 공급자가 등록되어 있는지 확인하려면 다음 명령을 실행할 수 있습니다.
+    데이터 팩터리 공급자가 등록되어 있는지 확인하려면 다음 명령을 실행할 수 있습니다.
+
     ```powershell
     Get-AzResourceProvider
     ```
+
   * Azure 구독을 사용하여 [Azure 포털](https://portal.azure.com) 에 로그인하고 데이터 팩터리 블레이드로 이동하거나 Azure 포털에 데이터 팩터리를 만듭니다. 이 작업은 공급자를 자동으로 등록합니다.
 
 파이프라인을 만들기 전에 먼저 몇 가지 데이터 팩터리 엔터티를 만들어야 합니다. 먼저 데이터 저장소에 데이터 저장소/계산을 연결하는 연결된 서비스를 만들고 연결된 데이터 저장소에서 데이터를 나타내는 입력 및 출력 데이터 세트를 정의합니다.
@@ -343,13 +345,15 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 1. 이 명령을 **cmd** 라는 변수에 할당합니다.
 
     ```powershell
-    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azurestoragelinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
+    $cmd = { .\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azurestoragelinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01 };
     ```
+
 2. **Invoke-Command** 를 사용하여 명령을 실행합니다.
 
     ```powershell
     $results = Invoke-Command -scriptblock $cmd;
     ```
+
 3. 결과를 확인합니다. 연결된 서비스가 성공적으로 생성된 경우 연결된 서비스에 대한 JSON이 **결과** 에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
 
     ```powershell
@@ -364,11 +368,13 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
     ```powershell
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@hdinsightondemandlinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/hdinsightondemandlinkedservice?api-version=2015-10-01};
     ```
+
 2. **Invoke-Command** 를 사용하여 명령을 실행합니다.
 
     ```powershell
     $results = Invoke-Command -scriptblock $cmd;
     ```
+
 3. 결과를 확인합니다. 연결된 서비스가 성공적으로 생성된 경우 연결된 서비스에 대한 JSON이 **결과** 에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
 
     ```powershell

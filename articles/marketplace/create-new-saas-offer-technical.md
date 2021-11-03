@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/02/2020
-ms.openlocfilehash: 7efbb49565027ed7b982d37e99a27e1d66c59bf5
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.date: 10/25/2021
+ms.openlocfilehash: 6a0b7494d5ce33527640c144faf8630d523ab941
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129728098"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131061374"
 ---
 # <a name="add-technical-details-for-a-saas-offer"></a>SaaS 제품에 대한 기술 세부 정보 추가
 
@@ -24,17 +24,17 @@ ms.locfileid: "129728098"
 
 ## <a name="technical-configuration"></a>기술 구성
 
-**기술 구성** 탭에서는 상업용 Marketplace에서 SaaS 애플리케이션 또는 솔루션과 통신하는 데 사용하는 기술 세부 정보를 정의합니다. 
+**기술 구성** 탭에서는 상업용 Marketplace에서 SaaS 애플리케이션 또는 솔루션과 통신하는 데 사용하는 기술 세부 정보를 정의합니다.
 
 - **방문 페이지 URL**(필수) - 고객이 상업용 Marketplace에서 제품을 구매하고 새로 만든 SaaS 구독에서 구성 프로세스를 트리거한 후 이동하게 될 SaaS 웹 사이트 URL(예: `https://contoso.com/signup`)을 정의합니다.
 
   > [!IMPORTANT]
-  > 방문 페이지를 가동하여 연중무휴 실행해야 합니다. 이것이 상업용 Marketplace에서 이루어지는 SaaS 제품의 신규 구매 또는 제품 활성 구독의 구성 요청에 대한 통지를 받을 수 있는 유일한 방법입니다.
+  > 방문 페이지를 가동하여 연중무휴 실행해야 합니다. 이것이 상업용 Marketplace에서 이루어지는 SaaS 제품의 신규 구매 또는 제품 활성 구독의 구성 요청에 대한 통지를 받을 수 있는 유일한 방법입니다. 방문 페이지 URL에 파운드 기호 문자(#)를 포함하지 마세요. 그렇지 않으면 고객은 방문 페이지에 액세스할 수 없습니다.
 
-- **Connection webhook** (필수) – Microsoft에서 사용자에 게 전송 해야 하는 모든 비동기 이벤트 (예: SaaS 구독이 취소 됨)에 대해 [연결 webhook URL을 제공](./partner-center-portal/pc-saas-fulfillment-api-v2.md#implementing-a-webhook-on-the-saas-service)해야 합니다. Microsoft는 이 URL을 호출하여 파트너에게 이벤트를 알립니다.
+- **연결 웹후크(필수)** – Microsoft에서 보내야 하는 모든 비동기 이벤트(예: SaaS 구독이 취소된 경우)의 경우 [연결 웹후크 URL 을 제공해야](./partner-center-portal/pc-saas-fulfillment-api-v2.md#implementing-a-webhook-on-the-saas-service)합니다. Microsoft는 이 URL을 호출하여 파트너에게 이벤트를 알립니다.
 
   > [!IMPORTANT]
-  > 웹후크는 상업용 Marketplace를 통해 구매한 고객의 SaaS 구독의 업데이트에 대한 알림을 받을 수 있는 유일한 방법이기 때문에 연중무휴 운영해야 합니다.
+  > 웹후크는 24/7까지 실행되어야 합니다. 이는 상업용 Marketplace를 통해 구매한 고객의 SaaS 구독에 대한 업데이트에 대한 알림을 받는 유일한 방법입니다.
 
 - **Azure Active Directory 테넌트 ID**(필수) - Azure AD(Azure Active Directory) 앱에 대한 테넌트 ID를 찾으려면 Azure Active Directory의 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 블레이드로 이동합니다. **표시 이름** 열에서 앱을 선택합니다. 그런 다음, 나열된 **디렉터리(테넌트) ID** 번호를 찾습니다(예: `50c464d3-4930-494c-963c-1e951d15360e`).
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e610c6dd2763a029ddc0f18fe5526d77e5ff685a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 353c80be29a5bf62ed98d82374fda61a4e7b7021
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536002"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051575"
 ---
 # <a name="simulating-risk-detections-in-identity-protection"></a>ID 보호에서 위험 검색 시뮬레이션
 
@@ -93,7 +93,7 @@ ms.locfileid: "122536002"
 사용자 위험 보안 정책을 테스트하려면 다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
-1. **Azure Active Directory** > **보안** > **개요** 로 이동합니다.
+1. **Azure Active Directory** > **보안** > **Identity Protection** > **개요** 로 이동합니다.
 1. **사용자 위험 정책 구성** 을 선택합니다.
    1. **할당** 에서
       1. **사용자** - 롤아웃을 제한하는 경우 **모든 사용자** 또는 **개인 및 그룹 선택** 을 선택할 수 있습니다.
@@ -113,7 +113,7 @@ ms.locfileid: "122536002"
 로그인 위험 정책을 테스트하려면 다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
-1. **Azure Active Directory** > **보안** > **개요** 로 이동합니다.
+1. **Azure Active Directory** > **보안** > **Identity Protection** > **개요** 로 이동합니다.
 1. **로그인 위험 정책 구성** 을 선택합니다.
    1. **할당** 에서
       1. **사용자** - 롤아웃을 제한하는 경우 **모든 사용자** 또는 **개인 및 그룹 선택** 을 선택할 수 있습니다.
@@ -121,7 +121,7 @@ ms.locfileid: "122536002"
       1. **조건** - **로그인 위험** Microsoft는 이 옵션을 **보통 이상** 으로 설정할 것을 권장합니다.
    1. **컨트롤** 에서
       1. **액세스** - Microsoft는 **액세스를 허용** 하고 **다단계 인증을 요구** 할 것을 권장합니다.
-   1. **정책 적용** - **켜기**
+   1. **정책 적용** - **설정**
    1. **저장** - 이 작업을 수행하면 **개요** 페이지로 돌아갑니다.
 1. 이제 위험한 세션을 사용하여(예를 들어 Tor 브라우저 사용) 로그인하여 로그인 위험 기반 조건부 액세스를 테스트할 수 있습니다. 
 

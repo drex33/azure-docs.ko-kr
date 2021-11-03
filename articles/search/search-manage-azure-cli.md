@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 08/03/2021
-ms.openlocfilehash: 3b8fbcb310b4f972598ac7d0693eb87fac48a256
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: e714fe12ceff3bd80cc9cf4f0df106a55a064d9f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130074003"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084354"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure Cognitive Search 서비스 관리
 > [!div class="op_single_selector"]
@@ -181,7 +181,7 @@ az search service create \
 
 ## <a name="create-a-service-with-a-private-endpoint"></a>프라이빗 엔드포인트를 사용하여 서비스 만들기
 
-Azure Cognitive Search를 위한 [프라이빗 엔드포인트](../private-link/private-endpoint-overview.md)는 가상 네트워크의 클라이언트가 [프라이빗 링크](../private-link/private-link-overview.md)를 통해 검색 인덱스의 데이터에 안전하게 액세스할 수 있도록 합니다. 프라이빗 엔드포인트는 검색 서비스에 [가상 네트워크 주소 공간](../virtual-network/private-ip-addresses.md)의 IP 주소를 사용합니다. 클라이언트와 검색 서비스 간의 네트워크 트래픽은 가상 네트워크와 Microsoft 백본 네트워크의 프라이빗 링크를 통과하여 퍼블릭 인터넷으로부터의 노출을 제거합니다. 자세한 내용은 [Azure Cognitive Search용 프라이빗 엔드포인트 만들기](service-create-private-endpoint.md)에 대한 설명서를 참조하세요.
+Azure Cognitive Search를 위한 [프라이빗 엔드포인트](../private-link/private-endpoint-overview.md)는 가상 네트워크의 클라이언트가 [프라이빗 링크](../private-link/private-link-overview.md)를 통해 검색 인덱스의 데이터에 안전하게 액세스할 수 있도록 합니다. 프라이빗 엔드포인트는 검색 서비스에 [가상 네트워크 주소 공간](../virtual-network/ip-services/private-ip-addresses.md)의 IP 주소를 사용합니다. 클라이언트와 검색 서비스 간의 네트워크 트래픽은 가상 네트워크와 Microsoft 백본 네트워크의 프라이빗 링크를 통과하여 퍼블릭 인터넷으로부터의 노출을 제거합니다. 자세한 내용은 [Azure Cognitive Search용 프라이빗 엔드포인트 만들기](service-create-private-endpoint.md)에 대한 설명서를 참조하세요.
 
 다음 예제에서는 프라이빗 엔드포인트를 사용하여 검색 서비스를 만드는 방법을 보여 줍니다.
 

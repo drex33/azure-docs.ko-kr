@@ -3,14 +3,13 @@ title: '빠른 시작: 첫 번째 PowerShell 쿼리'
 description: 이 빠른 시작에서는 단계에 따라 Azure PowerShell에 대한 Resource Graph 모듈을 사용하도록 설정하고 첫 번째 쿼리를 실행합니다.
 ms.date: 07/09/2021
 ms.topic: quickstart
-ms.custom:
-- mode-api
-ms.openlocfilehash: 20b595a52b238d701b8ec54bdec99d07e7f57fcb
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.custom: mode-api
+ms.openlocfilehash: abc8e808328fadc82cc735eb1b849bcd0d6792b9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114463445"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051100"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 첫 번째 Resource Graph 쿼리 실행
 

@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: oshezaf
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2021
 ms.author: ofshezaf
-ms.openlocfilehash: b3dc1575258c495a2be63eced6aa141c60bb6631
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 12f26ca7567387cd6a9edfcde0ef1229e9635f69
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128659441"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064471"
 ---
 # <a name="azure-sentinel-information-model-asim-parsers-public-preview"></a>ASIM(Azure Sentinel 정보 모델) 파서(퍼블릭 미리 보기)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Azure 센티널에서 구문 분석 및 [정규화](normalization.md) 는 쿼리 시에 발생 합니다. 파서는 **CommonSecurityLog**, 사용자 지정 로그 테이블 또는 Syslog와 같은 기존 테이블의 데이터를 정규화된 스키마로 변환하는 [KQL 사용자 정의 함수](/azure/data-explorer/kusto/query/functions/user-defined-functions)로 빌드됩니다. 파서를 작업 영역 함수로 저장 한 후에는 Azure 센티널 테이블 처럼 사용할 수 있습니다.
 

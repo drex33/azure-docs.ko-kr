@@ -5,7 +5,6 @@ services: virtual-machines-linux
 documentationcenter: ''
 author: msjuergent
 manager: bburns
-editor: ''
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.topic: article
@@ -13,15 +12,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/18/2021
 ms.author: madhukan
-ms.custom:
-- H1Hack27Feb2017
-- contperf-fy21q4
-ms.openlocfilehash: 691f9390d291d63b1263ecbcd77d1aa7bed48167
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
-ms.translationtype: HT
+ms.custom: H1Hack27Feb2017, contperf-fy21q4
+ms.openlocfilehash: d42304fbd5a37bdae0d40b44466c29ae1cf5b586
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112580965"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060405"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>HANA 쪽에서 모니터링 및 문제 해결
 

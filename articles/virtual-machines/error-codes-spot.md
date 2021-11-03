@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: f035d7813dfcf84d21e5913fa4626188e125db9a
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: b38730604072fdf61c551ade8e147e18a487a160
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691088"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131082755"
 ---
 # <a name="error-messages-for-azure-spot-virtual-machines-and-scale-sets"></a>Azure Spot Virtual Machines 및 확장 집합 오류 메시지
 
@@ -39,6 +39,8 @@ ms.locfileid: "122691088"
 | MoveResourcesWithAzureSpotVMNotSupported  |  리소스 이동 요청에 Azure 스폿 가상 머신이 포함됩니다. 지원되지 않습니다. 가상 머신 ID에 대한 오류 세부 정보를 확인합니다. | Azure Spot Virtual Machines를 이동할 수 없습니다. |
 | MoveResourcesWithAzureSpotVmssNotSupported  |  리소스 이동 요청에 Azure 스폿 가상 머신 확장 집합이 포함됩니다. 지원되지 않습니다. 가상 머신 확장 집합 ID에 대한 오류 세부 정보를 확인합니다. | Azure 스폿 가상 머신 확장 집합 인스턴스를 이동할 수 없습니다. |
 | AzureSpotVMNotSupportedInVmssWithVMOrchestrationMode | Azure 스폿 가상 머신이 VM 오케스트레이션 모드를 사용하는 가상 머신 확장 집합에서 지원되지 않습니다. | Azure 스폿 가상 머신 인스턴스를 사용하려면 오케스트레이션 모드를 가상 머신 확장 집합으로 설정하세요. |
+| SpotRestorationIsNotSupportedForThisAPIVersion | 이 API 버전에서는 스폿 복원 기능이 지원되지 않습니다. |  기존 확장 집합의 경우 API 버전 2021-07-01 이상에서 를 사용하여 PATCH를 수행합니다. <br><br> 새 확장 집합 배포의 경우 API 버전 2021-07-01 이상 버전을 사용하여 Azure Resource Manager 템플릿에 다음 속성을 추가합니다. <br><br> :::image type="content" source="media/spot/spot-try-restore-error-codes-1.png" alt-text="올바른 API 버전을 사용하는 오류 코드 샘플입니다.":::| 
+| SpotRestorationIsSupportedOnlyForAzureSpotScaleSets | 스폿 복원 기능은 Azure Spot Virtual Machine 확장 집합에 대해서만 지원됩니다. | 스폿 복원 기능은 Azure Spot Virtual Machine 확장 집합에 대해서만 지원됩니다. 이 기능을 사용하려면 Virtual Machine 확장 집합을 사용하여 Azure Spot을 배포합니다. | 
 
 
 **다음 단계** 자세한 내용은 [Spot Virtual Machines](./spot-vms.md)를 참조하세요.

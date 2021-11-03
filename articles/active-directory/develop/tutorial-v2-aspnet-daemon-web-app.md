@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, has-adal-ref
-ms.openlocfilehash: bb5b6068b935be2f437b10e4fcbccf7c6a86219d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0deaa92659cbd022444c0e4d43389f39ebbaa51c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128637991"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050359"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>자습서: Microsoft ID 플랫폼을 사용하는 다중 테넌트 디먼 빌드
 
@@ -245,7 +245,7 @@ Visual Studio에서 프로젝트를 게시하고, 브라우저를 프로젝트�
 
 MSAL.NET에 버그가 있으면 해당 문제를 [MSAL.NET GitHub 문제](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues)에 제기하세요.
 
-추천 사항을 제공하려면 [사용자 의견 페이지](https://feedback.azure.com/forums/169401-azure-active-directory)로 이동하세요.
+추천 사항을 제공하려면 [사용자 의견 페이지](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)로 이동하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

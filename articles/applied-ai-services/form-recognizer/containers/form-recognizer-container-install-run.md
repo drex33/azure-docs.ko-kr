@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 07/01/2021
 ms.author: lajanuar
 keywords: 온-프레미스, Docker, 컨테이너, 식별
-ms.openlocfilehash: 1fb19ef8f7b4855107d089e6b0ce21673ce5b841
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: bdd04a42ba97721d5d5dafd23f9e8e7b5b661f4b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129057344"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131027002"
 ---
 # <a name="install-and-run-form-recognizer-v21-preview-containers"></a>Form Recognizer v2.1-preview 컨테이너 설치 및 실행
 
@@ -430,11 +431,11 @@ http {
 
 * 동일한 형식의 양식 6개 이상으로 구성된 세트를 수집합니다. 이 데이터를 사용하여 모델을 학습시키고 양식을 테스트합니다. [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)(*sample_data.zip* 다운로드 및 추출)를 사용할 수 있습니다. 위에서 만든 **shared** 폴더에 학습 파일을 다운로드합니다.
 
-* 데이터에 레이블을 지정하려면 [Windows용 Form Recognizer 샘플 레이블 지정 도구](https://github.com/microsoft/OCR-Form-Tools/releases/tag/v2.1-ga)를 다운로드합니다. 다운로드를 통해서는 로컬 파일 시스템에 있는 데이터에 레이블을 지정하는 데 사용할 레이블 지정 도구 .exe 파일을 가져옵니다. 다운로드 프로세스 중에 발생하는 경고는 무시해도 됩니다.
+* 데이터에 레이블을 지정 하려면 [Windows에 대 한 양식 인식기 샘플 레이블 지정 도구](https://github.com/microsoft/OCR-Form-Tools/releases/tag/v2.1-ga)를 다운로드 합니다. 다운로드를 통해서는 로컬 파일 시스템에 있는 데이터에 레이블을 지정하는 데 사용할 레이블 지정 도구 .exe 파일을 가져옵니다. 다운로드 프로세스 중에 발생하는 경고는 무시해도 됩니다.
 
-#### <a name="create-a-new-sample-labeling-tool-project"></a>새 샘플 레이블 지정 도구 프로젝트 만들기
+#### <a name="create-a-new-sample-labeling-tool-project"></a>새 샘플 레이블 도구 프로젝트 만들기
 
-* 샘플 레이블 지정 도구 .exe 파일을 두 번 클릭하여 레이블 지정 도구를 엽니다.
+* 샘플 레이블 도구 .exe 파일을 두 번 클릭 하 여 레이블 지정 도구를 엽니다.
 * 도구의 왼쪽 창에서 연결 탭을 선택합니다.
 * 새 프로젝트를 만들고 이름과 설명을 지정하려면 선택합니다.
 * 공급자의 경우 로컬 파일 시스템 옵션을 선택합니다. 로컬 폴더의 경우 샘플 데이터 파일을 저장한 폴더의 경로를 입력해야 합니다.

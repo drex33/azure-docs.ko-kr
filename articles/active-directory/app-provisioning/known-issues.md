@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/07/2021
 ms.reviewer: arvinh
-ms.openlocfilehash: 6c790baf2dfc7c08306bdf96598e33e8bdc6b9c6
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 76789c36e935e03a2677054e9a318291ebd149f9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129991226"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131028028"
 ---
 # <a name="known-issues-for-application-provisioning-in-azure-active-directory"></a>Azure Active Directory에서의 애플리케이션 프로비저닝에 대해 알려진 문제
 이 문서에서는 앱 프로비저닝을 사용할 때 알고 있어야 하는 알려진 문제에 대해 설명합니다. UserVoice에서 애플리케이션 프로비저닝 서비스에 대한 피드백을 제공하려면 [Azure AD(Azure Active Directory) 애플리케이션 프로비저닝 UserVoice](https://aka.ms/appprovisioningfeaturerequest)를 참조하세요. Microsoft에서는 서비스를 개선할 수 있도록 UserVoice를 면밀하게 모니터링하고 있습니다.
@@ -105,7 +105,7 @@ Azure AD는 현재 Null 특성을 프로비저닝할 수 없습니다. 사용자
 
 #### <a name="active-directory-domain-services-user-or-group-writeback-from-azure-ad-by-using-the-on-premises-provisioning-preview"></a>Active Directory Domain Services(온-프레미스 프로비저닝 미리 보기를 사용하여 Azure AD에서 사용자 또는 그룹 쓰기 저장)
    - Azure AD Connect가 사용자를 관리하는 경우 권한 원본은 온-프레미스 Azure AD입니다. 따라서 Azure AD에서는 사용자 특성을 변경할 수 없습니다. 이 미리 보기는 Azure AD Connect에서 관리하는 사용자의 권한 원본을 변경하지 않습니다.
-   - Azure AD Connect 및 온-프레미스 프로비저닝을 사용하여 그룹 또는 사용자를 Active Directory Domain Services로 프로비저닝하려고 시도하면 루프가 생성되어 Azure AD Connect가 클라우드의 프로비저닝 서비스에서 변경한 사항을 덮어쓸 수 있습니다. Microsoft는 그룹 또는 사용자 쓰기 저장을 위한 전용 기능을 개발하고 있습니다. [이 웹 사이트](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/16887037-enable-user-writeback-to-on-premise-ad-from-azure)에서 UserVoice 피드백에 찬성하여 미리 보기의 상태를 추적합니다. 또는 Azure AD에서 Active Directory로의 사용자/그룹 쓰기 저장에 [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016)를 사용할 수 있습니다.
+   - Azure AD Connect 및 온-프레미스 프로비저닝을 사용하여 그룹 또는 사용자를 Active Directory Domain Services로 프로비저닝하려고 시도하면 루프가 생성되어 Azure AD Connect가 클라우드의 프로비저닝 서비스에서 변경한 사항을 덮어쓸 수 있습니다. Microsoft는 그룹 또는 사용자 쓰기 저장을 위한 전용 기능을 개발하고 있습니다. [이 웹 사이트](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789/)에서 UserVoice 피드백에 찬성하여 미리 보기의 상태를 추적합니다. 또는 Azure AD에서 Active Directory로의 사용자/그룹 쓰기 저장에 [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016)를 사용할 수 있습니다.
 
 #### <a name="connectors-other-than-sql"></a>SQL 이외의 커넥터
 

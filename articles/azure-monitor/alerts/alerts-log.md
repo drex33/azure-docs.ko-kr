@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 9fa0e633c92300e0932200725aa1fa82de46f359
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
-ms.translationtype: HT
+ms.openlocfilehash: e8c89f4542b29a69346f43f95a7d2f5de78148f9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114221478"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131012495"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리
 
@@ -71,7 +71,7 @@ ms.locfileid: "114221478"
     > [bin()](/azure/kusto/query/binfunction)에서 동일하지 않은 시간 간격이 발생할 수 있으므로, 경고 서비스는 런타임 시 적절한 시간을 사용하여 [bin()](/azure/kusto/query/binfunction) 함수를 [bin_at()](/azure/kusto/query/binatfunction) 함수로 자동 변환함으로써 고정 시점이 포함된 결과를 보장합니다.
 
     > [!NOTE]
-    > 차원별 경고 분할은 현재 scheduledQueryRules API에 대해서만 사용할 수 있습니다. 레거시 [Log Analytics Alert API](./api-alerts.md)를 사용하는 경우 전환해야 합니다. [샘플링에 대해 자세히 알아보세요](./alerts-log-api-switch.md). 리소스 중심의 대규모 경고는 API 버전 `2020-05-01-preview` 이상에서만 지원됩니다.
+    > 차원별 경고 분할은 현재 scheduledQueryRules API에 대해서만 사용할 수 있습니다. 레거시 [Log Analytics Alert API](./api-alerts.md)를 사용하는 경우 전환해야 합니다. [샘플링에 대해 자세히 알아보세요](./alerts-log-api-switch.md). 리소스 중심의 대규모 경고는 API 버전 `2020-08-01` 이상에서만 지원됩니다.
 
     ![집계 옵션](media/alerts-log/aggregate-on.png)
 
@@ -143,9 +143,6 @@ ms.locfileid: "114221478"
 
 ### <a name="log-alert-for-all-other-resource-types"></a>다른 모든 리소스 종류에 대한 로그 경고
 
-> [!NOTE]
-> 현재 API 버전 `2020-05-01-preview` 및 리소스 중심 로그 경고에 대한 추가 요금은 없습니다.  미리 보기 단계인 기능에 대한 가격 책정은 나중에 발표될 예정이며 청구를 시작하기 전에 공지합니다. 알림 기간 이후 새 API 버전 및 리소스 중심 로그 경고를 계속 사용하는 경우 해당 요금은 청구됩니다.
-
 1. **조건** 탭에서 시작합니다.
 
     1. [**측정값**](./alerts-unified-log.md#measure), [**집계 유형**](./alerts-unified-log.md#aggregation-type) 및 [**집계 세분성**](./alerts-unified-log.md#aggregation-granularity)이 올바른지 확인합니다. 
@@ -210,7 +207,7 @@ ms.locfileid: "114221478"
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> PowerShell은 현재 API 버전 `2020-05-01-preview`에서 지원되지 않습니다.
+> PowerShell은 현재 API 버전 `2020-08-01`에서 지원되지 않습니다.
 
 아래 나열된 PowerShell cmdlet으로 [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrules/)를 사용하여 규칙을 관리할 수 있습니다.
 
@@ -280,7 +277,7 @@ New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceG
 ## <a name="managing-log-alerts-using-cli"></a>CLI를 사용하여 로그 경고 관리
 
 > [!NOTE]
-> Azure CLI 지원은 scheduledQueryRules API 버전 `2020-05-01-preview` 이상에서만 사용할 수 있습니다. 이전 API 버전은 아래에서 설명하는 것과 같이 Azure Resource Manager CLI를 사용할 수 있습니다. 레거시 [Log Analytics Alert API](./api-alerts.md)를 사용하는 경우 CLI를 사용하도록 전환해야 합니다. [샘플링에 대해 자세히 알아보세요](./alerts-log-api-switch.md).
+> Azure CLI 지원은 scheduledQueryRules API 버전 `2020-08-01` 이상에서만 사용할 수 있습니다. 이전 API 버전은 아래에서 설명하는 것과 같이 Azure Resource Manager CLI를 사용할 수 있습니다. 레거시 [Log Analytics Alert API](./api-alerts.md)를 사용하는 경우 CLI를 사용하도록 전환해야 합니다. [샘플링에 대해 자세히 알아보세요](./alerts-log-api-switch.md).
 
 이전 섹션에서는 Azure Portal을 사용하여 로그 경고 규칙을 만들고, 보고, 관리하는 방법을 설명했습니다. 이번 섹션에서는 플랫폼 간 [Azure CLI](/cli/azure/get-started-with-azure-cli)를 사용하여 동일한 작업을 수행하는 방법을 설명합니다. Azure CLI를 가장 빠르게 사용하는 방법은 [Azure Cloud Shell](../../cloud-shell/overview.md)입니다. 이 문서에서는 Cloud Shell을 사용합니다.
 

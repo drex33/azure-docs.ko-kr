@@ -9,12 +9,12 @@ ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
 ms.date: 06/21/2021
-ms.openlocfilehash: 86dca0c57b473ca759c7dd2a685707c09dd11f05
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: e1ef403583082f1fff631392d7a4467fe253a516
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529258"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024186"
 ---
 # <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-planning"></a>MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션: 계획
 
@@ -66,7 +66,7 @@ WWI는 샌프란시스코를 기반으로 하므로 Azure 랜딩 존의 모든 �
 
 기타 네트워킹 고려 사항은 다음과 같습니다.
 
-- VNET에 있는 DMS에는 서비스에 [동적 공용 IP](/azure/dms/faq#setup)가 할당됩니다. 만들 때 [ExpressRoute](../../../expressroute/expressroute-introduction.md) 또는 [사이트 간 VPN](../../../vpn-gateway/tutorial-site-to-site-portal.md)을 통해 연결된 가상 네트워크 내부에 서비스를 배치할 수 있습니다.
+- VNET에 있는 DMS에는 서비스에 [동적 공용 IP](../../../dms/faq.yml)가 할당됩니다. 만들 때 [ExpressRoute](../../../expressroute/expressroute-introduction.md) 또는 [사이트 간 VPN](../../../vpn-gateway/tutorial-site-to-site-portal.md)을 통해 연결된 가상 네트워크 내부에 서비스를 배치할 수 있습니다.
 
 - Azure 가상 머신을 사용하여 마이그레이션 도구를 실행하는 경우 공용 IP 주소를 할당한 다음 온-프레미스 MySQL 인스턴스에만 연결하도록 허용합니다.
 

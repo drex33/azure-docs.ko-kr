@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 8e39864e2246e175bb9f699f01b78646782d84eb
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
-ms.translationtype: HT
+ms.openlocfilehash: ffbdb8349f9da359cd050b8fd7f058d1877966b0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315348"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131004287"
 ---
 # <a name="data-encryption-models"></a>데이터 암호화 모델
 
@@ -59,7 +59,7 @@ Azure에서 지원되는 암호화 모델은 앞에서 언급한 대로 두 가�
 
 클라이언트 쪽 암호화 모델은 서비스 또는 호출 애플리케이션이 리소스 공급자 또는 Azure 외부에서 수행되는 암호화를 나타냅니다. 이 암호화는 Azure의 서비스 애플리케이션이나 고객 데이터 센터에서 실행되는 애플리케이션에서 수행할 수 있습니다. 두 경우 모두 Azure 리소스 공급자에서 이 암호화 모델을 활용할 때 어떤 방식으로든 데이터의 암호를 해독할 수 없거나 암호화 키에 대한 액세스 권한이 없는 데이터의 암호화된 Blob을 받습니다. 이 모델에서는 키 관리가 호출 서비스/애플리케이션에서 수행되며 Azure 서비스에 대해 불투명합니다.
 
-![Client](./media/encryption-models/azure-security-encryption-atrest-fig2.png)
+![클라이언트](./media/encryption-models/azure-security-encryption-atrest-fig2.png)
 
 ## <a name="server-side-encryption-using-service-managed-keys"></a>서비스 관리 키를 사용하여 서버 쪽 암호화
 
@@ -148,7 +148,6 @@ Azure Key Vault에서 고객 관리 키를 사용하는 서버 쪽 암호화 모
 | Azure Cognitive Search           | 예                | 예                | -                  |
 | Azure Cognitive Services         | 예                | 예                | -                  |
 | Azure Machine Learning           | 예                | 예                | -                  |
-| Azure Machine Learning Studio(클래식) | Yes         | 미리 보기, RSA 2048비트 | -               |
 | Content Moderator                | 예                | 예                | -                  |
 | Face                             | 예                | 예                | -                  |
 | Language Understanding           | 예                | 예                | -                  |

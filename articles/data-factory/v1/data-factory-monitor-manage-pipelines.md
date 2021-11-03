@@ -9,12 +9,12 @@ ms.subservice: v1
 ms.topic: conceptual
 ms.date: 10/22/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 31c8d885f5139f26cf2fb72ea0ceb0624c8945bf
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 44bbb2e9d5a599aad3e8f705dcc3ba4602e262ca
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130264373"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073285"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Azure Portal 및 PowerShell을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
 > [!div class="op_single_selector"]
@@ -169,7 +169,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 Azure PowerShell을 사용하여 파이프라인을 관리할 수 있습니다. 예를 들어 Azure PowerShell cmdlet을 실행하여 파이프라인을 일시 중지하거나 다시 시작할 수 있습니다. 
 
 > [!NOTE] 
-> 다이어그램 보기는 파이프라인 일시 중지 및 다시 시작을 지원하지 않습니다. 사용자 인터페이스를 사용하려는 경우 모니터링 및 관리 애플리케이션을 사용합니다. 애플리케이션 사용에 대한 자세한 내용은 [모니터링 및 관리 앱을 사용하여 데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) 문서를 참조하세요. 
+> 다이어그램 보기는 파이프라인 일시 중지 및 다시 시작을 지원하지 않습니다. 사용자 인터페이스를 사용하려면 애플리케이션 모니터링 및 관리를 사용합니다. 애플리케이션 사용에 대한 자세한 내용은 [모니터링 및 관리 앱을 사용하여 데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) 문서를 참조하세요. 
 
 **Suspend-AzDataFactoryPipeline** Powershell cmdlet을 사용하여 파이프라인을 일시 중지/일시 중단할 수 있습니다. 이 cmdlet은 문제가 해결될 때까지 파이프라인을 실행하지 않으려는 경우 유용합니다. 
 
@@ -214,19 +214,22 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
    :::image type="content" source="./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png" alt-text="오류가 있는 작업 실행 세부 정보 블레이드":::     
 
 #### <a name="use-powershell-to-debug-an-error"></a>PowerShell을 사용한 오류 디버그
+
 1. **PowerShell** 을 시작합니다.
-2. **Get-AzDataFactorySlice** 명령을 실행하여 조각과 해당 상태를 표시합니다. 조각의 상태가 **실패** 로 표시됩니다.        
+2. **Get-AzDataFactorySlice** 명령을 실행하여 조각과 해당 상태를 표시합니다. 조각의 상태가 **실패** 로 표시됩니다.
 
-    ```powershell   
+    ```powershell
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
-    ```   
-   예를 들면 다음과 같습니다.
+    ```
 
-    ```powershell   
+    예를 들면 다음과 같습니다.
+
+    ```powershell
     Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
     ```
 
    **StartDateTime** 을 파이프라인의 시작 시간으로 바꿉니다. 
+
 3. 이제 **Get-AzDataFactoryRun** cmdlet을 실행하여 조각의 작업 실행에 대한 세부 정보를 가져옵니다.
 
     ```powershell   
@@ -236,14 +239,15 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
 
     예를 들면 다음과 같습니다.
 
-    ```powershell   
+    ```powershell
     Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
     ```
 
     StartDateTime 값은 이전 단계에서 기록한 오류/문제 조각의 시작 시간입니다. 날짜-시간은 큰따옴표로 묶어야 합니다.
+
 4. 출력에 오류에 대한 세부 정보가 다음과 같이 표시됩니다.
 
-    ```   
+    ```output
     Id                      : 841b77c9-d56c-48d1-99a3-8c16c3e77d39
     ResourceGroupName       : ADF
     DataFactoryName         : LogProcessingFactory3
@@ -265,6 +269,7 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
     PipelineName            : EnrichGameLogsPipeline
     Type                    :
     ```
+
 5. 출력에 표시된 ID 값을 사용하여 **Save-AzDataFactoryLog** cmdlet을 실행하고 이 cmdlet에 **-DownloadLogsoption** 옵션을 사용하여 로그 파일을 다운로드할 수 있습니다.
 
     ```powershell

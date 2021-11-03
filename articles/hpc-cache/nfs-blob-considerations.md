@@ -1,17 +1,17 @@
 ---
 title: Azure HPC Cache에서 NFS Blob Storage 사용
 description: Azure HPC Cache에서 ADLS-NFS Blob Storage를 사용하는 경우의 절차 및 제한 사항에 대해 설명합니다.
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/12/2021
-ms.author: v-erkel
-ms.openlocfilehash: e9d31ae4ccaa7bffaf1ce38a9f044993277f5f2f
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.author: femila
+ms.openlocfilehash: 297030bc35e9fcf726201695b273eac79a044028
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130041674"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051043"
 ---
 # <a name="use-nfs-mounted-blob-storage-with-azure-hpc-cache"></a>Azure HPC Cache에서 NFS 탑재 Blob Storage 사용
 
@@ -42,7 +42,7 @@ NFS 지원 Blob 컨테이너에서는 *파일을 만들 때 사용한 것과 동
 
 컨테이너가 비어 있거나 파일이 NFS를 사용하여 만들어진 경우에는 캐시에 문제가 되지 않습니다.
 
-컨테이너의 파일이 NFS 대신 Azure Blob REST API 사용하여 만들어진 경우 Azure HPC Cache 원래 파일에서 이러한 작업으로 제한됩니다.
+컨테이너의 파일이 NFS 대신 Azure Blob REST API 사용하여 만들어진 경우 Azure HPC Cache 원본 파일에서 이러한 작업으로 제한됩니다.
 
 * 디렉터리에 파일을 나열합니다.
 * 파일을 읽고 후속 읽기를 위해 캐시에 보관합니다.

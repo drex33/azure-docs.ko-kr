@@ -10,13 +10,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ef0f3cf29927e0d15702a9429fcabc54d10a8506
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: H1Hack27Feb2017, ignite-fall-2021
+ms.openlocfilehash: a80eea61e2088dcf10e67a0ce5f3282c34aa395e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128648661"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131013330"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Azure VM에서 SAP NetWeaver에 대한 고가용성
 
@@ -69,8 +69,8 @@ ms.locfileid: "128648661"
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
-[azure-ps]:https://docs.microsoft.com/powershell/azure/
-[azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
+[azure-ps]:/powershell/azure/
+[azure-quickstart-templates-github]: https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 [azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
@@ -558,7 +558,7 @@ _**그림 2:** 공유 디스크를 사용하지 않는 Azure에서 Windows Serve
 2. 두 가상 머신 노드에서 SIOS DataKeeper Cluster Edition을 실행합니다.
 3. 원본 가상 머신의 추가 VHD 연결 볼륨의 콘텐츠를 대상 가상 머신의 추가 VHD 연결 볼륨에 미러링하는 방식으로 SIOS DataKeeper Cluster Edition을 구성합니다. SIOS DataKeeper는 원본 및 대상 로컬 볼륨을 추상화한 다음 Windows Server 장애 조치 클러스터링에 단일 공유 디스크로 제공합니다.
 
-[SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/)에 대한 자세한 정보를 참조하세요.
+[SIOS DataKeeper](https://us.sios.com/products/windows/datakeeper-cluster/)에 대한 자세한 정보를 참조하세요.
 
 ![그림 3: SIOS DataKeeper를 사용하는 Azure의 Windows Server 장애 조치(Failover) 클러스터링 구성][sap-ha-guide-figure-1002]
 
@@ -1605,7 +1605,7 @@ SAP 애플리케이션 서버 인스턴스를 호스트하도록 지정한 모�
 
 **SAP PR1** 클러스터 그룹이 클러스터 노드 A(예: **pr1-ascs-0**)에서 실행되고 있습니다. **SAP PR1** 클러스터 그룹에 속하고 ASCS/SCS 인스턴스에서 사용하는 S 공유 디스크 드라이브를 클러스터 노드 A에 할당합니다.
 
-![그림 61: 장애 조치(Failover) 클러스터 관리자: SAP \< SID \> 클러스터 그룹이 클러스터 노드 A에서 실행되고 있습니다.][sap-ha-guide-figure-5000]
+![그림 61: 장애 조치(Failover) 클러스터 관리자: SAP \< SID \> 클러스터 그룹이 클러스터 노드 A에서 실행 되 고 있습니다.][sap-ha-guide-figure-5000]
 
 _**그림 61:** 장애 조치(Failover) 클러스터 관리자: 클러스터 노드 A에서 실행 중인 SAP <*SID*> 클러스터 그룹_
 
@@ -1634,7 +1634,7 @@ _**그림 62:** SIOS DataKeeper에서 클러스터 노드 A로부터 클러스�
 
    장애 조치 후 SAP <*SID*> 클러스터 그룹이 클러스터 노드 B(예: **pr1-ascs-1** 에서 실행 중)에서 실행되고 있습니다.
 
-   ![그림 63: 장애 조치(Failover) 클러스터 관리자 SAP SID \< \> 클러스터 그룹이 클러스터 노드 B에서 실행되고 있습니다.][sap-ha-guide-figure-5002]
+   ![그림 63: 장애 조치(Failover) 클러스터 관리자에서 SAP \< SID \> 클러스터 그룹이 클러스터 노드 B에서 실행 되 고 있습니다.][sap-ha-guide-figure-5002]
 
    _**그림 63**: 장애 조치(Failover) 클러스터 관리자에서 클러스터 노드 B에서 실행 중인 SAP <*SID*> 클러스터 그룹_
 

@@ -189,6 +189,8 @@ items:
                 href: monitoring-log-analytics-azure-portal-managed-instance.md
               - name: 고가용성
                 href: managed-instance-high-availability.md
+              - name: 예약 용량
+                href: reserved-capacity-overview.md
               - name: 삭제
                 href: delete-managed-instance.md
           - name: 마이그레이션

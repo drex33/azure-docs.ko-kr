@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: robinsh
-ms.openlocfilehash: f306186fd079a32df68631055fcae6594d997d0d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: afd7a50a9c18299fb295d6ed978ce1b22bf90e9c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567011"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072582"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>IoT Hub를 업그레이드하는 방법
 
@@ -36,13 +36,9 @@ IoT 허브를 다운그레이드하려면 단위를 제거하고 IoT 허브의 �
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인하고 IoT Hub로 이동합니다.
 
-2. **가격 책정 및 크기 조정** 을 선택합니다.
-
-   ![가격 및 크기](./media/iot-hub-upgrade/pricing-scale.png)
+2. 왼쪽 탐색 창에서 **가격 책정 및 크기 조정을** 선택합니다.
 
 3. 허브에 대한 계층을 변경하려면 **가격 책정 및 계층 크기 조정** 을 선택합니다. 새 계층을 선택한 다음, **선택** 을 클릭합니다.
-
-   ![가격 책정 및 규모 계층](./media/iot-hub-upgrade/select-tier.png)
 
 4. 허브에서 단위 수를 변경하려면 **IoT Hub 단위** 아래 새 값을 입력합니다.
 

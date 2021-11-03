@@ -8,16 +8,18 @@ ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.date: 07/11/2021
-ms.openlocfilehash: be35be9211ce9d183ab19d768d504798b7150a33
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: ef2afe833af9d5beb1351c6306493e5aed55f907
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122567616"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131083824"
 ---
 # <a name="use-azure-sentinel-watchlists"></a>Azure Sentinel 관심 목록 사용
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Azure Sentinel 관심 목록을 사용하면 보유 중인 Azure Sentinel 환경에서 일어나는 이벤트와의 연결을 위해 외부 데이터에서 데이터를 수집할 수 있게 됩니다. 생성한 다음에는 검색, 검색 규칙, 위협 헌팅, 대응 플레이북에 관심 목록을 활용할 수 있습니다. 관심 목록은 Azure Sentinel 작업 영역에 이름 값 쌍으로 저장되며 쿼리 성능 최적화와 대기 시간 최소화를 위해 캐시됩니다.
 

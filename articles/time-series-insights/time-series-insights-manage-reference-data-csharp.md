@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: e2455a6e87e05ee8a926309ff0ca62ad2b8677da
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
-ms.translationtype: HT
+ms.openlocfilehash: f0508cfa1f5a789207b2771be4bdd9d448af3363
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113136790"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131074615"
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-gen-1-environment-using-c-sharp"></a>C#을 사용하여 Azure Time Series Insights Gen 1 환경에 대한 참조 데이터 관리
 
@@ -81,7 +81,7 @@ ms.locfileid: "113136790"
 
 1. `csharp-tsi-msal-ga-sample.csproj` 파일을 선언합니다.
 
-    ```XML
+    ```xml
     <Project Sdk="Microsoft.NET.Sdk">
       <PropertyGroup>
         <OutputType>Exe</OutputType>
@@ -229,7 +229,6 @@ namespace CsharpTsiMsalGaSample
                             }
                         ]
                     }";
-
 
                 var createResponse = await AsyncHttpPostRequestHelper(httpClient, createInput);
 

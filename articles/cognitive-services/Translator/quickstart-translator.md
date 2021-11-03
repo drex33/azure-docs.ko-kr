@@ -3,21 +3,21 @@ title: '빠른 시작: Translator 시작'
 titleSuffix: Azure Cognitive Services
 description: Translator 서비스를 사용하여 텍스트 번역, 텍스트 음역, 언어 감지 등을 수행하는 방법을 알아봅니다. C#, Java, JavaScript 및 Python으로 작성된 예제가 제공됩니다.
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 07/06/2021
-ms.author: erhopf
+ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: Translator, Translator 서비스, 텍스트 번역, 텍스트 음역, 언어 감지
-ms.openlocfilehash: 10e879df320d527ab6c853a03e9eb49d1b4d50de
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 4b3aa5c75f18126f14fb3fae6c3a7a9a93b39710
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113355905"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131011829"
 ---
 # <a name="quickstart-get-started-with-translator"></a>빠른 시작: Translator 시작
 

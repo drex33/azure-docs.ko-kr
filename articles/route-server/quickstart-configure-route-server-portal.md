@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 09/08/2021
 ms.author: duau
-ms.openlocfilehash: a6714867b5b863f608e3282c5e6f3bb0d2425969
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 7dfded652c14ec6805b7fa48004cf5dfe8d72b5f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129091486"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131061108"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Route Server 만들기 및 구성
 
@@ -65,7 +65,7 @@ ms.locfileid: "129091486"
 
 이 섹션은 NVA와 BGP의 피어링을 구성하는 데 도움이 됩니다.
 
-1. Azure Portal에서 [Route Server](https://aka.ms/routeserver)로 이동한 다음, 구성하려는 Route Server를 선택합니다.
+1. Azure Portal에서 [Route Server](./overview.md)로 이동한 다음, 구성하려는 Route Server를 선택합니다.
 
     :::image type="content" source="./media/quickstart-configure-route-server-portal/select-route-server.png" alt-text="Route Server 목록의 스크린샷"::: 
 
@@ -95,7 +95,7 @@ NVA에 대한 구성을 완료하여 BGP 세션을 설정하려면 Azure Route S
 
 ExpressRoute 게이트웨이 및/또는 VPN 게이트웨이가 있고 경로를 Route Server와 교환하도록 하려면 경로 교환을 사용하도록 설정할 수 있습니다.
 
-1. Azure Portal에서 [Route Server](https://aka.ms/routeserver)로 이동한 다음, 구성하려는 Route Server를 선택합니다.
+1. Azure Portal에서 [Route Server](./overview.md)로 이동한 다음, 구성하려는 Route Server를 선택합니다.
 
 1. 왼쪽 탐색 패널의 *설정* 아래에서 **구성** 을 선택합니다.
 

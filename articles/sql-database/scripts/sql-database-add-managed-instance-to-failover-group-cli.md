@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
-author: BustosMSFT
-ms.author: robustos
+author: rothja
+ms.author: jroth
 ms.reviewer: mathoma
 ms.date: 07/16/2019
-ms.openlocfilehash: fe24deb694a23e216ebcad430d87c62aa6cb2cfd
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 5ffac59d08c9646273fd0056a05b6474f3339abe
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110698085"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131074995"
 ---
 # <a name="use-cli-to-add-an-azure-sql-managed-instance-to-a-failover-group"></a>CLI를 사용하여 Azure SQL Managed Instance를 장애 조치(failover) 그룹에 추가
 

@@ -10,12 +10,12 @@ ms.date: 05/08/2021
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 3b1754060a84914fca9b9c7d22ee85e32717d002
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: de703ea3f85025657b4c71089f158b7d1db2189d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130178763"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131013609"
 ---
 # <a name="create-develop-and-maintain-synapse-notebooks-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse Notebook 만들기, 개발, 유지 관리
 
@@ -30,22 +30,7 @@ Synapse Notebook의 이점은 다음과 같습니다.
 
 이 문서에서는 Synapse Studio에서 Notebook을 사용하는 방법을 설명합니다.
 
-## <a name="preview-of-the-new-notebook-experience"></a>새 Notebook 환경의 프리뷰
-Synapse 팀은 새로운 Notebook 구성 요소를 Synapse Studio로 가져와서 Microsoft 고객을 위한 일관된 Notebook 환경을 제공하고 검색 기능, 생산성, 공유, 협업을 극대화합니다. 새 Notebook 환경은 프리뷰 준비가 되었습니다. Notebook 도구 모음의 **미리 보기 기능** 단추를 선택하여 이 기능을 켭니다. 다음 표에는 기존 Notebook("클래식 노트북"이라고 함)과 새 프리뷰 Notebook 간의 기능 비교가 정리되어 있습니다.  
 
-|기능|클래식 Notebook|프리뷰 Notebook|
-|--|--|--|
-|%run| 지원되지 않음 | &#9745;|
-|%history| 지원되지 않음 |&#9745;|
-|%load| 지원되지 않음 |&#9745;|
-|%%html| 지원되지 않음 |&#9745;|
-|끌어서 놓아 셀 이동| 지원되지 않음 |&#9745;|
-|개요(목차)| 지원되지 않음 |&#9745;|
-|변수 탐색기| 지원되지 않음 |&#9745;|
-|코드 셀 주석 달기| 지원되지 않음 | &#9745;|
-
-> [!NOTE]
-> 변수 탐색기는 python만 지원 합니다.
 ## <a name="create-a-notebook"></a>Notebook 만들기
 
 Notebook을 만드는 방법은 두 가지입니다. **개체 탐색기** 에서 새 Notebook을 만들거나 Synapse 작업 영역으로 기존 Notebook을 가져올 수 있습니다. Synapse Notebook은 표준 Jupyter Notebook IPYNB 파일을 인식합니다.
@@ -75,21 +60,6 @@ Notebook을 개발하기 위한 다양한 작업을 제공합니다.
 <h3 id="add-a-cell">셀 추가</h3>
 
 Notebook에 새 셀을 추가하는 방법은 여러 가지입니다.
-
-# <a name="classical-notebook"></a>[클래식 Notebook](#tab/classical)
-
-1. 왼쪽 위에 있는 **+ 셀** 단추를 펼치고 **코드 셀 추가** 또는 **텍스트 셀 추가** 를 선택합니다.
-
-    ![add-cell-with-cell-button 스크린샷](./media/apache-spark-development-using-notebooks/synapse-add-cell-1.png)
-
-2. 두 셀 사이의 공간을 마우스로 가리키고 **코드 추가** 또는 **텍스트 추가** 를 선택합니다.
-
-    ![add-cell-between-space 스크린샷](./media/apache-spark-development-using-notebooks/synapse-add-cell-2.png)
-
-3. [명령 모드에서 바로 가기 키](#shortcut-keys-under-command-mode)를 사용합니다. 현재 셀 위에 셀을 삽입하려면 **A** 를 누릅니다. 현재 셀 아래에 셀을 삽입하려면 **B** 를 누릅니다.
-
-
-# <a name="preview-notebook"></a>[프리뷰 Notebook](#tab/preview)
 
 1. 두 셀 사이의 공간을 마우스로 가리키고 **Code** 또는 **Markdown** 를 선택 합니다.
     ![add-azure-notebook-cell-with-cell-button 스크린샷](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-add-cell-1.png)
@@ -181,14 +151,6 @@ Synapse Notebook은 Spark 세션 구성, 데이터를 Spark DataFrame으로 읽�
 
 <h3 id="format-text-cell-with-toolbar-buttons">도구 모음 단추를 사용하여 텍스트 셀 서식 지정</h3>
 
-# <a name="classical-notebook"></a>[클래식 Notebook](#tab/classical)
-
-텍스트 셀 도구 모음의 서식 단추를 사용하여 일반적인 Markdown 작업을 수행할 수 있습니다. 여기에는 텍스트 굵게 표시, 텍스트에 기울임꼴 적용, 코드 조각 삽입, 순서가 지정되지 않은 목록 삽입, 순서가 지정된 목록 삽입, URL의 이미지 삽입이 포함됩니다.
-
-  ![Synapse 텍스트 셀 도구 모음 스크린샷](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
-
-# <a name="preview-notebook"></a>[프리뷰 Notebook](#tab/preview)
-
 텍스트 셀 도구 모음의 서식 단추를 사용하여 일반적인 Markdown 작업을 수행할 수 있습니다. 여기에는 굵은 텍스트, 텍스트의 직렬화, 드롭다운을 통한 단락/헤더, 코드 삽입, 순서가 지정되지 않은 목록 삽입, 순서가 지정된 목록 삽입, 하이퍼링크 삽입 및 URL에서 이미지 삽입이 포함됩니다.
 
   ![Synapse 텍스트 셀 도구 모음 스크린샷](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar-preview.png)
@@ -196,14 +158,6 @@ Synapse Notebook은 Spark 세션 구성, 데이터를 Spark DataFrame으로 읽�
 ---
 
 <h3 id="undo-redo-cell-operation">셀 작업 실행 취소/다시 실행</h3>
-
-# <a name="classical-notebook"></a>[클래식 Notebook](#tab/classical)
-
-**실행 취소** / **다시 실행** 단추를 선택하거나 **Ctrl+Z** / **Ctrl+Y** 를 눌러 최근 셀 작업을 철회합니다. 이제 기록된 최근 셀 작업을 20개까지 실행 취소/다시 실행할 수 있습니다. 
-
-   ![Synapse 실행 취소 셀 스크린샷](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
-
-# <a name="preview-notebook"></a>[프리뷰 Notebook](#tab/preview)
 
 **실행 취소** / **다시 실행** 단추를 선택하거나 **Z** / **Shift+Z** 를 눌러 최근 셀 작업을 철회합니다. 이제 기록된 최근 셀 작업을 10개까지 실행 취소/다시 실행할 수 있습니다.
 
@@ -224,14 +178,6 @@ Synapse Notebook은 Spark 세션 구성, 데이터를 Spark DataFrame으로 읽�
 
 <h3 id="Code-cell-commenting">코드 셀 주석 달기</h3>
 
-# <a name="classical-notebook"></a>[클래식 Notebook](#tab/classical)
-
-지원되지 않습니다.
-
-# <a name="preview-notebook"></a>[프리뷰 Notebook](#tab/preview)
-
-지금은 프리뷰 Notebook에서 코드 셀 주석 처리를 지원합니다.
-
 1. Notebook 도구 모음에서 **주석** 단추를 선택하여 **주석** 창을 엽니다.
 
    ![Synapse 주석 단추 스크린샷](./media/apache-spark-development-using-notebooks/synapse-comments-button.png)
@@ -246,18 +192,7 @@ Synapse Notebook은 Spark 세션 구성, 데이터를 Spark DataFrame으로 읽�
 
 ---
 
-
 <h3 id="move-a-cell">셀 이동</h3>
-
-# <a name="classical-notebook"></a>[클래식 Notebook](#tab/classical)
-
-줄임표(...)를 선택하면 오른쪽 끝에 있는 다른 셀 작업 메뉴에 액세스할 수 있습니다. 그런 다음, **위로 셀 이동** 또는 **아래로 셀 이동** 을 선택하여 현재 셀을 이동합니다. 
-
-[명령 모드에서 바로 가기 키](#shortcut-keys-under-command-mode)를 사용할 수도 있습니다. 현재 셀을 위로 이동하려면 **Ctrl+Alt+↑** 키를 누릅니다. 현재 셀을 아래로 이동하려면 **Ctrl+Alt+↓** 키를 누릅니다.
-
-   ![move-a-cell 스크린샷](./media/apache-spark-development-using-notebooks/synapse-move-cells.png)
-
-# <a name="preview-notebook"></a>[프리뷰 Notebook](#tab/preview)
 
 셀의 왼쪽을 클릭하고 원하는 위치로 끕니다. 
     ![Synapse 셀 이동 애니메이션 GIF](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-drag-drop-cell.gif)
@@ -265,16 +200,6 @@ Synapse Notebook은 Spark 세션 구성, 데이터를 Spark DataFrame으로 읽�
 ---
 
 <h3 id="delete-a-cell">셀 삭제</h3>
-
-# <a name="classical-notebook"></a>[클래식 Notebook](#tab/classical)
-
-셀을 삭제하려면 줄임표(...)를 선택하여 오른쪽 끝에 있는 다른 셀 작업 메뉴에 액세스한 후 **셀 삭제** 를 선택합니다. 
-
-[명령 모드에서 바로 가기 키](#shortcut-keys-under-command-mode)를 사용할 수도 있습니다. 현재 행을 삭제하려면 **D,D** 를 누릅니다.
-  
-   ![delete-a-cell 스크린샷](./media/apache-spark-development-using-notebooks/synapse-delete-cell.png)
-
-# <a name="preview-notebook"></a>[프리뷰 Notebook](#tab/preview)
 
 셀을 삭제하려면 셀의 오른쪽에 있는 삭제 단추를 선택합니다. 
 
@@ -286,15 +211,7 @@ Synapse Notebook은 Spark 세션 구성, 데이터를 Spark DataFrame으로 읽�
 
 <h3 id="collapse-a-cell-input">셀 입력 접기</h3>
 
-# <a name="classical-notebook"></a>[클래식 Notebook](#tab/classical)
-
-현재 셀의 아래쪽에 있는 화살표 단추를 선택하면 셀이 축소됩니다. 셀을 펼치려면 셀이 축소된 상태에서 화살표 단추를 선택합니다.
-
-   ![collapse-cell-input 애니메이션 GIF](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-input.gif)
-
-# <a name="preview-notebook"></a>[프리뷰 Notebook](#tab/preview)
-
-셀 도구 모음에서 **더 많은 명령** 줄임표 (...)를 선택 하 고 **입력을 숨겨** 현재 셀의 입력을 축소 합니다. 확장 하려면 셀을 축소 하는 동안 **입력 표시** 를 선택 합니다.
+셀 도구 모음에서 **추가 명령** 타원(...)을 선택하고 **입력 숨기기를** 선택하여 현재 셀의 입력을 축소합니다. 확장하려면 셀이 축소된 상태에서 **입력 표시를** 선택합니다.
 
    ![azure-notebook-collapse-cell-input 애니메이션 GIF](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-collapse-cell-input.gif)
 
@@ -302,15 +219,7 @@ Synapse Notebook은 Spark 세션 구성, 데이터를 Spark DataFrame으로 읽�
 
 <h3 id="collapse-a-cell-output">셀 출력 접기</h3>
 
-# <a name="classical-notebook"></a>[클래식 Notebook](#tab/classical)
-
-현재 셀 출력의 왼쪽 위에 있는 **출력 접기** 단추를 선택하면 셀 출력이 축소됩니다. 출력을 펼치려면 셀 출력이 축소된 상태에서 **셀 출력 표시** 를 클릭합니다.
-
-   ![collapse-cell-output 애니메이션 GIF](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-output.gif)
-
-# <a name="preview-notebook"></a>[프리뷰 Notebook](#tab/preview)
-
-셀 도구 모음에서 **더 많은 명령** 줄임표 (...)를 선택 하 고 현재 셀의 출력을 축소 하려면 **출력을 숨깁니다** . 확장 하려면 셀의 출력을 숨기는 동안 **출력 표시** 를 선택 합니다.
+셀 도구 모음에서 **추가 명령** 타원(...)을 선택하고 **출력 숨기기를** 선택하여 현재 셀의 출력을 축소합니다. 확장하려면 셀의 **출력이** 숨겨져 있는 동안 출력 표시를 선택합니다.
 
    ![azure-notebook-collapse-cell-output 애니메이션 GIF](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-collapse-cell-output.gif)
 
@@ -318,12 +227,6 @@ Synapse Notebook은 Spark 세션 구성, 데이터를 Spark DataFrame으로 읽�
 ---
 
 <h3 id="notebook-outline">Notebook 개요</h3>
-
-# <a name="classical-notebook"></a>[클래식 Notebook](#tab/classical)
-
-지원되지 않습니다.
-
-# <a name="preview-notebook"></a>[프리뷰 Notebook](#tab/preview)
 
 개요(목차)는 빠른 탐색을 위해 사이드바 창에 있는 모든 Markdown 셀의 첫 번째 Markdown 헤더를 나타냅니다. Outlines 사이드바는 가능한 최적의 방법으로 화면에 맞게 크기 조절 및 축소가 가능합니다. Notebook 명령 모음에서 **개요** 단추를 선택하여 사이드바를 열거나 숨길 수 있습니다.
 
@@ -356,14 +259,6 @@ Notebook의 코드 셀을 개별적으로 또는 한꺼번에 실행할 수 있�
 
 ### <a name="run-all-cells-above-or-below"></a>위 또는 아래 셀 모두 실행
 
-# <a name="classical-notebook"></a>[클래식 Notebook](#tab/classical)
-
-오른쪽 끝에 있는 다른 셀 작업 메뉴에 액세스하려면 줄임표( **...** )를 선택합니다. 그런 다음, 현재 셀 위에 있는 모든 셀을 순서대로 실행하려면 **Run cells above**(위 셀 실행)를 선택합니다. 현재 셀 아래 모든 셀을 순서대로 실행하려면 **Run cells below**(아래 셀 실행)을 선택합니다.
-
-   ![run-cells-above-or-below 스크린샷](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
-
-# <a name="preview-notebook"></a>[프리뷰 Notebook](#tab/preview)
-
 **모두 실행** 단추에서 드롭다운 목록을 확장한 다음, 현재 셀 위의 모든 셀을 순서대로 실행하려면 **위 셀 실행** 을 선택합니다. 현재 셀 아래 모든 셀을 순서대로 실행하려면 **Run cells below**(아래 셀 실행)을 선택합니다.
 
    ![azure-notebook-run-cells-above-or-below 스크린샷](./media/apache-spark-development-using-notebooks/synapse-aznb-run-cells-above-or-below.png)
@@ -372,26 +267,12 @@ Notebook의 코드 셀을 개별적으로 또는 한꺼번에 실행할 수 있�
 
 ### <a name="cancel-all-running-cells"></a>실행 중인 모든 셀 취소
 
-# <a name="classical-notebook"></a>[클래식 Notebook](#tab/classical)
-실행 중인 셀 또는 큐에서 대기 중인 셀을 취소하려면 **모두 취소** 단추를 선택합니다. 
-   ![cancel-all-cells 스크린샷](./media/apache-spark-development-using-notebooks/synapse-cancel-all.png) 
-
-# <a name="preview-notebook"></a>[프리뷰 Notebook](#tab/preview)
-
 실행 중인 셀 또는 큐에서 대기 중인 셀을 취소하려면 **모두 취소** 단추를 선택합니다. 
    ![azure-notebook-cancel-all-cells 스크린샷](./media/apache-spark-development-using-notebooks/synapse-aznb-cancel-all.png) 
 
 ---
 
-
-
 ### <a name="notebook-reference"></a>Notebook 참조
-
-# <a name="classical-notebook"></a>[클래식 Notebook](#tab/classical)
-
-지원되지 않습니다.
-
-# <a name="preview-notebook"></a>[프리뷰 Notebook](#tab/preview)
 
 ```%run <notebook path>``` 매직 명령을 사용하여 현재 Notebook의 컨텍스트 내에서 다른 Notebook을 참조할 수 있습니다. 참조 Notebook에 정의된 모든 변수는 현재 Notebook에서 사용할 수 있습니다. ```%run``` 매직 명령은 중첩된 호출을 지원하지만 재귀 호출은 지원하지 않습니다. 문 깊이가 **5** 보다 크면 예외를 수신하게 됩니다.  
 
@@ -410,18 +291,14 @@ Notebook 참조는 대화형 모드와 Synapse 파이프라인 모두에서 작�
 
 ### <a name="variable-explorer"></a>변수 탐색기
 
-# <a name="classical-notebook"></a>[클래식 Notebook](#tab/classical)
-
-지원되지 않습니다.
-
-# <a name="preview-notebook"></a>[프리뷰 Notebook](#tab/preview)
-
 Synapse Notebook은 PySpark(Python) 셀에 대한 현재 Spark 세션의 변수 이름, 유형, 길이 및 값 목록을 볼 수 있는 기본 제공 변수 탐색기를 제공합니다. 코드 셀에 정의된 대로 더 많은 변수가 자동으로 표시됩니다. 각 열 헤더를 클릭하면 테이블의 변수가 정렬됩니다.
 
 Notebook 명령 모음에서 **변수** 단추를 선택하여 변수 탐색기를 열거나 숨길 수 있습니다.
 
 ![azure-notebook-variable-explorer 스크린샷](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-variable-explorer.png)
 
+> [!NOTE]
+> 변수 탐색기는 python만 지원 합니다.
 
 ---
 
@@ -527,13 +404,6 @@ df = spark.read.option("header", "true") \
 
 ## <a name="ipython-widgets"></a>IPython 위젯
 
-
-# <a name="classical-notebook"></a>[클래식 Notebook](#tab/classical)
-
-지원되지 않습니다.
-
-# <a name="preview-notebook"></a>[프리뷰 Notebook](#tab/preview)
-
 위젯은 일반적으로 슬라이더, 텍스트 상자 등의 컨트롤처럼 브라우저에 표시되는 이벤트성 python 개체입니다. IPython 위젯은 Python 환경에서만 작동하며 다른 언어(예: Scala, SQL, C#)에서는 아직 지원되지 않습니다. 
 
 ### <a name="to-use-ipython-widget"></a>IPython 위젯을 사용하려면
@@ -619,23 +489,26 @@ Notebook 속성에서 저장할 때 셀 출력을 포함할지 여부를 구성�
 
    ![notebook-properties 스크린샷](./media/apache-spark-development-using-notebooks/synapse-notebook-properties.png)
 
+<!--
+## Export a notebook
+You can Export your notebook to other standard formats. Synapse notebook supports to be exported into: 
+
++ Standard Notebook file(.ipynb) that is usually used for Jupyter notebooks. 
++ HTML file(.html) that can be opened from browser directly.  
++ Python file(.py).  
++ Latex file(.tex).  
+
+   ![Screenshot of notebook-export](./media/apache-spark-development-using-notebooks/synapse-notebook-export.png)
+
+-->
+
 ## <a name="magic-commands"></a>매직 명령
 Synapse Notebook에서 익숙한 Jupyter 매직 명령을 사용할 수 있습니다. 현재 사용 가능한 매직 명령은 아래 목록에서 확인하세요. 필요에 맞는 매직 명령을 계속 빌드할 수 있도록 [GitHub에 사용 사례](https://github.com/MicrosoftDocs/azure-docs/issues/new)를 알려주세요.
 
 > [!NOTE]
 > Synapse 파이프라인에서는 %%pyspark, %%spark, %%csharp, %%sql 매직 명령만 지원됩니다. 
 >
->
 
-# <a name="classical-notebook"></a>[클래식 Notebook](#tab/classical)
-
-사용 가능한 줄 매직: [%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
-
-사용 가능한 셀 매직: [%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages),[%%configure](#spark-session-config-magic-command)
-
-
-
-# <a name="preview-notebook"></a>[프리뷰 Notebook](#tab/preview)
 
 사용 가능한 줄 매직: [%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%history](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [%run](#notebook-reference), [%load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
 
@@ -652,14 +525,6 @@ Synapse Notebook에서 익숙한 Jupyter 매직 명령을 사용할 수 있습�
 ![파이프라인에 Notebook 추가 스크린샷](./media/apache-spark-development-using-notebooks/add-to-pipeline.png)
 
 ### <a name="designate-a-parameters-cell"></a>매개 변수 셀 지정
-
-# <a name="classical-notebook"></a>[클래식 Notebook](#tab/classical)
-
-Notebook을 매개 변수화하려면 줄임표(...)를 선택하여 오른쪽 끝에 있는 다른 셀 작업 메뉴에 액세스하면 됩니다. 그런 다음, **매개 변수 셀 설정/해제** 를 선택하여 셀을 매개 변수 셀로 지정합니다.
-
-![toggle-parameter 스크린샷](./media/apache-spark-development-using-notebooks/toggle-parameter-cell.png)
-
-# <a name="preview-notebook"></a>[프리뷰 Notebook](#tab/preview)
 
 Notebook을 매개 변수화하려면 줄임표(...)를 선택하여 셀 도구 모음에서 **기타 명령** 에 액세스합니다. 그런 다음, **매개 변수 셀 설정/해제** 를 선택하여 셀을 매개 변수 셀로 지정합니다.
 
@@ -693,27 +558,6 @@ Jupyter Notebook과 마찬가지로 Synapse Notebook에는 모달 사용자 인�
    ![edit-mode 스크린샷](./media/apache-spark-development-using-notebooks/synapse-edit-mode-2.png)
 
 ### <a name="shortcut-keys-under-command-mode"></a>명령 모드의 바로 가기 키
-
-# <a name="classical-notebook"></a>[클래식 Notebook](#tab/classical)
-
-다음과 같은 키 입력 바로 가기를 사용하면 Synapse Notebook에서 보다 편리하게 코드를 탐색하고 실행할 수 있습니다.
-
-| 작업 |Synapse Notebook 바로 가기  |
-|--|--|
-|현재 셀을 실행하고 아래 선택 | Shift+Enter |
-|현재 셀을 실행하고 아래에 삽입 | Alt+Enter |
-|위 셀 선택| 위로 |
-|아래 셀 선택| 아래로 |
-|위에 셀 삽입| A |
-|아래에 셀 삽입| b |
-|선택한 셀을 위로 확장| Shift+위쪽 화살표 |
-|선택한 셀을 아래로 확장| Shift+아래쪽 화살표|
-|위로 셀 이동| Ctrl+Alt+↑ |
-|아래로 셀 이동| Ctrl+Alt+↓ |
-|선택한 셀 삭제| D, D |
-|편집 모드로 전환| Enter |
-
-# <a name="preview-notebook"></a>[프리뷰 Notebook](#tab/preview)
 
 | 작업 |Synapse Notebook 바로 가기  |
 |--|--|

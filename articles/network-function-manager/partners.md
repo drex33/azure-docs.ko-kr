@@ -4,22 +4,21 @@ description: 이 서비스와 함께 사용할 네트워크 기능을 제공하�
 author: prmitt
 ms.service: network-function-manager
 ms.topic: article
-ms.date: 06/30/2021
+ms.date: 11/02/2021
 ms.author: prmitt
-ms.openlocfilehash: 5186d16d36503ad5f057424b6251ee8be109b958
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: f2fdd216b15bba15f65b4fe8547e2bfc2b729348
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130258490"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024053"
 ---
-# <a name="network-function-manager-partners-preview"></a>네트워크 기능 관리자 파트너(미리 보기)
+# <a name="network-function-manager-partners"></a>네트워크 기능 관리자 파트너
 
-이 서비스에 사용할 관리형 애플리케이션으로 네트워크 기능을 제공하는 파트너의 에코시스템이 증가하고 있습니다. 
+이 서비스에 사용할 관리형 애플리케이션으로 네트워크 기능을 제공하는 파트너의 에코시스템이 증가하고 있습니다.
 
 ## <a name="devices-and-configuration-links"></a><a name="devices"></a>디바이스 및 구성 링크
-
-미리 보기의 경우 현재 다음 SKU를 사용할 수 있습니다.
 
 |함수 |범주|링크|
 | ---  | --- | --- |

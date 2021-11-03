@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Purview의 민감도 레이블 FAQ
-  description: Azure Purview 민감도 레이블에 대한 질문과 대답에 대해 알아봅니다.
+  title: Azure 부서의 범위 FAQ의 민감도 레이블
+  description: Azure 부서의 범위 민감도 레이블에 대 한 질문과 대답을 알아봅니다.
   services: purview
   author: ajaykar
   ms.service: purview
@@ -9,62 +9,62 @@ metadata:
   ms.topic: 
   ms.date: 09/17/2021
   ms.author: ajaykar
-  ms.openlocfilehash: f83e1cdf5475f59a647dfca4648d0692ad8d4d08
-  ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+  ms.openlocfilehash: 9d5ab94d9c398c6efecd110c4292ad669a389720
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/19/2021
-  ms.locfileid: "130555869"
-title: Azure Purview의 민감도 레이블 FAQ
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131014937"
+title: Azure 부서의 범위 FAQ의 민감도 레이블
 summary: >
-  이 문서에서는 Azure Purview의 민감도 레이블 지정에 대한 질문과 대답 및 필요에 따라 추가 정보에 대한 링크를 나열합니다.</br></br>
+  이 문서에서는 Azure 부서의 범위의 민감도 레이블 지정에 대 한 질문과 대답을 나열 하 고 필요에 따라 자세한 정보에 대 한 링크를 제공 합니다.</br></br>
 
 
   > [!IMPORTANT]
 
-  > Azure Purview 민감도 레이블은 현재 미리 보기로 제공됩니다. [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관이 포함되어 있습니다.
+  > Azure 부서의 범위 민감도 레이블은 현재 미리 보기 상태입니다. [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관이 포함되어 있습니다.
 
   >
 sections:
 - name: 라이선스 및 설정
   questions:
-  - question: Azure Purview의 파일 및 데이터베이스 열에서 민감도 레이블을 사용하기 위한 라이선스 요구 사항은 무엇인가요?
-    answer: "Azure Purview에서 민감도 레이블을 사용하려면 Azure Purview 계정과 동일한 Azure Active Directory(AAD) 테넌트 내에서 하나 이상의 Microsoft 365 라이선스/계정이 필요합니다.  \n\nMicrosoft 365 및 [Azure Purview의](how-to-automatically-label-your-content.md)자산에 민감도 레이블을 자동으로 적용하려면 다음 [Microsoft 365](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance#which-licenses-provide-the-rights-for-a-user-to-benefit-from-the-service-10) 라이선스가 필요합니다.  \n\n* Microsoft 365 E5/A5/G5\n* Microsoft 365 E5/A5/G5 준수 \n* Microsoft 365 E5/A5/G5 Information Protection 및 거버넌스,  \n* Office 365 E5, Enterprise Mobility + Security E5/A5/G5 및 AIP 계획  \n\n자세한 내용은 [Microsoft 365 서비스 설명을 참조하세요.](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance#information-protection)\n"
-  - question: 조직에 Azure AD 테넌트 내에 여러 Azure Purview 계정이 있는 경우 레이블을 각 Purview 계정으로 개별적으로 수동으로 확장해야 합니까?
+  - question: Azure 부서의 범위에서 파일 및 데이터베이스 열에 대 한 민감도 레이블을 사용 하기 위한 라이선스 요구 사항은 무엇 인가요?
+    answer: "azure 부서의 범위에서 민감도 레이블을 사용 하려면 azure 부서의 범위 계정과 동일한 Azure Active Directory (AAD) 테 넌 트 내에 하나 이상의 Microsoft 365 라이선스/계정이 필요 합니다.  \n\n다음 Microsoft 365 라이선스는 [Microsoft 365](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance#which-licenses-provide-the-rights-for-a-user-to-benefit-from-the-service-10) 및 [Azure 부서의 범위](how-to-automatically-label-your-content.md)에서 자산에 민감도 레이블을 자동으로 적용 하는 데 필요 합니다.  \n\n* Microsoft 365 E5/A5/G5\n* Microsoft 365 E5/A5/G5 규정 준수 \n* Microsoft 365 E5/A5/G5 Information Protection 및 거 버 넌 스  \n* Office 365 E5, Enterprise Mobility + Security E5/A5/G5 및 aip 계획  \n\n자세한 내용은 [Microsoft 365 서비스 설명](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance#information-protection)을 참조 하세요.\n"
+  - question: Azure AD 테 넌 트 내에 여러 Azure 부서의 범위 계정이 있는 경우 각 부서의 범위 계정으로 레이블을 수동으로 확장 해야 하나요?
     answer: >
-      아니요. 민감도 레이블을 Azure Purview로 확장하면 해당 레이블이 테넌트에서 모든 Purview 계정으로 확장됩니다.
-  - question: 조직에서 이미 Microsoft 365 민감도 레이블을 사용하고 있습니다. 이러한 레이블을 Purview로 확장하면 어떤 영향이 있나요? Microsoft 365 기존 설정에 영향을 주나요?
-    answer: "레이블을 Purview로 확장해도 파일 및 데이터베이스를 포함하여 Microsoft 365 설정에 영향을 주거나 자산을 수정하지 않습니다.  \n\n* 민감도 레이블을 Purview로 확장하면 Microsoft 365 설정이 일반적인 방식으로 계속 작동합니다. \n* 민감도 레이블을 확장하면 Purview에서 Purview 카탈로그의 Azure 및 다중 클라우드 자산에 해당 레이블을 적용할 수 있습니다. 카탈로그는 메타데이터 저장소이며 언제든지 삭제할 수 있습니다. \n* 민감도 레이블은 Purview 카탈로그의 자산 메타데이터에만 적용되며 실제 파일 및 데이터베이스 열에는 적용되지 않습니다. 민감도 레이블을 적용해도 파일과 데이터베이스는 어떤 방식으로든 수정되지 않습니다.</br></br>\n"
-- name: 분류 및 민감도 레이블
+      아니요. 민감도 레이블을 Azure 부서의 범위로 확장 하면 해당 레이블이 테 넌 트의 모든 부서의 범위 계정으로 확장 됩니다.
+  - question: 조직에서 Microsoft 365의 민감도 레이블을 이미 사용 하 고 있습니다. 이러한 레이블을 부서의 범위로 확장 하면 어떤 영향이 있나요? Microsoft 365의 기존 설치에 영향을 미칩니까?
+    answer: "레이블 확장은 Microsoft 365 설정에 영향을 주지 않으며 파일 및 데이터베이스를 포함 하 여 자산을 수정 하는 데 영향을 주지 않습니다.  \n\n* 민감도 레이블을 부서의 범위로 확장 하는 경우 Microsoft 365 설치 프로그램은 평소와 같은 방식으로 계속 작동 합니다. \n* 민감도 레이블을 확장 하면 부서의 범위는 부서의 범위 카탈로그의 Azure 및 다중 클라우드 자산에 이러한 레이블을 적용할 수 있습니다. 카탈로그는 메타 데이터 저장소 이며 언제 든 지 삭제할 수 있습니다. \n* 민감도 레이블은 부서의 범위 카탈로그의 자산 메타 데이터에만 적용 되 고 실제 파일 및 데이터베이스 열에는 적용 되지 않습니다. 민감도 레이블을 적용 해도 파일과 데이터베이스는 어떤 방식으로든 수정 되지 않습니다.</br></br>\n"
+- name: 분류 vs 민감도 레이블
   questions:
-  - question: Azure Purview에서 분류 및 민감도 레이블의 차이점은 무엇인가요?
-    answer: "다음 표에서는 Azure Purview의 분류 및 민감도 레이블 간의 차이점을 나열합니다.\n\n|비교|분류|민감도 레이블|\n|---|---|---|\n|**정의**| 분류는 자산 내에 존재하는 데이터 형식을 식별하는 데 도움이 되는 정규식 또는 패턴입니다. | 민감도 레이블은 조직에서 비즈니스 영향에 따라 데이터를 분류하는 동시에 사용자의 데이터 형식을 추상화할 수 있도록 하는 태그입니다. |\n|**예**| 사회 보장 번호, 드라이브 라이선스 번호, 은행 계좌 번호 등 | 기밀, 기밀, 일반, 공개 등 |\n| **범위** | 자산에 적용되는 분류 범위는 분류가 적용된 Purview 계정으로 제한됩니다. 데이터가 다른 Purview 계정으로 관리되는 자산으로 이동하면 원래 위치에 적용된 분류가 새 위치에 표시되지 않습니다. | 자산에 적용된 민감도 레이블은 데이터가 이동하는 위치에 관계없이 데이터와 함께 이동합니다. 예를 들어 Microsoft 365 파일에 적용된 민감도 레이블은 Azure, SharePoint 또는 Teams 이동하더라도 자동으로 표시되고 파일에 계속 적용됩니다. |\n| **검사 프로세스** | Azure Purview에서 자산을 검사하면 데이터에서 시스템 정의 및 사용자 정의(사용자 지정) 분류를 모두 찾습니다. 검색된 자산에 대한 분류가 Purview 카탈로그에 추가됩니다. | Azure Purview로 확장된 민감도 레이블 및 자동 레이블 지정 규칙이 정의된 경우 Purview에서 자산을 검사하면 검사에 있는 분류에 따라 카탈로그의 자산에 레이블이 적용됩니다. |\n| **제작 환경** | 사용자 지정 분류 및 분류 규칙은 Azure Purview Studio에서 만들 수 있습니다. Microsoft 365 사용자 지정 분류를 만들 수도 있습니다. 그러나 Purview로 가져오는 것은 아직 지원되지 않습니다. | [Microsoft 365 규정 준수 센터](/microsoft-365/compliance/create-sensitivity-labels)사용하여 민감도 레이블을 관리합니다. |\n| **할당 제한** | 자산에는 분류 또는 하나 이상의 분류가 할당되지 않을 수 있습니다. | 각 자산에는 하나의 민감도 레이블만 있을 수 있습니다. |\n| **자산 애플리케이션 워크플로** | Purview를 사용하여 자산에 할당된 분류를 수동으로 추가하거나 수정할 수 있습니다. | Purview에서 민감도 레이블은 찾은 분류에 따라 자산에 자동으로 할당됩니다. Purview에서 수동으로 레이블을 적용하는 것은 현재 지원되지 않습니다. | \n| **추가 정보** | [분류에 대해 자세히 알아보세요.](create-a-custom-classification-and-classification-rule.md) | [민감도 레이블 에 대해 자세히 알아봅니다.](/microsoft-365/compliance/create-sensitivity-labels)|\n||||\n"
-  - question: Purview 및 SIT(중요한 정보 유형)의 분류가 동일한 Microsoft 365 있나요?
-    answer: 분류와 SIT는 근본적으로 동일하지만 분류는 Azure Purview 개념이며 SIT는 Microsoft 365 개념입니다. 분류와 SIT는 모두 해당 서비스에서 자산에 있는 데이터 형식을 식별하는 데 사용됩니다.
-  - question: Microsoft 365 사용자 지정 SIT(중요 정보 유형)를 만들고 데이터베이스 열에 대한 자동 레이블 지정 규칙에서 사용했습니다. Azure Purview에서 이 사용자 지정 SIT를 사용할 수 있나요?
+  - question: Azure 부서의 범위에서 분류와 민감도 레이블 간의 차이점은 무엇 인가요?
+    answer: "다음 표에서는 Azure 부서의 범위에서 분류와 민감도 레이블 간의 차이점을 보여 줍니다.\n\n|비교|분류|민감도 레이블|\n|---|---|---|\n|**정의**| 분류는 자산 내에 존재 하는 데이터 형식을 식별 하는 데 도움이 될 수 있는 정규식 또는 패턴입니다. | 민감도 레이블은 조직이 비즈니스 영향을 기준으로 데이터를 분류할 수 있게 해 주는 태그 이며, 사용자의 데이터 유형을 추상화 합니다. |\n|**예**| 주민 등록 번호, 드라이브 라이선스 번호, 은행 계좌 번호 등 | 매우 기밀, 기밀, 일반, 공용 등 |\n| **범위** | 자산에 적용 되는 분류의 범위는 분류가 적용 된 부서의 범위 계정으로 제한 됩니다. 데이터가 다른 부서의 범위 계정에 의해 관리 되는 자산으로 이동 하는 경우 원래 위치에 적용 된 분류가 새 위치에 표시 되지 않습니다. | 자산에 적용 되는 민감도 레이블은 데이터가 이동 하는 위치에 관계 없이 데이터와 함께 이동 합니다. 예를 들어, Microsoft 365의 파일에 적용 된 민감도 레이블은 Azure, SharePoint 또는 Teams으로 이동 하더라도 파일에 적용 된 상태로 유지 됩니다. |\n| **스캔 프로세스** | Azure 부서의 범위에서 자산을 스캔 하면 데이터에서 시스템 정의 및 사용자 정의 분류 (사용자 지정)가 모두 검색 됩니다. 검색 된 경우 분류는 검색 된 자산의 부서의 범위 카탈로그에 추가 됩니다. | Azure 부서의 범위 및 autolabeling 규칙으로 확장 된 민감도 레이블을 사용 하는 경우, 부서의 범위에서 자산을 스캔 하면 검색 된 분류에 따라 카탈로그의 자산에 레이블이 적용 됩니다. |\n| **제작 환경** | Azure 부서의 범위 studio에서 사용자 지정 분류 및 분류 규칙을 만들 수 있습니다. Microsoft 365에서 사용자 지정 분류를 만들 수도 있습니다. 그러나 부서의 범위로의 가져오기는 아직 지원 되지 않습니다. | [Microsoft 365 규정 준수 센터](/microsoft-365/compliance/create-sensitivity-labels)를 사용 하 여 민감도 레이블을 관리 합니다. |\n| **할당 제한** | 자산에는 분류가 없거나 하나 이상의 분류가 할당 될 수 있습니다. | 각 자산은 민감도 레이블을 하나만 포함할 수 있습니다. |\n| **자산 응용 프로그램 워크플로** | 부서의 범위를 사용 하 여 자산에 할당 된 분류를 수동으로 추가 하거나 수정할 수 있습니다. | 부서의 범위에서 민감도 레이블은 찾은 분류에 따라 자산에 자동으로 할당 됩니다. 부서의 범위에서 수동으로 레이블을 적용 하는 것은 현재 지원 되지 않습니다. | \n| **추가 정보** | [분류에](create-a-custom-classification-and-classification-rule.md)대해 자세히 알아보세요. | [민감도 레이블에 대해 자세히 알아보세요](/microsoft-365/compliance/create-sensitivity-labels).|\n||||\n"
+  - question: 부서의 범위 및 중요 한 정보 형식 ()의 분류는 동일 Microsoft 365?
+    answer: 분류 및 항목은 근본적으로 동일 하지만, 분류는 Azure 부서의 범위 개념으로, Microsoft 365 개념입니다. 분류와 위치는 각각 해당 서비스에서 자산에 있는 데이터의 유형을 식별 하는 데 사용 됩니다.
+  - question: Microsoft 365에서 사용자 지정 중요 한 정보 유형 (SIT)을 만들고 데이터베이스 열에 대해 내 autolabeling 규칙에서 사용 했습니다. Azure 부서의 범위에서이 사용자 지정 SIT를 사용할 수 있나요?
     answer: >
-      아니요, Microsoft 365 [사용자 지정 중요한 정보 유형은](/microsoft-365/compliance/sensitive-information-type-learn-about#creating-custom-sensitive-information-types) 현재 Azure Purview에서 지원되지 않습니다. Azure Purview는 현재 Microsoft 365 기본 [제공 중요한 정보 유형만 지원합니다.](/microsoft-365/compliance/sensitive-information-type-learn-about)</br></br>
-- name: Azure Purview의 레이블 지정 기능
+      아니요, Microsoft 365의 [사용자 지정 중요 한 정보 형식은](/microsoft-365/compliance/sensitive-information-type-learn-about#creating-custom-sensitive-information-types) 현재 Azure 부서의 범위에서 지원 되지 않습니다. 현재 Azure 부서의 범위는 Microsoft 365 [기본 제공 되는 중요 한 정보 형식만](/microsoft-365/compliance/sensitive-information-type-learn-about)지원 합니다.</br></br>
+- name: Azure 부서의 범위의 레이블 지정 기능
   questions:
-  - question: 레이블 지정을 Purview로 확장하기 위해 동의가 부여되었는지 확인하려면 어떻게 해야 합니까?
-    answer: "규정 준수 관리자, 테넌트 전역 관리자 또는 [Set-PolicyConfig](https://docs.microsoft.com/en-us/powershell/module/exchange/set-policyconfig) cmdlet에 대한 액세스 권한이 있는 사용자 지정 역할만 [Azure Purview 에 대한 레이블을 사용하도록 설정할](how-to-automatically-label-your-content.md)수 있습니다. 관리자가 Purview로 레이블을 확장했는지 확인하려면 Exchange Online PowerShell에 연결하고 [Get-PolicyConfig](https://docs.microsoft.com/en-us/powershell/module/exchange/get-policyconfig) cmdlet을 실행합니다.  다음은 그 예입니다.\n\n~~~powershell\nGet-PolicyConfig | format-list Purview*\n~~~\n\n레이블 지정이 Purview로 확장되면 **PurviewLabelConsent** 매개 변수에 **True가** 표시되고 동의가 활성화된 시간을 나타내는 타임스탬프와 동의를 활성화한 **ObjectId가** 표시됩니다.\n\n~~~output\nPurviewLabelConsent        : True\nPurviewLabelConsentCaller  : d8675309-1111-2222-3333-1234567890ab\nPurviewLabelConsentTime    : 9/28/2021 6:04:45 PM\nPurviewLabelConsentDetails : {\"Consent\":true,\"Caller\":\"d8675309-1111-2222-3333-1234567890ab\",\"Time\":\"9/28/2021 6:04:45 PM\"}\n~~~\n\n레이블 지정이 확장되지 않은 경우 아래 예제와 같이 **PurviewLabelConsent에** 대해 False가 표시됩니다.\n\n~~~output\nPurviewLabelConsent        : False\nPurviewLabelConsentCaller  : \nPurviewLabelConsentTime    : \nPurviewLabelConsentDetails :\n~~~\n\n이는 민감도 레이블의 범위에 Purview를 추가하는 작업을 감사하는 것과 다릅니다. 해당 활동은 통합 감사 로그에서 찾을 수 있습니다. 예를 들면 다음과 같습니다.\n\n~~~powershell\nSearch-UnifiedAuditLog -Operations \"Set-Label\" -StartDate 10/05/2021 -EndDate 10/16/2021\n~~~\n\n자세한 내용은 Microsoft 365 규정 준수 센터 [감사 로그 검색을](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance) 참조하세요.\n"
-  - question: Azure Purview에서 민감도 레이블을 적용할 수 있는 데이터 원본은 무엇인가요?
-    answer: "Azure Purview에서 검사할 수 있는 모든 데이터 원본에 민감도 레이블을 적용할 수 있습니다. 자세한 내용은 [Azure Purview에서 민감도 레이블에 대해 지원되는 데이터 형식을 참조하세요.](create-sensitivity-label.md#supported-data-sources) \n"
-  - question: 자산에 수동으로 레이블을 지정하거나 Azure Purview에서 레이블을 수동으로 수정하거나 제거할 수 있나요?
-    answer: "Azure Purview는 자동 레이블 지정만 지원합니다. 레이블은 자산에 있는 분류 및 레이블에 대한 자동 레이블 지정 규칙에 따라 Azure Purview의 자산에 자동으로 적용됩니다. \n\nPurview는 현재 수동으로 레이블 적용, 수정 또는 자산에서 레이블 제거를 지원하지 않습니다. \n"
-  - question: 자격 증명 콘텐츠를 포함할 수 있는 자산에 자동 레이블 지정을 적용할 수 있나요?
-    answer: Azure Purview는 현재 자격 증명 검사를 지원하지 않습니다. Purview에서 자격 증명 검사를 지원하는 경우 찾은 자격 증명에 따라 레이블을 적용할 수 있어야 합니다.
-  - question: Microsoft 365 유사하게 Azure Purview의 파일에 암호화 및/또는 콘텐츠 표시를 적용할 수 있나요?
-    answer: 아니요, 현재 Azure Purview의 파일에 대한 암호화 및 콘텐츠 표시는 지원하지 않습니다.
-  - question: Azure Purview에서 민감도 레이블을 적용할 수 있는 파일 형식은 무엇인가요?
+  - question: 부서의 범위에 대 한 레이블 지정을 확장 하기 위해 동의가 부여 되었는지 여부를 확인 하려면 어떻게 해야 하나요?
+    answer: "규정 준수 관리자, 테 넌 트의 전역 관리자 또는 [집합-PolicyConfig](/powershell/module/exchange/set-policyconfig) cmdlet에 대 한 액세스 권한이 있는 사용자 지정 역할은 [Azure 부서의 범위에 대 한 레이블을 사용 하도록 설정할](how-to-automatically-label-your-content.md)수 있습니다. 관리자가 부서의 범위에 대해 확장 된 레이블을 지정 하는지 확인 하려면 Exchange Online PowerShell에 연결 하 고 [Get policyconfig](/powershell/module/exchange/get-policyconfig) cmdlet을 실행 합니다.  예:\n\n~~~powershell\nGet-PolicyConfig | format-list Purview*\n~~~\n\n레이블 지정이 부서의 범위로 확장 된 경우 **PurviewLabelConsent** 매개 변수에 대해 **True** 가 표시 되 고, 동의가 활성화 된 시기와 동의를 활성화 한 사용자의 **ObjectId** 가 표시 됩니다.\n\n~~~output\nPurviewLabelConsent        : True\nPurviewLabelConsentCaller  : d8675309-1111-2222-3333-1234567890ab\nPurviewLabelConsentTime    : 9/28/2021 6:04:45 PM\nPurviewLabelConsentDetails : {\"Consent\":true,\"Caller\":\"d8675309-1111-2222-3333-1234567890ab\",\"Time\":\"9/28/2021 6:04:45 PM\"}\n~~~\n\n레이블 지정이 확장 되지 않은 경우 아래 예제와 같이 **PurviewLabelConsent** 에 대해 False가 표시 됩니다.\n\n~~~output\nPurviewLabelConsent        : False\nPurviewLabelConsentCaller  : \nPurviewLabelConsentTime    : \nPurviewLabelConsentDetails :\n~~~\n\n민감도 레이블 범위에 부서의 범위를 추가 하는 동작을 감사 하는 것과는 다릅니다. 이러한 작업은 통합 감사 로그에서 찾을 수 있습니다. 예를 들면 다음과 같습니다.\n\n~~~powershell\nSearch-UnifiedAuditLog -Operations \"Set-Label\" -StartDate 10/05/2021 -EndDate 10/16/2021\n~~~\n\n자세한 내용은 Microsoft 365 규정 준수 센터에서 [감사 로그 검색](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance) 을 참조 하세요.\n"
+  - question: Azure 부서의 범위에서 민감도 레이블을 적용할 수 있는 데이터 원본은 무엇 인가요?
+    answer: "Azure 부서의 범위에서 검색할 수 있는 모든 데이터 원본에 민감도 레이블을 적용할 수 있습니다. 자세한 내용은 [Azure 부서의 범위에서 민감도 레이블에 대해 지원 되는 데이터 형식](create-sensitivity-label.md#supported-data-sources)을 참조 하세요. \n"
+  - question: 수동으로 자산의 레이블을 만들거나 Azure 부서의 범위에서 레이블을 수동으로 수정 하거나 제거할 수 있나요?
+    answer: "Azure 부서의 범위는 자동 레이블 지정만 지원 합니다. 레이블은 자산에 있는 분류 및 레이블의 autolabeling 규칙에 따라 Azure 부서의 범위의 자산에 자동으로 적용 됩니다. \n\n부서의 범위는 현재 자산에서 레이블을 수동으로 적용, 수정 또는 제거 하는 기능을 지원 하지 않습니다. \n"
+  - question: 자격 증명 콘텐츠를 포함할 수 있는 자산에 자동 레이블 적용 가능 여부
+    answer: Azure 부서의 범위는 현재 자격 증명 검색을 지원 하지 않습니다. 부서의 범위에서 자격 증명 검색을 지 원하는 경우 찾은 자격 증명을 기반으로 레이블을 적용할 수 있습니다.
+  - question: Microsoft 365와 유사 하 게 Azure 부서의 범위의 파일에 암호화 및/또는 콘텐츠 표시를 적용할 수 있나요?
+    answer: 아니요, 현재 Azure 부서의 범위의 파일에 대 한 암호화 및 콘텐츠 표시를 지원 하지 않습니다.
+  - question: Azure 부서의 범위에서 민감도 레이블을 적용할 수 있는 파일 형식은 무엇입니까?
     answer: >
-      [모든 Azure Purview 지원 데이터 원본 및 파일 형식](sources-and-scans.md)에 민감도 레이블을 적용할 수 있습니다.
+      민감도 레이블을 모든 [Azure 부서의 범위 지원 되는 데이터 원본 및 파일 형식](sources-and-scans.md)에 적용할 수 있습니다.
   - question: Azure Purview는 현재 데이터 손실 방지 기능을 지원하나요?
     answer: >
-      아니요, Azure Purview는 현재 데이터 손실 방지 기능을 제공하지 않습니다. [데이터 손실 방지는](/microsoft-365/compliance/information-protection#prevent-data-loss) 현재 Microsoft 365 지원됩니다.</br></br>
+      아니요, Azure 부서의 범위는 현재 데이터 손실 방지 기능을 제공 하지 않습니다. [데이터 손실 방지](/microsoft-365/compliance/information-protection#prevent-data-loss) 는 현재 Microsoft 365 에서만 지원 됩니다.</br></br>
 - name: 액세스 및 역할
   questions:
-  - question: 내 민감도 레이블은 어디서 관리할 수 있나요?
+  - question: 민감도 레이블을 어디에서 관리할 수 있나요?
     answer: >
       민감도 레이블은 [Microsoft 365 규정 준수 센터](https://compliance.microsoft.com/)에서만 관리 됩니다. 자세한 내용은 [Microsoft 365에서 민감도 레이블을 만드는 방법](how-to-automatically-label-your-content.md)을 참조 하세요.
 

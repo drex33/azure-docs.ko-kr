@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.custom: devx-track-js
-ms.openlocfilehash: 48316d571eac835dd5d4ec7d225048f4fdcdf237
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.custom: devx-track-js, ignite-fall-2021
+ms.openlocfilehash: 433d391d3707248d71d8340185da86814cab7e4f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95026610"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024546"
 ---
 # <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>방법: Speech SDK를 사용하여 오디오 입력 디바이스 선택
 
@@ -383,7 +383,7 @@ iOS에서는 Speech SDK를 사용하여 오디오 디바이스를 선택할 수 
 
 ## <a name="audio-device-ids-in-javascript"></a>JavaScript의 오디오 디바이스 ID
 
-JavaScript에서는 [MediaDevices.enumerateDevices()](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices) 메서드를 사용하여 미디어 디바이스를 열거하고 `fromMicrophone(...)`에 전달할 디바이스 ID를 찾을 수 있습니다.
+JavaScript에서는 [MediaDevices.enumerateDevices()](https://developer.mozilla.org/docs/Web/API/MediaDevices/enumerateDevices) 메서드를 사용하여 미디어 디바이스를 열거하고 `fromMicrophone(...)`에 전달할 디바이스 ID를 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

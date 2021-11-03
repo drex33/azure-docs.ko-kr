@@ -3,13 +3,13 @@ title: 가상 네트워크를 사용하여 Azure Functions를 구성하는 방�
 description: Azure Functions에 대해 특정 가상 네트워킹 작업을 수행하는 방법을 보여 주는 문서입니다.
 ms.topic: conceptual
 ms.date: 3/13/2021
-ms.custom: template-how-to
-ms.openlocfilehash: 6465a1c5e9b39bcef29fb28ebf2e19c7203da648
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: template-how-to, ignite-fall-2021
+ms.openlocfilehash: 91555099c7144d976b5f0b5ef2fe639912857bce
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130257046"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131048820"
 ---
 # <a name="how-to-configure-azure-functions-with-a-virtual-network"></a>가상 네트워크를 사용하여 Azure Functions를 구성하는 방법
 
@@ -58,4 +58,3 @@ ms.locfileid: "130257046"
 
 > [!div class="nextstepaction"]
 > [Azure Functions 네트워킹 옵션](functions-networking-options.md)
-

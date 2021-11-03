@@ -2,18 +2,18 @@
 title: Azure PowerShell - SSE 관리 디스크를 사용하여 고객 관리형 키를 사용하도록 설정
 description: Azure PowerShell로 관리 디스크에서 고객이 관리하는 키를 사용하여 서버 측 암호화를 사용하도록 설정합니다.
 author: roygara
-ms.date: 06/29/2021
+ms.date: 11/02/2021
 ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
 ms.subservice: disks
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d5de598c71cda0010869da709e8f6290ccdf03cc
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.custom: devx-track-azurepowershell, ignite-fall-2021
+ms.openlocfilehash: 3dfc34f9319409fa6d6928c830febfa61e136e31
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122771997"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131074425"
 ---
 # <a name="azure-powershell---enable-customer-managed-keys-with-server-side-encryption---managed-disks"></a>Azure PowerShell - 서버 측 암호화를 사용하여 고객 관리형 키 사용 - 관리 디스크
 

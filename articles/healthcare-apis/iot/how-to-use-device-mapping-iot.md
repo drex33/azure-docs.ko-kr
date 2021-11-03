@@ -5,14 +5,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 10/26/2021
 ms.author: jasteppe
-ms.openlocfilehash: a0cc7037ca95fe4262b6c10dc9cb260a971f7c31
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: ef22404d96599768ad55c3c3687e3df9fb4bbf35
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130005542"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040474"
 ---
 # <a name="how-to-use-device-mapping"></a>디바이스 매핑을 사용하는 방법
 
@@ -27,6 +27,9 @@ IoT 커넥터에는 두 가지 유형의 JSON 기반 매핑이 필요합니다. 
 
 > [!NOTE]
 > 매핑은 기본 Blob Storage에 저장되고 컴퓨팅 실행당 Blob에서 로드됩니다. 업데이트되면 즉시 적용됩니다. 
+
+> [!TIP]
+> [IoT 커넥터](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) 디바이스 및 FHIR 대상 매핑을 편집, 테스트 및 문제 해결을 위해 IoMT 커넥터 데이터 매퍼 도구를 확인하세요. Azure Portal IoT 커넥터에 업로드하기 위한 매핑을 내보내거나 오픈 [소스 버전의](https://github.com/microsoft/iomt-fhir) IoT 커넥터와 함께 사용합니다.
 
 ## <a name="device-mapping"></a>디바이스 매핑
 
@@ -264,7 +267,7 @@ JsonPathContentTemplate을 사용하면 JSON 경로를 사용하여 이벤트 �
 
 IotJsonPathContentTemplate은 DeviceIdExpression 및 TimestampExpression이 필요하지 않다는 점을 제외하고 JsonPathContentTemplate과 비슷합니다.
 
-이 템플릿을 사용하는 경우 평가되는 메시지는 Azure IoT [Central의](../../iot-central/core/overview-iot-central.md) [Azure IoT Hub 디바이스 SDK](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) 또는 [데이터 내보내기(레거시)](../../iot-central/core/howto-export-data-legacy.md) 기능을 사용하여 전송되었다고 가정합니다. 이러한 SDK를 사용하는 경우 디바이스 ID(Azure Iot Hub/Central의 디바이스 식별자가 대상 FHIR 서비스의 디바이스 리소스에 대한 식별자로 등록되었다고 가정) 및 메시지의 타임스탬프가 알려져 있습니다. Azure IoT Hub 디바이스 SDK를 사용하지만 디바이스 ID 또는 측정 타임스탬프에 대한 메시지 본문에서 사용자 지정 속성을 사용하는 경우에도 JsonPathContentTemplate을 사용할 수 있습니다.
+이 템플릿을 사용하는 경우 평가 중인 메시지가 Azure IoT [Central의](../../iot-central/core/overview-iot-central.md) [Azure IoT Hub 디바이스 SDK](../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) 또는 [데이터 내보내기(레거시)](../../iot-central/core/howto-export-data-legacy.md) 기능을 사용하여 전송되었다는 가정입니다. 이러한 SDK를 사용하는 경우 디바이스 ID(Azure Iot Hub/Central의 디바이스 식별자가 대상 FHIR 서비스의 디바이스 리소스에 대한 식별자로 등록되었다고 가정) 및 메시지의 타임스탬프가 알려져 있습니다. Azure IoT Hub 디바이스 SDK를 사용하지만 디바이스 ID 또는 측정 타임스탬프에 대한 메시지 본문에서 사용자 지정 속성을 사용하는 경우에도 JsonPathContentTemplate을 사용할 수 있습니다.
 
 > [!NOTE]
 > 를 사용하는 경우 `IotJsonPathContentTemplate` 는 `TypeMatchExpression` 전체 메시지로 JToken으로 확인되어야 합니다. 자세한 내용은 다음 예제를 참조하세요.
@@ -349,14 +352,14 @@ IotJsonPathContentTemplate은 DeviceIdExpression 및 TimestampExpression이 필�
 ```
 #### <a name="iotcentraljsonpathcontenttemplate"></a>IotCentralJsonPathContentTemplate
 
-또한 IotCentralJsonPathContentTemplate에는 DeviceIdExpression 및 TimestampExpression가 필요 하지 않습니다. 이는 [Azure IoT Central](../../iot-central/core/overview-iot-central.md)의 [데이터 내보내기](../../iot-central/core/howto-export-data.md) 기능을 통해 평가할 메시지가 전송 될 때 사용 됩니다. 이 기능을 사용 하는 경우 장치 id (Azure Iot Central의 장치 식별자가 대상 FHIR 서버에서 장치 리소스에 대 한 식별자로 등록 됨) 및 메시지의 타임 스탬프를 알 수 있습니다. Azure IoT Central의 데이터 내보내기 기능을 사용 중이지만 장치 id 또는 측정 타임 스탬프에 대 한 메시지 본문의 사용자 지정 속성을 사용 하는 경우에도 JsonPathContentTemplate를 사용할 수 있습니다.
+IotCentralJsonPathContentTemplate에도 DeviceIdExpression 및 TimestampExpression이 필요하지 않습니다. 평가 중인 메시지가 [Azure IoT Central의](../../iot-central/core/overview-iot-central.md)데이터 [내보내기](../../iot-central/core/howto-export-data.md) 기능을 통해 전송될 때 사용됩니다. 이 기능을 사용하는 경우 디바이스 ID(Azure Iot Central의 디바이스 식별자가 대상 FHIR 서버의 디바이스 리소스에 대한 식별자로 등록되었다고 가정) 및 메시지의 타임스탬프가 알려져 있습니다. Azure IoT Central의 데이터 내보내기 기능을 사용하지만 디바이스 ID 또는 측정 타임스탬프에 대한 메시지 본문에서 사용자 지정 속성을 사용하는 경우에도 JsonPathContentTemplate을 사용할 수 있습니다.
 
 > [!NOTE]
-> IotCentralJsonPathContentTemplate를 사용 하는 경우 TypeMatchExpression는 전체 메시지를 JToken로 확인 해야 합니다. 자세한 내용은 다음 예제를 참조 하세요.
+> IotCentralJsonPathContentTemplate을 사용하는 경우 TypeMatchExpression은 전체 메시지를 JToken으로 확인해야 합니다. 자세한 내용은 다음 예제를 참조하세요.
  
 ##### <a name="examples"></a>예제
 
-**하트 요금**
+**심박수**
 
 *Message*
 
@@ -398,7 +401,7 @@ IotJsonPathContentTemplate은 DeviceIdExpression 및 TimestampExpression이 필�
 }
 ```
 
-**블러드 압력**
+**혈압**
 
 *Message*
 
@@ -451,6 +454,6 @@ IotJsonPathContentTemplate은 DeviceIdExpression 및 TimestampExpression이 필�
 ## <a name="next-steps"></a>다음 단계
 
 >[!div class="nextstepaction"]
->[FHIR 대상 매핑을 사용 하는 방법](how-to-use-fhir-mapping-iot.md)
+>[FHIR 대상 매핑을 사용하는 방법](how-to-use-fhir-mapping-iot.md)
 
-(FHIR&#174;)는 [HL7](https://hl7.org/fhir/) 의 등록 상표 이며 HL7의 사용 권한과 함께 사용 됩니다.
+(FHIR&#174;)는 HL7의 등록 상표이며 [HL7의](https://hl7.org/fhir/) 권한으로 사용됩니다.

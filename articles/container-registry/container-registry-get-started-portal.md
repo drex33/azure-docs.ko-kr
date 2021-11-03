@@ -3,16 +3,13 @@ title: 빠른 시작 - 포털에서 레지스트리 만들기
 description: Azure Portal을 사용하여 프라이빗 Azure 컨테이너 레지스트리를 만드는 방법을 빠르게 알아봅니다.
 ms.date: 06/23/2021
 ms.topic: quickstart
-ms.custom:
-- mvc
-- mode-portal
-- contperf-fy21q4
-ms.openlocfilehash: 51531b6af5babe256ec89079c7705cfea71ef52a
-ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
+ms.custom: mvc, mode-portal, contperf-fy21q4
+ms.openlocfilehash: 8ac194e2343120dea1daec688bf383162846bdfd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112895943"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131043550"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure 컨테이너 레지스트리 만들기
 

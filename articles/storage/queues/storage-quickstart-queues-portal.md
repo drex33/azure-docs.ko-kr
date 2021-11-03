@@ -8,14 +8,13 @@ ms.date: 08/13/2020
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.custom:
-- mode-portal
-ms.openlocfilehash: 8140e694b900c87ca93e0e73603aa1fd95e34f09
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: mode-portal
+ms.openlocfilehash: 2786440ba94ab467714a490d29fd77fdbf1ef588
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128555382"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063844"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 큐를 만들어서 메시지 추가하기
 

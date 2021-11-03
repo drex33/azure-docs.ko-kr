@@ -7,43 +7,43 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/22/2021
-ms.openlocfilehash: 2c86f60bdb6c675331cc7c79e3cf3f6fdf58533c
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: ce369b60fa1b12823acdb1f5045e403bcaa3f5dd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130245964"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037666"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Azure Cognitive Search에서 기술 세트에 Cognitive Services 리소스 연결
 
-Azure Cognitive Search에서 선택적 [AI 보강 파이프라인](cognitive-search-concept-intro.md) 을 구성 하는 경우 제한 된 수의 문서를 무료로 보강할 수 있습니다. 더 크고 더 자주 수행 되는 작업의 경우 청구 [**가능 다중 서비스 Cognitive Services 리소스**](../cognitive-services/cognitive-services-apis-create-account.md)를 연결 해야 합니다. 다중 서비스 리소스는 단일 API 키를 통해 액세스 권한이 부여된 개별 서비스가 아닌 제공으로 ‘Cognitive Services’를 참조합니다.
+Azure Cognitive Search 선택적 [AI 보강 파이프라인을](cognitive-search-concept-intro.md) 구성할 때 제한된 수의 문서를 무료로 보강할 수 있습니다. 더 크고 빈번한 워크로드의 경우 청구 가능한 [**다중 서비스 Cognitive Services 리소스를**](../cognitive-services/cognitive-services-apis-create-account.md)연결해야 합니다. 다중 서비스 리소스는 단일 API 키를 통해 액세스 권한이 부여된 개별 서비스가 아닌 제공으로 ‘Cognitive Services’를 참조합니다.
 
-기술에는 다중 서비스 리소스 키가 지정 되어 있으며 Microsoft에서 다음 Api를 사용 하 여 요금을 청구할 수 있습니다.
+다중 서비스 리소스 키는 기술 자료에 지정되며 Microsoft에서 다음 API 사용에 대한 요금을 청구할 수 있습니다.
 
 + 이미지 분석 및 OCR(광학 인식)을 위한 [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/)
 + 언어 검색, 엔터티 인식, 감정 분석 및 핵심 구 추출을 위한 [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/)
 + [텍스트 번역](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)
 
 > [!NOTE]
-> AI 보강는 Cognitive Services 리소스를 연결 하지 않고도 빠른 시작, 자습서 또는 제한 된 테스트를 완료할 수 있도록 적은 양의 여유 처리를 제공 합니다. 무료 강화 인덱서 당 하루 20 개의 문서로 제한 됩니다. 연습을 반복 하려면 [인덱서를 다시 설정](search-howto-run-reset-indexers.md) 하 여 카운터를 다시 설정할 수 있습니다.
+> AI 보강은 Cognitive Services 리소스를 연결하지 않고도 짧은 연습을 완료할 수 있도록 적은 양의 무료 처리를 제공합니다. 무료 보강은 인덱서당 하루에 20개의 문서입니다. 연습을 반복하려는 경우 [인덱서](search-howto-run-reset-indexers.md) 다시 설정하여 카운터를 다시 설정할 수 있습니다.
 
 ## <a name="azure-portal"></a>[**Azure portal**](#tab/cogkey-portal)
 
-1. 검색 서비스와 [동일한 지역](#same-region-requirement) 에 [다중 서비스 Cognitive Services 리소스](../cognitive-services/cognitive-services-apis-create-account.md) 를 만듭니다.
+1. 검색 서비스와 [동일한 지역에](#same-region-requirement) 다중 서비스 [Cognitive Services 리소스를](../cognitive-services/cognitive-services-apis-create-account.md) 만듭니다.
 
-1. 기술 정의에 키를 추가 합니다.
+1. 기술화 정의에 키를 추가합니다.
 
-   + [데이터 가져오기 마법사](search-import-data-portal.md)를 사용 하는 경우 두 번째 단계인 "AI 강화 추가"에서 키를 입력 합니다.
+   + [데이터 가져오기 마법사](search-import-data-portal.md)를 사용하는 경우 두 번째 단계인 "AI 보강 추가"에서 키를 입력합니다.
 
-   + 새 기술 또는 기존 키를 추가 하는 경우에는 **Cognitive Services** 탭에 키를 입력 합니다.
+   + 새 기술 또는 기존 기술 항목에 키를 추가하는 경우 **Cognitive Services** 탭에 키를 제공합니다.
 
    :::image type="content" source="media/cognitive-search-attach-cognitive-services/attach-existing2.png" alt-text="키 페이지의 스크린샷" border="true":::
 
 ## <a name="rest"></a>[**REST**](#tab/cogkey-rest)
 
-1. 검색 서비스와 [동일한 지역](#same-region-requirement) 에 [다중 서비스 Cognitive Services 리소스](../cognitive-services/cognitive-services-apis-create-account.md) 를 만듭니다.
+1. 검색 서비스와 [동일한 지역에](#same-region-requirement) 다중 서비스 [Cognitive Services 리소스를](../cognitive-services/cognitive-services-apis-create-account.md) 만듭니다.
 
-1. `cognitiveServices` [기술 요청의](/rest/api/searchservice/create-skillset)본문에 섹션을 지정 하 여 기술를 만들거나 업데이트 합니다.
+1. 기술et `cognitiveServices` 요청 본문에 섹션을 지정하여 [기술셋을](/rest/api/searchservice/create-skillset)만들거나 업데이트합니다.
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
@@ -79,7 +79,7 @@ Content-Type: application/json
 
 ## <a name="net-sdk"></a>[**.NET SDK**](#tab/cogkey-dotnet)
 
-다음 코드 조각은 간단 하 게 하기 위해 잘린 [azure-검색-dotnet-샘플](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/tutorial-ai-enrichment/v11/Program.cs)에서 가져온 것입니다.
+다음 코드 조각은 간결하게 트리밍된 [azure-search-dotnet-samples에서](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/tutorial-ai-enrichment/v11/Program.cs)나온 것입니다.
 
 ```csharp
 IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
@@ -107,17 +107,19 @@ SearchIndexerSkillset skillset = CreateOrUpdateDemoSkillSet(indexerClient, skill
 
 ---
 
-## <a name="how-the-key-is-used"></a>키를 사용 하는 방법
+## <a name="how-the-key-is-used"></a>키 사용 방법
 
-AI 보강 중 Cognitive Search는 Computer Vision, 텍스트 번역 및 Text Analytics를 기반으로 하는 [기본 제공 기술](cognitive-search-predefined-skills.md) 에 대 한 Cognitive Services API를 호출 합니다. Cognitive Services에 대 한 백 엔드 호출을 수행 하는 기본 제공 기술은 엔터티 연결, 엔터티 인식, 이미지 분석, 핵심 구 추출, 언어 감지, OCR, PII 검색, 감정 또는 텍스트 번역을 포함 합니다.
+키는 요금 청구에 사용 되지만 연결에는 사용 되지 않습니다. 연결의 경우 검색 서비스는 내부 네트워크를 통해 [동일한 물리적 지역에](https://azure.microsoft.com/global-infrastructure/services/?products=search)공동 배치된 Cognitive Services 리소스에 연결합니다. 
 
-사용자 지정 기술 또는 유틸리티 기술(조건부, 문서 추출, 셰이퍼, 텍스트 병합, 텍스트 분할)만으로 구성된 기술 세트의 경우 키 및 Cognitive Services 섹션을 생략할 수 있습니다. 청구 가능한 기술 사용이 하루에 인덱서 당 20 개의 트랜잭션 미만으로 사용 되는 경우 섹션을 생략할 수도 있습니다.
+키 기반 청구는 Cognitive Services 리소스에 대한 API 호출이 하루에 인덱서당 20개의 API 호출을 초과하는 경우에 적용됩니다. 각 인덱서 호출 후 인덱서 를 다시 설정하여 API 카운터를 다시 설정할 수 있지만 자유롭게 만들 수 있는 최대 호출 수는 20개로 제한됩니다.
 
-기술 정의에 제공 하는 키는 요금 청구에 사용 되지만 연결에는 사용 되지 않습니다. 내부적으로 검색 서비스는 내부 네트워크를 통해 [동일한 물리적 지역](https://azure.microsoft.com/global-infrastructure/services/?products=search)에 배치 된 Cognitive Services 리소스에 연결 합니다. 기술력과에는 초당 20 개의 API 호출을 초과 하는 키가 필요 합니다.
+ AI 보강 중에 Cognitive Search Computer Vision, 텍스트 번역 및 Text Analytics 기반으로 하는 [기본 제공 기술에](cognitive-search-predefined-skills.md) 대한 Cognitive Services API 호출합니다. Cognitive Services 대한 백 엔드 호출을 만드는 기본 제공 기술에는 [엔터티 링크,](cognitive-search-skill-entity-linking-v3.md) [엔터티 인식,](cognitive-search-skill-entity-recognition-v3.md) [이미지 분석,](cognitive-search-skill-image-analysis.md) [핵심 구 추출,](cognitive-search-skill-keyphrases.md) [언어 감지,](cognitive-search-skill-language-detection.md) [OCR,](cognitive-search-skill-ocr.md) [PII 검색,](cognitive-search-skill-pii-detection.md) [감정](cognitive-search-skill-sentiment-v3.md)및 [텍스트 번역이](cognitive-search-skill-text-translation.md)포함됩니다.
+
+사용자 지정 기술 또는 유틸리티 기술로만 구성된 기술 세트에 대한 키 및 Cognitive Services 섹션을 생략할 수 있습니다. 청구 가능한 기술의 사용량이 일별 인덱서당 20개 미만인 경우 속성을 지정하지 않은 상태로 둘 수도 있습니다.
 
 ### <a name="exceptions-and-special-cases"></a>예외 및 특수 사례
 
-+ Cognitive Services (즉, 조건부, Shaper, 텍스트 병합 및 텍스트 분할 기술)를 호출 하지 않는 기술은 요금이 청구 되지 않습니다. 
++ Cognitive Services 호출하지 않는 유틸리티 기술(즉, [조건부](cognitive-search-skill-conditional.md), [문서 추출,](cognitive-search-skill-document-extraction.md) [셰이퍼,](cognitive-search-skill-shaper.md) [텍스트 병합](cognitive-search-skill-textmerger.md)및 [텍스트 분할 기술)은](cognitive-search-skill-textsplit.md)청구할 수 없습니다. 
 
 + [사용자 지정 엔터티 조회](cognitive-search-skill-custom-entity-lookup.md)는 Cognitive Services가 아닌 Azure Cognitive Search에 의해 측정되지만 하루에 인덱서당 20개를 초과하는 트랜잭션을 잠금 해제하려면 Cognitive Services 리소스 키가 필요합니다. 이 기술의 경우에만 리소스 키는 트랜잭션 수를 차단 해제하지만 청구와는 관련이 없습니다.
 

@@ -7,18 +7,13 @@ ms.date: 05/22/2020
 ms.topic: quickstart
 ms.service: cache
 ms.devlang: java
-ms.custom:
-- mvc
-- seo-java-august2019
-- seo-java-september2019
-- devx-track-java
-- mode-api
-ms.openlocfilehash: 65848832acba8107e3a24167c1328c65222b9d3a
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.custom: mvc, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
+ms.openlocfilehash: 7200b135a1e534442e5ae037b307b0c9e6411202
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129538043"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131039720"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-java"></a>빠른 시작: Java에서 Azure Cache for Redis 사용
 
@@ -28,7 +23,7 @@ ms.locfileid: "129538043"
 
 코드로 바로 건너뛰려면 GitHub의 [Java 빠른 시작](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/java)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - [Apache Maven](https://maven.apache.org/download.cgi)

@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/01/2021
+ms.date: 10/11/2021
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: 온-프레미스, Docker, 컨테이너
-ms.openlocfilehash: da62c081a79211eb6eb56229eab856c89841746c
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: a930b5234f13d7e53bc50b6dc3f7b3d959df2e0e
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129533699"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131024596"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Speech Service API용 Docker 컨테이너 설치 및 실행 
 
@@ -666,7 +666,7 @@ speech_config.set_service_property(
 
 이 컨테이너와 다른 Azure Cognitive Services 컨테이너를 HOST에서 함께 실행할 수 있습니다. 또한 동일한 Cognitive Services 컨테이너의 여러 컨테이너를 실행할 수 있습니다.
 
-[!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Validate container is running - Container API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="stop-the-container"></a>컨테이너 중지
 
@@ -677,6 +677,9 @@ speech_config.set_service_property(
 컨테이너를 시작하거나 실행할 때 문제가 발생할 수 있습니다. 출력 [탑재](speech-container-configuration.md#mount-settings)를 사용하고 로깅을 사용하도록 설정합니다. 이렇게 하면 컨테이너에서 문제를 해결할 때 도움이 되는 로그 파일을 생성할 수 있습니다.
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
+
+[!INCLUDE [Diagnostic container](../containers/includes/diagnostics-container.md)]
+
 
 ## <a name="billing"></a>결제
 

@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 07/17/2021
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 598f1df9808bfe4e367719615ebae332c617a984
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 9fef5f438cc28c5e0fe3ae86d1d85b67af45a8ba
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124767834"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131005806"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data-v3-driver"></a>Azure Cosmos DB Cassandra API 데이터를 관리하는 Java 앱 빌드(v3 드라이버)
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "124767834"
 
 이 빠른 시작에서는 Azure Cosmos DB Cassandra API 계정을 만들고, GitHub에서 복제된 Cassandra Java 앱을 만들고, Java용 [v3.x Apache Cassandra 드라이버](https://github.com/datastax/java-driver/tree/3.x)를 사용하여 Cassandra 데이터베이스 및 컨테이너를 만듭니다. Azure Cosmos DB는 글로벌 배포 및 수평적 크기 조정 기능을 사용하여 문서, 테이블, 키 값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있는 다중 모델 데이터베이스 서비스입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 또는 Azure 구독 없이 [무료로 Azure Cosmos DB를 사용](https://azure.microsoft.com/try/cosmosdb/)할 수 있습니다.
 - [JDK(Java Development Kit) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). `JAVA_HOME` 환경 변수를 JDK가 설치된 폴더로 지정합니다.
@@ -75,27 +75,27 @@ ms.locfileid: "124767834"
 
 * Cassandra 호스트, 포트, 사용자 이름, 암호 및 TLS/SSL 옵션이 설정됩니다. 연결 문자열 정보는 Azure Portal의 연결 문자열 페이지에서 가져옵니다.
 
-   ```java
-   cluster = Cluster.builder().addContactPoint(cassandraHost).withPort(cassandraPort).withCredentials(cassandraUsername, cassandraPassword).withSSL(sslOptions).build();
-   ```
+  ```java
+  cluster = Cluster.builder().addContactPoint(cassandraHost).withPort(cassandraPort).withCredentials(cassandraUsername, cassandraPassword).withSSL(sslOptions).build();
+  ```
 
 * `cluster`가 Azure Cosmos DB Cassandra API에 연결되고 액세스할 세션을 반환합니다.
 
-    ```java
-    return cluster.connect();
-    ```
+  ```java
+  return cluster.connect();
+  ```
 
 다음 코드 조각은 *src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java* 파일에서 가져온 것입니다.
 
 * 새 keyspace를 만듭니다.
 
-    ```java
-    public void createKeyspace() {
-        final String query = "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '3' } ";
-        session.execute(query);
-        LOGGER.info("Created keyspace 'uprofile'");
-    }
-    ```
+  ```java
+  public void createKeyspace() {
+      final String query = "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '3' } ";
+      session.execute(query);
+      LOGGER.info("Created keyspace 'uprofile'");
+  }
+  ```
 
 * 새 테이블을 만듭니다.
 
@@ -109,41 +109,41 @@ ms.locfileid: "124767834"
 
 * 준비 문 개체를 사용하여 사용자 엔터티를 삽입합니다.
 
-    ```java
-    public PreparedStatement prepareInsertStatement() {
-        final String insertStatement = "INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (?,?,?)";
-        return session.prepare(insertStatement);
-    }
+  ```java
+  public PreparedStatement prepareInsertStatement() {
+      final String insertStatement = "INSERT INTO  uprofile.user (user_id, user_name, user_bcity) VALUES (?,?,?)";
+      return session.prepare(insertStatement);
+  }
 
-    public void insertUser(PreparedStatement statement, int id, String name, String city) {
-        BoundStatement boundStatement = new BoundStatement(statement);
-        session.execute(boundStatement.bind(id, name, city));
-    }
-    ```
+  public void insertUser(PreparedStatement statement, int id, String name, String city) {
+      BoundStatement boundStatement = new BoundStatement(statement);
+      session.execute(boundStatement.bind(id, name, city));
+  }
+  ```
 
 * 모든 사용자 정보를 얻기 위한 쿼리입니다.
 
-    ```java
-   public void selectAllUsers() {
-        final String query = "SELECT * FROM uprofile.user";
-        List<Row> rows = session.execute(query).all();
+  ```java
+  public void selectAllUsers() {
+      final String query = "SELECT * FROM uprofile.user";
+      List<Row> rows = session.execute(query).all();
 
-        for (Row row : rows) {
-            LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
-        }
-    }
-    ```
+      for (Row row : rows) {
+          LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
+      }
+  }
+  ```
 
 * 단일 사용자 정보를 가져오기 위한 쿼리입니다.
 
-    ```java
-    public void selectUser(int id) {
-        final String query = "SELECT * FROM uprofile.user where user_id = 3";
-        Row row = session.execute(query).one();
+  ```java
+  public void selectUser(int id) {
+      final String query = "SELECT * FROM uprofile.user where user_id = 3";
+      Row row = session.execute(query).one();
 
-        LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
-    }
-    ```
+      LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
+  }
+  ```
 
 ## <a name="update-your-connection-string"></a>연결 문자열 업데이트
 

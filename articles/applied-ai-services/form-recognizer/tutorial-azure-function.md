@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 03/19/2021
 ms.author: lajanuar
-ms.openlocfilehash: e7c8f676d838ae17e869accd091fc92db7efb65e
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: ae69ae943de5d5e83b08a0d654bd102c4bf95bcf
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122327177"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131026584"
 ---
 # <a name="tutorial-use-an-azure-function-to-process-stored-documents"></a>자습서: Azure 함수를 사용하여 저장된 문서 처리
 
@@ -34,7 +34,7 @@ Azure Functions를 사용하여 빌드된 자동화된 데이터 처리 파이�
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
-* Azure Portal에서 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Form Recognizer 리소스를 만들어"  target="_blank">Form Recognizer 리소스 만들기<span class="docon docon-navigate-external x-hidden-focus"></span></a> Form Recognizer 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
+* Azure Portal에서 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Form Recognizer 리소스를 만들어"  target="_blank">Form Recognizer 리소스 만들기<span class="docon docon-navigate-external x-hidden-focus"></span></a> Form Recognizer 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 선택합니다.
   * 애플리케이션을 Form Recognizer API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
   * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
 * 분석할 로컬 PDF 문서. 이 [샘플 문서](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample-layout.pdf)를 다운로드하여 사용할 수 있습니다.

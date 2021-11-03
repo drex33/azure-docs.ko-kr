@@ -9,12 +9,12 @@ ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: c3e5dc6c0a45d8db64d697232d7a5d3f0c212317
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 30aa69b414770a1d787767f0be4b1e27b50d86d7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124782630"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084921"
 ---
 # <a name="delete-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics에서 작업 삭제
 
@@ -365,10 +365,10 @@ Root/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 ### <a name="move-files-by-chaining-the-copy-activity-and-the-delete-activity"></a>복사 작업 및 삭제 작업을 연결하여 파일 이동
 
-복사 작업으로 파일을 복사하고 삭제 작업을 통해 파이프라인에서 파일을 삭제함으로써 파일을 이동할 수 있습니다.  여러 파일을 이동하려는 경우 다음 샘플과 같이 GetMetadata 작업 + 필터 작업 + Foreach 작업 + 복사 작업 + 삭제 작업을 사용할 수 있습니다.
+복사 작업을 사용 하 여 파일을 복사 하 고 삭제 작업을 사용 하 여 파이프라인의 파일을 삭제 하는 방식으로 파일을 이동할 수 있습니다.  여러 파일을 이동 하려는 경우 다음 샘플과 같이 GetMetadata 활동 + 필터 활동 + Foreach 활동 + 복사 활동 + Delete 활동을 사용할 수 있습니다.
 
 > [!NOTE]
-> 폴더 경로만 포함된 데이터 세트를 정의한 후 복사 작업과 삭제 작업을 사용하여 폴더를 나타내는 동일한 데이터 집합을 참조하는 방식으로 전체 폴더를 이동할 때에는 매우 조심해야 합니다. 복사 작업과 삭제 작업 중간에 새 파일이 폴더에 들어오지 않는지를 확인해야 하기 때문입니다.  복사 작업이 방금 복사 작업을 완료했지만 삭제 작업이 시작되지 않은 순간에 새 파일에 폴더에 도착하면 삭제 작업은 전체 폴더를 삭제하여 대상으로 아직 복사되지 않은 이러한 새로 도착한 파일을 삭제할 수 있습니다. 
+> 폴더 경로만 포함 하는 데이터 집합을 정의 하 고 복사 작업 및 삭제 작업을 사용 하 여 폴더를 나타내는 동일한 데이터 집합을 참조 하는 방법으로 전체 폴더를 이동 하려면 매우 주의 해야 합니다. 복사 작업과 삭제 작업 사이에 폴더로 도착할 새 **파일이 없는지 확인** 해야 합니다. 복사 작업이 복사 작업을 완료 했지만 삭제 작업이 시작 되지 않은 순간에 새 파일이 폴더에 도착 하면 삭제 작업은 전체 폴더를 삭제 하 여 대상에 복사 되지 않은 새로 도착 한 파일을 삭제할 수 있습니다. 
 
 #### <a name="sample-pipeline"></a>샘플 파이프라인
 

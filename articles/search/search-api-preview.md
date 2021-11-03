@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/21/2021
-ms.openlocfilehash: 1e02537fbc4aa8e382b38dcaeb09c5292ff3ab7e
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: ef420f52650ca037d8030fbd2e73d8e37d2153f7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130261751"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131023579"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Azure Cognitive Search의 미리 보기 기능
 
@@ -24,7 +24,7 @@ ms.locfileid: "130261751"
 |기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 범주 | Description | 가용성  |
 |---------|------------------|-------------|---------------|
 | [**검색 REST API 2021-04-30-Preview**](/rest/api/searchservice/index-preview) | 보안 | 외부 데이터 원본에 연결하는 인덱서에 대해 Azure Active Directory에서 관리 ID를 지원하도록 [데이터 원본 만들기 또는 업데이트](/rest/api/searchservice/preview-api/create-or-update-data-source)를 수정합니다. | 공개 미리 보기, [Search REST API 2021-04-30-Preview](/rest/api/searchservice/index-preview) |
-| [**Azure RBAC 지원**](search-security-rbac.md) | 보안 | 새로운 기본 제공 역할을 사용하여 인덱스 및 인덱싱에 대한 액세스를 제어하여 API 키에 대한 종속성을 제거하거나 줄입니다. | 공개 미리 보기([요청별](/azure/search/search-security-rbac?tabs=config-svc-portal%2Croles-portal%2Ctest-portal#step-1-preview-sign-up)). 구독이 등록된 후 Azure Portal 또는 관리 REST API 버전 2021-04-01-Preview를 사용하여 데이터 평면 인증에 대한 검색 서비스를 구성합니다. |
+| [**Azure RBAC 지원**](search-security-rbac.md) | 보안 | 새로운 기본 제공 역할을 사용하여 인덱스 및 인덱싱에 대한 액세스를 제어하여 API 키에 대한 종속성을 제거하거나 줄입니다. | 공개 미리 보기([요청별](./search-security-rbac.md?tabs=config-svc-portal%2croles-portal%2ctest-portal#step-1-preview-sign-up)). 구독이 등록된 후 Azure Portal 또는 관리 REST API 버전 2021-04-01-Preview를 사용하여 데이터 평면 인증에 대한 검색 서비스를 구성합니다. |
 | [**관리 REST API 2021-04-01-Preview**](/rest/api/searchmanagement/) | 보안 | 새 [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions)를 지원하도록 [서비스 만들기 또는 업데이트](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update)를 수정합니다. | 공개 미리 보기, [관리 REST API](/rest/api/searchmanagement/), API 버전 2021-04-01-Preview.|
 | [**문서 다시 설정**](search-howto-run-reset-indexers.md) | 인덱서 | 인덱서 워크로드에서 개별적으로 선택한 검색 문서를 다시 처리합니다. | [문서 재설정 REST API](/rest/api/searchservice/preview-api/reset-documents), API 버전 2021-04-30-Preview 또는 2020-06-30-Preview를 사용합니다. |
 |  [**파워 쿼리 커넥터**](search-how-to-index-power-query-data-sources.md) | 인덱서 데이터 원본 | 이제 인덱서는 다른 클라우드 플랫폼에서 인덱싱할 수 있습니다. 인덱서를 사용하여 인덱싱할 외부 데이터 원본을 크롤링하는 경우 이제 파워 쿼리 커넥터를 사용하여 Amazon Redshift, Elasticsearch, PostgreSQL, Salesforce Objects, Salesforce Reports, Smartsheet, Snowflake에 연결할 수 있습니다. | 백 엔드에서 구독을 지원하도록 설정하려면 [등록](https://aka.ms/azure-cognitive-search/indexer-preview)을 해야 합니다. [데이터 원본 만들기 또는 업데이트](/rest/api/searchservice/preview-api/create-or-update-data-source), API 버전 2021-04-30-Preview와 2020-06-30-Preview 또는 Azure Portal을 사용하여 이 데이터 원본을 구성합니다.|

@@ -8,14 +8,17 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 09/02/2021
-ms.openlocfilehash: 07a0848de708f3d01cc081130a02ffa6e11f07db
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 603b4a083de5a71a29456fc1128b7a53a40c8782
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124818887"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064091"
 ---
 # <a name="archive-for-whats-new-in-azure-sentinel"></a>Azure Sentinel의 새로운 기능 보관
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 기본 [Azure Sentinel의 새로운 기능](whats-new.md) 릴리스 정보 페이지에는 지난 6개월 동안의 업데이트가 포함되어 있지만 이 페이지에는 더 오래된 항목도 포함되어 있습니다.
 

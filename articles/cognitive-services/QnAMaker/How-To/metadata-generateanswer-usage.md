@@ -8,17 +8,19 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 0daa44f0d901dc14541785f764d5ccf8f96fc737
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
-ms.translationtype: HT
+ms.custom: devx-track-js, devx-track-csharp, ignite-fall-2021
+ms.openlocfilehash: ba2b39a854dd7d70690aea943f7365bc50bc8804
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376677"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131038787"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api"></a>GenerateAnswer API를 사용하여 답변 가져오기
 
 사용자의 질문에 대한 예측 답변을 가져오려면 GenerateAnswer API를 사용합니다. 기술 자료를 게시할 때 **게시** 페이지에서 이 API를 사용하는 방법에 대한 정보를 볼 수 있습니다. 메타데이터 태그를 기준으로 답변을 필터링하도록 API를 구성하고 테스트 쿼리 문자열 매개 변수를 사용하여 엔드포인트에서 기술 자료를 테스트할 수도 있습니다.
+
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 <a name="generateanswer-api"></a>
 
@@ -38,15 +40,7 @@ ms.locfileid: "110376677"
     ![내 기술 자료 스크린샷](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. GenerateAnswer 엔드포인트 세부 정보를 가져옵니다.
 
-    # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
-
     ![엔드포인트 세부 정보 스크린샷](../media/qnamaker-how-to-metadata-usage/view-code.png)
-
-    # <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-    ![관리형 엔드포인트 세부 정보 스크린샷](../media/qnamaker-how-to-metadata-usage/view-code-managed.png)
-
-    ---
 
 기술 자료의 **설정** 탭에서 엔드포인트 세부 정보를 가져올 수도 있습니다.
 
@@ -176,47 +170,7 @@ var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOpt
 
 ## <a name="get-precise-answers-with-generateanswer-api"></a>GenerateAnswer API를 사용하여 정확한 답변 받기
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
-
 QnA Maker 관리형 버전에서만 정확한 답변 기능을 제공합니다.
-
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-사용자는 사용자 지정 질문 답변 기능과 함께 Text Analytics 리소스를 사용할 때 [정확한 답변](../reference-precise-answering.md)을 사용할 수 있습니다. answerSpanRequest 매개 변수도 동일하게 업데이트해야 합니다.
-
-```json
-{
-    "question": "How long it takes to charge surface pro 4?",
-    "top": 3,
-    "answerSpanRequest": {
-        "enable": true,
-        "topAnswersWithSpan": 1
-    }
-}
-```
-
-마찬가지로 사용자는 answerSpanRequest 매개 변수를 설정하지 않고 정확한 답변을 사용하지 않도록 선택할 수 있습니다.
-
-```json
-{
-    "question": "How long it takes to charge surface pro 4?",
-    "top": 3
-}
-```
-### <a name="bot-settings"></a>봇 설정
-
-Bot Service에 대한 정확한 답변 설정을 구성하려면 봇에 대한 App Service 리소스로 이동합니다. 그런 다음, 다음 설정을 추가하여 구성을 업데이트해야 합니다.
-
-- EnablePreciseAnswer
-- DisplayPreciseAnswerOnly
-
-|디스플레이 구성|EnablePreciseAnswer|DisplayPreciseAnswerOnly|
-|:--|--|--|
-|정확한 답변만|true|true|
-|긴 답변만|false|false|
-|긴 답변과 정확한 답변 모두|true|false|
-
----
 
 ## <a name="common-http-errors"></a>일반 HTTP 오류
 

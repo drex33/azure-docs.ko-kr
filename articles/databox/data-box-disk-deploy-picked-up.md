@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 05/07/2021
+ms.date: 10/26/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: b590468b0e1f036a8b60143ff23e4a54b01802a8
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 16eb16d14890ae581bf71ff3998d22055965c336
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714497"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131082591"
 ---
 ::: zone target="docs"
 
@@ -48,9 +48,13 @@ ms.locfileid: "109714497"
     - 안전하게 보호하는 공기 쿠션 랩을 사용하여 디스크를 포장하는 것이 좋습니다.
     - 상자 내의 움직임을 줄이기 위해 빈틈 없이 채워졌는지 확인합니다.
 
-다음 단계는 디바이스를 반송하는 위치에 따라 결정됩니다. 지침은 미국/캐나다, EU(유럽 연합), 오스트레일리아 또는 아시아 국가/지역에 따라 다릅니다.
+다음 단계는 디바이스를 반송하는 위치에 따라 결정됩니다. 많은 국가/지역에서 [Microsoft 관리 배송](#microsoft-managed-shipping) 또는 [자체 관리 배송](#self-managed-shipping)을 사용할 수 있습니다.
 
-### <a name="us-or-canada"></a>[미국 또는 캐나다](#tab/in-us-or-canada)
+### <a name="microsoft-managed-shipping"></a>Microsoft 관리형 배송
+
+Microsoft 관리형 배송을 사용하는 경우 배송할 지역에 대한 지침을 따르세요.
+
+### <a name="us--canada"></a>[미국 및 캐나다](#tab/in-us-canada)
 
 미국 또는 캐나다에서 디바이스를 반송하는 경우 다음 단계를 수행합니다.
 
@@ -66,8 +70,7 @@ ms.locfileid: "109714497"
     - 추적 번호를 알려주지 않으면 픽업 시 UPS에서 추가 요금을 지불하도록 요구합니다.
     - 픽업을 예약하는 대신 가장 가까운 반납 위치에 Data Box Disk를 반납할 수도 있습니다.
 
-
-### <a name="europe-or-uk"></a>[유럽 또는 영국](#tab/in-europe-or-uk)
+### <a name="eu--uk"></a>[EU 및 UK](#tab/in-europe-uk)
 
 유럽 또는 영국에서 디바이스를 반송하는 경우 다음 단계를 수행합니다.
 
@@ -156,37 +159,6 @@ ms.locfileid: "109714497"
 
 3. 택배 회사에 전달합니다.
 
-### <a name="south-africa"></a>[남아프리카 공화국](#tab/in-sa)
-
-남아프리카에서 디바이스를 반송하는 경우 다음 단계를 수행합니다.
-
-1. 제공된 배송 레이블을 상자에 부착합니다. 이 레이블에는 추적 번호가 포함되어 있습니다. 배송 레이블이 없는 경우 **개요 > 포장용 레이블 다운로드** 에서 새 레이블을 다운로드할 수 있습니다.
-
-2. 배송 상자를 봉인하고 반송 포장용 레이블이 식별 가능한지 확인합니다.
-
-3. Azure Data Box 작업에서 반환 코드를 요청합니다. 패키지를 데이터 센터로 다시 전달하려면 반환 코드가 필요합니다. [adbops@microsoft.com](mailto:adbops@microsoft.com)에 이메일을 보냅니다. 반환 주소 옆에 있는 배송 레이블에 이 코드를 명확하게 표시합니다.
-
-4. 다음 방법 중 하나를 사용하여 DHL로 픽업을 예약합니다.
-   * [DHL Express 남아프리카, **픽업예약**](https://mydhl.express.dhl/za/en/schedule-pickup.html#/schedule-pickup#label-reference)으로 이동하여 온라인으로 픽업을 예약합니다.
-   * 다음 템플릿을 사용하여 [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com)에 이메일을 보냅니다.
-
-     ```output
-     To: Priority.Support@dhl.com
-     Subject: Pickup request for Microsoft Azure
-     Body: Need pick up for the below shipment
-       *  DHL tracking number: (reference number/waybill number)
-       *  Requested pickup date: yyyy/mm/dd;time:HH MM
-       *  Shipper contact: (company name)
-       *  Contact person: 
-       *  Phone number: 
-       *  Full physical address: 
-       *  Item to be collected: Azure Dt
-     ```
-
-    * 또는 가장 가까운 DHL 서비스 지점에서 패키지를 삭제합니다.
-
-5. 문제가 발생하는 경우 발생한 문제에 대한 세부 정보가 포함된 [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) 이메일을 보내고 화물 운송장 번호를 제목: 줄에 입력합니다. +27(0)119213902로 전화할 수도 있습니다.
-
 ### <a name="china"></a>[중국](#tab/in-china)
 
 중국에서 디바이스를 반송하는 경우 다음 단계를 수행합니다.
@@ -227,7 +199,39 @@ ms.locfileid: "109714497"
 |전화 번호:      | 400.889.6066 ext. 3603 |
 |이메일:     | [739951@fedex.com](mailto:739951@fedex.com) |
 
-### <a name="self-managed"></a>[자체 관리](#tab/in-selfmanaged)
+
+### <a name="s-africa"></a>[남아프리카 공화국](#tab/in-sa)
+
+남아프리카에서 디바이스를 반송하는 경우 다음 단계를 수행합니다. 
+
+1. 제공된 배송 레이블을 상자에 부착합니다. 이 레이블에는 추적 번호가 포함되어 있습니다. 배송 레이블이 없는 경우 **개요 > 포장용 레이블 다운로드** 에서 새 레이블을 다운로드할 수 있습니다.
+
+2. 배송 상자를 봉인하고 반송 포장용 레이블이 식별 가능한지 확인합니다.
+
+3. Azure Data Box 작업에서 반환 코드를 요청합니다. 패키지를 데이터 센터로 다시 전달하려면 반환 코드가 필요합니다. [adbops@microsoft.com](mailto:adbops@microsoft.com)에 이메일을 보냅니다. 반환 주소 옆에 있는 배송 레이블에 이 코드를 명확하게 표시합니다.
+
+4. 다음 방법 중 하나를 사용하여 DHL로 픽업을 예약합니다.
+   * [DHL Express 남아프리카, **픽업예약**](https://mydhl.express.dhl/za/en/schedule-pickup.html#/schedule-pickup#label-reference)으로 이동하여 온라인으로 픽업을 예약합니다.
+   * 다음 템플릿을 사용하여 [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com)에 이메일을 보냅니다.
+
+     ```output
+     To: Priority.Support@dhl.com
+     Subject: Pickup request for Microsoft Azure
+     Body: Need pick up for the below shipment
+       *  DHL tracking number: (reference number/waybill number)
+       *  Requested pickup date: yyyy/mm/dd;time:HH MM
+       *  Shipper contact: (company name)
+       *  Contact person: 
+       *  Phone number: 
+       *  Full physical address: 
+       *  Item to be collected: Azure Dt
+     ```
+
+    * 또는 가장 가까운 DHL 서비스 지점에서 패키지를 삭제합니다.
+
+5. 문제가 발생하는 경우 발생한 문제에 대한 세부 정보가 포함된 [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) 이메일을 보내고 화물 운송장 번호를 제목: 줄에 입력합니다. +27(0)119213902로 전화할 수도 있습니다.
+
+### <a name="self-managed-shipping"></a>자체 관리형 배송
 
 미국 정부, 일본, 싱가포르, 대한민국, 영국, 서유럽, 오스트레일리아, 남아프리카, 인도 또는 브라질에서 Data Box Disk를 사용 중이고 주문 생성 중에 자체 관리형 배송 옵션을 선택한 경우 다음 지침을 따르세요.
 

@@ -10,19 +10,21 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 621e2829f8c28ced39c3ed70b1dee974a5fcd36d
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.openlocfilehash: 350adddd3ab31265ce0a1b07e131a828c5998a8c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123251423"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131004400"
 ---
 # <a name="automatically-create-incidents-from-microsoft-security-alerts"></a>Microsoft 보안 경고에서 인시던트 자동 생성
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Azure Sentinel에 연결된 Microsoft 보안 솔루션(예: Microsoft Cloud App Security 및 Microsoft Defender for Identity(이전 명칭 Azure ATP))에서 트리거된 경고는 Azure Sentinel에서 인시던트를 자동으로 만들지 않습니다. 기본적으로 Microsoft 솔루션을 Azure Sentinel에 연결하면, 해당 서비스에서 생성된 경고는 Azure Sentinel의 원시 데이터로, Azure Sentinel 작업 영역의 보안 경고 테이블에 저장됩니다. 그러면 해당 데이터를 Azure Sentinel에 연결하는 다른 모든 원시 데이터와 마찬가지로 사용할 수 있습니다.
 

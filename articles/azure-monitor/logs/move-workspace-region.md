@@ -5,12 +5,12 @@ author: yossiy
 ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: yossiy
-ms.openlocfilehash: cecfa72493545f40c2e7326fece88cb85f99974b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 13633eefff454cc6f2352264d76ea91367442166
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128565416"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131062229"
 ---
 # <a name="move-a-log-analytics-workspace-to-another-region-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Log Analytics 작업 영역을 다른 영역으로 이동
 
@@ -212,7 +212,7 @@ Log Analytics 작업 영역을 한 지역에서 다른 지역으로 이동할 �
         },
         {
           "type": "microsoft.insights/scheduledqueryrules",
-          "apiVersion": "2021-02-01-preview",
+          "apiVersion": "2021-08-01",
           "name": "[parameters('alertName')]",
           "location": "france central",
           "properties": {
@@ -331,7 +331,7 @@ union
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Log Analytics 작업 영역 및 관련 리소스를 한 지역에서 다른 지역으로 이동하고 원본 리소스를 정리했습니다. Azure에서 지역 간 리소스 이동 및 재해 복구에 대한 자세한 내용은 다음을 참조하세요.
+이 문서에서는 Log Analytics 작업 영역 및 연결 된 리소스를 한 지역에서 다른 지역으로 이동 하 고 원본 리소스를 정리 했습니다. Azure에서 지역 간 리소스 이동 및 재해 복구에 대한 자세한 내용은 다음을 참조하세요.
 
 - [새 리소스 그룹 또는 구독으로 리소스 이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
 - [다른 지역으로 Azure VM 이동](../../site-recovery/azure-to-azure-tutorial-migrate.md)

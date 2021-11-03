@@ -8,12 +8,12 @@ ms.author: srahaman
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 99dee059eb337bf51eb0a723e20a2744140e3032
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: d2c91ca300c626bc50b915098853f0f9e7cd2d2a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130250277"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073304"
 ---
 # <a name="best-practices-azure-communication-services-calling-sdks"></a>모범 사례: Azure Communication Services 통화 SDK
 이 문서에서는 SDK를 호출하는 ACS(Azure Communication Services)와 관련된 모범 사례에 대한 정보를 제공합니다.
@@ -39,13 +39,14 @@ Communication Services 애플리케이션은 더 이상 필요하지 않을 때 
 ### <a name="handle-os-muting-call-when-phone-call-comes-in"></a>전화 통화가 들어오면 OS 음소거 통화를 처리 합니다.
 전화 통화가 제공 되거나 음성 길잡이가 활성화 된 경우 ACS 호출 (iOS 및 Android 모두)에서, OS는 사용자 마이크와 카메라를 자동으로 음소거 합니다. Android에서 호출은 전화 통화가 끝난 후 자동으로 unmutes 하 고 비디오를 다시 시작 합니다. IOS에서 사용자 작업은 "음소거" 및 "비디오 시작"을 다시 수행 해야 합니다. 의 품질 이벤트를 사용 하 여 마이크가 예기치 않게 음소거 되었다는 알림을 수신할 수 있습니다 `microphoneMuteUnexpectedly` . 호출에 올바르게 다시 참가할 수 있도록 하려면 SDK 1.2.3-beta. 1 이상을 사용 해야 합니다.
 
-```JavaScript
+```javascript
 const latestMediaDiagnostic = call.api(SDK.Features.Diagnostics).media.getLatest();
 const isIosSafari = (getOS() === OSName.ios) && (getPlatformName() === BrowserName.safari);
 if (isIosSafari && latestMediaDiagnostic.microphoneMuteUnexpectedly && latestMediaDiagnostic.microphoneMuteUnexpectedly.value) {
   // received a QualityEvent on iOS that the microphone was unexpectedly muted - notify user to unmute their microphone and to start their video stream
 }
- ```
+```
+
 응용 프로그램은를 호출 `call.startVideo(localVideoStream);` 하 여 비디오 스트림을 시작 하 고를 사용 하 여 오디오를 음소거 해제 해야 합니다 `this.currentCall.unmute();` .
 
 ### <a name="device-management"></a>디바이스 관리

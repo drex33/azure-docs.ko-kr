@@ -1,44 +1,52 @@
 ---
-title: Azure Synapse Analytics 작업 영역을 등록하고 검사하는 방법
-description: Azure Purview 데이터 카탈로그에서 Azure Synapse 작업 영역을 검사하는 방법을 알아봅니다.
+title: Azure Synapse Analytics 작업 영역에 대 한 커넥트 및 관리
+description: 이 가이드에서는 azure 부서의 범위에서 Azure Synapse Analytics 작업 영역에 연결 하 고 부서의 범위의 기능을 사용 하 여 Azure Synapse Analytics 작업 영역 원본을 검색 하 고 관리 하는 방법을 설명 합니다.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/27/2021
-ms.openlocfilehash: 8a7b23089e9b17e35b56b04991c76b37baedf231
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 11/02/2021
+ms.custom: template-how-to, ignite-fall-2021
+ms.openlocfilehash: ed76730cd37cf903c77b0893b546ab824e7ddff3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129207795"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131010919"
 ---
-# <a name="register-and-scan-azure-synapse-analytics-workspaces"></a>Azure Synapse Analytics 작업 영역 등록 및 검사
+# <a name="connect-to-and-manage-azure-synapse-analytics-workspaces-in-azure-purview"></a>Azure 부서의 범위에서 Azure Synapse Analytics 작업 영역에 대 한 커넥트 및 관리
 
-이 문서에서는 Azure Purview에서 Azure Synapse Analytics 작업 영역을 등록하고 작업 영역의 검사를 설정하는 방법을 간략하게 설명합니다.
+이 문서에서는 azure Synapse Analytics 작업 영역을 등록 하는 방법 및 azure 부서의 범위에서 azure Synapse Analytics 작업 영역을 인증 하 고 상호 작용 하는 방법을 설명 합니다. Azure 부서의 범위에 대 한 자세한 내용은 [소개 문서](overview.md)를 참조 하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-Azure Synapse Analytics 작업 영역 검사는 작업 영역 내에서 전용 및 서버리스 SQL 데이터베이스의 메타데이터 및 스키마 캡처를 지원합니다. 또한 작업 영역 검사는 시스템 및 사용자 지정 분류 규칙에 따라 자동으로 데이터를 분류합니다.
+|**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
+|---|---|---|---|---|---|---|
+| [예](#register) | [예](#scan)| [예](#scan) | [예](#scan)| [예](#scan)| 아니요| [예](how-to-lineage-azure-synapse-analytics.md)|
 
-## <a name="prerequisites"></a>필수 구성 요소
 
-- 데이터 원본을 등록하려면 먼저 Azure Purview 계정을 만듭니다. 자세한 내용은 [빠른 시작: Azure Purview 계정 만들기](create-catalog-portal.md)를 참조하세요.
-- Azure Purview 데이터 원본 관리자여야 합니다.
-- 다음 섹션에 설명된 대로 인증을 설정합니다.
+<!-- 4. Prerequisites
+Required. Add any relevant/source-specific prerequisites for connecting with this source. Authentication/Registration should be covered by the sections below and does not need to be covered here.
+-->
 
-## <a name="register-and-scan-an-azure-synapse-workspace"></a>Azure Synapse 작업 영역 등록 및 검사
+## <a name="prerequisites"></a>사전 요구 사항
 
-> [!IMPORTANT]
-> 작업 영역을 성공적으로 검사하려면 다음 섹션에 설명된 대로 정확하게 단계를 수행하고 권한을 적용하세요.
+* 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-### <a name="step-1-register-your-source"></a>**1단계**: 원본 등록
+* 활성 [Purview 리소스](create-catalog-portal.md).
 
-> [!NOTE]
-> Azure Synapse 작업 영역에서 ‘읽기 권한자’ 이상의 역할이 있고 Azure Purview에서 ‘데이터 원본 관리자’이기도 한 사용자만 이 단계를 수행할 수 있습니다. 
+* 원본을 등록하고 Purview Studio에서 관리하려면 데이터 원본 관리자 및 데이터 읽기 권한자여야 합니다. 자세한 내용은 [Azure Purview 권한 페이지](catalog-permissions.md)를 참조하세요.
 
-새 Azure Synapse 원본을 데이터 카탈로그에 등록하려면 다음을 수행합니다.
+## <a name="register"></a>등록
+
+이 섹션에서는 [부서의 범위 Studio](https://web.purview.azure.com/)를 사용 하 여 azure 부서의 범위에 Azure Synapse Analytics 작업 영역을 등록 하는 방법을 설명 합니다.
+
+### <a name="authentication-for-registration"></a>등록 인증
+
+Azure 부서의 범위의 *데이터 원본 관리자* 이기도 한 azure Synapse 작업 영역에서 적어도 *읽기 권한자* 역할을 가진 사용자만 azure Synapse 작업 영역을 등록할 수 있습니다.
+
+### <a name="steps-to-register"></a>등록 단계
 
 1. Azure Purview 계정으로 이동합니다.
 1. 왼쪽 창에서 **원본** 을 선택합니다.
@@ -56,28 +64,33 @@ Azure Synapse Analytics 작업 영역 검사는 작업 영역 내에서 전용 �
     d. 엔드포인트 드롭다운 목록에서 작업 영역 선택에 따라 SQL 엔드포인트가 자동으로 채워집니다.  
     e. **컬렉션 선택** 드롭다운 목록에서 현재 작업 중인 컬렉션을 선택하거나 필요한 경우 새로 만듭니다.  
     f. **등록** 을 선택하여 데이터 원본 등록을 완료합니다.
-    
+
     :::image type="content" source="media/register-scan-synapse-workspace/register-synapse-source-details.png" alt-text="Azure Synapse 원본에 대한 세부 정보를 입력하는 ‘원본 등록(Azure Synapse Analytics)’ 페이지 스크린샷":::
 
+## <a name="scan"></a>검사
 
-### <a name="step-2-apply-permissions-to-enumerate-the-contents-of-the-azure-synapse-workspace"></a>**2단계**: Azure Synapse 작업 영역의 콘텐츠를 열거하기 위한 권한 적용
+아래 단계에 따라 Azure Synapse Analytics 작업 영역을 검사 하 여 자산을 자동으로 식별 하 고 데이터를 분류 합니다. 일반적으로 검색 하는 방법에 대 한 자세한 내용은 [검색 및 수집 소개](concept-scans-and-ingestion.md)를 참조 하세요.
 
-#### <a name="set-up-authentication-for-enumerating-dedicated-sql-database-resources"></a>전용 SQL 데이터베이스 리소스를 열거하기 위한 인증 설정
+먼저 [전용](#authentication-for-enumerating-dedicated-sql-database-resources) 또는 [서버](#authentication-for-enumerating-serverless-sql-database-resources) 를 사용 하지 않는 리소스를 열거 하기 위한 인증을 설정 해야 합니다. 이렇게 하면 부서의 범위에서 작업 영역 자산을 열거 하 고 범위 검색을 수행할 수 있습니다.
+
+그런 다음 [작업 영역의 콘텐츠를 검색 하는 권한을 적용](#apply-permissions-to-scan-the-contents-of-the-workspace)해야 합니다.
+
+### <a name="authentication-for-enumerating-dedicated-sql-database-resources"></a>전용 SQL 데이터베이스 리소스를 열거 하기 위한 인증
 
 1. Azure Portal에서 Azure Synapse 작업 영역 리소스로 이동합니다.  
-1. 왼쪽 창에서  **액세스 제어(IAM)** 를 선택합니다. 
+1. 왼쪽 창에서  **액세스 제어(IAM)** 를 선택합니다.
 
    > [!NOTE]
    > 리소스와 관련된 역할을 추가하려면 ‘소유자’ 또는 ‘사용자 액세스 관리자’여야 합니다. 
-   
-1. **추가** 단추를 선택합니다.   
+
+1. **추가** 단추를 선택합니다.
 1. **읽기 권한자** 역할을 설정하고 해당 MSI(관리 서비스 ID)를 나타내는 Azure Purview 계정 이름을 입력합니다.
 1. **저장** 을 선택하여 역할 할당을 완료합니다.
 
 > [!NOTE]
-> Azure Purview 계정에서 여러 Azure Synapse 작업 영역을 등록하고 검사하려는 경우 리소스 그룹 또는 구독과 같은 상위 수준에서 역할을 할당할 수도 있습니다. 
+> Azure Purview 계정에서 여러 Azure Synapse 작업 영역을 등록하고 검사하려는 경우 리소스 그룹 또는 구독과 같은 상위 수준에서 역할을 할당할 수도 있습니다.
 
-#### <a name="set-up-authentication-for-enumerating-serverless-sql-database-resources"></a>서버리스 SQL 데이터베이스 리소스를 열거하기 위한 인증 설정
+### <a name="authentication-for-enumerating-serverless-sql-database-resources"></a>서버를 사용 하지 않는 SQL 데이터베이스 리소스 열거를 위한 인증
 
 Purview에서 서버리스 SQL 데이터베이스 리소스를 열거할 수 있도록 하려면 Synapse 작업 영역, 연결된 스토리지, 서버리스 데이터베이스의 세 위치에서 인증을 설정해야 합니다. 다음은 세 위치 모드에 대해 권한을 설정하는 단계입니다.
 
@@ -107,7 +120,7 @@ Purview에서 서버리스 SQL 데이터베이스 리소스를 열거할 수 있
     CREATE LOGIN [PurviewAccountName] FROM EXTERNAL PROVIDER;
     ```
 
-### <a name="step-3-apply-permissions-to-scan-the-contents-of-the-workspace"></a>**3단계**: 작업 영역의 콘텐츠를 검사하기 위한 권한 적용
+### <a name="apply-permissions-to-scan-the-contents-of-the-workspace"></a>작업 영역의 콘텐츠를 검색 하는 권한 적용
 
 다음 두 가지 방법 중 하나로 Azure Synapse 원본에 대한 인증을 설정할 수 있습니다.
 
@@ -150,9 +163,9 @@ Purview에서 서버리스 SQL 데이터베이스 리소스를 열거할 수 있
     ALTER ROLE db_datareader ADD MEMBER [PurviewAccountName]; 
     ```
 
-#### <a name="grant-permission-to-use-credentials-for-external-tables"></a>외부 테이블에 대한 자격 증명을 사용할 수 있는 권한 부여
+#### <a name="grant-permission-to-use-credentials-for-external-tables"></a>외부 테이블에 대 한 자격 증명을 사용할 수 있는 권한 부여
 
-Azure Synapse 작업 영역에 외부 테이블이 있는 경우 Azure Purview 관리 ID에 외부 테이블 범위 자격 증명에 대한 참조 권한이 부여되어야 합니다. 참조 권한을 통해 Azure Purview는 외부 테이블에서 데이터를 읽을 수 있습니다.
+Azure Synapse 작업 영역에 외부 테이블이 있는 경우 Azure 부서의 범위 관리 id에 외부 테이블 범위 자격 증명에 대 한 References 권한이 제공 되어야 합니다. Azure 부서의 범위는 References 권한을 사용 하 여 외부 테이블에서 데이터를 읽을 수 있습니다.
 
 ```sql
 GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewAccountName];
@@ -175,6 +188,7 @@ GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewA
     EXEC sp_addrolemember 'db_datareader', [ServicePrincipalID]
     GO
     ```
+
 > [!NOTE]
 > Synapse 작업 영역의 모든 전용 SQL 데이터베이스에 대해 이전 단계를 반복합니다. 
 
@@ -194,7 +208,7 @@ GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewA
     ALTER ROLE db_datareader ADD MEMBER [ServicePrincipalID]; 
     ```
 
-### <a name="step-4-set-up-azure-synapse-workspace-firewall-access"></a>**4단계**: Azure Synapse 작업 영역 방화벽 액세스 설정
+### <a name="set-up-azure-synapse-workspace-firewall-access"></a>Azure Synapse 작업 영역 방화벽 액세스 설정
 
 1. Azure Portal에서 Azure Synapse 작업 영역으로 이동합니다. 
 
@@ -204,11 +218,11 @@ GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewA
 
 1. **저장** 을 선택합니다.
 
-### <a name="step-5-set-up-a-scan-on-the-workspace"></a>**5단계**: 작업 영역에서 검사 설정
+### <a name="create-and-run-scan"></a>검사 만들기 및 실행
 
 새 검색을 만들고 실행하려면 다음을 수행합니다.
 
-1. [Purview Studio의](https://web.purview.azure.com/resource/)왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
+1. [부서의 범위 Studio](https://web.purview.azure.com/resource/)의 왼쪽 창에서 **데이터 맵** 탭을 선택 합니다.
 
 1. 등록한 데이터 원본을 선택합니다.
 
@@ -229,36 +243,14 @@ GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewA
 
 1. 검사 트리거를 선택합니다. **매주/매월** 또는 **한 번** 실행되도록 예약할 수 있습니다.
 
-1. 검사를 검토하고 **저장** 을 선택하여 설정을 완료합니다.   
+1. 검사를 검토하고 **저장** 을 선택하여 설정을 완료합니다.  
 
-#### <a name="view-your-scans-and-scan-runs"></a>검사 및 검사 실행 보기
-
-1. 원본 섹션 아래 타일에서 **세부 정보 보기** 를 선택하여 원본 세부 정보를 확인합니다. 
-
-      :::image type="content" source="media/register-scan-synapse-workspace/synapse-source-details.png" alt-text="Azure Synapse Analytics 원본 세부 정보 페이지 스크린샷"::: 
-
-1. **검사 세부 정보** 페이지로 이동하여 검사 실행 세부 정보를 확인합니다.
-
-    * **상태 표시줄** 에는 하위 리소스의 실행 상태가 간단히 요약되어 표시됩니다. 상태는 작업 영역 수준 검사에 표시됩니다.  
-    * 녹색은 성공한 검사 실행을 나타내고, 빨간색은 실패한 검사 실행을 나타내며, 회색은 검사 실행이 아직 진행 중임을 나타냅니다.  
-    * 검색 실행을 선택하여 검사 실행에 대한 보다 세부적인 정보를 볼 수 있습니다.
-
-      :::image type="content" source="media/register-scan-synapse-workspace/synapse-scan-details.png" alt-text="Azure Synapse Analytics 검사 세부 정보 페이지 스크린샷" lightbox="media/register-scan-synapse-workspace/synapse-scan-details.png"::: 
-
-    * **원본 세부 정보** 페이지 아래쪽에서 최근 실패한 검사 실행의 요약을 볼 수 있습니다. 다시 검사 실행을 선택하여 검사 실행에 대한 보다 세부적인 정보를 볼 수 있습니다.
-
-#### <a name="manage-your-scans"></a>검사 관리
-
-검사를 편집, 삭제, 취소하려면 다음을 수행합니다.
-
-1. 관리 센터로 이동합니다. **원본 및 검사** 섹션에서 **데이터 원본** 을 선택한 다음, 관리하려는 데이터 원본을 선택합니다.
-
-1. 관리하려는 검사를 선택한 다음, **편집** 을 선택합니다.
-
-   - 검사를 삭제하려면 **삭제** 를 선택합니다.
-   - 검사가 현재 실행 중인 경우 취소할 수 있습니다.
+[!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Purview 데이터 카탈로그 찾아보기](how-to-browse-catalog.md)
-- [Azure Purview Data Catalog 검색](how-to-search-catalog.md)   
+이제 소스를 등록했으므로 아래 가이드에 따라 Purview 및 데이터에 대해 자세히 알아봅니다.
+
+- [Azure Purview의 데이터 인사이트](concept-insights.md)
+- [Azure Purview의 계보](catalog-lineage-user-guide.md)
+- [Data Catalog 검색](how-to-search-catalog.md)

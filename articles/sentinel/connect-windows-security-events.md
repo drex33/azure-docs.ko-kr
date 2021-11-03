@@ -15,14 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2021
 ms.author: yelevin
-ms.openlocfilehash: 133d5e01de4f5fe511677fc5226eb0aede258eab
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: a95327518729b854fde1ca6fa22f5b78e65554f0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123252283"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131023425"
 ---
 # <a name="connect-to-windows-servers-to-collect-security-events"></a>Windows 서버에 연결하여 보안 이벤트 수집
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -35,7 +38,7 @@ Windows 보안 이벤트 커넥터에서는 다음 버전을 지원합니다.
 |커넥터 버전  |설명  |
 |---------|---------|
 |**보안 이벤트**     |Log Analytics 에이전트를 기반으로 하며 MMA(Microsoft Monitoring Agent) 또는 OMS 에이전트라고도 하는 레거시 버전입니다. <br><br>초당 10,000개의 이벤트로 제한됩니다. 최적의 성능을 보장하려면 초당 8,500개 이하의 이벤트를 유지해야 합니다.       |
-|**Windows 보안 이벤트**     |최신 버전이며 현재 미리 보기 상태에 있으며 AMA(Azure Monitor 에이전트)를 기반으로 합니다.   <br><br>특정 머신 그룹에 대한 사전 수집 로그 필터링 및 개별 데이터 수집 규칙과 같은 추가 기능을 지원합니다.      |
+|**Windows 보안 이벤트**     |**AMA(Azure Monitor 에이전트)를** 기반으로 하는 최신 버전(현재 일반 공급)입니다.   <br><br>특정 머신 그룹에 대한 사전 수집 로그 필터링 및 개별 데이터 수집 규칙과 같은 추가 기능을 지원합니다.      |
 |     |         |
 
 
@@ -43,13 +46,12 @@ Windows 보안 이벤트 커넥터에서는 다음 버전을 지원합니다.
 > Linux용 MMA는 로그를 여러 작업 영역으로 보내는 멀티 호밍을 지원하지 않습니다. 멀티 호밍이 필요한 경우 **Windows 보안 이벤트** 커넥터를 사용하는 것이 좋습니다.
 
 > [!TIP]
-> 여러 에이전트가 필요한 경우 로그 수집을 위해 여러 에이전트를 실행하도록 설정된 가상 머신 규모를 사용하거나 여러 머신을 사용할 수 있습니다. 그런 다음, 보안 이벤트와 Windows 보안 이벤트 커넥터 모두를 부하 분산 장치와 함께 사용하여 머신 과부하와 데이터 중복을 방지할 수 있습니다.
+> 여러 에이전트가 필요한 경우 로그 수집을 위해 여러 에이전트를 실행하도록 설정된 가상 머신 규모를 사용하거나 여러 머신을 사용할 수 있습니다. 그런 다음, 레거시 에이전트와 AMA 버전의 Windows 보안 Events 커넥터를 모두 부하 분산기와 함께 사용하여 머신이 오버로드되지 않도록 하고 데이터 중복을 방지할 수 있습니다.
 >
 
 이 문서에서는 두 버전의 커넥터에 대한 정보를 제공합니다. 아래 탭에서 선택하여 선택한 커넥터와 관련된 정보를 볼 수 있습니다.
 
-
-# <a name="log-analytics-agent-legacy"></a>[Log Analytics 에이전트(레거시)](#tab/LAA)
+# <a name="security-events-via-legacy-agent"></a>[레거시 에이전트를 통한 보안 이벤트](#tab/LAA)
 
 다음 <a name="event-sets"></a> 집합 중에서 스트리밍할 이벤트를 선택할 수 있습니다.
 
@@ -68,11 +70,11 @@ Windows 보안 이벤트 커넥터에서는 다음 버전을 지원합니다.
 >
 > - Azure Security Center에서 [보안 이벤트 수집을 사용하지 않도록 설정](../security-center/security-center-enable-data-collection.md)한 다음, Azure Sentinel에서 보안 이벤트 커넥터를 추가합니다. 첫 번째 옵션과 마찬가지로 Azure Sentinel 및 Azure Defender/ASC에서 이벤트를 쿼리하고 분석할 수 있지만, 이제 Azure Sentinel에서만 커넥터의 연결 상태를 모니터링하거나 구성을 변경할 수 있습니다.
 
-# <a name="azure-monitor-agent-new"></a>[Azure Monitor 에이전트(신규)](#tab/AMA)
+# <a name="windows-security-events-via-azure-monitor-agent-ama"></a>[Windows 보안 AMA(Azure Monitor Agent)를 통한 이벤트](#tab/AMA)
 
-> [!IMPORTANT]
+> [!NOTE]
 >
-> - AMA(Azure Monitor Agent)을 기준으로 하는 Windows 보안 이벤트 데이터 커넥터는 현재 **미리 보기** 로 제공됩니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> - 이제 AMA(Azure Monitor Agent)를 기반으로 하는 Windows 보안 Events 데이터 커넥터가 일반 공급으로 릴리스되었습니다.
 
 [Azure Monitor 에이전트](../azure-monitor/agents/azure-monitor-agent-overview.md)는 **DCR(데이터 수집 규칙)** 을 사용하여 각 에이전트에서 수집할 데이터를 정의합니다. 데이터 수집 규칙을 사용하면 수집 설정을 대규모로 관리하면서도 계속해서 머신의 하위 세트에 대해 고유하고 범위가 지정된 구성을 사용할 수 있습니다. 데이터 수집 규칙은 작업 영역 및 가상 머신을 가리지 않습니다. 즉 데이터 수집 규칙을 머신 및 환경 전체에서 한 번만 정의하면 다시 사용할 수 있습니다. [Azure Monitor 에이전트를 위한 데이터 수집 구성](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md)을 참조하세요.
 
@@ -83,7 +85,7 @@ Windows 보안 이벤트 커넥터에서는 다음 버전을 지원합니다.
 > [!NOTE]
 > - **다른 에이전트와 함께 사용 가능**
 > 
->   Azure Monitor 에이전트는 기존 에이전트와 함께 사용할 수 있으므로 평가 또는 마이그레이션 중에도 레거시 커넥터를 계속 사용할 수 있습니다. 이러한 기능은 기존 솔루션에 대한 지원이 제한적이기 때문에 새 커넥터가 미리 보기 상태로 제공되는 동안 특히 중요합니다. 하지만 중복 데이터를 수집하는 경우 쿼리 결과가 왜곡되고 데이터 수집 및 보존에 대한 추가 요금이 발생할 수 있으므로 주의해야 합니다.
+>   Azure Monitor 에이전트는 기존 에이전트와 함께 사용할 수 있으므로 평가 또는 마이그레이션 중에도 레거시 커넥터를 계속 사용할 수 있습니다. 하지만 중복 데이터를 수집하는 경우 쿼리 결과가 왜곡되고 데이터 수집 및 보존에 대한 추가 요금이 발생할 수 있으므로 주의해야 합니다.
 > 
 > - **Azure가 아닌 머신에서 보안 이벤트 수집**
 > 
@@ -99,11 +101,11 @@ Windows 보안 이벤트 커넥터에서는 다음 버전을 지원합니다.
 
 ## <a name="set-up-the-windows-security-events-connector"></a>Windows 보안 이벤트 커넥터 설정하기
 
-Azure Sentinel에서 Windows 보안 이벤트를 수집하기 위해서는
+Azure Sentinel Windows 보안 이벤트를 수집하려면 배포하려는 커넥터 버전에 따라 적절한 탭의 지침을 따릅니다.
 
-# <a name="log-analytics-agent-legacy"></a>[Log Analytics 에이전트(레거시)](#tab/LAA)
+# <a name="security-events-via-legacy-agent"></a>[레거시 에이전트를 통한 보안 이벤트](#tab/LAA)
 
-1. Azure Sentinel 탐색 메뉴에서 **데이터 커넥터** 를 선택합니다. 커넥터 목록에서 **보안 이벤트** 를 선택한 다음, 세부 정보 창에서 **커넥터 페이지 열기** 를 선택합니다. 그런 다음이 섹션의 나머지 부분에 설명된 대로 **지침** 탭의 화면 지시를 따릅니다.
+1. Azure Sentinel 탐색 메뉴에서 **데이터 커넥터** 를 선택합니다. 커넥터 목록에서 **레거시 에이전트를 통한 보안 이벤트를** 선택한 다음, 세부 정보 창에서 커넥터 페이지 **열기를** 선택합니다. 그런 다음이 섹션의 나머지 부분에 설명된 대로 **지침** 탭의 화면 지시를 따릅니다.
 
 1. 커넥터 페이지의 **사전 요구 사항** 섹션에 설명된 대로 적절한 사용 권한이 있는지 확인합니다.
 
@@ -134,9 +136,9 @@ Azure Sentinel에서 Windows 보안 이벤트를 수집하기 위해서는
 
 1. Windows 보안 이벤트에 대한 Log Analytics에서 관련 스키마를 사용하려면 쿼리 창에 `SecurityEvent`를 입력합니다.
 
-# <a name="azure-monitor-agent-new"></a>[Azure Monitor 에이전트(신규)](#tab/AMA)
+# <a name="windows-security-events-via-azure-monitor-agent-ama"></a>[Windows 보안 AMA(Azure Monitor Agent)를 통한 이벤트](#tab/AMA)
 
-1. Azure Sentinel 탐색 메뉴에서 **데이터 커넥터** 를 선택합니다. 커넥터 목록에서 **Windows 보안 이벤트(미리 보기)** 를 선택한 다음, 오른쪽 아래에 있는 **커넥터 페이지 열기** 단추를 선택합니다. 그런 다음이 섹션의 나머지 부분에 설명된 대로 **지침** 탭의 화면 지시를 따릅니다.
+1. Azure Sentinel 탐색 메뉴에서 **데이터 커넥터** 를 선택합니다. 커넥터 목록에서 **AMA를 통해 Windows 보안 이벤트를** 선택한 다음, 오른쪽 아래의 **커넥터 페이지 열기** 단추를 선택합니다. 그런 다음이 섹션의 나머지 부분에 설명된 대로 **지침** 탭의 화면 지시를 따릅니다.
 
 1. 커넥터 페이지의 **사전 요구 사항** 섹션에 설명된 대로 적절한 사용 권한이 있는지 확인합니다.
 
@@ -172,8 +174,8 @@ Azure Sentinel에서 Windows 보안 이벤트를 수집하기 위해서는
 > Get-WinEvent -LogName 'Application' -FilterXPath $XPath
 > ```
 > - 이벤트가 반환되면 쿼리가 유효합니다.
-> - 지정된 선택 조건과 일치하는 이벤트를 찾을 수 없다는 메시지가 표시되는 경우 쿼리는 유효하지만 로컬 컴퓨터에 일치하는 이벤트가 없습니다.
-> - 지정된 쿼리가 잘못되었습니다 메시지를 받으면 쿼리 구문이 잘못된 것입니다.
+> - "지정된 *선택 조건과 일치하는 이벤트를 찾을* 수 없습니다." 메시지가 수신되면 쿼리가 유효할 수 있지만 로컬 컴퓨터에 일치하는 이벤트가 없습니다.
+> - "지정된 *쿼리가 잘못되었습니다."라는* 메시지가 수신되면 쿼리 구문이 잘못되었습니다.
 
 ### <a name="create-data-collection-rules-using-the-api"></a>API를 사용하여 데이터 수집 규칙 만들기
 
@@ -250,7 +252,7 @@ Azure Sentinel은 ML(기계 학습)을 보안 이벤트 데이터에 적용하�
 
 **구성 지침**
 
-1. **보안 이벤트** 또는 **Windows 보안 이벤트** 데이터 커넥터를 통해 RDP 로그인 데이터(이벤트 ID 4624)를 수집해야 합니다. "없음" 이외의 [이벤트 세트](#event-id-reference)를 선택했거나 이 이벤트 ID를 포함하는 데이터 수집 규칙을 만들어 Azure Sentinel로 스트리밍했는지 확인합니다.
+1. **AMA** 데이터 커넥터를 통해 레거시 에이전트 또는 Windows 보안 이벤트를 통해 보안 이벤트를 통해 RDP 로그인 데이터(이벤트 ID 4624)를 수집해야 합니다.  "없음" 이외의 [이벤트 세트](#event-id-reference)를 선택했거나 이 이벤트 ID를 포함하는 데이터 수집 규칙을 만들어 Azure Sentinel로 스트리밍했는지 확인합니다.
 
 1. Azure Sentinel 포털에서 **분석** 을 선택한 다음, **규칙 템플릿** 탭을 선택합니다. **(미리 보기) 비정상적인 RDP 로그인 검색** 규칙을 선택하고 **상태** 슬라이더를 **사용** 으로 움직입니다.
 
@@ -271,4 +273,3 @@ Azure Sentinel은 ML(기계 학습)을 보안 이벤트 데이터에 적용하�
 이 문서에서는 Windows 보안 이벤트를 Azure Sentinel에 연결하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [데이터 및 잠재적 위협에 대한 가시성을 확보](get-visibility.md)하는 방법을 알아봅니다.
 - [기본 제공](detect-threats-built-in.md) 또는 [사용자 지정](detect-threats-custom.md) 규칙을 사용하여 Azure Sentinel에서 위협 검색을 시작합니다.
-

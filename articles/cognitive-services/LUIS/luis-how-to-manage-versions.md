@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/17/2020
-ms.openlocfilehash: b93e9fd4047ee3731ef6fe4652bb92ce5145987d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 10/25/2021
+ms.openlocfilehash: a6d1b95f99c56430d10403c74679114a72b19ce0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95018823"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131062210"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>스테이징 또는 프로덕션 앱에 영향을 주지 않고 버전을 사용하여 편집 및 테스트
 
@@ -66,3 +66,10 @@ ms.locfileid: "95018823"
 * 버전을 **삭제** 하려면 목록에서 버전을 선택한 다음, 도구 모음에서 **삭제** 를 선택합니다. **확인** 을 선택합니다.
 * 버전의 **이름을 바꾸려면** 목록에서 버전을 선택한 다음, 도구 모음에서 **이름 바꾸기** 를 선택합니다. 새 이름을 입력하고 **완료** 를 선택합니다.
 * 버전을 **내보내려면** 목록에서 버전을 선택한 다음, 도구 모음에서 **앱 내보내기** 를 선택합니다. 백업을 위해 내보내거나 소스 제어에 저장하려면 JSON 또는 LU를 선택하고 [LUIS 컨테이너에서 이 앱을 사용](luis-container-howto.md)하려면 **컨테이너 내보내기** 를 선택합니다.
+
+## <a name="see-also"></a>참고 항목
+
+애플리케이션 가져오기 및 내보내기를 위한 REST API를 보려면 다음 링크를 참조하세요.
+
+* [애플리케이션 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5892283039e2bb0d9c2805f5)
+* [애플리케이션 내보내기](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c40)

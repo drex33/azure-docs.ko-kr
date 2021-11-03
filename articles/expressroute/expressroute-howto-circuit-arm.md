@@ -7,13 +7,13 @@ ms.author: duau
 ms.date: 10/12/2020
 ms.topic: quickstart
 ms.service: expressroute
-ms.custom: devx-track-azurepowershell - mode-api
-ms.openlocfilehash: f4373de8491b914f5d755eed46e0878097aefb16
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.custom: devx-track-azurepowershell, mode-api
+ms.openlocfilehash: 8b2ad2e4d899603c5e20870a7c6e01c3b83d60e2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110695172"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073133"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 ExpressRoute 회로 만들기 및 수정
 

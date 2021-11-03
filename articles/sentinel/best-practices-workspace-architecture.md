@@ -8,14 +8,17 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/28/2021
-ms.openlocfilehash: 591d248bed623a31d9c120ae669615efa5c5544d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 81407a3f705668abe03f7cfbdc03fa205d19e108
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124763256"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060812"
 ---
 # <a name="azure-sentinel-workspace-architecture-best-practices"></a>Azure Sentinel 작업 영역 아키텍처 모범 사례
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Azure Sentinel 작업 영역 배포를 계획하는 경우 Log Analytics 작업 영역 아키텍처도 디자인해야 합니다. 작업 영역 아키텍처에 대한 결정은 일반적으로 비즈니스 및 기술 요구 사항에 따라 결정됩니다. 이 문서에서는 다음을 포함하여 조직에 적합한 작업 영역 아키텍처를 결정하는 데 도움이 되는 주요 결정 요소를 검토합니다.
 

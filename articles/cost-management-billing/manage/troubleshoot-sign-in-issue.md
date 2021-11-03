@@ -2,20 +2,20 @@
 title: Azure 구독 로그인 문제 해결
 description: Azure Portal에 로그인할 수 없는 문제를 해결하는 데 도움이 됩니다.
 services: cost-management-billing
-author: v-miegge
+author: jasonwhowell
 manager: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 07/16/2021
-ms.author: v-miegge
-ms.openlocfilehash: 57e9f35acc482c1d2d6d08dd1adce9780d706778
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
-ms.translationtype: HT
+ms.author: jasonh
+ms.openlocfilehash: 2ddd5f3fdb974eadba617afcd6f27d047534031b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114393007"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040892"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Azure 구독 로그인 문제 해결
 

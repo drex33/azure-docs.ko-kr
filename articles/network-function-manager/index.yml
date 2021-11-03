@@ -1,20 +1,20 @@
 ### YamlMime:Landing
-title: 네트워크 기능 관리자 설명서(미리 보기)
+title: 네트워크 기능 관리자 설명서
 summary: Azure 네트워크 기능 관리자는 네트워크 기능을 Azure Stack Edge 디바이스에 배포하기 위한 Azure Marketplace 환경을 제공합니다.
 metadata:
-  title: 네트워크 기능 관리자 설명서 미리 보기
+  title: 네트워크 기능 관리자 설명서
   description: 네트워크 기능 관리자에 대해 알아봅니다.
   ms.service: vnf-manager
   ms.topic: landing-page
-  author: cherylmc
-  ms.author: cherylmc
+  author: prmitt
+  ms.author: prmitt
   ms.date: 06/09/2021
-  ms.openlocfilehash: 350ee6e263c388af922cc9b5c44f411ab6491490
-  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+  ms.openlocfilehash: 70128380c0b9ebd5b34c770ee8700990f3aef976
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/24/2021
-  ms.locfileid: "128599433"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131004894"
 landingContent:
 - title: 네트워크 기능 관리자 정보
   linkLists:
@@ -28,10 +28,12 @@ landingContent:
       url: faq.md
 - title: 시작
   linkLists:
-  - linkListType: tutorial
+  - linkListType: quickstart
     links:
     - text: 디바이스 리소스 만들기
       url: create-device.md
+  - linkListType: tutorial
+    links:
     - text: 네트워크 기능 배포
       url: deploy-functions.md
 - title: 참조

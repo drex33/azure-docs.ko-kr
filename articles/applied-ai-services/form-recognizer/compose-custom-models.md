@@ -1,5 +1,5 @@
 ---
-title: 방법-사용자 지정 및 구성 된 모델
+title: '방법 가이드: 사용자 지정 및 구성 된 모델 사용'
 titleSuffix: Azure Applied AI Services
 description: 양식 인식기 사용자 지정 및 구성 된 모델을 만들고 사용 하 고 관리 하는 방법을 알아봅니다.
 author: laujan
@@ -7,17 +7,18 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 10/07/2021
+ms.date: 11/02/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: ef5514b44ad2d35870674a85958c28f5f780c308
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 5389e30e2aca2d93ba0fb27c71a6b934d7bf10e0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130233699"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131027793"
 ---
-# <a name="how-to-use-custom-and-composed-models"></a>방법: 사용자 지정 및 구성 된 모델 사용
+# <a name="use-custom-and-composed-models"></a>사용자 지정 및 구성 된 모델 사용
 
 Form Recognizer는 고급 기계 학습 기술을 사용하여 문서 이미지에서 정보를 탐지하여 추출하고, 추출된 데이터를 정형 JSON 출력으로 반환합니다. 양식 인식기를 사용 하면 독립 실행형 사용자 지정 모델을 학습 하거나 사용자 지정 모델을 결합 하 여 구성 된 모델을 만들 수 있습니다.
 
@@ -25,15 +26,19 @@ Form Recognizer는 고급 기계 학습 기술을 사용하여 문서 이미지�
 
 * **구성형 모델**. 구성형 모델은 사용자 지정 모델 컬렉션을 가져와서 사용자의 양식 유형을 포함하는 단일 모델에 할당하여 만듭니다. 구성형 모델에 문서가 제출되면 이 서비스에서는 분류 단계를 수행하여 분석용으로 제공된 양식을 정확히 나타내는 사용자 지정 모델을 결정합니다.
 
-이 문서에서는 [폼 인식기 샘플 레이블 도구](label-tool.md), [REST api](./quickstarts/try-sdk-rest-api.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model)또는 [클라이언트 라이브러리 Sdk](./quickstarts/try-sdk-rest-api.md?branch=main&pivots=programming-language-csharp#train-a-custom-model)를 사용 하 여 양식 인식기 사용자 지정 및 구성 된 모델을 만드는 방법을 살펴보겠습니다.
+***폼 인식기 스튜디오의 모델 구성 창***
 
-## <a name="try-it-sample-labeling-tool"></a>사용해 보기: 샘플 레이블 지정 도구
+:::image type="content" source="media/studio/composed-model.png" alt-text="스크린샷: 폼 인식기 스튜디오의 모델 구성 창":::
+
+이 문서에서는 [폼 인식기 샘플 레이블 도구](label-tool.md), [REST api](quickstarts/client-library.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model)또는 [클라이언트 라이브러리 Sdk](quickstarts/client-library.md?branch=main&pivots=programming-language-csharp#train-a-custom-model)를 사용 하 여 폼 인식기 사용자 지정 및 구성 된 모델을 만드는 방법에 대해 알아봅니다.
+
+## <a name="sample-labeling-tool"></a>샘플 레이블 지정 도구
 
 샘플 레이블 지정 도구를 사용해 서 사용자 지정 양식에서 데이터를 추출 하는 방법을 확인할 수 있습니다. 다음이 필요 합니다.
 
-* Azure 구독- [무료로 하나를 만들](https://azure.microsoft.com/free/cognitive-services/) 수 있습니다.
+* Azure 구독 – [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 
-* Azure Portal의 [폼 인식기 인스턴스입니다](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) . 무료 가격 책정 계층(`F0`)을 사용하여 서비스를 시도할 수 있습니다. 리소스를 배포한 후 **리소스로 이동** 을 클릭 하 여 API 키 및 끝점을 가져옵니다.
+* Azure Portal의 [폼 인식기 인스턴스입니다](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) . 무료 가격 책정 계층(`F0`)을 사용하여 서비스를 시도할 수 있습니다. 리소스를 배포한 후 **리소스로 이동** 을 선택 하 여 API 키 및 끝점을 가져옵니다.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="스크린샷: Azure Portal의 키 및 엔드포인트 위치.":::
 
@@ -96,7 +101,7 @@ Form Recognizer는 [레이아웃 API](concept-layout.md)를 사용하여 인쇄 
 
 모델 작성 작업을 사용하면 최대 100개의 학습된 모델을 단일 모델 ID에 할당할 수 있습니다. 작성된 모델 ID를 사용하여 분석을 호출하면 Form Recognizer는 먼저 사용자가 제출한 양식을 분류하고, 할당된 모델 중 가장 정확하게 일치하는 모델을 선택하고, 해당 모델에 대한 결과를 반환합니다. 이 작업은 들어오는 양식이 여러 템플릿 중 하나에 속할 수 있을 때 유용합니다.
 
-Form Recognizer 샘플 레이블 지정 도구, REST API 또는 클라이언트 라이브러리 SDK를 사용하는 경우 다음 단계에 따라 구성형 모델을 설정합니다.
+폼 인식기 샘플 레이블 도구, REST API 또는 클라이언트 라이브러리 Sdk를 사용 하 여 구성 된 모델을 설정 하려면 다음 단계를 수행 합니다.
 
 1. [**사용자 지정 모델 ID 수집**](#gather-your-custom-model-ids)
 1. [**사용자 지정 모델 작성**](#compose-your-custom-models)
@@ -105,9 +110,9 @@ Form Recognizer 샘플 레이블 지정 도구, REST API 또는 클라이언트 
 
 학습 프로세스가 성공적으로 완료되면 사용자 지정 모델에 모델 ID가 할당됩니다. 다음과 같이 모델 ID를 검색할 수 있습니다.
 
-### <a name="form-recognizer-sample-labeling-tool"></a>[**Form Recognizer 샘플 레이블 지정 도구**](#tab/fott)
+### <a name="form-recognizer-sample-labeling-tool"></a>[**폼 인식기 샘플 레이블 지정 도구**](#tab/fott)
 
-[**Form Recognizer 샘플 레이블 지정 도구**](https://fott-2-1.azurewebsites.net/)를 사용하여 모델을 학습시키는 경우 모델 ID는 학습 결과 창에 있습니다.
+[**폼 인식기 샘플 레이블 지정 도구**](https://fott-2-1.azurewebsites.net/)를 사용 하 여 모델을 학습 하는 경우 모델 ID는 학습 결과 창에 있습니다.
 
 :::image type="content" source="media/fott-training-results.png" alt-text="스크린샷: 학습 결과 창":::
 
@@ -135,9 +140,9 @@ Form Recognizer 샘플 레이블 지정 도구, REST API 또는 클라이언트 
 
 단일 양식 유형에 해당하는 사용자 지정 모델을 수집한 후에는 사용자 지정 모델을 단일 모델로 구성할 수 있습니다.
 
-### <a name="form-recognizer-sample-labeling-tool"></a>[**Form Recognizer 샘플 레이블 지정 도구**](#tab/fott)
+### <a name="form-recognizer-sample-labeling-tool"></a>[**폼 인식기 샘플 레이블 지정 도구**](#tab/fott)
 
-**샘플 레이블 지정 도구** 를 사용하면 신속하게 모델 학습을 시작하여 단일 모델 ID로 작성할 수 있습니다.
+**샘플 레이블 지정 도구** 를 사용 하면 신속 하 게 학습 하 고 단일 모델 ID로 모델을 작성할 수 있습니다.
 
 학습을 완료한 후에는 다음과 같이 모델을 작성합니다.
 
@@ -173,9 +178,9 @@ Form Recognizer 샘플 레이블 지정 도구, REST API 또는 클라이언트 
 
 ## <a name="analyze-documents-with-your-custom-or-composed-model"></a>사용자 지정 모델 또는 구성형 모델로 문서 분석
 
- 사용자 지정 양식 **분석** 작업을 수행하려면 Form Recognizer 호출에서 를 제공해야 `modelID`  합니다. `modelID` 매개 변수에 대한 단일 사용자 지정 모델 ID 또는 구성형 모델 ID를 제공하면 됩니다.
+ 사용자 지정 폼 **분석** 작업을 수행 하려면 `modelID`  폼 인식기에 대 한 호출에서를 제공 해야 합니다. `modelID` 매개 변수에 대한 단일 사용자 지정 모델 ID 또는 구성형 모델 ID를 제공하면 됩니다.
 
-### <a name="form-recognizer-sample-labeling-tool"></a>[**Form Recognizer 샘플 레이블 지정 도구**](#tab/fott)
+### <a name="form-recognizer-sample-labeling-tool"></a>[**폼 인식기 샘플 레이블 지정 도구**](#tab/fott)
 
 1. 도구의 왼쪽 창 메뉴에서 **분석 아이콘**(전구)을 선택합니다.
 

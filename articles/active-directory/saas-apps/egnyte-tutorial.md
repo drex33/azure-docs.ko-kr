@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 9e82c980bb92832c3abd092ed799cf55b6f47438
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 9a4fa43318a7e56e93cfe3a439eadcec2e476002
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124835685"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049352"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-egnyte"></a>자습서: Egnyte와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "124835685"
 * 사용자가 자신의 Azure AD 계정으로 Egnyte에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -137,21 +137,21 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![Single Sign On 인증](./media/egnyte-tutorial/authentication.png "Single Sign On 인증")   
     
-    a. **Single Sign-On 인증** 으로 **SAML 2.0** 을 선택합니다.
-   
-    b. **ID 공급자** 로 **AzureAD** 를 선택합니다.
-   
-    다. Azure Portal에서 복사한 **로그인 URL** 을 **ID 공급자 로그인 URL** 텍스트 상자에 붙여 넣습니다.
-   
-    d. Azure Portal에서 복사한 **Azure AD 식별자** 를 **ID 공급자 엔터티 ID** 텍스트 상자에 붙여 넣습니다.
-      
-    e. Azure Portal에서 다운로드한 base-64로 인코딩된 인증서를 메모장에서 열고, 콘텐츠를 클립보드에 복사한 다음, **ID 공급자 인증서** 텍스트 상자에 붙여넣습니다.
-   
-    f. **기본 사용자 매핑** 으로 **전자 메일 주소** 를 선택합니다.
-   
-    g. **도메인별 발급자 값 사용** 으로 **사용 안 함** 을 선택합니다.
-   
-    h. **저장** 을 클릭합니다.
+    1. **Single Sign-On 인증** 으로 **SAML 2.0** 을 선택합니다.
+
+    1. **ID 공급자** 로 **AzureAD** 를 선택합니다.
+
+    1. Azure Portal에서 복사한 **로그인 URL** 을 **ID 공급자 로그인 URL** 텍스트 상자에 붙여 넣습니다.
+
+    1. Azure Portal에서 복사한 **Azure AD 식별자** 를 **ID 공급자 엔터티 ID** 텍스트 상자에 붙여 넣습니다.
+
+    1. Azure Portal에서 다운로드한 base-64로 인코딩된 인증서를 메모장에서 열고, 콘텐츠를 클립보드에 복사한 다음, **ID 공급자 인증서** 텍스트 상자에 붙여넣습니다.
+
+    1. **기본 사용자 매핑** 으로 **전자 메일 주소** 를 선택합니다.
+
+    1. **도메인별 발급자 값 사용** 으로 **사용 안 함** 을 선택합니다.
+
+    1. **저장** 을 클릭합니다.
 
 ### <a name="create-egnyte-test-user"></a>Egnyte 테스트 사용자 만들기
 

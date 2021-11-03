@@ -4,21 +4,23 @@ description: 연속 비디오 녹화 또는 이벤트 기반 기록을 위해 Az
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 08/06/2021
-ms.openlocfilehash: 38fcd60352fe151637e0e7f8fa4dfe9159b12915
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: fb6014649e6fe71a2d2de5e4d7adb72ba9b66a37
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128620714"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131012165"
 ---
 # <a name="embed-player-widget-in-power-bi"></a>Power BI에 플레이어 위젯 포함
+
 
 Azure Video Analyzer를 사용하면 비디오 및 연결된 유추 메타데이터를 Video Analyzer 클라우드 리소스에 [기록](detect-motion-record-video-clips-cloud.md)할 수 있습니다. Video Analyzer에는 쉽게 포함할 수 있는 [플레이어 위젯](player-widget.md)이 있으며, 이 위젯을 통해 클라이언트 앱은 비디오 및 유추 메타데이터를 재생할 수 있습니다.
 
 대시보드를 통해 유용하게 비즈니스를 모니터링하고 가장 중요한 모든 메트릭을 한눈에 볼 수 있습니다. Power BI 대시보드는 IoT Hub의 원격 분석을 비롯하여 여러 데이터 원본과 비디오를 결합할 수 있는 강력한 도구입니다. 이 자습서에서는 [Microsoft Power BI](https://powerbi.microsoft.com/) 웹 서비스를 사용하여 하나 이상의 플레이어 위젯을 대시보드에 추가하는 방법을 알아봅니다.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/power-bi/embed-block-diagram.png" alt-text="Microsoft Power BI Azure Video Analyzer 플레이어 위젯을 포함하기 위한 블록 다이어그램입니다.":::
+> :::image type="content" source="./media/power-bi/embed-block-diagram.svg" alt-text="Microsoft Power BI Azure Video Analyzer 플레이어 위젯을 포함하도록 다이어그램 차단":::
 
 ## <a name="suggested-pre-reading"></a>추천 참고 자료
 

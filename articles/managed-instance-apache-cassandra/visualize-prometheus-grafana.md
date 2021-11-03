@@ -4,21 +4,17 @@ description: VM에 Grafana를 설치 및 구성하여 Azure Managed Instance for
 author: TheovanKraay
 ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 11/02/2021
 ms.author: thvankra
-ms.openlocfilehash: ed0ff343595429a4cb81fef280203f1180eeb098
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 4464db95637511339e0000235b85da86306b4cef
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101745589"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051024"
 ---
 # <a name="configure-grafana-to-visualize-metrics-emitted-from-the-managed-instance-cluster"></a>관리되는 인스턴스 클러스터에서 내보낸 메트릭을 시각화하도록 Grafana 구성
-
-> [!IMPORTANT]
-> Apache Cassandra용 Azure Managed Instance는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Azure Managed Instance for Apache Cassandra를 배포할 때 서비스는 다양한 클라이언트 도구에서 사용할 수 있는 [Prometheus](https://prometheus.io/)를 호스팅하는 서버를 프로비저닝합니다. Prometheus는 오픈 소스 모니터링 솔루션입니다. 관리되는 인스턴스는 메트릭을 내보내고 10분 또는 10GB의 데이터를 유지합니다(먼저 도달하는 임계값을 기준으로 함). 이 문서에서는 관리되는 인스턴스 클러스터에서 내보낸 메트릭을 시각화하도록 Grafana를 구성하는 방법을 설명합니다. 메트릭을 시각화하려면 다음 작업이 필요합니다.
 
@@ -116,5 +112,5 @@ Azure Managed Instance for Apache Cassandra를 배포할 때 서비스는 다양
 
 이 문서에서는 Grafana를 사용하여 Prometheus에서 메트릭을 시각화하도록 대시보드를 구성하는 방법을 배웠습니다. 다음 문서에서 Azure Managed Instance for Apache Cassandra에 대해 자세히 알아보세요.
 
-* [Azure Managed Instance for Apache Cassandra 개요](introduction.md)
-* [Azure Databricks를 사용하여 관리형 Apache Spark 클러스터 배포(미리 보기)](deploy-cluster-databricks.md)
+* [Apache Cassandra용 Azure Managed Instance 개요](introduction.md)
+* [Azure Databricks를 사용하여 관리형 Apache Spark 클러스터 배포](deploy-cluster-databricks.md)

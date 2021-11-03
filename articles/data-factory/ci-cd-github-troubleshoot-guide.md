@@ -9,24 +9,24 @@ ms.service: data-factory
 ms.subservice: ci-cd
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 09/09/2021
-ms.openlocfilehash: afba2903fc01a8f6e866f91074bdefa427dff7aa
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 10/25/2021
+ms.openlocfilehash: 1c73346cde1eb20f17973b65e43a8d1c4148b41c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129217975"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073247"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-azure-data-factory-and-synapse-analytics"></a>Azure Data Factory 및 Synapse Analytics CI-CD, Azure DevOps 및 GitHub 문제 해결 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 CI-CD(지속적인 Integration-Continuous 배포), Azure DevOps 및 Azure Data Factory 및 Synapse Analytics GitHub 문제에 대한 일반적인 문제 해결 방법을 살펴보겠습니다.
+이 문서에서는 CI-CD(지속적인 Integration-Continuous 배포), Azure DevOps 및 Azure Data Factory 및 GitHub Synapse Analytics 문제에 대한 일반적인 문제 해결 방법을 살펴보겠습니다.
 
 소스 제어 또는 DevOps 기술 사용에 관한 질문 또는 문제가 있으면 다음 문서에서 유용한 정보를 찾아볼 수 있습니다.
 
 - 소스 [제어를](source-control.md) 참조하여 서비스에서 소스 제어를 연습하는 방법을 알아봅니다. 
-- 서비스에서 [CI-CD를](continuous-integration-delivery.md) DevOps 방법을 자세히 알아보려면 CI-CD를 참조합니다.
+- 서비스에서 [CI-CD를](continuous-integration-delivery.md) DevOps 방법에 대한 자세한 내용은 CI-CD를 참조합니다.
 
 ## <a name="common-errors-and-messages"></a>일반적인 오류 및 메시지
 
@@ -38,7 +38,7 @@ ms.locfileid: "129217975"
 
 #### <a name="cause"></a>원인
 
-관찰한 내용은 원래 테넌트에서 토큰을 얻었지만 서비스가 게스트 테넌트에서 토큰을 사용하여 게스트 테넌트에서 DevOps 방문하려고 한다는 것입니다. 이것은 예상된 동작이 아닙니다.
+관찰한 내용은 토큰이 원래 테넌트에서 가져온 것이지만 서비스가 게스트 테넌트에서 토큰을 사용하여 게스트 테넌트에서 DevOps 방문하려고 한다는 것입니다. 이것은 예상된 동작이 아닙니다.
 
 #### <a name="recommendation"></a>권장
 
@@ -144,7 +144,7 @@ ARM 템플릿을 내보내고 가져올 수 없습니다. 포털에 오류가 �
 
 #### <a name="cause"></a>원인
 
-고객 역할을 사용자로 만들었지만 필요한 권한이 없습니다. UI가 로드되면 일련의 노출 제어 값이 확인됩니다. 여기에서는 사용자의 액세스 역할에 *queryFeaturesValue* API 액세스 권한이 없습니다. 이 API에 액세스하기 위해 전역 매개변수 기능이 해제되어 있습니다. ARM 코드 내보내기 경로에 부분적으로 전역 매개변수 기능이 사용됩니다.
+고객 역할을 사용자로 만들었지만 필요한 권한이 없습니다. UI가 로드되면 일련의 노출 제어 값이 검사됩니다. 여기에서는 사용자의 액세스 역할에 *queryFeaturesValue* API 액세스 권한이 없습니다. 이 API에 액세스하기 위해 전역 매개변수 기능이 해제되어 있습니다. ARM 코드 내보내기 경로에 부분적으로 전역 매개변수 기능이 사용됩니다.
 
 #### <a name="resolution"></a>해결 방법
 
@@ -154,7 +154,7 @@ ARM 템플릿을 내보내고 가져올 수 없습니다. 포털에 오류가 �
 
 #### <a name="cause"></a>원인
 
-최근까지 포털에서 UI를 클릭하여 배포용 파이프라인을 게시할 수 있었습니다. 이제 이 프로세스를 자동화할 수 있습니다.
+최근까지 포털에서 UI를 클릭하여 배포용 파이프라인만 게시할 수 있었습니다. 이제 이 프로세스를 자동화할 수 있습니다.
 
 #### <a name="resolution"></a>해결 방법
 
@@ -196,7 +196,7 @@ Azure Resource Manager는 템플릿 크기를 4MB로 제한합니다. 템플릿�
 
 #### <a name="cause"></a>원인
 
-DevOps 또는 Git을 사용하여 원본 제어가 구성된 경우에만 인스턴스를 복구할 수 있습니다. 이 작업은 게시된 모든 리소스를 가져오지만 게시되지 않은 파이프라인, 데이터 세트 또는 연결된 서비스는 **복원하지 않습니다.** 원본 제어가 없는 경우 Azure 백 엔드에서 삭제된 인스턴스를 복구할 수 없습니다. 서비스가 delete 명령을 받으면 백업 없이 인스턴스가 영구적으로 삭제되므로 가능합니다.
+DevOps 또는 Git을 사용하여 원본 제어가 구성된 경우에만 인스턴스를 복구할 수 있습니다. 이 작업은 게시된 모든 리소스를 가져오지만 게시되지 않은 파이프라인, 데이터 세트 또는 연결된 서비스는 **복원하지 않습니다.** 원본 제어가 없으면 Azure 백 엔드에서 삭제된 인스턴스를 복구할 수 없습니다. 서비스가 delete 명령을 받으면 백업 없이 인스턴스가 영구적으로 삭제됩니다.
 
 #### <a name="resolution"></a>해결 방법
 
@@ -208,7 +208,7 @@ DevOps 또는 Git을 사용하여 원본 제어가 구성된 경우에만 인스
 
  * 변경 사항을 협업 분기로 병합하기 위해 끌어오기 요청을 만들고 게시합니다.
 
- * 삭제된 데이터 팩터리 또는 Synapse 작업 영역에 자체 호스팅 Integration Runtime 있는 경우 새 팩터리 또는 작업 영역에 IR의 새 인스턴스를 만들어야 합니다.  온-프레미스 또는 가상 머신 IR 인스턴스를 제거하고 다시 설치해야 하며 새 키를 획득해야 합니다. 새 IR 설치가 완료되면 연결된 서비스가 새 IR을 가리키도록 업데이트되고 연결된 가 다시 테스트되어야 합니다. 그렇지 않은 경우 잘못된 참조 오류로 **실패합니다.**
+ * 삭제된 데이터 팩터리 또는 Synapse 작업 영역에 자체 호스팅 Integration Runtime 있는 경우 새 팩터리 또는 작업 영역에 IR의 새 인스턴스를 만들어야 합니다.  온-프레미스 또는 가상 머신 IR 인스턴스를 제거하고 다시 설치해야 하며 새 키를 획득해야 합니다. 새 IR 설정이 완료되면 새 IR을 가리키도록 연결된 서비스를 업데이트하고 연결된 을 다시 테스트해야 합니다. 그렇지 않은 경우 잘못된 참조 오류로 **실패합니다.**
 
 ### <a name="cannot-deploy-to-different-stage-using-automatic-publish-method"></a>자동 게시 방법을 사용하여 다른 스테이지에 배포할 수 없음
 
@@ -286,7 +286,7 @@ DevOps 게시할 때 추가 "["가 표시됩니다. 이 서비스는 DevOps ARMT
 개발된 파이프라인을 배포하는 테스트 파이프라인 스테이지를 설정합니다. 테이블 데이터가 예상한 데이터인지 확인하기 위해 Python 테스트를 실행하도록 테스트 스테이지를 구성합니다. CI/CD를 사용하지 않는 경우 **Nunit** 를 사용하여 원하는 테스트로 배포된 파이프라인을 트리거할 수 있습니다. 결과에 만족하면 마지막으로 파이프라인을 프로덕션 인스턴스에 게시할 수 있습니다. 
 
 
-### <a name="pipeline-runs-temporarily-fail-after-cicd-deployment-or-authoring-updates"></a>CI/CD 배포 또는 업데이트 작성 후 파이프라인 실행이 일시적으로 실패합니다.
+### <a name="pipeline-runs-temporarily-fail-after-cicd-deployment-or-authoring-updates"></a>CI/CD 배포 또는 업데이트 작성 후 파이프라인 실행이 일시적으로 실패
 
 #### <a name="issue"></a>문제
 일정 시간 후에 임시 실패 후 사용자 작업 없이 새 파이프라인 실행이 성공하기 시작합니다.
@@ -297,7 +297,30 @@ DevOps 게시할 때 추가 "["가 표시됩니다. 이 서비스는 DevOps ARMT
 
 #### <a name="resolution"></a>해결 방법
 
-부모 파이프라인의 새 실행이 자동으로 성공하기 시작하므로 일반적으로 아무 작업도 필요하지 않습니다. 그러나 이러한 오류를 방지하려면 고객은 주요 변경 내용을 방지하기 위해 배포를 작성하고 계획하는 동안의 의존도를 고려해야 합니다. 
+부모 파이프라인의 새 실행이 자동으로 성공하기 시작하므로 일반적으로 아무 작업도 필요하지 않습니다. 그러나 이러한 오류를 방지하려면 고객은 주요 변경 내용을 방지하기 위해 배포를 작성하고 계획하는 동안 의존을 고려해야 합니다. 
+
+### <a name="cannot-parameterize-integration-run-time-in-linked-service"></a>연결된 서비스에서 통합 런타임을 매개 변수화할 수 없음
+
+#### <a name="issue"></a>문제
+연결된 서비스 통합 런타임을 매개 변수화해야 합니다.
+
+#### <a name="cause"></a>원인
+이 기능은 지원되지 않습니다. 
+
+#### <a name="resolution"></a>해결 방법
+수동으로 선택하고 통합 런타임을 설정해야 합니다. PowerShell API를 사용하여 변경할 수도 있습니다.  이 변경은 다운스트림에 영향을 줄 수 있습니다. 
+
+### <a name="updatechange-integration-runtime-during-cicd"></a>CI/CD를 실행 하는 동안 통합 런타임 업데이트/변경 
+ 
+#### <a name="issue"></a>문제
+CI/CD 배포 중에 Integration runtime 이름을 변경 하 고 있습니다.  
+ 
+#### <a name="cause"></a>원인
+엔터티 참조 (연결 된 서비스의 통합 런타임, 작업의 데이터 집합, 데이터 집합의 연결 된 서비스)를 매개 변수화 하는 것은 지원 되지 않습니다.  배포 하는 동안 런타임 이름을 변경 하면 종속 리소스 (통합 런타임을 참조 하는 리소스)가 잘못 된 참조로 잘못 된 형식이 됩니다.  
+ 
+#### <a name="resolution"></a>해결 방법
+Data Factory를 사용 하려면 CI/CD의 모든 단계에서 통합 런타임의 이름과 형식이 동일 해야 합니다. 
+
 
 ## <a name="next-steps"></a>다음 단계
 

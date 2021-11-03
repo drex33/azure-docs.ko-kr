@@ -9,12 +9,13 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 03/24/2021
 ms.author: JenCook
-ms.openlocfilehash: 72c3f523ebc3cfef43709153c09c416d32e0b1b8
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 2f74c34f9c0b2e854a23753b755a9d83f93d6bf0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114469603"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024476"
 ---
 # <a name="run-an-application-by-using-fortanix-confidential-computing-manager"></a>Fortanix Confidential Computing Manager를 사용하여 애플리케이션 실행
 
@@ -125,7 +126,7 @@ Fortanix 노드 에이전트를 만들면 가상 머신, 네트워크 인터페�
 1. 이 페이지에서 가상 머신을 배포하기 위한 정보를 입력합니다. VM은 Fortanix 노드 에이전트 소프트웨어가 설치된 Azure의 DCsv2 시리즈 Intel SGX 지원 가상 머신입니다. 노드 에이전트를 사용하면 변환된 이미지를 Azure의 Intel SGX 노드에서 향상된 보안으로 실행할 수 있습니다. 구독을 선택하고 가상 머신 및 관련 리소스를 배포하려는 리소스 그룹을 선택합니다.
 
    > [!NOTE]
-   > Azure에서 DCsv2 시리즈 가상 머신을 배포할 때 제약 조건이 적용됩니다. 추가 코어에 대한 할당량을 요청해야 할 수도 있습니다. 자세한 내용은 [Azure VM의 기밀 컴퓨팅 솔루션](./virtual-machine-solutions.md)을 참조하세요.
+   > Azure에서 DCsv2 시리즈 가상 머신을 배포할 때 제약 조건이 적용됩니다. 추가 코어에 대한 할당량을 요청해야 할 수도 있습니다. 자세한 내용은 [Azure VM의 기밀 컴퓨팅 솔루션](./virtual-machine-solutions-sgx.md)을 참조하세요.
 
 1. 사용 가능한 지역을 선택합니다.
 1. **노드 이름** 상자에 가상 머신의 이름을 입력합니다.
@@ -175,7 +176,7 @@ Fortanix 노드 에이전트를 만들면 가상 머신, 네트워크 인터페�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Fortanix 도구를 사용하여 애플리케이션 이미지가 기밀 컴퓨팅 가상 머신을 기반으로 실행되도록 변환했습니다. Azure의 기밀 컴퓨팅 가상 머신에 대한 자세한 내용은 [가상 머신에 대한 솔루션](virtual-machine-solutions.md)을 참조하세요.
+이 자습서에서는 Fortanix 도구를 사용하여 애플리케이션 이미지가 기밀 컴퓨팅 가상 머신을 기반으로 실행되도록 변환했습니다. Azure의 기밀 컴퓨팅 가상 머신에 대한 자세한 내용은 [가상 머신에 대한 솔루션](virtual-machine-solutions-sgx.md)을 참조하세요.
 
 Azure의 기밀 컴퓨팅 제품에 대한 자세한 정보를 보려면 [Azure 기밀 컴퓨팅 개요](overview.md)를 참조하세요.
 

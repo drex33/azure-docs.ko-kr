@@ -12,14 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 38b595e4f9b2582f3baefecabf6285ee36436ad6
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 02ba134062b51ba074ad5d19506eef13e5e3b89c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123260066"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131004267"
 ---
 # <a name="connect-azure-stack-hub-virtual-machines-to-azure-sentinel"></a>Azure Sentinel에 Azure Stack Hub 가상 머신 연결
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Azure Sentinel을 사용하면 Azure에서 실행되는 VM과 Azure Stack Hub를 한 곳에서 모니터링할 수 있습니다. Azure Sentinel에 Azure Stack 머신을 온보딩하려면 먼저 기존 Azure Stack Hub 가상 머신에 가상 머신 확장을 추가해야 합니다. 
 

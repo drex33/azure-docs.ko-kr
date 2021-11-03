@@ -3,12 +3,13 @@ title: Azure Container Registry의 리포지토리에 대한 권한
 description: 프리미엄 레지스트리의 특정 리포지토리로 범위가 지정된 권한으로 토큰을 만들어 이미지를 풀하거나 푸시하거나 다른 작업을 수행합니다.
 ms.topic: article
 ms.date: 02/04/2021
-ms.openlocfilehash: 796d98173a5ec850af2f8dbec3e8bfd1db902ca0
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 560722669dc663799af3219393cb7bdc4acdf3ab
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114220437"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037989"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>리포지토리 범위 권한이 있는 토큰 만들기
 
@@ -428,7 +429,7 @@ az acr token delete --name MyToken --registry myregistry
 
 * 범위 맵 및 토큰을 관리하기 위해 [az acr scope-map][az-acr-scope-map] 및 [az acr token][az-acr-token] 명령 그룹의 추가 명령을 사용합니다.
 * Azure 컨테이너 레지스트리를 사용하여 인증하는 다른 옵션(Azure Active Directory ID, 서비스 주체 또는 관리자 계정 사용 포함)은 [인증 개요](container-registry-authentication.md)를 참조하세요.
-
+* 연결된 [레지스트리에](intro-connected-registry.md) 대해 알아보고 [액세스에](overview-connected-registry-access.md)토큰을 사용하는 방법을 알아봅니다.
 
 <!-- LINKS - External -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

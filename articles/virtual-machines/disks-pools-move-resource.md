@@ -4,15 +4,16 @@ description: Azure 디스크 풀을 다른 구독으로 이동하는 방법을 �
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 629ca5617bfc2166e10172863fc6d7560698919d
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 71b0fd25412f7269e7de717ee2b8f1b4df056011
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114436939"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131082781"
 ---
 # <a name="move-a-disk-pool-preview-to-a-different-subscription"></a>디스크 풀(미리 보기)을 다른 구독으로 이동
 

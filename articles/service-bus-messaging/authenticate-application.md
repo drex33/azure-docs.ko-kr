@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Service Bus 엔터티(큐, 토픽 등)에
 ms.topic: conceptual
 ms.date: 06/14/2021
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: cf9e65468567764e5fe7c91455f010dd6d46831f
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 3ca9284746460b3ab3369b4c9c00d7951784cff8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129359950"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064015"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Azure Service Bus 엔터티에 액세스하기 위해 Azure Active Directory를 사용하여 애플리케이션 인증 및 권한 부여
 Azure Service Bus에서는 Azure AD(Azure Active Directory)를 사용하여 Service Bus 엔터티(큐, 주제, 구독 또는 필터)에 대한 요청에 권한을 부여할 수 있습니다. Azure AD를 사용하면 Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 사용자, 그룹 또는 애플리케이션 서비스 주체일 수 있는 보안 주체에 권한을 부여할 수 있습니다. 역할 및 역할 할당에 대한 자세한 내용은 [다양한 역할 이해](../role-based-access-control/overview.md)를 참조하세요.
@@ -102,9 +102,9 @@ Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정
     ![클라이언트 암호](./media/authenticate-application/client-secret.png)
 
 ### <a name="permissions-for-the-service-bus-api"></a>Service Bus API에 대한 사용 권한
-사용 중인 애플리케이션은 콘솔 애플리케이션이므로 네이티브 애플리케이션을 등록하고 **Microsoft.ServiceBus** 에 대한 API 사용 권한을 **필요한 권한** 집합에 추가해야 합니다. 네이티브 애플리케이션은 ID 역할을 하는 Azure AD의 **리디렉션 URI** 가 필요합니다. URI가 네트워크 대상일 필요는 없습니다. 이 예제의 경우 샘플 코드가 이미 해당 URI를 사용하므로 `https://servicebus.microsoft.com`을 사용합니다.
+사용 중인 애플리케이션은 콘솔 애플리케이션이므로 네이티브 애플리케이션을 등록하고 **Microsoft.ServiceBus** 에 대한 API 사용 권한을 **필요한 권한** 집합에 추가해야 합니다. 또한 네이티브 응용 프로그램에는 식별자 역할을 하는 Azure AD의 **리디렉션 uri** 가 필요 합니다. URI는 네트워크 대상이 될 필요가 없습니다. 이 예제의 경우 샘플 코드가 이미 해당 URI를 사용하므로 `https://servicebus.microsoft.com`을 사용합니다.
 
-### <a name="authenticating-the-service-bus-client"></a>Service Bus 클라이언트 인증   
+### <a name="authenticating-the-service-bus-client"></a>Service Bus 클라이언트 인증
 애플리케이션을 등록하고 Azure Service Bus에서 데이터를 보내고 받을 수 있는 권한을 부여한 후에는 클라이언트 암호 자격 증명을 사용하여 클라이언트를 인증할 수 있습니다. 그러면 Azure Service Bus에 대한 요청을 수행할 수 있습니다.
 
 토큰 획득이 지원되는 시나리오 목록은 [Microsoft Authentication Library (MSAL) for .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) GitHub 리포지토리의 [시나리오](https://aka.ms/msal-net-scenarios) 섹션을 참조하세요.

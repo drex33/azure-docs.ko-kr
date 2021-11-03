@@ -8,24 +8,25 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 09/20/2021
 ms.author: cherylmc
-ms.openlocfilehash: 4e08aed1b1b91f55a12f5920dfff898cd0109bae
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 433b86cb879fbe0541b9da3a6ae2edcb99e98b7b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129278598"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131071556"
 ---
-# <a name="create-an-ssh-connection-to-a-windows-vm-using-azure-bastion-preview"></a>Azure Bastion 사용하여 Windows VM에 대한 SSH 연결 만들기(미리 보기)
+# <a name="create-an-ssh-connection-to-a-windows-vm-using-azure-bastion"></a>Azure Bastion 사용하여 Windows VM에 대한 SSH 연결 만들기
 
 이 문서에서는 Azure Portal 통해 Azure 가상 네트워크에 있는 Windows VM에 대한 RDP 연결을 안전하고 원활하게 만드는 방법을 보여 줍니다. Azure Bastion을 사용하는 경우 VM에는 클라이언트, 에이전트 또는 추가 소프트웨어가 필요하지 않습니다. RDP를 사용하여 Windows VM에 연결할 수도 있습니다. 자세한 내용은 [Windows VM에 대한 RDP 연결 만들기를 참조하세요.](bastion-connect-vm-rdp-windows.md)
 
 Azure Bastion은 프로비저닝된 가상 네트워크의 모든 VM에 대한 안전한 연결을 제공합니다. Azure Bastion을 사용하면 가상 머신에서 RDP/SSH를 사용하여 안전한 액세스 권한을 계속 제공하며 RDP/SSH 포트가 외부 환경에 노출되는 상황으로부터 보호합니다. 자세한 내용은 [Azure Bastion이란?](bastion-overview.md)을 참조하세요.
 
 > [!NOTE]
-> Windows VM에 대한 SSH 연결을 만들려면 표준 SKU를 사용하여 Azure Bastion 구성해야 합니다. 표준 SKU는 현재 미리 보기 상태입니다.
+> Windows VM에 대한 SSH 연결을 만들려면 표준 SKU를 사용하여 Azure Bastion 구성해야 합니다.
 >
 
-SSH를 사용하여 Windows 가상 머신에 연결할 때 인증에 사용자 이름/암호 및 SSH 키를 모두 사용할 수 있습니다. 다음 중 하나를 사용하면 SSH 키를 통해 VM에 연결할 수 있습니다.
+SSH를 사용하여 Windows 가상 머신에 연결할 때 인증에 사용자 이름/암호와 SSH 키를 모두 사용할 수 있습니다. 다음 중 하나를 사용하면 SSH 키를 통해 VM에 연결할 수 있습니다.
 
 * 수동으로 입력하는 프라이빗 키
 * 프라이빗 키 정보가 포함된 파일
@@ -71,7 +72,7 @@ SSH를 통해 Windows VM에 연결하려면 VM에서 다음 포트가 열려 있
 
     :::image type="content" source="./media/bastion-connect-vm-ssh-windows/connection-settings.png" alt-text="연결 설정을 보여주는 스크린샷." lightbox="./media/bastion-connect-vm-ssh-windows/connection-settings.png":::
 
-1. 사용자 **이름** 및 **암호** 를 입력한 **다음, 커넥트** 선택하여 VM에 연결합니다.
+1. 사용자 **이름** 및 **암호를** 입력한 **다음, 커넥트** 선택하여 VM에 연결합니다.
 
    :::image type="content" source="./media/bastion-connect-vm-ssh-windows/authentication.png" alt-text="암호 인증의 스크린샷." lightbox="./media/bastion-connect-vm-ssh-windows/authentication.png":::
 
@@ -95,7 +96,7 @@ SSH를 통해 Windows VM에 연결하려면 VM에서 다음 포트가 열려 있
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다. 연결하려는 가상 머신으로 이동한 다음, **연결** 을 클릭하고 드롭다운에서 **Bastion** 을 선택합니다.
 
-   :::image type="content" source="./media/bastion-connect-vm-ssh-windows/connect.png" alt-text="커넥트 선택한 Azure Portal 가상 머신에 대한 개요를 스크린샷" lightbox="./media/bastion-connect-vm-ssh-windows/connect.png":::
+   :::image type="content" source="./media/bastion-connect-vm-ssh-windows/connect.png" alt-text="커넥트 선택된 Azure Portal 가상 머신에 대한 개요를 스크린샷" lightbox="./media/bastion-connect-vm-ssh-windows/connect.png":::
 1. Bastion을 선택한 후 **Bastion 사용** 을 클릭합니다. 가상 네트워크에 대해 Bastion을 프로비전하지 않은 경우 [Bastion 구성](./quickstart-host-portal.md)을 참조하세요.
 1. Azure Bastion **사용하여 커넥트** 페이지에서 **연결 설정** 섹션을 확장하고 **SSH를** 선택합니다. 표준 SSH 포트(22)와 다른 인바운드 포트를 사용하려는 경우 **포트** 를 입력합니다.
 

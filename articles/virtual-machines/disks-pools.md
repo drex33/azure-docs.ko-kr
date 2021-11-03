@@ -4,16 +4,16 @@ description: Azure 디스크 풀(미리 보기)에 대해 알아봅니다.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/23/2021
+ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions
-ms.openlocfilehash: ea06b3c4fdf9be626df99f4a06f4190ce86df4b3
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.custom: references_regions, ignite-fall-2021
+ms.openlocfilehash: d6e2eda8fd7bc2ba3b41b911b5964c2a65e33c14
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123433281"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131074551"
 ---
 # <a name="azure-disk-pools-preview"></a>Azure 디스크 풀(미리 보기)
 
@@ -31,7 +31,8 @@ Azure 디스크 풀(미리 보기)는 애플리케이션과 워크로드가 단�
 
 미리 보기에서는 시스템 노드 풀에 다음과 같은 제한이 있습니다.
 
-- 프리미엄 SSD 또는 Ultra 디스크만 디스크 풀에 추가할 수 있습니다.
+- 프리미엄 Ssd와 표준 Ssd 또는 ultra 디스크만 디스크 풀에 추가할 수 있습니다.
+    - 디스크 풀은 ultra disks와 premium/standard Ssd를 모두 포함 하도록 구성할 수 없습니다. 디스크 풀이 ultra disks를 사용 하도록 구성 된 경우에는 ultra 디스크만 포함할 수 있습니다. 마찬가지로 premium 및 standard Ssd를 사용 하도록 구성 된 디스크 풀은 premium 및 standard Ssd만 포함할 수 있습니다.
 - [ZRS(영역 중복 스토리지)](disks-redundancy.md#zone-redundant-storage-for-managed-disks)를 사용하는 디스크는 현재 지원되지 않습니다. 
 
 ### <a name="regional-availability"></a>국가별 가용성

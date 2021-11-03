@@ -1,17 +1,18 @@
 ---
-title: Azure Video Analyzer Visual Studio Code 확장 사용
-description: 이 참조 문서에서는 Azure Video Analyzer Visual Studio Code 확장에서 다양한 기능을 사용하는 방법을 설명합니다.
+title: Azure Video Analyzer용 Visual Studio Code 확장
+description: 이 참조 문서에서는 Azure Video Analyzer용 Visual Studio Code 확장에서 다양한 기능을 사용하는 방법을 설명합니다.
 ms.service: azure-video-analyzer
 ms.topic: reference
-ms.date: 06/01/2021
-ms.openlocfilehash: cec3b6549b854cf321390b7598d36b5a4b12378b
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
-ms.translationtype: HT
+ms.date: 11/01/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 0e69938b340d88a4e0002aaf9155d42ad0899189
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114604338"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073646"
 ---
-# <a name="use-azure-video-analyzer-visual-studio-code-extension"></a>Azure Video Analyzer Visual Studio Code 확장 사용
+# <a name="visual-studio-code-extension-for-azure-video-analyzer"></a>Azure Video Analyzer용 Visual Studio Code 확장
 
 Azure Video Analyzer는 비디오 분석 프로그램을 보다 쉽게 빌드할 수 있는 플랫폼이며, 연결된 Visual Studio Code 확장은 해당 플랫폼을 보다 쉽게 학습할 수 있는 도구입니다.  이 문서는 확장에서 제공하는 다양한 기능을 다룹니다.  다음 기본 사항을 다룹니다.
 
@@ -19,7 +20,7 @@ Azure Video Analyzer는 비디오 분석 프로그램을 보다 쉽게 빌드할
 * 라이브 파이프라인 – JSON 생성, 활성화, 비활성화, 삭제, 보기
 * 파이프라인 토폴로지 편집 – 모듈, 매개 변수, 시스템 변수, 연결, 유효성 검사
 
-에지 디바이스에 연결하도록 확장을 설정하지 않은 경우에는 [Azure Video Analyzer Visual Studio Code 확장](./create-pipeline-vs-code-extension.md) 빠른 시작의 안내를 따르세요.
+에지 디바이스에 연결하도록 확장을 설정하지 않은 경우 [Azure Video Analyzer에 Visual Studio Code 확장 사용의](./edge/use-visual-studio-code-extension.md)단계를 따릅니다.
 
 ## <a name="managing-pipelines-topology"></a>파이프라인 토폴로지 관리
 
@@ -47,7 +48,7 @@ Azure Video Analyzer는 비디오 분석 프로그램을 보다 쉽게 빌드할
 
 ## <a name="editing-a-topology"></a>토폴로지 편집 
 
-파이프라인 토폴로지는 다양한 요소로 구성됩니다.  [파이프라인](./pipeline.md) 개념 문서에서 이러한 요소에 대해 알아볼 수 있습니다. 이 섹션에서는 토폴로지를 쉽게 작성하거나 편집할 수 있는 인터페이스 부분에 대해 다룹니다.
+파이프라인 토폴로지는 다양한 요소로 구성됩니다. 이러한 내용은 [Pipelines](pipeline.md) 개념 문서에서 알아볼 수 있습니다. 이 섹션에서는 토폴로지 빌드 또는 편집에 도움이 되는 인터페이스 부분에 대해 자세히 알아보겠습니다.
 
 ### <a name="modules"></a>모듈
 
@@ -81,4 +82,4 @@ Azure Video Analyzer는 비디오 분석 프로그램을 보다 쉽게 빌드할
 
 토폴로지를 만들 때 다양한 모듈을 함께 연결해야 합니다.  이 작업은 연결을 사용하여 수행합니다.  모듈의 가장자리에 있는 원에서 데이터를 흐르게 할 다음 모듈의 원으로 끕니다.  그러면 연결이 생성됩니다.
 
-기본적으로 연결은 하나의 모듈에서 다른 모듈로 모든 데이터를 보냅니다.  특정 유형의 데이터만 전송하려는 경우 연결을 마우스 왼쪽 단추로 클릭하고, 전송되는 출력 유형을 편집할 수 있습니다.  선택 가능한 데이터 유형에는 비디오, 오디오 및 애플리케이션이 포함됩니다.
+기본적으로 연결은 한 모듈에서 다른 모듈로 비디오 데이터를 보냅니다. 오디오 데이터 또는 애플리케이션 데이터만 보내려면 연결을 마우스 왼쪽 단추로 클릭하고 출력 형식을 편집할 수 있습니다. 선택 가능한 데이터 유형에는 비디오, 오디오 및 애플리케이션이 포함됩니다. 출력 형식을 선택하지 않는 것은 보낸 사람 노드에서 적용 가능한 모든 데이터를 보내는 것으로 처리됩니다.

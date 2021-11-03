@@ -6,13 +6,13 @@ ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/15/2021
-ms.custom: template-how-to
-ms.openlocfilehash: ed9a6bcc77e94b569e10a439b044ce78a90faff2
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.custom: template-how-to, ignite-fall-2021
+ms.openlocfilehash: 82be52611d12b69e146fdaa477614a3dbc25242d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123226814"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131006566"
 ---
 # <a name="configure-your-azure-percept-voice-assistant-application"></a>Azure Percept 음성 도우미 애플리케이션 구성
 
@@ -104,4 +104,3 @@ ms.locfileid: "123226814"
 ## <a name="next-steps"></a>다음 단계
 
 음성 도우미 구성을 업데이트한 후에는 Azure Percept Studio의 데모로 돌아와서 애플리케이션과 상호 작용합니다.
-

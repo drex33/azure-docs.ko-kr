@@ -10,19 +10,21 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: reference
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2021
 ms.author: yelevin
-ms.openlocfilehash: 254647e6e73683b13bd8c1cbeb7b476066c36a7c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 4204cf1680c9af70576226ce1da5aed464728318
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114467969"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075147"
 ---
 # <a name="manage-watchlists-in-azure-sentinel-using-rest-api"></a>REST API를 사용하여 Azure Sentinel에서 관심 목록 관리
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Azure Monitor Log Analytics에 부분적으로 빌드된 Azure Sentinel을 사용하면 Log Analytics의 REST API를 사용하여 관심 목록을 관리할 수 있습니다. 이 문서에서는 REST API를 사용하여 관심 목록 및 해당 항목을 만들고 수정하고 삭제하는 방법을 보여줍니다.  이러한 방식으로 만들어진 관심 목록은 Azure Sentinel UI에 표시됩니다.
 

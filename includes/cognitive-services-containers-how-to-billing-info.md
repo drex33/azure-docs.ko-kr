@@ -1,19 +1,19 @@
 ---
 author: aahill
 ms.author: aahi
-ms.date: 03/02/2021
+ms.date: 07/27/2021
 ms.service: cognitive-services
 ms.topic: include
-ms.openlocfilehash: d61813e723992f4381c5ea82121da8bbb70016dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 1013fc4746a858445ce8df6a451f05632a46aad4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102032938"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024597"
 ---
-컨테이너에 대한 쿼리는 `ApiKey`에 사용되는 Azure 리소스의 가격 책정 계층으로 청구됩니다.
+컨테이너에 대 한 쿼리는 매개 변수에 사용 되는 Azure 리소스의 가격 책정 계층에서 청구 됩니다 `ApiKey` .
 
-Azure Cognitive Services 컨테이너는 측정/청구 엔드포인트에 연결되지 않은 상태에서 실행할 수 있는 라이선스가 없습니다. 사용자는 컨테이너가 항상 청구 엔드포인트와 청구 정보를 통신할 수 있도록 설정해야 합니다. Cognitive Services 컨테이너는 고객 데이터(예: 분석 중인 이미지 또는 텍스트)를 Microsoft에 보내지 않습니다.
+Azure Cognitive Services 컨테이너는 측정/청구 엔드포인트에 연결되지 않은 상태에서 실행할 수 있는 권한이 없습니다. 사용자는 컨테이너가 항상 청구 엔드포인트와 청구 정보를 통신할 수 있도록 설정해야 합니다. Cognitive Services 컨테이너는 고객 데이터(예: 분석 중인 이미지 또는 텍스트)를 Microsoft에 보내지 않습니다.
 
 ### <a name="connect-to-azure"></a>Azure에 연결
 

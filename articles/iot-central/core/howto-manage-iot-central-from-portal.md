@@ -1,18 +1,18 @@
 ---
 title: Azure Portal에서 IoT Central 관리 및 모니터링 | Microsoft Docs
-description: 이 문서에서는 Azure Portal에서 IoT Central 애플리케이션을 만들고 관리하고 모니터링하는 방법을 설명합니다.
+description: 이 문서에서는 IoT Central 응용 프로그램을 만들고, 관리 하 고, 모니터링 하 고 Azure Portal에서 관리 되는 id를 사용 하도록 설정 하는 방법을 설명 합니다.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 07/06/2021
 ms.topic: how-to
-ms.openlocfilehash: 57486312b380fc18cfdb399343535e5e12245bff
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 2d8ab101b39412d9345fa470d3b6584036990581
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129091602"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084970"
 ---
 # <a name="manage-and-monitor-iot-central-from-the-azure-portal"></a>Azure Portal에서 IoT Central 관리 및 모니터링
 
@@ -71,6 +71,25 @@ Azure IoT Central 애플리케이션이 이미 있으면 삭제하거나 Azure P
 다른 구독으로 애플리케이션을 이동하려면 구독 옆에 있는 **변경** 을 선택합니다. **리소스 이동** 페이지에서 이 애플리케이션을 이동할 구독을 선택합니다.
 
 ![관리 포털: 리소스 관리](media/howto-manage-iot-central-from-portal/highlight-subscription.png)
+
+## <a name="configure-a-managed-identity"></a>관리 ID 구성
+
+IoT Central 응용 프로그램에서 데이터 내보내기를 구성할 때 *연결 문자열* 또는 [관리 id](../../active-directory/managed-identities-azure-resources/overview.md)를 사용 하 여 대상에 대 한 연결을 구성 하도록 선택할 수 있습니다. IoT Central 응용 프로그램에 대상에 대 한 자격 증명을 저장할 필요가 없기 때문에 관리 되는 id를 사용 하는 것이 더 안전 합니다. IoT Central 현재 [시스템 할당 관리 id](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)를 사용 합니다. 응용 프로그램에 대 한 관리 되는 id를 만들려면 Azure Portal 또는 REST API를 사용 합니다.
+
+> [!NOTE]
+> 지역에서 만든 IoT Central 응용 프로그램에만 관리 되는 id를 추가할 수 있습니다. 모든 새 응용 프로그램은 한 지역에 생성 됩니다. 자세히 알아보려면 [업데이트](https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-august-2021/)를 참조 하세요.
+
+관리 id를 구성 하는 경우 구성에는 *범위* 와 *역할이* 포함 됩니다.
+
+* 범위는 관리 되는 id를 사용할 수 있는 위치를 정의 합니다. 예를 들어 Azure 리소스 그룹을 범위로 사용할 수 있습니다. 이 경우 IoT Central 응용 프로그램과 대상이 동일한 리소스 그룹에 있어야 합니다.
+* 역할은 대상 서비스에서 IoT Central 응용 프로그램에 부여 되는 사용 권한을 정의 합니다. 예를 들어 이벤트 허브로 데이터를 전송 하 IoT Central 응용 프로그램의 경우 관리 되는 id에는 **Azure Event Hubs 데이터 발신자** 역할 할당이 필요 합니다.
+
+[!INCLUDE [iot-central-managed-identity](../../../includes/iot-central-managed-identity.md)]
+
+Azure Portal에서 역할 할당을 구성 하거나 Azure CLI를 사용할 수 있습니다.
+
+* 특정 대상에 대 한 Azure Portal에서 역할 할당을 구성 하는 방법에 대 한 자세한 내용은 [데이터 내보내기를 사용 하 여 클라우드 대상으로 IoT 데이터 내보내기](howto-export-data.md)를 참조 하세요.
+* Azure CLI를 사용 하 여 역할 할당을 구성 하는 방법에 대해 자세히 알아보려면 [Azure CLI 또는 PowerShell에서 IoT Central 관리](howto-manage-iot-central-from-cli.md)를 참조 하세요.
 
 ## <a name="monitor-application-health"></a>애플리케이션 상태 모니터링
 

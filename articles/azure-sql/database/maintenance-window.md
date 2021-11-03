@@ -10,12 +10,12 @@ ms.author: wiassaf
 ms.reviewer: mathoma
 ms.custom: references_regions
 ms.date: 10/15/2021
-ms.openlocfilehash: 123ea592e46c270830bccef1dc06f9caa3e8fd6e
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: c73ee217fd802a839b565cd1174c94f8da288a0e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130071894"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131026054"
 ---
 # <a name="maintenance-window-preview"></a>유지 관리 기간(미리 보기)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -42,8 +42,10 @@ Azure는 SQL Database 및 SQL Managed Instance 리소스의 [계획된 유지 �
 
 두 개의 유지 관리 기간을 추가로 선택하여 Azure SQL 리소스에 적합한 시간으로 유지 관리 업데이트를 추가로 조정할 수 있습니다.
  
-* 평일 기간, 월요일 - 목요일 현지 시간으로 오후 10시 ~ 오전 6시
-* 주말 기간, 금요일 - 일요일 현지 시간으로 오후 10시 ~ 오전 6시
+* **평일** 창: 10:00 PM ~ 6:00 AM 현지 시간, 월요일-목요일
+* **주말** 창: 10:00 PM ~ 6:00 AM 현지 시간, 금요일-일요일
+
+표시 되는 유지 관리 기간 (일)은 8 시간 유지 관리 기간의 시작 날짜를 표시 합니다. 예를 들어 "10:00 PM ~ 6:00 AM 현지 시간, 월요일-목요일"은 유지 관리 기간이 매일 오전 12 시 (월요일 ~ 목요일)에 현지 시간으로 10:00 시작 되 고 다음 날 (화요일부터 금요일까지)의 현지 시간으로 6:00 완료 됨을 의미 합니다.
 
 유지 관리 기간을 선택하고 서비스 구성이 완료되면 선택한 기간 동안에만 계획된 유지 관리가 수행됩니다. 유지 관리 이벤트는 일반적으로 단일 기간 내에 완료되지만, 일부는 둘 이상의 인접한 기간에 걸쳐 있을 수 있습니다.   
 
@@ -77,8 +79,8 @@ Azure는 SQL Database 및 SQL Managed Instance 리소스의 [계획된 유지 �
 
 | Azure 지역 | SQL Managed Instance | SQL Database | [Azure 가용성 영역](high-availability-sla.md) 에서 SQL Database | 
 |:---|:---|:---|:---|
-| 오스트레일리아 중부 1 | 예 | | |
-| 오스트레일리아 중부 2 | 예 | | |
+| 오스트레일리아 중부 1 | Yes | | |
+| 오스트레일리아 중부 2 | Yes | | |
 | 오스트레일리아 동부 | 예 | 예 | 예 |
 | 오스트레일리아 남동부 | 예 | 예 | |
 | 브라질 남부 | 예 | 예 |  |
@@ -98,7 +100,7 @@ Azure는 SQL Database 및 SQL Managed Instance 리소스의 [계획된 유지 �
 | 일본 동부 | 예 | 예 | 예 |
 | 일본 서부 | 예 | 예 | |
 | 한국 중부 | 예 | | |
-| 한국 남부 | 예 | | |
+| 한국 남부 | Yes | | |
 | 미국 중북부 | 예 | 예 | |
 | 북유럽 | 예 | 예 | 예 |
 | 남아프리카 북부 | 예 | | | 
@@ -107,14 +109,14 @@ Azure는 SQL Database 및 SQL Managed Instance 리소스의 [계획된 유지 �
 | 인도 남부 | 예 | 예 | |
 | 동남아시아 | 예 | 예 | 예 |
 | 스위스 북부 | 예 | 예 | |
-| 스위스 서부 | 예 | | |
-| 아랍에미리트 중부 | 예 | | |
+| 스위스 서부 | Yes | | |
+| 아랍에미리트 중부 | Yes | | |
 | 아랍에미리트 북부 | 예 | | |
 | 영국 남부 | 예 | 예 | 예 |
 | 영국 서부 | 예 | 예 | |
 | 미국 중서부 | 예 | 예 | |
 | 서유럽 | 예 | 예 | 예 |
-| 인도 서부 | 예 | | |
+| 인도 서부 | Yes | | |
 | 미국 서부 | 예 | 예 |  |
 | 미국 서부 2 | 예 | 예 | 예 |
 | | | | | 

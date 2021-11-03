@@ -4,15 +4,16 @@ description: Azure 디스크 풀 관련 문제 해결 일반적인 오류 코드
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f14ae211e13c299807c6f1c43e8be11752fce008
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 5a898f0c34ed92eaa4a19757e3d017a87c84d491
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122530838"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131082705"
 ---
 # <a name="troubleshoot-azure-disk-pools-preview"></a>Azure 디스크 풀(미리 보기) 문제 해결
 

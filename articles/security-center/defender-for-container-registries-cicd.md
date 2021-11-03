@@ -1,26 +1,29 @@
 ---
-title: CI/CD 워크플로의 컨테이너 이미지에 대한 Azure Defender의 취약성 검사기
-description: 컨테이너 레지스트리에 Azure Defender를 사용하여 CI/CD 워크플로에서 컨테이너 이미지를 검색하는 방법에 대해 알아봅니다.
+title: CI/CD 워크플로의 컨테이너 이미지에 대한 Cloud용 Defender 취약성 스캐너
+description: 컨테이너 레지스트리용 Microsoft Defender를 사용하여 CI/CD 워크플로에서 컨테이너 이미지를 검사하는 방법을 알아봅니다.
 author: memildin
 ms.author: memildin
 ms.date: 05/25/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 6215318bc5e32fd83673e63981dd33d7a99c70c2
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 97fed8a7afce16a33497860cda70b12fc90bed2c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130251474"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131014902"
 ---
 # <a name="identify-vulnerable-container-images-in-your-cicd-workflows"></a>CI/CD 워크플로에서 취약한 컨테이너 이미지 식별
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 이 페이지에서는 GitHub 워크플로의 일부로 Azure Container Registry 기반 컨테이너 이미지가 빌드될 때 통합된 취약성 검사기를 사용하여 해당 이미지를 검사하는 방법을 설명합니다.
 
-검사기를 설정하려면 **컨테이너 레지스트리를 위한 Azure Defender** 와 CI/CD 통합을 사용하도록 설정해야 합니다. CI/CD 워크플로가 레지스트리에 이미지를 푸시하면 레지스트리 검사 결과와 CI/CD 검사 결과의 요약을 볼 수 있습니다.
+스캐너를 설정하려면 컨테이너 레지스트리 및 CI/CD **통합을 위해 Microsoft Defender를** 사용하도록 설정해야 합니다. CI/CD 워크플로가 레지스트리에 이미지를 푸시하면 레지스트리 검사 결과와 CI/CD 검사 결과의 요약을 볼 수 있습니다.
 
-CI/CD 검사의 결과는 Qualys의 기존 레지스트리 검사 결과를 보강한 결과입니다. Azure Defender의 CI/CD 검사 기능은 [Aqua Trivy](https://github.com/aquasecurity/trivy)에서 제공합니다.
+CI/CD 검사의 결과는 Qualys의 기존 레지스트리 검사 결과를 보강한 결과입니다. Defender for Cloud의 CI/CD 검색은 [Aqua Trivy를](https://github.com/aquasecurity/trivy)통해 구동됩니다.
 
 GitHub 워크플로와 GitHub 실행 URL과 같은 추적 가능성 정보를 통해 취약한 이미지를 생성하는 워크플로를 식별할 수 있습니다.
 
@@ -32,25 +35,25 @@ GitHub 워크플로와 GitHub 실행 URL과 같은 추적 가능성 정보를 �
 |양상|세부 정보|
 |----|:----|
 |릴리스 상태:| **이러한 CI/CD 통합은 현재 미리 보기 상태입니다.**<br>비프로덕션 워크플로에서만 실험하는 것이 좋습니다.<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
-|가격 책정:|**컨테이너 레지스터리용 Azure Defender** 의 요금은 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)페이지의 정보에 따라 청구됩니다.|
+|가격 책정:|**컨테이너 레지스트리용 Microsoft Defender는** 가격 책정 [페이지에](https://azure.microsoft.com/pricing/details/security-center/) 표시된 대로 요금이 청구됩니다.|
 |클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/no-icon.png"::: 국가/지역(Azure Government, Azure China 21Vianet)|
 |||
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-CI/CD 워크플로가 레지스트리에 이미지를 푸시할 때 이미지를 검색하려면 구독에서 사용하도록 설정된 **컨테이너 레지스트리용 Azure Defender** 가 있어야 합니다. 
+CI/CD 워크플로가 레지스트리에 푸시할 때 이미지를 검사하려면 구독에서 **컨테이너 레지스트리용 Microsoft Defender를** 사용하도록 설정해야 합니다. 
 
 ## <a name="set-up-vulnerability-scanning-of-your-cicd-workflows"></a>CI/CD 워크플로의 취약성 검사 설정
 
 GitHub 워크플로에서 이미지의 취약성 검사를 사용하도록 설정하려면 다음을 수행합니다.
 
-[1단계. Security Center에서 CI/CD 통합 사용 설정](#step-1-enable-the-cicd-integration-in-security-center)
+[1단계. Defender for Cloud에서 CI/CD 통합 사용](#step-1-enable-the-cicd-integration-in-defender-for-cloud)
 
 [2단계. GitHub 워크플로에 필요한 행 추가](#step-2-add-the-necessary-lines-to-your-github-workflow-and-perform-a-scan)
 
-### <a name="step-1-enable-the-cicd-integration-in-security-center"></a>1단계. Security Center에서 CI/CD 통합 사용 설정
+### <a name="step-1-enable-the-cicd-integration-in-defender-for-cloud"></a>1단계. Defender for Cloud에서 CI/CD 통합 사용
 
-1. Security Center의 사이드바에서 **가격 책정 및 설정** 을 선택합니다.
+1. Defender for Cloud 메뉴에서 **환경 설정** 을 선택합니다.
 1. 관련 구독을 선택합니다.
 1. 해당 구독에 대한 설정 페이지의 사이드바에서 **통합** 을 선택합니다.
 1. 창이 나타나면 워크플로에서 CI/CD 검색 결과를 푸시할 Application Insights 계정을 선택합니다.
@@ -97,7 +100,7 @@ GitHub 워크플로에서 이미지의 취약성 검사를 사용하도록 설�
         subscription-token: ${{ secrets.AZ_SUBSCRIPTION_TOKEN }} 
     ```
 
-1. 선택한 컨테이너 레지스트리에 이미지를 푸시할 워크플로를 실행합니다. 이미지가 레지스트리로 푸시되면 레지스트리 검사가 실행되고 Azure Security Center 내 레지스트리 검사 결과와 함께 CI/CD 검사 결과를 확인할 수 있습니다.
+1. 선택한 컨테이너 레지스트리에 이미지를 푸시할 워크플로를 실행합니다. 이미지가 레지스트리에 푸시되면 레지스트리 검사가 실행되고 Microsoft Defender for Cloud 내에서 레지스트리 검사 결과와 함께 CI/CD 검사 결과를 볼 수 있습니다.
 
 1. [CI/CD 검사 결과를 확인](#view-cicd-scan-results)합니다.
 
@@ -139,5 +142,4 @@ GitHub 워크플로에서 이미지의 취약성 검사를 사용하도록 설�
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [Azure Defender](azure-defender.md)에 대해 자세히 알아보세요.
+[Microsoft Defender의 고급 보호 계획에](defender-for-cloud-introduction.md)대해 자세히 알아보세요.

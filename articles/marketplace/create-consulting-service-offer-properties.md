@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 10/27/2020
-ms.openlocfilehash: 60f4d1d8e86eed6a3dab390ebf8e46296f4644d2
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: ec57245e1f3c0381bb362183122904b86af70473
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130040192"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131015222"
 ---
 # <a name="configure-consulting-service-offer-properties"></a>컨설팅 서비스 제안 속성 구성
 
@@ -23,10 +23,10 @@ ms.locfileid: "130040192"
 
 ## <a name="select-the-primary-product"></a>기본 제품 선택
 
-**기본 제품** 드롭다운 목록에서 컨설팅 서비스 제품에 중점을 둘 Microsoft 제품을 선택합니다. 선택한 제품에 따라 제품을 Microsoft AppSource 또는 Azure Marketplace에 게시할지 여부가 결정됩니다. 제안을 정확하게 표시하면 고객이 제안을 더 쉽게 찾을 수 있습니다. 선택한 제품에 대한 자격 [요구 사항을](https://aka.ms/AAacrbv) 충족해야 합니다. 
+**기본 제품** 드롭다운 목록에서 컨설팅 서비스 제품에 중점을 둘 Microsoft 제품을 선택합니다. 선택한 제품에 따라 제품을 Microsoft AppSource 또는 Azure Marketplace에 게시할지 여부가 결정됩니다. 제안을 정확하게 표시하면 고객이 제안을 더 쉽게 찾을 수 있습니다. 선택한 제품에 대한 자격 [요구 사항을](./plan-consulting-service-offer.md#eligibility-requirements) 충족해야 합니다. 
 
 - Azure를 선택하면 제품이 Azure Marketplace에 나열됩니다. 제안을 가장 잘 나타내는 최대 3개의 **솔루션 영역을** 선택합니다.
-- Microsoft 365 선택하는 경우 제안을 가장 잘 나타내는 솔루션 **영역을** 최대 3개까지 선택합니다. 이 제안은 Microsoft AppSource 나열됩니다.
+- Microsoft 365 선택하는 경우 제안을 가장 잘 나타내는 최대 3개의 **솔루션 영역도** 선택합니다. 이 제안은 Microsoft AppSource 나열됩니다.
 -   Dynamics 365 또는 Power Platform 제품을 선택하는 경우 두 개의 추가 적용 가능한 제품을 선택할 수도 **있습니다.** 이 제안은 Microsoft AppSource 나열됩니다.
 
 ## <a name="select-the-consulting-service-type"></a>컨설팅 서비스 유형 선택

@@ -2,17 +2,17 @@
 title: 관리 ID를 사용하여 Azure SQL Database에 대한 연결 설정
 titleSuffix: Azure Cognitive Search
 description: 관리 ID를 사용하여 Azure SQL Database에 대한 인덱서 연결을 설정하는 방법 알아보기
-author: markheff
-ms.author: maheff
+author: nitinme
+ms.author: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/02/2021
-ms.openlocfilehash: c0bff947d0f5b58a956d05959dd49bbea1f942ab
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 1b8386cac5c17f775f6719bdf8ab67243731179b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122538131"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037685"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity"></a>관리 ID를 사용하여 Azure SQL Database에 대한 인덱서 연결 설정
 
@@ -29,7 +29,7 @@ ms.locfileid: "122538131"
 
 다음 옵션 중 하나를 사용하여 [관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 설정합니다.
 
-### <a name="option-1---turn-on-system-assigned-managed-identity"></a>옵션 1 - 시스템 할당 관리 ID 켜기
+### <a name="option-1---turn-on-system-assigned-managed-identity"></a>옵션 1 - 시스템이 할당한 관리 ID 켜기
 
 시스템 할당 관리 ID 사용이 설정되면 Azure는 동일한 테넌트 및 구독 내에서 다른 Azure 서비스에 인증하는 데 사용할 수 있는 검색 서비스 ID를 만듭니다. 그런 다음, 인덱싱 중에 데이터 액세스를 허용하는 Azure RBAC(Azure 역할 기반 액세스 제어) 할당에서 이 ID를 사용할 수 있습니다.
 
@@ -39,23 +39,23 @@ ms.locfileid: "122538131"
 
 ![개체 ID](./media/search-managed-identities/system-assigned-identity-object-id.png "개체 ID입니다.")
  
-### <a name="option-2---assign-a-user-assigned-managed-identity-to-the-search-service-preview"></a>옵션 2 - 사용자 할당 관리 ID를 검색 서비스(미리 보기)에 할당
+### <a name="option-2---assign-a-user-assigned-managed-identity-to-the-search-service-preview"></a>옵션 2 - 사용자가 할당한 관리 ID를 검색 서비스(미리 보기)에 할당
 
-사용자 할당 관리 ID를 아직 만들지 않은 경우, 새로 만들어야 합니다. 사용자 할당 관리 ID는 Azure 상의 리소스입니다.
+사용자가 할당한 관리 ID를 아직 만들지 않은 경우 새로 만들어야 합니다. 사용자가 할당한 관리 ID는 Azure 리소스입니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. **+ 리소스 만들기** 를 선택합니다.
-1. "검색 서비스 및 마켓플레이스" 검색 창에서 "사용자 할당 관리 ID"를 검색 한 후, **생성하기** 를 선택합니다.
+1. “검색 서비스 및 마켓플레이스” 검색 창에서 “사용자가 할당한 관리 ID”를 검색한 다음, **만들기** 를 선택합니다.
 1. ID에 설명이 포함된 이름을 지정합니다.
 
-그런 다음, 사용자 할당 관리 ID를 검색 서비스에 할당합니다. [2021-04-01-preview 관리 API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update)를 사용하여 이 작업을 수행할 수 있습니다.
+그런 다음, 사용자가 할당한 관리 ID를 검색 서비스에 할당합니다. 이 작업은 [2021-04-01-preview 관리 API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update)를 사용하여 수행할 수 있습니다.
 
-ID 속성은 형식 및 하나 이상의 정규화된 사용자 할당 ID를 사용합니다.
+ID 속성은 유형과 하나 이상의 정규화된 사용자 할당 ID를 사용합니다.
 
-* **type** 는 ID 유형입니다. 둘 다 사용하려는 경우, 유효한 값은 "SystemAssigned", "UserAssigned", "SystemAssigned, UserAssigned"입니다. "None" 값은 검색 서비스에서 이전에 할당된 ID를 모두 지웁니다.
-* **userAssignedIdentities** 에는 사용자 할당 관리 ID의 세부 정보가 포함됩니다.
-    * 사용자 할당 관리 ID 형식: 
-        * /subscriptions/**subscription ID**/resourcegroups/**resource group name**/providers/Microsoft.ManagedIdentity/userAssignedIdentities/**name of managed identity**
+* **type** 은 ID 유형입니다. 유효한 값은 “SystemAssigned”, “UserAssigned” 또는 둘 다 사용하려는 경우 “SystemAssigned, UserAssigned”입니다. “None” 값은 검색 서비스에서 이전에 할당한 ID를 모두 지웁니다.
+* **userAssignedIdentities** 에는 사용자가 할당한 관리 ID의 세부 정보가 포함됩니다.
+    * 사용자가 할당한 관리 ID 형식: 
+        * /subscriptions/**구독 ID**/resourcegroups/**리소스 그룹 이름**/providers/Microsoft.ManagedIdentity/userAssignedIdentities/**관리 ID 이름**
 
 사용자 할당 관리 ID를 검색 서비스에 할당하는 방법의 예:
 
@@ -133,7 +133,7 @@ Azure AD 계정 관리자에게 데이터베이스에 대한 액세스 권한을
 
 4. 적절한 **읽기 권한자** 역할을 선택합니다.
 5. **액세스 할당** 을 **Azure AD 사용자, 그룹 또는 서비스 사용자** 로 둡니다.
-6. 시스템 할당 관리 ID를 사용하는 경우, 검색 서비스를 검색해 선택합니다. 사용자 할당 관리 ID를 사용하는 경우, 사용자 할당 관리 ID의 이름을 검색해 선택합니다. **저장** 을 선택합니다.
+6. 시스템이 할당한 관리 ID를 사용하는 경우 검색 서비스를 검색하여 선택합니다. 사용자가 할당한 관리 ID를 사용하는 경우 사용자가 할당한 관리 ID의 이름을 검색하여 선택합니다. **저장** 을 선택합니다.
 
     시스템 할당 관리 ID를 사용하는 Azure SQL 예제:
 
@@ -141,7 +141,7 @@ Azure AD 계정 관리자에게 데이터베이스에 대한 액세스 권한을
 
 ## <a name="5---create-the-data-source"></a>5 - 데이터 원본 만들기
 
-데이터 원본을 생성하고 시스템 할당 관리 ID 또는 사용자 할당 관리 ID를 제공합니다(미리 보기). 아래 단계에서는 더 이상 관리 REST API을 사용하지 않습니다.
+데이터 원본을 생성하고 시스템 할당 관리 ID 또는 사용자 할당 관리 ID를 제공합니다(미리 보기). 아래 단계에서는 더 이상 관리 REST API를 사용하지 않습니다.
 
 ### <a name="option-1---create-the-data-source-with-a-system-assigned-managed-identity"></a>옵션 1 - 시스템 할당 관리 ID를 사용하여 데이터 원본 생성하기
 
@@ -178,7 +178,7 @@ api-key: [admin key]
 
 ### <a name="option-2---create-the-data-source-with-a-user-assigned-managed-identity"></a>옵션 2 - 사용자 할당 관리 ID를 사용하여 데이터 원본 생성하기
 
-2021-04-30-preview REST API는 사용자 할당 관리 ID를 지원합니다. 다음은 [REST API](/rest/api/searchservice/create-data-source), 관리 ID 연결 문자열, 사용자 할당 관리 ID를 사용하여 스토리지 계정에서 데이터를 인덱싱하는 데이터 원본을 생성하는 방법의 예입니다.
+2021-04-30-preview REST API는 사용자가 할당한 관리 ID를 지원합니다. 다음은 [REST API](/rest/api/searchservice/create-data-source), 관리 ID 연결 문자열, 사용자 할당 관리 ID를 사용하여 스토리지 계정에서 데이터를 인덱싱하는 데이터 원본을 생성하는 방법의 예입니다.
 
 데이터 원본에는 다음과 같은 필수 속성이 있어야 합니다.
 
@@ -189,10 +189,10 @@ api-key: [admin key]
     * 관리 ID 연결 문자열 형식:
         * *Initial Catalog|Database=**database name**;ResourceId=/subscriptions/**구독 ID**/resourceGroups/**리소스 그룹 이름**/providers/Microsoft.Sql/servers/**SQL Server 이름**/;Connection Timeout=**connection timeout length**;*
 * **container** 에는 인덱싱할 테이블 또는 뷰의 이름을 지정합니다.
-* **identity** 는 사용자 할당 관리 ID의 컬렉션을 포함합니다. 데이터 원본을 생성할 때, 사용자 할당 관리 ID는 하나만 제공해야 합니다.
-    * **userAssignedIdentities** 에는 사용자 할당 관리 ID의 세부 정보가 포함됩니다.
-        * 사용자 할당 관리 ID 형식: 
-            * /subscriptions/**subscription ID**/resourcegroups/**resource group name**/providers/Microsoft.ManagedIdentity/userAssignedIdentities/**name of managed identity**
+* **identity** 는 사용자 할당 관리 ID의 컬렉션을 포함합니다. 데이터 원본을 생성할 때 사용자가 할당한 관리 ID는 하나만 제공해야 합니다.
+    * **userAssignedIdentities** 에는 사용자가 할당한 관리 ID의 세부 정보가 포함됩니다.
+        * 사용자가 할당한 관리 ID 형식: 
+            * /subscriptions/**구독 ID**/resourcegroups/**리소스 그룹 이름**/providers/Microsoft.ManagedIdentity/userAssignedIdentities/**관리 ID 이름**
 
 다음은 [REST API](/rest/api/searchservice/create-data-source)를 사용하여 Blob 데이터 원본 개체를 만드는 방법의 예입니다.
 

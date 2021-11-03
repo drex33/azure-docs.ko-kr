@@ -4,12 +4,13 @@ description: 연속 비디오 녹화 또는 이벤트 기반 기록을 위해 Az
 ms.service: azure-video-analyzer
 ms.topic: tutorial
 ms.date: 09/08/2021
-ms.openlocfilehash: 925050ccc3650db3afa4a4e4181a7d245c53f9e1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 9359d51e1767793e1d838777cb76a3af04f30c6d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128605198"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073696"
 ---
 # <a name="tutorial-real-time-visualization-of-ai-inference-events-with-power-bi"></a>자습서: Power BI를 사용하여 AI 추론 이벤트를 실시간으로 시각화
 
@@ -18,7 +19,7 @@ ms.locfileid: "128605198"
 대시보드를 통해 비즈니스를 모니터링하고 가장 중요한 모든 메트릭을 한눈에 볼 수 있습니다. [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/#overview)를 통해 [Microsoft Power BI](https://powerbi.microsoft.com/)를 사용하여 Video Analyzer에서 생성한 AI 추론 이벤트를 시각화하면 신속하게 인사이트를 얻고 조직 내 동료들과 대시보드를 공유할 수 있습니다.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/power-bi/tutorial-block-diagram.png" alt-text="Azure Stream Analytics를 통해 Azure Video Analyzer를 Microsoft Power BI에 연결하는 블록 다이어그램":::
+> :::image type="content" source="./media/power-bi/tutorial-block-diagram.svg" alt-text="Azure Stream Analytics를 통해 Azure Video Analyzer를 Microsoft Power BI에 연결하는 블록 다이어그램":::
 
 이 자습서에서는 다음을 수행합니다.
 
@@ -30,14 +31,14 @@ ms.locfileid: "128605198"
 
 - Video Analyzer에서 [모니터링 및 로깅](monitor-log-edge.md)
 - [IoT Hub 기본 제공 엔드포인트에서 디바이스-클라우드 메시지](../../iot-hub/iot-hub-devguide-messages-read-builtin.md) 읽기
-- [Power BI 대시보드](https://docs.microsoft.com/power-bi/create-reports/service-dashboards) 소개
+- [Power BI 대시보드](/power-bi/create-reports/service-dashboards) 소개
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. 계정이 아직 없는 경우 [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - 이 자습서는 라이브 비디오 피드에서 개체가 가상의 선과 교차할 때 이를 감지하는 [선 교차 샘플](use-line-crossing.md) 사용을 기반으로 합니다. 다른 파이프라인에 대한 시각화를 만들도록 선택할 수 있습니다(**IoT Hub 메시지 싱크가 있는 파이프라인이 필요**). 라이브 파이프라인이 생성되었는지 확인하고, Stream Analytics 작업을 만든 후에만 라이브 파이프라인을 활성화합니다.
 
-  > [!NOTE]
+  > [!TIP]
   >
   > - [선 교차 샘플](use-line-crossing.md)은 5분 길이의 비디오 녹화본을 사용합니다. 시각화에서 최상의 결과를 얻으려면 [다른 데이터 세트](https://github.com/Azure/video-analyzer/tree/main/media#other-dataset)에서 제공하는 60분 길이의 고속도로 위 차량 녹화본을 사용하세요.
   > - rtsp 시뮬레이터에 샘플 비디오 파일을 추가하는 방법은 [FAQ](faq-edge.yml)의 구성 및 배포 섹션을 참조하세요. 추가한 후에는 새 비디오 파일을 가리키도록 `rtspUrl` 값을 편집합니다.
@@ -146,7 +147,7 @@ Stream Analytics 작업에서 [개요]를 선택한 다음, **시작** > **지�
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/power-bi/start-asa.png" alt-text="Stream Analytics 작업을 시작하고 실행하는 스크린샷":::
 
-> [!NOTE]
+> [!TIP]
 > IoT Hub를 사용하면 기본 제공 Event Hubs에 데이터가 기본적으로 1일간 보존되며 최대 7일까지 보존할 수 있습니다. IoT Hub를 만드는 중에 보존 시간을 설정할 수 있습니다. IoT Hub의 데이터 보존 시간은 선택하는 계층과 단위의 종류에 따라 달라집니다. 자세한 내용을 보려면 [여기](../../iot-hub/iot-hub-devguide-messages-read-builtin.md)를 클릭하세요. 데이터를 더 오래 보존하려면 [Azure Storage를 출력으로](../../stream-analytics/blob-storage-azure-data-lake-gen2-output.md) 사용하고, Power BI을 스토리지 계정의 파일에 연결합니다.
 
 ## <a name="run-a-sample-pipeline"></a>샘플 파이프라인 실행
@@ -161,7 +162,7 @@ Power BI에서 다음과 같은 2가지 방법으로 스트리밍 데이터를 �
 2. 사용자 지정 스트리밍 데이터 세트가 있는 대시보드 타일
 
    > [!NOTE]
-   > 이 문서에서는 첫 번째 방법을 사용하여 보고서를 만든 다음, 대시보드에 고정합니다. 이 방법은 시각적 개체에 대한 데이터를 더 오래 유지하고 수신 데이터를 기반으로 자동 집계합니다. 두 번째 방법에 대한 자세한 내용은 [Power BI에서 사용자 지정 스트리밍 데이터 세트 설정](https://docs.microsoft.com/power-bi/connect-data/service-real-time-streaming#set-up-your-real-time-streaming-dataset-in-power-bi)을 참조하세요.
+   > 이 문서에서는 첫 번째 방법을 사용하여 보고서를 만든 다음, 대시보드에 고정합니다. 이 방법은 시각적 개체에 대한 데이터를 더 오래 유지하고 수신 데이터를 기반으로 자동 집계합니다. 두 번째 방법에 대한 자세한 내용은 [Power BI에서 사용자 지정 스트리밍 데이터 세트 설정](/power-bi/connect-data/service-real-time-streaming#set-up-your-real-time-streaming-dataset-in-power-bi)을 참조하세요.
 
 ### <a name="create-and-publish-a-power-bi-report"></a>Power BI 보고서 만들기 및 게시
 
@@ -199,7 +200,7 @@ Power BI에서 다음과 같은 2가지 방법으로 스트리밍 데이터를 �
 > :::image type="content" source="./media/power-bi/pinned-dashboard.png" alt-text="보고서가 고정되고 위젯 플레이어가 타일에 추가된 Power BI 대시보드":::
 
 > [!NOTE]
-> 보고서를 생성하는 데 사용된 방법 때문에 비디오 재생과 보고서 만들기가 동기화되지 않습니다. 좀 더 실시간에 가까운 환경을 원하는 경우 [Power BI에서 사용자 지정 스트리밍 데이터 세트 설정](https://docs.microsoft.com/power-bi/connect-data/service-real-time-streaming#set-up-your-real-time-streaming-dataset-in-power-bi)을 참조하세요.
+> 보고서를 생성하는 데 사용된 방법 때문에 비디오 재생과 보고서 만들기가 동기화되지 않습니다. 좀 더 실시간에 가까운 환경을 원하는 경우 [Power BI에서 사용자 지정 스트리밍 데이터 세트 설정](/power-bi/connect-data/service-real-time-streaming#set-up-your-real-time-streaming-dataset-in-power-bi)을 참조하세요.
 
 ## <a name="interpret-the-dashboard"></a>대시보드 해석
 

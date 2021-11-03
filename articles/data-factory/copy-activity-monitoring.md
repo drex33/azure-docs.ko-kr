@@ -9,18 +9,18 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: ed65bb5bcde37bf4ad18d9650697d51640ac1e4a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 14607231fd68cf78f33a21abdb26dd68e2ef6871
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124767587"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131062191"
 ---
 # <a name="monitor-copy-activity"></a>복사 작업 모니터
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory 및 Synapse 파이프라인에서 복사 작업 실행을 모니터링하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory 및 Synapse 파이프라인에서 복사 작업 실행을 모니터링하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.  [데이터 복사 도구에서](copy-data-tool.md) 생성된 복사 활동뿐만 아니라 동일한 방법을 사용하여 [삭제 활동을](delete-activity.md) 모니터링할 수도 있습니다.
 
 ## <a name="monitor-visually"></a>시각적으로 모니터링
 

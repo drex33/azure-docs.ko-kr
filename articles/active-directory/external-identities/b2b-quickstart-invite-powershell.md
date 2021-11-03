@@ -10,17 +10,14 @@ ms.date: 08/28/2018
 ms.topic: quickstart
 ms.service: active-directory
 ms.subservice: B2B
-ms.custom:
-- it-pro
-- seo-update-azuread-jan
-- mode-api
+ms.custom: it-pro, seo-update-azuread-jan, mode-api
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3541698e4a02f82f54d84eabf1bf7bb285cda10
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: 42dd773bd88b7f51aa23fda8463a31ec2d41a6bb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107987581"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131052487"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>빠른 시작: PowerShell을 사용하여 게스트 사용자 추가
 

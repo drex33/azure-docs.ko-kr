@@ -8,32 +8,32 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 09/28/2021
 ms.author: danlep
-ms.openlocfilehash: 3fa10f238b3047b97e5d4d4c8c472010cfff883b
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: e286cbb64078a2568d2aa3d0c523d782445470d4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130222536"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049143"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Azure API Management에서 Azure Active Directory B2C를 사용하여 개발자 계정에 권한을 부여하는 방법
 
 
 Azure Active Directory B2C는 소비자 지향 웹 및 모바일 애플리케이션을 위한 클라우드 ID 관리 솔루션입니다. 이를 사용하여 API Management 개발자 포털에 대한 액세스를 관리할 수 있습니다. 
 
-이 자습서에서는 API Management 서비스에서 Azure Active Directory B2C와 통합 하는 데 필요한 구성을 알아봅니다. 이 문서의 뒷부분에서 언급 한 것 처럼 사용 되지 않는 레거시 개발자 포털을 사용 하는 경우 일부 단계가 달라 집니다.
+이 자습서에서는 Azure Active Directory B2C와 통합하기 위해 API Management 서비스에 필요한 구성에 대해 알아봅니다. 이 문서의 후반부에서 설명한 것처럼 사용되지 않은 레거시 개발자 포털을 사용하는 경우 몇 가지 단계가 달라집니다.
 
 클래식 Azure Active Directory를 사용하여 개발자 포털에 대한 액세스를 사용하는 방법에 대한 정보는 [Azure Active Directory를 사용하여 개발자 계정에 권한을 부여하는 방법](api-management-howto-aad.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* 응용 프로그램을 만들 Azure Active Directory B2C 테 넌 트입니다. 자세한 내용은 [Azure Active Directory B2C 개요](../active-directory-b2c/overview.md)를 참조하세요.
-* API Management 인스턴스. 아직 없는 경우 [Azure API Management 인스턴스를 만듭니다](get-started-create-service-instance.md).
+* 애플리케이션을 만들 Azure Active Directory B2C 테넌트입니다. 자세한 내용은 [Azure Active Directory B2C 개요](../active-directory-b2c/overview.md)를 참조하세요.
+* API Management 인스턴스. 인스턴스가 없는 경우 Azure [API Management 인스턴스를 만듭니다.](get-started-create-service-instance.md)
 
 [!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
 ## <a name="configure-sign-up-and-sign-in-user-flow"></a>등록 및 로그인 사용자 흐름 구성
 
-이 섹션에서는 등록 및 로그인 정책을 모두 포함 하는 Azure Active Directory B2C 테 넌 트에서 사용자 흐름을 만듭니다. 자세한 단계는 [Azure Active Directory B2C에서 사용자 흐름 및 사용자 지정 정책 만들기](../active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-us)를 참조하세요.
+이 섹션에서는 등록 및 로그인 정책을 모두 포함하는 Azure Active Directory B2C 테넌트에서 사용자 흐름을 만듭니다. 자세한 단계는 [Azure Active Directory B2C에서 사용자 흐름 및 사용자 지정 정책 만들기](../active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-us)를 참조하세요.
 
 1. [Azure Portal](https://portal.azure.com)에서 Azure Active Directory B2C 테넌트에 액세스합니다.
 1. **정책** 에서 **사용자 흐름** >  **+ 새 사용자 흐름** 을 선택합니다.
@@ -76,11 +76,11 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 애플리케이
    * 안전한 위치에 키를 기록합니다. 이 비밀 값은 이 페이지에서 나가면 다시 표시되지 않습니다.
 1. API Management **ID 공급자 추가** 페이지로 다시 전환하고 키를 **클라이언트 암호** 텍스트 상자에 붙여 넣습니다.
 1. B2C 앱 등록으로 다시 전환합니다. 왼쪽 메뉴의 **관리** 아래에서 **인증** 을 선택합니다.
-    * **암시적 허용 및 하이브리드 흐름** 에서 **액세스 토큰** 및 **ID 토큰** 확인란을 모두 선택 합니다.
+    * **암시적 권한 부여 및 하이브리드 흐름에서** **액세스 토큰 및** ID 토큰 확인란을 모두 선택합니다. 
     * **저장** 을 선택합니다.
 1. API Management **ID 공급자 추가** 페이지에서 다시 전환합니다.
     * **로그인 테넌트** 에서 Azure Active Directory B2C 테넌트의 도메인 이름을 지정합니다.
-    * **권한** 필드를 사용 하 여 사용할 Azure Active Directory B2C 로그인 URL을 제어할 수 있습니다. 값을 **<your_b2c_tenant_name>.b2clogin.com** 으로 설정합니다.
+    * **기관** 필드를 사용하면 사용할 Azure Active Directory B2C 로그인 URL을 제어할 수 있습니다. 값을 **<your_b2c_tenant_name>.b2clogin.com** 으로 설정합니다.
     * B2C 테넌트 정책에서 **등록 정책** 및 **로그인 정책** 을 지정합니다.
     * 선택적으로 **프로필 편집 정책** 및 **암호 재설정 정책** 을 제공합니다.
 
@@ -89,12 +89,12 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 애플리케이
 
 변경 내용이 저장되면 개발자는 Azure Active Directory B2C를 사용하여 새 계정을 만들고 개발자 포털에 로그인할 수 있습니다.
 
-## <a name="developer-portal---add-azure-active-directory-b2c-account-authentication"></a>개발자 포털-Azure Active Directory B2C 계정 인증 추가
+## <a name="developer-portal---add-azure-active-directory-b2c-account-authentication"></a>개발자 포털 - Azure Active Directory B2C 계정 인증 추가
 
 > [!IMPORTANT]
 > 변경 사항을 적용하려면 Azure Active Directory B2C 구성 설정을 만들거나 업데이트할 때 [개발자 포털을 다시 게시](api-management-howto-developer-portal-customize.md#publish)해야 합니다.
 
-개발자 포털에서 **로그인 단추: OAuth** 위젯을 사용 하 여 Azure Active Directory B2C를 사용 하 여 로그인 할 수 있습니다. 위젯은 기본 개발자 포털 콘텐츠의 로그인 페이지에 이미 포함되어 있습니다.
+개발자 포털에서 로그인 **단추 OAuth** 위젯을 Azure Active Directory B2C로 로그인할 수 있습니다. 위젯은 기본 개발자 포털 콘텐츠의 로그인 페이지에 이미 포함되어 있습니다.
 
 1. Azure Active Directory B2C를 사용하여 로그인하려면 새 브라우저 창을 열고 개발자 포털로 이동합니다. **로그인** 을 선택합니다.
 
@@ -107,18 +107,18 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 애플리케이
 
 :::image type="content" source="media/api-management-howto-aad-b2c/developer-portal-home.png" alt-text="개발자 포털에 로그인 완료":::
 
-새 사용자가 Azure Active Directory B2C를 사용 하 여 로그인 할 때마다 새 계정이 자동으로 생성 되지만 등록 페이지에 동일한 위젯을 추가 하는 것이 좋습니다.
+새 사용자가 Azure Active Directory B2C로 로그인할 때마다 새 계정이 자동으로 만들어지지만 등록 페이지에 동일한 위젯을 추가하는 것이 좋습니다.
 
 **등록 양식: OAuth** 위젯은 OAuth로 등록하는 데 사용되는 양식을 나타냅니다.
 
-## <a name="legacy-developer-portal---how-to-sign-up-with-azure-active-directory-b2c"></a>레거시 개발자 포털-Azure Active Directory B2C으로 등록 하는 방법
+## <a name="legacy-developer-portal---how-to-sign-up-with-azure-active-directory-b2c"></a>레거시 개발자 포털 - Azure Active Directory B2C에 등록하는 방법
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 > [!NOTE]
-> B2C을 레거시 개발자 포털과 적절히 통합 하려면 **표준 v1** 사용자 흐름을 사용 하 여 [암호 재설정](../active-directory-b2c/add-password-reset-policy.md) 을 사용 하도록 설정 하 고 Azure Active Directory B2C를 사용 하 여 개발자 계정에 로그인 합니다. 
+> B2C를 레거시 개발자 포털과 제대로 통합하려면 Azure Active Directory B2C를 사용하여 개발자 계정에 등록/로그인하기 전에 [암호 재설정을](../active-directory-b2c/add-password-reset-policy.md) 사용하도록 설정하는 데 **표준 v1** 사용자 흐름을 사용합니다. 
 
-1. 새 브라우저 창을 열고 레거시 개발자 포털로 이동 합니다. **등록** 단추를 클릭합니다.
+1. 새 브라우저 창을 열고 레거시 개발자 포털로 이동합니다. **등록** 단추를 클릭합니다.
 
     :::image type="content" source="media/api-management-howto-aad-b2c/b2c-dev-portal.png" alt-text="기존 개발자 포털에 등록":::
 
@@ -129,7 +129,7 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 애플리케이
 1. 이전 섹션에서 구성한 등록 정책으로 리디렉션됩니다. 전자 메일 주소 또는 기존 소셜 계정 중 하나를 사용하여 등록하도록 선택합니다.
 
    > [!NOTE]
-   > Azure Active Directory B2C이 게시자 포털의 **id** 탭에서 사용 하도록 설정 된 유일한 옵션인 경우 등록 정책에 직접 리디렉션됩니다.
+   > Azure Active Directory B2C가 Azure Portal **ID** 탭에서 활성화된 유일한 옵션인 경우 등록 정책으로 직접 리디렉션됩니다.
 
    :::image type="content" source="media/api-management-howto-aad-b2c/b2c-dev-portal-b2c-options.png" alt-text="기존 개발자 포털의 등록 옵션":::
 

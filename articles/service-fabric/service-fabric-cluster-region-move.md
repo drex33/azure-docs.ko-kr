@@ -4,12 +4,12 @@ description: Azure Service Fabric 클러스터 및 애플리케이션을 다른 
 ms.topic: conceptual
 ms.date: 07/20/2021
 ms.author: micraft
-ms.openlocfilehash: ddda30f949ac4abfe7f19890ce9f7c6f8fedadbe
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 3cbd2e21508296b6174a2322559973fb98728e2b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567148"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131083482"
 ---
 # <a name="move-an-azure-service-fabric-cluster-to-a-new-region"></a>Azure Service Fabric 클러스터를 새 지역으로 이동
 
@@ -38,7 +38,7 @@ Service Fabric 클러스터 리소스 범위는 기본적으로 지역으로 지
    -  모든 서비스의 경우:  
       * <p>클라이언트와 서비스 간의 모든 통신 단계가 원본 클러스터와 유사하게 구성되어야 합니다. 예를 들어 이 유효성 검사에는 Event Hubs, 네트워크 부하 분산 장치, App Gateway, API Management 같은 매개체가 클러스터로 트래픽이 흐르도록 허용하는 데 필요한 규칙으로 설정되도록 하는 것이 포함될 수 있습니다.</p>  
 
-3. 이전 지역에서 새 지역으로 트래픽을 리디렉션합니다. 다양한 [라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md)을 제공하는 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 마이그레이션에 사용하는 것이 좋습니다. 트래픽 라우팅 규칙을 정확히 업데이트하는 방법은 기존 지역을 유지할지 사용하지 않을지에 따라 달라지며 애플리케이션 내에서 트래픽이 흐르는 방식에 따라서도 달라집니다. 다른 지역의 서로 다른 Azure 리소스 간에 개인/공용 IP 또는 DNS 이름을 이동할 수 있는지 여부를 조사해야 할 수 있습니다. Service Fabric은 시스템의 이 부분을 인식하지 못하므로 트래픽 흐름에 관련된 Azure 팀을 조사하고 필요한 경우 참여해야 하며, 특히 워크로드가 더 복잡하거나 워크로드 대기 시간이 중요한 경우는 더욱 그렇습니다. [사용자 지정 도메인 구성](../api-management/configure-custom-domain.md), [공용 IP 주소](../virtual-network/public-ip-addresses.md), [DNS 영역 및 레코드](../dns/dns-zones-records.md) 같은 문서가 도움이 될 수 있으며 이러한 정보는 트래픽 흐름 및 프로토콜에 따라 필요할 수 있습니다. 다음은 트래픽 라우팅 업데이트에 어떻게 접근할 수 있는지를 보여 주는 두 가지 예제 시나리오입니다.  
+3. 이전 지역에서 새 지역으로 트래픽을 리디렉션합니다. 다양한 [라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md)을 제공하는 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 마이그레이션에 사용하는 것이 좋습니다. 트래픽 라우팅 규칙을 정확히 업데이트하는 방법은 기존 지역을 유지할지 사용하지 않을지에 따라 달라지며 애플리케이션 내에서 트래픽이 흐르는 방식에 따라서도 달라집니다. 다른 지역의 서로 다른 Azure 리소스 간에 개인/공용 IP 또는 DNS 이름을 이동할 수 있는지 여부를 조사해야 할 수 있습니다. Service Fabric은 시스템의 이 부분을 인식하지 못하므로 트래픽 흐름에 관련된 Azure 팀을 조사하고 필요한 경우 참여해야 하며, 특히 워크로드가 더 복잡하거나 워크로드 대기 시간이 중요한 경우는 더욱 그렇습니다. [사용자 지정 도메인 구성](../api-management/configure-custom-domain.md), [공용 IP 주소](../virtual-network/ip-services/public-ip-addresses.md), [DNS 영역 및 레코드](../dns/dns-zones-records.md) 같은 문서가 도움이 될 수 있으며 이러한 정보는 트래픽 흐름 및 프로토콜에 따라 필요할 수 있습니다. 다음은 트래픽 라우팅 업데이트에 어떻게 접근할 수 있는지를 보여 주는 두 가지 예제 시나리오입니다.  
    * 기존 원본 지역을 유지하지 않으려는 경우 원래 원본 클러스터에 호출을 전달하는 네트워크 부하 분산 장치의 공용 IP와 연결된 DNS/CNAME이 있습니다. 새 지역에 있는 새 네트워크 부하 분산 장치의 새 공용 IP와 연결되도록 DNS/CNAME을 업데이트합니다. 이 전송을 완료하면 기존 클러스터를 사용하는 클라이언트가 새 클러스터를 사용하도록 전환됩니다. 
   
    * 기존 원본 지역을 유지하려는 경우 원래 원본 클러스터에 호출을 전달하는 네트워크 부하 분산 장치의 공용 IP와 연결된 DNS/CNAME이 있습니다. Azure Traffic Manager의 인스턴스를 설정한 다음, DNS 이름을 해당 Azure Traffic Manager 인스턴스와 연결합니다. 그런 다음, 각 지역 내의 개별 네트워크 부하 분산 장치로 라우팅하도록 Azure Traffic Manager를 구성할 수 있습니다. 

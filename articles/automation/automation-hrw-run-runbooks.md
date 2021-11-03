@@ -3,17 +3,17 @@ title: Hybrid Runbook Worker에서 Azure Automation Runbook 실행
 description: 이 문서에서는 Hybrid Runbook Worker를 사용하여 로컬 데이터 센터 또는 기타 클라우드 공급자에 있는 머신에서 Runbook을 실행하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/30/2021
+ms.date: 11/01/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 702fcc816bac95345fca8c701be504e4eaa3a1fe
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 71f13679a1f19672368a7b72987e28813232f846
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129354748"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131465558"
 ---
-# <a name="run-automation-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker Automation Runbook 실행
+# <a name="run-automation-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 자동화 runbook 실행
 
 [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)에서 실행되는 Runbook은 일반적으로 로컬 컴퓨터에서, 또는 Worker가 배포된 로컬 환경에 있는 리소스를 기준으로 리소스를 관리합니다. Azure Automation의 Runbook은 일반적으로 Azure 클라우드에서 리소스를 관리합니다. Azure Automation에서 실행되는 Runbook과 Hybrid Runbook Worker에서 실행되는 Runbook은 용도는 다르지만 구조상 차이가 없습니다.
 
@@ -31,20 +31,30 @@ Azure Automation은 Azure 샌드박스에서 실행되는 작업과 다른 방�
 
 ### <a name="windows"></a>Windows 
 
-Hybrid Runbook Workers에 대한 작업은 로컬 **시스템** 계정으로 실행됩니다.
+Hybrid Runbook Worker에 대 한 작업은 로컬 **시스템** 계정으로 실행 됩니다.
+>[!NOTE]
+>  Windows Hybrid Runbook Worker에서 powershell 4.x를 실행 하려면 [Windows에 powershell 설치](/powershell/scripting/install/installing-powershell-on-windows)를 참조 하세요.
+> 현재 여기에 설명 된 대로 하이브리드 작업자 확장 기반 등록만 지원 [합니다.](/azure/automation/extension-based-hybrid-runbook-worker-install) 
+
+*pwsh.exe* 실행 파일이 있는 경로를 확인 하 고 path 환경 변수에 추가 합니다. 설치가 완료 된 후 Hybrid Runbook Worker를 다시 시작 합니다.
 
 ### <a name="linux"></a>Linux
 
-**nxautomation** 및 **omsagent** 서비스 계정이 만들어집니다. 만들기 및 권한 할당 스크립트는 에서 볼 수 [https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/installer/datafiles/linux.data](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/installer/datafiles/linux.data) 있습니다. [Linux Hybrid Runbook Worker](automation-linux-hrw-install.md)를 설치하는 동안 해당 sudo 권한이 있는 계정이 있어야 합니다. 작업자를 설치하려고 하는 경우 계정이 없거나 적절한 권한이 없으면 설치가 실패합니다. `sudoers.d` 폴더 또는 해당 소유권의 사용 권한을 변경하면 안 됩니다. 계정에는 Sudo 권한이 필요하며 사용 권한을 제거하면 안 됩니다. 이를 특정 폴더 또는 명령으로 제한하면 호환성이 손상되는 변경이 발생할 수 있습니다. 업데이트 관리의 일부로 사용하도록 설정된 **nxautomation** 사용자는 서명된 Runbook만 실행합니다.
+>[!NOTE]
+> Linux Hybrid Runbook Worker에서 PowerShell 4.x를 실행 하려면 [linux에서 Powershell 설치](/powershell/scripting/install/installing-powershell-on-linux)를 참조 하세요.
+> 현재 여기에 설명 된 대로 하이브리드 작업자 확장 기반 등록만 지원 [합니다.](/azure/automation/extension-based-hybrid-runbook-worker-install)
 
-서비스 계정에 저장된 Runbook 모듈에 대한 액세스 권한이 있는지 확인하려면 다음을 수행합니다.
+
+서비스 계정 **nxautomation** 및 **omsagent** 이 생성 됩니다. 만들기 및 사용 권한 할당 스크립트는에서 볼 수 있습니다 [https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/installer/datafiles/linux.data](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/installer/datafiles/linux.data) . 해당 sudo 권한이 있는 계정은 [Linux Hybrid Runbook worker를 설치](automation-linux-hrw-install.md)하는 동안 존재 해야 합니다. 작업자를 설치 하려고 시도 했지만 해당 계정이 없거나 적절 한 권한이 없는 경우 설치에 실패 합니다. `sudoers.d` 폴더 또는 해당 소유권의 사용 권한을 변경하면 안 됩니다. 계정에는 Sudo 권한이 필요 하며 사용 권한은 제거할 수 없습니다. 이를 특정 폴더 또는 명령으로 제한하면 호환성이 손상되는 변경이 발생할 수 있습니다. 업데이트 관리의 일부로 사용하도록 설정된 **nxautomation** 사용자는 서명된 Runbook만 실행합니다.
+
+서비스 계정에 저장 된 runbook 모듈에 대 한 액세스 권한이 있는지 확인 하려면 다음을 수행 합니다.
 
 - `pip install`, `apt install` 또는 Linux에 패키지를 설치하는 다른 방법을 사용하는 경우, 패키지가 모든 사용자에 대패 설치되었는지 확인하세요. 예: `sudo -H pip install <package_name>`.
-- [Linux에서 PowerShell을](/powershell/scripting/whats-new/what-s-new-in-powershell-70)사용하는 경우 [Install-Module](/powershell/module/powershellget/install-module) cmdlet을 사용할 때 매개 변수에 대해 를 지정해야 `AllUsers` `Scope` 합니다.
+- [Linux에서 PowerShell](/powershell/scripting/whats-new/what-s-new-in-powershell-70)을 사용 하는 경우, [설치-모듈](/powershell/module/powershellget/install-module) cmdlet을 사용 하 `AllUsers` 는 경우 매개 변수에 대해를 지정 해야 `Scope` 합니다.
 
-Automation 작업자 로그는 에 `/var/opt/microsoft/omsagent/run/automationworker/worker.log` 있습니다.
+Automation 작업자 로그는에 `/var/opt/microsoft/omsagent/run/automationworker/worker.log` 있습니다.
 
-컴퓨터가 Hybrid Runbook Worker 제거되면 서비스 계정이 제거됩니다.
+컴퓨터를 Hybrid Runbook Worker 제거 하면 서비스 계정이 제거 됩니다.
 
 ## <a name="configure-runbook-permissions"></a>Runbook 사용 권한 구성
 
@@ -97,10 +107,10 @@ Azure 가상 머신의 Hybrid Runbook Worker는 관리 ID를 사용하여 Azure 
     Get-AzVM -DefaultProfile $AzureContext | Select Name
     ```
 
-    Runbook을 시스템 할당 관리 ID로 실행하려면 코드를 그대로 둡니다. 사용자 할당 관리 ID를 사용하려면 다음을 수행합니다.
-    1. 줄 5에서 를 제거합니다. `$AzureContext = (Connect-AzAccount -Identity).context`
-    1. , 및 으로 대체합니다. `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`
-    1. 클라이언트 ID를 입력합니다.
+    시스템이 할당한 관리 ID를 사용하여 Runbook을 실행하려면 코드를 그대로 둡니다. 사용자가 할당한 관리 ID를 사용하려면 다음을 수행합니다.
+    1. 5 번 줄에서,를 제거 합니다. `$AzureContext = (Connect-AzAccount -Identity).context`
+    1. `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`로 바꿉니다.
+    1. 클라이언트 ID를 입력 합니다.
 
 ### <a name="use-runbook-authentication-with-run-as-account"></a>실행 계정을 통한 Runbook 인증 사용
 
@@ -225,6 +235,9 @@ Windows Hybrid Runbook Worker가 서명된 Runbook만 실행하도록 구성할 
 > [!IMPORTANT]
 > Hybrid Runbook Worker가 서명된 Runbook만 실행하도록 구성하면 서명되지 않은 Runbook은 해당 Worker에서 실행되지 않습니다.
 
+> [!NOTE]
+>  PowerShell 4.x는 Windows 및 Linux Hybrid Runbook Worker에 대해 서명 된 runbook을 지원 하지 않습니다.  
+
 ### <a name="create-signing-certificate"></a>서명 인증서 만들기
 
 다음 예제에서는 Runbook에 서명하는 데 사용할 수 있는 자체 서명된 인증서를 만듭니다. 이 코드는 인증서를 만든 다음 나중에 Hybrid Runbook Worker가 가져올 수 있도록 내보냅니다. 나중에 인증서를 참조할 때 사용할 수 있도록 지문도 반환됩니다.
@@ -293,6 +306,9 @@ Runbook이 서명되고 나면, Automation 계정으로 Runbook을 가져오고 
 * Hybrid Runbook Worker에서 인증 키를 사용할 수 있도록 설정
 * 서명 유효성 검사가 설정되어 있는지 확인
 * Runbook 서명
+
+> [!NOTE]
+>  PowerShell 4.x는 Windows 및 Linux Hybrid Runbook Worker에 대해 서명 된 runbook을 지원 하지 않습니다.
 
 ### <a name="create-a-gpg-keyring-and-keypair"></a>GPG 인증 키 및 키 쌍 만들기
 

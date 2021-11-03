@@ -5,12 +5,12 @@ ms.topic: article
 ms.custom: references_regions
 ms.date: 08/01/2021
 ms.author: juliako
-ms.openlocfilehash: 3bfe1e7f18f50723eed9d456eac8a773f06a34bf
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 115402133ad33b9fa20eb3298db3e342ea2afbbd
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128552569"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131461687"
 ---
 # <a name="video-analyzer-for-media-release-notes"></a>Video Analyzer for Media 릴리스 정보
 
@@ -22,6 +22,22 @@ ms.locfileid: "128552569"
 * 알려진 문제
 * 버그 수정
 * 사용되지 않는 기능
+
+## <a name="november-2021"></a>2021년 11월
+ 
+### <a name="public-preview-of-azure-video-analyzer-for-media-account-management-based-on-arm"></a>ARM 기반 미디어 계정 관리용 Azure Video Analyzer의 공개 미리 보기
+
+미디어 용 Azure 비디오 분석기는 ARM (Azure Resource Manager) 기반 계정 관리의 공개 미리 보기를 소개 합니다. ARM 기반 Api를 활용 하 여 Azure Portal에서 계정을 만들고 편집 하 고 삭제할 수 있습니다.
+
+자세한 내용은 [미디어 계정에 대 한 비디오 분석기 만들기](https://techcommunity.microsoft.com/t5/azure-ai/azure-video-analyzer-for-media-is-now-available-as-an-azure/ba-p/2912422)를 참조 하세요.
+
+## <a name="october-2021"></a>2021년 10월
+
+### <a name="embed-widgets-in-your-app-using-azure-video-analyzer-for-media-package"></a>미디어 패키지용 Azure Video Analyzer를 사용 하 여 앱에 위젯 포함
+
+새 AVAM (미디어 용 Azure Video Analyzer) `@azure/video-analyzer-for-media-widgets` npm 패키지를 사용 하 여 `insights` 앱에 위젯을 추가 하 고 필요에 따라 사용자 지정 합니다.
+
+새 AVAM 패키지를 사용 하면 `iframe` insights 위젯을 포함 하는 요소를 추가 하는 대신 위젯 및 앱 간에 쉽게 포함 하 고 통신할 수 있습니다. [앱에서 미디어 위젯의 비디오 분석기를 포함 하 고 사용자 지정](https://techcommunity.microsoft.com/t5/azure-media-services/embed-and-customize-azure-video-analyzer-for-media-widgets-in/ba-p/2847063)에서 자세히 알아보세요. 
 
 ## <a name="august-2021"></a>2021년 8월
 
@@ -112,7 +128,7 @@ Video Analyzer for Media에서 생성된 JSON 파일에서도 이 기능을 사�
 
 ### <a name="new-developer-portal"></a>새 개발자 포털 
 
-Video Analyzer for Media에 새로운 [개발자 포털](https://api-portal.videoindexer.ai/)이 생겼습니다. 새 Video Analyzer for Media API를 사용해 보고 다음과 같은 관련 리소스를 모두 한곳에서 찾아보세요. 피드백을 제공하고, 기능을 제안하고, 위젯 코드 샘플과 함께 ['CodePen' 링크](https://codepen.io/videoindexer)를 제공하기 위한 [GitHub 리포지토리](https://github.com/Azure-Samples/media-services-video-indexer), [Stack Overflow](https://stackoverflow.com/questions/tagged/video-indexer), 관련 블로그 게시물과 [Video Analyzer for Media FAQ](faq.yml), [사용자 의견](https://feedback.azure.com/forums/932041-cognitive-services?category_id=399016)이 있는 [Video Analyzer for Media 기술 커뮤니티](https://techcommunity.microsoft.com/t5/azure-media-services/bg-p/AzureMediaServices/label-name/Video%20Indexer). 
+Video Analyzer for Media에 새로운 [개발자 포털](https://api-portal.videoindexer.ai/)이 생겼습니다. 새 Video Analyzer for Media API를 사용해 보고 다음과 같은 관련 리소스를 모두 한곳에서 찾아보세요. 피드백을 제공하고, 기능을 제안하고, 위젯 코드 샘플과 함께 ['CodePen' 링크](https://codepen.io/videoindexer)를 제공하기 위한 [GitHub 리포지토리](https://github.com/Azure-Samples/media-services-video-indexer), [Stack Overflow](https://stackoverflow.com/questions/tagged/video-indexer), 관련 블로그 게시물과 [Video Analyzer for Media FAQ](faq.yml), [사용자 의견](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858)이 있는 [Video Analyzer for Media 기술 커뮤니티](https://techcommunity.microsoft.com/t5/azure-media-services/bg-p/AzureMediaServices/label-name/Video%20Indexer). 
  
 ### <a name="advanced-customization-capabilities-for-insight-widget"></a>인사이트 위젯을 위한 고급 사용자 지정 기능 
 

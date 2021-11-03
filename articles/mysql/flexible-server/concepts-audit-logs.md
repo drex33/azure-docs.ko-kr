@@ -6,19 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 769f178a65ac096446cd98015050ad1a35b3ef09
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 8dc495f16fe205350f5eeeae7a8aee1e933c6a1c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129612449"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468236"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Azure Database for MySQL 유연한 서버에서 감사 로그를 사용하여 데이터베이스 작업 추적
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database for MySQL 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 
 Azure Database for MySQL 유연한 서버는 사용자에게 감사 로그를 구성할 수 있는 기능을 제공합니다. 감사 로그는 연결, 관리, DDL 및 DML 이벤트를 비롯한 데이터베이스 수준 활동을 추적하는 데 사용할 수 있습니다. 이러한 유형의 로그는 일반적으로 규정 준수를 위해 사용됩니다.
 
@@ -27,7 +24,7 @@ Azure Database for MySQL 유연한 서버는 사용자에게 감사 로그를 �
 >[!IMPORTANT]
 > 서버 성능에 크게 영향을 받지 않도록 감사 목적에 필요한 이벤트 유형과 사용자만 로깅하는 것이 좋습니다.
 
-기본적으로 감사 로그는 사용하도록 설정되어 있지 않습니다. 감사 로깅을 사용하도록 설정하려면 `audit_log_enabled` 서버 매개 변수를 *ON* 으로 설정합니다. 이는 Azure Portal 또는 Azure CLI를 사용하여 구성할 수 있습니다. <!-- add link to server parameter-->. 
+기본적으로 감사 로그는 사용하도록 설정되어 있지 않습니다. 감사 로깅을 사용하도록 설정하려면 `audit_log_enabled` 서버 매개 변수를 *ON* 으로 설정합니다. 이는 Azure Portal 또는 Azure CLI를 사용하여 구성할 수 있습니다. <!-- add link to server parameter-->.
 
 감사 로깅 동작을 제어하기 위해 조정할 수 있는 다른 매개 변수는 다음과 같습니다.
 
@@ -153,8 +150,8 @@ Azure Database for MySQL 유연한 서버는 사용자에게 감사 로그를 �
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlAuditLogs' and event_class_s == "general_log"
-    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
-    | order by TimeGenerated asc nulls last 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
+    | order by TimeGenerated asc nulls last
     ```
 
 - 특정 서버에 대한 CONNECTION 이벤트 나열
@@ -163,7 +160,7 @@ Azure Database for MySQL 유연한 서버는 사용자에게 감사 로그를 �
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlAuditLogs' and event_class_s == "connection_log"
-    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
     | order by TimeGenerated asc nulls last
     ```
 
@@ -173,7 +170,7 @@ Azure Database for MySQL 유연한 서버는 사용자에게 감사 로그를 �
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlAuditLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
     | summarize count() by event_class_s, event_subclass_s, user_s, ip_s
     ```
 
@@ -183,9 +180,9 @@ Azure Database for MySQL 유연한 서버는 사용자에게 감사 로그를 �
     AzureDiagnostics
     | where LogicalServerName_s == '<your server name>'
     | where Category == 'MySqlAuditLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
     | summarize count() by LogicalServerName_s, bin(TimeGenerated, 5m)
-    | render timechart 
+    | render timechart
     ```
 
 - 감사 로그를 사용하도록 설정된 진단 로그를 사용하는 모든 MySQL 서버에서 감사된 이벤트 나열
@@ -193,9 +190,9 @@ Azure Database for MySQL 유연한 서버는 사용자에게 감사 로그를 �
     ```kusto
     AzureDiagnostics
     | where Category == 'MySqlAuditLogs'
-    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s 
+    | project TimeGenerated, LogicalServerName_s, event_class_s, event_subclass_s, event_time_t, user_s , ip_s , sql_text_s
     | order by TimeGenerated asc nulls last
-    ``` 
+    ```
 
 ## <a name="next-steps"></a>다음 단계
 - [느린 쿼리 로그](concepts-slow-query-logs.md)에 대해 자세히 알아보기

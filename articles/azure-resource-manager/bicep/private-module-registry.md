@@ -3,12 +3,12 @@ title: Bicep 모듈에 대한 프라이빗 레지스트리 만들기
 description: 프라이빗 Bicep 모듈에 대한 Azure 컨테이너 레지스트리를 설정하는 방법 알아보기
 ms.topic: conceptual
 ms.date: 10/22/2021
-ms.openlocfilehash: 1f14b29fb9d6740d661f74328c82758a74427355
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: f09b4d65c43cbd0f73543322488e56985a16aa9e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130224071"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131470322"
 ---
 # <a name="create-private-registry-for-bicep-modules-preview"></a>Bicep 모듈용 프라이빗 레지스트리 만들기(미리 보기)
 
@@ -29,13 +29,13 @@ Bicep 레지스트리는 [ACR(Azure Container Registry)에서](../../container-r
    로그인 서버 이름을 얻으려면 [Get-AzContainerRegistry 를](/powershell/module/az.containerregistry/get-azcontainerregistry)사용합니다.
 
    ```azurepowershell
-   Get-AzContainerRegistry -ResourceGroupName "<resource-group-name>" -Name "<registry-name>"
+   Get-AzContainerRegistry -ResourceGroupName "<resource-group-name>" -Name "<registry-name>"  | Select-Object LoginServer
    ```
 
    또는 [az acr show를](/cli/azure/acr#az_acr_show)사용합니다.
 
    ```azurecli
-   az acr show --resource-group <resource-group-name> --name <registry-name>
+   az acr show --resource-group <resource-group-name> --name <registry-name> --query loginServer
    ```
 
    로그인 서버 이름의 형식은 `<registry-name>.azurecr.io` 입니다.

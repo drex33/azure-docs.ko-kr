@@ -3,12 +3,12 @@ title: 모범 사례
 description: Azure Batch 솔루션을 개발하기 위한 모범 사례와 유용한 팁에 대해 알아봅니다.
 ms.date: 09/03/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5227b738ab5d7af19ed2877a1c3d6b37ea08c556
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: e910fd444fc443ef93d9cc513632ad6ab11a124e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123535818"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131461574"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch 모범 사례
 
@@ -49,7 +49,7 @@ ms.locfileid: "123535818"
 
 - **풀 효율성 및 청구:** Batch 자체에는 추가 요금이 부과되지 않지만 사용된 컴퓨팅 리소스에는 요금이 부과됩니다. 상태에 관계없이 풀의 모든 컴퓨팅 노드에 대해 요금이 청구됩니다. 여기에는 스토리지 및 네트워킹 비용과 같이 노드를 실행하는 데 필요한 요금이 포함됩니다. 자세한 내용은 [Azure Batch 비용 분석 및 예산](budget.md)을 참조하세요.
 
-- **삭제 되는 OS 디스크:** 가상 컴퓨터 구성 풀은 VM 캐시 또는 임시 SSD에서 OS 디스크를 만드는 임시 [os 디스크](create-pool-ephemeral-os-disk.md)를 사용 하 여 관리 디스크와 관련 된 추가 비용을 방지할 수 있습니다.
+- **사용 후 삭제 OS 디스크:** Virtual Machine 구성 풀은 [관리 디스크와](create-pool-ephemeral-os-disk.md)관련된 추가 비용을 방지하기 위해 VM 캐시 또는 임시 SSD에 OS 디스크를 만드는 임시 OS 디스크를 사용할 수 있습니다.
 
 ### <a name="pool-allocation-failures"></a>풀 할당 실패
 
@@ -61,7 +61,7 @@ Batch 풀에서 Azure의 가동 중지 시간 이벤트를 경험할 수 있습�
 
 ### <a name="custom-image-pools"></a>사용자 지정 이미지 풀
 
-Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에서 각 컴퓨팅 노드에 대해 운영 체제를 제공하는 VM 이미지를 지정합니다. 지원되는 Azure Marketplace 이미지로 풀을 만들거나 [Shared Image Gallery 이미지를 사용하여 사용자 지정 이미지를 만들 수 있습니다.](batch-sig-images.md) [관리형 이미지](batch-custom-images.md)를 사용하여 사용자 지정 이미지 풀을 만들 수도 있지만 가능하면 항상 Shared Image Gallery를 사용하여 사용자 지정 이미지를 만드는 것이 좋습니다. Shared Image Gallery를 사용하면 풀을 더 빠르게 프로비저닝하고, 더 많은 수의 VM을 스케일링하고, VM을 프로비저닝할 때 안정성을 개선할 수 있습니다.
+Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에서 각 컴퓨팅 노드에 대해 운영 체제를 제공하는 VM 이미지를 지정합니다. 지원되는 Azure Marketplace 이미지를 사용하여 풀을 [만들거나 Azure Compute 갤러리 이미지를 사용하여 사용자 지정 이미지를 만들](batch-sig-images.md)수 있습니다. [관리형 이미지를](batch-custom-images.md) 사용하여 사용자 지정 이미지 풀을 만들 수도 있지만, 가능하면 Azure Compute 갤러리를 사용하여 사용자 지정 이미지를 만드는 것이 좋습니다. Azure Compute 갤러리를 사용하면 풀을 더 빠르게 프로비전하고, 더 많은 수의 VM을 확장하고, VM을 프로비전할 때 안정성을 향상시킬 수 있습니다.
 
 ### <a name="third-party-images"></a>타사 이미지
 

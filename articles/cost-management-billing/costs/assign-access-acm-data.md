@@ -3,18 +3,18 @@ title: Azure Cost Management 데이터에 대한 액세스 할당
 description: 이 문서에서는 다양 한 액세스 범위에 대 한 Cost Management 데이터에 대 한 사용 권한을 할당 하는 방법을 안내 합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2021
+ms.date: 11/02/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
+ms.reviewer: sapnakeshari
 ms.custom: secdec18
-ms.openlocfilehash: 00d8b5b2e9a3792c3dd9212607916317c7eb41f8
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: d467fd2ac2ecb01d4a933573603360f5382d5efb
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130247519"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131457984"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Cost Management 데이터에 대한 액세스 할당
 
@@ -120,12 +120,12 @@ EA 포털에서 옵션을 사용하려면 다음을 수행합니다.
 7. 부서 관리자 권한을 부여하려는 부서를 선택합니다.
 8. **추가** 를 클릭하여 계정을 선택합니다.  
     ![부서 관리자 추가 상자에 필요한 정보 입력](./media/assign-access-acm-data/add-depart-admin.png)
+    
+직접 엔터프라이즈 관리자는 Azure Portal에서 부서 관리자 액세스 권한을 할당할 수 있습니다. 자세한 내용은 [Azure Portal에서 부서 관리자 추가](../manage/direct-ea-administration.md#add-a-department-administrator)를 참조 하세요.
 
 ## <a name="assign-enrollment-account-scope-access"></a>등록 계정 범위 액세스 할당
 
 등록 계정 범위에 액세스하려면 EA 포털에서 계정 소유자(AO 요금 보기) 액세스 권한이 있어야 합니다. 계정 소유자는 해당 등록 계정에서 생성된 구독과 관련된 비용 및 사용량 데이터를 볼 수 있습니다. Azure Portal에서는 어떠한 작업도 필요하지 않습니다.
-
-직접 엔터프라이즈 관리자는 Azure Portal 부서 관리자 액세스 권한을 할당할 수 있습니다. 자세한 내용은 [Azure Portal 부서 관리자 추가를](../manage/direct-ea-administration.md#add-a-department-administrator)참조하세요.
 
 1. [https://ea.azure.com](https://ea.azure.com)의 EA 포털에 엔터프라이즈 관리자 계정으로 로그인합니다.
 2. 왼쪽 창에서 **관리** 를 선택합니다.
@@ -139,14 +139,14 @@ EA 포털에서 옵션을 사용하려면 다음을 수행합니다.
 
 위의 단계를 완료하면 사용자 계정이 Enterprise Portal의 등록 계정이 되고 구독을 만들 수 있습니다. 사용자는 자신이 만든 구독에 대한 비용 및 사용량 데이터에 액세스할 수 있습니다.
 
+직접 엔터프라이즈 관리자는 Azure Portal에서 계정 소유자 액세스 권한을 할당할 수 있습니다. 자세한 내용은 [Azure Portal에서 계정 소유자 추가](../manage/direct-ea-administration.md#add-an-account-and-account-owner)를 참조 하세요.
+
 ## <a name="assign-management-group-scope-access"></a>관리 그룹 범위 액세스 할당
 
 관리 그룹 범위를 보기 위해 액세스하려면 Cost Management Reader(또는 Reader) 이상의 권한이 필요합니다. Azure Portal에서 관리 그룹에 대한 권한을 구성할 수 있습니다. 다른 사람들의 액세스가 가능하도록 설정하려면 관리 그룹에 대해 사용자 액세스 관리자(또는 소유자) 이상의 권한이 있어야 합니다. 그리고 Azure EA 계정의 경우 EA 포털에서 **AO 요금 보기** 설정을 사용하도록 설정해야 합니다.
 
 - Cost Management 읽기 권한자 역할을 관리 그룹 범위의 사용자에게 할당합니다.  
      세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
-
-직접 엔터프라이즈 관리자는 Azure Portal 계정 소유자 액세스 권한을 할당할 수 있습니다. 자세한 내용은 [Azure Portal 계정 소유자 추가를 참조하세요.](../manage/direct-ea-administration.md#add-an-account-and-account-owner)
 
 ## <a name="assign-subscription-scope-access"></a>구독 범위 액세스 할당
 
@@ -165,7 +165,7 @@ EA 포털에서 옵션을 사용하려면 다음을 수행합니다.
 
 ## <a name="cross-tenant-authentication-issues"></a>테넌트 간 인증 문제
 
-현재 Cost Management 테넌트 간 인증에 대한 지원이 제한되어 있습니다. 테넌트 간에 인증을 시도하는 경우 비용 분석에서 **액세스 거부** 오류가 발생할 수 있습니다. 이 문제는 Azure RBAC(Azure 역할 기반 액세스 제어)를 다른 테넌트의 구독에 구성한 다음, 비용 데이터를 보려고 할 때 발생할 수 있습니다.
+현재 Cost Management은 테 넌 트 간 인증을 제한적으로 지원 합니다. 테넌트 간에 인증을 시도하는 경우 비용 분석에서 **액세스 거부** 오류가 발생할 수 있습니다. 이 문제는 Azure RBAC(Azure 역할 기반 액세스 제어)를 다른 테넌트의 구독에 구성한 다음, 비용 데이터를 보려고 할 때 발생할 수 있습니다.
 
 *이 문제를 해결하려면 다음을 수행합니다*. 테넌트 간 Azure RBAC를 구성한 후 1시간을 기다립니다. 그런 다음, 비용 분석에서 비용을 보거나 두 테넌트의 사용자에게 Cost Management 액세스 권한을 부여합니다.  
 

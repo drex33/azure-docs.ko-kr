@@ -11,12 +11,12 @@ author: scoriani
 ms.author: scoriani
 ms.reviewer: mathoma
 ms.date: 01/25/2019
-ms.openlocfilehash: acb8a03f4cbd719f348ae5a65974b1c326b10604
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: c6a2506ec92580c949deef98c53d42b06bc37054
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131006281"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473607"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>확장하기 위해 기존 데이터베이스 마이그레이션
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -156,9 +156,9 @@ Get-Mappings -ShardMap $ShardMap
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure SQL Database-탄력적 데이터베이스 도구 스크립트](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)에서 PowerShell 스크립트를 가져옵니다.
+[Azure Elastic Database tools 스크립트](https://github.com/Azure/elastic-db-tools/tree/master/Samples/PowerShell)에서 PowerShell 스크립트를 가져옵니다.
 
-도구는 GitHub( [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools))에도 있습니다.
+탄력적 데이터베이스 도구 클라이언트 라이브러리는 GitHub: [Azure/탄력적-도구](https://github.com/Azure/elastic-db-tools)에서 사용할 수 있습니다.
 
 분할/병합 도구를 사용하여 데이터를 다중 테넌트 모델에서 단일 테넌트 모델로 또는 반대로 이동합니다. [분할 병합 도구](elastic-scale-configure-deploy-split-and-merge.md)를 참조하세요.
 

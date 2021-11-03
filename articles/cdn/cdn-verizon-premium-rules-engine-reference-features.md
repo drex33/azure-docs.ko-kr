@@ -2,17 +2,17 @@
 title: Verizon Premium의 Azure CDN 규칙 엔진 기능
 description: Verizon Premium의 Azure CDN 규칙 엔진 기능에 대한 참조 설명서입니다.
 services: cdn
-author: asudbring
+author: duongau
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 06/02/2020
-ms.author: allensu
-ms.openlocfilehash: 0ea4f167b992ccfbc4156ac06c8f636d2ef4a355
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: duau
+ms.openlocfilehash: c1f77903378cdced27497893638b03a03279adfb
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96020418"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423340"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Verizon Premium의 Azure CDN 규칙 엔진 기능
 

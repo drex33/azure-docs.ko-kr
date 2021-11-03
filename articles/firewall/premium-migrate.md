@@ -5,15 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 10/26/2021
+ms.date: 11/02/2021
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a27f2432ec309f6ff9203921122ddd9f6b1860eb
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 1aeb31ff49389235d54950b76c68deb882e13797
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131086230"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131438496"
 ---
 # <a name="migrate-to-azure-firewall-premium"></a>Azure Firewall 프리미엄으로 마이그레이션
 
@@ -187,6 +187,9 @@ TransformPolicyToPremium -Policy $policy
 ## <a name="migrate-azure-firewall-using-stopstart"></a>중지/시작을 사용 하 여 Azure 방화벽 마이그레이션
 
 방화벽 정책을 사용 하 여 Azure 방화벽 표준 SKU를 사용 하는 경우에는 할당/할당 취소 방법을 사용 하 여 방화벽 SKU를 Premium로 마이그레이션할 수 있습니다. 이 마이그레이션 방식은 VNet 허브와 보안 허브 방화벽 모두에서 지원 됩니다. 보안 허브 배포를 마이그레이션하면 방화벽 공용 IP 주소가 유지 됩니다.
+
+최소 Azure PowerShell 버전 요구 사항은 6.5.0입니다. 자세한 내용은 [Az 6.5.0](https://www.powershellgallery.com/packages/Az/6.5.0)를 참조 하세요.
+
  
 ### <a name="migrate-a-vnet-hub-firewall"></a>VNET 허브 방화벽 마이그레이션
 
@@ -210,7 +213,6 @@ TransformPolicyToPremium -Policy $policy
 
 ### <a name="migrate-a-secure-hub-firewall"></a>보안 허브 방화벽 마이그레이션
 
-최소 Azure PowerShell 버전 요구 사항은 6.5.0입니다. 자세한 내용은 [Az 6.5.0](https://www.powershellgallery.com/packages/Az/6.5.0)를 참조 하세요.
 
 - 표준 방화벽 할당 취소
 

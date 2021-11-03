@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: routlaw
-ms.openlocfilehash: f61f08f32ebb2b721846d3c3017405af99421104
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: b0abb7a982cc3be95c92035ffffb7c3a4778ab40
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95542221"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131457320"
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Azure 애플리케이션에 Node.js 모듈 사용
 이 문서에서는 Azure에서 호스트되는 애플리케이션에 Node.js 모듈을 사용하는 방법에 대해 안내합니다. 또한 애플리케이션에서 특정 버전의 모듈을 사용하고 Azure를 통해 네이티브 모듈을 사용하도록 하는 방법에 대한 지침을 제공합니다.
@@ -70,7 +70,7 @@ Azure App Service는 일부 네이티브 모듈을 지원하지 않으며 특정
 >
 >
 
-### <a name="using-a-npm-shrinkwrapjson-file"></a>npm-shrinkwrap.json 파일 사용
+### <a name="using-an-npm-shrinkwrapjson-file"></a>npm-shrinkwrap.json 파일 사용
 **npm-shrinkwrap.json** 파일은 **package.json** 파일의 모듈 버전 관리 제한 사항을 해결하기 위한 것입니다. **package.json** 파일은 최상위 모듈에 대한 버전만 포함하는 반면, **npm-shrinkwrap.json** 파일은 전체 모듈 종속성 체인에 대한 버전 요구 사항을 포함합니다.
 
 애플리케이션을 프로덕션에 적용할 준비가 되면 버전 요구 사항을 잠그고 **npm shrinkwrap** 명령을 사용하여 **npm-shrinkwrap.json** 파일을 만들 수 있습니다. 이 명령은 현재 **node\_modules** 폴더에 설치되어 있는 버전이 사용되며 이러한 버전이 **npm-shrinkwrap.json** 파일에 기록됩니다. 애플리케이션이 호스팅 환경에 배포된 후에는 **npm install** 명령을 사용하여 **npm-shrinkwrap.json** 파일을 구문 분석하고 나열된 모든 종속성을 설치합니다. 자세한 내용은 [npm-shrinkwrap](https://docs.npmjs.com/cli/shrinkwrap)을 참조하세요.

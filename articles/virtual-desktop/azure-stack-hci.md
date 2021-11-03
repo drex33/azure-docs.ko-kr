@@ -7,12 +7,12 @@ ms.date: 11/02/2021
 ms.author: helohr
 manager: femila
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: a80cdacaebe4cba2dceb1b29b2f512a6148a518b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d91722247e44016695154912277a0e1e2370fed6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131052953"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131452132"
 ---
 # <a name="set-up-azure-virtual-desktop-for-azure-stack-hci-preview"></a>Azure Stack HCI (미리 보기)에 대 한 Azure 가상 데스크톱 설정
 
@@ -40,20 +40,22 @@ Azure Stack HCI에 대 한 Azure 가상 데스크톱을 설정 하려면:
 
 1. [호스트 풀 설정 프로세스 시작](create-host-pools-azure-marketplace.md#begin-the-host-pool-setup-process)의 지침에 따라 가상 컴퓨터 없이 새 호스트 풀을 만듭니다. 해당 섹션의 끝 부분에서이 문서로 돌아와서 2 단계에서 시작 합니다.
 
-2. [작업 영역 정보](create-host-pools-azure-marketplace.md#workspace-information) 의 지침에 따라 자신에 대 한 작업 영역을 만듭니다.
+2. 유효성 검사 환경 속성을 사용 하도록 [호스트 풀을 유효성 검사 호스트 풀로 정의](create-validation-host-pool.md#define-your-host-pool-as-a-validation-host-pool) 의 단계에 따라 새로 만든 호스트 풀을 유효성 검사 호스트 풀로 구성 합니다.
 
-3. [새 VM 만들기](/azure-stack/hci/manage/vm#create-a-new-vm)의 지침에 따라 Azure Stack HCI 인프라에 새 가상 컴퓨터를 배포 합니다. 지원 되는 OS를 사용 하 여 VM을 배포 하 고 도메인에 가입 시킵니다.
+3. [작업 영역 정보](create-host-pools-azure-marketplace.md#workspace-information) 의 지침에 따라 자신에 대 한 작업 영역을 만듭니다.
+
+4. [새 VM 만들기](/azure-stack/hci/manage/vm#create-a-new-vm)의 지침에 따라 Azure Stack HCI 인프라에 새 가상 컴퓨터를 배포 합니다. 지원 되는 OS를 사용 하 여 VM을 배포 하 고 도메인에 가입 시킵니다.
 
    >[!NOTE]
    >VM이 Windows Server OS를 실행 하는 경우 RDSH (원격 데스크톱 세션 호스트) 역할을 설치 합니다.
 
-4. Azure에서 연결 된 컴퓨터 에이전트를 설치 하 여 Azure Arc를 통해 새 가상 컴퓨터를 관리할 수 있도록 합니다. [Azure Arc 사용 서버를 사용 하 여 하이브리드 컴퓨터 커넥트](../azure-arc/servers/learn/quick-enable-hybrid-vm.md) 의 지시에 따라 Windows 에이전트를 가상 머신에 설치 합니다.
+5. Azure에서 연결 된 컴퓨터 에이전트를 설치 하 여 Azure Arc를 통해 새 가상 컴퓨터를 관리할 수 있도록 합니다. [Azure Arc 사용 서버를 사용 하 여 하이브리드 컴퓨터 커넥트](../azure-arc/servers/learn/quick-enable-hybrid-vm.md) 의 지시에 따라 Windows 에이전트를 가상 머신에 설치 합니다.
 
-5. [Azure 가상 데스크톱 에이전트](agent-overview.md)를 설치 하 여 이전에 만든 Azure 가상 데스크톱 호스트 풀에 가상 컴퓨터를 추가 합니다. 그런 다음 azure [가상 데스크톱 호스트 풀에 Vm 등록](create-host-pools-powershell.md#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool) 의 지침에 따라 Vm을 Azure 가상 데스크톱 서비스에 등록 합니다.
+6. [Azure 가상 데스크톱 에이전트](agent-overview.md)를 설치 하 여 이전에 만든 Azure 가상 데스크톱 호스트 풀에 가상 컴퓨터를 추가 합니다. 그런 다음 azure [가상 데스크톱 호스트 풀에 Vm 등록](create-host-pools-powershell.md#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool) 의 지침에 따라 Vm을 Azure 가상 데스크톱 서비스에 등록 합니다.
 
-6. [앱 그룹 만들기 및 사용자 할당 관리](manage-app-groups.md) 의 지시에 따라 테스트를 위한 앱 그룹을 만들고 사용자 액세스 권한을 할당 합니다.
+7. [앱 그룹 만들기 및 사용자 할당 관리](manage-app-groups.md) 의 지시에 따라 테스트를 위한 앱 그룹을 만들고 사용자 액세스 권한을 할당 합니다.
 
-7. [웹 클라이언트로](./user-documentation/connect-web.md) 이동 하 여 사용자에 게 새 배포에 대 한 액세스 권한을 부여 합니다.
+8. [웹 클라이언트로](./user-documentation/connect-web.md) 이동 하 여 사용자에 게 새 배포에 대 한 액세스 권한을 부여 합니다.
 
 ## <a name="optional-configurations"></a>선택적 구성
 
@@ -165,6 +167,13 @@ VHD를 내보내려면:
 
 2. VHD 이미지를 다운로드 합니다. 다운로드 프로세스는 몇 분 정도 걸릴 수 있으므로 잠시 기다려 주십시오. 다음 섹션으로 이동 하기 전에 이미지가 완전히 다운로드 되었는지 확인 합니다.
 
+>[!NOTE]
+>Azcopy를 실행 하는 경우 다음 명령을 실행 하 여 md5check를 건너뛰어야 할 수 있습니다.
+>
+> ```azure
+> azcopy copy “$sas" "destination_path_on_cluster" --check-md5 NoCheck
+> ```
+
 ### <a name="clean-up-the-managed-disk"></a>관리 디스크 정리
 
 VHD를 완료 하 고 나면 관리 디스크를 삭제 하 여 공간을 확보 해야 합니다.
@@ -177,6 +186,13 @@ az disk delete --name $diskName --resource-group $diskRG --yes
 ```
 
 이 명령을 완료 하는 데 몇 분 정도 걸릴 수 있으므로 잠시 기다려 주십시오.
+
+>[!NOTE]
+>필요에 따라 다음 명령을 실행 하 여 다운로드 VHD를 동적 VHDx로 변환할 수도 있습니다.
+>
+> ```powershell
+> Convert-VHD -Path " destination_path_on_cluster\file_name.vhd" -DestinationPath " destination_path_on_cluster\file_name.vhdx" -VHDType Dynamic
+> ```
 
 ## <a name="next-steps"></a>다음 단계
 

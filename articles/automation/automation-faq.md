@@ -6,12 +6,12 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 08/25/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: dfe04bb2fcb7022934ac699bb5c3bd90005bf3b3
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 9a245c858c15a8a33b6347c86124a7b45f0c4290
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129356606"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450897"
 ---
 # <a name="azure-automation-frequently-asked-questions"></a>Azure Automation 질문과 대답
 
@@ -84,4 +84,4 @@ Python 모듈 찾기는 앞에서 설명한 대로 환경 변수를 통해 제�
 질문에 대한 대답이 여기에 없으면 다음 출처에서 추가 질문 및 대답을 참조할 수 있습니다.
 
 - [Azure Automation](/answers/topics/azure-automation.html)
-- [피드백 포럼](https://feedback.azure.com/forums/905242-update-management)
+- [피드백 포럼](https://feedback.azure.com/d365community/forum/721a322e-bd25-ec11-b6e6-000d3a4f0f1c)

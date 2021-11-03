@@ -5,22 +5,18 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 03/02/2021
-ms.openlocfilehash: 6953ffb5542e2a0d8acb9e404b2df0f923a08145
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 1b5ed1cd49ac4117dac6ff0a6e3bdb916299ec44
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111744020"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131457414"
 ---
-# <a name="frequently-asked-questions-about-azure-managed-instance-for-apache-cassandra-preview"></a>Apache Cassandra용 Azure Managed Instance(미리 보기)에 대한 질문과 대답
+# <a name="frequently-asked-questions-about-azure-managed-instance-for-apache-cassandra"></a>Azure Managed Instance for Apache Cassandra에 대한 질문과 대답
 
 이 문서에서는 Apache Cassandra용 Azure Managed Instance에 대한 질문에 대답합니다. 관리형 인스턴스를 사용하는 시기, 이점, 처리량 한도, 지원되는 지역 및 구성 세부 정보에 대해 알아봅니다.
-
-> [!IMPORTANT]
-> Apache Cassandra용 Azure Managed Instance는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="general-faq"></a>일반 FAQ
 
@@ -40,7 +36,7 @@ Apache Cassandra용 Azure Managed Instance는 Azure Cosmos DB 팀에서 제공�
 
 #### <a name="can-i-deploy-azure-managed-instance-for-apache-cassandra-in-any-region"></a>모든 지역에서 Apache Cassandra용 Azure Managed Instance를 배포할 수 있나요?
 
-미리 보기로 제공되는 동안에는 제한된 수의 지역에서만 관리형 인스턴스를 사용할 수 있습니다.
+현재 관리되는 인스턴스는 일부 지역에서만 사용할 수 있습니다.
 
 ### <a name="what-are-the-storage-and-throughput-limits-of-azure-managed-instance-for-apache-cassandra"></a>Apache Cassandra용 Azure Managed Instance의 스토리지 및 처리량 제한은 얼마인가요?
 
@@ -76,7 +72,7 @@ Apache Cassandra용 Azure Managed Instance는 데이터 센터 간에 데이터�
 
 ### <a name="where-can-i-give-feedback-on-azure-managed-instance-for-apache-cassandra-features"></a>Apache Cassandra용 Azure Managed Instance 기능에 대한 피드백은 어디서 제출할 수 있나요?
 
-[사용자 의견 피드백](https://feedback.azure.com/forums/263030-azure-cosmos-db?category_id=398548)에서 "관리형 Apache Cassandra" 범주를 통해 피드백을 제출할 수 있습니다.
+[사용자 의견 피드백](https://feedback.azure.com/d365community/forum/3002b3be-0d25-ec11-b6e6-000d3a4f0858?c=e6e5c7c4-0d25-ec11-b6e6-000d3a4f0858#)에서 "관리형 Apache Cassandra" 범주를 통해 피드백을 제출할 수 있습니다.
 
 계정 관련 문제를 해결하려면 Azure Portal에서 [지원 요청](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출합니다.
 

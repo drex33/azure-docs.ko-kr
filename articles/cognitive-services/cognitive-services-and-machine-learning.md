@@ -6,13 +6,13 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 08/22/2019
-ms.openlocfilehash: e723089b0e248b3bab167b985bc410b3e00d4dc6
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/28/2021
+ms.openlocfilehash: 58025ba9bd0fb8a90395de48c8ab9d24e8746438
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124788271"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131439237"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services 및 기계 학습
 
@@ -102,7 +102,7 @@ Cognitive Service는 학습된 모델을 제공합니다. 이를 통해 데이�
 |[TTS(텍스트 음성 변환)](speech-service/text-to-speech.md)|x|x||
 |[STT(음성 텍스트 변환)](speech-service/speech-to-text.md)|x|x||
 |[Speech Translation](speech-service/speech-translation.md)|x|||
-|[텍스트 분석](./text-analytics/overview.md)|x|||
+|[언어 서비스](./language-service/overview.md)|x|||
 |[Translator](./translator/translator-overview.md)|x|||
 |[Translator - 사용자 지정 번역기](./translator/custom-translator/overview.md)||x||
 

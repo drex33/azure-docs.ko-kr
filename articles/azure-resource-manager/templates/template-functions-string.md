@@ -2,13 +2,13 @@
 title: 템플릿 함수 - 문자열
 description: ARM 템플릿(Azure Resource Manager 템플릿)에서 문자열 작업을 수행하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 09/09/2021
-ms.openlocfilehash: bfb80a03012f5a1a9194789a82efd5cccd1eb18d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/29/2021
+ms.openlocfilehash: 44661751e3bd1f32a9b06ed6b7b6993716162cb1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124806998"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131455039"
 ---
 # <a name="string-functions-for-arm-templates"></a>ARM 템플릿의 문자열 함수
 
@@ -72,7 +72,7 @@ Base64 표현을 포함하는 문자열입니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
@@ -96,13 +96,13 @@ JSON 개체입니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 `base64ToJson` 함수를 사용하여 base64 값을 변환합니다.
+다음 예에서는 함수를 사용 하 여 `base64ToJson` base64 값을 변환 합니다.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/base64.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
@@ -132,7 +132,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
@@ -146,7 +146,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |문자열 또는 배열 |연결할 첫 번째 문자열 또는 배열입니다. |
 | 추가 인수 |예 |문자열 또는 배열 |연결에 대 한 순서에 따라 더 많은 문자열 또는 배열 |
@@ -165,7 +165,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | concatOutput | String | prefix-5yj4yjf5mbg72 |
 
@@ -175,7 +175,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -187,7 +187,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | container |예 |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
 | itemToFind |예 |문자열 또는 int |찾을 값입니다. |
@@ -204,7 +204,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | False |
@@ -231,13 +231,13 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 예에서는 값을 데이터 URI로 변환 하 고 데이터 URI를 문자열로 변환 합니다.
+다음 예제에서는 값을 데이터 URI로 변환하고 데이터 URI를 문자열로 변환합니다.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/datauri.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Hello, World! |
@@ -260,13 +260,13 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 예제 템플릿에서는 값을 데이터 URI로 변환 하 고 데이터 URI를 문자열로 변환 합니다.
+다음 예제 템플릿에서는 값을 데이터 URI로 변환하고 데이터 URI를 문자열로 변환합니다.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/datauri.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Hello, World! |
@@ -279,7 +279,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | itemToTest |예 |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
 
@@ -295,7 +295,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -320,13 +320,13 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 및 함수를 사용 하는 방법을 보여 줍니다 `startsWith` `endsWith` .
+다음 예제에서는 및 함수를 사용하는 방법을 `startsWith` `endsWith` 보여줍니다.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/startsendswith.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
@@ -343,7 +343,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |첫 번째 요소 또는 문자를 검색할 값입니다. |
 
@@ -359,7 +359,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | String | one |
 | stringOutput | String | O |
@@ -390,7 +390,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | formatTest | String | Hello, User. 형식이 지정된 숫자: 8,175,133 |
 
@@ -439,7 +439,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 에서 결과를 `guid` 반환합니다.
+다음 예에서는에서 결과를 반환 합니다 `guid` .
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/guid.json":::
 
@@ -462,13 +462,13 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 및 함수를 사용하는 방법을 `indexOf` `lastIndexOf` 보여줍니다.
+다음 예제에서는 및 함수를 사용 하는 방법을 보여 줍니다 `indexOf` `lastIndexOf` .
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/indexof.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | Int | 3 |
@@ -492,7 +492,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |마지막 요소 또는 문자를 검색할 값입니다. |
 
@@ -502,13 +502,13 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 배열 및 문자열과 함께 함수를 사용하는 방법을 보여 `last` 있습니다.
+다음 예제에서는 `last` 배열 및 문자열에 함수를 사용 하는 방법을 보여 줍니다.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/last.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | String | three |
 | stringOutput | String | e |
@@ -532,13 +532,13 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 및 함수를 사용하는 방법을 `indexOf` `lastIndexOf` 보여줍니다.
+다음 예제에서는 및 함수를 사용 하는 방법을 보여 줍니다 `indexOf` `lastIndexOf` .
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/indexof.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | firstT | Int | 0 |
 | lastT | Int | 3 |
@@ -554,7 +554,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열, 문자열 또는 개체 |요소의 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준의 속성 수를 가져오려는 데 사용할 개체입니다. |
 
@@ -564,13 +564,13 @@ int입니다.
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 `length` 배열 및 문자열과 함께 함수를 사용하는 방법을 보여 있습니다.
+다음 예제에서는 `length` 배열 및 문자열에 함수를 사용 하는 방법을 보여 줍니다.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/length.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -608,17 +608,17 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 이전 예제의 출력은 각 배포마다 다르지만 다음과 유사합니다.
 
-| 이름 | 유형 | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | guidOutput | 문자열 | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
-다음 예제에서는 `newGuid` 함수를 사용하여 스토리지 계정에 대한 고유한 이름을 만듭니다. 이 템플릿은 스토리지 계정이 짧은 시간 동안 존재하고 다시 배포되지 않는 테스트 환경에 사용할 수 있습니다.
+다음 예에서는 함수를 사용 하 여 `newGuid` 저장소 계정에 대 한 고유한 이름을 만듭니다. 이 템플릿은 스토리지 계정이 짧은 시간 동안 존재하고 다시 배포되지 않는 테스트 환경에 사용할 수 있습니다.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/newguid-storageaccount.json":::
 
 이전 예제의 출력은 각 배포마다 다르지만 다음과 유사합니다.
 
-| 이름 | 유형 | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | nameOutput | 문자열 | storagenziwvyru7uxie |
 
@@ -650,7 +650,7 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | stringOutput | String | 0000000123 |
 
@@ -680,7 +680,7 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | firstOutput | String | 1231231234 |
 | secondOutput | String | 123-123-xxxx |
@@ -710,7 +710,7 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
 | stringOutput | String | two three |
@@ -734,13 +734,13 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 ### <a name="examples"></a>예
 
-다음 예에서는 쉼표와 쉼표 또는 세미콜론을 사용 하 여 입력 문자열을 분할 합니다.
+다음 예제에서는 입력 문자열을 쉼표 또는 세미콜론으로 쉼표로 분할합니다.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/split.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | firstOutput | Array | [“one”, “two”, “three”] |
 | secondOutput | Array | [“one”, “two”, “three”] |
@@ -764,13 +764,13 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 및 함수를 사용 하는 방법을 보여 줍니다 `startsWith` `endsWith` .
+다음 예제에서는 및 함수를 사용하는 방법을 `startsWith` `endsWith` 보여줍니다.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/startsendswith.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
@@ -797,13 +797,13 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 다양 한 형식의 값을 문자열로 변환 하는 방법을 보여 줍니다.
+다음 예제에서는 다양한 형식의 값을 문자열로 변환하는 방법을 보여 있습니다.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/string.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | objectOutput | String | {“valueA”:10,“valueB”:“Example Text”} |
 | arrayOutput | String | [“a”,“b”,“c”] |
@@ -821,7 +821,7 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 |:--- |:--- |:--- |:--- |
 | stringToParse |예 |문자열 |부분 문자열을 추출할 원래 문자열입니다. |
 | startIndex |예 |int |부분 문자열의 0부터 시작하는 문자 위치입니다. |
-| length |예 |int |부분 문자열에 대한 문자 수입니다. 문자열 내 위치를 참조해야 합니다. 0 이상이어야 합니다. |
+| length |예 |int |부분 문자열에 대한 문자 수입니다. 문자열 내 위치를 참조해야 합니다. 0 이상이어야 합니다. 생략하면 시작 위치에서 문자열의 나머지가 반환됩니다.|
 
 ### <a name="return-value"></a>반환 값
 
@@ -850,7 +850,7 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | substringOutput | String | two |
 
@@ -879,7 +879,7 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
 | stringOutput | String | On |
@@ -908,7 +908,7 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | toLowerOutput | String | one two three |
 | toUpperOutput | String | ONE TWO THREE |
@@ -937,7 +937,7 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | toLowerOutput | String | one two three |
 | toUpperOutput | String | ONE TWO THREE |
@@ -966,7 +966,7 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | return | String | one two three |
 
@@ -1028,7 +1028,7 @@ newGuid 함수는 .NET Framework의 [Guid 구조](/dotnet/api/system.guid)를 �
 
 ### <a name="examples"></a>예
 
-다음 예제에서는 에서 결과를 `uniquestring` 반환합니다.
+다음 예에서는에서 결과를 반환 합니다 `uniquestring` .
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/uniquestring.json":::
 
@@ -1042,14 +1042,14 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| baseUri |예 |문자열 |기본 uri 문자열입니다. 이 표에 설명된 대로 후행 슬래시()의 처리에 대한 동작을 `/` 관찰합니다.  |
+| baseUri |예 |문자열 |기본 uri 문자열입니다. 이 표 다음에 설명 된 대로 후행 슬래시 () 처리에 대 한 동작을 주의 해 `/` 서 살펴봅니다.  |
 | relativeUri |예 |문자열 |기본 uri 문자열에 추가할 상대 uri 문자열입니다. |
 
-* **baseUri가** 후행 슬래시로 끝나는 경우 결과는 **baseUri** 다음에 **relativeUri** 가 입니다.
+* **Baseuri** 가 후행 슬래시로 끝나는 경우 **그 다음에** **relativeUri** 이 발생 합니다.
 
-* **baseUri가** 후행 슬래시로 끝나지 않으면 두 가지 중 하나가 발생합니다.
+* **BaseUri** 가 후행 슬래시로 끝나지 않는 경우 두 가지 중 하나가 발생 합니다.
 
-   * **baseUri에** 슬래시가 전혀 없는 `//` 경우(앞부분에 있는 것 외에) 결과는 baseUri 다음에 **relativeUri** 가 입니다. 
+   * **Baseuri** 에 슬래시가 전혀 없는 경우 (앞쪽 근처에서 제외 `//` ) 결과는 **baseUri** 다음에 **relativeUri**.
 
    * **baseUri** 에 슬래시가 있지만 슬래시로 끝나지 않는 경우 마지막 슬래시부터 나오는 모든 항목은 **baseuri** 에서 제거되고 결과로 **baseUri** 다음에 **relativeUri** 가 나옵니다.
 
@@ -1076,13 +1076,13 @@ uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://c
 "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 ```
 
-다음 예제 템플릿에서는 , 및 를 사용하는 방법을 `uri` `uriComponent` `uriComponentToString` 보여줍니다.
+다음 예제 템플릿에서는, 및를 사용 하는 방법을 보여 줍니다 `uri` `uriComponent` `uriComponentToString` .
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/uri.json":::
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
@@ -1112,7 +1112,7 @@ URI로 인코딩된 값의 문자열입니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
@@ -1142,7 +1142,7 @@ URI로 인코딩된 값의 디코딩된 문자열입니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 | componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |

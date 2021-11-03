@@ -1,97 +1,98 @@
-- name: 인증서
-  href: index.yml
-- name: 개요
-  items:
-    - name: 인증서 정보
-      href: about-certificates.md
-    - name: 인증서 갱신 정보
-      href: overview-renew-certificate.md
-- name: 빠른 시작
-  expanded: true
-  items:
-    - name: CLI
-      href: quick-create-cli.md
-    - name: PowerShell
-      href: quick-create-powershell.md
-    - name: 포털
-      href: quick-create-portal.md
-    - name: .NET
-      href: quick-create-net.md
-    - name: Node.js
-      href: quick-create-node.md
-    - name: Python
-      href: quick-create-python.md
-    - name: Java
-      href: quick-create-java.md
-- name: 샘플
-  items:
-    - name: Key Vault 코드 샘플
-      href: /samples/browse/?expanded=azure&products=azure-key-vault
-- name: 자습서
-  items:
-    - name: 인증서 가져오기
-      href: tutorial-import-certificate.md
-    - name: 인증서 회전 구성
-      href: tutorial-rotate-certificates.md
-- name: 개념
-  items:
-    - name: Key Vault 인증서 시작
-      href: certificate-scenarios.md
-    - name: 인증서 만들기 모니터링 및 관리
-      href: create-certificate-scenarios.md
-    - name: 인증서 생성 방법
-      href: create-certificate.md
-    - name: 인증서 서명 요청 만들기
-      href: create-certificate-signing-request.md
-    - name: 인증서 액세스 제어
-      href: certificate-access-control.md
-- name: 방법 가이드
-  items:
-    - name: DigiCert CA와 Key Vault 통합
-      href: how-to-integrate-certificate-authority.md
-    - name: 문제 해결 - 인증서 가져오기
-      href: import-cert-faqs.yml
-    - name: 키 자격 증명 모음에서 인증서 내보내기
-      href: how-to-export-certificate.md
-- name: 참조
-  items:
-    - name: Azure PowerShell
-      href: /powershell/module/az.keyvault/#key_vault
-    - name: Azure CLI
-      href: /cli/azure/keyvault
-    - name: .NET
-      href: /dotnet/api/overview/azure/security.keyvault.certificates-readme
-    - name: Java
-      href: /java/api/overview/azure/keyvault
-    - name: Node.js
-      href: /javascript/api/overview/azure/key-vault-index
-    - name: Python
-      href: /python/api/overview/azure/keyvault-certificates-readme
-    - name: REST (영문)
-      href: /rest/api/keyvault
-    - name: Resource Manager 템플릿
-      href: /azure/templates/microsoft.keyvault/allversions
-      displayName: ARM
-    - name: Azure Policy 기본 제공 기능
-      displayName: 'samples, policies, definitions'
-      href: ../policy-reference.md?toc=/azure/key-vault/certificates/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
-- name: 리소스
-  items:
-    - name: Microsoft Learn을 통해 기술 쌓기
-      href: /learn/browse/?products=azure-key-vault
-    - name: 가격 책정
-      href: 'https://azure.microsoft.com/pricing/details/key-vault/'
-    - name: 지역 가용성
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=key-vault'
-    - name: SLA(서비스 수준 계약)
-      href: 'https://azure.microsoft.com/support/legal/sla/key-vault/'
-    - name: 서비스 제한
-      href: ../general/service-limits.md
-    - name: 서비스 상태
-      href: 'https://azure.microsoft.com/status/'
-    - name: 서비스 업데이트
-      href: 'https://azure.microsoft.com/updates/?product=key-vault'
-    - name: 블로그
-      href: /archive/blogs/kv/
-    - name: 제품 사용자 의견
-      href: 'https://feedback.azure.com/forums/906355-azure-key-vault'
+items:
+  - name: 인증서
+    href: index.yml
+  - name: 개요
+    items:
+      - name: 인증서 정보
+        href: about-certificates.md
+      - name: 인증서 갱신 정보
+        href: overview-renew-certificate.md
+  - name: 빠른 시작
+    expanded: true
+    items:
+      - name: CLI
+        href: quick-create-cli.md
+      - name: PowerShell
+        href: quick-create-powershell.md
+      - name: 포털
+        href: quick-create-portal.md
+      - name: .NET
+        href: quick-create-net.md
+      - name: Node.js
+        href: quick-create-node.md
+      - name: Python
+        href: quick-create-python.md
+      - name: Java
+        href: quick-create-java.md
+  - name: 샘플
+    items:
+      - name: Key Vault 코드 샘플
+        href: /samples/browse/?expanded=azure&products=azure-key-vault
+  - name: 자습서
+    items:
+      - name: 인증서 가져오기
+        href: tutorial-import-certificate.md
+      - name: 인증서 회전 구성
+        href: tutorial-rotate-certificates.md
+  - name: 개념
+    items:
+      - name: Key Vault 인증서 시작
+        href: certificate-scenarios.md
+      - name: 인증서 만들기 모니터링 및 관리
+        href: create-certificate-scenarios.md
+      - name: 인증서 생성 방법
+        href: create-certificate.md
+      - name: 인증서 서명 요청 만들기
+        href: create-certificate-signing-request.md
+      - name: 인증서 액세스 제어
+        href: certificate-access-control.md
+  - name: 방법 가이드
+    items:
+      - name: DigiCert CA와 Key Vault 통합
+        href: how-to-integrate-certificate-authority.md
+      - name: 문제 해결 - 인증서 가져오기
+        href: import-cert-faqs.yml
+      - name: 키 자격 증명 모음에서 인증서 내보내기
+        href: how-to-export-certificate.md
+  - name: 참조
+    items:
+      - name: Azure PowerShell
+        href: /powershell/module/az.keyvault/#key_vault
+      - name: Azure CLI
+        href: /cli/azure/keyvault
+      - name: .NET
+        href: /dotnet/api/overview/azure/security.keyvault.certificates-readme
+      - name: Java
+        href: /java/api/overview/azure/keyvault
+      - name: Node.js
+        href: /javascript/api/overview/azure/key-vault-index
+      - name: Python
+        href: /python/api/overview/azure/keyvault-certificates-readme
+      - name: REST
+        href: /rest/api/keyvault
+      - name: Resource Manager 템플릿
+        href: /azure/templates/microsoft.keyvault/allversions
+        displayName: ARM
+      - name: Azure Policy 기본 제공 기능
+        displayName: 'samples, policies, definitions'
+        href: ../policy-reference.md?toc=/azure/key-vault/certificates/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
+  - name: 리소스
+    items:
+      - name: Microsoft Learn을 통해 기술 쌓기
+        href: /learn/browse/?products=azure-key-vault
+      - name: 가격 책정
+        href: 'https://azure.microsoft.com/pricing/details/key-vault/'
+      - name: 지역 가용성
+        href: 'https://azure.microsoft.com/global-infrastructure/services/?products=key-vault'
+      - name: SLA(서비스 수준 계약)
+        href: 'https://azure.microsoft.com/support/legal/sla/key-vault/'
+      - name: 서비스 제한
+        href: ../general/service-limits.md
+      - name: 서비스 상태
+        href: 'https://azure.microsoft.com/status/'
+      - name: 서비스 업데이트
+        href: 'https://azure.microsoft.com/updates/?product=key-vault'
+      - name: 블로그
+        href: /archive/blogs/kv/
+      - name: 제품 사용자 의견
+        href: 'https://feedback.azure.com/d365community/forum/285c5ae0-f524-ec11-b6e6-000d3a4f0da0'

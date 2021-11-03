@@ -10,12 +10,12 @@ ms.date: 05/18/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 4d9fa14246832f339b6a38b6a4128cf3f73c607b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 7b34040e9516daeda71704d74ceac64a03572214
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131054935"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131452512"
 ---
 # <a name="create-a-storage-account"></a>스토리지 계정 만들기
 

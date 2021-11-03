@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 05/25/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0ac3a2dccecf50b53917d878535ce62e124f8f8e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: 68283077d63b7a796b51da45ef005584c6c792a1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479551"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131477272"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>작업 시간 외 VM 시작/중지 개요
 
@@ -81,7 +81,6 @@ VM에서 기존 Automation 계정 및 Log Analytics 작업 영역을 사용하�
 
 VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 작업 시간 외 VM 시작/중지를 사용하도록 설정할 수 있습니다. 이 경우에는 이전 섹션에서 정의한 권한과 이 섹션에서 정의하는 권한이 모두 필요합니다. 다음과 같은 역할도 필요합니다.
 
-- 구독의 공동 관리자. 이 역할은 클래식 VM을 관리해야 하는 경우 클래식 실행 계정을 만드는 데 필요합니다. [클래식 실행 계정](automation-create-standalone-account.md#create-a-classic-run-as-account)은 더 이상 기본적으로 생성되지 않습니다.
 - [Azure AD](../active-directory/roles/permissions-reference.md) 애플리케이션 개발자 역할의 멤버 자격. 실행 계정을 구성하는 방법에 대한 자세한 내용은 [실행 계정 구성 권한](automation-security-overview.md#permissions)을 참조하세요.
 - 구독에 대한 기여자 또는 다음과 같은 권한.
 
@@ -140,7 +139,7 @@ VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 �
 |External_AutoStop_Threshold | `External_AutoStop_MetricName` 변수에 지정된 Azure 경고 규칙에 대한 임계값입니다. 백분율 값의 범위는 1에서 100까지입니다.|
 |External_AutoStop_TimeAggregationOperator | 조건 평가를 위해 선택된 기간 범위에 적용되는 시간 집계 연산자입니다. 허용되는 값은 `Average`, `Minimum`, `Maximum`, `Total`, `Last`입니다.|
 |External_AutoStop_TimeWindow | Azure에서 경고 트리거를 위해 선택된 메트릭을 분석하는 기간의 범위입니다. 이 매개 변수는 시간 간격 형식의 입력을 허용합니다. 가능한 값은 5분에서 6시간 사이입니다.|
-|External_EnableClassicVMs| 이 기능에서 클래식 VM이 대상으로 지정되었는지 여부를 지정하는 값입니다. 기본값은 True입니다. Azure CSP(클라우드 솔루션 공급자) 구독에서는 이 변수를 False로 설정하세요. 클래식 VM에는 [클래식 실행 계정](automation-create-standalone-account.md#create-a-classic-run-as-account)이 필요합니다.|
+|External_EnableClassicVMs| 이 기능에서 클래식 VM이 대상으로 지정되었는지 여부를 지정하는 값입니다. 기본값은 True입니다. Azure CSP(클라우드 솔루션 공급자) 구독에서는 이 변수를 False로 설정하세요.|
 |External_ExcludeVMNames | 제외할 VM 이름의 쉼표로 구분된 목록으로, 140개 VM으로 제한됩니다. 140개가 넘는 VM을 목록에 추가하면 제외하도록 지정된 VM이 실수로 시작되거나 중지될 수 있습니다.|
 |External_Start_ResourceGroupNames | 시작 작업의 대상으로 지정된 하나 이상의 리소스 그룹의 쉼표로 구분된 목록입니다.|
 |External_Stop_ResourceGroupNames | 중지 작업의 대상으로 지정된 하나 이상의 리소스 그룹의 쉼표로 구분된 목록입니다.|
@@ -173,8 +172,6 @@ VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 �
 ## <a name="use-the-feature-with-classic-vms"></a>클래식 VM에서 작업 시간 외 VM 시작/중지 기능 사용
 
 클래식 VM에서 작업 시간 외 VM 시작/중지 기능을 사용하는 경우, Automation이 클라우드 서비스별로 모든 VM을 순차적으로 처리합니다. 서로 다른 클라우드 서비스에서는 VM이 여전히 병렬로 처리됩니다. 
-
-클래식 VM에서 작업 시간 외 VM 시작/중지 기능을 사용하려면 클래식 실행 계정이 필요합니다. 클래식 실행 계정은 기본적으로 생성되지 않습니다. 클래식 실행 계정을 만드는 방법은 [클래식 실행 계정 만들기](automation-create-standalone-account.md#create-a-classic-run-as-account)를 참조하세요.
 
 클라우드 서비스당 VM이 20개 이상인 경우에는 다음과 같은 권장 사항을 참조하세요.
 

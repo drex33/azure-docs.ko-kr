@@ -9,24 +9,24 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/21/2021
 ms.author: cynthn
-ms.openlocfilehash: 908d4ae4a18ac75577ea567f6aba37c9ea2e49fe
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 515d836e9b36a1fb20a712ab30a561ff68e3f715
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450497"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131424669"
 ---
-# <a name="create-a-shared-image-gallery-using-the-portal"></a>포털을 사용하여 Shared Image Gallery 만들기
+# <a name="create-an-azure-compute-gallery-using-the-portal"></a>포털을 사용 하 여 Azure Compute 갤러리 만들기
 
 **적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 **적용 대상:** :heavy_check_mark: :heavy_check_mark: 단일 확장 집합 
 
-[공유 이미지 갤러리](../shared-image-galleries.md)는 조직 내 사용자 지정 이미지 공유를 간소화합니다. 사용자 지정 이미지는 Marketplace 이미지와 같지만 직접 만듭니다. 애플리케이션 사전 로드, 애플리케이션 구성 및 기타 OS 구성과 같은 부트스트랩 배포 작업에 사용자 지정 이미지를 사용할 수 있습니다. 
+[Azure 계산 갤러리](../shared-image-galleries.md) 는 조직 전체에서 사용자 지정 이미지 공유를 간소화 합니다. 사용자 지정 이미지는 Marketplace 이미지와 같지만 직접 만듭니다. 애플리케이션 사전 로드, 애플리케이션 구성 및 기타 OS 구성과 같은 부트스트랩 배포 작업에 사용자 지정 이미지를 사용할 수 있습니다. 
 
-Shared Image Gallery를 사용하면 조직, 지역, Azure AD 테넌트의 다른 사용자와 사용자 지정 VM 이미지를 공유할 수 있습니다. 공유할 이미지, 이미지를 제공할 지역, 이미지를 공유할 사람을 선택하세요. 여러 갤러리를 만들어서 공유 이미지 논리적으로 그룹화할 수 있습니다. 
+Azure 계산 갤러리를 사용 하면 Azure AD 테 넌 트 내에서 사용자 지정 VM 이미지를 조직의 다른 사용자와 공유할 수 있습니다. 공유할 이미지, 이미지를 제공할 지역, 이미지를 공유할 사람을 선택하세요. 이미지를 논리적으로 그룹화 할 수 있도록 여러 갤러리를 만들 수 있습니다. 
 
 갤러리는 전체 Azure RBAC(Azure 역할 기반 액세스 제어)를 제공하는 최상위 리소스입니다. 이미지 버전을 관리할 수 있으며, 각 이미지 버전을 여러 Azure 지역에 복제하도록 선택할 수 있습니다. 갤러리는 관리되는 이미지에서만 작동합니다.
 
-공유 이미지 갤러리 기능에는 여러 가지 리소스가 있습니다. 이 문서에서는 이러한 리소스를 사용하거나 작성하게 됩니다.
+Azure Compute 갤러리 기능에는 여러 리소스 종류가 있습니다. 이 문서에서는 이러한 리소스를 사용하거나 작성하게 됩니다.
 
 
 [!INCLUDE [virtual-machines-shared-image-gallery-resources](../includes/virtual-machines-shared-image-gallery-resources.md)]
@@ -70,10 +70,10 @@ Shared Image Gallery를 사용하면 조직, 지역, Azure AD 테넌트의 다�
 
 ## <a name="next-steps"></a>다음 단계
 
-또한 템플릿을 사용하여 공유 이미지 갤러리 리소스를 만들 수도 있습니다. 다음의 몇 가지 Azure 빠른 시작 템플릿을 사용할 수 있습니다. 
+템플릿을 사용 하 여 Azure Compute 갤러리 리소스를 만들 수도 있습니다. 다음의 몇 가지 Azure 빠른 시작 템플릿을 사용할 수 있습니다. 
 
-- [공유 이미지 갤러리 만들기](https://azure.microsoft.com/resources/templates/sig-create/)
-- [공유 이미지 갤러리에서 이미지 정의 만들기](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
-- [공유 이미지 갤러리에서 이미지 버전 만들기](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
+- [Azure 계산 갤러리 만들기](https://azure.microsoft.com/resources/templates/sig-create/)
+- [Azure 계산 갤러리에서 이미지 정의 만들기](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
+- [Azure 계산 갤러리에서 이미지 버전 만들기](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
 
-공유 이미지 갤러리에 대한 자세한 내용은 [개요](../shared-image-galleries.md)를 참조하세요. 문제 발생 시에는 [공유 이미지 갤러리 문제 해결](../troubleshooting-shared-images.md)을 참조하세요.
+Azure 계산 갤러리에 대 한 자세한 내용은 [개요](../shared-image-galleries.md)를 참조 하세요. 문제가 발생 하는 경우 [갤러리 문제 해결](../troubleshooting-shared-images.md)을 참조 하세요.

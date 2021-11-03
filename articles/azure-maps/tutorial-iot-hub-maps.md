@@ -1,19 +1,19 @@
 ---
 title: '자습서: IoT 공간 분석 구현 | Microsoft Azure Maps'
 description: IoT Hub를 Microsoft Azure Maps 서비스 API와 통합하는 방법에 대한 자습서
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 06/21/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 ms.custom: mvc
-ms.openlocfilehash: 6fd1592e1f0b7d5da44fac15e20b03b8f237ad0a
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 7ab98fa40ddc2321f9640d2e7451fc5c55064580
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129997348"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131455362"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 IoT 공간 분석 구현
 
@@ -22,6 +22,7 @@ IoT 시나리오에서는 일반적으로 시간과 공간에서 발생하는 �
 이 자습서에서는 다음 작업을 수행합니다.
 
 > [!div class="checklist"]
+>
 > * 차량 추적 데이터를 기록하기 위해 Azure 스토리지 계정을 만듭니다.
 > * 데이터 업로드 API를 사용하여 Azure Maps Data Service에 지오펜스를 업로드합니다.
 > * Azure IoT Hub에 허브를 만들고 디바이스를 등록합니다.
@@ -120,10 +121,10 @@ IoT 시나리오에서는 일반적으로 시간과 공간에서 발생하는 �
 
 1. Postman 앱을 열고 **새로 만들기** 를 다시 선택합니다. **새로 만들기** 창에서 **HTTP 요청** 을 선택하고, 해당 요청의 이름을 입력합니다.
 
-2. 작성기 탭에서 **POST** HTTP 메서드를 선택하고, 다음 URL을 입력하여 데이터 업로드 API에 지오펜스를 업로드합니다. `{subscription-key}`를 기본 구독 키로 바꿔야 합니다.
+2. 작성기 탭에서 **POST** HTTP 메서드를 선택하고, 다음 URL을 입력하여 데이터 업로드 API에 지오펜스를 업로드합니다. `{Your-Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿔야 합니다.
 
     ```HTTP
-    https://us.atlas.microsoft.com/mapData?subscription-key={subscription-key}&api-version=2.0&dataFormat=geojson
+    https://us.atlas.microsoft.com/mapData?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=2.0&dataFormat=geojson
     ```
 
     URL 경로에서 `dataFormat` 매개 변수에 대한 `geojson` 값은 업로드되는 데이터의 형식을 나타냅니다.
@@ -133,13 +134,13 @@ IoT 시나리오에서는 일반적으로 시간과 공간에서 발생하는 �
 4. **보내기** 를 선택하고 요청이 처리될 때까지 기다립니다. 요청이 완료되면 응답의 **헤더** 탭으로 이동합니다. **Operation-Location** 키의 값인 `status URL`을 복사합니다.
 
     ```http
-    https://us.atlas.microsoft.com/mapData/operations/<operationId>?api-version=2.0
+    https://us.atlas.microsoft.com/mapData/operations/{operationId}?api-version=2.0
     ```
 
 5. API 호출의 상태를 확인하려면 `status URL`에 대한 **GET** HTTP 요청을 만듭니다. 인증을 위해 기본 구독 키를 URL에 추가해야 합니다. **GET** 요청은 다음 URL과 같습니다.
 
    ```HTTP
-   https://us.atlas.microsoft.com/mapData/<operationId>/status?api-version=2.0&subscription-key={subscription-key}
+   https://us.atlas.microsoft.com/mapData/{operationId}/status?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
    ```
 
 6. 요청이 성공적으로 완료되면 응답 창에서 **헤더** 탭을 선택합니다. **Resource-Location** 키의 값인 `resource location URL`을 복사합니다.  `resource location URL`에는 업로드된 데이터의 고유 식별자(`udid`)가 포함됩니다. 이 자습서에서 나중에 사용할 수 있도록 `udid`를 복사합니다.
@@ -149,9 +150,6 @@ IoT 시나리오에서는 일반적으로 시간과 공간에서 발생하는 �
 ## <a name="create-an-iot-hub"></a>IoT 허브 만들기
 
 IoT Hub는 IoT 애플리케이션과 이 애플리케이션이 관리하는 디바이스 간에 안전하고 안정적인 양방향 통신을 지원합니다. 이 자습서에서는 차량 내 디바이스에서 정보를 가져와서 렌터카의 위치를 확인하려고 합니다. 이 섹션에서는 *ContosoRental* 리소스 그룹 내에 IoT 허브를 만듭니다. 이 허브는 디바이스 원격 분석 이벤트 게시를 담당합니다.
-
-> [!NOTE]
-> 디바이스 원격 분석 이벤트를 Event Grid에 게시하는 기능은 현재 공개 미리 보기로 제공됩니다. 이 기능은 미국 동부, 미국 서부, 서유럽, Azure Government, Azure 중국 21Vianet 및 Azure 독일을 제외한 모든 지역에서 사용할 수 있습니다.
 
 *ContosoRental* 리소스 그룹에서 IoT 허브를 만들려면 [IoT 허브 만들기](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp#create-an-iot-hub)의 단계를 따릅니다.
 

@@ -2,13 +2,13 @@
 title: '빠른 시작: Azure Arc에서 웹 앱 만들기'
 description: Azure Arc의 App Service를 사용하여 첫 번째 웹 앱을 배포하세요.
 ms.topic: quickstart
-ms.date: 06/02/2021
-ms.openlocfilehash: 30d310aa1170cf4c28d76e0299b23a90a3f599d9
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.date: 11/02/2021
+ms.openlocfilehash: 356e1b5f13d2a4b7e00c3e1c11b5dcbf295d6fd3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129709808"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131455869"
 ---
 # <a name="create-an-app-service-app-on-azure-arc-preview"></a>Azure Arc의 App Service 앱 만들기(미리 보기)
 
@@ -33,30 +33,19 @@ az group create --name myResourceGroup --location eastus
 [!INCLUDE [app-service-arc-get-custom-location](../../includes/app-service-arc-get-custom-location.md)]
 
 
-## <a name="3-create-an-app-service-plan"></a>3. App Service 요금제 만들기
-
-이전 단계에서 가져온 `$customLocationId`를 바꿔서 다음 명령을 실행합니다.
-
-```azurecli-interactive
-az appservice plan create -g myResourceGroup -n myPlan \
-    --custom-location $customLocationId \
-    --per-site-scaling --is-linux --sku K1
-``` 
-
-## <a name="4-create-an-app"></a>4. 앱 만들기
+## <a name="3-create-an-app"></a>3. 앱 만들기
 
 다음 예제에서는 Node.js 앱을 만듭니다. `<app-name>`을 클러스터에 하나밖에 없는 이름으로 바꿉니다(유효한 문자는 `a-z`, `0-9`, `-`입니다). 지원되는 모든 런타임을 보려면 [`az webapp list-runtimes --linux`](/cli/azure/webapp)를 실행합니다.
 
 ```azurecli-interactive
  az webapp create \
-    --plan myPlan \
     --resource-group myResourceGroup \
     --name <app-name> \
     --custom-location $customLocationId \
     --runtime 'NODE|12-lts'
 ```
 
-## <a name="5-deploy-some-code"></a>5. 일부 코드 배포
+## <a name="4-deploy-some-code"></a>4. 일부 코드 배포
 
 > [!NOTE]
 > `az webapp up`은 공개 미리 보기에서는 지원되지 않습니다.
@@ -70,7 +59,7 @@ zip -r package.zip .
 az webapp deployment source config-zip --resource-group myResourceGroup --name <app-name> --src package.zip
 ```
 
-## <a name="6-get-diagnostic-logs-using-log-analytics"></a>6. Log Analytics를 사용하여 진단 로그 가져오기
+## <a name="5-get-diagnostic-logs-using-log-analytics"></a>5. Log Analytics를 사용하여 진단 로그 가져오기
 
 > [!NOTE]
 > Log Analytics를 사용하려면 [App Service 확장을 설치](manage-create-arc-environment.md#install-the-app-service-extension)할 때 Log Analytics를 사용하도록 설정했어야 합니다. Log Analytics 없이 확장을 설치했다면 이 단계를 건너뜁니다.
@@ -99,7 +88,6 @@ Kubernetes 클러스터에서 호스트되는 모든 앱에 대한 애플리케�
 
 ```azurecli-interactive
 az webapp create \
-    --plan myPlan \
     --resource-group myResourceGroup \
     --name <app-name> \
     --custom-location $customLocationId \

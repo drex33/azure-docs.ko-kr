@@ -9,20 +9,20 @@ ms.date: 08/27/2021
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
 ms.collection: linux
-ms.openlocfilehash: 3645e36c89debc1e9bc032f4df5b7feaa7b6a720
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 0aae67dbe347c8299e00d741163370d9097c8114
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123449768"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432855"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>가상 머신 또는 VHD의 관리형 이미지를 만드는 방법
 
 **적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
-Azure에서 사용할 VM(가상 머신)의 복사본을 여러 개 만들려면 VM 또는 OS VHD의 관리형 이미지를 캡처합니다. 대규모로 이미지를 만들고 저장하고 공유하려면 [공유 이미지 갤러리](../create-gallery.md)를 참조하세요.
+Azure에서 사용할 VM(가상 머신)의 복사본을 여러 개 만들려면 VM 또는 OS VHD의 관리형 이미지를 캡처합니다. 대규모로 이미지를 만들고 저장 하 고 공유 하려면 [Azure Compute 갤러리](../create-gallery.md)를 참조 하세요.
 
-하나의 관리형 이미지는 최대 20개의 동시 배포를 지원합니다. 동일한 관리형 이미지에서 20개가 넘는 VM을 동시에 만들려고 하면 단일 VHD의 스토리지 성능 제한으로 인해 프로비저닝 시간이 초과될 수 있습니다. 20개 이상의 VM을 동시에 만들려면 20개의 동시 VM 배포마다 1개의 복제본으로 구성된 [공유 이미지 갤러리](../shared-image-galleries.md) 이미지를 사용합니다.
+하나의 관리형 이미지는 최대 20개의 동시 배포를 지원합니다. 동일한 관리형 이미지에서 20개가 넘는 VM을 동시에 만들려고 하면 단일 VHD의 스토리지 성능 제한으로 인해 프로비저닝 시간이 초과될 수 있습니다. 20 개 이상의 Vm을 동시에 만들려면 20 개의 동시 VM 배포 마다 1 개의 복제본으로 구성 된 [Azure 계산 갤러리](../shared-image-galleries.md) (이전의 공유 이미지 갤러리) 이미지를 사용 합니다.
 
 관리형 이미지를 만들려면 개인 계정 정보를 제거해야 합니다. 다음 단계에서는 기존 VM의 프로비전을 해제하고, 할당을 취소하고, 이미지를 만듭니다. 이 이미지를 사용하여 구독 내의 모든 리소스 그룹에서 VM을 만들 수 있습니다.
 
@@ -142,4 +142,4 @@ az vm show \
 ```
 
 ## <a name="next-steps"></a>다음 단계
-대규모로 이미지를 만들고 저장하 고 공유하려면 [공유 이미지 갤러리](../create-gallery.md)를 참조하세요.
+대규모로 이미지를 만들고 저장 하 고 공유 하려면 [Azure Compute 갤러리](../create-gallery.md)를 참조 하세요.

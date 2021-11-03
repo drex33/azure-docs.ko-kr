@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 11/02/2021
 ms.author: kirpas
 ms.subservice: disks
-ms.custom: devx-track-azurepowershell, ignite-fall-2021
-ms.openlocfilehash: 4588627fdfe64c4ba005b6b3c7defadd5994e3d6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: devx-track-azurepowershell, references_regions, ignite-fall-2021
+ms.openlocfilehash: d744bf5ec5619985aaa899183657504c7e3afeff
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131046568"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466678"
 ---
 # <a name="how-to-expand-virtual-hard-disks-attached-to-a-windows-virtual-machine"></a>Windows 가상 머신에 연결된 가상 하드 디스크를 확장하는 방법
 
@@ -39,12 +39,7 @@ ms.locfileid: "131046568"
 
 이에 대한 미리 보기에는 다음과 같은 제한이 있습니다.
 
-- 현재 미국 중서부에서만 사용할 수 있습니다.
-
-- 데이터 디스크에 대해서만 지원됩니다.
-- 4 TiB보다 작은 디스크는 가동 중지 시간 없이 4 TiB 이상으로 확장할 수 없습니다.
-    - 디스크 크기를 4 TiB 이상으로 늘리면 가동 중지 시간 없이 확장할 수 있습니다.
-- [최신 Azure CLI, 최신 Azure PowerShell](/cli/azure/install-azure-cli) [모듈, 를](/powershell/azure/install-az-ps)통해 액세스하는 경우 Azure Portal 또는 [https://aka.ms/iaasexp/DiskLiveResize](https://aka.ms/iaasexp/DiskLiveResize) API 버전이 2021-04-01 이상인 Azure Resource Manager 템플릿을 설치하고 사용해야 합니다.
+[!INCLUDE [virtual-machines-disks-expand-without-downtime-restrictions](../../../includes/virtual-machines-disks-expand-without-downtime-restrictions.md)]
 
 기능에 등록하려면 다음 명령을 사용합니다.
 

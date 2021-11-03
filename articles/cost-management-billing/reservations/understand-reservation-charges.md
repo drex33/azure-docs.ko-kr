@@ -1,19 +1,19 @@
 ---
 title: Azure SQL Database에 대한 예약 할인 이해 | Microsoft Docs
 description: 실행 중인 Azure SQL 데이터베이스에 예약 할인이 적용되는 방법을 알아봅니다. 이러한 데이터베이스에는 시간 단위로 할인이 적용됩니다.
-author: yashesvi
-ms.reviewer: yashar
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 7d163e1958ee97e8032edc0a42bc160dd234d3c1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c583ec4403763f0969b5c70d80e7d05a9862964e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128628480"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131430480"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-sql-database"></a>Azure SQL Database에 예약 할인이 적용되는 방법
 

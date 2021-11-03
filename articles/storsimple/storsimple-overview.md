@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/02/2021
+ms.date: 11/02/2021
 ms.author: timlt
-ms.openlocfilehash: 439522011734a31f818494956bd51f079b1f6113
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: 37b00e79c77e81b2d94dea23dc46d342b2094e74
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108743258"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441403"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000 시리즈: 하이브리드 클라우드 스토리지 솔루션
 
@@ -31,10 +31,6 @@ ms.locfileid: "108743258"
 StorSimple은 [스토리지 계층화](#automatic-storage-tiering) 를 사용하여 다양한 스토리지 미디어에 저장된 데이터를 관리합니다. 현재 작업 세트는 SSD(반도체 드라이브)에 온-프레미스로 저장됩니다. 자주 사용되지 않는 데이터는 HDD(하드 디스크 드라이브)에 저장되고 보관 데이터는 클라우드로 푸시됩니다. 또한 StorSimple은 중복 제거 및 압축을 사용하여 데이터가 사용하는 스토리지 크기를 줄입니다. 자세한 내용은 [중복 제거 및 압축](#deduplication-and-compression)으로 이동합니다. StorSimple 8000 시리즈 설명서에서 사용되는 다른 주요 용어의 정의 및 개념은 이 문서 끝에 있는 [StorSimple 용어](#storsimple-terminology) 로 이동합니다.
 
 스토리지 관리 외에도 StorSimple 데이터 보호 기능을 통해 주문형 백업 및 예약된 백업을 만든 다음 로컬로 또는 클라우드에 저장할 수 있습니다. Backup은 증분 스냅샷 형태로 생성되므로 빠르게 만들고 복원할 수 있습니다. 클라우드 스냅샷은 보조 스토리지 시스템(예: 테이프 백업)을 대체하기 때문에 재해 복구 시나리오에서 매우 중요할 수 있으며, 필요한 경우 데이터 센터 또는 대체 사이트에 데이터를 복원할 수 있게 해줍니다.
-
-![동영상 아이콘](./media/storsimple-overview/video_icon.png)  Microsoft Azure StorSimple의 간단한 소개에 대한 동영상을 봅니다.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/StorSimple-Hybrid-Cloud-Storage-Solution/player]
 
 ## <a name="why-use-storsimple"></a>StorSimple을 사용하는 이유
 다음 테이블은 Microsoft Azure StorSimple이 제공하는 주요 이점 중 일부를 설명합니다.

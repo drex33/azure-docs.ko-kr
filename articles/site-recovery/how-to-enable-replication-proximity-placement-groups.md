@@ -5,12 +5,12 @@ author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
 ms.date: 02/11/2021
-ms.openlocfilehash: abcb233665d6c6074ff50d1bb53e553ed9eb99ef
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: c721014e2f0a61e46ad599bccdc26388aa706a3a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528955"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444955"
 ---
 # <a name="replicate-virtual-machines-running-in-a-proximity-placement-group-to-another-region"></a>근접 배치 그룹에서 실행되는 가상 머신을 다른 지역에 복제
 
@@ -66,7 +66,7 @@ IaaS(Infrastructure as a Service) VM DR 페이지를 통해 복제를 사용하�
 VM에 대한 복제가 사용하도록 설정되면 DR 지역의 근접 배치 그룹에 대한 선택 항목을 쉽게 업데이트할 수 있습니다.
 
 1. 가상 머신으로 이동합니다. 왼쪽 창의 **작업** 아래에서 **재해 복구** 를 선택합니다.
-2. **컴퓨팅 및 네트워크** 창으로 이동하여 **편집** 을 선택합니다.
+2. **컴퓨팅** 창으로 이동하여 **편집을** 선택합니다.
 3. 대상 근접 배치 그룹을 포함하여 여러 대상 설정을 편집할 수 있는 옵션이 표시됩니다. VM이 장애 조치(failover)되도록 하려는 근접 배치 그룹을 선택한 다음, **저장** 을 선택합니다.
 
 ### <a name="vmware-to-azure"></a>VMware에서 Azure로

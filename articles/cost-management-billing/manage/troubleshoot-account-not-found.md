@@ -1,20 +1,20 @@
 ---
 title: Azure Portal에서 청구 계정을 살펴볼 때 발생하는 문제 해결
 description: 이 문서는 Azure Portal에서 청구 계정을 살펴보려고 할 때 발생하는 문제 해결에 도움이 됩니다.
-author: amberbhargava
-ms.reviewer: banders
+author: bandersmsft
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: 5b712ad275ece9293aca5f4fbe01bbc590958aff
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 64d577f72765cfe87ada9d7c30c2a1b69b373c73
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129711072"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131433936"
 ---
 # <a name="troubleshoot-viewing-your-billing-account-in-the-azure-portal"></a>Azure Portal에서 청구 계정을 살펴볼 때 발생하는 문제 해결
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/16/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: d33c3d6687179e734f82f0b109bb0fb9b45be205
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 64be980ccd7726867d47fa4e51c0c125c2ce263f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053546"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131454469"
 ---
 # <a name="set-scaling-rules-in-azure-container-apps"></a>Azure Container Apps에서 크기 조정 규칙 설정
 
@@ -21,7 +21,7 @@ Azure Container Apps는 선언적 크기 조정 규칙 집합을 통해 자동 �
 
 크기 조정 규칙은 `resources.properties.template.scale` [구성의](overview.md)섹션에서 정의됩니다. 컨테이너 앱의 모든 규칙에 적용되는 두 가지 크기 조정 속성이 있습니다.
 
-| 크기 조정 속성 | 설명 | 기본값 | 최솟값 | 최댓값 |
+| 크기 조정 속성 | Description | 기본값 | 최솟값 | 최댓값 |
 |---|---|---|---|---|
 | `minReplicas` | 컨테이너 앱에 대해 실행 중인 최소 복제본 수입니다. | 0 | 1 | 25 |
 | `maxReplicas` | 컨테이너 앱에 대해 실행 중인 최대 복제본 수입니다. | 해당 없음 | 1 | 25 |
@@ -45,7 +45,7 @@ KEDA 설명서에서는 YAML의 코드 예제를 보여 주지만 Container Apps
 
 HTTP 크기 조정 규칙을 사용하면 규모 확장 시기를 결정하는 임계값을 제어할 수 있습니다.
 
-| 크기 조정 속성 | 설명 | 기본값 | 최솟값 | 최댓값 |
+| 크기 조정 속성 | Description | 기본값 | 최솟값 | 최댓값 |
 |---|---|---|---|---|
 | `concurrentRequests`| 요청 수가 이 값을 초과하면 최대 크기까지 더 많은 복제본이 `maxReplicas` 추가됩니다. | 50 | 1 | 해당 없음 |
 
@@ -166,7 +166,7 @@ CPU 크기 조정을 사용하면 사용 중인 CPU 양에 따라 앱 규모를 
 
 ## <a name="memory"></a>메모리
 
-CPU 크기 조정을 사용하면 사용 중인 CPU 양에 따라 앱 규모를 확장하거나 축소할 수 있습니다. CPU 크기 조정은 컨테이너 앱의 크기를 0으로 조정하도록 허용하지 않습니다. 이 배율 조정기 에 대한 자세한 내용은 [KEDA 메모리 배율 조정기 를 참조하세요.](https://keda.sh/docs/scalers/memory/)
+메모리 크기 조정을 사용하면 사용 중인 메모리 양에 따라 앱의 규모를 확장하거나 축소할 수 있습니다. 메모리 크기 조정은 컨테이너 앱의 크기를 0으로 조정하는 것을 허용하지 않습니다. 이 배율 조정기 에 대한 자세한 내용은 [KEDA 메모리 배율 조정기 를 참조하세요.](https://keda.sh/docs/scalers/memory/)
 
 다음 예제에서는 메모리 크기 조정 규칙을 만드는 방법을 보여줍니다.
 

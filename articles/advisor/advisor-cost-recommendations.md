@@ -2,17 +2,25 @@
 title: Azure Advisor를 사용하여 서비스 비용 절감
 description: Azure Advisor를 사용하여 Azure 배포 비용을 최적화합니다.
 ms.topic: article
-ms.date: 09/27/2020
-ms.openlocfilehash: 346b790c6970abc8670661e1ec180662957af47d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 10/29/2021
+ms.openlocfilehash: 32f5ca4f54eb5267abb9fe68655aa43226408610
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102503377"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443892"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Azure Advisor를 사용하여 서비스 비용 절감
 
 Azure Advisor는 유휴 및 사용 미달 리소스를 식별하여 전체적인 Azure 사용을 최적화하고 줄이는 데 도움을 줍니다. Advisor 대시보드의 **비용** 탭에서 비용 관련 권장 지침을 얻을 수 있습니다.
+
+## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Azure Advisor에서 비용 권장 사항에 액세스하는 방법
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+
+1. 아무 페이지에서나 [**Advisor**](https://aka.ms/azureadvisordashboard)를 검색하고 선택합니다.
+
+1. **Advisor** 대시보드에서 **비용** 탭을 선택합니다.
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>사용량이 낮은 인스턴스의 크기를 조정하거나 종료하여 가상 머신 소비 최적화 
 
@@ -99,13 +107,8 @@ Advisor는 Azure Blob Storage 개체 수, 총 크기, 트랜잭션에 대한 인
 ## <a name="reduce-azure-data-explorer-table-cache-period-policy-for-cluster-cost-optimization-preview"></a>클러스터 비용 최적화를 위해 Azure Data Explorer 테이블 캐시 기간(정책) 줄이기(미리 보기)
 Advisor는 테이블 캐시 정책을 줄이면 CPU 사용률, 메모리, 높은 캐시 크기 구성이 있는 Azure Data Explorer 클러스터 노드를 확보할 수 있는 리소스를 식별합니다.
 
-## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Azure Advisor에서 비용 권장 사항에 액세스하는 방법
-
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-
-1. 아무 페이지에서나 [**Advisor**](https://aka.ms/azureadvisordashboard)를 검색하고 선택합니다.
-
-1. **Advisor** 대시보드에서 **비용** 탭을 선택합니다.
+## <a name="configure-manual-throughput-instead-of-autoscale-on-your-azure-cosmos-db-database-or-container"></a>Azure Cosmos DB 데이터베이스 또는 컨테이너에서 자동 크기 조정 대신 수동 처리량 구성
+지난 7일 동안의 사용량에 따라 자동 크기 조정 대신 수동 처리량을 사용하여 비용을 절감할 수 있습니다. 최대 처리량(RU/s)의 평균 사용률이 66%보다 크거나 10% 미만인 경우 수동 처리량이 비용 효율적입니다. 비용 절감액은 지난 7일 동안의 사용량을 기준으로 권장 수동 처리량을 사용하여 절감할 수 있는 잠재적 절감액을 나타냅니다. 실제 절감액은 설정한 수동 처리량 및 처리량의 평균 사용률이 분석된 기간과 계속 유사한지 여부에 따라 달라질 수 있습니다. 예상 절감액은 사용자 계정에 적용될 수 있는 할인을 고려하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

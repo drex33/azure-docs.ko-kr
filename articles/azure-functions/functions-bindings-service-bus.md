@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 858e8ed781ce28406fed89d61be370c8eefdafd9
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 124e1f104bf7607b63eac916754c86b7b28cd8a2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130257065"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131470436"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions의 Azure Service Bus 바인딩
 
@@ -43,26 +43,25 @@ Azure Functions는 [트리거 및 바인딩](./functions-triggers-bindings.md)�
 
 #### <a name="service-bus-extension-5x-and-higher"></a>Service Bus 확장 5.x 이상
 
-새 버전의 Service Bus 바인딩 확장은 미리 보기에서 사용할 수 있습니다. [비밀 대신 id를 사용 하 여 연결](./functions-reference.md#configure-an-identity-based-connection)하는 기능이 도입 되었습니다. 관리 id를 사용 하 여 함수 앱을 구성 하는 방법에 대 한 자습서는 [id 기반 연결을 사용 하 여 함수 앱 만들기 자습서](./functions-identity-based-connections-tutorial.md)를 참조 하세요. .NET 응용 프로그램의 경우에는 새 확장 버전 에서도 바인딩할 수 있는 형식을 변경 하 여 `Microsoft.ServiceBus.Messaging` `Microsoft.Azure.ServiceBus` [ServiceBus](/dotnet/api/azure.messaging.servicebus)의 새 형식으로 형식을 바꿉니다.
+이제 Service Bus 바인딩 확장의 새 버전을 사용할 수 있습니다. [비밀 대신 id를 사용 하 여 연결](./functions-reference.md#configure-an-identity-based-connection)하는 기능이 도입 되었습니다. 관리 id를 사용 하 여 함수 앱을 구성 하는 방법에 대 한 자습서는 [id 기반 연결을 사용 하 여 함수 앱 만들기 자습서](./functions-identity-based-connections-tutorial.md)를 참조 하세요. .NET 응용 프로그램의 경우에는 새 확장 버전 에서도 바인딩할 수 있는 형식을 변경 하 여 `Microsoft.ServiceBus.Messaging` `Microsoft.Azure.ServiceBus` [ServiceBus](/dotnet/api/azure.messaging.servicebus)의 새 형식으로 형식을 바꿉니다.
 
-이 확장 버전은 [미리 보기 NuGet 패키지로] 사용할 수 있거나, 파일에 다음을 추가 하 여 미리 보기 확장 번들 v3에서 추가할 수 있습니다 `host.json` .
+이 확장 버전은 [NuGet 패키지], 버전 5.x를 설치 하 여 사용할 수 있으며, 파일에 다음을 추가 하 여 확장 번들 v3에서 추가할 수 있습니다 `host.json` .
 
 ```json
 {
   "version": "2.0",
   "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[3.*, 4.0.0)"
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[3.3.0, 4.0.0)"
   }
 }
 ```
 
 자세히 알아보려면 [확장 업데이트]를 참조 하세요.
 
-[NuGet 패키지 미리 보기]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/5.0.0-beta.6
 [core tools]: ./functions-run-local.md
 [확장 번들]: ./functions-bindings-register.md#extension-bundles
-[NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
+[NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus
 [확장 업데이트]: ./functions-bindings-register.md
 [Azure Tools 확장]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 

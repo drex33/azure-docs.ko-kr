@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
 ms.date: 02/16/2021
-ms.openlocfilehash: c21d78e9731bc1711e62d26d6cca269868ac1714
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 02d1e509068c2332164fea7236fe1fe554b3ef02
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536560"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131439275"
 ---
 # <a name="create-a-translator-resource"></a>Translator 리소스 만들기
 
@@ -32,7 +32,7 @@ Translator 서비스는 다음 두 가지 리소스 종류를 통해 액세스�
 * **단일 서비스** 리소스 종류를 사용하면 단일 서비스 API 키 및 엔드포인트에 액세스할 수 있습니다.  
 
 * **다중 서비스** 리소스 종류를 사용하면 단일 API 키 및 엔드포인트를 사용하여 여러 Cognitive Services에 액세스할 수 있습니다. Cognitive Services 리소스는 현재 다음 서비스에 대해 사용할 수 있습니다.
-  * 언어([Translator](../translator/translator-overview.md), [Language Understanding (LUIS)](../luis/what-is-luis.md), [Text Analytics](../text-analytics/overview.md))  
+  * language ([번역기](../translator/translator-overview.md), [Language Understanding (LUIS)](../luis/what-is-luis.md), [language service](../text-analytics/overview.md))  
   * 비전([Computer Vision](../computer-vision/overview.md)), ([Face](../face/overview.md))  
   * 결정([Content Moderator](../content-moderator/overview.md))  
 

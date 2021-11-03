@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 인증만 사용하도록 설정된 서버 만들기
+title: Azure Active Directory 인증만 사용 하도록 설정 된 서버 만들기
 description: 이 문서에서는 SQL 인증을 사용하여 연결을 사용하지 않도록 설정하는 Azure AD(Azure Active Directory) 전용 인증이 설정된 Azure SQL 논리 서버 또는 Managed Instance를 만드는 과정을 안내합니다.
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 ms.service: sql-db-mi
@@ -8,22 +8,20 @@ ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/19/2021
-ms.openlocfilehash: 20784a944ff886d645a030fd468fc7aa45258a1d
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 11/02/2021
+ms.openlocfilehash: 1a1c93a47d85b13c1f2a8267539da4c72f166756
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130256075"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423758"
 ---
 # <a name="create-server-with-azure-ad-only-authentication-enabled-in-azure-sql"></a>Azure SQL에서 Azure AD 전용 인증이 사용하도록 설정된 서버 만들기
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-> [!NOTE]
-> 이 문서에서 설명하는 **Azure AD 전용 인증** 기능은 **퍼블릭 미리 보기** 로 제공됩니다. 이 기능에 대한 자세한 내용은 [Azure SQL을 사용하는 Azure AD 전용 인증](authentication-azure-ad-only-authentication.md)을 참조하세요. Azure AD 전용 인증은 현재 Azure Synapse Analytics에서 사용할 수 없습니다.
 
-이 방법 가이드에서는 프로비전하는 동안 [Azure AD 전용 인증을](authentication-azure-ad-only-authentication.md) 사용하는 Azure SQL Database 또는 [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) [논리 서버를](logical-servers.md) 만드는 단계를 간략하게 설명합니다. Azure AD 전용 인증 기능을 사용하면 사용자가 SQL 인증을 사용하여 서버 또는 관리되는 인스턴스에 연결할 수 없으며 Azure AD 인증을 통해서만 연결할 수 있습니다.
+이 방법 가이드에서는 프로 비전 하는 동안 [azure AD 전용 인증](authentication-azure-ad-only-authentication.md) 을 사용 하도록 설정 하 여 Azure SQL Database 또는 [azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) 에 대 한 [논리 서버](logical-servers.md) 를 만드는 단계를 간략하게 설명 합니다. Azure AD 전용 인증 기능을 사용하면 사용자가 SQL 인증을 사용하여 서버 또는 관리되는 인스턴스에 연결할 수 없으며 Azure AD 인증을 통해서만 연결할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -33,17 +31,17 @@ ms.locfileid: "130256075"
 
 ## <a name="permissions"></a>사용 권한
 
-논리 서버 또는 관리되는 인스턴스를 프로비전하려면 이러한 리소스를 만들 수 있는 적절한 권한이 있어야 합니다. 구독 [소유자](../../role-based-access-control/built-in-roles.md#owner), [기여자](../../role-based-access-control/built-in-roles.md#contributor), [서비스 관리자](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles) 및 [공동 관리자](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)와 같이 더 높은 권한이 있는 Azure 사용자는 SQL 서버 또는 관리되는 인스턴스를 만들 수 있는 권한이 있습니다. 최소 권한 Azure RBAC 역할을 사용하여 이러한 리소스를 만들려면 SQL Database에 대한 [SQL Server 기여자](../../role-based-access-control/built-in-roles.md#sql-server-contributor) 및 Managed Instance에 대한 [SQL Managed Instance 기여자](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) 역할을 사용합니다.
+논리 서버 또는 관리 되는 인스턴스를 프로 비전 하려면 이러한 리소스를 만들 수 있는 적절 한 권한이 있어야 합니다. 구독 [소유자](../../role-based-access-control/built-in-roles.md#owner), [기여자](../../role-based-access-control/built-in-roles.md#contributor), [서비스 관리자](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles) 및 [공동 관리자](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)와 같이 더 높은 권한이 있는 Azure 사용자는 SQL 서버 또는 관리되는 인스턴스를 만들 수 있는 권한이 있습니다. 최소 권한 Azure RBAC 역할을 사용하여 이러한 리소스를 만들려면 SQL Database에 대한 [SQL Server 기여자](../../role-based-access-control/built-in-roles.md#sql-server-contributor) 및 Managed Instance에 대한 [SQL Managed Instance 기여자](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) 역할을 사용합니다.
 
 [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) Azure RBAC 역할에는 Azure AD 전용 인증을 사용하도록 설정한 서버 또는 인스턴스를 만들 수 있는 충분한 권한이 없습니다. 서버 또는 인스턴스를 만든 후에는 Azure AD 전용 인증 기능을 관리하기 위해 [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) 역할이 필요합니다.
 
 ## <a name="provision-with-azure-ad-only-authentication-enabled"></a>Azure AD 전용 인증을 사용하도록 설정하여 프로비저닝
 
-다음 섹션에서는 서버 또는 인스턴스에 대해 Azure AD 관리자 집합을 사용하여 논리 서버 또는 관리형 인스턴스를 만들고 서버를 만드는 동안 Azure AD 전용 인증을 사용하도록 설정하는 방법에 대한 예제와 스크립트를 제공합니다. 이 기능에 대한 자세한 내용은 [Azure AD 전용 인증](authentication-azure-ad-only-authentication.md)을 참조하세요.
+다음 섹션에서는 서버 또는 인스턴스에 대해 Azure AD 관리 집합을 사용 하 여 논리 서버 또는 관리 되는 인스턴스를 만드는 방법과 서버를 만드는 동안 Azure AD 전용 인증을 사용 하도록 설정 하는 방법에 대 한 예제와 스크립트를 제공 합니다. 이 기능에 대한 자세한 내용은 [Azure AD 전용 인증](authentication-azure-ad-only-authentication.md)을 참조하세요.
 
 이 예제에서는 시스템 할당 서버 관리자 및 암호를 사용하여 서버 또는 관리되는 인스턴스를 만드는 동안 Azure AD 전용 인증을 사용하도록 설정합니다. 이렇게 하면 Azure AD 전용 인증을 사용하는 경우 서버 관리자 액세스가 방지되며 Azure AD 관리자만 리소스에 액세스할 수 있습니다. 서버를 만드는 동안 고유한 서버 관리자와 암호를 포함하는 매개 변수를 API에 추가하는 것은 선택 사항입니다. 그러나 Azure AD 전용 인증을 사용하지 않도록 설정할 때까지 암호를 다시 설정할 수 없습니다.
 
-서버 또는 관리되는 인스턴스를 만든 후 기존 속성을 변경하려면 다른 기존 API를 사용해야 합니다. 자세한 내용은 [API를 사용하여 Azure AD 전용 인증 관리](authentication-azure-ad-only-authentication.md#managing-azure-ad-only-authentication-using-apis) 및 [Azure SQL Azure AD 인증 구성 및 관리를 참조하세요.](authentication-aad-configure.md)
+서버 또는 관리되는 인스턴스를 만든 후 기존 속성을 변경하려면 다른 기존 API를 사용해야 합니다. 자세한 내용은 [api를 사용 하 여 AZURE ad 전용 인증 관리](authentication-azure-ad-only-authentication.md#managing-azure-ad-only-authentication-using-apis) 및 azure [SQL를 사용 하 여 Azure ad 인증 구성 및 관리](authentication-aad-configure.md)를 참조 하세요.
 
 > [!NOTE]
 > Azure AD 전용 인증이 false(기본값)로 설정된 경우 서버 관리자 및 암호는 서버 또는 관리되는 인스턴스를 만드는 동안 모든 API에 포함되어야 합니다.
@@ -52,9 +50,9 @@ ms.locfileid: "130256075"
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. [Azure Portal SQL 배포 옵션 선택](https://portal.azure.com/#create/Microsoft.AzureSQL) 페이지로 이동하세요.
+1. Azure Portal에서 [SQL 배포 옵션 선택](https://portal.azure.com/#create/Microsoft.AzureSQL) 페이지로 이동 합니다.
 
-1. Azure Portal 로그인하지 않은 경우 메시지가 표시되면 로그인합니다.
+1. Azure Portal에 아직 로그인 하지 않은 경우 메시지가 표시 되 면 로그인 합니다.
 
 1. **SQL 데이터베이스** 에서 **리소스 유형** 을 **단일 데이터베이스** 로 설정한 상태로 두고 **만들기** 를 선택합니다.
 
@@ -62,16 +60,16 @@ ms.locfileid: "130256075"
 
 1. **리소스 그룹** 에 **새로 만들기** 를 선택하고, 새 리소스 그룹의 이름을 입력한 다음, **확인** 을 선택합니다.
 
-1. 데이터베이스 이름 에 **데이터베이스의** 이름을 입력합니다.
+1. **데이터베이스 이름** 에 데이터베이스의 이름을 입력 합니다.
 
-1. **서버에서** **새로 만들기를** 선택하고 새 서버 양식을 다음 값으로 채웁니다.
+1. **서버** 에서 **새로 만들기** 를 선택 하 고 다음 값을 사용 하 여 새 서버 폼을 채웁니다.
 
-   - **서버 이름:** 고유한 서버 이름을 입력합니다. 서버 이름은 구독 내에서만 고유하지 않고 Azure의 모든 서버에 대해 전역적으로 고유해야 합니다. 값을 입력하면 Azure Portal 사용할 수 있는지 여부를 알 수 있습니다.
-   - **위치:** 드롭다운 목록에서 위치를 선택합니다.
-   - **인증 방법:** **Azure AD(Azure Active Directory) 인증만 사용을** 선택합니다.
-   - **관리자 설정을** 선택합니다. 그러면 논리 서버 Azure AD 관리자로 Azure AD 보안 주체를 선택하는 메뉴가 표시됩니다. 완료되면 **선택** 단추를 사용하여 관리자를 설정합니다.
+   - **서버 이름**: 고유한 서버 이름을 입력 합니다. 서버 이름은 구독 내에서 고유 하지 않고 Azure의 모든 서버에 대해 전역적으로 고유 해야 합니다. 값을 입력 하면 해당 Azure Portal 값을 사용할 수 있는지 여부를 알 수 있습니다.
+   - **위치**: 드롭다운 목록에서 위치를 선택 합니다.
+   - **인증 방법**: **Azure Active Directory (Azure AD) 인증만 사용** 을 선택 합니다.
+   - Azure AD 보안 주체를 논리 서버 Azure AD 관리자로 선택 하는 메뉴를 표시 하는 **관리자 설정** 을 선택 합니다. 완료 되 면 **선택** 단추를 사용 하 여 관리자를 설정 합니다.
 
-   :::image type="content" source="media/authentication-azure-ad-only-authentication/azure-ad-portal-create-server.png" alt-text="Azure AD 전용 인증을 사용하도록 설정된 서버를 만드는 스크린샷":::
+   :::image type="content" source="media/authentication-azure-ad-only-authentication/azure-ad-portal-create-server.png" alt-text="Azure AD 전용 인증을 사용 하는 서버 만들기의 스크린샷":::
     
 1. 완료되면 **다음: 네트워킹** 을 선택합니다.
 
@@ -79,12 +77,12 @@ ms.locfileid: "130256075"
 
 1. **방화벽 규칙** 의 경우 **현재 클라이언트 IP 주소 추가** 를 **예** 로 설정합니다. **Azure 서비스 및 리소스가 이 서버에 액세스할 수 있도록 허용** 을 **아니요** 로 설정된 상태로 둡니다. 
 
-1. **연결 정책** 및 **최소 TLS 버전** 설정을 기본값으로 둡니다.
+1. **연결 정책** 및 **최소 TLS 버전** 설정은 기본값으로 둡니다.
 
-1. 페이지 하단에서 **다음: 보안** 을 선택합니다. 환경에 대한 SQL , **원장,** **ID** 및 **투명한 데이터 암호화에** **대한 Azure Defender** 설정을 구성합니다. 이러한 설정을 건너뛸 수도 있습니다.
+1. 페이지 하단에서 **다음: 보안** 을 선택합니다. 사용자 환경에 대 한 SQL, **원장**, **id** 및 **투명 한 데이터 암호화** 를 **위해 Azure Defender** 에 대 한 설정을 구성 합니다. 이러한 설정은 건너뛸 수도 있습니다.
 
    > [!NOTE]
-   > 사용자 할당 관리 ID(UMI)를 사용하는 것은 Azure AD 전용 인증에서 지원되지 않습니다. **ID** 섹션의 서버 ID를 UMI로 설정하지 마십시오.
+   > 사용자 할당 관리 id (UMI)를 사용 하는 것은 Azure AD 전용 인증에서 지원 되지 않습니다. **Id** 섹션의 서버 ID를 UMI로 설정 하지 마십시오.
 
 1. 페이지 아래쪽에서 **검토 + 만들기** 를 선택합니다.
 
@@ -92,7 +90,7 @@ ms.locfileid: "130256075"
 
 # <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI 명령은 새 `az sql server create` 논리 서버를 프로비전하는 데 사용됩니다. 아래 명령은 Azure AD 전용 인증을 사용하도록 설정하여 새 서버를 프로비저닝합니다.
+Azure CLI 명령은 `az sql server create` 새 논리 서버를 프로 비전 하는 데 사용 됩니다. 아래 명령은 Azure AD 전용 인증을 사용하도록 설정하여 새 서버를 프로비저닝합니다.
 
 서버 SQL 관리자 로그인이 자동으로 만들어지고 암호는 임의의 암호로 설정됩니다. 이 서버를 만들 때 SQL 인증 연결을 사용할 수 없으므로 SQL 관리자 로그인은 사용되지 않습니다.
 
@@ -102,8 +100,8 @@ Azure CLI 명령은 새 `az sql server create` 논리 서버를 프로비전하�
 
 - `<AzureADAccount>`: Azure AD 사용자 또는 그룹이 될 수 있습니다. 예를 들어 `DummyLogin`
 - `<AzureADAccountSID>`: 사용자의 Azure AD 개체 ID
-- `<ResourceGroupName>`: 논리 서버의 리소스 그룹 이름
-- `<ServerName>`: 고유한 논리 서버 이름 사용
+- `<ResourceGroupName>`: 논리 서버에 대 한 리소스 그룹의 이름
+- `<ServerName>`: 고유한 논리적 서버 이름을 사용 합니다.
 
 ```azurecli
 az sql server create --enable-ad-only-auth --external-admin-principal-type User --external-admin-name <AzureADAccount> --external-admin-sid <AzureADAccountSID> -g <ResourceGroupName> -n <ServerName>
@@ -127,9 +125,9 @@ PowerShell 명령 `New-AzSqlServer`는 새 Azure SQL 논리 서버를 프로비�
 
 예제에서 다음 값을 바꿉니다.
 
-- `<ResourceGroupName>`: 논리 서버의 리소스 그룹 이름
+- `<ResourceGroupName>`: 논리 서버에 대 한 리소스 그룹의 이름
 - `<Location>`: 서버의 위치(예: `West US` 또는 `Central US`)
-- `<ServerName>`: 고유한 논리 서버 이름 사용
+- `<ServerName>`: 고유한 논리적 서버 이름을 사용 합니다.
 - `<AzureADAccount>`: Azure AD 사용자 또는 그룹이 될 수 있습니다. 예를 들어 `DummyLogin`
 
 ```powershell
@@ -140,9 +138,9 @@ New-AzSqlServer -ResourceGroupName "<ResourceGroupName>" -Location "<Location>" 
 
 # <a name="rest-api"></a>[Rest API](#tab/rest-api)
 
-[서버 - 만들기 또는 업데이트](/rest/api/sql/2020-11-01-preview/servers/create-or-update) Rest API를 사용하여 프로비전하는 동안 Azure AD 전용 인증이 활성화된 논리 서버를 만들 수 있습니다. 
+[서버-Create 또는 Update](/rest/api/sql/2020-11-01-preview/servers/create-or-update) Rest API를 사용 하 여 프로 비전 중에 Azure AD 전용 인증을 사용 하는 논리 서버를 만들 수 있습니다. 
 
-아래 스크립트는 논리 서버를 프로비전하고, Azure AD 관리자를 `<AzureADAccount>` 로 설정하고, Azure AD 전용 인증을 사용하도록 설정합니다. 서버 SQL 관리자 로그인이 자동으로 만들어지고 암호가 임의의 암호로 설정됩니다. 이 프로비저닝 동안 SQL 인증 연결을 사용할 수 없으므로 SQL 관리자 로그인은 사용되지 않습니다.
+아래 스크립트는 논리 서버를 프로 비전 하 고, Azure AD 관리자를로 설정 하 `<AzureADAccount>` 고, AZURE ad 전용 인증을 사용 하도록 설정 합니다. 서버 SQL 관리자 로그인이 자동으로 만들어지고 암호가 임의의 암호로 설정됩니다. 이 프로비저닝 동안 SQL 인증 연결을 사용할 수 없으므로 SQL 관리자 로그인은 사용되지 않습니다.
 
 프로비저닝이 완료되면 Azure AD 관리자 `<AzureADAccount>`를 사용하여 서버를 관리할 수 있습니다.
 
@@ -150,8 +148,8 @@ New-AzSqlServer -ResourceGroupName "<ResourceGroupName>" -Location "<Location>" 
 
 - `<tenantId>`: [Azure Portal](https://portal.azure.com), **Azure Active Directory** 리소스로 이동하여 찾을 수 있습니다. **개요** 창에 **테넌트 ID** 가 표시됩니다.
 - `<subscriptionId>`: 구독 ID를 Azure Portal에서 찾을 수 있습니다.
-- `<ServerName>`: 고유한 논리 서버 이름 사용
-- `<ResourceGroupName>`: 논리 서버의 리소스 그룹 이름
+- `<ServerName>`: 고유한 논리적 서버 이름을 사용 합니다.
+- `<ResourceGroupName>`: 논리 서버에 대 한 리소스 그룹의 이름
 - `<AzureADAccount>`: Azure AD 사용자 또는 그룹이 될 수 있습니다. 예를 들어 `DummyLogin`
 - `<Location>`: 서버의 위치(예: `westus2` 또는 `centralus`)
 - `<objectId>`: [Azure Portal](https://portal.azure.com), **Azure Active Directory** 리소스로 이동하여 찾을 수 있습니다. **사용자** 창에서 Azure AD 사용자를 검색하고 해당 **개체 ID** 를 찾습니다.
@@ -216,7 +214,7 @@ $responce.content
 
 ARM 템플릿에 대한 자세한 내용은 [Azure SQL Database 및 SQL Managed Instance용 Azure Resource Manager 템플릿](arm-templates-content-guide.md)을 참조하세요.
 
-ARM 템플릿을 사용 하 여 사용 하도록 설정 된 서버 및 azure ad 전용 인증에 대 한 azure ad 관리자 집합을 사용 하 여 논리 서버를 프로 비전 하려면 azure ad 전용 인증 빠른 시작 템플릿을 사용 하 여 [azure SQL 논리 서버](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sql/sql-logical-server-aad-only-auth) 를 참조 하세요.
+ARM 템플릿을 사용하여 서버 및 Azure AD 전용 인증에 대해 설정된 Azure AD 관리자가 있는 논리 서버를 프로비전하려면 [Azure AD 전용 인증](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sql/sql-logical-server-aad-only-auth) 빠른 시작 템플릿을 사용하여 Azure SQL 논리 서버를 참조하세요.
 
 다음 템플릿을 사용할 수도 있습니다. [Azure Portal의 사용자 지정 배포](https://portal.azure.com/#create/Microsoft.Template)를 사용하고 **편집기에서 사용자 고유의 템플릿을 빌드** 합니다. 다음으로, 예제에 붙여넣은 후에 구성을 **저장** 합니다.
 
@@ -298,27 +296,27 @@ ARM 템플릿을 사용 하 여 사용 하도록 설정 된 서버 및 azure ad 
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. Azure Portal에서 [SQL 배포 옵션 선택](https://portal.azure.com/#create/Microsoft.AzureSQL) 페이지로 이동 합니다.
+1. [Azure Portal SQL 배포 옵션 선택](https://portal.azure.com/#create/Microsoft.AzureSQL) 페이지로 이동하세요.
 
-1. Azure Portal에 아직 로그인 하지 않은 경우 메시지가 표시 되 면 로그인 합니다.
+1. Azure Portal 로그인하지 않은 경우 메시지가 표시되면 로그인합니다.
 
-1. **관리 되는 인스턴스 SQL** 에서 **리소스 유형** 을 **단일 인스턴스로** 설정 하 고 **만들기** 를 선택 합니다.
+1. **SQL 관리되는 인스턴스에서** 리소스 **종류를** 단일 **인스턴스로** 설정한 상태로 두고 **만들기를** 선택합니다.
 
-1. **Project 세부** 정보 및 **Managed Instance 세부 정보** 에 대 한 **기본 사항** 탭에 필요한 필수 정보를 입력 합니다. 이는 SQL Managed Instance를 프로 비전 하는 데 필요한 최소 정보 집합입니다.
+1. Project 세부 정보 및 **Managed Instance 세부 정보에** 대한 기본 **사항** 탭에 필요한 필수 **정보를** 입력합니다. SQL Managed Instance 프로비전하는 데 필요한 최소 정보 집합입니다.
 
-   :::image type="content" source="media/authentication-azure-ad-only-authentication/azure-ad-only-managed-instance-create-basic.png" alt-text="Managed Instance 기본 만들기 탭의 Azure Portal 스크린샷 ":::
+   :::image type="content" source="media/authentication-azure-ad-only-authentication/azure-ad-only-managed-instance-create-basic.png" alt-text="만들기 Managed Instance 기본 탭의 Azure Portal 스크린샷 ":::
 
-   구성 옵션에 대 한 자세한 내용은 빠른 시작 [: Azure SQL Managed Instance 만들기](../managed-instance/instance-create-quickstart.md)를 참조 하세요.
+   구성 옵션에 대한 자세한 내용은 [빠른 시작: Azure SQL Managed Instance 만들기를](../managed-instance/instance-create-quickstart.md)참조하세요.
 
-1. **인증** 에서 **인증 방법** 에 대해 **Azure Active Directory (Azure AD) 인증만 사용** 을 선택 합니다.
+1. **인증** 아래에서 **인증 방법에** 대해 **Azure Active Directory(Azure AD) 인증만 사용을** 선택합니다.
 
-1. Azure ad 보안 주체를 관리 되는 인스턴스 Azure AD 관리자로 선택 하는 메뉴를 표시 하는 **관리자 설정** 을 선택 합니다. 완료 되 면 **선택** 단추를 사용 하 여 관리자를 설정 합니다.
+1. **관리형 인스턴스** Azure AD 관리자로 Azure AD 보안 주체를 선택하는 메뉴를 제공하는 관리자 설정을 선택합니다. 완료되면 **선택** 단추를 사용하여 관리자를 설정합니다.
 
-   :::image type="content" source="media/authentication-azure-ad-only-authentication/azure-ad-only-managed-instance-create-basic-choose-authentication.png" alt-text="Azure Portal Managed Instance 기본 만들기 탭의 스크린샷 및 Azure AD 전용 인증 선택":::
+   :::image type="content" source="media/authentication-azure-ad-only-authentication/azure-ad-only-managed-instance-create-basic-choose-authentication.png" alt-text="Azure Portal 만들기 Managed Instance 기본 탭 및 Azure AD 전용 인증 선택 스크린샷":::
 
-1. 설정의 나머지는 기본값을 그대로 둘 수 있습니다. **네트워킹**, **보안** 또는 다른 탭과 설정에 대 한 자세한 내용은 [빠른 시작: Azure SQL Managed Instance 만들기](../managed-instance/instance-create-quickstart.md)문서에서 가이드를 따르세요.
+1. 나머지 설정은 기본값으로 둘 수 있습니다. **네트워킹,** **보안** 또는 기타 탭 및 설정에 대한 자세한 내용은 빠른 시작: Azure SQL Managed Instance 만들기 문서의 [가이드를 따르세요.](../managed-instance/instance-create-quickstart.md)
 
-1. 설정 구성을 완료 한 후 **검토 + 만들기** 를 선택 하 여 계속 합니다. **만들기** 를 선택하여 관리형 인스턴스를 프로비저닝하기 시작합니다.
+1. 설정 구성이 완료되면 검토 + **만들기를** 선택하여 계속 진행합니다. **만들기** 를 선택하여 관리형 인스턴스를 프로비저닝하기 시작합니다.
 
 # <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -387,7 +385,7 @@ New-AzSqlInstance -Name "<managedinstancename>" -ResourceGroupName "<ResourceGro
 - `<tenantId>`: [Azure Portal](https://portal.azure.com), **Azure Active Directory** 리소스로 이동하여 찾을 수 있습니다. **개요** 창에 **테넌트 ID** 가 표시됩니다.
 - `<subscriptionId>`: 구독 ID를 Azure Portal에서 찾을 수 있습니다.
 - `<instanceName>`: 고유한 관리되는 인스턴스 이름을 사용합니다.
-- `<ResourceGroupName>`: 논리 서버에 대 한 리소스 그룹의 이름
+- `<ResourceGroupName>`: 논리 서버의 리소스 그룹 이름
 - `<AzureADAccount>`: Azure AD 사용자 또는 그룹이 될 수 있습니다. 예를 들어 `DummyLogin`
 - `<Location>`: 서버의 위치(예: `westus2` 또는 `centralus`)
 - `<objectId>`: [Azure Portal](https://portal.azure.com), **Azure Active Directory** 리소스로 이동하여 찾을 수 있습니다. **사용자** 창에서 Azure AD 사용자를 검색하고 해당 **개체 ID** 를 찾습니다.
@@ -737,4 +735,4 @@ Invoke-RestMethod -Uri https://management.azure.com/subscriptions/$subscriptionI
 
 - 이미 SQL 서버 또는 관리되는 인스턴스가 있으며 Azure AD 전용 인증을 사용하도록 설정하려면 [자습서: Azure SQL을 사용한 Azure Active Directory 전용 인증 사용](authentication-azure-ad-only-authentication-tutorial.md)을 참조하세요.
 - Azure AD 전용 인증 기능에 대한 자세한 내용은 [Azure SQL을 사용한 Azure AD 전용 인증](authentication-azure-ad-only-authentication.md)을 참조하세요.
-- azure AD 전용 인증을 사용 하 여 서버 만들기를 적용 하려는 경우 [azure를 사용 하는 Azure Active Directory 전용 인증에 대 한 Azure Policy](authentication-azure-ad-only-authentication-policy.md) 를 참조 하세요 SQL
+- Azure AD 전용 인증을 사용하도록 설정된 서버 만들기를 적용하려는 경우 Azure SQL Azure Active Directory [전용 인증에 대한 Azure Policy](authentication-azure-ad-only-authentication-policy.md) 참조하세요.

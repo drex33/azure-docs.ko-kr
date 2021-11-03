@@ -6,12 +6,12 @@ ms.service: azure
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: ab469462d308435aed5f54e782803cbf5874c59b
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: baa926382763199d90ab56cb84f9f5b035741261
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130238508"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468954"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
 
@@ -109,7 +109,7 @@ Azure Spring Cloud는 클라우드에서 애플리케이션을 빌드, 배포, �
 
 > **사용 시기:** 완전 관리형 서비스인 Azure Spring Cloud는 Azure에서 Spring Boot/Spring Cloud 기반 마이크로 서비스를 실행할 때의 운영 비용을 최소화하는 데 적합합니다. 
 >
-> **시작 하기:** [Azure 스프링 클라우드에서 첫 번째 스프링 부팅 앱을 배포](../../spring-cloud/quickstart.md)합니다.
+> **시작:** [Azure Spring Cloud 에서 첫 번째 Spring Boot 앱을 배포합니다.](../../spring-cloud/quickstart.md)
 
 
 ### <a name="enhance-your-applications-with-azure-services"></a>Azure 서비스를 사용하여 애플리케이션 개선
@@ -168,7 +168,7 @@ Azure는 애플리케이션에서 컨테이너를 사용하는 여러 방법을 
 
 애플리케이션 사용자를 파악하는 것뿐만 아니라 리소스의 무단 액세스를 방지하는 것도 중요합니다. Azure는 앱 클라이언트를 인증하는 여러 방법을 제공합니다.
 
-* **Azure AD(Azure Active Directory)**: Microsoft 다중 테넌트, 클라우드 기반 ID 및 액세스 관리 서비스입니다. Azure AD와 통합하여 애플리케이션에 SSO(Single Sign-On)를 추가할 수 있습니다. Azure AD Graph API를 직접 사용하거나 Microsoft Graph API를 사용하여 디렉터리 속성에 액세스할 수 있습니다. 네이티브 HTTP/REST 엔드포인트 및 다중 플랫폼 Azure AD 인증 라이브러리를 사용하여 OAuth2.0 권한 부여 프레임워크 및 Open ID Connect 대한 Azure AD 지원과 통합할 수 있습니다.
+* **Azure AD(Azure Active Directory)**: Microsoft 다중 테넌트, 클라우드 기반 ID 및 액세스 관리 서비스입니다. Azure AD와 통합하여 애플리케이션에 SSO(Single Sign-On)를 추가할 수 있습니다. Microsoft Graph API를 사용 하 여 디렉터리 속성에 액세스할 수 있습니다. 네이티브 HTTP/REST 엔드포인트 및 다중 플랫폼 Azure AD 인증 라이브러리를 사용하여 OAuth2.0 권한 부여 프레임워크 및 Open ID Connect 대한 Azure AD 지원과 통합할 수 있습니다.
 
   > **사용 시기**: SSO 환경 제공, 그래프 기반 데이터 작업 또는 도메인 기반 사용자를 인증하려는 경우
   >

@@ -11,16 +11,16 @@ ms.subservice: automl
 ms.date: 09/27/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack, contperf-fy22q1
-ms.openlocfilehash: 159452c18418508cb0640e909a49474e77ca3ce9
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 2dcae2eada7a54eed48ea0265bff305f24244137
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130246419"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131460777"
 ---
 # <a name="set-up-automl-training-with-python"></a>Python을 사용하여 AutoML 학습 설정
 
-이 가이드에서는 Azure Machine Learning 자동화된 ML 사용하여 [Azure Machine Learning Python SDK를](/python/api/overview/azure/ml/intro) 사용하여 자동화된 Machine Learning, AutoML, 학습 실행을 설정하는 방법을 알아봅니다. 자동화된 ML은 알고리즘과 하이퍼 매개 변수를 자동으로 선택하고 배포할 준비가 된 모델을 생성합니다. 이 가이드에서는 자동화된 ML 실험을 구성하는 데 사용할 수 있는 다양한 옵션에 대해 자세히 설명합니다.
+이 가이드에서는 자동화 된 ML를 사용 하 Azure Machine Learning 여 [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) 를 사용 하 여 자동화 된 기계 학습, automl, 학습 실행을 설정 하는 방법에 대해 알아봅니다. 자동화된 ML은 알고리즘과 하이퍼 매개 변수를 자동으로 선택하고 배포할 준비가 된 모델을 생성합니다. 이 가이드에서는 자동화 된 ML 실험을 구성 하는 데 사용할 수 있는 다양 한 옵션에 대해 자세히 설명 합니다.
 
 엔드투엔드 예제는 [자습서: AutoML - 회귀 모델 학습](tutorial-auto-train-models.md)을 참조하세요.
 
@@ -124,7 +124,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 * 데스크톱이나 랩톱 같은 사용자의 **로컬** 머신 - 일반적으로 데이터 세트가 작은 경우 및 아직 탐색 단계에 있는 경우입니다. 로컬 계산 예는 [이 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) 을 참조하세요. 
  
-* 클라우드의 **원격 머신** - [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute)는 Azure Virtual Machines 클러스터에서 기계 학습 모델을 학습할 수 있도록 하는 관리형 서비스입니다. 컴퓨팅 인스턴스는 컴퓨팅 대상으로도 지원됩니다.
+* 클라우드의 **원격 머신** - [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute)는 Azure Virtual Machines 클러스터에서 기계 학습 모델을 학습할 수 있도록 하는 관리형 서비스입니다. 계산 인스턴스는 계산 대상으로도 지원 됩니다.
 
     Azure Machine Learning Managed Compute를 사용하는 원격 예는 [이 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)을 참조하세요. 
 
@@ -136,7 +136,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 자동화된 ML 실험을 구성하는 데 사용할 수 있는 몇 가지 옵션이 있습니다. 이러한 매개 변수는 `AutoMLConfig` 개체를 인스턴스화하여 설정됩니다. 매개 변수의 전체 목록은 [AutoMLConfig 클래스](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)를 참조하세요.
 
-다음 예제는 분류 작업에 대한 것입니다. 이 실험에서는 [기본 메트릭으로](#primary-metric) AUC 가중치를 사용하며 실험 시간 초과가 30분 및 교차 유효성 검사 접기 2개로 설정됩니다.
+다음은 분류 태스크에 대 한 예입니다. 실험에서는 [기본 메트릭으로](#primary-metric) 로가는가 중 되 고 실험 시간 제한이 30 분으로 설정 되 고 교차 유효성 검사 접기가 2로 설정 됩니다.
 
 ```python
     automl_classifier=AutoMLConfig(task='classification',
@@ -147,7 +147,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
                                    label_column_name=label,
                                    n_cross_validations=2)
 ```
-추가 설정이 필요한 예측 작업을 구성할 수도 있습니다. 자세한 내용은 [Time-Series 예측에 AutoML 설정](how-to-auto-train-forecast.md) 문서를 참조하세요. 
+추가로 설치 해야 하는 예측 작업을 구성할 수도 있습니다. 자세한 내용은 [시계열 예측을 위한 AutoML 설정](how-to-auto-train-forecast.md) 문서를 참조 하세요. 
 
 ```python
     time_series_settings = {
@@ -183,23 +183,23 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 분류 | 회귀 | 시계열 예측
 |-- |-- |--
-[로지스틱 회귀](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)* | [Elastic Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)* | [AutoARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
-[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)* | [Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)* | [Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
-[경사 부스팅](https://scikit-learn.org/stable/modules/ensemble.html#classification)* | [경사 부스팅](https://scikit-learn.org/stable/modules/ensemble.html#regression)* | [Elastic Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
-[의사 결정 트리](https://scikit-learn.org/stable/modules/tree.html#decision-trees)* |[의사 결정 트리](https://scikit-learn.org/stable/modules/tree.html#regression)* |[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
-[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)* |[K Nearest Neighbors](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)* | [경사 부스팅](https://scikit-learn.org/stable/modules/ensemble.html#regression)
-[선형 SVC](https://scikit-learn.org/stable/modules/svm.html#classification)* |[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)* | [Decision Tree](https://scikit-learn.org/stable/modules/tree.html#regression)
-[SVC(Support Vector Classification)](https://scikit-learn.org/stable/modules/svm.html#classification)* |[SGD(Stochastic Gradient Descent)](https://scikit-learn.org/stable/modules/sgd.html#regression)* | Arimax
-[임의 포리스트](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* | [Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests) | [LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
+[로지스틱 회귀](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification#logisticregression----logisticregression-)* | [Elastic Net](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression#elasticnet----elasticnet-)* | [AutoARIMA](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting#autoarima----autoarima-)
+[Light GBM](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification#lightgbmclassifier----lightgbm-)* | [Light GBM](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression#lightgbmregressor----lightgbm-)* | [Prophet](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels.forecasting#prophet----prophet-)
+[경사 부스팅](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification#gradientboosting----gradientboosting-)* | [경사 부스팅](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression#gradientboostingregressor----gradientboosting-)* | [Elastic Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
+[의사 결정 트리](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification#decisiontree----decisiontree-)* |[의사 결정 트리](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression#decisiontreeregressor----decisiontree-)* |[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
+[K Nearest Neighbors](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification#knearestneighborsclassifier----knn-)* |[K Nearest Neighbors](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression#knearestneighborsregressor----knn-)* | [경사 부스팅](https://scikit-learn.org/stable/modules/ensemble.html#regression)
+[선형 SVC](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification#linearsupportvectormachine----linearsvm-)* |[LARS Lasso](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression#lassolars----lassolars-)* | [Decision Tree](https://scikit-learn.org/stable/modules/tree.html#regression)
+[SVC(Support Vector Classification)](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification#supportvectormachine----svm-)* |[SGD(Stochastic Gradient Descent)](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression#sgdregressor----sgd-)* | [Arimax](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels.forecasting#arimax----arimax-)
+[임의 포리스트](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification#randomforest----randomforest-)* | [Random Forest](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression#randomforestregressor----randomforest-) | [LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
 [Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* | [Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* | [SGD(Stochastic Gradient Descent)](https://scikit-learn.org/stable/modules/sgd.html#regression)
-[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* |[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* | [Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
-[평균 퍼셉트론 분류자](/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?preserve-view=true&view=nimbusml-py-latest)| [온라인 그라데이션 하강 회귀 변수](/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?preserve-view=true&view=nimbusml-py-latest) | [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[고속 선형 회귀 변수](/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?preserve-view=true&view=nimbusml-py-latest)| ForecastTCN
-[SGD(Stochastic Gradient Descent)](https://scikit-learn.org/stable/modules/sgd.html#sgd)* || Naive
+[Xgboost](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification#xgboostclassifier----xgboostclassifier-)* |[Xgboost](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression#xgboostregressor----xgboostregressor-)* | [Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
+[평균 퍼셉트론 분류자](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification#averagedperceptronclassifier----averagedperceptronclassifier-)| [온라인 그라데이션 하강 회귀 변수](/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?preserve-view=true&view=nimbusml-py-latest) | [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
+[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[고속 선형 회귀 변수](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression#fastlinearregressor----fastlinearregressor-)| [ForecastTCN](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels.forecasting#tcnforecaster----tcnforecaster-)
+[SGD(Stochastic Gradient Descent)](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification#sgdclassifier----sgd-)* || Naive
 [선형 SVM 분류자](/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?preserve-view=true&view=nimbusml-py-latest)* || SeasonalNaive
 ||| 평균
 ||| SeasonalAverage
-||| [ExponentialSmoothing](https://www.statsmodels.org/v0.10.2/generated/statsmodels.tsa.holtwinters.ExponentialSmoothing.html)
+||| [ExponentialSmoothing](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels.forecasting#exponentialsmoothing----exponentialsmoothing-)
 
 ### <a name="primary-metric"></a>기본 메트릭
 
@@ -211,7 +211,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 #### <a name="metrics-for-classification-scenarios"></a>분류 시나리오에 대한 메트릭 
 
-Thresholded 메트릭 (예:, `accuracy` , `average_precision_score_weighted` `norm_macro_recall` 및)은 `precision_score_weighted` 작은 데이터 집합에 대해 최적화 되지 않을 수도 있습니다. 즉, 매우 큰 클래스 기울이기 (클래스 불균형)가 있거나 예상 메트릭 값이 0.0 또는 1.0에 매우 근접 한 경우입니다. 이러한 경우 기본 메트릭에 대해 `AUC_weighted`를 선택하는 것이 더 적합할 수 있습니다. 자동화된 ML이 완료되면 비즈니스 요구에 가장 적합한 메트릭을 기준으로 최적 모델을 선택할 수 있습니다.
+,,, 등의 임계값 종속 메트릭은 `accuracy` `recall_score_weighted` `norm_macro_recall` `precision_score_weighted` 작은 데이터 집합, 매우 큰 클래스 기울이기 (클래스 불균형) 또는 예상 메트릭 값이 0.0 또는 1.0에 매우 근접 한 경우에도 최적화 되지 않을 수 있습니다. 이러한 경우 기본 메트릭에 대해 `AUC_weighted`를 선택하는 것이 더 적합할 수 있습니다. 자동화된 ML이 완료되면 비즈니스 요구에 가장 적합한 메트릭을 기준으로 최적 모델을 선택할 수 있습니다.
 
 | 메트릭 | 사용 사례 예제 |
 | ------ | ------- |
@@ -222,10 +222,16 @@ Thresholded 메트릭 (예:, `accuracy` , `average_precision_score_weighted` `no
 | `precision_score_weighted` |  |
 
 #### <a name="metrics-for-regression-scenarios"></a>회귀 시나리오에 대한 메트릭
- 
-`r2_score` 및 `spearman_correlation`과 같은 메트릭은 예측할 값의 스케일이 많은 크기의 정도를 포함하는 경우 모델의 품질을 더 잘 나타낼 수 있습니다. 예를 들어 많은 사람의 급여가 2만 달러에서 10만 달러인 급여 추정의 경우 1억 달러 범위에 있는 일부 급여로 인해 스케일이 매우 높아집니다. 
 
-이 경우 `normalized_mean_absolute_error` 및 `normalized_root_mean_squared_error`는 급여가 3만 달러인 작업자에 대해 2천만 달러 버는 작업자와 같이 2만 달러 예측 오차를 처리합니다. 실제로는 3만 달러에서 2만 달러를 예측하는 것은 근접하지 않은 반면(상대 오차가 67%로 큼), 2천만 달러 급여에서 2만 달러를 예측하는 것은 매우 근접합니다(상대 오차가 0.1%로 적음). `normalized_mean_absolute_error` 및 `normalized_root_mean_squared_error`는 예측할 값이 비슷한 범위에 있는 경우에 유용 합니다.
+`r2_score``normalized_mean_absolute_error`및 `normalized_root_mean_squared_error` 는 모두 예측 오류를 최소화 하려고 합니다. `r2_score` 및는 `normalized_root_mean_squared_error` `normalized_mean_absolute_error` 가 평균 절대 오류 값을 minizing 하는 동안 평균 제곱 오차를 최소화 합니다. 절대 값은 모든 크고 많을 유사 하 게 오류를 처리 하 고 제곱 오류는 큰 절대값의 오류에 훨씬 더 큰 영향을 미칠 수 있습니다. 더 큰 오류를 처벌 해야 하는지 여부에 따라 여러 오류 또는 절대 오류를 최적화 하도록 선택할 수 있습니다.
+
+와의 주요 차이점 `r2_score` 은 `normalized_root_mean_squared_error` 정규화 된 방법과 의미입니다. `normalized_root_mean_squared_error` 는 범위로 정규화 되 고 예측의 평균 오차 크기로 해석 될 수 있는 평균 제곱 오차입니다. `r2_score` 는 데이터 분산이 예상치 하 여 표준화 된 오류 제곱을 의미 합니다. 모델에서 캡처할 수 있는 변형의 비율입니다. 
+
+> [! 참고] `r2_score` 및 `normalized_root_mean_squared_error` 도 기본 메트릭과 비슷하게 동작 합니다. 고정 유효성 검사 집합을 적용 하는 경우이 두 메트릭은 동일한 대상을 최적화 하 고, 제곱 오차를 의미 하며, 동일한 모델에 의해 최적화 됩니다. 학습 집합만 사용 가능 하 고 교차 유효성 검사를 적용 하는 경우에 대 한 노 멀 라이저는 `normalized_root_mean_squared_error` 학습 집합의 범위로 고정 되어 있지만의 노 멀 라이저는 `r2_score` 각 접기에 대 한 분산 이기 때문에 모든 접기에 따라 달라질 수 있습니다.
+
+정확한 값 대신 순위가 가장 중요 한 경우에는 `spearman_correlation` 실제 값과 예측 간의 순위 상관 관계를 측정 하는 것이 더 적합할 수 있습니다.
+
+그러나 현재 회귀에 대 한 기본 메트릭은 상대적인 차이를 해결 하지 않습니다. `r2_score` `normalized_mean_absolute_error` `normalized_root_mean_squared_error` 이러한 두 데이터 요소가 회귀 분석을 위해 동일한 데이터 집합에 속하거나 시계열 식별자로 지정 된 동일한 시계열 인 경우, 모든, 및가 $20m을 사용 하는 작업자에 대해 $20k 예측 오류를 동일 하 게 처리 합니다. 실제로는 3만 달러에서 2만 달러를 예측하는 것은 근접하지 않은 반면(상대 오차가 67%로 큼), 2천만 달러 급여에서 2만 달러를 예측하는 것은 매우 근접합니다(상대 오차가 0.1%로 적음). 상대 차이의 문제를 해결 하기 위해 사용 가능한 기본 메트릭을 사용 하 여 모델을 학습 한 다음 최적 또는를 사용 하 여 모델을 선택할 수 있습니다 `mean_absolute_percentage_error` `root_mean_squared_log_error` .
 
 | 메트릭 | 사용 사례 예제 |
 | ------ | ------- |

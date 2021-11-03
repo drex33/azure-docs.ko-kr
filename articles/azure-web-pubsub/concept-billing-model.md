@@ -6,12 +6,12 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ms.date: 03/29/2021
-ms.openlocfilehash: c7a7aaa47d40c9d49065f71bc9bebc998adbfc12
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
-ms.translationtype: HT
+ms.openlocfilehash: 7f937e833a909f15cdc86af35c27bf5240abcfd8
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111410480"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131426832"
 ---
 # <a name="billing-model-of-azure-web-pubsub-service"></a>Azure Web PubSub 서비스의 청구 모델
 
@@ -43,7 +43,7 @@ Azure Web PubSub 서비스의 청구 모델은 단위 수와 아웃바운드 트
 
 - 서비스에서 받는 사람에게 브로드캐스트되는 메시지입니다.
 - 서비스에서 업스트림 웹후크로 전송된 메시지입니다.
-- [라이브 추적 도구](./howto-troubleshoot-diagnostic-logs.md#capture-diagnostic-logs-with-azure-web-pubsub-service-live-trace-tool)가 있는 진단 로그입니다. 
+- [라이브 추적 도구](./howto-troubleshoot-resource-logs.md#capture-resource-logs-with-live-trace-tool)를 사용 하는 리소스 로그입니다. 
 
 인바운드 트래픽은 Azure Web PubSub 서비스로 전송되는 메시지입니다. 
 

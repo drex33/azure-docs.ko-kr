@@ -1,21 +1,20 @@
 ---
-title: Microsoft Defender for Cloud에 포함된 엔드포인트용 Microsoft Defender 라이선스 사용
-description: 엔드포인트용 Microsoft Defender 및 Microsoft Defender for Cloud에서 배포에 대해 알아봅니다.
+title: Microsoft Defender for Cloud에 포함 된 Microsoft Defender for Cloud 라이선스 사용
+description: 끝점에 대 한 Microsoft Defender에 대해 알아보고 클라우드의 Microsoft Defender에서 배포 합니다.
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
 ms.date: 10/08/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 9441d285a97ca4c3a1ee46ab40c49f71f5d405f3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 4c414fcd568834205c9e213928af21ca14d4b1aa
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131052816"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441859"
 ---
-# <a name="protect-your-endpoints-with-defender-for-clouds-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Defender for Cloud의 통합 EDR 솔루션으로 엔드포인트 보호: 엔드포인트용 Microsoft Defender
+# <a name="protect-your-endpoints-with-defender-for-clouds-integrated-edr-solution-microsoft-defender-for-endpoint"></a>클라우드 통합 EDR 솔루션을 위해 defender를 사용 하 여 끝점 보호: 끝점에 대 한 Microsoft defender
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -39,40 +38,40 @@ Microsoft Defender for Endpoint는 클라우드에서 제공하는 전체적인 
 | 양상                                       | 세부 정보                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 릴리스 상태:                               | • 엔드포인트용 Defender(Windows)와 통합 - GA(일반 공급)<br> • 엔드포인트용 Defender(Linux)와 통합 - 미리 보기                                                                                                                                     |
-| 가격 책정:                                     | [서버용 Microsoft Defender 필요](defender-for-servers-introduction.md)                                                                                                                                                                                                           |
-| 지원되는 환경:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Windows/Linux를 실행하는 Azure Arc 머신<br>:::image type="icon" source="./media/icons/yes-icon.png":::Linux([지원되는 버전](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux))를 실행하는 Azure VM<br>:::image type="icon" source="./media/icons/yes-icon.png":::Windows Server 2022, 2019, 2016, 2012 R2, 2008 R2 SP1, [Windows WVD(Virtual Desktop)](../virtual-desktop/overview.md), [Windows 10 Enterprise 다중 세션(이전의](../virtual-desktop/windows-10-multisession-faq.yml) EVD(가상 데스크톱용 Enterprise)을 실행하는 Azure VM<br>:::image type="icon" source="./media/icons/no-icon.png"::: Windows 10(EVD 또는 WVD 제외)을 실행하는 Azure VM           |
-| 필요한 역할 및 권한:              | • 통합을 사용하거나 사용하지 않도록 설정하려는 경우: **보안 관리자** 또는 **소유자**<br>• Defender for Cloud에서 엔드포인트용 Defender 경고를 **보려면: 보안 읽기 권한자,** **읽기** 프로그램, **리소스 그룹 기여자,** **리소스 그룹 소유자,** **보안 관리자,** **구독 소유자** 또는 **구독 기여자** |
+| 가격 책정:                                     | [서버용 Microsoft Defender](defender-for-servers-introduction.md) 가 필요 합니다.                                                                                                                                                                                                           |
+| 지원되는 환경:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Windows/Linux를 실행하는 Azure Arc 머신<br>:::image type="icon" source="./media/icons/yes-icon.png":::Linux([지원되는 버전](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux))를 실행하는 Azure VM<br>:::image type="icon" source="./media/icons/yes-icon.png":::Windows Server 2022, 2019, 2016, 2012 R2, 2008 R2 s p 1을 실행 하는 Azure vm, [wvd (Windows 가상 데스크톱](../virtual-desktop/overview.md)), [Windows 10 Enterprise 다중 세션](../virtual-desktop/windows-10-multisession-faq.yml) (이전 Enterprise (가상 데스크톱)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Windows 10(EVD 또는 WVD 제외)을 실행하는 Azure VM           |
+| 필요한 역할 및 권한:              | • 통합을 사용하거나 사용하지 않도록 설정하려는 경우: **보안 관리자** 또는 **소유자**<br>• 클라우드에 대 한 Defender의 끝점에 대 한 Defender를 보려면 **보안 읽기 권한자**, **읽기 권한자**, **리소스 그룹 참가자**, **리소스 그룹 소유자**, **보안 관리자**, **구독 소유자** 또는 **구독 참가자** 입니다. |
 | 클라우드:                                      | :::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure 중국 21Vianet                                                         |
 |                                              |                                                                                                                                                                                                                                                                                       |
 
-## <a name="benefits-of-integrating-microsoft-defender-for-endpoint-with-defender-for-cloud"></a>엔드포인트용 Microsoft Defender를 Defender for Cloud와 통합할 경우의 이점
+## <a name="benefits-of-integrating-microsoft-defender-for-endpoint-with-defender-for-cloud"></a>Microsoft Defender for Cloud와 Defender for Cloud 통합의 이점
 
 엔드포인트용 Microsoft Defender는 다음을 제공합니다.
 
 - **고급 위반 후 검색 센서**. 엔드포인트용 Defender의 센서는 머신에서 방대한 동작 신호를 수집합니다.
 
-- **Microsoft 위협 및 취약성 관리 솔루션의 취약성 평가** 엔드포인트용 Microsoft Defender를 사용하도록 설정하면 Defender for Cloud는 위협 및 취약성 관리 모듈에서 검색된 취약성을 표시하고 이 모듈을 지원되는 취약성 평가 솔루션으로 제공할 수 있습니다. [엔드포인트용 Microsoft Defender의 위협 및 취약성 관리를 통한 취약성 조사](deploy-vulnerability-assessment-tvm.md)에서 자세히 알아보세요.
+- **Microsoft 위협 및 취약성 관리 솔루션의 취약성 평가** Microsoft defender for Endpoint를 사용 하는 경우 Defender for Cloud는 위협 및 취약성 관리 모듈로 검색 된 취약성을 보여 주고이 모듈을 지원 되는 취약점 평가 솔루션으로 제공할 수도 있습니다. [엔드포인트용 Microsoft Defender의 위협 및 취약성 관리를 통한 취약성 조사](deploy-vulnerability-assessment-tvm.md)에서 자세히 알아보세요.
 
-    또한 이 모듈에서는 소프트웨어 인벤토리 액세스에 설명된 [소프트웨어 인벤토리](asset-inventory.md#access-a-software-inventory) 기능을 제공하며 [자동 배포 설정을](auto-deploy-vulnerability-assessment.md)사용하여 지원되는 컴퓨터에 대해 자동으로 사용하도록 설정할 수 있습니다.
+    이 모듈에 [는 소프트웨어 인벤토리 액세스](asset-inventory.md#access-a-software-inventory) 에 설명 된 소프트웨어 인벤토리 기능도 제공 되며 [자동 배포 설정을](auto-deploy-vulnerability-assessment.md)사용 하 여 지원 되는 컴퓨터에 대해 자동으로 사용 하도록 설정할 수 있습니다.
 
 - **분석 기반, 클라우드 기반, 위반 후 검색**. 엔드포인트용 Defender는 지속적으로 변화하는 위협에 빠르게 적응하며 고급 분석 기능과 빅 데이터를 활용합니다. 또한 Windows, Azure, Office 전반에 걸쳐 생성되는 신호를 통해 알려지지 않은 위협을 검색하는 Intelligent Security Graph의 기능을 통해 보안을 더욱 강화하며 신속하게 대응할 수 있도록 조치 가능한 경고를 제공합니다.
 
 - **위협 인텔리전스**. 엔드포인트용 Defender는 공격자 도구, 기술, 절차를 식별할 때 경고를 생성합니다. 이 과정에서는 Microsoft 위협 확인 담당자와 보안 팀에서 생성하며 파트너가 제공한 정보를 통해 강화된 데이터를 활용합니다.
 
-엔드포인트용 Defender를 Defender for Cloud와 통합하면 다음과 같은 추가 기능을 활용할 수 있습니다.
+Defender for Cloud를 클라우드 용 Defender와 통합 하 여 다음과 같은 추가 기능을 이용할 수 있습니다.
 
-- **자동 온보딩**. Defender for Cloud는 Defender for Cloud에 연결된 지원되는 모든 머신에서 엔드포인트용 Defender 센서를 자동으로 사용하도록 설정합니다.
+- **자동 온보딩**. 클라우드에 대 한 defender는 클라우드에 대해 Defender에 연결 된 모든 지원 되는 컴퓨터에서 자동으로 엔드포인트 센서에 대해 Defender를 사용 하도록 설정 합니다.
 
-- **단일 창**. Defender for Cloud 포털 페이지에 엔드포인트용 Defender 경고가 표시됩니다. 추가로 조사하려면 경고 프로세스 트리 및 인시던트 그래프와 같은 추가 정보가 표시되는 엔드포인트용 Microsoft Defender의 자체 포털 페이지를 사용합니다. 그리고 이전 기간(최대 6개월 전)의 모든 동작이 표시되는 세부 컴퓨터 타임라인도 확인할 수 있습니다.
+- **단일 창**. 클라우드 포털에 대 한 Defender 포털 페이지에는 끝점 경고가 표시 됩니다. 추가로 조사하려면 경고 프로세스 트리 및 인시던트 그래프와 같은 추가 정보가 표시되는 엔드포인트용 Microsoft Defender의 자체 포털 페이지를 사용합니다. 그리고 이전 기간(최대 6개월 전)의 모든 동작이 표시되는 세부 컴퓨터 타임라인도 확인할 수 있습니다.
 
     :::image type="content" source="./media/integration-defender-for-endpoint/microsoft-defender-security-center.png" alt-text="엔드포인트용 Microsoft Defender의 Security Center" lightbox="./media/integration-defender-for-endpoint/microsoft-defender-security-center.png":::
 
 ## <a name="what-are-the-requirements-for-the-microsoft-defender-for-endpoint-tenant"></a>엔드포인트 테넌트용 Microsoft Defender에 대한 요구 사항은 무엇인가요?
 
-Defender for Cloud를 사용하여 머신을 모니터링하면 엔드포인트용 Defender 테넌트는 자동으로 만들어집니다.
+Defender for Cloud를 사용 하 여 컴퓨터를 모니터링 하는 경우 Endpoint 테 넌 트 용 Defender가 자동으로 만들어집니다.
 
 - **위치:** 엔드포인트용 Defender에서 수집한 데이터는 프로비저닝 중 식별되는 대로 테넌트의 지리적 위치에 저장됩니다. 고객 데이터 - 가명 양식 - 미국에 있는 중앙 스토리지 및 처리 저장소 및 처리 시스템에도 저장될 수 있습니다. 위치를 구성한 후에는 변경할 수 없습니다. 엔드포인트용 Microsoft Defender에 대한 라이선스가 있고 다른 위치로 데이터를 이동해야 하는 경우 [Microsoft 지원에 문의](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)하여 테넌트를 다시 설정합니다.
-- **구독 이동:** Azure 테넌트 간에 Azure 구독을 이동한 경우 Defender for Cloud가 엔드포인트용 Defender를 배포하기 전에 몇 가지 수동 준비 단계가 필요합니다. 자세한 내용은 [Microsoft 지원에 문의](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)하세요.
+- **구독 이동:** Azure 테 넌 트 간에 Azure 구독을 이동한 경우 클라우드 용 Defender가 끝점에 대해 Defender를 배포 하기 전에 몇 가지 수동 준비 단계가 필요 합니다. 자세한 내용은 [Microsoft 지원에 문의](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)하세요.
 
 
 ## <a name="enable-the-microsoft-defender-for-endpoint-integration"></a>엔드포인트용 Microsoft Defender 통합 사용 설정
@@ -85,12 +84,12 @@ Defender for Cloud를 사용하여 머신을 모니터링하면 엔드포인트�
 
     - **Azure 가상 머신(Windows 또는 Linux)** - 디바이스 프록시 및 인터넷 연결 설정 구성: [Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet) 또는 [Linux](/microsoft-365/security/defender-endpoint/linux-static-proxy-configuration)에 설명된 대로 네트워크 설정을 구성합니다.
 
-    - **온-프레미스 머신** - Azure Arc 지원 서버가 있는 [커넥트 하이브리드 머신에 설명된](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)대로 대상 컴퓨터를 Azure Arc 커넥트.
+    - **온-프레미스 컴퓨터** - [azure arc 사용 서버를 사용 하는 하이브리드 컴퓨터 커넥트](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)에 설명 된 대로 대상 컴퓨터를 azure arc에 커넥트 합니다.
 
-1. **서버에 대해 Microsoft Defender를** 사용하도록 설정합니다. [빠른 시작: Defender for Cloud의 향상된 보안 기능 사용을](enable-enhanced-security.md)참조하세요.
+1. **서버에 대해 Microsoft Defender를** 사용 하도록 설정 합니다. [빠른 시작: 클라우드의 강화 된 보안 기능에 대해 Defender 사용을](enable-enhanced-security.md)참조 하세요.
 
     > [!IMPORTANT]
-    > Defender for Cloud와 엔드포인트용 Microsoft Defender의 통합은 기본적으로 사용하도록 설정됩니다. 따라서 향상된 보안 기능을 사용하도록 설정하면 서버용 Microsoft Defender가 엔드포인트에 대한 취약성, 설치된 소프트웨어 및 경고와 관련된 엔드포인트용 Microsoft Defender 데이터에 액세스하는 데 동의하게 됩니다.
+    > 클라우드에 대 한 Microsoft Defender와 클라우드를 통합 하는 것은 기본적으로 사용 하도록 설정 되어 있습니다. 따라서 향상 된 보안 기능을 사용 하도록 설정 하는 경우 서버에 대 한 microsoft defender에서 취약점, 설치 된 소프트웨어 및 끝점에 대 한 경고와 관련 된 끝점 데이터에 액세스 하는 데 동의 하는 것입니다.
 
 1. Azure 테넌트 간에 구독을 이동한 경우 몇 가지 수동 준비 단계도 필요합니다. 자세한 내용은 [Microsoft 지원에 문의](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)하세요.
 
@@ -101,33 +100,33 @@ Defender for Cloud를 사용하여 머신을 모니터링하면 엔드포인트�
 
 ### <a name="windows"></a>[**Windows**](#tab/windows)
 
-1. Defender for Cloud 메뉴에서 **환경 설정을** 선택하고 엔드포인트용 Defender를 수신하려는 Windows 머신이 있는 구독을 선택합니다.
+1. 클라우드에 대 한 defender의 메뉴에서 **환경 설정** 을 선택 하 고, 끝점에 대 한 defender를 수신 하려는 Windows 컴퓨터를 사용 하 여 구독을 선택 합니다.
 
 1. **통합** 을 선택합니다.
 
 1. **엔드포인트용 Microsoft Defender에서 데이터에 액세스하도록 허용** 을 선택하고 **저장** 을 선택합니다.
 
-    :::image type="content" source="./media/integration-defender-for-endpoint/enable-integration-with-edr.png" alt-text="Microsoft Defender for Cloud와 Microsoft의 EDR 솔루션인 엔드포인트용 Microsoft Defender 간의 통합 사용":::
+    :::image type="content" source="./media/integration-defender-for-endpoint/enable-integration-with-edr.png" alt-text="microsoft defender for Cloud와 microsoft의 EDR 솔루션 간 통합 사용, 끝점 용 microsoft defender":::
 
-    Microsoft Defender for Cloud는 머신을 엔드포인트용 Microsoft Defender에 자동으로 온보딩합니다. 온보딩은 최대 24시간까지 걸릴 수 있습니다.
+    Microsoft Defender for Cloud는 끝점에 대해 자동으로 Microsoft Defender에 컴퓨터를 등록 합니다. 온보딩은 최대 24시간까지 걸릴 수 있습니다.
 
 ### <a name="linux-preview"></a>[**Linux**(미리 보기)](#tab/linux)
 
 미리 보기 기간에는 Windows 머신에 이미 배포했는지 여부에 따라 다음 두 가지 방법 중 하나로 Linux 머신에 엔드포인트용 Defender를 배포합니다.
 
-- [Defender for Cloud의 향상된 보안 기능이 사용하도록 설정되고 엔드포인트용 Microsoft Defender가 있는 기존 사용자 Windows](#existing-users-with-defender-for-clouds-enhanced-security-features-enabled-and-microsoft-defender-for-endpoint-for-windows)
+- [클라우드의 향상 된 보안 기능을 사용 하도록 설정 된 기존 사용자와 Windows 용 Microsoft Defender for Endpoint](#existing-users-with-defender-for-clouds-enhanced-security-features-enabled-and-microsoft-defender-for-endpoint-for-windows)
 - [엔드포인트용 Microsoft Defender(Windows)와의 통합을 한 번도 설정한 적이 없는 신규 사용자](#new-users-whove-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows)
 
 
-### <a name="existing-users-with-defender-for-clouds-enhanced-security-features-enabled-and-microsoft-defender-for-endpoint-for-windows"></a>Defender for Cloud의 향상된 보안 기능이 사용하도록 설정되고 엔드포인트용 Microsoft Defender가 있는 기존 사용자 Windows
+### <a name="existing-users-with-defender-for-clouds-enhanced-security-features-enabled-and-microsoft-defender-for-endpoint-for-windows"></a>클라우드의 향상 된 보안 기능을 사용 하도록 설정 된 기존 사용자와 Windows 용 Microsoft Defender for Endpoint
 
 **엔드포인트용 Defender(Windows)** 와의 통합을 이미 설정한 경우에는 엔드포인트용 Defender를 **Linux** 에 배포할 시간과 배포 여부를 완전히 제어할 수 있습니다.
 
-1. Defender for Cloud 메뉴에서 **환경 설정을** 선택하고 엔드포인트용 Defender를 수신하려는 Linux 머신이 있는 구독을 선택합니다.
+1. 클라우드에 대 한 Defender의 메뉴에서 **환경 설정** 을 선택 하 고, 끝점에 대 한 defender를 수신 하려는 Linux 컴퓨터를 사용 하 여 구독을 선택 합니다.
 
 1. **통합** 을 선택합니다. 다음과 같이 **엔드포인트용 Microsoft Defender에서 데이터에 액세스하도록 허용** 확인란을 선택하면 통합이 사용됩니다.
 
-    :::image type="content" source="./media/integration-defender-for-endpoint/integration-enabled.png" alt-text="Microsoft Defender for Cloud와 Microsoft의 EDR 솔루션인 엔드포인트용 Microsoft Defender 간의 통합이 활성화됩니다.":::
+    :::image type="content" source="./media/integration-defender-for-endpoint/integration-enabled.png" alt-text="microsoft defender for Cloud와 microsoft의 EDR 솔루션 간 통합, 끝점 용 microsoft defender가 사용 됩니다.":::
 
     > [!NOTE]
     > 이 확인란을 선택하지 않은 경우 [엔드포인트용 Microsoft Defender(Windows)와의 통합을 한 번도 설정한 적이 없는 신규 사용자](#new-users-whove-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows)의 지침을 따릅니다.

@@ -1,18 +1,18 @@
 ---
-title: Azure Automation 계정에 대해 시스템 할당 관리 ID 사용 안 함(미리 보기)
+title: Azure Automation 계정에 대해 시스템 할당 관리 ID 사용 안 함
 description: 이 문서에서는 Azure Automation 계정의 시스템 할당 관리 ID를 사용하지 않도록 설정하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/24/2021
+ms.date: 10/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: 178da223b5d5f14cc27034c39bd4cc3a05f82631
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b3bf648914635e6ea9345a234c49bfb64c757bc1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128606592"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131435418"
 ---
-# <a name="disable-system-assigned-managed-identity-for-azure-automation-account-preview"></a>Azure Automation 계정에 대해 시스템 할당 관리 ID 사용 안 함(미리 보기)
+# <a name="disable-system-assigned-managed-identity-for-azure-automation-account"></a>Azure Automation 계정에 대해 시스템 할당 관리 ID 사용 안 함
 
 Azure Portal 또는 REST API를 사용하여 Azure Automation에서 시스템 할당 관리 ID를 사용하지 않도록 설정할 수 있습니다.
 
@@ -126,6 +126,6 @@ PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Automation에서 관리 ID를 활성화하는 방법에 대한 자세한 내용은 [Automation의 관리 ID 활성화 및 사용(미리 보기)](enable-managed-identity-for-automation.md)을 참조하세요.
+- Azure Automation 관리 ID를 사용하도록 설정하는 자세한 내용은 [Automation에 관리 ID 사용 및 사용을 참조하세요.](enable-managed-identity-for-automation.md)
 
 - Automation 계정 보안의 개요는 [Automation 계정 인증 개요](automation-security-overview.md)를 참조하세요.

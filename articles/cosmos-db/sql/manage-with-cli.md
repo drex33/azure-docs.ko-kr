@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/13/2021
 ms.author: mjbrown
-ms.openlocfilehash: c2b383a64699d6e4b497d8653e69f401886db21a
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 10e802c21fb4d1f3ba0f693dd663ab22330be696
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117185"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443379"
 ---
 # <a name="manage-azure-cosmos-core-sql-api-resources-using-azure-cli"></a>Azure CLI를 사용하여 Azure Cosmos Core (SQL) API 리소스 관리
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -71,7 +71,7 @@ az cosmosdb create \
 > [!NOTE]
 > 이 명령을 사용하면 지역을 추가 및 제거할 수 있지만 장애 조치(failover) 우선 순위를 수정하거나 수동 장애 조치(failover)를 트리거할 수 없습니다. [장애 조치(failover) 우선 순위 설정](#set-failover-priority) 및 [수동 장애 조치(failover) 트리거](#trigger-manual-failover)를 참조하세요.
 > [!TIP]
-> 새 지역이 추가되면 해당 지역이 사용 가능으로 표시되기 전에 모든 데이터를 완전히 복제하고 새 지역에 커밋해야 합니다. 이 작업에 걸리는 시간은 해당 계정 내에 저장된 데이터 양에 따라 달라집니다.
+> 새 지역이 추가되면 해당 지역이 사용 가능으로 표시되기 전에 모든 데이터를 완전히 복제하고 새 지역에 커밋해야 합니다. 이 작업에 걸리는 시간은 해당 계정 내에 저장된 데이터 양에 따라 달라집니다. [비동기 처리량 크기 조정 작업이](../scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus) 진행 중인 경우 처리량 수직 확장 작업이 일시 중지 되 고 영역 추가/제거 작업이 완료 되 면 자동으로 다시 시작 됩니다. 
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
@@ -143,6 +143,9 @@ az cosmosdb update --ids $accountId --enable-automatic-failover true
 
 > [!CAUTION]
 > 우선 순위가 0인 지역을 변경하면 Azure Cosmos 계정에 대한 수동 장애 조치(failover)가 트리거됩니다. 다른 우선 순위 변경은 장애 조치(failover)를 트리거하지 않습니다.
+
+> [!NOTE]
+> [비동기 처리량 크기 조정 작업이](../scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus) 진행 되는 동안 수동 장애 조치 (failover) 작업을 수행 하는 경우 처리량 확장 작업이 일시 중지 됩니다. 장애 조치 (failover) 작업이 완료 되 면 자동으로 다시 시작 됩니다.
 
 ```azurecli-interactive
 # Assume region order is initially 'West US 2=0' 'East US 2=1' 'South Central US=2' for account

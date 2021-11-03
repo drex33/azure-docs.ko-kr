@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 05/13/2021
 ms.author: mjbrown
-ms.openlocfilehash: e8d39f6215e76c4cd9da9458f5e8a7af61622089
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: abe4c084243025cb5570d8913911a45554f067f5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094837"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131454526"
 ---
 # <a name="move-an-azure-cosmos-db-account-to-another-region"></a>Azure Cosmos DB 계정을 다른 영역으로 이동
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -40,6 +40,9 @@ Azure Cosmos DB은 데이터 복제를 기본적으로 지원하므로 한 영�
 1. 원래 영역을 제거합니다.
 
     Azure Cosmos DB 계정에서 영역을 제거하려면 [Azure Cosmos DB 계정에서 영역 추가/제거](how-to-manage-database-account.md#addremove-regions-from-your-database-account)를 참조하세요.
+
+> [!NOTE]
+> [비동기 처리량 크기 조정 작업이](scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus) 진행 중인 동안 장애 조치 (failover) 작업을 수행 하거나 새 지역을 추가/제거 하는 경우 처리량 확장 작업이 일시 중지 됩니다. 장애 조치 (failover) 또는 지역 추가/제거 작업이 완료 되 면 자동으로 다시 시작 됩니다. 
 
 ## <a name="migrate-azure-cosmos-db-account-metadata"></a>Azure Cosmos DB 계정 메타데이터 마이그레이션
 

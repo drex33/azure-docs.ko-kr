@@ -3,15 +3,15 @@ title: Azure Automation에서 모듈 관리
 description: 이 문서에서는 PowerShell 모듈을 사용하여 DSC 구성의 Runbook 및 DSC 리소스에서 cmdlet을 사용하도록 설정하는 방법을 설명합니다.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 04/28/2021
+ms.date: 11/01/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f10c1f70026b905521193a0dd511ba1e65de6849
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 733cc6cb4b783a379c20328f0a31a4373ee3e372
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129274029"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131427238"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Azure Automation에서 모듈 관리
 
@@ -41,19 +41,19 @@ Automation은 Runbook 및 DSC 컴파일 작업을 실행할 때 Runbook을 실�
 
 ## <a name="default-modules"></a>기본 모듈
 
-모든 새 Automation 계정에는 기본적으로 가져온 최신 버전의 PowerShell Az module이 있습니다. Az module은 AzureRM를 대체 하며 Azure에서 사용 하기에 권장 되는 모듈입니다. 새 Automation 계정의 **기본 모듈** 에는 기존 24 개의 AzureRM 모듈과 60 + Az 모듈이 포함 되어 있습니다.
+모든 새 Automation 계정에는 기본적으로 가져온 PowerShell Az 모듈의 최신 버전이 있습니다. Az 모듈은 AzureRM을 대체하며 Azure와 함께 사용하는 데 권장되는 모듈입니다. 새 Automation 계정의 **기본 모듈에는** 기존 24개의 AzureRM 모듈과 60개 이상의 Az 모듈이 포함됩니다.
 
-Automation 계정에 대 한 사용자가 모듈을 최신 Az module으로 업데이트 하는 기본 옵션이 있습니다. 작업은 백 엔드에서 모든 모듈 종속성을 처리 하 여 모듈을 [수동으로](../automation-update-azure-modules.md#update-az-modules) 업데이트 하거나 runbook을 실행 하 여 [Azure 모듈을 업데이트](../automation-update-azure-modules.md#obtain-a-runbook-to-use-for-updates)하는 번거로운 작업을 제거 합니다.  
+Automation 계정에 대한 사용자가 모듈을 최신 Az 모듈로 업데이트하는 기본 옵션이 있습니다. 작업은 백 엔드에서 모든 모듈을 처리하여 [모듈을 수동으로](../automation-update-azure-modules.md#update-az-modules) 업데이트하거나 Runbook을 실행하여 [Azure 모듈을 업데이트하는](../automation-update-azure-modules.md#obtain-a-runbook-to-use-for-updates)해시를 제거합니다.  
 
-기존 Automation 계정에 AzureRM 모듈만 있으면 [업데이트 az modules](../automation-update-azure-modules.md#update-az-modules) 옵션은 사용자가 선택한 az module 버전으로 Automation 계정을 업데이트 합니다.  
+기존 Automation 계정에 AzureRM 모듈만 있는 경우 [Az 모듈 업데이트](../automation-update-azure-modules.md#update-az-modules) 옵션은 사용자가 선택한 Az 모듈 버전으로 Automation 계정을 업데이트합니다.  
 
-기존 Automation 계정에 AzureRM 및 일부 Az 모듈이 있는 경우이 옵션을 선택 하면 나머지 Az 모듈이 Automation 계정으로 가져옵니다. 기존 Az 모듈이 우선적으로 적용 되며 업데이트 작업에서 해당 모듈을 업데이트 하지 않습니다. 이는 모듈 업데이트 작업으로 인해 runbook에서 사용 되는 모듈을 실수로 업데이트 하 여 runbook 실행 실패가 발생 하지 않도록 하기 위한 것입니다. 이 시나리오에서 권장 되는 방법은 먼저 기존 Az 모듈을 삭제 한 다음 업데이트 작업을 수행 하 여 Automation 계정에서 가져온 최신 Az module을 가져오는 것입니다. 이러한 모듈 유형은 기본적으로 가져오지 않고 **사용자 지정** 이라고 합니다.  **사용자 지정** 모듈은 항상 **기본** 모듈 보다 우선적으로 적용 됩니다.  
+기존 Automation 계정에 AzureRM 및 일부 Az 모듈이 있는 경우 옵션은 나머지 Az 모듈을 Automation 계정으로 가져옵니다. 기존 Az 모듈이 기본 설정되고 업데이트 작업에서 해당 모듈을 업데이트하지 않습니다. 이는 Runbook에서 사용하는 모듈을 실수로 업데이트하여 모듈 업데이트 작업으로 인해 Runbook 실행 실패가 발생하지 않도록 하기 위한 것입니다. 이 시나리오에 권장되는 방법은 먼저 기존 Az 모듈을 삭제한 다음 업데이트 작업을 수행하여 Automation 계정에서 가져온 최신 Az 모듈을 가져오는 것입니다. 기본적으로 가져오지 않는 이러한 모듈 형식을 **사용자 지정** 이라고 합니다.  **사용자 지정** 모듈은 항상 **기본** 모듈보다 우선합니다.  
 
-예를 들어 `Az.Aks` az module 6.3.0에서 제공 하는 버전 2.3.0를 사용 하 여 모듈을 이미 가져온 경우 az module을 최신 v6.4.0 버전으로 업데이트 하려고 합니다. 업데이트 작업은를 제외 하 고 v6.4.0 패키지에서 모든 Az 모듈을 가져옵니다 `Az.Aks` . 최신 버전을 만들려면 `Az.Aks` 먼저 기존 모듈을 삭제 한 다음 업데이트 작업을 수행 하거나, [가져오기 Az](#import-az-modules) module에 설명 된 대로이 모듈을 별도로 업데이트 하 여 특정 모듈의 다른 버전을 가져올 수도 있습니다.  
+예를 들어 `Az.Aks` Az 모듈 6.3.0에서 제공하는 버전 2.3.0을 사용하여 모듈을 이미 가져온 경우 Az 모듈을 최신 6.4.0 버전으로 업데이트하려고 합니다. 업데이트 작업은 를 제외한 6.4.0 패키지의 모든 Az 모듈을 `Az.Aks` 가져옵니다. 최신 버전의 를 사용하려면 `Az.Aks` 먼저 기존 모듈을 삭제한 다음 업데이트 작업을 수행하거나 [Az 모듈 가져오기에](#import-az-modules) 설명된 대로 이 모듈을 별도로 업데이트하여 특정 모듈의 다른 버전을 가져올 수도 있습니다.  
 
-다음 표에서는 Automation 계정을 만들 때 기본적으로 가져오기를 Azure Automation 하는 모듈을 나열 합니다. Automation은 이러한 모듈의 최신 버전을 가져올 수 있습니다. 그러나 최신 버전을 삭제하는 경우에도 Automation 계정에서 원래 버전을 제거할 수 없습니다.
+다음 표에서는 Automation 계정을 만들 때 기본적으로 가져올 Azure Automation 모듈을 나열합니다. Automation은 이러한 모듈의 최신 버전을 가져올 수 있습니다. 그러나 최신 버전을 삭제하는 경우에도 Automation 계정에서 원래 버전을 제거할 수 없습니다.
 
-기본 모듈은 전역 모듈이라고도 합니다. Azure Portal에서 **전역 모듈** 속성은 계정을 만들 때 가져온 모듈을 볼 때 **true** 가 됩니다.
+기본 모듈은 전역 모듈이라고도 합니다. Azure Portal 계정을 만들 때 가져온 **모듈을** 볼 때 전역 모듈 속성이 **true가** 됩니다.
 
 ![Azure Portal에서 전역 모듈 속성의 스크린샷](../media/modules/automation-global-modules.png)
 
@@ -62,7 +62,7 @@ Automation 계정에 대 한 사용자가 모듈을 최신 Az module으로 업�
 
 |모듈 이름|버전|
 |---|---|
-|Az. * | 자세한 내용은 **패키지 세부 정보** 에서 전체 목록을 참조 [PowerShell 갤러리](https://www.powershellgallery.com/packages/Az)|
+|Az.* | [PowerShell 갤러리](https://www.powershellgallery.com/packages/Az) 패키지 **세부 정보에서** 전체 목록을 참조하세요.|
 | AuditPolicyDsc | 1.1.0.0 |
 | Azure | 1.0.3 |
 | Azure.Storage | 1.0.3 |
@@ -152,19 +152,29 @@ Automation 계정으로 Az 모듈을 가져와도 Runbook이 사용하는 PowerS
 
 Azure Portal에서 Az 모듈을 Automation 계정으로 가져올 수 있습니다. [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0)는 다른 Az 모듈에 대한 종속성이기 때문에 이 모듈을 다른 모듈보다 먼저 가져와야 합니다.
 
+> [!NOTE]
+>  **PowerShell 7.1 (미리 보기)** 지원이 도입 됨에 따라 **갤러리 찾아보기** 옵션이 다음 변경 내용으로 업데이트 되었습니다.
+
+-  **찾아보기 갤러리** 는 **프로세스 자동화**  >  **모듈** 블레이드에서 사용할 수 있습니다. 
+-  모듈 **페이지에** 는 **모듈 버전** 및 **런타임 버전** 이라는 두 개의 새로운 열이 표시 됩니다.
+
 1. Azure [Portal](https://portal.azure.com)에 로그인합니다.
 1. **Automation 계정** 을 검색하여 선택합니다.
 1. **Automation 계정** 페이지의 목록에서 Automation 계정을 선택합니다.
 1. Automation 계정의 **공유 리소스** 아래에서 **모듈** 을 선택합니다.
-1. **갤러리 찾아보기** 를 선택합니다.  
-1. 검색 표시줄에서 모듈 이름(예: `Az.Accounts`)을 입력합니다.
-1. PowerShell 모듈 페이지에서 **가져오기** 를 선택하여 Automation 계정으로 모듈을 가져옵니다.
+1. **모듈 추가** 를 선택합니다. **모듈 추가** 페이지에서 다음 옵션 중 하나를 선택할 수 있습니다.
+      1. **파일 찾아보기** -로컬 컴퓨터에서 파일을 선택 합니다.
+      1. **갤러리에서 찾아보기** -갤러리에서 기존 모듈을 찾아보고 선택할 수 있습니다.
+1. **선택** 을 클릭 하 여 모듈을 선택 합니다.
+1. **런타임 버전** 을 선택 하 고 **가져오기** 를 클릭 합니다.
 
-    ![Automation 계정으로 모듈을 가져오는 스크린샷](../media/modules/import-module.png)
+      :::image type="content" source="../media/modules/import-module.png" alt-text="Automation 계정으로 모듈을 가져오는 스크린샷":::
+
+1. **모듈** 페이지에서 Automation 계정으로 가져온 모듈을 볼 수 있습니다.
 
 가져올 모듈을 검색하여 [PowerShell 갤러리](https://www.powershellgallery.com)를 통해 이 가져오기를 수행할 수도 있습니다. 모듈을 찾아 선택하고 **Azure Automation** 탭을 선택합니다. **Azure Automation에 배포** 를 선택합니다.
 
-![PowerShell 갤러리에서 직접 모듈을 가져오는 스크린샷](../media/modules/import-gallery.png)
+:::image type="content" source="../media/modules/import-gallery.png" alt-text="PowerShell 갤러리에서 직접 모듈을 가져오는 스크린샷":::
 
 ### <a name="test-your-runbooks"></a>Runbook 테스트
 

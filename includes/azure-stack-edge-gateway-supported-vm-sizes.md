@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 07/01/2021
+ms.date: 09/24/2021
 ms.author: alkohli
-ms.openlocfilehash: c772d2722c90cefb99c9f2fdd111e2d654d11659
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
-ms.translationtype: HT
+ms.openlocfilehash: c6b9a5e808266133f1fa6698fb3016bf9a2b1861
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113280036"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131253115"
 ---
 VM 크기에 따라 CPU, GPU, 메모리 등 VM에 사용할 수 있는 컴퓨팅 리소스의 양이 결정됩니다. 워크로드에 적합한 VM 크기를 사용하여 가상 머신을 만들어야 합니다. 모든 가상 머신이 동일한 하드웨어에서 실행되는 경우에도 디스크에 액세스할 때는 컴퓨터 크기에 다른 제한이 적용됩니다. 이렇게 하면 VM 전체에서 디스크 액세스를 관리할 수 있습니다. 워크로드가 증가할 경우 기존 가상 머신의 크기를 조정할 수도 있습니다.
 
@@ -46,6 +46,7 @@ VM 크기에 따라 CPU, GPU, 메모리 등 VM에 사용할 수 있는 컴퓨팅
 
 자세한 내용은 [Dv2 및 DSv2 시리즈](../articles/virtual-machines/dv2-dsv2-series.md#dv2-series)를 참조하세요.
 
+
 ### <a name="ncast4_v3-series-preview"></a>NCasT4_v3 시리즈(미리 보기)
 
 이러한 크기는 디바이스의 GPU VM에 대해 지원되며 컴퓨팅 집약적 GPU 가속 애플리케이션에 최적화되어 있습니다. 이 시리즈는 Nvidia의 Tesla T4 GPU를 사용하는 추론 워크로드에 초점을 맞추고 있습니다.
@@ -75,3 +76,24 @@ VM 크기에 따라 CPU, GPU, 메모리 등 VM에 사용할 수 있는 컴퓨팅
 | **Standard_F16s**  | 16      | 32           | 64                  | 2000                           | 64000                               | 2300                             | 64              | 8         |
 
 자세한 내용은 [Fsv2 시리즈](../articles/virtual-machines/fsv2-series.md)를 참조하세요.
+
+### <a name="high-performance-network-vms"></a>고성능 네트워크 Vm
+
+HPN (고성능 네트워크) 가상 머신은 고속 네트워크 인터페이스를 사용 하 여 빠르고 중단 없는 성능이 필요한 워크 로드에 맞게 조정 됩니다. 논리적 코어 페어링의 특성으로 인해 지원 되는 VM 크기는 2의 배수로 vCpu 수를 가집니다.  
+
+#### <a name="hpn-dsv2-series"></a>HPN DSv2 시리즈
+
+| 크기              | vCPU  | 메모리(GiB)  | 임시 스토리지(GiB)  | 최대 OS 디스크 처리량(IOPS)  | 최대 임시 스토리지 처리량(IOPS)  | 최대 데이터 디스크 처리량(IOPS)  | 최대 데이터 디스크 수  | 최대 NIC 수  |
+|-------------------|-------|---------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|
+| **Standard_DS2_v2_HPN**   | 2     | 7             | 14                  | 2000                           | 8000                                | 2300                             | 8               | 4         |
+| **Standard_DS3_v2_HPN**   | 4     | 14            | 28                  | 2000                           | 16000                               | 2300                             | 16              | 4         |
+| **Standard_DS4_v2_HPN**   | 8     | 28            | 56                  | 2000                           | 32000                               | 2300                             | 32              | 8         |
+
+#### <a name="hpn-f-series"></a>HPN F 시리즈
+
+| 크기           | vCPU 수  | 메모리: GiB  | 임시 스토리지(GiB)  | 최대 OS 디스크 처리량(IOPS)  | 최대 임시 스토리지 처리량(IOPS)  | 최대 데이터 디스크 처리량(IOPS)  | 최대 데이터 디스크 수  | 최대 NIC 수  |
+|----------------|---------|--------------|---------------------|--------------------------------|-------------------------------------|----------------------------------|-----------------|-----------|
+| **Standard_F2s_HPN**   | 2       | 4            | 8                   | 2000                           | 8000                                | 2300                             | 8               | 4         |
+| **Standard_F4s_HPN**   | 4       | 8            | 16                  | 2000                           | 16000                               | 2300                             | 16              | 4         |
+| **Standard_F8s_HPN**   | 8       | 16           | 32                  | 2000                           | 32000                               | 2300                             | 32              | 8         |
+| **Standard_F16s_HPN**  | 16      | 32           | 64                  | 2000                           | 64000                               | 2300                             | 64              | 8         |

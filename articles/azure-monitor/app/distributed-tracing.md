@@ -7,12 +7,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: a47b41a8b7f4e18be58c32c97cf279b9229f26da
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: c4f32c0803bb5815599c81ca6c89335fa6e1ffac
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579518"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131455172"
 ---
 # <a name="what-is-distributed-tracing"></a>분산 추적이란?
 
@@ -44,6 +44,17 @@ Azure Monitor에는 [애플리케이션 맵](./app-map.md) 보기도 제공됩�
 적절한 Application Insight SDK가 설치되고 구성되면, 많이 사용되는 프레임워크, 라이브러리 및 기술에 대한 추적 정보가 SDK 종속성 자동 수집기를 통해 자동으로 수집됩니다. 지원되는 기술의 전체 목록은 [종속성 자동 수집 설명서](./auto-collect-dependencies.md)에 제공됩니다.
 
  또한 [TelemetryClient](./api-custom-events-metrics.md)의 [TrackDependency](./api-custom-events-metrics.md)를 호출하여 원하는 기술을 수동으로 추적할 수 있습니다.
+
+## <a name="enable-via-opentelemetry"></a>OpenTelemetry를 통해 사용
+
+애플리케이션 Insights [이제 OpenTelemetry](https://opentelemetry.io/)를 통한 분산 추적을 지원합니다. OpenTelemetry는 추적, 메트릭 및 로그를 Application Insights 보내기 위한 공급업체 중립적 계측을 제공합니다. 처음에 OpenTelemetry 커뮤니티는 분산 추적을 시작했습니다. 메트릭 및 로그는 아직 진행 중입니다. 완전한 관찰 가능성 스토리는 세 가지 핵심 요소 모두를 포함하지만, 현재 [.NET, Python 및 JavaScript용 Azure Monitor OpenTelemetry 기반 내보내기 미리 보기 제품에는](opentelemetry-enable.md) 분산 추적만 포함됩니다. 그러나 Java OpenTelemetry 기반 Azure Monitor 제품은 GA이며 완벽하게 지원됩니다. 
+
+다음 페이지는 Microsoft의 OpenTelemetry 기반 제품을 사용하도록 설정하고 구성하는 언어별 지침으로 구성됩니다. 중요한 점은 OpenTelemetry가 프로젝트에 적합한지 확인할 수 있도록 각 제품의 사용 가능한 기능 및 제한 사항을 공유합니다.
+
+* [.NET](opentelemetry-enable.md?tabs=net)
+* [Java](java-in-process-agent.md)
+* [Node.JS](opentelemetry-enable.md?tabs=nodejs)
+* [Python](opentelemetry-enable.md?tabs=python)
 
 ## <a name="enable-via-opencensus"></a>OpenCensus를 통해 사용하도록 설정
 

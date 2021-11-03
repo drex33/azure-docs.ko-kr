@@ -8,19 +8,19 @@ ms.date: 08/20/2021
 ms.author: dech
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: c8a2ab0b904c60e2d1d1c44a9d596cf62d0403d6
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 49b0f5bac116ccdc6696ce23100f661791304ff5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129546015"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131465006"
 ---
 # <a name="best-practices-for-scaling-provisioned-throughput-rus"></a>프로 비전 된 처리량 확장에 대 한 모범 사례 (r u/초) 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 이 문서에서는 데이터베이스 또는 컨테이너 (컬렉션, 테이블 또는 그래프)의 처리량 (r u/초)을 확장 하기 위한 모범 사례 및 전략을 설명 합니다. 이 개념은 Azure Cosmos DB api에 대 한 모든 리소스의 자동 크기 조정 max/s 또는 프로 비전 된 수동 r u/s를 늘릴 때 적용 됩니다. 
  
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 - Azure Cosmos DB 분할 및 크기 조정을 처음 접하는 경우 먼저 [Azure Cosmos DB의 분할 및 수평 크기 조정](partitioning-overview.md)문서를 참조 하는 것이 좋습니다.
 - 429 예외로 인해 r u/초를 확장할 계획인 경우 [진단 및 문제 해결 Azure Cosmos DB 요청 비율 너무 큼 (429) 예외](troubleshoot-request-rate-too-large.md)에 대 한 지침을 검토 하세요. R u/s를 확대 하기 전에 문제의 근본 원인을 파악 하 고, r o u/s가 적절 한 솔루션 인지 여부를 확인 합니다.
  
@@ -35,10 +35,12 @@ ms.locfileid: "129546015"
     - 따라서 작업을 완료 하는 데 다소 시간이 걸릴 수 있습니다. 일반적으로 4-6 시간입니다.
 각 실제 파티션은 처리량 및 50 GB의 저장소에 대 한 최대 1만 r u/초 (모든 Api에 적용)를 지원할 수 있습니다 (30GB의 저장소를 포함 하는 Cassandra를 제외 하 고 모든 Api에 적용 됨). 
 
+> [!NOTE]
+> 비동기 확장 작업을 진행 하는 동안 [수동 지역 장애 조치 (failover) 작업](how-to-manage-database-account.md#manual-failover) 을 수행 하거나 [새 지역을 추가/제거](how-to-manage-database-account.md#addremove-regions-from-your-database-account) 하는 경우 처리량 확장 작업이 일시 중지 됩니다. 장애 조치 (failover) 또는 지역 추가/제거 작업이 완료 되 면 자동으로 다시 시작 됩니다. 
 - **인스턴트 축소**
     - 규모 축소 작업의 경우에는 Azure Cosmos DB 새 파티션을 분할 하거나 추가할 필요가 없습니다. 
     - 결과적으로 작업이 즉시 완료 되 고 r o s/s를 사용할 수 있습니다. 
-    - 이 작업의 주요 결과는 파티션 범위 당 RUs가 감소 한다는 것입니다.
+    - 이 작업의 주요 결과는 실제 파티션 별 RUs가 감소 한다는 것입니다.
     
 ## <a name="how-to-scale-up-rus-without-changing-partition-layout"></a>파티션 레이아웃을 변경 하지 않고/s를 확장 하는 방법
 
@@ -135,29 +137,29 @@ R u/초를로 늘립니다 `10,000 * P * 2 ^ (ROUNDUP(LOG_2 (S/(10,000 * P)))` .
 
 각 실제 파티션은 최대 50 GB의 저장소 (Cassandra API의 경우 30gb)를 보유할 수 있습니다. 에 대해 선택 해야 하는 값은 `Target data per physical partition in GB` 실제 파티션을 얼마나 잘 압축 하 고 마이그레이션 후에 얼마나 많은 저장소를 확장 하는 지에 따라 달라 집니다. 
 
-예를 들어 저장소를 계속 증가 시킬 것으로 예상 되는 경우 값을 30gb로 설정 하도록 선택할 수 있습니다. 저장소를 균등 하 게 분산 하는 좋은 파티션 키를 선택 했다고 가정 하면 각 파티션은 ~ 60% full (50 GB 중 30gb)이 됩니다. 이후 데이터가 작성 될 때 서비스에서 더 많은 실제 파티션을 즉시 추가 하도록 요구 하지 않고도 기존 실제 파티션 집합에 저장할 수 있습니다.
+예를 들어 저장소를 계속 증가 시킬 것으로 예상 되는 경우 값을 30gb로 설정 하도록 선택할 수 있습니다. 스토리지를 균등하게 분산하는 좋은 파티션 키를 선택한다고 가정하면 각 파티션은 60% 가득 찼습니다(50GB 중 30GB). 향후 데이터가 기록될 때 서비스가 더 많은 실제 파티션을 즉시 추가할 필요 없이 기존 물리적 파티션 집합에 저장할 수 있습니다.
 
-이와 대조적으로 저장소의 마이그레이션이 이후에 크게 증가 하지 않는다고 생각 되는 경우 값을 더 높게 설정 하도록 선택할 수 있습니다 (예: 45 GB). 즉, 각 파티션은 ~ 90% full (45 GB/50 GB)이 됩니다. 이렇게 하면 데이터를 분산 하는 실제 파티션 수가 최소화 됩니다. 즉, 각 실제 파티션은 프로 비전 된 총 r u/초를 초과할 수 있습니다. 
+반면, 마이그레이션 후 스토리지가 크게 증가하지 않을 것으로 판단되는 경우 값(예: 45GB)을 높게 설정하도록 선택할 수 있습니다. 즉, 각 파티션은 90% 가득 찼습니다(50GB 중 45GB). 이렇게 하면 데이터가 분산되는 실제 파티션 수가 최소화됩니다. 즉, 각 물리적 파티션이 프로비전된 총 RU/s의 더 큰 부분을 얻을 수 있습니다. 
  
-### <a name="step-3-calculate-the-number-of-rus-to-start-with"></a>3 단계: 시작 하는 데 사용 되는 o s/s의 수 계산
+### <a name="step-3-calculate-the-number-of-rus-to-start-with"></a>3단계: 시작할 RU/s 수 계산
 `Starting RU/s = Number of physical partitions * Initial throughput per physical partition`.
-- `Initial throughput per physical partition` = 자동 크기 조정 또는 공유 처리량 데이터베이스를 사용 하는 경우 = 1만 r u/초
-- `Initial throughput per physical partition` = 6000 r u/s 수동 처리량을 사용 하는 경우 
+- `Initial throughput per physical partition` = 자동 크기 조정 또는 공유 처리량 데이터베이스를 사용하는 경우 10,000 RU/s
+- `Initial throughput per physical partition` = 수동 처리량을 사용하는 경우 6000 RU/s 
  
 ### <a name="example"></a>예제
-수집 하려는 1TB (1000 g b)의 데이터가 있고 수동 처리량을 사용 하려고 한다고 가정해 보겠습니다. Azure Cosmos DB의 각 실제 파티션에는 50 GB의 용량이 있습니다. 향후 성장을 위해 공간을 80% full (40 GB)로 유지 하는 것을 목표로 하는 경우를 가정해 보겠습니다. 
+수집할 데이터가 1 TB(1,000GB)이고 수동 처리량을 사용하려고 합니다. Azure Cosmos DB의 각 실제 파티션의 용량은 50GB입니다. 파티션을 80%(40GB)로 꽉 차서 향후 성장을 위한 공간을 확보한다고 가정해 보겠습니다. 
  
-즉, 1TB의 데이터에는 1000 g b/40 GB = 25 개의 실제 파티션이 필요 합니다. 실제 파티션이 25 개를 갖도록 하기 위해 수동 처리량을 사용 하는 경우 먼저 25 * 6000 o s/s = 15만 r u/초를 프로 비전 합니다. 그런 다음 컨테이너가 생성 된 후 수집이 더 빠르게 진행 되도록 하기 위해 수집을 시작 하기 전에 r o s/s를 25만 r u/초로 늘립니다 (실제 파티션이 25 개 있기 때문에 즉시 발생 함). 이렇게 하면 각 파티션이 최대 1만 r u/초를 가져올 수 있습니다. 
+즉, 1 TB의 데이터에는 1000GB/40GB = 25개의 실제 파티션이 필요합니다. 25개의 실제 파티션을 얻을 수 있도록 수동 처리량을 사용하는 경우 먼저 25 * 6000 RU/s = 150,000 RU/s를 프로비전합니다. 그런 다음, 컨테이너를 만든 후에는 더 빠르게 추출할 수 있도록, RU/s를 250,000 RU/s로 늘인 후, 이미 25개의 실제 파티션이 있기 때문에 즉시 발생합니다. 이렇게 하면 각 파티션이 최대 10,000 RU/s를 얻을 수 있습니다. 
 
-자동 크기 조정 처리량 또는 공유 처리량 데이터베이스를 사용 하는 경우 25 개의 실제 파티션을 얻으려면 먼저 25 * 1만 o s/s = 25만 r u/초를 프로 비전 합니다. 25 개의 실제 파티션으로 지원 될 수 있는 최고/초를 이미 사용 하 고 있으므로 수집 하기 전에 프로 비전 된 r u/초를 추가로 늘리지 않습니다.
+자동 크기 조정 처리량 또는 공유 처리량 데이터베이스를 사용하여 25개의 실제 파티션을 얻는 경우 먼저 25 * 10,000 RU/s = 250,000 RU/s를 프로비전합니다. 이미 25개의 실제 파티션에서 지원할 수 있는 가장 높은 RU/s에 있기 때문에, 프로비전된 RU/s를 더 이상 늘리지 않을 것입니다.
  
-이론적으로 25만 r u/초 및 1tb의 데이터를 사용 하 여 쓰기에 1kb 문서와 10 개의 RUs가 필요한 경우이 수집은 이론적으로 완료할 수 있습니다. 1000 GB * (100만 k b/1gb) * (1 개 문서/1 kb) * (10 r u/문서) * (1 시간/25만) * (1 시간/3600 초) = 11.1 시간 
+이론적으로 250,000 RU/s 및 1TB의 데이터를 사용하며, 쓰기에 1kb 문서와 10 RU가 필요하다고 가정하는 경우 이론적으로는 1000GB * (1,000,000kb/1GB) * (1 문서/1kb) * (10 RU/문서) * (1초/250,000 RU) * (1시간/3600초) = 11.1시간에서 완료할 수 있습니다. 
 
-수집을 수행 하는 클라이언트가 처리량을 완벽 하 게 포화 하 고 모든 실제 파티션에 쓰기를 분산 하는 것으로 가정 하는 계산입니다. 모범 사례로, 클라이언트 쪽에서 데이터를 "순서 섞기" 하는 것이 좋습니다. 이렇게 하면 클라이언트가 두 번째로 많은 고유 논리적 (즉, 실제) 파티션에 쓰고 있습니다. 
+이 계산은 집계를 수행하는 클라이언트가 처리량을 완전히 포화시키고 모든 실제 파티션에 쓰기를 분산할 수 있다고 가정하는 예측값입니다. 모범 사례로 클라이언트 쪽에서 데이터를 "순서 섞는" 것이 좋습니다. 이렇게 하면 클라이언트가 1초마다 여러 개의 고유한 논리(및 물리적) 파티션에 쓰게 합니다. 
  
-마이그레이션이 완료 되 면 필요에 따라/s를 낮출 수도 있고 자동 크기 조정을 사용 하도록 설정할 수도 있습니다.
+마이그레이션이 끝나면 RU/s를 낮추거나 필요에 따라 자동 크기 조정을 사용하도록 설정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * 데이터베이스 또는 컨테이너의 [정규화 RU/초 사용량을 모니터링](monitor-normalized-request-units.md)합니다.
-* 요청 률 너무 큼 (429) 예외 [진단 및 문제 해결](troubleshoot-request-rate-too-large.md)
-* [데이터베이스 또는 컨테이너에서 자동 크기 조정을 사용 하도록 설정](provision-throughput-autoscale.md)합니다.
+* 너무 큰 요청 속도(429) [예외를 진단하고 문제를 해결합니다.](troubleshoot-request-rate-too-large.md)
+* [데이터베이스 또는 컨테이너에서 자동 크기 조정을 사용하도록 설정합니다.](provision-throughput-autoscale.md)

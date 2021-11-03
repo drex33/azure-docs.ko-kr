@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 12132e5143546abc2b12a83e3e6cd92a43069e1e
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 3bb81f3fd29e68e04607e4f0252ccd8f0308dc67
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130263044"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471804"
 ---
 # <a name="troubleshoot-common-azure-virtual-desktop-agent-issues"></a>일반적인 Azure Virtual Desktop 에이전트 문제 해결
 
@@ -106,7 +106,7 @@ Azure Virtual Desktop 에이전트는 다음과 같은 여러 요인으로 인�
    > ![로드에 성공하지 못한 broker 글로벌 액세스의 스크린샷](media/unsuccessful-broker-global.png)
 
 8. 네트워크에서 이러한 URL을 차단하는 경우 필요한 URL을 차단 해제해야 합니다. 자세한 내용은 [필수 URL 목록](safe-url-list.md)를 참조하세요.
-9. 그래도 문제가 해결되지 않으면 에이전트에서 broker로 연결하는 것을 차단하는 암호화를 사용하는 그룹 정책이 없는지 확인합니다. Azure Virtual Desktop은 [Azure Front Door](../frontdoor/front-door-faq.yml#what-are-the-current-cipher-suites-supported-by-azure-front-door-)와 동일한 TLS 1.2 암호화를 사용합니다. 자세한 내용은 [연결 보안](network-connectivity.md#connection-security)을 참조하세요.
+9. 그래도 문제가 해결되지 않으면 에이전트에서 broker로 연결하는 것을 차단하는 암호화를 사용하는 그룹 정책이 없는지 확인합니다. Azure Virtual Desktop은 [Azure Front Door](../frontdoor/concept-end-to-end-tls.md#supported-cipher-suites)와 동일한 TLS 1.2 암호화를 사용합니다. 자세한 내용은 [연결 보안](network-connectivity.md#connection-security)을 참조하세요.
 
 ## <a name="error-3703"></a>오류: 3703
 
@@ -243,7 +243,7 @@ Get-AzWvdSessionHost -ResourceGroupName <resourcegroupname> -HostPoolName <hostp
 3. **제어판** > **프로그램** > **프로그램 및 기능** 으로 이동합니다.
 4. 최신 버전의 **원격 데스크톱 서비스 SxS 네트워크 스택** 또는 **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **WinStations** 아래 **ReverseConnectListener** 에 나열된 버전을 제거합니다.
 5. 관리자 권한으로 콘솔 창을 열고 **Program Files** > **Microsoft RDInfra** 로 이동합니다.
-6. **SxSStack** 구성 요소를 선택하거나 **`msiexec /i SxsStack-<version>.msi`** 명령을 실행하여 MSI를 설치합니다.
+6. **SxSStack** 구성 요소를 선택 하거나 **`msiexec /i SxsStack-<version>.msi`** 명령을 실행 하 여 MSI를 설치 합니다.
 8. VM이 다시 시작됩니다.
 9. 명령 프롬프트로 돌아가서 **qwinsta** 명령을 실행합니다.
 10. 6단계에서 설치한 스택 구성 요소 옆에 **Listen** 이 표시되는지 확인합니다.

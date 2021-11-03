@@ -5,12 +5,12 @@ author: shijatsu
 ms.author: shijain
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: b86e90298bc753cdea5c0fb5f255e88fcc26dc5c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 1c371a155f36574f7a443506c0b9090b6b3bd544
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114440759"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131447078"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-transition-guide"></a>Azure Monitor 뷰 디자이너에서 통합 문서로 전환 가이드
 [뷰 디자이너](view-designer.md)는 차트, 목록 및 타임라인을 사용하여 Log Analytics 작업 영역의 데이터를 시각화하는 데 도움이 되는 사용자 지정 뷰를 만들 수 있게 하는 Azure Monitor 기능입니다. Azure Portal 내에서 데이터 분석 및 풍부한 시각적 보고서 생성을 위한 유연한 캔버스를 제공하기 위해 통합 문서로 전환되었습니다. 이 문서는 뷰 디자이너에서 통합 문서로 전환하는 데 도움이 됩니다. 
@@ -49,7 +49,7 @@ ms.locfileid: "114440759"
 
 
 ## <a name="how-to-start-using-workbooks"></a>통합 문서 사용을 시작하는 방법
-통합 문서에서 열린 통합 문서는 뷰 디자이너 위치 바로 아래에 있는 측면 탐색 모음의 항목으로 Log Analytics 작업 영역에서 사용됩니다.
+Log Analytics 작업 영역 아래의 통합 문서 타일에서 통합 문서를 엽니다.
 
 ![통합 문서 탐색](media/view-designer-conversion-overview/workbooks-nav.png)
 

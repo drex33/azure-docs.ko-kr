@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 0bc3035b934f5b450345449b21e5aedd44642cf4
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: c5ad35114edaae42019e0949cc4ad8aa4b291ec6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130070758"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441194"
 ---
 # <a name="ev4-and-esv4-series"></a>Ev4 및 Esv4 시리즈
 
@@ -41,7 +41,7 @@ Ev4 시리즈 크기는 Intel Xeon&reg; Platinum 8272CL(Cascade Lake)에서 실�
 [임시 OS 디스크](ephemeral-os-disks.md): 지원되지 않음 <br>
 <br>
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 NIC 수|예상 네트워크 대역폭(Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|
 | Standard_E2_v4<sup>1</sup>  | 2 | 16   | 원격 스토리지 전용 | 4 | 2|5,000  |
 | Standard_E4_v4  | 4 | 32  | 원격 스토리지 전용 | 8 | 2|10000  |
@@ -80,7 +80,7 @@ Esv4 시리즈 크기는 Intel&reg; Xeon&reg; Platinum 8272CL(Cascade Lake)에�
 | Standard_E32s_v4 | 32 | 256 | 원격 스토리지 전용 | 32 | 51200/768  | 64000/1600 | 8|16000 |
 | Standard_E48s_v4 | 48 | 384 | 원격 스토리지 전용 | 32 | 76800/1152 | 80000/2000 | 8|24000 |
 | Standard_E64s_v4 <sup>2</sup> | 64 | 504| 원격 스토리지 전용 | 32 | 80000/1200 | 80000/2000 | 8|30000 |
-| Standard_E80is_v4 <sup>3</sup> | 80 | 504 | 원격 스토리지 전용 | 32 | 80000/1200 | 80000/2000 | 8|30000 |
+| Standard_E80is_v4 <sup>3</sup> | 80 | 504 | 원격 스토리지 전용 | 64 | 80000/1200 | 80000/2000 | 8|30000 |
 
 <sup>1</sup> Esv4 시리즈 VM은 디스크 성능을 [버스트](./disk-bursting.md)하고 한 번에 최대 30분 동안 최대 버스트를 얻을 수 있습니다.<br>
 <sup>2</sup> [사용 가능한 코어 크기 제한](./constrained-vcpu.md).<br>

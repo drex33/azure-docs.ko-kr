@@ -7,15 +7,18 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 10/11/2021
-ms.openlocfilehash: 5523b04235ce386e62abc175ac498f4df34b0641
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.date: 10/21/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 95753a40c60e6b191b768fa3ac9cae3c5e9cb466
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130132306"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131433273"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Azure Sentinel의 새로운 기능
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 이 문서에는 Azure Sentinel에 추가된 최신 기능과 Azure Sentinel에서 향상된 사용자 환경을 제공하는 관련 서비스의 새로운 기능이 나열되어 있습니다.
 
@@ -33,46 +36,246 @@ ms.locfileid: "130132306"
 > 여러분도 참여할 수 있습니다! [Azure Sentinel 위협 헌터 GitHub 커뮤니티](https://github.com/Azure/Azure-Sentinel/wiki)에 참여하세요.
 >
 
-## <a name="october-2021"></a>2021년 10월
+## <a name="november-2021"></a>2021년 11월
 
-- [이제 M365 Defender 커넥터(공개 미리 보기)에서 Defender for Office 365 이벤트를 사용할 수 있습니다.](#defender-for-office-365-events-now-available-in-the-m365-defender-connector-public-preview)
-- [플레이북 템플릿 및 갤러리 사용 가능(공개 미리 보기)](#playbook-templates-and-gallery-now-available-public-preview)
-- [예약된 분석 규칙에 대한 템플릿 버전 관리(공개 미리 보기)](#manage-template-versions-for-your-scheduled-analytics-rules-public-preview)
-- [DHCP 정규화 스키마(공개 미리 보기)](#dhcp-normalization-schema-public-preview)
+### <a name="windows-forwarded-events-connector-now-available-public-preview"></a>Windows 이제 전달 된 이벤트 커넥터 사용 가능 (공개 미리 보기)
 
-### <a name="defender-for-office-365-events-now-available-in-the-m365-defender-connector-public-preview"></a>이제 M365 Defender 커넥터(공개 미리 보기)에서 Defender for Office 365 이벤트를 사용할 수 있습니다.
+이제 새 데이터 커넥터 덕분에 Windows 이벤트 수집/Windows 이벤트 전달 (WEC/wef)을 사용 하 여 Azure 센티널 작업 영역에 연결 된 Windows 서버에서 이벤트 로그를 스트리밍할 수 있습니다. 커넥터는 새 Azure Monitor 에이전트 (AMA)를 사용 하 여 레거시 Log Analytics 에이전트 (MMA 라고도 함)에 비해 여러 가지 이점을 제공 합니다.
+- **확장성:** wec (Windows 이벤트 수집)를 사용 하도록 설정한 경우에는 wec 컴퓨터에 Azure Monitor 에이전트 (AMA)를 설치 하 여 단일 연결 지점을 사용 하는 여러 서버에서 로그를 수집할 수 있습니다.
 
-엔드포인트용 Microsoft Defender의 이벤트 외에도 이제 [Microsoft 365 Defender 커넥터](connect-microsoft-365-defender.md)를 통해 [Office 365 위해 Microsoft Defender에서](/microsoft-365/security/office-365-security/overview) 원시 [고급 헌팅 이벤트를](/microsoft-365/security/defender/advanced-hunting-overview) 수신할 수 있습니다. [자세히 알아보기](microsoft-365-defender-sentinel-integration.md#advanced-hunting-event-collection).
+- **속도:** AMA는 5K EPS의 향상 된 속도로 데이터를 전송할 수 있으므로 데이터를 빠르게 새로 고칠 수 있습니다.
 
-### <a name="playbook-templates-and-gallery-now-available-public-preview"></a>플레이북 템플릿 및 갤러리 사용 가능(공개 미리 보기)
+- **효율성:** AMA를 사용 하면 복잡 한 DCR (데이터 수집 규칙)를 디자인 하 여 원본에서 로그를 필터링 하 고 작업 영역에 스트리밍할 정확한 이벤트를 선택할 수 있습니다. Ecr은 원치 않는 이벤트를 종료 하 여 네트워크 트래픽 및 수집 비용을 낮춥니다.
 
-플레이북 템플릿은 요구 사항에 맞게 사용자 지정할 수 있는 미리 빌드되고 테스트되고 즉시 사용할 수 있는 워크플로입니다. 템플릿은 처음부터 플레이북을 개발할 때 모범 사례에 대한 참조 또는 새로운 자동화 시나리오에 대한 영감을 제공하는 역할을 할 수도 있습니다.
+- **검사:** WEC/wef를 사용 하면 레거시 (온-프레미스 및 실제) 서버에서의 Windows 이벤트 로그를 수집 하 고, 에이전트를 설치 하지 않아도 되는 도메인 컨트롤러와 같은 높은 사용량 또는 중요 한 컴퓨터 에서도 이벤트 로그를 수집할 수 있습니다. 
 
-플레이북 템플릿은 Azure Sentinel 커뮤니티, ISV(독립 소프트웨어 공급업체) 및 Microsoft 자체 전문가에 의해 개발되었으며, **플레이북 템플릿** 탭(Automation 아래), Azure Sentinel [**솔루션의**](sentinel-solutions.md)일부 또는 [**Azure Sentinel GitHub 리포지토리에서**](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)찾을 수 있습니다. 
+데이터 정규화를 완벽 하 게 지원 하기 위해 설치 된 [ASIM (Azure 센티널 Information Model)](normalization.md) 파서에서이 커넥터를 사용 하는 것이 좋습니다.
 
-**Automation** [아래의 플레이북 템플릿 탭에서 플레이북 템플릿을](use-playbook-templates.md) 배포하는 자세한 내용은 기본 제공 **템플릿에서 플레이북** 만들기 및 사용자 지정을 참조하세요.
+[전달 된 이벤트 Windows 커넥터](data-connectors-reference.md#windows-forwarded-events-preview)에 대해 자세히 알아보세요.
 
-### <a name="manage-template-versions-for-your-scheduled-analytics-rules-public-preview"></a>예약된 분석 규칙에 대한 템플릿 버전 관리(공개 미리 보기)
+### <a name="near-real-time-nrt-threat-detection-rules-now-available-public-preview"></a>거의 실시간 (NRT) 위협 검색 규칙 사용 가능 (공개 미리 보기)
 
-[기본 제공 Azure Sentinel 규칙 템플릿에서](detect-threats-built-in.md)분석 규칙을 만들 때 템플릿의 복사본을 효과적으로 만듭니다. 이 시점을 지나면 활성 규칙이 원래 템플릿에 적용된 변경 내용과 일치하도록 동적으로 ***업데이트되지 않습니다.***
+보안 위협에 직면 하는 경우 시간과 속도는 기본적으로입니다. 이를 신속 하 게 분석 하 고 대응할 수 있도록 구체화 될 때 위협을 인식 해야 합니다. Azure 센티널의 거의 실시간 (NRT) 분석 규칙은 온-프레미스 SIEM 및 특정 시나리오에서 응답 시간을 단축 하는 기능에 더 빠르게 위협 감지 기능을 제공 합니다.
 
-그러나 템플릿에서 만든 규칙은  두 가지 이점을 제공하는 템플릿을 기억합니다.
+Azure 센티널의 [거의 실시간 분석 규칙](detect-threats-built-in.md#nrt) 은 기본 제공 되는 최신 위협 검색 기능을 제공 합니다. 이 유형의 규칙은 1 분 간격으로 쿼리를 실행 하 여 응답성이 높은 응답성으로 설계 되었습니다.
 
-- 템플릿에서 규칙을 만들 때(또는 그 이후 언제든지) 규칙을 변경한 경우 언제든지 규칙을 원래 버전(템플릿의 복사본)으로 되돌릴 수 있습니다.
+[Nrt 규칙](near-real-time-rules.md) 및 [사용 방법](create-nrt-rules.md)에 대해 자세히 알아보세요.
 
-- 템플릿이 업데이트되면 알림을 받을 수 있으며, 규칙을 새 버전의 템플릿으로 업데이트하거나 그대로 둘 수 있습니다.
+### <a name="fusion-engine-now-detects-emerging-and-unknown-threats-public-preview"></a>이제 Fusion 엔진은 새롭게 알려지지 않은 위협 (공개 미리 보기)을 검색 합니다.
 
-[이러한 작업을 관리하는 방법](manage-analytics-rule-templates.md)및 유의해야 할 사항을 알아봅니다. 이러한 절차는 템플릿에서 만든 [예약된](detect-threats-built-in.md#scheduled) 분석 규칙에 적용됩니다.
+[미리 정의 된 시나리오](fusion-scenario-reference.md)를 기반으로 공격을 검색 하는 것 외에도, Azure 센티널의 ML 기반 Fusion 엔진은 확장 된 ML 분석을 적용 하 고 광범위 한 비정상 신호의 범위를 상호 연결 하 여 경고를 피로 하는 방식으로 사용자 환경에서 새로 발생 하 고 알 수 없는 위협을 찾는 데 도움이 될 수 있습니다.
 
-### <a name="dhcp-normalization-schema-public-preview"></a>DHCP 정규화 스키마(공개 미리 보기)
+Fusion 엔진의 ML 알고리즘은 기존 공격 으로부터 지속적으로 배우고 보안 분석가가 생각 하는 방법에 따라 분석을 적용 합니다. 따라서 사용자 환경 전체에서 kill 체인을 통해 수백만 개의 비정상 동작에서 이전에 검색 되지 않은 위협을 발견할 수 있으므로 공격자의 한 단계를 진행 하는 데 도움이 됩니다.
 
-ASIM(Azure Sentinel 정보 모델)은 이제 DHCP 서버에서 보고하는 이벤트를 설명하는 데 사용되며 소스에 관계 없는 분석을 사용하도록 설정하기 위해 Azure Sentinel 사용되는 DHCP 정규화 스키마를 지원합니다. 
+[새로운 위협에 대 한 Fusion](fusion.md#fusion-for-emerging-threats)에 대해 자세히 알아보세요.
 
-DHCP 정규화 스키마에 설명된 이벤트에는 클라이언트 시스템에서 임대된 DHCP IP 주소에 대한 요청 처리 및 부여된 임대로 DNS 서버 업데이트가 포함됩니다.
+또한 이제 증가 된 기능을 반영 하 여 [Fusion 분석 규칙을 더 쉽게 구성할 수](configure-fusion-rules.md)있습니다.
+
+### <a name="get-fine-tuning-recommendations-for-your-analytics-rules-public-preview"></a>분석 규칙에 대 한 미세 조정 권장 사항 가져오기 (공개 미리 보기)
+
+SIEM의 위협 검색 규칙을 미세 조정 하는 것은 위협 검색 범위를 극대화 하 고 가양성을 최소화 하는 것이 어려울 수 있습니다. Azure 센티널은 기계 학습을 사용 하 여 데이터 원본에서 수십억 개의 신호를 분석 하 고 시간에 따른 인시던트에 대 한 응답을 분석 하 고, 튜닝 오버 헤드를 크게 낮출 수 있는 조치 가능한 권장 사항 및 통찰력을 제공 하 고, 실제 위협에 대 한 검색 및 대응에 집중할 수 있도록 기계 학습을 통해이 프로세스를 간소화 하 고 간소화 합니다.
+
+이제 [튜닝 권장 사항 및 통찰력](detection-tuning.md) 이 분석 규칙에 기본 제공 됩니다. 
+
+### <a name="free-trial-updates"></a>무료 평가판 업데이트
+
+Azure 센티널의 무료 평가판은 처음 31 일 동안 추가 비용 없이 신규 또는 기존 Log Analytics 작업 영역을 계속 지원 합니다.
+현재 무료 평가판 환경에서 다음 업데이트를 포함 하 고 있습니다.
+
+- **새 Log Analytics 작업 영역** 에서는 처음 31 일 동안 최대 10gb/일의 로그 데이터를 무료로 수집할 수 있습니다. 새 작업 영역에는 3 일 미만의 작업 영역이 포함 됩니다.
+
+   Log Analytics 데이터 수집 및 Azure 센티널 요금은 모두 31 일의 평가 기간 동안 면제 받으려면 됩니다. 이 무료 평가판에는 Azure 테 넌 트 당 20 개의 작업 영역 제한이 적용 됩니다.
+
+
+- **기존 Log Analytics 작업 영역** 에서 추가 비용 없이 Azure 센티널을 사용 하도록 설정할 수 있습니다. 기존 작업 영역에는 3 일 이상 전에 만든 작업 영역이 포함 됩니다.
+
+   31 일의 평가 기간 동안에는 Azure 센티널 요금은 면제 받으려면 됩니다.
+
+이러한 한도를 초과 하는 사용량에 대해서는 [Azure 센티널 가격 책정](https://azure.microsoft.com/pricing/details/azure-sentinel) 페이지에 나열 된 가격 책정에 따라 요금이 청구 됩니다. [Automation](automation-in-azure-sentinel.md) 의 추가 기능과 관련 된 요금은 무료 평가판을 사용 하는 동안에도 계속 [적용 됩니다.](bring-your-own-ml.md)
+
+> [!TIP]
+> 무료 평가판을 사용 하는 경우 Azure 센티널의 **무료 평가판 탭 > 뉴스 & 가이드** 에서 cost management, 교육 등에 대 한 리소스를 찾아보세요. 이 탭에는 무료 평가판 날짜 및 만료 될 때까지 남은 일 수에 대 한 세부 정보도 표시 됩니다.
+>
+
+자세한 내용은 [Azure 센티널에 대 한 비용 계획 및 관리](azure-sentinel-billing.md)를 참조 하세요.
+
+### <a name="content-hub-and-new-solutions-public-preview"></a>콘텐츠 허브 및 새 솔루션 (공개 미리 보기)
+
+이제 azure 센티널은 azure 센티널 작업 영역에 대 한 Azure 센티널 기본 제공 콘텐츠 및 솔루션을 찾아서 배포 하는 중앙 위치인 **콘텐츠 허브** 를 제공 합니다. 콘텐츠 형식, 지원 모델, 범주 등을 필터링 하 여 필요한 콘텐츠를 찾거나 강력한 텍스트 검색을 사용 합니다.
+
+**콘텐츠 관리** 에서 **콘텐츠 허브** 를 선택 합니다. 오른쪽에 대 한 자세한 내용을 보려면 솔루션을 선택 하 고 **설치** 를 클릭 하 여 작업 영역에 설치 합니다.
+
+:::image type="content" source="media/whats-new/solutions-list.png" alt-text="새 Azure 센티널 콘텐츠 허브의 스크린샷" lightbox="media/whats-new/solutions-list.png":::
+
+다음 목록에는 콘텐츠 허브에 추가 된 새로운 기본 제공 솔루션이 포함 되어 있습니다.
+
+:::row:::
+   :::column span="":::
+      - Azure 센티널 학습 랩
+      - Cisco ASA
+      - Cisco Duo 보안
+      - Cisco Meraki
+      - Cisco StealthWatch
+      - 디지털 보호자
+      - 365 Dynamics
+      - GCP 클라우드 DNS
+   :::column-end:::
+   :::column span="":::
+      - GCP CloudMonitor
+      - GCP Id 및 액세스 관리
+      - False
+      - FireEye NX
+      - 플레어 시스템 불꽃놀이
+      - Forescout
+      - Fortinet Fortigate
+      - Imperva 클라우드 FAW
+   :::column-end:::
+   :::column span="":::
+      - 참가자 위험 관리
+      - IronNet 사이버 보안 다리미 방어
+      - Lookout
+      - McAfee 네트워크 보안 플랫폼
+      - 클라우드 용 Microsoft MITRE AT&T&접시 헤드 솔루션
+      - Palo Alto PAN-OS
+   :::column-end:::
+   :::column span="":::
+      - Rapid7 Nexpose/정보 VM
+      - ReversingLabs
+      - RSA SecurID
+      - Semperis
+      - Tenable 스캐너 사용
+      - Vectra 스트림
+      - 제로 트러스트
+   :::column-end:::
+:::row-end:::
 
 자세한 내용은 다음을 참조하세요.
 
-- [Azure Sentinel DHCP 정규화 스키마 참조(공개 미리 보기)](dhcp-normalization-schema.md)
+- [Azure Sentinel 솔루션 정보](sentinel-solutions.md)
+- [Azure Sentinel 솔루션 검색 및 배포](sentinel-solutions-deploy.md)
+- [Azure Sentinel 솔루션 카탈로그](sentinel-solutions-catalog.md)
+
+### <a name="enable-continuous-deployment-from-your-content-repositories-public-preview"></a>콘텐츠 리포지토리에서 연속 배포 사용 (공개 미리 보기)
+
+새 Azure 센티널 **리포지토리** 페이지는 Azure Portal에서 관리 하는 대신 GitHub 또는 Azure DevOps 리포지토리에서 사용자 지정 콘텐츠를 관리 하 고 배포 하는 기능을 제공 합니다. 이 기능은 Azure 센티널 작업 영역에서 콘텐츠를 관리 하 고 배포 하기 위한 보다 간소화 되 고 자동화 된 접근 방식을 도입 합니다.
+
+Azure 센티널 외부에서 유지 관리 하기 위해 외부 리포지토리에 사용자 지정 콘텐츠를 저장 하는 경우 이제 해당 리포지토리를 Azure 센티널 작업 영역에 연결할 수 있습니다. 리포지토리에서 추가, 만들기 또는 편집 하는 콘텐츠는 Azure 센티널 작업 영역에 자동으로 배포 되며, **분석**, **구하기** 또는 **통합 문서** 페이지와 같은 다양 한 azure 센티널 갤러리에서 표시 됩니다.
+
+자세한 내용은 [리포지토리에서 사용자 지정 콘텐츠 배포](ci-cd.md)를 참조 하세요.
+
+### <a name="enriched-threat-intelligence-with-geolocation-and-whois-data-public-preview"></a>지리적 위치 및 WhoIs 데이터를 사용 하 여 위협 인텔리전스 보강 (공개 미리 보기)
+
+이제 데이터 커넥터 및 논리 앱 플레이 북을 통해 Azure 센티널로 이동 하거나 Azure 센티널에서 만드는 모든 위협 인텔리전스 데이터는 지리적 위치 및 WhoIs 정보를 사용 하 여 자동으로 보강 됩니다.
+
+지리적 위치 및 WhoIs 데이터는 선택한 IOC (손상 된 표시기)가 발견 된 조사에 더 많은 컨텍스트를 제공할 수 있습니다.
+
+예를 들어, 지리적 위치 데이터를 사용 하 여 표시기에 대 한 *조직* 또는 *국가* 와 같은 세부 정보를 찾고 WhoIs 데이터를 사용 하 여 *등록자* 및 *레코드 생성* 데이터 같은 데이터를 찾을 수 있습니다
+
+Azure 센티널로 가져온 각 손상 표시기에 대해 **위협 인텔리전스** 창에서 지리적 위치 및 WhoIs 데이터를 볼 수 있습니다. 표시기에 대 한 세부 정보는 사용 가능한 모든 지리적 위치 및 WhoIs 데이터를 포함 하 여 오른쪽에 표시 됩니다.
+
+예를 들어:
+
+:::image type="content" source="media/whats-new/geolocation-whois-ti.png" alt-text="지리적 위치 및 WhoIs 데이터를 포함 하는 표시기 정보의 스크린샷" lightbox="media/whats-new/geolocation-whois-ti.png":::
+
+> [!TIP]
+> 지리적 위치 및 WhoIs 정보는 API를 통해 액세스할 수도 있는 Microsoft 위협 인텔리전스 서비스에서 제공 됩니다. 자세한 내용은 [API를 통해 지리적 위치 데이터로 엔터티 보강](geolocation-data-api.md)을 참조 하세요.
+>
+
+자세한 내용은 다음을 참조하세요.
+
+- [Azure Sentinel의 위협 인텔리전스 이해](understand-threat-intelligence.md)
+- [위협 인텔리전스 통합](threat-intelligence-integration.md)
+- [Azure Sentinel에서 위협 지표 작업](work-with-threat-indicators.md)
+- [위협 인텔리전스 플랫폼 연결](connect-threat-intelligence-tip.md)
+
+### <a name="use-notebooks-with-azure-synapse-analytics-in-azure-sentinel-public-preview"></a>Azure 센티널에서 Azure Synapse Analytics와 함께 노트북 사용 (공개 미리 보기)
+
+이제 azure 센티널은 대규모 보안 분석 시나리오를 위해 Jupyter 노트북을 Azure Synapse와 통합 합니다.
+
+지금까지 Azure 센티널의 Jupyter 노트북은 Azure Machine Learning와 통합 되었습니다. 이 기능은 전자 필기장, 인기 있는 오픈 소스 기계 학습 도구 키트 및 TensorFlow와 같은 라이브러리 및 자체 사용자 지정 모델을 보안 워크플로에 통합 하려는 사용자를 지원 합니다.
+
+새 Azure Synapse 통합은 다음과 같은 추가 분석의 마 력을 제공 합니다.
+
+- 비용 최적화, 완전히 관리 되는 Azure Synapse Apache Spark compute 풀을 사용 하는 **보안 빅 데이터 분석**.
+
+- **비용 효율적인 Data Lake** Azure Blob Storage을 기반으로 하는 빅 데이터 분석 전용 기능 집합인 Azure Data Lake Storage Gen2를 통해 기록 데이터에 대 한 빌드 분석에 액세스할 수 있습니다.
+
+- 여러 원본 및 형식의 보안 작업 워크플로에 **데이터 원본을 통합 하기 위한 유연성** .
+
+- Python과 함께 Spark 프레임 워크를 사용 하는 **python 기반 API 인 PySpark** 를 사용 하면 python에 이미 익숙한 경우 새 프로그래밍 언어를 익히는 필요성이 줄어듭니다.
+
+이러한 통합을 지원 하기 위해 azure 센티널에서 직접 Azure Synapse 작업 영역을 만들고 시작 하는 기능을 추가 했습니다. 또한 Azure Synapse 환경을 구성 하는 과정을 안내 하 고, Log Analytics에서 Azure Data Lake Storage으로 연속 데이터 내보내기 파이프라인을 설정 하 고, 대규모로 해당 데이터를 검색할 수 있는 새로운 샘플 노트북을 추가 했습니다.
+
+자세한 내용은 [Azure Synapse와 노트북 통합](notebooks-with-synapse.md)을 참조 하세요.
+
+### <a name="enhanced-notebooks-area-in-azure-sentinel"></a>Azure 센티널의 향상 된 노트북 영역
+
+이제 Azure 센티널의 **전자 필기장** 영역에는 **개요** 탭이 있습니다. 여기에서 전자 필기장에 대 한 기본 정보를 찾을 수 있으며 **템플릿** 탭에서 새 **노트북 유형** 열을 통해 표시 되는 각 노트북의 유형을 나타낼 수 있습니다. 예를 들어, 노트북에는 **시작**, **구성**, **구하기** 및 **Synapse** 의 유형이 있을 수 있습니다.
+
+예를 들어:
+
+:::image type="content" source="media/whats-new/notebooks-synapse.png" alt-text="전자 필기장 페이지에서 새 Azure Synapse 기능의 스크린샷" lightbox="media/whats-new/notebooks-synapse.png":::
+
+자세한 내용은 [Jupyter 노트북을 사용 하 여 보안 위협 구하기](notebooks.md)를 참조 하세요.
+
+
+### <a name="deploy-and-monitor-azure-key-vault-honeytokens-with-azure-sentinel"></a>Azure 센티널을 사용 하 여 Azure Key Vault honeytokens 배포 및 모니터링
+
+새 **Azure 센티널 사기** 솔루션을 사용 하 여 키 자격 증명 모음에서 악의적인 활동을 감시 하 고, 선택 된 azure key vault에 *허니* 토큰 이라는 위장 키와 비밀을 배포할 수 있습니다.
+
+배포 되 면 허니 토큰 키와 암호를 사용 하는 모든 액세스 또는 작업은 Azure 센티널에서 조사할 수 있는 인시던트를 생성 합니다.
+
+실제로 허니 토큰 키와 비밀을 사용 하는 이유는 없으므로 작업 영역에서 유사한 활동은 악성이 될 수 있으므로 조사 해야 합니다.
+
+**Azure 센티널 사기** 솔루션에는 honeytokens를 한 번에 하나씩 배포 하는 데 도움이 되는 통합 문서가 포함 되어 있습니다. watchlists는 생성 된 honeytokens를 추적 하 고 필요한 경우 인시던트를 생성 하는 분석 규칙을 포함 합니다.
+
+자세한 내용은 [Azure 센티널을 사용 하 여 Azure Key Vault Honeytokens 배포 및 모니터링 (공개 미리 보기)](monitor-key-vault-honeytokens.md)을 참조 하세요.
+
+
+## <a name="october-2021"></a>2021년 10월
+
+- [Windows 보안 현재 GA에서 Azure Monitor 에이전트를 사용 하는 이벤트 커넥터](#windows-security-events-connector-using-azure-monitor-agent-now-in-ga)
+- [Defender for Office 365 이벤트를 Microsoft 365 Defender 커넥터 (공개 미리 보기)에서 사용할 수 있습니다.](#defender-for-office-365-events-now-available-in-the-microsoft-365-defender-connector-public-preview)
+- [플레이 북 템플릿 및 갤러리 사용 가능 (공개 미리 보기)](#playbook-templates-and-gallery-now-available-public-preview)
+- [예약 된 분석 규칙에 대 한 템플릿 버전 관리 (공개 미리 보기)](#manage-template-versions-for-your-scheduled-analytics-rules-public-preview)
+- [DHCP 정규화 스키마 (공개 미리 보기)](#dhcp-normalization-schema-public-preview)
+
+### <a name="windows-security-events-connector-using-azure-monitor-agent-now-in-ga"></a>Windows 보안 현재 GA에서 Azure Monitor 에이전트를 사용 하는 이벤트 커넥터
+
+이제 Azure Monitor 에이전트를 기반으로 하는 Windows 보안 Events 커넥터의 새 버전이 출시 되었습니다. 자세한 내용은 [Windows 서버를 커넥트 하 여 보안 이벤트 수집](connect-windows-security-events.md?tabs=AMA) 을 참조 하세요.
+
+### <a name="defender-for-office-365-events-now-available-in-the-microsoft-365-defender-connector-public-preview"></a>Defender for Office 365 이벤트를 Microsoft 365 Defender 커넥터 (공개 미리 보기)에서 사용할 수 있습니다.
+
+끝점에 대 한 microsoft defender 외에도 이제 [Microsoft 365 Defender 커넥터](connect-microsoft-365-defender.md)를 통해 [Office 365에 대해 microsoft defender](/microsoft-365/security/office-365-security/overview) 에서 원시 [고급 구하기 이벤트](/microsoft-365/security/defender/advanced-hunting-overview) 를 수집할 수 있습니다. [자세히 알아보기](microsoft-365-defender-sentinel-integration.md#advanced-hunting-event-collection).
+### <a name="playbook-templates-and-gallery-now-available-public-preview"></a>플레이 북 템플릿 및 갤러리 사용 가능 (공개 미리 보기)
+
+플레이 북 템플릿은 요구 사항에 맞게 사용자 지정할 수 있는 미리 작성 되 고 테스트 되 고 사용이 가능한 워크플로입니다. 템플릿은 처음부터 플레이 북을 개발할 때 모범 사례에 대 한 참조 나 새로운 자동화 시나리오의 역할을 할 수도 있습니다.
+
+플레이 북 템플릿은 azure 센티널 커뮤니티, isv (독립 소프트웨어 공급 업체) 및 Microsoft 고유의 전문가에 의해 개발 되었으며, **플레이 북 템플릿** 탭 ( **Automation** 아래), [**azure 센티널 솔루션**](sentinel-solutions.md)의 일부로 또는 [**azure 센티널 GitHub 리포지토리에서**](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)찾을 수 있습니다. 
+
+자세한 내용은 [기본 제공 템플릿에서 플레이 북 만들기 및 사용자 지정](use-playbook-templates.md)을 참조 하세요.
+
+### <a name="manage-template-versions-for-your-scheduled-analytics-rules-public-preview"></a>예약 된 분석 규칙에 대 한 템플릿 버전 관리 (공개 미리 보기)
+
+[기본 제공 Azure 센티널 규칙 템플릿에서](detect-threats-built-in.md)분석 규칙을 만들 때 템플릿의 복사본을 효과적으로 만듭니다. 그 전에는 활성 규칙이 원래 템플릿에 적용 되는 변경 내용과 일치 하도록 동적으로 업데이트 ***되지 않습니다*** .
+
+그러나 템플릿에서 생성 된 규칙은 제공 된 ***템플릿을 명심 하*** 여 다음과 같은 두 가지 이점을 누릴 수 있습니다.
+
+- 템플릿에서 만들 때 (또는 그 후 언제 든 지) 규칙을 변경한 경우 항상 규칙을 다시 원래 버전 (템플릿의 복사본)으로 되돌릴 수 있습니다.
+
+- 템플릿이 업데이트 되 면 알림 메시지를 받을 수 있으며, 규칙을 새 버전의 템플릿으로 업데이트 하거나 그대로 둘 수 있습니다.
+
+[이러한 작업을 관리 하는 방법과](manage-analytics-rule-templates.md)기억해 야 할 사항에 대해 알아보세요. 이러한 절차는 템플릿에서 만든 모든 [예약 된](detect-threats-built-in.md#scheduled) 분석 규칙에 적용 됩니다.
+
+### <a name="dhcp-normalization-schema-public-preview"></a>DHCP 정규화 스키마 (공개 미리 보기)
+
+Azure 센티널 Information Model (ASIM)은 이제 dhcp 정규화 스키마를 지원 합니다 .이 스키마는 DHCP 서버에서 보고 하는 이벤트를 설명 하는 데 사용 되며, Azure 센티널에서 원본에 관계 없는 분석을 사용 하도록 하는 데 사용 됩니다. 
+
+DHCP 정규화 스키마에 설명 된 이벤트에는 클라이언트 시스템에서 임대 된 DHCP IP 주소에 대 한 요청 처리와 임대가 부여 된 DNS 서버 업데이트가 포함 됩니다.
+
+자세한 내용은 다음을 참조하세요.
+
+- [Azure 센티널 DHCP 정규화 스키마 참조 (공개 미리 보기)](dhcp-normalization-schema.md)
 - [정규화 및 ASIM(Azure Sentinel 정보 모델)](normalization.md)
 
 ## <a name="september-2021"></a>2021년 9월
@@ -95,7 +298,7 @@ Azure Sentinel용 기본 제공 데이터 커넥터를 점점 더 많이 계속 
 - **일반 방법 문서**:
 
    - [Azure, Windows, Microsoft 및 Amazon 서비스에 연결](connect-azure-windows-microsoft-services.md)
-   - [Azure Sentinel 데이터 수집기 API에 데이터 원본을 커넥트 데이터를 수집합니다.](connect-rest-api-template.md)
+   - [데이터 원본을 Azure 센티널 데이터 수집기 API에 커넥트 하 여 데이터 수집](connect-rest-api-template.md)
    - [디바이스 또는 어플라이언스에서 Azure Sentinel로 CEF 형식 로그 가져오기](connect-common-event-format.md)
    - [Syslog를 사용하여 Linux 기반 소스에서 데이터 수집](connect-syslog.md)
    - [Log Analytics 에이전트를 사용하여 Azure Sentinel에 사용자 지정 로그 형식의 데이터 수집](connect-custom-logs.md)
@@ -147,7 +350,7 @@ Azure Storage 계정 리소스 구성 자체 내에서 변경된 내용으로 �
 - [Microsoft Cloud App Security](./data-connectors-reference.md#microsoft-cloud-app-security-mcas)
 - [Azure Sentinel 예약된 분석 규칙](detect-threats-built-in.md#scheduled).
 
-자세한 내용은 [랜섬웨어 활동과 관련된 여러 경고가 검색됨](fusion.md#multiple-alerts-possibly-related-to-ransomware-activity-detected-public-preview)을 참조하세요.
+자세한 내용은 [랜섬웨어 활동과 관련된 여러 경고가 검색됨](fusion.md#fusion-for-ransomware)을 참조하세요.
 
 ### <a name="watchlist-templates-for-ueba-data-public-preview"></a>UEBA 데이터용 관심 목록 템플릿(퍼블릭 미리 보기)
 
@@ -212,7 +415,7 @@ UEBA 관심 목록이 데이터로 채워진 후에는 해당 데이터와 분�
 **Microsoft 위협 인텔리전스 일치 분석** 규칙은 현재 다음 로그 원본에서 일치하는 도메인 표시기를 검색합니다.
 
 - [CEF](connect-common-event-format.md)
-- [DNS](./data-connectors-reference.md#domain-name-server)
+- [DNS](./data-connectors-reference.md#windows-dns-server-preview)
 - [Syslog](connect-syslog.md)
 
 자세한 내용은 [일치 분석을 사용하여 위협 탐지(퍼블릭 미리 보기)](work-with-threat-indicators.md#detect-threats-using-matching-analytics-public-preview)를 참조하세요.
@@ -282,7 +485,7 @@ Azure Sentinel 정보 모델을 사용하면 원본에 관계없이 콘텐츠를
 
 - [정규화 및 ASIM(Azure Sentinel 정보 모델)](normalization.md)(업데이트됨)
 - [Azure Sentinel 인증 정규화 스키마 참조(퍼블릭 미리 보기)](authentication-normalization-schema.md)(신규)
-- [Azure Sentinel 데이터 정규화 스키마 참조](normalization-schema.md)
+- [Azure Sentinel 데이터 정규화 스키마 참조](./network-normalization-schema.md)
 - [Azure Sentinel DNS 정규화 스키마 참조(퍼블릭 미리 보기)](dns-normalization-schema.md)(신규)
 - [Azure Sentinel 프로세스 이벤트 정규화 스키마 참조(퍼블릭 미리 보기)](process-events-normalization-schema.md)(신규)
 - [Azure Sentinel 레지스트리 이벤트 정규화 스키마 참조(퍼블릭 미리 보기)](registry-event-normalization-schema.md)(신규)
@@ -366,7 +569,7 @@ Azure Sentinel 정보 모델을 사용하면 원본에 관계없이 콘텐츠를
 
 이제 Azure Sentinel은 **패키지된 콘텐츠** [솔루션](sentinel-solutions-catalog.md)을 제공합니다. 여기에는 하나 이상의 데이터 커넥터, 통합 문서, 분석 규칙, 플레이북, 헌팅 쿼리, 파서, 감시 목록 및 Azure Sentinel용 기타 구성 요소의 조합이 포함됩니다.
 
-솔루션은 향상된 제품 내 검색 기능, 단일 단계 배포 및 엔드투엔드 제품 시나리오를 제공합니다. 자세한 내용은 [Azure Sentinel 솔루션 검색 및 배포](sentinel-solutions-deploy.md)를 참조하세요.
+솔루션은 향상된 제품 내 검색 기능, 단일 단계 배포 및 엔드투엔드 제품 시나리오를 제공합니다. 자세한 내용은 [중앙에서 기본 제공 콘텐츠 및 솔루션 검색 및 배포](sentinel-solutions-deploy.md)를 참조 하세요.
 
 ### <a name="continuous-threat-monitoring-for-sap-solution-public-preview"></a>SAP 솔루션에 대한 지속적인 위협 모니터링(공개 미리 보기)
 

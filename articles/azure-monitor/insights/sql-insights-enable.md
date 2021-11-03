@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: d2872d2293802c435eb4bbd67078e6d1e973a6b9
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: bbef6233a82e85ea849d3b637b5c0b83caddcd04
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130004600"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131447097"
 ---
 # <a name="enable-sql-insights-preview"></a>SQL 인사이트 사용(미리 보기)
 이 문서에서는 [SQL 인사이트](sql-insights-overview.md)를 사용하여 SQL 배포를 모니터링하는 방법을 설명합니다. SQL 배포에 연결하고 DMV(동적 관리 뷰)를 사용하여 모니터링 데이터를 수집하는 Azure 가상 머신에서 모니터링이 수행됩니다. 모니터링 프로필을 사용하여 수집되는 데이터 세트와 수집 빈도를 제어할 수 있습니다.
@@ -209,9 +209,9 @@ Azure Portal의 **Azure Monitor** 메뉴에 있는 **인사이트** 섹션에서
 다음 형식으로 연결 문자열을 입력합니다.
 
 ```
-sqlAzureConnections": [ 
+sqlAzureConnections": [
    "Server=mysqlserver.database.windows.net;Port=1433;Database=mydatabase;User Id=$username;Password=$password;" 
-}
+]
 ```
 
 데이터베이스에 대한 **연결 문자열** 메뉴 항목에서 세부 정보를 가져옵니다.
@@ -224,9 +224,9 @@ sqlAzureConnections": [
 다음 형식으로 연결 문자열을 입력합니다.
 
 ```
-"sqlManagedInstanceConnections": [ 
-      "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;" 
-    ] 
+"sqlManagedInstanceConnections": [
+   "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;" 
+] 
 ```
 관리되는 인스턴스의 **연결 문자열** 메뉴 항목에서 세부 정보를 가져옵니다.
 
@@ -239,7 +239,7 @@ sqlAzureConnections": [
 다음 형식으로 연결 문자열을 입력합니다.
 
 ```
-"sqlVmConnections": [ 
+"sqlVmConnections": [
    "Server=MyServerIPAddress;Port=1433;User Id=$username;Password=$password;" 
 ] 
 ```

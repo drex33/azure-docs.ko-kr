@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
 ms.date: 3/18/2020
-ms.openlocfilehash: bf00ecfe947f8d34f8bd9a2520d48140fe876550
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 4b1631fd24575c20bdc088749983407b74284bb4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114726912"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131442505"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>Azure Database for MariaDB란?
 
@@ -62,7 +62,7 @@ Azure Database for MariaDB 작업과 관련하여 궁금한 점이나 제안하�
 다음 연락 방법을 사용할 수도 있습니다.
 - Azure 지원에 문의하려면 Azure Portal에서 [지원 요청을 엽니다](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - 계정 관련 문제를 해결하려면 Azure Portal에서 [지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 엽니다.
-- 피드백을 제공하거나 새 기능을 요청하려면 [Azure 피드백 포럼](https://feedback.azure.com/forums/915439-azure-database-for-mariadb)에서 항목을 만듭니다.
+- 피드백을 제공하거나 새 기능을 요청하려면 [Azure 피드백 포럼](https://feedback.azure.com/d365community/forum/8f6502f1-ed24-ec11-b6e6-000d3a4f0da0)에서 항목을 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: duau
-ms.openlocfilehash: 23c3afc9d222c7964c3f957b810a545a737a3262
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
-ms.translationtype: HT
+ms.openlocfilehash: d645a2f19cb35c916beabad9ddd18b84c31c8f42
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106068203"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131438458"
 ---
 # <a name="azure-front-door-rules-engine-match-conditions"></a>Azure Front Door 규칙 엔진 일치 조건
 
@@ -85,6 +85,7 @@ IP가 일치하지 않음 | IP 주소(공백으로 구분됨)
 - IP 주소 블록에 대한 구문은 뒤에 슬래시와 접두사 크기가 오는 기본 IP 주소입니다. 예를 들면 다음과 같습니다.
   - **IPv4 예제**: *5.5.5.64/26* 은 5.5.5.64~5.5.5.127 주소에서 도착하는 요청과 일치합니다.
   - **IPv6 예제**: *1:2:3:/48* 은 1:2:3:0:0:0:0:0~1:2:3: ffff:ffff:ffff:ffff:ffff 주소에서 도착하는 요청과 일치합니다.
+- 원격 주소는 네트워크 연결의 원래 클라이언트 IP 또는 사용자가 프록시 뒤에 있는 경우 일반적으로 X로 전달 된 요청 헤더를 나타냅니다.
 
 ## <a name="request-body"></a>요청 본문
 

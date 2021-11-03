@@ -4,12 +4,12 @@ description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의
 ms.topic: conceptual
 ms.date: 10/19/2021
 ms.custom: references_regions
-ms.openlocfilehash: fe657d7a7dba8b8708b335e4aa5695414698190b
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 50350c5fdb2904c0f562d79d1f9779d324da9108
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130235870"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131455001"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -57,7 +57,7 @@ VM의 백업 정책 수정 | 지원됩니다.<br/><br/> VM은 새 정책의 일�
 
 **시나리오** | **OS 지원**
 --- | ---
-Azure VM 에이전트 확장을 사용하는 백업 | - Windows 10 클라이언트(64비트만 해당) <br/><br/>- Windows Server 2019(Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016(Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2(Datacenter 및 Standard) <br/><br/> - Windows Server 2012(Datacenter/Standard) <br/><br/> - Windows Server 2008 R2(RTM 및 SP1 Standard)  <br/><br/> - Windows Server 2008(64비트만 해당)
+Azure VM 에이전트 확장을 사용하는 백업 | - Windows 10 클라이언트(64비트만 해당) <br/><br/>- Windows Server 2022(Datacenter/Datacenter Core/Standard)   <br/><br/>- Windows Server 2019(Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016(Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2(Datacenter 및 Standard) <br/><br/> - Windows Server 2012(Datacenter/Standard) <br/><br/> - Windows Server 2008 R2(RTM 및 SP1 Standard)  <br/><br/> - Windows Server 2008(64비트만 해당)
 MARS 에이전트를 사용하여 백업 | [지원되는](backup-support-matrix-mars-agent.md#supported-operating-systems) 운영 체제
 DPM/MABS를 사용한 백업 | [MABS](backup-mabs-protection-matrix.md) 및 [DPM](/system-center/dpm/dpm-protection-matrix)을 사용하는 백업이 지원되는 운영 체제
 
@@ -84,13 +84,13 @@ Azure VM Linux 백업의 경우 Azure Backup은 [Azure 인증 Linux 배포 목�
 - Azure Backup은 Python 버전 2.7이 설치되어 있지 않은 경우 프록시 구성 Linux VM을 지원하지 않습니다.
 - Azure Backup은 스토리지 또는 다른 NFS 서버에서 Linux 또는 Windows 머신으로 탑재된 NFS 파일의 백업을 지원하지 않습니다. VM에 로컬로 연결된 디스크만 백업합니다.
 
-## <a name="support-matrix-for-managed-pre-post-scripts-for-linux-databases"></a>Linux 데이터베이스에 대한 관리되는 사후 전 스크립트에 대한 지원 매트릭스
+## <a name="support-matrix-for-managed-pre-post-scripts-for-linux-databases"></a>Linux 데이터베이스용 관리 되는 사전 사후 스크립트에 대 한 지원 매트릭스
 
-Azure Backup 고객이 자체 사전 게시 스크립트를 작성할 수 있도록 지원합니다.
+Azure Backup은 고객이 자신의 사전 사후 스크립트를 작성 하도록 지원 합니다.
 
-|지원되는 데이터베이스  |OS 버전  |데이터베이스 버전  |
+|지원 되는 데이터베이스  |OS 버전  |데이터베이스 버전  |
 |---------|---------|---------|
-|Azure VM의 Oracle     |   [Oracle Linux](../virtual-machines/linux/endorsed-distros.md)      |    Oracle 12.x 이상     |
+|Azure Vm의 Oracle     |   [Oracle Linux](../virtual-machines/linux/endorsed-distros.md)      |    Oracle 4.x 이상     |
 
 
 ## <a name="backup-frequency-and-retention"></a>백업 빈도 및 보존

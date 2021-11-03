@@ -9,18 +9,18 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: e33dba0f48f59f9be02e9cbab8346efd078cb893
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 99da1cc3fb6911f4939e8ab1e1749ce200a36bc8
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124803914"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471728"
 ---
 # <a name="dv4-and-dsv4-series"></a>Dv4 및 Dsv4 시리즈
 
 **적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
-Dv4 및 Dsv4 시리즈는 하이퍼 스레드 구성의 Intel &reg;Xeon&reg; Platinum 8272CL(Cascade Lake) 프로세서에서 실행되며 대부분의 범용 워크로드에 대해 더 나은 가치 제안을 제공합니다. 3\.4GHz의 모든 코어 터보 클록 속도를 제공합니다. 
+Dv4 및 Dsv4 시리즈는 하이퍼 스레드 구성의 Intel &reg;Xeon&reg; Platinum 8272CL(Cascade Lake) 프로세서에서 실행되며 대부분의 범용 워크로드에 대해 더 나은 가치 제안을 제공합니다. 3\.4GHz의 모든 코어 터보 클록 속도를 제공하며, [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html), [Intel&reg; Advanced Vector Extensions 512(Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html)를 사용합니다. 또한 [Intel&reg; 딥 러닝 부스트](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html)를 지원합니다. 
 
 > [!NOTE]
 > 질문과 대답은 [로컬 임시 디스크가 없는 Azure VM 크기](azure-vms-no-temp-disk.yml)를 참조하세요.
@@ -28,6 +28,7 @@ Dv4 및 Dsv4 시리즈는 하이퍼 스레드 구성의 Intel &reg;Xeon&reg; Pla
 ## <a name="dv4-series"></a>Dv4 시리즈
 
 Dv4 시리즈 크기는 Intel&reg; Xeon&reg; Platinum 8272CL(Cascade Lake)에서 실행됩니다. Dv4 시리즈 크기는 대부분의 프로덕션 워크로드에 대해 vCPU, 메모리 및 원격 스토리지 옵션의 조합을 제공합니다. Dv4 시리즈 VM은 [Intel&reg; 하이퍼 스레딩 기술](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html)을 특징으로 합니다.
+
 
 원격 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다. Premium Storage 디스크를 사용하려면 Dsv4 크기를 사용합니다. Dsv4 크기의 가격 및 요금 청구 기준은 Dv4 시리즈와 동일합니다.
 

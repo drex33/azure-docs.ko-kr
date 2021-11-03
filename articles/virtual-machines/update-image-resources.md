@@ -1,6 +1,6 @@
 ---
 title: 이미지 리소스 나열, 업데이트, 삭제
-description: 공유 이미지 갤러리에서 이미지 리소스를 나열, 업데이트 및 삭제합니다.
+description: Azure Compute 갤러리에서 이미지 리소스를 나열, 업데이트 및 삭제 합니다.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 08/05/2021
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: af41cd667da05abcd05d4c04d913e82567eec5ca
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 2c01020c266a357329c38023c9e9c34c59424088
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123452681"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131448770"
 ---
 # <a name="list-update-and-delete-image-resources"></a>이미지 리소스 나열, 업데이트, 삭제 
 
-Azure CLI 또는 Azure PowerShell 사용하여 공유 이미지 갤러리 리소스를 관리할 수 있습니다.
+Azure CLI 또는 Azure PowerShell를 사용 하 여 Azure Compute 갤러리 (이전의 공유 이미지 갤러리) 리소스를 관리할 수 있습니다.
 
 ## <a name="list-information"></a>정보 나열
 
@@ -36,7 +36,7 @@ az sig list -o table
 az sig image-definition list --resource-group myGalleryRG --gallery-name myGallery -o table
 ```
 
-[az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list)를 사용하여 갤러리의 공유 이미지 버전을 나열합니다.
+[Az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list)를 사용 하 여 갤러리의 이미지 버전을 나열 합니다.
 
 ```azurecli-interactive
 az sig image-version list --resource-group myGalleryRG --gallery-name myGallery --gallery-image-definition myImageDefinition -o table
@@ -95,7 +95,7 @@ Remove-AzGalleryImageVersion `
 ### <a name="cli"></a>[CLI](#tab/cli)
 업데이트할 수 있는 항목에는 몇 가지 제한 사항이 있습니다. 다음 항목을 업데이트할 수 있습니다. 
 
-공유 이미지 갤러리:
+Azure Compute 갤러리:
 - Description
 
 이미지 정의:
@@ -170,7 +170,7 @@ az sig image-version update \
 
 업데이트할 수 있는 항목에는 몇 가지 제한 사항이 있습니다. 다음 항목을 업데이트할 수 있습니다. 
 
-공유 이미지 갤러리:
+Azure Compute 갤러리:
 - Description
 
 이미지 정의:
@@ -258,7 +258,7 @@ az sig image-definition delete \
 ```
 
 
-[az sig delete](/cli/azure/sig#az_sig_delete)를 사용하여 이미지 갤러리를 삭제합니다.
+[Az sig delete](/cli/azure/sig#az_sig_delete)를 사용 하 여 갤러리를 삭제 합니다.
 
 ```azurecli-interactive
 az sig delete \

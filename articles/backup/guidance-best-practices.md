@@ -3,12 +3,12 @@ title: 지침 및 모범 사례
 description: 클라우드 및 온-프레미스 워크로드를 클라우드로 백업하기 위한 모범 사례 및 지침을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: ecac56034c78cba09133fc12ca4ac8827afb0ea2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 462b71170bbd0534a15a54f0eacc53ff08e09f69
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124806724"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131439389"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>클라우드 및 온-프레미스 워크로드를 클라우드로 백업
 
@@ -225,7 +225,7 @@ Azure Backup 서비스의 기능은 비용을 효과적으로 관리하면서도
 
 ### <a name="monitoring"></a>모니터링
 
-* Azure Backup은 백업 구성, 백업, 복원, 삭제 등의 작업에 대해 **기본 제공 작업 모니터링** 을 제공합니다. 이것은 자격 증명 모음으로 범위가 지정되고 단일 자격 증명 모음 모니터링에 적합합니다. [여기를 참조하세요](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault).
+* Azure Backup은 백업 구성, 백업, 복원, 삭제 등의 작업에 대해 **기본 제공 작업 모니터링** 을 제공합니다. 이것은 자격 증명 모음으로 범위가 지정되고 단일 자격 증명 모음 모니터링에 적합합니다. [여기를 참조하세요](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-backup-center).
 
 * 대규모로 운영 활동을 모니터링해야 하는 경우 **Backup 탐색기** 는 전체 백업 공간에 대한 집계 보기를 제공하여 세부적인 드릴다운 분석 및 문제 해결이 가능합니다. 테넌트, 위치, 구독, 리소스 그룹, 자격 증명 모음 등 Azure의 전체 백업 공간에서 운영 활동을 모니터링하는 데 사용할 수 있는 단일 중앙 위치를 제공하는 기본 제공 Azure Monitor 통합 문서입니다. [여기를 참조하세요](monitor-azure-backup-with-backup-explorer.md).
   * 이를 사용하여 백업이 구성되지 않은 리소스를 식별하고 증가하는 공간에서 중요한 데이터에 대한 보호가 누락되지 않도록 합니다.
@@ -240,7 +240,7 @@ Azure Backup 서비스의 기능은 비용을 효과적으로 관리하면서도
 * 기타
   * 데이터(예: 작업, 정책 등)를 **Log Analytics** 작업 영역으로 보낼 수 있습니다. 이렇게 하면 Azure Monitor 로그의 기능을 사용하여 해당 데이터와 Azure Monitor에서 수집된 다른 모니터링 데이터와의 상관 관계를 설정하고, 여러 Azure 구독 및 테넌트의 로그 항목을 함께 분석하도록 단일 위치로 통합하고, 로그 쿼리를 사용하여 복잡한 분석을 수행하고, 로그 항목에 대한 심층적인 통찰을 얻을 수 있습니다. [여기를 참조하세요](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace).
   * 데이터를 Event Hub로 보내 타사 SIEM(보안 정보 및 이벤트 관리) 또는 다른 로그 분석 솔루션과 같은 Azure 외부에 항목을 보낼 수 있습니다. [여기를 참조하세요](../azure-monitor/essentials/activity-log.md#send-to-azure-event-hubs).
-  * 감사, 정적 분석 또는 백업을 위해 90일을 초과하여 로그 데이터를 보존하려면 Azure Storage 계정으로 데이터를 보낼 수 있습니다. 90일 이내로 이벤트를 보관해야 하는 경우 활동 로그 이벤트는 Azure 플랫폼에 90일 동안 보관되므로 스토리지 계정에 보관을 설정할 필요가 없습니다. [자세한 정보를 알아보세요](../azure-monitor/essentials/activity-log.md#send-to-azure-storage).
+  * 감사, 정적 분석 또는 백업을 위해 90일을 초과하여 로그 데이터를 보존하려면 Azure Storage 계정으로 데이터를 보낼 수 있습니다. 90일 이내로 이벤트를 보관해야 하는 경우 활동 로그 이벤트는 Azure 플랫폼에 90일 동안 보관되므로 스토리지 계정에 보관을 설정할 필요가 없습니다. [자세히 알아봅니다](../azure-monitor/essentials/activity-log.md#send-to-azure-storage).
 
 ### <a name="alerting"></a>경고
 

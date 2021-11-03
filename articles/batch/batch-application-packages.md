@@ -2,17 +2,14 @@
 title: 컴퓨팅 노드에 애플리케이션 패키지 배포
 description: Azure Batch의 애플리케이션 패키지 기능을 사용하여 Batch 컴퓨팅 노드에 설치할 여러 애플리케이션 및 버전을 간편하게 관리하세요.
 ms.topic: how-to
-ms.date: 03/24/2021
-ms.custom:
-- H1Hack27Feb2017
-- devx-track-csharp
-- contperf-fy21q1
-ms.openlocfilehash: d0ed5cc47694d6576e6aea46b62dfab8ecb73459
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.date: 04/13/2021
+ms.custom: H1Hack27Feb2017, devx-track-csharp, contperf-fy21q1
+ms.openlocfilehash: 6ffa06f284c3406ebe62c1f62fc0c9c487cede3d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045793"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131086928"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>애플리케이션을 배포하여 Batch 애플리케이션 패키지에서 노드 컴퓨팅
 
@@ -61,7 +58,7 @@ Azure Batch 내에서 *애플리케이션* 은 풀의 컴퓨팅 노드에 자동
 [Azure Portal](https://portal.azure.com) 또는 Batch Management API를 사용하여 Batch 계정에서 애플리케이션 패키지를 관리합니다. 다음 섹션에서는 스토리지 계정을 연결하는 방법 및 Azure Portal에서 애플리케이션 및 애플리케이션 패키지를 추가하고 관리하는 방법을 설명합니다.
 
 > [!NOTE]
-> [ARM 템플릿의](quick-create-template.md) [Microsoft.Batch/batchAccounts](/templates/microsoft.batch/batchaccounts) 리소스에서 애플리케이션 값을 정의할 수 있지만, 현재는 ARM 템플릿을 사용하여 배치 계정에서 사용할 애플리케이션 패키지를 업로드할 수 없습니다. [아래](#add-a-new-application)에 설명된 대로 연결된 스토리지 계정에 업로드해야 합니다.
+> [ARM 템플릿의](quick-create-template.md) [Microsoft.Batch/batchAccounts](/azure/templates/microsoft.batch/batchaccounts) 리소스에서 애플리케이션 값을 정의할 수 있지만, 현재는 ARM 템플릿을 사용하여 배치 계정에서 사용할 애플리케이션 패키지를 업로드할 수 없습니다. [아래](#add-a-new-application)에 설명된 대로 연결된 스토리지 계정에 업로드해야 합니다.
 
 ### <a name="link-a-storage-account"></a>스토리지 계정 연결
 
@@ -154,7 +151,13 @@ CloudPool myCloudPool =
         poolId: "myPool",
         targetDedicatedComputeNodes: 1,
         virtualMachineSize: "standard_d1_v2",
-        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
+        VirtualMachineConfiguration: new VirtualMachineConfiguration(
+            imageReference: new ImageReference(
+                                publisher: "MicrosoftWindowsServer",
+                                offer: "WindowsServer",
+                                sku: "2019-datacenter-core",
+                                version: "latest"),
+            nodeAgentSkuId: "batch.node.windows amd64");
 
 // Specify the application and version to install on the compute nodes
 myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>

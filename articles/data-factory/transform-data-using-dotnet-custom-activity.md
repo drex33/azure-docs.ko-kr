@@ -9,12 +9,12 @@ ms.author: abnarain
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell, synapse
 ms.date: 09/09/2021
-ms.openlocfilehash: 5446bf3c2271fd31fc99e5fadb2f3ab92ca38e26
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 0f7c3c85e07bb2a17685e283b5212432864a4818
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124806287"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131005787"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-or-azure-synapse-analytics-pipeline"></a>Azure Data Factory 또는 Azure Synapse Analytics 파이프라인에서 사용자 지정 작업 사용
 
@@ -26,7 +26,7 @@ ms.locfileid: "124806287"
 Azure Data Factory 또는 Synapse 파이프라인에서 사용할 수 있는 두 가지 작업 유형이 있습니다.
 
 - [데이터 이동 작업](copy-activity-overview.md)은 [지원되는 원본 및 싱크 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 간에 데이터를 이동하는 작업입니다.
-- [데이터 변환 작업](transform-data.md)은 Azure HDInsight, Azure Batch, ML Studio(클래식)와 같은 Compute Services를 사용하여 데이터를 변환하는 작업입니다.
+- Azure HDInsight 및 Azure Batch와 같은 계산 서비스를 사용 하 여 데이터를 변환 하는 [데이터 변환 활동](transform-data.md) 입니다.
 
 서비스에서 지원하지 않는 데이터 저장소 간에 데이터를 이동하거나, 서비스에서 지원하지 않는 방식으로 데이터를 변환/처리하려면 고유의 데이터 이동 또는 변환 논리가 포함된 **사용자 지정 작업** 을 만들어서 파이프라인에 해당 작업을 사용하면 됩니다. 사용자 지정 작업은 사용자 지정된 코드 논리를 가상 머신의 **Azure Batch** 풀에서 실행합니다.
 
@@ -389,5 +389,4 @@ $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 * [MapReduce 작업](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop 스트리밍 작업](transform-data-using-hadoop-streaming.md)
 * [Spark 작업](transform-data-using-spark.md)
-* [ML Studio(클래식) Batch Execution 작업](transform-data-using-machine-learning.md)
 * [저장 프로시저 작업](transform-data-using-stored-procedure.md)

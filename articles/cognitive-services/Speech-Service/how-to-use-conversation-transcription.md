@@ -11,12 +11,13 @@ ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: pafarley
 zone_pivot_groups: acs-js-csharp
-ms.openlocfilehash: b3057bc9ee058ece0fd4a005c26ef8b95ec6a4b0
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: a30065bf58b2afa9d6e8411c3844071596ebc823
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539086"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131086814"
 ---
 # <a name="get-started-with-real-time-conversation-transcription"></a>실시간 대화 기록 시작
 
@@ -25,7 +26,7 @@ Speech SDK의 **ConversationTranscriber** API를 사용하면 `PullStream` 또�
 ## <a name="limitations"></a>제한 사항
 
 * `centralus``eastasia``eastus``westeurope` 구독 지역에서만 사용할 수 있습니다.
-* 7마이크 원형 다중 마이크 배열이 필요합니다. 마이크 배열은 [우리의 사양](./speech-devices-sdk-microphone.md)을 충족해야 합니다.
+* 7마이크 원형 다중 마이크 배열이 필요합니다. 마이크 배열은 [우리의 사양](./speech-sdk-microphone.md)을 충족해야 합니다.
 * [Speech Devices SDK](speech-devices-sdk.md)는 적절한 디바이스와 대화 기록을 보여주는 샘플 앱을 제공합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항

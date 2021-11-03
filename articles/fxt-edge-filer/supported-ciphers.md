@@ -1,17 +1,17 @@
 ---
 title: Azure FXT Edge Filer에 지원되는 암호화 암호
 description: FXT Edge Filer 클러스터에 사용되는 암호화 표준 목록
-author: ekpgh
-ms.author: v-erkel
+author: femila
+ms.author: femila
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 05/20/2021
-ms.openlocfilehash: 8d1a49bc8e5c9883a094b9a0e3d624cf127ac568
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
-ms.translationtype: HT
+ms.openlocfilehash: 0c05e821ab19c4a617a8a6e13bd7f1c37331a661
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111415358"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131033003"
 ---
 # <a name="supported-encryption-standards-for-azure-fxt-edge-filer"></a>Azure FXT Edge Filer에 지원되는 암호화 표준
 
@@ -58,7 +58,7 @@ SSH 서버는 원격 로그인을 슈퍼 사용자 “루트”로 허용하지 
 | Type | 지원되는 값 |
 |--|--|
 | Ciphers | aes256-gcm@openssh.com</br> aes128-gcm@openssh.com</br> aes256-ctr</br> aes128-ctr |
-| MACs | hmac-sha2-512-etm@openssh.com</br> hmac-sha2-256-etm@openssh.com</br> hmac-sha2-512</br> hmac-sha2-256 |
+| MAC | hmac-sha2-512-etm@openssh.com</br> hmac-sha2-256-etm@openssh.com</br> hmac-sha2-512</br> hmac-sha2-256 |
 | KEX 알고리즘 | ecdh-sha2-nistp521</br> ecdh-sha2-nistp384</br> ecdh-sha2-nistp256</br> diffie-hellman-group-exchange-sha256 |
 
 ## <a name="next-steps"></a>다음 단계

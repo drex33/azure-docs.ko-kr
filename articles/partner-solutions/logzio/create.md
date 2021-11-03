@@ -4,15 +4,15 @@ description: Azure에서 Logz.io 리소스를 만드는 방법을 설명하는 �
 author: tfitzmac
 ms.topic: conceptual
 ms.service: partner-services
-ms.date: 08/17/2021
+ms.date: 10/25/2021
 ms.author: tomfitz
 ms.custom: references_regions
-ms.openlocfilehash: 55b5057542af2812a6d5c21acf3d4a9e1f64c293
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
-ms.translationtype: HT
+ms.openlocfilehash: d97339251888b522fd31d30b3ce77d1bb4241f3a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122539170"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131070074"
 ---
 # <a name="quickstart-create-a-logzio-resource-in-azure-portal"></a>빠른 시작: Azure Portal에서 Logz.io 리소스 만들기
 
@@ -42,12 +42,12 @@ Azure Portal을 사용하여 Azure Marketplace에서 Logz.io를 찾습니다.
 
 **Logz.io 계정 만들기** 화면의 **기본** 탭에서 다음 값을 입력합니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 | ---- | ---- |
 | **구독** | 드롭다운 메뉴에서 소유자 액세스 권한이 있는 Azure 구독을 선택합니다. |
 | **리소스 그룹** | 새 리소스 그룹을 만들지, 아니면 기존 리소스 그룹을 사용할지 여부를 지정합니다. [리소스 그룹](../../azure-resource-manager/management/overview.md#resource-groups)은 Azure 솔루션과 관련된 리소스를 보관하는 컨테이너입니다. |
 | **Logz 계정 이름** | 만들려는 Logz.io 계정의 이름을 제공합니다. |
-| **위치** | **미국 서부 2** 또는 **서유럽** 을 선택합니다. 미리 보기 중에는 이 Azure 지역만 Logz.io에서 지원됩니다. |
+| **위치** | **미국 서부 2** 또는 **서유럽** 을 선택합니다. Logz.io 이러한 Azure 지역만 지원합니다. |
 | **요금제** | 사용 가능한 Logz.io 플랜 목록에서 선택합니다. |
 | **청구 기간** | **매월** 이 기본값입니다. |
 | **가격** | 선택한 Logz.io 플랜에 따라 지정됩니다. |
@@ -86,7 +86,7 @@ Azure 리소스 로그는 **정의된 모든 리소스에 대한 Azure 리소스
 
 각 키 값 쌍에는 **이름** 및 **값** 이 포함됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 | ---- | ---- |
 | **이름** | Azure Logz.io 리소스에 해당하는 태그의 이름입니다. |
 | **값** | Azure Logz.io 리소스에 해당하는 태그의 값입니다. |

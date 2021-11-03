@@ -2,17 +2,17 @@
 title: SharePoint Online의 데이터 인덱싱(미리 보기)
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search에서 문서 라이브러리 콘텐츠의 인덱싱을 자동화하도록 SharePoint Online 인덱서를 설정합니다.
-author: MarkHeff
-ms.author: maheff
+author: nitinme
+ms.author: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: e73e8226bd90b1600b0f3538e34c9f4f937ce189
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 1494d0e5b6a3879d926b7d7a96979ca148806ec1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129807378"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131076019"
 ---
 # <a name="index-data-from-sharepoint-online"></a>SharePoint Online의 데이터 인덱싱
 
@@ -125,7 +125,7 @@ api-key: [admin key]
 ```
 
 > [!NOTE]
-> SharePoint Online 사이트가 검색 서비스와 동일한 테넌트에 있고 시스템 할당 관리 ID를 사용하도록 설정된 경우 `TenantId` 을 연결 문자열에 포함할 필요가 없습니다. SharePoint Online 사이트가 검색 서비스와 다른 테넌트인 경우 를 `TenantId` 포함해야 합니다.
+> SharePoint Online 사이트가 검색 서비스와 동일한 테넌트에 있고 시스템 할당 관리 ID가 사용하도록 설정된 경우 `TenantId` 연결 문자열에 를 포함할 필요가 없습니다. SharePoint Online 사이트가 검색 서비스와 다른 테넌트인 경우 를 `TenantId` 포함해야 합니다.
 
 ### <a name="step-4-create-an-index"></a>4단계: 인덱스 만들기
 인덱스는 문서의 필드, 특성 및 검색 경험을 형성하는 기타 항목을 지정합니다.
@@ -282,7 +282,7 @@ api-key: [admin key]
 SharePoint Online 인덱서는 각 문서 유형과 관련된 메타데이터도 지원합니다. 자세한 내용은 [Azure Cognitive Search에서 사용되는 콘텐츠 메타데이터 속성](search-blob-metadata-properties.md)을 참조하세요.
 
 > [!NOTE]
-> 사용자 지정 메타 데이터를 인덱싱 하려면 [ `additionalColumns` 쿼리 정의에를 지정 해야 합니다](#query) .
+> 사용자 지정 메타데이터를 인덱싱하려면 [ `additionalColumns` 쿼리 정의에 를 지정해야 합니다.](#query)
 
 <a name="controlling-which-documents-are-indexed"></a>
 

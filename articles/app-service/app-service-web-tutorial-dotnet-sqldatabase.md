@@ -6,12 +6,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/05/2021
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: 818ab11d64468a945d85f5b15f6b39dc1664a424
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 8569826c548e768e593e024af38b8b937ee02ca2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129536233"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058733"
 ---
 # <a name="tutorial-deploy-an-aspnet-app-to-azure-with-azure-sql-database"></a>자습서: Azure SQL Database를 사용하여 Azure에 ASP.NET 앱 배포
 
@@ -32,7 +32,7 @@ ms.locfileid: "129536233"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -433,7 +433,7 @@ Azure 앱의 이름을 선택합니다.
 연결 Azure SQL Database의 보안을 쉽게 개선하는 방법을 알아보려면 다음 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
-> [Azure 리소스에 대한 관리 ID를 사용하여 SQL Database에 안전하게 액세스](app-service-web-tutorial-connect-msi.md)
+> [Azure 리소스에 대한 관리 ID를 사용하여 SQL Database에 안전하게 액세스](tutorial-connect-msi-sql-database.md)
 
 추가 리소스:
 

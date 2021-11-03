@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/22/2021
-ms.openlocfilehash: bef4be2970430dd520cf1a2adb8854e3742a6d58
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 7bd926b12a85b62b79f55be3afd3dbbd67af4a25
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130260738"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058429"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Azure Monitor 에이전트 개요
 
@@ -52,7 +52,7 @@ ms.locfileid: "130260738"
 
 다음 작업을 수행해야 하는 경우 Azure Monitor 에이전트를 사용합니다.
 
-- Azure의 모든 머신, 다른 클라우드 또는 온-프레미스에서 게스트 로그 및 메트릭을 수집합니다. (Azure Arc 사용[가능한 서버는](../../azure-arc/servers/overview.md) Azure 외부의 머신에 필요합니다.) 
+- Azure의 모든 머신, 다른 클라우드 또는 온-프레미스에서 게스트 로그 및 메트릭을 수집합니다. ( Azure Arc 사용[가능한 서버는](../../azure-arc/servers/overview.md) Azure 외부의 머신에 필요합니다.) 
 - [데이터 수집 규칙](./data-collection-rule-overview.md)을 사용하여 중앙에서 데이터 수집 구성을 관리하고 전체 관리를 위해 ARM(Azure Resource Manager) 템플릿 또는 정책을 사용합니다.
 - Azure Monitor 사용하여 분석을 위해 Azure Monitor 로그 및 Azure Monitor 메트릭(미리 보기)에 데이터를 보냅니다. 
 - Windows 및 Linux에서 로그에 대한 Windows 이벤트 필터링 또는 멀티 호밍 활용
@@ -61,7 +61,7 @@ ms.locfileid: "130260738"
 - Manage the security of your machines using [Azure Security Center](../../security-center/security-center-introduction.md)  or [Azure Sentinel](../../sentinel/overview.md). (Available in private preview.)
 - Use [VM insights](../vm/vminsights-overview.md) which allows you to monitor your machines at scale and monitors their processes and dependencies on other resources and external processes..  
 - Manage the security of your machines using [Azure Security Center](../../security-center/security-center-introduction.md)  or [Azure Sentinel](../../sentinel/overview.md).
-- Use different [solutions](../monitor-reference.md#insights-and-core-solutions) to monitor a particular service or application. */
+- Use different [solutions](../monitor-reference.md#insights-and-curated-visualizations) to monitor a particular service or application. */
 -->
 Azure Monitor 에이전트의 제한 사항은 다음과 같습니다.
 - 프로덕션에서 Log Analytics 솔루션을 사용할 수 없습니다(미리 보기에서만 사용 가능, [지원되는 기능 보기](./azure-monitor-agent-overview.md#supported-services-and-features)).
@@ -85,7 +85,7 @@ Azure Monitor 에이전트의 제한 사항은 다음과 같습니다.
 * 대규모로 머신을 모니터링할 수 있도록 하며 다른 리소스 및 외부 프로세스에 대한 프로세스 및 종속성을 모니터링하는 [VM 인사이트](../vm/vminsights-overview.md)를 사용합니다.  
 * [Azure Security Center](../../security-center/security-center-introduction.md) 또는 [Azure Sentinel](../../sentinel/overview.md)을 사용하여 머신의 보안을 관리합니다.
 * [Azure Automation 업데이트 관리](../../automation/update-management/overview.md), [Azure Automation 상태 구성](../../automation/automation-dsc-overview.md) 또는 [Azure Automation 변경 내용 추적 및 인벤토리](../../automation/change-tracking/overview.md)를 사용하여 Azure 및 비 Azure 머신에 대한 포괄적인 관리를 제공합니다.
-* 다른 [솔루션](../monitor-reference.md#insights-and-core-solutions)을 사용하여 특정 서비스 또는 애플리케이션을 모니터링합니다.
+* 다른 [솔루션](../monitor-reference.md#insights-and-curated-visualizations)을 사용하여 특정 서비스 또는 애플리케이션을 모니터링합니다.
 
 Log Analytics 에이전트의 제한 사항은 다음과 같습니다.
 
@@ -129,7 +129,7 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 
 - 종속성 에이전트를 사용하려면 Log Analytics 에이전트를 동일한 머신에 설치해야 합니다.
 - Linux 머신에서는 Azure 진단 확장 전에 Log Analytics 에이전트를 설치해야 합니다.
-- Windows 및 Linux 버전의 Dependency Agent 데이터 수집은 사용자 공간 서비스 및 커널 드라이버를 사용하여 수행됩니다. 
+- Dependency Agent Windows 및 Linux 버전 모두에서 데이터 수집은 사용자 공간 서비스 및 커널 드라이버를 사용하여 수행됩니다. 
 
 ## <a name="virtual-machine-extensions"></a>가상 머신 확장
 
@@ -206,8 +206,8 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 
 | 배포 | OS 버전 | 커널 버전 |
 |:---|:---|:---|
-|  Red Hat Linux 8   | 8.4     | 4.18.0-305. \* el8.x86_64, 4.18.0-305. \* el8_4.x86_64 |
-|                    | 8.3     |  4.18.0-240. \* el8_3.x86_64 |
+|  Red Hat Linux 8   | 8.4     | 4.18.0 \* el8.x86_64, 4.18.0-305. \* el8_4 x86_64 |
+|                    | 8.3     |  4.18.0 \* el8_3 x86_64 |
 |                    | 8.2     | 4.18.0-193.\*el8_2.x86_64 |
 |                    | 8.1     | 4.18.0-147.\*el8_1.x86_64 |
 |                    | 8.0     | 4.18.0-80.\*el8.x86_64<br>4.18.0-80.\*el8_0.x86_64 |
@@ -219,8 +219,8 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 |                    | 7.4     | 3.10.0-693  |
 | Red Hat Linux 6    | 6.10    | 2.6.32-754 |
 |                    | 6.9     | 2.6.32-696  |
-| CentOS Linux 8     | 8.4     | 4.18.0-305. \* el8.x86_64, 4.18.0-305. \* el8_4.x86_64 |
-|                    | 8.3     | 4.18.0-240. \* el8_3.x86_64 |
+| CentOS Linux 8     | 8.4     | 4.18.0 \* el8.x86_64, 4.18.0-305. \* el8_4 x86_64 |
+|                    | 8.3     | 4.18.0 \* el8_3 x86_64 |
 |                    | 8.2     | 4.18.0-193.\*el8_2.x86_64 |
 |                    | 8.1     | 4.18.0-147.\*el8_1.x86_64 |
 |                    | 8.0     | 4.18.0-80.\*el8.x86_64<br>4.18.0-80.\*el8_0.x86_64 |
@@ -233,11 +233,11 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 |                    | 18.04   | 5.3.0-1020<br>5.0(Azure 조정 커널 포함)<br>4.18 *<br>4.15* |
 |                    | 16.04.3 | 4.15.\* |
 |                    | 16.04   | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
-| SUSE Linux 12 Enterprise Server | 12 SP5     | 4.12.14-122. \* -default, 4.12.14-16. \* -azure|
-|                                 | 12 SP4 | 4.12. \* (Azure 튜닝 커널 포함) |
+| SUSE Linux 12 Enterprise Server | 12 SP5     | 4.12.14. \* -기본값, 4.12.14-16. \* -azure|
+|                                 | 12 SP4 | 4.12. \* (Azure 튜닝 커널을 포함) |
 |                                 | 12 SP3 | 4.4.\* |
 |                                 | 12 SP2 | 4.4.\* |
-| SUSE Linux 15 Enterprise Server | 15 SP1 | 4.12.14-197. \* -default, 4.12.14-8. \* -azure |
+| SUSE Linux 15 Enterprise 서버 | 15 SP1 | 4.12.14-197. \* -기본값, 4.12.14-8. \* -azure |
 |                                 | 15     | 4.12.14-150. \* -default |
 | Debian                          | 9      | 4.9  | 
 

@@ -7,15 +7,13 @@ ms.date: 06/09/2021
 ms.topic: quickstart
 ms.service: signalr
 ms.devlang: javascript
-ms.custom:
-- devx-track-js
-- mode-api
-ms.openlocfilehash: fa3c4405bd2c62642e5d61dad10b078695fb32cd
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.custom: devx-track-js, mode-api
+ms.openlocfilehash: 8dd69eb071275b1ae54b6d381cc7d7f0371ca118
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122444677"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069561"
 ---
 # <a name="quickstart-use-javascript-to-create-an-app-showing-github-star-count-with-azure-functions-and-signalr-service"></a>빠른 시작: JavaScript를 사용하여 SignalR Service와 Azure Functions로 GitHub 별모양 개수를 표시하는 앱 만들기
 

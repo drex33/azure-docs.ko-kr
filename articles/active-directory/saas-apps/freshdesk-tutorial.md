@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 53ab7bcc6944d3f7650018238bd326037c5fff41
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: da17ca007d47624c9d0bf5b233451b7a131696cd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124746950"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046321"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>자습서: FreshDesk와 Azure Active Directory 통합
 
@@ -73,12 +73,12 @@ FreshDesk에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를
 
 1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
-    a. **로그온 URL** 텍스트 상자에서 `https://<tenant-name>.freshdesk.com` 패턴 또는 Freshdesk에서 제안한 다른 값을 사용하는 URL을 입력합니다.
+    1. **로그온 URL** 텍스트 상자에서 `https://<tenant-name>.freshdesk.com` 패턴 또는 Freshdesk에서 제안한 다른 값을 사용하는 URL을 입력합니다.
 
-    b. **ID(엔터티 ID)** 텍스트 상자에서 `https://<tenant-name>.freshdesk.com` 패턴 또는 Freshdesk에서 제안한 다른 값을 사용하는 URL을 입력합니다.
+    1. **ID(엔터티 ID)** 텍스트 상자에서 `https://<tenant-name>.freshdesk.com` 패턴 또는 Freshdesk에서 제안한 다른 값을 사용하는 URL을 입력합니다.
      
-    다. **회신 URL** 텍스트 상자에서 `https://<tenant-name>.freshdesk.com/login/saml` 패턴을 사용하여 URL을 입력합니다.
-    
+    1. **회신 URL** 텍스트 상자에서 `https://<tenant-name>.freshdesk.com/login/saml` 패턴을 사용하여 URL을 입력합니다.
+
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 로그온 URL, 식별자 및 회신 URL로 업데이트합니다. 이 값을 얻으려면 [FreshDesk Client 지원 팀](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
@@ -127,21 +127,21 @@ FreshDesk에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를
 
     ![Single Sign-On](./media/freshdesk-tutorial/configure-1.png &quot;Single Sign On")
   
-    a. **Single Sign On** 에서 **켬** 을 선택합니다.
+    1. **Single Sign On** 에서 **켬** 을 선택합니다.
 
-    b. **로그인 방법** 에서 **SAML SSO** 를 선택합니다.
+    1. **로그인 방법** 에서 **SAML SSO** 를 선택합니다.
 
-    다. Azure Portal에서 복사한 **엔터티 ID** 값을 **IDP에서 제공한 엔터티 ID** 텍스트 상자에 붙여넣습니다.
+    1. Azure Portal에서 복사한 **엔터티 ID** 값을 **IDP에서 제공한 엔터티 ID** 텍스트 상자에 붙여넣습니다.
 
-    d. **SAML SSO URL** 텍스트 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
+    1. **SAML SSO URL** 텍스트 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
 
-    e. **서명 옵션** 의 드롭다운에서 **서명된 어설션만** 을 선택합니다.
+    1. **서명 옵션** 의 드롭다운에서 **서명된 어설션만** 을 선택합니다.
 
-    f. **로그아웃 URL** 텍스트 상자에 Azure Portal에서 복사한 **로그아웃 URL** 값을 붙여넣습니다.
+    1. **로그아웃 URL** 텍스트 상자에 Azure Portal에서 복사한 **로그아웃 URL** 값을 붙여넣습니다.
 
-    g. 앞에서 얻은 **인증서(Base64)** 값을 **보안 인증서** 텍스트 상자에 붙여넣습니다.
+    1. 앞에서 얻은 **인증서(Base64)** 값을 **보안 인증서** 텍스트 상자에 붙여넣습니다.
   
-    h. **저장** 을 클릭합니다.
+    1. **저장** 을 클릭합니다.
 
 ## <a name="create-freshdesk-test-user"></a>FreshDesk 테스트 사용자 만들기
 

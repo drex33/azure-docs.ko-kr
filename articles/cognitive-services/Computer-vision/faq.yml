@@ -12,17 +12,17 @@ metadata:
   ms.date: 04/17/2019
   ms.author: kefre
   ms.custom: seodec18
-  ms.openlocfilehash: 5b13040c02d72a2cfd423f014f4f89ffba11d627
-  ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+  ms.openlocfilehash: 416ded296fa1ba7454ca0e4bf4a5d2b462abe975
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/01/2021
-  ms.locfileid: "129350707"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131005977"
 title: Computer Vision API 질문과 대답
 summary: >
   > [!TIP]
 
-  > 이 FAQ에서 원하는 질문에 대한 답변을 찾을 수 없는 경우 [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive)에서 Computer Vision API 커뮤니티에 물어보거나 [UserVoice](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743)의 도움말 및 지원에 문의하세요.
+  > 이 FAQ에서 원하는 질문에 대한 답변을 찾을 수 없는 경우 [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive)에서 Computer Vision API 커뮤니티에 물어보거나 [UserVoice](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858)의 도움말 및 지원에 문의하세요.
 sections:
 - name: 무시됨
   questions:

@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 07/01/2021
 ms.author: bagol
-ms.openlocfilehash: d10d1e9408db7ab29a7fe01e5bf906e9023124c7
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: dd1a6b99c65d92b1a6a96a25790a8b780d73565f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407231"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131055199"
 ---
 # <a name="azure-sentinel-registry-event-normalization-schema-reference-public-preview"></a>Azure Sentinel 레지스트리 이벤트 정규화 스키마 참조(공개 미리 보기)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 레지스트리 이벤트 스키마는 Windows 레지스트리 엔터티를 생성, 수정, 삭제하는 Windows 활동을 설명하는 데 사용됩니다.
 
@@ -73,7 +75,7 @@ Azure Sentinel은 [IFEO를 통한 영구 레지스트리 키](https://github.com
 | ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | <a name="timegenerated"></a>**TimeGenerated** | Datetime | 보고 디바이스에서 이벤트가 생성된 시간입니다.|
 | **_ResourceId**   | guid     | 보고 디바이스 또는 서비스의 Azure 리소스 ID이거나 Syslog, CEF 또는 WEF를 사용하여 전달된 이벤트에 대한 로그 전달자 리소스 ID입니다. |
-| **형식** | String | 레코드를 가져온 원본 테이블입니다. 이 필드는 서로 다른 테이블에 대 한 여러 채널을 통해 동일한 이벤트를 받을 수 있고 EventVendor 및 Eventvendor 값이 동일한 경우에 유용 합니다.<br><br>예를 들어 이벤트 테이블이 나 WindowsEvent 테이블에 Sysmon 이벤트를 수집할 수 있습니다. |
+| **형식** | String | 레코드를 가져온 원본 테이블입니다. 이 필드는 여러 채널을 통해 다른 테이블에 동일한 이벤트를 수신할 수 있고 EventVendor 및 EventProduct 값이 동일한 경우에 유용합니다.<br><br>예를 들어 Sysmon 이벤트는 Event 테이블 또는 WindowsEvent 테이블에 수집할 수 있습니다. |
 
 
 > [!NOTE]
@@ -85,7 +87,7 @@ Azure Sentinel은 [IFEO를 통한 영구 레지스트리 키](https://github.com
 
 이벤트 필드는 모든 스키마에 공통되며, 작업 자체와 보고 디바이스를 설명합니다.
 
-| 필드               | 클래스       | 형식       |  Description        |
+| 필드               | 클래스       | 형식       |  설명        |
 |---------------------|-------------|------------|--------------------|
 | **EventMessage**        | 선택    | 문자열     |     레코드에 포함되거나 레코드에서 생성된 일반 메시지 또는 설명입니다.   |
 | **EventCount**          | 필수   | 정수    |     레코드에서 설명하는 이벤트 수입니다. <br><br>이 값은 원본에서 집계를 지원할 때 사용되며, 단일 레코드에서 여러 이벤트를 나타낼 수 있습니다. <br><br>다른 원본의 경우 `1`로 설정합니다.   |
@@ -176,4 +178,4 @@ Azure Sentinel은 [IFEO를 통한 영구 레지스트리 키](https://github.com
 - [Azure Sentinel 인증 정규화 스키마 참조(공개 미리 보기)](authentication-normalization-schema.md)
 - [Azure Sentinel DNS 정규화 스키마 참조](dns-normalization-schema.md)
 - [Azure Sentinel 파일 이벤트 정규화 스키마 참조(퍼블릭 미리 보기)](file-event-normalization-schema.md)
-- [Azure Sentinel 네트워크 정규화 스키마 참조](normalization-schema.md)
+- [Azure Sentinel 네트워크 정규화 스키마 참조](./network-normalization-schema.md)

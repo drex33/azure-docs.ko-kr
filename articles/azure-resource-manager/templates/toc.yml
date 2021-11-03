@@ -76,8 +76,6 @@
           href: template-tutorial-deploy-vm-extensions.md
         - name: SQL 확장 배포
           href: template-tutorial-deploy-sql-extensions-bacpac.md
-        - name: 템플릿 배포 문제 해결
-          href: template-tutorial-troubleshoot.md
     - name: 템플릿에 대한 Microsoft Learn 경로
       href: /learn/paths/deploy-manage-resource-manager-templates/
 - name: 샘플 - Azure 서비스
@@ -447,40 +445,6 @@
           href: update-visual-studio-deployment-script.md
         - name: IntelliJ IDEA
           href: create-templates-use-intellij.md
-    - name: 배포 문제 해결
-      items:
-        - name: 배포 오류 문제 해결
-          href: common-deployment-errors.md
-        - name: AccountNameInvalid
-          href: error-storage-account-name.md
-        - name: DeploymentQuotaExceeded
-          href: deployment-quota-exceeded.md
-        - name: InvalidTemplate
-          href: error-invalid-template.md
-        - name: JobSizeExceeded
-          href: error-job-size-exceeded.md
-        - name: Linux 배포 문제
-          href: /troubleshoot/azure/virtual-machines/troubleshoot-deploy-vm-linux
-        - name: NoRegisteredProviderFound
-          href: error-register-resource-provider.md
-        - name: NotFound
-          href: error-not-found.md
-        - name: ParentResourceNotFound
-          href: error-parent-resource.md
-        - name: Linux의 프로비전 및 할당 문제
-          href: /troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux
-        - name: Windows의 프로비전 및 할당 문제
-          href: /troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows
-        - name: RequestDisallowedByPolicy
-          href: error-policy-requestdisallowedbypolicy.md
-        - name: ReservedResourceName
-          href: error-reserved-resource-name.md
-        - name: ResourceQuotaExceeded
-          href: error-resource-quota.md
-        - name: SkuNotAvailable
-          href: error-sku-not-available.md
-        - name: Windows 배포 문제
-          href: /troubleshoot/azure/virtual-machines/troubleshoot-deploy-vm-windows
 - name: 참조
   items:
     - name: 템플릿 참조
@@ -507,7 +471,7 @@
           href: template-functions-resource.md
         - name: 문자열 함수
           href: template-functions-string.md
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/resources/
     - name: Azure PowerShell
       href: /powershell/module/az.resources

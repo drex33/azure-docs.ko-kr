@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: 24f3d5bfa5883477b436956d90b7af70142311aa
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 57e608348e460c0598f7003af96ea1ac55bbf951
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128587749"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131022819"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Azure Government와 공용 Azure 지역 간에 Azure VM 이동 
 
@@ -62,7 +62,6 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
 - Azure VM은 장애 조치 후 처음 만들 때 이 네트워크에 배치됩니다.
 - 네트워크가 Recovery Services 자격 증명 모음과 같은 지역에 있어야 합니다.
 
-
 ### <a name="set-up-an-azure-storage-account"></a>Azure Storage 계정을 설정
 
 [Azure Storage 계정](../storage/common/storage-account-create.md)을 설정합니다.
@@ -98,7 +97,7 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
 
     - [네트워크 보안 그룹](../virtual-network/manage-network-security-group.md)
     - [부하 분산 장치](../load-balancer/index.yml)
-    - [공용 IP](../virtual-network/virtual-network-public-ip-address.md)
+    - [공용 IP](../virtual-network/ip-services/virtual-network-public-ip-address.md)
     
     그 외의 네트워킹 구성 요소는 네트워킹 [설명서](../index.yml?pivot=products&panel=network)를 참조하세요.
 

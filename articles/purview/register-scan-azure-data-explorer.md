@@ -1,41 +1,52 @@
 ---
-title: Azure 데이터 탐색기를 등록 하 고 검색 하는 방법
-description: 이 방법 가이드에서는 Azure 부서의 범위에서 Azure 데이터 탐색기를 검색 하는 방법에 대해 자세히 설명 합니다.
+title: Azure 데이터 탐색기 커넥트 및 관리
+description: 이 가이드에서는 azure 부서의 범위에서 Azure 데이터 탐색기에 연결 하 고 부서의 범위의 기능을 사용 하 여 Azure 데이터 탐색기 원본을 검색 하 고 관리 하는 방법을 설명 합니다.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/27/2021
-ms.openlocfilehash: 28ed2e82108cce48ac7ce6988bd9e9833253855a
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: df323dd973f65f6e4d332ec7a8a0d408c26ecc4e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129209942"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131076323"
 ---
-# <a name="register-and-scan-azure-data-explorer"></a>Azure Data Explorer 등록 및 검사
+# <a name="connect-to-and-manage-azure-data-explorer-in-azure-purview"></a>Azure 부서의 범위에서 Azure 데이터 탐색기 커넥트 및 관리
 
-이 문서에서는 Azure Purview에서 Azure Data Explorer 계정을 등록하고 검사를 설정하는 방법을 설명합니다.
+
+이 문서에서는 azure 데이터 탐색기를 등록 하는 방법 및 azure 부서의 범위에서 azure 데이터 탐색기를 인증 하 고 상호 작용 하는 방법을 간략하게 설명 합니다. Azure 부서의 범위에 대 한 자세한 내용은 [소개 문서](overview.md)를 참조 하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-Azure Data Explorer는 메타데이터 및 스키마를 캡처하기 위해 전체 및 증분 검사를 지원합니다. 또한 검사는 시스템 및 사용자 지정 분류 규칙을 기반으로 데이터를 자동으로 분류합니다.
+|**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
+|---|---|---|---|---|---|---|
+| [예](#register) | [예](#scan) | [예](#scan) | [예](#scan)| [예](#scan)| 아니요 | 아니요 |
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- 데이터 원본을 등록하기 전에 Azure Purview 계정을 만듭니다. Purview 계정을 만드는 방법에 관한 자세한 내용은 [빠른 시작: Azure Purview 계정 만들기](create-catalog-portal.md)를 참조하세요.
-- Azure Purview 데이터 원본 관리자여야 합니다.
+* 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="setting-up-authentication-for-a-scan"></a>검사 인증 설정
+* 활성 [Purview 리소스](create-catalog-portal.md).
+
+* 원본을 등록하고 Purview Studio에서 관리하려면 데이터 원본 관리자 및 데이터 읽기 권한자여야 합니다. 자세한 내용은 [Azure Purview 권한 페이지](catalog-permissions.md)를 참조하세요.
+
+## <a name="register"></a>등록
+
+이 섹션에서는 [부서의 범위 Studio](https://web.purview.azure.com/)를 사용 하 여 azure 부서의 범위에서 azure 데이터 탐색기를 등록 하는 방법을 설명 합니다.
+
+### <a name="authentication-for-registration"></a>등록 인증
 
 Azure 데이터 탐색기에 대한 인증을 설정하는 방법은 다음 한 가지 뿐입니다.
 
 - 서비스 주체
 
-### <a name="service-principal"></a>서비스 사용자
+#### <a name="service-principal-to-register"></a>등록할 서비스 주체
 
-검사에 서비스 주체 인증을 사용하려면 기존 주체를 사용하거나 새 주체를 만들 수 있습니다. 
+검사에 서비스 주체 인증을 사용하려면 기존 주체를 사용하거나 새 주체를 만들 수 있습니다.
 
 > [!Note]
 > 새 서비스 주체를 만들어야 하는 경우 다음 단계를 수행하세요.
@@ -57,7 +68,7 @@ Azure 데이터 탐색기에 대한 인증을 설정하는 방법은 다음 한 
 1. **+ 생성/가져오기** 를 선택하고, 선택한 **이름** 및 **값** 을 서비스 주체의 **클라이언트 암호** 로 입력합니다.
 1. **만들기** 를 선택하여 완료합니다.
 1. 키 자격 증명 모음이 아직 Purview에 연결되지 않은 경우 [새 키 자격 증명 모음 연결을 생성](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)해야 합니다.
-1. 마지막으로 서비스 주체를 통해 [새 자격 증명을 생성](manage-credentials.md#create-a-new-credential)하여 검사를 설정합니다.
+1. 마지막으로, 서비스 주체를 사용 하 여 [새 자격 증명을 만들어](manage-credentials.md#create-a-new-credential) 검색을 설정 합니다.
 
 #### <a name="granting-the-service-principal-access-to-your-azure-data-explorer-instance"></a>서비스 주체에게 Azure 데이터 탐색기 인스턴스에 대한 액세스 권한 부여
 
@@ -65,7 +76,7 @@ Azure 데이터 탐색기에 대한 인증을 설정하는 방법은 다음 한 
 
 1. **사용 권한** 탭에서 **AllDatabasesViewer** 역할에 서비스 주체를 추가 합니다.
 
-## <a name="register-an-azure-data-explorer-account"></a>Azure Data Explorer 계정 등록
+### <a name="steps-to-register"></a>등록 단계
 
 새 Azure Data Explorer(Kusto) 계정을 데이터 카탈로그에 등록하려면 다음을 수행합니다.
 
@@ -87,11 +98,15 @@ Azure 데이터 탐색기에 대한 인증을 설정하는 방법은 다음 한 
 
 :::image type="content" source="media/register-scan-azure-data-explorer/register-sources.png" alt-text="원본 등록 옵션" border="true":::
 
-## <a name="creating-and-running-a-scan"></a>검사 만들기 및 실행
+## <a name="scan"></a>검사
+
+아래 단계에 따라 Azure 데이터 탐색기를 검사 하 여 자산을 자동으로 식별 하 고 데이터를 분류 합니다. 일반적인 검사에 대한 자세한 내용은 [검사 및 수집 소개](concept-scans-and-ingestion.md)를 참조하세요.
+
+### <a name="create-and-run-scan"></a>검사 만들기 및 실행
 
 새 검색을 만들고 실행하려면 다음을 수행합니다.
 
-1. [부서의 범위 Studio](https://web.purview.azure.com/resource/)의 왼쪽 창에서 **데이터 맵** 탭을 선택 합니다.
+1. [Purview Studio](https://web.purview.azure.com/resource/)의 왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
 
 1. 등록한 Azure Data Explorer 원본을 선택합니다.
 
@@ -119,5 +134,8 @@ Azure 데이터 탐색기에 대한 인증을 설정하는 방법은 다음 한 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Purview 데이터 카탈로그 찾아보기](how-to-browse-catalog.md)
-- [Azure Purview Data Catalog 검색](how-to-search-catalog.md)
+이제 소스를 등록했으므로 아래 가이드에 따라 Purview 및 데이터에 대해 자세히 알아봅니다.
+
+- [Azure Purview의 데이터 인사이트](concept-insights.md)
+- [Azure Purview의 계보](catalog-lineage-user-guide.md)
+- [Data Catalog 검색](how-to-search-catalog.md)

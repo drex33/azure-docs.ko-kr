@@ -1,21 +1,21 @@
 ---
 title: NGINX 수신 사용
-description: 개방형 서비스 메시에 NGINX 수신 사용 방법
+description: Open Service Mesh에서 NGINX 수신을 사용하는 방법
 services: container-service
 ms.topic: article
 ms.date: 8/26/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
-ms.openlocfilehash: c06e6fe787070adbe0817e295380b2a2ef2775b5
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: ee313000b5b2fd21e7f629c57f45bbe0d3557835
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123441333"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131066827"
 ---
-# <a name="deploy-an-application-managed-by-open-service-mesh-osm-with-nginx-ingress"></a>NGINX 수신으로 OSM (Open Service 메시)로 관리 되는 응용 프로그램 배포
+# <a name="deploy-an-application-managed-by-open-service-mesh-osm-with-nginx-ingress"></a>NGINX 수신을 통해 OSM(Open Service Mesh)에서 관리하는 애플리케이션 배포
 
-OSM (Open Service 메시)는 확장 가능 하 고 확장 가능한 클라우드 네이티브 서비스 메시로, 사용자가 매우 동적인 마이크로 서비스 환경에 대해 일관 되 게 관찰성 기능을 일관 되 게 관리 하 고, 보호 하 고, 사용할 수 있습니다.
+OSM(Open Service Mesh)은 사용자가 매우 동적인 마이크로 서비스 환경에 대한 기본 제공 관찰 기능을 균일하게 관리, 보호 및 얻을 수 있도록 하는 경량의 클라우드 네이티브 서비스 메시입니다.
 
 이 자습서에서는 다음을 수행합니다.
 
@@ -36,15 +36,12 @@ OSM (Open Service 메시)는 확장 가능 하 고 확장 가능한 클라우드
 다음 리소스가 설치되어 있어야 합니다.
 
 - Azure CLI 버전 2.20.0 이상
-- `aks-preview` 확장 버전 0.5.5 이상
-- OSM 버전 v0.8.0 이상
+- OSM 버전 v0.11.1 이상
 - JSON 프로세서 "jq" 버전 1.6 이상
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="view-and-verify-the-current-osm-cluster-configuration"></a>현재 OSM 클러스터 구성을 확인합니다.
 
-AKS 클러스터에서 AKS에 대 한 OSM 추가 기능을 사용 하도록 설정 하면 OSM 구성의 리소스에서 현재 구성 매개 변수를 볼 수 있습니다. 다음 명령을 실행 하 여 속성을 확인 합니다.
+AKS 클러스터에서 AKS용 OSM 추가 기능을 사용하도록 설정하면 osm-mesh-config 리소스에서 현재 구성 매개 변수를 볼 수 있습니다. 다음 명령을 실행하여 속성을 확인합니다.
 
 ```azurecli-interactive
 kubectl get meshconfig osm-mesh-config -n osm-system -o yaml
@@ -96,11 +93,11 @@ spec:
     useHTTPSIngress: false
 ```
 
-**EnablePermissiveTrafficPolicyMode** 가 **true** 로 구성 되어 있는지 확인 합니다. OSM의 허용 트래픽 정책 모드는 [SMI](https://smi-spec.io/) 트래픽 정책 적용을 우회하는 모드입니다. 이 모드에서 OSM은 서비스 메시의 일부인 서비스를 자동으로 검색하고 각 Envoy 프록시 사이드카에 트래픽 정책 규칙을 프로그래밍하여 이러한 서비스와 통신할 수 있도록 합니다. 허용 트래픽 모드에 대 한 자세한 내용은 [허용 트래픽 정책 모드](https://docs.openservicemesh.io/docs/guides/traffic_management/permissive_mode/) 문서를 참조 하세요.
+**enablePermissiveTrafficPolicyMode가** **true** 로 구성되어 있습니다. OSM의 허용 트래픽 정책 모드는 [SMI](https://smi-spec.io/) 트래픽 정책 적용을 우회하는 모드입니다. 이 모드에서 OSM은 서비스 메시의 일부인 서비스를 자동으로 검색하고 각 Envoy 프록시 사이드카에 트래픽 정책 규칙을 프로그래밍하여 이러한 서비스와 통신할 수 있도록 합니다. 허용 트래픽 모드에 대한 자세한 내용은 을 방문하여 [허용 트래픽 정책 모드](https://docs.openservicemesh.io/docs/guides/traffic_management/permissive_mode/) 문서를 읽어보십시오.
 
 ## <a name="create-namespaces-for-the-application"></a>애플리케이션의 네임스페이스를 만듭니다.
 
-이 자습서에서는 `bookstore` 다음과 같은 응용 프로그램 구성 요소가 있는 OSM 응용 프로그램을 사용 합니다.
+이 자습서에서는 다음 애플리케이션 구성 요소가 있는 OSM `bookstore` 애플리케이션을 사용하겠습니다.
 
 - `bookbuyer`
 - `bookthief`
@@ -124,7 +121,7 @@ namespace/bookwarehouse created
 
 ## <a name="onboard-the-namespaces-to-be-managed-by-osm"></a>OSM에서 관리할 네임스페이스를 온보딩합니다.
 
-OSM 메시에 네임스페이스를 추가하면 OSM 컨트롤러는 애플리케이션을 통해 Envoy 사이드카 프록시 컨테이너를 자동으로 삽입할 수 있습니다. 다음 명령을 실행 하 여 OSM `bookstore` 응용 프로그램 네임 스페이스를 등록 합니다.
+OSM 메시에 네임스페이스를 추가하면 OSM 컨트롤러는 애플리케이션을 통해 Envoy 사이드카 프록시 컨테이너를 자동으로 삽입할 수 있습니다. 다음 명령을 실행하여 OSM `bookstore` 애플리케이션 네임스페이스를 온보딩합니다.
 
 ```azurecli-interactive
 osm namespace add bookstore bookbuyer bookthief bookwarehouse
@@ -177,9 +174,9 @@ service/bookwarehouse created
 deployment.apps/bookwarehouse created
 ```
 
-## <a name="update-the-bookbuyer-service"></a>bookbuyer 서비스 업데이트
+## <a name="update-the-bookbuyer-service"></a>Bookbuyer 서비스 업데이트
 
-`bookbuyer`다음 서비스 매니페스트를 사용 하 여 서비스를 올바른 인바운드 포트 구성으로 업데이트 합니다.
+다음 `bookbuyer` 서비스 매니페스트를 사용하여 서비스를 올바른 인바운드 포트 구성으로 업데이트합니다.
 
 ```azurecli-interactive
 kubectl apply -f - <<EOF
@@ -201,15 +198,15 @@ EOF
 
 ## <a name="verify-the-bookstore-application-running-inside-the-aks-cluster"></a>AKS 클러스터 내에서 실행 중인 bookstore 애플리케이션 확인
 
-지금 까지는 `bookstore` 다중 컨테이너 응용 프로그램을 배포 했지만 AKS 클러스터 내 에서만 액세스할 수 있습니다. 나중에 AKS 클러스터 외부에서 애플리케이션을 공개하는 Azure Application Gateway 수신 컨트롤러를 추가합니다. 응용 프로그램이 클러스터 내에서 실행 되 고 있는지 확인 하기 위해 포트 전달을 사용 하 여 `bookbuyer` 구성 요소 UI를 확인 합니다.
+현재는 `bookstore` mulit-container 애플리케이션을 배포했지만 AKS 클러스터 내에서만 액세스할 수 있습니다. 나중에 AKS 클러스터 외부에서 애플리케이션을 공개하는 Azure Application Gateway 수신 컨트롤러를 추가합니다. 애플리케이션이 클러스터 내에서 실행되고 있는지 확인하기 위해 포트 전달을 사용하여 `bookbuyer` 구성 요소 UI를 확인합니다.
 
-먼저 `bookbuyer` pod의 이름을 가져옵니다.
+먼저 `bookbuyer` Pod의 이름을 살펴보겠습니다.
 
 ```azurecli-interactive
 kubectl get pod -n bookbuyer
 ```
 
-다음과 비슷한 결과가 표시됩니다. Pod에는 `bookbuyer` 고유한 이름이 추가 됩니다.
+다음과 비슷한 결과가 표시됩니다. `bookbuyer`Pod에 고유한 이름이 추가됩니다.
 
 ```Output
 NAME                         READY   STATUS    RESTARTS   AGE
@@ -222,14 +219,14 @@ Pod의 이름이 있으면 이제 port-forward 명령을 사용하여 로컬 시
 kubectl port-forward bookbuyer-7676c7fcfb-mtnrz -n bookbuyer 8080:14001
 ```
 
-아래와 유사한 출력이 표시 됩니다.
+다음과 유사한 출력이 표시됩니다.
 
 ```Output
 Forwarding from 127.0.0.1:8080 -> 14001
 Forwarding from [::1]:8080 -> 14001
 ```
 
-포트 전달 세션이 준비되는 동안 브라우저에서 다음 URL로 이동합니다(`http://localhost:8080`). 이제 `bookbuyer` 브라우저에서 아래 이미지와 비슷한 응용 프로그램 UI를 볼 수 있습니다.
+포트 전달 세션이 준비되는 동안 브라우저에서 다음 URL로 이동합니다(`http://localhost:8080`). 이제 `bookbuyer` 아래 이미지와 비슷한 브라우저에서 애플리케이션 UI를 볼 수 있습니다.
 
 ![NGINX UI 이미지에 대한 OSM bookbuyer 앱](./media/aks-osm-addon/osm-agic-bookbuyer-img.png)
 
@@ -239,7 +236,7 @@ Forwarding from [::1]:8080 -> 14001
 
 OSM에서 관리하는 애플리케이션을 인터넷에 공개하기 위해 수신 컨트롤러를 활용합니다. 수신 컨트롤러를 만들려면 Helm을 사용하여 nginx-ingress를 설치합니다. 중복성을 추가하기 위해 NGINX 수신 컨트롤러의 두 복제본이 `--set controller.replicaCount` 매개 변수와 함께 배포됩니다. 수신 컨트롤러의 복제본을 실행하는 이점을 최대한 활용하려면 AKS 클러스터에 둘 이상의 노드가 있어야 합니다.
 
-수신 컨트롤러는 Linux 노드에 예약 됩니다. Windows Server 노드가 수신 컨트롤러를 실행해서는 안 됩니다. `--set nodeSelector` 매개 변수를 사용하여 노드 선택기를 지정하면 Linux 기반 노드에서 NGINX 수신 컨트롤러를 실행하도록 Kubernetes 스케줄러에 지시할 수 있습니다.
+수신 컨트롤러는 Linux 노드에서 예약됩니다. Windows Server 노드가 수신 컨트롤러를 실행해서는 안 됩니다. `--set nodeSelector` 매개 변수를 사용하여 노드 선택기를 지정하면 Linux 기반 노드에서 NGINX 수신 컨트롤러를 실행하도록 Kubernetes 스케줄러에 지시할 수 있습니다.
 
 > [!TIP]
 > 다음 예제에서는 _ingress-basic_ 이라는 수신 리소스에 대한 Kubernetes 네임스페이스를 만듭니다. 필요에 따라 사용자 환경에 대한 네임스페이스를 지정합니다.
@@ -263,7 +260,7 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
     --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
-NGINX 수신 컨트롤러에 대 한 Kubernetes 부하 분산 장치 서비스가 만들어집니다. 다음 예제 출력과 같이 동적 공용 IP 주소가 할당 됩니다.
+NGINX 수신 컨트롤러에 대한 Kubernetes 부하 분산 장치 서비스가 만들어집니다. 다음 예제 출력과 같이 동적 공용 IP 주소가 할당됩니다.
 
 ```Output
 $ kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller
@@ -272,7 +269,7 @@ NAME                                     TYPE           CLUSTER-IP    EXTERNAL-I
 nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.74.133   EXTERNAL_IP     80:32486/TCP,443:30953/TCP   44s   app.kubernetes.io/component=controller,app.kubernetes.io/instance=nginx-ingress,app.kubernetes.io/name=ingress-nginx
 ```
 
-수신 규칙이 만들어지지 않았습니다. 내부 IP 주소를 탐색 하는 경우 현재 NGINX 수신 컨트롤러의 기본 404 페이지가 표시 됩니다. 수신 규칙은 다음 단계에서 구성됩니다.
+수신 규칙이 만들어지지 않았습니다. 현재 내부 IP 주소로 이동하면 NGINX 수신 컨트롤러의 기본 404 페이지가 표시됩니다. 수신 규칙은 다음 단계에서 구성됩니다.
 
 ## <a name="expose-the-bookbuyer-service-to-the-internet"></a>bookbuyer 서비스를 인터넷에 공개
 

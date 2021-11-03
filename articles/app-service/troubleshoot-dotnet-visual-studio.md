@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: f44d3eb84715233e6d9aa4a1d06d626d162973ee
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
-ms.translationtype: HT
+ms.openlocfilehash: 2dc6e9deba6f1e6c5f7e43b5a87ef32aa53061be
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205272"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049107"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Visual Studio를 사용하여 Azure App Service에서 앱 문제 해결
 ## <a name="overview"></a>개요
@@ -78,9 +78,9 @@ Visual Studio를 사용하면 [Azure Portal](https://go.microsoft.com/fwlink/?Li
 
 **웹 사이트에서 페이지를 표시할 수 없습니다.**
 
-:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png" alt-text="웹 브라우저의 '웹 사이트에서 페이지를 표시할 수 없습니다.' 오류를 보여 주는 스크린샷":::
+:::image type="content" source="./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png" alt-text="* * 웹 사이트에서 웹 브라우저에 페이지 오류를 표시할 수 없습니다 * *를 읽는 메시지를 보여 주는 스크린샷":::
 
-오류의 원인을 찾는 가장 쉬운 방법은 주로 자세한 오류 메시지를 사용하도록 설정하는 것입니다. 이전 스크린샷 중 첫 번째 스크린샷에 그 방법이 설명되어 있습니다. 배포된 Web.config 파일의 변경이 필요합니다. 프로젝트에서 *Web.config* 파일을 편집한 후 프로젝트를 다시 배포하거나 [Web.config 변환](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations)을 만들고 디버그 빌드를 배포할 수도 있지만 더 빠른 방법이 있습니다. **솔루션 탐색기** 에서 *원격 보기* 기능을 사용하면 원격 앱의 파일을 직접 보고 편집할 수 있습니다.
+오류의 원인을 찾는 가장 쉬운 방법은 주로 자세한 오류 메시지를 사용하도록 설정하는 것입니다. 이전 스크린샷 중 첫 번째 스크린샷에 그 방법이 설명되어 있습니다. 배포된 Web.config 파일의 변경이 필요합니다. 프로젝트에서 *Web.config* 파일을 편집 하 고 프로젝트를 다시 배포 하거나 [ `Web.config` 변환을](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) 만들고 디버그 빌드를 배포할 수 있지만 더 빠른 방법이 있습니다. **솔루션 탐색기** 에서 *원격 보기* 기능을 사용 하 여 원격 앱의 파일을 직접 보고 편집할 수 있습니다.
 
 1. **서버 탐색기** 에서 **Azure**, **App Service**, 앱이 있는 리소스 그룹, 앱의 노드를 차례로 확장합니다.
 

@@ -13,12 +13,12 @@ ms.custom:
 - seo-javascript-september2019
 - seo-python-october2019
 - devx-track-python
-ms.openlocfilehash: d8f2176065b8a9726cc0496756a22ccefbf0f0c8
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: 6cdfcff203f9694ab9c9e0b7a693b51070f73aac
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129155461"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131070967"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>빠른 시작: Azure Cosmos DB SQL API 계정을 사용하여 Python 애플리케이션 빌드
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -78,8 +78,9 @@ ms.locfileid: "129155461"
 1. 명령 프롬프트를 열고, git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
 
     ```cmd
-    md "git-samples"
+    md git-samples
     ```
+
    bash 프롬프트를 사용하는 경우에는 다음 명령을 대신 사용해야 합니다.
 
    ```bash

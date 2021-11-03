@@ -4,14 +4,14 @@ description: Logz.io를 사용하여 Azure 통합을 관리하는 방법을 알�
 author: tfitzmac
 ms.topic: conceptual
 ms.service: partner-services
-ms.date: 08/17/2021
+ms.date: 10/25/2021
 ms.author: tomfitz
-ms.openlocfilehash: e86b42694276c23f4d38809c9b40a7f92e39fa64
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
-ms.translationtype: HT
+ms.openlocfilehash: 223dba26ab32659b710edde8f5bbbca7a67ba1af
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122531006"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131076588"
 ---
 # <a name="manage-the-logzio-integration-in-azure"></a>Azure에서 Logz.io 통합 관리
 

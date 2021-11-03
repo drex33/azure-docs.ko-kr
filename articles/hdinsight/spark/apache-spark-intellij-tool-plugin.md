@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: aeb6c9e266bdb663b9a664c8509e9cafab8a5128
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 77bfb5c0197ba64c71e142f9b21c0e6d57f5ac20
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124743005"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068725"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
 
@@ -30,11 +30,11 @@ ms.locfileid: "124743005"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요. 공용 클라우드의 HDInsight 클러스터만 지원 되 고 다른 안전한 클라우드 유형 (예: 정부 클라우드)은 지원 되지 않습니다.
+* HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요. 퍼블릭 클라우드의 HDInsight 클러스터만 지원되지만 다른 보안 클라우드 유형(예: 정부 클라우드)은 지원되지 않습니다.
 
 * [Oracle Java Development 키트](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).  이 문서에서는 Java 버전 8.0.202를 사용합니다.
 
-* IntelliJ IDEA. 이 문서에서는 [IntelliJ IDEA 커뮤니티 버전  2018.3.4](https://www.jetbrains.com/idea/download/)를 사용합니다.
+* IntelliJ IDEA. 이 문서에서는 [IntelliJ IDEA Community 2018.3.4를](https://www.jetbrains.com/idea/download/)사용합니다.
 
 * Azure Toolkit for IntelliJ.  [Azure Toolkit for IntelliJ 설치](/azure/developer/java/toolkit-for-intellij/)를 참조하세요.
 

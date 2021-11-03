@@ -8,12 +8,12 @@ author: mgreenegit
 ms.author: migreene
 ms.date: 04/15/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ea70d25bae9b30e1170046a7a7d470b4fea1a08d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 25e167f80ff209a60b30113ffe681e033cc612e1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128626630"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046530"
 ---
 # <a name="overview-of-the-guest-configuration-extension"></a>게스트 구성 확장 개요
 
@@ -50,6 +50,10 @@ ms.locfileid: "128626630"
 
 기본적으로 모든 배포가 최신 버전으로 업데이트됩니다. _autoUpgradeMinorVersion_ 속성의 값은 달리 지정되지 않은 경우 “true”로 기본 설정됩니다. 새 버전의 확장을 릴리스할 때 코드 업데이트에 대해서는 신경 쓰지 않아도 됩니다.
 
+## <a name="automatic-upgrade"></a>자동 업그레이드
+
+게스트 구성 확장은 속성을 `enableAutomaticUpgrade` 지원합니다. 이 속성을 로 `true` 설정하면 이후 릴리스를 사용할 수 있게 되면 Azure가 자동으로 최신 버전의 확장으로 업그레이드됩니다. 자세한 내용은 [Azure에서 VM 및 확장 집합에 대한 자동 확장 업그레이드](../automatic-extension-upgrade.md) 페이지를 참조하세요.
+
 ### <a name="azure-policy"></a>Azure Policy
 
 ID 요구 사항을 포함하여 최신 버전의 확장을 규모에 맞게 배포하려면 Azure Policy를 [할당](../../governance/policy/assign-policy-portal.md)합니다.
@@ -62,13 +66,13 @@ Linux용 확장을 배포하려면 다음을 수행합니다.
 
 
 ```azurecli
-az vm extension set  --publisher Microsoft.GuestConfiguration --name ConfigurationforLinux --extension-instance-name AzurePolicyforLinux --resource-group myResourceGroup --vm-name myVM
+az vm extension set  --publisher Microsoft.GuestConfiguration --name ConfigurationforLinux --extension-instance-name AzurePolicyforLinux --resource-group myResourceGroup --vm-name myVM --enable-auto-upgrade true
 ```
 
 Windows용 확장을 배포하려면 다음을 수행합니다.
 
 ```azurecli
-az vm extension set  --publisher Microsoft.GuestConfiguration --name ConfigurationforWindows --extension-instance-name AzurePolicyforWindows --resource-group myResourceGroup --vm-name myVM
+az vm extension set  --publisher Microsoft.GuestConfiguration --name ConfigurationforWindows --extension-instance-name AzurePolicyforWindows --resource-group myResourceGroup --vm-name myVM --enable-auto-upgrade true
 ```
 
 ### <a name="powershell"></a>PowerShell
@@ -82,7 +86,7 @@ Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'Configuration
 Windows용 확장을 배포하려면 다음을 수행합니다.
 
 ```powershell
-Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'ConfigurationforWindows' -Name 'AzurePolicyforWindows' -TypeHandlerVersion 1.0 -ResourceGroupName 'myResourceGroup' -Location 'myLocation' -VMName 'myVM' --enable-auto-upgrade
+Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'ConfigurationforWindows' -Name 'AzurePolicyforWindows' -TypeHandlerVersion 1.0 -ResourceGroupName 'myResourceGroup' -Location 'myLocation' -VMName 'myVM' -EnableAutomaticUpgrade $true
 ```
 
 ### <a name="resource-manager-template"></a>Resource Manager 템플릿

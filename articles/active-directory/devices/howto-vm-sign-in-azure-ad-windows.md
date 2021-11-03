@@ -12,12 +12,12 @@ manager: karenhoran
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0842de3ef0d3bc154193413987ae2a57d87ead38
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6ec984ebaa6b12019b1f1942d2849f7e9efaf288
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128631536"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049789"
 ---
 # <a name="login-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Azure에서 Azure Active Directory 인증을 사용하여 Windows 가상 머신에 로그인
 
@@ -405,7 +405,7 @@ Set-MsolUser -UserPrincipalName username@contoso.com -StrongAuthenticationRequir
 > [!NOTE]
 > RDP를 사용한 비즈니스용 Windows Hello PIN 인증은 여러 버전의 Windows 10에서 지원됐지만 RDP를 사용한 생체 인식 인증에 대한 지원은 Windows 10 버전 1809에서 추가되었습니다. RDP 도중 비즈니스용 Windows Hello 인증 사용은 인증서 신뢰 모델을 사용하고 현재 키 신뢰 모델에 사용할 수 없는 배포에서만 사용할 수 있습니다.
  
-[Azure AD 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)에서 이 기능에 대한 사용자 의견을 공유하거나, 사용에 관한 문제를 보고할 수 있습니다.
+[Azure AD 피드백 포럼](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)에서 이 기능에 대한 사용자 의견을 공유하거나, 사용에 관한 문제를 보고할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

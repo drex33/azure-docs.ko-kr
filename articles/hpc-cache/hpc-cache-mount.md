@@ -1,17 +1,17 @@
 ---
 title: Azure HPC Cache 탑재
 description: Azure HPC Cache 서비스에 클라이언트를 연결하는 방법
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.author: v-erkel
-ms.openlocfilehash: ab66fc29a29461e6808686aa53b520144b39a1e1
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.author: femila
+ms.openlocfilehash: 45c84008705ef47bd64301e262e878d0308123af
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129274200"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032965"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Azure HPC Cache 마운트
 
@@ -85,13 +85,13 @@ mount 명령을 만들려면 다음 절차를 수행합니다.
 
    Azure HPC Cache의 집계 네임스페이스 기능에 대해 자세히 알아보려면 [집계 네임스페이스 계획](hpc-cache-namespace.md)을 참조하세요.
 
-1. **탑재 명령** 필드는 탑재 주소, 가상 네임스페이스 경로 및 이전 필드에서 설정한 클라이언트 경로를 사용하는 사용자 지정된 탑재 명령으로 자동으로 채워집니다.
+1. **탑재 명령** 필드는 이전 필드에서 설정한 탑재 주소, 가상 네임 스페이스 경로 및 클라이언트 경로를 사용 하는 사용자 지정 된 탑재 명령으로 자동으로 채워집니다.
 
    필드 오른쪽에 있는 복사 기호를 클릭하여 클립보드에 자동으로 복사합니다.
 
    ![“클립보드로 복사” 단추를 가리킬 때 텍스트가 표시되는 프로토타입 mount 명령 필드 스크린샷](media/mount-command-copy.png)
 
-   그 아래에는 클라이언트 경로와 네임스페이스 경로가 동일하지만 다른 캐시 탑재 주소를 사용하는 대체 탑재 명령이 표시됩니다. 최상의 성능을 위해 HPC Cache 사용 가능한 모든 주소 간에 클라이언트를 균등하게 탑재해야 합니다.
+   아래에는 동일한 클라이언트 경로와 네임 스페이스 경로가 있지만 다른 캐시 탑재 주소를 사용 하는 대체 탑재 명령이 표시 됩니다. 최상의 성능을 위해 HPC 캐시에서 사용 가능한 모든 주소 간에 클라이언트를 균등 하 게 탑재 해야 합니다.
 
 1. 클라이언트 머신에서 복사한 mount 명령을 사용하여 머신을 Azure HPC Cache에 연결합니다. 클라이언트 명령줄에서 직접 명령을 실행하거나 클라이언트 설치 스크립트 또는 템플릿에 mount 명령을 포함할 수 있습니다.
 
@@ -139,11 +139,11 @@ root@test-client:/tmp#
 
 ## <a name="use-all-available-mount-addresses"></a>사용 가능한 모든 탑재 주소 사용
 
-캐시에 대해 나열된 모든 IP 주소 간에 클라이언트 트래픽을 분산해야 합니다. 모든 클라이언트를 하나의 주소에만 탑재하면 캐시 성능이 저하됩니다.
+캐시에 대해 나열 된 모든 IP 주소 간에 클라이언트 트래픽을 분산 해야 합니다. 모든 클라이언트를 한 주소에 탑재 하는 경우 캐시의 성능이 저하 됩니다.
 
-다른 클라이언트에 대해 다른 탑재 주소를 수동으로 선택하거나 스크립트를 만들어 선택할 수 있습니다. RRDNS(라운드 로빈 DNS)에 대해 구성된 DNS 서버를 사용하여 사용 가능한 모든 주소 간에 클라이언트 탑재를 자동으로 회전할 수도 있습니다. 자세한 내용은 [HPC Cache 트래픽 부하 분산을](client-load-balancing.md) 읽어보세요.
+다른 클라이언트에 대해 수동으로 또는 스크립트를 만들어 다른 탑재 주소를 선택할 수 있습니다. 또한 라운드 로빈 DNS (RRDNS) 용으로 구성 된 DNS 서버를 사용 하 여 모든 사용 가능한 주소 간에 클라이언트 탑재를 자동으로 회전할 수 있습니다. 자세한 내용은 [HPC 캐시 트래픽 부하 분산](client-load-balancing.md) 을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [클라이언트 부하를 분산하여](client-load-balancing.md)캐시의 모든 처리량을 사용하는 방법에 대해 자세히 알아봅니다.
+* [클라이언트 부하를 분산](client-load-balancing.md)하 여 캐시의 모든 처리량을 사용 하는 방법에 대해 자세히 알아보세요.
 * 데이터를 캐시의 스토리지 대상으로 이동하려면 [새 Azure Blob Storage 채우기](hpc-cache-ingest.md)를 참조하세요.

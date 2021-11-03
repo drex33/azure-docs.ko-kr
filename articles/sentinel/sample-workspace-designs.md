@@ -8,14 +8,17 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/18/2021
-ms.openlocfilehash: dca6beedfe8fa3d57674323490c2d79cf5aa048f
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 9cd48e8537f46ce9580b1b2e573e12bb5e12e455
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122529827"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131013995"
 ---
 # <a name="azure-sentinel-sample-workspace-designs"></a>Azure Sentinel 샘플 작업 영역 디자인
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 이 문서에서는 다음과 같은 샘플 요구 사항이 있는 조직을 위해 제안된 작업 영역 디자인에 대해 설명합니다.
 

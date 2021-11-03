@@ -4,14 +4,14 @@ description: Azure 리소스 관리자 템플릿을 사용하여 작업 그룹�
 author: dkamstra
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 02/19/2021
+ms.date: 10/18/2021
 ms.author: dukek
-ms.openlocfilehash: fe28498f677c2025cea9da329a3b029cda04a199
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: 1680ff8d209fc2680b19d3d3afe8c2b6aded9678
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949384"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044232"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용하여 작업 그룹 만들기
 이 문서에서는 [Azure 리소스 관리자 템플릿](../../azure-resource-manager/templates/syntax.md)을 사용하여 작업 그룹을 구성하는 방법을 설명합니다. 템플릿을 사용하면 특정 유형의 경고에서 다시 사용할 수 있는 작업 그룹을 자동으로 설정할 수 있습니다. 이러한 작업 그룹은 경고가 트리거될 때 올바른 당사자가 모두 알림을 받을 수 있도록 합니다.
@@ -49,7 +49,7 @@ Resource Manager 템플릿을 사용하여 작업 그룹을 만들려면 `Micros
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2019-03-01",
+      "apiVersion": "2021-09-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {
@@ -89,6 +89,15 @@ Resource Manager 템플릿을 사용하여 작업 그룹을 만들려면 `Micros
           {
             "name": "contosoHook2",
             "serviceUri": "http://requestb.in/1bq62iu2",
+            "useCommonAlertSchema": true
+          }
+        ],
+        "eventHubReceivers": [
+          {
+            "name": "contosoeventhub1",
+            "subscriptionId": "replace with subscription id GUID",
+            "eventHubNameSpace": "contosoeventHubNameSpace",
+            "eventHubName": "contosoeventHub",
             "useCommonAlertSchema": true
           }
         ]
@@ -137,7 +146,7 @@ Resource Manager 템플릿을 사용하여 작업 그룹을 만들려면 `Micros
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2019-03-01",
+      "apiVersion": "2021-09-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {

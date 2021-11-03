@@ -6,12 +6,13 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 10/05/2021
-ms.openlocfilehash: 5be8a3cfa8681bced90ba6fc74ebc69baa2f7962
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 507e7a97c0ec884580b0a29fd8a8691035221751
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130065676"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131085983"
 ---
 # <a name="create-an-integration-workflow-with-single-tenant-azure-logic-apps-standard-in-the-azure-portal"></a>Azure Portal에서 단일 테넌트 Azure Logic Apps(표준)를 사용하여 통합 워크플로 만들기
 
@@ -65,18 +66,18 @@ ms.locfileid: "130065676"
 
 1. Azure Portal 검색 상자에 `logic apps`를 입력하고, **논리 앱** 을 선택합니다.
 
-   !["논리 앱" 검색어와 "논리 앱(표준)" 리소스가 선택된 Azure Portal 검색 상자를 보여주는 스크린샷.](./media/create-single-tenant-workflows-azure-portal/find-logic-app-resource-template.png)
+   !["논리 앱" 검색 용어와 "논리 앱" 그룹이 선택 된 Azure Portal 검색 상자를 보여 주는 스크린샷](./media/create-single-tenant-workflows-azure-portal/find-logic-app-resource-template.png)
 
 1. **Logic Apps** 페이지에서 **추가** 를 선택합니다.
 
 1. **논리 앱 만들기** 페이지의 **기본** 탭에서 논리 앱 리소스에 대한 다음 정보를 제공합니다.
 
-   | 속성 | 필수 | 값 | Description |
+   | 속성 | 필수 | 값 | 설명 |
    |----------|----------|-------|-------------|
    | **구독** | 예 | <*Azure-subscription-name*> | 논리 앱에 사용할 Azure 구독입니다. |
    | **리소스 그룹** | 예 | <*Azure-resource-group-name*> | 논리 앱 및 관련 리소스를 만드는 Azure 리소스 그룹입니다. 이 리소스 이름은 모든 Azure 지역에서 고유해야 하고 문자, 숫자, 하이픈( **-** ), 밑줄( **_** ), 괄호( **()** ) 및 마침표( **.** )만 포함할 수 있습니다. <p><p>이 예제에서는 `Fabrikam-Workflows-RG`라는 리소스 그룹을 만듭니다. |
    | **형식** | 예 | **Standard** | 이 논리 앱 리소스 종류는 단일 테 넌 트 Azure Logic Apps 환경에서 실행 되며 [표준 사용량, 청구 및 가격 책정 모델](logic-apps-pricing.md#standard-pricing)을 사용 합니다. |
-   | **논리 앱 이름** | 예 | <*logic-app-name*> | 논리 앱에 사용할 이름입니다. 이 리소스 이름은 모든 Azure 지역에서 고유해야 하고 문자, 숫자, 하이픈( **-** ), 밑줄( **_** ), 괄호( **()** ) 및 마침표( **.** )만 포함할 수 있습니다. <p><p>이 예제에서는 `Fabrikam-Workflows`라는 논리 앱을 만듭니다. <p><p>**참고**: **논리 앱(표준)** 리소스는 동일한 앱 명명 규칙을 사용하는 Azure Functions로 구동되기 때문에 논리 앱의 이름이 `.azurewebsites.net` 접미사를 자동으로 가져옵니다. |
+   | **논리 앱 이름** | 예 | <*logic-app-name*> | 논리 앱에 사용할 이름입니다. 이 리소스 이름은 모든 Azure 지역에서 고유해야 하고 문자, 숫자, 하이픈( **-** ), 밑줄( **_** ), 괄호( **()** ) 및 마침표( **.** )만 포함할 수 있습니다. <p><p>이 예제에서는 `Fabrikam-Workflows`라는 논리 앱을 만듭니다. <p><p>**참고**: 논리 앱 `.azurewebsites.net` **(표준)** 리소스는 Azure Functions 확장성 모델을 사용 하 고 Azure Functions 런타임에서 확장으로 호스트 되는 단일 테 넌 트 Azure Logic Apps 런타임으로 구동 되기 때문에 논리 앱의 이름은 자동으로 접미사를 가져옵니다. Azure Functions는 동일한 앱 명명 규칙을 사용 합니다. |
    | **게시** | 예 | <*deployment-environment*> | 논리 앱의 배포 대상입니다. 기본적으로 **워크플로** 는 단일 테넌트 Azure Logic Apps에 배포하도록 선택됩니다. Azure에서 첫 번째 워크플로를 추가해야 하는 빈 논리 앱 리소스를 만듭니다. <p><p>**참고**: 현재 **Docker 컨테이너** 옵션을 사용하려면 Azure Arc 지원 Kubernetes 클러스터에서 [*사용자 지정 위치*](../azure-arc/kubernetes/conceptual-custom-locations.md)가 필요하며 [Azure Arc 지원 Logic Apps(미리 보기)](azure-arc-enabled-logic-apps-overview.md)와 함께 사용할 수 있습니다. 논리 앱, 사용자 지정 위치 및 클러스터의 리소스 위치는 모두 동일해야 합니다. |
    | **지역** | 예 | <*Azure-region*> | 리소스 그룹 및 리소스를 만들 때 사용할 위치입니다. 이 예제에서는 샘플 논리 앱을 Azure에 배포하고 **미국 서부** 를 사용합니다. <p>- **Docker 컨테이너** 를 선택한 경우 사용자 지정 위치를 선택 합니다. <p>-먼저 존재 해야 하는 [ASEv3](../app-service/environment/overview.md) 리소스에 배포 하려면 **지역** 목록에서 해당 환경 리소스를 선택 합니다. |
    |||||
@@ -87,8 +88,9 @@ ms.locfileid: "130065676"
 
 1. **호스팅** 탭에서 논리 앱에 사용할 수 있도록 스토리지 솔루션 및 호스팅 계획에 관한 다음 정보를 제공합니다.
 
-   | 속성 | 필수 | 값 | Description |
+   | 속성 | 필수 | 값 | 설명 |
    |----------|----------|-------|-------------|
+   | **스토리지 유형** | Yes | - **SQL 및 Azure Storage** <br>- **Azure Storage** | 워크플로 관련 아티팩트 및 데이터에 사용 하려는 저장소 유형입니다. <p><p>-Azure에만 배포 하려면 **Azure Storage** 을 선택 합니다. <p><p>-SQL를 기본 저장소로 사용 하 고 보조 저장소로 Azure Storage을 사용 하려면 **SQL 및 Azure Storage** 를 선택 하 고 [단일 테 넌 트 SQL에서 표준 논리 앱에 대 한 Azure Logic Apps 데이터베이스 저장소 설정](set-up-sql-db-storage-single-tenant-standard-workflows.md)을 검토 합니다. <p><p>**참고**: azure 지역에 배포 하는 경우에도 azure storage 계정이 필요 합니다 .이 계정은 Azure Logic Apps 플랫폼에서 논리 앱의 구성에 대 한 일회성 호스팅을 완료 하는 데 사용 됩니다. 진행 중인 워크플로 상태, 실행 기록 및 기타 런타임 아티팩트가 SQL 데이터베이스에 저장 됩니다. <p><p>Azure Arc 클러스터에서 호스트 되는 사용자 지정 위치에 대 한 배포의 경우 저장소 공급자로 SQL 필요 합니다. |
    | **스토리지 계정** | 예 | <*Azure-storage-account-name*> | 스토리지 트랜잭션에 사용할 [Azure Storage 계정](../storage/common/storage-account-overview.md)입니다. <p><p>이 리소스 이름은 모든 지역에서 고유해야 하며 숫자와 소문자만 포함된 3-24자여야 합니다. 기존 계정을 선택하거나 새 계정을 만듭니다. <p><p>이 예제에서는 `fabrikamstorageacct`라는 스토리지 계정을 만듭니다. |
    | **플랜 유형** | 예 | <호스팅 계획> | 논리 앱을 배포하는 데 사용할 호스팅 계획입니다. <p><p>자세한 내용은 [호스팅 계획과 가격 책정 계층](logic-apps-pricing.md#standard-pricing)을 참조하세요. |
    | **Windows 플랜** | 예 | <*plan-name*> | 사용할 계획 이름입니다. 기존 계획 이름을 선택하거나 새 계획의 이름을 입력합니다. <p><p>이 예제에서는 `Fabrikam-Service-Plan`이름을 사용합니다. |
@@ -101,12 +103,12 @@ ms.locfileid: "130065676"
 
    1. **Application Insights** 설정에서 기존 Application Insights 인스턴스를 선택하거나, 새 인스턴스를 만들려는 경우 **새로 만들기** 를 선택하고 사용할 이름을 입력합니다.
 
-1. Azure에서 논리 앱 설정의 유효성을 검사한 후 **검토 + 만들기** 탭에서 **만들기를** 선택합니다. 예를 들면 다음과 같습니다.
+1. Azure에서 논리 앱의 설정에 대 한 유효성을 검사 한 후 **검토 + 만들기** 탭에서 **만들기** 를 선택 합니다. 예를 들면 다음과 같습니다.
 
    ![Azure Portal 및 새 논리 앱 리소스 설정을 보여주는 스크린샷](./media/create-single-tenant-workflows-azure-portal/check-logic-app-resource-settings.png)
 
    > [!TIP]
-   > 이 단계 후에 유효성 검사 오류가 발생하면 를 열고 오류 세부 정보를 검토합니다. 예를 들어 선택한 지역이 만들려는 리소스의 할당량에 도달하는 경우 다른 지역을 시도해야 할 수도 있습니다.
+   > 이 단계 후에 유효성 검사 오류가 발생 하면를 열고 오류 정보를 검토 합니다. 예를 들어 선택한 지역이 만들려는 리소스의 할당량에 도달하는 경우 다른 지역을 시도해야 할 수도 있습니다.
 
    Azure에서 배포를 완료하면 논리 앱이 자동으로 활성화되어 실행되지만, 리소스가 비어 있고 아직 워크플로를 추가하지 않았기 때문에 아직 아무런 작업도 수행하지 않습니다.
 
@@ -320,7 +322,7 @@ Azure Portal에서 논리 앱을 배포하고 워크플로를 실행하기 전�
    > [!TIP]
    > 최신 실행 상태가 표시되지 않으면 **개요** 창 도구 모음에서 **새로 고침** 을 선택합니다. 조건이 충족되지 않거나 데이터를 찾을 수 없어 트리거를 건너뛴 경우에는 실행이 발생하지 않습니다.
 
-   | 실행 상태 | Description |
+   | 실행 상태 | 설명 |
    |------------|-------------|
    | **중단됨** | 시스템이 중단되거나 Azure 구독이 만료되는 등의 외부 문제로 인해 실행이 중지되었거나 완료되지 않았습니다. |
    | **취소** | 실행이 트리거되고 시작되었지만 취소 요청이 수신되었습니다. |

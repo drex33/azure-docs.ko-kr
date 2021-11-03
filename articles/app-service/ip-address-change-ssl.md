@@ -4,16 +4,20 @@ description: TLS/SSL IP 주소를 변경하려는 경우 앱이 변경 후 작�
 ms.topic: article
 ms.date: 06/28/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3712931f73463ec1a799f003b82197752a735136
-ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
-ms.translationtype: HT
+ms.openlocfilehash: a370a2f1ad07b6f2ce4ea2e23f9132d46aadd044
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112895286"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045656"
 ---
 # <a name="how-to-prepare-for-a-tlsssl-ip-address-change"></a>TLS/SSL IP 주소 변경을 준비하는 방법
 
 Azure App Service 앱의 TLS/SSL IP 주소가 변경된다는 알림을 받은 경우 이 문서의 지침을 따라 기존 TLS/SSL IP 주소를 릴리스하고 새 주소를 할당합니다.
+
+> [!NOTE] 
+> App Service TLS/SSL 바인딩에서 IP 기반 SSL을 사용하도록 설정하는 경우 서비스 엔드포인트는 현재 지원되지 않습니다. 
+
 
 ## <a name="release-tlsssl-ip-addresses-and-assign-new-ones"></a>TLS/SSL IP 주소를 릴리스하고 새 주소 할당
 

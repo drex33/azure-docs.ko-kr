@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 18e176f11da9c8dca86c5f3477cb282c478664cf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: ffde66c8b64968d7b3aa5cc179177d34e8068e50
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536766"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131019612"
 ---
 # <a name="surface-custom-event-details-in-alerts-in-azure-sentinel"></a>Azure Sentinel의 경고에서 사용자 지정 이벤트 세부 정보 노출 
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >

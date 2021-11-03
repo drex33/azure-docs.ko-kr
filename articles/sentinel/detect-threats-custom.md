@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2021
 ms.author: yelevin
-ms.openlocfilehash: 0a2fd5f134cd97348fb23a88e6b40dcfbf46a275
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: d1290d5d89c4e48c8e2e875bae5e64959f6f2c36
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528079"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037229"
 ---
 # <a name="create-custom-analytics-rules-to-detect-threats"></a>위협 탐지를 위한 사용자 지정 분석 규칙 만들기
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Azure Sentinel에 [데이터 원본 연결](quickstart-onboard.md) 후, 사용자 환경에 존재하는 위협 및 비정상적인 동작을 발견하는 데 도움이 되는 사용자 지정 분석 규칙을 생성할 수 있습니다.
 

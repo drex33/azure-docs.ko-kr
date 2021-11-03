@@ -3,15 +3,13 @@ title: '빠른 시작: Python을 사용하여 관리 그룹 만들기'
 description: 이 빠른 시작에서는 Python을 사용하여 리소스를 리소스 계층 구조로 구성하는 관리 그룹을 만듭니다.
 ms.date: 08/17/2021
 ms.topic: quickstart
-ms.custom:
-- devx-track-python
-- mode-api
-ms.openlocfilehash: ec4b66033093d6fa56e2bb5bce0f9d0fedf0a7e5
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.custom: devx-track-python, mode-api
+ms.openlocfilehash: 571e59e058b5cade33be8e883f5f1b1bab4169f1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122324938"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131028256"
 ---
 # <a name="quickstart-create-a-management-group-with-python"></a>빠른 시작: Python을 사용하여 관리 그룹 만들기
 

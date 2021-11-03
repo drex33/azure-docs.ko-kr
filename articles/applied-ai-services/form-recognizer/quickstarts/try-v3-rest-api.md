@@ -7,25 +7,27 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 10/07/2021
+ms.date: 11/02/2021
 ms.author: lajanuar
-ms.openlocfilehash: 6ee2aca6eb48b87a1d773d8d713b954eeb08beca
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 097387d1a84aa02e6d81292a65404ca2e837ed98
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130240436"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131020999"
 ---
-# <a name="get-started-form-recognizer-rest-api---preview"></a>시작: Form Recognizer REST API | 미리 보기
+# <a name="quickstart-rest-api---preview"></a>빠른 시작: REST API | 미리 보기
 
 >[!NOTE]
-> Form Recognizer v3.0은 현재 공개 미리 보기에 있습니다. 일부 기능은 지원되지 않거나 기능이 제한될 수 있습니다. 
+> Form Recognizer v3.0은 현재 공개 미리 보기에 있습니다. 일부 기능은 지원되지 않거나 기능이 제한될 수 있습니다.
 
 | [Form Recognizer REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) | [Azure REST API 참조](/rest/api/azure/) |
 
-Azure Cognitive Services Form Recognizer는 기계 학습을 사용하여 문서에서 양식 필드, 텍스트 및 테이블을 추출하고 분석하는 클라우드 서비스입니다. 클라이언트 라이브러리 SDK를 워크플로 및 애플리케이션에 통합하여 Form Recognizer 모델을 쉽게 호출할 수 있습니다.
+C# 프로그래밍 언어를 사용하여 Azure Form Recognizer를 시작합니다. Azure Form Recognizer는 기계 학습을 사용하여 문서에서 양식 필드, 텍스트 및 테이블을 추출하고 분석하는 클라우드 기반 Azure Applied AI Service입니다. 클라이언트 라이브러리 SDK를 워크플로 및 애플리케이션에 통합하여 Form Recognizer 모델을 쉽게 호출할 수 있습니다. 기술을 학습할 때 체험판 서비스를 이용하는 것이 좋습니다. 체험판 페이지는 한 달에 500페이지로 제한됩니다.
 
-### <a name="form-recognizer-models"></a>Form Recognize 모델
+Form Recognizer 기능 및 개발 옵션에 대한 자세한 내용은 [개요](../overview.md#form-recognizer-features-and-development-options) 페이지를 참조하세요.
+## <a name="form-recognizer-models"></a>Form Recognize 모델
 
  REST API는 다음 모델 및 기능을 지원합니다.
 
@@ -37,13 +39,35 @@ Azure Cognitive Services Form Recognizer는 기계 학습을 사용하여 문서
 * ID 문서 - 미리 학습된 ID 문서 모델을 사용하여 여권 또는 운전면허증과 같은 ID 문서에서 공통 필드를 분석하고 추출합니다.
 * 명함 - 미리 학습된 명함 모델을 사용하여 명함에서 공통 필드를 분석하고 추출합니다.
 
+## <a name="analyze-document"></a>문서 분석
+
+Form Recognizer v3.0은 POST 및 GET 작업에  `modelIds`를 할당하여 레이아웃, 미리 빌드된 모델 및 사용자 지정 모델에 대한 분석 문서 및 GET(분석 결과 가져오기) 작업을 단일 작업 쌍으로 통합합니다.
+
+```http
+POST /documentModels/{modelId}:analyze
+
+GET /documentModels/{modelId}/analyzeResults/{resultId}
+```
+
+다음 표는 REST API 호출에 대한 업데이트 사항을 보여 줍니다.
+
+|기능| v2.1 | v3.0|
+|-----|-----|----|
+|일반 문서 | 해당 없음 |`/documentModels/prebuilt-document:analyze` |
+|Layout |`/layout/analyze` | ``/documentModels/prebuilt-layout:analyze``|
+|청구서 | `/prebuilt/invoice/analyze` | `/documentModels/prebuilt-invoice:analyze` |
+|Receipt | `/prebuilt/receipt/analyze` | `/documentModels/prebuilt-receipt:analyze` |
+|ID 문서| `/prebuilt/idDocument/analyze` | `/documentModels/prebuilt-idDocument:analyze`|
+|명함| `/prebuilt/businessCard/analyze`  | `/documentModels/prebuilt-businessCard:analyze` |
+|사용자 지정| `/custom/{modelId}/analyze` |`/documentModels/{modelId}:analyze`|
+
 이 빠른 시작에서는 다음 기능을 사용하여 양식 및 문서에서 데이터와 값을 분석하고 추출합니다.
 
-* [**일반 문서**](#try-it-general-document-model)
+* [🆕 **일반 문서**](#try-it-general-document-model) - 텍스트, 테이블, 구조, 키-값 쌍 및 명명된 엔터티를 분석하고 추출합니다.
 
-* [**Layout**](#try-it-layout-model)
+* [**레이아웃**](#try-it-layout-model) - 모델을 학습시킬 필요 없이 테이블, 선, 단어, 선택 표시(양식 문서의 원형 선택 단추 및 확인란)를 분석하고 추출합니다.
 
-* [**미리 빌드된 청구서**]#try-it-prebuilt-invoice-model)
+* [**미리 빌드된 모델**](#try-it-prebuilt-model) - 미리 학습된 모델을 사용하여 공통 문서 형식에서 데이터를 분석하고 추출합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -58,9 +82,21 @@ Azure Cognitive Services Form Recognizer는 기계 학습을 사용하여 문서
 > [!TIP]
 > 단일 엔드포인트/키에서 여러 Cognitive Services에 액세스하려는 경우 Cognitive Services 리소스를 만듭니다. Form Recognizer 리소스를 Form Recognizer 액세스 전용으로 만듭니다. [Azure Active Directory 인증](../../../active-directory/authentication/overview-authentication.md)을 사용하려는 경우 단일 서비스 리소스가 필요합니다.
 
-* 리소스가 배포되면 **리소스로 이동** 을 클릭합니다. 애플리케이션을 Form Recognizer API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 키와 엔드포인트는 이 빠른 시작의 뒷부분에서 코드에 붙여넣습니다.
+* 리소스를 배포한 후 **리소스로 이동** 을 선택합니다. 애플리케이션을 Form Recognizer API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 키와 엔드포인트는 이 빠른 시작의 뒷부분에서 코드에 붙여넣습니다.
 
   :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="스크린샷: Azure Portal의 키 및 엔드포인트 위치.":::
+
+### <a name="select-a-code-sample-to-copy-and-paste-into-your-application"></a>복사하여 애플리케이션에 붙여넣을 코드 샘플을 선택합니다.
+
+* [**일반 문서**](#try-it-general-document-model)
+
+* [**Layout**](#try-it-layout-model)
+
+* [**미리 빌드된 모델**](#try-it-prebuilt-model)
+
+> [!IMPORTANT]
+>
+> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 보안 메서드를 사용하여 자격 증명을 저장하고 액세스합니다. 자세한 내용은 Cognitive Services [보안](../../../cognitive-services/cognitive-services-security.md) 문서를 참조하세요.
 
 ## <a name="try-it-general-document-model"></a>**사용해 보기**: 일반 문서 모델
 
@@ -361,11 +397,13 @@ curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/prebuilt-layout
 
 JSON 출력이 포함된 `200 (Success)` 응답을 받게 됩니다. 작업의 상태를 나타내는 첫 번째 필드, `"status"`입니다. 작업이 완료되지 않는 경우 `"status"`의 값은 `"running"` 또는 `"notStarted"`가 되며, 수동으로 또는 스크립트를 통해 API를 다시 호출해야 합니다. 호출 간에 1초 이상의 간격을 사용하는 것이 좋습니다.
 
-## <a name="try-it-prebuilt-invoice-model"></a>**사용해 보기**: 미리 빌드된 청구서 모델
+## <a name="try-it-prebuilt-model"></a>**사용해 보기**: 미리 빌드된 모델
+
+이 샘플에서는 청구서를 예로 사용하여 미리 학습된 모델에서 특정한 일반 문서 유형에 있는 데이터를 분석하는 방법을 보여 줍니다.
 
 > [!div class="checklist"]
 >
-> * 이 예제에서는 **URI에 있는 청구서 문서 파일** 이 필요합니다. 이 빠른 시작에는 [샘플 청구서 문서](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf)를 사용할 수 있습니다.
+> * 이 예제에서는 미리 빌드된 모델을 사용하여 청구서 문서를 분석합니다. 이 빠른 시작에는 [샘플 청구서 문서](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf)를 사용할 수 있습니다.
 
 ### <a name="choose-the-invoice-prebuilt-model-id"></a>청구서가 미리 빌드된 모델 ID 선택
 
@@ -380,12 +418,15 @@ JSON 출력이 포함된 `200 (Success)` 응답을 받게 됩니다. 작업의 �
 
 1. `{endpoint}`를 Form Recognizer 구독에서 얻은 엔드포인트로 바꿉니다.
 1. `{subscription key}`를 이전 단계에서 복사한 구독 키로 바꿉니다.
-1. `\"{your-document-url}`을 예제 URL 중 하나로 바꿉니다.
+1. `\"{your-document-url}`을(를) 샘플 청구서 URL로 바꿉니다.
+
+    ```http
+    https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf
+    ```
 
 #### <a name="request"></a>요청
 
 ```bash
-bash
  curl -v -i POST "https://{endpoint}/formrecognizer/documentModels/prebuilt-invoice:analyze?api-version=2021-09-30-preview&api-version=2021-09-30-preview HTTP/1.1" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'source': '{your-document-url}'}"
 ```
 
@@ -393,7 +434,7 @@ bash
 
 **Operation-Location** 헤더를 포함하는 `202 (Success)` 응답을 받게 됩니다. 이 헤더 값에는 비동기 작업 상태를 쿼리하고 결과를 가져오는 데 사용할 수 있는 결과 ID가 포함되어 있습니다.
 
-https:\//{host}/formrecognizer/documentModels/{modelId}/analyzeResults/ **{resultId}** ?api-version=2021-07-30-preview
+https://{host}/formrecognizer/documentModels/{modelId}/analyzeResults/**{resultId}**?api-version=2021-07-30-preview
 
 ### <a name="get-invoice-results"></a>청구서 결과 가져오기
 
@@ -422,7 +463,7 @@ JSON 출력이 포함된 `200 (Success)` 응답을 받게 됩니다. 작업의 �
 
 ### <a name="get-a-list-of-models"></a>모델 목록 가져오기
 
-미리 보기 v3.0   [목록 모델](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetModels) 요청은 사용자 지정 모델 외에도 미리 빌드된 모델의 페이지 단위 목록을 반환합니다. 성공 상태의 모델만 포함됩니다. [목록 작업](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetOperations) 요청을 통해 진행 중이거나 실패한 모델을 열거할 수 있습니다. nextLink 속성을 사용하여 모델의 다음 페이지(있는 경우)에 액세스합니다. 지원되는 문서 및 해당 필드의 목록을 포함하여 반환된 각 모델에 대한 자세한 정보를 보려면 modelId를  [모델 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetOperations) 요청에 전달합니다. 
+미리 보기 v3.0   [목록 모델](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetModels) 요청은 사용자 지정 모델 외에도 미리 빌드된 모델의 페이지 단위 목록을 반환합니다. 성공 상태의 모델만 포함됩니다. [목록 작업](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetOperations) 요청을 통해 진행 중이거나 실패한 모델을 열거할 수 있습니다. nextLink 속성을 사용하여 모델의 다음 페이지(있는 경우)에 액세스합니다. 지원되는 문서 및 해당 필드의 목록을 포함하여 반환된 각 모델에 대한 자세한 정보를 보려면 modelId를  [모델 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetOperations) 요청에 전달합니다.
 
 ```bash
 curl -v -X GET "https://{endpoint}/formrecognizer/documentModels?api-version=2021-07-30-preview"
@@ -433,7 +474,7 @@ curl -v -X GET "https://{endpoint}/formrecognizer/documentModels?api-version=202
 미리 보기 v3.0 [모델 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetModel)는 상태가 succeeded인 특정 모델에 대한 정보를 검색합니다. 실패한 상태 및 진행 중인 모델의 경우 [작업 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetOperation)를 사용하여 모델 생성 작업 및 모든 결과 오류의 상태를 추적합니다.
 
 ```bash
-curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/{modelId}?api-version=2021-07-30-preview" 
+curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/{modelId}?api-version=2021-07-30-preview"
 ```
 
 ### <a name="delete-a-model"></a>모델 삭제

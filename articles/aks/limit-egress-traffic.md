@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 01/12/2021
 author: palma21
-ms.openlocfilehash: e5f71566d3e31858a60f805bf45fe95793dd9b20
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: 3c5dbbb41f75e3b1d2646c00019843d9a08805db
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110094261"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058657"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터 노드의 송신 트래픽 제어
 
@@ -166,7 +166,7 @@ Windows Server 기반 노드 풀을 사용하려면 다음 FQDN/애플리케이�
 
 | 대상 엔드포인트                                                             | 프로토콜 | 포트    | 사용  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureMonitor:443`**  | TCP           | 443      | 이 엔드포인트는 Azure Monitor 및 Log Analytics에 메트릭 데이터와 로그를 전송하는 데 사용됩니다. |
+| [서비스 태그](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureMonitor:443`**  | TCP           | 443      | 이 엔드포인트는 Azure Monitor 및 Log Analytics에 메트릭 데이터와 로그를 전송하는 데 사용됩니다. |
 
 #### <a name="required-fqdn--application-rules"></a>필수 FQDN/애플리케이션 규칙
 
@@ -208,6 +208,26 @@ Azure Policy를 사용하도록 설정된 AKS 클러스터에는 다음 FQDN/애
 |-----------------------------------------------|-----------|----------|
 | **`data.policy.azure.us`** | **`HTTPS:443`** | 이 주소는 Kubernetes 정책을 가져오고 클러스터 준수 상태를 정책 서비스에 보고하는 데 사용됩니다. |
 | **`store.policy.azure.us`** | **`HTTPS:443`** | 이 주소는 기본 제공 정책의 Gatekeeper 아티팩트를 가져오는 데 사용됩니다. |
+
+## <a name="cluster-extensions"></a>클러스터 확장
+
+### <a name="required-fqdn--application-rules"></a>필수 FQDN / 애플리케이션 규칙
+
+AKS 클러스터에서 클러스터 확장을 사용하려면 다음 FQDN/애플리케이션 규칙이 필요합니다.
+
+| FQDN | 포트 | 사용 |
+|-----------------------------------------------|-----------|----------|
+| **`<region>.dp.kubernetesconfiguration.azure.com`** | **`HTTPS:443`** | 이 주소는 클러스터 확장 서비스에서 구성 정보를 가져오고 확장 상태를 서비스에 보고하는 데 사용됩니다.|
+| **`mcr.microsoft.com, *.data.mcr.microsoft.com`** | **`HTTPS:443`** | 이 주소는 AKS 클러스터에 클러스터 확장 에이전트를 설치하기 위해 컨테이너 이미지를 끌어와야 합니다.|
+
+#### <a name="azure-us-government-required-fqdn--application-rules"></a>Azure 미국 정부 필수 FQDN/애플리케이션 규칙
+
+AKS 클러스터에서 클러스터 확장을 사용하려면 다음 FQDN/애플리케이션 규칙이 필요합니다.
+
+| FQDN | 포트 | 사용 |
+|-----------------------------------------------|-----------|----------|
+| **`<region>.dp.kubernetesconfiguration.azure.us`** | **`HTTPS:443`** | 이 주소는 클러스터 확장 서비스에서 구성 정보를 가져오고 확장 상태를 서비스에 보고하는 데 사용됩니다. |
+| **`mcr.microsoft.com, *.data.mcr.microsoft.com`** | **`HTTPS:443`** | 이 주소는 AKS 클러스터에 클러스터 확장 에이전트를 설치하기 위해 컨테이너 이미지를 끌어와야 합니다.|
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Azure Firewall을 사용하여 송신 트래픽 제한
 

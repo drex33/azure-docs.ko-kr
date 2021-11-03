@@ -4,16 +4,16 @@ description: 호스트에서 암호화를 사용하여 Azure VM에 엔드투엔�
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/01/2021
+ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 3417288a0ed765d1ff53c47282379ae6cbb85254
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.custom: references_regions, devx-track-azurepowershell, ignite-fall-2021
+ms.openlocfilehash: 480f325fdec8b6290594adeec258715992506350
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694696"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131022053"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Azure PowerShell 모듈을 통해 호스트에서 암호화를 사용하여 엔드투엔드 암호화를 사용하도록 설정합니다.
 

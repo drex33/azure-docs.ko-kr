@@ -1,17 +1,17 @@
 ---
 title: 고객 관리형 키를 사용하여 Azure HPC Cache의 데이터 암호화
 description: Azure HPC Cache에서 Azure Key Vault를 사용하여 기본 Microsoft 관리형 암호화 키를 사용하지 않고 암호화 키 액세스를 제어하는 방법
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/15/2021
-ms.author: v-erkel
-ms.openlocfilehash: dbb2834d6d51f2555da05863c606b4678b9a17b7
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.author: femila
+ms.openlocfilehash: 87f80d77f1b2768291532c216ff99b892ba8f12a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772288"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131019954"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Azure HPC Cache에 고객 관리형 암호화 키 사용
 

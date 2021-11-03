@@ -9,17 +9,17 @@ ms.service: virtual-machines-sql
 ms.subservice: service-overview
 ms.topic: overview
 ms.workload: iaas-sql-server
-ms.date: 04/10/2018
+ms.date: 10/26/2021
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e303c886e1cecb0306849c96da966bc8614eccc2
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 7bcf2e64643d27822f2f58e56b054e25d3adaca5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130264982"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080957"
 ---
-# <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Azure Virtual Machines에서 SQL Server 개요(Linux)
+# <a name="overview-of-sql-server-on-linux-azure-virtual-machines"></a>SQL Server on Linux Azure Virtual Machines 개요
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
@@ -61,6 +61,10 @@ Linux에서 SQL Server를 구성하는 경우 데이터베이스 엔진 패키�
 | RHEL | ![RHEL 및 데이터베이스 엔진](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL 및 도구](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL 및 SQL Server 에이전트](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL 및 전체 텍스트 검색](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL 및 SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL 및 HA 추가 기능](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
 | SLES | ![SLES 및 데이터베이스 엔진](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES 및 도구](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES 및 SQL Server 에이전트](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES 및 전체 텍스트 검색](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES 및 SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/no.png) | ![SLES 및 HA 추가 기능](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png)|
 | Ubuntu | ![Ubuntu 및 데이터베이스 엔진](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu 및 도구](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu 및 SQL Server 에이전트](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu 및 전체 텍스트 검색](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu 및 SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu 및 HA 추가 기능](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
+
+
+> [!NOTE]
+> Azure Linux Virtual Machines의 SQL Server용 SQL IaaS 에이전트 확장은 Ubuntu Linux 배포에만 사용할 수 있습니다.
 
 ## <a name="related-products-and-services"></a>관련 제품 및 서비스
 

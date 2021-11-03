@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c7073cc46b0320016222621ffb0c3b1d3fe53be
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 09159db68050c10331ac2f4fcea5388cc3eb82d3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124748325"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057081"
 ---
 # <a name="list-azure-ad-role-assignments"></a>Azure AD 역할 할당 나열
 
@@ -118,6 +118,6 @@ HTTP/1.1 200 OK
 
 ## <a name="next-steps"></a>다음 단계
 
-* 언제든지 [Azure AD 관리 역할 포럼](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)에서 경험을 공유하세요.
+* 언제든지 [Azure AD 관리 역할 포럼](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)에서 경험을 공유하세요.
 * 역할 권한에 대한 자세한 내용은 [Azure AD 기본 제공 역할](permissions-reference.md)을 참조하세요.
 * 기본 사용자 권한의 경우 [기본 게스트 및 멤버 사용자 권한 비교](../fundamentals/users-default-permissions.md)를 참조하세요.

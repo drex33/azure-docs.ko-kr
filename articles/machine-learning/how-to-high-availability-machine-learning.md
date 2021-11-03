@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 05/05/2021
-ms.openlocfilehash: fc13ac868f2abb1ccd466b245c22682af79ba915
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 70429e7d9b1628f17672aaaa545c6c5bba3c30b1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130161276"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032692"
 ---
 # <a name="failover-for-business-continuity-and-disaster-recovery"></a>비즈니스 연속성 및 재해 복구를 위한 장애 조치(failover)
 
@@ -29,6 +29,8 @@ Microsoft는 Azure 서비스를 항상 사용할 수 있도록 하기 위해 노
 
 > [!NOTE]
 > Azure Machine Learning 자체는 자동 장애 조치 또는 재해 복구를 제공하지 않습니다.
+
+작업 영역 또는 해당 구성 요소를 실수로 삭제 한 경우에도이 문서는 현재 지원 되는 복구 옵션을 제공 합니다.
 
 ## <a name="understand-azure-services-for-azure-machine-learning"></a>Azure Machine Learning에 대한 Azure 서비스 이해
 
@@ -186,6 +188,18 @@ Azure Machine Learning은 작업 영역 인스턴스 간에 아티팩트 또는 
 > [!TIP]
 > * __등록된 데이터 세트__ 는 다운로드하거나 이동할 수 없습니다. 여기에는 중간 파이프라인 데이터 세트와 같이 Azure ML에서 생성된 데이터 세트가 포함됩니다. 그러나 두 작업 영역이 모두 액세스할 수 있거나 기본 데이터 스토리지가 복제된 공유 파일 위치를 참조하는 데이터 세트는 두 작업 영역에 모두 등록할 수 있습니다. [az ml dataset register](/cli/azure/ml(v1)/dataset#ext_azure_cli_ml_az_ml_dataset_register)를 사용하여 데이터 세트를 등록합니다.
 > * __실행 출력__ 은 작업 영역과 연결된 기본 스토리지 계정에 저장됩니다. 서비스 중단 시 스튜디오 UI에서는 실행 출력에 액세스할 수 없지만 스토리지 계정을 통해 데이터에 직접 액세스할 수 있습니다. Blob에 저장된 데이터를 사용하는 방법에 관한 자세한 내용은 [Azure CLI를 사용하여 Blob 생성, 다운로드 및 나열](../storage/blobs/storage-quickstart-blobs-cli.md)을 참조하세요.
+
+## <a name="recovery-options"></a>복구 옵션
+
+### <a name="workspace-deletion"></a>작업 영역 삭제
+
+작업 영역을 실수로 삭제 한 경우에는 현재 복구할 수 없습니다. 그러나 다음 단계를 수행 하는 경우 해당 저장소에서 기존 전자 필기장을 검색할 수 있습니다.
+* [Azure Portal](https://portal.azure.com) 에서 삭제 된 Azure Machine Learning 작업 영역에 연결 된 저장소 계정으로 이동 합니다.
+* 왼쪽의 데이터 저장소 섹션에서 **파일 공유** 를 클릭 합니다.
+* 전자 필기장은 작업 영역 ID를 포함 하는 이름을 사용 하 여 파일 공유에 있습니다. 
+
+![참조 전자 필기장 파일 공유](./media/how-to-high-availability-machine-learning/notebook-file-share.png)
+
 ## <a name="next-steps"></a>다음 단계
 
 고가용성 설정을 사용하여 연결된 리소스와 함께 Azure Machine Learning을 배포하려면 [Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/)을 사용합니다.

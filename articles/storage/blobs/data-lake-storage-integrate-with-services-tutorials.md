@@ -7,12 +7,12 @@ ms.author: normesta
 ms.date: 10/06/2021
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 1c1849117b2e27198d7fb0c76590cb1cf14f0891
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: e25a4210e41505d6b8af2c5c530bdb806609f3db
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129619353"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131013539"
 ---
 # <a name="tutorials-that-use-azure-services-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2와 함께 Azure 서비스를 사용 하는 자습서
 
@@ -23,7 +23,7 @@ ms.locfileid: "129619353"
 | Azure 서비스 | 단계별 가이드 |
 |---------------|-------------------|
 | Azure Synapse Analytics | [Azure Synapse Analytics 시작](../../synapse-analytics/get-started.md) |
-| Azure 데이터 팩터리 | [Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2에 데이터 로드](../../data-factory/load-azure-data-lake-storage-gen2.md) |
+| Azure Data Factory | [Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2에 데이터 로드](../../data-factory/load-azure-data-lake-storage-gen2.md) |
 | Azure Databricks | [Azure Databricks와 함께 사용](https://docs.azuredatabricks.net/data/data-sources/azure/azure-datalake-gen2.html) |
 | Azure Databricks | [Azure Databricks를 사용하여 데이터 추출, 변환 및 로드](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse) |
 | Azure Databricks | [Spark를 사용하여 Azure Databricks로 Data Lake Storage Gen2 데이터에 액세스](data-lake-storage-use-databricks-spark.md)|
@@ -37,8 +37,8 @@ ms.locfileid: "129619353"
 | Azure Cognitive Search | [Azure Data Lake Storage Gen2 문서 인덱스 및 검색(미리 보기)](../../search/search-howto-index-azure-data-lake-storage.md) |
 
 > [!NOTE]
-> 이 표에는 Data Lake Storage Gen2을 지 원하는 Azure 서비스의 전체 목록이 반영 되지 않습니다. 지원 되는 azure 서비스의 목록을 보려면 지원 되는 azure 서비스 목록을 보려면 [Azure Data Lake Storage Gen2를 지 원하는 azure 서비스](data-lake-storage-supported-azure-services.md)를 참조 하세요. 수집, 다운로드, 처리 및 시각화와 같은 범주로 서비스를 구성 하는 방법을 보려면 [수집, 처리 및 분석](data-lake-storage-data-scenarios.md#ingest-process-and-analyze)을 참조 하세요.
+> 이 표에는 Data Lake Storage Gen2을 지 원하는 Azure 서비스의 전체 목록이 반영 되지 않습니다. 지원 되는 azure 서비스의 목록을 보려면 지원 되는 azure 서비스 목록을 보려면 [Azure Data Lake Storage Gen2를 지 원하는 azure 서비스](data-lake-storage-supported-azure-services.md)를 참조 하세요. 수집, 다운로드, 처리 및 시각화와 같은 범주로 서비스를 구성 하는 방법을 보려면 [수집, 처리 및 분석](./data-lake-storage-best-practices.md#ingest-process-and-analyze)을 참조 하세요.
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 [Azure Data Lake Storage Gen2 사용에 대한 모범 사례](data-lake-storage-best-practices.md)

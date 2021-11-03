@@ -1,23 +1,23 @@
 ---
-title: Azure에서 Windows VM의 OS 드라이브 확장
-description: Resource Manager 배포 모델에서 Azure PowerShell을 사용하여 가상 머신의 OS 드라이브 크기를 확장합니다.
+title: Azure에서 Windows VM에 연결된 가상 하드 디스크 확장
+description: Resource Manager 배포 모델에서 Azure PowerShell 사용하여 가상 머신에 연결된 가상 하드 디스크의 크기를 확장합니다.
 author: kirpasingh
 manager: roshar
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 11/02/2021
 ms.author: kirpas
 ms.subservice: disks
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fbc7a6df9dfdd50315176db343c6c94aaefbba12
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.custom: devx-track-azurepowershell, ignite-fall-2021
+ms.openlocfilehash: 4588627fdfe64c4ba005b6b3c7defadd5994e3d6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122692482"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046568"
 ---
-# <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>가상 머신의 OS 드라이브 확장 방법
+# <a name="how-to-expand-virtual-hard-disks-attached-to-a-windows-virtual-machine"></a>Windows 가상 머신에 연결된 가상 하드 디스크를 확장하는 방법
 
 **적용 대상:** :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 
 
@@ -33,23 +33,51 @@ ms.locfileid: "122692482"
 > 
 > 디스크를 확장한 후 더 큰 디스크를 활용하려면 [OS 내에서 볼륨](#expand-the-volume-within-the-os)을 확장해야 합니다.
 
+## <a name="resize-without-downtime-preview"></a>가동 중지 시간 없이 크기 조정(미리 보기)
+
+이제 VM 할당을 할당하지 않고 관리 디스크의 크기를 변경할 수 있습니다.
+
+이에 대한 미리 보기에는 다음과 같은 제한이 있습니다.
+
+- 현재 미국 중서부에서만 사용할 수 있습니다.
+
+- 데이터 디스크에 대해서만 지원됩니다.
+- 4 TiB보다 작은 디스크는 가동 중지 시간 없이 4 TiB 이상으로 확장할 수 없습니다.
+    - 디스크 크기를 4 TiB 이상으로 늘리면 가동 중지 시간 없이 확장할 수 있습니다.
+- [최신 Azure CLI, 최신 Azure PowerShell](/cli/azure/install-azure-cli) [모듈, 를](/powershell/azure/install-az-ps)통해 액세스하는 경우 Azure Portal 또는 [https://aka.ms/iaasexp/DiskLiveResize](https://aka.ms/iaasexp/DiskLiveResize) API 버전이 2021-04-01 이상인 Azure Resource Manager 템플릿을 설치하고 사용해야 합니다.
+
+기능에 등록하려면 다음 명령을 사용합니다.
+
+```azurepowershell
+Register-AzProviderFeature -FeatureName "LiveResize" -ProviderNamespace "Microsoft.Compute"
+```
+
+등록을 완료하는 데 몇 분 정도 걸릴 수 있습니다. 등록했는지 확인하려면 다음 명령을 사용합니다.
+
+```azurepowershell
+Register-AzProviderFeature -FeatureName "LiveResize" -ProviderNamespace "Microsoft.Compute"
+```
+
 ## <a name="resize-a-managed-disk-in-the-azure-portal"></a>Azure Portal에서 관리 디스크 크기 조정
 
-1. [Azure Portal](https://portal.azure.com)에서 디스크를 확장할 가상 머신으로 이동합니다. **중지** 를 선택하여 VM의 할당을 취소합니다.
-2. VM이 중지되면 **설정** 아래의 왼쪽 메뉴에서 **디스크** 를 선택합니다.
+> [!IMPORTANT]
+> **LiveResize를** 사용하도록 설정했고 디스크가 [가동 중지 시간 없이 크기 조정(미리 보기)의](#resize-without-downtime-preview)요구 사항을 충족하는 경우 1단계를 건너뛸 수 있습니다. Azure Portal 가동 중지 시간 없이 디스크 크기를 조정하려면 다음 링크를 사용해야 합니다. [https://aka.ms/iaasexp/DiskLiveResize](https://aka.ms/iaasexp/DiskLiveResize)
+
+1. [Azure Portal](https://aka.ms/iaasexp/DiskLiveResize)에서 디스크를 확장할 가상 머신으로 이동합니다. **중지** 를 선택하여 VM의 할당을 취소합니다.
+1. 왼쪽 메뉴에서 **설정** **디스크를** 선택합니다.
 
     :::image type="content" source="./media/expand-os-disk/select-disks.png" alt-text="메뉴의 설정 섹션에서 선택한 디스크 옵션을 보여주는 스크린샷입니다":::
 
  
-3. **디스크 이름** 에서 크기를 조정할 디스크를 선택합니다.
+1. **디스크 이름** 에서 크기를 조정할 디스크를 선택합니다.
 
     :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="디스크 이름이 선택된 디스크 창을 보여주는 스크린샷입니다.":::
 
-4. 왼쪽 메뉴의 **설정** 아래에서 **크기 + 성능** 을 선택합니다.
+1. 왼쪽 메뉴의 **설정** 아래에서 **크기 + 성능** 을 선택합니다.
 
     :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="메뉴의 설정 섹션에서 선택한 크기 및 성능 옵션을 보여주는 스크린샷입니다.":::
 
-5. **크기 + 성능** 에서 원하는 디스크 크기를 선택합니다.
+1. **크기 + 성능** 에서 원하는 디스크 크기를 선택합니다.
    
    > [!WARNING]
    > 새 크기가 기존 디스크 크기보다 커야 합니다. OS 디스크에 허용되는 최대 크기는 4,095GB입니다. (VHD Blob은 이 크기 이상으로 확장할 수 있지만, OS가 처음 4,095GB의 공간에서만 작동됩니다.)
@@ -57,7 +85,7 @@ ms.locfileid: "122692482"
 
     :::image type="content" source="./media/expand-os-disk/size.png" alt-text="디스크 크기가 선택된 크기 및 성능 창을 보여주는 스크린샷입니다.":::
 
-6. 페이지 하단에서 **크기 조정** 을 선택합니다.
+1. 페이지 하단에서 **크기 조정** 을 선택합니다.
 
     :::image type="content" source="./media/expand-os-disk/save.png" alt-text="크기 조정 단추가 선택된 크기 및 성능 창을 보여주는 스크린샷입니다.":::
 
@@ -73,26 +101,29 @@ ms.locfileid: "122692482"
     Select-AzSubscription –SubscriptionName 'my-subscription-name'
     ```
 
-2. 리소스 그룹 이름 및 VM 이름을 설정합니다.
+1. 리소스 그룹 이름 및 VM 이름을 설정합니다.
    
     ```powershell
     $rgName = 'my-resource-group-name'
     $vmName = 'my-vm-name'
     ```
 
-3. VM에 대한 참조를 얻습니다.
+1. VM에 대한 참조를 얻습니다.
    
     ```powershell
     $vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
     ```
 
-4. VM을 중지한 후 디스크의 크기를 조정합니다.
+    > [!IMPORTANT]
+    > **LiveResize를** 사용하도록 설정했고 디스크가 [가동 중지 시간 없이 크기 조정(미리 보기)의](#resize-without-downtime-preview)요구 사항을 충족하는 경우 4단계와 6단계를 건너뛸 수 있습니다.
+
+1. VM을 중지한 후 디스크의 크기를 조정합니다.
    
     ```powershell
     Stop-AzVM -ResourceGroupName $rgName -Name $vmName
     ```
 
-5. 관리되는 OS 디스크에 대한 참조를 가져옵니다. 관리되는 OS 디스크의 크기를 원하는 값으로 설정하고 디스크를 업데이트합니다.
+1. 관리되는 OS 디스크에 대한 참조를 가져옵니다. 관리되는 OS 디스크의 크기를 원하는 값으로 설정하고 디스크를 업데이트합니다.
    
     ```powershell
     $disk= Get-AzDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.OsDisk.Name
@@ -103,7 +134,7 @@ ms.locfileid: "122692482"
     > 새 크기가 기존 디스크 크기보다 커야 합니다. OS 디스크에 허용되는 최대 크기는 4,095GB입니다. (VHD Blob은 이 크기 이상으로 확장할 수 있지만, OS가 처음 4,095GB의 공간에서만 작동됩니다.)
     > 
          
-6. VM이 업데이트될 때까지 몇 초 정도 걸릴 수 있습니다. 명령 실행이 완료되면 VM을 다시 시작합니다.
+1. VM이 업데이트될 때까지 몇 초 정도 걸릴 수 있습니다. 명령 실행이 완료되면 VM을 다시 시작합니다.
    
     ```powershell
     Start-AzVM -ResourceGroupName $rgName -Name $vmName
@@ -122,26 +153,26 @@ ms.locfileid: "122692482"
     Select-AzSubscription –SubscriptionName 'my-subscription-name'
     ```
 
-2. 리소스 그룹 이름 및 VM 이름을 설정합니다.
+1. 리소스 그룹 이름 및 VM 이름을 설정합니다.
    
     ```powershell
     $rgName = 'my-resource-group-name'
     $vmName = 'my-vm-name'
     ```
 
-3. VM에 대한 참조를 얻습니다.
+1. VM에 대한 참조를 얻습니다.
    
     ```powershell
     $vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
     ```
 
-4. VM을 중지한 후 디스크의 크기를 조정합니다.
+1. VM을 중지한 후 디스크의 크기를 조정합니다.
    
     ```powershell
     Stop-AzVM -ResourceGroupName $rgName -Name $vmName
     ```
 
-5. 관리되지 않는 OS 디스크의 크기를 원하는 값으로 설정하고 VM을 업데이트합니다.
+1. 관리되지 않는 OS 디스크의 크기를 원하는 값으로 설정하고 VM을 업데이트합니다.
    
     ```powershell
     $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
@@ -153,7 +184,7 @@ ms.locfileid: "122692482"
     > 
     > 
    
-6. VM이 업데이트될 때까지 몇 초 정도 걸릴 수 있습니다. 명령 실행이 완료되면 VM을 다시 시작합니다.
+1. VM이 업데이트될 때까지 몇 초 정도 걸릴 수 있습니다. 명령 실행이 완료되면 VM을 다시 시작합니다.
    
     ```powershell
     Start-AzVM -ResourceGroupName $rgName -Name $vmName
@@ -232,13 +263,13 @@ VM의 디스크를 확장한 후에는 OS로 이동하고 볼륨을 확장하여
 
 1. VM에 대한 RDP 연결을 엽니다.
 
-2. 명령 프롬프트를 열고 **diskpart** 를 입력합니다.
+1. 명령 프롬프트를 열고 **diskpart** 를 입력합니다.
 
-3. **DISKPART** 프롬프트에 `list volume`를 입력합니다. 확장할 볼륨을 기록해 둡니다.
+1. **DISKPART** 프롬프트에 `list volume`를 입력합니다. 확장할 볼륨을 기록해 둡니다.
 
-4. **DISKPART** 프롬프트에 `select volume <volumenumber>`를 입력합니다. 동일한 디스크의 인접한 빈 공간으로 확장하려는 볼륨 *volumenumber* 가 선택됩니다.
+1. **DISKPART** 프롬프트에 `select volume <volumenumber>`를 입력합니다. 동일한 디스크의 인접한 빈 공간으로 확장하려는 볼륨 *volumenumber* 가 선택됩니다.
 
-5. **DISKPART** 프롬프트에 `extend [size=<size>]`를 입력합니다. 선택된 볼륨이 *size*(MB)만큼 확장됩니다.
+1. **DISKPART** 프롬프트에 `extend [size=<size>]`를 입력합니다. 선택된 볼륨이 *size*(MB)만큼 확장됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계

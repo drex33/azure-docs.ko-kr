@@ -4,13 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/07/2020
 ms.author: v-jawe
-ms.custom: references_regions
-ms.openlocfilehash: a651fe0ddb25fb44de518c794264133f16879982
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.custom: references_regions, ignite-fall-2021
+ms.openlocfilehash: 6b167c24aeaa5acc97f1c071d7b0ae8f5c0cbc71
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129378094"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069157"
 ---
 이 빠른 시작에서는 다음을 포함하여 Speech SDK를 사용하는 Speaker Recognition에 대한 기본적인 디자인 패턴을 알아봅니다.
 
@@ -18,11 +18,11 @@ ms.locfileid: "129378094"
 * 음성 그룹 간의 음성 샘플을 식별하는 화자 식별
 * 음성 프로필 삭제
 
-음성 인식 개념에 대한 간략한 설명은 [개요](../../../speaker-recognition-overview.md) 문서를 참조하세요.
+Speaker Recognition 개념에 대한 간략한 설명은 [개요](../../../speaker-recognition-overview.md) 문서를 참조하세요. 지원되는 플랫폼 목록은 왼쪽 탐색의 참조 노드를 참조하세요.
 
 ## <a name="skip-to-samples-on-github"></a>GitHub의 샘플로 건너뛰기
 
-샘플 코드로 바로 건너뛰려면 GitHub의 [JavaScript 빠른 시작 샘플](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/fa6428a0837779cbeae172688e0286625e340942/quickstart/javascript/node/speaker-recognition)을 참조하세요.
+샘플 코드로 바로 건너뛰려면 GitHub의 [JavaScript 빠른 시작 샘플](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition)을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

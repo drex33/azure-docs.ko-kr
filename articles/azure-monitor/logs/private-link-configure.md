@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 08/01/2021
-ms.openlocfilehash: 9f0b1a3f51a5eae7b10ed74880c8abe1c92aae7a
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 99e8830b1b4b667d68bb8db1243d1c0ddaeab15a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129278997"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131006775"
 ---
 # <a name="configure-your-private-link"></a>Private Link 구성
 Private Link를 구성하려면 몇 가지 단계가 필요합니다. 
@@ -99,7 +99,7 @@ Azure Portal로 이동합니다. 리소스 메뉴의 왼쪽에는 **네트워크
 
 
 > [!NOTE]
-> 2021 9 월부터 네트워크 격리가 엄격 하 게 적용 됩니다. 공용 네트워크의 쿼리를 차단하도록 설정된 리소스와 개인 네트워크(AMPLS를 통해)에 연결되지 않은 리소스는 모든 네트워크의 쿼리 수락을 중지합니다.
+> 2021년 9월부터 네트워크 격리가 엄격하게 적용됩니다. 공용 네트워크의 쿼리를 차단하도록 설정된 리소스와 개인 네트워크(AMPLS를 통해)에 연결되지 않은 리소스는 모든 네트워크의 쿼리 수락을 중지합니다.
 
 ![LA 네트워크 격리](./media/private-link-security/ampls-network-isolation.png)
 
@@ -303,5 +303,5 @@ $scope | Set-AzResource -Force
 
 ## <a name="next-steps"></a>다음 단계
 
-- [개인 스토리지](private-storage.md)에 대한 자세한 정보
+- 사용자 지정 로그 및 CMK (고객 관리 키)의 [개인 저장소](private-storage.md) 에 대해 알아보기
 - [Private Link 자동화](../../automation/how-to/private-link-security.md)에 대해 자세히 알아보기:

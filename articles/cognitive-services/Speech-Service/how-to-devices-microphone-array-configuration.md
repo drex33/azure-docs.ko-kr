@@ -10,18 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: wellsi
-ms.openlocfilehash: cf0580c96f5bf78f0444b2bb39088f2a417fd658
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 6fe1739006f3f5b9943076c917cc2e3ef5dc2efa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95025064"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024565"
 ---
 # <a name="how-to-configure-a-microphone-array"></a>마이크 배열을 구성하는 방법
 
-이 문서에서는 [마이크 배열](./speech-devices-sdk-microphone.md)을 구성하는 방법에 대해 알아봅니다. 여기에는 작동 각도 설정과 Speech Devices SDK에 사용되는 마이크를 선택하는 방법이 포함됩니다.
+이 문서에서는 [마이크 배열](./speech-sdk-microphone.md)을 구성하는 방법에 대해 알아봅니다. 여기에는 작동 각도 설정과 Speech Devices SDK에 사용되는 마이크를 선택하는 방법이 포함됩니다.
 
-Speech Devices SDK는 [지침](./speech-devices-sdk-microphone.md)에 따라 디자인된 마이크 배열에서 가장 잘 작동합니다. 마이크 배열 구성은 운영 체제에서 제공하거나 다음 방법 중 하나를 통해 제공할 수 있습니다.
+Speech Devices SDK는 [지침](./speech-sdk-microphone.md)에 따라 디자인된 마이크 배열에서 가장 잘 작동합니다. 마이크 배열 구성은 운영 체제에서 제공하거나 다음 방법 중 하나를 통해 제공할 수 있습니다.
 
 Speech Devices SDK는 처음에 고정된 구성 집합에서 선택하여 마이크 배열을 지원했습니다.
 

@@ -2,18 +2,18 @@
 title: Azure NAT Gateway를 사용하여 SNAT 포트 스케일링
 description: Azure Firewall을 NAT Gateway와 통합하여 SNAT 포트를 늘릴 수 있습니다.
 services: firewall
-author: jocortems
+author: KumudD
 ms.service: firewall
 ms.topic: how-to
 ms.date: 04/23/2021
-ms.author: jocorte
+ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2070ab097407e377df123260965d7066512c1153
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 2fa0bef35d6bbc76f30ca1f0dde3199780743a14
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130228754"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044934"
 ---
 # <a name="scale-snat-ports-with-azure-nat-gateway"></a>Azure NAT Gateway를 사용하여 SNAT 포트 스케일링
 

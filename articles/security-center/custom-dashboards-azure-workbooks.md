@@ -1,26 +1,29 @@
 ---
-title: Azure Security Center의 통합 문서 갤러리
-description: 통합된 Azure Monitor 통합 문서 갤러리를 사용하여 Azure Security Center 데이터에 대한 풍부한 대화형 보고서를 만드는 방법을 알아봅니다.
+title: Microsoft Defender for Cloud의 통합 문서 갤러리
+description: 통합 Azure Monitor 통합 문서 갤러리를 사용하여 Microsoft Defender for Cloud 데이터의 풍부한 대화형 보고서를 만드는 방법을 알아봅니다.
 author: memildin
 ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 07/07/2021
-ms.openlocfilehash: dda75aedab0c17f14d2725ff9759d7ab30203474
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.date: 10/18/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: a54517057c6ffb7915c58cf6bfa0b328037c7dcc
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129712930"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131010208"
 ---
-# <a name="create-rich-interactive-reports-of-security-center-data"></a>Security Center 데이터에 대한 풍부한 대화형 보고서 만들기
+# <a name="create-rich-interactive-reports-of-defender-for-cloud-data"></a>클라우드용 Defender 데이터의 풍부한 대화형 보고서 만들기
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [Azure Monitor 통합 문서](../azure-monitor/visualize/workbooks-overview.md)는 Azure Portal 내에서 데이터를 분석하고 풍부한 시각적 보고서를 생성할 수 있는 유연한 캔버스를 제공합니다. 이를 통해 Azure에서 여러 데이터 원본을 탭하여 통합된 대화형 환경으로 결합할 수 있습니다.
 
 통합 문서는 Azure 데이터 시각화를 위한 풍부한 기능 집합을 제공합니다. 각 시각화 형식에 대한 자세한 예제는 [시각화 예제 및 설명서](../azure-monitor/visualize/workbooks-text-visualizations.md)를 참조하세요. 
 
-Azure Security Center 내에서 기본 제공 통합 문서에 액세스하여 조직의 보안 상태를 추적할 수 있습니다. 또한 사용자 지정 통합 문서를 빌드하여 Security Center 또는 지원되는 다른 데이터 원본에서 광범위한 데이터를 볼 수 있습니다.
+Microsoft Defender for Cloud 내에서 기본 제공 통합 문서에 액세스하여 조직의 보안 태세를 추적할 수 있습니다. 사용자 지정 통합 문서를 빌드하여 Defender for Cloud 또는 기타 지원되는 데이터 원본에서 광범위한 데이터를 볼 수도 있습니다.
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-snip.png" alt-text="시간 경과에 따른 보안 점수 통합 문서.":::
 
@@ -34,16 +37,16 @@ Azure Security Center 내에서 기본 제공 통합 문서에 액세스하여 �
 | 클라우드:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: 국가/소버린(Azure Government, Azure 중국 21Vianet) |
 |                                 |                                                                                                                                              |
 
-## <a name="workbooks-gallery-in-azure-security-center"></a>Azure Security Center의 통합 문서 갤러리
+## <a name="workbooks-gallery-in-microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud의 통합 문서 갤러리
 
-통합된 Azure 통합 문서 기능을 사용하여 Azure Security Center를 통해 사용자 지정 대화형 통합 문서를 쉽게 빌드할 수 있습니다. 또한 Security Center에는 사용자 지정에 사용할 수 있는 다음 통합 문서를 포함하는 갤러리가 포함되어 있습니다.
+통합된 Azure 통합 문서 기능을 통해 Microsoft Defender for Cloud를 사용하면 사용자 지정 대화형 통합 문서를 간편하게 빌드할 수 있습니다. Defender for Cloud에는 사용자 지정이 준비된 다음 통합 문서가 있는 갤러리도 포함되어 있습니다.
 
 - [‘시간 경과에 따른 보안 점수’ 통합 문서](#use-the-secure-score-over-time-workbook) - 구독의 점수와 리소스에 대한 권장 사항의 변경 내용 추적
 - [‘시스템 업데이트’ 통합 문서](#use-the-system-updates-workbook) - 리소스, OS, 심각도 등에 따라 누락된 시스템 업데이트 보기
 - [‘취약성 평가 결과’ 통합 문서](#use-the-vulnerability-assessment-findings-workbook) - Azure 리소스의 취약성 검사 결과 보기
 - [‘시간에 따른 규정 준수’ 통합 문서](#use-the-compliance-over-time-workbook) - 선택한 규정 또는 산업 표준을 준수하는 구독의 상태 보기 
 
-:::image type="content" source="media/custom-dashboards-azure-workbooks/workbooks-gallery-security-center.png" alt-text="Azure Security Center의 기본 제공 통합 문서 갤러리":::
+:::image type="content" source="media/custom-dashboards-azure-workbooks/workbooks-gallery-security-center.png" alt-text="Microsoft Defender for Cloud의 기본 제공 통합 문서 갤러리입니다.":::
 
 제공된 통합 문서 중 하나를 선택하거나 직접 만듭니다.
 
@@ -54,7 +57,7 @@ Azure Security Center 내에서 기본 제공 통합 문서에 액세스하여 �
 
 ### <a name="use-the-secure-score-over-time-workbook"></a>‘시간 경과에 따른 보안 점수’ 통합 문서 사용
 
-이 통합 문서는 Log Analytics 작업 영역의 보안 점수 데이터를 사용합니다. [Azure Portal의 Security Center 페이지에서 연속 내보내기 구성](continuous-export.md?tabs=azure-portal)에 설명된 대로 연속 내보내기 도구에서 해당 데이터를 내보내야 합니다.
+이 통합 문서는 Log Analytics 작업 영역의 보안 점수 데이터를 사용합니다. 해당 데이터는 Azure Portal Defender for Cloud 페이지에서 연속 내보내기 구성에 설명된 대로 [연속 내보내기 도구에서 내보내야](continuous-export.md?tabs=azure-portal)합니다.
 
 연속 내보내기를 설정할 때 **스트리밍 업데이트** 및 **스냅샷** 으로 내보내기 빈도를 설정합니다.
 
@@ -73,8 +76,9 @@ Azure Security Center 내에서 기본 제공 통합 문서에 액세스하여 �
 |**지난 주 및 월의 점수 추세**<br>이 섹션을 사용하여 구독의 점수에 대한 현재 점수와 일반적인 추세를 모니터링합니다.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-1.png" alt-text="기본 제공 통합 문서의 보안 점수 추세":::|
 |**선택한 모든 구독에 대한 집계 점수**<br>선택한 시간 범위에서 임의의 날짜에 집계된 점수를 확인하려면 추세 선에서 임의의 지점 위로 마우스를 가져갑니다.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-2.png" alt-text="선택한 모든 구독에 대한 집계 점수":::|
 |**비정상 리소스의 권장 사항**<br>이 표에서는 선택한 기간 동안 비정상으로 변경된 대부분의 리소스를 가진 권장 사항을 심사하는 데 도움이 됩니다.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-3.png" alt-text="비정상 리소스의 권장 사항":::|
-|**특정 보안 컨트롤의 점수**<br>Security Center의 보안 컨트롤은 권장 구성의 논리적 그룹화입니다. 이 차트에서는 모든 컨트롤의 주간 점수를 한눈에 보여 줍니다.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-4.png" alt-text="선택한 기간 동안 보안 컨트롤의 점수":::|
+|**특정 보안 컨트롤의 점수**<br>Defender for Cloud의 보안 제어는 권장 사항의 논리적 그룹화입니다. 이 차트에서는 모든 컨트롤의 주간 점수를 한눈에 보여 줍니다.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-4.png" alt-text="선택한 기간 동안 보안 컨트롤의 점수":::|
 |**리소스 변경**<br>선택한 기간 동안 변경된 상태(정상, 비정상 또는 적용되지 않음)가 있는 대부분의 리소스에 대한 권장 사항이 여기에 나열됩니다. 목록에서 권장 사항을 선택하면 특정 리소스를 나열하는 새 테이블이 열립니다.|:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-table-5.png" alt-text="상태가 변경된 대부분의 리소스에 대한 권장 사항":::|
+|||
 
 ### <a name="use-the-system-updates-workbook"></a>‘시스템 업데이트’ 통합 문서 사용
 
@@ -87,33 +91,34 @@ Azure Security Center 내에서 기본 제공 통합 문서에 액세스하여 �
 - 미해결 업데이트가 포함된 리소스 목록
 - 리소스에서 누락된 업데이트 목록
 
-:::image type="content" source="media/custom-dashboards-azure-workbooks/system-updates-report.png" alt-text="누락된 업데이트 보안 권장 사항을 기반으로 하는 Security Center의 시스템 업데이트 통합 문서":::
+:::image type="content" source="media/custom-dashboards-azure-workbooks/system-updates-report.png" alt-text="Defender for Cloud 시스템은 누락된 업데이트 보안 권장 사항에 따라 통합 문서를 업데이트합니다.":::
 
 ### <a name="use-the-vulnerability-assessment-findings-workbook"></a>‘취약성 평가 결과’ 통합 문서 사용
 
-Security Center에는 머신에 대한 취약성 스캐너, 컨테이너 레지스트리의 컨테이너 및 SQL 서버가 포함됩니다.
+Defender for Cloud에는 머신, 컨테이너 레지스트리의 컨테이너 및 SQL 서버에 대한 취약성 스캐너가 포함되어 있습니다.
 
 이러한 스캐너 사용에 대해 자세히 알아봅니다.
 
-- [통합 Qualys 스캐너로 머신 검사](deploy-vulnerability-assessment-vm.md)
+- [Microsoft 위협 및 취약성 관리 사용하여 취약성 찾기](deploy-vulnerability-assessment-tvm.md)
+- [통합 Qualys 스캐너를 통해 취약성 찾기](deploy-vulnerability-assessment-vm.md)
 - [취약성에 대한 레지스트리 이미지 스캔](defender-for-container-registries-usage.md)
 - [SQL 리소스에서 취약성 검색](defender-for-sql-on-machines-vulnerability-assessment.md)
 
-이러한 각 스캐너에 대한 결과는 별도의 권장 사항으로 보고됩니다.
+각 리소스 종류에 대한 결과는 별도의 권장 사항으로 보고됩니다.
 
-- 가상 머신의 취약성을 수정해야 함
-- Azure Container Registry 이미지의 취약성을 수정해야 함(Qualys 제공)
-- SQL 데이터베이스에 대한 취약성 평가 결과를 수정해야 함
-- 머신의 SQL 서버에 대한 취약성 평가 결과를 수정해야 함
+- [가상 머신의 취약성을 수정해야 합니다(Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1195afff-c881-495e-9bc5-1486211ae03f) 위협 및 취약성 관리 결과, 통합 Qualys 스캐너 및 구성된 [BYOL VA 솔루션](deploy-vulnerability-assessment-byol-vm.md)포함).
+- [Azure Container Registry 이미지의 취약성을 수정해야 함(Qualys 제공)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dbd0cb49-b563-45e7-9724-889e799fa648)
+- [SQL 데이터베이스가 발견한 취약성을 해결해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/82e20e14-edc5-4373-bfc4-f13121257c37)
+- [컴퓨터의 SQL Server는 발견한 취약성을 해결해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f97aa83c-9b63-4f9a-99f6-b22c4398f936)
 
 이 통합 문서는 이러한 결과를 수집하고 심각도, 리소스 종류, 범주별로 구성합니다.
 
-:::image type="content" source="media/custom-dashboards-azure-workbooks/vulnerability-assessment-findings-report.png" alt-text="Security Center의 취약성 평가 결과 보고서":::
+:::image type="content" source="media/custom-dashboards-azure-workbooks/vulnerability-assessment-findings-report.png" alt-text="Defender for Cloud의 취약성 평가 결과 보고서":::
 
 
 ### <a name="use-the-compliance-over-time-workbook"></a>‘시간에 따른 규정 준수’ 통합 문서 사용
 
-Azure Security Center는 리소스 구성을 업계 표준, 규정 및 벤치마크의 요구 사항과 지속적으로 비교합니다. 기본 제공 표준에는 NIST SP 800-53, SWIFT CSP CSCF v2020, 캐나다 연방 PBMM, HIPAA HITRUST 등이 포함됩니다. 규정 준수 대시보드를 사용하여 조직과 관련된 특정 표준을 선택할 수 있습니다. [규정 준수 대시보드의 표준 집합 사용자 지정](update-regulatory-compliance-packages.md)에서 자세히 알아보세요.
+Microsoft Defender for Cloud는 리소스 구성을 업계 표준, 규정 및 벤치마크의 요구 사항과 지속적으로 비교합니다. 기본 제공 표준에는 NIST SP 800-53, SWIFT CSP CSCF v2020, 캐나다 연방 PBMM, HIPAA HITRUST 등이 포함됩니다. 규정 준수 대시보드를 사용하여 조직과 관련된 특정 표준을 선택할 수 있습니다. [규정 준수 대시보드의 표준 집합 사용자 지정](update-regulatory-compliance-packages.md)에서 자세히 알아보세요.
 
 이 통합 문서를 사용하면 대시보드에 추가한 다양한 표준을 사용하여 시간에 따른 규정 준수 상태를 추적할 수 있습니다.
 
@@ -133,7 +138,7 @@ Azure Security Center는 리소스 구성을 업계 표준, 규정 및 벤치마
 
 ## <a name="import-workbooks-from-other-workbook-galleries"></a>다른 통합 문서 갤러리에서 통합 문서 가져오기
 
-다른 Azure 서비스에서 통합 문서를 빌드하고 Azure Security Center 통합 문서 갤러리로 이동하려면 다음을 수행합니다.
+다른 Azure 서비스에서 통합 문서를 빌드하고 이를 Microsoft Defender for Cloud 통합 문서 갤러리로 이동하려는 경우:
 
 1. 대상 통합 문서를 엽니다.
 
@@ -147,13 +152,13 @@ Azure Security Center는 리소스 구성을 업계 표준, 규정 및 벤치마
 
 1. 통합 문서의 갤러리 템플릿 JSON을 복사합니다.
 
-1. Security Center에서 통합 문서 갤러리를 열고 메뉴 모음에서 **새로 만들기** 를 선택합니다.
+1. 클라우드 용 Defender에서 통합 문서 갤러리를 열고 메뉴 모음에서 **새로 만들기** 를 선택 합니다.
 1. **</>** 를 선택하여 고급 편집기를 입력합니다.
 1. 전체 갤러리 템플릿 JSON에 붙여 넣습니다.
 1. **적용** 을 선택합니다.
 1. 도구 모음에서 **다른 이름으로 저장** 을 선택합니다.
 
-    :::image type="content" source="media/custom-dashboards-azure-workbooks/editing-workbooks-save-as.png" alt-text="Security Center의 갤러리에 통합 문서 저장":::
+    :::image type="content" source="media/custom-dashboards-azure-workbooks/editing-workbooks-save-as.png" alt-text="클라우드 용 Defender의 갤러리에 통합 문서를 저장 합니다.":::
 
 1. 통합 문서를 저장하는 데 필요한 세부 정보를 입력합니다.
    1. 통합 문서의 이름
@@ -165,7 +170,7 @@ Azure Security Center는 리소스 구성을 업계 표준, 규정 및 벤치마
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 기본 제공 보고서와 사용자 지정 대화형 보고서를 빌드하는 옵션이 있는 Security Center의 통합된 Azure Monitor 통합 문서 페이지에 대해 설명했습니다.
+이 문서에서는 기본 제공 보고서를 사용 하는 클라우드 통합 Azure Monitor 통합 문서 페이지의 Defender와 사용자 지정 대화형 보고서를 작성 하는 옵션에 대해 설명 했습니다.
 
 - [Azure Monitor 통합 문서](../azure-monitor/visualize/workbooks-overview.md)에 대해 자세히 알아봅니다
-- 기본 제공 통합 문서는 Security Center의 권장 사항에서 데이터를 끌어옵니다. [보안 권장 사항 - 참조 가이드](recommendations-reference.md)에서 다양한 보안 권장 사항에 대해 알아봅니다.
+- 기본 제공 통합 문서는 클라우드의 권장 사항에 대 한 데이터를 Defender에서 가져옵니다. [보안 권장 사항 - 참조 가이드](recommendations-reference.md)에서 다양한 보안 권장 사항에 대해 알아봅니다.

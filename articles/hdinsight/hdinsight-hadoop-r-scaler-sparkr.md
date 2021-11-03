@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: dc58b73a317bdab85b63c947f07d2755b96f2fcd
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: 4e2a3cd3dbd8e79d2d672b5b0433926639c5a2fd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112280437"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131070625"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>HDInsight에서 ScaleR과 SparkR 결합
 
@@ -20,8 +20,6 @@ ms.locfileid: "112280437"
 이 문서에서는 **ScaleR** 로지스틱 회귀 모델을 사용하여 항공편 도착 지연을 예측하는 방법을 보여 줍니다. 이 예제에서는 **SparkR** 을 사용하여 연결되는 항공편 지연과 날씨 데이터를 사용합니다.
 
 두 패키지 모두 Apache Hadoop의 Spark 실행 엔진에서 실행되지만 각각 고유한 각 Spark 세션이 필요하므로 메모리 내 데이터 공유에서 차단됩니다. ML Server의 향후 버전에서 이 문제를 해결할 때까지는 겹치지 않는 Spark 세션을 유지하고 중간 파일을 통해 데이터를 교환하는 것이 해결 방법입니다. 아래 지침은 이러한 요구 사항을 간단하게 달성할 수 있음을 보여줍니다.
-
-이 예제는 Mario Inchiosa와 Roni Burd가 Strata 2016에서 나눈 대화에서 처음 공유되었습니다. 이 대화는 [R을 사용하여 확장 가능한 데이터 과학 플랫폼 빌드](https://channel9.msdn.com/blogs/Cloud-and-Enterprise-Premium/Building-A-Scalable-Data-Science-Platform-with-R-and-Hadoop)에서 찾을 수 있습니다.
 
 이 코드는 원래 Azure HDInsight 클러스터의 Spark에서 실행 중인 ML Server용으로 작성된 것입니다. 하지만 하나의 스크립트에서 SparkR과 ScaleR을 혼합하여 사용하는 개념도 온-프레미스 환경의 컨텍스트에서 유효합니다.
 

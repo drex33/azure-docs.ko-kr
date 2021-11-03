@@ -6,14 +6,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 08/30/2021
+ms.date: 10/12/2021
 ms.author: cherylmc
-ms.openlocfilehash: d9f3d2c8f30f3b5d249aae0789a7e2fee282e867
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 9e9504220ac6aa001314c8ebf78bdb11a6cd011a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128677818"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131071594"
 ---
 # <a name="quickstart-configure-azure-bastion-from-vm-settings"></a>빠른 시작: VM 설정에서 Azure Bastion 구성
 
@@ -95,8 +96,8 @@ ms.locfileid: "128677818"
 1. 서브넷이 생성되면 페이지가 자동으로 **3단계** 로 이동합니다. 3단계의 경우 다음 값을 사용합니다.
 
    * **이름**: 베스천 호스트의 이름을 지정합니다.
-   * **계층:** 계층은 SKU입니다. 이 연습의 경우 드롭다운에서 **표준** 을 선택합니다. 표준 SKU를 선택하면 호스트 스케일링 인스턴스 수를 구성할 수 있습니다. 기본 SKU는 호스트 크기 조정을 지원하지 않습니다. 자세한 내용은 [구성 설정 - SKU](configuration-settings.md#skus)를 참조하세요. 표준 SKU는 미리 보기로 제공됩니다.
-   * **인스턴스 수:** 호스트 스케일링 설정입니다. 슬라이더를 사용하여 구성합니다. 기본 계층 SKU를 지정하는 경우 2개의 인스턴스로 제한되며 이 설정을 구성할 수 없습니다. 자세한 내용은 [구성 설정 - 호스트 스케일링](configuration-settings.md#instance)을 참조하세요. 인스턴스 수는 미리 보기로 제공되며 표준 SKU에만 적용됩니다. 이 빠른 시작에서는 모든 배율 단위 [가격 책정](https://azure.microsoft.com/pricing/details/azure-bastion) 고려 사항을 염두에 두고 원하는 인스턴스 수를 선택할 수 있습니다.
+   * **계층:** 계층은 SKU입니다. 이 연습의 경우 드롭다운에서 **표준** 을 선택합니다. 표준 SKU를 선택하면 호스트 스케일링 인스턴스 수를 구성할 수 있습니다. 기본 SKU는 호스트 크기 조정을 지원하지 않습니다. 자세한 내용은 [구성 설정 - SKU](configuration-settings.md#skus)를 참조하세요.
+   * **인스턴스 수:** 호스트 스케일링 설정입니다. 슬라이더를 사용하여 구성합니다. 기본 계층 SKU를 지정하는 경우 2개의 인스턴스로 제한되며 이 설정을 구성할 수 없습니다. 자세한 내용은 [구성 설정 - 호스트 스케일링](configuration-settings.md#instance)을 참조하세요. 인스턴스 수는 표준 SKU에만 적용됩니다. 이 빠른 시작에서는 모든 배율 단위 [가격 책정](https://azure.microsoft.com/pricing/details/azure-bastion) 고려 사항을 염두에 두고 원하는 인스턴스 수를 선택할 수 있습니다.
    * **공용 IP 주소:****새로 만들기** 를 선택합니다.
    * **공용 IP 주소 이름**: 공용 IP 주소 리소스의 이름입니다.
    * **공용 IP 주소 SKU:** **표준** 으로 미리 구성됩니다.

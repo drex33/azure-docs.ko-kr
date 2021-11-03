@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/24/2020
 ms.author: jeedes
-ms.openlocfilehash: c8e79373a4a3823ec616adec4a5c29d782b60913
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 288efa59cfd423baf83d1f15c817381db8033c72
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124747076"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068021"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fortiweb-web-application-firewall"></a>자습서: FortiWeb Web Application Firewall과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -76,13 +76,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
-   a. **식별자(엔터티 ID)** 텍스트 상자에서 `https://www.<CUSTOMER_DOMAIN>.com` 패턴을 사용하는 URL을 입력합니다.
+    1. **식별자(엔터티 ID)** 텍스트 상자에서 `https://www.<CUSTOMER_DOMAIN>.com` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **회신 URL** 텍스트 상자에서 `https://www.<CUSTOMER_DOMAIN>.com/<FORTIWEB_NAME>/saml.sso/SAML2/POST` 패턴을 사용하여 URL을 입력합니다.
+    1. **회신 URL** 텍스트 상자에서 `https://www.<CUSTOMER_DOMAIN>.com/<FORTIWEB_NAME>/saml.sso/SAML2/POST` 패턴을 사용하여 URL을 입력합니다.
 
-    다. **로그온 URL** 텍스트 상자에서 `https://www.<CUSTOMER_DOMAIN>.com` 패턴을 사용하는 URL을 입력합니다.
+    1. **로그온 URL** 텍스트 상자에서 `https://www.<CUSTOMER_DOMAIN>.com` 패턴을 사용하는 URL을 입력합니다.
 
-    d. **로그아웃 URL** 텍스트 상자에 `https://www.<CUSTOMER_DOMAIN>.info/<FORTIWEB_NAME>/saml.sso/SLO/POST` 패턴을 사용하여 URL을 입력합니다.
+    1. **로그아웃 URL** 텍스트 상자에 `https://www.<CUSTOMER_DOMAIN>.info/<FORTIWEB_NAME>/saml.sso/SLO/POST` 패턴을 사용하여 URL을 입력합니다.
  
     > [!NOTE]
     > `<FORTIWEB_NAME>`은 나중에 구성을 FortiWeb에 제공할 때 사용할 이름 식별자입니다.
@@ -91,7 +91,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
-
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 

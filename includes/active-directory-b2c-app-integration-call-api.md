@@ -1,16 +1,16 @@
 ---
-author: msmimart
+author: kengaderdus
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 07/05/2021
-ms.author: mimart
-ms.openlocfilehash: ebc113e993eadc41c2b1c58c9130908727101a6f
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.author: kengaderdus
+ms.openlocfilehash: 9de7912b426d659a03e8a7653c690cb16f83010e
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123227766"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131007798"
 ---
 인증이 완료된 후 사용자는 보호된 웹 API를 호출하는 앱을 조작합니다. 웹 API는 [전달자 토큰](https://datatracker.ietf.org/doc/html/rfc6750) 인증을 사용합니다. 전달자 토큰은 앱이 Azure AD B2C에서 가져온 액세스 토큰입니다. 앱은 HTTPS 요청의 인증 헤더에 토큰을 전달합니다. 
     

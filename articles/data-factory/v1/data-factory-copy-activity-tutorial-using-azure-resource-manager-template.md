@@ -5,16 +5,16 @@ author: linda33wj
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: tutorial
-ms.date: 01/22/2018
+ms.date: 10/22/2021
 ms.author: jingwang
 ms.custom: devx-track-azurepowershell
 robots: noindex
-ms.openlocfilehash: 259a2e2e263f022b4cb91824aba9921f14cc1069
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7fc2c038ea9f0c873979b3863e498611b6642e42
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128614829"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067565"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>자습서: Azure Resource Manager 템플릿을 사용하여 데이터를 복사하는 Data Factory 파이프라인 만들기 
 > [!div class="op_single_selector"]
@@ -313,24 +313,28 @@ Azure Resource Manager 템플릿에 대한 매개 변수를 포함하는 **ADFCo
 
 ## <a name="create-data-factory"></a>데이터 팩터리 만들기
 1. **Azure PowerShell** 을 시작하고 다음 명령을 실행합니다.
+
    * 다음 명령을 실행하고 Azure 포털에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
    
-    ```PowerShell
-    Connect-AzAccount       
-    ```  
+     ```powershell
+     Connect-AzAccount
+     ```
+
    * 다음 명령을 실행하여 이 계정의 모든 구독을 확인합니다.
    
-    ```PowerShell
-    Get-AzSubscription
-    ```   
+     ```powershell
+     Get-AzSubscription
+     ```
+
    * 다음 명령을 실행하여 사용하려는 구독을 선택합니다.
     
-    ```PowerShell
-    Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
-    ```    
+     ```powershell
+     Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
+     ```
+
 2. 1단계에서 만든 Resource Manager 템플릿을 사용하여 데이터 팩터리 엔터티를 배포하려면 다음 명령을 실행합니다.
 
-    ```PowerShell   
+    ```powershell
     New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters.json
     ```
 
@@ -582,17 +586,19 @@ Azure Blob 데이터 세트에서Azure SQL 데이터 세트로 데이터를 복�
 ```
 
 ## <a name="reuse-the-template"></a>템플릿 재사용
-이 자습서에서는 데이터 팩터리 엔터티를 정의하는 템플릿과 매개 변수 값을 전달하는 템플릿을 만들었습니다. 이 파이프라인은 Azure Storage 계정에서 매개 변수를 통해 지정된 Azure SQL Database로 데이터를 복사합니다. 같은 템플릿을 사용하여 데이터 팩터리 엔터티를 다른 환경에 배포하는 데 사용하려면 각 환경에 대한 매개 변수 파일을 만들고 해당 환경에 배포할 때 사용합니다.     
+이 자습서에서는 데이터 팩터리 엔터티를 정의하는 템플릿과 매개 변수 값을 전달하는 템플릿을 만들었습니다. 이 파이프라인은 Azure Storage 계정에서 매개 변수를 통해 지정된 Azure SQL Database로 데이터를 복사합니다. 같은 템플릿을 사용하여 데이터 팩터리 엔터티를 다른 환경에 배포하는 데 사용하려면 각 환경에 대한 매개 변수 파일을 만들고 해당 환경에 배포할 때 사용합니다.
 
-예제:  
+예제:
 
-```PowerShell
+```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Dev.json
 ```
-```PowerShell
+
+```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Test.json
 ```
-```PowerShell
+
+```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Production.json
 ```
 

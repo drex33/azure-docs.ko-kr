@@ -6,15 +6,16 @@ author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 05/07/2020
+ms.date: 11/02/2021
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 392d457ead16d0bcfc057282886669a01e24ff3e
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: c87f8d7b2beaa0ad77e5fa9740910bcdd1a019e5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129730378"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131018871"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 OPENROWSET를 사용하는 방법
 
@@ -82,7 +83,8 @@ OPENROWSET
 OPENROWSET  
 ( { BULK 'unstructured_data_path' , [DATA_SOURCE = <data source name>, ] 
     FORMAT = 'CSV'
-    [ <bulk_options> ] }  
+    [ <bulk_options> ]
+    [ , <reject_options> ] }  
 )  
 WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })  
 [AS] table_alias(column_alias,...n)
@@ -99,6 +101,13 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 [ , DATAFILETYPE = { 'char' | 'widechar' } ]
 [ , CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' } ]
 [ , ROWSET_OPTIONS = '{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}' ]
+
+<reject_options> ::=  
+{  
+    | MAXERRORS = reject_value,  
+    | ERRORFILE_DATA_SOURCE = <data source name>,
+    | ERRORFILE_LOCATION = '/REJECT_Directory'
+}  
 ```
 
 ## <a name="arguments"></a>인수
@@ -256,6 +265,40 @@ CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' }
 ROWSET_OPTIONS = '{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}'
 
 이 옵션은 쿼리를 실행하는 동안 파일 수정 검사를 사용하지 않도록 설정하고 쿼리가 실행되는 동안 업데이트되는 파일을 읽습니다. 이 옵션은 쿼리가 실행되는 동안 추가되는 추가 전용 파일을 읽어야 하는 경우에 유용합니다. 추가 가능한 파일에서 기존 내용은 업데이트되지 않고 새 행만 추가됩니다. 따라서 업데이트 가능한 파일에 비해 결과가 잘못될 가능성이 최소화됩니다. 이 옵션을 사용하면 오류를 처리하지 않고 자주 추가되는 파일을 읽을 수 있습니다. [추가 가능한 CSV 파일 쿼리](query-single-csv-file.md#querying-appendable-files) 섹션에서 자세한 내용을 확인하세요.
+
+거부 옵션 
+
+> [!NOTE]
+> 거부된 행 기능은 공개 미리 보기로 제공됩니다.
+> 거부된 행 기능은 분리된 텍스트 파일 및 PARSER_VERSION 1.0에서 작동합니다.
+
+
+서비스가 외부 데이터 원본에서 검색하는 *더티* 레코드를 처리하는 방법을 결정하는 거부 매개 변수를 지정할 수 있습니다. 데이터 레코드는 실제 데이터 형식이 외부 테이블의 열 정의와 일치하지 않으면 '더티'로 간주됩니다.
+
+거부 옵션을 지정하거나 변경하지 않으면 서비스는 기본값을 사용합니다. 서비스는 거부 옵션을 사용하여 실제 쿼리가 실패하기 전에 거부할 수 있는 행 수를 결정합니다. 이 쿼리는 거부된 임계값이 초과될 때까지 (부분) 결과를 반환합니다. 그런 다음, 적절한 오류 메시지와 함께 실패합니다.
+
+
+MAXERRORS = *reject_value* 
+
+쿼리가 실패하기 전에 거부할 수 있는 행 수를 지정합니다. MAXERRORS는 0에서 2,147,483,647 사이의 정수여야 합니다.
+
+ERRORFILE_DATA_SOURCE = *데이터 원본*
+
+거부된 행과 해당 오류 파일을 작성해야 하는 데이터 원본을 지정합니다.
+
+ERRORFILE_LOCATION = *디렉터리 위치*
+
+거부된 행과 해당 오류 파일을 기록해야 하는 DATA_SOURCE 또는 ERROR_FILE_DATASOURCE(지정된 경우) 내의 디렉터리를 지정합니다. 지정된 경로가 존재하지 않으면 서비스에서 사용자를 대신하여 경로를 만듭니다. "_rejectedrows"라는 이름의 하위 디렉터리가 생성됩니다. "_ " 문자는 위치 매개 변수에 명시적으로 명명되지 않는 한, 다른 데이터 처리를 위해 디렉터리를 이스케이프합니다. 이 디렉터리 내에는 로드 제출 시간을 기준으로 YearMonthDay_HourMinuteSecond_StatementID 형식에 따라 생성된 폴더가 있습니다(예: 20180330-173205-559EE7D2-196D-400A-806D-3BF5D007F891). 명령문 ID를 사용하여 폴더를 생성한 쿼리와 폴더의 상관 관계를 지정할 수 있습니다. 이 폴더에는 error.json 파일 및 데이터 파일이라는 두 개의 파일이 기록됩니다. 
+
+error.json 파일에는 거부된 행과 관련된 오류가 발생한 json 배열이 포함되어 있습니다. 오류를 나타내는 각 요소에는 다음 특성이 포함됩니다.
+
+| attribute | 설명                                                  |
+| --------- | ------------------------------------------------------------ |
+| Error     | 행이 거부된 이유입니다.                                  |
+| 행       | 파일의 행 서수를 거부했습니다.                         |
+| 열    | 열 서수를 거부했습니다.                              |
+| 값     | 열 값이 거부되었습니다. 값이 100자보다 크면 처음 100자만 표시됩니다. |
+| 파일      | 해당 행이 속한 파일의 경로입니다.                            |
 
 ## <a name="fast-delimited-text-parsing"></a>분리된 텍스트에 대한 빠른 구문 분석
 
@@ -426,6 +469,24 @@ WITH (
     [population] bigint 'strict $.population' -- this one works as column name casing is valid
     --,[population2] bigint 'strict $.POPULATION' -- this one fails because of wrong casing and strict path mode
 )
+AS [r]
+```
+
+### <a name="specify-multiple-filesfolders-in-bulk-path"></a>BULK 경로에 여러 파일/폴더 지정
+
+다음 예는 BULK 매개 변수에서 여러 파일/폴더 경로를 사용하는 방법을 보여 줍니다.
+
+```sql
+SELECT 
+    TOP 10 *
+FROM  
+    OPENROWSET(
+        BULK (
+            'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=2000/*.parquet',
+            'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=2010/*.parquet',
+        ),
+        FORMAT='PARQUET'
+    )
 AS [r]
 ```
 

@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/26/2021
 ms.author: pafarley
-ms.openlocfilehash: abef7e44ad2e15bda230d28e8dae74a3fd949f88
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 993cc1105c476f3581fd996be5c1aa6aa7c0c590
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129706334"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056704"
 ---
 # <a name="what-is-conversation-transcription-preview"></a>대화 기록(미리 보기)는 무엇입니까?
 
@@ -54,7 +55,7 @@ ms.locfileid: "129706334"
 
 ## <a name="expected-inputs"></a>필요한 입력
 
-- **다중 채널 오디오 스트림** – 사양 및 설계 세부 정보는 [Microsoft 음성 디바이스 SDK 마이크](./speech-devices-sdk-microphone.md)를 참조하세요. 개발 키트에 대해 자세히 알아보거나 구매하려면 [Microsoft 음성 디바이스 SDK 가져오기](./get-speech-devices-sdk.md)를 참조하세요.
+- **다중 채널 오디오 스트림** – 사양 및 설계 세부 정보는 [Microsoft 음성 디바이스 SDK 마이크](./speech-sdk-microphone.md)를 참조하세요. 개발 키트에 대해 자세히 알아보거나 구매하려면 [Microsoft 음성 디바이스 SDK 가져오기](./get-speech-devices-sdk.md)를 참조하세요.
 - **사용자 음성 샘플** – 대화 전사에는 화자 식별을 위한 대화 전에 사용자 프로필이 필요합니다. 각 사용자로부터 오디오 녹음을 수집한 다음, [서명 생성 서비스](https://aka.ms/cts/signaturegenservice)로 녹음을 전송하여 오디오의 유효성을 검사하고 사용자 프로필을 생성해야 합니다.
 
 > [!NOTE]

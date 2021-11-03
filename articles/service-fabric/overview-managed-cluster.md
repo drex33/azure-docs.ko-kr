@@ -2,13 +2,13 @@
 title: Service Fabric 관리형 클러스터
 description: Service Fabric 관리형 클러스터는 배포 및 클러스터 관리 환경을 간소화하는 Azure Service Fabric 클러스터 리소스 모델의 진화입니다.
 ms.topic: overview
-ms.date: 5/10/2021
-ms.openlocfilehash: 12f5c7bd16e8738aaadfb8ca9aeed491bab5b8e0
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.date: 10/22/2021
+ms.openlocfilehash: 2b0b0b79899acaf0b4be3b05f52fceadf8acf54d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866921"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131055049"
 ---
 # <a name="service-fabric-managed-clusters"></a>Service Fabric 관리형 클러스터
 
@@ -61,7 +61,7 @@ Service Fabric 관리형 클러스터는 기본 및 표준 SKU에서 모두 사�
 
 | 기능 | Basic | Standard |
 | ------- | ----- | -------- |
-| 네트워크 리소스([Load Balancer](../load-balancer/skus.md), [공용 IP](../virtual-network/public-ip-addresses.md)용 SKU) | Basic | Standard |
+| 네트워크 리소스([Load Balancer](../load-balancer/skus.md), [공용 IP](../virtual-network/ip-services/public-ip-addresses.md)용 SKU) | Basic | Standard |
 | 최소 노드(VM 인스턴스) 수 | 3 | 5 |
 | 노드 유형별 최대 노드 수 | 100 | 1000 |
 | 최대 노드 유형 개수 | 1 | 20 |
@@ -74,7 +74,7 @@ Service Fabric 관리형 클러스터는 기본 및 표준 SKU에서 모두 사�
 
 * [ARM 템플릿을 사용한 애플리케이션 배포](how-to-managed-cluster-app-deployment-template.md)
 * [애플리케이션 비밀](how-to-managed-cluster-application-secrets.md)
-* [자동 OS 이미지 업그레이드](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades)
+* [자동 OS 이미지 업그레이드](how-to-managed-cluster-modify-node-type.md#enable-automatic-os-image-upgrades)
 * [가용성 영역 확장](how-to-managed-cluster-availability-zones.md)
 * [디스크 암호화](how-to-enable-managed-cluster-disk-encryption.md) 및 [관리 디스크 유형](how-to-managed-cluster-managed-disk.md) 선택
 * 관리형 클러스터 [노드 유형](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) 및 [애플리케이션 인증](how-to-managed-cluster-application-managed-identity.md)에 대한 관리 ID 지원

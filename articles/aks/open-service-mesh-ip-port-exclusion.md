@@ -6,18 +6,18 @@ ms.topic: article
 ms.date: 10/8/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: kochhars
-ms.openlocfilehash: b12ec518aa46800778973524b4302ebed083d38f
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: b2f43fc1ce78a10079bc37cdf77097caaa208bd6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130008700"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131066713"
 ---
 # <a name="implement-ip-and-span-classx-x-first-x-lastport-range-exclusionspan"></a>IP 및 <span class="x x-first x-last">포트 범위 제외</span> 구현
 
-응용 프로그램의 아웃 바운드 TCP 기반 트래픽은 기본적으로 OSM에서 프로그래밍 하는 규칙을 사용 하 여 가로채 `iptables` 고, 엔보이 프록시 사이드카로 리디렉션됩니다. OSM은 필요한 경우 트래픽 가로채기에서 제외할 IP 범위 및 포트 목록을 지정 하는 수단을 제공 합니다. IP 및 포트 범위를 제외 하는 방법에 대 한 지침은 [이 설명서](https://release-v0-11.docs.openservicemesh.io/docs/guides/traffic_management/iptables_redirection/)를 참조 하세요. 
-
-**Open Service 메시 AKS 추가 기능에 대 한 포트 제외는를 사용 하 여 설치 하 `kubectl patch` 고 OSM CLI 플래그를 사용 하 여 설치 하는 경우에만 구현할 수 있습니다 `--set` .**
+애플리케이션의 아웃바운드 TCP 기반 트래픽은 기본적으로 `iptables` OSM에서 프로그래밍한 규칙을 사용하여 가로채고 Envoy 프록시 사이드카로 리디렉션됩니다. OSM은 필요한 경우 트래픽 가로채기에서 제외할 IP 범위 및 포트 목록을 지정하는 방법을 제공합니다. IP 및 포트 범위를 제외하는 방법에 대한 지침은 [이 설명서를 참조하세요.](https://release-v0-11.docs.openservicemesh.io/docs/guides/traffic_management/iptables_redirection/)
 
 > [!NOTE]
-> 메시의 일부인 응용 프로그램 pod IMDS, Azure DNS 또는 Kubernetes API 서버에 액세스 해야 하는 경우 사용자는 위의 명령을 사용 하 여이 IP 주소를 글로벌 아웃 바운드 IP 범위 목록에 명시적으로 추가 해야 합니다. Kubernetes API 서버 포트 제외의 예제는 [여기](https://release-v0-11.docs.openservicemesh.io/docs/guides/app_onboarding/#onboard-services)를 참조 하세요.
+>
+> - Open Service Mesh AKS 추가 기능의 경우 **포트 제외는 를 사용하여 설치한 후에만 구현할 수 `kubectl patch` 있으며 OSM CLI `--set` 플래그를 사용하는 설치 중에는 구현할 수 없습니다.**
+> - 메시의 일부인 애플리케이션 Pod가 IMDS, Azure DNS 또는 Kubernetes API 서버에 액세스해야 하는 경우 사용자는 위의 명령을 사용하여 이러한 IP 주소를 전역 아웃바운드 IP 범위 목록에 명시적으로 추가해야 합니다. [여기에서](https://release-v0-11.docs.openservicemesh.io/docs/guides/app_onboarding/#onboard-services)Kubernetes API 서버 포트 제외의 예를 참조하세요.

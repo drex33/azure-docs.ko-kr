@@ -7,16 +7,13 @@ ms.author: magoedte
 ms.date: 08/27/2021
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.custom:
-- mvc
-- subject-armqs
-- mode-arm
-ms.openlocfilehash: daf04e7070b1d05e077993ae9cdb38d38595944f
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.custom: mvc, subject-armqs, mode-arm
+ms.openlocfilehash: db69e08db30a2b2ffcf7acc780619f23d8b41feb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123110775"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131031692"
 ---
 # <a name="create-an-azure-automation-account-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 Azure Automation 계정 만들기
 
@@ -66,7 +63,7 @@ Azure Automation 및 Azure Monitor를 처음 접하는 경우 구성 정보를 �
 
 1. 다음 값을 입력하거나 선택합니다.
 
-    |속성 |Description |
+    |속성 |설명 |
     |---|---|
     |구독 |드롭다운 목록에서 Azure 구독을 선택합니다.|
     |Resource group |드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 를 선택합니다.|

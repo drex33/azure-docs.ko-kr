@@ -6,12 +6,12 @@ ms.custom: devx-track-java
 ms.date: 11/01/2018
 author: mattmccleary
 ms.author: mmcc
-ms.openlocfilehash: 20d43fca48bfcdf264ae7c008c5fa406b7d5d719
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 10ef93c1e977c86059365a1d08e312f1d72e312d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130133940"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131078905"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk-not-recommended"></a>Azure Application Insights Java SDK로 Micrometer를 사용하는 방법(권장되지 않음)
 
@@ -33,7 +33,7 @@ pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
 
 1. Spring Boot 애플리케이션의 pom.xml 파일을 업데이트하고 그 안에 다음 종속성을 추가합니다.
 
-    ```XML
+    ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-spring-boot-starter</artifactId>
@@ -71,7 +71,7 @@ pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
 
 1. Spring Boot 애플리케이션의 pom.xml 파일을 업데이트하고 그 안에 다음 종속성을 추가합니다.
 
-    ```XML
+    ```xml
     <dependency> 
           <groupId>com.microsoft.azure</groupId>
           <artifactId>azure-spring-boot-metrics-starter</artifactId>
@@ -130,7 +130,7 @@ pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
 
 1. pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
 
-    ```XML
+    ```xml
         <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-azure-monitor</artifactId>
@@ -146,7 +146,7 @@ pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
 
 2. 다음 리소스 폴더에 `ApplicationInsights.xml` 파일을 넣습니다.
 
-    ```XML
+    ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/14/2021
 ms.author: jeedes
-ms.openlocfilehash: 05831b88c492051b2b8d48071702335b3aac76b9
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 15f03bddb1537cfd8e447e00e91f262544ba3bf6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110062498"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045979"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trend-micro-web-security-tmws"></a>자습서: TMWS(Trend Micro Web Security)와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "110062498"
 * 사용자가 해당 Azure AD 계정으로 TMWS에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음이 필요합니다.
 
@@ -94,8 +94,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     
     | 속성 | 원본 특성|
     | --------------- | --------- |
-    | sAMAccountName | user.onpremisessamaccountname |
-    | uPN | user.userprincipalname |
+    | `sAMAccountName` | `user.onpremisessamaccountname` |
+    | `upn` | `user.userprincipalname` |
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾습니다. 이 인증서 이름 옆에 있는 **다운로드** 링크를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 

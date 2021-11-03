@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/21/2021
 ms.author: yelevin
-ms.openlocfilehash: 97e7c6a21eaf33e2f32d3277e14b4da74decc6cc
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: cccccc2d5bc1279124a3661ea855885dd94f8144
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130132553"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131009361"
 ---
 # <a name="microsoft-365-defender-integration-with-azure-sentinel"></a>Azure Sentinel과 Microsoft 365 Defender 통합
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 > Microsoft 365 Defender 커넥터는 현재 **미리 보기** 로 제공됩니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
@@ -32,7 +35,7 @@ ms.locfileid: "130132553"
 >
 > **엔드포인트용 Microsoft Defender** 의 이전 이름은 **MDATP**(**Microsoft Defender Advanced Threat Protection**)였습니다.
 >
-> **Microsoft Defender for Office 365** 는 이전의 **Office 365 Advanced Threat Protection** 이라고 했습니다.
+> **microsoft Defender for Office 365** 이전에는 Office 365 **Advanced Threat Protection으로** 알려져 있었습니다.
 >
 > 이러한 이전 이름이 일정 기간 동안 계속 사용될 수도 있습니다.
 
@@ -96,13 +99,13 @@ Microsoft 365 Defender에서는 한 인시던트의 모든 경고를 다른 인�
 
 ## <a name="advanced-hunting-event-collection"></a>고급 헌팅 이벤트 수집
 
-또한 Microsoft 365 Defender 커넥터를 사용하면 Microsoft 365 Defender 및 해당 구성 요소 서비스에서 Azure Sentinel로 **고급 헌팅** 이벤트(원시 이벤트 데이터 유형)를 스트리밍할 수 있습니다. 현재 끝점에 대 한 microsoft defender의 고급 구하기 이벤트를 수집 하 고 *(10 월 2021)* microsoft defender에서 Office 365에 대 한 [고급 구하기](/microsoft-365/security/defender/advanced-hunting-overview) 이벤트를 수집 하 고, Azure 센티널 작업 영역에서 용도에 맞게 작성 된 테이블로 직접 스트리밍할 수 있습니다. 이 테이블은 Microsoft 365 Defender 포털에서 사용되는 것과 동일한 스키마를 기반으로 작성되므로 고급 헌팅 이벤트의 전체 세트에 대한 완전한 액세스가 제공되며 다음을 수행할 수 있습니다.
+또한 Microsoft 365 Defender 커넥터를 사용하면 Microsoft 365 Defender 및 해당 구성 요소 서비스에서 Azure Sentinel로 **고급 헌팅** 이벤트(원시 이벤트 데이터 유형)를 스트리밍할 수 있습니다. 현재 엔드포인트용 Microsoft Defender에서 [고급 헌팅](/microsoft-365/security/defender/advanced-hunting-overview) 이벤트를 *수집하고(2021년 10월부터)* microsoft Defender for Office 365 Azure Sentinel 작업 영역의 용도에 맞게 빌드된 테이블로 바로 스트리밍할 수 있습니다. 이 테이블은 Microsoft 365 Defender 포털에서 사용되는 것과 동일한 스키마를 기반으로 작성되므로 고급 헌팅 이벤트의 전체 세트에 대한 완전한 액세스가 제공되며 다음을 수행할 수 있습니다.
 
-- 끝점/Office 365 고급 구하기 쿼리를 위해 기존 Microsoft Defender를 Azure 센티널에 쉽게 복사 합니다.
+- 기존 엔드포인트용 Microsoft Defender/Office 365 고급 헌팅 쿼리를 Azure Sentinel 쉽게 복사합니다.
 
 - 원시 이벤트 로그를 사용하여 경고, 헌팅 및 조사에 대한 추가 정보를 제공하고 이러한 이벤트와 Azure Sentinel 내 다른 데이터 원본의 이벤트 간의 상관 관계를 파악합니다.
 
-- 끝점의/Office 365 또는 Microsoft 365 Defender의 기본 보존 인 30 일 동안 Microsoft Defender 외에도 보존 기간이 증가 한 로그를 저장 합니다. 작업 영역의 보존을 구성하거나 Log Analytics에서 테이블당 보존을 구성하여 해당 작업을 수행할 수 있습니다.
+- 엔드포인트/Office 365 또는 Microsoft 365 Defender 기본 보존 기간(30일)을 초과하여 보존 기간을 늘려 로그를 저장합니다. 작업 영역의 보존을 구성하거나 Log Analytics에서 테이블당 보존을 구성하여 해당 작업을 수행할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

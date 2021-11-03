@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 3eb0ab8ac6ca4c0ceddd9e3ebf84b8c2ddd5a9f4
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
-ms.translationtype: HT
+ms.openlocfilehash: 2479e5b269d6cc6a4d0aaadd6b3616da17670c2d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113301315"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131070036"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure Monitor의 로그 경고
 
@@ -20,9 +20,6 @@ ms.locfileid: "113301315"
 
 > [!NOTE]
 > [Log Analytics 작업 영역](../logs/log-analytics-tutorial.md)의 로그 데이터를 Azure Monitor 메트릭 저장소로 보낼 수 있습니다. 메트릭 경고에는 사용 중인 데이터에 따라 적합할 수 있는 [다른 동작](alerts-metric-overview.md)이 있습니다. 로그를 메트릭에 라우팅하는 대상 및 방법에 대한 자세한 내용은 [로그에 대한 메트릭 경고](alerts-metric-logs.md)를 참조하세요.
-
-> [!NOTE]
-> 현재 API 버전 `2020-05-01-preview` 및 리소스 중심 로그 경고에 대한 추가 요금은 없습니다.  미리 보기 단계인 기능에 대한 가격 책정은 나중에 발표될 예정이며 청구를 시작하기 전에 공지합니다. 알림 기간 이후 새 API 버전 및 리소스 중심 로그 경고를 계속 사용하는 경우 해당 요금은 청구됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -153,7 +150,7 @@ requests
 이 규칙은 지난 15분 동안 가상 머신에 오류 이벤트가 있는지 여부를 모니터링합니다. 각 가상 머신은 별도로 모니터링되고 작업을 개별적으로 트리거합니다.
 
 > [!NOTE]
-> 차원별 경고 분할은 현재 scheduledQueryRules API에 대해서만 사용할 수 있습니다. 레거시 [Log Analytics Alert API](./api-alerts.md)를 사용하는 경우 전환해야 합니다. [샘플링에 대해 자세히 알아보세요](./alerts-log-api-switch.md). 리소스 중심의 대규모 경고는 API 버전 `2020-05-01-preview` 이상에서만 지원됩니다.
+> 차원별 경고 분할은 현재 scheduledQueryRules API에 대해서만 사용할 수 있습니다. 레거시 [Log Analytics Alert API](./api-alerts.md)를 사용하는 경우 전환해야 합니다. [샘플링에 대해 자세히 알아보세요](./alerts-log-api-switch.md). 리소스 중심의 대규모 경고는 API 버전 `2020-08-01` 이상에서만 지원됩니다.
 
 ## <a name="alert-logic-definition"></a>경고 논리 정의
 

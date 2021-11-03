@@ -3,12 +3,12 @@ title: 자습서 - 다중 컨테이너 그룹 배포 - YAML
 description: 이 자습서에서는 Azure CLI에서 YAML 파일을 사용하여 Azure Container Instances에서 여러 컨테이너가 있는 컨테이너 그룹을 배포하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 74269440357ee2d7ae36661618a31293346fa712
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
-ms.translationtype: HT
+ms.openlocfilehash: dbd29d94aef06b60bf09639feb2215c5e9751ecd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771266"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024489"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>자습서: YAML 파일을 사용하여 다중 컨테이너 그룹 배포
 
@@ -45,7 +45,7 @@ code deploy-aci.yaml
 
 이 YAML 파일은 두 개의 컨테이너, 하나의 공용 IP 주소, 두 개의 노출된 포트가 있는 “myContainerGroup”이라는 컨테이너 그룹을 정의합니다. 컨테이너는 퍼블릭 Microsoft 이미지에서 배포됩니다. 그룹의 첫 번째 컨테이너는 인터넷 연결 웹 애플리케이션을 실행합니다. 두 번째 컨테이너인 사이드카는 컨테이너 그룹의 로컬 네트워크를 통해 첫 번째 컨테이너에서 실행되는 웹 애플리케이션에 주기적으로 HTTP 요청을 보냅니다.
 
-```YAML
+```yaml
 apiVersion: 2019-12-01
 location: eastus
 name: myContainerGroup
@@ -82,7 +82,7 @@ type: Microsoft.ContainerInstance/containerGroups
 
 프라이빗 컨테이너 이미지 레지스트리를 사용하려면 사용자 환경에 맞게 수정된 값을 사용하여 컨테이너 그룹에 `imageRegistryCredentials` 속성을 추가합니다.
 
-```YAML
+```yaml
   imageRegistryCredentials:
   - server: imageRegistryLoginServer
     username: imageRegistryUsername

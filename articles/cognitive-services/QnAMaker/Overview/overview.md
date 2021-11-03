@@ -4,17 +4,19 @@ description: QnA Maker는 데이터를 통해 자연스러운 대화형 계층�
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 01/22/2021
-ms.custom: cog-serv-seo-aug-2020
+ms.date: 11/02/2021
 keywords: qna maker, 낮은 코드 채팅 봇, 멀티 턴 대화
-ms.openlocfilehash: b3e780393b911697d17ca1873201720c0bc628be
-ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: f8d23bc199ad38830b1d80ba7ddbb0fc5174109b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112322605"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131016873"
 ---
 # <a name="what-is-qna-maker"></a>QnA Maker란?
+
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 QnA Maker는 데이터를 통해 자연스러운 대화형 계층을 만들 수 있는 클라우드 기반 NLP(자연어 처리) 서비스입니다. 사용자 지정 KB(기술 자료) 정보에서 입력한 내용에 가장 적합한 답변을 찾는 데 사용됩니다.
 

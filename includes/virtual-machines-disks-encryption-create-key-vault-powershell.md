@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/15/2020
+ms.date: 10/25/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9ad82e65258dd985ce351b5fa11156ccdd2ef977
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: f74228b918b3d87ab77b75132501327b08b25668
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122771998"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131022052"
 ---
 1. 최신 [Azure PowerShell 버전](/powershell/azure/install-az-ps)을 설치했으며 Connect-AzAccount를 사용하여 Azure 계정에 로그인했는지 확인합니다.
 
@@ -61,3 +61,38 @@ ms.locfileid: "122771998"
         ```powershell  
         Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
         ```
+
+### <a name="use-a-key-vault-in-a-different-subscription"></a>다른 구독에서 키 자격 증명 모음 사용
+
+또는 단일 구독에서 Azure Key Vault를 중앙에서 관리하고 Key Vault 저장된 키를 사용하여 조직의 다른 구독에서 관리 디스크 및 스냅샷을 암호화할 수 있습니다. 이렇게 하면 보안 팀이 단일 구독에 강력한 보안 정책을 적용하고 쉽게 관리할 수 있습니다.
+
+> [!IMPORTANT]
+> 이 구성의 경우 Key Vault 및 디스크 암호화 집합이 모두 동일한 지역에 있어야 하며 동일한 테넌트를 사용해야 합니다.
+
+다음 스크립트는 다른 구독이지만 동일한 지역에 있는 Key Vault 키를 사용하도록 디스크 암호화 집합을 구성하는 방법의 예입니다.
+
+```azurepowershell
+$sourceSubscriptionId="<sourceSubID>"
+$sourceKeyVaultName="<sourceKVName>"
+$sourceKeyName="<sourceKeyName>"
+
+$targetSubscriptionId="<targetSubID>"
+$targetResourceGroupName="<targetRGName>"
+$targetDiskEncryptionSetName="<targetDiskEncSetName>"
+$location="<targetRegion>"
+
+Set-AzContext -Subscription $sourceSubscriptionId
+
+$key = Get-AzKeyVaultKey -VaultName $sourceKeyVaultName -Name $sourceKeyName
+
+Set-AzContext -Subscription $targetSubscriptionId
+
+$desConfig=New-AzDiskEncryptionSetConfig -Location $location `
+-KeyUrl $key.Key.Kid `
+-IdentityType SystemAssigned `
+-RotationToLatestKeyVersionEnabled $false
+
+$des=New-AzDiskEncryptionSet -Name $targetDiskEncryptionSetName `
+-ResourceGroupName $targetResourceGroupName `
+-InputObject $desConfig
+```

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 4e2a220b9b595bd94fd835d12860800a439f8bb8
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 60d99ea9b1add522701a82bbd461e4ef064286aa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122825252"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131070454"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-have-two-sets-of-authentication-credentials"></a>두 개의 인증 자격 증명 세트를 사용하는 리소스의 비밀 순환 자동화
 
@@ -195,7 +195,7 @@ Get-AzKeyVaultSecret -VaultName vaultrotation-kv -Name storageKey -AsPlainText
 
 `keyName`을 대체하도록 `CredentialId`가 업데이트되고 `value`가 다시 생성됩니다.
 
-![첫 번째 스토리지 계정에 대한 a z keyvault secret show 명령의 출력을 보여주는 스크린샷.](../media/secrets/rotation-dual/dual-rotation-4.png)
+![첫 번째 스토리지 계정에 대한 A Z keyvault secret show 명령의 출력을 보여주는 스크린샷.](../media/secrets/rotation-dual/dual-rotation-4.png)
 
 다음과 같이 액세스 키를 검색하여 값을 비교합니다.
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -211,7 +211,7 @@ Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotat
 
 키의 `value`는 키 자격 증명 모음의 비밀과 동일합니다.
 
-![첫 번째 스토리지 계정에 대한 a z storage account keys list 명령의 출력을 보여주는 스크린샷](../media/secrets/rotation-dual/dual-rotation-5.png)
+![첫 번째 스토리지 계정에 대한 A Z storage account keys list 명령의 출력을 보여주는 스크린샷](../media/secrets/rotation-dual/dual-rotation-5.png)
 
 ## <a name="add-storage-accounts-for-rotation"></a>순환할 스토리지 계정 추가
 
@@ -298,7 +298,7 @@ Get-AzKeyVaultSecret -VaultName vaultrotation-kv -Name storageKey2 -AsPlainText
 
 `keyName`을 대체하도록 `CredentialId`가 업데이트되고 `value`가 다시 생성됩니다.
 
-![두 번째 스토리지 계정에 대한 a z keyvault secret show 명령의 출력을 보여주는 스크린샷.](../media/secrets/rotation-dual/dual-rotation-8.png)
+![두 번째 스토리지 계정에 대한 A Z keyvault secret show 명령의 출력을 보여주는 스크린샷.](../media/secrets/rotation-dual/dual-rotation-8.png)
 
 다음과 같이 액세스 키를 검색하여 값을 비교합니다.
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -314,7 +314,7 @@ Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotat
 
 키의 `value`는 키 자격 증명 모음의 비밀과 동일합니다.
 
-![두 번째 스토리지 계정에 대한 a z storage account keys list 명령의 출력을 보여주는 스크린샷](../media/secrets/rotation-dual/dual-rotation-9.png)
+![두 번째 스토리지 계정에 대한 A Z storage account keys list 명령의 출력을 보여주는 스크린샷](../media/secrets/rotation-dual/dual-rotation-9.png)
 
 ## <a name="key-vault-rotation-functions-for-two-sets-of-credentials"></a>두 자격 증명 세트에 대한 Key Vault 회전 함수
 

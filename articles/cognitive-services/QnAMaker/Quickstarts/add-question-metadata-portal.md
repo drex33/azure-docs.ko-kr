@@ -5,16 +5,19 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: 53c0afa1cdb8c9920875b7ba694339107714bd54
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 9f7d1c7238e742ab8d04cf349bd8560db861b801
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462195"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080710"
 ---
 # <a name="add-questions-and-answer-with-qna-maker-portal"></a>QnA Maker 포털을 사용하여 질문 및 답변 추가
 
 기술 자료가 생성되면 메타데이터가 포함된 QnA(질문 및 답변) 쌍을 추가하여 답변을 필터링합니다. 다음 테이블의 질문은 Azure 서비스 제한에 대한 것이지만 각각 다른 Azure 검색 서비스와 관련이 있습니다.
+
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 <a name="qna-table"></a>
 
@@ -29,7 +32,7 @@ ms.locfileid: "96462195"
 * 모든 답변을 받지만 각 답변의 메타데이터에 따라 해당 답변을 사후 처리합니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [이전 빠른 시작](./create-publish-knowledge-base.md) 완료
 

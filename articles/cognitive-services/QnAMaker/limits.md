@@ -4,13 +4,14 @@ description: QnA Maker에는 기술 자료 및 서비스 부분에 대해 제한
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
-ms.date: 11/09/2020
-ms.openlocfilehash: 0d9e3d4c9ec9eab75ce5917e9ea20011653ff133
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
-ms.translationtype: HT
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: ac7741a6404f47e3cabdd9eff81f81c6ad39de36
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110790197"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131011982"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker 기술 자료 제한 및 경계
 
@@ -24,7 +25,7 @@ ms.locfileid: "110790197"
 |---|---|---|---|---|---|----|
 |게시할 수 있는 기술 자료의 최대 수|2|14|49|199|199|2,999|
 
- 예를 들어 계층에 허용되는 인덱스가 15개 있으면 기술 자료 14개를 게시할 수 있습니다(게시되는 기술 자료당 인덱스 1개). 15번째 인덱스(`testkb`)는 모든 기술 자료에서 작성 및 테스트용으로 사용됩니다.
+ 예를 들어 계층에 15개의 허용된 인덱스가 있는 경우 14개의 기술 자료(게시된 기술 자료당 하나의 인덱스)를 게시할 수 있습니다. 15번째 인덱스 `testkb` 는 작성 및 테스트를 위한 모든 기술 자료로 사용됩니다.
 
 ## <a name="extraction-limits"></a>추출 제한
 
@@ -51,18 +52,13 @@ ms.locfileid: "110790197"
 
 추출할 수 있는 최대 파일 수와 최대 파일 크기는 **[QnA Maker 가격 책정 계층 제한](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)** 에 따라 다릅니다.
 
-> [!NOTE]
-> 사용자 지정 질문 답변(미리 보기)은 추가할 수 있는 원본 수에 제한이 없는 무료 서비스입니다. 현재 처리량은 관리 API와 예측 API 모두에 대해 초당 10개의 트랜잭션으로 제한됩니다.
-
 ### <a name="maximum-number-of-deep-links-from-url"></a>URL의 최대 딥 링크 수
 
 URL 페이지에서 QnA 추출을 위해 크롤링할 수 있는 최대 딥 링크 수는 **20** 개입니다.
 
 ## <a name="metadata-limits"></a>메타데이터 제한
 
-메타데이터는 `product:windows 10`과 같은 텍스트 기반 키:값 쌍으로 제공되며, 소문자로 저장되고 비교됩니다. 최대 메타데이터 필드 수는 **[Azure Cognitive Search 계층 제한](../../search/search-limits-quotas-capacity.md)** 을 기반으로 합니다.
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
+메타데이터는 텍스트 기반 키로 표시됩니다. 값 쌍(예: `product:windows 10` ). 소문자로 저장되고 비교됩니다. 최대 메타데이터 필드 수는 **[Azure Cognitive Search 계층 제한](../../search/search-limits-quotas-capacity.md)** 을 기반으로 합니다.
 
 GA 버전의 경우 테스트 인덱스가 모든 KB에서 공유되므로 QnA Maker 서비스의 모든 KB에 제한이 적용됩니다.
 
@@ -70,29 +66,13 @@ GA 버전의 경우 테스트 인덱스가 모든 KB에서 공유되므로 QnA M
 |---|---|---|---|---|---|----|
 |QnA Maker 서비스별 최대 메타데이터 필드 수(모든 기술 자료에서)|1,000|100*|1,000|1,000|1,000|1,000|
 
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-한 서비스에 여러 언어 KB를 포함하도록 선택하는 경우 KB당 전용 테스트 인덱스가 있습니다. 따라서 제한은 QnA Maker 서비스에서 KB당 적용됩니다.
-
-|**Azure Cognitive Search 계층** | **Free** | **기본** |**S1** | **S2**| **S3** |**S3 HD**|
-|---|---|---|---|---|---|----|
-|QnA Maker 서비스별 최대 메타데이터 필드 수(KB별)|1,000|100*|1,000|1,000|1,000|1,000|
-
-KB를 여러 언어로 사용하는 옵션을 선택하지 않으면 QnA Maker 서비스의 모든 KB에 제한이 적용됩니다.
-
-|**Azure Cognitive Search 계층** | **Free** | **기본** |**S1** | **S2**| **S3** |**S3 HD**|
-|---|---|---|---|---|---|----|
-|QnA Maker 서비스별 최대 메타데이터 필드 수(모든 기술 자료에서)|1,000|100*|1,000|1,000|1,000|1,000|
-
----
-
 ### <a name="by-name-and-value"></a>이름 및 값
 
 다음 표에서는 메타데이터 이름 및 값에 대한 길이와 허용 가능한 문자를 나열합니다.
 
 |항목|허용되는 문자|Regex 패턴 일치|최대 문자 수|
 |--|--|--|--|
-|이름(키)|허용:<br>영숫자(문자와 숫자)<br>`_`(밑줄)<br> 공백은 포함할 수 없습니다.|`^[a-zA-Z0-9_]+$`|100|
+|이름(키)|허용:<br>영숫자(문자 및 숫자)<br>`_`(밑줄)<br> 공백은 포함할 수 없습니다.|`^[a-zA-Z0-9_]+$`|100|
 |값|제외:<br>`:`(콜론)<br>`|`(세로줄)<br>하나의 값만 허용|`^[^:|]+$`|500|
 |||||
 
@@ -102,7 +82,7 @@ KB를 여러 언어로 사용하는 옵션을 선택하지 않으면 QnA Maker �
 * 질문 텍스트 길이: 1,000자
 * 메타데이터 키 텍스트 길이: 100자
 * 메타데이터 값 텍스트 길이: 500자
-* 메타데이터 이름의 지원되는 문자: 영문자, 숫자 및 `_`
+* 메타데이터 이름에 지원되는 문자: 알파벳, 숫자 및 `_`
 * 메타데이터 값의 지원되는 문자: 모든 문자(`:` 및 `|` 제외)
 * 파일 이름 길이: 200
 * 지원되는 파일 형식: “.tsv”, “.pdf”, “.txt”, “.docx”, “.xlsx”
@@ -132,7 +112,7 @@ KB를 여러 언어로 사용하는 옵션을 선택하지 않으면 QnA Maker �
 
 이 한도는 ‘KB를 만들거나’ CreateKnowledgeBase API를 호출하는 데 비구조적 파일이 사용된 경우 나타납니다.
 * 파일 길이: 처음 32,000자 추출
-* 파일당 최대 응답 3개
+* 파일당 최대 3개의 응답입니다.
 
 ## <a name="prebuilt-question-answering-limits"></a>미리 빌드된 질문 답변 한도
 
@@ -143,10 +123,10 @@ KB를 여러 언어로 사용하는 옵션을 선택하지 않으면 QnA Maker �
 이 한도는 ‘응답을 생성’하거나 GenerateAnswer API를 호출하는 데 미리 빌드된 API가 사용된 경우 나타납니다.
 * 문서 수: 5개
 * 단일 문서의 최대 크기: 5,120자
-* 문서당 최대 응답 3개
+* 문서당 최대 3개의 응답입니다.
 
 > [!IMPORTANT]
-> 비정형 파일/콘텐츠 및 미리 빌드된 API에 대한 지원은 사용자 지정 질문 답변(미리 보기)에서만 사용할 수 있습니다.
+> 비정형 파일/콘텐츠에 대한 지원 및 는 질문에 대한 답변에서만 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

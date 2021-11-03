@@ -4,16 +4,16 @@ description: Azure Data Lake Storage Gen2에 대한 계층 구조 네임스페�
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/01/2021
+ms.date: 10/22/2021
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 4eaee714d079836e0919621b2d2e5661d07dfe80
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 38a5298bcbefcacdd6869eba75d8accec207c821
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128664849"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008753"
 ---
 # <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Azure Data Lake Storage Gen2 계층 구조 네임스페이스
 
@@ -33,7 +33,7 @@ Azure Data Lake Storage Gen2를 사용하여 개체 스토리지 규모 및 가�
 
 ## <a name="deciding-whether-to-enable-a-hierarchical-namespace"></a>계층 구조 네임스페이스의 사용 여부 결정
 
-계정에서 계층 구조 네임스페이스를 사용하도록 설정한 후에는 해당 네임스페이스를 다시 플랫 네임스페이스로 되돌릴 수 없습니다. 따라서 개체 저장소 워크로드의 특성에 따라 계층 구조 네임스페이스를 사용하도록 설정하는 것이 적절한지를 고려해야 합니다.
+계정에서 계층 구조 네임스페이스를 사용하도록 설정한 후에는 해당 네임스페이스를 다시 플랫 네임스페이스로 되돌릴 수 없습니다. 따라서 개체 저장소 워크로드의 특성에 따라 계층 구조 네임스페이스를 사용하도록 설정하는 것이 적절한지를 고려해야 합니다. 워크로드, 애플리케이션, 비용, 서비스 통합, 도구, 기능 및 설명서에서 계층 구조 네임스페이스를 사용하도록 설정하는 경우의 영향을 평가하려면 [Azure Data Lake Storage Gen2 기능을 사용하여 Azure Blob Storage 업그레이드를 참조하세요.](upgrade-to-data-lake-storage-gen2.md)
 
 일부 워크로드는 계층 구조 네임스페이스를 사용하도록 설정해도 유용하지 않을 수 있습니다. 예를 들어 백업, 이미지 스토리지 및 개체 구성이 개체 자체와 별도로(‘예:’ 별도의 데이터베이스에) 저장되는 기타 애플리케이션이 있습니다.
 
@@ -45,10 +45,7 @@ Azure Data Lake Storage Gen2를 사용하여 개체 스토리지 규모 및 가�
 
 플랫 계층 구조 네임스페이스와 계층 구조 네임스페이스를 포함하는 계정 간의 데이터 스토리지 가격, 트랜잭션 가격 및 스토리지 용량 예약 가격의 차이를 분석하려면 [Azure Data Lake Storage Gen2 가격 책정](https://azure.microsoft.com/pricing/details/storage/data-lake/)을 참조하세요.
 
-## <a name="enabling-a-hierarchical-namespace"></a>계층 구조 네임스페이스 사용
-
-기존 스토리지 계정에서 계층 구조 네임스페이스를 사용하도록 설정할 수 없습니다. 스토리지 계정을 만들 때만 계층 구조 네임스페이스를 사용하도록 설정할 수 있습니다. 지침은 [Azure Data Lake Storage Gen2에서 사용할 스토리지 계정 만들기](create-data-lake-storage-account.md)를 참조하세요.
-
 ## <a name="next-steps"></a>다음 단계
 
-- [스토리지 계정 만들기](../common/storage-account-create.md)
+- 새 스토리지 계정을 만들 때 계층 구조 네임스페이스를 사용하도록 설정합니다. [Storage 계정 만들기를 참조하세요.](../common/storage-account-create.md)
+- 기존 스토리지 계정에서 계층 구조 네임스페이스를 사용하도록 설정합니다. Azure Data Lake Storage Gen2 기능을 통해 [Azure Blob Storage 업그레이드를 참조하세요.](upgrade-to-data-lake-storage-gen2-how-to.md)

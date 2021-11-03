@@ -4,13 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/28/2020
 ms.author: v-jawe
-ms.custom: references_regions
-ms.openlocfilehash: 3a32946e10e8a81394b54fc44e4c92e8625e7ad6
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: references_regions, ignite-fall-2021
+ms.openlocfilehash: 11e93561a0f78ad1fb62d1cab1f3e8d8f3f3b293
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015473"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069158"
 ---
 이 빠른 시작에서는 다음을 포함하여 Speech SDK를 사용하는 Speaker Recognition에 대한 기본적인 디자인 패턴을 알아봅니다.
 
@@ -18,9 +18,9 @@ ms.locfileid: "95015473"
 * 음성 그룹 간의 음성 샘플을 식별하는 화자 식별
 * 음성 프로필 삭제
 
-음성 인식 개념에 대한 간략한 설명은 [개요](../../../speaker-recognition-overview.md) 문서를 참조하세요.
+Speaker Recognition 개념에 대한 간략한 설명은 [개요](../../../speaker-recognition-overview.md) 문서를 참조하세요. 지원되는 플랫폼 목록은 왼쪽 탐색의 참조 노드를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 여러분에게 Azure 계정 및 음성 서비스 구독이 있다고 가정합니다. 계정 및 구독이 없는 경우 [음성 서비스 평가판을 사용해 보세요](../../../overview.md#try-the-speech-service-for-free).
 

@@ -1,16 +1,16 @@
 ---
-author: msmimart
+author: kengaderdus
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 08/04/2021
-ms.author: mimart
-ms.openlocfilehash: 74c9ea66cfe94a8c856f1a73e968b5f4ea5bb049
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.author: kengaderdus
+ms.openlocfilehash: 83ca731da109b945a654fd36406f4c523c957ef7
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123227680"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131007793"
 ---
 1. 사용자가 만든 **my-api1** 애플리케이션(**앱 ID: 2**)을 선택하여 **개요** 페이지를 엽니다.
 

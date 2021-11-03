@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
-ms.openlocfilehash: 130c2bf28ba0ccd4e16a6ee0b314e68eae65b196
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 891c86c15c8335f9e28271912f26cbc757f6d09e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114286827"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131055012"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Azure VM 재해 복구에서 복제 문제 해결
 
@@ -108,7 +108,7 @@ Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 
 
 ### <a name="app-consistency-not-enabled-on-linux-servers"></a>Linux 서버에서 앱 일관성을 사용하도록 설정하지 않음
 
-**해결 방법**: Linux 운영 체제용 Azure Site Recovery는 앱 일관성을 위한 애플리케이션 사용자 지정 스크립트를 지원합니다. 사전 및 사후 옵션이 포함된 사용자 지정 스크립트는 앱 일관성을 위해 Azure Site Recovery 모바일 에이전트에서 사용됩니다. 사용하도록 설정하는 단계는 [여기](/azure/site-recovery/site-recovery-faq#replication)를 참조하세요.
+**해결 방법**: Linux 운영 체제용 Azure Site Recovery는 앱 일관성을 위한 애플리케이션 사용자 지정 스크립트를 지원합니다. 사전 및 사후 옵션이 포함된 사용자 지정 스크립트는 앱 일관성을 위해 Azure Site Recovery 모바일 에이전트에서 사용됩니다. 사용하도록 설정하는 단계는 [여기](./site-recovery-faq.yml)를 참조하세요.
 
 ### <a name="more-causes-because-of-vss-related-issues"></a>VSS 관련 문제로 인한 추가 원인:
 

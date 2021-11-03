@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/18/2021
-ms.openlocfilehash: b6d007d3020d3fa2b001178bd23d721ea6a6aa6b
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: 0039f84305233f9894c31ba6210a2d531c567498
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110067837"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131005958"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>예제 발화 집합으로 일괄 테스트
 
@@ -187,10 +187,10 @@ LUIS를 사용하면 LUIS 포털 및 REST API를 사용하여 테스트를 일�
 앱 버전 ID 또는 게시 슬롯을 사용하여 일괄 테스트를 시작합니다. 다음 엔드포인트 형식 중 하나로 **POST** 요청을 보냅니다. 요청 본문에 일괄 처리 파일을 포함합니다.
 
 게시 슬롯
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-NAME>/evaluations`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-NAME>/evaluations`
 
 앱 버전 ID
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations`
 
 이러한 엔드포인트는 상태를 확인하고 결과를 가져오는 데 사용할 작업 ID를 반환합니다. 
 
@@ -200,20 +200,20 @@ LUIS를 사용하면 LUIS 포털 및 REST API를 사용하여 테스트를 일�
 시작한 일괄 테스트의 작업 ID를 사용하여 다음 엔드포인트 형식에서 해당 상태를 가져옵니다. 
 
 게시 슬롯
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/status`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/status`
 
 앱 버전 ID
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/status`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/status`
 
 ### <a name="get-the-results-from-a-batch-test"></a>일괄 테스트에서 결과 가져오기
 
 시작한 일괄 테스트의 작업 ID를 사용하여 다음 엔드포인트 형식에서 해당 결과를 가져옵니다. 
 
 게시 슬롯
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/result`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/result`
 
 앱 버전 ID
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/result`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/result`
 
 
 ### <a name="batch-file-of-utterances"></a>발화의 일관 처리 파일

@@ -5,14 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 09/07/2021
+ms.date: 10/12/2021
 ms.author: cherylmc
-ms.openlocfilehash: 0bac9ef5d9a636fb4772352c93de537d21483139
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 3765b1abb6996e364ed3f7004e56f323fe256450
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130179309"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131017044"
 ---
 # <a name="tutorial-configure-bastion-and-connect-to-a-windows-vm"></a>자습서: Bastion을 구성하고 Windows VM에 연결
 
@@ -96,7 +97,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 * **지역:** 리소스가 만들어질 Azure 퍼블릭 지역입니다. 가상 네트워크가 있는 지역을 선택합니다.
 
-* **계층:** : 계층은 **SKU** 라고도 합니다. 이 자습서에서는 드롭다운에서 **표준** SKU를 선택합니다. 표준 SKU를 선택하면 호스트 크기 조정에 대한 인스턴스 수를 구성할 수 있습니다. 기본 SKU는 호스트 크기 조정을 지원하지 않습니다. 자세한 내용은 [구성 설정 - SKU](configuration-settings.md#skus)를 참조하세요. 표준 SKU는 미리 보기에 있습니다.
+* **계층:** : 계층은 **SKU** 라고도 합니다. 이 자습서에서는 드롭다운에서 **표준** SKU를 선택합니다. 표준 SKU를 선택하면 호스트 크기 조정에 대한 인스턴스 수를 구성할 수 있습니다. 기본 SKU는 호스트 크기 조정을 지원하지 않습니다. 자세한 내용은 [구성 설정 - SKU](configuration-settings.md#skus)를 참조하세요.
 
 * **인스턴스 수:** **호스트 크기 조정** 설정이며 배율 단위 증분으로 구성됩니다. 슬라이더를 사용하여 인스턴스 수를 구성합니다. 기본 계층 SKU를 지정한 경우 이 설정을 구성할 수 없습니다. 자세한 내용은 [구성 설정 - 호스트 크기 조정](configuration-settings.md#instance)을 참조하세요. 이 자습서에서는 모든 배율 단위 [가격 책정](https://azure.microsoft.com/pricing/details/azure-bastion) 고려 사항을 염두에 두고 원하는 인스턴스 수를 선택할 수 있습니다.
 

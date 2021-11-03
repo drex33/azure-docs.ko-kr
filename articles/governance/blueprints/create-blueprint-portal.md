@@ -3,14 +3,13 @@ title: '빠른 시작: 포털에서 청사진 만들기'
 description: 이 빠른 시작에서는 Azure Blueprints를 사용하여 Azure Portal을 통해 아티팩트를 만들고 정의하고 배포합니다.
 ms.date: 08/17/2021
 ms.topic: quickstart
-ms.custom:
-- mode-portal
-ms.openlocfilehash: 0cda427929c51b9b794f02ac2c0686d1b06d30d1
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.custom: mode-portal
+ms.openlocfilehash: c1ca05e328a95ea733da1e2da02c4d8814d4533e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323183"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131081280"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>포털에서 청사진 정의 및 할당
 

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/25/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 68eaef6943bea96261e73abc141c87362071665d
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: fddb35cd2b610280440ac01fe5ffc9027a59a2b7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129991948"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131021888"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Azure AD 사용자 프로비저닝 서비스의 SCIM 2.0 프로토콜 준수와 관련하여 알려진 문제 및 해결 방법
 
@@ -55,14 +55,14 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
 - 단일 값 문자열 특성을 추가하기 위한 요청
 - 여러 특성을 바꾸기 위한 요청
 - 그룹 구성원을 제거하기 위한 요청        
-                                                                                     
+
 이 동작은 현재 플래그를 사용하는 경우에만 사용할 수 있지만 향후 몇 달 동안 기본 동작이 될 것입니다. 참고로 이 기능 플래그는 현재 주문형 프로비저닝에서 작동하지 않습니다. 
   * **URL(SCIM 준수):** aadOptscim062020
   * **SCIM RFC 참조:** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2    
 
 다음은 동기화 엔진이 현재 전송하는 내용과 기능 플래그가 사용하도록 설정된 후 전송되는 요청을 간략하게 설명하는 샘플 요청입니다. 
-                           
+
 **사용자를 사용하지 않도록 설정하기 위한 요청:**
 
 **기능 플래그 제외**
@@ -237,18 +237,18 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
 
 
   * **다운그레이드 URL:** 새 SCIM 준수 동작이 비갤러리 애플리케이션에서 기본값이 되면 다음 URL을 사용하여 이전 비SCIM 준수 동작(AzureAdScimPatch2017)으로 롤백할 수 있습니다.
-  
+
 
 
 ## <a name="upgrading-from-the-older-customappsso-job-to-the-scim-job"></a>이전 customappsso 작업에서 SCIM 작업으로 업그레이드
 아래 단계를 수행하면 기존 customappsso 작업이 삭제되고 새 scim 작업이 생성됩니다. 
- 
+
 1. https://portal.azure.com에서 Azure Portal에 로그인합니다.
 2. Azure Portal의 **Azure Active Directory > 엔터프라이즈 애플리케이션** 섹션에서 기존의 SCIM 애플리케이션을 찾아 선택합니다.
 3. 기존의 SCIM 앱의 **속성** 섹션에서 **개체 ID** 를 복사합니다.
 4. 새 웹 브라우저 창에서 https://developer.microsoft.com/graph/graph-explorer로 이동하여 앱이 추가된 Azure AD 테넌트의 관리자로 로그인합니다.
 5. Graph 탐색기에서 아래 명령을 실행하여 프로비저닝 작업의 ID를 찾습니다. “[object-id]”를 세 번째 단계에서 복사한 서비스 주체 ID(개체 ID)로 바꿉니다.
- 
+
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
 
    ![작업 가져오기](media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "작업 가져오기") 
@@ -256,21 +256,21 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
 
 6. 결과에서 “customappsso” 또는 “scim”으로 시작하는 전체 “ID” 문자열을 복사합니다.
 7. 백업을 수행할 수 있도록, 아래 명령을 실행하여 특성 매핑 구성을 검색합니다. 이전과 동일한 [object-id]를 사용하고, [job-id]를 마지막 단계에서 복사한 프로비저닝 작업 ID로 바꿉니다.
- 
+
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
- 
+
    ![스키마 가져오기](media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "스키마 가져오기") 
 
 8. 마지막 단계의 JSON 출력을 복사하여 텍스트 파일에 저장합니다. JSON에는 이전 앱에 추가한 모든 사용자 지정 특성 매핑이 포함되어 있으며, 약 몇 천 줄의 JSON이 있어야 합니다.
 9. 아래 명령을 실행하여 프로비저닝 작업을 삭제합니다.
- 
+
    `DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]`
 
 10. 아래 명령을 실행하여 최신 서비스 수정 사항이 있는 새 프로비저닝 작업을 만듭니다.
 
  `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
  `{   "templateId": "scim"   }`
-   
+
 11. 마지막 단계의 결과에서 “scim”으로 시작하는 전체 “ID” 문자열을 복사합니다. 선택적으로, 아래 명령을 실행하여 이전 특성 매핑을 다시 적용하고 [new-job-id]를 방금 복사한 새 작업 ID로 바꾸고 7단계의 JSON 출력을 요청 본문으로 입력합니다.
 
  `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema`
@@ -291,7 +291,7 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
 
    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
    `{   templateId: "customappsso"   }`
- 
+
 6. 첫 번째 웹 브라우저 창으로 돌아가서 애플리케이션에 해당하는 **프로비저닝** 탭을 선택합니다.
 7. 일반적으로 하는 방법대로 사용자 프로비저닝 구성을 완료합니다.
 

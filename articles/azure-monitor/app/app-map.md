@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: devx-track-csharp
 ms.reviewer: sdash
-ms.openlocfilehash: db8c84334bfce52d34b9fadf73bb2b070fa93a70
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 01fc0be9a2ce8db89bbbcc032bbf90652d5627b8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100007111"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079399"
 ---
 # <a name="application-map-triage-distributed-applications"></a>애플리케이션 맵: 분산 애플리케이션 심사
 
@@ -18,7 +18,7 @@ ms.locfileid: "100007111"
 
 ## <a name="what-is-a-component"></a>구성 요소란?
 
-구성 요소는 독립적으로 배포할 수 있는 분산/마이크로 서비스 애플리케이션의 부분입니다. 개발자 및 운영 팀은 이러한 애플리케이션 구성 요소에서 생성된 원격 분석에 대한 코드 수준의 가시성 또는 액세스 권한을 갖습니다. 
+구성 요소는 독립적으로 배포할 수 있는 분산/마이크로 서비스 애플리케이션의 부분입니다. 개발자 및 운영 팀은 이러한 애플리케이션 구성 요소에서 생성된 원격 분석에 대한 코드 수준의 가시성 또는 액세스 권한을 갖습니다.
 
 * 구성 요소는 팀/조직에서 액세스할 수 없는 SQL, EventHub 등과 같은 "관찰된" 외부 종속성(코드 또는 원격 분석)과 다릅니다.
 * 구성 요소는 서버/역할/컨테이너 인스턴스의 수에 관계없이 실행됩니다.
@@ -26,9 +26,9 @@ ms.locfileid: "100007111"
 
 ## <a name="composite-application-map"></a>복합 애플리케이션 맵
 
-여러 수준의 관련된 애플리케이션 구성 요소의 전체 애플리케이션 토폴로지를 볼 수 있습니다. 구성 요소는 다른 Application Insights 리소스이거나 단일 리소스 내의 다른 역할일 수 있습니다. 앱은 Application Insights SDK가 설치된 서버 간에 수행된 HTTP 종속성 호출에 따라 구성 요소를 찾습니다. 
+여러 수준의 관련된 애플리케이션 구성 요소의 전체 애플리케이션 토폴로지를 볼 수 있습니다. 구성 요소는 다른 Application Insights 리소스이거나 단일 리소스 내의 다른 역할일 수 있습니다. 앱은 Application Insights SDK가 설치된 서버 간에 수행된 HTTP 종속성 호출에 따라 구성 요소를 찾습니다.
 
-이러한 환경은 구성 요소를 점진적으로 검색으로 시작됩니다. 애플리케이션 맵을 처음 로드할 때 이 구성 요소와 관련된 구성 요소를 검색하기 위해 쿼리 세트가 트리거됩니다. 왼쪽 위 구석에 있는 단추는 검색된 애플리케이션의 구성 요소 수로 업데이트됩니다. 
+이러한 환경은 구성 요소를 점진적으로 검색으로 시작됩니다. 애플리케이션 맵을 처음 로드할 때 이 구성 요소와 관련된 구성 요소를 검색하기 위해 쿼리 세트가 트리거됩니다. 왼쪽 위 구석에 있는 단추는 검색된 애플리케이션의 구성 요소 수로 업데이트됩니다.
 
 "맵 구성 요소 업데이트"를 클릭하면 맵이 해당 시점까지 검색된 모든 구성 요소로 새로 고쳐집니다. 애플리케이션의 복잡성에 따라, 로드하는 데 다소 시간이 걸릴 수 있습니다.
 
@@ -142,7 +142,7 @@ ASP.NET 웹앱에 대한 대체 방법으로 Global.aspx.cs와 같은 코드에�
 ```
 
 > [!NOTE]
-> `ApplicationInsights.config` 또는 `TelemetryConfiguration.Active`를 사용하여 이니셜라이저를 추가하는 것은 ASP.NET Core 애플리케이션에 적합하지 않습니다. 
+> `ApplicationInsights.config` 또는 `TelemetryConfiguration.Active`를 사용하여 이니셜라이저를 추가하는 것은 ASP.NET Core 애플리케이션에 적합하지 않습니다.
 
 **ASP.NET Core 앱: TelemetryConfiguration에 이니셜라이저를 로드합니다.**
 
@@ -177,7 +177,7 @@ ASP.NET 웹앱에 대한 대체 방법으로 Global.aspx.cs와 같은 코드에�
 
 Application Insights Java SDK 2.5.0부터 SDK를 사용하는 경우 예를 들어 `ApplicationInsights.xml` 파일에 `<RoleName>`을 추가하여 클라우드 역할 이름을 지정할 수 있습니다.
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
    <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
@@ -231,7 +231,7 @@ Python의 경우 [OpenCensus Python 원격 분석 프로세서](api-filtering-sa
 ```python
 def callback_function(envelope):
    envelope.tags['ai.cloud.role'] = 'new_role_name'
-   
+
 # AzureLogHandler
 handler.add_telemetry_processor(callback_function)
 
@@ -246,7 +246,7 @@ exporter.add_telemetry_processor(callback_function)
 
 ![애플리케이션 맵 스크린샷](media/app-map/cloud-rolename.png)
 
-위의 애플리케이션 맵에서 녹색 상자에는 이 분산 애플리케이션의 다양한 측면에 대한 클라우드 역할 이름 값이 있습니다. 즉, 이 앱은 역할이 `Authentication`, `acmefrontend`, `Inventory Management`, `Payment Processing Worker Role`로 구성됩니다. 
+위의 애플리케이션 맵에서 녹색 상자에는 이 분산 애플리케이션의 다양한 측면에 대한 클라우드 역할 이름 값이 있습니다. 즉, 이 앱은 역할이 `Authentication`, `acmefrontend`, `Inventory Management`, `Payment Processing Worker Role`로 구성됩니다.
 
 이 앱의 경우 각 클라우드 역할 이름은 자체 계측 키가 있는 다른 고유한 Application Insights 리소스도 나타냅니다. 이 애플리케이션의 소유자는 이 4개의 서로 다른 Application Insights 리소스에 대해 액세스할 수 있으므로 애플리케이션 맵은 기본 관계의 맵을 함께 연결할 수 있습니다.
 
@@ -256,7 +256,7 @@ exporter.add_telemetry_processor(callback_function)
    [Description("Name of the role the application is a part of. Maps directly to the role name in azure.")]
     [MaxStringLength("256")]
     705: string      CloudRole = "ai.cloud.role";
-    
+
     [Description("Name of the instance where the application is running. Computer name for on-premises, instance name for Azure.")]
     [MaxStringLength("256")]
     715: string      CloudRoleInstance = "ai.cloud.roleInstance";

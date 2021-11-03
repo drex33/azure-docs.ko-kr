@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/14/2021
 ms.author: mbullwin
 ms.custom: cog-serv-seo-aug-2020
 keywords: 온-프레미스, Docker, 컨테이너, 스트리밍, 알고리즘
-ms.openlocfilehash: 9a2481705ef1bed5a4b6d20bdfcbe68022c5f9e2
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 3b0e4bf43e8661259caf50ae129fa6f218db222f
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129057382"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131071442"
 ---
 # <a name="install-and-run-docker-containers-for-the-anomaly-detector-api"></a>Anomaly Detector API에 대해 Docker 컨테이너 설치 및 실행 
 
@@ -41,7 +41,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 Anomaly Detector 컨테이너를 사용하기 전에 다음 사전 요구 사항을 충족해야 합니다.
 
-|필수|용도|
+|필수|목적|
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows** 에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.|
@@ -155,7 +155,7 @@ ApiKey={API_KEY}
 
 <!--  ## Validate container is running -->
 
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Container API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="stop-the-container"></a>컨테이너 중지
 
@@ -166,6 +166,9 @@ ApiKey={API_KEY}
 출력 [탑재](anomaly-detector-container-configuration.md#mount-settings) 및 활성화된 로깅을 사용하여 컨테이너를 실행하는 경우 컨테이너는 컨테이너를 시작 또는 실행하는 동안 발생하는 문제를 해결하는 데 도움이 되는 로그 파일을 생성합니다.
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
+
+[!INCLUDE [Diagnostic container](../containers/includes/diagnostics-container.md)]
+
 
 ## <a name="billing"></a>결제
 

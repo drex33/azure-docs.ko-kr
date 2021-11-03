@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2021
 ms.author: yelevin
-ms.openlocfilehash: 1244959bac7a2c530444e3d4b36691d4f760529a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 2d618dacc14c188c188f92be41de3fba20eabe38
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535863"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131014223"
 ---
 # <a name="automate-incident-handling-in-azure-sentinel-with-automation-rules"></a>자동화 규칙을 사용하여 Azure Sentinel에서 인시던트 처리 자동화
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 이 문서에서는 Azure Sentinel 자동화 규칙에 대해 설명하고, 자동화 규칙을 사용하여 SOAR(보안 오케스트레이션, 자동화된 응답) 작업을 구현함으로써 시간과 리소스를 절약하는 동시에 SOC의 효율성을 높이는 방법을 설명합니다.
 

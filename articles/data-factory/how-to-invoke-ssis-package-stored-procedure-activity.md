@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/04/2021
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e8176095bb50f4ead8337997669f4856de4b5873
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 6ce4cb52ed3748abf06daab1685fc121f225de67
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124811587"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131033307"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory에서 저장 프로시저 작업을 사용하여 SSIS 패키지 실행
 
@@ -154,9 +154,9 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
 ### <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 Azure-SSIS IR이 있는 동일한 데이터 팩터리를 사용하거나 별도의 데이터 팩터리를 만들 수 있습니다. 다음 절차에서는 데이터 팩터리를 만드는 단계를 설명합니다. 이 데이터 팩터리의 저장 프로시저 작업을 사용하여 파이프라인을 만듭니다. 저장 프로시저 작업은 SSISDB 데이터베이스의 저장 프로시저를 실행하여 SSIS 패키지를 실행합니다. 
 
-1. 나중에 PowerShell 명령에서 사용할 리소스 그룹 이름에 대한 변수를 정의합니다. PowerShell에 다음 명령 텍스트를 복사하고, 큰따옴표에 있는 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)의 이름을 지정하고, 명령을 실행합니다. 예: `"adfrg"` 
+1. 나중에 PowerShell 명령에서 사용할 리소스 그룹 이름에 대한 변수를 정의합니다. PowerShell에 다음 명령 텍스트를 복사하고, 큰따옴표에 있는 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)의 이름을 지정하고, 명령을 실행합니다. 예: `"adfrg"`
    
-     ```powershell
+    ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";
     ```
 

@@ -5,21 +5,21 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/16/2021
-ms.openlocfilehash: 83800e088599bca0023d734bba52b6ed3207f0a3
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
-ms.translationtype: HT
+ms.date: 11/02/2021
+ms.openlocfilehash: 305f23d802324f5d974caaaf49afc072ff9d54f6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122568375"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131071024"
 ---
 # <a name="built-in-triggers-and-actions-in-azure-logic-apps"></a>Azure Logic Apps용 기본 제공 트리거 및 작업
 
 [기본 제공 트리거 및 동작](apis-list.md)을 통해 [워크플로의 일정 및 구조를 제어하고](#control-workflow), [고유의 코드를 실행하고](#run-code-from-workflows), [데이터를 관리 또는 조작하고](#manage-or-manipulate-data), 워크플로의 기타 작업을 완료할 수 있습니다. [관리형 커넥터](managed.md)와 달리, 대부분의 기본 제공 작업은 특정 서비스, 시스템, 프로토콜에 연결되어 있지 않습니다. 예를 들어 되풀이 트리거를 사용하여 일정에 따라 거의 모든 워크플로를 시작할 수 있습니다. 또는 요청 트리거를 사용하여 호출될 때까지 워크플로를 대기시킬 수 있습니다. 모든 기본 제공 작업은 기본적으로 Azure Logic Apps에서 실행되며, 대부분의 경우 사용 전에 연결을 생성할 필요가 없습니다.
 
-더 적은 수의 서비스, 시스템, 프로토콜의 경우, Azure Logic Apps는 Azure App Services, Azure Functions, Azure API Management 및 다른 Azure Logic Apps 논리 앱 워크플로를 호출하는 등의 기본 제공 작업을 제공합니다. 사용 가능한 수와 범위는 다중 테넌트 Azure Logic Apps에서 실행되는 소비 계획 기반 논리 앱 리소스를 만드는지 또는 단일 테넌트 Azure Logic Apps에서 실행되는 표준 계획 기반 논리 앱 리소스를 만드는지에 따라 다릅니다. 자세한 내용은 [단일 테넌트와 다중 테넌트 및 통합 서비스 환경 비교](../logic-apps/single-tenant-overview-compare.md)를 참조하세요. 대부분의 경우 기본 제공 버전은 더 나은 성능, 기능, 가격 책정 등을 제공합니다.
+적은 수의 서비스, 시스템 및 프로토콜에 대 한 Azure Logic Apps Azure API Management, Azure 앱 서비스, Azure Functions 같은 기본 제공 작업을 제공 하 고 다른 Azure Logic Apps 논리 앱 워크플로를 호출 하는 데 사용할 수 있습니다. 사용 가능한 수와 범위는 다중 테넌트 Azure Logic Apps에서 실행되는 소비 계획 기반 논리 앱 리소스를 만드는지 또는 단일 테넌트 Azure Logic Apps에서 실행되는 표준 계획 기반 논리 앱 리소스를 만드는지에 따라 다릅니다. 자세한 내용은 [단일 테넌트와 다중 테넌트 및 통합 서비스 환경 비교](../logic-apps/single-tenant-overview-compare.md)를 참조하세요. 대부분의 경우 기본 제공 버전은 더 나은 성능, 기능, 가격 책정 등을 제공합니다.
 
-예를 들어, 단일 테넌트 논리 앱을 생성하는 경우, 기본 제공 작업 및 [관리 커넥터 작업](managed.md)을 모두 몇 가지 서비스, 특히 Azure Service Bus, Azure Event Hubs, SQL Server, DB2, MQ에 사용할 수 있습니다. 경우에 따라, 기본 제공 작업은 한 환경에서만 사용할 수 있습니다. 예를 들어 플랫 파일은 현재 다중 테넌트에서 사용할 수 있는 반면, IBM 호스트 파일은 단일 테넌트에서만 사용할 수 있습니다. 대부분의 경우 기본 제공 버전은 더 나은 성능, 기능, 가격 책정 등을 제공합니다.
+예를 들어 단일 테 넌 트 논리 앱을 만드는 경우 기본 제공 작업 및 [관리 되는 커넥터 작업](managed.md) 은 몇 가지 서비스, 특히 azure Blob, azure Event Hubs, Azure Cosmos DB, azure Service Bus, DB2, MQ 및 SQL Server에서 사용할 수 있습니다. 일부 경우에는 일부 기본 제공 작업을 하나의 논리 앱 리소스 형식에 대해서만 사용할 수 있습니다. 예를 들어 일괄 처리 작업은 현재 소비 논리 앱 워크플로에 대해서만 사용할 수 있습니다. 대부분의 경우 기본 제공 버전은 더 나은 성능, 기능, 가격 책정 등을 제공합니다.
 
 다음 목록에서는 [기본 제공 트리거 및 동작](#general-built-in-triggers-and-actions)으로 수행할 수 있는 작업 중 일부만 설명합니다.
 
@@ -85,8 +85,7 @@ Azure Logic Apps에서는 다음과 같은 기본 제공 트리거 및 동작을
         [**응답**][http-request-doc]: 같은 워크플로의 **HTTP 요청을 수신하는 경우** 트리거에서 받은 요청에 응답합니다.
     :::column-end:::
     :::column:::
-        [![일괄 처리 아이콘][batch-icon]][batch-doc]
-        \
+        [![일괄 처리 아이콘][batch-icon]][batch-doc]<br>(*소비 논리 앱에만* 해당)     \
         \
         [**일괄 처리**][batch-doc]
         \
@@ -95,6 +94,24 @@ Azure Logic Apps에서는 다음과 같은 기본 제공 트리거 및 동작을
         \
         \
         [**일괄 처리할 메시지 보내기**][batch-doc]: 현재 **메시지 일괄 처리** 트리거로 시작하는 기존 워크플로를 호출합니다.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![STFP-SSH icon][sftp-ssh-icon]][sftp-ssh-doc]
+        \
+        \
+        [**STFP-SSH**][sftp-ssh-doc]<br>(*표준 논리 앱에만* 해당)     \
+        \
+        SSH를 사용하여 인터넷에서 액세스할 수 있는 SFTP 서버에 연결하여 파일 및 폴더를 사용할 수 있습니다.
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+    :::column:::
     :::column-end:::
 :::row-end:::
 
@@ -125,6 +142,33 @@ Azure Logic Apps는 다음 서비스에 대해 다음과 같은 기본 제공 �
         Swagger가 포함되는 경우 이러한 앱에서 정의된 트리거 및 동작은 Azure Logic Apps에서 다른 모든 고급 트리거 및 동작처럼 나타납니다.
     :::column-end:::
     :::column:::
+        [![Azure Blob 아이콘 아이콘][azure-blob-storage-icon]][azure-app-services-doc]
+        \
+        \
+        [**Azure Blob**][azure-blob-storage-doc]<br>(*표준 논리 앱에만* 해당)     \
+        \
+        Azure Storage 계정에 연결하여 Blob 콘텐츠를 만들고 관리할 수 있습니다.
+    :::column-end:::
+    :::column:::
+        [![Azure Cosmos DB 아이콘][azure-cosmos-db-icon]][azure-cosmos-db-doc]
+        \
+        \
+        [**Azure Cosmos DB**][azure-cosmos-db-doc]<br>(*표준 논리 앱에만* 해당)     \
+        \
+        Azure Cosmos DB 커넥트 하 여 Azure Cosmos DB 문서에 액세스 하 고 관리할 수 있습니다.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Azure Functions 아이콘][azure-functions-icon]][azure-functions-doc]
+        \
+        \
+        [**Azure Functions**][azure-functions-doc]
+        \
+        \
+        [Azure에서 호스트되는 함수](../azure-functions/functions-overview.md)를 호출하여 워크플로 내에서 고유한 ‘코드 조각’(C# 또는 Node.js)을 실행합니다.
+    :::column-end:::
+    :::column:::
         [![Azure Logic Apps 아이콘][azure-logic-apps-icon]][nested-logic-app-doc]
         \
         \
@@ -134,12 +178,48 @@ Azure Logic Apps는 다음 서비스에 대해 다음과 같은 기본 제공 �
         **HTTP 요청을 수신하는 경우** 라는 요청 트리거로 시작하는 다른 워크플로를 호출합니다.
     :::column-end:::
     :::column:::
+        [![Azure Service Bus icon][azure-service-bus-icon]][azure-service-bus-doc]
+        \
+        \
+        [**Azure Service Bus**][azure-service-bus-doc]<br>(*표준 논리 앱에만* 해당)     \
+        \
+        비동기 메시지, 큐, 세션, 토픽 및 토픽 구독을 관리 합니다.
+    :::column-end:::
+    :::column:::
+        [![IBM DB2 icon][ibm-db2-icon]][ibm-db2-doc]
+        \
+        \
+        [**DB2**][ibm-db2-doc]<br>(*표준 논리 앱에만* 해당)     \
+        \
+        클라우드 또는 온-프레미스에서 IBM DB2에 연결합니다. 행을 업데이트 하 고 테이블을 가져옵니다.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        =[![Azure Event Hubs icon][azure-event-hubs-icon]][azure-event-hubs-doc]
+        \
+        \
+        [**Event Hubs**][azure-event-hubs-doc]<br>(*표준 논리 앱에만* 해당)     \
+        \
+        이벤트 허브를 통해 이벤트를 사용 하 고 게시 합니다. 예를 들어 Event Hubs를 사용하여 논리 앱에서 출력을 가져온 다음, 해당 출력을 실시간 분석 공급자에게 보냅니다.
+    :::column-end:::
+    :::column:::
+        [![IBM MQ icon][ibm-mq-icon]][ibm-mq-doc]
+        \
+        \
+        [**MQ**][ibm-mq-doc]<br>(*표준 논리 앱에만* 해당)     \
+        \
+        IBM MQ 온-프레미스 또는 Azure에서 메시지를 보내고 받을 수 있습니다. 커넥트
+    :::column-end:::
+    :::column:::
         [![SQL Server 아이콘][sql-server-icon]][sql-server-doc]
         \
         \
-        [**SQL Server**][sql-server-doc] <br>(*단일 테넌트 전용*)     \
+        [**SQL Server**][sql-server-doc]<br>(*표준 논리 앱에만* 해당)     \
         \
         온-프레미스의 SQL Server 또는 클라우드의 Azure SQL Database에 연결하여 레코드를 관리하고 저장 프로시저를 실행하거나 쿼리를 수행할 수 있습니다. <p>**참고**: 단일 테넌트 Azure Logic Apps는 SQL 기본 제공 및 관리 커넥터 작업을 제공하지만, 다중 테넌트 Azure Logic Apps는 관리 커넥터 작업만 제공합니다. <p>자세한 내용은 [Azure Logic Apps의 단일 테넌트와 다중 테넌트 및 통합 서비스 환경(ISE) 비교](../logic-apps/single-tenant-overview-compare.md)를 참조하세요.
+    :::column-end:::
+    :::column:::
     :::column-end:::
 :::row-end:::
 
@@ -344,7 +424,7 @@ Azure Logic Apps는 다중 테넌트, 소비 계획 기반 Azure Logic Apps를 �
         [![플랫 파일 디코딩 아이콘][flat-file-decode-icon]][flat-file-decode-doc]
         \
         \
-        [**플랫 파일 디코딩**<br>(*다중 테넌트 전용*)][flat-file-decode-doc]
+        [**플랫 파일 디코딩**][flat-file-decode-doc]
         \
         \
         콘텐츠를 거래 업체에게 보내기 전에 XML을 인코딩합니다.
@@ -353,7 +433,7 @@ Azure Logic Apps는 다중 테넌트, 소비 계획 기반 Azure Logic Apps를 �
         [![플랫 파일 인코딩 아이콘][flat-file-encode-icon]][flat-file-encode-doc]
         \
         \
-        [**플랫 파일 인코딩**<br>(*다중 테넌트 전용*)][flat-file-encode-doc]
+        [**플랫 파일 인코딩**][flat-file-encode-doc]
         \
         \
         거래 업체에서 콘텐츠를 받은 후 XML을 디코딩합니다.
@@ -409,8 +489,11 @@ Azure Logic Apps는 다중 테넌트, 소비 계획 기반 Azure Logic Apps를 �
 [azure-api-management-icon]: ./media/apis-list/azure-api-management.png
 [azure-app-services-icon]: ./media/apis-list/azure-app-services.png
 [azure-blob-storage-icon]: ./media/apis-list/azure-blob-storage.png
+[azure-cosmos-db-icon]: ./media/apis-list/azure-cosmos-db.png
+[azure-event-hubs-icon]: ./media/apis-list/azure-event-hubs.png
 [azure-functions-icon]: ./media/apis-list/azure-functions.png
 [azure-logic-apps-icon]: ./media/apis-list/azure-logic-apps.png
+[azure-service-bus-icon]: ./media/apis-list/azure-service-bus.png
 [batch-icon]: ./media/apis-list/batch.png
 [condition-icon]: ./media/apis-list/condition.png
 [data-operations-icon]: ./media/apis-list/data-operations.png
@@ -421,9 +504,12 @@ Azure Logic Apps는 다중 테넌트, 소비 계획 기반 Azure Logic Apps를 �
 [http-response-icon]: ./media/apis-list/response.png
 [http-swagger-icon]: ./media/apis-list/http-swagger.png
 [http-webhook-icon]: ./media/apis-list/http-webhook.png
+[ibm-db2-icon]: ./media/apis-list/ibm-db2.png
+[ibm-mq-icon]: ./media/apis-list/ibm-mq.png
 [inline-code-icon]: ./media/apis-list/inline-code.png
 [schedule-icon]: ./media/apis-list/recurrence.png
 [scope-icon]: ./media/apis-list/scope.png
+[sftp-ssh-icon]: ./media/apis-list/sftp.png
 [sql-server-icon]: ./media/apis-list/sql.png
 [switch-icon]: ./media/apis-list/switch.png
 [terminate-icon]: ./media/apis-list/terminate.png
@@ -442,7 +528,10 @@ Azure Logic Apps는 다중 테넌트, 소비 계획 기반 Azure Logic Apps를 �
 [azure-api-management-doc]: ../api-management/get-started-create-service-instance.md "API 관리 및 게시를 위한 Azure API Management 서비스 인스턴스 만들기"
 [azure-app-services-doc]: ../logic-apps/logic-apps-custom-api-host-deploy-call.md "App Service API Apps과 논리 앱 통합"
 [azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Azure Blob Storage 커넥터와 Blob 컨테이너의 파일 관리"
+[azure-cosmos-db-doc]: ./connectors-create-api-cosmos-db.md "Azure Cosmos DB 커넥트 하 여 Azure Cosmos DB 문서에 액세스 하 고 관리할 수 있도록 합니다."
+[azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "논리 앱과 Event Hubs 간에 이벤트를 수신하고 보낼 수 있도록 Azure Event Hubs에 연결"
 [azure-functions-doc]: ../logic-apps/logic-apps-azure-functions.md "논리 앱을 Azure Functions와 통합"
+[azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Service Bus 큐, 토픽 및 토픽 구독에서 메시지 관리"
 [batch-doc]: ../logic-apps/logic-apps-batch-process-send-receive-messages.md "그룹 또는 일괄 처리로 메시지 처리"
 [condition-doc]: ../logic-apps/logic-apps-control-flow-conditional-statement.md "조건 평가 및 조건이 true인지 false인지에 따라 별도의 작업 실행"
 [data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "배열 필터링이나 CSV 및 HTML 테이블 생성과 같은 데이터 작업 수행"
@@ -452,6 +541,8 @@ Azure Logic Apps는 다중 테넌트, 소비 계획 기반 Azure Logic Apps를 �
 [http-response-doc]: ./connectors-native-reqres.md "Logic Apps에서 HTTP 요청에 응답"
 [http-swagger-doc]: ./connectors-native-http-swagger.md "Logic Apps에서 REST 엔드포인트 호출"
 [http-webhook-doc]: ./connectors-native-webhook.md "HTTP 또는 HTTPS 엔드포인트의 특정 이벤트 대기"
+[ibm-db2-doc]: ./connectors-create-api-db2.md "클라우드 또는 온-프레미스에서 IBM DB2에 연결. 행 업데이트, 테이블 가져오기 등의 작업 수행"
+[ibm-mq-doc]: ./connectors-create-api-mq.md "온-프레미스 또는 Azure에서 IBM MQ에 연결하여 메시지 송수신"
 [inline-code-doc]: ../logic-apps/logic-apps-add-run-inline-code.md "Logic Apps에서 JavaScript 코드 조각 추가 및 실행"
 [nested-logic-app-doc]: ../logic-apps/logic-apps-http-endpoint.md "중첩된 워크플로와 논리 앱 통합"
 [query-doc]: ../logic-apps/logic-apps-perform-data-operations.md#filter-array-action "쿼리 작업을 사용하여 배열 선택 및 필터링"
@@ -461,6 +552,7 @@ Azure Logic Apps는 다중 테넌트, 소비 계획 기반 Azure Logic Apps를 �
 [schedule-recurrence-doc]:  ./connectors-native-recurrence.md "되풀이 일정에 따라 Logic Apps 실행"
 [schedule-sliding-window-doc]: ./connectors-native-sliding-window.md "연속 청크로 데이터를 처리해야 하는 Logic Apps 실행"
 [scope-doc]: ../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md "그룹에 속한 작업의 실행이 완료되면 해당 상태를 가져오는 그룹으로 작업을 구성"
+[sftp-ssh-doc]: ./connectors-sftp-ssh.md "SSH를 사용하여 SFTP 계정에 연결. 파일 업로드, 가져오기, 삭제 등"
 [sql-server-doc]: ./connectors-create-api-sqlazure.md "Azure SQL Database 또는 SQL Server에 연결. SQL 데이터베이스 테이블에서 항목 생성, 업데이트, 가져오기 및 삭제"
 [switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "고유 값이 할당된 사례로 작업 구성. 값이 식, 개체, 토큰의 결과와 일치하는 사례만 실행. 일치하는 항목이 없으면 기본 사례 실행"
 [terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "논리 앱에 대해 활발히 실행되는 워크플로 중지 또는 취소"

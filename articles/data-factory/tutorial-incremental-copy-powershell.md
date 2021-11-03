@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 02/18/2021
-ms.openlocfilehash: 9b1592f76917975e06e7d8a36cb618cbe3abadcf
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 17af8eafed3ebd2cade812b50af1f69d5e3da9bd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124757784"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131016533"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-powershell"></a>PowerShell을 사용하여 Azure SQL Database에서 Azure Blob 스토리지로 데이터 증분 로드
 
@@ -145,9 +145,10 @@ END
 ```
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
+
 1. 나중에 PowerShell 명령에서 사용할 리소스 그룹 이름에 대한 변수를 정의합니다. PowerShell에 다음 명령 텍스트를 복사하고, 큰따옴표에 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)의 이름을 지정한 다음 명령을 실행합니다. 예제는 `"adfrg"`입니다. 
    
-     ```powershell
+    ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";
     ```
 

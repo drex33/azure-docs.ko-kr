@@ -1,16 +1,16 @@
 ---
-title: Azure VMware 솔루션에 대 한 보안 솔루션
+title: Azure VMware Solution에 대한 보안 솔루션
 description: Azure VMware 솔루션 사설 클라우드의 주요 보안 솔루션에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 09/15/2021
-ms.openlocfilehash: 5cad678a7f928fb1e96bce2a613ff1dab85d0711
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2da6c1563e8f8c5011114b8a1cba4345e7ab9607
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128634157"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131031103"
 ---
-# <a name="security-solutions-for-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 보안 솔루션
+# <a name="security-solutions-for-azure-vmware-solution"></a>Azure VMware Solution에 대한 보안 솔루션
 
 Azure VMware 솔루션의 기본 요소는 보안입니다. 이를 통해 고객은 안전 하 고 신뢰할 환경에서 VMware 기반 작업을 실행할 수 있습니다.
 
@@ -19,3 +19,4 @@ Microsoft의 보안 파트너에는 위협 방지 및 보안 검색과 같은 �
 이러한 솔루션에 대 한 자세한 내용은 여기에서 찾을 수 있습니다.
 
 - [Bitdefender](https://businessinsights.bitdefender.com/expanding-security-support-for-azure-vmware-solution)
+- [Trend Micro Deep Security](https://www.trendmicro.com/en_us/business/products/hybrid-cloud/deep-security.html)

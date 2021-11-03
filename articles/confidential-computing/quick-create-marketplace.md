@@ -1,32 +1,31 @@
 ---
-title: 빠른 시작 - Marketplace에서 Azure 기밀 컴퓨팅 가상 머신 만들기
-description: Marketplace에서 기밀 컴퓨팅 가상 머신을 빠르게 만드는 방법을 학습하여 배포를 시작하세요.
+title: 빠른 시작 - Azure Marketplace에서 Intel SGX VM 만들기
+description: Marketplace에서 Intel SGX VM을 신속하게 만드는 방법을 학습 하여 배포를 시작하세요.
 author: JBCook
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: quickstart
-ms.date: 06/13/2021
+ms.date: 11/01/2021
 ms.author: JenCook
-ms.openlocfilehash: 1bf3dd7fadea22c4266f87373c09c16f08349f7c
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 43a6e24ac887336854b59f747233b1cd355f4686
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113107256"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131077860"
 ---
-# <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-marketplace"></a>빠른 시작: Marketplace에서 Azure 기밀 컴퓨팅 VM 배포
+# <a name="quickstart-create-intel-sgx-vm-in-the-azure-marketplace"></a>빠른 시작: Azure Marketplace에서 Intel SGX VM 만들기
 
-Azure Portal을 통해 Intel SGX에서 지원하는 VM(가상 머신)을 만들어 Azure 기밀 컴퓨팅을 시작합니다. 필요에 따라 Open Enclave 소프트웨어(SDK)를 통해 빌드된 Enclave 애플리케이션을 테스트할 수 있습니다. 
-
-템플릿 구성을 사용하여 기밀 컴퓨팅 가상 머신을 배포하는 데 관심이 있는 경우 이 자습서를 사용하는 것이 좋습니다. 그러지 않으면 [포털이나 CLI를 사용](quick-create-portal.md)하여 표준 Azure Virtual Machine 배포 흐름을 따르는 것이 좋습니다.
+이 자습서에서는 Azure Marketplace를 사용하여 Intel SGX VM을 배포하는 과정을 설명합니다. 그렇지 않으면 [포털이나 CLI를 사용](quick-create-portal.md)하여 VM 배포 흐름을 따르는 것이 좋습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/).
 
 > [!NOTE]
-> 평가판 계정은 이 자습서에서 사용되는 가상 머신에 액세스할 수 없습니다. 종량제 구독으로 업그레이드하세요.
+> 무료 평가판 계정에는 이 자습서의 VM에 대한 액세스 권한이 없습니다. 종량제 구독으로 업그레이드하세요.
 
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
@@ -44,7 +43,7 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 1. 가상 머신 방문 페이지에서 **만들기** 를 선택합니다.
 
 
-## <a name="configure-a-confidential-computing-virtual-machine"></a>기밀 컴퓨팅 가상 머신 구성
+## <a name="configure-an-intel-sgx-virtual-machine"></a>Intel SGX 가상 머신 구성
 
 1. **기본 사항** 탭에서 **구독** 및 **리소스 그룹** 을 선택합니다(이 템플릿을 배포하려면 그룹이 비어 있어야 함).
 
@@ -55,11 +54,11 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
    * **지역**: 적합한 Azure 지역을 선택합니다.
 
         > [!NOTE]
-        > 기밀 컴퓨팅 가상 머신은 특정 지역에서 사용할 수 있는 특수한 하드웨어에서만 실행됩니다. DCsv2 시리즈 VM에 사용할 수 있는 최신 지역은 [사용 가능한 지역](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)을 참조하세요.
+        > Intel SGX VM은 특정 지역의 특수한 하드웨어에서 실행됩니다. 최신 지역의 가용성을 보려면 [사용 가능한 지역](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)에서 DCsv2 시리즈 또는 DCsv3/DCdsv3 시리즈를 찾으십시오.
 
 1. 가상 머신에 사용할 운영 체제 이미지를 구성합니다. 이 설정은 Gen 2 VM 및 이미지 배포만 지원합니다.
 
-    * **이미지 선택**: 이 자습서의 경우 Ubuntu 18.04 LTS(Gen 2)를 선택합니다. Windows Server Datacenter 2019, Windows Server Datacenter 2016 또는 Ubuntu 16.04 LTS를 선택할 수도 있습니다. 이 작업을 수행하도록 선택하면 이에 따라 이 자습서에서 적절하게 리디렉션됩니다.
+    * **이미지 선택**: 이 자습서의 경우 Ubuntu 20.04 LTS(Gen 2)를 선택합니다. Windows Server Datacenter 2019 또는 Ubuntu 18.04 LTS를 선택할 수도 있습니다. 이 작업을 수행하도록 선택하면 이에 따라 이 자습서에서 적절하게 리디렉션됩니다.
    
 1. 기본 사항 탭에서 다음 정보를 입력합니다.
 
@@ -77,8 +76,9 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 1. “가상 머신 설정” 탭에서 다음 정보를 입력합니다.
 
    * VM SKU 크기 선택
-   * **DC1s_v2**, **DC2s_v2**, **DC4s_V2** 가상 머신을 선택한 경우 **표준 SSD** 또는 **프리미엄 SSD** 디스크 유형 중 하나를 선택합니다. **DC8_v2** 가상 머신의 경우 디스크 유형으로 **표준 SSD** 만 선택할 수 있습니다.
-
+   * **DCsv2 시리즈** 는 DC1, DC2 및 DC4에서 **표준 SSD**, **프리미엄 SSD** 가 지원됩니다. 
+   * **DCsv3 및 DCdsv3 시리즈** 는 **표준 SSD**, **프리미엄 SSD** 및 **Ultra Disk** 를 지원합니다.
+   
    * **공용 인바운드 포트**: **선택한 포트 허용** 을 선택하고, **공용 인바운드 포트 선택** 목록에서 **SSH(22)** 및 **HTTP(80)** 를 선택합니다. Windows VM을 배포하는 경우 **HTTP(80)** 및 **RDP(3389)** 를 선택합니다. 이 빠른 시작에 안내된 이 단계는 VM에 연결하는 데 필요합니다.
    
     >[!Note]
@@ -127,17 +127,7 @@ Linux VM에 연결하는 방법에 대한 자세한 내용은 [포털을 사용�
 ## <a name="intel-sgx-drivers"></a>Intel SGX 드라이버
 
 > [!NOTE]
-> Intel SGX 드라이버는 이미 Ubuntu 및 Microsoft Azure 갤러리 이미지에 포함됩니다. 특별한 드라이버 설치가 필요하지 않습니다. 필요에 따라 [Intel SGX DCAP 드라이버 목록](https://01.org/intel-software-guard-extensions/downloads)으로 이동하여 이미지에 포함되어 제공되는 기존 드라이버를 업데이트할 수도 있습니다.
-
-## <a name="optional-testing-enclave-apps-built-with-open-enclave-sdk-oe-sdk"></a>선택 사항: OE SDK(Open Enclave SDK)를 사용하여 빌드된 Enclave 앱 테스트 <a id="Install"></a>
-
-단계별 지침에 따라 Ubuntu 18.04 LTS 2세대 이미지를 실행하는 DCsv2 시리즈 가상 머신에 [OE SDK](https://github.com/openenclave/openenclave)를 설치합니다. 
-
-가상 머신이 Ubuntu 18.04 LTS Gen 2에서 실행되는 경우 [Ubuntu 18.04 설치 지침](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md)을 따라야 합니다.
-
-
-> [!NOTE]
-> Intel SGX 드라이버는 이미 Ubuntu 및 Microsoft Azure 갤러리 이미지에 포함됩니다. 특별한 드라이버 설치가 필요하지 않습니다. 필요에 따라 이미지에 포함되어 제공된 기존 드라이버를 업데이트할 수도 있습니다.
+> Intel SGX 드라이버는 이미 Ubuntu 및 Microsoft Azure 갤러리 이미지에 포함됩니다. 최신 드라이버를 사용하고 있는지 확인하려면 [INTEL SGX DCAP 드라이버 목록](https://01.org/intel-software-guard-extensions/downloads)을 방문하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -147,7 +137,7 @@ Linux VM에 연결하는 방법에 대한 자세한 내용은 [포털을 사용�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 기밀 컴퓨팅 가상 머신을 배포하고 Open Enclave SDK를 설치했습니다. Azure의 기밀 컴퓨팅 가상 머신에 대한 자세한 내용은 [Virtual Machines 솔루션](virtual-machine-solutions.md)을 참조하세요. 
+이 빠른 시작에서는 Intel SGX VM에 배포하고 연결했습니다. 자세한 내용은 [Virtual Machines의 솔루션](virtual-machine-solutions-sgx.md)을 참조하세요. 
 
 GitHub의 Open Enclave SDK 샘플로 계속 진행하여 기밀 컴퓨팅 애플리케이션을 빌드하는 방법을 알아봅니다. 
 

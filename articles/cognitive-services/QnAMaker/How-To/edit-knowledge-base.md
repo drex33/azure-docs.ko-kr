@@ -5,18 +5,21 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 8d9f54c1fcd142c77fb73c294b81bf0f11ee083f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 1b67744b66eaf5563505f72b6b151f40ed44f602
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99557690"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069238"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>기술 자료에서 QnA 쌍 편집
 
 QnA Maker는 사용하기 쉬운 편집 환경을 제공하여 기술 자료 콘텐츠를 관리할 수 있게 해줍니다.
 
 QnA 쌍은 파일 또는 URL과 같은 데이터 원본에서 추가되거나 편집 원본으로 추가됩니다. 편집 원본은 QnA 쌍이 QnA 포털에 수동으로 추가되었음을 나타냅니다. 모든 QnA 쌍을 편집할 수 있습니다.
+
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 <a name="add-an-editorial-qna-set"></a>
 

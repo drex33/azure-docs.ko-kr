@@ -6,32 +6,26 @@ documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 07/07/2021
+ms.date: 10/25/2021
 ms.author: danlep
-ms.openlocfilehash: c70e72550b88850b6b30c8f96f7f2dc4a460b222
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: bf95131892703fcb7ce8c31c68f7b1da6dca1dee
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128678956"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131031749"
 ---
 # <a name="api-management-policy-expressions"></a>API Management 정책 식
-이 문서에서는 C# 7의 정책 식 구문에 대해 설명합니다. 각 식에서는 암시적으로 제공된 [context](api-management-policy-expressions.md#ContextVariables) 변수 및 .NET Framework 형식의 허용된 [하위 집합](api-management-policy-expressions.md#CLRTypes)에 액세스할 수 있습니다.
-
-자세한 내용은 다음을 참조하세요.
-
-- 백 엔드 서비스에 컨텍스트 정보를 제공하는 방법을 참조합니다. [쿼리 문자열 매개 변수 설정](api-management-transformation-policies.md#SetQueryStringParameter) 및 [HTTP 헤더 설정](api-management-transformation-policies.md#SetHTTPheader) 정책을 사용하여 이 정보를 제공합니다.
-- [JWT 유효성 검사](api-management-access-restriction-policies.md#ValidateJWT) 정책을 사용하여 토큰 클레임에 따라 작업에 대한 액세스 권한을 미리 부여하는 방법을 참조합니다.
-- [API 검사기](./api-management-howto-api-inspector.md) 추적을 사용하여 정책을 평가하는 방법 및 평가 결과를 확인하는 방법을 참조하세요.
-- [캐시에서 가져오기](api-management-caching-policies.md#GetFromCache) 및 [캐시에 저장](api-management-caching-policies.md#StoreToCache) 정책이 있는 식을 사용하여 API Management 응답 캐싱을 구성하는 방법을 참조합니다. 백 엔드 서비스의 `Cache-Control` 지시문에 지정된 대로 백 엔드 서비스의 응답 캐싱과 일치하는 기간을 설정합니다.
-- 콘텐츠 필터링을 수행하는 방법을 참조합니다. [흐름 제어](api-management-advanced-policies.md#choose) 및 [본문 설정](api-management-transformation-policies.md#SetBody) 정책을 사용하여 백 엔드에서 받은 응답의 데이터 요소를 제거합니다.
-- 정책 명령문을 다운로드하려면 [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies) GitHub 리포지토리를 참조하세요.
-
+이 문서에서는 C# 7의 정책 식 구문에 대해 설명합니다. 각 식에는 다음에 대 한 액세스 권한이 있습니다.
+* 암시적으로 제공 된 [컨텍스트](api-management-policy-expressions.md#ContextVariables) 변수입니다.
+* .NET Framework 형식의 허용 되는 [하위 집합](api-management-policy-expressions.md#CLRTypes) 입니다.
 
 ## <a name="syntax"></a><a name="Syntax"></a> 구문
-단일 문 식은 `@(expression)`으로 묶으며 여기서 `expression`은 올바르게 구성된 C# 식입니다.
-
-다중 문 식은 `@{expression}`으로 묶습니다. 다중 문 식 내에 모든 코드 경로는 `return` 문으로 끝나야 합니다.
+* **단일 문 식:**
+    * 로 묶여 `@(expression)` `expression` 있습니다. 여기서은 올바른 형식의 c # 식 문입니다.
+* **다중 문 식:** 
+    * 로 둘러싸여 `@{expression}` 있습니다. 
+    * 다중 문 식 내에 모든 코드 경로는 `return` 문으로 끝나야 합니다.
 
 ## <a name="examples"></a><a name="PolicyExpressionsExamples"></a> 예
 
@@ -61,13 +55,13 @@ ms.locfileid: "128678956"
 ```
 
 ## <a name="usage"></a><a name="PolicyExpressionsUsage"></a>사용량
-정책 참조에서 다르게 지정하지 않는 한, 식은 어떤 API Management [정책](api-management-policies.md)에서든 특성 값 또는 텍스트 값으로 사용될 수 있습니다.
+정책 참조에서 달리 지정 하지 않는 한 모든 API Management [정책](api-management-policies.md)에서 식을 특성 값 또는 텍스트 값으로 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> 정책 식을 사용하는 경우 정책을 정의할 때 정책 식에 대해 제한된 검증만 이루어집니다. 식은 런타임 시 게이트웨이에 의해 실행됩니다. 정책 식에 의해 생성된 모든 예외는 런타임 오류가 발생합니다.
+> 정책이 정의 되 면 정책 식의 확인만 제한 됩니다. 식은 런타임에 게이트웨이에서 실행 됩니다. 정책 식에 의해 생성 된 모든 예외는 런타임 오류가 발생 합니다.
 
 ## <a name="net-framework-types-allowed-in-policy-expressions"></a><a name="CLRTypes"></a> 정책 식에 허용된 .NET Framework 형식
-다음 표에서는 .NET Framework 형식과 정책 식에 허용된 멤버를 보여 줍니다.
+다음 표에서는 정책 식에 허용 되는 .NET Framework 형식 및 멤버를 나열 합니다.
 
 |유형|지원되는 멤버|
 |--------------|-----------------------|
@@ -202,7 +196,9 @@ ms.locfileid: "128678956"
 |System.Xml.XmlNodeType|모두|
 
 ## <a name="context-variable"></a><a name="ContextVariables"></a> 컨텍스트 변수
-`context`라는 변수는 모든 [식](api-management-policy-expressions.md#Syntax)에서 암시적으로 사용할 수 있습니다. 해당 멤버는 `\request`와 관련된 정보를 제공합니다. 모든 `context` 멤버는 읽기 전용입니다.
+`context`변수는 모든 정책 [식](api-management-policy-expressions.md#Syntax)에서 암시적으로 사용할 수 있습니다. 해당 멤버:
+* API [요청](#ref-context-request) 및 [응답과](#ref-context-response)관련 된 정보 및 관련 된 속성을 제공 합니다. 
+* 모든 읽기 전용입니다.
 
 |컨텍스트 변수|허용된 메서드, 속성 및 매개 변수 값|
 |----------------------|-------------------------------------------------------|
@@ -220,7 +216,7 @@ ms.locfileid: "128678956"
 |<a id="ref-context-user"></a>context.User|Email: string<br /><br /> FirstName: string<br /><br /> Groups: IEnumerable<[IGroup](#ref-igroup)\><br /><br /> Id: string<br /><br /> Identities: IEnumerable<[IUserIdentity](#ref-iuseridentity)\><br /><br /> LastName: string<br /><br /> Note: string<br /><br /> RegistrationDate: DateTime|
 |<a id="ref-iapi"></a>IApi|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> Protocols: IEnumerable<string\><br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> SubscriptionKeyParameterNames: [ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
 |<a id="ref-igroup"></a>IGroup|Id: string<br /><br /> Name: string|
-|<a id="ref-imessagebody"></a>IMessageBody|As<T\>(preserveContent: bool = false): Where T: string, byte[],JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> 지정된 형식 `T`에서 요청 또는 응답 메시지 본문을 읽는 데 `context.Request.Body.As<T>` 또는 `context.Response.Body.As<T>` 메서드가 사용됩니다. 기본적으로 이 메서드는 원래 메시지 본문 스트림을 사용하고 반환된 후에는 사용할 수 없게 렌더링합니다. [이 예시](api-management-transformation-policies.md#SetBody)와 같이, 이 메서드가 본문 스트림의 복사본에 대해 작동하도록 하여 이러한 문제를 피하려면 `preserveContent` 매개 변수를 `true`로 설정합니다.|
+|<a id="ref-imessagebody"></a>IMessageBody|As<T\>(preserveContent: bool = false): Where T: string, byte[],JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> `context.Request.Body.As<T>`및 `context.Response.Body.As<T>` 메서드는 지정 된 형식의 요청 및 응답 메시지 본문을 읽는 데 사용 됩니다 `T` . 기본적으로 메서드는 다음과 같습니다.<br /><ul><li>는 원래 메시지 본문 스트림을 사용 합니다.</li><li>반환 된 후에 사용할 수 없도록 렌더링 합니다.</li></ul> <br />이를 방지 하 고 메서드가 본문 스트림의 복사본에 대해 작동 하도록 하려면 다음 `preserveContent` `true` [예제](api-management-transformation-policies.md#SetBody)와 같이 매개 변수를로 설정 합니다.|
 |<a id="ref-iurl"></a>IUrl|Host: string<br /><br /> Path: string<br /><br /> Port: int<br /><br /> [쿼리](#ref-iurl-query): IReadOnlyDictionary<string, string[]><br /><br /> QueryString: string<br /><br /> Scheme: string|
 |<a id="ref-iuseridentity"></a>IUserIdentity|Id: string<br /><br /> Provider: string|
 |<a id="ref-isubscriptionkeyparameternames"></a>ISubscriptionKeyParameterNames|Header: string<br /><br /> Query: string|
@@ -250,3 +246,13 @@ ms.locfileid: "128678956"
 + [API 변환](transform-api.md)
 + [정책 참조](./api-management-policies.md)(정책 문 및 해당 설정에 대한 전체 목록)
 + [정책 샘플](./policy-reference.md)
+
+자세한 내용은 다음을 참조하세요.
+
+- 백 엔드 서비스에 컨텍스트 정보를 제공하는 방법을 참조합니다. [쿼리 문자열 매개 변수 설정](api-management-transformation-policies.md#SetQueryStringParameter) 및 [HTTP 헤더 설정](api-management-transformation-policies.md#SetHTTPheader) 정책을 사용하여 이 정보를 제공합니다.
+- [JWT 유효성 검사](api-management-access-restriction-policies.md#ValidateJWT) 정책을 사용하여 토큰 클레임에 따라 작업에 대한 액세스 권한을 미리 부여하는 방법을 참조합니다.
+- [API 검사기](./api-management-howto-api-inspector.md) 추적을 사용하여 정책을 평가하는 방법 및 평가 결과를 확인하는 방법을 참조하세요.
+- [캐시에서 가져오기](api-management-caching-policies.md#GetFromCache) 및 [캐시에 저장](api-management-caching-policies.md#StoreToCache) 정책이 있는 식을 사용하여 API Management 응답 캐싱을 구성하는 방법을 참조합니다. 백 엔드 서비스의 `Cache-Control` 지시문에 지정된 대로 백 엔드 서비스의 응답 캐싱과 일치하는 기간을 설정합니다.
+- 콘텐츠 필터링을 수행하는 방법을 참조합니다. [흐름 제어](api-management-advanced-policies.md#choose) 및 [본문 설정](api-management-transformation-policies.md#SetBody) 정책을 사용하여 백 엔드에서 받은 응답의 데이터 요소를 제거합니다.
+- 정책 명령문을 다운로드하려면 [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies) GitHub 리포지토리를 참조하세요.
+

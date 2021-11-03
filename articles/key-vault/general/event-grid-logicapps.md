@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e6ec06e3df87e0ad0e50efca24439435d655f6a1
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
-ms.translationtype: HT
+ms.openlocfilehash: ce40ba28b4e65fe1c9b7f73d70afb519b74d1b90
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752105"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131015298"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Logic Apps를 사용하여 키 자격 증명 모음 비밀의 상태 변경에 대한 이메일 수신
 
@@ -44,7 +44,7 @@ Azure Event Grid 구독을 만들려면 다음 단계를 수행합니다.
  
     ![논리 앱 디자이너 - 연결](../media/eventgrid-logicappdesigner1.png)
 
-1. **리소스 이벤트가 발생하는 경우** 화면에서 다음을 수행합니다.
+1. **리소스 이벤트가 발생** 하는 경우 화면에서 다음을 수행 합니다.
     - **구독** 및 **리소스 이름** 을 기본값으로 둡니다.
     - **리소스 종류** 에 대해 **Microsoft.KeyVault.vaults** 를 선택합니다.
     - **이벤트 유형 항목 - 1** 에 대해 **Microsoft.KeyVault.SecretNewVersionCreated** 를 선택합니다.

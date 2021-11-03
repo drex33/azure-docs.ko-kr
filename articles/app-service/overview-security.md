@@ -5,12 +5,12 @@ keywords: azure app service, 웹앱, 모바일 앱, API 앱, 함수 앱, 보안,
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: d661781d7eea0b5627dcab13648422003c82e0a4
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: c4c69ba78460f8a629848717da6bb76a782d1aa2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130220466"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045561"
 ---
 # <a name="security-in-azure-app-service"></a>Azure App Service의 보안
 
@@ -55,7 +55,7 @@ App Service 인증 및 권한 부여는 Azure Active Directory, Microsoft 계정
 
 App Service는 백 엔드 서비스를 인증할 때 필요에 따라 별도의 다음 두 가지 메커니즘을 제공합니다.
 
-- **서비스 ID** - 앱 자체의 ID를 사용하여 원격 리소스에 로그인합니다. App Service를 사용하면 다른 서비스(예: [Azure SQL Database](/azure/sql-database/) 또는 [Azure Key Vault](../key-vault/index.yml))에서 인증하는 데 사용할 수 있는 [관리 ID](overview-managed-identity.md)를 쉽게 만들 수 있습니다. 이 방식을 설명하는 엔드투엔드 자습서는 [관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호](app-service-web-tutorial-connect-msi.md)를 참조하세요.
+- **서비스 ID** - 앱 자체의 ID를 사용하여 원격 리소스에 로그인합니다. App Service를 사용하면 다른 서비스(예: [Azure SQL Database](/azure/sql-database/) 또는 [Azure Key Vault](../key-vault/index.yml))에서 인증하는 데 사용할 수 있는 [관리 ID](overview-managed-identity.md)를 쉽게 만들 수 있습니다. 이 방식을 설명하는 엔드투엔드 자습서는 [관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호](tutorial-connect-msi-sql-database.md)를 참조하세요.
 - **OBO(On-Behalf-Of)** - 원격 리소스에 대해 사용자를 대신하도록 위임된 액세스 권한을 만듭니다. Azure Active Directory를 인증 공급자로 사용하면 App Service 앱에서 App Service의 원격 서비스(예: [Microsoft Graph API](../active-directory/develop/microsoft-graph-intro.md) 또는 원격 API 앱)에 위임된 로그인을 수행할 수 있습니다. 이 방법에 대한 엔드투엔드 자습서는 [Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여](tutorial-auth-aad.md)를 참조하세요.
 
 ## <a name="connectivity-to-remote-resources"></a>원격 리소스에 대한 연결

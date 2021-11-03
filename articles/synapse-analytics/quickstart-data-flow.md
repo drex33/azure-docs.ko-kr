@@ -9,12 +9,12 @@ ms.subservice: pipeline
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/03/2020
-ms.openlocfilehash: 481d4534f7213d55c795383d6112fd93f7997c9c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 861a4669f36abc8e69f51b0ad24c1a5bd5b43f13
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128596869"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131018891"
 ---
 # <a name="quickstart-transform-data-using-mapping-data-flows"></a>빠른 시작: 데이터 흐름 매핑을 사용하여 데이터 변환
 
@@ -28,7 +28,7 @@ ms.locfileid: "128596869"
 > * 파이프라인 실행 테스트
 > * 데이터 흐름 모니터링 작업
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * **Azure Synapse 작업 영역**: [빠른 시작: Synapse 작업 영역](quickstart-create-workspace.md) 만들기의 지침에 따라 Azure Portal을 사용하여 Synapse 작업 영역을 만듭니다.
@@ -107,11 +107,11 @@ Azure Synapse 작업 영역이 만들어지면 다음 두 가지 방법으로 Sy
 
 1. 데이터 흐름 식 작성기를 사용하면 다양한 변환에 사용할 식을 대화형으로 작성할 수 있습니다. 식에는 기본 제공 함수, 입력 스키마의 열 및 사용자 정의 매개 변수가 포함될 수 있습니다. 식 작성 방법에 대한 자세한 내용은 [데이터 흐름 식 작성기](../data-factory/concepts-data-flow-expression-builder.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)를 참조하세요.
 
-    이 빠른 시작에서는 1910년과 2000년 사이에 발표된 코미디 장르 영화를 필터링하려고 합니다. 연도는 현재 문자열이므로 ```toInteger()``` 함수를 사용하여 정수로 변환해야 합니다. 크거나 같음(>=) 및 작거나 같음(<=) 연산자를 사용하여 리터럴 연도 값 1910 및 200-을 비교합니다. 이 식을 and(&&) 연산자로 결합합니다. 식은 다음과 같이 됩니다.
+    이 빠른 시작에서는 1910년과 2000년 사이에 발표된 코미디 장르 영화를 필터링하려고 합니다. 연도는 현재 문자열이므로 ```toInteger()``` 함수를 사용하여 정수로 변환해야 합니다. 크거나 같음(>=) 및 작거나 같음(<=) 연산자를 사용하여 리터럴 연도 값 1910 및 200-을 비교합니다. 이러한 식을 `&&` (및) 연산자와 통합합니다. 식은 다음과 같이 됩니다.
 
     `toInteger(year) >= 1910 && toInteger(year) <= 2000`
 
-    코미디 영화를 찾으려면 `rlike()` 함수를 사용하여 장르 열에서 'Comedy' 패턴을 찾을 수 있습니다. `rlike`식을 연도 비교와 통합하여 다음을 얻습니다.
+    코미디 영화를 찾으려면 `rlike()` 함수를 사용하여 장르 열에서 'Comedy' 패턴을 찾을 수 있습니다. `rlike`식을 연도 비교와 통합하여 다음을 수행합니다.
 
     `toInteger(year) >= 1910 && toInteger(year) <= 2000 && rlike(genres, 'Comedy')`
 

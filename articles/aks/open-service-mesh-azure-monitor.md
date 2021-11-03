@@ -6,26 +6,24 @@ ms.topic: article
 ms.date: 8/26/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
-ms.openlocfilehash: dbe97b74f573a1e02514b70ff24506a020b7ccdb
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 139c2dbd201791fd7960e66564a293545c3ca524
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130233718"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131066732"
 ---
 # <a name="open-service-mesh-osm-monitoring-and-observability-using-azure-monitor-and-applications-insights"></a>Azure Monitor 및 Application Insights를 사용한 OSM(Open Service Mesh) 모니터링 및 가시성
 
 Azure Monitor 및 Azure 애플리케이션는 모두 응용 프로그램 및 서비스의 가용성과 성능을 극대화 하는 데 도움이 Insights. 이러한 서비스는 클라우드 및 온-프레미스 환경에서 원격 분석을 수집, 분석 및 작동 하기 위한 종합적인 솔루션을 제공 합니다.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-OSM AKS 추가 기능은 이러한 Azure 서비스 둘 다에 긴밀 하 게 통합 되어 있으며 OSM 메트릭에 의해 제공 되는 중요 Kpi를 보고 응답 하기 위한 원활한 Azure 환경을 제공 합니다. 
+OSM AKS 추가 기능은 이러한 Azure 서비스 둘 다에 긴밀 하 게 통합 되어 있으며 OSM 메트릭에 의해 제공 되는 중요 Kpi를 보고 응답 하기 위한 원활한 Azure 환경을 제공 합니다.
 
 ## <a name="enable-azure-monitor"></a>Azure Monitor 사용
 
-AKS 클러스터에서 OSM AKS 추가 기능을 사용 하도록 설정한 후에는 Azure Portal를 통해 클러스터에서 Azure Monitor를 사용 하도록 설정 해야 합니다. AKS 클러스터를 클릭 하 고 "모니터링" 아래의 "Insights" 탭으로 이동 하 고 "사용"을 선택 합니다. 
+AKS 클러스터에서 OSM AKS 추가 기능을 사용 하도록 설정한 후에는 Azure Portal를 통해 클러스터에서 Azure Monitor를 사용 하도록 설정 해야 합니다. AKS 클러스터를 클릭 하 고 "모니터링" 아래의 "Insights" 탭으로 이동 하 고 "사용"을 선택 합니다.
 
-Azure Monitor 사용 하도록 설정 되 면 kube 네임 스페이스에서 다음 pod를 볼 수 있습니다. 
+Azure Monitor 사용 하도록 설정 되 면 kube 네임 스페이스에서 다음 pod를 볼 수 있습니다.
 
 ```
 kube-system     omsagent-5pn4c                        1/1     Running   0          24m
@@ -50,9 +48,10 @@ osm metrics enable --namespace bookstore
 osm metrics enable --namespace bookthief
 osm metrics enable --namespace bookwarehouse
 ```
+
 ## <a name="apply-configmap"></a>ConfigMap 적용
 
-에서 `kube-system` 모니터링 해야 하는 네임 스페이스를 AzMon 알려주는 다음 ConfigMap을 만듭니다. 예를 들어 bookbuyer/서 점 데모의 경우 ConfigMap은 다음과 같이 표시 됩니다. 
+에서 `kube-system` 모니터링 해야 하는 네임 스페이스를 AzMon 알려주는 다음 ConfigMap을 만듭니다. 예를 들어 bookbuyer/서 점 데모의 경우 ConfigMap은 다음과 같이 표시 됩니다.
 
 ```yaml
 kind: ConfigMap
@@ -69,7 +68,6 @@ data:
 metadata:
   name: container-azm-ms-osmconfig
   namespace: kube-system
-
 ```
 
 ## <a name="view-metrics-in-the-azure-portal"></a>Azure Portal에서 메트릭 보기

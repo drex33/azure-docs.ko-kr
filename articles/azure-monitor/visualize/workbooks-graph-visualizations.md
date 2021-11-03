@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: 45902cbac3948787832238bbeb89090265464ab8
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: ac1418ee2df60a79be104f1991908dcde0de6c07
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130129228"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072259"
 ---
 # <a name="graph-visualizations"></a>그래프 시각화
 
@@ -100,7 +100,7 @@ ms.locfileid: "130129228"
 3. **로그**, 리소스 종류(예: Application Insights) 및 대상 리소스를 선택합니다.
 4. 쿼리 편집기를 사용하여 분석을 위한 KQL을 입력합니다.
 
-     ```kusto
+    ```kusto
     let data = dependencies
     | summarize Calls = count() by App = appName, Request = operation_Name, Dependency = name
     | extend RequestId = strcat(App, '::', Request);

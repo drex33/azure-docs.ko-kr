@@ -10,15 +10,15 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/02/2020
 ms.author: pafarley
-ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
+ms.custom: devx-track-csharp, cog-serv-seo-aug-2020, ignite-fall-2021
 zone_pivot_groups: programming-languages-set-twenty-five
 keywords: 스피커 인식, 음성 생체 측정
-ms.openlocfilehash: 1f9690427a52aaf8025010ccbbc12899077c6b15
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: a1b5a96b12d027a139845769fdd98c0b2e47a5d4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123543802"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069155"
 ---
 # <a name="get-started-with-speaker-recognition"></a>Speaker Recognition 시작
 
@@ -35,7 +35,7 @@ ms.locfileid: "123543802"
 ::: zone-end
 
 ::: zone pivot="programming-language-curl"
-[!INCLUDE [JavaScript Basics include](includes/how-to/speaker-recognition-basics/speaker-recognition-basics-curl.md)]
+[!INCLUDE [Curl Basics include](includes/how-to/speaker-recognition-basics/speaker-recognition-basics-curl.md)]
 ::: zone-end
 
 ## <a name="next-steps"></a>다음 단계

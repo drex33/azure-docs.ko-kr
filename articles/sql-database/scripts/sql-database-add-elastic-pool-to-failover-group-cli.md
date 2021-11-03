@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
-author: BustosMSFT
-ms.author: robustos
+author: rothja
+ms.author: jroth
 ms.reviewer: mathoma
 ms.date: 07/16/2019
-ms.openlocfilehash: d5563d81308d449ab6a4c711821e851fa3e33f41
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 04389f3cc5604e0412776e2c02b4e3e4fcc8738b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110705829"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131013729"
 ---
 # <a name="use-cli-to-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>CLI를 사용하여 Azure SQL Database 탄력적 풀을 장애 조치(failover) 그룹에 추가
 

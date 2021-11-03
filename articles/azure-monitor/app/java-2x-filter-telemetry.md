@@ -6,12 +6,12 @@ ms.date: 3/14/2019
 ms.custom: devx-track-java
 author: mattmccleary
 ms.author: mmcc
-ms.openlocfilehash: 26addfdcd7b7b2d9ec3b049040e5d387d7c5bb86
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 0170a0075d9f5eea7088a82e884b02241713210a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130133959"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131078924"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Java 웹앱에서 원격 분석 필터링
 
@@ -38,7 +38,7 @@ ms.locfileid: "130133959"
 ApplicationInsights.xml에서 다음 예제와 같이 `TelemetryProcessors` 섹션을 추가합니다.
 
 
-```XML
+```xml
 
     <ApplicationInsights>
       <TelemetryProcessors>
@@ -91,7 +91,7 @@ ApplicationInsights.xml에서 다음 예제와 같이 `TelemetryProcessors` 섹�
 
 ### <a name="metric-telemetry-filter"></a>메트릭 원격 분석 필터
 
-```XML
+```xml
 
            <Processor type="MetricTelemetryFilter">
                   <Add name="NotNeeded" value="metric1,metric2"/>
@@ -103,7 +103,7 @@ ApplicationInsights.xml에서 다음 예제와 같이 `TelemetryProcessors` 섹�
 
 ### <a name="page-view-telemetry-filter"></a>페이지 보기 원격 분석 필터
 
-```XML
+```xml
 
            <Processor type="PageViewTelemetryFilter">
                   <Add name="DurationThresholdInMS" value="500"/>
@@ -120,7 +120,7 @@ ApplicationInsights.xml에서 다음 예제와 같이 `TelemetryProcessors` 섹�
 ### <a name="request-telemetry-filter"></a>요청 원격 분석 필터
 
 
-```XML
+```xml
 
            <Processor type="RequestTelemetryFilter">
                   <Add name="MinimumDurationInMS" value="500"/>
@@ -138,7 +138,7 @@ SyntheticSource 속성에 값이 있는 모든 원격 분석을 필터링합니�
 모든 가상 요청에 대한 원격 분석을 필터링합니다.
 
 
-```XML
+```xml
 
            <Processor type="SyntheticSourceFilter" />
 ```
@@ -146,7 +146,7 @@ SyntheticSource 속성에 값이 있는 모든 원격 분석을 필터링합니�
 특정 가상 원본에 대한 원격 분석을 필터링합니다.
 
 
-```XML
+```xml
 
            <Processor type="SyntheticSourceFilter" >
                   <Add name="NotNeeded" value="source1,source2"/>
@@ -160,7 +160,7 @@ SyntheticSource 속성에 값이 있는 모든 원격 분석을 필터링합니�
 사용자 지정 이벤트를 필터링합니다([TrackEvent()](./api-custom-events-metrics.md#trackevent)를 사용하여 로깅됨).
 
 
-```XML
+```xml
 
            <Processor type="TelemetryEventFilter" >
                   <Add name="NotNeededNames" value="event1, event2"/>
@@ -175,7 +175,7 @@ SyntheticSource 속성에 값이 있는 모든 원격 분석을 필터링합니�
 
 로그 추적을 필터링합니다([TrackTrace()](./api-custom-events-metrics.md#tracktrace) 또는 [로깅 프레임워크 수집기](java-2x-trace-logs.md)를 사용하여 로깅됨).
 
-```XML
+```xml
 
            <Processor type="TraceTelemetryFilter">
                   <Add name="FromSeverityLevel" value="ERROR"/>
@@ -235,7 +235,7 @@ SyntheticSource 속성에 값이 있는 모든 원격 분석을 필터링합니�
 
 ApplicationInsights.xml:
 
-```XML
+```xml
 
 
     <ApplicationInsights>

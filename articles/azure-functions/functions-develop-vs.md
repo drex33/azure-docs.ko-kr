@@ -4,12 +4,12 @@ description: Visual Studio 2019용 Azure Functions 도구를 사용하여 Azure 
 ms.custom: vs-azure, devx-track-csharp
 ms.topic: conceptual
 ms.date: 12/10/2020
-ms.openlocfilehash: 2cd702286b2f35fcbc725af5ee231e1ab4b78284
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: a8be86708f2f3a8394b1e6e17d70a9d9038dc6e2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537399"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131039281"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Visual Studio를 사용하여 Azure Functions 개발  
 
@@ -27,7 +27,7 @@ Visual Studio로 함수를 개발하면 다음과 같은 이점이 있습니다.
 
 별도로 언급하지 않는 한, 표시된 프로시저와 예제는 Visual Studio 2019에 대한 것입니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure Functions 도구. Azure Functions 도구를 추가하려면 Visual Studio 설치 시 **Azure 개발** 워크로드를 포함합니다. Azure Functions 도구는 Visual Studio 2017부터 Azure 개발 워크로드에서 사용할 수 있습니다.
 
@@ -184,6 +184,7 @@ C# 클래스 라이브러리 함수에서, 함수에 사용된 바인딩은 코�
         }
     }
     ```
+
    Queue Storage에 대한 연결은 `AzureWebJobsStorage` 설정에서 가져옵니다. 자세한 내용은 특정 바인딩에 대한 참조 문서를 참조하세요. 
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]

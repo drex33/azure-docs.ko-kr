@@ -82,6 +82,8 @@
       items:
         - name: 일반 SQL 커넥터 구성
           href: on-premises-sql-connector-configure.md
+        - name: 일반 LDAP 커넥터 구성
+          href: on-premises-ldap-connector-configure.md
         - name: SCIM 지원 앱에 대한 온-프레미스 애플리케이션 프로비전
           href: on-premises-scim-provisioning.md
         - name: MIM 동기화에서 커넥터 마이그레이션
@@ -111,7 +113,7 @@
     - name: 개발자를 위한 지원 및 도움말 옵션
       href: ../develop/developer-support-help-options.md
     - name: Azure 피드백 포럼
-      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+      href: 'https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789'
     - name: Microsoft Q&A 질문 페이지
       href: /answers/topics/azure-active-directory.html
     - name: 가격 책정

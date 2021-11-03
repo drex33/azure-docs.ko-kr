@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: ae80ac5833e90164fc4ff92010fd1830ae932cd2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: b3622f2a46a0e5c22b7e63c6cdad635227a30714
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92174044"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131003887"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>클러스터 리소스 관리자와 서비스 패브릭 클러스터 관리 통합
 Service Fabric 클러스터 리소스 관리자는 Service Fabric에서 업그레이드를 수행하지는 않지만 관련되어 있습니다. Cluster Resource Manager에서 관리에 유용하게 사용할 수 있는 첫 번째 방법은 내부에 있는 서비스와 클러스터의 필요한 상태를 추적하는 것입니다. Cluster Resource Manager는 원하는 구성에 클러스터를 배치할 수 없는 경우 상태 보고서를 보냅니다. 예를 들어 용량이 부족하면 클러스터 리소스 관리자에서 문제를 나타내는 상태 경고 및 오류를 보냅니다. 통합의 다른 부분은 업그레이드 작동 방법와 관련이 있습니다. 클러스터 리소스 관리자는 업그레이드 중에 해당 동작을 약간 변경합니다.  
@@ -194,9 +194,9 @@ PreferredLocation 제약 조건은 두 가지 용도로 사용되므로 약간 �
 업그레이드가 시작되면 Resource Manager는 클러스터 현재 정렬의 스냅샷을 생성합니다. 각각의 업그레이드 도메인이 완료되면 해당 업그레이드 도메인에 있던 서비스를 원래 정렬로 반환하려고 시도합니다. 이렇게 하면 업그레이드하는 동안 서비스에 대해 최대 2개의 전환이 수행됩니다. 영향을 받는 노드에서 하나의 이동이 있고, 하나의 다시 이동이 있습니다. 클러스터 또는 서비스를 업그레이드 이전의 상태로 돌려놓으면 업그레이드에서도 클러스터의 레이아웃에 영향을 주지 않습니다. 
 
 ### <a name="reduced-churn"></a>이탈 감소
-업그레이드 중에 발생하는 또 다른 작업은 클러스터 리소스 관리자에서 분산을 해제하는 것입니다. 부하 분산은 업그레이드를 위해 서비스를 비운 노드로 이동하는 것과 같이 업그레이드 자체에 대한 불필요한 반응을 방지합니다. 문제가 발생한 업그레이드가 클러스터 업그레이드인 경우 전체 클러스터는 업그레이드하는 동안 부하가 분산되지 않습니다. 제약 조건 검사는 활성 상태를 유지하며 메트릭의 사전 분산을 기반으로 하는 이동만 비활성화됩니다.
+업그레이드 하는 동안 클러스터 리소스 관리자 분산이 꺼집니다. 부하 분산은 업그레이드를 위해 서비스를 비운 노드로 이동하는 것과 같이 업그레이드 자체에 대한 불필요한 반응을 방지합니다. 문제가 발생한 업그레이드가 클러스터 업그레이드인 경우 전체 클러스터는 업그레이드하는 동안 부하가 분산되지 않습니다. 제약 조건 검사는 활성 상태를 유지하며 메트릭의 사전 분산을 기반으로 하는 이동만 비활성화됩니다.
 
-### <a name="buffered-capacity--upgrade"></a>버퍼링된 용량 및 업그레이드
+### <a name="buffered-capacity-and-upgrade"></a>버퍼링 된 용량 및 업그레이드
 일반적으로 클러스터가 제한되거나 거의 가득 찬 경우에도 업그레이드를 완료할 수 있습니다. 업그레이드하는 동안 클러스터의 용량을 관리하는 것이 평소보다 훨씬 더 중요합니다. 업그레이드 도메인의 수에 따라 클러스터를 통해 업그레이드가 롤링함에 따라 용량의 5 ~ 20%가 마이그레이션되어야 합니다. 해당 작업은 어딘가로 이동해야 합니다. 이는 [버퍼링된 용량](service-fabric-cluster-resource-manager-cluster-description.md#node-buffer-and-overbooking-capacity)이라는 개념이 유용한 경우입니다. 버퍼링된 용량은 정상 작업 중에 적용됩니다. 클러스터 리소스 관리자에서 필요한 경우 업그레이드 중에 노드를 총 용량(버퍼 사용)까지 채울 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

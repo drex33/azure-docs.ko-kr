@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 755d6ff3e4b7e82390f6bc2c961883de976f5459
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 0e380676a99a74b9a9849322e8a1e611c14db2c1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536059"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131023066"
 ---
 # <a name="map-data-fields-to-entities-in-azure-sentinel"></a>데이터 필드를 Azure Sentinel 엔터티에 매핑 
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >

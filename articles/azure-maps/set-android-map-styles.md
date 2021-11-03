@@ -9,22 +9,22 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: c6d9eaedbd4a257a60fa0ba3dc7f41857173207e
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 1d16131c51527ead525bf17143892d15229658d2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123431571"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072430"
 ---
 # <a name="set-map-style-android-sdk"></a>지도 스타일 설정(Android SDK)
 
 이 문서에서는 Azure Maps Android SDK를 사용하여 지도 스타일을 설정하는 두 가지 방법을 보여 줍니다. Azure Maps에서는 여섯 가지 다른 지도 스타일 중에서 선택할 수 있습니다. 지원되는 지도 스타일에 대한 자세한 내용은 [Azure Maps에서 지원되는 지도 스타일](supported-map-styles.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [빠른 시작: Android 앱 만들기](quick-android-map.md) 문서의 단계를 완료해야 합니다.
 
->[!important]
+>[!IMPORTANT]
 >이 섹션의 절차에는 Gen 1 또는 Gen 2 가격 책정 계층의 Azure Maps 계정이 필요합니다. 가격 책정 계층에 대한 자세한 내용은 [Azure Maps에서 적절한 가격 책정 계층 선택](choose-pricing-tier.md)을 참조하세요.
 
 
@@ -32,7 +32,7 @@ ms.locfileid: "123431571"
 
 지도 컨트롤을 추가할 때 활동 클래스의 레이아웃 파일에서 지도 스타일을 설정할 수 있습니다. 다음 코드는 중심 위치, 확대/축소 수준 및 지도 스타일을 설정합니다.
 
-```XML
+```xml
 <com.azure.android.maps.control.MapControl
     android:id="@+id/mapcontrol"
     android:layout_width="match_parent"

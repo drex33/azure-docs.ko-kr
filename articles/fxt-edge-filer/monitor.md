@@ -1,17 +1,17 @@
 ---
 title: Azure FXT Edge Filer 모니터링
 description: Azure FXT Edge Filer 하이브리드 스토리지 캐시의 하드웨어 상태를 모니터링하는 방법
-author: ekpgh
+author: femila
 ms.service: fxt-edge-filer
 ms.topic: how-to
 ms.date: 06/20/2019
-ms.author: v-erkel
-ms.openlocfilehash: 7b127f9e7b9acb846eb39032f0a6c570be013ceb
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
-ms.translationtype: HT
+ms.author: femila
+ms.openlocfilehash: c5475d39870f1f3003c2df78b92fd7b524ebf998
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111415415"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024318"
 ---
 # <a name="monitor-azure-fxt-edge-filer-hardware-status"></a>Azure FXT Edge Filer 하드웨어 상태 모니터링
 

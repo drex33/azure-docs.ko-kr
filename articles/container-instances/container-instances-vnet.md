@@ -4,12 +4,12 @@ description: Azure 명령줄 인터페이스를 사용하여 새 또는 기존 A
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: f107b5b04726047bea4d7c05a6c031d921f26547
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: da24d64ba4615ff6d06ca2617e8e9c45a4dbff9f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112300168"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080216"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure Virtual Network에 컨테이너 인스턴스 배포
 
@@ -141,7 +141,7 @@ az network profile list --resource-group myResourceGroup \
 
 네트워크 프로필 ID를 가져온 후 다음 YAML을 새 파일 *vnet-deploy-aci.yaml* 에 복사합니다. `networkProfile` 아래의 `id` 값을 방금 검색한 ID로 바꾸고 파일을 저장합니다. 이 YAML은 가상 네트워크에 컨테이너 그룹 *appcontaineryaml* 을 만듭니다.
 
-```YAML
+```yaml
 apiVersion: '2019-12-01'
 location: westus
 name: appcontaineryaml

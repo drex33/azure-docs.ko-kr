@@ -4,12 +4,12 @@ description: Azure Application Insights에서 데이터를 볼 수 없나요? �
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: 3565ca98f61099fb4b2cf2f0c9bf69dbeaa721b5
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: d691958bf6ee55f31b0215b51bb9f4d7fd20c753
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429398"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079057"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>데이터 없음 문제 해결 - .NET/.NET Core용 Application Insights
 
@@ -222,7 +222,7 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 ### <a name="net-framework"></a>.NET Framework
 
 > [!NOTE]
-> 2.14 버전부터 [HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) 패키지는 더 이상 필요 하지 않습니다. 이제 SDK 로그가 [microsoft applicationinsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) 패키지를 사용 하 여 수집 됩니다. 추가 패키지는 필요 하지 않습니다.
+> 버전 2.14부터 [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) 패키지가 더 이상 필요하지 않으며, 이제 [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) 패키지를 사용하여 SDK 로그가 수집됩니다. 추가 패키지가 필요하지 않습니다.
 
 1. 다음을 포함하도록 applicationinsights.config 파일을 수정합니다.
 
@@ -271,7 +271,7 @@ Application Insights SDK 로그 EventSource는 PerfView에서 캡처할 수 있�
 
 로그를 수집하려면 PerfView를 다운로드하고 다음 명령을 실행합니다.
 ```cmd
-PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-ApplicationInsights-Core,*Microsoft-ApplicationInsights-Data,*Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,*Microsoft-ApplicationInsights-Extensibility-DependencyCollector,*Microsoft-ApplicationInsights-Extensibility-HostingStartup,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,*Microsoft-ApplicationInsights-Extensibility-EventCounterCollector,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,*Microsoft-ApplicationInsights-Extensibility-Web,*Microsoft-ApplicationInsights-Extensibility-WindowsServer,*Microsoft-ApplicationInsights-WindowsServer-Core,*Microsoft-ApplicationInsights-LoggerProvider,*Microsoft-ApplicationInsights-Extensibility-EventSourceListener,*Microsoft-ApplicationInsights-AspNetCore
+PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-ApplicationInsights-Core,*Microsoft-ApplicationInsights-Data,*Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,*Microsoft-ApplicationInsights-Extensibility-DependencyCollector,*Microsoft-ApplicationInsights-Extensibility-HostingStartup,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,*Microsoft-ApplicationInsights-Extensibility-EventCounterCollector,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,*Microsoft-ApplicationInsights-Extensibility-Web,*Microsoft-ApplicationInsights-Extensibility-WindowsServer,*Microsoft-ApplicationInsights-WindowsServer-Core,*Microsoft-ApplicationInsights-LoggerProvider,*Microsoft-ApplicationInsights-Extensibility-EventSourceListener,*Microsoft-ApplicationInsights-AspNetCore,*Redfield-Microsoft-ApplicationInsights-Core,*Redfield-Microsoft-ApplicationInsights-Data,*Redfield-Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,*Redfield-Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,*Redfield-Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,*Redfield-Microsoft-ApplicationInsights-Extensibility-DependencyCollector,*Redfield-Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,*Redfield-Microsoft-ApplicationInsights-Extensibility-EventCounterCollector,*Redfield-Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,*Redfield-Microsoft-ApplicationInsights-Extensibility-Web,*Redfield-Microsoft-ApplicationInsights-Extensibility-WindowsServer,*Redfield-Microsoft-ApplicationInsights-LoggerProvider,*Redfield-Microsoft-ApplicationInsights-Extensibility-EventSourceListener,*Redfield-Microsoft-ApplicationInsights-AspNetCore
 ```
 
 필요에 따라 다음 매개 변수를 수정할 수 있습니다.
@@ -291,7 +291,7 @@ PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-Applica
 [`dotnet-trace`](/dotnet/core/diagnostics/dotnet-trace)를 설치한 후 Bash에서 아래 명령을 실행합니다.
 
 ```bash
-dotnet-trace collect --process-id <PID> --providers Microsoft-ApplicationInsights-Core,Microsoft-ApplicationInsights-Data,Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,Microsoft-ApplicationInsights-Extensibility-DependencyCollector,Microsoft-ApplicationInsights-Extensibility-HostingStartup,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,Microsoft-ApplicationInsights-Extensibility-EventCounterCollector,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,Microsoft-ApplicationInsights-Extensibility-Web,Microsoft-ApplicationInsights-Extensibility-WindowsServer,Microsoft-ApplicationInsights-WindowsServer-Core,Microsoft-ApplicationInsights-LoggerProvider,Microsoft-ApplicationInsights-Extensibility-EventSourceListener,Microsoft-ApplicationInsights-AspNetCore
+dotnet-trace collect --process-id <PID> --providers Microsoft-ApplicationInsights-Core,Microsoft-ApplicationInsights-Data,Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,Microsoft-ApplicationInsights-Extensibility-DependencyCollector,Microsoft-ApplicationInsights-Extensibility-HostingStartup,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,Microsoft-ApplicationInsights-Extensibility-EventCounterCollector,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,Microsoft-ApplicationInsights-Extensibility-Web,Microsoft-ApplicationInsights-Extensibility-WindowsServer,Microsoft-ApplicationInsights-WindowsServer-Core,Microsoft-ApplicationInsights-LoggerProvider,Microsoft-ApplicationInsights-Extensibility-EventSourceListener,Microsoft-ApplicationInsights-AspNetCore,Redfield-Microsoft-ApplicationInsights-Core,Redfield-Microsoft-ApplicationInsights-Data,Redfield-Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,Redfield-Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,Redfield-Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,Redfield-Microsoft-ApplicationInsights-Extensibility-DependencyCollector,Redfield-Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,Redfield-Microsoft-ApplicationInsights-Extensibility-EventCounterCollector,Redfield-Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,Redfield-Microsoft-ApplicationInsights-Extensibility-Web,Redfield-Microsoft-ApplicationInsights-Extensibility-WindowsServer,Redfield-Microsoft-ApplicationInsights-LoggerProvider,Redfield-Microsoft-ApplicationInsights-Extensibility-EventSourceListener,Redfield-Microsoft-ApplicationInsights-AspNetCore
 ```
 
 ## <a name="how-to-remove-application-insights"></a>Application Insights 제거 방법

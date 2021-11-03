@@ -1,26 +1,29 @@
 ---
-title: 컨테이너 레지스트리용 Azure Defender를 사용하는 방법
-description: 컨테이너 레지스트리용 Azure Defender를 사용하여 Linux 호스트형 레지스트리에서 Linux 이미지를 검색하는 방법에 대해 알아봅니다
+title: 컨테이너 레지스트리에 Microsoft Defender를 사용하는 방법
+description: 컨테이너 레지스트리용 Microsoft Defender를 사용하여 Linux 호스팅 레지스트리에서 Linux 이미지를 검사하는 방법에 대해 알아봅니다.
 author: memildin
 ms.author: memildin
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 195e47ce7165a02c5bb7126521432d448e2199a9
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 9925fcb9f6a4d4284c7c6784a45e896ea825abc0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112238809"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056094"
 ---
-# <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>컨테이너 레지스트리용 Azure Defender를 사용하여 이미지에서 취약성 검사
+# <a name="use-microsoft-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>컨테이너 레지스트리용 Microsoft Defender를 사용하여 이미지에서 취약성을 검사합니다.
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 이 페이지에서는 기본 제공 취약성 스캐너를 사용하여 Azure Resource Manager 기반 Azure Container Registry에 저장된 컨테이너 이미지를 스캔하는 방법을 설명합니다.
 
-**컨테이너 레지스트리용 Azure Defender** 를 사용하도록 설정하면 레지스트리로 푸시하는 모든 이미지가 즉시 스캔됩니다. 또한 지난 30일 내에 끌어온 이미지도 검색됩니다. 
+**컨테이너 레지스트리용 Microsoft Defender를** 사용하도록 설정하면 레지스트리에 푸시하는 모든 이미지가 즉시 검사됩니다. 또한 지난 30일 내에 끌어온 이미지도 검색됩니다. 
 
-스캐너가 Security Center에 취약성을 보고하면 Security Center는 결과 및 관련 정보를 권장 사항으로 제공합니다. 또한 결과에는 수정 단계, 관련 CVE, CVSS 점수 등의 관련 정보가 포함됩니다. 하나 이상의 구독 또는 특정 레지스트리에 대해 식별된 취약성을 볼 수 있습니다.
+스캐너가 Defender for Cloud에 취약성을 보고하면 Defender for Cloud는 검색 결과 및 관련 정보를 권장 사항으로 제공합니다. 또한 결과에는 수정 단계, 관련 CVE, CVSS 점수 등의 관련 정보가 포함됩니다. 하나 이상의 구독 또는 특정 레지스트리에 대해 식별된 취약성을 볼 수 있습니다.
 
 > [!TIP]
 > CI/CD GitHub 워크플로에서 이미지를 빌드할 때 컨테이너 이미지의 취약성을 검사할 수도 있습니다. 자세한 정보는 [CI/CD 워크플로에서 취약한 컨테이너 이미지 식별](defender-for-container-registries-cicd.md)을 참조하세요.
@@ -30,24 +33,24 @@ ms.locfileid: "112238809"
 
 Azure Resource Manager 기반 Azure Container Registry에 저장된 이미지의 취약성 검색을 사용하려면 다음을 수행합니다.
 
-1. 구독에 대한 **컨테이너 레지스트리용 Azure Defender** 를 사용하도록 설정합니다. 이제 Security Center는 레지스트리의 이미지를 스캔할 준비가 되었습니다.
+1. 구독에 **컨테이너 레지스트리에 대해 Microsoft Defender를** 사용하도록 설정합니다. 이제 Defender for Cloud가 레지스트리의 이미지를 검사할 준비가 되었습니다.
 
     >[!NOTE]
     > 이 기능은 이미지별로 요금이 청구됩니다.
 
 1. 이미지 검색은 모든 푸시 또는 가져오기에서 트리거되고, 지난 30일 내에 이미지를 끌어온 경우에 발생합니다. 
 
-    검색이 완료될 때(일반적으로 약 2분 후, 최대 15분이 될 수 있음) Security Center 권장 사항으로 제공 됩니다.
+    검색이 완료되면(일반적으로 약 2분 후이지만 최대 15분이 될 수 있음) 결과를 Defender for Cloud 권장 사항으로 사용할 수 있습니다.
 
 1. [아래의 설명대로 결과를 보고 교정합니다](#view-and-remediate-findings).
 
 ## <a name="identify-vulnerabilities-in-images-in-other-container-registries"></a>기타 컨테이너 레지스트리의 이미지 취약성 식별 
 
-1. ACR 도구를 사용하여 Docker Hub 또는 Microsoft Container Registry에서 레지스트리에 이미지를 가져옵니다.  가져오기가 완료되면 Azure Defender에서 가져온 이미지를 검색합니다. 
+1. ACR 도구를 사용하여 Docker Hub 또는 Microsoft Container Registry에서 레지스트리에 이미지를 가져옵니다.  가져오기가 완료되면 가져온 이미지가 기본 제공 취약성 평가 솔루션에서 검사됩니다.
 
     자세한 정보는 [컨테이너 이미지를 컨테이너 레지스트리로 가져오기](../container-registry/container-registry-import-images.md)를 참조하세요.
 
-    검색이 완료될 때(일반적으로 약 2분 후, 최대 15분이 될 수 있음) Security Center 권장 사항으로 제공 됩니다.
+    검색이 완료되면(일반적으로 약 2분 후이지만 최대 15분이 될 수 있음) 결과를 Defender for Cloud 권장 사항으로 사용할 수 있습니다.
 
 1. [아래의 설명대로 결과를 보고 교정합니다](#view-and-remediate-findings).
 
@@ -143,11 +146,10 @@ Azure Resource Manager 기반 Azure Container Registry에 저장된 이미지의
 1. 규칙을 보거나 재정의하거나 삭제하려면 다음을 수행합니다. 
     1. **사용 안 함** 을 선택합니다.
     1. 범위 목록에서 활성 규칙이 있는 구독은 **규칙 적용** 됨으로 표시됩니다.
-        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="기존 규칙 수정 또는 삭제":::
+        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="기존 규칙을 수정하거나 삭제합니다.":::
     1. 규칙을 보거나 삭제하려면 줄임표 메뉴("...")를 선택합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [Azure Defender](azure-defender.md)에 대해 자세히 알아보세요.
+[Microsoft Defender의 고급 보호 계획에](defender-for-cloud-introduction.md)대해 자세히 알아봅니다.

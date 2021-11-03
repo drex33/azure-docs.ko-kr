@@ -1,17 +1,17 @@
 ---
 title: Azure HPC Cache 데이터 수집 - 수동 복사
 description: Azure HPC Cache에서 cp 명령을 사용하여 Blob 스토리지 대상으로 데이터를 이동하는 방법입니다.
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 10/30/2019
-ms.author: v-erkel
-ms.openlocfilehash: f96a0fa264124f9d050e667b003d98579da63b77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: femila
+ms.openlocfilehash: d3d93a767839d552791466d77be5ecbb9c50adf1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87092340"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131078525"
 ---
 # <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Azure HPC Cache 데이터 수집 - 수동 복사 방법
 

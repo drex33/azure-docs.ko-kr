@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 98904c5e32e6a1c145dd696b5ac20c7db8e2840f
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 0f15e96f19b87f892422df12f7bda7ccf6d0914b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129991929"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060253"
 ---
 # <a name="no-users-are-being-provisioned"></a>프로비전된 사용자 없음 
 >[!NOTE]
@@ -27,8 +27,7 @@ ms.locfileid: "129991929"
 -   애플리케이션에 **할당된** 사용자 및 그룹. 중첩된 그룹 프로비전은 지원되지 않습니다. 할당에 대한 자세한 내용은 [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)을 참조하세요.
 -   **특성 매핑** 을 사용하도록 설정했으며 Azure AD의 유효한 특성을 앱에 동기화하도록 구성했는지 여부. 특성 매핑에 대한 자세한 내용은 [Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비전 특성 매핑 사용자 지정](customize-application-attributes.md)을 참조하세요.
 -   특정 특성 값을 기반으로 사용자를 필터링하는 **범위 지정 필터** 가 있는지 여부. 범위 지정 필터에 대한 자세한 내용은 [범위 지정 필터를 사용한 특성 기반 애플리케이션 프로비전](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)을 참조하세요.
-  
-  
+
 사용자가 프로비전되지 않는 것이 관찰되면 Azure AD의 [프로비전 로그(미리 보기)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)를 참조하세요. 특정 사용자에 대한 로그 항목을 검색합니다.
 
 **활동** 섹션에서 **Azure Active Directory** &gt; **엔터프라이즈 앱** &gt; **프로비전 로그(미리 보기)** 를 선택하여 Azure Portal에서 프로비전 로그에 액세스할 수 있습니다. 원본 시스템이나 대상 시스템에서 사용자의 이름 또는 식별자를 기준으로 프로비전 데이터를 검색할 수 있습니다. 자세한 내용은 [프로비전 로그(미리 보기)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)를 참조하세요. 

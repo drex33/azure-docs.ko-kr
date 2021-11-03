@@ -5,22 +5,18 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 03/02/2021
-ms.openlocfilehash: 3050dda4b3c0e1a05d751a4f5969bba69ad0506d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 1927911563775711d6f0ec969ada82f1be286650
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101747920"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032494"
 ---
-# <a name="differences-between-azure-managed-instance-for-apache-cassandra-preview-and-azure-cosmos-db-cassandra-api"></a>Apache Cassandra용 Azure Managed Instance(미리 보기)와 Azure Cosmos DB Cassandra API 간의 차이점 
+# <a name="differences-between-azure-managed-instance-for-apache-cassandra-and-azure-cosmos-db-cassandra-api"></a>Apache Cassandra용 Azure Managed Instance와 Azure Cosmos DB Cassandra API 간의 차이점 
 
 이 문서에서는 Apache Cassandra용 Azure Managed Instance와 Azure Cosmos DB Cassandra API 간의 차이점에 대해 알아봅니다. 이 문서에서는 두 서비스 중에 선택하는 방법 또는 고객 고유의 Apache Cassandra 환경을 호스트해야 하는 시기에 대한 권장 사항을 제공합니다.
-
-> [!IMPORTANT]
-> Apache Cassandra용 Azure Managed Instance는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="key-differences"></a>주요 차이점
 

@@ -5,16 +5,13 @@ services: azure-resource-manager
 ms.date: 04/30/2020
 ms.topic: quickstart
 ms.service: azure-resource-manager
-ms.custom:
-- subject-armqs
-- devx-track-js
-- mode-arm
-ms.openlocfilehash: 2af957f6b69f2ef8c20672e62acaed5066a0d4d4
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.custom: subject-armqs, devx-track-js, mode-arm
+ms.openlocfilehash: 0b67348f5b824b79e3ef9e5f2ee2375b9e9b1a34
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112006170"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045222"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure에서 컨테이너 인스턴스 배포
 

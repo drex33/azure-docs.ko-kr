@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/07/2021
-ms.openlocfilehash: a729cd14c2f65b7ff4ab478f9efd25e13a1170b4
-ms.sourcegitcommit: 555ea0d06da38dea1de6ecbe0ed746cddd4566f5
-ms.translationtype: HT
+ms.openlocfilehash: b77fa4d3e82114c4b52edca250aada9837157782
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113515602"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068292"
 ---
 # <a name="managing-public-network-access-for-your-iot-hub"></a>IoT 허브의 공용 네트워크 액세스 관리
 
@@ -26,7 +26,7 @@ ms.locfileid: "113515602"
 4. 공용 네트워크 액세스 허용에서 **사용 안 함** 을 선택합니다.
 5. **저장** 을 선택합니다.
 
-:::image type="content" source="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png" alt-text="공용 네트워크 액세스를 해제할 수 있는 Azure Portal을 보여 주는 이미지" lightbox="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png":::
+:::image type="content" source="./media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png" alt-text="공용 네트워크 액세스를 해제할 Azure Portal를 보여 주는 스크린샷":::
 
 공용 네트워크 액세스를 사용하려면 **모든 네트워크** 를 선택한 다음 **저장** 을 선택합니다.
 
@@ -57,7 +57,7 @@ IoT Hub에 대한 공용 네트워크 액세스가 사용하지 않도록 설정
 5. **IP 필터** 대화 상자를 열어 **클라이언트 IP 주소 추가** 를 선택하고 이름과 주소 범위를 입력합니다.
 6. **저장** 을 선택합니다. 단추가 회색으로 표시된 경우 클라이언트 IP 주소가 이미 IP 필터로 추가되었는지 확인합니다.
 
-:::image type="content" source="media/iot-hub-publicnetworkaccess/turn-on-public-network-access.png" alt-text="공용 네트워크 액세스를 켜는 Azure Portal을 보여 주는 이미지":::
+:::image type="content" source="./media/iot-hub-publicnetworkaccess/turn-on-public-network-access.png" alt-text="공용 네트워크 액세스를 켜는 Azure Portal를 보여 주는 스크린샷":::
 
 ### <a name="turn-on-all-network-ranges"></a>모든 네트워크 범위 설정
 

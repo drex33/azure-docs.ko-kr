@@ -3,12 +3,13 @@ title: Application Insights 리소스에 대한 Resource Manager 템플릿 샘�
 description: Azure Monitor에 Application Insights 리소스를 배포하기 위한 Azure Resource Manager 템플릿 샘플입니다.
 ms.topic: sample
 ms.date: 07/08/2020
-ms.openlocfilehash: d725c6f88b142a49a3ea4231c6ec6ea68c414284
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 9287fd1345e9b6ba52696ce90f270bf301d8e654
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130132116"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059911"
 ---
 # <a name="resource-manager-template-samples-for-creating-application-insights-resources"></a>Application Insights 리소스 생성을 위한 Resource Manager 템플릿 샘플
 
@@ -48,7 +49,7 @@ ms.locfileid: "130132116"
         "tagsArray": {
             "type": "object",
             "metadata": {
-            "description": "See documentation on tags:https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources."
+            "description": "See documentation on tags: https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources."
           }
         },
         "requestSource": {
@@ -135,7 +136,7 @@ ms.locfileid: "130132116"
         "tagsArray": {
             "type": "object",
             "metadata": {
-            "description": "See documentation on tags:https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources."
+            "description": "See documentation on tags: https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources."
             }
         },
         "requestSource": {

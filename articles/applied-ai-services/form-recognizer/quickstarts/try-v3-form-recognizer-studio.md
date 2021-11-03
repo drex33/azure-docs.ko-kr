@@ -9,12 +9,13 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 09/14/2021
 ms.author: sajagtap
-ms.openlocfilehash: bb1c2ee770380b5f8689b1dd8f25712293a0bcb2
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: a14cd140d2bb0d2768c85fa2addca2140ccb1ffa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130220222"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131026736"
 ---
 # <a name="get-started-form-recognizer-studio--preview"></a>시작: Form Recognizer Studio | 미리 보기
 
@@ -106,6 +107,14 @@ Azure 계정 및 Form Recognizer 또는 Cognitive Services 리소스 외에도 �
 
 ## <a name="prebuilt-models"></a>미리 작성된 모델
 
+몇 가지 미리 빌드된 모델 중에서 선택할 수 있으며, 각 모델에는 지원되는 고유한 필드 집합이 있습니다. 분석 작업에 사용할 모델은 분석할 문서 유형에 따라 달라집니다. 다음은 Form Recognizer 서비스에서 현재 지원되는 미리 빌드된 모델입니다.
+
+* [🆕 **일반 문서**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document) - 텍스트, 테이블, 구조, 키-값 쌍 및 명명된 엔터티를 분석하고 추출합니다.
+* [**청구서**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice): 청구서에서 텍스트, 선택 표시, 테이블, 키-값 쌍 및 키 정보를 추출합니다.
+* [**영수증**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt): 영수증에서 텍스트 및 키 정보를 추출합니다.
+* [**ID 문서**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument): 운전 면허증과 국제 여권에서 텍스트 및 키 정보를 추출합니다.
+* [**명함**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard): 명함에서 텍스트 및 키 정보를 추출합니다.
+
 미리 빌드된 모델 보기에서 다음을 수행합니다.
 
 1. Studio 홈에서 미리 빌드된 모델 중 하나를 선택합니다. 이 예에서는 청구서 모델을 사용하고 있습니다.
@@ -126,7 +135,7 @@ Azure 계정 및 Form Recognizer 또는 Cognitive Services 리소스 외에도 �
 
 사용자 지정 모델을 만들려면 프로젝트 구성부터 시작합니다.
 
-1. Studio 홈에서 사용자 지정 양식 프로젝트를 선택하여 사용자 지정 양식 홈페이지를 엽니다.
+1. Studio 홈에서 [사용자 지정 양식 프로젝트](https://formrecognizer.appliedai.azure.com/studio/customform/projects)를 선택하여 사용자 지정 양식 홈페이지를 엽니다.
 
 1. "프로젝트 만들기" 명령을 사용하여 새 프로젝트 구성 마법사를 시작합니다.
 
@@ -142,7 +151,7 @@ Azure 계정 및 Form Recognizer 또는 Cognitive Services 리소스 외에도 �
 
 1. 레이블 지정 보기에서 추출하려는 레이블 및 해당 형식을 정의합니다.
 
-1. 문서에서 텍스트를 선택하고, 드롭다운 목록 또는 레이블 창에서 레이블을 클릭합니다.
+1. 문서의 텍스트를 선택하고 드롭다운 목록 또는 레이블 창에서 레이블을 선택합니다.
 
 1. 레이블을 4개 이상의 문서에 지정하여 레이블을 5개 이상의 문서에 지정합니다.
 
@@ -180,7 +189,7 @@ Azure 계정 및 Form Recognizer 또는 Cognitive Services 리소스 외에도 �
 
 1. 필요한 열(필드) 및 행(데이터용)의 수를 추가합니다.
 
-1. 페이지에서 텍스트를 선택한 다음, 텍스트에 할당할 셀을 클릭합니다. 모든 문서의 모든 페이지에 있는 모든 행과 열에 대해 반복합니다.
+1. 페이지에서 텍스트를 선택한 다음 텍스트에 할당할 셀을 선택합니다. 모든 문서의 모든 페이지에 있는 모든 행과 열에 대해 반복합니다.
 
 :::image border="true" type="content" source="../media/quickstarts/custom-tables-dynamic.gif" alt-text="Form Recognizer 동적 테이블로 레이블 지정 예":::
 
@@ -192,7 +201,7 @@ Azure 계정 및 Form Recognizer 또는 Cognitive Services 리소스 외에도 �
 
 1. 두 필드 세트에 해당하는 필요한 열과 행의 수를 추가합니다.
 
-1. 페이지에서 텍스트를 선택한 다음, 텍스트에 할당할 셀을 클릭합니다. 다른 문서에 대해 반복합니다.
+1. 페이지에서 텍스트를 선택한 다음 텍스트에 할당할 셀을 선택합니다. 다른 문서에 대해 반복합니다.
 
 :::image border="true" type="content" source="../media/quickstarts/custom-tables-fixed.gif" alt-text="Form Recognizer 고정 테이블로 레이블 지정 예":::
 
@@ -204,7 +213,7 @@ Azure 계정 및 Form Recognizer 또는 Cognitive Services 리소스 외에도 �
 
 1. [영역] 명령을 사용하여 사각형 영역을 서명의 예상 위치에 만듭니다.
 
-1. 그려진 영역을 선택하고, 서명 형식 레이블을 클릭하여 그려진 영역에 할당합니다. 다른 문서에 대해 반복합니다.
+1. 그린 영역을 선택하고 서명 형식 레이블을 선택하여 그린 영역에 할당합니다. 다른 문서에 대해 반복합니다.
 
 :::image border="true" type="content" source="../media/quickstarts/custom-signature.gif" alt-text="Form Recognizer 서명 검색에 대한 레이블 지정 예":::
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/09/2018
-ms.openlocfilehash: ab2e9c691f17b8f0891ecbc82ff42cd3529a1328
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6f862f6f467d491d1aeb992a0e918244bde40a0d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031194"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051404"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>데이터 수집기 API를 사용하여 데이터 파이프라인 만들기
 
@@ -36,7 +36,7 @@ ms.locfileid: "102031194"
 
 1. 프로세스는 새 데이터가 업로드되었는지 검색합니다.  이 예에서는 [Azure 논리 앱](../../logic-apps/logic-apps-overview.md)을 사용하며, 이 앱은 Blob에 업로드되는 새 데이터를 검색하는 트리거를 사용할 수 있습니다.
 
-2. 프로세서는 이 새로운 데이터를 읽고 이를 Azure Monitor에 필요한 형식인 JSON으로 변환합니다.이 예제에서는 처리 코드를 실행하기 위한 간단하고 비용 효율적인 방법으로 [Azure Function](../../azure-functions/functions-overview.md)을 사용합니다. 이 함수는 새 데이터를 검색하는 데 사용한 동일한 논리 앱에서 시작합니다.
+2. 프로세서는 이 새로운 데이터를 읽고 이를 Azure Monitor에 필요한 형식인 JSON으로 변환합니다.이 예제에서는 처리 코드를 실행하기 위한 간단하고 비용 효율적인 방법으로 [Azure Function](../../azure-functions/functions-overview.md)을 사용합니다. 함수는 새 데이터를 검색 하는 데 사용한 것과 동일한 논리 앱에 의해 시작 됩니다.
 
 3. 마지막으로, JSON 개체를 사용할 수 있다면 Azure Monitor로 전송됩니다. 동일한 논리 앱은 Log Analytics 데이터 수집기 작업에서 기본 제공 기능을 사용하여 데이터를 Azure Monitor로 보냅니다.
 
@@ -129,18 +129,18 @@ Blob Storage, 논리 앱 또는 Azure Function의 자세한 설정을 이 아티
 
 ![Logic Apps 워크플로 전체 예제](./media/create-pipeline-datacollector-api/logic-apps-workflow-example-02.png)
 
-## <a name="testing-the-pipeline"></a>파이프라인 테스트
+## <a name="testing-the-pipeline&quot;></a>파이프라인 테스트
 이제 새 파일을 이전에 구성한 Blob에 업로드하고 논리 앱에서 모니터링할 수 있습니다. 곧 논리 앱 시작의 새 인스턴스를 확인하고 Azure Function에 대해 호출한 다음, Azure Monitor에 데이터를 성공적으로 보내야 합니다. 
 
 >[!NOTE]
 >새 데이터 형식을 처음으로 보내는 경우 데이터가 Azure Monitor에 표시되는 데 최대 30분이 걸릴 수 있습니다.
 
 
-## <a name="correlating-with-other-data-in-log-analytics-and-application-insights"></a>Log Analytics 및 Application Insights의 다른 데이터와 상관 관계 만들기
+## <a name=&quot;correlating-with-other-data-in-log-analytics-and-application-insights&quot;></a>Log Analytics 및 Application Insights의 다른 데이터와 상관 관계 만들기
 사용자 지정 데이터 원본에서 수집한 인구 데이터를 사용하여 Application Insights 페이지 보기 데이터의 상관 관계를 만들려면 Application Insights 분석 창 또는 Log Analytics 작업 영역에서 다음 쿼리를 실행합니다.
 
 ``` KQL
-app("fabrikamprod").pageViews
+app(&quot;fabrikamprod").pageViews
 | summarize numUsers = count() by client_CountryOrRegion
 | join kind=leftouter (
    workspace("customdatademo").Population_CL

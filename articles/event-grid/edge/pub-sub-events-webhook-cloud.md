@@ -9,12 +9,12 @@ ms.subservice: iot-edge
 ms.date: 05/10/2021
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6263a58aebcb7e6eb9d50d18e63257a3deb2cff5
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
-ms.translationtype: HT
+ms.openlocfilehash: f4402cac05520e8e3dd76b8894335d314ec87d64
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112416545"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080026"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>자습서: 클라우드에서 이벤트 게시, 구독
 
@@ -61,7 +61,7 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 새 함수에서 오른쪽 맨 위에 있는 **함수 URL 가져오기** 를 선택하고 기본값(**함수 키**)을 선택한 후 **복사** 를 선택합니다. 함수 URL 값은 자습서의 후반부에서 사용합니다.
 
 > [!NOTE]
-> EventGrid 이벤트 트리거를 사용하여 이벤트에 대응하는 방법에 대한 자세한 샘플 및 자습서는 [Azure Functions](../../azure-functions/functions-overview.md) 설명서를 참조하세요.
+> 이벤트에 대 한 응답 및 EventGrid 이벤트 트리거 사용에 대 한 추가 샘플과 자습서는 [Azure Functions](../../azure-functions/functions-overview.md) 설명서를 참조 하세요.
 
 ## <a name="create-a-topic"></a>토픽 만들기
 

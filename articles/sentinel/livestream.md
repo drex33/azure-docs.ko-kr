@@ -10,19 +10,21 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/14/2021
 ms.author: yelevin
-ms.openlocfilehash: a711cca01431346896ac5d0aee5dce8524ed721f
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
-ms.translationtype: HT
+ms.openlocfilehash: 70a8898b99ffaca2ed6aaa4dd978068bcd9d6c9a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114202499"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131023218"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Azure Sentinel에서 헌팅 라이브 스트림을 사용하여 위협 감지
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >

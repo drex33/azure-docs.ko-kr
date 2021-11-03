@@ -2,23 +2,26 @@
 title: '빠른 시작: LUIS(Language Understanding) SDK 클라이언트 라이브러리 및 REST API'
 description: LUIS SDK 클라이언트 라이브러리 및 REST API를 사용하여 LUIS 앱을 만들고 쿼리합니다.
 ms.topic: quickstart
-ms.date: 03/29/2021
+ms.date: 10/20/2021
 ms.service: cognitive-services
 ms.author: aahi
 manager: nitinme
 ms.subservice: language-understanding
 author: aahill
 keywords: Azure, 인공 지능, ai, 자연어 처리, nlp, LUIS, azure luis, 자연어 이해, ai 챗봇, 챗봇 작성자, 자연어 이해
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, ignite-fall-2021
 zone_pivot_groups: programming-languages-set-luis
-ms.openlocfilehash: ca45266ce4b8ca784c3d54aafb80a66efaf2a1da
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: c98bbd885bb2646ff32c856aecc219cae326d01c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278918"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131043873"
 ---
 # <a name="quickstart-language-understanding-luis-client-libraries-and-rest-api"></a>빠른 시작: LUIS(Language Understanding) 클라이언트 라이브러리 및 REST API
+
+> [!NOTE]
+> 이제 최신 버전의 Language Understanding 기능을 Azure Cognitive Service for Language의 일부로 사용할 수 있습니다. 자세한 내용은 [Azure Cognitive Service for Language 설명서](../language-service/index.yml)를 참조하세요. 언어 서비스 내의 언어 이해 기능에 대해서는 [대화형 Language Understanding](../language-service/conversational-language-understanding/overview.md), [사용자 지정 명명된 엔터티 인식](../language-service/custom-named-entity-recognition/overview.md) 및 [사용자 지정 분류](../language-service/custom-classification/overview.md)를 참조하세요.
 
 C#, Python 또는 JavaScript를 통해 이 빠른 시작을 사용하여 LUIS SDK 클라이언트 라이브러리로 Azure LUIS AI(인공 지능) 앱을 만들고 쿼리합니다. 또한 cURL을 사용하여 REST API를 통해 요청을 보낼 수 있습니다.
 

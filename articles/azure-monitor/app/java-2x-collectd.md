@@ -6,12 +6,12 @@ ms.date: 03/14/2019
 ms.custom: devx-track-java
 author: mattmccleary
 ms.author: mmcc
-ms.openlocfilehash: 7931c71b58b052b97fdb00e16197d5001b47589f
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 1e57507165f9fbe48c95feeb2b00b28703120c8e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130133997"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131078981"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights-deprecated"></a>collectd: Application Insights의 Linux 성능 메트릭[사용 중단]
 
@@ -43,7 +43,7 @@ Linux 서버 컴퓨터에서:
    * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
    * 리소스에서 계측 키를 사용하여 이 코드 조각을 추가합니다.
 
-```XML
+```xml
 
      LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
      <Plugin ApplicationInsightsWriter>
@@ -53,7 +53,7 @@ Linux 서버 컴퓨터에서:
 
 다음은 샘플 구성 파일의 일부입니다.
 
-```XML
+```xml
 
     ...
     # collectd plugins

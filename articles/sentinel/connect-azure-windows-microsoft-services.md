@@ -8,14 +8,17 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 08/18/2021
 ms.author: yelevin
-ms.openlocfilehash: c13e2e5ad14ada3c867682382b334242881ddb78
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 6f8a4d8c7d049241354a5cdeaf1613edfbe71b19
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123261200"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131047576"
 ---
 # <a name="connect-azure-sentinel-to-azure-windows-microsoft-and-amazon-services"></a>Azure Sentinel을 Azure, Windows, Microsoft 및 Amazon 서비스에 연결
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 

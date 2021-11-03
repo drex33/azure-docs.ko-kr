@@ -10,12 +10,12 @@ author: rsethur
 ms.date: 08/05/2021
 ms.topic: tutorial
 ms.custom: tutorial, devplatv2
-ms.openlocfilehash: 7c55e5a5a73a3b9076c1077f36c1f951eeee11cc
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 18e8c09f1d1a734d2e68e656658c3017a115f9a9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429987"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079342"
 ---
 # <a name="tutorial-access-resources-with-managed-online-endpoints-and-identity-preview"></a>자습서: 관리형 온라인 엔드포인트와 ID(미리 보기)를 사용하여 리소스 액세스
 
@@ -120,7 +120,7 @@ YAML 참조는 [관리형 온라인 엔드포인트(미리 보기) YAML 참조](
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="check_endpoint_Status" :::
 
-문제가 발생하는 경우 [관리형 온라인 엔드포인트 배포 및 채점(미리 보기) 문제 해결](how-to-troubleshoot-managed-online-endpoints.md)을 참조하세요.
+문제가 발생하는 경우 [관리형 온라인 엔드포인트 배포 및 채점(미리 보기) 문제 해결](./how-to-troubleshoot-online-endpoints.md)을 참조하세요.
 
 ## <a name="give-storage-permission-to-system-assigned-managed-identity"></a>시스템 할당 관리 ID에 스토리지 권한 부여
 

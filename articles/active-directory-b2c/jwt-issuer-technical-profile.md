@@ -3,20 +3,20 @@ title: 사용자 지정 정책에서 JWT 발급자의 기술 프로필 정의
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 사용자 지정 정책에서 JWT(JSON 웹 토큰) 발급자의 기술 프로필을 정의합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/04/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 0854150e4299e7f2bf02750d66bdd7ba459ce584
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 4e25a64d628b5d36176921bbe28cc40417333f2f
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "122642092"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131036374"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 JWT 토큰 발급자의 기술 프로필 정의
 

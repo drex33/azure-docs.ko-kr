@@ -7,12 +7,12 @@ ms.date: 01/19/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: a219d04634d04e485f8dcfb7af33e19b87c53cd6
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: ec92bb8bbfdc0f1598148b674f8e5de17e69afe3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130038813"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131031435"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Azure Maps Search Service를 사용하여 위치 검색
 
@@ -77,7 +77,7 @@ Azure Maps [Fuzzy Search API](/rest/api/maps/search/getsearchfuzzy)는 표준 �
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 다음 URL을 입력합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
 
     ```http
-   https://atlas.microsoft.com/search/fuzzy/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=pizza
+    https://atlas.microsoft.com/search/fuzzy/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=pizza
     ```
 
     >[!NOTE]
@@ -161,7 +161,7 @@ Azure Maps [Get Search Address Reverse API](/rest/api/maps/search/getsearchaddre
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 다음 URL을 입력합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다. 요청은 다음 URL과 같습니다.
   
     ```http
-   https://atlas.microsoft.com/search/address/reverse/crossstreet/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=47.591180,-122.332700
+    https://atlas.microsoft.com/search/address/reverse/crossstreet/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=47.591180,-122.332700
     ```
 
     :::image type="content" source="./media/how-to-search-for-address/search-address-cross.png" alt-text="교차로 검색":::

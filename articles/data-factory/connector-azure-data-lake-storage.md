@@ -9,12 +9,12 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 09/09/2021
-ms.openlocfilehash: abd839bdc15430b3b4936fe1d2b65826ae792da8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6db84461df49a335ce8a3c427fe1408b00034dcd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128592549"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058220"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 Azure Data Lake Storage Gen2에서 데이터 복사 및 변환
 
@@ -94,7 +94,7 @@ Azure Data Lake Storage Gen2 커넥터는 다음과 같은 인증 유형을 지�
 
 스토리지 계정 키 인증을 사용하는 데 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **AzureBlobFS** 로 설정되어야 합니다. |예 |
 | url | `https://<accountname>.dfs.core.windows.net`의 패턴을 포함한 Data Lake Storage Gen2의 엔드포인트입니다. | 예 |
@@ -146,7 +146,7 @@ Azure Data Lake Storage Gen2 커넥터는 다음과 같은 인증 유형을 지�
 
 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **AzureBlobFS** 로 설정되어야 합니다. |예 |
 | url | `https://<accountname>.dfs.core.windows.net`의 패턴을 포함한 Data Lake Storage Gen2의 엔드포인트입니다. | 예 |
@@ -228,7 +228,7 @@ Azure Key Vault에 서비스 주체 키를 저장할 수도 있습니다.
 
 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **AzureBlobFS** 로 설정되어야 합니다. |예 |
 | url | `https://<accountname>.dfs.core.windows.net`의 패턴을 포함한 Data Lake Storage Gen2의 엔드포인트입니다. | 예 |
@@ -263,11 +263,11 @@ Azure Key Vault에 서비스 주체 키를 저장할 수도 있습니다.
     - **원본으로**: Storage Explorer에서 복사할 파일에 대한 **읽기** 권한과 함께 모든 업스트림 폴더 및 파일 시스템에 대해 최소한 **실행** 권한을 부여합니다. 또는 액세스 제어(IAM)에서 최소한 **Storage Blob 데이터 읽기 권한자** 역할을 부여합니다.
     - **싱크로**: Storage Explorer에서 싱크 폴더에 대한 **쓰기** 권한과 함께 모든 업스트림 폴더 및 파일 시스템에 대해 최소한 **실행** 권한을 부여합니다. 또는 액세스 제어(IAM)에서 최소한 **Storage Blob 데이터 기여자** 역할을 부여합니다.
     
-2. 하나 이상의 사용자가 할당한 관리 ID를 데이터 팩터리에 할당하고 각 사용자가 할당한 관리 ID에 대한 [자격 증명을 만듭니다](data-factory-service-identity.md#credentials). 
+2. 하나 이상의 사용자가 할당한 관리 ID를 데이터 팩터리에 할당하고 각 사용자가 할당한 관리 ID에 대한 [자격 증명을 만듭니다](credentials.md). 
 
 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **AzureBlobFS** 로 설정되어야 합니다. |예 |
 | url | `https://<accountname>.dfs.core.windows.net`의 패턴을 포함한 Data Lake Storage Gen2의 엔드포인트입니다. | 예 |
@@ -310,7 +310,7 @@ Azure Key Vault에 서비스 주체 키를 저장할 수도 있습니다.
 
 형식 기반 데이터 세트의 `location` 설정에서 Data Lake Storage Gen2에 지원되는 속성은 다음과 같습니다.
 
-| 속성   | Description                                                  | 필수 |
+| 속성   | 설명                                                  | 필수 |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | 데이터 세트의 `location`에 있는 type 속성은 **AzureBlobFSLocation** 으로 설정되어야 합니다. | 예      |
 | fileSystem | Data Lake Storage Gen2 파일 시스템 이름입니다.                              | 예       |
@@ -360,7 +360,7 @@ ADLS Gen2에서 데이터를 복사할 수 있는 옵션이 몇 가지 있습니
 
 형식 기반 복사 원본의 `storeSettings` 설정에서 Data Lake Storage Gen2에 지원되는 속성은 다음과 같습니다.
 
-| 속성                 | Description                                                  | 필수                                      |
+| 속성                 | 설명                                                  | 필수                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | `storeSettings`의 type 속성은 **AzureBlobFSReadSettings** 로 설정되어야 합니다. | 예                                           |
 | ***복사할 파일 찾기:*** |  |  |
@@ -424,7 +424,7 @@ ADLS Gen2에서 데이터를 복사할 수 있는 옵션이 몇 가지 있습니
 
 형식 기반 복사 싱크의 `storeSettings` 설정에서 Data Lake Storage Gen2에 지원되는 속성은 다음과 같습니다.
 
-| 속성                 | Description                                                  | 필수 |
+| 속성                 | 설명                                                  | 필수 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | `storeSettings` 아래의 type 속성은 **AzureBlobFSWriteSettings** 로 설정되어야 합니다. | 예      |
 | copyBehavior             | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일 이름이 지정된 경우 병합되는 파일 이름은 지정된 이름입니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. | 예       |
@@ -629,7 +629,7 @@ Azure Data Lake Storage Gen1/Gen2의 파일을 Gen2에 복사할 때 데이터�
 * ```rm```
 * ```mkdir```
 
-예:
+예제:
 
 * ```mkdir /folder1```
 * ```mkdir -p folder1```
@@ -663,7 +663,7 @@ Azure Data Lake Storage Gen1/Gen2의 파일을 Gen2에 복사할 때 데이터�
 
 ### <a name="legacy-dataset-model"></a>레거시 데이터 세트 모델
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 형식 속성을 **AzureBlobFSFile** 로 설정해야 합니다. |예 |
 | folderPath | Data Lake Storage Gen2의 폴더 경로입니다. 지정하지 않으면 루트를 가리킵니다. <br/><br/>와일드카드 필터는 지원되지 않습니다. 허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다. 실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`를 사용하여 이스케이프합니다. <br/><br/>예: filesystem/folder/. 더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. |예 |
@@ -671,7 +671,7 @@ Azure Data Lake Storage Gen1/Gen2의 파일을 Gen2에 복사할 때 데이터�
 | modifiedDatetimeStart | 마지막으로 수정한 특성에 따라 파일을 필터링합니다. 마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd`의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 "2018-12-01T05:00:00Z" 형식으로 적용됩니다. <br/><br/> 대용량 파일을 사용하여 파일을 필터링하려는 경우 이 설정을 사용하면 데이터 이동의 전반적인 성능이 영향을 받습니다. <br/><br/> 속성은 NULL일 수 있습니다. 이 경우 파일 특성 필터가 데이터 세트에 적용되지 않습니다. `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 크거나 같은 파일이 선택됩니다. `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 작은 파일이 선택됩니다.| 예 |
 | modifiedDatetimeEnd | 마지막으로 수정한 특성에 따라 파일을 필터링합니다. 마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd`의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 "2018-12-01T05:00:00Z" 형식으로 적용됩니다. <br/><br/> 대용량 파일을 사용하여 파일을 필터링하려는 경우 이 설정을 사용하면 데이터 이동의 전반적인 성능이 영향을 받습니다. <br/><br/> 속성은 NULL일 수 있습니다. 이 경우 파일 특성 필터가 데이터 세트에 적용되지 않습니다. `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 크거나 같은 파일이 선택됩니다. `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 작은 파일이 선택됩니다.| 예 |
 | format | 파일 기반 저장소(이진 복사본) 간에 파일을 있는 그대로 복사하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 format 섹션을 건너뜁니다.<br/><br/>특정 형식의 파일을 구문 분석하거나 생성하려는 경우, 지원되는 파일 형식 유형은 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** 및 **ParquetFormat** 입니다. **format** 의 **type** 속성을 이 값 중 하나로 설정합니다. 자세한 내용은 [텍스트 형식](supported-file-formats-and-compression-codecs-legacy.md#text-format), [JSON 형식](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Avro 형식](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [ORC 형식](supported-file-formats-and-compression-codecs-legacy.md#orc-format) 및 [Parquet 형식](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) 섹션을 참조하세요. |아니요(이진 복사 시나리오에만 해당) |
-| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 자세한 내용은 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs-legacy.md#compression-support)을 참조하세요.<br/>지원 되는 형식은 ```**GZip**, **Deflate**, **BZip2**, and **ZipDeflate**``` 입니다.<br/>**Optimal** 및 **Fastest** 수준이 지원됩니다. |예 |
+| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 자세한 내용은 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs-legacy.md#compression-support)을 참조하세요.<br/>지원되는 형식은 ```**GZip**, **Deflate**, **BZip2**, and **ZipDeflate**``` 입니다.<br/>**Optimal** 및 **Fastest** 수준이 지원됩니다. |예 |
 
 >[!TIP]
 >폴더 아래에서 모든 파일을 복사하려면 **folderPath** 만을 지정합니다.<br>이름이 지정된 단일 파일을 복사하려면 폴더 부분으로 **folderPath** 를, 파일 이름으로 **fileName** 을 지정합니다.<br>폴더 아래에서 파일의 하위 집합을 복사하려면 폴더 부분으로 **folderPath** 를, 와일드카드 필터로 **fileName** 을 지정합니다. 
@@ -708,7 +708,7 @@ Azure Data Lake Storage Gen1/Gen2의 파일을 Gen2에 복사할 때 데이터�
 
 ### <a name="legacy-copy-activity-source-model"></a>레거시 복사 작업 원본 모델
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 형식 속성을 **AzureBlobFSSource** 로 설정해야 합니다. |예 |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive를 true로 설정하고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사되거나 만들어지지 않습니다.<br/>허용되는 값은 **true**(기본값) 및 **false** 입니다. | 예 |
@@ -748,7 +748,7 @@ Azure Data Lake Storage Gen1/Gen2의 파일을 Gen2에 복사할 때 데이터�
 
 ### <a name="legacy-copy-activity-sink-model"></a>레거시 복사 작업 싱크 모델
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 형식 속성은 **AzureBlobFSSink** 로 설정해야 합니다. |예 |
 | copyBehavior | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일 이름이 지정된 경우 병합되는 파일 이름은 지정된 이름입니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. | 예 |

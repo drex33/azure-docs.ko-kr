@@ -9,12 +9,12 @@ author: nabhishek
 ms.author: abnarain
 ms.custom: devx-track-csharp
 robots: noindex
-ms.openlocfilehash: 178f60c43d24489a80a4fc5424212df762160652
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 643d8aa51c3d676232f2dee748a4627c21be0c83
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130249916"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067473"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Azure Data Factory 버전 1 파이프라인에서 사용자 지정 작업 사용
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -27,7 +27,7 @@ ms.locfileid: "130249916"
 Azure Data Factory 파이프라인에서 사용할 수 있는 두 가지 작업 유형이 있습니다.
 
 - [데이터 이동 작업](data-factory-data-movement-activities.md)은 [지원되는 원본 및 싱크 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 간에 데이터를 이동하는 작업입니다.
-- [데이터 변환 작업](data-factory-data-transformation-activities.md)은 Azure HDInsight, Azure Batch, Azure Machine Learning Studio(클래식) 같은 컴퓨팅 서비스를 사용하여 데이터를 변환하는 작업입니다.
+- Azure HDInsight 및 Azure Batch와 같은 계산 서비스를 사용 하 여 데이터를 변환 하는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 입니다.
 
 Data Factory에서 지원되지 않는 데이터 저장소에서 다른 위치로 또는 그 반대로 데이터를 이동하려면 고유의 데이터 이동 논리가 포함된 **사용자 지정 작업** 을 만들어서 파이프라인에 해당 작업을 사용합니다. 마찬가지로, Data Factory에서 지원되지 않는 방식으로 데이터를 변환/처리하려면 고유의 데이터 변환 논리가 포함된 사용자 지정 작업을 만들어서 파이프라인에 해당 작업을 사용합니다.
 
@@ -678,7 +678,7 @@ Data Factory 서비스가 Azure Batch에 **adf-poolname:job-xxx** 라는 이름�
 
 다음 다이어그램에서는 Azure Data Factory 및 Batch 작업 간의 관계를 보여 줍니다.
 
-:::image type="content" source="./media/data-factory-use-custom-activities/DataFactoryAndBatch.png" alt-text="Data Factory & Batch":::
+:::image type="content" source="./media/data-factory-use-custom-activities/DataFactoryAndBatch.png" alt-text="일괄 처리 & Data Factory":::
 
 ## <a name="troubleshoot-failures"></a>오류 문제 해결
 문제 해결은 몇 가지 기본적인 방법으로 구성됩니다.
@@ -1033,7 +1033,6 @@ GitHub의 [Azure Data Factory - 로컬 환경](https://github.com/gbrueckl/Azure
 | 샘플 | 사용자 지정 작업의 기능 |
 | --- | --- |
 | [HTTP 데이터 다운로더](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample) |Data Factory의 사용자 지정 C# 작업을 사용하여 HTTP 엔드포인트에서 Azure Blob Storage로 데이터를 다운로드합니다. |
-| [Twitter 감성 분석 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Azure Machine Learning Studio(클래식) 모델을 호출하고 감정 분석, 채점, 예측 등을 수행합니다. |
 | [R 스크립트 실행](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |R이 이미 설치된 HDInsight 클러스터에서 RScript.exe를 실행하여 R 스크립트를 호출합니다. |
 | [크로스 AppDomain .NET 작업](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Data Factory 시작 관리자가 사용한 것과 다른 버전의 어셈블리를 사용합니다. |
 | [Azure Analysis Services에서 모델 다시 처리](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/AzureAnalysisServicesProcessSample) |  Azure Analysis Services에서 모델을 다시 처리합니다. |

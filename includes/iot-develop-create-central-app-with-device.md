@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 04/28/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 981ebfece7bc12584adfdf1e565bd275d8e1b2fb
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 210978e3ecc817c55103267014fef9bd9e36a0e7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108226694"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032779"
 ---
 ## <a name="create-an-application"></a>애플리케이션 만들기
 디바이스를 Azure IoT에 연결하는 방법에는 여러 가지가 있습니다. 이 섹션에서는 Azure IoT Central을 사용하여 디바이스를 연결하는 방법에 대해 알아봅니다. IoT Central은 IoT 솔루션에서 디바이스를 관리하는 데 드는 비용과 복잡성을 줄이는 IoT 애플리케이션 플랫폼입니다.
@@ -38,16 +38,15 @@ ms.locfileid: "108226694"
     :::image type="content" source="media/iot-develop-create-central-app-with-device/iot-central-created.png" alt-text="IoT Central 새 애플리케이션 대시보드":::
 
 ## <a name="add-a-device"></a>디바이스 추가
-이 섹션에서는 새 디바이스를 IoT Central 애플리케이션에 추가합니다. 디바이스는 애플리케이션에 연결할 실제 디바이스 또는 시뮬레이션된 디바이스를 나타내는 디바이스 템플릿의 인스턴스입니다. 
+이 섹션에서는 새 디바이스를 IoT Central 애플리케이션에 추가합니다. 디바이스는 애플리케이션에 연결할 디바이스를 나타내는 디바이스 템플릿의 인스턴스입니다. 
 
 새 디바이스를 만들려면 다음을 수행합니다.
 1. 왼쪽 창에서 **디바이스** 를 선택한 다음, **+ 새로 만들기** 를 선택합니다.
-1. **디바이스 템플릿** 을 *할당되지 않음* 으로 설정된 상태로 둡니다.
+1. **디바이스 템플릿** 을 *할당되지 않음* 으로 설정하고 **이 디바이스를 시뮬레이션하려고 하나요?** 를 *아니요* 로 설정합니다.
 
-    > [!NOTE]
-    > 간단히 하기 위해 이 빠른 시작에서는 할당되지 않은 템플릿을 사용하는 시뮬레이션된 디바이스를 연결합니다. IoT Central을 계속 사용하여 디바이스를 관리하는 경우 디바이스 템플릿을 사용하는 방법에 대해 알아봅니다. 디바이스 템플릿을 사용하는 방법에 대한 개요는 [빠른 시작: IoT Central 애플리케이션에 시뮬레이션된 디바이스 추가](../articles/iot-central/core/quick-create-simulated-device.md)를 참조하세요.
 1. 친숙한 **디바이스 이름** 및 **디바이스 ID** 를 설정합니다. 필요에 따라 생성된 값을 사용합니다.
     :::image type="content" source="media/iot-develop-create-central-app-with-device/iot-central-create-device.png" alt-text="IoT Central 새 디바이스 대화 상자":::
+
 1. **만들기** 를 선택합니다.
 
     **모든 디바이스** 목록에 만든 디바이스가 표시됩니다.

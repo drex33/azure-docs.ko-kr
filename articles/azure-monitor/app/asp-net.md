@@ -4,12 +4,12 @@ description: Azure 또는 온-프레미스에 호스트되는 ASP.NET 웹 사이
 ms.topic: conceptual
 ms.date: 10/12/2021
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 7334755259c70506aa36a4a17070a13be803755e
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: c1609e40d83e7064f7a840e178333a229d12083f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130256784"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131070017"
 ---
 # <a name="configure-application-insights-for-your-aspnet-website"></a>ASP.NET 웹 사이트용 Application Insights 구성
 
@@ -47,13 +47,14 @@ Application Insights를 ASP.NET 웹 사이트에 추가하려면 다음을 수�
 
 이 섹션에서는 템플릿 기반 ASP.NET 웹앱에 Application Insights를 자동으로 추가하는 방법을 안내합니다. Visual Studio의 ASP.NET 웹앱 프로젝트 내에서:
 
-1. **애플리케이션 추가 Insights** 원격 분석 애플리케이션  >  **Insights**  >  **Sdk(로컬) Project** 선택하고  >  **다음으로**  >  **닫기를 마칩니다.**  >  
+1. **Project**  >  **추가 애플리케이션 Insights 원격 분석**  >  **애플리케이션 Insights Sdk(로컬)**  >  **다음**  >  **마침 닫기를**  >  선택합니다.
 2. *ApplicationInsights.config* 파일을 엽니다. 
 3. 닫는 `</ApplicationInsights>` 태그 앞에 Application Insights 리소스에 대한 계측 키가 포함된 줄을 추가합니다.  계측 키는 이 문서에서 필수 조건의 일부로 새로 만든 Application Insights 리소스의 개요 창에서 찾을 수 있습니다.
 
     ```xml
     <InstrumentationKey>your-instrumentation-key-goes-here</InstrumentationKey>
     ```
+
 4. **프로젝트** > **NuGet 패키지 관리** > **업데이트** 를 선택합니다. 그런 다음, 각 `Microsoft.ApplicationInsights` NuGet 패키지를 안정적인 최신 릴리스로 업데이트합니다.   
 5. **IIS Express** 를 선택하여 애플리케이션을 실행합니다. 기본 ASP.NET 앱이 열립니다. 사이트에서 페이지를 찾아보면 원격 분석이 Application Insights로 전송됩니다.
 

@@ -3,19 +3,20 @@ title: Azure Video Analyzer 계정 만들기
 description: 이 항목에서는 Azure Video Analyzer의 계정을 만드는 방법을 설명합니다.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 06/01/2021
-ms.openlocfilehash: 1cb2f317ca712f2ad8ca911ecff0ac5e62cac0f5
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
-ms.translationtype: HT
+ms.date: 10/31/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 3dc43f2d6882b4a1c22dee331e780a91c8425af7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114604006"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131031198"
 ---
 # <a name="create-a-video-analyzer-account"></a>Video Analyzer 계정을 만듭니다.
 
-Azure Video Analyzer를 사용하려면 먼저 Video Analyzer 계정을 만들어야 합니다. 계정은 스토리지 계정 및 [사용자 할당 관리 ID][docs-uami]와 연결되어야 합니다. 관리 ID에는 스토리지 계정에 대한 [Storage Blob 데이터 기여자][docs-storage-access] 역할 및 [읽기 권한자][docs-role-reader] 역할의 권한이 있어야 합니다. 이 문서에서는 새 Video Analyzer 계정을 만드는 단계를 설명합니다.
+Azure Video Analyzer를 사용하려면 먼저 Video Analyzer 계정을 만들어야 합니다. 계정은 스토리지 계정 및 하나 이상의 [UAMI(사용자 할당 관리 ID)와][docs-uami]연결되어야 합니다. UAMI에는 스토리지 계정에 대한 Storage [Blob 데이터 기여자][docs-storage-access] 역할 및 [읽기][docs-role-reader] 권한자 역할의 권한이 있어야 합니다. 필요에 따라 Video Analyzer 계정과 IoT Hub 연결할 수 있습니다. Video Analyzer 에지 모듈을 [투명 게이트웨이로](./cloud/use-remote-device-adapter.md)사용하는 경우에 필요합니다. 이렇게 하는 경우 [기여자](../../role-based-access-control/built-in-roles.md#contributor) 역할 권한이 있는 UAMI를 추가해야 합니다. 스토리지 계정과 IoT Hub 또는 별도의 UAMI에 동일한 UAMI를 사용할 수 있습니다.
 
- Azure Portal 또는 [ARM(Azure Resource Manager) 템플릿][docs-arm-template]을 사용하여 Video Analyzer 계정을 만들 수 있습니다. 사용하려는 방법에 대한 탭을 선택합니다.
+이 문서에서는 새 Video Analyzer 계정을 만드는 단계를 설명합니다. Azure Portal 또는 [ARM(Azure Resource Manager) 템플릿][docs-arm-template]을 사용할 수 있습니다. 사용하려는 방법에 대한 탭을 선택합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -28,7 +29,7 @@ Azure Video Analyzer를 사용하려면 먼저 Video Analyzer 계정을 만들�
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. 상단의 검색 창을 사용하여 **Video Analyzer** 를 입력합니다.
 1. *서비스* 에서 *Video Analyzer* 를 클릭합니다.
-1. **추가** 를 클릭합니다.
+1. **만들기** 를 클릭합니다.
 1. **Video Analyzer 계정 만들기** 섹션에서 필수 값을 입력합니다.
 
     | 이름 | 설명 |
@@ -38,9 +39,19 @@ Azure Video Analyzer를 사용하려면 먼저 Video Analyzer 계정을 만들�
     |**Video Analyzer 계정 이름**|새 Video Analyzer 계정의 이름을 입력합니다. Video Analyzer 계정 이름은 공백 없이 모두 소문자로 이루어진 3-24자의 숫자 또는 문자입니다.|
     |**위치**|Video Analyzer 계정에 대한 비디오 및 메타데이터 레코드를 저장하는 데 사용할 지리적 지역을 선택합니다. 사용 가능한 Video Analyzer 지역만 드롭다운 목록 상자에 표시됩니다. |
     |**스토리지 계정**|Video Analyzer 계정에 대한 비디오 콘텐츠의 Blob Storage를 제공하려면 스토리지 계정을 선택합니다. Video Analyzer 계정과 동일한 지역의 기존 스토리지 계정을 선택하거나 새 스토리지 계정을 만들 수 있습니다. 동일한 지역에 새 스토리지 계정이 생성됩니다. 스토리지 계정 이름에 대한 규칙은 Video Analyzer 계정의 경우와 같습니다.<br/>|
-    |**사용자 ID**|새 Video Analyzer 계정에서 스토리지 계정에 액세스하는 데 사용할 사용자 할당 관리 ID를 선택합니다. 기존 사용자 할당 관리 ID를 선택하거나 새로 만들 수 있습니다. 사용자 할당 관리 ID에 스토리지 계정에 대한 [Storage Blob 데이터 기여자][docs-storage-access] 및 [읽기 권한자][docs-role-reader] 역할이 할당됩니다.
+    |**관리 ID**|새 Video Analyzer 계정에서 스토리지 계정에 액세스하는 데 사용할 사용자 할당 관리 ID를 선택합니다. 기존 사용자 할당 관리 ID를 선택하거나 새로 만들 수 있습니다. 사용자 할당 관리 ID에 스토리지 계정에 대한 [Storage Blob 데이터 기여자][docs-storage-access] 및 [읽기 권한자][docs-role-reader] 역할이 할당됩니다.
 
 1. 양식 아래쪽에서 **검토 + 만들기** 를 클릭합니다.
+
+### <a name="post-deployment-steps"></a>배포 후 단계
+Video Analyzer 계정에 기존 IoT Hub 연결하도록 선택할 수 있으며, 기존 UAMI가 필요합니다.
+
+1. 리소스 배포가 완료되면 **리소스로 이동을** 클릭합니다.
+1. 설정에서 **IoT Hub** 선택한 **다음, 연결** 을 클릭합니다.  연결 **IoT Hub** 구성 플라이아웃 블레이드에서 필요한 값을 입력합니다.
+     - 구독 - IoT Hub 만든 Azure 구독 이름을 선택합니다.
+     - IoT Hub - 원하는 IoT Hub 선택합니다.
+     - 관리 ID - IoT Hub 액세스하는 데 사용할 기존 UAMI를 선택합니다.
+1. **저장을** 클릭하여 IoT Hub Video Analyzer 계정에 연결합니다.
 
 ## <a name="template"></a>[템플릿](#tab/template/)
 
@@ -217,9 +228,19 @@ Azure Video Analyzer를 사용하려면 먼저 Video Analyzer 계정을 만들�
     - **위치**: 위치를 선택합니다.  예를 들어 **미국 서부2** 로 선택합니다.
     - **이름 접두사**: 리소스 이름을 접두사로 지정하는 데 사용되는 문자열을 제공합니다(기본값이 권장됨).
 
-1. **검토 + 만들기** 를 선택합니다. 유효성 검사가 완료된 후 **만들기** 를 선택하여 VM을 만들고 배포합니다.
+1. **검토 + 만들기** 를 선택합니다. 유효성 검사가 완료되면 **만들기를** 선택하여 템플릿을 만들고 배포합니다.
 
-Azure Portal은 템플릿을 배포하는데 사용됩니다. Azure Portal 외에도 Azure CLI, Azure PowerShell 및 REST API를 사용할 수 있습니다. 다른 배포 방법을 알아보려면 [템플릿 배포](../../azure-resource-manager/templates/deploy-cli.md)를 참조하세요.
+위의 Azure Portal 템플릿을 배포하는 데 사용됩니다. Azure Portal 외에도 Azure CLI, Azure PowerShell 및 REST API를 사용할 수 있습니다. 다른 배포 방법을 알아보려면 [템플릿 배포](../../azure-resource-manager/templates/deploy-cli.md)를 참조하세요.
+
+### <a name="post-deployment-steps"></a>배포 후 단계
+Video Analyzer 계정에 기존 IoT Hub 연결하도록 선택할 수 있으며, 기존 UAMI가 필요합니다.
+
+1. 리소스 배포가 완료되면 **리소스로 이동을** 클릭합니다.
+1. 설정에서 **IoT Hub** 선택한 **다음, 연결** 을 클릭합니다.  연결 **IoT Hub** 구성 플라이아웃 블레이드에서 필요한 값을 입력합니다.
+     - 구독 - IoT Hub 만든 Azure 구독 이름을 선택합니다.
+     - IoT Hub - 원하는 IoT Hub 선택합니다.
+     - 관리 ID - IoT Hub 액세스하는 데 사용할 기존 UAMI를 선택합니다.
+1. **저장을** 클릭하여 IoT Hub Video Analyzer 계정에 연결합니다.
 
 ### <a name="review-deployed-resources"></a>배포된 리소스 검토
 
@@ -237,7 +258,8 @@ Azure Portal을 사용하여 만든 계정 및 기타 리소스를 확인할 수
 
 ### <a name="next-steps"></a>다음 단계
 
-[IoT Edge 디바이스에 Video Analyzer를 배포][docs-deploy-on-edge]하는 방법을 알아봅니다.
+* [IoT Edge 디바이스에 Video Analyzer를 배포][docs-deploy-on-edge]하는 방법을 알아봅니다.
+* [클라우드에 직접 비디오를 캡처하고 녹화하는](cloud/get-started-livepipelines-portal.md)방법을 알아봅니다.
 
 <!-- links -->
 [docs-uami]: ../../active-directory/managed-identities-azure-resources/overview.md
@@ -245,5 +267,3 @@ Azure Portal을 사용하여 만든 계정 및 기타 리소스를 확인할 수
 [docs-role-reader]: ../../role-based-access-control/built-in-roles.md#reader
 [docs-arm-template]: ../../azure-resource-manager/templates/overview.md
 [docs-deploy-on-edge]: deploy-iot-edge-device.md
-[click-to-deploy]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fgist.githubusercontent.com%2Fbennage%2F58523b2e6a4d3bf213f16893d894dcaf%2Fraw%2Fazuredeploy.json
-<!-- TODO update the link above! -->

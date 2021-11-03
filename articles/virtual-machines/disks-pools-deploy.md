@@ -4,15 +4,16 @@ description: Azure 디스크 풀을 배포하는 방법을 알아봅니다.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/29/2021
+ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 72a25b6bc51732ac9b598cbcb6b45f9ac84fc21b
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 7230bf83f5ca203aa40cb043b3ea02d983ba7a4a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129351060"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131022195"
 ---
 # <a name="deploy-an-azure-disk-pool-preview"></a>Azure 디스크 풀(미리 보기) 배포
 
@@ -64,8 +65,9 @@ Azure CLI를 사용하려면 [최신 버전](/cli/azure/disk-pool)을 설치하�
 디스크를 디스크 풀에서 사용하려면 디스크가 다음 요구 사항을 충족해야 합니다.
 
 - **StoragePool** 리소스 공급자에는 디스크 풀의 모든 관리 디스크에 대한 **읽기** 및 **쓰기** 권한이 있는 RBAC 역할이 할당되어야 합니다.
-- 디스크 풀과 동일한 가용성 영역에 있는 프리미엄 SSD 또는 울트라 디스크여야 합니다.
+- 프리미엄 SSD, 표준 SSD 또는 디스크 풀과 동일한 가용성 영역에 있는 울트라 디스크여야 합니다.
     - 울트라 디스크인 경우 디스크 섹터 크기가 512바이트여야 합니다.
+- 프리미엄/표준 SSD와 울트라 디스크를 모두 포함하도록 디스크 풀을 구성할 수 없습니다. 울트라 디스크에 대해 구성된 디스크 풀은 울트라 디스크만 포함할 수 있습니다. 마찬가지로 프리미엄 또는 표준 SSD에 대해 구성된 디스크 풀은 프리미엄 및 표준 SSD만 포함할 수 있습니다.
 - maxShares 값이 2 이상인 공유 디스크여야 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
@@ -98,10 +100,11 @@ Azure CLI를 사용하려면 [최신 버전](/cli/azure/disk-pool)을 설치하�
 
 디스크를 추가하려면 디스크가 다음 요구 사항을 충족해야 합니다.
 
-- 디스크 풀과 동일한 가용성 영역에 있는 프리미엄 SSD 또는 울트라 디스크여야 합니다.
-    - 현재는 포털에서만 프리미엄 SSD를 추가할 수 있습니다. 울트라 디스크는 Azure PowerShell 모듈이나 Azure CLI를 사용하여 추가해야 합니다.
+- 프리미엄 SSD, 표준 SSD 또는 디스크 풀과 동일한 가용성 영역에 있는 울트라 디스크여야 합니다.
+    - 현재 포털에서 프리미엄 SSD 및 표준 SSD만 추가할 수 있습니다. 울트라 디스크는 Azure PowerShell 모듈이나 Azure CLI를 사용하여 추가해야 합니다.
     - 울트라 디스크인 경우 디스크 섹터 크기가 512바이트여야 합니다.
 - maxShares 값이 2 이상인 공유 디스크여야 합니다.
+- 프리미엄/표준 SSD와 울트라 디스크를 모두 포함하도록 디스크 풀을 구성할 수 없습니다. 울트라 디스크에 대해 구성된 디스크 풀은 울트라 디스크만 포함할 수 있습니다. 마찬가지로 프리미엄 또는 표준 SSD에 대해 구성된 디스크 풀은 프리미엄 및 표준 SSD만 포함할 수 있습니다.
 - 추가하려는 디스크를 관리할 수 있도록 디스크 풀의 리소스 공급자에게 RBAC 권한을 부여해야 합니다.
 
 디스크가 이러한 요구 사항을 충족하는 경우 디스크 풀 창에서 **+디스크 추가** 를 선택하여 디스크 풀에 디스크를 추가할 수 있습니다.
@@ -113,7 +116,6 @@ Azure CLI를 사용하려면 [최신 버전](/cli/azure/disk-pool)을 설치하�
 1. **iSCSI** 창을 선택합니다.
 1. **iSCSI 사용** 을 선택합니다.
 1. iSCSI 대상의 이름을 입력합니다. iSCSI 대상 IQN은 이 이름을 기반으로 생성됩니다.
-    - 개별 디스크에 iSCSI 대상을 사용하지 않으려면 개별 디스크의 **상태** 에서 **사용 안 함** 을 선택합니다.
     - ACL 모드는 기본적으로 **동적** 으로 설정됩니다. 디스크 풀을 Azure VMware Solution의 스토리지 솔루션으로 사용하려면 ACL 모드를 **동적** 으로 설정해야 합니다.
 1. **검토 + 만들기** 를 선택합니다.
 
@@ -131,7 +133,7 @@ Azure CLI를 사용하려면 [최신 버전](/cli/azure/disk-pool)을 설치하�
 
 ```azurepowershell
 # Install the required module for Disk Pool
-Install-Module -Name Az.DiskPool -RequiredVersion 0.1.1 -Repository PSGallery
+Install-Module -Name Az.DiskPool -RequiredVersion 0.3.0 -Repository PSGallery
 
 # Sign in to the Azure account and setup the variables
 $subscriptionID = "<yourSubID>"
@@ -155,7 +157,8 @@ $rpId = (Get-AzADServicePrincipal -SearchString "StoragePool Resource Provider")
 New-AzRoleAssignment -ObjectId $rpId -RoleDefinitionName "Virtual Machine Contributor" -Scope $scopeDef
 
 # Create a Disk Pool
-New-AzDiskPool -Name $diskPoolName -ResourceGroupName $resourceGroupName -Location $location -SubnetId $subnetId -AvailabilityZone $availabilityZone -SkuName Standard
+# If you want to create a disk pool configured for ultra disks, add -AdditionalCapability "DiskPool.Disk.Sku.UltraSSD_LRS" to the command
+New-AzDiskPool -Name $diskPoolName -ResourceGroupName $resourceGroupName -Location $location -SubnetId $subnetId -AvailabilityZone $availabilityZone -SkuName Standard_S1
 $diskpool = Get-AzDiskPool -ResourceGroupName $resourceGroupName -Name $DiskPoolName
 
 # Add disks to the Disk Pool
@@ -185,7 +188,7 @@ Get-AzDiskPoolIscsiTarget -name $iscsiTargetName -DiskPoolName $diskPoolName -Re
 # Add disk pool CLI extension
 az extension add -n diskpool
 
-#az extension add -s https://zuhdefault.blob.core.windows.net/cliext/diskpool-0.1.1-py3-none-any.whl
+#az extension add -s https://azcliprod.blob.core.windows.net/cli-extensions/diskpool-0.2.0-py3-none-any.whl
 
 #Select subscription
 az account set --subscription "<yourSubscription>"
@@ -210,13 +213,14 @@ storagePoolObjectId="${storagePoolObjectId#"}"
 
 az role assignment create --assignee-object-id $storagePoolObjectId --role "Virtual Machine Contributor" --resource-group $resourceGroupName
 
-#Create a disk pool 
+#Create a disk pool
+#To create a disk pool configured for ultra disks, add --additional-capabilities "DiskPool.Disk.Sku.UltraSSD_LRS" to your command
 az disk-pool create --name $diskPoolName \
 --resource-group $resourceGroupName \
 --location $location \
 --availability-zones $zone \
 --subnet-id $subnetId \
---sku name="Standard"
+--sku name="Standard_S1" \
 
 #Initialize an iSCSI target. You can have 1 iSCSI target per disk pool
 az disk-pool iscsi-target create --name $targetName \

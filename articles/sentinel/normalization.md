@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2021
 ms.author: bagol
-ms.openlocfilehash: e90171faf59daf70bde2150036fdf0a757e53979
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 9bb09b6a9b65e0e10b2d7d2d1b02e29dde3e85fc
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128621398"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131009228"
 ---
 # <a name="normalization-and-the-azure-sentinel-information-model-asim-public-preview"></a>정규화 및 ASIM(Azure Sentinel 정보 모델)(퍼블릭 미리 보기)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Azure Sentinel은 많은 원본에서 데이터를 수집합니다. 다양한 데이터 형식과 테이블을 함께 사용하려면 각 데이터 형식을 이해하고 각 형식 또는 스키마의 분석 규칙, 통합 문서, 헌팅 쿼리 등에 관한 고유한 데이터 세트를 작성하고 사용해야 합니다.
 
@@ -69,7 +71,7 @@ Azure Sentinel 정보 모델에는 다음 구성 요소가 포함됩니다.
 
 |구성 요소  |설명  |
 |---------|---------|
-|**정규화된 스키마**     |   통합 기능을 빌드할 때 사용할 수 있는 예측 가능한 이벤트 유형의 표준 세트를 포함합니다. <br><br>각 스키마는 이벤트, 정규화된 열 명명 규칙, 필드 값의 표준 형식을 나타내는 필드를 정의합니다. <br><br> ASIM은 현재 다음 스키마를 정의합니다.<br> - [네트워크 세션](normalization-schema.md)<br> - [DNS 작업](dns-normalization-schema.md)<br> - [프로세스 이벤트](process-events-normalization-schema.md)<br> - [인증 이벤트](authentication-normalization-schema.md)<br> - [레지스트리 이벤트](registry-event-normalization-schema.md)<br> - [파일 활동](file-event-normalization-schema.md)  <br><br>자세한 내용은 [Azure Sentinel 정보 모델 스키마](normalization-about-schemas.md)를 참조하세요.  |
+|**정규화된 스키마**     |   통합 기능을 빌드할 때 사용할 수 있는 예측 가능한 이벤트 유형의 표준 세트를 포함합니다. <br><br>각 스키마는 이벤트, 정규화된 열 명명 규칙, 필드 값의 표준 형식을 나타내는 필드를 정의합니다. <br><br> ASIM은 현재 다음 스키마를 정의합니다.<br> - [네트워크 세션](./network-normalization-schema.md)<br> - [DNS 작업](dns-normalization-schema.md)<br> - [프로세스 이벤트](process-events-normalization-schema.md)<br> - [인증 이벤트](authentication-normalization-schema.md)<br> - [레지스트리 이벤트](registry-event-normalization-schema.md)<br> - [파일 활동](file-event-normalization-schema.md)  <br><br>자세한 내용은 [Azure Sentinel 정보 모델 스키마](normalization-about-schemas.md)를 참조하세요.  |
 |**파서**     |  [KQL 함수](/azure/data-explorer/kusto/query/functions/user-defined-functions)를 사용하여 기존 데이터를 정규화된 스키마에 매핑합니다. <br><br>[Azure Sentinel GitHub Parsers 폴더](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers)에서 Microsoft에서 개발한 정규화 파서를 배포합니다. 정규화된 파서는 **ASim***으로 시작하는 하위 폴더에 있습니다.  <br><br>자세한 내용은 [Azure Sentinel 정보 모델 파서](normalization-about-parsers.md)를 참조하세요.     |
 |**각 정규화된 스키마의 콘텐츠**     |    분석 규칙, 통합 문서, 헌팅 쿼리 등이 포함됩니다. 각 정규화된 스키마의 콘텐츠는 원본별 콘텐츠를 만들지 않고도 모든 정규화된 데이터에서 작동합니다. <br><br>자세한 내용은 [Azure Sentinel 정보 모델 콘텐츠](normalization-content.md)를 참조하세요.   |
 | | |

@@ -1,19 +1,19 @@
 ---
 title: Data Factory 메트릭 및 경고
 description: Azure Data Factory 모니터링에 사용할 수 있는 메트릭에 대해 알아봅니다.
-author: minhe-msft
-ms.author: hemin
+author: jasonwhowell
+ms.author: jasonh
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 09/02/2021
-ms.openlocfilehash: 53f12eed1e39eb035f5ec69c825ab5658b207b03
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: 57378ba773fd9907b0fdf0104d4165285129e958
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129400518"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131020201"
 ---
 # <a name="data-factory-metrics-and-alerts"></a>Data Factory 메트릭 및 경고
 
@@ -46,49 +46,49 @@ Azure Data Factory 버전 2에서 내보내는 메트릭은 다음과 같습니�
 | SSISPackageExecutionCancelled         | 취소 된 SSIS 패키지 실행 메트릭  | 개수    | 합계                | 1 분 기간 내에 취소 된 SSIS 패키지 실행의 총 수입니다. |
 | SSISPackageExecutionFailed           | 실패한 SSIS 패키지 실행 메트릭    | 개수    | 합계                | 1분 기간 내에 실패한 SSIS 패키지 실행의 총 수입니다. |
 | SSISPackageExecutionSucceeded        | 성공한 SSIS 패키지 실행 메트릭 | 개수    | 합계                | 1분 기간 내에 성공한 SSIS 패키지 실행의 총 수입니다. |
-| PipelineElapsedTimeRuns | 경과 된 시간 파이프라인이 메트릭을 실행 합니다. | 개수 | 합계 | 1 분 기간 내에 파이프라인이 사용자 정의 예상 시간 보다 오래 실행 되는 횟수입니다. [(자세히 보기)](tutorial-operationalize-pipelines.md) |
+| PipelineElapsedTimeRuns | 경과된 시간 파이프라인이 메트릭을 실행합니다. | 개수 | 합계 | 1분 이내에 파이프라인이 사용자 정의 예상 기간보다 오래 실행되는 횟수입니다. [(자세히 참조)](tutorial-operationalize-pipelines.md) |
 
 이 메트릭에 액세스하려면 [Azure Monitor 데이터 플랫폼](../azure-monitor/data-platform.md)의 지침을 완료하세요.
 
 > [!NOTE]
-> _PipelineElapsedTimeRuns_ 를 제외 하 고 완료 됨, 트리거된 활동 및 파이프라인 실행의 이벤트만 내보내집니다. 진행 중 및 디버그 실행은 내보내지지 *않습니다* . 반면, *모든* SSIS 패키지 실행의 이벤트는 호출 메서드에 관계 없이 완료된 이벤트 및 진행 중인 이벤트를 포함하여 내보내집니다. 예를 들어, Data Factory 파이프라인에서 SSIS 패키지 실행 작업의 트리거된 실행 또는 디버그 실행으로, SQL Server Management Studio, SQL Server 에이전트 또는 기타 지정 된 도구의 T SQL를 통해 Azure 사용 SQL Server Data Tools에서 패키지 실행을 호출할 수 있습니다.
+> _PipelineElapsedTimeRuns를_ 제외하고 완료되고 트리거된 작업 및 파이프라인 실행의 이벤트만 내보내됩니다. 진행 중 및 디버그 실행은 *내보내지지 않습니다.* 반면, *모든* SSIS 패키지 실행의 이벤트는 호출 메서드에 관계 없이 완료된 이벤트 및 진행 중인 이벤트를 포함하여 내보내집니다. 예를 들어 azure 지원 SQL Server Data Tools, SQL Server Management Studio, SQL Server 에이전트 또는 기타 지정된 도구에서 T-SQL 통해, Data Factory 파이프라인에서 SSIS 패키지 실행 작업의 트리거 또는 디버그 실행으로 패키지 실행을 호출할 수 있습니다.
 
 ## <a name="data-factory-alerts"></a>Data Factory 경고
 
-Azure Portal에 로그인 하 고   >  **경고** 모니터링을 선택 하 여 경고를 만듭니다.
+Azure Portal 로그인하고 경고   >  **모니터링을** 선택하여 경고를 만듭니다.
 
-:::image type="content" source="media/monitor-using-azure-monitor/alerts_image3.png" alt-text="포털 메뉴에 경고를 표시 하는 스크린샷":::
+:::image type="content" source="media/monitor-using-azure-monitor/alerts_image3.png" alt-text="포털 메뉴의 경고를 보여 주는 스크린샷.":::
 
 ### <a name="create-alerts"></a>경고 만들기
 
-1. **+ 새 경고 규칙** 을 선택 하 여 새 경고를 만듭니다.
+1. **+ 새 경고 규칙을** 선택하여 새 경고를 만듭니다.
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image4.png" alt-text="새 경고 규칙을 만드는 과정을 보여 주는 스크린샷":::
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image4.png" alt-text="새 경고 규칙 만들기를 보여 주는 스크린샷":::
 
 1. 경고 조건을 정의합니다.
 
     > [!NOTE]
-    > **리소스 유형별 필터** 드롭다운 목록에서 **모두** 를 선택 해야 합니다.
+    > **리소스 종류별 필터링** 드롭다운 목록에서 **모두를** 선택해야 합니다.
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image5.png" alt-text="리소스 선택을 위한 창을 열기 위한 선택 항목을 보여 주는 스크린샷":::
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image5.png" alt-text="리소스를 선택하기 위한 창을 열기 위한 선택 항목을 보여 주는 스크린샷":::
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image6.png" alt-text="신호 논리를 구성 하기 위한 창을 열기 위한 선택 항목을 보여 주는 스크린샷":::
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image6.png" alt-text="신호 논리를 구성하기 위한 창을 열기 위한 선택 항목을 보여 주는 스크린샷.":::
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image7.png" alt-text="신호 논리를 구성 하는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image7.png" alt-text="신호 논리 구성을 보여 주는 스크린샷":::
 
 1. 경고 세부 정보를 정의합니다.
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image8.png" alt-text="경고 세부 정보를 표시 하는 스크린샷":::
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image8.png" alt-text="경고 세부 정보를 보여 주는 스크린샷.":::
 
 1. 작업 그룹을 정의합니다.
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image9.png" alt-text="새 작업 그룹이 강조 표시 된 규칙을 만드는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image9.png" alt-text="새 작업 그룹이 강조 표시된 규칙 만들기를 보여 주는 스크린샷.":::
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image10.png" alt-text="새 작업 그룹을 만드는 과정을 보여 주는 스크린샷":::
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image10.png" alt-text="새 작업 그룹 만들기를 보여 주는 스크린샷":::
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image11.png" alt-text="전자 메일, SMS, 푸시 및 음성 구성을 보여 주는 스크린샷":::
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image11.png" alt-text="이메일, SMS, 푸시 및 음성 구성을 보여 주는 스크린샷.":::
 
-    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image12.png" alt-text="작업 그룹을 정의 하는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/monitor-using-azure-monitor/alerts_image12.png" alt-text="작업 그룹 정의를 보여 주는 스크린샷":::
 
 ## <a name="next-steps"></a>다음 단계
 

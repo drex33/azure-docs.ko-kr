@@ -7,12 +7,12 @@ ms.date: 03/31/2021
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: dcbbe63754bdcfc4ded249720b58940e0c219bf9
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: d106830a4fb2d0b7060a38d978bcd71e0fd08eff
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529505"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131077310"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Azure Policy과 Key Vault 통합
 
@@ -39,11 +39,16 @@ Key Vault는 키 자격 증명 모음과 해당 키, 인증서, 비밀 개체를
 
 # <a name="certificate-policies"></a>[인증서 정책](#tab/certificates)
 
-### <a name="certificates-should-have-the-specified-maximum-validity-period-preview"></a>인증서에는 지정된 최대 유효 기간이 있어야 함(미리 보기)
+### <a name="manage-certificates-that-are-within-a-specified-number-of-days-of-expiration"></a>지정된 만료 기간(일) 내에 있는 인증서 관리 
 
-이 정책을 사용하여 Key Vault에 저장된 인증서의 최대 유효 기간을 관리할 수 있습니다. 인증서의 최대 유효 기간을 제한하는 것은 좋은 보안 방법입니다. 인증서의 프라이빗 키가 손상되었으나 감지되지 않을 경우, 수명이 짧은 인증서를 사용하여 지속적인 손상 시간 프레임을 최소화하고 공격자가 얻을 수 있는 인증서 가치를 낮춥니다.
+적절히 모니터링되고 있지 않은 인증서가 만료되기 전에 순환되지 않을 경우 서비스 중단이 발생할 수 있습니다. 이 정책은 Key Vault에 저장된 인증서가 모니터링되도록 하는 데 중요합니다. 다른 만료 임계값(예: 180, 90, 60 및 30일 임계값)을 사용해어 이 정책을 여러 번 적용하는 것이 좋습니다. 이 정책은 조직의 인증서 만료를 모니터링하고 심사하는 데 사용할 수 있습니다. 
 
-### <a name="certificates-should-use-allowed-key-types-preview"></a>인증서는 허용된 키 유형을 사용해야 함(미리 보기)
+
+### <a name="certificates-should-have-the-specified-lifetime-action-triggers"></a>인증서에 지정된 수명 작업 트리거가 있어야 함  
+
+이 정책을 사용하면 특정 만료 기간(일) 이내 또는 사용 가능한 수명의 특정 비율에 도달한 인증서에 대해 지정된 수명 작업을 관리할 수 있습니다.
+
+### <a name="certificates-should-use-allowed-key-types"></a>인증서는 허용된 키 유형을 사용해야 함  
 
 이 정책을 사용하면 Key Vault에 있을 수 있는 인증서의 유형을 제한할 수 있습니다. 이 정책을 사용하여 인증서 프라이빗 키가 RSA, ECC 또는 HSM에서 지원되는지 확인할 수 있습니다. 다음 목록에서 허용되는 인증서 유형을 선택할 수 있습니다.
 
@@ -52,19 +57,15 @@ Key Vault는 키 자격 증명 모음과 해당 키, 인증서, 비밀 개체를
 - ECC
 - ECC - HSM
 
-### <a name="certificates-should-have-the-specified-lifetime-action-triggers-preview"></a>인증서에 지정된 수명 작업 트리거가 있어야 함(미리 보기)
-
-이 정책을 사용하면 특정 만료 기간(일) 이내 또는 사용 가능한 수명의 특정 비율에 도달한 인증서에 대해 지정된 수명 작업을 관리할 수 있습니다.
-
-### <a name="certificates-should-be-issued-by-the-specified-integrated-certificate-authority-preview"></a>인증서는 지정된 통합 인증 기관에서 발급해야 함(미리 보기)
+### <a name="certificates-should-be-issued-by-the-specified-integrated-certificate-authority"></a>인증서는 지정된 통합 인증 기관에서 발급해야 함  
 
 Key Vault 통합 인증 기관(Digicert 또는 GlobalSign)을 사용하며 사용자가 이러한 공급자 중 하나를 사용하도록 하려면 이 정책을 사용하여 선택을 감사하거나 적용합니다. 이 정책은 인증서의 발급 정책에서 선택한 CA와 키 자격 증명 모음에 정의된 CA 공급자를 평가합니다. 이 정책은 Key Vault에서 자체 서명된 인증서의 생성을 감사하거나 거부하는 데도 사용할 수 있습니다.
 
-### <a name="certificates-should-be-issued-by-the-specified-non-integrated-certificate-authority-preview"></a>인증서는 지정된 비통합 인증 기관에서 발급해야 함(미리 보기)
+### <a name="certificates-should-be-issued-by-the-specified-non-integrated-certificate-authority"></a>인증서는 지정된 비통합 인증 기관에서 발급해야 함  
 
 내부 인증 기관 또는 Key Vault와 연결되지 않은 인증 기관을 사용하며 사용자가 제공하는 목록의 인증 기관을 사용하도록 하려면 이 정책을 사용하여 발급자 이름별로 허용되는 인증 기관 목록을 만들 수 있습니다. 이 정책은 Key Vault에서 자체 서명된 인증서의 생성을 감사하거나 거부하는 데도 사용할 수 있습니다.
 
-### <a name="certificates-using-elliptic-curve-cryptography-should-have-allowed-curve-names-preview"></a>타원 곡선 암호화를 사용하는 인증서에는 허용되는 곡선 이름이 있어야 함(미리 보기)
+### <a name="certificates-using-elliptic-curve-cryptography-should-have-allowed-curve-names"></a>타원 곡선 암호화를 사용하는 인증서에는 허용되는 곡선 이름이 있어야 함 
 
 타원 곡선 암호화 또는 ECC 인증서를 사용하는 경우 아래 목록에서 허용되는 곡선 이름 목록을 사용자 지정할 수 있습니다. 기본 옵션은 다음의 모든 곡선 이름을 허용합니다.
 
@@ -73,7 +74,7 @@ Key Vault 통합 인증 기관(Digicert 또는 GlobalSign)을 사용하며 사�
 - P-384
 - P-521
 
-## <a name="certificates-using-rsa-cryptography-manage-minimum-key-size-for-rsa-certificates-preview"></a>RSA 암호화를 사용하는 인증서, RSA 인증서의 최소 키 크기 관리(미리 보기)
+### <a name="certificates-using-rsa-cryptography-manage-minimum-key-size-for-rsa-certificates"></a>Rsa 암호화를 사용 하는 인증서 RSA 인증서의 최소 키 크기 관리  
 
 RSA 인증서를 사용하는 경우 인증서에 포함해야 하는 최소 키 크기를 선택할 수 있습니다. 아래 목록에서 옵션 하나를 선택할 수 있습니다.
 
@@ -81,13 +82,13 @@ RSA 인증서를 사용하는 경우 인증서에 포함해야 하는 최소 키
 - 3072비트
 - 4096비트
 
-## <a name="manage-certificates-that-are-within-a-specified-number-of-days-of-expiration-preview"></a>지정된 만료 기간(일) 내에 있는 인증서 관리(미리 보기)
+### <a name="certificates-should-have-the-specified-maximum-validity-period-preview"></a>인증서에는 지정된 최대 유효 기간이 있어야 함(미리 보기)
 
-적절히 모니터링되고 있지 않은 인증서가 만료되기 전에 순환되지 않을 경우 서비스 중단이 발생할 수 있습니다. 이 정책은 Key Vault에 저장된 인증서가 모니터링되도록 하는 데 중요합니다. 다른 만료 임계값(예: 180, 90, 60 및 30일 임계값)을 사용해어 이 정책을 여러 번 적용하는 것이 좋습니다. 이 정책은 조직의 인증서 만료를 모니터링하고 심사하는 데 사용할 수 있습니다.
+이 정책을 사용하여 Key Vault에 저장된 인증서의 최대 유효 기간을 관리할 수 있습니다. 인증서의 최대 유효 기간을 제한하는 것은 좋은 보안 방법입니다. 인증서의 프라이빗 키가 손상되었으나 감지되지 않을 경우, 수명이 짧은 인증서를 사용하여 지속적인 손상 시간 프레임을 최소화하고 공격자가 얻을 수 있는 인증서 가치를 낮춥니다.
 
 # <a name="key-policies"></a>[키 정책](#tab/keys)
 
-### <a name="keys-should-not-be-active-for-longer-than-the-specified-number-of-days-preview"></a>키는 지정된 일 수보다 오랫동안 활성화되지 않아야 함(미리 보기)
+### <a name="keys-should-not-be-active-for-longer-than-the-specified-number-of-days"></a>키는 지정된 기간(일)을 초과하는 활성 상태가 아니어야 함 
 
 키가 지정된 일 수보다 오랫동안 활성화되지 않았는지 확인하려는 경우 이 정책을 사용하여 키가 활성화된 기간을 감사할 수 있습니다.
 
@@ -95,7 +96,7 @@ RSA 인증서를 사용하는 경우 인증서에 포함해야 하는 최소 키
 
 **키에 활성화 날짜가 설정되어 있지 않은 경우** 이 정책은 키를 **만든 날짜** 에서 현재 날짜까지 경과된 일 수를 계산합니다. 일 수가 설정된 임계값을 초과하는 경우 키가 정책을 준수하지 않는 것으로 표시됩니다.
 
-### <a name="keys-should-be-the-specified-cryptographic-type-rsa-or-ec-preview"></a>키는 지정된 암호화 유형 RSA 또는 EC여야 함(미리 보기)
+### <a name="keys-should-be-the-specified-cryptographic-type-rsa-or-ec"></a>키는 지정된 RSA 또는 EC 암호화 유형이어야 함 
 
 이 정책을 사용하면 키 자격 증명 모음에 있을 수 있는 키의 유형을 제한할 수 있습니다. 이 정책을 사용하여 키가 RSA, ECC 또는 HSM에서 지원되는지 확인할 수 있습니다. 다음 목록에서 허용되는 인증서 유형을 선택할 수 있습니다.
 
@@ -104,7 +105,7 @@ RSA 인증서를 사용하는 경우 인증서에 포함해야 하는 최소 키
 - ECC
 - ECC - HSM
 
-### <a name="keys-using-elliptic-curve-cryptography-should-have-the-specified-curve-names-preview"></a>타원 곡선 암호화를 사용하는 키는 지정된 곡선 이름이 있어야 함(미리 보기)
+### <a name="keys-using-elliptic-curve-cryptography-should-have-the-specified-curve-names"></a>타원 곡선 암호화를 사용하는 키에는 지정된 곡선 이름이 있어야 함 
 
 타원 곡선 암호화 또는 ECC 키를 사용하는 경우 아래 목록에서 허용되는 곡선 이름 목록을 사용자 지정할 수 있습니다. 기본 옵션은 다음의 모든 곡선 이름을 허용합니다.
 
@@ -113,29 +114,29 @@ RSA 인증서를 사용하는 경우 인증서에 포함해야 하는 최소 키
 - P-384
 - P-521
 
-### <a name="keys-should-have-expirations-dates-set-preview"></a>키에는 만료 날짜 집합이 설정되어 있어야 함(미리 보기)
+### <a name="keys-should-have-expirations-dates-set"></a>키의 만료 날짜를 설정 해야 합니다. 
 
 이 정책은 만료 날짜가 비준수로 설정되지 않은 키 자격 증명 모음 및 플래그 키의 모든 키를 감사합니다. 또한 이 정책을 사용하여 만료 날짜가 설정되지 않은 키 생성을 차단할 수도 있습니다.
 
-### <a name="keys-should-have-more-than-the-specified-number-of-days-before-expiration-preview"></a>키는 만료 전 지정된 일 수보다 커야 함(미리 보기)
+### <a name="keys-should-have-more-than-the-specified-number-of-days-before-expiration"></a>키에는 만료 전에 지정된 기간(일)보다 더 많은 기간이 있어야 함 
 
 키가 만료에 너무 가까운 경우 조직에서 키 회전 지연이 발생하여 운영이 중단될 수 있습니다. 키는 오류에 대응할 수 있는 충분한 시간을 제공하기 위해 만료 전 지정된 일 수에서 회전되어야 합니다. 이 정책은 만료 날짜에 너무 가까운 키를 감사하고 이 임계값을 일 단위로 설정할 수 있도록 합니다. 또한 이 정책을 사용하여 만료 날짜에 너무 가까운 새 키 생성을 방지할 수도 있습니다.
 
-### <a name="keys-should-be-backed-by-a-hardware-security-module-preview"></a>키는 하드웨어 보안 모듈에서 지원되어야 함(미리 보기)
+### <a name="keys-should-be-backed-by-a-hardware-security-module"></a>하드웨어 보안 모듈에서 키를 지원 해야 합니다. 
 
 HSM은 키를 저장하는 하드웨어 보안 모듈입니다. HSM은 암호화 키에 대한 물리적 보호 계층을 제공합니다. 암호화 키는 소프트웨어 키보다 높은 수준의 보안을 제공하는 물리적 HSM을 벗어날 수 없습니다. 일부 조직에는 HSM 키를 사용해야 하는 규정 준수 요구 사항이 있습니다. 이 정책을 사용하여 HSM이 백업되지 않은 키 자격 증명 모음에 저장된 키를 감사할 수 있습니다. 또한 이 정책을 사용하여 HSM이 백업되지 않은 새 키 생성을 차단할 수도 있습니다. 이 정책은 모든 키 유형, RSA 및 ECC에 적용됩니다.
 
-### <a name="keys-using-rsa-cryptography-should-have-a-specified-minimum-key-size-preview"></a>RSA 암호화를 사용하는 키에는 지정된 최소 키 크기가 있어야 함(미리 보기)
+### <a name="keys-using-rsa-cryptography-should-have-a-specified-minimum-key-size"></a>RSA 암호화를 사용하는 키에는 지정된 최소 키 크기가 있어야 함 
 
 키 크기가 작은 RSA 키를 사용하는 것은 안전한 디자인 방식이 아닙니다. 최소 키 크기를 사용하도록 요구하는 감사 및 인증 표준에 따라 달라질 수 있습니다. 다음 정책을 사용하면 키 자격 증명 모음에 최소 키 크기 요구 사항을 설정할 수 있습니다. 이 최소 요구 사항을 충족하지 않는 키를 감사할 수 있습니다. 이 정책은 최소 키 크기 요구 사항을 충족하지 않는 새 키 생성을 차단하는 데에도 사용할 수 있습니다.
 
-### <a name="keys-should-have-the-specified-maximum-validity-period-preview"></a>키에는 지정된 최대 유효 기간이 있어야 함(미리 보기)
+### <a name="keys-should-have-the-specified-maximum-validity-period"></a>키에는 지정된 최대 유효 기간이 있어야 함
 
 키 자격 증명 모음 내에서 키가 유효한 최대 일 수를 지정하여 조직의 규정 준수 요구 사항을 관리합니다. 설정한 임계값보다 긴 시간 동안 유효한 키는 비준수로 표시됩니다. 또한 이 정책을 사용하여 지정한 최대 유효 기간보다 긴 만료 날짜가 설정된 새 키 생성을 차단할 수 있습니다.
 
 # <a name="secret-policies"></a>[비밀 정책](#tab/secrets)
 
-### <a name="secrets-should-not-be-active-for-longer-than-the-specified-number-of-days-preview"></a>비밀은 지정된 일 수보다 오랫동안 활성화되지 않아야 함(미리 보기)
+### <a name="secrets-should-not-be-active-for-longer-than-the-specified-number-of-days"></a>비밀은 지정된 기간(일)을 초과하는 활성 상태가 아니어야 함 
 
 비밀이 지정된 일 수보다 오랫동안 활성화되지 않았는지 확인하려는 경우 이 정책을 사용하여 비밀이 활성화된 기간을 감사할 수 있습니다.
 
@@ -143,19 +144,19 @@ HSM은 키를 저장하는 하드웨어 보안 모듈입니다. HSM은 암호화
 
 **비밀에 활성화 날짜가 설정되어 있지 않은 경우** 이 정책은 비밀을 **만든 날짜** 에서 현재 날짜까지 경과된 일 수를 계산합니다. 일 수가 설정된 임계값을 초과하는 경우 비밀이 정책을 준수하지 않는 것으로 표시됩니다.
 
-### <a name="secrets-should-have-content-type-set-preview"></a>비밀에는 콘텐츠 형식 집합이 있어야 함(미리 보기)
+### <a name="secrets-should-have-content-type-set"></a>비밀에는 콘텐츠 형식이 설정되어야 함 
 
 일반 텍스트 또는 인코딩된 파일은 키 자격 증명 모음 비밀로 저장할 수 있습니다. 그러나 조직에서 키로 저장된 암호, 연결 문자열 또는 인증서에 대해 다른 순환 정책 및 제한을 설정하는 것이 좋습니다. 콘텐츠 형식 태그를 사용하면 사용자는 비밀 값을 읽지 않고도 비밀 개체에 저장된 내용을 볼 수 있습니다. 이 정책을 사용하여 콘텐츠 형식 태그 집합이 없는 비밀을 감사할 수 있습니다. 또한 이 정책을 사용하여 콘텐츠 형식 태그 집합이 없는 경우 새 비밀 생성을 방지할 수도 있습니다.
 
-### <a name="secrets-should-have-expiration-date-set-preview"></a>비밀에는 만료 날짜 집합이 설정되어 있어야 함(미리 보기)
+### <a name="secrets-should-have-expiration-date-set"></a>비밀에는 만료 날짜가 설정되어 있어야 합니다. 
 
 이 정책은 만료 날짜가 비준수로 설정되지 않은 키 자격 증명 모음 및 플래그 비밀의 모든 비밀을 감사합니다. 또한 이 정책을 사용하여 만료 날짜가 설정되지 않은 비밀 생성을 차단할 수도 있습니다.
 
-### <a name="secrets-should-have-more-than-the-specified-number-of-days-before-expiration-preview"></a>비밀은 만료 전 지정된 일 수보다 커야 함(미리 보기)
+### <a name="secrets-should-have-more-than-the-specified-number-of-days-before-expiration"></a>비밀에는 만료 전에 지정된 기간(일)보다 더 많은 기간이 있어야 함 
 
 비밀이 만료에 너무 가까운 경우 조직에서 비밀 회전 지연이 발생하여 운영이 중단될 수 있습니다. 비밀은 오류에 대응할 수 있는 충분한 시간을 제공하기 위해 만료 전 지정된 일 수에서 회전되어야 합니다. 이 정책은 만료 날짜에 너무 가까운 비밀을 감사하고 이 임계값을 일 단위로 설정할 수 있도록 합니다. 또한 이 정책을 사용하여 만료 날짜에 너무 가까운 새 비밀 생성을 방지할 수도 있습니다.
 
-### <a name="secrets-should-have-the-specified-maximum-validity-period-preview"></a>비밀에는 지정된 최대 유효 기간이 있어야 함(미리 보기)
+### <a name="secrets-should-have-the-specified-maximum-validity-period"></a>비밀에는 지정된 최대 유효 기간이 있어야 함 
 
 키 자격 증명 모음 내에서 비밀이 유효한 최대 일 수를 지정하여 조직의 규정 준수 요구 사항을 관리합니다. 설정한 임계값보다 긴 시간 동안 유효한 비밀은 비준수로 표시됩니다. 또한 이 정책을 사용하여 지정한 최대 유효 기간 보다 긴 만료 날짜가 설정된 새 비밀 생성을 차단할 수도 있습니다.
 
@@ -242,16 +243,25 @@ HSM은 키를 저장하는 하드웨어 보안 모듈입니다. HSM은 암호화
 
 ## <a name="feature-limitations"></a>기능 제한 사항
 
-"거부" 효과의 정책을 할당하면 비규격 리소스 생성을 거부하기 시작하는 데 최대 30분(평균적인 경우) 및 1시간(최악의 경우)이 소요될 수 있습니다. 자격 증명 모음의 기존 구성 요소에 대한 정책 평가는 포털 UI에서 규정 준수 결과를 볼 수 있을 때까지 최대 1시간(평균적인 경우) 및 2시간(최악의 경우)이 소요될 수 있습니다. 규정 준수 결과가 "시작되지 않음"으로 표시되는 경우 다음과 같은 이유 때문일 수 있습니다.
+"거부" 효과의 정책을 할당하면 비규격 리소스 생성을 거부하기 시작하는 데 최대 30분(평균적인 경우) 및 1시간(최악의 경우)이 소요될 수 있습니다. 지연은 다음과 같은 시나리오를 나타냅니다.
+1.  새 정책이 할당됨
+2.  기존 정책 할당이 수정됨
+3.  기존 정책이 있는 범위에 새 KeyVault(리소스)가 만들어집니다.
+
+자격 증명 모음의 기존 구성 요소에 대한 정책 평가는 포털 UI에서 규정 준수 결과를 볼 수 있을 때까지 최대 1시간(평균적인 경우) 및 2시간(최악의 경우)이 소요될 수 있습니다. 규정 준수 결과가 "시작되지 않음"으로 표시되는 경우 다음과 같은 이유 때문일 수 있습니다.
 - 정책 평가를 아직 완료하지 않았습니다. 초기 평가 대기 시간이 최악의 시나리오에서 최대 2시간이 걸릴 수 있습니다. 
 - 정책 할당 범위에 Key Vault가 없습니다.
 - 인증서가 정책 할당 범위 내에 있는 Key Vault가 없습니다.
+
+
+
 
 > [!NOTE]
 > Azure Key Vault용과 같은 Azure Policy [리소스 공급자 모드](../../governance/policy/concepts/definition-structure.md#resource-provider-modes)는 [구성 요소 규정 준수](../../governance/policy/how-to/get-compliance-data.md#component-compliance) 페이지에서 규정 준수에 대한 정보를 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
+- [키 자격 증명 모음에 대한 Azure 정책에 대한 로깅 및 질문과 대답](../general/troubleshoot-azure-policy-for-key-vault.md)
 - [Azure Policy 서비스](../../governance/policy/overview.md)에 대해 자세히 알아보기
 - Key Vault 샘플을 참조하세요. [Key Vault 기본 제공 정책 정의](../../governance/policy/samples/built-in-policies.md#key-vault)
 - [Key Vault에 대한 Azure 보안 벤치마크 지침](/security/benchmark/azure/baselines/key-vault-security-baseline?source=docs#network-security)에 대해 알아보기

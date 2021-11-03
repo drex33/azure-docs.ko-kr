@@ -7,12 +7,12 @@ author: gitralf
 ms.author: ralfwi
 ms.service: germany
 ms.custom: bfmigrate
-ms.openlocfilehash: 86d6fa3c7c5552c0bb48844e543c20dc3493b15e
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 89a65c133a2478b38755b05a8c2fe5d1bb6623a7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129361481"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131081299"
 ---
 # <a name="overview-of-migration-guidance-for-azure-germany"></a>Azure 독일에 대한 마이그레이션 지침 개요
 
@@ -95,7 +95,7 @@ Azure 계정 소유자, 구독 관리자, 테넌트 관리자, 재무 및 회계
 - **대상 지역**: 글로벌 Azure의 거의 모든 지역을 사용할 수 있습니다. 리소스를 서유럽(**westeurope**) 또는 북유럽(**northeurope**)으로 마이그레이션하려고 합니다.
 
 > [!NOTE]
-> 마이그레이션하는 Azure 서비스가 대상 지역에서 제공되는지 확인합니다. Azure 독일에서 사용할 수 있는 모든 Azure 서비스는 서유럽에서 사용할 수 있습니다. Azure 독일에서 사용할 수 있는 모든 Azure 서비스는 Azure Machine Learning 스튜디오(클래식) 및 Azure Virtual Machines의 G/GS VM 시리즈를 제외하고 북유럽에서 사용할 수 있습니다.
+> 마이그레이션하는 Azure 서비스가 대상 지역에서 제공되는지 확인합니다. Azure 독일에서 사용할 수 있는 모든 Azure 서비스는 서유럽에서 사용할 수 있습니다. azure 독일에서 사용할 수 있는 모든 azure 서비스는 azure Virtual Machines에서 Machine Learning Studio (클래식) 및 G/GS VM 시리즈를 제외 하 고는 유럽에서 사용할 수 있습니다.
 
 브라우저에서 원본 및 대상 포털을 북마크에 추가하는 것이 좋습니다.
 

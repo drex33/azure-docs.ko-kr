@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/21/2021
 ms.author: allensu
-ms.openlocfilehash: fef02d3defc578b4c356677fc346dfbc2e41e4c7
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 5000ac68cc0e00cdbe9d0ebd430f8cd88fe49e98
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130254547"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057707"
 ---
 # <a name="azure-load-balancer-skus"></a>Azure Load Balancer SKU
 
@@ -34,6 +34,7 @@ Azure Load Balancer에는 두 가지 SKU가 있습니다.
 
 | | 표준 Load Balancer | 기본 Load Balancer |
 | --- | --- | --- |
+| **백 엔드 형식** | IP 기반, NIC 기반 | NIC 기반 |
 | **[백 엔드 풀 크기](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)** | 최대 1000개 인스턴스를 지원합니다. | 최대 300개 인스턴스를 지원합니다. |
 | **백 엔드 풀 엔드포인트** | 단일 가상 네트워크에 있는 가상 머신 또는 가상 머신 확장 집합 | 단일 가용성 집합 또는 가상 머신 확장 집합의 가상 머신. |
 | **[상태 프로브](./load-balancer-custom-probe-overview.md#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
@@ -53,7 +54,7 @@ Azure Load Balancer에는 두 가지 SKU가 있습니다.
 
 ## <a name="limitations"></a>제한 사항
 
-- Load Balancer [S SKU를 업그레이드할](upgrade-basic-standard.md)수 있습니다.
+- [Load Balancer sku를 업그레이드할](upgrade-basic-standard.md)수 있습니다.
 - 독립 실행형 가상 머신 리소스, 가용성 집합 리소스 또는 가상 머신 확장 집합 리소스는 하나의 SKU만 참조할 수 있습니다.
 - [이동 작업](../azure-resource-manager/management/move-resource-group-and-subscription.md):
   - 리소스 그룹 이동 작업(동일한 구독 내)은 표준 Load Balancer 및 표준 공용 IP에 대해 **지원됩니다.** 

@@ -2,22 +2,36 @@
 title: Azure에 연결된 Azure Video Analyzer for Media(이전의 Video Indexer) 계정 만들기
 description: Azure에 연결된 Azure Video Analyzer for Media(이전의 Video Indexer) 계정을 만드는 방법을 알아봅니다.
 ms.topic: tutorial
-ms.date: 01/14/2021
-ms.author: juliako
-ms.openlocfilehash: 13bf5c4eb6fc34848e90b80eb7cd242abf8824c9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/19/2021
+ms.author: itnorman
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 55a0a203bb359ca0d5cad44b5e773cee0f65edef
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128662139"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131016971"
 ---
 # <a name="create-a-video-analyzer-for-media-account"></a>Video Analyzer for Media 계정 만들기
 
-Azure Video Analyzer for Media(이전의 Video Indexer) 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Analyzer for Media에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 Azure 구독으로 연결되는 Video Analyzer for Media 계정을 만듭니다. 인덱싱된 시간(분)에 대한 비용을 지불하는 경우 자세한 내용은 [Media Services 가격 책정](https://azure.microsoft.com/pricing/details/media-services/)을 참조하세요.
+Azure Video Analyzer for Media(이전의 Video Indexer) 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 통해 Video Analyzer for Media는 최대 600분의 체험 인덱싱을 제공하고, [개발자 포털](https://aka.ms/avam-dev-portal)에서 Video Analyzer API를 구독하는 사용자에게 최대 2400분의 체험 인덱싱을 제공합니다. 유료 옵션을 통해 Azure Video Analyzer for Media는 클래식 계정(일반 공급) 및 ARM 기반 계정(공개 미리 보기)이라는 두 가지 유형의 계정을 제공합니다. 두 계정 간의 주요 차이점은 계정 관리 플랫폼입니다. 클래식 계정은 API Management 기반으로 빌드되는 반면 ARM 기반 계정 관리는 Azure 기반으로 빌드되며, 기본적으로 역할 기반 액세스 제어(Azure RBAC)를 통해 모든 서비스에 액세스 제어를 사용할 수 있습니다.
 
-이 문서에서는 Azure 구독 및 Azure Media Services 계정에 연결된 Video Analyzer for Media 계정을 만드는 방법을 보여 줍니다. 이 토픽에서는 자동(기본값) 흐름을 사용하여 Azure에 연결하는 단계를 설명합니다. Azure에 수동으로 연결하는 방법도 보여줍니다(고급).
+* [API](https://aka.ms/avam-dev-portal)를 통해 Video Analyzer for Media **클래식** 계정을 만들 수 있습니다.
 
-*평가판* 에서 *유료* Video Analyzer for Media 계정으로 이동하는 경우, [평가판 계정](#import-your-content-from-the-trial-account) 섹션에서 설명한 대로 모든 비디오 및 모델 사용자 지정을 새 계정에 복사하도록 선택할 수 있습니다.
+* 다음 중 하나를 통해 Video Analyzer for Media **ARM 기반** 계정을 만들 수 있습니다.
+
+  1.  [Video Analyzer for Media 포털](https://aka.ms/vi-portal-link)
+
+  2.  [Azure Portal](https://ms.portal.azure.com/#home)
+
+  3.  [ARM template 빠른 시작](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/ARM-Samples/Create-Account)
+
+### <a name="to-read-more-on-how-to-create-a-new-arm-based-video-analyzer-for-media-account-read-this-article"></a>**새 ARM 기반** Video Analyzer for Media 계정을 만드는 방법에 대한 자세한 내용은 이 [문서](create-video-analyzer-for-media-account.md)를 참조하세요.
+
+## <a name="how-to-create-classic-accounts"></a>클래식 계정을 만드는 방법
+이 문서에서는 Video Analyzer for Media 클래식 계정을 만드는 방법을 보여줍니다. 이 토픽에서는 자동(기본값) 흐름을 사용하여 Azure에 연결하는 단계를 설명합니다. Azure에 수동으로 연결하는 방법도 보여줍니다(고급).
+
+*평가판* 에서 *유료 ARM-Based* Video Analyzer for Media 계정으로 이동하는 경우, [평가판 계정](#import-your-content-from-the-trial-account) 섹션에서 설명한 대로 모든 비디오 및 모델 사용자 지정을 새 계정에 복사하도록 선택할 수 있습니다.
 
 이 문서에서는 [Azure Government에 Video Analyzer for Media 계정 연결](#video-analyzer-for-media-in-azure-government)에 대해서도 설명합니다.
 
@@ -55,49 +69,12 @@ Azure Video Analyzer for Media(이전의 Video Indexer) 계정을 만들 때 평
 
     ![EventGrid](./media/create-account/event-grid.png)
 
-## <a name="create-a-new-account-on-azure"></a>새 Azure 계정을 생성합니다 
-
-> [!NOTE]
-> Azure 구독에서 인증서 기반 다중 인증을 사용하는 경우 필수 인증서가 설치된 디바이스에서 다음 단계를 수행하는 것이 중요합니다.
-
-1. [Video Analyzer for Media](https://www.videoindexer.ai/) 웹 사이트로 이동하여 로그인합니다.
-1. **무제한 계정 만들기** 버튼을 선택합니다:
-
-    ![새 Video Analyzer for Media 계정 만들기](./media/create-account/create-unlimited-account.png)
-1. 구독 목록이 표시되면 사용하려는 구독을 선택합니다.
-
-    ![Azure에 Video Analyzer for Media 연결](./media/create-account/new-account-on-azure-subscription.png)
-1. 지원되는 위치에서 Azure 지역(미국 서부 2, 북유럽 또는 동아시아)을 선택합니다.
-1. **Azure Media Services 계정** 아래에서 다음 옵션 중 하나를 선택합니다.
-
-    * 새 Media Services 계정을 만들려면 **새 리소스 그룹 만들기** 를 선택합니다. 리소스 그룹에 대한 이름을 제공합니다.
-
-        Azure에서 새 Azure Storage 계정을 포함한 새 계정을 구독에 만듭니다.  
-    * 기존 Media Services 계정을 사용하려면 **기존 리소스 사용** 을 선택합니다. 계정 목록에서 계정을 선택합니다.
-
-        Media Services 계정은 Video Analyzer for Media 계정과 동일한 지역을 가져야 합니다.
-
-        > [!NOTE]
-        > 인덱싱 지속 시간과 낮은 처리량을 줄이기 위해 미디어 서비스 계정의 [예약 장치](../../media-services/previous/media-services-scale-media-processing-overview.md )의 유형과 수를 **10S3예약 장치** 로 조정하는 것이 좋습니다. [예약 단위 변경을 위한 포털 사용](../../media-services/previous/media-services-portal-scale-media-processing.md)을 참조하세요. 예약 단위는 계정에 청구되고 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/media-services/#analytics)를 볼 수 있습니다.
-    * 연결을 수동으로 구성하려면 **수동 구성으로 전환** 링크를 클릭합니다.
-
-        자세한 내용은 이어지는 [Azure에 수동으로 연결](#connect-to-azure-manually-advanced-option)(고급 옵션) 섹션을 참조하세요.
-1. 작업을 완료하면 **만들기** 를 선택합니다. 이 작업은 최대 몇 분 정도 걸릴 수 있습니다.
-
-    Azure에 연결하면 새 Video Analyzer for Media 계정이 계정 목록에 표시됩니다.
-
-    ![새 계정](./media/create-account/new-account.png)
-1. Video Analyzer for Media 웹앱에서 비디오를 재생하기 전에 Media Services 계정의 스트리밍 엔드포인트가 실행 중인지 확인합니다(정지된 상태일 경우 시작 누름).
-
-> [!TIP]
-> 친숙한 디스플레이를 계정에 제공하려면 **설정** 으로 이동합니다.
-
 ## <a name="connect-to-azure-manually-advanced-option"></a>Azure에 수동으로 연결(고급 옵션)
 
 Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 수 있습니다.
 
 > [!NOTE]
-> Media Services 계정과 이를 연결하는 Video Analyzer for Media 계정, 그리고 같은 Media Services 계정에 연결된 Azure Storage 계정 총 3개 계정은 같은 영역에 있는 것이 좋습니다.
+> Media Services 계정과 이를 연결하는 Video Analyzer for Media 계정, 그리고 같은 Media Services 계정에 연결된 Azure Storage 계정 총 3개 계정은 같은 영역에 있어야 합니다.
 
 ### <a name="create-and-configure-a-media-services-account"></a>Media Services 계정을 만들고 구성
 
@@ -114,9 +91,7 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
     > [!NOTE]
     > Media Services 리소스 및 계정 이름을 기록해 둡니다. 다음 섹션의 단계에서 그것들이 필요합니다.
-1. 생성된 Media Services 계정에서 [예약 단위](../../media-services/previous/media-services-scale-media-processing-overview.md )의 유형 및 수를 **S3 예약 단위 10개** 로 조정합니다. [예약 단위 변경을 위한 포털 사용](../../media-services/previous/media-services-portal-scale-media-processing.md)을 참조하세요.
 
-    예약 단위는 계정에 청구되고, [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/media-services/#analytics)를 볼 수 있습니다.s
 1. Video Analyzer for Media 웹 애플리케이션에서 비디오를 재생하기 전에 새 Media Services 계정의 기본 **스트리밍 엔드포인트** 를 시작해야 합니다.
 
     새 Media Services 계정에서 **스트리밍 엔드포인트** 를 클릭합니다. 스트리밍 엔드포인트를 선택하고 [시작]을 누릅니다.
@@ -153,12 +128,27 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
 ### <a name="import-your-content-from-the-trial-account"></a>*평가판* 계정에서 콘텐츠 가져오기
 
-새 계정을 생성할 때, *평가판* 계정에서 새 계정으로 콘텐츠를 가져오는 옵션이 있습니다. **Azure 구독에서 새 계정 만들기** 대화 상자에서 *가져오기* 옵션을 선택하면, 모든 개별적인 미디어 및 콘텐츠 모델이 *평가판* 계정에서 새 계정으로 복사됩니다.
+새 **ARM 기반** 계정을 만들 때 콘텐츠를 *평가판* 계정에서 새 **ARM 기반** 계정으로 무료로 가져올 수 있는 옵션이 있습니다.
+> [!NOTE]
+> * 평가판에서 가져오기는 평가판 계정당 한 번만 수행할 수 있습니다.
+> * 가져오기를 할당하기 전에 대상 ARM-Based 계정을 만들고 사용할 수 있어야 합니다.  
+> * 대상 ARM-Based 계정은 빈 계정이어야 합니다(미디어 파일을 인덱싱하지 않음).
 
-콘텐츠를 가져오는 기능은 위에 설명된 자동 및 수동 방법 모두에 유효합니다.
+데이터를 가져오려면 다음 단계를 수행합니다.
+ 1. [Azure Video Analyzer for Media 포털](https://aka.ms/vi-portal-link)로 이동합니다.
+ 2. 평가판 계정을 선택하고 *계정 설정* 페이지로 이동합니다.
+ 3. *ARM 기반 계정으로 콘텐츠 가져오기* 를 클릭합니다.
+ 4. 드롭다운 메뉴에서 데이터를 가져올 ARM 기반 계정을 선택합니다.
+   * 계정 ID가 표시되지 않으면 Azure Portal 또는 계정 목록에서 계정 ID를 복사하여 Azure Video Analyzer for Media Portal의 측면 블레이드에 붙여넣을 수 있습니다.
+ 5. **콘텐츠 가져오기** 를 클릭합니다.  
+
+![import](./media/create-account/import-steps.png)
+
+
+모든 미디어 및 콘텐츠 모델 사용자 지정은 *평가판* 계정에서 새 ARM 기반 계정으로 복사됩니다.
+
 
 > [!NOTE]
-> 콘텐츠는 각 계정에서 한 번만 가져올 수 있습니다.
 >
 > Azure Government 클라우드에서는 *평가판* 계정이 가능하지 않습니다.
 

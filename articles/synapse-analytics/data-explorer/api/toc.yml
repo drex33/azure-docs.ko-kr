@@ -1,0 +1,116 @@
+items:
+  - name: API 개요
+    href: /azure/data-explorer/kusto/api/index?context=/azure/synapse-analytics/context/context
+  - name: 클라이언트 라이브러리
+    href: /azure/data-explorer/kusto/api/client-libraries?context=/azure/synapse-analytics/context/context
+  - name: 연결 문자열
+    items:
+      - name: 연결 문자열 개요
+        href: /azure/data-explorer/kusto/api/connection-strings/index?context=/azure/synapse-analytics/context/context
+      - name: Kusto 연결 문자열
+        href: /azure/data-explorer/kusto/api/connection-strings/kusto?context=/azure/synapse-analytics/context/context
+      - name: 스토리지 연결 문자열
+        href: /azure/data-explorer/kusto/api/connection-strings/storage?context=/azure/synapse-analytics/context/context
+  - name: REST API
+    items:
+      - name: REST API 개요
+        href: /azure/data-explorer/kusto/api/rest/index?context=/azure/synapse-analytics/context/context
+      - name: 인증
+        href: /azure/data-explorer/kusto/api/rest/authentication?context=/azure/synapse-analytics/context/context
+      - name: 쿼리/관리 HTTP 요청
+        href: /azure/data-explorer/kusto/api/rest/request?context=/azure/synapse-analytics/context/context
+      - name: 쿼리/관리 HTTP 응답
+        href: /azure/data-explorer/kusto/api/rest/response?context=/azure/synapse-analytics/context/context
+      - name: 쿼리 v2 HTTP 응답
+        href: /azure/data-explorer/kusto/api/rest/response2?context=/azure/synapse-analytics/context/context
+      - name: UI(딥 링크)
+        href: /azure/data-explorer/kusto/api/rest/deeplink?context=/azure/synapse-analytics/context/context
+      - name: 스트리밍 수집
+        href: /azure/data-explorer/kusto/api/rest/streaming-ingest?context=/azure/synapse-analytics/context/context
+  - name: MS-TDS
+    displayName: 'SQL, ADO.NET, JDBC, ODBC'
+    items:
+      - name: MS-TDS 개요
+        displayName: 'SQL, ADO.NET, JDBC, ODBC'
+        href: /azure/data-explorer/kusto/api/tds/index?context=/azure/synapse-analytics/context/context
+      - name: T-SQL
+        href: /azure/data-explorer/kusto/api/tds/t-sql?context=/azure/synapse-analytics/context/context
+      - name: TDS를 통한 KQL
+        href: /azure/data-explorer/kusto/api/tds/tdskql?context=/azure/synapse-analytics/context/context
+      - name: 클라이언트
+        href: /azure/data-explorer/kusto/api/tds/clients?context=/azure/synapse-analytics/context/context
+      - name: 연결된 서버
+        href: /azure/data-explorer/kusto/api/tds/linkedserver?context=/azure/synapse-analytics/context/context
+      - name: Azure Active Directory
+        displayName: 'AAD, Azure AD'
+        href: /azure/data-explorer/kusto/api/tds/aad?context=/azure/synapse-analytics/context/context
+      - name: 알려진 문제
+        href: /azure/data-explorer/kusto/api/tds/sqlknownissues?context=/azure/synapse-analytics/context/context
+  - name: .NET SDK
+    items:
+      - name: 일반
+        items:
+          - name: SDK 정보
+            href: /azure/data-explorer/kusto/api/netfx/about-the-sdk?context=/azure/synapse-analytics/context/context
+          - name: 추적 제어
+            href: /azure/data-explorer/kusto/api/netfx/controlling-tracing?context=/azure/synapse-analytics/context/context
+      - name: Kusto.Data
+        items:
+          - name: Kusto.Data 개요
+            href: /azure/data-explorer/kusto/api/netfx/about-kusto-data?context=/azure/synapse-analytics/context/context
+          - name: '요청 속성, ClientRequestProperties'
+            href: /azure/data-explorer/kusto/api/netfx/request-properties?context=/azure/synapse-analytics/context/context
+      - name: Kusto.Ingest
+        items:
+          - name: Kusto.Ingest 개요
+            href: /azure/data-explorer/kusto/api/netfx/about-kusto-ingest?context=/azure/synapse-analytics/context/context
+          - name: 사용 권한
+            displayName: Kusto.Ingest
+            href: /azure/data-explorer/kusto/api/netfx/kusto-ingest-client-permissions?context=/azure/synapse-analytics/context/context
+          - name: 클라이언트 참조
+            displayName: Kusto.Ingest
+            href: /azure/data-explorer/kusto/api/netfx/kusto-ingest-client-reference?context=/azure/synapse-analytics/context/context
+          - name: 오류 및 예외
+            displayName: Kusto.Ingest
+            href: /azure/data-explorer/kusto/api/netfx/kusto-ingest-client-errors?context=/azure/synapse-analytics/context/context
+          - name: 작업 상태
+            displayName: Kusto.Ingest
+            href: /azure/data-explorer/kusto/api/netfx/kusto-ingest-client-status?context=/azure/synapse-analytics/context/context
+          - name: Kusto.Ingest 모범 사례
+            href: /azure/data-explorer/kusto/api/netfx/kusto-ingest-best-practices?context=/azure/synapse-analytics/context/context
+          - name: 코드 샘플
+            displayName: Kusto.Ingest
+            href: /azure/data-explorer/kusto/api/netfx/kusto-ingest-client-examples?context=/azure/synapse-analytics/context/context
+          - name: REST API를 사용한 데이터 수집 방법
+            displayName: Kusto.Ingest
+            href: /azure/data-explorer/kusto/api/netfx/kusto-ingest-client-rest?context=/azure/synapse-analytics/context/context
+  - name: Python SDK
+    items:
+      - name: azure-kusto-python
+        href: /azure/data-explorer/kusto/api/python/kusto-python-client-library?context=/azure/synapse-analytics/context/context
+  - name: R SDK
+    items:
+      - name: azure-kusto-r
+        href: /azure/data-explorer/kusto/api/r/kusto-r-client-library?context=/azure/synapse-analytics/context/context
+  - name: Java SDK
+    items:
+      - name: azure-kusto-java
+        href: /azure/data-explorer/kusto/api/java/kusto-java-client-library?context=/azure/synapse-analytics/context/context
+  - name: Node SDK
+    items:
+      - name: azure-kusto-node
+        href: /azure/data-explorer/kusto/api/node/kusto-node-client-library?context=/azure/synapse-analytics/context/context
+  - name: Go SDK
+    items:
+      - name: azure-kusto-go
+        href: /azure/data-explorer/kusto/api/golang/kusto-golang-client-library?context=/azure/synapse-analytics/context/context
+  - name: PowerShell
+    items:
+      - name: PowerShell에서 Kusto 호출
+        href: /azure/data-explorer/kusto/api/powershell/powershell?context=/azure/synapse-analytics/context/context
+  - name: 모나코 IDE 통합
+    items:
+      - name: monaco-kusto overview
+        href: /azure/data-explorer/kusto/api/monaco/monaco-kusto?context=/azure/synapse-analytics/context/context
+      - name: iFrame에 웹 UX 포함
+        href: /azure/data-explorer/kusto/api/monaco/host-web-ux-in-iframe?context=/azure/synapse-analytics/context/context

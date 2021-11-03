@@ -4,12 +4,12 @@ description: 추적, NLog 또는 Log4Net에서 생성된 로그를 검색합니�
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/08/2019
-ms.openlocfilehash: 8b956c0e63f96dbfbcf3204c260952ccf2f2c22a
-ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
-ms.translationtype: HT
+ms.openlocfilehash: 2836dfabbc2370ed6200030564e2b559cb656f8b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112552877"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079190"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Application Insights에서 .NET/.NET Core 및 Python 추적 로그 검색
 
@@ -22,7 +22,7 @@ ILogger, NLog, log4Net 또는 System.Diagnostics.Trace의 ASP.NET/ASP.NET Core �
 ## <a name="install-logging-on-your-app"></a>앱에 대한 로깅 설치
 프로젝트에 선택한 로깅 프레임워크를 설치합니다. 그러면 app.config 또는 web.config에 항목이 생성됩니다.
 
-```XML
+```xml
  <configuration>
   <system.diagnostics>
     <trace>
@@ -116,7 +116,7 @@ Application Insights에 추적으로 보낼 [System.Diagnostics.DiagnosticSource
 ## <a name="use-etw-events"></a>ETW 이벤트 사용
 추적으로 Application Insights에 전송될 ETW(Windows용 이벤트 추적) 이벤트를 구성할 수 있습니다. 먼저 `Microsoft.ApplicationInsights.EtwCollector` NuGet 패키지를 설치합니다. 그런 다음, [ApplicationInsights.config](./configuration-with-applicationinsights-config.md) 파일의 "TelemetryModules" 섹션을 편집합니다.
 
-> [!NOTE] 
+> [!NOTE]
 > ETW 이벤트는 SDK를 호스트하는 프로세스가 성능 로그 사용자 또는 관리자의 구성원인 ID에서 실행되는 경우에만 수집할 수 있습니다.
 
 ```xml
@@ -188,7 +188,7 @@ logger.warning('Hello, World!')
 * 페이지의 구성을 즐겨찾기로 저장합니다.
 
 > [!NOTE]
->애플리케이션이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에 대해 Application Insights SDK를 사용하는 경우 *적응 샘플링* 기능이 작동하여 원격 분석의 일부만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](./sampling.md)
+> 애플리케이션이 대량의 데이터를 전송하고 ASP.NET 버전 2.0.0-beta3 또는 그 이상에 대해 Application Insights SDK를 사용하는 경우 *적응 샘플링* 기능이 작동하여 원격 분석의 일부만 보낼 수 있습니다. [샘플링에 대해 자세히 알아봅니다.](./sampling.md)
 >
 
 ## <a name="troubleshooting"></a>문제 해결
@@ -233,4 +233,3 @@ Application Insights를 설치하지 않고 로깅 어댑터 NuGet 패키지를 
 [portal]: https://portal.azure.com/
 [qna]: ../faq.yml
 [start]: ./app-insights-overview.md
-

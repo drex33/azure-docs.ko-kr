@@ -1,449 +1,450 @@
-- name: 전용 SQL 풀(이전에는 SQL DW)
-  href: sql-data-warehouse-overview-what-is.md
-- name: Azure Synapse로 전환 >
-  href: ../overview-what-is.md
-- name: 개요
-  items:
-    - name: 전용 SQL 풀이란?
-      href: sql-data-warehouse-overview-what-is.md
-    - name: 전용 SQL 풀 아키텍처
-      href: massively-parallel-processing-mpp-architecture.md
-    - name: DWU(데이터 웨어하우스 단위)
-      href: what-is-a-data-warehouse-unit-dwu-cdwu.md
-    - name: 참고 자료
-      href: cheat-sheet.md
-    - name: 용량 제한
-      href: sql-data-warehouse-service-capacity-limits.md
-    - name: FAQ
-      href: sql-data-warehouse-overview-faq.yml
-    - name: 릴리스 정보
-      items:
-        - name: 최신 릴리스
-          href: release-notes-10-0-10106-0.md
-        - name: Gen2 영역 업그레이드 예약
-          href: gen2-migration-schedule.md
-- name: 빠른 시작
-  expanded: true
-  items:
-    - name: 만들기 및 연결
-      items:
-        - name: Azure CLI
-          href: create-data-warehouse-azure-cli.md
-        - name: 포털
-          href: create-data-warehouse-portal.md
-        - name: PowerShell
-          href: create-data-warehouse-powershell.md
-        - name: ARM 템플릿
-          displayName: Resource Manager
-          href: quickstart-arm-template.md
-        - name: 파트너 솔루션
-          href: ../partner/browse-partners.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
-    - name: 데이터 로드
-      items:
-        - name: COPY 문
-          href: quickstart-bulk-load-copy-tsql.md
-        - name: COPY 문 예
-          href: quickstart-bulk-load-copy-tsql-examples.md
-    - name: 확장
-      items:
-        - name: 포털
-          href: quickstart-scale-compute-portal.md
-        - name: PowerShell
-          href: quickstart-scale-compute-powershell.md
-        - name: T-SQL
-          href: quickstart-scale-compute-tsql.md
-    - name: 워크로드 관리
-      items:
-        - name: 워크로드 분류자 만들기
-          items:
-            - name: 포털
-              href: quickstart-create-a-workload-classifier-portal.md
-            - name: T-SQL
-              href: quickstart-create-a-workload-classifier-tsql.md
-        - name: 워크로드 격리 만들기
-          items:
-            - name: 포털
-              href: quickstart-configure-workload-isolation-portal.md
-            - name: T-SQL
-              href: quickstart-configure-workload-isolation-tsql.md
-    - name: 일지 중지 및 다시 시작
-      items:
-        - name: 포털
-          href: pause-and-resume-compute-portal.md
-        - name: PowerShell
-          href: pause-and-resume-compute-powershell.md
-- name: 개념
-  items:
-    - name: Synapse 작업 영역 환경
-      items:
-        - name: 개요
-          href: workspace-connected-experience.md
-        - name: 지원되는 지역
-          href: workspace-connected-regions.md
-    - name: 보안
-      items:
-        - name: 개요
-          href: sql-data-warehouse-overview-manage-security.md
-        - name: 고급 데이터 보안
-          items:
-            - name: 개요
-              href: ../../azure-sql/database/azure-defender-for-sql.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
-            - name: 데이터 검색 및 분류
-              href: ../../azure-sql/database/data-discovery-and-classification-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
-            - name: 취약점 평가
-              href: ../../azure-sql/database/sql-vulnerability-assessment.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
-            - name: Advanced Threat Protection
-              href: ../../azure-sql/database/threat-detection-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
-        - name: 감사
-          href: ../../azure-sql/database/auditing-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
-        - name: 네트워크 보안
-          items:
-            - name: 방화벽 규칙
-              href: ../../azure-sql/database/firewall-configure.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
-            - name: Private Link
-              href: ../../azure-sql/database/private-endpoint-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
-            - name: 가상 네트워크 서비스 엔드포인트
-              href: ../../azure-sql/database/vnet-service-endpoint-rule-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
-        - name: 인증
-          items:
-            - name: 개요
-              href: sql-data-warehouse-authentication.md
-            - name: Azure Active Directory
-              href: ../../azure-sql/database/authentication-aad-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
-            - name: 로그인 및 사용자
-              href: ../../azure-sql/database/logins-create-manage.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
-            - name: Multi-Factor Auth
-              href: ../../azure-sql/database/authentication-mfa-ssms-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
-        - name: Access Control
-          items:
-            - name: 개요
-              href: ../../azure-sql/database/logins-create-manage.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
-            - name: 열 수준 보안
-              href: column-level-security.md
-            - name: 행 수준 보안
-              href: /sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
-        - name: 데이터 보호
-          items:
-            - name: 동적 데이터 마스킹
-              href: ../../azure-sql/database/dynamic-data-masking-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
-            - name: TDE(투명한 데이터 암호화) 개요
-              href: ../../azure-sql/database/transparent-data-encryption-tde-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
-            - name: Bring Your Own Key를 사용한 TDE
-              href: ../../azure-sql/database/transparent-data-encryption-byok-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
-    - name: 데이터 수집 및 준비
-      items:
-        - name: 개요
-          href: design-elt-data-loading.md
-        - name: 모범 사례
-          href: ../sql/data-loading-best-practices.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
-        - name: Columnstore 압축
-          href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
-    - name: 개발
-      items:
-        - name: 개요
-          href: sql-data-warehouse-overview-develop.md
-        - name: 모범 사례
-          href: ../sql/best-practices-dedicated-sql-pool.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
-        - name: JSON
-          items:
-            - name: JSON
-              href: /sql/t-sql/functions/json-functions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-            - name: ISJSON
-              href: /sql/t-sql/functions/isjson-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-            - name: JSON_VALUE
-              href: /sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-            - name: JSON_QUERY
-              href: /sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-            - name: JSON_MODIFY
-              href: /sql/t-sql/functions/json-modify-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-            - name: OPENJSON
-              href: /sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-        - name: 구체화된 뷰
-          items:
-            - name: 성능 튜닝 지침
-              href: performance-tuning-materialized-views.md
-            - name: 생성
-              href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-            - name: 변경
-              href: /sql/t-sql/statements/alter-materialized-view-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-            - name: 오버헤드 확인/보기
-              href: /sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-        - name: 순서가 지정된 클러스터형 columnstore 인덱스
-          items:
-            - name: 성능 튜닝 지침
-              href: performance-tuning-ordered-CCI.md
-            - name: 테이블 만들기
-              href: /sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-            - name: CTAS
-              href: /sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-            - name: 인덱스 만들기 및 변경
-              href: /sql/t-sql/statements/create-columnstore-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-        - name: 결과 세트 캐싱
-          items:
-            - name: 성능 튜닝 지침
-              href: performance-tuning-result-set-caching.md
-            - name: 데이터베이스 설정
-              href: /sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-            - name: 세션 설정
-              href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-            - name: 캐시 크기 확인
-              href: /sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-            - name: 캐시 정리
-              href: /sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-        - name: 기계 학습 예측
-          href: sql-data-warehouse-predict.md
-        - name: 테이블
-          items:
-            - name: 개요
-              href: sql-data-warehouse-tables-overview.md
-            - name: CTAS
-              href: sql-data-warehouse-develop-ctas.md
-            - name: 데이터 형식
-              href: sql-data-warehouse-tables-data-types.md
-            - name: 분산 테이블
-              href: sql-data-warehouse-tables-distribute.md
-            - name: 테이블 제약 조건
-              href: sql-data-warehouse-table-constraints.md
-            - name: 인덱스
-              href: sql-data-warehouse-tables-index.md
-            - name: ID
-              href: sql-data-warehouse-tables-identity.md
-            - name: 파티션
-              href: sql-data-warehouse-tables-partition.md
-            - name: 복제된 테이블
-              href: design-guidance-for-replicated-tables.md
-            - name: 통계
-              href: sql-data-warehouse-tables-statistics.md
-            - name: 임시
-              href: sql-data-warehouse-tables-temporary.md
-        - name: T-SQL 언어 요소
-          items:
-            - name: 루프
-              href: sql-data-warehouse-develop-loops.md
-            - name: 저장 프로시저
-              href: sql-data-warehouse-develop-stored-procedures.md
-            - name: 트랜잭션
-              href: sql-data-warehouse-develop-transactions.md
-            - name: 트랜잭션 모범 사례
-              href: sql-data-warehouse-develop-best-practices-transactions.md
-            - name: 사용자 정의 스키마
-              href: sql-data-warehouse-develop-user-defined-schemas.md
-            - name: 변수 할당
-              href: sql-data-warehouse-develop-variable-assignment.md
-    - name: 쿼리
-      items:
-        - name: 동적 SQL
-          href: sql-data-warehouse-develop-dynamic-sql.md
-        - name: 커밋된 스냅샷 격리 읽기
-          href: /sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-        - name: 옵션으로 그룹화
-          href: sql-data-warehouse-develop-group-by-options.md
-        - name: 레이블
-          href: sql-data-warehouse-develop-label.md
-    - name: 워크로드 관리
-      items:
-        - name: 개요
-          href: sql-data-warehouse-workload-management.md
-        - name: 워크로드 분류
-          href: sql-data-warehouse-workload-classification.md
-        - name: 워크로드 중요도
-          href: sql-data-warehouse-workload-importance.md
-        - name: 워크로드 격리
-          href: sql-data-warehouse-workload-isolation.md
-        - name: 워크로드 관리 모니터링
-          href: sql-data-warehouse-workload-management-portal-monitor.md
-        - name: 메모리 및 동시성 제한
-          href: memory-concurrency-limits.md
-        - name: 리소스 클래스
-          href: resource-classes-for-workload-management.md
-    - name: 관리 효율성 및 모니터링
-      items:
-        - name: 개요
-          href: sql-data-warehouse-overview-manageability-monitoring.md
-        - name: '비율 크기 조정, 일시 중지, 다시 시작'
-          href: sql-data-warehouse-manage-compute-overview.md
-        - name: 리소스 사용률 및 쿼리 작업
-          href: sql-data-warehouse-concept-resource-utilization-query-activity.md
-        - name: 데이터 보호
-          href: backup-and-restore.md
-        - name: 권장 사항
-          href: sql-data-warehouse-concept-recommendations.md
-        - name: 문제 해결
-          href: sql-data-warehouse-troubleshoot.md
-    - name: 유지 관리 일정
-      href: maintenance-scheduling.md
-    - name: 통합
-      items:
-        - name: 개요
-          href: sql-data-warehouse-overview-integrate.md
-- name: 방법 가이드
-  items:
-    - name: Synapse 작업 영역 환경
-      items:
-        - name: Synapse 작업 영역 만들기
-          href: workspace-connected-create.md
-    - name: 보안
-      items:
-        - name: Azure AD 인증 구성
-          href: ../../azure-sql/database/authentication-aad-configure.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
-        - name: 조건부 액세스
-          href: ../../azure-sql/database/conditional-access-configure.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
-        - name: PowerShell에서 가상 네트워크 규칙
-          href: ../../azure-sql/database/scripts/vnet-service-endpoint-rule-powershell-create.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
-        - name: 암호화 사용 - 포털
-          href: sql-data-warehouse-encryption-tde.md
-        - name: 암호화 사용 - T-SQL
-          href: sql-data-warehouse-encryption-tde-tsql.md
-    - name: 데이터 로드 및 준비
-      items:
-        - name: ADLS(Azure Data Lake Storage)에서
-          href: sql-data-warehouse-load-from-azure-data-lake-store.md
-        - name: ADB(Azure Databricks) 사용
-          href: /azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
-        - name: ADF(Data Factory) 사용
-          href: ../../data-factory/load-azure-sql-data-warehouse.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
-        - name: SSIS(SQL Server Integration Services) 사용
-          href: /sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
-        - name: 샘플
-          items:
-            - name: 뉴욕 택시
-              href: load-data-from-azure-blob-storage-using-copy.md
-            - name: Contoso
-              href: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-            - name: Wide World Importers
-              href: load-data-wideworldimportersdw.md
-    - name: 개발
-      items:
-        - name: 개요
-          href: sql-data-warehouse-connect-overview.md
-        - name: 연결 문자열
-          href: sql-data-warehouse-connection-strings.md
-        - name: 변경 관리 및 배포
-          items:
-            - name: Visual Studio SSDT 설치
-              href: sql-data-warehouse-install-visual-studio.md
-            - name: 소스 제어 통합
-              href: sql-data-warehouse-source-control-integration.md
-            - name: 지속적인 통합 및 배포
-              href: sql-data-warehouse-continuous-integration-and-deployment.md
-        - name: 연결 및 쿼리
-          items:
-            - name: Visual Studio SSDT
-              href: sql-data-warehouse-query-visual-studio.md
-            - name: SSMS
-              href: sql-data-warehouse-query-ssms.md
-            - name: sqlcmd
-              href: sql-data-warehouse-get-started-connect-sqlcmd.md
-    - name: 워크로드 관리
-      items:
-        - name: 워크로드 분석
-          href: analyze-your-workload.md
-        - name: 워크로드 중요도 관리 및 모니터링
-          href: sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md
-        - name: 워크로드 중요도 구성
-          href: sql-data-warehouse-how-to-configure-workload-importance.md
-        - name: 리소스 클래스를 작업 그룹으로 변환
-          href: sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md
-        - name: 누락된 분류 문제 해결
-          href: sql-data-warehouse-how-to-troubleshoot-missed-classification.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
-    - name: 관리 및 모니터링
-      items:
-        - name: Gen2로 업그레이드
-          href: upgrade-to-latest-generation.md
-        - name: 컴퓨팅 관리
-          href: manage-compute-with-azure-functions.md
-        - name: 워크로드 모니터링 - 포털
-          href: sql-data-warehouse-monitor-workload-portal.md
-        - name: 워크로드 모니터링 - DMV
-          href: sql-data-warehouse-manage-monitor.md
-        - name: Gen2 캐시 모니터링
-          href: sql-data-warehouse-how-to-monitor-cache.md
-    - name: 백업 및 복원
-      items:
-        - name: 복원 지점 만들기
-          href: sql-data-warehouse-restore-points.md
-        - name: 기존 데이터 웨어하우스 복원
-          href: sql-data-warehouse-restore-active-paused-dw.md
-        - name: 삭제된 데이터 웨어하우스 복원
-          href: sql-data-warehouse-restore-deleted-dw.md
-        - name: 지역 백업에서 복원
-          href: sql-data-warehouse-restore-from-geo-backup.md
-        - name: 지역 백업 사용 안 함
-          href: disable-geo-backup.md
-        - name: 단일 지역 상주 구성
-          href: single-region-residency.md
-    - name: 통합
-      items:
-        - name: 기계 학습 사용
-          href: sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
-        - name: 데이터 파이프라인 작성
-          items:
-            - name: Fivetran을 사용하여 연결
-              href: fivetran-quickstart.md
-            - name: Striim 시작
-              href: striim-quickstart.md
-            - name: Azure Stream Analytics 작업 추가
-              href: sql-data-warehouse-integrate-azure-stream-analytics.md
-        - name: 대시보드 및 보고서 작성
-          items:
-            - name: Power BI를 사용하여 시각화
-              href: /power-bi/service-azure-sql-data-warehouse-with-direct-connect
-    - name: 문제 해결
-      items:
-        - name: 연결
-          href: sql-data-warehouse-troubleshoot-connectivity.md
-- name: 참조
-  items:
-    - name: 데이터베이스 데이터 정렬 형식
-      href: sql-data-warehouse-reference-collation-types.md
-    - name: T-SQL
-      items:
-        - name: 전체 참조
-          href: /sql/t-sql/language-reference?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-        - name: T-SQL 언어 요소
-          href: sql-data-warehouse-reference-tsql-language-elements.md
-        - name: T-SQL 문
-          href: sql-data-warehouse-reference-tsql-statements.md
-    - name: 시스템 뷰
-      href: sql-data-warehouse-reference-tsql-system-views.md
-    - name: PowerShell cmdlet
-      href: sql-data-warehouse-reference-powershell-cmdlets.md
-    - name: REST API
-      href: sql-data-warehouse-manage-compute-rest-api.md
-    - name: Azure Policy 기본 제공 기능
-      displayName: 'samples, policies, definitions'
-      href: ../policy-reference.md
-- name: 리소스
-  items:
-    - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/?category=databases'
-    - name: Microsoft Q&A 질문 페이지
-      href: /answers/topics/azure-synapse-analytics.html
-    - name: 가격 책정
-      href: 'https://azure.microsoft.com/pricing/details/sql-data-warehouse/'
-    - name: 요금 계산기
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: 기능 요청
-      href: 'https://feedback.azure.com/forums/307516-sql-data-warehouse/'
-    - name: 서비스 업데이트
-      href: 'https://azure.microsoft.com/updates/?product=sql-data-warehouse'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-sqldw/'
-    - name: 지원
-      href: sql-data-warehouse-get-started-create-support-ticket.md
-    - name: 동영상
-      href: sql-data-warehouse-videos.md
-    - name: 파트너
-      items:
-        - name: 비즈니스 인텔리전스
-          href: ../partner/business-intelligence.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
-        - name: 데이터 통합
-          href: ../partner/data-integration.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
-        - name: 데이터 관리
-          href: ../partner/data-management.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
-        - name: 기계 학습 및 AI
-          href: ../partner/machine-learning-ai.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
-        - name: 시스템 통합
-          href: ../partner/system-integration.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
-        - name: 타사 애플리케이션의 호환성 문제
-          href: ../partner/compatibility-issues.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+items:
+  - name: 전용 SQL 풀(이전에는 SQL DW)
+    href: sql-data-warehouse-overview-what-is.md
+  - name: Azure Synapse로 전환 >
+    href: ../overview-what-is.md
+  - name: 개요
+    items:
+      - name: 전용 SQL 풀이란?
+        href: sql-data-warehouse-overview-what-is.md
+      - name: 전용 SQL 풀 아키텍처
+        href: massively-parallel-processing-mpp-architecture.md
+      - name: DWU(데이터 웨어하우스 단위)
+        href: what-is-a-data-warehouse-unit-dwu-cdwu.md
+      - name: 참고 자료
+        href: cheat-sheet.md
+      - name: 용량 제한
+        href: sql-data-warehouse-service-capacity-limits.md
+      - name: FAQ
+        href: sql-data-warehouse-overview-faq.yml
+      - name: 릴리스 정보
+        items:
+          - name: 최신 릴리스
+            href: release-notes-10-0-10106-0.md
+          - name: Gen2 영역 업그레이드 예약
+            href: gen2-migration-schedule.md
+  - name: 빠른 시작
+    expanded: true
+    items:
+      - name: 만들기 및 연결
+        items:
+          - name: Azure CLI
+            href: create-data-warehouse-azure-cli.md
+          - name: 포털
+            href: create-data-warehouse-portal.md
+          - name: PowerShell
+            href: create-data-warehouse-powershell.md
+          - name: ARM 템플릿
+            displayName: Resource Manager
+            href: quickstart-arm-template.md
+          - name: 파트너 솔루션
+            href: ../partner/browse-partners.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+      - name: 데이터 로드
+        items:
+          - name: COPY 문
+            href: quickstart-bulk-load-copy-tsql.md
+          - name: COPY 문 예
+            href: quickstart-bulk-load-copy-tsql-examples.md
+      - name: 확장
+        items:
+          - name: 포털
+            href: quickstart-scale-compute-portal.md
+          - name: PowerShell
+            href: quickstart-scale-compute-powershell.md
+          - name: T-SQL
+            href: quickstart-scale-compute-tsql.md
+      - name: 워크로드 관리
+        items:
+          - name: 워크로드 분류자 만들기
+            items:
+              - name: 포털
+                href: quickstart-create-a-workload-classifier-portal.md
+              - name: T-SQL
+                href: quickstart-create-a-workload-classifier-tsql.md
+          - name: 워크로드 격리 만들기
+            items:
+              - name: 포털
+                href: quickstart-configure-workload-isolation-portal.md
+              - name: T-SQL
+                href: quickstart-configure-workload-isolation-tsql.md
+      - name: 일지 중지 및 다시 시작
+        items:
+          - name: 포털
+            href: pause-and-resume-compute-portal.md
+          - name: PowerShell
+            href: pause-and-resume-compute-powershell.md
+  - name: 개념
+    items:
+      - name: Synapse 작업 영역 환경
+        items:
+          - name: 개요
+            href: workspace-connected-experience.md
+          - name: 지원되는 지역
+            href: workspace-connected-regions.md
+      - name: 보안
+        items:
+          - name: 개요
+            href: sql-data-warehouse-overview-manage-security.md
+          - name: 고급 데이터 보안
+            items:
+              - name: 개요
+                href: ../../azure-sql/database/azure-defender-for-sql.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
+              - name: 데이터 검색 및 분류
+                href: ../../azure-sql/database/data-discovery-and-classification-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
+              - name: 취약점 평가
+                href: ../../azure-sql/database/sql-vulnerability-assessment.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
+              - name: Advanced Threat Protection
+                href: ../../azure-sql/database/threat-detection-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
+          - name: 감사
+            href: ../../azure-sql/database/auditing-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
+          - name: 네트워크 보안
+            items:
+              - name: 방화벽 규칙
+                href: ../../azure-sql/database/firewall-configure.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
+              - name: Private Link
+                href: ../../azure-sql/database/private-endpoint-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
+              - name: 가상 네트워크 서비스 엔드포인트
+                href: ../../azure-sql/database/vnet-service-endpoint-rule-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
+          - name: 인증
+            items:
+              - name: 개요
+                href: sql-data-warehouse-authentication.md
+              - name: Azure Active Directory
+                href: ../../azure-sql/database/authentication-aad-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
+              - name: 로그인 및 사용자
+                href: ../../azure-sql/database/logins-create-manage.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
+              - name: Multi-Factor Auth
+                href: ../../azure-sql/database/authentication-mfa-ssms-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
+          - name: Access Control
+            items:
+              - name: 개요
+                href: ../../azure-sql/database/logins-create-manage.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
+              - name: 열 수준 보안
+                href: column-level-security.md
+              - name: 행 수준 보안
+                href: /sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+          - name: 데이터 보호
+            items:
+              - name: 동적 데이터 마스킹
+                href: ../../azure-sql/database/dynamic-data-masking-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
+              - name: TDE(투명한 데이터 암호화) 개요
+                href: ../../azure-sql/database/transparent-data-encryption-tde-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
+              - name: Bring Your Own Key를 사용한 TDE
+                href: ../../azure-sql/database/transparent-data-encryption-byok-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
+      - name: 데이터 수집 및 준비
+        items:
+          - name: 개요
+            href: design-elt-data-loading.md
+          - name: 모범 사례
+            href: ../sql/data-loading-best-practices.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+          - name: Columnstore 압축
+            href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
+      - name: 개발
+        items:
+          - name: 개요
+            href: sql-data-warehouse-overview-develop.md
+          - name: 모범 사례
+            href: ../sql/best-practices-dedicated-sql-pool.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+          - name: JSON
+            items:
+              - name: JSON
+                href: /sql/t-sql/functions/json-functions-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+              - name: ISJSON
+                href: /sql/t-sql/functions/isjson-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+              - name: JSON_VALUE
+                href: /sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+              - name: JSON_QUERY
+                href: /sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+              - name: JSON_MODIFY
+                href: /sql/t-sql/functions/json-modify-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+              - name: OPENJSON
+                href: /sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+          - name: 구체화된 뷰
+            items:
+              - name: 성능 튜닝 지침
+                href: performance-tuning-materialized-views.md
+              - name: 생성
+                href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+              - name: 변경
+                href: /sql/t-sql/statements/alter-materialized-view-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+              - name: 오버헤드 확인/보기
+                href: /sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+          - name: 순서가 지정된 클러스터형 columnstore 인덱스
+            items:
+              - name: 성능 튜닝 지침
+                href: performance-tuning-ordered-CCI.md
+              - name: 테이블 만들기
+                href: /sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+              - name: CTAS
+                href: /sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+              - name: 인덱스 만들기 및 변경
+                href: /sql/t-sql/statements/create-columnstore-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+          - name: 결과 세트 캐싱
+            items:
+              - name: 성능 튜닝 지침
+                href: performance-tuning-result-set-caching.md
+              - name: 데이터베이스 설정
+                href: /sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+              - name: 세션 설정
+                href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+              - name: 캐시 크기 확인
+                href: /sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+              - name: 캐시 정리
+                href: /sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+          - name: 기계 학습 예측
+            href: sql-data-warehouse-predict.md
+          - name: 테이블
+            items:
+              - name: 개요
+                href: sql-data-warehouse-tables-overview.md
+              - name: CTAS
+                href: sql-data-warehouse-develop-ctas.md
+              - name: 데이터 형식
+                href: sql-data-warehouse-tables-data-types.md
+              - name: 분산 테이블
+                href: sql-data-warehouse-tables-distribute.md
+              - name: 테이블 제약 조건
+                href: sql-data-warehouse-table-constraints.md
+              - name: 인덱스
+                href: sql-data-warehouse-tables-index.md
+              - name: ID
+                href: sql-data-warehouse-tables-identity.md
+              - name: 파티션
+                href: sql-data-warehouse-tables-partition.md
+              - name: 복제된 테이블
+                href: design-guidance-for-replicated-tables.md
+              - name: 통계
+                href: sql-data-warehouse-tables-statistics.md
+              - name: 임시
+                href: sql-data-warehouse-tables-temporary.md
+          - name: T-SQL 언어 요소
+            items:
+              - name: 루프
+                href: sql-data-warehouse-develop-loops.md
+              - name: 저장 프로시저
+                href: sql-data-warehouse-develop-stored-procedures.md
+              - name: 트랜잭션
+                href: sql-data-warehouse-develop-transactions.md
+              - name: 트랜잭션 모범 사례
+                href: sql-data-warehouse-develop-best-practices-transactions.md
+              - name: 사용자 정의 스키마
+                href: sql-data-warehouse-develop-user-defined-schemas.md
+              - name: 변수 할당
+                href: sql-data-warehouse-develop-variable-assignment.md
+      - name: 쿼리
+        items:
+          - name: 동적 SQL
+            href: sql-data-warehouse-develop-dynamic-sql.md
+          - name: 커밋된 스냅샷 격리 읽기
+            href: /sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+          - name: 옵션으로 그룹화
+            href: sql-data-warehouse-develop-group-by-options.md
+          - name: 레이블
+            href: sql-data-warehouse-develop-label.md
+      - name: 워크로드 관리
+        items:
+          - name: 개요
+            href: sql-data-warehouse-workload-management.md
+          - name: 워크로드 분류
+            href: sql-data-warehouse-workload-classification.md
+          - name: 워크로드 중요도
+            href: sql-data-warehouse-workload-importance.md
+          - name: 워크로드 격리
+            href: sql-data-warehouse-workload-isolation.md
+          - name: 워크로드 관리 모니터링
+            href: sql-data-warehouse-workload-management-portal-monitor.md
+          - name: 메모리 및 동시성 제한
+            href: memory-concurrency-limits.md
+          - name: 리소스 클래스
+            href: resource-classes-for-workload-management.md
+      - name: 관리 효율성 및 모니터링
+        items:
+          - name: 개요
+            href: sql-data-warehouse-overview-manageability-monitoring.md
+          - name: '비율 크기 조정, 일시 중지, 다시 시작'
+            href: sql-data-warehouse-manage-compute-overview.md
+          - name: 리소스 사용률 및 쿼리 작업
+            href: sql-data-warehouse-concept-resource-utilization-query-activity.md
+          - name: 데이터 보호
+            href: backup-and-restore.md
+          - name: 권장 사항
+            href: sql-data-warehouse-concept-recommendations.md
+          - name: 문제 해결
+            href: sql-data-warehouse-troubleshoot.md
+      - name: 유지 관리 일정
+        href: maintenance-scheduling.md
+      - name: 통합
+        items:
+          - name: 개요
+            href: sql-data-warehouse-overview-integrate.md
+  - name: 방법 가이드
+    items:
+      - name: Synapse 작업 영역 환경
+        items:
+          - name: Synapse 작업 영역 만들기
+            href: workspace-connected-create.md
+      - name: 보안
+        items:
+          - name: Azure AD 인증 구성
+            href: ../../azure-sql/database/authentication-aad-configure.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
+          - name: 조건부 액세스
+            href: ../../azure-sql/database/conditional-access-configure.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
+          - name: PowerShell에서 가상 네트워크 규칙
+            href: ../../azure-sql/database/scripts/vnet-service-endpoint-rule-powershell-create.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
+          - name: 암호화 사용 - 포털
+            href: sql-data-warehouse-encryption-tde.md
+          - name: 암호화 사용 - T-SQL
+            href: sql-data-warehouse-encryption-tde-tsql.md
+      - name: 데이터 로드 및 준비
+        items:
+          - name: ADLS(Azure Data Lake Storage)에서
+            href: sql-data-warehouse-load-from-azure-data-lake-store.md
+          - name: ADB(Azure Databricks) 사용
+            href: /azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
+          - name: ADF(Data Factory) 사용
+            href: ../../data-factory/load-azure-sql-data-warehouse.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
+          - name: SSIS(SQL Server Integration Services) 사용
+            href: /sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+          - name: 샘플
+            items:
+              - name: 뉴욕 택시
+                href: load-data-from-azure-blob-storage-using-copy.md
+              - name: Contoso
+                href: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+              - name: Wide World Importers
+                href: load-data-wideworldimportersdw.md
+      - name: 개발
+        items:
+          - name: 개요
+            href: sql-data-warehouse-connect-overview.md
+          - name: 연결 문자열
+            href: sql-data-warehouse-connection-strings.md
+          - name: 변경 관리 및 배포
+            items:
+              - name: Visual Studio SSDT 설치
+                href: sql-data-warehouse-install-visual-studio.md
+              - name: 소스 제어 통합
+                href: sql-data-warehouse-source-control-integration.md
+              - name: 지속적인 통합 및 배포
+                href: sql-data-warehouse-continuous-integration-and-deployment.md
+          - name: 연결 및 쿼리
+            items:
+              - name: Visual Studio SSDT
+                href: sql-data-warehouse-query-visual-studio.md
+              - name: SSMS
+                href: sql-data-warehouse-query-ssms.md
+              - name: sqlcmd
+                href: sql-data-warehouse-get-started-connect-sqlcmd.md
+      - name: 워크로드 관리
+        items:
+          - name: 워크로드 분석
+            href: analyze-your-workload.md
+          - name: 워크로드 중요도 관리 및 모니터링
+            href: sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md
+          - name: 워크로드 중요도 구성
+            href: sql-data-warehouse-how-to-configure-workload-importance.md
+          - name: 리소스 클래스를 작업 그룹으로 변환
+            href: sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md
+          - name: 누락된 분류 문제 해결
+            href: sql-data-warehouse-how-to-troubleshoot-missed-classification.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
+      - name: 관리 및 모니터링
+        items:
+          - name: Gen2로 업그레이드
+            href: upgrade-to-latest-generation.md
+          - name: 컴퓨팅 관리
+            href: manage-compute-with-azure-functions.md
+          - name: 워크로드 모니터링 - 포털
+            href: sql-data-warehouse-monitor-workload-portal.md
+          - name: 워크로드 모니터링 - DMV
+            href: sql-data-warehouse-manage-monitor.md
+          - name: Gen2 캐시 모니터링
+            href: sql-data-warehouse-how-to-monitor-cache.md
+      - name: 백업 및 복원
+        items:
+          - name: 복원 지점 만들기
+            href: sql-data-warehouse-restore-points.md
+          - name: 기존 데이터 웨어하우스 복원
+            href: sql-data-warehouse-restore-active-paused-dw.md
+          - name: 삭제된 데이터 웨어하우스 복원
+            href: sql-data-warehouse-restore-deleted-dw.md
+          - name: 지역 백업에서 복원
+            href: sql-data-warehouse-restore-from-geo-backup.md
+          - name: 지역 백업 사용 안 함
+            href: disable-geo-backup.md
+          - name: 단일 지역 상주 구성
+            href: single-region-residency.md
+      - name: 통합
+        items:
+          - name: 기계 학습 사용
+            href: sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
+          - name: 데이터 파이프라인 작성
+            items:
+              - name: Fivetran을 사용하여 연결
+                href: fivetran-quickstart.md
+              - name: Striim 시작
+                href: striim-quickstart.md
+              - name: Azure Stream Analytics 작업 추가
+                href: sql-data-warehouse-integrate-azure-stream-analytics.md
+          - name: 대시보드 및 보고서 작성
+            items:
+              - name: Power BI를 사용하여 시각화
+                href: /power-bi/service-azure-sql-data-warehouse-with-direct-connect
+      - name: 문제 해결
+        items:
+          - name: 연결
+            href: sql-data-warehouse-troubleshoot-connectivity.md
+  - name: 참조
+    items:
+      - name: 데이터베이스 데이터 정렬 형식
+        href: sql-data-warehouse-reference-collation-types.md
+      - name: T-SQL
+        items:
+          - name: 전체 참조
+            href: /sql/t-sql/language-reference?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+          - name: T-SQL 언어 요소
+            href: sql-data-warehouse-reference-tsql-language-elements.md
+          - name: T-SQL 문
+            href: sql-data-warehouse-reference-tsql-statements.md
+      - name: 시스템 뷰
+        href: sql-data-warehouse-reference-tsql-system-views.md
+      - name: PowerShell cmdlet
+        href: sql-data-warehouse-reference-powershell-cmdlets.md
+      - name: REST API
+        href: sql-data-warehouse-manage-compute-rest-api.md
+      - name: Azure Policy 기본 제공 기능
+        displayName: 'samples, policies, definitions'
+        href: ../policy-reference.md
+  - name: 리소스
+    items:
+      - name: Azure 로드맵
+        href: 'https://azure.microsoft.com/roadmap/?category=databases'
+      - name: Microsoft Q&A 질문 페이지
+        href: /answers/topics/azure-synapse-analytics.html
+      - name: 가격 책정
+        href: 'https://azure.microsoft.com/pricing/details/sql-data-warehouse/'
+      - name: 요금 계산기
+        href: 'https://azure.microsoft.com/pricing/calculator/'
+      - name: 기능 요청
+        href: 'https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8?c=53209bfe-0933-ec11-b6e6-00224827b3e3'
+      - name: 서비스 업데이트
+        href: 'https://azure.microsoft.com/updates/?product=sql-data-warehouse'
+      - name: Stack Overflow
+        href: 'https://stackoverflow.com/questions/tagged/azure-sqldw/'
+      - name: 지원
+        href: sql-data-warehouse-get-started-create-support-ticket.md
+      - name: 동영상
+        href: sql-data-warehouse-videos.md
+      - name: 파트너
+        items:
+          - name: 비즈니스 인텔리전스
+            href: ../partner/business-intelligence.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+          - name: 데이터 통합
+            href: ../partner/data-integration.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+          - name: 데이터 관리
+            href: ../partner/data-management.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+          - name: 기계 학습 및 AI
+            href: ../partner/machine-learning-ai.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+          - name: 시스템 통합
+            href: ../partner/system-integration.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+          - name: 타사 애플리케이션의 호환성 문제
+            href: ../partner/compatibility-issues.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json

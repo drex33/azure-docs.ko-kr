@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Security Center FAQ - 기존 Log Analytics 에이전트 관련 질문
-  description: 본 FAQ에서는 이미 Log Analytics 에이전트를 사용하고 있으면서 위협을 예방하고 검색하며 대응하는 데 도움이 되는 제품인 Azure Security Center의 사용을 고려하고 있는 고객들의 질문에 대한 답변을 제공합니다.
+  title: 클라우드용 Microsoft Defender FAQ - 기존 Log Analytics 에이전트에 대한 질문
+  description: 이 FAQ는 이미 Log Analytics 에이전트를 사용하고 있으며 위협을 방지, 검색 및 대응하는 데 도움이 되는 제품인 Microsoft Defender for Cloud를 고려하는 고객에 대한 질문에 답변합니다.
   services: security-center
   documentationcenter: na
   author: memildin
@@ -14,38 +14,38 @@ metadata:
   ms.workload: na
   ms.date: 02/25/2020
   ms.author: memildin
-  ms.openlocfilehash: 251fffc4915e4fb0a53a1b1f8a6576ae390c69d1
-  ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
-  ms.translationtype: HT
+  ms.openlocfilehash: a284f73f63f31500f94e3145322152d26b598315
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/07/2021
-  ms.locfileid: "111907841"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131047882"
 title: 이미 Azure Monitor 로그를 이용하고 있는 고객들을 위한 FAQ
 summary: ''
 sections:
 - name: 무시됨
   questions:
   - question: >
-      Security Center에서 VM과 작업 영역 간의 모든 기존 연결을 재정의하나요?
-    answer: "VM에 Azure 확장으로 Log Analytics 에이전트가 이미 설치되어 있으면 Security Center에서 기존 작업 영역 연결을 재정의하지 않습니다. 대신 Security Center에서 기존 작업 영역을 사용합니다. 보고하는 작업 영역에 \"Security\" 또는 \"SecurityCenterFree\" 솔루션이 설치된 상황이라면 VM은 보호를 받습니다. \n\nSecurity Center 솔루션이 데이터 컬렉션 화면에서 선택한 작업 영역에 없는 경우 해당 위치에 설치되며, 이 솔루션은 관련 VM에만 적용됩니다. 솔루션을 추가하면 기본적으로 Log Analytics 작업 영역에 연결된 모든 Windows 및 Linux 에이전트에 의해 배포됩니다. [솔루션 대상 지정](../azure-monitor/insights/solution-targeting.md)을 사용하면 솔루션에 범위를 적용할 수 있습니다.\n\n> [!TIP]\n> Log Analytics 에이전트를 Azure 확장으로 설치하는 것이 아니라 VM에 직접 설치하는 경우 Security Center는 Log Analytics 에이전트를 설치하지 않으며, 보안 모니터링 기능이 제한됩니다.\n"
+      Defender for Cloud가 VM과 작업 영역 간의 기존 연결을 재정의하나요?
+    answer: "VM에 Azure 확장으로 설치된 Log Analytics 에이전트가 이미 있는 경우 Defender for Cloud는 기존 작업 영역 연결을 재정의하지 않습니다. 대신, Defender for Cloud는 기존 작업 영역을 사용합니다. 보고하는 작업 영역에 \"Security\" 또는 \"SecurityCenterFree\" 솔루션이 설치된 상황이라면 VM은 보호를 받습니다. \n\nDefender for Cloud 솔루션은 데이터 수집 화면에서 선택한 작업 영역에 설치되며( 아직 없는 경우) 솔루션은 관련 VM에만 적용됩니다. 솔루션을 추가하면 기본적으로 Log Analytics 작업 영역에 연결된 모든 Windows 및 Linux 에이전트에 의해 배포됩니다. [솔루션 대상 지정](../azure-monitor/insights/solution-targeting.md)을 사용하면 솔루션에 범위를 적용할 수 있습니다.\n\n> [!TIP]\n> Log Analytics 에이전트가 Azure 확장이 아닌 VM에 직접 설치된 경우 Defender for Cloud는 Log Analytics 에이전트를 설치하지 않으며 보안 모니터링이 제한됩니다.\n"
   - question: >
-      Security Center에서 기존 Log Analytics 작업 영역에 솔루션을 설치하나요? 요금 청구에 영향을 주는 요인은 무엇인가요?
+      Defender for Cloud가 기존 Log Analytics 작업 영역에 솔루션을 설치하나요? 요금 청구에 영향을 주는 요인은 무엇인가요?
     answer: >
-      Security Center에서 VM이 만든 작업 영역에 이미 연결되어 있는지를 식별하는 경우 Security Center를 통하여 가격 책정 구성에 따라 이 작업 영역에서 솔루션을 사용할 수 있습니다. 솔루션이 [솔루션 대상 지정](../azure-monitor/insights/solution-targeting.md)을 통해 관련 Azure VM에만 적용되므로 청구는 동일하게 유지됩니다.
+      Defender for Cloud에서 VM이 사용자가 만든 작업 영역에 이미 연결되어 있음을 식별하면 Defender for Cloud는 가격 책정 구성에 따라 이 작업 영역에서 솔루션을 사용하도록 설정합니다. 솔루션이 [솔루션 대상 지정](../azure-monitor/insights/solution-targeting.md)을 통해 관련 Azure VM에만 적용되므로 청구는 동일하게 유지됩니다.
 
 
-      - **Azure Defender 꺼짐** – Security Center는 작업 영역에서 'SecurityCenterFree' 솔루션을 설치합니다. 요금은 청구되지 않습니다.
+      - **Azure Defender -** Defender for Cloud는 작업 영역에 "SecurityCenterFree" 솔루션을 설치합니다. 요금은 청구되지 않습니다.
 
-      - **Azure Defender 켜짐** – Security Center는 작업 영역에서 'Security' 솔루션을 설치합니다.
+      - **Azure Defender** – Defender for Cloud는 작업 영역에 '보안' 솔루션을 설치합니다.
 
-         ![기본 작업 영역의 솔루션](./media/security-center-platform-migration-faq/solutions.png)
+         ![기본 작업 영역의 솔루션](./media/platform-migration-faq/solutions.png)
   - question: >
       내 환경에 이미 작업 영역이 있는 경우 보안 데이터를 수집하는 데 사용할 수 있나요?
     answer: >
-      VM에 Azure 확장으로 Log Analytics 에이전트가 이미 설치되어 있으면 Security Center에서 기존 연결된 작업 영역 연결을 사용합니다. Security Center 솔루션이 작업 영역에 없는 경우 설치되고 솔루션은 [솔루션 대상 지정](../azure-monitor/insights/solution-targeting.md)을 통해 관련 VM에만 적용됩니다.
+      VM에 Azure 확장으로 설치된 Log Analytics 에이전트가 이미 있는 경우 Defender for Cloud는 기존의 연결된 작업 영역을 사용합니다. Defender for Cloud 솔루션이 아직 없는 경우 작업 영역에 설치되며, 솔루션은 를 대상으로 [하는 솔루션을](../azure-monitor/insights/solution-targeting.md)통해 관련 VM에만 적용됩니다.
 
 
-      Security Center에서 Log Analytics 에이전트를 VM에 설치하는 경우에 Security Center가 기존 작업 영역을 지정하고 있지 않다면, Security Center에서 만든 기본 작업 영역을 이용합니다.
+      Defender for Cloud가 VM에 Log Analytics 에이전트를 설치할 때 Defender for Cloud가 기존 작업 영역을 가리키지 않는 경우 Defender for Cloud에서 만든 기본 작업 영역을 사용합니다.
   - question: >
       내 작업 영역에 보안 솔루션이 이미 있습니다. 요금 청구에 영향을 주는 요인은 무엇인가요?
-    answer: 보안 및 감사 솔루션은 **서버용 Azure Defender** 를 사용하도록 설정하는 데 사용됩니다. 보안 및 감사 솔루션이 작업 영역에 이미 설치되어 있는 경우 Security Center에서는 기존 솔루션을 사용합니다. 요금 청구는 변하지 않습니다.
+    answer: 보안 & 감사 솔루션은 **서버용 Microsoft Defender를** 사용하도록 설정하는 데 사용됩니다. 보안 & 감사 솔루션이 작업 영역에 이미 설치된 경우 Defender for Cloud는 기존 솔루션을 사용합니다. 요금 청구는 변하지 않습니다.

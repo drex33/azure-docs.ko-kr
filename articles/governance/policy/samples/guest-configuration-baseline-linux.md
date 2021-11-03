@@ -4,12 +4,12 @@ description: Azure Policy 게스트 구성을 통해 구현되는 Azure의 Linux
 ms.date: 08/24/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 5d3b360a3a87c08e457e02829d1938193631e74f
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
-ms.translationtype: HT
+ms.openlocfilehash: d796be9a47b45c607a7a98f27bb2d7b370a3ef28
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122779325"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068611"
 ---
 # <a name="linux-security-baseline"></a>Linux 보안 기준
 
@@ -24,17 +24,17 @@ ms.locfileid: "122779325"
 
 |Name<br /><sub>(CCEID)</sub> |세부 정보 |수정 확인 |
 |---|---|---|
-|/home 파티션에서 nodev 옵션을 설정합니다.<br /><sub>(1.1.4)</sub> |설명: 공격자가 /home 파티션에 특수 디바이스(예: 블록 또는 문자 디바이스)를 탑재할 수 있습니다. |/etc/fstab 파일을 편집하고 /home 파티션의 네 번째 필드(탑재 옵션)에 대해 nodev를 추가합니다. 자세한 내용은 fstab(5) 설명서 페이지를 참조하세요. |
-|/tmp 파티션에서 nodev 옵션을 설정합니다.<br /><sub>(1.1.5)</sub> |설명: 공격자가 /tmp 파티션에 특수 디바이스(예: 블록 또는 문자 디바이스)를 탑재할 수 있습니다. |/etc/fstab 파일을 편집하고 /tmp 파티션의 네 번째 필드(탑재 옵션)에 대해 nodev를 추가합니다. 자세한 내용은 fstab(5) 설명서 페이지를 참조하세요. |
-|/var/tmp 파티션에서 nodev 옵션을 설정합니다.<br /><sub>(1.1.6)</sub> |설명: 공격자가 /var/tmp 파티션에 특수 디바이스(예: 블록 또는 문자 디바이스)를 탑재할 수 있습니다. |/etc/fstab 파일을 편집하고 /var/tmp 파티션의 네 번째 필드(탑재 옵션)에 대해 nodev를 추가합니다. 자세한 내용은 fstab(5) 설명서 페이지를 참조하세요. |
-|/tmp 파티션에서 nosuid 옵션을 설정합니다.<br /><sub>(1.1.7)</sub> |설명: /tmp 파일 시스템은 임시 파일 스토리지에만 사용되므로 사용자가 /var/tmp에 setuid 파일을 만들 수 없도록 이 옵션을 설정합니다. |/etc/fstab 파일을 편집하고 /tmp 파티션의 네 번째 필드(탑재 옵션)에 대해 nosuid를 추가합니다. 자세한 내용은 fstab(5) 설명서 페이지를 참조하세요. |
-|/var/tmp 파티션에서 nosuid 옵션을 설정합니다.<br /><sub>(1.1.8)</sub> |설명: /var/tmp 파일 시스템은 임시 파일 스토리지에만 사용되므로 사용자가 /var/tmp에서 setuid 파일을 만들 수 없도록 이 옵션을 설정합니다. |/etc/fstab 파일을 편집하고 /var/tmp 파티션의 네 번째 필드(탑재 옵션)에 nosuid를 추가합니다. 자세한 내용은 fstab(5) 설명서 페이지를 참조하세요. |
-|/var/tmp 파티션에서 noexec 옵션을 설정합니다.<br /><sub>(1.1.9)</sub> |설명: `/var/tmp` 파일 시스템은 임시 파일 스토리지에만 사용되므로 사용자가 `/var/tmp`에서 실행 가능한 이진 파일을 실행할 수 없도록 이 옵션을 설정합니다. |/etc/fstab 파일을 편집하고 /var/tmp 파티션의 네 번째 필드(탑재 옵션)에 noexec를 추가합니다. 자세한 내용은 fstab(5) 설명서 페이지를 참조하세요. |
-|/dev/shm 파티션에서 noexec 옵션을 설정합니다.<br /><sub>(1.1.16)</sub> |설명: 파일 시스템에서 이 옵션을 설정하면 사용자가 공유 메모리의 프로그램을 실행할 수 없습니다. 이렇게 하면 사용자가 시스템에 잠재적 악성 소프트웨어를 가져오지 못하게 할 수 있습니다. |/etc/fstab 파일을 편집하고 /dev/shm 파티션의 네 번째 필드(탑재 옵션)에 noexec를 추가합니다. 자세한 내용은 fstab(5) 설명서 페이지를 참조하세요. |
+|`nodev`/home 파티션에 옵션이 설정되어 있는지 확인합니다.<br /><sub>(1.1.4)</sub> |설명: 공격자가 /home 파티션에 특수 디바이스(예: 블록 또는 문자 디바이스)를 탑재할 수 있습니다. |/etc/fstab 파일을 편집하고 `nodev` /home 파티션에 대한 네 번째 필드(탑재 옵션)에 추가합니다. 자세한 내용은 fstab(5) 설명서 페이지를 참조하세요. |
+|`nodev`/tmp 파티션에 옵션이 설정되어 있는지 확인합니다.<br /><sub>(1.1.5)</sub> |설명: 공격자가 /tmp 파티션에 특수 디바이스(예: 블록 또는 문자 디바이스)를 탑재할 수 있습니다. |/etc/fstab 파일을 편집하고 `nodev` /tmp 파티션에 대한 네 번째 필드(탑재 옵션)에 추가합니다. 자세한 내용은 fstab(5) 설명서 페이지를 참조하세요. |
+|`nodev`/var/tmp 파티션에 옵션이 설정되어 있는지 확인합니다.<br /><sub>(1.1.6)</sub> |설명: 공격자가 /var/tmp 파티션에 특수 디바이스(예: 블록 또는 문자 디바이스)를 탑재할 수 있습니다. |/etc/fstab 파일을 편집하고 /var/tmp 파티션의 네 번째 필드(탑재 옵션)에 대해 nodev를 추가합니다. 자세한 내용은 fstab(5) 설명서 페이지를 참조하세요. |
+|`nosuid`/tmp 파티션에 옵션이 설정되어 있는지 확인합니다.<br /><sub>(1.1.7)</sub> |설명: /tmp 파일 시스템은 임시 파일 스토리지용이므로 사용자가 /var/tmp에서 파일을 만들 수 없도록 하려면 이 옵션을 `setuid` 설정합니다. |/etc/fstab 파일을 편집하고 `nosuid` /tmp 파티션에 대한 네 번째 필드(탑재 옵션)에 추가합니다. 자세한 내용은 fstab(5) 설명서 페이지를 참조하세요. |
+|`nosuid`/var/tmp 파티션에 옵션이 설정되어 있는지 확인합니다.<br /><sub>(1.1.8)</sub> |설명: /var/tmp 파일 시스템은 임시 파일 스토리지용이므로 사용자가 /var/tmp에서 파일을 만들 수 없도록 하려면 이 옵션을 `setuid` 설정합니다. |/etc/fstab 파일을 편집하고 `nosuid` /var/tmp 파티션에 대한 네 번째 필드(탑재 옵션)에 추가합니다. 자세한 내용은 fstab(5) 설명서 페이지를 참조하세요. |
+|`noexec`/var/tmp 파티션에 옵션이 설정되어 있는지 확인합니다.<br /><sub>(1.1.9)</sub> |설명: `/var/tmp` 파일 시스템은 임시 파일 스토리지에만 사용되므로 사용자가 `/var/tmp`에서 실행 가능한 이진 파일을 실행할 수 없도록 이 옵션을 설정합니다. |/etc/fstab 파일을 편집하고 `noexec` /var/tmp 파티션에 대한 네 번째 필드(탑재 옵션)에 추가합니다. 자세한 내용은 fstab(5) 설명서 페이지를 참조하세요. |
+|`noexec`/dev/shm 파티션에 옵션이 설정되어 있는지 확인합니다.<br /><sub>(1.1.16)</sub> |설명: 파일 시스템에서 이 옵션을 설정하면 사용자가 공유 메모리의 프로그램을 실행할 수 없습니다. 이렇게 하면 사용자가 시스템에 잠재적 악성 소프트웨어를 가져오지 못하게 할 수 있습니다. |/etc/fstab 파일을 편집하고 `noexec` /dev/shm 파티션에 대한 네 번째 필드(탑재 옵션)에 추가합니다. 자세한 내용은 fstab(5) 설명서 페이지를 참조하세요. |
 |자동 탑재를 사용하지 않습니다.<br /><sub>(1.1.21)</sub> |설명: 자동 탑재를 사용할 경우 탑재 권한이 없는 사람을 포함하여 물리적으로 접근 가능한 사람이라면 누구든지 USB 드라이브 또는 디스크를 연결하여 시스템에서 해당 콘텐츠를 사용할 수 있습니다. |autofs 서비스를 사용하지 않도록 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r disable-autofs'를 실행합니다. |
 |USB 스토리지 디바이스 탑재를 사용하지 않습니다.<br /><sub>(1.1.21.1)</sub> |설명: USB 스토리지 디바이스에 대한 지원을 제거하면 서버의 로컬 공격 노출 영역을 줄일 수 있습니다. |`/etc/modprobe.d/` 디렉터리에 있는 파일을 .conf로 끝나도록 편집하거나 이러한 파일을 새로 만들고, `install usb-storage /bin/true`를 추가하고, USB 스토리지 모듈을 언로드하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r disable-unnecessary-kernel-mods'를 실행합니다. |
 |코어 덤프를 제한합니다.<br /><sub>(1.5.1)</sub> |설명: 코어 덤프에 대한 하드 한도를 설정하면 사용자가 소프트 변수를 재정의할 수 없습니다. 코어 덤프가 필요한 경우 사용자 그룹에 대한 제한을 설정하는 것이 좋습니다(`limits.conf(5)` 참조). 또한 `fs.suid_dumpable` 변수를 0으로 설정하면 setuid 프로그램에서 코어를 덤프할 수 없습니다. |/etc/security/limits.conf 또는 limits.d 디렉터리에 있는 파일에 `hard core 0`을 추가하고 sysctl에서 `fs.suid_dumpable = 0`을 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r disable-core-dumps'를 실행합니다. |
-|사전 링크를 사용하지 않습니다.<br /><sub>(1.5.4)</sub> |설명: 사전 링크 기능은 이진 파일을 변경하기 때문에 AIDE 작업을 방해할 수 있습니다. 또한 악의적인 사용자가 libc와 같은 공통 라이브러리를 손상시킬 수 있는 경우 사전 링크는 시스템의 취약성을 높일 수 있습니다. |패키지 관리자를 사용하여 `prelink`를 제거하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r remove-prelink'를 실행합니다. |
+|사전 링크를 사용하지 않습니다.<br /><sub>(1.5.4)</sub> |설명: 사전 링크 기능은 이진 파일을 변경하기 때문에 AIDE 작업을 방해할 수 있습니다. 또한 미리 연결하면 악의적인 사용자가 와 같은 공용 라이브러리를 손상시킬 수 있는 경우 시스템의 취약성이 증가할 수 `libc` 있습니다. | `prelink`패키지 관리자를 사용하여 제거하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r remove-prelink'를 실행합니다. |
 |/etc/motd에 대한 권한을 구성합니다.<br /><sub>(1.7.1.4)</sub> |설명: `/etc/motd` 파일에 올바른 소유권이 없으면 권한 없는 사용자가 이 파일을 잘못된 정보 또는 오해의 소지가 있는 정보로 수정할 수 있습니다. |/etc/motd의 소유자와 그룹을 루트로 설정하고 권한을 0644로 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r file-permissions'를 실행합니다. |
 |/etc/issue에 대한 권한을 구성합니다.<br /><sub>(1.7.1.5)</sub> |설명: `/etc/issue` 파일에 올바른 소유권이 없으면 권한 없는 사용자가 이 파일을 잘못된 정보 또는 오해의 소지가 있는 정보로 수정할 수 있습니다. |/etc/issue의 소유자와 그룹을 루트로 설정하고 권한을 0644로 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r file-permissions'를 실행합니다. |
 |/etc/issue.net에 대한 권한을 구성합니다.<br /><sub>(1.7.1.6)</sub> |설명: `/etc/issue.net` 파일에 올바른 소유권이 없으면 권한 없는 사용자가 이 파일을 잘못된 정보 또는 오해의 소지가 있는 정보로 수정할 수 있습니다. |/etc/issue.net의 소유자와 그룹을 루트로 설정하고 권한을 0644로 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r file-permissions'를 실행합니다. |
@@ -48,15 +48,15 @@ ms.locfileid: "122779325"
 |모든 NFS 탑재에 nodev/nosuid 옵션을 사용해야 합니다.<br /><sub>(5)</sub> |설명: 공격자가 원격 파일 시스템을 통해 상승된 보안 컨텍스트 또는 특수 디바이스에서 실행되는 파일을 로드할 수 있습니다. |/etc/fstab의 네 번째 필드(탑재 옵션)에 nosuid 및 nodev옵션을 추가합니다. 자세한 내용은 fstab(5) 설명서 페이지를 참조하세요. |
 |/etc/ssh/sshd_config에 대한 권한이 구성되어 있는지 확인합니다.<br /><sub>(5.2.1)</sub> |설명: `/etc/ssh/sshd_config` 파일은 권한이 없는 사용자에 의한 무단 변경으로부터 보호되어야 합니다. |/etc/ssh/sshd_config의 소유자 및 그룹을 루트로 설정하고 권한을 0600으로 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r sshd-config-file-permissions'를 실행합니다. |
 |암호 만들기 요구 사항을 구성합니다.<br /><sub>(5.3.1)</sub> |설명: 강력한 암호는 무차별 암호 대입 방법을 통해 시스템이 해킹되지 않도록 보호합니다. |배포판의 적절한 PAM에서 minlen=14, minclass = 4, dcredit = -1, ucredit = -1, ocredit = -1, lcredit = -1 키/값 쌍을 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r enable-password-requirements'를 실행합니다. |
-|잘못된 암호를 입력하면 잠그도록 구성합니다.<br /><sub>(5.3.2)</sub> |설명: 로그인 시도가 `n`회 연속으로 실패할 경우 사용자 ID를 잠그도록 구성하면 시스템에 대한 무차별 암호 대입 공격을 완화할 수 있습니다. |Ubuntu 및 Debian의 경우 pam_tally 및 pam_deny 모듈을 적절하게 추가합니다. 그 외의 배포판은 해당 배포판의 설명서를 참조하세요. |
+|잘못된 암호를 입력하면 잠그도록 구성합니다.<br /><sub>(5.3.2)</sub> |설명: 로그인 시도가 `n`회 연속으로 실패할 경우 사용자 ID를 잠그도록 구성하면 시스템에 대한 무차별 암호 대입 공격을 완화할 수 있습니다. | Ubuntu 및 Debian의 경우 pam_tally 및 pam_deny 모듈을 적절하게 추가합니다. 그 외의 배포판은 해당 배포판의 설명서를 참조하세요. |
 |필요 없는 파일 시스템(cramfs)을 설치하여 사용하지 않습니다.<br /><sub>(6.1)</sub> |설명: 공격자가 cramfs의 취약성을 사용하여 권한을 높일 수 있습니다. |cramfs를 사용하지 않도록 설정하는 파일을 /etc/modprob.d 디렉터리에 추가하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r disable-unnecessary-kernel-mods'를 실행합니다. |
 |필요 없는 파일 시스템(freevxfs)을 설치하여 사용하지 않습니다.<br /><sub>(6.2)</sub> |설명: 공격자가 freevxfs의 취약성을 사용하여 권한을 높일 수 있습니다. |freevxfs를 사용하지 않도록 설정하는 파일을 /etc/modprob.d 디렉터리에 추가하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r disable-unnecessary-kernel-mods'를 실행합니다. |
 |모든 사용자의 홈 디렉터리가 있는지 확인합니다.<br /><sub>(6.2.7)</sub> |설명: 사용자의 홈 디렉터리가 없거나 할당되지 않으면 사용자는 '/'에 배치되며 파일을 작성하거나 로컬 환경 변수를 설정할 수 없게 됩니다. |사용자의 홈 디렉터리가 없는 경우 홈 디렉터리를 만들고 해당 사용자가 디렉터리를 소유하게 합니다. 홈 디렉터리가 할당되지 않은 사용자는 제거하거나 적절하게 홈 디렉터리를 할당해야 합니다. |
 |사용자가 홈 디렉터리를 소유하고 있는지 확인합니다.<br /><sub>(6.2.9)</sub> |설명: 사용자는 사용자 홈 디렉터리에 저장된 파일에 대한 책임이 있으므로 디렉터리의 소유자여야 합니다. |정의된 사용자가 소유하지 않은 홈 디렉터리의 소유권을 올바른 사용자로 변경합니다. |
 |사용자의 dot 파일이 group 또는 world writable이면 안 됩니다.<br /><sub>(6.2.10)</sub> |설명: group 또는 world writable 사용자 구성 파일을 사용하면 악의적인 사용자가 다른 사용자의 데이터를 도용 또는 수정하거나 다른 사용자의 시스템 권한을 얻을 수 있습니다. |사용자 커뮤니티에 경고하지 않고 사용자 파일에 대한 전역 수정을 수행하면 예기치 않은 중단이 발생하고 사용자에게 불편을 줄 수 있습니다. 따라서 사용자 dot 파일 권한을 보고하고 사이트 정책에 따라 수행할 작업을 결정하는 모니터링 정책을 설정하는 것이 좋습니다. |
-|사용자에게 .forward 파일이 있으면 안 됩니다.<br /><sub>(6.2.11)</sub> |설명: `.forward` 파일을 사용하면 중요한 데이터가 실수로 조직 외부로 전송될 수 있는 보안 위험에 노출됩니다. 또한 `.forward` 파일은 의도하지 않은 작업을 수행할 가능성이 있는 명령을 실행하는 데 사용할 수 있으므로 위험을 초래합니다. |사용자 커뮤니티에 경고하지 않고 사용자 파일에 대한 전역 수정을 수행하면 예기치 않은 중단이 발생하고 사용자에게 불편을 줄 수 있습니다. 따라서 사용자 `.forward` 파일을 보고하고 사이트 정책에 따라 수행할 작업을 결정하는 모니터링 정책을 설정하는 것이 좋습니다. |
-|사용자에게 .netrc 파일이 있으면 안 됩니다.<br /><sub>(6.2.12)</sub> |설명: `.netrc` 파일은 암호화되지 않은 형식으로 암호를 저장하기 때문에 중대한 보안 위험에 노출됩니다. FTP를 사용하지 않더라도 사용자 계정이 다른 시스템에서 `.netrc` 파일을 가져왔을 수 있으며, 이로 인해 시스템이 위험에 노출될 수 있습니다. |사용자 커뮤니티에 경고하지 않고 사용자 파일에 대한 전역 수정을 수행하면 예기치 않은 중단이 발생하고 사용자에게 불편을 줄 수 있습니다. 따라서 사용자 `.netrc` 파일을 보고하고 사이트 정책에 따라 수행할 작업을 결정하는 모니터링 정책을 설정하는 것이 좋습니다. |
-|사용자에게 .rhosts 파일이 있으면 안 됩니다.<br /><sub>(6.2.14)</sub> |설명: 이 조치는 `/etc/pam.conf` 파일에서 `.rhosts` 지원이 허용되는 경우에만 의미가 있습니다. `/etc/pam.conf`에서 지원을 해제하여 `.rhosts` 파일의 효과가 없더라도 이 파일을 다른 시스템에서 가져온 것일 수 있으며 공격자가 해당 시스템을 공격하는 데 유용한 정보가 들어 있을 수 있습니다. |사용자 커뮤니티에 경고하지 않고 사용자 파일에 대한 전역 수정을 수행하면 예기치 않은 중단이 발생하고 사용자에게 불편을 줄 수 있습니다. 따라서 사용자 `.rhosts` 파일을 보고하고 사이트 정책에 따라 수행할 작업을 결정하는 모니터링 정책을 설정하는 것이 좋습니다. |
+|사용자에게 파일이 없는지 확인 `.forward`<br /><sub>(6.2.11)</sub> |설명: `.forward` 파일을 사용하면 중요한 데이터가 실수로 조직 외부로 전송될 수 있는 보안 위험에 노출됩니다. 또한 `.forward` 파일은 의도하지 않은 작업을 수행할 가능성이 있는 명령을 실행하는 데 사용할 수 있으므로 위험을 초래합니다. |사용자 커뮤니티에 경고하지 않고 사용자 파일에 대한 전역 수정을 수행하면 예기치 않은 중단이 발생하고 사용자에게 불편을 줄 수 있습니다. 따라서 사용자 `.forward` 파일을 보고하고 사이트 정책에 따라 수행할 작업을 결정하는 모니터링 정책을 설정하는 것이 좋습니다. |
+|사용자에게 파일이 없는지 확인 `.netrc`<br /><sub>(6.2.12)</sub> |설명: `.netrc` 파일은 암호화되지 않은 형식으로 암호를 저장하기 때문에 중대한 보안 위험에 노출됩니다. FTP를 사용하지 않더라도 사용자 계정이 다른 시스템에서 `.netrc` 파일을 가져왔을 수 있으며, 이로 인해 시스템이 위험에 노출될 수 있습니다. |사용자 커뮤니티에 경고하지 않고 사용자 파일에 대한 전역 수정을 수행하면 예기치 않은 중단이 발생하고 사용자에게 불편을 줄 수 있습니다. 따라서 사용자 `.netrc` 파일을 보고하고 사이트 정책에 따라 수행할 작업을 결정하는 모니터링 정책을 설정하는 것이 좋습니다. |
+|사용자에게 파일이 없는지 확인 `.rhosts`<br /><sub>(6.2.14)</sub> |설명: 이 조치는 `/etc/pam.conf` 파일에서 `.rhosts` 지원이 허용되는 경우에만 의미가 있습니다. `/etc/pam.conf`에서 지원을 해제하여 `.rhosts` 파일의 효과가 없더라도 이 파일을 다른 시스템에서 가져온 것일 수 있으며 공격자가 해당 시스템을 공격하는 데 유용한 정보가 들어 있을 수 있습니다. |사용자 커뮤니티에 경고하지 않고 사용자 파일에 대한 전역 수정을 수행하면 예기치 않은 중단이 발생하고 사용자에게 불편을 줄 수 있습니다. 따라서 사용자 `.rhosts` 파일을 보고하고 사이트 정책에 따라 수행할 작업을 결정하는 모니터링 정책을 설정하는 것이 좋습니다. |
 |/etc/passwd의 모든 그룹이 /etc/group에 있어야 합니다.<br /><sub>(6.2.15)</sub> |설명: /etc/passwd 파일에는 정의되어 있지만 /etc/group 파일에는 정의되지 않은 그룹의 경우 그룹 권한이 제대로 관리되지 않기 때문에 시스템 보안이 위협에 노출됩니다. |/etc/passwd에 정의된 각 그룹이 /etc/group에도 있는지 확인합니다. |
 |UID가 중복되면 안 됩니다.<br /><sub>(6.2.16)</sub> |설명: 책임을 분명히 하고 적절한 액세스 보호를 제공할 수 있도록 사용자에게 고유한 UID를 할당해야 합니다. |고유한 UID를 설정하고 공유 UID가 소유한 모든 파일을 검토하여 각 파일이 어떤 UID에 속해야 하는지 확인합니다. |
 |GID가 중복되면 안 됩니다.<br /><sub>(6.2.17)</sub> |설명: 책임을 분명히 하고 적절한 액세스 보호를 제공할 수 있도록 그룹에 고유한 GID를 할당해야 합니다. |고유한 GID를 설정하고 공유 GID가 소유한 모든 파일을 검토하여 각 파일이 어떤 GID에 속해야 하는지 확인합니다. |
@@ -77,7 +77,7 @@ ms.locfileid: "122779325"
 |/etc/group- 파일 권한을 0644로 설정해야 합니다.<br /><sub>(12.4)</sub> |설명: 공격자가 그룹 멤버 자격을 수정하여 권한을 높일 수 있습니다. |/etc/group-에 대한 권한 및 소유권을 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r set-etc-group-perms'를 실행합니다. |
 |su를 통해 루트 계정에 액세스하는 권한을 'root' 그룹으로 제한해야 합니다.<br /><sub>(21)</sub> |설명: su를 루트 그룹의 사용자로 제한하지 않으면 공격자가 암호 추측을 통해 권한을 높일 수 있습니다. |'/opt/microsoft/omsagent/plugin/omsremediate -r fix-su-permissions' 명령을 실행합니다. 이렇게 하면 '/etc/pam.d/su' 파일에 'auth required pam_wheel.so use_uid' 줄이 추가됩니다. |
 |'root' 그룹이 있어야 하고, su를 통해 루트에 액세스할 수 있는 모든 구성원이 이 그룹에 포함되어야 합니다.<br /><sub>(22)</sub> |설명: su를 루트 그룹의 사용자로 제한하지 않으면 공격자가 암호 추측을 통해 권한을 높일 수 있습니다. |'groupadd -g 0 root' 명령을 통해 루트 그룹을 만듭니다. |
-|모든 계정에는 암호가 있어야 합니다.<br /><sub>(23.2)</sub> |설명: 공격자가 암호 없이 계정에 로그인하고 임의의 명령을 실행할 수 있습니다. |passwd 명령을 사용하여 모든 계정의 암호를 설정합니다. |
+|모든 계정에는 암호가 있어야 합니다.<br /><sub>(23.2)</sub> |설명: 공격자가 암호 없이 계정에 로그인 하 고 임의의 명령을 실행할 수 있습니다. |passwd 명령을 사용하여 모든 계정의 암호를 설정합니다. |
 |루트가 아닌 계정에는 0보다 큰 고유 UID가 있어야 합니다.<br /><sub>(24)</sub> |설명: 루트가 아닌 계정의 UID가 0이면 공격자가 계정을 손상시키고 루트 권한을 얻을 수 있습니다. |'usermod -u' 명령을 사용하여 루트가 아닌 모든 계정에 0이 아닌 고유한 UID를 할당합니다. |
 |가상 메모리 영역을 임의로 배치하도록 설정해야 합니다.<br /><sub>(25)</sub> |설명: 공격자가 메모리의 알려진 영역에 실행 코드를 작성하여 권한을 높일 수 있습니다. |'/proc/sys/kernel/randomize_va_space' 파일에 '1' 또는 '2' 값을 추가합니다. |
 |XD/NX 프로세서 기능에 커널 지원을 사용해야 합니다.<br /><sub>(26)</sub> |설명: 공격자는 시스템에서 메모리의 데이터 영역에 있는 코드를 실행하게 만들어서 권한을 높일 수 있습니다. |'/proc/cpuinfo' 파일에 'nx' 플래그가 포함되어 있는지 확인합니다. |
@@ -85,10 +85,10 @@ ms.locfileid: "122779325"
 |사용자 홈 디렉터리는 모드 750이거나 더 제한적이어야 합니다.<br /><sub>(28)</sub> |설명: 공격자가 다른 사용자의 홈 폴더에서 중요한 정보를 검색할 수 있습니다. |홈 폴더 권한을 750으로 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r fix-home-dir-permissions'를 실행합니다. |
 |login.defs에서 모든 사용자의 기본 umask를 077로 설정해야 합니다.<br /><sub>(29)</sub> |설명: 공격자가 다른 사용자 소유의 파일에서 중요한 정보를 검색할 수 있습니다. |'/opt/microsoft/omsagent/plugin/omsremediate -r set-default-user-umask' 명령을 실행합니다. 그러면 '/etc/login.defs' 파일에 'UMASK 077' 줄이 추가됩니다. |
 |모든 부팅 로더에서 암호 보호를 사용해야 합니다.<br /><sub>(31)</sub> |설명: 물리적으로 접근할 수 있는 공격자가 부팅 로더 옵션을 수정하여 무제한으로 시스템에 액세스할 수 있습니다. |'/boot/grub/grub.cfg' 파일에 부팅 로더 암호를 추가합니다. |
-|부팅 로더 구성에 대한 권한을 구성합니다.<br /><sub>(31.1)</sub> |설명: 루트에만 읽기 및 쓰기 권한을 설정하면 루트가 아닌 사용자는 부팅 매개 변수를 보거나 변경할 수 없습니다. 루트가 아닌 사용자가 부팅 매개 변수를 읽을 수 있는 경우 부팅 시 보안 약점을 파악하여 악용할 수 있습니다. |부팅 로더의 소유자와 그룹을 root:root로 설정하고 권한을 0400으로 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r bootloader-permissions'를 실행합니다. |
+|부팅 로더 구성에 대한 권한을 구성합니다.<br /><sub>(31.1)</sub> |설명: 루트에만 읽기 및 쓰기 권한을 설정하면 루트가 아닌 사용자는 부팅 매개 변수를 보거나 변경할 수 없습니다. 루트가 아닌 사용자가 부팅 매개 변수를 읽을 수 있는 경우 부팅 시 보안 약점을 파악하여 악용할 수 있습니다. |부팅 로더의 소유자와 그룹을로 설정 하 `root:root` 고, 사용 권한을 0400으로 설정 하거나 '/opt/microsoft/omsagent/plugin/omsremediate-r s e r s e r s e r |
 |단일 사용자 모드에서 인증을 요구합니다.<br /><sub>(33)</sub> |설명: 단일 사용자 모드에서 인증을 요구하면 권한 없는 사용자가 시스템을 단일 사용자 모드로 다시 부팅하여 자격 증명 없이 루트 권한을 확보할 수 없습니다. |`passwd root` 명령을 실행하여 루트 사용자의 암호를 설정합니다. |
-|패킷 리디렉션 보내기를 사용하지 않습니다.<br /><sub>(38.3)</sub> |설명: 공격자가 라우팅을 손상시켜서 사용자로 하여금 유효한 시스템이 아닌 공격자가 설정한 시스템에 액세스하게 만들 목적으로 손상된 호스트를 사용하여 다른 라우터 디바이스에 대한 잘못된 ICMP 리디렉션을 보낼 수 있습니다. |/etc/sysctl.conf에서 'net.ipv4.conf.all.send_redirects = 0' 및 'net.ipv4.conf.default.send_redirects = 0' 매개 변수를 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r disable-send-redirects'를 실행합니다. |
-|모든 인터페이스에서 ICMP 리디렉션 보내기를 사용하지 않도록 설정해야 합니다. (net.ipv4.conf.default.accept_redirects = 0)<br /><sub>(38.4)</sub> |설명: 공격자가 이 시스템의 라우팅 테이블을 변경하여 트래픽을 대체 대상으로 리디렉션할 수 있습니다. |`sysctl -w key=value` 명령을 실행하고 규격 값으로 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r disable-accept-redirects'를 실행합니다. |
+|패킷 리디렉션 보내기를 사용하지 않습니다.<br /><sub>(38.3)</sub> |설명: 공격자가 라우팅을 손상시켜서 사용자로 하여금 유효한 시스템이 아닌 공격자가 설정한 시스템에 액세스하게 만들 목적으로 손상된 호스트를 사용하여 다른 라우터 디바이스에 대한 잘못된 ICMP 리디렉션을 보낼 수 있습니다. |/etc/sysctl.conf에서 다음 매개 변수를 `net.ipv4.conf.all.send_redirects = 0` `net.ipv4.conf.default.send_redirects = 0` 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r disable-send-redirects'를 실행합니다. |
+|모든 인터페이스에서 ICMP 리디렉션 보내기를 사용하지 않도록 설정해야 합니다. (net.ipv4.conf.default.accept_redirects = 0)<br /><sub>(38.4)</sub> |설명: 공격자가 이 시스템의 라우팅 테이블을 변경하여 트래픽을 대체 대상으로 리디렉션할 수 있습니다. |를 실행하고 `sysctl -w key=value` 규격 값으로 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r disable-accept-redirects'를 실행합니다. |
 |모든 인터페이스에서 ICMP 리디렉션 보내기를 사용하지 않도록 설정해야 합니다. (net.ipv4.conf.default.secure_redirects = 0)<br /><sub>(38.5)</sub> |설명: 공격자가 이 시스템의 라우팅 테이블을 변경하여 트래픽을 대체 대상으로 리디렉션할 수 있습니다. |`sysctl -w key=value` 명령을 실행하고 규격 값으로 설정하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r disable-secure-redirects'를 실행합니다. |
 |모든 인터페이스에서 원본 라우팅된 패킷을 사용하지 않도록 설정해야 합니다. (net.ipv4.conf.all.accept_source_route = 0)<br /><sub>(40.1)</sub> |설명: 공격자가 악의적인 목적으로 트래픽을 리디렉션할 수 있습니다. |`sysctl -w key=value` 명령을 실행하고 규격 값으로 설정합니다. |
 |모든 인터페이스에서 원본 라우팅된 패킷을 사용하지 않도록 설정해야 합니다. (net.ipv6.conf.all.accept_source_route = 0)<br /><sub>(40.2)</sub> |설명: 공격자가 악의적인 목적으로 트래픽을 리디렉션할 수 있습니다. |`sysctl -w key=value` 명령을 실행하고 규격 값으로 설정합니다. |
@@ -206,7 +206,7 @@ ms.locfileid: "122779325"
 
 Azure Policy 및 게스트 구성에 대한 추가 문서:
 
-- [Azure Policy 게스트 구성](../concepts/guest-configuration.md)
+- [Azure Policy 게스트 구성](../concepts/guest-configuration.md).
 - [규정 준수](../concepts/regulatory-compliance.md) 개요
 - [Azure Policy 샘플](./index.md)의 다른 예제를 검토합니다.
 - [정책 효과 이해](../concepts/effects.md)를 검토합니다.

@@ -6,14 +6,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: include
-ms.custom: include file
-ms.date: 11/09/2020
-ms.openlocfilehash: 2219eca3be83aa955d761b333c66c4ade3bd4999
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.custom: include file, ignite-fall-2021
+ms.date: 09/13/2021
+ms.openlocfilehash: 42150afd167ea55e6e4a27114f512b01e5e992fa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129300421"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131043735"
 ---
 이 cURL 기반 빠른 시작에서는 기술 자료에서 답변을 가져오는 과정을 안내합니다.
 
@@ -23,15 +23,7 @@ ms.locfileid: "129300421"
     * 최신 [**cURL**](https://curl.haxx.se/)
     * Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/cognitive-services/) 계정을 만듭니다.
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
-
 > * Azure Portal에서 만든 [QnA Maker 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)입니다. 리소스를 만들 때 선택한 Azure Active Directory ID, 구독, QnA 리소스 이름을 기억하세요.
-
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-> * Azure Portal에서 사용자 지정 질문 답변 기능이 활성화된 [Text Analytics 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)입니다. 리소스를 만들 때 선택한 Azure Active Directory ID, 구독 및 Text Analytics 리소스 이름을 기억하세요.
-
----
 
    * 메타데이터 및 잡담으로 구성된 이전 [빠른 시작](../Quickstarts/add-question-metadata-portal.md)의 질문과 대답이 포함된 학습 및 게시된 기술 자료
 
@@ -46,17 +38,9 @@ ms.locfileid: "129300421"
 1. 기술 자료의 **설정** 페이지에서 **CURL** 탭을 선택하여 기술 자료에서 대답을 생성하는 데 사용되는 cURL 명령 예제를 확인합니다.
 1. 명령을 편집할 수 있도록 편집 가능한 환경(예: 텍스트 파일)으로 명령을 복사합니다. `service:qna_maker`의 메타데이터가 QnA 쌍에 대한 필터로 사용되도록 질문 값을 다음과 같이 편집합니다.
 
-   # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
-
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
     ```
-   # <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-    
-    ```bash
-    curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H   "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
-    ```
-    ---
 
     질문은 단일 단어(`size`)에 불과하며, 두 개의 QnA 쌍 중 하나를 반환할 수 있습니다. `strictFilters` 배열은 `qna_maker` 답변만 줄이도록 응답에 지시합니다.
 
@@ -109,15 +93,9 @@ Debug: {Enable:true}
 
 1. 추가 정보를 보려면 디버그 속성을 포함하도록 cURL 명령을 편집합니다.
 
-   # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'Debug':{'Enable':true}}"
     ```
-   # <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-    ```bash
-    curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question':'size', 'Debug':{'Enable':true}}"
-    ```
-    ---
 
 1. 응답에는 대답에 대한 관련 정보가 포함됩니다. 다음 JSON 출력에서는 간단하게 하기 위해 일부 디버그 정보를 줄임표로 바꾸었습니다.
 
@@ -220,16 +198,11 @@ isTest:true
 ```
 
 cURL 명령은 다음과 같습니다.
-# <a name="qna-maker-ga"></a>[QnA Maker 일반 공급](#tab/v1)
+
 ```bash
 curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'IsTest':true}"
 ```
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-```bash
-curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question':'size', 'IsTest':true}"
-```
 
----
 JSON 응답은 게시된 기술 자료 쿼리와 동일한 스키마를 사용합니다.
 
 > [!NOTE]
@@ -238,18 +211,10 @@ JSON 응답은 게시된 기술 자료 쿼리와 동일한 스키마를 사용�
 ## <a name="use-curl-to-query-for-a-chit-chat-answer"></a>cURL을 사용하여 잡담 답변 쿼리
 
 1. cURL 지원 터미널에서 사용자의 봇 대화 종결 문구(예: `Thank you`)를 질문으로 사용합니다. 설정할 다른 속성이 없습니다.
-    
-   # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'thank you'}"
     ```
-   # <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-    ```bash
-    curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question':'thank you'}"
-    ```
-    ---
 
 1. cURL 명령을 실행하고 점수와 답변이 포함된 JSON 응답을 수신합니다.
 
@@ -333,7 +298,7 @@ JSON 응답은 게시된 기술 자료 쿼리와 동일한 스키마를 사용�
     }
     ```
 
-    `Thank you`의 질문은 잡담 질문과 정확히 일치하므로 QnA Maker는 신뢰도 점수 100으로, 완전히 신뢰할 수 있습니다. QnA Maker는 또한 모든 관련 질문과 잡담 메타데이터 태그 정보를 포함한 메타데이터 속성도 반환했습니다.
+    `Thank you`의 질문은 잡담 질문과 정확히 일치하므로 QnA Maker는 신뢰도 점수 100으로, 완전히 신뢰할 수 있습니다. QnA Maker 관련된 모든 질문과 Chit-chat 메타데이터 태그 정보가 포함된 메타데이터 속성도 반환했습니다.
 
 ## <a name="use-threshold-and-default-answer"></a>임계값 및 기본 대답 사용
 
@@ -341,15 +306,9 @@ JSON 응답은 게시된 기술 자료 쿼리와 동일한 스키마를 사용�
 
 1. 임계값 80% 이상인 `size`에 대한 대답을 요청하려면 `threshold` 속성을 추가합니다. 질문의 점수가 71%이므로 기술 자료는 답변을 찾지 않습니다. 결과는 기술 자료를 만들 때 사용자가 제공한 기본 대답을 반환합니다.
 
-   # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':80.00}"
     ```
-   # <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-    ```bash
-    curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':80.00}"
-    ```
-    ---
 
 1. cURL 명령을 실행하고 JSON 응답을 수신합니다.
 
@@ -374,15 +333,9 @@ JSON 응답은 게시된 기술 자료 쿼리와 동일한 스키마를 사용�
 
 1. 임계값을 60%로 변경하고 쿼리를 다시 요청합니다.
     
-   # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':60.00}"
     ```
-   # <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-    ```bash
-    curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':60.00}"
-    ```
-    ---
 
     반환된 JSON에서 대답을 찾았습니다.
 
@@ -421,49 +374,4 @@ JSON 응답은 게시된 기술 자료 쿼리와 동일한 스키마를 사용�
     ```
 ## <a name="use-unstructured-data-sources"></a>비정형 데이터 원본 사용
     
-이제 QnA를 추출하는 데 사용할 수 없는 비정형 문서를 추가하는 기능을 지원합니다. 사용자는 쿼리에 대한 응답을 가져올 때 GenerateAnswer API에 비정형 데이터 세트를 포함하거나 제외하도록 선택할 수 있습니다.
-     
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
-GA 서비스에서는 비정형 데이터 세트를 지원하지 않습니다.
-
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-1. 응답 생성 API에 대한 응답을 평가할 때 비정형 데이터 원본을 포함하려는 경우 *includeUnstructuredResources* 매개 변수를 true로 설정하고, 그 반대의 경우도 마찬가지입니다.
-
-    ```bash
-    curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question': 'what is Surface Headphones 2+ priced at?', 'includeUnstructuredSources':true,'top': 2}"
-    ```
-
-2. 응답에는 답변 소소가 포함됩니다. 
-    
-    ```json
-    {
-       "answers": [{
-               "questions": [],
-               "answer": "Surface Headphones 2+ is priced at $299.99 USD. Business and education customers in select markets can place orders today through microsoft.com\n\nor their local authorized reseller.\n\nMicrosoft Modern USB and Wireless Headsets:\n\nCertified for Microsoft Teams, these Microsoft Modern headsets enable greater focus and call privacy, especially in shared workspaces.",
-               "score": 82.11,
-               "id": 0,
-               "source": "blogs-introducing-surface-laptop-4-and-new-access.pdf",
-               "isDocumentText": false,
-               "metadata": [],
-               "answerSpan": {
-                   "text": "$299.99 USD",
-                   "score": 0.0,
-                   "startIndex": 34,
-                   "endIndex": 45
-               }
-           },
-           {
-               "questions": [],
-               "answer": "Now certified for Microsoft Teams with the included dongle, Surface Headphones 2+ provides an even more robust meeting experience with on‐ear Teams controls and improved remote calling. Surface Headphones 2+ is priced at $299.99 USD. Business and education customers in select markets can place orders today through microsoft.com\n\nor their local authorized reseller.",
-               "score": 81.95,
-               "id": 0,
-               "source": "blogs-introducing-surface-laptop-4-and-new-access.pdf",
-               "isDocumentText": false,
-               "metadata": []
-           }
-       ],
-       "activeLearningEnabled": true
-   }
-    ```
----
+이제 QnA를 추출하는 데 사용할 수 없는 구조화되지 않은 문서를 추가하는 기능을 지원합니다. 사용자는 쿼리에 대한 응답을 가져올 때 GenerateAnswer API에 구조화되지 않은 데이터 집합을 포함하거나 제외하도록 선택할 수 있습니다. GA 서비스에서 구조화되지 않은 데이터 집합을 지원하지 않습니다. 이는 사용자 지정 질문 답변에만 포함됩니다.

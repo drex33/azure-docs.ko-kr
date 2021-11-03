@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
-ms.openlocfilehash: 969e2d2424b9f9af1dcd921a1cebfa9407e313eb
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: f08d1c38965121564c21dee7053ae0c152b82814
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114438430"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131021983"
 ---
 # <a name="get-started-with-storage-explorer"></a>Storage Explorer 시작
 
@@ -124,7 +124,7 @@ Storage Explorer를 사용하면 다양한 인증 방법을 사용하여 Azure D
 | 파일 공유      | 아니요       | 아니요                   | 예(URL)                      | No                 |
 | 큐           | 예      | 아니요                   | 예(URL)                      | No                 |
 | 테이블           | 아니요       | 아니요                   | 예(URL)                      | No                 |
- 
+
 또한 Storage Explorer는 에뮬레이터의 구성된 포트를 사용하여 [로컬 스토리지 에뮬레이터](#local-storage-emulator)에 연결할 수 있습니다.
 
 개별 리소스에 연결하려면 왼쪽 도구 모음에서 **연결** 단추를 선택합니다. 그런 다음, 연결하려는 리소스 종류에 대한 지침을 따릅니다.
@@ -146,7 +146,7 @@ Storage Explorer는 Azure 계정을 사용하여 다음 리소스 종류에 연�
 * Azure Data Lake Storage Gen2 컨테이너
 * Azure Data Lake Storage Gen2 디렉터리
 * 큐
- 
+
 리소스에 대한 데이터 계층 액세스 권한이 있지만 관리 계층 액세스 권한이 없는 경우 Azure AD가 기본 옵션입니다.
 
 1. [위에 설명된 단계](#sign-in-to-azure)를 사용하여 하나 이상의 Azure 계정에 로그인합니다.

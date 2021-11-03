@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: d5511d2a04bcb40b267ccef15799b870ea96842a
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 88472c8f0915d721da3b7fe5af4a4cfc86729a8f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130134073"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045580"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -87,7 +87,7 @@ W3C TraceContext 기반 분산 추적은 레거시 Request-Id 프로토콜과의
 
 #### <a name="java-30-agent"></a>Java 3.0 에이전트
 
-  Java 3.0 에이전트는 기본으로 W3C를 지원하며 추가 구성은 필요하지 않습니다. 
+  Java 3.0 에이전트는 기본으로 W3C를 지원하며 추가 구성은 필요하지 않습니다.
 
 #### <a name="java-sdk"></a>Java SDK
 - **들어오는 구성**
@@ -143,7 +143,7 @@ W3C TraceContext 기반 분산 추적은 레거시 Request-Id 프로토콜과의
   ```
       distributedTracingMode: 2 // DistributedTracingModes.W3C
   ```
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > 상관 관계를 사용하는 데 필요한 모든 구성을 보려면 [JavaScript 상관 관계 문서](./javascript.md#enable-correlation)를 참조하세요.
 
 ## <a name="telemetry-correlation-in-opencensus-python"></a>OpenCensus Python의 원격 분석 상관 관계
@@ -254,7 +254,6 @@ with tracer.span(name='hello'):
    function_1(tracer)
 logger.warning('After the span')
 
-
 # module2.py
 
 import logging
@@ -292,10 +291,10 @@ Application Insights .NET SDK는 `DiagnosticSource` 및 `Activity`를 사용하�
 [Java 에이전트](./java-in-process-agent.md)는 원격 분석의 자동 상관을 지원합니다. 요청 범위 내에서 실행된 모든 원격 분석(예: 추적, 예외 및 사용자 지정 이벤트)에 대해 `operation_id`를 자동으로 채웁니다. 또한 [Java SDK 에이전트](java-2x-agent.md)가 구성된 경우 HTTP를 통한 서비스 간 호출에 대해 앞에서 설명한 상관 관계 헤더를 전파합니다.
 
 > [!NOTE]
-> Application Insights Java 에이전트는 JMS, Kafka, Netty/Webflux 등에 대한 요청 및 종속성을 자동으로 수집합니다. Java SDK의 경우 상관 관계 기능에 Apache HttpClient를 통해 수행되는 호출만 지원됩니다. 메시징 기술(예: Kafka, RabbitMQ와 Azure Service Bus) 간 자동 컨텍스트 전파는 SDK에서 지원되지 않습니다. 
+> Application Insights Java 에이전트는 JMS, Kafka, Netty/Webflux 등에 대한 요청 및 종속성을 자동으로 수집합니다. Java SDK의 경우 상관 관계 기능에 Apache HttpClient를 통해 수행되는 호출만 지원됩니다. 메시징 기술(예: Kafka, RabbitMQ와 Azure Service Bus) 간 자동 컨텍스트 전파는 SDK에서 지원되지 않습니다.
 
 > [!NOTE]
-> 사용자 지정 원격 분석을 수집하려면 Java 2.6 SDK를 사용하여 애플리케이션을 계측해야 합니다. 
+> 사용자 지정 원격 분석을 수집하려면 Java 2.6 SDK를 사용하여 애플리케이션을 계측해야 합니다.
 
 ### <a name="role-names"></a>역할 이름
 
@@ -314,7 +313,7 @@ Application Insights .NET SDK는 `DiagnosticSource` 및 `Activity`를 사용하�
 
 - Application Insights Java SDK 2.5.0 이상에서는 ApplicationInsights.xml 파일에 `<RoleName>`을 추가하여 `cloud_RoleName`을 지정할 수 있습니다.
 
-  ```XML
+  ```xml
   <?xml version="1.0" encoding="utf-8"?>
   <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
      <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>

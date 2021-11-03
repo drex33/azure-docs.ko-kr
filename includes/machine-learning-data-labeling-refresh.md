@@ -4,14 +4,14 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 09/23/2021
 ms.author: sdgilley
-ms.openlocfilehash: 2a1c7c65721483e851a7686c38736f0664b965ad
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 1c1ab85b6da016b966bab7c66cd2a22f257d27d1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129372825"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068406"
 ---
-데이터 세트에 새 파일을 추가하려는 경우 증분 새로 고침을 사용하여 이러한 새 파일을 프로젝트에 추가합니다.   **증분 새로** 고침을 사용하도록 설정하면 레이블 지정 완성율에 따라 새 이미지가 프로젝트에 추가될 수 있도록 정기적으로 데이터 세트를 확인합니다.   프로젝트에 최대 500,000개의 파일이 포함되어 있으면 새 데이터에 대한 확인이 중지됩니다.
+데이터 세트에 새 파일을 추가하려는 경우 증분 새로 고침을 사용하여 이러한 새 파일을 프로젝트에 추가합니다.   **증분 새로 고침** 을 사용 하도록 설정 하면 레이블 지정 완료 률에 따라 프로젝트에 새 파일을 추가할 수 있도록 데이터 집합을 주기적으로 확인 합니다.   프로젝트에 최대 500,000개의 파일이 포함되어 있으면 새 데이터에 대한 확인이 중지됩니다.
 
 프로젝트에 파일을 더 추가하려면 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 Blob Storage의 적절한 폴더에 업로드합니다. 
 

@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: e129b596473784c72cab93568be88dd6dcb6fe2a
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: dd97273c37f4707827f5706889152811745199ab
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697996"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063647"
 ---
 # <a name="msv2-and-mdsv2-series-medium-memory"></a>Msv2 및 Mdsv2 시리즈 중간 메모리
 
@@ -32,7 +32,7 @@ Msv2 및 Mdsv2 Medium Memory VM 시리즈는 2.7GHz 및 4.0GHz 단일 코어 터
 [VM 생성 지원](generation-2.md): 2세대<br>
 [쓰기 가속기](./how-to-enable-write-accelerator.md): 지원됨<br>
 [가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨<br>
-[임시 OS 디스크](ephemeral-os-disks.md): 지원되지 않음 <br>
+[사용 후 삭제 OS 디스크:](ephemeral-os-disks.md)Mdsv2에 지원됩니다. <br>
 <br>
  
 ## <a name="msv2-medium-memory-diskless"></a>Msv2 중간 메모리 디스크리스 

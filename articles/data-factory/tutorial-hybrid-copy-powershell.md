@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
 ms.date: 02/18/2021
-ms.openlocfilehash: 38f98ab557738031e4c3933a4bc914b31c42cd91
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 484b05483119914003f4d8ff28967cad262e8542
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124814843"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131086446"
 ---
 # <a name="tutorial-copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>자습서: SQL Server 데이터베이스에서 Azure Blob 스토리지로 데이터 복사
 
@@ -187,7 +187,7 @@ ms.locfileid: "124814843"
 1. Integration Runtime의 이름에 대한 변수를 만듭니다. 고유한 이름을 사용하고 이름을 적어 둡니다. 이 자습서의 뒷부분에서 사용합니다.
 
     ```powershell
-   $integrationRuntimeName = "ADFTutorialIR"
+    $integrationRuntimeName = "ADFTutorialIR"
     ```
 
 1. 자체 호스팅 통합 런타임을 만듭니다.
@@ -210,7 +210,7 @@ ms.locfileid: "124814843"
 1. 만든 Integration Runtime의 상태를 검색하려면 다음 명령을 실행합니다.
 
     ```powershell
-   Get-AzDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
+    Get-AzDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
     ```
 
     샘플 출력은 다음과 같습니다.

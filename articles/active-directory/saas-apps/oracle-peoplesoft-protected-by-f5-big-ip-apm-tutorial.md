@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/22/2021
 ms.author: jeedes
-ms.openlocfilehash: c60b8f605fea83ef0eccab140f1d9f460be78701
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 2583397a34635d54fa7982656019433442e2e96b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124778954"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058885"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oracle-peoplesoft---protected-by-f5-big-ip-apm"></a>자습서: Oracle PeopleSoft - Protected by F5 BIG-IP APM과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -294,9 +294,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     * **로컬 트래픽 > iRule** 로 이동하여 **만들기** 를 클릭하고 다음 정보를 입력한 다음, **마침** 을 클릭합니다.
 
-        이름: `<Name>`  
-        정의:  
-                    _when HTTP_REQUEST { switch -glob -- [HTTP::uri] { `/psp/ps/?cmd=logout` { HTTP::redirect `/my.logout.php3` } } }_
+      ```text
+      Name: `<Name>`
+      Definition:
+                  _when HTTP_REQUEST {
+                      switch -glob -- [HTTP::URI] {
+                          `/psp/ps/?cmd=logout` {
+                              HTTP::redirect `/my.logout.php3`
+                          }
+                      }
+                  }_
+      ```
 
 1. 만든 iRule을 가상 서버에 할당
 

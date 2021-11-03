@@ -4,21 +4,20 @@ description: QnA Maker 기술 자료를 테스트하는 작업은 반환되는 �
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/09/2020
-ms.openlocfilehash: 7c27ce8087020a43076ee3c4c8a99454a554554c
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
-ms.translationtype: HT
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: afdb286cf03fdc0f49a9428e0e2a0588df46cc14
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110377486"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131017025"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>QnA Maker의 기술 자료 테스트
 
 QnA Maker 기술 자료를 테스트하는 작업은 반환되는 응답의 정확도를 향상시키기 위한 반복 프로세스의 중요한 부분입니다. 또한 편집할 수도 있는 향상된 채팅 인터페이스를 통해 기술 자료를 테스트할 수 있습니다.
 
 ## <a name="interactively-test-in-qna-maker-portal"></a>QnA Maker 포털의 대화형 테스트
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 1. **내 기술 자료** 페이지에서 해당 이름을 선택하여 기술 자료에 액세스합니다.
 1. 테스트 슬라이드 아웃 패널에 액세스하려면 애플리케이션의 위쪽 패널에서 **테스트** 를 선택합니다.
@@ -65,58 +64,6 @@ QnA Maker 기술 자료를 테스트하는 작업은 반환되는 응답의 정�
 
 > [!NOTE]
 > **저장 후 학습** 을 누를 경우에만 기술 자료에 대한 모든 편집 내용이 저장됩니다.
-
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-1. **내 기술 자료** 페이지에서 해당 이름을 선택하여 기술 자료에 액세스합니다.
-1. 테스트 슬라이드 아웃 패널에 액세스하려면 애플리케이션의 위쪽 패널에서 **테스트** 를 선택합니다. 
-1. 상단의 **간단한 응답 표시** 확인란이 기본적으로 선택되어 있는 것을 볼 수 있습니다. 이 옵션은 테스트 패널에서 MRC 기반 응답 범위 검색을 사용하도록 설정하는 데 사용됩니다. 
-1. 텍스트 상자에 쿼리를 입력하고 Enter 키를 선택합니다. 
-1. 모든 쿼리에 대해 응답 구절에 자세한 응답/간단한 응답이 모두 있는 경우, 기술 자료에 있는 가장 일치하는 응답 구절을 사용하여 쿼리에 대한 간단한 응답도 제공됩니다.
-    ![활성화된 관리형 테스트 창](../media/qnamaker-how-to-test-knowledge-bases/test-pane-with-managed-detail.png)
-1. **간단한 응답 표시** 를 선택 취소하면 기술 자료에서 가장 일치하는 응답 구절만 응답으로 반환됩니다.
-
-### <a name="clear-test-panel"></a>테스트 패널 지우기
-
-테스트 콘솔에서 입력된 테스트 쿼리 및 해당 결과를 모두 지우려면 테스트 패널의 왼쪽 위 모서리에 있는 **다시 시작** 을 선택합니다.
-
-### <a name="close-test-panel"></a>테스트 패널 닫기
-
-테스트 패널을 닫으려면 **테스트** 단추를 다시 선택합니다. 테스트 패널이 열려 있는 동안 기술 자료 콘텐츠를 편집할 수 없습니다.
-
-### <a name="inspect-score"></a>점수 검사
-
-검사 패널에서 테스트 결과의 세부 정보를 검사합니다.
-
-1.  테스트 슬라이드 아웃 패널이 열려 있을 때 해당 응답에 대한 자세한 내용에 대한 **검사** 를 선택합니다.
-
-    ![응답 검사 미리 보기](../media/qnamaker-how-to-test-knowledge-bases/inspect-with-managed.png)
-
-2.  검사 패널이 나타납니다. 패널에는 식별된 엔터티뿐만 아니라 상위 채점 의도도 포함됩니다. 패널에는 선택한 발화의 결과가 표시됩니다.
-3. 패널에는 검색된 응답 범위 점수에 따라 응답 구절의 신뢰도 점수가 표시됩니다.
-4. 패널에는 응답 통과에 대한 기술 자료의 원본도 표시됩니다.
-
-### <a name="correct-the-top-scoring-answer"></a>상위 점수 대답 수정
-
-상위 점수 대답이 올바르지 않으면 목록에서 올바른 대답을 선택하고 **저장 후 학습** 을 선택합니다.
-
-![상위 점수 응답 수정 미리 보기](../media/qnamaker-how-to-test-knowledge-bases/choose-answer-managed.png)
-
-### <a name="add-alternate-questions"></a>대체 질문 추가
-
-질문의 대체 형식을 지정된 대답에 추가할 수 있습니다. 텍스트 상자에서 대체 답변을 입력하고 Enter 키를 선택하여 추가합니다. **저장 후 학습** 을 선택하여 업데이트를 저장합니다.
-
-![대체 질문 추가 미리 보기](../media/qnamaker-how-to-test-knowledge-bases/add-alternate-question-with-managed.png)
-
-### <a name="add-a-new-answer"></a>새 대답 추가
-
-일치된 기존 대답이 올바르지 않거나 기술 자료에 존재하지 않는(KB에서 일치 항목을 찾을 수 없음) 경우 새 응답을 추가할 수 있습니다.
-
-응답 목록 맨 아래에 있는 텍스트 상자를 사용하여 새 응답을 입력하고 Enter 키를 눌러 추가합니다.
-
-**저장 후 학습** 을 선택하여 이 대답을 유지합니다. 새로운 질문-대답 쌍이 기술 자료에 추가되었습니다.
-
----
 
 ### <a name="test-the-published-knowledge-base"></a>게시된 기술 자료 테스트
 

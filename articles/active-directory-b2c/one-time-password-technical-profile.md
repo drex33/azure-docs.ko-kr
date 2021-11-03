@@ -3,20 +3,20 @@ title: OTP(일회용 암호) 확인 사용
 titleSuffix: Azure AD B2C
 description: Azure AD B2C 사용자 지정 정책을 사용하여 OTP(일회용 암호) 시나리오를 설정하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 10/19/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 12b9639342e2e35b9229aa15bb9cfb4695427606
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4815eec021e4ebecda065667dca4568ded703ac5
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97881194"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131044877"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Azure AD B2C 사용자 지정 정책에서 일회용 암호 기술 프로필을 정의합니다
 
@@ -134,7 +134,7 @@ Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.
 
 다음 설정을 사용하여 코드 확인 모드를 설정할 수 있습니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 작업 | 예 | 수행할 작업입니다. 가능한 값: `VerifyCode`. |
 

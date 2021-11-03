@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: devx-track-js
-ms.openlocfilehash: 8cd1cd820583a177ec65c9b63066119399e4bba0
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 512eff61d6195ad0ff21a4d22bc4a9e633f7d109
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123435153"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131006718"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Azure Maps 서비스 모듈 사용
 
@@ -26,19 +26,19 @@ Azure Maps 웹 SDK는 *서비스 모듈* 을 제공합니다. 이 모듈은 Java
 1. Azure Maps 서비스 모듈을 로드합니다. 다음 두 가지 방법 중 한 가지로 로드할 수 있습니다.
     - Azure Maps services 모듈의 전역적으로 호스트된 Azure Content Delivery Network 버전을 사용합니다. 파일의 `<head>` 요소에 스크립트 참조를 추가합니다.
 
-        ```html
-        <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
-        ```
+    ```html
+    <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
+    ```
 
     - 또는 [azure-maps-rest](https://www.npmjs.com/package/azure-maps-rest) npm 패키지를 사용하여 Azure Maps 웹 SDK 소스 코드에 대한 서비스 모듈을 로컬로 로드한 다음, 앱으로 호스트합니다. 이 패키지에는 TypeScript 정의도 포함됩니다. 다음 명령을 실행합니다.
-    
-        > **npm install azure-maps-rest**
-    
-        그런 다음, 파일의 `<head>` 요소에 스크립트 참조를 추가합니다.
 
-         ```html
-        <script src="node_modules/azure-maps-rest/dist/atlas-service.min.js"></script>
-         ```
+      `npm install azure-maps-rest`
+
+      그런 다음, 파일의 `<head>` 요소에 스크립트 참조를 추가합니다.
+
+      ```html
+      <script src="node_modules/azure-maps-rest/dist/atlas-service.min.js"></script>
+      ```
 
 1. 인증 파이프라인을 만듭니다. 서비스 URL 클라이언트 엔드포인트를 초기화하려면 먼저 파이프라인을 만들어야 합니다. 사용자 고유의 Azure Maps 계정 키 또는 Azure AD(Azure Active Directory) 자격 증명을 사용하여 Azure Maps Search 서비스 클라이언트를 인증합니다. 이 예제에서는 검색 서비스 URL 클라이언트가 생성됩니다. 
 

@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 94e2f388c2fbfc92605922ac7462cca0ff30da4f
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 79ff649d9710d4f114b7d8de85d275896f26a729
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130258357"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131003564"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure Spring Cloud FAQ
 
@@ -35,6 +35,12 @@ Azure Spring Cloud는 Azure Monitor, Application Insights 및 로그 분석을 �
 * Azure Spring Cloud는 완전한 TLS/SSL 및 인증서 관리를 제공합니다.
 * OpenJDK 및 Spring Cloud 런타임에 대한 중요 보안 패치는 가능한 한 빨리 Azure Spring Cloud에 적용됩니다.
 
+### <a name="how-does-azure-spring-cloud-host-my-applications"></a>내 애플리케이션을 호스트하는 Azure Spring Cloud 어떻게 할까요?
+
+Azure Spring Cloud 각 서비스 인스턴스는 여러 작업자 노드가 있는 완전 전용 Kubernetes 클러스터에서 지원됩니다. Azure Spring Cloud 고가용성, 확장성, Kubernetes 버전 업그레이드 등을 포함하여 기본 Kubernetes 클러스터를 관리합니다.
+
+Azure Spring Cloud 기본 Kubernetes 작업자 노드에서 애플리케이션을 지능적으로 예약합니다. 고가용성을 제공하기 위해 Azure Spring Cloud 서로 다른 노드에 2개 이상의 인스턴스가 있는 애플리케이션을 배포합니다.
+
 ### <a name="in-which-regions-is-azure-spring-cloud-available"></a>Azure Spring Cloud는 어떤 지역에서 사용할 수 있나요?
 
 미국 동부, 미국 동부 2, 미국 중부, 미국 중남부, 미국 중북부, 미국 서부, 미국 서부 2, 서유럽, 북유럽, 영국 남부, 동남아시아, 오스트레일리아 동부, 캐나다 중부, 아랍에미리트 북부, 인도 중부, 한국 중부, 동아시아, 일본 동부, 남아프리카 공화국 북부 및 중국 동부 2(Mooncake). [자세한 내용](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
@@ -49,7 +55,7 @@ Azure Spring Cloud에는 다음과 같이 알려진 제한 사항이 있습니�
 
 * `spring.application.name`은 각 애플리케이션을 만드는 데 사용되는 애플리케이션 이름으로 재정의됩니다.
 * `server.port`의 기본값은 포트 1025입니다. 다른 값이 적용되면 재정의됩니다. 또한 이 설정을 준수하고 코드에서 서버 포트를 지정하지 마십시오.
-* Azure Portal 및 Azure Resource Manager 템플릿에서 애플리케이션 패키지 업로드를 지원하지 않습니다. Azure CLI를 통해 애플리케이션을 배포하는 경우에만 애플리케이션 패키지를 업로드할 수 있습니다.
+* Azure Portal, Azure Resource Manager 템플릿 및 Terraform은 애플리케이션 패키지 업로드를 지원하지 않습니다. Azure CLI, Azure DevOps, Azure Spirng Cloud용 Maven 플러그 인, IntelliJ용 Azure Toolkit 및 Azure Spring Cloud Visual Studio Code 확장을 사용하여 애플리케이션 패키지를 업로드할 수 있습니다.
 
 ### <a name="what-pricing-tiers-are-available"></a>어떤 가격 책정 계층을 사용할 수 있나요?
 
@@ -204,12 +210,23 @@ Azure Spring Cloud에 적용 가능한 중요 보안 패치(CVE 점수> = 9)는 
 
 ### <a name="does-azure-spring-cloud-support-autoscaling-in-app-instances"></a>Azure Spring Cloud에서 앱 인스턴스의 자동 크기 조정을 지원하나요?
 
-예.  자세한 내용은 [자동 크기 조정 설정](./how-to-setup-autoscale.md)을 참조하세요.
+예. 자세한 내용은 [마이크로 서비스 애플리케이션에 대한 자동 크기 조정 설정을 참조하세요.](./how-to-setup-autoscale.md)
+
+### <a name="how-does-azure-spring-cloud-monitor-the-health-status-of-my-application"></a>Azure Spring Cloud 애플리케이션의 상태를 모니터링하는 방법
+
+Azure Spring Cloud 고객의 애플리케이션에 대한 포트 1025를 지속적으로 검색합니다. 이러한 프로브는 애플리케이션 컨테이너가 트래픽 허용을 시작할 준비가 되었는지 여부와 Azure Spring Cloud 애플리케이션 컨테이너를 다시 시작해야 하는지 여부를 결정합니다. 내부적으로 Azure Spring Cloud Kubernetes 사용량 및 준비 상태 프로브를 사용하여 상태 모니터링을 달성합니다.
+
+>[!NOTE]
+> 이러한 프로브로 인해 현재 포트 1025를 노출하지 않고는 Azure Spring Cloud 애플리케이션을 시작할 수 없습니다.
+
+### <a name="whether-and-when-will-my-application-be-restarted"></a>내 애플리케이션을 다시 시작할지 여부와 시기는 언제인가요?
+
+예. 자세한 내용은 [Azure 활동 로그를 사용하여 앱 수명 주기 이벤트 모니터링 및 Azure Service Health.](./monitor-app-lifecycle-events.md)
 
 ::: zone pivot="programming-language-java"
 ### <a name="what-are-the-best-practices-for-migrating-existing-spring-cloud-microservices-to-azure-spring-cloud"></a>기존 Spring Cloud 마이크로서비스를 Azure Spring Cloud로 마이그레이션하기 위한 모범 사례는 무엇인가요?
 
-자세한 내용은 [Spring Cloud 애플리케이션을 Azure Spring Cloud 마이그레이션을](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud)참조하세요.
+자세한 내용은 [Azure Spring Cloud Spring Cloud 애플리케이션 마이그레이션을](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud)참조하세요.
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"

@@ -7,12 +7,13 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 08/18/2021
-ms.openlocfilehash: 42162519e9e8f3835498d8955adbd7c254775dd9
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: af12878750c6976a3ce3b459d9cf1ff6b262c112
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129211718"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024034"
 ---
 # <a name="scans-and-ingestion-in-azure-purview"></a>Azure Purview에서 검사 및 수집
 
@@ -38,7 +39,7 @@ ms.locfileid: "129211718"
 
 원본을 검사할 때 전체 데이터 원본을 검사하거나 검사할 특정 엔터티(폴더/테이블)만 선택할 수 있습니다. 사용 가능한 옵션은 검사하는 원본에 따라 다르며, 일회성 검사와 예약된 검사 모두에 대해 정의할 수 있습니다.
 
-예를 들어 [Azure SQL Database 검색을 만들고 실행](register-scan-azure-sql-database.md#creating-and-running-a-scan)할 때 검사할 테이블을 선택하거나 전체 데이터베이스를 선택할 수 있습니다.
+예를 들어 [Azure SQL Database 검색을 만들고 실행](register-scan-azure-sql-database.md#creating-the-scan)할 때 검사할 테이블을 선택하거나 전체 데이터베이스를 선택할 수 있습니다.
 
 ### <a name="scan-rule-set"></a>검사 규칙 집합
 
@@ -74,5 +75,5 @@ Data Lake Storage Gen2 같은 대량 데이터 저장소를 열거하는 경우 
 자세한 내용이나 원본 검사에 대한 특정 지침은 아래 링크를 따르세요.
 
 * 리소스 집합을 이해하려면 [리소스 집합 문서](concept-resource-sets.md)를 참조하세요.
-* [Azure SQL Database 등록 및 검사 방법](register-scan-azure-sql-database.md#creating-and-running-a-scan)
+* [Azure SQL Database 등록 및 검사 방법](register-scan-azure-sql-database.md#creating-the-scan)
 * [Azure Purview의 계보](catalog-lineage-user-guide.md)

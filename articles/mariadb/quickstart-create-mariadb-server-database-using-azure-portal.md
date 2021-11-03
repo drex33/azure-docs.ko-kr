@@ -6,15 +6,13 @@ ms.author: pariks
 ms.date: 3/19/2020
 ms.topic: quickstart
 ms.service: mariadb
-ms.custom:
-- mvc
-- mode-portal
-ms.openlocfilehash: bcb8091bad6190648f35d8acdcb457f8b153ed63
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.custom: mvc, mode-portal
+ms.openlocfilehash: ea105422ab727f500ea9d2e947f906babf74a5b3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531354"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131048409"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Database for MariaDB 서버 만들기
 

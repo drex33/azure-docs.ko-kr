@@ -3,19 +3,19 @@ title: SQL Server에서 Azure SQL Managed Instance로의 마이그레이션에 �
 description: Azure SQL Managed Instance로 마이그레이션하기 전에 해결해야 하는 원본 SQL Server 인스턴스의 문제를 식별하는 평가 규칙입니다.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
-ms.custom: ''
+ms.custom: ignite-fall-2021
 ms.devlang: ''
 ms.topic: how-to
 author: rajeshsetlem
 ms.author: rsetlem
 ms.reviewer: mathoma, cawrites
 ms.date: 12/15/2020
-ms.openlocfilehash: 0d3ef1e9a7a4d30e4a716992caf4ec3f2f04cc1c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 92fee6cde8c7a98806db6084c413202eb2f153f7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128625585"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069485"
 ---
 # <a name="assessment-rules-for-sql-server-to--azure-sql-managed-instance-migration"></a>SQL Server에서 Azure SQL Managed Instance로의 마이그레이션에 대한 평가 규칙
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -154,7 +154,7 @@ Azure SQL Managed Instance는 파일에 액세스할 수 없기 때문에 CRYPTO
 ## <a name="database-principal-alias"></a>데이터베이스 보안 주체 별칭<a id="DatabasePrincipalAlias"></a>
 
 **제목: SYS.DATABASE_PRINCIPAL_ALIASES가 지원 중단되며 제거되었습니다**   
-**범주**: 이슈   
+**범주**: 문제   
 
 **설명**   
 SYS.DATABASE_PRINCIPAL_ALIASES가 Azure SQL Managed Instance에서 지원 중단되며 제거되었습니다.
@@ -168,7 +168,7 @@ SYS.DATABASE_PRINCIPAL_ALIASES가 Azure SQL Managed Instance에서 지원 중단
 ## <a name="disable_def_cnst_chk-option"></a>DISABLE_DEF_CNST_CHK 옵션<a id="DisableDefCNSTCHK"></a>
 
 **제목: SET 옵션 DISABLE_DEF_CNST_CHK가 지원 중단되며 제거되었습니다**   
-**범주**: 이슈   
+**범주**: 문제   
 
 **설명**   
 SET 옵션 DISABLE_DEF_CNST_CHK가 Azure SQL Managed Instance에서 중단되고 제거되었습니다.
@@ -216,7 +216,7 @@ Transact SQL BEGIN DISTRIBUTED TRANSACTION으로 시작되고 MS DTC(Microsoft D
 **권장 사항**   
 BEGIN DISTRIBUTED TRANSACTION을 사용하여 모든 개체를 보려면 Azure Migrate의 영향을 받는 개체 섹션을 검토합니다. 여러 인스턴스에 걸친 분산 트랜잭션이 지원되는(현재 미리 보기 상태) Azure SQL Managed Instance로 참가자 데이터베이스를 마이그레이션하는 것이 좋습니다. 또는 Azure 가상 머신의 SQL Server로 마이그레이션합니다.
 
-추가 정보: [Azure SQL Managed Instance에 대한 여러 서버 간 트랜잭션 ](../../database/elastic-transactions-overview.md#transactions-across-multiple-servers-for-azure-sql-managed-instance)
+추가 정보: [Azure SQL Managed Instance에 대한 여러 서버 간 트랜잭션 ](../../database/elastic-transactions-overview.md#transactions-for-sql-managed-instance)
 
 ## <a name="homogenous-ms-dtc"></a>같은 유형 MS DTC<a id="MIHomogeneousMSDTCTransactSQL"></a>
 
@@ -230,7 +230,7 @@ Transact SQL BEGIN DISTRIBUTED TRANSACTION으로 시작되고 MS DTC(Microsoft D
 **권장 사항**   
 BEGIN DISTRIBUTED TRANSACTION을 사용하여 모든 개체를 보려면 Azure Migrate의 영향을 받는 개체 섹션을 검토합니다. 여러 인스턴스에 걸친 분산 트랜잭션이 지원되는(현재 미리 보기 상태) Azure SQL Managed Instance로 참가자 데이터베이스를 마이그레이션하는 것이 좋습니다. 또는 Azure 가상 머신의 SQL Server로 마이그레이션합니다. 
 
-추가 정보: [Azure SQL Managed Instance에 대한 여러 서버 간 트랜잭션 ](../../database/elastic-transactions-overview.md#transactions-across-multiple-servers-for-azure-sql-managed-instance)
+추가 정보: [Azure SQL Managed Instance에 대한 여러 서버 간 트랜잭션 ](../../database/elastic-transactions-overview.md#transactions-for-sql-managed-instance)
 
 
 ## <a name="linked-server-non-sql-provider"></a>연결된 서버(비 SQL 공급자)<a id="LinkedServerWithNonSQLProvider"></a>

@@ -11,19 +11,21 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/12/2021
 ms.author: bagol
-ms.openlocfilehash: da901a0beb5a90981293b4cae1f620a0668c7e0e
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: b21bb010755e8f618cba2ae40db14d12aa3b28df
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122537767"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131023028"
 ---
 # <a name="protecting-mssp-intellectual-property-in-azure-sentinel"></a>Azure Sentinel에서 MSSP 지적 재산 보호
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 이 문서에서는 Azure Sentinel 분석 규칙, 헌팅 쿼리, 플레이북, 통합 문서 등 MSSP(관리형 보안 서비스 공급자)가 Azure Sentinel에서 개발한 지적 재산을 보호하는 데 사용할 수 있는 방법을 설명합니다.
 
@@ -127,7 +129,7 @@ workspace('<customer-workspace>').SecurityEvent
 - **통합 문서 시각화를 더 쉽게 공유** 할 수 있습니다. 고객에게 Power BI 대시보드에 대한 링크를 전송하여 Azure 액세스 권한이 없어도 보고된 데이터를 볼 수 있습니다.
 - **일정 예약을 사용** 합니다. 해당 시간의 대시보드 스냅샷이 포함된 메일을 정기적으로 보내도록 Power BI를 구성합니다.
 
-자세한 내용은 [Power BI로 Azure Monitor 로그 데이터 가져오기](../azure-monitor/visualize/powerbi.md)를 참조하세요.
+자세한 내용은 [Power BI로 Azure Monitor 로그 데이터 가져오기](../azure-monitor/logs/log-powerbi.md)를 참조하세요.
 
 ### <a name="playbooks"></a>플레이북
 

@@ -4,14 +4,14 @@ description: Logz.io와의 Azure 통합을 위해 Single Sign-On을 설정하는
 author: tfitzmac
 ms.topic: conceptual
 ms.service: partner-services
-ms.date: 08/17/2021
+ms.date: 10/25/2021
 ms.author: tomfitz
-ms.openlocfilehash: 04a2616e46f526e9601e102c8ecb4104b6595164
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
-ms.translationtype: HT
+ms.openlocfilehash: 86ef7f781e3093b2daa78a393963b9053c9f5982
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122568118"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057574"
 ---
 # <a name="set-up-logzio-single-sign-on"></a>Logz.io Single Sign-On 설정
 

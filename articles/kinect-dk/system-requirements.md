@@ -3,20 +3,18 @@ title: Azure Kinect 센서 SDK 시스템 요구 사항
 description: Windows 및 Linux에서의 Azure Kinect 센서 SDK에 대한 시스템 요구 사항을 이해합니다.
 author: qm13
 ms.author: quentinm
-ms.custom:
-- CI 115266
-- CSSTroubleshooting
+ms.custom: CI 115266, CSSTroubleshooting
 manager: dcscontentpm
 ms.prod: kinect-dk
 ms.date: 03/05/2021
 ms.topic: article
 keywords: azure, kinect, 시스템 요구 사항, CPU, GPU, USB, 설정, 설치, 최소, 요구 사항
-ms.openlocfilehash: 558c1b9ca264874fa808aeba5f1e8a809a8f722d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: ba6782ad0a0278f1f66266c8abbe91d33cb5bf68
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104656977"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131085851"
 ---
 # <a name="azure-kinect-sensor-sdk-system-requirements"></a>Azure Kinect 센서 SDK 시스템 요구 사항
 

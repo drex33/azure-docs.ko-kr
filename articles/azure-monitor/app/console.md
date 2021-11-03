@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.custom: devx-track-csharp
 ms.reviewer: lmolkova
-ms.openlocfilehash: ee78fb4f778ac1ab629a68173249bdcada7b00fa
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: ce5ef0c1e018ca740b50ee971881307b00835f8b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110082597"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045523"
 ---
 # <a name="application-insights-for-net-console-applications"></a>.NET 콘솔 애플리케이션용 Application Insights
 
@@ -42,10 +42,9 @@ telemetryClient.TrackTrace("Hello World!");
 > [!NOTE]
 > 원격 분석은 즉시 전송되지 않습니다. 원격 분석 항목은 ApplicationInsights SDK에 의해 일괄 처리되고 전송됩니다. `Track()` 메서드를 호출한 직후에 종료되는 콘솔 앱에서는 이 문서의 뒷부분에 있는 [전체 예제](#full-example)에 표시된 것처럼 앱이 종료되기 전에 `Flush()` 및 `Sleep`/`Delay`가 수행되지 않는 한 원격 분석을 보낼 수 없습니다. `InMemoryChannel`을 사용하는 경우 `Sleep`은 필요하지 않습니다. 여기에서 추적되는 `Sleep`에 대한 요구 사항과 관련된 문제가 있습니다. [ApplicationInsights-dotnet/issues/407](https://github.com/microsoft/ApplicationInsights-dotnet/issues/407)
 
-
 * [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) 패키지의 최신 버전을 설치합니다. 이 패키지는 HTTP, SQL 또는 기타 외부 종속성 호출을 자동으로 추적합니다.
 
-코드를 통해 또는 `ApplicationInsights.config` 파일을 사용하여 Application Insights를 초기화하고 구성할 수 있습니다. 가능한 한 조기에 초기화를 수행해야 합니다. 
+코드를 통해 또는 `ApplicationInsights.config` 파일을 사용하여 Application Insights를 초기화하고 구성할 수 있습니다. 가능한 한 조기에 초기화를 수행해야 합니다.
 
 > [!NOTE]
 > **ApplicationInsights.config** 에 대한 지침은 .NET Framework를 대상으로 하는 앱에만 적용되고 .NET Core 애플리케이션에는 적용되지 않습니다.
@@ -70,7 +69,7 @@ var telemetryClient = new TelemetryClient(configuration);
 
 [Microsoft.ApplicationInsights.WindowsServer](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer) 패키지의 최신 버전을 설치하면 구성 파일의 전체 예를 확인할 수 있습니다. 다음은 코드 예제와 동일한 종속 컬렉션의 **최소** 구성입니다.
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
   <InstrumentationKey>Your Key</InstrumentationKey>
@@ -136,7 +135,6 @@ configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitial
 ```
 
 * [여기](https://apmtips.com/posts/2017-02-13-enable-application-insights-live-metrics-from-code/)에 설명된 대로 성능 카운터 수집기 모듈을 설치하고 초기화할 수도 있습니다.
-
 
 #### <a name="full-example"></a>전체 예제
 
@@ -213,4 +211,3 @@ namespace ConsoleApp
 ## <a name="next-steps"></a>다음 단계
 * [종속성을 모니터링](./asp-net-dependencies.md)하여 REST, SQL 또는 다른 외부 리소스의 속도가 느려지는지 확인합니다.
 * [API를 사용](./api-custom-events-metrics.md) 합니다.
-

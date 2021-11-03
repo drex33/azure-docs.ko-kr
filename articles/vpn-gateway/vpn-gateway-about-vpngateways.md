@@ -7,15 +7,13 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 07/08/2021
 ms.author: cherylmc
-ms.custom:
-- contperf-fy21q1
-- e2e-hybrid
-ms.openlocfilehash: ae7c9ee5357e09dcf7c33cd2ae3111cce15b6641
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.custom: contperf-fy21q1, e2e-hybrid
+ms.openlocfilehash: fc0b86b7174472bd4f246396b294ffede69eaf45
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114721211"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131036564"
 ---
 # <a name="what-is-vpn-gateway"></a>VPN Gateway란?
 
@@ -85,4 +83,3 @@ RSS 피드를 구독하고 [Azure 업데이트](https://azure.microsoft.com/upda
 - [자습서: VPN Gateway 만들기 및 관리](tutorial-create-gateway-portal.md)
 - [학습 모듈: VPN Gateway를 사용하여 온-프레미스 네트워크를 Azure에 연결](/learn/modules/connect-on-premises-network-with-vpn-gateway/)
 - [구독 및 서비스 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
-

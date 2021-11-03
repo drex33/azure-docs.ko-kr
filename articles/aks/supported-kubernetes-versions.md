@@ -7,12 +7,12 @@ ms.date: 08/09/2021
 author: palma21
 ms.author: jpalma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2e3a51430ef2f57f3d9ea095dee8b297d01187a2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ea1112f614e9c08bde1ff0427af706aae4c14896
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124758392"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063127"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 지원되는 Kubernetes 버전
 
@@ -173,14 +173,14 @@ Get-AzAksVersion -Location eastus
 | 1.19  | 2020년 8월 4일  | 2020년 9월   | 2020년 11월  | 1.22 GA |
 | 1.20  | 2020년 12월 8일  | 2021년 1월   | 2021년 3월  | 1.23 GA |
 | 1.21  | 2021년 4월 8일 | 2021년 5월   | 2021년 7월  | 1.24 GA |
-| 1.22  | 2021년 8월 4일 | 2021년 9월   | 2021년 10월  | 1.25 GA |
+| 1.22  | 2021년 8월 4일 | 2021년 9월   | 2021년 11월  | 1.25 GA |
 | 1.23  | 2021년 12월 | 2022년 1월   | 2022년 2월  | 1.26 GA |
 
 ## <a name="faq"></a>FAQ
 
 **Microsoft에서 새 Kubernetes 버전을 알리는 방법은 무엇인가요?**
 
-AKS 팀에서 지원이 중단되는 클러스터를 소유한 구독 관리자에게 보내는 이메일뿐만 아니라 설명서, [GitHub](https://github.com/Azure/AKS/releases)에도 새 Kubernetes 버전의 계획된 날짜가 포함된 사전 공지를 게시합니다.  알림 외에도 AKS를 [Azure Advisor](../advisor/advisor-overview.md) 사용 하 여 사용자가 지원 되지 않는 경우 사용자에 게 알리거나 응용 프로그램 또는 개발 프로세스에 영향을 줄 수 있는 사용 되지 않는 api에 대 한 경고를 사용자에 Azure Portal 게 알릴 수 있습니다.
+AKS 팀에서 지원이 중단되는 클러스터를 소유한 구독 관리자에게 보내는 이메일뿐만 아니라 설명서, [GitHub](https://github.com/Azure/AKS/releases)에도 새 Kubernetes 버전의 계획된 날짜가 포함된 사전 공지를 게시합니다.  또한 AKS는 알림 외에도 [Azure Advisor](../advisor/advisor-overview.md) 사용하여 Azure Portal 내 고객에게 지원되지 않는 경우 사용자에게 알리고 애플리케이션 또는 개발 프로세스에 영향을 줄 수 있는 사용되지 않는 API에 대해 경고합니다.
 
 **계속 지원받으려면 Kubernetes 버전을 얼마나 자주 업그레이드해야 하나요?**
 

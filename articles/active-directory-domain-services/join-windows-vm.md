@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: 869c827485d9b7a6baf68d2619af98d4c2ee82b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3274c0bf4c2e1f352ef2b46331168f10db6ab393
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96619575"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044554"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>자습서: Windows Server 가상 머신을 Azure Active Directory Domain Services 관리되는 도메인에 조인
 
@@ -29,7 +29,7 @@ Azure AD DS(Azure Active Directory Domain Services)는 Windows Server Active Dir
 
 Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하는 데 필요한 리소스는 다음과 같습니다.
 

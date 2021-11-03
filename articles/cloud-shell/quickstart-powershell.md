@@ -9,13 +9,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/18/2018
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1d0a46016c054e698f144b2eb058f8019f31183c
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.custom: devx-track-azurepowershell, ignite-fall-2021
+ms.openlocfilehash: 79568dc04d8c5bce95eaa15d207f7caecfff2f5d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110696007"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080824"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Azure Cloud Shell의 PowerShell에 대한 빠른 시작
 
@@ -112,11 +112,11 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
   PS Azure:\> Enter-AzVM -Name MyVM1 -ResourceGroupName MyResourceGroup -Credential (Get-Credential)
   ```
 
-또는 먼저 `VirtualMachines` 디렉터리로 이동하고 다음과 같이 `Enter-AzVM`를 실행할 수 있습니다.
+디렉터리를 먼저 탐색 하 `VirtualMachines` 고 다음과 같이 실행할 수도 있습니다 `Enter-AzVM` .
 
-  ```azurepowershell-interactive
- PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzVM -Credential (Get-Credential)
- ```
+```azurepowershell-interactive
+PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzVM -Credential (Get-Credential)
+```
 
 ### <a name="discover-webapps"></a>WebApps 검색
 
@@ -242,9 +242,9 @@ Cloud Shell에서 Git 리포지토리를 복제하려면 [개인용 액세스 �
 
 세션을 종료하려면 `exit`을 입력합니다.
 
-[bashqs]:quickstart.md
-[gallery]:https://www.powershellgallery.com/
-[customex]:https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript
+[bashqs]: quickstart.md
+[gallery]: https://www.powershellgallery.com/
+[customex]: /azure/virtual-machines/extensions/custom-script-windows
 [profile]: /powershell/module/microsoft.powershell.core/about/about_profiles
 [azmount]: ../storage/files/storage-how-to-use-files-windows.md
 [githubtoken]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/

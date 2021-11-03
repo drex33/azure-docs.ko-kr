@@ -2,18 +2,18 @@
 title: Gremlin API에서 데이터 인덱싱(미리 보기)
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search에서 전체 텍스트 검색을 위해 Gremlin API 콘텐츠 인덱싱을 자동화하도록 Azure Cosmos DB 인덱서를 설정합니다.
-author: MarkHeff
-ms.author: maheff
+author: nitinme
+ms.author: nitinme
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/11/2021
-ms.openlocfilehash: 69642aa1b9d977591bee6dbb8464cdf74ca7be1e
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
-ms.translationtype: HT
+ms.openlocfilehash: 82d7a385567459f9e3292af8f88594dec96b5a77
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114731013"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131010691"
 ---
 # <a name="index-data-using-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB Gremlin API를 사용하여 데이터 인덱싱
 

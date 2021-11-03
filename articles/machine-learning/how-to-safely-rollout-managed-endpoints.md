@@ -11,12 +11,12 @@ author: rsethur
 ms.date: 08/05/2021
 ms.topic: how-to
 ms.custom: how-to, devplatv2
-ms.openlocfilehash: 3be025d57553bd56088cdc15a75cae25d5b9e15c
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: b8dfb926a1c878893142998bea0091d9d8162e0f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129427346"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032661"
 ---
 # <a name="safe-rollout-for-online-endpoints-preview"></a>온라인 엔드포인트에 대한 안전한 롤아웃(미리 보기)
 
@@ -155,5 +155,5 @@ REST 클라이언트를 사용하여 트래픽 규칙을 거치지 않고 배포
 - [Azure Machine Learning을 사용하여 리소스 할당량 관리 및 증가](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)
 - [Azure Machine Learning 관리형 온라인 엔드포인트(미리 보기)에 대한 비용 보기](how-to-view-online-endpoints-costs.md)
 - [관리형 온라인 엔드포인트 SKU 목록(미리 보기)](reference-managed-online-endpoints-vm-sku-list.md)
-- [관리형 온라인 엔드포인트 배포 및 채점(미리 보기) 문제 해결](how-to-troubleshoot-managed-online-endpoints.md)
+- [관리형 온라인 엔드포인트 배포 및 채점(미리 보기) 문제 해결](./how-to-troubleshoot-online-endpoints.md)
 - [관리형 온라인 엔드포인트(미리 보기) YAML 참조](reference-yaml-endpoint-managed-online.md)

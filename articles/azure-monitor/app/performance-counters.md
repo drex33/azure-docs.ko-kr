@@ -4,12 +4,12 @@ description: Application Insights에서 시스템 및 사용자 지정 .NET 성�
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 423e17ef2b44286c28b464836075284929d8644c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2b0ddb84430ccccf5da7f44909f1f2ce0459aaa9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031364"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044307"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application Insights의 시스템 성능 카운터
 
@@ -21,7 +21,7 @@ Windows는 광범위한 [성능 카운터](/windows/desktop/perfctrs/about-perfo
 
 ![Application Insights에서 보고하는 시스템 성능 카운터](./media/performance-counters/performance-counters.png)
 
-ASP.NET 웹 응용 프로그램에 대해 수집 되도록 구성 된 현재 기본 카운터는 다음과 같습니다.
+ASP.NET 웹 애플리케이션에 대해 수집되도록 구성된 현재 기본 카운터는 다음과 같습니다.
 - % Process\\Processor Time
 - % Process\\Processor Time Normalized
 - Memory\\Available Bytes
@@ -33,7 +33,7 @@ ASP.NET 웹 응용 프로그램에 대해 수집 되도록 구성 된 현재 기
 - ASP.NET Applications\\Requests In Application Queue
 - Processor(_Total)\\% Processor Time
 
-ASP.NET Core 웹 응용 프로그램에 대해 수집 되도록 구성 된 현재 기본 카운터는 다음과 같습니다.
+ASP.NET Core 웹 애플리케이션에 대해 수집되도록 구성된 현재 기본 카운터는 다음과 같습니다.
 - % Process\\Processor Time
 - % Process\\Processor Time Normalized
 - Memory\\Available Bytes
@@ -55,7 +55,7 @@ ASP.NET Core 웹 응용 프로그램에 대해 수집 되도록 구성 된 현�
    * 앱에 개발 중인 Application Insights를 추가한 경우 프로젝트에서 ApplicationInsights.config를 편집한 후 서버에 다시 배포합니다.
 3. 다음과 같이 성능 수집기 지시문을 편집합니다.
 
-    ```XML
+    ```xml
 
         <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
           <Counters>
@@ -78,7 +78,6 @@ ASP.NET Core 웹 응용 프로그램에 대해 수집 되도록 구성 된 현�
 
 ### <a name="collecting-performance-counters-in-code-for-aspnet-web-applications-or-netnet-core-console-applications"></a>ASP.NET 웹 애플리케이션 또는 .NET/.NET Core 콘솔 애플리케이션 코드에서 성능 카운터 수집
 시스템 성능 카운터를 수집하고 Application Insights에 보내려면 다음과 같은 코드 조각을 사용할 수 있습니다.
-
 
 ```csharp
     var perfCollectorModule = new PerformanceCollectorModule();
@@ -120,17 +119,17 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 ## <a name="performance-counters-in-analytics"></a>분석에서의 성능 카운터
 [분석](../logs/log-query-overview.md)에서 성능 카운터 보고서를 검색하고 표시할 수 있습니다.
 
-**performanceCounters** 스키마는 `category`, `counter` 이름 및 각 성능 카운터의 `instance` 이름을 노출합니다.  각 애플리케이션에 대한 원격 분석 데이터에는 해당 애플리케이션에 대한 카운터에만 표시됩니다. 예를 들면 어떤 카운터를 사용할 수 있는지 알아보기: 
+**performanceCounters** 스키마는 `category`, `counter` 이름 및 각 성능 카운터의 `instance` 이름을 노출합니다.  각 애플리케이션에 대한 원격 분석 데이터에는 해당 애플리케이션에 대한 카운터에만 표시됩니다. 예를 들면 어떤 카운터를 사용할 수 있는지 알아보기:
 
 ![Application Insights 분석의 성능 카운터](./media/performance-counters/analytics-performance-counters.png)
 
 (여기서 ‘인스턴스’는 역할이나 서버 머신 인스턴스가 아니라 성능 카운터 인스턴스를 나타냅니다. 성능 카운터 인스턴스 이름은 일반적으로 프로세스 또는 애플리케이션의 이름을 기준으로 프로세서 시간과 같은 카운터를 분할합니다.)
 
-최근 기간 동안 사용 가능한 메모리의 차트를 가져오려면: 
+최근 기간 동안 사용 가능한 메모리의 차트를 가져오려면:
 
 ![Application Insights 분석의 메모리 시간 차트](./media/performance-counters/analytics-available-memory.png)
 
-다른 원격 분석과 마찬가지로 **performanceCounters** 에도 앱이 실행되는 호스트 서버 인스턴스의 ID를 나타내는 `cloud_RoleInstance` 열이 있습니다. 예를 들어, 서로 다른 컴퓨터에서 앱의 성능을 비교하려면: 
+다른 원격 분석과 마찬가지로 **performanceCounters** 에도 앱이 실행되는 호스트 서버 인스턴스의 ID를 나타내는 `cloud_RoleInstance` 열이 있습니다. 예를 들어, 서로 다른 컴퓨터에서 앱의 성능을 비교하려면:
 
 ![Application Insights 분석에서 역할 인스턴스에 의해 분할된 성능](./media/performance-counters/analytics-metrics-role-instance.png)
 
@@ -140,7 +139,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 
 * *예외 속도* 는 시스템 성능 카운터입니다. CLR은 발생하는 처리된 예외 및 처리되지 않은 예외를 모두 계산하고 샘플링 간격의 합계를 간격 길이로 나눕니다. Application Insights SDK는 이 결과를 수집하여 포털에 보냅니다.
 
-* *예외* 는 차트의 샘플링 간격에 포털이 받은 TrackException 보고서 개수입니다. 코드에서 TrackException 호출을 작성한 처리된 예외만 포함하며, [처리되지 않은 예외](./asp-net-exceptions.md)는 모두 포함되지 않습니다. 
+* *예외* 는 차트의 샘플링 간격에 포털이 받은 TrackException 보고서 개수입니다. 코드에서 TrackException 호출을 작성한 처리된 예외만 포함하며, [처리되지 않은 예외](./asp-net-exceptions.md)는 모두 포함되지 않습니다.
 
 ## <a name="performance-counters-for-applications-running-in-azure-web-apps"></a>Azure Web Apps에서 실행되는 애플리케이션에 대한 성능 카운터
 
@@ -162,4 +161,3 @@ ASP.NET Core의 성능 카운터에 대한 지원은 제한적입니다.
 
 * [종속성 추적](./asp-net-dependencies.md)
 * [예외 추적](./asp-net-exceptions.md)
-

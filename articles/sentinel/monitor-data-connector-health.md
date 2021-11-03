@@ -10,19 +10,21 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2020
 ms.author: yelevin
-ms.openlocfilehash: 1b8507f29d157cd715d6423c773b01a561a5e181
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 89f18c1a7ab517dde3552e1449d0971f29774f91
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566845"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037020"
 ---
 # <a name="monitor-the-health-of-your-data-connectors-with-this-azure-sentinel-workbook"></a>이 Azure Sentinel 통합 문서를 사용하여 데이터 커넥터의 상태 모니터링
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 **데이터 커넥터 상태 모니터링 통합 문서** 를 사용하면 Azure Sentinel 내에서 데이터 커넥터의 상태, 연결 및 성능을 추적할 수 있습니다. 이 통합 문서는 추가 모니터를 제공하고, 변칙을 검색하고, 작업 영역의 데이터 수집 상태에 대한 인사이트를 제공합니다. 통합 문서의 논리를 사용하여 수집된 데이터의 일반적인 상태를 모니터링하고 사용자 지정 보기 및 규칙 기반 경고를 빌드할 수 있습니다.
 

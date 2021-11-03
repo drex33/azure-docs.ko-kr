@@ -15,14 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/21/2021
 ms.author: yelevin
-ms.openlocfilehash: 20e9920921afe1eae8babb76212a6de7ea2e1321
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 3d0c19fe728f42940502f2cab3496d999ecbb349
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123251852"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060728"
 ---
 # <a name="connect-azure-active-directory-azure-ad-data-to-azure-sentinel"></a>Azure Sentinel에 Azure AD(Azure Active Directory) 데이터 연결
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 > 아래 표시된 대로 사용 가능한 로그 유형 중 일부는 현재 **미리 보기** 로 제공됩니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.

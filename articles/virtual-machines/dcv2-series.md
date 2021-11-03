@@ -7,12 +7,13 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 89714a766dfd4ddc2c952554ab12068121543044
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 54ae1665d34093fcb2ba44d0b5eb0f4f4a9bb0f7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130070777"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008478"
 ---
 # <a name="dcsv2-series"></a>DCsv2 시리즈
 
@@ -41,7 +42,7 @@ DCsv2 시리즈 가상 머신을 사용하면 퍼블릭 클라우드에서 처�
 
 ## <a name="technical-specifications"></a>기술 사양
 
-| 크기             | 물리적 코어 | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 NIC 수 / 예상 네트워크 대역폭(MBps) | EPC 메모리(MiB) |
+| 크기             | 물리적 코어 | 메모리 GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 NIC 수 / 예상 네트워크 대역폭(MBps) | EPC 메모리 MiB |
 |------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|----------------------------------------------|---------------------|
 | Standard_DC1s_v2 | 1    | 4           | 50                     | 1              | 2000/16                                                                                               | 2   | 28                                      |
 | Standard_DC2s_v2 | 2    | 8           | 100                    | 2              | 4000/32                                                                                               | 2  | 56                                          |

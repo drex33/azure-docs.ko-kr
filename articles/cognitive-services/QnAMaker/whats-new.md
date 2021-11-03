@@ -8,16 +8,19 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
-ms.openlocfilehash: 341ce0d0400bb1b56f96182e13d526da32d9729e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 959a6d5c5ed4b606c5a5850264422b6e460eb8f5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110369271"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131020448"
 ---
 # <a name="whats-new-in-qna-maker"></a>QnA Maker의 새로운 기능
 
 서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목은 메모, 비디오, 블로그 게시물 및 기타 유형의 정보를 릴리스할 수 있습니다. 서비스를 최신 상태로 유지하려면 이 페이지에 책갈피를 설정합니다.
+
+[!INCLUDE [Custom question answering](./includes/new-version.md)]
 
 ## <a name="release-notes"></a>릴리스 정보
 

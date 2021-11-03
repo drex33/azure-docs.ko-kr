@@ -10,13 +10,13 @@ ms.date: 03/20/2019
 ms.topic: quickstart
 ms.service: synapse-analytics
 ms.subservice: sql-dw
-ms.custom: devx-track-azurepowershell - seo-lt-2019 - azure-synapse - devx-track-azurepowershell - mode-api
-ms.openlocfilehash: ed9c6fffe9f51666171d1223d2e339e23f3bc78b
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.custom: devx-track-azurepowershell, seo-lt-2019, azure-synapse, mode-api
+ms.openlocfilehash: 5d0aab60ffc11fbc2ef5fe32055403b15f679b30
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110666691"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131003507"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 전용 SQL 풀(이전의 SQL DW)에서 컴퓨팅 일시 중지 및 다시 시작
 

@@ -1,28 +1,23 @@
 ---
-title: Azure CLI 리소스 관리 - Azure Resource Manager | Microsoft Docs
+title: Azure CLI 통해 리소스 관리 - Azure Resource Manager | Microsoft Docs
 description: Azure CLI를 사용하여 Apache Cassandra용 Azure Managed Instance의 관리를 자동화하는 일반적인 명령을 알아봅니다.
 author: TheovanKraay
 ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
-ms.date: 09/17/2021
+ms.date: 11/02/2021
 ms.author: thvankra
-ms.custom: devx-track-azurecli, seo-azure-cli
+ms.custom: devx-track-azurecli, seo-azure-cli, ignite-fall-2021
 keywords: azure resource manager cli
-ms.openlocfilehash: 72cada375a6c88f5a3401acb77f0a982d231d0a4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6f299601c013363965697b026a0f563fba4a7ae6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128663728"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131020125"
 ---
-# <a name="manage-azure-managed-instance-for-apache-cassandra-resources-using-azure-cli-preview"></a>Azure CLI(미리 보기)를 사용하여 Apache Cassandra용 Azure Managed Instance 리소스 관리
+# <a name="manage-azure-managed-instance-for-apache-cassandra-resources-using-azure-cli"></a>Azure CLI를 사용하여 Apache Cassandra용 Azure Managed Instance 리소스 관리
 
 이 문서에서는 Azure CLI를 사용하여 Apache Cassandra 클러스터용 Azure Managed Instance의 관리를 자동화하는 일반적인 명령을 설명합니다.
-
-> [!IMPORTANT]
-> Apache Cassandra용 Azure Managed Instance는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 

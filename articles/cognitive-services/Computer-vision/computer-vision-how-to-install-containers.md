@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 10/14/2021
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: 온-프레미스, OCR, Docker, 컨테이너
-ms.openlocfilehash: c2a12a675b2a169847cbe11c8cdf3d6aa468fcc8
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: bfe2bbe061f92c4290e63d36e8dcd647b4f7f830
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123438285"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131078012"
 ---
 # <a name="install-read-ocr-docker-containers"></a>Read OCR Docker 컨테이너 설치
 
@@ -199,7 +199,7 @@ Azure Storage를 사용하여 처리할 이미지를 저장하는 경우 컨테�
 
 <!--  ## Validate container is running -->
 
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Container API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="query-the-containers-prediction-endpoint"></a>컨테이너의 예측 엔드포인트 쿼리
 
@@ -445,6 +445,8 @@ JSON 응답 개체에는 비동기 버전과 동일한 개체 그래프가 있�
 출력 [탑재](./computer-vision-resource-container-config.md#mount-settings) 및 활성화된 로깅을 사용하여 컨테이너를 실행하는 경우 컨테이너는 컨테이너를 시작 또는 실행하는 동안 발생하는 문제를 해결하는 데 도움이 되는 로그 파일을 생성합니다.
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
+
+[!INCLUDE [Diagnostic container](../containers/includes/diagnostics-container.md)]
 
 ## <a name="billing"></a>결제
 

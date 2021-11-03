@@ -1,17 +1,17 @@
 ---
 title: Microsoft Azure FXT Edge Filer - 추가 설명서
 description: 추가 참조 문서는 Microsoft Azure FXT Edge Filer 하이브리드 캐시를 이해하고 사용하는 데 도움이 됩니다.
-author: ekpgh
+author: femila
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.author: v-erkel
-ms.openlocfilehash: 109fa14478a906ded08086576101e870c54c56ad
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
-ms.translationtype: HT
+ms.author: femila
+ms.openlocfilehash: 8061184188f0c10f3a54fe25bb8dd3edbbd2f9ad
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111415394"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044839"
 ---
 # <a name="additional-documentation-for-azure-fxt-edge-filer"></a>Azure FXT Edge Filer에 대한 추가 설명서
 

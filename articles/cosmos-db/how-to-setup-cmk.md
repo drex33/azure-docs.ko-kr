@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/15/2021
 ms.author: thweiss
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d22b299cca557774ed47ecf6d8309f780f32fee8
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 2a052b7137ac29fae6203c10d3951c60bcbf4bcd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130133066"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131041044"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Azure Key Vault를 사용하여 Azure Cosmos 계정에 대한 고객 관리형 키 구성
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -244,7 +244,7 @@ az cosmosdb show \
 
 1.  계정을 만드는 동안 이 작업을 수행하지 않은 경우 사용자 계정에서 [시스템 할당 관리 ID를 사용하도록 설정](./how-to-setup-managed-identity.md#add-a-system-assigned-identity)하고 할당된 `principalId`를 복사합니다.
 
-1.  [위에서](#add-access-policy)설명한 대로 Azure Key Vault 계정에 새 액세스 정책을 추가하지만 `principalId` Azure Cosmos DB의 첫 번째 ID 대신 이전 단계에서 복사한 를 사용하세요.
+1.  [위에서](#add-access-policy)설명한 대로 Azure Key Vault 계정에 새 액세스 정책을 추가하지만 `principalId` Azure Cosmos DB의 첫 번째 ID 대신 이전 단계에서 복사한 를 사용하여 추가합니다.
 
 1.  Azure Key Vault의 암호화 키에 액세스할 때 시스템 할당 관리 ID를 사용하도록 지정하려면 Azure Cosmos DB 계정을 업데이트합니다. 다음과 같이 수행할 수 있습니다.
 
@@ -348,7 +348,7 @@ Azure Cosmos 계정에서 사용하는 고객 관리형 키 회전은 두 가지
     
 ## <a name="error-handling"></a>오류 처리
 
-Azure Cosmos DB에서 고객이 관리 하는 키를 사용 하는 경우 오류가 발생 하면 응답에 HTTP 하위 상태 코드와 함께 오류 정보를 반환 Azure Cosmos DB. 이 하위 상태 코드를 사용하여 문제의 근본 원인을 디버그할 수 있습니다. 지원되는 HTTP 하위 상태 코드 목록을 가져오려면 [Azure Cosmos DB에 대한 HTTP 상태 코드](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) 문서를 참조하세요.
+Azure Cosmos DB에서 고객 관리형 키를 사용하는 경우 오류가 있는 경우 Azure Cosmos DB는 응답에 HTTP 하위 상태 코드와 함께 오류 세부 정보를 반환합니다. 이 하위 상태 코드를 사용하여 문제의 근본 원인을 디버그할 수 있습니다. 지원되는 HTTP 하위 상태 코드 목록을 가져오려면 [Azure Cosmos DB에 대한 HTTP 상태 코드](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) 문서를 참조하세요.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -363,7 +363,7 @@ Azure Cosmos DB에서 고객이 관리 하는 키를 사용 하는 경우 오류
 | 작업 유형 | 요청 단위 증가 |
 |---|---|
 | 포인트 읽기(ID별 항목 가져오기) | 작업당 +5% |
-| 모든 쓰기 작업 | 작업당 +6%<br/>인덱싱된 속성당 +0.06RU 정도 |
+| 모든 쓰기 작업 | 작업당 +6% <br/> 인덱싱된 속성당 약 + 0.06 RU |
 | 쿼리, 변경 피드 읽기 또는 충돌 피드 | 작업당 +15% |
 
 ### <a name="what-data-gets-encrypted-with-the-customer-managed-keys"></a>고객 관리형 키로 어떤 데이터가 암호화되나요?
@@ -400,9 +400,9 @@ Azure Portal에서 Azure Cosmos 계정으로 이동하고 왼쪽 메뉴에서 **
 
 ### <a name="how-do-customer-managed-keys-affect-a-backup"></a>고객 관리형 키는 백업에 어떤 영향을 주나요?
 
-Azure Cosmos DB는 계정에 저장된 데이터를 [정기적으로 자동 백업](./online-backup-and-restore.md)합니다. 이러한 작업은 암호화된 데이터를 백업합니다. 백업을 성공적으로 복원 하려면 다음 조건을 충족 해야 합니다.
-- 백업 시 사용한 암호화 키는 필수 이며 Azure Key Vault에서 사용할 수 있어야 합니다. 즉, 해지를 수행 하지 않고 백업 시 사용 된 키의 버전을 계속 사용할 수 있습니다.
-- [Azure Key Vault 액세스 정책에서 관리 id를 사용](#using-managed-identity)하는 경우 원본 계정에 구성 된 id는 삭제 되지 않아야 하 고 Azure Key Vault 인스턴스의 액세스 정책에서 계속 선언 해야 합니다.
+Azure Cosmos DB는 계정에 저장된 데이터를 [정기적으로 자동 백업](./online-backup-and-restore.md)합니다. 이러한 작업은 암호화된 데이터를 백업합니다. 백업을 성공적으로 복원하려면 다음 조건이 필요합니다.
+- 백업 시 사용한 암호화 키는 필수이며 Azure Key Vault 사용할 수 있어야 합니다. 즉, 해지되지 않았으며 백업 시 사용된 키 버전이 여전히 활성화되어 있습니다.
+- Azure Key Vault [액세스 정책 에서 관리 ID를 사용한](#using-managed-identity)경우 원본 계정에 구성된 ID는 삭제되지 않아야 하며 Azure Key Vault 인스턴스의 액세스 정책에서 선언되어야 합니다.
 
 ### <a name="how-do-i-revoke-an-encryption-key"></a>암호화 키를 어떻게 해지하나요?
 

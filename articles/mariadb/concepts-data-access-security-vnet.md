@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: bd7d08e4f65612b9a76b63e8153603d043209ad3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: b009cf4d1e9fef863fedc8ac6df3fecb1d8a3acd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98662681"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131065193"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에서 Virtual Network 서비스 엔드포인트 및 규칙 사용
 
@@ -116,7 +116,7 @@ Azure Database for MariaDB의 경우 가상 네트워크 규칙 기능에는 다
 
 - VNet 서비스 엔드포인트는 범용 및 메모리 최적화 서버에 대해서만 지원됩니다.
 
-- 서브넷에서 **Microsoft.Sql** 을 사용하도록 설정한다면 VNet 규칙만 사용하여 연결하겠다는 의미입니다. 따라서 이러한 서브넷에 있는 리소스의 [비 VNet 방화벽 규칙](concepts-firewall-rules.md)은 작동하지 않습니다.
+- 서브넷에서 **Microsoft.Sql** 을 사용하도록 설정한다면 VNet 규칙만 사용하여 연결하겠다는 의미입니다. 해당 서브넷에 있는 리소스의 [비 VNet 방화벽 규칙](concepts-firewall-rules.md)은 작동하지 않습니다.
 
 - 방화벽에서 IP 주소 범위는 다음 네트워킹 항목에 적용되지만 가상 네트워크 규칙에는 적용되지 않습니다.
     - [S2S(사이트 간) VPN(가상 사설망)][vpn-gateway-indexmd-608y]
@@ -130,7 +130,7 @@ Azure Database for MariaDB의 경우 가상 네트워크 규칙 기능에는 다
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>VNET 서비스 엔드포인트를 켜지 않고 서버에 VNET 방화벽 규칙 추가
 
-단순히 VNet 방화벽 규칙을 설정하는 것은 VNet에 서버를 보호하는 데 도움이 되지 않습니다. 보안이 효력을 나타내려면 VNet 서비스 엔드포인트도 **켜야** 합니다. 서비스 엔드포인트를 **켜면** 전환을 **끈** 상태에서 **켠** 상태로 완료할 때까지 VNet 서브넷에서 가동 중지 시간이 발생합니다. 이는 특히 대규모 VNet의 컨텍스트에 적용됩니다. **IgnoreMissingServiceEndpoint** 플래그를 사용하여 전환 시 가동 중지 시간을 줄이거나 없앨 수 있습니다.
+VNet 방화벽 규칙을 설정하는 것만으로는 VNet에 대해 서버를 보호하는 데 도움이 되지 않습니다. 보안이 효력을 나타내려면 VNet 서비스 엔드포인트도 **켜야** 합니다. 서비스 엔드포인트를 **켜면** 전환을 **끈** 상태에서 **켠** 상태로 완료할 때까지 VNet 서브넷에서 가동 중지 시간이 발생합니다. 이는 특히 대규모 VNet의 컨텍스트에 적용됩니다. **IgnoreMissingServiceEndpoint** 플래그를 사용하여 전환 시 가동 중지 시간을 줄이거나 없앨 수 있습니다.
 
 Azure CLI 또는 Azure Portal을 사용하여 **IgnoreMissingServiceEndpoint** 플래그를 설정할 수 있습니다.
 
@@ -153,7 +153,7 @@ VNet 규칙 만들기에 대한 아티클은 다음을 참조하세요.
 
 [vm-virtual-network-service-endpoints-overview-649d]: ../virtual-network/virtual-network-service-endpoints-overview.md
 
-[vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
+[vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/ip-services/virtual-networks-static-private-ip-arm-pportal.md
 
 [rbac-what-is-813s]: ../role-based-access-control/overview.md
 

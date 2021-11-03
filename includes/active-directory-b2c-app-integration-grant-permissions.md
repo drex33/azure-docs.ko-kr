@@ -1,16 +1,16 @@
 ---
-author: msmimart
+author: kengaderdus
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 08/04/2021
-ms.author: mimart
-ms.openlocfilehash: bc3417f0ce0fae54c86c66bf3e55fd183d497c21
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.author: kengaderdus
+ms.openlocfilehash: eba3d57bab13cf573cd6e4478c0df672e3b34458
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123227714"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131007794"
 ---
 앱(**앱 ID: 1**) 권한을 부여하려면 다음 단계를 수행합니다. 
 

@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 10/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 6dccf76a99c183c9b3d148ee1c4574c560d877f3
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 01f1a0ca013dad76510df99b70a462b96bec07a6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129714802"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131078658"
 ---
-# <a name="data-residency-and-resiliency-for-azure-stack-edge-preview"></a>Azure Stack Edge에 대한 데이터 보존 및 복원력(미리 보기)
+# <a name="data-residency-and-resiliency-for-azure-stack-edge"></a>Azure Stack Edge 대한 데이터 상주 및 복원력 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
@@ -77,11 +77,11 @@ For more information, see [Use the Kubernetes dashboard to monitor the Kubernete
 
 ## <a name="azure-stack-edge-dependent-services"></a>Azure Stack Edge 종속 서비스
 
-Azure Arc 사용 Kubernetes, Azure IoT 허브 및 Azure IoT edge, Azure Key Vault는 Azure Stack edge와 통합 되는 서비스입니다.
+Azure Arc 지원 Kubernetes, Azure IoT Hub 및 Azure IoT Edge 및 Azure Key Vault Azure Stack Edge 통합되는 서비스입니다.
 
 ### <a name="azure-arc-enabled-kubernetes"></a>Azure Arc 지원 Kubernetes 
 
-Azure Arc 사용 Kubernetes는 Azure Stack Edge에 대 한 추가 기능으로 사용할 수 있습니다. 싱가포르(동남아시아)의 경우 Azure Arc 데이터는 싱가포르 내에만 보존되고 홍콩으로 복제되지 않습니다. <!--If there is a region-wide outage, the service is not resilient.-->
+Azure Arc 지원 Kubernetes는 Azure Stack Edge 대한 추가 기능으로 사용할 수 있습니다. 싱가포르(동남아시아)의 경우 Azure Arc 데이터는 싱가포르 내에만 보존되고 홍콩으로 복제되지 않습니다. <!--If there is a region-wide outage, the service is not resilient.-->
 
 <!--For all other regions, Azure Arc supports Azure Regional Pair and is resilient to any region-wide outages.--> 
 <!--For more information, see [Data residency and resiliency for Azure Arc-enabled Kubernetes clusters]().-->

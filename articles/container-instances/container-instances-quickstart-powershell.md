@@ -6,13 +6,13 @@ manager: gwallace
 ms.date: 03/21/2019
 ms.topic: quickstart
 ms.service: container-instances
-ms.custom: devx-track-azurepowershell - mvc - mode-api
-ms.openlocfilehash: 875913550ff41cf5988b7910e165376bfa446bfb
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.custom: devx-track-azurepowershell, mvc, mode-api
+ms.openlocfilehash: c882944691818bf15a5d15b325d39d6f2b4ed5d3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110689425"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045314"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure에서 컨테이너 인스턴스 배포
 
@@ -36,7 +36,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습
 
 먼저, 다음 [New-AzResourceGroup][New-AzResourceGroup] 명령을 사용하여 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
@@ -48,13 +48,13 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 컨테이너 인스턴스를 시작하려면 다음과 유사한 명령을 실행합니다. 인스턴스를 만드는 Azure 지역 내에서 고유한 `-DnsNameLabel` 값을 설정합니다. "DNS 이름 레이블을 사용할 수 없습니다"라는 오류 메시지가 표시되면 다른 DNS 이름 레이블을 사용해 보세요.
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image mcr.microsoft.com/windows/servercore/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
 ```
 
 몇 초 내에 Azure로부터 응답을 받습니다. 컨테이너의 `ProvisioningState`는 처음에는 **Creating**(만드는 중)이지만 1-2분 내에 **Succeeded**(성공)으로 전환됩니다. [Get-AzContainerGroup][Get-AzContainerGroup] cmdlet을 사용하여 배포 상태를 확인합니다.
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 Get-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 
@@ -92,7 +92,7 @@ Events                   : {}
 
 컨테이너 작업을 완료했으면 [Remove-AzContainerGroup][Remove-AzContainerGroup] cmdlet을 사용하여 컨테이너를 제거합니다.
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 Remove-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 

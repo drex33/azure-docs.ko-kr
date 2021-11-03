@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 0bcbe35fc6d9f104325bec8a3404ad57a6376cf2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: a0e795d6e6c2fa189682931f60b792e4588d1278
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94518127"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131047689"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>보안 프레임: 중요한 데이터 | Mitigations 
 | 제품/서비스 | 아티클 |
@@ -83,7 +83,7 @@ ms.locfileid: "94518127"
 | **단계** | 브라우저는 캐싱 및 기록을 목적으로 정보를 저장할 수 있습니다. 이러한 캐시된 파일은 Internet Explorer의 경우 임시 인터넷 파일 폴더와 같은 폴더에 저장됩니다. 이러한 페이지를 다시 참조하는 경우 브라우저는 해당 캐시의 페이지를 표시합니다. 중요한 정보(예: 해당 주소, 신용 카드 세부 정보, 사회 보장 번호 또는 사용자 이름)를 사용자에게 표시하는 경우 이 정보를 브라우저의 캐시에 저장할 수 있습니다. 따라서 브라우저의 캐시를 검사하거나 브라우저의 "뒤로" 단추를 눌러서 검색할 수 있습니다. 캐시 제어 응답 헤더 값을 모든 페이지에 "no-store"로 설정합니다. |
 
 ### <a name="example"></a>예제
-```XML
+```xml
 <configuration>
   <system.webServer>
    <httpProtocol>

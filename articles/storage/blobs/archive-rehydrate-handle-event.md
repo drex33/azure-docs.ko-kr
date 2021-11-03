@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/11/2021
+ms.date: 10/25/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 06239708293be94f13c62cab7004c7a57d00eea1
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 2385bfead10efc82e0a1f3c8f0f02f1cd8d9f2f4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129275509"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131019270"
 ---
 # <a name="run-an-azure-function-in-response-to-a-blob-rehydration-event"></a>Blob 리하이드레이션 이벤트에 대한 응답으로 Azure 함수 실행
 
@@ -236,7 +236,7 @@ Azure Function을 로컬에서 테스트하고 나면 다음 단계로 이전에
 
 함수를 게시하려면 다음 단계를 수행합니다.
 
-1. 솔루션 탐색기에서 Azure Functions 프로젝트를 선택 하 고 저장 하거나 마우스 오른쪽 단추로 클릭 하 고 **게시** 를 선택 합니다.
+1. 솔루션 탐색기 Azure Functions 프로젝트를 길게 누른(또는 마우스 오른쪽 단추로 클릭) 후 **게시를** 선택합니다.
 1. **게시** 창에서 대상으로 **Azure** 를 선택한 후 **다음** 을 선택합니다.
 1. **Azure Function 앱(Windows)** 을 특정 대상으로 선택한 후 **다음** 을 선택합니다.
 1. **Functions 인스턴스** 탭의 드롭다운 메뉴에서 구독을 선택한 다음 사용 가능한 함수 앱 목록에서 Azure Function 앱을 찾습니다.
@@ -253,7 +253,7 @@ Azure Function에서 코드를 변경할 때마다 업데이트된 함수를 Azu
 
 이제 이벤트에 대한 응답으로 실행할 수 있는 Azure Function이 포함된 함수 앱이 있습니다. 다음 단계에서는 스토리지 계정에서 이벤트 구독을 만듭니다. 이벤트 구독에서는 스토리지 계정의 Blob에 대한 작업에 응답하여 Event Grid를 통해 이벤트를 게시하도록 스토리지 계정을 구성합니다. 그런 다음 Event Grid는 사용자가 지정한 이벤트 처리기 엔드포인트로 이벤트를 보냅니다. 이 경우 이벤트 처리기는 이전 섹션에서 만든 Azure Function입니다.
 
-이벤트 구독을 만들 때 이벤트 처리기로 전송되는 이벤트를 필터링할 수 있습니다. 보관 계층에서 blob을 리하이드레이션할 때 캡처할 이벤트는 [Blob 계층 설정](/rest/api/storageservices/set-blob-tier) 작업에 해당하는 **Microsoft.Storage.BlobTierChanged** 및 [Blob 복사](/rest/api/storageservices/copy-blob) 또는 [URL에서 Blob 복사](/rest/api/storageservices/copy-blob-from-url) 작업에 해당하는 **Microsoft.Storage.BlobCreated** 이벤트입니다. 시나리오에 따라 해당 이벤트 중 하나만 처리하는 것이 좋습니다.
+이벤트 구독을 만들 때 이벤트 처리기로 전송되는 이벤트를 필터링할 수 있습니다. 보관 계층에서 Blob을 리하우전할 때 캡처할 이벤트는 **Microsoft.Storage. BlobTierChanged**- [Blob 계층 설정](/rest/api/storageservices/set-blob-tier) 작업에 해당하며 **Microsoft.Storage. Blob Blob** 복사 작업에 해당하는 [BlobCreated](/rest/api/storageservices/copy-blob) 이벤트입니다. 시나리오에 따라 해당 이벤트 중 하나만 처리하는 것이 좋습니다.
 
 이벤트 구독을 만들 때 다음 단계를 수행합니다.
 
@@ -303,7 +303,7 @@ Event Grid에서 이벤트를 필터링하는 방법에 관한 자세한 내용�
 
 ## <a name="see-also"></a>참고 항목
 
-- [Blob 데이터에 대 한 핫, 쿨 및 보관 액세스 계층](access-tiers-overview.md)
+- [Blob 데이터에 대한 핫, 쿨 및 보관 액세스 계층](access-tiers-overview.md)
 - [보관 계층의 Blob 리하이드레이션 개요](archive-rehydrate-overview.md)
 - [보관된 Blob을 온라인 계층으로 리하이드레이션](archive-rehydrate-to-online-tier.md)
 - [Blob Storage 이벤트에 응답](storage-blob-event-overview.md)

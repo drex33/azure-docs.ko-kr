@@ -8,16 +8,18 @@ ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.date: 06/24/2021
-ms.openlocfilehash: d57941c06f4917c8ff3b27f5e566fc9d5f95474b
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 172eaeae01f75ccebd20725f932dd2ad3f9eb39c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129273006"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131009259"
 ---
 # <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Jupyter Notebook을 사용하여 보안 위협 헌팅
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -27,18 +29,18 @@ Azure Sentinel의 기반은 데이터 저장소입니다. 데이터 저장소는
 
 예를 들어 Notebook을 사용하여 다음을 수행합니다.
 
-- 일부 Python 기계 학습 기능과 같이 Azure Sentinel 기본 제공되지 않는 **분석 수행**
-- 사용자 지정 타임라인 및 프로세스 트리와 같이 Azure Sentinel 기본 제공되지 않는 **데이터 시각화 만들기**
-- 온-프레미스 데이터 집합과 같은 Azure Sentinel 외부의 데이터 **원본을 통합합니다.**
+- 일부 Python machine learning 기능과 같은 Azure 센티널에서 제공 되지 않는 **분석을 수행** 합니다.
+- 사용자 지정 타임 라인 및 프로세스 트리와 같은 Azure 센티널에서 기본 제공 되지 않는 **데이터 시각화를 만듭니다** .
+- 온-프레미스 데이터 집합과 같은 Azure 센티널 외부의 **데이터 원본을 통합** 합니다.
 
-Jupyter 환경이 Azure Portal에 통합되어 있어서 Notebook을 쉽게 만들고 실행하여 데이터를 분석할 수 있습니다. *Kqlmagic* 라이브러리는 Azure Sentinel [KQL](https://kusto.azurewebsites.net/docs/kusto/query/index.html) 쿼리를 받아 Notebook 내에서 직접 실행할 수 있는 glue를 제공합니다.
+Jupyter 환경이 Azure Portal에 통합되어 있어서 Notebook을 쉽게 만들고 실행하여 데이터를 분석할 수 있습니다. *Kqlmagic* 라이브러리는 Azure 센티널에서 [KQL](https://kusto.azurewebsites.net/docs/kusto/query/index.html) 쿼리를 가져와서 노트북 내에서 직접 실행할 수 있는 붙이기를 제공 합니다.
 
-Microsoft의 일부 보안 분석가가 개발한 몇 가지 Notebook은 Azure Sentinel 패키지됩니다.
+일부 Microsoft 보안 분석가에서 개발한 여러 노트북은 Azure 센티널로 패키지 됩니다.
 
 - 이러한 Notebook 중 일부는 특정 시나리오에 맞게 빌드되어 있어서 그대로 사용할 수 있습니다.
 - 그 외 Notebook은 기술과 기능을 설명하는 샘플로 제공되며, 사용자가 Notebook에서 사용하기 적합하게 수정하거나 복사할 수 있습니다.
 
-다른 Notebook은 [Azure Sentinel Community GitHub](https://github.com/Azure/Azure-Sentinel-Notebooks/)가져올 수도 있습니다.
+[Azure 센티널 Community GitHub](https://github.com/Azure/Azure-Sentinel-Notebooks/)에서 아직 다른 전자 필기장을 가져올 수도 있습니다.
 
 
 ## <a name="notebook-components"></a>Notebook 구성 요소
@@ -48,7 +50,7 @@ Notebook의 두 가지 구성 요소는 다음과 같습니다.
 - 쿼리와 코드를 입력 및 실행하고, 실행 결과가 표시되는 **브라우저 기반 인터페이스**
 - 코드 자체의 구문 분석과 실행을 담당하는 **‘커널’** 
 
-Azure Sentinel Notebook의 커널은 Azure VM(가상 머신)에서 실행됩니다. Notebook에 복잡한 기계 학습 모델이 포함되어 있는 경우 더 강력한 가상 머신을 활용할 수 있는 라이선스 옵션이 몇 가지 있습니다.
+Azure Sentinel Notebook의 커널은 Azure VM(가상 머신)에서 실행됩니다. Notebook에 복잡한 기계 학습 모델이 포함되어 있는 경우 더 강력한 가상 머신을 사용할 수 있는 몇 가지 라이선스 옵션이 있습니다.
 
 Azure Sentinel Notebook은 *pandas*, *matplotlib*, *bokeh* 등 인기 있는 다양한 Python 라이브러리를 사용합니다. 그 외 다음과 같은 영역을 지원하는 다양한 Python 패키지를 선택할 수 있습니다.
 
@@ -57,23 +59,23 @@ Azure Sentinel Notebook은 *pandas*, *matplotlib*, *bokeh* 등 인기 있는 다
 - 통계 및 수치 계산
 - 기계 학습 및 딥 러닝
 
-복잡하고 반복적인 코드를 Notebook 셀에 입력하거나 붙여넣을 필요가 없도록 대부분의 Python Notebook은 패키지라는 타사 라이브러리를 *활용합니다.* Notebook에서 패키지를 사용하려면 패키지를 설치하고 가져와야 합니다. Azure ML Compute에는 가장 일반적인 패키지가 미리 설치되어 있습니다. 패키지 또는 패키지의 관련 부분(예: 모듈, 파일, 함수 또는 클래스)을 가져와야 합니다.
+복잡 하 고 반복적인 코드를 노트북 셀에 입력 하거나 붙여 넣을 필요가 없도록 대부분의 Python 노트북은 *패키지* 라는 타사 라이브러리를 사용 합니다. 노트북에서 패키지를 사용 하려면 패키지를 설치 하 고 가져와야 합니다. Azure ML 컴퓨팅에는 가장 일반적인 패키지가 미리 설치 되어 있습니다. 패키지 또는 패키지의 관련 부분 (예: 모듈, 파일, 함수 또는 클래스)을 가져와야 합니다.
 
-Azure Sentinel Notebook은 데이터 검색, 분석, 보강 및 시각화를 위한 사이버 보안 도구 모음인 [MSTICPy라는](https://github.com/Microsoft/msticpy/)Python 패키지를 사용합니다. 
+Azure 센티널 노트북은 데이터 검색, 분석, 보강 및 시각화를 위한 사이버 보안 도구의 컬렉션인 [MSTICPy](https://github.com/Microsoft/msticpy/)이라는 Python 패키지를 사용 합니다. 
 
-MSTICPy 도구는 헌팅 및 조사를 위한 Notebook을 만드는 데 도움이 되도록 특별히 설계되었으며, 새로운 기능 및 개선 사항에 대해 적극적으로 노력하고 있습니다. 자세한 내용은 다음을 참조하세요.
+MSTICPy 도구는 새로운 기능 및 개선 사항에 대 한 노트를 만드는 데 도움이 되도록 특별히 설계 되었습니다. 자세한 내용은 다음을 참조하세요.
 
 - [MSTIC Jupyter 및 Python 보안 도구 설명서](https://msticpy.readthedocs.io/)
-- [자습서: Azure Sentinel Jupyter Notebook 및 MSTICPy 시작](notebook-get-started.md)
-- [Azure Sentinel Jupyter Notebook 및 MSTICPy에 대한 고급 구성](notebooks-msticpy-advanced.md)
+- [자습서: Azure 센티널에서 Jupyter 노트북 및 MSTICPy 시작 하기](notebook-get-started.md)
+- [Azure 센티널의 Jupyter 노트북 및 MSTICPy에 대 한 고급 구성](notebooks-msticpy-advanced.md)
 
 [Azure Sentinel Community GitHub 리포지토리](https://github.com/Azure/Azure-Sentinel-Notebooks/)는 Microsoft가 구축하거나 커뮤니티가 제공하는 향후 Azure Sentinel Notebook을 위한 공간입니다.
 
 ## <a name="manage-access-to-azure-sentinel-notebooks"></a>Azure Sentinel Notebook에 대한 액세스 관리
 
-Azure Sentinel Jupyter Notebook을 사용하려면 먼저 사용자 역할에 따라 올바른 권한이 있어야 합니다.
+Azure 센티널에서 Jupyter 노트북을 사용 하려면 먼저 사용자 역할에 따라 올바른 권한이 있어야 합니다.
 
-JupyterLab 또는 Jupyter 클래식에서 Azure Sentinel Notebook을 실행할 수 있지만 Azure Sentinel Notebook은 [Azure Machine Learning(Azure](../machine-learning/overview-what-is-azure-machine-learning.md) ML) 플랫폼에서 실행됩니다. Azure Sentinel Notebook을 실행하려면 Azure Sentinel 작업 영역과 [Azure ML](../machine-learning/concept-workspace.md)작업 영역 모두에 대한 적절한 액세스 권한이 있어야 합니다.
+jupyterlab 또는 jupyter 클래식에서 azure 센티널 노트북을 실행할 수 있지만, azure 센티널에서 노트북은 [Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md) (azure ML) 플랫폼에서 실행 됩니다. azure 센티널에서 노트북을 실행 하려면 azure 센티널 작업 영역 및 [azure ML 작업 영역](../machine-learning/concept-workspace.md)에 대 한 적절 한 액세스 권한이 있어야 합니다.
 
 |사용 권한  |설명  |
 |---------|---------|
@@ -91,7 +93,7 @@ JupyterLab 또는 Jupyter 클래식에서 Azure Sentinel Notebook을 실행할 �
 
 1. 다음 세부 정보를 입력하고 **다음** 을 선택합니다.
 
-    |필드|Description|
+    |필드|설명|
     |--|--|
     |**구독**|사용할 Azure 구독을 선택합니다.|
     |**리소스 그룹**|구독의 기존 리소스 그룹을 사용하거나 이름을 입력하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유합니다.|
@@ -125,10 +127,10 @@ AML 작업 영역을 만든 후 Azure Sentinel에서 Azure ML 작업 영역의 N
 > [!NOTE]
 > GitHub 기본 제공 정적 Notebook 렌더러와 같은 정적 문서로 Notebook을 볼 수 있습니다. 그러나 Notebook에서 코드를 실행하려면 Jupyter 커널이라는 백 엔드 프로세스에 Notebook을 연결해야 합니다. 커널은 코드를 실행하고 코드에서 만드는 모든 변수와 개체를 보유합니다. 브라우저는 이 데이터에 대한 뷰어입니다.
 >
-> Azure ML 커널은 Azure ML Compute라는 가상 머신에서 실행됩니다. Compute 인스턴스는 한 번에 많은 Notebook 실행을 지원할 수 있습니다.
+> Azure ML 커널은 Azure ML Compute라는 가상 머신에서 실행됩니다. Compute 인스턴스는 한 번에 여러 Notebook 실행을 지원할 수 있습니다.
 >
 
-**Azure Sentinel 에서 Notebook을 시작하려면**
+**Azure Sentinel Notebook을 시작하려면 다음을 수행합니다.**
 
 1. Azure Portal에서 **Azure Sentinel** > **위협 관리** > **Notebook** 으로 이동하면 Azure Sentinel이 제공하는 Notebook을 볼 수 있습니다.
 
@@ -139,7 +141,7 @@ AML 작업 영역을 만든 후 Azure Sentinel에서 Azure ML 작업 영역의 N
 
     사용할 Notebook을 찾았으면 **Notebook 저장** 을 선택하여 사용자 고유의 작업 영역에 복제합니다.
 
-    필요에 따라 이름을 편집합니다. 작업 영역에 Notebook이 이미 있는 경우 기존 Notebook을 덮어쓰거나 새로 만들 수 있습니다.
+    필요에 따라 이름을 편집합니다. Notebook이 작업 영역에 이미 있는 경우 기존 Notebook을 덮어쓰거나 새 Notebook을 만들 수 있습니다.
 
     :::image type="content" source="media/notebooks/save-notebook.png" alt-text="Notebook을 저장하여 사용자 고유의 작업 영역에 복제":::
 
@@ -165,7 +167,7 @@ AML 작업 영역을 만든 후 Azure Sentinel에서 Azure ML 작업 영역의 N
 
     자세한 내용은 [명령 모드 바로 가기](../machine-learning/how-to-run-jupyter-notebooks.md)를 참조하세요.
 
-1. Notebook이 중단되거나 다시 시작하려는 경우 커널을 다시 시작하고 처음부터 Notebook 셀을 다시 실행할 수 있습니다. **커널 작업**  >  **커널 다시 시작을** 선택합니다. 예를 들면 다음과 같습니다.
+1. Notebook이 중단되거나 다시 시작하려는 경우 커널을 다시 시작하고 처음부터 Notebook 셀을 다시 실행하면 됩니다. **커널 작업**  >  **커널 다시 시작을** 선택합니다. 예를 들면 다음과 같습니다.
 
     :::image type="content" source="media/notebooks/sentinel-notebooks-restart-kernel.png" alt-text="Notebook 커널을 다시 시작합니다.":::
 
@@ -228,7 +230,7 @@ y + 2
 
 이 섹션에서는 Git을 사용하여 [Azure Sentinel GitHub 리포지토리](https://github.com/Azure/Azure-Sentinel-Notebooks/)에서 사용할 수 있는 모든 Notebook을 Azure Sentinel Notebook 내에서 Azure ML 작업 영역으로 직접 다운로드하는 방법을 설명합니다.
 
-Azure ML 작업 영역에 Azure Sentinel Notebook을 저장하면 쉽게 업데이트할 수 있습니다.
+azure ML 작업 영역에 Azure Sentinel Notebook을 저장하면 쉽게 업데이트할 수 있습니다.
 
 1. Azure Sentinel Notebook에서 빈 셀에 다음 코드를 입력한 다음 셀을 실행합니다.
 
@@ -245,7 +247,6 @@ Azure ML 작업 영역에 Azure Sentinel Notebook을 저장하면 쉽게 업데�
     ```python
     !cd azure-sentinel-nb && git pull
     ```
-
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -271,7 +272,7 @@ Notebook 관련 문제가 발생하는 경우 [Azure Machine Learning Notebook �
     To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the 9-digit device code to authenticate.
     ```
 
-1. 출력에서 9자 토큰을 선택하고 복사한 `devicelogin` 다음, URL을 선택하여 표시된 페이지 페이지로 이동합니다. 
+1. 출력에서 9자 토큰을 선택하고 복사한 `devicelogin` 다음, URL을 선택하여 표시된 페이지로 이동합니다. 
 
 1. 대화 상자에 토큰을 붙여넣고 메시지가 표시되면 계속 로그인합니다.
 
@@ -306,7 +307,7 @@ If the *Runtime dependency of PyGObject is missing* error appears when you load 
     qry_prov = QueryProvider("AzureSentinel")
     ```
 
-    Python 종속성()이 누락되었음을 나타내는 다음과 유사한 경고가 표시됩니다. `pygobject`
+    누락된 Python 종속성( )을 나타내는 다음 메시지와 유사한 경고가 표시됩니다. `pygobject`
 
     ```output
     Runtime dependency of PyGObject is missing.
@@ -335,13 +336,15 @@ If the *Runtime dependency of PyGObject is missing* error appears when you load 
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Sentinel GitHub 리포지토리](https://github.com/Azure/Azure-Sentinel-Notebooks)에서 공유되는 Notebook은 고유한 Notebook을 개발할 때 사용할 수 있는 유용한 도구, 그림, 코드 샘플로 제공됩니다.
+Azure Synapse 빅 데이터 분석과 Notebook 환경을 통합합니다. 자세한 내용은 [notebooks와 Azure Synapse 통합(공개 미리 보기)](notebooks-with-synapse.md)을 참조하세요.
+
+[Azure Sentinel GitHub 리포지토리에서](https://github.com/Azure/Azure-Sentinel-Notebooks) 공유되는 다른 Notebook은 고유한 Notebook을 개발할 때 사용할 수 있는 유용한 도구, 그림 및 코드 샘플로 사용할 수 있습니다.
 
 여러분의 피드백을 환영합니다. 제안, 기능 요청, Notebook 기여, 버그 보고, 기존 Notebook에 대한 개선 및 추가 사항 등 무엇이든 괜찮습니다. [Azure Sentinel 커뮤니티 GitHub](https://github.com/Azure/Azure-Sentinel)로 이동하여 문제를 작성하거나, 포크하거나, 기여 자료를 업로드할 수 있습니다.
 
 - [**Azure Log Analytics의 자격 증명 검사**](https://www.youtube.com/watch?v=OWjXee8o04M) 및 단계별 조사 - 경고 처리와 같은 일부 Notebook 템플릿을 탐색하여 위협 헌팅 및 조사에 Notebook을 사용하는 방법에 대해 자세히 **알아봅니다.** 
 
-    Azure Sentinel > Notebook 템플릿 탭에서 Notebook **템플릿을** 더  >  **찾습니다.**
+    Azure Sentinel > Notebook 템플릿 탭에서 더 많은 **Notebook 템플릿을** 찾습니다.  >  
 
 - [Azure Sentinel GitHub 리포지토리에서](https://github.com/Azure/Azure-Sentinel-Notebooks) **더 많은 Notebook을 찾습니다.**
 
@@ -352,7 +355,7 @@ If the *Runtime dependency of PyGObject is missing* error appears when you load 
 
 자세한 내용은 다음을 참조하세요.
 
-  - [자습서: Azure Sentinel Jupyter Notebook 및 MSTICPy 시작](notebook-get-started.md)
+- [자습서: Azure Sentinel Jupyter Notebook 및 MSTICPy 시작](notebook-get-started.md)
 - [자습서: Azure Sentinel Notebooks -](https://www.youtube.com/results?search_query=azazure+sentinel+notebooks) 시작(비디오)
 - [자습서: Azure ML Studio를 벗어나지 않고 Jupyter Notebook 편집 및](https://www.youtube.com/watch?v=AAj-Fz0uCNk) 실행(비디오)
 - [웨비나: Azure Sentinel Notebook 기본 사항](https://www.youtube.com/watch?v=rewdNeX6H94)

@@ -7,18 +7,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.custom: seodec18
-ms.openlocfilehash: 1892d304e4e90d3957a722473c6b2ec40018d3ce
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
-ms.translationtype: HT
+ms.date: 08/25/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 9e03531f7db88d082b6ffa36d39173d2f5481d00
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379305"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069314"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>기술 자료에 잡담 추가
 
 봇에 잡담을 추가하면 실제로 대화하는 것 같은 느낌이 들고 몰입도가 높아집니다. QnA Maker의 잡담 기능을 사용하면 미리 채워진 최고의 잡담 집합을 KB(기술 자료)로 손쉽게 추가할 수 있습니다. 이는 봇 성격의 시작점 역할을 하며, 잡담을 처음부터 작성하는 데 드는 비용과 시간을 많이 절약할 수 있습니다.
+
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 이 데이터 집합에는 전문적인, 친숙한 및 재치있는 등 여러 가상 사용자의 목소리로 녹음된 약 100개의 채팅 시나리오가 있습니다. 봇의 음성과 가장 유사한 가상 사용자를 선택하세요. QnA Maker는 사용자 쿼리가 지정되면 알려진 잡담 QnA 중 가장 가까운 QnA와 이를 매칭합니다.
 
@@ -60,15 +62,7 @@ chit-chat 데이터 집합은 다음 언어로 지원됩니다.
 ## <a name="add-chit-chat-to-an-existing-kb"></a>기존 KB에 잡담 추가
 KB를 선택하고 **설정** 페이지로 이동합니다. 적절한 **.tsv** 형식으로 된 모든 잡담 데이터 세트에 대한 링크가 있습니다. 원하는 성격을 다운로드한 다음, 파일 원본으로 업로드하세요. 파일을 다운로드하고 업로드할 때 형식 또는 메타데이터를 편집하지 않도록 하세요.
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
-
 ![기존 KB에 잡담 추가](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset.png)
-
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-![기존 KB 미리 보기 릴리스에 chit-chat 추가](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset-v2.png)
-
----
 
 ## <a name="edit-your-chit-chat-questions-and-answers"></a>잡담의 질문과 답변 편집
 KB를 편집할 때 선택된 성격에 따라 잡담의 새 원본이 표시됩니다. 이제 다른 모든 원본과 마찬가지로 변경된 질문을 추가하거나 응답을 편집할 수 있습니다.

@@ -7,16 +7,16 @@ ms.subservice: conditional-access
 ms.topic: overview
 ms.date: 09/15/2021
 ms.custom: project-no-code
-ms.author: mimart
-author: msmimart
-manager: celested
+ms.author: kengaderdus
+author: kengaderdus
+manager: CelesteDG
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 54229ff68cf9e4ac749fb1396282d9c881f52806
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e4f1bf6bdb46bd87fb24fe5564a1d53204477a5d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128572674"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008012"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 흐름에 조건부 액세스 추가
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "128572674"
 Azure AD B2C는 각 로그인 이벤트를 평가하고 사용자 액세스 권한을 부여하기 전에 모든 정책 요구 사항이 충족되는지 확인합니다. 이 **평가** 단계에서 조건부 액세스 서비스는 로그인 이벤트 중에 ID 보호 위험 검색에 의해 수집된 신호를 평가합니다. 이 평가 프로세스의 결과는 로그인을 허용할지 아니면 차단할지를 나타내는 클레임 집합입니다. Azure AD B2C 정책은 이러한 클레임을 사용하여 사용자 흐름 내에서 작동합니다. 예를 들어 MFA(다단계 인증)와 같은 특정 교정을 통해 사용자의 액세스를 차단하거나 어렵게 합니다. "액세스 차단"은 다른 모든 설정을 재정의합니다.
 ::: zone pivot="b2c-custom-policy"
 다음 예에서는 로그인 위협을 평가하는 데 사용되는 조건부 액세스 기술 프로필을 보여 줍니다.
-```XML
+```xml
 <TechnicalProfile Id="ConditionalAccessEvaluation">
   <DisplayName>Conditional Access Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -45,7 +45,7 @@ ID 보호 신호가 제대로 평가되도록 하기 위해 [로컬 및 소셜 �
 > 위험을 성공적으로 수정하려면 *평가* 기술 프로필이 실행된 후 *수정* 기술 프로필이 호출되는지 확인합니다. *수정* 없이 *평가* 가 호출되면 위험 상태가 *위험* 이 됩니다.
 *평가* 기술 프로필 권장 사항이 `Block`을 반환하면 *평가* 기술 프로필의 호출이 필요하지 않습니다. 위험 상태는 *위험* 으로 설정됩니다.
 다음 예에서는 식별된 위협을 수정하는 데 사용되는 조건부 액세스 기술 프로필을 보여 줍니다.
-```XML
+```xml
 <TechnicalProfile Id="ConditionalAccessRemediation">
   <DisplayName>Conditional Access Remediation</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
@@ -351,7 +351,7 @@ Azure AD 조건부 액세스 정책을 추가한 후 사용자 흐름 또는 사
 1. 정책 파일을 업로드합니다.
 ### <a name="configure-claim-other-than-phone-number-to-be-used-for-mfa"></a>MFA에 사용할 전화 번호 이외의 클레임 구성
 위의 조건부 액세스 정책에서 `DoesClaimExist` 클레임 변환 방법은 클레임에 값이 포함되는지 확인합니다(예: `strongAuthenticationPhoneNumber` 클레임에 전화 번호가 포함되는 경우). 클레임 변환은 `strongAuthenticationPhoneNumber` 클레임으로만 국한되지 않습니다. 시나리오에 따라 다른 클레임을 사용할 수 있습니다. 다음 XML 코드 조각에서는 `strongAuthenticationEmailAddress` 클레임이 대신 확인됩니다. 선택한 클레임에 유효한 값이 있어야 합니다. 그렇지 않으면 `IsMfaRegistered` 클레임이 `False`로 설정됩니다. `False`로 설정된 경우 조건부 액세스 정책 평가가 `Block` 권한 부여 유형을 반환하여 사용자가 사용자 흐름을 완료하지 못하게 됩니다.
-```XML
+```xml
  <ClaimsTransformation Id="IsMfaRegisteredCT" TransformationMethod="DoesClaimExist">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="strongAuthenticationEmailAddress" TransformationClaimType="inputClaim" />

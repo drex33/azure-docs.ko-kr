@@ -9,12 +9,13 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: a91ca96e69ae5408a3232513eea3ba1443c97064
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 960c13baea77fc8a6b900a5e68828af0377b0087
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123253603"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131018605"
 ---
 # <a name="query-folders-and-multiple-files"></a>폴더 및 여러 파일 쿼리  
 
@@ -66,6 +67,34 @@ SELECT
     SUM(fare_amount) AS fare_total
 FROM OPENROWSET(
         BULK 'csv/taxi/yellow_tripdata_2017-*.csv',
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
+        FIRSTROW = 2
+    )
+    WITH (
+        payment_type INT 10,
+        fare_amount FLOAT 11
+    ) AS nyc
+GROUP BY payment_type
+ORDER BY payment_type;
+```
+
+> [!NOTE]
+> 단일 OPENROWSET를 통해 액세스되는 모든 파일은 동일한 구조체(즉, 열 개수 및 데이터 형식)를 갖추고 있어야 합니다.
+
+### <a name="read-subset-of-files-in-folder-using-multiple-file-paths"></a>여러 파일 경로를 사용하여 폴더의 파일 하위 집합 읽기
+
+아래 예제는 csv/taxi 폴더에서 2개의 파일 경로를 사용하여 *csv/taxi* 폴더에서 2017 NYC Yellow Taxi 데이터 파일을 읽습니다. 첫 번째 경로는 1월 및 12월의 데이터를 포함하는 파일의 전체 경로와 결제 유형당 총 요금 금액을 반환하는 11월과 12월의 와일드카드를 포함합니다.
+
+```sql
+SELECT 
+    payment_type,  
+    SUM(fare_amount) AS fare_total
+FROM OPENROWSET(
+        BULK (
+            'csv/taxi/yellow_tripdata_2017-01.csv',
+            'csv/taxi/yellow_tripdata_2017-1*.csv'
+        ),
         DATA_SOURCE = 'sqlondemanddemo',
         FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIRSTROW = 2

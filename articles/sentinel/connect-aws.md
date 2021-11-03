@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: b1e514d208f7d5d0a2e290c95aa5508166a3e2f7
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 86be5f6a7a777b40d85531100a4ef2d5d0dc99c5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123251468"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131009475"
 ---
 # <a name="connect-aws-cloudtrail-to-azure-sentinel"></a>AWS CloudTrail에서 Azure Sentinel에 연결
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 AWS 커넥터를 사용하여 AWS CloudTrail 관리 이벤트를 Azure Sentinel로 스트리밍합니다. 이 연결 프로세스는 AWS 리소스 로그에 대한 액세스 권한을 Azure Sentinel에 위임하여 AWS CloudTrail와 Azure Sentinel 간에 트러스트 관계를 만듭니다. 이 작업은 AWS에서 AWS 로그에 액세스할 수 있는 권한을 Azure Sentinel에 부여하는 역할을 만들어 수행합니다.
 

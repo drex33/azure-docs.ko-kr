@@ -6,13 +6,13 @@ ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.custom: template-concept
-ms.openlocfilehash: a51f05fe29a4a0d3dda9057ca0eb7c4d3de494fb
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.custom: 'template-concept #Required, leave this attribute/value as-is., ignite-fall-2021'
+ms.openlocfilehash: 3ce11bcd6b50b4dae9f63c1f9ce4c24cdc49f61d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123222006"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069751"
 ---
 # <a name="azure-percept-dk-and-vision-device-overview"></a>Azure Percept DK 및 Vision 디바이스 개요
 
@@ -31,7 +31,7 @@ Azure Percept DK는 [Azure Percept Studio](./overview-azure-percept-studio.md)�
 
 - 기본 제공되는 신뢰할 수 있는 루트 하드웨어의 보안입니다. [Azure Percept 보안](./overview-percept-security.md)에 대한 자세한 정보를 알아봅니다.
 
-- [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) 및 기타 Azure 서비스(예: Azure IoT Hub, Azure Cognitive Services 및 [Live Video Analytics](../media-services/live-video-analytics-edge/overview.md))의 원활한 통합.
+- [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) 및 기타 Azure 서비스(예: Azure IoT Hub, Azure Cognitive Services 및 [Live Video Analytics](../azure-video-analyzer/video-analyzer-docs/overview.md))의 원활한 통합.
 
 - AI 오디오 솔루션을 빌드하기 위한 선택적 액세서리인 [Azure Percept Audio](./overview-azure-percept-audio.md)와 호환됩니다.
 

@@ -7,12 +7,12 @@ ms.date: 08/30/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 54917fced3fb561add82d8e1f78078e7562858e1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d9892efecf010ea698e9f628cd92308e9ac8608b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128680455"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131078506"
 ---
 # <a name="how-to-use-the-iot-central-rest-api-to-manage-users-and-roles"></a>IoT Central REST API를 사용하여 사용자 및 역할을 관리하는 방법
 
@@ -233,4 +233,4 @@ DELETE https://{your app subdomain}.azureiotcentral.com/api/users/user-001?api-v
 
 ## <a name="next-steps"></a>다음 단계
 
-REST API로 사용자 및 역할을 관리하는 방법을 배웠으므로 이제 제안된 다음 단계는 [IoT Central REST API를 사용하여 디바이스를 제어하는 방법](howto-control-devices-with-rest-api.md)입니다.
+이제 REST API를 사용 하 여 사용자 및 역할을 관리 하는 방법을 배웠으므로 제안 된 다음 단계는 [IoT Central REST API를 사용 하 여 데이터 내보내기를 관리 하는 방법을 설명](howto-manage-data-export-with-rest-api.md) 하는 것입니다.

@@ -10,15 +10,13 @@ ms.date: 05/04/2020
 ms.topic: quickstart
 ms.service: synapse-analytics
 ms.subservice: sql-dw
-ms.custom:
-- azure-synapse
-- mode-portal
-ms.openlocfilehash: 6f1997a80e66d1ca7928afc02acf92f376fc3376
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.custom: azure-synapse, mode-portal
+ms.openlocfilehash: 71fb34ce9bd7e812a9ccc37ba4082d5f9f2e9d34
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534280"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131013235"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-workload-classifier-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 전용 SQL 풀 워크로드 분류자 만들기
 

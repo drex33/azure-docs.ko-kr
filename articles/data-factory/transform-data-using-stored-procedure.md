@@ -9,12 +9,12 @@ author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
 ms.date: 09/09/2021
-ms.openlocfilehash: d2dacc3379d1587352c7593c3766294613229fad
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 30e40c20aa8e11add35b270baf867a5fd5e46058
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124798354"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131016573"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics에서 SQL Server 저장 프로시저 작업을 사용 하 여 데이터 변환
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -93,5 +93,4 @@ Data Factory 또는 Synapse [파이프라인](concepts-pipelines-activities.md) 
 * [Hadoop 스트리밍 작업](transform-data-using-hadoop-streaming.md)
 * [Spark 작업](transform-data-using-spark.md)
 * [.NET 사용자 지정 작업](transform-data-using-dotnet-custom-activity.md)
-* [ML 스튜디오(클래식) Batch Execution 작업](transform-data-using-machine-learning.md)
 * [저장 프로시저 작업](transform-data-using-stored-procedure.md)

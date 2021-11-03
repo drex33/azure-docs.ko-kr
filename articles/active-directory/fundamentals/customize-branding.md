@@ -13,18 +13,18 @@ ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11da4de1ec4629971f6c0b3836ed38440942ace1
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 34cd3cbfd92f3448bd8b494b579a641bfb580ecd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129231333"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131052449"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>조직의 Azure Active Directory 로그인 페이지에 브랜딩 추가
 조직의 로고 및 사용자 지정 색 구성표를 사용하여 Azure AD(Azure Active Directory) 로그인 페이지에 일관된 모양과 느낌을 제공합니다. 사용자가 Microsoft 365와 같은 조직의 웹 기반 앱에 로그인할 때 로그인 페이지가 나타납니다. 여기서는 Azure AD를 ID 공급자로 사용합니다.
 
 >[!NOTE]
->사용자 지정 브랜딩을 추가하려면 Azure Active Directory Premium 1, Premium 2 또는 Office 365(Office 365 앱의 경우) 라이선스가 있어야 합니다. 라이선스 및 버전에 대한 자세한 내용은 [Azure AD Premium에 등록](active-directory-get-started-premium.md)을 참조하세요.<br><br>Azure AD Premium 버전은 Azure Active Directory의 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다. Azure AD Premium 버전은 현재 중국의 21Vianet이 운영하는 Azure 서비스에서는 지원되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 사용하여 문의하세요.
+>사용자 지정 브랜딩을 추가하려면 Azure Active Directory Premium 1, Premium 2 또는 Office 365(Office 365 앱의 경우) 라이선스가 있어야 합니다. 라이선스 및 버전에 대한 자세한 내용은 [Azure AD Premium에 등록](active-directory-get-started-premium.md)을 참조하세요.<br><br>Azure AD Premium 버전은 Azure Active Directory의 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다. Azure AD Premium 버전은 현재 중국의 21Vianet이 운영하는 Azure 서비스에서는 지원되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)을 사용하여 문의하세요.
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Azure AD 로그인 페이지 사용자 지정
 사용자가 조직의 테넌트별 앱(예: `https://outlook.com/contoso.com`)에 로그인하거나 도메인 변수(예: `https://passwordreset.microsoftonline.com/?whr=contoso.com`)를 전달할 때 표시되는 Azure AD 로그인 페이지를 사용자 지정할 수 있습니다.

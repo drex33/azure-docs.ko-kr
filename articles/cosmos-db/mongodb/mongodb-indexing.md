@@ -9,23 +9,23 @@ ms.date: 10/13/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: devx-track-js
-ms.openlocfilehash: 115876aab202c550d694267294345b5472ad1f2a
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: b33e80ad409c20be36a4c743573ea959525f82e8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129811730"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045174"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB에서 인덱싱 관리
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-Azure Cosmos DB의 API for MongoDB는 Azure Cosmos DB의 핵심 인덱스 관리 기능을 활용합니다. 이 문서에서는 Azure Cosmos DB의 API for MongoDB를 사용하여 인덱스를 추가하는 방법을 중점적으로 설명합니다. 모든 API에서 관련된 [Azure Cosmos DB의 인덱싱 개요](../index-overview.md)를 읽을 수도 있습니다.
+Azure Cosmos DB의 API for MongoDB는 Azure Cosmos DB의 핵심 인덱스 관리 기능을 활용합니다. 이 문서에서는 Azure Cosmos DB의 API for MongoDB를 사용하여 인덱스를 추가하는 방법을 중점적으로 설명합니다. 인덱스는 데이터를 대략적으로 더 빠르게 쿼리할 수 있도록 하는 특수 한 데이터 구조입니다.
 
 ## <a name="indexing-for-mongodb-server-version-36-and-higher"></a>MongoDB 서버 버전 3.6 이상에 대한 인덱싱
 
-Azure Cosmos DB의 API for MongoDB 서버 버전 3.6 이상은 `_id` 분할된 컬렉션에서만 필드 및 분할 키를 자동으로 인덱싱합니다. API는 분할 키당 필드의 고유성을 자동으로 `_id` 적용합니다. 
+MongoDB server 버전 3.6 +에 대 한 Azure Cosmos DB의 API는 `_id` 필드 및 분할 키 (분할 된 컬렉션에만 해당)를 자동으로 인덱싱합니다. API는 분할 키 당 필드의 고유성을 자동으로 적용 합니다 `_id` . 
 
-MongoDB API는 기본적으로 모든 필드를 인덱싱하는 Azure Cosmos DB SQL API와 다르게 동작합니다.
+MongoDB 용 api는 기본적으로 모든 필드를 인덱싱하는 Azure Cosmos DB SQL api와 다르게 동작 합니다.
 
 ### <a name="editing-indexing-policy"></a>인덱싱 정책 편집
 
@@ -49,12 +49,12 @@ Azure Portal에서 `name`에 동일한 단일 필드 인덱스를 만들 수 있
 
 :::image type="content" source="./media/mongodb-indexing/add-index.png" alt-text="인덱싱 정책 편집기에서 이름 인덱스 추가":::
 
-사용 가능한 경우 하나의 쿼리가 여러 개의 단일 필드 인덱스를 사용합니다. 컬렉션당 최대 500개의 단일 필드 인덱스를 만들 수 있습니다.
+사용 가능한 경우 하나의 쿼리가 여러 개의 단일 필드 인덱스를 사용합니다. 컬렉션 당 최대 500 개의 단일 필드 인덱스를 만들 수 있습니다.
 
 ### <a name="compound-indexes-mongodb-server-version-36"></a>복합 인덱스(MongoDB 서버 버전 3.6 이상)
-MongoDB용 API에서 쿼리에 여러 필드를 한 번에 정렬하는 기능이 필요한 경우 복합 인덱스가 **필요합니다.** 정렬할 필요가 없는 여러 필터가 있는 쿼리의 경우 복합 인덱스 대신 여러 개의 단일 필드 인덱스를 만들어 인덱싱 비용을 절감합니다. 
+MongoDB에 대 한 API에서는 쿼리가 한 번에 여러 필드를 정렬할 수 있어야 하는 경우 복합 인덱스가 **필요** 합니다. 정렬할 필요가 없는 여러 필터가 포함 된 쿼리의 경우 인덱싱 비용을 줄이기 위해 복합 인덱스 대신 단일 필드 인덱스를 여러 개 만듭니다. 
 
-복합 인덱스의 각 필드에 대한 복합 인덱스 또는 단일 필드 인덱스는 쿼리에서 필터링에 대해 동일한 성능을 제공합니다.
+복합 인덱스의 각 필드에 대 한 복합 인덱스 또는 단일 필드 인덱스는 쿼리를 필터링 하는 데 동일한 성능을 생성 합니다.
 
 
 > [!NOTE]

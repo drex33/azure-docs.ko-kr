@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 2d05eab0bb43fcfeb727556b002405e830fc4ae7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: bcc11f74a5d6d6816286fc21bda983f338f5c22d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128624371"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059120"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-blink"></a>자습서: Blink와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "128624371"
 * 사용자가 자신의 Azure AD 계정으로 Blink에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -77,16 +77,16 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
-    a. **로그온 URL** 텍스트 상자에서 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
-    
+    1. **로그온 URL** 텍스트 상자에서 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
+
     | 로그온 URL|
     |------------|
     | `https://app.joinblink.com` |
     | `https://<SUBDOMAIN>.joinblink.com` |
-    |
-    
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://api.joinblink.com/saml/o-<TENANTID>` 패턴을 사용하는 URL을 입력합니다.
+    2. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
+
+    `https://api.joinblink.com/saml/o-<TENANTID>`
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Blink 클라이언트 지원 팀](https://help.joinblink.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -104,17 +104,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     |   이메일       | user.mail |
     | | |
 
-    a. **새 클레임 추가** 를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
+    1. **새 클레임 추가** 를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
 
-    b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+    1. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
 
-    다. **네임스페이스** 를 비워 둡니다.
+    1. **네임스페이스** 를 비워 둡니다.
 
-    d. 원본을 **특성** 으로 선택합니다.
+    1. 원본을 **특성** 으로 선택합니다.
 
-    e. **원본 특성** 목록에서 해당 행에 표시된 특성 값을 입력합니다.
+    1. **원본 특성** 목록에서 해당 행에 표시된 특성 값을 입력합니다.
 
-    f. **저장** 을 클릭합니다.
+    1. **저장** 을 클릭합니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 

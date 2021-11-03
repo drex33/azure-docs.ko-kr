@@ -11,12 +11,12 @@ ms.date: 09/27/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 얼굴 인식, 얼굴 인식 소프트웨어, 얼굴 분석, 얼굴 일치, 얼굴 인식 앱, 이미지별 얼굴 검색, 얼굴 인식 검색
-ms.openlocfilehash: 90a2b656d66c15eed10d68be8e5af5c35f35d135
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 25e79bb8ab2d37c5b32a6519158cd53d79c1d94b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130005694"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131071423"
 ---
 # <a name="what-is-the-azure-face-service"></a>Azure Face 서비스란?
 
@@ -86,9 +86,9 @@ ID 검증에 대한 자세한 내용은 [얼굴 인식](concepts/face-recognitio
 
 그리고 다음 이미지는 후보 얼굴입니다.
 
-![5개의 웃는 사람들의 이미지 a와 b 이미지는 동일한 사람을 보여 줍니다.](./Images/FaceFindSimilar.Candidates.jpg)
+![5개의 웃는 사람들의 이미지 A와 B 이미지는 동일한 사람을 보여 줍니다.](./Images/FaceFindSimilar.Candidates.jpg)
 
-4개의 유사한 얼굴을 찾기 위해 **matchPerson** 모드는 a와 b를 표시하며 동일한 사람을 대상 얼굴로 나타냅니다. **matchFace** 모드는 일부가 대상과 동일한 사람이 아니거나 유사성이 낮은 경우에도 4개의 후보인 a, b, c, d&mdash;를 정확히 표시합니다. 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Find Similar API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) 참조 설명서를 참조하세요.
+4개의 유사한 얼굴을 찾기 위해 **matchPerson** 모드는 A와 B를 표시하며 동일한 사람을 대상 얼굴로 나타냅니다. **matchFace** 모드는 일부가 대상과 동일한 사람이 아니거나 유사성이 낮은 경우에도 4개의 후보인 A, B, C 및 D를 정확히 반환합니다. 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Find Similar API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) 참조 설명서를 참조하세요.
 
 ## <a name="group-faces"></a>얼굴 그룹화
 

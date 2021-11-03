@@ -9,12 +9,13 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 07/23/2021
 ms.author: lajanuar
-ms.openlocfilehash: 5b27e3db548c54cec4e77ee169921e45ac700524
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 2d61c48204478cc19be51d5d2c0d2974c674661d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530579"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131020847"
 ---
 # <a name="use-table-tags-to-train-your-custom-form-model"></a>테이블 태그를 사용하여 사용자 지정 양식 모델 학습
 
@@ -30,7 +31,7 @@ ms.locfileid: "122530579"
 > [!NOTE]
 > Form Recognizer는 태그가 테이블에 지정되었는지 여부에 관계없이 문서의 모든 테이블을 자동으로 찾아서 추출합니다. 따라서 테이블 태그를 양식의 모든 테이블에 지정할 필요가 없으며, 테이블 태그는 양식에서 찾은 해당 테이블의 구조를 복제할 필요가 없습니다. Form Recognizer에서 자동으로 추출한 테이블은 JSON 출력의 pageResults 섹션에 포함됩니다.
 
-## <a name="create-a-table-tag-with-the-form-recognizer-sample-labeling-tool"></a>Form Recognizer 샘플 레이블 지정 도구를 사용하여 테이블 태그 만들기
+## <a name="create-a-table-tag-with-the-form-recognizer-sample-labeling-tool"></a>폼 인식기 샘플 레이블 도구를 사용 하 여 테이블 태그 만들기
 <!-- markdownlint-disable MD004 -->
 * **동적** 또는 **고정 크기** 의 테이블 태그를 사용할지 여부를 결정합니다. 행 수가 문서마다 다를 경우 동적 테이블 태그를 사용합니다. 행 수가 문서 전체에서 일치하는 경우 고정 크기 테이블 태그를 사용합니다.
 * 동적 테이블 태그인 경우 각 열에 대한 열 이름, 데이터 형식 및 형식을 정의합니다.
@@ -47,9 +48,9 @@ ms.locfileid: "122530579"
 빠른 시작에 따라 사용자 지정 Form Recognizer 모델을 학습시키고 사용합니다.
 
 > [!div class="nextstepaction"]
-> [샘플 레이블 지정 도구에서 레이블을 사용하여 학습](label-tool.md)
+> [샘플 레이블 도구를 사용 하 여 레이블로 학습](label-tool.md)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
-* [샘플 레이블 지정 도구를 사용하여 사용자 지정 모델 학습](label-tool.md)
+* [샘플 레이블 도구를 사용 하 여 사용자 지정 모델 학습](label-tool.md)
 >

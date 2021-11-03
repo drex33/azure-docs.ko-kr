@@ -3,19 +3,19 @@ title: Azure SQL Database로 SQL Server 마이그레이션 평가 규칙
 description: Azure SQL Database로 마이그레이션하기 전에 해결해야 하는 원본 SQL Server 인스턴스의 문제를 식별하는 평가 규칙입니다.
 ms.service: sql-database
 ms.subservice: migration-guide
-ms.custom: ''
+ms.custom: ignite-fall-2021
 ms.devlang: ''
 ms.topic: how-to
 author: rajeshsetlem
 ms.author: rsetlem
 ms.reviewer: mathoma, cawrites
 ms.date: 12/15/2020
-ms.openlocfilehash: 17b3cd2c0257989a220be6b35e93d88db7225188
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 88c90896cd8c480f828116c479a4dc5d0a3ee99f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129457471"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069504"
 ---
 # <a name="assessment-rules-for-sql-server-to-azure-sql-database-migration"></a>Azure SQL Database로 SQL Server 마이그레이션 평가 규칙
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -217,7 +217,7 @@ Transact SQL BEGIN DISTRIBUTED TRANSACTION으로 시작되고 MS DTC(Microsoft D
 **권장 사항**   
 BEGIN DISTRIBUTED TRANSACTION을 사용하여 모든 개체를 보려면 Azure Migrate의 영향을 받는 개체 섹션을 검토합니다. 여러 인스턴스에 걸친 분산 트랜잭션이 지원되는(현재 미리 보기 상태) Azure SQL Managed Instance로 참가자 데이터베이스를 마이그레이션하는 것이 좋습니다. 또는 Azure 가상 머신의 SQL Server로 마이그레이션합니다.
 
-추가 정보: [Azure SQL Managed Instance에 대한 여러 서버 간 트랜잭션 ](../../database/elastic-transactions-overview.md#transactions-across-multiple-servers-for-azure-sql-managed-instance)
+추가 정보: [Azure SQL Managed Instance에 대한 여러 서버 간 트랜잭션 ](../../database/elastic-transactions-overview.md#transactions-for-sql-managed-instance)
 
 
 ## <a name="openrowset-bulk"></a>OPENROWSET(BULK)<a id="OpenRowsetWithNonBlobDataSourceBulk"></a>

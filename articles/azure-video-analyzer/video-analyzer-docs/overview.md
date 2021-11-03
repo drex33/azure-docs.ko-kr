@@ -2,19 +2,24 @@
 title: Azure Video Analyzer란?
 description: 이 항목에서는 Azure Video Analyzer에 대해 간략하게 설명합니다.
 ms.topic: overview
-ms.date: 06/01/2021
-ms.openlocfilehash: 25f289a26743e92f6c904149e296ba6699fcf8b2
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.date: 10/30/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 7485eb54996228ae9a781c0f0bb97c0fa55ba936
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129389111"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058410"
 ---
 # <a name="what-is-azure-video-analyzer-preview"></a>Azure Video Analyzer란? (미리 보기)
  
-Azure Video Analyzer는 Edge 및 클라우드를 포괄하는 인텔리전트 비디오 애플리케이션을 빌드하기 위한 플랫폼을 제공합니다. 플랫폼은 IoT Edge 모듈과 연결된 Azure 서비스로 구성됩니다. 비디오 및/또는 비디오 분석 결과를 게시할 뿐만 아니라 라이브 비디오를 캡처, 녹화 및 분석하는 기능도 제공합니다. 비디오는 에지 또는 Video Analyzer 클라우드 서비스에 게시할 수 있지만, 비디오 분석은 Azure 서비스(클라우드 및/또는 에지)에 게시할 수 있습니다. 이 플랫폼을 사용하여 비디오 분석을 통해 IoT 솔루션을 개선할 수 있습니다. Video Analyzer 기능을 Stream Analytics on IoT Edge, Cognitive Services on IoT Edge와 같은 다른 Azure IoT Edge 모듈은 물론 이벤트 허브, Cognitive Services 등과 같은 클라우드의 Azure 서비스와 결합하여 강력한 하이브리드(예: 에지 + 클라우드) 애플리케이션을 빌드할 수 있습니다.
+Azure Video Analyzer는 Edge 및 클라우드를 포괄하는 인텔리전트 비디오 애플리케이션을 빌드하기 위한 플랫폼을 제공합니다. 플랫폼은 IoT Edge 모듈과 Azure 서비스로 구성됩니다. 라이브 비디오를 캡처, 녹화, 분석하는 기능이 제공되며, 결과와 비디오, 인사이트를 비디오에서 에지 또는 클라우드에 게시할 수 있습니다.
 
-Video Analyzer 에지 모듈은 확장 가능한 플랫폼으로 설계되었기 때문에 복잡하게 라이브 비디오 파이프라인을 구축하고 실행할 필요 없이 다양한 비디오 분석 에지 모듈(예: Cognitive 서비스 컨테이너, 오픈 소스 기계 학습 모델 또는 사용자 고유의 데이터로 학습된 사용자 지정 모델을 사용하여 제작된 사용자 지정 에지 모듈)을 연결하여 라이브 비디오를 분석하는 데 사용할 수 있습니다. Video Analyzer 클라우드 서비스를 사용하면 이러한 워크플로에서 비디오 및 비디오 분석을 재생할 수 있습니다.
+Video Analyzer 에지 모듈은 Stream Analytics, Cognitive Services 및 강력한 하이브리드(에지+클라우드) 애플리케이션을 빌드하는 Event Hub와 Cognitive Services 같은 기타 Azure 클라우드 서비스 등의 Azure IoT Edge 모듈과 함께 사용할 수 있습니다. 이 확장 가능한 에지 모듈은 오픈 소스 기계 학습 모델 및 학습 데이터로 빌드된 Azure Cognitive Services 컨테이너 또는 사용자 지정 에지 모듈과 같은 다양한 AI 에지 모듈에 원활하게 통합됩니다. Video Analyzer 플랫폼을 기반으로 하여 복잡한 시스템을 빌드, 운영 및 유지 관리해야 하는 복잡성을 걱정하지 않고도 라이브 비디오를 분석할 수 있습니다.
+
+사용 중인 비디오를 분석하는 것 외에도 에지 모듈을 사용하면 필요에 따라 비디오를 에지나 클라우드에서 로컬로 녹화하고 비디오 인사이트를 Azure 서비스(에지 및/또는 클라우드에서)에 게시할 수 있습니다. 비디오 및 비디오 인사이트를 클라우드에 기록할 경우 Video Analyzer 클라우드 서비스를 사용하여 관리할 수 있습니다.
+
+따라서 Video Analyzer 클라우드 서비스는 녹화, 재생, 내보내기(외부에 공유할 수 있는 비디오 파일 생성) 같은 [비디오 관리 시스템(VMS)](https://en.wikipedia.org/wiki/Video_management_system) 기능으로 IoT 솔루션을 강화하는 데 사용할 수도 있습니다. 또한 아래 다이어그램에 표시된 것처럼 클라우드에 직접 연결된 카메라를 사용하여 동일한 기능을 갖춘 클라우드 네이티브 솔루션을 빌드하는 데 사용할 수도 있습니다.
 
 ## <a name="accelerate-iot-solutions-development"></a>IoT 솔루션 개발 가속화 
 
@@ -22,15 +27,14 @@ Video Analyzer 에지 모듈은 확장 가능한 플랫폼으로 설계되었기
 
 Video Analyzer를 사용하면 기존 [VMS(비디오 관리 시스템)](https://en.wikipedia.org/wiki/Video_management_system)에서 [CCTV 카메라](https://en.wikipedia.org/wiki/Closed-circuit_television_camera)를 계속 사용하고 비디오 분석 앱을 독립적으로 빌드할 수 있습니다. Video Analyzer를 Computer Vision SDK 및 도구 키트와 함께 사용하여 최첨단 IoT 솔루션을 빌드할 수 있습니다. 아래 다이어그램에서 이를 보여 줍니다.
 
-![Video Analyzer를 통해 IoT 솔루션 개발](./media/overview/product-diagram.png)
+![Video Analyzer를 통해 IoT 솔루션 개발](./media/overview/product-diagram.svg)
 
 ### <a name="concepts"></a>개념
 
 * [파이프라인](pipeline.md)
-* [비디오 녹화](video-recording.md)
-* [연속 비디오 녹화](continuous-video-recording.md)
-* [이벤트 기반 비디오 녹화](event-based-video-recording-concept.md)
 * [비디오 녹화 없는 Video Analyzer](analyze-live-video-without-recording.md)
+* [비디오 녹화](video-recording.md)
+
 
 ## <a name="compliance-privacy-and-security"></a>규정 준수, 개인 정보 보호 및 보안
 
@@ -38,9 +42,9 @@ Video Analyzer를 사용하면 기존 [VMS(비디오 관리 시스템)](https://
 
 비디오를 Video Analyzer에서 처리하기 전에, Video Analyzer와 Azure에서 데이터를 사용하고, 처리하고, 저장하는 데 대한 비디오/이미지에 포함된 개인(있는 경우)의 모든 필요한 동의(법에서 요구되는 경우)를 비롯하여 비디오를 사용할 수 있는 모든 적절한 권한이 있어야 합니다. 일부 관할 지역에서는 생체 데이터와 같은 특정 범주의 데이터를 수집하고 온라인으로 처리하고 저장하는 데 대해 특별한 법적 요구 사항이 적용될 수 있습니다. Video Analyzer와 Azure를 특별한 법적 요구 사항이 적용되는 데이터를 처리하고 저장하는 데 사용하기 전에, 귀하에게 적용될 수 있는 이러한 법적 요구 사항을 반드시 준수해야 합니다.
 
-Video Analyzer의 규정 준수, 개인 정보 보호 및 보안에 대해 알아보려면 Microsoft [보안 센터](https://www.microsoft.com/TrustCenter/CloudServices/Azure/default.aspx)를 참조하세요. Microsoft의 개인 정보 보호 의무, 데이터 삭제 방법을 비롯한 데이터 처리 및 보존 방식에 대한 자세한 내용은 Microsoft의 [개인정보처리방침](https://privacy.microsoft.com/PrivacyStatement), [Online Services 사용 약관](https://www.microsoft.com/licensing/product-licensing/products?rtc=1)("OST") 및 [Data Processing 추록](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67)("DPA")을 검토하세요. Video Analyzer를 사용하면 OST, DPA 및 개인정보처리방침을 준수할 것에 동의하는 것입니다.
+Video Analyzer의 규정 준수, 개인 정보 보호 및 보안에 대해 알아보려면 Microsoft [보안 센터](https://www.microsoft.com/TrustCenter/CloudServices/Azure/default.aspx)를 참조하세요. Microsoft의 개인 정보 보호 의무, 데이터 삭제 방법을 비롯한 데이터 처리 및 보존 방식에 대한 자세한 내용은 Microsoft의 [개인정보처리방침](https://privacy.microsoft.com/PrivacyStatement), [제품 사용 약관](https://www.microsoft.com/licensing/terms/welcome/welcomepage), [Microsoft 제품 및 서비스 데이터 보호 부록](https://www.microsoft.com/licensing/docs/view/Microsoft-Products-and-Services-Data-Protection-Addendum-DPA)("DPA")을 검토하세요. Video Analyzer를 사용하면 제품 사용 약관, DPA 및 개인정보처리방침을 준수할 것에 동의하는 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 라이브 비디오 피드에서 동작 감지를 실행하는 방법에 대해서는 [빠른 시작: Azure Video Analyzer 시작](get-started-detect-motion-emit-events.md) 문서를 따르세요.
+* 라이브 비디오에서 동작 감지를 실행하는 방법에 대해서는 [빠른 시작: Azure Video Analyzer 시작](get-started-detect-motion-emit-events.md) 문서를 따르세요.
 * [용어](terminology.md)를 검토하세요.

@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: bce05c5c8db46a19d4891a4293f18a8791a07eca
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 730b7344a213922bd87d5efa3a659d352ff8624f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130217699"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131019149"
 ---
 # <a name="troubleshoot-azure-nfs-file-share-problems"></a>Azure NFS 파일 공유 문제 해결
 
@@ -40,7 +40,7 @@ Idmapping이 사용하지 않도록 설정되어 있으며 다시 사용하도�
 - 공유를 분리합니다.
 - # echo Y > /sys/module/nfs/parameters/nfs4_disable_idmapping을 통해 ID 매핑을 사용하지 않도록 설정합니다.
 - 공유를 다시 탑재합니다.
-- rsync를 실행하는 경우 잘못된 dir/file 이름이 없는 디렉터리에서 "—numeric-ids" 인수를 사용하여 rsync를 실행합니다.
+- Rsync를 실행 하는 경우 잘못 된 dir/file 이름이 없는 디렉터리에서 "— 숫자 id" 인수를 사용 하 여 rsync를 실행 합니다.
 
 ## <a name="unable-to-create-an-nfs-share"></a>NFS 공유를 만들 수 없음
 
@@ -122,7 +122,7 @@ NFS 공유에 대한 이중 암호화는 아직 지원되지 않습니다. Azure
 
 스토리지 계정의 구성 블레이드에서 필요한 보안 전송을 사용하지 않도록 설정합니다.
 
-:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="보안 전송을 사용하지 않도록 설정해야 하는 스토리지 계정 구성 블레이드의 스크린샷":::
+:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png" alt-text="보안 전송을 사용하지 않도록 설정해야 하는 스토리지 계정 구성 블레이드의 스크린샷":::
 
 ### <a name="cause-3-nfs-common-package-is-not-installed"></a>원인 3: nfs-common 패키지가 설치되어 있지 않습니다.
 탑재 명령을 실행하기 전에 아래에서 배포별 명령을 실행하여 패키지를 설치합니다.
@@ -160,11 +160,11 @@ NFS 프로토콜은 포트 2049을 통해 서버와 통신하고, 이 포트가 
 ## <a name="ls-hangs-for-large-directory-enumeration-on-some-kernels"></a>일부 커널에서 큰 디렉터리 열거형에 대해 ls 중단
 
 ### <a name="cause-a-bug-was-introduced-in-linux-kernel-v511-and-was-fixed-in-v5125"></a>원인: 버그가 Linux 커널 v5.11에서 도입되었으며 v5.12.5에서 수정되었습니다.  
-일부 커널 버전에는 디렉터리 목록이 무한 READDIR 시퀀스로 이어지도록 하는 버그가 있습니다. 한 번의 호출로 모든 항목을 배송할 수 있는 매우 작은 디렉터리는 문제가 되지 않습니다.
+일부 커널 버전에는 디렉터리 목록이 무한 READDIR 시퀀스를 발생 시키는 버그가 있습니다. 한 번의 호출로 모든 항목을 배송할 수 있는 매우 작은 디렉터리는 문제가 되지 않습니다.
 버그가 Linux 커널 v5.11에서 도입되었으며 v5.12.5에서 수정되었습니다. 따라서 두 버전 사이의 모든 버전에는 버그가 있습니다. RHEL 8.4는 이 커널 버전이 있는 것으로 알려져 있습니다.
 
 #### <a name="workaround-downgrading-or-upgrading-the-kernel"></a>해결 방법: 커널 다운그레이드 또는 업그레이드
-영향을 받는 커널 외부의 커널을 다운그레이드하거나 업그레이드하면 문제가 해결됩니다.
+커널을 영향을 받는 커널 외부의 모든 항목으로 다운 그레이드 하거나 업그레이드 하면 문제가 해결 됩니다.
 
 ## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

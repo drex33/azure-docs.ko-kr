@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: b0387aaecd45a2f09acc8d9ad7af230a62da6ed1
-ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
-ms.translationtype: HT
+ms.openlocfilehash: 634310ea429f950daa6b25c4203dea199adf4103
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109628503"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131036640"
 ---
 # <a name="using-storage-explorer-with-azure-files"></a>Azure Files와 함께 Storage Explorer 사용
 
@@ -72,7 +72,7 @@ Azure Files는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 
     ![공유 열기](media/vs-azure-tools-storage-explorer-files/image4.png)
 
 1. 기본 창에 파일 공유 내용이 표시됩니다.
-    
+
     ![공유 콘텐츠를 보여주는 Storage Explorer의 파일 공유에 대한 기본 창의 스크린샷](media/vs-azure-tools-storage-explorer-files/image5.png)
 
 ## <a name="delete-a-file-share"></a>파일 공유 삭제
@@ -92,7 +92,7 @@ Azure Files는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 
     ![DELETE](media/vs-azure-tools-storage-explorer-files/image6.png)
 
 1. 확인 대화 상자에서 **확인** 을 선택합니다.
-    
+
     ![확인 대화 상자](media/vs-azure-tools-storage-explorer-files/image7.png)
 
 ## <a name="copy-a-file-share"></a>파일 공유 복사
@@ -138,7 +138,7 @@ Storage Explorer를 사용하여 파일 공유를 클립보드에 복사한 다�
 1. SAS 옵션 지정하기를 마치면 **만들기** 를 선택합니다.
 
 1. 파일 공유와 함께 스토리지 리소스에 액세스하는 데 사용할 수 있는 URL 및 쿼리 문자열이 나열되는 두 번째 **공유 액세스 서명** 대화 상자가 표시됩니다. 클립보드에 복사할 URL 옆에 있는 **복사** 를 선택합니다.
-    
+
     ![두 번째 SAS 대화 상자](media/vs-azure-tools-storage-explorer-files/image12.png)
 
 1. 완료되면 **닫기** 를 선택합니다.
@@ -158,11 +158,11 @@ Storage Explorer를 사용하여 파일 공유를 클립보드에 복사한 다�
     ![액세스 정책 상황에 맞는 메뉴 관리](media/vs-azure-tools-storage-explorer-files/image13.png)
 
 1. **액세스 정책** 대화 상자는 선택된 파일 공유에 대해 이미 만들어진 모든 액세스 정책을 나열합니다.
-    
+
     ![액세스 정책](media/vs-azure-tools-storage-explorer-files/image14.png)
 
 1. 액세스 정책 관리 작업에 따라 다음 단계를 수행하세요.
-    
+
     - **새 액세스 정책 추가** - **추가** 를 선택합니다. 생성되었다면 **액세스 정책** 대화 상자는 (기본 설정을 사용하여) 새로 추가된 액세스 정책을 표시합니다.
 
     - **액세스 정책 편집** - 원하는 편집을 모두 마치고, **저장** 을 선택합니다.
@@ -170,9 +170,9 @@ Storage Explorer를 사용하여 파일 공유를 클립보드에 복사한 다�
     - **액세스 정책 제거** - 제거하려는 액세스 정책 옆에 있는 **제거** 를 선택합니다.
 
 1. 앞에서 만든 액세스 정책을 사용하여 새 SAS URL을 만듭니다.
-    
+
     ![SAS 가져오기](media/vs-azure-tools-storage-explorer-files/image15.png)
-    
+
     ![SAS 이름 및 속성](media/vs-azure-tools-storage-explorer-files/image16.png)
 
 ## <a name="managing-files-in-a-file-share"></a>파일 공유에서 파일 관리
@@ -202,7 +202,7 @@ Storage Explorer를 사용하여 파일 공유를 클립보드에 복사한 다�
         a.  기본 창 도구 모음에서 **업로드** 를 선택하고, 드롭 다운 메뉴에서 **파일 업로드** 를 합니다.
 
         ![파일 업로드](media/vs-azure-tools-storage-explorer-files/image18.png)
-        
+
         b. **파일 업로드** 대화 상자에서 **파일** 텍스트 상자 오른쪽에 있는 줄임표(**…**) 단추를 선택하여 업로드할 파일을 선택합니다.
 
         ![파일 추가](media/vs-azure-tools-storage-explorer-files/image19.png)
@@ -210,7 +210,7 @@ Storage Explorer를 사용하여 파일 공유를 클립보드에 복사한 다�
         다. **업로드** 를 선택합니다.
 
     - **파일 공유에 폴더 업로드**
-        
+
         a. 기본 창 도구 모음에서 **업로드** 를 선택하고, 드롭 다운 메뉴에서 **폴더 업로드** 를 선택합니다.
 
         ![폴더 메뉴 업로드](media/vs-azure-tools-storage-explorer-files/image20.png)
@@ -222,21 +222,21 @@ Storage Explorer를 사용하여 파일 공유를 클립보드에 복사한 다�
         d. **업로드** 를 선택합니다.
 
     - **로컬 컴퓨터에 파일 다운로드**
-        
+
         a. 다운로드하려는 파일을 선택합니다.
-        
+
         b. 기본 창 도구 모음에서 **다운로드** 를 선택합니다.
-        
+
         다. **다운로드한 파일을 저장할 위치 지정** 대화 상자에서 파일을 다운로드할 위치와 명명하려는 이름을 지정합니다.
 
         d. **저장** 을 선택합니다.
 
     - **로컬 컴퓨터에서 파일 열기**
-        
+
         a.  열려는 파일을 선택합니다.
-        
+
         b.  기본 창 도구 모음에서 **열기** 를 선택합니다.
-        
+
         다.  파일의 기본 파일 형식과 연결된 애플리케이션을 사용하여 파일을 다운로드하고 엽니다.
 
     - **파일을 클립보드에 복사**

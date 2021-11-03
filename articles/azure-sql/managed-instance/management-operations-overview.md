@@ -5,19 +5,19 @@ description: Azure SQL Managed Instance 관리 작업 기간 및 모범 사례�
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
-ms.custom: ''
+ms.custom: ignite-fall-2021
 ms.devlang: ''
 ms.topic: overview
 author: urosmil
 ms.author: urmilano
 ms.reviewer: mathoma
 ms.date: 08/20/2021
-ms.openlocfilehash: 2131f5549c026afdfde1d0ec14a27608a2ffaae8
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: f48197e7f59718f0843708a9ef0013c26bf48757
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123215211"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131062248"
 ---
 # <a name="overview-of-azure-sql-managed-instance-management-operations"></a>Azure SQL Managed Instance 관리 작업 개요
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -64,7 +64,7 @@ Azure SQL Managed Instance에서는 새로운 관리형 인스턴스를 자동�
 |작업(Operation)  |장기 실행 세그먼트  |예상 소요 시간  |
 |---------|---------|---------|
 |빈 서브넷의 첫 번째 인스턴스|가상 클러스터 만들기|작업의 90%가 4시간 후에 완료됩니다.|
-|비어 있지 않은 서브넷에 있는 다른 하드웨어 세대의 첫 번째 인스턴스(예: Gen 4개 인스턴스가 있는 서브넷의 첫 번째 Gen 5 인스턴스)|가상 클러스터 만들기<sup>1</sup>|작업의 90%가 4시간 후에 완료됩니다.|
+|비어 있지 않은 서브넷에 있는 다른 하드웨어 세대의 첫 번째 인스턴스(예: Gen4 인스턴스가 있는 서브넷의 첫 번째 Gen5 인스턴스)|가상 클러스터 만들기<sup>1</sup>|작업의 90%가 4시간 후에 완료됩니다.|
 |비어 있지 않은 서브넷 내의 후속 인스턴스 만들기(두 번째, 세 번째 등의 인스턴스)|가상 클러스터 크기 조정|작업의 90%가 2.5시간 후에 완료됩니다.|
 | | | 
 

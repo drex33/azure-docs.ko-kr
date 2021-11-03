@@ -7,16 +7,17 @@ ms.subservice: confidential-computing
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 74c0ea83d5792083993c6ce9c5dab88684234928
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 2f1f13a67bb827aa29b9d2de83f2fb46f95095d6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114469585"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056664"
 ---
-# <a name="enclave-aware-containers"></a>Enclave 인식 컨테이너
+# <a name="enclave-aware-containers-with-intel-sgx"></a>Intel SGX가 있는 Enclave 인식 컨테이너
 
-enclave은 데이터 및 코드 실행에 대한 기밀성을 제공하는 보호된 메모리 영역입니다. 하드웨어로 보호되는 TEE(Trusted Execution Environment)의 인스턴스입니다. AKS의 기밀 컴퓨팅 노드는 [Intel SGX(Software Guard Extensions)](https://software.intel.com/sgx)를 사용하여 각 컨테이너 애플리케이션 간의 노드에 격리된 enclave 환경을 만듭니다.
+enclave은 데이터 및 코드 실행에 대한 기밀성을 제공하는 보호된 메모리 영역입니다. 하드웨어로 보호되는 TEE(Trusted Execution Environment)의 인스턴스입니다. AKS의 기밀 컴퓨팅 VM 지원은 [Intel SGX(Software Guard Extensions)](https://software.intel.com/sgx)를 사용하여 각 컨테이너 애플리케이션 간의 노드에 격리된 enclave 환경을 만듭니다.
 
 Intel SGX 가상 머신과 마찬가지로 enclaves에서 실행되도록 개발된 컨테이너 에플리케이션에는 다음과 같은 두 가지 구성 요소가 있습니다.
 
@@ -30,7 +31,7 @@ Enclave 인식 컨테이너 애플리케이션 아키텍처는 Enclave의 코드
 ## <a name="enablers"></a>Enablers
 
 ### <a name="open-enclave-sdk"></a>Enclave SDK 열기
-Open Enclave SDK는 하드웨어 기반의 신뢰할 수 있는 실행 환경을 활용하는 C, C++ 애플리케이션을 개발하기 위한 하드웨어 독립적인 오픈 소스 라이브러리입니다. 현재 구현에서는 Intel SGX에 대한 지원뿐만 아니라 [Arm TrustZone의 OP-TEE OS](https://optee.readthedocs.io/en/latest/general/about.html)에 대한 미리 보기 지원도 제공합니다.
+[Open Enclave SDK](https://github.com/openenclave/openenclave/tree/master/docs/GettingStartedDocs)는 하드웨어 기반의 신뢰할 수 있는 실행 환경을 사용하는 C, C++ 애플리케이션을 개발하기 위한 하드웨어 독립적인 오픈 소스 라이브러리입니다. 현재 구현에서는 Intel SGX에 대한 지원과 [Arm TrustZone의 OP-TEE OS](https://optee.readthedocs.io/en/latest/general/about.html)에 대한 미리 보기 지원을 제공합니다.
 
 [여기](https://github.com/openenclave/openenclave/tree/master/docs/GettingStartedDocs)에서 Open Enclave 기반 컨테이너 애플리케이션 시작
 
@@ -60,10 +61,12 @@ ML 모델 리프트를 시작하고 [여기](https://aka.ms/confidentialinferenc
 
 [AKS의 enclave 인식 컨테이너에 대한 Azure 샘플](https://github.com/Azure-Samples/confidential-computing/tree/main/containersamples)
 
+[Intel SGX 기밀 VM 노드를 통해 AKS 클러스터 배포](./confidential-enclave-nodes-aks-get-started.md)
+
 <!-- LINKS - external -->
 [Azure Attestation](../attestation/overview.md)
 
 
 <!-- LINKS - internal -->
-[DC Virtual Machine](./virtual-machine-solutions.md)
+[Azure의 Intel SGX 기밀 가상 머신](./virtual-machine-solutions-sgx.md)
 [기밀 컨테이너](./confidential-containers.md)

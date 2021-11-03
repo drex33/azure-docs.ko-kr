@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2021
 ms.author: danlep
-ms.openlocfilehash: a642206389c5c92209a8d47e7a72992296b46428
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: dbb948e45473bf091cb2d69e82ad2adf5fcfe8a2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128603622"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058638"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>사용자 등록 및 제품 구독을 위임하는 방법
 
@@ -153,7 +153,7 @@ ms.locfileid: "128603622"
 
 이러한 코드 샘플에서는 다음을 수행하는 방법을 보여 줍니다.
 
-* 게시자 포털의 **위임** 화면에서 설정된 ‘위임 유효성 검사 키’를 가져옵니다.
+* Azure Portal의 **위임** 화면에서 설정 된 *위임 유효성 검사 키* 를 사용 합니다.
 * HMAC를 만든 다음, 이를 통해 서명의 유효성을 검사하여 전달된 returnUrl의 유효성을 증명합니다.
 
 약간만 수정하면 동일한 코드를 **productId** 와 **userId** 에도 사용할 수 있습니다.

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/21/2021
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 7fc9731769f568107a1ce6dacb5658fe164bd616
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 058d80b85a9a669612c64de6f0f705f6d605e419
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128657522"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131065022"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>자동 생성된 비트 전송률 사다리로 인코딩
 

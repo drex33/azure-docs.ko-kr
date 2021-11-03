@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
-ms.openlocfilehash: a1f4d4a3bb78da82753d651e1a73cf244096d5df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 0e89d80d26cd9a967bd4651828104c4b00a0d367
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94518104"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131047633"
 ---
 # <a name="security-frame-session-management"></a>보안 프레임: 세션 관리
 | 제품/서비스 | 아티클 |
@@ -205,7 +205,7 @@ Session.Abandon() 메서드를 호출하여 사용자의 세션을 삭제해야 
 
 ### <a name="example"></a>예제
 쿠키를 사용하는 모든 HTTP 기반 애플리케이션은 web.config에서 다음 구성을 구현하여 쿠키 정의에 HttpOnly를 지정해야 합니다.
-```XML
+```xml
 <system.web>
 .
 .
@@ -226,7 +226,7 @@ Session.Abandon() 메서드를 호출하여 사용자의 세션을 삭제해야 
 
 ### <a name="example"></a>예제 
 다음 코드 예제에서는 Web.config 파일에서 requireSSL 특성을 설정합니다.
-```XML
+```xml
 <authentication mode="Forms">
   <forms loginUrl="member_login.aspx" cookieless="UseCookies" requireSSL="true"/>
 </authentication>
@@ -243,7 +243,7 @@ Session.Abandon() 메서드를 호출하여 사용자의 세션을 삭제해야 
 
 ### <a name="example"></a>예제
 다음 구성에서는 올바른 구성을 보여 줍니다.
-```XML
+```xml
 <federatedAuthentication>
 <cookieHandler mode="Custom"
                        hideFromScript="true"
@@ -382,7 +382,7 @@ void Page_Init (object sender, EventArgs e) {
 | **단계** | 세션 시간 제한은 사용자가 웹 서버에서 정의되는 간격 내에 웹 사이트에서 아무 작업도 수행하지 않는 경우 발생하는 이벤트를 나타냅니다. 서버 쪽의 이벤트는 사용자 세션의 상태를 '잘못됨'(즉, "더 이상 사용되지 않는")으로 변경하고 웹 서버가 해당 항목을 삭제하도록 지시합니다(포함된 모든 데이터 삭제). 다음 코드 예제에서는 Web.config 파일에서 시간 제한 세션 특성을 15분으로 설정합니다.|
 
 ### <a name="example"></a>예제
-```XML 
+```xml
 <configuration>
   <system.web>
     <sessionState mode="InProc" cookieless="true" timeout="15" />
@@ -402,7 +402,7 @@ void Page_Init (object sender, EventArgs e) {
 | **단계** | 양식 인증 티켓 쿠키 시간 제한을 15분으로 설정|
 
 ### <a name="example"></a>예제
-```XML
+```xml
 <forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
 </forms>
 ```
@@ -417,7 +417,7 @@ void Page_Init (object sender, EventArgs e) {
 | **단계** | 웹 애플리케이션이 신뢰 당사자이고, ADFS가 STS인 경우 인증 쿠키(FedAuth 토큰)의 수명은 web.config에서 다음 구성으로 설정할 수 있습니다.|
 
 ### <a name="example"></a>예제
-```XML
+```xml
   <system.identityModel.services>
     <federationConfiguration>
       <!-- Set requireSsl=true; domain=application domain name used by FedAuth cookies (Ex: .gdinfra.com); -->

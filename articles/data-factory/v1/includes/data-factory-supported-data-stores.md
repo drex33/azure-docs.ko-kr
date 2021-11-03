@@ -3,14 +3,14 @@ author: linda33wj
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: include
-ms.date: 11/19/2018
+ms.date: 10/22/2021
 ms.author: jingwang
-ms.openlocfilehash: 5daf2c97591e12f11f5d6ceec502a8996b51f709
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 024ca83677ebdd18dac99ae9944cbd05124b6033
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128597622"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "131067563"
 ---
 | 범주 | 데이터 저장소 | 소스로 지원 | 싱크로 지원 |
 |:--- |:--- |:--- |:--- |

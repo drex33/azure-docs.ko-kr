@@ -3,14 +3,14 @@ title: Azure Portal에서 작업 그룹 만들기 및 관리
 description: Azure Portal에서 작업 그룹을 만들고 관리하는 방법에 대해 알아봅니다.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 05/28/2021
+ms.date: 10/18/2021
 ms.author: dukek
-ms.openlocfilehash: cc5d5aa589b56fb6e6fda1845e50606ff492fbdd
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 7a2efe5a47e88fd8ad8e9a382d522271d8ab4c3b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129217886"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131017904"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor, Service Health 및 Azure Advisor 경고는 작업 그룹을 사용하여 알림이 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다. 
@@ -25,7 +25,7 @@ ms.locfileid: "129217886"
 
 Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하는 방법에 대한 자세한 내용은 [작업 그룹 리소스 관리자 템플릿](./action-groups-create-resource-manager-template.md)을 참조하세요.
 
-작업 그룹은 **글로벌** 서비스 이므로 특정 Azure 지역에 대 한 종속성이 없습니다. 클라이언트의 요청은 모든 지역에서 작업 그룹 서비스에 의해 처리 될 수 있습니다. 즉, 서비스의 한 지역이 다운 되 면 트래픽은 다른 지역에서 자동으로 라우팅되고 처리 됩니다. *글로벌 서비스로* 서 클라이언트는 **재해 복구** 에 대해 걱정 하지 않아도 됩니다. 
+작업 그룹은 **글로벌** 서비스이므로 특정 Azure 지역에 대한 종속성이 없습니다. 클라이언트의 요청은 모든 지역의 작업 그룹 서비스에 의해 처리될 수 있습니다. 즉, 서비스의 한 지역이 다운되면 트래픽이 라우팅되고 다른 지역에 의해 자동으로 처리됩니다. 글로벌 *서비스이기* 때문에 클라이언트가 **재해 복구에** 대해 걱정하지 않아도 됩니다. 
 
 ## <a name="create-an-action-group-by-using-the-azure-portal"></a>Azure Portal을 사용하여 작업 그룹 만들기
 
@@ -51,7 +51,7 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
 
 1. **표시 이름** 을 입력합니다. 표시 이름은 이 그룹을 사용하여 알림을 보내는 경우 전체 작업 그룹 이름 대신 사용됩니다.
 
-      ![“작업 그룹 추가” 대화 상자](./media/action-groups/action-group-1-basics.png)
+      !["작업 그룹 추가" 대화 상자](./media/action-groups/action-group-1-basics.png)
 
 
 ### <a name="configure-notifications"></a>알림 구성
@@ -158,6 +158,14 @@ Azure 모바일 앱을 구성할 때 계정 ID로 사용하는 메일 주소를 
 
 > [!NOTE]
 > 고객이 구독에 새 ARM 역할을 추가한 후 알림을 받기 시작하는 데 최대 **24시간** 이 걸릴 수 있습니다.
+
+### <a name="event-hub-preview"></a>이벤트 허브(미리 보기)
+> [!NOTE]
+> 이벤트 허브 작업 유형은 현재 *미리 보기* 에 있습니다. 미리 보기 중에는 기능의 가용성에 버그 및 중단이 있을 수 있습니다.
+
+이벤트 허브 작업은 Azure Event [Hub](~/articles/event-hubs/event-hubs-about.md)에 알림을 게시합니다. 그런 다음 이벤트 수신기에서 경고 알림 스트림을 구독할 수 있습니다.
+
+현재 이벤트 허브 작업은 [Azure Resource Manager 템플릿](./action-groups-create-resource-manager-template.md)을 사용하여 정의할 수 있습니다.
 
 ### <a name="function"></a>함수
 [Azure Functions](../../azure-functions/functions-get-started.md)에서 기존 HTTP 트리거 엔드포인트를 호출합니다. 요청을 처리하려면 엔드포인트가 HTTP POST 동사를 처리해야 합니다.

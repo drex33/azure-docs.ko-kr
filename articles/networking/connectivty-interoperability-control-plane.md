@@ -10,12 +10,13 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 4dfd869b92e042e71eed1ee692d90fc44a8ac6c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 7a777208563e13945bd0bdd0aac43560143d0a49
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98234242"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131005065"
 ---
 # <a name="interoperability-in-azure--control-plane-analysis"></a>Azure의 상호 운용성: 컨트롤 플레인 분석
 
@@ -94,11 +95,11 @@ ExpressRoute 및 사이트 간 VPN의 공존 연결을 구성하는 방법에 �
 
 
 <!--Image References-->
-[1]: ./media/backend-interoperability/HubView.png "토폴로지의 허브 및 스포크 VNet 관점"
-[2]: ./media/backend-interoperability/Loc1ExRView.png "ExpressRoute 1을 통한 토폴로지의 위치 1 및 원격 VNet 관점"
-[3]: ./media/backend-interoperability/Loc1VPNView.png "사이트 간 VPN을 통한 토폴로지의 위치 1 및 분기 VNet 관점"
-[4]: ./media/backend-interoperability/Loc2View.png "토폴로지의 위치 2 관점"
-[5]: ./media/backend-interoperability/ExR1-RouteTable.png "ExpressRoute 1 경로 테이블"
+[1]: ./media/backend-interoperability/hubview.png "토폴로지의 허브 및 스포크 VNet 관점"
+[2]: ./media/backend-interoperability/loc1exrview.png "ExpressRoute 1을 통한 토폴로지의 위치 1 및 원격 VNet 관점"
+[3]: ./media/backend-interoperability/loc1vpnview.png "사이트 간 VPN을 통한 토폴로지의 위치 1 및 분기 VNet 관점"
+[4]: ./media/backend-interoperability/loc2view.png "토폴로지의 위치 2 관점"
+[5]: ./media/backend-interoperability/exr1-routetable.png "ExpressRoute 1 경로 테이블"
 
 <!--Link References-->
 [Setup]: ./connectivty-interoperability-preface.md
@@ -107,7 +108,7 @@ ExpressRoute 및 사이트 간 VPN의 공존 연결을 구성하는 방법에 �
 [VPN]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
 [VNet]: ../virtual-network/tutorial-connect-virtual-networks-portal.md
 [Configuration]: ./connectivty-interoperability-configuration.md
-[Control-Analysis]:https://docs.microsoft.com/azure/networking/connectivty-interoperability-control-plane
+[Control-Analysis]: /azure/networking/connectivty-interoperability-control-plane
 [Data-Analysis]: ./connectivty-interoperability-data-plane.md
 [ExR-FAQ]: ../expressroute/expressroute-faqs.md
 [S2S-Over-ExR]: ../expressroute/site-to-site-vpn-over-microsoft-peering.md

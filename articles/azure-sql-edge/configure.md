@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 0c49f5ab9f10456c32f7f8516cba0e851fa80e74
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: fa1b92e34def30f276b50d4f19e3a4ed4ae3922a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93392336"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131017866"
 ---
 # <a name="configure-azure-sql-edge"></a>Azure SQL Edge 구성
 
@@ -32,7 +32,7 @@ Azure SQL Edge는 SQL Edge 컨테이너를 구성하는 데 사용할 수 있는
 
 다음은 Azure SQL Edge에 추가된 새 환경 변수입니다. 
 
-| 환경 변수 | Description | 값 |     
+| 환경 변수 | 설명 | 값 |     
 |-----|-----| ---------- | 
 | **PlanId** | 초기화하는 동안 사용할 Azure SQL Edge SKU를 지정합니다. 이 환경 변수는 Azure IoT Edge를 사용하여 Azure SQL Edge를 배포하는 경우에만 필요합니다. | **asde-developer-on-iot-edge** 또는 **asde-premium-on-iot-edge** | 
 | **MSSQL_TELEMETRY_ENABLED** | 사용량 및 진단 데이터 수집을 사용하거나 사용하지 않도록 설정합니다. | TRUE 또는 FALSE |  
@@ -64,7 +64,7 @@ Azure SQL Edge는 SQL Edge 컨테이너를 구성하는 데 사용할 수 있는
 > [!NOTE]
 > 연결이 끊긴 배포 모드에서 `docker run` 명령의 `-e`, `--env` 또는 `--env-file` 옵션을 사용하여 환경 변수를 지정할 수 있습니다.
 
-## <a name="configure-by-using-an-mssqlconf-file"></a>mssql.conf 파일을 사용하여 구성
+## <a name="configure-by-using-an-mssqlconf-file"></a>파일을 사용 하 여 구성 `mssql.conf`
 
 Azure SQL Edge는 SQL Server on Linux처럼 [mssql-conf 구성 유틸리티](/sql/linux/sql-server-linux-configure-mssql-conf/)를 포함하지 않습니다. mssql.conf 파일을 수동으로 구성하고 SQL Edge 모듈의 /var/opt/mssql/ 폴더에 매핑된 영구적 스토리지 드라이브에 배치해야 합니다. Azure Marketplace에서 SQL Edge를 배포할 때 **컨테이너 만들기 옵션** 의 **탑재** 옵션으로 이 매핑을 지정합니다.
 
@@ -99,7 +99,7 @@ Azure SQL Edge는 SQL Server on Linux처럼 [mssql-conf 구성 유틸리티](/sq
 |**ML Services EULA** | Azure Machine Learning 패키지에 대한 R 및 Python EULA에 동의합니다. SQL Server 2019에만 적용됩니다.|
 |**outboundnetworkaccess** |[Machine Learning Services](/sql/linux/sql-server-linux-setup-machine-learning/) R, Python 및 Java 확장의 아웃바운드 네트워크 액세스를 사용하도록 설정합니다.|
 
-다음은 SQL Edge에 사용할 수 있는 샘플 mssql.conf 파일입니다. mssql.conf 파일의 형식에 대한 자세한 내용은 [mssql.conf 형식](/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format)을 참조하세요.
+다음은 SQL Edge에 사용할 수 있는 샘플 mssql.conf 파일입니다. 파일 형식에 대 한 자세한 내용은 `mssql.conf` [mssql 파일 형식](/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format)을 참조 하세요.
 
 ```ini
 [EULA]

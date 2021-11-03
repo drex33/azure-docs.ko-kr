@@ -8,17 +8,19 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 2fde10090312956e6f9e5332d5827ac0de07be87
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
-ms.translationtype: HT
+ms.custom: devx-track-js, devx-track-csharp, ignite-fall-2021
+ms.openlocfilehash: e38baa47d22ebb1fbdd5127cbd415afc3027d8a4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110792275"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131016854"
 ---
 # <a name="filter-responses-with-metadata"></a>메타데이터로 응답 필터링
 
 QnA Maker를 사용하면 키 및 값 쌍의 형식으로 질문과 응답 쌍에 메타데이터를 추가할 수 있습니다. 그런 다음, 이 정보를 사용하여 사용자 쿼리에 대한 결과를 필터링하고 후속 대화에 사용할 수 있는 추가 정보를 저장할 수 있습니다.
+
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 <a name="qna-entity"></a>
 

@@ -3,20 +3,20 @@ title: Predicates 및 PredicateValidations
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 잘못된 형식의 데이터를 Azure AD B2C 테넌트에 추가하지 않도록 합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/30/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: d5317edcf7ef00c6d82c1799582ad2a92005b7cb
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 52b4f376e26ffaef5e1ab6ef7ec0e43a9a3f07b4
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108161630"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131044449"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates 및 PredicateValidations
 
@@ -73,7 +73,7 @@ ms.locfileid: "108161630"
 
 IsLengthRange 메서드는 문자열 클레임 값의 길이가 지정된 최소 및 최대 매개 변수 범위 내에 있는지 여부를 확인합니다. Predicate 요소는 다음 매개 변수를 지원합니다.
 
-| 매개 변수 | 필수 | Description |
+| 매개 변수 | 필수 | 설명 |
 | ------- | ----------- | ----------- |
 | 최대 | Yes | 입력할 수 있는 최대 문자 수입니다. |
 | 최소 | Yes | 입력해야 하는 최소 문자 수입니다. |
@@ -93,7 +93,7 @@ IsLengthRange 메서드는 문자열 클레임 값의 길이가 지정된 최소
 
 MatchesRegex 메서드는 문자열 클레임 값이 정규식과 일치하는지 여부를 확인합니다. Predicate 요소는 다음 매개 변수를 지원합니다.
 
-| 매개 변수 | 필수 | Description |
+| 매개 변수 | 필수 | 설명 |
 | ------- | ----------- | ----------- |
 | RegularExpression | Yes | 일치 항목을 찾을 정규식 패턴입니다. |
 
@@ -129,7 +129,7 @@ IncludesCharacters 메서드는 문자열 클레임 값에 특정 문자 집합�
 
 IsDateRange 메서드는 날짜 클레임 값이 지정한 최소/최대 매개 변수 범위 사이에 있는지 여부를 확인합니다. Predicate 요소는 다음 매개 변수를 지원합니다.
 
-| 매개 변수 | 필수 | Description |
+| 매개 변수 | 필수 | 설명 |
 | ------- | ----------- | ----------- |
 | 최대 | Yes | 입력할 수 있는 최대 날짜입니다. 날짜 형식은 `yyyy-mm-dd` 규칙 또는 `Today`를 따릅니다. |
 | 최소 | Yes | 입력할 수 있는 최소 날짜입니다. 날짜 형식은 `yyyy-mm-dd` 규칙 또는 `Today`를 따릅니다.|

@@ -7,23 +7,23 @@ ms.topic: include
 ms.date: 10/07/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: a0082eb488c05d71409606e1048b0a94fd6155a4
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: d52b951ef959053d441e61515c42b6644368fa8a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129855011"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131077524"
 ---
 [![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/device/PnpDeviceSamples)
 
-이 빠른 시작에서는 기본 Azure IoT 애플리케이션 개발 워크플로에 대해 알아봅니다. Azure CLI 및 IoT Explorer를 사용하여 Azure IoT Hub 및 디바이스를 만듭니다. 그런 다음 Azure IoT 디바이스 SDK 샘플을 사용하여 시뮬레이션된 온도 조절기를 실행하고 허브에 안전하게 연결하고 원격 분석을 전송합니다.
+이 빠른 시작에서는 기본 Azure IoT 애플리케이션 개발 워크플로에 대해 알아봅니다. Azure CLI 및 IoT Explorer를 사용하여 Azure IoT Hub 및 디바이스를 만듭니다. 그런 다음 Azure IoT 디바이스 SDK 샘플을 사용하여 온도 컨트롤러를 실행하고, 허브에 안전하게 연결하고, 원격 분석을 보냅니다. 온도 컨트롤러 샘플 애플리케이션은 로컬 컴퓨터에서 실행되고 IoT Hub로 보낼 시뮬레이션된 센서 데이터를 생성합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작은 Windows, Linux 및 Raspberry Pi에서 실행됩니다. 다음 OS 및 디바이스 버전에서 테스트되었습니다.
 
 - Windows 10
-- WSL(Linux용 Windows 하위 시스템)에서 실행되는 Ubuntu 20.04 LTS
+- Ubuntu 20.04 LTS
 - Raspberry Pi 3 모델 B+에서 실행되는 Raspberry Pi OS 버전 10(Raspian)
 
 Raspberry Pi에 대해 명시한 경우를 제외하고는 다음 사전 요구 사항을 개발 컴퓨터에 설치합니다.
@@ -42,9 +42,9 @@ Raspberry Pi에 대해 명시한 경우를 제외하고는 다음 사전 요구 
 
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
-## <a name="run-a-simulated-device"></a>시뮬레이트된 디바이스 실행
+## <a name="run-a-device"></a>디바이스 실행
 
-이 섹션에서는 C# SDK를 사용하여 시뮬레이션된 디바이스에서 IoT 허브로 메시지를 보냅니다. 두 개의 온도 조절기 센서가 있는 온도 컨트롤러를 구현하는 샘플을 실행합니다.
+이 섹션에서는 C# SDK를 사용하여 디바이스에서 IoT Hub로 메시지를 보냅니다. 두 개의 온도 조절기 센서가 있는 온도 컨트롤러를 구현하는 샘플을 실행합니다.
 
 1. 새 콘솔(예: Windows CMD, PowerShell 또는 Bash)을 엽니다. 다음 단계에서 이 콘솔을 사용하여 Node.js SDK를 설치하고 Node.js 샘플 코드로 작업합니다.
 
@@ -77,7 +77,7 @@ Raspberry Pi에 대해 명시한 경우를 제외하고는 다음 사전 요구 
 
     이 명령은 *TemperatureController.csproj* 파일에 지정된 대로 적절한 종속성을 설치합니다.
 
-1. 시뮬레이션된 디바이스에서 Azure IoT에 연결할 수 있도록 다음 환경 변수를 모두 설정합니다.
+1. 디바이스가 Azure IoT에 연결할 수 있도록 다음 환경 변수를 모두 설정합니다.
     * `IOTHUB_DEVICE_CONNECTION_STRING`이라는 환경 변수를 설정합니다. 변수 값의 경우 이전 섹션에서 저장한 디바이스 연결 문자열을 사용합니다.
     * `IOTHUB_DEVICE_SECURITY_TYPE`이라는 환경 변수를 설정합니다. 변수의 경우 리터럴 문자열 값 `connectionString`을 사용합니다.
 
@@ -139,7 +139,7 @@ Azure IoT Explorer에서 원격 분석을 보려면
 
 Azure CLI를 사용하여 디바이스 원격 분석을 보려면 다음을 수행합니다.
 
-1. [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) 명령을 실행하여 시뮬레이션된 디바이스에서 IoT 허브로 전송된 이벤트를 모니터링합니다. 이전에 디바이스 및 IoT Hub에 대해 Azure IoT에서 만든 이름을 사용합니다.
+1. [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) 명령을 실행하여 디바이스에서 IoT Hub로 전송된 이벤트를 모니터링합니다. 이전에 디바이스 및 IoT Hub에 대해 Azure IoT에서 만든 이름을 사용합니다.
 
     ```azurecli
     az iot hub monitor-events --output table --device-id mydevice --hub-name {YourIoTHubName}

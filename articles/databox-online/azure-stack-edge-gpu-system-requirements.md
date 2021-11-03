@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/08/2021
 ms.author: alkohli
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: 2cacb9a975dba536fc4744a24ea26ec1083b5668
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b79f878b7149bb41732f924c657f711f9bdf3128
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124827061"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131033117"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>GPU를 사용하는 Azure Stack Edge Pro의 시스템 요구 사항 
 
@@ -41,7 +41,7 @@ Azure Stack Edge Pro의 시스템 요구 사항은 다음과 같습니다.
 
 다음 Edge 스토리지 계정은 디바이스의 REST 인터페이스에서 지원됩니다. Edge 스토리지 계정은 디바이스에서 만들어집니다. 자세한 내용은 [Edge 스토리지 계정](azure-stack-edge-gpu-manage-storage-accounts.md#about-edge-storage-accounts)을 참조하세요.
 
-|유형  |스토리지 계정  |의견  |
+|형식  |스토리지 계정  |의견  |
 |---------|---------|---------|
 |Standard     |GPv1: 블록 Blob         |         |
 
@@ -51,7 +51,7 @@ Azure Stack Edge Pro의 시스템 요구 사항은 다음과 같습니다.
 
 이러한 스토리지 계정은 로컬 Azure Resource Manager에 연결할 때 디바이스 로컬 API를 통해 생성됩니다. 지원되는 스토리지 계정은 다음과 같습니다.
 
-|유형  |스토리지 계정  |의견  |
+|형식  |스토리지 계정  |의견  |
 |---------|---------|---------|
 |Standard     |GPv1: 블록 Blob, Page Blob        | SKU 유형은 Standard_LRS입니다       |
 |Premium     |GPv1: 블록 Blob, Page Blob        | SKU 유형은 Premium_LRS입니다        |
@@ -82,9 +82,20 @@ Azure IoT Edge 런타임을 호스트하는 서버의 포트 구성에 대한 �
 
 | 포트 번호 | 인 또는 아웃 | 포트 범위 | 필수 | 지침 |
 |----------|-----------|------------|----------|----------|
-| TCP 443(HTTPS)| 아웃       | WAN        | 예      | IoT Edge 프로비전을 위해 아웃바운드로 엽니다. 수동 스크립트 또는 Azure IoT DPS(디바이스 프로비저닝 서비스)를 사용하는 경우 이 구성이 필요합니다.|
+| TCP 443(HTTPS)| 아웃       | WAN        | Yes      | IoT Edge 프로비전을 위해 아웃바운드로 엽니다. 수동 스크립트 또는 Azure IoT DPS(디바이스 프로비저닝 서비스)를 사용하는 경우 이 구성이 필요합니다.|
 
 전체 정보를 보려면 [IoT Edge 배포에 대한 방화벽 및 포트 구성 규칙](../iot-edge/troubleshoot.md)으로 이동하세요.
+
+
+### <a name="port-requirements-for-kubernetes-on-azure-stack-edge"></a>Azure Stack Edge Kubernetes에 대한 포트 요구 사항
+
+| 포트 번호 | 인 또는 아웃 | 포트 범위 | 필수 | 지침 |
+|----------|-----------|------------|----------|----------|
+| TCP 31000(HTTPS)| In(다음 안에)       | LAN        | 경우에 따라 <br> 메모를 참조하세요.      |이 포트는 디바이스를 모니터링하기 위해 Kubernetes 대시보드에 연결하는 경우에만 필요합니다. |
+| TCP 6443(HTTPS)| In(다음 안에)       | LAN        | 경우에 따라 <br> 메모를 참조하세요.       |이 포트는 를 사용하여 디바이스에 액세스하는 경우에만 Kubernetes API 서버에서 `kubectl` 필요합니다. |
+
+> [!IMPORTANT]
+> 데이터 센터 방화벽이 원본 IP 또는 MAC 주소에 따라 트래픽을 제한하거나 필터링하는 경우 컴퓨팅 IP(Kubernetes 노드 IP) 및 MAC 주소가 허용 목록에 있는지 확인합니다. `Set-HcsMacAddressPool`디바이스의 PowerShell 인터페이스에서 cmdlet을 실행하여 MAC 주소를 지정할 수 있습니다.
 
 ## <a name="url-patterns-for-firewall-rules"></a>방화벽 규칙에 대한 URL 패턴
 

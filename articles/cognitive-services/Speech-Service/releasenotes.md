@@ -8,25 +8,25 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/15/2021
-ms.custom: seodec18
-ms.openlocfilehash: 23f79a529e5cb21289f833c890630346c91139bf
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: e0be3ef40e60f43d3b76c58b8141a0e29ce2742f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130247629"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067682"
 ---
 # <a name="speech-service-release-notes"></a>Speech Service 릴리스 정보
 
-## <a name="text-to-speech-2021-october-release"></a>텍스트 음성 변환 2021-10 월 릴리스
-**신경망을 위한 새 언어 및 음성 추가**
-- **49 새로운 언어 및 변형 도입** -49 98 새 로캘이 새 로캘을 신경망 목록에 추가 합니다. Willem의 adri `af-ZA` (남아프리카 공화국), `af-ZA` 아프리칸스어 (남아프리카 공화국), Mekdes (에티오피아), Ameha의 Fatima (에티오피아), `am-ET` `am-ET` `ar-AE` 아랍어 ( `ar-AE` `ar-BH` `ar-BH` 아랍에미리트), 아랍어 (아랍에미리트), 아랍어의 Hamdan (바레인), 아랍어 (바레인)  Amina `ar-DZ` 아랍어 (알제리), Ismael in `ar-DZ` 아랍어 (알제리), Rana in 아랍어 (이라크), 아랍어 (이라크)의 아랍어 `ar-IQ` `ar-IQ` `ar-JO` (요르단), 아랍어 ( `ar-JO` 요르단 `ar-KW` `ar-KW` `ar-LY` `ar-LY` `ar-MA` `ar-MA` `ar-QA` `ar-QA` ), 아랍어 (쿠웨이트)의 Noura, 아랍어 (쿠웨이트), 아랍어 (쿠웨이트), 아랍어 (리비아), 아랍어 (리비아), 아랍어 (모로코), 아랍어 (모로코), 아랍어 (모로코)의 Mouna (모로코), 아랍어 (카타르)의 Sana, 아랍어 (카타르)의 moaz  독일어 (시리아), 아랍어 (시리아), 아랍어 (튀니지), 아랍어 (튀니지)의 `ar-SY` `ar-SY` reem, `ar-TN` 아랍어 (튀니지)의 \Di `ar-TN` Maryam `ar-YE` (예멘), `ar-YE` 아랍어 (예멘), nabanita (벵골어), nabanita In 벵골어 (방글라데시), `bn-BD` Pradeep in `bn-BD` 벵골어 `en-KE` `en-KE` `en-NG` `en-NG` `en-TZ` `en-TZ` (방글라데시), Chilemba in 영어 (Asilia), Ezinne in 영어 (나이지리아), Abeo in 영어 (나이지리아), Elimu in 영어 (탄자니아), in 영어 (탄자니아), Saleh  소피아 `es-BO` (볼리비아), 스페인어 (볼리비아)의 Marcelo, 스페인어 ( `es-BO` 칠레)의 catalina.properties 스페인어 (칠레), 스페인어 (코스타리카), 스페인어 (코스타리카), 스페인어 (코스타리카)의 Juan, 스페인어 (Lorenzo), 스페인어 (도미니카 공화국)의 Ramona, 스페인어 (도미니카 공화국)의 Emilio, 스페인어 (도미니카 공화국)의 Andrea, 스페인어 (도미니카 공화국)의 Luis, 스페인어 (에콰도르)의 Teresa, 스페인어 ( `es-CL` `es-CL` `es-CR` `es-CR` `es-CU` `es-CU` `es-DO` `es-DO` `es-EC` `es-EC` `es-GQ` 적도 기니)의  Javier `es-GQ` (적도 기니), 스페인어 (과테말라)의 Marta, `es-GT` `es-GT` 스페인어 (과테말라)의 Andres `es-HN` 스페인어 (온두라스), Carlos `es-HN` ( `es-NI` `es-NI` `es-PA` `es-PA` `es-PE` `es-PE` `es-PR` `es-PR` 스페인어), 스페인어 (니카라과), 스페인어 (니카라과), 스페인어 (니카라과), 스페인어 (니카라과)의 Federico (니카라과), Margarita in 스페인어 (파나마), Camila in 스페인어 (페루), Alex in 스페인어 (푸에르토리코), Karina in 스페인어 (푸에르토리코), Victor의 Karla  스페인어 `es-PY` (파라과이), `es-PY` 스페인어 (파라과이), 스페인어 (엘살바도르)의 Lorena `es-SV` `es-SV` 스페인어 (엘살바도르)의 Rodrigo, `es-UY` `es-UY` `es-VE` `es-VE` `fa-IR` `fa-IR` `fil-PH` `fil-PH` `gl-ES` `gl-ES` 스페인어 (우루과이), 스페인어 (우루과이)의 Valentina, Mateo in 스페인어 (우루과이), Sebastian의 Dilara (이란),의 Farid (이란),의 Blessica (필리핀), Angelo in 필리핀어 (필리핀), Sabela in 갈리시아어 (스페인), Roi의  갈리시아어 (스페인), Ai, `jv-ID` 자바 어 (인도네시아), 자바 (인도네시아), `jv-ID` Sreymom (이란), `km-KH` 크메르어 (캄보디아), Piseth ( `km-KH` 캄보디아), `my-MM` 미얀마의 Barmština (미얀마), Thiha in Barmština (미얀마), Ubax (소말리아)의 Muuse (소말리아), 순다 문자 (인도네시아), Jajang (인도네시아), 순다 문자 in Rehema (인도네시아), Daudi의 Saranya (Nilar), in 타밀어 (스리랑카), `my-MM` `so-SO` `so-SO` `su-ID` `su-ID` `sw-TZ` `sw-TZ` `ta-LK` kumar in  `ta-LK` 타밀어 (스리랑카), Venba in `ta-SG` 타밀어 (싱가포르), 타밀어 (싱가포르), _L (인도)의 Salman, 우르두어 (인도), Madina의 Sardor (우즈베키스탄), 우즈베크어 (우즈베키스탄), Thando의 (남아프리카 공화국), `ta-SG` `ur-IN` `ur-IN` `uz-UZ` `uz-UZ` `zu-ZA` `zu-ZA` 줄루어 (남아프리카 공화국)
+## <a name="text-to-speech-2021-october-release"></a>Text-to-Speech 2021-10월 릴리스
+**신경망 TTS에 대한 새로운 언어 및 음성 추가**
+- **49개의 새로운 언어 및 변형이 도입되었습니다.** 49개의 새 로케일로 98개의 새로운 음성이 신경망 TTS 언어 목록에 추가됩니다. Adri in `af-ZA` Afrikaans(남아프리카 공화국), `af-ZA` Afrikaans의 Willem (남아프리카 공화국), `am-ET` 앰하릭의 Mekdes(아랍어), `am-ET` Amharic의 아메하(폴란드), `ar-AE` 아랍어의 Fatima(미국령 까지), `ar-AE` 아랍어의 함메야어(영국령, `ar-BH` 아랍어로 나타남), 아랍어의 Laila(아랍어), 아랍어의 `ar-BH` Ali(아랍어),  `ar-DZ` 아랍어의 Amina(아랍어), `ar-DZ` 아랍어의 Ismael(아랍어), 아랍어로 된 `ar-IQ` 란다(아랍어), 아랍어로 된 `ar-IQ` 카셀(아랍어), 아랍어로 된 `ar-JO` 사나(아랍어), 아랍어로 된 `ar-JO` 자말(아랍어), 아랍어로 된 `ar-KW` 누라(네덜란드), 아랍어로 페이싱된(아랍어), 아랍어로 된 `ar-KW` `ar-LY` 이만(아랍어), 아랍어로 된 `ar-LY` 모나(아랍어), 자말(아랍어), 아랍어로 된 `ar-MA` `ar-MA` 자말(아랍어), `ar-QA` 아랍어로 된 `ar-QA` 모아(아랍어), 모아(아랍어)  Amany in `ar-SY` Arabic (Arabic), Laith in `ar-SY` Arabic (Arabic),Reem in `ar-TN` Arabic (Arabic),Hedi in `ar-TN` Arabic (Arabic(Arabic), `ar-YE` Saleh in Arabic (In Arabic( 2016), `ar-YE` Saleh in Arabic (Arabic), #A0 (2016), Asilia in English (Asilia in English ),2016; English (20), Ezinne in English `bn-BD` `bn-BD` `en-KE` `en-KE` `en-NG` `en-NG` (In English), Imani in `en-TZ` English (Ezimu in English), Elimu in `en-TZ` English (2)  스페인어로 된 `es-BO` 에스페인어(스웨덴), 스페인어로 된 `es-BO` Marcelo(스웨덴), 스페인어로 된 `es-CL` Catalina(스웨덴), 스페인어로 된 Lorenzo(스페인어), `es-CL` 스페인어로 된 `es-CR` Maria(에피카), 스페인어로 된 `es-CR` 힌키스(에피카), 스페인어로 된 힌키스(스페인어), 스페인어로 된 람마어(스페인), 스페인어로 된 `es-CU` `es-CU` `es-DO` 에밀도(스웨덴), 스페인어로 된 `es-DO` `es-EC` 에필로어(에파리아), 스페인어로 된 `es-EC` Luis(에갈루어), 스페인어로 된 `es-GQ` Luis(에갈루어),  `es-GQ` 스페인어의 Javier(적도)의 Javier, 스페인어로 된 `es-GT` Marta(에필), 스페인어의 Andres(스페인어), 스페인어로 된 `es-GT` `es-HN` Andres(에리스), 스페인어로 된 `es-HN` 카나(에리스), `es-NI` 스페인어의 Yolanda(Nicaragua), 스페인어로 페더레이션된 페더리코(Nicaragua), `es-NI` 스페인어로 마가리타(스페인어), 스페인어로 된 `es-PA` `es-PA` 마술라(에필라), 스페인어로 된 `es-PE` `es-PE` Alex(에메라인), 스페인어로 된 `es-PR` 카니나(2차), 스페인어로 된 카리아나(2차), `es-PR` 와다나  `es-PY` 스페인어(Paraguay), 스페인어로 된 `es-PY` Lorena(Paraguay), 스페인어로 된 `es-SV` 로레나(El명령), 스페인어로 된 `es-SV` 에루나(El `es-UY` Spanish), 스페인어로 발렌티나(덴마크), `es-UY` 스페인어로 된 `es-VE` Paola(스페인어), 스페인어로 된 Paola(필), 덴마크의 `es-VE` Dilara(필로), `fa-IR` 에리스의 파리스카(에메인), 에브리어의 `fa-IR` 에브리어(에필로), `fil-PH` `fil-PH` `gl-ES` 갈리키안의 에필라(스페인), Roi `gl-ES`  갈리시아어(스페인), `jv-ID` Javanese의 Siti(포르투갈), `jv-ID` Javanese의 Dimas(포르투갈), `km-KH` Khmer의 Subamom(표시), `km-KH` 크메르어의 Piseth(표시), Nilar in `my-MM` Burmese(표시), `my-MM` Burmese의 히하(필어), Uba `so-SO` 2016년 3월 `so-SO` `su-ID` `su-ID` `sw-TZ` `sw-TZ` `ta-LK` 12일, 2016년 12월 31일, 3월 12일 30009년 12월 31일 3000만 30000018년 12월 21일  `ta-LK` 타밀어(스리루), Venba in `ta-SG` 타밀어(싱가포르), `ta-SG` 타밀어의 Anbu(싱가포르),Urdu의 `ur-IN` Gul(인도), `ur-IN` Urdu(인도), `uz-UZ` Uzbek의 무디나(유니버키), `uz-UZ` Uzbek의 Sardor(남아프리카 공화국), `zu-ZA` Zulu의 Thando(남아프리카), `zu-ZA` Zulu(남아프리카)의 세노어.
 
-## <a name="text-to-speech-2021-september-release"></a>텍스트 음성 변환 2021-9 월 릴리스
-- **새와 봇의 `en-US` 음성 영어 (미국)**: Sara은 더 많은 보통 수준의을 담당 하 고, 
-- **에 `ja-JP` 추가 된 새 스타일 일본어 voice Nanami**: 이제 Nanami에서 채팅, 고객 서비스 및 cheerful의 세 가지 새 스타일을 사용할 수 있습니다.
-- **과도 한 발음 향상**: ardi in `id-ID` , premwadee in `th-TH` , Christel In `da-DK` , HoaiMy 및 NamMinh in `vi-VN` .
-- **의 `zh-CN` 새로운 두 가지 음성 Preview의 중국어 (북경어, 중국)**: Xiaochen & Xiaoyan, 자발적인 음성 및 고객 서비스 시나리오에 최적화 되어 있습니다.
+## <a name="text-to-speech-2021-september-release"></a>Text-to-Speech 2021-9월 릴리스
+- **의 새 챗봇 `en-US` 음성 영어(미국)**: 챗봇 시나리오에 가장 적합하고 더 간소하게 말하는 여성 성인을 나타내는 챗봇입니다. 
+- **에 대해 추가된 `ja-JP` 새 스타일 일본어 음성 Nanami: 이제 Nanami에서** 채팅, 고객 서비스 및 싱어의 세 가지 새로운 스타일을 사용할 수 있습니다.
+- **과도 발음 개선** 사항: 의 유지, 의 `id-ID` Premwadee, `th-TH` 의 경우, 의 경우 `da-DK` HoaiMy 및 NamMinh의 경우 `vi-VN`
+- **의 두 가지 `zh-CN` 새로운 음성 중국어(중국어, 중국) 미리 보기:** 힌보어 음성 및 고객 서비스 시나리오에 최적화된 & 중국어입니다.
 
 ## <a name="text-to-speech-2021-july-release"></a>텍스트 음성 변환 2021년 7월 릴리스
 
@@ -42,7 +42,7 @@ ms.locfileid: "130247629"
 **참고**. Speech SDK [여기](speech-sdk.md#get-the-speech-sdk)에서 시작을 해보십시오.
 
 **하이라이트 요약**
-- Ubuntu 16.04는 2021년 4월의 수명 끝에 도달했습니다. Azure DevOps 및 Github와 함께 16.04에 대한 지원을 2021년 9월 이후로 지원을 끊을 예정입니다.  그 전에 ubuntu-16.04 워크플로를 ubuntu-18.04 이상으로 마이그레이션 하세요. 
+- Ubuntu 16.04는 2021년 4월의 수명 끝에 도달했습니다. Azure DevOps 및 GitHub 함께 2021년 9월에 16.04에 대한 지원을 중단할 예정입니다.  그 전에 ubuntu-16.04 워크플로를 ubuntu-18.04 이상으로 마이그레이션 하세요. 
 
 #### <a name="new-features"></a>새로운 기능
 
@@ -204,7 +204,7 @@ ms.locfileid: "130247629"
 - **C++/C#/Java/JavaScript/Objective-C/Python**: TTS에 대한 `BookmarkReached` 이벤트가 추가되었습니다. 입력 SSML에서 책갈피를 설정하고 각 책갈피에 대한 오디오 오프셋을 가져올 수 있습니다. [여기](./speech-synthesis-markup.md#bookmark-element) 설명서를 참조하세요.
 - **Java**: 화자 인식 API에 대한 지원이 추가되었습니다. 자세한 내용은 [여기](/java/api/com.microsoft.cognitiveservices.speech.speakerrecognizer)를 참조하세요.
 - **C++/C#/Java/JavaScript/Objective-C/Python**: TTS용 WebM 컨테이너(Webm16Khz16BitMonoOpus 및 Webm24Khz16BitMonoOpus)가 포함된 두 가지 새로운 출력 오디오 형식이 추가되었습니다. 추가된 형식은 Opus 코덱으로 오디오를 스트리밍하는 데 보다 적합합니다. [C++](/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#speechsynthesisoutputformat), [C#](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat), [Java](/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisoutputformat), [JavaScript](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat), [Objective-C](/objectivec/cognitive-services/speech/spxspeechsynthesisoutputformat), [Python](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisoutputformat)에 대한 세부 정보를 제공합니다.
-- **C++/C#/Java**: 화자 인식 시나리오를 위한 음성 프로필 검색 지원이 추가되었습니다. [C++](/cpp/cognitive-services/speech/speaker-speakerrecognizer), [C#](/en-us/dotnet/api/microsoft.cognitiveservices.speech.speaker.speakerrecognizer) 및 [Java](/java/api/com.microsoft.cognitiveservices.speech.speakerrecognizer)에 대한 세부 정보를 제공합니다.
+- **C++/C#/Java**: 화자 인식 시나리오를 위한 음성 프로필 검색 지원이 추가되었습니다. [C++](/cpp/cognitive-services/speech/speaker-speakerrecognizer), [C#](/dotnet/api/microsoft.cognitiveservices.speech.speaker.speakerrecognizer) 및 [Java](/java/api/com.microsoft.cognitiveservices.speech.speakerrecognizer)에 대한 세부 정보를 제공합니다.
 - **C++/C#/Java/Objective-C/Python**: 오디오 마이크 및 스피커 제어를 위한 별도의 공유 라이브러리 지원이 추가되었습니다. 이제 필수 오디오 라이브러리 종속성이 없는 환경에서 SDK를 사용할 수 있습니다.
 - **Objective-C/Swift**: 엄브렐라 헤더가 포함된 모듈 프레임워크 지원이 추가되었습니다. 이제 iOS/Mac Objective-C/Swift 앱에서 음성 SDK를 모듈로 가져올 수 있습니다. 따라서 [GitHub #452 문제](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/452)도 해결됩니다.
 - **Python**: [Python 3.9](./quickstarts/setup-platform.md?pivots=programming-language-python)에 대한 지원이 추가되었으며 Python의 [3.5 수명 종료](https://devguide.python.org/devcycle/#end-of-life-branches)에 따라 Python 3.5 지원이 삭제되었습니다.
@@ -256,7 +256,7 @@ ms.locfileid: "130247629"
 **사용자 지정 신경망 음성 GA**
 
 사용자 지정 신경망 음성은 2월부터 중국어(북경어, 간체), 영어(오스트레일리아), 영어(인도), 영어(영국), 영어(미국), 프랑스어(캐나다), 프랑스어(프랑스), 독일어(독일), 이탈리아어(이탈리아), 일본어(일본), 한국어(대한민국), 포르투갈어(브라질), 스페인어(멕시코), 스페인어(스페인) 총 13개 언어로 일반 공급됩니다. [사용자 지정 신경망 음성](custom-neural-voice.md)이란 무엇이며 [책임감 있게 사용하는 방법](concepts-guidelines-responsible-deployment-synthetic.md)은 무엇인지 자세히 알아보세요.
-사용자 지정 신경망 음성 기능을 사용하려면 등록이 필요하며 Microsoft는 Microsoft의 자격 기준에 따라 액세스를 제한할 수 있습니다. [제한된 액세스](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context)에 대해 자세히 알아보세요.
+사용자 지정 신경망 기능에는 등록이 필요 하며 microsoft는 자격 조건에 따라 액세스를 제한할 수 있습니다. [제한된 액세스](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context)에 대해 자세히 알아보세요.
 
 ## <a name="speech-sdk-1150-2021-january-release"></a>Speech SDK 1.15.0: 2021년 1월 릴리스
 
@@ -612,7 +612,7 @@ SPX는 코드를 작성하지 않고 Azure Speech Service를 사용하는 명령
     | `es-MX` | $1.58 | un peso cincuenta y ocho centavos |
     | `es-ES` | $1.58 | un dólar cincuenta y ocho centavos |
 
-    * &euro;, 로케일에서 음수 통화(예: "-325 " )에 대한 지원 `en-US` `en-GB` `fr-FR` `it-IT` `en-AU` `en-CA`
+    * ,,,,, 로캘에서 음수 통화 (예: "-325 &euro; ")를 지원 `en-US` `en-GB` `fr-FR` `it-IT` `en-AU` `en-CA` 합니다.
 
 * `pt-PT`의 주소 읽기가 개선되었습니다.
 * Natasha(`en-AU`)와 Libby(`en-UK`)의 "for" 및 "four" 발음 문제를 수정했습니다.

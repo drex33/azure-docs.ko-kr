@@ -10,12 +10,12 @@ ms.author: justinha
 author: mjsantani
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c83c4c60028c77033227411d68aeb576a9b43a46
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: cd27eb5e55b679d8cfd1589857cc88d7f27917d1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114707870"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054365"
 ---
 # <a name="how-to-nudge-users-to-set-up-microsoft-authenticator-preview---microsoft-authenticator-app"></a>Microsoft Authenticator 앱(미리 보기)을 설치하도록 사용자를 유도하는 방법 - Microsoft Authenticator 앱
 
@@ -92,7 +92,7 @@ Graph Explorer를 사용하여 정책을 구성하려면:
 
 | 속성 | 가능한 값 | Description |
 |------|-----------------|-------------|
-| state |   "enabled"<br>"disabled"<br>"default" | 기능을 사용하거나 사용하지 않도록 설정할 수 있습니다.<br>기본값은 구성이 명시적으로 설정되지 않은 경우 사용되며 이 설정에 대해서는 Azure AD 기본값을 사용합니다. 현재 disabled로 매핑됩니다.<br>필요에 따라 상태를 enabled 또는 disabled로 변경합니다.  |
+| state | "enabled"<br>"disabled"<br>"default" | 기능을 사용하거나 사용하지 않도록 설정할 수 있습니다.<br>기본값은 구성이 명시적으로 설정되지 않은 경우 사용되며 이 설정에 대해서는 Azure AD 기본값을 사용합니다. 현재 disabled로 매핑됩니다.<br>필요에 따라 상태를 enabled 또는 disabled로 변경합니다.  |
 | snoozeDurationInDays | 범위: 0~14 | 사용자에게 유도 문구가 다시 표시될 경과 일수를 정의합니다.<br>값이 0이면 사용자가 MFA를 시도할 때마다 유도 문구가 표시됩니다.<br>기본값: 1일 |
 | includeTargets | 해당 없음 | 이 기능의 대상이 될 여러 사용자 및 그룹을 포함할 수 있습니다. |
 | excludeTargets | 해당 없음 | 이 기능을 생략할 여러 사용자 및 그룹을 제외할 수 있습니다. 제외된 그룹과 포함된 그룹에 모두 있는 사용자는 기능에서 제외됩니다.|
@@ -156,7 +156,7 @@ Graph Explorer를 사용하여 정책을 구성하려면:
                     "targetType": "group",
                     "targetedAuthenticationMethod": "microsoftAuthenticator"
                 },
-        {
+                {
                     "id": "*********PLEASE ENTER GUID***********",
                     "targetType": "user",
                     "targetedAuthenticationMethod": "microsoftAuthenticator"
@@ -181,7 +181,7 @@ Graph Explorer를 사용하여 정책을 구성하려면:
                       "id": "*********PLEASE ENTER GUID***********",
                       "targetType": "group"
                   },
-        {
+                {
                       "id": "*********PLEASE ENTER GUID***********",
                       "targetType": "user"
                   }
@@ -192,7 +192,7 @@ Graph Explorer를 사용하여 정책을 구성하려면:
                       "targetType": "group",
                       "targetedAuthenticationMethod": "microsoftAuthenticator"
                   },
-        {
+                  {
                       "id": "*********PLEASE ENTER GUID***********",
                       "targetType": "user",
                       "targetedAuthenticationMethod": "microsoftAuthenticator"

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 05/16/2021
-ms.openlocfilehash: 609a0edaa15c9ce9d71655bbb358168806202ea9
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: 4f0bb89992f76e7a8eb9311d733a3b791b73114a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129400594"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131086605"
 ---
 # <a name="managed-connectors-in-azure-logic-apps"></a>Azure Logic Apps의 관리형 커넥터
 
@@ -558,14 +558,14 @@ ISE(통합 서비스 환경)에서 이러한 관리형 커넥터에는 다중 �
 <!--Managed connector doc links-->
 [azure-automation-doc]: /connectors/azureautomation/ "클라우드 및 온-프레미스 인프라를 위한 자동화 작업 만들기 및 관리"
 [azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Azure Blob Storage 커넥터와 Blob 컨테이너의 파일 관리"
-[azure-cosmos-db-doc]: /connectors/documentdb/ "문서 및 저장 프로시저에 액세스할 수 있도록 Azure Cosmos DB에 연결"
+[azure-cosmos-db-doc]: ./connectors-create-api-cosmos-db.md "Azure Cosmos DB 문서에 액세스하고 관리할 수 있도록 Azure Cosmos DB에 커넥트"
 [azure-event-grid-doc]: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md "Azure 리소스 또는 타사 리소스가 변경되는 경우와 같이 Event Grid에서 게시한 이벤트 모니터링"
 [azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "논리 앱과 Event Hubs 간에 이벤트를 수신하고 보낼 수 있도록 Azure Event Hubs에 연결"
 [azure-file-storage-doc]: /connectors/azurefile/ "파일을 만들고 업데이트하고 가져오고 삭제할 수 있도록 Azure Storage 계정에 연결"
 [azure-key-vault-doc]: /connectors/keyvault/ "비밀 및 키를 관리할 수 ​​있도록 Azure Key Vault에 연결"
 [azure-monitor-logs-doc]: /connectors/azuremonitorlogs/ "Log Analytics 작업 영역 및 Application Insights 구성 요소에서 Azure Monitor 로그에 대해 쿼리 실행"
 [azure-queues-doc]: /connectors/azurequeues/ "큐와 메시지를 만들고 관리할 수 있도록 Azure Storage 계정에 연결"
-[azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Service Bus 큐 및 항목에서 메시지를 보내고 Service Bus 큐 및 구독에서 메시지를 받습니다."
+[azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Service Bus 큐, 토픽 및 토픽 구독의 메시지 관리"
 [azure-sql-data-warehouse-doc]: /connectors/sqldw/ "데이터를 볼 수 있도록 Azure Synapse Analytics에 연결"
 [azure-table-storage-doc]: /connectors/azuretables/ "테이블 등을 만들고 업데이트하고 쿼리할 수 ​​있도록 Azure Storage 계정에 연결"
 [biztalk-server-doc]: /connectors/biztalk/ "BizTalk Server에 연결하여 Azure Logic Apps와 나란히 BizTalk 기반 애플리케이션을 실행할 수 있음"

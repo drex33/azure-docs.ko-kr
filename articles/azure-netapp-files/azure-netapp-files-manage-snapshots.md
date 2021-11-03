@@ -1,6 +1,6 @@
 ---
-title: Azure NetApp Files를 사용 하 여 주문형 스냅숏 만들기 Microsoft Docs
-description: Azure NetApp Files를 사용 하 여 주문형 스냅숏을 만드는 방법을 설명 합니다.
+title: Azure NetApp Files | 사용하여 주문형 스냅샷 만들기 Microsoft Docs
+description: Azure NetApp Files 사용하여 주문형 스냅샷을 만드는 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,42 +12,43 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/12/2021
+ms.date: 10/25/2021
 ms.author: b-juche
-ms.openlocfilehash: 2a17ed67830dfcfc3f1c5c3cbd6cc06ceedc8028
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c6bbc11fc77de516d2e163d1463444f2a3c0210e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128614185"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069941"
 ---
 # <a name="create-an-on-demand-snapshot-for-a-volume"></a>볼륨에 대한 주문형 스냅샷 만들기
 
-Azure NetApp Files는 주문형 [스냅숏](snapshots-introduction.md) 만들기 및 스냅숏 정책 사용을 지원 하 여 자동 스냅숏 생성을 예약 합니다. [스냅숏을 새 볼륨으로](snapshots-restore-new-volume.md)복원 하거나, [클라이언트를 사용 하 여 단일 파일을 복원](snapshots-restore-file-client.md)하거나, [스냅숏을 사용 하 여 기존 볼륨을 되돌릴](snapshots-revert-volume.md)수도 있습니다. 이 문서에서는 볼륨에 대 한 주문형 스냅숏을 만드는 방법을 설명 합니다. 
+Azure NetApp Files 주문형 스냅샷 만들기 및 스냅샷 정책을 사용하여 자동 스냅샷 생성 예약을 [지원합니다.](snapshots-introduction.md) [스냅샷을 새 볼륨으로](snapshots-restore-new-volume.md) [복원하거나, 클라이언트를 사용하여 단일 파일을 복원하거나,](snapshots-restore-file-client.md) [스냅샷을 사용하여 기존 볼륨을 되돌릴](snapshots-revert-volume.md)수도 있습니다. 이 문서에서는 볼륨에 대한 주문형 스냅샷을 만드는 방법을 설명합니다. 
 
 > [!NOTE] 
-> 지역 간 복제의 스냅샷 관리에 대한 고려 사항은 [지역 간 복제 사용을 위한 요구 사항 및 고려 사항](cross-region-replication-requirements-considerations.md)을 참조하세요.
+> * 지역 간 복제의 스냅샷 관리에 대한 고려 사항은 [지역 간 복제 사용을 위한 요구 사항 및 고려 사항](cross-region-replication-requirements-considerations.md)을 참조하세요.
+> * AzAcSnap(Azure 애플리케이션 일치 스냅샷 도구)을 사용하여 타사 데이터베이스에 대한 데이터 보호를 사용하도록 설정할 수 있습니다. 자세한 내용은 [Azure 애플리케이션 일관성 있는 스냅샷 도구 란?을 참조하세요.](azacsnap-introduction.md)
  
 ## <a name="steps"></a>단계
 
 1.  스냅샷을 만들 볼륨으로 이동합니다. **스냅샷** 을 클릭합니다.
 
-    ![스냅숏 블레이드로 이동 하는 방법을 보여 주는 스크린샷](../media/azure-netapp-files/azure-netapp-files-navigate-to-snapshots.png)
+    ![스냅샷 블레이드로 이동하는 방법을 보여 주는 스크린샷](../media/azure-netapp-files/azure-netapp-files-navigate-to-snapshots.png)
 
 2.  **+ 스냅샷 추가** 를 클릭하여 볼륨에 대한 주문형 스냅샷을 만듭니다.
 
-    ![스냅숏을 추가 하는 방법을 보여 주는 스크린샷](../media/azure-netapp-files/azure-netapp-files-add-snapshot.png)
+    ![스냅샷을 추가하는 방법을 보여 주는 스크린샷](../media/azure-netapp-files/azure-netapp-files-add-snapshot.png)
 
 3.  새 스냅샷 창에 만들고 있는 새 스냅샷의 이름을 제공합니다.   
 
-    ![새 스냅숏 창을 보여 주는 스크린샷](../media/azure-netapp-files/azure-netapp-files-new-snapshot.png)
+    ![새 스냅샷 창을 보여 주는 스크린샷.](../media/azure-netapp-files/azure-netapp-files-new-snapshot.png)
 
 4. **확인** 을 클릭합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [스냅숏에 대 한 자세한 정보](snapshots-introduction.md)
-* [Azure NetApp Files를 사용 하 여 스냅숏 정책 관리](snapshots-manage-policy.md)
+* [스냅샷에 대한 자세한 정보](snapshots-introduction.md)
+* [Azure NetApp Files 통해 스냅샷 정책 관리](snapshots-manage-policy.md)
 * [Azure NetApp Files에 대한 리소스 제한](azure-netapp-files-resource-limits.md)
 * [Azure NetApp Files 스냅샷 101 동영상](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)
 * [Azure Application Consistent Snapshot Tool이란?](azacsnap-introduction.md)

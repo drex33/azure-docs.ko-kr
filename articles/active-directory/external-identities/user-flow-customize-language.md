@@ -11,12 +11,12 @@ ms.date: 03/02/2021
 ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a199c207e8ea35f1471df9bfd0c4134551b9995f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bf645226de725d19af859118c43c336e5f542804
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101653493"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067104"
 ---
 # <a name="language-customization-in-azure-active-directory"></a>Azure Active Directory의 언어 사용자 지정
 
@@ -131,7 +131,7 @@ Microsoft는 사용자가 사용할 수 있는 가장 최신의 번역을 제공
 
 ### <a name="support-for-right-to-left-languages"></a>오른쪽에서 왼쪽 언어 지원
 
-현재 Microsoft는 오른쪽에서 왼쪽 언어에 대한 지원을 제공하지 않습니다. 사용자 지정 로캘을 사용하고 CSS를 사용하여 문자열이 표시되는 방식을 변경하여 지원할 수 있습니다. 이 기능이 필요한 경우 [Azure 피드백](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag)에서 이 기능에 투표해 주세요.
+현재 Microsoft는 오른쪽에서 왼쪽 언어에 대한 지원을 제공하지 않습니다. 사용자 지정 로캘을 사용하고 CSS를 사용하여 문자열이 표시되는 방식을 변경하여 지원할 수 있습니다. 이 기능이 필요한 경우 [Azure 피드백](https://feedback.azure.com/d365community/idea/10a7e89c-c325-ec11-b6e6-000d3a4f0789)에서 이 기능에 투표해 주세요.
 
 ### <a name="social-identity-provider-translations"></a>소셜 ID 공급자 변환
 

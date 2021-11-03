@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: 5422fe324ca1f3ef5bb2d14fb04664c8fb03fe3c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: c57abd00282067b66be0da55bf33324fc55dc435
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104866236"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131020068"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Azure Toolkit for IntelliJ로 오류 Spark 작업 디버깅(미리 보기)
 
@@ -22,7 +22,7 @@ ms.locfileid: "104866236"
 
 * [Oracle Java Development 키트](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). 이 자습서에서는 Java 버전 8.0.202를 사용합니다.
   
-* IntelliJ IDEA. 이 문서에서는 [IntelliJ IDEA 커뮤니티 버전 2019.1.3](https://www.jetbrains.com/idea/download/#section=windows)을 사용합니다.
+* IntelliJ IDEA. 이 문서에서는 [IntelliJ 아이디어 Community 2019.1.3](https://www.jetbrains.com/idea/download/#section=windows)를 사용 합니다.
   
 * Azure Toolkit for IntelliJ. [Azure Toolkit for IntelliJ 설치](/azure/developer/java/toolkit-for-intellij/installation)를 참조하세요.
 
@@ -66,7 +66,7 @@ Spark Scala/Java 애플리케이션을 만든 후 다음 단계를 수행하여 
 
    :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-add-new-configuration.png" alt-text="HDI Intellij 구성 추가" border="true":::
 
-2. **실행/디버깅 구성** 대화 상자에서 더하기 기호(**+**)를 선택합니다. **HDInsight의 Apache Spark** 옵션을 선택합니다.
+2. **실행/디버깅 구성** 대화 상자에서 더하기 기호(**+**)를 선택합니다. 다음으로 **HDInsight의 Apache Spark** 옵션을 선택합니다.
 
    :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-01.png" alt-text="Intellij 새 구성 추가" border="true":::
 
@@ -116,11 +116,6 @@ Spark Scala/Java 애플리케이션을 만든 후 다음 단계를 수행하여 
 
 * [개요: Apache Spark 애플리케이션 디버그](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 
-### <a name="demo"></a>데모
-
-* Scala 프로젝트 만들기(비디오): [Apache Spark Scala 애플리케이션 만들기](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
-* 원격 디버그(비디오): [Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터에서 원격으로 Apache Spark 애플리케이션 디버그](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
-
 ### <a name="scenarios"></a>시나리오
 
 * [BI와 Apache Spark: BI 도구와 함께 HDInsight의 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
@@ -141,7 +136,7 @@ Spark Scala/Java 애플리케이션을 만든 후 다음 단계를 수행하여 
 * [Azure Toolkit for Eclipse의 HDInsight 도구를 사용하여 Apache Spark 애플리케이션 만들기](./apache-spark-eclipse-tool-plugin.md)
 * [HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용](apache-spark-zeppelin-notebook.md)
 * [HDInsight의 Apache Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)
-* [Jupyter 노트북에서 외부 패키지 사용](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Jupyter Notebooks에서 외부 패키지 사용](apache-spark-jupyter-notebook-use-external-packages.md)
 * [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>리소스 관리

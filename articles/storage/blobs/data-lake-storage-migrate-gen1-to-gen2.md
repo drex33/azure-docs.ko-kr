@@ -8,12 +8,12 @@ ms.date: 07/13/2021
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 932e3e0cc51c5b74e10d86bffa5785e5f65564cf
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 16102dde6c354922f7347a33069c953724d1f3df
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129278655"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131022553"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Gen1에서 Gen2로 Azure Data Lake Storage 마이그레이션
 
@@ -21,7 +21,7 @@ ms.locfileid: "129278655"
 
 **2024년 2월 29일** Azure Data Lake Storage Gen1은 사용 중지됩니다. 자세한 내용은 [공식 공지](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/)를 참조하세요. Azure Data Lake Storage Gen1을 사용하는 경우 해당 날짜 이전에 Azure Data Lake Storage Gen2로 마이그레이션해야 합니다. 이 문서에서 이 작업을 수행하는 방법을 보여 줍니다.
 
-Azure Data Lake Storage Gen2는 [Azure Blob Storage](storage-blobs-introduction.md) 를 기반으로 하며 빅 데이터 분석 전용 기능 집합을 제공 합니다. [Data Lake Storage Gen2](https://azure.microsoft.com/services/storage/data-lake-storage/)는 파일 시스템 의미 체계, 디렉터리 및 파일 수준 보안 및 크기 조정과 같은 [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml)의 기능을 [Azure Blob Storage](storage-blobs-introduction.md)의 낮은 비용, 계층화된 스토리지, 고가용성/재해 복구 기능과 결합합니다.
+Azure Data Lake Storage Gen2는 [Azure Blob Storage를](storage-blobs-introduction.md) 기반으로 하며 빅 데이터 분석 전용 기능 집합을 제공합니다. [Data Lake Storage Gen2](https://azure.microsoft.com/services/storage/data-lake-storage/)는 파일 시스템 의미 체계, 디렉터리 및 파일 수준 보안 및 크기 조정과 같은 [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml)의 기능을 [Azure Blob Storage](storage-blobs-introduction.md)의 낮은 비용, 계층화된 스토리지, 고가용성/재해 복구 기능과 결합합니다.
 
 > [!NOTE]
 > 이 문서에서는 가독성을 높이기 위해 Azure Data Lake Storage Gen1을 *Gen1* 이라고 칭하고, Azure Data Lake Storage Gen2를 *Gen2* 라고 칭합니다.
@@ -109,11 +109,11 @@ Gen2로 마이그레이션하려면 다음 방법을 사용하는 것이 좋습�
 |데이터 구성|[계층 구조 네임스페이스](data-lake-storage-namespace.md)<br>파일 및 폴더 지원|[계층 구조 네임스페이스](data-lake-storage-namespace.md)<br>컨테이너, 파일 및 폴더 지원 |
 |지리적 중복| [LRS](../common/storage-redundancy.md#locally-redundant-storage)| [LRS](../common/storage-redundancy.md#locally-redundant-storage), [ZRS](../common/storage-redundancy.md#zone-redundant-storage), [GRS](../common/storage-redundancy.md#geo-redundant-storage), [RA-GRS](../common/storage-redundancy.md#read-access-to-data-in-the-secondary-region) |
 |인증|[AAD 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)<br>[서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md)|[AAD 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)<br>[서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md)<br>[공유 액세스 키](/rest/api/storageservices/authorize-with-shared-key)|
-|권한 부여|관리 - [Azure RBAC](../../role-based-access-control/overview.md)<br>데이터- [acl](data-lake-storage-access-control.md)|관리 - [Azure RBAC](../../role-based-access-control/overview.md)<br>데이터 -  [ACL](data-lake-storage-access-control.md), [Azure RBAC](../../role-based-access-control/overview.md) |
-|암호화-미사용 데이터|[Microsoft 관리](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 또는 [고객 관리](../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 키를 사용 하는 서버 쪽|[Microsoft 관리](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 또는 [고객 관리](../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 키를 사용 하는 서버 쪽|
+|권한 부여|관리 - [Azure RBAC](../../role-based-access-control/overview.md)<br>데이터 - [ACL](data-lake-storage-access-control.md)|관리 - [Azure RBAC](../../role-based-access-control/overview.md)<br>데이터 -  [ACL](data-lake-storage-access-control.md), [Azure RBAC](../../role-based-access-control/overview.md) |
+|암호화 - 미사용 데이터|서버 쪽 - [Microsoft 관리형](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 또는 [고객 관리형](../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 키 사용|서버 쪽 - [Microsoft 관리형](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 또는 [고객 관리형](../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 키 사용|
 |VNET 지원|[VNET 통합](../../data-lake-store/data-lake-store-network-security.md)|[서비스 엔드포인트](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [프라이빗 엔드포인트](../common/storage-private-endpoints.md)|
 |개발자 환경|[REST](../../data-lake-store/data-lake-store-data-operations-rest-api.md), [.NET](../../data-lake-store/data-lake-store-data-operations-net-sdk.md), [Java](../../data-lake-store/data-lake-store-get-started-java-sdk.md), [Python](../../data-lake-store/data-lake-store-data-operations-python.md), [PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md), [Azure CLI](../../data-lake-store/data-lake-store-get-started-cli-2.0.md)|일반 공급 - [REST](/rest/api/storageservices/data-lake-storage-gen2), [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md)<br>공개 미리 보기 - [JavaScript](data-lake-storage-directory-file-acl-javascript.md), [PowerShell](data-lake-storage-directory-file-acl-powershell.md), [Azure CLI](data-lake-storage-directory-file-acl-cli.md)|
-|리소스 로그|클래식 로그<br>[Azure Monitor 통합](../../data-lake-store/data-lake-store-diagnostic-logs.md)|[클래식 로그](../common/storage-analytics-logging.md) - 일반 공급<br>[Azure Monitor 통합](monitor-blob-storage.md) - 미리 보기|
+|리소스 로그|클래식 로그<br>[Azure Monitor 통합](../../data-lake-store/data-lake-store-diagnostic-logs.md)|[클래식 로그](../common/storage-analytics-logging.md) - 일반 공급<br>[Azure Monitor 통합](monitor-blob-storage.md) -미리 보기|
 |에코시스템|[HDInsight(3.6)](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md), [Azure Databricks(3.1 이상)](https://docs.databricks.com/data/data-sources/azure/azure-datalake.html), [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md), [ADF](../../data-factory/load-azure-data-lake-store.md)|[HDInsight(3.6, 4.0)](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), [Azure Databricks(5.1 이상)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2), [Azure Synapse Analytics](../../azure-sql/database/vnet-service-endpoint-rule-overview.md), [ADF](../../data-factory/load-azure-data-lake-storage-gen2.md)|
 
 <a id="migration-patterns"></a>
@@ -226,6 +226,6 @@ Gen2로 마이그레이션하려면 다음 방법을 사용하는 것이 좋습�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 스토리지 계정에 대한 보안 설정의 다양한 부분에 대해 알아봅니다. 자세한 내용은 [Azure Storage 보안 가이드를 참조하세요.](./security-recommendations.md)
-- Data Lake Store의 성능을 최적화합니다. [Azure Data Lake Storage Gen2의 성능 최적화](data-lake-storage-performance-tuning-guidance.md) 참조
+- 스토리지 계정에 대한 보안 설정의 다양한 부분에 대해 알아봅니다. 자세한 내용은 [Azure Storage 보안 가이드](./security-recommendations.md)를 참조 하세요.
+- Data Lake Store의 성능을 최적화합니다. [Azure Data Lake Storage Gen2의 성능 최적화](./data-lake-storage-best-practices.md) 참조
 - Data Lake Store 관리에 대한 모범 사례를 검토합니다. [Azure Data Lake Storage Gen2 사용에 대한 모범 사례](data-lake-storage-best-practices.md) 참조

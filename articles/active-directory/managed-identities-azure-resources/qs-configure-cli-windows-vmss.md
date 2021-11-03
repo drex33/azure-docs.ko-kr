@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e6e7e1724247c0e6d2b9db2fdf6980e8ef553c7
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 2835fcc2d39a47923c7d808f4d54d011cbf80f10
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107788190"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063255"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>Azure CLI를 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -144,9 +144,10 @@ az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 
 1. [az identity create](/cli/azure/identity#az_identity_create)를 사용하여 사용자 할당 관리 ID를 만듭니다.  `-g` 매개 변수는 사용자 할당 관리 ID가 만들어진 리소스 그룹을 지정하고 `-n` 매개 변수는 그 이름을 지정합니다. `<RESOURCE GROUP>` 및 `<USER ASSIGNED IDENTITY NAME>` 매개 변수 값을 원하는 값으로 바꾸세요.
 
-    ```azurecli-interactive
-    az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
-    ```
+   ```azurecli-interactive
+   az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
+   ```
+
    응답에는 다음과 같이 생성된 사용자가 할당한 관리 ID에 대한 세부 정보가 포함됩니다.
 
    ```json

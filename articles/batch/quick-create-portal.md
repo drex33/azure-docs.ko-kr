@@ -3,15 +3,13 @@ title: Azure 빠른 시작 - Azure Portal에서 첫 번째 Batch 작업 실행
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Batch 계정, 컴퓨팅 노드의 풀 및 풀에서 기본 태스크를 실행하는 작업을 만드는 방법을 보여줍니다.
 ms.date: 05/25/2021
 ms.topic: quickstart
-ms.custom:
-- mvc
-- mode-portal
-ms.openlocfilehash: 573ec2ece283e1e9b754ef9fd9b19a7e1b4883a3
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.custom: mvc, mode-portal
+ms.openlocfilehash: 1e3efb1b1665bb8e3914203ad9cee8666afd849b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110476026"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131086852"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 첫 번째 Batch 작업 실행
 

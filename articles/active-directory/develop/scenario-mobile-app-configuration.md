@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 54a750fc8418d48afcffdc8260322ca27382372b
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 00eeda0b831f58ed0a739521cff95133f2a24bd1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124786563"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131017980"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>웹 API를 호출하는 모바일 앱 구성
 
@@ -245,10 +245,9 @@ MSAL.NET은 URL을 사용하여 브로커를 호출한 다음 앱에 브로커 �
 
    여기에서 `BundleId`는 디바이스를 고유하게 식별합니다. 예를 들어 `BundleId`가 `yourcompany.xforms`이면 URL 구성표는 `msauth.com.yourcompany.xforms`입니다.
 
-  
       이 URL 구성표는 브로커의 응답을 받을 때 앱을 고유하게 식별하는 리디렉션 URI의 일부가 됩니다.
 
-   ```XML
+   ```xml
     <key>CFBundleURLTypes</key>
        <array>
          <dict>
@@ -270,7 +269,7 @@ MSAL은 `–canOpenURL:`을 사용하여 브로커가 디바이스에 설치되�
 
 다음 코드 예제와 같이 `Info.plist` 파일의 `LSApplicationQueriesSchemes` 섹션에 `msauthv2`를 추가합니다.
 
-```XML
+```xml
 <key>LSApplicationQueriesSchemes</key>
     <array>
       <string>msauthv2</string>
@@ -326,7 +325,7 @@ iOS 및 macOS용 MSAL은 URL을 사용하여 브로커를 호출한 다음 앱�
 
     이 URL 구성표는 브로커의 응답을 받을 때 앱을 고유하게 식별하는 리디렉션 URI의 일부가 됩니다. `msauth.(BundleId)://auth` 형식의 리디렉션 URI가 [Azure Portal](https://portal.azure.com)의 애플리케이션에 등록되어 있는지 확인합니다.
 
-   ```XML
+   ```xml
    <key>CFBundleURLTypes</key>
    <array>
        <dict>
@@ -347,7 +346,7 @@ iOS 및 macOS용 MSAL은 URL을 사용하여 브로커를 호출한 다음 앱�
 
 다음은 `LSApplicationQueriesSchemes`를 추가하는 방법의 예제입니다.
 
-```XML
+```xml
 <key>LSApplicationQueriesSchemes</key>
 <array>
   <string>msauthv2</string>

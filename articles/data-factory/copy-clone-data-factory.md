@@ -3,17 +3,17 @@ title: Azure Data Factory에서 데이터 팩터리 복사 또는 복제
 description: Azure Data Factory에서 데이터 팩터리를 복사 또는 복제하는 방법 알아보기
 ms.service: data-factory
 ms.subservice: data-movement
-author: minhe-msft
-ms.author: hemin
+author: jasonwhowell
+ms.author: jasonh
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: ccacddbaaa5dbf3c9bbf5fa28c9a6c7ed48d64f7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 7bf5a063c1474c7b01cfcfbdd0da3b8ba3912b4e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536456"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131062153"
 ---
 # <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Azure Data Factory에서 데이터 팩터리 복사 또는 복제
 

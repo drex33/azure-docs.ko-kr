@@ -4,14 +4,14 @@ description: Azure Marketplace에서 Logz.io를 사용한 Azure 통합에 대해
 author: tfitzmac
 ms.topic: conceptual
 ms.service: partner-services
-ms.date: 07/28/2021
+ms.date: 10/25/2021
 ms.author: tomfitz
-ms.openlocfilehash: e7562da90fe9a003fd3dddc0013308fff582cae1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 4bbf2d1ffddc2658a10b4c90d34b1c0485e613cb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528875"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056379"
 ---
 # <a name="what-is-logzio-integration-with-azure"></a>Azure와의 Logz.io 통합이란 무엇인가요?
 

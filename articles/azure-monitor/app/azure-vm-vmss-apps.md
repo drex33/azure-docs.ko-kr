@@ -4,12 +4,12 @@ description: Azure VM 및 Azure Virtual Machine Scale Sets에 대한 애플리�
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d3f1d1a8a2e3262ba91339c7335fadda92d90cac
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 6b2eb0a9413766878e8abb9ee0ce24b490b10909
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129856109"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067757"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 및 Azure 가상 머신 확장 집합에 Azure Monitor Application Insights 에이전트 배포
 
@@ -153,7 +153,7 @@ $privateCfgHashtable = @{};
 
 $vmss = Get-AzVmss -ResourceGroupName "<myResourceGroup>" -VMScaleSetName "<myVmssName>"
 
-Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ApplicationMonitoring" -Publisher "Microsoft.Azure.Diagnostics" -Type "ApplicationMonitoringWindows" -TypeHandlerVersion "2.8" -Setting $publicCfgHashtable -ProtectedSetting $privateCfgHashtable
+Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ApplicationMonitoringWindows" -Publisher "Microsoft.Azure.Diagnostics" -Type "ApplicationMonitoringWindows" -TypeHandlerVersion "2.8" -Setting $publicCfgHashtable -ProtectedSetting $privateCfgHashtable
 
 Update-AzVmss -ResourceGroupName $vmss.ResourceGroupName -Name $vmss.Name -VirtualMachineScaleSet $vmss
 

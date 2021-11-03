@@ -8,14 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 10/11/2021
 ms.author: aahi
-ms.openlocfilehash: 6918218d8434c06f59b0738e60cad53b94b0a0b5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 7415070639f4f6dbcee62c33871f4fbdbc64edac
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98939846"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131011735"
 ---
 # <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Azure Kubernetes Service에 Text Analytics 언어 감지 컨테이너 배포
 
@@ -38,7 +39,7 @@ ms.locfileid: "98939846"
 
 이 절차에서는 언어 감지를 위해 Cognitive Services 컨테이너 샘플을 로드하고 실행합니다. 샘플은 클라이언트 애플리케이션용 1개, Cognitive Services 컨테이너용 1개, 모두 2개의 컨테이너를 포함합니다. 이 이미지 둘 다를 Azure Container Registry로 푸시합니다. 이미지가 사용자 고유의 레지스트리에 추가되면 Azure Kubernetes Service를 만들어 이러한 이미지에 액세스하고 컨테이너를 실행합니다. 컨테이너가 실행되는 동안 **kubectl** CLI를 사용하여 컨테이너 성능을 감시합니다. HTTP 요청을 사용하여 클라이언트 애플리케이션에 액세스하고 결과를 봅니다.
 
-![샘플 컨테이너 실행에 대한 개념적 아이디어](../text-analytics/media/how-tos/container-instance-sample/containers.png)
+![Kubernetes에서 컨테이너를 실행하는 개념적 아이디어를 보여 주는 다이어그램](media/container-instance-sample.png)
 
 ## <a name="the-sample-containers"></a>샘플 컨테이너
 
@@ -383,7 +384,7 @@ replicaset.apps/language-frontend-68b9969969   1         1         1         13h
 
 브라우저를 열고 이전 섹션에 나오는 `language` 컨테이너의 외부 IP로 이동합니다. `http://<external-ip>:5000/swagger/index.html` API의 `Try it` 기능을 사용하여 언어 감지 엔드포인트를 테스트합니다.
 
-![컨테이너의 swagger 설명서 보기](../text-analytics/media/how-tos/container-instance-sample/language-detection-container-swagger-documentation.png)
+![컨테이너의 swagger 설명서를 보여 주는 스크린샷](./media/language-detection-container-swagger-documentation.png)
 
 ## <a name="test-the-client-application-container"></a>클라이언트 애플리케이션 컨테이너 테스트
 

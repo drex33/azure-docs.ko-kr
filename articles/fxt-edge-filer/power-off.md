@@ -1,17 +1,17 @@
 ---
 title: Microsoft Azure FXT Edge Filer 유닛을 종료하는 방법
 description: 클러스터 제어판 소프트웨어를 사용하여 Azure FXT Edge Filer 노드의 시작 및 안전 종료 절차를 알아봅니다.
-author: ekpgh
+author: femila
 ms.service: fxt-edge-filer
 ms.topic: how-to
 ms.date: 07/01/2019
-ms.author: v-erkel
-ms.openlocfilehash: 062a5ff1c335b64e8e9cd3fc2eba54c186599034
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
-ms.translationtype: HT
+ms.author: femila
+ms.openlocfilehash: c3b9f9c317de7ff1bdf2801d1348769882cb777b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111415389"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024242"
 ---
 # <a name="how-to-safely-power-off-azure-fxt-edge-filer-hardware"></a>Azure FXT Edge Filer 하드웨어 전원을 안전하게 끄는 방법
 

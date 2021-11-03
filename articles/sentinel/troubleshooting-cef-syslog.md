@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2021
 ms.author: bagol
-ms.openlocfilehash: 9f6585cec5c52dd2255fca2a31e2f92853954370
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 9d25b3e448fdf450001120d0c9fabf48f0e23b97
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129279016"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131022914"
 ---
 # <a name="troubleshoot-your-cef-or-syslog-data-connector"></a>CEF 또는 Syslog 데이터 커넥터 문제 해결
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 이 문서에서는 Azure Sentinel을 위한 CEF 또는 Syslog 데이터 커넥터를 확인하고 문제를 해결하는 일반적인 방법을 설명합니다.
 
@@ -504,7 +507,7 @@ if $rawmsg contains "CEF:" or $rawmsg contains "ASA-" then @@127.0.0.1:25226
 
 - 로컬 로그 파일에 기록되고 있는 로그( **/var/log/messages**  또는 **/var/log/syslog** )를 볼 수 있는지 확인합니다.
 
-- 포트 25224, 25226 또는 둘 다에서 흐르는 데이터 패킷을 볼 수 있는지 확인 합니다.
+- 포트 25224, 25226 또는 둘 다에서 흐르는 데이터 패킷을 볼 수 있는지 확인합니다.
 
 - 가상 머신이 TCP를 통해 포트 443에 대한 아웃바운드 연결이 있거나 [Log Analytics 엔드포인트에](../azure-monitor/agents/log-analytics-agent.md#network-requirements) 연결할 수 있는지 확인합니다.
 

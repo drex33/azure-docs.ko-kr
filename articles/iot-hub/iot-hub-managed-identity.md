@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/02/2021
 ms.author: miag
-ms.openlocfilehash: 15cde0a434df9ac06e69bf0c589cdcab8a03d2dc
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: b6f050c99d57e077e9e60aeb70d0acb11d200adb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129712400"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072759"
 ---
 # <a name="iot-hub-support-for-managed-identities"></a>관리 ID에 대한 IoT Hub 지원 
 
@@ -21,6 +21,7 @@ ms.locfileid: "129712400"
 IoT Hub에서 관리 ID는 [메시지 라우팅](iot-hub-devguide-messages-d2c.md), [파일 업로드](iot-hub-devguide-file-upload.md) 및 [대량 디바이스 가져오기/내보내기](iot-hub-bulk-identity-mgmt.md)와 같은 기능을 위해 IoT Hub에서 다른 Azure 서비스로의 송신 연결에 사용될 수 있습니다. 이 문서에서는 다양한 기능을 위해 IoT Hub에서 시스템 할당 및 사용자 할당 관리 ID를 사용하는 방법에 대해 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
+
 - 시스템 할당과 사용자가 할당한 관리 ID 간의 차이점을 이해하려면 [Azure 리소스에 대한 관리 ID](./../active-directory/managed-identities-azure-resources/overview.md) 문서를 읽어보세요.
 
 - IoT Hub가 없는 경우 계속하기 전에 [만듭니다](iot-hub-create-through-portal.md).
@@ -28,12 +29,13 @@ IoT Hub에서 관리 ID는 [메시지 라우팅](iot-hub-devguide-messages-d2c.m
 ## <a name="system-assigned-managed-identity"></a>시스템 할당 관리 ID
 
 ### <a name="add-and-remove-a-system-assigned-managed-identity-in-azure-portal"></a>Azure Portal에서 시스템 할당 관리 ID 추가 및 제거
-1.  Azure Portal에 로그인하고 원하는 IoT Hub로 이동합니다.
-2.  IoT Hub 포털에서 **ID** 로 이동합니다.
-3.  **시스템 할당** 탭에서 **켜기** 를 선택하고 **저장** 을 클릭합니다.
-4.  IoT Hub에서 시스템 할당 관리 ID를 제거하려면 **끄기** 를 선택하고 **저장** 을 클릭합니다.
 
-    :::image type="content" source="./media/iot-hub-managed-identity/system-assigned.png" alt-text="IoT Hub에 대해 시스템 할당 관리 ID를 켜는 위치를 보여 주는 스크린샷":::        
+1. Azure Portal에 로그인하고 원하는 IoT Hub로 이동합니다.
+2. IoT Hub 포털에서 **ID** 로 이동합니다.
+3. **시스템 할당** 탭에서 **켜기** 를 선택하고 **저장** 을 클릭합니다.
+4. IoT Hub에서 시스템 할당 관리 ID를 제거하려면 **끄기** 를 선택하고 **저장** 을 클릭합니다.
+
+    :::image type="content" source="./media/iot-hub-managed-identity/system-assigned.png" alt-text="I O T hub에 대 한 시스템 할당 관리 id를 켤 위치를 보여 주는 스크린샷":::
 
 ### <a name="enable-system-assigned-managed-identity-at-hub-creation-time-using-arm-template"></a>ARM 템플릿을 사용하여 허브를 만들 때 시스템 할당 관리 ID 사용
 
@@ -117,14 +119,17 @@ az deployment group create --name <deployment-name> --resource-group <resource-g
 ```azurecli-interactive
 az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resource-name> --resource-group <resource-group-name>
 ```
-## <a name="user-assigned-managed-identity"></a>사용자 할당 관리 ID 
-이 섹션에서는 Azure Portal을 사용하여 IoT 허브에서 사용자 할당 관리 ID를 추가하고 제거하는 방법을 알아봅니다.
-1.  우선 독립 실행형 리소스로 사용자가 할당한 관리 ID를 만들어야 합니다. 이렇게 하려면 [사용자가 할당한 관리 ID 만들기](./../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity)의 지침을 따르세요.
-2.  IoT Hub로 이동하고 IoT Hub 포털에서 **ID** 로 이동합니다.
-3.  **사용자 할당** 탭에서 **사용자 할당 관리 id 연결** 을 클릭 합니다. 허브에 추가할 사용자가 할당한 관리 ID를 선택한 다음 **선택** 을 클릭합니다. 
-4.  IoT Hub에서 사용자 할당 ID를 제거할 수 있습니다. 제거할 사용자 할당 ID를 선택하고 **제거** 단추를 클릭합니다. IoT Hub에서만 제거하며, 이 제거는 사용자 할당 ID를 리소스로 삭제하지 않습니다. 사용자가 할당한 ID를 리소스로 삭제하려면 [사용자가 할당한 관리 ID 삭제](./../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#delete-a-user-assigned-managed-identity)의 지침을 따르세요.
 
-    :::image type="content" source="./media/iot-hub-managed-identity/user-assigned.png" alt-text="IoT Hub에 대해 사용자가 할당한 관리 ID를 추가하는 방법을 보여 주는 스크린샷":::        
+## <a name="user-assigned-managed-identity"></a>사용자 할당 관리 ID
+
+이 섹션에서는 Azure Portal을 사용하여 IoT 허브에서 사용자 할당 관리 ID를 추가하고 제거하는 방법을 알아봅니다.
+
+1. 우선 독립 실행형 리소스로 사용자가 할당한 관리 ID를 만들어야 합니다. 이렇게 하려면 [사용자가 할당한 관리 ID 만들기](./../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity)의 지침을 따르세요.
+2. IoT Hub로 이동하고 IoT Hub 포털에서 **ID** 로 이동합니다.
+3. **사용자 할당** 탭에서 **사용자 할당 관리 id 연결** 을 클릭 합니다. 허브에 추가할 사용자가 할당한 관리 ID를 선택한 다음 **선택** 을 클릭합니다. 
+4. IoT Hub에서 사용자 할당 ID를 제거할 수 있습니다. 제거할 사용자 할당 ID를 선택하고 **제거** 단추를 클릭합니다. IoT Hub에서만 제거하며, 이 제거는 사용자 할당 ID를 리소스로 삭제하지 않습니다. 사용자가 할당한 ID를 리소스로 삭제하려면 [사용자가 할당한 관리 ID 삭제](./../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#delete-a-user-assigned-managed-identity)의 지침을 따르세요.
+
+    :::image type="content" source="./media/iot-hub-managed-identity/user-assigned.png" alt-text="I O T hub에 대 한 사용자 할당 관리 id를 추가 하는 방법을 보여 주는 스크린샷":::
 
 ### <a name="enable-user-assigned-managed-identity-at-hub-creation-time-using-arm-template"></a>ARM 템플릿을 사용하여 허브를 만들 때 사용자가 할당한 관리 ID 사용
 
@@ -241,11 +246,11 @@ az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resou
 
 3. 사용자 할당의 경우 **다음에 대한 액세스 할당** 에서 **사용자가 할당한 관리 ID** 를 선택합니다. 드롭다운 목록에서 구독 및 사용자가 할당한 관리 ID를 선택합니다. **저장** 단추를 클릭합니다.
 
-    :::image type="content" source="./media/iot-hub-managed-identity/eventhub-iam-user-assigned.png" alt-text="사용자가 할당한 IoT Hub 메시지 라우팅":::
+    :::image type="content" source="./media/iot-hub-managed-identity/eventhub-iam-user-assigned.png" alt-text="사용자가 할당 된 메시지 라우팅을 보여 주는 스크린샷":::
 
 4. 시스템 할당의 경우 **다음에 대한 액세스 할당** 에서 **사용자, 그룹 또는 서비스 주체** 를 선택하고 드롭다운 목록에서 IoT Hub의 리소스 이름을 선택합니다. **저장** 을 클릭합니다.
 
-    :::image type="content" source="./media/iot-hub-managed-identity/eventhub-iam-system-assigned.png" alt-text="시스템이 할당한 IoT Hub 메시지 라우팅":::
+    :::image type="content" source="./media/iot-hub-managed-identity/eventhub-iam-system-assigned.png" alt-text="시스템이 할당 된 메시지 라우팅을 보여 주는 스크린샷":::
 
     VNet을 통해 사용자 지정 엔드포인트에 대한 연결을 제한해야 하는 경우에는 신뢰할 수 있는 Microsoft 자사 예외를 설정하여 IoT Hub에 특정 엔드포인트에 대한 액세스 권한을 부여해야 합니다. 예를 들어 이벤트 허브 사용자 지정 엔드포인트를 추가하는 경우 이벤트 허브의 **방화벽 및 가상 네트워크** 탭으로 이동하여 **선택한 네트워크에서 액세스 허용** 옵션을 사용하도록 설정합니다. **예외** 목록에서 **신뢰할 수 있는 Microsoft 서비스가 이벤트 허브에 액세스하도록 허용합니다** 확인란을 선택합니다. **저장** 단추를 클릭합니다. 이는 스토리지 계정 및 Service Bus에도 적용됩니다. [가상 네트워크에 대한 IoT Hub 지원](./virtual-network-support.md)에 대해 자세히 알아봅니다.
 
@@ -256,12 +261,11 @@ az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resou
 
 6. 페이지 하단에서 기본 **인증 유형** 을 선택합니다. 이 섹션에서는 **사용자 지정** 을 예로 사용합니다. 드롭다운에서 기본 사용자가 할당한 관리 ID를 선택한 다음 **만들기** 를 클릭합니다.
 
-    :::image type="content" source="./media/iot-hub-managed-identity/eventhub-routing-endpoint.png" alt-text="사용자가 할당된 IoT Hub 이벤트 허브":::
+    :::image type="content" source="./media/iot-hub-managed-identity/eventhub-routing-endpoint.png" alt-text="사용자가 할당 된 이벤트 허브를 보여 주는 스크린샷":::
 
-7. 사용자 지정 엔드포인트를 만들었습니다. 
-8. 만든 후에도 인증 유형을 변경할 수 있습니다. 인증 유형을 변경할 사용자 지정 엔드포인트를 선택한 다음 **인증 유형 변경** 을 클릭합니다.
+7. 사용자 지정 엔드포인트를 만들었습니다.
 
-    :::image type="content" source="./media/iot-hub-managed-identity/change-authentication-type.png" alt-text="IoT Hub 인증 유형":::
+8. 만든 후에도 인증 유형을 변경할 수 있습니다. 왼쪽 탐색 창에서 **메시지 라우팅** 을 선택 하 고 **사용자 지정 끝점** 을 선택 합니다. 인증 유형을 변경 하려는 사용자 지정 끝점을 선택한 다음 **인증 유형 변경** 을 클릭 합니다.
 
 9. 이 엔드포인트에 대해 업데이트할 새 인증 유형을 선택하고 **저장** 을 클릭합니다.
 
@@ -281,7 +285,7 @@ IoT Hub의 [파일 업로드](iot-hub-devguide-file-upload.md) 기능에서는 �
 5. IoT Hub의 리소스 페이지에서 **파일 업로드** 탭으로 이동합니다.
 6. 표시되는 페이지에서 Blob Storage에서 사용할 컨테이너를 선택하고, **파일 알림 설정, SAS TTL, 기본 TTL 및 최대 전달 횟수** 를 원하는 대로 구성합니다. 기본 인증 유형을 선택하고 **저장** 을 클릭합니다. 이 단계에서 오류가 발생하면 **모든 네트워크** 에서 액세스할 수 있도록 스토리지 계정을 임시로 설정한 다음 다시 시도합니다. 파일 업로드 구성이 완료되면 스토리지 계정에서 방화벽을 구성할 수 있습니다.
 
-    :::image type="content" source="./media/iot-hub-managed-identity/file-upload.png" alt-text="msi로 IoT Hub 파일 업로드":::
+    :::image type="content" source="./media/iot-hub-managed-identity/file-upload.png" alt-text="msi를 통해 파일 업로드를 보여 주는 스크린샷.":::
 
     > [!NOTE]
     > 파일 업로드 시나리오에서 허브와 디바이스는 모두 스토리지 계정에 연결해야 합니다. 위의 단계는 원하는 인증 유형을 사용하여 스토리지 계정에 IoT 허브를 연결하기 위한 것입니다. 계속 SAS URI를 사용하여 디바이스를 스토리지에 연결해야 합니다. 현재 SAS URI는 연결 문자열을 사용하여 생성됩니다. 관리 ID를 사용하여 SAS URI를 생성하는 지원을 곧 추가할 예정입니다. [파일 업로드](iot-hub-devguide-file-upload.md)의 다음 단계를 따르세요.

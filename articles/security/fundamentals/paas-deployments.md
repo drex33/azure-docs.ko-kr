@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2021
 ms.author: terrylan
-ms.openlocfilehash: d28d55c8dff16df987f6535b0f1452b840b35c43
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
-ms.translationtype: HT
+ms.openlocfilehash: 96223db4d9087395f6771a4922694592a9e51b5e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105960506"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037343"
 ---
 # <a name="securing-paas-deployments"></a>PaaS 배포 보안
 
@@ -122,7 +122,7 @@ App Service 사용 시의 모범 사례는 다음과 같습니다.
 **세부 정보**: Azure Key Vault를 사용하면 클라우드 애플리케이션과 서비스에서 사용하는 암호화 키 및 비밀을 보호할 수 있습니다. Key Vault를 사용하면 HSM(하드웨어 보안 모듈)을 통해 보호되는 키를 통해 키와 비밀(예: 인증 키, 스토리지 계정 키, 데이터 암호화 키, .PFX 파일 및 암호)를 암호화할 수 있습니다. 추가된 보증을 위해, HSM에서 키를 생성하거나 가져올 수 있습니다. 자세한 내용은 [Azure Key Vault](../../key-vault/general/overview.md)를 참조하세요. 또한 Key Vault를 사용하여 자동 갱신으로 TLS 인증서를 관리할 수도 있습니다.
 
 **모범 사례**: 들어오는 원본 IP 주소를 제한합니다.   
-**세부 정보**: [App Service Environment](../../app-service/environment/intro.md)에는 네트워크 보안 그룹을 통해 들어오는 원본 IP 주소를 제한할 수 있는 가상 네트워크 통합 기능이 있습니다. 가상 네트워크에서는 액세스를 제어할 수 있는 인터넷이 아닌 라우팅 가능 네트워크에 Azure 리소스를 배치할 수 있습니다. 자세히 알아보려면 [Azure Virtual Network에 앱 통합](../../app-service/web-sites-integrate-with-vnet.md)을 참조하세요.
+**세부 정보**: [App Service Environment](../../app-service/environment/intro.md)에는 네트워크 보안 그룹을 통해 들어오는 원본 IP 주소를 제한할 수 있는 가상 네트워크 통합 기능이 있습니다. 가상 네트워크에서는 액세스를 제어할 수 있는 인터넷이 아닌 라우팅 가능 네트워크에 Azure 리소스를 배치할 수 있습니다. 자세히 알아보려면 [Azure Virtual Network에 앱 통합](../../app-service/overview-vnet-integration.md)을 참조하세요.
 
 **모범 사례**: App Service Environment의 보안 상태를 모니터링합니다.   
 **세부 정보**: Azure Security Center를 사용하여 App Service Environment를 모니터링합니다. Security Center는 잠재적 보안 취약성이 확인되면 필요한 컨트롤을 구성하는 과정을 안내하는 [권장 사항](../../security-center/asset-inventory.md)을 만듭니다.

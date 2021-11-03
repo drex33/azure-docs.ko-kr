@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 09/22/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2b5f7f694d5287f8af900848f0671d7828a95288
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: b1b97aaba9a51679775338ecaa5e1215bfe3372b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129354076"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131031711"
 ---
 # <a name="configure-runbook-input-parameters-in-automation"></a>Automation에서 Runbook 입력 매개 변수 구성
 
@@ -164,56 +164,56 @@ Azure Portal에서 [Runbook을 시작](start-runbooks.md#start-a-runbook-with-th
 
 * **Azure Resource Manager 방법:** 프로그래밍 언어 SDK를 사용하여 Runbook을 시작할 수 있습니다. 다음은 Automation 계정의 Runbook을 시작하기 위한 C# 코드 조각입니다. [GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/automation/Microsoft.Azure.Management.Automation/tests/TestSupport/AutomationTestBase.cs)에서 모든 코드를 볼 수 있습니다.
 
-   ```csharp
-   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
+  ```csharp
+  public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
+  {
+    var response = AutomationClient.Jobs.Create(resourceGroupName, automationAccount, new JobCreateParameters
+    {
+      Properties = new JobCreateProperties
       {
-        var response = AutomationClient.Jobs.Create(resourceGroupName, automationAccount, new JobCreateParameters
-         {
-            Properties = new JobCreateProperties
-             {
-                Runbook = new RunbookAssociationProperty
-                 {
-                   Name = runbookName
-                 },
-                   Parameters = parameters
-             }
-         });
-      return response.Job;
+        Runbook = new RunbookAssociationProperty
+        {
+          Name = runbookName
+        },
+        Parameters = parameters
       }
-   ```
+    });
+    return response.Job;
+  }
+  ```
 
 * **Azure 클래식 배포 모델 방법:** 프로그래밍 언어의 SDK를 사용하여 Runbook을 시작할 수 있습니다. 다음은 Automation 계정의 Runbook을 시작하기 위한 C# 코드 조각입니다. [GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/automation/Microsoft.Azure.Management.Automation/tests/TestSupport/AutomationTestBase.cs)에서 모든 코드를 볼 수 있습니다.
 
-   ```csharp
+  ```csharp
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
-    {
-      var response = AutomationClient.Jobs.Create(automationAccount, new JobCreateParameters
+  {
+    var response = AutomationClient.Jobs.Create(automationAccount, new JobCreateParameters
     {
       Properties = new JobCreateProperties
-         {
-           Runbook = new RunbookAssociationProperty
-         {
-           Name = runbookName
-              },
-                Parameters = parameters
-              }
-       });
-      return response.Job;
-    }
-   ```
+      {
+        Runbook = new RunbookAssociationProperty
+        {
+          Name = runbookName
+        },
+        Parameters = parameters
+      }
+    });
+    return response.Job;
+  }
+  ```
 
-   이 메서드를 시작하려면 Runbook 매개 변수 `VMName` 및 `resourceGroupName`과 해당 값을 저장하는 사전을 만듭니다. 그런 다음 Runbook을 시작합니다. 다음은 위에 정의된 메서드를 호출하기 위한 C# 코드 조각입니다.
+  이 메서드를 시작하려면 Runbook 매개 변수 `VMName` 및 `resourceGroupName`과 해당 값을 저장하는 사전을 만듭니다. 그런 다음 Runbook을 시작합니다. 다음은 위에 정의된 메서드를 호출하기 위한 C# 코드 조각입니다.
 
-   ```csharp
-   IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
+  ```csharp
+  IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
   
-   // Add parameters to the dictionary.
+  // Add parameters to the dictionary.
   RunbookParameters.Add("VMName", "WSVMClassic");
-   RunbookParameters.Add("resourceGroupName", "WSSC1");
+  RunbookParameters.Add("resourceGroupName", "WSSC1");
   
-   //Call the StartRunbook method with parameters
-   StartRunbook("Get-AzureVMGraphical", RunbookParameters);
-   ```
+  //Call the StartRunbook method with parameters
+  StartRunbook("Get-AzureVMGraphical", RunbookParameters);
+  ```
 
 #### <a name="start-a-runbook-using-the-rest-api-and-assign-parameters"></a>REST API를 사용하여 Runbook 시작 및 매개 변수 할당
 
@@ -314,10 +314,10 @@ $json = $json | ConvertFrom-Json
 Start-AzVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup -DefaultProfile $AzureContext
 ```
 
-시스템 할당 관리 id를 사용 하 여 runbook을 실행 하려면 코드를 그대로 둡니다. 사용자 할당 관리 id를 사용 하려면 다음을 수행 합니다.
-1. 10 번 줄에서 `$AzureContext = (Connect-AzAccount -Identity).context` ,를 제거 합니다.
-1. 을로 바꾸고 `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context` ,
-1. 클라이언트 ID를 입력 합니다.
+시스템이 할당한 관리 ID를 사용하여 Runbook을 실행하려면 코드를 그대로 둡니다. 사용자가 할당한 관리 ID를 사용하려면 다음을 수행합니다.
+1. 줄 10에서 를 제거합니다. `$AzureContext = (Connect-AzAccount -Identity).context`
+1. `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`로 바꿉니다.
+1. 클라이언트 ID를 입력합니다.
 
 이 Runbook을 Automation 계정에 저장하고 게시합니다.
 

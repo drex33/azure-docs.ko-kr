@@ -4,13 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/28/2020
 ms.author: v-jawe
-ms.custom: references_regions
-ms.openlocfilehash: ad7f6f600082a407a94833fe1575136fc360c9ae
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.custom: references_regions, ignite-fall-2021
+ms.openlocfilehash: 44867e190c203bdb03b7e92ae1499a57d2dcdd57
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105103985"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069156"
 ---
 이 빠른 시작에서는 다음을 포함하여 Speech SDK를 사용하는 Speaker Recognition에 대한 기본적인 디자인 패턴을 알아봅니다.
 
@@ -18,14 +18,14 @@ ms.locfileid: "105103985"
 * 음성 그룹 간의 음성 샘플을 식별하는 화자 식별
 * 음성 프로필 삭제
 
-음성 인식 개념에 대한 간략한 설명은 [개요](../../../speaker-recognition-overview.md) 문서를 참조하세요.
+Speaker Recognition 개념에 대한 간략한 설명은 [개요](../../../speaker-recognition-overview.md) 문서를 참조하세요. 지원되는 플랫폼 목록은 왼쪽 탐색의 참조 노드를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 여러분에게 Azure 계정 및 음성 서비스 구독이 있다고 가정합니다. 계정 및 구독이 없는 경우 [음성 서비스 평가판을 사용해 보세요](../../../overview.md#try-the-speech-service-for-free).
 
 > [!IMPORTANT]
-> Speaker Recognition는 현재 `westus` 지역에서 만든 Azure Speech 리소스에서만 지원되는 *유일한 것* 입니다.
+> Microsoft에서는 Speaker Recognition에 대한 액세스를 제한합니다. [Azure Cognitive Services Speaker Recognition 제한된 액세스 검토](https://aka.ms/azure-speaker-recognition)를 통해 사용을 신청합니다. 승인 후에는 Speaker Recognition API에 액세스할 수 있습니다. 
 
 ## <a name="install-the-speech-sdk"></a>Speech SDK 설치하기
 
@@ -53,8 +53,6 @@ using Microsoft.CognitiveServices.Speech.Audio;
 
 음성 SDK를 사용하여 음성 서비스를 호출하려면 [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig)를 만들어야 합니다. 이 예제에서는 구독 키와 지역을 사용하여 [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig)를 만듭니다. 또한 이 문서의 나머지 부분에 사용할 몇 가지 기본 상용구 코드를 만들 수 있습니다. 이 문서의 나머지 부분에서는 사용자 지정을 위해 수정합니다.
 
-지역은 서비스에 대해 지원되는 유일한 지역이므로 `westus`로 설정 됩니다.
-
 ```csharp
 public class Program 
 {
@@ -62,7 +60,8 @@ public class Program
     {
         // replace with your own subscription key 
         string subscriptionKey = "YourSubscriptionKey";
-        string region = "westus";
+        // replace with your own subscription region 
+        string region = "YourSubscriptionRegion";
         var config = SpeechConfig.FromSubscription(subscriptionKey, region);
     }
 }
@@ -79,6 +78,7 @@ public static async Task VerificationEnroll(SpeechConfig config, Dictionary<stri
 {
     using (var client = new VoiceProfileClient(config))
     using (var profile = await client.CreateProfileAsync(VoiceProfileType.TextDependentVerification, "en-us"))
+    using (var phraseResult = await client.GetActivationPhrasesAsync(VoiceProfileType.TextDependentVerification, "en-us"))
     {
         using (var audioInput = AudioConfig.FromDefaultMicrophoneInput())
         {
@@ -89,7 +89,7 @@ public static async Task VerificationEnroll(SpeechConfig config, Dictionary<stri
             VoiceProfileEnrollmentResult result = null;
             while (result is null || result.RemainingEnrollmentsCount > 0)
             {
-                Console.WriteLine("Speak the passphrase, \"My voice is my passport, verify me.\"");
+                Console.WriteLine($"Speak the passphrase, \"${phraseResult.Phrases[0]}\"");
                 result = await client.EnrollProfileAsync(profile, audioInput);
                 Console.WriteLine($"Remaining enrollments needed: {result.RemainingEnrollmentsCount}");
                 Console.WriteLine("");
@@ -165,7 +165,6 @@ Verified voice profile for speaker Your Name, score is 0.915581
 
 **텍스트-종속** 확인을 하는 것과 달리 **텍스트-독립** 을 확인합니다:
 
-* 특정 암호 구문을 음성으로 변환하지 않아도 됩니다.
 * 3개의 오디오 샘플이 필요하지 않지만 *는 총 20초의 오디오를 필요* 로 합니다.
 
 `VerificationEnroll`함수에 대한 몇 가지를 간단히 변경하여 **텍스트 독립** 확인으로 전환합니다. 먼저 확인 유형을 `VoiceProfileType.TextIndependentVerification`로 변경합니다. 다음으로 `while`루프를 변경하여 `result.RemainingEnrollmentsSpeechLength`를 추적합니다. 그러면 오디오 20초가 캡처될 때까지 계속해서 사용자가 말을 하도록 요구합니다.
@@ -175,6 +174,7 @@ public static async Task VerificationEnroll(SpeechConfig config, Dictionary<stri
 {
     using (var client = new VoiceProfileClient(config))
     using (var profile = await client.CreateProfileAsync(VoiceProfileType.TextIndependentVerification, "en-us"))
+    using (var phraseResult = await client.GetActivationPhrasesAsync(VoiceProfileType.TextIndependentVerification, "en-us"))
     {
         using (var audioInput = AudioConfig.FromDefaultMicrophoneInput())
         {
@@ -185,7 +185,7 @@ public static async Task VerificationEnroll(SpeechConfig config, Dictionary<stri
             VoiceProfileEnrollmentResult result = null;
             while (result is null || result.RemainingEnrollmentsSpeechLength > TimeSpan.Zero)
             {
-                Console.WriteLine("Continue speaking to add to the profile enrollment sample.");
+                Console.WriteLine($"Speak the activation phrase, \"${phraseResult.Phrases[0]}\"");
                 result = await client.EnrollProfileAsync(profile, audioInput);
                 Console.WriteLine($"Remaining enrollment audio time needed: {result.RemainingEnrollmentsSpeechLength}");
                 Console.WriteLine("");
@@ -205,23 +205,23 @@ public static async Task VerificationEnroll(SpeechConfig config, Dictionary<stri
 }
 ```
 
-프로그램을 다시 실행하면, 암호 구문은 필요하지 않으므로 확인 단계에서 무엇이든 말합니다. 마찬가지로 유사성 점수가 반환됩니다.
+프로그램을 다시 실행합니다. 마찬가지로 유사성 점수가 반환됩니다.
 
 ```shell
 Enrolling profile id 4tt87d4-f2d3-44ae-b5b4-f1a8d4036ee9.
-Continue speaking to add to the profile enrollment sample.
+Speak the activation phrase, "<FIRST ACTIVATION PHRASE>"
 Remaining enrollment audio time needed: 00:00:15.3200000
 
-Continue speaking to add to the profile enrollment sample.
+Speak the activation phrase, "<FIRST ACTIVATION PHRASE>"
 Remaining enrollment audio time needed: 00:00:09.8100008
 
-Continue speaking to add to the profile enrollment sample.
+Speak the activation phrase, "<FIRST ACTIVATION PHRASE>"
 Remaining enrollment audio time needed: 00:00:05.1900000
 
-Continue speaking to add to the profile enrollment sample.
+Speak the activation phrase, "<FIRST ACTIVATION PHRASE>"
 Remaining enrollment audio time needed: 00:00:00.8700000
 
-Continue speaking to add to the profile enrollment sample.
+Speak the activation phrase, "<FIRST ACTIVATION PHRASE>"
 Remaining enrollment audio time needed: 00:00:00
 
 Speak the passphrase to verify: "My voice is my passport, please verify me."
@@ -239,6 +239,7 @@ public static async Task<List<VoiceProfile>> IdentificationEnroll(SpeechConfig c
 {
     List<VoiceProfile> voiceProfiles = new List<VoiceProfile>();
     using (var client = new VoiceProfileClient(config))
+    using (var phraseResult = await client.GetActivationPhrasesAsync(VoiceProfileType.TextIndependentVerification, "en-us"))
     {
         foreach (string name in profileNames)
         {
@@ -251,7 +252,7 @@ public static async Task<List<VoiceProfile>> IdentificationEnroll(SpeechConfig c
                 VoiceProfileEnrollmentResult result = null;
                 while (result is null || result.RemainingEnrollmentsSpeechLength > TimeSpan.Zero)
                 {
-                    Console.WriteLine($"Continue speaking to add to the profile enrollment sample for {name}.");
+                    Console.WriteLine($"Speak the activation phrase, \"${phraseResult.Phrases[0]}\" to add to the profile enrollment sample for {name}.");
                     result = await client.EnrollProfileAsync(profile, audioInput);
                     Console.WriteLine($"Remaining enrollment audio time needed: {result.RemainingEnrollmentsSpeechLength}");
                     Console.WriteLine("");
@@ -285,7 +286,8 @@ static async Task Main(string[] args)
 {
     // replace with your own subscription key 
     string subscriptionKey = "YourSubscriptionKey";
-    string region = "westus";
+    // replace with your own subscription region 
+    string region = "YourSubscriptionRegion";
     var config = SpeechConfig.FromSubscription(subscriptionKey, region);
 
     // persist profileMapping if you want to store a record of who the profile is

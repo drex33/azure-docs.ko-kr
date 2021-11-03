@@ -3,20 +3,20 @@ title: 컨트롤 참조 표시
 titleSuffix: Azure AD B2C
 description: Azure AD B2C 표시 컨트롤에 대한 참조입니다. 표시 컨트롤을 사용하여 사용자 지정 정책에 정의된 사용자 경험을 사용자 지정합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 07/20/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 4b6ea85cfaf32ab9ba2c04c40befbe1fbf8ce915
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 498946016a057d39bbd2bd62af9829a56f77fa01
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114445474"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131007356"
 ---
 # <a name="display-controls"></a>표시 컨트롤
 

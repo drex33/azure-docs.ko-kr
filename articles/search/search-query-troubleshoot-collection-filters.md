@@ -7,12 +7,12 @@ ms.author: beloh
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/06/2021
-ms.openlocfilehash: da5769f2d9562676b9a3f1c0494395295737ae94
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 0b80869f3f2cf7754a7dbca8882fa22a38539f3a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129620187"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131048067"
 ---
 # <a name="troubleshooting-odata-collection-filters-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData 컬렉션 필터 문제 해결
 
@@ -28,7 +28,7 @@ Azure Cognitive Search에서 컬렉션 필드를 [필터링](query-odata-filter-
 | --- | --- | --- |
 | 'ismatch' 함수에는 범위 변수 's'에 바인딩된 매개 변수가 없습니다. 람다 식('any' 또는 'all') 내에서는 바인딩된 필드 참조만 지원됩니다. 'ismatch' 함수가 람다 식 외부에 있도록 필터를 변경하고 다시 시도하세요. | 람다 식 내에서 `search.ismatch` 또는 `search.ismatchscoring` 사용 | [복합 컬렉션 필터링 규칙](#bkmk_complex) |
 | 잘못된 람다 식입니다. Collection(Edm.String) 형식의 필드를 반복하는 람다 식에서 반대되는 같음 또는 같지 않음에 대한 테스트를 발견했습니다. 'any'의 경우 'x eq y'또는 'search.in(...)' 형식의 식을 사용하세요. 'all'의 경우 'x ne y', 'not (x eq y)', 또는 'not search.in(...)' 형식의 식을 사용하세요. | `Collection(Edm.String)` 형식 필드에 대한 필터링 | [문자열 컬렉션을 필터링 규칙](#bkmk_strings) |
-| 잘못된 람다 식입니다. 지원되지 않는 형식의 복합 부울 식을 찾았습니다. 'any'의 경우 DNF(Disjunctive Nomal Form)로 알려진 'ORs of ANDs' 식을 사용하세요. 예: '(a 및 b) 또는 (c 및 d)' 여기서 a, b, c 및 d는 비교 또는 같음의 하위 식입니다. 'all'의 경우 CNF(Conjunctive Normal Form)로 알려진 'ANDs of ORs' 식을 사용하세요. 예: '(a 또는 b) 및 (c 또는 d)' 여기서 a, b, c 및 d는 비교 또는 같지 않음의 하위 식입니다. 비교 식의 예: 'x gt 5', 'x le 2'. 같음 식의 예: 'x eq 5'. 같지 않음 식의 예: 'x ne 5'. | `Collection(Edm.DateTimeOffset)`, `Collection(Edm.Double)`, `Collection(Edm.Int32)` 또는 `Collection(Edm.Int64)` 형식 필드 필터링 | [비교 가능한 컬렉션 필터링 규칙](#bkmk_comparables) |
+| 잘못된 람다 식입니다. 지원되지 않는 형식의 복합 부울 식을 찾았습니다. 'any'의 경우 DNF(Disjunctive Nomal Form)로 알려진 'ORs of ANDs' 식을 사용하세요. 예: `(a and b) or (c and d)` where a, b, c, d는 비교 또는 같음 하위 식입니다. 'all'의 경우 CNF(Conjunctive Normal Form)로 알려진 'ANDs of ORs' 식을 사용하세요. 예: `(a or b) and (c or d)` where a, b, c, d는 비교 또는 같지 않음 하위 식입니다. 비교 식의 예: 'x gt 5', 'x le 2'. 같음 식의 예: 'x eq 5'. 같지 않음 식의 예: 'x ne 5'. | `Collection(Edm.DateTimeOffset)`, `Collection(Edm.Double)`, `Collection(Edm.Int32)` 또는 `Collection(Edm.Int64)` 형식 필드 필터링 | [비교 가능한 컬렉션 필터링 규칙](#bkmk_comparables) |
 | 잘못된 람다 식입니다. Collection(Edm.GeographyPoint) 형식의 필드를 반복하는 람다 식에서 지원되지 않는 geo.distance() 또는 geo.intersects() 사용을 발견했습니다. 'any'의 경우 'lt'또는 'le' 연산자를 사용하여 geo.distance()를 비교하고 geo.intersects() 사용이 부정되지 않았는지 확인합니다. 'all'의 경우 'gt'또는 'ge' 연산자를 사용하여 geo.distance()를 비교하고 geo.intersects() 사용이 부정되었는지 확인합니다. | `Collection(Edm.GeographyPoint)` 형식 필드에 대한 필터링 | [GeographyPoint 컬렉션 필터링 규칙](#bkmk_geopoints) |
 | 잘못된 람다 식입니다. Collection(Edm.GeographyPoint) 형식의 필드를 반복하는 람다 식에서는 복합 부울식이 지원되지 않습니다. 'any'의 경우 하위 식을 'or'과 조인하세요. 'and'는 지원되지 않습니다. 'all'의 경우 하위 식을 'and'와 조인하세요. 'or'은 지원되지 않습니다. | `Collection(Edm.String)` 또는 `Collection(Edm.GeographyPoint)` 형식 필드 필터링 | [문자열 컬렉션을 필터링 규칙](#bkmk_strings) <br/><br/> [GeographyPoint 컬렉션 필터링 규칙](#bkmk_geopoints) |
 | 잘못된 람다 식입니다. 비교 연산자 ('lt', 'le', 'gt', 또는 'ge' 중 하나)를 찾았습니다. Collection(Edm.String) 형식의 필드를 반복하는 람다 식에는 같음 연산자만 허용됩니다. 'any'의 경우 'x eq y'형식의 식을 사용하세요. 'all'의 경우 'x ne y' 또는 'not (x eq y)' 형식의 식을 사용하세요. | `Collection(Edm.String)` 형식 필드에 대한 필터링 | [문자열 컬렉션을 필터링 규칙](#bkmk_strings) |

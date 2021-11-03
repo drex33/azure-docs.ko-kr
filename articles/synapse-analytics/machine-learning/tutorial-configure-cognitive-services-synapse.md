@@ -9,12 +9,13 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: e10a31b2156cce03dcef40a88f5cb380f12dd03c
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 04d9b7ab0255212ed1b753d0bf6f31abfe1db03d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835528"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131018953"
 ---
 # <a name="quickstart-configure-prerequisites-for-using-cognitive-services-in-azure-synapse-analytics"></a>빠른 시작: Azure Synapse Analytics의 Cognitive Services를 사용하기 위한 필수 구성 요소 구성
 
@@ -29,7 +30,7 @@ ms.locfileid: "122835528"
 
 Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Azure Synapse Analytics 작업 영역](../get-started-create-workspace.md)(기본 스토리지로 구성된 Azure Data Lake Storage Gen2 스토리지 계정이 있음). 사용하는 Azure Data Lake Storage Gen2 파일 시스템의 *Storage Blob 데이터 기여자* 여야 합니다.
 
@@ -39,7 +40,7 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 
 ## <a name="create-a-cognitive-services-resource"></a>Cognitive Services 리소스 만들기
 
-[Azure Cognitive Services](../../cognitive-services/index.yml)는 다양한 유형의 서비스를 포함합니다. Text Analytics 및 Anomaly Detector는 Azure Synapse 자습서의 두 가지 예제입니다.
+[Azure Cognitive Services](../../cognitive-services/index.yml)는 다양한 유형의 서비스를 포함합니다. 다음 서비스는 Azure Synapse 자습서에서 사용되는 예제입니다.
 
 Azure Portal에서 [Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) 리소스를 만들 수 있습니다.
 
@@ -48,6 +49,28 @@ Azure Portal에서 [Text Analytics](https://ms.portal.azure.com/#create/Microsof
 Azure Portal에서 [Anomaly Detector](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) 리소스를 만들 수 있습니다.
 
 ![포털의 Anomaly Detector와 만들기 단추를 보여 주는 스크린샷](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00a.png)
+
+Azure Portal에서 [Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) 리소스를 만들 수 있습니다.
+
+![포털의 Form Recognizer와 만들기 단추를 보여 주는 스크린샷.](media/tutorial-configure-cognitive-services/tutorial-configure-form-recognizer.png)
+
+Azure Portal에서 [Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) 리소스를 만들 수 있습니다.
+
+![포털의 Translator와 만들기 단추를 보여 주는 스크린샷.](media/tutorial-configure-cognitive-services/tutorial-configure-translator.png)
+
+Azure Portal에서 [Computer Vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) 리소스를 만들 수 있습니다.
+
+![포털의 Computer Vision과 만들기 단추를 보여 주는 스크린샷.](media/tutorial-configure-cognitive-services/tutorial-configure-computer-vision.png)
+
+
+Azure Portal에서 [Face](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace) 리소스를 만들 수 있습니다.
+
+![포털의 Face와 만들기 단추를 보여 주는 스크린샷.](media/tutorial-configure-cognitive-services/tutorial-configure-face.png)
+
+
+Azure Portal에서 [Speech](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) 리소스를 만들 수 있습니다.
+
+![포털의 Speech와 만들기 단추를 보여 주는 스크린샷.](media/tutorial-configure-cognitive-services/tutorial-configure-speech.png)
 
 ## <a name="create-a-key-vault-and-configure-secrets-and-access"></a>키 자격 증명 모음 만들기 및 비밀과 액세스 구성
 

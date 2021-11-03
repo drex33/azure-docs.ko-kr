@@ -5,17 +5,19 @@ author: batamig
 ms.author: bagold
 ms.service: azure-sentinel
 ms.topic: reference
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.date: 06/09/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: 63ca9c2a76b5daaf576992f715a7ec112ac98b25
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
-ms.translationtype: HT
+ms.openlocfilehash: f333ea27279098d43065a9ffd613f994940ff340
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681527"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131019707"
 ---
 # <a name="azure-sentinel-sap-solution-detailed-sap-requirements-public-preview"></a>Azure Sentinel SAP 솔루션 자세한 SAP 요구 사항(퍼블릭 미리 보기)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [Azure Sentinel SAP 솔루션을 배포하는 기본 절차](sap-deploy-solution.md)에는 필요한 SAP 변경 요청과 SAP 노트가 포함되며 모든 필수 권한이 있는 기본 제공 역할이 제공됩니다.
 

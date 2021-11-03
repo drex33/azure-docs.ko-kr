@@ -6,14 +6,17 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: how-to
 ms.date: 05/11/2021
-ms.openlocfilehash: 1b13d49707402143c59078aa3e73cd93db1b10de
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: d14d4942f659be48b49615e6fe9addb2ffa34905
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529242"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046891"
 ---
 # <a name="handle-false-positives-in-azure-sentinel"></a>Azure Sentinel의 가양성 처리
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [Azure Sentinel 분석 규칙](detect-threats-built-in.md)은 네트워크에서 의심스러운 상황이 발생하면 알려줍니다. 완벽한 분석 규칙은 없으며 처리가 필요한 가양성 알림을 받을 수밖에 없습니다. 이 문서에서는 자동화를 사용하거나 예약된 분석 규칙을 수정하여 가양성을 처리하는 방법을 설명합니다.
 

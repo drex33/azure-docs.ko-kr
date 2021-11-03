@@ -7,20 +7,23 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: how-to
 ms.date: 09/12/2021
-ms.openlocfilehash: b3a33bc1f72af20a28bffbd96df73b95d31e3cca
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 354db7af1198335247d97c31b44b3c40b59ed75d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128634161"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060709"
 ---
 # <a name="advanced-configurations-for-jupyter-notebooks-and-msticpy-in-azure-sentinel"></a>Azure Sentinel Jupyter Notebook 및 MSTICPy에 대한 고급 구성
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 이 문서에서는 Azure Sentinel Jupyter Notebook 및 MSTICPy를 작업하기 위한 고급 구성에 대해 설명합니다.
 
 자세한 내용은 [Jupyter Notebook을 사용하여 보안 위협 헌트](notebooks.md) 및 [자습서: Azure Sentinel Jupyter Notebook 및 MSTICPy 시작을 참조하세요.](notebook-get-started.md)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서는 [자습서: Azure Sentinel Jupyter Notebook 및 MSTICPy 시작의](notebook-get-started.md)연속입니다. 아래 설명된 고급 절차를 계속하기 전에 자습서를 수행하는 것이 좋습니다.
 
@@ -71,7 +74,7 @@ ms.locfileid: "128634161"
 
    - **자동 연결:** 이 옵션은 기본적으로 **True로** 정의되며 MSTICPy는 로드 후 즉시 공급자에 인증을 시도합니다. MSTICPy는 설정에서 공급자에 대한 자격 증명을 구성했다고 가정합니다.
 
-   - **별칭:** MSTICPy는 공급자를 로드할 때 공급자를 Python 변수 이름에 할당합니다. 기본적으로 변수 이름은 **Azure Sentinel** 공급자에 qryworkspace_name 다른 공급자의 **경우 qryprovider_name.**
+   - **별칭:** MSTICPy는 공급자를 로드할 때 공급자를 Python 변수 이름에 할당합니다. 기본적으로 변수 이름은 **Azure Sentinel** 공급자에 대해 qryworkspace_name 다른 공급자의 **경우 qryprovider_name.**
 
         예를 들어 *ContosoSOC* 작업 영역에 대한 쿼리 공급자를 로드하는 경우 이 쿼리 공급자는 이름이 인 Notebook 환경에서 `qry_ContosoSOC` 만들어집니다. 더 짧거나 더 쉽게 입력하고 기억하기 쉬운 별칭을 사용하려는 경우 별칭을 추가합니다. 공급자 변수 이름은 `qry_<alias>` `<alias>` 입니다. 여기서 는 제공한 별칭 이름으로 대체됩니다.
 
@@ -134,7 +137,7 @@ ms.locfileid: "128634161"
 
       자세한 내용은 [MSTICNB(MSTIC Notebooklets) 설명서를 참조하세요.](https://msticnb.readthedocs.io/en/latest/msticnb.html#msticnb.data_providers.init)
 
-    **TILookup** 및 Pivot과 같은 일부 구성 **요소에는** 매개 변수가 필요하지 않습니다.
+    **TILookup** 및 **Pivot과** 같은 일부 구성 요소에는 매개 변수가 필요하지 않습니다.
 
 1. **설정 저장을** 선택하여 변경 내용을 저장합니다.
 
@@ -143,7 +146,7 @@ ms.locfileid: "128634161"
 
 Python 3.65 및 3.8 커널 간에 전환하는 경우 MSTICPy 및 기타 패키지가 예상대로 설치되지 않을 수 있습니다.
 
-이 문제는 `!pip install pkg` 명령이 첫 번째 환경에서 올바르게 설치되지만 두 번째 환경에서는 올바르게 설치되지 않을 때 발생할 수 있습니다. 이렇게 하면 두 번째 환경에서 패키지를 가져오거나 사용할 수 없는 상황이 발생합니다.
+이 문제는 `!pip install pkg` 명령이 첫 번째 환경에서 올바르게 설치되지만 두 번째 환경에서는 제대로 설치되지 않는 경우에 발생할 수 있습니다. 이렇게 하면 두 번째 환경에서 패키지를 가져오거나 사용할 수 없는 상황이 발생합니다.
 
 를 사용하여 Azure ML Notebook에 패키지를 설치하지 않는 것이 `!pip install...` 좋습니다. 대신 다음 옵션 중 하나를 사용합니다.
 
@@ -180,7 +183,7 @@ Azure ML 실행 중이고 **msticpyconfig.yaml** 파일이 사용자 폴더의 �
 
     그러나 파일에 저장된 비밀도 있는 경우 컴퓨팅 로컬 드라이브에 구성 파일을 저장하는 것이 좋습니다. 컴퓨팅 내부 스토리지는 컴퓨팅을 만든 사용자만 액세스할 수 있는 반면, 공유 스토리지는 Azure ML 작업 영역에 액세스할 수 있는 모든 사용자가 액세스할 수 있습니다.
 
-    자세한 내용은 [Azure Machine Learning 컴퓨팅 인스턴스란?을 참조하세요.](/azure/machine-learning/concept-compute-instance)
+    자세한 내용은 [Azure Machine Learning 컴퓨팅 인스턴스란?을 참조하세요.](../machine-learning/concept-compute-instance.md)
 
 1. 필요한 경우 **msticpyconfig.yaml** 파일을 선택한 위치에 복사합니다.
 
@@ -235,7 +238,6 @@ Azure ML 실행 중이고 **msticpyconfig.yaml** 파일이 사용자 폴더의 �
 
     - **Msticpyconfig** 파일을 이동한 경우를 실행 `export MSTICPYCONFIG=~/msticpyconfig.yaml` 합니다.
     - **Msticpyconfig** 파일을 이동 하지 않은 경우를 실행 `export MSTICPYCONFIG=~/cloudfiles/code/Users/<YOURNAME>/msticpyconfig.yaml` 합니다.
-
 
 # <a name="azure-ml-options"></a>[Azure ML 옵션](#tab/azure-ml)
 
@@ -311,4 +313,3 @@ Azure ML 실행 중이고 **msticpyconfig.yaml** 파일이 사용자 폴더의 �
 |**MSTICPy**     |      - [MSTICPy 패키지 구성](https://msticpy.readthedocs.io/en/latest/getting_started/msticpyconfig.html)<br> - [MSTICPy 설정 편집기](https://msticpy.readthedocs.io/en/latest/getting_started/SettingsEditor.html)<br>    - [노트북 환경 구성](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/ConfiguringNotebookEnvironment.ipynb).<br>    - [MPSettingsEditor 노트북](https://github.com/microsoft/msticpy/blob/master/docs/notebooks/MPSettingsEditor.ipynb). <br><br>**참고**: Azure 센티널 GitHub (msticpyconfig) 리포지토리에는 주석 처리 섹션이 포함 된 template  파일이 포함 되어 있으므로 설정을 이해 하는 데 도움이 될 수 있습니다.      |
 |**Azure 센티널 및 Jupyter 노트북**     |      - [Jupyter 노트북: 소개](https://realpython.com/jupyter-notebook-introduction/)<br>    - [MSTICPy 설명서](https://msticpy.readthedocs.io/)<br>    - [Azure 센티널 노트북 설명서](notebooks.md)<br>    - [Infosec Jupyterbook](https://infosecjupyterbook.com/introduction.html)<br>    - [Linux 호스트 탐색기 노트북 연습](https://techcommunity.microsoft.com/t5/azure-sentinel/explorer-notebook-series-the-linux-host-explorer/ba-p/1138273)<br>    - [보안 조사에 Jupyter를 사용 하는 이유](https://techcommunity.microsoft.com/t5/azure-sentinel/why-use-jupyter-for-security-investigations/ba-p/475729)<br>    - [전자 필기장 & Azure 센티널을 사용한 보안 조사](https://techcommunity.microsoft.com/t5/azure-sentinel/security-investigation-with-azure-sentinel-and-jupyter-notebooks/ba-p/432921)<br>    - [Pandas 설명서](https://pandas.pydata.org/pandas-docs/stable/user_guide/index.html)<br>    - [Bokeh 설명서](https://docs.bokeh.org/en/latest/)       |
 |     |         |
-

@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/29/2021
 ms.author: srijangupta
-ms.openlocfilehash: 1e62653a7b48ac22f4482974696ad14c13b39a88
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 7ebabe554121e2ad07ef776ed78046a09db9ca9c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698858"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054593"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Azure의 가상머신에 대한 cloud-init 지원
 
@@ -140,14 +140,13 @@ packages:
   - httpd
 ```
 > [!NOTE]
-> cloud-init에는 여러 [입력 유형](https://cloudinit.readthedocs.io/en/latest/topics/format.html)이 있으며, cloud-init는 customData/userData의 첫 번째 줄을 사용하여 입력을 처리하는 방법을 나타냅니다. 예를 들어 `#cloud-config`는 콘텐츠가 cloud-init 구성으로 처리되어야 함을 나타냅니다.
+> 클라우드 초기화에는 여러 [입력 형식이](https://cloudinit.readthedocs.io/en/latest/topics/format.html)있습니다. 클라우드 초기화는 CustomData/userData의 첫 번째 줄을 사용 하 여 입력을 처리 하는 방법을 나타냅니다. 예를 들어 `#cloud-config` 콘텐츠는 클라우드 init 구성으로 처리 되어야 함을 나타냅니다.
 
-
-`ctrl-X` 키를 눌러 파일을 종료하고, `y`를 입력하여 파일을 저장하고 `enter` 키를 눌러 종료 시 파일 이름을 확인합니다.
+<kbd>Ctrl + X</kbd> 를 눌러 파일을 종료 하 고 <kbd>y</kbd> 를 입력 하 여 파일을 저장 한 다음 <kbd>enter</kbd> 키를 눌러 종료 시 파일 이름을 확인 합니다.
 
 마지막 단계로 [az vm create](/cli/azure/vm) 명령을 사용하여 VM을 만듭니다. 
 
-다음 예제에서는 *centos74* 라는 VM을 만들고 기본 키 위치에 SSH 키가 없는 경우 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다.  `--custom-data` 매개 변수를 사용하여 cloud-init 구성 파일을 전달합니다. 현재 작업 디렉터리 외부에 파일을 저장한 경우 *cloud-init.txt* 구성의 전체 경로를 제공합니다. 
+다음 예제에서는 `centos74`이라는 VM을 만들고 기본 키 위치에 SSH 키가 없는 경우 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다.  `--custom-data` 매개 변수를 사용하여 cloud-init 구성 파일을 전달합니다. 현재 작업 디렉터리 외부에 파일을 저장한 경우 *cloud-init.txt* 구성의 전체 경로를 제공합니다. 
 
 ```azurecli-interactive 
 az vm create \

@@ -6,12 +6,12 @@ ms.author: timlt
 ms.service: iot-develop
 ms.topic: include
 ms.date: 09/17/2021
-ms.openlocfilehash: 92a81cc28b605c715e2522c6ad78e5732a379c8f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9e0b90c4d9ec306e462cef63f27e7a306a8289df
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128610301"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131077555"
 ---
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 이 섹션에서는 Azure CLI를 사용하여 IoT 허브 및 리소스 그룹을 만듭니다.  Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. IoT 허브는 IoT 애플리케이션과 디바이스 간의 양방향 통신을 위한 중앙 메시지 허브 역할을 합니다.
@@ -53,7 +53,7 @@ IoT 허브 및 리소스 그룹을 만들려면 다음을 수행합니다.
 이 빠른 시작의 나머지 부분에서는 IoT Explorer를 사용하여 IoT Hub에 디바이스를 등록하고 디바이스 원격 분석을 봅니다. 이 섹션에서는 방금 만든 IoT Hub에 연결하고 퍼블릭 모델 리포지토리에서 플러그 앤 플레이 모델을 읽도록 IoT Explorer를 구성합니다. 
 
 > [!NOTE]
-> 또한 Azure CLI를 사용하여 디바이스를 등록할 수 있습니다. *[az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) --device-id mydevice --hub-name {YourIoTHubName}* 명령을 사용하여 새 디바이스를 등록하고 *[az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az_iot_hub_device_identity_connection_string_show) --device-id mydevice --hub-name {YourIoTHubName}* 명령을 사용하여 디바이스의 기본 연결 문자열을 가져옵니다. 디바이스 연결 문자열을 기록해 두면 [시뮬레이션된 디바이스 실행](#run-a-simulated-device)으로 건너뛸 수 있습니다.
+> 또한 Azure CLI를 사용하여 디바이스를 등록할 수 있습니다. *[az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) --device-id mydevice --hub-name {YourIoTHubName}* 명령을 사용하여 새 디바이스를 등록하고 *[az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az_iot_hub_device_identity_connection_string_show) --device-id mydevice --hub-name {YourIoTHubName}* 명령을 사용하여 디바이스의 기본 연결 문자열을 가져옵니다. 디바이스 연결 문자열을 메모해 둔 후에는 [디바이스 실행](#run-a-device)으로 건너뛸 수 있습니다.
 
 IoT Hub에 대한 연결을 추가하려면
 
@@ -84,7 +84,7 @@ IoT Hub에 대한 연결을 추가하려면
 
 ### <a name="register-a-device"></a>디바이스 등록
 
-이 섹션에서는 새 디바이스 인스턴스를 만들고 만든 IoT Hub에 등록합니다. 이후 섹션에서 새로 등록한 디바이스에 대한 연결 정보를 사용하여 시뮬레이션된 디바이스를 안전하게 연결합니다.
+이 섹션에서는 새 디바이스 인스턴스를 만들고 만든 IoT Hub에 등록합니다. 새로 등록된 디바이스의 연결 정보를 사용하여 이후 섹션에서 디바이스를 안전하게 연결합니다.
 
 디바이스를 등록하려면
 

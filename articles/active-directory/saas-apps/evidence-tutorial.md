@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 9afdbef418f9397cb4f13d4eb51220e6fc5573ab
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3bc6d92d0992c44cd0cb9bb0f874b9ea1952a211
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124779087"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058999"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-evidencecom"></a>자습서: Evidence.com과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,7 +26,7 @@ ms.locfileid: "124779087"
 * 사용자가 자신의 Azure AD 계정으로 Evidence.com에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -75,12 +75,12 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **SAML로 Single Sign-On 설정** 페이지에서 다음 단계를 수행합니다.
 
-    a. **로그온 URL** 텍스트 상자에서 `https://<yourtenant>.evidence.com` 패턴을 사용하는 URL을 입력합니다.
+    1. **로그온 URL** 텍스트 상자에서 `https://<yourtenant>.evidence.com` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<yourtenant>.evidence.com` 패턴을 사용하는 URL을 입력합니다.
+    1. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<yourtenant>.evidence.com` 패턴을 사용하는 URL을 입력합니다.
 
-    다. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<your tenant>.evidence.com/?class=UIX&proc=Login`
-    
+    1. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<your tenant>.evidence.com/?class=UIX&proc=Login`
+
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 로그온 URL, 식별자 및 회신 URL로 업데이트합니다. 이러한 값을 얻으려면 [Evidence.com 클라이언트 지원 팀](https://communities.taser.com/support/SupportContactUs?typ=LE)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 

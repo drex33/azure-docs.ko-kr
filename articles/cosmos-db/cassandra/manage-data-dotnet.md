@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/01/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 78ec9d84e6982a925e4eb5b1baa60881f89369b8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 003e3b9978b15e7af2280175575051028cb13035
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121786548"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057840"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>빠른 시작: .NET SDK 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
@@ -92,30 +92,30 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 * 새 테이블을 만듭니다.
 
-   ```csharp
+  ```csharp
   session.Execute("CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)");
-   ```
+  ```
 
 * uprofile keyspace에 연결하는 새 세션과 함께 IMapper 개체를 사용하여 사용자 엔터티를 삽입합니다.
 
-    ```csharp
-    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
-    ```
+  ```csharp
+  mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
+  ```
     
 * 모든 사용자 정보를 가져오기 위한 쿼리입니다.
 
-    ```csharp
-   foreach (User user in mapper.Fetch<User>("Select * from user"))
-   {
-      Console.WriteLine(user);
-   }
-    ```
-    
+  ```csharp
+  foreach (User user in mapper.Fetch<User>("Select * from user"))
+  {
+     Console.WriteLine(user);
+  }
+  ```
+
 * 단일 사용자 정보를 가져오기 위한 쿼리입니다.
 
-    ```csharp
-    mapper.FirstOrDefault<User>("Select * from user where user_id = ?", 3);
-    ```
+  ```csharp
+  mapper.FirstOrDefault<User>("Select * from user where user_id = ?", 3);
+  ```
 
 ## <a name="update-your-connection-string"></a>연결 문자열 업데이트
 

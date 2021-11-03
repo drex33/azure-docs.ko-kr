@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.custom: devx-track-csharp
 ms.reviewer: olegan
-ms.openlocfilehash: e1ea1a1e02b4b09e64054e9369caee4202a0b1b5
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 4e788d84e7f030b4b3067203434061ad017d1468
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129235690"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045542"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config 또는 .xml로 Application Insights SDK 구성
 Application Insights .NET SDK는 NuGet 패키지의 숫자로 구성됩니다. [코어 패키지](https://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights에 원격 분석을 보내는 경우에 API를 제공합니다. [추가 패키지](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights)는 해당 컨텍스트 및 애플리케이션에서 원격 분석을 자동으로 추적하기 위해 원격 분석 *모듈* 및 *이니셜라이저* 를 제공합니다. 구성 파일을 조정하면 원격 분석 모듈과 이니셜라이저를 사용하거나 사용하지 않도록 설정하고 일부 항목에 대한 매개 변수를 설정할 수 있습니다.
@@ -71,20 +71,20 @@ HTTP 요청의 [응답 시간 및 결과 코드](../../azure-monitor/app/asp-net
 * `Microsoft.ApplicationInsights.Web.ExceptionTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet 패키지
 * `Microsoft.ApplicationInsights.WindowsServer.UnobservedExceptionTelemetryModule` - 관찰되지 않은 작업 예외를 추적합니다.
-* `Microsoft.ApplicationInsights.WindowsServer.UnhandledExceptionTelemetryModule`- 작업자 역할, Windows 서비스 및 콘솔 애플리케이션에 대한 처리되지 않은 예외를 추적합니다.
+* `Microsoft.ApplicationInsights.WindowsServer.UnhandledExceptionTelemetryModule`-작업자 역할, Windows 서비스 및 콘솔 응용 프로그램에 대해 처리 되지 않은 예외를 추적 합니다.
 * [Application Insights Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet 패키지.
 
 ### <a name="eventsource-tracking"></a>EventSource 추적
 `EventSourceTelemetryModule`을 사용하여 Application Insights에 전송될 EventSource 이벤트를 구성할 수 있습니다. EventSource 이벤트 추적에 대한 자세한 내용은 [EventSource 이벤트 사용](./asp-net-trace-logs.md#use-eventsource-events)을 참조하세요.
 
 * `Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule`
-* [Microsoft.ApplicationInsights.EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener) 
+* [Microsoft.ApplicationInsights.EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener)
 
 ### <a name="etw-event-tracking"></a>ETW 이벤트 추적
 `EtwCollectorTelemetryModule`을 사용하여 Application Insights에 추적으로 전송할 ETW 공급자의 이벤트를 구성할 수 있습니다. ETW 이벤트 추적에 대한 자세한 내용은 [ETW 이벤트 사용](../../azure-monitor/app/asp-net-trace-logs.md#use-etw-events)을 참조하세요.
 
 * `Microsoft.ApplicationInsights.EtwCollector.EtwCollectorTelemetryModule`
-* [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
+* [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector)
 
 ### <a name="microsoftapplicationinsights"></a>Microsoft.ApplicationInsights
 Microsoft.ApplicationInsights 패키지는 SDK의 [코어 API](/dotnet/api/microsoft.applicationinsights) 를 제공합니다. 다른 원격 분석 모듈은 이를 사용하며 사용자도 [자체 원격 분석을 정의하는 데 사용](./api-custom-events-metrics.md)할 수 있습니다.
@@ -96,7 +96,7 @@ Microsoft.ApplicationInsights 패키지는 SDK의 [코어 API](/dotnet/api/micro
 [원격 분석 채널](telemetry-channels.md)은 Application Insights 서비스에 대한 원격 분석의 버퍼링과 전송을 관리합니다.
 
 * `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`은 웹 애플리케이션의 기본 채널입니다. 메모리에서 데이터를 버퍼링하며 더 안정적인 원격 분석 제공을 위해 다시 시도 메커니즘과 로컬 디스크 스토리지를 사용합니다.
-* `Microsoft.ApplicationInsights.InMemoryChannel`은 다른 채널이 구성되지 않은 경우에 사용되는 간단한 원격 분석 채널입니다. 
+* `Microsoft.ApplicationInsights.InMemoryChannel`은 다른 채널이 구성되지 않은 경우에 사용되는 간단한 원격 분석 채널입니다.
 
 ## <a name="telemetry-initializers-aspnet"></a>원격 분석 이니셜라이저(ASP.NET)
 원격 분석 이니셜라이저는 원격 분석의 모든 항목과 함께 전송되는 컨텍스트 속성을 설정합니다.
@@ -155,7 +155,7 @@ Service Fabric에서 실행되는 .NET 애플리케이션에 대해 `Microsoft.A
 #### <a name="fixed-rate-sampling-telemetry-processor-from-200-beta1"></a>고정 비율 샘플링 원격 분석 프로세서(2.0.0-beta1부터)
 또한 표준 [샘플링 원격 분석 프로세서](./api-filtering-sampling.md)도 있습니다(2.0.1부터).
 
-```XML
+```xml
 
     <TelemetryProcessors>
      <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
@@ -184,7 +184,7 @@ using Microsoft.ApplicationInsights;
         TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
         configuration.InstrumentationKey = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
         var telemetryClient = new TelemetryClient(configuration);
-   
+
 ```
 
 특정 이벤트 집합을 다른 리소스로 보내려는 경우 특정 TelemetryClient에 대한 키를 설정할 수 있습니다.
@@ -199,8 +199,6 @@ using Microsoft.ApplicationInsights;
 ```
 
 새 키를 얻으려면 [Application Insights 포털에서 새 리소스를 만듭니다][new].
-
-
 
 ## <a name="applicationid-provider"></a>애플리케이션 ID 공급자
 
@@ -218,7 +216,6 @@ public interface IApplicationIdProvider
     bool TryGetApplicationId(string instrumentationKey, out string applicationId);
 }
 ```
-
 
 [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) sdk에서 `ApplicationInsightsApplicationIdProvider` 및 `DictionaryApplicationIdProvider`라는 두 가지 구현을 제공합니다.
 
@@ -281,9 +278,6 @@ TelemetryConfiguration.Active.ApplicationIdProvider = new DictionaryApplicationI
     }
 };
 ```
-
-
-
 
 ## <a name="next-steps"></a>다음 단계
 [API에 대해 자세히 알아보세요][api].

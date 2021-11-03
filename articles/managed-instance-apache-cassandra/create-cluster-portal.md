@@ -5,23 +5,18 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 09/08/2021
-ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 276ac87c4d1f0c31d75c4dd653aaa5c67f96d6c0
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.date: 11/02/2021
+ms.custom: references_regions, devx-track-azurecli, ignite-fall-2021
+ms.openlocfilehash: 32e21c102bec3c66c066cad9083ab6a561105289
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129754523"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084997"
 ---
-# <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal-preview"></a>빠른 시작: Azure Portal에서 Apache Cassandra 클러스터용 Azure Managed Instance 생성(미리 보기)
+# <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Managed Instance for Apache Cassandra 클러스터 만들기
 
 Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cassandra 데이터 센터에 대한 자동화된 배포 및 스케일링 작업을 제공하여 하이브리드 시나리오를 가속화하고 지속적인 유지 관리를 줄여줍니다.
-
-> [!IMPORTANT]
-> Apache Cassandra용 Azure Managed Instance는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 이 빠른 시작에서는 Azure Portal을 사용하여 Apache Cassandra 클러스터용 Azure Managed Instance를 만드는 방법을 설명합니다.
 
@@ -53,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    * **Cassandra 관리자 암호 확인** - 암호를 다시 입력합니다.
 
    > [!NOTE]
-   > 공개 미리 보기 중에는 *미국 동부, 미국 서부, 미국 동부 2, 미국 서부 2, 미국 중부, 미국 중남부, 북유럽, 서유럽, 동남 아시아, 인도 중부, 오스트레일리아 동부* 지역에서 관리형 인스턴스 클러스터를 만들 수 있습니다.
+   > 현재 *미국 동부, 미국 서부, 미국 동부 2, 미국 서부 2, 미국 중부, 미국 중남부, 북유럽, 서유럽, 동남 아시아, 인도 중부, 오스트레일리아 동부* 지역에서 관리되는 인스턴스 클러스터를 만들 수 있습니다.
 
    :::image type="content" source="./media/create-cluster-portal/create-cluster-page.png" alt-text="클러스터 만들기 양식을 작성합니다." lightbox="./media/create-cluster-portal/create-cluster-page.png" border="true":::
 

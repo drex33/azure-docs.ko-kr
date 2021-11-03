@@ -6,58 +6,21 @@ ms.topic: article
 ms.date: 8/26/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
-ms.openlocfilehash: f5680d21abe1f4dffb163b6e0b16fd836e6a3fc2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7945df58db31ad7dbd9c162366596756f62b3475
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128705712"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131066751"
 ---
 # <a name="deploy-the-open-service-mesh-aks-add-on-using-azure-cli"></a>Azure CLI를 사용 하 여 Open Service 메시 AKS 추가 기능 배포
 
 이 문서에서는 AKS에 OSM 추가 기능을 배포 하는 방법을 설명 합니다.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure CLI 버전 2.20.0 이상
-- `aks-preview` 확장 버전 0.5.5 이상
-- OSM 버전 v 0.9.1 이상
-
-## <a name="install-the-aks-preview-extension"></a>Aks-preview 확장 설치
-
-_aks-preview_ Azure CLI 확장 버전 0.5.24 이상이 필요합니다. [Az extension add][az-extension-add] 명령을 사용하여 _aks-preview_ Azure CLI 확장을 설치 합니다. 또는 [az extension update][az-extension-update] 명령을 사용하여 사용 가능한 업데이트를 설치 합니다.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-## <a name="register-the-aks-openservicemesh-preview-feature"></a>`AKS-OpenServiceMesh` 미리 보기 기능 등록
-
-Open Service Mesh 추가 기능을 사용할 수 있는 AKS 클러스터를 만들려면 구독에서 `AKS-OpenServiceMesh` 기능 플래그를 사용하도록 설정해야 합니다.
-
-`AKS-OpenServiceMesh`다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용하여 기능 플래그를 등록 합니다.
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "AKS-OpenServiceMesh"
-```
-
-상태가 _Registered_ 로 표시되는 데 몇 분 정도 걸립니다. [Az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인 합니다.
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-OpenServiceMesh')].{Name:name,State:properties.state}"
-```
-
-준비가 되면 [az provider register][az-provider-register] 명령을 사용하여 _ContainerService_ 리소스 공급자의 등록을 새로 고칩니다.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+- OSM 버전 v 0.11.1 이상
 
 ## <a name="install-open-service-mesh-osm-azure-kubernetes-service-aks-add-on-for-a-new-aks-cluster"></a>새 AKS 클러스터에 대한 OSM(Open Service Mesh) AKS (Azure Kubernetes Service) 추가 기능을 설치합니다.
 
@@ -97,6 +60,9 @@ az aks get-credentials -n <my-osm-aks-cluster-name> -g <my-osm-aks-cluster-rg>
 ### <a name="enable-the-osm-add-on-to-existing-aks-cluster"></a>기존 AKS 클러스터에 OSM 추가 기능 사용
 
 AKS OSM 추가 기능을 사용하도록 설정하려면 `open-service-mesh` 매개 변수를 전달하는 `az aks enable-addons --addons` 명령을 실행해야 합니다.
+
+> [!NOTE]
+> OSM 추가 기능 배포를 성공적으로 수행 하려면 하나의 OSM 메시 인스턴스만 클러스터에 배포 해야 합니다. 클러스터에 다른 OSM 메시 인스턴스가 있는 경우 명령을 실행 하기 전에 제거 하십시오 `enable-addons` .
 
 ```azurecli-interactive
 az aks enable-addons --addons open-service-mesh -g <my-osm-aks-cluster-rg> -n <my-osm-aks-cluster-name>
@@ -199,6 +165,14 @@ spec:
 
 ```OSM Permissive Mode to True
 kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"traffic":{"enablePermissiveTrafficPolicyMode":true}}}' --type=merge
+```
+
+## <a name="disable-open-service-mesh-osm-add-on-for-your-aks-cluster"></a>AKS 클러스터에 대한 OSM(Open Service Mesh) 추가 기능 사용 안 함
+
+OSM 추가 기능을 사용하지 않도록 설정하려면 다음 명령을 실행합니다.
+
+```azurecli-interactive
+az aks disable-addons -n <AKS-cluster-name> -g <AKS-resource-group-name> -a open-service-mesh
 ```
 
 <!-- Links -->

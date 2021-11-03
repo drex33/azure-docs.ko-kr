@@ -8,16 +8,18 @@ ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: reference
-ms.custom: ''
+ms.custom: ignite-fall-2021
 ms.date: 01/14/2021
-ms.openlocfilehash: 4601f2d6eddbbe8809dfd46a7e0cc5aa3c40c722
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
-ms.translationtype: HT
+ms.openlocfilehash: b70c04724fa947ed8659b71845543abf5012cca2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107209573"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131023294"
 ---
 # <a name="data-source-schema-reference"></a>데이터 원본 스키마 참조
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 이 문서에는 지원되는 Azure 및 타사 데이터 원본 스키마가 해당 참조 설명서에 대한 링크와 함께 나열되어 있습니다.
 
@@ -44,7 +46,7 @@ ms.locfileid: "107209573"
 
 다음 표에는 다양한 지원 로그 유형별로 지원되는 타사 공급업체 및 해당 CEF(Common Event Format) 매핑 설명서가 나열되어 있으며, 해당 설명서에는 각 범주 유형에 대한 CEF 필드 매핑 및 샘플 로그가 포함되어 있습니다.
 
-| 유형 |    Vendor |    Product | Log Analytics 테이블 이름 | CEF 필드 매핑 참조  |
+| 유형 |    Vendor |    제품 | Log Analytics 테이블 이름 | CEF 필드 매핑 참조  |
 | ----- | ----- | ----- | ----- |----- |
 | **Network** | Palo Alto   | PAN OS    | CommonSecurityLog |   [PAN-OS 9.0 Common Event Format 통합 가이드](https://docs.paloaltonetworks.com/content/dam/techdocs/en_US/pdf/cef/pan-os-90-cef-configuration-guide.pdf)(*CEF - 스타일 로그 형식* 검색) |
 | **Network** | Check Point  |ALL   | CommonSecurityLog | [로그 필드 설명](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk109795)       |

@@ -4,16 +4,16 @@ description: Azure Portal, Azure PowerShell 모듈 및 Azure Resource Manager를
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/10/2021
+ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8f00a0f69bf00c42ef120250cbc4a770fb1b7a09
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.custom: devx-track-azurepowershell, ignite-fall-2021
+ms.openlocfilehash: ba03ec11522ea5a4e4a011d1e62fa09b25aec749
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689419"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131022307"
 ---
 # <a name="create-an-incremental-snapshot-for-managed-disks"></a>관리 디스크에 대한 증분 스냅샷 만들기
 
@@ -148,6 +148,48 @@ Azure Resource Manager 템플릿을 사용하여 증분 스냅샷을 만들 수�
 }
 ```
 ---
+
+## <a name="cross-region-snapshot-copy-preview"></a>지역 간 스냅샷 복사(미리 보기)
+
+CopyStart 옵션(미리 보기)을 사용하여 한 지역에서 선택한 지역으로 증분 스냅샷의 복사본을 시작할 수 있습니다. Azure는 증분 스냅샷을 복사하는 프로세스를 처리하고 마지막 스냅샷 이후의 델타 변경 내용만 대상 지역에 복사하여 데이터 공간을 줄입니다. 고객은 대상 스냅샷이 대상 지역에서 디스크를 복원할 준비가 된 시기를 알 수 있도록 복사본의 진행 상황을 확인할 수 있습니다. 이 프로세스를 사용하여 장기 보존을 위해 스냅샷을 다른 구독에 복사할 수 있습니다. 또한 이 기능을 사용하여 동일한 지역의 스냅샷을 복사하여 [영역 중복 스토리지에서](disks-redundancy.md#zone-redundant-storage-for-managed-disks) 스냅샷이 완전히 강화되도록 하고 영역 오류가 발생할 경우 스냅샷을 사용할 수 있도록 할 수 있습니다.
+
+:::image type="content" source="media/disks-incremental-snapshots/cross-region-snapshot.png" alt-text="복제 옵션을 통해 증분 스냅샷의 Azure 오케스트레이션된 지역 간 복사본 다이어그램" lightbox="media/disks-incremental-snapshots/cross-region-snapshot.png":::
+
+### <a name="pre-requisites"></a>필수 구성 요소
+
+미리 보기 기능을 사용하려면 구독에서 기능을 사용하도록 설정해야 합니다. 다음 명령을 사용하여 기능을 등록합니다.
+
+```azurecli
+az feature register --namespace Microsoft.Compute --name CreateOptionClone
+```
+
+등록을 완료하는 데 몇 분 정도 걸릴 수 있습니다. 다음 명령을 사용하여 상태를 확인할 수 있습니다.
+
+```azurecli
+az feature show --namespace Microsoft.Compute --name CreateOptionClone
+```
+
+### <a name="restrictions"></a>제한
+
+- 지역 간 스냅샷 복사는 현재 미국 동부 2 및 미국 중서부에서만 사용할 수 있습니다.
+- 2020-12-01 이상 버전의 Azure Compute Rest API를 사용해야 합니다.
+
+### <a name="get-started"></a>시작
+
+```azurecli
+subscriptionId=<yourSubscriptionID>
+resourceGroupName=<yourResourceGroupName>
+name=<targetSnapshotName>
+sourceSnapshotResourceId=<sourceSnapshotResourceId>
+targetRegion=<validRegion>
+
+az login
+az account set --subscription $subscriptionId
+az group deployment create -g $resourceGroupName \
+--template-uri https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/CrossRegionCopyOfSnapshots/CopyStartIncrementalSnapshots.json \
+--parameters "name=$name" "sourceSnapshotResourceId=$sourceSnapshotResourceId" "targetRegion=$targetRegion"
+az resource show -n $name -g $resourceGroupName --namespace Microsoft.Compute --resource-type snapshots --api-version 2020-12-01 --query [properties.completionPercent] -o tsv
+```
 
 ## <a name="next-steps"></a>다음 단계
 

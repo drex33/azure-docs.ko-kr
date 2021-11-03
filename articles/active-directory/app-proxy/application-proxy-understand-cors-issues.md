@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/28/2021
 ms.author: kenwith
 ms.reviewer: ashishj
-ms.openlocfilehash: dc8a48c52c6312c3fcdf9e450a8aa609dc7090d7
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 8d779fc111727b7e57163e57f6672f51ebbb8756
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129988585"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059455"
 ---
 # <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Azure Active Directory 애플리케이션 프록시 CORS 문제 이해 및 해결
 
@@ -93,7 +93,8 @@ Azure AD 애플리케이션 프록시 [사용자 지정 도메인](./application
 
 이 수정 작업에는 코드 변경이 필요하지 않습니다. Fiddler 추적에서 확인할 수 있습니다.
 
-**헤더 추가 게시**\
+```output
+**Post the Header Addition**\
 HTTP/1.1 200 OK\
 Cache-Control: no-cache\
 Pragma: no-cache\
@@ -105,6 +106,7 @@ Server: Microsoft-IIS/8.5 Microsoft-HTTPAPI/2.0\
 X-AspNet-Version: 4.0.30319\
 X-Powered-By: ASP.NET\
 Content-Length: 17
+```
 
 ### <a name="option-4-modify-the-app"></a>옵션 4: 앱 수정
 

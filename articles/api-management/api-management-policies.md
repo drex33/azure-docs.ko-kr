@@ -8,12 +8,13 @@ ms.service: api-management
 ms.topic: article
 ms.date: 07/19/2021
 ms.author: danlep
-ms.openlocfilehash: c593d9d9f2d957564eed5be98f3f92f29ce79a27
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 950684fdbaa1553447b818c0751b13f4a8e26f34
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128551102"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131031768"
 ---
 # <a name="api-management-policies"></a>API Management 정책
 이 섹션에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](api-management-howto-policies.md)을 참조하세요.
@@ -84,7 +85,9 @@ ms.locfileid: "128551102"
 . 
     - [매개 변수 유효성 검사](validation-policies.md#validate-parameters) - API 스키마에 대한 요청 헤더, 쿼리 또는 경로 매개 변수의 유효성을 검사합니다.
     - [헤더 유효성 검사](validation-policies.md#validate-headers) - API 스키마에 대한 응답 헤더의 유효성을 검사합니다.
-    - [상태 코드 유효성 검사](validation-policies.md#validate-status-code) -API 스키마에 대한 응답에서 HTTP 상태 코드의 유효성을 검사합니다.
+    - [상태 코드 유효성 검사](validation-policies.md#validate-status-code) - API 스키마에 대한 응답에서 HTTP 상태 코드의 유효성을 검사합니다.
+- [Graph QL 유효성 검사 정책](graphql-validation-policies.md)
+    - [GraphQL 요청 유효성 검사](graphql-validation-policies.md#validate-graphql-request) - GraphQL API에 대한 요청의 유효성을 검사하고 권한을 부여합니다.
 
 ## <a name="next-steps"></a>다음 단계
 정책으로 작업하는 방법에 대한 자세한 내용은 다음을 참조하세요.

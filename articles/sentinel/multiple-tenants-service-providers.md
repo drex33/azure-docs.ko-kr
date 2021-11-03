@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2020
 ms.author: yelevin
-ms.openlocfilehash: cf2a9380b404876ef9c963d54d9069ebd66fef56
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 3e5c431c8795f464e3ab83e0f6dff47028fdb5a4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528234"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131019783"
 ---
 # <a name="manage-multiple-tenants-in-azure-sentinel-as-an-mssp"></a>Azure Sentinel에서 여러 테넌트를 MSSP로 관리
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [Azure Lighthouse](../lighthouse/overview.md)를 사용하여 고객에게 SOC(보안 운영 센터) 서비스를 제공하는 MSSP(관리형 보안 서비스 공급자)는 고객 테넌트에 연결하지 않고도 고유한 Azure 테넌트에서 직접 고객의 Azure Sentinel 리소스를 관리할 수 있습니다. 
 
@@ -55,4 +58,3 @@ ms.locfileid: "122528234"
 이 문서에서는 여러 Azure Sentinel 테넌트를 원활하게 관리하는 방법을 배웠습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [데이터에 대한 가시성을 얻고 재적 위협을 확인](get-visibility.md)하는 방법을 알아봅니다.
 - [Azure Sentinel을 사용하여 위협 검색](detect-threats-built-in.md)을 시작합니다.
-

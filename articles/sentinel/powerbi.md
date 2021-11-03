@@ -6,14 +6,17 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: conceptual
 ms.date: 06/08/2021
-ms.openlocfilehash: 0e877439b18d4c7ff6c4b21baa18b3b0fd1586b3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 558d6d979321148923f8a10bc2f92bb13eedd746
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535539"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131023047"
 ---
 # <a name="tutorial-create-a-power-bi-report-from-azure-sentinel-data"></a>자습서: Azure Sentinel 데이터에서 Power BI 보고서 만들기
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [Power BI](https://powerbi.microsoft.com/)는 데이터를 몰입형의 일관된 대화형 시각화로 전환하는 보고 및 분석 플랫폼입니다. Power BI를 사용하면 데이터 원본에 쉽게 연결하고, 관계를 시각화 및 발견하고, 원하는 모든 사람과 통찰력을 공유할 수 있습니다.
 
@@ -206,5 +209,5 @@ Power BI Desktop에서 내보낸 M 쿼리를 실행하여 데이터를 가져옵
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Monitor 로그 데이터를 Power BI로 가져오기](../azure-monitor/visualize/powerbi.md)
+- [Azure Monitor 로그 데이터를 Power BI로 가져오기](../azure-monitor/logs/log-powerbi.md)
 - [파워 쿼리 M 수식 언어](/powerquery-m/)

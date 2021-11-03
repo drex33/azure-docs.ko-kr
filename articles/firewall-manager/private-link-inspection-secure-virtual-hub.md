@@ -2,17 +2,17 @@
 title: Azure Virtual WAN의 프라이빗 엔드포인트로 향하는 트래픽 보호
 description: 네트워크 규칙 및 애플리케이션 규칙을 사용하여 Azure Virtual WAN의 프라이빗 엔드포인트로 향하는 트래픽을 보호하는 방법에 대해 알아봅니다.
 services: firewall-manager
-author: jocortems
+author: KumudD
 ms.service: firewall-manager
 ms.topic: how-to
 ms.date: 04/02/2021
-ms.author: jocorte
-ms.openlocfilehash: 7322bab635d398fc7a5335546ba6fef327ff24b2
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
-ms.translationtype: HT
+ms.author: kumud
+ms.openlocfilehash: 58dd59bc47c15dd5f6b04588b441297b9fbb7968
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259356"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068687"
 ---
 # <a name="secure-traffic-destined-to-private-endpoints-in-azure-virtual-wan"></a>Azure Virtual WAN의 프라이빗 엔드포인트로 향하는 트래픽 보호
 

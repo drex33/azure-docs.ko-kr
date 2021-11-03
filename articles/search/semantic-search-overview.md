@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: 9df6e2c1bd937f275fb3b35db8cd6ac2e3909502
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 7d7eb6bae2a6000f2f117dbe8f38976a13504825
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129532872"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131014807"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Azure Cognitive Search의 의미 체계 검색
 
@@ -36,7 +36,7 @@ ms.locfileid: "129532872"
 
 의미 체계 검색은 검색 결과의 품질을 향상하는 기능 모음입니다. 검색 서비스에서 사용하도록 설정된 경우 의미 체계 검색은 쿼리 실행 파이프라인을 두 가지 방식으로 확장합니다. 첫째, 초기 결과 집합에 보조 순위를 추가하여 의미 체계 측면에서 가장 관련성이 높은 결과를 목록의 맨 위로 올립니다. 둘째, 사용자의 검색 환경을 개선하기 위해 검색 페이지에서 렌더링할 수 있는 캡션과 답변을 응답에서 추출하여 반환합니다.
 
-| 기능 | Description |
+| 기능 | 설명 |
 |---------|-------------|
 | [의미 체계 다시 순위 지정](semantic-ranking.md) | 는 컨텍스트 또는 의미 체계 의미를 사용 하 여 기존 결과에 대해 새로운 관련성 점수를 계산 합니다. |
 | [의미 체계 캡션 및 강조 표시](semantic-how-to-query-request.md) | 콘텐츠를 가장 잘 요약 한 문서에서 문장을 추출 하 여 쉽게 검색할 수 있는 주요 통로를 강조 합니다. 결과 페이지에서 개별 콘텐츠 필드가 너무 조밀한 경우 결과를 요약하는 캡션이 유용합니다. 강조 표시된 텍스트는 사용자가 일치 항목으로 간주되는 이유를 빠르게 확인할 수 있도록 가장 관련성이 높은 용어와 구를 승격시킵니다. |
@@ -90,17 +90,19 @@ ms.locfileid: "129532872"
 | 기능 | 계층 | 지역 | 등록 | 가격 책정 |
 |---------|------|--------|---------------------|-------------------|
 | 의미 체계 검색 (순위, 캡션, 하이라이트, 답변) | 표준 계층(S1, S2, S3) | 미국 중북부, 미국 서부, 미국 서부 2, 미국 동부 2, 북유럽, 서유럽 | 필수 | [Cognitive Search 가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)  |
-| 맞춤법 검사 | 기본 이상 | 모두 | 없음 | 없음(무료) |
+| 맞춤법 검사 | 기본<sup>1</sup> 이상  | 모두 | 없음 | 없음(무료) |
+
+<sup>1</sup> 공유 (무료) 검색 서비스의 프로 비전 메커니즘과 수명으로 인해 적은 수의 서비스에는 무료 계층에 대 한 맞춤법 검사가 있습니다. 그러나 무료 계층 서비스에 대 한 맞춤법 검사 가용성은 보장 되지 않으며 아직 없는 경우 추가할 수 없습니다.
 
 의미 체계 검색에 대 한 요금은 쿼리 요청에 "queryType = 의미 체계"가 포함 되 고 검색 문자열이 비어 있지 않은 경우 (예: "levied의 애완 동물 호텔 호텔") 검색 문자열이 비어 있으면 ("search = *") queryType가 "의미 체계"로 설정 된 경우에도 요금이 부과 되지 않습니다.
 
 ## <a name="disable-semantic-search"></a>의미 체계 검색 사용 안 함
 
-우발적인 사용량과 요금에 대 한 완전 한 보호를 위해 검색 서비스에서 서비스 API 만들기 또는 업데이트를 사용 하 여 [의미 체계 검색을 사용 하지 않도록 설정할](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch)  수 있습니다. 기능을 사용 하지 않도록 설정 하면 의미 체계 쿼리 유형을 포함 하는 모든 요청이 거부 됩니다.
+실수로 발생하는 사용량 및 요금에 대한 전체 보호를 위해 검색 서비스에서 서비스 만들기 또는 업데이트 API를 사용하여 [의미 체계 검색을 사용하지 않도록 설정할](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch)  수 있습니다. 기능을 사용하지 않도록 설정하면 의미 체계 쿼리 유형을 포함하는 모든 요청이 거부됩니다.
 
-* Management REST API 버전 2021-04-01-미리 보기는이 옵션을 제공 합니다.
+* Management REST API 버전 2021-04-01-Preview에서 이 옵션을 제공합니다.
 
-* 기능을 사용 하지 않도록 설정 하려면 소유자 또는 참가자 권한이 필요 합니다.
+* 기능을 사용하지 않도록 설정하려면 소유자 또는 기여자 권한이 필요합니다.
 
 ```http
 PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-Preview
@@ -115,10 +117,10 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups
     }
 ```
 
-의미 체계 검색을 다시 사용 하도록 설정 하려면 위의 요청을 다시 실행 하 고 "semanticSearch"를 "free" (기본값) 또는 "standard"로 설정 합니다.
+의미 체계 검색을 다시 사용하도록 설정하려면 위의 요청을 다시 실행하여 "semanticSearch"를 "free"(기본값) 또는 "표준"으로 설정합니다.
 
 > [!TIP]
-> 관리 REST API 호출은 Azure Active Directory를 통해 인증 됩니다. 보안 원칙 및 요청을 설정 하는 방법에 대 한 지침은이 블로그 게시물 [Postman을 사용 하 여 AZURE REST api 게시물 (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/)을 참조 하세요. 이전 예제는 블로그 게시물에 제공 된 명령 및 Postman 컬렉션을 사용 하 여 테스트 되었습니다.
+> 관리 REST API 호출은 Azure Active Directory 통해 인증됩니다. 보안 원칙 및 요청 설정에 대한 지침은 [Postman을 통해 Azure REST API(2021)라는](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/)블로그 게시물을 참조하세요. 이전 예제는 블로그 게시물에 제공된 지침 및 Postman 컬렉션을 사용하여 테스트되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

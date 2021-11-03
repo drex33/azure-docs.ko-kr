@@ -4,14 +4,14 @@ description: Azure Cosmos DB에서 데이터에 대해 데이터베이스 보호
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/16/2021
+ms.date: 10/25/2021
 ms.author: mjbrown
-ms.openlocfilehash: 818c380d1ec2b3d7095eccec94b8e6f324cb45d0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f6851fa1e129522afbf59b6d1035029e72b231b2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128615013"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131086529"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 보안 - 개요
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -74,7 +74,7 @@ ms.locfileid: "128615013"
 |공격에 대응|잠재적인 공격을 보고하기 위해 Azure 지원에 연락한 경우 5단계 인시던트 대응 프로세스가 시작됩니다. 5단계 프로세스의 목표는 문제가 검색되어 조사가 시작된 후 정상적인 서비스 보안 및 작업을 가능한 신속히 복원하는 것입니다.<br><br>[클라우드에서 Microsoft Azure의 보안 대응](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91)에 대한 자세한 정보|
 |지오-펜싱|Azure Cosmos DB는 독립적인 지역(예: 독일, 중국, US Gov)에 대해 데이터 거버넌스를 보장합니다.|
 |보호된 기능|Azure Cosmos DB의 데이터는 SSD의 Azure 보호된 데이터 센터에 저장됩니다.<br><br>[Microsoft 글로벌 데이터 센터](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)에 대한 자세한 정보|
-|HTTPS/SSL/TLS 암호화|Azure Cosmos DB에 대한 모든 연결은 HTTPS를 지원합니다. Azure Cosmos DB는 TLS 1.2도 지원합니다.<br>서버 쪽에 최소 TLS 버전을 적용할 수 있습니다. 이를 수행하려면 [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com)에 문의하세요.|
+|HTTPS/SSL/TLS 암호화|Azure Cosmos DB에 대한 모든 연결은 HTTPS를 지원합니다. Azure Cosmos DB는 TLS 1.2도 지원합니다.<br>서버 쪽에 최소 TLS 버전을 적용할 수 있습니다. 이렇게 하려면 [Azure 지원 티켓](https://azure.microsoft.com/support/options/)을 엽니다.|
 |미사용 암호화|Azure Cosmos DB에 저장된 모든 데이터는 미사용 암호화됩니다. 자세한 내용은 [Azure Cosmos DB 미사용 암호화](./database-encryption-at-rest.md)를 참조하세요.|
 |패치된 서버|관리되는 데이터베이스인 Azure Cosmos DB를 사용하면 직접 서버를 관리하고 패치를 적용하지 않아도 자동으로 처리됩니다.|
 |강력한 암호를 사용하는 관리 계정|이 요구 사항은 당연하게 여겨질 수 있지만, 일부 경쟁업체와 달리 Azure Cosmos DB에서는 관리 계정에 반드시 암호가 있어야 합니다.<br><br> TLS 및 HMAC 암호 기반 인증을 통한 보안이 기본적으로 반영됩니다.|
@@ -99,7 +99,7 @@ ms.locfileid: "128615013"
 
 ### <a name="key-rotation-and-regeneration"></a><a id="key-rotation"></a> 키 순환 및 다시 생성
 
-키 순환 및 다시 생성 프로세스는 간단합니다. 먼저 **애플리케이션이 기본 키 또는 보조 키를 일관되게 사용** 하여 Azure Cosmos DB 계정에 액세스하는지 확인합니다. 그런 다음 아래에 설명된 단계를 수행합니다. 키 업데이트 및 키 다시 세대에 대한 계정을 모니터링하려면 [메트릭 및 경고로 키 업데이트 모니터링](monitor-account-key-updates.md) 문서를 참조하세요.
+키 순환 및 다시 생성 프로세스는 간단합니다. 먼저 **애플리케이션이 기본 키 또는 보조 키를 일관되게 사용** 하여 Azure Cosmos DB 계정에 액세스하는지 확인합니다. 그런 다음 아래에 설명된 단계를 수행합니다. 키 업데이트 및 키 다시 생성에 대 한 계정을 모니터링 하려면 [메트릭 및 경고를 사용 하 여 키 업데이트 모니터링](monitor-account-key-updates.md) 문서를 참조 하세요.
 
 # <a name="sql-api"></a>[SQL API](#tab/sql-api)
 
@@ -273,20 +273,20 @@ ms.locfileid: "128615013"
 
 ---
 
-## <a name="track-the-status-of-key-regeneration"></a>키 다시 재생성 상태 추적
+## <a name="track-the-status-of-key-regeneration"></a>키 다시 생성 상태 추적
 
-키를 회전하거나 다시 생성한 후에는 활동 로그에서 키를 추적할 수 있습니다. 다음 단계를 사용하여 상태를 추적합니다.
+키를 회전 하거나 다시 생성 한 후에는 활동 로그에서 해당 상태를 추적할 수 있습니다. 다음 단계를 사용 하 여 상태를 추적 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인하고 Azure Cosmos DB 계정으로 이동합니다.
 
-1. 활동 **로그** 창을 열고 다음 필터를 설정합니다.
+1. **활동 로그** 창을 열고 다음 필터를 설정 합니다.
 
-   * 리소스 **유형을** **Azure Cosmos DB 계정으로 설정합니다.**
-   * 키를 **회전하도록** **작업을** 설정합니다.
+   * **리소스 종류** 를 **Azure Cosmos DB 계정** 으로 설정 합니다.
+   * **키를 회전** 하도록 **작업** 을 설정 합니다.
 
-   :::image type="content" source="./media/database-security/track-key-regeneration-status.png" alt-text="활동 로그에서 키 다시 세대의 상태" border="true":::
+   :::image type="content" source="./media/database-security/track-key-regeneration-status.png" alt-text="활동 로그에서 키 다시 생성 상태" border="true":::
 
-1. 키 다시 재생성 이벤트와 해당 상태, 작업이 발생한 시간, 키 다시 재생성을 시작한 사용자의 세부 정보가 표시됩니다. 키 생성 작업은 **수락됨** 상태로 시작된 다음, **시작됨으로 변경된** 다음, 작업이 완료되면 **성공으로** 변경됩니다.
+1. 키 다시 생성 이벤트는 상태, 작업이 실행 된 시간, 키 다시 생성을 시작한 사용자의 세부 정보와 함께 표시 되어야 합니다. 키 생성 작업은 **허용** 된 상태로 시작 된 후 **시작 됨** 으로 변경 되 고 작업이 완료 되 면 **성공** 으로 변경 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

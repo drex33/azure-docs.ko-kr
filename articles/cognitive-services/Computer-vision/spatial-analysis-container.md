@@ -8,14 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 10/14/2021
 ms.author: pafarley
-ms.openlocfilehash: 7e168c650361bf0579b5e718a71243ee485ba9dd
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: f866db833381b8dc6c75538265eefdc057445b3a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824689"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057897"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>공간 분석 컨테이너 설치 및 실행(미리 보기)
 
@@ -59,7 +60,7 @@ Azure Stack Edge는 HaaS(Hardware-as-a-Service) 솔루션이며 네트워크 데
 * [NVIDIA 그래프 드라이버](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html) 및 [NVIDIA CUDA Toolkit](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
 * [NVIDIA MPS](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf)(다중 프로세스 서비스)에 대한 구성
 * [Docker CE](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-engine---community-1) 및 [NVIDIA-Docker2](https://github.com/NVIDIA/nvidia-docker) 
-* [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) 런타임
+* [Azure IoT Edge](../../iot-edge/how-to-provision-single-device-linux-symmetric.md) 런타임
 
 #### <a name="azure-vm-with-gpu"></a>[GPU가 있는 Azure VM](#tab/virtual-machine)
 이 예에서는 K80 GPU가 하나 있는 [NC 시리즈 VM](../../virtual-machines/nc-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 활용합니다.
@@ -273,7 +274,7 @@ sudo az iot hub create --name "<iothub-group-name>" --sku S1 --resource-group "<
 sudo az iot hub device-identity create --hub-name "<iothub-name>" --device-id "<device-name>" --edge-enabled
 ```
 
-[Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) 버전 1.0.9를 설치해야 합니다. 올바른 버전을 다운로드하려면 다음 단계를 수행합니다.
+[Azure IoT Edge](../../iot-edge/how-to-provision-single-device-linux-symmetric.md) 버전 1.0.9를 설치해야 합니다. 올바른 버전을 다운로드하려면 다음 단계를 수행합니다.
 
 Ubuntu Server 18.04:
 ```bash
@@ -306,7 +307,7 @@ sudo apt-get update
 sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
-그런 다음, [연결 문자열](../../iot-edge/how-to-register-device.md)을 사용하여 호스트 컴퓨터를 IoT Hub 인스턴스에서 IoT Edge 디바이스로 등록합니다.
+그런 다음, [연결 문자열](../../iot-edge/how-to-provision-single-device-linux-symmetric.md#register-your-device)을 사용하여 호스트 컴퓨터를 IoT Hub 인스턴스에서 IoT Edge 디바이스로 등록합니다.
 
 IoT Edge 디바이스를 Azure IoT Hub에 연결해야 합니다. 이전에 만든 IoT Edge 디바이스에서 연결 문자열을 복사해야 합니다. 또는 Azure CLI에서 아래 명령을 실행할 수 있습니다.
 
@@ -347,7 +348,7 @@ VM 크기를 찾으려면 "모든 크기 보기"를 선택한 다음, 아래에 
 
 :::image type="content" source="media/spatial-analysis/promotional-selection.png" alt-text="프로모션 선택" lightbox="media/spatial-analysis/promotional-selection.png":::
 
-그런 다음, VM을 만듭니다. 만든 후에는 Azure Portal에서 VM 리소스로 이동하고 왼쪽 창에서 `Extensions`를 선택합니다. 확장 창에 사용 가능한 모든 확장이 표시됩니다. `NVIDIA GPU Driver Extension`을 선택하고 만들기를 클릭하고 마법사를 완료합니다.
+그런 다음, VM을 만듭니다. 만든 후에는 Azure Portal에서 VM 리소스로 이동하고 왼쪽 창에서 `Extensions`를 선택합니다. "추가"를 클릭하여 사용 가능한 모든 확장이 있는 확장 창을 표시합니다. 를 검색하여 선택하고 `NVIDIA GPU Driver Extension` 만들기를 클릭한 다음 마법사를 완료합니다.
 
 확장이 성공적으로 적용되면 Azure Portal의 VM 기본 페이지로 이동하고 `Connect`를 클릭합니다. VM은 SSH 또는 RDP를 통해 액세스할 수 있습니다. RDP가 유용합니다. 시각화 도우미 창을 볼 수 있기 때문입니다(뒷부분에 설명되어 있음). [이 단계](../../virtual-machines/linux/use-remote-desktop.md)를 수행하고 VM에 대한 원격 데스크톱 연결을 열어서 RDP 액세스를 구성합니다.
 
@@ -438,7 +439,7 @@ sudo az iot hub create --name "<iothub-group-name>" --sku S1 --resource-group "<
 sudo az iot hub device-identity create --hub-name "<iothub-name>" --device-id "<device-name>" --edge-enabled
 ```
 
-[Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) 버전 1.0.9를 설치해야 합니다. 올바른 버전을 다운로드하려면 다음 단계를 수행합니다.
+[Azure IoT Edge](../../iot-edge/how-to-provision-single-device-linux-symmetric.md) 버전 1.0.9를 설치해야 합니다. 올바른 버전을 다운로드하려면 다음 단계를 수행합니다.
 
 Ubuntu Server 18.04:
 ```bash
@@ -471,7 +472,7 @@ sudo apt-get update
 sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
-그런 다음, [연결 문자열](../../iot-edge/how-to-register-device.md)을 사용하여 VM을 IoT Hub 인스턴스에서 IoT Edge 디바이스로 등록합니다.
+그런 다음, [연결 문자열](../../iot-edge/how-to-provision-single-device-linux-symmetric.md#register-your-device)을 사용하여 VM을 IoT Hub 인스턴스에서 IoT Edge 디바이스로 등록합니다.
 
 IoT Edge 디바이스를 Azure IoT Hub에 연결해야 합니다. 이전에 만든 IoT Edge 디바이스에서 연결 문자열을 복사해야 합니다. 또는 Azure CLI에서 아래 명령을 실행할 수 있습니다.
 
@@ -588,6 +589,8 @@ sudo az iot edge set-modules --hub-name "<iothub-name>" --device-id "<device-nam
 ## <a name="troubleshooting"></a>문제 해결
 
 컨테이너를 시작하거나 실행할 때 문제가 발생하는 경우 [원격 분석 및 문제 해결](spatial-analysis-logging.md)에서 일반적인 문제에 대한 단계를 참조하세요. 이 문서에는 로그 생성 및 수집과 시스템 상태 수집에 대한 정보도 포함되어 있습니다.
+
+[!INCLUDE [Diagnostic container](../containers/includes/diagnostics-container.md)]
 
 ## <a name="billing"></a>결제
 

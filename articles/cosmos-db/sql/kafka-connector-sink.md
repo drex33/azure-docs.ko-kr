@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 06/28/2021
 ms.author: kuthapar
-ms.openlocfilehash: fa0fc899453c11858d518ed5f224b6eb94e218f4
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: aa4b870a76d9d346116a48633bf3baddc7c44ef4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117158"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056737"
 ---
 # <a name="kafka-connect-for-azure-cosmos-db---sink-connector"></a>Kafka Connect for Azure Cosmos DB - 싱크 커넥터
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -149,13 +149,13 @@ Azure CLI를 사용하여 생성된 Azure Cosmos DB 서비스와 해당 리소�
 
 다음 설정은 Cosmos DB Kafka 싱크 커넥터를 구성하는 데 사용됩니다. 이 구성 값은 사용되는 Kafka 토픽 데이터 형식, 기록되는 Azure Cosmos DB 컨테이너 및 데이터를 직렬화하는 형식을 결정합니다. 기본값과 함께 예제 구성 파일에 관해서는 [이 구성]( https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/src/docker/resources/sink.example.json)을 참조하세요.
 
-| Name | 유형 | Description | 필수/선택 |
+| Name | Type | Description | 필수/선택 |
 | :--- | :--- | :--- | :--- |
 | 토픽 | list | 시청할 Kafka 토픽 목록입니다. | 필수 |
 | connector.class | 문자열 | Azure Cosmos DB 싱크의 클래스 이름입니다. `com.azure.cosmos.kafka.connect.sink.CosmosDBSinkConnector`로 설정되어야 합니다. | 필수 |
 | connect.cosmos.connection.endpoint | uri | Azure Cosmos 엔드포인트 URI 문자열입니다. | 필수 |
-| connect.cosmos.master.key | 문자열 | 싱크가 연결되는 Azure Cosmos DB 기본 키입니다. | 필수 |
-| connect.cosmos.databasename | 문자열 | 싱크가 쓰는 Azure Cosmos 데이터베이스의 이름입니다. | 필수 |
+| connect.cosmos.master.key | 문자열 | 싱크가 연결되는 Azure Cosmos DB 기본 키. | 필수 |
+| connect.cosmos.databasename | 문자열 | 싱크가 쓰는 Azure Cosmos 데이터베이스의 이름. | 필수 |
 | connect.cosmos.containers.topicmap | 문자열 | Kafka 토픽과 Azure Cosmos DB 컨테이너 간 매핑으로, CSV를 사용하여 형식이 지정됩니다(예: `topic#container,topic2#container2`). | 필수 |
 | key.converter | 문자열 | Kafka 토픽에 기록된 키 데이터의 serialization 형식입니다. | 필수 |
 | value.converter | 문자열 | Kafka 토픽에 기록된 값 데이터의 serialization 형식입니다. | 필수 |
@@ -295,7 +295,7 @@ org.apache.kafka.common.errors.SerializationException: Unknown magic byte!
 
 Kafka Connect는 다음과 같이 페이로드와 스키마를 둘 다 포함하는 JSON 메시지의 특수 구조를 지원합니다.
 
- ```json
+```json
 {
   "schema": {
     "type": "struct",

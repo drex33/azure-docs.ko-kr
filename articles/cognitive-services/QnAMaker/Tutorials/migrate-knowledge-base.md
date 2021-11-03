@@ -5,12 +5,13 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
-ms.openlocfilehash: ea0a02366f2c2d2c3fd656d9a6dbce111d632422
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: bdbc77bdb1b0b16085c6df8fb302c5483c36a01f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112121199"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080691"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>내보내기-가져오기를 사용하여 기술 자료 마이그레이션
 
@@ -23,19 +24,9 @@ ms.locfileid: "112121199"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
-
 > * Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/cognitive-services/) 계정을 만듭니다.
 > * Azure Portal에서 만든 [QnA Maker 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)입니다. 리소스를 만들 때 선택한 Azure Active Directory ID, 구독, QnA 리소스 이름을 기억하세요.
 > * 새 [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md) 설정
-
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-> * Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/cognitive-services/) 계정을 만듭니다.
-> * Azure Portal에서 사용자 지정 질문 답변 기능이 활성화된 [Text Analytics 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)입니다. 리소스를 만들 때 선택한 Azure Active Directory ID, 구독 및 Text Analytics 리소스 이름을 기억하세요.
-> * [사용자 지정 질문 답변](../How-To/set-up-qnamaker-service-azure.md) 설정
-
----
 
 ## <a name="export-a-knowledge-base"></a>기술 자료 내보내기
 1. [QnA Maker 포털](https://qnamaker.ai)에 로그인합니다.

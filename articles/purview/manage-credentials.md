@@ -7,12 +7,13 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: f3367883b35e35a4dd726b92af48a92f863cfa5d
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: fdce380d09cc2992f4e77f9385b1d176a6ae68eb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129207852"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131076664"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Azure Purview에서 원본 인증을 위한 자격 증명
 
@@ -41,12 +42,12 @@ Azure Purview에는 다음 옵션과 같은 데이터 원본을 스캔하기 위
 
 Purview 관리 ID를 사용하여 검색을 설정하는 경우, 명시적으로 자격 증명을 만들고 키 자격 증명 모음을 Purview에 연결하여 저장할 필요가 없습니다. 데이터 원본 검색에 액세스할 수 있도록 Purview 관리 ID를 추가하는 방법에 대한 자세한 지침은 아래의 데이터 원본별 인증 섹션을 참조하세요.
 
-- [Azure Blob Storage](register-scan-azure-blob-storage-source.md#setting-up-authentication-for-a-scan)
-- [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#setting-up-authentication-for-a-scan)
-- [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#setting-up-authentication-for-a-scan)
+- [Azure Blob Storage](register-scan-azure-blob-storage-source.md#authentication-for-a-scan)
+- [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#authentication-for-a-scan)
+- [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#authentication-for-a-scan)
 - [Azure SQL Database](register-scan-azure-sql-database.md)
-- [Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md#setting-up-authentication-for-a-scan)
-- [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#setting-up-authentication-for-a-scan)
+- [Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md#authentication-for-registration)
+- [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#authentication-for-registration)
 
 ## <a name="create-azure-key-vaults-connections-in-your-azure-purview-account"></a>Azure Purview 계정에 Azure Key Vaults 연결하기
 

@@ -3,21 +3,21 @@ title: Mailjet을 사용한 사용자 지정 메일 확인
 titleSuffix: Azure AD B2C
 description: 고객이 Azure AD B2C 지원 애플리케이션을 사용하기 위해 등록할 때 고객에게 전송되는 확인 메일을 사용자 지정하는 Mailjet과의 통합 방법을 알아봅니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/03/2021
-ms.author: mimart
+ms.date: 09/15/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 01aa29865967818a3308bc696544fdb140d95f73
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: a0a7f91b540e06ba0b973bf5aeb9f790a58410ad
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111409436"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007429"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Mailjet을 사용한 사용자 지정 메일 확인
 
@@ -37,22 +37,22 @@ Azure Active Directory B2C(Azure AD B2C)에서 사용자 지정 메일을 사용
 
 ## <a name="create-a-mailjet-account"></a>Mailjet 계정 만들기
 
-아직 Mailjet 계정이 없는 경우 Mailjet 계정을 설정하여 시작합니다. Azure 고객은 6,000개의 메일(하루 200개 제한)을 잠금 해제할 수 있습니다. 
+아직 Mailjet 계정이 없는 경우 Mailjet 계정을 설정하여 시작합니다. Azure 고객은 6,000개의 메일(하루 200개 제한)을 잠금 해제할 수 있습니다.
 
 1. [Mailjet 계정 만들기](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/)의 설정 지침을 따릅니다.
 1. 메일을 보내려면 보낸 사람 메일 주소나 도메인을 [등록하고 유효성을 검사](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/#how-to-configure-mailjet-for-use)합니다.
-2. [API 키 관리 페이지](https://app.mailjet.com/account/api_keys)로 이동합니다. 이후 단계에서 사용할 **API 키** 와 **비밀 키** 를 기록합니다. 두 키는 계정을 만들 때 자동으로 생성됩니다.  
+2. [API 키 관리 페이지](https://app.mailjet.com/account/api_keys)로 이동합니다. 이후 단계에서 사용할 **API 키** 와 **비밀 키** 를 기록합니다. 두 키는 계정을 만들 때 자동으로 생성됩니다.
 
 > [!IMPORTANT]
 > Mailjet은 고객에게 공유 IP 및 [전용 IP 주소](https://documentation.mailjet.com/hc/articles/360043101973-What-is-a-dedicated-IP)에서 이메일을 보낼 수 있는 기능을 제공합니다. 전용 IP 주소를 사용하는 경우 IP 주소 워밍업으로 자신의 평판을 제대로 구축해야 합니다. 자세한 내용은 [IP를 어떻게 워밍업하나요?](https://documentation.mailjet.com/hc/articles/1260803352789-How-do-I-warm-up-my-IP-)를 참조하세요.
-
 
 ## <a name="create-azure-ad-b2c-policy-key"></a>Azure AD B2C 정책 키 만들기
 
 다음으로 Azure AD B2C 정책 키에 정책이 참조할 Mailjet API 키를 저장합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 디렉터리를 선택합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
 1. **개요** 페이지에서 **Identity Experience Framework** 를 선택합니다.
 1. **정책 키**, **추가** 를 차례로 선택합니다.
@@ -155,7 +155,6 @@ Azure Active Directory B2C(Azure AD B2C)에서 사용자 지정 메일을 사용
                        <td width="24" style="border-bottom:1px solid #e3e3e3;">&nbsp;</td>
                        <td id="PageFooterContainer" width="585" valign="top" colspan="6" style="border-bottom:1px solid #e3e3e3;padding:0px;">
 
-
                        </td>
 
                        <td width="29" style="border-bottom:1px solid #e3e3e3;">&nbsp;</td>
@@ -179,14 +178,13 @@ Azure Active Directory B2C(Azure AD B2C)에서 사용자 지정 메일을 사용
 1. 오른쪽 상단에 있는 **저장 및 게시** 를 선택한 다음 **예, 변경 사항을 게시합니다** 를 선택합니다.
 1. 나중 단계에서 사용할 수 있도록 만든 템플릿의 **템플릿 ID** 를 기록합니다. [클레임 변환을 추가](#add-the-claims-transformation)할 때 해당 ID를 지정합니다.
 
-
 ## <a name="add-azure-ad-b2c-claim-types"></a>Azure AD B2C 클레임 형식 추가
 
 정책에서 다음 클레임 형식을 `<BuildingBlocks>` 내의 `<ClaimsSchema>` 요소에 추가합니다.
 
 해당 클레임 형식은 OTP(일회성 암호) 코드를 사용하여 이메일 주소를 생성 및 확인하는 데 필요합니다.
 
-```XML
+```xml
 <!--
 <BuildingBlocks>
   <ClaimsSchema> -->
@@ -221,7 +219,7 @@ JSON 개체의 구조는 InputParameters의 점 표기법의 ID와 InputClaims�
 * `Messages.0.From.Email` 주소 값을 업데이트합니다. 확인 이메일이 스팸으로 표시되지 않도록 유효한 이메일 주소를 사용합니다.
 * `Messages.0.Subject` 제목 줄 입력 매개 변수의 값을 조직에 적절한 제목 줄로 업데이트합니다.
 
-```XML
+```xml
 <!-- 
 <BuildingBlocks>
   <ClaimsTransformations> -->
@@ -255,7 +253,7 @@ JSON 개체의 구조는 InputParameters의 점 표기법의 ID와 InputClaims�
 
 `<BuildingBlocks>` 내의 클레임 변환 아래에서 다음 [ContentDefinition](contentdefinitions.md)을 추가하여 버전 2.1.2 데이터 URI를 참조합니다.
 
-```XML
+```xml
 <!--
 <BuildingBlocks> -->
   <ContentDefinitions>
@@ -285,7 +283,7 @@ JSON 개체의 구조는 InputParameters의 점 표기법의 ID와 InputClaims�
 
 콘텐츠 정의에서 여전히 `<BuildingBlocks>` 내에 있는 [VerificationControl](display-control-verification.md) 형식의 다음 [DisplayControl](display-controls.md)을 정책에 추가합니다.
 
-```XML
+```xml
 <!--
 <BuildingBlocks> -->
   <DisplayControls>
@@ -325,7 +323,7 @@ JSON 개체의 구조는 InputParameters의 점 표기법의 ID와 InputClaims�
 
 다음 기술 프로필을 `<ClaimsProviders>` 요소에 추가합니다.
 
-```XML
+```xml
 <!--
 <ClaimsProviders> -->
   <ClaimsProvider>
@@ -373,7 +371,7 @@ JSON 개체의 구조는 InputParameters의 점 표기법의 ID와 InputClaims�
 
 OTP 기술 프로필과 마찬가지로 다음 기술 프로필을 `<ClaimsProviders>` 요소에 추가합니다.
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>RestfulProvider</DisplayName>
   <TechnicalProfiles>
@@ -407,7 +405,7 @@ OTP 기술 프로필과 마찬가지로 다음 기술 프로필을 `<ClaimsProvi
 
 자세한 내용은 [자체 어설션된 기술 프로필](restful-technical-profile.md) 및 [DisplayControl](display-controls.md)을 참조하세요.
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
@@ -453,7 +451,7 @@ OTP 기술 프로필과 마찬가지로 다음 기술 프로필을 `<ClaimsProvi
 1. 다음 XML 코드 조각과 함께 입력 클레임을 사용하도록 `GenerateEmailRequestBody` 클레임 변환을 변경합니다.
 1. Azure AD B2C에서 지역화할 모든 문자열 대신 동적 매개 변수를 사용하도록 Mailjet 템플릿을 업데이트합니다.
 
-    ```XML
+    ```xml
     <ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
       <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="subject" TransformationClaimType="email_subject" />
@@ -549,12 +547,12 @@ OTP 기술 프로필과 마찬가지로 다음 기술 프로필을 `<ClaimsProvi
       <InputClaimsTransformation ReferenceId="GetLocalizedStringsForEmail" />
     </InputClaimsTransformations>
     ```
-    
+
 ## <a name="optional-localize-the-ui"></a>[선택 사항] UI 지역화
 
-Localization 요소를 사용하면 사용자 경험용 정책에서 여러 로캘이나 언어를 지원할 수 있습니다. 정책의 지역화 지원을 통해 [확인 표시 컨트롤 사용자 인터페이스 요소](localization-string-ids.md#verification-display-control-user-interface-elements)와 [일회성 암호 오류 메시지](localization-string-ids.md#one-time-password-error-messages)에 대해 언어별 문자열을 제공할 수 있습니다. 다음 LocalizedString을 LocalizedResources에 추가합니다. 
+Localization 요소를 사용하면 사용자 경험용 정책에서 여러 로캘이나 언어를 지원할 수 있습니다. 정책의 지역화 지원을 통해 [확인 표시 컨트롤 사용자 인터페이스 요소](localization-string-ids.md#verification-display-control-user-interface-elements)와 [일회성 암호 오류 메시지](localization-string-ids.md#one-time-password-error-messages)에 대해 언어별 문자열을 제공할 수 있습니다. 다음 LocalizedString을 LocalizedResources에 추가합니다.
 
-```XML
+```xml
 <LocalizedResources Id="api.custom-email.en">
   <LocalizedStrings>
     ...

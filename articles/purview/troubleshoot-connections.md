@@ -7,12 +7,13 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: cfcac68bfc09a4c3b6d4794469734d0634b3ad0c
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 18f3a98874fcfb98978778cf40ebe2cd876826d0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129213461"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131076152"
 ---
 # <a name="troubleshoot-your-connections-in-azure-purview"></a>Azure Purview 연결 관련 문제 해결
 
@@ -24,16 +25,16 @@ ms.locfileid: "129213461"
 
 원본 유형별 구체적 지침은 다음과 같습니다.
 
-- [Azure 여러 원본](register-scan-azure-multiple-sources.md#set-up-authentication-to-scan-resources-under-a-subscription-or-resource-group)
-- [Azure Blob Storage](register-scan-azure-blob-storage-source.md#setting-up-authentication-for-a-scan)
-- [Azure Cosmos DB](register-scan-azure-cosmos-database.md#setting-up-authentication-for-a-scan)
-- [Azure Data Explorer](register-scan-azure-data-explorer.md#setting-up-authentication-for-a-scan)
-- [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#setting-up-authentication-for-a-scan)
-- [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#setting-up-authentication-for-a-scan)
+- [Azure 여러 원본](register-scan-azure-multiple-sources.md#authentication-for-registration)
+- [Azure Blob Storage](register-scan-azure-blob-storage-source.md#authentication-for-a-scan)
+- [Azure Cosmos DB](register-scan-azure-cosmos-database.md#authentication-for-a-scan)
+- [Azure Data Explorer](register-scan-azure-data-explorer.md#authentication-for-registration)
+- [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#prerequisites-for-scan)
+- [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#prerequisites-for-scan)
 - [Azure SQL Database](register-scan-azure-sql-database.md)
-- [Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md#setting-up-authentication-for-a-scan)
-- [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#setting-up-authentication-for-a-scan)
-- [SQL Server](register-scan-on-premises-sql-server.md#setting-up-authentication-for-a-scan)
+- [Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md#authentication-for-registration)
+- [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#authentication-for-registration)
+- [SQL Server](register-scan-on-premises-sql-server.md#authentication-for-registration)
 - [Power BI](register-scan-power-bi-tenant.md)
 - [Amazon S3](register-scan-amazon-s3.md#create-a-purview-credential-for-your-aws-s3-scan)
 
@@ -76,7 +77,7 @@ Azure Purview에서 새 자격 증명을 만드는 방법에 대한 자세한 �
 1. 키 자격 증명 모음으로 이동합니다.
 1. **설정** > **비밀** 을 선택합니다.
 1. 검사할 데이터 원본에 대하여 인증하기 위하여 사용하는 비밀을 선택합니다.
-1. 사용할 버전을 선택하고 비밀 값 표시를 선택하여 암호 또는 계정 키가 올바른지 **확인합니다.** 
+1. 사용할 버전을 선택 하 고 **비밀 값 표시** 를 선택 하 여 암호나 계정 키가 올바른지 확인 합니다. 
 
 ## <a name="verify-permissions-for-the-purview-managed-identity-on-your-azure-key-vault"></a>Azure Key Vault에서 Purview 관리형 ID에 대한 권한 확인하기
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 05/24/2021
 ms.topic: conceptual
-ms.openlocfilehash: 36ead3f16a04055e7056c702b0600265dd8e61ce
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: ced119e7835f6c7fd7bf6aea34a10ebea4af3fc5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110483585"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131026282"
 ---
 # <a name="use-azure-policy-to-enforce-job-execution-on-hybrid-runbook-worker"></a>Azure Policy를 사용하여 Hybrid Runbook Worker에서 작업 실행을 적용합니다
 
@@ -140,15 +140,15 @@ Azure Policy 리소스 권한을 얻으려면 구독 수준에서 [소유자](..
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
     ```azurecli
-   az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
-   ```
+    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
+    ```
 
-   `az policy assignment create`의 **scope** 매개 변수는 관리 그룹, 구독, 리소스 그룹 또는 단일 리소스를 사용하여 작동합니다. 매개 변수는 전체 리소스 경로를 사용합니다. 각 컨테이너에 대한 **scope** 패턴은 다음과 같습니다. `{rName}`, `{rgName}`, `{subId}` 및 `{mgName}`을 각각 리소스 이름, 리소스 그룹 이름, 구독 ID 및 관리 그룹 이름으로 바꿉니다. `{rType}`은 리소스의 **리소스 종류** 로 바꿉니다(예: VM에 대한 `Microsoft.Compute/virtualMachines`).
+    `az policy assignment create`의 **scope** 매개 변수는 관리 그룹, 구독, 리소스 그룹 또는 단일 리소스를 사용하여 작동합니다. 매개 변수는 전체 리소스 경로를 사용합니다. 각 컨테이너에 대한 **scope** 패턴은 다음과 같습니다. `{rName}`, `{rgName}`, `{subId}` 및 `{mgName}`을 각각 리소스 이름, 리소스 그룹 이름, 구독 ID 및 관리 그룹 이름으로 바꿉니다. `{rType}`은 리소스의 **리소스 종류** 로 바꿉니다(예: VM에 대한 `Microsoft.Compute/virtualMachines`).
 
-   - 리소스 - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
-   - 리소스 그룹 - `/subscriptions/{subID}/resourceGroups/{rgName}`
-   - 구독 - `/subscriptions/{subID}`
-   - 관리 그룹 - `/providers/Microsoft.Management/managementGroups/{mgName}`
+    - 리소스 - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+    - 리소스 그룹 - `/subscriptions/{subID}/resourceGroups/{rgName}`
+    - 구독 - `/subscriptions/{subID}`
+    - 관리 그룹 - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
     다음 명령으로 PowerShell을 사용하여 Azure Policy 정의 ID를 가져올 수 있습니다.
     
@@ -156,7 +156,7 @@ Azure Policy 리소스 권한을 얻으려면 구독 수준에서 [소유자](..
     az policy definition show --name 'Audit Enforce Jobs on Automation Hybrid Runbook Workers'
     ```
     
-    만든 정책 정의에 대한 정책 정의 ID는 다음 예제와 유사해야 합니다.
+    만든 정책 정의에 대한 정책 정의 ID는 다음 예제와 유사합니다.
     
     ```output
     "/subscription/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Enforce Jobs on Automation Hybrid Runbook Workers"

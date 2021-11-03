@@ -3,22 +3,22 @@ title: SAML 프로토콜을 사용하여 Salesforce SAML 공급자로 로그인 
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 SAML 프로토콜을 사용하여 Salesforce SAML 공급자로 로그인을 설정합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 09/16/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e740fdb9cd232892dadfe98c4d739759be66bf55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 911ca309da9df2631e08ff353636877403be710d
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103488723"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131007181"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-saml-protocol-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 SAML 프로토콜을 사용하여 Salesforce SAML 공급자로 로그인을 설정합니다.
 
@@ -99,15 +99,16 @@ ms.locfileid: "103488723"
 만든 ADFS 인증서를 Azure AD B2C 테넌트에 저장해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
-4. 개요 페이지에서 **ID 경험 프레임워크** 를 선택합니다.
-5. **정책 키**, **추가** 를 차례로 선택합니다.
-6. **옵션** 으로는 `Upload`을 선택합니다.
-7. 정책에 대한 **이름** 을 입력합니다. 예: SAMLSigningCert 키의 이름에 `B2C_1A_` 접두사가 자동으로 추가됩니다.
-8. 만든 B2CSigningCert.pfx 인증서로 이동한 후 선택합니다.
-9. 인증서의 **암호** 를 입력합니다.
-3. **만들기** 를 클릭합니다.
+1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택합니다.
+1. **포털 설정 | 디렉터리 + 구독** 페이지의 **디렉터리 이름** 목록에서 Azure AD B2C 디렉터리를 찾은 다음, **전환** 을 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+1. 개요 페이지에서 **ID 경험 프레임워크** 를 선택합니다.
+1. **정책 키**, **추가** 를 차례로 선택합니다.
+1. **옵션** 으로는 `Upload`을 선택합니다.
+1. 정책에 대한 **이름** 을 입력합니다. 예: SAMLSigningCert 키의 이름에 `B2C_1A_` 접두사가 자동으로 추가됩니다.
+1. 만든 B2CSigningCert.pfx 인증서로 이동한 후 선택합니다.
+1. 인증서의 **암호** 를 입력합니다.
+1. **만들기** 를 클릭합니다.
 
 ## <a name="add-a-claims-provider"></a>클레임 공급자 추가
 
@@ -202,7 +203,7 @@ ms.locfileid: "103488723"
 ## <a name="test-your-custom-policy"></a>사용자 지정 정책 테스트
 
 1. 신뢰 당사자 정책(예: `B2C_1A_signup_signin`)을 선택합니다.
-1. **애플리케이션** 에서 [이전에 등록](troubleshoot-custom-policies.md#troubleshoot-the-runtime)한 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **애플리케이션** 에서 [이전에 등록된](tutorial-register-applications.md) 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
 1. **지금 실행** 단추를 선택합니다.
 1. 등록 또는 로그인 페이지에서 **Salesforce** 를 선택하여 Salesforce 계정으로 로그인합니다.
 

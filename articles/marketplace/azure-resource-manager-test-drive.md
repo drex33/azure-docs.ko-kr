@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: trkeya
 author: trkeya
 ms.date: 09/09/2021
-ms.openlocfilehash: 7825dff873afaf223cab7b86c73083027caccc72
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 7415e01f79c7982b2e56e1bb02fc84be13174388
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129363616"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131065155"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager 시험 사용
 
@@ -26,7 +26,7 @@ ARM 템플릿이 무엇인지 잘 모르는 경우 [Azure Resource Manager란?](
 
 배포 템플릿에는 솔루션을 구성하는 모든 Azure 리소스가 포함되어 있습니다. 이 시나리오에 맞는 제품은 Azure 리소스만 사용합니다. 파트너 센터에서 다음 속성을 설정합니다.
 
-- **지역**(필수) - 현재 시험 사용을 사용할 수 있는 26개의 Azure 지원 지역이 있습니다. 최상의 성능을 위해 가장 많은 수의 고객이 배치될 것으로 예상되는 지역 하나를 선택하는 것이 좋습니다. 구독에서 선택한 각 지역에 필요한 모든 리소스를 배포할 수 있는지 확인해야 합니다.
+- **지역**(필수) - 현재 시험 사용을 사용할 수 있는 26개의 Azure 지원 지역이 있습니다. 최상의 성능을 위해 가장 많은 수의 고객을 배치할 것으로 생각 하는 영역을 하나 선택 하는 것이 좋습니다. 구독에서 선택한 각 지역에 필요한 모든 리소스를 배포할 수 있는지 확인해야 합니다.
 
 - **인스턴스** – 유형(핫 또는 콜드)을 선택하고, 제품을 사용할 수 있는 지역 수를 곱하여 사용 가능한 인스턴스 수를 선택합니다.
 
@@ -306,46 +306,46 @@ Resource Manager 템플릿을 사용하는 경우 일반적으로 출력을 생�
 
    테넌트 ID가 없는 경우 Azure Active Directory에서 새로 만듭니다. 테넌트 설정에 대한 도움말은 [빠른 시작: 테넌트 설정](../active-directory/develop/quickstart-create-new-tenant.md)을 참조하세요.
 
-3. Microsoft Test-Drive 응용 프로그램을 테 넌 트에 프로 비전 합니다. 이 응용 프로그램을 사용 하 여 테스트 드라이브 리소스에 대 한 작업을 수행 합니다.
-    1. 아직 없는 경우 [Azure Az PowerShell module](/powershell/azure/install-az-ps)을 설치 합니다.
-    1. Microsoft Test-Drive 응용 프로그램에 대 한 서비스 주체를 추가 합니다.
-        1. 을 실행 하 `Connect-AzAccount` 고 azure 계정에 로그인 하기 위한 자격 증명을 제공 합니다 .이 역할에는 azure active Directory **전역 관리자** [기본 제공 역할이](/azure/active-directory/roles/permissions-reference#global-administrator)필요 합니다. 
-        1. 새 서비스 주체를 만듭니다 `New-AzADServicePrincipal -ApplicationId d7e39695-0b24-441c-a140-047800a05ede -DisplayName 'Microsoft TestDrive' -SkipAssignment` .
-        1. 서비스 사용자가 만들어졌는지 확인 `Get-AzADServicePrincipal -DisplayName 'Microsoft TestDrive'` 합니다.
-      ![서비스 주체를 확인 하는 코드를 표시 합니다.](media/test-drive/commands-to-verify-service-principal.png)
+3. 테넌트에서 Microsoft Test-Drive 애플리케이션을 프로비전합니다. 이 애플리케이션을 사용하여 시험 사용 리소스에 대한 작업을 수행합니다.
+    1. 아직 없는 경우 [Azure Az PowerShell 모듈을](/powershell/azure/install-az-ps)설치합니다.
+    1. Microsoft Test-Drive 애플리케이션에 대한 서비스 주체를 추가합니다.
+        1. 를 실행하고 `Connect-AzAccount` 자격 증명을 제공하여 Azure 계정에 로그인하려면 Azure Active Directory **전역 관리자** 기본 제공 [역할](../active-directory/roles/permissions-reference.md#global-administrator)이 필요합니다. 
+        1. 새 서비스 주체 를 `New-AzADServicePrincipal -ApplicationId d7e39695-0b24-441c-a140-047800a05ede -DisplayName 'Microsoft TestDrive' -SkipAssignment` 만듭니다.
+        1. 서비스 주체가 생성되었는지 `Get-AzADServicePrincipal -DisplayName 'Microsoft TestDrive'` 확인합니다.
+      ![서비스 주체를 확인하는 코드를 표시합니다.](media/test-drive/commands-to-verify-service-principal.png)
 
-4. **AZURE AD 앱 id** 의 경우이 응용 프로그램 id를 붙여 넣습니다 `d7e39695-0b24-441c-a140-047800a05ede` .
-5. **Azure AD 앱 키** 의 경우 비밀이 필요 하지 않으므로 "비밀 없음"과 같은 더미 비밀을 삽입 합니다.
-6. 응용 프로그램을 사용 하 여 구독에 배포 하기 때문에 Azure Portal 또는 PowerShell에서 구독에 대 한 참가자로 응용 프로그램을 추가 해야 합니다.
+4. **Azure AD 앱 ID의** 경우 애플리케이션 ID 에 붙여넣습니다. `d7e39695-0b24-441c-a140-047800a05ede`
+5. **Azure AD 앱 키** 의 경우 비밀이 필요 없으므로 "비밀 없음"과 같은 더미 비밀을 삽입합니다.
+6. 애플리케이션을 사용하여 구독에 배포하고 있으므로 Azure Portal 또는 PowerShell에서 구독에 대한 기여자로 애플리케이션을 추가해야 합니다.
 
    1. Azure 포털에서 다음을 수행합니다.
 
-       1. 테스트 드라이브에 사용할 **구독** 을 선택 합니다.
+       1. 시험 사용 시 사용할 **구독을** 선택합니다.
        1. **액세스 제어(IAM)** 를 선택합니다.<br>
 
-          ![새 Access Control (I A M) 참가자 추가](media/test-drive/access-control-principal.png)
+          ![새 Access Control(M) 기여자 추가](media/test-drive/access-control-principal.png)
 
-       1. **역할 할당** 탭, **+ 역할 할당 추가** 를 차례로 선택 합니다.
+       1. 역할 **할당 탭을** 선택한 **다음, + 역할 할당 추가를** 선택합니다.
 
-          ![Select Access Control (I A M) 창에서 역할 할당 탭을 선택 하 고 + 역할 할당 추가를 선택 하는 방법을 보여 줍니다.](media/test-drive/access-control-principal-add-assignments.jpg)
+          ![Access Control(M) 선택 창에서 역할 할당 탭을 선택한 다음, + 역할 할당 추가를 선택하는 방법을 보여줍니다.](media/test-drive/access-control-principal-add-assignments.jpg)
 
-       1. Azure AD 응용 프로그램 이름을 입력 `Microsoft TestDrive` 합니다. **기여자** 역할을 할당하려는 애플리케이션을 선택합니다.
+       1. Azure AD 애플리케이션 `Microsoft TestDrive` 이름()을 입력합니다. **기여자** 역할을 할당하려는 애플리케이션을 선택합니다.
 
-          ![참가자 역할을 할당 하는 방법](media/test-drive/access-control-permissions.jpg)
+          ![기여자 역할을 할당하는 방법](media/test-drive/access-control-permissions.jpg)
 
        1. **저장** 을 선택합니다.
-   1. PowerShell을 사용 하는 경우:
-      1. 이를 실행 하 여 ServicePrincipal 개체 `(Get-AzADServicePrincipal -DisplayName 'Microsoft TestDrive').id` id:를 가져옵니다.
-      1. ObjectId 및 구독 ID를 사용 하 여이를 실행 `New-AzRoleAssignment -ObjectId <objectId> -RoleDefinitionName Contributor -Scope /subscriptions/<subscriptionId>` 합니다.
+   1. PowerShell을 사용하는 경우:
+      1. ServicePrincipal object-id를 얻으려면 다음을 `(Get-AzADServicePrincipal -DisplayName 'Microsoft TestDrive').id` 실행합니다.
+      1. ObjectId 및 구독 ID 를 통해 `New-AzRoleAssignment -ObjectId <objectId> -RoleDefinitionName Contributor -Scope /subscriptions/<subscriptionId>` 실행합니다.
 
 > [!NOTE]
-> 이전 appID를 삭제 하기 전에 Azure Portal 및 **리소스 그룹** 으로 이동한 다음를 검색 `CloudTry_` 합니다. 열 **에서 시작 된 이벤트** 를 확인 합니다.
+> 이전 appID를 삭제하기 전에 Azure Portal 이동한 다음 **리소스 그룹** 로 이동하여 를 검색합니다. `CloudTry_` 열을 통해 **시작된 이벤트를** 확인합니다.
 >
-> :::image type="content" source="media/test-drive/event-initiated-by-field.png" lightbox="media/test-drive/event-initiated-by-field.png" alt-text="이벤트를 시작한 사람 필드를 표시 합니다.":::
+> :::image type="content" source="media/test-drive/event-initiated-by-field.png" lightbox="media/test-drive/event-initiated-by-field.png" alt-text="이벤트 시작자 필드를 표시합니다.":::
 >
-> 하나 이상의 리소스 (**작업 이름**)가 **Microsoft testdrive** 로 설정 된 경우가 아니면 이전 appID를 삭제 하지 마세요.
+> 하나 이상의 **리소스(작업 이름)가** **Microsoft TestDrive** 로 설정되어 있지 않으면 이전 appID를 삭제하지 마세요.
 >
-> appID를 삭제 하려면 왼쪽 탐색 메뉴에서 **Azure Active Directory**  >  **앱 등록**, **모든 응용 프로그램** 탭을 차례로 선택 하 고 응용 프로그램을 선택한 다음 **삭제** 를 선택 합니다.
+> appID를 삭제하려면 왼쪽 탐색 메뉴에서 **Azure Active Directory** 앱  >  **등록을** 선택한 **다음, 모든 애플리케이션 탭을** 선택합니다. 애플리케이션을 선택하고 **삭제를** 선택합니다.
 
 ## <a name="republish"></a>다시 게시
 

@@ -13,14 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2021
 ms.author: yelevin
-ms.openlocfilehash: ba9d853b6c4bcbe43b81463870a06821dc34d665
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 8fa4f4262e5591154de641070f910984221c9cdd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129277616"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131019574"
 ---
 # <a name="threat-intelligence-integration-in-azure-sentinel"></a>Azure Sentinel에서 위협 인텔리전스 통합
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Azure Sentinel은 [위협 인텔리전스 피드를 사용](work-with-threat-indicators.md)하여 알려진 위협을 탐지하고 우선 순위를 지정하는 보안 분석가의 기능을 향상시키는 몇 가지 다른 방법을 제공합니다. 
 

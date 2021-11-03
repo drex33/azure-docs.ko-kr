@@ -6,12 +6,12 @@ ms.date: 03/14/2019
 ms.custom: devx-track-java
 author: mattmccleary
 ms.author: mmcc
-ms.openlocfilehash: ffde71da6ef18bad480fa2aa7b2b2ffeefdd0c7a
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 8a7db0cca739c18f201c19e19049ca2a7e169b01
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130133921"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067738"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Java SDK용 Application Insights 문제 해결과 질문 및 답변
 
@@ -81,7 +81,7 @@ ms.locfileid: "130133921"
 
 ApplicationInsights.xml(프로젝트의 리소스 폴더에 있음)을 업데이트합니다. 루트 노드 아래에 다음을 추가합니다.
 
-```XML
+```xml
 
     <DisableTelemetry>true</DisableTelemetry>
 ```
@@ -106,7 +106,7 @@ API의 상황에 대한 자세한 정보를 가져오려면 ApplicationInsights.
 
 파일에 출력하도록 로거에 지시할 수도 있습니다.
 
-```XML
+```xml
   <SDKLogger type="FILE"><!-- or "CONSOLE" to print to stderr -->
     <Level>TRACE</Level>
     <UniquePrefix>AI</UniquePrefix>

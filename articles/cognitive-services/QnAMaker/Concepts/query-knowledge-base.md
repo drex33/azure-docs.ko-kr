@@ -2,21 +2,20 @@
 title: 기술 자료 쿼리 - QnA Maker
 description: 기술 자료가 게시되어야 합니다. 게시된 후에는 generateAnswer API를 사용하여 런타임 예측 엔드포인트에서 기술 자료가 쿼리됩니다.
 ms.topic: conceptual
-ms.date: 11/09/2020
-ms.openlocfilehash: 4d36e1feb0279eec638a3602c5188e8af1cb7c17
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
-ms.translationtype: HT
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: bc1ef09e05b118c2f0a8b5b69cec38f2c38f7fb8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110369306"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131086795"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>기술 자료에서 답변 쿼리
 
 기술 자료가 게시되어야 합니다. 게시된 후에는 generateAnswer API를 사용하여 런타임 예측 엔드포인트에서 기술 자료가 쿼리됩니다. 쿼리에는 질문 텍스트 및 기타 설정이 포함되어 QnA Maker가 답변에 가장 적합한 일치 항목을 선택할 수 있습니다.
 
 ## <a name="how-qna-maker-processes-a-user-query-to-select-the-best-answer"></a>QnA Maker에서 사용자 쿼리를 처리하여 가장 적합한 답변을 선택하는 방법
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 학습되고 [게시된](../quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) QnA Maker 기술 자료는 [GenerateAnswer API](../how-to/metadata-generateanswer-usage.md)에서 봇 또는 다른 클라이언트 애플리케이션의 사용자 쿼리를 수신합니다. 다음 다이어그램에서는 사용자 쿼리를 수신하는 프로세스를 보여줍니다.
 
@@ -39,31 +38,8 @@ ms.locfileid: "110369306"
 
 사용되는 기능에는 단어 수준 의미 체계, 모음의 용어 수준 중요도, 두 텍스트 문자열 간의 유사성과 관련성을 확인하기 위한 딥 러닝 의미 체계 모델이 포함되지만 이에 국한되지 않습니다.
 
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-학습되고 [게시된](../quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) QnA Maker 기술 자료는 [GenerateAnswer API](../how-to/metadata-generateanswer-usage.md)에서 봇 또는 다른 클라이언트 애플리케이션의 사용자 쿼리를 수신합니다. 다음 다이어그램에서는 사용자 쿼리를 수신하는 프로세스를 보여줍니다.
-
-![사용자 쿼리에 대한 순위 지정 모델 프로세스 미리 보기](../media/qnamaker-concepts-knowledgebase/ranker-v2.png)
-
-### <a name="ranker-process"></a>Ranker 프로세스
-
-프로세스는 다음 표에 설명되어 있습니다.
-
-|단계|목적|
-|--|--|
-|1|클라이언트 애플리케이션이 사용자 쿼리를 [GenerateAnswer API](../how-to/metadata-generateanswer-usage.md)로 보냅니다.|
-|2|QnA Maker가 언어 감지, 맞춤법 검사기 및 단어 분리기를 사용하여 사용자 쿼리를 전처리합니다.|
-|3|이러한 전처리는 최상의 검색 결과를 위해 사용자 쿼리를 변경하는 데 사용됩니다.|
-|4|이 변경된 쿼리는 `top` 수의 결과를 수신하는 Azure Cognitive Search Index에 전송됩니다. 이러한 결과에 올바른 답변이 없는 경우 `top`의 값을 약간 늘립니다. 일반적으로 `top`에 대한 값이 10이면 쿼리의 90%에서 작동합니다. 이 단계에서 Azure Search는 [중지 단어](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md)를 필터링합니다.|
-|5|QnA Maker는 최신 변환기 기반 모델을 사용하여 사용자 쿼리와 Azure Cognitive Search에서 가져온 후보 QnA 결과 간의 유사성을 결정합니다. 변환기 기반 모델은 모든 언어에서 신뢰도 점수와 새 순위를 결정하는 데 수평적으로 작동하는 딥 러닝 다국어 모델입니다.|
-|6|새 결과는 순위대로 클라이언트 애플리케이션에 반환됩니다.|
-|||
-
-Ranker는 모든 대체 질문과 대답에서 작동하여 사용자 쿼리에 가장 일치하는 QnA 쌍을 찾습니다. 사용자는 Ranker에만 질문하도록 Ranker를 구성할 수 있습니다. 
-
----
-
 ## <a name="http-request-and-response-with-endpoint"></a>엔드포인트를 사용하여 HTTP 요청 및 응답
+
 지식 기반을 게시할 때 서비스는 애플리케이션, 일반적으로 챗봇에 통합할 수 있는 REST 기반 HTTP 엔드포인트를 만듭니다.
 
 ### <a name="the-user-query-request-to-generate-an-answer"></a>답변을 생성하는 사용자 쿼리 요청
@@ -84,6 +60,7 @@ Ranker는 모든 대체 질문과 대답에서 작동하여 사용자 쿼리에 
     "userId": "sd53lsY="
 }
 ```
+
 [scoreThreshold](./confidence-score.md#choose-a-score-threshold), [top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers), [strictFilters](../how-to/query-knowledge-base-with-metadata.md) 등의 속성을 설정하여 응답을 제어합니다.
 
 [대화 컨텍스트](../how-to/query-knowledge-base-with-metadata.md)를 [멀티 턴 기능](../how-to/multiturn-conversation.md)과 함께 사용하여 질문 및 답변을 구체화하는 대화를 유지하고 정확한 최종 답변을 찾을 수 있습니다.
@@ -119,7 +96,6 @@ HTTP 응답은 지정된 사용자 쿼리에 가장 잘 일치하는 항목을 �
     ]
 }
 ```
-
 
 ## <a name="next-steps"></a>다음 단계
 

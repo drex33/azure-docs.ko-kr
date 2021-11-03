@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.custom: mvc, seodec18
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: 18746da524c4b045471031af2330d9daba4bfcc0
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: 10ae4e5711d6ec238d73a6b401f6f3fc4498fdd8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949351"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040702"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Azure Dedicated HSM 서비스 문제 해결
 
@@ -29,7 +29,7 @@ Azure Dedicated HSM 서비스에는 고유한 두 가지 측면이 있습니다.
 
 ## <a name="hsm-registration"></a>HSM 등록
 
-Dedicated HSM은 클라우드에서 하드웨어 리소스를 제공하므로 무료로 사용할 수 없으며, 이에 따라 보호해야 하는 소중한 리소스입니다. 따라서 HSMrequest@microsoft.com을 사용하여 이메일을 통한 허용 목록 프로세스를 사용합니다. 
+Dedicated HSM은 클라우드에서 하드웨어 리소스를 제공하므로 무료로 사용할 수 없으며, 이에 따라 보호해야 하는 소중한 리소스입니다. 따라서 `HSMrequest@microsoft.com`을 사용하는 이메일을 통해 허용 목록 프로세스를 사용합니다.
 
 ### <a name="getting-access-to-dedicated-hsm"></a>Dedicated HSM에 액세스
 

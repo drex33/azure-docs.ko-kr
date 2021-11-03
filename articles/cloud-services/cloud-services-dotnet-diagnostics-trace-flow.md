@@ -8,12 +8,12 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 027450a2e5e2a0c749c2f4b02148ffe849f2a182
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
-ms.translationtype: HT
+ms.openlocfilehash: fba44d9c7ce64f82785ec4f8cbb47ad7d3f292b5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122823942"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131071385"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-classic-application-with-azure-diagnostics"></a>Azure Diagnostics로 Cloud Services(classic) 응용 프로그램의 흐름 추적
 
@@ -36,29 +36,31 @@ ms.locfileid: "122823942"
 Visual Studio에서 제공되는 서식 파일을 사용하는 경우 수신기의 구성은 자동으로 추가됩니다.
 
 ### <a name="add-a-trace-listener"></a>추적 수신기 추가
+
 1. 사용자의 역할에 대한 web.config 또는 app.config 파일을 엽니다.
+
 2. 파일에 다음 코드를 추가합니다. 참조할 어셈블리의 버전 번호를 사용하려면 버전 특성을 변경합니다. 어셈블리 버전은 업데이트가 없는 경우 각 Azure SDK 릴리스로 변경할 필요는 없습니다.
-   
-    ```
-    <system.diagnostics>
-        <trace>
-            <listeners>
-                <add type="Microsoft.WindowsAzure.Diagnostics.DiagnosticMonitorTraceListener,
-                  Microsoft.WindowsAzure.Diagnostics,
-                  Version=2.8.0.0,
-                  Culture=neutral,
-                  PublicKeyToken=31bf3856ad364e35"
-                  name="AzureDiagnostics">
-                    <filter type="" />
-                </add>
-            </listeners>
-        </trace>
-    </system.diagnostics>
-    ```
+
+   ```xml
+   <system.diagnostics>
+       <trace>
+           <listeners>
+               <add type="Microsoft.WindowsAzure.Diagnostics.DiagnosticMonitorTraceListener,
+                 Microsoft.WindowsAzure.Diagnostics,
+                 Version=2.8.0.0,
+                 Culture=neutral,
+                 PublicKeyToken=31bf3856ad364e35"
+                 name="AzureDiagnostics">
+                   <filter type="" />
+               </add>
+           </listeners>
+       </trace>
+   </system.diagnostics>
+   ```
+
    > [!IMPORTANT]
    > Microsoft.WindowsAzure.Diagnostics 어셈블리에 대한 프로젝트 참조가 있어야 합니다. 참조된 Microsoft.WindowsAzure.Diagnostics 어셈블리의 버전과 일치하도록 위의 xml의 버전 번호를 업데이트합니다.
-   > 
-   > 
+
 3. 구성 파일을 저장합니다.
 
 수신기에 대한 자세한 내용은 [추적 수신기](/dotnet/framework/debug-trace-profile/trace-listeners)를 참조하세요.

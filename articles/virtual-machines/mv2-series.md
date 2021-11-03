@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: fcc18d235be771044e67a6ffda43effb475f1655
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 0f311645f29f5daaaf65474a60031ee8cceff688
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130068896"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063673"
 ---
 # <a name="mv2-series"></a>Mv2 시리즈
 
@@ -29,7 +29,7 @@ Mv2 시리즈 VM은 Intel® 하이퍼 스레딩 기술 제공
 [VM 생성 지원](generation-2.md): 2세대<br>
 [쓰기 가속기](./how-to-enable-write-accelerator.md): 지원됨<br>
 [가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨<br>
-[임시 OS 디스크](ephemeral-os-disks.md): 지원되지 않음 <br>
+[임시 OS 디스크](ephemeral-os-disks.md): 지원됨 <br>
 <br>
 
 |크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 | 예상 네트워크 대역폭(Mbps) |

@@ -1,28 +1,35 @@
 ---
-title: Azure Security Center의 모든 보안 경고에 대한 참조 테이블
-description: 이 문서에는 Azure Security Center의 Azure Defender 대시보드에 표시되는 보안 경고가 나와 있습니다.
+title: Microsoft Defender for Cloud의 모든 보안 경고에 대 한 참조 테이블
+description: 이 문서에서는 Microsoft Defender for Cloud에 표시 되는 보안 경고를 나열 합니다.
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 10/04/2021
+ms.date: 10/18/2021
 ms.author: memildin
-ms.openlocfilehash: 3ebcf82d59262bf36eb7dfb9f2cf6910263517f9
-ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 3c26bf3cd5b5b6e130f89c3e3b593112e2853d1c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130138748"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131014826"
 ---
 # <a name="security-alerts---a-reference-guide"></a>보안 경고 - 참조 가이드
 
-이 문서에는 Azure Security Center에서 가져올 수 있는 보안 경고와 사용자가 사용하도록 설정한 모든 Azure Defender 계획이 나열되어 있습니다. 사용자 환경에 표시되는 경고는 보호하는 리소스 및 서비스와 사용자 지정된 구성에 따라 다릅니다.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-이 페이지의 하단에는 [MITRE ATT&CK 행렬](https://attack.mitre.org/versions/v7/)의 버전 7과 일치하는 Azure Security Center 킬 체인을 설명하는 테이블이 있습니다.
+이 문서에는 클라우드에 대해 Microsoft Defender에서 얻을 수 있는 보안 경고 및 사용자가 사용 하도록 설정한 모든 Microsoft Defender 계획이 나열 되어 있습니다. 사용자 환경에 표시되는 경고는 보호하는 리소스 및 서비스와 사용자 지정된 구성에 따라 다릅니다.
 
-[이러한 경고에 응답하는 방법을 알아봅니다](security-center-managing-and-responding-alerts.md).
+이 페이지의 맨 아래에는 [MITRE at&t&접시 헤드 행렬](https://attack.mitre.org/versions/v7/)의 버전 7과 정렬 된 클라우드 kill 체인 용 Microsoft Defender를 설명 하는 표가 있습니다.
+
+[이러한 경고에 응답하는 방법을 알아봅니다](managing-and-responding-alerts.md).
 
 [경고를 내보내는 방법을 알아봅니다](continuous-export.md).
+
+> [!NOTE]
+> 서로 다른 원본의 경고가 표시되는 데 각각 다른 시간이 걸릴 수 있습니다. 예를 들어 네트워크 트래픽을 분석해야 하는 경고를 표시하는 경우 가상 머신에서 실행되는 의심스러운 프로세스와 관련된 경고보다 더 오래 걸릴 수 있습니다.
+
 
 ## <a name="alerts-for-windows-machines"></a><a name="alerts-windows"></a>Windows 컴퓨터에 대한 경고
 
@@ -451,7 +458,7 @@ ms.locfileid: "130138748"
 | **미리 보기 - 공개적으로 노출된 컨테이너에서 잠재적으로 민감한 데이터가 있는 스토리지 계정이 감지됨**<br>(Storage.Blob_OpenACL)                                                                                                                                           | 스토리지 계정의 컨테이너에 대한 액세스 정책이 익명 액세스를 허용하도록 수정되었습니다. 이는 컨테이너에 중요한 데이터가 있는 경우 데이터 유출이 발생할 수 있습니다. 이 경고는 Azure 활동 로그 분석을 기반으로 합니다.<br>적용 대상: Azure Blob Storage, Azure Data Lake Storage Gen2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | 권한 상승                         | 중간        |
 | **Tor 종료 노드에서 저장소 계정으로 액세스**<br>(Storage.Blob_TorAnomaly<br>Storage.Files_TorAnomaly)                                                                                                                                                                         | Tor(익명 프록시)의 활성 종료 노드로 알려진 IP 주소에서 이 계정에 성공적으로 액세스한 것으로 나타납니다. 이 경고의 심각도는 사용된 인증 유형(있는 경우)과 이 액세스가 첫 번째 사례인지를 고려합니다. 잠재적 원인은 Tor를 사용하여 저장소 계정에 액세스한 공격자 또는 Tor를 사용하여 저장소 계정에 액세스한 합법적인 사용자일 수 있습니다.<br>적용 대상: Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen2                                                                                                                                                                                                                                                                                                         | 검색, 악용                        | 높음          |
 | **비정상적인 위치에서 저장소 계정으로 액세스**<br>(Storage.Blob_GeoAnomaly<br>Storage.Files_GeoAnomaly)                                                                                                                                                                     | Azure Storage 계정에 대한 액세스 패턴이 변경된 것으로 나타납니다. 최근 활동과 비교할 때 익숙하지 않은 것으로 간주되는 IP 주소를 통해 누군가가 이 계정에 액세스했습니다. 공격자가 계정에 대한 액세스 권한을 얻었거나, 합법적인 사용자가 새롭거나 비정상적인 지리적 위치에서 연결했습니다. 후자의 경우 새 응용 프로그램 또는 개발자의 원격 유지 관리입니다.<br>적용 대상: Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen2                                                                                                                                                                                                                                                                                                                                | 악용                                 | 낮음           |
-| **저장소 계정에 대한 익명 액세스**<br>(Storage.Blob_AnonymousAccessAnomaly)                                                                                                                                                                                                    | Azure Storage 계정에 대한 액세스 패턴이 변경된 것으로 나타납니다. 누군가가 인증 없이 이 스토리지 계정에서 컨테이너에 액세스했습니다. 일반적으로 이 컨테이너에 대한 액세스는 SAS 토큰, 스토리지 계정 키 또는 AAD를 통해 인증됩니다. 이는 공격자가 스토리지 계정에 대한 공용 읽기 권한을 악용했음을 나타낼 수 있습니다.<br>적용 대상: Azure Blob Storage                                                                                                                                                                                                                                                                                                                                                                                                                                          | 악용                                 | 높음          |
+| **저장소 계정에 대한 익명 액세스**<br>(Storage.Blob_AnonymousAccessAnomaly)                                                                                                                                                                                                    | Azure Storage 계정에 대한 액세스 패턴이 변경된 것으로 나타납니다. 누군가가 인증하지 않고 이 스토리지 계정의 컨테이너에 액세스했습니다. 일반적으로 이 컨테이너에 대한 액세스는 SAS 토큰, 스토리지 계정 키 또는 AAD를 통해 인증됩니다. 이는 공격자가 스토리지 계정에 대한 공용 읽기 권한을 악용했음을 나타낼 수 있습니다.<br>적용 대상: Azure Blob Storage                                                                                                                                                                                                                                                                                                                                                                                                                                          | 악용                                 | 높음          |
 | **저장소 계정에 업로드된 잠재적 맬웨어**<br>(Storage.Blob_MalwareHashReputation<br>Storage.Files_MalwareHashReputation)                                                                                                                                                    | 잠재적 맬웨어가 들어 있는 Blob이 스토리지 계정의 Blob 컨테이너 또는 파일 공유에 업로드되었음을 나타납니다. 이 경고는 바이러스, 트로이 목마, 스파이웨어 및 랜섬웨어에 대한 해시를 포함한 Microsoft 위협 인텔리전스의 기능을 활용하는 해시 평판 분석을 기반으로 합니다. 잠재적 원인에는 공격자의 의도적인 맬웨어 업로드 또는 합법적인 사용자가 잠재적으로 악의적인 Blob을 의도치 않게 업로드하는 경우가 있을 수 있습니다.<br>적용 대상: Azure Blob Storage, Azure Files(REST API를 통한 트랜잭션만 해당)<br>[맬웨어에 대한 Azure의 해시 평판 분석](defender-for-storage-introduction.md#what-is-hash-reputation-analysis-for-malware)에 대해 자세히 알아보세요.<br>[Microsoft 위협 인텔리전스 기능](https://go.microsoft.com/fwlink/?linkid=2128684)에 대해 자세히 알아보세요. | 측면 확대                             | 높음          |
 | **저장소 계정에서 비정상적인 액세스 검사**<br>(Storage.Blob_AccessInspectionAnomaly<br>Storage.Files_AccessInspectionAnomaly)                                                                                                                                                 | 이 계정의 최근 활동과 비교할 때 저장소 계정의 액세스 권한이 비정상적인 방식으로 검사된 것으로 나타납니다. 잠재적 원인은 공격자가 향후 공격을 위해 정찰을 수행한 것일 수 있습니다.<br>적용 대상: Azure Blob Storage, Azure Files                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 컬렉션                                   | 중간        |
 | **저장소 계정에서 추출된 비정상적인 데이터 크기**<br>(Storage.Blob_DataExfiltration.AmountOfDataAnomaly<br>Storage.Blob_DataExfiltration.NumberOfBlobsAnomaly<br>Storage.Files_DataExfiltration.AmountOfDataAnomaly<br>Storage.Files_DataExfiltration.NumberOfFilesAnomaly) | 이 저장소 컨테이너의 최근 활동과 비교할 때 비정상적으로 많은 양의 데이터가 추출된 것으로 나타납니다. 잠재적 원인은 공격자가 Blob Storage를 보유한 컨테이너에서 대량의 데이터를 추출한 것일 수 있습니다.<br>적용 대상: Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | 반출                                 | 중간        |
@@ -531,7 +538,7 @@ ms.locfileid: "130138748"
 
 ## <a name="security-incident-alerts"></a><a name="alerts-fusion"></a>보안 인시던트 경고
 
-[추가 세부 정보 및 참고 사항](security-center-alerts-overview.md#cloud-smart-alert-correlation-in-azure-security-center-incidents)
+[추가 세부 정보 및 참고 사항](alerts-overview.md#cloud-smart-alert-correlation-incidents)
 
 | 경고                                                | 설명                                                                                                                                                                         | MITRE 전술<br>([자세한 정보](#intentions)) | 심각도 |
 |------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------:|----------|
@@ -544,11 +551,11 @@ ms.locfileid: "130138748"
 
 ## <a name="mitre-attck-tactics"></a>MITRE ATT&CK 전술 <a name="intentions"></a>
 
-공격 의도를 파악하면 이벤트를 더욱 쉽게 조사하고 보고할 수 있습니다. 이러한 작업을 지원하기 위해 Azure Security Center 경고에는 많은 경고가 포함된 MITRE 전술이 포함됩니다.
+공격 의도를 파악하면 이벤트를 더욱 쉽게 조사하고 보고할 수 있습니다. 이러한 활동을 지원 하기 위해 Microsoft Defender for Cloud alerts에는 많은 경고가 있는 MITRE 전술이 포함 됩니다.
 
 정찰에서 데이터 반출에 이르는 사이버 공격의 진행 과정을 설명하는 일련의 단계를 종종 "킬 체인(kill chain)"이라고 합니다. 
 
-Security Center의 지원되는 킬 체인 의도는 [버전 7의 MITRE ATT&CK 행렬](https://attack.mitre.org/versions/v7/)을 기반으로 하며 이는 아래 표에 설명되어 있습니다.
+클라우드의 지원 되는 kill 체인 의도에 대 한 Defender는 [MITRE at&t&접시 헤드 행렬의 버전 7](https://attack.mitre.org/versions/v7/) 을 기반으로 하며 아래 표에 설명 되어 있습니다.
 
 | 전술                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -573,6 +580,6 @@ Security Center의 지원되는 킬 체인 의도는 [버전 7의 MITRE ATT&CK �
 ## <a name="next-steps"></a>다음 단계
 Azure Defender 보안 알림에 대한 자세한 내용은 다음을 참조하세요.
 
-- [Azure Security Center의 보안 경고](security-center-alerts-overview.md)
-- [Azure Security Center에서 보안 경고 관리 및 응답](security-center-managing-and-responding-alerts.md)
-- [Security Center 데이터 연속 내보내기](continuous-export.md)
+- [Microsoft Defender for Cloud의 보안 경고](alerts-overview.md)
+- [Microsoft Defender for Cloud에서 보안 경고 관리 및 대응](managing-and-responding-alerts.md)
+- [클라우드 데이터를 위해 계속 Defender를 내보냅니다.](continuous-export.md)

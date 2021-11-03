@@ -9,12 +9,12 @@ author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
 ms.date: 09/09/2021
-ms.openlocfilehash: b5b877d27e04aa81e710b518d3923d438fe0afd2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d802b911a462ef077fa69d62d524e763ab13efc2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124805966"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131016591"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory-and-synapse-analytics"></a>Azure Data Factory 및 Synapse Analytics에서 Spark 작업을 사용 하 여 데이터 변환
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -129,5 +129,4 @@ SparkJob2
 * [Hadoop 스트리밍 작업](transform-data-using-hadoop-streaming.md)
 * [Spark 작업](transform-data-using-spark.md)
 * [.NET 사용자 지정 작업](transform-data-using-dotnet-custom-activity.md)
-* [ML Studio(클래식) Batch Execution 작업](transform-data-using-machine-learning.md)
 * [저장 프로시저 작업](transform-data-using-stored-procedure.md)

@@ -6,12 +6,12 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 03/11/2021
-ms.openlocfilehash: 787a0e4990988f35ca8e2c98eab1d9c77bea9c1b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 476b77cd2f319e5c082235ade3468ddb2fd34d44
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128576356"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069447"
 ---
 # <a name="tutorial-create-a-serverless-real-time-chat-app-with-azure-functions-and-azure-web-pubsub-service"></a>자습서: Azure Functions 및 Azure Web PubSub 서비스를 사용하여 서버리스 실시간 채팅 앱 만들기
 
@@ -73,21 +73,25 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
 
 1. `Microsoft.Azure.WebJobs.Extensions.WebPubSub` 함수 확장 패키지를 명시적으로 설치합니다.
 
-   a. 다음 단계에서 특정 확장 패키지를 설치할 수 있도록 `host.json`에서 `extensionBundle` 섹션을 제거합니다. 또는 호스트 json을 아래와 같이 간단히 지정합니다.
-    ```json
-    {
+   1. 다음 단계에서 특정 확장 패키지를 설치할 수 있도록 `host.json`에서 `extensionBundle` 섹션을 제거합니다. 또는 호스트 json을 아래와 같이 간단히 지정합니다.
+
+      ```json
+      {
         "version": "2.0"
-    }
-    ```
-   b. 특정 함수 확장 패키지를 설치하는 명령을 실행합니다.
-    ```bash
-    func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0-beta.3
-    ```
+      }
+      ```
+
+   1. 특정 함수 확장 패키지를 설치하는 명령을 실행합니다.
+
+      ```bash
+      func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0-beta.3
+      ```
 
 1. 클라이언트에 대한 정적 웹 페이지를 읽고 호스팅하는 `index` 함수를 만듭니다.
     ```bash
     func new -n index -t HttpTrigger
     ```
+
    # <a name="javascript"></a>[JavaScript](#tab/javascript)
    - `index/function.json`을 업데이트하고 다음 json 코드를 복사합니다.
         ```json

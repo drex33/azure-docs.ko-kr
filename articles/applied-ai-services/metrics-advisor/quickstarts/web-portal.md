@@ -10,14 +10,13 @@ ms.date: 09/30/2020
 ms.topic: quickstart
 ms.service: applied-ai-services
 ms.subservice: metrics-advisor
-ms.custom:
-- mode-portal
-ms.openlocfilehash: 1ad7d21907e8be6de4c28881719cc31f31b02c7a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: mode-portal
+ms.openlocfilehash: ca4edde32a8a1eb490eb8c62d23c22061ea5c706
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121745953"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131026622"
 ---
 # <a name="quickstart-monitor-your-first-metric-by-using-the-web-portal"></a>빠른 시작: 웹 포털을 사용하여 첫 번째 메트릭 모니터링
 

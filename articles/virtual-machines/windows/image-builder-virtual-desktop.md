@@ -1,6 +1,6 @@
 ---
-title: Image Builder - Windows Virtual Desktop 이미지 만들기
-description: PowerShell에서 Azure Image Builder를 사용하여 Windows Virtual Desktop의 Azure VM 이미지를 만듭니다.
+title: Image Builder - Azure Virtual Desktop 이미지 만들기
+description: PowerShell에서 Azure Image Builder 사용하여 Azure Virtual Desktop의 Azure VM 이미지를 만듭니다.
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: cynthn
@@ -10,21 +10,21 @@ ms.service: virtual-machines
 ms.collection: windows
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fdda25ecc9d111d626b7c9836757c31d4972c25f
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 046bec93d3a9ae0ffef8b189470f412ab357943d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122692452"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131018492"
 ---
-# <a name="create-a-windows-virtual-desktop-image-using-azure-vm-image-builder-and-powershell"></a>Azure VM Image Builder 및 PowerShell을 사용하여 Windows Virtual Desktop 이미지 만들기
+# <a name="create-a-azure-virtual-desktop-image-using-azure-vm-image-builder-and-powershell"></a>Azure VM Image Builder 및 PowerShell을 사용하여 Azure Virtual Desktop 이미지 만들기
 
 **적용 대상:** :heavy_check_mark: Windows VM 
 
-이 문서에서는 다음과 같은 사용자 지정으로 Windows Virtual Desktop 이미지를 만드는 방법을 보여 줍니다.
+이 문서에서는 다음과 같은 사용자 지정을 사용하여 Azure Virtual Desktop 이미지를 만드는 방법을 보여줍니다.
 
 * [Fslogix](https://github.com/DeanCefola/Azure-WVD/blob/master/PowerShell/FSLogixSetup.ps1) 설치
-* 커뮤니티 리포지토리에서 [Windows Virtual Desktop 최적화 스크립트](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) 실행
+* 커뮤니티 리포지션에서 [Azure Virtual Desktop 최적화 스크립트](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) 실행
 * [Microsoft Teams](../../virtual-desktop/teams-on-avd.md) 설치
 * [다시 시작](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-restart-customizer)
 * [Windows 업데이트](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-update-customizer) 실행

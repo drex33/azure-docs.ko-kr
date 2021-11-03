@@ -1,33 +1,31 @@
 ---
-title: 빠른 시작 - Azure Portal에서 Azure 기밀 컴퓨팅 가상 머신 만들기
-description: Azure Portal에서 기밀 컴퓨팅 가상 머신을 빠르게 만드는 방법을 학습하여 배포를 시작합니다.
+title: 빠른 시작 - Azure Portal에서 Intel SGX VM 만들기
+description: Azure Portal에서 Intel SGX VM을 신속하게 만드는 방법을 학습하여 배포 시작
 author: JBCook
 ms.service: virtual-machines
 ms.subservice: workloads
 ms.workload: infrastructure
 ms.topic: quickstart
-ms.date: 06/13/2021
+ms.date: 11/1/2021
 ms.author: JenCook
-ms.openlocfilehash: 8fb93b7697e2dd9077995572fc91b6e82a7d8512
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.custom: mode-portal, ignite-fall-2021
+ms.openlocfilehash: 51a91b6bb5ff5991ad2d92a41f7f70ef39c2a0c2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113107221"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131033282"
 ---
-# <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure 기밀 컴퓨팅 VM 배포
+# <a name="quickstart-create-intel-sgx-vm-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Intel SGX VM 만들기
 
-Azure Portal을 통해 Intel SGX에서 지원하는 VM(가상 머신)을 만들어 Azure 기밀 컴퓨팅을 시작합니다. 그런 다음 enclave 애플리케이션을 실행할 수 있습니다.
+이 자습서에서는 Azure Portal을 사용하여 Intel SGX VM을 배포하는 과정을 설명합니다. 그렇지 않으면 [Azure Marketplace](quick-create-marketplace.md) 템플릿을 따르는 것이 좋습니다.
 
-사용자 지정 구성을 사용하여 기밀 컴퓨팅 가상 머신을 배포하는 데 관심이 있는 경우 이 자습서를 사용하는 것이 좋습니다. 그렇지 않으면 [Microsoft 상업용 마켓플레이스를 위한 기밀 컴퓨팅 가상 머신 배포 단계](quick-create-marketplace.md)를 수행하는 것이 좋습니다.
-
-
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/).
 
 > [!NOTE]
-> 평가판 계정은 이 자습서에서 사용되는 가상 머신에 액세스할 수 없습니다. 종량제 구독으로 업그레이드하세요.
+> 무료 평가판 계정에는 이 자습서의 VM에 대한 액세스 권한이 없습니다. 종량제 구독으로 업그레이드하세요.
 
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
@@ -36,16 +34,13 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 
 1. 위쪽에서 **리소스 만들기** 를 선택합니다.
 
-1. **Marketplace** 창의 왼쪽에서 **컴퓨팅** 을 선택합니다.
+1. 왼쪽 창에서 **컴퓨팅** 을 선택합니다.
 
-1. **가상 머신** 을 찾아서 선택합니다.
+1. **가상 머신 만들기** 를 선택합니다.
 
     ![VM 배포](media/quick-create-portal/compute-virtual-machine.png)
 
-1. 가상 머신 방문 페이지에서 **만들기** 를 선택합니다.
-
-
-## <a name="configure-a-confidential-computing-virtual-machine"></a>기밀 컴퓨팅 가상 머신 구성
+## <a name="configure-an-intel-sgx-virtual-machine"></a>Intel SGX 가상 머신 구성
 
 1. **기본** 탭에서 **구독** 및 **리소스 그룹** 을 선택합니다.
 
@@ -56,28 +51,23 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
    * **지역**: 적합한 Azure 지역을 선택합니다.
 
         > [!NOTE]
-        > 기밀 컴퓨팅 가상 머신은 특정 지역에서 사용할 수 있는 특수한 하드웨어에서만 실행됩니다. DCsv2 시리즈 VM에 사용할 수 있는 최신 지역은 [사용 가능한 지역](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)을 참조하세요.
+        > Intel SGX VM은 특정 지역의 특수한 하드웨어에서 실행됩니다. 최신 지역의 가용성을 보려면 [사용 가능한 지역](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)에서 DCsv2 시리즈 또는 DCsv3/DCdsv3 시리즈를 찾으십시오.
 
 1. 가상 머신에 사용할 운영 체제 이미지를 구성합니다.
 
-    * **이미지 선택**: 이 자습서에서는 Ubuntu 18.04 LTS를 선택합니다. Windows Server 2019, Windows Server 2016 또는 Ubuntu 16.04 LTS를 선택할 수도 있습니다. 이 작업을 수행하도록 선택하면 이에 따라 이 자습서에서 적절하게 리디렉션됩니다.
+    * **이미지 선택**: 이 자습서의 경우 Ubuntu 20.04 LTS - Gen 2를 선택합니다. Ubuntu 18.04 LTS - Gen2 또는 Windows Server 2019를 선택할 수도 있습니다.
     
-    * **2세대 이미지 전환**: 기밀 컴퓨팅 가상 머신은 [2세대](../virtual-machines/generation-2.md) 이미지에서만 실행됩니다. 선택한 이미지가 2세대 이미지인지 확인합니다. 가상 머신을 구성하고 있는 위의 **고급** 탭을 클릭합니다. "VM 세대"라는 섹션을 찾을 때까지 아래로 스크롤합니다. [2세대]를 선택한 다음, **기본** 탭으로 돌아갑니다.
+    * **2세대로 업데이트**: 이미지 아래에서 **VM 생성 구성** 을 선택하고 플라이아웃에서 **2세대** 를 선택합니다.
     
+        ![이미지](https://user-images.githubusercontent.com/63871188/137009767-421ee49a-ded8-4cfd-ac53-a3d6750880b9.png)
 
-        ![고급 탭](media/quick-create-portal/advanced-tab-virtual-machine.png)
 
-
-        ![VM 세대](media/quick-create-portal/gen2-virtual-machine.png)
-
-    * **기본 구성으로 돌아가기**: 위쪽에 있는 탐색을 사용하여 **기본** 탭으로 돌아갑니다.
-
-1. **크기 변경** 을 선택하여 크기 선택기에서 기밀 컴퓨팅 기능이 있는 가상 머신을 선택합니다. 가상 머신 크기 선택기에서 **모든 필터 지우기** 를 클릭합니다. **필터 추가** 를 선택하고, 필터 형식에 대해 **제품군** 을 선택한 다음, **기밀 컴퓨팅** 만 선택합니다.
+1. **크기 변경** 을 선택하여 크기 선택기에서 Intel SGX가 있는 가상 머신을 선택합니다. 가상 머신 크기 선택기에서 **모든 필터 지우기** 를 클릭합니다. **필터 추가** 를 선택하고, 필터 형식에 대해 **제품군** 을 선택한 다음, **기밀 컴퓨팅** 만 선택합니다.
 
     ![DCsv2 시리즈 VM](media/quick-create-portal/dcsv2-virtual-machines.png)
 
     > [!TIP]
-    > **DC1s_v2**, **DC2s_v2**, **DC4s_V2** 및 **DC8_v2** 크기가 표시됩니다. 이러한 크기는 현재 기밀 컴퓨팅을 지원하는 유일한 가상 머신 크기입니다. [자세히 알아보기](virtual-machine-solutions.md).
+    > **DC(number)s_v2**, **DC(number)s_v3** 및 **DC(number)ds_v3** 크기가 나타나야 합니다. [자세히 알아보기](virtual-machine-solutions-sgx.md).
 
 1. 다음 정보를 입력합니다.
 
@@ -102,8 +92,8 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 
 1. **디스크** 탭에서 변경을 수행합니다.
 
-   * **DC1s_v2**, **DC2s_v2**, **DC4s_V2** 가상 머신을 선택한 경우 **표준 SSD** 또는 **프리미엄 SSD** 디스크 유형 중 하나를 선택합니다. 
-   * **DC8_v2** 가상 머신을 선택한 경우 디스크 유형으로 **표준 SSD** 를 선택합니다.
+   * **DCsv2 시리즈** 는 DC1, DC2 및 DC4에서 **표준 SSD**, **프리미엄 SSD** 가 지원됩니다. 
+   * **DCsv3 및 DCdsv3 시리즈** 는 **표준 SSD**, **프리미엄 SSD** 및 **Ultra Disk** 를 지원합니다.
 
 1. 다음 탭에서 설정을 원하는 대로 변경하거나 기본 설정을 유지합니다.
 
@@ -134,7 +124,7 @@ VM의 공용 IP 주소는 Azure Portal에 있는 가상 머신의 [개요] 섹�
 
 Windows에서 실행 중이고 BASH 셸이 설치되지 않은 경우 PuTTY와 같은 SSH 클라이언트를 설치합니다.
 
-1. [PuTTY 다운로드 및 설치](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+1. [PuTTY 다운로드 및 설치](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 
 1. PuTTY를 실행합니다.
 
@@ -147,16 +137,12 @@ Linux VM에 연결하는 방법에 대한 자세한 내용은 [포털을 사용�
 > [!NOTE]
 > 레지스트리에서 캐시되지 않은 서버의 호스트 키에 대한 PuTTY 보안 경고가 표시되는 경우 다음 옵션 중에서 선택합니다. 이 호스트를 신뢰하는 경우 **예** 를 선택하여 PuTTy의 캐시에 키를 추가하여 연결을 계속합니다. 한 번만 연결을 수행하려는 경우 캐시에 키를 추가하지 않고 **아니요** 를 선택합니다. 이 호스트를 신뢰하지 않는 경우 **취소** 를 선택하여 연결을 중단합니다.
 
-## <a name="intel-sgx-drivers"></a>Intel SGX 드라이버
+## <a name="install-azure-dcap-client"></a>Azure DCAP 클라이언트 설치
 
 > [!NOTE]
-> Intel SGX 드라이버는 이미 Ubuntu 및 Microsoft Azure 갤러리 이미지에 포함됩니다. 특별한 드라이버 설치가 필요하지 않습니다. 필요에 따라 [Intel SGX DCAP 드라이버 목록](https://01.org/intel-software-guard-extensions/downloads)으로 이동하여 이미지에 포함되어 제공되는 기존 드라이버를 업데이트할 수도 있습니다.
+> THIM(신뢰할 수 있는 하드웨어 ID 관리)은 다양한 TEE(신뢰 실행 환경)의 하드웨어 ID를 관리하는 데 도움이 되는 무료 Azure 서비스입니다. Intel PCS(프로비저닝 인증 서비스)에서 참고 자료를 가져와서 캐시합니다. 이 서비스는 증명 목적으로 최소 TCB(신뢰할 수 있는 컴퓨팅 기준) 수준을 Azure 보안 기준으로 적용합니다.
 
-## <a name="optional-testing-enclave-apps-built-with-open-enclave-sdk-oe-sdk"></a>선택 사항: OE SDK(Open Enclave SDK)를 사용하여 빌드된 enclave 앱 테스트 <a id="Install"></a>
-
-단계별 지침에 따라 Ubuntu 18.04 LTS 2세대 이미지를 실행하는 DCsv2 시리즈 가상 머신에 [OE SDK](https://github.com/openenclave/openenclave)를 설치합니다. 
-
-가상 머신이 Ubuntu 18.04 LTS Gen 2에서 실행되는 경우 [Ubuntu 18.04 설치 지침](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md)을 따라야 합니다.
+DCsv2, DCsv3 및 DCdsv3 시리즈 Azure VM 사용자는 증명 프로세스 중에 THIM과 상호 작용하고 따옴표 생성을 위해 TEE 참고 자료를 가져오도록 Azure DCAP 클라이언트를 설치하는 것이 좋습니다. 증명에 대한 자세한 내용은 [Microsoft Azure Attestation](/azure/attestation/overview) 또는 [ECDSA Attestation](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/attestation-services.html)을 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -166,7 +152,7 @@ Linux VM에 연결하는 방법에 대한 자세한 내용은 [포털을 사용�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 기밀 컴퓨팅 가상 머신을 배포하고 Open Enclave SDK를 설치했습니다. Azure의 기밀 컴퓨팅 가상 머신에 대한 자세한 내용은 [Virtual Machines 솔루션](virtual-machine-solutions.md)을 참조하세요. 
+이 빠른 시작에서는 Intel SGX VM에 배포하고 연결했습니다. 자세한 내용은 [Virtual Machines의 솔루션](virtual-machine-solutions-sgx.md)을 참조하세요. 
 
 GitHub의 Open Enclave SDK 샘플로 계속 진행하여 기밀 컴퓨팅 애플리케이션을 빌드하는 방법을 알아봅니다. 
 

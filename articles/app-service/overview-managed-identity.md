@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 27e17fd6cc9f50a5a46bf3de9bf2603209894bf3
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
-ms.translationtype: HT
+ms.openlocfilehash: 1fbb9ead768c20f4630629f5afd1be51c985d0d1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110368251"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045689"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법
 
@@ -525,8 +525,9 @@ Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupNam
 
 ## <a name="next-steps"></a>다음 단계
 
-- [관리 ID를 사용하여 SQL Database에 안전하게 액세스](app-service-web-tutorial-connect-msi.md)
+- [관리 ID를 사용하여 SQL Database에 안전하게 액세스](tutorial-connect-msi-sql-database.md)
 - [관리 ID를 사용하여 Azure Storage에 안전하게 액세스](scenario-secure-app-access-storage.md)
 - [관리 ID를 사용하여 Microsoft Graph를 안전하게 호출](scenario-secure-app-access-microsoft-graph-as-app.md)
+- [Key Vault 암호를 사용 하 여 서비스에 안전 하 게 커넥트](tutorial-connect-msi-key-vault.md)
 
 [Microsoft.Azure.Services.AppAuthentication 참조]: /dotnet/api/overview/azure/service-to-service-authentication

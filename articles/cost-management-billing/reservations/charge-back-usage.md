@@ -1,18 +1,19 @@
 ---
 title: Azure Reservation 비용 차지백
 description: 차지백에 대한 Azure Reservation 비용을 확인하는 방법을 알아봅니다.
-author: yashesvi
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 10/28/2021
 ms.author: banders
-ms.openlocfilehash: 4059318e6b8052f3b0221c87e8a357cfc8679e44
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
-ms.translationtype: HT
+ms.openlocfilehash: dfe5a6e1dd95e3f5aa93499eee9c8b6b609fd502
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107532765"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131425826"
 ---
 # <a name="charge-back-azure-reservation-costs"></a>Azure Reservation 비용 차지백
 

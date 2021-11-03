@@ -1,18 +1,18 @@
 ---
 title: Oracle의 메타데이터 및 계보
 description: 이 문서에서는 Oracle 원본에서의 데이터 계보 추출을 설명합니다.
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 08/11/2021
-ms.openlocfilehash: cf415250868c74aa95e22b12d8980987f0c9dc48
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: 4f790487e910c279723c38e725e6b0ee1549e0bc
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529492"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131425067"
 ---
 # <a name="how-to-get-lineage-from-oracle-into-azure-purview"></a>Oracle의 계보를 Azure Purview로 가져오는 방법
 

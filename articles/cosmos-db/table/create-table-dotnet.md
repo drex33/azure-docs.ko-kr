@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/26/2021
 ms.author: daberry
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b13ac1d3d72a28538a2bdbdc149017848105562c
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 3a815fe51815a967c23de9b0d95a0411e70dbd35
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129619674"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423321"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>빠른 시작: .NET SDK 및 Azure Cosmos DB를 사용하여 Table API 앱 빌드
 
@@ -298,7 +298,7 @@ public TablesService(TableClient tableClient)
 
 [TableClient](/dotnet/api/azure.data.tables.tableclient) 클래스에는 테이블에서 행을 선택할 수 있는 [Query](/dotnet/api/azure.data.tables.tableclient.query)라는 메서드가 포함되어 있습니다.  이 예제에서는 이 메서드에 전달되는 매개 변수가 없으므로 테이블의 모든 행이 선택됩니다.
 
-또한 이 메서드는 모델 클래스 데이터가 반환될 형식을 지정하는 [ITableEntity](/dotnet/api/azure.data.tables.itableentity) 형식의 제네릭 매개 변수를 사용합니다. 이 경우 기본 제공 클래스 [TableEntity](/dotnet/api/azure.data.tables.itableentity)가 사용됩니다. 즉, `Query` 메서드는 `Pageable\<TableEntity\>` 컬렉션을 결과로 반환합니다.
+또한 이 메서드는 모델 클래스 데이터가 반환될 형식을 지정하는 [ITableEntity](/dotnet/api/azure.data.tables.itableentity) 형식의 제네릭 매개 변수를 사용합니다. 이 경우 기본 제공 클래스 [TableEntity](/dotnet/api/azure.data.tables.itableentity)가 사용됩니다. 즉, `Query` 메서드는 `Pageable<TableEntity>` 컬렉션을 결과로 반환합니다.
 
 ```csharp
 public IEnumerable<WeatherDataModel> GetAllRows()

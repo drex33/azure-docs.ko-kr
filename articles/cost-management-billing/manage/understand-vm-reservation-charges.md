@@ -1,18 +1,19 @@
 ---
 title: Azure Reserved VM Instances 할인 이해
 description: 실행 중인 VM에 Azure Reserved Virtual Machine Instances 할인이 적용되는 방식을 알아봅니다.
-author: yashesvi
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 44c3966b429df61539bb86d7d0191ee0eae48e59
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 03b9237756c34f7f227e529d0397a85d2411032e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128675272"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423112"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Azure 예약 할인이 가상 머신에 적용되는 방식
 

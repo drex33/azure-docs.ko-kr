@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2021
 ms.author: terrylan
-ms.openlocfilehash: 4894971fa6ac26cdfcbd65fb12c71d3ca73b6168
-ms.sourcegitcommit: 5a27d9ba530aee0e563a1b0159241078e8c7c1e4
-ms.translationtype: HT
+ms.openlocfilehash: e0513ac3c4fdf4cfb01d9d0f879bfe06bf3bb601
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112422573"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037324"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 보안 기술 기능
 이 문서에서는 클라우드 내의 데이터, 리소스 및 애플리케이션을 보호하고 비즈니스의 보안 요구를 충족하는 데 도움이 되는 Azure의 보안 서비스를 소개합니다.
@@ -257,7 +257,7 @@ Azure가 애플리케이션이 실행되는 인프라 및 플랫폼의 보안을
 
 - [도구의 앱 지문을 방지하도록 표준 서버 헤더 제거](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/)
 
-- [지점 및 사이트 간 VPN을 사용하여 프라이빗 네트워크의 리소스로 안전하게 앱 연결](../../app-service/web-sites-integrate-with-vnet.md)
+- [지점 및 사이트 간 VPN을 사용하여 프라이빗 네트워크의 리소스로 안전하게 앱 연결](../../app-service/overview-vnet-integration.md)
 
 - [하이브리드 연결을 사용하여 프라이빗 네트워크의 리소스로 안전하게 앱 연결](../../app-service/app-service-hybrid-connections.md)
 

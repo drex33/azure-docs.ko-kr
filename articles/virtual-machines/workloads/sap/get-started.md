@@ -13,15 +13,15 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/26/2021
+ms.date: 11/02/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 883c4a0b4abe05d563ff418e84b507051e20c14c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 4c8d53392a48c821cb126e729f8e29bf7c686b3d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131013064"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441080"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오 호스트 및 실행
 
@@ -80,6 +80,10 @@ SAP 애플리케이션 계층 및 DBMS의 고가용성은 [SAP NetWeaver에 대�
 이 섹션에서는 Microsoft Power BI를 SAP 데이터 원본에 통합하는 방법과 Azure Data Factory를 SAP BW에 통합하는 방법을 설명하는 문서를 찾을 수 있습니다.
 
 ## <a name="change-log"></a>로그 변경
+- 
+- 2021 년 11 월 02: sap 워크 로드 및 sap [ase Azure Virtual Machines DBMS 배포](./dbms_guide_sapase.md) [에 대 한 Azure Storage 유형을](./planning-guide-storage.md) 변경 하 여 sap ase에서 NFS에 대 한 sap ase 지원을 Azure NetApp Files에 선언 합니다.
+- 2021 년 11 월 02 일: 능동/능동 구성에 대해 싱가포르 남동쪽을 지역으로 이동 하 [Azure 가용성 영역 SAP 워크 로드 구성을](./sap-ha-availability-zones.md) 변경 했습니다.
+- 2021 년 11 월 02: [Red Hat Enterprise Linux의 Azure vm에서 SAP HANA의 고가용성](./sap-hana-high-availability-rhel.md) 을 변경 하 여 HANA 확장 활성/활성 (읽기 사용) 구성에 대 한 지침을 업데이트 합니다.
 - 2021 년 10 월 26 일: [RHEL의 Azure vm에서 Pacemaker를 사용 하 여 SAP HANA 스케일 아웃 HSR](./sap-hana-high-availability-scale-out-hsr-rhel.md) 을 변경 하 여 HANA 스케일 아웃 활성/활성 (읽기 사용) 구성에서 리소스 이름을 업데이트 합니다.
 - 2021 년 10 월 19 일: [RHEL의 Azure vm에서 Pacemaker로 확장 HSR SAP HANA 확장](./sap-hana-high-availability-scale-out-hsr-rhel.md) 을 변경 하 여 HANA 스케일 아웃 활성/활성 (읽기 사용) 구성에 대 한 지침을 추가 합니다.
 - 2021 년 10 월 11 일: [클러스터에서 클러스터 공유 디스크를 사용 하 여 Windows 장애 조치 (failover) 클러스터에서 sap ascs/scs 인스턴스](./sap-high-availability-guide-wsfc-shared-disk.md)를 변경 하 고, sap [ascs/scs에 대 한 Windows 장애 조치 (failover) 클러스터 및 공유 디스크를 사용 하 여 sap HA 용 Azure 인프라를 준비](./sap-high-availability-infrastructure-wsfc-shared-disk.md) 하 고, [Windows 서버 장애 조치 (failover) 클러스터링 및 Azure 공유 디스크](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) 를  Azure 공유 디스크 지원에 대 한 ZRS (영역 중복 저장소) 정보

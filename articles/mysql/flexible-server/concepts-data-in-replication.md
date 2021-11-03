@@ -6,14 +6,14 @@ ms.author: sunaray
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/08/2021
-ms.openlocfilehash: 071672c5c2d3c741abd14dad94c8c150e427a3ce
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 5c0a63d140bb06bb14bb9c81dd17b0b057c3c8f4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464777"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131422789"
 ---
-# <a name="replicate-data-into-azure-database-for-mysql-flexible--server-preview"></a>Azure Database for MySQL Flexible Server(미리 보기)에 데이터 복제
+# <a name="replicate-data-into-azure-database-for-mysql-flexible--server"></a>Azure Database for MySQL 유연한 서버에 데이터 복제
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -21,7 +21,7 @@ ms.locfileid: "114464777"
 
 > [!Note]
 > GTID 기반 복제는 현재 Azure Database for MySQL Flexible Server에 지원되지 않습니다.<br>
-> 영역 중복 고가용성 서버에 대한 입력 데이터 복제 구성은 지원되지 않습니다. 
+> 영역 중복 고가용성 서버에 대한 입력 데이터 복제 구성은 지원되지 않습니다.
 
 ## <a name="when-to-use-data-in-replication"></a>입력 데이터 복제를 사용하는 경우
 
@@ -29,7 +29,7 @@ ms.locfileid: "114464777"
 
 - **하이브리드 데이터 동기화:** 데이터 내부 복제를 사용하면 온-프레미스 서버와 Azure Databases for MySQL Flexible Server 간에 데이터를 동기화할 수 있습니다. 이 동기화는 하이브리드 애플리케이션을 만드는 데 유용합니다. 이 메서드는 기존 로컬 데이터베이스 서버가 있지만 최종 사용자에게 더 가까운 지역으로 데이터를 이동하려는 경우 매력적입니다.
 - **다중 클라우드 동기화:** 복잡한 클라우드 솔루션의 경우 데이터 내부 복제를 사용하여 해당 클라우드에 호스팅된 데이터베이스 서비스 및 가상 머신을 포함하여 Azure Database for MySQL Flexible Server와 다른 클라우드 공급자 간에 데이터를 동기화합니다.
-- **마이그레이션:** 고객은 입력 데이터 복제와 함께 [MyDumper/MyLoader](https://centminmod.com/mydumper.html)와 같은 오픈 소스 도구를 사용하여 최소 시간 마이그레이션을 수행할 수 있습니다. 원본에서 대상 데이터베이스로 프로덕션 부하를 선택적으로 사용하는 경우 데이터를 복제할 수 있습니다. 
+- **마이그레이션:** 고객은 입력 데이터 복제와 함께 [MyDumper/MyLoader](https://centminmod.com/mydumper.html)와 같은 오픈 소스 도구를 사용하여 최소 시간 마이그레이션을 수행할 수 있습니다. 원본에서 대상 데이터베이스로 프로덕션 부하를 선택적으로 사용하는 경우 데이터를 복제할 수 있습니다.
 
 마이그레이션 시나리오에 대해서는 [Azure DMS(Database Migration Service)](https://azure.microsoft.com/services/database-migration/)를 사용합니다.
 
@@ -39,12 +39,12 @@ ms.locfileid: "114464777"
 
 원본 서버의 [*mysql 시스템 데이터베이스*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html)는 복제되지 않습니다. 또한 원본 서버에서 계정 및 사용 권한에 대해 변경한 내용은 복제되지 않습니다. 원본 서버에서 계정을 만들고 이 계정으로 복제 서버에 액세스해야 하는 경우 복제 서버에서 동일한 계정을 수동으로 만듭니다. 시스템 데이터베이스에 포함된 테이블을 이해하려면 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html)를 참조합니다.
 
-### <a name="data-in-replication-not-supported-on-ha-enabled-servers"></a>HA 사용 서버에서는 입력 데이터 복제가 지원되지 않음 
-영역 중복 고가용성 서버에 대한 입력 데이터 복제 구성은 지원되지 않습니다. HA 사용 서버에서는 복제용 저장 프로시저 `mysql.az_replication_*`를 사용할 수 없습니다. 
+### <a name="data-in-replication-not-supported-on-ha-enabled-servers"></a>HA 사용 서버에서는 입력 데이터 복제가 지원되지 않음
+영역 중복 고가용성 서버에 대한 입력 데이터 복제 구성은 지원되지 않습니다. HA 사용 서버에서는 복제용 저장 프로시저 `mysql.az_replication_*`를 사용할 수 없습니다.
 
 ### <a name="filtering"></a>필터링
 
-테이블용 복제 필터를 만드는 데 사용된 `replicate_wild_ignore_table` 매개 변수는 현재 Azure Database for MySQL 유연한 서버에서 수정할 수 없습니다. 
+테이블용 복제 필터를 만드는 데 사용된 `replicate_wild_ignore_table` 매개 변수는 현재 Azure Database for MySQL 유연한 서버에서 수정할 수 없습니다.
 
 ### <a name="requirements"></a>요구 사항
 

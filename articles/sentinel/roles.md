@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/11/2021
 ms.author: yelevin
-ms.openlocfilehash: 97c35aa059f4419ee951875e769b252016578963
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 2f70dc3f062adb89977e103721b01e78ab638092
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528176"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131022971"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Azure Sentinel의 권한
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Azure Sentinel은 Azure에서 사용자, 그룹, 서비스에 할당할 수 있는 [기본 제공 역할](../role-based-access-control/built-in-roles.md)을 제공하는 [Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md)를 사용합니다.
 

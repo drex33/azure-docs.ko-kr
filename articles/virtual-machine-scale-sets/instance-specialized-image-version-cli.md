@@ -1,6 +1,6 @@
 ---
 title: Azure CLI를 사용하여 특수 이미지 버전에서 확장 집합 만들기
-description: Azure CLI를 사용하여 Shared Image Gallery에서 특수 이미지 버전을 사용하는 확장 집합을 만듭니다.
+description: Azure CLI를 사용 하 여 Azure Compute 갤러리에서 특수 한 이미지 버전을 사용 하 여 확장 집합을 만듭니다.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
@@ -10,18 +10,18 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: mimckitt
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 361ea49a9ab740cc981beac3952301a137e629af
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: ae75ac06b49bd5faa7851dd7cfc2f2a236fd3952
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691243"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441248"
 ---
 # <a name="create-a-scale-set-using-a-specialized-image-version-with-the-azure-cli"></a>Azure CLI를 통해 특수 이미지 버전을 사용하는 확장 집합 만들기
 
 **적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 단일 확장 집합
 
-Shared Image Gallery에 저장된 [특수 이미지 버전](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images)에서 확장 집합을 만듭니다. 일반 이미지 버전을 사용하는 확장 집합을 만들려는 경우 [일반 이미지에서 확장 집합 만들기](instance-generalized-image-version-cli.md)를 참조하세요.
+Azure 계산 갤러리에 저장 된 [특수 이미지 버전](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) 에서 확장 집합을 만듭니다. 일반 이미지 버전을 사용하는 확장 집합을 만들려는 경우 [일반 이미지에서 확장 집합 만들기](instance-generalized-image-version-cli.md)를 참조하세요.
 
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.4.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
@@ -58,8 +58,8 @@ az vmss create \
 ## <a name="next-steps"></a>다음 단계
 [Azure Image Builder(미리 보기)](../virtual-machines/image-builder-overview.md)는 이미지 버전 생성을 자동화하는 데 도움이 되며, [기존 이미지 버전에서 새 이미지를 생성](../virtual-machines/linux/image-builder-gallery-update-image-version.md)하고 업데이트하는 데도 사용할 수 있습니다. 
 
-또한 템플릿을 사용하여 공유 이미지 갤러리 리소스를 만들 수도 있습니다. 다음의 몇 가지 Azure 빠른 시작 템플릿을 사용할 수 있습니다. 
+템플릿을 사용 하 여 Azure Compute 갤러리 리소스를 만들 수도 있습니다. 다음의 몇 가지 Azure 빠른 시작 템플릿을 사용할 수 있습니다. 
 
-- [공유 이미지 갤러리 만들기](https://azure.microsoft.com/resources/templates/sig-create/)
-- [공유 이미지 갤러리에서 이미지 정의 만들기](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
-- [공유 이미지 갤러리에서 이미지 버전 만들기](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
+- [Azure 계산 갤러리 만들기](https://azure.microsoft.com/resources/templates/sig-create/)
+- [Azure 계산 갤러리에서 이미지 정의 만들기](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
+- [Azure 계산 갤러리에서 이미지 버전 만들기](https://azure.microsoft.com/resources/templates/sig-image-version-create/)

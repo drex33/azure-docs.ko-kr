@@ -2,13 +2,13 @@
 title: Azure Arc의 App Service
 description: Azure 운영자를 위한 Azure Arc App Service 통합 소개입니다.
 ms.topic: article
-ms.date: 08/17/2021
-ms.openlocfilehash: cec1e7bb9dac43e33e85b6036910220a1fa287c2
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.date: 11/02/2021
+ms.openlocfilehash: 74cf4063d92aa5d563df881f2210e2ca5d08543e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129711658"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131440358"
 ---
 # <a name="app-service-functions-and-logic-apps-on-azure-arc-preview"></a>Azure Arc의 App Service, Functions 및 Logic Arc(미리 보기)
 
@@ -32,6 +32,7 @@ App Service Kubernetes 환경에는 다음과 같은 공개 미리 보기 제한
 |---------------------------------------------------------|---------------------------------------------------------------------------------------|
 | 지원되는 Azure 지역                                 | 미국 동부, 서부 유럽                                                                  |
 | 클러스터 네트워킹 요구 사항                          | `LoadBalancer` 서비스 유형을 지원하고 공개적으로 주소를 지정할 수 있는 고정 IP를 제공해야 합니다. |
+| 클러스터 스토리지 요구 사항                             | 해당하는 경우 코드 기반 앱의 배포 및 빌드를 지원하려면 확장에서 사용할 수 있는 클러스터 연결 스토리지 클래스가 있어야 합니다.                      |
 | 기능: 네트워킹                                     | [사용할 수 없음(클러스터 네트워킹에 따라 다름)](#are-networking-features-supported)      |
 | 기능: 관리되는 ID                             | [사용할 수 없음](#are-managed-identities-supported)                                    |
 | 기능: Key Vault 참조                           | 사용할 수 없음(관리되는 ID에 따라 다름)                                         |
@@ -123,6 +124,31 @@ Kubernetes 환경 리소스를 만들 때 일부 구독에 “등록된 리소�
 ### <a name="can-i-deploy-the-application-services-extension-on-an-arm64-based-cluster"></a>ARM64 기반 클러스터에 애플리케이션 서비스 확장을 배포할 수 있나요?
 
 ARM64 기반 클러스터는 현재 지원되지 않습니다.  
+
+## <a name="extension-release-notes"></a>확장 릴리스 정보
+
+### <a name="application-services-extension-v-090-may-2021"></a>응용 프로그램 서비스 확장 v 0.9.0 (2021 년 5 월)
+
+- 응용 프로그램 서비스 확장의 초기 공개 미리 보기 릴리스입니다.
+- 웹, 함수 및 논리 응용 프로그램의 코드 및 컨테이너 기반 배포를 지원 합니다.
+- 웹 응용 프로그램 런타임 지원-.NET 3.1 및 5.0; 노드 JS 12 및 14 Python 3.6, 3.7 및 3.8; PHP 7.3 및 7.4; Ruby 2.5, 2.5.5, 2.6 및 2.6.2 critical; Java SE 8u232, 8u232, 8u232, 11.05, 11.06 및 11.07; Tomcat 8.5, 8.5.41, 8.5.53, 8.5.57, 9.0, 9.0.20, 9.0.33 및 9.0.37.
+
+### <a name="application-services-extension-v-0100-november-2021"></a>응용 프로그램 서비스 확장 v 0.10.0 (11 월 2021)
+
+확장이 안정적인 버전에 있고 자동 업그레이드-부 버전이 사용으로 설정 된 경우 확장은 자동으로 업그레이드 됩니다.  확장을 최신 버전의 확장으로 수동으로 업그레이드 하려면 아래 명령을 실행할 수 있습니다.
+
+- 엔보이 끝점에 할당 하는 데 필요한 미리 할당 된 고정 IP 주소에 대 한 요구 사항이 제거 되었습니다.
+- Keda를 v 2.4.0로 업그레이드
+- V 1.19.0로 엔보이 업그레이드
+- Azure Function runtime을 v 3.3.1로 업그레이드
+- App Controller 및 엔보이 컨트롤러의 기본 복제본 수를 2로 설정 하 여 더 많은 안정성 추가
+
+확장이 안정적인 버전에 있고 자동 업그레이드-부 버전이 true로 설정 된 경우 확장은 자동으로 업그레이드 됩니다.  확장을 최신 버전으로 수동으로 업그레이드 하려면 아래 명령을 실행할 수 있습니다.
+
+```azurecli-interactive
+    az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.10.0
+```
+
 
 ## <a name="next-steps"></a>다음 단계
 

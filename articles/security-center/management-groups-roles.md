@@ -1,20 +1,20 @@
 ---
-title: 구독을 관리 그룹으로 구성 하 고 클라우드에 대해 Microsoft Defender의 사용자에 게 역할 할당
-description: 클라우드 용 Microsoft Defender의 관리 그룹에 Azure 구독을 구성 하 고 조직의 사용자에 게 역할을 할당 하는 방법에 대해 알아봅니다.
+title: 구독을 관리 그룹으로 구성하고 Microsoft Defender for Cloud에 대한 사용자에게 역할 할당
+description: Azure 구독을 Microsoft Defender for Cloud의 관리 그룹으로 구성하고 조직의 사용자에게 역할을 할당하는 방법을 알아봅니다.
 services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
 ms.date: 06/11/2021
-ms.custom: subject-rbac-steps, ignite-fall-2021
+ms.custom: subject-rbac-steps
 ms.author: memildin
-ms.openlocfilehash: 9c53c626685b0035c659687454b7ad1f49acd81d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ffb6e78ffd0b4214f0751686dba695e8d35e3160
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131103105"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131425124"
 ---
 # <a name="organize-subscriptions-into-management-groups-and-assign-roles-to-users"></a>구독을 관리 그룹으로 구성하고 사용자에게 역할 할당
 
@@ -37,7 +37,7 @@ Azure AD 테넌트에 연결된 모든 구독의 보안 상태로 가시성을 �
 - API 호출을 사용하여 관리 그룹을 만듭니다.
 - PowerShell을 사용하여 관리 그룹을 만듭니다. PowerShell 지침은 [리소스 및 조직 관리를 위한 관리 그룹 만들기](../governance/management-groups/create-management-group-portal.md)를 참조하세요.
 
-클라우드 용 Defender를 등록 하는 데 관리 그룹은 필요 하지 않지만 루트 관리 그룹이 만들어지도록 하나 이상의를 만드는 것이 좋습니다. 그룹이 만들어진 후 Azure AD 테넌트 아래의 모든 하위 구독이 연결됩니다. 
+관리 그룹은 Defender for Cloud를 온보딩할 필요가 없지만 루트 관리 그룹이 생성되도록 하나 이상을 만드는 것이 좋습니다. 그룹이 만들어진 후 Azure AD 테넌트 아래의 모든 하위 구독이 연결됩니다. 
 
 관리 그룹의 자세한 개요는 [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/overview.md) 문서를 참조하세요.
 
@@ -145,4 +145,4 @@ Azure 역할이 사용자에게 할당되면 테넌트 관리자는 사용자 �
 
 이 페이지에서는 구독을 관리 그룹으로 구성하고 사용자에게 역할을 할당하는 방법을 알아보았습니다. 관련 정보는 다음을 참조하세요.
 
-- [Microsoft Defender for Cloud의 사용 권한](permissions.md)
+- [클라우드용 Microsoft Defender의 권한](permissions.md)

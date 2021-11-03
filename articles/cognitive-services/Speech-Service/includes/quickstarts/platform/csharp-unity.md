@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: pafarley
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 602e910db59e11bbaf01ffb16ff9d4f648e44bd9
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.custom: devx-track-csharp, ignite-fall-2021
+ms.openlocfilehash: 851d3fdd5e52f77408e1563d73a49d933ec22d84
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123544187"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131253529"
 ---
 이 가이드에서는 [Unity](https://unity3d.com/)용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여 줍니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "123544187"
 
 이 빠른 시작에는 다음이 필요합니다.
 
-- Windows의 경우 플랫폼에 맞는 [Visual Studio 2019용 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0)가 필요합니다. 처음 설치하려면 다시 시작해야 할 수 있습니다.
+- Windows의 경우 플랫폼에 맞는 [Visual Studio 2019용 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0)가 필요합니다. 처음 설치하려면 다시 시작해야 할 수 있습니다.
 - [Unity 2018.3 이상](https://store.unity.com/)([UWP ARM64 지원이 추가된 Unity 2019.1](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal) 포함)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/). Visual Studio 2017 버전 15.9 이상도 허용됩니다.
 - Windows ARM64를 지원하려면 [ARM64용 선택적 빌드 도구 및 ARM64용 Windows 10 SDK](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/)를 설치합니다.

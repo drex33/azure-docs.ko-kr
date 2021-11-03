@@ -7,19 +7,17 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 04/18/2021
-ms.openlocfilehash: 70acef205aea35439e9b88e193c65a6e34ac0b7f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f8d32c97014e9e38f2ad5a3c6d6a1b96d4e190f5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124761483"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131425478"
 ---
 # <a name="connect-azure-database-for-mysql-flexible-server-with-private-access-connectivity-method"></a>프라이빗 액세스 연결 방법을 사용하는 Azure Database for MySQL 유연한 서버에 연결
 
 Azure Database for MySQL 유연한 서버는 클라우드에서 고가용성 MySQL 서버를 실행, 관리 및 크기 조정하는 데 사용할 수 있는 관리되는 서비스입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 가상 네트워크에서 유연한 서버를 만드는 방법을 보여 줍니다.
 
-> [!IMPORTANT]
-> Azure Database for MySQL 유연한 서버는 현재 공개 미리 보기에 있습니다.
 
 
 [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
@@ -70,13 +68,13 @@ Azure Database for MySQL 유연한 서버는 클라우드에서 고가용성 MyS
 
 ## <a name="create-azure-linux-virtual-machine"></a>Azure Linux 가상 머신 만들기
 
-서버가 가상 네트워크에 있기 때문에 서버와 동일한 가상 네트워크에 있는 다른 Azure 서비스에서만 서버에 연결할 수 있습니다. 서버를 연결하고 관리하기 위해 Linux 가상 머신을 만들어 보겠습니다. 가상 머신은 **동일한 지역** 및 **동일한 구독** 에 만들어야 합니다. Linux 가상 머신을 SSH 터널로 사용하여 데이터베이스 서버를 관리할 수 있습니다. 
+서버가 가상 네트워크에 있기 때문에 서버와 동일한 가상 네트워크에 있는 다른 Azure 서비스에서만 서버에 연결할 수 있습니다. 서버를 연결하고 관리하기 위해 Linux 가상 머신을 만들어 보겠습니다. 가상 머신은 **동일한 지역** 및 **동일한 구독** 에 만들어야 합니다. Linux 가상 머신을 SSH 터널로 사용하여 데이터베이스 서버를 관리할 수 있습니다.
 
 1. 서버가 만들어진 리소스 그룹으로 이동합니다. **추가** 를 선택합니다.
 2. **Ubuntu Server 18.04 LTS** 를 선택합니다.
 3. **기본** 탭의 **프로젝트 세부 정보** 아래에서 올바른 구독이 선택되어 있는지 확인한 다음, 리소스 그룹 **새로 만들기** 를 선택합니다. 이름으로 *myResourceGroup* 을 입력합니다.
 
-   > :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/project-details.png" alt-text="가상 머신에 대한 Azure 구독 및 리소스 그룹을 선택하는 위치를 보여주는 프로젝트 세부 정보 섹션의 스크린샷" lightbox="../../virtual-machines/linux/media/quick-create-portal/project-details.png"::: 
+   > :::image type="content" source="../../virtual-machines/linux/media/quick-create-portal/project-details.png" alt-text="가상 머신에 대한 Azure 구독 및 리소스 그룹을 선택하는 위치를 보여주는 프로젝트 세부 정보 섹션의 스크린샷" lightbox="../../virtual-machines/linux/media/quick-create-portal/project-details.png":::
 
 2. **인스턴스 세부 정보** 에서 **가상 머신 이름** 에 *myVM* 을 입력하고 데이터베이스 서버와 동일한 **지역** 을 선택합니다.
 
@@ -104,7 +102,7 @@ Azure Database for MySQL 유연한 서버는 클라우드에서 고가용성 MyS
 
 9. 가상 머신에 대한 새 서브넷을 추가합니다.
 
-   > :::image type="content" source="./media/quickstart-create-connect-server-vnet/vm-add-new-subnet.png" alt-text="가상 머신에 대한 새 서브넷을 추가하는 스크린샷" lightbox="./media/quickstart-create-connect-server-vnet/vm-add-new-subnet.png"::: 
+   > :::image type="content" source="./media/quickstart-create-connect-server-vnet/vm-add-new-subnet.png" alt-text="가상 머신에 대한 새 서브넷을 추가하는 스크린샷" lightbox="./media/quickstart-create-connect-server-vnet/vm-add-new-subnet.png":::
 
 10. 서브넷을 성공적으로 만든 후 페이지를 닫습니다.
    > :::image type="content" source="./media/quickstart-create-connect-server-vnet/subnetcreate-success.png" alt-text="가상 머신에 대한 새 서브넷을 추가하는 성공 스크린샷" lightbox="./media/quickstart-create-connect-server-vnet/subnetcreate-success.png":::

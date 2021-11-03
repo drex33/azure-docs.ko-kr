@@ -1,20 +1,20 @@
 ---
 title: Azure에 대한 예약 소프트웨어 비용
 description: Azure Reserve VM Instances 비용에 포함되지 않는 소프트웨어 미터에 대해 알아봅니다.
-author: yashesvi
-ms.reviewer: yashar
+author: bandersmsft
+ms.reviewer: primittal
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 01/28/2021
+ms.date: 10/28/2021
 ms.author: banders
-ms.openlocfilehash: 464e129314a369c14dcc6bc6c16eadf5f8bcf01f
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
-ms.translationtype: HT
+ms.openlocfilehash: 4980c779c5b3301a0e15b77b21230d14af04271b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052992"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131425750"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Azure Reserved VM Instances에 포함되지 않는 Windows 소프트웨어 비용
 

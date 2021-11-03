@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 037137cf5a6e4ddd66fc15e8ad9775ea77177ef6
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: f56346b9282be42d6022fd6f15f4ce206ae8dbd6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94625269"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131253381"
 ---
 이 빠른 시작을 통해 API에 대한 래퍼이며 동일한 기능을 포함하는 Bing Image Search 클라이언트 라이브러리를 사용하여 첫 번째 이미지 검색을 수행합니다. 이 간단한 JavaScript 애플리케이션은 이미지 검색 쿼리를 보내고 JSON 응답을 구문 분석하고 반환된 첫 번째 이미지의 URL을 표시합니다.
 
@@ -58,13 +58,15 @@ ms.locfileid: "94625269"
 ## <a name="create-an-asynchronous-helper-function"></a>비동기 도우미 함수 만들기
 
 1. 클라이언트를 비동기적으로 호출할 함수를 만들고 Bing Image Search 서비스에서 응답을 반환합니다.
+
     ```javascript
-    //a helper function to perform an async call to the Bing Image Search API
+    // a helper function to perform an async call to the Bing Image Search API
     const sendQuery = async () => {
         return await imageSearchApiClient.imagesOperations.search(searchTerm);
     };
     ```
-   ## <a name="send-a-query-and-handle-the-response"></a>쿼리 보내기 및 응답 처리
+
+## <a name="send-a-query-and-handle-the-response"></a>쿼리 보내기 및 응답 처리
 
 1. 도우미 함수를 호출하고 해당 `promise`를 처리하여 응답에서 반환되는 이미지 결과를 구문 분석합니다.
 

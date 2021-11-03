@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: c707a6522d037ba3926b55579e501eadd2764416
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 99cf6011cb7e52f1ed296dc00049763030c382e6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104798275"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423378"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Azure Cloud Shell에 대한 기능 및 도구
 
 [!INCLUDE [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
-Azure Cloud Shell은 `Ubuntu 16.04 LTS`에서 실행됩니다.
+Azure Cloud Shell은 `Common Base Linux Delridge`에서 실행됩니다.
 
 ## <a name="features"></a>기능
 

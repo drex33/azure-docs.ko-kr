@@ -3,7 +3,7 @@ title: Azure CDN 규칙 엔진에 대한 HTTP 변수 | Microsoft Docs
 description: 일부 규칙 엔진 기능에 대한 HTTP 요청 및 응답 메타데이터를 가져오는 데 사용하는 HTTP 변수에 대해 알아봅니다. 메타데이터는 요청/응답을 변경하는 데 사용합니다.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: allensu
-ms.openlocfilehash: a2d9fc98ba6f514afbd88e543a859a69e0fc6c6b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: duau
+ms.openlocfilehash: 566c5a20ecf96797ae6c8106e9d70e77cc87acd3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88192668"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423454"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Azure CDN 규칙 엔진에 대한 HTTP 변수
 HTTP 변수는 HTTP 요청 및 응답 메타데이터를 검색할 수 있는 수단을 제공합니다. 이 메타데이터는 요청 또는 응답을 동적으로 변경하는 데 사용할 수 있습니다. HTTP 변수의 사용은 다음 규칙 엔진 기능으로 제한됩니다.
@@ -110,7 +110,7 @@ HTTP 변수 이름은 영문자 및 밑줄만 지원합니다. 지원되지 않�
 ## <a name="exceptions"></a>예외
 다음 표에서 지정된 텍스트는 HTTP 변수로 처리되지 않는 상황을 설명합니다.
 
-| 조건 | 설명 | 예제 |
+| 조건 | Description | 예제 |
 | --------- | ----------- | --------|
 | % 기호 이스케이프 | 백슬래시를 사용하여 백분율 기호를 이스케이프할 수 있습니다. <br />오른쪽의 샘플 값은 HTTP 변수가 아닌 리터럴 값으로 처리됩니다.| \%{host} |
 | 알 수 없는 변수 | 빈 문자열은 항상 알 수 없는 변수에 대해 반환됩니다. | %{unknown_variable} |

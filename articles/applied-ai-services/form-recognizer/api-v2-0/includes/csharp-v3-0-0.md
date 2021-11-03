@@ -6,15 +6,15 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 09/25/2021
+ms.date: 11/02/2021
 ms.author: lajanuar
-ms.custom: " devx-track-csharp"
-ms.openlocfilehash: 3195feac890455ae2f70c059d2c0b14b94cb1fe7
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: devx-track-csharp, ignite-fall-2021
+ms.openlocfilehash: 452b41614508a74909b36b6e7ad13520e0dcc8bb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130265916"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131253180"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
@@ -26,7 +26,7 @@ ms.locfileid: "130265916"
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) 또는 현재 버전의 [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 * 학습 데이터 세트가 포함된 Azure Storage Blob. 학습 데이터 세트를 결합하는 옵션 및 팁에 대한 자세한 내용은 [사용자 지정 모델에 대한 학습 데이터 세트 빌드](../../build-training-data-set.md)를 참조하세요. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)의 **Train** 폴더에 있는 파일을 사용할 수 있습니다(*sample_data.zip* 다운로드 및 추출).
-* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Form Recognizer 리소스 만들기"  target="_blank">Form Recognizer 리소스 </a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
+* Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Form Recognizer 리소스 만들기"  target="_blank">Form Recognizer 리소스 </a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 선택합니다.
   * 애플리케이션을 Form Recognizer API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
   * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
 
@@ -74,11 +74,11 @@ dotnet add package Azure.AI.FormRecognizer --version 3.0.0
 > [!IMPORTANT]
 > Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Form Recognizer 리소스가 성공적으로 배포된 경우 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 키 및 엔드포인트를 찾을 수 있습니다.
 >
-> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 보안 메서드를 사용하여 자격 증명을 저장하고 액세스합니다. 자세한 내용은 Cognitive Services [보안](../../../../cognitive-services/cognitive-services-security.md) 문서를 참조하세요.
+> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 보안 메서드를 사용하여 자격 증명을 저장하고 액세스합니다. 자세한 내용은 보안 Cognitive Services [참조하세요.](../../../../cognitive-services/cognitive-services-security.md) 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_creds)]
 
-애플리케이션의 **Main** 메서드에서 이 빠른 시작에 사용된 비동기 작업에 대한 호출을 추가합니다. 나중에 이를 구현합니다.
+애플리케이션의 **Main** 메서드에서 이 빠른 시작에 사용된 비동기 작업에 대한 호출을 추가합니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_main)]
 
@@ -99,7 +99,7 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 `FormTrainingClient`는 다음에 대한 작업을 제공합니다.
 
 * 사용자 지정 양식에서 발견된 모든 필드와 값을 분석하도록 사용자 지정 모델을 학습시킵니다.  모델이 분석할 양식 유형과 각 양식 유형에 대해 추출할 필드를 나타내는 `CustomFormModel`이 반환됩니다.
-* 사용자 지정 양식에 레이블을 지정하여 사용자가 지정한 특정 필드 및 값을 분석하도록 사용자 지정 모델을 학습시킵니다.  모델이 추출하는 필드와 각 필드에 대한 예상 정확도를 나타내는 `CustomFormModel`이 반환됩니다.
+* 사용자 지정 양식에 레이블을 지정하여 사용자가 지정한 특정 필드 및 값을 분석하도록 사용자 지정 모델을 학습시킵니다.  `CustomFormModel`모델이 추출할 필드와 각 필드의 예상 정확도를 나타내는 가 반환됩니다.
 * 계정에서 생성된 모델을 관리합니다.
 * 하나의 Form Recognizer 리소스에서 다른 리소스로 사용자 지정 모델을 복사합니다.
 
@@ -122,7 +122,7 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-**Main** 아래에 `AuthenticateClient`라는 새 메서드를 만듭니다. 다른 작업에서 이를 사용하여 Form Recognizer 서비스에 대한 요청을 인증합니다. 이 메서드는 `AzureKeyCredential` 개체를 사용하므로 필요한 경우 새 클라이언트 개체를 만들지 않고도 API 키를 업데이트할 수 있습니다.
+**Main** 아래에 `AuthenticateClient`라는 새 메서드를 만듭니다. 다른 작업에서 이 메서드를 사용하여 Form Recognizer 서비스에 대한 요청을 인증합니다. 이 메서드는 `AzureKeyCredential` 개체를 사용하므로 필요한 경우 새 클라이언트 개체를 만들지 않고도 API 키를 업데이트할 수 있습니다.
 
 > [!IMPORTANT]
 > Azure Portal에서 키와 엔드포인트를 가져옵니다. **필수 구성 요소** 섹션에서 만든 Form Recognizer 리소스가 성공적으로 배포된 경우 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 키 및 엔드포인트를 찾을 수 있습니다.
@@ -137,9 +137,9 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 
 ## <a name="get-assets-for-testing"></a>테스트용 자산 가져오기
 
-또한 학습 및 테스트 데이터에 대한 참조를 URL에 추가해야 합니다. 이를 **Program** 클래스의 루트에 추가합니다.
+또한 학습 및 테스트 데이터에 대한 참조를 URL에 추가해야 합니다. **Program** 클래스의 루트에 이러한 참조를 추가합니다.
 
-* 사용자 지정 모델 학습 데이터의 SAS URL을 검색하려면 Azure Portal의 스토리지 리소스로 이동하고 **Storage Explorer** 탭을 선택합니다. 컨테이너로 이동하고 마우스 오른쪽 단추를 클릭한 후 **공유 액세스 서명 가져오기** 를 선택합니다. 스토리지 계정 자체가 아니라 컨테이너에 대한 SAS를 가져오는 것이 중요합니다. **읽기**, **쓰기**, **삭제** 및 **목록 보기** 권한이 선택되어 있는지 확인하고 **만들기** 를 클릭합니다. 그런 다음, **URL** 섹션의 값을 임시 위치에 복사합니다. `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` 형식이어야 합니다.
+* 사용자 지정 모델 학습 데이터의 SAS URL을 검색하려면 Azure Portal의 스토리지 리소스로 이동하고 **Storage Explorer** 탭을 선택합니다. 컨테이너로 이동하고 마우스 오른쪽 단추를 클릭한 후 **공유 액세스 서명 가져오기** 를 선택합니다. 스토리지 계정 자체가 아니라 컨테이너에 대한 SAS를 가져오는 것이 중요합니다. **읽기,** **쓰기,** **삭제** 및 **목록** 권한이 선택되어 있는지 확인하고 **만들기를** 선택합니다. 그런 다음, **URL** 섹션의 값을 임시 위치에 복사합니다. `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` 형식이어야 합니다.
 
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL 검색":::
 
@@ -262,7 +262,7 @@ Total: '1203.39', with confidence '0.774'
 이 섹션에서는 사용자 고유의 데이터로 모델을 학습시키는 방법을 보여 줍니다. 학습된 모델은 원본 양식 문서의 키/값 관계가 포함된 구조적 데이터를 출력할 수 있습니다. 모델이 학습되면 데이터를 더 많은 양식에서 안정적으로 추출하기 위해 필요에 따라 모델을 테스트, 재학습 및 최종적으로 사용할 수 있습니다.
 
 > [!NOTE]
-> [Form Recognizer 샘플 레이블 지정 도구](../../label-tool.md)와 같은 그래픽 사용자 인터페이스를 사용하여 모델을 학습시킬 수도 있습니다.
+> Form Recognizer 샘플 레이블 지정 도구 와 같은 그래픽 사용자 인터페이스를 사용하여 모델을 학습할 수도 [있습니다.](../../label-tool.md)
 
 ### <a name="train-a-model-without-labels"></a>레이블 없이 모델 학습
 
@@ -336,7 +336,7 @@ Submodel Form Type: form-0
 
 ### <a name="train-a-model-with-labels"></a>레이블을 사용하여 모델 학습
 
-학습 문서에 레이블을 수동으로 지정하여 사용자 지정 모델을 학습시킬 수도 있습니다. 일부 시나리오에서는 레이블을 사용하여 학습시키면 성능이 향상됩니다. 레이블을 사용하여 학습하려면 학습 문서와 별도로 Blob 스토리지 컨테이너에 특별한 레이블 정보 파일(`\<filename\>.pdf.labels.json`)이 있어야 합니다. [Form Recognizer 샘플 레이블 지정 도구](../../label-tool.md)는 이러한 레이블 파일을 만드는 데 도움이 되는 UI를 제공합니다. 레이블 파일이 있으면 `true`로 설정된 `uselabels` 매개 변수를 사용하여 `StartTrainingAsync` 메서드를 호출할 수 있습니다.
+학습 문서에 레이블을 수동으로 지정하여 사용자 지정 모델을 학습시킬 수도 있습니다. 일부 시나리오에서는 레이블을 사용하여 학습시키면 성능이 향상됩니다. 레이블을 사용하여 학습하려면 학습 문서와 별도로 Blob 스토리지 컨테이너에 특별한 레이블 정보 파일(`\<filename\>.pdf.labels.json`)이 있어야 합니다. [Form Recognizer 샘플 레이블 지정 도구는](../../label-tool.md) 이러한 레이블 파일을 만드는 데 도움이 되는 UI를 제공합니다. 레이블 파일이 있으면 `true`로 설정된 `uselabels` 매개 변수를 사용하여 `StartTrainingAsync` 메서드를 호출할 수 있습니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_trainlabels)]
 

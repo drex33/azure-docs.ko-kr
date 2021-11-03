@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: d99785da00f277480505b417947781821df1caa2
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 94dbcf84f705aef7e8d723c6516c8a2d36e010ee
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123261202"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131023416"
 ---
 # <a name="collect-data-in-custom-log-formats-to-azure-sentinel-with-the-log-analytics-agent"></a>Log Analytics 에이전트를 사용하여 Azure Sentinel에 사용자 지정 로그 형식의 데이터 수집
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -62,7 +65,6 @@ Syslog와 마찬가지로 사용자 지정 로그 수집을 구성하는 단계�
     | **기타 Linux 컴퓨터의 경우** | <ol><li>**Linux 에이전트 설치 위치 선택** 에서 **비 Azure linux 컴퓨터에 에이전트 설치** 를 확장합니다.<br><br><li>**비 Azure Linux 컴퓨터용 에이전트 다운로드 및 설치>** 링크를 클릭합니다.<br><br><li>**에이전트 관리** 블레이드에서 **Linux 서버** 탭을 클릭한 다음 **Linux용 에이전트 다운로드 및 온보딩** 명령을 복사하여 Linux 컴퓨터에서 실행합니다.<br><br> Linux 에이전트 설치 파일의 로컬 복사본을 유지하려면 "에이전트 다운로드 및 등록" 명령 위의 **Linux 에이전트 다운로드** 링크를 선택합니다.|
     | **Azure Windows VM의 경우** | <ol><li>**Windows 에이전트 설치 위치 선택** 에서 **Azure Windows 가상 머신에 에이전트 설치** 를 확장합니다.<br><br><li>**Azure Windows Virtual Machines용 에이전트 다운로드 및 설치 >** 링크를 클릭합니다.<br><br><li>**가상 머신** 블레이드에서 에이전트를 설치할 가상 머신을 선택한 다음 **연결** 을 선택합니다. 연결하려는 각 VM에 이 단계를 반복합니다. |
     | **기타 Windows 컴퓨터의 경우** | <ol><li>**Windows 에이전트 설치 위치 선택** 에서 **비 Azure Windows 컴퓨터에 에이전트 설치** 를 확장합니다.<br><br><li>**비 Azure Windows 컴퓨터용 에이전트 다운로드 및 설치 >** 링크를 선택합니다.<br><br><li>**에이전트 관리** 블레이드의 **Windows 서버** 탭에서 32비트 또는 64비트 시스템에 대한 **Windows 에이전트 다운로드** 링크를 적절하게 선택합니다. |
-
 
 # <a name="other-data-sources"></a>[기타 데이터 원본](#tab/CUS)
 

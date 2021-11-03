@@ -152,7 +152,7 @@
     - name: Twitter
       href: 'https://twitter.com/hashtag/DurableFunctions?src=hash'
     - name: 제품 사용자 의견 제공
-      href: 'https://feedback.azure.com/forums/355860-azure-functions'
+      href: 'https://feedback.azure.com/d365community/forum/9df02822-f224-ec11-b6e6-000d3a4f0da0'
     - name: 지속성 함수 GitHub 리포지토리
       href: 'https://github.com/Azure/azure-functions-durable-extension'
     - name: 서비스 업데이트

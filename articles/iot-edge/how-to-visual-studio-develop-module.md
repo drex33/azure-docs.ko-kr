@@ -8,12 +8,12 @@ ms.author: kgremban
 ms.date: 08/24/2021
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: e7ded6eb8b3e8ee44594e75eb22b920c4e0649b6
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
-ms.translationtype: HT
+ms.openlocfilehash: 5f546acb48a84ddddeb822601d9284818d2211fb
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123037596"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423074"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio 2019를 사용하여 Azure IoT Edge용 모듈 개발 및 디버그
 
@@ -125,7 +125,7 @@ Visual Studio의 IoT Edge 프로젝트 템플릿은 IoT Edge 디바이스에 배
 
 ### <a name="set-iot-edge-runtime-version"></a>IoT Edge 런타임 버전을 확인합니다.
 
-IoT Edge 확장은 배포 자산을 만들 때 IoT Edge 런타임의 최신 안정화 버전으로 기본 설정됩니다. 현재 최신 안정화 버전은 버전 1.2입니다. 1\.1 장기 지원 버전 또는 이전 1.0 버전을 실행하는 디바이스용 모듈을 개발하는 경우 일치하도록 Visual Studio에서 IoT Edge 런타임 버전을 업데이트합니다.
+IoT Edge 확장은 배포 자산을 만들 때 IoT Edge 런타임의 안정적인 최신 버전으로 기본 설정됩니다. 현재 최신 안정화 버전은 버전 1.2입니다. 1\.1 장기 지원 버전 또는 이전 1.0 버전을 실행하는 디바이스용 모듈을 개발하는 경우 일치하도록 Visual Studio에서 IoT Edge 런타임 버전을 업데이트합니다.
 
 1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 런타임 버전 설정** 을 선택합니다.
 
@@ -163,6 +163,9 @@ IoT edgeHub 개발자 도구는 로컬 개발 및 디버그 환경을 제공합�
 ## <a name="build-and-debug-a-single-module"></a>단일 모듈 빌드 및 디버그
 
 여러 모듈이 포함된 전체 솔루션 내에서 실행하기 전데 모듈을 각각 테스트 및 디버그하는 것이 일반적입니다.
+
+>[!TIP]
+>개발 중인 IoT Edge 모듈의 유형에 따라 올바른 Docker 컨테이너 모드(Linux 컨테이너 모드 또는 Windows 컨테이너 모드)로 전환했는지 확인합니다. Docker 데스크톱 메뉴에서 두 가지 유형의 모드 간에 전환할 수 있습니다. **Windows 컨테이너를** 사용하도록 Windows 컨테이너로 전환을 선택하거나 **Linux 컨테이너로 전환을 선택하여 Linux 컨테이너를** 사용합니다. 
 
 1. **솔루션 탐색기** 에서 모듈 폴더를 마우스 오른쪽 단추로 클릭하고 메뉴에서 **StartUp 프로젝트로 설정** 을 선택합니다.
 
@@ -205,7 +208,7 @@ IoT edgeHub 개발자 도구는 로컬 개발 및 디버그 환경을 제공합�
 1. `deployment.template.json` 파일을 열면 **모듈** 섹션에 새 모듈이 추가된 것을 볼 수 있습니다. 새 모듈에서 IoT Hub로 메시지를 보내기 위한 새 경로도 **경로** 섹션에 추가되었습니다. 시뮬레이션된 온도 센서에서 새 모듈로 데이터를 보내려면 다음 예와 같이 다른 경로를 추가합니다. 
 
     ```json
-   "sensorTo<NewModuleName>&quot;: &quot;FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/<NewModuleName>/inputs/input1\")"
+   "sensorTo<NewModuleName>": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/<NewModuleName>/inputs/input1\")"
     ```
 
 1. 프로젝트 폴더를 마우스 오른쪽 단추로 클릭하고 컨텍스트 메뉴에서 **시작 프로젝트로 설정** 을 선택합니다.

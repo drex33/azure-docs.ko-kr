@@ -1,22 +1,24 @@
 ---
-title: 연속 내보내기에서 Azure Security Center의 경고와 권장 사항을 Log Analytics 작업 영역 또는 Azure Event Hubs로 보낼 수 있습니다.
+title: 연속 내보내기는 클라우드 경고 및 권장 사항에 대 한 Microsoft Defender를 Log Analytics 작업 영역 또는 Azure에 보낼 수 있습니다 Event Hubs
 description: Log Analytics 작업 영역 또는 Azure Event Hubs 대한 보안 경고와 권장 사항의 연속 내보내기를 구성하는 방법을 알아봅니다.
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/05/2021
+ms.date: 11/02/2021
 ms.author: memildin
-ms.openlocfilehash: e2b1b238e7f893df5eb56818f256eb324c5be6aa
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 23908a7824e4e489da575fd1563b82c340d42def
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129536040"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131425182"
 ---
-# <a name="continuously-export-security-center-data"></a>Security Center 데이터 연속 내보내기
+# <a name="continuously-export-microsoft-defender-for-cloud-data"></a>클라우드 데이터를 위해 지속적으로 Microsoft Defender 내보내기
 
-Azure Security Center에서는 자세한 보안 경고와 권장 사항을 생성합니다. 관련 내용은 포털에서 또는 프로그래밍 도구를 통해 볼 수 있습니다. 사용자 환경에서 다른 모니터링 도구를 사용해 추적하기 위해서는 이 정보의 일부 또는 전부 내보내야 할 수도 있습니다. 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+Microsoft Defender for Cloud는 자세한 보안 경고 및 권장 사항을 생성 합니다. 관련 내용은 포털에서 또는 프로그래밍 도구를 통해 볼 수 있습니다. 사용자 환경에서 다른 모니터링 도구를 사용해 추적하기 위해서는 이 정보의 일부 또는 전부 내보내야 할 수도 있습니다. 
 
 **연속 내보내기** 를 사용하면 내보낼 *대상* 과 *위치* 를 완전히 사용자 지정할 수 있습니다. 예를 들면 다음과 같이 구성할 수 있습니다.
 
@@ -25,15 +27,15 @@ Azure Security Center에서는 자세한 보안 경고와 권장 사항을 생�
 - 특정 권장 사항이 생성될 때마다 Event Hub 또는 Log Analytics 작업 영역으로 전달되도록 구성 
 - 제어 점수가 0.01 이상으로 변경될 때마다 구독의 보안 점수를 Log Analytics 작업 영역으로 보내도록 구성 
 
-이 기능을 *연속* 이라고 일컫지만, 보안 점수 또는 규정 준수 데이터의 주간 스냅샷을 내보내는 옵션도 있습니다.
+기능이 *연속* 으로 호출 되더라도 주간 스냅숏을 내보내는 옵션도 있습니다.
 
 이 문서에서는 Log Analytics 작업 영역 또는 Azure Event Hubs로 연속 내보내기를 구성하는 방법을 설명합니다.
 
 > [!NOTE]
-> Security Center를 SIEM과 통합해야 하는 경우 [SIEM, SOAR 또는 IT 서비스 관리 솔루션으로 경고 스트리밍](export-to-siem.md)을 참조하세요.
+> Defender for Cloud를 SIEM과 통합 해야 하는 경우 [siem, 대화 충성도 또는 IT 서비스 관리 솔루션에 대 한 경고 스트림](export-to-siem.md)을 참조 하세요.
 
 > [!TIP]
-> Security Center에서는 CSV로 한 번 수동으로 내보내기를 수행하는 옵션도 제공합니다. [경고 및 권장 사항을 수동으로 한 번 내보내기](#manual-one-time-export-of-alerts-and-recommendations)에서 자세히 알아보세요.
+> 또한 Defender for Cloud는 CSV로 일회성 수동 내보내기를 수행 하는 옵션을 제공 합니다. [경고 및 권장 사항을 수동으로 한 번 내보내기](#manual-one-time-export-of-alerts-and-recommendations)에서 자세히 알아보세요.
 
 
 ## <a name="availability"></a>가용성
@@ -64,21 +66,21 @@ Azure Security Center에서는 자세한 보안 경고와 권장 사항을 생�
 
 ## <a name="set-up-a-continuous-export"></a>연속 내보내기 설정 
 
-Azure Portal의 Security Center 페이지에서 또는 Security Center REST API를 통해 또는 제공된 Azure Policy 템플릿을 사용하여 대규모로 연속 내보내기를 구성할 수 있습니다. 각각에 대한 자세한 내용을 보려면 아래에서 해당하는 탭을 선택하세요.
+제공 된 Azure Policy 템플릿을 사용 하 여 Azure Portal의 클라우드 페이지에 대해 REST API를 통해 또는 대규모로 연속 내보내기를 구성할 수 있습니다. 각각에 대한 자세한 내용을 보려면 아래에서 해당하는 탭을 선택하세요.
 
 ### <a name="use-the-azure-portal"></a>[**Azure Portal 사용**](#tab/azure-portal)
 
-### <a name="configure-continuous-export-from-the-security-center-pages-in-azure-portal"></a>Azure Portal의 Security Center 페이지에서 연속 내보내기 구성
+### <a name="configure-continuous-export-from-the-defender-for-cloud-pages-in-azure-portal"></a>Azure Portal의 클라우드 페이지에 대해 Defender에서 연속 내보내기 구성
 
 Log Analytics 작업 영역 또는 Azure Event Hubs로 연속 내보내기를 설정하는지 여부에 상관없이 아래의 단계가 필요합니다.
 
-1. Security Center의 사이드바에서 **가격 책정 및 설정** 을 선택합니다.
+1. 클라우드 용 Defender의 메뉴에서 **환경 설정** 을 엽니다.
 
 1. 데이터 내보내기를 구성할 특정 구독을 선택합니다.
 
 1. 해당 구독에 대한 설정 페이지의 사이드바에서 **연속 내보내기** 를 선택합니다.
 
-    :::image type="content" source="./media/continuous-export/continuous-export-options-page.png" alt-text="Azure Security Center의 내보내기 옵션":::
+    :::image type="content" source="./media/continuous-export/continuous-export-options-page.png" alt-text="클라우드의 Microsoft Defender에서 옵션을 내보냅니다.":::
 
     여기에 내보내기 옵션이 표시됩니다. 각각 사용 가능한 내보내기 대상 탭이 있습니다. 
 
@@ -86,7 +88,7 @@ Log Analytics 작업 영역 또는 Azure Event Hubs로 연속 내보내기를 �
 
 1. 적절한 내보내기 빈도를 선택합니다.
     - **스트리밍** – 리소스의 성능 상태가 업데이트되면 평가를 보냅니다(업데이트되지 않으면 데이터를 보내지 않음).
-    - **스냅샷** – 모든 규정 준수 평가의 현재 상태 스냅샷은 구독당 일주일에 한 번 전송됩니다. 이 미리 보기 기능은 보안 점수 및 규정 준수 데이터의 주간 스냅샷을 제공합니다. 스냅샷 데이터를 식별하려면 필드 ``IsSnapshot``을 찾습니다.
+    - **스냅숏** – 구독 당 매주 한 번 선택 된 데이터 형식의 현재 상태에 대 한 스냅숏이 전송 됩니다. 스냅샷 데이터를 식별하려면 필드 ``IsSnapshot``을 찾습니다.
 
 1. 필요한 경우 선택 항목에 이러한 권장 사항 중 하나가 포함되어 있으면 취약성 평가 결과를 함께 포함할 수 있습니다.
     - SQL 데이터베이스가 발견한 취약성을 해결해야 함
@@ -106,7 +108,7 @@ Log Analytics 작업 영역 또는 Azure Event Hubs로 연속 내보내기를 �
 
 ### <a name="configure-continuous-export-using-the-rest-api"></a>REST API 사용하여 연속 내보내기 구성
 
-연속 내보내기는 Azure Security Center [자동화 API](/rest/api/securitycenter/automations)를 통해 구성 및 관리할 수 있습니다. 이 API를 사용하여 다음의 가능한 대상으로 내보내기 위한 규칙을 만들거나 업데이트합니다.
+Microsoft Defender for Cloud [자동화 API](/rest/api/securitycenter/automations)를 통해 연속 내보내기를 구성 하 고 관리할 수 있습니다. 이 API를 사용하여 다음의 가능한 대상으로 내보내기 위한 규칙을 만들거나 업데이트합니다.
 
 - Azure Event Hub
 - Log Analytics 작업 영역
@@ -114,14 +116,14 @@ Log Analytics 작업 영역 또는 Azure Event Hubs로 연속 내보내기를 �
 
 API는 Azure Portal에서 사용할 수 없는 추가 기능을 제공합니다. 예를 들면 다음과 같습니다.
 
-* **더 많은 볼륨** - API를 사용하면 단일 구독에 내보내기 구성을 여러 개 만들 수 있습니다. Security Center의 포털 UI에 있는 **연속 내보내기** 페이지는 구독당 내보내기 구성을 하나만 지원합니다.
+* **더 많은 볼륨** - API를 사용하면 단일 구독에 내보내기 구성을 여러 개 만들 수 있습니다. 클라우드의 포털 UI에 대 한 Defender의 **연속 내보내기** 페이지는 구독 당 하나의 내보내기 구성만 지원 합니다.
 
-* **추가 기능** - API는 UI에 표시되지 않은 추가 매개 변수를 제공합니다. 예를 들면 자동화 리소스에 태그를 추가하고, Security Center의 포털 UI에 있는 **연속 내보내기** 페이지에서 제공되는 것보다 광범위한 경고/권장 사항 속성을 기준으로 내보내기를 정의할 수 있습니다.
+* **추가 기능** - API는 UI에 표시되지 않은 추가 매개 변수를 제공합니다. 예를 들어 automation 리소스에 태그를 추가 하 고, 클라우드의 포털 UI에 대 한 Defender의 **연속 내보내기** 페이지에서 제공 되는 것 보다 광범위 한 경고 및 권장 사항 속성 집합을 기반으로 내보내기를 정의할 수 있습니다.
 
-* **더 집중된 범위** - API는 내보내기 구성 범위에 보다 세분화된 수준을 제공합니다. API로 내보내기를 정의할 때 리소스 그룹 수준에서 정의할 수 있습니다. Security Center의 포털 UI에서 **연속 내보내기** 페이지를 사용하는 경우 구독 수준에서 정의해야 합니다.
+* **더 집중된 범위** - API는 내보내기 구성 범위에 보다 세분화된 수준을 제공합니다. API로 내보내기를 정의할 때 리소스 그룹 수준에서 정의할 수 있습니다. 클라우드의 포털 UI에 대해 Defender에서 **연속 내보내기** 페이지를 사용 하는 경우 구독 수준에서 정의 해야 합니다.
 
     > [!TIP]
-    > API를 사용하여 내보내기 구성을 여러 개 설정했거나 API 전용 매개 변수를 사용한 경우, 이러한 추가 기능은 Security Center UI에 표시되지 않습니다. 대신 다른 구성이 있음을 알려 주는 배너가 표시됩니다.
+    > API를 사용 하 여 여러 내보내기 구성을 설정 했거나 API 전용 매개 변수를 사용한 경우 Defender for Cloud UI에 이러한 추가 기능이 표시 되지 않습니다. 대신 다른 구성이 있음을 알려 주는 배너가 표시됩니다.
 
 [REST API 설명서](/rest/api/securitycenter/automations)에서 자동화 API에 대해 자세히 알아보세요.
 
@@ -139,8 +141,8 @@ API는 Azure Portal에서 사용할 수 없는 추가 기능을 제공합니다.
 
     |목표  |정책  |정책 ID  |
     |---------|---------|---------|
-    |이벤트 허브로 연속 내보내기|[Azure Security Center 경고 및 권장 사항에 대한 Event Hub로 내보내기 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
-    |Log Analytics 작업 영역으로 연속 내보내기|[Azure Security Center 경고 및 권장 사항에 대한 Log Analytics 작업 영역으로 내보내기 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
+    |이벤트 허브로 연속 내보내기|[클라우드용 Microsoft Defender용 Event Hub에 내보내기 배포 경고 및 권장 사항](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
+    |Log Analytics 작업 영역으로 연속 내보내기|[클라우드용 Microsoft Defender 경고 및 권장 사항에 대한 Log Analytics 작업 영역으로 내보내기 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
     ||||
 
     > [!TIP]
@@ -158,7 +160,7 @@ API는 Azure Portal에서 사용할 수 없는 추가 기능을 제공합니다.
         > [!TIP]
         > 각 매개 변수에는 제공되는 옵션을 알려 주는 도구 설명이 있습니다.
         >
-        > Azure Policy의 매개 변수 탭(1)을 통해 Security Center의 연속 내보내기 페이지(2)와 유사한 구성 옵션에 액세스할 수 있습니다.
+        > Azure Policy 매개 변수 탭(1)은 Defender for Cloud의 연속 내보내기 페이지(2)와 유사한 구성 옵션에 대한 액세스를 제공합니다.
         > :::image type="content" source="./media/continuous-export/azure-policy-next-to-continuous-export.png" alt-text="Azure Policy와 연속 내보내기의 매개 변수 비교" lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
     1. 필요한 경우 이 할당을 기존 구독에 적용하려면 **수정** 탭을 열고 수정 작업을 만드는 옵션을 선택합니다.
 1. 요약 페이지를 검토하고 **만들기** 를 선택합니다.
@@ -167,13 +169,13 @@ API는 Azure Portal에서 사용할 수 없는 추가 기능을 제공합니다.
 
 ## <a name="information-about-exporting-to-a-log-analytics-workspace"></a>Log Analytics 작업 영역으로 내보내기에 대한 정보
 
-Log Analytics 작업 영역 내의 Azure Security Center 데이터를 분석하거나 Azure 경고를 Security Center 알림과 함께 사용하려면, Log Analytics 작업 영역으로 연속 내보내기를 설정합니다.
+Log Analytics 작업 영역 내에서 클라우드용 Microsoft Defender 데이터를 분석하거나 클라우드용 Defender 경고와 함께 Azure 경고를 사용하려면 Log Analytics 작업 영역으로 연속 내보내기를 설정합니다.
 
 ### <a name="log-analytics-tables-and-schemas"></a>Log Analytics 테이블 및 스키마
 
 보안 경고 및 권장 사항은 *SecurityAlert* 및 *SecurityRecommendation* 테이블에 각각 저장됩니다. 
 
-이러한 테이블을 포함하는 Log Analytics 솔루션의 이름은 Azure Defender를 사용하도록 설정했는지 여부에 따라 보안('보안 및 감사') 또는 SecurityCenterFree로 달라집니다. 
+이러한 테이블을 포함하는 Log Analytics 솔루션의 이름은 보안('보안 및 감사') 또는 SecurityCenterFree와 같은 향상된 보안 기능을 사용하도록 설정했는지 여부에 따라 달라집니다. 
 
 > [!TIP]
 > 대상 작업 영역에서 데이터를 보려면 이러한 솔루션, 즉 **보안 및 감사** 또는 **SecurityCenterFree** 중 하나를 사용해야 합니다.
@@ -189,7 +191,7 @@ Log Analytics 작업 영역 내의 Azure Security Center 데이터를 분석하�
 
 Azure Monitor는 진단 로그, 메트릭 경고 및 Log Analytics 작업 영역 쿼리를 기반으로 하는 사용자 지정 경고 등 다양한 Azure 경고에 대해 통합된 경고 환경을 제공합니다.
 
-Azure Monitor에서 Security Center의 경고 및 권장 사항을 보려면 Log Analytics 쿼리(로그 경고)를 기반으로 경고 규칙을 구성합니다.
+Azure Monitor Defender for Cloud의 경고 및 권장 사항을 보려면 Log Analytics 쿼리(로그 경고)를 기반으로 경고 규칙을 구성합니다.
 
 1. Azure Monitor의 **경고** 페이지에서 **새 경고 규칙** 을 선택합니다.
 
@@ -199,19 +201,19 @@ Azure Monitor에서 Security Center의 경고 및 권장 사항을 보려면 Log
 
     * **리소스** 에서 보안 경고 및 권장 사항을 내보낸 Log Analytics 작업 영역을 선택합니다.
 
-    * **조건** 에서 **사용자 지정 로그 검색** 을 선택합니다. 표시되는 페이지에서 쿼리, 되돌아보기 기간 및 빈도 기간을 구성합니다. 검색 쿼리에서 Log Analytics으로 연속 내보내기를 사용하는 경우 *SecurityAlert* 또는 *SecurityRecommendation* 을 입력하여 Security Center에서 연속으로 내보내는 데이터 형식을 쿼리할 수 있습니다. 
+    * **조건** 에서 **사용자 지정 로그 검색** 을 선택합니다. 표시되는 페이지에서 쿼리, 되돌아보기 기간 및 빈도 기간을 구성합니다. 검색 쿼리에서 *SecurityAlert* 또는 *SecurityRecommendation을* 입력하여 Log Analytics로 연속 내보내기 기능을 사용하도록 설정할 때 Defender for Cloud가 지속적으로 내보내는 데이터 형식을 쿼리할 수 있습니다. 
     
     * 필요한 경우 트리거할 [작업 그룹](../azure-monitor/alerts/action-groups.md)을 구성합니다. 작업 그룹은 이메일 보내기, ITSM 티켓, WebHook 등을 트리거할 수 있습니다.
     ![Azure Monitor 경고 규칙](./media/continuous-export/azure-monitor-alert-rule.png)
 
-이제 작업 그룹(제공된 경우)의 자동 트리거를 사용하여 Azure Monitor 경고에 구성된 연속 내보내기 규칙 및 Azure Monitor 경고 규칙에 정의된 조건에 따라 새로운 Azure Security Center 경고 또는 권장 사항이 표시됩니다.
+이제 작업 그룹의 자동 트리거(제공된 경우)와 함께 Azure Monitor 경고에 새 Microsoft Defender for Cloud 경고 또는 권장 사항(구성된 연속 내보내기 규칙 및 Azure Monitor 경고 규칙에서 정의한 조건에 따라)이 표시됩니다.
 
 ## <a name="manual-one-time-export-of-alerts-and-recommendations"></a>경고 및 권장 사항을 수동으로 한 번 내보내기
 
 경고 또는 권장 사항에 대한 CSV 보고서를 다운로드하려면 **보안 경고** 또는 **권장 사항** 페이지를 열고 **CSV 보고서 다운로드** 단추를 선택합니다.
 
 > [!TIP]
-> Azure 리소스 Graph 제한으로 인해 보고서는 13k 행의 파일 크기로 제한 됩니다. 내보내는 데이터와 관련 된 오류가 표시 되는 경우 내보낼 구독 집합을 더 적게 선택 하 여 출력을 제한 해 보세요.
+> Azure 리소스 Graph 제한으로 인해 보고서는 13K 행의 파일 크기로 제한됩니다. 너무 많은 데이터를 내보내는 것과 관련된 오류가 표시되는 경우 내보낼 더 작은 구독 집합을 선택하여 출력을 제한해 보세요.
 
 :::image type="content" source="./media/continuous-export/download-alerts-csv.png" alt-text="CSV 파일로 경고 데이터 다운로드" lightbox="./media/continuous-export/download-alerts-csv.png":::
 
@@ -252,9 +254,9 @@ Azure Monitor에서 Security Center의 경고 및 권장 사항을 보려면 Log
 [Azure Event Hubs - 지리적 재해 복구](../event-hubs/event-hubs-geo-dr.md)에 대해 자세히 알아보세요.
 
 
-### <a name="is-continuous-export-available-with-azure-security-center-free"></a>Azure Security Center에서 연속 내보내기를 무료로 사용할 수 있나요?
+### <a name="is-continuous-export-available-for-free"></a>연속 내보내기는 무료로 사용할 수 있나요?
 
-예 Azure Defender를 사용하도록 설정한 경우에만 많은 Security Center 경고가 제공됩니다. 내보낸 데이터에 표시될 경고를 미리 보는 좋은 방법은 Azure Portal의 Security Center 페이지에 표시된 경고를 확인하는 것입니다.
+예 많은 경고는 고급 보호를 사용하도록 설정한 경우에만 제공됩니다. 내보낸 데이터에서 얻을 수 있는 경고를 미리 보는 좋은 방법은 Azure Portal Defender for Cloud의 페이지에 표시된 경고를 보는 것입니다.
 
 
 
@@ -266,6 +268,6 @@ Azure Monitor에서 Security Center의 경고 및 권장 사항을 보려면 Log
 
 - [워크플로 자동화 템플릿](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation)에 대해 자세히 알아보세요.
 - [Azure Event Hubs 설명서](../event-hubs/index.yml)
-- [Azure Sentinel 설명서](../sentinel/index.yml)
+- [Microsoft Sentinel 설명서](../sentinel/index.yml)
 - [Azure Monitor 설명서](../azure-monitor/index.yml)
 - [데이터 형식 스키마 내보내기](https://aka.ms/ASCAutomationSchemas)

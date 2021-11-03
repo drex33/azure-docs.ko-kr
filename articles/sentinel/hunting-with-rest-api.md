@@ -10,19 +10,21 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: reference
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2020
 ms.author: yelevin
-ms.openlocfilehash: 64f05e18ff757d9f086cf06d74109bf64e32a05c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 264e99b15676807c54f400cb4431f53c06cae8bd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98795690"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037115"
 ---
 # <a name="manage-hunting-and-livestream-queries-in-azure-sentinel-using-rest-api"></a>REST API를 사용하여 Azure Sentinel에서 헌팅 및 실시간 스트리밍 쿼리 관리
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Azure Monitor Log Analytics에 부분적으로 빌드된 Azure Sentinel을 사용하면 Log Analytics의 REST API를 사용하여 헌팅 및 라이브 스트림 쿼리를 관리할 수 있습니다. 이 문서에서는 REST API를 사용하여 헌팅 쿼리를 만들고 관리하는 방법을 보여 줍니다.  이러한 방식으로 만들어진 쿼리는 Azure Sentinel UI에 표시됩니다.
 

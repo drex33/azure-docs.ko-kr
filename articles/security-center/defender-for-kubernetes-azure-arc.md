@@ -1,25 +1,24 @@
 ---
-title: Kubernetes 용 Microsoft Defender를 사용 하 여 하이브리드 및 다중 클라우드 Kubernetes 배포 보호
-description: 온-프레미스 및 다중 클라우드 Kubernetes 클러스터와 함께 Kubernetes 용 Microsoft Defender 사용
+title: Microsoft Defender for Kubernetes를 사용하여 하이브리드 및 다중 클라우드 Kubernetes 배포 보호
+description: 온-프레미스 및 다중 클라우드 Kubernetes 클러스터에서 Kubernetes용 Microsoft Defender 사용
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: c3d328732f35a35c663f04c7bfed9209adbcb7f7
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 5a0e5fb157d978c84eb8315b77f9474a51cdf418
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131009925"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131422504"
 ---
-# <a name="defend-azure-arc-enabled-kubernetes-clusters-running-in-on-premises-and-multi-cloud-environments"></a>온-프레미스 및 다중 클라우드 환경에서 실행 되는 Azure Arc 사용 Kubernetes 클러스터 보호
+# <a name="defend-azure-arc-enabled-kubernetes-clusters-running-in-on-premises-and-multi-cloud-environments"></a>온-프레미스 및 다중 클라우드 환경에서 실행되는 Azure Arc 지원 Kubernetes 클러스터 방어
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-**Microsoft Defender For Kubernetes 클러스터 확장** 은 Azure Kubernetes Service 클러스터에 제공 되는 것과 동일한 위협 검색 기능을 사용 하 여 온-프레미스 클러스터를 방어할 수 있습니다. 클러스터에서 [Azure Arc 사용 Kubernetes](../azure-arc/kubernetes/overview.md) 를 사용 하도록 설정 하 고이 페이지에 설명 된 대로 확장을 배포 합니다. 
+**Kubernetes용 Microsoft Defender 클러스터 확장은** Azure Kubernetes Service 클러스터에 제공되는 것과 동일한 위협 탐지 기능을 사용하여 온-프레미스 클러스터를 방어할 수 있습니다. 클러스터에서 [Azure Arc 지원 Kubernetes를 사용하도록 설정하고](../azure-arc/kubernetes/overview.md) 이 페이지에 설명된 대로 확장을 배포합니다. 
 
 또한 확장을 사용하여 관리되는 Kubernetes 서비스가 아닌 다른 클라우드 공급자의 Kubernetes 클러스터를 보호할 수 있습니다.
 
@@ -32,27 +31,27 @@ ms.locfileid: "131009925"
 |--------|---------|
 | 릴리스 상태 | **미리 보기**<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
 | 필요한 역할 및 권한 | [보안 관리자](../role-based-access-control/built-in-roles.md#security-admin)는 경고를 해제할 수 있습니다.<br>[보안 읽기 권한자](../role-based-access-control/built-in-roles.md#security-reader)는 발견 사항을 볼 수 있습니다. |
-| 가격 책정 | 무료 (미리 보기 중) |
+| 가격 책정 | 무료(미리 보기 중) |
 | 지원되는 Kubernetes 배포 | [Azure Stack HCI에서 Azure Kubernetes Service](/azure-stack/aks-hci/overview)<br>[Kubernetes](https://kubernetes.io/docs/home/)<br> [AKS 엔진](https://github.com/Azure/aks-engine)<br> [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br> [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/)(버전 4.6 이상)<br> [VMware Tanzu Kubernetes 그리드](https://tanzu.vmware.com/kubernetes-grid)<br> [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/) |
-| 제한 사항 | Azure Arc 사용 Kubernetes 및 Defender 확장은 Google Kubernetes Engine 및 탄력적 Kubernetes 서비스와 같은 관리 Kubernetes 제공을 **지원 하지 않습니다** . [Defender For Cloud는 기본적으로 AKS (Azure Kubernetes Service)에서 사용할 수](defender-for-kubernetes-introduction.md) 있으며, 클러스터를 azure Arc에 연결할 필요가 없습니다. |
-| 환경 및 지역 | 이 확장에 대 한 가용성은 [Azure Arc 사용 Kubernetes](../azure-arc/kubernetes/overview.md) 와 동일 합니다.|
+| 제한 사항 | Azure Arc 지원 Kubernetes 및 Defender 확장은 Google Kubernetes Engine 및 Elastic Kubernetes Service와 같은 관리되는 Kubernetes 제품을 **지원하지 않습니다.** [Defender for Cloud는 기본적으로 AKS(Azure Kubernetes Service)에 사용할 수](defender-for-kubernetes-introduction.md) 있으며 클러스터를 Azure Arc 연결할 필요가 없습니다. |
+| 환경 및 지역 | 이 확장의 가용성은 Azure Arc 지원 [Kubernetes의](../azure-arc/kubernetes/overview.md) 가용성과 동일합니다.|
 
 ## <a name="architecture-overview"></a>아키텍처 개요
 
-AKS가 아닌 모든 Kubernetes 클러스터의 경우 클러스터를 Azure Arc에 연결 해야 합니다. 연결 되 면 Kubernetes 용 Microsoft Defender를 [Azure Arc 사용 Kubernetes](../azure-arc/kubernetes/overview.md) 리소스에 [클러스터 확장](../azure-arc/kubernetes/extensions.md)으로 배포할 수 있습니다.
+AKS 이외의 모든 Kubernetes 클러스터의 경우 클러스터를 Azure Arc 연결해야 합니다. 연결되면 Azure Arc 지원 Kubernetes 리소스에 클러스터 [확장으로](../azure-arc/kubernetes/extensions.md) [Kubernetes용](../azure-arc/kubernetes/overview.md) Microsoft Defender를 배포할 수 있습니다.
 
-확장 구성 요소는 클러스터의 모든 제어 평면 노드에서 Kubernetes 감사 로그 데이터를 수집 하 고 추가 분석을 위해 클라우드의 Microsoft Defender for Kubernetes 백 엔드로 보냅니다. 확장은 데이터 파이프라인으로 사용되는 Log Analytics 작업 영역에 등록되지만 감사 로그 데이터는 Log Analytics 작업 영역에 저장되지 않습니다.
+확장 구성 요소는 클러스터의 모든 제어 평면 노드에서 Kubernetes 감사 로그 데이터를 수집하고 추가 분석을 위해 클라우드의 Microsoft Defender for Kubernetes 백 엔드로 보냅니다. 확장은 데이터 파이프라인으로 사용되는 Log Analytics 작업 영역에 등록되지만 감사 로그 데이터는 Log Analytics 작업 영역에 저장되지 않습니다.
 
-이 다이어그램에서는 Kubernetes 용 Microsoft Defender와 Azure Arc 사용 Kubernetes 클러스터 간의 상호 작용을 보여 줍니다.
+이 다이어그램에서는 Kubernetes용 Microsoft Defender와 Azure Arc 지원 Kubernetes 클러스터 간의 상호 작용을 보여 줍니다.
 
-:::image type="content" source="media/defender-for-kubernetes-azure-arc/defender-for-kubernetes-architecture-overview.png" alt-text="Kubernetes 용 Microsoft Defender와 Azure Arc 사용 Kubernetes 클러스터 간의 상호 작용에 대 한 개요를 개략적으로 설명한 아키텍처 다이어그램입니다." lightbox="media/defender-for-kubernetes-azure-arc/defender-for-kubernetes-architecture-overview.png":::
+:::image type="content" source="media/defender-for-kubernetes-azure-arc/defender-for-kubernetes-architecture-overview.png" alt-text="Kubernetes용 Microsoft Defender와 Azure Arc 지원 Kubernetes 클러스터 간의 상호 작용을 간략하게 설명하는 고급 아키텍처 다이어그램입니다." lightbox="media/defender-for-kubernetes-azure-arc/defender-for-kubernetes-architecture-overview.png":::
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-확장을 배포 하기 전에 다음을 확인 합니다.
-- [Kubernetes 클러스터를 Azure Arc에 커넥트](../azure-arc/kubernetes/quickstart-connect-cluster.md)
-- [일반 클러스터 확장 설명서에 나열 된 필수](../azure-arc/kubernetes/extensions.md#prerequisites)구성 요소를 완료 합니다.
-- 아웃 바운드 액세스를 위해 다음 끝점에서 **포트 443** 를 구성 합니다.
+확장을 배포하기 전에 다음을 확인합니다.
+- [Kubernetes 클러스터를 Azure Arc 커넥트](../azure-arc/kubernetes/quickstart-connect-cluster.md)
+- 일반 [클러스터 확장 설명서 아래에 나열된 필수 구성을 완료합니다.](../azure-arc/kubernetes/extensions.md#prerequisites)
+- 아웃바운드 액세스를 위해 다음 엔드포인트에서 **포트 443을** 구성합니다.
     - Azure Government 클라우드의 클러스터:
         - *.ods.opinsights.azure.us
         - *.oms.opinsights.azure.us
@@ -64,22 +63,22 @@ AKS가 아닌 모든 Kubernetes 클러스터의 경우 클러스터를 Azure Arc
 
 ## <a name="deploy-the-defender-extension"></a>Defender 확장 배포
 
-다양 한 방법을 사용 하 여 Defender 확장을 배포할 수 있습니다. 자세한 단계는 관련 탭을 선택합니다.
+다양한 방법을 사용하여 Defender 확장을 배포할 수 있습니다. 자세한 단계는 관련 탭을 선택합니다.
 
 ### <a name="azure-portal"></a>[**Azure portal**](#tab/k8s-deploy-asc)
 
-### <a name="use-the-fix-button-from-the-defender-for-cloud-recommendation"></a>클라우드 권장 사항에 대 한 Defender의 수정 단추 사용
+### <a name="use-the-fix-button-from-the-defender-for-cloud-recommendation"></a>Defender for Cloud 권장 사항의 수정 단추 사용
 
-Microsoft Defender for Cloud의 전용 권장 사항은 다음을 제공 합니다.
+클라우드용 Microsoft Defender의 전용 권장 사항은 다음을 제공합니다.
 
 - Defender for Kubernetes 확장이 배포된 클러스터에 대한 **가시성**
 - 확장 없이 해당 클러스터에 배포하는 **수정** 단추
 
-1. Microsoft Defender for Cloud의 권장 사항 페이지에서 향상 된 **보안 보안 사용** 제어를 엽니다.
+1. Microsoft Defender for Cloud의 권장 사항 페이지에서 **향상된 보안** 제어 사용을 엽니다.
 
-1. 필터를 사용 하 여 **Azure Arc 사용 Kubernetes 클러스터에서 Defender의 확장이 설치 되어 있어야 한다는** 권장 사항을 찾을 수 있습니다.
+1. 필터를 사용하여 **Azure Arc 지원 Kubernetes 클러스터에 Defender 확장이 설치되어 있어야 하는** 권장 사항을 찾습니다.
 
-    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Arc 사용 Kubernetes 클러스터에 대 한 Defender 확장 배포에 대 한 Microsoft Defender for Cloud의 권장 사항입니다." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Arc 지원 Kubernetes 클러스터용 Defender 확장을 배포하기 위한 Microsoft Defender for Cloud 권장 사항입니다." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
     > [!TIP]
     > 작업 열에서 **수정** 아이콘을 확인합니다.
@@ -90,12 +89,12 @@ Microsoft Defender for Cloud의 전용 권장 사항은 다음을 제공 합니�
 
 1. 관련 Log Analytics 작업 영역을 선택하고 **x 리소스 재구성** 을 선택합니다.
 
-    :::image type="content" source="media/defender-for-kubernetes-azure-arc/security-center-deploy-extension.gif" alt-text="클라우드 용 defender의 fix 옵션에 대해 Defender를 사용 하 여 Azure Arc 용 Defender 확장을 배포 합니다.":::
+    :::image type="content" source="media/defender-for-kubernetes-azure-arc/security-center-deploy-extension.gif" alt-text="Defender for Cloud의 픽스 옵션을 Azure Arc Defender 확장을 배포합니다.":::
 
 
 ### <a name="azure-cli"></a>[**Azure CLI**](#tab/k8s-deploy-cli)
 
-### <a name="use-azure-cli-to-deploy-the-defender-extension"></a>Azure CLI를 사용 하 여 Defender 확장 배포
+### <a name="use-azure-cli-to-deploy-the-defender-extension"></a>Azure CLI 사용하여 Defender 확장 배포
 
 1. Azure에 로그인합니다.
 
@@ -107,13 +106,13 @@ Microsoft Defender for Cloud의 전용 권장 사항은 다음을 제공 합니�
     > [!IMPORTANT]
     > 클러스터를 Azure Arc에 연결하는 데 사용된 것과 동일한 구독 ID를 ``<your-subscription-id>``에 대해 사용해야 합니다.
 
-1. 다음 명령을 실행 하 여 Azure Arc 사용 Kubernetes 클러스터 위에 확장을 배포 합니다.
+1. 다음 명령을 실행하여 Azure Arc 지원 Kubernetes 클러스터 위에 확장을 배포합니다.
 
     ```azurecli
     az k8s-extension create --name microsoft.azuredefender.kubernetes --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <resource-group> --extension-type microsoft.azuredefender.kubernetes
     ```
 
-    Defender 확장 유형에 서 지원 되는 모든 구성 설정에 대 한 설명은 다음과 같습니다.
+    Defender 확장 유형에서 지원되는 모든 구성 설정에 대한 설명은 다음과 같습니다.
 
     | 속성 | Description |
     |----------|-------------|
@@ -128,23 +127,23 @@ Microsoft Defender for Cloud의 전용 권장 사항은 다음을 제공 합니�
 
 ### <a name="resource-manager"></a>[**리소스 관리자**](#tab/k8s-deploy-resource-manager)
 
-### <a name="use-azure-resource-manager-to-deploy-the-defender-extension"></a>Azure Resource Manager를 사용 하 여 Defender 확장 배포
+### <a name="use-azure-resource-manager-to-deploy-the-defender-extension"></a>Azure Resource Manager 사용하여 Defender 확장 배포
 
-Azure Resource Manager를 사용 하 여 Defender 확장을 배포 하려면 구독에 Log Analytics 작업 영역이 필요 합니다. [Log Analytics 작업 영역](../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces)에 대해 자세히 알아봅니다.
+Azure Resource Manager 사용하여 Defender 확장을 배포하려면 구독에 Log Analytics 작업 영역이 필요합니다. [Log Analytics 작업 영역](../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces)에 대해 자세히 알아봅니다.
 
-클라우드의 [설치 예제](https://aka.ms/kubernetes-extension-installation-examples)에 대해 defender의 **azure-defender-확장명-arm** 리소스 관리자 템플릿을 사용할 수 있습니다.
+Cloud용 Defender [설치 예제에서](https://aka.ms/kubernetes-extension-installation-examples) **azure-defender-extension-arm-template.json** Resource Manager 템플릿을 사용할 수 있습니다.
 
 > [!TIP]
 > Resource Manager 템플릿을 처음 접하는 경우 [Azure Resource Manager 템플릿이란?](../azure-resource-manager/templates/overview.md)을 참조하세요.
 
 ### <a name="rest-api"></a>[**REST API**](#tab/k8s-deploy-api)
 
-### <a name="use-rest-api-to-deploy-the-defender-extension"></a>REST API를 사용 하 여 Defender 확장 배포 
+### <a name="use-rest-api-to-deploy-the-defender-extension"></a>REST API 사용하여 Defender 확장 배포 
 
-REST API를 사용 하 여 Defender 확장을 배포 하려면 구독에 Log Analytics 작업 영역이 필요 합니다. [Log Analytics 작업 영역](../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces)에 대해 자세히 알아봅니다.
+REST API 사용하여 Defender 확장을 배포하려면 구독에 Log Analytics 작업 영역이 필요합니다. [Log Analytics 작업 영역](../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces)에 대해 자세히 알아봅니다.
 
 > [!TIP]
-> API를 사용 하 여 Defender 확장을 배포 하는 가장 간단한 방법은 클라우드의 [설치 예제](https://aka.ms/kubernetes-extension-installation-examples)에 대해 Defender의 **POSTMAN Collection JSON** 예제를 제공 하는 것입니다.
+> API를 사용하여 Defender 확장을 배포하는 가장 간단한 방법은 Defender for Cloud 설치 예제에서 제공된 **Postman Collection JSON** [예제를 사용하는 것입니다.](https://aka.ms/kubernetes-extension-installation-examples)
 - Postman Collection JSON을 수정하거나 REST API를 사용하여 확장을 수동으로 배포하려면 다음 PUT 명령을 실행합니다.
 
     ```rest

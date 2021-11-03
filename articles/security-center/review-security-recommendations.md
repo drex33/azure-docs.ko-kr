@@ -7,13 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/20/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 01a89b52efb3b0184001dd130499e0438687772f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0ff3c4ff330dbb1c2d92fa9f585812de791b3f16
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131103650"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131422161"
 ---
 # <a name="review-your-security-recommendations"></a>보안 권장 사항 검토
 

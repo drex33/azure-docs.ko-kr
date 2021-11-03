@@ -5,12 +5,12 @@ metadata:
   ms.topic: article
   ms.service: azure
   ms.date: 05/27/2021
-  ms.openlocfilehash: 82d4003e13cf68d9777e2bcdfd57551d9ef478f4
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.openlocfilehash: c43e0e17884025904d56cb5b24badc3972f93937
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122254123"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131422029"
 title: Azure Site Recovery에 대한 일반적인 질문
 summary: >
   이 문서는 Azure Site Recovery에 대한 질문과 대답을 요약합니다. 특정 시나리오의 경우 다음 문서 검토
@@ -232,11 +232,11 @@ sections:
   - question: >
       기존 복구 사이트에서 3차 사이트로 복제를 확장할 수 있습니까?
     answer: >
-      확장 복제 또는 체인으로 연결된 복제는 지원되지 않습니다. [사용자 의견 포럼](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959)을 통해 이 기능에 대한 의견을 보내 주세요.
+      확장 복제 또는 체인으로 연결된 복제는 지원되지 않습니다. [사용자 의견 포럼](https://feedback.azure.com/d365community/forum/3ccca344-2d25-ec11-b6e6-000d3a4f0f84)을 통해 이 기능에 대한 의견을 보내 주세요.
   - question: >
       Azure에 처음으로 복제할 때 오프라인으로 복제할 수 있습니까?
     answer: >
-      지원되지 않습니다. [사용자 의견 포럼](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)을 통해 이 기능에 대한 의견을 보내 주세요.
+      지원되지 않습니다. [사용자 의견 포럼](https://feedback.azure.com/d365community/idea/7c09c396-2e25-ec11-b6e6-000d3a4f0f84)을 통해 이 기능에 대한 의견을 보내 주세요.
   - question: >
       특정 디스크를 복제에서 제외할 수 있습니까?
     answer: >

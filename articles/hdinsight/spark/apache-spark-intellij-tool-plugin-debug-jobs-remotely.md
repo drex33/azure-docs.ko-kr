@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/28/2017
-ms.openlocfilehash: eacaaaaaf1e4fc761a7aee30604ad96b93823e13
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
-ms.translationtype: HT
+ms.openlocfilehash: 5045f79e99f3aade7da213fd11bbe9969ec16252
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113288863"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072886"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Azure Toolkit for IntelliJ를 사용하여 VPN을 통해 HDInsight에서 원격으로 Apache Spark 애플리케이션 디버그
 
@@ -299,11 +299,6 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 ## <a name="next-steps"></a><a name="seealso"></a>다음 단계
 
 * [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
-
-### <a name="demo"></a>데모
-
-* Scala 프로젝트 만들기(비디오): [Apache Spark Scala 애플리케이션 만들기](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
-* 원격 디버그(비디오): [Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터에서 원격으로 Apache Spark 애플리케이션 디버그](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
 
 ### <a name="scenarios"></a>시나리오
 

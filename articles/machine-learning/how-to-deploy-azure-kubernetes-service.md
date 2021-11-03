@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/28/2021
-ms.openlocfilehash: fbacf4317defe999563a936b6c263ea2619f1eab
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 9df23f6994f9dfa02afe7f7b8d659f013ddafad7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129428410"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131433577"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터에 모델 배포
 
@@ -305,7 +305,7 @@ endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, m
 > [!TIP]
 > 다음 코드 조각으로 생성된 두 번째 버전은 트래픽의 10%를 받습니다. 첫 번째 버전은 20%로 구성되어 있기 때문에 트래픽의 30%만 특정 버전에 대해 구성됩니다. 나머지 70%는 첫 번째 엔드포인트 버전으로 보내집니다. 첫 번째 엔드포인트가 기본 버전이기도 하기 때문입니다.
 
- ```python
+```python
 from azureml.core.webservice import AksEndpoint
 
 # add another model deployment to the same endpoint as above
@@ -324,7 +324,7 @@ endpoint.wait_for_deployment(True)
 > [!TIP]
 > 다음 코드 조각 후에는 이제 두 번째 버전이 기본값입니다. 이제 40%로 구성되어 있지만 원래 버전은 아직 20%로 구성되어 있습니다. 즉, 버전 구성에서는 트래픽의 40%를 차지하지 않습니다. 남은 트래픽은 두 번째 버전으로 라우팅됩니다. 이제 기본값이기 때문입니다. 사실상 트래픽의 80%를 받습니다.
 
- ```python
+```python
 from azureml.core.webservice import AksEndpoint
 
 # update the version's scoring traffic percentage and if it is a default or control type

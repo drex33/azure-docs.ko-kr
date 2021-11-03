@@ -9,12 +9,12 @@ ms.subservice: v1
 ms.topic: conceptual
 ms.date: 10/22/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 631330195ec9f38f3a059b0515d4f6255cd23677
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: a9dd37d74a12f262584f1cf41955b1444134a7ec
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130262188"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131065307"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory 및 Batch를 사용하여 대규모 데이터 세트 처리
 > [!NOTE]
@@ -414,20 +414,19 @@ public IDictionary<string, string> Execute(
     {
     // Get the list of input blobs from the input storage client object.
     BlobResultSegment blobList = inputClient.ListBlobsSegmented(folderPath,
-
-                         true,
-                                   BlobListingDetails.Metadata,
-                                   null,
-                                   continuationToken,
-                                   null,
-                                   null);
+                                    true,
+                                    BlobListingDetails.Metadata,
+                                    null,
+                                    continuationToken,
+                                    null,
+                                    null);
     // Return a string derived from parsing each blob.
 
      output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
 
     } while (continuationToken != null);
-
     ```
+
    자세한 내용은 [ListBlobsSegmented](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented) 메서드에 대한 설명서를 참조하세요.
 
 1. Blob 집합을 진행하는 코드는 논리적으로 do-while 루프 안으로 들어갑니다. **Execute** 메서드에서 do-while 루프는 **Calculate** 라는 메서드로 Blob 목록을 전달합니다. 이 메서드는 **output** 이라는 문자열 변수를 반환하는데, 이는 세그먼트에서 모든 Blob을 반복한 결과입니다.
@@ -448,7 +447,8 @@ public IDictionary<string, string> Execute(
     ```csharp
     folderPath = GetFolderPath(outputDataset);
     ```
-   GetFolderPath 메서드는 DataSet 개체를 AzureBlobDataSet로 캐스팅하며 여기에는 FolderPath라는 속성이 포함됩니다.
+
+    GetFolderPath 메서드는 DataSet 개체를 AzureBlobDataSet로 캐스팅하며 여기에는 FolderPath라는 속성이 포함됩니다.
 
     ```csharp
     AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
@@ -735,8 +735,6 @@ test custom activity Microsoft test custom activity Microsoft
 
 > [!IMPORTANT]
 > **file.txt** 를 Blob 컨테이너의 입력 폴더에 업로드하지 않은 경우 파이프라인을 만들기 전에 업로드합니다. **isPaused** 속성은 파이프라인 JSON에서 false로 설정되었으므로 파이프라인은 즉시 과거의 **시작** 날짜로 실행합니다.
->
->
 
 1. Data Factory 편집기의 명령 모음에서 **새 파이프라인** 을 선택합니다. 명령이 보이지 않으면 표시할 줄임표 기호를 선택합니다.
 
@@ -785,6 +783,7 @@ test custom activity Microsoft test custom activity Microsoft
       }
     }
     ```
+
    다음 사항에 유의하세요.
 
    * 파이프라인에는 **DotNetActivity** 형식인 하나의 작업만이 있습니다.
@@ -830,9 +829,10 @@ test custom activity Microsoft test custom activity Microsoft
 
    각 입력 조각에 대해 하나씩 5개의 출력 파일이 나열됩니다. 각 출력 파일은 다음 출력과 유사한 콘텐츠를 포함합니다.
 
-    ```
+    ```output
     2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
     ```
+
    다음 다이어그램에서는 Data Factory 조각이 Batch의 작업에 매핑하는 방법을 보여줍니다. 이 예제에서는 하나의 조각은 하나의 실행만 가집니다.
 
    :::image type="content" source="./media/data-factory-data-processing-using-batch/image16.png" alt-text="조각 매핑 다이어그램":::

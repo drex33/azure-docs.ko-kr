@@ -2,18 +2,18 @@
 title: 변경 및 삭제된 Blob
 titleSuffix: Azure Cognitive Search
 description: Azure Blob Storage에서 가져오는 초기 검색 인덱스 빌드 후에는 후속 인덱싱에서 변경되거나 삭제된 Blob만 선택할 수 있습니다. 이 문서에서는 자세한 내용을 설명합니다.
+author: nitinme
+ms.author: nitinme
 manager: nitinme
-author: MarkHeff
-ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: d06a63c91c25f97e9d1a10b6b72a33b2fc7d859d
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
-ms.translationtype: HT
+ms.openlocfilehash: 48a421f2e95e06a61ac4bee734046c043906035e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111558965"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131023446"
 ---
 # <a name="change-and-deletion-detection-in-blob-indexing-azure-cognitive-search"></a>Blob 인덱싱에서 변경 및 삭제 검색(Azure Cognitive Search)
 

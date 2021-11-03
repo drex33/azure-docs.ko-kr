@@ -8,12 +8,13 @@ ms.subservice: confidential-computing
 ms.topic: overview
 ms.date: 2/08/2021
 ms.author: amgowda
-ms.openlocfilehash: 203185d9f6def2204906b8722f1969b14eee8787
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: e63e8d2caba6fe9ca5fa7b4a239f2194976dd569
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933154"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131101786"
 ---
 # <a name="confidential-computing-nodes-on-azure-kubernetes-service"></a>Azure Kubernetes Service의 기밀 컴퓨팅 노드
 
@@ -53,11 +54,13 @@ AKS의 기밀 컴퓨팅 노드는 CPU에서 사용할 수 있는 **특수 명령
 
 ## <a name="next-steps"></a>다음 단계
 
-[기밀 컴퓨팅 노드를 사용하여 AKS 클러스터 배포](./confidential-nodes-aks-get-started.md)
+[기밀 컴퓨팅 노드를 사용하여 AKS 클러스터 배포](./confidential-enclave-nodes-aks-get-started.md)
 
 [빠른 시작 기밀 컨테이너 샘플](https://github.com/Azure-Samples/confidential-container-samples)
 
-[DCsv2 SKU 목록](../virtual-machines/dcv2-series.md)
+[Intel SGX Confidential VM - DCsv2 SKU 목록](../virtual-machines/dcv2-series.md)
+
+[Intel SGX Confidential VM - DCsv3 SKU 목록](../virtual-machines/dcv3-series.md)
 
 [기밀 컨테이너를 통한 심층 방어 웨비나 세션](https://www.youtube.com/watch?reload=9&v=FYZxtHI_Or0&feature=youtu.be)
 
@@ -66,4 +69,4 @@ AKS의 기밀 컴퓨팅 노드는 CPU에서 사용할 수 있는 **특수 명령
 
 
 <!-- LINKS - internal -->
-[DC Virtual Machine]: /confidential-computing/virtual-machine-solutions
+[DC Virtual Machine]: /confidential-computing/virtual-machine-solutions-sgx.md

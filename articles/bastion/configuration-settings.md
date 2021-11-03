@@ -5,14 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 10/12/2021
 ms.author: cherylmc
-ms.openlocfilehash: 0f73cc08b2e6e44508a6535ba0d6c420e998a011
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: d1cf4c18c4722c327d9d74569e7709d11068dc7c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113732029"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087073"
 ---
 # <a name="about-bastion-configuration-settings"></a>Bastion 구성 설정 정보
 
@@ -22,8 +23,8 @@ ms.locfileid: "113732029"
 
 SKU는 계층이라고도 합니다. Azure Bastion은 기본 및 표준의 두 가지 SKU 유형을 지원합니다. SKU는 Bastion을 구성할 때 워크플로 중에 Azure Portal에서 구성됩니다. [기본 SKU를 표준 SKU로 업그레이드](#upgradesku)할 수 있습니다.
 
-* **기본 SKU** 는 기본 기능을 제공하여 Azure Bastion이 대상 애플리케이션 VM의 공용 IP 주소를 노출하지 않고 VM(가상 머신)에 대한 RDP/SSH 연결을 관리할 수 있도록 합니다. 
-* **표준 SKU** 는 **미리 보기** 로 제공됩니다. 표준 SKU를 사용하면 Azure Bastion에서 더 큰 규모로 원격 연결을 관리할 수 있는 프리미엄 기능을 사용할 수 있습니다. 
+* **기본 SKU** 는 기본 기능을 제공하여 Azure Bastion이 대상 애플리케이션 VM의 공용 IP 주소를 노출하지 않고 VM(가상 머신)에 대한 RDP/SSH 연결을 관리할 수 있도록 합니다.
+* 표준 SKU를 사용하면 Azure Bastion에서 더 큰 규모로 원격 연결을 관리할 수 있는 프리미엄 기능을 사용할 수 있습니다.
 
 다음 표에서는 기능 및 해당 SKU를 보여 줍니다. 
 
@@ -31,17 +32,17 @@ SKU는 계층이라고도 합니다. Azure Bastion은 기본 및 표준의 두 �
 
 ### <a name="configuration-methods"></a>구성 방법
 
-미리 보기 중에 표준 SKU를 지정하려면 Azure Portal을 사용해야 합니다. Azure CLI 또는 Azure PowerShell을 사용하여 Bastion을 구성하는 경우에는 SKU를 지정할 수 없으며 기본 SKU가 기본값입니다.
+현재 표준 SKU를 지정하려면 Azure Portal 사용해야 합니다. Azure CLI 또는 Azure PowerShell을 사용하여 Bastion을 구성하는 경우에는 SKU를 지정할 수 없으며 기본 SKU가 기본값입니다.
 
 | 메서드 | 값 | 링크 |
 | --- | --- | --- |
-| Azure portal | 계층 - 기본 또는 <br>Standard(미리 보기) | [빠른 시작 - VM 설정에서 Bastion 구성](quickstart-host-portal.md)<br>[자습서 - Bastion 구성](tutorial-create-host-portal.md) |
+| Azure portal | 계층 - 기본 또는 <br>표준 | [빠른 시작 - VM 설정에서 Bastion 구성](quickstart-host-portal.md)<br>[자습서 - Bastion 구성](tutorial-create-host-portal.md) |
 | Azure PowerShell | 기본 전용 - 설정 없음 |[Bastion 구성 - PowerShell](bastion-create-host-powershell.md) |
 | Azure CLI |  기본 전용 - 설정 없음 | [Bastion 구성 - CLI](create-host-cli.md) |
 
 ### <a name="upgrade-a-sku"></a><a name="upgradesku"></a>SKU 업그레이드
 
-Azure Bastion은 기본 SKU에서 표준 SKU로의 업그레이드를 지원합니다. 표준 SKU는 미리 보기에 있습니다. 
+Azure Bastion은 기본 SKU에서 표준 SKU로의 업그레이드를 지원합니다.
 
 > [!NOTE]
 > 표준 SKU에서 기본 SKU로의 다운그레이드는 지원되지 않습니다. 다운그레이드하려면 Azure Bastion을 삭제한 후 다시 만들어야 합니다.
@@ -53,9 +54,9 @@ Azure Bastion은 기본 SKU에서 표준 SKU로의 업그레이드를 지원합�
 
 | 메서드 | 값 | 링크 |
 | --- | --- | --- |
-| Azure portal |서비스 계층  | [SKU 업그레이드 - 미리 보기](upgrade-sku.md)|
+| Azure portal |서비스 계층  | [SKU 업그레이드](upgrade-sku.md)|
 
-## <a name="instances-and-host-scaling-preview"></a><a name="instance"></a>인스턴스 및 호스트 크기 조정(미리 보기)
+## <a name="instances-and-host-scaling"></a><a name="instance"></a>인스턴스 및 호스트 크기 조정
 
 인스턴스는 Azure Bastion을 구성할 때 생성되는 최적화된 Azure VM입니다. Azure에서 완전히 관리되며 Azure Bastion에 필요한 모든 프로세스를 실행합니다. 인스턴스를 배율 단위라고도 합니다. Azure Bastion 인스턴스를 통해 클라이언트 VM에 연결합니다. 기본 SKU를 사용하여 Azure Bastion을 구성하면 2개의 인스턴스가 생성됩니다. 표준 SKU를 사용하는 경우 인스턴스 수를 지정할 수 있습니다. 이를 **호스트 크기 조정** 이라고 합니다. 
 
@@ -69,7 +70,7 @@ Azure Bastion은 기본 SKU에서 표준 SKU로의 업그레이드를 지원합�
 
 | 메서드 | 값 | 링크 |
 | --- | --- | --- |
-| Azure portal |인스턴트 수  | [호스트 크기 조정 구성 -미리 보기](configure-host-scaling.md)|
+| Azure portal |인스턴트 수  | [호스트 크기 조정 구성](configure-host-scaling.md)|
 
 
 ## <a name="azure-bastion-subnet"></a><a name="subnet"></a>Azure Bastion 서브넷

@@ -238,11 +238,11 @@ batchtesting.exe batch-test-data-1.tsv https://YOUR-RESOURCE-NAME.azurewebsites.
     > [!div class="mx-imgBorder"]
     > ![일괄 처리 테스트에서 .tsv 파일의 두 번째 버전 출력](../media/batch-test/batch-test-2-output.png)
 
-### <a name="test-results-and-an-automated-test-system&quot;></a>테스트 결과 및 자동화된 테스트 시스템
+### <a name="test-results-and-an-automated-test-system"></a>테스트 결과 및 자동화된 테스트 시스템
 
 이 테스트 출력 파일은 자동화된 연속 테스트 파이프라인의 일부로 구문 분석할 수 있습니다.
 
-이 특정 테스트 출력은 다음과 같이 읽어야 합니다. 각 행은 메타데이터를 사용하여 필터링되었으며, 각 행이 기술 자료의 메타데이터와 일치하지 않으므로 일치하지 않는 해당 행에 대한 기본 대답(&quot;kb에서 적절한 일치 항목이 없습니다")이 반환되었습니다. 일치하는 행 중 QnA ID와 점수가 반환되었습니다.
+이 특정 테스트 출력은 다음과 같이 읽어야 합니다. 각 행은 메타데이터를 사용하여 필터링되었으며, 각 행이 기술 자료의 메타데이터와 일치하지 않으므로 일치하지 않는 해당 행에 대한 기본 대답("kb에서 적절한 일치 항목이 없습니다")이 반환되었습니다. 일치하는 행 중 QnA ID와 점수가 반환되었습니다.
 
 예상 대답 ID와 일치하는 행이 없으므로 모든 행에서 잘못된 레이블을 반환했습니다.
 

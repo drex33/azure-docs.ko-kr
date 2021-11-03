@@ -176,7 +176,7 @@
       href: /javascript/api/overview/azure/key-vault-index
     - name: Python
       href: /python/api/overview/azure/key-vault-index
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/keyvault
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.keyvault/allversions
@@ -203,4 +203,4 @@
     - name: 블로그
       href: /archive/blogs/kv/
     - name: 제품 사용자 의견
-      href: 'https://feedback.azure.com/forums/906355-azure-key-vault'
+      href: 'https://feedback.azure.com/d365community/forum/285c5ae0-f524-ec11-b6e6-000d3a4f0da0'

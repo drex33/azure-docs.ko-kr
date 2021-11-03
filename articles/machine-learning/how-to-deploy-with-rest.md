@@ -11,12 +11,12 @@ ms.author: seramasu
 ms.date: 08/05/2021
 ms.reviewer: laobri
 ms.custom: devplatv2
-ms.openlocfilehash: f4f6cb9941bfa9bd1a2711a25222fcbfe036951e
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 9cb3718a0e4ac8ef322fafd16236dfab0fa6f6fc
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130232388"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087593"
 ---
 # <a name="deploy-models-with-rest-preview"></a>REST를 사용하여 모델 배포(미리 보기)
 
@@ -157,7 +157,7 @@ export AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_ST
 
 * [Azure CLI를 사용](how-to-deploy-managed-online-endpoints.md)하여 모델을 배포하는 방법을 알아봅니다.
 * [스튜디오를 사용](how-to-use-managed-online-endpoint-studio.md)하여 모델을 배포하는 방법을 알아봅니다.
-* [관리형 온라인 엔드포인트 배포 및 채점(미리 보기) 문제 해결](how-to-troubleshoot-managed-online-endpoints.md)에 대해 알아봅니다.
+* [관리형 온라인 엔드포인트 배포 및 채점(미리 보기) 문제 해결](./how-to-troubleshoot-online-endpoints.md)에 대해 알아봅니다.
 * [관리형 온라인 엔드포인트 및 시스템 관리형 ID(미리보기)로 Azure 리소스에 액세스](tutorial-deploy-managed-endpoints-using-system-managed-identity.md)하는 방법 알아봅니다
 * [온라인 엔드포인트를 모니터링](how-to-monitor-online-endpoints.md)하는 방법을 알아봅니다.
 * [온라인 엔드포인트에 대한 안전한 롤아웃(미리 보기)](how-to-safely-rollout-managed-endpoints.md)에 대해 알아봅니다.

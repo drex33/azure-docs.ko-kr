@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/22/2021
 ms.author: bagol
-ms.openlocfilehash: e0cab6a9d2d4c341cf326383e11b289bf606d37a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 9b692046f0e812b903570ecd6e788ba83db6b96b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124755187"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075418"
 ---
 # <a name="azure-sentinel-authentication-normalization-schema-reference-public-preview"></a>Azure Sentinel 인증 정규화 스키마 참조(공개 미리 보기)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 인증 정보 모델은 사용자 인증, 로그인 및 로그아웃과 관련된 이벤트를 설명하는 데 사용됩니다. 인증 이벤트는 일반적으로 이벤트 스트림의 일부로 다른 이벤트와 함께 많은 보고 디바이스에서 보냅니다.
 
@@ -91,7 +93,7 @@ Azure Sentinel에서 제공하는 제품별 기본 제공 인증 이벤트 파�
 
 이벤트 필드는 모든 스키마에 공통되며, 활동 자체와 보고 디바이스를 설명합니다.
 
-| 필드               | 클래스       | 형식       |  Description        |
+| 필드               | 클래스       | 형식       |  설명        |
 |---------------------|-------------|------------|--------------------|
 | **EventMessage**        | 선택    | 문자열     |     레코드에 포함되거나 레코드에서 생성된 일반 메시지 또는 설명입니다.   |
 | **EventCount**          | 필수   | 정수    |     레코드에서 설명하는 이벤트 수입니다. <br><br>이 값은 원본에서 집계를 지원할 때 사용되며, 단일 레코드에서 여러 이벤트를 나타낼 수 있습니다. <br><br>다른 원본의 경우 `1`로 설정합니다. <br><br>**참고**: 이 필드는 일관성을 위해 포함되지만, 일반적으로 인증 이벤트에는 사용되지 않습니다.  |
@@ -193,5 +195,5 @@ Azure Sentinel에서 제공하는 제품별 기본 제공 인증 이벤트 파�
 - [Azure Sentinel의 정규화](normalization.md)
 - [Azure Sentinel DNS 정규화 스키마 참조](dns-normalization-schema.md)
 - [Azure Sentinel 파일 이벤트 정규화 스키마 참조(퍼블릭 미리 보기)](file-event-normalization-schema.md)
-- [Azure Sentinel 네트워크 정규화 스키마 참조](normalization-schema.md)
+- [Azure Sentinel 네트워크 정규화 스키마 참조](./network-normalization-schema.md)
 - [Azure Sentinel 프로세스 이벤트 정규화 스키마 참조(공개 미리 보기)](process-events-normalization-schema.md)

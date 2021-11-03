@@ -7,12 +7,12 @@ ms.date: 10/19/2021
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: 5375f68fca721c81747847b3ad5964782a3676ce
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 2636638bcab5577bee2f4c07bae3653cc4151248
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130241063"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131421699"
 ---
 # <a name="autoscale-preview-for-azure-virtual-desktop-host-pools"></a>Azure Virtual Desktop 호스트 풀에 대한 자동 크기 조정(미리 보기)
 
@@ -27,7 +27,8 @@ ms.locfileid: "130241063"
 - 세션 호스트당 세션 제한
 
 >[!NOTE]
->Windows Virtual Desktop(클래식)은 자동 크기 조정 기능을 지원하지 않습니다. 또한 임시 디스크 크기 조정을 지원하지 않습니다.
+> - Azure Virtual Desktop(클래식)은 자동 크기 조정 기능을 지원하지 않습니다. 
+> - Autsoscale은 임시 디스크의 크기 조정을 지원하지 않습니다.
 
 최상의 결과를 위해 Azure Virtual Desktop Azure Resource Manager 템플릿 또는 Microsoft의 타사 도구를 사용하여 배포한 VM에서 자동 크기 조정을 사용하는 것이 좋습니다.
 
@@ -36,7 +37,7 @@ ms.locfileid: "130241063"
 >
 > - Azure 퍼블릭 클라우드에서만 자동 크기 조정을 사용할 수 있습니다.
 > - Azure Portal 자동 크기 조정만 구성할 수 있습니다.
-> - 크기 조정 계획은 미국 및 유럽 지역에서만 배포할 수 있습니다.
+> - 크기 조정 계획은 미국 및 유럽 지역에만 배포할 수 있습니다.
 
 ## <a name="requirements"></a>요구 사항
 
@@ -50,8 +51,7 @@ ms.locfileid: "130241063"
 
 크기 조정 계획 만들기를 시작하려면 먼저 구독에서 사용자 지정 RBAC(역할 기반 Access Control) 역할을 만들어야 합니다. 이 역할을 통해 Windows Virtual Desktop에서 구독의 모든 VM을 관리할 수 있습니다. 또한 활성 사용자 세션이 없는 경우 서비스가 호스트 풀과 VM 모두에서 작업을 적용할 수 있습니다.
 
-사용자 지정 역할을 만들려면 다음 JSON 템플릿을 사용하여 [Azure 사용자 지정 역할](../role-based-access-control/custom-roles.md)의 지침을 따릅니다.
-
+사용자 지정 역할을 만들려면 다음 JSON 템플릿을 사용하는 동안 [Azure 사용자 지정 역할의](../role-based-access-control/custom-roles.md) 지침을 따릅니다. 이 템플릿에는 이미 필요한 권한이 포함되어 있습니다. 자세한 지침은 [Azure Portal 사용하여 사용자 지정 역할 할당을](#assign-custom-roles-with-the-azure-portal)참조하세요.
 ```json
  {
  "properties": {
@@ -63,19 +63,20 @@ ms.locfileid: "130241063"
   "permissions": [
    {
    "actions": [
-                      "Microsoft.Insights/eventtypes/values/read",
-           "Microsoft.Compute/virtualMachines/deallocate/action",
-                      "Microsoft.Compute/virtualMachines/restart/action",
-                      "Microsoft.Compute/virtualMachines/powerOff/action",
-                      "Microsoft.Compute/virtualMachines/start/action",
-                      "Microsoft.Compute/virtualMachines/read",
-                      "Microsoft.DesktopVirtualization/hostpools/read",
-                      "Microsoft.DesktopVirtualization/hostpools/write",
-                      "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
-                      "Microsoft.DesktopVirtualization/hostpools/sessionhosts/write",
-                      "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete",
-"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",                   "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action",
-"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read"
+                 "Microsoft.Insights/eventtypes/values/read",
+                 "Microsoft.Compute/virtualMachines/deallocate/action",
+                 "Microsoft.Compute/virtualMachines/restart/action",
+                 "Microsoft.Compute/virtualMachines/powerOff/action",
+                 "Microsoft.Compute/virtualMachines/start/action",
+                 "Microsoft.Compute/virtualMachines/read",
+                 "Microsoft.DesktopVirtualization/hostpools/read",
+                 "Microsoft.DesktopVirtualization/hostpools/write",
+                 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
+                 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/write",
+                 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete",
+                 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",
+                 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action",
+                 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read"
 ],
   "notActions": [],
   "dataActions": [],
@@ -86,36 +87,36 @@ ms.locfileid: "130241063"
 }
 ```
 
-## <a name="assign-custom-roles"></a>사용자 지정 역할 할당
+## <a name="assign-custom-roles-with-the-azure-portal"></a>Azure Portal 사용하여 사용자 지정 역할 할당
 
-다음으로, Azure Portal 사용하여 만든 사용자 지정 역할을 구독에 할당해야 합니다.
-
-사용자 지정 역할을 할당하려면 다음을 수행합니다.
+Azure Portal 사용하여 구독에 사용자 지정 역할을 만들고 할당하려면 다음을 수행합니다.
 
 1. Azure Portal을 열고 **구독** 으로 이동합니다.
 
 2. **+** 화면의 왼쪽 위 모서리에서 단추를 선택한 다음, 다음 스크린샷과 같이 드롭다운 메뉴에서 **사용자 지정 역할 추가를** 선택합니다.
 
     > [!div class="mx-imgBorder"]
-    > ![Azure Portal 제어판에서 더하기 기호 단추를 선택할 때 나타나는 드롭다운 메뉴를 보여 주는 스크린샷. 사용자 지정 역할 추가 옵션이 선택되고 빨간색 테두리로 강조 표시됩니다.](media/add-custom-role.png)
+    > ![Azure Portal 제어판에서 더하기 기호 단추를 선택할 때 나타나는 드롭다운 메뉴를 보여 주는 스크린샷 사용자 지정 역할 추가 옵션이 선택되고 빨간색 테두리로 강조 표시됩니다.](media/add-custom-role.png)
 
 3. 다음으로, 사용자 지정 역할의 이름을 지정하고 설명을 추가합니다. 역할 이름을 "자동 크기 조정"으로 지정하는 것이 좋습니다.
 
 4. **사용 권한** 탭에서 역할을 할당하는 구독에 다음 권한을 추가합니다.
 
     ```azcopy
-    "Microsoft.Compute/virtualMachines/deallocate/action", 
-    "Microsoft.Compute/virtualMachines/restart/action", 
-    "Microsoft.Compute/virtualMachines/powerOff/action", 
-    "Microsoft.Compute/virtualMachines/start/action", 
-    "Microsoft.Compute/virtualMachines/read",
-    "Microsoft.DesktopVirtualization/hostpools/read",
-    "Microsoft.DesktopVirtualization/hostpools/write",
-    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
-    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/write",
-    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete",
-    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action",
-    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",
+        "Microsoft.Insights/eventtypes/values/read"
+                 "Microsoft.Compute/virtualMachines/deallocate/action"
+                 "Microsoft.Compute/virtualMachines/restart/action"
+                 "Microsoft.Compute/virtualMachines/powerOff/action"
+                 "Microsoft.Compute/virtualMachines/start/action"
+                 "Microsoft.Compute/virtualMachines/read"
+                 "Microsoft.DesktopVirtualization/hostpools/read"
+                 "Microsoft.DesktopVirtualization/hostpools/write"
+                 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read"
+                 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/write"
+                 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete"
+                 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read"
+                 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action"
+                 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read"
     ```
 
 5. 작업을 마쳤으면 **확인** 을 선택합니다.
@@ -126,29 +127,14 @@ ms.locfileid: "130241063"
 
 1. **액세스 제어(IAM) 탭** 에서 **역할 할당 추가** 를 선택합니다.
 
-2. 방금 만든 역할을 선택합니다.
+2. 방금 만든 역할을 선택하고 다음 화면으로 계속 진행합니다.
 
-3. 다음 스크린샷에 표시된 것처럼 검색 표시줄에서 **Windows Virtual Desktop** 을 입력하고 선택합니다.
+3. **+멤버 선택을 선택합니다.** 다음 스크린샷에 표시된 것처럼 검색 표시줄에서 **Windows Virtual Desktop** 을 입력하고 선택합니다. Azure Virtual Desktop(클래식) 배포와 Azure Resource Manager Azure Virtual Desktop 개체가 있는 Azure Virtual Desktop이 있는 경우 이름이 같은 두 개의 앱이 표시됩니다. 둘 다 선택합니다.
 
     > [!div class="mx-imgBorder"]
     > ![역할 할당 추가 메뉴의 스크린샷. 선택 필드가 빨간색으로 강조 표시되고 사용자가 검색 필드에 "Windows Virtual Desktop"을 입력합니다.](media/search-for-role.png)
 
-Azure Portal 사용자 지정 역할을 추가할 때 다음 권한도 선택했는지 확인합니다.
-
-   - Microsoft.Compute/virtualMachines/deallocate/action
-   - Microsoft.Compute/virtualMachines/restart/action
-   - Microsoft.Compute/virtualMachines/powerOff/action
-   - Microsoft.Compute/virtualMachines/start/action 
-   - Microsoft.Compute/virtualMachines/read
-   - Microsoft.DesktopVirtualization/hostpools/read
-   - Microsoft.DesktopVirtualization/hostpools/write
-   - Microsoft.DesktopVirtualization/hostpools/sessionhosts/read
-   - Microsoft.DesktopVirtualization/hostpools/sessionhosts/write
-   - Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete
-   - Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action
-   - Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read
-
-이는 4단계에서 다시 입력한 것과 동일한 권한입니다.
+4. **검토 + 할당을** 선택하여 할당을 완료합니다.
 
 ## <a name="how-creating-a-scaling-plan-works"></a>크기 조정 계획 만들기의 작동 방식
 
@@ -195,25 +181,25 @@ Azure Portal 사용자 지정 역할을 추가할 때 다음 권한도 선택했
 
 6. 필요에 따라 사용자에게 표시될 "친숙한" 이름 및 계획에 대한 설명을 추가할 수도 있습니다.
 
-7. **지역의** 경우 크기 조정 계획에 대한 지역을 선택합니다. 개체의 메타데이터는 지역과 연결된 지리에 저장됩니다. 현재 자동 크기 조정은 미국 중부 및 미국 동부 2 지역만 지원합니다. 지역에 대한 자세한 내용은 데이터 위치 를 [참조하세요.](data-locations.md)
+7. **지역의** 경우 크기 조정 계획에 대한 지역을 선택합니다. 개체의 메타데이터는 지역과 연결된 지리에 저장됩니다. 지역에 대한 자세한 내용은 데이터 위치 를 [참조하세요.](data-locations.md)
 
 8. **표준 시간대** 의 경우 계획에 사용할 표준 시간대를 선택합니다.
 
-9. **제외 태그에서** 크기 조정 작업에 포함하지 않으려는 VM에 대한 태그를 입력합니다. 예를 들어 유지 관리를 위해 이 기능을 사용할 수 있습니다. 드레이닝 모드에서 Vm을 설정한 경우에는 자동 크기 조정이 드레이닝 모드를 재정의 하지 않도록 태그를 사용 합니다.
+9. **제외 태그에서** 크기 조정 작업에 포함하지 않으려는 VM에 대한 태그를 입력합니다. 예를 들어 유지 관리를 위해 이 기능을 사용할 수 있습니다. 드레인 모드에서 VM을 설정한 경우 자동 크기 조정이 드레인 모드를 재정의하지 않도록 태그를 사용합니다.
 
-10. **다음** 을 선택 하면 **일정** 탭으로 이동 합니다.
+10. 일정 탭으로 가는 **다음** **을** 선택합니다.
 
 ## <a name="configure-a-schedule"></a>일정 구성
 
-일정을 사용 하면 자동 크기 조정에서 하루 종일 램프 모드를 활성화 하는 시점을 정의할 수 있습니다. 일정의 각 단계에서 자동 크기 조정은 세션 호스트에 활성 세션이 없는 경우에만 Vm을 끕니다. 일정을 만들 때 표시 되는 기본값은 평일에 제안 되는 값 이지만 필요에 따라 변경할 수 있습니다. 
+일정을 사용하면 자동 크기 조정이 하루 동안 램프 업 및 램프 다운 모드를 활성화하는 시기를 정의할 수 있습니다. 일정의 각 단계에서 자동 크기 조정은 세션 호스트에 활성 세션이 없는 경우에만 VM을 해제합니다. 일정을 만들 때 표시되는 기본값은 평일에 제안된 값이지만 필요에 따라 변경할 수 있습니다. 
 
-일정을 만들거나 변경 하려면 다음을 수행 합니다.
+일정을 만들거나 변경하려면 다음을 수행합니다.
 
-1. **일정 탭에서** **일정 추가** 를 선택 합니다.
+1. **일정** 탭에서 일정 **추가를** 선택합니다.
 
-2. 일정 **이름** 필드에 일정의 이름을 입력 합니다.
+2. 일정 이름 필드에 일정 **이름을** 입력합니다.
 
-3. **반복** 대상 필드에서 일정이 반복 될 날짜를 선택 합니다.
+3. 반복 **날짜** 필드에서 일정이 반복되는 요일을 선택합니다.
 
 4. **위로 램프** 탭에서 다음 필드를 입력 합니다.
 

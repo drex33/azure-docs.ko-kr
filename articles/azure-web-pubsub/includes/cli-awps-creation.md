@@ -4,12 +4,12 @@ ms.service: azure-web-pubsub
 ms.topic: include
 ms.date: 08/06/2021
 ms.author: lianwei
-ms.openlocfilehash: 785114c797fba5c84e97f5a0d0cc1a34dc14d540
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3671a5d221afa89c776dca1bc3a17b965b621c5b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121785580"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423998"
 ---
 Azure CLI [az webpubsub create](/cli/azure/webpubsub#az_webpubsub_create) 명령을 사용하여 이전 단계의 리소스 그룹에 Web PubSub를 만들고 다음 정보를 제공합니다.
 
@@ -25,9 +25,6 @@ Azure CLI [az webpubsub create](/cli/azure/webpubsub#az_webpubsub_create) 명령
 ```azurecli-interactive
 az webpubsub create --name "<your-unique-resource-name>" --resource-group "myResourceGroup" --location "EastUS" --sku Free_F1
 ```
-
-> [!Note]
-> Web PubSub 서비스는 아직 미리 보기로 제공되므로 “명령에 확장 webpubsub가 필요합니다. 지금 설치하시겠습니까? 명령은 확장이 설치된 후 계속 실행됩니다. (Y/n).”라는 경고가 CLI 콘솔에 표시될 수 있습니다. Y를 눌러 확장을 설치하세요.
 
 이 명령의 출력에는 새로 만든 리소스의 속성이 표시됩니다. 아래에 나열된 두 개의 속성을 기록합니다.
 

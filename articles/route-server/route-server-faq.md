@@ -5,14 +5,14 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 09/23/2021
+ms.date: 11/02/2021
 ms.author: duau
-ms.openlocfilehash: fa5ea8f191c0b2ea9c7db483eb4d7b9c5a679be0
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 47584994586e735647be4116fb49de610e5f97f5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129094370"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131453272"
 ---
 # <a name="azure-route-server-faq"></a>Azure Route Server FAQ
 
@@ -48,9 +48,9 @@ Azure Route Server는 BGP(Border Gateway Protocol)만 지원합니다. 가상 �
 
 Azure Route Server는 공용 IP 주소가 필요하므로 Route Server 구성을 관리하는 백엔드 서비스에 대한 연결을 보장해야 합니다. 
 
-### <a name="does-azure-route-server-support-ipv6"></a>Azure Route Server는 IPv6를 지원하나요?
+### <a name="does-azure-route-server-support-ipv6"></a>Azure Route Server는 i p v 6을 지원 하나요?
 
-아니요. 나중에 IPv6 지원을 추가할 것입니다. 
+아니요. IPv6 지원은 나중에 추가 될 예정입니다. 
 
 ### <a name="if-azure-route-server-receives-the-same-route-from-more-than-one-nva-how-does-it-handle-them"></a>Azure Route Server가 둘 이상의 NVA에서 동일한 경로를 수신하는 경우 어떻게 처리하나요?
 
@@ -60,8 +60,8 @@ Azure Route Server는 공용 IP 주소가 필요하므로 Route Server 구성을
 
 예. Azure Route Server는 BGP 커뮤니티를 있는 그대로 사용하여 경로를 전파합니다.
 
-### <a name="what-is-the-bgp-timer-setting-of-azure-route-server"></a>Azure Route Server의 BGP 타이머 설정은 무엇인가요?
-Keep-alive 타이머는 60초로 설정되고 보류 타이머는 180초로 설정됩니다.
+### <a name="what-is-the-bgp-timer-setting-of-azure-route-server"></a>Azure Route Server의 BGP 타이머 설정은 무엇 인가요?
+Keep-alive 타이머는 60 초 및 대기 시간 180 초로 설정 됩니다.
 
 ### <a name="what-autonomous-system-numbers-asns-can-i-use"></a>어떤 ASN(자율 시스템 번호)을 사용할 수 있나요?
 
@@ -78,19 +78,25 @@ Keep-alive 타이머는 60초로 설정되고 보류 타이머는 180초로 설�
 
 아니요, Azure Route Server는 16비트(2바이트) ASN만 지원합니다.
 
-### <a name="can-i-associate-a-user-defined-route-udr-to-the-routeserversubnet"></a>UDR(사용자 정의 경로)을 RouteServerSubnet에 연결할 수 있나요?
+### <a name="can-i-associate-a-user-defined-route-udr-to-the-routeserversubnet"></a>UDR (사용자 정의 경로)을 RouteServerSubnet에 연결할 수 있나요?
 
-아니요, Azure Route Server는 RouteServerSubnet에서 UDR 구성을 지원하지 않습니다.
+아니요, Azure 경로 서버는 RouteServerSubnet에서 UDR 구성을 지원 하지 않습니다.
 
-### <a name="can-i-associate-a-network-security-group-nsg-to-the-routeserversubnet"></a>NSG(네트워크 보안 그룹)를 RouteServerSubnet에 연결할 수 있나요?
+### <a name="can-i-associate-a-network-security-group-nsg-to-the-routeserversubnet"></a>RouteServerSubnet에 NSG (네트워크 보안 그룹)를 연결할 수 있나요?
 
-아니요, Azure Route Server는 RouteServerSubnet에 대한 NSG 연결을 지원하지 않습니다.
+아니요, Azure 경로 서버는 RouteServerSubnet에 대 한 NSG 연결을 지원 하지 않습니다.
 
 ### <a name="can-i-peer-two-route-servers-in-two-peered-virtual-networks-and-enable-the-nvas-connected-to-the-route-servers-to-talk-to-each-other"></a>피어링된 두 개의 가상 네트워크에서 두 개의 경로 서버를 피어링하고, 경로 서버에 연결된 NVA가 서로 통신하도록 할 수 있나요? 
 
 ***토폴로지: NVA1 -> RouteServer1 -> (VNet 피어링을 통해) -> RouteServer2 -> NVA2***
 
 아니요. Azure Route Server는 데이터 트래픽을 전달하지 않습니다. NVA를 통한 전송 연결을 사용하도록 설정하려면 NVA 간에 직접 연결(예: IPsec 터널)을 설정하고 동적 경로 전파를 위해 경로 서버를 사용합니다. 
+
+### <a name="can-i-use-azure-route-server-to-direct-traffic-between-subnets-in-the-same-virtual-network-to-flow-inter-subnet-traffic-through-the-nva"></a>Azure Route Server를 사용 하 여 NVA를 통해 서브넷 간 트래픽을 전달 하기 위해 동일한 가상 네트워크의 서브넷 간에 트래픽을 보낼 수 있나요?
+
+아니요. BGP 경로가 더 구체적인 경우에도, 가상 네트워크, 가상 네트워크 피어링 또는 가상 네트워크 서비스 엔드포인트와 관련된 트래픽에 대한 시스템 경로가 기본 경로입니다. 경로 서버는 BGP를 사용 하 여 경로를 보급 하므로 현재 디자인에서 지원 되지 않습니다. 계속 해 서 UDRs를 사용 하 여 경로를 강제로 재정의 해야 하며, BGP를 사용 하 여 이러한 경로를 빠르게 장애 조치 (failover) 할 수 없습니다. 장애 조치 (failover) 상황에서 API를 통해 udrs를 업데이트 하려면 계속 해 서 타사 솔루션을 사용 하거나, HA 포트 모드를 사용 하는 Azure Load Balancer를 사용 하 여 트래픽을 직접 보내야 합니다.
+
+여전히 경로 서버를 사용 하 여 다른 가상 네트워크의 서브넷 간에 NVA를 사용 하는 흐름으로 트래픽을 보낼 수 있습니다. 가능한 유일한 디자인은 "스포크" 가상 네트워크 당 하나의 서브넷이 고 모든 가상 네트워크는 "허브" 가상 네트워크에 피어 링,이는 매우 제한적 이며, 가상 네트워크 및 서브넷에 대 한 확장 고려 사항 및 Azure의 최대 한도를 고려해 야 합니다.
 
 ## <a name="route-server-limits"></a><a name = "limitations"></a>Route Server 한도
 
@@ -103,7 +109,7 @@ Azure Route Server에는 배포당 다음과 같은 한도가 있습니다.
 | Azure Route Server가 ExpressRoute 또는 VPN 게이트웨이에 보급할 수 있는 경로 수 | 200 |
 | Azure Route Server에서 지원할 수 있는 가상 네트워크(피어링된 가상 네트워크 포함)의 VM 수 | 2000 |
 
-Azure Route Server에서 지원할 수 있는 VM 수는 하드 제한이 아닙니다. 이는 Azure 지역 내에서 Route Server 인프라를 배포하는 방법에 따라 달라집니다.
+Azure Route Server에서 지원할 수 있는 Vm 수는 하드 제한 되지 않습니다. 이는 Azure 지역 내에서 경로 서버 인프라를 배포 하는 방법에 따라 달라 집니다.
 
 NVA가 한도보다 많은 경로를 보급하면 BGP 세션이 끊깁니다. 게이트웨이와 Azure Route Server 간에 BGP 세션이 끊어지면 온-프레미스 네트워크에서 Azure로의 연결이 끊깁니다. 자세한 내용은 [Azure 가상 머신 라우팅 문제 진단](../virtual-network/diagnose-network-routing-problem.md)을 참조하세요.
 

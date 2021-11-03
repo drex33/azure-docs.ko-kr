@@ -1,42 +1,41 @@
 ---
 title: 보안 정책 작업 | Microsoft Docs
-description: Microsoft Defender for Cloud에서 보안 정책을 사용하는 방법을 알아봅니다.
+description: Microsoft Defender for Cloud에서 보안 정책을 사용 하는 방법에 대해 알아봅니다.
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 600d2bd187d3814d994893285ba19457bdfb2339
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ac92e330c9d511337bc2d6cafa08da7ba455f180
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131009494"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131425010"
 ---
 # <a name="manage-security-policies"></a>보안 정책 관리
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-이 페이지에서는 보안 정책을 구성하는 방법과 Microsoft Defender for Cloud에서 보안 정책을 보는 방법을 설명합니다. 
+이 페이지에서는 보안 정책을 구성 하는 방법과 클라우드의 Microsoft Defender에서이를 보는 방법을 설명 합니다. 
 
 이니셔티브, 정책 및 권장 사항 간의 관계를 이해하려면 [보안 정책, 이니셔티브 및 권장 사항이란?](security-policy-concept.md)을 참조하십시오.
 
 ## <a name="who-can-edit-security-policies"></a>보안 정책은 누가 편집할 수 있나요?
 
-Defender for Cloud는 Azure 사용자, 그룹 및 서비스에 할당할 수 있는 기본 제공 역할을 제공하는 Azure RBAC(Azure 역할 기반 액세스 제어)를 사용합니다. 사용자가 Defender for Cloud를 열면 액세스할 수 있는 리소스와 관련된 정보만 표시됩니다. 즉, 리소스의 구독에 대한 *소유자*, *기여자*, 또는 *읽기 권한자* 역할이 사용자에게 할당됩니다. 또한 클라우드용 Defender 역할에는 두 가지가 있습니다.
+Defender for Cloud는 azure 사용자, 그룹 및 서비스에 할당할 수 있는 기본 제공 역할을 제공 하는 azure RBAC (역할 기반 액세스 제어)를 사용 합니다. 사용자가 클라우드 용 Defender를 열면 액세스할 수 있는 리소스와 관련 된 정보만 표시 됩니다. 즉, 리소스의 구독에 대한 *소유자*, *기여자*, 또는 *읽기 권한자* 역할이 사용자에게 할당됩니다. 또한 클라우드 역할에는 두 가지 특정 Defender가 있습니다.
 
-- **보안 읽기 권한자:** 권장 사항, 경고, 정책 및 상태와 같은 클라우드용 Defender 항목을 볼 수 있는 권한이 있습니다. 변경할 수 없습니다.
+- **보안 읽기 권한자**: 권장 사항, 경고, 정책 및 상태와 같은 클라우드 항목에 대 한 Defender를 볼 수 있는 권한을 가집니다. 변경할 수 없습니다.
 - **보안 관리자**: *보안 읽기 권한자* 와 동일한 보기 권한을 가집니다. 보안 정책을 업데이트하고 경고를 해제할 수도 있습니다.
 
 REST API를 통해 또는 Windows PowerShell을 사용하여 Azure Policy 포털을 통해 보안 정책을 편집할 수 있습니다.
 
 ## <a name="manage-your-security-policies"></a>보안 정책 관리
 
-Defender for Cloud에서 보안 정책을 보려면 다음을 수행합니다.
+Defender for Cloud에서 보안 정책을 보려면 다음을 수행 합니다.
 
-1. Defender **for Cloud** 메뉴에서 **보안 정책** 을 선택합니다.
+1. **클라우드 용 Defender** 메뉴에서 **보안 정책** 을 선택 합니다.
 
     :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="정책 관리 페이지.":::
 
@@ -46,7 +45,7 @@ Defender for Cloud에서 보안 정책을 보려면 다음을 수행합니다.
 
 1. 해당 구독 또는 관리 그룹에 대한 보안 정책 페이지가 나타납니다. 사용 가능한 정책과 할당된 정책을 표시합니다.
 
-    :::image type="content" source="./media/tutorial-security-policy/security-policy-page.png" alt-text="Defender for Cloud의 보안 정책 페이지" lightbox="./media/tutorial-security-policy/security-policy-page.png":::
+    :::image type="content" source="./media/tutorial-security-policy/security-policy-page.png" alt-text="클라우드의 보안 정책에 대 한 Defender 페이지" lightbox="./media/tutorial-security-policy/security-policy-page.png":::
 
     > [!NOTE]
     > 기본 정책과 함께 "MG 상속됨"이라는 레이블이 있으면 정책이 관리 그룹에 할당되고 사용자가 보고 있는 구독에서 상속된 것입니다.
@@ -77,20 +76,20 @@ Defender for Cloud에서 보안 정책을 보려면 다음을 수행합니다.
 
 권장 사항이 작업 환경과 관련이 없는 경우 해당 권장 구성을 다시 표시하지 않도록 할 수 있습니다. 권장 사항을 사용하지 않도록 설정하려면 권장 구성을 생성하는 특정 정책을 사용하지 않도록 설정합니다.
 
-사용하지 않도록 설정하려는 권장 사항은 Defender for Cloud의 규정 준수 도구를 사용하여 적용한 규정 표준에 필요한 경우에도 계속 표시됩니다. 기본 제공 이니셔티브에서 정책을 사용하지 않도록 설정한 경우에도 규정 표준 이니셔티브의 정책은 규정 준수에 필요한 경우 계속해서 권장 사항을 트리거합니다. 규제 표준 이니셔티브에서 정책을 사용하지 않도록 설정할 수 없습니다.
+사용 하지 않도록 설정할 권장 사항은 클라우드의 규정 준수 도구에 대해 Defender를 사용 하 여 적용 한 규정 표준에 필요한 경우에도 계속 표시 됩니다. 기본 제공 이니셔티브에서 정책을 사용하지 않도록 설정한 경우에도 규정 표준 이니셔티브의 정책은 규정 준수에 필요한 경우 계속해서 권장 사항을 트리거합니다. 규제 표준 이니셔티브에서 정책을 사용하지 않도록 설정할 수 없습니다.
 
 권장 사항에 대한 자세한 정보는 [보안 권장 사항 관리](review-security-recommendations.md)를 참조하세요.
 
-1. Defender for Cloud 메뉴에서 **보안 정책** 을 선택합니다.
+1. 클라우드 용 Defender의 메뉴에서 **보안 정책** 을 선택 합니다.
 
-    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Microsoft Defender for Cloud에서 정책 관리 프로세스를 시작합니다.":::
+    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Microsoft Defender for Cloud에서 정책 관리 프로세스를 시작 하는 중입니다.":::
 
 1. 사용하지 않으려는 권장 사항(및 정책)에 대해 구독 또는 관리 그룹을 선택합니다.
 
    > [!NOTE]
    > 관리 그룹은 해당 구독에 정책을 적용합니다. 따라서 정책을 사용하지 않도록 설정한 구독이 동일한 정책을 사용하는 관리 그룹에 속해 있는 경우 정책 권장 사항을 계속 받게 됩니다. 관리 수준에서 계속 정책이 적용되고 권장 사항이 생성됩니다.
 
-1. 기본 **정책,** **업계 & 규정 표준** 또는 **사용자 지정 이니셔티브** 섹션에서 사용하지 않도록 설정할 정책이 포함된 관련 이니셔티브를 선택합니다.
+1. **기본 정책**, **업계 & 규정 표준** 또는 **사용자 지정 이니셔티브** 섹션에서 사용 하지 않도록 설정할 정책을 포함 하는 관련 이니셔티브를 선택 합니다.
 
 1. **매개 변수** 섹션을 열고 사용하지 않도록 설정할 권장 사항을 호출하는 정책을 검색합니다.
 
@@ -110,13 +109,13 @@ Defender for Cloud에서 보안 정책을 보려면 다음을 수행합니다.
 
 사용하지 않도록 설정된 정책을 사용하도록 설정하고 리소스에 대해 평가되었는지 확인하려면 다음을 수행합니다.
 
-1. Defender for Cloud 메뉴에서 **보안 정책** 을 선택합니다.
+1. 클라우드 용 Defender의 메뉴에서 **보안 정책** 을 선택 합니다.
 
-    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Microsoft Defender for Cloud에서 정책 관리 프로세스를 시작합니다.":::
+    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Microsoft Defender for Cloud에서 정책 관리 프로세스를 시작 하는 중입니다.":::
 
 1. 권장 사항(및 정책)을 사용하려는 구독 또는 관리 그룹을 선택합니다.
 
-1. 기본 **정책,** **업계 & 규정 표준** 또는 **사용자 지정 이니셔티브** 섹션에서 사용하려는 정책이 있는 관련 이니셔티브를 선택합니다.
+1. **기본 정책**, **업계 & 규정 표준** 또는 **사용자 지정 이니셔티브** 섹션에서 사용 하도록 설정할 정책으로 관련 이니셔티브를 선택 합니다.
 
 1. **매개 변수** 섹션을 열고 사용하지 않도록 설정할 권장 사항을 호출하는 정책을 검색합니다.
 
@@ -134,4 +133,4 @@ Defender for Cloud에서 보안 정책을 보려면 다음을 수행합니다.
 - [PowerShell을 사용하여 정책을 설정하는 방법 알아보기](../governance/policy/assign-policy-powershell.md)
 - [Azure Policy에서 보안 정책을 편집하는 방법](../governance/policy/tutorials/create-and-manage.md)
 - [Azure Policy를 사용하여 구독 또는 관리 그룹에서 정책을 설정하는 방법 알아보기](../governance/policy/overview.md)
-- [관리 그룹의 모든 구독에서 Defender for Cloud를 사용하도록 설정하는 방법을 알아봅니다.](onboard-management-group.md)
+- [관리 그룹의 모든 구독에서 클라우드에 대해 Defender를 사용 하도록 설정 하는 방법에 대해 알아봅니다.](onboard-management-group.md)

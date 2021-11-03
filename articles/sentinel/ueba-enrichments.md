@@ -8,14 +8,17 @@ ms.subservice: azure-sentinel
 ms.topic: reference
 ms.date: 05/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 6420ef1345e20c2aec511a0a0284753a78895020
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 944c2b155a0cfa48d98876aa463c27cf5c47d40c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128627352"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131083710"
 ---
 # <a name="azure-sentinel-ueba-enrichments-reference"></a>Azure Sentinel UEBA 보강 참조
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 이 문서에서는 **로그** 에 있는 Azure Sentinel **BehaviorAnalytics** 테이블([엔터티 세부 정보 페이지](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages)에 언급됨)에 대해 설명하며 해당 테이블의 엔터티 보강 필드에 대한 세부 정보를 제공합니다. 이 내용은 보안 인시던트 조사에 집중하고 강화하는 데 사용할 수 있습니다.
 

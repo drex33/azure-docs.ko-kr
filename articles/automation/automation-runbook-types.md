@@ -3,15 +3,15 @@ title: Azure Automation Runbook 형식
 description: 이 문서에서는 Azure Automation에서 사용할 수 있는 Runbook의 유형 및 사용할 형식을 결정하기 위한 고려 사항을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/21/2021
+ms.date: 10/28/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 705b3f746a9e2abc55c5fa5767683c5198a09a48
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: f0fe647d586887bcb2d0a897f57c75a5f0b141b5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130236365"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423941"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation Runbook 형식
 
@@ -53,11 +53,29 @@ Azure Portal에서 그래픽 편집기를 사용하여 그래픽 및 그래픽 P
 * [텍스트 형식](automation-runbook-types.md) 중 하나로 변환할 수 없으며 텍스트 Runbook을 그래픽 형식으로 변환할 수 없습니다. 
 * 그래픽 워크플로가 만든 PowerShell 코드를 보거나 직접 편집할 수 없습니다. 코드 작업에서 만든 코드를 볼 수 있습니다.
 * Linux Hybrid Runbook Worker에서 Runbook을 실행할 수 없습니다. [Hybrid Runbook Worker를 사용하여 데이터 센터 또는 클라우드의 리소스 자동화](automation-hybrid-runbook-worker.md)를 참조하세요.
-* 그래픽 runbook은 디지털 서명할 수 없습니다.
+* 그래픽 Runbook은 디지털 서명할 수 없습니다.
 
 ## <a name="powershell-runbooks"></a>PowerShell Runbook
 
 PowerShell Runbook은 Windows PowerShell을 기반으로 합니다. Azure 포털의 텍스트 편집기를 사용하여 Runbook을 직접 편집합니다. 오프라인 텍스트 편집기도 사용할 수 있고 Azure Automation으로 [Runbook 가져오기](manage-runbooks.md) 가 가능합니다.
+
+
+PowerShell 버전은 지정된 **런타임 버전(버전** 7.1 미리 보기 또는 5.1)에 따라 결정됩니다. Azure Automation 서비스는 최신 PowerShell 런타임을 지원합니다.
+ 
+동일한 Azure 샌드박스 및 Hybrid Runbook Worker **PowerShell 5.1** 및 **PowerShell 7.1** Runbook을 나란히 실행할 수 있습니다.   
+
+> [!NOTE]
+>  Runbook 실행 시 **런타임 버전을** **7.1(미리 보기)로 선택하면 7.1** 런타임 버전을 대상으로 하는 PowerShell 모듈이 사용되고 **런타임 버전을** **5.1로 선택하면 5.1** 런타임 버전을 대상으로 하는 PowerShell 모듈이 사용됩니다.
+ 
+모듈에 적합한 런타임 버전을 선택해야 합니다.
+
+예를 들어 **런타임 버전** *7.1(미리 보기)에서* Sharepoint 자동화 시나리오에 대한 Runbook을 실행하는 경우 **런타임 버전** **7.1(미리 보기)에서** 모듈을 가져옵니다. **런타임 버전** **5.1에서** Sharepoint 자동화 시나리오에 대한 Runbook을 실행하는 경우 **런타임 버전** *5.1에서 모듈을* 가져옵니다. 이 경우 모듈에 대한 두 개의 항목이 표시됩니다. 하나는 **런타임 버전** **7.1(미리 보기)이고** 다른 하나는 **5.1용입니다.**
+
+:::image type="content" source="./media/automation-runbook-types/runbook-types.png" alt-text="Runbook 형식.":::
+
+
+현재 PowerShell 5.1 및 7.1(미리 보기)이 지원됩니다.
+
 
 ### <a name="advantages"></a>장점
 
@@ -65,15 +83,15 @@ PowerShell Runbook은 Windows PowerShell을 기반으로 합니다. Azure 포털
 * 실행 전에 컴파일이 필요 없기 때문에 PowerShell 워크플로 Runbook보다 빨리 시작됩니다.
 * Windows 및 Linux 둘 다 Azure 및 Hybrid Runbook Worker에서 실행합니다.
 
-### <a name="limitations"></a>제한 사항
+### <a name="limitations---version-51"></a>제한 사항 - 버전 5.1
 
 * PowerShell 스크립팅에 대해 잘 알아야 합니다.
 * Runbook에서는 [병렬 처리](automation-powershell-workflow.md#use-parallel-processing)를 사용하여 여러 작업을 병렬로 실행할 수 없습니다.
 * Runbook에서는 오류 발생 시 [검사점](automation-powershell-workflow.md#use-checkpoints-in-a-workflow)을 사용하여 Runbook을 다시 시작할 수 없습니다.
-* 새 작업을 만드는 [AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) cmdlet을 사용 하 여 PowerShell, powershell 워크플로 runbook 및 그래픽 runbook만 자식 runbook으로 포함할 수 있습니다.
-* Runbook은 PowerShell [#Requires](/powershell/module/microsoft.powershell.core/about/about_requires) 문을 사용할 수 없습니다. Azure Sandbox 또는 Hybrid Runbook worker에서 지원 되지 않으므로 작업이 실패할 수 있습니다.
+* 새 작업을 만드는 [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) cmdlet을 사용하여 PowerShell, PowerShell 워크플로 Runbook 및 그래픽 Runbook만 자식 Runbook으로 포함할 수 있습니다.
+* Runbook은 PowerShell [#Requires](/powershell/module/microsoft.powershell.core/about/about_requires) 문을 사용할 수 없으며, Azure 샌드박스 또는 Hybrid Runbook Workers에서 지원되지 않으며 작업이 실패할 수 있습니다.
 
-### <a name="known-issues"></a>알려진 문제
+### <a name="known-issues---version-51"></a>알려진 문제 - 버전 5.1
 
 PowerShell Runbook에 대해 현재 알려진 문제는 다음과 같습니다.
 
@@ -82,9 +100,34 @@ PowerShell Runbook에 대해 현재 알려진 문제는 다음과 같습니다.
 * PowerShell Runbook의 반복적인 [Get-Process](/powershell/module/microsoft.powershell.management/get-process) 작업은 80회 반복 후에 크래시가 발생할 수 있습니다.
 * PowerShell Runbook이 한 번에 대량의 데이터를 출력 스트림에 쓰려고 하면 실패할 수 있습니다. Runbook에서 큰 개체로 작업하는 데 필요한 정보만 출력하면 일반적으로 이 문제를 해결할 수 있습니다. 예를 들어 제한 없이 `Get-Process`를 사용하는 대신 `Get-Process | Select ProcessName, CPU`에서와 같이 cmdlet이 필요한 매개 변수만 출력하도록 할 수 있습니다.
 
+### <a name="limitations---71-preview"></a>제한 사항 - 7.1(미리 보기)
+
+-  Azure Automation 내부 PowerShell cmdlet은 Linux Hybrid Runbook Worker 지원되지 않습니다. Automation 계정 `automationassets` 공유 리소스(자산) 함수에 액세스하려면 Python Runbook의 시작 부분에 모듈을 가져와야 합니다. 
+-  PowerShell 7 런타임 버전의 경우 가져온 모듈에 대해 모듈 활동이 추출되지 않습니다.
+-  *PSCredential* Runbook 매개 변수 형식은 PowerShell 7 런타임 버전에서 지원되지 않습니다.
+-  PowerShell 7.x는 워크플로를 지원하지 않습니다. 자세한 내용은 [이](/powershell/scripting/whats-new/differences-from-windows-powershell?view=powershell-7.1#powershell-workflow&preserve-view=true) 정보를 참조하세요.
+-  PowerShell 7.x는 현재 서명된 Runbook을 지원하지 않습니다.
+
+### <a name="known-issues---71-preview"></a>알려진 문제 - 7.1(미리 보기)
+
+-  를 사용하여 자식 스크립트를 실행하는 `.\child-runbook.ps1` 것은 이 미리 보기에서 지원되지 않습니다. 
+  **해결 방법:** `Start-AutomationRunbook` (내부 cmdlet) 또는 `Start-AzAutomationRunbook` *(Az.Automation* 모듈)를 사용하여 부모 Runbook에서 다른 Runbook을 시작합니다.
+-  로깅 기본 설정을 정의하는 Runbook 속성은 PowerShell 7 런타임에서 지원되지 않습니다.  
+  **해결 방법:** Runbook의 시작 부분에 있는 기본 설정을 아래와 같이 명시적으로 설정합니다.
+
+      `$VerbosePreference = "Continue"`
+
+      `$ProgressPreference = "Continue"`
+
+-   `Az.Accounts`Azure Automation 이 버전을 사용하는 예기치 않은 동작이 있을 수 있기 때문에 PowerShell 7 런타임의 버전 2.4.0 버전으로 모듈을 가져오지 마십시오. 
+-    PowerShell 7 런타임에서 실행 중인 작업에 대한 오류 출력 스트림의 서식 지정 문제가 발생할 수 있습니다.
+
 ## <a name="powershell-workflow-runbooks"></a>PowerShell 워크플로 Runbook
 
-PowerShell 워크플로 Runbook은 [Windows PowerShell 워크플로](automation-powershell-workflow.md)를 기반으로 하는 텍스트 Runbook입니다. Azure 포털의 텍스트 편집기를 사용하여 Runbook을 직접 편집합니다. 오프라인 텍스트 편집기도 사용할 수 있고 Azure Automation으로 [Runbook 가져오기](manage-runbooks.md) 가 가능합니다.
+PowerShell 워크플로 Runbook은 [Windows PowerShell 워크플로](automation-powershell-workflow.md)를 기반으로 하는 텍스트 Runbook입니다. Azure 포털의 텍스트 편집기를 사용하여 Runbook을 직접 편집합니다. 오프라인 텍스트 편집기도 사용할 수 있고 Azure Automation으로 [Runbook 가져오기](manage-runbooks.md) 가 가능합니다. 
+
+>[!NOTE]
+> PowerShell 7.1은 워크플로 Runbook을 지원하지 않습니다.
 
 ### <a name="advantages"></a>장점
 

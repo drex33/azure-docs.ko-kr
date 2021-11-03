@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/11/2021
-ms.openlocfilehash: 010fbfc3b6a2df9c8cdca1221fb4f25a5d288d70
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 11/02/2021
+ms.openlocfilehash: bfc901e3fa9c3a3f266f9cddffde84c4d1461c8f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536448"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131425504"
 ---
 # <a name="set-up-devops-deployment-for-single-tenant-azure-logic-apps"></a>단일 테넌트 Azure Logic Apps의 DevOps 배포 설정
 
@@ -223,12 +223,17 @@ Azure DevOps 배포의 경우 Azure Pipelines에서 [Azure 함수 앱 배포 작
 az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl"
 ```
 
-최신 확장(버전 0.1.1)을 가져오려면 다음 명령을 실행하여 기존 확장을 제거한 다음, 원본에서 최신 버전을 설치합니다.
+최신 확장 (버전 0.1.2)을 가져오려면 다음 명령을 실행 하 여 기존 확장을 제거한 다음 원본에서 최신 버전을 설치 합니다.
 
 ```azurecli-interactive
 az extension remove --name logicapp
 az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl"
 ```
+
+> [!NOTE]
+> 새 확장 버전을 사용할 수 있는 경우 현재 및 이후 버전은 메시지를 표시 합니다. 이 확장이 미리 보기로 제공 되는 동안에는 다음 명령을 사용 하 여를 수동으로 제거 하 고 다시 설치 하지 않고 최신 버전으로 업그레이드할 수 있습니다.
+>
+> `az logicapp upgrade`
 
 <a name="create-resource-group"></a>
 

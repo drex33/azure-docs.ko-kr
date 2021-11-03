@@ -8,12 +8,12 @@ ms.subservice: purview-data-policies
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: references_regions, ignite-fall-2021
-ms.openlocfilehash: cbd6214687e23b90d0c289dd5a34d9410b7f092a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ea5285c5fd29bfe34f97c87b2ac0c9bd7a5502a9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131052776"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131425238"
 ---
 # <a name="dataset-provisioning-by-data-owner-for-azure-storage"></a>Azure Storage 대한 데이터 소유자의 데이터 세트 프로비저닝
 
@@ -25,18 +25,23 @@ Purview 정책 작성은 다음 기능을 지원합니다.
 > [!IMPORTANT]
 > 이러한 기능은 현재 미리 보기로 제공됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에 사용하면 안 됩니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
+
+
 ## <a name="prerequisites"></a>사전 요구 사항
+
+### <a name="opt-in-to-participate-in-azure-purview-data-use-policy-preview"></a>Azure Purview 데이터 사용 정책 미리 보기에 참여하도록 옵트인
+이 기능은 현재 미리 보기 상태이므로 [Purview 데이터 사용 정책 미리 보기 에 옵트인해야](https://aka.ms/opt-in-data-use-policy)합니다.
 
 ### <a name="provision-new-accounts-in-an-isolated-test-subscription"></a>격리된 테스트 구독에서 새 계정 프로비전
 아래 단계에 따라 격리된 테스트 구독에서 새 Azure Purview 계정 및 새 Azure Storage 계정을 만듭니다. 그런 다음, 이러한 계정에서 액세스 정책 기능을 사용하도록 설정합니다.
 
-## <a name="supported-regions"></a>지원되는 지역
+### <a name="supported-regions"></a>지원되는 지역
 
 > [!IMPORTANT]
 > 1. 액세스 정책 기능은 새 Azure Purview 및 Azure Storage 계정에서만 사용할 수 있습니다.
 > 2. 이 기능은 액세스 정책 기능이 배포되는 아래 나열된 지역에서만 사용할 수 있습니다.
 
-### <a name="azure-purview"></a>Azure Purview 
+#### <a name="azure-purview"></a>Azure Purview 
 
 -   북유럽
 -   서유럽
@@ -51,7 +56,7 @@ Purview 정책 작성은 다음 기능을 지원합니다.
 -   프랑스 중부
 
 
-### <a name="azure-storage"></a>Azure Storage
+#### <a name="azure-storage"></a>Azure Storage
 
 -   프랑스 중부
 -   캐나다 중부
@@ -94,7 +99,7 @@ Register-AzProviderFeature -FeatureName AllowPurviewPolicyEnforcement -ProviderN
 
 -   [ADLS(Azure Data Lake Storage) Gen2 등록 및 검사 - Azure Purview](register-scan-adls-gen2.md)
 
-등록하는 동안 그림과 같이 데이터 원본을 데이터 사용 거버넌스에 사용하도록 설정합니다.
+등록하는 동안 그림에 표시된 대로 데이터 원본에서 데이터 사용 거버넌스를 사용하도록 설정합니다.
 
 :::image type="content" source="./media/how-to-access-policies-storage/register-data-source-for-policy.png" alt-text="이미지는 정책에 대한 데이터 원본을 등록하는 방법을 보여줍니다.":::
 
@@ -137,7 +142,7 @@ Register-AzProviderFeature -FeatureName AllowPurviewPolicyEnforcement -ProviderN
 
     :::image type="content" source="./media/how-to-access-policies-storage/select-data-source-type-storage.png" alt-text="이미지는 정책 문을 편집할 때 데이터 소유자가 데이터 리소스를 선택하는 방법을 보여줍니다.":::
 
-1. **계속** 단추를 선택하고 계층 구조를 반대로 전환하여 폴더 또는 파일을 선택합니다. 그런 **다음, 추가** 단추를 선택합니다. 그러면 정책 편집기로 돌아갑니다.
+1. **계속** 단추를 선택하고 계층을 가로로 전환하여 폴더 또는 파일을 선택합니다. 그런 **다음, 추가** 단추를 선택합니다. 그러면 정책 편집기로 돌아갑니다.
 
     :::image type="content" source="./media/how-to-access-policies-storage/select-asset-storage.png" alt-text="이미지는 정책 문을 만들거나 편집할 때 데이터 소유자가 자산을 선택하는 방법을 보여줍니다.":::
 
@@ -176,17 +181,16 @@ Purview에서 새 정책을 만드는 단계는 다음과 같습니다.
 
     :::image type="content" source="./media/how-to-access-policies-storage/policy-onboard-guide-2.png" alt-text="이미지는 데이터 소유자가 정책을 게시하려고 할 때 Azure Purview의 정책 기능에 액세스하는 방법을 보여줍니다.":::
 
-1. 정책 포털에서 부서의 범위의 기존 정책 목록이 표시 됩니다. 게시 해야 하는 정책을 찾습니다. 페이지의 오른쪽 상단 모서리에 있는 **게시** 단추를 선택 합니다.
+1. 정책 포털은 Purview에 기존 정책 목록을 표시합니다. 게시해야 하는 정책을 찾습니다. 페이지의 오른쪽 위 모서리에서 **게시** 단추를 선택합니다.
 
-    :::image type="content" source="./media/how-to-access-policies-storage/publish-policy-storage.png" alt-text="이미지는 데이터 소유자가 정책을 게시할 수 있는 방법을 보여 줍니다.":::
+    :::image type="content" source="./media/how-to-access-policies-storage/publish-policy-storage.png" alt-text="이미지는 데이터 소유자가 정책을 게시하는 방법을 보여줍니다.":::
 
-1. 데이터 원본 목록이 표시 됩니다. 이름을 입력 하 여 목록을 필터링 할 수 있습니다. 그런 다음이 정책을 게시할 각 데이터 원본을 선택 하 고 **게시** 단추를 선택 합니다. Publish는 백그라운드 작업입니다. 변경 내용이 데이터 원본에 반영 되는 데 최대 2 시간이 걸릴 수 있습니다.
+1. 데이터 원본 목록이 표시됩니다. 목록을 필터링하는 이름을 입력할 수 있습니다. 그런 다음, 이 정책을 게시할 각 데이터 원본을 선택한 **다음, 게시** 단추를 선택합니다. 게시는 백그라운드 작업입니다. 변경 내용이 데이터 원본에 반영되는 데 최대 2시간이 걸릴 수 있습니다.
 
-    :::image type="content" source="./media/how-to-access-policies-storage/select-data-sources-publish-policy-storage.png" alt-text="이미지는 데이터 소유자가 정책이 게시 될 데이터 원본을 선택할 수 있는 방법을 보여 줍니다.":::
+    :::image type="content" source="./media/how-to-access-policies-storage/select-data-sources-publish-policy-storage.png" alt-text="이미지는 데이터 소유자가 정책을 게시할 데이터 원본을 선택하는 방법을 보여줍니다.":::
 
 ## <a name="next-steps"></a>다음 단계
 
-액세스 정책과 관련 된 개념을 이해 하려면 다음 문서를 확인 하세요.
+Azure Purview와 관련된 개념을 이해하려면 이 문서를 확인하세요.
 
-* [Azure 부서의 범위 액세스 정책에 대 한 개념](concept-data-policies.md)
-* [Azure 부서의 범위 Self-Service 데이터 검색 및 액세스에 대 한 개념](concept-self-service.md)
+* [Azure Purview 개요](overview.md)

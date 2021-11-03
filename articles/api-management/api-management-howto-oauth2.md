@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/14/2020
 ms.author: danlep
-ms.openlocfilehash: 0aa147063c9fc67442c1c15e297f66bf3612f645
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1d1e75f16c2431a5fad475233510e2c220a06d57
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128588222"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131065725"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Azure API Management에서 OAuth 2.0을 사용하여 개발자 계정에 권한을 부여하는 방법
 
@@ -118,7 +118,7 @@ OAuth 2.0 권한 부여 서버를 구성하고 해당 서버를 사용하도록 
 **인증 코드** 를 선택하면 OAuth 2.0 공급자의 로그인 양식이 포함된 팝업 창이 표시됩니다. 이 예제에서는 Azure Active Directory에서 로그인 양식을 제공합니다.
 
 > [!NOTE]
-> 팝업을 사용하지 않도록 설정한 경우 브라우저에서 팝업을 사용하도록 설정하라는 메시지가 표시됩니다. 팝업을 사용하도록 설정한 후 **인증 코드** 를 다시 선택하면 로그인 양식이 표시됩니다.
+> 팝업을 사용하지 않도록 설정한 경우 브라우저에서 사용하도록 설정하라는 메시지가 표시됩니다. 팝업을 사용하도록 설정한 후 **인증 코드** 를 다시 선택하면 로그인 양식이 표시됩니다.
 
 ![로그인][api-management-oauth2-signin]
 

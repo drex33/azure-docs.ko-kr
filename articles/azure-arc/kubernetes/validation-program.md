@@ -8,12 +8,12 @@ author: shashankbarsin
 ms.author: shasb
 description: Kubernetes 배포에 대한 Arc 유효성 검사 프로그램을 설명합니다.
 keywords: Kubernetes, Arc, Azure, K8s, 유효성 검사
-ms.openlocfilehash: f5057a7785ec77109d8fe8efb44e1015976786c8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 53000b0099ef31bd31346c22d759d45321ae4369
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128672859"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423891"
 ---
 # <a name="azure-arc-enabled-kubernetes-validation"></a>Azure Arc 지원 Kubernetes 유효성 검사
 
@@ -38,6 +38,7 @@ Azure Arc 지원 Kubernetes는 모든 CNCF(Cloud Native Computing Foundation) �
 | SUSE Rancher      | [Rancher Kubernetes Engine](https://rancher.com/products/rke/) | RKE CLI 버전: [v1.2.4](https://github.com/rancher/rke/releases/tag/v1.2.4), Kubernetes 버전: [1.19.6](https://github.com/kubernetes/kubernetes/releases/tag/v1.19.6)), [1.18.14](https://github.com/kubernetes/kubernetes/releases/tag/v1.18.14)), [1.17.16](https://github.com/kubernetes/kubernetes/releases/tag/v1.17.16))  |
 | Nutanix      | [Karbon](https://www.nutanix.com/products/karbon)    | 버전 2.2.1 |
 | Platform9      | [PMK(Platform9 Managed Kubernetes)](https://platform9.com/managed-kubernetes/)    | PMK 버전 [5.3.0](https://platform9.com/docs/kubernetes/release-notes#platform9-managed-kubernetes-version-53-release-notes), Kubernetes 버전: v1.20.5, v1.19.6, v1.18.10 |
+| 시스코 | [IKS (Intersight Kubernetes Service)](https://www.cisco.com/c/en/us/products/cloud-systems-management/cloud-operations/intersight-kubernetes-service.html) 분산 | 업스트림 K8s 버전: 1.19.5 |
 
 또한 Azure Arc 팀은 규칙 테스트를 실행 하 고 다음과 같은 공용 클라우드 공급자에서 Azure Arc 사용 Kubernetes 시나리오의 유효성을 검사 했습니다.
 

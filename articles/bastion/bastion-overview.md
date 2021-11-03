@@ -5,15 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: overview
-ms.date: 07/12/2021
+ms.date: 10/12/2021
 ms.author: cherylmc
-ms.custom: contperf-fy2q1-portal
-ms.openlocfilehash: fe1cc48b3106d4874e151ed8be114e6a98e51720
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.custom: contperf-fy2q1-portal, ignite-fall-2021
+ms.openlocfilehash: ea5fb6c17346059ab35467c654a17815e711d213
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123434201"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087194"
 ---
 # <a name="what-is-azure-bastion"></a>Azure Bastion 정보
 
@@ -34,7 +34,7 @@ Bastion은 프로비저닝된 가상 네트워크의 모든 VM에 대한 안전�
 
 ## <a name="skus"></a><a name="sku"></a>SKU
 
-Azure Bastion에는 기본 및 표준의 두 가지 사용 가능한 SKU가 있습니다. 표준 SKU는 현재 미리 보기 상태입니다. SKU를 업그레이드하는 방법을 비롯한 자세한 내용은 [구성 설정](configuration-settings.md#skus) 문서를 참조하세요. 
+Azure Bastion에는 기본 및 표준의 두 가지 사용 가능한 SKU가 있습니다. SKU를 업그레이드하는 방법을 비롯한 자세한 내용은 [구성 설정](configuration-settings.md#skus) 문서를 참조하세요.
 
 다음 표에서는 기능 및 해당 SKU를 보여 줍니다.
 

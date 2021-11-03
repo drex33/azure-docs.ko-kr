@@ -1,17 +1,17 @@
 ---
 title: Azure HPC Cache 관리 및 업데이트
 description: Azure Portal 또는 Azure CLI를 사용하여 Azure HPC Cache를 관리하고 업데이트하는 방법
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/08/2021
-ms.author: v-erkel
-ms.openlocfilehash: 4fb5bcc0ae5be35f740bc39bc0cf4a9221363358
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.author: femila
+ms.openlocfilehash: 46d891172c3290b4ce21723561f0689bedd7b22d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129274371"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087802"
 ---
 # <a name="manage-your-cache"></a>캐시 관리
 
@@ -35,7 +35,7 @@ Azure Portal의 캐시 개요 페이지에는 캐시에 대한 프로젝트 세�
 옵션에 대한 자세한 내용은 아래를 참조하세요.
 
 > [!TIP]
-> 개별 스토리지 대상을 관리할 수도 있습니다. 자세한 내용은 [스토리지 대상 보기 및 관리를 읽어보십시오.](manage-storage-targets.md)
+> 개별 저장소 대상을 관리할 수도 있습니다. 자세한 내용은 [보기 및 저장소 대상 관리](manage-storage-targets.md) 를 참조 하세요.
 
 캐시 관리 작업을 보여 주는 [동영상](https://azure.microsoft.com/resources/videos/managing-hpc-cache/)을 시청하려면 아래 이미지를 클릭하세요.
 

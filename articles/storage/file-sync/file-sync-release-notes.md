@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 9/13/2021
+ms.date: 11/2/2021
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 0662431d950e0b65cce749697597e5ef9e9e8f3f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 33433fe8556befaf2e34424ba35e71a66d433533
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128589229"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131452474"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트에 대한 릴리스 정보
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -25,6 +25,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 | Milestone | 에이전트 버전 번호 | 릴리스 날짜 | 상태 |
 |----|----------------------|--------------|------------------|
+| V14 릴리스 - [KB5001872](https://support.microsoft.com/topic/92290aa1-75de-400f-9442-499c44c92a81)| 14.0.0.0 | 2021년 10월 29일 | 지원됨 - 플라이팅 |
 | V13 릴리스 - [KB4588753](https://support.microsoft.com/topic/632fb833-42ed-4e4d-8abd-746bd01c1064)| 13.0.0.0 | 2021년 7월 12일 | 지원 여부 |
 | V12.1 릴리스-[KB4588751](https://support.microsoft.com/topic/497dc33c-d38b-42ca-8015-01c906b96132)| 12.1.0.0 | 2021년 5월 20일 | 지원 여부 |
 | V12 릴리스 - [KB4568585](https://support.microsoft.com/topic/b9605f04-b4af-4ad8-86b0-2c490c535cfd)| 12.0.0.0 | 2021년 3월 26일 | 지원 여부 |
@@ -50,6 +51,73 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 파일 동기화 에이전트 업데이트 정책
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
+## <a name="agent-version-14000"></a>에이전트 버전 14.0.0.0
+다음 릴리스 정보에서는 2021년 10월 29일 릴리스된 Azure 파일 동기화 에이전트 버전 14.0.0.0에 대한 것입니다.
+
+### <a name="improvements-and-issues-that-are-fixed"></a>개선 사항 및 해결된 문제
+- 포털에서 서버 엔드포인트 프로비전 해제 지침 개선
+    - 포털을 통해 서버 엔드포인트를 제거할 때 이제 데이터 손실을 방지하고 데이터가 필요한 위치(서버 또는 Azure 파일 공유)가 되도록 서버 엔드포인트를 삭제한 이유에 따라 단계별 지침을 제공합니다. 또한 이 기능에는 프로비전 해제 프로세스를 통해 로컬 서버에서 사용할 수 있는 새로운 PowerShell cmdlet(Get-StorageSyncStatus & New-StorageSyncUploadSession)이 포함되어 있습니다.
+
+- Invoke-AzStorageSyncChangeDetection cmdlet 개선
+    - v14 릴리스 전에 Azure 파일 공유에서 직접 변경한 경우 Invoke-AzStorageSyncChangeDetection cmdlet을 사용하여 변경 내용을 검색하고 동기화 그룹의 서버에 동기화할 수 있습니다. 그러나 지정된 경로에 10,000개 이상의 항목이 포함된 경우 cmdlet이 실행되지 않습니다. Invoke-AzStorageSyncChangeDetection cmdlet이 향상되었으며 전체 공유를 검사할 때 10,000개 항목 제한이 더 이상 적용되지 않습니다. 자세한 내용은 [Invoke-AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) 설명서를 참조하세요.
+
+- 기타 개선 사항
+    - Azure 파일 동기화 이제 미국 서부 3 지역에서 지원됩니다.
+    - 항목별 동기화 오류로 인해 파일을 일관되게 업로드하지 못하는 경우 트랜잭션이 감소합니다.
+    - 클라우드 계층화 및 동기화에 대한 안정성 및 원격 분석 개선 
+
+### <a name="evaluation-tool"></a>평가 도구
+Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도구를 사용하여 시스템과 호환되는지 여부를 평가해야 합니다. 이 도구는 Azure PowerShell cmdlet이며, 지원되지 않는 문자 또는 지원되지 않는 OS 버전과 같은 파일 시스템과 데이터 세트와 관련된 잠재적인 문제를 확인합니다. 설치 및 사용 지침에 대해서는 계획 가이드의 [평가 도구](file-sync-planning.md#evaluation-cmdlet) 섹션을 참조하세요. 
+
+### <a name="agent-installation-and-server-configuration"></a>에이전트 설치 및 서버 구성
+Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구성하는 방법에 대한 자세한 내용은 [Azure 파일 동기화 배포에 대한 계획](file-sync-planning.md) 및 [Azure 파일 동기화를 배포하는 방법](file-sync-deployment-guide.md)을 참조하세요.
+
+- 에이전트 버전이 버전 12.0 미만인 경우 기존 Azure 파일 동기화 에이전트가 설치된 서버를 다시 시작해야 합니다.
+- 에이전트 설치 패키지는 상승된(관리자) 권한으로 설치되어야 합니다.
+- 에이전트는 Nano Server 배포 옵션에서 지원되지 않습니다.
+- 에이전트는 Windows server 2019, Windows Server 2016, Windows Server 2012 R2 및 Windows server 2022 에서만 지원 됩니다.
+- 에이전트에는 2GiB 이상의 메모리가 필요합니다. 서버가 동적 메모리를 사용하도록 설정된 가상 머신에서 실행되는 경우 VM을 2,048MiB 이상의 메모리로 구성해야 합니다. 자세한 내용은 [추천 시스템 리소스](file-sync-planning.md#recommended-system-resources)를 참조하세요.
+- 스토리지 동기화 에이전트(FileSyncSvc) 서비스는 SVI(시스템 볼륨 정보) 디렉터리가 압축된 볼륨에 있는 서버 엔드포인트를 지원하지 않습니다. 이 구성은 예기치 않은 결과를 발생시킵니다.
+
+### <a name="interoperability"></a>상호 운용성
+- 바이러스 백신, 백업, 그리고 계층화된 파일에 액세스하는 기타 애플리케이션은 오프라인 특성을 존중하여 해당 파일의 내용 읽기를 건너뛰지 않는 경우 원치 않은 회수가 발생할 수 있습니다. 자세한 내용은 [Azure 파일 동기화 문제 해결](file-sync-troubleshoot.md)을 참조하세요.
+- 파일 서버 리소스 관리자(FSRM) 파일 차단은 파일 차단으로 인해 파일이 차단된 경우 무한 동기화 실패를 유발할 수 있습니다.
+- Azure 파일 동기화 에이전트가 설치되어 있는 서버에서 sysprep 실행은 지원되지 않으며 예기치 않은 결과가 발생할 수 있습니다. 서버 이미지를 배포하고 sysprep 최소 설정을 완료한 후에는 Azure 파일 동기화 에이전트를 설치해야 합니다.
+
+### <a name="sync-limitations"></a>동기화 제한 사항
+다음 항목은 동기화되지 않지만 시스템의 나머지 부분은 정상적으로 계속해서 작동합니다.
+- 지원되지 않는 문자가 있는 파일. 지원되지 않는 문자 목록은 [문제 해결 가이드](file-sync-troubleshoot.md#handling-unsupported-characters)를 참조하세요.
+- 마침표로 끝나는 파일 또는 디렉터리.
+- 2048자보다 긴 경로입니다.
+- 감사에 사용되는 보안 설명자의 SACL(시스템 액세스 제어 목록) 부분입니다.
+- 확장된 특성
+- 대체 데이터 스트림
+- 재분석 지점
+- 하드 링크
+- 압축(서버 파일에서 설정하는 경우)은 변경 내용이 다른 엔드포인트의 해당 파일에 대해 동기화할 때 유지되지 않습니다.
+- 데이터 읽기에서 서비스를 보호하는 EFS(또는 다른 사용자 모드 암호화)로 암호화된 파일
+
+    > [!Note]  
+    > Azure 파일 동기화는 항상 전송 중인 데이터를 암호화합니다. 데이터는 Azure에서 미사용 시 상시 암호화됩니다.
+ 
+### <a name="server-endpoint"></a>서버 엔드포인트
+- 서버 엔드포인트는 NTFS 볼륨에서만 만들어질 수 있습니다. ReFS, FAT, FAT32 및 다른 파일 시스템은 현재 Azure 파일 동기화에 의해 지원되지 않습니다.
+- 클라우드 계층화는 시스템 볼륨에서 지원되지 않습니다. 시스템 볼륨에 서버 엔드포인트를 만들려면 서버 엔드포인트를 만들 때 클라우드 계층화를 사용하지 않도록 설정합니다.
+- 장애 조치(failover) 클러스터링은 CSV(클러스터 공유 볼륨)가 아닌 클러스터된 디스크로만 지원됩니다.
+- 서버 엔드포인트는 중첩될 수 없습니다. 다른 엔드포인트와 병렬로 동일한 볼륨에 공존할 수 있습니다.
+- 서버 엔드포인트 위치 내에 OS 또는 애플리케이션 페이징 파일을 저장하지 마세요.
+
+### <a name="cloud-endpoint"></a>클라우드 엔드포인트
+- Azure 파일 동기화는 Azure 파일 공유를 직접 변경하도록 지원합니다. 그러나 먼저 Azure 파일 공유의 변경 내용이 Azure 파일 동기화 변경 검색 작업에서 검색되어야 합니다. 변경 내용 검색 작업은 클라우드 엔드포인트에 대해 24시간마다 한 번씩 시작됩니다. Azure 파일 공유에서 변경된 파일을 즉시 동기화하기 위해 [AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) PowerShell cmdlet을 사용하여 Azure 파일 공유의 변경 내용 검색을 수동으로 시작할 수 있습니다. 또한 REST 프로토콜을 통해 수행한 Azure 파일 공유 변경 내용은 SMB 마지막 수정 시간을 업데이트하지 않으며 동기화 기능에서 변경 내용으로 표시되지 않습니다.
+- 스토리지 동기화 서비스 및/또는 스토리지 계정을 다른 리소스 그룹이나 구독 또는 Azure AD 테넌트로 이동할 수 있습니다. 스토리지 동기화 서비스 또는 스토리지 계정을 이동한 후에는 Microsoft.StorageSync 애플리케이션 액세스 권한을 스토리지 계정에 부여해야 합니다([Azure 파일 동기화가 스토리지 계정에 액세스할 수 있는지 확인](file-sync-troubleshoot.md?tabs=portal1%252cportal#troubleshoot-rbac) 참조).
+
+    > [!Note]  
+    > 클라우드 엔드포인트를 만들 때 스토리지 동기화 서비스 및 스토리지 계정이 동일한 Azure AD 테넌트에 있어야 합니다. 클라우드 엔드포인트를 만든 후에는 스토리지 동기화 서비스 및 스토리지 계정을 다른 Azure AD 테넌트로 이동할 수 있습니다.
+
+### <a name="cloud-tiering"></a>클라우드 계층화
+- 계층화된 파일이 Robocopy를 사용하여 다른 위치로 복사되는 경우 결과 파일은 계층화되지 않습니다. Robocopy에서 복사 작업에 해당 특성을 잘못 포함하므로 오프라인 특성을 설정할 수 있습니다.
+- robocopy를 사용하여 파일을 복사할 때는 /MIR 옵션을 사용하여 파일 타임스탬프를 보존해야 합니다. 이렇게 하면 오래된 파일이 최근에 액세스한 파일보다 먼저 계층화됩니다.
+
 ## <a name="agent-version-13000"></a>에이전트 버전 13.0.0.0
 다음 릴리스 정보는 2021년 7월 12일 릴리스된 Azure 파일 동기화 에이전트의 버전 13.0.0.0에 대한 것입니다.
 
@@ -67,8 +135,8 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 - 서버 이름 바꾸기 지원  
     - 등록된 서버의 이름이 바뀌면 이제 Azure 파일 동기화가 포털에 새 서버 이름을 표시합니다. v13 릴리스 이전에 서버 이름이 변경된 경우 이제 포털의 서버 이름이 올바른 서버 이름을 표시하도록 업데이트됩니다.
 
-- Windows Server 2022 지원  
-    - Azure 파일 동기화 에이전트는 이제 Windows Server 2022에서 지원됩니다.
+- Windows Server 2022에 대 한 지원  
+    - Azure 파일 동기화 에이전트는 이제 Windows Server 2022에서 지원 됩니다.
 
     > [!Note]  
     > Windows Server 2022는 현재 Azure 파일 동기화에서 지원되지 않는 TLS 1.3에 대한 지원을 추가합니다. [TLS 설정](/windows-server/security/tls/tls-ssl-schannel-ssp-overview)이 그룹 정책을 통해 관리되는 경우 TLS 1.2를 지원하도록 서버를 구성해야 합니다. 
@@ -90,7 +158,7 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 - 에이전트 버전이 버전 12.0 미만인 경우 기존 Azure 파일 동기화 에이전트가 설치된 서버를 다시 시작해야 합니다.
 - 에이전트 설치 패키지는 상승된(관리자) 권한으로 설치되어야 합니다.
 - 에이전트는 Nano Server 배포 옵션에서 지원되지 않습니다.
-- 에이전트는 Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 및 Windows Server 2022에서만 지원됩니다.
+- 에이전트는 Windows server 2019, Windows Server 2016, Windows Server 2012 R2 및 Windows server 2022 에서만 지원 됩니다.
 - 에이전트에는 2GiB 이상의 메모리가 필요합니다. 서버가 동적 메모리를 사용하도록 설정된 가상 머신에서 실행되는 경우 VM을 2,048MiB 이상의 메모리로 구성해야 합니다. 자세한 내용은 [추천 시스템 리소스](file-sync-planning.md#recommended-system-resources)를 참조하세요.
 - 스토리지 동기화 에이전트(FileSyncSvc) 서비스는 SVI(시스템 볼륨 정보) 디렉터리가 압축된 볼륨에 있는 서버 엔드포인트를 지원하지 않습니다. 이 구성은 예기치 않은 결과를 발생시킵니다.
 

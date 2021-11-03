@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit, devx-track-azurepowershell
-ms.openlocfilehash: f8cddbe0cf82245b566903541c51c78f0242005e
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: d1e60dd683ed062937995eab203f79ec30a11d0c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129713461"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131440111"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure Functions의 함수 앱에 대한 리소스 배포 자동화
 
@@ -212,7 +212,7 @@ Application Insights는 함수 앱 모니터링에 권장됩니다. Application 
 
 ### <a name="create-a-function-app"></a>함수 앱 만들기
 
-소비 계획에서 실행되는 함수 앱에 필요한 설정은 Windows와 Linux 간에 다릅니다.
+소비 계획에서 실행 되는 함수 앱에 필요한 설정은 Windows와 Linux 간에 다릅니다.
 
 #### <a name="windows"></a>Windows
 
@@ -258,7 +258,7 @@ Windows에서 소비 계획을 사용하려면 사이트 구성에 기타 설정
 ```
 
 > [!IMPORTANT]
-> 배포 슬롯에서 설정을 설정하지 [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) 마세요. 이 설정은 배포 슬롯에서 앱을 만들 때 생성됩니다.
+> [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)배포 슬롯에서 설정을 설정 하지 마세요. 이 설정은 배포 슬롯에서 앱을 만들 때 생성 됩니다.
 
 #### <a name="linux"></a>Linux
 
@@ -571,7 +571,7 @@ App Service 계획의 함수 앱에는 `serverFarmId` 속성이 이전에 만든
 
 ## <a name="deploy-to-azure-arc"></a>Azure Arc로 배포
 
-Azure Functions [Azure Arc 사용 가능한 Kubernetes](../app-service/overview-arc-integration.md)에 배포할 수 있습니다. 이 프로세스는 주로 [App Service 계획에 대한 배포](#deploy-on-app-service-plan)를 따르며, 몇 가지 차이점이 눈에 띕니다.
+Azure Functions [Azure Arc 사용 가능한 Kubernetes 에](../app-service/overview-arc-integration.md)배포할 수 있습니다. 이 프로세스는 주로 [App Service 계획에 대한 배포](#deploy-on-app-service-plan)를 따르며, 몇 가지 차이점이 눈에 띕니다.
 
 앱 및 계획 리소스를 만들려면 Azure Arc 지원 Kubernetes 클러스터에 대해 이미 [App Service Kubernetes 환경이 만들어져](../app-service/manage-create-arc-environment.md) 있어야 합니다. 이 예에서는 배포하려는 App Service Kubernetes 환경과 사용자 지정 위치의 리소스 ID가 있는 것으로 가정합니다. 대부분의 템플릿에서는 이를 매개 변수로 제공할 수 있습니다.
 

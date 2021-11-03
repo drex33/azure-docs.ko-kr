@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 08/23/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 38a1e264d3febfc114df253a24479d9580c86bb5
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 0d1ba0118360f579b675f4f64d8ecba1b4764ff5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538366"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131425407"
 ---
 # <a name="use-an-azure-free-account-to-try-azure-database-for-postgresql---flexible-server-for-free"></a>Azure 체험 계정으로 Azure Database for PostgreSQL - 유연한 서버를 사용해 보세요.
 
@@ -93,7 +93,7 @@ Azure Database for PostgreSQL - 유연한 서버(미리 보기)는 클라우드�
     
     퍼블릭 액세스를 사용하는 경우 서버에 대한 액세스는 방화벽 규칙에 추가하는 허용된 IP 주소로 제한됩니다. 특정 IP 주소 또는 범위에 대한 방화벽을 여는 규칙을 만들지 않는 한 이 방법은 외부 애플리케이션과 도구에서 서버 및 서버의 모든 데이터베이스에 연결하지 못하도록 방지합니다.
     
-    프라이빗 액세스(VNet 통합)를 사용하는 경우 서버에 대한 액세스는 가상 네트워크로 제한됩니다. 연결 방법에 대한 자세한 내용은 네트워킹 개요를 참조하세요.
+    프라이빗 액세스(VNet 통합)를 사용하는 경우 서버에 대한 액세스는 가상 네트워크로 제한됩니다. 연결 방법에 대 한 자세한 내용은 [**네트워킹 개요를 참조**](https://docs.microsoft.com/azure/postgresql/flexible-server/concepts-networking)하세요.
     
     이 자습서에서는 서버에 연결할 때 퍼블릭 액세스를 사용하도록 설정합니다.
 

@@ -5,12 +5,12 @@ author: dkamstra
 ms.topic: conceptual
 ms.date: 10/18/2021
 ms.author: dukek
-ms.openlocfilehash: 7a2efe5a47e88fd8ad8e9a382d522271d8ab4c3b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: af5742cc4b6c6fc218b1fd5597d5ff2c1e5ef3fd
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131017904"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131440073"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor, Service Health 및 Azure Advisor 경고는 작업 그룹을 사용하여 알림이 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다. 
@@ -159,13 +159,13 @@ Azure 모바일 앱을 구성할 때 계정 ID로 사용하는 메일 주소를 
 > [!NOTE]
 > 고객이 구독에 새 ARM 역할을 추가한 후 알림을 받기 시작하는 데 최대 **24시간** 이 걸릴 수 있습니다.
 
-### <a name="event-hub-preview"></a>이벤트 허브(미리 보기)
+### <a name="event-hub-preview"></a>이벤트 허브 (미리 보기)
 > [!NOTE]
-> 이벤트 허브 작업 유형은 현재 *미리 보기* 에 있습니다. 미리 보기 중에는 기능의 가용성에 버그 및 중단이 있을 수 있습니다.
+> 이벤트 허브 작업 유형은 현재 *미리 보기* 상태입니다. 미리 보기 중에는 버그가 있을 수 있으며 기능 사용이 중단 될 수 있습니다.
 
-이벤트 허브 작업은 Azure Event [Hub](~/articles/event-hubs/event-hubs-about.md)에 알림을 게시합니다. 그런 다음 이벤트 수신기에서 경고 알림 스트림을 구독할 수 있습니다.
+이벤트 허브 작업은 [Azure 이벤트 허브](~/articles/event-hubs/event-hubs-about.md)에 알림을 게시 합니다. 그런 다음 이벤트 수신기에서 경고 알림 스트림을 구독할 수 있습니다.
 
-현재 이벤트 허브 작업은 [Azure Resource Manager 템플릿](./action-groups-create-resource-manager-template.md)을 사용하여 정의할 수 있습니다.
+현재 이벤트 허브 작업은 [Azure Resource Manager 템플릿만](./action-groups-create-resource-manager-template.md)사용 하 여 정의할 수 있습니다.
 
 ### <a name="function"></a>함수
 [Azure Functions](../../azure-functions/functions-get-started.md)에서 기존 HTTP 트리거 엔드포인트를 호출합니다. 요청을 처리하려면 엔드포인트가 HTTP POST 동사를 처리해야 합니다.
@@ -280,7 +280,7 @@ Write-Host $myApp.AppRoles
 작업 그룹에서 SMS 작업의 수가 제한될 수 있습니다.
 
 > [!NOTE]
-> Azure Portal 작업 그룹 사용자 인터페이스에서 국가/지역 코드를 선택할 수 없는 경우 해당 국가/지역에 대해서는 SMS가 지원되지 않는 것입니다.  국가/지역 코드를 사용할 수 없는 경우 [사용자 의견](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice)에서 사용자의 국가/지역이 추가되도록 투표할 수 있습니다. 그동안에는 작업 그룹에서 해당 국가/지역을 지원하는 타사 SMS 공급자에 대한 웹후크를 호출하도록 하여 문제를 해결합니다.  
+> Azure Portal 작업 그룹 사용자 인터페이스에서 국가/지역 코드를 선택할 수 없는 경우 해당 국가/지역에 대해서는 SMS가 지원되지 않는 것입니다.  국가/지역 코드를 사용할 수 없는 경우 [사용자 의견](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0)에서 사용자의 국가/지역이 추가되도록 투표할 수 있습니다. 그동안에는 작업 그룹에서 해당 국가/지역을 지원하는 타사 SMS 공급자에 대한 웹후크를 호출하도록 하여 문제를 해결합니다.  
 
 지원되는 국가/지역에 대한 가격은 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에 나와 있습니다.
 
@@ -333,7 +333,7 @@ Write-Host $myApp.AppRoles
 작업 그룹에서 음성 작업의 수가 제한될 수 있습니다.
 
 > [!NOTE]
-> Azure Portal 작업 그룹 사용자 인터페이스에서 국가/지역 코드를 선택할 수 없는 경우 해당 국가/지역에 대해서는 음성 통화가 지원되지 않는 것입니다. 국가/지역 코드를 사용할 수 없는 경우 [사용자 의견](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice)에서 사용자의 국가/지역이 추가되도록 투표할 수 있습니다.  그동안에는 작업 그룹에서 해당 국가/지역을 지원하는 타사 음성 통화 공급자에 대한 웹후크를 호출하도록 하여 문제를 해결합니다.  
+> Azure Portal 작업 그룹 사용자 인터페이스에서 국가/지역 코드를 선택할 수 없는 경우 해당 국가/지역에 대해서는 음성 통화가 지원되지 않는 것입니다. 국가/지역 코드를 사용할 수 없는 경우 [사용자 의견](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0)에서 사용자의 국가/지역이 추가되도록 투표할 수 있습니다.  그동안에는 작업 그룹에서 해당 국가/지역을 지원하는 타사 음성 통화 공급자에 대한 웹후크를 호출하도록 하여 문제를 해결합니다.  
 > 음성 알림에 대한 Azure Portal 작업 그룹에서 현재 지원되는 유일한 국가 코드는 +1(미국)입니다. 
 
 지원되는 국가/지역에 대한 가격은 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에 나와 있습니다.

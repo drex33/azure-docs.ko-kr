@@ -7,26 +7,30 @@ ms.subservice: extensions
 author: amjads1
 ms.author: amjads
 ms.collection: windows
-ms.date: 06/26/2020
+ms.date: 11/02/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0a7dc06feed0593c616c62dbb8b10fc58cb063b8
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: b34ecc7b2ef83f6f9e3f609163f193825f7cce8b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112280138"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131452113"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Windows용 Log Analytics 가상 머신 확장
 
 Azure Monitor 로그는 클라우드와 온-프레미스 자산 간의 모니터링 기능을 제공합니다. Windows용 Log Analytics 에이전트 가상 머신 확장은 Microsoft에서 게시 및 지원합니다. 확장 버전은 Azure 가상 머신에 Log Analytics 에이전트를 설치하고 기존 Log Analytics 작업 영역에 가상 머신을 등록합니다. 이 문서에서는 지원되는 플랫폼, 구성 및 Windows용 Log Analytics 가상 머신 확장에 대한 배포 옵션을 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+> [!NOTE]
+> Azure Arc 지원 서버를 사용하면 Log Analytics 에이전트 VM 확장을 비 Azure Windows 및 Linux 머신으로 배포, 제거 및 업데이트하여 수명 주기 동안 하이브리드 머신의 관리를 간소화할 수 있습니다. 자세한 내용은 Azure Arc 지원 서버를 사용하여 [VM 확장 관리를 참조하세요.](../../azure-arc/servers/manage-vm-extensions.md)
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="operating-system"></a>운영 체제
 
 지원되는 Windows 운영 체제에 대한 자세한 내용은 [Azure Monitor 에이전트 개요](../../azure-monitor/agents/agents-overview.md#supported-operating-systems) 문서를 참조하세요.
 
 ### <a name="agent-and-vm-extension-version"></a>에이전트 및 VM 확장 버전
+
 다음 표에서는 각 릴리스에서 Log Analytics VM 확장의 각 버전과 Windows Log Analytics 에이전트 번들에 대한 매핑을 제공합니다. 
 
 | Log Analytics Windows 에이전트 번들 버전 | Log Analytics Windows VM 확장 버전 | 출시 날짜 | 릴리스 정보 |
@@ -34,7 +38,7 @@ Azure Monitor 로그는 클라우드와 온-프레미스 자산 간의 모니터
 | 10.20.18053| 1.0.18053.0 | 2020년 10월   | <ul><li>새 에이전트 문제 해결사</li><li>에이전트에서 Azure 서비스에 대한 인증서 변경을 처리하는 방법 업데이트</li></ul> |
 | 10.20.18040 | 1.0.18040.2 | 2020년 8월   | <ul><li>Azure Arc에서 문제 해결</li></ul> |
 | 10.20.18038 | 1.0.18038 | 2020년 4월   | <ul><li>Azure Monitor Private Link 범위를 사용하여 Private Link를 통한 연결 활성화</li><li>작업 영역에 수집에서 갑작스럽고 우발적인 유입을 방지하기 위해 수집 제한을 추가합니다.</li><li>추가 Azure Government 클라우드 및 지역에 대한 지원을 추가합니다.</li><li>HealthService.exe가 충돌하는 버그를 해결합니다.</li></ul> |
-| 10.20.18029 | 1.0.18029 | 2020년 3월   | <ul><li>SHA-2 코드 서명 지원 추가</li><li>VM 확장 설치 및 관리 개선</li><li>서버용 Azure Arc 통합의 버그를 해결합니다.</li><li>고객 지원을 위한 기본 제공 문제 해결 도구 추가</li><li>추가 Azure Government 지역에 대한 지원을 추가합니다.</li> |
+| 10.20.18029 | 1.0.18029 | 2020년 3월   | <ul><li>SHA-2 코드 서명 지원 추가</li><li>VM 확장 설치 및 관리 개선</li><li>Azure Arc 지원 서버 통합을 사용하여 버그를 해결합니다.</li><li>고객 지원을 위한 기본 제공 문제 해결 도구 추가</li><li>추가 Azure Government 지역에 대한 지원을 추가합니다.</li> |
 | 10.20.18018 | 1.0.18018 | 2019년 10월 | <ul><li> 사소한 버그 수정 및 안정화 개선 </li></ul> |
 | 10.20.18011 | 1.0.18011 | 2019년 7월 | <ul><li> 사소한 버그 수정 및 안정화 개선 </li><li> MaxExpressionDepth를 10000으로 증가 </li></ul> |
 | 10.20.18001 | 1.0.18001 | 2019년 6월 | <ul><li> 사소한 버그 수정 및 안정화 개선 </li><li> 프록시 연결을 만들 때 기본 자격 증명을 사용하지 않도록 설정하는 기능 추가(WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH 지원) </li></ul>|
@@ -46,12 +50,12 @@ Azure Monitor 로그는 클라우드와 온-프레미스 자산 간의 모니터
 | 8.0.11072 | 1.0.11072 | 2017년 9월 | |
 | 8.0.11049 | 1.0.11049 | 2017년 2월 | |
 
-
 ### <a name="azure-security-center"></a>Azure Security Center
 
 Azure Security Center는 자동으로 Log Analytics 에이전트를 프로비전하고 Azure 구독의 기본 Log Analytics 작업 영역에 연결합니다. Azure Security Center를 사용하는 경우 이 문서의 단계를 실행하지 마세요. 이렇게 하면 구성된 작업 영역을 덮어쓰고 Azure Security Center와의 연결을 끊습니다.
 
 ### <a name="internet-connectivity"></a>인터넷 연결
+
 Windows용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터넷에 연결되어 있어야 합니다. 
 
 ## <a name="extension-schema"></a>확장 스키마
@@ -81,6 +85,7 @@ Windows용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터�
     }
 }
 ```
+
 ### <a name="property-values"></a>속성 값
 
 | Name | 값/예제 |
@@ -107,7 +112,6 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
 가상 머신 확장에 대한 JSON은 가상 머신 리소스 내에 중첩되거나 루트 또는 최상위 수준의 Resource Manager JSON 템플릿에 배치될 수 있습니다. JSON의 배치는 리소스 이름 및 형식 값에 영향을 줍니다. 자세한 내용은 [자식 리소스의 이름 및 형식 설정](../../azure-resource-manager/templates/child-resource-name-type.md)을 참조하세요. 
 
 다음 예제에서는 Log Analytics 확장이 가상 머신 리소스 내에 중첩되어 있다고 가정합니다. 확장 리소스를 중첩하는 경우 JSON은 가상 머신의 `"resources": []` 개체에 배치됩니다.
-
 
 ```json
 {

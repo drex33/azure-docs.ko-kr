@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: juergent
-ms.openlocfilehash: cf55dc19a78b667056da9ef614ec75f3817b5773
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
-ms.translationtype: HT
+ms.openlocfilehash: 65de72576ac484ea29710baaba9f391bfdcbc7b6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108141202"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131421592"
 ---
 # <a name="installation-of-sap-hana-on-azure-virtual-machines"></a>Azure 가상 머신에 SAP HANA 설치
 ## <a name="introduction"></a>소개
@@ -55,7 +55,7 @@ ms.locfileid: "108141202"
 ## <a name="step-by-step-vm-deployment-and-guest-os-considerations"></a>단계별 VM 배포 및 게스트 OS 고려 사항
 이 단계에서는 VM을 배포하는 단계를 거쳐 HANA를 설치하고 결국 설치 후 선택한 운영 체제를 최적화해야 합니다.
 
-1. Azure 갤러리에서 기본 이미지를 선택합니다. SAP HANA에 대해 고유의 운영 체제 이미지를 빌드하려면 성공적인 SAP HANA 설치에 필요한 다른 모든 패키지를 알아야 합니다. 그렇지 않은 경우 Azure 이미지 갤러리에서 SAP 또는 SAP HANA용 SUSE 및 Red Hat 이미지를 사용하는 것이 좋습니다. 이러한 이미지에는 성공적인 HANA 설치에 필요한 패키지가 포함되어 있습니다. 운영 체제 공급자의 지원 계약에 따라 자체 라이선스를 불러오는 이미지를 선택해야 합니다. 또는 지원이 포함된 OS 이미지를 선택합니다.
+1. Azure 갤러리에서 기본 이미지를 선택합니다. SAP HANA에 대해 고유의 운영 체제 이미지를 빌드하려면 성공적인 SAP HANA 설치에 필요한 다른 모든 패키지를 알아야 합니다. 그렇지 않으면 SAP 용 SUSE 및 Red Hat 이미지를 사용 하거나 갤러리에서 SAP HANA 하는 것이 좋습니다. 이러한 이미지에는 성공적인 HANA 설치에 필요한 패키지가 포함되어 있습니다. 운영 체제 공급자의 지원 계약에 따라 자체 라이선스를 불러오는 이미지를 선택해야 합니다. 또는 지원이 포함된 OS 이미지를 선택합니다.
 2. 자체 라이선스를 가져와야 하는 게스트 OS 이미지를 선택한 경우 구독에 OS 이미지를 등록해야 최신 패치를 다운로드하고 적용할 수 있습니다. 이 단계에서는 공용 인터넷 액세스가 필요합니다. 예를 들어, Azure에서 SMT 서버의 프라이빗 인스턴스를 설정하지 않는 한 말입니다.
 3. VM의 네트워크 구성을 결정합니다. [Azure에서 SAP HANA 인프라 구성 및 작업](./hana-vm-operations.md) 문서에서 자세한 내용을 확인할 수 있습니다. Azure의 가상 네트워크 카드에 할당할 수 있는 네트워크 처리량 할당량은 없습니다. 따라서 다른 vNIC를 통해 트래픽을 전달하는 유일한 목적은 보안 고려 사항을 기반으로 합니다. 여러 vNIC를 통한 트래픽 라우팅의 복잡성과 보안 측면에서 적용되는 요구 사항 간에 지원 가능한 절충을 찾을 수 있습니다.
 3. VM이 배포되고 등록된 후에는 운영 체제에 최신 패치를 적용합니다. 사용자 고유의 구독으로 등록됩니다. 또는 운영 체제 지원을 포함하는 이미지를 선택한 경우 VM은 이미 패치에 액세스할 수 있어야 합니다. 
@@ -66,7 +66,7 @@ ms.locfileid: "108141202"
     - [SAP Support Note #2578899 - SUSE Linux Enterprise Server 15: 설치 노트](https://launchpad.support.sap.com/#/notes/2578899)
     - [SAP Support Note #2002167 - Red Hat Enterprise Linux 7.x: 설치 및 업그레이드](https://launchpad.support.sap.com/#/notes/0002002167)
     - [SAP Support Note #2292690 - SAP HANA DB: RHEL 7에 대한 권장 OS 설정](https://launchpad.support.sap.com/#/notes/0002292690)(영문) 
-    -  [SAP support note #2772999 - Red Hat Enterprise Linux 8.x: 설치 및 구성](https://launchpad.support.sap.com/#/notes/2772999) 
+    -  [SAP 지원 노트 #2772999 - Red Hat Enterprise Linux 8.x: 설치 및 구성](https://launchpad.support.sap.com/#/notes/2772999) 
     -  [SAP Support Note #2777782 - SAP HANA DB: RHEL 8에 대한 권장 OS 설정](https://launchpad.support.sap.com/#/notes/2777782)
     -  [SAP support note #2455582 - Linux: GCC 6.x로 컴파일된 SAP 애플리케이션 실행](https://launchpad.support.sap.com/#/notes/0002455582)
     -  [SAP support note #2382421 - HANA 및 OS 수준에서 네트워크 구성 최적화](https://launchpad.support.sap.com/#/notes/2382421)

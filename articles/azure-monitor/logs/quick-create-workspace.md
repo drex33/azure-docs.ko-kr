@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/18/2021
-ms.openlocfilehash: 01fe7b84596cbf4dba85f44c49488a8347b4cccc
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: 3d9e075e50b4be0a21f4138a49faf8309474ad9c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538834"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131440054"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Azure Portal에서 Log Analytics 작업 영역 만들기
 **Log Analytics 작업 영역** 메뉴를 사용하여 Azure Portal에서 Log Analytics 작업 영역을 만듭니다. Log Analytics 작업 영역은 Azure Monitor 로그 데이터에 대한 고유한 환경입니다. 각 작업 영역에는 자체 데이터 리포지토리 및 구성이 있으며 데이터 원본 및 솔루션은 특정 작업 영역에 데이터를 저장하도록 구성됩니다. 다음 원본에서 데이터를 수집하려는 경우 Log Analytics 작업 영역이 필요합니다.
@@ -41,7 +41,7 @@ Azure Portal에서 **모든 서비스** 를 클릭합니다. 리소스 목록에
         ![Log Analytics 리소스 블레이드 만들기](media/quick-create-workspace/create-workspace.png)  
 
 
-**검토 + 만들기** 를 클릭하여 설정을 검토한 다음, **만들기** 를 클릭하여 작업 영역을 만듭니다. 이렇게 하면 종량제의 기본 가격 책정 계층을 선택하여 충분한 양의 데이터 수집을 시작할 때까지 변경 내용이 발생하지 않습니다. 기타 가격 책정 계층에 대한 자세한 내용은 [Log Analytics 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/log-analytics/)를 참조하세요.
+**검토 + 만들기** 를 클릭하여 설정을 검토한 다음, **만들기** 를 클릭하여 작업 영역을 만듭니다. 그러면 충분한 양의 데이터를 수집하기 시작할 때까지 요금이 발생하지 않는 종량제의 기본 가격 책정 계층이 선택됩니다. 기타 가격 책정 계층에 대한 자세한 내용은 [Log Analytics 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/log-analytics/)를 참조하세요.
 
 
 

@@ -1,6 +1,6 @@
 ---
 title: Kubernetes Service에서 언어 감지 컨테이너 실행
-titleSuffix: Text Analytics -  Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 언어 감지 컨테이너와 실행 샘플을 Azure Kubernetes Service에 배포하고 웹 브라우저에서 테스트합니다.
 services: cognitive-services
 author: aahill
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 10/11/2021
 ms.author: aahi
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 7415070639f4f6dbcee62c33871f4fbdbc64edac
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a60f92f98a23cacfd36e42619008f91285902f9d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131011735"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131476778"
 ---
-# <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Azure Kubernetes Service에 Text Analytics 언어 감지 컨테이너 배포
+# <a name="deploy-a-language-detection-container-to-azure-kubernetes-service"></a>언어 감지 컨테이너를 배포하여 Azure Kubernetes Service
 
 언어 감지 컨테이너를 배포하는 방법을 알아봅니다. 이 절차에서는 로컬 Docker 컨테이너를 만들고, 컨테이너를 고유한 프라이빗 컨테이너 레지스트리로 푸시하고, Kubernetes 클러스터에서 컨테이너를 실행하고, 웹 브라우저에서 테스트하는 방법을 보여 줍니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "131011735"
 * [Docker 엔진](https://www.docker.com/products/docker-engine). 콘솔 창에서 Docker CLI를 가 작동하는지 확인합니다.
 * [kubectl](https://storage.googleapis.com/kubernetes-release/release/v1.13.1/bin/windows/amd64/kubectl.exe).
 * 올바른 가격 책정 계층이 지정된 Azure 리소스. 모든 가격 책정 계층이 이 컨테이너에 작동하는 것은 아닙니다.
-  * F0 또는 표준 가격 책정 계층만 있는 **Text Analytics** 리소스
+  * F0 또는 표준 가격 책정 계층만 있는 **언어** 리소스입니다.
   * S0 가격 책정 계층이 있는 **Cognitive Services** 리소스
 
 ## <a name="running-the-sample"></a>샘플 실행
@@ -310,21 +310,21 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
 
     [!code-yml[Kubernetes orchestration file for the Cognitive Services containers sample](~/samples-cogserv-containers/Kubernetes/language/language.yml "Kubernetes orchestration file for the Cognitive Services containers sample")]
 
-1. 다음 표에 따라 `language.yml`의 언어-프런트 엔드 배포 줄을 변경하여 고유한 컨테이너 레지스트리에 이미지 이름, 클라이언트 비밀 및 텍스트 분석 설정을 추가합니다.
+1. 다음 표에 따라 의 언어 프런트 엔드 배포 줄을 `language.yml` 변경하여 사용자 고유의 컨테이너 레지스트리 이미지 이름, 클라이언트 암호 및 언어 서비스 설정을 추가합니다.
 
     언어-프런트 엔드 배포 설정|목적|
     |--|--|
     |줄 32<br> `image` 속성|Container Registry에 있는 프런트 엔드 이미지의 이미지 위치입니다.<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
     |줄 44<br> `name` 속성|이전 섹션에서 `<client-secret>`으로 나타낸 이미지의 컨테이너 레지스트리 비밀입니다.|
 
-1. 다음 표에 따라 `language.yml`의 언어 배포 줄을 변경하여 고유한 컨테이너 레지스트리에 이미지 이름, 클라이언트 비밀 및 텍스트 분석 설정을 추가합니다.
+1. 다음 표에 따라 의 언어 배포 줄을 `language.yml` 변경하여 사용자 고유의 컨테이너 레지스트리 이미지 이름, 클라이언트 암호 및 언어 서비스 설정을 추가합니다.
 
     |언어 배포 설정|목적|
     |--|--|
     |줄 78<br> `image` 속성|Container Registry에 있는 언어 이미지의 이미지 위치입니다.<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
     |줄 95<br> `name` 속성|이전 섹션에서 `<client-secret>`으로 나타낸 이미지의 컨테이너 레지스트리 비밀입니다.|
-    |줄 91<br> `apiKey` 속성|Text Analytics 리소스 키|
-    |줄 92<br> `billing` 속성|Text Analytics 리소스의 청구 엔드포인트입니다.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
+    |줄 91<br> `apiKey` 속성|언어 서비스 리소스 키|
+    |줄 92<br> `billing` 속성|언어 서비스 리소스에 대한 청구 엔드포인트입니다.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
     **apiKey** 및 **청구 엔드포인트** 는 Kubernetes 오케스트레이션 정의의 일부로 설정되므로 웹 사이트 컨테이너가 이러한 항목을 알아야 하거나 요청의 일부로 전달해야 할 필요가 없습니다. 웹 사이트 컨테이너는 오케스트레이터 이름 `language`로 언어 감지 컨테이너를 나타냅니다.
 
@@ -384,7 +384,7 @@ replicaset.apps/language-frontend-68b9969969   1         1         1         13h
 
 브라우저를 열고 이전 섹션에 나오는 `language` 컨테이너의 외부 IP로 이동합니다. `http://<external-ip>:5000/swagger/index.html` API의 `Try it` 기능을 사용하여 언어 감지 엔드포인트를 테스트합니다.
 
-![컨테이너의 swagger 설명서를 보여 주는 스크린샷](./media/language-detection-container-swagger-documentation.png)
+![컨테이너의 swagger 설명서를 보여주는 스크린샷](./media/language-detection-container-swagger-documentation.png)
 
 ## <a name="test-the-client-application-container"></a>클라이언트 애플리케이션 컨테이너 테스트
 

@@ -9,14 +9,14 @@ ms.subservice: shared-image-gallery
 ms.date: 04/05/2019
 ms.reviewer: akjosh
 ms.custom: akjosh, devx-track-azurecli
-ms.openlocfilehash: b1833fe7c692529649e078e18e17e9333d74bfa6
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 80b04757c228a7402fc6679b42846d68c908a379
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122693205"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131424706"
 ---
-# <a name="share-images-across-tenants-with-shared-image-gallery"></a>Shared Image Gallery를 사용하여 테넌트 간에 이미지 공유
+# <a name="share-images-across-tenants-with-azure-compute-gallery"></a>Azure 계산 갤러리를 사용 하 여 테 넌 트 간에 이미지 공유
 
 **적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 단일 확장 집합
 

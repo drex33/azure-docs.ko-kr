@@ -45,6 +45,8 @@ items:
   - name: 리소스
     expanded: true
     items:
+      - name: 릴리스 정보
+        href: release-notes.md
       - name: FAQ
         href: healthcare-apis-faqs.md
       - name: GitHub 프로젝트

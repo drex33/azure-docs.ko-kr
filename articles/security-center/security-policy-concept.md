@@ -7,13 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/04/2021
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 00d73987acd0e5137913872138d6f78ac18e9bdf
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 7da824610b76a1bfa652db7b6c077f4825acf5d3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131083976"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131425029"
 ---
 # <a name="what-are-security-policies-initiatives-and-recommendations"></a>보안 정책, 이니셔티브 및 권장 사항은 무엇인가요?
 
@@ -38,7 +37,7 @@ Azure Policy 이니셔티브는 특정 목적이나 의도에 맞게 그룹화�
 
 보안 정책과 마찬가지로 클라우드용 Defender 이니셔티브도 Azure Policy 만들어집니다. [Azure Policy](../governance/policy/overview.md)를 사용하여 정책을 관리하고, 이니셔티브를 빌드하고, 이니셔티브를 여러 구독에 할당하거나 전체 관리 그룹용으로 할당할 수 있습니다.
 
-Microsoft Defender for Cloud의 모든 구독에 자동으로 할당되는 기본 이니셔티브는 Azure Security Benchmark입니다. Azure Security Benchmark는 일반적인 규정 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 관해 Microsoft에서 작성한 Azure 관련 지침 세트입니다. 널리 인정받는 이 벤치마크는 클라우드 중심 보안에 초점을 맞춘 [CIS(Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) 및 [NIST(National Institute of Standards and Technology)](https://www.nist.gov/)의 컨트롤을 기반으로 합니다. [Azure 보안 벤치마크](/security/benchmark/azure/introduction)에 대해 자세히 알아보세요.
+클라우드용 Microsoft Defender의 모든 구독에 자동으로 할당되는 기본 이니셔티브는 Azure Security Benchmark입니다. Azure Security Benchmark는 일반적인 규정 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 관해 Microsoft에서 작성한 Azure 관련 지침 세트입니다. 널리 인정받는 이 벤치마크는 클라우드 중심 보안에 초점을 맞춘 [CIS(Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) 및 [NIST(National Institute of Standards and Technology)](https://www.nist.gov/)의 컨트롤을 기반으로 합니다. [Azure 보안 벤치마크](/security/benchmark/azure/introduction)에 대해 자세히 알아보세요.
 
 Defender for Cloud는 보안 이니셔티브 및 정책을 사용할 수 있는 다음 옵션을 제공합니다.
 
@@ -78,7 +77,7 @@ Defender for Cloud는 선택한 이니셔티브에 따라 보안 권장 사항�
 
 ## <a name="viewing-the-relationship-between-a-recommendation-and-a-policy"></a>권장 사항과 정책 간 관계 보기
 
-위에서 설명한 것처럼 Cloud용 Defender의 기본 제공 권장 사항은 Azure 보안 벤치마크를 기반으로 합니다. 거의 모든 권장 사항에는 벤치마크의 요구 사항에서 파생되는 기본 정책이 있습니다.
+위에서 설명한 대로 Cloud용 Defender의 기본 제공 권장 사항은 Azure 보안 벤치마크를 기반으로 합니다. 거의 모든 권장 사항에는 벤치마크의 요구 사항에서 파생되는 기본 정책이 있습니다.
 
 권장 사항에 대한 세부 정보를 검토할 때 기본 정책을 볼 수 있으면 도움이 되는 경우가 많습니다. 정책에서 지원하는 모든 권장 사항에 대해 권장 사항 세부 정보 페이지의 **정책 정의 보기** 링크를 사용하여 관련 정책의 Azure Policy 항목으로 직접 이동합니다.
 

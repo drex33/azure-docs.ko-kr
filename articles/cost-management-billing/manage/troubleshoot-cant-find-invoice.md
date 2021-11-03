@@ -2,20 +2,20 @@
 title: Azure Portal에서 청구서를 볼 때 문제 해결
 description: Azure Portal에서 송장을 보려고 할 때 발생 하는 문제 해결
 services: cost-management-billing
-author: amberbhargava
-ms.reviewer: banders
+author: bandersmsft
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.date: 06/25/2021
 ms.author: banders
-ms.openlocfilehash: aac769894a85db94c68bc4c73971809775ea4da4
-ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
-ms.translationtype: HT
+ms.openlocfilehash: 6f90d077b9cb7e1836170084c683e47cdafc480e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112971341"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131464683"
 ---
 # <a name="troubleshoot-issues-while-trying-to-view-invoice-in-the-azure-portal"></a>Azure Portal에서 송장을 보려고 할 때 발생 하는 문제 해결
 

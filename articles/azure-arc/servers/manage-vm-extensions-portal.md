@@ -3,12 +3,12 @@ title: Azure Portal에서 VM 확장 사용
 description: 이 문서에서는 Azure Portal을 통해 하이브리드 클라우드 환경에서 실행되는 Azure Arc 지원 서버에 가상 머신 확장을 배포하는 방법을 설명합니다.
 ms.date: 10/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: d6ecbbc57237192f68b9949ab960fb36cda64c81
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: b3bb6e6b6dcb70dc229dc01a02d04cf195c89700
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130069599"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423910"
 ---
 # <a name="enable-azure-vm-extensions-from-the-azure-portal"></a>Azure Portal에서 Azure VM 확장을 사용하도록 설정
 
@@ -89,7 +89,7 @@ Azure Portal에서 Azure Arc 사용 서버에 대 한 VM 확장 목록을 가져
 
     :::image type="content" source="media/manage-vm-extensions-portal/vm-extensions-update-selected.png" alt-text="선택한 확장 업데이트" border="true":::
 
-## <a name="uninstall-extensions"></a>확장 제거
+## <a name="remove-extensions"></a>확장 제거
 
 Azure Portal에서 Azure Arc 사용 서버에서 하나 이상의 확장을 제거할 수 있습니다. 확장을 제거하려면 다음 단계를 수행합니다.
 

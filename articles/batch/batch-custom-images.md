@@ -3,25 +3,25 @@ title: 사용자 지정 이미지를 사용하여 사용자 지정 이미지 풀
 description: 관리 이미지 리소스에서 Batch 풀을 만들어 애플리케이션의 소프트웨어 및 데이터를 사용하여 컴퓨팅 노드를 프로비저닝합니다.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 9baa65c0f1c1844ea10e3d5b4f0b48924912d233
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 9e70d3391ca9c8d4854c4cd587ffb6e840ef4254
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023880"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131476892"
 ---
 # <a name="use-a-managed-image-to-create-a-custom-image-pool"></a>사용자 지정 이미지를 사용하여 사용자 지정 이미지 풀 만들기
 
-Batch 풀의 가상 머신(VM)에 대한 사용자 지정 이미지를 만들려면, 관리 이미지를 사용하여 [Shared Image Gallery 이미지](batch-sig-images.md)를 만들면 됩니다. 관리형 이미지만 사용하는 것도 지원되지만 2019-08-01 이하의 API 버전에 대해서만 지원됩니다.
+Batch 풀의 VM(가상 머신)에 대한 사용자 지정 이미지 풀을 만들려면 관리형 이미지를 사용하여 [Azure Compute 갤러리 이미지를](batch-sig-images.md)만들 수 있습니다. 관리형 이미지만 사용하는 것도 지원되지만 2019-08-01 이하의 API 버전에 대해서만 지원됩니다.
 
 > [!IMPORTANT]
-> 대부분의 경우 Shared Image Gallery를 사용하여 사용자 지정 이미지를 만들어야 합니다. Shared Image Gallery를 사용하면 풀을 더 빠르게 프로비저닝하고, 더 많은 수의 VM을 확장하고, VM을 프로비저닝할 때 안정성을 개선할 수 있습니다. 자세히 알아보려면 [Shared Image Gallery를 사용하여 사용자 지정 풀 만들기](batch-sig-images.md)를 참조하세요.
+> 대부분의 경우 Azure Compute 갤러리를 사용하여 사용자 지정 이미지를 만들어야 합니다. Azure Compute 갤러리를 사용하면 풀을 더 빠르게 프로비전하고, 더 많은 수의 VM을 확장하고, VM을 프로비전할 때 안정성을 개선할 수 있습니다. 자세한 내용은 [Azure Compute 갤러리를 사용하여 사용자 지정 풀 만들기를 참조하세요.](batch-sig-images.md)
 
 이 토픽에서는 관리된 이미지만 사용하여 사용자 지정 이미지 풀을 만드는 방법을 설명합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- **관리되는 이미지 리소스**. 사용자 지정 이미지를 사용하여 가상 머신 풀을 만들려면 Batch 계정과 동일한 Azure 구독 및 지역에 관리되는 이미지 리소스가 있거나 해당 리소스를 만들어야 합니다. VM OS 디스크 및 연결된 데이터 디스크(선택 사항)의 스냅샷에서 이미지를 만들어야 합니다.
+- **관리되는 이미지 리소스**. 사용자 지정 이미지를 사용하여 가상 머신 풀을 만들려면 Batch 계정과 동일한 Azure 구독 및 지역에 관리되는 이미지 리소스가 있거나 해당 리소스를 만들어야 합니다. 이미지는 VM 운영 체제(OS) 디스크의 스냅샷 및 필요에 따라 연결된 데이터 디스크에서 만들어야 합니다.
   - 작성하는 각 풀에 대해 고유한 사용자 지정 이미지를 사용합니다.
   - Batch API를 사용하여 이미지로 풀을 만들려면 이미지의 **리소스 ID** 를 지정합니다. 리소스 ID의 형식은 다음과 같습니다. `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`
   - 관리되는 이미지 리소스는 강화에 사용할 수 있도록 풀 수명 동안 유지되어야 하며, 풀을 삭제한 후에 제거할 수 있습니다.
@@ -54,7 +54,7 @@ Azure의 다음에서 관리형 이미지를 준비할 수 있습니다.
 
 ### <a name="create-a-vm-snapshot"></a>VM 스냅샷 만들기
 
-스냅샷은 VHD의 전체 읽기 전용 복사본입니다. VM OS 또는 데이터 디스크의 스냅샷을 만들려는 경우 Azure Portal 또는 명령줄 도구를 사용할 수 있습니다. 스냅샷을 만드는 단계와 옵션은 [Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md) 또는 [Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md) VM용 지침을 참조하세요.
+스냅샷은 VHD의 전체 읽기 전용 복사본입니다. VM OS 또는 데이터 디스크의 스냅샷을 만들려면 Azure Portal 또는 명령줄 도구를 사용할 수 있습니다. 스냅샷을 만드는 단계 및 옵션은 VM에 대한 지침을 [참조하세요.](../virtual-machines/snapshot-copy-managed-disk.md)
 
 ### <a name="create-an-image-from-one-or-more-snapshots"></a>스냅샷 하나 이상에서 이미지 만들기
 
@@ -141,7 +141,7 @@ REST API URI
 
   풀에 컴퓨팅 노드를 300개보다 많이 포함하려는 경우에는 풀이 대상 크기에 도달하도록 크기를 여러 번 조정해야 할 수 있습니다.
   
-[Shared Image Gallery](batch-sig-images.md)를 사용하면 더 많은 공유 이미지 복제본과 함께 사용자 지정된 이미지를 사용하여 더 큰 풀을 만들 수 있습니다. 공유 이미지를 사용하는 경우 풀이 안정된 상태에 도달하는 데 걸리는 시간은 최대 25% 더 빠르며, VM 유휴 대기 시간은 최대 30% 더 짧습니다.
+[Azure Compute 갤러리를](batch-sig-images.md)사용하면 더 많은 공유 이미지 복제본과 함께 사용자 지정된 이미지를 사용하여 더 큰 풀을 만들 수 있습니다. 공유 이미지를 사용하는 경우 풀이 안정된 상태에 도달하는 데 걸리는 시간은 최대 25% 더 빠르며, VM 유휴 대기 시간은 최대 30% 더 짧습니다.
 
 ## <a name="considerations-for-using-packer"></a>Packer 사용을 위한 고려 사항
 
@@ -155,5 +155,5 @@ Packer를 사용하여 VM을 만드는 방법에 대한 자세한 내용은 [Pac
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Shared Image Gallery](batch-sig-images.md)를 사용하여 사용자 지정 풀을 만드는 방법을 알아봅니다.
+- [Azure Compute 갤러리를](batch-sig-images.md) 사용하여 사용자 지정 풀을 만드는 방법을 알아봅니다.
 - Batch에 대한 자세한 개요는 [Batch 서비스 워크플로 및 리소스](batch-service-workflow-features.md)를 참조하세요.

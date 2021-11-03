@@ -7,13 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/04/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: a48f95c3bedd291a3639f7aabc97eb92c25d735f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2516d95ddf8a74ce11239666b647ee2a666422dd
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131010406"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131453215"
 ---
 # <a name="apply-azure-security-baselines-to-machines"></a>컴퓨터에 Azure 보안 기준 적용
 
@@ -51,9 +50,9 @@ Azure Security Benchmark에는 OS 강화에 대한 지침이 있으며, 이로 �
 
 컴퓨터를 OS 보안 기준과 비교하려면 다음을 수행합니다.
  
-1. Defender for Cloud 포털 페이지에서 **권장 사항** 페이지를 엽니다. 
+1. Defender for Cloud의 포털 페이지에서 **권장 사항** 페이지를 엽니다. 
 1. 관련 권장 사항을 선택합니다.
-    - **Windows** 컴퓨터의 경우 Windows 컴퓨터의 보안 구성 취약성을 [수정해야 합니다(게스트 구성에서 구동).](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1f655fb7-63ca-4980-91a3-56dbc2b715c6)
+    - **Windows** 컴퓨터의 경우 Windows 컴퓨터의 보안 구성 취약성을 [수정해야 합니다(게스트 구성으로 구동).](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1f655fb7-63ca-4980-91a3-56dbc2b715c6)
     - **Linux 머신의** 경우 [Linux 머신의 보안 구성 취약성을 수정해야 합니다(게스트 구성에서 구동).](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/8c3d9ad0-3639-4686-9cd2-2b2ab2609bda)
 
     :::image type="content" source="media/apply-security-baseline/recommendations-baseline.png" alt-text="머신의 OS 구성을 관련 Azure 보안 기준과 비교하기 위한 두 가지 권장 사항입니다." lightbox="media/apply-security-baseline/recommendations-baseline.png":::
@@ -81,7 +80,7 @@ Azure Security Benchmark에는 OS 강화에 대한 지침이 있으며, 이로 �
 
 ### <a name="how-do-i-deploy-the-prerequisites-for-the-security-configuration-recommendations"></a>보안 구성 권장 사항에 대한 필수 구성 어떻게 할까요? 배포해야 합니까?
 
-필수 구성으로 게스트 구성 확장을 배포하려면 다음을 수행합니다.
+필수 구성 조건으로 게스트 구성 확장을 배포하려면 다음을 수행합니다.
 
 - 선택한 컴퓨터의 경우 보안 모범 사례 구현 보안 컨트롤에서 **컴퓨터에 게스트 구성 확장을 설치해야 한다는** 보안 권장 **사항을** 따릅니다.
 
@@ -94,10 +93,10 @@ Azure Security Benchmark에는 OS 강화에 대한 지침이 있으며, 이로 �
 
 | 이유                                                            | 세부 정보                                                                                                                                                                        |
 |-------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **컴퓨터에서 사용할 수 있는 검사 데이터 없음**                         | Azure Resource Graph 이 머신에 대한 규정 준수 결과가 없습니다. 모든 준수 결과는 게스트 구성 확장에서 Graph Azure Resource에 기록됩니다. Azure Policy 게스트 구성 - 샘플 ARG 쿼리의 샘플 쿼리를 사용하여 Azure Resource Graph 데이터를 확인할 수 [있습니다.](../governance/policy/samples/resource-graph-samples.md?tabs=azure-cli#azure-policy-guest-configuration)|
+| **컴퓨터에서 사용할 수 있는 검사 데이터가 없음**                         | Azure Resource Graph 이 머신에 대한 규정 준수 결과가 없습니다. 모든 준수 결과는 게스트 구성 확장에서 Graph Azure Resource에 기록됩니다. Azure Policy 게스트 구성 - [샘플 ARG](../governance/policy/samples/resource-graph-samples.md?tabs=azure-cli#azure-policy-guest-configuration)쿼리의 샘플 쿼리를 사용하여 Azure Resource Graph 데이터를 확인할 수 있습니다.|
 | **게스트 구성 확장이 컴퓨터에 설치되어 있지 않습니다.** | 컴퓨터에 게스트 구성 확장이 없습니다. 이 확장은 Azure 보안 기준 준수를 평가하기 위한 필수 조건입니다.                               |
 | **시스템 관리 ID가 컴퓨터에 구성되지 않음**      | 시스템이 할당한 관리 ID를 컴퓨터에 배포해야 합니다.                                                                                                           |
-| **권장 사항은 정책에서 사용하지 않도록 설정됩니다.**                      | OS 기준을 평가하는 정책 정의는 관련 머신을 포함하는 범위에서 비활성화됩니다.                                                               |
+| **권장 사항은 정책에서 사용하지 않도록 설정됩니다.**                      | OS 기준을 평가하는 정책 정의는 관련 머신을 포함하는 범위에서 사용하지 않도록 설정됩니다.                                                               |
 |                                                                   |                                                                                                                                                                                |
 
 ## <a name="next-steps"></a>다음 단계

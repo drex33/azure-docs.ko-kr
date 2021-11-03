@@ -1,18 +1,19 @@
 ---
 title: REST API로 Azure 구독 청구 데이터 검토
 description: Azure REST API를 사용하여 구독 청구 세부 정보를 검토하는 방법을 살펴봅니다. 필터를 사용하여 결과를 사용자 지정할 수 있습니다.
-author: lleonard-msft
+author: bandersmsft
+ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: article
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 42f9482316e2cc229f7e0fed18f647c14b3dcd45
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2a21f304daf3dc10660c0566770c9ce48f22b9e8
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128634960"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131464721"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Azure REST API를 사용하여 구독 청구 검토
 

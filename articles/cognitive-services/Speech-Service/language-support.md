@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: pafarley
 ms.custom: references_regions, ignite-fall-2021
-ms.openlocfilehash: 84841dff43fa827a942eee28cb9cbcc1499e1fcc
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d928efd38475b9d37425a0415e7a4825e78ce4d6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131011810"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131465025"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
-언어 지원은 Speech Service 기능에 따라 달라 집니다. 다음 표에는 음성 텍스트 변환, [텍스트](#text-to-speech)음성 변환, [음성](#speech-to-text)번역 및 [Speaker Recognition](#speaker-recognition) 서비스 제공에 대한 [언어](#speech-translation) 지원이 요약되어 있습니다.
+언어 지원은 Speech Service 기능에 따라 달라 집니다. 다음 표에서는 [음성 텍스트](#speech-to-text), [텍스트 음성](#text-to-speech)변환, [음성 번역](#speech-translation) 및 [Speaker Recognition](#speaker-recognition) 서비스 제공에 대 한 언어 지원을 요약 합니다.
 
 ## <a name="speech-to-text"></a>음성 텍스트 변환
 
@@ -98,7 +98,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | 아일랜드어(아일랜드)                    | `ga-IE` | 텍스트<br>발음                  |                           |                          |
 | 이탈리아어(이탈리아)                    | `it-IT` | 오디오(20201016)<br>텍스트<br>발음|      예                     |                          |
 | 일본어(일본)                   | `ja-JP` | 텍스트                                   |      예                     |                          |
-| 카나다어 (인도)                   | `kn-IN` | 텍스트                                   |                           |                          |
+| 카나다어(인도)                   | `kn-IN` | 텍스트                                   |                           |                          |
 | 한국어(한국)                     | `ko-KR` | 오디오(20201015)<br>텍스트                 |      예                     |                          |
 | 라트비아어(라트비아)                   | `lv-LV` | 텍스트<br>발음                  |                           |                          |
 | 리투아니아어(리투아니아)             | `lt-LT` | 텍스트<br>발음                  |                           |                          |
@@ -193,14 +193,14 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 아랍어(튀니지) | ar-TN | Male | `ar-TN-HediNeural` <sup>새로 생성</sup>  | 일반 |
 | 아랍어(아랍에미리트) | ar-AE | Female | `ar-AE-FatimaNeural` <sup>새로 생성</sup>  | 일반 |
 | 아랍어(아랍에미리트) | ar-AE | Male | `ar-AE-HamdanNeural` <sup>새로 생성</sup>  | 일반 |
-| 아랍어(예멘) | ar-YE | Female | `ar-YE-MaryamNeural` <sup>새로 생성</sup>  | 일반 |
-| 아랍어(예멘) | ar-YE | Male | `ar-YE-SalehNeural` <sup>새로 생성</sup>  | 일반 |
+| 아랍어(예멘) | ar | Female | `ar-YE-MaryamNeural` <sup>새로 생성</sup>  | 일반 |
+| 아랍어(예멘) | ar | Male | `ar-YE-SalehNeural` <sup>새로 생성</sup>  | 일반 |
 | 벵골어(방글라데시) | bn-BD | Female | `bn-BD-NabanitaNeural` <sup>새로 생성</sup>  | 일반 |
 | 벵골어(방글라데시) | bn-BD | Male | `bn-BD-PradeepNeural` <sup>새로 생성</sup>  | 일반 |
 | 불가리아어(불가리아) | `bg-BG` | Female | `bg-BG-KalinaNeural` | 일반 |
 | 불가리아어(불가리아) | `bg-BG` | Male | `bg-BG-BorislavNeural` | 일반 |
-| 버마어어어(대만어) | my-MM | Female | `my-MM-NilarNeural` <sup>새로 생성</sup>  | 일반 |
-| 버마어어어(대만어) | my-MM | Male | `my-MM-ThihaNeural` <sup>새로 생성</sup>  | 일반 |
+| Barmština (미얀마) | 내-MM | Female | `my-MM-NilarNeural` <sup>새로 생성</sup>  | 일반 |
+| Barmština (미얀마) | 내-MM | Male | `my-MM-ThihaNeural` <sup>새로 생성</sup>  | 일반 |
 | 카탈로니아어(스페인) | `ca-ES` | Female | `ca-ES-AlbaNeural` | 일반 |
 | 카탈로니아어(스페인) | `ca-ES` | Female | `ca-ES-JoanaNeural` | 일반 |
 | 카탈로니아어(스페인) | `ca-ES` | Male | `ca-ES-EnricNeural` | 일반 |
@@ -400,21 +400,21 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 스페인어(미국) | `es-US` | Male | `es-US-AlonsoNeural` | 일반 |
 | 스페인어(베네수엘라) | es-VE | Female | `es-VE-PaolaNeural` <sup>새로 생성</sup>  | 일반 |
 | 스페인어(베네수엘라) | es-VE | Male | `es-VE-SebastianNeural` <sup>새로 생성</sup>  | 일반 |
-| 순다 문자 (인도네시아) | su ID | Female | `su-ID-TutiNeural` <sup>새로 생성</sup>  | 일반 |
-| 순다 문자 (인도네시아) | su ID | Male | `su-ID-JajangNeural` <sup>새로 생성</sup>  | 일반 |
+| 순다어어(대만어) | su-ID | Female | `su-ID-TutiNeural` <sup>새로 생성</sup>  | 일반 |
+| 순다어어(대만어) | su-ID | Male | `su-ID-JajangNeural` <sup>새로 생성</sup>  | 일반 |
 | 스와힐리어(케냐) | `sw-KE` | Female | `sw-KE-ZuriNeural` | 일반 |
 | 스와힐리어(케냐) | `sw-KE` | Male | `sw-KE-RafikiNeural` | 일반 |
-| 스와힐리어 (탄자니아) | sw-TZ | Female | `sw-TZ-RehemaNeural` <sup>새로 생성</sup>  | 일반 |
-| 스와힐리어 (탄자니아) | sw-TZ | Male | `sw-TZ-DaudiNeural` <sup>새로 생성</sup>  | 일반 |
+| 스와힐리(스웨덴) | sw-TZ | Female | `sw-TZ-RehemaNeural` <sup>새로 생성</sup>  | 일반 |
+| 스와힐리(스웨덴) | sw-TZ | Male | `sw-TZ-DaudiNeural` <sup>새로 생성</sup>  | 일반 |
 | 스웨덴어(스웨덴) | `sv-SE` | Female | `sv-SE-HilleviNeural` | 일반 |
 | 스웨덴어(스웨덴) | `sv-SE` | Female | `sv-SE-SofieNeural` | 일반 |
 | 스웨덴어(스웨덴) | `sv-SE` | Male | `sv-SE-MattiasNeural` | 일반 |
 | 타밀어(인도) | `ta-IN` | Female | `ta-IN-PallaviNeural` | 일반 |
 | 타밀어(인도) | `ta-IN` | Male | `ta-IN-ValluvarNeural` | 일반 |
-| 타밀어 (싱가포르) | ta-SG | Female | `ta-SG-VenbaNeural` <sup>새로 생성</sup>  | 일반 |
-| 타밀어 (싱가포르) | ta-SG | Male | `ta-SG-AnbuNeural` <sup>새로 생성</sup>  | 일반 |
-| 타밀어 (스리랑카) | ta-LK | Female | `ta-LK-SaranyaNeural` <sup>새로 생성</sup>  | 일반 |
-| 타밀어 (스리랑카) | ta-LK | Male | `ta-LK-KumarNeural` <sup>새로 생성</sup>  | 일반 |
+| 타밀어(싱가포르) | ta-SG | Female | `ta-SG-VenbaNeural` <sup>새로 생성</sup>  | 일반 |
+| 타밀어(싱가포르) | ta-SG | Male | `ta-SG-AnbuNeural` <sup>새로 생성</sup>  | 일반 |
+| 타밀어(스리루) | ta-LK | Female | `ta-LK-SaranyaNeural` <sup>새로 생성</sup>  | 일반 |
+| 타밀어(스리루) | ta-LK | Male | `ta-LK-KumarNeural` <sup>새로 생성</sup>  | 일반 |
 | 텔루구어(인도) | `te-IN` | Female | `te-IN-ShrutiNeural` | 일반 |
 | 텔루구어(인도) | `te-IN` | Male | `te-IN-MohanNeural` | 일반 |
 | 태국어(태국) | `th-TH` | Female | `th-TH-AcharaNeural` | 일반 |
@@ -424,8 +424,8 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 터키어(터키) | `tr-TR` | Male | `tr-TR-AhmetNeural` | 일반 |
 | 우크라이나어(우크라이나) | `uk-UA` | Female | `uk-UA-PolinaNeural` | 일반 | 
 | 우크라이나어(우크라이나) | `uk-UA` | Male | `uk-UA-OstapNeural` | 일반 | 
-| Urdu(인도) | your-IN | Female | `ur-IN-GulNeural` <sup>새로 생성</sup>  | 일반 |
-| Urdu(인도) | your-IN | Male | `ur-IN-SalmanNeural` <sup>새로 생성</sup>  | 일반 |
+| 우르두어(인도) | your-IN | Female | `ur-IN-GulNeural` <sup>새로 생성</sup>  | 일반 |
+| 우르두어(인도) | your-IN | Male | `ur-IN-SalmanNeural` <sup>새로 생성</sup>  | 일반 |
 | 우르두어(파키스탄) | `ur-PK` | Female | `ur-PK-UzmaNeural`  | 일반 | 
 | 우르두어(파키스탄) | `ur-PK` | Male | `ur-PK-AsadNeural` | 일반 | 
 | 푸즈베크어(푸즈벤치) | uz-UZ | Female | `uz-UZ-MadinaNeural` <sup>새로 생성</sup>  | 일반 |
@@ -483,7 +483,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 
 | 언어 | 로캘(BCP-47) | 성별 | 음성 이름 |
 |--|--|--|--|
-| 아랍어(아랍) | `ar-EG` | Female | `ar-EG-Hoda`|
+| 아랍어(이집트) | `ar-EG` | Female | `ar-EG-Hoda`|
 | 아랍어(사우디아라비아) | `ar-SA` | Male | `ar-SA-Naayf`|
 | 불가리아어(불가리아) | `bg-BG` | Male | `bg-BG-Ivan`|
 | 카탈로니아어(스페인) | `ca-ES` | Female | `ca-ES-HerenaRUS`|
@@ -576,25 +576,36 @@ Custom Voice는 인공신경망 계층(즉, 사용자 지정 신경망 음성)�
 
 | 언어 | Locale | 신경 | 교차 다국어 |
 |--|--|--|--|
-| 불가리아어(불가리아)| `bg-BG` | 예 | 아니요 |
+| 아랍어(이집트) | `ar-EG` | 예 | 아니요 |
+| 불가리아어(불가리아) | `bg-BG` | 예 | 아니요 |
 | 중국어(북경어, 간체) | `zh-CN` | 예 | 예 |
 | 중국어(북경어, 간체), 영어 이중 언어 | `zh-CN` 이중 언어 | 예 | 예 |
-| 네덜란드어(네덜란드)   | `nl-NL` | 예 | 아니요 |
+| 중국어(대만어) | `zh-TW` | 예 | 아니요 |
+| 체코어(체코) | `cs-CZ` | 예 | 아니요 |
+| 네덜란드어(네덜란드) | `nl-NL` | 예 | 아니요 |
 | 영어(오스트레일리아) | `en-AU` | 예 | 예 |
+| 영어(캐나다) | `en-CA` | 예 | 아니요 |
 | 영어(인도) | `en-IN` | 예 | 아니요 |
+| 영어(아일랜드) | `en-IE` | 예 | 아니요 |
 | 영어(영국) | `en-GB` | 예 | 예 |
 | 영어(미국) | `en-US` | 예 | 예 |
 | 프랑스어(캐나다) | `fr-CA` | 예 | 예 |
 | 프랑스어(프랑스) | `fr-FR` | 예 | 예 |
+| 독일어(오스트리아) | `de-AT` | 예 | 아니요 |
 | 독일어(독일) | `de-DE` | 예 | 예 |
+| 헝가리어(헝가리) | `hu-HU` | 예 | 아니요 |
 | 이탈리아어(이탈리아) | `it-IT` | 예 | 예 |
 | 일본어(일본) | `ja-JP` | 예 | 예 |
 | 한국어(한국) | `ko-KR` | 예 | 예 |
 | 노르웨이어(복말)(노르웨이) | `nb-NO` | 예 | 아니요 |
 | 포르투갈어(브라질) | `pt-BR` | 예 | 예 |
+| 포르투갈어(포르투갈) | `pt-PT` | 예 | 아니요 |
 | 러시아어(러시아) | `ru-RU` | 예 | 예 |
+| 슬로바키아어(슬로바키아) | `sk-SK` | 예 | 아니요 |
 | 스페인어(멕시코) | `es-MX` | 예 | 예 |
 | 스페인어(스페인) | `es-ES` | 예 | 예 |
+| 터키어(터키) | `tr-TR` | 예 | 아니요 |
+| 베트남어(베트남) | `vi-VN` | 예 | 아니요 |
 
 사용자 지정 음성 모델을 학습하는 데 사용할 학습 데이터와 일치하는 올바른 로캘을 선택합니다. 예를 들어, 보유하고 있는 기록 데이터가 영국식 영어로 말하는 경우 `en-GB`를 선택합니다.
 
@@ -603,7 +614,7 @@ Custom Voice는 인공신경망 계층(즉, 사용자 지정 신경망 음성)�
 
 ## <a name="speech-translation"></a>음성 번역
 
-**Speech Translation** API는 음성 간 음성 및 음성을 텍스트로 번역에 대해 다른 언어를 지원합니다. 원본 언어는 항상 음성 텍스트 변환 언어 테이블에 나와 있는 것이어야 합니다. 사용 가능한 대상 언어는 번역 대상이 음성인지 또는 텍스트인지에 따라 달라집니다. 들어오는 음성을  [지원 되는 언어](https://www.microsoft.com/translator/business/languages/)중 하나로 변환할 수 있습니다. [음성 합성](language-support.md#text-languages)에 언어의 하위 집합을 사용할 수 있습니다.
+**Speech Translation** API는 음성 간 음성 및 음성을 텍스트로 번역에 대해 다른 언어를 지원합니다. 원본 언어는 항상 음성 텍스트 변환 언어 테이블에 나와 있는 것이어야 합니다. 사용 가능한 대상 언어는 번역 대상이 음성인지 또는 텍스트인지에 따라 달라집니다. 들어오는 음성을  [지원되는 언어](https://www.microsoft.com/translator/business/languages/)로 번역할 수 있습니다. [음성 합성](language-support.md#text-languages)에 언어의 하위 집합을 사용할 수 있습니다.
 
 ### <a name="text-languages"></a>텍스트 언어
 
@@ -703,7 +714,7 @@ Custom Voice는 인공신경망 계층(즉, 사용자 지정 신경망 음성)�
 
 ## <a name="speaker-recognition"></a>Speaker Recognition
 
-화자 인식은 대부분 언어에 구애받지 않습니다. 여러 언어의 다양한 데이터 원본을 결합하여 텍스트 독립적 화자 인식을 위한 유니버설 모델을 빌드했습니다. 다음 표에 표시되는 언어 및 로케일에 대한 모델을 조정하고 평가했습니다. Speaker Recognition에 대한 자세한 내용은 [개요](speaker-recognition-overview.md)를 참조하세요.
+스피커 인식은 주로 언어 독립적입니다. 여러 언어의 다양 한 데이터 원본을 결합 하 여 텍스트 독립적인 스피커 인식을 위한 범용 모델을 빌드 했습니다. 다음 표에 표시 되는 언어와 로캘에서 모델을 조정 하 고 평가 했습니다. Speaker Recognition에 대한 자세한 내용은 [개요](speaker-recognition-overview.md)를 참조하세요.
 
 | 언어 | 로캘(BCP-47) | 텍스트 종속 확인 | 텍스트 독립 확인 | 텍스트 독립 식별 |
 |----|----|----|----|----|

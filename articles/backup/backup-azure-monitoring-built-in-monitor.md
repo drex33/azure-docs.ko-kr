@@ -2,14 +2,17 @@
 title: Azure Backup 보호된 워크로드 모니터링
 description: 이 문서에서는 Azure Portal을 사용하여 Azure Backup 워크로드의 모니터링 및 알림 기능에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 08/06/2021
+ms.date: 11/02/2021
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: f3d353f7d42baf1f9cc968cb37baac1077a35085
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: afc23090ce15621542ec6035c67d36b85a3414c1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129231675"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131439791"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Azure Backup 워크로드 모니터링
 
@@ -19,20 +22,20 @@ Azure Backup은 백업 요구 사항 및 인프라 토폴로지를 기준으로 
 
 ## <a name="backup-items-in-recovery-services-vault"></a>Recovery Services 자격 증명 모음의 백업 항목
 
-Recovery Services 자격 증명 모음을 통해 모든 백업 항목을 모니터링할 수 있습니다. 자격 증명 모음의 **백업 항목** 섹션으로 이동하면 자격 증명 모음과 연결된 각 워크로드 유형의 백업 항목 수를 제공하는 보기가 열립니다. 행을 클릭하면 지정된 워크로드 유형의 모든 백업 항목과 각 항목에 대한 마지막 백업 상태에 대한 정보, 사용 가능한 최근 복원 지점 등을 나열하는 상세 보기가 열립니다.
+Recovery Services 자격 증명 모음을 통해 모든 백업 항목을 모니터링할 수 있습니다. **Backup 센터의** **Backup 인스턴스** 섹션으로 이동하면 각 항목의 마지막 백업 상태, 사용 가능한 최신 복원 지점 등에 대한 정보와 함께 지정된 작업 유형의 모든 백업 항목에 대한 자세한 목록을 제공하는 보기가 열립니다.
 
-![RS 자격 증명 모음 백업 항목을 보여 주는 스크린샷](media/backup-azure-monitoring-laworkspace/backup-items-view.png)
+:::image type="content" source="./media/backup-azure-monitoring-laworkspace/backup-center-instances-inline.png" alt-text="Recovery Services 자격 증명 모음 백업 항목을 보는 스크린샷." lightbox="./media/backup-azure-monitoring-laworkspace/backup-center-instances-expanded.png":::
 
-> [!NOTE]
-> DPM을 사용하여 Azure에 백업된 항목의 경우 목록에 DPM 서버를 사용하여 보호된 모든 데이터 원본(디스크 및 온라인)이 표시됩니다. 백업 데이터가 보존되는 데이터 원본에 대한 보호가 중지된 경우에도 데이터 원본은 포털에 계속 나열됩니다. 데이터 원본의 세부 정보로 이동하여 복구 지점이 디스크, 온라인 또는 둘 다에 있는지를 확인할 수 있습니다. 또한 온라인 보호가 중지되었지만 데이터가 유지되는 데이터 원본의 경우 데이터가 완전히 삭제될 때까지 온라인 복구 지점에 대한 비용 청구는 계속됩니다.
+>[!NOTE]
+>DPM을 사용하여 Azure에 백업된 항목의 경우 DPM 서버를 사용하여 보호된 모든 데이터 원본(디스크 및 온라인)이 목록에 표시됩니다. 백업 데이터가 보존되는 데이터 원본에 대한 보호가 중지된 경우에도 데이터 원본은 포털에 계속 나열됩니다. 데이터 원본의 세부 정보로 이동하여 복구 지점이 디스크, 온라인 또는 둘 다에 있는지를 확인할 수 있습니다. 또한 온라인 보호가 중지되었지만 데이터가 유지되는 데이터 원본의 경우 데이터가 완전히 삭제될 때까지 온라인 복구 지점에 대한 비용 청구는 계속됩니다.
 >
 > 백업 항목이 Recovery Services 자격 증명 모음 포털에 표시되려면 DPM 버전이 DPM 1807(5.1.378.0) 또는 DPM 2019(버전 10.19.58.0 이상)이어야 합니다.
 
-## <a name="backup-jobs-in-recovery-services-vault"></a>Recovery Services 자격 증명 모음의 백업 작업
+## <a name="backup-jobs-in-backup-center"></a>백업 센터의 백업 작업
 
-Azure Backup은 Azure Backup으로 보호되는 워크로드에 대한 기본 제공 모니터링 및 경고 기능을 제공합니다. Recovery Services 자격 증명 모음 설정에서 **모니터링** 섹션은 기본 제공 작업 및 경고를 제공합니다.
+Azure Backup은 Azure Backup으로 보호되는 워크로드에 대한 기본 제공 모니터링 및 경고 기능을 제공합니다. **Backup 센터의** **백업 작업** 창으로 이동하면 자격 증명 모음에서 최근 백업 및 복원 작업을 볼 수 있습니다.
 
-![RS 자격 증명 모음 기본 제공 모니터링을 보여 주는 스크린샷](media/backup-azure-monitoring-laworkspace/rs-vault-inbuilt-monitoring-menu.png)
+:::image type="content" source="./media/backup-azure-monitoring-laworkspace/backup-center-jobs-inline.png" alt-text="Recovery Services 자격 증명 모음 기본 제공 모니터링을 보여주는 스크린샷." lightbox="./media/backup-azure-monitoring-laworkspace/backup-center-jobs-expanded.png":::
 
 작업(job)은 백업 구성, 백업, 복원, 삭제 등의 작업(operation)을 수행하는 경우에 생성됩니다.
 
@@ -141,16 +144,16 @@ SQL 및 SAP HANA 같은 Azure 워크로드 백업 솔루션의 경우 로그 백
 
 ### <a name="turning-on-azure-monitor-alerts-for-job-failure-scenarios"></a>Azure Monitor의 작업 실패 시나리오에 대한 경고 설정
 
-백업 실패 및 복원 실패 시나리오에 대한 Azure Monitor 경고를 옵트인하려면 아래 단계를 따르세요.
+백업 실패 및 복원 실패 시나리오에 대 한 Azure Monitor 경고를 옵트인 하려면 아래 단계를 수행 합니다.
 
 1. Azure Portal로 이동하여 **미리 보기 기능** 을 검색합니다.
 
     ![포털에서 미리 보기 기능을 보기 위한 스크린샷](media/backup-azure-monitoring-laworkspace/portal-preview-features.png)
 
-2. 옵트인할 수 있는 모든 미리 보기 기능 목록을 볼 수 있습니다.
+2. 옵트인 (opt in) 할 수 있는 모든 미리 보기 기능 목록을 볼 수 있습니다.
 
     * Recovery Services 자격 증명 모음에 백업된 워크로드에 대한 작업 실패 알림을 받으려면 Microsoft.RecoveryServices 공급자(3열)에 해당하는 **EnableAzureBackupJobFailureAlertsToAzureMonitor** 라는 플래그를 선택합니다.
-    * Backup 자격 증명 모음에 백업된 워크로드에 대한 작업 실패 알림을 받으려면 Microsoft.DataProtection 공급자(3열)에 해당하는 **EnableAzureBackupJobFailureAlertsToAzureMonitor** 라는 플래그를 선택합니다.
+    * 백업 자격 증명 모음에 백업 된 작업에 대 한 작업 실패 경고를 받으려는 경우 **EnableAzureBackupJobFailureAlertsToAzureMonitor** 보호 공급자 (열 3)에 해당 하는 플래그를 선택 합니다.
 
     ![경고 미리 보기 등록 스크린샷](media/backup-azure-monitoring-laworkspace/alert-preview-feature-flags.png)
 
@@ -158,13 +161,13 @@ SQL 및 SAP HANA 같은 Azure 워크로드 백업 솔루션의 경우 로그 백
     > [!NOTE]
     > 등록이 적용되려면 최대 24시간이 걸릴 수 있습니다. 여러 구독에 대해 이 기능을 사용으로 설정하려면 화면 상단에서 관련 구독을 선택하여 위의 프로세스를 반복합니다. 경고를 계속 수신하려면 초기 등록 후 새 리소스가 구독에 생성된 경우 미리 보기 플래그를 다시 등록하는 것이 좋습니다.
 
-4. 또한 기능 등록 정보가 예상대로 Azure Backup 서비스와 동기화되도록 리소스 공급자를 등록하는 것이 좋습니다. 리소스 공급자를 등록하려면 기능 플래그를 등록한 구독에서 다음 PowerShell 명령을 실행합니다.
+4. 모범 사례로, 기능 등록 정보가 예상 대로 Azure Backup 서비스와 동기화 되도록 리소스 공급자를 등록 하는 것이 좋습니다. 리소스 공급자를 등록 하려면 기능 플래그를 등록 한 구독에서 다음 PowerShell 명령을 실행 합니다.
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace <ProviderNamespace>
 ```
 
-Recovery Services 자격 증명 모음에 대한 경고를 받으려면 _ProviderNamespace_ 매개 변수에 _Microsoft.RecoveryServices_ 값을 사용합니다. Backup 자격 증명 모음에 대한 경고를 받으려면 _Microsoft.DataProtection_ 값을 사용합니다.
+Recovery Services 자격 증명 모음에 대 한 경고를 받으려면 _Providernamespace_ 매개 변수에 대해 _Microsoft recoveryservices_ 값을 사용 합니다. 백업 자격 증명 모음에 대 한 경고를 받으려면 _Microsoft DataProtection_ 값을 사용 합니다.
 
 ### <a name="viewing-fired-alerts-in-the-azure-portal"></a>Azure Portal에서 발생된 경고 보기 
 
@@ -173,7 +176,7 @@ Recovery Services 자격 증명 모음에 대한 경고를 받으려면 _Provide
 * **데이터 원본 경고**: 백업 중인 특정 데이터 원본에 연결된 경고(예: VM 백업 또는 복원 실패, 데이터베이스의 백업 데이터 삭제 등)가 **데이터 원본 경고** 섹션 아래에 표시됩니다.
 * **전체 경고**: 특정 데이터 원본에 연결되지 않은 경고(예: 자격 증명 모음의 일시 삭제 기능을 사용하지 않게 설정)는 **글로벌 경고** 섹션에 나타납니다.
 
-위의 각 경고 유형은 **보안** 및 **구성** 경고로 구분됩니다. 현재 보안 경고에는 백업 데이터를 삭제하거나 자격 증명 모음의 일시 삭제를 사용하지 않게 설정하는 시나리오가 포함됩니다(위 섹션에 자세히 설명된 해당 워크로드의 경우). 구성된 경고에는 백업 실패 및 복원 실패가 포함됩니다. 해당 경고는 미리 보기 포털에 기능을 등록한 후에만 발생하기 때문입니다.
+위의 각 경고 유형은 **보안** 및 **구성 된** 경고를 추가로 분할 합니다. 현재 보안 경고에는 백업 데이터를 삭제하거나 자격 증명 모음의 일시 삭제를 사용하지 않게 설정하는 시나리오가 포함됩니다(위 섹션에 자세히 설명된 해당 워크로드의 경우). 구성된 경고에는 백업 실패 및 복원 실패가 포함됩니다. 해당 경고는 미리 보기 포털에 기능을 등록한 후에만 발생하기 때문입니다.
 
 ![백업 센터에서 경고를 보여 주는 스크린샷](media/backup-azure-monitoring-laworkspace/backup-center-azure-monitor-alerts.png)
 

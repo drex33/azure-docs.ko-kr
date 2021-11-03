@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 5/21/2021
-ms.openlocfilehash: ff038a585d1c11c318c3d3225ef6cc45a8865659
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: e66940b74110e5870acfffb255e7de4942ad1b71
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113088551"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131453405"
 ---
 # <a name="commonly-encountered-errors-during-or-post-migration-to-azure-database-for-mysql"></a>Azure Database for MySQL로 마이그레이션하는 동안 또는 마이그레이션 후에 일반적으로 발생하는 오류
 
@@ -127,4 +127,4 @@ Azure Database for MySQL 서버를 만들면 서버를 만드는 동안 최종 �
 * [Microsoft Q&A 질문 페이지](/answers/topics/azure-database-mysql.html) 또는 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql)에 질문을 게시합니다.
 * Azure Database for MySQL 팀 [@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)에 이메일을 보냅니다. 이 이메일 주소는 기술 지원 별칭이 아닙니다.
 * Azure 지원에 문의하여 [Azure Portal에서 티켓을 제출](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요. 계정 관련 문제를 해결하려면 Azure Portal에서 [지원 요청](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출합니다.
-* 피드백을 제공하거나 새 기능을 요청하려면 [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql)를 통해 항목을 만드세요.
+* 피드백을 제공하거나 새 기능을 요청하려면 [UserVoice](https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da0)를 통해 항목을 만드세요.

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2021
 ms.author: duau
-ms.openlocfilehash: ed47d310f418936b84c505fcf254947a67f0eb6d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3bae55a4a5b2a2b6ec5ae8ce7c63fb52b96fbd9f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124824394"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131464189"
 ---
 # <a name="troubleshooting-common-routing-problems"></a>일반적인 라우팅 문제 해결
 
@@ -45,11 +45,27 @@ ms.locfileid: "124824394"
 * Azure Front Door를 통해 요청을 보내고 503 응답이 표시되는지 확인합니다. 그렇지 않은 경우에는 시간 제한 문제가 아닐 수 있습니다. 지원에 문의
 * 요청이 Azure Front Door 503 오류 응답 코드가 발생하는 경우 Azure Front Door 대한 **보내기/받기 시간 제한(초)**  설정을 구성합니다. 기본 시간 제한은 최대 4분(240초)으로 연장할 수 있습니다. Front Door *디자이너로* 가서 설정 선택하여 설정을 구성할 수 **있습니다.**
 
-    :::image type="content" source=".\media\troubleshoot-route-issues\send-receive-timeout.png" alt-text="Front Door 디자이너의 송/수신 시간 제한 필드 스크린샷.":::
+    :::image type="content" source=".\media\troubleshoot-route-issues\send-receive-timeout.png" alt-text="Front Door 디자이너의 전송/수신 시간 제한 필드 스크린샷.":::
 
-* 시간 제한으로 문제가 해결되지 않으면 Fiddler 또는 브라우저의 개발자 도구와 같은 도구를 사용하여 클라이언트가 Accept-Encoding 헤더를 사용하여 바이트 범위 요청을 보내는지 확인하여 원본이 다른 콘텐츠 길이로 응답하도록 합니다. 그렇다면 원본/Azure Front Door 압축을 사용하지 않도록 설정하거나 바이트 범위 요청에 대한 요청에서 제거하는 규칙 집합 규칙을 만들 수 `accept-encoding` 있습니다.
+* 시간 제한으로 문제가 해결되지 않으면 Fiddler 또는 브라우저의 개발자 도구와 같은 도구를 사용하여 클라이언트가 Accept-Encoding 헤더를 사용하여 바이트 범위 요청을 보내는지 확인하여 원본이 다른 콘텐츠 길이로 응답하도록 합니다. 그렇다면 원본/Azure Front Door 압축을 사용하지 않도록 설정하거나 바이트 범위 요청에 대한 요청에서 제거할 규칙 집합 규칙을 만들 수 `accept-encoding` 있습니다.
 
     :::image type="content" source=".\media\troubleshoot-route-issues\remove-encoding-rule.png" alt-text="규칙 엔진의 수락 인코딩 규칙 스크린샷.":::
+
+## <a name="https-traffic-to-backend-fails"></a>백 엔드에 대한 HTTPS 트래픽 실패
+
+### <a name="symptom"></a>증상
+
+백 엔드 리소스에 대한 HTTPS 트래픽이 실패합니다.
+
+### <a name="cause"></a>원인
+
+* 주체 이름을 가진 인증서가 TLS 핸드셰이크 중에 백 엔드 호스트 이름과 일치하지 않습니다.
+* 백 엔드 호스팅 인증서가 유효한 CA에서 온 것이 아닙니다.
+
+### <a name="troubleshooting-steps"></a>문제 해결 단계
+
+* 규정 준수 관점에서는 권장되지 않지만 Front Door 대한 인증서 주체 이름 확인을 사용하지 않도록 하여 이 오류를 해결할 수 있습니다. 해당 설정은 Azure Portal의 설정 및 API의 BackendPoolsSettings 아래에 있습니다.
+* 유효한 인증 [기관의](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT) 인증서만 백 엔드에서 Front Door 사용할 수 있습니다. 내부 CA 또는 자체 서명된 인증서의 인증서는 허용되지 않습니다. 인증서에는 리프 및 중간 인증서가 있는 완전한 인증서 체인이 있어야 하며 루트 CA는 [Microsoft 신뢰할 수 있는 CA 목록](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT)의 일부여야 합니다.
 
 ## <a name="requests-sent-to-the-custom-domain-return-a-400-status-code"></a>사용자 지정 도메인에 전송된 요청이 400 상태 코드를 반환합니다.
 

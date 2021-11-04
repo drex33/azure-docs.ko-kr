@@ -5,14 +5,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 10/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 08201fafa3f69803e15a02c1535159101a1ecfea
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5c6782c3b4644607f292587beafccb86fd7b8119
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128660997"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057802"
 ---
 # <a name="create-certificates-for-your-azure-stack-edge-pro-gpu-using-azure-stack-hub-readiness-checker-tool"></a>Azure Stack 허브 준비 검사기 도구를 사용하여 Azure Stack Edge Pro GPU용 인증서 만들기 
 
@@ -128,7 +128,7 @@ CA(인증 기관)에서 가져오는 인증서 파일은 Azure Stack Edge Pro �
 
 - 인증서를 가져오려면 [Azure Stack Edge Pro 디바이스에 액세스하는 클라이언트에서 인증서 가져오기](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device)의 단계를 수행합니다.
 
-- 인증서를 내보내려면 [Azure Stack Edge Pro 디바이스에 액세스하는 클라이언트에서 인증서 내보내기](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device)의 단계를 수행합니다.
+- 인증서를 내보내려면 [Azure Stack Edge Pro 디바이스에 액세스하는 클라이언트에서 인증서 내보내기](azure-stack-edge-gpu-prepare-certificates-device-upload.md#export-certificates-as-pfx-format-with-private-key)의 단계를 수행합니다.
 
 
 ## <a name="validate-certificates"></a>인증서 유효성 검사

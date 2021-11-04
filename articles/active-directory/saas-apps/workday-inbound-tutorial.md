@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: eb6f3c6a1463e2a3b71057145a6df770ea880b9d
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: b32978b3674217ce2b4b91cd031989c6478dedd0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108181169"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040060"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Workday 구성
 
@@ -137,8 +137,8 @@ Workday에서 Active Directory로 사용자 프로비저닝을 수행하도록 �
    * 통합에 적합한 보안 그룹 유형을 선택하려면 Workday 통합 파트너에게 문의하세요.
    * 그룹 유형을 알고 있으면 드롭다운에서 **통합 시스템 보안 그룹(비제한형)** 또는 **통합 시스템 보안 그룹(제한형)** 을 선택합니다 **.**
 
-     > [!div class="mx-imgBorder&quot;]
-     >![보안 그룹 만들기](./media/workday-inbound-tutorial/wd_isu_04.png &quot;보안 그룹 만들기")
+     > [!div class="mx-imgBorder"]
+     >![보안 그룹 만들기](./media/workday-inbound-tutorial/wd_isu_04.png "보안 그룹 만들기")
 
 3. 보안 그룹 생성이 완료되면 멤버를 보안 그룹에 할당할 수 있는 페이지가 표시됩니다. 이전 단계에서 만든 새 통합 시스템 사용자를 이 보안 그룹에 추가합니다. ‘제한형’ 보안 그룹을 사용하는 경우 적절한 조직 범위도 선택해야 합니다.
 
@@ -501,7 +501,7 @@ Workday 프로비저닝 앱 구성이 완료되고 [주문형 프로비저닝](.
 
 #### <a name="how-do-i-suggest-improvements-or-request-new-features-related-to-workday-and-azure-ad-integration"></a>Workday 및 Azure AD 통합에 관련된 개선 사항을 제안하거나 새로운 기능을 요청하려면 어떻게 할까요?
 
-사용자 의견은 향후 릴리스 및 개선 사항의 방향을 설정하는 데 도움이 되므로 매우 중요합니다. 의견이 있으시면 언제든 보내주세요. [Azure AD 사용자 의견 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)에서 아이디어나 개선 사항 제안을 제출하실 것을 권장합니다. Workday 통합에 관련된 특정 사용자 의견을 보려면 ‘SaaS 애플리케이션’ 범주를 선택하고 *Workday* 키워드로 검색하여 Workday와 관련된 기존 사용자 의견을 찾습니다.
+사용자 의견은 향후 릴리스 및 개선 사항의 방향을 설정하는 데 도움이 되므로 매우 중요합니다. 의견이 있으시면 언제든 보내주세요. [Azure AD 사용자 의견 포럼](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)에서 아이디어나 개선 사항 제안을 제출하실 것을 권장합니다. Workday 통합에 관련된 특정 사용자 의견을 보려면 ‘SaaS 애플리케이션’ 범주를 선택하고 *Workday* 키워드로 검색하여 Workday와 관련된 기존 사용자 의견을 찾습니다.
 
 > [!div class="mx-imgBorder"]
 > ![UserVoice SaaS 앱](media/workday-inbound-tutorial/uservoice_saas_apps.png)
@@ -683,17 +683,18 @@ Microsoft Graph API를 사용하여 Workday 사용자 프로비저닝 구성을 
 
 * 위의 예제를 확장하여 Workday에서 가져온 도시 이름을 약어 값으로 변환한 다음, 이 값을 사용하여 *Smith, John(CHI)* 또는 *Doe, Jane(NYC)* 과 같은 표시 이름을 빌드한다고 가정하겠습니다. 이러한 결과는 Workday *Municipality* 특성이 결정자 변수로 포함된 Switch 식을 사용하여 얻을 수 있습니다.
 
-     ```
-    Switch
-    (
-      [Municipality],
-      Join(", ", [PreferredLastName], [PreferredFirstName]),  
-           "Chicago", Append(Join(", ",[PreferredLastName], [PreferredFirstName]), "(CHI)"),
-           "New York", Append(Join(", ",[PreferredLastName], [PreferredFirstName]), "(NYC)"),
-           "Phoenix", Append(Join(", ",[PreferredLastName], [PreferredFirstName]), "(PHX)")
-    )
-     ```
-    참고 항목:
+  ```
+  Switch
+  (
+    [Municipality],
+    Join(", ", [PreferredLastName], [PreferredFirstName]),  
+         "Chicago", Append(Join(", ",[PreferredLastName], [PreferredFirstName]), "(CHI)"),
+         "New York", Append(Join(", ",[PreferredLastName], [PreferredFirstName]), "(NYC)"),
+         "Phoenix", Append(Join(", ",[PreferredLastName], [PreferredFirstName]), "(PHX)")
+  )
+  ```
+
+  참고 항목:
   * [Switch 함수 구문](../app-provisioning/functions-for-customizing-application-data.md#switch)
   * [Join 함수 구문](../app-provisioning/functions-for-customizing-application-data.md#join)
   * [Append 함수 구문](../app-provisioning/functions-for-customizing-application-data.md#append)

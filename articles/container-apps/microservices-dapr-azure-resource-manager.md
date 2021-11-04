@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/25/2021
 ms.author: aawislan
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 6ff879747c888536243b2aebf68cf7651498b62b
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 3e27ba920f47a7033871d8ccdf227341d2400816
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131446527"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131102881"
 ---
 # <a name="tutorial-deploy-a-dapr-application-to-azure-container-apps-using-an-arm-template"></a>자습서: ARM 템플릿을 사용 하 여 Azure Container Apps에 Eapr 응용 프로그램 배포
 
@@ -131,22 +131,6 @@ az extension add \
 ```azurecli
 az extension add `
   --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl 
-```
-
----
-
-확장이 설치 되었으므로 `Microsoft.Web` 네임 스페이스를 등록 합니다.
-
-# <a name="bash"></a>[Bash](#tab/bash)
-
-```azurecli
-az provider register --namespace Microsoft.Web
-```
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-```powershell
-az provider register --namespace Microsoft.Web
 ```
 
 ---
@@ -538,11 +522,11 @@ Azure Storage 계정의 데이터를 검토 하 여 서비스가 올바르게 �
 
 1. 왼쪽에서 **컨테이너** 를 선택 합니다.
 
-1. **mycontainer** 를 선택합니다.
+1. **Mycontainer** 를 선택 합니다.
 
-1. 컨테이너에 라는 파일이 `order` 표시되는지 확인합니다.
+1. 컨테이너에서 이름이 지정 된 파일을 볼 수 있는지 확인 합니다 `order` .
 
-1. 파일을 클릭합니다.
+1. 파일을 클릭 합니다.
 
 1. **편집** 탭을 클릭합니다.
 
@@ -550,7 +534,7 @@ Azure Storage 계정의 데이터를 검토 하 여 서비스가 올바르게 �
 
 ### <a name="view-logs"></a>로그 보기
 
-컨테이너 앱을 통해 기록된 데이터는 `ContainerAppConsoleLogs_CL` Log Analytics 작업 영역의 사용자 지정 테이블에 저장됩니다. Azure Portal 또는 CLI를 통해 로그를 볼 수 있습니다. 기록된 데이터를 쿼리하기 전에 분석이 처음으로 도착할 때까지 몇 분 정도 기다려야 할 수 있습니다.
+컨테이너 앱을 통해 기록된 데이터는 `ContainerAppConsoleLogs_CL` Log Analytics 작업 영역의 사용자 지정 테이블에 저장됩니다. Azure Portal 또는 CLI를 통해 로그를 볼 수 있습니다.
 
 다음 CLI 명령을 사용하여 명령줄에서 로그를 봅니다.
 
@@ -591,7 +575,7 @@ nodeapp               Got a new order! Order ID: 63    PrimaryResult  2021-10-22
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-완료되면 다음 명령을 실행하여 리소스 그룹을 삭제하여 Container App 리소스를 정리합니다.
+완료되면 다음 명령을 실행하여 컨테이너 앱 리소스를 정리하여 리소스 그룹을 삭제합니다.
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
@@ -612,7 +596,7 @@ az group delete `
 이 명령은 컨테이너 앱, 스토리지 계정, 컨테이너 앱 환경 및 리소스 그룹의 다른 리소스를 모두 삭제합니다.
 
 > [!NOTE]
-> `pythonapp`구성된 상태 저장소에 유지되는 메시지를 사용하여 를 지속적으로 호출하기 `nodeapp` 때문에 지속적인 청구 가능 작업을 방지하기 위해 이러한 정리 단계를 완료하는 것이 중요합니다.
+> `pythonapp`구성된 상태 저장소에 유지되는 메시지를 사용하여 를 지속적으로 호출하기 때문에 `nodeapp` 지속적인 청구 가능 작업을 방지하려면 이러한 정리 단계를 완료하는 것이 중요합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

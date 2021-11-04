@@ -7,12 +7,12 @@ metadata:
   ms.service: cache
   ms.topic: conceptual
   ms.date: 04/29/2019
-  ms.openlocfilehash: 1aaaf3adfa9a2c7ab1059454044d8386d48d00a4
-  ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+  ms.openlocfilehash: ed5cc61a437cbaeccdf379a467755afb64e5b2e5
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/05/2021
-  ms.locfileid: "129538469"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131440206"
 title: Azure Cache for Redis FAQ
 summary: >
   Azure Cache for Redis에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 알아봅니다.
@@ -56,6 +56,6 @@ sections:
 
       * [Azure 캐시에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-cache-redis.html)에 질문을 게시하면 Azure 캐시 팀 및 커뮤니티의 다른 구성원이 참여할 수 있습니다.
 
-      * 기능을 요청하려면 [Azure Cache for Redis 사용자 의견](https://feedback.azure.com/forums/169382-cache)에 요청 및 아이디어를 제출하면 됩니다.
+      * 기능을 요청하려면 [Azure Cache for Redis 사용자 의견](https://feedback.azure.com/d365community/forum/a96a82f3-0c25-ec11-b6e6-000d3a4f07b8)에 요청 및 아이디어를 제출하면 됩니다.
 
       * 궁금한 내용은 [azurecache@microsoft.com](mailto:azurecache@microsoft.com)으로 보내주실 수도 있습니다.

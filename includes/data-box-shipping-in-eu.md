@@ -3,22 +3,22 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: include
-ms.date: 10/21/2021
+ms.date: 10/22/2021
 ms.author: alkohli
-ms.openlocfilehash: bd845eef3e2f41bc9f14303430e3e44ab68c1b68
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 20476e26d9120b883fcc577d68f5e8455ee88988
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130247297"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131005581"
 ---
 유럽에서 디바이스를 반송하는 경우 다음 단계를 수행합니다.
 
 1. 디바이스의 전원이 꺼져 있고 케이블이 분리되었는지 확인합니다.
 2. 디바이스와 함께 제공된 전원 코드를 디바이스 뒷면에 스풀링하고 안전하게 고정합니다.
-3. 배송 레이블이 E-ink 디스플레이에 표시되는지 확인하고 운송업체에 픽업을 예약합니다. 레이블이 손상 또는 손실되었거나 E-ink 디스플레이에 표시되지 않으면 Microsoft 지원에 문의하세요. 고객 지원팀에서 제안하는 경우 Azure Portal에서 **개요 > 배송 레이블 다운로드** 로 차례로 이동합니다. 배송 레이블을 다운로드하여 디바이스에 부착합니다.
+3. 배송 레이블이 E-ink 디스플레이에 표시되는지 확인하고 운송업체에 픽업을 예약합니다. 레이블이 손상 또는 손실되었거나 E-ink 디스플레이에 표시되지 않으면 [Microsoft 지원에 문의](..\articles\databox\data-box-disk-contact-microsoft-support.md)하세요. 고객 지원팀에서 제안하는 경우에만 Azure Portal에서 **개요 > 포장용 레이블 다운로드** 로 차례로 이동합니다. 배송 레이블을 다운로드하여 디바이스에 부착합니다.
 1. **독일 또는 스위스에서 배송하는 경우** Azure 데이터 센터에는 모든 디바이스 반환에 대한 사전 알림이 필요합니다.
-    1. 다음 템플릿을 사용하여 Azure Data Box 작업에 이메일을 보내 인바운드 ID를 받습니다. [adbops@microsoft.com](mailto:adbops@microsoft.com)에 이메일을 보냅니다.
+    1. 인바운드 ID를 받으려면 [adbops@microsoft.com](mailto:adbops@microsoft.com)으로 Azure Data Box Operations에 이메일을 보내세요. [adbops@microsoft.com](mailto:adbops@microsoft.com)에 이메일을 보냅니다. 다음 템플릿을 사용합니다.
 
        ```
        To: adbops@microsoft.com

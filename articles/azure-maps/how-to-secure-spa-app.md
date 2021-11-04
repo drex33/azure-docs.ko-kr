@@ -2,19 +2,19 @@
 title: Microsoft Azure Maps에서 비 대화형 로그인을 사용하여 단일 페이지 웹 애플리케이션을 보호하는 방법
 titleSuffix: Azure Maps
 description: 비대화형 Azure RBAC(Azure 역할 기반 액세스 제어) 및 Azure Maps Web SDK를 사용하여 단일 페이지 웹 애플리케이션을 구성하는 방법입니다.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 06/21/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ms.custom: devx-track-js, subject-rbac-steps
-ms.openlocfilehash: 9bf18a9122bbe8406b76cfd822cc2a5a86339a52
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 8f3249cec073e7a1fd6fdabd6a7af24ce5a2c2d2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642248"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443588"
 ---
 # <a name="how-to-secure-a-single-page-web-application-with-non-interactive-sign-in"></a>비대화형 로그인을 사용하여 단일 페이지 웹 애플리케이션을 보호하는 방법
 
@@ -68,11 +68,11 @@ Azure AD에 대한 인증을 담당하는 보안 웹 서비스 애플리케이�
    1. [함수 액세스 키 만들기](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#authorization-keys)
    1. 프로덕션 환경에서 Azure 함수에 대한 [HTTP 엔드포인트를 보호](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production)합니다.
 
-7. 웹 애플리케이션 Azure Maps Web SDK를 구성합니다. 
+7. 웹 애플리케이션 Azure Maps Web SDK를 구성합니다.
 
     ```javascript
     //URL to custom endpoint to fetch Access token
-    var url = 'https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>';
+    var url = 'https://{App-Name}.azurewebsites.net/api/{Function-Name}?code={API-Key}';
 
     var map = new atlas.Map('myMap', {
                 center: [-122.33, 47.6],

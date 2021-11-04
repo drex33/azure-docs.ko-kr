@@ -1,7 +1,7 @@
 ---
 title: Blob 리하이드레이션 이벤트에 대한 응답으로 Azure 함수 실행
 titleSuffix: Azure Storage
-description: .NET을 사용하여 Azure Function을 개발한 다음, 보관 계층에서 Blob을 리하이드레이션할 때 발생하는 이벤트에 대응하여 함수를 실행하도록 Azure Event Grid를 구성하는 방법을 알아봅니다.
+description: .NET을 사용하여 Azure 함수를 개발한 다음, 보관 계층에서 Blob을 리하딩할 때 발생하는 이벤트에 대한 응답으로 함수를 실행하도록 Azure Event Grid 구성하는 방법을 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,22 +10,22 @@ ms.date: 10/25/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 2385bfead10efc82e0a1f3c8f0f02f1cd8d9f2f4
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: beaf5e72c74e066a0fc517d12100cb1703928b71
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131019270"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441517"
 ---
 # <a name="run-an-azure-function-in-response-to-a-blob-rehydration-event"></a>Blob 리하이드레이션 이벤트에 대한 응답으로 Azure 함수 실행
 
-보관 계층에 있는 blob을 읽으려면 먼저 blob을 핫 또는 쿨 계층으로 리하이드레이션합니다. 리하이드레이션 프로세스를 완료하는 데 몇 시간이 걸릴 수 있습니다. 리하이드레이션 작업의 상태를 반복적으로 폴링하는 대신, Blob 리하이드레이션 작업이 완료되면 이벤트를 실행하고 애플리케이션에서 이 이벤트를 처리하도록 [Azure Event Grid](../../event-grid/overview.md)를 구성할 수 있습니다.
+보관 계층에 있는 Blob을 읽으려면 먼저 Blob을 핫 또는 쿨 계층으로 리하딩해야 합니다. 리하이드레이션 프로세스를 완료하는 데 몇 시간이 걸릴 수 있습니다. 리하이드레이션 작업의 상태를 반복적으로 폴링하는 대신, Blob 리하이드레이션 작업이 완료되면 이벤트를 실행하고 애플리케이션에서 이 이벤트를 처리하도록 [Azure Event Grid](../../event-grid/overview.md)를 구성할 수 있습니다.
 
 이벤트가 발생하면 Event Grid에서 엔드포인트를 통해 이벤트 처리기에 이벤트를 보냅니다. [Azure Functions](../../azure-functions/functions-overview.md)를 비롯한 여러 Azure 서비스가 이벤트 처리기 역할을 할 수 있습니다. Azure Function은 이벤트에 대한 응답으로 실행할 수 있는 코드 블록입니다. 이 방법에서는 Azure Function을 개발한 다음, Blob이 리하이드레이션될 때 발생하는 이벤트에 대한 응답으로 함수를 실행하도록 Event Grid를 구성하는 프로세스를 안내합니다.
 
 이 문서에서는 Visual Studio에서 .NET을 사용하여 Azure Function을 만들고 테스트하는 방법을 보여 줍니다. 다양한 로컬 개발 환경에서 다양한 프로그래밍 언어를 사용하여 Azure Functions를 빌드할 수 있습니다. Azure Functions에 지원되는 언어에 대한 자세한 내용은 [Azure Functions에서 지원되는 언어](../../azure-functions/supported-languages.md)를 참조하세요. Azure Functions의 개발 옵션에 대한 자세한 내용은 [로컬에서 Azure Functions 코딩 및 테스트](../../azure-functions/functions-develop-local.md)를 참조하세요.
 
-보관 계층에서 Blob 리하이드레이션하는 데 관한 자세한 내용은 [보관 계층에서 Blob 리하이드레이션 개요](archive-rehydrate-overview.md)를 참조하세요.
+보관 계층에서 Blob 리하우전에 대한 자세한 내용은 보관 [계층의 Blob 리하이드레이션 개요를 참조하세요.](archive-rehydrate-overview.md)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -253,17 +253,17 @@ Azure Function에서 코드를 변경할 때마다 업데이트된 함수를 Azu
 
 이제 이벤트에 대한 응답으로 실행할 수 있는 Azure Function이 포함된 함수 앱이 있습니다. 다음 단계에서는 스토리지 계정에서 이벤트 구독을 만듭니다. 이벤트 구독에서는 스토리지 계정의 Blob에 대한 작업에 응답하여 Event Grid를 통해 이벤트를 게시하도록 스토리지 계정을 구성합니다. 그런 다음 Event Grid는 사용자가 지정한 이벤트 처리기 엔드포인트로 이벤트를 보냅니다. 이 경우 이벤트 처리기는 이전 섹션에서 만든 Azure Function입니다.
 
-이벤트 구독을 만들 때 이벤트 처리기로 전송되는 이벤트를 필터링할 수 있습니다. 보관 계층에서 Blob을 리하우전할 때 캡처할 이벤트는 **Microsoft.Storage. BlobTierChanged**- [Blob 계층 설정](/rest/api/storageservices/set-blob-tier) 작업에 해당하며 **Microsoft.Storage. Blob Blob** 복사 작업에 해당하는 [BlobCreated](/rest/api/storageservices/copy-blob) 이벤트입니다. 시나리오에 따라 해당 이벤트 중 하나만 처리하는 것이 좋습니다.
+이벤트 구독을 만들 때 이벤트 처리기로 전송되는 이벤트를 필터링할 수 있습니다. 보관 계층에서 blob을 리하이드레이션 때 캡처할 이벤트는 **Storage입니다. BlobTierChanged**, [Set Blob 계층](/rest/api/storageservices/set-blob-tier) 작업 및 **Microsoft. Storage에 해당 합니다.** [Blob 복사](/rest/api/storageservices/copy-blob) 작업에 해당 하는 blobcreated 이벤트입니다. 시나리오에 따라 해당 이벤트 중 하나만 처리하는 것이 좋습니다.
 
 이벤트 구독을 만들 때 다음 단계를 수행합니다.
 
-1. Azure Portal의 보관 계층에서 리하이드레이션할 Blob이 포함된 스토리지 계정으로 이동합니다.
+1. Azure Portal에서 blob이 포함 된 저장소 계정으로 이동 하 여 보관 계층에서 리하이드레이션.
 1. 왼쪽 탐색 창에서 **이벤트** 설정을 선택합니다.
 1. **이벤트** 페이지에서 **추가 옵션** 을 선택합니다.
 1. **이벤트 구독 만들기** 를 선택합니다.
 1. **이벤트 구독 만들기** 페이지의 **이벤트 구독 세부 정보** 섹션에서 이벤트 구독의 이름을 입력합니다.
 1. **토픽 세부 정보** 섹션에서 시스템 토픽의 이름을 제공합니다. 시스템 토픽은 Azure Storage에서 게시한 하나 이상의 이벤트를 나타냅니다. 시스템 토픽에 관한 자세한 내용은 [Azure Event Grid의 시스템 토픽](../../event-grid/system-topics.md)을 참조하세요.
-1. **이벤트 유형** 섹션에서 **Blob 작성** 및 **Blob 계층 변경** 이벤트를 선택합니다. 보관 계층에서 Blob을 리하이드레이션하도록 선택하는 방법에 따라 이 두 이벤트 중 하나가 실행됩니다.
+1. **이벤트 유형** 섹션에서 **Blob 작성** 및 **Blob 계층 변경** 이벤트를 선택합니다. 보관 계층에서 blob을 리하이드레이션 선택 하는 방법에 따라 이러한 두 이벤트 중 하나가 발생 합니다.
 
     :::image type="content" source="media/archive-rehydrate-handle-event/select-event-types-portal.png" alt-text="Azure Portal에서 Blob 리하이드레이션 이벤트에 대한 이벤트 유형을 선택하는 방법을 보여 주는 스크린샷":::
 
@@ -290,20 +290,20 @@ Blob을 리하이드레이션하여 함수를 테스트하는 방법을 알아�
 - [복사 작업을 사용하여 blob 리하이드레이션](archive-rehydrate-to-online-tier.md#rehydrate-a-blob-with-a-copy-operation)
 - [계층을 변경하여 blob 리하이드레이션](archive-rehydrate-to-online-tier.md#rehydrate-a-blob-by-changing-its-tier)
 
-리하이드레이션이 완료되면 로그 Blob이 리하이드레이션된 Blob과 동일한 컨테이너에 기록됩니다. 예를 들어 복사 작업으로 Blob을 리하이드레이션하면 Azure Portal에서 원본 Blob이 보관 계층에 남아 있고, 완전히 리하이드레이션된 대상 Blob이 대상 온라인 계층에 표시되며, Azure Function에서 만든 로그 Blob도 목록에 표시되는 것을 알 수 있습니다.
+리하이드레이션이 완료되면 로그 Blob이 리하이드레이션된 Blob과 동일한 컨테이너에 기록됩니다. 예를 들어 복사 작업을 사용 하 여 blob을 리하이드레이션 한 후에는 원본 원본 blob이 보관 계층에 유지 되는 Azure Portal에서 볼 수 있으며, 완전히 이동 된 대상 blob이 대상 온라인 계층에 표시 되며, Azure 함수에서 만든 로그 blob도 목록에 표시 됩니다.
 
-:::image type="content" source="media/archive-rehydrate-handle-event/copy-blob-archive-tier-rehydrated-with-log-blob.png" alt-text="보관 계층의 원래 blob, 핫 계층의 리하이드레이션된 blob, 이벤트 처리기에서 쓴 로그 blob을 보여 주는 스크린샷":::
+:::image type="content" source="media/archive-rehydrate-handle-event/copy-blob-archive-tier-rehydrated-with-log-blob.png" alt-text="보관 계층의 원래 blob, 핫 계층의 처리 되지 않은 blob 및 이벤트 처리기가 기록한 로그 blob을 보여 주는 스크린샷":::
 
-Blob을 리하이드레이션하는 작업은 리하이드레이션 우선 순위 설정에 따라 최대 15시간이 걸릴 수 있습니다. 리하이드레이션 우선 순위를 **높음** 으로 설정하면 크기가 10GB 미만인 Blob의 리하이드레이션이 1시간 이내에 완료될 수 있습니다. 그러나 우선 순위가 높은 리하이드레이션은 리소스가 더 많이 듭니다. 자세한 내용은 [보관 계층의 Blob 리하이드레이션 개요](archive-rehydrate-overview.md)를 참조하세요.
+Blob을 리하이드레이션하는 작업은 리하이드레이션 우선 순위 설정에 따라 최대 15시간이 걸릴 수 있습니다. 리하이드레이션 우선 순위를 **높음** 으로 설정하면 크기가 10GB 미만인 Blob의 리하이드레이션이 1시간 이내에 완료될 수 있습니다. 그러나 우선 순위가 높은 리하이드레이션은 리소스가 더 많이 듭니다. 자세한 내용은 [Archive of blob 리하이드레이션 in The Archive 계층](archive-rehydrate-overview.md)을 참조 하세요.
 
 > [!TIP]
-> 이 방법을 사용하는 이유는 Blob 리하이드레이션의 맥락에서 해당 이벤트를 처리하기 위해서이지만, 테스트용으로는 blob 업로드 또는 온라인 blob의 계층(‘예:’ 핫에서 쿨로)을 변경할 때 해당 이벤트를 관찰하는 것이 도움이 됩니다. 이 이벤트를 즉시 실행되기 때문입니다.
+> 이 방법의 목적은 blob 리하이드레이션의 컨텍스트에서 이러한 이벤트를 처리 하는 것 이지만 테스트 목적으로는 이벤트가 즉시 발생 하기 때문에 blob을 업로드 하거나 온라인 blob의 계층 (*즉*, 핫에서 쿨로)을 변경 하는 것에 대 한 응답으로 이러한 이벤트를 관찰 하는 것도 유용할 수 있습니다.
 
 Event Grid에서 이벤트를 필터링하는 방법에 관한 자세한 내용은 [Azure Event Grid에 대한 이벤트를 필터링하는 방법](../../event-grid/how-to-filter-events.md)을 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
 
-- [Blob 데이터에 대한 핫, 쿨 및 보관 액세스 계층](access-tiers-overview.md)
-- [보관 계층의 Blob 리하이드레이션 개요](archive-rehydrate-overview.md)
+- [Blob 데이터에 대 한 핫, 쿨 및 보관 액세스 계층](access-tiers-overview.md)
+- [보관 계층의 blob 리하이드레이션 개요](archive-rehydrate-overview.md)
 - [보관된 Blob을 온라인 계층으로 리하이드레이션](archive-rehydrate-to-online-tier.md)
 - [Blob Storage 이벤트에 응답](storage-blob-event-overview.md)

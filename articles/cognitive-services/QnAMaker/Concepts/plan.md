@@ -4,13 +4,14 @@ description: QnA Maker 앱을 계획하는 방법에 대해 알아봅니다. QnA
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/09/2020
-ms.openlocfilehash: 1f3db34f477e228157cfa8378f171adf7a239811
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: b5810d7d69322793afea76bfbe29fb49b5dc13a3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124828840"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131086776"
 ---
 # <a name="plan-your-qna-maker-app"></a>QnA Maker 앱 계획
 
@@ -20,8 +21,6 @@ QnA Maker 앱을 계획하려면 QnA Maker가 작동하고 다른 Azure 서비�
 
 QnA Maker를 사용하여 만든 각 [Azure 리소스](azure-resources.md#resource-purposes)에는 특정 용도가 있습니다. 각 리소스에는 고유한 용도, 제한 및 [가격 책정 계층](azure-resources.md#pricing-tier-considerations)이 있습니다. 지식을 계획 프로세스에 사용할 수 있도록 이러한 리소스의 기능을 이해하는 것이 중요합니다.
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
-
 | 리소스 | 목적 |
 |--|--|
 | [QnA Maker](azure-resources.md#qna-maker-resource) 리소스 | 작성 및 쿼리 예측 |
@@ -29,30 +28,9 @@ QnA Maker를 사용하여 만든 각 [Azure 리소스](azure-resources.md#resour
 | [App Service 리소스 및 앱 계획 서비스](azure-resources.md#app-service-and-app-service-plan) 리소스 | 예측 엔드포인트 쿼리 |
 | [Application Insights](azure-resources.md#application-insights) 리소스 | 쿼리 예측 원격 분석 |
 
-
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-| 리소스 | 목적 |
-|--|--|
-| [Text Analytics](azure-resources.md#qna-maker-resource) 리소스 | 작성, 쿼리 예측 엔드포인트 및 원격 분석|
-| [Cognitive Search](azure-resources.md#cognitive-search-resource) 리소스 | 데이터 스토리지 및 검색 |
-
----
 ### <a name="resource-planning"></a>리소스 계획
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
-
 각 리소스의 무료 계층인 `F0`이 작동하며 작성 및 쿼리 예측 경험을 모두 제공할 수 있습니다. 이 계층을 사용하여 작성 및 쿼리 예측을 학습할 수 있습니다. 프로덕션 또는 라이브 시나리오로 이동할 때 리소스 선택을 재평가합니다.
-
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-사용자 지정 질문 답변(미리 보기)은 무료 기능이며, 현재 처리량은 관리 API와 예측 API 모두에 대해 초당 10개 트랜잭션으로 제한됩니다. 서비스에 대해 초당 10개 트랜잭션을 대상으로 하려면 Azure Cognitive Search의 S1(1개 인스턴스) SKU를 선택하는 것이 좋습니다.
-
-### <a name="text-analytics-resource"></a>Text Analytics 리소스
-
-사용자 지정 질문 답변 기능이 활성화된 단일 Text Analytics 리소스는 둘 이상의 기술 자료를 호스팅할 수 있습니다. 기술 자료 수는 Cognitive Search 가격 책정 계층의 지원되는 인덱스 수량에 따라 결정됩니다. [인덱스와 기술 자료의 관계](azure-resources.md#index-usage)에 대해 자세히 알아보세요.
-
----
 
 ### <a name="knowledge-base-size-and-throughput"></a>기술 자료 크기 및 처리량
 
@@ -84,40 +62,17 @@ QnA Maker를 사용하여 만든 각 [Azure 리소스](azure-resources.md#resour
 
 ### <a name="language-considerations"></a>언어 관련 고려 사항
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
-
 QnA Maker 리소스에서 생성된 첫 번째 기술 자료는 리소스의 언어를 설정합니다. QnA Maker 리소스에 대해 하나의 언어만 설정할 수 있습니다.
 
 언어별로 QnA Maker 리소스를 구조화하거나, 쿼리 예측 엔드포인트에 보내기 전에 [번역기](../../translator/translator-overview.md)를 사용하여 다른 언어의 쿼리를 기술 자료의 언어로 변경할 수 있습니다.
 
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-이제 사용자 지정 질문 답변 기능이 활성화된 동일한 Text Analytics 리소스 내에서 다양한 언어로 된 기술 자료를 사용할 수 있습니다. 첫 번째 기술 자료를 만들 때 기술 자료에 대한 리소스를 단일 언어로 사용할지, 여러 언어로 사용할지 선택할 수 있습니다.
-
-![QnA Maker 관리(미리 보기) 다국어 기술 자료 선택](../media/qnamaker-create-publish-knowledge-base/connect-knowledgebase-custom-qna.png)
-
-> [!NOTE]
-> 기술 자료별로 여러 언어를 사용하는 경우 Text Analytics 리소스에서 많은 기술 자료를 만들 수 없습니다. [언어 설정 제한에 대한 자세한 내용](./azure-resources.md)
-
----
-
 ### <a name="ingest-data-sources"></a>데이터 원본 수집
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 수집된 다음 [데이터 원본](../Concepts/data-sources-and-content.md) 중 하나를 사용하여 기술 자료를 만들 수 있습니다.
 
 * 공용 URL
 * 비공개 SharePoint URL
 * 파일
-
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-사용자 지정 질문 답변은 비정형 콘텐츠도 지원합니다. 비정형 콘텐츠가 있는 파일을 업로드할 수 있습니다.
-
-현재는 비정형 콘텐츠에 대한 URL을 지원하지 않습니다.
-
----
 
 수집 프로세스는 [지원되는 콘텐츠 형식](../reference-document-format-guidelines.md)을 markdown으로 변환합니다. *대답* 의 모든 추가 편집은 markdown으로 수행됩니다. 기술 자료를 만든 후 [서식 있는 텍스트 작성](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer) 기능을 사용하여 QnA Maker 포털에서 [QnA 쌍](question-answer-set.md)을 편집할 수 있습니다.
 
@@ -194,15 +149,7 @@ QnA Maker는 _활성 학습_ 을 사용하여 대답에 대한 대체 질문을 
 
 ### <a name="service-updates"></a>서비스 업데이트
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
-
 [최신 런타임 업데이트](../how-to/configure-QnA-Maker-resources.md#get-the-latest-runtime-updates)를 적용하여 서비스 업데이트를 자동으로 관리합니다.
-
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-사용자 지정 질문 답변(미리 보기)에서 런타임은 QnA Maker 서비스 자체에서 관리됩니다. 따라서 서비스 업데이트가 적용되지 않습니다.
-
----
 
 ### <a name="scaling-throughput-and-resiliency"></a>크기 조정, 처리량 및 복원력
 
@@ -210,16 +157,7 @@ QnA Maker는 _활성 학습_ 을 사용하여 대답에 대한 대체 질문을 
 
 ### <a name="analytics-with-application-insights"></a>Application Insights로 분석
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
-
 기술 자료에 대한 모든 쿼리는 Application Insights에 저장됩니다. [가장 많이](../how-to/get-analytics-knowledge-base.md) 사용되는 쿼리를 사용하여 메트릭을 파악합니다.
-
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-사용자 지정 질문 답변의 경우 원격 분석은 [Azure Monitor 서비스](../../../azure-monitor/index.yml)를 통해 제공됩니다. [가장 많이](../how-to/get-analytics-knowledge-base.md) 사용되는 쿼리를 사용하여 메트릭을 파악합니다.
-
-
----
 
 ## <a name="development-lifecycle"></a>개발 수명 주기
 

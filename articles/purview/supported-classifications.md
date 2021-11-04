@@ -7,16 +7,16 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: reference
 ms.date: 09/27/2021
-ms.openlocfilehash: fa92330fcbae0bba9e3f9d18cb3e56d9c16a9ee6
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: e3018a1b9d94ca1f750bf8d17b1ea6ba028ad07f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131449453"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056151"
 ---
 # <a name="supported-classifications-in-azure-purview"></a>Azure Purview에서 지원되는 분류
 
-이 문서에서는 Azure 부서의 범위에서 지원 되 고 정의 된 시스템 분류를 나열 합니다.
+이 문서에서는 Azure Purview에서 지원되고 정의된 시스템 분류를 나열합니다.
 
 
 - **고유 데이터 임계값**: 스캐너가 데이터 패턴을 실행하기 전에 열에서 찾아야 하는 고유 데이터 값의 총 수입니다. 고유 데이터 임계값은 패턴 일치와 관련이 없지만 패턴 일치를 위한 필수 조건입니다. 시스템 분류 규칙에 따라 각 열에는 분류를 위해 최소 8개의 고유 값이 있어야 합니다. 스캐너가 정확히 분류할 수 있을 만큼 충분한 데이터가 열에 포함되었는지 확인하기 위해, 시스템에서 이 값이 필요합니다. 예를 들어 값 1만 포함하는 여러 행이 있는 열은 분류되지 않습니다. 한 행에 값이 있고 나머지 행은 null 값인 열도 분류되지 않습니다. 여러 패턴을 지정할 경우 이 값이 각각의 패턴에 적용됩니다.
@@ -44,7 +44,7 @@ Azure Purview는 [RegEx](https://wikipedia.org/wiki/Regular_expression) 및 [블
 - [인기있는 아기 이름(SSN), 1880-2019년 모두 사용(98-K 항목)](https://www.ssa.gov/oact/babynames/limits.html)
 
 > [!NOTE]
-> Azure 부서의 범위는 데이터에 first/last 이름이 포함 된 경우에만 열을 분류 합니다. Azure 부서의 범위는 전체 이름을 포함 하는 열을 분류 하지 않습니다.
+> Azure Purview는 데이터에 이름/성이 포함된 경우에만 열을 분류합니다. Azure Purview는 전체 이름을 포함하는 열을 분류하지 않습니다.
 
 ## <a name="regex-classifications"></a>RegEx 분류
 
@@ -52,11 +52,11 @@ Azure Purview는 [RegEx](https://wikipedia.org/wiki/Regular_expression) 및 [블
 
 ### <a name="format"></a>서식
 
-서식이 지정 되거나 지정 되지 않은 패턴에 있을 수 있는 9 자리 숫자입니다.
+형식이 지정되거나 서식이 지정되지 않은 패턴일 수 있는 9자리 숫자입니다.
 
 ### <a name="pattern"></a>패턴
 
-- 00-12, 21-32, 61-72 또는 80 범위의 두 자릿수
+- 00-12, 21-32, 61-72 또는 80 범위의 두 자리
 - 2자리 숫자
 - 선택적 하이픈
 - 4자리 숫자
@@ -66,26 +66,26 @@ Azure Purview는 [RegEx](https://wikipedia.org/wiki/Regular_expression) 및 [블
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
 #### <a name="keyword_aba_routing"></a>Keyword_aba_routing
 
-- aba 번호
-- aba #
-- aba
+- aba number
+- Aba #
+- Aba
 - abarouting #
 - abaroutingnumber
 - americanbankassociationrouting #
 - americanbankassociationroutingnumber
 - bankrouting #
 - bankroutingnumber
-- 라우팅이 #
-- 라우팅 안 함
+- 라우팅 #
+- 라우팅 없음
 - 라우팅 번호
 - 라우팅 전송 번호
-- 라우팅이 #
+- 라우팅 #
 - RTN
 
 ## <a name="argentina-national-identity-dni-number"></a>아르헨티나 신분증(DNI) 번호
@@ -111,25 +111,25 @@ Azure Purview는 [RegEx](https://wikipedia.org/wiki/Regular_expression) 및 [블
 
 #### <a name="keyword_argentina_national_id"></a>Keyword_argentina_national_id
 
-- 아르헨티나 국가 Id 번호
+- 헝가리 국가 ID 번호
 - cedula
 - cédula
-- dni
+- Dni
 - documento nacional de identidad
 - documento número
 - documento numero
-- registro nacional de las 가상 사용자
+- registro nacional de las personas
 - rnp
 
 ## <a name="australia-bank-account-number"></a>오스트레일리아 은행 계좌 번호
 
 ### <a name="format"></a>형식
 
-뱅크 상태 분기 번호를 사용 하거나 사용 하지 않는 6 ~ 10 자리
+은행 주 분기 번호가 있거나 없는 6~10자리 숫자
 
 ### <a name="pattern"></a>패턴
 
-계정 번호는 6 ~ 10 자리입니다.
+계정 번호는 6~10자리입니다.
 
 오스트레일리아 BSB(Bank State Branch) 번호:
 - 3자리 숫자
@@ -145,18 +145,18 @@ Azure Purview는 [RegEx](https://wikipedia.org/wiki/Regular_expression) 및 [블
 #### <a name="keyword_australia_bank_account_number"></a>Keyword_australia_bank_account_number
 
 - swift 은행 코드
-- 대응 bank
+- 은행
 - 기본 통화
-- usa 계정
-- 홀더 주소
+- 미국 계정
+- 소유자 주소
 - 은행 주소
 - 정보 계정
-- 기금 전송
+- 자금 이전
 - 은행 요금
-- 은행 세부 정보
+- 은행 정보
 - 은행 정보
 - 전체 이름
-- Iaea
+- iaea
 
 ## <a name="australia-business-number"></a>오스트레일리아 회사 전화 번호
 이 중요 정보 형식은 다음에만 사용할 수 있습니다.
@@ -185,18 +185,18 @@ Azure Purview는 [RegEx](https://wikipedia.org/wiki/Regular_expression) 및 [블
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
 #### <a name="keyword_australia_business_number"></a>Keyword_australia_business_number
 
-- 오스트레일리아 비즈니스 번호
+- 오스트레일리아 비즈니스 아니요
 - 비즈니스 번호
-- Abn #
+- abn #
 - businessid #
-- 비즈니스 ID
-- Abn
+- 비즈니스 id
+- abn
 - businessno #
 
 ## <a name="australia-company-number"></a>오스트레일리아 회사 번호
@@ -224,18 +224,18 @@ Azure Purview는 [RegEx](https://wikipedia.org/wiki/Regular_expression) 및 [블
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
 #### <a name="keyword_australia_company_number"></a>Keyword_australia_company_number
 
-- Cna
-- 오스트레일리아 회사 아니요
-- 오스트레일리아 회사 아니요 #
+- 될
 - 오스트레일리아 회사 번호
-- 오스트레일리아 회사 아니요
-- 오스트레일리아 회사 아니요 #
+- 오스트레일리아 회사 번호 #
+- 오스트레일리아 회사 번호
+- 오스트레일리아 회사 번호
+- 오스트레일리아 회사 번호 #
 - 오스트레일리아 회사 번호
 
 ## <a name="australia-drivers-license-number"></a>오스트레일리아 운전 면허 번호
@@ -250,16 +250,16 @@ Azure Purview는 [RegEx](https://wikipedia.org/wiki/Regular_expression) 및 [블
 
 - 2자리 숫자 또는 문자(대/소문자 구분 안 함)
 - 2자리 숫자
-- 5자리 숫자 또는 문자(대/소문자 구분 안 함)
+- 5 자리 또는 문자 (대/소문자 구분 안 함)
 
-OR
+또는
 
-- 1~2개의 선택적 문자(대/소문자 구분 안 함)
+- 1 ~ 2 개의 선택적 문자 (대/소문자 구분 안 함)
 - 4~9자리 숫자
 
 또는
 
-- 9자리 숫자 또는 문자(대/소문자 구분 안 함)
+- 9 자리 또는 문자 (대/소문자 구분 안 함)
 
 ### <a name="checksum"></a>체크섬
 
@@ -271,26 +271,26 @@ OR
 
 - 국제 주행 허가
 - 오스트레일리아 자동차 연결
-- 국제 주행 허가
+- 국제 주행 허용
 - DriverLicence
 - DriverLicences
-- Driver Lic
+- 드라이버 Lic
 - 드라이버 라이선스
 - 드라이버 라이선스
 - DriversLic
-- DriversLicence
+- 드라이버 라이선스
 - DriversLicences
-- Drivers Lic
-- 드라이버Lics
+- 드라이버 Lic
+- 드라이버 Lics
 - 드라이버 라이선스
 - 드라이버 라이선스
-- Driver'Lic
-- Driver'Lics
-- 드라이버 라이선스
-- 드라이버 라이선스
-- Driver' Lic
+- Drivero
+- Driverlics
+- Drivers 라이선스
+- Driver'Licences
+- 드라이버 ' Lic
 - 드라이버의 Lics
-- 드라이버 라이선스
+- 드라이버의 라이선스
 - 드라이버 ' 라이선스
 - Driver'sLic
 - 드라이버 (o)
@@ -385,7 +385,7 @@ OR
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -410,11 +410,8 @@ OR
 
 ### <a name="pattern"></a>패턴
 
-- 한 문자(N, E, D, F, A, C, U, X) 뒤에 7자리
-
-**or**
-
-- 두 문자(PA, PB, PC, PD, PE, PF, PU, PW, PX, PZ) 뒤에 7자리 숫자가 잇습니다.
+- 한 문자 (N, E, D, F, A, C, U, X) 다음에 7 자리 또는
+- 두 문자 (PA, PB, PC, PD, PE, PF, PU, PW, PX, PZ) 뒤에 7 자리가 있습니다.
 
 ### <a name="checksum"></a>체크섬
 
@@ -424,8 +421,8 @@ OR
 
 #### <a name="keyword_australia_passport_number"></a>Keyword_australia_passport_number
 
-- 여권 #
-- 여권 #
+- passport #
+- passport #
 - passportid
 - 여권
 - passportno
@@ -433,12 +430,12 @@ OR
 - passportnumber
 - 여권 번호
 - passportnumbers
-- passport numbers
+- 여권 번호
 - passport 세부 정보
-- 2018년 3월
-- 오스트레일리아의령령
-- 부서
-- 국가 ID 카드
+- immigration 및 참여
+- 오스트레일리아
+- immigration의 부서
+- 국가 id 카드
 - 여행 문서
 - 발급 기관
 
@@ -460,23 +457,23 @@ OR
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
 #### <a name="keyword_australia_tax_file_number"></a>Keyword_australia_tax_file_number
 
 - 오스트레일리아 비즈니스 번호
-- 한계 세금 비율
-- 은(는)
+- 한계 세율
+- medicare 징 집
 - 포트폴리오 번호
-- service
-- 원천징수세
-- 개별 세금 신고서
+- 서비스 veterans
+- 원천 세금
+- 개별 세금 반환
 - 세금 파일 번호
 - tfn
 
-## <a name="austria-drivers-license-number"></a>트럭 기사의 라이선스 번호
+## <a name="austria-drivers-license-number"></a>오스트리아 드라이버의 라이선스 번호
 
 ### <a name="format"></a>형식
 
@@ -485,6 +482,374 @@ OR
 ### <a name="pattern"></a>패턴
 
 8자리 숫자
+
+### <a name="checksum"></a>체크섬
+
+예
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords_eu_driver ' s_license_number
+
+- driverlic
+- driverlics
+- driverlicense
+- driverlicenses
+- driverlicence
+- driverlicences
+- 드라이버 lic
+- 드라이버 lics
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- driverslic
+- driverslics
+- 드라이버 라이선스
+- driverslicences
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버 lic
+- 드라이버 lics
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- drivero
+- driverlics
+- drivers 라이선스
+- drivers 라이선스
+- drivers 라이선스
+- driver'licences
+- 드라이버 ' lic
+- 드라이버의 lics
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버 ' 라이선스
+- driver'slic
+- 드라이버 (o)
+- 드라이버 ' s 라이선스 '
+- 드라이버 ' s 라이선스 '
+- driver'slicence
+- driver'slicences
+- 드라이버의 lic
+- 드라이버의 lics
+- 운전면허증
+- 운전 기사의 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- Dl #
+- Dl #
+- driverlic #
+- 드라이버 #
+- driverlicense #
+- driverlicense #
+- driverlicence #
+- driverlicences #
+- driver lic #
+- 드라이버 lics #
+- 운전면허증 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- driverslic #
+- driverslics #
+- driverslicense #
+- driverslicenses #
+- driverslicence #
+- driverslicences #
+- drivers lic #
+- drivers lics #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- driver'lic #
+- driver'lics #
+- 운전면허증 #
+- 운전면허증 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버의 lic #
+- 드라이버의 lics #
+- 운전면허 #
+- 운전 기사 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- driver'slic #
+- driver'slics #
+- 드라이버의license #
+- 드라이버의 slicenses #
+- 드라이버의licence #
+- 드라이버의 slicences #
+- 드라이버의 lic #
+- 드라이버의 lic #
+- 운전면허증 #
+- 운전 기사의 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- 운전 운전 라이선스 
+- 운전 라이선스
+- dlno #
+- driv lic
+- driv licen
+- driv 라이선스
+- driv 라이선스
+- driv 라이선스
+- driv 라이선스
+- 드라이버 사용 허가
+- 드라이버 라이선스
+- 드라이버의 사용 허가
+- driving lic
+- 운전 허가
+- 운전 라이선스
+- 운전 운전 라이선스
+- 운전 라이선스
+- 운전 허가
+- dl 아니요
+- dlno
+- dl number
+
+
+#### <a name="keywords_austria_eu_drivers_license_number"></a>Keywords_austria_eu_driver's_license_number
+
+- fuhrerschein
+- führerschein
+- Führerscheine
+- Führerscheinnummer
+- Führerscheinnummern
+
+## <a name="austria-identity-card"></a>오스트리아 신분증
+이 중요 정보 형식은 다음에만 사용할 수 있습니다.
+- 데이터 손실 방지 정책
+- 커뮤니케이션 준수 정책
+- 정보 거버넌스
+- 레코드 관리
+- Microsoft Cloud App Security
+
+### <a name="format"></a>서식
+
+문자, 숫자 및 특수 문자의 24자 조합
+
+### <a name="pattern"></a>패턴
+
+24자:
+
+-  22자(대/소문자 구분 안 함), 숫자, 백슬래시, 슬래시 또는 더하기 기호
+
+- 2자(대/소문자 구분 안 함), 숫자, 백슬래시, 슬래시, 더하기 기호 또는 등호
+
+### <a name="checksum"></a>체크섬
+
+해당 없음
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keywords_austria_eu_national_id_card"></a>Keywords_austria_eu_national_id_card
+
+- ID 번호
+- national id
+- personalaus republik österreich
+
+## <a name="austria-passport-number"></a>오스트리아 여권 번호
+
+### <a name="format"></a>서식
+
+1개 문자 뒤에 선택적 공백 및 7자리 숫자
+
+### <a name="pattern"></a>패턴
+
+1개 문자, 7자리 숫자 및 1개 공백의 조합:
+
+- 1개 문자(대/소문자 구분 안 함)
+- 1개 공백(선택 사항)
+- 7자리 숫자
+
+### <a name="checksum"></a>체크섬
+
+적용할 수 없음
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keywords_eu_passport_number"></a>Keywords_eu_passport_number
+
+- 여권 #
+- 여권 #
+- passportid
+- 여권
+- passportno
+- passport 아니요
+- passportnumber
+- 여권 번호
+- passportnumbers
+- passport numbers
+
+#### <a name="keywords_austria_eu_passport_number"></a>Keywords_austria_eu_passport_number
+
+- reisepassnummer
+- reisepasse
+- No-Reisepass
+- Nr-Reisepass
+- Reisepass-Nr
+- Passnummer
+- reisepsse
+
+#### <a name="keywords_eu_passport_date"></a>Keywords_eu_passport_date
+
+- 문제 날짜
+- 만료 날짜
+
+## <a name="austria-social-security-number"></a>오스트리아 사회 보장 번호
+
+### <a name="format"></a>서식
+
+지정된 형식의 10자리 숫자
+
+### <a name="pattern"></a>패턴
+
+10자리 숫자:
+
+- 일련 번호에 해당하는 3자리 숫자
+- 1자리 확인 번호
+- 생년월일에 해당하는 6자리 숫자(DDMMYY)
+
+### <a name="checksum"></a>체크섬
+
+Yes
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keywords_austria_eu_ssn_or_equivalent"></a>Keywords_austria_eu_ssn_or_equivalent
+
+- 수식어 ssn
+- ehic number
+- ehic no
+- 보험 코드
+- insurancecode #
+- 보험 번호
+- 보험 번호
+- 한다고 가정해보면
+- 일치부대
+- socialsecurityno
+- socialsecurityno #
+- 사회 보장 아니요
+- 사회 보장 번호
+- 사회 보장 코드
+- sozialversicherungsnummer
+- sozialversicherungsnummer #
+- soziale sicherheit kein
+- sozialesicherheitkein #
+- Ssn #
+- Ssn
+- versicherungscode
+- versicherungsnummer
+- zdravstveno zavarovanje
+
+## <a name="austria-tax-identification-number"></a>오스트리아 납세자 번호
+
+### <a name="format"></a>서식
+
+9자리 숫자(선택적 하이픈 및 슬래시 포함)
+
+### <a name="pattern"></a>패턴
+
+9자리 숫자(선택적 하이픈 및 슬래시 포함):
+
+- 2자리 숫자
+- 하이픈(선택 사항)
+- 3자리 숫자
+- 슬래시(선택 사항)
+- 4자리 숫자
+
+### <a name="checksum"></a>체크섬
+
+Yes
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keywords_austria_eu_tax_file_number"></a>Keywords_austria_eu_tax_file_number
+
+- österreich
+- st.nr.
+- steuernummer
+- 세금 ID
+- 세금 식별 번호
+- 세금 ID 번호
+- 세금 번호 #
+- 세금 번호
+- 세금 번호
+- 세금 등록 번호
+- taxid #
+- taxidno #
+- taxidnumber #
+- taxno #
+- taxnumber #
+- taxnumber
+- tin id
+- tin no
+- 주석 #
+- 세금 번호
+
+## <a name="austria-value-added-tax"></a>징수 부가가치세
+이 중요 정보 형식은 다음에만 사용할 수 있습니다.
+- 데이터 손실 방지 정책
+- 커뮤니케이션 준수 정책
+- 정보 거버넌스
+- 레코드 관리
+- Microsoft Cloud App Security
+
+### <a name="format"></a>서식
+
+11자 영숫자 패턴
+
+### <a name="pattern"></a>패턴
+
+11자 영숫자 패턴:
+
+- A 또는 a
+- T 또는 t
+- 선택적 공백
+- U 또는 u
+- 선택적 공백
+- 2~3자리 숫자
+- 선택적 공백
+- 4자리 숫자
+- 선택적 공백
+- 1~2자리 숫자
+
+### <a name="checksum"></a>체크섬
+
+Yes
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keyword_austria_value_added_tax"></a>Keyword_austria_value_added_tax
+
+- vat 번호
+- 부가 가치세 #
+- vat vat number
+- vat 아니요.
+- vatno #
+- 부가가치세 번호
+- vat vat
+- mwst
+- umsatzsteuernummer
+- mwstnummer
+- ust.-identifikationsnummer
+- umsatzsteuer-identifikationsnummer
+- vat ID 번호
+- atu number
+- uid 번호
+
+## <a name="belgium-drivers-license-number"></a>벨기에 운전 면허 번호
+
+### <a name="format"></a>형식
+
+10자리 숫자, 공백 및 구분 기호 없음
+
+### <a name="pattern"></a>패턴
+
+10개의 자릿수
 
 ### <a name="checksum"></a>체크섬
 
@@ -524,9 +889,9 @@ OR
 - 운전면허증
 - 드라이버 라이선스
 - 드라이버 라이선스
-- 드라이버의 lic
+- driver' lic
 - 드라이버의 lics
-- 운전면허
+- 운전면허증
 - 운전 기사 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
@@ -537,12 +902,12 @@ OR
 - 드라이버의licence
 - 드라이버의 slicences
 - 드라이버의 lic
-- 드라이버의 lics
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- dl #
+- 드라이버의 lic
+- 운전면허증
+- 운전 기사의 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- Dl #
 - 된다 #
 - driverlic #
 - driverlics #
@@ -613,375 +978,7 @@ OR
 - dlno
 - dl 번호
 
-
-#### <a name="keywords_austria_eu_drivers_license_number"></a>Keywords_austria_eu_driver ' s_license_number
-
-- fuhrerschein
-- führerschein
-- Führerscheine
-- Führerscheinnummer
-- Führerscheinnummern
-
-## <a name="austria-identity-card"></a>오스트리아 신분증
-이 중요 정보 형식은 다음에만 사용할 수 있습니다.
-- 데이터 손실 방지 정책
-- 커뮤니케이션 준수 정책
-- 정보 거버넌스
-- 레코드 관리
-- Microsoft Cloud App Security
-
-### <a name="format"></a>서식
-
-문자, 숫자 및 특수 문자의 24자 조합
-
-### <a name="pattern"></a>패턴
-
-24자:
-
--  22자(대/소문자 구분 안 함), 숫자, 백슬래시, 슬래시 또는 더하기 기호
-
-- 2자(대/소문자 구분 안 함), 숫자, 백슬래시, 슬래시, 더하기 기호 또는 등호
-
-### <a name="checksum"></a>체크섬
-
-해당 없음
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keywords_austria_eu_national_id_card"></a>Keywords_austria_eu_national_id_card
-
-- id 번호
-- 국가 id
-- personalausweis republik österreich
-
-## <a name="austria-passport-number"></a>오스트리아 여권 번호
-
-### <a name="format"></a>서식
-
-1개 문자 뒤에 선택적 공백 및 7자리 숫자
-
-### <a name="pattern"></a>패턴
-
-1개 문자, 7자리 숫자 및 1개 공백의 조합:
-
-- 1개 문자(대/소문자 구분 안 함)
-- 1개 공백(선택 사항)
-- 7자리 숫자
-
-### <a name="checksum"></a>체크섬
-
-적용할 수 없음
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keywords_eu_passport_number"></a>Keywords_eu_passport_number
-
-- passport #
-- passport #
-- passportid
-- 여권
-- passportno
-- passport 아니요
-- passportnumber
-- 여권 번호
-- passportnumbers
-- 여권 번호
-
-#### <a name="keywords_austria_eu_passport_number"></a>Keywords_austria_eu_passport_number
-
-- reisepassnummer
-- reisepasse
-- No-Reisepass
-- Nr-Reisepass
-- Reisepass-Nr
-- Passnummer
-- reisepässe
-
-#### <a name="keywords_eu_passport_date"></a>Keywords_eu_passport_date
-
-- 문제 날짜
-- 만료 날짜
-
-## <a name="austria-social-security-number"></a>오스트리아 사회 보장 번호
-
-### <a name="format"></a>서식
-
-지정된 형식의 10자리 숫자
-
-### <a name="pattern"></a>패턴
-
-10자리 숫자:
-
-- 일련 번호에 해당하는 3자리 숫자
-- 1자리 확인 번호
-- 생년월일에 해당하는 6자리 숫자(DDMMYY)
-
-### <a name="checksum"></a>체크섬
-
-예
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keywords_austria_eu_ssn_or_equivalent"></a>Keywords_austria_eu_ssn_or_equivalent
-
-- 오스트리아 ssn
-- ehic 번호
-- ehic
-- 보험 코드
-- insurancecode #
-- 보험 번호
-- 보험 없음
-- krankenkassennummer
-- krankenversicherung
-- 사회 alsecurityno
-- 사회 alsecurityno #
-- 소셜 보안 아니요
-- 사회 보장 번호
-- 소셜 보안 코드
-- sozialversicherungsnummer
-- sozialversicherungsnummer #
-- soziale sicherheit kein
-- sozialesicherheitkein #
-- ssn #
-- ssn
-- versicherungscode
-- versicherungsnummer
-- zdravstveno zavarovanje
-
-## <a name="austria-tax-identification-number"></a>오스트리아 납세자 번호
-
-### <a name="format"></a>서식
-
-9자리 숫자(선택적 하이픈 및 슬래시 포함)
-
-### <a name="pattern"></a>패턴
-
-9자리 숫자(선택적 하이픈 및 슬래시 포함):
-
-- 2자리 숫자
-- 하이픈(선택 사항)
-- 3자리 숫자
-- 슬래시(선택 사항)
-- 4자리 숫자
-
-### <a name="checksum"></a>체크섬
-
-예
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keywords_austria_eu_tax_file_number"></a>Keywords_austria_eu_tax_file_number
-
-- österreich
-- st.nr.
-- steuernummer
-- 세금 id
-- 세금 식별 번호
-- 세금 식별 번호
-- 세금 없음 #
-- 세금 없음
-- 세금 번호
-- 세금 등록 번호
-- taxid #
-- taxidno #
-- taxidnumber #
-- taxno #
-- taxnumber #
-- taxnumber
-- tin id
-- tin
-- tin #
-- 세금 번호
-
-## <a name="austria-value-added-tax"></a>오스트리아 값 추가 세금
-이 중요 정보 형식은 다음에만 사용할 수 있습니다.
-- 데이터 손실 방지 정책
-- 커뮤니케이션 준수 정책
-- 정보 거버넌스
-- 레코드 관리
-- Microsoft Cloud App Security
-
-### <a name="format"></a>서식
-
-11자 영숫자 패턴
-
-### <a name="pattern"></a>패턴
-
-11자 영숫자 패턴:
-
-- A 또는 a
-- T 또는 t
-- 선택적 공백
-- U 또는 u
-- 선택적 공백
-- 2~3자리 숫자
-- 선택적 공백
-- 4자리 숫자
-- 선택적 공백
-- 1~2자리 숫자
-
-### <a name="checksum"></a>체크섬
-
-예
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keyword_austria_value_added_tax"></a>Keyword_austria_value_added_tax
-
-- vat 번호
-- vat #
-- 오스트리아 vat 번호
-- vat 번호.
-- vatno #
-- 값이 추가 된 세금 번호
-- 오스트리아
-- mwst
-- umsatzsteuernummer
-- mwstnummer
-- ust identifikationsnummer
-- umsatzsteuer-identifikationsnummer
-- vat id 번호
-- atu 번호
-- uid 번호
-
-## <a name="belgium-drivers-license-number"></a>벨기에 운전 면허 번호
-
-### <a name="format"></a>형식
-
-10자리 숫자, 공백 및 구분 기호 없음
-
-### <a name="pattern"></a>패턴
-
-10개의 자릿수
-
-### <a name="checksum"></a>체크섬
-
-예
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keywords_eu_drivers_license_number"></a>Keywords_eu_driver ' s_license_number
-
-- driverlic
-- driverlics
-- driverlicense
-- driverlicenses
-- driverlicence
-- driverlicences
-- 드라이버 lic
-- 드라이버 lics
-- 드라이버 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- driverslic
-- driverslics
-- 드라이버 라이선스
-- driverslicences
-- 드라이버 라이선스
-- 드라이버 라이선스
-- 드라이버 lic
-- 드라이버 lics
-- 드라이버 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- drivero
-- driverlics
-- drivers 라이선스
-- drivers 라이선스
-- drivers 라이선스
-- driver'licences
-- 드라이버 ' lic
-- 드라이버의 lics
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- 드라이버 ' 라이선스
-- driver'slic
-- 드라이버 (o)
-- 드라이버 ' s 라이선스 '
-- 드라이버 ' s 라이선스 '
-- driver'slicence
-- driver'slicences
-- 드라이버의 lic
-- 드라이버의 lics
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- Dl #
-- Dl #
-- driverlic #
-- 드라이버 #
-- driverlicense #
-- driverlicense #
-- driverlicence #
-- driverlicences #
-- driver lic #
-- 드라이버 lics #
-- 운전면허증 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- driverslic #
-- driverslics #
-- driverslicense #
-- driverslicenses #
-- driverslicence #
-- driverslicences #
-- drivers lic #
-- drivers lics #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- driver'lic #
-- driver'lics #
-- 드라이버 라이선스 #
-- 운전면허증 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- driver' lic #
-- 드라이버의 lics #
-- 운전면허 #
-- 운전 기사 라이선스 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- driver'slic #
-- driver'slics #
-- 드라이버의license #
-- 드라이버의 조각 #
-- 드라이버의licence #
-- 드라이버의 slicences #
-- 드라이버의 lic #
-- 드라이버의 lic #
-- 운전면허증 #
-- 운전 기사의 라이선스 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- 운전 운전 라이선스 
-- 운전 라이선스
-- dlno #
-- driv lic
-- driv licen
-- driv 라이선스
-- driv 라이선스
-- driv 라이선스
-- driv 라이선스
-- 드라이버 사용 허가
-- 드라이버 라이선스
-- 드라이버의 사용 허가
-- driving lic
-- 운전 허가
-- 운전 라이선스
-- 운전 운전 라이선스
-- 운전 라이선스
-- 운전 허가
-- dl 아니요
-- dlno
-- dl number
-
-#### <a name="keywords_belgium_eu_drivers_license_number"></a>Keywords_belgium_eu_driver's_license_number
+#### <a name="keywords_belgium_eu_drivers_license_number"></a>Keywords_belgium_eu_driver ' s_license_number
 
 - rijbewijs
 - rijbewijsnummer
@@ -1013,7 +1010,7 @@ OR
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 
 ### <a name="keywords"></a>키워드
@@ -1023,7 +1020,7 @@ OR
 - belasting aantal
 - bnn #
 - bnn
-- carte d'identité
+- 맞춤형 d'identité
 - identifiant 국가
 - identifiantnational #
 - identificatie
@@ -1152,7 +1149,7 @@ OR
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -1191,7 +1188,7 @@ OR
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -1230,7 +1227,7 @@ OR
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -1283,23 +1280,23 @@ Registro de Identidade (RIC)(새 형식):
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
 #### <a name="keyword_brazil_rg"></a>Keyword_brazil_rg
 
 - Cédula de identidade
-- id 카드
-- 국가 id
+- ID 카드
+- national id
 - número de rregistro
 - registro de Iidentidade
-- registro geral
-- RG (이 키워드는 대/소문자를 구분 함)
-- RIC (이 키워드는 대/소문자를 구분 함)
+- registro등록
+- RG(이 키워드는 대/소문자 구분)
+- RIC(이 키워드는 대/소문자 구분)
 
 
-## <a name="bulgaria-drivers-license-number"></a>불가리아 드라이버의 라이선스 번호
+## <a name="bulgaria-drivers-license-number"></a>승용차 운전면허 번호
 
 ### <a name="format"></a>서식
 
@@ -1315,129 +1312,129 @@ Registro de Identidade (RIC)(새 형식):
 
 ### <a name="keywords"></a>키워드
 
-#### <a name="keywords_eu_drivers_license_number"></a>Keywords_eu_driver ' s_license_number
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords_eu_driver's_license_number
 
 - driverlic
-- driverlics
+- 드라이버
 - driverlicense
-- driverlicenses
+- driverlicense
 - driverlicence
 - driverlicences
-- 드라이버 lic
+- driver lic
 - 드라이버 lics
-- 드라이버 라이선스
+- 운전면허증
 - 드라이버 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
 - driverslic
 - driverslics
-- 드라이버 라이선스
+- driverslicence
 - driverslicences
+- driverslicense
+- driverslicenses
+- drivers lic
+- drivers lics
 - 드라이버 라이선스
 - 드라이버 라이선스
-- 드라이버 lic
-- 드라이버 lics
 - 드라이버 라이선스
 - 드라이버 라이선스
+- driver'lic
+- driver'lics
+- 운전면허증
+- 운전면허증
 - 드라이버 라이선스
 - 드라이버 라이선스
-- drivero
-- driverlics
-- drivers 라이선스
-- drivers 라이선스
-- drivers 라이선스
-- driver'licences
-- 드라이버 ' lic
+- driver' lic
 - 드라이버의 lics
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- 드라이버 ' 라이선스
+- 운전면허
+- 운전 기사 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
 - driver'slic
-- 드라이버 (o)
-- 드라이버 ' s 라이선스 '
-- 드라이버 ' s 라이선스 '
-- driver'slicence
-- driver'slicences
+- driver'slics
+- 드라이버의license
+- 드라이버의 조각
+- 드라이버의licence
+- 드라이버의 slicences
 - 드라이버의 lic
-- 드라이버의 lics
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- dl #
-- 된다 #
+- 드라이버의 lic
+- 운전면허증
+- 운전 기사의 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- Dl #
+- Dl #
 - driverlic #
-- driverlics #
+- 드라이버 #
 - driverlicense #
-- driverlicenses #
+- driverlicense #
 - driverlicence #
 - driverlicences #
-- 드라이버 lic #
+- driver lic #
 - 드라이버 lics #
-- 드라이버 라이선스 #
+- 운전면허증 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - driverslic #
 - driverslics #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
+- driverslicense #
+- driverslicenses #
+- driverslicence #
 - driverslicences #
-- 드라이버 lic #
-- 드라이버 lics #
+- drivers lic #
+- drivers lics #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
-- drivero #
-- driverlics #
-- drivers 라이선스 #
-- drivers 라이선스 #
-- drivers 라이선스 #
-- driver'licences #
-- 드라이버 ' lic #
-- 드라이버의 lics #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버 ' 라이선스 #
-- driver'slic #
-- 드라이버 (o) #
-- 드라이버 ' s 라이선스 ' #
-- 드라이버 ' s 라이선스 ' #
-- driver'slicence #
-- driver'slicences #
+- driver'lic #
+- driver'lics #
+- 드라이버 라이선스 #
+- 운전면허증 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
 - 드라이버의 lic #
 - 드라이버의 lics #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 추진 라이선스 
-- 추진 라이선스
-- dlno #
-- 드라이브 lic
-- 드라이브 licen
-- 드라이브 라이선스
-- 드라이브 라이선스
-- 드라이브 라이선스
-- 드라이브 라이선스
-- 드라이버 licen
-- 드라이버 licen
-- 드라이버의 licen
-- lic 구동
-- 주행
+- 운전면허 #
+- 운전 기사 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- driver'slic #
+- driver'slics #
+- 드라이버의license #
+- 드라이버의 slicenses #
+- 드라이버의licence #
+- 드라이버의 slicences #
+- 드라이버의 lic #
+- 드라이버의 lic #
+- 운전면허증 #
+- 운전 기사의 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- 운전 운전 라이선스 
 - 운전 라이선스
-- 추진 라이선스
-- 주행 라이선스
-- 촉진 허용
+- dlno #
+- driv lic
+- driv licen
+- driv 라이선스
+- driv 라이선스
+- driv 라이선스
+- driv 라이선스
+- 드라이버 사용 허가
+- 드라이버 라이선스
+- 드라이버의 사용 허가
+- driving lic
+- 운전 허가
+- 운전 라이선스
+- 운전 운전 라이선스
+- 운전 라이선스
+- 운전 허가
 - dl 아니요
 - dlno
-- dl 번호
+- dl number
 
 
-#### <a name="keywords_bulgaria_eu_drivers_license_number"></a>Keywords_bulgaria_eu_driver ' s_license_number
+#### <a name="keywords_bulgaria_eu_drivers_license_number"></a>Keywords_bulgaria_eu_driver's_license_number
 
 - свидетелство за управление на мпс
 - свидетелство за управление на моторно превозно средство
@@ -1445,7 +1442,7 @@ Registro de Identidade (RIC)(새 형식):
 - шофьорска книжка
 - шофьорски книжки
 
-## <a name="bulgaria-uniform-civil-number"></a>불가리아 균일 민사 번호
+## <a name="bulgaria-uniform-civil-number"></a>1000001년 10월
 이 중요 정보 형식은 다음에만 사용할 수 있습니다.
 - 데이터 손실 방지 정책
 - 커뮤니케이션 준수 정책
@@ -1468,7 +1465,7 @@ Registro de Identidade (RIC)(새 형식):
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -1476,31 +1473,31 @@ Registro de Identidade (RIC)(새 형식):
 
 - bnn #
 - bnn
-- cn #
-- cn
-- edinen grazhdanski nomer
+- bucn #
+- bucn
+- edinenski nomer
 - egn #
 - egn
-- 식별 번호
-- 국가 id
+- ID 번호
+- national id
 - 국가 번호
 - nationalnumber #
 - nationalnumber
-- 개인 id
-- 개인 아니요
+- 개인 ID
+- 개인 번호
 - 개인 번호
 - personalidnumber #
 - 사회 보장 번호
-- ssn #
-- ssn
-- 균일 민사 id
-- 균일 민사 no
-- 단일 민사 수
-- uniformcivilno #
-- uniformcivilno
-- uniformcivilnumber #
-- uniformcivilnumber
-- 고유 참여 수
+- Ssn #
+- Ssn
+- 균일한 시민 ID
+- uniform uniform no
+- uniform uniform number
+- uniformci no #
+- uniformci no
+- uniformci #
+- uniformci
+- 고유 고유 고유의 고유 고유 번호
 - егн #
 - егн
 - единен граждански номер
@@ -1510,8 +1507,8 @@ Registro de Identidade (RIC)(새 형식):
 - лично не
 - национален номер
 - номер на гражданството
-- униформ id
-- униформ граждански id
+- униформ ID
+- униформ граждански ID
 - униформ граждански не
 - униформ граждански номер
 - униформгражданскиid #
@@ -1569,13 +1566,9 @@ Registro de Identidade (RIC)(새 형식):
 캐나다 은행 계좌 번호는 7자리 또는 12자리입니다.
 
 캐나다 은행 계좌 송금 코드 번호는 다음과 같습니다.
-
 - 5자리 숫자
 - 하이픈
-- 3자리 숫자
-
-**or**
-
+- 3자리 숫자 또는
 - 0 "0"
 - 8자리 숫자
 
@@ -1757,22 +1750,22 @@ Registro de Identidade (RIC)(새 형식):
 - 드라이버 ' s 라이선스 ' #
 - 드라이버 ' s 라이선스 ' #
 - Driver'sLicence #
-- Driver'sLicences #
-- 드라이버의 Lic #
+- 드라이버의Licences #
+- Driver's Lic #
 - 드라이버의 Lics #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
+- 운전면허 #
+- 운전면허증 #
+- 드라이버 라이선스 #
+- 운전 기사 라이선스 #
 - Permis de Conduire #
-- a-id #
-- 가 #
-- idcard 카드 #
-- idcard 카드 #
+- 자료 #
+- Id #
+- idcard card #
+- idcard cards #
 - idcard #
-- 식별 카드 #
-- 식별 카드 #
-- 등록 #
+- ID 카드 #
+- ID 카드 #
+- 식별 #
 
 
 ## <a name="canada-health-service-number"></a>캐나다 의료 서비스 번호
@@ -1793,15 +1786,15 @@ Registro de Identidade (RIC)(새 형식):
 
 #### <a name="keyword_canada_health_service_number"></a>Keyword_canada_health_service_number
 
-- 개인 건강 번호
+- 개인 상태 번호
 - 환자 정보
 - 상태 관리 서비스
 - 전문 서비스
 - 자동차 사고
 - 환자 병원
-- psychiatrist
-- 작업자 보정
-- 종류
+- 정신과 의사
+- 작업자 보상
+- 장애
 
 
 ## <a name="canada-passport-number"></a>캐나다 여권 번호
@@ -1822,35 +1815,35 @@ Registro de Identidade (RIC)(새 형식):
 
 #### <a name="keyword_canada_passport_number"></a>Keyword_canada_passport_number
 
-- 캐나다 의식
-- 캐나다 여권
-- passport 응용 프로그램
-- passport 사진
-- 인증 된 번역기
+- 캐나다 권주
+- 캐나다 passport
+- passport 애플리케이션
+- Passport 사진
+- 인증된 번역기
 - 캐나다 시민
 - 처리 시간
-- 응용 프로그램 갱신
+- 갱신 애플리케이션
 
 #### <a name="keyword_passport"></a>Keyword_passport
 
 - 여권 번호
-- Passport 아니요
-- Passport #
-- Passport #
+- Passport 번호
+- 여권 #
+- 여권 #
 - PassportID
 - Passportno
 - passportnumber
 - パスポート
 - パスポート番号
-- パスポートのNum
+- ಖಖ絰
 - パスポート＃
-- Numéro de 포트
-- 포트 n °
-- 가 아닌 포트
-- 포트 #
-- 포트 #
-- 고가 아닌 포트
-- 고가
+- Numéro de passeport
+- Passeport n °
+- Passeport Non
+- Passeport #
+- Passeport #
+- PasseportNon
+- Passeportn °
 
 
 ## <a name="canada-personal-health-identification-number-phin"></a>캐나다 PHIN(개인 건강 식별 번호)
@@ -1872,20 +1865,20 @@ Registro de Identidade (RIC)(새 형식):
 #### <a name="keyword_canada_phin"></a>Keyword_canada_phin
 
 - 사회 보험 번호
-- 상태 정보 act
-- 수입 세금 정보
+- 상태 정보 행위
+- 소득 세금 정보
 - 매니토바 상태
 - 상태 등록
-- prescription 구입
+- 2018년 3월
 - 혜택 자격
 - 개인 상태
-- 변호사의 능력
+- 강력한 전력
 - 등록 번호
-- 개인 건강 번호
-- 전문가 조회
-- 웰빙 professional
+- 개인 상태 번호
+- 전문가 추천
+- wellness professional
 - 환자 조회
-- 상태 및 웰빙
+- 상태 및 건강
 
 #### <a name="keyword_canada_provinces"></a>Keyword_canada_provinces
 
@@ -1924,33 +1917,33 @@ Registro de Identidade (RIC)(새 형식):
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
 #### <a name="keyword_sin"></a>Keyword_sin
 
 - sin
-- 소셜 보험
-- numero d'assurance 사회 ale
-- sins
-- ssn
-- ssns&lt
-- 소셜 보안
-- numero d'assurance 소셜
-- 국가 식별 번호
-- 국가 id
-- 사인 #
-- soc 기능
-- 소셜 기능
+- 사회 보험
+- 다양한 d'assurance 소셜
+- 죄
+- Ssn
+- ssns
+- 사회 보장
+- 수많은 d'assurance 소셜
+- 국가별 ID 번호
+- national id
+- 죄 #
+- soc ins
+- 소셜 ins
 
 #### <a name="keyword_sin_collaborative"></a>Keyword_sin_collaborative
 
-- 드라이버의 라이선스
+- 운전면허증
 - 드라이버 라이선스
-- 드라이버의 라이선스
 - 드라이버 라이선스
-- DOB
+- 드라이버 라이선스
+- 생년월일
 - Birthdate
 - Birthday
 - Date of Birth
@@ -1970,11 +1963,11 @@ Registro de Identidade (RIC)(새 형식):
 - 점(선택 사항)
 - 3자리 숫자
 - 대시
-- 확인 숫자인 1 자리 또는 문자 (대/소문자 구분 안 함)
+- 한 자리 또는 문자(대/소문자 구분 안 함) 즉, 확인 숫자
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -1982,41 +1975,41 @@ Registro de Identidade (RIC)(새 형식):
 
 - cédula de identidad
 - identificación
-- 국가 식별
-- 국가 식별 번호
-- 국가 id
+- 국가별 식별
+- 국가별 ID 번호
+- national id
 - número de identificación nacional
-- 역할 único nacional
-- 역할 único tributario
+- rol único nacional
+- rol único tributario
 - 실행
-- 안주
-- tarjeta de identificación
-- 역할 Unico Nacional
-- 역할 Unico Tributario
-- 실행할지 #
-- 안주 #
+- 상 습
+- tar tar tara de identificación
+- Rol Unico Nacional
+- Rol Unico Tributario
+- 실행 #
+- 상 습 #
 - nationaluniqueroleID #
 - nacional identidad
 - número identificación
 - identidad número
 - numero identificacion
 - identidad numero
-- 칠레 id no입니다.
-- 칠레 id 번호
-- 칠레 id #
-- 고유한 세금 레지스트리
-- 고유 Tributary 역할
-- 고유한 세금 역할
-- 고유 Tributary 번호
+- 헝가리어 ID 아니요.
+- 헝가리어 ID 번호
+- 헝가리어 ID #
+- 고유 세금 레지스트리
+- 고유한 3부 역할
+- 고유 세금 역할
+- 고유한 3진수
 - 고유 국가 번호
-- 고유한 국가별 역할
-- 국가별 고유 역할
-- 칠레 id no입니다.
-- 칠레 id 번호
-- 칠레 id #
+- 고유한 국가 역할
+- 국가 고유 역할
+- 실체가 없습니다.
+- 2018년 10월 20일
+- 헝가리어 ID #
 
 
-## <a name="china-resident-identity-card-prc-number"></a>중국 상주 id 카드 (중국) 번호
+## <a name="china-resident-identity-card-prc-number"></a>중국 중국 상주 ID 카드(PRC) 번호
 
 ### <a name="format"></a>형식
 
@@ -2032,7 +2025,7 @@ Registro de Identidade (RIC)(새 형식):
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -2054,7 +2047,7 @@ Registro de Identidade (RIC)(새 형식):
 
 ### <a name="format"></a>형식
 
-형식이 지정되거나 형식이 지정되지 않을 수 있고(dddddd) Luhn 테스트를 통과해야 하는 14~16자리 숫자입니다.
+형식이 지정되거나 서식이 지정되지 않을 수 있고(dddddd) Luhn 테스트를 통과해야 하는 14~16자리 숫자입니다.
 
 ### <a name="pattern"></a>패턴
 
@@ -2111,7 +2104,7 @@ Registro de Identidade (RIC)(새 형식):
 - cod seguranca
 - cod segurança
 - cód seguranca
-- número de verificaçço
+- número de verificaço
 - numero de verificao
 - ablauf
 - gültig bis
@@ -2221,12 +2214,12 @@ Registro de Identidade (RIC)(새 형식):
 - carte de credit
 - numéro de carte
 - numero de carte
-- ns de la carte
+- n1 de la carte
 - n. de carte
 - kreditkarte
 - karte
 - karteninhaber
-- karteninhabers
+- 카테인하버
 - kreditkarteninhaber
 - kreditkarteninstitut
 - kreditkartentyp
@@ -2237,60 +2230,60 @@ Registro de Identidade (RIC)(새 형식):
 - kreditkarten-nummer
 - carta di credito
 - carta credito
-- n. carta
+- n. Carta
 - n carta
-- nr. carta
+- Nr. Carta
 - nr carta
-- numero carta
-- numero della carta
+- 수많은 carta
+- 수많은 della carta
 - numero di carta
-- tarjeta credito
-- tarjeta de credito
-- tarjeta crédito
-- tarjeta de crédito
-- tarjeta de atm
-- tarjeta atm
-- tarjeta debito
-- tarjeta de
-- tarjeta débito
-- tarjeta de débito
-- n º de tarjeta
-- 번호 de tarjeta
-- de tarjeta 없음
-- numero de tarjeta
-- número de tarjeta
-- tarjeta
-- tarjetahabiente
-- cartão de crédito
-- cartão de credito
+- tar도a credito
+- tar tar tara de credito
+- tar tar tara crédito
+- tar tar tara de crédito
+- tar tar tara de atm
+- tar tar tara atm
+- tar tar도a debito
+- tar도a de debito
+- tar tar tara débito
+- tar tar tara de débito
+- n) de tar도마
+- 번호 de tar도라
+- no de tar tar도a
+- numero de tar도라
+- número de tarúa
+- tar tar tara 아니요
+- tar도라하비언트
+- carto de crédito
+- cartoo de credito
 - cartao de crédito
 - cartao de credito
-- cartão de débito
+- cartoo de débito
 - cartao de débito
-- cartão de
-- cartao de
-- débito automático
-- automatico
-- número do cartão
-- numero do cartão
-- número do caro
-- numero do caro
-- número de cartão
-- numero de cartão
-- número de
-- numero de
-- n º do cartão
-- n º do caro
-- n º. cartão do
-- no do cartão
-- 안 함 cartao
-- 번호 cartão do
-- 번호 cartao
+- carto de debito
+- cartao de debito
+- débito automético
+- debito automatico
+- número do cartúo
+- numero do cart 연산자
+- número do cartao
+- numero do cartao
+- número de cartúo
+- numero de carto
+- número de cartao
+- numero de cartao
+- n 은 카트를 수행합니다.
+- n) do cartao
+- n 입니다. do cart 연산자
+- no do cart 연산자
+- no do cartao
+- 번호 do cart 연산자
+- 번호 do cartao
 - rupay
-- union 종 량 제
+- union pay
 - unionpay
-- diner
-- diners
+- 은(는)
+- 다 이너 스
 - クレジットカード番号
 - クレジットカードナンバー
 - クレジットカード＃
@@ -2303,8 +2296,8 @@ Registro de Identidade (RIC)(새 형식):
 - アメックス
 - アメリカンエクスプレス
 - アメリカン エクスプレス
-- Visaカード
-- カード
+- 2016년 3월
+- 2018년 3월
 - マスターカード
 - マスター カード
 - マスター
@@ -2369,13 +2362,13 @@ Registro de Identidade (RIC)(새 형식):
 - 드라이버 라이선스
 - driver'lic
 - driver'lics
-- 드라이버 라이선스
+- 운전면허증
 - 운전면허증
 - 드라이버 라이선스
 - 드라이버 라이선스
 - driver' lic
 - 드라이버의 lics
-- 운전면허
+- 운전면허증
 - 운전 기사 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
@@ -2424,14 +2417,14 @@ Registro de Identidade (RIC)(새 형식):
 - 드라이버 라이선스 #
 - driver' lic #
 - 드라이버의 lics #
-- 운전면허 #
+- 운전면허증 #
 - 운전 기사 라이선스 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - driver'slic #
 - driver'slics #
 - 드라이버의license #
-- 드라이버의 조각 #
+- 드라이버의 slicenses #
 - 드라이버의licence #
 - 드라이버의 slicences #
 - 드라이버의 lic #
@@ -2466,7 +2459,7 @@ Registro de Identidade (RIC)(새 형식):
 #### <a name="keywords_croatia_eu_drivers_license_number"></a>Keywords_croatia_eu_driver's_license_number
 
 - vozazka dozvola
-- vozazvoke dozvole
+- vozazke dozvole
 
 
 ## <a name="croatia-identity-card-number"></a>크로아티아 신분증 번호
@@ -2567,7 +2560,7 @@ Registro de Identidade (RIC)(새 형식):
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -2602,7 +2595,7 @@ Registro de Identidade (RIC)(새 형식):
 - tin no
 - 주석 #
 
-## <a name="cyprus-drivers-license-number"></a>자가 운전 기사 라이선스 번호
+## <a name="cyprus-drivers-license-number"></a>자가 운전면허 번호
 
 ### <a name="format"></a>서식
 
@@ -2659,7 +2652,7 @@ Registro de Identidade (RIC)(새 형식):
 - driver'slic
 - driver'slics
 - 드라이버의license
-- 드라이버의 조각
+- 드라이버의 slicenses
 - 드라이버의licence
 - 드라이버의 slicences
 - 드라이버의 lic
@@ -2684,62 +2677,62 @@ Registro de Identidade (RIC)(새 형식):
 - driverslic #
 - driverslics #
 - driverslicense #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
+- driverslicenses #
+- driverslicence #
 - driverslicences #
-- 드라이버 lic #
-- 드라이버 lics #
+- drivers lic #
+- drivers lics #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
-- drivero #
-- driverlics #
-- drivers 라이선스 #
-- drivers 라이선스 #
-- drivers 라이선스 #
-- driver'licences #
-- 드라이버 ' lic #
-- 드라이버의 lics #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버 ' 라이선스 #
-- driver'slic #
-- 드라이버 (o) #
-- 드라이버 ' s 라이선스 ' #
-- 드라이버 ' s 라이선스 ' #
-- driver'slicence #
-- driver'slicences #
+- driver'lic #
+- driver'lics #
+- 드라이버 라이선스 #
+- 운전면허증 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
 - 드라이버의 lic #
 - 드라이버의 lics #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 추진 라이선스 
-- 추진 라이선스
-- dlno #
-- 드라이브 lic
-- 드라이브 licen
-- 드라이브 라이선스
-- 드라이브 라이선스
-- 드라이브 라이선스
-- 드라이브 라이선스
-- 드라이버 licen
-- 드라이버 licen
-- 드라이버의 licen
-- lic 구동
-- 주행
+- 운전면허증 #
+- 운전 기사 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- driver'slic #
+- driver'slics #
+- 드라이버의license #
+- 드라이버의 조각 #
+- 드라이버의licence #
+- 드라이버의 slicences #
+- 드라이버의 lic #
+- 드라이버의 lic #
+- 운전면허증 #
+- 운전 기사의 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- 운전 운전 라이선스 
 - 운전 라이선스
-- 추진 라이선스
-- 주행 라이선스
-- 촉진 허용
+- dlno #
+- driv lic
+- driv licen
+- driv 라이선스
+- driv 라이선스
+- driv 라이선스
+- driv 라이선스
+- 드라이버 사용 허가
+- 드라이버 라이선스
+- 드라이버 사용 허가
+- driving lic
+- 운전 허가
+- 운전 라이선스
+- 운전 운전 라이선스
+- 운전 라이선스
+- 운전 허가
 - dl 아니요
 - dlno
-- dl 번호
+- dl number
 
-#### <a name="keywords_cyprus_eu_drivers_license_number"></a>Keywords_cyprus_eu_driver ' s_license_number
+#### <a name="keywords_cyprus_eu_drivers_license_number"></a>Keywords_cyprus_eu_driver's_license_number
 
 - άδεια οδήγησης
 - αριθμό άδειας οδήγησης
@@ -2770,11 +2763,11 @@ Registro de Identidade (RIC)(새 형식):
 
 #### <a name="keywords_cyprus_eu_national_id_card"></a>Keywords_cyprus_eu_national_id_card
 
-- id 카드 번호
-- id 카드 번호
-- kimlik karti
-- 국가 식별 번호
-- 개인 id 번호
+- ID 카드 번호
+- ID 카드 번호
+- karlik karti
+- 국가별 ID 번호
+- 개인 ID 번호
 - ταυτοτητασ
 
 
@@ -2796,8 +2789,8 @@ Registro de Identidade (RIC)(새 형식):
 
 #### <a name="keywords_eu_passport_number_common"></a>Keywords_eu_passport_number_common
 
-- passport #
-- passport #
+- 여권 #
+- 여권 #
 - passportid
 - 여권
 - passportno
@@ -2805,7 +2798,7 @@ Registro de Identidade (RIC)(새 형식):
 - passportnumber
 - 여권 번호
 - passportnumbers
-- 여권 번호
+- passport numbers
 
 #### <a name="keywords_cyprus_eu_passport_number"></a>Keywords_cyprus_eu_passport_number
 
@@ -2935,7 +2928,7 @@ Registro de Identidade (RIC)(새 형식):
 - drivers 라이선스
 - drivers 라이선스
 - driver'licences
-- 드라이버의 lic
+- 드라이버 ' lic
 - 드라이버의 lics
 - 운전면허
 - 운전 기사 라이선스
@@ -2944,7 +2937,7 @@ Registro de Identidade (RIC)(새 형식):
 - driver'slic
 - driver'slics
 - 드라이버의license
-- 드라이버의 조각
+- 드라이버의 slicenses
 - 드라이버의licence
 - 드라이버의 slicences
 - 드라이버의 lic
@@ -2984,7 +2977,7 @@ Registro de Identidade (RIC)(새 형식):
 - 운전면허증 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
-- 드라이버의 lic #
+- driver' lic #
 - 드라이버의 lics #
 - 운전면허 #
 - 운전 기사 라이선스 #
@@ -3028,7 +3021,7 @@ Registro de Identidade (RIC)(새 형식):
 
 - 絰 prúkaz
 - ࡕské prékazy
-- ಖlo 을(를) prékazu
+- 絰ského prékazu
 - 絰 1000001001
 
 
@@ -3095,7 +3088,7 @@ Registro de Identidade (RIC)(새 형식):
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -3275,7 +3268,7 @@ Registro de Identidade (RIC)(새 형식):
 - 드라이버 licen
 - 드라이버의 licen
 - lic 구동
-- 운전 허가
+- 주행
 - 운전 라이선스
 - 운전 운전 라이선스
 - 운전 라이선스
@@ -3346,7 +3339,7 @@ Registro de Identidade (RIC)(새 형식):
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -3405,9 +3398,9 @@ Registro de Identidade (RIC)(새 형식):
 - 주석 #
 - taxidno #
 - taxidnumber #
-- 세금 번호 #
+- 세금 없음 #
 - tin id
-- tin no
+- tin
 - cpr.nr
 - cprnr
 - cprnummer
@@ -3423,7 +3416,7 @@ Registro de Identidade (RIC)(새 형식):
 - sygesikringsnummer
 
 
-## <a name="drug-enforcement-agency-dea-number"></a>DEA(약품 적용 기관) 번호
+## <a name="drug-enforcement-agency-dea-number"></a>DEA (약품 적용 에이전시) 번호
 
 ### <a name="format"></a>형식
 
@@ -3432,25 +3425,25 @@ Registro de Identidade (RIC)(새 형식):
 ### <a name="pattern"></a>패턴
 
 패턴은 다음을 모두 포함해야 합니다.
-- 가능한 이 문자 집합의 한 문자(대/소문자 구분 안 함) : 등록자 코드인 abcdefghjklmnprstux
-- 등록자의 성 또는 숫자 '9'의 첫 글자인 한 문자(대/소문자 구분 안 함)
-- 7자리 숫자이며, 마지막 숫자는 확인 숫자입니다.
+- 이 가능한 문자 집합의 한 문자 (대/소문자 구분 안 함): abcdefghjklmnprstux, 등록자 코드
+- 등록자의 마지막 이름 또는 숫자 ' 9 '의 첫 글자로 된 한 문자 (대/소문자 구분 안 함)
+- 일곱 자리 숫자로, 마지막 숫자는 확인 숫자입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
 #### <a name="keyword_dea_number"></a>Keyword_dea_number
 
-- Dea
-- Dea #
+- dea
+- dea #
 - 약품 적용 관리
-- 약품 적용 기관
+- 약품 적용 에이전시
 
 
-## <a name="estonia-drivers-license-number"></a>트럭 기사의 라이선스 번호
+## <a name="estonia-drivers-license-number"></a>에스토니아 드라이버의 라이선스 번호
 
 ### <a name="format"></a>서식
 
@@ -3469,65 +3462,65 @@ Registro de Identidade (RIC)(새 형식):
 
 ### <a name="keywords"></a>키워드
 
-#### <a name="keywords_eu_drivers_license_number"></a>Keywords_eu_driver's_license_number
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords_eu_driver ' s_license_number
 
 - driverlic
-- 드라이버
+- driverlics
 - driverlicense
-- driverlicense
+- driverlicenses
 - driverlicence
 - driverlicences
-- driver lic
+- 드라이버 lic
 - 드라이버 lics
-- 운전면허증
+- 드라이버 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
 - driverslic
 - driverslics
-- driverslicence
+- 드라이버 라이선스
 - driverslicences
-- driverslicense
-- driverslicenses
-- drivers lic
-- drivers lics
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버 lic
+- 드라이버 lics
 - 드라이버 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
-- driver'lic
-- driver'lics
-- 운전면허증
-- 운전면허증
-- 드라이버 라이선스
-- 드라이버 라이선스
+- drivero
+- driverlics
+- drivers 라이선스
+- drivers 라이선스
+- drivers 라이선스
+- driver'licences
+- 드라이버 ' lic
+- 드라이버의 lics
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버 ' 라이선스
+- driver'slic
+- 드라이버 (o)
+- 드라이버 ' s 라이선스 '
+- 드라이버 ' s 라이선스 '
+- driver'slicence
+- driver'slicences
 - 드라이버의 lic
 - 드라이버의 lics
-- 운전면허
-- 운전 기사 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- driver'slic
-- driver'slics
-- 드라이버의license
-- 드라이버의 조각
-- 드라이버의licence
-- 드라이버의 slicences
-- 드라이버의 lic
-- 드라이버의 lic
-- 운전면허증
-- 운전 기사의 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- Dl #
-- Dl #
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- dl #
+- 된다 #
 - driverlic #
-- 드라이버 #
+- driverlics #
 - driverlicense #
-- driverlicense #
+- driverlicenses #
 - driverlicence #
 - driverlicences #
-- driver lic #
+- 드라이버 lic #
 - 드라이버 lics #
 - 운전면허증 #
 - 드라이버 라이선스 #
@@ -3546,11 +3539,11 @@ Registro de Identidade (RIC)(새 형식):
 - 드라이버 라이선스 #
 - driver'lic #
 - driver'lics #
-- 운전면허증 #
+- 드라이버 라이선스 #
 - 운전면허증 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
-- 드라이버의 lic #
+- driver' lic #
 - 드라이버의 lics #
 - 운전면허 #
 - 운전 기사 라이선스 #
@@ -3559,7 +3552,7 @@ Registro de Identidade (RIC)(새 형식):
 - driver'slic #
 - driver'slics #
 - 드라이버의license #
-- 드라이버의 slicenses #
+- 드라이버의 조각 #
 - 드라이버의licence #
 - 드라이버의 slicences #
 - 드라이버의 lic #
@@ -3593,12 +3586,12 @@ Registro de Identidade (RIC)(새 형식):
 #### <a name="keywords_estonia_eu_drivers_license_number"></a>Keywords_estonia_eu_driver's_license_number
 
 -- permis de conduire
-- juubade(주부바데)
+- juubade(juubade)
 - juoaoa number
 - Juubauba
 
 
-## <a name="estonia-personal-identification-code"></a>규약 개인 식별 코드
+## <a name="estonia-personal-identification-code"></a>2016년 10월 21일
 이 중요 정보 형식은 다음에만 사용할 수 있습니다.
 - 데이터 손실 방지 정책
 - 커뮤니케이션 준수 정책
@@ -3621,7 +3614,7 @@ Registro de Identidade (RIC)(새 형식):
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -3631,7 +3624,7 @@ Registro de Identidade (RIC)(새 형식):
 - Ik
 - isikukood #
 - isikukood
-- maksu id
+- maksu ID
 - maksukohustuslase identifitseerimisnumber
 - maksunumber
 - 국가별 ID 번호
@@ -3641,7 +3634,7 @@ Registro de Identidade (RIC)(새 형식):
 - 개인 식별 코드
 - 개인 ID 번호
 - personalidnumber #
-- 세금 id
+- 세금 ID
 - 세금 식별 번호
 - 세금 식별 번호
 - 세금 없음 #
@@ -3715,7 +3708,7 @@ Registro de Identidade (RIC)(새 형식):
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -3768,10 +3761,10 @@ Registro de Identidade (RIC)(새 형식):
 - 맞춤형 전권
 - 맞춤형 bleue
 - 맞춤형 de 크레딧
-- carte de crédit
-- carte di credito
+- 맞춤형 de crédit
+- 맞춤형 di credito
 - carte
-- carto de credito
+- cartoo de credito
 - carto de crédito
 - carto de debito
 - cartoo de débito
@@ -3781,7 +3774,7 @@ Registro de Identidade (RIC)(새 형식):
 - 카드 확인
 - checkcard
 - checkcards
-- 2018년 3월
+- 2018년 4월
 - 촉 모
 - cirrus-edc-stro
 - controlekaart
@@ -3811,7 +3804,7 @@ Registro de Identidade (RIC)(새 형식):
 - hoofdkaart
 - hoofdkaarten
 - viaggio에서
-- 일본어 카드국
+- 일본어 카드 기관
 - japanse kaartdienst
 - Jcb
 - kaart
@@ -3822,7 +3815,7 @@ Registro de Identidade (RIC)(새 형식):
 - kaarthouders
 - karte
 - karteninhaber
-- 카테인하버
+- karteninhabers
 - kartennr
 - kartennummer
 - kreditkarte
@@ -3840,21 +3833,21 @@ Registro de Identidade (RIC)(새 형식):
 - 퇴사자 현금
 - n carta
 - Carta
-- no de tar도마
+- no de tar tar도a
 - no do cartao
 - no do cart 연산자
 - 번호 de tar도라
 - 번호 do cartao
-- 번호 do carto
+- 번호 do cart 연산자
 - nr carta
 - Nr. Carta
 - numeri di scheda
-- 수많은 carta
+- 수많은 카타
 - numero de cartao
 - numero de carte
 - numero de carto
 - numero de tar도라
-- 다양한 della carta
+- 수많은 della carta
 - numero di carta
 - numero di scheda
 - numero do cartao
@@ -3869,7 +3862,7 @@ Registro de Identidade (RIC)(새 형식):
 - n 입니다. do carto
 - número de cartao
 - número de cartúo
-- número de tar도마
+- número de tarúa
 - número do cartao
 - scheda dell'assegno
 - scheda dell'atmosfera
@@ -3903,7 +3896,7 @@ Registro de Identidade (RIC)(새 형식):
 - v-pay
 - 비자
 - 2018년 3
-- 2018년 10월
+- 2018년 3월
 - visto
 - visum
 - vpay
@@ -3954,54 +3947,54 @@ Registro de Identidade (RIC)(새 형식):
 - 번호 dell'edizione
 - 번호 di sicurezza
 - numero de securite
-- numero de verificacao
+- numero de verificao
 - numero dell'edizione
 - numero di identificazione della
 - scheda
 - numero di sicurezza
-- numero van veiligheid
+- numero vanigheid
 - numéro de sécurité
-- n º autorizzazione
-- número de verificação
-- perno il blocco
-- 블록 고정
+- n) autorizzazione
+- número de verificaço
+- perno il(il)은(는)
+- 핀 블록
 - prufziffer
 - prüfziffer
 - 보안 코드
-- 보안 아니요
+- security no
 - 보안 번호
 - sicherheits kode
 - sicherheitscode
 - sicherheitsnummer
 - speldblok
-- veiligheid nr
-- veiligheidsaantal
-- veiligheidscode
-- veiligheidsnummer
+- ighigheid nr
+- igheidsaantal
+- idscode
+- ighigheidsnummer
 - verfalldatum
 
 #### <a name="keyword_card_expiration_terms_dict"></a>Keyword_card_expiration_terms_dict
 
 - ablauf
-- 데이터 de expiracao
-- 데이터 de expiração
-- 데이터 삭제 exp
-- 데이터 di exp
-- 데이터 di scadenza
-- data em 쿼리 expira
-- 데이터 scad
-- 데이터 scadenza
-- 날짜 제거
-- 데이텀 afloop
-- 데이텀 van exp
-- de 루프
+- data de expiracao
+- data de expiraçço
+- data del exp
+- data di exp
+- data di scadenza
+- data em que expira
+- data scad
+- data scadenza
+- date de validité
+- datumop
+- datum van exp
+- deopoop
 - espira
 - espira
-- exp 날짜
-- exp 데이텀
+- exp date
+- exp datum
 - expiration
-- 임박한
-- 기간이
+- 만료
+- 만료
 - expiry
 - fecha de expiracion
 - fecha de venc
@@ -4012,9 +4005,9 @@ Registro de Identidade (RIC)(새 형식):
 - la scadenza
 - scadenza
 - valable
-- 유효한 ade
+- validade
 - valido hasta
-- valor
+- 용 맹
 - venc
 - vencimento
 - vencimiento
@@ -4022,12 +4015,12 @@ Registro de Identidade (RIC)(새 형식):
 - vervaldag
 - vervaldatum
 - vto
-- válido hasta
+- v을lido hasta
 
 
 ## <a name="eu-drivers-license-number"></a>EU 운전 면허 번호
 
-이러한 엔터티는 EU 드라이버의 라이선스 번호에 있으며 중요 한 정보 형식입니다.
+이러한 엔터티는 EU 드라이버의 라이선스 번호에 있으며 중요한 정보 유형입니다.
 
 - [오스트리아](#austria-drivers-license-number)
 - [벨기에](#belgium-drivers-license-number)
@@ -4061,7 +4054,7 @@ Registro de Identidade (RIC)(새 형식):
 
 ## <a name="eu-national-identification-number"></a>EU 국가 식별 번호
 
-이러한 엔터티는 EU 국가 식별 번호 이며 중요 한 정보 유형입니다.
+이러한 엔터티는 EU 국가 식별 번호에 있으며 중요한 정보 유형입니다.
 
 - [오스트리아](#austria-identity-card)
 - [벨기에](#belgium-national-number)
@@ -4094,7 +4087,7 @@ Registro de Identidade (RIC)(새 형식):
 
 ## <a name="eu-passport-number"></a>EU 여권 번호
 
-이러한 엔터티는 EU Passport 번호에 있으며 중요한 정보 유형입니다. 이러한 엔터티는 EU Passport 번호 번들에 있습니다.
+이러한 엔터티는 EU passport 번호 이며 중요 한 정보 유형입니다. 이러한 엔터티는 EU passport 번호 번들에 있습니다.
 
 - [오스트리아](#austria-passport-number)
 - [벨기에](#belgium-passport-number)
@@ -4128,7 +4121,7 @@ Registro de Identidade (RIC)(새 형식):
 
 ## <a name="eu-social-security-number-or-equivalent-identification"></a>EU SSN(사회 보장 번호) 또는 동등한 ID
 
-이러한 엔터티는 EU 사회 보장 번호 또는 이와 동등한 ID에 있으며 중요한 정보 유형입니다.
+이러한 엔터티는 EU 사회 보장 번호 또는 동등한 식별 및 중요 한 정보 유형입니다.
 
 - [오스트리아](#austria-social-security-number)
 - [벨기에](#belgium-national-number)
@@ -4176,10 +4169,10 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - [슬로베니아](#slovenia-tax-identification-number)
 - [스페인](#spain-tax-identification-number)
 - [스웨덴](#sweden-tax-identification-number)
-- [영국.](#uk-unique-taxpayer-reference-number)
+- [영국의](#uk-unique-taxpayer-reference-number)
 
 
-## <a name="finland-drivers-license-number"></a>핀란드 기사의 라이선스 번호
+## <a name="finland-drivers-license-number"></a>핀란드 드라이버의 라이선스 번호
 
 ### <a name="format"></a>형식
 
@@ -4200,98 +4193,98 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="keywords"></a>키워드
 
-#### <a name="keywords_eu_drivers_license_number"></a>Keywords_eu_driver's_license_number
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords_eu_driver ' s_license_number
 
 - driverlic
-- 드라이버
+- driverlics
 - driverlicense
-- driverlicense
+- driverlicenses
 - driverlicence
 - driverlicences
-- driver lic
+- 드라이버 lic
 - 드라이버 lics
-- 운전면허증
+- 드라이버 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
 - driverslic
 - driverslics
-- driverslicence
+- 드라이버 라이선스
 - driverslicences
-- driverslicense
-- driverslicenses
-- drivers lic
-- drivers lics
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버 lic
+- 드라이버 lics
 - 드라이버 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
-- driver'lic
-- driver'lics
-- 운전면허증
-- 운전면허증
-- 드라이버 라이선스
-- 드라이버 라이선스
-- driver' lic
+- drivero
+- driverlics
+- drivers 라이선스
+- drivers 라이선스
+- drivers 라이선스
+- driver'licences
+- 드라이버 ' lic
 - 드라이버의 lics
-- 운전면허증
-- 운전 기사 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버 ' 라이선스
 - driver'slic
-- driver'slics
-- 드라이버의license
-- 드라이버의 조각
-- 드라이버의licence
-- 드라이버의 slicences
+- 드라이버 (o)
+- 드라이버 ' s 라이선스 '
+- 드라이버 ' s 라이선스 '
+- driver'slicence
+- driver'slicences
 - 드라이버의 lic
-- 드라이버의 lic
-- 운전면허증
-- 운전 기사의 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- Dl #
-- Dl #
+- 드라이버의 lics
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- dl #
+- 된다 #
 - driverlic #
-- 드라이버 #
+- driverlics #
 - driverlicense #
-- driverlicense #
+- driverlicenses #
 - driverlicence #
 - driverlicences #
-- driver lic #
+- 드라이버 lic #
 - 드라이버 lics #
-- 운전면허증 #
+- 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - driverslic #
 - driverslics #
-- driverslicense #
-- driverslicenses #
-- driverslicence #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
 - driverslicences #
-- drivers lic #
-- drivers lics #
+- 드라이버 lic #
+- 드라이버 lics #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
-- driver'lic #
-- driver'lics #
-- 운전면허증 #
-- 운전면허증 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- driver' lic #
+- drivero #
+- driverlics #
+- drivers 라이선스 #
+- drivers 라이선스 #
+- drivers 라이선스 #
+- driver'licences #
+- 드라이버 ' lic #
 - 드라이버의 lics #
-- 운전면허증 #
-- 운전 기사 라이선스 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
+- 드라이버의 라이선스 #
+- 드라이버의 라이선스 #
+- 드라이버의 라이선스 #
+- 드라이버 ' 라이선스 #
 - driver'slic #
-- driver'slics #
-- 드라이버의license #
-- 드라이버의 조각 #
-- 드라이버의licence #
+- 드라이버 (o) #
+- 드라이버 ' s 라이선스 ' #
+- 드라이버 ' s 라이선스 ' #
+- driver'slicence #
 - 드라이버의 slicences #
 - 드라이버의 lic #
 - 드라이버의 lic #
@@ -4310,7 +4303,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - driv 라이선스
 - 드라이버 사용 허가
 - 드라이버 라이선스
-- 드라이버의 사용 허가
+- 드라이버 사용 허가
 - driving lic
 - 운전 허가
 - 운전 라이선스
@@ -4396,7 +4389,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -4415,19 +4408,19 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - kansallinen henkilötunnus
 - kansallisen henkilökortin
 - 국가 ID 카드
-- 국가 id 아니요.
-- 개인 id
-- 개인 id 코드
+- national id 아니요.
+- 개인 ID
+- 개인 ID 코드
 - personalidnumber #
 - personbeteckning
 - personnummer
 - 사회 보장 번호
 - sosiaaliturvatunnus
-- 세금 id
+- 세금 ID
 - 세금 식별 번호
-- 세금 식별 번호
-- 세금 없음 #
-- 세금 없음
+- 세금 ID 번호
+- 세금 번호 #
+- 세금 번호
 - 세금 번호
 - 세금 등록 번호
 - taxid #
@@ -4437,13 +4430,13 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - taxnumber #
 - taxnumber
 - tin id
-- tin
-- tin #
+- tin no
+- 주석 #
 - tunnistenumero
 - tunnus numero
 - tunnusluku
 - tunnusnumero
-- verokortti
+- ver verttirtti
 - veronumero
 - verotunniste
 - verotunnus
@@ -4451,14 +4444,14 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ## <a name="finland-passport-number"></a>핀란드 여권 번호
 
-이 엔터티는 EU Passport 번호 중요 정보 형식으로 사용할 수 있으며 독립 실행형 중요 정보 유형 엔터티로 사용할 수 있습니다.
+이 엔터티는 EU Passport 번호 중요한 정보 유형에서 사용할 수 있으며 독립 실행형 중요 정보 유형 엔터티로 사용할 수 있습니다.
 
 ### <a name="format"></a>형식
 9개 문자와 숫자의 조합
 
 ### <a name="pattern"></a>패턴
 9개 문자와 숫자의 조합:
-- 두 문자 (대/소문자 구분 안 함)
+- 두 문자(대/소문자 구분 안 함)
 - 7자리 숫자
 
 ### <a name="checksum"></a>체크섬
@@ -4469,8 +4462,8 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 #### <a name="keywords_eu_passport_number"></a>Keywords_eu_passport_number
 
-- passport #
-- passport #
+- 여권 #
+- 여권 #
 - passportid
 - 여권
 - passportno
@@ -4478,17 +4471,17 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - passportnumber
 - 여권 번호
 - passportnumbers
-- 여권 번호
+- passport numbers
 
 #### <a name="keyword_finland_passport_number"></a>Keyword_finland_passport_number
 
-- suomalainen
+- suomalainen passi
 - passin numero
 - passin numero. #
 - passin numero #
 - passin numero.
-- 이상 #
-- 가 수
+- passi #
+- passi 번호
 
 #### <a name="keywords_eu_passport_date"></a>Keywords_eu_passport_date
 
@@ -4497,7 +4490,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ## <a name="france-drivers-license-number"></a>프랑스 운전 면허 번호
 
-이 엔터티는 EU 드라이버의 라이선스 번호 중요 정보 유형에 서 사용할 수 있으며 독립 실행형 중요 한 정보 유형 엔터티로 사용할 수 있습니다.
+이 엔터티는 EU 드라이버의 라이선스 번호 중요한 정보 유형에서 사용할 수 있으며 독립 실행형 중요 정보 유형 엔터티로 사용할 수 있습니다.
 
 ### <a name="format"></a>형식
 
@@ -4516,32 +4509,32 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 #### <a name="keyword_french_drivers_license"></a>Keyword_french_drivers_license
 
 - driverlic
-- driverlics
+- 드라이버
 - driverlicense
-- driverlicenses
+- driverlicense
 - driverlicence
 - driverlicences
-- 드라이버 lic
+- driver lic
 - 드라이버 lics
-- 드라이버 라이선스
+- 운전면허증
 - 드라이버 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
 - driverslic
 - driverslics
-- 드라이버 라이선스
+- driverslicence
 - driverslicences
+- driverslicense
+- driverslicenses
+- drivers lic
+- drivers lics
 - 드라이버 라이선스
 - 드라이버 라이선스
-- 드라이버 lic
-- 드라이버 lics
 - 드라이버 라이선스
 - 드라이버 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- drivero
-- driverlics
-- drivers 라이선스
+- driver'lic
+- driver'lics
+- 운전면허증
 - drivers 라이선스
 - drivers 라이선스
 - driver'licences
@@ -4673,11 +4666,11 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 #### <a name="keyword_france_health_insurance_number"></a>Keyword_France_health_insurance_number
 
 - 보험 카드
-- carte vitale
-- carte d'assuré social
+- 맞춤형 vitale
+- 맞춤형 d'assuré 소셜
 
 
-## <a name="france-national-id-card-cni"></a>프랑스 CNI(국가 ID 카드)
+## <a name="france-national-id-card-cni"></a>프랑스 국가 id 카드 (CNI)
 
 ### <a name="format"></a>형식
 
@@ -4696,20 +4689,20 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 #### <a name="keywords_france_eu_national_id_card"></a>Keywords_france_eu_national_id_card
 
 - 카드 번호
-- carte nationale d'identité
-- carte nationale d'idenite no
+- 맞춤형 nationale d'identité
+- 맞춤형 nationale d'idenite no
 - cni #
 - cni
 - compte bancaire
-- 국가별 ID 번호
-- 국가 ID
+- 국가 식별 번호
+- 국가 id
 - nationalidno #
-- numéro d'assurance 부호
-- numéro de carte vitale
+- numéro d'assurance maladie
+- numéro de 맞춤형 vitale
 
 
 ## <a name="france-passport-number"></a>프랑스 여권 번호
-이 엔터티는 EU Passport 번호 중요 정보 유형에서 사용할 수 있습니다. 독립 실행형 중요한 정보 형식 엔터티로도 사용할 수 있습니다.
+이 엔터티는 EU Passport 번호 중요 정보 형식으로 제공 됩니다. 독립 실행형 중요 한 정보 형식 엔터티로도 사용할 수 있습니다.
 
 ### <a name="format"></a>형식
 
@@ -4719,7 +4712,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 9개의 숫자와 문자:
 - 2자리 숫자
-- 두 문자(대/소문자 구분 안 함)
+- 두 문자 (대/소문자 구분 안 함)
 - 5자리 숫자
 
 ### <a name="checksum"></a>체크섬
@@ -4730,8 +4723,8 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 #### <a name="keywords_eu_passport_number"></a>Keywords_eu_passport_number
 
-- 여권 #
-- 여권 #
+- passport #
+- passport #
 - passportid
 - 여권
 - passportno
@@ -4739,24 +4732,24 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - passportnumber
 - 여권 번호
 - passportnumbers
-- passport numbers
+- 여권 번호
 
 #### <a name="keywords_france_eu_passport_number"></a>Keywords_france_eu_passport_number
 
-- numéro de passeport
-- passeport n °
-- passeport non
-- passeport #
-- passeport #
-- passeportnon
-- passeportn °
-- passeportççais
-- passeport livre
-- passeport carte
-- numéro passeport
-- passeport n°
-- n° du passeport
-- n° 패스포트
+- numéro de 포트
+- 포트 n °
+- 가 아닌 포트
+- 포트 #
+- 포트 #
+- 고가 아닌 포트
+- 고가
+- français
+- livre
+- 맞춤형
+- numéro
+- 포트 n °
+- n ° du 및 seport
+- n °의 포트
 
 #### <a name="keywords_eu_passport_date"></a>Keywords_eu_passport_date
 
@@ -4764,7 +4757,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - 만료 날짜
 
 
-## <a name="france-social-security-number-insee"></a>프랑스 사회 보장 번호(INSEE)
+## <a name="france-social-security-number-insee"></a>프랑스 주민 등록 번호 (INSEE)
 
 ### <a name="format"></a>형식
 
@@ -4773,47 +4766,47 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 ### <a name="pattern"></a>패턴
 
 다음 두 패턴 중 하나와 일치해야 합니다.
-- 13자리 숫자, 공백, 두 자리 숫자<br/>
+- 13 개 숫자 뒤에 공백 하나, 숫자 2 개<br/>
 또는
 - 연속된 숫자 15개
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
 #### <a name="keyword_fr_insee"></a>Keyword_fr_insee
 
-- code sécu
+- 코드 sécu
 - d'identité nationale
-- Insee
+- insee
 - fssn #
 - le numéro d'identification nationale
-- le code de la sécurité sociale
-- national id
-- 국가별 식별
-- no d'identité
+- le 코드 de la sécurité 사회 ale
+- 국가 id
+- 국가 식별
+- d'identité 없음
 - 번호 d'identité
 - numéro d'assurance
 - numéro d'identité
 - numero d'identite
 - numéro de sécu
-- numéro de sécurité sociale
-- id 없음
+- numéro de sécurité 사회 ale
+- d'identite 없음
 - 번호 d'identite
-- Ssn
-- Ssn #
-- sécurité sociale
-- securité sociale
-- securite sociale
-- socialsecuritynumber
+- ssn
+- ssn #
+- sécurité 사회 ale
+- securité 사회 ale
+- securite 사회 ale
+- 보안
 - 사회 보장 번호
-- 사회 보장 코드
+- 소셜 보안 코드
 - 사회 보험 번호
 
 
-## <a name="france-tax-identification-number"></a>프랑스 세금 ID 번호
+## <a name="france-tax-identification-number"></a>프랑스 세금 식별 번호
 
 ### <a name="format"></a>형식
 
@@ -4837,18 +4830,18 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
 #### <a name="keywords_france_eu_tax_file_number"></a>Keywords_france_eu_tax_file_number
 
 - numéro d'identification fiscale
-- 세금 ID
+- 세금 id
 - 세금 식별 번호
-- 세금 ID 번호
-- 세금 번호 #
-- 세금 번호
+- 세금 식별 번호
+- 세금 없음 #
+- 세금 없음
 - 세금 번호
 - 세금 등록 번호
 - taxid #
@@ -4858,11 +4851,11 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - taxnumber #
 - taxnumber
 - tin id
-- tin no
-- 주석 #
+- tin
+- tin #
 
 
-## <a name="france-value-added-tax-number"></a>프랑스 부가가치세 번호
+## <a name="france-value-added-tax-number"></a>프랑스 값 부가 세금 번호
 이 중요 정보 형식은 다음에만 사용할 수 있습니다.
 - 데이터 손실 방지 정책
 - 커뮤니케이션 준수 정책
@@ -4878,7 +4871,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 13자 영숫자 패턴:
 
-- 두 문자 - FR(대/소문자 구분)
+- 2 개의 문자-FR (대/소문자 구분 안 함)
 - 선택적 공백 또는 하이픈
 - 2개 문자 또는 숫자
 - 선택적 공백, 점, 하이픈 또는 쉼표
@@ -4890,7 +4883,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -4898,19 +4891,19 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 - vat 번호
 - vat 아니요
-- 부가 가치세 #
-- 부가가치세
-- taxen identification no numéro d'identification taxe sur valeur ajout 전체
-- taxe valeur ajout 전체
-- taxe sur la valeur ajout 전체
-- n° tva
-- numéro de tva
-- numéro d'identificationro
+- vat #
+- 부가 가치 세금
+- 사이렌 id 없음 numéro d'identification taxe 성 valeur ajoutée
+- taxe valeur ajoutée
+- taxe 성 la valeur ajoutée
+- n ° tva
+- numéro de
+- numéro d'identification 사이렌
 
 
 ## <a name="germany-drivers-license-number"></a>독일 운전 면허 번호
 
-이 중요한 정보 유형 엔터티는 EU 드라이버의 라이선스 번호 중요한 정보 유형에 포함됩니다. 독립 실행형 중요한 정보 형식 엔터티로도 사용할 수 있습니다.
+이 중요 한 정보 형식 엔터티는 EU 드라이버의 라이선스 번호 중요 정보 형식에 포함 되어 있습니다. 독립 실행형 중요 한 정보 형식 엔터티로도 사용할 수 있습니다.
 
 ### <a name="format"></a>형식
 
@@ -4927,7 +4920,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -5026,58 +5019,58 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - 드라이버 라이선스 #
 - driverslic #
 - driverslics #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
+- driverslicense #
+- driverslicenses #
+- driverslicence #
 - driverslicences #
-- 드라이버 lic #
-- 드라이버 lics #
+- drivers lic #
+- drivers lics #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
-- drivero #
-- driverlics #
-- drivers 라이선스 #
-- drivers 라이선스 #
-- drivers 라이선스 #
-- driver'licences #
-- 드라이버 ' lic #
+- driver'lic #
+- driver'lics #
+- 드라이버 라이선스 #
+- 운전면허증 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- driver' lic #
 - 드라이버의 lics #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버 ' 라이선스 #
+- 운전면허 #
+- 운전 기사 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
 - driver'slic #
-- 드라이버 (o) #
-- 드라이버 ' s 라이선스 ' #
-- 드라이버 ' s 라이선스 ' #
-- driver'slicence #
-- driver'slicences #
+- driver'slics #
+- 드라이버의license #
+- 드라이버의 조각 #
+- 드라이버의licence #
+- 드라이버의 slicences #
 - 드라이버의 lic #
-- 드라이버의 lics #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 추진 라이선스 
-- 추진 라이선스
-- dlno #
-- 드라이브 lic
-- 드라이브 licen
-- 드라이브 라이선스
-- 드라이브 라이선스
-- 드라이브 라이선스
-- 드라이브 라이선스
-- 드라이버 licen
-- 드라이버 licen
-- 드라이버의 licen
-- lic 구동
-- 주행
+- 드라이버의 lic #
+- 운전면허증 #
+- 운전 기사의 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- 운전 운전 라이선스 
 - 운전 라이선스
-- 추진 라이선스
-- 주행 라이선스
-- 촉진 허용
+- dlno #
+- driv lic
+- driv licen
+- driv 라이선스
+- driv 라이선스
+- driv 라이선스
+- driv 라이선스
+- 드라이버 사용 허가
+- 드라이버 라이선스
+- 드라이버의 사용 허가
+- driving lic
+- 운전 허가
+- 운전 라이선스
+- 운전 운전 라이선스
+- 운전 라이선스
+- 운전 허가
 - dlno
 
 
@@ -5106,24 +5099,24 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 #### <a name="keyword_germany_id_card"></a>Keyword_germany_id_card
 
-- ausweis
+- aus
 - gpid
 - identification
 - identifikation
 - identifizierungsnummer
-- id 카드
-- id 번호
+- ID 카드
+- ID 번호
 - id-nummer
-- 개인 id
-- personalausweis
-- persönliche id nummer
-- persönliche identifikationsnummer
-- persönliche-id-nummer
+- 개인 ID
+- personalaus
+- persönöe id nummer
+- persönöe identifikationsnummer
+- persönöe-id-nummer
 
 
 ## <a name="germany-passport-number"></a>독일 여권 번호
 
-이 엔터티는 EU Passport 번호 중요 정보 형식에 포함 되어 있으며 독립 실행형 중요 정보 유형 엔터티로 사용할 수 있습니다.
+이 엔터티는 EU Passport 번호 중요한 정보 유형에 포함되며 독립 실행형 중요 정보 유형 엔터티로 사용할 수 있습니다.
 
 ### <a name="format"></a>형식
 
@@ -5139,7 +5132,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -5151,14 +5144,14 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - Nr-Reisepass
 - Reisepass-Nr
 - Passnummer
-- reisepsse
-- passeport 아니요.
-- passeport 아니요
+- reisepässe
+- 는 포트 번호입니다.
+- 는 포트 번호
 
 #### <a name="keywords_eu_passport_number_common"></a>Keywords_eu_passport_number_common
 
-- 여권 #
-- 여권 #
+- passport #
+- passport #
 - passportid
 - 여권
 - passportno
@@ -5166,7 +5159,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - passportnumber
 - 여권 번호
 - passportnumbers
-- passport numbers
+- 여권 번호
 
 
 ## <a name="germany-tax-identification-number"></a>독일 세금 식별 번호
@@ -5190,7 +5183,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -5200,11 +5193,11 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - steuer id
 - steueridentifikationsnummer
 - steuernummer
-- 세금 ID
+- 세금 id
 - 세금 식별 번호
-- 세금 ID 번호
-- 세금 번호 #
-- 세금 번호
+- 세금 식별 번호
+- 세금 없음 #
+- 세금 없음
 - 세금 번호
 - 세금 등록 번호
 - taxid #
@@ -5214,14 +5207,14 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - taxnumber #
 - taxnumber
 - tin id
-- tin no
-- 주석 #
-- Zinn #
-- Zinn
-- 경우
+- tin
+- tin #
+- zinn #
+- zinn
+- zinnnummer
 
 
-## <a name="germany-value-added-tax-number"></a>독일 부가가치세 번호
+## <a name="germany-value-added-tax-number"></a>독일 부가 세금 번호를 추가 했습니다.
 이 중요 정보 형식은 다음에만 사용할 수 있습니다.
 - 데이터 손실 방지 정책
 - 커뮤니케이션 준수 정책
@@ -5248,7 +5241,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -5256,16 +5249,16 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 - vat 번호
 - vat 아니요
-- 부가 가치세 #
-- vat# mehrwertsteuer
+- vat #
+- vat # mehrwertsteuer
 - mwst
 - mehrwertsteuer identifikationsnummer
 - mehrwertsteuer nummer
 
 
-## <a name="greece-drivers-license-number"></a>승용차 운전면허 번호
+## <a name="greece-drivers-license-number"></a>그리스 운전 면허 번호
 
-이 엔터티는 EU 드라이버의 라이선스 번호 중요한 정보 유형에 포함됩니다. 독립 실행형 중요 정보 형식 엔터티로도 사용할 수 있습니다.
+이 엔터티는 EU 드라이버의 라이선스 번호 중요 정보 형식에 포함 되어 있습니다. 또한 독립 실행형 중요 한 정보 유형 엔터티로 사용할 수 있습니다.
 
 ### <a name="format"></a>서식
 
@@ -5281,12 +5274,12 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="keywords"></a>키워드
 
-#### <a name="keywords_eu_drivers_license_number"></a>Keywords_eu_driver's_license_number
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords_eu_driver ' s_license_number
 
 - driverlic
-- 드라이버
+- driverlics
 - driverlicense
-- driverlicense
+- driverlicenses
 - driverlicence
 - driverlicences
 - driver lic
@@ -5315,14 +5308,14 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - 드라이버 라이선스
 - driver' lic
 - 드라이버의 lics
-- 운전면허증
+- 운전면허
 - 운전 기사 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
 - driver'slic
 - driver'slics
 - 드라이버의license
-- 드라이버의 조각
+- 드라이버의 slicenses
 - 드라이버의licence
 - 드라이버의 slicences
 - 드라이버의 lic
@@ -5358,20 +5351,20 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - 드라이버 라이선스 #
 - driver'lic #
 - driver'lics #
-- 운전면허증 #
+- 드라이버 라이선스 #
 - 운전면허증 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
-- driver' lic #
+- 드라이버의 lic #
 - 드라이버의 lics #
-- 운전면허증 #
+- 운전면허 #
 - 운전 기사 라이선스 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - driver'slic #
 - driver'slics #
 - 드라이버의license #
-- 드라이버의 조각 #
+- 드라이버의 slicenses #
 - 드라이버의licence #
 - 드라이버의 slicences #
 - 드라이버의 lic #
@@ -5385,8 +5378,8 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - dlno #
 - driv lic
 - driv licen
-- 드라이브 라이선스
-- 드라이브 라이선스
+- driv 라이선스
+- driv 라이선스
 - 드라이브 라이선스
 - 드라이브 라이선스
 - 드라이버 licen
@@ -5503,7 +5496,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -5586,7 +5579,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -5658,128 +5651,128 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - driverlicenses
 - driverlicence
 - driverlicences
-- driver lic
+- 드라이버 lic
 - 드라이버 lics
-- 운전면허증
+- 드라이버 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
 - driverslic
 - driverslics
-- driverslicence
+- 드라이버 라이선스
 - driverslicences
-- driverslicense
-- driverslicenses
-- drivers lic
-- drivers lics
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버 lic
+- 드라이버 lics
 - 드라이버 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
-- driver'lic
-- driver'lics
-- 운전면허증
-- 운전면허증
-- 드라이버 라이선스
-- 드라이버 라이선스
-- driver' lic
+- drivero
+- driverlics
+- drivers 라이선스
+- drivers 라이선스
+- drivers 라이선스
+- driver'licences
+- 드라이버 ' lic
 - 드라이버의 lics
-- 운전면허증
-- 운전 기사 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버 ' 라이선스
 - driver'slic
-- driver'slics
-- 드라이버의license
-- 드라이버의 조각
-- 드라이버의licence
-- 드라이버의 slicences
+- 드라이버 (o)
+- 드라이버 ' s 라이선스 '
+- 드라이버 ' s 라이선스 '
+- driver'slicence
+- driver'slicences
 - 드라이버의 lic
-- 드라이버의 lic
-- 운전면허증
-- 운전 기사의 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- Dl #
-- Dl #
+- 드라이버의 lics
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- dl #
+- 된다 #
 - driverlic #
-- 드라이버 #
+- driverlics #
 - driverlicense #
-- driverlicense #
+- driverlicenses #
 - driverlicence #
 - driverlicences #
-- driver lic #
+- 드라이버 lic #
 - 드라이버 lics #
-- 운전면허증 #
+- 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - driverslic #
 - driverslics #
-- driverslicense #
-- driverslicenses #
-- driverslicence #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
 - driverslicences #
-- drivers lic #
-- drivers lics #
+- 드라이버 lic #
+- 드라이버 lics #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
-- driver'lic #
-- driver'lics #
-- 운전면허증 #
-- 운전면허증 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- driver' lic #
+- drivero #
+- driverlics #
+- drivers 라이선스 #
+- drivers 라이선스 #
+- drivers 라이선스 #
+- driver'licences #
+- 드라이버 ' lic #
 - 드라이버의 lics #
-- 운전면허증 #
-- 운전 기사 라이선스 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
+- 드라이버의 라이선스 #
+- 드라이버의 라이선스 #
+- 드라이버의 라이선스 #
+- 드라이버 ' 라이선스 #
 - driver'slic #
-- driver'slics #
-- 드라이버의license #
-- 드라이버의 조각 #
-- 드라이버의licence #
-- 드라이버의 slicences #
+- 드라이버 (o) #
+- 드라이버 ' s 라이선스 ' #
+- 드라이버 ' s 라이선스 ' #
+- driver'slicence #
+- driver'slicences #
 - 드라이버의 lic #
-- 드라이버의 lic #
-- 운전면허증 #
-- 운전 기사의 라이선스 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- 운전 운전 라이선스 
-- 운전 라이선스
+- 드라이버의 lics #
+- 드라이버의 라이선스 #
+- 드라이버의 라이선스 #
+- 드라이버의 라이선스 #
+- 드라이버의 라이선스 #
+- 추진 라이선스 
+- 추진 라이선스
 - dlno #
-- driv lic
-- driv licen
-- driv 라이선스
-- driv 라이선스
-- driv 라이선스
-- driv 라이선스
-- 드라이버 사용 허가
-- 드라이버 라이선스
-- 드라이버의 사용 허가
-- driving lic
-- 운전 허가
+- 드라이브 lic
+- 드라이브 licen
+- 드라이브 라이선스
+- 드라이브 라이선스
+- 드라이브 라이선스
+- 드라이브 라이선스
+- 드라이버 licen
+- 드라이버 licen
+- 드라이버의 licen
+- lic 구동
+- 주행
 - 운전 라이선스
-- 운전 운전 라이선스
-- 운전 라이선스
-- 운전 허가
+- 추진 라이선스
+- 주행 라이선스
+- 촉진 허용
 - dl 아니요
 - dlno
-- dl number
+- dl 번호
 
 
-#### <a name="keywords_hungary_eu_drivers_license_number"></a>Keywords_hungary_eu_driver's_license_number
+#### <a name="keywords_hungary_eu_drivers_license_number"></a>Keywords_hungary_eu_driver ' s_license_number
 
-- vezetoi engedely
-- vezetéi engedély
-- vezetéi engedélyek
+- vezetoi
+- vezetői engedély
+- vezetői engedélyek
 
 
-## <a name="hungary-personal-identification-number"></a>개인 식별 번호
+## <a name="hungary-personal-identification-number"></a>헝가리 개인 식별 번호
 이 중요 정보 형식은 다음에만 사용할 수 있습니다.
 - 데이터 손실 방지 정책
 - 커뮤니케이션 준수 정책
@@ -5802,22 +5795,22 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
 #### <a name="keywords_hungary_eu_national_id_card"></a>Keywords_hungary_eu_national_id_card
 
-- ID 번호
-- ID 번호
+- id 번호
+- 식별 번호
 - sz ig
-- Sz. Ig.
-- sz.ig.
-- személyazonosótó igazolvlvy
-- személyi igazolvlvlvy
+- sz. ig.
+- sz.
+- személyazonosító igazolvány
+- személyi igazolvány
 
 
-## <a name="hungary-passport-number"></a>헝가리어 Passport 번호
+## <a name="hungary-passport-number"></a>헝가리 여권 번호
 
 ### <a name="format"></a>서식
 
@@ -5835,8 +5828,8 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 #### <a name="keywords_eu_passport_number"></a>Keywords_eu_passport_number
 
-- 여권 #
-- 여권 #
+- passport #
+- passport #
 - passportid
 - 여권
 - passportno
@@ -5844,13 +5837,13 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - passportnumber
 - 여권 번호
 - passportnumbers
-- passport numbers
+- 여권 번호
 
 #### <a name="keywords_hungary_eu_passport_number"></a>Keywords_hungary_eu_passport_number
 
-- útlevél szúma
-- Útlevelek szúma
-- útlevél szúm
+- útlevél száma
+- Útlevelek száma
+- útlevél szám
 
 #### <a name="keywords_eu_passport_date"></a>Keywords_eu_passport_date
 
@@ -5858,7 +5851,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - 만료 날짜
 
 
-## <a name="hungary-social-security-number-taj"></a>TAJ(사회 보장 번호)
+## <a name="hungary-social-security-number-taj"></a>헝가리 사회 보장 번호 (TAJ)
 
 ### <a name="format"></a>서식
 
@@ -5870,32 +5863,32 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
 #### <a name="keywords_hungary_eu_ssn_or_equivalent"></a>Keywords_hungary_eu_ssn_or_equivalent
 
-- 헝가리어 사회 보장 번호
+- 헝가리어 주민 등록 번호
 - 사회 보장 번호
-- socialsecuritynumber #
+- 보안 #
 - hssn #
 - socialsecuritynno
 - hssn
-- 타지
-- 타지 #
-- Ssn
-- Ssn #
-- 사회 보장 아니요
-- 을(를)
-- közösségi adószóm
-- ltalicoos forgalmi adó szóm
-- hozzóadottérték adó
-- 을(를)
-- magyar 을(를)
+- taj
+- taj #
+- ssn
+- ssn #
+- 소셜 보안 아니요
+- áfa
+- közösségi adószám
+- általános forgalmi adbaszám
+- hozzáadottérték adó
+- áfa szám
+- magyar áfa szám
 
 
-## <a name="hungary-tax-identification-number"></a>세금 ID 번호
+## <a name="hungary-tax-identification-number"></a>헝가리 세금 id 번호
 이 중요 정보 형식은 다음에만 사용할 수 있습니다.
 - 데이터 손실 방지 정책
 - 커뮤니케이션 준수 정책
@@ -5917,23 +5910,23 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
 #### <a name="keywords_hungary_eu_tax_file_number"></a>Keywords_hungary_eu_tax_file_number
 
-- adóazonosító szám
-- adóhatóság szám
-- adószám
-- 헝가리어 tin
+- adóazonosótó szóm
+- adóhatósóg szóm
+- adószóm
+- 헝가리어 주석
 - hungatiantin #
 - 세금 기관 아니요
-- 세금 id
+- 세금 ID
 - 세금 식별 번호
-- 세금 식별 번호
-- 세금 없음 #
-- 세금 없음
+- 세금 ID 번호
+- 세금 번호 #
+- 세금 번호
 - 세금 번호
 - 세금 등록 번호
 - taxid #
@@ -5943,12 +5936,12 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - taxnumber #
 - taxnumber
 - tin id
-- tin
-- tin #
+- tin no
+- 주석 #
 - vat 번호
 
 
-## <a name="hungary-value-added-tax-number"></a>헝가리 값이 추가 된 세금 번호
+## <a name="hungary-value-added-tax-number"></a>부가가치세 번호
 이 중요 정보 형식은 다음에만 사용할 수 있습니다.
 - 데이터 손실 방지 정책
 - 커뮤니케이션 준수 정책
@@ -5970,23 +5963,23 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
 #### <a name="keyword_hungary_value_added_tax_number"></a>Keyword_Hungary_value_added_tax_number
 
 - vat
-- 값이 추가 된 세금 번호
-- vat #
+- 부가가치세 번호
+- 부가 가치세 #
 - vatno #
-- hungarianvatno #
-- 세금 번호.
-- 부가 세율 áfa
-- közösségi adószám
-- általános forgalmi adbaszám
-- hozzáadottérték adó
-- áfa szám
+- vatno #
+- 세금 번호
+- 부가가치세 을(를) 추가했습니다.
+- közösségi adószóm
+- ltalicoos forgalmi adó szóm
+- hozzóadottérték adó
+- 을(를)
 
 ## <a name="india-permanent-account-number-pan"></a>인도 PAN(영구 계좌 번호)
 
@@ -5997,11 +5990,11 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 ### <a name="pattern"></a>패턴
 
 10개 문자 또는 숫자:
-- 세 문자 (대/소문자 구분 안 함)
-- C, P, H, F, A, T, B, L, J, G의 문자 (대/소문자 구분 안 함)
+- 세 문자(대/소문자 구분 안 함)
+- C, P, H, F, A, T, B, L, J, G의 문자(대/소문자 구분 안 함)
 - 문자
 - 4자리 숫자
-- 영문자를 확인 하는 문자
+- 알파벳 확인 숫자인 문자
 
 ### <a name="checksum"></a>체크섬
 
@@ -6011,7 +6004,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 #### <a name="keyword_india_permanent_account_number"></a>Keyword_india_permanent_account_number
 
-- 영구 계정 번호
+- PAN(영구 계정 번호)
 - PAN
 
 ## <a name="india-unique-identification-aadhaar-number"></a>인도 신분증(Aadhaar) 번호
@@ -6023,7 +6016,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 ### <a name="pattern"></a>패턴
 
 12자리 숫자:
-- 0 또는 1이 아닌 숫자입니다.
+- 0 또는 1이 아닌 숫자
 - 3자리 숫자
 - 선택적 공백 또는 대시
 - 4자리 숫자
@@ -6032,7 +6025,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -6154,7 +6147,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -6180,18 +6173,18 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 #### <a name="keyword_ipaddress"></a>Keyword_ipaddress
 
-- IP(이 키워드는 대/소문자 구분)
+- IP (this 키워드는 대/소문자 구분)
 - ip 주소
 - ip 주소
 - 인터넷 프로토콜
-- IP כתובת ה
+- כתובת ה
 
 
 ## <a name="ip-address-v4"></a>IP 주소 v4
 
 ### <a name="format"></a>서식
 
-형식이 지정된(마침표) 및 형식이 지정되지 않은(마침표 없음) 버전의 IPv4 주소를 고려하는 복잡한 패턴
+형식이 지정 된 (기간) 및 형식이 지정 되지 않은 (기간 없음) 버전의 IPv4 주소에 대해 계정을 지정 하는 복합 패턴
 
 ### <a name="pattern"></a>패턴
 
@@ -6204,11 +6197,11 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 #### <a name="keyword_ipaddress"></a>Keyword_ipaddress
 
-- IP(대/소문자 구분)
+- IP (대/소문자 구분)
 - ip 주소
 - ip 주소
 - 인터넷 프로토콜
-- IP כתובת ה
+- כתובת ה
 
 
 ## <a name="ip-address-v6"></a>IP 주소 v6
@@ -6228,11 +6221,11 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 #### <a name="keyword_ipaddress"></a>Keyword_ipaddress
 
-- IP(대/소문자 구분)
+- IP (대/소문자 구분)
 - ip 주소
 - ip 주소
 - 인터넷 프로토콜
-- IP כתובת ה
+- כתובת ה
 
 
 ## <a name="ireland-drivers-license-number"></a>아일랜드 운전 면허 번호
@@ -6254,57 +6247,57 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="keywords"></a>키워드
 
-#### <a name="keywords_eu_drivers_license_number"></a>Keywords_eu_driver's_license_number
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords_eu_driver ' s_license_number
 
 - driverlic
-- 드라이버
+- driverlics
 - driverlicense
-- driverlicense
+- driverlicenses
 - driverlicence
 - driverlicences
-- driver lic
+- 드라이버 lic
 - 드라이버 lics
-- 운전면허증
+- 드라이버 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
 - driverslic
 - driverslics
-- driverslicence
+- 드라이버 라이선스
 - driverslicences
-- driverslicense
-- driverslicenses
-- drivers lic
-- drivers lics
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버 lic
+- 드라이버 lics
 - 드라이버 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
-- driver'lic
-- driver'lics
-- 드라이버 라이선스
-- 운전면허증
-- 드라이버 라이선스
-- 드라이버 라이선스
-- driver' lic
+- drivero
+- driverlics
+- drivers 라이선스
+- drivers 라이선스
+- drivers 라이선스
+- driver'licences
+- 드라이버 ' lic
 - 드라이버의 lics
-- 운전면허
-- 운전 기사 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버 ' 라이선스
 - driver'slic
-- driver'slics
-- 드라이버의license
-- 드라이버의 조각
-- 드라이버의licence
-- 드라이버의 slicences
+- 드라이버 (o)
+- 드라이버 ' s 라이선스 '
+- 드라이버 ' s 라이선스 '
+- driver'slicence
+- driver'slicences
 - 드라이버의 lic
-- 드라이버의 lic
-- 운전면허증
-- 운전 기사의 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- Dl #
+- 드라이버의 lics
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- dl #
 - 된다 #
 - driverlic #
 - driverlics #
@@ -6452,7 +6445,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -6545,7 +6538,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -6560,18 +6553,18 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 -   رقم الهوية
 -   عدد هوية فريدة من نوعها
 -   idnumber #
--   id 번호
--   id 아니요        
+-   ID 번호
+-   ID 번호        
 -   identitynumber #
--   id 번호
--   israeliidentitynumber       
--   개인 id
--   고유 id  
+-   ID 번호
+-   identitynumber       
+-   개인 ID
+-   고유 ID  
 
 
 ## <a name="italy-drivers-license-number"></a>이탈리아 운전 면허 번호
 
-이 형식 엔터티는 EU 드라이버의 라이선스 번호 중요 정보 형식에 포함 되어 있습니다. 또한 독립 실행형 중요 한 정보 유형 엔터티로 사용할 수 있습니다.
+이 형식 엔터티는 EU 드라이버의 라이선스 번호 중요 정보 유형에 포함됩니다. 독립 실행형 중요 정보 형식 엔터티로도 사용할 수 있습니다.
 
 ### <a name="format"></a>형식
 
@@ -6581,7 +6574,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 10개 문자와 숫자의 조합:
 - 1개 문자(대/소문자 구분 안 함)
-- 문자 "A" 또는 "V" (대/소문자 구분 안 함)
+- 문자 "A" 또는 "V"(대/소문자를 구분하지 않음)
 - 7자리 숫자
 - 1개 문자(대/소문자 구분 안 함)
 
@@ -6591,84 +6584,84 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="keywords"></a>키워드
 
-#### <a name="keywords_eu_drivers_license_number"></a>Keywords_eu_driver ' s_license_number
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords_eu_driver's_license_number
 
 - driverlic
-- driverlics
+- 드라이버
 - driverlicense
-- driverlicenses
+- driverlicense
 - driverlicence
 - driverlicences
-- 드라이버 lic
+- driver lic
 - 드라이버 lics
-- 드라이버 라이선스
+- 운전면허증
 - 드라이버 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
 - driverslic
 - driverslics
-- 드라이버 라이선스
+- driverslicence
 - driverslicences
+- driverslicense
+- driverslicenses
+- drivers lic
+- drivers lics
 - 드라이버 라이선스
 - 드라이버 라이선스
-- 드라이버 lic
-- 드라이버 lics
 - 드라이버 라이선스
 - 드라이버 라이선스
+- driver'lic
+- driver'lics
+- 운전면허증
+- 운전면허증
 - 드라이버 라이선스
 - 드라이버 라이선스
-- drivero
-- driverlics
-- drivers 라이선스
-- drivers 라이선스
-- drivers 라이선스
-- driver'licences
-- 드라이버 ' lic
+- driver' lic
 - 드라이버의 lics
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- 드라이버 ' 라이선스
+- 운전면허
+- 운전 기사 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
 - driver'slic
-- 드라이버 (o)
-- 드라이버 ' s 라이선스 '
-- 드라이버 ' s 라이선스 '
-- driver'slicence
-- driver'slicences
+- driver'slics
+- 드라이버의license
+- 드라이버의 slicenses
+- 드라이버의licence
+- 드라이버의 slicences
 - 드라이버의 lic
-- 드라이버의 lics
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- dl #
-- 된다 #
+- 드라이버의 lic
+- 운전면허증
+- 운전 기사의 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- Dl #
+- Dl #
 - driverlic #
-- driverlics #
+- 드라이버 #
 - driverlicense #
-- driverlicenses #
+- driverlicense #
 - driverlicence #
 - driverlicences #
-- 드라이버 lic #
+- driver lic #
 - 드라이버 lics #
-- 드라이버 라이선스 #
+- 운전면허증 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - driverslic #
 - driverslics #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
+- driverslicense #
+- driverslicenses #
+- driverslicence #
 - driverslicences #
-- 드라이버 lic #
-- 드라이버 lics #
+- drivers lic #
+- drivers lics #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
-- drivero #
-- driverlics #
-- drivers 라이선스 #
+- driver'lic #
+- driver'lics #
+- 드라이버 라이선스 #
 - 운전면허증 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
@@ -6681,7 +6674,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - driver'slic #
 - driver'slics #
 - 드라이버의license #
-- 드라이버의 조각 #
+- 드라이버의 slicenses #
 - 드라이버의licence #
 - 드라이버의 slicences #
 - 드라이버의 lic #
@@ -6746,7 +6739,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -6782,8 +6775,8 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - taxnumber #
 - taxnumber
 - tin id
-- tin
-- tin #
+- tin no
+- 주석 #
 
 
 ## <a name="italy-passport-number"></a>이탈리아 여권 번호
@@ -6857,7 +6850,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -6962,7 +6955,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - driverslicense
 - 드라이버의license
 - driverslicenses
-- 드라이버의 조각
+- 드라이버의 slicenses
 - driverlicense
 - Dl #
 - Dl #
@@ -7016,7 +7009,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -7058,7 +7051,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -7103,7 +7096,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - パスポートナンバー
 - パスポート＃
 - パスポート #
-- ೺೺No.
+- ೺膼No.
 - 旅券番号
 - 旅券番号＃
 - 旅券番号♯
@@ -7177,13 +7170,9 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 ### <a name="pattern"></a>패턴
 
 7-12자리 숫자:
-
 - 4자리 숫자
 - 하이픈(선택 사항)
-- 6자리 숫자
-
-*or*
-
+- 6자리 숫자 또는
 - 연속된 숫자 7-12개
 
 ### <a name="checksum"></a>체크섬
@@ -7204,7 +7193,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - 雇用保険番号
 - 保険証番号
 - 社会保険番号
-- 社会保険No.
+- kr会保険No.
 - 社会保険
 - 介護保険
 - 介護保険被保険者番号
@@ -7214,7 +7203,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - 厚生年金被保険者整理番号
 
 
-## <a name="latvia-drivers-license-number"></a>라트비아 운전 면허 번호
+## <a name="latvia-drivers-license-number"></a>트럭 기사의 라이선스 번호
 
 ### <a name="format"></a>서식
 
@@ -7226,290 +7215,6 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 - 3개 문자(대/소문자 구분 안 함)
 - 6자리 숫자
-
-### <a name="checksum"></a>체크섬
-
-예
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keywords_eu_drivers_license_number"></a>Keywords_eu_driver ' s_license_number
-
-- driverlic
-- driverlics
-- driverlicense
-- driverlicenses
-- driverlicence
-- driverlicences
-- 드라이버 lic
-- 드라이버 lics
-- 드라이버 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- driverslic
-- driverslics
-- 드라이버 라이선스
-- driverslicences
-- 드라이버 라이선스
-- 드라이버 라이선스
-- 드라이버 lic
-- 드라이버 lics
-- 드라이버 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- drivero
-- driverlics
-- drivers 라이선스
-- drivers 라이선스
-- drivers 라이선스
-- driver'licences
-- 드라이버 ' lic
-- 드라이버의 lics
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- 드라이버 ' 라이선스
-- driver'slic
-- 드라이버 (o)
-- 드라이버 ' s 라이선스 '
-- 드라이버 ' s 라이선스 '
-- driver'slicence
-- driver'slicences
-- 드라이버의 lic
-- 드라이버의 lics
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- dl #
-- 된다 #
-- driverlic #
-- driverlics #
-- driverlicense #
-- driverlicenses #
-- driverlicence #
-- driverlicences #
-- 드라이버 lic #
-- 드라이버 lics #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- driverslic #
-- driverslics #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- driverslicences #
-- 드라이버 lic #
-- 드라이버 lics #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- drivero #
-- driverlics #
-- drivers 라이선스 #
-- drivers 라이선스 #
-- drivers 라이선스 #
-- driver'licences #
-- 드라이버 ' lic #
-- 드라이버의 lics #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버 ' 라이선스 #
-- driver'slic #
-- 드라이버 (o) #
-- 드라이버 ' s 라이선스 ' #
-- 드라이버 ' s 라이선스 ' #
-- driver'slicence #
-- driver'slicences #
-- 드라이버의 lic #
-- 드라이버의 lics #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 추진 라이선스 
-- 추진 라이선스
-- dlno #
-- 드라이브 lic
-- 드라이브 licen
-- 드라이브 라이선스
-- 드라이브 라이선스
-- 드라이브 라이선스
-- 드라이브 라이선스
-- 드라이버 licen
-- 드라이버 licen
-- 드라이버의 licen
-- lic 구동
-- 주행
-- 운전 라이선스
-- 추진 라이선스
-- 주행 라이선스
-- 촉진 허용
-- dl 아니요
-- dlno
-- dl 번호
-
-
-#### <a name="keywords_latvia_eu_drivers_license_number"></a>Keywords_latvia_eu_driver ' s_license_number
-
-- autovadītāja apliecība
-- autovadītāja apliecības
-- vadītāja apliecība
-
-## <a name="latvia-personal-code"></a>라트비아 개인 코드
-
-### <a name="format"></a>서식
-
-11자리 숫자 및 선택적 하이픈
-
-### <a name="pattern"></a>패턴
-
-이전 형식
-
-11자리 숫자 및 1개 하이픈:
-
-- 생년월일에 해당하는 6자리 숫자(DDMMYY)
-- 하이픈
-- 출생 세기에 해당하는 1자리 숫자(19세기는 "0", 20세기는 "1", 21세기는 "2")
-- 임의로 생성된 4자리 숫자
-
-새 형식
-
-11자리 숫자
-
-- 2자리 숫자("32")
-- 9자리 숫자
-
-### <a name="checksum"></a>체크섬
-
-예
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keywords_latvia_eu_national_id_card"></a>Keywords_latvia_eu_national_id_card
-
-- 관리 번호
-- alvas nē
-- 생년월일
-- 시민 번호
-- 민사 수
-- 전자 인구 조사 번호
-- 전자 번호
-- 회계 코드
-- 의료 사용자 번호
-- a-id #
-- id-코드
-- 식별 번호
-- identifikācijas numurs
-- id-번호
-- 개별 숫자
-- latvija alva
-- nacionālais id
-- 국가 id
-- 국가 식별 번호
-- 국가 id 번호
-- 국가 보험 번호
-- 국가별 레지스터 번호
-- nodokļa numurs
-- nodokļu id
-- nodokļu identifikācija numurs
-- 개인 인증서 번호
-- 개인 코드
-- 개인 id 코드
-- 개인 id 번호
-- 개인 id 코드
-- 개인 식별자
-- 개인 id 번호
-- 개인 번호
-- 개인 숫자 코드
-- personalcodeno #
-- 가상 사용자 kods
-- 모집단 식별 코드
-- 공용 서비스 번호
-- 등록 번호
-- 수익 번호
-- 사회 보험 번호
-- 사회 보장 번호
-- 주 세금 코드
-- 세금 파일 번호
-- 세금 ID
-- 세금 식별 번호
-- 세금 ID 번호
-- 세금 번호 #
-- 세금 번호
-- 세금 번호
-- taxid #
-- taxidno #
-- taxidnumber #
-- taxno #
-- taxnumber #
-- taxnumber
-- tin id
-- tin no
-- 주석 #
-- 투표자 수
-
-## <a name="latvia-passport-number"></a>가지지번호
-
-### <a name="format"></a>서식
-
-2개 문자 또는 숫자 뒤에 7자리 숫자(공백 또는 구분 기호 비포함)
-
-### <a name="pattern"></a>패턴
-
-2개 문자 또는 숫자 뒤에 7자리 숫자:
-
-- 2자리 숫자 또는 문자(대/소문자 구분 안 함)
-- 7자리 숫자
-
-### <a name="checksum"></a>체크섬
-
-예
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keywords_eu_passport_number_common"></a>Keywords_eu_passport_number_common
-
-- 여권 #
-- 여권 #
-- passportid
-- 여권
-- passportno
-- passport 아니요
-- passportnumber
-- 여권 번호
-- passportnumbers
-- passport numbers
-
-#### <a name="keywords_latvia_eu_passport_number"></a>Keywords_latvia_eu_passport_number
-
-- pase nu
-- pase nu
-- pases numuri
-- pases nr
-- passeport 아니요
-- n° du Passeport
-
-#### <a name="keywords_eu_passport_date"></a>Keywords_eu_passport_date
-
-- 문제 날짜
-- 만료 날짜
-
-
-## <a name="lithuania-drivers-license-number"></a>승용차 운전면허 번호
-
-### <a name="format"></a>형식
-
-공백 및 구분 기호가 없는 8자리 숫자
-
-### <a name="pattern"></a>패턴
-
-8자리 숫자
 
 ### <a name="checksum"></a>체크섬
 
@@ -7559,6 +7264,290 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - driver'slics
 - 드라이버의license
 - 드라이버의 조각
+- 드라이버의licence
+- 드라이버의 slicences
+- 드라이버의 lic
+- 드라이버의 lic
+- 운전면허증
+- 운전 기사의 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- Dl #
+- Dl #
+- driverlic #
+- 드라이버 #
+- driverlicense #
+- driverlicense #
+- driverlicence #
+- driverlicences #
+- driver lic #
+- 드라이버 lics #
+- 운전면허증 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- driverslic #
+- driverslics #
+- driverslicense #
+- driverslicenses #
+- driverslicence #
+- driverslicences #
+- drivers lic #
+- drivers lics #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- driver'lic #
+- driver'lics #
+- 운전면허증 #
+- 운전면허증 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- driver' lic #
+- 드라이버의 lics #
+- 운전면허증 #
+- 운전 기사 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- driver'slic #
+- driver'slics #
+- 드라이버의license #
+- 드라이버의 slicenses #
+- 드라이버의licence #
+- 드라이버의 slicences #
+- 드라이버의 lic #
+- 드라이버의 lic #
+- 운전면허증 #
+- 운전 기사의 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- 운전 운전 라이선스 
+- 운전 라이선스
+- dlno #
+- driv lic
+- driv licen
+- driv 라이선스
+- driv 라이선스
+- driv 라이선스
+- driv 라이선스
+- 드라이버 사용 허가
+- 드라이버 라이선스
+- 드라이버 사용 허가
+- driving lic
+- 운전 허가
+- 운전 라이선스
+- 운전 운전 라이선스
+- 운전 라이선스
+- 운전 허가
+- dl 아니요
+- dlno
+- dl number
+
+
+#### <a name="keywords_latvia_eu_drivers_license_number"></a>Keywords_latvia_eu_driver's_license_number
+
+- autovad교tja apliec을ba
+- autovad교tja apliec을bas
+- vad부tja apliec을ba
+
+## <a name="latvia-personal-code"></a>2018년 10월
+
+### <a name="format"></a>서식
+
+11자리 숫자 및 선택적 하이픈
+
+### <a name="pattern"></a>패턴
+
+이전 형식
+
+11자리 숫자 및 1개 하이픈:
+
+- 생년월일에 해당하는 6자리 숫자(DDMMYY)
+- 하이픈
+- 출생 세기에 해당하는 1자리 숫자(19세기는 "0", 20세기는 "1", 21세기는 "2")
+- 임의로 생성된 4자리 숫자
+
+새 형식
+
+11자리 숫자
+
+- 2자리 숫자("32")
+- 9자리 숫자
+
+### <a name="checksum"></a>체크섬
+
+Yes
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keywords_latvia_eu_national_id_card"></a>Keywords_latvia_eu_national_id_card
+
+- 관리 번호
+- alvas n을
+- 생년월일 번호
+- 시민 번호
+- 2018년 3
+- 전자 인구 조사 번호
+- 전자 번호
+- 회계 코드
+- 의료 사용자 번호
+- 자료 #
+- id-code
+- ID 번호
+- identifikscijas nu
+- id-number
+- 개별 번호
+- latvija alva
+- nacion을lais id
+- national id
+- national identifying number
+- 국가 ID 번호
+- 국가 보험 번호
+- 국가 등록 번호
+- nu nodokļa
+- nodokļu ID
+- nodokļu 식별자
+- 개인 인증서 번호
+- 개인 코드
+- 개인 ID 코드
+- 개인 ID 번호
+- 개인 식별 코드
+- 개인 식별자
+- 개인 ID 번호
+- 개인 번호
+- 개인 숫자 코드
+- personalcodeno #
+- personas kods
+- 인구 식별 코드
+- 공용 서비스 번호
+- 등록 번호
+- 수익 번호
+- 사회 보험 번호
+- 사회 보장 번호
+- 주 세금 코드
+- 세금 파일 번호
+- 세금 id
+- 세금 식별 번호
+- 세금 식별 번호
+- 세금 없음 #
+- 세금 없음
+- 세금 번호
+- taxid #
+- taxidno #
+- taxidnumber #
+- taxno #
+- taxnumber #
+- taxnumber
+- tin id
+- tin
+- tin #
+- 동안 유권자 수
+
+## <a name="latvia-passport-number"></a>라트비아 passport 번호
+
+### <a name="format"></a>서식
+
+2개 문자 또는 숫자 뒤에 7자리 숫자(공백 또는 구분 기호 비포함)
+
+### <a name="pattern"></a>패턴
+
+2개 문자 또는 숫자 뒤에 7자리 숫자:
+
+- 2자리 숫자 또는 문자(대/소문자 구분 안 함)
+- 7자리 숫자
+
+### <a name="checksum"></a>체크섬
+
+예
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keywords_eu_passport_number_common"></a>Keywords_eu_passport_number_common
+
+- passport #
+- passport #
+- passportid
+- 여권
+- passportno
+- passport 아니요
+- passportnumber
+- 여권 번호
+- passportnumbers
+- 여권 번호
+
+#### <a name="keywords_latvia_eu_passport_number"></a>Keywords_latvia_eu_passport_number
+
+- pase numurs
+- pase numur
+- 고가, numuri
+- nr
+- 는 포트 번호
+- n ° du 및 Seport
+
+#### <a name="keywords_eu_passport_date"></a>Keywords_eu_passport_date
+
+- 문제 날짜
+- 만료 날짜
+
+
+## <a name="lithuania-drivers-license-number"></a>리투아니아 드라이버의 라이선스 번호
+
+### <a name="format"></a>형식
+
+공백 및 구분 기호가 없는 8자리 숫자
+
+### <a name="pattern"></a>패턴
+
+8자리 숫자
+
+### <a name="checksum"></a>체크섬
+
+예
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords_eu_driver ' s_license_number
+
+- driverlic
+- driverlics
+- driverlicense
+- driverlicenses
+- driverlicence
+- driverlicences
+- 드라이버 lic
+- 드라이버 lics
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- driverslic
+- driverslics
+- 드라이버 라이선스
+- driverslicences
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버 lic
+- 드라이버 lics
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- drivero
+- driverlics
+- drivers 라이선스
+- drivers 라이선스
+- drivers 라이선스
+- driver'licences
+- 드라이버 ' lic
+- 드라이버의 lics
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버 ' 라이선스
+- driver'slic
+- 드라이버 (o)
+- 드라이버 ' s 라이선스 '
+- 드라이버 ' s 라이선스 '
 - driver'slicence
 - driver'slicences
 - 드라이버의 lic
@@ -7668,7 +7657,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -7677,19 +7666,19 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - asmeninis kodas aitubinis
 - asmens kodas
 - 시민 서비스 번호
-- mokesčių id
+- mokesčių ID
 - mokesčių identifikavimas numeris
 - mokesčių identifikavimo numeris
-- mokesčių numeris
-- 국가 식별 번호
+- 숫자 mokesčių
+- 국가별 ID 번호
 - 개인 코드
 - 개인 숫자 코드
-- piliečio paslaugos numeris
-- 세금 id
+- 2018년 10월 20일
+- 세금 ID
 - 세금 식별 번호
-- 세금 식별 번호
-- 세금 없음 #
-- 세금 없음
+- 세금 ID 번호
+- 세금 번호 #
+- 세금 번호
 - 세금 번호
 - 세금 등록 번호
 - taxid #
@@ -7699,15 +7688,15 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - taxnumber #
 - taxnumber
 - tin id
-- tin
-- tin #
+- tin no
+- 주석 #
 - unikalus identifikavimo kodas
 - unikalus identifikavimo numeris
-- 고유 id 번호
-- 고유 id 번호
+- 고유 ID 번호
+- 고유 ID 번호
 - uniqueidentityno #
 
-## <a name="lithuania-passport-number"></a>리투아니아 여권 번호
+## <a name="lithuania-passport-number"></a>2016년 10월
 
 ### <a name="format"></a>서식
 
@@ -7725,8 +7714,8 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 #### <a name="keywords_eu_passport_number"></a>Keywords_eu_passport_number
 
-- passport #
-- passport #
+- 여권 #
+- 여권 #
 - passportid
 - 여권
 - passportno
@@ -7734,13 +7723,13 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - passportnumber
 - 여권 번호
 - passportnumbers
-- 여권 번호
+- passport numbers
 
 #### <a name="keywords_lithuania_eu_passport_number"></a>Keywords_lithuania_eu_passport_number
 
-- numeris o
-- 고가
-- nr o
+- 파소 숫자
+- paso numeriai
+- paso nr
 
 #### <a name="keywords_eu_passport_date"></a>Keywords_eu_passport_date
 
@@ -7748,7 +7737,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - 만료 날짜
 
 
-## <a name="luxemburg-drivers-license-number"></a>룩셈부르크 드라이버의 라이선스 번호
+## <a name="luxemburg-drivers-license-number"></a>사용권 번호
 
 ### <a name="format"></a>서식
 
@@ -7764,134 +7753,134 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="keywords"></a>키워드
 
-#### <a name="keywords_eu_drivers_license_number"></a>Keywords_eu_driver ' s_license_number
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords_eu_driver's_license_number
 
 - driverlic
-- driverlics
+- 드라이버
 - driverlicense
-- driverlicenses
+- driverlicense
 - driverlicence
 - driverlicences
-- 드라이버 lic
+- driver lic
 - 드라이버 lics
-- 드라이버 라이선스
+- 운전면허증
 - 드라이버 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
 - driverslic
 - driverslics
-- 드라이버 라이선스
+- driverslicence
 - driverslicences
+- driverslicense
+- driverslicenses
+- drivers lic
+- drivers lics
 - 드라이버 라이선스
 - 드라이버 라이선스
-- 드라이버 lic
-- 드라이버 lics
 - 드라이버 라이선스
 - 드라이버 라이선스
+- driver'lic
+- driver'lics
+- 드라이버 라이선스
+- 운전면허증
 - 드라이버 라이선스
 - 드라이버 라이선스
-- drivero
-- driverlics
-- drivers 라이선스
-- drivers 라이선스
-- drivers 라이선스
-- driver'licences
-- 드라이버 ' lic
-- 드라이버의 lics
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- 드라이버 ' 라이선스
-- driver'slic
-- 드라이버 (o)
-- 드라이버 ' s 라이선스 '
-- 드라이버 ' s 라이선스 '
-- driver'slicence
-- driver'slicences
 - 드라이버의 lic
 - 드라이버의 lics
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- dl #
-- 된다 #
+- 운전면허
+- 운전 기사 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- driver'slic
+- driver'slics
+- 드라이버의license
+- 드라이버의 slicenses
+- 드라이버의licence
+- 드라이버의 slicences
+- 드라이버의 lic
+- 드라이버의 lic
+- 운전면허증
+- 운전 기사의 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- Dl #
+- Dl #
 - driverlic #
-- driverlics #
+- 드라이버 #
 - driverlicense #
-- driverlicenses #
+- driverlicense #
 - driverlicence #
 - driverlicences #
-- 드라이버 lic #
+- driver lic #
 - 드라이버 lics #
-- 드라이버 라이선스 #
+- 운전면허증 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - driverslic #
 - driverslics #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
+- driverslicense #
+- driverslicenses #
+- driverslicence #
 - driverslicences #
-- 드라이버 lic #
-- 드라이버 lics #
+- drivers lic #
+- drivers lics #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
-- drivero #
-- driverlics #
-- drivers 라이선스 #
-- drivers 라이선스 #
-- drivers 라이선스 #
-- driver'licences #
-- 드라이버 ' lic #
+- driver'lic #
+- driver'lics #
+- 운전면허증 #
+- 운전면허증 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- driver' lic #
 - 드라이버의 lics #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버 ' 라이선스 #
+- 운전면허 #
+- 운전 기사 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
 - driver'slic #
-- 드라이버 (o) #
-- 드라이버 ' s 라이선스 ' #
-- 드라이버 ' s 라이선스 ' #
-- driver'slicence #
-- driver'slicences #
+- driver'slics #
+- 드라이버의license #
+- 드라이버의 slicenses #
+- 드라이버의licence #
+- 드라이버의 slicences #
 - 드라이버의 lic #
-- 드라이버의 lics #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 추진 라이선스 
-- 추진 라이선스
-- dlno #
-- 드라이브 lic
-- 드라이브 licen
-- 드라이브 라이선스
-- 드라이브 라이선스
-- 드라이브 라이선스
-- 드라이브 라이선스
-- 드라이버 licen
-- 드라이버 licen
-- 드라이버의 licen
-- lic 구동
-- 주행
+- 드라이버의 lic #
+- 운전면허증 #
+- 운전 기사의 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- 운전 운전 라이선스 
 - 운전 라이선스
-- 추진 라이선스
-- 주행 라이선스
-- 촉진 허용
+- dlno #
+- driv lic
+- driv licen
+- driv 라이선스
+- driv 라이선스
+- driv 라이선스
+- driv 라이선스
+- 드라이버 사용 허가
+- 드라이버 라이선스
+- 드라이버 사용 허가
+- driving lic
+- 운전 허가
+- 운전 라이선스
+- 운전 운전 라이선스
+- 운전 라이선스
+- 운전 허가
 - dl 아니요
 - dlno
-- dl 번호
+- dl number
 
 
-#### <a name="keywords_luxemburg_eu_drivers_license_number"></a>Keywords_luxemburg_eu_driver ' s_license_number
+#### <a name="keywords_luxemburg_eu_drivers_license_number"></a>Keywords_luxemburg_eu_driver's_license_number
 
 - fahrerlaubnis
-- Führerschäin
+- Führerschin
 
-## <a name="luxemburg-national-identification-number-natural-persons"></a>룩셈부르크 국가 식별 번호 자연 스러운 사람
+## <a name="luxemburg-national-identification-number-natural-persons"></a>적법한 국가별 식별 번호 자연인
 이 중요 정보 형식은 다음에만 사용할 수 있습니다.
 - 데이터 손실 방지 정책
 - 커뮤니케이션 준수 정책
@@ -7925,21 +7914,21 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - idpersonnelle #
 - idpersonnelle
 - 개별 코드
-- 개별 ID
-- 개별 식별
-- 개별 ID
-- numéro id 담당자
-- 개인 ID
+- 개별 id
+- 개별 id
+- 개별 id
+- numéro d'identification 담당자
+- 개인 id
 - 개인 식별
-- 개인 ID
+- 개인 id
 - personalidno #
 - personalidnumber #
-- persönöe identifikationsnummer
-- 고유 ID
-- 고유 ID
+- persönliche identifikationsnummer
+- 고유 id
+- 고유 id
 - uniqueidkey #
 
-## <a name="luxemburg-national-identification-number-non-natural-persons"></a>비자연인 국가별 식별 번호
+## <a name="luxemburg-national-identification-number-non-natural-persons"></a>비 자연 스러운 국제 id 번호
 
 ### <a name="format"></a>형식
 
@@ -7960,35 +7949,35 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
 #### <a name="keywords_luxemburg_eu_tax_file_number"></a>Keywords_luxemburg_eu_tax_file_number
 
-- carte de sécurité sociale
+- 맞춤형 de sécurité 사회 ale
 - étain non
 - étain #
-- identifiant d'imp짓
-- tax tax identifikatiounsnummer
+- identifiant d'impôt
+- 룩셈부르크 세금 identifikatiounsnummer
 - numéro d'étain
-- numéro d'identification fiscal일반
+- numéro d'identification 회계 luxembourgeois
 - numéro d'identification fiscale
-- 사회 보장
+- 소셜 보안
 - sozialunterstützung
 - sozialversécherung
-- sozialversicherungsaus
+- sozialversicherungsausweis
 - steier id
 - steier identifikatiounsnummer
 - steier nummer
 - steuer id
 - steueridentifikationsnummer
 - steuernummer
-- 세금 ID
+- 세금 id
 - 세금 식별 번호
-- 세금 ID 번호
-- 세금 번호 #
-- 세금 번호
+- 세금 식별 번호
+- 세금 없음 #
+- 세금 없음
 - 세금 번호
 - 세금 등록 번호
 - taxid #
@@ -7998,13 +7987,13 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - taxnumber #
 - taxnumber
 - tin id
-- tin no
-- 주석 #
-- Zinn #
-- Zinn
-- 시론자울
+- tin
+- tin #
+- zinn #
+- zinn
+- zinnzahl
 
-## <a name="luxemburg-passport-number"></a>여마이그어 패스포트 번호
+## <a name="luxemburg-passport-number"></a>룩셈부르크 여권 번호
 
 ### <a name="format"></a>서식
 
@@ -8022,8 +8011,8 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 #### <a name="keywords_eu_passport_number"></a>Keywords_eu_passport_number
 
-- 여권 #
-- 여권 #
+- passport #
+- passport #
 - passportid
 - 여권
 - passportno
@@ -8031,22 +8020,22 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - passportnumber
 - 여권 번호
 - passportnumbers
-- passport numbers
+- 여권 번호
 
 #### <a name="keywords_luxemburg_eu_passport_number"></a>Keywords_luxemburg_eu_passport_number
-- aus한snummer
-- 2018년 3
-- 지리 패스포트
-- passport passport
-- no de passeport
-- no-reisepass
+- ausweisnummer
+- 룩셈부르크 pass
+- 룩셈부르크 포트
+- 룩셈부르크 passport
+- de-de 포트 없음
+- reisepass
 - nr-reisepass
-- numéro de passeport
-- pass net
-- pass nr
+- numéro de 포트
+- 네트워크 통과
+- nr 전달
 - passnummer
-- passeport nombre
-- reisepsse
+- nombre
+- reisepässe
 - reisepass-nr
 - reisepassnummer
 
@@ -8056,7 +8045,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - 만료 날짜
 
 
-## <a name="luxemburg-national-identification-number-non-natural-persons"></a>에메메가어 국가 식별 번호(비 자연인)
+## <a name="luxemburg-national-identification-number-non-natural-persons"></a>룩셈부르크 국가 식별 번호 (비 자연 담당자)
 
 ### <a name="format"></a>형식
 
@@ -8077,35 +8066,35 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
 #### <a name="keywords_luxemburg_eu_tax_file_number"></a>Keywords_luxemburg_eu_tax_file_number
 
-- carte de sécurité sociale
+- 맞춤형 de sécurité 사회 ale
 - étain non
 - étain #
-- identifiant d'imp짓
-- tax tax identifikatiounsnummer
+- identifiant d'impôt
+- 룩셈부르크 세금 identifikatiounsnummer
 - numéro d'étain
-- numéro d'identification fiscal일반
+- numéro d'identification 회계 luxembourgeois
 - numéro d'identification fiscale
-- 사회 보장
+- 소셜 보안
 - sozialunterstützung
 - sozialversécherung
-- sozialversicherungsaus
+- sozialversicherungsausweis
 - steier id
 - steier identifikatiounsnummer
 - steier nummer
 - steuer id
 - steueridentifikationsnummer
 - steuernummer
-- 세금 ID
+- 세금 id
 - 세금 식별 번호
-- 세금 ID 번호
-- 세금 번호 #
-- 세금 번호
+- 세금 식별 번호
+- 세금 없음 #
+- 세금 없음
 - 세금 번호
 - 세금 등록 번호
 - taxid #
@@ -8115,11 +8104,11 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - taxnumber #
 - taxnumber
 - tin id
-- tin no
-- 주석 #
-- Zinn #
-- Zinn
-- 시론자울
+- tin
+- tin #
+- zinn #
+- zinn
+- zinnzahl
 
 
 ## <a name="malaysia-identification-card-number"></a>말레이시아 신분증 번호
@@ -8146,19 +8135,19 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 #### <a name="keyword_malaysia_id_card_number"></a>Keyword_malaysia_id_card_number
 
-- 디지털 애플리케이션 카드
+- 디지털 응용 프로그램 카드
 - i/c
 - i/c 아니요
-- Ic
+- 소
 - ic 아니요
-- ID 카드
+- id 카드
 - 식별 카드
-- ID 카드
+- id 카드
 - k/p
 - k/p 아니요
 - kad akuan diri
 - kad aplikasi digital
-- kad pengenalan (kad pengenalan)(kad pengenalan)(
+- kad pengenalan 말레이시아
 - kp
 - kp 아니요
 - mykad
@@ -8482,7 +8471,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -8519,6 +8508,595 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 ### <a name="pattern"></a>패턴
 
 10개의 자릿수
+
+### <a name="checksum"></a>체크섬
+
+예
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords_eu_driver ' s_license_number
+
+- driverlic
+- driverlics
+- driverlicense
+- driverlicenses
+- driverlicence
+- driverlicences
+- 드라이버 lic
+- 드라이버 lics
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- driverslic
+- driverslics
+- driverslicence
+- driverslicences
+- driverslicense
+- driverslicenses
+- drivers lic
+- drivers lics
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- driver'lic
+- driver'lics
+- 운전면허증
+- 운전면허증
+- 드라이버 라이선스
+- 드라이버 라이선스
+- driver' lic
+- 드라이버의 lics
+- 운전면허증
+- 운전 기사 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- driver'slic
+- driver'slics
+- 드라이버의license
+- 드라이버의 slicenses
+- 드라이버의licence
+- 드라이버의 slicences
+- 드라이버의 lic
+- 드라이버의 lic
+- 운전면허증
+- 운전 기사의 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- Dl #
+- Dl #
+- driverlic #
+- 드라이버 #
+- driverlicense #
+- driverlicense #
+- driverlicence #
+- driverlicences #
+- driver lic #
+- 드라이버 lics #
+- 운전면허증 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- driverslic #
+- driverslics #
+- driverslicense #
+- driverslicenses #
+- driverslicence #
+- driverslicences #
+- drivers lic #
+- drivers lics #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- driver'lic #
+- driver'lics #
+- 드라이버 라이선스 #
+- 운전면허증 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버의 lic #
+- 드라이버의 lics #
+- 운전면허증 #
+- 운전 기사 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- driver'slic #
+- driver'slics #
+- 드라이버의license #
+- 드라이버의 조각 #
+- 드라이버의licence #
+- 드라이버의 slicences #
+- 드라이버의 lic #
+- 드라이버의 lic #
+- 운전면허증 #
+- 운전 기사의 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- 운전 운전 라이선스 
+- 운전 라이선스
+- dlno #
+- driv lic
+- driv licen
+- driv 라이선스
+- driv 라이선스
+- driv 라이선스
+- driv 라이선스
+- 드라이버 사용 허가
+- 드라이버 라이선스
+- 드라이버 사용 허가
+- driving lic
+- 주행
+- 운전 라이선스
+- 추진 라이선스
+- 주행 라이선스
+- 촉진 허용
+- dl 아니요
+- dlno
+- dl 번호
+
+
+#### <a name="keywords_netherlands_eu_drivers_license_number"></a>Keywords_netherlands_eu_driver ' s_license_number
+
+- permis de conduire
+- rijbewijs
+- rijbewijsnummer
+- rijbewijzen
+- rijbewijs nummer
+- rijbewijsnummers
+
+
+## <a name="netherlands-passport-number"></a>네덜란드 여권 번호
+
+### <a name="format"></a>서식
+
+9개 문자 또는 숫자(공백 또는 구분 기호 비포함)
+
+### <a name="pattern"></a>패턴
+
+9개 문자 또는 숫자
+
+### <a name="checksum"></a>체크섬
+
+적용할 수 없음
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keywords_eu_passport_number"></a>Keywords_eu_passport_number
+
+- passport #
+- passport #
+- passportid
+- 여권
+- passportno
+- passport 아니요
+- passportnumber
+- 여권 번호
+- passportnumbers
+- 여권 번호
+
+#### <a name="keywords_netherlands_eu_passport_number"></a>Keywords_netherlands_eu_passport_number
+
+- nummer
+- paspoortnummers
+- paspoortnummer
+- nr
+
+## <a name="netherlands-tax-identification-number"></a>네덜란드 납세자 번호
+이 중요 정보 형식은 다음에만 사용할 수 있습니다.
+- 데이터 손실 방지 정책
+- 커뮤니케이션 준수 정책
+- 정보 거버넌스
+- 레코드 관리
+- Microsoft Cloud App Security
+
+### <a name="format"></a>서식
+
+9자리 숫자(공백 또는 구분 기호 비포함)
+
+### <a name="pattern"></a>패턴
+
+9자리 숫자
+
+### <a name="checksum"></a>체크섬
+
+Yes
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keywords_netherlands_eu_tax_file_number"></a>Keywords_netherlands_eu_tax_file_number
+
+- 만들었으므로 nummer
+- hollânske 세금 식별
+- hulandes impuesto id 번호
+- hulandes impuesto id
+- identificatienummer belasting
+- identificatienummer van belasting
+- impuesto id 번호
+- impuesto 번호
+- nederlands belasting id nummer
+- nederlands belasting identificatie
+- nederlands belasting identificatienummer
+- nederlands belastingnummer
+- nederlandse belasting identificatie
+- 네덜란드 세금 식별
+- netherland의 세금 식별
+- 네덜란드 tin
+- netherland 's tin
+- 세금 id
+- 세금 식별 번호
+- 세금 식별 번호
+- 세금 식별 ...
+- 세금 없음 #
+- 세금 없음
+- 세금 번호
+- 세금 등록 번호
+- 세금 ...
+- taxid #
+- taxidno #
+- taxidnumber #
+- taxno #
+- taxnumber #
+- taxnumber
+- tin id
+- tin
+- tin #
+
+
+## <a name="netherlands-value-added-tax-number"></a>네덜란드 부가 세금 번호를 추가 했습니다.
+이 중요 정보 형식은 다음에만 사용할 수 있습니다.
+- 데이터 손실 방지 정책
+- 커뮤니케이션 준수 정책
+- 정보 거버넌스
+- 레코드 관리
+- Microsoft Cloud App Security
+
+### <a name="format"></a>서식
+
+14자 영숫자 패턴
+
+### <a name="pattern"></a>패턴
+
+14자 영숫자 패턴:
+
+- N 또는 n
+- L 또는 l
+- 선택적 공백, 점 또는 하이픈
+- 9자리 숫자
+- 선택적 공백, 점 또는 하이픈
+- B 또는 b
+- 2자리 숫자
+
+### <a name="checksum"></a>체크섬
+
+Yes
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keyword_netherlands_value_added_tax_number"></a>Keyword_netherlands_value_added_tax_number
+
+- vat 번호
+- vat 아니요
+- 부가 가치세 #
+- wearde tafoege tax getal
+- btw númer
+- btw-nummer
+
+
+## <a name="new-zealand-bank-account-number"></a>뉴질랜드 은행 계좌 번호
+이 중요 정보 형식은 다음에만 사용할 수 있습니다.
+- 데이터 손실 방지 정책
+- 커뮤니케이션 준수 정책
+- 정보 거버넌스
+- 레코드 관리
+- Microsoft Cloud App Security
+
+### <a name="format"></a>서식
+
+14자리~16자리 숫자 패턴(선택적 구분 기호 포함)
+
+### <a name="pattern"></a>패턴
+
+14자리~16자리 숫자 패턴(선택적 구분 기호 포함):
+
+- 2자리 숫자
+- 선택적 하이픈 또는 공백
+- 3~4자리 숫자
+- 선택적 하이픈 또는 공백
+- 7자리 숫자
+- 선택적 하이픈 또는 공백
+- 2~3자리 숫자
+- 선택적 하이픈 또는 공백
+
+### <a name="checksum"></a>체크섬
+
+Yes
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keyword_new_zealand_bank_account_number"></a>Keyword_new_zealand_bank_account_number
+
+- 계정 번호
+- 은행 계좌
+- bank_acct_id
+- bank_acct_branch
+- bank_acct_nbr
+
+
+## <a name="new-zealand-drivers-license-number"></a>뉴질랜드 기사의 라이선스 번호
+이 중요 정보 형식은 다음에만 사용할 수 있습니다.
+- 데이터 손실 방지 정책
+- 커뮤니케이션 준수 정책
+- 정보 거버넌스
+- 레코드 관리
+- Microsoft Cloud App Security
+
+### <a name="format"></a>서식
+
+8자 영숫자 패턴
+
+### <a name="pattern"></a>패턴
+
+8자 영숫자 패턴
+
+- 2개 문자
+- 6자리 숫자
+
+### <a name="checksum"></a>체크섬
+
+Yes
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keyword_new_zealand_drivers_license_number"></a>Keyword_new_zealand_drivers_license_number
+
+- driverlicence
+- driverlicences
+- driver lic
+- 드라이버 라이선스
+- 드라이버 라이선스
+- driverslic
+- driverslicence
+- driverslicences
+- drivers lic
+- drivers lics
+- 드라이버 라이선스
+- 드라이버 라이선스
+- driver'lic
+- driver'lics
+- 드라이버 라이선스
+- 드라이버 라이선스
+- driver' lic
+- 드라이버의 lics
+- 드라이버 라이선스
+- 드라이버 라이선스
+- driver'slic
+- driver'slics
+- 드라이버의licence
+- 드라이버의 slicences
+- 드라이버의 lic
+- 드라이버의 lic
+- 드라이버 라이선스
+- 드라이버 라이선스
+- driverlic #
+- 드라이버 #
+- driverlicence #
+- driverlicences #
+- driver lic #
+- 드라이버 lics #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- driverslic #
+- driverslics #
+- driverslicence #
+- driverslicences #
+- drivers lic #
+- drivers lics #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- driver'lic #
+- driver'lics #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- driver' lic #
+- 드라이버의 lics #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- driver'slic #
+- driver'slics #
+- 드라이버의licence #
+- 드라이버의 slicences #
+- 드라이버의 lic #
+- 드라이버의 lic #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- 국제 주행 허가
+- 국제 주행 허가
+- nz 자동차 연결
+- 뉴질랜드 자동차 연결
+
+
+## <a name="new-zealand-inland-revenue-number"></a>뉴질랜드 내국세 수입 번호
+이 중요 정보 형식은 다음에만 사용할 수 있습니다.
+- 데이터 손실 방지 정책
+- 커뮤니케이션 준수 정책
+- 정보 거버넌스
+- 레코드 관리
+- Microsoft Cloud App Security
+
+### <a name="format"></a>서식
+
+8~9자리 숫자(선택적 구분 기호 포함)
+
+### <a name="pattern"></a>패턴
+
+8~9자리 숫자(선택적 구분 기호 포함)
+
+- 2~3자리 숫자
+- 선택적 공백 또는 하이픈
+- 3자리 숫자
+- 선택적 공백 또는 하이픈
+- 3자리 숫자
+
+### <a name="checksum"></a>체크섬
+
+Yes
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keyword_new_zealand_inland_revenue_number"></a>Keyword_new_zealand_inland_revenue_number
+
+- ird no.
+- ird no #
+- nz ird
+- 뉴질랜드 일드
+- ird number
+- 인란드 수익 번호
+
+
+## <a name="new-zealand-ministry-of-health-number"></a>뉴질랜드 보건부 번호
+
+### <a name="format"></a>형식
+
+3개의 문자, 공백(선택 사항), 4자리 숫자
+
+### <a name="pattern"></a>패턴
+
+- 'I' 및 'O'를 제외한 세 문자(대/소문자 구분 안 함)
+- 공백(선택 사항)
+- 4자리 숫자
+
+### <a name="checksum"></a>체크섬
+
+Yes
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keyword_nz_terms"></a>Keyword_nz_terms
+
+- NHI
+- 뉴질랜드
+- 의료
+- 처리
+- 국가 의료 인덱스 번호
+- nhi number
+- nhi 아니요.
+- NHI #
+- National Health Index 아니요.
+- 국가 의료 인덱스 ID
+- 국가 의료 인덱스 #
+
+## <a name="new-zealand-social-welfare-number"></a>뉴질랜드 사회 복지 번호
+
+이 중요 정보 형식은 다음에만 사용할 수 있습니다.
+- 데이터 손실 방지 정책
+- 커뮤니케이션 준수 정책
+- 정보 거버넌스
+- 레코드 관리
+- Microsoft Cloud App Security
+
+### <a name="format"></a>형식
+
+9자리 숫자
+
+### <a name="pattern"></a>패턴
+
+9자리 숫자
+
+- 3자리 숫자
+- 선택적 하이픈
+- 3자리 숫자
+- 선택적 하이픈
+- 3자리 숫자
+
+### <a name="checksum"></a>체크섬
+
+Yes
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keyword_new_zealand_social_welfare_number"></a>Keyword_new_zealand_social_welfare_number
+
+- 사회복지 #
+- 사회복지 #
+- 소셜 교직원 아니요.
+- 소셜 사회 사회 숫자
+- swn #
+
+
+## <a name="norway-identification-number"></a>노르웨이 식별 번호
+
+### <a name="format"></a>형식
+
+11자리 숫자
+
+### <a name="pattern"></a>패턴
+
+11자리 숫자:
+- 6자리 숫자(DDMMYY 형식의 생년월일)
+- 3자리 숫자 개별 번호
+- 2자리 확인 숫자
+
+### <a name="checksum"></a>체크섬
+
+Yes
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keyword_norway_id_number"></a>Keyword_norway_id_number
+
+- 개인 식별 번호
+- 노르웨이어 ID 번호
+- ID 번호
+- Identification(식별)
+- Personnummer
+- Fødselsnummer
+
+
+## <a name="philippines-unified-multi-purpose-identification-number"></a>필리핀 통합 다목적 식별 번호
+
+### <a name="format"></a>형식
+
+12자리 숫자, 하이픈으로 구분됨
+
+### <a name="pattern"></a>패턴
+
+12자리 숫자:
+- 4자리 숫자
+- 하이픈
+- 7자리 숫자
+- 하이픈
+- 1자리 숫자
+
+### <a name="checksum"></a>체크섬
+
+예
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keyword_philippines_id"></a>Keyword_philippines_id
+
+- 통합 된 다목적 ID
+- UMID
+- Id 카드
+- Pinag-isang 다중 Layunin ID
+
+## <a name="poland-drivers-license-number"></a>폴란드 운전 면허 번호
+
+### <a name="format"></a>서식
+
+14자리 숫자(2개 슬래시 포함)
+
+### <a name="pattern"></a>패턴
+
+14자리 숫자 및 2개 슬래시:
+
+- 5자리 숫자
+- 슬래시(/)
+- 2자리 숫자
+- 슬래시(/)
+- 7자리 숫자
 
 ### <a name="checksum"></a>체크섬
 
@@ -8648,596 +9226,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - dl 번호
 
 
-#### <a name="keywords_netherlands_eu_drivers_license_number"></a>Keywords_netherlands_eu_driver ' s_license_number
-
-- permis de conduire
-- rijbewijs
-- rijbewijsnummer
-- rijbewijzen
-- rijbewijs nummer
-- rijbewijsnummers
-
-
-## <a name="netherlands-passport-number"></a>네덜란드 여권 번호
-
-### <a name="format"></a>서식
-
-9개 문자 또는 숫자(공백 또는 구분 기호 비포함)
-
-### <a name="pattern"></a>패턴
-
-9개 문자 또는 숫자
-
-### <a name="checksum"></a>체크섬
-
-적용할 수 없음
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keywords_eu_passport_number"></a>Keywords_eu_passport_number
-
-- passport #
-- passport #
-- passportid
-- 여권
-- passportno
-- passport 아니요
-- passportnumber
-- 여권 번호
-- passportnumbers
-- 여권 번호
-
-#### <a name="keywords_netherlands_eu_passport_number"></a>Keywords_netherlands_eu_passport_number
-
-- nummer
-- paspoortnummers
-- paspoortnummer
-- nr
-
-## <a name="netherlands-tax-identification-number"></a>네덜란드 납세자 번호
-이 중요 정보 형식은 다음에만 사용할 수 있습니다.
-- 데이터 손실 방지 정책
-- 커뮤니케이션 준수 정책
-- 정보 거버넌스
-- 레코드 관리
-- Microsoft Cloud App Security
-
-### <a name="format"></a>서식
-
-9자리 숫자(공백 또는 구분 기호 비포함)
-
-### <a name="pattern"></a>패턴
-
-9자리 숫자
-
-### <a name="checksum"></a>체크섬
-
-예
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keywords_netherlands_eu_tax_file_number"></a>Keywords_netherlands_eu_tax_file_number
-
-- 만들었으므로 nummer
-- hollânske 세금 식별
-- hulandes impuesto id 번호
-- hulandes impuesto id
-- identificatienummer belasting
-- identificatienummer van belasting
-- impuesto id 번호
-- impuesto 번호
-- nederlands belasting id nummer
-- nederlands belasting identificatie
-- nederlands belasting identificatienummer
-- nederlands belastingnummer
-- nederlandse belasting identificatie
-- 네덜란드 세금 식별
-- netherland의 세금 식별
-- 네덜란드 tin
-- netherland 's tin
-- 세금 id
-- 세금 식별 번호
-- 세금 식별 번호
-- 세금 식별 ...
-- 세금 없음 #
-- 세금 없음
-- 세금 번호
-- 세금 등록 번호
-- 세금 ...
-- taxid #
-- taxidno #
-- taxidnumber #
-- taxno #
-- taxnumber #
-- taxnumber
-- tin id
-- tin
-- tin #
-
-
-## <a name="netherlands-value-added-tax-number"></a>네덜란드 부가 세금 번호를 추가 했습니다.
-이 중요 정보 형식은 다음에만 사용할 수 있습니다.
-- 데이터 손실 방지 정책
-- 커뮤니케이션 준수 정책
-- 정보 거버넌스
-- 레코드 관리
-- Microsoft Cloud App Security
-
-### <a name="format"></a>서식
-
-14자 영숫자 패턴
-
-### <a name="pattern"></a>패턴
-
-14자 영숫자 패턴:
-
-- N 또는 n
-- L 또는 l
-- 선택적 공백, 점 또는 하이픈
-- 9자리 숫자
-- 선택적 공백, 점 또는 하이픈
-- B 또는 b
-- 2자리 숫자
-
-### <a name="checksum"></a>체크섬
-
-예
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keyword_netherlands_value_added_tax_number"></a>Keyword_netherlands_value_added_tax_number
-
-- vat 번호
-- vat 아니요
-- vat #
-- wearde tafoege 세금 getal
-- 만들었으므로 nûmer
-- 만들었으므로-nummer
-
-
-## <a name="new-zealand-bank-account-number"></a>뉴질랜드 은행 계좌 번호
-이 중요 정보 형식은 다음에만 사용할 수 있습니다.
-- 데이터 손실 방지 정책
-- 커뮤니케이션 준수 정책
-- 정보 거버넌스
-- 레코드 관리
-- Microsoft Cloud App Security
-
-### <a name="format"></a>서식
-
-14자리~16자리 숫자 패턴(선택적 구분 기호 포함)
-
-### <a name="pattern"></a>패턴
-
-14자리~16자리 숫자 패턴(선택적 구분 기호 포함):
-
-- 2자리 숫자
-- 선택적 하이픈 또는 공백
-- 3~4자리 숫자
-- 선택적 하이픈 또는 공백
-- 7자리 숫자
-- 선택적 하이픈 또는 공백
-- 2~3자리 숫자
-- 선택적 하이픈 또는 공백
-
-### <a name="checksum"></a>체크섬
-
-예
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keyword_new_zealand_bank_account_number"></a>Keyword_new_zealand_bank_account_number
-
-- 계정 번호
-- 은행 계좌
-- bank_acct_id
-- bank_acct_branch
-- bank_acct_nbr
-
-
-## <a name="new-zealand-drivers-license-number"></a>뉴질랜드 드라이버의 라이선스 번호
-이 중요 정보 형식은 다음에만 사용할 수 있습니다.
-- 데이터 손실 방지 정책
-- 커뮤니케이션 준수 정책
-- 정보 거버넌스
-- 레코드 관리
-- Microsoft Cloud App Security
-
-### <a name="format"></a>서식
-
-8자 영숫자 패턴
-
-### <a name="pattern"></a>패턴
-
-8자 영숫자 패턴
-
-- 2개 문자
-- 6자리 숫자
-
-### <a name="checksum"></a>체크섬
-
-예
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keyword_new_zealand_drivers_license_number"></a>Keyword_new_zealand_drivers_license_number
-
-- driverlicence
-- driverlicences
-- 드라이버 lic
-- 드라이버 라이선스
-- 드라이버 라이선스
-- driverslic
-- 드라이버 라이선스
-- driverslicences
-- 드라이버 lic
-- 드라이버 lics
-- 드라이버 라이선스
-- 드라이버 라이선스
-- drivero
-- driverlics
-- drivers 라이선스
-- driver'licences
-- 드라이버 ' lic
-- 드라이버의 lics
-- 드라이버의 라이선스
-- 드라이버 ' 라이선스
-- driver'slic
-- 드라이버 (o)
-- driver'slicence
-- driver'slicences
-- 드라이버의 lic
-- 드라이버의 lics
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- driverlic #
-- driverlics #
-- driverlicence #
-- driverlicences #
-- 드라이버 lic #
-- 드라이버 lics #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- driverslic #
-- driverslics #
-- driverslicence #
-- driverslicences #
-- drivers lic #
-- drivers lics #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- driver'lic #
-- driver'lics #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- 드라이버의 lic #
-- 드라이버의 lics #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- driver'slic #
-- driver'slics #
-- 드라이버의licence #
-- 드라이버의 slicences #
-- 드라이버의 lic #
-- 드라이버의 lic #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- 국제 주행 허가
-- 국제 주행 허가
-- nz 자동차 연결
-- 뉴질랜드 자동차 연결
-
-
-## <a name="new-zealand-inland-revenue-number"></a>뉴질랜드 내국세 수입 번호
-이 중요 정보 형식은 다음에만 사용할 수 있습니다.
-- 데이터 손실 방지 정책
-- 커뮤니케이션 준수 정책
-- 정보 거버넌스
-- 레코드 관리
-- Microsoft Cloud App Security
-
-### <a name="format"></a>서식
-
-8~9자리 숫자(선택적 구분 기호 포함)
-
-### <a name="pattern"></a>패턴
-
-8~9자리 숫자(선택적 구분 기호 포함)
-
-- 2~3자리 숫자
-- 선택적 공백 또는 하이픈
-- 3자리 숫자
-- 선택적 공백 또는 하이픈
-- 3자리 숫자
-
-### <a name="checksum"></a>체크섬
-
-예
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keyword_new_zealand_inland_revenue_number"></a>Keyword_new_zealand_inland_revenue_number
-
-- ird no.
-- ird no #
-- nz ird
-- 뉴질랜드 일드
-- ird number
-- 인란드 수익 번호
-
-
-## <a name="new-zealand-ministry-of-health-number"></a>뉴질랜드 보건부 번호
-
-### <a name="format"></a>형식
-
-3개의 문자, 공백(선택 사항), 4자리 숫자
-
-### <a name="pattern"></a>패턴
-
-- 'I' 및 'O'를 제외한 세 문자(대/소문자 구분 안 함)
-- 공백(선택 사항)
-- 4자리 숫자
-
-### <a name="checksum"></a>체크섬
-
-예
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keyword_nz_terms"></a>Keyword_nz_terms
-
-- NHI
-- 뉴질랜드
-- 의료
-- 처리
-- 국가 의료 인덱스 번호
-- nhi number
-- nhi 아니요.
-- NHI #
-- National Health Index 아니요.
-- 국가 의료 인덱스 ID
-- 국가 의료 인덱스 #
-
-## <a name="new-zealand-social-welfare-number"></a>뉴질랜드 사회 복지 번호
-
-이 중요 정보 형식은 다음에만 사용할 수 있습니다.
-- 데이터 손실 방지 정책
-- 커뮤니케이션 준수 정책
-- 정보 거버넌스
-- 레코드 관리
-- Microsoft Cloud App Security
-
-### <a name="format"></a>형식
-
-9자리 숫자
-
-### <a name="pattern"></a>패턴
-
-9자리 숫자
-
-- 3자리 숫자
-- 선택적 하이픈
-- 3자리 숫자
-- 선택적 하이픈
-- 3자리 숫자
-
-### <a name="checksum"></a>체크섬
-
-예
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keyword_new_zealand_social_welfare_number"></a>Keyword_new_zealand_social_welfare_number
-
-- 사회복지 #
-- 사회복지 #
-- 소셜 교직원 아니요.
-- 소셜 사회 사회 숫자
-- swn #
-
-
-## <a name="norway-identification-number"></a>노르웨이 식별 번호
-
-### <a name="format"></a>형식
-
-11자리 숫자
-
-### <a name="pattern"></a>패턴
-
-11자리 숫자:
-- 6자리 숫자(DDMMYY 형식의 생년월일)
-- 3자리 숫자 개별 번호
-- 2자리 확인 숫자
-
-### <a name="checksum"></a>체크섬
-
-예
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keyword_norway_id_number"></a>Keyword_norway_id_number
-
-- 개인 ID 번호
-- 노르웨이어 ID 번호
-- ID 번호
-- Identification(식별)
-- Personnummer
-- F되드셀nummer
-
-
-## <a name="philippines-unified-multi-purpose-identification-number"></a>필리핀 통합 다목적 식별 번호
-
-### <a name="format"></a>형식
-
-12자리 숫자, 하이픈으로 구분됨
-
-### <a name="pattern"></a>패턴
-
-12자리 숫자:
-- 4자리 숫자
-- 하이픈
-- 7자리 숫자
-- 하이픈
-- 1자리 숫자
-
-### <a name="checksum"></a>체크섬
-
-예
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keyword_philippines_id"></a>Keyword_philippines_id
-
-- 통합 다목적 ID
-- UMID
-- ID 카드
-- Pinag-isang Multi-Layunin ID
-
-## <a name="poland-drivers-license-number"></a>폴란드 운전 면허 번호
-
-### <a name="format"></a>서식
-
-14자리 숫자(2개 슬래시 포함)
-
-### <a name="pattern"></a>패턴
-
-14자리 숫자 및 2개 슬래시:
-
-- 5자리 숫자
-- 슬래시(/)
-- 2자리 숫자
-- 슬래시(/)
-- 7자리 숫자
-
-### <a name="checksum"></a>체크섬
-
-예
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keywords_eu_drivers_license_number"></a>Keywords_eu_driver's_license_number
-
-- driverlic
-- 드라이버
-- driverlicense
-- driverlicense
-- driverlicence
-- driverlicences
-- driver lic
-- 드라이버 lics
-- 운전면허증
-- 드라이버 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- driverslic
-- driverslics
-- driverslicence
-- driverslicences
-- driverslicense
-- driverslicenses
-- drivers lic
-- drivers lics
-- 드라이버 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- driver'lic
-- driver'lics
-- 운전면허증
-- 운전면허증
-- 드라이버 라이선스
-- 드라이버 라이선스
-- 드라이버의 lic
-- 드라이버의 lics
-- 운전면허
-- 운전 기사 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- driver'slic
-- driver'slics
-- 드라이버의license
-- 드라이버의 slicenses
-- 드라이버의licence
-- 드라이버의 slicences
-- 드라이버의 lic
-- 드라이버의 lic
-- 운전면허증
-- 운전 기사의 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- Dl #
-- Dl #
-- driverlic #
-- 드라이버 #
-- driverlicense #
-- driverlicense #
-- driverlicence #
-- driverlicences #
-- driver lic #
-- 드라이버 lics #
-- 운전면허증 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- driverslic #
-- driverslics #
-- driverslicense #
-- driverslicenses #
-- driverslicence #
-- driverslicences #
-- drivers lic #
-- drivers lics #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- driver'lic #
-- driver'lics #
-- 드라이버 라이선스 #
-- 운전면허증 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- driver' lic #
-- 드라이버의 lics #
-- 운전면허 #
-- 운전 기사 라이선스 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- driver'slic #
-- driver'slics #
-- 드라이버의license #
-- 드라이버의 조각 #
-- 드라이버의licence #
-- 드라이버의 slicences #
-- 드라이버의 lic #
-- 드라이버의 lic #
-- 운전면허증 #
-- 운전 기사의 라이선스 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- 운전 운전 라이선스 
-- 운전 라이선스
-- dlno #
-- driv lic
-- driv licen
-- driv 라이선스
-- driv 라이선스
-- driv 라이선스
-- driv 라이선스
-- 드라이버 사용 허가
-- 드라이버 라이선스
-- 드라이버의 사용 허가
-- driving lic
-- 운전 허가
-- 운전 라이선스
-- 운전 운전 라이선스
-- 운전 라이선스
-- 운전 허가
-- dl 아니요
-- dlno
-- dl number
-
-
-#### <a name="keywords_poland_eu_drivers_license_number"></a>Keywords_poland_eu_driver's_license_number
+#### <a name="keywords_poland_eu_drivers_license_number"></a>Keywords_poland_eu_driver ' s_license_number
 
 - prawo jazdy
 - prawa jazdy
@@ -9250,23 +9239,23 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="pattern"></a>패턴
 
-3자(대/소문자 구분 안 함) 뒤에 6자리 숫자
+세 문자 (대/소문자 구분 안 함)와 6 자리 숫자
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
 #### <a name="keyword_poland_national_id_passport_number"></a>Keyword_poland_national_id_passport_number
 
 - Dowód osobisty
-- Numer dowodu osobistego
-- Nazwa i numer dowodu osobistego
+- 숫자로 dowodu osobistego
+- Nazwa i 숫자로 dowodu osobistego
 - Nazwa i nr dowodu osobistego
-- Nazwa i nr dowodu to 수amoci
-- Dowód Toósamoóci
-- 다우. Os.
+- Nazwa i nr dowodu tożsamości
+- Dowód Tożsamości
+- dow. 부팅.
 
 
 ## <a name="poland-national-id-pesel"></a>폴란드 신분증(PESEL)
@@ -9277,31 +9266,31 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="pattern"></a>패턴
 
-- 생년월일을 YYMMDD 형식으로 나타내는 6자리 숫자
+- YYMMDD 형식의 생년월일을 나타내는 6 자리 숫자
 - 4자리 숫자
 - 1자리 확인 번호
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
 #### <a name="keyword_pesel_identification_number"></a>Keyword_pesel_identification_number
 
 - dowód osobisty
-- dowódosobisty
-- niepowtarzalny numer
+- dowódosobisty
+- niepowtarzalny 숫자로
 - niepowtarzalnynumer
-- nr.-pesel
+- nr pesel
 - nr-pesel
-- numer identyfikacyjny
+- 숫자로 identyfikacyjny
 - pesel
-- toosamo량ci narodowej
+- tożsamości narodowej
 
 
 ## <a name="poland-passport-number"></a>폴란드 여권 번호
-이 중요한 정보 유형 엔터티는 EU Passport 번호 중요한 정보 유형에 포함됩니다. 독립 실행형 중요한 정보 형식 엔터티로도 사용할 수 있습니다.
+이 중요 한 정보 형식 엔터티는 EU Passport 번호 중요 정보 형식에 포함 되어 있습니다. 독립 실행형 중요 한 정보 형식 엔터티로도 사용할 수 있습니다.
 
 ### <a name="format"></a>형식
 
@@ -9309,18 +9298,18 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="pattern"></a>패턴
 
-두 문자(대/소문자 구분 안 함) 다음에 7자리 숫자
+두 문자 (대/소문자 구분 안 함)와 일곱 자리 숫자
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
 #### <a name="keywords_eu_passport_number"></a>Keywords_eu_passport_number
 
-- 여권 #
-- 여권 #
+- passport #
+- passport #
 - passportid
 - 여권
 - passportno
@@ -9328,18 +9317,18 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - passportnumber
 - 여권 번호
 - passportnumbers
-- passport numbers
+- 여권 번호
 
 #### <a name="keyword_polish_national_passport_number"></a>Keyword_polish_national_passport_number
 
-- numer paszportu
+- 숫자로
 - numery paszportów
-- numery paszportowe
-- nr paszportu
-- Nr. paszportu
+- numery
+- nr
+- nr. 고가 포트
 - nr paszportów
-- n° 패스포트
-- passeport n°
+- n °의 포트
+- 포트 n °
 
 #### <a name="keywords_eu_passport_date"></a>Keywords_eu_passport_date
 
@@ -9363,17 +9352,14 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 9자리 또는 14자리 숫자:
 
-- 9자리 숫자
-
-**or**
-
+- 9자리 숫자 또는
 - 9자리 숫자
 - 하이픈
 - 5자리 숫자
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -9381,15 +9367,15 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 - regon id
 - 통계 번호
-- 통계 ID
+- 통계 id
 - 통계 번호
-- regon number
+- regon 수
 - regonid #
 - regonno #
-- 회사 ID
+- 회사 id
 - companyid #
 - companyidno #
-- numer statystyczny
+- 숫자로 statystyczny
 - numeru regon
 - numerstatystyczny #
 - numeruregon #
@@ -9413,19 +9399,19 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
 #### <a name="keywords_poland_eu_tax_file_number"></a>Keywords_poland_eu_tax_file_number
 
-- 집게 발 #
-- 집게 발
-- numer identyfikacji podatkowej
+- nip #
+- nip
+- 숫자로 identyfikacji podatkowej
 - numeridentyfikacjipodatkowej #
-- 세금 ID
+- 세금 id
 - 세금 식별 번호
-- 세금 ID 번호
+- 세금 식별 번호
 - 세금 없음 #
 - 세금 없음
 - 세금 번호
@@ -9670,8 +9656,8 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 #### <a name="keywords_eu_passport_number"></a>Keywords_eu_passport_number
 
-- passport #
-- passport #
+- 여권 #
+- 여권 #
 - passportid
 - 여권
 - passportno
@@ -9679,18 +9665,18 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - passportnumber
 - 여권 번호
 - passportnumbers
-- 여권 번호
+- passport numbers
 
 #### <a name="keywords_portugal_eu_passport_number"></a>Keywords_portugal_eu_passport_number
 
 - número do passaporte
 - 포르투갈어 passport
-- 포르투갈어의 포트
+- 포르투갈어 패스포트
 - 포르투갈어 passaporte
-- passaporte n º
-- 포트 n º
+- passaporte n="1000001" /n="
+- passeport n="1000001"
 - números de passaporte
-- 포르투갈어 여권
+- 포르투갈어 passports
 - número passaporte
 - números passaporte
 
@@ -9716,23 +9702,23 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
 #### <a name="keywords_portugal_eu_tax_file_number"></a>Keywords_portugal_eu_tax_file_number
 
-- cpf #
-- cpf
-- 않으려면 #
-- 않으려면
-- número de identificação fisca
-- numero 회계
-- 세금 id
+- Cpf #
+- Cpf
+- nif #
+- nif
+- número de identificaço fisca
+- 수많은 회계
+- 세금 ID
 - 세금 식별 번호
-- 세금 식별 번호
-- 세금 없음 #
-- 세금 없음
+- 세금 ID 번호
+- 세금 번호 #
+- 세금 번호
 - 세금 번호
 - 세금 등록 번호
 - taxid #
@@ -9742,8 +9728,8 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - taxnumber #
 - taxnumber
 - tin id
-- tin
-- tin #
+- tin no
+- 주석 #
 
 
 ## <a name="romania-drivers-license-number"></a>루마니아 운전 면허 번호
@@ -9764,28 +9750,28 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="keywords"></a>키워드
 
-#### <a name="keywords_eu_drivers_license_number"></a>Keywords_eu_driver ' s_license_number
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords_eu_driver's_license_number
 
 - driverlic
-- driverlics
+- 드라이버
 - driverlicense
-- driverlicenses
+- driverlicense
 - driverlicence
 - driverlicences
-- 드라이버 lic
+- driver lic
 - 드라이버 lics
-- 드라이버 라이선스
+- 운전면허증
 - 드라이버 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
 - driverslic
 - driverslics
-- 드라이버 라이선스
+- driverslicence
 - driverslicences
-- 드라이버 라이선스
-- 드라이버 라이선스
-- 드라이버 lic
-- 드라이버 lics
+- driverslicense
+- driverslicenses
+- drivers lic
+- drivers lics
 - 드라이버 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
@@ -9796,9 +9782,9 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - 운전면허증
 - 드라이버 라이선스
 - 드라이버 라이선스
-- 드라이버의 lic
+- driver' lic
 - 드라이버의 lics
-- 운전면허
+- 운전면허증
 - 운전 기사 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
@@ -9845,9 +9831,9 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - 운전면허증 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
-- 드라이버의 lic #
+- driver' lic #
 - 드라이버의 lics #
-- 운전면허 #
+- 운전면허증 #
 - 운전 기사 라이선스 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
@@ -9916,7 +9902,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -10122,7 +10108,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 #### <a name="keyword_saudi_arabia_national_id"></a>Keyword_saudi_arabia_national_id
 
 - ID 카드
-- 카드 번호
+- I 카드 번호
 - ID 번호
 - الوطنية الهوية بطاقة رقم
 
@@ -10136,13 +10122,13 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 ### <a name="pattern"></a>패턴
 
 - 9개의 문자와 숫자:
-- 문자 "F", "G", "S" 또는 "T"(대/소문자 구분 안 함)
+- 문자 "F", "G", "S" 또는 "T"(대/소문자를 구분하지 않음)
 - 7자리 숫자
 - 1개 영문자 확인 숫자
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -10179,104 +10165,104 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 #### <a name="keywords_eu_drivers_license_number"></a>Keywords_eu_driver's_license_number
 
 - driverlic
-- 드라이버
+- driverlics
 - driverlicense
-- driverlicense
+- driverlicenses
 - driverlicence
 - driverlicences
-- driver lic
+- 드라이버 lic
 - 드라이버 lics
-- 운전면허증
+- 드라이버 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
 - driverslic
 - driverslics
-- driverslicence
+- 드라이버 라이선스
 - driverslicences
-- driverslicense
-- driverslicenses
-- drivers lic
-- drivers lics
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버 lic
+- 드라이버 lics
 - 드라이버 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
 - 드라이버 라이선스
-- driver'lic
-- driver'lics
-- 운전면허증
-- 운전면허증
-- 드라이버 라이선스
-- 드라이버 라이선스
-- driver' lic
+- drivero
+- driverlics
+- drivers 라이선스
+- drivers 라이선스
+- drivers 라이선스
+- driver'licences
+- 드라이버 ' lic
 - 드라이버의 lics
-- 운전면허증
-- 운전 기사 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버 ' 라이선스
 - driver'slic
-- driver'slics
-- 드라이버의license
-- 드라이버의 조각
-- 드라이버의licence
-- 드라이버의 slicences
+- 드라이버 (o)
+- 드라이버 ' s 라이선스 '
+- 드라이버 ' s 라이선스 '
+- driver'slicence
+- driver'slicences
 - 드라이버의 lic
-- 드라이버의 lic
-- 운전면허증
-- 운전 기사의 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- Dl #
-- Dl #
+- 드라이버의 lics
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- dl #
+- 된다 #
 - driverlic #
-- 드라이버 #
+- driverlics #
 - driverlicense #
-- driverlicense #
+- driverlicenses #
 - driverlicence #
 - driverlicences #
-- driver lic #
+- 드라이버 lic #
 - 드라이버 lics #
-- 운전면허증 #
+- 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - driverslic #
 - driverslics #
-- driverslicense #
-- driverslicenses #
-- driverslicence #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
 - driverslicences #
-- drivers lic #
-- drivers lics #
+- 드라이버 lic #
+- 드라이버 lics #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
-- driver'lic #
-- driver'lics #
-- 운전면허증 #
-- 운전면허증 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- driver' lic #
+- drivero #
+- driverlics #
+- drivers 라이선스 #
+- drivers 라이선스 #
+- drivers 라이선스 #
+- driver'licences #
+- 드라이버 ' lic #
 - 드라이버의 lics #
-- 운전면허증 #
-- 운전 기사 라이선스 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
+- 드라이버의 라이선스 #
+- 드라이버의 라이선스 #
+- 드라이버의 라이선스 #
+- 드라이버 ' 라이선스 #
 - driver'slic #
-- driver'slics #
-- 드라이버의license #
-- 드라이버의 조각 #
-- 드라이버의licence #
-- 드라이버의 slicences #
+- 드라이버 (o) #
+- 드라이버 ' s 라이선스 ' #
+- 드라이버 ' s 라이선스 ' #
+- driver'slicence #
+- driver'slicences #
 - 드라이버의 lic #
-- 드라이버의 lic #
-- 운전면허증 #
-- 운전 기사의 라이선스 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- 운전 운전 라이선스 
-- 운전 라이선스
+- 드라이버의 lics #
+- 드라이버의 라이선스 #
+- 드라이버의 라이선스 #
+- 드라이버의 라이선스 #
+- 드라이버의 라이선스 #
+- 추진 라이선스 
+- 추진 라이선스
 - dlno #
 - driv lic
 - driv licen
@@ -10326,7 +10312,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -10334,15 +10320,15 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 - azonosótó szóm
 - 생년월일 번호
-- 을(를) 통해 n을 식별할 수 있습니다.
+- 을(를) 통해 n을 식별합니다.
 - ಖlo obsianského preukazu
 - daéové 을(를)
 - ID 번호
 - 식별 번호
 - ID 번호
-- identifikasn 을(를)
+- identifika의 카타 입니다.
 - identifika vuné 을(를) 식별합니다.
-- ID 카드 없음
+- ID 카드 번호
 - ID 카드 번호
 - n을 식별 하는 n을 zna를 zna의 을 식별 입니다.
 - 국가 번호
@@ -10404,15 +10390,15 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - passportnumber
 - 여권 번호
 - passportnumbers
-- passport numbers
+- 여권 번호
 
 #### <a name="keywords_slovakia_eu_passport_number"></a>Keywords_slovakia_eu_passport_number
 
-- 을(를) 파스로
-- 을(를) 파스포프
-- pas 을(를)
-- Passeport n°
-- n° Passeport
+- číslo
+- čísla pasov
+- pas č.
+- 포트 n °
+- n °의 포트
 
 #### <a name="keywords_eu_passport_date"></a>Keywords_eu_passport_date
 
@@ -10429,736 +10415,6 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 ### <a name="pattern"></a>패턴
 
 9자리 숫자
-
-### <a name="checksum"></a>체크섬
-
-예
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keywords_eu_drivers_license_number"></a>Keywords_eu_driver's_license_number
-
-- driverlic
-- 드라이버
-- driverlicense
-- driverlicense
-- driverlicence
-- driverlicences
-- driver lic
-- 드라이버 lics
-- 운전면허증
-- 드라이버 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- driverslic
-- driverslics
-- driverslicence
-- driverslicences
-- driverslicense
-- driverslicenses
-- drivers lic
-- drivers lics
-- 드라이버 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- driver'lic
-- driver'lics
-- 운전면허증
-- 운전면허증
-- 드라이버 라이선스
-- 드라이버 라이선스
-- 드라이버의 lic
-- 드라이버의 lics
-- 운전면허
-- 운전 기사 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- driver'slic
-- driver'slics
-- 드라이버의license
-- 드라이버의 조각
-- 드라이버의licence
-- 드라이버의 slicences
-- 드라이버의 lic
-- 드라이버의 lic
-- 운전면허증
-- 운전 기사의 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- Dl #
-- Dl #
-- driverlic #
-- 드라이버 #
-- driverlicense #
-- driverlicense #
-- driverlicence #
-- driverlicences #
-- driver lic #
-- 드라이버 lics #
-- 운전면허증 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- driverslic #
-- driverslics #
-- driverslicense #
-- driverslicenses #
-- driverslicence #
-- driverslicences #
-- drivers lic #
-- drivers lics #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- driver'lic #
-- driverlics #
-- drivers 라이선스 #
-- drivers 라이선스 #
-- drivers 라이선스 #
-- driver'licences #
-- 드라이버 ' lic #
-- 드라이버의 lics #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버 ' 라이선스 #
-- driver'slic #
-- 드라이버 (o) #
-- 드라이버 ' s 라이선스 ' #
-- 드라이버 ' s 라이선스 ' #
-- driver'slicence #
-- driver'slicences #
-- 드라이버의 lic #
-- 드라이버의 lics #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 추진 라이선스 
-- 추진 라이선스
-- dlno #
-- 드라이브 lic
-- 드라이브 licen
-- 드라이브 라이선스
-- 드라이브 라이선스
-- 드라이브 라이선스
-- 드라이브 라이선스
-- 드라이버 licen
-- 드라이버 licen
-- 드라이버의 licen
-- lic 구동
-- 주행
-- 운전 라이선스
-- 추진 라이선스
-- 주행 라이선스
-- 촉진 허용
-- dl 아니요
-- dlno
-- dl 번호
-
-
-#### <a name="keywords_slovenia_eu_drivers_license_number"></a>Keywords_slovenia_eu_driver ' s_license_number
-
-- vozniško dovoljenje
-- vozniška številka 라이선스
-- vozniških dovoljenj
-- številka vozniškega dovoljenja
-- številke vozniških dovoljenj
-
-## <a name="slovenia-unique-master-citizen-number"></a>슬로베니아 고유 마스터 시민 번호
-이 중요 정보 형식은 다음에만 사용할 수 있습니다.
-- 데이터 손실 방지 정책
-- 커뮤니케이션 준수 정책
-- 정보 거버넌스
-- 레코드 관리
-- Microsoft Cloud App Security
-
-### <a name="format"></a>서식
-
-13자리 숫자(공백 또는 구분 기호 비포함)
-
-### <a name="pattern"></a>패턴
-
-지정된 패턴의 13자리 숫자:
-
-- 생년월일에 해당하는 7자리 숫자(DDMMLLL)(여기서 "LLL"은 생년월일의 마지막 3자리 숫자에 해당)
-- "50" 출생 지역에 해당하는 2자리 숫자
-- 같은 날에 출생한 사람의 성별과 일련 번호의 조합에 해당하는 3자리 숫자. 남성은 000~499, 여성은 500~999입니다.
-- 1자리 확인 번호
-
-### <a name="checksum"></a>체크섬
-
-예
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keywords_slovenia_eu_national_id_card"></a>Keywords_slovenia_eu_national_id_card
-
-- edinstvena številka glavnega državljana
-- emšo
-- enotna maticna številka obcana
-- id 카드
-- 식별 번호
-- identifikacijska številka
-- id 카드
-- nacionalna id
-- nacpotni alni 목록
-- 국가 id
-- osebna izkaznica
-- osebni koda
-- osebni ne
-- osebni številka
-- 개인 코드
-- 개인 번호
-- 개인 숫자 코드
-- številka državljana
-- 고유한 시민 번호
-- 고유 id 번호
-- 고유 id 번호
-- 고유한 마스터 시민 번호
-- 고유 등록 번호
-- uniqueidentityno #
-- uniqueidentityno #
-
-## <a name="slovenia-passport-number"></a>슬로베니아 여권 번호
-
-### <a name="format"></a>서식
-
-2개 문자 뒤에 7자리 숫자(공백 또는 구분 기호 비포함)
-
-### <a name="pattern"></a>패턴
-
-2개 문자 뒤에 7자리 숫자:
-
-- "P" 문자
-- 1개 대문자
-- 7자리 숫자
-
-### <a name="checksum"></a>체크섬
-
-예
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keywords_eu_passport_number"></a>Keywords_eu_passport_number
-
-- passport #
-- passport #
-- passportid
-- 여권
-- passportno
-- passport 아니요
-- passportnumber
-- 여권 번호
-- passportnumbers
-- 여권 번호
-
-#### <a name="keywords_slovenia_eu_passport_number"></a>Keywords_slovenia_eu_passport_number
-
-- številka potnega lista
-- potek veljavnosti
-- potni 목록 #
-- 데이텀 rojstva
-- potni 목록
-- številke potnih listov
-
-#### <a name="keywords_eu_passport_date"></a>Keywords_eu_passport_date
-
-- 문제 날짜
-- 만료 날짜
-
-
-## <a name="slovenia-tax-identification-number"></a>슬로베니아 납세자 번호
-이 중요 정보 형식은 다음에만 사용할 수 있습니다.
-- 데이터 손실 방지 정책
-- 커뮤니케이션 준수 정책
-- 정보 거버넌스
-- 레코드 관리
-- Microsoft Cloud App Security
-
-### <a name="format"></a>서식
-
-8자리 숫자(공백 또는 구분 기호 비포함)
-
-### <a name="pattern"></a>패턴
-
-- 1~9의 1자리 숫자
-- 6자리 숫자
-- 1자리 확인 번호
-
-### <a name="checksum"></a>체크섬
-
-예
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keywords_slovenia_eu_tax_file_number"></a>Keywords_slovenia_eu_tax_file_number
-
-- davčna številka
-- identifikacijska številka davka
-- številka davčne datoteke
-- 세금 파일 번호
-- 세금 파일 번호
-- 세금 id
-- 세금 식별 번호
-- 세금 식별 번호
-- 세금 없음 #
-- 세금 없음
-- 세금 번호
-- 세금 등록 번호
-- taxid #
-- taxidno #
-- taxidnumber #
-- taxno #
-- taxnumber #
-- taxnumber
-- tin id
-- tin
-- tin #
-
-
-## <a name="south-africa-identification-number"></a>남아프리카 공화국 식별 번호
-
-### <a name="format"></a>형식
-
-13자리 숫자, 공백 포함 가능
-
-### <a name="pattern"></a>패턴
-
-13자리 숫자:
-- 6자리 숫자(YYMMDD 형식의 생년월일)
-- 4자리 숫자
-- 1자리 숫자 시민권 표시기
-- 숫자 "8" 또는 "9"
-- 1자리 숫자, 체크섬 숫자임
-
-### <a name="checksum"></a>체크섬
-
-예
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keyword_south_africa_identification_number"></a>Keyword_south_africa_identification_number
-
-- Id 카드
-- ID
-- Identification(식별)
-
-## <a name="south-korea-resident-registration-number"></a>대한민국 주민 등록 번호
-
-### <a name="format"></a>형식
-
-13자리 숫자, 하이픈 포함
-
-### <a name="pattern"></a>패턴
-
-13자리 숫자:
-- 6자리 숫자(YYMMDD 형식의 생년월일)
-- 하이픈
-- 1자리 숫자, 세기와 성별에 따라 결정
-- 4자리 숫자 출생 지역 코드
-- 1자리 숫자, 앞의 숫자가 동일한 사람들을 구분하는 데 사용
-- 1자리 확인 숫자.
-
-### <a name="checksum"></a>체크섬
-
-예
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keyword_south_korea_resident_number"></a>Keyword_south_korea_resident_number
-
-- 국가 ID 카드
-- 시민 등록 번호
-- Jumin deungnok beonho
-- RRN
-- 주민등록번호
-
-## <a name="spain-drivers-license-number"></a>스페인 운전 면허 번호
-
-### <a name="format"></a>서식
-
-8자리 숫자 뒤에 1개 문자
-
-### <a name="pattern"></a>패턴
-
-8자리 숫자 뒤에 1개 문자:
-
-- 8자리 숫자
-- 1개 숫자 또는 문자(대/소문자 구분 안 함)
-
-### <a name="checksum"></a>체크섬
-
-예
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keywords_eu_drivers_license_number"></a>Keywords_eu_driver's_license_number
-
-- driverlic
-- 드라이버
-- driverlicense
-- driverlicense
-- driverlicence
-- driverlicences
-- driver lic
-- 드라이버 lics
-- 운전면허증
-- 드라이버 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- driverslic
-- driverslics
-- driverslicence
-- driverslicences
-- driverslicense
-- driverslicenses
-- drivers lic
-- drivers lics
-- 드라이버 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- driver'lic
-- driver'lics
-- 드라이버 라이선스
-- 운전면허증
-- 드라이버 라이선스
-- 드라이버 라이선스
-- driver' lic
-- 드라이버의 lics
-- 운전면허
-- 운전 기사 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- driver'slic
-- driver'slics
-- 드라이버의license
-- 드라이버의 조각
-- 드라이버의licence
-- 드라이버의 slicences
-- 드라이버의 lic
-- 드라이버의 lic
-- 운전면허증
-- 운전 기사의 라이선스
-- 드라이버 라이선스
-- 드라이버 라이선스
-- Dl #
-- Dl #
-- driverlic #
-- 드라이버 #
-- driverlicense #
-- driverlicense #
-- driverlicence #
-- driverlicences #
-- driver lic #
-- 드라이버 lics #
-- 운전면허증 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- driverslic #
-- driverslics #
-- driverslicense #
-- driverslicenses #
-- driverslicence #
-- driverslicences #
-- drivers lic #
-- drivers lics #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- driver'lic #
-- driver'lics #
-- 드라이버 라이선스 #
-- 운전면허증 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- driver' lic #
-- 드라이버의 lics #
-- 운전면허 #
-- 운전 기사 라이선스 #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- driver'slic #
-- driver'slics #
-- 드라이버 ' s 라이선스 ' #
-- 드라이버 ' s 라이선스 ' #
-- driver'slicence #
-- driver'slicences #
-- 드라이버의 lic #
-- 드라이버의 lics #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- 추진 라이선스 
-- 추진 라이선스
-- dlno #
-- 드라이브 lic
-- 드라이브 licen
-- 드라이브 라이선스
-- 드라이브 라이선스
-- 드라이브 라이선스
-- 드라이브 라이선스
-- 드라이버 licen
-- 드라이버 licen
-- 드라이버의 licen
-- lic 구동
-- 주행
-- 운전 라이선스
-- 추진 라이선스
-- 주행 라이선스
-- 촉진 허용
-- dl 아니요
-- dlno
-- dl 번호
-
-
-#### <a name="keywords_spain_eu_drivers_license_number"></a>Keywords_spain_eu_driver ' s_license_number
-
-- permiso de conducción
-- permiso conducción
-- licencia de conducir
-- licencia conducir
-- permiso conducir
-- permiso de conducir
-- permisos de conducir
-- permisos conducir
-- carnet conducir
-- carnet de conducir
-- licencia de manejo
-- licencia manejo
-
-## <a name="spain-dni"></a>스페인 DNI
-이 중요 정보 형식은 다음에만 사용할 수 있습니다.
-- 데이터 손실 방지 정책
-- 커뮤니케이션 준수 정책
-- 정보 거버넌스
-- 레코드 관리
-- Microsoft Cloud App Security
-
-### <a name="format"></a>서식
-
-8자리 숫자 뒤에 1개 문자
-
-### <a name="pattern"></a>패턴
-
-7자리 숫자 뒤에 1개 문자
-
-- 8자리 숫자
-- 선택적 공백 또는 하이픈
-- 1개 확인 문자(대/소문자 구분 안 함)
-
-### <a name="checksum"></a>체크섬
-
-예
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keywords_spain_eu_national_id_card"></a>Keywords_spain_eu_national_id_card
-
-- carné de identidad
-- dni #
-- dni
-- dninúmero #
-- documento nacional de identidad
-- identidad único
-- identidadúnico #
-- 보험 번호
-- 국가 식별 번호
-- 국가 id
-- nationalid #
-- nationalidno #
-- nie #
-- nie
-- nienúmero #
-- número de identificación
-- número nacional identidad
-- 개인 식별 번호
-- 개인 id 아니요
-- 고유 id 번호
-- uniqueid #
-
-## <a name="spain-passport-number"></a>스페인 여권 번호
-
-### <a name="format"></a>서식
-
-문자와 숫자의 8자 또는 9자 조합(공백 또는 구분 기호 비포함)
-
-### <a name="pattern"></a>패턴
-
-문자와 숫자의 8자 또는 9자 조합:
-
-- 2개 숫자 또는 문자
-- 1개 숫자 또는 문자(선택 사항)
-- 6자리 숫자
-
-### <a name="checksum"></a>체크섬
-
-해당 없음
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keywords_eu_passport_number"></a>Keywords_eu_passport_number
-
-- passport #
-- passport #
-- passportid
-- 여권
-- passportno
-- passport 아니요
-- passportnumber
-- 여권 번호
-- passportnumbers
-- passport numbers
-
-#### <a name="keywords_spain_eu_passport_number"></a>Keywords_spain_eu_passport_number
-
-- libreta pasaporte
-- número pasaporte
-- espaaa pasaporte
-- números de pasaporte
-- número de pasaporte
-- números pasaporte
-- pasaporte 아니요
-- Passeport n°
-- n° Passeport
-- pasaporte 아니요.
-- pasaporte n°
-- 스페인 passport
-
-#### <a name="keywords_eu_passport_date"></a>Keywords_eu_passport_date
-
-- 문제 날짜
-- 만료 날짜
-
-
-## <a name="spain-social-security-number-ssn"></a>스페인 SSN(사회 보장 번호)
-
-
-### <a name="format"></a>형식
-
-11-12자리 숫자
-
-### <a name="pattern"></a>패턴
-
-11-12자리 숫자:
-- 2자리 숫자
-- 슬래시(선택 사항)
-- 7~8자리 숫자
-- 슬래시(선택 사항)
-- 2자리 숫자
-
-### <a name="checksum"></a>체크섬
-
-예
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keywords_spain_eu_passport_number"></a>Keywords_spain_eu_passport_number
-
-- Ssn
-- Ssn #
-- socialsecurityno
-- 사회 보장 아니요
-- 사회 보장 번호
-- número de la seguridad social
-
-## <a name="spain-tax-identification-number"></a>스페인 납세자 번호
-이 중요 정보 형식은 다음에만 사용할 수 있습니다.
-- 데이터 손실 방지 정책
-- 커뮤니케이션 준수 정책
-- 정보 거버넌스
-- 레코드 관리
-- Microsoft Cloud App Security
-
-### <a name="format"></a>서식
-
-지정된 패턴의 7 또는 8자리 숫자 및 1 또는 2개 문자
-
-### <a name="pattern"></a>패턴
-
-스페인 자연인(스페인 국민 신분증 있음)
-
-- 8자리 숫자
-- 1개 대문자(대/소문자 구분)
-
-비상주 스페인인(스페인 국민 신분증 없음)
-
-- "L" 대문자(대/소문자 구분)
-- 7자리 숫자
-- 1개 대문자(대/소문자 구분)
-
-14년 미만 상주 스페인인(스페인 국민 신분증 없음):
-
-- "K" 대문자(대/소문자 구분)
-- 7자리 숫자
-- 1개 대문자(대/소문자 구분)
-
-외국인(외국인 식별 번호 있음)
-
-- "X", "Y" 또는 "Z"인 1개 대문자(대/소문자 구분)
-- 7자리 숫자
-- 1개 대문자(대/소문자 구분)
-
-외국인(외국인 식별 번호 없음)
-
-- "M"인 1개 대문자(대/소문자 구분)
-- 7자리 숫자
-- 1개 대문자(대/소문자 구분)
-
-### <a name="checksum"></a>체크섬
-
-예
-
-### <a name="keywords"></a>키워드
-
-#### <a name="keywords_spain_eu_tax_file_number"></a>Keywords_spain_eu_tax_file_number
-
-- Cif
-- cifid #
-- cifnúmero #
-- número de contribuyente
-- número de identificación fiscal
-- número de impuesto corporativo
-- spanishcifid #
-- spanishcifid
-- spanishcifno #
-- spanishcifno
-- 세금 파일 아니요
-- 세금 파일 번호
-- 세금 ID
-- 세금 식별 번호
-- 세금 ID 번호
-- 세금 번호 #
-- 세금 번호
-- 세금 번호
-- 세금 등록 번호
-- taxid #
-- taxidno #
-- taxidnumber #
-- taxno #
-- taxnumber #
-- taxnumber
-- tin id
-- tin
-- tin #
-
-## <a name="sweden-drivers-license-number"></a>스웨덴 운전 면허 번호
-
-### <a name="format"></a>형식
-
-10자리 숫자, 하이픈 포함
-
-### <a name="pattern"></a>패턴
-
-10자리 숫자(하이픈 포함):
-
-- 6자리 숫자
-- 하이픈
-- 4자리 숫자
 
 ### <a name="checksum"></a>체크섬
 
@@ -11254,11 +10510,369 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - 드라이버의 라이선스 #
 - 드라이버 ' 라이선스 #
 - driver'slic #
-- driver'slics #
-- 드라이버의license #
-- 드라이버의 slicenses #
-- 드라이버의licence #
-- 드라이버의 slicences #
+- 드라이버 (o) #
+- 드라이버 ' s 라이선스 ' #
+- 드라이버 ' s 라이선스 ' #
+- driver'slicence #
+- driver'slicences #
+- 드라이버의 lic #
+- 드라이버의 lics #
+- 드라이버의 라이선스 #
+- 드라이버의 라이선스 #
+- 드라이버의 라이선스 #
+- 드라이버의 라이선스 #
+- 추진 라이선스 
+- 추진 라이선스
+- dlno #
+- 드라이브 lic
+- 드라이브 licen
+- 드라이브 라이선스
+- 드라이브 라이선스
+- 드라이브 라이선스
+- 드라이브 라이선스
+- 드라이버 licen
+- 드라이버 licen
+- 드라이버의 licen
+- lic 구동
+- 주행
+- 운전 라이선스
+- 추진 라이선스
+- 주행 라이선스
+- 촉진 허용
+- dl 아니요
+- dlno
+- dl 번호
+
+
+#### <a name="keywords_slovenia_eu_drivers_license_number"></a>Keywords_slovenia_eu_driver ' s_license_number
+
+- vozniško dovoljenje
+- vozniška številka 라이선스
+- vozniških dovoljenj
+- številka vozniškega dovoljenja
+- številke vozniških dovoljenj
+
+## <a name="slovenia-unique-master-citizen-number"></a>슬로베니아 고유 마스터 시민 번호
+이 중요 정보 형식은 다음에만 사용할 수 있습니다.
+- 데이터 손실 방지 정책
+- 커뮤니케이션 준수 정책
+- 정보 거버넌스
+- 레코드 관리
+- Microsoft Cloud App Security
+
+### <a name="format"></a>서식
+
+13자리 숫자(공백 또는 구분 기호 비포함)
+
+### <a name="pattern"></a>패턴
+
+지정된 패턴의 13자리 숫자:
+
+- 생년월일에 해당하는 7자리 숫자(DDMMLLL)(여기서 "LLL"은 생년월일의 마지막 3자리 숫자에 해당)
+- "50" 출생 지역에 해당하는 2자리 숫자
+- 같은 날에 출생한 사람의 성별과 일련 번호의 조합에 해당하는 3자리 숫자. 남성은 000~499, 여성은 500~999입니다.
+- 1자리 확인 번호
+
+### <a name="checksum"></a>체크섬
+
+Yes
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keywords_slovenia_eu_national_id_card"></a>Keywords_slovenia_eu_national_id_card
+
+- edinstvena številka glavnega državljana
+- emšo
+- enotna maticna številka obcana
+- id 카드
+- 식별 번호
+- identifikacijska številka
+- id 카드
+- nacionalna id
+- nacpotni alni 목록
+- 국가 id
+- osebna izkaznica
+- osebni koda
+- osebni ne
+- osebni številka
+- 개인 코드
+- 개인 번호
+- 개인 숫자 코드
+- številka državljana
+- 고유한 시민 번호
+- 고유 id 번호
+- 고유 id 번호
+- 고유한 마스터 시민 번호
+- 고유 등록 번호
+- uniqueidentityno #
+- uniqueidentityno #
+
+## <a name="slovenia-passport-number"></a>슬로베니아 여권 번호
+
+### <a name="format"></a>서식
+
+2개 문자 뒤에 7자리 숫자(공백 또는 구분 기호 비포함)
+
+### <a name="pattern"></a>패턴
+
+2개 문자 뒤에 7자리 숫자:
+
+- "P" 문자
+- 1개 대문자
+- 7자리 숫자
+
+### <a name="checksum"></a>체크섬
+
+예
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keywords_eu_passport_number"></a>Keywords_eu_passport_number
+
+- 여권 #
+- 여권 #
+- passportid
+- 여권
+- passportno
+- passport 아니요
+- passportnumber
+- 여권 번호
+- passportnumbers
+- passport numbers
+
+#### <a name="keywords_slovenia_eu_passport_number"></a>Keywords_slovenia_eu_passport_number
+
+- 을(를) 으로 표시합니다.
+- potek veekavnosti
+- 포트니 목록 #
+- datum rojstva
+- 포트니 목록
+- 이트루케 포트니시 목록 이동
+
+#### <a name="keywords_eu_passport_date"></a>Keywords_eu_passport_date
+
+- 문제 날짜
+- 만료 날짜
+
+
+## <a name="slovenia-tax-identification-number"></a>슬로베니아 납세자 번호
+이 중요 정보 형식은 다음에만 사용할 수 있습니다.
+- 데이터 손실 방지 정책
+- 커뮤니케이션 준수 정책
+- 정보 거버넌스
+- 레코드 관리
+- Microsoft Cloud App Security
+
+### <a name="format"></a>서식
+
+8자리 숫자(공백 또는 구분 기호 비포함)
+
+### <a name="pattern"></a>패턴
+
+- 1~9의 1자리 숫자
+- 6자리 숫자
+- 1자리 확인 번호
+
+### <a name="checksum"></a>체크섬
+
+Yes
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keywords_slovenia_eu_tax_file_number"></a>Keywords_slovenia_eu_tax_file_number
+
+- davkana 을(를)
+- identifikacijka davka
+- ಖka davkene datoteke
+- 세금 파일 아니요
+- 세금 파일 번호
+- 세금 ID
+- 세금 식별 번호
+- 세금 ID 번호
+- 세금 번호 #
+- 세금 번호
+- 세금 번호
+- 세금 등록 번호
+- taxid #
+- taxidno #
+- taxidnumber #
+- taxno #
+- taxnumber #
+- taxnumber
+- tin id
+- tin no
+- 주석 #
+
+
+## <a name="south-africa-identification-number"></a>남아프리카 공화국 식별 번호
+
+### <a name="format"></a>형식
+
+13자리 숫자, 공백 포함 가능
+
+### <a name="pattern"></a>패턴
+
+13자리 숫자:
+- 6자리 숫자(YYMMDD 형식의 생년월일)
+- 4자리 숫자
+- 1자리 숫자 시민권 표시기
+- 숫자 "8" 또는 "9"
+- 1자리 숫자, 체크섬 숫자임
+
+### <a name="checksum"></a>체크섬
+
+Yes
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keyword_south_africa_identification_number"></a>Keyword_south_africa_identification_number
+
+- ID 카드
+- ID
+- Identification(식별)
+
+## <a name="south-korea-resident-registration-number"></a>대한민국 주민 등록 번호
+
+### <a name="format"></a>형식
+
+13자리 숫자, 하이픈 포함
+
+### <a name="pattern"></a>패턴
+
+13자리 숫자:
+- 6자리 숫자(YYMMDD 형식의 생년월일)
+- 하이픈
+- 1자리 숫자, 세기와 성별에 따라 결정
+- 4자리 숫자 출생 지역 코드
+- 1자리 숫자, 앞의 숫자가 동일한 사람들을 구분하는 데 사용
+- 1자리 확인 숫자.
+
+### <a name="checksum"></a>체크섬
+
+Yes
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keyword_south_korea_resident_number"></a>Keyword_south_korea_resident_number
+
+- 국가 ID 카드
+- 시민 등록 번호
+- Jumin deungnok beonho
+- RRN
+- 주민등록번호
+
+## <a name="spain-drivers-license-number"></a>스페인 운전 면허 번호
+
+### <a name="format"></a>서식
+
+8자리 숫자 뒤에 1개 문자
+
+### <a name="pattern"></a>패턴
+
+8자리 숫자 뒤에 1개 문자:
+
+- 8자리 숫자
+- 1개 숫자 또는 문자(대/소문자 구분 안 함)
+
+### <a name="checksum"></a>체크섬
+
+Yes
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords_eu_driver ' s_license_number
+
+- driverlic
+- driverlics
+- driverlicense
+- driverlicenses
+- driverlicence
+- driverlicences
+- 드라이버 lic
+- 드라이버 lics
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- driverslic
+- driverslics
+- 드라이버 라이선스
+- driverslicences
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버 lic
+- 드라이버 lics
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- drivero
+- driverlics
+- drivers 라이선스
+- drivers 라이선스
+- drivers 라이선스
+- driver'licences
+- 드라이버 ' lic
+- 드라이버의 lics
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버 ' 라이선스
+- driver'slic
+- 드라이버 (o)
+- 드라이버 ' s 라이선스 '
+- 드라이버 ' s 라이선스 '
+- driver'slicence
+- driver'slicences
+- 드라이버의 lic
+- 드라이버의 lics
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- 드라이버의 라이선스
+- dl #
+- 된다 #
+- driverlic #
+- driverlics #
+- driverlicense #
+- driverlicenses #
+- driverlicence #
+- driverlicences #
+- 드라이버 lic #
+- 드라이버 lics #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- driverslic #
+- driverslics #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- driverslicences #
+- 드라이버 lic #
+- 드라이버 lics #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- drivero #
+- driverlics #
+- drivers 라이선스 #
+- drivers 라이선스 #
+- drivers 라이선스 #
+- driver'licences #
+- 드라이버 ' lic #
+- 드라이버의 lics #
+- 드라이버의 라이선스 #
+- 드라이버의 라이선스 #
+- 드라이버의 라이선스 #
+- 드라이버 ' 라이선스 #
+- driver'slic #
+- 드라이버 (o) #
+- 드라이버 ' s 라이선스 ' #
+- 드라이버 ' s 라이선스 ' #
+- driver'slicence #
+- driver'slicences #
 - 드라이버의 lic #
 - 드라이버의 lic #
 - 운전면허증 #
@@ -11288,15 +10902,387 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - dl number
 
 
-#### <a name="keywords_sweden_eu_drivers_license_number"></a>Keywords_sweden_eu_driver's_license_number
+#### <a name="keywords_spain_eu_drivers_license_number"></a>Keywords_spain_eu_driver's_license_number
+
+- permiso de conducción
+- permiso conducción
+- licencia de conducir
+- licencia conducir
+- permiso conducir
+- permiso de conducir
+- permisos de conducir
+- permisos conducir
+- carnet conducir
+- carnet de conducir
+- licencia de manejo
+- licencia manejo
+
+## <a name="spain-dni"></a>스페인 DNI
+이 중요 정보 형식은 다음에만 사용할 수 있습니다.
+- 데이터 손실 방지 정책
+- 커뮤니케이션 준수 정책
+- 정보 거버넌스
+- 레코드 관리
+- Microsoft Cloud App Security
+
+### <a name="format"></a>서식
+
+8자리 숫자 뒤에 1개 문자
+
+### <a name="pattern"></a>패턴
+
+7자리 숫자 뒤에 1개 문자
+
+- 8자리 숫자
+- 선택적 공백 또는 하이픈
+- 1개 확인 문자(대/소문자 구분 안 함)
+
+### <a name="checksum"></a>체크섬
+
+Yes
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keywords_spain_eu_national_id_card"></a>Keywords_spain_eu_national_id_card
+
+- carné de identidad
+- Dni #
+- Dni
+- dninúmero #
+- documento nacional de identidad
+- identidad único
+- identidadúnico #
+- 보험 번호
+- 국가별 ID 번호
+- 국가 ID
+- nationalid #
+- nationalidno #
+- Nie #
+- Nie
+- nienúmero #
+- número de identificación
+- número nacional identidad
+- 개인 ID 번호
+- 개인 ID 번호
+- 고유 ID 번호
+- Uniqueid #
+
+## <a name="spain-passport-number"></a>스페인 여권 번호
+
+### <a name="format"></a>서식
+
+문자와 숫자의 8자 또는 9자 조합(공백 또는 구분 기호 비포함)
+
+### <a name="pattern"></a>패턴
+
+문자와 숫자의 8자 또는 9자 조합:
+
+- 2개 숫자 또는 문자
+- 1개 숫자 또는 문자(선택 사항)
+- 6자리 숫자
+
+### <a name="checksum"></a>체크섬
+
+해당 없음
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keywords_eu_passport_number"></a>Keywords_eu_passport_number
+
+- 여권 #
+- 여권 #
+- passportid
+- 여권
+- passportno
+- passport 아니요
+- passportnumber
+- 여권 번호
+- passportnumbers
+- passport numbers
+
+#### <a name="keywords_spain_eu_passport_number"></a>Keywords_spain_eu_passport_number
+
+- libreta pasaporte
+- número pasaporte
+- espaaa pasaporte
+- números de pasaporte
+- número de pasaporte
+- números pasaporte
+- pasaporte 아니요
+- Passeport n°
+- n° Passeport
+- pasaporte 아니요.
+- pasaporte n°
+- 스페인 passport
+
+#### <a name="keywords_eu_passport_date"></a>Keywords_eu_passport_date
+
+- 문제 날짜
+- 만료 날짜
+
+
+## <a name="spain-social-security-number-ssn"></a>스페인 SSN(사회 보장 번호)
+
+
+### <a name="format"></a>형식
+
+11-12자리 숫자
+
+### <a name="pattern"></a>패턴
+
+11-12자리 숫자:
+- 2자리 숫자
+- 슬래시(선택 사항)
+- 7~8자리 숫자
+- 슬래시(선택 사항)
+- 2자리 숫자
+
+### <a name="checksum"></a>체크섬
+
+Yes
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keywords_spain_eu_passport_number"></a>Keywords_spain_eu_passport_number
+
+- Ssn
+- Ssn #
+- socialsecurityno
+- 사회 보장 아니요
+- 사회 보장 번호
+- número de la seguridad social
+
+## <a name="spain-tax-identification-number"></a>스페인 납세자 번호
+이 중요 정보 형식은 다음에만 사용할 수 있습니다.
+- 데이터 손실 방지 정책
+- 커뮤니케이션 준수 정책
+- 정보 거버넌스
+- 레코드 관리
+- Microsoft Cloud App Security
+
+### <a name="format"></a>서식
+
+지정된 패턴의 7 또는 8자리 숫자 및 1 또는 2개 문자
+
+### <a name="pattern"></a>패턴
+
+스페인 자연인(스페인 국민 신분증 있음)
+
+- 8자리 숫자
+- 1개 대문자(대/소문자 구분)
+
+비상주 스페인인(스페인 국민 신분증 없음)
+
+- "L" 대문자(대/소문자 구분)
+- 7자리 숫자
+- 1개 대문자(대/소문자 구분)
+
+14년 미만 상주 스페인인(스페인 국민 신분증 없음):
+
+- "K" 대문자(대/소문자 구분)
+- 7자리 숫자
+- 1개 대문자(대/소문자 구분)
+
+외국인(외국인 식별 번호 있음)
+
+- "X", "Y" 또는 "Z"인 1개 대문자(대/소문자 구분)
+- 7자리 숫자
+- 1개 대문자(대/소문자 구분)
+
+외국인(외국인 식별 번호 없음)
+
+- "M"인 1개 대문자(대/소문자 구분)
+- 7자리 숫자
+- 1개 대문자(대/소문자 구분)
+
+### <a name="checksum"></a>체크섬
+
+Yes
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keywords_spain_eu_tax_file_number"></a>Keywords_spain_eu_tax_file_number
+
+- Cif
+- cifid #
+- cifnúmero #
+- número de contribuyente
+- número de identificación fiscal
+- número de impuesto corporativo
+- spanishcifid #
+- spanishcifid
+- spanishcifno #
+- spanishcifno
+- 세금 파일 아니요
+- 세금 파일 번호
+- 세금 ID
+- 세금 식별 번호
+- 세금 ID 번호
+- 세금 번호 #
+- 세금 번호
+- 세금 번호
+- 세금 등록 번호
+- taxid #
+- taxidno #
+- taxidnumber #
+- taxno #
+- taxnumber #
+- taxnumber
+- tin id
+- tin no
+- 주석 #
+
+## <a name="sweden-drivers-license-number"></a>스웨덴 운전 면허 번호
+
+### <a name="format"></a>형식
+
+10자리 숫자, 하이픈 포함
+
+### <a name="pattern"></a>패턴
+
+10자리 숫자(하이픈 포함):
+
+- 6자리 숫자
+- 하이픈
+- 4자리 숫자
+
+### <a name="checksum"></a>체크섬
+
+예
+
+### <a name="keywords"></a>키워드
+
+#### <a name="keywords_eu_drivers_license_number"></a>Keywords_eu_driver's_license_number
+
+- driverlic
+- 드라이버
+- driverlicense
+- driverlicense
+- driverlicence
+- driverlicences
+- driver lic
+- 드라이버 lics
+- 운전면허증
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- driverslic
+- driverslics
+- driverslicence
+- driverslicences
+- driverslicense
+- driverslicenses
+- drivers lic
+- drivers lics
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- driver'lic
+- driver'lics
+- 드라이버 라이선스
+- 운전면허증
+- 드라이버 라이선스
+- 드라이버 라이선스
+- 드라이버의 lic
+- 드라이버의 lics
+- 운전면허증
+- 운전 기사 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- driver'slic
+- driver'slics
+- 드라이버의license
+- 드라이버의 조각
+- 드라이버의licence
+- 드라이버의 slicences
+- 드라이버의 lic
+- 드라이버의 lic
+- 운전면허증
+- 운전 기사의 라이선스
+- 드라이버 라이선스
+- 드라이버 라이선스
+- Dl #
+- Dl #
+- driverlic #
+- 드라이버 #
+- driverlicense #
+- driverlicense #
+- driverlicence #
+- driverlicences #
+- driver lic #
+- 드라이버 lics #
+- 운전면허증 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- driverslic #
+- driverslics #
+- driverslicense #
+- driverslicenses #
+- driverslicence #
+- driverslicences #
+- drivers lic #
+- drivers lics #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- driver'lic #
+- driver'lics #
+- 드라이버 라이선스 #
+- 운전면허증 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버의 lic #
+- 드라이버의 lics #
+- 운전면허증 #
+- 운전 기사 라이선스 #
+- 드라이버 라이선스 #
+- 드라이버 라이선스 #
+- driver'slic #
+- driver'slics #
+- 드라이버의license #
+- 드라이버의 slicenses #
+- 드라이버의licence #
+- driver'slicences #
+- 드라이버의 lic #
+- 드라이버의 lics #
+- 드라이버의 라이선스 #
+- 드라이버의 라이선스 #
+- 드라이버의 라이선스 #
+- 드라이버의 라이선스 #
+- 추진 라이선스 
+- 추진 라이선스
+- dlno #
+- 드라이브 lic
+- 드라이브 licen
+- 드라이브 라이선스
+- 드라이브 라이선스
+- 드라이브 라이선스
+- 드라이브 라이선스
+- 드라이버 licen
+- 드라이버 licen
+- 드라이버의 licen
+- lic 구동
+- 주행
+- 운전 라이선스
+- 추진 라이선스
+- 주행 라이선스
+- 촉진 허용
+- dl 아니요
+- dlno
+- dl 번호
+
+
+#### <a name="keywords_sweden_eu_drivers_license_number"></a>Keywords_sweden_eu_driver ' s_license_number
 
 - ajokortti
-- permis deducere
+- permis de conducere
 - ajokortin numero
-- kujat lic.
+- kuljettajat lic.
 - drivere lic.
 - körkort
-- numyrul permisului de conducere
+- numărul permisului de conducere
 -  שאָפער דערלויבעניש נומער
 - förare lic.
 -  דריווערס דערלויבעניש
@@ -11313,33 +11299,33 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 10자리 또는 12자리 숫자와 선택적 구분 기호:
 - 2자리 숫자(선택 사항)
 - 6자리 숫자, 날짜 형식 YYMMDD
-- "-" 또는 "+"의 구분 기호(선택 사항)
+- "-" 또는 "+" 구분 기호 (선택 사항)
 - 4자리 숫자
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
 #### <a name="keywords_swedish_national_identifier"></a>Keywords_swedish_national_identifier
 
-- id no
-- ID 번호
-- 자료 #
+- id 번호
+- id 번호
+- a-id #
+- 식별 안 함
 - 식별 번호
-- ID 번호
 - identifikationsnumret #
 - identifikationsnumret
 - identitetshandling
-- ID 문서
-- ID 번호
-- ID 번호
+- id 문서
+- id 아니요
+- id 번호
 - id-nummer
-- 개인 ID
+- 개인 id
 - personnummer #
 - personnummer
-- entifikationsnummer
+- skatteidentifikationsnummer
 
 ## <a name="sweden-passport-number"></a>스웨덴 여권 번호
 
@@ -11359,8 +11345,8 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 #### <a name="keywords_eu_passport_number"></a>Keywords_eu_passport_number
 
-- 여권 #
-- 여권 #
+- passport #
+- passport #
 - passportid
 - 여권
 - passportno
@@ -11368,29 +11354,29 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - passportnumber
 - 여권 번호
 - passportnumbers
-- passport numbers
+- 여권 번호
 
 #### <a name="keyword_sweden_passport"></a>Keyword_sweden_passport
 
-- 등록 카드
+- 외계인 등록 카드
 - g3 처리 요금
-- 다중 항목
-- Numéro de passeport
-- passeport n °
-- passeport non
-- passeport #
+- 여러 항목
+- Numéro de 포트
+- 포트 n °
+- 가 아닌 포트
+- 포트 #
 - 포트 #
 - 고가 아닌 포트
 - 고가
 - passnummer
-- nr 전달
-- schengen
-- schengen visas
+- pass nr
+- s 구아젠 퇴화
+- s 시드진어
 - 단일 항목
 - sverige pass
-- 요구 사항
-- 진행 중
-- 모든 유형
+- 필수 조건
+- 비주얼 처리
+- 2018년 3
 
 #### <a name="keywords_eu_passport_date"></a>Keywords_eu_passport_date
 
@@ -11423,24 +11409,24 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
 #### <a name="keywords_sweden_eu_tax_file_number"></a>Keywords_sweden_eu_tax_file_number
 
-- 개인 id 번호
+- 개인 ID 번호
 - personnummer
-- nummer
-- identifikation
-- skattebetalarens identifikationsnummer
+- 일반 ID nummer
+- 수식어 식별
+- beta identifikationsnummer
 - sverige tin
 - 세금 파일
-- 세금 id
+- 세금 ID
 - 세금 식별 번호
-- 세금 식별 번호
-- 세금 없음 #
-- 세금 없음
+- 세금 ID 번호
+- 세금 번호 #
+- 세금 번호
 - 세금 번호
 - 세금 등록 번호
 - taxid #
@@ -11450,8 +11436,8 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - taxnumber #
 - taxnumber
 - tin id
-- tin
-- tin #
+- tin no
+- 주석 #
 
 
 ## <a name="swift-code"></a>SWIFT 코드
@@ -11463,7 +11449,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 ### <a name="pattern"></a>패턴
 
 4개 문자 뒤에 5-31개 문자 또는 숫자:
-- 4 자 은행 코드 (대/소문자 구분 안 함)
+- 4자로 된 은행 코드(대/소문자 구분 안 함)
 - 공백(선택 사항)
 - 4-28개 문자 또는 숫자(BBAN(Basic Bank Account Number))
 - 공백(선택 사항)
@@ -11477,37 +11463,37 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 #### <a name="keyword_swift"></a>Keyword_swift
 
-- 국제 표준화 기구 9362
+- 국제 표준화 조직 9362
 - iso 9362
 - iso9362
-- swift #
+- 스위프트 #
 - swiftcode
 - swiftnumber
 - swiftroutingnumber
 - swift 코드
 - swift 번호 #
 - swift 라우팅 번호
-- bic 번호
+- bic number
 - bic 코드
-- bic #
-- bic #
+- 빅 #
+- 빅 #
 - 은행 식별자 코드
-- 조직 internationale de normalisation 9362
+- 조직 국제 정규화 해제 9362
 - rapide #
 - 코드 SWIFT
 - le numéro de swift
 - swift numéro d'acheminement
 - le numéro BIC
-- \# BIC
-- 코드 identificateur de banque
-- SWIFTコード
+- \# 빅
+- code identificateur de banque
+- SWIFT의
 - SWIFT番号
 - BIC番号
-- BICコード
-- SWIFT コード
+- BIC의
+- SWIFT 키
 - SWIFT 番号
 - BIC 番号
-- BIC コード
+- BIC의
 - 金融機関識別コード
 - 金融機関コード
 - 銀行コード
@@ -11538,7 +11524,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -11579,7 +11565,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -11641,7 +11627,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 ### <a name="pattern"></a>패턴
 
 10개의 문자와 숫자:
-- 두 문자(대/소문자 구분 안 함)
+- 두 문자 (대/소문자 구분 안 함)
 - 8자리 숫자
 
 ### <a name="checksum"></a>체크섬
@@ -11678,7 +11664,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -11703,7 +11689,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -11731,7 +11717,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
@@ -11890,7 +11876,7 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 ### <a name="pattern"></a>패턴
 
 10-17자리 숫자:
-- 3 자리 또는 10 자리
+- 3자리 또는 10자리
 - 공백
 - 3자리 숫자
 - 공백
@@ -11898,34 +11884,34 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="checksum"></a>체크섬
 
-예
+Yes
 
 ### <a name="keywords"></a>키워드
 
 #### <a name="keyword_uk_nhs_number"></a>Keyword_uk_nhs_number
 
-- 국가별 상태 관리 서비스
-- nhs
-- 상태 관리 서비스 기관
-- 상태 권한
+- 국가 의료 서비스
+- 보 건국
+- 의료 서비스 기관
+- 의료 기관
 
 #### <a name="keyword_uk_nhs_number1"></a>Keyword_uk_nhs_number1
 
-- 환자 id
+- 환자 ID
 - 환자 식별
-- 환자 없음
-- 환자 수
+- patient no
+- 환자 번호
 
 #### <a name="keyword_uk_nhs_number_dob"></a>Keyword_uk_nhs_number_dob
 
 - GP
-- DOB
-- D. .B
+- 생년월일
+- D.O.B
 - Date of Birth
 - Birth Date
 
 ## <a name="uk-national-insurance-number-nino"></a>영국 NINO(국민 보험 번호)
-이 중요 한 정보 형식 엔터티는 EU 국가별 식별 번호 중요 정보 형식에 포함 되어 있습니다. 독립 실행형 중요 한 정보 형식 엔터티로도 사용할 수 있습니다.
+이 중요한 정보 유형 엔터티는 EU 국가 식별 번호 중요한 정보 유형에 포함됩니다. 독립 실행형 중요한 정보 형식 엔터티로도 사용할 수 있습니다.
 
 ### <a name="format"></a>형식
 
@@ -11935,9 +11921,9 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 2가지 가능한 패턴:
 
-- 두 문자 (올바른 NINOs는이 접두사의 특정 문자만 사용 하 여이 패턴의 유효성을 검사 하 고 대/소문자 구분 안 함)
+- 두 문자(유효한NINO는 이 접두사에서 특정 문자만 사용하며, 이 패턴은 대/소문자를 구분하지 않음)
 - 6자리 숫자
-- ' A ', ' B ', ' C ' 또는 ' d ' (접두사와 같이 접미사는 특정 문자만 사용할 수 있음)는 대/소문자를 구분 하지 않습니다.
+- 'A', 'B', 'C' 또는 'D' 중 하나(접두사처럼 접미사에 특정 문자만 허용되고 대/소문자를 구분하지 않음)
 
 또는
 
@@ -11961,20 +11947,20 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 - 국가 보험 번호
 - 국가 보험 기여
-- 보호 작동
+- 보호 행위
 - 보험
 - 사회 보장 번호
-- 보험 응용 프로그램
-- 의료 응용 프로그램
-- 소셜 보험
-- 의료 주의
-- 소셜 보안
+- 보험 애플리케이션
+- 의료 애플리케이션
+- 사회 보험
+- 치료
+- 사회 보장
 - great britain
 - NI 번호
-- NI.
+- NI 아니요.
 - NI #
 - NI #
-- 회사 #
+- 보험 #
 - insurancenumber
 - nationalinsurance #
 - nationalinsurancenumber
@@ -12007,11 +11993,11 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 - 세금 번호
 - 세금 파일
-- 세금 id
+- 세금 ID
 - 세금 식별 번호
-- 세금 식별 번호
-- 세금 없음 #
-- 세금 없음
+- 세금 ID 번호
+- 세금 번호 #
+- 세금 번호
 - 세금 등록 번호
 - taxid #
 - taxidno #
@@ -12020,8 +12006,8 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - taxnumber #
 - taxnumber
 - tin id
-- tin
-- tin #
+- tin no
+- 주석 #
 
 ## <a name="us-bank-account-number"></a>미국 은행 계좌 번호
 
@@ -12043,30 +12029,30 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 - 계정 번호 확인
 - 계정 확인 중
-- 계정 확인 중 #
-- 계정 번호 확인
 - 계정 확인 #
-- 계정 번호를 확인 하는 중입니다.
-- 계정 번호를 확인 하는 중입니다.
+- Acct 번호 확인
+- Acct 확인 #
+- Acct 아니요를 선택합니다.
+- 계정 번호 확인
 - 은행 계좌 번호
 - 은행 계좌 #
+- 은행 누적 번호
+- Bank Acct #
+- Bank Acct 아니요.
 - 은행 계좌 번호
-- 은행 계좌 #
-- 은행 계좌 번호.
-- 은행 계좌 번호.
-- 절감 액 계정 번호
-- 절감 액 계정.
-- 절감 액 계정 #
-- 절감 계정 번호
-- 절감 계정 #
-- 절감 계정 번호
-- 절감 액 계정
+- 절감액 계좌 번호
+- 절감액 계정.
+- 절감액 계정 #
+- 절감액 수
+- 절감액 #
+- Savings Acct No.
+- Savings Account 아니요.
 - 직불 계정 번호
 - 직불 계정
 - 직불 계정 #
-- 직불 계정 번호
-- 직불 계정 #
-- 직불 계정 아니요.
+- 직불 Acct 번호
+- 직불 Acct #
+- Debit Acct 아니요.
 - 직불 계정 번호
 
 ## <a name="us-drivers-license-number"></a>미국 운전 면허 번호
@@ -12077,8 +12063,8 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 ### <a name="pattern"></a>패턴
 
-상태에 따라 다릅니다 (예: 뉴욕).
-- ddd ddd ddd 처럼 형식이 지정 된 9 자리 숫자는 일치 합니다.
+은 주(예: 뉴욕)에 따라 달라집니다.
+- ddd ddd ddd와 같은 형식의 9자리가 일치합니다.
 - 9자리 숫자, ddddddddd와 같은 형식은 일치하지 않음
 
 ### <a name="checksum"></a>체크섬
@@ -12096,15 +12082,15 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - ID
 - ID
 - DL #
-- 된다 #
+- DL #
 - CDL #
 - CDLS #
-- A-ID #
-- 가 #
+- 자료 #
+- Id #
 - ID 번호
 - ID 번호
-- .LIC
-- .LIC #
+- LIC
+- LIC #
 
 #### <a name="keyword_us_drivers_license"></a>Keyword_us_drivers_license
 
@@ -12112,89 +12098,89 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 - DriverLics
 - DriverLicense
 - DriverLicenses
-- 드라이버 Lic
+- Driver Lic
 - 드라이버 Lics
 - 드라이버 라이선스
 - 드라이버 라이선스
 - DriversLic
 - DriversLics
+- DriversLicense
+- DriversLicenses
+- Drivers Lic
+- 드라이버Lics
 - 드라이버 라이선스
 - 드라이버 라이선스
-- 드라이버 Lic
-- 드라이버 Lics
-- 드라이버 라이선스
-- 드라이버 라이선스
-- Drivero
-- Driverlics
-- Drivers 라이선스
-- Drivers 라이선스
-- 드라이버 ' Lic
+- Driver'Lic
+- Driver'Lics
+- 운전면허
+- 운전면허
+- Driver' Lic
 - 드라이버의 Lics
-- 드라이버의 라이선스
-- 드라이버의 라이선스
+- 운전면허
+- 운전 기사 라이선스
 - Driver'sLic
-- 드라이버 (o)
-- 드라이버 ' s 라이선스 '
-- 드라이버 ' s 라이선스 '
-- 드라이버의 Lic
+- Driver'sLics
+- Driver'sLicense
+- 드라이버의License
+- Driver's Lic
 - 드라이버의 Lics
-- 드라이버의 라이선스
-- 드라이버의 라이선스
-- 식별 번호
+- 운전면허
+- 운전 기사의 라이선스
 - ID 번호
-- 등록 #
-- id 카드
-- id 카드
-- 식별 카드
-- 식별 카드
+- ID 번호
+- 식별 #
+- ID 카드
+- ID 카드
+- ID 카드
+- ID 카드
 - DriverLic #
 - DriverLics #
 - DriverLicense #
 - DriverLicenses #
-- 드라이버 Lic #
+- Driver Lic #
 - 드라이버 Lics #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
 - DriversLic #
 - DriversLics #
+- DriversLicense #
+- DriversLicenses #
+- Drivers Lic #
+- 드라이버Lics #
 - 드라이버 라이선스 #
 - 드라이버 라이선스 #
-- 드라이버 Lic #
-- 드라이버 Lics #
-- 드라이버 라이선스 #
-- 드라이버 라이선스 #
-- Drivero #
-- Driverlics #
-- Drivers 라이선스 #
-- Drivers 라이선스 #
-- 드라이버 ' Lic #
+- Driver'Lic #
+- Driver'Lics #
+- 운전면허 #
+- 운전면허증 #
+- Driver' Lic #
 - 드라이버의 Lics #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
+- 운전면허 #
+- 운전 기사 라이선스 #
 - Driver'sLic #
-- 드라이버 (o) #
-- 드라이버 ' s 라이선스 ' #
-- 드라이버 ' s 라이선스 ' #
-- 드라이버의 Lic #
+- Driver'sLics #
+- 드라이버의License #
+- 드라이버의License #
+- Driver's Lic #
 - 드라이버의 Lics #
-- 드라이버의 라이선스 #
-- 드라이버의 라이선스 #
-- id 카드 #
-- id 카드 #
-- 식별 카드 #
-- 식별 카드 #
+- 운전면허 #
+- 운전 기사의 라이선스 #
+- ID 카드 #
+- ID 카드 #
+- ID 카드 #
+- ID 카드 #
 
 
-#### <a name="keyword_state_name_drivers_license_name"></a>Keyword_ [state_name] _drivers_license_name
+#### <a name="keyword_state_name_drivers_license_name"></a>Keyword_[state_name]_drivers_license_name
 
-- 상태 약어 (예: "안")
-- 상태 이름 (예: "뉴욕")
+- 주 약어(예: "NY")
+- 주 이름(예: "New York")
 
 ## <a name="us-individual-taxpayer-identification-number-itin"></a>미국 ITIN(개인 납세자 식별 번호)
 
 ### <a name="format"></a>형식
 
-"9"로 시작 하는 9 자리 숫자로, 네 번째 자릿수로 "7" 또는 "8"을 포함 하 고 선택적으로 공백이 나 대시로 서식 지정
+"9"로 시작하고 네 번째 숫자로 "7" 또는 "8"을 포함하는 9자리이며 선택적으로 공백 또는 대시로 서식이 지정됩니다.
 
 ### <a name="pattern"></a>패턴
 
@@ -12222,17 +12208,17 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 #### <a name="keyword_itin"></a>Keyword_itin
 
 - 납세자
-- 세금 id
+- 세금 ID
 - 세금 식별
-- 스냅숏입니다
+- itin
 - i.t.i.n.
-- ssn
-- tin
-- 소셜 보안
-- 세금 지불자
+- Ssn
+- 주석
+- 사회 보장
+- 세금 지급자
 - itins
 - taxid
-- 개별 납세자
+- 개별 권해
 
 
 ## <a name="us-social-security-number-ssn"></a>미국 SSN(사회 보장 번호)
@@ -12247,10 +12233,10 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 ### <a name="pattern"></a>패턴
 
 4가지 함수가 4가지 다른 패턴으로 SSN을 찾음:
-- 대시 또는 공백 (ddd-dd-dddd 또는 ddd dd dddd)으로 서식이 지정 된 2011 이전의 강력한 서식으로 SSNs를 찾습니다. Func_ssn
-- Func_unformatted_ssn는 8 개의 연속 된 숫자 (ddddddddd)로 서식이 지정 되지 않은 2011 이전의 강력한 형식을 사용 하 여 SSNs를 찾습니다.
-- 대시 또는 공백으로 포맷 된 2011 SSNs를 찾습니다 (ddd-dd-dddd 또는 ddd dd dddd). Func_randomized_formatted_ssn
-- Func_randomized_unformatted_ssn는 서식이 지정 되지 않은 2011 SSNs (ddddddddd)를 검색 합니다.
+- Func_ssn 대시 또는 공백으로 서식이 지정된 2011년 이전의 강력한 서식을 가진 SSN을 찾습니다(ddd-dd-dddd OR dddd dd).
+- Func_unformatted_ssn 2011년 이전의 강력한 서식이 지정된 SSN을 9자리 연속 숫자로 찾습니다(ddddddddd).
+- Func_randomized_formatted_ssn 대시 또는 공백으로 서식이 지정된 2011년 이후 SSN을 찾습니다(ddd-dd-dddd OR dddd dddd).
+- Func_randomized_unformatted_ssn 9자리 연속 숫자로 형식이 변경되지 않은 2011년 이후 SSN을 찾습니다(dddddddddd).
 
 ### <a name="checksum"></a>체크섬
 
@@ -12262,13 +12248,13 @@ EU TIN(세금 식별 번호) 중요 정보 유형의 엔터티입니다.
 
 - SSA 번호
 - 사회 보장 번호
-- 소셜 보안 #
-- 소셜 보안 #
-- 소셜 보안 아니요
-- 소셜 보안 #
-- Soc 초
+- 사회 보장 #
+- 사회 보장 #
+- 사회 보장 아니요
+- 사회 보장 #
+- Soc Sec
 - SSN
-- SSNS&LT
+- SSNS
 - SSN #
 - SS #
 - SSID

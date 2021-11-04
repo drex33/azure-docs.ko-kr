@@ -3,12 +3,12 @@ title: Azure에 Windows 시스템 상태 백업
 description: Windows Server 컴퓨터의 시스템 상태를 Azure에 백업하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 1b3573d757d2f7b1ffec9ae718aa791488960f3b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: ae9ff10749991bd5fe425172046fe7ed5915ce5c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91332895"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473683"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Azure에 Windows 시스템 상태 백업
 
@@ -183,7 +183,7 @@ Recovery Services 자격 증명 모음을 만드는 경우 스토리지 중복�
 
 ## <a name="questions"></a>궁금한 점이 더 있나요?
 
-질문이 있으면 [사용자 의견을 보내 주시기 바랍니다](https://feedback.azure.com/forums/258995-azure-backup).
+질문이 있으면 [사용자 의견을 보내 주시기 바랍니다](https://feedback.azure.com/d365community/forum/153aa817-0725-ec11-b6e6-000d3a4f0858).
 
 ## <a name="next-steps"></a>다음 단계
 

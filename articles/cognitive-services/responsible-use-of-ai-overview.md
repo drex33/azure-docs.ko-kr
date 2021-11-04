@@ -7,14 +7,14 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/02/2021
+ms.date: 10/28/2021
 ms.author: nitinme
-ms.openlocfilehash: 29336a19906d36fb8fea7f0b8fceeb55e97e15cf
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 4cde95784aced0c117f968102c7dd48d5ff9dff1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129728649"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469505"
 ---
 # <a name="responsible-use-of-ai-with-cognitive-services"></a>Cognitive Services를 통한 AI의 책임 있는 사용
 
@@ -43,11 +43,11 @@ Azure Cognitive Services는 애플리케이션에서 AI를 책임감 있게 사�
 * [윤리 및 책임 있는 사용](/legal/cognitive-services/qnamaker/guidance-integration-responsible-use-qnamaker?context=/azure/cognitive-services/qnamaker/context/context)
 * [데이터, 개인 정보 및 보안](/legal/cognitive-services/qnamaker/data-privacy-security-qnamaker?context=/azure/cognitive-services/qnamaker/context/context)
 
-## <a name="text-analytics"></a>텍스트 분석
+## <a name="language-service"></a>언어 서비스
 
-* [투명도 참고 및 사용 사례](/legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context)
-* [윤리 및 책임 있는 사용](/legal/cognitive-services/text-analytics/guidance-integration-responsible-use?context=/azure/cognitive-services/text-analytics/context/context)
-* [데이터, 개인 정보 및 보안](/legal/cognitive-services/text-analytics/data-privacy?context=/azure/cognitive-services/text-analytics/context/context)
+* [투명도 참고 및 사용 사례](/legal/cognitive-services/language-service/transparency-note?context=/azure/cognitive-services/language-service/context/context)
+* [윤리 및 책임 있는 사용](/legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context)
+* [데이터, 개인 정보 및 보안](/legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context)
 
 ## <a name="speech---pronunciation-assessment"></a>음성 - 발음 평가
 

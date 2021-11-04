@@ -1,17 +1,17 @@
 ---
 title: Azure Automation에서 소스 제어 통합 사용
-description: 이 문서에서는 Azure Automation 소스 제어를 다른 리포지토리와 동기화하는 방법을 설명합니다.
+description: 이 문서에서는 Azure Automation 소스 제어를 다른 리포지토리와 동기화하는 방법을 알려줍니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/10/2021
+ms.date: 11/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d94da9792d40a389e3981163e565d85d82a9cdc9
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
-ms.translationtype: HT
+ms.openlocfilehash: c809021f781e9aa8376b9383328a38bd1c784510
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831243"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131477120"
 ---
 # <a name="use-source-control-integration"></a>원본 제어 통합 사용
 
@@ -30,8 +30,8 @@ Azure Automation은 3가지 유형의 소스 제어를 지원합니다.
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * 소스 제어 리포지토리(GitHub 또는 Azure Repos)
-* [실행 계정](automation-security-overview.md#run-as-accounts)
-* [`AzureRM.Profile` 모듈](/powershell/module/azurerm.profile/)은 Automation 계정으로 가져와야 합니다. 해당 Az 모듈(`Az.Accounts`)은 Automation 원본 제어에서 작동하지 않습니다.
+* 시스템 할당 [관리 ID가](automation-security-overview.md#managed-identities) 필요합니다. Automation 계정으로 시스템 할당 관리 ID를 구성하지 않은 경우 [관리 ID를 사용하도록 설정을](enable-managed-identity-for-automation.md#enable-a-system-assigned-managed-identity-for-an-azure-automation-account) 참조하세요.
+* Automation 계정의 [기여자](automation-role-based-access-control.md#contributor) 역할에 시스템 할당 관리 ID를 할당합니다.
 
 > [!NOTE]
 > 소스 제어 동기화 작업은 사용자 Automation 계정에서 실행되며 다른 Automation 작업과 동일한 요금으로 청구됩니다.
@@ -39,6 +39,24 @@ Azure Automation은 3가지 유형의 소스 제어를 지원합니다.
 ## <a name="configure-source-control"></a>소스 제어 구성
 
 이 섹션에서는 Automation 계정에 대한 소스 제어를 구성하는 방법을 설명합니다. Azure Portal 또는 PowerShell을 사용할 수 있습니다.
+
+> [!NOTE]
+> Azure Automation 소스 제어 통합을 통해 시스템 할당 관리 ID만 지원합니다. 실행 계정과 시스템 할당 관리 ID를 모두 사용하도록 설정한 경우 관리 ID가 기본 설정됩니다. 대신 실행 계정을 사용하려는 경우 값으로 라는 부울 형식의 [Automation 변수를 만들](./shared-resources/variables.md) 수 `AUTOMATION_SC_USE_RUNAS` `true` 있습니다.
+
+### <a name="assign-system-assigned-identity-to-contributor-role"></a>기여자 역할에 시스템 할당 ID 할당
+
+이 예제에서는 Azure PowerShell 사용하여 구독의 기여자 역할을 Azure Automation 계정 리소스에 할당하는 방법을 보여줍니다.
+
+1. 상승된 권한으로 PowerShell 콘솔을 엽니다.
+1. 명령 `Connect-AzAccount`를 실행하여 Azure에 로그인합니다.
+1. 참가자 **역할에** 관리 ID를 할당하려면 다음 명령을 실행합니다.
+
+    ```powershell
+    New-AzRoleAssignment `
+        -ObjectId <automation-Identity-object-id> `
+        -Scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}" `
+        -RoleDefinitionName "Contributor"
+    ```
 
 ### <a name="configure-source-control-in-azure-portal"></a>Azure Portal에서 소스 제어 구성
 
@@ -88,7 +106,6 @@ New-AzAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<accoun
 
 > [!NOTE]
 > Azure Repos(Git)는 이전 형식에서 사용된 **visualstudio.com** 대신 **dev.azure.com** 에 액세스하는 URL을 사용합니다. 이전 URL 형식인 `https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname>`은 더 이상 사용되지 않지만 계속 지원됩니다. 새 형식을 사용하는 것이 좋습니다.
-
 
 ```powershell-interactive
 New-AzAutomationSourceControl -Name SCReposGit -RepoUrl https://dev.azure.com/<accountname>/<adoprojectname>/_git/<repositoryname> -SourceType VsoGit -AccessToken <secureStringofPAT> -Branch master -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"

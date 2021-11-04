@@ -7,13 +7,13 @@ ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019
-ms.date: 04/30/2021
-ms.openlocfilehash: 626afa6926dea10a633a5c7d5438ec8b8c578b6a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 11/01/2021
+ms.openlocfilehash: 033d2d188f2e5ef9d2a72428e088ea302908e7c9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124798658"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131457927"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime 설치 사용자 지정
 
@@ -121,7 +121,7 @@ ADF UI에서 기본 사용자 지정 설치로 Azure-SSIS IR을 프로비저닝�
 
 #### <a name="running-cmdkey-command"></a>cmdkey 명령 실행
 
-기본 사용자 지정 설치에서 **cmdkey 명령 실행** 형식을 선택하는 경우 Azure-SSIS IR에서 Windows cmdkey 명령을 실행할 수 있습니다. 이렇게 하려면 **/Add**, **/User**, **/Pass** 텍스트 상자에 대상 컴퓨터의 이름 또는 도메인 이름, 사용자 이름 또는 계정 이름, 암호 또는 계정 키를 각각 입력합니다. 이렇게 해서 Azure-SSIS IR에서 SQL Server, 파일 공유 또는 Azure Files에 대한 액세스 자격 증명을 유지할 수 있습니다. 예를 들어, Azure Files에 액세스하려면 **/Add**, **/user**, **/Pass** 에 `YourAzureStorageAccountName.file.core.windows.net`, `azure\YourAzureStorageAccountName` 및 `YourAzureStorageAccountKey`를 각각 입력할 수 있습니다. 이는 로컬 컴퓨터에서 Windows [cmdkey](/windows-server/administration/windows-commands/cmdkey) 명령을 실행하는 것과 비슷합니다. 현재는 cmdkey 명령 실행에 기본 사용자 지정 설치 하나만 지원됩니다. 여러 cmdkey 명령을 실행하려면 표준 사용자 지정 설치를 대신 사용합니다.
+기본 사용자 지정 설치에서 **cmdkey 명령 실행** 형식을 선택하는 경우 Azure-SSIS IR에서 Windows cmdkey 명령을 실행할 수 있습니다. 이렇게 하려면 **/Add**, **/User**, **/Pass** 텍스트 상자에 대상 컴퓨터의 이름 또는 도메인 이름, 사용자 이름 또는 계정 이름, 암호 또는 계정 키를 각각 입력합니다. 이렇게 해서 Azure-SSIS IR에서 SQL Server, 파일 공유 또는 Azure Files에 대한 액세스 자격 증명을 유지할 수 있습니다. 예를 들어, Azure Files에 액세스하려면 **/Add**, **/user**, **/Pass** 에 `YourAzureStorageAccountName.file.core.windows.net`, `azure\YourAzureStorageAccountName` 및 `YourAzureStorageAccountKey`를 각각 입력할 수 있습니다. 이는 로컬 컴퓨터에서 Windows [cmdkey](/windows-server/administration/windows-commands/cmdkey) 명령을 실행하는 것과 비슷합니다. 
 
 #### <a name="adding-environment-variables"></a>환경 변수 추가
 

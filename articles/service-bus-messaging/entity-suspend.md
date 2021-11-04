@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Service Bus 메시지 엔터티(큐, 토�
 ms.topic: article
 ms.date: 09/28/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e1f4681c49ea6114f2c0d2722a357464094720d2
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: f22e3bcfbd423541508faffdb7983d30ba3bbf3a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129218302"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131472070"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>메시징 엔터티 일시 중단 및 다시 활성화(사용 안 함)
 

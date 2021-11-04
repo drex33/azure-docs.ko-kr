@@ -6,12 +6,12 @@ ms.author: wanl
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/30/2021
-ms.openlocfilehash: 5a1cf026759a8112901624d9db89d7c344930cb8
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 6fecb2f492a71781706e19a407a87cb1af7dc006
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114297431"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131470265"
 ---
 # <a name="how-to-use-live-trace-tool-for-azure-signalr-service"></a>Azure SignalR Service에 대한 라이브 추적 도구를 사용하는 방법
 
@@ -53,11 +53,21 @@ ms.locfileid: "114297431"
 | 예외 | Azure Web PubSub 서비스의 런타임 예외 |
 | 허브 | 사용자 정의 허브 이름 |
 | 연결 ID | 연결의 ID |
-| 연결 ID | 연결 유형입니다. 허용되는 값은 `Server`(서버와 서비스 간의 연결) 및 `Client`(클라이언트와 서비스 간의 연결)입니다.|
+| 연결 유형 | 연결 유형입니다. 허용되는 값은 `Server`(서버와 서비스 간의 연결) 및 `Client`(클라이언트와 서비스 간의 연결)입니다.|
 | 사용자 ID | 사용자의 ID |
 | IP | 클라이언트의 IP 주소 |
 | 서버 고정 | 클라이언트의 라우팅 모드. 허용되는 값은 `Disabled`, `Preferred` 및 `Required`입니다. 자세한 내용은 [ServerStickyMode](https://github.com/Azure/azure-signalr/blob/master/docs/run-asp-net-core.md#serverstickymode)를 참조하세요. |
-| 전송 | 클라이언트가 HTTP 요청을 보내는 데 사용할 수 있는 전송입니다. 허용되는 값은 `WebSockets`, `ServerSentEvents` 및 `LongPolling`입니다. 자세한 내용은 [HttpTransportType](/dotnet/api/microsoft.aspnetcore.http.connections.httptransporttype)을 참조하세요. |
+| 전송 | 클라이언트가 HTTP 요청을 보내는 데 사용할 수 있는 전송입니다. 허용되는 값은 `WebSockets`, `ServerSentEvents` 및 `LongPolling`입니다. 자세한 내용은 [HttpTransportType](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.http.connections.httptransporttype)을 참조하세요. |
+| 메시지 추적 ID | 메시지의 고유 식별자입니다. |
+| 경로 템플릿 | API의 경로 템플릿 |
+| Http 메서드 | Http 메서드 (POST/GET/PUT/DELETE) |
+| URL | Uniform resource locator |
+| 추적 ID | 요청을 나타내는 고유 식별자입니다. |
+| 상태 코드 | Http 응답 코드 |
+| Duration | 요청 간의 기간이 수신 및 처리 됩니다. |
+| 헤더 | HTTP 요청 또는 응답을 사용 하 여 클라이언트와 서버에서 전달 하는 추가 정보 |
+| 호출 ID | 호출을 나타내는 고유 식별자입니다 (ASP.NET SignalR에만 사용 가능). |
+| 메시지 유형 | 메시지 유형 (BroadcastDataMessage/JoinGroupMessage/LeaveGroupMessage/...) |
 
 ## <a name="next-steps"></a>다음 단계
 

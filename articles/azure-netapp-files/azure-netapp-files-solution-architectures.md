@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 10/27/2021
 ms.author: b-juche
-ms.openlocfilehash: 948ded93edc4059d44be175872c46e4a8b11e5d8
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 0fb94a505b30c538e50ec11eff746d41b64be6ab
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130230219"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087536"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Azure NetApp Files를 사용하는 솔루션 아키텍처
 이 문서에서는 Azure NetApp Files 사용을 위한 솔루션 아키텍처를 이해하는 데 도움이 되는 모범 사례 참조를 제공합니다.  
@@ -34,7 +34,7 @@ ms.locfileid: "130230219"
 
 ### <a name="oracle"></a>Oracle
 
-* [Azure NetApp Files Oracle Database - Azure 예제 시나리오](/azure/architecture/example-scenario/file-storage/oracle-azure-netapp-files)
+* [Azure NetApp Files로 Oracle Database-Azure 예제 시나리오](/azure/architecture/example-scenario/file-storage/oracle-azure-netapp-files)
 * [Azure NetApp Files를 사용하는 Microsoft Azure의 Oracle Database](https://www.netapp.com/media/17105-tr4780.pdf)
 * [Microsoft Azure의 Oracle VM 이미지 및 배포: 공유 스토리지 구성 옵션](../virtual-machines/workloads/oracle/oracle-vm-solutions.md#shared-storage-configuration-options)
 * [Azure NetApp Files 단일 볼륨의 Oracle 데이터베이스 성능](performance-oracle-single-volumes.md)
@@ -43,7 +43,7 @@ ms.locfileid: "130230219"
 ### <a name="machine-learning"></a>Machine Learning
 *   [Cloudera Machine Learning](https://docs.cloudera.com/machine-learning/cloud/requirements-azure/topics/ml-requirements-azure.html)
 *   [Azure의 분산 교육: 레인 검색 - 솔루션 설계](https://www.netapp.com/media/32427-tr-4896-design.pdf)
-*   [Azure의 분산 학습: Click-Through 속도 예측 – 솔루션 디자인](https://docs.netapp.com/us-en/netapp-solutions/ai/aks-anf_introduction.html)
+*   [Azure의 분산 교육: Click-Through 요금 예측 – 솔루션 디자인](https://docs.netapp.com/us-en/netapp-solutions/ai/aks-anf_introduction.html)
 
 ### <a name="education"></a>Education
 * [Azure NetApp Files NFS 스토리지의 Moodle](https://techcommunity.microsoft.com/t5/azure-architecture-blog/azure-netapp-files-for-nfs-storage-with-moodle/ba-p/2300630)
@@ -54,14 +54,14 @@ ms.locfileid: "130230219"
 
 ### <a name="file-sharing-and-global-file-caching"></a>파일 공유 및 전역 파일 캐싱
 
-* [Azure NetApp Files 및 DFS 네임스페이스를 Enterprise 파일 공유에 대한 재해 복구](https://techcommunity.microsoft.com/t5/azure-architecture-blog/disaster-recovery-for-enterprise-file-shares/ba-p/2808757)
+* [Azure NetApp Files 및 DFS 네임 스페이스를 사용 하 여 Enterprise 파일 공유에 대 한 재해 복구](https://techcommunity.microsoft.com/t5/azure-architecture-blog/disaster-recovery-for-enterprise-file-shares/ba-p/2808757)
 * [고유한 Azure NFS 빌드? 클라우드에 Linux 파일 공유 구현](https://cloud.netapp.com/blog/ma-anf-blg-build-your-own-linux-nfs-file-shares)
 * [Azure NetApp Files 및 NetApp 전역 파일 캐시를 사용하여 전역적으로 분산된 엔터프라이즈 파일 공유](https://f.hubspotusercontent20.net/hubfs/525875/NA-580-0521-Architecture-Doc-R3.pdf)
 * [Azure NetApp Files에 대한 클라우드 규정 준수](https://cloud.netapp.com/hubfs/Cloud%20Compliance%20for%20Azure%20NetApp%20Files%20-%20November%202020.pdf)
 
 ### <a name="sql-server"></a>SQL Server
 
-* [Azure NetApp Files Azure Virtual Machines SQL Server - Azure 예제 시나리오](/azure/architecture/example-scenario/file-storage/sql-server-azure-netapp-files)
+* [Azure NetApp Files를 사용 하 여 azure Virtual Machines에서 SQL Server-azure 예제 시나리오](/azure/architecture/example-scenario/file-storage/sql-server-azure-netapp-files)
 * [Azure NetApp Files를 사용한 Azure의 SQL Server 배포 가이드](https://www.netapp.com/pdf.html?item=/media/27154-tr-4888.pdf)
 * [SQL Server 배포에 Azure NetApp Files를 사용할 경우의 이점](solutions-benefits-azure-netapp-files-sql-server.md)
 * [Azure NetApp Files를 사용하여 SMB를 통한 SQL Server 배포](https://www.youtube.com/watch?v=x7udfcYbibs)
@@ -89,7 +89,7 @@ ms.locfileid: "130230219"
 * [Red Hat Enterprise Linux에서 Azure NetApp Files를 사용하여 Azure VM에 대기 노드가 있는 SAP HANA 스케일 아웃](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md)
 * [RHEL에서 HSR 및 Pacemaker를 사용하여 SAP HANA 스케일 아웃 - Azure Virtual Machines](../virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-rhel.md)
 * [Azure Application Consistent Snapshot Tool(AzAcSnap)](azacsnap-introduction.md)
-* [Azure NetApp Files SAP HANA 재해 복구](https://docs.netapp.com/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_Disaster_Recovery_with_Azure_NetApp_Files.pdf)
+* [Azure NetApp Files를 사용 하 여 재해 복구 SAP HANA](https://docs.netapp.com/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_Disaster_Recovery_with_Azure_NetApp_Files.pdf)
 
 ### <a name="sap-anydb"></a>SAP AnyDB
 
@@ -164,9 +164,6 @@ ms.locfileid: "130230219"
 * [SAS®에서의 Microsoft Azure 사용에 대한 모범 사례](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680)
 * [Azure의 SAS 아키텍처 가이드 - Azure 아키텍처 센터 | Azure NetApp Files](/azure/architecture/guide/sas/sas-overview#azure-netapp-files-nfs)
 
-### <a name="healthcare"></a>의료 
-
-* [Azure NetApp Files 사용하여 Microsoft Azure 에픽 EHR](https://www.netapp.com/pdf.html?item=/media/62375-tr-4909.pdf)
 
 ## <a name="azure-platform-services-solutions"></a>Azure 플랫폼 서비스 솔루션
 
@@ -183,7 +180,7 @@ ms.locfileid: "130230219"
 
 ### <a name="azure-red-hat-openshift"></a>Azure Red Hat Openshift   
 
-*   [Trident를 사용하여 OpenShift에서 Azure NetApp Files 자동화](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/using-trident-to-automate-azure-netapp-files-from-openshift/ba-p/2367351)
+*   [Trident를 사용 하 여 OpenShift에서 Azure NetApp Files 자동화](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/using-trident-to-automate-azure-netapp-files-from-openshift/ba-p/2367351)
 
 
 ### <a name="azure-batch"></a>Azure Batch

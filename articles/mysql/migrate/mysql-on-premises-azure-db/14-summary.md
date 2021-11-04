@@ -9,12 +9,12 @@ ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
 ms.date: 06/21/2021
-ms.openlocfilehash: b06b7700bb1781f400bae11633bb0d9bff00202a
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: ee67dc1701d8230250132b9a3be0bd5972294292
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113084505"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131422732"
 ---
 # <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-summary"></a>MySQL 온-프레미스에서 Azure Database for MySQL로 마이그레이션: 요약
 
@@ -47,7 +47,7 @@ Azure Database for MySQL 작업에 대해 질문이나 제안하고 싶은 의�
 
   - Azure 지원에 문의하거나 계정 관련 문제를 해결하려면 [Azure Portal에서 티켓을 제출](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)하세요.
 
-  - 피드백을 제공하거나 새 기능을 요청하려면 [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql)를 통해 항목을 만드세요.
+  - 피드백을 제공하거나 새 기능을 요청하려면 [UserVoice](https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da0)를 통해 항목을 만드세요.
 fwill
 ## <a name="find-a-partner-to-help-migrate"></a>마이그레이션을 지원할 파트너 찾기
 

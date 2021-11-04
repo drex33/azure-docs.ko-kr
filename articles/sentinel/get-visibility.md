@@ -7,17 +7,19 @@ manager: rkarlin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
-ms.custom: mvc, fasttrack-edit
+ms.custom: mvc, fasttrack-edit, ignite-fall-2021
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 4fb3b30a35d8f6d22668024a5fa08dbc7358c0ed
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fb01d57a7801b940ba9de2e8c939743070c57eaa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121787133"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131004096"
 ---
 # <a name="visualize-collected-data"></a>수집된 데이터 시각화
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 이 문서에서는 Azure Sentinel을 사용하여 작업 환경에서 발생하는 상황을 빠르게 보고 모니터링하는 방법을 알아봅니다. Azure Sentinel에 데이터 원본을 연결하면 데이터가 바로 시각화되고 분석되므로 연결된 모든 데이터 원본에서 발생하는 상황을 파악할 수 있습니다. Azure Sentinel은 로그 및 쿼리 분석을 제공하기 위해 기본적으로 제공되는 표와 차트뿐만 아니라 Azure에서 이미 사용할 수 있는 전체 도구 기능을 제공하는 통합 문서를 지원합니다. 기본 제공 통합 문서를 사용할 수도 있고, 기존 통합 문서를 토대로 또는 처음부터 완전히 새롭게 새 통합 문서를 만들 수도 있습니다. 
 

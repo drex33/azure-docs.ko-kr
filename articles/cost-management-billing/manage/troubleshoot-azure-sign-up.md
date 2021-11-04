@@ -1,23 +1,23 @@
 ---
-title: Azure Portal에서 새 계정을 등록할 때 발생 하는 문제 해결
+title: Azure Portal에서 새 계정을 등록할 때 발생하는 문제 해결
 description: Microsoft Azure Portal에서 새 계정을 등록할 때 발생하는 문제를 해결합니다.
 services: cost-management-billing
-author: bandersmsft
-ms.reviewer: amberb
+author: jasonwhowell
+manager: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 10/07/2021
-ms.author: banders
-ms.openlocfilehash: ae47b3e96dcb8bd7e7e07297313892dcb24405d0
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.author: jasonh
+ms.openlocfilehash: c429395fa881725344c5eaa891faa692461bbd49
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131464740"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073266"
 ---
-# <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-the-azure-portal"></a>Azure Portal에서 새 계정을 등록할 때 발생 하는 문제 해결
+# <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal"></a>Azure Portal에서 새 계정을 등록할 때 발생하는 문제 해결
 
 Microsoft Azure Portal에서 새 계정을 등록할 때 문제가 발생할 수 있습니다. 이 짧은 가이드에서는 등록 프로세스를 안내하고 각 단계에서는 몇 가지 일반적인 문제에 대해 설명합니다.
 
@@ -178,4 +178,4 @@ Azure 청구 및 구독에 대한 기타 문제 해결 문서
 
 ## <a name="next-steps"></a>다음 단계
 
-- Cost Management and Billing [설명서](../index.yml) 읽기
+- [Cost Management 및 청구 설명서](../index.yml) 읽기

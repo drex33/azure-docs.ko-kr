@@ -9,12 +9,12 @@ ms.subservice: v1
 ms.topic: tutorial
 ms.date: 10/22/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6e7964a0251b7ecc958e8eb60a48c6fb63574a9c
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 25309de23f1a819dc26a21e486fb96c0beac5b7b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130218829"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040816"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>자습서: Azure Resource Manager 템플릿을 사용하여 첫 번째 Azure Data Factory 빌드
 > [!div class="op_single_selector"]
@@ -305,31 +305,38 @@ Azure Resource Manager 템플릿에 대한 매개 변수를 포함하는 **ADFTu
 ```
 
 > [!IMPORTANT]
-> 개발, 테스트 및 프로덕션 환경에 별도의 매개 변수 JSON 파일을 두고 동일한 데이터 팩터리 JSON 템플릿을 사용할 수 있습니다. Power Shell 스크립트를 사용하여 이러한 환경에서 데이터 팩터리 엔터티 배포를 자동화할 수 있습니다. 
-> 
-> 
+> 개발, 테스트 및 프로덕션 환경에 별도의 매개 변수 JSON 파일을 두고 동일한 데이터 팩터리 JSON 템플릿을 사용할 수 있습니다. Power Shell 스크립트를 사용하여 이러한 환경에서 데이터 팩터리 엔터티 배포를 자동화할 수 있습니다.
 
 ## <a name="create-data-factory"></a>데이터 팩터리 만들기
-1. **Azure PowerShell** 을 시작하고 다음 명령을 실행합니다. 
+
+1. **Azure PowerShell** 을 시작하고 다음 명령을 실행합니다.
+
    * 다음 명령을 실행하고 Azure 포털에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
-     ```PowerShell
+
+     ```powershell
      Connect-AzAccount
-     ```  
-   * 다음 명령을 실행하여 이 계정의 모든 구독을 확인합니다.
-     ```PowerShell
-     Get-AzSubscription
-     ``` 
-   * 다음 명령을 실행하여 사용하려는 구독을 선택합니다. 이 구독은 Azure 포털에서 사용한 것과 같아야 합니다.
      ```
+
+   * 다음 명령을 실행하여 이 계정의 모든 구독을 확인합니다.
+
+     ```powershell
+     Get-AzSubscription
+     ```
+
+   * 다음 명령을 실행하여 사용하려는 구독을 선택합니다. 이 구독은 Azure 포털에서 사용한 것과 같아야 합니다.
+
+     ```powershell
      Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
-     ```   
+     ```
+
 2. 1단계에서 만든 Resource Manager 템플릿을 사용하여 데이터 팩터리 엔터티를 배포하려면 다음 명령을 실행합니다. 
 
-    ```PowerShell
-    New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFTutorialARM-Parameters.json
-    ```
+   ```powershell
+   New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFTutorialARM-Parameters.json
+   ```
 
 ## <a name="monitor-pipeline"></a>파이프라인 모니터링
+
 1. [Azure Portal](https://portal.azure.com/)에 로그인한 후 **찾아보기** 를 클릭하고 **데이터 팩터리** 를 선택합니다.
      :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png" alt-text="찾아보기->데이터 팩터리":::
 2. **데이터 팩터리** 블레이드에서 만든 데이터 팩터리(**TutorialFactoryARM**)를 클릭합니다.    
@@ -564,17 +571,18 @@ HDInsight 주문형 연결된 서비스를 정의하는 데 사용되는 JSON �
 ```
 
 ## <a name="reuse-the-template"></a>템플릿 재사용
-이 자습서에서는 데이터 팩터리 엔터티를 정의하는 템플릿과 매개 변수 값을 전달하는 템플릿을 만들었습니다. 같은 템플릿을 사용하여 데이터 팩터리 엔터티를 다른 환경에 배포하는 데 사용하려면 각 환경에 대한 매개 변수 파일을 만들고 해당 환경에 배포할 때 사용합니다.     
+이 자습서에서는 데이터 팩터리 엔터티를 정의하는 템플릿과 매개 변수 값을 전달하는 템플릿을 만들었습니다. 같은 템플릿을 사용하여 데이터 팩터리 엔터티를 다른 환경에 배포하는 데 사용하려면 각 환경에 대한 매개 변수 파일을 만들고 해당 환경에 배포할 때 사용합니다.
 
-예제:  
+예제:
 
-```PowerShell
+```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
 
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
 
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
 ```
+
 첫 번째 명령은 개발 환경에 대한 매개 변수 파일, 두 번째 명령은 테스트 환경에 대한 매개 변수 파일, 세 번째 명령은 프로덕션 환경에 대한 매개 변수 파일을 사용합니다.  
 
 또한 이 템플릿을 재사용하여 반복 작업을 수행할 수 있습니다. 예를 들어 동일한 논리를 구현하는 하나 이상의 파이프라인으로 여러 데이터 팩터리를 만들어야 하지만 각 데이터 팩터리가 서로 다른 Azure 스토리지 및 SQL Database 계정을 사용합니다. 이 경우 매개 변수가 서로 다른 동일한 환경(개발, 테스트 또는 프로덕션)에서 동일한 템플릿을 사용합니다. 

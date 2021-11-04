@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: tutorial
 ms.date: 10/15/2021
-ms.openlocfilehash: d024f68b68fd381641c0dc7aaf5aedefd3930119
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 1ae844b4778f8a117bd8ae8807fa28849d9d310d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130075180"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056351"
 ---
 # <a name="create-server-group-with-private-access-preview-in-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL에서 프라이빗 액세스(미리 보기)를 사용하여 서버 그룹 만들기 - 하이퍼스케일(Citus)
 
@@ -154,6 +154,6 @@ az group delete --resource-group link-demo
 ## <a name="next-steps"></a>다음 단계
 
 * [프라이빗 액세스](concepts-hyperscale-private-access.md)(미리 보기)에 대해 자세히 알아보기
-* [프라이빗 엔드포인트](/azure/private-link/private-endpoint-overview)에 대해 알아보기
-* [가상 네트워크](/azure/virtual-network/concepts-and-best-practices)에 대해 알아보기
-* [프라이빗 DNS 영역](/azure/dns/private-dns-overview)에 대해 알아보기
+* [프라이빗 엔드포인트](../private-link/private-endpoint-overview.md)에 대해 알아보기
+* [가상 네트워크](../virtual-network/concepts-and-best-practices.md)에 대해 알아보기
+* [프라이빗 DNS 영역](../dns/private-dns-overview.md)에 대해 알아보기

@@ -3,12 +3,12 @@ author: robinsh
 ms.author: robinsh
 ms.topic: include
 ms.date: 07/07/2021
-ms.openlocfilehash: eacee8b325317e98cd05093b71a21889f9a933ed
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 090a7ae8e053b82e157d1e46e740d9b3911fef99
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536283"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131077600"
 ---
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>IoT Hub에 소비자 그룹 추가
 
@@ -18,8 +18,8 @@ IoT Hub에 소비자 그룹을 추가하려면 다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 IoT Hub를 엽니다.
 
-1. 왼쪽 창에서 **기본 제공 엔드포인트** 를 선택합니다. 소비자 그룹 아래의 텍스트 상자에 새 **소비자 그룹** 의 이름을 입력합니다. 
+1. 왼쪽 창에서 **기본 제공 엔드포인트** 를 선택합니다. 소비자 그룹 아래의 텍스트 상자에 새 **소비자 그룹** 의 이름을 입력합니다.
 
-   :::image type="content" source="./media/iot-hub-get-started-create-consumer-group/iot-hub-create-consumer-group-azure.png" alt-text="IoT Hub에서 소비자 그룹 만들기":::
+   :::image type="content" source="./media/iot-hub-get-started-create-consumer-group/iot-hub-create-consumer-group-azure.png" alt-text="IoT hub에서 소비자 그룹을 만드는 방법을 보여 주는 스크린샷" border="true":::
 
 1. 텍스트 상자 바깥쪽 아무 곳이나 클릭하여 소비자 그룹을 저장합니다.

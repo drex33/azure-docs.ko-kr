@@ -3,12 +3,12 @@ title: MABS(Azure Backup Server) V3 UR1 보호 매트릭스
 description: 이 문서에서는 Azure Backup Server에서 보호하는 모든 워크로드, 데이터 형식 및 설치 프로그램을 나열하는 지원 매트릭스를 제공합니다.
 ms.date: 07/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: c95f9564a12b430795a1a000a074af8869adce43
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
-ms.translationtype: HT
+ms.openlocfilehash: c3ad2fe2b74179f3797f8986e6a16c9c36d1b2a2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114720704"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446793"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-and-later-protection-matrix"></a>MABS(Azure Backup Server) V3 UR1(이상) 보호 매트릭스
 
@@ -40,7 +40,7 @@ MABS v3 UR1(이상)에 대해 다음 매트릭스를 사용합니다.
 | **작업**               | **Version**                                                  | **Azure Backup Server   설치**                       | **지원되는 Azure Backup Server** | **보호 및 복구**                                  |
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | --------------------------------- | ------------------------------------------------------------ |
 | 클라이언트 컴퓨터(64비트) | Windows  10                                                  | 물리적 서버  <br><br>    Hyper-V 가상 머신   <br><br>   VMware 가상 머신 | V3 UR1 및 V3 UR2                            | 볼륨, 공유, 폴더, 파일, 중복 제거된 볼륨   <br><br>   보호되는 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.  <br><br>    볼륨은 1GB 이상이어야 합니다. Azure Backup Server는 VSS(볼륨 섀도 복사본 서비스)를 사용하여 데이터 스냅샷을 생성하고 스냅샷은 볼륨이 1GB 이상인 경우에만 작동합니다. |
-| 서버(64비트)          | Windows  Server 2019, 2016, 2012 R2, 2012                    | Azure 가상 머신(워크로드가 Azure 가상 머신으로 실행 중인 경우)  <br><br>    실제 서버  <br><br>    Hyper-V 가상 머신 <br><br>     VMware 가상 머신  <br><br>    Azure Stack | V3 UR1 및 V3 UR2                            | 볼륨, 공유, 폴더, 파일 <br><br>    중복 제거된 볼륨(NTFS 전용) <br><br>Windows Server 2019에서 실행되는 MABS v3로 WS 2016 NTFS 중복 제거 볼륨을 보호하는 경우 복구에 영향을 줄 수 있습니다. 이후 버전의 MABS에 포함될 수 있는 중복 제거가 아닌 방식으로 복구를 수행하기 위한 수정이 있습니다. MABS v3 UR1에서 이 수정이 필요한 경우 MABS 지원 담당자에게 문의하세요.<br><br> Windows Server 2016에서 MABS v3을 사용하여 WS 2019 NTFS 중복 제거된 볼륨을 보호할 경우 백업 및 복원은 중복 제거되지 않습니다. 이는 MABS 서버에서 백업이 원본 NTFS 중복 제거된 볼륨보다 더 많은 공간을 차지함을 의미합니다.   <br><br>   시스템 상태 및 운영 체제 미설치(워크로드가 Azure 가상 머신으로 실행되는 경우 지원되지 않음) |
+| 서버(64비트)          | Windows  서버 2022, 2019, 2016, 2012 R2, 2012                    | Azure 가상 머신(워크로드가 Azure 가상 머신으로 실행 중인 경우)  <br><br>    실제 서버  <br><br>    Hyper-V 가상 머신 <br><br>     VMware 가상 머신  <br><br>    Azure Stack | V3 UR1 및 V3 UR2                            | 볼륨, 공유, 폴더, 파일 <br><br>    중복 제거된 볼륨(NTFS 전용) <br><br>Windows Server 2019에서 실행되는 MABS v3로 WS 2016 NTFS 중복 제거 볼륨을 보호하는 경우 복구에 영향을 줄 수 있습니다. 이후 버전의 MABS에 포함될 수 있는 중복 제거가 아닌 방식으로 복구를 수행하기 위한 수정이 있습니다. MABS v3 UR1에서 이 수정이 필요한 경우 MABS 지원 담당자에게 문의하세요.<br><br> Windows Server 2016에서 MABS v3을 사용하여 WS 2019 NTFS 중복 제거된 볼륨을 보호할 경우 백업 및 복원은 중복 제거되지 않습니다. 이는 MABS 서버에서 백업이 원본 NTFS 중복 제거된 볼륨보다 더 많은 공간을 차지함을 의미합니다.   <br><br>   시스템 상태 및 운영 체제 미설치(워크로드가 Azure 가상 머신으로 실행되는 경우 지원되지 않음) |
 | 서버(64비트)          | Windows  Server 2008 R2 SP1, Windows Server 2008 SP2([Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)를 설치해야 함) | 물리적 서버  <br><br>    Hyper-V 가상 머신  <br><br>      VMware 가상 머신  <br><br>   Azure Stack | V3 UR1 및 V3 UR2                           | 볼륨, 공유, 폴더, 파일,  시스템 상태/운영 체제 미설치        |
 | SQL  Server                | SQL Server 2019, SQL Server 2017, 2016 및 [지원되는 SP](https://support.microsoft.com/lifecycle/search?alpha=SQL%20Server%202016), 2014 및 지원되는 [SP](https://support.microsoft.com/lifecycle/search?alpha=SQL%20Server%202014) | 물리적 서버  <br><br>     Hyper-V 가상 머신   <br><br>     VMware 가상 머신  <br><br>   Azure 가상 머신(작업이 Azure 가상 머신으로 실행 중일 때)  <br><br>     Azure Stack | V3 UR1 및 V3 UR2                            | 모든 배포 시나리오: 데이터베이스       <br><br>    MABS v3 UR2 이상에서는 클러스터 공유 볼륨에 저장된 SQL 데이터베이스의 백업을 지원합니다.     <br><br>  MABS v3 UR1은 ReFS 볼륨을 통해 SQL 데이터베이스의 백업을 지원합니다.     <br><br>     MABS는 Windows Server 2012 SOFS(스케일 아웃 파일 서버)에서 호스트되는 SQL Server 데이터베이스를 지원하지 않습니다. <br><br>   MABS에서 장애 조치(failover) 클러스터의 역할 이름이 SQL의 AG 이름과 다른 SQL Server DAG(분산 가용성 그룹) 또는 AG(가용성 그룹)를 보호할 수 없습니다.       |
 | Exchange                   | Exchange  2019, 2016                                         | 물리적 서버   <br><br>   Hyper-V 가상 머신  <br><br>      VMware 가상 머신  <br><br>   Azure Stack  <br><br>    Azure 가상 머신(작업이 Azure 가상 머신으로 실행 중일 때) | V3 UR1 및 V3 UR2                            | 보호(모든 배포 시나리오): 독립 실행형 Exchange 서버, DAG(데이터베이스 사용 가능 그룹)의 데이터베이스  <br><br>    복구(모든 배포 시나리오): 사서함, DAG의 사서함 데이터베이스    <br><br>  ReFS를 통한 Exchange 백업은 MABS v3 UR1에서 지원됩니다. |
@@ -50,7 +50,7 @@ MABS v3 UR1(이상)에 대해 다음 매트릭스를 사용합니다.
 
 | **작업**                                                 | **Version**                                             | **Azure Backup Server   설치**                      | **지원되는 Azure Backup Server** | **보호 및 복구**                                 |
 | ------------------------------------------------------------ | ------------------------------------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
-| Hyper-V 호스트 - MABS 보호 에이전트(Hyper-v 호스트 서버, 클러스터 또는 VM) | Windows  Server 2019, 2016, 2012 R2, 2012               | 물리적 서버  <br><br>    Hyper-V 가상 머신 <br><br>    VMware 가상 머신 | V3 UR1 및 V3 UR2                                 | 보호: 가상 머신, CSV(클러스터 공유 볼륨)  <br><br>    복구: 가상 머신, Windows에서만 사용할 수 있는 파일 및 폴더의 항목 수준 복구, 볼륨, 가상 하드 드라이브. |
+| Hyper-V 호스트 - MABS 보호 에이전트(Hyper-v 호스트 서버, 클러스터 또는 VM) | Windows  Server 2022, 2019, 2016, 2012 R2, 2012               | 물리적 서버  <br><br>    Hyper-V 가상 머신 <br><br>    VMware 가상 머신 | V3 UR1 및 V3 UR2                                 | 보호: 가상 머신, CSV(클러스터 공유 볼륨)  <br><br>    복구: 가상 머신, Windows에서만 사용할 수 있는 파일 및 폴더의 항목 수준 복구, 볼륨, 가상 하드 드라이브. |
 | Azure Stack HCI  |       V1 및 20H2      |    실제 서버        <br><br>     Hyper-V / Azure Stack HCI 가상 머신     <br><br>    VMware 가상 머신     |    V3 UR2 이상   | 보호: 가상 머신, CSV(클러스터 공유 볼륨)      <br><br>     복구: 가상 머신, Windows에서만 사용할 수 있는 파일 및 폴더의 항목 수준 복구, 볼륨, 가상 하드 드라이브 |
 | VMware VM:                                                  | VMware 서버 5.5, 6.0, 또는 6.5, 6.7(라이선스 버전) | Hyper-V 가상 머신  <br><br>   VMware 가상 머신         | V3 UR1                             | 보호: CSV(클러스터 공유 볼륨), NFS 및 SAN 스토리지의 VMware VM   <br><br>     복구: 가상 머신, Windows에서만 사용할 수 있는 파일 및 폴더의 항목 수준 복구, 볼륨, 가상 하드 드라이브. <br><br>    VMware vApp은 지원되지 않습니다. |
 | VMware VM      |   VMware 서버 7.0, 6.7, 6.5, 또는 6.0(라이선스 버전)     |    Hyper-V 가상 머신     <br><br>    VMware 가상 머신    |   V3 UR2 이상    |   보호: CSV(클러스터 공유 볼륨), NFS 및 SAN 스토리지의 VMware VM     <br><br>    복구: 가상 머신, Windows에서만 사용할 수 있는 파일 및 폴더의 항목 수준 복구, 볼륨, 가상 하드 드라이브     <br><br>    VMware vApp은 지원되지 않습니다.  |

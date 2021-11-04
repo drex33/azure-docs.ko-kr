@@ -2,17 +2,17 @@
 title: Verizon Premium의 Azure CDN 규칙 엔진 일치 조건
 description: Verizon Premium의 Azure Content Delivery Network 규칙 엔진 일치 조건에 대한 참조 설명서
 services: cdn
-author: asudbring
+author: duongau
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/26/2020
-ms.author: allensu
-ms.openlocfilehash: efd6e6a93cd4ca79e6c4b6de69f8514e2d71b252
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: duau
+ms.openlocfilehash: 61576e21bbf8fa260a5003bee62ac40b63d342c7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84323317"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446736"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Verizon Premium의 Azure CDN 규칙 엔진 일치 조건
 

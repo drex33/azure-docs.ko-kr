@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: article
 keywords: azure, kinect, rgb, IR, 기록, 센서, sdk, 액세스, 깊이, 비디오, 카메라, imu, 동작, 센서, 오디오, 마이크, matroska, 센서 sdk, 다운로드, 신체, 추적, 지원
-ms.openlocfilehash: 9bb6e0ad8ebbb763389f13e317036eacc5c7d074
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: a79519ec70ca85aa1e9c59559298cc27aa6df56a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97587097"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131472962"
 ---
 # <a name="azure-kinect-support-options-and-resources"></a>Azure Kinect 지원 옵션 및 리소스
 
@@ -24,7 +24,7 @@ ms.locfileid: "97587097"
 
 - [Stackoverflow](https://stackoverflow.com/search?q=azurekinect&s=3b855ed0-8564-4961-856f-9614aeab4c0d&s=fd9ea920-622c-4d8e-b908-ec996e1f1403) - 질문을 하거나 기존 질문 라이브러리에서 검색할 수 있습니다.
 - [GitHub](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK) - 질문을 하거나, 새 버그를 열거나, Azure Kinect 센서 SDK의 개발에 기여할 수 있습니다.
-- [피드백 제공](https://feedback.azure.com/forums/920053-azure-kinect-dk) - 제품의 미래에 대한 아이디어를 공유하고 기존 아이디어에 대해 투표할 수 있습니다.
+- [피드백 제공](https://feedback.azure.com/d365community/forum/fdaad9c5-f624-ec11-b6e6-000d3a4f0da0) - 제품의 미래에 대한 아이디어를 공유하고 기존 아이디어에 대해 투표할 수 있습니다.
 
 ## <a name="assisted-support"></a>보조 지원
 

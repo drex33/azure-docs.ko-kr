@@ -2,17 +2,17 @@
 title: Azure CDN 규칙 엔진 참조 | Microsoft Docs
 description: Azure CDN 규칙 엔진 일치 조건 및 기능에 대한 참조 설명서
 services: cdn
-author: asudbring
+author: duongau
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/26/2020
-ms.author: allensu
-ms.openlocfilehash: 295bc0a20a547bf944f48af6711b18af34571b02
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: duau
+ms.openlocfilehash: 928e3fb96cd1acdbbfe7aceea5f5ab9ceca97909
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91362583"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131461417"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Verizon Premium의 Azure CDN 규칙 엔진 참조
 

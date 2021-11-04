@@ -6,21 +6,17 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 0788ab52bbd70d63cf32d501fc54e10910509e15
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a2836e2c319810b48a20742cebaa816b6c20ffe1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128634102"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131438078"
 ---
-# <a name="manage-an-azure-database-for-mysql---flexible-server-preview-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL - 유연한 서버(미리 보기) 관리
+# <a name="manage-an-azure-database-for-mysql---flexible-server-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for MySQL 유연한 서버 관리
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
-
-이 문서에서는 Azure에 배포된 유연한 서버(미리 보기)를 관리하는 방법을 보여 줍니다. 관리 작업에는 컴퓨팅 및 스토리지 크기 조정, 관리자 암호 재설정 및 서버 세부 정보 보기가 포함됩니다.
+이 문서에서는 Azure에 배포 된 유연한 서버를 관리 하는 방법을 보여 줍니다. 관리 작업에는 컴퓨팅 및 스토리지 스케일링, 관리자 암호 재설정, 서버 세부 정보 보기 등이 포함됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

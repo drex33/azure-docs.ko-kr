@@ -3,33 +3,37 @@ title: Azure Automation에서 Python 2 패키지 관리
 description: 이 문서에서는 Azure Automation에서 Python 2 패키지를 관리하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/13/2021
+ms.date: 10/29/2021
 ms.topic: conceptual
 ms.custom: devx-track-python
-ms.openlocfilehash: 916cd5fa9251a1f6c14b4518db7b77398c7ab5e0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 302ed99a2032200d770f371d24388c92a28a97e6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124799988"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131470817"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Azure Automation에서 Python 2 패키지 관리
 
-Azure Automation을 사용하면 Linux Hybrid Runbook Worker 및 Azure에서 Python 2 Runbook을 실행할 수 있습니다. Runbook을 간편하게 실행하기 위해 Python 패키지를 사용하여 필요한 모듈을 가져올 수 있습니다. 이 문서에서는 Azure Automation에서 Python 패키지를 관리하고 사용하는 방법을 설명합니다.
+이 문서에서는 Azure 샌드박스 환경 및 Hybrid Runbook Worker에서 실행 되는 Azure Automation에서 Python 2 패키지를 가져오고, 관리 하 고, 사용 하는 방법을 설명 합니다. Runbook을 간소화 하는 데 도움이 되도록 Python 패키지를 사용 하 여 필요한 모듈을 가져올 수 있습니다.
+
+Python 3 패키지를 관리 하는 방법에 대 한 자세한 내용은 [python 3 패키지 관리](./python-3-packages.md)를 참조 하세요.
 
 ## <a name="import-packages"></a>패키지 가져오기
 
-Automation 계정의 **공유 리소스** 아래에서 **Python 2 패키지** 를 선택합니다. **+ Python 2 패키지 추가** 를 클릭합니다.
+1. Automation 계정의 **공유 리소스** 아래에서 **Python 패키지** 를 선택합니다. **+ Python 패키지 추가를** 클릭 합니다.
 
-:::image type="content" source="media/python-packages/add-python-package.png" alt-text="Python 2 패키지 페이지의 스크린샷은 왼쪽 메뉴에서 Python 2 패키지와 강조 표시된 Python 2 패키지 추가를 표시합니다.":::
+    :::image type="content" source="media/python-packages/add-python-package.png" alt-text="Python 패키지 페이지의 스크린샷 왼쪽 메뉴에 Python 패키지를 표시 하 고 강조 표시 된 Python 패키지를 추가 합니다.":::
 
-Python 2 패키지 추가 페이지에서 업로드할 로컬 패키지를 선택합니다. 패키지는 **.whl** 또는 **.tar.gz** 파일일 수 있습니다. 패키지를 선택한 다음 **확인** 을 클릭하여 업로드합니다.
+2. **Python 패키지 추가** 페이지에서 업로드할 로컬 패키지를 선택 합니다. 패키지는 **.whl** 또는 **.tar.gz** 파일일 수 있습니다. 
+3. 이름을 입력 하 고 **런타임 버전** 을 2.x로 선택 합니다. x. x
+4. **가져오기** 를 선택합니다.
 
-:::image type="content" source="media/python-packages/upload-package.png" alt-text="스크린샷은 업로드된 tar.gz 파일이 선택된 Python 2 패키지 추가 페이지 추가를 표시합니다.":::
+   :::image type="content" source="media/python-packages/upload-package.png" alt-text="스크린샷 release.tar.gz 파일이 선택 된 Python 패키지 추가 페이지를 표시 합니다.":::
 
-가져온 패키지는 Automation 계정의 Python 2 패키지 페이지에 나열됩니다. 패키지를 제거해야 하는 경우 해당 패키지를 선택하고 **삭제** 를 선택합니다.
+패키지를 가져온 후에는 Automation 계정의 **Python 패키지** 페이지에 나열 됩니다. 패키지를 제거 하려면 패키지를 선택 하 고 **삭제** 를 클릭 합니다.
 
-:::image type="content" source="media/python-packages/package-list.png" alt-text="스크린샷은 패키지를 가져온 후의 Python 2 패키지 페이지를 표시합니다.":::
+:::image type="content" source="media/python-packages/package-list.png" alt-text="패키지를 가져온 후의 스크린샷에는 Python 2.7. x 패키지 페이지가 표시 됩니다.":::
 
 ## <a name="import-packages-with-dependencies"></a>종속성이 있는 패키지 가져오기
 
@@ -58,7 +62,7 @@ C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>
 
 Runbook을 사용하여 다운로드할 패키지를 지정할 수 있습니다. 예를 들어 `Azure` 매개 변수를 사용하면 모든 Azure 모듈과 모든 종속성(약 105개)이 다운로드됩니다.
 
-Runbook이 완료되면 Automation 계정의 **공유 리소스** 에서 **Python 2 패키지** 를 검사하여 패키지를 올바르게 가져왔는지 확인해야 합니다.
+Runbook이 완료 되 면 Automation 계정의 **공유 리소스** 아래에 있는 **Python 패키지** 를 확인 하 여 패키지를 올바르게 가져왔는지 확인할 수 있습니다.
 
 ## <a name="use-a-package-in-a-runbook"></a>Runbook에서 패키지 사용
 

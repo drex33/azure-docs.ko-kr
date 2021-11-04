@@ -1,7 +1,6 @@
 ---
 title: RLS 및 탄력적 데이터베이스 도구를 사용한 다중 테넌트 앱
 description: 행 수준 보안으로 탄력적 데이터베이스 도구를 사용하여 확장성이 높은 데이터 계층으로 애플리케이션을 빌드합니다.
-services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
@@ -11,12 +10,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: mathoma
 ms.date: 12/18/2018
-ms.openlocfilehash: 5ea87afa5b66701a3d28f98a446c9307ccac0fc4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: b7bc3f44b5b794ece77296d84b4d21cf12a57eb3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536220"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063008"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 애플리케이션
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -46,7 +45,7 @@ ms.locfileid: "122536220"
 
 이 프로젝트는 [Azure SQL을 위한 탄력적 DB 도구 - Entity Framework 통합](elastic-scale-use-entity-framework-applications-visual-studio.md) 에서 설명한 프로젝트에 다중 테넌트 분할된 데이터베이스에 대한 지원을 추가하는 확장 프로젝트입니다. 이 프로젝트는 블로그 및 게시물을 만들기 위한 간단한 콘솔 애플리케이션을 작성합니다. 프로젝트에는 4명의 테넌트와 두 개의 다중 테넌트 분할 데이터베이스가 포함됩니다. 이 구성은 이전 다이어그램에 설명되어 있습니다.
 
-애플리케이션을 빌드 및 실행합니다. 그러면 탄력적 데이터베이스 도구의 분할된 데이터베이스 맵 관리자가 부트스트랩을 실행하고 다음 테스트를 수행합니다.
+애플리케이션을 빌드 및 실행합니다. 이 실행은 탄력적 데이터베이스 도구의 분할된 데이터베이스 맵 관리자를 부트스트랩하고 다음 테스트를 수행합니다.
 
 1. Entity Framework 및 LINQ를 사용하여 새 블로그를 만든 후 각 테넌트에 대한 모든 블로그 표시
 2. ADO.NET SqlClient를 사용하여 특정 테넌트에 대한 모든 블로그 표시
@@ -239,7 +238,7 @@ CREATE FUNCTION rls.fn_tenantAccessPredicate(@TenantId int)
     WITH SCHEMABINDING
 AS
     RETURN SELECT 1 AS fn_accessResult
-        -- Use the user in your application’s connection string.
+        -- Use the user in your application's connection string.
         -- Here we use 'dbo' only for demo purposes!
         WHERE DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('dbo')
         AND CAST(SESSION_CONTEXT(N'TenantId') AS int) = @TenantId;
@@ -346,7 +345,7 @@ GO
 
 ## <a name="summary"></a>요약
 
-탄력적 데이터베이스 도구와 행 수준 보안을 함께 사용하면 다중 테넌트 및 단일 테넌트 분할된 데이터베이스를 모두 지원하여 애플리케이션의 데이터 계층을 확장할 수 있습니다. 다중 테넌트 분할된 데이터베이스는 데이터를 보다 효율적으로 저장하는 데 사용할 수 있습니다. 이러한 효율성은 많은 수의 테넌트가 몇 개의 데이터 행만 가진 경우 분명합니다. 단일 테넌트의 분할된 데이터베이스는 보다 엄격한 성능 및 격리 요구 사항을 갖는 프리미엄 테넌트를 지원할 수 있습니다. 자세한 내용은 [행 수준 보안 참조][rls]를 참조하세요.
+탄력적 데이터베이스 도구 및 행 수준 보안을 함께 사용 하 여 다중 테 넌 트 및 단일 테 넌 트 분할에 대 한 지원을 통해 응용 프로그램의 데이터 계층을 확장할 수 있습니다. 다중 테넌트 분할된 데이터베이스는 데이터를 보다 효율적으로 저장하는 데 사용할 수 있습니다. 이러한 효율성은 많은 수의 테넌트가 몇 개의 데이터 행만 가진 경우 분명합니다. 단일 테넌트의 분할된 데이터베이스는 보다 엄격한 성능 및 격리 요구 사항을 갖는 프리미엄 테넌트를 지원할 수 있습니다. 자세한 내용은 [행 수준 보안 참조][rls]를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
@@ -358,7 +357,7 @@ GO
 
 ## <a name="questions-and-feature-requests"></a>질문 및 기능 요청
 
-질문이 있는 경우 [SQL Database에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-sql-database.html)에 문의하세요. 또한 [SQL Database 피드백 포럼](https://feedback.azure.com/forums/217321-sql-database/)에서 기능 요청을 추가하세요.
+질문이 있는 경우 [SQL Database에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-sql-database.html)에 문의하세요. 또한 [SQL Database 피드백 포럼](https://feedback.azure.com/d365community/forum/04fe6ee0-3b25-ec11-b6e6-000d3a4f0da0)에서 기능 요청을 추가하세요.
 
 <!--Image references-->
 [1]: ./media/saas-tenancy-elastic-tools-multi-tenant-row-level-security/blogging-app.png

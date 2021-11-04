@@ -7,13 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 08/05/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: d5d54fe73c417f3d79c518ec1e78bade71135cfb
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: bbbdd3591363e613e4eefb253c96cd8915d8c5cb
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131037393"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131449358"
 ---
 # <a name="customize-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>규정 준수 대시보드의 표준 집합 사용자 지정
 
@@ -59,7 +58,7 @@ Microsoft는 규정 표준 자체를 추적하고 시간이 지남에 따라 일
 ### <a name="prerequisites"></a>사전 요구 사항
 대시보드에 표준을 추가하려면 다음을 수행합니다.
 
-- 구독에는 Defender for Cloud의 향상된 보안 기능을 사용하도록 설정해야 합니다.
+- 구독에 Defender for Cloud의 향상된 보안 기능을 사용하도록 설정해야 합니다.
 - 사용자에게 소유자 또는 정책 기여자 권한이 있어야 합니다.
 
 ### <a name="add-a-standard"></a>표준 추가

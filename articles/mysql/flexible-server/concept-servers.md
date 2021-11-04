@@ -6,19 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: c368e94d8d2b07e3d1487d1b6e505d2a87a89e91
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: ea421471de279edc512c22c80d21daeebec106fe
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129994084"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468217"
 ---
-# <a name="server-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Azure Database for MySQL 유연한 서버의 서버 개념(미리 보기)
+# <a name="server-concepts-in-azure-database-for-mysql-flexible-server"></a>Azure Database for MySQL 유연한 서버의 서버 개념
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT] 
-> Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 
 이 문서에서는 Azure Database for MySQL 유연한 서버를 사용할 때의 고려 사항 및 지침을 제공합니다.
 

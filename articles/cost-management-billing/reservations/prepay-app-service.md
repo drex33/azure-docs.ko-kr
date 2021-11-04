@@ -6,19 +6,19 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 10/27/2021
 ms.author: banders
 ms.custom: references_regions
-ms.openlocfilehash: 1227c20defc835ecdfb43fea10d3b2f65af802d9
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 2566b72723b4f7254e2509a331ed554f93ad4bc3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130244013"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131457889"
 ---
 # <a name="save-costs-with-azure-app-service-reserved-instances"></a>Azure App Service 예약 인스턴스를 사용하여 비용 절감
 
-이 문서에서는 Premium v3 및 격리 v2 인스턴스 및 격리 스탬프 요금에 대해 Azure App Service 예약 인스턴스로 저장하는 방법을 설명합니다.
+이 문서에서는 Premium v3 및 격리 v2 인스턴스 및 격리 스탬프 요금에 대한 Azure App Service 예약 인스턴스로 저장하는 방법을 설명합니다.
 
 ## <a name="save-with-premium-v3-reserved-instances"></a>Premium v3 예약 인스턴스를 사용하여 비용 절감
 
@@ -32,7 +32,7 @@ Azure App Service Premium v3 예약 인스턴스에 커밋하면 비용을 절�
 
 예약 권장 사항을 사용하여 구매해야 하는 예약을 결정할 수 있습니다.
 
-- 구매 권장 사항 및 권장 수량은 Azure Portal에서 Premium v3 예약 인스턴스를 구매할 때 표시됩니다.
+- 구매 권장 사항 및 권장 수량은 Azure Portal Premium v3 예약 인스턴스를 구매할 때 표시됩니다.
 - Azure Advisor는 개별 구독에 대한 구매 권장 사항을 제공합니다.
 - API를 사용하여 공유 범위 및 단일 구독 범위 모두에 대한 구매 권장 사항을 모두 가져올 수 있습니다. 자세한 내용은 [기업 고객을 위한 예약 인스턴스 구매 권장 사항](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation)을 참조하세요.
 - EA(기업계약) 및 MCA(Microsoft 고객 계약) 고객의 경우 공유 및 단일 구독 범위에 대한 구매 권장 사항은 [Azure Consumption Insights Power BI 콘텐츠 팩](/power-bi/service-connect-to-azure-consumption-insights)에서 사용할 수 있습니다.
@@ -89,7 +89,7 @@ EA 계약이 있는 경우 **추가 옵션** 을 사용하여 인스턴스를 �
 | **필드** | **설명** |
 | --- | --- |
 | Subscription | 예약에 대해 비용을 지불하는 데 사용하는 구독입니다. 구독의 결제 방법으로 예약 요금이 청구됩니다. 구독 유형은 기업계약(제안 번호: MS-AZR-0017P or MS-AZR-0148P)이나 Microsoft 고객 계약 또는 종량제 요금의 개별 구독(제품 번호: MS-AZR-0003P 또는 MS-AZR-0023P)여야 합니다. 요금은 약정 잔액에서 차감되거나(있는 경우) 초과분 요금으로 청구됩니다. 종량제 요금이 적용되는 구독의 경우 요금은 구독의 신용 카드 또는 청구서 결제 방법으로 청구됩니다. |
-| 범위 | 예약 범위에는 하나의 구독 또는 여러 구독(공유 범위)이 포함될 수 있습니다. 다음을 선택하는 경우:<UL><LI>**단일 리소스 그룹 범위** - 선택한 리소스 그룹의 일치하는 리소스에만 예약 할인을 적용합니다.</li><li>**단일 구독 범위** - 선택한 구독의 일치하는 리소스에만 예약 할인을 적용합니다.</li><li>**공유 범위** - 청구 컨텍스트에 있는 적격 구독의 일치하는 리소스에 예약 할인을 적용합니다. EA 고객의 경우 청구 컨텍스트는 등록입니다. 종량제 요금이 적용되는 개별 구독의 경우 청구 범위는 계정 관리자가 만든 모든 적격 구독입니다.</li><li>**관리 그룹** - 관리 그룹 및 청구 범위의 일부인 구독 목록에서 일치하는 리소스에 예약 할인을 적용합니다.</li></ul> |
+| 범위 | 예약 범위에는 하나의 구독 또는 여러 구독(공유 범위)이 포함될 수 있습니다. 다음을 선택하는 경우:<UL><LI>**단일 리소스 그룹 범위** - 선택한 리소스 그룹의 일치하는 리소스에만 예약 할인을 적용합니다.</li><li>**단일 구독 범위** - 선택한 구독의 일치하는 리소스에만 예약 할인을 적용합니다.</li><li>**공유 범위** - 청구 컨텍스트에 있는 적격 구독의 일치하는 리소스에 예약 할인을 적용합니다. EA 고객의 경우 청구 컨텍스트는 등록입니다. 종량제 요금이 적용되는 개별 구독의 경우 청구 범위는 계정 관리자가 만든 모든 적격 구독입니다.</li><li>**관리 그룹** -관리 그룹 및 청구 범위의 일부인 구독 목록에서 일치 하는 리소스에 예약 할인을 적용 합니다.</li></ul> |
 | 지역 | 예약이 적용되는 Azure 지역입니다. |
 | Isolated v2 예약 인스턴스 크기 | Isolated v2 예약 인스턴스의 크기입니다. |
 | 용어 | 1년 또는 3년입니다. HBv2 Isolated v2 예약 인스턴스에만 사용할 수 있는 5년 기간도 있습니다. |
@@ -134,7 +134,7 @@ EA 계약이 있는 경우 **추가 옵션** 을 사용하여 인스턴스를 �
     - **단일 리소스 그룹 범위** - 선택한 리소스 그룹의 일치하는 리소스에만 예약 할인을 적용합니다.
     - **단일 구독 범위** - 선택한 구독의 일치하는 리소스에만 예약 할인을 적용합니다.
     - **공유 범위** - 청구 컨텍스트에 있는 적격 구독의 일치하는 리소스에 예약 할인을 적용합니다. 기업계약 고객의 경우 청구 컨텍스트는 등록입니다. 종량제 요금이 적용되는 개별 구독의 경우 청구 범위는 계정 관리자가 만든 모든 적격 구독입니다.
-    - **관리 그룹** - 관리 그룹 및 청구 범위의 일부인 구독 목록에서 일치하는 리소스에 예약 할인을 적용합니다.
+    - **관리 그룹** -관리 그룹 및 청구 범위의 일부인 구독 목록에서 일치 하는 리소스에 예약 할인을 적용 합니다.
 1. **지역** 을 선택하여 예약 용량에 포함되는 Azure 지역을 선택하고 카트에 예약을 추가합니다.
 1. 격리된 계획 유형을 선택한 후 **선택** 을 클릭합니다.  
     ![예 ](./media/prepay-app-service/app-service-isolated-stamp-select.png)

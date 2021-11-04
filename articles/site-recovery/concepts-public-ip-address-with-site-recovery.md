@@ -8,18 +8,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 01c2f61dcf024e8c9dbbd5b2ee11a479b3c16305
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: da0efe29c7b0ec722464055e70b966c33d6df88c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86130284"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131003602"
 ---
 # <a name="set-up-public-ip-addresses-after-failover"></a>장애 조치(failover) 후 공용 IP 주소 설정
 
 공용 IP 주소를 통해 인터넷 리소스가 Azure 리소스에 대한 인바운드와 통신할 수 있습니다. 또한 공용 IP 주소를 사용하면 Azure 리소스가 리소스에 할당된 IP 주소에 인터넷 및 공용 Azure 서비스에 대한 아웃바운드와 통신할 수 있습니다.
 - Azure Virtual Machines (VM), Azure Application Gateways, Azure Load Balancer, Azure VPN Gateways 등 인터넷에서 리소스로 인바운드 통신. VM에 공용 IP 주소가 할당되어 있지 않은 경우라도 VM이 부하 분산 장치 백엔드 풀의 일부이고 부하 분산 장치에 공용 IP 주소가 할당되어 있는 한, 인터넷에서 VM 등의 일부 리소스와 계속 통신할 수 있습니다.
-- 예측 가능한 IP 주소를 사용하는 인터넷으로의 아웃바운드 연결. 예를 들어 공용 IP 주소가 할당되지 않은 가상 머신도 인터넷으로의 아웃바운드 통신을 수행할 수는 있지만, 이 가상 머신의 주소는 기본적으로 Azure에서 예측할 수 없는 공용 주소로 변환한 네트워크 주소입니다. 공용 IP 주소를 리소스에 할당하면 아웃바운드 연결에 사용되는 IP 주소를 확인할 수 있습니다. 이 주소는 예측은 가능하지만 선택한 할당 방법에 따라 변경될 수 있습니다. 자세한 내용은 [공용 IP 주소 만들기](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)를 참조하세요. Azure 리소스의 아웃바운드 연결에 대한 자세한 내용은 [아웃바운드 연결 이해](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+- 예측 가능한 IP 주소를 사용하는 인터넷으로의 아웃바운드 연결. 예를 들어 공용 IP 주소가 할당되지 않은 가상 머신도 인터넷으로의 아웃바운드 통신을 수행할 수는 있지만, 이 가상 머신의 주소는 기본적으로 Azure에서 예측할 수 없는 공용 주소로 변환한 네트워크 주소입니다. 공용 IP 주소를 리소스에 할당하면 아웃바운드 연결에 사용되는 IP 주소를 확인할 수 있습니다. 이 주소는 예측은 가능하지만 선택한 할당 방법에 따라 변경될 수 있습니다. 자세한 내용은 [공용 IP 주소 만들기](../virtual-network/ip-services/virtual-network-public-ip-address.md#create-a-public-ip-address)를 참조하세요. Azure 리소스의 아웃바운드 연결에 대한 자세한 내용은 [아웃바운드 연결 이해](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
 Azure Resource Manager에서 공용 IP 주소는 자체 속성이 있는 리소스입니다. 공용 IP 주소 리소스를 연결할 수 있는 리소스는 다음과 같습니다.
 

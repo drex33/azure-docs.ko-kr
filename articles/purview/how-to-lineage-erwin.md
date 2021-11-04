@@ -1,18 +1,18 @@
 ---
 title: Erwin의 메타데이터 및 계보
 description: 이 문서에서는 Erwin 원본에서 데이터 계보 추출을 설명합니다.
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 08/11/2021
-ms.openlocfilehash: d1821ca94d8f5329ca4c08f65438a3d0ba6e4d48
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: 5a2a3e786b8aeb6411061f7df0993fe33dd2b77b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567442"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131475619"
 ---
 # <a name="how-to-get-lineage-from-erwin-into-azure-purview"></a>Erwin에서 Azure Purview로 계보를 가져오는 방법
 

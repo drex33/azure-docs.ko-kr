@@ -8,14 +8,17 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/18/2021
-ms.openlocfilehash: 930194c3a415a39edacd9ad8c680a872e1760e03
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 2744552b358fa90180ed085c50b23404473d1745
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122537682"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037248"
 ---
 # <a name="design-your-azure-sentinel-workspace-architecture"></a>Azure Sentinel 작업 영역 아키텍처 디자인
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 이 문서에서는 Azure Sentinel 작업 영역 아키텍처를 디자인하는 방법에 대한 주요 결정을 내리는 데 도움이 되는 의사 결정 트리를 제공합니다. 자세한 내용은 [Azure Sentinel 샘플 작업 영역 디자인](sample-workspace-designs.md) 및 [Azure Sentinel 작업 영역 아키텍처 모범 사례](best-practices-workspace-architecture.md)를 참조하세요.
 

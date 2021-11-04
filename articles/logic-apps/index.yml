@@ -10,12 +10,12 @@ metadata:
   author: ecfan
   ms.author: estfan; logicappspm
   ms.date: 03/24/2021
-  ms.openlocfilehash: b395e3f8039c4eca72e8dccc1330696ae6a21f3d
-  ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+  ms.openlocfilehash: ef306e152bf0bd123944a32b16e7148113d10f72
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2021
-  ms.locfileid: "129705490"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131040438"
 landingContent:
 - title: Azure Logic Apps 정보
   linkLists:
@@ -44,7 +44,9 @@ landingContent:
   - linkListType: video
     links:
     - text: Azure Logic Apps 소개
-      url: https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps
+      url: https://channel9.msdn.com/Shows/Azure-Friday/Go-serverless-Enterprise-integration-with-Azure-Logic-Apps/
+    - text: Logic Apps를 사용하여 클라우드에 메인프레임 연결 및 확장
+      url: https://channel9.msdn.com/Shows/Azure-Friday/Connect-and-extend-your-mainframe-to-the-cloud-with-Logic-Apps
     - text: Azure Logic Apps - 코드 및 API 무료 통합
       url: https://www.youtube.com/watch?v=Z3qaBQS0w20
 - title: 시작하기

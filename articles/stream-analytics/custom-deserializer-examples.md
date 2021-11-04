@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 6/16/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d66879a4f3aac37bb08cfcf916c0cb44027c3729
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: eb275a2cced1a16bd1c5d05aed84d2cb7fd0da5b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112295456"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131463186"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers-preview"></a>.NET 사용자 지정 역직렬 변환기를 사용하여 모든 형식의 입력 읽기(미리 보기)
 
@@ -242,7 +242,7 @@ namespace ExampleCustomCode.Serialization
 
 ### <a name="can-i-access-metadatapropertyvalue-from-my-inputs-similar-to-getmetadatapropertyvalue-function"></a>GetMetadataPropertyValue 함수와 유사한 내 입력의 MetadataPropertyValue에 액세스할 수 있나요?
 
-이제는 이 기능이 지원되지 않습니다. 이 기능이 필요한 경우 [UserVoice](https://feedback.azure.com/forums/270577-stream-analytics/suggestions/38779801-accessing-input-metadata-properties-in-custom-dese)에서 이 요청에 대해 응답할 수 있습니다.
+이제는 이 기능이 지원되지 않습니다. 이 기능이 필요한 경우 [UserVoice](https://feedback.azure.com/d365community/idea/b4517302-b925-ec11-b6e6-000d3a4f0f1c)에서 이 요청에 대해 응답할 수 있습니다.
 
 ### <a name="can-i-share-my-deserializer-implementation-with-the-community-so-that-others-can-benefit"></a>다른 사용자가 혜택을 받을 수 있도록 내 역직렬 변환기 구현을 커뮤니티와 공유할 수 있나요?
 

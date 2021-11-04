@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 10/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: eab7c2d8468d3895f70d954ed3b1ef6dfdb25245
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
-ms.translationtype: HT
+ms.openlocfilehash: d52d7bb4134c23192c083a61b2aa1d86d472f6ce
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108288421"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131448579"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Azure Portal을 사용하여 로컬 네트워크 게이트웨이 설정 수정
 
@@ -23,6 +23,10 @@ ms.locfileid: "108288421"
 > * [Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)
 > * [PowerShell](vpn-gateway-modify-local-network-gateway.md)
 > * [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
+>
+
+>[!NOTE]
+> 연결 된 로컬 네트워크 게이트웨이를 변경 하면 터널의 연결이 끊어지고 가동 중지 시간이 발생할 수 있습니다.
 >
 
 ## <a name="local-network-gateway-configuration"></a><a name="configure-lng"></a>로컬 네트워크 게이트웨이 구성

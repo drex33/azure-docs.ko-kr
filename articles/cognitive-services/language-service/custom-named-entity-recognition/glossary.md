@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
-ms.openlocfilehash: 7683f6ef9966672a7b64a9c3474f37d9b95a942c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: c57d4efffc207759b8d3da343bda397ee885dc0f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053065"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131439085"
 ---
 # <a name="custom-named-entity-recognition-ner-definitions-and-terms"></a>사용자 지정 NER (명명 된 엔터티 인식) 정의 및 용어
 
@@ -38,7 +38,7 @@ ms.locfileid: "131053065"
 
 ## <a name="model"></a>모델
 
-모델은 특정 태스크를 수행 하기 위해 학습 된 개체입니다 (이 경우 사용자 지정 엔터티 추출).
+모델은 특정 작업을 수행 하도록 학습 된 개체 이며,이 경우 사용자 지정 명명 된 엔터티 인식입니다.
 
 * **모델 학습** 은 태그 된 데이터를 기반으로 추출할 모델을 학습 하는 프로세스입니다.
 * **모델 평가** 는 학습 후에 모델의 성능을 파악 하기 위해 즉시 발생 하는 프로세스입니다.

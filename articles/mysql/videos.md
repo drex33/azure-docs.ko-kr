@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 4d36bee80a69895d2ca000106bbb05753dc74384
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: 8913f9b83021742aa91836f0d09d0fb3f0648fd0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122642119"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131438059"
 ---
 # <a name="azure-database-for-mysql-videos"></a>MySQL용 Azure Database 비디오
 
@@ -21,7 +21,7 @@ ms.locfileid: "122642119"
 
 ## <a name="overview-azure-database-for-postgresql-and-mysql"></a>개요: Azure Database for PostgreSQL 및 MySQL
 
->[!VIDEO https://channel9.msdn.com/Events/Connect/2017/T147/player] 
+>[!VIDEO https://channel9.msdn.com/Events/Connect/2017/T147/player]
 [Channel 9에서 열기](https://channel9.msdn.com/Events/Connect/2017/T147)
 
 Azure Database for PostgreSQL 및 Azure Database for MySQL을 함께 사용하면 완전히 관리되는 장치의 커뮤니티 버전 데이터베이스 엔진 및 기능이 제공되므로 데이터베이스를 관리할 필요 없이 앱에 주력할 수 있습니다. 서비스 사용에 따른 이점을 빠르게 살펴보고 사용되는 몇 가지 기능에 대해 알아보세요.

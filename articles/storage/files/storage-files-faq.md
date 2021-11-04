@@ -7,12 +7,12 @@ ms.date: 09/15/2021
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: e2bbfe818e6c7260595d53d4a230d3baa8c2afa0
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 717cafbfc3623e52b9d9a0d70e6a22c9e562616b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130234159"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471842"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) 및 [NFS(네트워크 파일 시스템) 프로토콜](https://en.wikipedia.org/wiki/Network_File_System)(미리 보기)을 통해 액세스할 수 있는 클라우드에서 완전 관리형 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -21,7 +21,7 @@ ms.locfileid: "130234159"
 
 1. 이 문서의 의견 섹션입니다.
 2. [Azure Storage에 대한 Microsoft Q&A 질문 페이지입니다](/answers/topics/azure-file-storage.html).
-3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) 
+3. [Azure Files UserVoice](https://feedback.azure.com/d365community/forum/a8bb4a47-3525-ec11-b6e6-000d3a4f0f84?c=c860fa6b-3525-ec11-b6e6-000d3a4f0f84) 
 4. Microsoft 지원 새 지원 요청을 만들려면 Azure Portal의 **도움말** 탭에서 **도움말 + 지원** 단추를 선택한 다음 **새 지원 요청** 을 선택합니다.
 
 ## <a name="general"></a>일반
@@ -84,7 +84,7 @@ ms.locfileid: "130234159"
 
 * <a id="give-us-feedback"></a>
   **Azure Files에 특정 기능이 추가되는 것을 정말 보고 싶습니다. 추가해줄 수 있나요?**  
-    Azure Files 팀은 당사 서비스에 대한 여러분의 모든 의견을 환영합니다. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)에서 기능 요청에 투표하세요. 많은 새로운 기능으로 고객에게 만족을 드리고 싶습니다.
+    Azure Files 팀은 당사 서비스에 대한 여러분의 모든 의견을 환영합니다. [Azure Files UserVoice](https://feedback.azure.com/d365community/forum/a8bb4a47-3525-ec11-b6e6-000d3a4f0f84?c=c860fa6b-3525-ec11-b6e6-000d3a4f0f84)에서 기능 요청에 투표하세요. 많은 새로운 기능으로 고객에게 만족을 드리고 싶습니다.
 
 ## <a name="azure-file-sync"></a>Azure 파일 동기화
 
@@ -175,7 +175,7 @@ ms.locfileid: "130234159"
 
 * <a id="afs-os-support"></a>
   **Windows Server 2008 R2, Linux 또는 NAS(Network Attached Storage) 디바이스와 함께 Azure 파일 동기화를 사용할 수 있습니까?**  
-    현재, Azure 파일 동기화는 Windows Server 2019, Windows Server 2016 및 Windows Server 2012 R2만 지원합니다. 지금은 알려드릴 수 있는 다른 계획이 없지만 고객의 요구에 따라 얼마든지 추가 플랫폼을 지원할 수도 있습니다. 지원받고 싶은 플랫폼이 있으면 [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)에서 알려주세요.
+    현재, Azure 파일 동기화는 Windows Server 2019, Windows Server 2016 및 Windows Server 2012 R2만 지원합니다. 지금은 알려드릴 수 있는 다른 계획이 없지만 고객의 요구에 따라 얼마든지 추가 플랫폼을 지원할 수도 있습니다. 지원받고 싶은 플랫폼이 있으면 [Azure Files UserVoice](https://feedback.azure.com/d365community/forum/a8bb4a47-3525-ec11-b6e6-000d3a4f0f84?c=c860fa6b-3525-ec11-b6e6-000d3a4f0f84)에서 알려주세요.
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
   **계층화된 파일이 서버 엔드포인트 네임스페이스 외부에 존재하는 이유는 무엇인가요?**  
@@ -416,7 +416,7 @@ ms.locfileid: "130234159"
 **개별 파일의 공유 스냅샷을 만들 수 있나요?**  
     공유 스냅샷은 파일 공유 수준에서 만들어집니다. 파일 공유 스냅샷에서 개별 파일을 복원할 수 있지만 파일 수준 공유 스냅샷을 만들 수 없습니다. 그러나 공유 수준 공유 스냅샷을 작성했으며 특정 파일이 변경된 공유 스냅샷을 나열하려면 Windows 탑재 공유의 **이전 버전** 에서 이 작업을 수행할 수 있습니다. 
     
-    파일 스냅샷 기능이 필요하면 [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)에 알려주세요.
+    파일 스냅샷 기능이 필요하면 [Azure Files UserVoice](https://feedback.azure.com/d365community/forum/a8bb4a47-3525-ec11-b6e6-000d3a4f0f84?c=c860fa6b-3525-ec11-b6e6-000d3a4f0f84)에 알려주세요.
 
 * <a id="encrypted-snapshots"></a>
 **암호화된 파일 공유의 공유 스냅샷을 만들 수 있나요?**  

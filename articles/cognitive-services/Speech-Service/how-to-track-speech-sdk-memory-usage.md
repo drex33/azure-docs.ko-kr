@@ -3,7 +3,7 @@ title: Speech SDK 메모리 사용량을 추적하는 방법 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Speech Service SDK는 음성 번역과 함께 음성 텍스트 변환 및 텍스트 음성 변환을 위해 다양한 프로그래밍 언어를 지원합니다. 이 문서에서는 SDK에 기본 제공되는 메모리 관리 도구에 대해 설명합니다.
 services: cognitive-services
-author: eric-urban
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
@@ -13,12 +13,12 @@ ms.author: rhurey
 ms.custom: devx-track-csharp, ignite-fall-2021
 zone_pivot_groups: programming-languages-set-two
 ROBOTS: NOINDEX
-ms.openlocfilehash: b1269860e0f79c207df2cdd1b0f54689dab08ea9
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: ca6bfb9dbbc087e4fd9f1ec1d3d83f59f8af943f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131507078"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131086757"
 ---
 # <a name="how-to-track-speech-sdk-memory-usage"></a>Speech SDK 메모리 사용량을 추적하는 방법
 

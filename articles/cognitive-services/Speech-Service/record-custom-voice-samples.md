@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: pafarley
-ms.openlocfilehash: 965791510a58391476e0f0ef1e276d06a83a690b
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 712a0d37b7089ae34596994c999ef49fc9d53ba6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123540670"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131470037"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>사용자 지정 음성을 만들기 위한 음성 샘플 녹음
 
@@ -107,7 +107,9 @@ ms.locfileid: "123540670"
    예를 들어 다음과 같은 몇 가지 모범 사례가 있습니다.
     - 약어를 포함 하는 줄의 경우 ‘btw’ 대신 "by the way"을 사용합니다.
     - 숫자가 있는 줄의 경우 "911" 대신 "구 일 일"로 쓸 수 있습니다.
-    - 머리글자어를 포함 하는 대사의 경우 "ABC" 대신 "A B C"가 있으며, 성우는 이러한 단어를 예상된 방식으로 발음합니다. 학습 프로세스 중에 스크립트와 기록이 일관 되게 일치 하는지 확인하세요.  
+    - 약어를 포함 하는 줄의 경우 "ABC" 대신 "A B C"가 있습니다.
+   
+   이를 통해 음성 인재이 이러한 단어를 예상 된 방식으로 pronounces 확인 합니다. 학습 프로세스 중에 스크립트와 기록이 일관 되게 일치 하는지 확인하세요.  
 
    > [!NOTE]
    > 성우를 위해 준비된 스크립트는 50% 및 $45와 같은 기본 읽기 규칙을 따라야 하며, 학습에 사용되는 스크립트는 스크립트가 오디오 콘텐츠(예: *50%)와 일치하도록 정규화해야 합니다.*  및 *45달러*. 음성 인재의 기록에 대해 학습에 사용된 스크립트를 확인하여 일치 하는지 확인합니다.

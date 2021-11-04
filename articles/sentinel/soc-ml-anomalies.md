@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/28/2021
 ms.author: yelevin
-ms.openlocfilehash: 51bc9923ce01116137b4ff447b94d08262b0c758
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: daa21e4c0caf27f87f3143dacc1d22ac0a5c0f57
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566695"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064053"
 ---
 # <a name="use-soc-ml-anomalies-to-detect-threats-in-azure-sentinel"></a>SOC-ML 변칙을 사용하여 Azure Sentinel에서 위협 검색
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >

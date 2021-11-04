@@ -6,21 +6,19 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: 2d02a4e0e63bd0861c0a414f3d56e9c62e19dc8a
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: 107d210cb046f87e9afcb112b1dd482f7dc0221a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122642134"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131429625"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL - 유연한 서버에서 서버 매개 변수 구성
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!IMPORTANT]
-> Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 
-서버 매개 변수를 사용하여 Azure Database for MySQL 유연한 서버 구성을 관리할 수 있습니다. 서버 매개 변수는 서버를 만들 때 기본 값/권장 값으로 구성됩니다.  
+서버 매개 변수를 사용하여 Azure Database for MySQL 유연한 서버 구성을 관리할 수 있습니다. 서버 매개 변수는 서버를 만들 때 기본 값/권장 값으로 구성됩니다.
 
 이 문서에서는 Azure Portal을 사용하여 서버 매개 변수를 보고 구성하는 방법을 설명합니다. Azure Portal의 서버 매개 변수 블레이드에는 수정 가능/불가능한 서버 매개 변수가 모두 표시됩니다. 수정 불가능한 서버 매개 변수는 회색으로 표시됩니다.
 
@@ -43,7 +41,7 @@ ms.locfileid: "122642134"
 
 ## <a name="setting-non-modifiable-server-parameters"></a>수정 불가능한 서버 매개 변수 설정
 
-업데이트하려는 서버 매개 변수가 수정 불가능한 경우 필요에 따라 `init_connect`을(를) 사용하여 연결 수준에서 매개 변수를 설정할 수 있습니다. 이는 서버에 연결하는 각 클라이언트에 대한 서버 매개 변수를 설정합니다. 
+업데이트하려는 서버 매개 변수가 수정 불가능한 경우 필요에 따라 `init_connect`을(를) 사용하여 연결 수준에서 매개 변수를 설정할 수 있습니다. 이는 서버에 연결하는 각 클라이언트에 대한 서버 매개 변수를 설정합니다.
 
 1. **설정** 섹션에서 **서버 매개 변수** 를 클릭하여 Azure Database for MySQL 서버에 대한 서버 매개 변수 페이지를 엽니다.
 2. `init_connect` 검색

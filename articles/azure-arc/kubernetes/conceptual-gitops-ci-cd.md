@@ -4,18 +4,16 @@ services: azure-arc
 ms.service: azure-arc
 ms.date: 03/03/2021
 ms.topic: conceptual
-author: tcare
-ms.author: tcare
 description: 이 문서에서는 GitOps를 사용하여 CI/CD 워크플로에 대한 개념적 개요를 제공합니다.
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, 컨테이너, CI, CD, Azure DevOps
-ms.openlocfilehash: 47633ed5bec1a07c878983d0e93e03149d8967ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 837c0124739fa6659fc4c7652fcb9ca7be4fbf85
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105025869"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131039661"
 ---
-# <a name="cicd-workflow-using-gitops---azure-arc-enabled-kubernetes"></a>GitOps - Azure Arc 지원 Kubernetes를 사용하는 CI/CD 워크플로
+# <a name="cicd-workflow-using-gitops---azure-arc-enabled-kubernetes"></a>GitOps를 사용 하는 CI/CD 워크플로-Azure Arc 사용 Kubernetes
 
 최신 Kubernetes 배포에는 여러 애플리케이션, 클러스터 및 환경이 있습니다. GitOps를 사용하여 이러한 복잡한 설정을 보다 쉽게 관리할 수 있으며 Git를 사용하여 Kubernetes 환경의 원하는 상태를 선언적으로 추적할 수 있습니다. 일반적인 Git 도구를 사용하여 클러스터 상태를 추적하면 책임을 늘리고, 오류 조사를 용이하게 하고, 자동화를 통해 환경을 관리할 수 있습니다.
 
@@ -42,7 +40,7 @@ Flux는 각 클러스터에서 실행되며 원하는 상태를 유지 관리해
 ### <a name="gitops-repo"></a>GitOps 리포지토리
 GitOps 리포지토리는 클러스터의 모든 환경에 대한 현재 원하는 상태를 나타냅니다. 이 리포지토리에 대한 모든 변경 내용은 각 클러스터의 Flux 서비스에 의해 선택되고 배포됩니다. PR은 원하는 상태에 대한 변경 내용으로 만들어지고, 검토되고, 병합됩니다. 이러한 PR에는 배포 템플릿과 그 결과 렌더링된 Kubernetes 매니페스트 모두에 대한 변경 내용이 포함되어 있습니다. 낮은 수준으로 렌더링된 매니페스트를 사용하면 일반적으로 템플릿 수준에서 보이지 않는 변경 내용 검사를 보다 신중하게 수행할 수 있습니다.
 ### <a name="kubernetes-clusters"></a>Kubernetes 클러스터
-하나 이상의 Azure Arc 지원 Kubernetes 클러스터는 애플리케이션에 필요한 여러 환경에 사용됩니다. 예를 들어 단일 클러스터는 서로 다른 네임스페이스를 통해 개발 및 QA 환경을 모두 제공할 수 있습니다. 두 번째 클러스터는 환경을 보다 쉽게 분리하고 보다 세분화된 제어를 제공할 수 있습니다.
+하나 이상의 Azure Arc 사용 Kubernetes 클러스터는 응용 프로그램에 필요한 여러 환경에 사용 됩니다. 예를 들어 단일 클러스터는 서로 다른 네임스페이스를 통해 개발 및 QA 환경을 모두 제공할 수 있습니다. 두 번째 클러스터는 환경을 보다 쉽게 분리하고 보다 세분화된 제어를 제공할 수 있습니다.
 ## <a name="example-workflow"></a>예제 워크플로
 애플리케이션 개발자로서 Alice는 다음을 수행합니다.
 * 애플리케이션 코드를 작성합니다.
@@ -74,4 +72,4 @@ Alice가 애플리케이션 배포 템플릿에 사용되는 Docker 이미지를
 8.  모든 환경에서 성공적인 배포를 수신하면 파이프라인이 완료됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Arc 지원 Kubernetes를 사용하여 리소스 구성](./conceptual-configurations.md)으로 클러스터와 Git 리포지토리 간의 연결을 만드는 방법에 대해 자세히 알아보세요.
+[Azure Arc 사용 Kubernetes을 사용 하 여](./conceptual-configurations.md) 클러스터와 Git 리포지토리를 구성 리소스로 연결 하는 방법에 대해 자세히 알아보세요.

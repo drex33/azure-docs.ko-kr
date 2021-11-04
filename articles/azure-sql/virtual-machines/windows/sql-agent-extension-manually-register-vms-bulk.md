@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/07/2020
+ms.date: 10/26/2021
 ms.author: adbadram
 ms.reviewer: mathoma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bc4bfc48c9b8f6891c45730215f2c49e84467a42
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 8c0e4e5c0c12284bd3cc2f777f6951e04cc06926
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130161893"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131071860"
 ---
 # <a name="register-multiple-sql-vms-in-azure-with-the-sql-iaas-agent-extension"></a>SQL IaaS 에이전트 확장을 통해 Azure에 여러 SQL VM 등록
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -39,7 +39,9 @@ ms.locfileid: "130161893"
 
 등록 프로세스는 위험 없이 진행되고, 가동 중지 시간이 없으며, SQL Server 서비스 또는 가상 머신을 다시 시작하지 않습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+기본적으로 SQL Server 2016 이상이 설치 된 Azure vm은 [CEIP 서비스](/sql/sql-server/usage-and-diagnostic-data-configuration-for-sql-server)에서 검색 될 때 SQL IaaS 에이전트 확장에 자동으로 등록 됩니다.  자세한 내용은 [SQL Server 개인 정보 제공](/sql/sql-server/sql-server-privacy#non-personal-data)을 참조하세요.
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 확장에 SQL Server VM을 등록하려면 다음이 필요합니다. 
 

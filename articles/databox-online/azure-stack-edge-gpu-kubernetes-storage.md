@@ -1,29 +1,29 @@
 ---
-title: Azure Stack Edge Pro 장치에서 Kubernetes 저장소 관리 이해 | Microsoft Docs
-description: Azure Stack Edge Pro 장치에서 Kubernetes 저장소 관리를 수행 하는 방법을 설명 합니다.
+title: Azure Stack Edge Pro 장치에서 Kubernetes Storage 관리 이해 | Microsoft Docs
+description: Azure Stack Edge Pro 장치에서 Kubernetes Storage 관리를 수행 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 10/25/2021
 ms.author: alkohli
-ms.openlocfilehash: d848d663121474085935c68e62b8aa38f195ba8d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c5ef771c007d41e2e81dad7773c17bb1f9d3bb6a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102442182"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469239"
 ---
 # <a name="kubernetes-storage-management-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 저장소 관리 Kubernetes
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-Azure Stack Edge Pro 장치에서 계산 역할을 구성할 때 Kubernetes 클러스터가 만들어집니다. Kubernetes 클러스터가 만들어지면 컨테이너 화 된 응용 프로그램을 pod의 Kubernetes 클러스터에 배포할 수 있습니다. Kubernetes 클러스터에서 pod에 저장소를 제공 하는 고유한 방법이 있습니다. 
+Azure Stack Edge Pro 디바이스에서 컴퓨팅 역할을 구성할 때 Kubernetes 클러스터가 만들어집니다. Kubernetes 클러스터가 만들어지면 컨테이너 화 된 응용 프로그램을 pod의 Kubernetes 클러스터에 배포할 수 있습니다. Kubernetes 클러스터에서 pod에 저장소를 제공 하는 고유한 방법이 있습니다. 
 
-이 문서에서는 Kubernetes 클러스터에서 저장소를 프로 비전 하는 방법에 대해 설명 합니다 .이 방법은 특히 Azure Stack Edge Pro 장치의 컨텍스트에서 제공 합니다. 
+이 문서에서는 Kubernetes 클러스터에 저장소를 프로 비전 하는 방법에 대해 설명 합니다. 일반적으로 Azure Stack Edge Pro 장치의 컨텍스트에서 특히 
 
-## <a name="storage-requirements-for-kubernetes-pods"></a>Kubernetes pod에 대 한 저장소 요구 사항
+## <a name="storage-requirements-for-kubernetes-pods"></a>Kubernetes pod에 대 한 Storage 요구 사항
 
 Kubernetes pod는 상태 비저장 이지만 응용 프로그램이 실행 하는 응용 프로그램은 일반적으로 상태 저장입니다. Pod는 수명이 짧고 Kubernetes 노드 간에 다시 시작, 장애 조치 (failover) 또는 이동을 수행할 수 있으므로 pod와 연결 된 저장소의 경우 다음 요구 사항을 충족 해야 합니다. 
 
@@ -41,7 +41,7 @@ Kubernetes에 대해 저장소를 관리 하는 방법을 이해 하려면 다�
 
     사용자가 다양 `PersistentVolumes` 한 문제에 대 한 다양 한 속성을 필요로 하기 때문에 클러스터 관리자는 `PersistentVolumes` 크기 및 액세스 모드 보다 더 다양 한 방법으로 다양 한을 제공할 수 있어야 합니다. 이러한 요구 사항에는 리소스가 필요 `StorageClass` 합니다.
 
-저장소 프로 비전은 정적 이거나 동적일 수 있습니다. 각 프로 비전 유형에 대해서는 다음 섹션에서 설명 합니다.
+Storage 프로 비전은 정적 이거나 동적일 수 있습니다. 각 프로 비전 유형에 대해서는 다음 섹션에서 설명 합니다.
 
 ## <a name="static-provisioning"></a>정적 프로 비전
 
@@ -77,9 +77,9 @@ Kubernetes에서 정적으로 프로 비전 된 저장소를 사용 하는 방�
 1. **컨테이너에 Pvc 탑재**: PVC를 PV에 바인딩한 후에는 정적 프로 비전과 동일한 방식으로 경로에 pvc를 탑재 하 고 공유에서 읽거나 쓸 수 있습니다.
 
 
-## <a name="storage-provisioning-on-azure-stack-edge-pro"></a>Azure Stack Edge Pro에서 저장소 프로 비전
+## <a name="storage-provisioning-on-azure-stack-edge-pro"></a>Azure Stack Edge에서 프로 비전을 Storage Pro
 
-Azure Stack Edge Pro 장치에서 정적으로 프로 비전 `PersistentVolumes` 된 장치는 장치의 저장소 기능을 사용 하 여 만들어집니다. 공유를 프로 비전 하 고 **Edge compute로 공유** 옵션을 사용 하는 경우이 작업은 Kubernetes 클러스터에서 자동으로 PV 리소스를 만듭니다.
+Azure Stack Edge Pro 장치에서 정적으로 프로 비전 `PersistentVolumes` 된 장치는 장치의 저장소 기능을 사용 하 여 생성 됩니다. 공유를 프로 비전 하 고 **Edge compute로 공유** 옵션을 사용 하는 경우이 작업은 Kubernetes 클러스터에서 자동으로 PV 리소스를 만듭니다.
 
 ![정적 프로 비전을 위한 Azure Portal의 로컬 공유 만들기](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-1.png)
 
@@ -87,7 +87,7 @@ Azure Stack Edge Pro 장치에서 정적으로 프로 비전 `PersistentVolumes`
 
 ![정적 프로 비전을 위한 Azure Portal의 클라우드 공유 만들기](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-2.png)
 
-SMB 및 NFS 공유를 모두 만들어 Azure Stack Edge Pro 장치에서 PVs를 정적으로 프로 비전 할 수 있습니다. PV가 프로 비전 되 면이 저장소를 요청 하는 PVC를 제출 합니다. `yaml`저장소를 클레임 하 고 프로 비전 한 공유를 사용 하는 PVC 배포의 예는 다음과 같습니다.
+SMB 및 NFS 공유를 모두 만들어 Azure Stack Edge Pro 장치에서 pvs를 정적으로 프로 비전 할 수 있습니다. PV가 프로 비전 되 면이 저장소를 요청 하는 PVC를 제출 합니다. `yaml`저장소를 클레임 하 고 프로 비전 한 공유를 사용 하는 PVC 배포의 예는 다음과 같습니다.
 
 
 ```yml
@@ -105,9 +105,11 @@ spec:
   storageClassName: ""
 ```
 
+필드의 값을 가져오려면 `volumeName` 생성 후 SMB 또는 NFS 공유를 선택할 때 Edge 계산 모듈의 로컬 탑재 지점을 선택 합니다. 공유 이름과 동일 합니다. 
+
 자세한 내용은 [kubectl를 통해 Azure Stack Edge Pro에서 정적 프로 비전을 통해 상태 저장 응용 프로그램 배포](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md)를 참조 하세요.
 
-동일한 정적으로 프로 비전 된 저장소에 액세스 하기 위해 IoT의 저장소 바인딩에 해당 하는 볼륨 탑재 옵션은 다음과 같습니다. 는 `/home/input` 컨테이너 내에서 볼륨에 액세스할 수 있는 경로입니다.
+동일한 정적으로 프로 비전 된 저장소에 액세스 하기 위해 IoT의 저장소 바인딩에 해당 하는 볼륨 탑재 옵션은 다음과 같습니다. `/home/input`는 컨테이너 내에서 볼륨이 액세스할 수 있는 경로입니다.
 
 ```
 {
@@ -149,8 +151,8 @@ Azure Stack Edge Pro에는 `StorageClass` `ase-node-local` Kubernetes 노드에 
 
 을 정적으로 프로 비전 할 수 있는 방법을 이해 하려면 `PersistentVolume` 다음을 참조 하세요.
 
-- [Kubectl를 통해 Azure Stack Edge Pro에서 정적 프로 비전을 통해 상태 저장 응용 프로그램을 배포](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md)합니다.
+- [kubectl를 통해 Azure Stack Edge Pro에서 정적 프로 비전을 통해 상태 저장 응용 프로그램을 배포](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md)합니다.
 
 를 동적으로 프로 비전 하는 방법에 대 한 자세한 `StorageClass` 내용은 다음을 참조 하세요.
 
-- [Kuebctl를 통해 Azure Stack Edge Pro에서 동적 프로 비전을 통해 상태 저장 응용 프로그램을 배포](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md)합니다.
+- [kuebctl를 통해 Azure Stack Edge Pro에서 동적 프로 비전을 통해 상태 저장 응용 프로그램을 배포](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md)합니다.

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: shono
-ms.openlocfilehash: 8aba6f13957d37f843114572f001029baf41ded6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 5838185328920587b11bb66d21c9402ce93e9b6b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889351"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458250"
 ---
 # <a name="select-a-domain-for-a-custom-vision-project"></a>Custom Vision 프로젝트에 대한 도메인 선택
 
@@ -50,6 +50,8 @@ Custom Vision 프로젝트의 설정 탭에서 프로젝트에 대한 도메인�
 ## <a name="compact-domains"></a>압축 도메인
 
 압축 도메인에서 생성된 모델을 로컬에서 실행하기 위해 내보낼 수 있습니다. Custom Vision 3.4 공개 미리 보기 API에서 GetDomains API를 호출하여 압축 도메인에 대해 내보낼 수 있는 플랫폼의 목록을 가져올 수 있습니다.
+
+다음 도메인은 모두 ONNX, TensorFlow, TensorFlowLite, TensorFlow.js, CoreML 및 VAIDK 형식의 내보내기를 지원 합니다. 단, **compact (개체 검색 일반)** 도메인은 VAIDK을 지원 하지 않습니다.
 
 모델 성능은 선택한 도메인에 따라 달라집니다. 아래 표는 Intel Desktop CPU 및 NVidia GPU \[1\]에서의 모델 크기 및 유추 시간을 보고합니다. 이 숫자에 전처리 및 후처리 시간은 포함되지 않습니다.
 

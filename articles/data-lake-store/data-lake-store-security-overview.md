@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: normesta
-ms.openlocfilehash: f6ea097209666d75696203163b2b99b927344fdc
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2a3f52cfaacf3912c250bbd99322ffa5b0b26a74
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128651183"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446204"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1의 보안
 
@@ -114,7 +114,7 @@ Data Lake Storage Gen1과 함께 진단 로그를 사용하는 방법에 대한 
 
 엔터프라이즈 고객은 안전하고 사용하기 간편한 데이터 분석 클라우드 플랫폼을 요구합니다. Data Lake Storage Gen1은 Azure Active Directory 통합, ACL 기반 권한 부여, 네트워크 격리, 전송 중 및 미사용 데이터 암호화 및 감사를 통해 ID 관리 및 인증에서 이러한 요구 사항을 해결하도록 설계되었습니다.
 
-Data Lake Storage Gen1의 새로운 기능을 참조하려는 경우 [Data Lake Storage Gen1 UserVoice 포럼](https://feedback.azure.com/forums/327234-data-lake)에 사용자 의견을 보내주세요.
+Data Lake Storage Gen1의 새로운 기능을 참조하려는 경우 [Data Lake Storage Gen1 UserVoice 포럼](https://feedback.azure.com/d365community/forum/7fd97106-7326-ec11-b6e6-000d3a4f032c)에 사용자 의견을 보내주세요.
 
 ## <a name="see-also"></a>참고 항목
 

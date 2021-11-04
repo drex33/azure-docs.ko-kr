@@ -4,12 +4,12 @@ description: 프로그래밍 언어 및 바인딩에 관계 없이 Azure에서 �
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 9/02/2021
-ms.openlocfilehash: 1e97deb118251c879c1c8f9599186ea4ae69c2fa
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: db0fc469d7f4429d8a99c5869940dfc50b63e845
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130257135"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131477063"
 ---
 # <a name="azure-functions-developer-guide"></a>Azure Functions 개발자 가이드
 Azure Functions에서 특정 함수는 사용하는 언어나 바인딩에 관계없이 몇 가지 핵심적 기술 개념과 구성 요소를 공유합니다. 특정 언어나 바인딩에 해당하는 세부 정보를 학습하기 전에, 모든 항목에 해당하는 이 개요를 꼼꼼히 읽어 보시기 바랍니다.
@@ -103,9 +103,9 @@ Azure Functions에 대한 코드는 공개 소스이며 GitHub 리포지토리�
 
 연결 이름이 정확한 단일 값으로 확인되면 런타임은 일반적으로 비밀을 포함하는 _연결 문자열_ 로 값을 식별합니다. 연결 문자열의 세부 정보는 연결하려는 서비스에 의해 정의됩니다.
 
-그러나 연결 이름은 [id 기반 연결](#configure-an-identity-based-connection)을 구성 하는 데 유용한 여러 구성 항목의 컬렉션을 참조할 수도 있습니다. 이중 밑줄(`__`)로 끝나는 공유 접두사를 사용하여 환경 변수를 컬렉션으로 처리할 수 있습니다. 그런 다음 연결 이름을 이 접두사로 설정하여 그룹을 참조할 수 있습니다.
+그러나 연결 이름은 ID 기반 연결을 구성하는 데 유용한 여러 구성 항목의 컬렉션을 참조할 수도 [있습니다.](#configure-an-identity-based-connection) 이중 밑줄(`__`)로 끝나는 공유 접두사를 사용하여 환경 변수를 컬렉션으로 처리할 수 있습니다. 그런 다음 연결 이름을 이 접두사로 설정하여 그룹을 참조할 수 있습니다.
 
-예를 들어 `connection` Azure Blob 트리거 정의의 속성은 "Storage1" 일 수 있습니다. "Storage1" 이라는 환경 변수를 사용 하 여 구성 된 단일 문자열 값이 없는 경우에는 라는 환경 변수를 `Storage1__blobServiceUri` 사용 하 여 `blobServiceUri` 연결의 속성을 알릴 수 있습니다. 연결 속성은 각 서비스마다 다릅니다. 연결을 사용 하는 구성 요소에 대 한 설명서를 참조 하세요.
+예를 들어 `connection` Azure Blob 트리거 정의의 속성은 "Storage1"일 수 있습니다. "Storage1"이라는 환경 변수에 의해 구성된 단일 문자열 값이 없는 한 라는 환경 `Storage1__blobServiceUri` 변수를 사용하여 연결의 속성을 알릴 수 `blobServiceUri` 있습니다. 연결 속성은 각 서비스마다 다릅니다. 연결을 사용하는 구성 요소에 대한 설명서를 참조하세요.
 
 ### <a name="configure-an-identity-based-connection"></a>ID 기반 연결 구성
 
@@ -115,10 +115,10 @@ Id 기반 연결은 다음 구성 요소에서 지원 됩니다.
 
 | 연결 원본                                       | 계획 지원 | 자세한 정보                                                                                                         |
 |---------------------------------------------------------|-----------------|--------------------------------------------------------------------------------------------------------------------|
-| Azure Blob 트리거 및 바인딩-미리 보기              | 모두             | [확장 버전 5.0.0-beta1 이상](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)     |
-| Azure 큐 트리거 및 바인딩-미리 보기             | 모두             | [확장 버전 5.0.0-beta1 이상](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher)    |
-| Azure Event Hubs 트리거 및 바인딩-미리 보기        | 모두             | [확장 버전 5.0.0-beta1 이상](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher)    |
-| Azure Service Bus 트리거 및 바인딩-미리 보기       | 모두             | [확장 버전 5.0.0-beta2 이상](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher)  |
+| Azure Blob 트리거 및 바인딩               | 모두             | [확장 버전 5.0.0 이상](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)     |
+| Azure 큐 트리거 및 바인딩            | 모두             | [확장 버전 5.0.0 이상](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher)    |
+| Azure Event Hubs 트리거 및 바인딩     | 모두             | [확장 버전 5.0.0 이상](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher)    |
+| Azure Service Bus 트리거 및 바인딩       | 모두             | [확장 버전 5.0.0 이상](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher)  |
 | 트리거 및 바인딩 Azure Cosmos DB-미리 보기         | 탄력적 Premium | [확장 버전 4.0.0-tooling 이상](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) |
 | 호스트-필요한 저장소 ("AzureWebJobsStorage")-미리 보기 | 모두             | [ID로 호스트 저장소에 연결](#connecting-to-host-storage-with-an-identity-preview)                        |
 
@@ -145,11 +145,11 @@ Id 기반 연결은 다음 구성 요소에서 지원 됩니다.
 
 [!INCLUDE [functions-service-bus-permissions](../../includes/functions-service-bus-permissions.md)]
 
-# <a name="azure-cosmos-db-extension"></a>[Azure Cosmos DB 확장](#tab/cosmos)
+# <a name="azure-cosmos-db-extension-preview"></a>[Azure Cosmos DB 확장 (미리 보기)](#tab/cosmos)
 
 [!INCLUDE [functions-cosmos-permissions](../../includes/functions-cosmos-permissions.md)]
 
-# <a name="functions-host-storage"></a>[함수 호스트 저장소](#tab/azurewebjobsstorage)
+# <a name="functions-host-storage-preview"></a>[함수 호스트 저장소 (미리 보기)](#tab/azurewebjobsstorage)
 
 [!INCLUDE [functions-azurewebjobsstorage-permissions](../../includes/functions-azurewebjobsstorage-permissions.md)]
 
@@ -159,7 +159,7 @@ Id 기반 연결은 다음 구성 요소에서 지원 됩니다.
 
 Azure 서비스에 대 한 id 기반 연결에는 다음과 같은 공통 속성이 적용 `<CONNECTION_NAME_PREFIX>` 됩니다. 여기서은 `connection` 트리거 또는 바인딩 정의의 속성 값입니다.
 
-| 속성    |  환경 변수 템플릿 | 설명 |
+| 속성    |  환경 변수 템플릿 | Description |
 |---|---|---|---|
 | 토큰 자격 증명 |  `<CONNECTION_NAME_PREFIX>__credential` | 연결을 위해 토큰을 가져오는 방법을 정의합니다. "managedidentity"로 설정해야 하는 사용자가 할당한 ID를 지정할 때만 권장됩니다. 이는 Azure Functions 서비스에서 호스팅되는 경우에만 유효합니다. |
 | 클라이언트 ID | `<CONNECTION_NAME_PREFIX>__clientId` | `credential`이 "managedidentity"로 설정된 경우 이 속성은 토큰을 가져올 때 사용할 사용자가 할당한 ID를 지정합니다. 속성은 애플리케이션에 할당된 사용자가 할당한 ID에 해당하는 클라이언트 ID를 허용합니다. 지정하지 않으면 시스템 할당 ID가 사용됩니다. 이 속성은 [이 설정되지 않아야 하는 ](#local-development-with-identity-based-connections)로컬 개발 시나리오`credential`에서 다르게 사용됩니다. |
@@ -167,6 +167,9 @@ Azure 서비스에 대 한 id 기반 연결에는 다음과 같은 공통 속성
 지정된 연결 유형에 대해 추가 옵션이 지원될 수 있습니다. 연결을 구성하는 구성 요소에 대한 설명서를 참조하세요.
 
 ##### <a name="local-development-with-identity-based-connections"></a>ID 기반 연결을 사용하여 로컬 개발
+
+> [!NOTE]
+> Id 기반 연결을 사용 하는 로컬 개발에는 업데이트 된 버전의 [Azure Functions Core Tools](./functions-run-local.md)가 필요 합니다. 를 실행 하 여 현재 설치 된 버전을 확인할 수 있습니다 `func -v` . 함수 v3의 경우 버전 이상을 사용 `3.0.3904` 합니다. 함수 v4의 경우 버전 이상을 사용 `4.0.3904` 합니다. 
 
 로컬로 실행하는 경우 위의 구성은 런타임에 로컬 개발자 ID를 사용하도록 지시합니다. 연결은 다음 위치에서 토큰을 순서대로 가져오려고 시도합니다.
 

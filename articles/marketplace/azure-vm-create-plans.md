@@ -7,18 +7,18 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/13/2021
-ms.openlocfilehash: 0a7ca14a797ef2680527cd6992ff9a7a1d6ea115
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 1e83714026ac0d2ac50a4b30d358e127b92e99b2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131084903"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131433558"
 ---
 # <a name="create-plans-for-a-virtual-machine-offer"></a>가상 머신 제품 플랜 만들기
 
 **플랜 개요** 페이지(파트너 센터의 왼쪽 탐색 메뉴에서 선택)에서 동일한 제품 내에서 다양한 플랜 옵션을 제공할 수 있습니다. 제품에는 수익 창출 대상 그룹, Azure 지역, 기능 또는 VM 이미지에 따라 달라질 수 있는 하나 이상의 플랜(이전에는 SKU라고 함)이 필요합니다.
 
-각 제품에 대해 최대 100개의 플랜을 만들 수 있습니다. 이 중 최대 45개는 프라이빗이 될 수 있습니다. [Microsoft 상업용 마켓플레이스의 프라이빗 제품](private-offers.md)에서 프라이빗 플랜에 대해 자세히 알아봅니다.
+각 제품에 대해 최대 100 요금제를 만들 수 있으며, 최대 45 개는 개인 일 수 있습니다. [Microsoft 상업용 마켓플레이스의 프라이빗 제품](private-offers.md)에서 프라이빗 플랜에 대해 자세히 알아봅니다.
 
 플랜이 만들어지면 **플랜 개요** 탭을 선택하여 다음 항목을 표시합니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "131084903"
 
 **Azure 글로벌** 을 선택하여 상업용 Marketplace 통합이 있는 모든 Azure 글로벌 지역의 고객이 플랜을 사용할 수 있도록 합니다. 자세한 내용은 [지리적 가용성 및 통화 지원](marketplace-geo-availability-currencies.md)을 참조하세요.
 
-**Azure Government** 를 선택하여 [Azure Government](../azure-government/documentation-government-welcome.md) 지역에서 플랜을 사용할 수 있도록 합니다. 이 지역은 미국 연방, 주, 지방 또는 부족 단체의 고객뿐만 아니라 이러한 고객에게 서비스를 제공할 수 있는 파트너에게도 제어된 액세스를 제공합니다. 게시자는 규정 준수 제어, 보안 조치 및 모범 사례를 담당합니다. Azure Government는 물리적으로 격리된 데이터 센터 및 네트워크를 사용합니다(미국에만 있음).
+**Azure Government** 를 선택하여 [Azure Government](../azure-government/documentation-government-welcome.md) 지역에서 플랜을 사용할 수 있도록 합니다. 이 지역은 미국 연방, 주, 지방 또는 부족 엔터티 뿐만 아니라 서비스를 제공할 자격이 있는 파트너의 고객에 게 제어 된 액세스를 제공 합니다. 게시자는 규정 준수 제어, 보안 조치 및 모범 사례를 담당합니다. Azure Government는 물리적으로 격리된 데이터 센터 및 네트워크를 사용합니다(미국에만 있음).
 
 [Azure Government](../azure-government/documentation-government-manage-marketplace-partners.md)에 게시하기 전에 특정 엔드포인트가 다를 수 있으므로 환경에서 플랜을 테스트하고 유효성을 검사합니다. 플랜을 설정하고 테스트하려면 [Microsoft Azure Government 평가판](https://azure.microsoft.com/global-infrastructure/government/request/) 페이지에서 평가판 계정을 요청합니다.
 
@@ -126,7 +126,7 @@ Microsoft가 사용자를 대신해서 판매세 및 사용세를 송금하는 �
 
 ### <a name="free-trial"></a>평가판
 
-고객에게 1개월, 3개월 또는 6개월 **평가판** 을 제공할 수 있습니다.
+1 개월, 3 개월 또는 6 개월 **무료 평가판** 을 고객에 게 제공할 수 있습니다.
 
 ### <a name="plan-visibility"></a>플랜 표시 여부
 
@@ -147,9 +147,9 @@ CSP(클라우드 솔루션 공급자 프로그램)의 재판매인을 통해 설
 
 가상 머신이 다른 솔루션 템플릿 또는 관리형 애플리케이션을 통해 참조될 때만 간접적으로 사용되어야 하는 경우 이 확인란을 선택하여 가상 머신을 게시하지만 해당 가상 머신을 직접 검색하는 고객에게는 숨깁니다.
 
-모든 Azure 고객은 PowerShell 또는 CLI를 사용하여 제품을 배포할 수 있습니다.  제한된 고객만 이 제품을 사용할 수 있게 하려면 플랜을 **프라이빗** 으로 설정합니다. 
+모든 Azure 고객은 PowerShell 또는 CLI를 사용하여 제품을 배포할 수 있습니다.  제한된 고객만 이 제품을 사용할 수 있게 하려면 플랜을 **프라이빗** 으로 설정합니다.
 
-숨겨진 플랜은 미리 보기 링크를 생성하지 않습니다. 그러나 [다음 단계를 수행](azure-vm-create-faq.yml#how-do-i-test-a-hidden-preview-image-)하여 테스트할 수 있습니다. 
+숨겨진 플랜은 미리 보기 링크를 생성하지 않습니다. 그러나 다음 [단계](azure-vm-create-faq.yml#how-do-i-test-a-hidden-preview-image-)를 수행 하 여 테스트할 수 있습니다.
 
 왼쪽 탐색 플랜 메뉴의 다음 탭인 **기술 구성** 을 계속 진행하기 전에 **초안 저장** 을 선택하세요.
 
@@ -159,7 +159,7 @@ CSP(클라우드 솔루션 공급자 프로그램)의 재판매인을 통해 설
 
 ### <a name="reuse-technical-configuration"></a>기술 구성 다시 사용
 
-이 옵션을 사용 하면 동일한 제품 내의 계획에서 동일한 기술 구성 설정을 사용할 수 있으므로 동일한 이미지 집합을 활용할 수 있습니다. 기술 구성 다시 사용 옵션을 사용 하도록 설정 하면 계획은 선택한 기본 계획과 동일한 기술 구성 설정을 상속 합니다.  기본 계획을 변경 하는 경우 구성을 다시 사용 하는 계획에 변경 내용이 반영 됩니다.
+이 옵션을 사용 하면 동일한 제품 내의 계획에서 동일한 기술 구성 설정을 사용할 수 있으므로 동일한 이미지 집합을 활용할 수 있습니다. _기술 구성 다시 사용_ 옵션을 사용 하도록 설정 하면 계획은 선택한 기본 계획과 동일한 기술 구성 설정을 상속 합니다.  기본 계획을 변경 하는 경우 구성을 다시 사용 하는 계획에 변경 내용이 반영 됩니다.
 
 다른 계획에서 기술 구성 설정을 다시 사용 하는 몇 가지 일반적인 이유는 다음과 같습니다.
 
@@ -169,7 +169,7 @@ CSP(클라우드 솔루션 공급자 프로그램)의 재판매인을 통해 설
 
 [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md) (imds)를 활용 하 여 라이선스의 유효성을 검사 하거나 적절 한 기능을 사용 하도록 설정 하기 위해 솔루션을 배포할 계획을 식별 합니다.
 
-나중에 계획 사이에 다른 변경 내용을 게시 하려는 경우에는 분리할 수 있습니다. 계획에서이 옵션의 선택을 취소 하 여 계획을 다시 사용 하 여 계획을 분리 합니다. 일단 분리 되 면 요금제는 마지막 설정 대신 동일한 기술 구성 설정을 포함 하 고 계획은 구성에서 분기할 수 있습니다. 이전에 독립적으로 게시 된 계획은 나중에 기술 구성을 다시 사용할 수 없습니다. 
+나중에 계획 사이에 다른 변경 내용을 게시 하려는 경우에는 분리할 수 있습니다. 계획에서이 옵션의 선택을 취소 하 여 계획을 다시 사용 하 여 계획을 분리 합니다. 일단 분리 되 면 요금제는 마지막 설정 대신 동일한 기술 구성 설정을 포함 하 고 계획은 구성에서 분기할 수 있습니다. 이전에 독립적으로 게시 된 계획은 나중에 기술 구성을 다시 사용할 수 없습니다.
 
 ### <a name="operating-system"></a>운영 체제
 

@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell을 사용하여 Marketplace 구매 계획 정보 지정
-description: Shared Image Gallery에서 이미지를 만들 때 Azure Marketplace 구매 계획 정보를 지정하는 방법에 대해 알아봅니다.
+description: Azure 계산 갤러리 (이전의 공유 이미지 갤러리)에서 이미지를 만들 때 Azure Marketplace 구매 계획 정보를 지정 하는 방법에 대해 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 07/07/2020
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 52f4152a8f3ec1d2f812de74ed0bd238fb323330
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: d50aa76f80205df1d34215a020691c51ca58d4b0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123451838"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131474613"
 ---
 # <a name="supply-azure-marketplace-purchase-plan-information-when-creating-images"></a>이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공
 
@@ -37,7 +37,7 @@ $vm.Plan
 
 ## <a name="create-the-image-definition"></a>이미지 정의 만들기
 
-이미지를 저장하는 데 사용하려는 이미지 갤러리를 가져옵니다. 먼저 모든 갤러리를 나열합니다.
+이미지를 저장 하는 데 사용 하려는 갤러리를 가져옵니다. 먼저 모든 갤러리를 나열합니다.
 
 ```azurepowershell-interactive
 Get-AzResource -ResourceType Microsoft.Compute/galleries | Format-Table

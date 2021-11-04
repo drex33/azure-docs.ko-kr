@@ -10,19 +10,21 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2021
 ms.author: bagol
-ms.openlocfilehash: 3b578ffbb734c738aa3f082d192eae8557f4e307
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7d69235d1d7131df8b5abcb1c9073defab8f2354
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124755104"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131023351"
 ---
 # <a name="resources-for-creating-azure-sentinel-custom-connectors"></a>Azure Sentinel 사용자 지정 커넥터를 만들기 위한 리소스
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Azure Sentinel은 [Azure 서비스 및 외부 솔루션에 대한 기본 제공 커넥터](connect-data-sources.md)를 다양하게 제공하며, 전용 커넥터가 없는 일부 원본에서의 데이터 수집을 지원합니다.
 

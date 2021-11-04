@@ -3,15 +3,13 @@ title: '빠른 시작: Azure PowerShell을 사용하여 관리 그룹 만들기'
 description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 리소스를 리소스 계층 구조로 구성하는 관리 그룹을 만듭니다.
 ms.date: 08/17/2021
 ms.topic: quickstart
-ms.custom:
-- devx-track-azurepowershell
-- mode-api
-ms.openlocfilehash: d76bc9380056df72a2615a420211aa59bcdc0926
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.custom: devx-track-azurepowershell, mode-api
+ms.openlocfilehash: 0c84d1e2fc3438daad041a3627b546893a7073b2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323768"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131081147"
 ---
 # <a name="quickstart-create-a-management-group-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 관리 그룹 만들기
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/22/2021
-ms.openlocfilehash: c175389b7714c2b48620f1ef618a9a4f5d6204b0
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 8f5965b81e403e58e6c58e0ca3d567375e211d37
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130247743"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131426179"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS에 대한 언어 및 지역 지원
 
@@ -28,7 +28,7 @@ LUIS는 서비스 내에 다양한 기능을 포함합니다. 모든 기능이 �
 
 LUIS는 발화를 다음 언어로 이해합니다.
 
-| 언어 |Locale  |  미리 빌드된 도메인 | 미리 빌드된 엔터티 | 문구 목록 권장 사항 | \**[Text Analytics](../text-analytics/language-support.md)<br>(감정 및<br>키워드)|
+| 언어 |Locale  |  미리 빌드된 도메인 | 미리 빌드된 엔터티 | 문구 목록 권장 사항 | **[감정 분석](../language-service/sentiment-opinion-mining/overview.md) 및 [핵심 문구 추출](../language-service/key-phrase-extraction/overview.md)|
 |--|--|:--:|:--:|:--:|:--:|
 | 아랍어(미리 보기 - 최신 표준 아랍어) |`ar-AR`|-|-|-|-|
 | *[중국어](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
@@ -63,7 +63,7 @@ LUIS는 발화를 다음 언어로 이해합니다.
      - でございます는 です와 같지 않습니다.
      - です는 だ와 같지 않습니다.
 
-[!INCLUDE [Text Analytics support notes](includes/text-analytics-support-notes.md)]
+[!INCLUDE [Language service support notes](includes/text-analytics-support-notes.md)]
 
 ### <a name="speech-api-supported-languages"></a>Speech API 지원되는 언어
 Speech 받아쓰기 모드 언어에 대해서는 Speech [지원되는 언어](../speech-service/speech-to-text.md)를 참조하세요.

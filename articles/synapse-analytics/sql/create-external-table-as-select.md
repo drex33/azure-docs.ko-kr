@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 83c3fd114ab7ed3bf04d47ef3be2fc563b6b43d5
-ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
+ms.openlocfilehash: ba93588dc686a57c05371b86d8f9e058f2bd2cf2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110586187"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131460036"
 ---
 # <a name="store-query-results-to-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 스토리지에 쿼리 결과 저장
 
@@ -100,12 +100,12 @@ ORDER BY
 ## <a name="remarks"></a>설명
 
 결과를 저장한 후에는 외부 테이블의 데이터를 수정할 수 없습니다. CETAS는 이전 실행에서 만든 기본 데이터를 덮어쓰지 않으므로 이 스크립트를 반복할 수 없습니다. 시나리오에서 이러한 항목 중 일부가 필요한 경우 다음 피드백 항목에 투표하거나 Azure 피드백 사이트에서 새 항목을 제안하세요.
-- [외부 테이블에 새 데이터 삽입 사용](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/32981347-polybase-allow-insert-new-data-to-existing-exteran)
-- [외부 테이블에서 데이터 삭제 사용](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/15158034-polybase-delete-from-external-tables)
-- [CETAS에서 파티션 지정](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/19520860-polybase-partitioned-by-functionality-when-creati)
-- [파일 크기 및 개수 지정](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/42263617-cetas-specify-number-of-parquet-files-file-size)
+- [외부 테이블에 새 데이터 삽입 사용](https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8)
+- [외부 테이블에서 데이터 삭제 사용](https://feedback.azure.com/d365community/idea/fb5a00c9-0a25-ec11-b6e6-000d3a4f07b8)
+- [CETAS에서 파티션 지정](https://feedback.azure.com/d365community/idea/e28278db-0a25-ec11-b6e6-000d3a4f07b8)
+- [파일 크기 및 개수 지정](https://feedback.azure.com/d365community/idea/262048b9-0925-ec11-b6e6-000d3a4f07b8)
 
-유일하게 지원되는 출력 형식은 Parquet 및 CSV입니다. [Azure 피드백 사이트](https://feedback.azure.com/forums/307516-azure-synapse-analytics/)에서 다른 유형에 투표할 수 있습니다.
+유일하게 지원되는 출력 형식은 Parquet 및 CSV입니다. [Azure 피드백 사이트](https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8)에서 다른 유형에 투표할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

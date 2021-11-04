@@ -5,14 +5,16 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 05/26/2021
-ms.openlocfilehash: 5b60f65de72de0a039ec806a06f00145867c7648
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 0637b2b02032b87b9c51aa171868b50164ce5c69
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130073357"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131448845"
 ---
 # <a name="nd-a100-v4-series"></a>ND A100 v4 시리즈
+
+**적용 대상:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 ND A100 v4 시리즈 가상 머신은 고급 Deep Learning 학습 및 긴밀하게 결합된 HPC 워크로드 스케일 업 및 스케일 아웃을 위해 설계된 Azure GPU 제품군에 새로 추가된 주력 가상 머신입니다. 
 
@@ -36,7 +38,7 @@ ND A100 v4 시리즈는 단일 VM(가상 머신) 및 8개의 NVIDIA Ampere A100 
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원되지 않음<br>
 [VM 생성 지원](generation-2.md): 2세대<br>
 [가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원되지 않음<br>
-[임시 OS 디스크](ephemeral-os-disks.md): 지원됨([미리 보기](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
+[임시 OS 디스크](ephemeral-os-disks.md): 지원됨<br>
 InfiniBand: 지원됨, GPUDirect RDMA, 8 x 200 Gigabit HDR<br>
 Nvidia NVLink Interconnect: 지원됨<br>
 <br>

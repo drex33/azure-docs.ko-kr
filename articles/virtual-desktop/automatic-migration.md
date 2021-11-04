@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/15/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a82d67cf0bb1644e31ff3d87d315cd920a92749a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 6d5fed6547a32382413c1a128b1a9003bf099c88
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131074596"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471766"
 ---
 # <a name="migrate-automatically-from-azure-virtual-desktop-classic-preview"></a>Azure 가상 데스크톱 (클래식) (미리 보기)에서 자동으로 마이그레이션
 
@@ -146,36 +146,36 @@ Azure 가상 데스크톱 (클래식) 리소스를 Azure Resource Manager로 마
 
 2. 그런 다음 **시작-RdsHostPoolMigration** cmdlet을 실행 하 여 테 넌 트 내의 단일 호스트 풀 또는 모든 호스트 풀을 마이그레이션할지 선택 합니다.
 
-    예:
+   예를 들어:
 
-    ```powershell
-    Start-RdsHostPoolMigration -Tenant Contoso -Location WestUS
-    ```
+   ```powershell
+   Start-RdsHostPoolMigration -Tenant Contoso -Location WestUS
+   ```
 
-    리소스를 특정 호스트 풀로 마이그레이션하려면 호스트 풀 이름을 포함 합니다. 예를 들어 "Office" 이라는 호스트 풀을 이동 하려면 다음과 같이 명령을 실행 합니다.
+   리소스를 특정 호스트 풀로 마이그레이션하려면 호스트 풀 이름을 포함 합니다. 예를 들어 "Office" 이라는 호스트 풀을 이동 하려면 다음과 같이 명령을 실행 합니다.
 
-    ```powershell
-    Start-RdsHostPoolMigration -Tenant Contoso -HostPool Office -CopyUserAssignments $false -Location EastUS
-    ```
+   ```powershell
+   Start-RdsHostPoolMigration -Tenant Contoso -HostPool Office -CopyUserAssignments $false -Location EastUS
+   ```
 
-    작업 영역 이름을 지정 하지 않으면 모듈은 테 넌 트 이름을 기반으로 자동으로 하나를 만듭니다. 그러나 특정 작업 영역을 사용 하려는 경우 다음과 같이 해당 리소스 ID를 입력할 수 있습니다.
+   작업 영역 이름을 지정 하지 않으면 모듈은 테 넌 트 이름을 기반으로 자동으로 하나를 만듭니다. 그러나 특정 작업 영역을 사용 하려는 경우 다음과 같이 해당 리소스 ID를 입력할 수 있습니다.
 
-    ```powershell
-    Start-RdsHostPoolMigration -Tenant Contoso -HostPool Office -CopyUserAssignments -Location EastUS -Workspace <Resource ID of workspacename>
-    ```
+   ```powershell
+   Start-RdsHostPoolMigration -Tenant Contoso -HostPool Office -CopyUserAssignments -Location EastUS -Workspace <Resource ID of workspacename>
+   ```
     
-    특정 작업 영역을 사용 하지만 해당 리소스 ID를 모르는 경우 다음 cmdlet을 실행 합니다.
+   특정 작업 영역을 사용 하지만 해당 리소스 ID를 모르는 경우 다음 cmdlet을 실행 합니다.
 
-    ```powershell
-    Get-AzWvdWorkspace -WorkspaceName <workspace> -ResourceGroupName <resource group> |fl
-    ```
+   ```powershell
+   Get-AzWvdWorkspace -WorkspaceName <workspace> -ResourceGroupName <resource group> |fl
+   ```
 
-  또한 기존 사용자 할당에 대 한 사용자 할당 모드를 지정 해야 합니다.
+   또한 기존 사용자 할당에 대 한 사용자 할당 모드를 지정 해야 합니다.
 
-  - **Copy** 를 사용 하 여 이전 앱 그룹의 모든 사용자 할당을 Azure Resource Manager 응용 프로그램 그룹에 복사 합니다. 사용자는 두 버전의 클라이언트에 대 한 피드를 볼 수 있습니다.
-  - 사용자 할당을 변경 하지 않으려면 **없음** 을 사용 합니다. 나중에 Azure Portal, PowerShell 또는 API를 사용 하 여 사용자 또는 사용자 그룹을 앱 그룹에 할당할 수 있습니다. 사용자는 Azure 가상 데스크톱 (클래식) 클라이언트를 사용 하는 피드만 볼 수 있습니다.
+      - **Copy** 를 사용 하 여 이전 앱 그룹의 모든 사용자 할당을 Azure Resource Manager 응용 프로그램 그룹에 복사 합니다. 사용자는 두 버전의 클라이언트에 대 한 피드를 볼 수 있습니다.
+      - 사용자 할당을 변경 하지 않으려면 **없음** 을 사용 합니다. 나중에 Azure Portal, PowerShell 또는 API를 사용 하 여 사용자 또는 사용자 그룹을 앱 그룹에 할당할 수 있습니다. 사용자는 Azure 가상 데스크톱 (클래식) 클라이언트를 사용 하는 피드만 볼 수 있습니다.
 
-  구독 당 2000 사용자 할당만 복사할 수 있으므로 제한은 구독에 이미 있는 할당 수에 따라 달라 집니다. 모듈은 이미 보유 한 할당 수에 따라 제한을 계산 합니다. 복사할 충분 한 할당이 없는 경우 "사용자 할당을 복사 하는 데 충분 한 역할 할당 할당량이 없습니다." 라는 오류 메시지가 표시 됩니다. 마이그레이션하기 위해-CopyUserAssignments 스위치 없이 명령을 다시 실행 하십시오. "
+   구독 당 2000 사용자 할당만 복사할 수 있으므로 제한은 구독에 이미 있는 할당 수에 따라 달라 집니다. 모듈은 이미 보유 한 할당 수에 따라 제한을 계산 합니다. 복사할 충분 한 할당이 없는 경우 "사용자 할당을 복사 하는 데 충분 한 역할 할당 할당량이 없습니다." 라는 오류 메시지가 표시 됩니다. 마이그레이션하기 위해-CopyUserAssignments 스위치 없이 명령을 다시 실행 하십시오. "
 
 3. 명령을 실행 한 후 모듈에서 서비스 개체를 만드는 데 최대 15 분이 소요 됩니다. 사용자 할당을 복사 하거나 이동한 경우 모듈에서 모든 항목 설정을 완료 하는 데 소요 되는 시간에 추가 됩니다.
 
@@ -202,7 +202,7 @@ Azure 가상 데스크톱 (클래식) 리소스를 Azure Resource Manager로 마
 
 4. 모든 Azure 가상 데스크톱 (클래식) 서비스 개체를 삭제 하려면 **완전 한 RdsHostPoolMigration** 을 실행 하 여 마이그레이션 프로세스를 완료 합니다. 이 cmdlet은 새 Azure 개체만 남기고 모든 Azure 가상 데스크톱 (클래식) 개체를 삭제 합니다. 사용자는 자신의 클라이언트에서 새로 만든 앱 그룹의 피드만 볼 수 있습니다. 이 명령이 완료 되 면 Azure 가상 데스크톱 (클래식) 테 넌 트를 안전 하 게 삭제 하 여 프로세스를 완료할 수 있습니다.
 
-   예:
+   예를 들어:
 
    ```powershell
    Complete-RdsHostPoolMigration -Tenant Contoso -Location EastUS
@@ -218,7 +218,7 @@ Azure 가상 데스크톱 (클래식) 리소스를 Azure Resource Manager로 마
 
 5. 마이그레이션에 대 한 점을 변경 하 고 프로세스를 되돌리려면 **revert-RdsHostPoolMigration** cmdlet을 실행 합니다.
     
-   예:
+   예를 들어:
 
    ```powershell
    Revert-RdsHostPoolMigration -Tenant Contoso -Location EastUS
@@ -236,38 +236,38 @@ Azure 가상 데스크톱 (클래식) 리소스를 Azure Resource Manager로 마
 
 6. Azure 가상 데스크톱 (클래식) 서비스 개체를 아직 삭제 하지 않고 마이그레이션을 테스트 하려는 경우에는 **Set RdsHostPoolHidden** 을 실행할 수 있습니다.
 
-    예:
+    예를 들어:
 
     ```powershell
     Set-RdsHostPoolHidden -Tenant Contoso -Hostpool Office -Hidden $true -Location WestUS
     ```
 
-    상태를 "true"로 설정 하면 Azure 가상 데스크톱 (클래식) 리소스가 숨겨집니다. "false"로 설정하면 사용자에게 리소스가 공개됩니다.
+    상태를 "true"로 설정 하면 Azure 가상 데스크톱 (클래식) 리소스가 숨겨집니다. "False"로 설정 하면 사용자에 게 리소스를 표시 합니다.
 
-    *-Hostpool* 매개 변수는 선택 사항입니다. 숨기려는 특정 Azure Virtual Desktop(클래식) 호스트 풀이 있는 경우 이 매개 변수를 사용할 수 있습니다.
+    *-Hostpool* 매개 변수는 선택 사항입니다. 숨기려는 특정 Azure 가상 데스크톱 (클래식) 호스트 풀이 있는 경우이 매개 변수를 사용할 수 있습니다.
 
-    이 cmdlet은 Azure Virtual Desktop(클래식) 사용자 피드 및 서비스 개체를 삭제하는 대신 숨깁니다. 그러나 일반적으로 테스트에만 사용되며 완료된 마이그레이션으로 계산되지 않습니다. 마이그레이션을 완료하려면 **Complete-RdsHostPoolMigration** 명령을 실행해야 합니다. 그렇지 않으면 **Revert-RdsHostPoolMigration 을** 실행하여 배포를 되돌려 보세요.
+    이 cmdlet은 Azure 가상 데스크톱 (클래식) 사용자 피드 및 서비스 개체를 삭제 하는 대신 숨깁니다. 그러나이는 일반적으로 테스트에만 사용 되며 마이그레이션 완료로 계산 되지 않습니다. 마이그레이션을 완료 하려면 **전체-RdsHostPoolMigration** 명령을 실행 해야 합니다. 그렇지 않은 경우 **revert-RdsHostPoolMigration** 을 실행 하 여 배포를 되돌립니다.
 
 ## <a name="troubleshoot-automatic-migration"></a>자동 마이그레이션 문제 해결
 
-이 섹션에서는 마이그레이션 모듈에서 일반적으로 발생하는 문제를 해결하는 방법을 설명합니다.
+이 섹션에서는 마이그레이션 모듈에서 자주 발생 하는 문제를 해결 하는 방법을 설명 합니다.
 
-### <a name="i-cant-access-the-tenant"></a>테넌트에서 액세스할 수 없습니다.
+### <a name="i-cant-access-the-tenant"></a>테 넌 트에 액세스할 수 없습니다.
 
-먼저 다음 두 가지를 시도합니다.
+먼저 다음과 같은 두 가지 작업을 수행 합니다.
 
-- 관리자 계정에 테넌트 액세스에 필요한 권한이 있는지 확인합니다.
-- 테넌트에서 **Get-RdsTenant를** 실행해 보세요.
+- 관리자 계정에 테 넌 트에 액세스 하는 데 필요한 권한이 있는지 확인 합니다.
+- 테 넌 트에서 **RdsTenant** 을 실행 해 보세요.
 
-이러한 두 가지 작업이 작동하는 경우 **Set-RdsMigrationContext** cmdlet을 실행하여 마이그레이션에 대한 RDS 컨텍스트 및 ADAL 컨텍스트를 설정합니다.
+이러한 두 가지 작업을 수행 하는 경우 **RdsMigrationContext** cmdlet을 실행 하 여 마이그레이션에 대 한 RDS 컨텍스트 및 ADAL 컨텍스트를 설정 합니다.
 
-1. **Add-RdsAccount** cmdlet을 실행하여 RDS 컨텍스트를 만듭니다.       
+1. **RdsAccount** cmdlet을 실행 하 여 RDS 컨텍스트를 만듭니다.       
 
-2. 전역 변수 $rdMgmtContext RDS 컨텍스트를 찾습니다.         
+2. *$RdMgmtContext* 전역 변수에서 RDS 컨텍스트를 찾습니다.         
 
-3. 전역 변수 $AdalContext ADAL 컨텍스트를 찾습니다.
+3. *$AdalContext* 전역 변수에서 ADAL 컨텍스트를 찾습니다.
 
-4. 다음 형식으로 찾은 변수를 사용하여 **Set-RdsMigrationContext를** 실행합니다.
+4. 다음 형식으로 찾은 변수를 사용 하 여 **RdsMigrationContext** 를 실행 합니다.
 
    ```powershell
    Set-RdsMigrationContext -RdsContext <rdscontext> -AdalContext <adalcontext>
@@ -275,7 +275,7 @@ Azure 가상 데스크톱 (클래식) 리소스를 Azure Resource Manager로 마
 
 ## <a name="next-steps"></a>다음 단계
 
-배포를 수동으로 마이그레이션하는 방법을 알아보려면 [Azure Virtual Desktop(클래식)에서 수동으로 마이그레이션을](manual-migration.md)참조하세요.
+배포를 수동으로 마이그레이션하는 방법을 알아보려면 [Azure 가상 데스크톱에서 수동으로 마이그레이션 (클래식)](manual-migration.md)을 참조 하세요.
 
 마이그레이션한 후에 [자습서](create-host-pools-azure-marketplace.md)를 확인하여 Azure Virtual Desktop이 어떻게 작동하는지 알아봅니다. [기존 호스트 풀 확장](expand-existing-host-pool.md) 및 [RDP 속성 사용자 지정](customize-rdp-properties.md)에서 고급 관리 기능에 대해 알아봅니다.
 

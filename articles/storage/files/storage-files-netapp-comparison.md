@@ -8,12 +8,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 8/31/2021
 ms.author: jeffpatt
-ms.openlocfilehash: 66f49ce09569b3f23b3b1691e4c9ac280890ae81
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: ac4965bf9de7b579704aa522ff08826f4f969cf2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130217680"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131463205"
 ---
 # <a name="azure-files-and-azure-netapp-files-comparison"></a>Azure Files 및 Azure NetApp Files 비교
 
@@ -44,7 +44,7 @@ ms.locfileid: "130217680"
 |---------|---------|---------|
 | 최소 공유/볼륨 크기 | Premium<br><ul><li>100GiB</li></ul><br>Standard<br><ul><li>최소값 없음</li></ul> | 모든 계층<br><ul><li>100GiB(최소 용량 풀 크기: 4TiB)</li></ul> |
 | 최대 공유/볼륨 크기 | 100TiB | 모든 계층<br><ul><li>100TiB(500TiB 용량 풀 제한)</li></ul><br>Azure NetApp 계정당 최대 12.5PiB입니다. |
-| 최대 공유/볼륨 IOPS | Premium<br><ul><li>최대 10만개</li></ul><br>Standard<br><ul><li>최대 10만개</li></ul> | Ultra 및 프리미엄<br><ul><li>최대 45만개 </li></ul><br>Standard<br><ul><li>최대 32만개</li></ul> |
+| 최대 공유/볼륨 IOPS | Premium<br><ul><li>최대 10만개</li></ul><br>Standard<br><ul><li>최대 20k</li></ul> | Ultra 및 프리미엄<br><ul><li>최대 45만개 </li></ul><br>Standard<br><ul><li>최대 32만개</li></ul> |
 | 최대 공유/볼륨 처리량 | Premium<br><ul><li>최대 10GiB/초</li></ul><br>Standard<br><ul><li>최대 300MiB/초</li></ul> | Ultra 및 프리미엄<br><ul><li>최대 4.5GiB/초</li></ul><br>Standard<br><ul><li>최대 3.2GiB/초</li></ul> |
 | 최대 파일 크기 | 4TiB | 16TiB |
 | 파일당 최대 IOPS | Premium<br><ul><li>최대 8,000</li></ul><br>Standard<br><ul><li>1,000</li></ul> | 모든 계층<br><ul><li>최대 볼륨 제한</li></ul> |

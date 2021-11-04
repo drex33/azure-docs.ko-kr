@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/01/2021
-ms.openlocfilehash: cae696e8a7bd5fbe477a1f4b5af5d4838d7d599b
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
-ms.translationtype: HT
+ms.openlocfilehash: f3db72dacc67b4e0235c2b982d547475542bc49f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111557129"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131475277"
 ---
 # <a name="how-to-index-csv-blobs-using-delimitedtext-parsing-mode-and-blob-indexers-in-azure-cognitive-search"></a>Azure Cognitive Search에서 delimitedText 구문 분석 모드 및 Blob 인덱서를 사용하여 CSV Blob을 인덱싱하는 방법
 
@@ -55,10 +55,10 @@ Blob이 초기 헤더 줄을 포함하지 않는 경우 헤더는 인덱서 구�
 ```
 
 > [!NOTE]
-> 현재는 UTF-8 인코딩만 지원됩니다. 다른 인코딩을 지원해야 하는 경우 [UserVoice](https://feedback.azure.com/forums/263029-azure-search)에서 투표하세요.
+> 현재는 UTF-8 인코딩만 지원됩니다. 다른 인코딩을 지원해야 하는 경우 [UserVoice](https://feedback.azure.com/d365community/forum/9325d19e-0225-ec11-b6e6-000d3a4f07b8)에서 투표하세요.
 
 > [!IMPORTANT]
-> 구분된 텍스트 구문 분석 모드를 사용하는 경우 Azure Cognitive Search는 데이터 원본의 모든 Blob이 CSV라고 가정합니다. 동일한 데이터 원본에서 CSV 및 비 CSV Blob을 지원해야 하는 경우 [UserVoice](https://feedback.azure.com/forums/263029-azure-search)에서 투표하세요.
+> 구분된 텍스트 구문 분석 모드를 사용하는 경우 Azure Cognitive Search는 데이터 원본의 모든 Blob이 CSV라고 가정합니다. 동일한 데이터 원본에서 CSV 및 비 CSV Blob을 지원해야 하는 경우 [UserVoice](https://feedback.azure.com/d365community/forum/9325d19e-0225-ec11-b6e6-000d3a4f07b8)에서 투표하세요.
 >
 
 ## <a name="request-examples"></a>요청 예제

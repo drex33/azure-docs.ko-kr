@@ -3,12 +3,12 @@ title: Azure Batch의 노드 및 풀
 description: 컴퓨팅 노드 및 풀에 대해 살펴보고 개발 관점에서 Azure Batch 워크플로에서 이들을 사용하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: 7d4c2d45849deb011498efe4c8a1ae91724b9acd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 6d5556bd719f982995c9353003f2c9dccc1e1a48
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103563898"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443398"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Azure Batch의 노드 및 풀
 
@@ -90,7 +90,7 @@ Cloud Services 내의 작업자 역할과 마찬가지로 ‘OS 버전’을 지
 
 ### <a name="custom-images-for-virtual-machine-pools"></a>Virtual Machine 풀에 대한 사용자 지정 이미지
 
-사용자 지정 이미지를 사용하여 풀을 만드는 방법에 대한 자세한 내용은 [Shared Image Gallery를 사용하여 사용자 지정 풀 만들기](batch-sig-images.md)를 참조하세요.
+사용자 지정 이미지를 사용하여 풀을 만드는 방법을 알아보려면 [Azure Compute 갤러리를 사용하여 사용자 지정 풀 만들기를](batch-sig-images.md)참조하세요.
 
 또는 [관리 이미지](batch-custom-images.md) 리소스를 사용하여 가상 머신의 사용자 지정 풀을 만들 수 있습니다. Azure VM에서 사용자 지정 Linux 이미지를 준비하는 방법에 대한 자세한 내용은 [가상 머신 또는 VHD의 이미지를 만드는 방법](../virtual-machines/linux/capture-image.md)을 참조하세요. Azure VM에서 사용자 지정 Windows 이미지를 준비하는 방법에 대한 자세한 내용은 [Azure에서 일반화된 VM의 관리 이미지 만들기](../virtual-machines/windows/capture-image-resource.md)를 참조하세요.
 

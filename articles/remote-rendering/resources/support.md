@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 04/22/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 1a05216fd44a64c037561662009987615f5657a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 04246efb53b64e81cebde162f4cbd2f8f2621488
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "92207175"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131475524"
 ---
 # <a name="azure-remote-rendering-support-options"></a>Azure Remote Rendering 지원 옵션
 
@@ -51,7 +51,7 @@ Azure Portal 내에서 Azure Remote Rendering에 대한 기술 지원 티켓을 
 
 ## <a name="provide-product-feedback"></a>제품 사용자 의견 제공
 
-사용자 의견을 제공하거나, Azure Remote Rendering에 대한 아이디어 또는 제안을 공유하거나, 다른 사람이 제출한 아이디어에 투표하려면 [Azure Remote Rendering 피드백 포럼](https://feedback.azure.com/forums/928696-azure-remote-rendering)을 방문하세요.
+사용자 의견을 제공하거나, Azure Remote Rendering에 대한 아이디어 또는 제안을 공유하거나, 다른 사람이 제출한 아이디어에 투표하려면 [Azure Remote Rendering 피드백 포럼](https://feedback.azure.com/d365community/forum/46aa4cc0-fd24-ec11-b6e6-000d3a4f07b8)을 방문하세요.
 
 
 ## <a name="microsoft-qa"></a>Microsoft Q&A

@@ -5,15 +5,15 @@ author: linda33wj
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: tutorial
-ms.date: 01/22/2018
+ms.date: 10/22/2021
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 55f2bd3a6d8c71d768bd73ff2ddcfb15ce00ed6f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 99b968a63648a9e79a00c7f731e924414d727b65
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128651240"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "131446177"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 데이터를 이동하는 Data Factory 파이프라인 만들기
 > [!div class="op_single_selector"]

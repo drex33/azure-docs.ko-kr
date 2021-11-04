@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/01/2020
 ms.author: mimckitt
-ms.openlocfilehash: 762ab1e62adc81ba4e4098167c65e19e405890d7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ff590e8c3835c78e59921b6ba96c83786c0bf289
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128624788"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131074369"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>이전 세대의 가상 머신 크기
 
@@ -54,6 +54,8 @@ Premium Storage:  지원됨
 
 Premium Storage 캐싱:  지원됨
 
+[임시 OS 디스크](ephemeral-os-disks.md): 지원됨
+
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수/예상 네트워크 대역폭(Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_F1s  | 1  | 2  | 4  | 4  | 4000/32 (12)    | 3200/48   | 2/750   |
@@ -75,6 +77,8 @@ NVv2 시리즈 가상 머신은 [NVIDIA Tesla M60](https://images.nvidia.com/con
 
 NVv2 인스턴스의 각 GPU에는 GRID 라이선스가 함께 제공됩니다. 이 라이선스가 있으면 NV 인스턴스를 단일 사용자를 위한 가상 워크스테이션으로 유연하게 사용하거나, 25명의 동시 사용자가 가상 애플리케이션 시나리오를 위해 VM에 연결할 수 있습니다.
 
+[임시 OS 디스크](ephemeral-os-disks.md): 지원됨
+
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 NIC 수 | 가상 워크스테이션 | 가상 애플리케이션 |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_NV6s_v2  | 6  | 112 | 320  | 1 | 8  | 12 | 4 | 1 | 25  |
@@ -85,7 +89,7 @@ NVv2 인스턴스의 각 GPU에는 GRID 라이선스가 함께 제공됩니다. 
 
 이 섹션에서는 이전 세대의 가상 머신 크기에 대한 정보를 제공합니다. 이러한 크기는 계속 지원되지만 추가 용량을 수신하지 않습니다. 일반적으로 사용할 수 있는 새로운 크기 또는 대체 크기가 있습니다. 사용자 요구에 가장 적합한 VM 크기를 선택하려면 [Azure의 가상 머신 크기](./sizes.md)를 참조하세요.  
 
-Linux VM 크기 조정에 대한 자세한 내용은 VM [크기 조정을 참조하세요.](resize-vm.md)  
+Linux VM의 크기를 조정 하는 방법에 대 한 자세한 내용은 [VM 크기 조정](resize-vm.md)을 참조 하세요.  
 
 <br>
 
@@ -220,6 +224,8 @@ Premium Storage: 지원됨
 
 Premium Storage 캐싱: 지원됨
 
+[임시 OS 디스크](ephemeral-os-disks.md): 지원됨
+
 DC 시리즈는 최신 세대의 3.7GHz Intel XEON E-2176G 프로세서를 SGX 기술과 함께 사용하며 Intel Turbo Boost 기술을 사용하면 최대 4.7GHz까지 작동할 수 있습니다. 
 
 | 크기          | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
@@ -289,6 +295,8 @@ Premium Storage:  지원됨
 
 Premium Storage 캐싱:  지원되지 않음
 
+[임시 OS 디스크](ephemeral-os-disks.md): 지원됨
+
 | 크기 | vCPU | 메모리(GiB) | 임시 스토리지(GiB) | 최대 데이터 디스크 수 | 최대 임시 스토리지 처리량(IOPS/MBps) | 최대 캐시되지 않은 디스크 처리량(IOPS/MBps) | 최대 NIC 수/예상 네트워크 대역폭(Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_L4s   | 4  | 32  | 678  | 16 | 20000/200 | 5000/125  | 2/4000  |
@@ -309,6 +317,8 @@ ACU: 180 - 240 <sup>1</sup>
 Premium Storage:  지원됨
 
 Premium Storage 캐싱:  지원됨
+
+[임시 OS 디스크](ephemeral-os-disks.md): 지원됨
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수/예상 네트워크 대역폭(Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -410,8 +420,9 @@ NC24rs v2 구성은 긴밀하게 결합된 병렬 컴퓨팅 작업에 최적화�
 [실시간 마이그레이션](maintenance-and-updates.md): 지원되지 않음<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원되지 않음<br>
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
+[임시 OS 디스크](ephemeral-os-disks.md): 지원됨<br>
 
-> 이 VM 시리즈에 대해서는 구독의 vCPU(코어) 할당량이 초기에 각 지역에서 0으로 설정됩니다. [사용 가능한 지역](https://azure.microsoft.com/regions/services/)에서 이 시리즈에 대한 [vCPU 할당량 증가를 요청](../azure-portal/supportability/regional-quota-requests.md)합니다.
+> 이 VM 시리즈의 경우 구독의 vCPU(코어) 할당량은 각 지역에서 처음에 0으로 설정됩니다. [사용 가능한 지역](https://azure.microsoft.com/regions/services/)에서 이 시리즈에 대한 [vCPU 할당량 증가를 요청](../azure-portal/supportability/regional-quota-requests.md)합니다.
 >
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 |
 |---|---|---|---|---|---|---|---|---|
@@ -436,6 +447,7 @@ ND 시리즈 가상 머신은 AI 및 딥러닝 워크로드용으로 설계된 G
 [실시간 마이그레이션](maintenance-and-updates.md): 지원되지 않음<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원되지 않음<br>
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
+[임시 OS 디스크](ephemeral-os-disks.md): 지원됨<br>
 
 > 이 VM 시리즈의 경우, 구독의 지역당 vCPU(코어) 할당량이 초기에 0으로 설정됩니다. [사용 가능한 지역](https://azure.microsoft.com/regions/services/)에서 이 시리즈에 대한 [vCPU 할당량 증가를 요청](../azure-portal/supportability/regional-quota-requests.md)합니다.
 >

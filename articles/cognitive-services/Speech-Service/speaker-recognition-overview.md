@@ -10,18 +10,21 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: pafarley
-ms.custom: cog-serv-seo-aug-2020
+ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 keywords: 스피커 인식, 음성 생체 측정
-ms.openlocfilehash: c3f71ab3adc93546b0cd748968a0099743455be8
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 44772137d9b9e3366a2a04fded34fa81dafe8886
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123536998"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058391"
 ---
-# <a name="what-is-speaker-recognition-preview"></a>Speaker Recognition(미리 보기)이란?
+# <a name="what-is-speaker-recognition"></a>Speaker Recognition이란?
 
-Speaker Recognition 서비스는 고유한 음성 특성에 따라 화자를 확인 및 식별하는 알고리즘을 제공합니다. 화자 인식은 "누가 말하고 있나요?"라는 질문에 대답하는 데 사용됩니다. 단일 화자에 대한 오디오 학습 데이터를 제공하면 해당 화자 음성의 고유한 특성을 기반으로 등록 프로필이 생성됩니다. 그런 다음 이 프로필과 오디오 음성 샘플을 비교 확인하여 화자가 동일한 사람인지 확인하거나(화자 검증) 등록된 화자 프로필 *그룹* 과 오디오 음성 샘플을 비교 확인하여 그룹의 어떤 프로필(화자 식별)과 일치하는지 확인합니다. 반대로 [화자 분할](batch-transcription.md#speaker-separation-diarization)은 일괄 처리 작업에서 화자별로 오디오 세그먼트를 그룹화합니다.
+Speaker Recognition 오디오 클립에서 말하는 사람을 결정하는 데 사용됩니다. 이 서비스는 음성 생체 분석을 사용하여 고유한 음성 특성으로 화자를 확인하고 식별할 수 있습니다. 단일 화자에 대한 오디오 학습 데이터를 제공하면 해당 화자 음성의 고유한 특성을 기반으로 등록 프로필이 생성됩니다. 그런 다음, 이 프로필에 대해 오디오 음성 샘플을 교차 확인하여 화자가 동일한 사람(화자 검증)인지 확인하거나 등록된 화자 프로필 *그룹에* 대해 오디오 음성 샘플을 교차 확인하여 그룹의 프로필(화자 식별)과 일치하는지 확인할 수 있습니다.
+
+> [!IMPORTANT]
+> Microsoft에서는 Speaker Recognition에 대한 액세스를 제한합니다. [Azure Cognitive Services Speaker Recognition 제한된 액세스 검토](https://aka.ms/azure-speaker-recognition)를 통해 사용을 신청합니다. 승인 후에는 Speaker Recognition API에 액세스할 수 있습니다. 자세한 내용은 Speaker Recognition [대한 제한된 액세스를](/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition)방문하세요.
 
 ## <a name="speaker-verification"></a>화자 검증
 
@@ -35,7 +38,7 @@ Speaker Recognition 서비스는 고유한 음성 특성에 따라 화자를 확
 
 **텍스트 종속** 검증의 경우 사전 정의된 구문 집합의 암호를 말하여 화자의 음성을 등록합니다. 음성 기능은 오디오 녹음에서 추출되어 고유한 음성 서명을 구성하며 선택한 암호도 인식됩니다. 음성 서명과 암호를 함께 사용하여 화자를 확인합니다. 
 
-**텍스트 독립** 검증은 유사성을 평가하기 위한 용도로만 음성 특징을 추출하므로 등록 중에 화자가 말하는 내용이나 검증할 오디오 샘플에 제한이 없습니다. 
+**텍스트 독립적** 검증은 등록을 활성화하기 위한 초기 활성화 문구 외에 등록 중에 화자가 말하는 내용에 제한이 없습니다. 유사성 점수를 매기는 음성 기능만 추출하기 때문에 확인할 오디오 샘플에 대한 제한은 없습니다. 
 
 이 API는 오디오가 실제 사람의 오디오인지 등록된 화자의 모방/녹음인지 확인하는 용도로는 사용할 수 없습니다. 
 
@@ -48,7 +51,7 @@ Speaker Recognition 서비스는 고유한 음성 특성에 따라 화자를 확
 
 ### <a name="how-does-speaker-identification-work"></a>화자 식별 작동 방법
 
-화자 식별 등록은 **텍스트와 관련이 없으므로** 화자가 오디오에서 말하는 내용에 대한 제한이 없습니다. 화자 검증과 마찬가지로 등록 단계에서 화자의 음성이 녹음되고 음성 특징이 추출되어 고유한 음성 서명을 구성합니다. 식별 단계에서는 입력된 음성 샘플이 등록된 음성의 지정된 목록(각 요청마다 최대 50개)과 비교됩니다.
+화자 식별 등록은 **텍스트 독립적이며,** 이는 등록을 활성화하기 위한 초기 활성화 문구 외에 오디오에서 화자가 말하는 내용에 제한이 없음을 의미합니다. Speaker Verification 마찬가지로, 화자의 음성은 등록 단계에서 녹음되고, 음성 기능이 추출되어 고유한 음성 서명을 형성합니다. 식별 단계에서는 입력된 음성 샘플이 등록된 음성의 지정된 목록(각 요청마다 최대 50개)과 비교됩니다.
 
 ## <a name="data-security-and-privacy"></a>데이터 보안 및 개인 정보
 
@@ -56,7 +59,7 @@ Speaker Recognition 서비스는 고유한 음성 특성에 따라 화자를 확
 
 데이터 보존 기간은 사용자가 제어합니다. API 호출을 통해 개별 화자의 등록 데이터를 생성, 업데이트 및 삭제할 수 있습니다. 구독이 삭제되면 구독과 연결된 모든 화자 등록 데이터도 삭제됩니다. 
 
-모든 Cognitive Services 리소스와 마찬가지로 Speaker Recognition 서비스를 사용하는 개발자는 고객 데이터에 대한 Microsoft 정책을 알고 있어야 합니다. Speaker Recognition을 위해서는 사용자로부터 적절한 권한을 받았는지 확인해야 합니다. 자세한 내용은 Microsoft Trust Center의  [Cognitive Services 페이지](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/) 를 참조하세요. 
+모든 Cognitive Services 리소스와 마찬가지로 Speaker Recognition 서비스를 사용하는 개발자는 고객 데이터에 대한 Microsoft 정책을 알고 있어야 합니다. Speaker Recognition을 위해서는 사용자로부터 적절한 권한을 받았는지 확인해야 합니다. 자세한 내용은 Speaker Recognition [데이터 및 개인 정보에서](/legal/cognitive-services/speech-service/speaker-recognition/data-privacy-speaker-recognition)찾을 수 있습니다. 자세한 내용은 Microsoft Trust Center의  [Cognitive Services 페이지](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/) 를 참조하세요. 
 
 ## <a name="common-questions-and-solutions"></a>일반적인 질문 및 솔루션
 
@@ -64,7 +67,7 @@ Speaker Recognition 서비스는 고유한 음성 특성에 따라 화자를 확
 |---------|----------|
 | Speaker Recognition은 어떤 시나리오에 사용할 수 있나요? | 콜 센터 고객 검증, 음성 기반 환자 체크인, 회의 전사, 다중 사용자 디바이스 개인 설정|
 | 식별과 검증의 차이점은 무엇인가요? | 식별은 화자 그룹에서 어떤 구성원이 말하고 있는지 감지하는 프로세스입니다. 검증은 화자가 알려진 또는 **등록된** 음성과 일치하는지 확인하는 작업입니다.|
-| 텍스트 종속 검증과 텍스트 독립 검증의 차이점은 무엇인가요? | 텍스트 종속 검증에는 등록 및 인식을 위한 특정 암호가 필요합니다. 텍스트 독립 검증에는 등록을 위해 더 긴 음성 샘플이 필요하지만 인식하는 동안을 포함하여 어떤 말이든 할 수 있습니다.|
+| 텍스트 종속 검증과 텍스트 독립 검증의 차이점은 무엇인가요? | 텍스트 종속 검증에는 등록 및 인식을 위한 특정 암호가 필요합니다. 텍스트 독립적 확인에는 등록을 위해 특정 활성화 문구로 시작해야 하는 더 긴 음성 샘플이 필요하지만 인식 중을 포함하여 모든 것을 말할 수 있습니다.|
 | 어떤 언어가 지원되나요? | 영어, 프랑스어, 스페인어, 중국어, 독일어, 이탈리아어, 일본어 및 포르투갈어 |
 | 어떤 Azure 지역이 지원되나요? | Speaker Recognition은 미리 보기 서비스이며 현재 미국 서부 지역에서만 사용할 수 있습니다.|
 | 지원되는 오디오 형식은 무엇인가요? | Mono 16비트, 16kHz PCM으로 인코딩된 WAV |
@@ -77,3 +80,11 @@ Speaker Recognition 서비스는 고유한 음성 특성에 따라 화자를 확
 > [!div class="nextstepaction"]
 > * 애플리케이션에서 사용할 수 있는 일반적인 디자인 패턴을 살펴보려면 Speaker Recognition [기본 문서](./get-started-speaker-recognition.md)를 완료하세요.
 > * 텍스트 독립 화자 검증에 대해서는 [동영상 자습서](https://azure.microsoft.com/resources/videos/speaker-recognition-text-independent-verification-developer-tutorial/)를 참조하세요.
+
+## <a name="responsible-use-of-ai"></a>AI의 책임 있는 사용
+> [!div class="ResponsibleUseOfAI"]
+> * [Speaker Recognition 대한 투명도 참고 사항](/legal/cognitive-services/speech-service/speaker-recognition/transparency-note-speaker-recognition)
+> * [Speaker Recognition 대한 특징 및 제한 사항](/legal/cognitive-services/speech-service/speaker-recognition/characteristics-and-limitations-speaker-recognition)
+> * [Speaker Recognition 대한 액세스 제한](/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition)
+> * [Speaker Recognition 통합 및 책임 있는 사용에 대한 지침](/legal/cognitive-services/speech-service/speaker-recognition/guidance-integration-responsible-use-speaker-recognition)
+> * [Speaker Recognition 대한 데이터 및 개인 정보](/legal/cognitive-services/speech-service/speaker-recognition/data-privacy-speaker-recognition)

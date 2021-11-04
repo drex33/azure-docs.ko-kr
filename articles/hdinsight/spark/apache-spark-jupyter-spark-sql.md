@@ -4,15 +4,13 @@ description: 이 빠른 시작에서는 Resource Manager 템플릿을 사용하�
 ms.date: 03/13/2020
 ms.topic: quickstart
 ms.service: hdinsight
-ms.custom:
-- subject-armqs
-- mode-arm
-ms.openlocfilehash: bf5b2a437d6c6165d6a95ea135d91f4f183ab4e2
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.custom: subject-armqs, mode-arm
+ms.openlocfilehash: a7d530dacaf6aab035d2dfd2817cbe120b86b3eb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111558623"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131077632"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure HDInsight에서 Apache Spark 클러스터 만들기
 
@@ -49,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 다음 값을 입력하거나 선택합니다.
 
-    |속성 |Description |
+    |속성 |설명 |
     |---|---|
     |Subscription|드롭다운 목록에서 클러스터에 사용할 Azure 구독을 선택합니다.|
     |Resource group|드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 를 선택합니다.|

@@ -7,13 +7,13 @@ ms.service: data-factory
 ms.subservice: pricing
 ms.topic: how-to
 ms.custom: subject-cost-optimization
-ms.date: 04/28/2021
-ms.openlocfilehash: aba57e9ba46faef60f97819fa3de3e89fa94f00e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 11/01/2021
+ms.openlocfilehash: 51f71bcf39f0b54bf0f7fb389fbbb9797fbb2151
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642332"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469467"
 ---
 # <a name="plan-to-manage-costs-for-azure-data-factory"></a>Azure Data Factory의 비용 관리 계획
 
@@ -73,12 +73,15 @@ Azure Data Factory 리소스를 만들거나 사용하는 경우 다음 측정 �
 
 ### <a name="other-costs-that-might-accrue-with-azure-data-factory"></a>Azure Data Factory로 인해 발생할 수 있는 기타 비용
 
-Azure Data Factory에 대해 리소스를 만들면 다른 Azure 서비스에 대한 리소스도 생성됩니다. 해당 기능은 아래와 같습니다.
+ADF (Azure Data Factory)에 대 한 리소스를 만들 때 다른 Azure 서비스에 대 한 리소스도 생성 됩니다. 해당 기능은 아래와 같습니다.
 
 - 파이프라인 활동 실행
 - 외부 파이프라인 활동 실행
 - 데이터 팩터리 아티팩트의 생성/편집/검색/모니터링
-- 인스턴스 유형 및 기간을 기반으로 하는 SSIS Integration Runtime 기간
+- 인스턴스 유형 및 기간을 기반으로 하는 IR (SSIS Integration Runtime) 기간
+
+> [!NOTE]
+> ADF 및 기타 Azure 리소스에 동일한 태그를 할당 하 여 동일한 범주에 배치 하 여 통합 된 청구를 볼 수 있습니다. ADF 태그는 모든 SSIS IRs 상속 됩니다. ADF 태그를 변경 하는 경우 새 태그를 상속 하려면 모든 SSIS IRs을 중지 했다가 다시 시작 해야 합니다. [SSIS IR 다시 구성](manage-azure-ssis-integration-runtime.md#to-reconfigure-an-azure-ssis-ir) 섹션을 참조 하세요.
 
 ### <a name="using-azure-prepayment-with-azure-data-factory"></a>Azure Data Factory와 함께 Azure 선불 사용
 
@@ -141,7 +144,7 @@ Azure Data Factory 사용자 환경에서 개별 파이프라인 실행에 대�
 
 ## <a name="create-budgets"></a>예산 만들기
 
-[예산](../cost-management-billing/costs/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 만들면 비용을 관리하고 관련자에게 비정상 지출 및 과다 지출 위험을 자동으로 알리는 [경고](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)를 만들 수 있습니다. 경고는 예산 및 비용 임계값에 따른 지출을 기준으로 합니다. 예산 및 경고는 Azure 구독 및 리소스 그룹에 대해 만들어지므로 전체 비용 모니터링 전략의 일부로 유용합니다. 
+[예산](../cost-management-billing/costs/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 만들면 비용을 관리하고 관련자에게 비정상 지출 및 과다 지출 위험을 자동으로 알리는 [경고](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)를 만들 수 있습니다. 경고는 예산 및 비용 임계값에 따른 지출을 기준으로 합니다. Azure 구독 및 리소스 그룹에 대한 예산 및 경고가 만들어지므로 전체 비용 모니터링 전략의 일부로 유용합니다. 
 
 모니터링에 더 많은 세분성을 제공하려는 경우 Azure의 특정 리소스 또는 서비스에 대한 필터를 사용하여 예산을 만들 수 있습니다. 필터를 통해 추가 비용을 발생시키는 새 리소스를 실수로 만들지 않도록 할 수 있습니다. 예산을 만들 때 사용할 수 있는 필터 옵션에 대한 자세한 내용은 [그룹 및 필터 옵션](../cost-management-billing/costs/group-filter.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 참조하세요.
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 3c41a7b8efad5ab0235adb396d0170f5385e21c6
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 50958765e0ff582e630d5a78b3d17f871a0c41aa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123437817"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072487"
 ---
 # <a name="tutorial-migrate-an-android-app-from-google-maps"></a>자습서: Google Maps에서 Android 앱 마이그레이션
 
@@ -261,14 +261,14 @@ Android용 Azure Maps SDK를 사용하여 맵을 표시하려면 다음 단계�
         implementation "com.azure.android:azure-maps-control:1.0.0"
         ```
 
-        > [!Note]
+        > [!NOTE]
         > 버전 번호를 "0+"로 설정하여 코드가 항상 최신 버전을 가리키게 할 수 있습니다.
 
     4. 도구 모음에서 **파일** 로 이동한 다음, **Gradle 파일과 프로젝트 동기화** 를 클릭합니다.
 
 3. 다음과 같이 기본 작업에 맵 조각을 추가합니다(리소스 pwd\> 레이아웃 \> 작업\_main.xml):
 
-    ```XML
+    ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -546,7 +546,7 @@ baseContext.resources.updateConfiguration(
 
 Azure Maps는 맵의 언어 및 지역 보기를 설정하는 세 가지 방법을 제공합니다. 첫 번째 옵션은 언어 및 지역 보기 정보를 `AzureMaps` 클래스에 전달하는 것입니다. 이 옵션은 정적 `setLanguage` 및 `setView` 메서드를 전역적으로 사용합니다. 즉, 앱에 로드된 모든 Azure Maps 컨트롤에서 기본 언어 및 지역 보기가 설정됩니다. 다음 예제에서는 &quot;fr-FR&quot; 언어 코드를 사용하여 프랑스어를 설정합니다.
 
-::: zone pivot="programming-language-java-android"
+::: zone pivot=&quot;programming-language-java-android&quot;
 
 ```java
 static {

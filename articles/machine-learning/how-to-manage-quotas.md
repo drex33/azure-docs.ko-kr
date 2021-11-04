@@ -10,12 +10,12 @@ ms.author: siarora
 ms.date: 06/14/2021
 ms.topic: how-to
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: bbfcf7fd3edb483415041a4706e7a5cd22e2d76a
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 6da58d3f37af146c2cb1371cd8b18f134c24d0a2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129997122"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067435"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 리소스 할당량 관리 및 증가
 
@@ -119,7 +119,7 @@ Azure Machine Learning 관리되는 온라인 엔드포인트에는 다음과 �
 | 엔드포인트 수준에서 최대 요청 시간 초과  | 60초 |
 | 모든 배포에 대한 엔드포인트 수준의 총 QPS | 100 |
 
-<sup>1</sup> 과 같은 단일 `my-endpoint-name` 대시는 엔드포인트 및 배포 이름에 허용됩니다.
+<sup>1</sup> ,와 같은 단일 파선 `my-endpoint-name` 은 끝점 및 배포 이름에 허용 됩니다.
 
 ### <a name="azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인
 [Azure Machine Learning 파이프라인](concept-ml-pipelines.md)은 다음 한도를 갖습니다.
@@ -202,4 +202,4 @@ Azure Storage는 구독당 지역별로 250개의 스토리지 계정으로 제�
 
 + [Azure Machine Learning 비용 계획 및 관리](concept-plan-manage-cost.md)
 + [Azure Machine Learning의 서비스 한도](resource-limits-quotas-capacity.md)
-+ [관리형 온라인 엔드포인트 배포 및 채점(미리 보기) 문제 해결](how-to-troubleshoot-managed-online-endpoints.md)
++ [관리형 온라인 엔드포인트 배포 및 채점(미리 보기) 문제 해결](./how-to-troubleshoot-online-endpoints.md)

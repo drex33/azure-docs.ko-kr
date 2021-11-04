@@ -1,18 +1,18 @@
 ---
-title: Azure Automation 계정에 대해 사용자가 할당한 관리 ID 제거(미리 보기)
+title: Azure Automation 계정에 대 한 사용자 할당 관리 id 제거
 description: 이 문서에서는 Azure Automation 계정에 대해 사용자가 할당한 관리 ID를 제거하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/24/2021
+ms.date: 10/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2f5aba42974c34f9d6799f3965848bdd0ca3787c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 11db735a21e4d4007c35f1a82f1e5dfadb377fd1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128635169"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432456"
 ---
-# <a name="remove-user-assigned-managed-identity-for-azure-automation-account-preview"></a>Azure Automation 계정에 대해 사용자가 할당한 관리 ID 제거(미리 보기)
+# <a name="remove-user-assigned-managed-identity-for-azure-automation-account"></a>Azure Automation 계정에 대 한 사용자 할당 관리 id 제거
 
 Azure Portal, PowerShell, Azure REST API 또는 ARM(Azure Resource Manager) 템플릿을 사용하여 Azure Automation에서 사용자가 할당한 관리 ID를 제거할 수 있습니다.
 
@@ -233,6 +233,6 @@ Azure Resource Manager 템플릿을 사용하여 Automation 계정에 대해 사
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Automation에서 관리 ID를 활성화하는 방법에 대한 자세한 내용은 [Automation의 관리 ID 활성화 및 사용(미리 보기)](enable-managed-identity-for-automation.md)을 참조하세요.
+- Azure Automation에서 관리 되는 id를 사용 하는 방법에 대 한 자세한 내용은 [자동화를 위해 관리 id 사용 및 사용](enable-managed-identity-for-automation.md)을 참조 하세요.
 
 - Automation 계정 보안의 개요는 [Automation 계정 인증 개요](automation-security-overview.md)를 참조하세요.

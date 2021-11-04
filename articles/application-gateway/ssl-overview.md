@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 06/03/2021
 ms.author: victorh
-ms.openlocfilehash: 8a757b1825cb1c1e2f471a965077ea5801000dc4
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
-ms.translationtype: HT
+ms.openlocfilehash: f8b0a8ac537e9fedaae107c8130dbe6cbee2d289
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113761442"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131462294"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Application Gateway를 사용한 TLS 종료 및 종단간 TLS 개요
 
@@ -27,7 +27,7 @@ Application Gateway는 게이트웨이에서 TLS 종료를 지원합니다. 그 
 - **지능형 라우팅** - 트래픽 암호를 해독하여 Application Gateway는 헤더, URI 등과 같은 요청 콘텐츠에 액세스할 수 있으며 이 데이터를 사용하여 요청을 라우팅할 수 있습니다.
 - **인증서 관리** - 인증서를 구매하여 모든 백 엔드 서버가 아닌 Application Gateway에만 설치해야 합니다. 이렇게 하면 시간과 돈이 모두 절약됩니다.
 
-TLS 종료를 구성하려면 TLS/SSL 인증서를 수신기에 추가하여 Application Gateway에서 TLS/SSL 프로토콜 사양에 따라 대칭 키를 파생할 수 있도록 해야 합니다. 이렇게 파생된 대칭 키는 게이트웨이로 전송되는 트래픽을 암호화하고 암호를 해독하는 데 사용됩니다. TLS/SSL 인증서는 PFX(개인 정보 교환) 형식이어야 합니다. 이 파일 형식을 사용하면 애플리케이션 게이트웨이에서 트래픽의 암호화 및 암호 해독을 수행하는 데 필요한 프라이빗 키를 내보낼 수 있습니다.
+TLS 종료를 구성 하려면 TLS/SSL 인증서를 수신기에 추가 해야 합니다. 이를 통해 Application Gateway는 들어오는 트래픽의 암호를 해독 하 고 클라이언트에 응답 트래픽을 암호화할 수 있습니다. Application Gateway에 제공 된 인증서는 개인 키와 공개 키를 모두 포함 하는 PFX (개인 정보 Exchange) 형식 이어야 합니다.
 
 > [!IMPORTANT] 
 > 수신기의 인증서를 사용하려면 전체 인증서 체인(CA의 루트 인증서, 중간 인증서, 리프 인증서)을 업로드하여 신뢰 체인을 설정해야 합니다. 

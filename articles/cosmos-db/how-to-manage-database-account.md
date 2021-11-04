@@ -7,21 +7,21 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/13/2021
 ms.author: mjbrown
-ms.openlocfilehash: d6cf0b9ba4fe856a153abf004a81c250c59b2aa1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6046468281878f8ae6b9ac9f802bb16fd378c616
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128618593"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131434145"
 ---
-# <a name="manage-an-azure-cosmos-account-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Cosmos 계정 관리
+# <a name="manage-an-azure-cosmos-account-using-the-azure-portal"></a>Azure Portal 사용하여 Azure Cosmos 계정 관리
 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-이 문서에서는 Azure Portal를 사용 하 여 Azure Cosmos 계정에서 다양 한 작업을 관리 하는 방법을 설명 합니다. 
+이 문서에서는 Azure Portal 사용하여 Azure Cosmos 계정에서 다양한 작업을 관리하는 방법을 설명합니다. 
 
 > [!TIP]
-> [Azure PowerShell](manage-with-powershell.md), [Azure CLI](sql/manage-with-cli.md), [Azure Resource Manager 템플릿](./manage-with-templates.md)및 [Bicep](sql/manage-with-bicep.md)을 포함 한 다른 Azure 관리 클라이언트를 사용 하 여 Azure Cosmos DB를 관리할 수도 있습니다.
+> Azure Cosmos DB는 [Azure PowerShell, Azure CLI,](manage-with-powershell.md) [Azure Resource Manager](sql/manage-with-cli.md)템플릿 및 [Bicep을 비롯한](sql/manage-with-bicep.md)다른 Azure 관리 클라이언트로도 관리될 수 [있습니다.](./manage-with-templates.md)
 
 ## <a name="create-an-account"></a>계정 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "128618593"
 ## <a name="addremove-regions-from-your-database-account"></a>데이터베이스 계정에서 Azure 지역 추가/제거
 
 > [!TIP]
-> 새 지역이 추가되면 해당 지역이 사용 가능으로 표시되기 전에 모든 데이터를 완전히 복제하고 새 지역에 커밋해야 합니다. 이 작업에 걸리는 시간은 해당 계정 내에 저장된 데이터 양에 따라 달라집니다.
+> 새 지역이 추가되면 해당 지역이 사용 가능으로 표시되기 전에 모든 데이터를 완전히 복제하고 새 지역에 커밋해야 합니다. 이 작업에 걸리는 시간은 해당 계정 내에 저장된 데이터 양에 따라 달라집니다. [비동기 처리량 크기 조정 작업이](scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus) 진행 중인 경우 처리량 강화 작업이 일시 중지되고 지역 추가/제거 작업이 완료되면 자동으로 다시 시작됩니다. 
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
@@ -96,6 +96,9 @@ Cosmos 계정이 자동 장애 조치(failover)에 대해 구성된 후에는 �
 > [!IMPORTANT]
 > 이 작업이 성공하기 위해서는 수동 장애 조치(failover)에 대해 Azure Cosmos 계정을 구성해야 합니다.
 
+> [!NOTE]
+> [비동기 처리량 크기 조정 작업이](scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus) 진행 중인 동안 수동 장애 조치(failover) 작업을 수행하는 경우 처리량 강화 작업이 일시 중지됩니다. 장애 조치(failover) 작업이 완료되면 자동으로 다시 시작됩니다.
+
 1. Azure Cosmos 계정으로 이동하고, **전역적으로 데이터 복제** 메뉴를 엽니다.
 
 2. 메뉴의 위쪽에서 **수동 장애 조치** 를 선택합니다.
@@ -114,5 +117,5 @@ Cosmos 계정이 자동 장애 조치(failover)에 대해 구성된 후에는 �
 
 * [Azure PowerShell을 사용하여 Azure Cosmos DB 관리](manage-with-powershell.md)
 * [Azure CLI를 사용하여 Azure Cosmos DB 관리](sql/manage-with-cli.md)
-* [Azure 리소스 관리 템플릿을 사용 하 여 Azure Cosmos DB 관리](./manage-with-templates.md)
-* [Bicep를 사용 하 여 Azure Cosmos DB 관리](sql/manage-with-bicep.md)
+* [Azure 리소스 관리 템플릿을 사용하여 Azure Cosmos DB 관리](./manage-with-templates.md)
+* [Bicep을 사용하여 Azure Cosmos DB 관리](sql/manage-with-bicep.md)

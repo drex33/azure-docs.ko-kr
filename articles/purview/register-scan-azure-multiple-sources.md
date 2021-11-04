@@ -1,6 +1,6 @@
 ---
-title: 여러 Azure 소스에 커넥트 및 관리
-description: 이 가이드에서는 Azure 부서의 범위에서 여러 Azure 원본에 한 번에 연결 하는 방법을 설명 하 고, 부서의 범위의 기능을 사용 하 여 소스를 검색 하 고 관리 합니다.
+title: 여러 Azure 원본에 대한 커넥트 및 관리
+description: 이 가이드에서는 Azure Purview의 여러 Azure 원본에 한 번에 연결하고 Purview의 기능을 사용하여 원본을 검사하고 관리하는 방법을 설명합니다.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
@@ -8,22 +8,22 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 49e6ca8cf0fc3121aba3c3216d2a1dd5936b56d7
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: aefb039e17ee75b92829feb9e2f0b06fb5bef99a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131449529"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131076209"
 ---
-# <a name="connect-to-and-manage-multiple-azure-sources-in-azure-purview"></a>Azure 부서의 범위에서 여러 Azure 원본에 커넥트 및 관리
+# <a name="connect-to-and-manage-multiple-azure-sources-in-azure-purview"></a>Azure Purview에서 여러 Azure 원본에 대한 커넥트 및 관리
 
-이 문서에서는 여러 Azure 소스를 등록 하는 방법 및 Azure 부서의 범위에서 인증 하 고 상호 작용 하는 방법을 간략하게 설명 합니다. Azure 부서의 범위에 대 한 자세한 내용은 [소개 문서](overview.md)를 참조 하세요.
+이 문서에서는 여러 Azure 원본을 등록하는 방법과 Azure Purview에서 인증하고 상호 작용하는 방법을 설명합니다. Azure Purview에 대한 자세한 내용은 [소개 문서](overview.md)를 읽어보십시오.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
 |**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
 |---|---|---|---|---|---|---|
-| [예](#register) | [예](#scan) | [예](#scan) | [예](#scan)| [예](#scan)| 아니요| [원본 종속](catalog-lineage-user-guide.md)|
+| [예](#register) | [예](#scan) | [예](#scan) | [예](#scan)| [예](#scan)| 아니요| [원본 의존성](catalog-lineage-user-guide.md)|
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -35,11 +35,11 @@ ms.locfileid: "131449529"
 
 ## <a name="register"></a>등록
 
-이 섹션에서는 [부서의 범위 Studio](https://web.purview.azure.com/)를 사용 하 여 azure 부서의 범위에서 여러 azure 소스를 등록 하는 방법을 설명 합니다.
+이 섹션에서는 [Purview Studio](https://web.purview.azure.com/)를 사용하여 Azure Purview에서 여러 Azure 원본을 등록하는 방법을 설명합니다.
 
-### <a name="prerequisites-for-registration"></a>등록을 위한 필수 구성 요소
+### <a name="prerequisites-for-registration"></a>등록을 위한 필수 조건
 
-구독 또는 리소스 그룹의 리소스를 열거할 수 있도록 일부 인증을 설정 해야 합니다.
+구독 또는 리소스 그룹에서 리소스를 열거할 수 있도록 일부 인증을 설정해야 합니다.
 
 1. Azure Portal에서 구독 또는 리소스 그룹으로 이동합니다.  
 1. 왼쪽 메뉴에서  **액세스 제어(IAM)**  를 선택합니다.
@@ -88,7 +88,7 @@ Azure에서는 다음 두 가지 방법으로 여러 원본에 대한 인증을 
 
 ## <a name="scan"></a>검사
 
-여러 Azure 원본을 검색 하 여 자산을 자동으로 식별 하 고 데이터를 분류 하려면 아래 단계를 따르세요. 일반적으로 검색 하는 방법에 대 한 자세한 내용은 [검색 및 수집 소개](concept-scans-and-ingestion.md)를 참조 하세요.
+아래 단계에 따라 여러 Azure 원본을 검색하여 자산을 자동으로 식별하고 데이터를 분류합니다. 일반적인 검사에 대한 자세한 내용은 [검색 및 검색 소개를 참조하세요.](concept-scans-and-ingestion.md)
 
 ### <a name="create-and-run-scan"></a>검사 만들기 및 실행
 
@@ -114,10 +114,10 @@ Azure에서는 다음 두 가지 방법으로 여러 원본에 대한 인증을 
     - 옵션을 **모두** 로 두면 해당 종류의 향후 리소스도 향후 검사 실행 시 검사됩니다.
     - 특정 스토리지 계정 또는 SQL 데이터베이스를 선택할 경우, 나중에 검사를 명시적으로 편집하지 않는 한 이 구독 또는 리소스 그룹 내에 생성된 해당 종류의 향후 리소스가 검사에 포함되지 않습니다.
 
-1. **연결 테스트** 를 클릭합니다. 이렇게 하면 먼저 Azure 부서의 범위 MSI 파일을 구독 또는 리소스 그룹에 대 한 판독기로 적용 했는지 확인 하는 액세스를 테스트 합니다. 오류 메시지가 표시되면 [다음 지침](#prerequisites-for-registration)에 따라 해결합니다. 그런 다음 사용자가 선택한 각 원본에 대 한 인증 및 연결을 테스트 하 고 보고서를 생성 합니다. 선택한 원본 수는이 보고서를 생성 하는 데 걸리는 시간에 영향을 줍니다. 일부 리소스에서 실패 한 경우 **X** 아이콘을 마우스로 가리키면 자세한 오류 메시지가 표시 됩니다.
+1. **연결 테스트** 를 클릭합니다. 먼저 액세스를 테스트하여 Azure Purview MSI 파일을 구독 또는 리소스 그룹에 읽기 권한자로 적용했는지 확인합니다. 오류 메시지가 표시되면 [다음 지침](#prerequisites-for-registration)에 따라 해결합니다. 그런 다음 선택한 각 원본에 대한 인증 및 연결을 테스트하고 보고서를 생성합니다. 선택한 원본 수는 이 보고서를 생성하는 데 걸리는 시간에 영향을 미칩니다. 연결 테스트는 먼저 구독/리소스 그룹/synapse 작업 영역 수준에서 연결 및 액세스를 테스트합니다. 그런 다음 각 개별 리소스에 대한 액세스 및 연결을 계속 테스트하고 보고서에 결과를 표시합니다. 일부 리소스에서 오류가 발생하면 **X** 아이콘 위로 마우스를 가져가면 자세한 오류 메시지가 표시됩니다.
 
-    :::image type="content" source="media/register-scan-azure-multiple-sources/test-connection.png" alt-text="연결 테스트 단추가 강조 표시 된 스캔 설정 슬라이더를 보여 주는 스크린샷":::
-    :::image type="content" source="media/register-scan-azure-multiple-sources/test-connection-report.png" alt-text="일부 연결이 전달 되 고 일부 연결이 실패 하는 테스트 연결 보고서의 예를 보여 주는 스크린샷 실패 한 연결 중 하나를 가리키면 자세한 오류 보고서가 표시 됩니다.":::
+    :::image type="content" source="media/register-scan-azure-multiple-sources/test-connection.png" alt-text="연결 테스트 단추가 강조 표시된 스캔 설정 슬라이더를 보여주는 스크린샷.":::
+    :::image type="content" source="media/register-scan-azure-multiple-sources/test-connection-report.png" alt-text="일부 연결이 통과되고 일부 연결이 실패하는 테스트 연결 보고서 예제를 보여주는 스크린샷. 실패한 연결 중 하나를 마우스로 가리키면 자세한 오류 보고서가 표시됩니다.":::
 
 1. 연결을 테스트 한 후 **계속** 을 선택 하 여 계속 진행 합니다.
 

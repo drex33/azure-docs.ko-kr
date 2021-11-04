@@ -3,12 +3,12 @@ title: 레지스트리 관련 네트워크 문제 해결
 description: 가상 네트워크에서 또는 방화벽 뒤에 있는 Azure 컨테이너 레지스트리에 액세스할 때 발생하는 일반적인 문제에 대한 증상, 원인 및 해결 방법
 ms.topic: article
 ms.date: 05/10/2021
-ms.openlocfilehash: 7ea4eb698f855a98df22e2e0426a0004c890290c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: f5c51f14eb5ed5a950272e43e701ec7bcc44b901
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566215"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446489"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>레지스트리 관련 네트워크 문제 해결
 
@@ -124,7 +124,7 @@ ContainerRegistryLoginEvents 테이블의 레지스트리 리소스 로그는 �
 관련 링크:
 
 * [Security Center에서 Azure Container Registry 이미지 검색](../security-center/defender-for-container-registries-introduction.md)
-* [피드백](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are) 제공
+* [피드백](https://feedback.azure.com/d365community/idea/cbe6351a-0525-ec11-b6e6-000d3a4f07b8) 제공
 * [신뢰할 수 있는 서비스에서 네트워크 제한 컨테이너 레지스트리에 안전하게 액세스하도록 허용](allow-access-trusted-services.md)
 
 

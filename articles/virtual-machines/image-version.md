@@ -1,35 +1,35 @@
 ---
 title: 이미지 정의 및 이미지 버전 만들기
-description: Azure의 Shared Image Gallery 이미지를 만드는 방법을 알아봅니다.
+description: Azure Compute 갤러리에서 이미지를 만드는 방법을 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: shared-image-gallery
+ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/31/2021
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: f0ff3a0cc6bc228951fa47eb5723c520684d1dc5
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: e52457a67e2c653d1fa4e191ee568b35cb7e365f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123452752"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471519"
 ---
 # <a name="create-an-image-definition-and-an-image-version"></a>이미지 정의 및 이미지 버전 만들기 
 
-[공유 이미지 갤러리](shared-image-galleries.md)는 조직 내 사용자 지정 이미지 공유를 간소화합니다. 사용자 지정 이미지는 Marketplace 이미지와 같지만 직접 만듭니다. 애플리케이션 사전 로드, 애플리케이션 구성 및 기타 OS 구성과 같은 부트스트랩 배포 작업에 사용자 지정 이미지를 사용할 수 있습니다. 
+[Azure Compute](shared-image-galleries.md) 갤러리(이전의 Shared Image Gallery)는 조직 전체에서 사용자 지정 이미지 공유를 간소화합니다. 사용자 지정 이미지는 Marketplace 이미지와 같지만 직접 만듭니다. 애플리케이션 사전 로드, 애플리케이션 구성 및 기타 OS 구성과 같은 부트스트랩 배포 작업에 사용자 지정 이미지를 사용할 수 있습니다. 
 
-공유 이미지 갤러리를 사용하면 조직, 지역, AAD 테넌트의 다른 사용자와 사용자 지정 VM 이미지를 공유할 수 있습니다. 공유할 이미지, 이미지를 제공할 지역, 이미지를 공유할 사람을 선택하세요. 여러 갤러리를 만들어서 공유 이미지 논리적으로 그룹화할 수 있습니다. 
+Azure Compute 갤러리를 사용하면 AAD 테넌트 내 또는 지역 간에 조직의 다른 사용자와 사용자 지정 VM 이미지를 공유할 수 있습니다. 공유할 이미지, 이미지를 제공할 지역, 이미지를 공유할 사람을 선택하세요. 이미지를 논리적으로 그룹화할 수 있도록 여러 갤러리를 만들 수 있습니다. 
 
-공유 이미지 갤러리 기능에는 여러 가지 리소스가 있습니다.
+Azure Compute 갤러리 기능에는 여러 리소스 종류가 있습니다.
 
 [!INCLUDE [virtual-machines-shared-image-gallery-resources](./includes/virtual-machines-shared-image-gallery-resources.md)]
 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서를 완료하려면 기존 Shared Image Gallery Azure에서 사용할 수 있는 이미지 원본이 있어야 합니다. 이미지 원본은 다음과 같습니다.
+이 문서를 완료하려면 기존 Azure Compute 갤러리와 Azure에서 사용할 수 있는 이미지 원본이 있어야 합니다. 이미지 원본은 다음과 같습니다.
 - 구독의 VM. [특수화된 VM과 일반화된](shared-image-galleries.md#generalized-and-specialized-images) VM 모두에서 이미지를 캡처할 수 있습니다. 
 - 관리형 이미지,
 - 관리되는 OS 및 데이터 디스크.
@@ -54,10 +54,10 @@ ms.locfileid: "123452752"
 
 VM 이외의 원본을 사용하여 이미지를 만들려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)이동한 다음, 를 검색하여 **Shared Image Gallery** 선택합니다.
+1. [Azure Portal](https://portal.azure.com)으로 이동한 **다음, Azure Compute 갤러리를** 검색하여 선택합니다.
 1. 목록에서 사용하려는 갤러리를 선택합니다.
-1. 이미지 갤러리 페이지의 위쪽에서 **새 이미지 정의 추가를** 선택합니다. 
-1. 공유 **이미지 갤러리에 새 이미지 정의 추가** 페이지의 기본 **탭에서** **지역을** 선택합니다. 
+1. 갤러리 페이지의 위쪽에서 **추가를** 선택한 다음, 드롭다운에서 **VM 이미지 정의를** 선택합니다. 
+1. Azure Compute **갤러리에 새 이미지 정의 추가** 페이지의 **기본 탭에서** **지역을** 선택합니다. 
 1. **이미지 정의 이름** 에 *myImageDefinition* 과 같은 이름을 입력합니다.
 1. **운영 체제** 의 경우 원본에 따라 올바른 옵션을 선택합니다.  
 1. **VM 생성의** 경우 원본에 따라 옵션을 선택합니다. 대부분의 경우 *Gen 1* 입니다. 자세한 내용은 [Gen2 VM에 대한 지원](generation-2.md)을 참조하세요.

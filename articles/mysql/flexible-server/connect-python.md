@@ -8,19 +8,16 @@ ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 9/21/2020
-ms.openlocfilehash: 8430fc401e8cbb6c526f5bdca9a0b6841447793b
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 1c8195ae8552e400ae9f95812bb7152c86d7a868
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128588773"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131429549"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server"></a>빠른 시작: Python을 사용하여 Azure Database for MySQL - 유연한 서버에서 데이터 연결 및 쿼리
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 
 이 빠른 시작에서는 Python을 사용하여 Azure Database for MySQL 유연한 서버에 연결합니다. 그런 다음, SQL 문을 사용하여 Mac, Ubuntu Linux 및 Windows 플랫폼에서 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제합니다. 
 

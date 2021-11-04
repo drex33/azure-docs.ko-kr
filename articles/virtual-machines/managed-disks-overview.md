@@ -4,16 +4,16 @@ description: VM을 사용할 때 스토리지 계정을 처리해주는 Azure �
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/29/2021
+ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 801e9ed20c86c59d9c72043ff192a3500bae9a5f
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 5fcea46fbe7585e789e36ca6f5b0663f97db8ae2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696136"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466894"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Azure Managed Disks 소개
 
@@ -112,10 +112,7 @@ Azure Linux VM의 임시 디스크는 일반적으로 /dev/sdb이고, Windows VM
 
 사용된 크기에 따라 스냅샷 요금이 청구됩니다. 예를 들어 프로비저닝된 용량이 64GiB이고 실제 사용된 데이터 크기가 10GiB인 관리 디스크의 스냅샷을 만들면 사용된 10GiB의 데이터 크기에 대해서만 스냅샷 요금이 청구됩니다. [Azure 사용량 보고서](../cost-management-billing/understand/review-individual-bill.md)를 보면 사용된 스냅샷의 크기를 확인할 수 있습니다. 예를 들어 스냅샷의 사용된 데이터 크기가 10GiB이면 **일별** 사용량 보고서에 10GiB/(31일) = 0.3226GiB가 소비량으로 표시됩니다.
 
-관리 디스크를 사용하여 스냅샷을 만드는 방법에 대해 자세히 알아보려면 다음 리소스를 참조하세요.
-
-- [Windows에서 Managed Disk의 스냅샷 만들기](windows/snapshot-copy-managed-disk.md)
-- [Linux에서 Managed Disk의 스냅샷 만들기](linux/snapshot-copy-managed-disk.md)
+관리 디스크에 대한 스냅샷을 만드는 방법에 대한 자세한 내용은 관리 [디스크의 스냅샷 만들기](windows/snapshot-copy-managed-disk.md) 문서를 참조하세요.
 
 ### <a name="images"></a>이미지
 
@@ -136,11 +133,15 @@ Azure Linux VM의 임시 디스크는 일반적으로 /dev/sdb이고, Windows VM
 
 ## <a name="disk-allocation-and-performance"></a>디스크 할당 및 성능
 
-다음 다이어그램에서는 세 가지 수준의 프로비저닝 시스템을 사용하여 디스크에 대한 대역폭 및 IOPS의 실시간 할당을 보여 줍니다.
+다음 다이어그램은 IO에서 사용할 수 있는 세 가지 경로를 통해 디스크에 대한 대역폭 및 IOPS의 실시간 할당을 설명합니다. 
 
 ![대역폭 및 IOPS 할당을 보여 주는 세 가지 수준의 프로비저닝 시스템](media/virtual-machines-managed-disks-overview/real-time-disk-allocation.png)
 
-첫 번째 수준 프로비저닝에서는 디스크당 IOPS 및 대역폭 할당을 설정합니다.  두 번째 수준에서는 컴퓨팅 서버 호스트에서 SSD 프로비저닝을 구현하여 서버의 SSD에 저장된 데이터에만 이를 적용합니다. 여기에는 로컬 및 임시 디스크뿐만 아니라 캐싱(ReadWrite 및 ReadOnly)을 사용하는 디스크도 포함됩니다. 마지막으로, 세 번째 수준에서는 컴퓨팅 호스트에서 Azure Storage의 백 엔드로 보내는 I/O에 대한 VM 네트워크 프로비저닝이 수행됩니다. 이 체계를 사용하면 VM의 성능이 VM에서 로컬 SSD를 사용하는 방법에서 연결된 디스크 수, 연결된 디스크의 성능 및 캐싱 유형에 이르기까지 다양한 요인에 따라 달라집니다.
+첫 번째 IO 경로는 캐시되지 않은 관리 디스크 경로입니다. 이 경로는 관리 디스크를 사용하고 호스트 캐싱을 none으로 설정하는 경우 수행됩니다. 이 경로를 사용하는 IO는 디스크 수준 프로비전에 따라 실행된 다음, IDP 및 처리량에 대한 VM 네트워크 수준 프로비저닝을 기반으로 실행됩니다.   
+
+두 번째 IO 경로는 캐시된 관리 디스크 경로입니다. 캐시된 관리 디스크 IO는 자체 IDP 및 처리량이 프로비전된 VM에 가까운 SSD를 사용하며 다이어그램에 SSD 수준 프로비저닝 레이블이 지정됩니다. 캐시된 관리 디스크가 읽기를 시작하면 요청은 먼저 데이터가 서버 SSD에 있는지 확인합니다. 데이터가 없으면 캐시된 누락이 생성되고 IO는 SSD 수준 프로비저닝, 디스크 수준 프로비전 및 IDP 및 처리량에 대한 VM 네트워크 수준 프로비저닝에 따라 실행됩니다. 서버 SSD가 서버 SSD에 있는 캐시된 IO에서 읽기를 시작하면 캐시 적중이 생성되고 IO가 SSD 수준 프로비저닝에 따라 실행됩니다. 캐시된 관리 디스크에서 시작된 쓰기는 항상 캐시 누락 경로를 따르며 SSD 수준, 디스크 수준 및 VM 네트워크 수준 프로비저닝을 거쳐야 합니다.  
+
+마지막으로 세 번째 경로는 로컬/임시 디스크에 대한 것입니다. 로컬/임시 디스크를 지원하는 VM에서만 사용할 수 있습니다. 이 경로를 사용하는 IO는 SSD-Level 프로비저닝 및 처리량에 따라 실행됩니다.   
 
 이러한 제한의 예로, Standard_DS1v1 VM은 캐시되는지 여부와 관계없이 SSD 및 네트워크 수준의 제한으로 인해 P30 디스크의 잠재적인 5,000IOPS를 달성할 수 없습니다.
 

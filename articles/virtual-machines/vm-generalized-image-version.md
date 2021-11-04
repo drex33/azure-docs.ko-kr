@@ -1,6 +1,6 @@
 ---
-title: 갤러리의 일반화된 이미지에서 VM 만들기
-description: 갤러리의 일반화된 이미지에서 VM을 만듭니다.
+title: 갤러리의 일반화 된 이미지에서 VM 만들기
+description: 갤러리의 일반화 된 이미지에서 VM을 만듭니다.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 08/31/2021
 ms.author: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 7468218fbbb08a2e7157d8fc10d6433d6d784d2e
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: a9b1dc77eb8eaae9e634cb362beed527a74a84be
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123452690"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131474518"
 ---
-# <a name="create-a-vm-from-a-generalized-image-version"></a>일반화된 이미지 버전에서 VM 만들기
+# <a name="create-a-vm-from-a-generalized-image-version"></a>일반화 된 이미지 버전에서 VM 만들기
 
-Shared Image Gallery에 저장된 [일반화된 이미지 버전](./shared-image-galleries.md#generalized-and-specialized-images)에서 VM을 만듭니다. 전문화된 이미지로 VM을 만들려면 [전문화된 이미지에서 VM 만들기](vm-specialized-image-version.md)를 참조하세요. 
+Azure 계산 갤러리 (이전의 공유 이미지 갤러리)에 저장 된 [일반화 된 이미지 버전](./shared-image-galleries.md#generalized-and-specialized-images) 에서 VM을 만듭니다. 전문화된 이미지로 VM을 만들려면 [전문화된 이미지에서 VM 만들기](vm-specialized-image-version.md)를 참조하세요. 
 
 
 ### <a name="portal"></a>[포털](#tab/portal)
@@ -33,8 +33,8 @@ Shared Image Gallery에 저장된 [일반화된 이미지 버전](./shared-image
 1. **가용성 옵션** 의 경우에는 ‘인프라 중복이 필요하지 않습니다’ 기본값을 그대로 둡니다.
 1. 이미지 정의에 대한 페이지에서 시작한 경우 **이미지** 값이 `latest` 이미지 버전으로 자동으로 채워집니다.
 1. **크기** 의 경우 사용 가능한 크기 목록에서 VM 크기를 고른 다음 **선택** 을 선택합니다.
-1. **관리자 계정** 에서 *azureuser,* 암호 또는 SSH 키와 같은 사용자 이름을 제공해야 합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](./windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-)을 충족해야 합니다.
-1. VM에 대한 원격 액세스를 허용하려면 **공용 인바운드 포트** 에서 **선택한 포트 허용을** 선택한 다음, 드롭다운에서 **SSH(22)** 또는 **RDP(3389)를** 선택합니다. VM에 대한 원격 액세스를 허용하지 않으려면 **퍼블릭 인바운드 포트** 에 대해 **안 함** 을 선택한 상태로 둡니다.
+1. **관리자 계정** 에서 *azureuser* , password 또는 SSH 키와 같은 사용자 이름을 제공 해야 합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](./windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-)을 충족해야 합니다.
+1. VM에 대 한 원격 액세스를 허용 하려면 **공용 인바운드 포트** 에서 **선택한 포트 허용** 을 선택한 다음 드롭다운에서 **SSH (22)** 또는 **RDP (3389)** 를 선택 합니다. VM에 대한 원격 액세스를 허용하지 않으려면 **퍼블릭 인바운드 포트** 에 대해 **안 함** 을 선택한 상태로 둡니다.
 1. 작업을 마치면 페이지 하단의 **검토 + 만들기** 단추를 선택합니다.
 1. VM이 유효성 검사를 통과하면 페이지 하단에서 **만들기** 를 선택하여 배포를 시작합니다.
 
@@ -51,7 +51,7 @@ az sig image-definition list --resource-group $resourceGroup --gallery-name $gal
 
 [az vm create](/cli/azure/vm#az_vm_create)를 사용하여 VM을 만듭니다. 최신 버전의 이미지를 사용하려면 `--image`를 이미지 정의의 ID로 설정합니다. 
 
-아래 예제는 SSH로 보안된 Linux VM을 만드는 것입니다. Windows 또는 암호를 사용하여 Linux VM을 보호하려면 을 `--generate-ssh-keys` 제거하여 암호를 입력하라는 메시지를 표시합니다. 암호를 직접 제공하려면 을 `--generate-ssh-keys` 로 `--admin-password` 대체합니다. 이 예제에서 필요에 따라 리소스 이름을 바꿉니다. 
+아래 예제는 SSH를 사용 하 여 Linux VMsecured을 만드는 데 사용 됩니다. Windows 또는 암호를 사용 하 여 Linux VM을 보호 하려면를 제거 `--generate-ssh-keys` 하 여 암호를 입력 하 라는 메시지를 표시 합니다. 암호를 직접 제공 하려면를 `--generate-ssh-keys` 로 바꿉니다 `--admin-password` . 이 예제에서 필요에 따라 리소스 이름을 바꿉니다. 
 
 ```azurecli-interactive 
 imgDef="/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition"
@@ -298,7 +298,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
     "location": "eastus",
 }
 ```
-Linux VM을 만듭니다. `oSProfile`섹션에는 몇 가지 OS 관련 세부 정보가 포함되어 있습니다. Windows 구문은 다음 코드 예제를 참조하세요.
+Linux VM을 만듭니다. 이 `oSProfile` 섹션에는 몇 가지 OS 관련 정보가 포함 되어 있습니다. Windows 구문에 대 한 다음 코드 예제를 참조 하세요.
 
 ```rest
 # @name vm

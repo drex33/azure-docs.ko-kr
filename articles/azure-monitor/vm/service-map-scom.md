@@ -5,19 +5,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: 3a7d0d49313cb524a5bf39add5c9a55862dcad47
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: eacbf24fdd4d92ac4da1419c02be7ae006b640d4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102046893"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432247"
 ---
-# <a name="integrate-system-center-operations-manager-with-vm-insights-map-feature"></a>VM insights 맵 기능과 System Center Operations Manager 통합
+# <a name="integrate-system-center-operations-manager-with-vm-insights-map-feature"></a>VM 인사이트 맵 기능과 System Center Operations Manager 통합
 
-Azure 또는 사용자 환경에서 실행 되는 Windows 및 Linux Vm (가상 머신)에서 검색 된 응용 프로그램 구성 요소를 볼 수 있습니다. 지도 기능과 System Center Operations Manager 간의 이러한 통합을 통해 VM insights의 동적 종속성 맵을 기반으로 하는 Operations Manager에서 배포 응용 프로그램 다이어그램을 자동으로 만들 수 있습니다. 이 문서에서는 이 기능을 지원하도록 System Center Operations Manager 관리 그룹을 구성하는 방법을 설명합니다.
+VM insights에서 Azure 또는 사용자 환경에서 실행 되는 Windows 및 Linux vm (가상 머신)에서 검색 된 응용 프로그램 구성 요소를 볼 수 있습니다. 지도 기능과 System Center Operations Manager 간의 이러한 통합을 통해 VM insights의 동적 종속성 맵을 기반으로 하는 Operations Manager에서 배포 응용 프로그램 다이어그램을 자동으로 만들 수 있습니다. 이 문서에서는 이 기능을 지원하도록 System Center Operations Manager 관리 그룹을 구성하는 방법을 설명합니다.
 
 >[!NOTE]
->이미 서비스 맵를 배포한 경우 vm 상태 및 성능을 모니터링 하는 추가 기능을 포함 하는 VM insights에서 지도를 볼 수 있습니다. VM insights의 Map 기능은 독립 실행형 서비스 맵 솔루션을 대체 하기 위한 것입니다. 자세히 알아보려면 [VM insights 개요](../vm/vminsights-overview.md)를 참조 하세요.
+>이미 서비스 맵를 배포한 경우 vm 상태 및 성능을 모니터링 하는 추가 기능을 포함 하는 VM insights에서 지도를 볼 수 있습니다. VM insights의 Map 기능은 독립 실행형 서비스 맵 솔루션을 대체 하기 위한 것입니다. 자세히 알아보려면 [VM 인사이트 개요](../vm/vminsights-overview.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -116,7 +116,7 @@ Log Analytics 작업 영역이 연결되면 새 폴더인 Service Map이 Operati
 
 ## <a name="configure-rules-and-overrides"></a>규칙 및 재정의 구성
 
-규칙 *Microsoft.SystemCenter* 는 VM insights 맵 기능에서 정기적으로 정보를 인출 합니다. 동기화 간격을 수정하려면 규칙을 재정의하고 매개 변수 값을 **IntervalMinutes** 로 수정하면 됩니다.
+*SystemCenter microsoft.systemcenter.servicemapimport.rule* 는 VM insights 맵 기능에서 정기적으로 정보를 가져옵니다. 동기화 간격을 수정하려면 규칙을 재정의하고 매개 변수 값을 **IntervalMinutes** 로 수정하면 됩니다.
 
 ![Operations Manager 재정의 속성 창](media/service-map-scom/scom-overrides.png)
 
@@ -143,5 +143,5 @@ Log Analytics 작업 영역이 연결되면 새 폴더인 Service Map이 Operati
 
 ### <a name="suggestions"></a>제안
 
-VM insights 맵 기능 또는이 설명서와의 통합에 대 한 의견이 있나요? 기능을 제안하거나 기존 제안에 투표할 수 있는 [사용자 의견 페이지](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map)를 방문하세요.
+VM insights 맵 기능 또는이 설명서와의 통합에 대 한 의견이 있나요? 기능을 제안하거나 기존 제안에 투표할 수 있는 [사용자 의견 페이지](https://feedback.azure.com/d365community/forum/aa68334e-1925-ec11-b6e6-000d3a4f09d0?c=ad4304e4-1925-ec11-b6e6-000d3a4f09d0)를 방문하세요.
 

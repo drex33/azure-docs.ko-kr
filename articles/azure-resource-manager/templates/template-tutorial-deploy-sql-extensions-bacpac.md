@@ -6,12 +6,12 @@ ms.date: 09/30/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3310d3f33d7aa31a24a19bc7c43b59173ffd78d6
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: ae7f7fe3e626079c7e3bcb04dc76ffe5cacfe4a9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129456047"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069789"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>자습서: ARM 템플릿을 사용하여 SQL BACPAC 파일 가져오기
 
@@ -31,7 +31,7 @@ Azure SQL Database 확장을 사용하여 ARM 템플릿(Azure Resource Manager �
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서를 완료하려면 다음이 필요합니다.
 
@@ -42,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     openssl rand -base64 32
     ```
 
-    자세히 알아보려면 `man openssl rand`를 실행하여 수동 페이지를 엽니다.
+    자세히 알아보려면 `man openssl rand`을(를) 실행하여 수동 페이지를 엽니다.
 
     Azure Key Vault는 암호화 키 및 기타 비밀을 보호하기 위한 것입니다. 자세한 내용은 [자습서: ARM 템플릿 배포에 Azure Key Vault 통합](./template-tutorial-use-key-vault.md)을 참조하세요. 또한 3개월 마다 암호를 업데이트하는 것도 좋습니다.
 
@@ -269,4 +269,4 @@ Azure Portal의 리소스 그룹에서 데이터베이스를 선택합니다. **
 이 자습서에서는 서버 및 데이터베이스를 배포하고 BACPAC 파일을 가져왔습니다. 템플릿 배포 문제를 해결하는 방법에 대한 자세한 내용은
 
 > [!div class="nextstepaction"]
-> [ARM 템플릿 배포 문제 해결](./template-tutorial-troubleshoot.md)을 참조하세요.
+> [ARM 템플릿 배포 문제 해결](../troubleshooting/quickstart-troubleshoot-arm-deployment.md)을 참조하세요.

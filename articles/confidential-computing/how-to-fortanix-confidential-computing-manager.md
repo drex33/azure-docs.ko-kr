@@ -8,21 +8,22 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 02/03/2021
 ms.author: jencook
-ms.openlocfilehash: 757ce9b7502316bbc8a5b8f27ba672048b7bbace
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 51432b2d5de800cbfc3748da82f7b9fe26220731
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102563424"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024508"
 ---
 # <a name="fortanix-confidential-computing-manager-in-an-azure-managed-application"></a>Azure 관리형 애플리케이션의 Fortanix 기밀 컴퓨팅 관리자
 
 이 문서에서는 Azure Portal에서 Fortanix 기밀 컴퓨팅 관리자가 관리하는 애플리케이션을 배포하는 방법을 보여 줍니다.
 
-Fortanix는 Azure 인프라를 기반으로 구축된 제품 및 서비스를 제공하는 타사 소프트웨어 공급업체입니다. Azure에서 유사한 기밀 컴퓨팅 서비스를 제공하는 다른 타사 공급업체도 존재합니다.
+Fortanix는 Azure 인프라를 기반으로 구축된 제품 및 서비스를 제공하는 타사 소프트웨어 공급업체입니다. Azure에서 유사한 기밀 컴퓨팅 서비스를 제공하는 다른 타사 공급자도 있습니다.
 
 > [!NOTE]
->이 문서에서 참조하는 제품은 Microsoft에서 제어하지 않습니다. Microsoft는 사용자의 편의를 위해서만 해당 정보를 제공하며, Microsoft 이외의 제품을 참조하는 것은 Microsoft가 해당 제품을 보증한다는 것을 의미하지 않습니다.
+>Microsoft는 이 문서에서 언급되는 제품을 관리하지 않습니다. Microsoft는 사용자의 편의를 위해서만 해당 정보를 제공하며, Microsoft 이외의 제품을 참조하는 것은 Microsoft가 해당 제품을 보증한다는 것을 의미하지 않습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -33,7 +34,7 @@ Fortanix는 Azure 인프라를 기반으로 구축된 제품 및 서비스를 �
 
 1. [Azure Portal](https://portal.azure.com/)로 이동합니다.
 
-    :::image type="content" source="media/how-to-fortanix-confidential-computing-manager/azure-portal.png" alt-text="Azure Portal.":::
+    :::image type="content" source="media/how-to-fortanix-confidential-computing-manager/Azure-portal.png" alt-text="Azure Portal.":::
 
 2. 검색 창에서 “Fortanix 기밀 컴퓨팅 관리자”를 검색하면 Fortanix CCM에 대한 Marketplace 목록을 확인할 수 있습니다. **Azure에서 Fortanix 기밀 컴퓨팅 관리자** 를 선택합니다.
 
@@ -117,9 +118,8 @@ Fortanix는 Azure 인프라를 기반으로 구축된 제품 및 서비스를 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에 안내된 Azure 관리형 앱을 사용하여 Fortanix의 기밀 컴퓨팅 관리자에 노드를 등록했습니다. 노드를 등록했으므로 기밀 컴퓨팅 가상 머신을 기반으로 하여 애플리케이션 이미지 변환을 실행할 수 있습니다. Azure의 기밀 컴퓨팅 가상 머신에 대한 자세한 내용은 [Virtual Machines 솔루션](virtual-machine-solutions.md)을 참조하세요.
+이 빠른 시작에 안내된 Azure 관리형 앱을 사용하여 Fortanix의 기밀 컴퓨팅 관리자에 노드를 등록했습니다. 노드를 등록했으므로 기밀 컴퓨팅 가상 머신을 기반으로 하여 애플리케이션 이미지 변환을 실행할 수 있습니다. Azure의 기밀 컴퓨팅 가상 머신에 대한 자세한 내용은 [Virtual Machines 솔루션](virtual-machine-solutions-sgx.md)을 참조하세요.
 
 Azure의 기밀 컴퓨팅 제품에 대해 자세히 알아보려면 [azure 기밀 컴퓨팅](overview.md)을 참조하세요.
 
 Azure에서 [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) 및 [scone](https://sconedocs.github.io)와 같은 기타 타사 제품을 사용하여 유사한 작업을 완료하는 방법을 알아보세요.
-

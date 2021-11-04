@@ -1,6 +1,6 @@
 ---
-title: Linux VM용 이미지 갤러리에서 Azure Image Builder 사용
-description: Azure Image Builder 및 Shared Image Gallery를 사용하여 Linux VM 이미지를 만듭니다.
+title: Linux Vm 용 Azure Compute 갤러리와 함께 Azure 이미지 작성기 사용
+description: Azure 이미지 작성기 및 Azure Compute 갤러리를 사용 하 여 Linux VM 이미지를 만듭니다.
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: cynthn
@@ -8,23 +8,23 @@ ms.date: 03/02/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.openlocfilehash: ea18c4f5738fef119106dd983b58252ef364bae8
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: c6a8017f241fe1636b6f9c922c167bb5e2d4ecde
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770359"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471462"
 ---
-# <a name="create-a-linux-image-and-distribute-it-to-a-shared-image-gallery-by-using-azure-cli"></a>Linux 이미지를 만들어 Azure CLI를 사용해 Shared Image Gallery에 배포
+# <a name="create-a-linux-image-and-distribute-it-to-an-azure-compute-gallery-by-using-azure-cli"></a>Linux 이미지를 만들고 Azure CLI를 사용 하 여 Azure Compute 갤러리에 배포
 
 **적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
-이 문서에서는 Azure Image Builder 및 Azure CLI를 사용하여 [Shared Image Gallery](../shared-image-galleries.md)에서 이미지 버전을 만든 다음, 전 세계에 이미지를 배포하는 방법을 보여 줍니다. [Azure PowerShell](../windows/image-builder-gallery.md)를 사용하여 이 작업을 수행할 수도 있습니다.
+이 문서에서는 Azure 이미지 작성기와 Azure CLI를 사용 하 여 [Azure Compute 갤러리](../shared-image-galleries.md) (이전의 공유 이미지 갤러리)에서 이미지 버전을 만든 다음 전역으로 이미지를 배포 하는 방법을 보여 줍니다. [Azure PowerShell](../windows/image-builder-gallery.md)를 사용하여 이 작업을 수행할 수도 있습니다.
 
 
 이미지를 구성하는 데 샘플 .json 템플릿을 사용합니다. 사용할 .json 파일은 [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json)입니다. 
 
-Shared Image Gallery에 이미지를 배포하기 위해 이 템플릿에서는 [sharedImage](image-builder-json.md#distribute-sharedimage)를 템플릿의 `distribute` 섹션 값으로 사용합니다.
+Azure 계산 갤러리에 이미지를 배포 하기 위해 템플릿에서 [sharedImage](image-builder-json.md#distribute-sharedimage) 를 템플릿의 섹션에 대 한 값으로 사용 합니다 `distribute` .
 
 
 ## <a name="register-the-features"></a>기능 등록
@@ -63,7 +63,7 @@ sigResourceGroup=ibLinuxGalleryRG
 location=westus2
 # Additional region to replicate the image to - we are using East US in this example
 additionalregion=eastus
-# name of the shared image gallery - in this example we are using myGallery
+# name of the Azure Compute Gallery - in this example we are using myGallery
 sigName=myIbGallery
 # name of the image definition to be created - in this example we are using myImageDef
 imageDefName=myIbImageDef
@@ -84,7 +84,7 @@ az group create -n $sigResourceGroup -l $location
 ```
 
 ## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>사용자 할당 ID 만들기 및 리소스 그룹에 대한 사용 권한 설정
-Image Builder는 제공된 [user-identity](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity)를 사용하여 Azure SIG(Shared Image Gallery)에 이미지를 삽입합니다. 이 예제에서는 SIG에 이미지를 배포하는 세분화된 작업을 포함하는 Azure 역할 정의를 만듭니다. 그러면 역할 정의가 user-identity에 할당됩니다.
+이미지 작성기는 제공 된 [사용자 id](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) 를 사용 하 여 Azure Compute 갤러리 (SIG)에 이미지를 삽입 합니다. 이 예제에서는 SIG에 이미지를 배포하는 세분화된 작업을 포함하는 Azure 역할 정의를 만듭니다. 그러면 역할 정의가 user-identity에 할당됩니다.
 
 ```bash
 # create user assigned identity for image builder to access the storage account where the script is located
@@ -120,9 +120,9 @@ az role assignment create \
 
 ## <a name="create-an-image-definition-and-gallery"></a>이미지 정의 및 갤러리 만들기
 
-Shared Image Gallery에서 Image Builder를 사용하려면 기존 이미지 갤러리 및 이미지 정의가 있어야 합니다. Image Builder는 이미지 갤러리 및 이미지 정의를 만들지 않습니다.
+Azure 계산 갤러리에서 이미지 작성기를 사용 하려면 기존 갤러리 및 이미지 정의가 있어야 합니다. 이미지 작성기는 갤러리 및 이미지 정의를 만들지 않습니다.
 
-사용할 갤러리 및 이미지 정의가 아직 없는 경우 만들어야 합니다. 먼저 이미지 갤러리를 만듭니다.
+사용할 갤러리 및 이미지 정의가 아직 없는 경우 만들어야 합니다. 먼저 갤러리를 만듭니다.
 
 ```azurecli-interactive
 az sig create \
@@ -225,7 +225,7 @@ SSH 연결이 설정되는 즉시 오늘의 메시지로 이미지가 사용자 
 
 그러면 생성된 이미지와 다른 모든 리소스 파일이 삭제됩니다. 리소스를 삭제하기 전에 이 배포를 완료했는지 확인합니다.
 
-이미지 갤러리 리소스를 삭제하는 경우 먼저 모든 이미지 버전을 삭제해야 해당 이미지 버전을 만드는 데 사용된 이미지 정의를 삭제할 수 있습니다. 갤러리를 삭제하려면 먼저 갤러리에서 이미지 정의를 모두 삭제해야 합니다.
+갤러리 리소스를 삭제 하는 경우 이미지를 만드는 데 사용 된 이미지 정의를 삭제 하려면 먼저 모든 이미지 버전을 삭제 해야 합니다. 갤러리를 삭제하려면 먼저 갤러리에서 이미지 정의를 모두 삭제해야 합니다.
 
 Image Builder 템플릿을 삭제합니다.
 
@@ -289,4 +289,4 @@ az group delete -n $sigResourceGroup -y
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Shared Image Gallery](../shared-image-galleries.md)에 대해 자세히 알아보세요.
+[Azure 계산 갤러리](../shared-image-galleries.md)에 대해 자세히 알아보세요.

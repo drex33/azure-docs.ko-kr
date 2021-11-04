@@ -12,15 +12,15 @@ ms.custom:
 - 'Role: IoT Device'
 - devx-track-js
 - devx-track-azurecli
-ms.date: 02/22/2019
+ms.date: 10/26/2021
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 43ec1680d0855ba70b084771e7e98f4285c0af58
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 39f29933a8b4d9858ca12de8e79f29cbda55c1c2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121724423"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024445"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>자습서: 시뮬레이션된 디바이스를 사용하여 IoT Hub와 연결 테스트
 
@@ -193,7 +193,7 @@ node SimulatedDevice-3.js "{your device connection string}"
 
 포털에서 **메트릭** 을 사용하여 원격 분석 메시지가 IoT Hub에 도달하는지 확인할 수 있습니다. **리소스** 드롭다운에서 IoT 허브를 선택하고, **전송된 원격 분석 메시지 수** 를 메트릭으로 선택하고, 시간 범위를 **지난 시간** 으로 설정합니다. 차트에 시뮬레이션된 디바이스에서 보낸 메시지의 집계 수가 표시됩니다.
 
-![IoT Hub 메트릭 표시](media/tutorial-connectivity/metrics-portal.png)
+:::image type="content" source="media/tutorial-connectivity/metrics-portal.png" alt-text="왼쪽 창 메트릭을 보여 주는 스크린샷." border="true":::
 
 시뮬레이션된 디바이스를 시작한 후에 메트릭을 사용할 수 있게 하는 데 몇 분 정도 걸립니다.
 

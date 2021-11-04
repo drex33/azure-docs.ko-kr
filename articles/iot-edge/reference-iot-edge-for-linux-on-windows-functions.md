@@ -3,17 +3,17 @@ title: Azure IoT Edge for Linux on Windows용 PowerShell 함수 | Microsoft Docs
 description: IoT Edge for Linux on Windows 가상 머신을 배포, 프로비전하고 상태를 확인하는 Azure IoT Edge for Linux on Windows PowerShell 함수에 대한 참조 정보입니다.
 author: v-tcassi
 ms.author: fcabrera
-ms.date: 06/18/2021
+ms.date: 10/15/2021
 ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: cfa116f91978ea5f9bc076c7d666a0428f3b6c72
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 9038f8b99728b2808cb1d4cf6b23a7673fa5d92e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130259189"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131085908"
 ---
 # <a name="powershell-functions-for-iot-edge-for-linux-on-windows"></a>IoT Edge for Linux on Windows용 PowerShell 함수
 
@@ -49,13 +49,13 @@ PowerShell 디렉터리에 **AzureEflow** 폴더가 없는 경우 다음 단계�
    Set-ExecutionPolicy -ExecutionPolicy AllSigned -Force
    ```
 
-## <a name="connect-eflowvm"></a>Connect-EflowVM
+## <a name="connect-eflowvm"></a>Connect-EflowVm
 
-**Connect-EflowVM** 명령은 SSH를 사용하여 가상 머신에 연결합니다. SSH를 가상 머신에 허용하는 유일한 계정은 가상 머신을 만든 사용자입니다.
+**커넥트-EflowVm** 명령은 SSH를 사용하여 가상 머신에 연결합니다. SSH를 가상 머신에 허용하는 유일한 계정은 가상 머신을 만든 사용자입니다.
 
 이 명령은 호스트 디바이스에서 실행되는 PowerShell 세션에서만 작동합니다. Windows Admin Center 또는 PowerShell ISE를 사용할 때는 작동하지 않습니다.
 
-자세한 내용을 보려면 `Get-Help Connect-EflowVM -full` 명령을 사용하세요.
+자세한 내용을 보려면 `Get-Help Connect-EflowVm -full` 명령을 사용하세요.
 
 ## <a name="copy-eflowvmfile"></a>Copy-EflowVmFile
 
@@ -73,7 +73,7 @@ PowerShell 디렉터리에 **AzureEflow** 폴더가 없는 경우 다음 단계�
 
 ## <a name="deploy-eflow"></a>Deploy-Eflow
 
-**Deploy-Eflow** 명령은 기본 배포 방법입니다. 이 배포 명령은 가상 머신을 만들고, 파일을 프로비전하고, IoT Edge 에이전트 모듈을 배포합니다. 다음 매개 변수는 필수는 아니지만 배포 중에 IoT Edge 디바이스를 프로비전하고 생성 중에 가상 머신의 설정을 수정하는 데 사용할 수 있습니다.
+**Deploy-Eflow** 명령은 기본 배포 방법입니다. 이 배포 명령은 가상 머신을 만들고, 파일을 프로비전하고, IoT Edge 에이전트 모듈을 배포합니다. 매개 변수는 필요하지 않지만 만드는 동안 가상 머신에 대한 설정을 수정하는 데 사용할 수 있습니다.
 
 | 매개 변수 | 허용되는 값 | 의견 |
 | --------- | --------------- | -------- |
@@ -103,7 +103,6 @@ PowerShell 디렉터리에 **AzureEflow** 폴더가 없는 경우 다음 단계�
 * GpuInfo
 
 자세한 내용을 보려면 `Get-Help Get-EflowHostConfiguration -full` 명령을 사용하세요.
-
 
 ## <a name="get-eflowlogs"></a>Get-EflowLogs
 
@@ -140,7 +139,7 @@ Get-EflowVM | Select -ExpandProperty VmConfiguration | Format-List
 
 | 매개 변수 | 허용되는 값 | 의견 |
 | --------- | --------------- | -------- |
-| 기능 | **DpsTpm** | 토글할 기능 이름입니다. |
+| 기능 | **DpsTpm** | 쿼리할 기능 이름입니다. |
 
 자세한 내용을 보려면 `Get-Help Get-EflowVmFeature -full` 명령을 사용하세요.
 
@@ -156,17 +155,14 @@ Get-EflowVM | Select -ExpandProperty VmConfiguration | Format-List
 
 자세한 내용을 보려면 `Get-Help Get-EflowVmTelemetryOption -full` 명령을 사용하세요.
 
-
 ## <a name="get-eflowvmtpmprovisioninginfo"></a>Get-EflowVmTpmProvisioningInfo
 
 **Get-EflowVmTpmProvisioningInfo** 명령은 TPM 프로비저닝 정보를 반환합니다. 이 명령은 매개 변수를 사용하지 않습니다. 두 가지 속성이 포함된 개체를 반환합니다.
 
 * 인증 키
-* 등록 ID 
+* 등록 ID
 
 자세한 내용을 보려면 `Get-Help Get-EflowVmTpmProvisioningInfo -full` 명령을 사용하세요.
-
-
 
 ## <a name="invoke-eflowvmcommand"></a>Invoke-EflowVmCommand
 
@@ -205,7 +201,7 @@ Get-EflowVM | Select -ExpandProperty VmConfiguration | Format-List
 
 | 매개 변수 | 허용되는 값 | 의견 |
 | --------- | --------------- | -------- |
-| cpuCount | 1과 디바이스의 GPU 코어 사이의 정수 값 | VM의 CPU 코어 수입니다. |
+| cpuCount | 1과 디바이스의 CPU 코어 사이의 정수 값 | VM의 CPU 코어 수입니다. |
 | memoryInMB | 1024와 디바이스의 최대 여유 메모리 양 사이의 정수 값 | VM에 할당된 메모리입니다. |
 | gpuName | GPU 디바이스 이름 |  통과에 사용할 GPU 디바이스의 이름입니다. |
 | gpuPassthroughType | **DirectDeviceAssignment**, **ParaVirtualization** 또는 없음(통과 없음) |  GPU 통과 유형 |

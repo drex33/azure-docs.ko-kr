@@ -9,14 +9,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 8aff3996bf9722dc954c5532740247b05477a21b
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: e5097e15affe5d3f4e0ed8e60273d7a48ada6556
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694591"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032851"
 ---
-# <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Azure Machine Learning 스튜디오(클래식) 웹 서비스 배포하기
+# <a name="deploy-an-machine-learning-studio-classic-web-service"></a>Machine Learning Studio (클래식) 웹 서비스 배포
 
 **적용 대상:** ![이 문서가 Machine Learning Studio(클래식)에 적용됨을 의미하는 확인 표시입니다.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식) ![이 문서가 Azure Machine Learning에 적용되지 않음을 의미하는 X입니다.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 

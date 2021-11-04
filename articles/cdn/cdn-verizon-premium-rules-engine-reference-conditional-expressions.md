@@ -2,17 +2,17 @@
 title: Azure CDN - Verizon Premium 규칙 엔진의 조건식
 description: Verizon Premium의 Azure CDN 규칙 엔진 일치 조건 및 기능에 대한 참조 설명서입니다.
 services: cdn
-author: asudbring
+author: duongau
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 10/09/2020
-ms.author: allensu
-ms.openlocfilehash: c498a3d69b24fd104d24a3627a8e9d88b495c053
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: duau
+ms.openlocfilehash: 4486c94ccf3c0af7b3fd9be46c9994c445328c50
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91873968"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450441"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-conditional-expressions"></a>Verizon Premium의 Azure CDN 규칙 엔진 조건식
 

@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 09/13/2021
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 80387608b8c8ab7069ed989078472102e3d9afe8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a95331f1b5cd0110cc38e60870ad9bfd5e4a16bd
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128705846"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466811"
 ---
-# <a name="change-the-size-of-a-virtual-machine"></a>가상 컴퓨터의 크기 변경 
+# <a name="change-the-size-of-a-virtual-machine"></a>가상 머신의 크기 변경 
 
-**적용 대상:** :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 
 
 이 문서에서는 VM을 다른 [VM 크기](sizes.md)로 전환하는 방법을 보여 줍니다.
 
@@ -37,7 +37,7 @@ VM에서 Premium Storage를 사용하는 경우 크기의 **s** 버전을 선택
 
 가상 머신이 현재 실행 중인 경우, 크기를 변경하면 가상 머신이 다시 시작됩니다. 
 
-VM이 아직 실행 중이 고 목록에 원하는 크기가 표시 되지 않는 경우 가상 컴퓨터를 중지 하면 더 많은 크기를 표시할 수 있습니다.
+VM이 계속 실행 중이고 목록에 원하는 크기가 표시되지 않으면 가상 머신을 중지하면 더 많은 크기가 표시할 수 있습니다.
 
 ### <a name="cli"></a>[CLI](#tab/cli)
 
@@ -87,7 +87,7 @@ VM의 크기를 조정하려면 최신 [Azure CLI](/cli/azure/install-az-cli2)�
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-**PowerShell을 사용 하 여 가용성 집합에 없는 VM의 크기를 조정 합니다.**
+**PowerShell을 사용하여 가용성 집합에 없는 VM의 크기를 조정합니다.**
 
 일부 변수를 설정합니다. 사용자 고유의 정보로 값을 대체합니다.
 
@@ -96,7 +96,7 @@ $resourceGroup = "myResourceGroup"
 $vmName = "myVM"
 ```
 
-VM이 호스트 되는 지역에서 사용할 수 있는 VM 크기를 나열 합니다. 
+VM이 호스트되는 지역에서 사용할 수 있는 VM 크기를 나열합니다. 
    
 ```azurepowershell-interactive
 Get-AzVMSize -ResourceGroupName $resourceGroup -VMName $vmName 

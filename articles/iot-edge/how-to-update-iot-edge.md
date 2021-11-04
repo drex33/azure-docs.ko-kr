@@ -8,12 +8,12 @@ ms.date: 06/15/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cc123b47ed10252b050743955015b89d434a42b0
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 1899da83ff4e963c6fecf371f6d888b5bb120e7a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130218076"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131070473"
 ---
 # <a name="update-iot-edge"></a>IoT Edge 업데이트
 
@@ -125,6 +125,8 @@ curl -L <iotedge link> -o iotedge.deb && sudo apt-get install ./iotedge.deb
 
 >[!NOTE]
 >현재 Windows 가상 머신용 Linux에서 실행되는 IoT Edge 버전 1.2는 지원되지 않습니다.
+>
+>Windows에서 Linux 용 IoT Edge를 업데이트 하는 단계를 보려면 [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true&tabs=linuxonwindows)을 참조 하세요.
 
 :::moniker-end
 <!-- end 1.2 -->
@@ -162,6 +164,8 @@ Windows 업데이트에서 Linux용 IoT Edge를 받으려면 다른 Microsoft �
 
 >[!NOTE]
 >현재 Windows 디바이스에서 실행되는 IoT Edge 버전 1.2에 대한 지원은 없습니다.
+>
+>Windows에서 Linux 용 IoT Edge를 업데이트 하는 단계를 보려면 [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true&tabs=windows)을 참조 하세요.
 
 :::moniker-end
 <!-- end 1.2 -->

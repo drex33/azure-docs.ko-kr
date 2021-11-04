@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 1114d288a506d1b5123f16ab7a24ab14b585638d
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
-ms.translationtype: HT
+ms.openlocfilehash: 8a39809cf787237a38d5246c32e481fb82ac2629
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538427"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131474556"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU 최적화 가상 머신 크기
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 > [!TIP]
 > 워크로드에 가장 적합한 다른 크기를 찾으려면 **[가상 머신 선택 도구](https://aka.ms/vm-selector)** 를 사용해 보세요.
@@ -29,6 +31,9 @@ GPU 최적화 VM 크기는 단일, 여러 또는 일부 GPU에서 사용 가능�
 - [NV 시리즈](nv-series.md) 및 [NVv3 시리즈](nvv3-series.md) 크기는 OpenGL 및 DirectX와 같은 프레임워크를 사용하는 원격 시각화, 스트리밍, 게임, 인코딩 및 VDI 시나리오에 맞게 최적화되고 설계되었습니다. 이러한 VM은 NVIDIA Tesla M60 GPU의 지원을 받습니다.
 
 - [NVv4 시리즈](nvv4-series.md) VDI 및 원격 가상화를 위해 최적화되고 설계된 VM 크기입니다. 파티셔닝된 GPU를 사용하는 NVv4는 작은 GPU 리소스가 필요한 워크로드에 적합한 크기를 제공합니다. 이러한 VM은 AMD Radeon Instinct MI25 GPU에서 지원됩니다. NVv4 VM은 현재 Windows 게스트 운영 체제만 지원합니다.
+
+- [NDm A100 v4 시리즈](ndm-a100-v4-series.md) 가상 머신은 고급 심도 Learning 학습 및 긴밀하게 결합된 강화 및 스케일 아웃 HPC 워크로드용으로 설계된 Azure GPU 제품군에 새로 추가된 새로운 제품군입니다. NDm A100 v4 시리즈는 단일 VM(가상 머신) 및 8개의 NVIDIA Ampere A100 80GB Tensor Core GPU로 시작합니다.
+
 
 ## <a name="supported-operating-systems-and-drivers"></a>지원되는 운영 체제 및 드라이버
 

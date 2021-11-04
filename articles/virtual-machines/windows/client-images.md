@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: mimckitt
-ms.openlocfilehash: e75b06655fc6fe34be24b295be3d9255bc2b27fc
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fdb0459b796704666fedfd013571f952b8382c8f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128600250"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466735"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>개발/테스트 시나리오용으로 Azure에서 Windows 클라이언트 사용
 
@@ -44,6 +44,8 @@ ms.locfileid: "128600250"
 | [Visual Studio Enterprise 구독자](https://azure.microsoft.com/offers/ms-azr-0063p/) |0063P | Windows 10 Enterprise N(x64) <br> Windows 8.1 Enterprise N(x64) <br> Windows 7 Enterprise N with SP1(x64) |
 | [Visual Studio Enterprise(BizSpark) 구독자](https://azure.microsoft.com/offers/ms-azr-0064p/) |0064P | Windows 10 Enterprise N(x64) <br> Windows 8.1 Enterprise N(x64) <br> Windows 7 Enterprise N with SP1(x64) |
 | [Enterprise 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0148p/) |0148P | Windows 10 Enterprise N(x64) <br> Windows 8.1 Enterprise N(x64) <br> Windows 7 Enterprise N with SP1(x64) |
+
+자세한 내용은 [Microsoft 제품 유형 이해](../../cost-management-billing/costs/understand-cost-mgt-data.md#supported-microsoft-azure-offers) 를 참조 하세요.
 
 ## <a name="check-your-azure-subscription"></a>Azure 구독 확인
 제품 ID를 모르는 경우 Azure Portal을 통해 확인할 수 있습니다.  

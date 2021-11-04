@@ -7,65 +7,82 @@ manager: rkarlin
 ms.assetid: 320ccdad-8767-41f3-b083-0bc48f1eeb37
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
-ms.date: 10/24/2019
-ms.openlocfilehash: 661a02a15b7acb53ab496c1f5fcf9a9ab8c04205
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/01/2021
+ms.openlocfilehash: 36f81136a4fd3f836c925c2cc44fa4413aaba341
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131060766"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131463614"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Azure Sentinel을 사용하여 헌팅하는 동안 데이터 추적 유지
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 위협 헌팅을 사용하려면 일반적으로 많은 로그 데이터를 검토하여 악의적인 동작의 증거를 찾아야 합니다. 이 프로세스 중에 조사자는 잠재적인 가설의 유효성을 검사하고 손상의 전체적인 스토리를 파악하는 작업의 일부로 기억하고, 다시 방문하고, 분석하려는 이벤트를 찾습니다.
 
 Azure Sentinel의 헌팅 책갈피를 사용하면 관련성이 있는 것으로 간주하는 쿼리 결과와 함께 **Azure Sentinel - 로그** 에서 실행한 쿼리를 유지하여 이 작업을 수행할 수 있습니다. 컨텍스트에 따른 관찰 내용을 기록하고 메모와 태그를 추가하여 결과를 참조할 수도 있습니다. 책갈피가 설정된 데이터는 손쉬운 협업을 위해 본인과 팀 동료가 볼 수 있습니다.
 
-언제든지 **헌팅** 창의 **책갈피** 탭에서 책갈피가 지정된 데이터를 다시 방문할 수 있습니다. 필터링 및 검색 옵션을 사용하면 현재 진행 중인 조사를 위해 빠르게 특정 데이터를 찾을 수 있습니다. 또는 Log Analytics 작업 영역의 **HuntingBookmark** 테이블에서 직접 책갈피가 지정된 데이터를 볼 수 있습니다. 예를 들면 다음과 같습니다.
+이제 사용자 지정 헌팅 쿼리를 MITRE ATT&CK 기술에 매핑하여 모든 헌팅 쿼리에서 MITRE ATT&CK 기술 범위의 차이를 식별하고 해결할 수 있습니다.
 
-> [!div class="mx-imgBorder"]
-> ![HuntingBookmark 테이블 보기](./media/bookmarks/bookmark-table.png)
+> [!IMPORTANT]
+>
+> MITRE ATT&CK 기술을 책갈피에 매핑하는 방법은 현재 **미리 보기로** 제공됩니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+사용자 지정 쿼리에서 Microsoft Sentinel Analytics에서 지원하는 엔터티 형식 및 식별자의 전체 집합을 매핑하여 책갈피를 사용하여 헌팅하는 동안 더 많은 유형의 엔터티를 조사할 수도 있습니다. 이렇게 하면 책갈피를 사용하여 엔터티 페이지, 인시던트 및 조사 그래프 를 사용하여 [헌팅](investigate-cases.md#use-the-investigation-graph-to-deep-dive)쿼리 결과에 반환된 [엔터티를](entities-in-azure-sentinel.md#entity-pages)탐색할 수 [있습니다.](investigate-cases.md) 책갈피는 헌팅 쿼리의 결과를 캡처하는 경우 쿼리의 MITRE ATT&CK 기술 및 엔터티 매핑을 자동으로 상속합니다.
+
+> [!IMPORTANT]
+>
+> 책갈피에 대한 확장된 엔터티 형식 및 식별자 집합의 매핑은 현재 **미리 보기** 에 있습니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+>
+
+로그에서 헌팅하는 동안 긴급하게 해결해야 하는 사항을 찾으면 쉽게 책갈피를 만들고 인시던트로 승격하거나 기존 인시던트에서 추가할 수 있습니다. 인시던트 에 대한 자세한 내용은 [Azure Sentinel 인시던트 조사를](investigate-cases.md)참조하세요.
+
+책갈피를 지정할 만한 가치가 있지만 즉시 긴급하지는 않은 경우 언제든지 **헌팅** 창의 책갈피 탭에서 책갈피를 만든 다음 **책갈피가** 지정된 데이터를 다시 방문할 수 있습니다. 필터링 및 검색 옵션을 사용하면 현재 진행 중인 조사를 위해 빠르게 특정 데이터를 찾을 수 있습니다. 
+
+책갈피 세부 정보에서 **조사를** 선택하여 책갈피가 지정된 데이터를 시각화할 수 있습니다. 그러면 대화형 엔터티-그래프 다이어그램과 타임라인을 사용하여 결과를 보고, 조사하고, 시각적으로 전달할 수 있는 조사 환경이 시작됩니다.
+
+또는 Log Analytics 작업 영역의 **HuntingBookmark** 테이블에서 직접 책갈피가 지정된 데이터를 볼 수 있습니다. 예를 들면 다음과 같습니다.
+
+:::image type="content" source="media/bookmarks/bookmark-table.png" alt-text="헌팅 책갈피 테이블을 보는 스크린샷." lightbox="media/bookmarks/bookmark-table.png":::
 
 테이블에서 책갈피를 보면 책갈피가 지정된 데이터를 필터링, 요약하고 다른 데이터 원본과 조인하여 보강 증거를 쉽게 찾을 수 있습니다.
 
-현재 미리 보기 상태에서는 로그에서 헌팅하는 동안 긴급하게 처리해야 하는 어떤 것을 찾은 경우 몇 번 클릭으로 책갈피를 만들고 인시던트로 승격하거나 기존 인시던트에 책갈피를 추가할 수 있습니다. 인시던트에 관한 자세한 내용은 [자습서: Azure Sentinel을 사용하여 인시던트 조사](investigate-cases.md)를 참조하세요. 
-
-또한 미리 보기에서는 책갈피 세부 정보에서 **조사** 를 클릭하여 책갈피가 지정된 데이터를 시각화할 수 있습니다. 그러면 대화형 엔터티-그래프 다이어그램과 타임라인을 사용하여 결과를 보고, 조사하고, 시각적으로 전달할 수 있는 조사 환경이 시작됩니다.
-
 ## <a name="add-a-bookmark"></a>책갈피 추가
 
-1. Azure Portal에서 **Sentinel** > **위협 관리** > **헌팅** 으로 이동하여 의심스럽고 비정상적인 동작에 대한 쿼리를 실행합니다.
+1. Azure Portal **Azure Sentinel**  >  **위협 관리**  >  **헌팅으로** 이동하여 의심스럽고 비정상적인 동작에 대한 쿼리를 실행합니다.
 
-2. 헌팅 쿼리 중 하나를 선택하고 오른쪽에 있는 헌팅 쿼리 세부 정보에서 **쿼리 실행** 을 선택합니다. 
+1. 헌팅 쿼리 중 하나를 선택하고 오른쪽에 있는 헌팅 쿼리 세부 정보에서 **쿼리 실행** 을 선택합니다. 
 
-3. **쿼리 결과 보기** 를 선택합니다. 예를 들면 다음과 같습니다.
-    
-    > [!div class="mx-imgBorder"]
-    > ![Azure Sentinel 헌팅에서 쿼리 결과 보기](./media/bookmarks/new-processes-observed-example.png)
-    
+1. **쿼리 결과 보기** 를 선택합니다. 예를 들면 다음과 같습니다.
+
+    :::image type="content" source="media/bookmarks/new-processes-observed-example.png" alt-text="Azure Sentinel 헌팅에서 쿼리 결과를 보는 스크린샷.":::
+
     이 작업은 쿼리 결과를 **로그** 창에서 엽니다.
 
-4. 로그 쿼리 결과 목록에서 확인란을 사용하여 관심 있는 정보를 포함하는 행을 하나 이상 선택합니다.
+1. 로그 쿼리 결과 목록에서 확인란을 사용하여 관심 있는 정보를 포함하는 행을 하나 이상 선택합니다.
 
-5. **책갈피 추가** 를 선택합니다.
-    
-    > [!div class="mx-imgBorder"]
-    > ![쿼리에 헌팅 책갈피 추가](./media/bookmarks/add-hunting-bookmark.png)
+1. **책갈피 추가** 를 선택합니다.
 
-6. 오른쪽에 있는 **책갈피 추가** 창에서 필요에 따라 책갈피 이름을 업데이트하고, 태그를 추가하고, 항목에 관해 흥미로운 것을 식별할 수 있는 메모를 추가합니다.
+    :::image type="content" source="media/bookmarks/add-hunting-bookmark.png" alt-text="쿼리에 헌팅 책갈피를 추가하는 스크린샷." lightbox="media/bookmarks/add-hunting-bookmark.png":::
 
-7. **쿼리 정보** 섹션에서 드롭다운 상자를 사용하여 **계정**, **호스트** 및 **IP 주소** 엔터티 형식에 대한 정보를 쿼리 결과에서 추출합니다. 이 작업은 선택한 엔터티 형식을 쿼리 결과의 특정 열에 매핑합니다. 예를 들면 다음과 같습니다.
-    
-    > [!div class="mx-imgBorder"]
-    > ![헌팅 책갈피에 대한 엔터티 형식 매핑](./media/bookmarks/map-entity-types-bookmark.png)
-    
-    조사 그래프(현재 미리 보기 상태)에서 책갈피를 보려면 **계정,** **호스트** 또는 **IP 주소** 엔터티 형식 중 하나 이상을 매핑해야 합니다. 
+1. 오른쪽에 있는 **책갈피 추가** 창에서 필요에 따라 책갈피 이름을 업데이트하고, 태그를 추가하고, 항목에 관해 흥미로운 것을 식별할 수 있는 메모를 추가합니다.
 
-5. **저장** 을 클릭하여 변경 내용을 커밋하고 책갈피를 추가합니다. 모든 책갈피가 지정된 데이터는 다른 조사자와 공유되며 협업 조사 환경을 위한 첫 번째 단계입니다.
+1. **(미리 보기)** 책갈피는 선택적으로 MITRE ATT&CK 기술 또는 하위 기술에 매핑할 수 있습니다. MITRE ATT&CK 매핑은 헌팅 쿼리의 매핑된 값에서 상속되지만 수동으로 만들 수도 있습니다. **책갈피 추가** 창의 전술 & **기술(미리 보기)** 섹션에 있는 드롭다운 메뉴에서 원하는 기술과 연결된 MITRE ATT&CK 기법을 선택합니다. 메뉴가 확장되어 모든 MITRE ATT&CK 기술이 표시되며, 이 메뉴에서 여러 기술 및 하위 기술을 선택할 수 있습니다.
+
+    :::image type="content" source="media/bookmarks/mitre-attack-mapping.png" alt-text="Mitre Attack 전술 및 기법을 책갈피에 매핑하는 방법의 스크린샷.":::
+
+1. **(미리 보기)** 이제 추가 조사를 위해 책갈피가 지정된 쿼리 결과에서 확장된 엔터티 집합을 추출할 수 있습니다. **엔터티 매핑(미리 보기)** 섹션에서 드롭다운을 사용하여 [엔터티 형식 및 식별자를](entities-reference.md)선택합니다. 그런 다음 해당 식별자를 포함하는 쿼리 결과의 열을 매핑합니다. 예를 들어:
+
+    :::image type="content" source="media/bookmarks/map-entity-types-bookmark.png" alt-text="헌팅 책갈피에 대한 엔터티 형식을 매핑하는 스크린샷":::
+
+    조사 그래프에서 책갈피를 보려면 하나 이상의 엔터티를 매핑해야 합니다. 이 미리 보기 이전에 만든 계정, 호스트, IP 및 URL 엔터티 형식에 대한 엔터티 매핑은 이전 버전과의 호환성을 유지하면서 계속 지원됩니다. 
+
+1. **저장** 을 클릭하여 변경 내용을 커밋하고 책갈피를 추가합니다. 책갈피가 지정된 모든 데이터는 다른 분석가와 공유되며 공동 조사 환경을 위한 첫 번째 단계입니다.
 
  
 > [!NOTE]
@@ -73,7 +90,7 @@ Azure Sentinel의 헌팅 책갈피를 사용하면 관련성이 있는 것으로
 
 ## <a name="view-and-update-bookmarks"></a>책갈피 보기 및 업데이트 
 
-1. Azure Portal에서 **Sentinel** > **위협 관리** > **헌팅** 으로 이동합니다. 
+1. Azure Portal **Azure Sentinel**  >  **위협 관리**  >  **헌팅으로** 이동합니다. 
 
 2. **책갈피** 탭을 선택하여 책갈피 목록을 봅니다.
 
@@ -85,42 +102,31 @@ Azure Sentinel의 헌팅 책갈피를 사용하면 관련성이 있는 것으로
 
 ## <a name="exploring-bookmarks-in-the-investigation-graph"></a>조사 그래프에서 책갈피 검색
 
-> [!IMPORTANT]
-> 조사 그래프의 책갈피와 조사 그래프 자체를 검색하는 기능은 퍼블릭 미리 보기 상태입니다.
-> 이 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 권장되지 않습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+1. Azure Portal **Azure Sentinel**  >  **위협 관리**  >  **헌팅**  >  **책갈피** 탭으로 이동하고 조사하려는 책갈피 또는 책갈피를 선택합니다.
 
-1. Azure Portal에서 **Sentinel** > **위협 관리** > **헌팅** > **책갈피** 탭으로 이동하고 조사하려는 책갈피를 선택합니다.
+2. 책갈피 세부 정보에서 하나 이상의 엔터티가 매핑되었는지 확인합니다.
 
-2. 책갈피 세부 정보에서 하나 이상의 엔터티가 매핑되었는지 확인합니다. 예를 들어, **엔터티** 의 경우 **IP**, **머신** 또는 **계정** 의 항목이 표시됩니다.
-
-3. **조사** 를 클릭하여 조사 그래프의 책갈피를 봅니다.
+3. **조사** 그래프에서 책갈피를 보려면 조사를 선택합니다.
 
 조사 그래프를 사용하기 위한 지침은 [조사 그래프를 사용하여 심층 분석](investigate-cases.md#use-the-investigation-graph-to-deep-dive)을 참조하세요.
 
 ## <a name="add-bookmarks-to-a-new-or-existing-incident"></a>새 인시던트 또는 기존 인시던트에 책갈피 추가
 
-> [!IMPORTANT]
-> 새 인시던트나 기존 인시던트에 책갈피를 추가하는 기능은 현재 퍼블릭 미리 보기 상태입니다.
-> 해당 기능은 별도의 서비스 수준 계약 없이 제공되며, 프로덕션 작업에는 사용하지 않는 것이 좋습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+1. Azure Portal **Azure Sentinel**  >  **위협 관리**  >  **헌팅** 책갈피 탭으로 이동하고 인시던트에서 추가할  >   책갈피 또는 책갈피를 선택합니다.
 
-1. Azure Portal에서 **Sentinel** > **위협 관리** > **헌팅** > **책갈피** 탭으로 이동하고 인시던트에 추가하려는 책갈피를 선택합니다.
+2. 명령 모음에서 **인시던트 작업을** 선택합니다.
 
-2. 명령 모음에서 **인시던트 작업(미리 보기)** 을 선택합니다.
-    
-    > [!div class="mx-imgBorder"]
-    > ![인시던트에 책갈피 추가](./media/bookmarks/incident-actions.png)
+    :::image type="content" source="media/bookmarks/incident-actions.png" alt-text="인시던트에서 책갈피를 추가하는 스크린샷":::
 
-3. 필요에 따라 **새 인시던트 만들기** 또는 **기존 인시던트에 추가** 를 선택합니다. 그렇다면
+3. 새 **인시던트 만들기** 또는 **기존 인시던트 에 추가를** 적절하게 선택합니다. 그렇다면
     
     - 새 인시던트의 경우: 필요에 따라 인시던트의 세부 정보를 업데이트한 후 **만들기** 를 선택합니다.
     - 기존 인시던트에 책갈피를 추가하려면: 하나의 인시던트를 선택한 후 **추가** 를 선택합니다. 
 
-인시던트 내에서 책갈피를 보려면: **Sentinel** > **위협 관리** > **인시던트** 로 이동하고 책갈피가 있는 인시던트를 선택합니다. **전체 세부 정보 보기** 를 선택한 후 **책갈피** 탭을 선택합니다.
+인시던트 내에서 책갈피를 보려면 **Azure Sentinel**  >  **위협 관리**  >  **인시던트로** 이동하여 책갈피가 있는 인시던트 를 선택합니다. **전체 세부 정보 보기** 를 선택한 후 **책갈피** 탭을 선택합니다.
 
 > [!TIP]
-> 명령 모음의 **인시던트 작업(미리 보기)** 옵션 대신, 하나 이상의 책갈피에 대한 상황에 맞는 메뉴( **...** )를 사용하여 **새 인시던트 만들기**, **기존 인시던트에 추가** 및 **인시던트에서 제거** 옵션을 선택합니다. 
+> 명령 모음의 **인시던트 작업** 옵션 대신 하나 이상의 책갈피에 대한 상황에 맞는 메뉴(**...**)를 사용하여 새 인시던트 만들기, 기존 **인시던트** 에 **추가** 및 **인시던트에서 제거** 옵션을 선택할 수 있습니다. 
 
 ## <a name="view-bookmarked-data-in-logs"></a>로그에서 책갈피가 지정된 데이터 보기
 
@@ -132,19 +138,18 @@ Azure Sentinel의 헌팅 책갈피를 사용하면 관련성이 있는 것으로
 
 또한 **헌팅** > **책갈피** 탭의 명령 모음에서 **책갈피 로그** 를 선택하여 모든 책갈피의 원시 책갈피 데이터를 볼 수 있습니다.
 
-> [!div class="mx-imgBorder"]
-> ![책갈피 로그](./media/bookmarks/bookmark-logs.png)
+:::image type="content" source="media/bookmarks/bookmark-logs.png" alt-text="책갈피 로그 명령의 스크린샷.":::
 
-이 보기에는 연결된 메타데이터가 있는 모든 책갈피가 표시됩니다. [KQL](/sharepoint/dev/general-development/keyword-query-language-kql-syntax-reference)(Keyword Query Language) 쿼리를 사용하여 찾으려는 특정 책갈피의 최신 버전으로 필터링할 수 있습니다.
+이 보기에는 연결된 메타데이터가 있는 모든 책갈피가 표시됩니다. [KQL(Kusto 쿼리 언어)](/azure/data-explorer/kql-quick-reference) 쿼리를 사용하여 찾고 있는 특정 책갈피의 최신 버전으로 필터링할 수 있습니다.
 
 > [!NOTE]
 > 책갈피를 만드는 시간과 책갈피가 **책갈피** 탭에 표시되는 시간 사이에 상당한 지연(분 단위로 측정됨)이 있을 수 있습니다.
 
 ## <a name="delete-a-bookmark"></a>책갈피 삭제
  
-1.  Azure Portal에서 **Sentinel** > **위협 관리** > **헌팅** > **책갈피** 탭으로 이동하고 삭제하려는 책갈피를 선택합니다. 
+1.  Azure Portal **Azure Sentinel**  >  **위협 관리**  >  **헌팅**  >  **책갈피** 탭으로 이동하고 삭제할 책갈피 또는 책갈피를 선택합니다. 
 
-2. 선택 항목을 마우스 오른쪽 단추로 클릭하고 책갈피를 삭제하는 옵션을 선택합니다. 예를 들어, 책갈피를 하나만 선택한 경우 **책갈피 삭제** 를 선택하고, 두 개의 책갈피를 선택한 경우 **두 개의 책갈피 삭제** 를 선택합니다.
+2. 선택 항목을 마우스 오른쪽 단추로 클릭하고 선택한 책갈피 수를 삭제하는 옵션을 선택합니다.
     
 책갈피를 삭제하면 **책갈피** 탭의 목록에서 책갈피가 제거됩니다. Log Analytics 작업 영역의 **HuntingBookmark** 테이블은 이전 책갈피 항목을 계속 포함하지만 최신 항목은 **SoftDelete** 값을 true로 변경하여 이전 책갈피를 쉽게 필터링할 수 있습니다. 책갈피를 삭제해도 다른 책갈피 또는 경고와 연결된 조사 환경의 엔터티가 제거되지 않습니다. 
 
@@ -156,3 +161,4 @@ Azure Sentinel의 헌팅 책갈피를 사용하면 관련성이 있는 것으로
 
 - [위협 요소를 사전에 헌팅하기](hunting.md)
 - [Notebook을 사용하여 자동 헌팅 캠페인 실행](notebooks.md)
+- [Azure Sentinel 위협 헌팅(학습 모듈)](/learn/modules/hunt-threats-sentinel/)

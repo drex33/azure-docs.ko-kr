@@ -4,15 +4,15 @@ description: 처리 API 버전 2를 사용하여 Microsoft AppSource 및 Azure M
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 10/25/2021
+ms.date: 10/27/2021
 author: saasguide
 ms.author: souchak
-ms.openlocfilehash: 2defbfba47f40780be507636e300a4d0859f4864
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 4e2dff653564a568905160188fc4be308812c557
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131048327"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131460720"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>상업용 Marketplace의 SaaS 처리 API 버전 2
 
@@ -30,7 +30,7 @@ ms.locfileid: "131048327"
 
 #### <a name="purchased-but-not-yet-activated-pendingfulfillmentstart"></a>구매했지만 아직 활성화되지 않음(*PendingFulfillmentStart*)
 
-최종 사용자 또는 CSP (클라우드 솔루션 공급자)가 상업적 marketplace에서 SaaS 제품을 구매한 후에는 게시자에 게 구매 알림이 제공 되어야 합니다. 그러면 게시자는 게시자 쪽에 최종 사용자를 위한 새 SaaS 계정을 만들고 구성할 수 있습니다.
+최종 사용자 또는 CSP (클라우드 솔루션 공급자)가 상업적 marketplace에서 SaaS 제품을 구매한 후에는 게시자에 게 구매 알림이 제공 됩니다. 그러면 게시자는 게시자 쪽에 최종 사용자를 위한 새 SaaS 계정을 만들고 구성할 수 있습니다.
 
 계정이 만들어지는 과정은 다음과 같습니다.
 
@@ -41,7 +41,8 @@ ms.locfileid: "131048327"
 
 [!INCLUDE [pound-sign-note](../includes/pound-sign-note.md)]
 
-방문 페이지 URL은 항상 가동해야 하며 언제나 Microsoft에서 새 호출을 받을 준비가 되어 있어야 합니다. 방문 페이지를 사용할 수 없게 되면 고객이 SaaS 서비스에 가입하고 서비스 사용을 시작할 수 없습니다.
+> [!IMPORTANT]
+> 방문 페이지 URL은 항상 가동해야 하며 언제나 Microsoft에서 새 호출을 받을 준비가 되어 있어야 합니다. 방문 페이지를 사용할 수 없게 되면 고객이 SaaS 서비스에 가입하고 서비스 사용을 시작할 수 없습니다.
 
 다음으로, 게시자는 [SaaS 확인 API](#resolve-a-purchased-subscription)를 호출하고 `x-ms-marketplace-token header` 헤더 매개 변수의 값으로 토큰을 입력하여 *토큰* 을 Microsoft에 다시 전달해야 합니다. 확인 API를 호출한 결과로 고유 구매 ID, 구매한 제품 ID, 구매한 플랜 ID와 같은 SaaS 구매 세부 정보와 토큰이 교환됩니다.
 
@@ -139,13 +140,13 @@ Microsoft는 구독을 자동으로 취소하기 전에 고객에게 30일의 �
 
 #### <a name="renewed-subscribed"></a>갱신됨(*구독됨*)
 
-SaaS 구독은 월간 또는 연간 구독 기간이 끝날 때 Microsoft에서 자동으로 갱신합니다. 모든 SaaS 구독의 자동 갱신 설정의 기본값은 *true* 입니다. 활성 SaaS 구독은 정기적으로 계속 갱신됩니다. Microsoft는 구독을 갱신할 때 게시자에게 알리지 않습니다. 고객은 Microsoft 365 관리 포털을 통해 SaaS 구독의 자동 갱신을 해제할 수 있습니다. 이 경우 SaaS 구독은 현재 청구 기간 종료 시 자동으로 취소됩니다. 고객은 언제든지 SaaS 구독을 취소할 수 있습니다.
+SaaS 구독은 월간 또는 연간 구독 기간이 끝날 때 Microsoft에서 자동으로 갱신합니다. 모든 SaaS 구독의 자동 갱신 설정의 기본값은 *true* 입니다. 활성 SaaS 구독은 정기적으로 계속 갱신됩니다. Microsoft는 갱신 이벤트에 대 한 알림 전용 webhook 알림을 제공 합니다. 고객은 Microsoft 365 관리 포털을 통해 SaaS 구독의 자동 갱신을 해제할 수 있습니다. 이 경우 SaaS 구독은 현재 청구 기간 종료 시 자동으로 취소됩니다. 고객은 언제든지 SaaS 구독을 취소할 수 있습니다.
 
 활성 구독만 자동으로 갱신됩니다. 갱신 프로세스가 진행되는 동안 그리고 자동 갱신이 성공하면 구독이 활성 상태를 유지합니다. 갱신 후 구독 기간의 시작 및 종료 날짜가 새 기간의 날짜로 업데이트됩니다.
 
 결제 문제로 인해 자동 갱신이 실패하면 구독이 *일시 중단* 되고 게시자에게 알림이 전달됩니다.
 
-#### <a name="canceled-unsubscribed"></a>취소됨(*구독 취소됨*) 
+#### <a name="canceled-unsubscribed"></a>취소됨(*구독 취소됨*)
 
 게시자 사이트, Azure Portal 또는 Microsoft 365 관리 센터에서 구독을 취소하면 명시적 고객 또는 CSP 작업에 대한 응답으로 구독이 이 상태에 도달합니다. 또한 *일시 중단됨* 상태로 전환된 후 30일이 지나도 요금 결제가 이루어지지 않으면 구독이 암시적으로 취소될 수 있습니다.
 
@@ -726,7 +727,7 @@ Code: 200 이미 구매한 플랜을 포함하여 기존 SaaS 구독에 대해 �
 
 ### <a name="operations-apis"></a>작업 API
 
-#### <a name="list-outstanding-operations"></a>미해결 작업 나열 
+#### <a name="list-outstanding-operations"></a>미해결 작업 나열
 
 지정된 SaaS 구독에 대해 보류 중인 작업 목록을 가져옵니다.  게시자는 [작업 패치 API](#update-the-status-of-an-operation)를 호출하여 반환된 작업을 승인해야 합니다.
 
@@ -899,11 +900,12 @@ Code: 409 충돌.  예를 들어 새 업데이트가 이미 수행되었습니�
 
 ## <a name="implementing-a-webhook-on-the-saas-service"></a>SaaS 서비스에서 webhook 구현
 
-파트너 센터에서 불가능 SaaS 제안을 만들 때 파트너는 HTTP 끝점으로 사용할 **연결 webhook** URL을 제공 합니다.  이 webhook는 Microsoft가 Microsoft 쪽에서 발생하는 다음 이벤트를 게시자 쪽에 알리기 위해 POST HTTP 호출을 사용하여 호출합니다.
+파트너 센터 거래 가능한 SaaS 제안을 만들 때 파트너는 HTTP 엔드포인트로 사용할 **연결 웹후크** URL을 제공합니다.  이 webhook는 Microsoft가 Microsoft 쪽에서 발생하는 다음 이벤트를 게시자 쪽에 알리기 위해 POST HTTP 호출을 사용하여 호출합니다.
 
 * SaaS 구독이 *구독 취소됨* 상태인 경우:
     * ChangePlan
     * ChangeQuantity
+    * 갱신
     * 일시 중지됨
     * 구독 취소
 * SaaS 구독이 *일시 중단됨* 상태인 경우:
@@ -912,10 +914,10 @@ Code: 409 충돌.  예를 들어 새 업데이트가 이미 수행되었습니�
 
 게시자는 SaaS 구독 상태가 Microsoft 쪽과 동일하게 유지되도록 SaaS 서비스에서 webhook를 구현해야 합니다.  webhook 알림에 따라 작업을 수행하기 전에 작업 가져오기 API를 호출하여 webhook 호출 및 페이로드 데이터의 유효성을 검사하고 권한을 부여하려면 SaaS 서비스가 필요합니다.  webhook 호출이 처리되는 즉시 게시자는 HTTP 200을 Microsoft에 반환해야 합니다.  이 값은 게시자가 webhook 호출을 성공적으로 받았다는 것을 확인합니다.
 
->[!Note]
->webhook URL 서비스는 연중 무휴 실행되어야 하며, 항상 Microsoft에서 새로운 호출을 받을 준비가 되어 있어야 합니다.  Microsoft는 webhook 호출에 대한 다시 시도 정책을 갖고 있지만(8시간 넘게 500회 재시도), 게시자가 호출을 수락하지 않고 응답을 반환하는 경우 webhook에서 알리는 작업은 결국 Microsoft 쪽에서 실패합니다.
+> [!IMPORTANT]
+> webhook URL 서비스는 연중 무휴 실행되어야 하며, 항상 Microsoft에서 새로운 호출을 받을 준비가 되어 있어야 합니다.  Microsoft에는 webhook 호출에 대한 재시도 정책이 있지만(8시간 동안 500회 재시도) 게시자가 통화를 수락하고 응답을 반환하지 않으면 결국 Microsoft 쪽에서 webhook가 알리게 되는 작업이 실패합니다.
 
-*Webhook 페이로드 예제:*
+*구매 이벤트의 Webhook 페이로드 예제:*
 
 ```json
 // end user changed a quantity of purchased seats for a plan on Microsoft side
@@ -926,12 +928,14 @@ Code: 409 충돌.  예를 들어 새 업데이트가 이미 수행되었습니�
   "publisherId": "contoso", // A unique string identifier for each publisher
   "offerId": "offer1", // A unique string identifier for each offer
   "planId": "silver", // the most up-to-date plan ID
-  "quantity": " 25", // the most up-to-date number of seats, can be empty if not relevant
+  "quantity": "25", // the most up-to-date number of seats, can be empty if not relevant
   "timeStamp": "2019-04-15T20:17:31.7350641Z", // UTC time when the webhook was called
   "action": "ChangeQuantity", // the operation the webhook notifies about
   "status": "Success" // Can be either InProgress or Success
 }
 ```
+
+*구독 복구 이벤트의 Webhook 페이로드 예제:*
 
 ```json
 // end user's payment instrument became valid again, after being suspended, and the SaaS subscription is being reinstated
@@ -942,10 +946,28 @@ Code: 409 충돌.  예를 들어 새 업데이트가 이미 수행되었습니�
   "publisherId": "contoso",
   "offerId": "offer2 ",
   "planId": "gold",
-  "quantity": " 20",
+  "quantity": "20",
   "timeStamp": "2019-04-15T20:17:31.7350641Z",
   "action": "Reinstate",
   "status": "InProgress"
+}
+```
+
+*갱신 이벤트의 Webhook 페이로드 예제:*
+
+```json
+// end user's payment instrument became valid again, after being suspended, and the SaaS subscription is being reinstated
+{
+  "id": "<guid>",
+  "activityId": "<guid>",
+  "subscriptionId": "<guid>",
+  "publisherId": "contoso",
+  "offerId": "offer1 ",
+  "planId": "silver",
+  "quantity": "25",
+  "timeStamp": "2019-04-15T20:17:31.7350641Z",
+  "action": "Renew",
+  "status": "Success"
 }
 ```
 

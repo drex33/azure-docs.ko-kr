@@ -8,16 +8,19 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 08/25/2021
 ms.custom: devx-track-java, subject-rbac-steps
-ms.openlocfilehash: ce5905b43d37faf3b1a6965ae04efb9f8f73c2ff
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
-ms.translationtype: HT
+ms.openlocfilehash: 9c4a5715af9fe98f5e577410219a54368c27b6df
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835883"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054878"
 ---
 # <a name="access-config-server-and-service-registry"></a>Config Server 및 서비스 레지스트리에 액세스
 
 이 문서에서는 Azure AD(Azure Active Directory) RBAC(역할 기반 액세스 제어)를 사용하여 Azure Spring Cloud에서 관리하는 Spring Cloud Config Server 및 Spring Cloud 서비스 레지스트리에 액세스하는 방법을 설명합니다.
+
+> [!NOTE]
+> Azure Spring Cloud 서비스 내에서 배포되고 실행되는 애플리케이션은 관리되는 Spring Cloud Config Server 및 서비스 레지스트리에 액세스할 때 인증서 기반 인증 및 권한 부여와 자동으로 연결됩니다. 이러한 애플리케이션에 대해 이 지침을 따를 필요가 없습니다. 관련 인증서는 Azure Spring Cloud 플랫폼에서 완전히 관리되며 Config Server 및 서비스 레지스트리에 연결되면 애플리케이션에 자동으로 삽입됩니다.
 
 ## <a name="assign-role-to-azure-ad-usergroup-msi-or-service-principal"></a>Azure AD 사용자/그룹, MSI 또는 서비스 주체에 역할 할당
 

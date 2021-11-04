@@ -7,24 +7,24 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 09/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 6d485d855a6116661916325c925ef063d6125dc7
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 4bb866c25c81b08be7d4769d33b7d49b3ac6849f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130252405"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131440028"
 ---
 # <a name="connect-azure-percept-dk-over-5g-and-lte-networks-by-using-a-usb-modem"></a>USB 모뎀을 사용하여 5G 및 LTE 네트워크 커넥트 Azure Percept DK
 
 이 문서에서는 USB 모뎀을 사용하여 Azure Percept DK 5G 또는 LTE 네트워크에 연결하는 방법을 설명합니다. 
 
 > [!NOTE]
-> 이 문서의 정보는 다음 섹션의 지침에 따라 다운로드할 수 있는 특수 Azure Percept DK 소프트웨어에만 적용됩니다. 특수 Azure Percept DK 이미지에는 다양한 USB 모뎀을 지원하는 ModemManager 오픈 소스 소프트웨어가 포함되어 있습니다. 이미지는 운영 체제 또는 기타 소프트웨어에 대한 OTA(OTA)를 지원하지 않습니다. ModemManager 오픈 소스 소프트웨어를 사용하면 간단하고 비용 효율적인 LTE USB 모뎀 또는 보다 정교한 5G 모뎀을 사용하여 인터넷 및 Azure에 Azure Percept DK 연결할 수 있습니다. 
+> 이 문서의 정보는 다음 섹션의 지침에 따라 다운로드할 수 있는 특수 Azure Percept DK 소프트웨어에만 적용됩니다. 특수 Azure Percept DK 이미지에는 다양한 USB 모뎀을 지원하는 ModemManager 오픈 소스 소프트웨어가 포함되어 있습니다. 이미지는 운영 체제 또는 기타 소프트웨어에 대한 OTA(OTA)를 지원하지 않습니다. ModemManager 오픈 소스 소프트웨어를 사용하면 간단하고 비용 효율적인 LTE USB 모뎀 또는 보다 정교한 5G 모뎀을 사용하여 Azure Percept DK 인터넷 및 Azure에 연결할 수 있습니다. 
 >
 > 이 문서의 지침은 MBIM(모바일 광대역 인터페이스 모델) 인터페이스를 지원하는 USB 모뎀과 함께 사용됩니다. USB 모뎀을 얻기 전에 MBIM 인터페이스를 지원하는지 확인합니다. 또한 지원되는 모뎀의 ModemManager 목록에 나열되어 있는지 확인합니다. ModemManager 소프트웨어는 다른 인터페이스와 함께 사용할 수 있지만 이 문서에서는 MBIM 인터페이스에 집중합니다. 자세한 내용은 [freedesktop.org ModemManager 페이지로](https://www.freedesktop.org/wiki/Software/ModemManager/) 이동합니다.
 
 
-:::image type="Image" source="media/connect-over-cellular/azure-percept-all-modems.png" alt-text="USB 모뎀을 사용하여 5G 및 LTE 네트워크에 연결하는 Azure Precept DK의 사진 그림입니다.":::
+:::image type="Image" source="media/connect-over-cellular/azure-percept-all-modems-v2.png" alt-text="USB 모뎀을 사용하여 5G 및 LTE 네트워크에 연결하는 Azure Precept DK의 사진 그림입니다.":::
 
 ## <a name="set-up-azure-percept-dk-to-use-a-usb-modem"></a>USB 모뎀을 사용하도록 Azure Percept DK 설정
 
@@ -53,7 +53,7 @@ ms.locfileid: "130252405"
 
 :::image type="Image" source="media/connect-over-cellular/vodafone-usb-modem-75.png" alt-text="Vodafone 4G v2 USB 모뎀의 위쪽 및 아래쪽 보기를 보여주는 일러스트레이션.":::
 
-Vodafone USB 커넥트 4G v2와 같은 간단한 USB 모뎀을 사용하여 Azure Percept DK 연결하는 방법에 대한 지침은 [Vodafone 커넥트 4G v2 USB 모뎀을 사용하여 커넥트 참조하세요.](./connect-over-cellular-usb-vodafone.md)   
+Vodafone USB 커넥트 4G v2와 같은 간단한 USB 모뎀을 사용하여 Azure Percept DK 연결하는 방법에 대한 지침은 [Vodafone 커넥트 4G v2 USB 모뎀을 사용하여 커넥트](./connect-over-cellular-usb-vodafone.md)참조하세요.   
 
 ### <a name="multitech-multiconnect-usb-modem"></a>MultiTech 다중 연결 USB 모뎀
 

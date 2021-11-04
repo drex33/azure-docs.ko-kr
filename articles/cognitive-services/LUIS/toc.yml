@@ -402,7 +402,7 @@ items:
             href: 'https://azure.microsoft.com/services/cognitive-services/speech/'
           - name: Bing Spell Check API
             href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
-          - name: Text Analytics
+          - name: 언어 서비스
             href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'
           - name: 인식기-텍스트
             href: 'https://github.com/Microsoft/Recognizers-Text'

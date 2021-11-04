@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 6ed141d10ba89cb9462d9529fc9b5574a647e58c
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 4a7afa29bc225794aefa4188e8f674db119085d6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122538074"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040934"
 ---
 # <a name="tostring-azure-cosmos-db"></a>ToString(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -89,8 +89,9 @@ SELECT
 FROM food 
 JOIN n IN food.nutrients
 ```
-결과 집합은 다음과 같습니다.  
- ```json
+결과 집합은 다음과 같습니다.
+
+```json
 [{"nutrientID":"305"},
 {"nutrientID":"306","nutritionVal":"30"},
 {"nutrientID":"307","nutritionVal":"912"},

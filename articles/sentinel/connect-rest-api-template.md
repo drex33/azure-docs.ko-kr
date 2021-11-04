@@ -1,6 +1,6 @@
 ---
-title: 데이터 원본을 Azure 센티널 데이터 수집기 API에 커넥트 하 여 데이터 수집 | Microsoft Docs
-description: 외부 시스템을 Azure 센티널 데이터 수집기 API에 연결 하 여 작업 영역의 사용자 지정 로그에 로그 데이터를 수집 하는 방법에 대해 알아봅니다.
+title: 데이터 원본을 Azure Sentinel 데이터 수집기 API에 커넥트 데이터 | Microsoft Docs
+description: 외부 시스템을 Azure Sentinel 데이터 수집기 API에 연결하여 작업 영역의 사용자 지정 로그에 로그 데이터를 수집하는 방법을 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2021
 ms.author: yelevin
-ms.openlocfilehash: 3b268d95eed0456b858ab5d8d93b895faca1ee7b
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: ed50304d02026a9cb0eafc818116fcd32035488d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130038425"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046967"
 ---
-# <a name="connect-your-data-source-to-the-azure-sentinel-data-collector-api-to-ingest-data"></a>데이터 원본을 Azure 센티널 데이터 수집기 API에 커넥트 하 여 데이터 수집
+# <a name="connect-your-data-source-to-the-azure-sentinel-data-collector-api-to-ingest-data"></a>Azure Sentinel 데이터 수집기 API에 데이터 원본을 커넥트 데이터를 수집합니다.
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -62,7 +65,7 @@ ms.locfileid: "130038425"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 외부 데이터 원본을 Azure 센티널 데이터 수집기 API에 연결 하는 방법을 알아보았습니다. 이러한 데이터 커넥터에 기본 제공되는 기능을 최대한 활용하려면 데이터 커넥터 페이지에서 **다음 단계** 탭을 선택합니다. 여기에서는 유용한 정보 찾기를 시작할 수 있도록 미리 만들어진 샘플 쿼리, 통합 문서 및 분석 규칙 템플릿을 찾을 수 있습니다.
+이 문서에서는 외부 데이터 원본을 Azure Sentinel 데이터 수집기 API에 연결하는 방법을 배웠습니다. 이러한 데이터 커넥터에 기본 제공되는 기능을 최대한 활용하려면 데이터 커넥터 페이지에서 **다음 단계** 탭을 선택합니다. 여기에서는 유용한 정보 찾기를 시작할 수 있도록 미리 만들어진 샘플 쿼리, 통합 문서 및 분석 규칙 템플릿을 찾을 수 있습니다.
 
 Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 

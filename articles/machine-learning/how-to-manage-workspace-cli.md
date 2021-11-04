@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/23/2021
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 16def8c00db3702a77e261b71841aa7d2d3c3728
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 029202fa236f5a7be2e3b3cbc650f2e54a4d1015
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128655508"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131085757"
 ---
 # <a name="manage-azure-machine-learning-workspaces-using-azure-cli"></a>Azure CLI를 사용하여 Azure Machine Learning 작업 영역 관리
 
@@ -104,7 +104,7 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 ```
 
 # <a name="bring-existing-resources-10-cli"></a>[기존 리소스 가져오기(1.0 CLI)](#tab/bringexistingresources1)
-기존 리소스를 사용하는 작업 영역을 만들려면, 각 리소스에 대한 리소스 ID를 제공해야 합니다. Azure Portal을 통해 각 리소스의 '속성' 탭을 통해 또는 Azure CLI 사용하여 다음 명령을 실행하여 이 ID를 가져올 수 있습니다.
+기존 리소스를 사용하는 작업 영역을 만들려면, 각 리소스에 대한 리소스 ID를 제공해야 합니다. Azure Portal를 통해 각 리소스의 ' 속성 ' 탭을 통해 또는 Azure CLI를 사용 하 여 다음 명령을 실행 하 여이 ID를 가져올 수 있습니다.
 
   * **Azure Storage Account**:     `az storage account show --name <storage-account-name> --query "id"`
   * **Azure Application Insights**:     `az monitor app-insights component show --app <application-insight-name> -g <resource-group-name> --query "id"`
@@ -141,7 +141,7 @@ application_insights: /subscriptions/<subscription-id>/resourceGroups/<resourceg
 az ml workspace create -w <workspace-name> -g <resource-group-name> --file workspace.yml
 ```
 
-기존 리소스를 연결하는 경우, 리소스에 대한 ID를 제공해야 합니다. Azure Portal을 통해 각 리소스의 '속성' 탭을 통해 또는 Azure CLI 사용하여 다음 명령을 실행하여 이 ID를 가져올 수 있습니다.
+기존 리소스를 연결하는 경우, 리소스에 대한 ID를 제공해야 합니다. Azure Portal의 각 리소스에 대 한 ' 속성 ' 탭을 통해 또는 Azure CLI를 사용 하 여 다음 명령을 실행 하 여이 ID를 가져올 수 있습니다.
 
 * **Azure Storage Account**:     `az storage account show --name <storage-account-name> --query "id"`
 * **Azure Application Insights**:     `az monitor app-insights component show --app <application-insight-name> -g <resource-group-name> --query "id"`
@@ -248,7 +248,7 @@ az ml workspace create -w <workspace-name> -g <resource-group-name> --file works
 
 # <a name="10-cli"></a>[1.0 CLI](#tab/vnetpleconfigurationsv1cli)
 
-`--cmk-keyvault` 매개 변수를 사용하여 키가 포함된 Azure Key Vault를 지정하고 `--resource-cmk-uri`를 사용하여 자격 증명 모음 내 키의 리소스 ID와 URI를 지정합니다.
+`--cmk-keyvault`매개 변수를 사용 하 여 키를 포함 하는 Azure Key Vault를 지정 하 고 `--resource-cmk-uri` 자격 증명 모음 내에서 키의 리소스 ID와 uri를 지정 합니다.
 
 [Microsoft가 작업 영역에서 수집하는 데이터를 제한](./concept-data-encryption.md#encryption-at-rest)하려면, `--hbi-workspace` 매개 변수를 추가로 지정할 수 있습니다. 
 
@@ -262,7 +262,7 @@ az ml workspace create -w <workspace-name>
 
 # <a name="cli-v2---preview"></a>[CLI(v2) - 미리 보기](#tab/vnetpleconfigurationsv2cli)
 
-`key_vault` 및 `key_uri`매개 변수를 포함하는 `customer_managed_key` 매개 변수를 사용하여 자격 증명 모음 내에서 키의 리소스 ID와 URI를 지정합니다.
+및 매개 변수를 포함하는 매개 변수를 사용하여 자격 증명 모음 `customer_managed_key` `key_vault` 내에서 `key_uri` 키의 리소스 ID와 URI를 지정합니다.
 
 [Microsoft가 작업 영역에서 수집하는 데이터를 제한](./concept-data-encryption.md#encryption-at-rest)하려면, `hbi_workspace` 속성을 추가로 지정할 수 있습니다. 
 
@@ -346,6 +346,8 @@ sync-keys 명령에 대한 자세한 내용은 [az ml workspace sync-keys](/cli/
 
 ### <a name="delete-a-workspace"></a>작업 영역 삭제
 
+[!INCLUDE [machine-learning-delete-workspace](../../includes/machine-learning-delete-workspace.md)]
+
 더 이상 필요하지 않은 작업 영역을 삭제하려면 다음 명령을 사용합니다.
 
 ```azurecli-interactive
@@ -362,6 +364,8 @@ az group delete -g <resource-group-name>
 ```
 
 자세한 내용은 [az ml workspace delete](/cli/azure/ml/workspace#az_ml_workspace_delete) 설명서를 참조하세요.
+
+작업 영역을 실수로 삭제한 경우에도 에서 Notebook을 검색할 수 있습니다. [이 설명서](/azure/machine-learning/how-to-high-availability-machine-learning#workspace-deletion)를 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 

@@ -9,15 +9,17 @@ ms.subservice: qna-maker
 zone_pivot_groups: URL-test-interface
 ms.topic: how-to
 ms.date: 07/16/2020
-ms.openlocfilehash: 46657cfaf513cdd2dd0ecfd284602d2277781626
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 2f983ba51269315ba9406faa7e3feec1853e995d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104583074"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131043722"
 ---
-# <a name="get-an-answer-from-a-knowledge-base"></a>기술 자료에서 답변 가져오기
+# <a name="get-an-answer-from-a-qna-maker-knowledge-base"></a>QNA Maker 기술 자료에서 답변 가져오기
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 ::: zone pivot="url-test-tool-curl"
 
@@ -40,4 +42,3 @@ ms.locfileid: "104583074"
 메타데이터에 대해 자세히 알아봅니다.
 * [제작 - QnA 쌍에 메타데이터 추가](../How-To/edit-knowledge-base.md#add-metadata)
 * [쿼리 예측 - 메타데이터를 통한 응답 필터링](../How-To/query-knowledge-base-with-metadata.md)
-

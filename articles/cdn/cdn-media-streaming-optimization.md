@@ -3,7 +3,7 @@ title: Azure CDN을 통해 미디어 스트리밍 최적화
 description: 부분 캐시 공유, 캐시 채우기 대기 시간 등 Azure Content Delivery Network에서 스트리밍 미디어를 최적화하는 옵션에 대해 알아봅니다.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
-ms.author: allensu
-ms.openlocfilehash: c3ab722f182e32cf2f3aca6bb2f3d5a9598264af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: duau
+ms.openlocfilehash: 3fc078a2a609da9bc3e23e42a7a2eb06debd5c45
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88192609"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458516"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Azure CDN을 통해 미디어 스트리밍 최적화 
  

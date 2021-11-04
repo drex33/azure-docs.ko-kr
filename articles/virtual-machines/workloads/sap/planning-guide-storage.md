@@ -13,18 +13,18 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/17/2021
+ms.date: 11/02/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 25cdaf3bd916b587adeeaf200d0c55b0c4001ad2
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: eb1e315d0fce2b43ed15c2808ddaf37c605c79dd
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130074554"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432798"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>SAP 워크로드에 대한 Azure Storage 형식
-Azure는 용량, 처리량, 대기 시간, 가격이 다양한 수많은 스토리지 유형을 제공합니다. 일부 스토리지 형식은 또는 SAP 시나리오에 사용할 수 없거나 제한적으로 사용할 수 있습니다. 반면, 몇 가지 Azure Storage 유형은 특정 SAP 워크로드 시나리오에 적합하거나 최적화되어 있습니다. 특히 SAP HANA의 경우 일부 Azure Storage 유형은 SAP HANA 사용에 대해 인증을 받았습니다. 이 문서에서는 다양한 유형의 스토리지를 살펴보고 SAP 워크로드 및 SAP 구성 요소를 통해 기능 및 유용성에 대해 설명합니다.
+Azure는 용량, 처리량, 대기 시간, 가격이 다양한 수많은 스토리지 유형을 제공합니다. 일부 스토리지 형식은 또는 SAP 시나리오에 사용할 수 없거나 제한적으로 사용할 수 있습니다. 하지만 몇 가지 Azure storage 유형은 특정 SAP 워크 로드 시나리오에 적합 하거나 최적화 되어 있습니다. 특히 SAP HANA의 경우 일부 Azure Storage 유형은 SAP HANA 사용에 대해 인증을 받았습니다. 이 문서에서는 다양한 유형의 스토리지를 살펴보고 SAP 워크로드 및 SAP 구성 요소를 통해 기능 및 유용성에 대해 설명합니다.
 
 이 문서 전체에 사용된 단위에 대한 설명입니다. 퍼블릭 클라우드 공급업체는 기가바이트 또는 테라바이트 대신 GiB([기비바이트](https://en.wikipedia.org/wiki/Gibibyte)) 또는 TiB([테비바이트](https://en.wikipedia.org/wiki/Tebibyte))를 크기 단위로 사용합니다. 따라서 모든 Azure 설명서 및 가격 책정에는 이러한 단위를 사용합니다.  문서 전체에서 MiB, GiB, TiB 단위의 크기만 참조합니다. MB, GB, TB 단위를 사용하여 계획해야 할 수도 있습니다. 따라서 250MiB/초 처리량 대신 400MiB/초의 처리량 크기를 조정해야 하는 경우 계산에 약간의 차이가 있을 수 있음을 염두에 두어야 합니다.
 
@@ -79,16 +79,16 @@ S/4HANA의 SAP NetWeaver/애플리케이션 계층용 Azure Storage 유형에 �
 
 | 사용 시나리오 | 표준 HDD | 표준 SSD | Premium Storage | Ultra disk | Azure NetApp Files |
 | --- | --- | --- | --- | --- | --- |
-| OS 디스크 | 부적합 |  제한적 적합(비프로덕션) | 권장 | 불가능 | 불가능 |
+| OS 디스크 | 적합 하지 않음 |  제한 된 적합 (비-prod) | 권장 | 가능하지 않음 | 가능하지 않음 |
 | 전역 전송 디렉터리 | 지원되지 않음 | 지원되지 않음 | 권장 | 권장 | 권장 |
-| /sapmnt | 부적합 | 제한적 적합(비프로덕션) | 권장 | 권장 | 권장 |
+| /sapmnt | 적합 하지 않음 | 제한 된 적합 (비-prod) | 권장 | 권장 | 권장 |
 | DBMS 데이터 볼륨 SAP HANA M/Mv2 VM 제품군 | 지원되지 않음 | 지원되지 않음 | 권장 | 권장 | 권장<sup>2</sup> |
 | DBMS 로그 볼륨 SAP HANA M/Mv2 VM 제품군 | 지원되지 않음 | 지원되지 않음 | 권장<sup>1</sup> | 권장 | 권장<sup>2</sup> | 
 | DBMS 데이터 볼륨 SAP HANA Esv3/Edsv4 VM 제품군 | 지원되지 않음 | 지원되지 않음 | 권장 | 권장 | 권장<sup>2</sup> |
 | DBMS 로그 볼륨 SAP HANA Esv3/Edsv4 VM 제품군 | 지원되지 않음 | 지원되지 않음 | 지원되지 않음 | 권장 | 권장<sup>2</sup> | 
-| DBMS 데이터 볼륨 비 HANA | 지원되지 않음 | 제한적 적합(비프로덕션) | 권장 | 권장 | Oracle Linux의 특정 Oracle 릴리스 및 Linux의 Db2에만 해당 |
-| DBMS 로그 볼륨 비 HANA M/Mv2 VM 제품군 | 지원되지 않음 | 제한적 적합(비프로덕션) | 권장<sup>1</sup> | 권장 | Oracle Linux의 특정 Oracle 릴리스 및 Linux의 Db2에만 해당 |
-| DBMS 로그 볼륨 비 HANA 비 M/Mv2 VM 제품군 | 지원되지 않음 | 제한적 적합(비프로덕션) | 중간 규모 워크로드까지 적합 | 권장 | Oracle Linux의 특정 Oracle 릴리스 및 Linux의 Db2에만 해당 |
+| DBMS 데이터 볼륨 비 HANA | 지원되지 않음 | 제한된 적합(비-prod) | 권장 | 권장 | SLES/RHEL Linux의 Oracle Linux, Db2 및 SAP ASE의 특정 Oracle 릴리스에만 해당 |
+| DBMS 로그 볼륨 비 HANA M/Mv2 VM 제품군 | 지원되지 않음 | 제한된 적합(비-prod) | 권장<sup>1</sup> | 권장 | SLES/RHEL Linux의 Oracle Linux, Db2 및 SAP ASE의 특정 Oracle 릴리스에만 해당 |
+| DBMS 로그 볼륨 비 HANA 비 M/Mv2 VM 제품군 | 지원되지 않음 | 제한적 적합(비프로덕션) | 최대 중간 워크로드에 적합합니다. | 권장 | SLES/RHEL Linux의 Oracle Linux, Db2 및 SAP ASE의 특정 Oracle 릴리스에만 해당 |
 
 
 <sup>1</sup> 로그/다시 실행 로그 볼륨에 대해 M/Mv2 VM 제품군에 [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) 사용 <sup>2</sup> ANF를 사용하려면 /hana/data는 물론 /hana/log가 ANF에 있어야 함 
@@ -97,15 +97,15 @@ S/4HANA의 SAP NetWeaver/애플리케이션 계층용 Azure Storage 유형에 �
 
 | 사용 시나리오 | 표준 HDD | 표준 SSD | Premium Storage | Ultra disk | Azure NetApp Files |
 | --- | --- | --- | --- | --- | --- |
-| 처리량/ IOPS SLA | 아니요 | no | 예 | 예 | 예 |
-| 대기 시간 읽기 | high | 중간~높음 | low | 밀리초 미만 | 밀리초 미만 |
-| 대기 시간 쓰기 | high | 중간~높음  | 낮음(밀리초 미만<sup>1</sup>) | 밀리초 미만 | 밀리초 미만 |
+| 처리량/ IOPS SLA | 아니요 | 아니요 | 예 | 예 | 예 |
+| 대기 시간 읽기 | 높음 | 중간에서 높음 | 낮음 | 밀리초 미만 | 밀리초 미만 |
+| 대기 시간 쓰기 | 높음 | 중간에서 높음  | 낮음(1밀리초 이하)<sup></sup> | 밀리초 미만 | 밀리초 미만 |
 | HANA 지원 | 아니요 | 아니요 | 예<sup>1</sup> | 예 | 예 |
-| 디스크 스냅샷 가능 | 예 | 예 | 예 | no | 예 |
-| 가용성 집합을 사용하는 경우 서로 다른 스토리지 클러스터에 디스크 할당 | 관리 디스크를 통해 | 관리 디스크를 통해 | 관리 디스크를 통해 | 가용성 집합을 통해 배포된 VM에서 지원되지 않는 디스크 유형 | 아니요<sup>3</sup> |
+| 디스크 스냅샷 가능 | 예 | 예 | 예 | 아니요 | 예 |
+| 가용성 집합을 사용하는 경우 서로 다른 스토리지 클러스터에 디스크 할당 | 관리 디스크를 통해 | 관리 디스크를 통해 | 관리 디스크를 통해 | 가용성 집합을 통해 배포된 VM에서 디스크 유형이 지원되지 않음 | 아니요<sup>3</sup> |
 | 가용성 영역에 맞춰 조정 | 예 | 예 | 예 | 예 | Microsoft 참여 필요 |
-| 영역 중복 | 관리 디스크용 아님 | 관리 디스크용 아님 | 관리 디스크용 아님 | 아니요 | 아니요 |
-| 지리적 중복 | 관리 디스크용 아님 | 관리 디스크용 아님 | 아니요 | no | 아니요 |
+| 영역 중복 | 관리 디스크용이 아닙니다. | 관리 디스크용이 아닙니다. | 관리 디스크용이 아닙니다. | 아니요 | 아니요 |
+| 지리적 중복 | 관리 디스크용이 아닙니다. | 관리 디스크용이 아닙니다. | 아니요 | 아니요 | 아니요 |
 
 
 <sup>1</sup> 로그/다시 실행 로그 볼륨에 대해 M/Mv2 VM 제품군에 [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) 사용
@@ -142,23 +142,23 @@ SAP 워크로드에 대한 기능 매트릭스는 다음과 같습니다.
 
 | 기능| 의견| 노트/링크 | 
 | --- | --- | --- | 
-| OS 베이스 VHD | 적합 | 모든 시스템 |
-| 데이터 디스크 | 적합 | 모든 시스템 - [특히 SAP HANA의 경우](../../how-to-enable-write-accelerator.md) |
-| SAP 전역 전송 디렉터리 | YES | [지원됨](https://launchpad.support.sap.com/#/notes/2015553) |
-| SAP sapmnt | 적합 | 모든 시스템 |
-| 백업 스토리지 | 적합 | 백업 단기 스토리지용 |
+| OS 베이스 VHD | 낫지만 | 모든 시스템 |
+| 데이터 디스크 | 낫지만 | 모든 시스템- [특히 SAP HANA](../../how-to-enable-write-accelerator.md) |
+| SAP 전역 전송 디렉터리 | 예 | [지원됨](https://launchpad.support.sap.com/#/notes/2015553) |
+| SAP sapmnt | 낫지만 | 모든 시스템 |
+| 백업 스토리지 | 낫지만 | 백업에 대 한 단기 저장 |
 | 공유/공유 디스크 | 사용할 수 없음 | Azure Premium Files 또는 타사 필요 |
 | 복원력 | LRS | GRS 또는 ZRS를 디스크에 사용할 수 없음 |
-| 대기 시간 | 낮음~보통 | - |
-| IOPS SLA | YES | - |
+| 대기 시간 | 낮음-보통 | - |
+| IOPS SLA | 예 | - |
 | 용량에 비례하는 IOPS | 괄호 안 반선형  | [관리 디스크 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | 디스크당 최대 IOPS | [디스크 크기에 따라](https://azure.microsoft.com/pricing/details/managed-disks/) 20,000 | [VM 한도](../../sizes.md)도 고려 |
-| 처리량 SLA | YES | - |
-| 용량에 비례하는 처리량 | 괄호 안 반선형 | [관리 디스크 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| HANA 인증됨 | YES | [특히 SAP HANA의 경우](../../how-to-enable-write-accelerator.md) |
-| 디스크 스냅샷 가능 | YES | - |
-| Azure Backup VM 스냅샷 가능 | YES | [Write Accelerator](../../how-to-enable-write-accelerator.md) 캐시된 디스크 제외  |
-| 비용 | MEDIUM | - |
+| 처리량 SLA | 예 | - |
+| 용량에 비례하는 처리량 | 대괄호 안의 반 선형 | [관리 디스크 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/) |
+| HANA 인증됨 | 예 | [특히 SAP HANA의 경우](../../how-to-enable-write-accelerator.md) |
+| 디스크 스냅샷 가능 | 예 | - |
+| Azure Backup VM 스냅샷 가능 | 예 | [쓰기 가속기](../../how-to-enable-write-accelerator.md) 캐시 된 디스크 제외  |
+| 비용 | 중간| - |
 
 Azure Premium Storage는 Azure Premium Storage와 함께 제공되는 일반적인 캐싱 유형으로 SAP HANA 스토리지 대기 시간 KPI를 충족하지 않습니다. SAP HANA 로그 쓰기에 대한 스토리지 대기 시간 KPI를 충족하려면 [Write Accelerator 사용](../../how-to-enable-write-accelerator.md) 문서에 설명된 대로 Azure Write Accelerator 캐싱을 사용해야 합니다. Azure Write Accelerator는 트랜잭션 로그 쓰기 및 다시 실행 로그 쓰기에 대해 다른 모든 DBMS 시스템에 이점을 제공합니다. 따라서 모든 SAP DBMS 배포에서 사용하는 것이 좋습니다. SAP HANA의 경우 Azure Premium Storage와 함께 Azure Write Accelerator를 사용하는 것은 필수입니다.
 
@@ -200,20 +200,20 @@ SAP 워크로드에 대한 기능 매트릭스는 다음과 같습니다.
 
 | 기능| 의견| 노트/링크 | 
 | --- | --- | --- | 
-| OS 베이스 VHD | 작동하지 않음 | - |
-| 데이터 디스크 | 적합 | 모든 시스템  |
-| SAP 전역 전송 디렉터리 | YES | [지원됨](https://launchpad.support.sap.com/#/notes/2015553) |
-| SAP sapmnt | 적합 | 모든 시스템 |
-| 백업 스토리지 | 적합 | 백업 단기 스토리지용 |
+| OS 베이스 VHD | 작동 하지 않습니다. | - |
+| 데이터 디스크 | 낫지만 | 모든 시스템  |
+| SAP 전역 전송 디렉터리 | 예 | [지원됨](https://launchpad.support.sap.com/#/notes/2015553) |
+| SAP sapmnt | 낫지만 | 모든 시스템 |
+| 백업 스토리지 | 낫지만 | 백업에 대 한 단기 저장 |
 | 공유/공유 디스크 | 사용할 수 없음 | 타사 필요 |
 | 복원력 | LRS | GRS 또는 ZRS를 디스크에 사용할 수 없음 |
 | 대기 시간 | 매우 낮음 | - |
-| IOPS SLA | YES | - |
-| 용량에 비례하는 IOPS | 괄호 안 반선형  | [관리 디스크 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/) |
+| IOPS SLA | 예 | - |
+| 용량에 비례하는 IOPS | 대괄호 안의 반 선형  | [관리 디스크 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | 디스크당 최대 IOPS | 1,200 ~ 160,000 | 디스크 용량에 따라 다름 |
-| 처리량 SLA | YES | - |
-| 용량에 비례하는 처리량 | 괄호 안 반선형 | [관리 디스크 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| HANA 인증됨 | YES | - |
+| 처리량 SLA | 예 | - |
+| 용량에 비례하는 처리량 | 대괄호 안의 반 선형 | [관리 디스크 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/) |
+| HANA 인증됨 | 예 | - |
 | 디스크 스냅샷 가능 | 아니요 | - |
 | Azure Backup VM 스냅샷 가능 | 아니요 | - |
 | 비용 | Premium Storage보다 높음 | - |
@@ -243,9 +243,10 @@ ANF 스토리지는 현재 다음과 같은 몇 가지 SAP 워크로드 시나�
 - /hana/shared 볼륨에 NFS v4.1 또는 NFS v3 및/또는 /hana/data 및 /hana/log 볼륨에 NFS v4.1 공유를 사용하는 SAP HANA 배포(자세한 내용은 [SAP HANA Azure 가상 머신 스토리지 구성](./hana-vm-operations-storage.md) 문서 참조)
 - Suse 또는 Red Hat Linux 게스트 OS의 IBM Db2
 - Oracle 데이터 및 다시 실행 로그 볼륨에 대해 [dNFS](https://docs.oracle.com/en/database/oracle/oracle-database/19/ntdbi/creating-an-oracle-database-on-direct-nfs.html#GUID-2A0CCBAB-9335-45A8-B8E3-7E8C4B889DEA)를 사용하는 Oracle Linux 게스트 OS에서의 Oracle 배포 자세한 내용은 [SAP 워크로드에 대한 Azure Virtual Machines ORACLE DBMS 배포](./dbms_guide_oracle.md) 문서에서 확인할 수 있습니다.
+- Suse 또는 Red Hat Linux 게스트 OS의 SAP ASE
 
 > [!NOTE]
-> Azure NetApp Files 기반 NFS 또는 SMB 공유에는 다른 DBMS 워크로드가 지원되지 않습니다. 이것이 변경될 경우 업데이트 및 변경 내용이 제공됩니다.
+> 지금까지 Azure NetApp Files 기반 SMB에서 DBMS 작업을 지원 하지 않습니다.
 
 Azure Premium Storage와 마찬가지로 처리량의 최소 수치를 준수해야 하는 경우 GB당 고정 또는 선형 처리량 크기는 문제가 될 수 있습니다. 이것은 SAP HANA의 경우와 같습니다. ANF를 사용하면 이 문제가 Azure 프리미엄 디스크를 사용하는 것보다 더 두드러질 수 있습니다. Azure 프리미엄 디스크의 경우 GiB당 처리량이 상대적으로 높은 여러 개의 작은 디스크를 사용하고 여러 디스크에 걸쳐 스트라이프하면 낮은 용량으로 처리량 및 비용 효율 높일 수 있습니다. 이러한 종류의 스트라이프는 ANF에 호스트되는 NFS 또는 SMB 공유에 대해 작동하지 않습니다. 이러한 제한으로 인해 다음과 같이 과도한 용량이 배포됩니다.
 
@@ -257,20 +258,20 @@ SAP 워크로드에 대한 기능 매트릭스는 다음과 같습니다.
 
 | 기능| 의견| 노트/링크 | 
 | --- | --- | --- | 
-| OS 베이스 VHD | 작동하지 않음 | - |
-| 데이터 디스크 | 적합 | SAP HANA만  |
-| SAP 전역 전송 디렉터리 | YES | SMB 및 NFS |
-| SAP sapmnt | 적합 | 모든 시스템 SMB(Windows만 해당) 또는 NFS(Linux만 해당) |
-| 백업 스토리지 | 적합 | - |
-| 공유/공유 디스크 | YES | SMB 3.0, NFS v3 및 NFS v4.1 |
+| OS 베이스 VHD | 작동 하지 않습니다. | - |
+| 데이터 디스크 | 낫지만 | SAP HANA, Oracle on Oracle Linux, Db2 및 SAP ASe on SLES/RHEL  |
+| SAP 전역 전송 디렉터리 | 예 | SMB 및 NFS |
+| SAP sapmnt | 낫지만 | sll 시스템 SMB (Windows에만 해당) 또는 NFS (Linux만 해당) |
+| 백업 스토리지 | 낫지만 | - |
+| 공유/공유 디스크 | 예 | SMB 3.0, NFS v3 및 NFS v4.1 |
 | 복원력 | LRS | GRS 또는 ZRS를 디스크에 사용할 수 없음 |
 | 대기 시간 | 매우 낮음 | - |
-| IOPS SLA | YES | - |
+| IOPS SLA | 예 | - |
 | 용량에 비례하는 IOPS | 완전한 선형  | [서비스 수준](../../../azure-netapp-files/azure-netapp-files-service-levels.md)에 따라 다름 |
-| 처리량 SLA | YES | - |
-| 용량에 비례하는 처리량 | 괄호 안 반선형 | [서비스 수준](../../../azure-netapp-files/azure-netapp-files-service-levels.md)에 따라 다름 |
-| HANA 인증됨 | YES | - |
-| 디스크 스냅샷 가능 | YES | - |
+| 처리량 SLA | 예 | - |
+| 용량에 비례하는 처리량 | 대괄호 안의 반 선형 | [서비스 수준](../../../azure-netapp-files/azure-netapp-files-service-levels.md)에 따라 다름 |
+| HANA 인증됨 | 예 | - |
+| 디스크 스냅샷 가능 | 예 | - |
 | Azure Backup VM 스냅샷 가능 | 아니요 | - |
 | 비용 | Premium Storage보다 높음 | - |
 
@@ -290,11 +291,11 @@ Azure 표준 HDD 스토리지에 비해 Azure 표준 SSD 스토리지는 더 나
 
 | 기능| 의견| 노트/링크 | 
 | --- | --- | --- | 
-| OS 베이스 VHD | 제한적 적합 | 비프로덕션 시스템 |
-| 데이터 디스크 | 제한적 적합 | IOPS 및 대기 시간 요구가 낮은 일부 비프로덕션 시스템 |
+| OS 베이스 VHD | 적절 한 제한 됨 | 비프로덕션 시스템 |
+| 데이터 디스크 | 적절 한 제한 됨 | 낮은 IOPS 및 대기 시간 요구가 있는 일부 비프로덕션 시스템 |
 | SAP 전역 전송 디렉터리 | 아니요 | [지원되지 않음](https://launchpad.support.sap.com/#/notes/2015553) |
-| SAP sapmnt | 제한적 적합 | 비프로덕션 시스템 |
-| 백업 스토리지 | 적합 | - |
+| SAP sapmnt | 적절 한 제한 됨 | 비프로덕션 시스템 |
+| 백업 스토리지 | 낫지만 | - |
 | 공유/공유 디스크 | 사용할 수 없음 | 타사 필요 |
 | 복원력 | LRS, GRS | 디스크에 사용 가능한 ZRS 없음 |
 | 대기 시간 | high | SAP 전역 전송 디렉터리 또는 프로덕션 시스템에 대해 너무 높음 |
@@ -302,8 +303,8 @@ Azure 표준 HDD 스토리지에 비해 Azure 표준 SSD 스토리지는 더 나
 | 디스크당 최대 IOPS | 500 | 디스크 크기와 무관 |
 | 처리량 SLA | 아니요 | - |
 | HANA 인증됨 | 아니요 | - |
-| 디스크 스냅샷 가능 | YES | - |
-| Azure Backup VM 스냅샷 가능 | YES | - |
+| 디스크 스냅샷 가능 | 예 | - |
+| Azure Backup VM 스냅샷 가능 | 예 | - |
 | 비용 | LOW | - |
 
 
@@ -317,21 +318,21 @@ Azure 표준 HDD 스토리지는 Azure 인프라가 2014년에 SAP NetWeaver 워
 
 | 기능| 의견| 노트/링크 | 
 | --- | --- | --- | 
-| OS 베이스 VHD | 부적합 | - |
-| 데이터 디스크 | 부적합 | - |
+| OS 베이스 VHD | 적합하지 않음 | - |
+| 데이터 디스크 | 적합하지 않음 | - |
 | SAP 전역 전송 디렉터리 | 아니요 | [지원되지 않음](https://launchpad.support.sap.com/#/notes/2015553) |
 | SAP sapmnt | 아니요 | 지원되지 않음 |
 | 백업 스토리지 | 적합 | - |
 | 공유/공유 디스크 | 사용할 수 없음 | Azure Files 또는 타사 필요 |
 | 복원력 | LRS, GRS | 디스크에 사용 가능한 ZRS 없음 |
-| 대기 시간 | high | DBMS 사용, SAP 전역 전송 디렉터리 또는 sapmnt/saploc에 대해 너무 높음 |
+| 대기 시간 | high | DBMS 사용량, SAP 글로벌 전송 디렉터리 또는 sapmnt/saploc에 대해 너무 높음 |
 | IOPS SLA | 아니요 | - |
 | 디스크당 최대 IOPS | 500 | 디스크 크기와 무관 |
 | 처리량 SLA | 아니요 | - |
 | HANA 인증됨 | 아니요 | - |
-| 디스크 스냅샷 가능 | YES | - |
-| Azure Backup VM 스냅샷 가능 | YES | - |
-| 비용 | LOW | - |
+| 디스크 스냅샷 가능 | 예 | - |
+| Azure Backup VM 스냅샷 가능 | 예 | - |
+| 비용 | 낮음 | - |
 
 
 

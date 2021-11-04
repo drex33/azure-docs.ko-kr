@@ -1,24 +1,25 @@
 ---
 title: '자습서: Microsoft Azure Maps Creator를 사용하여 실내 맵 만들기'
 description: Microsoft Azure Maps Creator를 사용하여 실내 맵을 만드는 방법에 대한 자습서입니다.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 5/19/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: db5bebce41e8fd13cf0796e02fc0bfe91d63a6c9
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ef1643f349fea853b15e0d8bcd2f07a0fd412188
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131060019"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131447154"
 ---
 # <a name="tutorial-use-creator-to-create-indoor-maps"></a>자습서: Creator를 사용하여 실내 맵 만들기
 
 이 자습서에서는 실내 맵을 만드는 방법에 대해 설명합니다. 이 자습서에서 학습할 방법은 다음과 같습니다.
 
 > [!div class="checklist"]
+>
 > * 실내 맵 그리기 패키지를 업로드합니다.
 > * 그리기 패키지를 맵 데이터로 변환합니다.
 > * 맵 데이터에서 데이터 세트를 만듭니다.
@@ -58,12 +59,12 @@ ms.locfileid: "131060019"
 5. [데이터 업로드 API](/rest/api/maps/data-v2/upload-preview)에 대한 다음 URL을 입력합니다. 요청은 다음 URL과 같습니다(`{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿈).
 
     ```http
-    https://us.atlas.microsoft.com/mapData?api-version=2.0&dataFormat=dwgzippackage&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/mapData?api-version=2.0&dataFormat=dwgzippackage&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 6. **Headers** 탭을 선택합니다.
 
-7. **KEY** 필드에서 `Content-Type`을 선택합니다. 
+7. **KEY** 필드에서 `Content-Type`을 선택합니다.
 
 8. **VALUE** 필드에서 `application/octet-stream`을 선택합니다.
 
@@ -100,7 +101,7 @@ ms.locfileid: "131060019"
 5. [그리기 패키지 업로드](#upload-a-drawing-package)에서 복사한 `status URL`을 입력합니다. 요청은 다음 URL과 같습니다(`{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿈).
 
     ```http
-    https://us.atlas.microsoft.com/mapData/operations/<operationId>?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/mapData/operations/{operationId}?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 6. **보내기** 를 선택합니다.
@@ -128,7 +129,7 @@ ms.locfileid: "131060019"
 5. [그리기 패키지 업로드 상태 확인](#check-the-drawing-package-upload-status)에서 복사한 `resource Location URL`을 입력합니다. 요청은 다음 URL과 같습니다(`{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿈).
 
     ```http
-    https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 6. **보내기** 를 선택합니다.
@@ -163,12 +164,12 @@ ms.locfileid: "131060019"
 5. [변환 서비스](/rest/api/maps/v2/conversion/convert)에 대한 다음 URL을 입력합니다(`{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꾸고, `udid`를 업로드된 패키지의 `udid`로 바꿈).
 
     ```http
-    https://us.atlas.microsoft.com/conversions?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0&udid={udid}&inputType=DWG&outputOntology=facility-2.0
+    https://us.atlas.microsoft.com/conversions?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=2.0&udid={udid}&inputType=DWG&outputOntology=facility-2.0
     ```
 
 6. **보내기** 를 선택합니다.
 
-7. 응답 창에서 **헤더** 탭을 선택합니다. 
+7. 응답 창에서 **헤더** 탭을 선택합니다.
 
 8. **Operation-Location** 키의 값인 `status URL`을 복사합니다. `status URL`을 사용하여 변환 상태를 확인합니다.
 
@@ -191,12 +192,12 @@ ms.locfileid: "131060019"
 5. [그리기 패키지 변환](#convert-a-drawing-package)에서 복사한 `status URL`을 입력합니다. 요청은 다음 URL과 같습니다(`{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿈).
 
     ```http
-    https://us.atlas.microsoft.com/conversions/operations/<operationId>?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/conversions/operations/{operationId}?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 6. **보내기** 를 선택합니다.
 
-7. 응답 창에서 **헤더** 탭을 선택합니다. 
+7. 응답 창에서 **헤더** 탭을 선택합니다.
 
 8. **Resource-Location** 키의 값인 `resource location URL`을 복사합니다. `resource location URL`에는 변환된 맵 데이터에 액세스하기 위해 다른 API에서 사용할 수 있는 고유 식별자(`conversionId`)가 포함되어 있습니다.
 
@@ -208,7 +209,7 @@ ms.locfileid: "131060019"
 
 ```json
 {
-    "operationId": "<operationId>",
+    "operationId": "{operationId}",
     "created": "2021-05-19T18:24:28.7922905+00:00",
     "status": "Succeeded",
      "warning": {
@@ -248,7 +249,7 @@ ms.locfileid: "131060019"
 5. 다음 URL을 [데이터 세트 API](/rest/api/maps/v2/dataset)에 입력합니다. 요청은 다음 URL과 같습니다(`{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꾸고 `{conversionId`}를 [그리기 패키지 변환 상태 확인](#check-the-drawing-package-conversion-status)에서 얻은 `conversionId`로 바꿈).
 
     ```http
-    https://us.atlas.microsoft.com/datasets?api-version=2.0&conversionId={conversionId}&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/datasets?api-version=2.0&conversionId={conversionId}&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 6. **보내기** 를 선택합니다.
@@ -274,12 +275,12 @@ ms.locfileid: "131060019"
 5. [데이터 세트 만들기](#create-a-dataset)에서 복사한 `status URL`을 입력합니다. 요청은 다음 URL과 같습니다(`{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿈).
 
     ```http
-    https://us.atlas.microsoft.com/datasets/operations/<operationId>?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/datasets/operations/{operationId}?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 6. **보내기** 를 선택합니다.
 
-7. 응답 창에서 **헤더** 탭을 선택합니다. **Resource-Location** 키의 값은 `resource location URL`입니다. `resource location URL`에는 데이터 세트의 고유 식별자(`datasetId`)가 포함됩니다. 
+7. 응답 창에서 **헤더** 탭을 선택합니다. **Resource-Location** 키의 값은 `resource location URL`입니다. `resource location URL`에는 데이터 세트의 고유 식별자(`datasetId`)가 포함됩니다.
 
 8. 이 자습서의 다음 섹션에서 사용하므로 `datasetId`를 복사합니다.
 
@@ -302,12 +303,12 @@ ms.locfileid: "131060019"
 5. 다음 URL을 [타일 세트 API](/rest/api/maps/v2/tileset)에 입력합니다. 요청은 다음 URL과 같습니다(`{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꾸고 `{datasetId`}를 [데이터 세트 만들기 상태 확인](#check-the-dataset-creation-status)에서 얻은 `datasetId`로 바꿈).
 
     ```http
-    https://us.atlas.microsoft.com/tilesets?api-version=2.0&datasetID={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/tilesets?api-version=2.0&datasetID={datasetId}&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 6. **보내기** 를 선택합니다.
 
-7. 응답 창에서 **헤더** 탭을 선택합니다. 
+7. 응답 창에서 **헤더** 탭을 선택합니다.
 
 8. **Operation-Location** 키의 값인 `status URL`을 복사합니다. `status URL`을 사용하여 타일 세트 상태를 확인합니다.
 
@@ -328,7 +329,7 @@ ms.locfileid: "131060019"
 5. [타일 세트 만들기](#create-a-tileset)에서 복사한 `status URL`을 입력합니다. 요청은 다음 URL과 같습니다(`{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿈).
 
     ```http
-    https://us.atlas.microsoft.com/tilesets/operations/<operationId>?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/tilesets/operations/{operationId}?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 6. **보내기** 를 선택합니다.
@@ -356,7 +357,7 @@ ms.locfileid: "131060019"
 5. 다음 URL을 [WFS API](/rest/api/maps/v2/wfs)에 입력합니다. 요청은 다음 URL과 같습니다(`{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꾸고 `{datasetId`}를 [데이터 세트 만들기 상태 확인](#check-the-dataset-creation-status)에서 얻은 `datasetId`로 바꿈).
 
     ```http
-    https://us.atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0
+    https://us.atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=2.0
     ```
 
 6. **보내기** 를 선택합니다.
@@ -406,7 +407,7 @@ ms.locfileid: "131060019"
 5. 다음 URL을 입력합니다(`{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꾸고 `{datasetId`}를 [데이터 세트 만들기 상태 확인](#check-the-dataset-creation-status)에서 얻은 `datasetId`로 바꿈).
 
     ```http
-    https://us.atlas.microsoft.com/wfs/datasets/{datasetId}/collections/unit/items?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0
+    https://us.atlas.microsoft.com/wfs/datasets/{datasetId}/collections/unit/items?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=2.0
     ```
 
 6. **보내기** 를 선택합니다.
@@ -460,7 +461,7 @@ ms.locfileid: "131060019"
 5. 다음 URL을 [상태 세트 API](/rest/api/maps/v2/feature-state/create-stateset)에 입력합니다. 요청은 다음 URL과 같습니다(`{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꾸고 `{datasetId`}를 [데이터 세트 만들기 상태 확인](#check-the-dataset-creation-status)에서 얻은 `datasetId`로 바꿈).
 
     ```http
-    https://us.atlas.microsoft.com/featurestatesets?api-version=2.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/featurestatesets?api-version=2.0&datasetId={datasetId}&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 6. **Headers** 탭을 선택합니다.
@@ -515,12 +516,12 @@ ms.locfileid: "131060019"
 5. 다음 URL을 [기능 상태 세트 API](/rest/api/maps/v2/feature-state/create-stateset)에 입력합니다. 요청은 다음 URL과 같습니다(`{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꾸고 `{statesetId`}를 [기능 상태 세트 만들기](#create-a-feature-stateset)에서 얻은 `statesetId`로 바꿈).
 
     ```http
-    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 6. **Headers** 탭을 선택합니다.
 
-7. **KEY** 필드에서 `Content-Type`을 선택합니다. 
+7. **KEY** 필드에서 `Content-Type`을 선택합니다.
 
 8. **VALUE** 필드에서 `application/json`을 선택합니다.
 

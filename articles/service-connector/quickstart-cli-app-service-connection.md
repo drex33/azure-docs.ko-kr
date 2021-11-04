@@ -7,12 +7,12 @@ ms.service: serviceconnector
 ms.topic: quickstart
 ms.date: 10/29/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 9f702b28aebc15c9fb05986552e3b58d4a911c80
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 595296bff928ff75f52a05a1fc5e54fb94a2ad67
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053265"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131475372"
 ---
 # <a name="quickstart-create-a-service-connection-in-app-service-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 App Service에서 서비스 연결 만들기
 
@@ -26,12 +26,12 @@ ms.locfileid: "131053265"
 
 - 이 빠른 시작에서는 Azure에서 이미 실행 중인 App Service가 있다고 가정합니다. App Service가 없는 경우 [새로 만듭니다](../app-service/quickstart-dotnetcore.md).
 
-
 ## <a name="view-supported-target-service-types"></a>지원되는 대상 서비스 유형 보기
 
 Azure CLI [az webapp connection]() 명령을 사용하여 App Service에 대한 서비스 연결을 만들고 관리할 수 있습니다. 
 
 ```azurecli-interactive
+az provider register -n Microsoft.ServiceLinker
 az webapp connection list-support-types
 ```
 

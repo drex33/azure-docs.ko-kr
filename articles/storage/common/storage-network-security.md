@@ -10,12 +10,12 @@ ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 82f860b78a8c0c4114a2250912fb6ec22e040d71
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8ffa380ec55dfcf96368782a3345ce3d13fe5f4f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128606079"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131474840"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
 
@@ -386,9 +386,6 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 > [!NOTE]
 > 해당 기능은 공개 미리 보기로 제공되며 모든 퍼블릭 클라우드 지역에서 사용할 수 있습니다.
 
-> [!NOTE]
-> 리소스 인스턴스 규칙은 현재 Azure Synapse에서만 지원됩니다. 이 문서의 [시스템 할당 관리 ID를 기반으로 하는 신뢰할 수 있는 액세스](#trusted-access-system-assigned-managed-identity) 섹션에 나열된 다른 Azure 서비스에 대한 지원은 수 주 안에 제공될 예정입니다.
-
 ### <a name="portal"></a>[포털](#tab/azure-portal)
 
 Azure Portal에서 리소스 네트워크 규칙을 추가하거나 제거할 수 있습니다.
@@ -597,7 +594,7 @@ az storage account network-rule list \
 
 | 서비스                        | 리소스 공급자 이름                 | 목적            |
 | :----------------------------- | :------------------------------------- | :----------------- |
-| Azure API Management           | Microsoft.ApiManagement/service        | 정책을 사용하여 방화벽 뒤에 있는 스토리지 계정에 대한 API Management 서비스 액세스를 사용하는 것으로 설정합니다. [자세한 정보를 알아보세요](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
+| Azure API Management           | Microsoft.ApiManagement/service        | 정책을 사용하여 방화벽 뒤에 있는 스토리지 계정에 대한 API Management 서비스 액세스를 사용하는 것으로 설정합니다. [자세히 알아보기](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Cognitive Search 서비스를 사용하여 인덱싱, 처리 및 쿼리를 위해 스토리지 계정에 액세스할 수 있습니다. |
 | Azure Cognitive Services       | Microsoft.CognitiveService/accounts    | Cognitive Services를 사용하는 것으로 설정하여 스토리지 계정에 액세스할 수 있습니다. [자세한 정보](../..//cognitive-services/cognitive-services-virtual-networks.md).|
 | Azure Container Registry 작업 | Microsoft.ContainerRegistry/registries | ACR 태스크는 컨테이너 이미지를 빌드할 때 스토리지 계정에 액세스할 수 있습니다. |

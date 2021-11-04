@@ -5,14 +5,14 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
-ms.date: 06/17/2021
+ms.date: 10/23/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 77e9d66af8a03f9d1a55a59d9a355499a3019f29
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 7188cb16d6718fddb049a518b56b32c84ea66ec1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129233904"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131422751"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL 유연한 서버에서 읽기 복제본을 만들고 관리하는 방법
 
@@ -25,8 +25,7 @@ ms.locfileid: "129233904"
 
 > [!Note]
 >
-> * 고가용성 지원 서버에서는 복제본이 지원되지 않습니다. 
->* 읽기 복제본 기능은 Azure Database for MySQL - 범용 또는 메모리 최적화 가격 책정 계층의 유연한 서버에만 사용할 수 있습니다. 원본 서버가 이러한 가격 책정 계층 중 하나에 포함되어 있는지 확인합니다.
+> * 고가용성 지원 서버에서는 복제본이 지원되지 않습니다.
 >
 > * 주 서버에서 GTID를 사용하는 경우(`gtid_mode` = ON) 새로 만든 복제본도 GTID를 사용하도록 설정하고 GTID 기반 복제를 사용합니다. 자세한 내용은 [GTID(글로벌 트랜잭션 식별자)](concepts-read-replicas.md#global-transaction-identifier-gtid)를 참조하세요.
 
@@ -34,7 +33,7 @@ ms.locfileid: "129233904"
 
 Azure CLI를 사용하여 읽기 복제본을 생성하고 관리할 수 있습니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 - [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)
 - [Azure Database for MySQL 유연한 서버](quickstart-create-server-cli.md)를 원본 서버로 사용합니다.
@@ -48,7 +47,7 @@ Azure CLI를 사용하여 읽기 복제본을 생성하고 관리할 수 있습�
 
 ```azurecli-interactive
 az mysql flexible-server replica create --replica-name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup
-``` 
+```
 
 > [!NOTE]
 > 읽기 복제본은 원본과 동일한 서버 구성으로 만들어집니다. 복제본이 생성된 후에 복제본 서버 구성을 변경할 수 있습니다. 복제본 서버는 항상 원본 서버와 동일한 리소스 그룹, 동일한 위치 및 동일한 구독에 생성됩니다. 다른 리소스 그룹 또는 다른 구독에 복제본 서버를 만들려면 복제본 서버를 만든 후에 [이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md)할 수 있습니다. 복제본이 원본을 따라갈 수 있도록 복제본 서버의 구성을 원본과 동등하거나 더 큰 값으로 설정하기를 권합니다.
@@ -56,7 +55,7 @@ az mysql flexible-server replica create --replica-name mydemoreplicaserver --sou
 
 ### <a name="list-replicas-for-a-source-server"></a>원본 서버에 대한 복제본 나열
 
-지정된 원본 서버에 대한 모든 복제본을 보려면 다음 명령을 실행합니다. 
+지정된 원본 서버에 대한 모든 복제본을 보려면 다음 명령을 실행합니다.
 
 ```azurecli-interactive
 az mysql flexible-server replica list --server-name mydemoserver --resource-group myresourcegroup

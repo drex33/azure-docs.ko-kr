@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a85f2d5d928d93bf9e85899e53439a2cc4710448
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: ddd534ca0446cbccaf53ea08751803880abe27aa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114455608"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059090"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory 통과 인증: 빠른 시작
 
@@ -183,4 +183,4 @@ Azure AD Connect를 처음 설치하는 경우 [사용자 지정 설치 경로](
 - [문제 해결](tshoot-connect-pass-through-authentication.md): 통과 인증 기능의 일반적인 문제를 해결하는 방법을 알아봅니다.
 - [보안 심층 분석](how-to-connect-pta-security-deep-dive.md): 통과 인증 기능에 대한 기술 정보를 가져옵니다.
 - [Azure AD Seamless SSO](how-to-connect-sso.md): 보완적인 Azure AD Seamless SSO 기능을 알아봅니다.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Azure Active Directory 포럼을 사용하여 새 기능 요청을 제출합니다.
+- [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789): Azure Active Directory 포럼을 사용하여 새 기능 요청을 제출합니다.

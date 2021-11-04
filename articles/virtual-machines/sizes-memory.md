@@ -3,9 +3,7 @@ title: Azure VM 크기 - 메모리 | Microsoft Docs
 description: Azure의 가상 머신에 사용할 수 있는 다양한 메모리 최적화 크기를 나열합니다. 이 시리즈의 크기에 대한 스토리지 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
 services: virtual-machines
 documentationcenter: ''
-author: mimckitt
-manager: gwallace
-editor: ''
+author: brbell
 tags: azure-resource-manager,azure-service-management
 keywords: VM 격리, 격리된 VM, 격리, 격리됨
 ms.assetid: ''
@@ -14,16 +12,18 @@ ms.subservice: vm-sizes-memory
 ms.devlang: na
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
-ms.author: mimckitt
-ms.openlocfilehash: 450a35eddf0316f75bfcd97d23cfccdb59acfb7d
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
-ms.translationtype: HT
+ms.date: 10/20/2021
+ms.author: brbell
+ms.openlocfilehash: 50a187435b1a47fe2559ce5ce2d36905570b8419
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122530355"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456597"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>메모리 최적화 가상 머신 크기
+
+**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
 > [!TIP]
 > 워크로드에 가장 적합한 다른 크기를 찾으려면 **[가상 머신 선택 도구](https://aka.ms/vm-selector)** 를 사용해 보세요.
@@ -41,6 +41,12 @@ ms.locfileid: "122530355"
 - [Ev4 및 Esv4 시리즈](ev4-esv4-series.md)는 하이퍼 스레드 구성의 2세대 Intel&reg; Xeon&reg; Platinum 8272CL(Cascade Lake) 프로세서에서 실행되며, 다양한 메모리 집약적 엔터프라이즈 애플리케이션에 이상적이며, 최대 504GiB의 RAM을 제공합니다. [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) 및 [Intel&reg; Advanced Vector Extensions 512(Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html)를 사용합니다. Ev4 및 Esv4 시리즈는 로컬 임시 디스크를 포함하지 않습니다. 자세한 내용은  [로컬 임시 디스크가 없는 AZURE VM 크기](azure-vms-no-temp-disk.yml)를 참조하세요.
 
 - [Edv4 및 Edsv4 시리즈](edv4-edsv4-series.md)는 2세대 Intel&reg; Xeon&reg; 플래티넘 8272CL(Cascade Lake) 프로세서에서 실행되며 매우 큰 데이터베이스나 높은 vCPU 수와 많은 양의 메모리를 활용하는 기타 애플리케이션에 이상적입니다. 또한 이러한 VM 크기에는 대기 시간이 짧고 고속 로컬 스토리지를 활용하는 애플리케이션에 대한 빠르고 더 큰 로컬 SSD 스토리지가 포함됩니다. 3\.4GHz의 모든 코어 터보 클록 속도를 제공하며, [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) 및 [Intel&reg; Advanced Vector Extensions 512(Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html)를 사용합니다.
+
+- [Easv5 및 Eadsv5 시리즈는](easv5-eadsv5-series.md) 최대 256MB L3 캐시가 있는 다중 스레드 구성에서 AMD의 3세대 EPYC<sup>TM</sup> 7763v 프로세서를 활용하여 대부분의 메모리 최적화 워크로드를 실행하기 위한 고객 옵션을 증가합니다. 이러한 가상 머신은 관계형 데이터베이스 서버 및 메모리 내 분석 워크로드와 같은 대부분의 메모리 집약적 엔터프라이즈 애플리케이션과 관련된 요구 사항을 충족하기 위해 vC CPU와 메모리의 조합을 제공합니다. 
+
+- [Edv5 및 Edsv5 시리즈는](edv5-edsv5-series.md) 하이퍼 &reg; 스레드 구성의 Intel Xeon &reg; 8272CL(Ice Lake) 프로세서에서 실행되며, 메모리 집약적인 다양한 엔터프라이즈 애플리케이션 및 최대 512 GiB RAM, [Intel Turbo Boost Technology &reg; 2.0, Intel](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html)Hyper-Threading [ &reg; Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) 및 [Intel &reg; &reg; AVX-512(Intel Advanced Vector Extensions 512)에 적합합니다.](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html) 또한 [Intel&reg; Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html)를 지원합니다. 이 새로운 VM 크기는 [Gen2 VM](./generation-2.md)이 포함된 [Ev3/Esv3](./ev3-esv3-series.md)에 비해 로컬 스토리지가 50% 확장되고, 읽기 쓰기 로컬 디스크 IOPS가 향상됩니다. 3\.4GHz의 모든 코어 터보 클록 속도를 제공합니다.
+
+- [Ev5 및 Esv5 시리즈는](ev5-esv5-series.md) 하이퍼 &reg; 스레드 구성의 Intel Xeon &reg; 8272CL(Ice Lake) 프로세서에서 실행되며, 메모리 집약적인 다양한 엔터프라이즈 애플리케이션에 적합하며 최대 512 GiB RAM 기능을 제공합니다. 3\.4GHz의 모든 코어 터보 클록 속도를 제공합니다.
 
 - [M 시리즈](m-series.md)는 높은 vCPU 수(최대 128개의 vCPU)와 많은 양의 메모리(최대 3.8TiB)를 제공합니다. 높은 vCPU 수와 많은 양의 메모리를 활용하는 매우 큰 데이터베이스나 다른 애플리케이션에도 이상적입니다.
 

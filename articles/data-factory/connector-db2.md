@@ -1,7 +1,7 @@
 ---
 title: DB2에서 데이터 복사
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 또는 Synapse Analytics 파이프라인에서 복사 작업을 사용 하 여 DB2에서 지원 되는 싱크 데이터 저장소로 데이터를 복사 하는 방법을 알아봅니다.
+description: Azure Data Factory 또는 Synapse Analytics 파이프라인에서 복사 활동을 사용하여 DB2에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법을 알아봅니다.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
@@ -9,21 +9,21 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: def376920d111f915edfa7f367fcbedd4bc370f4
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5fb5a7c83aba80d5eb58bac4437121ce37b6345a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124778061"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024399"
 ---
-# <a name="copy-data-from-db2-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics를 사용 하 여 DB2에서 데이터 복사
+# <a name="copy-data-from-db2-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics 사용하여 DB2에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-onprem-db2-connector.md)
 > * [현재 버전](connector-db2.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory 및 Synapse Analytics 파이프라인의 복사 작업을 사용 하 여 DB2 데이터베이스에서 데이터를 복사 하는 방법을 설명 합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory 및 Synapse Analytics 파이프라인의 복사 작업을 사용하여 DB2 데이터베이스에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -104,11 +104,11 @@ DB2 연결된 서비스에 다음 속성이 지원됩니다.
 | authenticationType |DB2 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 다음과 같습니다. **Basic**. |예 |
 | 사용자 이름 |DB2 데이터베이스에 연결할 사용자 이름을 지정합니다. |예 |
 | password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
-| packageCollection    | 데이터베이스를 쿼리할 때 서비스에서 필요한 패키지를 자동으로 생성 하는 위치를 지정 합니다. 이 값을 설정 하지 않으면 서비스에서 {username}을 기본값으로 사용 합니다. | 예 |
+| packageCollection    | 데이터베이스를 쿼리할 때 서비스에서 필요한 패키지를 자동으로 만드는 위치를 지정합니다. 이 값을 설정하지 않으면 서비스에서 {username}을 기본값으로 사용합니다. | 예 |
 | certificateCommonName | SSL(Secure Sockets Layer) 또는 TLS(전송 계층 보안) 암호화를 사용하는 경우 인증서 일반 이름에 값을 입력해야 합니다. | 예 |
 
 > [!TIP]
-> `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`라는 오류 메시지가 표시되는 경우 필요한 패키지가 만들어지지 않은 것입니다. 기본적으로 서비스는 DB2에 연결 하는 데 사용한 사용자로 이름이 지정 된 패키지를 만들려고 시도 합니다. 패키지 컬렉션 속성을 지정 하 여 데이터베이스를 쿼리할 때 서비스에서 필요한 패키지를 만들지 여부를 지정 합니다.
+> `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`라는 오류 메시지가 표시되는 경우 필요한 패키지가 만들어지지 않은 것입니다. 기본적으로 서비스는 DB2에 연결하는 데 사용한 사용자로 명명된 컬렉션 아래에 패키지를 만들려고 합니다. 데이터베이스를 쿼리할 때 서비스에서 필요한 패키지를 만들 위치를 나타내는 패키지 컬렉션 속성을 지정합니다.
 
 **예:**
 
@@ -221,7 +221,7 @@ DB2의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩�
 
 DB2에서 데이터를 복사하기 위해 복사 작업 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **Db2Source** | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |

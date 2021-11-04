@@ -1,5 +1,5 @@
 ---
-title: Azure Windows Virtual Machines에서 SQL Server 개요 | Microsoft Docs
+title: Azure Windows Virtual Machines의 SQL Server 개요
 description: 온-프레미스 하드웨어를 관리할 필요 없이 클라우드의 Azure Virtual Machines에서 SQL Server의 전체 버전을 실행하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3f426af6719b821373a565c58e27919e7f6082f7
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 168f0bb17a63dea874f782fdb04906526822de81
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130247913"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131071898"
 ---
-# <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Azure Virtual Machines의 SQL Server란(Windows)
+# <a name="what-is-sql-server-on-windows-azure-virtual-machines"></a>Windows Azure Virtual Machines의 SQL Server란 무엇인가요?
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]

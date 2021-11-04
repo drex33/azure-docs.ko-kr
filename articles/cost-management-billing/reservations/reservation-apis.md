@@ -1,20 +1,20 @@
 ---
 title: Azure 예약 자동화용 API | Microsoft Docs
 description: 프로그래밍 방식으로 예약 정보를 가져오는 데 사용할 수 있는 Azure API에 대해 알아봅니다.
-author: yashesvi
-ms.reviewer: yashesvi
+author: bandersmsft
+ms.reviewer: primittal
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 74539bc58e3b0b7261792f492a6ea2cc151b8964
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a82c0ffa8f4396af409624083a945e8b53847a96
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128666612"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131430518"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>Azure 예약 자동화용 API
 

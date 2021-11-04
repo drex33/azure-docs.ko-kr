@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/02/2021
 ms.author: duau
 ms.custom: references_regions, ignite-fall-2021
-ms.openlocfilehash: f25a2f21713684024dcacee18e5666dfbb33a1b2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 921c829cefae8ab4ea96066d70c5d110fc9188f6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131103631"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131451942"
 ---
 # <a name="azure-virtual-network-manager-faq"></a>Azure Virtual Network 관리자 FAQ
 
@@ -89,15 +89,36 @@ Virtual network에 대 한 **네트워크 관리자** 에서 Azure Virtual Netwo
 
 예, 이미 만든 기존 피어 링을 재정의 또는 삭제 하도록 선택할 수 있습니다.
 
+### <a name="how-can-i-explicitly-allow-sqlmi-traffic-before-having-deny-rules"></a>거부 규칙을 사용 하기 전에 명시적으로 SQLMI 트래픽을 허용 하려면 어떻게 해야 하나요?
+
+Azure SQL Managed Instance에는 몇 가지 네트워크 요구 사항이 있습니다. 보안 관리자 규칙이 네트워크 요구 사항을 차단할 수 있는 경우 아래 샘플 규칙을 사용 하 여 SQL Managed Instance 트래픽을 차단할 수 있는 거부 규칙 보다 우선 순위가 높은 sqlmi 트래픽을 허용할 수 있습니다.
+
+#### <a name="inbound-rules"></a>인바운드 규칙
+
+| 포트 | 프로토콜 | 원본 | 대상 | 작업 |
+| ---- | -------- | ------ | ----------- | ------ |
+| 9000, 9003, 1438, 1440, 1452 | TCP | SqlManagement | **VirtualNetwork** | 허용 |
+| 9000, 9003 | TCP | CorpnetSaw | **VirtualNetwork** | 허용 |
+| 9000, 9003 | TCP | CorpnetPublic | **VirtualNetwork** | Allow |
+| 모두 | 모두 | **VirtualNetwork** | **VirtualNetwork** | Allow |
+| 모두 | 모두 | **AzureLoadBalancer** | **VirtualNetwork** | 허용 |
+
+#### <a name="outbound-rules"></a>아웃바운드 규칙
+
+| 포트 | 프로토콜 | 원본 | 대상 | 작업 |
+| ---- | -------- | ------ | ----------- | ------ |
+| 443, 12000 | TCP  | **VirtualNetwork** | AzureCloud | 허용 |
+| 모두 | 모두 | **VirtualNetwork** | **VirtualNetwork** | 허용 |
+
 ## <a name="limits"></a>제한
 
 ### <a name="what-are-the-service-limitation-of-azure-virtual-network-manager"></a>Azure Virtual Network Manager의 서비스 제한은 무엇 인가요?
 
-* 허브 및 스포크 토폴로지의 허브는 최대 500 스포크로 피어 링 수 있습니다. 
+* 허브 및 스포크 토폴로지의 허브는 최대 250 스포크로 피어 링 수 있습니다. 
+
+* 메시 토폴로지에서는 최대 250 개의 가상 네트워크를 사용할 수 있습니다.
 
 * 가상 네트워크의 서브넷은 메시 구성에 동일한 주소 공간이 있는 경우 서로 통신할 수 없습니다. 
-
-* Azure Virtual Network Manager는 지정 된 가상 네트워크에 대 한 모든 연결 구성에서 500 개의 가상 네트워크 피어 링 연결만 허용 합니다. 레거시 피어 링을 직접 관리할 수도 있습니다. 
 
 * 결합 된 모든 관리자 규칙의 최대 IP 접두사 수는 1000입니다. 
 
@@ -105,7 +126,7 @@ Virtual network에 대 한 **네트워크 관리자** 에서 Azure Virtual Netwo
 
 * Azure Virtual Network Manager는 공개 미리 보기에서 교차 테 넌 트를 지원 하지 않습니다.
 
-* 가상 네트워크는 최대 5 개의 메시 구성에 포함 될 수 있습니다. 
+* 가상 네트워크는 최대 두 개의 메시 구성에 포함 될 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

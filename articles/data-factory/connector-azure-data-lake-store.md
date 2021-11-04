@@ -9,12 +9,12 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 10/11/2021
-ms.openlocfilehash: 68f3bb388f003162786a6ce4f50e0f2dd00d48d0
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: e70970336a5e32d1edef9f336cf31e48f71aff9f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129856660"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131033250"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 Azure Data Lake Storage Gen1 간에 데이터 복사
 
@@ -187,7 +187,7 @@ Azure Data Lake Store 연결된 서비스에 다음 속성이 지원됩니다.
     - **원본으로**: **데이터 탐색기** > **액세스** 에서 복사할 파일에 대한 **읽기** 권한과 함께 루트를 포함한 모든 업스트림 폴더에 대해 최소한 **실행** 권한을 부여합니다. **이 폴더 및 모든 하위 폴더** 에 재귀적으로 추가하고 **액세스 권한 및 기본 권한 항목** 으로 추가하도록 선택할 수 있습니다. 계정 수준 액세스 제어(IAM)가 필요하지 않습니다.
     - **싱크로**: **데이터 탐색기** > **액세스** 에서 싱크 폴더에 대한 **쓰기** 권한과 함께 루트를 포함한 모든 업스트림 폴더에 대해 최소한 **실행** 권한을 부여합니다. **이 폴더 및 모든 하위 폴더** 에 재귀적으로 추가하고 **액세스 권한 및 기본 권한 항목** 으로 추가하도록 선택할 수 있습니다.
     
-2. 하나 이상의 사용자가 할당한 관리 ID를 데이터 팩터리에 할당하고 각 사용자가 할당한 관리 ID에 대한 [자격 증명을 만듭니다](data-factory-service-identity.md#credentials). 
+2. 하나 이상의 사용자가 할당한 관리 ID를 데이터 팩터리에 할당하고 각 사용자가 할당한 관리 ID에 대한 [자격 증명을 만듭니다](credentials.md). 
 
 다음 속성이 지원됩니다.
 

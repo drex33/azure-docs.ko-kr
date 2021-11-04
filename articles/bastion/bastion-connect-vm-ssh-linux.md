@@ -6,14 +6,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 10/12/2021
 ms.author: cherylmc
-ms.openlocfilehash: 96edce1434665a5b49c35f8cc305ab4d2c417f8d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: d0c852cf6df97619f7a319da4e13a406c572d4e7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128634142"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069295"
 ---
 # <a name="create-an-ssh-connection-to-a-linux-vm-using-azure-bastion"></a>Azure 방호를 사용 하 여 Linux VM에 대 한 SSH 연결 만들기
 
@@ -48,7 +49,7 @@ SSH를 통해 Linux VM에 연결하려면 VM에 다음 포트가 열려 있어�
 * 인바운드 포트: 사용자 지정 값 (Azure 방호를 통해 VM에 연결할 때이 사용자 지정 포트를 지정 해야 합니다.)
 
    > [!NOTE]
-   > 사용자 지정 포트 값을 지정 하려면 표준 SKU를 사용 하 여 Azure 방호를 구성 해야 합니다. 기본 SKU를 사용 하 여 사용자 지정 포트를 지정할 수 없습니다. 표준 SKU는 현재 미리 보기 상태입니다.
+   > 사용자 지정 포트 값을 지정 하려면 표준 SKU를 사용 하 여 Azure 방호를 구성 해야 합니다. 기본 SKU를 사용 하 여 사용자 지정 포트를 지정할 수 없습니다.
    >
 
 ## <a name="connect-using-username-and-password"></a><a name="username"></a>연결: 사용자 이름 및 암호 사용

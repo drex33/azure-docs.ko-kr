@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: yelevin
-ms.openlocfilehash: a70e6429ab535222f2ff7b86a807e5fc4a4b2a7a
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 1f55f38e126ae9aa64752b45ff449bcde321aaaf
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130133750"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131083938"
 ---
 # <a name="connect-data-from-microsoft-365-defender-to-azure-sentinel"></a>Microsoft 365 Defender의 데이터를 Azure Sentinel에 연결
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >
@@ -29,7 +32,7 @@ ms.locfileid: "130133750"
 >
 > **엔드포인트용 Microsoft Defender** 의 이전 이름은 **MDATP**(**Microsoft Defender Advanced Threat Protection**)였습니다.
 >
-> **microsoft Defender for Office 365** 이전에는 Office 365 **Advanced Threat Protection으로** 알려져 있었습니다.
+> **microsoft Defender for Office 365** 이전에는 **Office 365 Advanced Threat Protection이라고** 했습니다.
 >
 > 이전 이름이 일정 시간 동안 계속 사용되는 것을 볼 수 있습니다.
 
@@ -70,7 +73,7 @@ ms.locfileid: "130133750"
     | where ProviderName == "Microsoft 365 Defender"
     ```
 
-1. 엔드포인트용 Microsoft Defender 또는 Office 365 Microsoft Defender에서 고급 헌팅 이벤트를 수집하려는 경우 해당 고급 헌팅 테이블에서 다음 유형의 이벤트를 수집할 수 있습니다.
+1. 엔드포인트용 Microsoft Defender 또는 microsoft Defender for Office 365 고급 헌팅 이벤트를 수집하려는 경우 해당 고급 헌팅 테이블에서 다음 유형의 이벤트를 수집할 수 있습니다.
 
     1. 수집하려는 이벤트 유형으로 표의 확인란을 표시합니다.
 
@@ -147,7 +150,7 @@ let Now = now();
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Microsoft 365 Defender 커넥터를 사용하여 엔드포인트용 Microsoft Defender 및 Defender for Office 365 Azure Sentinel Microsoft 365 Defender 인시던트 및 고급 헌팅 이벤트 데이터를 통합하는 방법을 배웠습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 Microsoft 365 Defender 커넥터를 사용하여 엔드포인트용 Microsoft Defender 및 defender for Office 365 Azure Sentinel Microsoft 365 Defender 인시던트 및 고급 헌팅 이벤트 데이터를 통합하는 방법을 배웠습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [데이터에 대한 가시성을 얻고 재적 위협을 확인](get-visibility.md)하는 방법을 알아봅니다.
 - [Azure Sentinel을 사용하여 위협 검색](./detect-threats-built-in.md)을 시작합니다.

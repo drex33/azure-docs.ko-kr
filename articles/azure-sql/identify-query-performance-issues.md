@@ -11,12 +11,12 @@ author: NikaKinska
 ms.author: nnikolic
 ms.reviewer: mathoma, wiassaf
 ms.date: 1/14/2021
-ms.openlocfilehash: e4120b151957d8bb7360d7313000269e1ef51b03
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
-ms.translationtype: HT
+ms.openlocfilehash: 5ae1bfde67d2fed9147ffe8a18203f3dc1d80c19
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111592343"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131431981"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Azure SQL Database에서 검색 가능한 쿼리 성능 병목 상태 유형
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -79,7 +79,6 @@ PSP 문제를 해결하는 방법 관련한 자세한 내용은 다음 블로그
 
 - ["I smell a parameter!"(매개 변수를 찾았습니다!)](/archive/blogs/queryoptteam/i-smell-a-parameter)
 - [Conor vs. dynamic SQL vs. procedures vs. plan quality for parameterized queries(매개 변수화된 쿼리를 위한 Conor 대 동적 SQL 대 프로시저 대 계획 품질)](/archive/blogs/conor_cunningham_msft/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries)
-- [SQL query optimization techniques in SQL Server: Parameter sniffing(SQL Server의 SQL 쿼리 최적화 기술: 매개 변수 검사)](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/)
 
 ### <a name="compile-activity-caused-by-improper-parameterization"></a>잘못된 매개 변수화로 인한 컴파일 작업
 

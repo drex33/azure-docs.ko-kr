@@ -5,16 +5,15 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/17/2021
-ms.openlocfilehash: 58e5f6f5646eb2dd75215a17349b053426b7c837
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.date: 10/26/2021
+ms.openlocfilehash: c28e3b84251c645ff690098950066b3bb653f3df
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130133332"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131467534"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 제한
-
 
 
 다음 섹션에서는 데이터베이스 서비스의 용량 및 기능 제한에 대해 설명합니다. 리소스(컴퓨팅, 메모리, 스토리지) 계층에 대해 알아보려면 [컴퓨팅 및 스토리지](concepts-compute-storage.md) 문서를 참조하세요.
@@ -82,10 +81,7 @@ ms.locfileid: "130133332"
 
 ### <a name="high-availability-ha"></a>HA(고가용성)
 
-- 영역 중복 HA는 현재 버스트 가능 서버에 대해 지원되지 않습니다.
-- 서버가 HA 대기로 장애 조치(failover)할 때 데이터베이스 서버 IP 주소가 변경됩니다. 서버 IP 주소 대신 DNS 레코드를 사용해야 합니다.
-- HA로 구성된 유연한 서버로 논리적 복제를 구성한 경우 대기 서버로 장애 조치(failover) 시 논리적 복제 슬롯이 대기 서버로 복사되지 않습니다. 
-- 제한 사항을 포함한 영역 중복 HA에 대한 자세한 내용은 [개념 - HA 설명서](concepts-high-availability.md) 페이지를 참조하세요.
+- [영역 중복 HA 제한 사항 설명서](concepts-high-availability.md#zone-redundant-high-availability---limitations) 페이지를 참조 하세요.
 
 ### <a name="availability-zones"></a>가용성 영역
 

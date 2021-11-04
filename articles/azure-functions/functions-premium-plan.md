@@ -5,16 +5,13 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: cachai
-ms.custom:
-- references_regions
-- fasttrack-edit
-- devx-track-azurecli
-ms.openlocfilehash: c549f29e729eec4403f2943f51e8acb4a9f21b37
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: references_regions, fasttrack-edit, devx-track-azurecli
+ms.openlocfilehash: 583b1545adbc8542923104eb96dd33b744c43c06
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130248396"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131039186"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions 프리미엄 플랜
 
@@ -202,10 +199,6 @@ az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-inst
 |USGov 애리조나| 100 | 20 |
 |USGov 텍사스| 100 | 사용할 수 없음 |
 |USGov 버지니아| 100 | 20 |
-|USNat 동부| 100 | 사용할 수 없음 |
-|USNat 서부| 100 | 사용할 수 없음 |
-|USSec 동부| 100 | 20 |
-|USSec 서부| 100 | 20 |
 |미국 중서부| 100 | 20 |
 |서유럽| 100 | 20 |
 |인도 서부| 100 | 20 |

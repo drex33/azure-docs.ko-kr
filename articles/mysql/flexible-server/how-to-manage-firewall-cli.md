@@ -8,19 +8,17 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 9/21/2020
-ms.openlocfilehash: 268ab28c5f5aa500a110abf7cca650d7b7f14914
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 3617546e1319617a2a333a2c358880812d8626b5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566779"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468084"
 ---
-# <a name="create-and-manage-azure-database-for-mysql---flexible-server-firewall-rules-using-the-azure-cli"></a>Azure Portal을 사용하여 Azure Database for MySQL - 유연한 서버 방화벽 규칙 만들기 및 관리
+# <a name="manage-firewall-rules-for-azure-database-for-mysql---flexible-server-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for MySQL 유연한 서버에 대 한 방화벽 규칙 관리
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!IMPORTANT]
-> Azure Database for MySQL 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 
 Azure Database for MySQL 유동 서버는 유동 서버에 연결하는 두 가지 유형의 상호 배타적인 네트워크 연결 방법을 지원합니다. 다음은 두 가지 옵션입니다.
 
@@ -131,8 +129,8 @@ Azure IP 주소의 애플리케이션에서 유연한 서버에 연결할 수 �
 az mysql flexible-server firewall-rule create --name mydemoserver --start-ip-address 0.0.0.0
 ```
 
-   > [!IMPORTANT]
-   > 이 옵션은 다른 고객 구독의 연결을 포함하여 Azure 서비스 및 Azure 내의 리소스에서 이 서버로의 퍼블릭 액세스를 허용하도록 방화벽을 구성합니다. 이 옵션을 선택할 때 로그인 및 사용자 권한이 부여된 사용자만으로 액세스를 제한하는지 확인합니다.
+> [!IMPORTANT]
+> 이 옵션은 다른 고객 구독의 연결을 포함하여 Azure 서비스 및 Azure 내의 리소스에서 이 서버로의 퍼블릭 액세스를 허용하도록 방화벽을 구성합니다. 이 옵션을 선택할 때 로그인 및 사용자 권한이 부여된 사용자만으로 액세스를 제한하는지 확인합니다.
 
 성공하면 각각의 create 명령 출력은 만든 방화벽 규칙의 세부 정보를 JSON 형식(기본값)으로 나열합니다. 오류가 있는 경우 출력은 오류 메시지 텍스트를 대신 표시합니다.
 

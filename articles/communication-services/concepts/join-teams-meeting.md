@@ -8,12 +8,12 @@ ms.date: 10/15/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.openlocfilehash: 2e52aecc7df72c2a93feddf1917b4f342353b5f3
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 6b6444ef42e0ada42f374ed5d1e69aefd332a983
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130244213"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131438876"
 ---
 # <a name="join-a-teams-meeting"></a>Teams 회의 참가
 
@@ -38,7 +38,7 @@ Azure communication Teams Services를 사용 하 여 빌드된 사용자 지정 
 
 Teams 익명 회의 참여와 마찬가지로 애플리케이션에 참여할 회의 링크가 있어야 합니다. 이 링크는 Graph API 또는 Microsoft Teams의 일정에서 가져올 수 있습니다. Teams에 표시 되는 byoi 사용자의 이름은 SDK를 호출 하는 통신 서비스를 통해 구성할 수 있으며, 사용자가 Azure Active Directory Teams를 사용 하 여 인증 되지 않았음을 알리기 위해 "외부"로 레이블이 지정 됩니다.
 
-모임 중에 통신 서비스 사용자는 Azure Communication Services Sdk를 통해 핵심 오디오, 비디오, 화면 공유 및 채팅 기능을 사용할 수 있습니다. 통신 서비스 사용자가 모임이 나 모임을 종료 한 후에는 더 이상 새 채팅 메시지를 보내거나 받을 수 없지만 모임 중에 보내고 받은 메시지에는 액세스할 수 있습니다. 익명 통신 서비스 사용자는 모임에 추가 참가자를 추가할 수 없으며 모임에 대 한 녹음 또는 기록을 시작할 수 없습니다.
+모임 중에 통신 서비스 사용자는 Azure Communication Services Sdk를 통해 핵심 오디오, 비디오, 화면 공유 및 채팅 기능을 사용할 수 있습니다. 통신 서비스 사용자가 모임이 나 모임을 종료 한 후에는 더 이상 새 채팅 메시지를 보내거나 받을 수 없지만 모임 중에 보내고 받은 메시지에는 액세스할 수 있습니다. 익명 통신 서비스 사용자는 모임에서 참가자를 추가/제거할 수 없으며 모임에 대 한 녹음 또는 기록을 시작할 수 없습니다.
 
 Teams 모임에 참가하는 데 필요한 데이터 흐름에 대한 추가 정보는 [클라이언트 및 서버 아키텍처 페이지](client-and-server-architecture.md)에서 사용할 수 있습니다. [그룹 통화 주인공 샘플](../samples/calling-hero-sample.md)은 웹 애플리케이션에서 Teams 모임에 참여하기 위한 예제 코드를 제공합니다.
 
@@ -51,6 +51,7 @@ Microsoft는 기록 또는 전사가 시작되었음을 Azure Communication Serv
 
 - byoi 사용자는 Teams 채널에 대해 예약 되 고 오디오 및 비디오를 사용 하도록 예약 된 Teams 모임에 참여할 수 있지만 채팅 메시지는 채널의 멤버가 아니기 때문에 보내거나 받을 수 없습니다.
 - Microsoft Graph를 사용 하 여 [Teams 회의에 참가자를 나열할](/graph/api/call-list-participants)때 통신 서비스 사용자에 대 한 세부 정보는 현재 포함 되어 있지 않습니다.
+- PowerPoint 프레젠테이션은 통신 서비스 사용자에 대해 렌더링 되지 않습니다.
 - Teams 회의는 최대 1000 명의 참가자를 지원 하지만 SDK를 호출 하는 Azure 통신 서비스는 현재 350 참가자만 지원 합니다.
 - [Microsoft Teams에 대 한 클라우드 비디오 Interop](/microsoftteams/cloud-video-interop)를 사용 하면 통신 서비스 사용자가 화면을 공유할 때 일부 장치에서 문제가 발생 했습니다.
 - Teams 사용자에 게는 발생 한 직접, 함께 모드, 브레이크 실 등의 기능을 사용할 수 있습니다.

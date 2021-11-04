@@ -1,6 +1,6 @@
 ---
-title: SQL Server IaaS 에이전트 확장은 무엇입니까?
-description: 이 문서에서는 SQL Server IaaS 에이전트 확장을 사용하여 Azure VM에서 SQL Server의 특정 관리 작업의 자동 관리하는 방법을 설명합니다. 자동화된 백업, 자동화된 패치, Azure Key Vault 통합, 라이선스 관리, 스토리지 구성, 모든 SQL Server VM 인스턴스의 중앙 관리 등이 포함됩니다.
+title: SQL Server IaaS 에이전트 확장은 무엇입니까? (Windows)
+description: 이 문서에서는 SQL Server IaaS 에이전트 확장을 사용 하 여 Windows Azure vm에서 SQL Server 관리 관련 관리 작업을 자동화 하는 방법을 설명 합니다. 자동화된 백업, 자동화된 패치, Azure Key Vault 통합, 라이선스 관리, 스토리지 구성, 모든 SQL Server VM 인스턴스의 중앙 관리 등이 포함됩니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: adbadram
@@ -13,22 +13,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 9/01/2021
+ms.date: 10/26/2021
 ms.author: adbadram
 ms.reviewer: mathoma
-ms.custom: seo-lt-2019
-ms.openlocfilehash: e5a122fb23b7ebcfbbbf008dacc675eddf0c3cb0
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: seo-lt-2019, ignite-fall-2021
+ms.openlocfilehash: 2ff6432261915e7200d69bc3b80dba217e5c9285
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130247962"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131043968"
 ---
-# <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>SQL Server IaaS 에이전트 확장을 사용하여 관리 자동화
+# <a name="automate-management-with-the-windows-sql-server-iaas-agent-extension"></a>Windows SQL Server IaaS 에이전트 확장을 사용 하 여 관리 자동화
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
+> [!div class="op_single_selector"]
+> * [Windows](sql-server-iaas-agent-extension-automate-management.md)
+> * [Linux](../linux/sql-server-iaas-agent-extension-linux.md)
 
-SQL Server IaaS 에이전트 확장(SqlIaasExtension)은 관리 작업을 자동화하기 위해 Azure 가상 머신의 SQL Server에서 실행됩니다. 
+
+
+SQL Server IaaS 에이전트 확장 (SqlIaasExtension)은 Windows Azure Virtual Machines (vm)에서 SQL Server를 실행 하 여 관리 및 관리 작업을 자동화 합니다. 
 
 이 문서는 확장에 대한 개요를 제공합니다. SQL Server IaaS 확장을 Azure VM의 SQL Server에 설치하려면 [자동 설치](sql-agent-extension-automatic-registration-all-vms.md), [단일 VM](sql-agent-extension-manually-register-single-vm.md) 또는 [대량 VM](sql-agent-extension-manually-register-vms-bulk.md) 문서를 참조하세요. 
 
@@ -41,7 +46,7 @@ SQL Server IaaS 에이전트 확장을 사용하면 Azure Portal과 통합할 �
 
 - **기능 이점**: 확장을 통해 포털 관리, 라이선스 유연성, 자동화된 백업, 자동화된 패치 등의 다양한 자동화 기능 이점을 활용할 수 있습니다. 자세한 내용은 이 문서의 [기능 이점](#feature-benefits)을 참조하세요. 
 
-- **규정 준수**: 제품 약관에 지정된 대로 Azure 하이브리드 혜택이 구현되었음을 Microsoft에 알려야 하는 요구 사항을 간편하게 충족할 수 있습니다. 이 프로세스로 각 리소스마다 라이선스 등록 양식을 관리할 필요가 없습니다.  
+- **규정 준수**: 확장은 제품 약관에 지정 된 대로 Azure 하이브리드 혜택 사용 하도록 설정 되었다는 것을 Microsoft에 알리는 요구 사항을 충족 하는 간단한 방법을 제공 합니다. 이 프로세스로 각 리소스마다 라이선스 등록 양식을 관리할 필요가 없습니다.  
 
 - **무료**: 세 가지 관리 효율성 모드 모두에서 확장은 완전히 무료로 제공됩니다. 확장 또는 관리 모드 변경과 관련된 추가 비용은 없습니다. 
 
@@ -61,9 +66,6 @@ SQL Server IaaS 에이전트 확장을 사용하면 Azure Portal과 통합할 �
    ---
 
 
-> [!IMPORTANT]
-> SQL IaaS 에이전트 확장은 Azure Virtual Machines 내에서 SQL Server를 사용하는 고객에게 선택적 혜택을 제공하기 위한 목적으로 데이터를 수집합니다. Microsoft는 고객의 사전 동의 없이 라이선스 감사에 이 데이터를 사용하지 않습니다. 자세한 내용은 [SQL Server 개인 정보 제공](/sql/sql-server/sql-server-privacy#non-personal-data)을 참조하세요.
-
 
 ## <a name="feature-benefits"></a>기능 이점 
 
@@ -81,7 +83,8 @@ SQL Server IaaS 에이전트 확장은 SQL Server VM 관리에 대한 다양한 
 | **포털에서 디스크 사용률 보기** | Azure Portal에서 SQL 데이터 파일의 디스크 사용률에 대한 그래픽 표현을 볼 수 있습니다.  <br/> 관리 모드: 전체 | 
 | **유연한 라이선스** | BYOL(Azure 하이브리드 혜택)에서 종량제 라이선스 모델로 [원활하게 전환](licensing-model-azure-hybrid-benefit-ahb-change.md)하여 비용을 절감합니다. <br/> 관리 모드: 경량 및 전체| 
 | **유연한 버전/에디션** | SQL Server의 [버전](change-sql-server-version.md) 또는 [에디션](change-sql-server-edition.md)을 변경하려는 경우 전체 SQL Server VM을 배포할 필요 없이 Azure Portal 내에서 메타데이터를 업데이트할 수 있습니다.  <br/> 관리 모드: 경량 및 전체| 
-| **Security Center 포털 통합** | [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md)을 사용하도록 설정한 경우 Azure Portal의 [SQL 가상 머신](manage-sql-vm-portal.md) 리소스에서 직접 Security Center 권장 사항을 볼 수 있습니다. 자세한 내용은 [보안 모범 사례](security-considerations-best-practices.md)를 참조하세요.  <br/> 관리 모드: 경량 및 전체| 
+| **Security Center 포털 통합** | [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md)을 사용하도록 설정한 경우 Azure Portal의 [SQL 가상 머신](manage-sql-vm-portal.md) 리소스에서 직접 Security Center 권장 사항을 볼 수 있습니다. 자세한 내용은 [보안 모범 사례](security-considerations-best-practices.md)를 참조하세요.  <br/> 관리 모드: 경량 및 전체|
+| **SQL 평가 (미리 보기)** | 구성 모범 사례를 사용 하 여 SQL Server vm의 상태를 평가할 수 있습니다. 자세한 내용은 [SQL 평가](sql-assessment-for-sql-vm.md)를 참조 하세요.  <br/> 관리 모드: 전체| 
 
 
 ## <a name="management-modes"></a>관리 모드
@@ -105,7 +108,7 @@ Azure PowerShell을 사용하여 SQL Server IaaS Agent의 현재 모드를 확�
 
 ## <a name="installation"></a>설치
 
-SQL Server IaaS 에이전트 확장에 SQL Server VM을 등록하면 가상 머신 리소스와는 별도 리소스인 [**SQL 가상 머신** 리소스](manage-sql-vm-portal.md)가 구독 내에 생성됩니다. 확장에서 SQL Server VM의 등록을 취소하면 **SQL 가상 머신** _리소스_ 가 제거되지만 실제 가상 머신은 삭제되지 않습니다.
+SQL Server IaaS 에이전트 확장에 SQL Server VM을 등록하면 가상 머신 리소스와는 별도 리소스인 [**SQL 가상 머신** 리소스](manage-sql-vm-portal.md)가 구독 내에 생성됩니다. 확장에서 SQL Server VM의 등록을 취소 하면 구독에서 **SQL 가상 컴퓨터** _리소스가_ 제거 되지만 실제 가상 컴퓨터는 삭제 되지 않습니다.
 
 Azure Portal을 통해 SQL Server VM Azure Marketplace 이미지를 배포하면 SQL Server VM이 자동으로 확장에 전체가 등록됩니다. 그러나 Azure 가상 머신에 SQL Server를 자동으로 설치하거나 사용자 지정 VHD에서 Azure 가상 머신을 프로비전하도록 선택하는 경우에는 모든 기능 이점을 사용할 수 있도록 SQL IaaS 확장에 SQL Server VM를 등록해야 합니다. 
 
@@ -115,6 +118,9 @@ Azure Portal을 통해 SQL Server VM Azure Marketplace 이미지를 배포하면
 - [구독에서 모든 현재 및 미래의 VM에 대해 자동으로](sql-agent-extension-automatic-registration-all-vms.md)
 - [단일 VM에 대해 수동으로](sql-agent-extension-manually-register-single-vm.md)
 - [여러 VM에 대해 수동으로](sql-agent-extension-manually-register-vms-bulk.md)
+
+기본적으로 SQL Server 2016 이상이 설치 된 Azure vm은 [CEIP 서비스](/sql/sql-server/usage-and-diagnostic-data-configuration-for-sql-server)에서 검색 될 때 SQL IaaS 에이전트 확장에 자동으로 등록 됩니다.  자세한 내용은 [SQL Server 개인 정보 제공](/sql/sql-server/sql-server-privacy#non-personal-data)을 참조하세요.
+
 
 ### <a name="named-instance-support"></a>명명된 인스턴스 지원
 
@@ -138,7 +144,7 @@ Azure Portal 또는 Azure PowerShell를 사용하여 확장의 상태를 확인�
 
 확장이 Azure Portal에 설치되어 있는지 확인합니다. 
 
-가상 머신 창에서 **모든 설정** 을 선택하고 **확장** 을 선택합니다. **SqlIaasExtension** 확장이 나열되어야 합니다.
+Azure Portal ( *SQL 가상 머신* 리소스가 아니라 VM에 대 한 리소스)의 **가상 머신** 리소스로 이동 합니다. **설정** 에서 **확장** 을 선택합니다.  다음 예제와 같이 나열 된 **SqlIaasExtension** 확장이 표시 됩니다. 
 
 ![Azure Portal의 SQL Server IaaS 에이전트 확장 상태](./media/sql-server-iaas-agent-extension-automate-management/azure-rm-sql-server-iaas-agent-portal.png)
 
@@ -170,10 +176,14 @@ SQL IaaS 에이전트 확장은 다음만 지원합니다.
 - 경량 모드의 단일 VM에 여러 인스턴스가 있는 명명 된 인스턴스 
 
 
+## <a name="privacy-statement"></a><a id="in-region-data-residency"></a> 개인정보 처리 방침
 
-## <a name="in-region-data-residency"></a>지역 내 데이터 보존
+Azure vm 및 SQL IaaS 확장에 SQL Server를 사용 하는 경우 다음 개인 정보 취급 방침을 고려 하세요. 
 
-Azure SQL 가상 머신과 SQL IaaS 에이전트 확장은 배포된 리전 외부로 데이터를 이동하거나 저장하지 않습니다.
+- **데이터 수집**: SQL IaaS 에이전트 확장은 Azure Virtual Machines에서 SQL Server를 사용할 때 고객에 게 선택적 혜택을 제공 하는 express 용도의 데이터를 수집 합니다. Microsoft는 고객의 사전 동의가 없는 **라이선스 감사에는이 데이터를 사용 하지 않습니다** . 자세한 내용은 [SQL Server 개인 정보 취급 방침](/sql/sql-server/sql-server-privacy#non-personal-data) 을 참조 하세요.
+
+- **지역 데이터 상주**: Azure vm의 SQL Server 및 IaaS 에이전트 확장 SQL는 vm이 배포 된 지역에서 고객 데이터를 이동 하거나 저장 하지 않습니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -112,7 +112,7 @@
           href: dns-import-export.md
         - name: 하위 도메인 위임
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: delegate-subdomain.md
             - name: Azure PowerShell
               href: delegate-subdomain-ps.md
@@ -175,7 +175,7 @@
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: 기능 요청
-      href: 'https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager'
+      href: 'https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c429912-8326-ec11-b6e6-000d3a4f0789'
     - name: Microsoft Q&A 질문 페이지
       href: /answers/topics/azure-virtual-network.html
     - name: 네트워킹 블로그

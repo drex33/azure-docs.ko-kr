@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.author: vikancha
-ms.openlocfilehash: 92fa6f5e2c1b4850696def464bfb0f96e3ce11f8
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 7c2b2edf30b4377ca90b65bb099ab3ceacc5f871
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130069823"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008449"
 ---
 # <a name="nvv4-series"></a>NVv4 시리즈 
 
@@ -30,7 +30,7 @@ NVv4 시리즈 가상 머신은 기본 주파수 2.45GHz, 3.1GHz의 모든 코�
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원되지 않음<br>
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
 [가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨<br>
-[임시 OS 디스크](ephemeral-os-disks.md): 지원됨([미리 보기](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
+[임시 OS 디스크](ephemeral-os-disks.md): 지원됨<br>
 <br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 NIC 수 / 예상 네트워크 대역폭(MBps) |

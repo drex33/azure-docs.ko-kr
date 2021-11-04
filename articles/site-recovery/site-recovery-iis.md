@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 08f4c00d5d0d1d0d6d060d2170024ac166c308b8
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: a353a2d95f9da4b78d88118555d20fc79bae5fd7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114458558"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131437616"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>다중 계층 IIS 기반 웹 애플리케이션에 대한 재해 복구 설정
 
@@ -69,9 +69,9 @@ Azure|해당 없음|예
 
 모든 IIS 웹 팜 가상 머신을 Azure로 복제하려면 [Site Recovery에서 Azure로 장애 조치 테스트](site-recovery-test-failover-to-azure.md)의 지침을 따릅니다.
 
-고정 IP 주소를 사용하는 경우 가상 머신에서 사용할 IP 주소를 지정할 수 있습니다. IP 주소를 설정하려면 **컴퓨팅 및 네트워크 설정** > **대상 IP** 로 차례로 이동합니다.
+고정 IP 주소를 사용하는 경우 가상 머신에서 사용할 IP 주소를 지정할 수 있습니다. IP 주소를 설정 하려면 **네트워크 설정**  >  **대상 ip** 로 이동 합니다.
 
-![Site Recovery 컴퓨팅 및 네트워크 창에서 대상 IP를 설정하는 방법을 보여주는 스크린샷](./media/site-recovery-active-directory/dns-target-ip.png)
+![Site Recovery 네트워크 창에서 대상 IP를 설정 하는 방법을 보여 주는 스크린샷](./media/site-recovery-active-directory/dns-target-ip.png)
 
 ## <a name="create-a-recovery-plan"></a>복구 계획 만들기
 복구 계획은 장애 조치(failover) 시에 다중 계층 애플리케이션에서 여러 계층의 시퀀싱을 지원합니다. 시퀀싱은 애플리케이션의 일관성을 유지하는 데 도움이 됩니다. 다중 계층 웹 애플리케이션에 대한 복구 계획을 생성할 때는 [Site Recovery를 사용하여 복구 계획 만들기](site-recovery-create-recovery-plans.md)에서 설명하는 단계를 수행합니다.

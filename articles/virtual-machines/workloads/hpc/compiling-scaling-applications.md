@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/16/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: c6396eab9cb7a2224d660e0e034f8592a879510d
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 408f55592ee7a192172c85e7a417db0b277f0f46
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122688461"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054517"
 ---
 # <a name="scaling-hpc-applications"></a>HPC 애플리케이션 크기 조정
 
@@ -91,14 +91,14 @@ $ gfortran [gFortran flags]
 ```
    
 ### <a name="pgi-compiler"></a>PGI 컴파일러
-PGI Community Edition 버전 17은 AMD EPYC에서 작동하는 것으로 확인되었습니다. PGI 컴파일된 버전의 STREAM은 플랫폼의 전체 메모리 대역폭을 제공합니다. 최신 Community Edition 18.10(2018년 11월)도 마찬가지로 잘 작동해야 합니다. 다음은 Intel 컴파일러를 사용해 최적으로 컴파일하기 위한 샘플 CLI입니다.
+PGI Community 버전 17이 AMD EPYC와 함께 작동하는 것으로 확인되었습니다. PGI 컴파일된 버전의 STREAM은 플랫폼의 전체 메모리 대역폭을 제공합니다. 최신 Community Edition 18.10(2018년 11월)도 마찬가지로 잘 작동해야 합니다. 다음은 Intel 컴파일러를 사용해 최적으로 컴파일하기 위한 샘플 CLI입니다.
 
 ```bash
 pgcc $(OPTIMIZATIONS_PGI) $(STACK) -DSTREAM_ARRAY_SIZE=800000000 stream.c -o stream.pgi
 ```
 
 ### <a name="intel-compiler"></a>Intel 컴파일러
-Intel 컴파일러 버전 18은 AMD EPYC에서 작동하는 것으로 확인되었습니다. 다음은 Intel 컴파일러를 사용해 최적으로 컴파일하기 위한 샘플 CLI입니다.
+Intel 컴파일러 18이 AMD EPYC와 함께 작동하는 것으로 확인되었습니다. 다음은 Intel 컴파일러를 사용해 최적으로 컴파일하기 위한 샘플 CLI입니다.
 
 ```bash
 icc -o stream.intel stream.c -DSTATIC -DSTREAM_ARRAY_SIZE=800000000 -mcmodel=large -shared-intel -Ofast –qopenmp

@@ -2,18 +2,18 @@
 title: '자습서: Azure CDN 사용자 지정 도메인에서 HTTPS 구성'
 description: 이 자습서에서는 Azure CDN 엔드포인트 사용자 지정 도메인에서 HTTPS를 활성화하거나 비활성화하는 방법을 알아봅니다.
 services: cdn
-author: asudbring
+author: duongau
 ms.service: azure-cdn
 ms.topic: tutorial
 ms.date: 03/26/2021
-ms.author: allensu
+ms.author: duau
 ms.custom: mvc
-ms.openlocfilehash: d9520f3a6c6ffadf7186b0b3c5c83fe872711316
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: d6a56aecaf8110118081e8c79e86bae5c277d992
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112007790"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458687"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>자습서: Azure CDN 사용자 지정 도메인에서 HTTPS 구성
 

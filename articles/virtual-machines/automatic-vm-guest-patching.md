@@ -6,17 +6,17 @@ ms.service: virtual-machines
 ms.subservice: maintenance
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 10/18/2021
+ms.date: 10/20/2021
 ms.author: manayar
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7df73a0e09cf845f0dd7b5fda10bbb370057e998
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 91d172cf1d3ba5bf78feb8e18382631464619c04
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130181391"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459732"
 ---
-# <a name="preview-automatic-vm-guest-patching-for-azure-vms"></a>미리 보기: Azure VM용 자동 VM 게스트 패치
+# <a name="automatic-vm-guest-patching-for-azure-vms"></a>Azure Vm에 대 한 자동 VM 게스트 패치
 
 **적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합
 
@@ -28,11 +28,6 @@ ms.locfileid: "130181391"
 - 패치 오케스트레이션은 Azure에서 관리되며 [가용성 우선 원칙](#availability-first-updates)에 따라 패치가 적용됩니다.
 - 패치 실패를 검색하기 위해 플랫폼 상태 신호를 통해 결정되는 가상 머신 상태를 모니터링합니다.
 - 모든 VM 크기에 사용할 수 있습니다.
-
-> [!IMPORTANT]
-> 자동 VM 게스트 패치는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="how-does-automatic-vm-guest-patching-work"></a>자동 VM 게스트 패치는 어떻게 작동하나요?
 
@@ -78,9 +73,9 @@ Azure 플랫폼은 업데이트를 진행 중인 가상 머신 그룹을 대상�
 매월 새 출시가 트리거되면 VM이 전원이 켜진 경우 사용량이 적은 시간에 매월 하나 이상의 패치 출시를 수신합니다. 이렇게 되면 월 기준으로 사용 가능한 최신 보안 및 중요 패치가 VM에 패치됩니다. 설치된 패치 집합의 일관성을 보장하기 위해 사용자 고유의 프라이빗 리포지토리에서 패치를 평가하고 다운로드하도록 VM을 구성할 수 있습니다.
 
 ## <a name="supported-os-images"></a>지원되는 OS 이미지
-특정 OS 플랫폼 이미지에서 만든 VM만 현재 미리 보기에서 지원됩니다. 사용자 지정 이미지는 현재 미리 보기에서 지원되지 않습니다.
+특정 OS 플랫폼 이미지에서 만든 Vm만 현재 지원 됩니다. 사용자 지정 이미지는 현재 지원 되지 않습니다.
 
-현재 지원되는 플랫폼 SKU는 다음과 같습니다(주기적으로 더 추가될 예정임).
+현재 지원되는 플랫폼 SKU는 다음과 같습니다(주기적으로 더 추가될 예정).
 
 | Publisher               | OS 제품      |  SKU               |
 |-------------------------|---------------|--------------------|
@@ -91,8 +86,8 @@ Azure 플랫폼은 업데이트를 진행 중인 가상 머신 그룹을 대상�
 | Redhat  | RHEL | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7_9, 7-RAW, 7-LVM |
 | Redhat  | RHEL | 8, 8.1, 8.2, 8_3, 8_4, 8-LVM |
 | Redhat  | RHEL-RAW | 8-raw |
-| OpenLogic  | Centos | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7_8, 7_9, 7-LVM |
-| OpenLogic  | Centos | 8.0, 8_1, 8_2, 8_3, 8-lvm |
+| OpenLogic  | CentOS | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7_8, 7_9, 7-LVM |
+| OpenLogic  | CentOS | 8.0, 8_1, 8_2, 8_3, 8-lvm |
 | SUSE  | sles-12-sp5 | gen1, gen2 |
 | SUSE  | sles-15-sp2 | gen1, gen2 |
 | MicrosoftWindowsServer  | WindowsServer | 2008-R2-SP1 |
@@ -232,7 +227,7 @@ VM의 사용량이 적은 시간에 활성화가 완료되므로 VM에서 자동
 자동 업데이트는 대부분의 시나리오에서 사용하지 않으며, 패치 설치는 앞으로 확장을 통해 수행됩니다. 다음 조건이 적용 됩니다.
 - Windows VM에서 이전에 AutomaticByOS 패치 모드를 통해 자동 Windows 업데이트가 켜진 경우 확장을 설치할 때 VM에 대해 자동 Windows 업데이트가 꺼집니다.
 - Ubuntu VM의 경우 자동 VM 게스트 패치가 활성화 완료되면 기본 자동 업데이트가 자동으로 사용하지 않도록 설정됩니다.
-- RHEL의 경우 자동 업데이트를 미리 보기에서 수동으로 사용하지 않도록 설정해야 합니다. 다음 코드를 실행합니다.
+- RHEL의 경우 자동 업데이트를 수동으로 사용 하지 않도록 설정 해야 합니다. 다음 코드를 실행합니다.
 
 ```
 systemctl stop packagekit

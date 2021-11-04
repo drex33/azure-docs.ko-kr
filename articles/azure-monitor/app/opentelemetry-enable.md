@@ -1,115 +1,115 @@
 ---
-title: .NET, Node.js 및 Python 애플리케이션에 Azure Monitor OpenTelemetry 사용
-description: OpenTelemetry를 사용하여 애플리케이션에서 Azure Monitor 사용하도록 설정하는 방법에 대한 지침을 제공합니다.
+title: .NET, Node.js 및 Python 응용 프로그램에 대 한 Azure Monitor OpenTelemetry 사용
+description: OpenTelemetry를 사용 하 여 응용 프로그램에서 Azure Monitor를 사용 하도록 설정 하는 방법에 대 한 지침
 ms.topic: conceptual
 ms.date: 10/11/2021
 author: mattmccleary
 ms.author: mmcc
-ms.openlocfilehash: 28200f938f014d49ca01a49128e78a30a3005d59
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 3961f7233de1fcd09dc8a2199dfa424b505add27
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130240094"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058106"
 ---
-# <a name="enable-azure-monitor-opentelemetry-exporter-for-net-nodejs-and-python-applications-preview"></a>.NET, Node.js 및 Python 애플리케이션에 Azure Monitor OpenTelemetry 내보내기 사용(미리 보기)
+# <a name="enable-azure-monitor-opentelemetry-exporter-for-net-nodejs-and-python-applications-preview"></a>.NET, Node.js 및 Python 응용 프로그램에 대 한 Azure Monitor OpenTelemetry 내보내기 사용 (미리 보기)
 
-이 문서에서는 OpenTelemetry 기반 Azure Monitor 미리 보기 제품을 사용하도록 설정하고 구성하는 방법을 설명합니다. 이 문서의 지침을 완료하면 OpenTelemetry 추적을 Azure Monitor Application Insights 보낼 수 있습니다. OpenTelemetry에 대한 자세한 내용은 [OpenTelemetry 개요](opentelemetry-overview.md) 또는 [OpenTelemetry FAQ를 참조하세요.](/azure/azure-monitor/faq#opentelemetry)
+이 문서에서는 OpenTelemetry 기반 Azure Monitor 미리 보기 제품을 사용 하도록 설정 하 고 구성 하는 방법을 설명 합니다. 이 문서의 지침을 완료 하면 Azure Monitor Application Insights OpenTelemetry 추적을 보낼 수 있습니다. OpenTelemetry에 대해 자세히 알아보려면 [OpenTelemetry 개요](opentelemetry-overview.md) 또는 [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry)를 확인 하세요.
 
 > [!IMPORTANT]
-> .NET, Node.js 및 Python 애플리케이션용 Azure Monitor OpenTelemetry Exporter는 현재 미리 보기로 제공됩니다.
+> .NET, Node.js 및 Python 응용 프로그램에 대 한 Azure Monitor OpenTelemetry 내보내기는 현재 미리 보기로 제공 됩니다.
 > 베타, 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="limitations-of-preview-release"></a>미리 보기 릴리스의 제한 사항
+## <a name="limitations-of-preview-release"></a>Preview 릴리스의 제한 사항
 
 ### <a name="net"></a>[.NET](#tab/net)
 
-이 미리 보기가 적합한지 신중하게 고려하세요. **분산 추적만 사용하도록 설정하고** _다음을 제외합니다._
- - 메트릭 API(사용자 지정 메트릭, [사전 집계된 메트릭)](pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics)
+이 미리 보기가 적합 한지 신중 하 게 고려 하세요. **분산 추적만 사용** 하 고 다음은 _제외_ 합니다.
+ - 메트릭 API (사용자 지정 메트릭, [미리 집계 된 메트릭](pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics))
  - [라이브 메트릭](live-stream.md)
- - 로깅 API(콘솔 로그, 로깅 라이브러리 등)
- - 처리되지 않은 예외의 자동 캡처
+ - 로깅 API (콘솔 로그, 로깅 라이브러리 등)
+ - 처리 되지 않은 예외 자동 캡처
  - [프로파일러](profiler-overview.md)
  - [스냅샷 디버거](snapshot-debugger.md)
- - 오프라인 디스크 스토리지
+ - [오프 라인 디스크 저장소 및 재시도 논리](telemetry-channels.md#built-in-telemetry-channels)
  - [Azure AD 인증](azure-ad-authentication.md)
  - [샘플링](sampling.md)
  - Azure 환경에서 클라우드 역할 이름 및 클라우드 역할 인스턴스의 자동 채우기
- - [애플리케이션 Insights JavaScript SDK를](javascript.md) 사용하는 경우 사용자 ID 및 인증된 사용자 ID의 자동 채우기
- - 사용자 IP의 자동 채우기(위치 특성 확인)
- - [작업 이름을](correlation.md#data-model-for-telemetry-correlation) 재정의하는 기능
- - 사용자 ID 또는 인증된 사용자 ID를 수동으로 설정하는 기능
- - 종속성 원격 분석으로 작업 이름 전파
- - Azure Functions Worker를 통한 분산 추적 컨텍스트 전파(계측 라이브러리)
+ - [Application Insights JavaScript SDK](javascript.md) 를 사용 하는 경우 사용자 id 및 인증 된 사용자 id의 자동 채우기
+ - 사용자 IP의 자동 채우기 (위치 특성 확인)
+ - [작업 이름을](correlation.md#data-model-for-telemetry-correlation) 재정의 하는 기능
+ - 사용자 ID 또는 인증 된 사용자 ID를 수동으로 설정 하는 기능
+ - 종속성 원격 분석에 작업 이름 전파
+ - Azure Functions Worker를 통한 분산 추적 컨텍스트 전파 (계측 라이브러리)
 
-전체 기능 환경이 필요한 경우 OpenTelemetry 기반 제품이 완성될 때까지 기존 애플리케이션 [Insights ASP.NET](asp-net.md) 사용하거나 SDK를 [ASP.NET Core](asp-net-core.md) 합니다.
+모든 기능을 사용 해야 하는 사용자는 OpenTelemetry 기반 제품이 완성 될 때까지 기존 Application Insights [ASP.NET](asp-net.md) 또는 [ASP.NET Core](asp-net-core.md) SDK를 사용 해야 합니다.
 
 ### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-이 미리 보기가 적합한지 신중하게 고려하세요. 분산 추적만 사용하도록 설정하고 _다음을 제외합니다._
- - 메트릭 API(사용자 지정 메트릭, [사전 집계된 메트릭)](pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics)
+이 미리 보기가 적합 한지 신중 하 게 고려 하세요. 분산 추적만 사용 하 고 다음은 _제외_ 합니다.
+ - 메트릭 API (사용자 지정 메트릭, [미리 집계 된 메트릭](pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics))
  - [라이브 메트릭](live-stream.md)
- - 로깅 API(콘솔 로그, 로깅 라이브러리 등)
- - 처리되지 않은 예외의 자동 캡처
+ - 로깅 API (콘솔 로그, 로깅 라이브러리 등)
+ - 처리 되지 않은 예외 자동 캡처
  - [Azure AD 인증](azure-ad-authentication.md)
  - [샘플링](sampling.md)
  - Azure 환경에서 클라우드 역할 이름 및 클라우드 역할 인스턴스의 자동 채우기
- - [애플리케이션 Insights JavaScript SDK를](javascript.md) 사용하는 경우 사용자 ID 및 인증된 사용자 ID의 자동 채우기
- - 사용자 IP의 자동 채우기(위치 특성 확인)
- - [작업 이름을](correlation.md#data-model-for-telemetry-correlation) 재정의하는 기능
- - 사용자 ID 또는 인증된 사용자 ID를 수동으로 설정하는 기능
- - 종속성 원격 분석으로 작업 이름 전파
+ - [Application Insights JavaScript SDK](javascript.md) 를 사용 하는 경우 사용자 id 및 인증 된 사용자 id의 자동 채우기
+ - 사용자 IP의 자동 채우기 (위치 특성 확인)
+ - [작업 이름을](correlation.md#data-model-for-telemetry-correlation) 재정의 하는 기능
+ - 사용자 ID 또는 인증 된 사용자 ID를 수동으로 설정 하는 기능
+ - 종속성 원격 분석에 작업 이름 전파
 
-전체 기능 환경이 필요한 경우 OpenTelemetry 기반 제품이 완성될 때까지 기존 [애플리케이션 Insights Node.js SDK를](nodejs.md) 사용해야 합니다.
+모든 기능을 사용 해야 하는 사용자는 OpenTelemetry 기반 제품이 완성 될 때까지 기존 [Application Insights Node.js SDK](nodejs.md) 를 사용 해야 합니다.
 
 > [!WARNING] 
-> 현재 이 내보내기는 Node.js 환경에서만 작동합니다. 웹/브라우저 시나리오에 [애플리케이션 Insights JavaScript SDK를](javascript.md) 사용합니다.
+> 현재이 내보내기는 Node.js 환경 에서만 작동 합니다. 웹/브라우저 시나리오에 [Application Insights JavaScript SDK](javascript.md) 를 사용 합니다.
 
 ### <a name="python"></a>[Python](#tab/python)
 
-이 미리 보기가 적합한지 신중하게 고려하세요. **분산 추적만 사용하도록 설정하고** _다음을 제외합니다._
- - 메트릭 API(사용자 지정 메트릭, [사전 집계된 메트릭)](pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics)
+이 미리 보기가 적합 한지 신중 하 게 고려 하세요. **분산 추적만 사용** 하 고 다음은 _제외_ 합니다.
+ - 메트릭 API (사용자 지정 메트릭, [미리 집계 된 메트릭](pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics))
  - [라이브 메트릭](live-stream.md)
- - 로깅 API(콘솔 로그, 로깅 라이브러리 등)
- - 처리되지 않은 예외의 자동 캡처
- - 오프라인 디스크 스토리지
+ - 로깅 API (콘솔 로그, 로깅 라이브러리 등)
+ - 처리 되지 않은 예외 자동 캡처
+ - 오프 라인 디스크 저장소 및 재시도 논리
  - [Azure AD 인증](azure-ad-authentication.md)
  - [샘플링](sampling.md)
  - Azure 환경에서 클라우드 역할 이름 및 클라우드 역할 인스턴스의 자동 채우기
- - [애플리케이션 Insights JavaScript SDK를](javascript.md) 사용하는 경우 사용자 ID 및 인증된 사용자 ID의 자동 채우기
- - 사용자 IP의 자동 채우기(위치 특성 확인)
- - [작업 이름을](correlation.md#data-model-for-telemetry-correlation) 재정의하는 기능
- - 사용자 ID 또는 인증된 사용자 ID를 수동으로 설정하는 기능
- - 종속성 원격 분석으로 작업 이름 전파
- - Azure Functions Worker를 통한 분산 추적 컨텍스트 전파(계측 라이브러리)
+ - [Application Insights JavaScript SDK](javascript.md) 를 사용 하는 경우 사용자 id 및 인증 된 사용자 id의 자동 채우기
+ - 사용자 IP의 자동 채우기 (위치 특성 확인)
+ - [작업 이름을](correlation.md#data-model-for-telemetry-correlation) 재정의 하는 기능
+ - 사용자 ID 또는 인증 된 사용자 ID를 수동으로 설정 하는 기능
+ - 종속성 원격 분석에 작업 이름 전파
+ - Azure Functions Worker를 통한 분산 추적 컨텍스트 전파 (계측 라이브러리)
 
-전체 기능 환경이 필요한 경우 OpenTelemetry 기반 제품이 완성될 때까지 기존 [애플리케이션 Insights Python-OpenCensus SDK를](opencensus-python.md) 사용해야 합니다.
+모든 기능을 사용 해야 하는 사용자는 OpenTelemetry 기반 제품이 완성 될 때까지 기존 [Application Insights Python-OpenCensus SDK](opencensus-python.md) 를 사용 해야 합니다.
 
 ---
 
 ## <a name="get-started"></a>시작
 
-이 섹션의 단계를 수행하면 OpenTelemetry를 사용하여 애플리케이션을 계측할 수 있습니다.
+이 섹션의 단계를 수행 하면 OpenTelemetry를 사용 하 여 응용 프로그램을 계측할 수 있습니다.
 
 ### <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험용 Azure 구독 만들기](https://azure.microsoft.com/free/)
-- 애플리케이션 Insights 리소스 - [애플리케이션 Insights 리소스 만들기](create-workspace-resource.md#create-workspace-based-resource)
+- Application Insights 리소스- [Application Insights 리소스 만들기](create-workspace-resource.md#create-workspace-based-resource)
 
 ### <a name="net"></a>[.NET](#tab/net)
 
-- 공식적으로 지원되는 [.NET Core](https://dotnet.microsoft.com/download/dotnet) 버전을 사용하는 애플리케이션 또는 [](https://dotnet.microsoft.com/download/dotnet-framework)  >=  `.NET Framework 4.6.1` .NET Framework.
+- 공식적으로 지원 되는 [.Net Core](https://dotnet.microsoft.com/download/dotnet) 또는 [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework)버전을 사용 하는 응용 프로그램  >=  `.NET Framework 4.6.1` 입니다.
 
 
 ### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-- 공식적으로 [지원되는 버전의](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments) Node.js 런타임을 사용하는 애플리케이션입니다.
-  - [OpenTelemetry 지원 런타임](https://github.com/open-telemetry/opentelemetry-js#supported-runtimes)
-  - [openTelemetry 내보내기 지원 런타임 Azure Monitor](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments)
+- 공식적으로 [지원 되](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments) 는 Node.js 런타임 버전을 사용 하는 응용 프로그램입니다.
+  - [OpenTelemetry 지원 되는 런타임](https://github.com/open-telemetry/opentelemetry-js#supported-runtimes)
+  - [Azure Monitor OpenTelemetry 내보내기 지원 런타임](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/monitor/monitor-opentelemetry-exporter#currently-supported-environments)
 
 ### <a name="python"></a>[Python](#tab/python)
 
-- 버전 3.6+를 사용하는 Python 애플리케이션
+- 버전 3.6 +를 사용 하는 Python 응용 프로그램
 
 
 ---
@@ -118,13 +118,13 @@ ms.locfileid: "130240094"
 
 #### <a name="net"></a>[.NET](#tab/net)
 
-최신 [Azure.Monitor.OpenTelemetry.Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) NuGet 패키지를 설치합니다.
+최신 [OpenTelemetry](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter) 패키지 NuGet를 설치 합니다.
 
 ```dotnetcli
 dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter 
 ```
 
-"'Azure.Monitor.OpenTelemetry.Exporter' 패키지에 사용할 수 있는 버전이 없습니다."와 같은 오류가 발생하면 NuGet 패키지 원본의 설정이 누락되었을 수 있습니다. 옵션을 사용하여 원본을 지정하려고 할 수 `-s` 있습니다.
+"' OpenTelemetry ' 패키지에 사용할 수 있는 버전이 없습니다."와 같은 오류가 발생 하는 경우에는 NuGet 패키지 원본 설정이 누락 되었기 때문일 수 있습니다. 다음 옵션을 사용 하 여 원본 지정을 시도할 수 있습니다 `-s` .
 
 ```dotnetcli
 # Install the latest package with NuGet package source specified
@@ -133,7 +133,7 @@ dotnet add package --prerelease Azure.Monitor.OpenTelemetry.Exporter -s https://
 
 #### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-다음 패키지를 설치합니다.
+다음 패키지를 설치 합니다.
 
 - [@opentelemetry/sdk-trace-base](https://www.npmjs.com/package/@opentelemetry/sdk-trace-base)
 - [@opentelemetry/sdk-trace-node](https://www.npmjs.com/package/@opentelemetry/sdk-trace-node)
@@ -145,7 +145,7 @@ npm install @opentelemetry/sdk-trace-node
 npm install @azure/monitor-opentelemetry-exporter
 ```
 
-다음 패키지는 이 문서의 후반부에서 설명하는 몇 가지 특정 시나리오에도 사용됩니다.
+다음 패키지는이 문서의 뒷부분에서 설명 하는 일부 특정 시나리오에도 사용 됩니다.
 
 - [@opentelemetry/api](https://www.npmjs.com/package/@opentelemetry/api)
 - [@opentelemetry/resources](https://www.npmjs.com/package/@opentelemetry/resources)
@@ -161,7 +161,7 @@ npm install @opentelemetry/instrumentation-http
 
 #### <a name="python"></a>[Python](#tab/python)
 
-최신 [azure-monitor-opentelemetry-exporter](https://pypi.org/project/azure-monitor-opentelemetry-exporter/) Pypi 패키지를 설치합니다.
+최신 [opentelemetry-내보내기](https://pypi.org/project/azure-monitor-opentelemetry-exporter/) pypi 패키지를 설치 합니다.
 
 ```sh
 pip install azure-monitor-opentelemetry-exporter 
@@ -169,13 +169,13 @@ pip install azure-monitor-opentelemetry-exporter
 
 ---
 
-### <a name="enable-azure-monitor-application-insights"></a>Azure Monitor 애플리케이션 Insights 사용
+### <a name="enable-azure-monitor-application-insights"></a>Azure Monitor Application Insights 사용
 
 #### <a name="add-opentelemetry-instrumentation-code"></a>OpenTelemetry 계측 코드 추가
 
 ##### <a name="net"></a>[.NET](#tab/net)
 
-다음 코드에서는 OpenTelemetry TracerProvider를 설정하여 C# 콘솔 애플리케이션에서 OpenTelemetry를 사용하도록 설정하는 것을 보여 줍니다. 이 코드는 애플리케이션 시작에 있어야 합니다. ASP.NET Core 경우 일반적으로 `ConfigureServices` 애플리케이션 클래스의 메서드에서 `Startup` 수행됩니다. ASP.NET 애플리케이션의 경우 일반적으로 에서 `Global.aspx.cs` 수행됩니다.
+다음 코드에서는 OpenTelemetry TracerProvider를 설정 하 여 c # 콘솔 응용 프로그램에서 OpenTelemetry를 사용 하도록 설정 하는 방법을 보여 줍니다. 이 코드는 응용 프로그램 시작에 있어야 합니다. ASP.NET Core의 경우 일반적으로 `ConfigureServices` 응용 프로그램 클래스의 메서드에서 수행 됩니다 `Startup` . ASP.NET 응용 프로그램의 경우에는 일반적으로에서 수행 됩니다 `Global.aspx.cs` .
 
 ```csharp
 using System.Diagnostics;
@@ -211,7 +211,7 @@ public class Program
 ```
 
 > [!NOTE]
-> `Activity` `ActivitySource` 네임스페이스의 및 클래스는 `System.Diagnostics` 각각 및 의 OpenTelemetry 개념을 `Span` `Tracer` 나타냅니다. 그리고 를 `ActivitySource` 사용하는 대신 해당 생성자를 사용하여 직접 만듭니다(각 생성자는 를 `TracerProvider` 사용하여 에 명시적으로 [`ActivitySource`](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/trace/customizing-the-sdk#activity-source) 연결되어야 `TracerProvider` `AddSource()` 합니다). OpenTelemetry 추적 API의 일부가 .NET 런타임에 직접 통합되기 때문입니다. [자세히 알아보기](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
+> `Activity` `ActivitySource` 네임 스페이스의 및 클래스는 `System.Diagnostics` 각각 및의 OpenTelemetry 개념을 나타냅니다 `Span` `Tracer` . 를 사용 하 `ActivitySource` 는 대신 생성자를 사용 하 여 직접 `TracerProvider` 를 만듭니다. 각는 [`ActivitySource`](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/trace/customizing-the-sdk#activity-source) 를 사용 하 여 명시적으로 연결 되어야 합니다 `TracerProvider` `AddSource()` . OpenTelemetry 추적 API의 일부가 .NET 런타임에 직접 통합 되기 때문입니다. [자세히 알아보기](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Api/README.md#introduction-to-opentelemetry-net-tracing-api).
 
 ##### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
@@ -970,7 +970,7 @@ Azure Monitor OpenTelemetry 내보내기에 대 한 알려진 문제는 다음�
 - 장치 모델이 요청 및 종속성 원격 분석에서 누락 되어 장치 코 호트 분석에 부정적인 영향을 줍니다.
 - 데이터베이스 서버 이름의 종속성 이름이 달라 서 다른 서버에서 이름이 같은 테이블을 잘못 집계 합니다.
 
-## <a name="support"></a>고객 지원팀
+## <a name="support"></a>지원
 
 - 이 문서의 문제 해결 단계를 검토 합니다.
 - Azure 지원에 대 한 문제는 [Azure 지원 티켓](https://azure.microsoft.com/support/create-ticket/)을 엽니다.

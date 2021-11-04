@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 06/11/2021
 ms.topic: how-to
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: a48fa9df38b9892c740713b1463010c1f601506d
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 6bf7bf62894f25c5a1c4814b2aa02cd6ee4c641f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130000027"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131445838"
 ---
 # <a name="set-up-no-code-automl-training-with-the-studio-ui"></a>스튜디오 UI를 사용하여 코드 없는 AutoML 학습 설정 
 
@@ -94,7 +94,9 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 
 1. 대상 열을 선택합니다. 이 열은 예측을 수행하려는 열입니다.
 
-1. 데이터 프로파일링 및 학습 작업에 대한 컴퓨팅을 선택합니다. 기존 컴퓨팅 목록은 드롭다운에서 사용할 수 있습니다. 새 컴퓨팅을 만들려면 7단계의 지침을 따릅니다.
+1. 데이터 프로파일링 및 학습 작업에 대한 컴퓨팅 유형을 선택합니다. [컴퓨팅 클러스터](concept-compute-target.md#azure-machine-learning-compute-managed) 또는 컴퓨팅 [인스턴스](concept-compute-instance.md)를 선택할 수 있습니다. 
+    
+1. 기존 컴퓨팅의 드롭다운 목록에서 컴퓨팅을 선택합니다.  새 컴퓨팅을 만들려면 8단계의 지침을 따릅니다.
 
 1. **새 컴퓨팅 만들기** 를 선택하여 이 실험에 대한 컴퓨팅 컨텍스트를 구성합니다.
 

@@ -9,18 +9,18 @@ ms.topic: how-to
 ms.date: 06/21/2021
 ms.author: cynthn
 ms.custom: portal
-ms.openlocfilehash: b9218f6eebedd8f94c06a664518fc718f0eb7d19
-ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
-ms.translationtype: HT
+ms.openlocfilehash: bfab2d65de8b15ac72fe3c3b536b76ef14f046b4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112992120"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131437299"
 ---
 # <a name="create-an-image-of-a-vm-in-the-portal"></a>포털에서 VM 이미지 만들기
 
 VM에서 이미지를 만든 다음 여러 VM을 만드는 데 사용할 수 있습니다.
 
-공유 이미지 갤러리에 저장된 이미지의 경우 이미 계정이 만들어진(특수화된) VM을 사용하거나 이미지를 만들기 전에 VM을 일반화하여 머신 계정 및 기타 머신 특정 정보를 제거할 수 있습니다. VM을 일반화하려면 [Windows VM 일반화](generalize.md)를 참조하세요. 자세한 내용은 [일반화 및 특수화 이미지](shared-image-galleries.md#generalized-and-specialized-images)를 참조하세요.
+Azure 계산 갤러리 (이전의 공유 이미지 갤러리)에 저장 된 이미지의 경우 계정이 이미 생성 된 Vm (특수)을 사용 하거나, 컴퓨터 계정 및 기타 컴퓨터 관련 정보를 제거 하기 위해 이미지를 만들기 전에 VM을 일반화할 수 있습니다. VM을 일반화하려면 [Windows VM 일반화](generalize.md)를 참조하세요. 자세한 내용은 [일반화 및 특수화 이미지](shared-image-galleries.md#generalized-and-specialized-images)를 참조하세요.
 
 
 ## <a name="capture-a-vm-in-the-portal"></a>포털에서 VM 캡처 
@@ -63,4 +63,4 @@ VM에서 이미지를 만든 다음 여러 VM을 만드는 데 사용할 수 있
 
 ## <a name="next-steps"></a>다음 단계
 
-- [공유 이미지 갤러리 개요](shared-image-galleries.md)  
+- [Azure 계산 갤러리 개요](shared-image-galleries.md) 

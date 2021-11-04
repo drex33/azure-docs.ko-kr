@@ -9,12 +9,12 @@ ms.author: dashe
 ms.reviewer: sawinark
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: b7d6605f1a387a917c9d106078ead404842ea02c
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 5736e893242f1e24837132dc11b4b7607d22bbf9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130251930"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131086465"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Azure Data Factory에서 SSIS Integration Runtime 문제 해결
 
@@ -182,12 +182,18 @@ Azure SSIS IR의 프로비저닝이 실패하면 생성된 모든 리소스가 �
 
 ### <a name="publicipresourcegrouplockedduringstop"></a>PublicIPResourceGroupLockedDuringStop
 
-Azure-SSIS IR을 중지하면 공용 IP 주소를 포함하는 리소스 그룹에 만들어진 모든 네트워크 리소스가 삭제됩니다. 그러나 구독 또는 리소스 그룹(고정 공용 IP 주소를 포함) 수준에서 리소스 삭제에 잠금이 설정되어 있는 경우 삭제에 실패할 수 있습니다. 해당 오류를 해결하려면 삭제 잠금을 제거하고 IR을 다시 시작합니다.
+Azure-SSIS IR을 중지하면 공용 IP 주소를 포함하는 리소스 그룹에 만들어진 모든 네트워크 리소스가 삭제됩니다. 그러나 구독 또는 리소스 그룹(고정 공용 IP 주소를 포함) 수준에서 리소스 삭제에 잠금이 설정되어 있는 경우 삭제에 실패할 수 있습니다. 삭제 잠금을 제거하고 IR을 다시 시작합니다.
 
 ### <a name="publicipresourcegrouplockedduringupgrade"></a>PublicIPResourceGroupLockedDuringUpgrade
 
-Azure SSIS IR은 정기적으로 자동 업데이트됩니다. 업그레이드하는 동안 새 IR 노드가 만들어지고 이전 노드는 삭제됩니다. 또한 이전 노드에 대해 생성된 네트워크 리소스(예: Load Balancer 및 네트워크 보안 그룹)가 삭제되고 새로운 네트워크 리소스가 구독에 생성됩니다. 해당 오류는 구독 또는 리소스 그룹(고정 공용 IP 주소 포함)의 삭제 잠금 설정으로 인해 이전 노드에 대한 네트워크 리소스를 삭제하지 못했음을 의미합니다. 이전 노드를 정리하고 이전 노드에 대한 고정 공용 IP 주소를 릴리스할 수 있도록 삭제 잠금을 제거하세요. 그렇지 않으면 고정 공용 IP 주소를 릴리스할 수 없고 IR을 추가로 업그레이드할 수 없게 됩니다.
+Azure SSIS IR은 정기적으로 자동 업데이트됩니다. 업그레이드하는 동안 새 IR 노드가 만들어지고 이전 노드는 삭제됩니다. 또한 이전 노드에 대해 생성된 네트워크 리소스(예: Load Balancer 및 네트워크 보안 그룹)가 삭제되고 새로운 네트워크 리소스가 구독에 생성됩니다. 해당 오류는 구독 또는 리소스 그룹(고정 공용 IP 주소 포함)의 삭제 잠금 설정으로 인해 이전 노드에 대한 네트워크 리소스를 삭제하지 못했음을 의미합니다. 이전 노드를 정리하고 이전 노드에 대한 고정 공용 IP 주소를 해제할 수 있도록 삭제 잠금을 제거합니다. 그렇지 않으면 고정 공용 IP 주소를 릴리스할 수 없고 IR을 추가로 업그레이드할 수 없게 됩니다.
 
 ### <a name="publicipnotusableduringupgrade"></a>PublicIPNotUsableDuringUpgrade
 
-사용자 고유의 고정 공용 IP 주소를 가져오려면 두 개의 공용 IP 주소를 제공해야 합니다. 그 중 하나는 IR 노드를 즉시 만드는 데 사용되고 다른 하나는 IR을 업그레이드하는 동안 사용됩니다. 업그레이드하는 동안 다른 공용 IP 주소를 사용할 수 없는 경우 해당 오류가 발생할 수 있습니다. 가능한 원인은  [InvalidPublicIPSpecified](#InvalidPublicIPSpecified)를 참조하세요.
+사용자 고유의 고정 공용 IP 주소를 가져오려면 두 개의 공용 IP 주소를 제공해야 합니다. 그 중 하나는 IR 노드를 즉시 만드는 데 사용되고 다른 하나는 IR을 업그레이드하는 동안 사용됩니다. 업그레이드하는 동안 다른 공용 IP 주소를 사용할 수 없는 경우 해당 오류가 발생할 수 있습니다. 가능한 원인은  [InvalidPublicIPSpecified를](#InvalidPublicIPSpecified) 참조합니다.
+
+## <a name="resource-management"></a>리소스 관리
+
+### <a name="resource-tag-not-updated"></a>리소스 태그가 업데이트되지 않음
+
+태그를 [](../azure-resource-manager/management/tag-resources.md) Azure 리소스에 적용하여 논리적으로 분류로 구성할 수 있습니다. SSIS IR이 실행되는 동안 SSIS IR 부모 데이터 팩터리 태그에 대한 변경 내용은 SSIS IR이 다시 시작될 때까지 유효하지 않습니다.

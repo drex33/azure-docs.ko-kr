@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex, devx-track-azurepowershell
-ms.openlocfilehash: eac0244393bb3fe8ef2291d27e9dab33563523b2
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 834fcd1732435d99d63d16efc3d867ba58fe4844
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130166735"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131074577"
 ---
 # <a name="orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Azure 가상 머신 확장 집합에 대한 오케스트레이션 모드
 
@@ -108,15 +108,15 @@ Uniform 오케스트레이션 모드 인스턴스를 대상으로 하는 확장 
 | 가속화된 네트워킹  | 예  | 예  | 예 |
 | 스폿 인스턴스 및 가격 책정   | 예, 스폿 및 일반 우선 순위 인스턴스를 모두 사용할 수 있습니다  | 예, 인스턴스는 모두 스폿이거나 모두 정상이어야 합니다  | 아니요, 일반 우선 순위 인스턴스만 해당됩니다. |
 | 혼합 운영 체제  | 예, Linux 및 Windows는 동일한 Flexible 확장 집합에 상주할 수 있습니다.  | 아니요, 인스턴스는 동일한 운영 체제입니다  | 예, Linux 및 Windows는 동일한 Flexible 확장 집합에 상주할 수 있습니다. |
-| 디스크 유형  | 관리 디스크만, 모든 스토리지 유형  | 관리 디스크 및 비관리 디스크, 모든 스토리지 유형  | 관리 디스크 및 비관리 디스크, Ultradisk 지원되지 않음 |
+| 디스크 유형  | 관리 디스크만, 모든 스토리지 유형  | 관리 디스크 및 비관리 디스크, 모든 스토리지 유형  | 관리 디스크 및 비관리 디스크, Ultradisk가 지원되지 않음 |
 | 쓰기 가속기   | 예  | 예  | 예 |
 | 근접 배치 그룹   | 예, [근접 배치 그룹 설명서](../virtual-machine-scale-sets/proximity-placement-groups.md)를 참조하세요 | 예, [근접 배치 그룹 설명서](../virtual-machine-scale-sets/proximity-placement-groups.md)를 참조하세요 | 예 |
 | Azure 전용 호스트   | 예  | 예  | 예 |
 | 관리 ID  | 사용자 할당 ID만  | 시스템 할당 또는 사용자 할당  | 해당 안 함(개별 인스턴스에서 관리 ID를 지정할 수 있습니다.) |
 | 그룹에 기존 VM 추가/제거  | 예  | 아니요  | 예 |
 | Service Fabric  | 예  | 예  | 아니요 |
-| Azure Kubernetes Service(AKS) / AKE / k8s 노드 풀  | 아니요  | 예  | 아니요 |
-| UserData  | 부분, 개별 VM에 대해 UserData를 지정할 수 있습니다. | 예  | 개별 VM에 대해 UserData를 지정할 수 있습니다. |
+| Azure Kubernetes Service(AKS) / AKE  | 아니요  | 예  | 아니요 |
+| UserData  | 부분, 개별 VM에 대해 UserData를 지정할 수 있습니다. | Yes  | 개별 VM에 대해 UserData를 지정할 수 있습니다. |
 
 
 ### <a name="autoscaling-and-instance-orchestration"></a>자동 조정 및 인스턴스 오케스트레이션
@@ -131,43 +131,43 @@ Uniform 오케스트레이션 모드 인스턴스를 대상으로 하는 확장 
 | 알림 종료(VM 확장 집합) | 예, [종료 알림 설명서](../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md)를 참조하세요 | 예, [종료 알림 설명서](../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md)를 참조하세요 | 해당 없음 |
 | 애플리케이션 상태 모니터링 | 애플리케이션 상태 확장 | 애플리케이션 상태 확장 또는 Azure 부하 분산 장치 프로브 | 애플리케이션 상태 확장 |
 | 인스턴스 복구(VM 확장 집합) | 예, [인스턴스 복구 설명서](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md)를 참조하세요 | 예, [인스턴스 복구 설명서](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md)를 참조하세요 | 해당 없음 |
-| 인스턴스 보호 | 아니요, [Azure 리소스 잠금](../azure-resource-manager/management/lock-resources.md) 사용 | 예 | 아니요 |
+| 인스턴스 보호 | 아니요, [Azure 리소스 잠금](../azure-resource-manager/management/lock-resources.md) 사용 | Yes | 아니요 |
 | 규모 확장 정책 | 아니요 | 예 | 아니요 |
 | VMSS 인스턴스 보기 얻기 | 아니요 | 예 | 해당 없음 |
-| VM 일괄 처리 작업 (모두 시작, 모두 중지, 하위 집합 삭제 등) | 아니요 (VM API를 사용 하 여 각 인스턴스에 대 한 작업을 트리거할 수 있음) | 예 | 아니요 |
+| VM 일괄 처리 작업(모두 시작, 모두 중지, 하위 집합 삭제 등) | 아니요(VM API를 사용하여 각 인스턴스에서 작업을 트리거할 수 있습니다.) | Yes | 아니요 |
 
 ### <a name="high-availability"></a>고가용성 
 
-| 기능 | 확장 집합에 대 한 유연한 오케스트레이션에 서 지원 됨 | 확장 집합에 대해 균일 한 오케스트레이션에 서 지원 됨 | 가용성 집합에서 지원 |
+| 기능 | 확장 집합에 대한 유연한 오케스트레이션에서 지원 | 확장 집합에 대한 균일한 오케스트레이션에서 지원됨 | 가용성 집합에서 지원 |
 |---|---|---|---|
-| 가용성 SLA | 장애 도메인에 분산 되는 인스턴스의 경우 99.95% 여러 영역에 걸쳐 있는 인스턴스의 경우 99.99% | 단일 배치 그룹에서 FD가 1을 초과하는 경우 99.95%, 여러 영역에 분산된 인스턴스의 경우 99.99% | 99.95% |
+| 가용성 SLA | 장애 도메인에 분산된 인스턴스의 경우 99.95% 여러 영역에 분산된 인스턴스의 경우 99.99% | 단일 배치 그룹에서 FD가 1을 초과하는 경우 99.95%, 여러 영역에 분산된 인스턴스의 경우 99.99% | 99.95% |
 | 가용성 영역 | 1, 2 또는 3개의 가용성 영역에 인스턴스를 지정합니다 | 1, 2 또는 3개의 가용성 영역에 인스턴스를 지정합니다 | 지원되지 않음 |
-| 특정 가용성 영역에 VM 할당 | 예 | 아니요 | 아니요 |
+| 특정 가용성 영역에 VM 할당 | Yes | 아니요 | 아니요 |
 | 장애 도메인 – 최대 분산(Azure는 최대 확산 인스턴스) | 예 | 예 | 아니요 |
-| 장애 도메인 – 고정 분산 | 2-3 FDs (지역별 최대 FD 수에 따라 다름) 영역 배포의 경우 1 | 2, 3, 5 FD, 영역 배포의 경우 1, 5 | 2-3 FDs (지역별 최대 FD 수에 따라 다름) |
+| 장애 도메인 – 고정 분산 | 2-3 FD(지역 최대 FD 수에 따라 다름); 영역 배포의 경우 1 | 2, 3, 5 FD, 영역 배포의 경우 1, 5 | 2-3 FD(지역 최대 FD 수에 따라 다름) |
 | 특정 장애 도메인에 VM 할당 | 예 | 아니요 | 아니요 |
-| 업데이트 도메인 | 사용 (플랫폼 유지 관리에서 FD로 FD가 수행) | 5 업데이트 도메인 | 최대 20개의 업데이트 도메인 |
-| 유지 보수 수행 | VM API를 사용 하 여 각 인스턴스에서 유지 관리 트리거 | 예 | 해당 없음 |
+| 업데이트 도메인 | 감가상각(FD에서 FD를 수행한 플랫폼 유지 관리) | 5 업데이트 도메인 | 최대 20개의 업데이트 도메인 |
+| 유지 보수 수행 | VM API를 사용하여 각 인스턴스에 대한 유지 관리 트리거 | 예 | 해당 없음 |
 
 ### <a name="networking"></a>네트워킹 
 
-| 기능 | 확장 집합에 대 한 유연한 오케스트레이션에 서 지원 됨 | 확장 집합에 대해 균일 한 오케스트레이션에 서 지원 됨 | 가용성 집합에서 지원 |
+| 기능 | 확장 집합에 대한 유연한 오케스트레이션에서 지원 | 확장 집합에 대한 균일한 오케스트레이션에서 지원됨 | 가용성 집합에서 지원 |
 |---|---|---|---|
-| 기본 아웃 바운드 연결 | 아니요, [명시적 아웃 바운드 연결이](../virtual-network/ip-services/default-outbound-access.md) 있어야 합니다. | 예 | 예 |
+| 기본 아웃바운드 연결 | 아니요, [명시적 아웃바운드 연결이](../virtual-network/ip-services/default-outbound-access.md) 있어야 합니다. | 예 | 예 |
 | Azure Load Balancer 표준 SKU | 예 | 예 | 예 |
 | Application Gateway | 예 | 예 | 예 |
 | Infiniband 네트워킹 | 예 | 예, 단일 배치 그룹만 해당됩니다. | 예 |
 | Basic SLB | 예 | 예 | 예 |
-| 네트워크 포트 전달 | 예 (개별 인스턴스에 대 한 NAT 규칙) | 예 (NAT 풀) | 예 (개별 인스턴스에 대 한 NAT 규칙) |
+| 네트워크 포트 전달 | 예(개별 인스턴스에 대한 NAT 규칙) | 예(NAT 풀) | 예(개별 인스턴스에 대한 NAT 규칙) |
 
 ### <a name="backup-and-recovery"></a>Backup 및 복구 
 
-| 기능 | 확장 집합에 대 한 유연한 오케스트레이션에 서 지원 됨 | 확장 집합에 대해 균일 한 오케스트레이션에 서 지원 됨 | 가용성 집합에서 지원 |
+| 기능 | 확장 집합에 대한 유연한 오케스트레이션에서 지원 | 확장 집합에 대한 균일한 오케스트레이션에서 지원됨 | 가용성 집합에서 지원 |
 |---|---|---|---|
 | Azure Backup  | 예 | 아니요 | 예 |
-| Azure Site Recovery | 예 (PowerShell을 통해) | 아니요 | 예 |
+| Azure Site Recovery | 예(PowerShell을 통해) | 아니요 | 예 |
 | Azure Alerts  | 예 | 예 | 예 |
-| VM 인사이트  | 개별 Vm에 설치할 수 있습니다. | 예 | 예 |
+| VM 인사이트  | 개별 VM에 설치할 수 있습니다. | 예 | 예 |
 
 
 ## <a name="get-started-with-flexible-orchestration-mode"></a>Flexible 오케스트레이션 모드 시작하기

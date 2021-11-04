@@ -3,15 +3,15 @@ title: Azure Automation에 대한 PowerShell 워크플로 학습
 description: 이 문서에서는 PowerShell 워크플로와 PowerShell 및 Automation Runbook에 적용되는 개념 간의 차이점을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/14/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3b3beb8b3eda4dfabf9240aa328a24d5f855689b
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
-ms.translationtype: HT
+ms.openlocfilehash: ee42e5aefd457c79fdf82ff388724dd9983c57b9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833511"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432532"
 ---
 # <a name="learn-powershell-workflow-for-azure-automation"></a>Azure Automation에 대한 PowerShell 워크플로 학습
 
@@ -20,7 +20,8 @@ Azure Automation의 Runbook은 Windows Workflow Foundation을 사용하는 Windo
 워크플로는 Windows PowerShell 구문으로 작성되고 Windows PowerShell에서 시작되지만 Windows Workflow Foundation에서 처리됩니다. 일반적인 스크립트에 비해 워크플로의 이점은 여러 디바이스에서 작업의 동시 성능 및 오류로부터의 자동 복구를 포함합니다. 
 
 > [!NOTE]
-> PowerShell 워크플로는 스크립트는 Windows PowerShell 스크립트와 매우 비슷해 보이지만 신규 사용자가 혼동할 수 있는 중요한 차이점이 있습니다. 따라서 [검사점](#use-checkpoints-in-a-workflow)을 사용해야 하는 경우에만 PowerShell 워크플로를 사용하여 Runbook을 작성하는 것이 좋습니다. 
+>  이 문서는 PowerShell 5.1에 적용됩니다. PowerShell 7.1(미리 보기)은 워크플로를 지원하지 않습니다. PowerShell 워크플로는 스크립트는 Windows PowerShell 스크립트와 매우 비슷해 보이지만 신규 사용자가 혼동할 수 있는 중요한 차이점이 있습니다. 따라서 [검사점](#use-checkpoints-in-a-workflow)을 사용해야 하는 경우에만 PowerShell 워크플로를 사용하여 Runbook을 작성하는 것이 좋습니다. 
+ 
 
 이 문서의 항목에 대한 자세한 내용은 [Windows PowerShell 워크플로 시작](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134242(v=ws.11))을 참조하세요.
 

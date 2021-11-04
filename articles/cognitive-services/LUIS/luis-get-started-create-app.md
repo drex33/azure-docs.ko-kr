@@ -4,15 +4,19 @@ description: 이 빠른 시작에서는 미리 빌드된 도메인 `HomeAutomati
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 04/14/2021
-ms.openlocfilehash: 3de83151aa00d589c470eb7ac772f4c9b5f7eda2
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.date: 10/20/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 70972607788568fbc06f9efe06fe083fd8d8ac01
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107948376"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073627"
 ---
 # <a name="quickstart-build-your-app-in-luis-portal"></a>빠른 시작: LUIS 포털에서 앱 빌드
+
+> [!NOTE]
+> 이제 최신 버전의 Language Understanding 기능을 Azure Cognitive Service for Language의 일부로 사용할 수 있습니다. 자세한 내용은 [Azure Cognitive Service for Language 설명서](../language-service/index.yml)를 참조하세요. 언어 서비스 내의 언어 이해 기능에 대해서는 [대화형 Language Understanding](../language-service/conversational-language-understanding/overview.md), [사용자 지정 명명된 엔터티 인식](../language-service/custom-named-entity-recognition/overview.md) 및 [사용자 지정 분류](../language-service/custom-classification/overview.md)를 참조하세요.
 
 이 빠른 시작에서는 미리 빌드된 홈 자동 도메인을 사용하여 조명 및 어플라이언스를 켜고 끄는 LUIS 앱을 만듭니다. 미리 작성된 도메인에는 의도, 엔터티 및 예제 발언이 제공됩니다. 다음으로, 더 많은 의도와 엔터티를 추가하여 앱을 사용자 지정해 봅니다. 완료하면 클라우드에서 LUIS 엔드포인트를 실행하게 됩니다.
 

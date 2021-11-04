@@ -8,12 +8,12 @@ ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 08/23/2021
-ms.openlocfilehash: 4f4b0cd13095c83f84c96e57e73f255caf4fcdc9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 95e95e3c6eaa3a2e1738dd3a9dea9afd5e56e008
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124736321"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131088125"
 ---
 # <a name="migrate-to-azure-machine-learning"></a>Azure Machine Learning으로 마이그레이션 
 
@@ -26,7 +26,7 @@ ms.locfileid: "124736321"
 
 Studio(클래식)에서 Azure Machine Learning으로 마이그레이션하는 방법을 알아봅니다. Azure Machine Learning은 코드 없는 방식과 코드 우선 방식을 결합한 현대화된 데이터 과학 플랫폼을 제공합니다.
 
-기본 “리프트 앤 시프트” 마이그레이션을 위한 가이드입니다. 기존 기계 학습 워크플로를 최적화하거나 ML 플랫폼을 현대화하려는 경우 디지털 설문 조사 도구, 워크시트, 계획 템플릿 등의 추가 리소스는 [Azure Machine Learning 채택 프레임워크](https://aka.ms/mlstudio-classic-migration-repo)를 참조하세요.
+기본 “리프트 앤 시프트” 마이그레이션을 위한 가이드입니다. 기존 machine learning 워크플로를 최적화 하거나 machine learning 플랫폼을 현대화 하는 경우 디지털 설문 조사 도구, 워크시트 및 계획 템플릿 등의 추가 리소스에 대 한 [Azure Machine Learning 채택 프레임 워크](https://aka.ms/mlstudio-classic-migration-repo) 를 참조 하세요.
 
 ![Azure ML 채택 프레임워크](./media/migrate-overview/aml-adoption-framework.png)
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 06/10/2020
+ms.date: 10/28/2021
 ms.author: lajanuar
-ms.openlocfilehash: 0055cae979e1ab116d71a387f3f9d7e61afb9d32
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: ef091072d7d5847ca1e8daa206de1734dccf4ff2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129754485"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469904"
 ---
 # <a name="translator-language-support"></a>Translator 언어 지원
 
@@ -39,7 +39,7 @@ ms.locfileid: "129754485"
 | 아삼어 | `as` |✔|✔||||
 | 아제르바이잔어 | `az` |✔|✔||||
 | 벵골어 | `bn` |✔|✔|✔||✔|
-| Bashkir | `ba` |✔|||||
+| 바슈키르어 | `ba` |✔|||||
 | 보스니아어(라틴 문자) | `bs` |✔|✔|✔||✔|
 | 불가리아어 | `bg` |✔|✔|✔|✔|✔|
 | 광둥어(번체) | `yue` |✔|✔||||
@@ -94,8 +94,8 @@ ms.locfileid: "129754485"
 | 몰타어 | `mt` |✔|✔|✔|✔|✔|
 | 마오리어 | `mi` |✔|✔|✔|||
 | 마라티어 | `mr` |✔|✔|✔|||
-| 몽골어 (키릴 자모) | `mn-Cyrl` |✔|||||
-| 몽골어 (전통) | `mn-Mong` |✔|||✔||
+| 몽골어(키릴 자모) | `mn-Cyrl` |✔|||||
+| 운경어(번체) | `mn-Mong` |✔|||✔||
 | 미얀마 | `my` |✔|✔||✔||
 | 네팔어 | `ne` |✔|✔||||
 | 노르웨이어 | `nb` |✔|✔|✔|✔|✔|
@@ -185,7 +185,8 @@ ms.locfileid: "129754485"
 번역기와 함께 다른 Cognitive Services를 활용하여 앱과 워크플로에 기능을 추가하세요. 추가 서비스에 대한 언어 목록은 다음과 같습니다.
 * [Computer Vision](../computer-vision/language-support.md) 
 * [Speech](../speech-service/language-support.md) 
-* [텍스트 분석 ](../text-analytics/language-support.md) 
+* [언어 서비스](../language-service/index.yml) 
+    * 사용 하려는 기능을 선택 하 고 왼쪽 탐색 메뉴에서 **언어 지원** 을 선택 합니다.
 
 모든 [Cognitive Services](../index.yml) 보기 
 

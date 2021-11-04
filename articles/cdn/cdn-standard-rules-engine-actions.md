@@ -2,17 +2,17 @@
 title: Azure CDN에 대한 표준 규칙 엔진의 동작 | Microsoft Docs
 description: Azure CDN(Azure Content Delivery Network)에 대한 표준 규칙 엔진의 동작을 살펴보는 참조 설명서입니다.
 services: cdn
-author: asudbring
+author: duongau
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 08/04/2020
-ms.author: allensu
-ms.openlocfilehash: 051737a9f5e0d4092cda26a3f7ce3df1d7f535ef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: duau
+ms.openlocfilehash: 32c0b0a245f864601110505af0ce81ad4e9b0b0e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87760127"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131461383"
 ---
 # <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Azure CDN에 대한 표준 규칙 엔진의 동작
 
@@ -85,7 +85,7 @@ DELETE | 이 옵션이 선택되고 규칙이 일치하고 규칙에 지정된 �
 
 #### <a name="required-fields"></a>Required fields
 
-필드 | 설명 
+필드 | Description 
 ------|------------
 Type | 요청자에게 반환할 응답 형식(찾음(302), 이동됨(301), 임시 리디렉션(307) 및 영구 리디렉션(308))을 선택합니다.
 프로토콜 | 요청, HTTP, HTTPS를 일치시킵니다.

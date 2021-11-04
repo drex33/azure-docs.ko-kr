@@ -17,12 +17,12 @@ ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 963c2d997bd75dadbeb6a37ea80d4237ea46cc35
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: bec934ec67d952d037a3f06758cb8c3f272b21a6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130240664"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059189"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Agent 설치
 
@@ -47,7 +47,6 @@ ms.locfileid: "130240664"
 
 > [!IMPORTANT]
 > Windows Server Core는 Azure AD Connect Health 에이전트 설치를 지원하지 않습니다.
-
 
 > [!NOTE]
 > 매우 폐쇄적이고 제약이 많은 환경을 사용하는 경우에는 Internet Explorer 보안 강화 표에 나와 있는 것보다 많은 URL을 추가해야 합니다. 또한 다음 섹션의 표에 나와 있는 URL을 추가합니다.  
@@ -264,7 +263,6 @@ Azure AD Connect를 성공적으로 설치한 후 동기화용 Azure AD Connect 
     import-module "C:\Program Files\Azure Ad Connect Health Adds Agent\PowerShell\AdHealthAdds"
      
     Register-AzureADConnectHealthADDSAgent -Credential $myCreds
-    
     ```
 
 완료되면 다음 작업 중 하나 이상을 수행하여 로컬 계정에 대한 액세스 권한을 제거할 수 있습니다. 
@@ -278,10 +276,9 @@ Azure AD Connect를 성공적으로 설치한 후 동기화용 Azure AD Connect 
 적절한 에이전트 *setup.exe* 파일을 설치한 후에는 역할에 따라 다음 PowerShell 명령을 사용하여 에이전트를 등록할 수 있습니다. PowerShell 창을 열고 적합한 명령을 실행합니다.
 
 ```powershell
-    Register-AzureADConnectHealthADFSAgent
-    Register-AzureADConnectHealthADDSAgent
-    Register-AzureADConnectHealthSyncAgent
-
+Register-AzureADConnectHealthADFSAgent
+Register-AzureADConnectHealthADDSAgent
+Register-AzureADConnectHealthSyncAgent
 ```
 
 > [!NOTE]
@@ -292,8 +289,6 @@ Azure AD Connect를 성공적으로 설치한 후 동기화용 Azure AD Connect 
 > Register-AzureADConnectHealthADDSAgent -UserPrincipalName upn-of-the-user
 > Register-AzureADConnectHealthSyncAgent -UserPrincipalName upn-of-the-user
 > ```
->
-
 
 해당 명령은 등록을 비 대화형으로 완료하거나 Server Core를 실행하는 머신에서 등록을 완료하는 매개 변수로 `Credential`을 받아들입니다. 다음 사항에 유의하세요.
 * 매개 변수로 전달된 PowerShell 변수에서 `Credential`을 캡처할 수 있습니다.

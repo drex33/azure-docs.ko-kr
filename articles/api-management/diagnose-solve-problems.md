@@ -6,12 +6,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 02/05/2021
 ms.author: rongzhang
-ms.openlocfilehash: 9dcbd1bf789d199b0561587949a5381027518ca3
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 83fbb17baf63d51b9f7ef29d369924294aa7c262
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123436413"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131447477"
 ---
 # <a name="azure-api-management-diagnostics-overview"></a>Azure API Management 진단 개요
 
@@ -88,4 +88,4 @@ API Management 진단에 액세스하려면 [Azure Portal](https://portal.azure.
 * 또한, 해당 API의 사용량 및 성능 분석을 위해 [API analytics](howto-use-analytics.md)를 사용합니다. 
 * 진단을 통해 Web Apps 문제를 해결하실 건가요? 해당 문서는 [여기](../app-service/overview-diagnostics.md)에서 확인할 수 있습니다.
 * 진단을 활용해 Azure Kubernetes Services 문제를 확인합니다. [AKS 진단](../aks/concepts-diagnostics.md)을 참조
-* 제목에 "[Diag]"을 추가하여 [UserVoice](https://feedback.azure.com/forums/248703-api-management)에 질문이나 피드백을 게시합니다.
+* 제목에 "[Diag]"을 추가하여 [UserVoice](https://feedback.azure.com/d365community/forum/e808a70c-ff24-ec11-b6e6-000d3a4f0858)에 질문이나 피드백을 게시합니다.

@@ -3,20 +3,20 @@ title: 사용자 지정 정책의 부울 클레임 변환 예제
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 IEF(ID 경험 프레임워크) 스키마용 부울 클레임 변환의 예제를 제공합니다.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/06/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 7c292f939339add06168c55236f8666651e4aace
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ec9e12d8418845e163bd1cc2e578814720c96f2
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85201279"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131008126"
 ---
 # <a name="boolean-claims-transformations"></a>부울 클레임 변환
 

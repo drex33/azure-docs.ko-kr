@@ -10,12 +10,12 @@ ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: d9b6695824b5fc19d2cd2ee40aec929a372750f2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ce62577dd73d6c6318c5358e4cff3ada4f4bc0a5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124812035"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068869"
 ---
 # <a name="linked-services-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics 연결된 서비스
 
@@ -65,7 +65,7 @@ Azure Data Factory 및 Azure Synapse Analytics는 하나 이상의 파이프라�
 
 다음 표에서는 위의 JSON에서 속성을 설명합니다.
 
-속성 | Description | 필수 |
+속성 | 설명 | 필수 |
 -------- | ----------- | -------- |
 name | 연결된 서비스의 이름입니다. [명명 규칙](naming-rules.md)을 참조하세요. |  예 |
 type | 연결된 서비스의 형식입니다. 예: AzureBlobStorage(데이터 저장소) 또는 AzureBatch(컴퓨팅). typeProperties에 대한 설명을 참조하세요. | 예 |
@@ -109,7 +109,9 @@ connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runt
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 도구 또는 SDK 중 하나를 사용하여 파이프라인 및 데이터 세트를 만들기 위한 단계별 지침은 다음 자습서를 참조하세요.
+- [연결 된 서비스에서 사용자 할당 관리 id의 자격 증명을 사용 하는 방법에 대해 알아봅니다](credentials.md).
+
+이러한 도구 또는 SDK 중 하나를 사용하여 파이프라인 및 데이터 세트를 만들기 위한 단계별 지침을 보려면 다음 자습서를 참조하세요.
 
 - [빠른 시작: .NET을 사용하여 데이터 팩터리 만들기](quickstart-create-data-factory-dot-net.md)
 - [빠른 시작: PowerShell을 사용하여 데이터 팩터리 만들기](quickstart-create-data-factory-powershell.md)

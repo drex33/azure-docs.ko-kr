@@ -8,18 +8,18 @@ ms.date: 03/02/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.openlocfilehash: ef783ba32cde3522f5b3cca9e0aa42bdd3fdf5f5
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: c0348e159b14e400e7787da7e1c04de375f96815
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770422"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131437147"
 ---
 # <a name="create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-linux"></a>Linux에서 Azure Image Builder를 사용하여 기존의 이미지 버전에서 새로운 VM 이미지 버전을 만듭니다.
 
 **적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: 유연한 확장 집합 
 
-본 문서에서는 [Shared Image Gallery](../shared-image-galleries.md)에서 기존 이미지 버전을 가져오기, 해당 이미지 업데이트하기 및 업데이트한 이미지를 갤러리에 새 이미지 버전으로 게시하기에 대한 방법을 알려줍니다.
+이 문서에서는 [Azure Compute 갤러리](../shared-image-galleries.md) (이전의 공유 이미지 갤러리)에서 기존 이미지 버전을 가져와서 업데이트 하 고 갤러리에 새 이미지 버전으로 게시 하는 방법을 보여 줍니다.
 
 이미지를 구성하는 데 샘플 .json 템플릿을 사용합니다. 사용할 .json 파일은 [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json)입니다. 
 
@@ -50,7 +50,7 @@ az provider register -n Microsoft.Network
 
 ## <a name="set-variables-and-permissions"></a>변수 및 사용 권한 설정
 
-Shared Image Gallery를 만들기 위하여 [이미지를 만들어 Shared Image Gallery에 배포하기](image-builder-gallery.md)를 사용한 경우, 필요한 변수 일부를 이미 만들어 놓은 것입니다. 그렇지 않은 경우라면 해당 예제에서 사용할 몇 가지 변수를 설정하세요.
+이미지 만들기를 사용 하 [고 Azure Compute 갤러리에 배포](image-builder-gallery.md) 하 여 Azure compute 갤러리를 만든 경우 필요한 변수 중 일부를 이미 만들었습니다. 그렇지 않은 경우라면 해당 예제에서 사용할 몇 가지 변수를 설정하세요.
 
 
 ```console
@@ -60,7 +60,7 @@ sigResourceGroup=ibLinuxGalleryRG
 location=westus2
 # Additional region to replicate the image version to 
 additionalregion=eastus
-# Name of the shared image gallery 
+# Name of the Azure Compute Gallery 
 sigName=myIbGallery
 # Name of the image definition to use
 imageDefName=myIbImageDef
@@ -92,7 +92,7 @@ sigDefImgVersionId=$(az sig image-version list \
 imgBuilderId=$(az identity list -g $sigResourceGroup --query "[?contains(name, 'aibBuiUserId')].id" -o tsv)
 ```
 
-Shared Image Gallery가 이미 있으면서 이전 예제를 따르지 않은 경우에는 리소스 그룹에 액세스하여 갤러리에 액세스할 수 있도록 Image Builder에 대한 권한을 할당하여야 합니다. [이미지를 만들어 Shared Image Gallery에 배포하기](image-builder-gallery.md) 예제의 단계들을 검토하세요.
+사용자 고유의 Azure Compute 갤러리가 이미 있고 이전 예제를 따르지 않은 경우 리소스 그룹에 액세스할 수 있도록 이미지 작성기에 대 한 사용 권한을 할당 해야 합니다. 그러면 갤러리에 액세스할 수 있습니다. [이미지 만들기 및 Azure 계산 갤러리에 배포](image-builder-gallery.md) 예제의 단계를 검토 하세요.
 
 
 ## <a name="modify-helloimage-example"></a>helloImage 예제 수정하기

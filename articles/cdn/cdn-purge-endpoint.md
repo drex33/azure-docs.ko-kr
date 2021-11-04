@@ -3,7 +3,7 @@ title: Azure CDN 엔드포인트 제거 | Microsoft Docs
 description: Azure Content Delivery Network 엔드포인트에서 캐시된 콘텐츠를 모두 제거하는 방법을 알아봅니다. Edge 노드는 수명이 만료될 때까지 자산을 캐시합니다.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: sohamnchatterjee
 ms.assetid: 0b50230b-fe82-4740-90aa-95d4dde8bd4f
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 06/30/2021
-ms.author: allensu
-ms.openlocfilehash: b8acb823ddb3f955c696dc98cf41f8cd4cfe571f
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.author: duau
+ms.openlocfilehash: cdf32273e5c234c59e2c00376e1b8605e43ef1a3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129359134"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450574"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Azure CDN 엔드포인트 제거
 ## <a name="overview"></a>개요
@@ -72,7 +72,7 @@ Azure CDN 가장자리 노드는 자산의 TTL(Time-to-Live)이 만료될 때 �
     ![제거 단추](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> 제거 요청은 **Verizon의 Azure CDN(표준** 및 프리미엄) 약 2분, **Akamai 의 Azure CDN** 약 10초가 걸립니다.  Azure CDN은 프로필 수준에서 동시 제거 요청이 항상 100개로 제한됩니다. 
+> Verizon의 **Azure CDN(표준** 및 프리미엄)에서 제거 요청은 약 2분, **Akamai 의 Azure CDN** 약 10초가 걸립니다.  Azure CDN은 프로필 수준에서 동시 제거 요청이 항상 100개로 제한됩니다. 
 > 
 > 
 

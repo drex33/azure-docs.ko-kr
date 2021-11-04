@@ -1,19 +1,19 @@
 ---
 title: 빈 레이크 데이터베이스 만들기
-description: Azure Synapse Analytics 쉽게 추가할 수 있는 빈 Lake 데이터베이스를 만드는 방법을 알아봅니다.
+description: Azure Synapse Analytics 쉽게 추가할 수 있는 빈 레이크 데이터베이스를 만드는 방법을 알아봅니다.
 author: aamerril
 ms.author: aamerril
 ms.service: synapse-analytics
-ms: 'subservice:'
+ms.subservice: database-editor
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 8717168532f84c8a3ed8735b5298eb0bb8065d20
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f8b3b965e3a98924a1026e1cbb4a05aaa207b6cf
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053708"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131444652"
 ---
 # <a name="how-to-create-an-empty-lake-database"></a>방법: 빈 레이크 데이터베이스 만들기
 
@@ -22,11 +22,11 @@ ms.locfileid: "131053708"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 갤러리에서 레이크 데이터베이스 템플릿을 탐색하려면 최소한 Synapse 사용자 역할 권한이 필요합니다.
-- Synapse 관리자, Synapse 기여자 또는 Synapse Artifact Publisher 레이크 데이터베이스를 만들려면 Synapse 작업 영역에 대한 권한이 필요합니다.
+- Synapse 관리자, Synapse 기여자 또는 Synapse Artifact Publisher 권한은 레이크 데이터베이스를 만들기 위한 Synapse 작업 영역에 필요합니다.
 - Storage 데이터 레이크에 대한 Blob 데이터 기여자 권한이 필요합니다.
 
 ## <a name="create-lake-database-from-database-template"></a>데이터베이스 템플릿에서 레이크 데이터베이스 만들기
-1. Azure Synapse Analytics 작업 영역 **홈** 허브의 왼쪽에 있는 **데이터** 탭을 선택합니다. **데이터** 탭이 열리고 작업 영역에 이미 있는 데이터베이스 목록이 표시됩니다.
+1. Azure Synapse Analytics 작업 영역 **홈** 허브에서 왼쪽의 **데이터** 탭을 선택합니다. **데이터** 탭이 열리고 작업 영역에 이미 있는 데이터베이스 목록이 표시됩니다.
 2. 단추를 마우스로 **+** 가리키고 를 선택한 다음, **Lake 데이터베이스(미리 보기)** 를 선택합니다.
 ![빈 레이크 데이터베이스 만들기를 보여주는 스크린샷](./media/create-empty-lake-database/create-empty-lakedb.png)
 3. 데이터베이스 디자이너 탭이 빈 데이터베이스와 함께 열립니다.
@@ -47,14 +47,14 @@ ms.locfileid: "131053708"
     - **데이터 레이크에서** 이미 레이크에 있는 데이터를 사용하여 테이블 스키마를 가져올 수 있습니다.
 6. **사용자 지정** 을 선택합니다. 캔버스에 Table_1 라는 새 테이블이 표시됩니다.
 7. 그런 다음 테이블 이름, 설명, 스토리지 설정, 열 및 관계를 포함하여 Table_1 사용자 지정할 수 있습니다. 자세한 내용은 [Lake 데이터베이스 수정을 참조하세요.](./modify-lake-database.md)
-8. + 테이블을 선택한 다음 데이터 레이크에서 를 선택하여 **데이터 레이크에서** 새 **테이블을** 추가합니다.
+8. + 테이블을 선택한 다음, 데이터 레이크에서 를 선택하여 **데이터 레이크에서** 새 **테이블을** 추가합니다.
 9. **데이터 레이크에서 외부 테이블 만들기** 창이 나타납니다. 아래 세부 정보로 창을 채우고 **계속을** 선택합니다.
     - **외부 테이블 이름은** 만들려는 테이블에 지정하려는 이름입니다.
     - **연결된 서비스는** 데이터 파일이 있는 Azure Data Lake Storage 위치를 포함하는 연결된 서비스입니다.
     - **입력 파일 또는 폴더는** 파일 브라우저를 사용하여 테이블을 만들려는 레이크로 이동하여 파일을 선택합니다.
-![Data Lake 창에서 외부 테이블 만들기의 옵션을 보여주는 스크린샷](./media/create-empty-lake-database/create-from-lake.png)
+![데이터 레이크 창에서 외부 테이블 만들기의 옵션을 보여주는 스크린샷](./media/create-empty-lake-database/create-from-lake.png)
     - 다음 화면에서 Azure Synapse 파일을 미리 보기하고 스키마를 검색합니다.
-    - 데이터 형식과 관련된 모든 설정을 업데이트할 수 있는 **새 외부 테이블** 페이지와 Synapse가 파일을 올바르게 식별했는지 확인하기 위해 데이터 미리 **보기** 페이지가 표시됩니다.
+    - 데이터 형식과 관련된 설정을 업데이트할 수 있는 **새 외부 테이블** 페이지와 데이터 미리 **보기** 페이지로 가서 Synapse가 파일을 올바르게 식별했는지 확인합니다.
     - 설정에 만족하면 **만들기를** 선택합니다.
     - 선택한 이름의 새 테이블이 캔버스에 추가되고 테이블 섹션의 **Storage 설정에** 지정한 파일이 표시됩니다.
     

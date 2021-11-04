@@ -1,18 +1,18 @@
 ---
 title: BigQuery의 메타데이터 및 계보
 description: 이 문서에서는 BigQuery 원본에서 데이터 계보 추출을 설명합니다.
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 08/12/2021
-ms.openlocfilehash: 9373544ee3eab185438aafd7dbbdf661b385074e
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: 7c576c8fe61d61d1f399106be361267fa1dc5ab0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529480"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131475600"
 ---
 # <a name="how-to-get-lineage-from-bigquery-into-azure-purview"></a>BigQuery의 계보를 Azure Purview로 가져오는 방법
 

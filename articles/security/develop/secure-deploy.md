@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 4c71ddbf1d2b435697b2707acf0b1262f2c5dc31
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: f8094fc0eaf646a026371db3726706f92c763f6d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94517192"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131460549"
 ---
 # <a name="deploy-secure-applications-on-azure"></a>Azure에서 보안 애플리케이션 배포
 이 문서에서는 클라우드용 애플리케이션을 배포할 때 고려해야 할 보안 및 제어 작업에 관해 설명합니다. Microsoft [SDL(보안 개발 수명 주기)](/previous-versions/windows/desktop/cc307891(v=msdn.10))의 릴리스 및 응답 단계에서 고려해야 하는 보안 질문과 개념을 다룹니다. 목표는 더 안전한 애플리케이션을 배포하는 데 사용할 수 있는 작업과 Azure 서비스를 정의하도록 돕는 것입니다.
@@ -29,8 +29,7 @@ ms.locfileid: "94517192"
 - 응답
 
 ## <a name="release"></a>해제
-릴리스 단계의 초점은 일반 릴리스에 대한 프로젝트를 준비하는 것입니다.
-여기에는 릴리스 후 서비스 작업을 효과적으로 수행하고 나중에 발생할 수 있는 보안 취약성을 해결하는 계획 방법이 포함 됩니다.
+릴리스 단계의 초점은 일반 릴리스에 대한 프로젝트를 준비하는 것입니다. 여기에는 릴리스 후 서비스 작업을 효과적으로 수행하고 나중에 발생할 수 있는 보안 취약성을 해결하는 계획 방법이 포함 됩니다.
 
 ### <a name="check-your-applications-performance-before-you-launch"></a>시작하기 전에 애플리케이션의 성능을 확인
 
@@ -55,6 +54,7 @@ ms.locfileid: "94517192"
 릴리스 전에 소프트웨어를 인증 하면 보안 및 개인 정보 요구 사항이 충족됩니다. 릴리스 후 서비스 작업을 수행 하기 위해서는 모든 관련 데이터를 보관하는 것이 필수적입니다. 또한 보관을 통해 지속적인 소프트웨어 엔지니어링과 관련된 장기 비용을 낮출 수 있습니다.
 
 ## <a name="response"></a>응답
+
 개발 팀의 릴리스 후 단계 센터는 새로운 소프트웨어 위협 및 취약성에 대한 모든 보고서에 적절하게 대응하고 사용할 수 있습니다.
 
 ### <a name="execute-the-incident-response-plan"></a>인시던트 응답 계획 실행
@@ -64,6 +64,7 @@ ms.locfileid: "94517192"
 ### <a name="monitor-application-performance"></a>애플리케이션 성능 모니터링
 
 애플리케이션을 배포한 후 지속적으로 모니터링하면 성능 문제 및 보안 취약성을 감지하는 데 도움이 될 수 있습니다.
+
 애플리케이션 모니터링을 지원하는 Azure 서비스는 다음과 같습니다.
 
   - Azure Application Insights

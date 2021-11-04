@@ -99,3 +99,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-management-portal'
     - name: Azure 비디오
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest'
+    - name: 제품 사용자 의견
+      href: 'https://feedback.azure.com/d365community/forum/a222eda7-2425-ec11-b6e6-000d3a4f09d0'

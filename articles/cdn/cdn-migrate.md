@@ -3,7 +3,7 @@ title: Verizon Standard에서 Verizon Premium으로 Azure CDN 프로필 마이�
 description: Verizon Standard에서 Verizon Premium으로 프로필 마이그레이션에 대한 세부 정보를 알아봅니다.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 06/21/2018
-ms.author: allensu
+ms.author: duau
 ms.custom: ''
-ms.openlocfilehash: aa5f2e51549baeaea6373a2d24e54f780d508bce
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
-ms.translationtype: HT
+ms.openlocfilehash: 14396a95e7da343c18db433b89bf50faf391c0ca
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113596266"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450531"
 ---
 # <a name="migrate-an-azure-cdn-profile-from-standard-verizon-to-premium-verizon"></a>Standard Verizon에서 Premium Verizon으로 Azure CDN 프로필 마이그레이션
 

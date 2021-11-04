@@ -9,16 +9,18 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.collection: windows
-ms.openlocfilehash: 08cc123df4d0b4af0d5a0e94d5ef0e4826b0681c
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
-ms.translationtype: HT
+ms.openlocfilehash: 2f3c4c302d0b31bbd97eedcd8e83f2cb50a8af2e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113594808"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131462901"
 ---
 # <a name="create-a-new-windows-vm-image-version-from-an-existing-image-version-using-azure-image-builder"></a>Azure Image Builder를 사용하여 기존 이미지 버전에서 새로운 Windows VM 이미지 버전 만들기
 
-본 문서에서는 [Shared Image Gallery](../shared-image-galleries.md)에서 기존 이미지 버전을 가져오기, 해당 이미지 업데이트하기 및 업데이트한 이미지를 갤러리에 새 이미지 버전으로 게시하기에 대한 방법을 알려줍니다.
+**적용 대상:** :heavy_check_mark: Windows VM
+
+이 문서에서는 [Azure Compute 갤러리](../shared-image-galleries.md) (이전의 공유 이미지 갤러리)에서 기존 이미지 버전을 가져와서 업데이트 하 고 갤러리에 새 이미지 버전으로 게시 하는 방법을 보여 줍니다.
 
 이미지를 구성하는 데 샘플 .json 템플릿을 사용합니다. 사용할 .json 파일은 다음 위치에 있습니다: [helloImageTemplateforSIGfromWinSIG.json](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json). 
 
@@ -49,7 +51,7 @@ az provider register -n Microsoft.Network
 
 ## <a name="set-variables-and-permissions"></a>변수 및 사용 권한 설정
 
-Shared Image Gallery를 만들기 위하여 [이미지를 만들어 Shared Image Gallery에 배포하기](image-builder-gallery.md)를 사용한 경우, 필요한 변수를 이미 만들어 놓은 것입니다. 그렇지 않은 경우라면 해당 예제에서 사용할 몇 가지 변수를 설정하세요.
+이미지 만들기를 사용 하 [고 Azure Compute 갤러리에 배포](image-builder-gallery.md) 하 여 Azure compute 갤러리를 만든 경우 필요한 변수를 이미 만들었습니다. 그렇지 않은 경우라면 해당 예제에서 사용할 몇 가지 변수를 설정하세요.
 
 Image Builder는 원본 관리 이미지와 동일한 리소스 그룹에서 사용자 지정 이미지를 만드는 것만 지원합니다. 이 예제의 리소스 그룹 이름을 원본 관리 이미지와 동일한 리소스 그룹으로 업데이트합니다.
 
@@ -60,7 +62,7 @@ sigResourceGroup=myIBWinRG
 location=westus
 # Additional region to replicate the image to - we are using East US in this example
 additionalregion=eastus
-# name of the shared image gallery - in this example we are using myGallery
+# name of the Azure Compute Gallery - in this example we are using myGallery
 sigName=my22stSIG
 # name of the image definition to be created - in this example we are using myImageDef
 imageDefName=winSvrimages
@@ -71,10 +73,10 @@ username="user name for the VM"
 vmpassword="password for the VM"
 ```
 
-구독 ID에 대한 변수를 만듭니다. `az account show | grep id`를 사용하여 만들 수 있습니다.
+구독 ID에 대한 변수를 만듭니다.
 
 ```azurecli-interactive
-subscriptionID=<Subscription ID>
+subscriptionID=$(az account show --query id --output tsv)
 ```
 
 업데이트하려는 이미지 버전을 가져옵니다.
@@ -84,7 +86,7 @@ sigDefImgVersionId=$(az sig image-version list \
    -g $sigResourceGroup \
    --gallery-name $sigName \
    --gallery-image-definition $imageDefName \
-   --subscription $subscriptionID --query [].'id' -o json | grep 0. | tr -d '"' | tr -d '[:space:]')
+   --subscription $subscriptionID --query [].'id' -o tsv)
 ```
 
 ## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>사용자 할당 ID 만들기 및 리소스 그룹에 대한 사용 권한 설정
@@ -95,7 +97,7 @@ sigDefImgVersionId=$(az sig image-version list \
 imgBuilderId=$(az identity list -g $sigResourceGroup --query "[?contains(name, 'aibBuiUserId')].id" -o tsv)
 ```
 
-Shared Image Gallery가 이미 있으면서 이전 예제를 따르지 않은 경우에는 리소스 그룹에 액세스하여 갤러리에 액세스할 수 있도록 Image Builder에 대한 권한을 할당하여야 합니다. [이미지를 만들어 Shared Image Gallery에 배포하기](image-builder-gallery.md) 예제의 단계들을 검토하세요.
+사용자 고유의 Azure Compute 갤러리가 이미 있고 이전 예제를 따르지 않은 경우 리소스 그룹에 액세스할 수 있도록 이미지 작성기에 대 한 사용 권한을 할당 해야 합니다. 그러면 갤러리에 액세스할 수 있습니다. [이미지 만들기 및 Azure 계산 갤러리에 배포](image-builder-gallery.md) 예제의 단계를 검토 하세요.
 
 
 ## <a name="modify-helloimage-example"></a>helloImage 예제 수정하기

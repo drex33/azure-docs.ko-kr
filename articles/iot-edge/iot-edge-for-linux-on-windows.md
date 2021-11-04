@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/18/2021
 ms.author: kgremban
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: ba5c01bcdae869ebb2e1df41b6e3db87e7018f3f
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 89c0ba6491a2c4e95e86a48d5755d9dabd2b821b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130215431"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131475790"
 ---
 # <a name="what-is-azure-iot-edge-for-linux-on-windows"></a>Windows에서 Linux용 Azure IoT Edge란?
 
@@ -54,10 +54,10 @@ IoT Edge 지원 및 피드백 채널을 사용하여 Windows에서 Linux용 IoT 
 
 **Microsoft 고객 지원팀** – [지원 계획](https://azure.microsoft.com/support/plans/)이 있는 사용자는 [Azure Portal](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac)에서 직접 지원 티켓을 만들어서 Microsoft 고객 지원팀과 협력할 수 있습니다.
 
-**기능 요청** – Azure IoT Edge 제품은 제품의 [사용자 의견 페이지](https://feedback.azure.com/forums/907045-azure-iot-edge)를 통해 기능 요청을 추적합니다.
+**기능 요청** – Azure IoT Edge 제품은 제품의 [사용자 의견 페이지](https://feedback.azure.com/d365community/forum/0e2fff5d-f524-ec11-b6e6-000d3a4f0da0)를 통해 기능 요청을 추적합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 자세한 내용 및 작동 샘플은 [Windows 10 IoT Enterprise에서 Linux용 IoT Edge](https://aka.ms/azeflow-show)를 확인하세요.
 
-[Windows 장치에서 linux 용 단일 Azure IoT Edge 수동 프로 비전](how-to-provision-single-device-linux-on-windows-symmetric.md) 의 단계에 따라 Windows에서 linux 용 IoT Edge를 사용 하 여 장치를 설정 합니다.
+[Windows 디바이스에서 Linux용 단일 Azure IoT Edge 수동 프로비전의](how-to-provision-single-device-linux-on-windows-symmetric.md) 단계에 따라 Windows Linux용 IoT Edge 사용하여 디바이스를 설정합니다.

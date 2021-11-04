@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: 1501d682de61b52a3933f6f849b4eac6d9f33b87
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 3f53d6f348c7c1b46562b3769a415a5a7acc9262
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113766845"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131463963"
 ---
 # <a name="azure-database-for-postgresql-single-server"></a>Azure Database for PostgreSQL 단일 서버
 
@@ -92,7 +92,7 @@ Azure Database for PostgreSQL 작업에 대해 궁금한 점이나 제안하고 
 
 - Azure 고객 지원팀에 문의하려면 [Azure Portal에서 티켓을 제출](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
 - 계정 관련 문제를 해결하려면 Azure Portal에서 [지원 요청](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출합니다.
-- 피드백을 제공하거나 새 기능을 요청하려면 [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql)를 통해 항목을 만드세요.
+- 피드백을 제공하거나 새 기능을 요청하려면 [UserVoice](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0)를 통해 항목을 만드세요.
 
 ## <a name="next-steps"></a>다음 단계
 

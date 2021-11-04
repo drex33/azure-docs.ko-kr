@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: mayg
-ms.openlocfilehash: f7df260f0ef02df5d706bc78ed4938cb1868eead
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 01956fa1dc12d992d05f004d21572b9fc045d5f9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130065087"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131437679"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Active Directory 및 DNS에 대한 재해 복구 설정
 
@@ -47,7 +47,7 @@ Site Recovery를 사용하여 복제된 도메인 컨트롤러는 [테스트 장
 
 ### <a name="configure-vm-network-settings"></a>VM 네트워크 설정 구성
 
-도메인 컨트롤러 또는 DNS를 호스트하는 가상 머신의 경우 Site Recovery에서 복제된 가상 머신의 **컴퓨팅 및 네트워크** 설정 아래에서 네트워크 설정을 구성합니다. 이렇게 하면 장애 조치(failover) 후 가상 머신이 올바른 네트워크에 연결됩니다.
+도메인 컨트롤러 또는 DNS를 호스트 하는 가상 컴퓨터의 Site Recovery에서 복제 된 가상 컴퓨터의 **네트워크** 설정 아래에서 네트워크 설정을 구성 합니다. 이렇게 하면 장애 조치(failover) 후 가상 머신이 올바른 네트워크에 연결됩니다.
 
 ## <a name="protect-active-directory"></a>Active Directory 보호
 
@@ -77,12 +77,12 @@ Site Recovery를 사용하여 복제된 도메인 컨트롤러는 [테스트 장
 
 1. Site Recovery를 사용하여 도메인 컨트롤러 또는 DNS를 호스트하는 가상 머신을 [복제](vmware-azure-tutorial.md)합니다.
 1. 격리된 네트워크를 만듭니다. Azure에서 만드는 모든 가상 네트워크는 기본적으로 다른 네트워크에서 격리됩니다. 이 네트워크의 IP 주소 범위를 프로덕션 네트워크에서 사용하는 IP 주소 범위와 동일하게 사용하는 것이 좋습니다. 이 네트워크에서 사이트-사이트 연결을 사용하지 마십시오.
-1. 격리된 네트워크의 DNS IP 주소를 제공합니다. DNS 가상 머신을 가져올 것으로 예상되는 IP 주소를 사용합니다. Azure로 복제하는 경우 장애 조치(failover)에 사용되는 가상 머신의 IP 주소를 제공합니다. IP 주소를 입력하려면 복제된 가상 머신의 **컴퓨팅 및 네트워크** 설정에서 **대상 IP** 설정을 선택합니다.
+1. 격리된 네트워크의 DNS IP 주소를 제공합니다. DNS 가상 머신을 가져올 것으로 예상되는 IP 주소를 사용합니다. Azure로 복제하는 경우 장애 조치(failover)에 사용되는 가상 머신의 IP 주소를 제공합니다. IP 주소를 입력 하려면 복제 된 가상 컴퓨터의 **네트워크** 설정에서 **대상 ip** 설정을 선택 합니다.
 
    :::image type="content" source="./media/site-recovery-active-directory/azure-test-network.png" alt-text="Azure 테스트 네트워크":::
 
    > [!TIP]
-   > Site Recovery는 가상 머신의 **컴퓨팅 및 네트워크** 설정에서 제공한 것과 동일한 IP 주소를 사용하여 동일한 이름의 서브넷에 테스트 가상 머신을 만들려고 시도합니다. 테스트 장애 조치(failover)에 제공된 Azure Virtual Network에서 이름이 동일한 서브넷을 사용할 수 없는 경우 사전순으로 첫 번째 서브넷에 테스트 가상 머신이 만들어집니다.
+   > Site Recovery 가상 컴퓨터의 **네트워크** 설정에서 제공 되는 것과 동일한 IP 주소를 사용 하 여 동일한 이름의 서브넷에 테스트 가상 컴퓨터를 만들려고 시도 합니다. 테스트 장애 조치(failover)에 제공된 Azure Virtual Network에서 이름이 동일한 서브넷을 사용할 수 없는 경우 사전순으로 첫 번째 서브넷에 테스트 가상 머신이 만들어집니다.
    >
    > 대상 IP 주소가 선택한 서브넷에 포함되는 경우 Site Recovery는 대상 IP 주소를 사용하여 테스트 장애 조치(failover) 가상 머신을 만들려고 시도합니다. 대상 IP가 선택한 서브넷에 포함되지 않는 경우 선택한 서브넷에서 다음으로 사용 가능한 IP를 사용하여 테스트 장애 조치(failover) 가상 머신이 만들어집니다.
 
@@ -179,7 +179,7 @@ Azure로 장애 조치(failover)를 수행하면 **VM-GenerationID** 가 다시 
 
 ### <a name="dns-and-domain-controller-on-different-machines"></a>다른 컴퓨터에서 DNS 및 도메인 컨트롤러
 
-동일한 VM에서 도메인 컨트롤러와 DNS를 실행 하는 경우이 절차를 건너뛸 수 있습니다.
+동일한 VM에서 도메인 컨트롤러 및 DNS를 실행하는 경우 이 절차를 건너뛸 수 있습니다.
 
 DNS가 도메인 컨트롤러와 동일한 VM에 있지 않은 경우 테스트 장애 조치(failover)를 위한 DNS VM을 만들어야 합니다. 새 DNS 서버를 사용하고 모든 필요한 영역을 만들 수 있습니다. 예를 들어 Active Directory 도메인이 `contoso.com`인 경우 이름이 `contoso.com`인 DNS 영역을 만들 수 있습니다. 다음과 같이 Active Directory에 해당하는 항목을 DNS에서 업데이트해야 합니다.
 

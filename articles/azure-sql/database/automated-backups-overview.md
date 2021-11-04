@@ -11,12 +11,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: mathoma, wiassaf, danil
 ms.date: 08/28/2021
-ms.openlocfilehash: bc48a8c0ef7128483fe3743a33930d3b3ddd1c85
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 8eb49e4d17de5c546278f78e50454db02ee2cfbd
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130260781"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458877"
 ---
 # <a name="automated-backups---azure-sql-database--azure-sql-managed-instance"></a>자동화된 백업 - Azure SQL Database 및 Azure SQL Managed Instance
 
@@ -61,7 +61,7 @@ SQL Database의 경우 데이터베이스를 만들 때 백업 스토리지 중�
 - **지역 복원** - [데이터베이스를 다른 지리적 지역으로 복원합니다](recovery-using-backups.md#geo-restore). 주 지역의 서버 및 데이터베이스에 액세스할 수 없는 경우 지역 복원을 통해 지리적 재해로부터 데이터베이스를 복구할 수 있습니다. 지역 복원은 Azure 지역의 기존 서버 또는 관리형 인스턴스에 새 데이터베이스를 만듭니다.
    > [!IMPORTANT]
    > 지역 복원은 지역 중복 백업 스토리지가 구성된 SQL 데이터베이스 또는 관리형 인스턴스에만 사용할 수 있습니다.
-- **장기 백업에서 복원** - 데이터베이스에 LTR(장기 보존 정책)을 구성한 경우 단일 데이터베이스 또는 풀링된 데이터베이스의 [특정 장기 백업에서 데이터베이스를 복원](long-term-retention-overview.md)합니다. LTR을 사용하면 Azure Portal, Azure CLI 또는 Azure PowerShell 사용하여 [이전 버전의 데이터베이스를 복원하여](long-term-backup-retention-configure.md) 규정 준수 요청을 충족하거나 이전 버전의 애플리케이션을 실행할 수 있습니다. 자세한 내용은 [장기 보존](long-term-retention-overview.md)을 참조하세요.
+- **장기 백업에서 복원** - 데이터베이스에 LTR(장기 보존 정책)을 구성한 경우 단일 데이터베이스 또는 풀링된 데이터베이스의 [특정 장기 백업에서 데이터베이스를 복원](long-term-retention-overview.md)합니다. LTR을 사용 하면 Azure Portal, Azure CLI 또는 Azure PowerShell를 사용 하 여 [이전 버전의 데이터베이스를 복원](long-term-backup-retention-configure.md) 하 여 규정 준수 요청을 충족 하거나 이전 버전의 응용 프로그램을 실행할 수 있습니다. 자세한 내용은 [장기 보존](long-term-retention-overview.md)을 참조하세요.
 
 > [!NOTE]
 > Azure Storage에서 *복제* 라는 용어는 한 위치에서 다른 위치로 Blob을 복사하는 것을 말합니다. SQL에서 *데이터베이스 복제* 는 여러 보조 데이터베이스를 주 데이터베이스와 동기화된 상태로 유지하는 데 사용되는 다양한 기술을 말합니다.
@@ -151,7 +151,7 @@ Azure SQL Database 및 Azure SQL Managed Instance 단기 및 장기 백업 보�
 
 ### <a name="short-term-retention"></a>단기 보존
 
-모든 새 데이터베이스, 복원된 데이터베이스 및 복사된 데이터베이스의 경우 Azure SQL Database 및 Azure SQL Managed Instance는 기본적으로 최근 7일 내에 PITR을 허용하기 위해 충분한 백업을 유지합니다. 데이터베이스 또는 관리되는 인스턴스에 대해 정의된 보존 기간 내의 모든 지정 시간으로 데이터베이스를 복원할 수 있도록 정기적으로 전체, 차등 및 로그 백업이 수행됩니다. 또한 Azure SQL Databases의 경우 차등 백업을 12시간 빈도(기본값) 또는 24시간 빈도로 구성할 수 있습니다. 
+모든 새 데이터베이스, 복원된 데이터베이스 및 복사된 데이터베이스의 경우 Azure SQL Database 및 Azure SQL Managed Instance는 기본적으로 최근 7일 내에 PITR을 허용하기 위해 충분한 백업을 유지합니다. 데이터베이스 또는 관리되는 인스턴스에 대해 정의된 보존 기간 내의 모든 지정 시간으로 데이터베이스를 복원할 수 있도록 정기적으로 전체, 차등 및 로그 백업이 수행됩니다. 또한 Azure SQL Databases의 경우 차등 백업을 12시간 또는 24시간 빈도로 구성할 수 있습니다. 
 
 > [!NOTE]
 > 24시간 차등 백업 빈도로 데이터베이스를 복원하는 데 필요한 시간이 늘어날 수 있습니다. 
@@ -262,7 +262,7 @@ DTU 기반 서비스 계층에서 vCore 기반 서비스 계층으로 데이터�
 
 ## <a name="change-the-short-term-retention-policy"></a>단기 보존 정책 변경
 
-Azure Portal, PowerShell 또는 REST API를 사용 하 여 기본 PITR 백업 보존 기간 및 차등 백업 빈도를 변경할 수 있습니다. 다음 예에서는 PITR 보존을 28 일로 변경 하는 방법과 차등 백업을 24 시간 간격으로 변경 하는 방법을 보여 줍니다.
+Azure Portal, PowerShell 또는 REST API 사용하여 기본 PITR 백업 보존 기간 및 차등 백업 빈도를 변경할 수 있습니다. 다음 예제에서는 PITR 보존 기간을 28일로 변경하고 차등 백업을 24시간 간격으로 변경하는 방법을 보여 줍니다.
 
 > [!WARNING]
 > 현재 보존 기간을 줄이면 새 보존 기간보다 오래된 시점으로 복원할 수 없게 됩니다. 새 보존 기간 내에 PITR을 제공하는 데 더 이상 필요 없는 백업은 삭제됩니다. 현재 보존 기간을 늘려도 새 보존 기간의 더 오래된 시점으로 복원하는 기능이 즉시 제공되지는 않습니다. 시간이 지나 시스템이 백업을 장기간 보존하기 시작하면 이 기능을 사용할 수 있습니다.

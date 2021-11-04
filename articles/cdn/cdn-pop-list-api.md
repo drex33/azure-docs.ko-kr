@@ -3,7 +3,7 @@ title: Azure CDN에 대한 현재 POP IP 목록 검색 | Microsoft Docs
 description: REST API를 사용하여 POP 서버를 가져오는 방법을 알아봅니다. POP 서버는 Azure Content Delivery Network 엔드포인트와 연결된 원본 서버에 요청합니다.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2021
-ms.author: allensu
+ms.author: duau
 ms.custom: ''
-ms.openlocfilehash: 65bb0649f5fed3615887d750b95d2b4ce91216fb
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2a471b16460ca92c43dda1c916840a56cb2a3808
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128626060"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131470075"
 ---
 # <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Azure CDN에 대한 현재 POP IP 목록 검색
 

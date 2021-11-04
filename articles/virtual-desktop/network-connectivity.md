@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 8a979fa56a7a75785220747dc1ee43696e8897d4
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: dd0328314cbe1f93565a421e0ff4f68f410b10dc
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129710511"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459979"
 ---
 # <a name="understanding-azure-virtual-desktop-network-connectivity"></a>Azure Virtual Desktop 네트워크 연결 이해
 
@@ -21,7 +21,7 @@ Azure Virtual Desktop은 Azure에서 실행되는 세션 호스트에서 클라�
 
 ## <a name="session-connectivity"></a>세션 연결
 
-Azure Virtual Desktop은 RDP(원격 데스크톱 프로토콜)를 사용하여 네트워크 연결을 통해 원격 표시 및 입력 기능을 제공합니다. RDP는 처음에 Windows NT 4.0 터미널 서버 버전과 함께 릴리스되었으며 Microsoft Windows 및 Windows Server 릴리스마다 지속적으로 발전하고 있습니다. 처음부터 RDP는 기본 전송 스택과는 별도로 개발되었으며 현재는 여러 유형의 전송을 지원합니다.
+Azure Virtual Desktop은 RDP(원격 데스크톱 프로토콜)를 사용하여 네트워크 연결을 통해 원격 표시 및 입력 기능을 제공합니다. RDP는 처음에 Windows NT 4.0 터미널 서버 버전과 함께 릴리스 되었으며 모든 Microsoft Windows 및 Windows Server 릴리스부터 지속적으로 진화 하 고 있습니다. 처음부터 RDP는 기본 전송 스택과는 별도로 개발되었으며 현재는 여러 유형의 전송을 지원합니다.
 
 ## <a name="reverse-connect-transport"></a>역방향 연결 전송
 
@@ -50,7 +50,7 @@ Azure Virtual Desktop 세션 호스트를 시작할 때 원격 데스크톱 에�
 
 ## <a name="connection-security"></a>연결 보안
 
-TLS 1.2는 클라이언트 및 세션 호스트부터 Azure Virtual Desktop 인프라 구성 요소 사이에서 시작된 모든 연결에 사용됩니다. Azure Virtual Desktop은 [Azure Front Door](../frontdoor/front-door-faq.yml#what-are-the-current-cipher-suites-supported-by-azure-front-door-)과 동일한 TLS 1.2 암호화를 사용합니다. 클라이언트 컴퓨터와 세션 호스트가 이러한 암호화를 사용할 수 있는지 확인하는 것이 중요합니다.
+TLS 1.2는 클라이언트 및 세션 호스트부터 Azure Virtual Desktop 인프라 구성 요소 사이에서 시작된 모든 연결에 사용됩니다. Azure Virtual Desktop은 [Azure Front Door](../frontdoor/concept-end-to-end-tls.md#supported-cipher-suites)과 동일한 TLS 1.2 암호화를 사용합니다. 클라이언트 컴퓨터와 세션 호스트가 이러한 암호화를 사용할 수 있는지 확인하는 것이 중요합니다.
 역방향 연결 전송의 경우 클라이언트 및 세션 호스트는 모두 Azure Virtual Desktop 게이트웨이에 연결합니다. TCP 연결을 설정하고 나면 클라이언트 또는 세션 호스트에서 Azure Virtual Desktop 게이트웨이 인증서의 유효성을 검사합니다.
 기본 전송을 설정하면 RDP에서 세션 호스트의 인증서를 사용하여 클라이언트와 세션 호스트 간에 중첩된 TLS 연결을 설정합니다. 기본적으로 RDP 암호화에 사용되는 인증서는 배포하는 동안 OS에서 자체적으로 생성됩니다. 원할 경우 고객은 엔터프라이즈 인증 기관에서 발급한 중앙 관리형 인증서를 배포할 수 있습니다. 인증서 구성에 대한 자세한 내용은 [Windows Server 설명서](/troubleshoot/windows-server/remote/remote-desktop-listener-certificate-configurations)를 참조하세요.
 

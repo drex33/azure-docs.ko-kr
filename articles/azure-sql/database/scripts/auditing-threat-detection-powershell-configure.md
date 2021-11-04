@@ -11,12 +11,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: mathoma, vanto
 ms.date: 04/28/2020
-ms.openlocfilehash: 2f5791b96b0b921175c0b6c2c7db7c8cdabf825c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: cee0c010101c132cb8c4f105ccfd46a5cb8afcf6
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121735599"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "131465310"
 ---
 # <a name="use-powershell-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>PowerShell을 사용하여 SQL Database 감사 및 Advanced Threat Protection 구성
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
@@ -51,8 +51,8 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | 서버를 만듭니다. |
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | 데이터베이스 또는 탄력적 풀을 만듭니다. |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | 스토리지 계정을 만듭니다. |
-| [Set-AzSqlDatabaseAuditing](/powershell/module/az.sql/set-azsqldatabaseauditing) | 데이터베이스에 대한 감사 정책을 설정합니다. |
-| [Set-AzSqlDatabaseThreatDetectionPolicy](/powershell/module/az.sql/set-azsqldatabasethreatdetectionpolicy) | 데이터베이스에 대한 Advanced Threat Protection 정책을 설정합니다. |
+| [Set-AzSqlDatabaseAuditing](/powershell/module/az.sql/set-azsqldatabaseaudit) | 데이터베이스에 대한 감사 정책을 설정합니다. |
+| Set-AzSqlDatabaseThreatDetectionPolicy | 데이터베이스에 대한 Advanced Threat Protection 정책을 설정합니다. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 |||
 

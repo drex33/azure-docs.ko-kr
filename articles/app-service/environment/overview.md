@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/07/2021
 ms.author: ccompy
 ms.custom: references_regions
-ms.openlocfilehash: e422f6316cce204a4b6ea152ff9be4489bb3e331
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 99700ec8b58a1eb9ab1465cca915216748a74dec
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124767910"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131435646"
 ---
 # <a name="app-service-environment-overview"></a>App Service Environment 개요 
 > [!NOTE]
@@ -23,7 +23,7 @@ Azure App Service Environment는 Azure App Service 앱을 매우 높은 확장�
 
 - Windows 웹앱
 - Linux 웹앱
-- Docker 컨테이너
+- Docker 컨테이너(Windows 및 Linux)
 - Functions
 
 ASE(App Service Environment)는 다음을 필요로 하는 애플리케이션 워크로드에 적합합니다.

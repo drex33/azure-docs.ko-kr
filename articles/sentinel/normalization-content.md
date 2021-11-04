@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: oshezaf
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2021
 ms.author: ofshezaf
-ms.openlocfilehash: deb5377aef61736a14ce8110e96c16e5352096cd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 49711b1d056ecc57b64544374461c1f2963b88d2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128552258"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064458"
 ---
 # <a name="azure-sentinel-information-model-asim-security-content--public-preview"></a>ASIM(Azure Sentinel 정보 모델) 보안 콘텐츠(공개 미리 보기)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Azure Sentinel 정규화된 보안 콘텐츠에는 분석 규칙, 헌팅 쿼리 및 소스에 관계 없는 정규화 파서와 함께 작동하는 통합 문서가 포함됩니다.
 
@@ -169,7 +171,7 @@ imDns(responsecodename='NXDOMAIN')
 
 - `imDns`는 DNS 쿼리 이벤트만 가져오므로 Infoblox 버전에서 수행한 대로 이벤트 유형을 확인할 필요가 `where ProcessName =~ "named" and Log_Type =~ "client"`없습니다.
 
-- `SrcIpAddr`필드는 대신 `Client_IP` 사용됩니다.
+- `SrcIpAddr`대신 필드가 `Client_IP` 사용됩니다.
  
 - Parser 매개 변수 필터링은 ResponseCodeName에 사용되어 명시적 where 절이 필요하지 않습니다.
 

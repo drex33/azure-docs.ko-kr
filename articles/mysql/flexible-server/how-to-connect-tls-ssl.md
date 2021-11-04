@@ -6,19 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 46a451fd41f460165435305f2abf5d56fca4837d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 2f73d6c8969cd6915c1a571eb6196bcf8f901bd6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566781"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468141"
 ---
 # <a name="connect-to-azure-database-for-mysql---flexible-server-with-encrypted-connections"></a>암호화된 연결을 사용하여 Azure Database for MySQL - 유연한 서버에 연결
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database for MySQL 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 Azure Database for MySQL 유연한 서버는 TLS(전송 계층 보안) 암호와 함께 SSL(Secure Sockets Layer)을 사용하여 MySQL 서버에 대한 클라이언트 애플리케이션 연결을 지원합니다. TLS는 데이터베이스 서버와 클라이언트 애플리케이션 간에 암호화된 네트워크 연결을 보장하여 규정 준수 요구 사항을 준수할 수 있도록 하는 업계 표준 프로토콜입니다.
 
@@ -58,7 +55,7 @@ Azure Database for MySQL 유연한 서버는 기본적으로 전송 계층 보�
 다음 예제에서는 mysql 명령줄 인터페이스를 사용하여 서버에 연결하는 방법을 보여 줍니다. `--ssl-mode=DISABLED` 연결 문자열 설정을 사용하여 mysql 클라이언트에서 TLS/SSL 연결을 사용하지 않도록 설정합니다. 값을 실제 서버 이름 및 암호로 바꿉니다.
 
 ```bash
- mysql.exe -h mydemoserver.mysql.database.azure.com -u myadmin -p --ssl-mode=DISABLED 
+ mysql.exe -h mydemoserver.mysql.database.azure.com -u myadmin -p --ssl-mode=DISABLED
 ```
 
 require_secure_transport를 OFF로 설정하는 것은 암호화된 연결이 서버 쪽에서 지원되지 않는다는 것을 의미하지 않습니다. 유연한 서버에서 require_secure_transport를 OFF로 설정한 경우 클라이언트에서 암호화된 연결을 사용하여 연결하는 경우에도 계속 허용됩니다. require_secure_transport=OFF로 구성된 유연한 서버에 mysql 클라이언트를 사용하는 다음 연결은 아래와 같이 작동합니다.

@@ -3,19 +3,23 @@ title: Azure Automation에서 Python 3 패키지 관리
 description: 이 문서에서는 Azure Automation에서 Python 3 패키지(미리 보기)를 관리하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/25/2021
+ms.date: 11/01/2021
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: d3ec338b6d6edac2c56c8b42f877a1095aace2a0
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: a33f4f9b6403d1f4aff88cadb57ae0f78f02038b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129349620"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443757"
 ---
 # <a name="manage-python-3-packages-preview-in-azure-automation"></a>Azure Automation에서 Python 3 패키지(미리 보기) 관리
 
-Azure Automation을 사용하면 Azure Sandbox 환경과 Linux Hybrid Runbook Worker에서 Python 3 Runbook(미리 보기)을 실행할 수 있습니다. Runbook을 간편하게 실행하기 위해 Python 패키지를 사용하여 필요한 모듈을 가져올 수 있습니다. Azure 패키지 4.0.0은 기본적으로 Python 3 Automation 환경에 설치됩니다. Automation 계정에서 Python 패키지를 가져와 기본 버전을 재정의할 수 있습니다. Automation 계정에서 가져온 버전에 대한 기본 설정이 제공됩니다. 단일 패키지를 가져오려면 [패키지 가져오기](#import-a-package)를 참조하세요. 여러 패키지가 포함된 패키지를 가져오려면 [종속성이 있는 패키지 가져오기](#import-a-package-with-dependencies)를 참조하세요. 이 문서에서는 Azure Automation에서 Python 3 패키지(미리 보기)를 관리하고 사용하는 방법을 설명합니다.
+이 문서에서는 Azure 샌드박스 환경에서 실행되는 Azure Automation Python 3(미리 보기) 패키지를 가져오고 관리하고 사용하는 방법과 Runbook을 간소화하는 데 도움이 Workers.To 하이브리드 Runbook을 사용하여 필요한 모듈을 가져올 수 있습니다. 
+
+Automation 서비스에서 Python 3 Runbook을 지원하기 위해 Azure 패키지 4.0.0은 기본적으로 Automation 계정에 설치됩니다. Python 패키지를 Automation 계정으로 가져와서 기본 버전을 재정의할 수 있습니다. Automation 계정에서 가져온 버전에 기본 설정이 지정됩니다. 단일 패키지를 가져오려면 [패키지 가져오기](#import-a-package)를 참조하세요. 여러 패키지가 포함된 패키지를 가져오려면 [종속성이 있는 패키지 가져오기](#import-a-package-with-dependencies)를 참조하세요. 
+
+Python 2 패키지 관리에 대한 자세한 내용은 [Python 2 패키지 관리를 참조하세요.](./python-packages.md)
 
 ## <a name="packages-as-source-files"></a>원본 파일 형태의 패키지
 
@@ -35,17 +39,19 @@ PyPI에서 사용할 수 있는 일부 Python 패키지는 whl 파일을 제공�
 
 ## <a name="import-a-package"></a>패키지 가져오기
 
-Automation 계정의 **공유 리소스** 아래에서 **Python 패키지** 를 선택합니다. 그런 다음, **+ Python 패키지 추가** 를 선택합니다.
+1. Automation 계정의 **공유 리소스** 아래에서 **Python 패키지** 를 선택합니다. 그런 다음, **+ Python 패키지 추가** 를 선택합니다.
 
-:::image type="content" source="media/python-3-packages/add-python-3-package.png" alt-text="Python 3 패키지 페이지의 스크린샷은 왼쪽 메뉴에서 Python 3 패키지와 강조 표시된 Python 2 패키지 추가를 표시합니다.":::
+   :::image type="content" source="media/python-3-packages/add-python-3-package.png" alt-text="Python 패키지 페이지의 스크린샷은 왼쪽 메뉴의 Python 패키지와 강조 표시된 Python 패키지 추가를 보여줍니다.":::
 
-**Python 패키지 추가** 페이지에서 **버전** 에 **python 3** 를 선택하고 업로드할 로컬 패키지를 선택합니다. 패키지는 **.whl** 또는 **.tar.gz** 파일일 수 있습니다. 패키지를 선택한 다음, **확인** 을 클릭하여 업로드합니다.
+1. Python **패키지 추가** 페이지에서 업로드할 로컬 패키지를 선택합니다. 패키지는 **.whl** 또는 **.tar.gz** 파일일 수 있습니다. 
+1. 이름을 입력하고 Python 3.8.x(미리 보기)로 **런타임 버전을** 선택합니다.
+1. **가져오기** 선택
 
-:::image type="content" source="media/python-3-packages/upload-package.png" alt-text="스크린샷은 업로드된 tar.gz 파일이 선택된 Python 3 패키지 추가 페이지 추가를 표시합니다.":::
+   :::image type="content" source="media/python-3-packages/upload-package.png" alt-text="스크린샷은 업로드된 tar.gz 파일이 선택된 Python 3.8.x 패키지 추가 페이지를 보여줍니다.":::
 
-패키지를 가져오면 해당 패키지가 해당 Automation 계정에서 Python 패키지 페이지의 **Python 3 패키지(미리 보기)** 탭 아래 나열됩니다. 패키지를 제거하려면 선택하고 **삭제** 를 선택합니다.
+패키지를 가져온 후에는 Automation 계정의 Python 패키지 페이지에 나열됩니다. 패키지를 제거하려면 패키지를 선택하고 **삭제를** 클릭합니다.
 
-:::image type="content" source="media/python-3-packages/python-3-packages-list.png" alt-text="스크린샷은 패키지를 가져온 후의 Python 3 패키지 페이지를 표시합니다.":::
+:::image type="content" source="media/python-3-packages/python-3-packages-list.png" alt-text="스크린샷은 패키지를 가져온 후 Python 3.8.x 패키지 페이지를 보여줍니다.":::
 
 ### <a name="import-a-package-with-dependencies"></a>종속성이 있는 패키지 가져오기
 

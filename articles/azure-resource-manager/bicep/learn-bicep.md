@@ -2,13 +2,13 @@
 title: Microsoft Learn의 Bicep 검색
 description: Microsoft Learn for Bicep에서 사용할 수 있는 단위의 개요를 제공합니다.
 ms.topic: conceptual
-ms.date: 10/18/2021
-ms.openlocfilehash: 086e9e4c9552e48ef4b9e8cf8a737cd2624ddd66
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.date: 10/26/2021
+ms.openlocfilehash: e05326be49df089375f7596794b7ed7e6d596179
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130176304"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087463"
 ---
 # <a name="bicep-on-microsoft-learn"></a>Microsoft Learn의 Bicep
 
@@ -20,30 +20,33 @@ Bicep이 Azure 배포를 단순화하고 가속화하는 데 어떻게 도움이
 
 :::row:::
 :::column:::
-<img src="media/learn-bicep/bicep-deploy-manage.svg" width="101" height="120" alt="The trophy for the Deploy and manage resources in Azure by using Bicep learning path." role="presentation"></img>
+  <img src="media/learn-bicep/bicep-deploy-manage.svg" width="101" height="120" alt="The trophy for the Deploy and manage resources in Azure by using Bicep learning path." role="presentation"></img>
 
-[1부: Bicep을 사용하여 Azure에서 리소스 배포 및 관리](/learn/paths/bicep-deploy/)
-
+  [1부: Bicep을 사용하여 Azure에서 리소스 배포 및 관리](/learn/paths/bicep-deploy/)
 :::column-end:::
 :::column:::
-<img src="media/learn-bicep/bicep-collaborate.svg" width="101" height="120" alt="The trophy for the Build Azure infrastructure in a team environment by using Bicep learning path." role="presentation"></img>
+  <img src="media/learn-bicep/bicep-collaborate.svg" width="101" height="120" alt="The trophy for the Build Azure infrastructure in a team environment by using Bicep learning path." role="presentation"></img>
 
-[2부: Bicep을 사용하여 팀 환경에서 Azure 인프라 구축](/learn/paths/bicep-collaborate/)
-
+  [2부: Bicep을 사용하여 팀 환경에서 Azure 인프라 구축](/learn/paths/bicep-collaborate/)
 :::column-end:::
 :::row-end:::
 
-## <a name="azure-pipelines-and-github-actions-modules"></a>Azure Pipelines 및 GitHub 작업 모듈
+## <a name="use-bicep-in-a-deployment-pipeline"></a>배포 파이프라인에서 Bicep 사용
 
-이전 학습 경로 외에도 다음 모듈에는 Azure Pipelines 및 GitHub 작업과 관련된 Bicep 콘텐츠가 포함되어 있습니다.
+그런 다음, 배포 파이프라인에 Bicep 코드를 추가하는 데 관심이 있을 수 있습니다. 사용할 도구에 따라 다음 두 학습 경로 중 하나를 수행합니다.
 
-| 학습 모듈 | Description |
-| ------------ | ----------- |
-| [Azure Pipelines를 사용하여 첫 번째 Bicep 배포 파이프라인 빌드](/learn/modules/build-first-bicep-deployment-pipeline-using-azure-pipelines/) | Bicep 코드에 대한 기본 배포 파이프라인을 빌드하세요. 서비스 연결을 사용하여 Azure에 대한 파이프라인을 안전하게 식별합니다. 트리거를 사용하여 파이프라인이 실행되는 시기를 구성합니다. |
-| [GitHub Actions를 사용하여 첫 번째 Bicep 배포 워크플로 빌드](/learn/modules/build-first-bicep-deployment-pipeline-using-github-actions/) | Bicep 코드에 대한 기본 배포 워크플로를 빌드합니다. 비밀을 사용하여 Azure에 대한 GitHub 작업 워크플로를 안전하게 식별한 다음, 트리거 및 일정을 사용하여 워크플로가 실행되는 시기를 설정합니다. |
-| [서비스 주체를 사용하여 Azure 배포 파이프라인 인증](/learn/modules/authenticate-azure-deployment-pipeline-service-principals/) | 서비스 주체를 사용하면 배포 파이프라인이 Azure를 사용하여 안전하게 인증할 수 있습니다. 이 모듈에서는 서비스 주체가 무엇인지, 어떻게 작동하는지, 서비스 주체를 어떻게 만드는 지 알아봅니다. 파이프라인이 Bicep 파일을 배포할 수 있도록 Azure 리소스에 사용 권한을 부여하는 방법도 알아봅니다. |
-| [Azure Pipelines를 사용하여 Bicep 코드 테스트](/learn/modules/test-bicep-code-using-azure-pipelines/) | 배포 파이프라인에서 Bicep 코드의 유효성을 검사하고 테스트합니다. 린팅, 실행 전 유효성 검사 및 가상 작업을 사용하여 배포 전에 Azure 변경 내용의 유효성을 검사하고, 각 배포 후에 리소스를 테스트합니다. |
-| [Bicep 및 Azure Pipelines 사용하여 여러 환경 관리](/learn/modules/manage-multiple-environments-using-bicep-azure-pipelines/) | Bicep 코드를 여러 환경에 배포하여 배포 품질을 향상시킵니다. 파이프라인 템플릿을 사용하여 코드 중복을 줄이고 각 환경에 대한 매개 변수 값을 설정합니다. |
+:::row:::
+:::column:::
+  <img src="media/learn-bicep/bicep-azure-pipelines.svg" width="101" height="120" alt="The trophy for the Deploy Azure resources using Bicep and Azure Pipelines learning path." role="presentation"></img>
+    
+  [Bicep 및 Azure Pipelines를 사용하여 Azure 리소스 배포](/learn/paths/bicep-azure-pipelines/)
+:::column-end:::
+:::column:::
+  <img src="media/learn-bicep/bicep-github-actions.svg" width="101" height="120" alt="The trophy for the Deploy Azure resources using Bicep and GitHub Actions learning path." role="presentation"></img>
+
+  [Bicep 및 GitHub Actions를 사용하여 Azure 리소스 배포](/learn/paths/bicep-github-actions/)
+:::column-end:::
+:::row-end:::
 
 ## <a name="next-steps"></a>다음 단계
 

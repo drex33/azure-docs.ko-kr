@@ -3,12 +3,12 @@ title: Bicep 모듈
 description: Bicep 파일에서 모듈을 정의하는 방법과 모듈 범위를 사용하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 10/15/2021
-ms.openlocfilehash: ae962b6a8f7f3c1cf2b2725b2305d9224323adfd
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: a8a0b9c1eeeb56c12926774a78d45bb58e7d8437
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130216336"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087384"
 ---
 # <a name="bicep-modules"></a>Bicep 모듈
 
@@ -17,6 +17,10 @@ Bicep을 사용하면 배포를 모듈로 구성할 수 있습니다. 모듈은 
 조직의 다른 사용자와 모듈을 공유하려면 [프라이빗 레지스트리 를 만듭니다.](private-module-registry.md) 레지스트리의 모듈은 올바른 권한이 있는 사용자만 사용할 수 있습니다.
 
 Bicep 모듈은 중첩된 템플릿이 있는 단일 Azure Resource Manager [템플릿으로 변환됩니다.](../templates/linked-templates.md#nested-template)
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+모듈 및 실습 지침에 대한 자세한 내용은 **Microsoft Learn** [모듈을 사용하여 구성 가능한 Bicep 파일 만들기를](/learn/modules/create-composable-bicep-files-using-modules/) 참조하세요.
 
 ## <a name="definition-syntax"></a>정의 구문
 
@@ -81,7 +85,7 @@ module <symbolic-name> 'br:<registry-name>.azurecr.io/<file-path>:<tag>' = {
 - **파일 경로는** `repository` Azure Container Registry 호출됩니다. **파일 경로는** 문자로 구분된 세그먼트를 포함할 수 `/` 있습니다.
 - **태그는** 모듈의 버전을 지정하는 데 사용됩니다.
 
-예를 들면 다음과 같습니다.
+예:
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/registry-definition.bicep" highlight="1" :::
 

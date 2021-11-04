@@ -3,7 +3,7 @@ title: Microsoft의 Azure CDN에 대한 HTTP 헤더 디버그 | Microsoft Docs
 description: 디버그 캐시 요청 헤더는 요청된 자산에 적용되는 캐시 정책에 대한 추가 정보를 제공합니다. 해당 헤더는 Microsoft의 Azure CDN에만 적용됩니다.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2019
-ms.author: allensu
-ms.openlocfilehash: 56f9b5b33600947920ff928eac53c0149afef682
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.author: duau
+ms.openlocfilehash: 5253d700f271ed18f6e1eae5488184da8ed6db7f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122568238"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450555"
 ---
 # <a name="debug-http-header-for-azure-cdn-from-microsoft"></a>Microsoft의 Azure CDN에 대한 HTTP 헤더 디버그
 디버그 응답 헤더인 `X-Cache`는 콘텐츠가 제공된 CDN 스택의 계층에 대한 세부 정보를 제공합니다. 해당 헤더는 Microsoft의 Azure CDN에만 적용됩니다.

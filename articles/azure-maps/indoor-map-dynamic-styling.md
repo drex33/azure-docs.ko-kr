@@ -1,18 +1,18 @@
 ---
 title: Azure Maps Creator 실내 지도를 위한 동적 스타일 구현
 description: Creator 실내 지도를 위한 동적 스타일 구현 방법 알아보기
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 05/20/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: 05e169667067033428d5fc995af4d866dc46d20b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 9089ff5adda1eedd441fc221ae1d5a0d3401ae12
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529414"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131462067"
 ---
 # <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Creator 실내 지도를 위한 동적 스타일 구현
 
@@ -74,7 +74,7 @@ map.events.add("click", function(e){
 4. 기능 업데이트 상태 [API](/rest/api/maps/v2/feature-state/update-states)에 다음 URL을 입력합니다(`{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로, `statesetId`를 `statesetId`로 대체).
 
     ```http
-    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 5. **Headers** 탭을 선택합니다.
@@ -107,7 +107,7 @@ map.events.add("click", function(e){
 10. `UNIT26`을 `UNIT27`로 바꿔 7단계에서 사용한 URL을 변경합니다.
 
     ```http
-    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT27?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT27?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 11. 다음 JSON 스타일을 복사한 다음, **본문** 창에 붙여넣습니다.
@@ -127,8 +127,9 @@ map.events.add("click", function(e){
 ### <a name="visualize-dynamic-styles-on-a-map"></a>지도에서 동적 스타일 시각화
 
 이전에 브라우저에서 연 웹 애플리케이션은 이제 맵 기능의 업데이트된 상태를 반영해야 합니다.
-- Office `UNIT27`(142)은 녹색으로 표시되어야 합니다.
-- Office `UNIT26`(143)은 빨간색으로 표시되어야 합니다.
+
+* Office `UNIT27`(142)은 녹색으로 표시되어야 합니다.
+* Office `UNIT26`(143)은 빨간색으로 표시되어야 합니다.
 
 ![녹색으로 표시된 빈 공간과 빨간색으로 표시된 사용 중인 공간](./media/indoor-map-dynamic-styling/room-state.png)
 

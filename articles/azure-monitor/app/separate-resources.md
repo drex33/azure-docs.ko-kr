@@ -3,12 +3,12 @@ title: Application Insights 배포를 설계하는 방법 - 하나의 리소스 
 description: 개발, 테스트 및 프로덕션 스탬프에 대한 다양한 리소스에 직접 원격 분석
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 9a60981e692a45dd3630073300b206289cfd2a30
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ffa3c0c6248fd34f91ec1756c3e7e5177134717e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102424668"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131078240"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>배포해야 하는 Application Insights 리소스의 수
 
@@ -24,23 +24,23 @@ ms.locfileid: "102424668"
 
 ### <a name="when-to-use-a-single-application-insights-resource"></a>단일 Application Insights 리소스를 사용하는 경우
 
--   함께 배포되는 애플리케이션 구성 요소의 경우 일반적으로 단일 팀에서 개발되며 동일한 DevOps/ITOps 사용자 세트를 통해 관리됩니다.
--   기본적으로 응답 기간, 대시보드의 실패율 등과 같은 KPI(핵심 성과 지표)를 전체적으로 집계하는 것이 적절한 경우에는 메트릭 탐색기 환경에서 역할 이름별로 분류하도록 선택할 수 있습니다.
--   응용 프로그램 구성 요소 간에 azure RBAC (역할 기반 액세스 제어)를 다르게 관리할 필요가 없는 경우
--   구성 요소 간에 다른 메트릭 경고 조건이 필요하지 않은 경우
--   구성 요소 간에 연속 내보내기를 다르게 관리할 필요가 없는 경우
--   구성 요소 간에 청구/할당량을 다르게 관리할 필요가 없는 경우
--   API 키가 모든 구성 요소의 데이터에 동일한 액세스 권한을 갖도록 할 수 있는 경우 그리고 10개의 API 키를 통해 모든 요구 사항을 충족할 수 있는 경우
--   모든 역할에 동일한 스마트 검색 및 작업 항목 통합 설정을 사용해야 하는 경우
+- 함께 배포되는 애플리케이션 구성 요소의 경우 일반적으로 단일 팀에서 개발되며 동일한 DevOps/ITOps 사용자 세트를 통해 관리됩니다.
+- 기본적으로 응답 기간, 대시보드의 실패율 등과 같은 KPI(핵심 성과 지표)를 전체적으로 집계하는 것이 적절한 경우에는 메트릭 탐색기 환경에서 역할 이름별로 분류하도록 선택할 수 있습니다.
+- 응용 프로그램 구성 요소 간에 azure RBAC (역할 기반 액세스 제어)를 다르게 관리할 필요가 없는 경우
+- 구성 요소 간에 다른 메트릭 경고 조건이 필요 하지 않은 경우
+- 구성 요소 간에 연속 내보내기를 다르게 관리할 필요가 없는 경우
+- 구성 요소 간에 청구/할당량을 다르게 관리할 필요가 없는 경우
+- API 키가 모든 구성 요소의 데이터에 동일한 액세스 권한을 갖도록 할 수 있는 경우 그리고 10개의 API 키를 통해 모든 요구 사항을 충족할 수 있는 경우
+- 모든 역할에 동일한 스마트 검색 및 작업 항목 통합 설정을 사용해야 하는 경우
 
 > [!NOTE]
 > 여러 Application Insights 리소스를 통합 하려는 경우 기존 응용 프로그램 구성 요소를 통합 된 새 Application Insights 리소스로 지정할 수 있습니다. 이전 리소스에 저장 된 원격 분석은 새 리소스로 전송 되지 않으므로 비즈니스 연속성을 위해 새 리소스에 충분 한 원격 분석을 보유 하 고 있는 경우에만 이전 리소스를 삭제 합니다.
 
 ### <a name="other-things-to-keep-in-mind"></a>주의해야 할 기타 사항
 
--   의미 있는 값이 [Cloud_RoleName](./app-map.md?tabs=net#set-or-override-cloud-role-name) 특성으로 설정되도록 사용자 지정 코드를 추가해야 할 수 있습니다. 이 특성에 대해 의미 있는 값이 설정되지 않으면 포털 환경의 *NONE* 이 작동합니다.
+- 의미 있는 값이 [Cloud_RoleName](./app-map.md?tabs=net#set-or-override-cloud-role-name) 특성으로 설정되도록 사용자 지정 코드를 추가해야 할 수 있습니다. 이 특성에 대해 의미 있는 값이 설정되지 않으면 포털 환경의 *NONE* 이 작동합니다.
 - Service Fabric 애플리케이션 및 클래식 클라우드 서비스의 경우 SDK는 Azure 역할 환경에서 자동으로 읽고 이를 설정합니다. 다른 모든 유형의 앱의 경우 이를 명시적으로 설정해야 할 수도 있습니다.
--   라이브 메트릭 환경은 역할 이름별로 분할하는 것을 지원하지 않습니다.
+- 라이브 메트릭 환경은 역할 이름별로 분할하는 것을 지원하지 않습니다.
 
 ## <a name="dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a> 동적 계측 키
 
@@ -99,7 +99,7 @@ Application Insights 리소스를 만들려면 [리소스 생성 가이드](./cr
 * [원격 분석 이니셜라이저](../../azure-monitor/app/api-custom-events-metrics.md#defaults) 에서 해당 줄을 래핑하여 모든 TelemetryClient 인스턴스가 일관되게 설정되었는지 확인합니다.
 * [ASP.NET] `BuildInfo.config`에서 버전을 설정합니다. 웹 모듈은 BuildLabel 노드에서 버전을 선택합니다. 프로젝트에 이 파일을 포함하고 솔루션 탐색기에서 항상 복사 속성을 설정합니다.
 
-    ```XML
+    ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <DeploymentEvent xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
       <ProjectName>AppVersionExpt</ProjectName>
@@ -113,7 +113,7 @@ Application Insights 리소스를 만들려면 [리소스 생성 가이드](./cr
     ```
 * [ASP.NET] MSBuild에서 BuildInfo.config를 자동으로 생성합니다. 이 작업을 수행하려면 `.csproj` 파일에 몇 줄을 추가합니다.
 
-    ```XML
+    ```xml
     <PropertyGroup>
       <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
     </PropertyGroup>
@@ -126,9 +126,9 @@ Application Insights 리소스를 만들려면 [리소스 생성 가이드](./cr
     MSBuild가 버전 번호를 생성하게 하려면 AssemblyReference.cs에서 `1.0.*` 같이 버전을 설정합니다.
 
 ## <a name="version-and-release-tracking"></a>버전 및 릴리스 추적
-애플리케이션 버전을 추적하려면 `buildinfo.config`가 Microsoft Build Engine 프로세스에 의해 생성되도록 해야 합니다. `.csproj` 파일에서 다음을 추가합니다.  
+애플리케이션 버전을 추적하려면 `buildinfo.config`가 Microsoft Build Engine 프로세스에 의해 생성되도록 해야 합니다. `.csproj` 파일에서 다음을 추가합니다.
 
-```XML
+```xml
 <PropertyGroup>
   <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>
   <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
@@ -140,7 +140,8 @@ Application Insights 리소스를 만들려면 [리소스 생성 가이드](./cr
 그러나 빌드 버전 번호는 Visual Studio의 개발자 빌드가 아니라 Microsoft Build Engine에서만 생성됩니다.
 
 ### <a name="release-annotations"></a>릴리스 주석
-Azure DevOps를 사용하는 경우 새 버전을 릴리스할 때마다 [주석 표식](../../azure-monitor/app/annotations.md)이 차트에 추가됩니다. 
+
+Azure DevOps를 사용하는 경우 새 버전을 릴리스할 때마다 [주석 표식](../../azure-monitor/app/annotations.md)이 차트에 추가됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

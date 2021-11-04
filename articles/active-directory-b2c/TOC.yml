@@ -7,6 +7,7 @@
       href: overview.md
     - name: 기술 및 기능 개요
       href: technical-overview.md
+      displayName: 'Azure AD B2C architecture, SLA, Azure AD B2C high availability, Azure AD B2C SLA, HA'
     - name: 지원되는 Azure AD 기능
       href: supported-azure-ad-features.md
     - name: Docs의 새로운 기능
@@ -81,7 +82,7 @@
           href: custom-policy-overview.md
     - name: API 커넥터
       href: api-connectors-overview.md
-      displayName: 'REST API, web API, API connectors'
+      displayName: 'REST API, web API, API connectors, Dynamic data retrieval, external data sources, external identity data source, outbound webhooks, third-party integration'
     - name: 사용자 계정
       href: user-overview.md
     - name: 사용자 프로필 특성
@@ -222,7 +223,7 @@
           displayName: 'AD-FS, ADFS'
         - name: Amazon
           href: identity-provider-amazon.md
-        - name: Apple(미리 보기)
+        - name: Apple
           href: identity-provider-apple-id.md
         - name: Azure AD(단일 테넌트)
           href: identity-provider-azure-ad-single-tenant.md
@@ -396,12 +397,13 @@
       items:
         - name: 등록 환경 수정
           href: add-api-connector.md
-          displayName: 'rest claims validation, validate'
+          displayName: 'rest claims validation, validate, third-party integration, outbound webhook, third-party integration'
         - name: 외부 클레임을 통한 토큰 보강
           href: add-api-connector-token-enrichment.md
-          displayName: rest claims exchange
+          displayName: 'rest claims exchange, API connectors, Dynamic data retrieval, external data sources, external identity data source, outbound webhooks, third-party integration'
         - name: API 커넥터 보호
           href: secure-rest-api.md
+          displayName: 'API connectors, Dynamic data retrieval, external data sources, external identity data source, outbound webhooks, third-party integration'
     - name: 문제 해결
       items:
         - name: Application Insights를 사용하여 로그 수집
@@ -607,6 +609,7 @@
       displayName: Page version
     - name: 지역 가용성 및 데이터 상주
       href: data-residency.md
+      displayName: 'SLA, Azure AD B2C high availability, Azure AD B2C SLA, high availability, HA'
     - name: 복원력을 위해 빌드
       items:
         - name: 복원력에 대해 Azure AD B2C 도입
@@ -630,6 +633,7 @@
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
     - name: 질문과 대답
       href: ./faq.yml
+      displayName: FAQ
     - name: 도움말 보기
       href: ../active-directory/develop/developer-support-help-options.md
     - name: 가격 책정

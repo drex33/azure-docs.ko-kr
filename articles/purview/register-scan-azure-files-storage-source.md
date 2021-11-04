@@ -1,22 +1,29 @@
 ---
-title: Azure 파일을 등록하고 검사하는 방법
-description: 이 방법 가이드에서는 Azure Purview에서 Azure 파일을 검사하는 방법에 대한 세부 정보를 설명합니다.
+title: Azure Files 커넥트 및 관리
+description: 이 가이드에서는 Azure 부서의 범위에서 Azure Files에 연결 하 고 부서의 범위의 기능을 사용 하 여 Azure Files 원본을 검색 하 고 관리 하는 방법을 설명 합니다.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 06/22/2021
-ms.openlocfilehash: 2db2b5343b8a55e29881bf0908fded0a48b90b78
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 11/02/2021
+ms.custom: template-how-to, ignite-fall-2021
+ms.openlocfilehash: e91e435ca2d8050a0c6d9728c4d010f9e9c844c4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129209911"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131076266"
 ---
-# <a name="register-and-scan-azure-files"></a>Azure Files 등록 및 검사
+# <a name="connect-to-and-manage-azure-files-in-azure-purview"></a>Azure 부서의 범위에서 Azure Files 커넥트 및 관리
+
+이 문서에서는 Azure Files 등록 하는 방법 및 Azure 부서의 범위에서 Azure Files을 인증 하 고 상호 작용 하는 방법을 설명 합니다. Azure 부서의 범위에 대 한 자세한 내용은 [소개 문서](overview.md)를 참조 하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
+
+|**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
+|---|---|---|---|---|---|---|
+| [예](#register) | [예](#scan) | [예](#scan) | [예](#scan) | [예](#scan) | 아니요 | 아니요 |
 
 Azure Files는 시스템 기본 및 사용자 지정 분류 규칙을 기반으로 메타데이터 및 분류를 캡처하는 전체 및 증분 검색을 지원합니다.
 
@@ -24,20 +31,27 @@ csv, tsv, psv, ssv와 같은 파일 형식의 경우 다음 논리가 있을 때
 
 1. 첫 번째 행 값이 비어 있지 않음
 2. 첫 번째 행 값이 고유함
-3. 첫 번째 행 값은 날짜 및 숫자가 아님
+3. 첫 번째 행 값은 날짜 또는 숫자가 아닙니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- 데이터 원본을 등록하기 전에 Azure Purview 계정을 만듭니다. Purview 계정을 만드는 방법에 관한 자세한 내용은 [빠른 시작: Azure Purview 계정 만들기](create-catalog-portal.md)를 참조하세요.
-- 검사를 설정하고 예약하려면 데이터 원본 관리자여야 합니다. 자세한 내용은 [카탈로그 권한](catalog-permissions.md)을 참조하세요.
+* 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="setting-up-authentication-for-a-scan"></a>검사 인증 설정
+* 활성 [Purview 리소스](create-catalog-portal.md).
+
+* 원본을 등록하고 Purview Studio에서 관리하려면 데이터 원본 관리자 및 데이터 읽기 권한자여야 합니다. 자세한 내용은 [Azure Purview 권한 페이지](catalog-permissions.md)를 참조하세요.
+
+## <a name="register"></a>등록
+
+이 섹션에서는 [부서의 범위 Studio](https://web.purview.azure.com/)를 사용 하 여 Azure 부서의 범위에 Azure Files를 등록 하는 방법을 설명 합니다.
+
+### <a name="authentication-for-registration"></a>등록 인증
 
 현재 Azure 파일 공유에 대한 인증을 설정하는 방법은 다음 한 가지뿐입니다.
 
 - 계정 키
 
-### <a name="account-key"></a>계정 키
+#### <a name="account-key-to-register"></a>등록할 계정 키
 
 선택한 인증 방법이 **계정 키** 인 경우 액세스 키를 가져와서 Key Vault에 저장해야 합니다.
 
@@ -51,7 +65,7 @@ csv, tsv, psv, ssv와 같은 파일 형식의 경우 다음 논리가 있을 때
 1. 키 자격 증명 모음이 아직 Purview에 연결되지 않은 경우 [새 키 자격 증명 모음 연결을 만들어야](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account) 합니다.
 1. 마지막으로 키를 사용하여 검사를 설정하기 위한 [새 자격 증명을 만듭니다](manage-credentials.md#create-a-new-credential).
 
-## <a name="register-an-azure-files-storage-account"></a>Azure Files 스토리지 계정 등록
+### <a name="steps-to-register"></a>등록 단계
 
 새 Azure Files 계정을 데이터 카탈로그에 등록하려면 다음 단계를 수행합니다.
 
@@ -73,17 +87,21 @@ csv, tsv, psv, ssv와 같은 파일 형식의 경우 다음 논리가 있을 때
 
 :::image type="content" source="media/register-scan-azure-files/azure-file-register-source.png" alt-text="원본 등록 옵션" border="true":::
 
-## <a name="creating-and-running-a-scan"></a>검사 만들기 및 실행
+## <a name="scan"></a>검사
+
+Azure Files를 검색 하 여 자산을 자동으로 식별 하 고 데이터를 분류 하려면 아래 단계를 따르세요. 일반적인 검사에 대한 자세한 내용은 [검사 및 수집 소개](concept-scans-and-ingestion.md)를 참조하세요.
+
+### <a name="create-and-run-scan"></a>검사 만들기 및 실행
 
 새 검사를 만들고 실행하려면 다음 단계를 수행합니다.
 
-1. [Purview Studio의](https://web.purview.azure.com/resource/)왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
+1. [Purview Studio](https://web.purview.azure.com/resource/)의 왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
 
 1. 등록한 Azure Files 원본을 선택합니다.
 
 1. **새 검사** 를 선택합니다.
 
-1. 데이터 원본에 연결할 계정 키 자격 증명을 선택합니다. 
+1. 데이터 원본에 연결할 계정 키 자격 증명을 선택합니다.
 
    :::image type="content" source="media/register-scan-azure-files/set-up-scan-azure-file.png" alt-text="검사 설정":::
 
@@ -101,10 +119,12 @@ csv, tsv, psv, ssv와 같은 파일 형식의 경우 다음 논리가 있을 때
 
 1. 검사를 검토하고 **저장 및 실행** 을 선택합니다.
 
-
 [!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Purview 데이터 카탈로그 찾아보기](how-to-browse-catalog.md)
-- [Azure Purview Data Catalog 검색](how-to-search-catalog.md)
+이제 소스를 등록했으므로 아래 가이드에 따라 Purview 및 데이터에 대해 자세히 알아봅니다.
+
+- [Azure Purview의 데이터 인사이트](concept-insights.md)
+- [Azure Purview의 계보](catalog-lineage-user-guide.md)
+- [Data Catalog 검색](how-to-search-catalog.md)

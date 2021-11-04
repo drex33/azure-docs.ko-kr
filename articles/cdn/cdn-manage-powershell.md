@@ -3,7 +3,7 @@ title: PowerShell을 사용하여 Azure CDN 관리 | Microsoft Docs
 description: 이 자습서에서는 PowerShell을 사용하여 Azure Content Delivery Network 엔드포인트 프로필 및 엔드포인트의 여러 측면을 관리하는 방법을 알아봅니다.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.assetid: fb6f57a5-6e26-4847-8fd9-b51fb05a79eb
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/20/2019
-ms.author: allensu
+ms.author: duau
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 63ec9a2c83a8cc51479a0f8c00f044cc2fb9b5ee
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: 985f6ad38e1a603f22e83b2863ebed869b6e5982
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110696230"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131461478"
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>PowerShell을 사용하여 Azure CDN 관리
 PowerShell은 Azure CDN 프로필 및 엔드포인트를 관리하는 매우 유연한 방법 중 하나를 제공합니다.  PowerShell을 대화형으로 또는 관리 작업을 자동화하는 스크립트를 작성하여 사용할 수 있습니다.  이 자습서에서는 PowerShell을 사용하여 Azure CDN 프로필 및 엔드포인트의 관리를 달성할 수 있는 가장 일반적인 작업 몇 가지를 보여줍니다.

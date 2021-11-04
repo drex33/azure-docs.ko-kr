@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 10/05/2021
+ms.date: 10/25/2021
 ms.author: tisande
-ms.openlocfilehash: 13d667327fde6f55072f40dd6d1f9b7eb07d1214
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: ed60ce6586947f59d9a6c32b08f1c50082db5077
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129615205"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056711"
 ---
 # <a name="indexing-metrics-in-azure-cosmos-db"></a>Azure Cosmos DB에서 메트릭 인덱싱
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -29,36 +29,23 @@ Azure Cosmos DB는 활용된 인덱싱된 경로와 권장 인덱싱된 경로�
 ### <a name="net-sdk-example"></a>.NET SDK 예제
 
 ```csharp
-    string sqlQuery = "SELECT TOP 10 c.id FROM c WHERE c.Item = 'value1234' AND c.Price > 2";
+    string sqlQueryText = "SELECT TOP 10 c.id FROM c WHERE c.Item = 'value1234' AND c.Price > 2";
 
-    List<Result> results = new List<Result>(); //Individual Benchmark results
+    QueryDefinition query = new QueryDefinition(sqlQueryText);
 
-    QueryDefinition query = new QueryDefinition(sqlQuery);
-
-    FeedIterator<Item> resultSetIterator = exampleApp.container.GetItemQueryIterator<Item>(
+    FeedIterator<Item> resultSetIterator = container.GetItemQueryIterator<Item>(
                 query, requestOptions: new QueryRequestOptions
         {
             PopulateIndexMetrics = true
         });
 
-    double requestCharge = 0;
-    tring indexMetrics = "";
-
     FeedResponse<Item> response = null;
 
     while (resultSetIterator.HasMoreResults)
         {
-            response = await resultSetIterator.ReadNextAsync();
-            requestCharge = requestCharge + response.RequestCharge;
-
-            if (indexMetrics != "")
-                {
-                    indexMetrics = response.IndexMetrics;
-                }
+          response = await resultSetIterator.ReadNextAsync();
+          Console.WriteLine(response.IndexMetrics);
         }
-
-    Console.WriteLine(response.IndexMetrics);
-    Console.WriteLine($"RU charge: " + response.RequestCharge);
 ```
 
 ### <a name="example-output"></a>예제 출력
@@ -111,7 +98,7 @@ FROM c
 WHERE c.name = "Samer"
 ```
 
-데이터의 특성에 따른 실제 영향입니다. 몇 가지 항목만 필터와 일치하는 경우 `/name` 인덱싱된 경로는 쿼리 RU 요금을 크게 향상시킵니다. 그러나 대부분의 항목이 필터와 일치하게 되면 `/name` 인덱싱된 경로로 쿼리 성능이 향상되지 않을 수 있습니다. 이러한 각 경우 인덱싱된 `/name/?` 경로에는 **높은** 인덱스 영향 점수가 할당됩니다. 쿼리 셰이프에 따라 인덱싱된 경로가 쿼리 성능을 개선할 가능성이 높기 때문입니다.
+데이터의 특성에 따른 실제 영향입니다. 필터와 일치하는 항목이 몇 가지뿐인 경우 `/name` 인덱싱된 경로는 쿼리 RU 요금을 크게 향상시킵니다. 그러나 대부분의 항목이 필터와 일치하게 되면 `/name` 인덱싱된 경로로 쿼리 성능이 향상되지 않을 수 있습니다. 이러한 각 경우 인덱싱된 `/name/?` 경로에는 **높은** 인덱스 영향 점수가 할당됩니다. 쿼리 셰이프에 따라 인덱싱된 경로가 쿼리 성능을 개선할 가능성이 높기 때문입니다.
 
 ## <a name="additional-examples"></a>추가 예
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: f3eba06b40ef9f96dc5b94b6d21b43e6fecccce1
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 92d879f0ed4d7252624f0d825fc50892d3d5851e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129358076"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131474158"
 ---
 # <a name="tutorial-migrate-a-web-app-from-google-maps"></a>자습서: Google Maps에서 웹앱 마이그레이션
 
@@ -158,7 +158,7 @@ JavaScript 프레임워크를 사용하여 개발하는 경우 다음 오픈 소
     </script>
 
     <!-- Google Maps Script Reference -->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=[Your Google Maps Key]" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key={Your-Google-Maps-Key}" async defer></script>
 </head>
 <body>
     <div id='myMap' style='position:relative;width:600px;height:400px;'></div>
@@ -245,7 +245,7 @@ JavaScript 프레임워크를 사용하여 개발하는 경우 다음 오픈 소
 Google Maps를 지역화하려면 언어 및 지역 매개 변수를 추가합니다.
 
 ```html
-<script type="text/javascript" src=" https://maps.googleapis.com/maps/api/js?callback=initMap&key=[api_key]& language=[language_code]&region=[region_code]" async defer></script>
+<script type="text/javascript" src=" https://maps.googleapis.com/maps/api/js?callback=initMap&key={api-Key}& language={language-code}&region={region-code}" async defer></script>
 ```
 
 다음은 언어가 "fr-FR"로 설정된 Google Maps의 예입니다.
@@ -854,7 +854,7 @@ Google Maps는 `google.maps.Data` 클래스를 통해 GeoJSON 데이터의 로�
     </script>
 
     <!-- Google Maps Script Reference -->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=[Your Google Maps Key]" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key={Your-Google-Maps-Key}" async defer></script>
 </head>
 <body>
     <div id='myMap' style='position:relative;width:600px;height:400px;'></div>
@@ -1008,7 +1008,7 @@ MarkerCluster 라이브러리를 사용하여 표식을 클러스터링합니다
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
 
     <!-- Google Maps Script Reference -->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=[Your Google Maps Key]" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key={Your-Google-Maps-Key}" async defer></script>
 </head>
 <body>
     <div id='myMap' style='position:relative;width:600px;height:400px;'></div>
@@ -1214,7 +1214,7 @@ Azure Maps 맵 내에서 `DataSource` 클래스의 `importDataFromUrl` 함수를
     </script>
 
     <!-- Google Maps Script Reference -->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=[Your Google Maps Key]&libraries=visualization" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key={Your-Google-Maps-Key}&libraries=visualization" async defer></script>
 </head>
 <body>
     <div id='myMap' style='position:relative;width:600px;height:400px;'></div>
@@ -1424,7 +1424,7 @@ Azure와 Google 맵 모두, 맵에 지리 좌표화된(georeferenced) 이미지 
     </script>
 
     <!-- Google Maps Script Reference -->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=[Your Google Maps Key]" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key={Your-Google-Maps-Key}" async defer></script>
 </head>
 <body>
     <div id="myMap" style="position:relative;width:600px;height:400px;"></div>
@@ -1534,7 +1534,7 @@ Azure 및 Google 맵 모두 맵에서 KML, KMZ 및 GeoRSS 데이터를 가져와
     </script>
 
     <!-- Google Maps Script Reference -->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=[Your Google Maps Key]" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key={Your-Google-Maps-Key}" async defer></script>
 </head>
 <body>
     <div id="myMap" style="position:relative;width:600px;height:400px;"></div>

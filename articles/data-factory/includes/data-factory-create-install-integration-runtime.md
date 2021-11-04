@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 6bf40202908aa68345fabd2b6fe55d501e8325ff
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 2fb845291697a2aee1d317c700a9a912d57565a5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124733028"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051150"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 만들기
 
@@ -17,7 +17,7 @@ ms.locfileid: "124733028"
 
 1. 통합 런타임의 이름에 대한 변수를 만듭니다. 고유한 이름을 사용하고 기록해 둡니다. 이 자습서의 뒷부분에서 사용합니다. 
 
-    ```powershell
+   ```powershell
    $integrationRuntimeName = "ADFTutorialIR"
     ```
 2. 자체 호스팅 통합 런타임을 만듭니다. 

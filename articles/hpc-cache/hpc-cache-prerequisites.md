@@ -1,17 +1,17 @@
 ---
 title: Azure HPC Cache 필수 조건
 description: Azure HPC Cache를 사용하기 위한 필수 조건
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 05/06/2021
-ms.author: v-erkel
-ms.openlocfilehash: 202f942bc4fb47b2c71802667e31e08de7cfe13e
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
-ms.translationtype: HT
+ms.author: femila
+ms.openlocfilehash: b075e41d8bd8865fcb5ed24c4ecba2b9f539d3dd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113588816"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131078601"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Azure HPC Cache의 필수 조건
 

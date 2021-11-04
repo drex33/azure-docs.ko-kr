@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 02/23/2021
 ms.author: alkemper
-ms.openlocfilehash: 61b50f8e3c5b32401b4f7339627b9b704a4b94fd
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
-ms.translationtype: HT
+ms.openlocfilehash: 2f5ac3579489637e5adcdfaa40fac90b5ff6e8b4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112122973"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131427155"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Azure Pipelines를 사용하여 설정을 App Configuration으로 밀어넣기
 
@@ -24,6 +24,7 @@ ms.locfileid: "112122973"
 - App Configuration 리소스 - [Azure Portal](https://portal.azure.com)에서 무료로 만듭니다.
 - Azure DevOps 프로젝트 - [무료로 한 개 만들기](https://go.microsoft.com/fwlink/?LinkId=2014881)
 - Azure App Configuration Push 작업 - [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push)에서 무료로 다운로드합니다.
+- [노드 10](https://nodejs.org/en/blog/release/v10.21.0/) - 자체 호스팅 에이전트에서 작업을 실행하는 사용자용입니다.
 
 ## <a name="create-a-service-connection"></a>서비스 연결 만들기
 

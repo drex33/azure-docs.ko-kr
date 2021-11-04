@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 9025b32aa2ea6fd8fefa91d89b608c0e5d26b45e
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: c0e61760b130631c4f688b06f2cebdb163ea3910
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129992908"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131452151"
 ---
 # <a name="what-is-azure-virtual-desktop"></a>Azure Virtual Desktop이란?
 
@@ -67,7 +67,7 @@ Azure Virtual Desktop을 설정하고 Windows 데스크톱 및 애플리케이�
 |---|---|
 |Windows 10 Enterprise 다중 세션 또는 Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F3, Business 프리미엄<br>Windows E3, E5, A3, A5|
 |Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F3, Business 프리미엄<br>Windows E3, E5, A3, A5|
-|Windows Server 2012 R2, 2016, 2019|Software Assurance가 포함된 RDS CAL(클라이언트 액세스 라이선스)|
+|Windows Server 2012 R2, 2016, 2019, 2022|Software Assurance가 포함된 RDS CAL(클라이언트 액세스 라이선스)|
 
 Azure Virtual Desktop을 지원하려면 인프라에 다음과 같은 것들이 필요합니다.
 
@@ -128,6 +128,7 @@ Azure Virtual Desktop은 [Microsoft 수명 주기 정책](/lifecycle/)을 따르
 * Windows 10 Enterprise 다중 세션
 * Windows 10 Enterprise
 * Windows 7 Enterprise
+* Windows Server 2022
 * Windows Server 2019
 * Windows Server 2016
 * Windows Server 2012 R2
@@ -143,6 +144,7 @@ Azure Virtual Desktop은 x86(32비트), Windows 10 Enterprise N, Windows 10 LTSB
 |Windows 10 Enterprise 다중 세션, 버전 1909 이상|예|예|예|예|
 |Windows 10 Enterprise, 버전 1909 이상|예|예|예|예|
 |Windows 7 Enterprise|예|예|아니요|아니요|
+|Windows Server 2022|예|예|아니요|아니요|
 |Windows Server 2019|예|예|아니요|예|
 |Windows Server 2016|예|예|예|예|
 |Windows Server 2012 R2|예|예|아니요|아니요|

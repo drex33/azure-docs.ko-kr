@@ -7,14 +7,13 @@ ms.author: cshoe
 ms.date: 05/07/2021
 ms.topic: quickstart
 ms.service: static-web-apps
-ms.custom:
-- mode-portal
-ms.openlocfilehash: 41be62a4e7baed39cc45011ed055a1abfe097002
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: mode-portal
+ms.openlocfilehash: a1f193ded9424361a0ee4afcdbd3566b6e990fe4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124804578"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008886"
 ---
 # <a name="quickstart-building-your-first-static-site-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 첫 번째 정적 사이트 빌드
 
@@ -22,7 +21,7 @@ Azure Static Web Apps는 GitHub 리포지토리에서 앱을 빌드하여 프로
 
 Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.com/free)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [GitHub](https://github.com) 계정
 - [Azure](https://portal.azure.com) 계정

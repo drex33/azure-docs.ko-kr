@@ -1,19 +1,20 @@
 ---
 title: Azure Billing Enterprise API
 description: Azure 기업 고객이 사용량 데이터를 프로그래밍 방식으로 끌어올 수 있게 하는 보고 API에 대해 알아봅니다.
-author: mumami
+author: bandersmsft
+ms.reviewer: adwise
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: reference
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 6fa152277ad027a7a0e2e6c49d02ca3d0c8c37a5
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5f5842f264236015d9ecf50906af62505d8677e0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128671339"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131454127"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>기업 고객을 위한 보고 API 개요
 

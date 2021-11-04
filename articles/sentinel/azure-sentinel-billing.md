@@ -5,17 +5,19 @@ services: sentinel
 author: batamig
 ms.author: bagol
 ms.service: azure-sentinel
-ms.custom: subject-cost-optimization
+ms.custom: subject-cost-optimization, ignite-fall-2021
 ms.topic: how-to
-ms.date: 09/02/2021
-ms.openlocfilehash: bd3ff870952701901f432660ec0069afa5151916
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.date: 10/17/2021
+ms.openlocfilehash: 8997a8a3d06fb14c4ad76fe01517a7f59c0944eb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129275357"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060861"
 ---
 # <a name="plan-and-manage-costs-for-azure-sentinel"></a>Azure Sentinel 비용 계획 및 관리
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 이 문서에서는 Azure Sentinel을 계획하고 비용을 관리하는 방법을 설명합니다. 서비스를 위한 리소스를 추가하기 전에 먼저 Azure 가격 계산기를 사용하여 Azure Sentinel 비용을 계획합니다. 그런 다음, Azure 리소스를 추가할 때 예상 비용을 검토합니다.
 
@@ -52,7 +54,7 @@ Azure Sentinel을 아직 사용하지 않는 경우 [Azure Sentinel 가격 계�
 
 Azure Sentinel은 유연하고 예측 가능한 가격 책정 모델을 제공합니다. 자세한 내용은 [Azure Sentinel 가격 페이지](https://azure.microsoft.com/pricing/details/azure-sentinel/)를 참조하세요. 관련 Log Analytics 요금은 [Azure Monitor Log Analytics 가격](https://azure.microsoft.com/pricing/details/log-analytics/)을 참조하세요.
 
-Azure Sentinel은 Azure 인프라에서 실행되며 새 리소스를 배포할 때 비용이 발생합니다. 다른 추가 인프라 비용이 발생할 수도 있다는 점을 이해하는 것이 중요합니다.
+Azure Sentinel은 Azure 인프라에서 실행되며 새 리소스를 배포할 때 비용이 발생합니다. 다른 추가 인프라 비용을 발생 시킬 수 있음을 이해 하는 것이 중요 합니다.
 ### <a name="how-youre-charged-for-azure-sentinel"></a>Azure Sentinel 요금이 청구되는 방식
 
 Azure Sentinel 서비스에 대한 비용을 지불하는 방법에는 **종량제** 및 **약정 계층** 의 두 가지가 있습니다.
@@ -62,7 +64,7 @@ Azure Sentinel 서비스에 대한 비용을 지불하는 방법에는 **종량�
 
 - Log Analytics 및 Azure Sentinel에는 이전에 용량 예약이라고 한 **약정 계층** 가격 책정도 있습니다. 이는 종량제 가격 책정에 비해 예측 가능성이 더 높고 최대 65%까지 절약됩니다.
 
-    약정 계층 가격 책정을 사용하면 100GB/일부터 시작하는 약정을 구입할 수 있습니다. 약정 수준을 초과하는 사용량은 선택한 약정 계층 요금으로 청구됩니다. 예를 들어 100GB/일의 약정 계층은 약정된 100GB/일의 데이터 볼륨 및 추가 GB/일에 대해 해당 계층의 할인된 요금으로 청구합니다.
+    약정 계층 가격 책정을 사용하면 100GB/일부터 시작하는 약정을 구입할 수 있습니다. 약정 수준을 초과하는 사용량은 선택한 약정 계층 요금으로 청구됩니다. 예를 들어 100 g b의 약정 계층은 커밋된 100 GB 데이터 볼륨에 대 한 요금을 청구 하 고 해당 계층에 대 한 할인 된 요금으로 추가 GB/일을 청구 합니다.
 
     언제든지 약정 계층을 늘리고 31일마다 줄여 데이터 볼륨이 증가하거나 감소함에 따라 비용을 최적화할 수 있습니다. 현재 Azure Sentinel 가격 책정 계층을 보려면 Azure Sentinel의 왼쪽 탐색 영역에서 **설정** 을 선택한 다음, **가격 책정** 탭을 선택합니다. 현재 가격 책정 계층이 **현재 계층** 으로 표시됩니다.
 
@@ -94,7 +96,7 @@ Azure 청구서 보기 및 다운로드에 대한 자세한 내용은 [Azure 비
 
 ### <a name="costs-for-other-services"></a>다른 서비스에 대한 비용
 
-Azure Sentinel은 다른 많은 Azure 서비스와 통합되어 향상된 기능을 제공합니다. 이러한 서비스로 Azure Logic Apps, Azure Notebooks 및 BYOML(Bring Your Own Machine Learning) 모델이 있습니다. 이러한 서비스 중 일부에는 추가 요금이 청구될 수 있습니다. Azure Sentinel의 데이터 커넥터 및 솔루션 중 일부는 데이터 수집을 위해 Azure Functions를 사용하며, 여기에도 별도의 관련 비용이 있습니다.
+Azure Sentinel은 다른 많은 Azure 서비스와 통합되어 향상된 기능을 제공합니다. 이러한 서비스로 Azure Logic Apps, Azure Notebooks 및 BYOML(Bring Your Own Machine Learning) 모델이 있습니다. 이러한 서비스 중 일부에는 추가 요금이 부과 될 수 있습니다. Azure Sentinel의 데이터 커넥터 및 솔루션 중 일부는 데이터 수집을 위해 Azure Functions를 사용하며, 여기에도 별도의 관련 비용이 있습니다.
 
 이러한 서비스에 대한 자세한 가격 책정 세부 정보는 다음을 참조하세요.
 
@@ -111,11 +113,11 @@ Log Analytics 작업 영역에서 Azure Sentinel을 사용하도록 설정하면
 
 개별 데이터 형식에 대해 다른 보존 설정을 지정할 수 있습니다. 자세한 내용은 [데이터 형식별 보존 기간](../azure-monitor/logs/manage-cost-storage.md#retention-by-data-type)을 참조하세요.
 
-### <a name="other-cef-ingestion-costs"></a>기타 CEF 집적 비용
+### <a name="other-cef-ingestion-costs"></a>기타 CEF 수집 비용
 
-CEF는 Azure Sentinel에서 지원되는 Syslog 이벤트 형식입니다. CEF를 사용하여 중요한 보안 정보를 다양한 원본에서 Azure Sentinel 작업 영역으로 가져올 수 있습니다. CEF 로그는 최신의 모든 표준 CEF 필드를 포함하는 Azure Sentinel의 CommonSecurityLog 테이블에 있습니다.
+CEF는 Azure Sentinel에서 지원되는 Syslog 이벤트 형식입니다. CEF를 사용 하 여 다양 한 원본에서 Azure 센티널 작업 영역으로 중요 한 보안 정보를 가져올 수 있습니다. CEF 로그는 최신의 모든 표준 CEF 필드를 포함하는 Azure Sentinel의 CommonSecurityLog 테이블에 있습니다.
 
-많은 디바이스 및 데이터 원본에는 표준 CEF 스키마 이외의 로깅 필드가 허용됩니다. 이러한 추가 필드는 AdditionalExtensions 테이블에 있습니다. 이러한 필드 내의 이벤트 콘텐츠는 가변적일 수 있으므로 이러한 필드에는 표준 CEF 필드보다 더 높은 수집 볼륨이 있을 수 있습니다.
+많은 디바이스 및 데이터 원본에는 표준 CEF 스키마 이외의 로깅 필드가 허용됩니다. 이러한 추가 필드는 AdditionalExtensions 테이블에 배치 됩니다. 이러한 필드 내의 이벤트 콘텐츠는 가변적일 수 있으므로 이러한 필드에는 표준 CEF 필드보다 더 높은 수집 볼륨이 있을 수 있습니다.
 
 ### <a name="costs-that-might-accrue-after-resource-deletion"></a>리소스 삭제 후에도 누적될 수 있는 비용
 
@@ -123,8 +125,23 @@ Azure Sentinel을 제거해도 Azure Sentinel이 배포된 Log Analytics 작업 
 
 ### <a name="free-trial"></a>평가판
 
-신규 또는 기존 Log Analytics 작업 영역에서 Azure Sentinel을 처음 31일 동안 추가 비용 없이 사용하도록 설정할 수 있습니다. Log Analytics, Automation 및 BYOML과 관련된 요금은 평가판 기간 동안에도 계속 적용됩니다. 처음 31일을 초과하는 사용량에 대한 요금은 [Azure Sentinel 가격](https://azure.microsoft.com/pricing/details/azure-sentinel)에 따라 청구됩니다. 
+처음 31일 동안 Azure Sentinel 무료로 사용해 보세요. Azure Sentinel 아래에 명시된 제한에 따라 Azure Monitor Log Analytics 작업 영역에서 추가 비용 없이 사용하도록 설정할 수 있습니다.
 
+- **새 Log Analytics 작업 영역은** 처음 31일 동안 최대 10GB의 로그 데이터를 무료로 수집할 수 있습니다. 새 작업 영역에는 3일 미만의 작업 영역이 포함됩니다.
+
+   Log Analytics 데이터 수집 및 Azure Sentinel 요금은 모두 31일 평가 기간 동안 포기됩니다. 이 무료 평가판에는 Azure 테넌트당 20개 작업 영역 제한이 적용됩니다.
+
+- **기존 Log Analytics 작업 영역은** 추가 비용 없이 Azure Sentinel 수 있습니다. 기존 작업 영역에는 3일 전에 만든 모든 작업 영역이 포함됩니다.
+
+   31일 평가 기간 동안에는 Azure Sentinel 요금만 청구됩니다.
+
+이러한 한도를 초과하는 사용량은 Azure Sentinel 가격 책정 페이지에 나열된 [가격 책정에](https://azure.microsoft.com/pricing/details/azure-sentinel) 따라 요금이 청구됩니다. [자동화](automation-in-azure-sentinel.md) 및 [사용자 고유의 기계 학습을](bring-your-own-ml.md) 위한 추가 기능과 관련된 요금은 평가판 중에 계속 적용됩니다.
+
+> [!TIP]
+> 평가판 중에 비용 관리, 교육 등에 대한 리소스는 **Azure Sentinel 뉴스 & 가이드 > 무료 평가판** 탭에서 찾을 수 있습니다.
+>
+> 이 탭에는 평가판 날짜 및 만료될 때까지 남은 기간(일)에 대한 세부 정보도 표시됩니다.
+>
 ### <a name="free-data-sources"></a>무료 데이터 원본
 
 Azure Sentinel에서 무료인 데이터 원본은 다음과 같습니다.
@@ -190,7 +207,7 @@ Azure Sentinel과 함께 Azure 리소스를 사용하는 경우 비용이 발생
 
 [Azure Cost Management + Billing](../cost-management-billing/costs/quick-acm-cost-analysis.md) 허브는 유용한 기능을 제공합니다. Azure Portal에서 **Cost Management + Billing** 이 열리면 왼쪽 탐색 영역에서 **Cost Management** 를 선택한 다음, 조사할 리소스의 [범위](..//cost-management-billing/costs/understand-work-scopes.md) 또는 집합(예: Azure 구독 또는 리소스 그룹)을 선택합니다.
 
-**비용 분석** 화면에는 다양한 컨트롤과 필터를 적용할 수 있는 옵션과 함께 Azure 사용량 및 비용에 대한 자세한 보기가 표시됩니다.
+**비용 분석** 화면에는 다양한 컨트롤과 필터를 적용하는 옵션이 있는 Azure 사용량 및 비용에 대한 자세한 보기가 표시됩니다.
 
 예를 들어 특정 시간 프레임 동안의 일일 비용 차트를 보려면 다음을 수행합니다.
 1. **보기** 필드에서 드롭다운 캐럿을 선택하고, **누적 비용** 또는 **일별 비용** 을 선택합니다.
@@ -202,11 +219,11 @@ Azure Sentinel과 함께 Azure 리소스를 사용하는 경우 비용이 발생
 
 Azure Sentinel 가격 책정 계층에는 Log Analytics 요금이 포함되지 않습니다. Log Analytics에 대한 가격 책정 계층 약정을 변경하려면 [가격 책정 계층 변경](../azure-monitor/logs/manage-cost-storage.md#changing-pricing-tier)을 참조하세요.
 
-자세한 내용은 [Azure 센티널 비용을 관리 하 고 감소 하](#other-ways-to-manage-and-reduce-azure-sentinel-costs)는 예산 및 기타 방법 [만들기](#create-budgets) 를 참조 하세요.
+자세한 내용은 [예산 만들기](#create-budgets) 및 Azure Sentinel 비용을 관리하고 줄이는 [기타 방법을](#other-ways-to-manage-and-reduce-azure-sentinel-costs)참조하세요.
 
 ### <a name="using-azure-prepayment-with-azure-sentinel"></a>Azure Sentinel과 함께 Azure 선불 사용
 
-Azure 선불 크레딧을 사용하여 Azure Sentinel 요금을 지불할 수 있습니다. 그러나 Azure 선불 크레딧을 사용하여 타사 제품 및 서비스 또는 Azure Marketplace 제품에 대한 청구서를 타사 조직에 지불할 수 없습니다.
+Azure 선불 크레딧을 사용하여 Azure Sentinel 요금을 지불할 수 있습니다. 그러나 Azure 선불 크레딧을 사용하여 타사 조직에서 제품 및 서비스 또는 Azure Marketplace 제품에 대한 요금을 지불할 수 없습니다.
 
 ### <a name="run-queries-to-understand-your-data-ingestion"></a>쿼리를 실행하여 데이터 수집 이해
 
@@ -259,13 +276,13 @@ Usage
 
 ## <a name="export-cost-data"></a>비용 데이터 내보내기
 
-스토리지 계정으로 [비용 데이터를 내보낼](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 수도 있습니다. 이는 비용에 대한 추가 데이터 분석을 직접 수행해야 하거나 다른 사용자가 수행하는 경우에 유용합니다. 예를 들어 재무 팀이 Excel 또는 Power BI를 사용하여 데이터를 분석할 수 있습니다. 매일, 매주 또는 매월 일정으로 비용을 내보내고 사용자 지정 날짜 범위를 설정할 수 있습니다. 비용 데이터 세트를 검색하려면 비용 데이터를 내보내는 것이 좋습니다.
+스토리지 계정으로 [비용 데이터를 내보낼](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) 수도 있습니다. 비용 데이터를 내보내는 것은 비용에 대해 더 많은 데이터 분석을 수행해야 하거나 다른 사람들이 필요할 때 유용합니다. 예를 들어 재무 팀은 Excel 또는 Power BI를 사용하여 데이터를 분석할 수 있습니다. 매일, 매주 또는 매월 일정으로 비용을 내보내고 사용자 지정 날짜 범위를 설정할 수 있습니다. 비용 데이터 세트를 검색하려면 비용 데이터를 내보내는 것이 좋습니다.
 
 ## <a name="create-budgets"></a>예산 만들기
 
 [예산](../cost-management/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 만들면 비용을 관리하고 관련자에게 비정상 지출 및 과다 지출 위험을 자동으로 알리는 [경고](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)를 만들 수 있습니다. 경고는 예산 및 비용 임계값에 따른 지출을 기준으로 합니다. 예산 및 경고는 Azure 구독 및 리소스 그룹에 대해 만들어지므로 전체 비용 모니터링 전략의 일부로 유용합니다. 
 
-모니터링을 더 세분화하려는 경우 Azure의 특정 리소스 또는 서비스에 대한 필터를 사용하는 예산을 만들 수도 있습니다. 필터를 통해 추가 비용을 발생시키는 새 리소스를 실수로 만들지 않도록 할 수 있습니다. 예산을 만들 때 사용할 수 있는 필터 옵션에 대한 자세한 내용은 [그룹 및 필터 옵션](../cost-management-billing/costs/group-filter.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 참조하세요.
+모니터링을 더 세분화하려는 경우 Azure의 특정 리소스 또는 서비스에 대한 필터를 사용하는 예산을 만들 수도 있습니다. 필터는 추가 비용이 드는 새 리소스를 실수로 만들지 않도록 도움을 줍니다. 예산을 만들 때 사용할 수 있는 필터 옵션에 대한 자세한 내용은 [그룹 및 필터 옵션](../cost-management-billing/costs/group-filter.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 참조하세요.
 
 ### <a name="use-a-playbook-for-cost-management-alerts"></a>비용 관리 경고에 플레이북 사용
 
@@ -321,7 +338,7 @@ Azure Sentinel에서 위협을 헌팅하거나 조사하는 경우 이러한 독
 
 ### <a name="optimize-log-analytics-costs-with-dedicated-clusters"></a>전용 클러스터를 사용하여 Log Analytics 비용 최적화
 
-최소 500GB/일을 Azure 센티널 작업 영역 또는 동일한 지역의 작업 영역에 수집 하는 경우 비용을 줄이기 위해 Log Analytics 전용 클러스터로 이동 하는 것이 좋습니다. Log Analytics 전용 클러스터 약정 계층은 전체 500GB/일 이상을 전체적으로 수집 하는 작업 영역에서 데이터 볼륨을 집계 합니다.
+동일한 지역의 Azure Sentinel 작업 영역 또는 작업 영역에 최소 500GB를 기록하는 경우 비용을 줄이기 위해 Log Analytics 전용 클러스터로 이동하는 것이 좋습니다. Log Analytics 전용 클러스터 약정 계층은 총 500GB 이상을 통칭하여 수집되는 작업 영역에서 데이터 볼륨을 집계합니다.
 
 Log Analytics 전용 클러스터는 Azure Sentinel 약정 계층에 적용되지 않습니다. Azure Sentinel 비용은 여전히 전용 클러스터의 작업 영역별로 적용됩니다.
 
@@ -329,7 +346,7 @@ Log Analytics 전용 클러스터는 Azure Sentinel 약정 계층에 적용되�
 
 - 쿼리와 관련된 모든 작업 영역이 전용 클러스터에 있는 경우 작업 영역 간 쿼리가 더 빠르게 실행됩니다. 아직도 환경에서 작업 영역을 가능한 한 적게 유지하는 것이 가장 좋으며, 전용 클러스터는 작업 영역 간 단일 쿼리에 포함하기 위해 여전히 [100개의 작업 영역 제한](../azure-monitor/logs/cross-workspace-query.md)을 유지합니다.
 
-- 전용 클러스터의 모든 작업 영역은 클러스터에 설정된 Log Analytics 약정 계층을 공유할 수 있습니다. 각 작업 영역에 대해 별도의 Log Analytics 약정 계층을 약정할 필요가 없으므로 비용을 절감하고 효율성을 높일 수 있습니다. 전용 클러스터를 사용 하도록 설정 하면 매일 500GB 수집의 최소 Log Analytics 약정 계층에 커밋합니다.
+- 전용 클러스터의 모든 작업 영역은 클러스터에 설정된 Log Analytics 약정 계층을 공유할 수 있습니다. 각 작업 영역에 대해 별도의 Log Analytics 약정 계층을 약정할 필요가 없으므로 비용을 절감하고 효율성을 높일 수 있습니다. 전용 클러스터를 사용하도록 설정하면 하루에 500GB의 최소 Log Analytics 약정 계층으로 커밋할 수 있습니다.
 
 비용 최적화를 위해 전용 클러스터로 이동할 때 고려해야 할 몇 가지 사항은 다음과 같습니다.
 
@@ -337,7 +354,7 @@ Log Analytics 전용 클러스터는 Azure Sentinel 약정 계층에 적용되�
 - 클러스터에 연결되는 모든 작업 영역은 동일한 지역에 있어야 합니다.
 - 클러스터에 연결되는 최대 작업 영역은 1,000개입니다.
 - 클러스터에서 연결된 작업 영역의 연결을 해제할 수 있습니다. 특정 작업 영역에 대한 연결 작업의 수는 30일 동안 2개로 제한됩니다.
-- 기존 작업 영역을 CMK(고객 관리형 키) 클러스터로 이동할 수 없습니다. 작업 영역을 클러스터에 만들어야 합니다.
+- 기존 작업 영역을 CMK(고객 관리형 키) 클러스터로 이동할 수 없습니다. 클러스터에서 작업 영역을 만들어야 합니다.
 - 클러스터를 다른 리소스 그룹 또는 구독으로 이동하는 것은 현재 지원되지 않습니다.
 - 작업 영역이 다른 클러스터에 연결된 경우 클러스터에 대한 작업 영역 연결이 실패합니다.
 

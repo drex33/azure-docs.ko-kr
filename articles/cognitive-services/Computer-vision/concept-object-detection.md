@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 10/27/2021
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 68c2cfeec9ef2aaa73c1553c8b50150564986e88
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: d8ef3a319b9701ece0b7a66e3d428c519642767c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110465249"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131454792"
 ---
 # <a name="detect-common-objects-in-images"></a>이미지에서 공통 개체 검색
 
-개체 검색은 [태깅](concept-tagging-images.md)과 유사하지만, API는 검색된 각 개체에 대해 경계 상자 좌표(픽셀 단위)를 반환합니다. 예를 들어 이미지에 개, 고양이 및 사람이 포함된 경우 검색 작업을 실행하면 해당 개체를 해당 좌표와 함께 이미지에 나열합니다. 이 기능을 사용하여 이미지의 개체 간 관계를 처리할 수 있습니다. 또한 이 기능을 통해 이미지에 동일한 태그의 여러 인스턴스가 있는지 확인할 수 있습니다.
+개체 검색은 [태그 지정과](concept-tagging-images.md)유사하지만 API는 이미지에 있는 각 개체에 대한 경계 상자 좌표(픽셀)를 반환합니다. 예를 들어 이미지에 개, 고양이 및 사람이 포함된 경우 검색 작업은 이미지에 해당 좌표가 있는 개체를 나열합니다. 이 기능을 사용하여 이미지의 개체 간 관계를 처리할 수 있습니다. 또한 이미지에 동일한 개체의 여러 인스턴스가 있는지 여부를 확인할 수 있습니다.
 
 Detect API는 개체를 기반으로 한 태그 또는 이미지에서 식별되는 생물에 적용합니다. 현재 태깅 분류와 개체 검색 분류 간에는 공식적 관계가 없습니다. 개념 수준에서 Detect API는 개체 및 생물만 검색하지만 Tag API는 경계 상자로 지역화할 수 없는 ‘실내’와 같은 상황별 용어를 포함할 수도 있습니다.
 

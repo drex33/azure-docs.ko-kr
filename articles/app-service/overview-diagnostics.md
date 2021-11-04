@@ -5,12 +5,12 @@ keywords: App Service, Azure App Service, 진단, 지원, 웹앱, 문제 해결,
 ms.topic: article
 ms.date: 10/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: cf044baf233c159ff271221522f0f9faf15cc1ed
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: e912e1794f789ff2b670f512c3d575e95715d0ae
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114451591"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131465842"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Azure App Service 진단 개요
 
@@ -111,4 +111,4 @@ Application Insights 예외 및 종속성을 보려면 **웹앱 다운** 또는 
 
 앱 변경 내용에 대한 변경 분석은 타일 바로 가기인 **가용성 및 성능** 의 **애플리케이션 변경 내용** 및 **애플리케이션 크래시** 를 통해 액세스할 수 있으므로 다른 메트릭과 동시에 사용할 수 있습니다. 기능을 사용하려면 먼저 해당 기능을 사용하도록 설정해야 합니다. 자세한 내용은 [App Service 진단에서 새로운 변경 분석 환경 발표](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html)를 참조하세요.
 
-제목에 "[Diag]"를 추가하여 [UserVoice](https://feedback.azure.com/forums/169385-web-apps)에 질문이나 피드백을 게시합니다.
+제목에 "[Diag]"를 추가하여 [UserVoice](https://feedback.azure.com/d365community/forum/b09330d1-c625-ec11-b6e6-000d3a4f0f1c)에 질문이나 피드백을 게시합니다.

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 8/26/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
-ms.openlocfilehash: 7945df58db31ad7dbd9c162366596756f62b3475
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: cf89b21c3aceee55e121d918f21db4bcf7c51d42
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131066751"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131440491"
 ---
 # <a name="deploy-the-open-service-mesh-aks-add-on-using-azure-cli"></a>Azure CLI를 사용 하 여 Open Service 메시 AKS 추가 기능 배포
 
@@ -102,6 +102,14 @@ az aks list -g <my-osm-aks-cluster-rg> -o json | jq -r '.[].addonProfiles.openSe
 kubectl get deployments -n kube-system --selector app=osm-controller
 kubectl get pods -n kube-system --selector app=osm-controller
 kubectl get services -n kube-system --selector app=osm-controller
+```
+
+### <a name="check-osm-add-on-version"></a>OSM 추가 기능 버전 확인
+
+설치 된 OSM 추가 기능 버전은 v 0.11.1 이상 이어야 합니다. 이를 확인 하기 위해 다음 명령을 실행 하 여 이미지 태그에서 인코딩된 osm 컨트롤러에 대 한 이미지 버전을 확인할 수 있습니다. 
+
+```azurecli-interactive
+kubectl get deployment -n kube-system osm-controller -o=jsonpath='{$.spec.template.spec.containers[:1].image}'
 ```
 
 ## <a name="accessing-the-aks-osm-add-on-configuration"></a>AKS OSM 추가 기능 구성에 액세스

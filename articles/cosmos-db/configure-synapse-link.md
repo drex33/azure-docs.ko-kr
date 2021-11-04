@@ -4,15 +4,15 @@ description: Azure Cosmos DB 계정에 대해 Synapse 링크를 사용하도록 
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 11/02/2021
 ms.author: rosouz
 ms.custom: references_regions, synapse-cosmos-db, devx-track-azurepowershell
-ms.openlocfilehash: 116997c8abbad382dc10014fd76e7933f333c113
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 271b0a6c41f37a3ac8efe6e5562af48f3f267692
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123109353"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131425863"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link 구성 및 사용
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -280,6 +280,9 @@ Spark 2 통합의 경우 [Spark 2를 사용하여 Azure Cosmos DB 분석 저장�
 
 Azure Cosmos DB용 Synapse Link를 통해 서버리스 SQL 풀 데이터베이스와 보기를 만들 수 있습니다. 나중에 Azure Cosmos 컨테이너를 쿼리한 다음 해당 보기를 통해 Power BI로 모델을 빌드하여 해당 쿼리를 반영할 수 있습니다. 트랜잭션 워크로드에 대한 성능 또는 비용 영향은 없으며 ETL 파이프라인 관리의 복잡성도 없습니다. [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) 또는 [import](/power-bi/connect-data/service-dataset-modes-understand#import-mode) 모드를 사용할 수 있습니다. 자세한 내용은 [Synapse Link로 Azure Cosmos DB 데이터를 분석하기 위한 서버리스 SQL 풀](synapse-link-power-bi.md) 사용 방법 문서를 참조하세요.
 
+## <a name="configure-custom-partitioning"></a>사용자 지정 분할 구성
+
+사용자 지정 분할을 사용 하면 분석 쿼리에서 일반적으로 사용 되는 필드에 분석 저장소 데이터를 분할할 수 있으므로 쿼리 성능이 향상 됩니다.자세히 알아보려면 [사용자 지정 분할 소개](custom-partitioning-analytical-store.md) 및 [사용자 지정 분할 구성 방법](configure-custom-partitioning.md) 문서를 참조 하세요.
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
 

@@ -3,12 +3,12 @@ title: 지역에서 Azure Arc 지원 서버를 마이그레이션하는 방법
 description: 한 지역에서 다른 하위 지역으로 Azure Arc 지원 서버를 마이그레이션하는 방법 알아보기.
 ms.date: 07/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: ea44fbf060588ca3859e7f0d51b7d7449dc318fa
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5039ff2d00b83a8f93cf32caa27eee2032ee35dd
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124807392"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131462048"
 ---
 # <a name="how-to-migrate-azure-arc-enabled-servers-across-regions"></a>지역에서 Azure Arc 지원 서버를 마이그레이션하는 방법
 
@@ -24,9 +24,9 @@ Azure Arc 지원 서버를 한 Azure 지역에서 다른 하위 지역으로 마
 > [!NOTE]
 > 이 작업을 수행하는 동안 마이그레이션할 때 가동 중지 시간이 발생합니다.
 
-1. [Azure CLI](manage-vm-extensions-cli.md#remove-an-installed-extension) 또는 [Azure PowerShell](manage-vm-extensions-powershell.md#remove-an-installed-extension)을 사용하여 [Azure Portal](manage-vm-extensions-portal.md#uninstall-extensions)에서 설치된 VM 확장을 제거합니다.
+1. [Azure CLI](manage-vm-extensions-cli.md#remove-extensions) 또는 [Azure PowerShell](manage-vm-extensions-powershell.md#remove-extensions)을 사용하여 [Azure Portal](manage-vm-extensions-portal.md#remove-extensions)에서 설치된 VM 확장을 제거합니다.
 
-2. **azcmagent** 도구를 [연결 끊기](manage-agent.md#disconnect) 매개 변수와 함께 사용하여 Azure Arc에서 머신의 연결을 끊고 Azure에서 머신 리소스를 삭제합니다. Azure Arc 지원 서버에서 컴퓨터 연결을 끊으면 Connected Machine 에이전트가 제거되지 않으며 이 프로세스의 일부로 에이전트를 제거할 필요가 없습니다. 대화형으로 로그온하는 동안 수동으로 해당 프로세스를 실행하거나, 여러 에이전트를 온보딩할 때 사용한 동일한 서비스 주체 또는 Microsoft ID 플랫폼 [액세스 토큰](../../active-directory/develop/access-tokens.md)을 사용하여 자동화합니다. 서비스 주체를 사용하여 Azure Arc 지원 서버에 머신을 등록하지 않은 경우 서비스 주체를 만들려면 관련 [문서](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)를 참조하세요.
+2. **azcmagent** 도구를 [연결 끊기](manage-agent.md#disconnect) 매개 변수와 함께 사용하여 Azure Arc에서 머신의 연결을 끊고 Azure에서 머신 리소스를 삭제합니다. Azure Arc 사용 서버에서 컴퓨터의 연결을 끊으면 Connected Machine 에이전트가 제거되지 않으며 이 프로세스의 일부로 에이전트를 제거할 필요가 없습니다. 대화형으로 로그온하는 동안 수동으로 해당 프로세스를 실행하거나, 여러 에이전트를 온보딩할 때 사용한 동일한 서비스 주체 또는 Microsoft ID 플랫폼 [액세스 토큰](../../active-directory/develop/access-tokens.md)을 사용하여 자동화합니다. 서비스 주체를 사용하여 Azure Arc 지원 서버에 머신을 등록하지 않은 경우 서비스 주체를 만들려면 관련 [문서](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)를 참조하세요.
 
 3. 다른 지역의 Azure Arc 지원 서버에 Connected Machine 에이전트를 다시 등록합니다. [Connect](manage-agent.md#connect) 매개 변수와 함께 `azcmagent` 도구를 실행하여 해당 단계를 완료합니다.
 

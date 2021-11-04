@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 08/26/2021
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4c45c127710ff5a572a68531a1a5b3836d505e39
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 6c89ad519489892cf2965054d0c331a6f5d9f8e6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124749522"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067702"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -39,7 +39,7 @@ ms.locfileid: "124749522"
 | Java | 예 | [예](#configuring-sampling-overrides-and-fixed-rate-sampling-for-java-applications) | 다른 샘플링이 작동하지 않는 경우에만 |
 | Node.JS | 예 | [예](./nodejs.md#sampling) | 다른 샘플링이 작동하지 않는 경우에만
 | Python | 예 | [예](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | 다른 샘플링이 작동하지 않는 경우에만 |
-| 나머지 | 예 | 예 | [예](#ingestion-sampling) |
+| 나머지 | 예 | 아니요 | [예](#ingestion-sampling) |
 
 > [!NOTE]
 > 이 페이지의 정보는 대부분 현재 버전의 Application Insights SDK에 적용됩니다. 이전 버전의 SDK에 대한 자세한 내용은 [아래 섹션을 참조](#older-sdk-versions)하세요.
@@ -238,7 +238,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 2. **고정 비율 샘플링 모듈을 사용하도록 설정합니다.** 다음 코드 조각을 [`ApplicationInsights.config`](./configuration-with-applicationinsights-config.md)에 추가합니다.
    
-    ```XML
+    ```xml
     <TelemetryProcessors>
         <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
             <!-- Set a percentage close to 100/N where N is an integer. -->
@@ -323,7 +323,7 @@ Java 자동 계측 및 SDK에서는 기본값으로 샘플링이 사용되지 �
 
 2. 다음 코드 조각을 `ApplicationInsights.xml` 파일에 추가하여 **고정 비율 샘플링 모듈을 사용하도록 설정** 합니다.
 
-    ```XML
+    ```xml
     <TelemetryProcessors>
         <BuiltInProcessors>
             <Processor type="FixedRateSamplingTelemetryProcessor">
@@ -337,7 +337,7 @@ Java 자동 계측 및 SDK에서는 기본값으로 샘플링이 사용되지 �
 
 3. `Processor` 태그의 `FixedRateSamplingTelemetryProcessor` 내부에 다음 태그를 사용하여 샘플링에서 특정 유형의 원격 분석을 포함하거나 제외할 수 있습니다.
    
-    ```XML
+    ```xml
     <ExcludedTypes>
         <ExcludedType>Request</ExcludedType>
     </ExcludedTypes>

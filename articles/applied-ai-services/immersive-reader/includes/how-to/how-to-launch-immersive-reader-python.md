@@ -1,19 +1,19 @@
 ---
-author: erhopf
+author: nitinme
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 03/04/2021
-ms.author: erhopf
-ms.openlocfilehash: 33583a82a42185b09d44c58b4f249eaed49b0aa0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.author: nitinme
+ms.openlocfilehash: cb2f79cec51a5aea6b905ee7bac8447e135a5f8c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528516"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131253078"
 ---
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * Azure Active Directory 인증에 대해 구성된 몰입형 판독기 리소스입니다. [다음 지침](../../how-to-create-immersive-reader.md)에 따라 설정하세요.  환경 속성을 구성할 때 여기서 만든 일부 값이 필요합니다. 나중에 참조할 수 있도록 세션 출력을 텍스트 파일로 저장합니다.

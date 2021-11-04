@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 0e87451531750e502f67dc30e6fbd26c8c944d22
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 7f0a472540435c4c3bb04ab9143f0818dc312b8d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98678596"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131456844"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-architecture-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀(이전 명칭 SQL DW) 아키텍처
 
@@ -111,7 +111,7 @@ Azure Synapse에 대한 내용을 파악했으므로 [전용 SQL 풀(이전 명�
 
 - [고객 성공 사례](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [블로그](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
-- [기능 요청](https://feedback.azure.com/forums/307516-sql-data-warehouse)
+- [기능 요청](https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8)
 - [비디오](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 - [지원 티켓 만들기](sql-data-warehouse-get-started-create-support-ticket.md)
 - [Microsoft Q&A 질문 페이지](/answers/topics/azure-synapse-analytics.html)

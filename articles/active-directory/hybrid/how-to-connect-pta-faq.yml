@@ -17,12 +17,12 @@ metadata:
   ms.subservice: hybrid
   ms.author: billmath
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 2f98753f85da30ee26849463f48cdb4d127316e4
-  ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+  ms.openlocfilehash: d37ab49865ca2556146d8e975235d50d0f432c9c
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/30/2021
-  ms.locfileid: "113114601"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131063294"
 title: 'Azure Active Directory 통과 인증: 질문과 대답'
 summary: 이 문서에서는 Azure AD(Azure Active Directory) 통과 인증에 대한 질문과 대답을 다룹니다. 업데이트된 내용을 계속 확인해 주세요.
 sections:
@@ -170,4 +170,4 @@ sections:
   - question: >
       이전 테넌트가 원래 AD FS를 사용하여 설치되었습니다.  최근에 PTA로 마이그레이션했지만 이제 Azure AD와 동기화하여 UPN 변경 내용이 표시되지 않습니다.  UPN 변경 내용이 동기화되지 않는 이유는 무엇인가요?
     answer: "A: 다음과 같은 경우에 온-프레미스 UPN 변경 내용을 동기화할 수 없습니다.\n\n- Azure AD 테넌트가 2015년 6월 15일 이전에 생성된 경우\n- 처음에 인증에 AD FS를 사용하여 Azure AD 테넌트와 페더레이션된 경우\n- 관리 사용자가 PTA를 인증으로 사용하도록 전환하는 경우\n\n즉, 2015년 6월 15일 이전에 만들어진 테넌트의 기본 동작이 UPN 변경 내용을 차단하기 때문입니다.  UPN 변경 내용의 차단을 취소해야 하는 경우 다음 PowerShell cmdlt을 실행해야 합니다.  \n\n`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $True`\n\n2015년 6월 15일 이후에 만든 테넌트에는 UPN 변경 내용을 동기화하는 기본 동작이 포함됩니다.   \n"
-additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\n- [현재 제한 사항](how-to-connect-pta-current-limitations.md): 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.\n- [빠른 시작](how-to-connect-pta-quick-start.md): Azure AD 통과 인증을 구성하고 실행합니다.\n- [AD FS에서 통과 인증으로 마이그레이션](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) - AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그레이션하는 방법에 대한 자세한 가이드입니다.\n- [스마트 잠금](../authentication/howto-password-smart-lockout.md): 테넌트에서 스마트 잠금 기능을 구성하여 사용자 계정을 보호하는 방법을 알아봅니다.\n- [기술 심층 분석](how-to-connect-pta-how-it-works.md): 통과 인증 기능이 작동하는 원리를 이해합니다.\n- [문제 해결](tshoot-connect-pass-through-authentication.md): 통과 인증 기능의 일반적인 문제를 해결하는 방법을 알아봅니다.\n- [보안 심층 분석](how-to-connect-pta-security-deep-dive.md) - 통과 인증 기능에 대한 자세한 기술 정보를 가져옵니다.\n- [Azure AD Seamless SSO](how-to-connect-sso.md): 보완적인 Azure AD Seamless SSO 기능을 알아봅니다.\n- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Azure Active Directory 포럼을 사용하여 새 기능 요청을 제출합니다."
+additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\n- [현재 제한 사항](how-to-connect-pta-current-limitations.md): 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.\n- [빠른 시작](how-to-connect-pta-quick-start.md): Azure AD 통과 인증을 구성하고 실행합니다.\n- [AD FS에서 통과 인증으로 마이그레이션](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) - AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그레이션하는 방법에 대한 자세한 가이드입니다.\n- [스마트 잠금](../authentication/howto-password-smart-lockout.md): 테넌트에서 스마트 잠금 기능을 구성하여 사용자 계정을 보호하는 방법을 알아봅니다.\n- [기술 심층 분석](how-to-connect-pta-how-it-works.md): 통과 인증 기능이 작동하는 원리를 이해합니다.\n- [문제 해결](tshoot-connect-pass-through-authentication.md): 통과 인증 기능의 일반적인 문제를 해결하는 방법을 알아봅니다.\n- [보안 심층 분석](how-to-connect-pta-security-deep-dive.md) - 통과 인증 기능에 대한 자세한 기술 정보를 가져옵니다.\n- [Azure AD Seamless SSO](how-to-connect-sso.md): 보완적인 Azure AD Seamless SSO 기능을 알아봅니다.\n- [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789): Azure Active Directory 포럼을 사용하여 새 기능 요청을 제출합니다."

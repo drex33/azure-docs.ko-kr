@@ -10,12 +10,13 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/08/2021
 ms.author: pafarley
-ms.openlocfilehash: 6f4625f87bddfdffca19c3a6b8ebdf7ca4586c70
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 845c2e7080ccc56d49e0d930d041c55f88710aab
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129997652"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131033497"
 ---
 # <a name="spatial-analysis-operations"></a>공간 분석 작업
 
@@ -41,7 +42,7 @@ ms.locfileid: "129997652"
 | cognitiveservices.vision.spatialanalysis-persondistance.debug | 거리 규칙을 위반하는 경우를 추적합니다. <br> 각 거리 위반 위치가 포함된 _personDistanceEvent_ 를 정기적으로 내보냅니다. |
 | cognitiveservices.vision.spatialanalysis.debug | 위에서 언급한 모든 시나리오를 실행하는 데 사용할 수 있는 일반 작업입니다. 이 옵션은 동일한 카메라에서 여러 시나리오를 실행하거나 시스템 리소스(예: GPU)를 더 효율적으로 사용하려는 경우에 유용합니다. |
 
-공간 분석은 [Live Video Analytics](../../media-services/live-video-analytics-edge/spatial-analysis-tutorial.md)에서 비디오 AI 모듈로 실행할 수도 있습니다. 
+공간 분석은 [Live Video Analytics](../../azure-video-analyzer/video-analyzer-docs/overview.md)에서 비디오 AI 모듈로 실행할 수도 있습니다. 
 
 <!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
 
@@ -95,32 +96,33 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 ### <a name="camera-calibration-node-parameter-settings"></a>카메라 보정 노드 매개 변수 설정
 이는 모든 공간 `CAMERACALIBRATOR_NODE_CONFIG` 분석 작업에 대한 매개 변수의 예입니다.
 
-```
+```json
 {
-"gpu_index": 0,
-"do_calibration": true,
-"enable_breakpad": false,
-"enable_orientation": true
+  "gpu_index": 0,
+  "do_calibration": true,
+  "enable_breakpad": false,
+  "enable_orientation": true
 }
 ```
 
-| 이름 | Type| Description|
+| 이름 | Type | Description |
 |---------|---------|---------|
 | `do_calibration` | 문자열 | 보정이 설정되어 있음을 나타냅니다. **cognitiveservices.vision.spatialanalysis-persondistance** 가 제대로 작동하려면 `do_calibration`이 true여야 합니다. `do_calibration` 는 기본적으로 로 `True` 설정됩니다. |
 | `enable_breakpad`| bool | 디버그 사용을 위해 크래시 덤프를 생성하는 데 사용되는 중단 패드를 사용할지 여부를 나타냅니다. 기본값은 `false`입니다. `true`로 설정하면 `"CapAdd": ["SYS_PTRACE"]`도 `createOptions` 컨테이너의 `HostConfig` 부분에 추가해야 합니다. 기본적으로 크래시 덤프는 [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) AppCenter 앱에 업로드됩니다. 크래시 덤프를 사용자 고유의 AppCenter 앱에 업로드하려면 `RTPT_APPCENTER_APP_SECRET` 환경 변수를 앱의 앱 비밀로 재정의할 수 있습니다.
 | `enable_orientation` | bool | 검색된 사람의 방향을 계산할지 여부를 나타냅니다. `enable_orientation` 는 기본적으로 로 `True` 설정됩니다. |
 
 ### <a name="calibration-config"></a>보정 구성
+
 이는 모든 공간 `CALIBRATION_CONFIG` 분석 작업에 대한 매개 변수의 예입니다.
 
-```
+```json
 {
-"enable_recalibration": true,
-"calibration_quality_check_frequency_seconds": 86400,
-"calibration_quality_check_sample_collect_frequency_seconds": 300,
-"calibration_quality_check_one_round_sample_collect_num": 10,
-"calibration_quality_check_queue_max_size": 1000,
-"calibration_event_frequency_seconds": -1
+  "enable_recalibration": true,
+  "calibration_quality_check_frequency_seconds": 86400,
+  "calibration_quality_check_sample_collect_frequency_seconds": 300,
+  "calibration_quality_check_one_round_sample_collect_num": 10,
+  "calibration_quality_check_queue_max_size": 1000,
+  "calibration_event_frequency_seconds": -1
 }
 ```
 
@@ -133,10 +135,11 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 | `calibration_quality_check_queue_max_size` | int | 카메라 모델이 보정될 때 저장할 최대 데이터 샘플 수입니다. 기본값은 `1000`입니다. `enable_recalibration=True`인 경우에만 사용됩니다.|
 | `calibration_event_frequency_seconds` | int | 카메라 보정 이벤트의 출력 빈도(초)입니다. 값 `-1`을 지정하면 카메라 보정 정보가 변경되지 않은 경우 카메라 보정을 보내지 않아야 함을 나타냅니다. 기본값은 `-1`입니다.|
 
-
 ### <a name="camera-calibration-output"></a>카메라 보정 출력
+
 사용하도록 설정한 경우 카메라 보정 출력에 대한 예입니다. 줄임표는 하나의 목록에 동일한 유형의 개체를 더 많이 표시합니다.
-```
+
+```json
 {
   "type": "cameraCalibrationEvent",
   "sourceInfo": {
@@ -233,31 +236,36 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 ```
 | 속성 | Type| Description|
 |---------|---------|---------|
-| `enable_speed` | bool | 검색된 사람의 속도를 계산할지 여부를 나타냅니다. `enable_speed` 는 기본적으로 로 `True` 설정됩니다. 속도와 방향이 모두 최상의 예상 값을 갖도록 설정하는 것이 좋습니다. |
-
+| `enable_speed` | bool | 검색된 사람의 속도를 계산할지 여부를 나타냅니다. `enable_speed` 는 기본적으로로 설정 됩니다 `True` . 속도와 방향을 모두 최고 예상 값으로 설정 하는 것이 좋습니다. |
 
 ## <a name="spatial-analysis-operations-configuration-and-output"></a>공간 분석 작업 구성 및 출력
+
 ### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-personcount"></a>cognitiveservices.vision.spatialanalysis-personcount에 대한 영역 구성
 
- 다음은 영역을 구성하는 SPACEANALYTICS_CONFIG 매개 변수에 대한 JSON 입력의 예제입니다. 이 작업에서는 여러 영역을 구성할 수 있습니다.
+다음은 영역을 구성하는 SPACEANALYTICS_CONFIG 매개 변수에 대한 JSON 입력의 예제입니다. 이 작업에서는 여러 영역을 구성할 수 있습니다.
 
 ```json
 {
-"zones":[{
-       "name": "lobbycamera",
-       "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
-       "events":[{
-              "type": "count",
-              "config":{
-                     "trigger": "event",
+  "zones": [
+    {
+      "name": "lobbycamera",
+      "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
+      "events": [
+        {
+          "type": "count",
+          "config": {
+            "trigger": "event",
             "threshold": 16.00,
             "focus": "footprint"
-      }
-       }]
+          }
+        }
+      ]
+    }
+  ]
 }
 ```
 
-| Name | Type| Description|
+| Name | Type| 설명|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역에 대한 식별 이름입니다.|
@@ -302,7 +310,7 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 }
 ```
 
-| Name | Type| Description|
+| Name | Type| 설명|
 |---------|---------|---------|
 | `lines` | list| 선 목록입니다.|
 | `name` | 문자열| 이 선에 대한 식별 이름입니다.|
@@ -318,7 +326,7 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 
 다음은 영역을 구성하는 SPACEANALYTICS_CONFIG 매개 변수에 대한 JSON 입력의 예제입니다. 이 작업에서는 여러 영역을 구성할 수 있습니다.
 
- ```json
+```json
 {
 "zones":[
    {
@@ -348,7 +356,7 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 }
 ```
 
-| Name | Type| Description|
+| Name | Type| 설명|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역에 대한 식별 이름입니다.|
@@ -384,7 +392,7 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 }
 ```
 
-| Name | Type| Description|
+| Name | Type| 설명|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역에 대한 식별 이름입니다.|
@@ -401,7 +409,7 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 ### <a name="configuration-for-cognitiveservicesvisionspatialanalysis"></a>cognitiveservices.vision.spatialanalysis에 대한 구성
 다음은 **cognitiveservices.vision.spatialanalysis** 에 대한 선과 영역을 구성하는 SPACEANALYTICS_CONFIG 매개 변수에 대한 JSON 입력의 예제입니다. 이 작업에서는 여러 선/영역을 구성할 수 있으며, 각 선/영역마다 다른 이벤트가 있을 수 있습니다.
 
- ```
+```json
 {
   "lines": [
     {
@@ -472,6 +480,7 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
   ]
 }
 ```
+
 ## <a name="camera-configuration"></a>카메라 구성
 
 영역 및 선을 구성하는 방법에 대한 자세한 내용은 [카메라 배치](spatial-analysis-camera-placement.md) 가이드를 참조하세요.
@@ -1204,7 +1213,7 @@ GPU의 최고 성능과 사용률을 얻기 위해 그래프 인스턴스를 사
       }
   }
   ```
-| Name | Type| Description|
+| Name | Type| 설명|
 |---------|---------|---------|
 | `batch_size` | int | 모든 카메라의 해상도가 동일한 경우 `batch_size`를 해당 작업에 사용할 카메라 수로 설정하고, 그렇지 않으면 `batch_size`를 1로 설정하거나 일괄 처리가 지원되지 않음을 나타내는 기본값(1)으로 둡니다. |
 

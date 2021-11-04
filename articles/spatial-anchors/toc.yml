@@ -1,141 +1,142 @@
-- name: Spatial Anchors 설명서
-  href: index.yml
-- name: 개요
-  items:
-    - name: Spatial Anchors 정보
-      href: overview.md
-- name: 빠른 시작
-  expanded: true
-  items:
-    - name: Unity 앱 만들기
-      expanded: true
-      items:
-        - name: Unity 개요
-          href: unity-overview.md
-        - name: HoloLens
-          href: quickstarts/get-started-unity-hololens.md
-          displayName: 'Azure CLI, az spatial-anchors-account'
-        - name: Android
-          href: quickstarts/get-started-unity-android.md
-          displayName: 'Azure CLI, az spatial-anchors-account'
-        - name: iOS
-          href: quickstarts/get-started-unity-ios.md
-          displayName: 'Azure CLI, az spatial-anchors-account'
-    - name: HoloLens 앱 만들기
-      href: quickstarts/get-started-hololens.md
-      displayName: 'Azure CLI, az spatial-anchors-account'
-    - name: Android 앱 만들기
-      href: quickstarts/get-started-android.md
-      displayName: 'Azure CLI, az spatial-anchors-account'
-    - name: iOS 앱 만들기
-      href: quickstarts/get-started-ios.md
-      displayName: 'Azure CLI, az spatial-anchors-account'
-    - name: Xamarin 앱 만들기
-      items:
-        - name: Android
-          href: quickstarts/get-started-xamarin-android.md
-          displayName: 'Azure CLI, az spatial-anchors-account'
-        - name: iOS
-          href: quickstarts/get-started-xamarin-ios.md
-          displayName: 'Azure CLI, az spatial-anchors-account'
-- name: 자습서
-  items:
-    - name: 세션 및 디바이스에서 공유.
-      href: tutorials/tutorial-share-anchors-across-devices.md
-      displayName: 'Azure CLI, az spatial-anchors-account'
-      items:
-        - name: Azure Cosmos DB와 영구적 공유.
-          href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
-    - name: 새 Unity HoloLens 앱 시작
-      href: tutorials/tutorial-new-unity-hololens-app.md
-      displayName: 'Azure CLI, az spatial-anchors-account'
-    - name: 새 Android 앱 시작
-      href: tutorials/tutorial-new-android-app.md
-      displayName: 'Azure CLI, az spatial-anchors-account'
-- name: 방법
-  items:
-    - name: 앵커 만들기 및 찾기
-      href: create-locate-anchors-overview.md
-      items:
-        - name: Unity에서
-          href: how-tos/create-locate-anchors-unity.md
-        - name: Objective-C에서
-          href: how-tos/create-locate-anchors-objc.md
-        - name: Swift에서
-          href: how-tos/create-locate-anchors-swift.md
-        - name: Java에서
-          href: how-tos/create-locate-anchors-java.md
-        - name: C++/NDK에서
-          href: how-tos/create-locate-anchors-cpp-ndk.md
-        - name: C++/WinRT에서
-          href: how-tos/create-locate-anchors-cpp-winrt.md
-    - name: 광역 위치 재결정을 사용하여 주변 앵커 검색
-      items:
-        - name: C#/Unity에서
-          href: how-tos/set-up-coarse-reloc-unity.md
-        - name: Objective-C에서
-          href: how-tos/set-up-coarse-reloc-objc.md
-        - name: Swift에서
-          href: how-tos/set-up-coarse-reloc-swift.md
-        - name: Java에서
-          href: how-tos/set-up-coarse-reloc-java.md
-        - name: C++/NDK에서
-          href: how-tos/set-up-coarse-reloc-cpp-ndk.md
-        - name: C++/WinRT에서
-          href: how-tos/set-up-coarse-reloc-cpp-winrt.md
-    - name: 앵커 세션 없이 광역 위치 재결정 사용
-      href: how-tos/use-coarse-relocalization-without-anchor-session.md
-    - name: 프로젝트 설정
-      items:
-        - name: C++/WinRT
-          href: how-tos/setup-cpp-winrt-project.md
-        - name: Unity
-          href: how-tos/setup-unity-project.md
-- name: 샘플
-  items:
-    - name: Azure Spatial Anchors 샘플(GitHub)
-      href: 'https://github.com/Azure/azure-spatial-anchors-samples'
-- name: 개념
-  items:
-    - name: 인증
-      href: concepts/authentication.md
-    - name: 앵커 관계
-      href: concepts/anchor-relationships-way-finding.md
-    - name: 환경 지침
-      href: concepts/guidelines-effective-anchor-experiences.md
-    - name: 로깅 및 진단
-      href: concepts/logging-diagnostics.md
-    - name: 광역 위치 재결정
-      href: concepts/coarse-reloc.md
-    - name: 앵커 찾기 전략
-      href: concepts/anchor-locate-strategy.md
-- name: 참조
-  items:
-    - name: Unity용 SDK
-      href: /dotnet/api/Microsoft.Azure.SpatialAnchors/
-    - name: IOS Objective-C용 SDK
-      href: /objectivec/api/spatial-anchors/
-    - name: Android Java용 SDK
-      href: /java/api/com.microsoft.azure.spatialanchors/
-    - name: Android NDK용 SDK
-      href: /cpp/api/spatial-anchors/ndk/
-    - name: HoloLens C++/WinRT용 SDK
-      href: /cpp/api/spatial-anchors/winrt/
-    - name: Azure CLI
-      href: /cli/azure/spatial-anchors-account
-    - name: Azure PowerShell
-      href: /powershell/module/az.mixedreality
-- name: 리소스
-  items:
-    - name: 릴리스 정보
-      href: 'https://github.com/Azure/azure-spatial-anchors-samples/releases'
-    - name: Azure Mixed Reality 리소스 관리 REST API
-      href: /rest/api/mixedreality/
-    - name: FAQ
-      href: spatial-anchor-faq.yml
-    - name: 제품 사용자 의견 제공
-      href: 'https://feedback.azure.com/forums/919252-azure-spatial-anchors'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-spatial-anchors'
-    - name: 지원
-      href: spatial-anchor-support.md
+items:
+  - name: Spatial Anchors 설명서
+    href: index.yml
+  - name: 개요
+    items:
+      - name: Spatial Anchors 정보
+        href: overview.md
+  - name: 빠른 시작
+    expanded: true
+    items:
+      - name: Unity 앱 만들기
+        expanded: true
+        items:
+          - name: Unity 개요
+            href: unity-overview.md
+          - name: HoloLens
+            href: quickstarts/get-started-unity-hololens.md
+            displayName: 'Azure CLI, az spatial-anchors-account'
+          - name: Android
+            href: quickstarts/get-started-unity-android.md
+            displayName: 'Azure CLI, az spatial-anchors-account'
+          - name: iOS
+            href: quickstarts/get-started-unity-ios.md
+            displayName: 'Azure CLI, az spatial-anchors-account'
+      - name: HoloLens 앱 만들기
+        href: quickstarts/get-started-hololens.md
+        displayName: 'Azure CLI, az spatial-anchors-account'
+      - name: Android 앱 만들기
+        href: quickstarts/get-started-android.md
+        displayName: 'Azure CLI, az spatial-anchors-account'
+      - name: iOS 앱 만들기
+        href: quickstarts/get-started-ios.md
+        displayName: 'Azure CLI, az spatial-anchors-account'
+      - name: Xamarin 앱 만들기
+        items:
+          - name: Android
+            href: quickstarts/get-started-xamarin-android.md
+            displayName: 'Azure CLI, az spatial-anchors-account'
+          - name: iOS
+            href: quickstarts/get-started-xamarin-ios.md
+            displayName: 'Azure CLI, az spatial-anchors-account'
+  - name: 자습서
+    items:
+      - name: 세션 및 디바이스에서 공유.
+        href: tutorials/tutorial-share-anchors-across-devices.md
+        displayName: 'Azure CLI, az spatial-anchors-account'
+        items:
+          - name: Azure Cosmos DB와 영구적 공유.
+            href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
+      - name: 새 Unity HoloLens 앱 시작
+        href: tutorials/tutorial-new-unity-hololens-app.md
+        displayName: 'Azure CLI, az spatial-anchors-account'
+      - name: 새 Android 앱 시작
+        href: tutorials/tutorial-new-android-app.md
+        displayName: 'Azure CLI, az spatial-anchors-account'
+  - name: 방법
+    items:
+      - name: 앵커 만들기 및 찾기
+        href: create-locate-anchors-overview.md
+        items:
+          - name: Unity에서
+            href: how-tos/create-locate-anchors-unity.md
+          - name: Objective-C에서
+            href: how-tos/create-locate-anchors-objc.md
+          - name: Swift에서
+            href: how-tos/create-locate-anchors-swift.md
+          - name: Java에서
+            href: how-tos/create-locate-anchors-java.md
+          - name: C++/NDK에서
+            href: how-tos/create-locate-anchors-cpp-ndk.md
+          - name: C++/WinRT에서
+            href: how-tos/create-locate-anchors-cpp-winrt.md
+      - name: 광역 위치 재결정을 사용하여 주변 앵커 검색
+        items:
+          - name: C#/Unity에서
+            href: how-tos/set-up-coarse-reloc-unity.md
+          - name: Objective-C에서
+            href: how-tos/set-up-coarse-reloc-objc.md
+          - name: Swift에서
+            href: how-tos/set-up-coarse-reloc-swift.md
+          - name: Java에서
+            href: how-tos/set-up-coarse-reloc-java.md
+          - name: C++/NDK에서
+            href: how-tos/set-up-coarse-reloc-cpp-ndk.md
+          - name: C++/WinRT에서
+            href: how-tos/set-up-coarse-reloc-cpp-winrt.md
+      - name: 앵커 세션 없이 광역 위치 재결정 사용
+        href: how-tos/use-coarse-relocalization-without-anchor-session.md
+      - name: 프로젝트 설정
+        items:
+          - name: C++/WinRT
+            href: how-tos/setup-cpp-winrt-project.md
+          - name: Unity
+            href: how-tos/setup-unity-project.md
+  - name: 샘플
+    items:
+      - name: Azure Spatial Anchors 샘플(GitHub)
+        href: 'https://github.com/Azure/azure-spatial-anchors-samples'
+  - name: 개념
+    items:
+      - name: 인증
+        href: concepts/authentication.md
+      - name: 앵커 관계
+        href: concepts/anchor-relationships-way-finding.md
+      - name: 환경 지침
+        href: concepts/guidelines-effective-anchor-experiences.md
+      - name: 로깅 및 진단
+        href: concepts/logging-diagnostics.md
+      - name: 광역 위치 재결정
+        href: concepts/coarse-reloc.md
+      - name: 앵커 찾기 전략
+        href: concepts/anchor-locate-strategy.md
+  - name: 참조
+    items:
+      - name: Unity용 SDK
+        href: /dotnet/api/Microsoft.Azure.SpatialAnchors/
+      - name: IOS Objective-C용 SDK
+        href: /objectivec/api/spatial-anchors/
+      - name: Android Java용 SDK
+        href: /java/api/com.microsoft.azure.spatialanchors/
+      - name: Android NDK용 SDK
+        href: /cpp/api/spatial-anchors/ndk/
+      - name: HoloLens C++/WinRT용 SDK
+        href: /cpp/api/spatial-anchors/winrt/
+      - name: Azure CLI
+        href: /cli/azure/spatial-anchors-account
+      - name: Azure PowerShell
+        href: /powershell/module/az.mixedreality
+  - name: 리소스
+    items:
+      - name: 릴리스 정보
+        href: 'https://github.com/Azure/azure-spatial-anchors-samples/releases'
+      - name: Azure Mixed Reality 리소스 관리 REST API
+        href: /rest/api/mixedreality/
+      - name: FAQ
+        href: spatial-anchor-faq.yml
+      - name: 제품 사용자 의견 제공
+        href: 'https://feedback.azure.com/d365community/forum/f47d9b25-0725-ec11-b6e6-000d3a4f07b8'
+      - name: Stack Overflow
+        href: 'https://stackoverflow.com/questions/tagged/azure-spatial-anchors'
+      - name: 지원
+        href: spatial-anchor-support.md

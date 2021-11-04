@@ -1,18 +1,19 @@
 ---
 title: Microsoft 고객 계약에 대한 청구 역할 - Azure
 description: Azure의 Microsoft 고객 계약에서 청구 계정에 대한 청구 역할에 대해 알아봅니다.
-author: amberbhargava
+author: bandersmsft
+ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/27/2021
+ms.date: 10/28/2021
 ms.author: banders
-ms.openlocfilehash: 0ae80689b8250d81a4ffdb83614a5b1743f1bc45
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
-ms.translationtype: HT
+ms.openlocfilehash: ebf9a4127a98593c714f7de86c40a8c79f145cb8
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113652183"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443094"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Azure의 Microsoft 고객 계약 관리자 역할 이해
 

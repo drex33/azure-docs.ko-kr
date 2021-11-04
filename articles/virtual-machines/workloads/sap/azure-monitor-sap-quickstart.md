@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.date: 07/08/2021
-ms.openlocfilehash: 85cfe6887ded3844e2143754c31a3c6efee5e132
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0f5b2c2d94a2b0e106bf0541e080cfa9d05b45ac
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128579463"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131441137"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-by-using-the-azure-portal"></a>Azure Portal을 사용하여 SAP 솔루션을 위한 Azure Monitor 배포
 
@@ -50,10 +50,10 @@ SAP 시작 서비스는 SAP 시스템 모니터링을 비롯한 서비스의 호
 3. 트랜잭션 RZ10을 실행합니다.
 4. 적절한 프로필(*DEFAULT.PFL*)을 선택합니다.
 5. **연장 유지 관리** > **변경** 을 선택합니다. 
-6. 프로필 매개 변수 "service/protectedwebmethods"를 선택하고 다음 값을 포함하도록 수정한 다음 복사를 클릭합니다.  
+6. 프로필 매개 변수 "service/protectedwebmethods"를 선택 하 고 다음 값을 갖도록 수정한 다음 복사를 클릭 합니다.  
 
    ```service/protectedwebmethods instruction
-      SDEFAULT -GetQueueStatistic -ABAPGetWPTable -EnqGetStatistic -GetProcessList```
+      SDEFAULT -GetQueueStatistic -ABAPGetWPTable -EnqGetStatistic -GetProcessList
 
 7. Go back and select **Profile** > **Save**.
 8. After saving the changes for this parameter, please restart the SAPStartSRV service on each of the instances in the SAP system. (Restarting the services will not restart the SAP system; it will only restart the SAPStartSRV service (in Windows) or daemon process (in Unix/Linux))
@@ -63,7 +63,7 @@ SAP 시작 서비스는 SAP 시스템 모니터링을 비롯한 서비스의 호
    8b. On Linux systems, use the below command where NN is the SAP instance number to restart the host which is logged into.
    
    ```RestartService
-   sapcontrol -nr <NN> -function RestartService```
+   sapcontrol -nr <NN> -function RestartService
    
 9. Once the SAP service is restarted, please check to ensure the updated web method protection exclusion rules have been applied for each instance by running the following command: 
 
@@ -76,12 +76,19 @@ SAP 시작 서비스는 SAP 시스템 모니터링을 비롯한 서비스의 호
    The output should look like :-
    ![SS](https://user-images.githubusercontent.com/75772258/126454265-d73858c3-c32d-4afe-980c-8aba96a0b2a4.png)
 
-10. To conclude and validate, a test query can be done against web methods to validate the connection by logging into each instance and running the following commands:
+10. To conclude and validate, a test query can be done against web methods to validate ( replace the hostname , instance number and method name ) leverage the below powershell script 
 
-    - For all instances : `sapcontrol -nr <NN> -function GetProcessList`
-    - For the ENQUE instance : `sapcontrol -nr <NN> -function EnqGetStatistic`
-    - For ABAP instances : `sapcontrol -nr <NN> -function ABAPGetWPTable`
-    - For ABAP/J2EE/JEE instances : `sapcontrol -nr <NN> -function GetQueueStatistic`
+```Powershell command to test unprotect method 
+$SAPHostName = "<hostname>"
+$InstanceNumber = "<instancenumber>"
+$Function = "ABAPGetWPTable"
+[System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}
+$sapcntrluri = "https://&quot; + $SAPHostName + &quot;:5&quot; + $InstanceNumber + &quot;14/?wsdl"
+$sapcntrl = New-WebServiceProxy -uri $sapcntrluri -namespace WebServiceProxy -class sapcntrl
+$FunctionObject = New-Object ($sapcntrl.GetType().NameSpace + ".$Function")
+$sapcntrl.$Function($FunctionObject)
+
+11. **Repeat Steps 3-10 for each instance profile **.
 
 >[!Important] 
 >It is critical that the sapstartsrv service is restarted on each instance of the SAP system for the SAPControl web methods to be unprotected.  These read-only SOAP API are required for the NetWeaver provider to fetch metric data from the SAP System and failure to unprotect these methods will lead to empty or missing visualizations on the NetWeaver metric workbook.

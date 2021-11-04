@@ -7,12 +7,12 @@ ms.date: 08/25/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 39c96be31a8a8be0cf1c2fc4f16fcbfa7468cb41
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 28efc06f2d7c3b5a9fca8d96dda7fa885a98f088
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128584240"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131070340"
 ---
 # <a name="how-to-authenticate-and-authorize-iot-central-rest-api-calls"></a>IoT Central REST API 호출을 인증하고 권한을 부여하는 방법
 
@@ -164,4 +164,4 @@ REST API를 호출할 때 API 토큰을 사용하려면 권한 부여 헤더가 
 
 ## <a name="next-steps"></a>다음 단계
 
-지금까지 REST API 호출에 권한을 부여하는 방법을 살펴봤으므로 다음 단계는 [IoT Central REST API를 사용하여 사용자 및 역할을 관리하는 방법](howto-manage-users-roles-with-rest-api.md)입니다.
+REST API 호출에 권한을 부여 하는 방법을 배웠으므로 이제 제안 된 다음 단계는 [IoT Central REST API를 사용](howto-query-with-rest-api.md)하 여 장치를 쿼리 하는 방법입니다.

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 2c0241792236ed517ecd1183a9062b3edbca981c
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 199fbe82cc1c3c88020bf9c2bc39d7df7380cc2f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130216716"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131459029"
 ---
 # <a name="azure-queue-storage-trigger-and-bindings-for-azure-functions-overview"></a>Azure Functions의 Azure Queue 스토리지 트리거 및 바인딩 개요
 
@@ -36,23 +36,22 @@ Azure Functions는 새 Azure Queue 스토리지 메시지가 만들어질 때 �
 
 #### <a name="storage-extension-5x-and-higher"></a>스토리지 확장 5.x 이상
 
-새 버전의 Storage 바인딩 확장은 미리 보기에서 사용할 수 있습니다. [비밀 대신 id를 사용 하 여 연결](./functions-reference.md#configure-an-identity-based-connection)하는 기능이 도입 되었습니다. 관리 id를 사용 하 여 함수 앱을 구성 하는 방법에 대 한 자습서는 [id 기반 연결을 사용 하 여 함수 앱 만들기 자습서](./functions-identity-based-connections-tutorial.md)를 참조 하세요. .NET 응용 프로그램의 경우에는 새 확장 버전 에서도 바인딩할 수 있는 형식을 변경 하 여 `WindowsAzure.Storage` `Microsoft.Azure.Storage` Azure에서 및의 최신 형식으로 형식을 바꿉니다 [. Storage. 큐](/dotnet/api/azure.storage.queues).
+이제 새 버전의 Storage 바인딩 확장을 사용할 수 있습니다. [비밀 대신 ID를 사용하여 연결하는](./functions-reference.md#configure-an-identity-based-connection)기능을 소개합니다. 관리 ID를 사용한 함수 앱 구성에 대한 자습서는 [ID 기반 연결을 사용한 함수 앱 만들기 자습서를 참조하세요.](./functions-identity-based-connections-tutorial.md) .NET 애플리케이션의 경우 새 확장 버전도 바인딩할 수 있는 형식을 변경하여 및 의 형식을 `WindowsAzure.Storage` `Microsoft.Azure.Storage` Azure.Storage 최신 형식으로 [바꿉니다. 를 큐에 대기합니다.](/dotnet/api/azure.storage.queues)
 
-이 확장 버전은 [미리 보기 NuGet 패키지로] 사용할 수 있거나, 파일에 다음을 추가 하 여 미리 보기 확장 번들 v3에서 추가할 수 있습니다 `host.json` .
+이 확장 버전은 [NuGet 패키지], 버전 5.x를 설치하여 사용할 수 있으며, 파일에 다음을 추가하여 확장 번들 v3에서 추가할 수 있습니다. `host.json`
 
 ```json
 {
   "version": "2.0",
   "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[3.*, 4.0.0)"
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[3.3.0, 4.0.0)"
   }
 }
 ```
 
-자세히 알아보려면 [확장 업데이트]를 참조 하세요.
+자세한 내용은 [확장 업데이트를 참조하세요.]
 
-[NuGet 패키지 미리 보기]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/5.0.0-beta.5
 [core tools]: ./functions-run-local.md
 [확장 번들]: ./functions-bindings-register.md#extension-bundles
 [NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage

@@ -4,12 +4,12 @@ description: 이 문서에서는 공유 액세스 서명을 사용하여 Event H
 ms.topic: conceptual
 ms.date: 07/26/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 18b338f42ecd0f12e361aaf1defcfed22e0aaad7
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.openlocfilehash: 151f91741394d5b723eed88ac94b9177a7d50a95
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123307110"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131028295"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>SAS(공유 액세스 서명)를 사용하여 Event Hubs 리소스에 대한 액세스 인증
 SAS(공유 액세스 서명)를 사용하면 공유 액세스 서명을 보유한 클라이언트에 부여하는 액세스 유형을 세부적으로 제어할 수 있습니다. SAS에서 설정할 수 있는 몇 가지 컨트롤은 다음과 같습니다. 
@@ -217,6 +217,66 @@ private static string createToken(string resourceUri, string keyName, string key
 
 ## <a name="authenticating-event-hubs-consumers-with-sas"></a>SAS를 사용하여 Event Hubs 소비자 인증 
 Event Hubs 생산자에 의해 생성된 데이터를 사용하는 백 엔드 애플리케이션을 인증하려면, 해당 클라이언트에 Event Hubs 네임스페이스나 이벤트 허브 인스턴스 또는 토픽에 할당된 **관리** 권한 또는 **수신 대기** 권한이 있어야 Event Hubs 토큰 인증을 사용할 수 있습니다. 데이터는 소비자 그룹을 사용하여 Event Hubs에서 사용됩니다. SAS 정책은 세부적인 범위를 제공하지만, 이는 소비자 수준이 아니라 엔터티 수준에서만 정의됩니다. 즉, 네임스페이스 수준이나 이벤트 허브 인스턴스 또는 토픽 수준에서 정의된 권한이 해당 엔터티의 소비자 그룹에 적용됩니다.
+
+## <a name="disabling-localsas-key-authentication"></a>로컬/SAS 키 인증 비활성화  
+특정 조직 보안 요구 사항의 경우 로컬/SAS 키 인증을 완전히 사용하지 않도록 설정하고 Azure Event Hubs 연결하는 데 권장되는 방법인 Azure AD(Azure Active Directory) 기반 인증에 의존해야 할 수 있습니다. Azure Portal 또는 Azure Resource Manager 템플릿을 사용하여 Event Hubs 네임스페이스 수준에서 로컬/SAS 키 인증을 사용하지 않도록 설정할 수 있습니다. 
+
+### <a name="disabling-localsas-key-authentication-via-the-portal"></a>포털을 통해 로컬/SAS 키 인증 비활성화 
+Azure Portal 사용하여 지정된 Event Hubs 네임스페이스에 대해 로컬/SAS 키 인증을 사용하지 않도록 설정할 수 있습니다. 
+
+다음 이미지와 같이 네임스페이스 개요 섹션에서 *로컬 인증* 을 클릭합니다. 
+
+![로컬 인증을 사용하지 않도록 지정하기 위한 네임스페이스 개요](./media/authenticate-shared-access-signature/disable-local-auth-overview.png)
+
+그런 *다음, 사용 안 함* 옵션을 선택하고 아래와 같이 *확인을* 클릭합니다. 
+![로컬 인증 비활성화](./media/authenticate-shared-access-signature/disabling-local-auth.png)
+
+### <a name="disabling-localsas-key-authentication-using-a-template"></a>템플릿을 사용하여 로컬/SAS 키 인증 비활성화 
+다음 Azure Resource Manager `disableLocalAuth` 템플릿(ARM 템플릿)과 같이 속성을 로 설정하여 지정된 Event Hubs 네임스페이스에 대해 로컬 인증을 사용하지 않도록 설정할 수 `true` 있습니다.
+
+```json
+"resources":[
+      {
+         "apiVersion":"[variables('ehVersion')]",
+         "name":"[parameters('eventHubNamespaceName')]",
+         "type":"Microsoft.EventHub/Namespaces",
+         "location":"[variables('location')]",
+         "sku":{
+            "name":"Standard",
+            "tier":"Standard"
+         },
+         "resources": [
+    {
+      "apiVersion": "2017-04-01",
+      "name": "[parameters('eventHubNamespaceName')]",
+      "type": "Microsoft.EventHub/Namespaces",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard"
+      },
+      "properties": {
+        "isAutoInflateEnabled": "true",
+        "maximumThroughputUnits": "7", 
+        "disableLocalAuth": false
+      },
+      "resources": [
+        {
+          "apiVersion": "2017-04-01",
+          "name": "[parameters('eventHubName')]",
+          "type": "EventHubs",
+          "dependsOn": [
+            "[concat('Microsoft.EventHub/namespaces/', parameters('eventHubNamespaceName'))]"
+          ],
+          "properties": {
+            "messageRetentionInDays": "[parameters('messageRetentionInDays')]",
+            "partitionCount": "[parameters('partitionCount')]"
+          }
+
+        }
+      ]
+    }
+  ]
+``` 
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참조하세요.

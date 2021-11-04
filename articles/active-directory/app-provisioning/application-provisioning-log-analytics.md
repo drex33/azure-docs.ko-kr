@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 918267b9dc2d7d8548d5406d590a03db13870749
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 5ac16491a03b783020e1d8898eb50f30eef98eea
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129991834"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050910"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>프로비전이 Azure Monitor 로그와 통합되는 방식 이해
 
@@ -34,7 +34,7 @@ Azure 모니터링을 구성한 후에는 애플리케이션 프로비전에 대
 
 > [!NOTE]
 > 작업 영역을 최근에 프로비전한 경우에는 로그를 보내기까지 시간이 걸릴 수 있습니다. 구독이 *microsoft.insights* 를 사용하도록 등록되지 않았다는 오류가 표시되면 몇 분 후에 다시 확인하세요.
- 
+
 ## <a name="understanding-the-data"></a>데이터 이해
 프로비전에서 로그 뷰어에게 보내는 기본 데이터 스트림은 거의 동일합니다. Azure Monitor 로그는 Azure Portal UI 및 Azure API와 거의 동일한 스트림을 가져옵니다. 로그 필드에는 몇 가지 **차이점** 만 있으며, 다음 표에 설명되어 있습니다. 이러한 필드에 대해 자세히 알아보려면 [provisioningObjectSummary 나열](/graph/api/provisioningobjectsummary-list?preserve-view=true&tabs=http&view=graph-rest-beta)을 참조하세요.
 

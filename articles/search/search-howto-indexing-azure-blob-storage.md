@@ -2,19 +2,19 @@
 title: Azure Blob Storage의 데이터 인덱싱
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search에서 전체 텍스트 검색 작업과 정보 마이닝에 대한 Blob 콘텐츠 인덱싱을 자동화하도록 Azure Blob 인덱서를 설정합니다.
+author: nitinme
+ms.author: nitinme
 manager: nitinme
-author: MarkHeff
-ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/14/2021
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 0014c28b57480e8da301c57823cdba79cea67e96
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 13753918ba850dcb9e62c0d54c1f23259eb92ba4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129274901"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131010710"
 ---
 # <a name="index-data-from-azure-blob-storage"></a>Azure Blob Storage의 데이터 인덱싱
 

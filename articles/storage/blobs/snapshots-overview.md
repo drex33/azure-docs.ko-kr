@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/02/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 437211ae50404443dee30e5a9c8141ea09d69244
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 35fb71da46de695a91b06a72a101e81f59237175
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129278560"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131449263"
 ---
 # <a name="blob-snapshots"></a>Blob 스냅샷
 
@@ -126,7 +126,7 @@ Blob이나 스냅샷(또는 버전)에 대한 Blob 계층을 명시적으로 설
 
 다음 표에서는 Blob 또는 스냅샷이 새 계층으로 이동할 때의 요금 청구 방식을 설명합니다.
 
-| Blob 계층이 명시적으로 설정된 경우... | 다음에 대한 요금이 청구됩니다. |
+| Blob 계층이 명시적으로 설정 된 경우 | 다음에 대한 요금이 청구됩니다. |
 |-|-|
 | 스냅샷이 있는 기본 Blob | 새 계층의 기본 Blob, 원본 계층의 가장 오래된 스냅샷, 다른 스냅샷의 모든 고유 블록. <sup>1</sup> |
 | 이전 버전과 스냅샷이 있는 기본 Blob | 새 계층의 기본 Blob, 원본 계층의 가장 오래된 버전, 원본 계층의 가장 오래된 스냅샷, 다른 버전 또는 스냅샷의 고유 블록<sup>1</sup>. |
@@ -153,7 +153,7 @@ Blob 일시 삭제를 사용하는 경우 계층을 명시적으로 설정한 �
 
 다음 표에서는 버전 관리의 사용 여부에 따라 일시 삭제된 Blob에 대한 청구를 설명합니다. 버전 관리를 사용한 경우 Blob이 일시 삭제되면 새로운 버전이 만들어집니다. 버전 관리를 사용하지 않는 경우 Blob을 일시 삭제하면 일시 삭제 스냅샷이 만들어집니다.
 
-| 계층이 명시적으로 설정된 기본 Blob을 덮어쓰는 경우... | 다음에 대한 요금이 청구됩니다. |
+| 계층을 사용 하 여 기본 blob를 덮어쓸 때를 명시적으로 설정 하는 경우 ... | 다음에 대한 요금이 청구됩니다. |
 |-|-|
 | Blob 일시 삭제 및 버전 관리를 모두 사용하는 경우 | 계층에 관계 없이 모든 기존 버전의 전체 콘텐츠 길이 |
 | Blob 일시 삭제를 사용하도록 설정했지만 버전 관리를 사용하지 않는 경우 | 계층에 관계 없이 모든 기존 일시 삭제 스냅샷이 전체 콘텐츠 길이에 포함됩니다. |
@@ -164,12 +164,12 @@ Blob 일시 삭제를 사용하는 경우 계층을 명시적으로 설정한 �
 
 | Storage 계정 유형                | Blob Storage(기본 지원)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)  <sup>2</sup>              | ![No](../media/icons/no-icon.png) |
-| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)  <sup>2</sup>              | ![No](../media/icons/no-icon.png) |
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)  <sup>2</sup>              | ![아니요](../media/icons/no-icon.png) |
+| Premium 블록 Blob          | ![예](../media/icons/yes-icon.png) |![예](../media/icons/yes-icon.png)  <sup>2</sup>              | ![아니요](../media/icons/no-icon.png) |
 
 <sup>1</sup> Data Lake Storage Gen2와 NFS(네트워크 파일 시스템) 3.0 프로토콜 모두에는 계층 구조 네임스페이스를 사용하는 스토리지 계정이 필요합니다.
 
-<sup>2</sup>    기능은 미리 보기 수준에서 지원됩니다.
+<sup>2</sup>    기능은 미리 보기 수준에서 지원 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

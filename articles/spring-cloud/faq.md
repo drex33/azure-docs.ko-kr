@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 79ff649d9710d4f114b7d8de85d275896f26a729
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a1653b9940f7b278d2d1a7e4b21bd2b9d57b9411
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131003564"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131474821"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure Spring Cloud FAQ
 
@@ -47,7 +47,7 @@ Azure Spring Cloud 기본 Kubernetes 작업자 노드에서 애플리케이션�
 
 ### <a name="is-any-customer-data-stored-outside-of-the-specified-region"></a>지정된 지역 외부에 저장된 고객 데이터가 있나요?
 
-Azure Spring Cloud는 지역 서비스입니다. Azure Spring Cloud의 모든 고객 데이터는 중복도를 위해 지정된 지역의 동일한 지역 내의 여러 지역에 저장됩니다. 지리적 위치 및 지역에 대한 자세한 내용은 [Azure의 데이터 보존](https://azure.microsoft.com/global-infrastructure/data-residency/)을 참조하세요.
+Azure Spring Cloud는 지역 서비스입니다. Azure Spring Cloud 모든 고객 데이터는 지정된 단일 지역에 저장됩니다. 지리적 위치 및 지역에 대한 자세한 내용은 [Azure의 데이터 보존](https://azure.microsoft.com/global-infrastructure/data-residency/)을 참조하세요.
 
 ### <a name="what-are-the-known-limitations-of-azure-spring-cloud"></a>Azure Spring Cloud의 알려진 제한 사항은 어떻게 되나요?
 
@@ -64,11 +64,11 @@ Azure Spring Cloud에는 다음과 같이 알려진 제한 사항이 있습니�
 * Azure Spring Cloud는 기본 및 표준의 두 가지 가격 책정 계층을 제공합니다. 기본 계층은 개발/테스트 및 Azure Spring Cloud 사용을 대상으로 합니다. 표준 계층은 범용 프로덕션 트래픽을 실행하도록 최적화되어 있습니다. 제한 및 기능 수준 비교에 대한 자세한 내용은 [Azure Spring Cloud 가격 책정 정보](https://azure.microsoft.com/pricing/details/spring-cloud/)를 참조하세요.
 
 ### <a name="whats-the-difference-between-service-binding-and-service-connector"></a>서비스 바인딩과 서비스 커넥터의 차이점은 무엇인가요?
-Service Connector라는 새로운 Azure 전체 솔루션을 위해 서비스 바인딩에 대한 추가 기능을 적극적으로 개발하지 않습니다. 한편, 새 솔루션은 azure의 앱 호스팅 서비스(예: App Service)에서 일관된 통합 환경을 제공합니다. 반면, MySQL, SQL DB, Cosmos DB, Postgres DB, Redis, Storage 등 가장 많이 사용되는 10개 이상의 대상 Azure 서비스를 지원하여 요구 사항을 더 잘 처리합니다. 서비스 커넥터는 현재 공개 미리 보기로 제공됩니다. 새로운 환경을 사용해 보시기 위해 초대합니다.
+Service [Connector라는](/azure/service-connector/overview)새로운 Azure 전체 솔루션을 위해 서비스 바인딩에 대한 추가 기능을 적극적으로 개발하지 않습니다. 한편, 새 솔루션은 azure의 앱 호스팅 서비스(예: App Service)에서 일관된 통합 환경을 제공합니다. 반면에 MySQL, SQL DB, Cosmos DB, Postgres DB, Redis, Storage 등 가장 많이 사용되는 10개 이상의 대상 Azure 서비스를 지원하여 요구 사항을 더 잘 처리합니다. 서비스 커넥터는 현재 공개 미리 보기로 제공됩니다. 새로운 환경을 사용해 보시기 위해 초대합니다.
 
 ### <a name="how-can-i-provide-feedback-and-report-issues"></a>피드백 및 보고서 문제를 제출하려면 어떻게 해야 하나요?
 
-Azure Spring Cloud에 문제가 발생하면 [Azure 지원 요청](../azure-portal/supportability/how-to-create-azure-support-request.md)을 만드세요. 기능 요청을 제출하거나 피드백을 제공하려면 [Azure 피드백](https://feedback.azure.com/forums/34192--general-feedback)으로 이동하세요.
+Azure Spring Cloud에 문제가 발생하면 [Azure 지원 요청](../azure-portal/supportability/how-to-create-azure-support-request.md)을 만드세요. 기능 요청을 제출하거나 피드백을 제공하려면 [Azure 피드백](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4)으로 이동하세요.
 
 ## <a name="development"></a>개발
 
@@ -210,23 +210,23 @@ Azure Spring Cloud에 적용 가능한 중요 보안 패치(CVE 점수> = 9)는 
 
 ### <a name="does-azure-spring-cloud-support-autoscaling-in-app-instances"></a>Azure Spring Cloud에서 앱 인스턴스의 자동 크기 조정을 지원하나요?
 
-예. 자세한 내용은 [마이크로 서비스 애플리케이션에 대한 자동 크기 조정 설정을 참조하세요.](./how-to-setup-autoscale.md)
+예. 자세한 내용은 [마이크로 서비스 응용 프로그램에 대 한 자동 크기 조정 설정](./how-to-setup-autoscale.md)을 참조 하세요.
 
-### <a name="how-does-azure-spring-cloud-monitor-the-health-status-of-my-application"></a>Azure Spring Cloud 애플리케이션의 상태를 모니터링하는 방법
+### <a name="how-does-azure-spring-cloud-monitor-the-health-status-of-my-application"></a>Azure 스프링 클라우드는 응용 프로그램의 상태를 어떻게 모니터링 하나요?
 
-Azure Spring Cloud 고객의 애플리케이션에 대한 포트 1025를 지속적으로 검색합니다. 이러한 프로브는 애플리케이션 컨테이너가 트래픽 허용을 시작할 준비가 되었는지 여부와 Azure Spring Cloud 애플리케이션 컨테이너를 다시 시작해야 하는지 여부를 결정합니다. 내부적으로 Azure Spring Cloud Kubernetes 사용량 및 준비 상태 프로브를 사용하여 상태 모니터링을 달성합니다.
+Azure 스프링 클라우드는 고객의 응용 프로그램에 대해 포트 1025를 지속적으로 프로브 합니다. 이러한 프로브는 응용 프로그램 컨테이너가 트래픽 수락을 시작할 준비가 되었는지 여부와 Azure 스프링 클라우드가 응용 프로그램 컨테이너를 다시 시작 해야 하는지 여부를 결정 합니다. 내부적으로 Azure 스프링 클라우드는 Kubernetes 선거의 및 준비 프로브를 사용 하 여 상태 모니터링을 수행 합니다.
 
 >[!NOTE]
-> 이러한 프로브로 인해 현재 포트 1025를 노출하지 않고는 Azure Spring Cloud 애플리케이션을 시작할 수 없습니다.
+> 이러한 프로브로 인해 현재 포트 1025을 노출 하지 않고 Azure 스프링 클라우드에서 응용 프로그램을 시작할 수 없습니다.
 
-### <a name="whether-and-when-will-my-application-be-restarted"></a>내 애플리케이션을 다시 시작할지 여부와 시기는 언제인가요?
+### <a name="whether-and-when-will-my-application-be-restarted"></a>응용 프로그램을 다시 시작할지 여부와 시기
 
-예. 자세한 내용은 [Azure 활동 로그를 사용하여 앱 수명 주기 이벤트 모니터링 및 Azure Service Health.](./monitor-app-lifecycle-events.md)
+예. 자세한 내용은 [Azure 활동 로그를 사용 하 여 앱 수명 주기 이벤트 모니터링 및 Azure Service Health](./monitor-app-lifecycle-events.md)을 참조 하세요.
 
 ::: zone pivot="programming-language-java"
 ### <a name="what-are-the-best-practices-for-migrating-existing-spring-cloud-microservices-to-azure-spring-cloud"></a>기존 Spring Cloud 마이크로서비스를 Azure Spring Cloud로 마이그레이션하기 위한 모범 사례는 무엇인가요?
 
-자세한 내용은 [Azure Spring Cloud Spring Cloud 애플리케이션 마이그레이션을](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud)참조하세요.
+자세한 내용은 [스프링 클라우드 응용 프로그램을 Azure 스프링 클라우드로 마이그레이션](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud)을 참조 하세요.
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"

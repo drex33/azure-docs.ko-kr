@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 zone_pivot_groups: facility-ontology-schema
-ms.openlocfilehash: c08faefc795fd65c71163bd9f8c24a1f8cd939f8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 3ef3d9dd9d992e17c66516de8d13978e6c7c4821
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528286"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450802"
 ---
 # <a name="facility-ontology"></a>Facility Ontology
 
@@ -78,7 +78,7 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 |`name` |    문자열 |    false |    현지 언어의 기능 이름입니다. 허용되는 최대 길이는 1000입니다. |
 |`nameSubtitle` |    문자열 |    false |   기능의 `name` 아래에 표시되는 부제목입니다. 이름을 다른 언어로 표시하는 데 사용할 수 있습니다.  허용되는 최대 길이는 1000입니다.|
 |`nameAlt` |    문자열 |    false |   기능에 사용되는 대체 이름입니다. 허용되는 최대 길이는 1000입니다. |
-|`anchorPoint` |   [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | 기능을 점으로 나타내는 [GeoJSON 점 기하 도형](/rest/api/maps/wfs/get-feature-preview#featuregeojson)입니다. 기능의 레이블을 배치하는 데 사용할 수 있습니다.|
+|`anchorPoint` |   [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | 기능을 점으로 나타내는 [GeoJSON 점 기하 도형](/rest/api/maps/wfs/get-feature#featuregeojson)입니다. 기능의 레이블을 배치하는 데 사용할 수 있습니다.|
 
 :::zone-end
 
@@ -98,7 +98,7 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 |`name` |    문자열 |    false |    현지 언어의 기능 이름입니다.  허용되는 최대 길이는 1000입니다.|
 |`nameSubtitle` |    문자열 |    false |   기능의 `name` 아래에 표시되는 부제목입니다. 이름을 다른 언어로 표시하는 데 사용할 수 있습니다.  허용되는 최대 길이는 1000입니다.|
 |`nameAlt` |    문자열 |    false |   기능에 사용되는 대체 이름입니다.  허용되는 최대 길이는 1000입니다.|
-|`anchorPoint` |   [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | 기능을 점으로 나타내는 [GeoJSON 점 기하 도형](/rest/api/maps/wfs/get-feature-preview#featuregeojson)입니다. 기능의 레이블을 배치하는 데 사용할 수 있습니다.|
+|`anchorPoint` |   [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | 기능을 점으로 나타내는 [GeoJSON 점 기하 도형](/rest/api/maps/wfs/get-feature#featuregeojson)입니다. 기능의 레이블을 배치하는 데 사용할 수 있습니다.|
 
 :::zone-end
 
@@ -119,7 +119,7 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 |`name` |    문자열 |    false |    현지 언어의 기능 이름입니다. 허용되는 최대 길이는 1000입니다. |
 |`nameSubtitle` |    문자열 |    false |   기능의 `name` 아래에 표시되는 부제목입니다. 이름을 다른 언어로 표시하는 데 사용할 수 있습니다. 허용되는 최대 길이는 1000입니다. |
 |`nameAlt` |    문자열 |    false |   기능에 사용되는 대체 이름입니다.  허용되는 최대 길이는 1000입니다.|
-|`anchorPoint` |   [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | 기능을 점으로 나타내는 [GeoJSON 점 기하 도형](/rest/api/maps/wfs/get-feature-preview#featuregeojson)입니다. 기능의 레이블을 배치하는 데 사용할 수 있습니다.|
+|`anchorPoint` |   [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | 기능을 점으로 나타내는 [GeoJSON 점 기하 도형](/rest/api/maps/wfs/get-feature#featuregeojson)입니다. 기능의 레이블을 배치하는 데 사용할 수 있습니다.|
 
 :::zone-end
 
@@ -139,7 +139,7 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 |`name` |    문자열 |    false |    현지 언어의 기능 이름입니다.  허용되는 최대 길이는 1000입니다.|
 |`nameSubtitle` |    문자열 |    false |   기능의 `name` 아래에 표시되는 부제목입니다. 이름을 다른 언어로 표시하는 데 사용할 수 있습니다.  허용되는 최대 길이는 1000입니다.|
 |`nameAlt` |    문자열 |    false |   기능에 사용되는 대체 이름입니다. 허용되는 최대 길이는 1000입니다. |
-|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | 기능을 점으로 나타내는 [GeoJSON 점 기하 도형](/rest/api/maps/wfs/get-feature-preview#featuregeojson)입니다. 기능의 레이블을 배치하는 데 사용할 수 있습니다.|
+|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | 기능을 점으로 나타내는 [GeoJSON 점 기하 도형](/rest/api/maps/wfs/get-feature#featuregeojson)입니다. 기능의 레이블을 배치하는 데 사용할 수 있습니다.|
 
 ## <a name="level"></a>수준
 
@@ -159,7 +159,7 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 |`name` |    문자열 |    false |    현지 언어의 기능 이름입니다.  허용되는 최대 길이는 1000입니다.|
 |`nameSubtitle` |    문자열 |    false |   기능의 `name` 아래에 표시되는 부제목입니다. 이름을 다른 언어로 표시하는 데 사용할 수 있습니다.  허용되는 최대 길이는 1000입니다.|
 |`nameAlt` |    문자열 |    false |   기능에 사용되는 대체 이름입니다.  허용되는 최대 길이는 1000입니다.|
-|`anchorPoint` |   [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | 기능을 점으로 나타내는 [GeoJSON 점 기하 도형](/rest/api/maps/wfs/get-feature-preview#featuregeojson)입니다. 기능의 레이블을 배치하는 데 사용할 수 있습니다.|
+|`anchorPoint` |   [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | 기능을 점으로 나타내는 [GeoJSON 점 기하 도형](/rest/api/maps/wfs/get-feature#featuregeojson)입니다. 기능의 레이블을 배치하는 데 사용할 수 있습니다.|
 
 ## <a name="facility"></a>facility
 
@@ -177,7 +177,7 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 |`name` |    문자열 |    false |    현지 언어의 기능 이름입니다. 허용되는 최대 길이는 1000입니다. |
 |`nameSubtitle` |    문자열 |    false |   기능의 `name` 아래에 표시되는 부제목입니다. 이름을 다른 언어로 표시하는 데 사용할 수 있습니다. 허용되는 최대 길이는 1000입니다. |
 |`nameAlt` |    문자열 |    false |   기능에 사용되는 대체 이름입니다.  허용되는 최대 길이는 1000입니다.|
-|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | 기능을 점으로 나타내는 [GeoJSON 점 기하 도형](/rest/api/maps/wfs/get-feature-preview#featuregeojson)입니다. 기능의 레이블을 배치하는 데 사용할 수 있습니다.|
+|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | 기능을 점으로 나타내는 [GeoJSON 점 기하 도형](/rest/api/maps/wfs/get-feature#featuregeojson)입니다. 기능의 레이블을 배치하는 데 사용할 수 있습니다.|
 |`anchorHeightAboveSeaLevel` |  double | false | 해수면 위 앵커 지점의 높이(미터)입니다. 해수면은 EGM 2008에 의해 정의됩니다.|
 |`defaultLevelVerticalExtent` |  double| false | 수준 세로 범위의 기본값(미터)입니다.|
 
@@ -202,7 +202,7 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 |`name` |    문자열 |    false |    현지 언어의 기능 이름입니다.  허용되는 최대 길이는 1000입니다.|
 |`nameSubtitle` |    문자열 |    false |   기능의 `name` 아래에 표시되는 부제목입니다. 이름을 다른 언어로 표시하는 데 사용할 수 있습니다.  허용되는 최대 길이는 1000입니다.|
 |`nameAlt` |    문자열 |    false |   기능에 사용되는 대체 이름입니다. 허용되는 최대 길이는 1000입니다. |
-|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | 기능을 점으로 나타내는 [GeoJSON 점 기하 도형](/rest/api/maps/wfs/get-feature-preview#featuregeojson)입니다. 기능의 레이블을 배치하는 데 사용할 수 있습니다.|
+|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | 기능을 점으로 나타내는 [GeoJSON 점 기하 도형](/rest/api/maps/wfs/get-feature#featuregeojson)입니다. 기능의 레이블을 배치하는 데 사용할 수 있습니다.|
 
 :::zone-end
 
@@ -219,7 +219,7 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 |`name` |    문자열 |    false |    현지 언어의 기능 이름입니다.  허용되는 최대 길이는 1000입니다.|
 |`nameSubtitle` |    문자열 |    false |   기능의 `name` 아래에 표시되는 부제목입니다. 이름을 다른 언어로 표시하는 데 사용할 수 있습니다.  허용되는 최대 길이는 1000입니다.|
 |`nameAlt` |    문자열 |    false |   기능에 사용되는 대체 이름입니다. 허용되는 최대 길이는 1000입니다. |
-|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | 기능을 점으로 나타내는 [GeoJSON 점 기하 도형](/rest/api/maps/wfs/get-feature-preview#featuregeojson)입니다. 기능의 레이블을 배치하는 데 사용할 수 있습니다.|
+|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | 기능을 점으로 나타내는 [GeoJSON 점 기하 도형](/rest/api/maps/wfs/get-feature#featuregeojson)입니다. 기능의 레이블을 배치하는 데 사용할 수 있습니다.|
 
 :::zone-end
 
@@ -242,7 +242,7 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 | `accessRightToLeft`| enum [ "prohibited", "digitalKey", "physicalKey", "keyPad", "guard", "ticket", "fingerprint", "retina", "voice", "face", "palm", "iris", "signature", "handGeometry", "time", "ticketChecker", "other"] | false | 오른쪽에서 왼쪽으로 통로를 통과하는 경우 액세스 방법입니다. 왼쪽 및 오른쪽은 첫 번째 꼭짓점에 고정되어 두 번째 꼭짓점과 마주 보는 기능 기하 도형의 꼭짓점에 의해 결정됩니다. 이 속성을 생략하는 것은 액세스 제한 사항이 없음을 의미합니다.|
 | `accessLeftToRight`| enum [ "prohibited", "digitalKey", "physicalKey", "keyPad", "guard", "ticket", "fingerprint", "retina", "voice", "face", "palm", "iris", "signature", "handGeometry", "time", "ticketChecker", "other"] | false | 왼쪽에서 오른쪽으로 통로를 통과하는 경우 액세스 방법입니다. 왼쪽 및 오른쪽은 첫 번째 꼭짓점에 고정되어 두 번째 꼭짓점과 마주 보는 기능 기하 도형의 꼭짓점에 의해 결정됩니다. 이 속성을 생략하는 것은 액세스 제한 사항이 없음을 의미합니다.|
 | `isEmergency` | boolean | false | `true`이면 통로는 응급 상황 중에만 탐색할 수 있습니다. 기본값은 `false` |
-|`anchorPoint` | [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | 기능을 점으로 나타내는 [GeoJSON 점 기하 도형](/rest/api/maps/wfs/get-feature-preview#featuregeojson) y입니다. 기능의 레이블을 배치하는 데 사용할 수 있습니다.|
+|`anchorPoint` | [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | 기능을 점으로 나타내는 [GeoJSON 점 기하 도형](/rest/api/maps/wfs/get-feature#featuregeojson) y입니다. 기능의 레이블을 배치하는 데 사용할 수 있습니다.|
 
 :::zone-end
 
@@ -254,7 +254,7 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 |`externalId`        | 문자열     |true      | 클라이언트에서 내부 데이터베이스와 같이 다른 데이터 세트의 다른 기능과 기능을 연결하는 데 사용되는 ID입니다. 허용되는 최대 길이는 1000입니다.|
 |`categoryId`        |[category.Id](#category)     |true      | 범주 기능의 ID입니다.|
 | `levelId`          | [level.Id](#level)        | true     | 수준 기능의 ID입니다. |
-|`anchorPoint` | [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | 기능을 점으로 나타내는 [GeoJSON 점 기하 도형](/rest/api/maps/wfs/get-feature-preview#featuregeojson) y입니다. 기능의 레이블을 배치하는 데 사용할 수 있습니다.|
+|`anchorPoint` | [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | 기능을 점으로 나타내는 [GeoJSON 점 기하 도형](/rest/api/maps/wfs/get-feature#featuregeojson) y입니다. 기능의 레이블을 배치하는 데 사용할 수 있습니다.|
 
 :::zone-end
 
@@ -313,8 +313,8 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 |`name` |    문자열 |    false |    현지 언어의 기능 이름입니다. 허용되는 최대 길이는 1000입니다. |
 |`nameSubtitle` |    문자열 |    false |   기능의 `name` 아래에 표시되는 부제목입니다. 이름을 다른 언어로 표시하는 데 사용할 수 있습니다. 허용되는 최대 길이는 1000입니다. |
 |`nameAlt` |    문자열 |    false |   기능에 사용되는 대체 이름입니다. 허용되는 최대 길이는 1000입니다. |
-|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | 기능을 점으로 나타내는 [GeoJSON 점 기하 도형](/rest/api/maps/wfs/get-feature-preview#featuregeojson)입니다. 기능의 레이블을 배치하는 데 사용할 수 있습니다.|
-|`obstructionArea` |   [Polygon](/rest/api/maps/wfs/get-feature-preview#featuregeojson)| false | 라우팅 중에 피해야 하는 기능의 간소화된 기하 도형입니다(선 기하 도형이 복잡한 경우). `isObstruction`을 true로 설정해야 합니다.|
+|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | 기능을 점으로 나타내는 [GeoJSON 점 기하 도형](/rest/api/maps/wfs/get-feature#featuregeojson)입니다. 기능의 레이블을 배치하는 데 사용할 수 있습니다.|
+|`obstructionArea` |   [Polygon](/rest/api/maps/wfs/get-feature#featuregeojson)| false | 라우팅 중에 피해야 하는 기능의 간소화된 기하 도형입니다(선 기하 도형이 복잡한 경우). `isObstruction`을 true로 설정해야 합니다.|
 
 ## <a name="areaelement"></a>areaElement
 
@@ -333,7 +333,7 @@ Facility 2.0에는 [Azure Maps Services](https://aka.ms/AzureMaps)에 대한 Fac
 |`name` |    문자열 |    false |    현지 언어의 기능 이름입니다. 허용되는 최대 길이는 1000입니다. |
 |`nameSubtitle` |    문자열 |    false |   기능의 `name` 아래에 표시되는 부제목입니다. 이름을 다른 언어로 표시하는 데 사용할 수 있습니다.  허용되는 최대 길이는 1000입니다.|
 |`nameAlt` |    문자열 |    false |   기능에 사용되는 대체 이름입니다.  허용되는 최대 길이는 1000입니다.|
-|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature-preview#featuregeojson) | false | 기능을 점으로 나타내는 [GeoJSON 점 기하 도형](/rest/api/maps/wfs/get-feature-preview#featuregeojson)입니다. 기능의 레이블을 배치하는 데 사용할 수 있습니다.|
+|`anchorPoint` |  [Point](/rest/api/maps/wfs/get-feature#featuregeojson) | false | 기능을 점으로 나타내는 [GeoJSON 점 기하 도형](/rest/api/maps/wfs/get-feature#featuregeojson)입니다. 기능의 레이블을 배치하는 데 사용할 수 있습니다.|
 
 ## <a name="category"></a>category
 

@@ -8,12 +8,12 @@ ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: db70740b484290b56d140d6b71d570d61afd138d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 801930dc58993a81c29969f602da64f201919bd0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131082724"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131428010"
 ---
 # <a name="azure-disk-pools-preview-planning-guide"></a>Azure 디스크 풀(미리 보기) 계획 가이드
 
@@ -57,6 +57,8 @@ Azure 디스크 풀(미리 보기)을 배포하기 전에 워크로드의 성능
 다음 예제에서는 다양한 성능 요인이 함께 작동하는 방식의 아이디어를 제공합니다.
 
 예를 들어 2 1-TiB premium Ssd (P30, 프로 비전 된 대상 5000 IOPS 및 200 Mbps)를 표준 디스크 풀에 추가 하는 경우 2 x 5000 = 1만 IOPS를 달성할 수 있습니다. 그러나 처리량은 디스크 풀별로 384MBps로 제한됩니다. 이 384MBps 한도를 초과하려면 추가 처리량에 맞게 스케일 아웃하기 위해 더 많은 디스크 풀을 배포할 수 있습니다. 네트워크 처리량은 스케일 아웃의 효율성을 제한합니다.
+
+REST API에서 SKU를 지정 하지 않고 만든 디스크 풀은 기본적으로 표준 디스크 풀입니다.
 
 ## <a name="availability"></a>가용성
 

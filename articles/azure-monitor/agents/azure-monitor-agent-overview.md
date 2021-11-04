@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 09/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: 50ab3c65abd6fe57941f18f58ff277de6822389c
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 22569277eefafc518f407f06e34a69c061509b96
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130216488"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458972"
 ---
 # <a name="azure-monitor-agent-overview"></a>Azure Monitor 에이전트 개요
 AMA(Azure Monitor 에이전트)는 Azure 가상 머신의 게스트 운영 체제에서 모니터링 데이터를 수집하여 이를 Azure Monitor에 전달합니다. 이 문서는 Azure Monitor 에이전트에 대한 개요를 제공하고 설치 방법 및 데이터 수집 구성 방법에 대한 정보를 포함하고 있습니다.
@@ -61,7 +61,7 @@ Azure Monitor 에이전트는 [Azure Monitor용 레거시 에이전트](agents-o
   Azure Monitor 에이전트에 필요한 모든 핵심 기능이 있는 경우 에이전트로 전환하는 것이 좋습니다. 필요한 중요한 기능이 있는 경우 Azure Monitor 에이전트가 패리티에 도달할 때까지 현재 에이전트를 계속 사용합니다.
 - **재작업에 대한 허용 오차:** 배포 스크립트 및 온보딩 템플릿과 같은 리소스를 사용하여 새 환경을 설정하는 경우 관련된 작업을 평가합니다. 설정에 상당한 양의 작업이 필요한 경우 새 에이전트를 사용하는 새 환경을 설정하는 것이 좋습니다. 
  
-  Log Analytics 에이전트에 대한 사용 중단 날짜는 2021년 8월에 게시됩니다. 현재 에이전트는 지원 중단이 시작된 이후에도 몇 년 동안 지원됩니다.
+  Azure Monitor의 Log Analytics 에이전트는 31 월 2024 일에 사용 중지 됩니다. 현재 에이전트는 지원 중단이 시작된 이후에도 몇 년 동안 지원됩니다.
 
 ## <a name="supported-resource-types"></a>지원되는 리소스 유형
 Azure 가상 머신, 가상 머신 확장 집합 및 Azure Arc 사용 서버가 현재 지원 됩니다. Azure Kubernetes Service 및 기타 컴퓨팅 리소스 종류는 지원되지 않습니다.
@@ -109,15 +109,15 @@ Azure Monitor 에이전트에 대한 비용은 없지만 데이터 수집에 대
 ## <a name="data-sources-and-destinations"></a>데이터 원본 및 대상
 다음 표에는 현재 Azure Monitor 에이전트로 데이터 수집 규칙을 사용하여 수집할 수 있는 데이터 형식과 해당 데이터를 보낼 수 있는 위치가 나열되어 있습니다. Azure Monitor 에이전트를 사용하여 다른 종류의 데이터를 수집하는 인사이트, 솔루션 및 기타 솔루션의 목록은 [Azure Monitor에서 모니터링하는 항목](../monitor-reference.md)을 참조하세요.
 
-Azure Monitor 에이전트는 Azure Monitor 메트릭 (미리 보기) 또는 Azure Monitor 로그를 지 원하는 Log Analytics 작업 영역에 데이터를 보냅니다.
+Azure Monitor 에이전트는 Azure Monitor 메트릭(미리 보기) 또는 Azure Monitor 로그를 지원하는 Log Analytics 작업 영역으로 데이터를 보냅니다.
 
 | 데이터 원본 | 대상 | Description |
 |:---|:---|:---|
-| 성능        | Azure Monitor 메트릭 (미리 보기)<sup>1</sup><br>Log Analytics 작업 영역 | 운영 체제 및 워크로드의 여러 측면에서 성능을 측정하는 숫자 값 |
+| 성능        | Azure Monitor 메트릭(미리 보기)<sup>1</sup><br>Log Analytics 작업 영역 | 운영 체제 및 워크로드의 여러 측면에서 성능을 측정하는 숫자 값 |
 | Windows 이벤트 로그 | Log Analytics 작업 영역 | Windows 이벤트 로깅 시스템으로 전송된 정보 |
 | Syslog             | Log Analytics 작업 영역 | Linux 이벤트 로깅 시스템으로 전송되는 정보 |
 
-<sup>1</sup> Azure Monitor 메트릭을 사용 하는 다른 제한 사항을 검토 하려면 [여기를 클릭](../essentials/metrics-custom-overview.md#quotas-and-limits) 하세요. Linux에서 Azure Monitor 메트릭은 유일한 대상이 1.10.9.0 이상에서 지원 됩니다. 
+<sup>1</sup> Azure Monitor 메트릭 사용에 대한 다른 제한 내용을 [검토하려면 여기를 클릭하세요.](../essentials/metrics-custom-overview.md#quotas-and-limits) Linux에서는 Azure Monitor 메트릭을 유일한 대상으로 사용하는 것이 v.1.10.9.0 이상에서 지원됩니다. 
 
 ## <a name="security"></a>보안
 Azure Monitor 에이전트에는 키가 필요하지 않지만 대신 [시스템이 할당한 관리 ID](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity)가 필요합니다. 에이전트를 배포하기 전에 각 가상 머신에 시스템이 할당한 관리 ID를 사용하도록 설정해야 합니다.
@@ -130,7 +130,7 @@ Azure Monitor 에이전트는 Azure 서비스 태그를 지원합니다. AzureMo
 Windows 및 Linux용 Azure Monitor 에이전트 확장은 HTTPS 프로토콜을 사용하여 프록시 서버 또는 Log Analytics 게이트웨이를 통해 Azure Monitor와 통신할 수 있습니다. 이를 Azure 가상 머신, Azure 가상 머신 확장 집합 및 서버용 Azure Arc에 사용합니다. 다음 단계에 설명된 대로 구성에 확장 설정을 사용합니다. 사용자 이름과 암호를 사용한 익명 인증과 기본 인증이 모두 지원됩니다.
 
 > [!IMPORTANT]
-> 프록시 구성은 대상으로 [Azure Monitor 메트릭 (미리 보기)](../essentials/metrics-custom-overview.md) 에 대해 지원 되지 않습니다. 따라서이 대상에 메트릭을 전송 하는 경우 프록시 없이 공용 인터넷을 사용 합니다.
+> 프록시 구성은 대상으로 [Azure Monitor 메트릭(미리 보기)에](../essentials/metrics-custom-overview.md) 대해 지원되지 않습니다. 따라서 이 대상으로 메트릭을 보내는 경우 프록시 없이 공용 인터넷을 사용합니다.
 
 1. 이 순서도를 사용하여 먼저 *setting* 및 *protectedSetting* 매개 변수의 값을 결정합니다.
 
@@ -141,18 +141,28 @@ Windows 및 Linux용 Azure Monitor 에이전트 확장은 HTTPS 프로토콜을 
 
     | 매개 변수 | 값 |
     |:---|:---|
-    | SettingString | 문자열로 변환된 이전 순서도의 JSON 개체입니다. 해당하지 않는 경우 생략합니다. {"proxy":{"mode":"application","address":"http://[address]:[port]","auth": false}}를 예로 들 수 있습니다. |
-    | ProtectedSettingString | 문자열로 변환된 이전 순서도의 JSON 개체입니다. 해당하지 않는 경우 생략합니다. {"proxy":{"username": "[username]","password": "[password]"}}를 예로 들 수 있습니다. |
+    | 설정 | 문자열로 변환된 이전 순서도의 JSON 개체입니다. 해당하지 않는 경우 생략합니다. {"proxy":{"mode":"application","address":"http://[address]:[port]","auth": false}}를 예로 들 수 있습니다. |
+    | ProtectedSetting | 문자열로 변환된 이전 순서도의 JSON 개체입니다. 해당하지 않는 경우 생략합니다. {"proxy":{"username": "[username]","password": "[password]"}}를 예로 들 수 있습니다. |
 
 
-# <a name="windows"></a>[Windows](#tab/PowerShellWindows)
+# <a name="windows-vm"></a>[Windows VM](#tab/PowerShellWindows)
 ```powershell
-Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0 -SettingString <settingString> -ProtectedSettingString <protectedSettingString>
+Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0 -Setting <settingString> -ProtectedSetting <protectedSettingString>
 ```
 
-# <a name="linux"></a>[Linux](#tab/PowerShellLinux)
+# <a name="linux-vm"></a>[Linux VM](#tab/PowerShellLinux)
 ```powershell
-Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.5 -SettingString <settingString> -ProtectedSettingString <protectedSettingString>
+Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.5 -Setting <settingString> -ProtectedSetting <protectedSettingString>
+```
+
+# <a name="windows-arc-enabled-server"></a>[Windows Arc 지원 서버](#tab/PowerShellWindowsArc)
+```powershell
+New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting <settingString> -ProtectedSetting <protectedSettingString>
+```
+
+# <a name="linux-arc-enabled-server"></a>[Linux Arc 지원 서버](#tab/PowerShellLinuxArc)
+```powershell
+New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting <settingString> -ProtectedSetting <protectedSettingString>
 ```
 
 ---

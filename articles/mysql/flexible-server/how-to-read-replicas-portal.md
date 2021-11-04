@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/17/2021
-ms.openlocfilehash: 711b35ec11d42ae16a4b4db08d17e85b5217d41f
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 26e93c85a6968a994a7f4e3a14df1e0910442def
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129387521"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131429505"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-flexible-server-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL 유연한 서버에서 읽기 복제본을 만들고 관리하는 방법
 
@@ -24,9 +24,8 @@ ms.locfileid: "129387521"
 
 > [!Note]
 >
-> * 고가용성 지원 서버에서는 복제본이 지원되지 않습니다. 
-> 
-> * 읽기 복제본 기능은 Azure Database for MySQL - 범용 또는 메모리 최적화 가격 책정 계층의 유연한 서버에만 사용할 수 있습니다. 원본 서버가 이러한 가격 책정 계층 중 하나에 포함되어 있는지 확인합니다.
+> * 고가용성 지원 서버에서는 복제본이 지원되지 않습니다.
+>
 > * 주 서버에서 GTID를 사용하는 경우(`gtid_mode` = ON) 새로 만든 복제본도 GTID를 사용하도록 설정하고 GTID 기반 복제를 사용합니다. 자세한 내용은 [GTID(글로벌 트랜잭션 식별자)](concepts-read-replicas.md#global-transaction-identifier-gtid) 참조
 
 ## <a name="prerequisites"></a>필수 구성 요소
@@ -50,7 +49,7 @@ ms.locfileid: "129387521"
 
    :::image type="content" source="./media/how-to-read-replica-portal/add-replica.png" alt-text="Azure Database for MySQL - 복제":::
 
-5. 복제본 서버의 이름을 입력합니다. 지역에서 가용성 영역 지원하는 경우 원하는 가용성 영역을 선택할 수 있습니다.
+5. 복제본 서버의 이름을 입력합니다. 지역에서 가용성 영역를 지 원하는 경우 선택한 가용성 영역을 선택할 수 있습니다.
 
     :::image type="content" source="./media/how-to-read-replica-portal/replica-name.png" alt-text="Azure Database for MySQL - 복제본 이름":::
 
@@ -70,7 +69,7 @@ ms.locfileid: "129387521"
 
 Azure Portal에서 원본과 복제본 서버 간의 복제를 중지하려면 다음 단계를 수행합니다.
 
-1. Azure Portal에서 원본 Azure Database for MySQL 유연한 서버를 선택합니다. 
+1. Azure Portal에서 원본 Azure Database for MySQL 유연한 서버를 선택합니다.
 
 2. 메뉴의 **설정** 아래에서 **복제** 를 선택합니다.
 
@@ -102,7 +101,7 @@ Azure Portal에서 읽기 복제본 서버를 삭제하려면 다음 단계를 �
 
    :::image type="content" source="./media/how-to-read-replica-portal/delete-replica.png" alt-text="Azure Database for MySQL - 복제본 삭제":::
 
-5. 복제본의 이름을 입력하고 **삭제** 를 클릭하여 복제본 삭제를 확인합니다.  
+5. 복제본의 이름을 입력하고 **삭제** 를 클릭하여 복제본 삭제를 확인합니다.
 
    :::image type="content" source="./media/how-to-read-replica-portal/delete-replica-confirm.png" alt-text="Azure Database for MySQL - 복제본 삭제 확인":::
 
@@ -119,7 +118,7 @@ Azure Portal에서 원본 서버를 삭제하려면 다음 단계를 수행합�
 
    [:::image type="content" source="./media/how-to-read-replica-portal/delete-master-overview.png" alt-text="Azure Database for MySQL - 원본 삭제":::](./media/how-to-read-replica-portal/delete-master-overview.png#lightbox)
 
-3. 원본 서버의 이름을 입력하고 **삭제** 를 클릭하여 원본 서버 삭제를 확인합니다.  
+3. 원본 서버의 이름을 입력하고 **삭제** 를 클릭하여 원본 서버 삭제를 확인합니다.
 
    :::image type="content" source="./media/how-to-read-replica-portal/delete-master-confirm.png" alt-text="Azure Database for MySQL - 원본 삭제 확인":::
 

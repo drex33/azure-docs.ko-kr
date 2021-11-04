@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: e205d403a8d482d5af3278ed42dde60e5808a00a
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.openlocfilehash: 829d55cd156f2396014b2b5b55c380e347c7878d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112280804"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458269"
 ---
 # <a name="importing-from-data-sources"></a>데이터 원본에서 가져오기
 
@@ -69,7 +69,7 @@ QnA Maker는 인증으로 보호되지 않는 .ASPX 웹 확장자로 끝나는 �
 파일을 통해 가져온 비정형 콘텐츠를 기반으로 기술 자료도 만들 수 있습니다. 현재 이 기능은 지원되는 파일 형식의 문서에 대한 문서 업로드를 통해서만 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> 파일 업로드를 통한 비정형 콘텐츠 지원은 사용자 지정 질문 답변(미리 보기 릴리스)에서만 사용할 수 있습니다.
+> 파일 업로드를 통한 비정형 콘텐츠에 대한 지원은 [질문에 대답하는](../../language-service/question-answering/overview.md)경우에만 사용할 수 있습니다.
 
 ## <a name="content-types-of-documents-you-can-add-to-a-knowledge-base"></a>기술 자료에 추가할 수 있는 문서의 콘텐츠 형식
 콘텐츠 형식에는 PDF, DOC 및 TXT와 같은 많은 표준 구조적 문서가 포함됩니다.

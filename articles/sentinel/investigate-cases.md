@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/02/2021
 ms.author: yelevin
-ms.openlocfilehash: e688216668c1ccc6c660c9c37d9e432f974bdb76
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: dec517fae51463f5589b8dfbf39c4ac3e662395c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528374"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037077"
 ---
 # <a name="investigate-incidents-with-azure-sentinel"></a>Azure Sentinel을 사용하여 인시던트 조사
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 > 언급된 기능은 현재 미리 보기로 제공됩니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.

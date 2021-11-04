@@ -12,12 +12,12 @@ ms.author: drskwier
 ms.reviewer: mathoma, v-masebo
 ms.date: 05/19/2021
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2, devx-track-js
-ms.openlocfilehash: 65b4d70d9b88ec3c4275c5154bf5977bdf5dd59b
-ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
+ms.openlocfilehash: d9d6ea8cd3ef13fe38ca67caffb01beb64fbb982
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112554679"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131012286"
 ---
 # <a name="quickstart-use-nodejs-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>빠른 시작: Node.js를 사용하여 Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스 쿼리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -186,7 +186,7 @@ Azure SQL Database의 데이터베이스에 연결하는 데 필요한 연결 �
     ```
 
 > [!NOTE]
-> 관리 ID를 인증에 사용하는 방법에 대한 자세한 내용은 자습서를 완료하여 [관리 ID를 통해 데이터에 액세스](../../app-service/app-service-web-tutorial-connect-msi.md)합니다.
+> 관리 ID를 인증에 사용하는 방법에 대한 자세한 내용은 자습서를 완료하여 [관리 ID를 통해 데이터에 액세스](../../app-service/tutorial-connect-msi-sql-database.md)합니다.
 
 > [!NOTE]
 > 이 코드 예제는 Azure SQL Database에서 **AdventureWorksLT** 샘플 데이터베이스를 사용합니다.

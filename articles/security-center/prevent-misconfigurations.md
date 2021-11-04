@@ -1,22 +1,25 @@
 ---
-title: Azure Security Center를 사용하여 잘못된 구성을 방지하는 방법
-description: 권장 사항 세부 정보 페이지에서 Security Center의 ‘적용’ 및 ‘거부’ 옵션을 사용하는 방법에 대한 정보
+title: 클라우드 용 Microsoft Defender에서 잘못 된 구성을 방지 하는 방법
+description: 권장 사항 세부 정보 페이지에서 클라우드의 ' 강제 적용 ' 및 ' 거부 ' 옵션에 대해 Defender를 사용 하는 방법을 알아봅니다.
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: memildin
-ms.openlocfilehash: 4316a53675a8a7e51359b041143e8625e1db4f1f
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 772055f91c10a4a2b58945ee314271e512be61bb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122606142"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037443"
 ---
 # <a name="prevent-misconfigurations-with-enforcedeny-recommendations"></a>적용/거부 권장 사항을 사용하여 구성 오류 방지
 
-보안 구성 오류는 보안 인시던트의 주요 원인입니다. Security Center는 특정 추천 사항과 관련된 새 리소스의 구성 오류를 *방지* 하는 데 도움을 줄 수 있습니다. 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+보안 구성 오류는 보안 인시던트의 주요 원인입니다. 클라우드 용 Defender는 특정 권장 사항과 관련 하 여 새 리소스의 잘못 된 구성을 *방지* 하는 데 도움이 될 수 있습니다. 
 
 이 기능을 통해 워크로드를 안전하게 유지하고 보안 점수를 안정화할 수 있습니다.
 
@@ -31,7 +34,7 @@ ms.locfileid: "122606142"
 
 1. 새 리소스가 충족해야 하는 권장 사항을 열고 페이지 상단에서 **거부** 단추를 선택합니다.
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-deny-button.png" alt-text="거부 단추가 강조 표시된 권장 사항 페이지":::
+    :::image type="content" source="./media/implement-security-recommendations/recommendation-deny-button.png" alt-text="거부 단추가 강조 표시된 권장 사항 페이지":::
 
     구성 창이 열리고 범위 옵션이 나열됩니다. 
 
@@ -40,18 +43,18 @@ ms.locfileid: "122606142"
     > [!TIP]
     > 행의 끝에 있는 세 개의 점을 사용하여 단일 구독을 변경하거나 확인란을 사용하여 여러 구독 또는 그룹을 선택한 후 **거부로 변경** 을 선택할 수 있습니다.
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-prevent-resource-creation.png" alt-text="Azure Policy 거부 범위 설정.":::
+    :::image type="content" source="./media/implement-security-recommendations/recommendation-prevent-resource-creation.png" alt-text="Azure Policy 거부 범위 설정.":::
 
 
 ## <a name="enforce-a-secure-configuration"></a>보안 구성 적용
 
 1. 새 리소스가 충족하지 않는 경우 템플릿 배포를 배포할 권장 사항을 열고 페이지 상단에 있는 **적용** 단추를 선택합니다.
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-button.png" alt-text="적용 단추가 강조 표시된 권장 사항 페이지.":::
+    :::image type="content" source="./media/implement-security-recommendations/recommendation-enforce-button.png" alt-text="적용 단추가 강조 표시된 권장 사항 페이지.":::
 
     구성 창이 열리고 모든 정책 구성 옵션이 나타납니다. 
 
-    :::image type="content" source="./media/security-center-remediate-recommendations/recommendation-enforce-config.png" alt-text="구성 옵션 적용.":::
+    :::image type="content" source="./media/implement-security-recommendations/recommendation-enforce-config.png" alt-text="구성 옵션 적용.":::
 
 1. 범위, 할당 이름, 기타 관련 옵션을 설정합니다.
 
@@ -68,17 +71,17 @@ ms.locfileid: "122606142"
 - SQL Server에 대한 감사가 사용되도록 설정되어야 함
 - Azure Arc 사용 Kubernetes 클러스터에 Azure Defender의 확장이 설치되어 있어야 함
 - Azure Backup을 가상 머신에 사용하도록 설정해야 합니다.
-- Azure Defender for App Service를 사용해야 합니다
-- 컨테이너 레지스트리용 Azure Defender를 사용해야 합니다.
-- Azure Defender for DNS를 사용하도록 설정해야 함
-- Azure Defender for Key Vault를 사용해야 합니다.
-- Azure Defender for Kubernetes를 사용해야 합니다.
-- Azure Defender for Resource Manager를 사용하도록 설정해야 함
-- 서버용 Azure Defender를 사용해야 합니다.
-- Azure SQL Database 서버용 Azure Defender를 사용해야 합니다.
-- 머신의 SQL 서버용 Azure Defender를 사용해야 합니다.
-- 보호되지 않는 Azure SQL 서버에 대해 SQL용 Azure Defender를 사용하도록 설정해야 함
-- 스토리지용 Azure Defender를 사용해야 합니다.
+- Microsoft Defender for App Service를 사용 하도록 설정 해야 합니다.
+- 컨테이너 레지스트리 용 Microsoft Defender를 사용 하도록 설정 해야 합니다.
+- DNS 용 Microsoft Defender를 사용 하도록 설정 해야 합니다.
+- Microsoft Defender for Key Vault를 사용 하도록 설정 해야 합니다.
+- Microsoft Defender for Kubernetes를 사용 하도록 설정 해야 합니다.
+- Microsoft Defender for 리소스 관리자를 사용 하도록 설정 해야 합니다.
+- 서버에 대 한 Microsoft Defender를 사용 하도록 설정 해야 합니다.
+- Azure SQL Database 서버용 Microsoft Defender를 사용 하도록 설정 해야 합니다.
+- 컴퓨터의 SQL 서버용 Microsoft Defender를 사용 하도록 설정 해야 합니다.
+- Microsoft Defender for SQL는 보호 되지 않는 Azure SQL 서버에 대해 사용 하도록 설정 해야 합니다.
+- Microsoft Defender for Storage를 사용 하도록 설정 해야 합니다.
 - 클러스터에 Kubernetes용 Azure Policy 추가 기능을 설치하고 사용하도록 설정해야 함
 - Azure Stream Analytics에서 진단 로그를 사용하도록 설정
 - 배치 계정의 진단 로그를 사용하도록 설정해야 합니다.

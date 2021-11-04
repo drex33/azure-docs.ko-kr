@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81ec76717ef1e79f2e29bbe54b7d85d006ab00c6
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 8425c85f74e5540094be4dab12eb3e3e7c931d1b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129615660"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057327"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 역할 만들기 및 할당
 
@@ -148,18 +148,18 @@ $roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId $resourceScope -
 
     POST
 
-    ``` HTTP
+    ```http
     https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
     ```
 
     본문
 
-    ``` HTTP
-   {
-       "principalId":"<GUID OF USER>",
-       "roleDefinitionId":"<GUID OF ROLE DEFINITION>",
-       "resourceScope":"/<GUID OF APPLICATION REGISTRATION>"
-   }
+    ```http
+    {
+        "principalId":"<GUID OF USER>",
+        "roleDefinitionId":"<GUID OF ROLE DEFINITION>",
+        "resourceScope":"/<GUID OF APPLICATION REGISTRATION>"
+    }
     ```
 
 ## <a name="assign-a-custom-role-scoped-to-a-resource"></a>리소스에 범위가 지정된 사용자 지정 역할 할당
@@ -182,6 +182,6 @@ $roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId $resourceScope -
 
 ## <a name="next-steps"></a>다음 단계
 
-- 언제든지 [Azure AD 관리 역할 포럼](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)에서 경험을 공유하세요.
+- 언제든지 [Azure AD 관리 역할 포럼](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)에서 경험을 공유하세요.
 - 역할 권한에 대한 자세한 내용은 [Azure AD 기본 제공 역할](permissions-reference.md)을 참조하세요.
 - 기본 사용자 권한의 경우 [기본 게스트 및 멤버 사용자 권한 비교](../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context)를 참조하세요.

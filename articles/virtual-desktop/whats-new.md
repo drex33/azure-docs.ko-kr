@@ -8,12 +8,12 @@ ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: a4d451233277b76106f3176a68d451bd0c5847ff
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: bddf6510b5763a592be6cf44ba3668568bfc0964
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131433026"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054555"
 ---
 # <a name="whats-new-in-azure-virtual-desktop"></a>Azure Virtual Desktop의 새로운 기능
 
@@ -75,27 +75,27 @@ FSLogix의 최신 업데이트가 궁금하신가요? [FSLogix의 새로운 기�
 
 2021년 10월에 변경된 내용은 다음과 같습니다.
 
-### <a name="azure-virtual-desktop-support-for-windows-11"></a>Windows 11에 대한 Azure Virtual Desktop 지원
+## <a name="azure-virtual-desktop-support-for-windows-11"></a>Windows 11에 대한 Azure Virtual Desktop 지원
 
 이제 Windows 11에 대한 Azure Virtual Desktop 지원이 단일 및 다중 세션 배포에 일반 공급됩니다. 이제 Azure Portal에서 호스트 풀을 만들 때 Windows 11 이미지를 사용할 수 있습니다. 자세한 내용은 [블로그 게시물](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/windows-11-is-now-generally-available-on-azure-virtual-desktop/ba-p/2810545)을 참조하세요.
 
-### <a name="rdp-shortpath-now-generally-available"></a>이제 RDP Shortpath가 일반 공급됨
+## <a name="rdp-shortpath-now-generally-available"></a>이제 RDP Shortpath가 일반 공급됨
 
 관리 네트워크용 RDP(원격 데스크톱 프로토콜) Shortpath가 이제 일반 공급됩니다. RDP Shortpath는 원격 데스크톱 클라이언트와 세션 호스트 간에 직접 연결을 설정합니다. 이 직접 연결은 게이트웨이에 대한 종속성을 줄이고 연결의 안정성을 개선하며 각 사용자 세션에 사용할 수 있는 대역폭을 늘립니다. 자세한 내용은 [블로그 게시물](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/rdp-shortpath-for-managed-networks-is-generally-available/m-p/2861468)을 참조하세요.
 
-### <a name="screen-capture-protection-updates"></a>화면 캡처 보호 업데이트
+## <a name="screen-capture-protection-updates"></a>화면 캡처 보호 업데이트
 
 이제 macOS 클라이언트와 Azure Government 및 Azure 중국 클라우드에서 화면 캡처 보호가 지원됩니다. 자세한 내용은 [블로그 게시물](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/screen-capture-protection-for-macos-client-and-support-for/m-p/2840089#M7940)을 참조하세요.
 
-### <a name="azure-active-directory-domain-join"></a>Azure Active Directory 도메인 가입 
+## <a name="azure-active-directory-domain-join"></a>Azure Active Directory 도메인 가입 
 
 Azure Virtual Desktop VM에 대한 Azure Active Directory 도메인 가입은 이제 Azure Government 및 Azure 중국 클라우드에서 사용할 수 있습니다. Microsoft Endpoint Manager(Intune)는 현재 Azure 퍼블릭 클라우드에서만 지원됩니다. 자세한 내용은 [Azure Virtual Desktop에서 Azure AD 조인 가상 머신 배포](deploy-azure-ad-joined-vm.md)를 참조하세요.
 
-### <a name="breaking-change-in-azure-virtual-desktop-azure-resource-manager-template"></a>Azure Virtual Desktop Azure Resource Manager 템플릿의 호환성이 손상되는 변경
+## <a name="breaking-change-in-azure-virtual-desktop-azure-resource-manager-template"></a>Azure Virtual Desktop Azure Resource Manager 템플릿의 호환성이 손상되는 변경
 
 Azure Virtual Desktop용 Azure Resource Manager 템플릿에 호환성이 손상되는 변경이 도입되었습니다. 변경 사항에 따라 달라지는 코드를 사용하는 경우 [블로그 게시물](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/azure-virtual-desktop-arm-template-change-removal-of-script/m-p/2851538#M7971)의 지침에 따라 문제를 해결해야 합니다.
 
-### <a name="autoscale-preview-public-preview"></a>자동 크기 조정(미리 보기) 공개 미리 보기
+## <a name="autoscale-preview-public-preview"></a>자동 크기 조정(미리 보기) 공개 미리 보기
 
 Azure Virtual Desktop용 자동 크기 조정이 이제 공개 미리 보기로 제공됩니다. 이 기능은 기본적으로 가용성 요구 사항에 따라 풀링된 호스트 풀의 VM(가상 머신)을 켜거나 끕니다. VM이 켜지고 꺼지는 시간을 예약하면 배포 비용이 최적화되며 이 기능은 필요에 따라 유연한 예약 옵션도 제공합니다. 필요한 사용자 지정 RBAC(역할 기반 액세스 제어) 역할을 구성했으면 확장 계획 구성을 시작할 수 있습니다. 자세한 내용은 [Azure Virtual Desktop 호스트 풀의 자동 크기 조정(미리 보기)](autoscale-scaling-plan.md)을 참조하세요.
 

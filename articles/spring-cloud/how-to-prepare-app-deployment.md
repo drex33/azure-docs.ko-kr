@@ -8,19 +8,19 @@ ms.date: 07/06/2021
 ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 7f04dac2ab3a9848d17903f9d75f6c3eb294c38e
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 913d750353053398015da9939ec35f0f9b0de1c5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130258129"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131013710"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Azure Spring Cloud에 배포할 애플리케이션 준비
 
 ::: zone pivot="programming-language-csharp"
 Azure Spring Cloud는 Steeltoe 앱을 호스팅, 모니터링, 크기 조정, 업데이트하기 위한 강력한 서비스를 제공합니다. 이 아티클에서는 Azure Spring Cloud에 배포하기 위해 기존 Steeltoe 애플리케이션을 준비하는 방법을 보여줍니다.
 
-이 문서에서는 Azure Spring Cloud에서 .NET Core Steeltoe 앱을 실행하는 데 필요한 종속성, 구성 및 코드를 설명합니다. Azure 스프링 클라우드에 응용 프로그램을 배포 하는 방법에 대 한 자세한 내용은 [Azure 스프링 클라우드에서 첫 번째 스프링 부팅 앱 배포](./quickstart.md)를 참조 하세요.
+이 문서에서는 Azure Spring Cloud에서 .NET Core Steeltoe 앱을 실행하는 데 필요한 종속성, 구성 및 코드를 설명합니다. Azure Spring Cloud 애플리케이션을 배포하는 방법에 대한 자세한 내용은 Azure Spring Cloud [첫 번째 Spring Boot 앱 배포를 참조하세요.](./quickstart.md)
 
 >[!Note]
 > Azure Spring Cloud에 대한 Steeltoe 지원은 현재 공개 미리 보기로 제공됩니다. 퍼블릭 미리 보기 제품을 통해 고객은 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다.  퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다.  미리 보기 동안 제공되는 지원에 대한 자세한 내용은 [FAQ](https://azure.microsoft.com/support/faq/)를 참조하거나 [지원 요청](../azure-portal/supportability/how-to-create-azure-support-request.md)을 제출하세요.
@@ -136,9 +136,7 @@ using (var client = new HttpClient(discoveryHandler, false))
 
 ## <a name="java-runtime-version"></a>Java Runtime 버전
 
-Spring/Java 애플리케이션만 Azure Spring Cloud에서 실행할 수 있습니다.
-
-Azure Spring Cloud는 Java 8 및 Java 11을 모두 지원합니다. 호스팅 환경에는 Azure용 Azul Zulu OpenJDK의 최신 버전이 포함되어 있습니다. Azure용 Azul Zulu OpenJDK에 대한 자세한 내용은 [JDK 설치](/azure/developer/java/fundamentals/java-jdk-install)를 참조하세요.
+Azure Spring Cloud는 Java 8 및 Java 11을 모두 지원합니다. 일반적으로 Azure PaaS는 Java LTS 버전만 지원하며 Azure Spring Cloud Java 17 LTS를 지원합니다. 호스팅 환경에는 Azure용 Azul Zulu OpenJDK의 최신 버전이 포함되어 있습니다. Azure용 Azul Zulu OpenJDK에 대한 자세한 내용은 [JDK 설치](/azure/developer/java/fundamentals/java-jdk-install)를 참조하세요.
 
 ## <a name="spring-boot-and-spring-cloud-versions"></a>Spring Boot 및 Spring Cloud 버전
 
@@ -157,9 +155,9 @@ Spring Boot 버전 | Spring Cloud 버전
 > - Spring Boot를 2.5.2 또는 2.4.8로 업그레이드하여 CVE 보고서 [CVE-2021-22119: spring-security-oauth2-client를 사용한 서비스 거부 공격](https://tanzu.vmware.com/security/cve-2021-22119)을 해결하세요. Spring Security를 ​​사용하는 경우 5.5.1, 5.4.7, 5.3.10 또는 5.2.11로 업그레이드하세요.
 > - 앱과 Spring Cloud Service Registry 간의 TLS 인증을 통해 Spring Boot 2.4.0에서 문제가 확인되었습니다. 2.4.1 이상을 사용하세요. 2\.4.0을 계속 사용하는 경우 해결 방법은 [FAQ](./faq.md?pivots=programming-language-java#development)를 참조하세요.
 
-### <a name="dependencies-for-spring-boot-version-23"></a>스프링 부팅 버전 2.3에 대 한 종속성
+### <a name="dependencies-for-spring-boot-version-23"></a>Spring Boot 버전 2.3에 대한 의존성
 
-스프링 부팅 버전 2.3의 경우 응용 프로그램 POM 파일에 다음 종속성을 추가 합니다.
+Spring Boot 버전 2.3의 경우 애플리케이션 POM 파일 다음 dependencies를 추가합니다.
 
 ```xml
     <!-- Spring Boot dependencies -->
@@ -183,9 +181,9 @@ Spring Boot 버전 | Spring Cloud 버전
     </dependencyManagement>
 ```
 
-### <a name="dependencies-for-spring-boot-version-2425"></a>스프링 부팅 버전 2.4/2.5에 대 한 종속성
+### <a name="dependencies-for-spring-boot-version-2425"></a>Spring Boot 버전 2.4/2.5에 대한 의존성
 
-스프링 부팅 버전 2.4/2.5의 경우 응용 프로그램 POM 파일에 다음 종속성을 추가 합니다.
+Spring Boot 버전 2.4/2.5의 경우 애플리케이션 POM 파일 다음 dependencies를 추가합니다.
 
 ```xml
     <!-- Spring Boot dependencies -->

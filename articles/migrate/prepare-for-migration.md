@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: 288a78ee3b3e8c0a3d32d72d289c2b3e4c3d4aff
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9504d37c631116e041aa07b7044cfb69a86c7027
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128619018"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084618"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Azure로 마이그레이션하기 위한 온-프레미스 머신 준비
 
@@ -87,10 +87,10 @@ VM을 Azure로 마이그레이션하기 전에 VM에서 몇 가지 사항을 변
 **SAN 정책을 [모두 온라인]으로 구성**<br/><br/> | Windows Server 2008 R2 이상을 실행하는 머신은 자동으로 설정됩니다.<br/><br/> 이전 운영 체제는 수동으로 구성해야 합니다. | 대부분의 경우 자동으로 설정됩니다. | Windows Server 2008 R2 이상을 실행하는 머신은 자동으로 설정됩니다.
 **Hyper-V 게스트 통합 설치** | Windows Server 2003을 실행하는 머신에 [수동으로 설치](prepare-windows-server-2003-migration.md#install-on-vmware-vms)합니다. | Windows Server 2003을 실행하는 머신에 [수동으로 설치](prepare-windows-server-2003-migration.md#install-on-vmware-vms)합니다. | Windows Server 2003을 실행하는 머신에 [수동으로 설치](prepare-windows-server-2003-migration.md#install-on-hyper-v-vms)합니다.
 **Azure 직렬 콘솔 사용** <br/><br/>문제 해결에 도움이 되도록 Azure VM에서 [콘솔을 사용하도록 설정](/troubleshoot/azure/virtual-machines/serial-console-windows)합니다. VM을 다시 부팅할 필요가 없습니다. Azure VM은 디스크 이미지를 사용하여 부팅됩니다. 디스크 이미지 부팅은 새 VM을 다시 부팅하는 것과 같습니다. | 수동으로 사용하도록 설정 | 수동으로 사용하도록 설정 | 수동으로 사용하도록 설정
-**Windows Azure 게스트 에이전트 설치** <br/><br/> 가상 컴퓨터 에이전트 (VM 에이전트)는 Azure 패브릭 컨트롤러와의 VM (가상 컴퓨터) 상호 작용을 관리 하는 안전 하 고 간단한 프로세스입니다. VM 에이전트는 VM의 배포 후 구성(예: 소프트웨어 설치 및 구성)을 가능하게 하는 Azure 가상 머신 확장을 사용하도록 설정하고 실행하는 데 주된 역할을 합니다. |  Windows Server 2008 R2 이상을 실행하는 머신은 자동으로 설정됩니다. <br/> 이전 운영 체제는 수동으로 구성해야 합니다. | Windows Server 2008 R2 이상을 실행하는 머신은 자동으로 설정됩니다. | Windows Server 2008 R2 이상을 실행하는 머신은 자동으로 설정됩니다.
+**Windows Azure 게스트 에이전트 설치** <br/><br/> VM 에이전트(Virtual Machine Agent)는 Azure 패브릭 컨트롤러와의 VM(가상 머신) 상호 작용을 관리하는 안전하고 간단한 프로세스입니다. VM 에이전트는 VM의 배포 후 구성(예: 소프트웨어 설치 및 구성)을 가능하게 하는 Azure 가상 머신 확장을 사용하도록 설정하고 실행하는 데 주된 역할을 합니다. |  Windows Server 2008 R2 이상을 실행하는 머신은 자동으로 설정됩니다. <br/> 이전 운영 체제는 수동으로 구성해야 합니다. | Windows Server 2008 R2 이상을 실행하는 머신은 자동으로 설정됩니다. | Windows Server 2008 R2 이상을 실행하는 머신은 자동으로 설정됩니다.
 **마이그레이션 후 연결**<br/><br/> 마이그레이션 후 연결하려면 마이그레이션하기 전에 여러 단계를 수행해야 합니다. | 수동으로 [설정](#prepare-to-connect-to-azure-windows-vms)합니다. | 수동으로 [설정](#prepare-to-connect-to-azure-windows-vms)합니다. | 수동으로 [설정](#prepare-to-connect-to-azure-windows-vms)합니다.
 
-에이전트 없는 VMware 마이그레이션을 위해 Windows 서버에서 수행 되는 변경 내용에 대해 [자세히 알아보세요](/azure/migrate/prepare-for-agentless-migration#changes-performed-on-windows-servers) .
+에이전트 없는 VMware 마이그레이션을 위해 Windows 서버에서 수행되는 변경 내용에 대해 [자세히 알아봅니다.](./prepare-for-agentless-migration.md#changes-performed-on-windows-servers)
 
 #### <a name="configure-san-policy"></a>SAN 정책 구성
 
@@ -113,8 +113,8 @@ Azure VM에는 기본적으로 임시 스토리지로 사용할 D 드라이브�
 
 다음 버전은 Azure Migrate에서 이러한 작업을 자동으로 완료합니다.
 
-- Red Hat Enterprise Linux 8, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x(Azure Linux VM 에이전트도 마이그레이션 중에 자동으로 설치됨)
-- Cent OS 8, 7.7, 7.6, 7.5, 7.4, 6.x(Azure Linux VM 에이전트도 마이그레이션 중에 자동으로 설치됨)
+- Red Hat Enterprise Linux 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x(Azure Linux VM 에이전트도 마이그레이션 중에 자동으로 설치)
+- Cent OS 8.x, 7.7, 7.6, 7.5, 7.4, 6.x(Azure Linux VM 에이전트도 마이그레이션 중에 자동으로 설치)
 - SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12
 - Ubuntu 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS(Azure Linux VM 에이전트도 마이그레이션 중에 자동으로 설치됨)
 - Debian 9, 8, 7
@@ -132,16 +132,16 @@ Azure VM에는 기본적으로 임시 스토리지로 사용할 D 드라이브�
 **udev 규칙 제거** | mac 주소 등에 기반한 인터페이스 이름을 예약하는 모든 udev 규칙을 제거합니다. | 위에서 설명한 버전을 제외한 모든 버전에서는 수동으로 제거합니다.
 **네트워크 인터페이스 업데이트** | DHCP.nst 기반의 IP 주소를 받도록 네트워크 인터페이스를 업데이트합니다. | 위에서 설명한 버전을 제외한 모든 버전에서는 수동으로 업데이트합니다.
 **ssh 사용** | ssh를 사용하도록 설정되고 다시 부팅 시 sshd 서비스가 자동으로 시작되도록 설정되어 있는지 확인합니다.<br/><br/> 들어오는 ssh 연결 요청이 OS 방화벽 또는 스크립팅 가능한 규칙으로 차단되지 않도록 합니다.| 위에서 설명한 버전을 제외한 모든 버전에서는 수동으로 설정합니다.
-**Linux Azure 게스트 에이전트 설치** | Microsoft Azure linux 에이전트 (waagent)는 linux & FreeBSD 프로 비전을 관리 하 고 Azure 패브릭 컨트롤러와의 VM 상호 작용을 관리 하는 안전 하 고 간단한 프로세스입니다.| 위에서 설명한 버전을 제외한 모든 버전에서는 수동으로 설정합니다.  <br> 지침에 따라 다른 OS 버전에 대 한 [Linux 에이전트를 수동으로 설치](../virtual-machines/extensions/agent-linux.md#installation) 합니다. Linux VM 에이전트를 설치하는 데 [필요한 패키지](../virtual-machines/extensions/agent-linux.md#requirements) 목록을 검토합니다. 
+**Linux Azure 게스트 에이전트 설치** | Microsoft Azure Linux 에이전트(waagent)는 Linux & FreeBSD 프로비전 및 Azure 패브릭 컨트롤러와의 VM 상호 작용을 관리하는 안전하고 간단한 프로세스입니다.| 위에서 설명한 버전을 제외한 모든 버전에서는 수동으로 설정합니다.  <br> 지침에 따라 다른 OS 버전에 대해 [Linux 에이전트를 수동으로 설치합니다.](../virtual-machines/extensions/agent-linux.md#installation) Linux VM 에이전트를 설치하는 데 [필요한 패키지](../virtual-machines/extensions/agent-linux.md#requirements) 목록을 검토합니다. 
 
-에이전트 없는 VMware 마이그레이션을 위해 Linux 서버에서 수행 되는 변경 내용에 대해 [자세히 알아보세요](./prepare-for-agentless-migration.md#changes-performed-on-linux-servers) .
+에이전트 없는 VMware 마이그레이션을 위해 Linux 서버에서 수행되는 변경 내용에 대해 [자세히 알아봅니다.](./prepare-for-agentless-migration.md#changes-performed-on-linux-servers)
 
 다음 표에는 위에 나열된 운영 체제에 대해 자동으로 수행되는 단계가 요약되어 있습니다.
 
 
-| 작업                                      | 에이전트\-기반 VMware 마이그레이션 | 에이전트 없는 VMware 마이그레이션 | 에이전트 없는 Hyper-v \- 마이그레이션   |
+| 작업                                      | 에이전트\-기반 VMware 마이그레이션 | 에이전트 없는 VMware 마이그레이션 | 에이전트 없는 Hyper \- V 마이그레이션   |
 |---------------------------------------------|-------------------------------|----------------------------|------------|
-| Hyper-v Integration Services를 사용 하 여 커널 이미지를 업데이트 \- 합니다. <br> (LIS 드라이버가 커널에 있어야 합니다.) | 예                           | 예                        | 예 |
+| Hyper V Linux Integration Services 커널 이미지를 \- 업데이트합니다. <br> (LIS 드라이버는 커널에 있어야 합니다.) | 예                           | 예                        | 예 |
 | Azure 직렬 콘솔 로깅 사용         | yes                           | 예                        | 예        |
 | 디바이스 맵 파일 업데이트                      | 예                           | 아니요                         | 아니요         |
 | fstab 항목 업데이트                        | yes                           | 예                        | 예        |
@@ -152,7 +152,7 @@ Azure VM에는 기본적으로 임시 스토리지로 사용할 D 드라이브�
 
 [Azure에서 Linux VM 실행](../virtual-machines/linux/create-upload-generic.md) 단계에 대해 자세히 알아보고, 많이 사용되는 Linux 배포판에 대한 지침을 확인합니다.
 
-Linux VM 에이전트를 설치하는 데 [필요한 패키지](../virtual-machines/extensions/agent-linux.md#requirements) 목록을 검토합니다. Azure Migrate는 VMware 마이그레이션의 에이전트 없는 방법을 사용할 때 RHEL 8/7/6, CentOS 8/7/6, Ubuntu 14.04/16.04/18.04/19.04/19.10/20.04, SUSE 15 SP0/15 SP1/12, Debian 9/8/7, Oracle 7에 대해 Linux VM 에이전트를 자동으로 설치합니다.
+Linux VM 에이전트를 설치하는 데 [필요한 패키지](../virtual-machines/extensions/agent-linux.md#requirements) 목록을 검토합니다. Azure Migrate는 VMware 마이그레이션의 에이전트 없는 메서드를 사용 하는 경우 RHEL .x/7.x/6.x, CentOS 4.x/7.x/18.04/19.04/19.10, 20.04 15 SUSE/15 SP1/12, SP0 9/8/7 및 Oracle 7에 대해 자동으로 Linux VM 에이전트를 설치 합니다.
 
 ## <a name="check-azure-vm-requirements"></a>Azure VM 요구 사항 확인
 
@@ -189,7 +189,7 @@ Azure VM은 Azure로 마이그레이션하는 동안 만들어집니다. 마이�
 
 마이그레이션 후 만들어진 Azure VM에서 다음 단계를 완료합니다.
 
-1. 인터넷을 통해 VM에 연결하려면 공용 IP 주소를 VM에 할당합니다. 온-프레미스 머신에 사용한 것과 다른 공용 IP 주소를 Azure VM에 사용해야 합니다. [자세히 알아보기](../virtual-network/virtual-network-public-ip-address.md).
+1. 인터넷을 통해 VM에 연결하려면 공용 IP 주소를 VM에 할당합니다. 온-프레미스 머신에 사용한 것과 다른 공용 IP 주소를 Azure VM에 사용해야 합니다. [자세히 알아보기](../virtual-network/ip-services/virtual-network-public-ip-address.md).
 2. VM의 NSG(네트워크 보안 그룹) 규칙에서 RDP 또는 SSH 포트로 들어오는 연결을 허용하는지 확인합니다.
 3. [부트 진단](/troubleshoot/azure/virtual-machines/boot-diagnostics#enable-boot-diagnostics-on-existing-virtual-machine)을 확인하여 VM을 살펴봅니다.
 

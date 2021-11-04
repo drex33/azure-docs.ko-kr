@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: 93fd6528799b6a96aba226ac0841ec4d96eff717
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
-ms.translationtype: HT
+ms.openlocfilehash: 5b90593c44fbab0342def8b85a1a71e8ef15d6ad
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713165"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131011071"
 ---
 # <a name="403006-devicemaximumactivefileuploadlimitexceeded"></a>403006 DeviceMaximumActiveFileUploadLimitExceeded
 
@@ -31,7 +31,7 @@ ms.locfileid: "109713165"
 
 ## <a name="solution"></a>솔루션
 
-디바이스가 즉시 [IoT Hub 파일 업로드 완료를 알릴](./iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload-rest) 수 있는지 확인합니다. 그런 다음 [파일 업로드 구성을 위해 SAS 토큰 TTL을 줄여](iot-hub-configure-file-upload.md)보세요.
+디바이스가 즉시 [IoT Hub 파일 업로드 완료를 알릴](./iot-hub-devguide-file-upload.md#device-notify-iot-hub-of-a-completed-file-upload) 수 있는지 확인합니다. 그런 다음 [파일 업로드 구성을 위해 SAS 토큰 TTL을 줄여](iot-hub-configure-file-upload.md)보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

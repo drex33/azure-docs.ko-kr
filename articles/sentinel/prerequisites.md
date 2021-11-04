@@ -8,14 +8,17 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/21/2021
-ms.openlocfilehash: b288a826a0911e73f516fa13a00d3e26b25d2ace
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: dee5f9257e586a13e733f700daf9068a34573446
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122529766"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075363"
 ---
 # <a name="pre-deployment-activities-and-prerequisites-for-deploying-azure-sentinel"></a>Azure Sentinel을 배포하기 위한 사전 배포 활동 및 필수 구성요소
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 이 문서에서는 Azure Sentinel을 배포하기 위한 사전 배포 활동 및 필수 구성요소를 소개합니다.
 
@@ -30,7 +33,7 @@ Azure Sentinel을 배포하기 전에 배포를 통해 최대한 빨리 최대 �
 1. Azure Sentinel 작업 영역 디자인 다음과 같은 매개 변수를 고려합니다.
 
     - 단일 테넌트 또는 다중 테넌트 사용 여부
-    - 데이터 수집 및 스토리지의 규정 준수 요구 사항
+    - 데이터 수집 및 저장에 대한 모든 규정 준수 요구 사항
     - Azure Sentinel 데이터에 대한 액세스를 제어하는 방법
 
     자세한 내용은 [작업 영역 아키텍처 모범 사례](best-practices-workspace-architecture.md) 및 [샘플 작업 영역 디자인](sample-workspace-designs.md)을 참조하세요.

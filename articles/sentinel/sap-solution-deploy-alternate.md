@@ -5,17 +5,19 @@ author: batamig
 ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.date: 05/19/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: 0dbdc6be4eb5dd61545bbf761d1805824690ebc7
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
-ms.translationtype: HT
+ms.openlocfilehash: 870106b7f3494ac818af90b6b919603e39a0a598
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681371"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075166"
 ---
 # <a name="expert-configuration-options-on-premises-deployment-and-sapcontrol-log-sources"></a>전문가 구성 옵션, 온-프레미스 배포, SAPControl 로그 원본
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 이 문서에서는 온-프레미스 머신과 Azure Key Vault를 사용하여 자격 증명을 저장하는 등의 전문가 또는 사용자 지정 프로세스에서 Azure Sentinel SAP 데이터 커넥터를 배포하는 방법을 설명합니다.
 

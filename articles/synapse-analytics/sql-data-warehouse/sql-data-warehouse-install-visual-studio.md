@@ -1,7 +1,6 @@
 ---
 title: Visual Studio 2019 설치
 description: Synapse SQL용 Visual Studio 및 SSDT(SQL Server 개발 도구) 설치
-services: synapse-analytics
 ms.custom: vs-azure, azure-synapse
 ms.workload: azure-vs
 author: julieMSFT
@@ -12,12 +11,12 @@ ms.subservice: sql-dw
 ms.date: 05/11/2020
 ms.author: jrasnick
 ms.reviewer: igorstan
-ms.openlocfilehash: c8c07997b3ef8cb050ea4609a650a3e3b1bd21fb
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
-ms.translationtype: HT
+ms.openlocfilehash: 378c36f1df7c83c6309be44d24ec671b64e34c08
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107568253"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054612"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>Visual Studio 2019 시작
 
@@ -41,8 +40,8 @@ Synapse SQL의 기능 릴리스에 SSDT에 대한 지원이 포함되지 않는 
 
 - [워크로드 관리](sql-data-warehouse-workload-management.md) - 워크로드 그룹 및 분류자
 - [행 수준 보안](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)(테이블 반환 함수 포함)
-  - 지원되는 기능을 가져오려면 [지원 티켓 또는 투표](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security)를 제출합니다.
-  - 지원되는 기능을 가져오려면 [지원 티켓 또는 투표](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking)를 제출합니다.
+  - 지원되는 기능을 가져오려면 [지원 티켓 또는 투표](https://feedback.azure.com/d365community/idea/a9192b4c-0b25-ec11-b6e6-000d3a4f07b8)를 제출합니다.
+  - 지원되는 기능을 가져오려면 [지원 티켓 또는 투표](https://feedback.azure.com/d365community/idea/ab192b4c-0b25-ec11-b6e6-000d3a4f07b8)를 제출합니다.
 - 다음과 같은 특정 T-SQL 기능:
    - [STRING_AGG](/sql/t-sql/functions/string-agg-transact-sql) 문자열 함수의 *WITHIN GROUP* 절.
 

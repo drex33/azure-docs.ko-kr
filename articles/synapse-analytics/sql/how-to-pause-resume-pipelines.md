@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.topic: how-to
 ms.date: 08/12/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 01fd517be7e60a5ab16e7844d8c149ddac2dcb3e
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: 60425a0915921632874620ef5a1faf0d3ba22115
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529531"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131013121"
 ---
 # <a name="pause-and-resume-dedicated-sql-pools-with-synapse-pipelines"></a>Synapse 파이프라인을 사용하여 전용 SQL 풀 일시 중지 및 다시 시작
 
@@ -226,6 +226,3 @@ Azure Synapse의 관리 ID 및 전용 SQL 풀에 관리 ID를 추가하는 방�
 [Azure Synapse 작업 영역 관리 ID](../security/synapse-workspace-managed-identity.md)
 
 [작업 영역 관리 ID에 권한 부여](../security/how-to-grant-workspace-managed-identity-permissions.md)
-
-[Synapse 파이프라인 실행을 위한 SQL 액세스 제어](../security/how-to-set-up-access-control.md#step-73-sql-access-control-for-azure-synapse-pipeline-runs)
-

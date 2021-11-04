@@ -5,14 +5,15 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 10/18/2021
 ms.author: memildin
-ms.openlocfilehash: 23908a7824e4e489da575fd1563b82c340d42def
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 1557503699a47e471abee173733007cb3d0b5380
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131425182"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131010159"
 ---
 # <a name="continuously-export-microsoft-defender-for-cloud-data"></a>클라우드 데이터를 위해 지속적으로 Microsoft Defender 내보내기
 
@@ -27,7 +28,7 @@ Microsoft Defender for Cloud는 자세한 보안 경고 및 권장 사항을 생
 - 특정 권장 사항이 생성될 때마다 Event Hub 또는 Log Analytics 작업 영역으로 전달되도록 구성 
 - 제어 점수가 0.01 이상으로 변경될 때마다 구독의 보안 점수를 Log Analytics 작업 영역으로 보내도록 구성 
 
-기능이 *연속* 으로 호출 되더라도 주간 스냅숏을 내보내는 옵션도 있습니다.
+이 기능을 *연속* 이라고 일컫지만, 보안 점수 또는 규정 준수 데이터의 주간 스냅샷을 내보내는 옵션도 있습니다.
 
 이 문서에서는 Log Analytics 작업 영역 또는 Azure Event Hubs로 연속 내보내기를 구성하는 방법을 설명합니다.
 
@@ -74,7 +75,7 @@ Microsoft Defender for Cloud는 자세한 보안 경고 및 권장 사항을 생
 
 Log Analytics 작업 영역 또는 Azure Event Hubs로 연속 내보내기를 설정하는지 여부에 상관없이 아래의 단계가 필요합니다.
 
-1. 클라우드 용 Defender의 메뉴에서 **환경 설정** 을 엽니다.
+1. 클라우드 용 Defender의 메뉴에서 **환경 설정** 을 선택 합니다.
 
 1. 데이터 내보내기를 구성할 특정 구독을 선택합니다.
 
@@ -88,7 +89,7 @@ Log Analytics 작업 영역 또는 Azure Event Hubs로 연속 내보내기를 �
 
 1. 적절한 내보내기 빈도를 선택합니다.
     - **스트리밍** – 리소스의 성능 상태가 업데이트되면 평가를 보냅니다(업데이트되지 않으면 데이터를 보내지 않음).
-    - **스냅숏** – 구독 당 매주 한 번 선택 된 데이터 형식의 현재 상태에 대 한 스냅숏이 전송 됩니다. 스냅샷 데이터를 식별하려면 필드 ``IsSnapshot``을 찾습니다.
+    - **스냅샷** – 모든 규정 준수 평가의 현재 상태 스냅샷은 구독당 일주일에 한 번 전송됩니다. 이 미리 보기 기능은 보안 점수 및 규정 준수 데이터의 주간 스냅샷을 제공합니다. 스냅샷 데이터를 식별하려면 필드 ``IsSnapshot``을 찾습니다.
 
 1. 필요한 경우 선택 항목에 이러한 권장 사항 중 하나가 포함되어 있으면 취약성 평가 결과를 함께 포함할 수 있습니다.
     - SQL 데이터베이스가 발견한 취약성을 해결해야 함
@@ -169,7 +170,7 @@ API는 Azure Portal에서 사용할 수 없는 추가 기능을 제공합니다.
 
 ## <a name="information-about-exporting-to-a-log-analytics-workspace"></a>Log Analytics 작업 영역으로 내보내기에 대한 정보
 
-Log Analytics 작업 영역 내에서 클라우드용 Microsoft Defender 데이터를 분석하거나 클라우드용 Defender 경고와 함께 Azure 경고를 사용하려면 Log Analytics 작업 영역으로 연속 내보내기를 설정합니다.
+Log Analytics 작업 영역 내에서 클라우드용 Microsoft Defender 데이터를 분석하거나 Defender for Cloud 경고와 함께 Azure 경고를 사용하려면 Log Analytics 작업 영역으로 연속 내보내기를 설정합니다.
 
 ### <a name="log-analytics-tables-and-schemas"></a>Log Analytics 테이블 및 스키마
 
@@ -206,7 +207,7 @@ Azure Monitor Defender for Cloud의 경고 및 권장 사항을 보려면 Log An
     * 필요한 경우 트리거할 [작업 그룹](../azure-monitor/alerts/action-groups.md)을 구성합니다. 작업 그룹은 이메일 보내기, ITSM 티켓, WebHook 등을 트리거할 수 있습니다.
     ![Azure Monitor 경고 규칙](./media/continuous-export/azure-monitor-alert-rule.png)
 
-이제 작업 그룹의 자동 트리거(제공된 경우)와 함께 Azure Monitor 경고에 새 Microsoft Defender for Cloud 경고 또는 권장 사항(구성된 연속 내보내기 규칙 및 Azure Monitor 경고 규칙에서 정의한 조건에 따라)이 표시됩니다.
+이제 작업 그룹(제공된 경우)의 자동 트리거와 함께 Azure Monitor 경고에 새 Microsoft Defender for Cloud 경고 또는 권장 사항(구성된 연속 내보내기 규칙 및 Azure Monitor 경고 규칙에서 정의한 조건에 따라)이 표시됩니다.
 
 ## <a name="manual-one-time-export-of-alerts-and-recommendations"></a>경고 및 권장 사항을 수동으로 한 번 내보내기
 

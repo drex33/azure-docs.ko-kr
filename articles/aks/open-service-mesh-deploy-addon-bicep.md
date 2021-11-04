@@ -6,26 +6,23 @@ ms.topic: article
 ms.date: 9/20/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
-ms.openlocfilehash: f479a05fb305887d5e901ca236cb0183d4a2d87b
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: b0452588b8eb9eebbf8ab592ad2d0a8a0e9a6b92
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130227305"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131066789"
 ---
 # <a name="deploy-open-service-mesh-osm-azure-kubernetes-service-aks-add-on-using-bicep"></a>Bicep을 사용하여 AKS(Open Service Mesh) Azure Kubernetes Service(추가 기능) 배포
 
 이 문서에서는 [Bicep](../azure-resource-manager/bicep/index.yml) 템플릿을 사용하여 AKS에 OSM 추가 기능 배포 방법을 설명합니다.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-[Bicep](../azure-resource-manager/bicep/overview.md)은 선언적 구문을 사용하여 Azure 리소스를 배포하는 DSL(도메인 특정 언어)입니다. Bicep은 코드로서의 인프라 Azure 리소스를 배포하기 위한 Azure [ARM](../azure-resource-manager/templates/overview.md) 템플릿을 만드는 대신 사용할 수 있습니다.
+[Bicep](/azure/azure-resource-manager/bicep/overview)은 선언적 구문을 사용하여 Azure 리소스를 배포하는 DSL(도메인 특정 언어)입니다. Bicep은 코드로서의 인프라 Azure 리소스를 배포하기 위한 Azure [ARM](/azure/azure-resource-manager/templates/overview) 템플릿을 만드는 대신 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure CLI 버전 2.20.0 이상
-- `aks-preview` 확장 버전 0.5.5 이상
-- OSM 버전 v0.9.1 이상
+- OSM 버전 v0.11.1 이상
 - AKS 배포에 사용되는 SSH 공개 키
 - Bash 터미널 활용 [Visual Studio Code](https://code.visualstudio.com/)
 - Visual Studio Code [Bicep 확장](../azure-resource-manager/bicep/install.md)
@@ -151,7 +148,7 @@ resource aksCluster 'Microsoft.ContainerService/managedClusters@2021-03-01' = {
 파일을 `osm.aks.parameters.json` 열고 다음 예제 콘텐츠를 복사합니다. 배포 관련 매개 변수를 추가한 다음 파일을 저장합니다.
 
 > [!NOTE]
-> `osm.aks.parameters.json`는 Bicep 배포에 필요한 예제 템플릿 매개 변수 파일입니다. 배포 환경에 맞게 지정된 매개 변수를 업데이트해야 합니다. 이 예제에서 사용하는 특정 매개 변수 값을 업데이트하려면 다음 매개 변수가 필요합니다. _clusterName_, _clusterDNSPrefix_, _k8Version_ 및 _sshPubKey_ 입니다. 해당 지역에서 지원되는 Kubernetes 버전 목록을 찾으려면 `az aks get-versions --location <region>` 명령을 사용하세요.
+> `osm.aks.parameters.json`는 Bicep 배포에 필요한 예제 템플릿 매개 변수 파일입니다. 배포 환경에 맞게 지정된 매개 변수를 업데이트해야 합니다. 이 예제에서 사용하는 특정 매개 변수 값을 업데이트하려면 다음 매개 변수가 필요합니다. _clusterName,_ _clusterDNSPrefix,_ _k8Version_ 및 _sshPubKey_ 입니다. 해당 지역에서 지원되는 Kubernetes 버전 목록을 찾으려면 `az aks get-versions --location <region>` 명령을 사용하세요.
 
 ```azurecli-interactive
 {

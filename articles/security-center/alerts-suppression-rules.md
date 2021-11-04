@@ -1,6 +1,6 @@
 ---
-title: 경고 비 표시 규칙을 사용 하 여 Microsoft Defender for Cloud에서 가양성 또는 기타 원치 않는 보안 경고 표시 안 함
-description: 이 문서에서는 클라우드의 비 표시 규칙에 대해 Microsoft Defender를 사용 하 여 원치 않는 보안 경고를 숨기는 방법을 설명 합니다.
+title: 경고 제거 규칙을 사용하여 Microsoft Defender for Cloud에서 가양성 또는 기타 원치 않는 보안 경고 표시 안 함
+description: 이 문서에서는 클라우드용 Microsoft Defender의 제거 규칙을 사용하여 원치 않는 보안 경고를 숨기는 방법을 설명합니다.
 author: memildin
 manager: rkarlin
 services: security-center
@@ -8,25 +8,26 @@ ms.author: memildin
 ms.date: 10/18/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 088ab21964b71da7d12f905d10403d03a6c332e8
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 03b1c1be820691fccb94a659e298d235874ad6ea
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131453310"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131010596"
 ---
 # <a name="suppress-alerts-from-microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud에서 경고 표시 안 함
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-이 페이지에서는 경고 비 표시 규칙을 사용 하 여 Defender for Cloud에서 가양성 또는 기타 원치 않는 보안 경고를 표시 하지 않는 방법을 설명 합니다.
+이 페이지에서는 경고 제거 규칙을 사용하여 Defender for Cloud에서 가양성 또는 기타 원치 않는 보안 경고를 표시하지 않는 방법을 설명합니다.
 
 ## <a name="availability"></a>가용성
 
 |양상|세부 정보|
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
-|가격 책정:|Free<br>(보안 경고는 [보안 기능이 향상](enable-enhanced-security.md)된 경우에만 사용할 수 있음)|
+|가격 책정:|Free<br>(대부분의 보안 경고는 [향상된 보안 기능에서만](enable-enhanced-security.md)사용할 수 있음)|
 |필요한 역할 및 권한:|**보안 관리자** 및 **소유자** 는 규칙을 만들거나 삭제할 수 있습니다.<br>**보안 읽기 권한자** 및 **읽기 권한자** 는 규칙을 볼 수 있습니다.|
 |클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: 국가/소버린(Azure Government, Azure 중국 21Vianet)|
 |||
@@ -34,7 +35,7 @@ ms.locfileid: "131453310"
 
 ## <a name="what-are-suppression-rules"></a>중복된 경고 제거 규칙이란?
 
-다양 한 Microsoft Defender 요금제는 사용자 환경의 모든 영역에서 위협을 감지 하 고 보안 경고를 생성 합니다.
+다양한 Microsoft Defender 계획은 환경의 모든 영역에서 위협을 감지하고 보안 경고를 생성합니다.
 
 관심 없거나 관련 없는 경고를 직접 해제할 수 있습니다. 또는 중복된 경고 제거 규칙 기능을 사용하여 나중에 유사한 경고를 자동으로 해제할 수 있습니다. 일반적으로 중복된 경고 제거 규칙은 다음과 같은 용도로 사용합니다.
 
@@ -45,7 +46,7 @@ ms.locfileid: "131453310"
 중복된 경고 제거 규칙은 경고를 자동으로 해제할 조건을 정의합니다.
 
 > [!CAUTION]
-> 보안 경고를 표시 하지 않으면 클라우드의 위협 방지에 대 한 Defender의 효율성이 줄어듭니다. 중복된 경고 제거 규칙의 잠재적인 영향을 신중하게 확인하고 오랜 시간 동안 모니터링해야 합니다.
+> 보안 경고를 표시하지 않을 경우 Defender for Cloud의 위협 방지 효과가 줄어듭니다. 중복된 경고 제거 규칙의 잠재적인 영향을 신중하게 확인하고 오랜 시간 동안 모니터링해야 합니다.
 
 :::image type="content" source="./media/alerts-suppression-rules/create-suppression-rule.gif" alt-text="경고 제거 규칙 만들기":::
 
@@ -60,7 +61,7 @@ ms.locfileid: "131453310"
 
 Azure Portal에서 직접 규칙을 만들려면 다음을 수행합니다.
 
-1. Defender for Cloud의 보안 경고 페이지에서 다음을 수행 합니다.
+1. Defender for Cloud의 보안 경고 페이지에서 다음을 수행합니다.
 
     - 더 이상 표시하지 않을 특정 경고를 선택하고 세부 정보 창에서 **작업 수행** 을 선택합니다.
 
@@ -89,7 +90,7 @@ Azure Portal에서 직접 규칙을 만들려면 다음을 수행합니다.
 
 만든 규칙을 편집하려면 중복된 경고 제거 규칙 페이지를 사용합니다.
 
-1. Defender for Cloud의 보안 경고 페이지에서 페이지 맨 위에 있는 **억제 규칙** 링크를 선택 합니다.
+1. Defender for Cloud의 보안 경고 페이지에서 페이지 맨 위에 있는 **비표시 규칙** 링크를 선택합니다.
 1. 선택한 구독에 대한 모든 규칙을 포함하는 중복된 경고 제거 규칙 페이지가 열립니다.
 
     [![제거 규칙 목록](media/alerts-suppression-rules/suppression-rules-page.png)](media/alerts-suppression-rules/suppression-rules-page.png#lightbox)
@@ -101,7 +102,7 @@ Azure Portal에서 직접 규칙을 만들려면 다음을 수행합니다.
 
 만든 규칙 중 하나 이상을 삭제하려면 중복된 경고 제거 규칙 페이지를 사용합니다.
 
-1. Defender for Cloud의 보안 경고 페이지에서 페이지 맨 위에 있는 **억제 규칙** 링크를 선택 합니다.
+1. Defender for Cloud의 보안 경고 페이지에서 페이지 맨 위에 있는 **비표시 규칙** 링크를 선택합니다.
 1. 선택한 구독에 대한 모든 규칙을 포함하는 중복된 경고 제거 규칙 페이지가 열립니다.
 1. 단일 규칙을 삭제하려면 규칙에 대한 줄임표 메뉴(...)를 열고 **삭제** 를 선택합니다.
 1. 여러 규칙을 삭제하려면 삭제할 규칙의 확인란을 선택하고 **삭제** 를 선택합니다.
@@ -109,7 +110,7 @@ Azure Portal에서 직접 규칙을 만들려면 다음을 수행합니다.
 
 ## <a name="create-and-manage-suppression-rules-with-the-api"></a>API를 사용하여 중복된 경고 제거 규칙 만들기 및 관리
 
-클라우드의 REST API에 대해 Defender를 통해 경고 비 표시 규칙을 만들거나 보거나 삭제할 수 있습니다. 
+Defender for Cloud의 REST API 통해 경고 제거 규칙을 만들거나 보거나 삭제할 수 있습니다. 
 
 REST API에서 중복된 경고 제거 규칙의 관련 HTTP 메서드는 다음과 같습니다.
 
@@ -130,8 +131,8 @@ REST API에서 중복된 경고 제거 규칙의 관련 HTTP 메서드는 다음
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 원치 않는 경고를 자동으로 해제 하는 Microsoft Defender for Cloud의 비 표시 규칙에 대해 설명 했습니다.
+이 문서에서는 원치 않는 경고를 자동으로 해제하는 Microsoft Defender for Cloud의 제거 규칙을 설명했습니다.
 
-보안 경고에 대 한 자세한 내용은 다음 페이지를 참조 하세요.
+보안 경고에 대한 자세한 내용은 다음 페이지를 참조하세요.
 
-- [보안 경고 및 의도 kill 체인](alerts-reference.md) -클라우드의 Defender에서 얻을 수 있는 보안 경고에 대 한 참조 가이드입니다.
+- [보안 경고 및 의도 킬 체인](alerts-reference.md) - Defender for Cloud에서 얻을 수 있는 보안 경고에 대한 참조 가이드입니다.

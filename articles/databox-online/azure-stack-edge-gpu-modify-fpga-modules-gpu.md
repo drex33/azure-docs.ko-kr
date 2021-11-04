@@ -8,12 +8,13 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 1276a242efb1917a0c4a24aa73c3e0d11f81e158
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: ab3cb4360b9bd0c65ac8567109890fc364411367
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105559165"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073057"
 ---
 # <a name="run-existing-iot-edge-modules-from-azure-stack-edge-pro-fpga-devices-on-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 디바이스의 Azure Stack Edge Pro FPGA 디바이스에서 기존 IoT Edge 모듈 실행
 
@@ -207,7 +208,7 @@ GPU의 경우 다음 최소 구성에 표시된 대로 디바이스 바인딩 �
 ```
 메모리 및 CPU 사양은 필요하지 않지만 일반적으로 좋은 사례입니다. `requests`를 지정하지 않으면 제한에 설정된 값이 최소 요구 사항으로 사용됩니다. 
 
-모듈에 공유 메모리를 사용하려면 다른 방법이 필요합니다. 예를 들어 [Azure Stack Edge에 Live Video Analytics 배포](../media-services/live-video-analytics-edge/deploy-azure-stack-edge-how-to.md#deploy-live-video-analytics-edge-module-using-azure-portal)에 설명된 대로 라이브 비디오 분석과 추론 솔루션 간의 공유 메모리 액세스에 호스트 IPC 모드를 사용할 수 있습니다.
+모듈에 공유 메모리를 사용하려면 다른 방법이 필요합니다. 예를 들어 [Azure Stack Edge에 Live Video Analytics 배포](../azure-video-analyzer/video-analyzer-docs/overview.md)에 설명된 대로 라이브 비디오 분석과 추론 솔루션 간의 공유 메모리 액세스에 호스트 IPC 모드를 사용할 수 있습니다.
 
 
 ## <a name="web-proxy"></a>웹 프록시 

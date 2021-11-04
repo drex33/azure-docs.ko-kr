@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e097a9860c4e3cde968bc9b7c7bddb7eebd99349
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 567b54aae5ac2ac1defeedb390ee9d5c04f5f6bb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128624864"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131013520"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>로컬 Azure Storage 개발에 Azurite 에뮬레이터 사용
 
@@ -26,6 +26,11 @@ Azurite를 로컬 시스템에 설치하고 실행하는 여러 가지 방법이
 ## <a name="install-and-run-azurite"></a>Azurite를 설치하고 실행합니다.
 
 ### <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+> [!TIP]
+> Azurite는 [Visual Studio 2022 미리 보기 에서](https://visualstudio.microsoft.com/vs/preview/)자동으로 사용할 수 있으므로 미리 보기를 설치하는 경우 Azurite를 수동으로 설치할 필요가 없습니다. 
+
+이 섹션의 지침에서는 Visual Studio 2022 미리 보기를 아직 설치하지 않은 것으로 가정합니다.
 
 Visual Studio에서 Azure 프로젝트(예: **Azure Functions** 프로젝트)를 만듭니다.
 

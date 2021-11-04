@@ -9,12 +9,12 @@ ms.date: 09/06/2018
 ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: 801d073642114addeed87c4ee2073774f7888fa5
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
-ms.translationtype: HT
+ms.openlocfilehash: fac663053b964cad2bbfc069fdf2e21efa761c61
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109487622"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072924"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Azure Portal을 사용하여 IoT Hub 만들기
 
@@ -30,11 +30,7 @@ ms.locfileid: "109487622"
 
 ## <a name="change-the-settings-of-the-iot-hub"></a>IoT Hub의 설정 변경
 
-만든 기존 IoT 허브의 설정은 IoT Hub 창에서 변경할 수 있습니다.
-
-![IoT Hub에 대한 설정을 보여 주는 스크린샷](./media/iot-hub-create-through-portal/iot-hub-settings-panel.png)
-
-IoT 허브에 설정할 수 있는 몇 가지 속성은 다음 과같습니다.
+만든 기존 IoT 허브의 설정은 IoT Hub 창에서 변경할 수 있습니다. IoT 허브에 설정할 수 있는 몇 가지 속성은 다음 과같습니다.
 
 **가격 및 크기**: 이 속성을 사용하여 다른 계층으로 마이그레이션하거나 IoT 허브 단위의 수를 설정할 수 있습니다. 
 

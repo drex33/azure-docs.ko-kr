@@ -5,22 +5,18 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 06/02/2021
-ms.openlocfilehash: 7075b7efd871d3f226faa593e0730d22c8913fd1
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: fb33196d95f21041cf2657bdd27f203ad3f860ea
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124797087"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084940"
 ---
-# <a name="quickstart-deploy-a-managed-apache-spark-cluster-preview-with-azure-databricks"></a>빠른 시작: Azure Databricks를 사용하여 관리형 Apache Spark 클러스터(미리 보기) 배포
+# <a name="quickstart-deploy-a-managed-apache-spark-cluster-with-azure-databricks"></a>빠른 시작: Azure Databricks를 사용하여 관리형 Apache Spark 클러스터 배포
 
 Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cassandra 데이터 센터에 대한 자동화된 배포 및 스케일링 작업을 제공하여 하이브리드 시나리오를 가속화하고 지속적인 유지 관리를 줄여줍니다.
-
-> [!IMPORTANT]
-> Apache Cassandra용 Azure Managed Instance는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 이 빠른 시작에서는 Azure Portal을 사용하여 Apache Cassandra용 Azure Managed Instance 클러스터의 Azure Virtual Network 내부에 완전 관리형 Apache Spark 클러스터를 만드는 방법을 보여줍니다. Azure Databricks에서 Spark 클러스터를 만들 것입니다. 나중에 Notebook을 만들거나 클러스터에 연결하고, 여러 데이터 원본의 데이터를 읽고, 인사이트를 분석할 수 있습니다.
 
@@ -113,4 +109,3 @@ Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cas
 
 > [!div class="nextstepaction"]
 > [Azure CLI를 사용하여 Apache Cassandra용 Azure Managed Instance 리소스 관리](manage-resources-cli.md)
-

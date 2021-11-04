@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/14/2021
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: 568117bf629117e42af177845c9444996853f6c2
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: be664a5bf29c95143e7706b2df2b49648959f584
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130067215"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131013672"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-with-azure-functions"></a>Azure Functions를 사용하여 Azure Static Web Apps에 API 추가
 
@@ -311,7 +311,7 @@ Static Web Apps CLI로 앱을 시작하여 프런트 엔드 앱과 API를 함께
 
 1. CLI 프로세스가 시작되면 `http://localhost:4280/`에서 앱에 액세스합니다. 페이지가 API를 호출하고 출력 `Hello from the API`를 표시하는 방법을 확인합니다.
 
-1. CLI를 중지하려면 <kbd>Ctrl-C</kbd>를 입력합니다.
+1. CLI를 중지하려면 <kbd>Ctrl +C</kbd>를 입력합니다.
 
 ## <a name="add-api-location-to-workflow"></a>워크플로에 API 위치 추가
 

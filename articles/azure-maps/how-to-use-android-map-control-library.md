@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: eriklind
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 137b0d56a566d2e62f5559a30b391e6418139e59
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 47af15633803fe0dab299c1f2c4a80c10d32efb0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130005075"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131036203"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Azure Maps Android SDK 시작
 
@@ -74,7 +74,7 @@ Azure Maps Android SDK에서는 지도의 언어와 지역별 보기를 설정 �
 
 1. 언어 및 지역 보기 정보를 지도 컨트롤 XML로 전달할 수도 있습니다.
 
-    ```XML
+    ```xml
     <com.azure.android.maps.control.MapControl
         android:id="@+id/myMap"
         android:layout_width="match_parent"

@@ -3,19 +3,13 @@ title: '빠른 시작: Azure Service Fabric에서 Spring Boot 앱 만들기'
 description: 이 자습서에서는 Spring Boot 애플리케이션 예제를 사용하여 Azure Service Fabric에 Spring Boot 애플리케이션을 배포합니다.
 ms.date: 01/29/2019
 ms.topic: quickstart
-ms.custom:
-- mvc
-- devcenter
-- seo-java-august2019
-- seo-java-september2019
-- devx-track-java
-- mode-api
-ms.openlocfilehash: ad01697349eab20aa55fc6f6b59bc0d317c5a7e2
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
+ms.openlocfilehash: 73f133e38fbe0fd2deb547650ef0afbfa0d92beb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530860"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075185"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>빠른 시작: Azure Service Fabric에 Java Spring Boot 앱 배포
 

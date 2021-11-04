@@ -1,19 +1,19 @@
 ---
 title: OSM OSS 관찰성
-description: Open Service 메시에 대해 오픈 소스 관찰성를 구성 하는 방법
+description: Open Service Mesh에 대한 오픈 소스 관찰성을 구성하는 방법
 services: container-service
 ms.topic: article
 ms.date: 8/26/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
-ms.openlocfilehash: ce03fc4007ad55485150feb715242d4cc216433e
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 5b8e056cd360a66c42324292d7e40e8fb25ce668
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123441294"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131066884"
 ---
-# <a name="manually-deploy-prometheus-grafana-and-jaeger-to-view-open-service-mesh-osm-metrics-for-observability"></a>관찰성에 대 한 OSM (Open Service 메시) 메트릭을 보려면 Grafana 및 Jaeger를 수동으로 배포 합니다.
+# <a name="manually-deploy-prometheus-grafana-and-jaeger-to-view-open-service-mesh-osm-metrics-for-observability"></a>Prometheus, Grafana 및 Jaeger를 수동으로 배포하여 관찰 가능성을 위한 OSM(Open Service Mesh) 메트릭을 확인합니다.
 
 > [!WARNING]
 > Prometheus, Grafana 및 Jaeger의 설치는 이러한 도구를 활용하여 OSM 메트릭 데이터를 보는 방법을 보여 주는 일반 지침으로 제공됩니다. 설치 지침은 프로덕션 설정에 활용되지 않습니다. 필요에 따라 가장 적절히 설치하는 방법은 각 도구의 설명서를 참조하세요. 가장 주목할 만한 것은 영구 스토리지가 없다는 것입니다. 즉, Prometheus Grafana 및/또는 Jaeger Pod가 종료되면 모든 데이터가 손실됩니다.
@@ -33,23 +33,20 @@ OSM 메트릭은 오픈 소스 시각화 및 분석 소프트웨어인 Grafana�
 > [!div class="checklist"]
 >
 > - Prometheus 인스턴스 만들기 및 배포
-> - OSM을 구성하여 Prometheus 스크래핑 허용
-> - 프로메테우스 업데이트 `Configmap`
+> - Prometheus 업데이트 `Configmap`
 > - Grafana 인스턴스 만들기 및 배포
 > - Prometheus 데이터 원본을 사용하여 Grafana 구성
+> - 사용자 네임스페이스에 대해 Prometheus 메트릭 사용
 > - Grafana에 대한 OSM 대시보드 가져오기
 > - Jaeger 인스턴스 만들기 및 배포
 > - OSM에 대한 Jaeger 추적 구성
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 다음 리소스가 설치되어 있어야 합니다.
 
 - Azure CLI 버전 2.20.0 이상
-- `aks-preview` 확장 버전 0.5.5 이상
-- OSM 버전 v0.8.0 이상
+- OSM 버전 v0.11.1 이상
 - JSON 프로세서 "jq" 버전 1.6 이상
 
 ## <a name="deploy-and-configure-a-prometheus-instance-for-osm"></a>OSM에 대한 Prometheus 인스턴스 배포 및 구성
@@ -108,29 +105,9 @@ For more information on running Prometheus, visit:
 https://prometheus.io/
 ```
 
-### <a name="configure-osm-to-allow-prometheus-scraping"></a>OSM을 구성하여 Prometheus 스크래핑 허용
-
-OSM 구성 요소가 Prometheus 스크랩에 대해 구성되어 있는지 확인하기 위해 OSM 구성 파일에 있는 **prometheus_scraping** 구성을 확인하려고 합니다. 다음 명령을 사용하여 결과를 확인합니다.
-
-```azurecli-interactive
-kubectl get configmap -n kube-system osm-config -o json | jq '.data.prometheus_scraping'
-```
-
-OSM이 Prometheus 스크래핑에 대해 구성된 경우 이전 명령의 출력에서 `true`가 반환되어야 합니다. 반환된 값이 `false`이면 구성을 `true`로 업데이트해야 합니다. 다음 명령을 실행하여 OSM Prometheus 스크래핑을 **설정** 합니다.
-
-```azurecli-interactive
-kubectl patch configmap -n kube-system osm-config --type merge --patch '{"data":{"prometheus_scraping":"true"}}'
-```
-
-다음 출력이 표시되어야 합니다.
-
-```Output
-configmap/osm-config patched
-```
-
 ### <a name="update-the-prometheus-configmap"></a>Prometheus Configmap 업데이트
 
-프로메테우스의 기본 설치에는 두 개의 Kubernetes 포함 됩니다 `configmaps` . 다음 명령을 사용 하 여 프로메테우스 목록을 볼 수 있습니다 `configmaps` .
+기본적으로 Prometheus는 OSM 구성 요소를 폐기하도록 설정됩니다. Prometheus의 기본 설치에는 두 개의 Kubernetes `configmaps` 가 포함됩니다. 다음 명령을 사용하면 Prometheus 목록을 볼 수 `configmaps` 있습니다.
 
 ```azurecli-interactive
 kubectl get configmap | grep prometheus
@@ -141,7 +118,7 @@ stable-prometheus-alertmanager   1      4h34m
 stable-prometheus-server         5      4h34m
 ```
 
-**안정적인-프로메테우스-서버** 에 있는 `configmap` OSM 구성을 다음 구성으로 바꾸어야 합니다. 이 작업을 수행하는 데는 여러 가지 파일 편집 기술이 있습니다. 간단 하 고 안전한 방법은를 내보내고 `configmap` 백업에 대 한 복사본을 만든 다음 Visual Studio 코드와 같은 편집기를 사용 하 여 편집 하는 것입니다.
+**stable-prometheus-server에** 있는 prometheus.yml `configmap` 구성을 다음 OSM 구성으로 바꿔야 합니다. 이 작업을 수행하는 데는 여러 가지 파일 편집 기술이 있습니다. 간단하고 안전한 방법은 를 `configmap` 내보내고, 백업용 복사본을 만든 다음, Visual Studio 코드와 같은 편집기로 편집하는 것입니다.
 
 > [!NOTE]
 > Visual Studio Code가 설치되어 있지 않은 경우 [여기](https://code.visualstudio.com/Download)에서 다운로드하여 설치할 수 있습니다.
@@ -159,7 +136,7 @@ cp cm-stable-prometheus-server.yml cm-stable-prometheus-server.yml.copy
 code cm-stable-prometheus-server.yml
 ```
 
-`configmap`Visual Studio Code 편집기에서를 연 후에는 아래의 OSM 구성으로 프로메테우스 파일을 바꾸고 파일을 저장 합니다.
+가 Visual Studio Code `configmap` 편집기에서 열리면 prometheus.yml 파일을 아래 OSM 구성으로 바꾸고 파일을 저장합니다.
 
 > [!WARNING]
 > yaml 파일의 들여쓰기 구조를 유지하는 것은 매우 중요합니다. yaml 파일 구조를 조금이라도 변경하면 configmap을 다시 적용할 수 없습니다.
@@ -389,7 +366,7 @@ prometheus.yml: |
           replacement: /api/v1/nodes/${1}/proxy/metrics/cadvisor
 ```
 
-`configmap`다음 명령을 사용 하 여 업데이트 된 yaml 파일을 적용 합니다.
+다음 명령을 통해 `configmap` 업데이트된 yaml 파일을 적용합니다.
 
 ```azurecli-interactive
 kubectl apply -f cm-stable-prometheus-server.yml
@@ -417,7 +394,7 @@ kubectl --namespace <promNamespace> port-forward $PROM_POD_NAME 9090
 
 ![OSM Prometheus 대상 메트릭 UI 이미지](./media/aks-osm-addon/osm-prometheus-smi-metrics-target-scrape.png)
 
-## <a name="deploy-and-configure-a-grafana-instance-for-osm&quot;></a>OSM에 대한 Grafana 인스턴스 배포 및 구성
+## <a name="deploy-and-configure-a-grafana-instance-for-osm"></a>OSM에 대한 Grafana 인스턴스 배포 및 구성
 
 Helm을 사용하여 Grafana 인스턴스를 배포합니다. 다음 명령을 실행하여 Helm을 통해 Grafana를 설치합니다.
 
@@ -430,7 +407,7 @@ helm install osm-grafana grafana/grafana
 다음으로 Grafana 사이트에 로그인하기 위한 기본 Grafana 암호를 검색합니다.
 
 ```azurecli-interactive
-kubectl get secret --namespace default osm-grafana -o jsonpath=&quot;{.data.admin-password}&quot; | base64 --decode ; echo
+kubectl get secret --namespace default osm-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
 ```
 
 Grafana 암호를 기록합니다.
@@ -438,7 +415,7 @@ Grafana 암호를 기록합니다.
 다음으로 Grafana Pod를 검색하여 로그인할 Grafana 대시보드로 포트를 전달합니다.
 
 ```azurecli-interactive
-GRAF_POD_NAME=$(kubectl get pods -l &quot;app.kubernetes.io/name=grafana&quot; -o jsonpath=&quot;{.items[0].metadata.name}")
+GRAF_POD_NAME=$(kubectl get pods -l "app.kubernetes.io/name=grafana" -o jsonpath="{.items[0].metadata.name}")
 kubectl port-forward $GRAF_POD_NAME 3000
 ```
 
@@ -460,11 +437,17 @@ Grafana에 성공적으로 로그인한 다음 단계로 Grafana에 대한 데�
 
 **아래에서 Prometheus 데이터 원본 구성** 페이지에서 HTTP URL 설정에 대한 Kubernetes 클러스터 FQDN을 Prometheus 서비스에 입력합니다. 기본 FQDN은 `stable-prometheus-server.default.svc.cluster.local`이어야 합니다. 해당 Prometheus 서비스 엔드포인트를 입력한 후 페이지 아래쪽으로 스크롤하고 **저장 및 테스트** 를 선택합니다. 데이터 원본이 작동 중임을 나타내는 녹색 확인란이 표시됩니다.
 
+### <a name="enable-prometheus-metrics-for-a-user-namespace"></a>사용자 네임스페이스에 대해 Prometheus 메트릭 사용
+애플리케이션 네임스페이스에서 메트릭을 스크래핑하도록 Prometheus를 구성하려면 다음 명령을 실행합니다.
+```azurecli-interactive
+osm metrics enable --namespace <app-namespace>
+```
+
 ### <a name="importing-osm-dashboards"></a>OSM 대시보드 가져오기
 
 OSM 대시보드는 다음 두 가지 방법을 통해 사용할 수 있습니다.
 
-- [리포지토리](https://github.com/grafana/grafana)에서 웹 관리 포털을 통해 json Blob으로 가져오거나
+- [리포지토리](https://github.com/openservicemesh/osm/tree/release-v0.11/charts/osm/grafana/dashboards)에서 웹 관리 포털을 통해 json Blob으로 가져오거나
 - [Grafana.com에서 온라인으로](https://grafana.com/grafana/dashboards/14145) 가져올 수 있습니다.
 
 대시보드를 가져오려면 왼쪽 메뉴에서 `+` 기호를 찾아 `import`를 선택합니다.
@@ -481,6 +464,12 @@ OSM 대시보드는 다음 두 가지 방법을 통해 사용할 수 있습니�
 [Jaeger](https://www.jaegertracing.io/)는 분산 시스템을 모니터링하고 문제를 해결하는 데 사용되는 오픈 소스 추적 시스템입니다. OSM을 사용하여 새 인스턴스로 배포하거나 자체 인스턴스를 가져올 수 있습니다. 다음 지침에서는 AKS 클러스터의 `jaeger` 네임스페이스에 Jaeger의 새 인스턴스를 배포합니다.
 
 ### <a name="deploy-jaeger-to-the-aks-cluster"></a>AKS 클러스터에 Jaeger 배포
+
+먼저 jaeger 네임스페이스를 만듭니다.
+
+```azurecli-interactive
+kubectl create namespace jaeger
+```
 
 Jaeger를 설치하려면 다음 매니페스트를 적용합니다.
 
@@ -543,6 +532,42 @@ deployment.apps/jaeger created
 service/jaeger created
 ```
 
+### <a name="add-rbac-for-jaeger-sa"></a>Jaeger SA에 대한 RBAC 추가
+
+다음 RBAC를 적용하여 Jaeger 서비스 계정에 지정된 클러스터 역할을 부여합니다.
+
+```yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    app: jaeger
+  name: jaeger
+  namespace: jaeger
+---
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  labels:
+    app: jaeger
+  name: jaeger
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: jaeger
+  labels:
+    app: jaeger
+subjects:
+  - kind: ServiceAccount
+    name: jaeger
+    namespace: jaeger
+roleRef:
+  kind: ClusterRole
+  name: jaeger
+  apiGroup: rbac.authorization.k8s.io
+```
+
 ### <a name="enable-tracing-for-the-osm-add-on"></a>OSM 추가 기능에 대한 추적 사용
 
 다음에는 OSM 추가 기능에 대한 추적을 사용하도록 설정해야 합니다.
@@ -550,7 +575,7 @@ service/jaeger created
 다음 명령을 실행하여 OSM 추가 기능에 대한 추적을 사용하도록 설정합니다.
 
 ```azurecli-interactive
-kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"observability":{"tracing":{"enable":true}}}}' --type=merge
+kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"observability":{"tracing":{"enable":true, "address": "jaeger.jaeger.svc.cluster.local"}}}}' --type=merge
 ```
 
 ```Output
@@ -571,7 +596,7 @@ http://localhost:16686/
 
 ![OSM Jaeger 추적 페이지 UI 이미지](./media/aks-osm-addon/osm-jaeger-trace-view-ui.png)
 
-항목을 선택하여 추가 세부 정보에서 확인합니다. 여러 항목을 선택하여 추적을 비교합니다. 예를 들어 `bookbuyer` 특정 시점에 의 책점 및 bookstore-v2와의 상호 작용을 비교할 수 있습니다.
+항목을 선택하여 추가 세부 정보에서 확인합니다. 여러 항목을 선택하여 추적을 비교합니다. 예를 들어 `bookbuyer` 특정 시점에서 의 책점 및 bookstore-v2와의 상호 작용을 비교할 수 있습니다.
 
 시스템 아키텍처 탭을 선택하여 다양한 애플리케이션이 상호 작용하고 통신하는 방법에 대한 그래프를 볼 수도 있습니다. 이를 통해 애플리케이션 간에 트래픽이 흐르는 방식을 알 수 있습니다.
 

@@ -7,13 +7,13 @@ ms.service: azure-redhat-openshift
 keywords: 스폿, 노드, aro, 배포, openshift, red hat
 ms.topic: how-to
 ms.date: 10/21/2021
-ms.custom: template-how-to
-ms.openlocfilehash: 9212e75b14a8f8db987fa92b58edf50f6f98c858
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: template-how-to, ignite-fall-2021
+ms.openlocfilehash: 941db40b96d9e7a00c32b42817a3f2a93e17643a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130273715"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084429"
 ---
 # <a name="use-azure-spot-virtual-machines-in-an-azure-red-hat-openshift-aro-cluster"></a>Azure Red Hat OpenShift (ARO) 클러스터에서 Azure 스팟 Virtual Machines 사용
 
@@ -55,7 +55,7 @@ aro-cluster-5t2dj-worker-eastus2   1         1         1       1           2d22h
 aro-cluster-5t2dj-worker-eastus3   1         1         1       1           2d22h
 ```
 
-다음에는 배포 된 MachineSet을 설명 합니다. 을 <machineset> 위에 나열 된 MachineSets 중 하나로 바꾸고이를 파일에 출력 합니다.
+다음에는 배포 된 MachineSet을 설명 합니다. 을 \<machineset\> 위에 나열 된 MachineSets 중 하나로 바꾸고이를 파일에 출력 합니다.
 
 ```azurecli-interactive
 oc get machineset <machineset> -n openshift-machine-api -o yaml > spotmachineset.yaml

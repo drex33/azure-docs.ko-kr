@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: bagol
-ms.openlocfilehash: 95ff033ab83fee6e9dacbf15b12db33f8b36c3c0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: cd0b10f4dccf9d989aaf93e472306f3283afb7a6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528178"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131055163"
 ---
 # <a name="manage-access-to-azure-sentinel-data-by-resource"></a>리소스별로 Azure Sentinel 데이터에 대한 액세스 관리
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 일반적으로 Azure Sentinel 작업 영역에 대한 액세스 권한이 있는 사용자는 보안 콘텐츠를 비롯한 모든 작업 영역 데이터에도 액세스할 수 있습니다. 관리자는 [Azure 역할](roles.md)을 사용하여 팀의 액세스 요구 사항에 따라 Azure Sentinel의 특정 기능에 대한 액세스를 구성할 수 있습니다.
 
@@ -67,7 +69,7 @@ Azure Monitor에서 리소스 컨텍스트 RBAC를 사용하도록 설정합니�
 |---------|---------|
 |**자회사에 전체 Azure Sentinel 환경이 필요한 SOC 팀이 있습니다**.     |  이 경우 다중 작업 영역 아키텍처를 사용하여 데이터 권한을 구분합니다. <br><br>자세한 내용은 다음을 참조하세요. <br>- [작업 영역 및 테넌트에 걸쳐 Azure Sentinel 확장](extend-sentinel-across-workspaces-tenants.md)<br>    - [한 번에 여러 작업 영역에서 인시던트 작업](multiple-workspace-view.md)          |
 |**특정 유형의 이벤트에 대한 액세스를 제공하려고 합니다**.     |  예를 들어 Windows 관리자에게 모든 시스템의 Windows 보안 이벤트에 대한 액세스 권한을 제공합니다. <br><br>이러한 경우 [테이블 수준 RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043)를 사용하여 각 테이블에 대한 권한을 정의합니다.       |
-| **리소스를 기반으로 하지 않거나 이벤트에 있는 필드의 하위 집합으로만 액세스를 보다 세부적인 수준으로 제한합니다**.   |   예를 들어 사용자의 자회사에 따라 Office 365 로그에 대한 액세스를 제한할 수 있습니다. <br><br>이 경우 [Power BI 대시보드 및 보고서](../azure-monitor/visualize/powerbi.md)와의 기본 제공 통합을 사용하여 데이터에 대한 액세스를 제공합니다.      |
+| **리소스를 기반으로 하지 않거나 이벤트에 있는 필드의 하위 집합으로만 액세스를 보다 세부적인 수준으로 제한합니다**.   |   예를 들어 사용자의 자회사에 따라 Office 365 로그에 대한 액세스를 제한할 수 있습니다. <br><br>이 경우 [Power BI 대시보드 및 보고서](../azure-monitor/logs/log-powerbi.md)와의 기본 제공 통합을 사용하여 데이터에 대한 액세스를 제공합니다.      |
 | | |
 
 ## <a name="explicitly-configure-resource-context-rbac"></a>리소스 컨텍스트 RBAC를 명시적으로 구성

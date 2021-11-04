@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a1c9bcec2a9aec2673e29a3f578146cad7de5d6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4f691f2c6cff0abec7454282a239e8ede47277c6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566516"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068116"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory Seamless Single Sign-On: 빠른 시작
 
@@ -240,4 +240,4 @@ Seamless SSO는 브라우저가 고급 보호 모드에서 실행 중인 경우 
 - [기술 심층 분석](how-to-connect-sso-how-it-works.md): Seamless Single Sign-On 기능의 작동 방식을 이해합니다.
 - [질문과 대답](how-to-connect-sso-faq.yml): Azure Active Directory Seamless Single Sign-On에 대한 질문과 대답입니다.
 - [문제 해결](tshoot-connect-sso.md): Seamless Single Sign-On 기능의 일반적인 문제를 해결하는 방법을 알아봅니다.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Azure Active Directory 포럼을 사용하여 새 기능 요청을 제출합니다.
+- [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789): Azure Active Directory 포럼을 사용하여 새 기능 요청을 제출합니다.

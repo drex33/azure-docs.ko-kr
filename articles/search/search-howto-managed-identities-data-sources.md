@@ -2,17 +2,17 @@
 title: 관리 ID를 사용하여 데이터 원본에 대한 연결 설정
 titleSuffix: Azure Cognitive Search
 description: 관리 ID를 사용하여 데이터 원본에 대한 인덱서 연결을 설정하는 방법 알아보기
-author: markheff
-ms.author: maheff
+author: nitinme
+ms.author: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/02/2021
-ms.openlocfilehash: bd4d10c32f1c850adf6dc886672b16937b553222
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: ff0ea838df98ba175fd0f3eb843bb148d98b70a1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122537775"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131010577"
 ---
 # <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity"></a>관리 ID를 사용하여 데이터 원본에 대한 인덱서 연결 설정
 

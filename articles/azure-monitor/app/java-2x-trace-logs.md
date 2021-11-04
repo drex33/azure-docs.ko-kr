@@ -6,12 +6,12 @@ ms.date: 05/18/2019
 ms.custom: devx-track-java
 author: mattmccleary
 ms.author: mmcc
-ms.openlocfilehash: 60f73edaa1f8d93c8aa05d383b9cc3f9d29290b5
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 23443bf1063ac1653545bbd22a0b52f8bc72d008
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130133978"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067794"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Application Insights에서 Java 추적 로그 탐색
 
@@ -71,7 +71,7 @@ ms.locfileid: "130133978"
 
 *Logback*
 
-```XML
+```xml
 
     <dependencies>
        <dependency>
@@ -84,7 +84,7 @@ ms.locfileid: "130133978"
 
 *Log4J v2.0*
 
-```XML
+```xml
 
     <dependencies>
        <dependency>
@@ -97,7 +97,7 @@ ms.locfileid: "130133978"
 
 *Log4J v1.2*
 
-```XML
+```xml
 
     <dependencies>
        <dependency>
@@ -147,7 +147,7 @@ ms.locfileid: "130133978"
 
 *Logback*
 
-```XML
+```xml
 
     <appender name="aiAppender" 
       class="com.microsoft.applicationinsights.logback.ApplicationInsightsAppender">
@@ -160,7 +160,7 @@ ms.locfileid: "130133978"
 
 *Log4J v2.0*
 
-```XML
+```xml
 
     <Configuration packages="com.microsoft.applicationinsights.log4j.v2">
       <Appenders>
@@ -176,7 +176,7 @@ ms.locfileid: "130133978"
 
 *Log4J v1.2*
 
-```XML
+```xml
 
     <appender name="aiAppender" 
          class="com.microsoft.applicationinsights.log4j.v1_2.ApplicationInsightsAppender">

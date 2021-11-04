@@ -14,17 +14,14 @@ ms.service: network-watcher
 ms.workload: infrastructure
 ms.tgt_pltfrm: network-watcher
 ms.devlang: na
-tags:
-- azure-resource-manager
-ms.custom:
-- mvc
-- mode-portal
-ms.openlocfilehash: e8a9ce38e29f743fd40a6998d8bdc300080b2cee
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+tags: azure-resource-manager
+ms.custom: mvc, mode-portal
+ms.openlocfilehash: c95beb02c88f74546cc549cf1607d9717232bd85
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537756"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084524"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 가상 머신 네트워크 트래픽 필터 문제 진단
 
@@ -84,7 +81,7 @@ VM을 만들 때 Azure는 기본적으로 VM 간 네트워크 트래픽을 허�
     | 가상 머신   | myVm 선택                                                                                       |
     | Linux | myvm - VM을 만들 때 포털에서 만든 네트워크 인터페이스의 이름은 다릅니다. |
     | 프로토콜          | TCP                                                                                               |
-    | Direction         | 아웃바운드                                                                                          |
+    | 방향         | 아웃바운드                                                                                          |
     | 로컬 IP 주소  | 10.0.0.4                                                                                          |
     | 로컬 포트      | 60000                                                                                                |
     | 원격 IP 주소 | 13.107.21.200 - <www.bing.com>에 대한 주소 중 하나입니다.                                             |

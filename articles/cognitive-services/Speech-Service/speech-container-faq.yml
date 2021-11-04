@@ -4,20 +4,20 @@ metadata:
   titleSuffix: Azure Cognitive Services
   description: 음성 컨테이너를 설치하고 실행합니다. 음성 텍스트 변환은 오디오 스트림을 애플리케이션, 도구 또는 디바이스가 사용하거나 표시할 수 있는 텍스트로 실시간으로 기록합니다. 텍스트 음성 변환은 입력 텍스트를 인간과 유사한 합성 음성으로 변환합니다.
   services: cognitive-services
-  author: PatrickFarley
+  author: eric-urban
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: speech-service
   ms.topic: conceptual
   ms.date: 03/11/2021
-  ms.author: pafarley
+  ms.author: eur
   ms.custom: devx-track-csharp
-  ms.openlocfilehash: e2dbd29686dad5416a6bd148d2bcccc37fca5107
-  ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+  ms.openlocfilehash: 5b896e3f4bbd6cf00d4ee9b7eb2723cc75d07a5b
+  ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/07/2021
-  ms.locfileid: "123537838"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131508172"
 title: Speech Service 컨테이너 FAQ(질문과 대답)
 summary: Speech Service를 컨테이너와 함께 사용하는 경우 지원팀에 에스컬레이션하기 전에 아래 질문과 대답을 참고하는 것이 좋습니다. 이 문서에는 일반적인 부분에서 기술적인 부분까지 다양한 질문이 포함되어 있습니다. 답변을 펼치려면 질문을 클릭하세요.
 sections:

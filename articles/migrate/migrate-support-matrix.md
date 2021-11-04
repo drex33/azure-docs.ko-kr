@@ -6,12 +6,12 @@ ms.author: panshar
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 0429c7a8308db9acecd4600d4925493222375ced
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 02e6e3566f76b279d1911cdaba4b0f474c9cfe9b
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129857876"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131509356"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure Migrate 지원 매트릭스
 
@@ -94,8 +94,8 @@ Canada | 캐나다 중부 또는 캐나다 동부
 독일 | 독일 중서부
 인도 | 인도 중부 또는 인도 남부
 일본 |  일본 동부 또는 일본 서부
-Jio India | JIO 인도 서부 
-한국 | 한국 중부 또는 한국 남부
+Jio 인도 | JIO 인도 서부 
+한국 | 한국 중부
 노르웨이 | 노르웨이 동부
 스위스 | 스위스 북부
 아랍에미리트연합국 | 아랍에미리트 북부

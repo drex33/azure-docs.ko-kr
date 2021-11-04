@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 06/02/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 0ae0fa18c2d3d223435656d871bd0d5be00627e4
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
-ms.translationtype: HT
+ms.openlocfilehash: f7454d26c57795383cc6bc8464e2259b1b29ed38
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113356954"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131506331"
 ---
-### <a name="on-demand-bursting-preview"></a>주문형 버스팅(미리 보기)
+### <a name="on-demand-bursting"></a>주문형 버스팅
 
 디스크 버스팅의 주문형 버스팅 모델을 사용하는 프리미엄 SSD는 워크로드에서 필요한 만큼 자주 원래의 프로비저닝된 목표를 초과하여 최대 버스트 목표까지 버스트할 수 있습니다. 예를 들어 1TiB P30 디스크에서 프로비전된 IOPS는 5,000 IOPS입니다. 이 디스크에서 디스크 버스팅이 사용하도록 설정되면 워크로드에서 이 디스크에 대한 IO를 30,000 IOPS 및 1,000MBps의 최대 버스트 성능까지 실행할 수 있습니다.
 
@@ -72,9 +72,13 @@ VM 수준 버스팅은 다음 크기로 지원되는 Azure 퍼블릭 클라우�
 - [Dsv4 시리즈](../articles/virtual-machines/dv4-dsv4-series.md)
 - [Dasv4 시리즈](../articles/virtual-machines/dav4-dasv4-series.md)
 - [Ddsv4 시리즈](../articles/virtual-machines/ddv4-ddsv4-series.md)
+- [Dasv5 시리즈](../articles/virtual-machines/dasv5-dadsv5-series.md)
+- [Dadsv5 시리즈](../articles/virtual-machines/dasv5-dadsv5-series.md)
 - [Esv4 시리즈](../articles/virtual-machines/ev4-esv4-series.md)
 - [Easv4 시리즈](../articles/virtual-machines/eav4-easv4-series.md)
 - [Edsv4 시리즈](../articles/virtual-machines/edv4-edsv4-series.md)
+- [Easv5 시리즈](../articles/virtual-machines/easv5-eadsv5-series.md)
+- [Eadsv5 시리즈](../articles/virtual-machines/easv5-eadsv5-series.md)
 - [B 시리즈](../articles/virtual-machines/sizes-b-series-burstable.md)
 - [Fsv2 시리즈](../articles/virtual-machines/fsv2-series.md)
 - [Dsv3 시리즈](../articles/virtual-machines/dv3-dsv3-series.md)

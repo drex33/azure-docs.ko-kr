@@ -3,12 +3,12 @@ title: 관리 그룹을 사용하는 방법 - Azure 거버넌스
 description: 관리 그룹 계층 구조를 살펴보고, 유지 관리하고, 업데이트하고, 삭제하는 방법을 알아봅니다.
 ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: cf52f56b59dd1a99bb48807228015d502163fcd7
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
-ms.translationtype: HT
+ms.openlocfilehash: 57c4af2d7c3d5d4978d500beaa6e6c8be5d12d4f
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122538623"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131509413"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>관리 그룹으로 리소스 관리
 
@@ -20,6 +20,9 @@ ms.locfileid: "122538623"
 
 > [!IMPORTANT]
 > Azure Resource Manager 사용자 토큰 및 관리 그룹 캐시는 30분 동안 지속된 후 강제로 새로 고쳐집니다. 관리 그룹 또는 구독 이동과 같은 작업을 수행한 후에는 표시하는 데 최대 30분이 걸릴 수 있습니다. 업데이트를 더 빨리 보려면 브라우저를 새로 고치거나, 로그인하고 로그아웃하거나, 새 토큰을 요청하여 토큰을 업데이트해야 합니다.
+
+> [!IMPORTANT]
+> AzManagementGroup 관련 Az PowerShell cmdlet은 **-GroupId** 가 **-GroupName** 매개 변수의 별칭인 것을 언급 하므로이 중 하나를 사용 하 여 관리 그룹 Id를 문자열 값으로 제공할 수 있습니다. 
 
 ## <a name="change-the-name-of-a-management-group"></a>관리 그룹의 이름 변경
 
@@ -50,7 +53,7 @@ ms.locfileid: "122538623"
 표시 이름을 업데이트하려면 **Update-AzManagementGroup** 을 사용합니다. 예를 들어 “Contoso IT”에서 “Contoso Group”으로 관리 그룹 표시 이름을 변경하려면 다음 명령을 실행합니다.
 
 ```azurepowershell-interactive
-Update-AzManagementGroup -GroupName 'ContosoIt' -DisplayName 'Contoso Group'
+Update-AzManagementGroup -GroupId 'ContosoIt' -DisplayName 'Contoso Group'
 ```
 
 ### <a name="change-the-name-in-azure-cli"></a>Azure CLI에서 이름 변경
@@ -97,7 +100,7 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 관리 그룹을 삭제하려면 PowerShell 내에서 **Remove-AzManagementGroup** 명령을 사용합니다.
 
 ```azurepowershell-interactive
-Remove-AzManagementGroup -GroupName 'Contoso'
+Remove-AzManagementGroup -GroupId 'Contoso'
 ```
 
 ### <a name="delete-in-azure-cli"></a>Azure CLI에서 삭제
@@ -132,16 +135,16 @@ az account management-group delete --name 'Contoso'
 Get-AzManagementGroup
 ```
 
-단일 관리 그룹의 정보를 보려면 -GroupName 매개 변수를 사용합니다.
+단일 관리 그룹의 정보를 보려면-GroupId 매개 변수를 사용 합니다.
 
 ```azurepowershell-interactive
-Get-AzManagementGroup -GroupName 'Contoso'
+Get-AzManagementGroup -GroupId 'Contoso'
 ```
 
 특정 관리 그룹 및 그 아래에 있는 계층 구조의 모든 수준을 반환하려면 **-Expand** 및 **-Recurse** 매개 변수를 사용합니다.
 
 ```azurepowershell-interactive
-PS C:\> $response = Get-AzManagementGroup -GroupName TestGroupParent -Expand -Recurse
+PS C:\> $response = Get-AzManagementGroup -GroupId TestGroupParent -Expand -Recurse
 PS C:\> $response
 
 Id                : /providers/Microsoft.Management/managementGroups/TestGroupParent
@@ -204,7 +207,9 @@ az account management-group show --name 'Contoso' -e -r
 - 자식 구독/관리 그룹
   - `Microsoft.management/managementgroups/write`
   - `Microsoft.management/managementgroups/subscription/write`(구독에만 해당)
-  - `Microsoft.Authorization/roleassignment/write`
+  - `Microsoft.Authorization/roleAssignments/write`
+  - `Microsoft.Authorization/roleAssignments/delete`
+  - `Microsoft.Management/register/action`
 - 대상 부모 관리 그룹
   - `Microsoft.management/managementgroups/write`
 - 현재 부모 관리 그룹
@@ -259,13 +264,13 @@ Azure Portal에서 보유하고 있는 권한을 보려면 관리 그룹을 선�
 PowerShell에서 구독을 이동하려면 New-AzManagementGroupSubscription 명령을 사용합니다.
 
 ```azurepowershell-interactive
-New-AzManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
+New-AzManagementGroupSubscription -GroupId 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
 ```
 
 구독 및 관리 그룹 간의 링크를 제거하려면 Remove-AzManagementGroupSubscription 명령을 사용합니다.
 
 ```azurepowershell-interactive
-Remove-AzManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
+Remove-AzManagementGroupSubscription -GroupId 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
 ```
 
 ### <a name="move-subscriptions-in-azure-cli"></a>Azure CLI에서 구독 이동
@@ -344,8 +349,8 @@ ARM 템플릿(Azure Resource Manager 템플릿)에서 구독을 이동하려면 
 PowerShell에서 Update-AzManagementGroup 명령을 사용하여 관리 그룹을 다른 그룹 아래로 이동합니다.
 
 ```azurepowershell-interactive
-$parentGroup = Get-AzManagementGroup -GroupName ContosoIT
-Update-AzManagementGroup -GroupName 'Contoso' -ParentId $parentGroup.id
+$parentGroup = Get-AzManagementGroup -GroupId ContosoIT
+Update-AzManagementGroup -GroupId 'Contoso' -ParentId $parentGroup.id
 ```
 
 ### <a name="move-management-groups-in-azure-cli"></a>Azure CLI에서 관리 그룹 이동

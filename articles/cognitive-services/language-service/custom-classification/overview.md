@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
-ms.openlocfilehash: 729cf1ed5d17345c530bd78f9c5c75c15990ab12
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: c31a348376f41bf61a4632d991fc02f08b360be7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053660"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450251"
 ---
 # <a name="what-is-custom-text-classification-preview"></a>사용자 지정 텍스트 분류(미리 보기)란?
 
@@ -27,7 +27,13 @@ ms.locfileid: "131053660"
 사용자 지정 텍스트 분류는 두 가지 유형의 프로젝트를 지원합니다. 
 
 * **단일 레이블 분류** - 데이터 세트의 각 파일에 대해 단일 클래스를 할당할 수 있습니다. 예를 들어 영화 스크립트는 "Action" 또는 "Thriller"로만 분류할 수 있습니다. 
-* **다중 레이블 분류** - 데이터 세트의 각 파일에 대해 다중 클래스를 할당할 수 있습니다. 예를 들어 영화 스크립트는 "Action" 또는 "Action 및 Thriller"로 분류할 수 있습니다. 
+* **다중 레이블 분류** - 데이터 세트의 각 파일에 대해 다중 클래스를 할당할 수 있습니다. 예를 들어 영화 스크립트는 "Action" 또는 "Action 및 Thriller"로 분류할 수 있습니다.
+
+이 설명서에는 다음과 같은 문서 유형이 포함되어 있습니다.
+
+* [빠른 시작](quickstart.md)은 서비스에 대한 요청을 수행하는 과정을 안내하는 시작 지침입니다.
+* [개념](concepts/evaluation.md)은 서비스 기능에 대한 설명을 제공합니다.
+* [방법 가이드](how-to/tag-data.md)에는 보다 구체적이거나 사용자 지정된 방식으로 서비스를 사용하기 위한 지침이 포함되어 있습니다.
 
 ## <a name="example-usage-scenarios"></a>사용 시나리오 예제
 

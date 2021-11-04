@@ -3,12 +3,12 @@ title: vCenter에 대한 외부 ID 원본 구성
 description: vCenter에 대한 LDAP 또는 LDAPS를 통한 Active Directory를 외부 ID 원본으로 구성하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 08/31/2021
-ms.openlocfilehash: 77644c2d52a5eed87ab4dca83632b69834dd4c58
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 37478b65572fba2815121b0712d1a0f2e43376dc
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123537115"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131506299"
 ---
 # <a name="configure-external-identity-source-for-vcenter"></a>vCenter에 대한 외부 ID 원본 구성
 
@@ -62,19 +62,19 @@ ms.locfileid: "123537115"
    | **실행할 이름 지정**  | 영숫자 이름(예: **getExternalIdentity**)입니다.  |
    | **Timeout**  |  완료하는 데 너무 오래 걸릴 경우 cmdlet이 종료되는 기간입니다.  |
 
-1. **알림** 또는 **실행 상태** 창을 확인하여 진행 상황을 확인합니다.
+1. **알림** 또는 실행 실행 **상태** 창을 확인 하 여 진행 상황을 확인 합니다.
 
 
 ## <a name="add-active-directory-over-ldap-with-ssl"></a>SSL을 사용하는 LDAP를 통한 Active Directory 추가
 
 `New-AvsLDAPSIdentitySource` cmdlet을 실행하여 SSL을 사용하는 LDAP를 통한 AD를 vCenter에 SSO에서 사용할 외부 ID 원본으로 추가합니다. 
 
-1. AD 인증용 인증서를 다운로드하고 Azure Storage 계정에 Blob Storage로 업로드합니다. 여러 인증서가 필요한 경우 각 인증서를 개별적으로 업로드합니다.  
+1. AD 인증용 인증서를 다운로드하고 Azure Storage 계정에 Blob Storage로 업로드합니다. 인증서가 여러 개 필요한 경우 각 인증서를 개별적으로 업로드 합니다.  
 
-1. 각 인증서에 대해 [SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 대한 액세스 권한을 부여합니다.](../storage/common/storage-sas-overview.md) 이러한 SAS 문자열은 cmdlet에 매개 변수로 제공됩니다. 
+1. 각 인증서에 대해 [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 액세스 권한을 부여](../storage/common/storage-sas-overview.md)합니다. 이러한 SAS 문자열은 매개 변수로 cmdlet에 제공 됩니다. 
 
    >[!IMPORTANT]
-   >이 페이지를 나가면 더 이상 사용할 수 없으므로 각 SAS 문자열을 복사해야 합니다.  
+   >이 페이지를 벗어나면 더 이상 사용할 수 없으므로 각 SAS 문자열을 복사 해야 합니다.  
    
 1. **실행 명령** > **패키지** > **New-AvsLDAPSIdentitySource** 를 선택합니다.
 
@@ -85,25 +85,25 @@ ms.locfileid: "123537115"
    | **이름**  | 사용자에게 친숙한 외부 ID 원본 이름(예: **avslap.local**)입니다.  |
    | **DomainName**  | 도메인의 FQDN입니다.   |
    | **DomainAlias**  | Active Directory ID 원본의 경우 도메인의 NetBIOS 이름입니다. SSPI 인증을 사용하는 경우 AD 도메인의 NetBIOS 이름을 ID 원본의 별칭으로 추가합니다.     |
-   | **PrimaryUrl**  | 외부 ID 원본의 기본 URL(예: **ldap://yourserver:389**).  |
+   | **PrimaryUrl**  | 외부 id 원본의 기본 URL (예: **ldap://yourserver:636**)입니다.  |
    | **SecondaryURL**  | 기본 오류가 있는 경우를 대비한 보조 대체 URL입니다.  |
    | **BaseDNUsers**  |  유효한 사용자를 찾을 위치(예: **CN=users,DC=yourserver,DC=internal**).  LDAP 인증을 사용하려면 기본 DN이 필요합니다.  |
    | **BaseDNGroups**  | 그룹을 찾을 위치(예: **CN=group1, DC=yourserver,DC= internal**). LDAP 인증을 사용하려면 기본 DN이 필요합니다.  |
    | **자격 증명**  | AD 원본(cloudadmin 아님) 인증에 사용되는 사용자 이름과 암호입니다.  |
-   | **CertificateSAS** | AD 원본에 대한 인증을 위한 인증서가 있는 SAS 문자열의 경로입니다. 여러 인증서를 사용하는 경우 각 SAS 문자열을 쉼표로 구분합니다. 예를 들어 **pathtocert1,pathtocert2 입니다.**  |
-   | **GroupName**  | cloudadmin 액세스 권한을 제공하는 외부 ID 원본의 그룹입니다. 예를 들어 **avs-admins 입니다.**  |
+   | **CertificateSAS** | AD 원본에 대한 인증을 위한 인증서가 있는 SAS 문자열의 경로입니다. 여러 인증서를 사용 하는 경우 각 SAS 문자열을 쉼표로 구분 합니다. 예: **pathtocert1, pathtocert2**.  |
+   | **GroupName**  | Cloudadmin 액세스를 제공 하는 외부 id 원본의 그룹입니다. 예: **avs-관리자**.  |
    | **다음까지 유지**  | cmdlet 출력의 보존 기간입니다. 기본값은 60일입니다.   |
    | **실행할 이름 지정**  | 영숫자 이름(예: **addexternalIdentity**)입니다.  |
    | **Timeout**  |  완료하는 데 너무 오래 걸릴 경우 cmdlet이 종료되는 기간입니다.  |
 
-1. **알림** 또는 **실행 상태** 창을 확인하여 진행 상황을 확인합니다.
+1. **알림** 또는 실행 실행 **상태** 창을 확인 하 여 진행 상황을 확인 합니다.
 
 
 
 ## <a name="add-active-directory-over-ldap"></a>LDAP를 통한 Active Directory 추가
 
 >[!NOTE]
->이 방법은 권장되지 않습니다. 대신 SSL 메서드를 사용하여 [LDAP를 통해 Active Directory 추가를](#add-active-directory-over-ldap-with-ssl) 사용합니다.
+>이 방법은 권장 되지 않습니다. 대신, [SSL과 함께 LDAP over Active Directory 추가](#add-active-directory-over-ldap-with-ssl) 방법을 사용 합니다.
 
 `New-AvsLDAPIdentitySource` cmdlet을 실행하여 LDAP를 통한 AD를 vCenter에 SSO에서 사용할 외부 ID 원본으로 추가합니다. 
 

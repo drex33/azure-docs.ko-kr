@@ -6,13 +6,13 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/27/2021
-ms.openlocfilehash: 4c74181ef587469daf003bca5c2276e2bf26fbb3
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 10/22/2021
+ms.openlocfilehash: d939af34afba8a240b4edc2ee1a3b0ed145b62ff
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130246008"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131503137"
 ---
 # <a name="create-and-manage-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 관리
 
@@ -44,7 +44,7 @@ ms.locfileid: "130246008"
 - Parquet, ORC 또는 Avro 형식의 데이터를 추출하는 동안 작업이 실패할 수 있습니다.
 
 > [!IMPORTANT]
-> Self-Hosted Integration Runtime을 사용하여 Parquet 파일을 검사하려면 IR 머신에 **64비트 JRE 8(Java Runtime Environment) 또는 OpenJDK를** 설치해야 합니다. 설치 가이드는 [페이지 아래쪽의 Java Runtime Environment 섹션을](#java-runtime-environment-installation) 확인하세요.
+> Self-Hosted Integration Runtime을 사용하여 Parquet 파일을 검사하려면 IR 머신에 **64비트 JRE 8(Java Runtime Environment) 또는 OpenJDK를** 설치해야 합니다. 페이지 [아래쪽의 Java Runtime Environment 섹션에서](#java-runtime-environment-installation) 설치 가이드를 확인하세요.
 
 ## <a name="setting-up-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 설정
 
@@ -81,6 +81,61 @@ ms.locfileid: "130246008"
 6. 자체 호스팅 통합 런타임이 성공적으로 등록되면 다음 창이 표시됩니다.
 
    :::image type="content" source="media/manage-integration-runtimes/successfully-registered.png" alt-text="성공적으로 등록 되었습니다.":::
+
+### <a name="configure-proxy-server-settings"></a>프록시 서버 설정 구성
+
+HTTP 프록시에 대해 **시스템 프록시 사용** 옵션을 선택하는 경우 자체 호스팅 통합 런타임에서 diahost.exe.config와 diawp.exe.config의 프록시 설정을 사용합니다. 해당 파일에서 프록시를 지정하지 않으면 자체 호스팅 통합 런타임은 프록시를 거치지 않고 클라우드 서비스에 직접 연결합니다. 다음 절차에서는 diahost.exe.config 파일을 업데이트하는 지침을 제공합니다.
+
+1. 파일 탐색기 C:\Program Files\Microsoft Integration Runtime\5.0\Shared\diahost.exe.config 안전한 복사본을 원본 파일의 백업으로 만듭니다.
+1. 관리자 권한으로 메모장 열기.
+1. 메모장 텍스트 파일 C:\Program Files\Microsoft Integration Runtime\5.0\Shared\diahost.exe.config 엽니다.
+1. 다음 코드에 표시된 것처럼 기본 **system.net** 태그를 찾습니다.
+
+    ```xml
+    <system.net>
+        <defaultProxy useDefaultCredentials="true" />
+    </system.net>
+    ```
+
+    그러면 다음 예제와 같이 프록시 서버 세부 정보를 추가할 수 있습니다.
+
+    ```xml
+    <system.net>
+        <defaultProxy enabled="true">
+              <proxy bypassonlocal="true" proxyaddress="http://proxy.domain.org:8888/" />
+        </defaultProxy>
+    </system.net>
+    ```
+
+    프록시 태그를 통해 추가 속성은 `scriptLocation`와 같은 필수 설정을 지정할 수 있습니다. 구문은 [\<proxy\>요소(네트워크 설정)](/dotnet/framework/configure-apps/file-schema/network/proxy-element-network-settings)를 참조하세요.
+
+    ```xml
+    <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
+    ```
+
+1. 구성 파일을 원래 위치에 저장 자체 호스팅 통합 런타임 호스트 서비스를 다시 시작할 경우, 변경 내용이 적용됩니다.
+
+   서비스를 다시 시작하려면, 제어판에서 서비스 애플릿을 사용합니다. 또는 통합 런타임 구성 관리자에서 **서비스 중지** 단추를 선택한 후 **서비스 시작** 을 선택합니다.
+
+   서비스가 시작되지 않으면 편집한 애플리케이션 구성 파일에 잘못된 XML 태그 구문이 추가되었을 가능성이 높습니다.
+
+> [!IMPORTANT]
+> diahost.exe.config 및 diawp.exe.config를 둘 다 업데이트해야 합니다.
+
+또한 회사의 허용 목록에 Microsoft Azure가 있는지 확인해야 합니다. 유효한 Azure IP 주소 목록을 다운로드할 수 있습니다. 지역별, 해당 클라우드의 태그가 지정된 서비스별로 구분되는 각 클라우드의 IP 범위는 이제 MS 다운로드에서 사용할 수 있습니다. 
+   - 퍼블릭: https://www.microsoft.com/download/details.aspx?id=56519
+
+### <a name="possible-symptoms-for-issues-related-to-the-firewall-and-proxy-server"></a>방화벽 및 프록시 서버와 관련된 문제에서 가능한 증상
+
+다음과 같은 오류 메시지가 표시되는 경우 방화벽 또는 프록시 서버가 잘못 구성된 것일 수 있습니다. 이러한 구성은 자체 호스팅 통합 런타임이 Azure 관리형 스토리지 계정 또는 데이터 원본에 연결하지 못하도록 차단합니다. 이전 섹션을 참조하여 방화벽 및 프록시 서버가 올바르게 구성되었는지 확인합니다.
+
+- 자체 호스팅 통합 런타임을 등록할 때 다음과 같은 오류 메시지가 표시됩니다. "이 통합 런타임 노드를 등록하지 못했습니다. 인증 키가 유효하며 통합 서비스 호스트 서비스가 이 머신에서 실행 중인지 확인하세요."
+- 통합 런타임 구성 관리자를 열 때 상태가 **연결 끊김** 또는 **연결 중** 으로 표시됩니다. Windows 이벤트 로그를 볼 때 **이벤트 뷰어**  >  **애플리케이션 및 서비스 로그**  >  **Microsoft 통합 런타임** 에서 다음과 같은 오류 메시지가 표시됩니다.
+
+  ```output
+  Unable to connect to the remote server
+  A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
+  ```
 
 ## <a name="networking-requirements"></a>네트워킹 요구 사항
 
@@ -124,23 +179,58 @@ ms.locfileid: "130246008"
 
 ## <a name="manage-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 관리
 
-**관리 센터에서** 통합 런타임으로 이동하여 IR을 선택한 다음, 편집을 선택하여 자체 호스팅 **통합 런타임을** 편집할 수 있습니다. 이제 설명을 업데이트하거나, 키를 복사하거나, 새 키를 다시 생성할 수 있습니다.
+**관리 센터** 에서 **통합 런타임** 으로 이동 하 고 IR을 선택한 다음 편집을 선택 하 여 자체 호스팅 통합 런타임을 편집할 수 있습니다. 이제 설명을 업데이트하거나, 키를 복사하거나, 새 키를 다시 생성할 수 있습니다.
 
 :::image type="content" source="media/manage-integration-runtimes/edit-integration-runtime.png" alt-text="IR을 편집합니다.":::
 
 :::image type="content" source="media/manage-integration-runtimes/edit-integration-runtime-settings.png" alt-text="IR 세부 정보를 편집합니다.":::
 
-관리 센터에서 통합 런타임으로 이동하여 IR을 선택한 다음, 삭제를 선택하여 자체 호스팅 **통합 런타임을** **삭제할** 수 있습니다. IR이 삭제되면 IR을 사용하는 진행 중인 검사가 실패합니다.
+관리 센터에서 **통합 런타임** 으로 이동 하 고 IR을 선택한 다음 **삭제** 를 선택 하 여 자체 호스팅 통합 런타임을 삭제할 수 있습니다. IR이 삭제되면 IR을 사용하는 진행 중인 검사가 실패합니다.
 
 ## <a name="java-runtime-environment-installation"></a>Java Runtime Environment 설치
 
-Purview와 함께 Self-Hosted Integration Runtime을 사용하여 Parquet 파일을 검사하는 경우 자체 호스팅 IR 머신에 Java Runtime Environment 또는 OpenJDK를 설치해야 합니다.
+부서의 범위를 사용 하 여 Self-Hosted Integration runtime을 사용 하 여 Parquet 파일을 검사 하는 경우 자체 호스팅 IR 컴퓨터에 Java Runtime Environment 또는 OpenJDK 중 하나를 설치 해야 합니다.
 
-자체 호스팅 IR을 사용하여 Parquet 파일을 검색할 때 서비스는 먼저 JRE에 대한 레지스트리를 확인하여 Java 런타임을 찾습니다( *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* 없는 경우). 두 번째로 *`JAVA_HOME`* OpenJDK에 대한 시스템 변수를 확인합니다.
+자체 호스팅 IR을 사용 하 여 Parquet 파일을 검색 하는 경우 서비스는 먼저 JRE에 대 한 레지스트리를 확인 하 여 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* (찾을 수 없는 경우) OpenJDK의 시스템 변수를 확인 하 여 Java 런타임을 찾습니다 *`JAVA_HOME`* .
 
 - **JRE 사용**: 64비트 IR에는 64비트 JRE가 필요합니다. [여기](https://go.microsoft.com/fwlink/?LinkId=808605)서 찾을 수 있습니다.
 - **OpenJDK 사용**: IR 버전 3.13부터 지원됩니다. 다른 모든 필수 OpenJDK 어셈블리와 함께 jvm.dll을 자체 호스팅 IR 머신으로 패키지하고, 이에 따라 JAVA_HOME 시스템 환경 변수를 설정합니다.
 
+## <a name="proxy-server-considerations"></a>프록시 서버 고려 사항
+
+회사 네트워크 환경에서 프록시 서버를 사용하여 인터넷에 액세스하는 경우 자체 호스팅 통합 런타임이 적절한 프록시 설정을 사용하도록 구성합니다. 초기 등록 단계에서 프록시를 설정할 수 있습니다.
+
+:::image type="content" source="media/manage-integration-runtimes/self-hosted-proxy.png" alt-text="프록시 서버 지정":::
+
+구성된 경우 자체 호스팅 통합 런타임은 프록시 서버를 사용하여 클라우드 서비스의 원본 및 대상(HTTP 또는 HTTPS 프로토콜 사용)에 연결합니다. 초기 설치 시 **변경 링크** 를 선택해야 하는 이유입니다.
+
+:::image type="content" source="media/manage-integration-runtimes/set-http-proxy.png" alt-text="프록시 설정":::
+
+이 대화 상자에는 세 가지 구성 옵션이 있습니다.
+
+- **프록시 사용 안 함**: 자체 호스팅 통합 런타임을 클라우드 서비스에 연결하는 데는 프록시를 명시적으로 사용하지 않습니다.
+- **시스템 프록시 사용**: 자체 호스팅 통합 런타임은 diahost.exe.config 및 diawp.exe.config에 구성된 프록시 설정을 사용합니다. 해당 파일에 프록시 구성이 지정되어 있지 않으면 자체 호스팅 통합 런타임은 프록시를 거치지 않고 클라우드 서비스에 직접 연결합니다.
+- **사용자 지정 프록시 사용**: diahost.exe.config 및 diawp.exe.config의 구성을 사용하는 대신 자체 호스팅 통합 런타임에 사용할 HTTP 프록시 설정을 구성합니다. **주소** 와 **포트** 값은 필수입니다. **사용자 이름** 과 **암호** 는 프록시 인증 설정에 따른 선택 사항입니다. 모든 설정은 자체 호스팅 통합 런타임d에서 Windows DPAPI를 사용하여 암호화되며 컴퓨터에 로컬로 저장됩니다.
+
+업데이트된 프록시 설정을 저장하면, 통합 런타임 호스트 서비스가 자동으로 다시 시작됩니다.
+
+자체 호스팅 통합 런타임을 등록한 후 프록시 설정을 확인하거나 업데이트하려면 Microsoft 통합 런타임 구성 관리자를 사용합니다.
+
+1. **Microsoft 통합 런타임 구성 관리자** 를 엽니다.
+3. **HTTP 프록시** 에서 **변경** 링크를 선택하여 **HTTP 프록시 설정** 대화 상자를 엽니다.
+4. **다음** 을 선택합니다. 그러면 프록시 설정이 저장되고 통합 런타임 호스트 서비스를 다시 시작하기 위한 권한이 필요하다는 경고가 표시됩니다.
+
+구성 관리자 도구를 사용하여 HTTP 프록시를 확인하고 업데이트할 수 있습니다.
+
+> [!NOTE]
+> NTLM 인증을 사용하여 프록시 서버를 설정하면 통합 런타임 호스트 서비스가 도메인 계정에서 실행됩니다. 나중에 도메인 계정 암호를 변경하는 경우에는 서비스의 구성 설정을 업데이트하여 서비스를 다시 시작해야 합니다. 이 요구 사항으로 인해 암호를 자주 업데이트하지 않아도 되는 전용 도메인 계정을 사용하여 프록시 서버에 액세스하는 것이 좋습니다.
+
+## <a name="installation-best-practices"></a>설치 모범 사례
+
+자체 호스팅 통합 런타임은 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 관리 ID 설치 패키지를 다운로드하여 설치할 수 있습니다.
+
+- 호스트 머신이 최대 절전 모드로 전환되지 않도록 해당 머신에서 자체 호스팅 통합 런타임에 대한 전원 관리 옵션을 구성합니다. 호스트 컴퓨터가 최대 절전 모드로 설정되면 자체 호스팅 통합 런타임도 오프라인 상태가 됩니다.
+- 자체 호스팅 통합 런타임과 연결된 자격 증명을 정기적으로 백업합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

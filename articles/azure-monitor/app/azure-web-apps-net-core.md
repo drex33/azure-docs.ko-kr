@@ -4,12 +4,12 @@ description: ASP.NET Core를 사용 하 여 Azure app services에 대 한 응용
 ms.topic: conceptual
 ms.date: 08/05/2021
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 4d315cabe942b674c5146306d2c6eac6a5d6c4c3
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 4bb5df82dcfd045100b4fe41c70538504cf2566b
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/03/2021
-ms.locfileid: "131426978"
+ms.locfileid: "131508234"
 ---
 # <a name="application-monitoring-for-azure-app-service-and-aspnet-core"></a>Azure App Service 및 ASP.NET Core에 대 한 응용 프로그램 모니터링 
 
@@ -20,18 +20,14 @@ ms.locfileid: "131426978"
 # <a name="windows"></a>[Windows](#tab/Windows)
 
 > [!IMPORTANT]
-> Windows의 자동 계측에 대해 지원 되는 ASP.NET Core 버전은 ASP.NET Core 3.1 및 5.0입니다. 버전 2.0, 2.1, 2.2, 3.0은 사용 중지되었으며 더 이상 지원되지 않습니다. 자동 계측을 사용하려면 .NET Core의 [지원되는 버전](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)으로 업그레이드하세요.
-
-ASP.NET Core에서 전체 프레임워크를 대상으로 지정하는 것은 Windows에서 **지원되지 않습니다**. 대신 코드를 통한 [수동 계측](./asp-net-core.md)을 사용합니다.
-
-Windows에서 [프레임 워크 종속 배포](/dotnet/core/deploying/#publish-framework-dependent) 만 지원 되며 [자체 포함 배포](/dotnet/core/deploying/#publish-self-contained) 는 지원 되지 않습니다.
+> Windows에서 자동 계측에 대해 지원 되는 ASP.NET Core 버전은 ASP.NET Core 3.1, 5.0 및 6.0입니다. 버전 2.0, 2.1, 2.2, 3.0은 사용 중지되었으며 더 이상 지원되지 않습니다. 자동 계측을 사용하려면 .NET Core의 [지원되는 버전](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)으로 업그레이드하세요.
 
 App Service 리소스로 Application Insights 설정을 시작하려면 아래의 [모니터링 사용 섹션](#enable-monitoring )을 참조하세요. 
 
 # <a name="linux"></a>[Linux](#tab/Linux)
 
 > [!IMPORTANT]
-> Linux의 자동 계측에는 ASP.NET Core 6.0(미리 보기)만 지원됩니다.
+> Linux에서 자동 계측에 대해 ASP.NET Core 6.0만 지원 됩니다.
 
 > [!NOTE]
 > Linux 자동 계측 App Services 포털 사용은 공개 미리 보기 상태입니다. 이러한 미리 보기 버전은 서비스 수준 계약 없이 제공됩니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.

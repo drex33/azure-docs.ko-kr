@@ -7,12 +7,12 @@ ms.service: serviceconnector
 ms.topic: quickstart
 ms.date: 10/29/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 8d8905d58d6a67609fc28bb5cf680a66a51c2797
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 4ee0fffb402ba3553055c732df9e0ebad94ea511
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131456996"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131053262"
 ---
 # <a name="quickstart-create-a-service-connection-in-spring-cloud-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Spring Cloud에서 서비스 연결 만들기
 
@@ -32,7 +32,6 @@ ms.locfileid: "131456996"
 Azure CLI [az spring-cloud connection]() 명령을 사용하여 Spring Cloud 애플리케이션에 대한 서비스 연결을 만들고 관리할 수 있습니다. 
 
 ```azurecli-interactive
-az provider register -n Microsoft.ServiceLinker
 az spring-cloud connection list-support-types
 ```
 

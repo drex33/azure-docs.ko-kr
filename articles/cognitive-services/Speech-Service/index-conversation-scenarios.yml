@@ -5,18 +5,18 @@ metadata:
   title: 대화 시나리오 설명서 - 자습서, API 참조 - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: PatrickFarley
+  author: eric-urban
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/16/2020
-  ms.author: pafarley
-  ms.openlocfilehash: bedbfc9578a6a729474ff24a1a2bc0b7caf76be9
-  ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+  ms.author: eur
+  ms.openlocfilehash: 2642a15a950ff2f293d951548efd1d14dd15b446
+  ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
   ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/07/2021
-  ms.locfileid: "123543896"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131510127"
 landingContent:
 - title: 대화 전사 정보(회의 시나리오)
   linkLists:

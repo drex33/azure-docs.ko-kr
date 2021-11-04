@@ -1,20 +1,22 @@
 ---
 title: IoT Hub에서 원격 분석 수집
 titleSuffix: Azure Digital Twins
-description: IoT Hub에서 디바이스 원격 분석 메시지를 수집하는 방법을 참조하세요.
+description: Azure Digital Twins 인스턴스에서 디바이스 원격 분석 메시지를 Azure IoT Hub에서 디지털 트윈으로 전송하는 방법을 알아봅니다.
 author: baanders
 ms.author: baanders
-ms.date: 9/9/2021
+ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8fd5b6a046c53a34e41340250c8d6ac38fdf5706
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1b10a87312fd7b27c22bbfa56a928a0357d4698e
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128667353"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500942"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Azure Digital Twins로 IoT Hub 원격 분석 수집
+
+이 가이드에서는 IoT Hub 원격 분석을 받아서 Azure Digital Twins 인스턴스로 보낼 수 있는 함수를 작성하는 프로세스를 안내합니다.
 
 Azure Digital Twins는 IoT 디바이스 및 기타 원본의 데이터를 기반으로 합니다. Azure Digital Twins에서 사용할 디바이스 데이터의 공통 원본은 [IoT Hub](../iot-hub/about-iot-hub.md)입니다.
 
@@ -76,7 +78,7 @@ az dt twin create  --dt-name <instance-name> --dtmi "dtmi:contosocom:DigitalTwin
 
 이 섹션에서는 Azure 함수를 만들어 Azure Digital Twins에 액세스하고 수신되는 IoT 원격 분석 이벤트에 따라 트윈을 업데이트합니다. 아래 단계에 따라 함수를 만들고 게시합니다.
 
-1. 먼저 Visual Studio에서 새 함수 앱 프로젝트를 만듭니다. 이 작업을 수행하는 방법에 대한 지침은 [Visual Studio를 사용하여 Azure Functions 개발](../azure-functions/functions-develop-vs.md#create-an-azure-functions-project)을 참조하세요.
+1. 먼저 Visual Studio에서 새 함수 앱 프로젝트를 만듭니다. 이 작업을 수행하는 방법에 관한 지침은 [Visual Studio를 사용하여 Azure Functions 개발](../azure-functions/functions-develop-vs.md#create-an-azure-functions-project)을 참조하세요.
 
 2. 프로젝트에 다음 패키지를 추가합니다.
     * [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core/)
@@ -89,7 +91,7 @@ az dt twin create  --dt-name <instance-name> --dtmi "dtmi:contosocom:DigitalTwin
 
     함수 코드를 저장합니다.
 
-4. *IoTHubtoTwins.cs* 함수가 포함된 프로젝트를 Azure의 함수 앱에 게시합니다. 이 작업을 수행하는 방법에 대한 지침은 [Visual Studio를 사용하여 Azure Functions 개발](../azure-functions/functions-develop-vs.md#publish-to-azure)을 참조하세요.
+4. *IoTHubtoTwins.cs* 함수가 포함된 프로젝트를 Azure의 함수 앱에 게시합니다. 이 작업을 수행하는 방법에 관한 지침은 [Visual Studio를 사용하여 Azure Functions 개발](../azure-functions/functions-develop-vs.md#publish-to-azure)을 참조하세요.
 
 [!INCLUDE [digital-twins-verify-function-publish.md](../../includes/digital-twins-verify-function-publish.md)]
 
@@ -103,7 +105,7 @@ az dt twin create  --dt-name <instance-name> --dtmi "dtmi:contosocom:DigitalTwin
 
 ## <a name="connect-your-function-to-iot-hub"></a>함수를 IoT Hub에 연결
 
-이 섹션에서는 IoT 허브 디바이스 데이터의 이벤트 대상으로 함수를 설정합니다. 이렇게 하면 IoT Hub의 자동 온도 조절기 디바이스에 있는 데이터가 처리를 위해 Azure 함수에 전송됩니다.
+이 섹션에서는 IoT 허브 디바이스 데이터의 이벤트 대상으로 함수를 설정합니다. 이러한 방식으로 함수를 설정하면 IoT Hub 자동 온도 조절기 디바이스의 데이터가 처리를 위해 Azure 함수로 전송됩니다.
 
 [Azure Portal](https://portal.azure.com/)에서 [필수 구성 요소](#prerequisites) 섹션에서 만든 IoT Hub 인스턴스로 이동합니다. **이벤트** 아래에서 함수에 대한 구독을 만듭니다.
 

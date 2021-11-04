@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/17/2021
 ms.author: bwren
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 650ccc08d5cec7e037a6203f71ac8429f1bc2bf0
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 87aeb36a8bdd843f4ad1c0e228299b201321db44
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131079000"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131461915"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 사용량 및 비용 관리    
 
@@ -71,7 +71,7 @@ Azure Monitor 로그를 아직 사용하고 있지 않다면 [Azure Monitor 가�
 
 ## <a name="viewing-log-analytics-usage-on-your-azure-bill"></a>Azure 청구서에서 Log Analytics 사용량 보기 
 
-파트시클 Log Analytics 작업 영역에 대한 청구된 사용량을 보는 가장 쉬운 방법은 작업 영역의 **개요** 페이지로 이동하고 페이지 맨 위에 있는 Essentials 섹션의 오른쪽 위 모서리에서 **비용 보기를** 클릭하는 것입니다. 그러면 이미 이 작업 영역으로 범위가 Azure Cost Management + Billing 비용 분석이 시작됩니다.  
+부분 Log Analytics 작업 영역에 대한 청구된 사용량을 보는 가장 쉬운 방법은 작업 영역의 **개요** 페이지로 이동하고 페이지 맨 위에 있는 Essentials 섹션의 오른쪽 위 모서리에 있는 **비용 보기를** 클릭하는 것입니다. 그러면 이미 이 작업 영역으로 범위가 Azure Cost Management + Billing 비용 분석이 시작됩니다.  
 
 또는 [Azure Cost Management + Billing](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json) 허브에서 시작할 수 있습니다. 여기서는 "비용 분석" 기능을 사용하여 Azure 리소스 비용을 볼 수 있습니다. Log Analytics 지출을 추적하려면 "리소스 종류" 기준 필터를 추가할 수 있습니다(Log Analytics의 경우 microsoft.operationalinsights/workspace에 추가, Log Analytics 클러스터의 경우 microsoft.operationalinsights/cluster에 추가). **그룹화 방법** 으로 **미터 범주** 또는 **미터** 를 선택합니다. Azure Defender(Security Center) 및 Azure Sentinel과 같은 다른 서비스에서도 Log Analytics 작업 영역 리소스에 대한 사용량 요금을 청구합니다. 서비스 이름에 대한 매핑을 보기 위해 차트 대신 테이블 보기를 선택할 수 있습니다. 
 

@@ -3,19 +3,19 @@ title: Kubernetes 및 Helm을 사용하는 Speech Service 컨테이너
 titleSuffix: Azure Cognitive Services
 description: Kubernetes 및 Helm을 사용하여 음성 텍스트 변환 및 텍스트 음성 변환 컨테이너 이미지를 정의하면서 Kubernetes 패키지를 만듭니다. 이 패키지는 Kubernetes 클러스터 온-프레미스에 배포됩니다.
 services: cognitive-services
-author: aahill
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/22/2021
-ms.author: aahi
-ms.openlocfilehash: 636ab6e2353c2268c75dfa961987d3e0e79e189c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.author: eur
+ms.openlocfilehash: 80e734581982f0c33cda07fbf28cb3e35c9610c5
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114454185"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500774"
 ---
 # <a name="use-speech-service-containers-with-kubernetes-and-helm"></a>Kubernetes 및 Helm을 사용하는 Speech Service 컨테이너
 

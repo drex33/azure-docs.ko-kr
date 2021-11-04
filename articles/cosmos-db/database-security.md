@@ -4,14 +4,14 @@ description: Azure Cosmos DB에서 데이터에 대해 데이터베이스 보호
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/25/2021
+ms.date: 11/03/2021
 ms.author: mjbrown
-ms.openlocfilehash: f6851fa1e129522afbf59b6d1035029e72b231b2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b789ff99ce38df897df752609240dfa0d1d4f558
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131086529"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131510188"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 보안 - 개요
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -20,11 +20,11 @@ ms.locfileid: "131086529"
 
 ## <a name="whats-new-in-azure-cosmos-db-security"></a>Azure Cosmos DB 보안의 새로운 기능
 
-이제 휴지 상태의 암호화를 모든 Azure 지역에서 Azure Cosmos DB에 저장된 문서 및 백업에 대해 사용할 수 있습니다. 이러한 영역의 신규 및 기존 고객에 대해 미사용 데이터의 암호화가 자동으로 적용됩니다. 아무 것도 구성할 필요가 없으며 이전과 동일한 대기 시간, 처리량, 가용성, 기능과 함께 미사용 데이터를 암호화해 안전하게 보호하는 이점을 얻을 수 있습니다.
+이제 휴지 상태의 암호화를 모든 Azure 지역에서 Azure Cosmos DB에 저장된 문서 및 백업에 대해 사용할 수 있습니다. 이러한 영역의 신규 및 기존 고객에 대해 미사용 데이터의 암호화가 자동으로 적용됩니다. 아무 것도 구성할 필요가 없으며 이전과 동일한 대기 시간, 처리량, 가용성, 기능과 함께 미사용 데이터를 암호화해 안전하게 보호하는 이점을 얻을 수 있습니다.  Azure Cosmos 계정에 저장된 데이터는 서비스 관리형 키를 사용하여 Microsoft에서 관리하는 키로 자동으로 원활하게 암호화됩니다. 필요에 따라 고객 관리형 키 [또는 CMK를](how-to-setup-cmk.md)사용하여 관리하는 키로 두 번째 암호화 계층을 추가하도록 선택할 수 있습니다.
 
 ## <a name="how-do-i-secure-my-database"></a>내 데이터베이스를 보호하는 방법
 
-데이터 보안은 사용자, 고객 그리고 데이터베이스 공급자 간의 공동 책임입니다. 선택한 데이터베이스 공급자에 따라 담당하는 책임의 양이 달라질 수 있습니다. 온-프레미스 솔루션을 선택한 경우 끝점 보호부터 하드웨어의 물리적 보안까지 모든 항목을 제공해야 하며 이것은 쉬운 작업이 아닙니다. Azure Cosmos DB와 같은 PaaS 클라우드 데이터베이스 공급자를 선택할 경우 관여해야 하는 부분이 상당히 줄어듭니다. 다음 그림은 Microsoft의 [클라우드 컴퓨팅에 대한 공유 책임](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91) 백서를 인용한 것으로 Azure Cosmos DB와 같은 PaaS 공급자를 사용할 경우 사용자가 작업할 부분이 어떻게 줄어드는지를 보여 줍니다.
+데이터 보안은 사용자, 고객 그리고 데이터베이스 공급자 간의 공동 책임입니다. 선택한 데이터베이스 공급자에 따라 담당하는 책임의 양이 달라질 수 있습니다. 온-프레미스 솔루션을 선택한 경우 끝점 보호부터 하드웨어의 물리적 보안까지 모든 항목을 제공해야 하며 이것은 쉬운 작업이 아닙니다. Azure Cosmos DB와 같은 PaaS 클라우드 데이터베이스 공급자를 선택할 경우 관여해야 하는 부분이 상당히 줄어듭니다. 다음 그림은 Microsoft의 [클라우드 컴퓨팅에 대한 공유 책임](https://azure.microsoft.com/resources/shared-responsibilities-for-cloud-computing/) 백서를 인용한 것으로 Azure Cosmos DB와 같은 PaaS 공급자를 사용할 경우 사용자가 작업할 부분이 어떻게 줄어드는지를 보여 줍니다.
 
 :::image type="content" source="./media/database-security/nosql-database-security-responsibilities.png" alt-text="고객 및 데이터베이스 공급자 책임":::
 
@@ -71,14 +71,14 @@ ms.locfileid: "131086529"
 |삭제된 데이터 복원|자동 온라인 백업을 사용하여 실수로 삭제한 데이터를 이벤트 후 최대 30일 이내에 복구할 수 있습니다. <br><br>[Azure Cosmos DB로 자동 온라인 백업 및 복원](online-backup-and-restore.md)에서 자세히 알아보세요.|
 |중요한 데이터 보호 및 격리|이제 새로운 기능에 나열된 지역의 모든 데이터가 미사용 상태에서 암호화됩니다.<br><br>개인 데이터 및 기타 기밀 데이터를 특정 컨테이너 및 읽기-쓰기로 격리할 수 있으며 읽기 전용 액세스를 특정 사용자로 제한할 수 있습니다.|
 |공격 모니터|[감사 로깅 및 활동 로그](./monitor-cosmos-db.md)를 사용하여 계정에서 정상 및 비정상적인 활동을 모니터링할 수 있습니다. 이 표 다음의 스크린샷에 나와 있는 것처럼, 리소스에 대해 어떤 작업이 누구에 의해 수행되었는지, 작업 상태 등을 확인할 수 있습니다.|
-|공격에 대응|잠재적인 공격을 보고하기 위해 Azure 지원에 연락한 경우 5단계 인시던트 대응 프로세스가 시작됩니다. 5단계 프로세스의 목표는 문제가 검색되어 조사가 시작된 후 정상적인 서비스 보안 및 작업을 가능한 신속히 복원하는 것입니다.<br><br>[클라우드에서 Microsoft Azure의 보안 대응](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91)에 대한 자세한 정보|
+|공격에 대응|잠재적인 공격을 보고하기 위해 Azure 지원에 연락한 경우 5단계 인시던트 대응 프로세스가 시작됩니다. 5단계 프로세스의 목표는 문제가 검색되어 조사가 시작된 후 정상적인 서비스 보안 및 작업을 가능한 신속히 복원하는 것입니다.<br><br>[클라우드에서 Microsoft Azure의 보안 대응](https://azure.microsoft.com/resources/shared-responsibilities-for-cloud-computing/)에 대한 자세한 정보|
 |지오-펜싱|Azure Cosmos DB는 독립적인 지역(예: 독일, 중국, US Gov)에 대해 데이터 거버넌스를 보장합니다.|
 |보호된 기능|Azure Cosmos DB의 데이터는 SSD의 Azure 보호된 데이터 센터에 저장됩니다.<br><br>[Microsoft 글로벌 데이터 센터](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)에 대한 자세한 정보|
-|HTTPS/SSL/TLS 암호화|Azure Cosmos DB에 대한 모든 연결은 HTTPS를 지원합니다. Azure Cosmos DB는 TLS 1.2도 지원합니다.<br>서버 쪽에 최소 TLS 버전을 적용할 수 있습니다. 이렇게 하려면 [Azure 지원 티켓](https://azure.microsoft.com/support/options/)을 엽니다.|
+|HTTPS/SSL/TLS 암호화|Azure Cosmos DB에 대한 모든 연결은 HTTPS를 지원합니다. Azure Cosmos DB는 TLS 1.2도 지원합니다.<br>서버 쪽에 최소 TLS 버전을 적용할 수 있습니다. 이렇게 하려면 [Azure 지원 티켓을](https://azure.microsoft.com/support/options/)엽니다.|
 |미사용 암호화|Azure Cosmos DB에 저장된 모든 데이터는 미사용 암호화됩니다. 자세한 내용은 [Azure Cosmos DB 미사용 암호화](./database-encryption-at-rest.md)를 참조하세요.|
 |패치된 서버|관리되는 데이터베이스인 Azure Cosmos DB를 사용하면 직접 서버를 관리하고 패치를 적용하지 않아도 자동으로 처리됩니다.|
 |강력한 암호를 사용하는 관리 계정|이 요구 사항은 당연하게 여겨질 수 있지만, 일부 경쟁업체와 달리 Azure Cosmos DB에서는 관리 계정에 반드시 암호가 있어야 합니다.<br><br> TLS 및 HMAC 암호 기반 인증을 통한 보안이 기본적으로 반영됩니다.|
-|보안 및 데이터 보호 인증서| 최신 인증서 목록은 모든 인증서가 포함(Cosmos 검색)된 최신 [Azure 규정 준수 문서](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)와 전체 [Azure 규정 준수 사이트](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings)를 참조하세요. 더 중점적인 내용은 SOCS 1/2 Type 2, HITRUST, PCI DSS Level 1, ISO 27001, HIPAA, FedRAMP High 등을 포함한 2018년 4월 25일 게시물 [Azure #CosmosDB: 보안, 프라이빗, 규정 준수]를 확인하세요.
+|보안 및 데이터 보호 인증서| 최신 인증서 목록은 모든 인증서가 포함(Cosmos 검색)된 최신 [Azure 규정 준수 문서](https://azure.microsoft.com/mediahandler/files/resourcefiles/microsoft-azure-compliance-offerings/Microsoft%20Azure%20Compliance%20Offerings.pdf)와 전체 [Azure 규정 준수 사이트](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings)를 참조하세요.
 
 다음 스크린샷은 감사 로깅 및 활동 로그를 사용하여 계정을 어떻게 모니터링할 수 있는지 보여 줍니다. :::image type="content" source="./media/database-security/nosql-database-security-application-logging.png" alt-text="Azure Cosmos DB에 대한 활동 로그":::
 
@@ -99,7 +99,7 @@ ms.locfileid: "131086529"
 
 ### <a name="key-rotation-and-regeneration"></a><a id="key-rotation"></a> 키 순환 및 다시 생성
 
-키 순환 및 다시 생성 프로세스는 간단합니다. 먼저 **애플리케이션이 기본 키 또는 보조 키를 일관되게 사용** 하여 Azure Cosmos DB 계정에 액세스하는지 확인합니다. 그런 다음 아래에 설명된 단계를 수행합니다. 키 업데이트 및 키 다시 생성에 대 한 계정을 모니터링 하려면 [메트릭 및 경고를 사용 하 여 키 업데이트 모니터링](monitor-account-key-updates.md) 문서를 참조 하세요.
+키 순환 및 다시 생성 프로세스는 간단합니다. 먼저 **애플리케이션이 기본 키 또는 보조 키를 일관되게 사용** 하여 Azure Cosmos DB 계정에 액세스하는지 확인합니다. 그런 다음 아래에 설명된 단계를 수행합니다. 키 업데이트 및 키 다시 세대에 대한 계정을 모니터링하려면 [메트릭 및 경고로 키 업데이트 모니터링](monitor-account-key-updates.md) 문서를 참조하세요.
 
 # <a name="sql-api"></a>[SQL API](#tab/sql-api)
 

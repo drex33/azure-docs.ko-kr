@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 45a18ade65a08b378652248bc0b0f62cb8f97e84
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 652347a2b63581a613088497ef8b3cb7df4ee8ec
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130072768"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131448750"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Azure의 SAP 워크로드: 계획 및 배포 검사 목록
 
@@ -196,10 +196,10 @@ Azure와 무관한 작업은 이 검사 목록에 포함되어 있지 않습니�
 
 1.  이전 플랫폼의 시스템을 Azure로 이동하기 전에 CPU 사용량, 스토리지 처리량 및 IOPS 데이터와 같은 리소스 소비량 데이터를 수집합니다. 특히 DBMS 계층 단위에서 이 데이터를 수집하지만 애플리케이션 계층 단위에서도 수집합니다. 또한 네트워크 및 스토리지 대기 시간을 측정합니다.
 2.  시스템의 가용성 사용 시간 패턴을 기록합니다. 목표는 비프로덕션 시스템을 연중무휴로 사용할 수 있어야 하는지 여부 또는 주 또는 월의 특정 단계 동안 종료해도 되는 비프로덕션 시스템이 있는지 파악하는 것입니다.
-3.  테스트를 거친 후 Azure에서 고유한 OS 이미지를 만들지 아니면 Azure Shared Image Gallery의 이미지를 사용할 것인지 결정합니다. Shared Image Gallery의 이미지를 사용하는 경우에는 OS 공급업체와 맺은 지원 계약을 반영하는 이미지를 사용해야 합니다. 일부 OS 공급업체의 경우 Shared Image Gallery를 사용하여 고유한 라이선스 이미지를 가져올 수 있습니다. 다른 OS 이미지의 경우 Azure의 견적 가격에 지원이 포함됩니다. 사용자 고유의 OS 이미지를 만들려는 경우 다음 문서에서 설명서를 찾을 수 있습니다.
+3.  Azure에서 VM에 대한 사용자 고유의 OS 이미지를 만들 것인지 또는 Azure Azure Compute 갤러리(이전의 Shared Image Gallery)에서 이미지를 사용할지 여부를 테스트하고 결정합니다. Azure Compute 갤러리의 이미지를 사용하는 경우 OS 공급업체와의 지원 계약을 반영하는 이미지를 사용해야 합니다. 일부 OS 공급업체의 경우 Azure Compute 갤러리를 사용하면 사용자 고유의 라이선스 이미지를 가져올 수 있습니다. 다른 OS 이미지의 경우 Azure의 견적 가격에 지원이 포함됩니다. 사용자 고유의 OS 이미지를 만들려는 경우 다음 문서에서 설명서를 찾을 수 있습니다.
     -   [Azure에 배포된 Windows VM의 일반화된 이미지 작성](../../windows/capture-image-resource.md)
     -   [Azure에 배포된 Linux VM의 일반화된 이미지 작성](../../linux/capture-image.md)
-3.  Shared Image Gallery의 SUSE 및 Red Hat Linux 이미지를 사용하는 경우 Shared Image Gallery에서 Linux 공급업체가 제공하는 SAP용 이미지를 사용해야 합니다.
+3.  Azure Compute 갤러리에서 SUSE 및 Red Hat Linux 이미지를 사용하는 경우 Azure Compute 갤러리의 Linux 공급업체에서 제공하는 SAP용 이미지를 사용해야 합니다.
 4.  Microsoft 지원 계약에 대한 SAP 지원 요구 사항을 이행해야 합니다. [SAP 지원 노트 #2015553](https://launchpad.support.sap.com/#/notes/2015553)을 참조하세요. HANA 대규모 인스턴스의 경우 [온보딩 요구 사항](./hana-onboarding-requirements.md)을 참조하세요.
 4.  최적의 가동 중지 시간을 선택할 수 있도록 적절한 관련자가 [계획된 유지 관리 알림](https://azure.microsoft.com/blog/a-new-planned-maintenance-experience-for-your-virtual-machines/)을 받을 수 있게 합니다.
 5.  [Channel 9](https://channel9.msdn.com/) 같은 채널의 Azure 프레젠테이션을 자주 확인하여 배포에 적용할 수 있는 새 기능이 있는지 알아봅니다.

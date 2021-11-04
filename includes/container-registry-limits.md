@@ -1,19 +1,19 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 08/12/2021
+ms.date: 10/22/2021
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 43baf554bda4c2b3ae9bda9d79b46035e073cead
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 777af1f15441ab4849292e40b3a27863276f3fce
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128582341"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473353"
 ---
 | 리소스 | Basic | Standard | Premium |
 |---|---|---|---|
@@ -30,10 +30,10 @@ ms.locfileid: "128582341"
 | 가용성 영역 | 해당 없음 | 해당 없음 | [미리 보기][zones] |
 | 콘텐츠 신뢰 | 해당 없음 | 해당 없음 | [지원됨][content-trust] |
 | 프라이빗 엔드포인트가 있는 프라이빗 링크 | 해당 없음 | 해당 없음 | [지원됨][plink] |
-| &bull; 프라이빗 엔드포인트 | 해당 없음 | 해당 없음 | 10 |
+| &bull; 프라이빗 엔드포인트 | 해당 없음 | N/A | 200 |
 | 공용 IP 네트워크 규칙 | 해당 없음 | 해당 없음 | 100 |
 | 서비스 엔드포인트 VNet 액세스 | 해당 없음 | 해당 없음 | [미리 보기][vnet] |
-| &bull; 가상 네트워크 규칙 | 해당 없음 | 해당 없음 | 100 |
+| &bull; 가상 네트워크 규칙 | N/A | 해당 없음 | 100 |
 | 고객 관리형 키 | 해당 없음 | 해당 없음 | [지원됨][cmk] |
 | 리포지토리 범위 권한 | 해당 없음 | 해당 없음 | [미리 보기][token]|
 | &bull; 토큰 | 해당 없음 | 해당 없음 | 20,000 |

@@ -1,25 +1,25 @@
 ---
 title: 모델 테스트 및 다시 학습 - Custom Vision Service
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 이미지를 테스트한 다음, 이를 사용하여 Custom Vision 서비스에서 모델을 다시 학습하는 방법을 보여줍니다.
+description: 이미지를 테스트한 다음, 이 이미지를 사용하여 Custom Vision 서비스에서 모델을 다시 학습하는 방법을 알아봅니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 10/27/2021
 ms.author: pafarley
-ms.openlocfilehash: 736d135323e2a2df38a13dc46189e2a243fbe381
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: b326a610d3ac946d8fd610b072e882df3a4b5281
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100097537"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450460"
 ---
 # <a name="test-and-retrain-a-model-with-custom-vision-service"></a>Custom Vision Service를 사용하여 모델 테스트 및 다시 학습
 
-모델을 학습한 후 로컬에 저장된 이미지 또는 온라인 이미지를 사용하여 빠르게 테스트할 수 있습니다. 테스트는 가장 최근에 학습된 반복을 사용합니다.
+모델을 학습한 후 로컬에 저장된 이미지 또는 온라인 이미지를 사용하여 빠르게 테스트할 수 있습니다. 테스트는 가장 최근에 학습된 모델 반복을 사용합니다.
 
 ## <a name="test-your-model"></a>모델 테스트
 

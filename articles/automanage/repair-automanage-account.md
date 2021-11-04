@@ -7,15 +7,19 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 2ce8bc5c26eb99ed19578a036a4569829bc44879
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 8f86b7659e3147fcdf4a450820db31c3f72c0b4d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129458305"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450973"
 ---
 # <a name="repair-an-automanage-account"></a>Automanage 계정 복구하기
-[Azure Automanage 계정](./automanage-virtual-machines.md#automanage-account)은 자동화된 작업이 수행되는 ID 또는 보안 컨텍스트입니다. Automanage 계정을 포함하는 구독을 최근에 새 테넌트로 이동한 경우 계정을 다시 구성해야 합니다. 다시 구성하려면 ID 유형을 다시 설정하고 계정에 적절한 역할을 할당해야 합니다.
+
+> [!IMPORTANT]
+> 이 문서는 이전 버전의 Automanage(API 버전 2020-06-30-preview)에 온보딩된 컴퓨터와만 관련이 있습니다. 이러한 컴퓨터의 상태는 **업그레이드 필요** 입니다. 
+
+Azure Automanage 계정은 자동화된 작업이 수행되는 ID 또는 보안 컨텍스트입니다. Automanage 계정을 포함하는 구독을 최근에 새 테넌트로 이동한 경우 계정을 다시 구성해야 합니다. 다시 구성하려면 ID 유형을 다시 설정하고 계정에 적절한 역할을 할당해야 합니다.
 
 ## <a name="step-1-reset-the-automanage-account-identity-type"></a>1단계: Automanage 계정 ID 유형 초기화
 다음 ARM(Azure Resource Manager) 템플릿을 사용하여 자동 관리 계정 ID 유형을 다시 설정합니다. 파일을 armdeploy.json이나 비슷한 이름으로 로컬에 저장합니다. Automanage 계정 이름과 위치는 ARM 템플릿에서 필수 매개 변수이므로 적어 둡니다.

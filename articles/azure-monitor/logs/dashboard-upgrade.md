@@ -4,13 +4,13 @@ description: 강력한 통찰력을 제공할 수 있는 쿼리를 사용 하 �
 ms.topic: article
 author: rboucher
 ms.author: robb
-ms.date: 07/01/2020
-ms.openlocfilehash: 276ea1e2f083da7ab4a6ab44e60bc7e0832e8651
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 10/27/2021
+ms.openlocfilehash: 67981c51fc3213d2a2f7e2b9e0834c51874a6a4a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102030939"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131465405"
 ---
 # <a name="upgrading-your-log-analytics-dashboard-visualizations"></a>Log Analytics 대시보드 시각화 업그레이드
 
@@ -44,7 +44,7 @@ Azure 대시보드는 전체 Azure 노출 영역의 상태를 시각화 하는 �
 Log Analytics 고정 된 파트를 업그레이드할 수 있는 경우 대시보드의 고정 된 파트 Log Analytics 사용자가 자신의 시각화를 업그레이드할 수 있도록 하는 새 *옵트인* 알림이 나타납니다. 새 시각화를 경험 하 여 대시보드에서 선택한 시각화를 업그레이드 하려는 경우
 
  
-![사이드바](media/dashboard-upgrade/update-message-1.png)
+![메뉴가](media/dashboard-upgrade/update-message-1.png)
  
 ![타일 시각화를 업데이트 하는 방법을 보여 주는 스크린샷](media/dashboard-upgrade/update-message-2.png)
 

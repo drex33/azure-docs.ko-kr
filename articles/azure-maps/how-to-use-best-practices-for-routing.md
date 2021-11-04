@@ -1,18 +1,18 @@
 ---
 title: Microsoft Azure Maps의 Azure Maps Route Service에 대한 모범 사례
 description: Microsoft Azure Maps의 Route Service를 사용하여 차량을 라우팅하는 방법을 알아봅니다.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 09/02/2020
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: 31a5a7f37ef61103a0e70b3daca076e62a16eaaf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 327747b731bfb26192f22631e23b4f3f7dc49cf3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529003"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131447173"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Azure Maps Route Service에 대한 모범 사례
 
@@ -86,7 +86,7 @@ Route Service의 적용 범위에 대한 자세한 내용은 [라우팅 적용 �
 아래의 첫 번째 예제에서 출발 시간은 작성할 때 미래로 설정됩니다.
 
 ```http
-https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&query=51.368752,-0.118332:51.385426,-0.128929&travelMode=car&traffic=true&departAt=2025-03-29T08:00:20&computeTravelTimeFor=all
+https://atlas.microsoft.com/route/directions/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&query=51.368752,-0.118332:51.385426,-0.128929&travelMode=car&traffic=true&departAt=2025-03-29T08:00:20&computeTravelTimeFor=all
 ```
 
 응답에는 아래와 같은 요약 요소가 포함되어 있습니다. 출발 시간이 미래로 설정되므로 **trafficDelayInSeconds** 값은 0입니다. **travelTimeInSeconds** 값은 시간 종속 기록 교통 데이터를 사용하여 계산됩니다. 따라서 이 경우 **travelTimeInSeconds** 값은 **historicTrafficTravelTimeInSeconds** 값과 동일합니다.
@@ -109,7 +109,7 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 아래 두 번째 예제에서는 출발 시간이 현재인 실시간 라우팅 요청이 있습니다. 현재 출발 시간이 기본값이므로 URL에 명시적으로 지정되지 않았습니다.
 
 ```http
-https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&query=47.6422356,-122.1389797:47.6641142,-122.3011268&travelMode=car&traffic=true&computeTravelTimeFor=all
+https://atlas.microsoft.com/route/directions/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&query=47.6422356,-122.1389797:47.6641142,-122.3011268&travelMode=car&traffic=true&computeTravelTimeFor=all
 ```
 
 응답에는 아래와 같이 요약이 포함됩니다. 정체로 인해 **trafficDelaysInSeconds** 값이 0보다 큽니다. 또한 **historicTrafficTravelTimeInSeconds** 값보다 큽니다.
@@ -160,7 +160,7 @@ Azure Maps 라우팅 API는 상업용 트럭 라우팅을 포함한 상업용 �
 아래 샘플 요청은 상업용 트럭에 대한 경로를 쿼리합니다. 트럭이 1등급 유해 폐기물을 운반합니다.
 
 ```http
-https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&vehicleWidth=2&vehicleHeight=2&vehicleCommercial=true&vehicleLoadType=USHazmatClass1&travelMode=truck&instructionsType=text&query=51.368752,-0.118332:41.385426,-0.128929
+https://atlas.microsoft.com/route/directions/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&vehicleWidth=2&vehicleHeight=2&vehicleCommercial=true&vehicleLoadType=USHazmatClass1&travelMode=truck&instructionsType=text&query=51.368752,-0.118332:41.385426,-0.128929
 ```
 
 경로 API가 트럭의 크기 및 유해 폐기물을 수용하는 길 찾기를 반환합니다. `guidance` 요소를 확장하여 경로 지침을 읽을 수 있습니다.
@@ -172,7 +172,7 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 위의 쿼리에서 미국 유해 물질 등급을 변경하면 이러한 변경 내용을 수용할 다른 경로가 생성됩니다.
 
 ```http
-https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&vehicleWidth=2&vehicleHeight=2&vehicleCommercial=true&vehicleLoadType=USHazmatClass9&travelMode=truck&instructionsType=text&query=51.368752,-0.118332:41.385426,-0.128929
+https://atlas.microsoft.com/route/directions/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&vehicleWidth=2&vehicleHeight=2&vehicleCommercial=true&vehicleLoadType=USHazmatClass9&travelMode=truck&instructionsType=text&query=51.368752,-0.118332:41.385426,-0.128929
 ```
 
 아래 응답은 9등급 유해 물질을 운반하는 트럭에 대한 것으로, 1등급 유해 물질보다 위험 수준이 낮습니다. `guidance` 요소를 확장하여 지침을 읽으면 지침이 동일하지 않다는 것을 알 수 있습니다. 1등급 유해 물질을 운반하는 트럭에 대한 경로 지침이 더 많이 있습니다.
@@ -192,7 +192,7 @@ Azure Maps 경로 방향 API를 사용하면 개발자가 요청에 `sectionType
 다음 쿼리는 `sectionType`을 `traffic`으로 설정합니다. 이 쿼리는 시애틀부터 샌디에고까지의 교통 정보가 포함된 섹션을 요청합니다.
 
 ```http
-https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&sectionType=traffic&query=47.6062,-122.3321:32.7157,-117.1611
+https://atlas.microsoft.com/route/directions/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&sectionType=traffic&query=47.6062,-122.3321:32.7157,-117.1611
 ```
 
 응답에는 지정된 좌표를 따라 교통에 적합한 섹션이 포함되어 있습니다.
@@ -220,7 +220,7 @@ Azure Maps는 현재 다음 두 가지 형태의 경로 최적화를 제공합�
 다음 쿼리는 `computeBestOrder` 매개 변수를 `false`로 설정하여 6개의 중간 지점에 대한 경로를 요청합니다. 이는 `computeBestOrder` 매개 변수의 기본값이기도 합니다.
 
 ```http
-https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&computeBestOrder=false&query=47.606544,-122.336502:47.759892,-122.204821:47.670682,-122.120415:47.480133,-122.213369:47.615556,-122.193689:47.676508,-122.206054:47.495472,-122.360861
+https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&computeBestOrder=false&query=47.606544,-122.336502:47.759892,-122.204821:47.670682,-122.120415:47.480133,-122.213369:47.615556,-122.193689:47.676508,-122.206054:47.495472,-122.360861
 ```
 
 응답은 경로 길이가 140,851미터이며 해당 경로를 이동하는 데 9,991초가 소요된다고 설명합니다.
@@ -231,8 +231,6 @@ https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-k
 
 ![최적화되지 않은 이미지](media/how-to-use-best-practices-for-routing/non-optimized-image-img.png)
 
-
-
 이 경로의 중간 지점 순서는 0, 1, 2, 3, 4, 5, 6입니다.
 
 ### <a name="sample-query"></a>샘플 쿼리
@@ -240,7 +238,7 @@ https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-k
 다음 쿼리는 위의 샘플처럼 동일한 6개의 중간 지점에 대한 경로를 요청합니다. 이번에는 `computeBestOrder` 매개 변수를 `true`로 설정했습니다(여행하는 외판원 최적화).
 
 ```http
-https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&computeBestOrder=true&query=47.606544,-122.336502:47.759892,-122.204821:47.670682,-122.120415:47.480133,-122.213369:47.615556,-122.193689:47.676508,-122.206054:47.495472,-122.360861
+https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&computeBestOrder=true&query=47.606544,-122.336502:47.759892,-122.204821:47.670682,-122.120415:47.480133,-122.213369:47.615556,-122.193689:47.676508,-122.206054:47.495472,-122.360861
 ```
 
 응답은 경로 길이가 91,814미터이며 해당 경로를 이동하는 데 7,797초가 소요된다고 설명합니다. API가 최적화된 경로를 반환했으므로 이동 거리와 이동 시간은 둘 다 여기가 더 낮습니다.

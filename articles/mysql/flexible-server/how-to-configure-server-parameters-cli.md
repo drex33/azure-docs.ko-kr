@@ -8,21 +8,18 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 11/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bd1be8c63e295aedead72fdd5c6ce407179dc660
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: 02a58891ebe39d0dab4156c18e594cc0785dba86
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122642135"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131438116"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL 유연한 서버에서 서버 매개 변수 구성
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!IMPORTANT]
-> Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
-
-Azure 명령줄 유틸리티인 Azure CLI를 사용하여 Azure Database for MySQL 유연한 서버의 매개 변수를 나열, 표시하고 업데이트할 수 있습니다. 서버 매개 변수는 서버를 만들 때 기본/권장 값으로 구성됩니다.  
+Azure 명령줄 유틸리티인 Azure CLI를 사용하여 Azure Database for MySQL 유연한 서버의 매개 변수를 나열, 표시하고 업데이트할 수 있습니다. 서버 매개 변수는 서버를 만들 때 기본/권장 값으로 구성됩니다.
 
 이 문서에서는 Azure CLI를 사용하여 서버 매개 변수를 나열, 표시하고 업데이트하는 방법을 설명합니다.
 
@@ -55,8 +52,7 @@ az mysql flexible-server parameter list --resource-group myresourcegroup --serve
 az mysql flexible-server parameter show --name slow_query_log --resource-group myresourcegroup --server-name mydemoserver
 ```
 ## <a name="modify-a-server-parameter-value"></a>서버 매개 변수 값 수정
-
-특정 서버 구성 매개 변수의 값을 수정할 수도 있습니다. 그러면 MySQL 서버 엔진의 기본 구성 값이 업데이트됩니다. 서버 매개 변수를 업데이트하려면 [az mysql flexible-server parameter set](/cli/azure/mysql/flexible-server/parameter) 명령을 사용합니다. 
+특정 서버 구성 매개 변수의 값을 수정할 수도 있습니다. 그러면 MySQL 서버 엔진의 기본 구성 값이 업데이트됩니다. 서버 매개 변수를 업데이트하려면 [az mysql flexible-server parameter set](/cli/azure/mysql/flexible-server/parameter) 명령을 사용합니다.
 
 **myresourcegroup** 리소스 그룹에 있는 서버 **mydemoserver.mysql.database.azure.com** 의 **slow\_query\_log** 서버 매개 변수를 업데이트하려면 다음을 사용합니다.
 ```azurecli-interactive
@@ -66,7 +62,7 @@ az mysql flexible-server parameter set --name slow_query_log --resource-group my
 ```azurecli-interactive
 az mysql flexible-server parameter set --name slow_query_log --resource-group myresourcegroup --server-name mydemoserver
 ```
-이 코드는 **slow\_query\_log** 를 기본값인 **OFF** 로 다시 설정합니다. 
+이 코드는 **slow\_query\_log** 를 기본값인 **OFF** 로 다시 설정합니다.
 
 ## <a name="setting-non-modifiable-server-parameters"></a>수정 불가능한 서버 매개 변수 설정
 
@@ -113,7 +109,7 @@ az mysql flexible-server parameter set --name time_zone --resource-group myresou
 
 ### <a name="setting-the-session-level-time-zone"></a>세션 수준 표준 시간대 설정
 
-세션 수준 표준 시간대는 MySQL 명령줄 또는 MySQL Workbench와 같은 도구에서 `SET time_zone` 명령을 실행하여 설정할 수 있습니다. 아래 예제에서는 표준 시간대를 **US/Pacific** 표준 시간대로 설정합니다.  
+세션 수준 표준 시간대는 MySQL 명령줄 또는 MySQL Workbench와 같은 도구에서 `SET time_zone` 명령을 실행하여 설정할 수 있습니다. 아래 예제에서는 표준 시간대를 **US/Pacific** 표준 시간대로 설정합니다.
 
 ```sql
 SET time_zone = 'US/Pacific';

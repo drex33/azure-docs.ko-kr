@@ -9,12 +9,12 @@ ms.date: 06/21/2021
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: 51335fe48208423883706796fe4812ec0e0af5fe
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 8cb7f667f2898d1508df2f58a3aea2ced68582e1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129275718"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131474802"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Azure Blob Storage에 대한 비용 계획 및 관리
 

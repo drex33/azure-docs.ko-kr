@@ -1,15 +1,15 @@
 ---
-author: v-demjoh
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 9/22/2020
-ms.author: v-demjoh
-ms.openlocfilehash: 213d2a0e6f5c156ee0592a1f1389e1fd6e569b29
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.author: eric-urban
+ms.openlocfilehash: 09e8d1b4fbfcb8864a6a638e4e98dd9dfa19c290
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94424903"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131510858"
 ---
 Swift 및 Objective-C에 대해 Speech SDK를 사용하여 텍스트에서 음성을 합성할 수 있습니다.
 

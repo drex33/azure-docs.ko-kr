@@ -1,35 +1,35 @@
 ---
 title: 인덱서 실행 또는 다시 설정
 titleSuffix: Azure Cognitive Search
-description: 인덱서, 기술 또는 개별 문서를 다시 설정하여 전체 또는 일부의 인덱스 또는 지식 저장소를 새로 고칩니다.
+description: 인덱서를 전체로 실행 하거나 인덱서, 기술 또는 개별 문서를 다시 설정 하 여 검색 인덱스나 기술 자료 저장소의 전부 또는 일부를 새로 고칩니다.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/09/2021
-ms.openlocfilehash: 9ba66a8eb76c2c0bdcc2dd086d3abcfc47bcba65
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 11/02/2021
+ms.openlocfilehash: e29c511a59d8b446b497a8fd4ff393c9a9c683e9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128678140"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131449301"
 ---
-# <a name="how-to-run-or-reset-indexers-skills-or-documents"></a>인덱서, 기술 또는 문서를 실행하거나 다시 설정하는 방법
+# <a name="run-or-reset-indexers-skills-or-documents"></a>인덱서, 기술 또는 문서 실행 또는 다시 설정
 
-인덱서 실행은 [인덱서](search-indexer-overview.md)를 처음 만들었거나 인덱서를 요청 시 실행하는 경우 또는 일정에 따라 설정하는 경우 발생할 수 있습니다. 초기 실행 후, 인덱서는 내부의 “상위 워터 마크”를 통해 어떤 검색 문서를 인덱스하였는지 추적합니다. 마커가 API에 노출되는 것은 아니지만 내부적으로는 다음 실행 시 중단된 위치에서 다시 시작할 수 있도록 인덱서가 인덱싱이 중지된 위치를 파악합니다.
+인덱서는 요청 시, 일정에 따라 또는 [인덱서가 생성](/rest/api/searchservice/create-indexer)될 때 세 가지 방법으로 호출할 수 있습니다. 초기 실행 후, 인덱서는 내부의 “상위 워터 마크”를 통해 어떤 검색 문서를 인덱스하였는지 추적합니다. 마커가 API에 노출되는 것은 아니지만 내부적으로는 다음 실행 시 중단된 위치에서 다시 시작할 수 있도록 인덱서가 인덱싱이 중지된 위치를 파악합니다.
 
 처음부터 프로세스를 다시 시작하려면 인덱서를 다시 설정하여 상위 워터마크를 정리할 수 있습니다. 다시 설정 API는 다음의 개체 계층 구조에서 감소 수준으로 사용할 수 있습니다.
 
 + 전체 검색 목록([인덱서 다시 설정](#reset-indexers) 사용)
 + 특정 문서 또는 문서 목록([문서 다시 설정 - 미리 보기](#reset-docs)사용)
-+ 문서의 특정 기술 또는 보강([기술 다시 설정 - 미리 보기](#reset-skills) 사용)
++ 특정 기술 또는 보강 ( [스킬 다시 설정 사용-미리 보기](#reset-skills))
 
 다시 설정 API는 [AI 보강](cognitive-search-concept-intro.md) 시나리오에서 적용되는 캐시된 콘텐츠를 새로 고치거나 상위 워터마크를 정리하고 인덱스를 다시 빌드하는 경우에 사용합니다.
 
 실행 후 다시 설정을 통해 기존 문서와 새 문서의 프로세스를 다시 시작할 수 있지만, 이전 실행 시 만들었던 검색 인덱스 내의 분리된 검색 문서를 제거하지는 않습니다. 삭제 관련 추가 정보는 [문서 추가, 업데이트 또는 삭제하기](/rest/api/searchservice/addupdate-or-delete-documents)를 참조하세요.
 
-## <a name="run-indexers"></a>인덱서 실행
+## <a name="how-to-run-indexers"></a>인덱서를 실행 하는 방법
 
 [인덱서 만들기](/rest/api/searchservice/create-indexer)는 비활성화 상태("disabled": true)로 만들지 않는 한 인덱서를 만들어 실행합니다. 개체를 함께 만들어야 하므로 첫 번째 실행은 다소 오래 걸립니다.
 
@@ -41,15 +41,17 @@ ms.locfileid: "128678140"
 + [인덱서 실행(REST)](/rest/api/searchservice/run-indexer)
 + Azure.NET SDK의 [RunIndexers 메서드](/dotnet/api/azure.search.documents.indexes.searchindexerclient.runindexer)(또는 다른 SDK의 동일한 RunIndexer 메서드 사용)
 
+## <a name="indexer-execution"></a>인덱서 실행
+
 인덱서를 실행할 때는 다음의 제한 사항이 적용됩니다.
 
-+ 인덱서 작업은 복제본당 최대 하나이며 동시 작업은 없습니다.
++ 최대 인덱서 작업 수는 복제본 당 1입니다.
 
   인덱서 실행이 이미 용량에 있는 경우 "인덱서를 실행 하지 못했습니다." \<indexer-name\> 오류: "다른 인덱서 호출이 현재 진행 중입니다. 동시 호출은 허용 되지 않습니다. "
 
-+ 기술 세트를 사용하는 경우 최대 실행 시간은 두 시간이며 사용하지 않는 경우에는 최대 24시간입니다. 
++ 기술를 사용 하는 경우 최대 실행 시간은 2 시간이 고, 그렇지 않으면 24 시간입니다. 
 
-  인덱서를 일정에 따라 배치하여 처리를 확장할 수 있습니다. 무료 계층에는 런타임 한도가 낮습니다. 전체 목록은 [인덱서 제한](search-limits-quotas-capacity.md#indexer-limits)을 참조하세요.
+  [대량 데이터 집합을 인덱싱하](search-howto-large-index.md)는 경우 인덱서를 일정에 배치 하 여 처리를 확장할 수 있습니다. 무료 계층에는 런타임 한도가 낮습니다. 전체 목록은 [인덱서 제한](search-limits-quotas-capacity.md#indexer-limits)을 참조하세요.
 
 <a name="reset-indexers"></a>
 
@@ -72,12 +74,9 @@ ms.locfileid: "128678140"
 
 ## <a name="reset-skills-preview"></a>기술 다시 설정(미리 보기)
 
-> [!IMPORTANT] 
-> [Reset Skills](/rest/api/searchservice/preview-api/reset-skills)는 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 따라 공개 미리 보기 상태입니다. [미리 보기 REST API](/rest/api/searchservice/index-preview)에서 이 기능을 지원합니다.
-
 기술 세트가 있는 인덱서의 경우 특정 기술을 다시 설정하여 해당 기술 및 그 출력에 의해 좌우되는 모든 다운스트림 기술의 처리를 강제할 수 있습니다. [캐시 강화](search-howto-incremental-index.md)도 새로 고쳐집니다. 기술을 다시 설정하면 캐시 결과가 무효화되며, 이는 기술의 새로운 버전이 배포되어 있는 상태에서 인덱서가 해당 기술을 전체 문서에 다시 실행하고자 할 때 유용합니다. 
 
-[기술 다시 설정](/rest/api/searchservice/preview-api/reset-skills)은 REST **`api-version=2020-06-30-Preview`** 를 통해 할 수 있습니다.
+[다시 설정 기술은](/rest/api/searchservice/preview-api/reset-skills) REST 이상에서 사용할 수 있습니다 **`api-version=2020-06-30-Preview`** .
 
 ```http
 POST https://[service name].search.windows.net/skillsets/[skillset name]/resetskills?api-version=2020-06-30-Preview
@@ -98,9 +97,6 @@ POST https://[service name].search.windows.net/skillsets/[skillset name]/resetsk
 
 ## <a name="reset-docs-preview"></a>문서 다시 설정(미리 보기)
 
-> [!IMPORTANT] 
-> [문서 다시 설정](/rest/api/searchservice/preview-api/reset-documents)은 퍼블릭 미리 보기로 제공되며 미리 보기 REST API를 통해서만 이용할 수 있습니다. 미리 보기 기능은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 따라 그대로 제공됩니다.
-
 [문서 API 다시 설정](/rest/api/searchservice/preview-api/reset-documents)은 문서 키 목록을 수락하여 특정 문서를 새로 고칠 수 있도록 합니다. 지정된 경우, 다시 설정된 매개 변수는 기본 데이터의 기타 변경 사항과 상관없이 처리 대상의 유일한 결정자가 됩니다. 예를 들어, 인덱서가 마지막으로 실행된 이후 Blob이 20개 추가 또는 업데이트되었지만 문서는 하나만 다시 설정했다면 해당 문서 하나만 처리됩니다.
 
 문서별로 해당 검색 문서의 모든 필드가 데이터 원본 값으로 새로 고쳐집니다. 새로 고칠 필드를 골라 선택할 수 없습니다. 
@@ -109,8 +105,8 @@ POST https://[service name].search.windows.net/skillsets/[skillset name]/resetsk
 
 최초로 해당 API를 테스트할 때 동작을 유효성 검사하고 테스트하는 데 도움이 되는 API는 다음과 같습니다.
 
-+ 다시 설정 상태 및 실행 상태를 확인하는 API 버전 `2020-06-30-Preview`의 [인덱서 상태 가져오기](/rest/api/searchservice/get-indexer-status). 해당 상태 응답의 마지막에서 다시 설정 요청에 대한 정보를 찾을 수 있습니다.
-+ 처리할 문서를 지정하는 API 버전 `2020-06-30-Preview`의 [문서 다시 설정](/rest/api/searchservice/preview-api/reset-documents)
++ API 버전 이상으로 [인덱서 상태를 가져와](/rest/api/searchservice/get-indexer-status) **`api-version=2020-06-30-Preview`** 다시 설정 상태 및 실행 상태를 확인 합니다. 해당 상태 응답의 마지막에서 다시 설정 요청에 대한 정보를 찾을 수 있습니다.
++ API 버전 이상을 사용 하 여 [문서를 다시 설정](/rest/api/searchservice/preview-api/reset-documents) **`api-version=2020-06-30-Preview`** 하 여 처리할 문서를 지정 합니다.
 + 인덱서를 실행하는 [인덱서 실행](/rest/api/searchservice/run-indexer)(모든 API 버전)
 + 업데이트된 값을 확인하고 값이 확실치 않을 경우 문서 키를 반환하는 [문서 검색](/rest/api/searchservice/search-documents). 응답으로 표시되는 필드를 제한하려는 경우에는 `"select": "<field names>"`를 사용합니다.
 
@@ -145,7 +141,7 @@ POST https://[service name].search.windows.net/indexers/[indexer name]/resetdocs
 
 ## <a name="check-reset-status"></a>다시 설정 상태 확인
 
-다시 설정 상태를 확인하고 처리 대상으로 큐에 대기 중인 문서를 확인하려면 **`api-version=06-30-2020-Preview`** 인 [인덱서 상태 가져오기](/rest/api/searchservice/get-indexer-status)를 사용합니다. 미리 보기 API는 인덱서 상태 가져오기 응답의 마지막에서 찾을 수 있는 **`currentState`** 섹션을 반환합니다.
+다시 설정 상태를 확인 하 고 처리를 위해 큐에 대기 중인 문서 키를 확인 하려면 이상에서 [인덱서 상태 가져오기](/rest/api/searchservice/get-indexer-status) 를 사용 **`api-version=06-30-2020-Preview`** 합니다. 미리 보기 API는 인덱서 상태 가져오기 응답의 마지막에서 찾을 수 있는 **`currentState`** 섹션을 반환합니다.
 
 AI 보강을 통해 채워지는 필드로 인해 잠재적으로는 모든 문서가 영향을 받게 되므로, "모드"는 다시 설정 기술에 대해 **`indexingAllDocs`** 와 같습니다.
 

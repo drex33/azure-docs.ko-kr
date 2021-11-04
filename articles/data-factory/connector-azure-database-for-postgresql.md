@@ -1,26 +1,26 @@
 ---
 title: Azure Database for PostgreSQL에서 데이터 복사 및 변환
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 및 Synapse Analytics 사용하여 Azure Database for PostgreSQL 데이터를 복사하고 변환하는 방법을 알아봅니다.
+description: Azure Data Factory 및 Synapse Analytics를 사용 하 여 Azure Database for PostgreSQL에서 데이터를 복사 하 고 변환 하는 방법을 알아봅니다.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
-ms.openlocfilehash: 2f17e5a90eac6941786a08044132867dadcb9ca0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/25/2021
+ms.openlocfilehash: ea2b0acf7c10f942d77c70a574fb19f0c29ca336
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128592467"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473227"
 ---
-# <a name="copy-and-transform-data-in-azure-database-for-postgresql-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics 사용하여 Azure Database for PostgreSQL 데이터 복사 및 변환
+# <a name="copy-and-transform-data-in-azure-database-for-postgresql-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics를 사용 하 여 Azure Database for PostgreSQL 데이터 복사 및 변환
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory 및 Synapse Analytics 파이프라인에서 복사 작업을 사용하여 Azure Database for PostgreSQL 데이터를 복사하고 데이터 Flow 사용하여 Azure Database for PostgreSQL 데이터를 변환하는 방법을 설명합니다. 자세한 내용은 Azure Data Factory [및](../synapse-analytics/overview-what-is.md) [Synapse Analytics](introduction.md) 대한 소개 문서를 읽어보세요.
+이 문서에서는 Azure Data Factory 및 Synapse Analytics 파이프라인에서 복사 작업을 사용 하 여 Azure Database for PostgreSQL 간에 데이터를 복사 하 고 데이터 Flow를 사용 하 여 Azure Database for PostgreSQL에서 데이터를 변환 하는 방법을 설명 합니다. 자세히 알아보려면 [Azure Data Factory](introduction.md) 및 [Synapse Analytics](../synapse-analytics/overview-what-is.md)에 대 한 소개 문서를 참조 하세요.
 
 이 커넥터는 [Azure Database for PostgreSQL 서비스](../postgresql/overview.md)를 전문으로 지원합니다. 온-프레미스 또는 클라우드에 있는 일반 PostgreSQL 데이터베이스에서 데이터를 복사하려면 [PostgreSQL 커넥터](connector-postgresql.md)를 사용하세요.
 
@@ -32,7 +32,7 @@ ms.locfileid: "128592467"
 - [매핑 데이터 흐름](concepts-data-flow-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
 
-현재 데이터 흐름은 Azure Database for PostgreSQL 단일 서버를 지원하지만 유연한 서버 또는 하이퍼스케일(Citus) 지원하지 않습니다. Azure Synapse Analytics 데이터 흐름은 모든 PostgreSQL을 지원합니다.
+현재 데이터 흐름은 Azure database for PostgreSQL 단일 서버를 지원 하지만 유연한 서버 또는 Hyperscale (Citus)은 지원 하지 않습니다. Azure Synapse Analytics의 데이터 흐름은 모든 PostgreSQL 특색을 지원 합니다.
 
 ## <a name="getting-started"></a>시작
 
@@ -148,7 +148,7 @@ Azure Database for PostgreSQL에서 데이터를 복사하려면 데이터 세�
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 
-활동을 정의하는 데 사용할 수 있는 섹션 및 속성의 전체 목록은 [Pipelines 및 활동을](concepts-pipelines-activities.md)참조하세요. 이 섹션에서는 Azure Database for PostgreSQL 원본에서 지원하는 속성 목록을 제공합니다.
+활동을 정의 하는 데 사용할 수 있는 섹션 및 속성의 전체 목록은 [Pipelines 및 활동](concepts-pipelines-activities.md)을 참조 하세요. 이 섹션에서는 Azure Database for PostgreSQL 원본에서 지원하는 속성 목록을 제공합니다.
 
 ### <a name="azure-database-for-postgresql-as-source"></a>Azure Database for PostgreSQL을 원본으로
 
@@ -161,9 +161,10 @@ Azure Database for PostgreSQL에서 데이터를 복사하려면 복사 작업�
 | partitionOptions | Azure SQL Database에서 데이터를 로드하는 데 사용되는 데이터 분할 옵션을 지정합니다. <br>허용되는 값은 **None**(기본값), **PhysicalPartitionsOfTable** 및 **DynamicRange** 입니다.<br>파티션 옵션을 사용하도록 설정하는 경우 (즉, `None`은 안 됨), Azure SQL Database에서 데이터를 동시에 로드하는 병렬 처리 수준이 복사 작업에서 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 설정에 의해 제어됩니다. | 예 |
 | partitionSettings | 데이터 분할에 대한 설정 그룹을 지정합니다. <br>파티션 옵션이 `None`이 아닌 경우에 적용됩니다. | 예 |
 | ***`partitionSettings` 아래에서:*** | | |
-| partitionColumnName | 원본 열의 이름을 **정수 또는 날짜/날짜/시간 유형** (`int`, `smallint`, `bigint`, `date`, `smalldatetime`, `datetime`, `datetime2` 또는 `datetimeoffset`) 병렬 복사를 위해 범위 분할에 사용됩니다. 지정하지 않으면 테이블의 인덱스 또는 기본 키가 자동으로 검색되어 파티션 열로 사용됩니다.<br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfDynamicRangePartitionCondition `를 후크합니다. 예제를 보려면 [Azure Database for PostgreSQL 병렬 복사](#parallel-copy-from-azure-database-for-postgresql) 섹션을 참조하세요. | 예 |
-| partitionUpperBound | 파티션 범위 분할에 대한 파티션 열의 최댓값입니다. 이 값은 테이블의 행을 필터링하는 것이 아니라 파티션 stride를 결정하는 데 사용됩니다. 테이블 또는 쿼리 결과의 모든 행이 분할되고 복사됩니다. 지정하지 않으면 복사 작업에서 값을 자동으로 검색합니다.  <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 예제를 보려면 [Azure Database for PostgreSQL 병렬 복사](#parallel-copy-from-azure-database-for-postgresql) 섹션을 참조하세요. | 예 |
-| partitionLowerBound | 파티션 범위 분할에 대한 파티션 열의 최솟값입니다. 이 값은 테이블의 행을 필터링하는 것이 아니라 파티션 stride를 결정하는 데 사용됩니다. 테이블 또는 쿼리 결과의 모든 행이 분할되고 복사됩니다. 지정하지 않으면 복사 작업에서 값을 자동으로 검색합니다.<br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 예제를 보려면 [Azure Database for PostgreSQL 병렬 복사](#parallel-copy-from-azure-database-for-postgresql) 섹션을 참조하세요. | 예 |
+| partitionNames | 복사해야 하는 물리적 파티션 목록입니다. <br>파티션 옵션이 `PhysicalPartitionsOfTable`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfTabularPartitionName`를 후크합니다. 예제는 [Azure Database for PostgreSQL에서 병렬 복사](#parallel-copy-from-azure-database-for-postgresql) 섹션을 참조 하세요. | 예 |
+| partitionColumnName |  `int` `smallint` `bigint` `date` `timestamp without time zone` `timestamp with time zone` `time without time zone` 병렬 복사를 위해 범위 분할에서 사용할 정수 또는 날짜/시간 형식 (,,,, 또는)으로 원본 열의 이름을 지정 합니다. 지정하지 않으면 테이블의 기본 키가 자동으로 검색되어 파티션 열로 사용됩니다.<br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfRangePartitionColumnName `를 후크합니다. 예제는 [Azure Database for PostgreSQL에서 병렬 복사](#parallel-copy-from-azure-database-for-postgresql) 섹션을 참조 하세요. | 예 |
+| partitionUpperBound | 데이터를 복사할 파티션 열의 최댓값입니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfRangePartitionUpbound`를 후크합니다. 예제는 [Azure Database for PostgreSQL에서 병렬 복사](#parallel-copy-from-azure-database-for-postgresql) 섹션을 참조 하세요. | 예 |
+| partitionLowerBound | 데이터를 복사할 파티션 열의 최솟값입니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfRangePartitionLowbound`를 후크합니다. 예제는 [Azure Database for PostgreSQL에서 병렬 복사](#parallel-copy-from-azure-database-for-postgresql) 섹션을 참조 하세요. | 예 |
 
 **예제**:
 
@@ -243,22 +244,22 @@ Azure Database for PostgreSQL에 데이터를 복사하기 위해 복사 작업 
 ]
 ```
 
-## <a name="parallel-copy-from-azure-database-for-postgresql"></a>Azure Database for PostgreSQL 병렬 복사
+## <a name="parallel-copy-from-azure-database-for-postgresql"></a>Azure Database for PostgreSQL의 병렬 복사
 
-복사 활동의 Azure Database for PostgreSQL 커넥터는 데이터를 병렬로 복사하는 기본 제공 데이터 분할을 제공합니다. 복사 작업의 **원본** 탭에서 데이터 분할 옵션을 찾을 수 있습니다.
+복사 작업의 Azure Database for PostgreSQL 커넥터는 데이터를 병렬로 복사 하기 위한 기본 제공 데이터 분할을 제공 합니다. 복사 작업의 **원본** 탭에서 데이터 분할 옵션을 찾을 수 있습니다.
 
 ![파티션 옵션의 스크린샷](.\media\connector-azure-database-for-postgresql/connector-postgresql-partition-options.png)
 
-분할된 복사를 사용하도록 설정하면 복사 작업은 파티션별로 데이터를 로드하기 위해 Azure Database for PostgreSQL 원본에 대해 병렬 쿼리를 실행합니다. 병렬 수준은 복사 작업의 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 설정에 의해 제어됩니다. 예를 들어 를 `parallelCopies` 4로 설정하면 서비스는 지정된 파티션 옵션 및 설정에 따라 4개의 쿼리를 동시에 생성하고 실행하며, 각 쿼리는 Azure Database for PostgreSQL 데이터의 일부를 검색합니다.
+분할 된 복사를 사용 하도록 설정 하면 복사 작업은 Azure Database for PostgreSQL 원본에 대해 병렬 쿼리를 실행 하 여 파티션으로 데이터를 로드 합니다. 병렬 수준은 복사 작업의 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 설정에 의해 제어됩니다. 예를 들어를 `parallelCopies` 4로 설정 하는 경우 서비스는 지정 된 파티션 옵션과 설정을 기반으로 4 개의 쿼리를 동시에 생성 하 고 실행 하며, 각 쿼리는 Azure Database for PostgreSQL에서 데이터의 일부를 검색 합니다.
 
-특히 Azure Database for PostgreSQL 대량의 데이터를 로드할 때 데이터 분할을 통해 병렬 복사를 사용하도록 설정하는 것이 좋습니다. 다양한 시나리오에 대해 권장되는 구성은 다음과 같습니다. 파일 기반 데이터 저장소에 데이터를 복사할 때 폴더에 여러 파일로 쓰는 것이 좋습니다(폴더 이름만 지정). 이 경우 단일 파일에 쓰는 것보다 성능이 좋습니다.
+특히 Azure Database for PostgreSQL에서 많은 양의 데이터를 로드 하는 경우 데이터 분할으로 병렬 복사를 사용 하도록 설정 하는 것이 좋습니다. 다양한 시나리오에 대해 권장되는 구성은 다음과 같습니다. 파일 기반 데이터 저장소에 데이터를 복사할 때 폴더에 여러 파일로 쓰는 것이 좋습니다(폴더 이름만 지정). 이 경우 단일 파일에 쓰는 것보다 성능이 좋습니다.
 
 | 시나리오                                                     | 제안된 설정                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 실제 파티션을 사용하여 초대형 테이블에서 전체 로드        | **파티션 옵션**: 테이블의 물리적 파티션. <br><br/>실행하는 동안 서비스에서 실제 파티션을 자동으로 검색하여 데이터를 파티션별로 복사합니다. |
-| 데이터 분할을 위해 실제 파티션을 사용하지 않지만 정수 또는 날짜/시간 열을 사용하여 대규모 테이블에서 전체 로드합니다. | **파티션 옵션**: 동적 범위 파티션입니다.<br>**파티션 열**(선택 사항): 데이터를 분할하는 데 사용되는 열을 지정합니다. 지정하지 않으면 인덱스 또는 기본 키 열이 사용됩니다.<br/>**파티션 상한** 및 **파티션 하한**(선택 사항): 파티션 stride를 결정하려는지를 지정합니다. 테이블의 행을 필터링하려는 것이 아니라 테이블의 모든 행을 분할 및 복사합니다. 지정하지 않으면 복사 작업에서 값을 자동으로 검색합니다.<br><br>예를 들어 "ID" 파티션 열의 값 범위가 1~100이고 하한을 20으로 설정하고 상한을 80으로 설정하고 병렬 복사를 4로 설정하면 서비스에서 4개의 파티션별로(각각 ID 범위: 20 이하, [21, 50], [51, 80] 및 81 이상) 데이터를 검색합니다. |
-| 실제 파티션이 없는 사용자 지정 쿼리를 사용하여 많은 양의 데이터를 로드하는 동시에 데이터 분할을 위한 정수 또는 날짜/시간 열을 사용합니다. | **파티션 옵션**: 동적 범위 파티션입니다.<br>**쿼리**:`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**파티션 열**: 데이터를 분할하는 데 사용되는 열을 지정합니다.<br>**파티션 상한** 및 **파티션 하한**(선택 사항): 파티션 stride를 결정하려는지를 지정합니다. 테이블에서 행을 필터링하려는 것이 아니라 쿼리 결과의 모든 행을 분할 및 복사합니다. 지정하지 않으면 복사 작업에서 값을 자동으로 검색합니다.<br><br>실행 중에 서비스는 `?AdfRangePartitionColumnName` 를 각 파티션에 대한 실제 열 이름 및 값 범위로 바꾸고 을 Azure Database for PostgreSQL 보냅니다. <br>예를 들어 "ID" 파티션 열의 값 범위가 1~100이고 하한을 20으로 설정하고 상한을 80으로 설정하고 병렬 복사를 4로 설정하면 서비스에서 4개의 파티션별로(각각 ID 범위: 20 이하, [21, 50], [51, 80] 및 81 이상) 데이터를 검색합니다. <br><br>다양한 시나리오에 대한 추가적인 샘플 쿼리는 다음과 같습니다.<br> 1. 전체 테이블 쿼리: <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. 열을 선택하고 where 절 필터를 추가하여 테이블 쿼리: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. 하위 쿼리를 사용하여 쿼리: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. 하위 쿼리에 파티션을 사용하여 쿼리: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
-|
+| 데이터 분할을 위해 물리적 파티션을 사용하지 않지만 정수 열을 사용하여 대형 테이블에서 전체 로드합니다. | **파티션 옵션**: 동적 범위 파티션입니다.<br>**파티션 열**: 데이터를 분할하는 데 사용되는 열을 지정합니다. 지정하지 않으면 기본 키 열이 사용됩니다. |
+| 사용자 지정 쿼리를 사용하여 물리적 파티션과 함께 대량의 데이터를 로드합니다. | **파티션 옵션**: 테이블의 물리적 파티션.<br>**쿼리**:`SELECT * FROM ?AdfTabularPartitionName WHERE <your_additional_where_clause>`.<br>**파티션 이름**: 데이터를 복사할 파티션 이름을 지정합니다. 지정 하지 않으면 서비스는 PostgreSQL 데이터 집합에서 지정한 테이블의 실제 파티션을 자동으로 검색 합니다.<br><br>실행 중에 서비스는를 `?AdfTabularPartitionName` 실제 파티션 이름으로 바꾸고 Azure Database for PostgreSQL으로 보냅니다. |
+| 물리적 파티션이 없는 사용자 지정 쿼리를 사용하여 대량의 데이터를 로드하는 동시에 데이터 분할을 위한 정수 열을 사용합니다. | **파티션 옵션**: 동적 범위 파티션입니다.<br>**쿼리**:`SELECT * FROM ?AdfTabularPartitionName WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**파티션 열**: 데이터를 분할하는 데 사용되는 열을 지정합니다. 정수 또는 날짜/날짜/시간 데이터 형식의 열에 대해 분할할 수 있습니다.<br>**파티션 상한** 및 **파티션 하한**: 파티션 열에 대해 필터링하려는 하한과 상한 범위 사이에서만 데이터를 검색하도록 지정합니다.<br><br>실행 중에 서비스는 `?AdfRangePartitionColumnName` , `?AdfRangePartitionUpbound` 및를 `?AdfRangePartitionLowbound` 각 파티션에 대 한 실제 열 이름 및 값 범위로 바꾸고 Azure Database for PostgreSQL으로 보냅니다. <br>예를 들어 파티션 열 “ID”의 하한이 1로 설정되고 상한이 80으로 설정된 경우 병렬 복사를 4로 설정하면 서비스는 4개의 파티션으로 데이터를 검색합니다. 해당 ID는 [1, 20], [21, 40], [41, 60] 및 [61, 80] 사이에 각각 있습니다. |
 
 파티션 옵션을 사용하여 데이터를 로드하는 모범 사례:
 

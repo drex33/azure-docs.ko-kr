@@ -6,25 +6,23 @@ ms.author: dimadhus
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 8/6/2021
-ms.openlocfilehash: fa85818b364a869114fe6e3b2de8d2cebfa8ca60
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
-ms.translationtype: HT
+ms.openlocfilehash: 961e1fbf4bc87355ce036fb9a5af7a1cd85c4e76
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122567850"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131472716"
 ---
-# <a name="private-network-access-for-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL - 유연한 서버(미리 보기)에 대한 개인 네트워크 액세스
+# <a name="private-network-access-for-azure-database-for-mysql---flexible-server"></a>Azure Database for MySQL 유연한 서버에 대 한 개인 네트워크 액세스
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 이 문서에서는 Azure MySQL 유연한 서버의 프라이빗 연결 옵션에 대해 설명합니다. Azure에서 서버를 안전하게 만들기 위해 Azure Database for MySQL 유연한 서버에 대한 가상 네트워크 개념을 상세히 살펴봅니다.
 
-> [!IMPORTANT]
-> Azure Database for MySQL - 유연한 서버는 미리 보기로 제공됩니다.
 
 ## <a name="private-access-vnet-integration"></a>프라이빗 액세스(VNet 통합)
 
-[Azure Virtual Network(VNet)](../../virtual-network/virtual-networks-overview.md)는 Azure의 프라이빗 네트워크의 기본 구성 요소입니다. Azure Database for MySQL - 유연한 서버와 VNet(Virtual Network) 통합은 Azure의 네트워크 보안 및 격리 이점을 제공합니다.  
+[Azure Virtual Network(VNet)](../../virtual-network/virtual-networks-overview.md)는 Azure의 프라이빗 네트워크의 기본 구성 요소입니다. Azure Database for MySQL - 유연한 서버와 VNet(Virtual Network) 통합은 Azure의 네트워크 보안 및 격리 이점을 제공합니다.
 
 Azure Database for MySQL - 유연한 서버에 대한 VNet(가상 네트워크) 통합을 사용하면 가상 네트워크 인프라로만 서버에 대한 액세스를 잠글 수 있습니다. VNet(가상 네트워크)은 단일 가상 네트워크에 모든 애플리케이션 및 데이터베이스 리소스를 포함하거나 동일하거나 다른 지역의 다른 VNet에 걸쳐 확장될 수 있습니다. Microsoft의 짧은 대기 시간, 고대역폭 프라이빗 백본 인프라 백본 인프라를 사용하는 [피어링](../../virtual-network/virtual-network-peering-overview.md)을 통해 다양한 가상 네트워크 간의 원활한 연결을 설정할 수 있습니다. 가상 네트워크는 연결하기 위해 하나로 표시됩니다.
 
@@ -35,7 +33,7 @@ Azure Database for MySQL - 유연한 서버는 다음에서 클라이언트 연�
 
 서브넷을 사용하면 가상 네트워크를 하나 이상의 하위 네트워크로 분할하고 Azure 리소스를 배포할 수 있는 가상 네트워크 주소 공간의 일부를 각 서브넷에 할당합니다. Azure Database for MySQL - 유연한 서버에는 [위임된 서브넷](../../virtual-network/subnet-delegation-overview.md)이 필요합니다. 위임된 서브넷은 서브넷이 Azure Database for MySQL - 유연한 서버만 호스팅할 수 있도록 하는 명시적 식별자입니다. 서브넷을 위임하면 서비스는 Azure Database for MySQL - 유연한 서버를 원활하게 관리하기 위해 서브넷에 서비스별 리소스를 만들 수 있도록 하는 명시적 권한을 얻습니다.
 
-Azure Database for MySQL - 유연한 서버는 Azure [프라이빗 DNS 영역](../../dns/private-dns-privatednszone.md)과 통합되어 사용자 지정 DNS 솔루션을 추가할 필요 없이 가상 네트워크에서 도메인 이름을 관리하고 확인할 수 있는 안정적이고 안전한 DNS 서비스를 제공합니다. [가상 네트워크 링크](../../dns/private-dns-virtual-network-links.md)를 만들어 프라이빗 DNS 영역을 하나 이상의 가상 네트워크에 연결할 수 있습니다. 
+Azure Database for MySQL - 유연한 서버는 Azure [프라이빗 DNS 영역](../../dns/private-dns-privatednszone.md)과 통합되어 사용자 지정 DNS 솔루션을 추가할 필요 없이 가상 네트워크에서 도메인 이름을 관리하고 확인할 수 있는 안정적이고 안전한 DNS 서비스를 제공합니다. [가상 네트워크 링크](../../dns/private-dns-virtual-network-links.md)를 만들어 프라이빗 DNS 영역을 하나 이상의 가상 네트워크에 연결할 수 있습니다.
 
 
 :::image type="content" source="./media/concepts-networking/vnet-diagram.png" alt-text="유연한 서버 MySQL VNET":::

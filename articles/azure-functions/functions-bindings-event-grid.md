@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4935bb8c44c2f3d6d1a17a8c1f2ba897178d1606
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: f0f42b37c40a3a3a2ecda4115ebc7729fc686671
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130069504"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473968"
 ---
 # <a name="azure-event-grid-bindings-for-azure-functions"></a>Azure Functions의 Azure Event Grid 바인딩
 
@@ -50,28 +50,21 @@ Event Grid는 *게시자* 에서 발생하는 이벤트를 알리기 위해 HTTP
 
 #### <a name="event-grid-extension-3x-and-higher"></a>Event Grid 확장 3.x 이상
 
-새 버전의 Event Grid 바인딩 확장은 미리 보기에서 사용할 수 있습니다. .NET 애플리케이션의 경우 바인딩할 수 있는 형식을 변경하여 의 형식을 `Microsoft.Azure.EventGrid.Models` [Azure.Messaging.EventGrid의](/dotnet/api/azure.messaging.eventgrid)최신 형식으로 바꿉니다. [클라우드 이벤트](/dotnet/api/azure.messaging.cloudevent)는 새로운 Event Grid 확장 프로그램에서도 지원됩니다.
+이제 새 버전의 Event Grid 바인딩 확장을 사용할 수 있습니다. .NET 애플리케이션의 경우 바인딩할 수 있는 형식을 변경하여 의 형식을 `Microsoft.Azure.EventGrid.Models` [Azure.Messaging.EventGrid의](/dotnet/api/azure.messaging.eventgrid)최신 형식으로 바꿉니다. [클라우드 이벤트](/dotnet/api/azure.messaging.cloudevent)는 새로운 Event Grid 확장 프로그램에서도 지원됩니다.
 
-이 확장 버전은 [미리 보기 NuGet 패키지로] 사용할 수 있거나 파일에 다음을 추가하여 미리 보기 확장 번들 v3에서 추가할 수 있습니다. `host.json`
+이 확장 버전은 [NuGet 패키지], 버전 3.x를 설치하여 사용할 수 있으며, 파일에 다음을 추가하여 확장 번들 v3에서 추가할 수 있습니다. `host.json`
 
 ```json
 {
   "version": "2.0",
   "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[3.*, 4.0.0)"
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[3.3.0, 4.0.0)"
   }
 }
 ```
 
 자세한 내용은 [확장 업데이트를 참조하세요.]
-
-[미리 보기 NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/3.0.0-beta.4
-[core tools]: ./functions-run-local.md
-[확장 번들]: ./functions-bindings-register.md#extension-bundles
-[NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
-[확장 업데이트]: ./functions-bindings-register.md
-[Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Functions 1.x
 

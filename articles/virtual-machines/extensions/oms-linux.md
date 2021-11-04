@@ -7,13 +7,13 @@ ms.subservice: extensions
 author: amjads1
 ms.author: amjads
 ms.collection: linux
-ms.date: 02/18/2020
-ms.openlocfilehash: 352aea7f000082a2f978005d958b41669e191584
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.date: 11/02/2021
+ms.openlocfilehash: 3c857f01ba5a706c8b20289221badbee3aa3dccf
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122530022"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471633"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Linux용 Log Analytics 가상 머신 확장
 
@@ -21,10 +21,8 @@ ms.locfileid: "122530022"
 
 Azure Monitor Logs는 클라우드와 온-프레미스 자산에서 모니터링, 경고 및 경고 수정 기능을 제공합니다. Linux용 Log Analytics 가상 머신 확장은 Microsoft에서 게시 및 지원합니다. 확장 버전은 Azure 가상 머신에 Log Analytics 에이전트를 설치하고 기존 Log Analytics 작업 영역에 가상 머신을 등록합니다. 이 문서에서는 지원되는 플랫폼, 구성 및 Linux용 Log Analytics 가상 머신 확장에 대한 배포 옵션을 설명합니다.
 
->[!NOTE]
->Microsoft OMS(Operations Management Suite)에서 Azure Monitor로 진행 중인 전환의 일부로 Windows 또는 Linux용 OMS 에이전트는 Windows용 Log Analytics 에이전트 및 Linux용 Log Analytics 에이전트로 참조됩니다.
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+> [!NOTE]
+> azure Arc 사용 서버를 사용 하면 Log Analytics 에이전트 VM 확장을 azure가 아닌 Windows 및 Linux 컴퓨터에 배포, 제거 및 업데이트할 수 있으므로 해당 수명 주기 동안 하이브리드 컴퓨터의 관리를 간소화할 수 있습니다. 자세한 내용은 [Azure Arc 사용 서버를 사용 하 여 VM 확장 관리](../../azure-arc/servers/manage-vm-extensions.md)를 참조 하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -33,6 +31,7 @@ Azure Monitor Logs는 클라우드와 온-프레미스 자산에서 모니터링
 지원되는 Linux 배포판에 대한 자세한 내용은 [Azure Monitor 에이전트 개요](../../azure-monitor/agents/agents-overview.md#supported-operating-systems) 문서를 참조하세요.
 
 ### <a name="agent-and-vm-extension-version"></a>에이전트 및 VM 확장 버전
+
 다음 표에서는 각 릴리스에서 Log Analytics VM 확장의 각 버전과 Log Analytics 에이전트 번들에 대한 매핑을 제공합니다. Log Analytics 에이전트 번들 버전에 대한 릴리스 노트 링크가 포함되어 있습니다. 릴리스 정보는 버그 수정에 대한 세부 정보 및 지정된 에이전트 릴리스에 사용 가능한 새로운 기능을 포함합니다.  
 
 | Log Analytics Linux VM 확장 버전 | Log Analytics 에이전트 번들 버전 | 
@@ -65,7 +64,7 @@ Azure Security Center는 자동으로 Log Analytics 에이전트를 프로비전
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
-Linux용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터넷에 연결되어 있어야 합니다. 
+Linux 용 Log Analytics 에이전트 확장을 사용 하려면 대상 가상 머신이 인터넷에 연결 되어 있어야 합니다. 
 
 ## <a name="extension-schema"></a>확장 스키마
 
@@ -109,13 +108,12 @@ Linux용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터넷�
 | workspaceId(예) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey(예) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
-
 ## <a name="template-deployment"></a>템플릿 배포
 
 >[!NOTE]
 >Log Analytics VM 확장의 특정 구성 요소는 [진단 VM 확장](./diagnostics-linux.md)에도 제공됩니다. 이 아키텍처로 인해 동일한 ARM 템플릿에서 두 확장을 모두 인스턴스화하면 충돌이 발생할 수 있습니다. 설치 시간 충돌을 방지하려면 [`dependsOn` 지시문](../../azure-resource-manager/templates/resource-dependency.md#dependson)을 사용하여 확장이 순차적으로 설치되도록 합니다. 확장은 어느 순서로든 설치할 수 있습니다.
 
-Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. Azure Monitor Logs에 등록하는 것처럼 배포 후 구성이 필요한 하나 이상의 가상 머신을 배포하는 경우 템플릿을 사용하는 것이 좋습니다. Log Analytics 에이전트 VM 확장을 포함하는 샘플 Resource Manager 템플릿은 [Azure 빠른 시작 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/oms-extension-ubuntu-vm)에서 찾을 수 있습니다. 
+Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. Azure Monitor Logs에 등록하는 것처럼 배포 후 구성이 필요한 하나 이상의 가상 머신을 배포하는 경우 템플릿을 사용하는 것이 좋습니다. Log Analytics 에이전트 VM 확장을 포함 하는 샘플 리소스 관리자 템플릿은 [Azure 빠른 시작 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/oms-extension-ubuntu-vm)에서 찾을 수 있습니다. 
 
 가상 머신 확장에 대한 JSON 구성은 가상 머신 리소스 내에 중첩되거나 루트 또는 최상위 수준의 Resource Manager JSON 템플릿에 배치될 수 있습니다. JSON 구성의 배치는 리소스 이름 및 형식 값에 영향을 줍니다. 자세한 내용은 [자식 리소스의 이름 및 형식 설정](../../azure-resource-manager/templates/child-resource-name-type.md)을 참조하세요. 
 

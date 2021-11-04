@@ -3,12 +3,12 @@ title: 효과 작동 방식 이해
 description: Azure Policy 정의는 규정 준수가 관리되고 보고되는 방법을 결정하는 다양한 효과가 있습니다.
 ms.date: 09/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: bca5d7535cbbcbf2fc7b6f54e853872c788c723d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: bbcdce83fad513c85ab45f4c38c936b345828ef3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124792280"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131449681"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure Policy의 영향 파악
 
@@ -116,7 +116,7 @@ Resource Manager 모드에서는 audit 효과에 정책 정의의 **then** 조�
     - _PublicURL인_ 경우 `url` 속성과 쌍을 이루어 제약 조건 템플릿의 위치를 제공합니다. 위치에 공개적으로 액세스할 수 있어야 합니다.
 
       > [!WARNING]
-      > 또는 비밀을 노출할 수 있는 SAS URI 또는 토큰을 사용하지 `url` 마세요.
+      > 에서 SAS URI 또는 `url` 토큰을 사용하거나 비밀을 노출할 수 있는 다른 토큰을 사용하지 마세요.
 
     - _Base64Encoded인_ 경우 속성과 `content` 쌍을 이루어 base 64로 인코딩된 제약 조건 템플릿을 제공합니다. 기존 OPA(Open [Policy Agent)](https://www.openpolicyagent.org/) GateKeeper v3 제약 조건 템플릿에서 사용자 지정 정의를 만들려면 제약 조건 [템플릿에서](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates)정책 [정의 만들기를](../how-to/extension-for-vscode.md) 참조하세요.
 - **제약 조건(선택** 사항)
@@ -136,9 +136,9 @@ Resource Manager 모드에서는 audit 효과에 정책 정의의 **then** 조�
   - 평가를 제한할 Kubernetes 개체의 [종류를](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/#required-fields) 포함하는 _배열입니다._
 - **values**(선택 사항)
   - 제약 조건에 전달할 매개 변수 및 값을 정의합니다. 각 값은 제약 조건 템플릿 CRD에 있어야 합니다.
-- **constraintTemplate** (사용 되지 않음)
+- **constraintTemplate(사용되지** 않습니다.)
   - `templateInfo`와 함께 사용할 수 없습니다.
-  - `templateInfo`정책 정의를 만들거나 업데이트할 때로 바꾸어야 합니다.
+  - `templateInfo`정책 정의를 만들거나 업데이트할 때는 로 대체해야 합니다.
   - 새로운 제약 조건을 정의하는 제약 조건 템플릿 CRD(CustomResourceDefinition)입니다. 이 템플릿은 Azure 정책의 **values** 를 통해 전달되는 Rego 논리, 제약 조건 스키마 및 제약 조건 매개 변수를 정의합니다.
 
 ### <a name="audit-example"></a>감사 예제
@@ -151,7 +151,7 @@ Resource Manager 모드에서는 audit 효과에 정책 정의의 **then** 조�
 }
 ```
 
-예제 2: 리소스 공급자 모드 `Microsoft.Kubernetes.Data`에 audit 효과 사용. **Details** 정보의 추가 정보는 _publicurl_ 사용을 선언 하 고 `url` Kubernetes에서 허용 되는 컨테이너 이미지를 제한 하는 데 사용할 제약 조건 템플릿의 위치로 설정 합니다.
+예제 2: 리소스 공급자 모드 `Microsoft.Kubernetes.Data`에 audit 효과 사용. **details.templateInfo의** 추가 정보는 _PublicURL_ 사용을 선언하고 를 `url` Kubernetes에서 사용할 제약 조건 템플릿의 위치로 설정하여 허용되는 컨테이너 이미지를 제한합니다.
 
 ```json
 "then": {
@@ -198,7 +198,7 @@ AuditIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
   - 일치하는 관련된 리소스를 인출할 범위를 설정합니다.
   - **type** 이 **if** 조건 리소스의 아래에 있는 리소스인 경우 적용되지 않습니다.
   - _ResourceGroup_ 의 경우 **ResourceGroupName** 에서 지정된 **if** 조건 리소스의 리소스 그룹 또는 리소스 그룹으로 제한합니다.
-  - _Subscription_ 의 경우 관련된 리소스에 대한 전체 구독을 쿼리합니다.
+  - _Subscription_ 의 경우 관련된 리소스에 대한 전체 구독을 쿼리합니다. 적절한 평가를 위해서는 할당 범위를 구독 이상으로 설정해야 합니다. 
   - 기본값은 _ResourceGroup_ 입니다.
 - **EvaluationDelay**(선택 사항)
   - 관련 리소스의 존재를 평가해야 하는 시기를 지정합니다. 지연은 리소스 만들기 또는 업데이트 요청의 결과인 평가에만 사용됩니다.
@@ -257,36 +257,36 @@ Resource Manager 모드에서 일치된 리소스를 만들거나 업데이트�
 
 Resource Manager 모드에서는 deny 효과에 정책 정의의 **then** 조건에 사용할 수 있는 추가 속성이 없습니다.
 
-리소스 공급자 모드 `Microsoft.Kubernetes.Data`에서는 deny 효과에 다음과 같은 **details** 하위 속성이 추가로 있습니다. 사용 `templateInfo` 되지 않는 새 정책 정의 또는 업데이트 된 정책 정의에는를 사용 해야 `constraintTemplate` 합니다.
+리소스 공급자 모드 `Microsoft.Kubernetes.Data`에서는 deny 효과에 다음과 같은 **details** 하위 속성이 추가로 있습니다. 은 더 이상 사용되지 않은 `templateInfo` 새 정책 정의 또는 업데이트된 정책 정의에 `constraintTemplate` 필요합니다.
 
-- 템플릿 **정보** (필수)
+- **templateInfo(필수)**
   - `constraintTemplate`와 함께 사용할 수 없습니다.
-  - **sourceType** (필수)
-    - 제약 조건 템플릿의 원본 유형을 정의 합니다. 허용 되는 값: _Publicurl_ 또는 _Base64Encoded_.
-    - _Publicurl_ 인 경우 속성을 사용 `url` 하 여 제약 조건 템플릿의 위치를 제공 합니다. 위치는 공개적으로 액세스할 수 있어야 합니다.
+  - **sourceType(필수)**
+    - 제약 조건 템플릿의 소스 형식을 정의합니다. 허용되는 값: _PublicURL_ 또는 _Base64인코딩된_.
+    - _PublicURL인_ 경우 `url` 속성과 쌍을 이루어 제약 조건 템플릿의 위치를 제공합니다. 위치에 공개적으로 액세스할 수 있어야 합니다.
 
       > [!WARNING]
-      > 에서 SAS Uri 또는 토큰을 사용 하지 마세요 `url` . 또는 암호를 노출할 수 있는 다른 모든 항목을 사용 하십시오.
+      > 에서 SAS URI 또는 `url` 토큰을 사용하거나 비밀을 노출할 수 있는 다른 토큰을 사용하지 마세요.
 
-    - _Base64Encoded_ 인 경우 속성을 사용 `content` 하 여 기본 64 인코딩 제약 조건 템플릿을 제공 합니다. 기존 opa ( [Open Policy Agent](https://www.openpolicyagent.org/) ) 게이트 키퍼 v3 [제약 조건 템플릿에서](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates)사용자 지정 정의를 만들려면 [제약 조건 템플릿에서 정책 정의 만들기](../how-to/extension-for-vscode.md) 를 참조 하세요.
-- **제약 조건** (옵션)
+    - _Base64Encoded인_ 경우 속성과 `content` 쌍을 이루어 base 64로 인코딩된 제약 조건 템플릿을 제공합니다. 기존 OPA(Open [Policy Agent)](https://www.openpolicyagent.org/) GateKeeper v3 제약 조건 템플릿에서 사용자 지정 정의를 만들려면 제약 조건 [템플릿에서](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates)정책 [정의 만들기를](../how-to/extension-for-vscode.md) 참조하세요.
+- **제약 조건(선택** 사항)
   - `templateInfo`와 함께 사용할 수 없습니다.
   - 제약 조건 템플릿의 CRD 구현입니다. `{{ .Values.<valuename> }}`을 사용하여 **values** 를 통해 전달되는 매개 변수를 사용합니다. 아래 예제 2에서 이들 값은 `{{ .Values.excludedNamespaces }}` 및 `{{ .Values.allowedContainerImagesRegex }}`입니다.
-- **네임 스페이스** (옵션)
-  - 정책 평가를 제한할 [Kubernetes 네임 스페이스](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) 의 _배열_ 입니다.
-  - 비어 있거나 누락 된 값이 있으면 _excludedNamespaces_ 에 정의 된 네임 스페이스를 제외한 모든 네임 스페이스를 정책 평가에서 포함 합니다.
-- **excludedNamespaces** (필수)
-  - 정책 평가에서 제외할 [Kubernetes 네임 스페이스](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) 의 _배열_ 입니다.
-- **Labelselector** (필수)
-  - 제공 된 [레이블 및 선택기](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/)와 일치 하는 정책 평가에 포함할 Kubernetes 리소스를 지정할 수 있도록 _matchlabels_ (개체) 및 _matchlabels_ (array) 속성을 포함 하는 _개체_ 입니다.
-  - 비어 있거나 누락 된 값이 있으면 _excludedNamespaces_ 에 정의 된 네임 스페이스를 제외 하 고 모든 레이블과 선택기를 정책 평가에 포함 합니다.
-- **Apigroups** (템플릿 _정보_ 를 사용 하는 경우 필수)
-  - 일치 시킬 [API 그룹](https://kubernetes.io/docs/reference/using-api/#api-groups) 을 포함 하는 _배열_ 입니다. `[""]`가 `["*"]` 모든 api 그룹과 일치 하는 경우에는 빈 배열 ()이 핵심 api 그룹입니다.
-- **종류** (템플릿 _정보_ 를 사용 하는 경우 필요)
-  - 계산을 제한할 Kubernetes 개체의 [종류](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/#required-fields) 를 포함 하는 _배열_ 입니다.
+- **네임스페이스(선택** 사항)
+  - 정책 평가를 제한할 [Kubernetes 네임스페이스의](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) _배열입니다._
+  - 값이 비어 있거나 누락된 경우 정책 평가에 excludedNamespaces 에 정의된 네임스페이스를 제외한 모든 _네임스페이스가 포함됩니다._
+- **excludedNamespaces(필수)**
+  - 정책 평가에서 제외할 [Kubernetes 네임스페이스의](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) _배열입니다._
+- **labelSelector(필수)**
+  - 제공된 레이블 및 [선택기와](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/)일치하는 정책 평가에 포함할 Kubernetes 리소스를 지정할 수 있도록 _matchLabels(개체)_ 및 _matchExpression(배열)_ 속성을 포함하는 _개체입니다._
+  - 값이 비어 있거나 누락된 경우 정책 평가에 _excludedNamespaces_ 에 정의된 네임스페이스를 제외한 모든 레이블 및 선택기가 포함됩니다.
+- **apiGroups(templateInfo를** 사용하는 경우 필수) 
+  - 일치시킬 [API 그룹이](https://kubernetes.io/docs/reference/using-api/#api-groups) 포함된 _배열입니다._ 빈 배열( `[""]` )은 핵심 API 그룹이지만 `["*"]` 모든 API 그룹과 일치합니다.
+-  _kinds(templateInfo를_ 사용하는 경우 필수)
+  - 평가를 제한할 Kubernetes 개체의 [종류를](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/#required-fields) 포함하는 _배열입니다._
 - **values**(선택 사항)
   - 제약 조건에 전달할 매개 변수 및 값을 정의합니다. 각 값은 제약 조건 템플릿 CRD에 있어야 합니다.
-- **constraintTemplate** (사용 되지 않음)
+- **constraintTemplate(사용되지** 않습니다.)
   - `templateInfo`와 함께 사용할 수 없습니다.
   - `templateInfo`정책 정의를 만들거나 업데이트할 때로 바꾸어야 합니다.
   - 새로운 제약 조건을 정의하는 제약 조건 템플릿 CRD(CustomResourceDefinition)입니다. 이 템플릿은 Azure 정책의 **values** 를 통해 전달되는 Rego 논리, 제약 조건 스키마 및 제약 조건 매개 변수를 정의합니다. 새를 사용 하 여 대체 하는 것이 좋습니다 `templateInfo` `constraintTemplate` .
@@ -353,7 +353,7 @@ DeployIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
   - 일치하는 관련된 리소스를 인출할 범위를 설정합니다.
   - **type** 이 **if** 조건 리소스의 아래에 있는 리소스인 경우 적용되지 않습니다.
   - _ResourceGroup_ 의 경우 **ResourceGroupName** 에서 지정된 **if** 조건 리소스의 리소스 그룹 또는 리소스 그룹으로 제한합니다.
-  - _Subscription_ 의 경우 관련된 리소스에 대한 전체 구독을 쿼리합니다.
+  - _Subscription_ 의 경우 관련된 리소스에 대한 전체 구독을 쿼리합니다. 적절 한 평가를 위해 구독 이상에서 할당 범위를 설정 해야 합니다. 
   - 기본값은 _ResourceGroup_ 입니다.
 - **EvaluationDelay**(선택 사항)
   - 관련 리소스의 존재를 평가해야 하는 시기를 지정합니다. 지연은 리소스 만들기 또는 업데이트 요청의 결과인 평가에만 사용됩니다.

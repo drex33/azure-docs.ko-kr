@@ -3,21 +3,21 @@ title: Speaker Recognition 개요 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Speaker Recognition은 고유한 음성 특성에 따라 화자를 확인 및 식별하는 알고리즘을 제공합니다. 화자 인식은 "누가 말하고 있나요?"라는 질문에 대답하는 데 사용됩니다. 이 문서에서는 Speaker Recognition 서비스의 이점과 기능을 개략적으로 설명합니다.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.author: pafarley
+ms.author: eur
 ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 keywords: 스피커 인식, 음성 생체 측정
-ms.openlocfilehash: 44772137d9b9e3366a2a04fded34fa81dafe8886
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 4096e04678c3ce0b10ac54a190f3074525469b54
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131058391"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131509455"
 ---
 # <a name="what-is-speaker-recognition"></a>Speaker Recognition이란?
 
@@ -51,7 +51,7 @@ Speaker Recognition 오디오 클립에서 말하는 사람을 결정하는 데 
 
 ### <a name="how-does-speaker-identification-work"></a>화자 식별 작동 방법
 
-화자 식별 등록은 **텍스트 독립적이며,** 이는 등록을 활성화하기 위한 초기 활성화 문구 외에 오디오에서 화자가 말하는 내용에 제한이 없음을 의미합니다. Speaker Verification 마찬가지로, 화자의 음성은 등록 단계에서 녹음되고, 음성 기능이 추출되어 고유한 음성 서명을 형성합니다. 식별 단계에서는 입력된 음성 샘플이 등록된 음성의 지정된 목록(각 요청마다 최대 50개)과 비교됩니다.
+화자 식별 등록은 **텍스트 독립적이며,** 이는 등록을 활성화하기 위한 초기 활성화 문구 외에 오디오에서 화자가 말하는 내용에 제한이 없음을 의미합니다. Speaker Verification 마찬가지로, 화자의 음성이 등록 단계에 기록되고 음성 기능이 추출되어 고유한 음성 서명을 형성합니다. 식별 단계에서는 입력된 음성 샘플이 등록된 음성의 지정된 목록(각 요청마다 최대 50개)과 비교됩니다.
 
 ## <a name="data-security-and-privacy"></a>데이터 보안 및 개인 정보
 
@@ -85,6 +85,6 @@ Speaker Recognition 오디오 클립에서 말하는 사람을 결정하는 데 
 > [!div class="ResponsibleUseOfAI"]
 > * [Speaker Recognition 대한 투명도 참고 사항](/legal/cognitive-services/speech-service/speaker-recognition/transparency-note-speaker-recognition)
 > * [Speaker Recognition 대한 특징 및 제한 사항](/legal/cognitive-services/speech-service/speaker-recognition/characteristics-and-limitations-speaker-recognition)
-> * [Speaker Recognition 대한 액세스 제한](/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition)
+> * [Speaker Recognition 대한 제한된 액세스](/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition)
 > * [Speaker Recognition 통합 및 책임 있는 사용에 대한 지침](/legal/cognitive-services/speech-service/speaker-recognition/guidance-integration-responsible-use-speaker-recognition)
 > * [Speaker Recognition 대한 데이터 및 개인 정보](/legal/cognitive-services/speech-service/speaker-recognition/data-privacy-speaker-recognition)

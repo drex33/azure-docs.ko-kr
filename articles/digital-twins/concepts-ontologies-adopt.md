@@ -4,17 +4,19 @@ titleSuffix: Azure Digital Twins
 description: Azure Digital Twins에 채택할 수 있는 기존 업계 온톨로지 알아보기
 author: baanders
 ms.author: baanders
-ms.date: 2/26/2021
+ms.date: 10/27/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 51a35f13b8f9328abaad44b112acf4e2176796d6
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: 936df82dc8c7c5babcb3b1844f2d53f1396dbd8b
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122771187"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500662"
 ---
 # <a name="adopting-an-industry-ontology"></a>업계 온톨로지 채택
+
+이 문서에서는 솔루션을 간소화 하기 위해 채택할 수 있는 다양 한 업계 표준 온톨로지 집합을 설명 합니다.
 
 빈 페이지에서 시작하는 것보다 오픈 소스 DTDL(Digital Twins 정의 언어) 온톨로지로 시작하는 것이 더 쉬울 수 있기 때문에, Microsoft는 도메인 전문가와 협력하여 온톨로지를 게시하고 있습니다. 이러한 온톨로지는 널리 허용되는 업계 규칙을 나타내며 다양한 고객 사용 사례를 지원합니다. 
 

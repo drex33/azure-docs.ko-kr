@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 11/02/2021
 ms.author: b-juche
-ms.openlocfilehash: 90a87c85bace64c7c1cfc4a171c5fcbdb8d263c9
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 79bd8ca1855391365bfc33c7a259d1a984ce139c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130256365"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131447059"
 ---
 # <a name="configure-adds-ldap-with-extended-groups-for-nfs-volume-access"></a>NFS 볼륨 액세스에 대한 확장 그룹을 사용하여 ADDS LDAP 구성
 
@@ -37,7 +37,7 @@ ms.locfileid: "130256365"
 
 * 볼륨을 만든 후에는 LDAP 옵션 설정(사용 또는 사용 안 함)을 수정할 수 없습니다.  
 
-* 다음 표에서는 LDAP 캐시의 TTL(Time to Live) 설정에 대해 설명합니다. 클라이언트를 통해 파일이나 디렉터리에 액세스하기 전에 캐시가 새로 고쳐질 때까지 기다려야 합니다. 그러지 않으면 액세스 거부 메시지가 클라이언트에 표시됩니다. 
+* 다음 표에서는 LDAP 캐시의 TTL(Time to Live) 설정에 대해 설명합니다. 클라이언트를 통해 파일이나 디렉터리에 액세스하기 전에 캐시가 새로 고쳐질 때까지 기다려야 합니다. 그렇지 않으면 액세스 또는 사용 권한 거부 메시지가 클라이언트에 표시 됩니다. 
 
     |     오류 조건    |     해결 방법    |
     |-|-|

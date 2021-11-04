@@ -2,14 +2,14 @@
 title: Backup 자격 증명 모음 개요
 description: Backup 자격 증명 모음 개요입니다.
 ms.topic: conceptual
-ms.date: 09/08/2021
+ms.date: 10/31/2021
 ms.custom: references_regions
-ms.openlocfilehash: afe103e7fb6c2cb59634029c5ae9a75acadf0afc
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 1a3909e525adadc2e5983e2792e407301a5b321d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130235889"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473645"
 ---
 # <a name="backup-vaults-overview"></a>Backup 자격 증명 모음 개요
 
@@ -132,7 +132,7 @@ Backup Vault를 삭제하기 전에 제거해야 할 기존 백업 인스턴스 
 
 ### <a name="supported-regions"></a>지원되는 지역
 
-구독 및 리소스 그룹 간에 자격 증명 모음 이동은 현재 미국 서부, 미국 중남부, 동아시아, 스위스 북부, 남아프리카 북부, 영국 서부, 미국 중북부, 아랍에미리트 북부, 노르웨이 동부, 오스트레일리아 남동부, 일본 서부, 캐나다 동부, 한국 중부, 오스트레일리아 중부, 미국 중서부, 인도 중부, 인도 중부, 인도 서부, 인도 남부, 인도 남부, 아랍에미리트 중부에서 지원됩니다.  남아프리카 공화국 서부, 노르웨이 서부, 스위스 서부
+구독 간 자격 증명 모음 이동 및 리소스 그룹은 모든 공용 지역에서 지원됩니다.
 
 ### <a name="use-azure-portal-to-move-backup-vault-to-a-different-resource-group"></a>Azure Portal 사용하여 Backup 자격 증명 모음을 다른 리소스 그룹으로 이동
 

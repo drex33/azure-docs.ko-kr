@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 09/24/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cfa2c8b029a8c8267249907d3f67582a2a38c139
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 4344d8c12c139c428f44d417ccde2c5e950ed307
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129272101"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131477171"
 ---
 # <a name="update-azure-powershell-modules-in-automation"></a>Automation에서 Azure PowerShell 모듈 업데이트
 
@@ -36,11 +36,12 @@ Automation 계정에 [시스템 할당 관리 id 또는 사용자 할당 관리 
 현재 업데이트 AZ modules는 포털을 통해서만 사용할 수 있습니다. PowerShell 및 ARM 템플릿을 통한 업데이트는 나중에 제공 될 예정입니다. 다음 단계를 수행할 때 기본 Az 모듈만 업데이트 됩니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 Azure Automation 계정으로 이동합니다.
-1.  **공유 리소스** 에서 **PowerShell 모듈** 을 선택 합니다.
+1.  **공유 리소스** 아래에서 **모듈** 을 선택 합니다.
 1.  **업데이트 Az modules** 을 선택 합니다.
 1. **업데이트할 모듈을** 선택 합니다. 기본적으로 Az module이 표시 됩니다.  
-1. 드롭다운 목록에서 **모듈 버전** 을 선택 합니다.
+1. 드롭다운 목록에서 **모듈 버전** 및 **runtype 버전** 을 선택 합니다.
 1. **업데이트** 를 선택 하 여 Az module을 선택한 버전으로 업데이트 합니다.
+   **모듈** 페이지에서 아래와 같이 목록을 볼 수 있습니다.
 
    :::image type="content" source="./media/automation-update-azure-modules/update-az-modules-portal.png" alt-text="선택 항목으로 AZ modules 페이지를 업데이트 합니다.":::
 

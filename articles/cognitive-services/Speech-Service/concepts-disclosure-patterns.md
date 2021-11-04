@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: aec553b473e0fb2688224e8a8d027f7e9f3a6025
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 7a0bf694aca369e5ed774a8bb704973d49683afb
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101716621"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131507988"
 ---
 # <a name="disclosure-design-patterns"></a>디자인 패턴 공개
 가상 음성 경험에 적합한 [공개 수준](concepts-disclosure-guidelines.md#disclosure-assessment)을 결정했으므로 이제 잠재적 인 디자인 패턴을 탐색할 차례입니다.

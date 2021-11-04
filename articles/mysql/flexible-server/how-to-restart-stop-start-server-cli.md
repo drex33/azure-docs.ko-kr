@@ -6,19 +6,16 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2021
-ms.openlocfilehash: 68461802f24a34f66fd51dd6653fda97854c6cca
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 31645daf978aa24dfbdc7a947d7d3d8a609936b7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128634087"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131460606"
 ---
-# <a name="restartstopstart-an-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL - 유연한 서버(미리 보기) 다시 시작/중지/시작
+# <a name="restartstopstart-an-azure-database-for-mysql-flexible-server"></a>Azure Database for MySQL 유연한 서버 다시 시작/중지/시작
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 
 이 문서에서는 Azure CLI를 사용하여 유연한 서버를 다시 시작, 시작 및 중지하는 방법을 보여 줍니다.
 

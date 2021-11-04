@@ -3,19 +3,19 @@ title: 클라이언트 앱에서 명령 매개 변수 업데이트
 titleSuffix: Azure Cognitive Services
 description: 클라이언트 애플리케이션에서 명령을 업데이트하는 방법을 알아봅니다.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.author: pafarley
-ms.openlocfilehash: c5314e659379fb56aca1eea0f1834985fc303c86
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.author: eur
+ms.openlocfilehash: 08fc6fa9e30ad7ca0ef2a0d26c6d0f50d63d5c1b
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123541030"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131511285"
 ---
 # <a name="update-a-command-from-a-client-app"></a>클라이언트 앱에서 명령 업데이트
 

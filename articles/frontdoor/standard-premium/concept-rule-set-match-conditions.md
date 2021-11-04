@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: conceptual
 ms.date: 03/31/2021
 ms.author: yuajia
-ms.openlocfilehash: 9e8defa9e929d21f210c48ffbd3b22e44195c17d
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
-ms.translationtype: HT
+ms.openlocfilehash: 0765cfdc99024fbac0b117dfc4ae6bad6f04b292
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106061624"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131453557"
 ---
 # <a name="azure-front-door-standardpremium-preview-rule-set-match-conditions"></a>Azure Front Door 표준/프리미엄(미리 보기) 규칙 집합 일치 조건 구성
 
@@ -222,7 +222,8 @@ Azure Front Door 표준/프리미엄 [규칙 집합](concept-rule-set.md)에서 
     * **IPv6 예제**: `1:2:3:/48`은 1:2:3:0:0:0:0:0~1:2:3: ffff:ffff:ffff:ffff:ffff 주소에서 도착하는 요청과 일치합니다.
 * 여러 IP 주소와 IP 주소 블록을 지정할 때는 ‘OR’ 논리를 적용합니다.
     * **IPv4 예**: 두 IP 주소 `1.2.3.4` 및 `10.20.30.40`을 추가할 경우 주소 1.2.3.4 또는 10.20.30.40에서 오는 모든 요청에 대해 조건을 일치시킵니다.
-    * **IPv6 예**: 두 IP 주소 `1:2:3:4:5:6:7:8` 및 `10:20:30:40:50:60:70:80`을 추가할 경우 주소 1:2:3:4:5:6:7:8 또는 10:20:30:40:50:60:70:80에서 오는 모든 요청에 대해 조건이 일치합니다.
+    * **IPv6 예제:** 두 개의 IP 주소 및 를 추가하는 경우 `1:2:3:4:5:6:7:8` `10:20:30:40:50:60:70:80` 1:2:3:4:5:6:7:8 또는 10:20:30:40:50:60:70:80 주소에서 도착하는 모든 요청에 대해 조건이 일치합니다.
+* 원격 주소는 네트워크 연결에서 온 원래 클라이언트 IP를 나타내거나, 사용자가 프록시 뒤에 있는 경우 일반적으로 X-Forwarded-For 요청 헤더를 나타냅니다.
 
 ### <a name="properties"></a>속성
 

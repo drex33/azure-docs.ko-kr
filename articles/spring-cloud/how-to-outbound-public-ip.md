@@ -7,16 +7,19 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/17/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: cc3050cb7c92e0e46c02a4a12f218364b94b2d1f
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
-ms.translationtype: HT
+ms.openlocfilehash: 57c161659819bd89d2587b287a3c58058aa3c9ce
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529590"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501384"
 ---
 # <a name="how-to-identify-outbound-public-ip-addresses-in-azure-spring-cloud"></a>Azure 스프링 클라우드에서 아웃바운드 공용 IP 주소를 확인하는 방법
 
-이 페이지에서는 Azure 스프링 클라우드 애플리케이션의 고정 아웃바운드 공용 IP 주소를 보는 방법을 설명합니다.  공용 IP는 데이터베이스, 스토리지 및 키 자격 증명 모음과 같은 외부 리소스와 통신하는 데 사용됩니다.
+이 페이지에서는 Azure 스프링 클라우드 애플리케이션의 고정 아웃바운드 공용 IP 주소를 보는 방법을 설명합니다. 공용 IP는 데이터베이스, 스토리지 및 키 자격 증명 모음과 같은 외부 리소스와 통신하는 데 사용됩니다.
+
+> [!IMPORTANT]
+> Azure Spring Cloud 인스턴스가 사용자 고유의 가상 네트워크에 배포된 경우 네트워크 보안 그룹 또는 Azure Firewall 활용하여 송신 트래픽을 완전히 제어할 수 있습니다.
 
 ## <a name="how-ip-addresses-work-in-azure-spring-cloud"></a>Azure 스프링 클라우드에서 IP 주소가 작동하는 방식
 

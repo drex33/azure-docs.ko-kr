@@ -1,88 +1,89 @@
-- name: 관리형 HSM 설명서
-  href: index.yml
-- name: 개요
-  items:
-    - name: 관리형 HSM 정보
-      href: overview.md
-- name: 빠른 시작
-  expanded: true
-  items:
-    - name: CLI
-      href: quick-create-cli.md
-    - name: PowerShell
-      href: quick-create-powershell.md
-    - name: Azure Resource Manager 템플릿
-      href: quick-create-template.md
-- name: 자습서
-  items:
-    - name: Azure CLI로 관리
-      href: key-management.md
-    - name: 관리형 HSM 역할 관리
-      href: role-management.md
-    - name: 관리형 HSM에 대한 보안 액세스
-      href: secure-your-managed-hsm.md
-    - name: 프라이빗 엔드포인트 사용
-      href: private-link.md
-    - name: 관리형 HSM에 대한 로깅 설정
-      href: logging.md
-    - name: 재해 복구
-      href: disaster-recovery-guide.md
-    - name: HSM 보호 키를 관리형 HSM으로 가져오기
-      href: hsm-protected-keys-byok.md
-    - name: 백업 및 복원
-      href: backup-restore.md
-    - name: 일시 삭제 및 제거 보호를 통한 복구 관리
-      href: recovery.md
-- name: 개념
-  items:
-    - name: 보안 도메인
-      href: security-domain.md
-    - name: 모범 사례
-      href: best-practices.md
-    - name: Access Control
-      href: access-control.md
-    - name: 로컬 RBAC 기본 제공 역할
-      href: built-in-roles.md
-    - name: 관리형 HSM 일시 삭제
-      href: soft-delete-overview.md
-- name: 참조
-  items:
-    - name: Azure PowerShell
-      href: /powershell/azure#key_vault
-    - name: Azure CLI
-      href: /cli/azure/keyvault
-    - name: .NET
-      href: /dotnet/api/overview/azure/key-vault
-    - name: Java
-      href: /java/api/overview/azure/keyvault
-    - name: Node.js
-      href: /javascript/api/overview/azure/key-vault-index
-    - name: Python
-      href: /python/api/overview/azure/key-vault-index
-    - name: REST (영문)
-      href: /rest/api/keyvault
-    - name: Resource Manager 템플릿
-      href: /azure/templates/microsoft.keyvault/allversions
-      displayName: ARM
-- name: 리소스
-  items:
-    - name: 타사 솔루션
-      href: third-party-solutions.md
-    - name: Microsoft Learn을 통해 기술 쌓기
-      href: /learn/browse/?products=azure-key-vault
-    - name: 가격 책정
-      href: 'https://azure.microsoft.com/pricing/details/key-vault/'
-    - name: 지역 가용성
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=key-vault&regions=all'
-    - name: SLA(서비스 수준 계약)
-      href: 'https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/'
-    - name: 서비스 제한
-      href: ../general/service-limits.md
-    - name: 서비스 상태
-      href: 'https://azure.microsoft.com/status/'
-    - name: 서비스 업데이트
-      href: 'https://azure.microsoft.com/updates/?product=key-vault'
-    - name: 블로그
-      href: /archive/blogs/kv/
-    - name: 제품 사용자 의견
-      href: 'https://feedback.azure.com/forums/906355-azure-key-vault'
+items:
+  - name: 관리형 HSM 설명서
+    href: index.yml
+  - name: 개요
+    items:
+      - name: 관리형 HSM 정보
+        href: overview.md
+  - name: 빠른 시작
+    expanded: true
+    items:
+      - name: CLI
+        href: quick-create-cli.md
+      - name: PowerShell
+        href: quick-create-powershell.md
+      - name: Azure Resource Manager 템플릿
+        href: quick-create-template.md
+  - name: 자습서
+    items:
+      - name: Azure CLI로 관리
+        href: key-management.md
+      - name: 관리형 HSM 역할 관리
+        href: role-management.md
+      - name: 관리형 HSM에 대한 보안 액세스
+        href: secure-your-managed-hsm.md
+      - name: 프라이빗 엔드포인트 사용
+        href: private-link.md
+      - name: 관리형 HSM에 대한 로깅 설정
+        href: logging.md
+      - name: 재해 복구
+        href: disaster-recovery-guide.md
+      - name: HSM 보호 키를 관리형 HSM으로 가져오기
+        href: hsm-protected-keys-byok.md
+      - name: 백업 및 복원
+        href: backup-restore.md
+      - name: 일시 삭제 및 제거 보호를 통한 복구 관리
+        href: recovery.md
+  - name: 개념
+    items:
+      - name: 보안 도메인
+        href: security-domain.md
+      - name: 모범 사례
+        href: best-practices.md
+      - name: Access Control
+        href: access-control.md
+      - name: 로컬 RBAC 기본 제공 역할
+        href: built-in-roles.md
+      - name: 관리형 HSM 일시 삭제
+        href: soft-delete-overview.md
+  - name: 참조
+    items:
+      - name: Azure PowerShell
+        href: /powershell/azure#key_vault
+      - name: Azure CLI
+        href: /cli/azure/keyvault
+      - name: .NET
+        href: /dotnet/api/overview/azure/key-vault
+      - name: Java
+        href: /java/api/overview/azure/keyvault
+      - name: Node.js
+        href: /javascript/api/overview/azure/key-vault-index
+      - name: Python
+        href: /python/api/overview/azure/key-vault-index
+      - name: REST
+        href: /rest/api/keyvault
+      - name: Resource Manager 템플릿
+        href: /azure/templates/microsoft.keyvault/allversions
+        displayName: ARM
+  - name: 리소스
+    items:
+      - name: 타사 솔루션
+        href: third-party-solutions.md
+      - name: Microsoft Learn을 통해 기술 쌓기
+        href: /learn/browse/?products=azure-key-vault
+      - name: 가격 책정
+        href: 'https://azure.microsoft.com/pricing/details/key-vault/'
+      - name: 지역 가용성
+        href: 'https://azure.microsoft.com/global-infrastructure/services/?products=key-vault&regions=all'
+      - name: SLA(서비스 수준 계약)
+        href: 'https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/'
+      - name: 서비스 제한
+        href: ../general/service-limits.md
+      - name: 서비스 상태
+        href: 'https://azure.microsoft.com/status/'
+      - name: 서비스 업데이트
+        href: 'https://azure.microsoft.com/updates/?product=key-vault'
+      - name: 블로그
+        href: /archive/blogs/kv/
+      - name: 제품 사용자 의견
+        href: 'https://feedback.azure.com/d365community/forum/285c5ae0-f524-ec11-b6e6-000d3a4f0da0'

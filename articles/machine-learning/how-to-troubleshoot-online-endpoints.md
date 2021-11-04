@@ -11,12 +11,12 @@ ms.reviewer: laobri
 ms.date: 05/13/2021
 ms.topic: troubleshooting
 ms.custom: devplatv2
-ms.openlocfilehash: e4c4b611b4316f0e9a950c9f13144e37c9c1762b
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 9bd4d635eaaa2a6fa676b965ebd6df0eac7ea8ec
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129425757"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131429701"
 ---
 # <a name="troubleshooting-managed-online-endpoints-deployment-and-scoring-preview"></a>관리형 온라인 엔드포인트 배포 및 채점(미리 보기) 문제 해결
 
@@ -102,13 +102,13 @@ az ml endpoint get-logs -h
 
 Azure Machine Learning 용량 부족으로 인해 지정된 VM 크기를 프로비저닝하지 못했습니다. 나중에 다시 시도하거나 다른 지역에 배포해 보세요.
 
-### <a name="err_1102-no-more-role-assignments"></a>ERR_1102: 더 이상 역할 할당 없음
+### <a name="err_1102-no-more-role-assignments"></a>ERR_1102: 역할 할당이 더 이상 없습니다.
 
-이 구독에서 사용되지 않는 일부 역할 할당을 삭제합니다. Access Control 메뉴의 Azure Portal 모든 역할 할당을 확인할 수 있습니다.
+이 구독에서 사용 되지 않는 역할 할당을 삭제 합니다. Access Control 메뉴에서 Azure Portal의 모든 역할 할당을 확인할 수 있습니다.
 
-### <a name="err_1103-endpoint-quota-reached"></a>ERR_1103: 엔드포인트 할당량에 도달했습니다.
+### <a name="err_1103-endpoint-quota-reached"></a>ERR_1103: 끝점 할당량에 도달 했습니다.
 
-이 구독에서 사용되지 않는 일부 엔드포인트를 삭제합니다.
+이 구독에서 사용 되지 않는 일부 끝점을 삭제 합니다.
 
 ### <a name="err_1200-unable-to-download-user-container-image"></a>ERR_1200: 사용자 컨테이너 이미지를 다운로드할 수 없음
 
@@ -181,11 +181,11 @@ az ml endpoint get-logs
 
 ### <a name="err_2101-kubernetes-unschedulable"></a>ERR_2101: Kubernetes 예약 불가능
 
-요청된 CPU 또는 메모리를 충족할 수 없습니다. 요청 또는 클러스터를 조정하세요.
+요청한 CPU 또는 메모리를 만족할 수 없습니다. 요청 또는 클러스터를 조정 하세요.
 
-### <a name="err_2102-resources-requests-invalid"></a>ERR_2102: 리소스 요청이 잘못되었습니다.
+### <a name="err_2102-resources-requests-invalid"></a>ERR_2102: 리소스 요청이 잘못 되었습니다.
 
-리소스에 대한 요청은 제한보다 적거나 같아야 합니다. 제한을 설정하지 않으면 컴퓨팅을 Azure Machine Learning 작업 영역에 연결할 때 기본값을 설정합니다. Azure Portal 또는 명령을 사용하여 제한을 확인할 수 `az ml compute show` 있습니다.
+리소스에 대 한 요청은 한도 보다 작거나 같아야 합니다. 제한을 설정 하지 않으면 계산을 Azure Machine Learning 작업 영역에 연결할 때 기본값이 설정 됩니다. Azure Portal 또는 명령을 사용 하 여 제한을 확인할 수 있습니다 `az ml compute show` .
 
 ### <a name="err_2200-user-container-has-crashedterminated"></a>ERR_2200: 사용자 컨테이너에 crashed\terminated가 있음
 
@@ -195,7 +195,7 @@ az ml endpoint get-logs
     - 가져온 패키지는 conda 환경에 없습니다.
     - 구문 오류
     - `init()` 메서드의 실패
-- `get-logs`가 로그를 생성하지 않는 경우 일반적으로 컨테이너를 시작하지 못했는지를 의미합니다. 이 문제를 디버그하려면 대신 [로컬로 배포해](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/how-to-troubleshoot-online-endpoints.md#deploy-locally) 보세요.
+- `get-logs`에서 로그를 생성 하지 않는 경우 일반적으로 컨테이너를 시작 하지 못했음을 의미 합니다. 이 문제를 디버그 하려면 [로컬로 배포](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/how-to-troubleshoot-online-endpoints.md#deploy-locally) 해 보세요.
 - 준비 또는 활동성 프로브가 올바르게 설정되지 않았습니다.
 - 종속성 누락 등 컨테이너의 환경 설정에 오류가 있습니다.
 
@@ -214,10 +214,10 @@ REST 요청으로 관리형 온라인 엔드포인트에 액세스할 때 반환
 | 404 | 찾을 수 없음 | URL이 올바르지 않습니다. |
 | 408 | 요청 시간 초과 | 모델 실행이 모델 배포 구성의 `request_settings`에 있는 `request_timeout_ms`에 제공된 제한 시간보다 오래 걸렸습니다.|
 | 413 | 페이로드가 너무 큼 | 요청 페이로드가 1.5MB보다 큽니다. |
-| 424 | 모델 오류; original-code=`<original code>` | 모델 컨테이너가 200이 아닌 응답을 반환하면 Azure는 424를 반환합니다. |
+| 424 | 모델 오류 | 모델 컨테이너가 200이 아닌 응답을 반환하면 Azure는 424를 반환합니다. 응답 헤더 `ms-azureml-model-error-statuscode` 를 확인 하 고 `ms-azureml-model-error-reason` 자세한 내용을 확인 하세요. |
 | 424 | 응답 페이로드가 너무 큼 | 컨테이너가 1.5MB보다 큰 페이로드를 반환하는 경우 Azure는 424를 반환합니다. |
 | 429 | 속도 제한 | 엔드포인트에 초당 100개가 넘는 요청을 보내려고 했습니다. |
-| 429 | 보류 중인 요청이 너무 많음 | 모델이 처리할 수 있는 것보다 더 많은 요청을 받고 있습니다. 언제든지 2개의 *`max_concurrent_requests_per_instance`* `instance_count` 요청이 허용됩니다. 추가 요청이 거부됩니다. `request_settings` 및 `scale_settings` 아래의 모델 배포 구성에서 이러한 설정을 확인할 수 있습니다. 자동 크기 조정을 사용하는 경우 모델은 시스템을 스케일 업할 수 있는 것보다 더 빠르게 요청을 받고 있습니다. 자동 크기 조정을 사용하면 [지수 백오프](https://aka.ms/exponential-backoff)를 사용하여 요청을 다시 보낼 수 있습니다. 이렇게 하면 시스템이 조정할 시간을 확보할 수 있습니다. |
+| 429 | 보류 중인 요청이 너무 많음 | 모델이 처리할 수 있는 것보다 더 많은 요청을 받고 있습니다. 언제 든 지 2 * 개의 `max_concurrent_requests_per_instance`  *  `instance_count` 요청을 허용 합니다. 추가 요청이 거부됩니다. `request_settings` 및 `scale_settings` 아래의 모델 배포 구성에서 이러한 설정을 확인할 수 있습니다. 자동 크기 조정을 사용하는 경우 모델은 시스템을 스케일 업할 수 있는 것보다 더 빠르게 요청을 받고 있습니다. 자동 크기 조정을 사용하면 [지수 백오프](https://aka.ms/exponential-backoff)를 사용하여 요청을 다시 보낼 수 있습니다. 이렇게 하면 시스템이 조정할 시간을 확보할 수 있습니다. |
 | 500 | 내부 서버 오류 | Azure ML 프로비전된 인프라가 실패합니다. |
 
 ## <a name="next-steps"></a>다음 단계

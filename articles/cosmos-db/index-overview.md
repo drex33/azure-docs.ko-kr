@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/26/2021
 ms.author: tisande
-ms.openlocfilehash: 8228c3cedf58b389b93a516c4a372a38b33c0e4d
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
-ms.translationtype: HT
+ms.openlocfilehash: 4bb901d0c6c917b2efbaef486e97010a8ac27458
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123028542"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450175"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 인덱싱 - 개요
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -178,7 +178,7 @@ Azure Cosmos DB는 현재 3가지 유형의 인덱스를 지원합니다. 이러
 
 * 위의 쿼리는 인덱스를 사용하여 firstName = "Andrew"인 항목에 대해 먼저 필터링합니다. 그런 다음, 모든 firstName = "Andrew" 항목을 후속 파이프라인을 통해 전달하여 CONTAINS 필터 조건자를 평가합니다.
 
-* 인덱스를 사용하지 않는 함수(예: CONTAINS)를 사용할 때 인덱스를 사용하는 다른 필터 조건자를 추가하여 쿼리 속도를 높이고 전체 컨테이너 검사를 방지할 수 있습니다. 필터 절의 순서는 중요하지 않습니다. 쿼리 엔진이 더 선택적인 조건자를 파악하고 그에 따라 쿼리를 실행합니다.
+* 인덱스를 사용하지 않는 함수(예: CONTAINS)를 사용할 때 인덱스를 사용하는 다른 필터 조건자를 추가하여 쿼리 속도를 높이고 전체 컨테이너 검사를 방지할 수 있습니다. 필터 절의 순서는 중요하지 않습니다. 쿼리 엔진은 조건자를 선택 하 고 그에 따라 쿼리를 실행 합니다.
 
 복합 인덱스를 구성하는 방법을 알아보려면 [복합 인덱싱 정책 예제](how-to-manage-indexing-policy.md#composite-index)를 참조하세요.
 

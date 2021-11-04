@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/26/2021
 ms.author: jushiman
-ms.openlocfilehash: a8e6133d0b4e7d0595524bb4142e51610226ad7f
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: f0a78f60f8610c4b6430cf33928ec389c0ed85ba
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130214690"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471576"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure의 2세대 VM 지원
 
@@ -37,10 +37,20 @@ ms.locfileid: "130214690"
 * [Dsv4 시리즈](dv4-dsv4-series.md)
 * [Dasv4 시리즈](dav4-dasv4-series.md)
 * [Ddsv4 시리즈](ddv4-ddsv4-series.md)
+* [Dasv5 시리즈](dasv5-dadsv5-series.md)
+* [Dadsv5 시리즈](dasv5-dadsv5-series.md)
+* [Dv5 시리즈](dv5-dsv5-series.md)
+* [Dsv5 시리즈](dv5-dsv5-series.md)
 * [Esv3 시리즈](ev3-esv3-series.md)
 * [Esv4 시리즈](ev4-esv4-series.md)
 * [Easv4 시리즈](eav4-easv4-series.md)
 * [Edsv4 시리즈](edv4-edsv4-series.md)
+* [Easv5 시리즈](easv5-eadsv5-series.md)
+* [Eadsv5 시리즈](easv5-eadsv5-series.md)
+* [Edv5 시리즈](edv5-edsv5-series.md)
+* [Edsv5 시리즈](edv5-edsv5-series.md)
+* [Ev5 시리즈](ev5-esv5-series.md)
+* [Esv5 시리즈](ev5-esv5-series.md)
 * [Fsv2 시리즈](fsv2-series.md)
 * [GS 시리즈](sizes-previous-gen.md#gs-series)
 * [HB 시리즈](hb-series.md)
@@ -58,6 +68,7 @@ ms.locfileid: "130214690"
 * [NVv3 시리즈](nvv3-series.md)
 * [NVv4 시리즈](nvv4-series.md)
 * [NCasT4_v3 시리즈](nct4-v3-series.md)
+* [NDm A100 v4 시리즈](ndm-a100-v4-series.md)
 
 <sup>1</sup> Mv2 시리즈, DC 시리즈, NDv2 시리즈, Msv2 및 Mdsv2 시리즈 Medium Memory는 1 세대 VM 이미지를 지원 하지 않으며 2 세대 이미지의 하위 집합만 지원 합니다. 자세한 내용은 [Mv2 시리즈 설명서](mv2-series.md), [DSv2 시리즈](dv2-dsv2-series.md), [ND A100 v4 시리즈](nda100-v4-series.md), [NDv2 시리즈](ndv2-series.md)및 [Msv2 및 Mdsv2 Medium Memory 시리즈](msv2-mdsv2-series.md) 를 참조 하세요.
 
@@ -111,9 +122,10 @@ Azure는 현재 온-프레미스 Hyper-V가 2세대 VM에 대해 지원하는 �
 | 가상 머신 확장 집합 지원 | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | 백업/복원                    | :heavy_check_mark: | :heavy_check_mark: |
-| 공유 이미지 갤러리              | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Compute 갤러리             | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :heavy_check_mark:                |
 | [서버 쪽 암호화](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
+
 
 ## <a name="creating-a-generation-2-vm"></a>2세대 VM 만들기
 

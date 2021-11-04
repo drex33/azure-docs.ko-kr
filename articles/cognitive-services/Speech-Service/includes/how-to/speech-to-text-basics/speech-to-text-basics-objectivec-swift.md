@@ -1,15 +1,15 @@
 ---
-author: v-demjoh
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 9/22/2020
-ms.author: v-demjoh
-ms.openlocfilehash: bc67c3433c939be39453c954ada1171dc210b692
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.author: eric-urban
+ms.openlocfilehash: 6b993ef9776971fcfaf1be9b11e351b9a49d8ebe
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425092"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501920"
 ---
 Swift 및 Objective-C용 Speech SDK를 사용하여 음성을 텍스트로 변환할 수 있습니다.
 

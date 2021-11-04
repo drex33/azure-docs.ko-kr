@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 3/15/2021
 ms.custom: template-concept,references_regions
-ms.openlocfilehash: 175b940995ed4e68e1358989e8c9b09c201f3ce4
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: ff4b23ffaf366ac9c1583b6fb9eb87f87b7db0e0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129711806"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131428941"
 ---
 # <a name="azure-private-link-availability"></a>Azure Private Link 가용성
 
@@ -39,7 +39,7 @@ Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드�
 |Azure Event Hub | 모든 공용 지역<br/>Azure Government 지역      |   | GA   <br/> [Azure Event Hub에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../event-hubs/private-link-service.md)  |
 | Azure Monitor <br/>(Log Analytics 및 Application Insights) | 모든 공용 지역      |  | GA   <br/> [Azure Monitor에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../azure-monitor/logs/private-link-security.md)   |
 |Azure 데이터 팩터리 | 모든 공용 지역<br/> Azure Government 지역<br/>모든 중국 지역    | 자격 증명을 Azure key vault에 저장해야 합니다.| GA   <br/> [Azure Data Factory에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../data-factory/data-factory-private-link.md)   |
-|Azure HDInsight | 모든 공용 지역<br/>Azure Government 지역      |   | GA   <br/> [Azure HDInsight에 대 한 개인 끝점을 만드는 방법을 알아봅니다.](../hdinsight/hdinsight-private-link.md)  |
+|Azure HDInsight | 모든 공용 지역<br/>Azure Government 지역      |   | GA   <br/> [Azure HDInsight 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../hdinsight/hdinsight-private-link.md)  |
 
 ### <a name="compute"></a>컴퓨팅
 
@@ -85,6 +85,7 @@ Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드�
 | ------------ | ----------------| ------------| ----------------|
 | Azure Automation  | 모든 공용 지역<br/> Azure Government 지역 |  | GA </br> [Azure Automation에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../automation/how-to/private-link-security.md)|
 |Azure Backup | 모든 공용 지역<br/> Azure Government 지역   |  | GA <br/> [Azure Backup에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../backup/private-endpoints.md)   |
+|Azure Purview | 동남 아시아, 오스트레일리아 동부, 브라질 남부, 서유럽, 유럽 서부, 캐나다 중부, 미국 동부, 미국 동부 2, 미국 동부 2 EUAP, 미국 중 북부, 미국 서 부, 미국 서 부 2, 인도 중부, 영국 남부   | [알려진 제한 사항에 따른 선택](../purview/catalog-private-link-troubleshoot.md#known-limitations) | GA <br/> [Azure 부서의 범위에 대 한 개인 끝점을 만드는 방법에 대해 알아봅니다.](../purview/catalog-private-link.md)   |
 
 ### <a name="security"></a>보안
 

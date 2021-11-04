@@ -7,12 +7,12 @@ ms.date: 07/14/2021
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 6ddb30832db4e504e57296d00db45125f8514afd
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 3216a8f82bc066cded33f133d9fe8823484d50b0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122537706"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131463148"
 ---
 # <a name="security-guidelines-for-cross-organizational-apps"></a>조직 간 앱에 대한 보안 지침
 
@@ -56,7 +56,7 @@ Azure Virtual Desktop은 다음과 같은 운영 체제를 지원합니다.
 
 - Windows 7
 - Windows 10 Enterprise
-- Windows Server 2012 R2, 2016 및 2019
+- Windows Server 2012 R2, 2016, 2019 및 2022
 - Windows 10 Enterprise 다중 세션
 
 Windows 10 Enterprise 다중 세션은 Windows Server와 마찬가지로 여러 동시 대화형 세션을 허용하는 RDSH(원격 데스크톱 세션 호스트)로 작동하는 Azure 전용 OS입니다. Windows 10 환경은 사용자에게 친숙하고 일관된 환경을 제공합니다. 또한 서비스의 사용자별 Windows 라이선스는 IT 부서에서 RDS CAL(클라이언트 액세스 라이선스)을 계속 구매할 필요가 없으므로 조직 전체에 대한 비용을 절감합니다. 이러한 이점 때문에 Windows 10 Enterprise 다중 세션은 Azure Virtual Desktop의 세션 호스트에 가장 널리 배포된 OS입니다.

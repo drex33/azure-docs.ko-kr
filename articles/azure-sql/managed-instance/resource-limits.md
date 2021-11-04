@@ -12,12 +12,12 @@ author: vladai78
 ms.author: vladiv
 ms.reviewer: mathoma, vladiv, sachinp, wiassaf
 ms.date: 10/18/2021
-ms.openlocfilehash: 77548bc86c98815174b2319a58554d4beee894c3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 5014c0b22d14f43baa99ad9eac3eb27ed6526c5b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131072190"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473569"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Azure SQL Managed Instance 리소스 제한 개요
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -29,54 +29,55 @@ ms.locfileid: "131072190"
 
 ## <a name="hardware-generation-characteristics"></a>하드웨어 세대 특성
 
-SQL Managed Instance에는 기본 인프라 및 아키텍처에 따라 달라지는 특성과 리소스 제한이 있습니다. SQL Managed Instance는 여러 하드웨어 세대에 배포할 수 있습니다. 
+SQL Managed Instance에는 기본 인프라 및 아키텍처에 따라 달라지는 특성과 리소스 제한이 있습니다. SQL Managed Instance 여러 하드웨어 세대에 배포할 수 있습니다. 
 
 > [!NOTE]
-> Gen5 하드웨어 생성은 **표준 시리즈 (Gen5)** 로 이름이 바뀌고, microsoft는 두 가지 새로운 하드웨어 세대를 제한 된 미리 보기로 제공 합니다. **프리미엄 시리즈** 및 메모리 액세스에 **최적화 된 프리미엄 시리즈** 를 소개 합니다.
+> Gen5 하드웨어 세대는 **표준 시리즈(Gen5)로** 이름이 바뀌었으며, 제한된 미리 보기에서 프리미엄 시리즈 및 메모리 최적화 **프리미엄** **시리즈** 의 두 가지 새로운 하드웨어 세대를 도입하고 있습니다.
 
-이전 세대 하드웨어 세대에 대 한 자세한 내용은이 문서의 뒷부분에 나오는 [이전 세대 하드웨어 생성 정보](#previous-generation-hardware) 를 참조 하세요. 
+이전 세대 하드웨어 세대에 대한 자세한 내용은 이 문서의 후반부에 있는 [이전 세대 하드웨어 세대 세부 정보를](#previous-generation-hardware) 참조하세요. 
 
 하드웨어 세대에는 다음 표에서 설명하는 다양한 특성이 있습니다.
 
-|    | **표준 시리즈 (Gen5)** | **Premium 시리즈 (미리 보기)** | **메모리 액세스에 최적화 된 프리미엄 시리즈 (미리 보기)** | 
+|    | **표준 시리즈(Gen5)** | **Premium 시리즈(미리 보기)** | **메모리 최적화 프리미엄 시리즈(미리 보기)** | 
 |:-- |:-- |:-- |:-- |
-| **CPU** |  Intel &reg; E5-2673 v4 (Broadwell) 2.3 ghz, intel &reg; SP-8160 (Skylake) 및 intel &reg; 8272Cl (케스케이드 Lake) 2.5 GHz 프로세서 | Intel &reg; 8370c (아이스 Lake) 2.8 GHz 프로세서 | Intel &reg; 8370c (아이스 Lake) 2.8 GHz 프로세서 |
-| **vCore 수** <BR>vCore = 1 LP (하이퍼 스레드) | 4-80 vCores | 4-80 vCores | 4-64 vCores |
-| **최대 메모리 (메모리/vCore 비율)** | vCore당 5.1GB<br/>더 많은 메모리를 얻으려면 vCore를 더 추가합니다. | vCore당 7GB | vCore 당 13.6 GB |
-| **메모리 내 최대 OLTP 메모리** |  인스턴스 제한: vCore당 0.8 ~ 1.65GB | 인스턴스 제한: 1.1-vCore 당 2.3 GB | 인스턴스 제한: 2.2-vCore 당 4.5 GB |
-| **최대 인스턴스 예약 된 저장소**\* | **일반 용도:** 최대 16tb<br/> **중요 비즈니스용:** 최대 4tb | **일반 용도:** 최대 16tb<br/> **중요 비즈니스용:** 최대 5.5 TB | **일반 용도:** 최대 16tb <br/> **중요 비즈니스용:** 최대 16tb |
+| **CPU** |  Intel &reg; E5-2673 v4(Broadwell) 2.3GHz, Intel &reg; SP-8160(Skylake) 및 Intel &reg; 8272CL(Cascade Lake) 2.5GHz 프로세서 | Intel &reg; 8370C(Ice Lake) 2.8GHz 프로세서 | Intel &reg; 8370C(Ice Lake) 2.8GHz 프로세서 |
+| **vCore 수** <BR>vCore=1 LP(하이퍼 스레드) | 4-80개 vCore | 4-80개 vCore | 4-64개 vCore |
+| **최대 메모리(메모리/vCore 비율)** | vCore당 5.1GB<br/>더 많은 메모리를 얻으려면 vCore를 더 추가합니다. | vCore당 7GB | vCore당 13.6GB |
+| **메모리 내 최대 OLTP 메모리** |  인스턴스 제한: vCore당 0.8 ~ 1.65GB | 인스턴스 제한: vCore당 1.1 - 2.3GB | 인스턴스 제한: vCore당 2.2 - 4.5GB |
+| **최대 인스턴스 예약 스토리지**\* | **범용:** 최대 16 TB<br/> **중요 비즈니스용:** 최대 4 TB | **범용:** 최대 16 TB<br/> **중요 비즈니스용:** 최대 5.5 TB | **범용:** 최대 16 TB <br/> **중요 비즈니스용:** 최대 16 TB |
 
-\*[Vcores의 수](#service-tier-characteristics)에 따라 달라 집니다.
+\*[vCore 수에](#service-tier-characteristics)따라 달라집니다.
 
-### <a name="regional-support-for-premium-series-hardware-generations-preview"></a>프리미엄 시리즈 하드웨어 세대에 대 한 지역별 지원 (미리 보기)
+### <a name="regional-support-for-premium-series-hardware-generations-preview"></a>프리미엄 시리즈 하드웨어 세대에 대한 지역별 지원(미리 보기)
 
-프리미엄 시리즈 하드웨어 세대 (공개 미리 보기)에 대 한 지원은 현재 이러한 특정 지역 에서만 사용할 수 있습니다.
+프리미엄 시리즈 하드웨어 세대(공개 미리 보기)에 대한 지원은 현재 다음 특정 지역에서만 사용할 수 있습니다.
 
 
-| 지역 | **Premium 시리즈** | **메모리 액세스에 최적화 된 프리미엄 시리즈** | 
+| 지역 | **Premium 시리즈** | **메모리 최적화 프리미엄 시리즈** | 
 |:--- |:--- |:--- |
-| 미국 중부 | 예 | 예 | 
+| 미국 중부 | 예 |  | 
+| 미국 동부  | 예 |  | 
 | 미국 동부 2 | 예 | 예 | 
-| 북유럽 | 예 | 예 | 
+| 북유럽 |  | 예 | 
 | 서유럽 | 예 | 예 | 
-| 미국 서부 | 예 | 예 | 
+| 미국 서부 |  | 예 |  
 | 미국 서부 2 | 예 | 예 | 
 
 
 ### <a name="in-memory-oltp-available-space"></a>메모리 내 OLTP 사용 가능한 공간 
 
-[중요 비즈니스용](../database/service-tier-business-critical.md) 서비스 계층의 메모리 내 OLTP 공간의 양은 vcores 및 하드웨어 생성 수에 따라 달라 집니다. 다음 표에는 메모리 내 OLTP 개체에 사용할 수 있는 메모리 한도가 정리 되어 있습니다.
+[중요 비즈니스용](../database/service-tier-business-critical.md) 서비스 계층의 메모리 내 OLTP 공간 크기는 vCore 수 및 하드웨어 생성에 따라 달라집니다. 다음 표에서는 메모리 내 OLTP 개체에 사용할 수 있는 메모리 제한을 나열합니다.
 
-| **vCore 수** | **표준 시리즈 (Gen5)** | **Premium 시리즈** | **메모리 액세스에 최적화 된 프리미엄 시리즈** | 
+| **vCore 수** | **표준 시리즈(Gen5)** | **Premium 시리즈** | **메모리 최적화 프리미엄 시리즈** | 
 |:--- |:--- |:--- |:--- |
-| vCore 4개    | 3.14GB | 4.39 GB | 8.79 GB | 
-| vCore 8개    | 6.28GB | 8.79 GB | 22.06 GB |  
-| 16개 vCore | 15.77 GB | 22.06 GB | 57.58 GB |
-| 24개 vCore | 25.25 GB | 35.34 GB | 93.09 GB |
-| 32개 vCore | 37.94 GB | 53.09 GB | 128.61 GB |
-| 40개 vCore | 52.23 GB | 73.09 GB | 164.13 GB |
-| 64 vCore | 99.9GB | 139.82 GB | 288.61 GB |
-| 80개 vCore | 131.68GB| 184.30 GB | - |
+| vCore 4개    | 3.14GB | 4.39GB | 8.79GB | 
+| vCore 8개    | 6.28GB | 8.79GB | 22.06GB |  
+| 16개 vCore | 15.77GB | 22.06GB | 57.58GB |
+| 24개 vCore | 25.25GB | 35.34GB | 93.09GB |
+| 32개 vCore | 37.94GB | 53.09GB | 128.61GB |
+| 40개 vCore | 52.23GB | 73.09GB | 164.13GB |
+| 64 vCore | 99.9GB | 139.82GB | 288.61GB |
+| 80개 vCore | 131.68GB| 184.30GB | N/A |
 
 ## <a name="service-tier-characteristics"></a>서비스 계층 특성
 
@@ -87,24 +88,24 @@ SQL Managed Instance에는 [범용](../database/service-tier-general-purpose.md)
 
 | **기능** | **범용** | **중요 비즈니스용** |
 | --- | --- | --- |
-| vCore 수\* | 4, 8, 16, 24, 32, 40, 64, 80 |  **표준 시리즈 (Gen5)**: 4, 8, 16, 24, 32, 40, 64, 80 <BR> **Premium 시리즈**: 4, 8, 16, 24, 32, 40, 64, 80 <BR> **메모리 액세스에 최적화 된 프리미엄 시리즈**: 4, 8, 16, 24, 32, 40, 64<br/>\*동일한 수의 vCore는 읽기 전용 쿼리에 전용으로 사용됩니다. |
-| 최대 메모리 | **표준 시리즈 (Gen5)**: 20.4 g b-408 gb (5.1 g b/vcore)<BR> **Premium 시리즈**: 28gb-560 gb (7gb/vcore)<BR> **메모리 액세스에 최적화 된 프리미엄 시리즈**: 54.4 g b-870.4 gb (13.6 g b/vcore) | **표준 시리즈 (Gen5)**: 20.4 g b-408 gb (5.1 g b/vcore)<BR> **Premium 시리즈**: 각 복제본에 대 한 28gb-560 gb (7gb/vcore)<BR> 각 복제본에 대 한 메모리 액세스에 **최적화 된 프리미엄 시리즈**: 54.4 g b-870.4 gb (13.6 g b/vcore) |
-| 최대 인스턴스 스토리지 크기(예약됨) | -4 vCores의 경우 2tb<br/>-8 vCores의 경우 8TB<br/>-다른 크기의 경우 16TB <BR> | **표준 시리즈 (Gen5)**: <br/>- 1TB(4, 8, 16개 vCore용)<br/>- 2TB(24개 vCore용)<br/>- 4TB(32, 40, 64, 80개 vCore용) <BR> **Premium 시리즈**: <BR>-1tb, 8 개 vCores<br/>-2tb, 24 개 vCores의 경우 2tb<br/>-32 vCores의 경우 4tb<br/>-5.5 TB (40, 64, 80 vCores)<br/> **메모리 액세스에 최적화 된 프리미엄 시리즈**: <BR>-1tb, 8 개 vCores<br/>-2tb, 24 개 vCores의 경우 2tb<br/>-32 vCores의 경우 4tb<br/>-5.5 TB (40 vCores)<br/>-64 vCores의 경우 16TB<br/> |
-| 최대 데이터베이스 크기 | 현재 사용할 수 있는 인스턴스 크기 (vCores의 수에 따라 다름)입니다. | 현재 사용할 수 있는 인스턴스 크기 (vCores의 수에 따라 다름)입니다. |
+| vCore 수\* | 4, 8, 16, 24, 32, 40, 64, 80 |  **표준 시리즈(Gen5)**: 4, 8, 16, 24, 32, 40, 64, 80 <BR> **Premium 시리즈:** 4, 8, 16, 24, 32, 40, 64, 80 <BR> **메모리 최적화 프리미엄 시리즈:** 4, 8, 16, 24, 32, 40, 64<br/>\*동일한 수의 vCore는 읽기 전용 쿼리에 전용으로 사용됩니다. |
+| 최대 메모리 | **표준 시리즈(Gen5)**: 20.4GB - 408GB(5.1GB/vCore)<BR> **Premium 시리즈:** 28GB - 560GB(7GB/vCore)<BR> **메모리 최적화 프리미엄 시리즈:** 54.4GB - 870.4GB(13.6GB/vCore) | **표준 시리즈(Gen5)**: 각 복제본에서 20.4GB - 408GB(5.1GB/vCore)<BR> **Premium 시리즈:** 각 복제본에서 28GB - 560GB(7GB/vCore)<BR> **메모리 최적화 프리미엄 시리즈:** 각 복제본에서 54.4GB - 870.4GB(13.6GB/vCore) |
+| 최대 인스턴스 스토리지 크기(예약됨) | - vCore 4개에 대해 2 TB<br/>- vCore 8개에 대해 8 TB<br/>- 다른 크기의 경우 16 TB <BR> | **표준 시리즈(Gen5)**: <br/>- 1TB(4, 8, 16개 vCore용)<br/>- 2TB(24개 vCore용)<br/>- 4TB(32, 40, 64, 80개 vCore용) <BR> **Premium 시리즈:** <BR>- 4개, 8개 vCore의 경우 1 TB<br/>- 16개, 24개 vCore의 경우 2 TB<br/>- 32개 vCore의 경우 4 TB<br/>- 40, 64, 80 vCore의 경우 5.5 TB<br/> **메모리 최적화 프리미엄 시리즈:** <BR>- 4개, 8개 vCore의 경우 1 TB<br/>- 16개, 24개 vCore의 경우 2 TB<br/>- 32개 vCore의 경우 4 TB<br/>- 40개 vCore의 경우 5.5 TB<br/>- 64개 vCore의 경우 16 TB<br/> |
+| 최대 데이터베이스 크기 | 현재 사용 가능한 최대 인스턴스 크기(vCore 수에 따라 다름) | 현재 사용 가능한 최대 인스턴스 크기(vCore 수에 따라 다름) |
 | 최대 tempDB 크기 | 24GB/vCore(96 - 1,920GB) 및 현재 사용할 수 있는 인스턴스 스토리지 크기로 제한됩니다.<br/>더 많은 TempDB 공간을 얻으려면 vCore를 더 추가합니다.<br/> 로그 파일 크기는 120GB로 제한됩니다.| 현재 사용할 수 있는 최대 인스턴스 스토리지 크기입니다. |
 | 인스턴스당 최대 데이터베이스 수 | 인스턴스 스토리지 크기 제한에 도달하지 않은 경우 100개의 사용자 데이터베이스. | 인스턴스 스토리지 크기 제한에 도달하지 않은 경우 100개의 사용자 데이터베이스. |
 | 인스턴스당 최대 데이터베이스 파일 수 | 최대 280(인스턴스 스토리지 크기 또는 [Azure 프리미엄 디스크 스토리지 할당 공간](doc-changes-updates-known-issues.md#exceeding-storage-space-with-small-database-files) 제한에 도달하지 않은 경우) | 데이터베이스당 32,767개 파일(인스턴스 스토리지 크기 제한에 도달하지 않은 경우) |
-| 최대 데이터 파일 크기 | 각 데이터 파일의 최대 크기는 8TB입니다. 8TB 보다 큰 데이터베이스에는 두 개 이상의 데이터 파일을 사용 합니다. | 현재 사용할 수 있는 인스턴스 크기 (vCores의 수에 따라 다름)입니다. |
+| 최대 데이터 파일 크기 | 각 데이터 파일의 최대 크기는 8 TB입니다. 8 TB보다 큰 데이터베이스에 대해 두 개 이상의 데이터 파일을 사용합니다. | 현재 사용 가능한 최대 인스턴스 크기(vCore 수에 따라 다름) |
 | 최대 로그 파일 크기 | 2TB 및 현재 사용할 수 있는 인스턴스 스토리지 크기로 제한됩니다. | 2TB 및 현재 사용할 수 있는 인스턴스 스토리지 크기로 제한됩니다. |
 | 데이터/로그 IOPS(근사치) | 인스턴스당 최대 30-40 K IOPS*, 파일당 500-7500<br/>\*[더 많은 IOPS를 얻기 위해 파일 크기 늘리기](#file-io-characteristics-in-general-purpose-tier)| 16K - 320K(4000 IOPS/vCore)<br/>더 나은 IO 성능을 얻으려면 vCore를 더 추가합니다. |
-| 로그 쓰기 처리량 한도(인스턴스당) | vCore당 3MB/초<br/>인스턴스당 최대 120MB/초<br/>DB 당 22-65 m b/초 (로그 파일 크기에 따라 다름)<br/>\*[더 나은 IO 성능을 얻으려면 파일 크기를 늘립니다.](#file-io-characteristics-in-general-purpose-tier) | vCore당 4MB/초<br/>최대 96MB/초 |
+| 로그 쓰기 처리량 한도(인스턴스당) | vCore당 3MB/초<br/>인스턴스당 최대 120MB/초<br/>DB당 22-65MB/s(로그 파일 크기에 따라 다름)<br/>\*[더 나은 IO 성능을 얻으려면 파일 크기를 늘립니다.](#file-io-characteristics-in-general-purpose-tier) | vCore당 4MB/초<br/>최대 96MB/초 |
 | 데이터 처리량(근사치) | 파일당 100~250MB/초<br/>\*[더 나은 IO 성능을 얻으려면 파일 크기를 늘립니다.](#file-io-characteristics-in-general-purpose-tier) | 제한되지 않습니다. |
 | 스토리지 IO 대기 시간(근사치) | 5~10ms | 1~2ms |
 | 메모리 내 OLTP | 지원되지 않음 | 사용 가능, [크기는 vCore의 수에 따라 달라집니다.](#in-memory-oltp-available-space) |
 | 최대 세션 | 30000 | 30000 |
-| 최대 동시 작업자(요청) | 105 * vCores 수 + 800 | 105 * vCore 수 + 800 |
+| 최대 동시 작업자(요청) | 105 * vCore 수 + 800 | 105 * vCore 수 + 800 |
 | [읽기 전용 복제본](../database/read-scale-out.md) | 0 | 1(가격에 포함) |
-| 컴퓨팅 격리 | 범용 인스턴스가 다른 인스턴스와 실제 하드웨어를 공유할 수 있으므로 지원 되지 않음| **표준 시리즈 (Gen5)**:<br/> 40, 64, 80 vCores에 지원 됨<BR> **Premium 시리즈:** 64개, 80개 vCore에 지원됨 <BR> **메모리 최적화 프리미엄 시리즈:** 64개 vCore에 대해 지원됩니다. |
+| 컴퓨팅 격리 | 범용 인스턴스가 다른 인스턴스와 물리적 하드웨어를 공유할 수 있기 때문에 지원되지 않습니다.| **표준 시리즈(Gen5)**:<br/> 40개, 64개, 80개 vCore 지원<BR> **Premium 시리즈:** 64개, 80개 vCore에 지원됨 <BR> **메모리 최적화 프리미엄 시리즈:** 64개 vCore에 지원됩니다. |
 
 
 기타 고려 사항: 
@@ -191,15 +192,15 @@ SQL Managed Instance는 현재 다음 유형의 구독에만 배포를 지원합
 
 ## <a name="previous-generation-hardware"></a>이전 세대 하드웨어
 
-이 섹션에서는 이전 세대 하드웨어 세대에 대 한 세부 정보를 제공 합니다. [SQL Managed Instance 인스턴스를 표준 시리즈 (Gen5) 하드웨어로 이동](../database/service-tiers-vcore.md) 하 여 더 광범위 한 vcore 및 저장소 확장성, 가속화 된 네트워킹, 최적의 IO 성능 및 최소 대기 시간을 경험 하는 것이 좋습니다.
+이 섹션에는 이전 세대 하드웨어 세대에 대한 세부 정보가 포함되어 있습니다. 더 광범위한 vCore 및 스토리지 확장성, 가속화된 네트워킹, 최상의 IO 성능 및 최소 대기 시간을 경험하려면 [SQL Managed Instance 인스턴스를 표준 시리즈(Gen5)](../database/service-tiers-vcore.md) 하드웨어로 이동하는 것이 좋습니다.
 
-- Gen4는 단계적으로 진행 되 고 있으며 새 배포에 사용할 수 없습니다. 
+- Gen4는 단계적으로 삭제되고 있으며 새 배포에 사용할 수 없습니다. 
 
 ### <a name="hardware-generation-characteristics"></a>하드웨어 세대 특성
 
 |   | **Gen4** | 
 | --- | --- | 
-| **하드웨어** | Intel &reg; E5-2673 v3 (Haswell) 2.4 GHz 프로세서, 연결 된 SSD vCore = 1PP (물리적 코어) |   
+| **하드웨어** | Intel &reg; E5-2673 v3(Haswell) 2.4GHz 프로세서, 연결된 SSD vCore = 1PP(물리적 코어) |   
 | **vCore 수** | 8, 16, 24개 vCore | 
 | **최대 메모리(메모리/코어 비율)** | vCore당 7GB<br/>더 많은 메모리를 얻으려면 vCore를 더 추가합니다. |  
 | **메모리 내 최대 OLTP 메모리** |  인스턴스 제한: vCore당 1 ~ 1.5GB |
@@ -222,22 +223,22 @@ SQL Managed Instance는 현재 다음 유형의 구독에만 배포를 지원합
 | --- | --- | --- |
 | vCore 수\* | Gen4: 8, 16, 24 | Gen4: 8, 16, 24 <BR>\*동일한 수의 vCore는 읽기 전용 쿼리에 전용으로 사용됩니다. |
 | 최대 메모리 | Gen4: 56GB-168GB(7GB/vCore)<br/>더 많은 메모리를 얻으려면 vCore를 더 추가합니다. | Gen4: 56GB-168GB(7GB/vCore)<br/>읽기 전용 쿼리를 위한 추가 20.4GB - 408GB(5.1GB/vCore)<br/>더 많은 메모리를 얻으려면 vCore를 더 추가합니다. |
-| 최대 인스턴스 스토리지 크기(예약됨) | Gen4:8TB | Gen4: 1TB  |
-| 최대 데이터베이스 크기 | Gen4: 현재 사용할 수 있는 인스턴스 크기 (vCores의 수에 따라 최대 2tb)입니다. | Gen4: 현재 사용 가능한 인스턴스 크기 (vCores의 수에 따라 최대 1tb-4tb) |
-| 최대 tempDB 크기 | Gen4:24gb/vCore (96-1920 GB) 및 현재 사용 가능한 인스턴스 저장소 크기로 제한 됩니다.<br/>더 많은 TempDB 공간을 얻으려면 vCore를 더 추가합니다.<br/> 로그 파일 크기는 120GB로 제한됩니다.| Gen4: 현재 사용할 수 있는 인스턴스 저장소 크기입니다. |
-| 인스턴스당 최대 데이터베이스 수 | Gen4:100 인스턴스 저장소 크기 제한에 도달 하지 않는 한 사용자 데이터베이스를 합니다. | Gen4:100 인스턴스 저장소 크기 제한에 도달 하지 않는 한 사용자 데이터베이스를 합니다. |
-| 인스턴스당 최대 데이터베이스 파일 수 | Gen4: 인스턴스 저장소 크기 또는 [Azure Premium 디스크 저장소 할당 공간](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files) 제한에 도달 하지 않는 한 최대 280입니다. | Gen4: 인스턴스 저장소 크기 제한에 도달 하지 않는 한 데이터베이스당 32767 파일 |
-| 최대 데이터 파일 크기 | Gen4: 현재 사용할 수 있는 인스턴스 저장소 크기 (최대 2tb tb) 및 [Azure Premium 디스크 저장소 할당 공간](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files)으로 제한 됩니다. 8TB 보다 큰 데이터베이스에는 두 개 이상의 데이터 파일을 사용 합니다. | Gen4: 현재 사용할 수 있는 인스턴스 저장소 크기 (최대 1tb-4 TB)로 제한 됩니다. |
-| 최대 로그 파일 크기 | Gen4:2tb 및 현재 사용 가능한 인스턴스 저장소 크기로 제한 됩니다. | Gen4:2tb 및 현재 사용 가능한 인스턴스 저장소 크기로 제한 됩니다. |
-| 데이터/로그 IOPS(근사치) | Gen4: 인스턴스당 최대 30-40 K IOPS *, 500-7500<br/>\*[더 많은 IOPS를 얻기 위해 파일 크기 늘리기](#file-io-characteristics-in-general-purpose-tier)| Gen4:16 K-320 K (4000 IOPS/vCore)<br/>더 나은 IO 성능을 얻으려면 vCore를 더 추가합니다. | 
-| 로그 쓰기 처리량 한도(인스턴스당) | Gen4: vCore 당 3MB/s<br/>인스턴스당 최대 120MB/초<br/>DB당 22 ~ 65MB/초<br/>\*[더 나은 IO 성능을 얻으려면 파일 크기를 늘립니다.](#file-io-characteristics-in-general-purpose-tier) | Gen4: vCore 당 4mb/s<br/>최대 96MB/초 |
-| 데이터 처리량(근사치) | Gen4:100-250 m b/초<br/>\*[더 나은 IO 성능을 얻으려면 파일 크기를 늘립니다.](#file-io-characteristics-in-general-purpose-tier) | Gen4: 제한 되지 않습니다. |
-| 스토리지 IO 대기 시간(근사치) | Gen4:5-10 밀리초 | Gen4:1-2 밀리초 |
-| 메모리 내 OLTP | Gen4: 지원 되지 않음 | Gen4: 사용 가능, [크기는 vCore의 수에 따라 다릅니다](#in-memory-oltp-available-space) . |
-| 최대 세션 | Gen4:3만 | Gen4:3만 |
+| 최대 인스턴스 스토리지 크기(예약됨) | Gen4: 8 TB | Gen4: 1TB  |
+| 최대 데이터베이스 크기 | Gen4: 현재 사용 가능한 인스턴스 크기(vCore 수에 따라 최대 2 TB - 8 TB)까지입니다. | Gen4: 현재 사용 가능한 최대 인스턴스 크기(vCore 수에 따라 최대 1 TB - 4 TB). |
+| 최대 tempDB 크기 | Gen4: 24GB/vCore(96 -1,920GB) 및 현재 사용 가능한 인스턴스 스토리지 크기로 제한됩니다.<br/>더 많은 TempDB 공간을 얻으려면 vCore를 더 추가합니다.<br/> 로그 파일 크기는 120GB로 제한됩니다.| Gen4: 현재 사용 가능한 인스턴스 스토리지 크기까지입니다. |
+| 인스턴스당 최대 데이터베이스 수 | Gen4: 인스턴스 스토리지 크기 제한에 도달하지 않는 한 100개의 사용자 데이터베이스 | Gen4: 인스턴스 스토리지 크기 제한에 도달하지 않는 한 100개의 사용자 데이터베이스 |
+| 인스턴스당 최대 데이터베이스 파일 수 | Gen4: 인스턴스 스토리지 크기 또는 [Azure Premium 디스크 스토리지 할당 공간](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files) 제한에 도달하지 않는 한 최대 280개입니다. | Gen4: 인스턴스 스토리지 크기 제한에 도달하지 않는 한 데이터베이스당 32,767개 파일 |
+| 최대 데이터 파일 크기 | Gen4: 현재 사용 가능한 인스턴스 스토리지 크기(최대 2 TB - 8 TB) 및 [Azure Premium 디스크 스토리지 할당 공간으로](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files)제한됩니다. 8 TB보다 큰 데이터베이스에 대해 두 개 이상의 데이터 파일을 사용합니다. | Gen4: 현재 사용 가능한 인스턴스 스토리지 크기(최대 1 TB - 4 TB)로 제한됩니다. |
+| 최대 로그 파일 크기 | Gen4: 2 TB로 제한되며 현재 사용 가능한 인스턴스 스토리지 크기입니다. | Gen4: 2 TB로 제한되며 현재 사용 가능한 인스턴스 스토리지 크기입니다. |
+| 데이터/로그 IOPS(근사치) | Gen4: 인스턴스당 최대 30-40K IOPS*, 파일당 500-7500<br/>\*[더 많은 IOPS를 얻기 위해 파일 크기 늘리기](#file-io-characteristics-in-general-purpose-tier)| Gen4: 16K - 320K(4000 IOPS/vCore)<br/>더 나은 IO 성능을 얻으려면 vCore를 더 추가합니다. | 
+| 로그 쓰기 처리량 한도(인스턴스당) | Gen4: vCore당 3MB/s<br/>인스턴스당 최대 120MB/초<br/>DB당 22 ~ 65MB/초<br/>\*[더 나은 IO 성능을 얻으려면 파일 크기를 늘립니다.](#file-io-characteristics-in-general-purpose-tier) | Gen4: vCore당 4MB/s<br/>최대 96MB/초 |
+| 데이터 처리량(근사치) | Gen4: 파일당 100-250MB/s<br/>\*[더 나은 IO 성능을 얻으려면 파일 크기를 늘립니다.](#file-io-characteristics-in-general-purpose-tier) | Gen4: 제한되지 않습니다. |
+| 스토리지 IO 대기 시간(근사치) | Gen4: 5-10ms | Gen4: 1-2ms |
+| 메모리 내 OLTP | Gen4: 지원되지 않음 | Gen4: 사용 가능, [크기는 vCore 수에 따라 다름](#in-memory-oltp-available-space) |
+| 최대 세션 | Gen4: 30000 | Gen4: 30000 |
 | 최대 동시 작업자(요청) | Gen4: 210 * vCore 수 + 800 | Gen4: 210 * vCore 수 + 800 |
-| [읽기 전용 복제본](../database/read-scale-out.md) | Gen4:0 | Gen4:1 (가격에 포함 됨) |
-| 컴퓨팅 격리 | Gen4: 지원 되지 않음 | Gen4: 지원 되지 않음 |
+| [읽기 전용 복제본](../database/read-scale-out.md) | Gen4: 0 | Gen4: 1(가격에 포함) |
+| 컴퓨팅 격리 | Gen4: 지원되지 않음 | Gen4: 지원되지 않음 |
 
 
 ## <a name="next-steps"></a>다음 단계

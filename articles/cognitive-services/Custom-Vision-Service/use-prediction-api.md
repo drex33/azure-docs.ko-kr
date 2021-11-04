@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 10/27/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7f1939536e033d2cf964dd2f4ee562e4ee20061b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: c3b0090c1c75c8d341ff67b15e7e0391be45c157
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "88934755"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446698"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>예측 API와 함께 모델 사용
 
-모델을 학습시킨 후에 예측 API 엔드포인트에 이미지를 제출하여 프로그래밍 방식으로 해당 이미지를 테스트할 수 있습니다.
+모델을 학습한 후에는 이미지를 예측 API 엔드포인트에 제출하여 프로그래밍 방식으로 테스트할 수 있습니다.
 
 > [!NOTE]
 > 이 문서에서는 C#을 사용하여 예측 API에 이미지를 제출하는 방법을 보여 줍니다. 자세한 내용과 예는 [예측 API 참조](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15)를 참조하세요.

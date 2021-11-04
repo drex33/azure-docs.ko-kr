@@ -4,15 +4,16 @@ description: Lake 데이터베이스 개념과 이를 통해 데이터를 구조
 author: gsaurer
 ms.author: gesaur
 ms.service: synapse-analytics
+ms.subservice: database-editor
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.custom: template-concept, ignite-fall-2021
-ms.openlocfilehash: b0c288fe2f7b6ac9bf6c0a2a636131a1d89ffe5d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 5b030bc1551bc8d21101b127c123507f08abf62c
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131102794"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131510431"
 ---
 # <a name="lake-database"></a>Lake 데이터베이스
 
@@ -27,7 +28,7 @@ Azure Synapse Analytics 레이크 데이터베이스를 사용하면 고객이 �
 
 ## <a name="data-storage"></a>데이터 스토리지 
 
-Lake 데이터베이스는 Azure Storage 계정의 데이터 레이크를 사용하여 데이터베이스의 데이터를 저장합니다. 데이터는 CSV 형식의 Parquet에 저장될 수 있으며 스토리지를 최적화하는 데 다른 설정을 사용할 수 있습니다. 모든 레이크 데이터베이스는 연결된 서비스를 사용하여 루트 데이터 폴더의 위치를 정의합니다. 모든 엔터티에 대해 기본적으로 데이터 레이크의 이 데이터베이스 폴더 내에 별도의 폴더가 만들어집니다. 기본적으로 Lake 데이터베이스 내의 모든 테이블은 동일한 형식을 사용하지만 요청된 경우 엔터티별로 데이터의 형식과 위치를 변경할 수 있습니다. 
+Lake 데이터베이스는 Azure Storage 계정의 데이터 레이크를 사용하여 데이터베이스의 데이터를 저장합니다. 데이터는 Parquet 또는 CSV 형식으로 저장할 수 있으며 스토리지를 최적화하는 데 다른 설정을 사용할 수 있습니다. 모든 레이크 데이터베이스는 연결된 서비스를 사용하여 루트 데이터 폴더의 위치를 정의합니다. 모든 엔터티에 대해 기본적으로 데이터 레이크의 이 데이터베이스 폴더 내에 별도의 폴더가 만들어집니다. 기본적으로 Lake 데이터베이스 내의 모든 테이블은 동일한 형식을 사용하지만 요청된 경우 엔터티별로 데이터의 형식과 위치를 변경할 수 있습니다. 
 
 
 ## <a name="database-compute"></a>데이터베이스 컴퓨팅

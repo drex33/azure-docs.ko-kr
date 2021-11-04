@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/26/2021
 ms.reviewer: sngun
-ms.openlocfilehash: 3844e71a1c3c9e823586a428b9ae98a3b804d502
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
-ms.translationtype: HT
+ms.openlocfilehash: 73bad87352176e4272a68248bf7f052dccc0165a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123034552"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131446413"
 ---
 # <a name="automated-recommendations-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 자동화된 권장 사항
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -66,6 +66,8 @@ Azure Cosmos DB 창에 표시된 일부 권장 사항은 Azure Advisor에서 사
 | 예약 용량 | RU/s 사용률을 검색하고 예약 인스턴스를 활용할 수 있는 사용자에게 예약 인스턴스를 권장합니다. |
 | 비활성 컨테이너 | 30일 넘게 사용되지 않은 컨테이너를 검색하고 해당 컨테이너의 처리량을 줄이거나 삭제하도록 권장합니다.|
 | 처리량이 높은 새 구독 | 하루에 비정상적으로 높은 RU/s를 지출하는 계정이 포함된 새 구독을 검색하고 알림을 제공합니다. 이 알림은 특히 Azure Cosmos DB가 사용량 기반 모델이 아니라 프로비저닝된 처리량 기반 모델로 작동한다는 것을 새 고객에게 알리기 위한 것입니다. |
+| 자동 크기 조정 사용 | 현재 수동 처리량을 사용 하는 데이터베이스 및 컨테이너에서 자동 크기 조정을 사용 하 여 비용을 절감할 수 있는지 검색 합니다. |
+| 자동 크기 조정 대신 수동 처리량 사용 | 현재 자동 크기 조정 처리량을 사용 하는 데이터베이스 및 컨테이너에서 수동 처리량으로 전환 하 여 비용을 절감할 수 있는지 검색 합니다. |
 
 ## <a name="migration-recommendations"></a>마이그레이션 권장 사항
 

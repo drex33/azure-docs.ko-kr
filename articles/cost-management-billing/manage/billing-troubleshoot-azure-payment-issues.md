@@ -1,20 +1,20 @@
 ---
 title: Azure 결제 문제 해결
-description: Microsoft Azure Portal에서 지불 정보 계정을 업데이트할 때 발생하는 문제를 해결합니다.
-author: v-miegge
-ms.reviewerr: dcscontentpm
+description: Azure Portal 결제 정보 계정을 업데이트할 때의 문제 해결
+author: bandersmsft
+ms.reviewer: lishepar
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 05/13/2021
-ms.author: jaserano
-ms.openlocfilehash: 54aba8ecb56d3c96628c424522ca606a0b04273a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.author: banders
+ms.openlocfilehash: a8e2ddd11724b39f6439cc59de012c0a60ab0ff6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110481174"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131438743"
 ---
 # <a name="troubleshoot-azure-payment-issues"></a>Azure 결제 문제 해결
 

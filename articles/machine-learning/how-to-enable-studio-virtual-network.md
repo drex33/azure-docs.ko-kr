@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 07/13/2021
+ms.date: 11/01/2021
 ms.custom: contperf-fy20q4, tracking-python, security
-ms.openlocfilehash: 6a10384757552108aefc3dd828bf0fd7ddce2f82
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: aa95dee6cbe0a5661bc5d82557a6f07d89267034
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129427498"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131460739"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Azure 가상 네트워크에서 Azure Machine Learning 스튜디오 사용
 
@@ -76,6 +76,13 @@ AutoML 실험을 제출하는 데 필요한 `azureml-filestore` 폴더를 기본
 문제를 방지할 수 있는 두 가지 옵션이 있습니다. 1) 작업 영역을 만들 때 자동으로 만들어지는 기본 파일 저장소를 사용합니다. 2) 고유한 파일 저장소를 가져오려면 작업 영역을 만드는 동안 파일 저장소가 VNet 외부에 있는지 확인합니다. 작업 영역을 만든 후 가상 네트워크에 스토리지 계정을 추가합니다.
 
 문제를 해결하려면 가상 네트워크에서 파일 저장소 계정을 제거한 다음 가상 네트워크에 다시 추가합니다.
+
+### <a name="designer-sample-pipeline"></a>디자이너 샘플 파이프라인
+
+사용자가 디자이너 홈페이지에서 샘플 파이프라인을 실행할 수 없는 알려진 문제가 있습니다. 샘플 파이프라인에서 사용되는 샘플 데이터 세트는 Azure Gloabal 데이터 세트이며 모든 가상 네트워크 환경을 충족할 수는 없습니다.
+
+이 문제를 해결하려면 공용 작업 영역을 사용하여 샘플 파이프라인을 실행하여 디자이너를 사용하는 방법을 파악한 다음, 샘플 데이터 세트를 작업 영역의 사용자 고유의 데이터 세트로 바꿀 수 있습니다.
+
 ## <a name="datastore-azure-storage-account"></a>데이터 저장소: Azure Storage 계정
 
 Azure Blob 및 File Storage에 저장된 데이터에 대한 액세스를 사용하도록 설정하려면 다음 단계를 사용합니다.

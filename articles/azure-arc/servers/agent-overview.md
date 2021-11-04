@@ -1,15 +1,15 @@
 ---
 title: Connected Machine 에이전트 개요
 description: 이 문서에서는 하이브리드 환경에서 호스트되는 가상 머신의 모니터링을 지원하는 Azure Arc 지원 서버 에이전트에 대한 자세한 개요를 제공합니다.
-ms.date: 10/12/2021
+ms.date: 10/28/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 71446d57d5f73e81c859a0d8453a2017f4c5fd12
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: c2fa68aedd837df2f7c573da8adaece3e4d16477
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129984367"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131462105"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Azure Arc 지원 서버 에이전트 개요
 
@@ -78,7 +78,13 @@ Windows 및 Linux용 Azure Connected Machine 에이전트는 요구 사항에 �
 
 ### <a name="supported-environments"></a>지원되는 환경
 
-Azure Arc 사용 서버는 Azure *외부* 에서 호스트 되는 모든 물리적 서버 및 가상 컴퓨터에 연결 된 컴퓨터 에이전트를 설치 하도록 지원 합니다. VMware, Azure Stack HCI 및 기타 클라우드 환경과 같은 플랫폼에서 실행 되는 가상 컴퓨터를 포함 합니다. Azure Arc 사용 서버는 azure Vm에서 실행 되는 가상 컴퓨터 Azure Stack Azure Stack 또는 azure에서 실행 중인 가상 컴퓨터에 에이전트를 설치 하는 것을 지원 하지 않습니다.
+Azure Arc 사용 서버는 Azure *외부* 에서 호스트 되는 모든 물리적 서버 및 가상 컴퓨터에 연결 된 컴퓨터 에이전트를 설치 하도록 지원 합니다. 여기에는 다음과 같은 플랫폼에서 실행 되는 가상 컴퓨터에 대 한 지원이 포함 됩니다.
+
+* VMware
+* Azure Stack HCI
+* 기타 클라우드 환경
+
+Azure Arc 사용 서버는 azure Vm에서 실행 되는 가상 컴퓨터 Azure Stack Azure Stack 또는 azure에서 실행 되는 가상 컴퓨터에 에이전트를 설치 하는 것을 지원 *하지* 않습니다.
 
 ### <a name="supported-operating-systems"></a>지원되는 운영 체제
 
@@ -160,10 +166,10 @@ Azure로 전송되는 데이터의 보안을 보장하려면 TLS(전송 계층 �
 
 Linux 및 Windows용 Connected Machine 에이전트는 TCP 포트 443을 통해 안전하게 Azure Arc로 아웃바운드 통신을 수행합니다. 머신이 인터넷을 통해 통신하기 위해 방화벽이나 프록시 서버를 통해 연결해야 하는 경우 에이전트는 HTTP 프로토콜을 사용하는 대신 아웃바운드로 통신합니다. 트래픽이 이미 암호화되어 있기 때문에 프록시 서버를 사용해도 Connected Machine 에이전트가 더 안전해지지 않습니다.
 
-공용 네트워크와 프록시 서버를 사용 하는 대신 azure Arc에 대 한 네트워크 연결을 더욱 안전 하 게 보호 하기 위해 [Azure Arc 개인 링크 범위](private-link-security.md) (미리 보기)를 구현할 수 있습니다.
+공용 네트워크 및 프록시 서버를 사용하는 대신 Azure Arc 대한 네트워크 연결을 추가로 보호하기 위해 [Azure Arc Private Link 범위(미리](private-link-security.md) 보기)를 구현할 수 있습니다.
 
 > [!NOTE]
-> Azure Arc 사용 서버는 연결 된 컴퓨터 에이전트에 대 한 프록시로 [Log Analytics 게이트웨이](../../azure-monitor/agents/gateway.md) 를 사용 하는 것을 지원 하지 않습니다.
+> Azure Arc 지원 서버는 [Log Analytics 게이트웨이를](../../azure-monitor/agents/gateway.md) Connected Machine 에이전트의 프록시로 사용하는 것을 지원하지 않습니다.
 >
 
 방화벽 또는 프록시 서버가 아웃바운드 연결을 제한하는 경우 아래에 나열된 URL이 차단되지 않았는지 확인합니다. 에이전트가 서비스와 통신하는 데 필요한 IP 범위 또는 도메인 이름만 허용하는 경우 다음 서비스 태그와 URL에 대한 액세스도 허용해야 합니다.
@@ -187,7 +193,7 @@ URL:
 |`dc.services.visualstudio.com`|Application Insights|
 |`*.guestconfiguration.azure.com` |게스트 구성|
 |`*.his.arc.azure.com`|하이브리드 ID 서비스|
-|`*.blob.core.windows.net`|Azure Arc 사용 서버 확장에 대 한 다운로드 원본|
+|`*.blob.core.windows.net`|Azure Arc 지원 서버 확장에 대한 원본 다운로드|
 
 각 서비스 태그/지역의 IP 주소 목록은 JSON 파일 - [Azure IP 범위 및 서비스 태그 – 퍼블릭 클라우드](https://www.microsoft.com/download/details.aspx?id=56519)를 참조하세요. Microsoft는 각 Azure 서비스 및 여기에 사용되는 IP 범위를 포함하는 주간 업데이트를 게시합니다. JSON 파일의 이 정보는 각 서비스 태그에 해당하는 IP 범위의 현재 지정 시간 목록입니다. IP 주소는 변경될 수 있습니다. 방화벽 구성에 IP 주소 범위가 필요한 경우 모든 Azure 서비스에 대한 액세스를 허용하기 위해 **AzureCloud** 서비스 태그를 사용해야 합니다. 이러한 URL의 보안 모니터링 또는 검사를 해제하지 말고, 다른 인터넷 트래픽처럼 허용합니다.
 
@@ -204,7 +210,7 @@ URL:
 |--------|-------------|
 | 대화형 | [Azure Portal에서 머신 연결](onboard-portal.md)의 단계에 따라 머신 한 대 또는 약간의 머신에 에이전트를 수동으로 설치합니다.<br> Azure Portal에서 스크립트를 생성하고 머신에서 실행하여 에이전트의 설치 및 구성 단계를 자동화할 수 있습니다.|
 | 대규모 | [서비스 주체를 사용하여 머신 연결](onboard-service-principal.md)의 지침에 따라 여러 머신의 에이전트를 설치하고 구성합니다.<br> 이 방법은 비 대화형으로 머신을 연결하는 서비스 주체를 만듭니다.|
-| 대규모 | [Automation 업데이트 관리에서 Azure로 하이브리드 컴퓨터 커넥트](onboard-update-management-machines.md)메서드를 따라 여러 컴퓨터에 대 한 에이전트를 설치 하 고 구성 합니다.<br> 이 메서드는 서비스 주체를 만들고 Azure Automation 업데이트 관리를 사용 하 여 관리 되는 여러 컴퓨터에 대 한 에이전트를 설치 및 구성 하 여 비 대화형으로 컴퓨터를 연결 합니다. |
+| 대규모 | Automation 업데이트 관리 하이브리드 머신을 [Azure로 커넥트](onboard-update-management-machines.md)방법에 따라 여러 머신에 대한 에이전트를 설치하고 구성합니다.<br> 이 메서드는 서비스 주체를 만들고 Azure Automation 업데이트 관리 관리되는 여러 컴퓨터에 에이전트를 설치하고 구성하여 컴퓨터를 비대화형으로 연결합니다. |
 | 대규모 | [Windows PowerShell DSC 사용](onboard-dsc.md) 방법에 따라 여러 머신의 에이전트를 설치하고 구성합니다.<br> 이 메서드는 서비스 주체를 사용하여 머신을 비 대화형으로 PowerShell DSC와 연결합니다. |
 
 ## <a name="connected-machine-agent-technical-overview"></a>Connected Machine 에이전트 기술 개요

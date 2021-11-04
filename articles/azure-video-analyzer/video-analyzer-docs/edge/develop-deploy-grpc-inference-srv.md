@@ -5,12 +5,12 @@ ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 06/01/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 004b80f77d4fdd410ab3530315990d5ad0132e5c
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: d7ca3dea79a97026dc42dd34a2b352b3cdcc1ad9
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/03/2021
-ms.locfileid: "131434937"
+ms.locfileid: "131510461"
 ---
 # <a name="develop-and-deploy-grpc-inference-server"></a>gRPC 유추 서버 개발 및 배포
 
@@ -40,9 +40,6 @@ gRPC 유추 서버를 만들어 Video Analyzer를 통해 확장으로 구현하�
 
 IoT Edge 디바이스에서 Video Analyzer 모듈을 배포하고 작동하는 데 필요한 단계를 수행합니다.
 
-> [!NOTE]
-> 배포 매니페스트는 태그를 1 (비디오-분석기: 1)로 사용 합니다. 따라서 이러한 매니페스트를 다시 배포하면 최신 태그가 릴리스될 때 에지 디바이스의 모듈이 업데이트되어야 합니다.
-
 ### <a name="high-level-implementation-steps"></a>개략적인 구현 단계
 
 1. gRPC에서 지원되는 여러 언어인 C#, C++, Dart, Go, Java, Node, Objective-C, PHP, Python, Ruby 중 하나를 선택합니다.
@@ -70,7 +67,10 @@ IoT Edge 디바이스에서 Video Analyzer 모듈을 배포하고 작동하는 �
 
 1. Linux 공유 메모리 핸들을 엽니다.
 1. 프레임이 수신되면 공유 메모리 내의 주소 오프셋에 액세스합니다.
-1. Video Analyzer에서 메모리를 회수할 수 있도록 프레임 처리 완료를 승인합니다.
+1. 프레임 처리 완료를 승인합니다. 그래야 Video Analyzer에서 메모리를 회수할 수 있습니다.
+
+> [!NOTE]
+> 공유 메모리가 있는 추론에 대 한 gRPC 확장 모듈을 사용 하는 경우 Video Analyzer edge 모듈 및 확장 모듈이 동일한 [사용자 및 그룹](https://docs.docker.com/engine/reference/builder/#user) 에서 실행 되어야 합니다.
 
 ## <a name="create-a-grpc-inference-server"></a>gRPC 유추 서버 만들기
 

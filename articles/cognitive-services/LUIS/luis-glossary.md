@@ -4,13 +4,13 @@ description: 용어집에서는 LUIS API 서비스를 사용할 때 나타날 �
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 05/17/2021
-ms.openlocfilehash: 5d4b5f5264ad38ca3610840e6fd9a72c6bc5e0aa
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.date: 10/28/2021
+ms.openlocfilehash: 25bdf291d7d836523655b131f485721e3a29593b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950976"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131434582"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>일반적인 용어 및 개념의 언어 이해 용어집
 Language Understanding(LUIS) 용어집에서는 LUIS 서비스를 사용할 때 나타날 수 있는 용어에 대해 설명합니다.
@@ -270,7 +270,7 @@ LUIS 할당량은 Azure 구독 계층의 제한 사항입니다. LUIS 할당량�
 스키마는 하위 엔터티와 함께 사용자의 의도 및 엔터티를 포함합니다. 스키마는 초기에 계획된 후 시간이 지남에 따라 반복됩니다. 스키마에는 앱 설정, 기능 또는 예제 발화가 포함되지 않습니다.
 
 ## <a name="sentiment-analysis"></a>감정 분석
-감정 분석은 [Text Analytics](../text-analytics/overview.md)에서 제공되는 발화의 긍정적 또는 부정적 값을 제공합니다.
+감정 분석에서는 [언어 서비스](../language-service/sentiment-opinion-mining/overview.md)에서 제공 하는 길이 발언의 양수 또는 음수 값을 제공 합니다.
 
 ## <a name="speech-priming"></a>음성 초기화
 

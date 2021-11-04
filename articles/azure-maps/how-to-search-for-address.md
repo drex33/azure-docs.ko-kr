@@ -1,23 +1,22 @@
 ---
 title: Azure Maps Search Service를 사용하여 위치 검색
 description: Azure Maps Search Service에 대해 알아봅니다. 지오코딩, 역방향 지오코딩, 유사 항목 검색, 역방향 교차로 검색에 해당 API 집합을 사용하는 방법을 참조하세요.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 01/19/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: ec92bb8bbfdc0f1598148b674f8e5de17e69afe3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 65bb5e9ee9e4001aee73e8ac3c73af8aff702ccf
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131031435"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450821"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Azure Maps Search Service를 사용하여 위치 검색
 
 [Azure 지도 Search Service는](/rest/api/maps/search) 개발자가 이름, 범주 및 기타 지리적 정보를 기준으로 주소, 장소 및 비즈니스 목록을 검색할 수 있도록 설계된 RESTful API 세트입니다. 관련 서비스는 기존의 지오코딩을 지원할 뿐만 아니라 위도와 경도를 바탕으로 주소와 교차로를 역으로 지오코딩할 수 있습니다. 검색에서 얻은 위도와 경도 값을 [Route](/rest/api/maps/route) 및 [Weather](/rest/api/maps/weather)와 같은 다른 Azure Maps 서비스에서 매개 변수로 사용할 수 있습니다.
-
 
 이 문서에서는 다음을 수행하는 방법을 알아봅니다.
 
@@ -45,7 +44,7 @@ ms.locfileid: "131031435"
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 다음 URL을 입력합니다. 이번 요청에서는 특정 주소 `400 Braod St, Seattle, WA 98109`를 검색합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
 
     ```http
-    https://atlas.microsoft.com/search/address/json?&subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&language=en-US&query=400 Broad St, Seattle, WA 98109
+    https://atlas.microsoft.com/search/address/json?&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&language=en-US&query=400 Broad St, Seattle, WA 98109
     ```
 
 3. 파란색 **보내기** 단추를 클릭합니다. 응답 본문에는 단일 위치의 데이터가 포함됩니다.
@@ -77,7 +76,7 @@ Azure Maps [Fuzzy Search API](/rest/api/maps/search/getsearchfuzzy)는 표준 �
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 다음 URL을 입력합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
 
     ```http
-    https://atlas.microsoft.com/search/fuzzy/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=pizza
+    https://atlas.microsoft.com/search/fuzzy/json?&api-version=1.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&language=en-US&query=pizza
     ```
 
     >[!NOTE]
@@ -125,7 +124,7 @@ Azure Maps [Get Search Address Reverse API](/rest/api/maps/search/getsearchaddre
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 다음 URL을 입력합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다. 요청은 다음 URL과 같습니다.
 
     ```http
-    https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=47.591180,-122.332700&number=1
+    https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&language=en-US&query=47.591180,-122.332700&number=1
     ```
 
 3. **보내기** 를 클릭하고 응답 본문을 검토합니다. 하나의 쿼리 결과가 표시됩니다. 응답에는 Safeco Field에 대한 주요 주소 정보가 포함됩니다.
@@ -161,7 +160,7 @@ Azure Maps [Get Search Address Reverse API](/rest/api/maps/search/getsearchaddre
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 다음 URL을 입력합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다. 요청은 다음 URL과 같습니다.
   
     ```http
-    https://atlas.microsoft.com/search/address/reverse/crossstreet/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=47.591180,-122.332700
+    https://atlas.microsoft.com/search/address/reverse/crossstreet/json?&api-version=1.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&language=en-US&query=47.591180,-122.332700
     ```
 
     :::image type="content" source="./media/how-to-search-for-address/search-address-cross.png" alt-text="교차로 검색":::

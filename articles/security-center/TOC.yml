@@ -31,11 +31,7 @@
       href: get-started.md
     - name: 2. 향상된 보호 사용
       href: enable-enhanced-security.md
-    - name: 3. 자동 프로비저닝 구성
-      href: enable-data-collection.md
-    - name: 4. 이메일 알림 설정
-      href: configure-email-notifications.md
-    - name: 5. 하이브리드 및 다중 클라우드 머신 연결
+    - name: 3. 하이브리드 및 다중 클라우드 머신 연결
       items:
         - name: Azure 이외 머신 연결
           displayName: 'azure stack, ash, windows, linux, hybrid, arc'
@@ -46,6 +42,10 @@
         - name: GCP 계정 연결
           displayName: 'hybrid, multicloud, multi-cloud, google'
           href: quickstart-onboard-gcp.md
+    - name: 4. 자동 프로비저닝 구성
+      href: enable-data-collection.md
+    - name: 5. 이메일 알림 설정
+      href: configure-email-notifications.md
     - name: 6. 경고에 대한 자동 응답 만들기
       displayName: 'Resource Manager, ARM'
       href: quickstart-automation-alert.md
@@ -95,6 +95,9 @@
       href: workload-protections-dashboard.md
     - name: 보안 점수 액세스 및 추적
       href: secure-score-access-and-track.md
+    - name: 데이터 민감도에 따라 보안 작업 우선 순위 지정
+      displayName: 'sensitivity, data, purview, inventory'
+      href: information-protection.md
     - name: 자산 인벤토리로 리소스 관리
       href: asset-inventory.md
     - name: 대화형 보고서 작성
@@ -245,7 +248,7 @@
         - name: Resource Manager용 Azure Defender 개요
           displayName: ARM
           href: defender-for-resource-manager-introduction.md
-        - name: Resource Manager용 Azure Defender 경고 처리
+        - name: Defender for Resource Manager 경고 처리
           displayName: arm
           href: defender-for-resource-manager-usage.md
     - name: Azure 리소스에서 DNS 쿼리 모니터링

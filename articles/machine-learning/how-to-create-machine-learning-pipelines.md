@@ -8,15 +8,15 @@ ms.subservice: mlops
 ms.reviewer: sgilley
 ms.author: nilsp
 author: NilsPohlmann
-ms.date: 03/02/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1
-ms.openlocfilehash: 643b02c6fec056bd676db36a125901dd44da0949
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 29c9284d972a6f95b95485685f206d96c77a8e71
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129425623"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131563115"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 
@@ -32,7 +32,7 @@ ML 파이프라인은 컴퓨팅 대상에서 실행됩니다([Azure Machine Lear
 
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://azure.microsoft.com/free/)을 사용해 보세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 모든 파이프라인 리소스를 수용하는 [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)을 만듭니다.
 

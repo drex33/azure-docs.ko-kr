@@ -3,14 +3,14 @@ title: Azure Video Analyzer 플레이어 위젯 샘플
 description: 이 참조 문서에서는 Video Analyzer 플레이어 위젯 샘플 응용 프로그램에 대 한 간략 한 개요를 제공 합니다.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 6ef3333c6e3f9aec083bbb050d677a1acba93847
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 842ffa07a956c2bb90bd039f25c49bf72467ecee
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131087112"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131557778"
 ---
 # <a name="azure-video-analyzer-player-widget-sample"></a>Azure Video Analyzer 플레이어 위젯 샘플
 
@@ -19,7 +19,7 @@ ms.locfileid: "131087112"
 * [Ava c # 샘플 리포지토리](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp) 복제
 * [ **Src/video player** 폴더의 추가 정보](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp/blob/main/src/video-player/README.md) 에 있는 지침을 따르세요.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 추가 정보 지침을 수행 하 고 앱이에서 실행 되 고 있는 경우 http://localhost:3000/
 1. ' 비디오 가져오기 '를 클릭 합니다.
 2. 비디오 분석기 계정의 모든 비디오 드롭다운 목록에서 비디오를 선택 합니다.

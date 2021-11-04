@@ -6,15 +6,14 @@ ms.service: azure-policy
 ms.topic: include
 ms.date: 09/30/2020
 ms.author: dacoulte
-ms.openlocfilehash: e9ba8efefd2238b1aadc2fbeaf17a286e0714bcd
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 1c63d79c82f667fbd7cfc9a62a741eab275757dd
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123484272"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131571396"
 ---
-Azure Policy의 각 개체 형식에 대한 최대 수가 있습니다. 정의의 경우 _범위_ 항목은 [관리 그룹](../articles/governance/management-groups/overview.md) 또는 구독을 의미합니다.
-할당 및 예외의 경우 _범위_ 항목은 [관리 그룹](../articles/governance/management-groups/overview.md), 구독, 리소스 그룹 또는 개별 리소스를 의미합니다.
+Azure Policy의 각 개체 형식에 대한 최대 수가 있습니다. 정의의 경우 _범위_ 항목은 [관리 그룹](../articles/governance/management-groups/overview.md) 또는 구독을 의미합니다. 할당 및 예외의 경우 _범위_ 항목은 [관리 그룹](../articles/governance/management-groups/overview.md), 구독, 리소스 그룹 또는 개별 리소스를 의미합니다.
 
 | Where | 대상 | 최대 수 |
 |---|---|---|

@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
-ms.date: 09/30/2021
+ms.date: 10/21/2021
 ms.custom: data4ml
-ms.openlocfilehash: 89d3a569a8e202ff2fbe43f697de3598b9b767ad
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: a6e47fb02256056f104473769f3917a215ca789c
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129423937"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131555802"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>자습서: 다중 클래스 이미지 분류를 위한 레이블 지정 프로젝트 만들기 
 
@@ -35,7 +35,7 @@ ms.locfileid: "129423937"
 > * 데이터에 레이블을 지정합니다.  사용자 또는 레이블 지정자에서 이 작업을 수행할 수 있습니다.
 > * 데이터를 검토하고 내보내서 프로젝트를 완료합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 

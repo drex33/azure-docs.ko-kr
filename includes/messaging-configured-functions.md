@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/12/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 9bc641d680d927c44814f6814ebf6a6dde958c9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: f4d7b9d272f097f5be332c8ff0acdf7cb30395ea
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98901068"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131570611"
 ---
 Azure Functions를 사용하여 미리 작성된 진입점에 대한 구성 전용 복제 작업을 만들 수 있습니다. [Azure Functions에 대한 구성 기반 복제 샘플](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config)에서는 [미리 작성된 도우미](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication)를 사용자 코드에서 활용하거나 코드를 모두 처리하지 않고 구성을 사용하는 방법을 보여줍니다.
 
@@ -22,7 +22,7 @@ Azure Functions를 사용하여 미리 작성된 진입점에 대한 구성 전�
 
 다음으로, 폴더에 `function.json` 파일을 만듭니다. 파일이 함수를 구성합니다. 다음 콘텐츠로 시작합니다.
 
-``` JSON
+```json
 {
     "configurationSource": "config",
     "bindings" : [
@@ -64,7 +64,7 @@ Azure Functions를 사용하여 미리 작성된 진입점에 대한 구성 전�
 * **eventHubName** - 연결 문자열로 식별되는 네임스페이스 내에 있는 이벤트 허브의 이름입니다.
 * **consumerGroup** - 소비자 그룹의 이름입니다. 이름은 퍼센트 기호로 묶여 있으므로 앱 설정 값을 참조하기도 합니다.
 
-```JSON
+```json
     ...
     "bindings" : [
         {
@@ -86,7 +86,7 @@ Service Bus 큐에서 이벤트를 수신하려면 설정하는 "바인딩" 내�
 * **connection** - Service Bus 연결 문자열에 대한 앱 설정 값의 이름입니다.
 * **queueName** - 연결 문자열로 식별되는 네임스페이스 내에 있는 Service Bus 큐의 이름입니다.
 
-```JSON
+```json
     ...
     "bindings" : [
         {
@@ -108,7 +108,7 @@ Service Bus 토픽에서 이벤트를 수신하려면 설정하는 "바인딩" �
 * **topicName** - 연결 문자열로 식별되는 네임스페이스 내에 있는 Service Bus 토픽의 이름입니다.
 * **subscriptionName** -연결 문자열로 식별되는 네임스페이스 내에 있는 지정된 토픽에 대한 Service Bus 구독의 이름입니다.
 
-```JSON
+```json
     ...
     "bindings" : [
         {
@@ -132,7 +132,7 @@ Service Bus 토픽에서 이벤트를 수신하려면 설정하는 "바인딩" �
 * **connection** - 이벤트 허브 연결 문자열에 대한 앱 설정 값의 이름입니다. 
 * **eventHubName** - 연결 문자열로 식별되는 네임스페이스 내에 있는 이벤트 허브의 이름입니다.
 
-```JSON
+```json
     ...
     "bindings" : [
         {
@@ -156,7 +156,7 @@ Service Bus 큐로 이벤트를 전달하려면 설정하는 "바인딩" 내의 
 * **connection** - Service Bus 연결 문자열에 대한 앱 설정 값의 이름입니다. 
 * **queueName** - 연결 문자열로 식별되는 네임스페이스 내에 있는 Service Bus 큐의 이름입니다.
 
-```JSON
+```json
     ...
     "bindings" : [
         {
@@ -180,7 +180,7 @@ Service Bus 토픽으로 이벤트를 전달하려면 설정하는 "바인딩" �
 * **connection** - Service Bus 연결 문자열에 대한 앱 설정 값의 이름입니다. 
 * **topicName** - 연결 문자열로 식별되는 네임스페이스 내에 있는 Service Bus 토픽의 이름입니다.
 
-```JSON
+```json
     ...
     "bindings" : [
         {
@@ -200,7 +200,7 @@ Service Bus 토픽으로 이벤트를 전달하려면 설정하는 "바인딩" �
 
 진입점 구성은 표준 복제 작업 중 하나를 선택합니다. `Azure.Messaging.Replication` 프로젝트를 수정하는 경우 작업을 추가하고 여기에서 참조할 수도 있습니다. 예를 들면 다음과 같습니다.
 
-```JSON
+```json
     ...
     "scriptFile": "../dotnet/bin/Azure.Messaging.Replication.dll",
     "entryPoint": "Azure.Messaging.Replication.EventHubReplicationTasks.ForwardToEventHub"

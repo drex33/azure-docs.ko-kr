@@ -2,14 +2,14 @@
 author: sgilley
 ms.service: machine-learning
 ms.topic: include
-ms.date: 09/23/2021
+ms.date: 10/21/2021
 ms.author: sdgilley
-ms.openlocfilehash: 08f45c41cd0edd4886ebeb124c91d0655562c543
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 122d8c73948641ead5b859c5ac670d4c4c1a3cfe
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129372822"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131571243"
 ---
 레이블 지정 작업을 명확하게 설명하는 것이 중요합니다. **레이블 지정 지침** 페이지에서 레이블 지정 지침이 있는 외부 사이트에 대한 링크를 추가하거나 페이지의 편집 상자에서 지침을 제공할 수 있습니다. 작업 지향적이고 대상 그룹에 적합한 지침을 유지합니다. 고려해야 하는 질문은 다음과 같습니다.
 

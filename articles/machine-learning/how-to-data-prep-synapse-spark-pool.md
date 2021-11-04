@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
-ms.date: 03/02/2021
+ms.date: 10/21/2021
 ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4
-ms.openlocfilehash: 625a49930b68f2f5d76110a3548ad6e422ebf451
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 711521554e30b2905184150fa631ce92390534dd
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130251550"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131564388"
 ---
 # <a name="data-wrangling-with-apache-spark-pools-preview"></a>Apache Spark 풀을 사용한 데이터 랭글링(미리 보기) 
 

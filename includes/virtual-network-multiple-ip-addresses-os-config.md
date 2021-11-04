@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 769c3c5e720486c2c6d590f6feea55de5e0f4b88
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: f76408314f65409d21d163f34efc7da3d6e86f68
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130287687"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131571146"
 ---
 ## <a name="add-ip-addresses-to-a-vm-operating-system"></a><a name="os-config"></a>VM 운영 체제에 IP 주소 추가
 
@@ -34,10 +34,10 @@ ms.locfileid: "130287687"
     * **서브넷 마스크**: 서브넷을 기준으로 설정합니다. 예를 들어 서브넷이 /24이면 서브넷 마스크는 255.255.255.0입니다.
     * **기본 게이트웨이**: 서브넷의 첫 번째 IP 주소입니다. 서브넷이 10.0.0.0/24이면 게이트웨이 IP 주소는 10.0.0.1입니다.
     * **다음 DNS 서버 주소 사용** 을 선택하고 다음 값을 입력합니다.
-        * **기본 설정 DNS 서버**: 자체 DNS 서버를 사용하지 않는 경우 168.63.129.16을 입력합니다.  자체 DNS 서버를 사용하는 경우 서버의 IP 주소를 입력합니다.  (대체 DNS 서버의 경우 모든 무료 퍼블릭 DNS 서버 주소를 선택할 수 있습니다.)
+      * **기본 설정 DNS 서버**: 자체 DNS 서버를 사용하지 않는 경우 168.63.129.16을 입력합니다.  자체 DNS 서버를 사용하는 경우 서버의 IP 주소를 입력합니다.  (대체 DNS 서버의 경우 모든 무료 퍼블릭 DNS 서버 주소를 선택할 수 있습니다.)
     * **고급** 단추를 선택하고 추가 IP 주소를 추가합니다. 이전 단계에서 Azure 네트워크 인터페이스에 추가한 각각의 보조 개인 IP 주소를 Azure 네트워크 인터페이스에 할당된 기본 IP 주소에 할당되어 있는 Windows 네트워크 인터페이스에 추가합니다.
 
-        가상 머신의 운영 체제 내에서 Azure Virtual Machine에 할당된 공용 IP 주소는 절대 수동으로 할당하면 안 됩니다. 운영 체제 내에서 IP 주소를 수동으로 설정하는 경우 Azure [네트워크 인터페이스](../articles/virtual-network/ip-services/virtual-network-network-interface-addresses.md#change-ip-address-settings)에 할당된 개인 IP 주소와 동일한 주소인지 확인합니다. 두 주소가 같지 않으면 가상 머신에 대한 연결이 끊어질 수 있습니다. [개인 IP 주소](../articles/virtual-network/ip-services/virtual-network-network-interface-addresses.md#private) 설정에 대해 자세히 알아봅니다. Azure 공용 IP 주소는 절대 운영 체제 내에서 할당하지 않아야 합니다.
+      가상 머신의 운영 체제 내에서 Azure Virtual Machine에 할당된 공용 IP 주소는 절대 수동으로 할당하면 안 됩니다. 운영 체제 내에서 IP 주소를 수동으로 설정하는 경우 Azure [네트워크 인터페이스](../articles/virtual-network/ip-services/virtual-network-network-interface-addresses.md#change-ip-address-settings)에 할당된 개인 IP 주소와 동일한 주소인지 확인합니다. 두 주소가 같지 않으면 가상 머신에 대한 연결이 끊어질 수 있습니다. [개인 IP 주소](../articles/virtual-network/ip-services/virtual-network-network-interface-addresses.md#private) 설정에 대해 자세히 알아봅니다. Azure 공용 IP 주소는 절대 운영 체제 내에서 할당하지 않아야 합니다.
 
     * **확인** 을 클릭하여 TCP/IP 설정을 닫은 다음 **확인** 을 다시 클릭하여 어댑터 설정을 닫습니다. RDP 연결이 다시 설정됩니다.
 
@@ -142,9 +142,9 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 ```
 
 - 반드시 대체할 항목:
-    - **10.0.0.5** 를 공용 IP 주소가 연결되어 있는 개인 IP 주소로 대체해야 합니다.
-    - **10.0.0.1** 을 기본 게이트웨이로 대체해야 합니다.
-    - **eth2** 를 보조 NIC의 이름으로 대체해야 합니다. 
+  - **10.0.0.5** 를 공용 IP 주소가 연결되어 있는 개인 IP 주소로 대체해야 합니다.
+  - **10.0.0.1** 을 기본 게이트웨이로 대체해야 합니다.
+  - **eth2** 를 보조 NIC의 이름으로 대체해야 합니다. 
 
 </details>
 
@@ -246,9 +246,9 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 ```
 
 - 반드시 대체할 항목:
-    - **10.0.0.5** 를 공용 IP 주소가 연결되어 있는 개인 IP 주소로 대체해야 합니다.
-    - **10.0.0.1** 을 기본 게이트웨이로 대체해야 합니다.
-    - **eth2** 를 보조 NIC의 이름으로 대체해야 합니다. 
+  - **10.0.0.5** 를 공용 IP 주소가 연결되어 있는 개인 IP 주소로 대체해야 합니다.
+  - **10.0.0.1** 을 기본 게이트웨이로 대체해야 합니다.
+  - **eth2** 를 보조 NIC의 이름으로 대체해야 합니다. 
 
 </details>
 
@@ -335,9 +335,9 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 ```
 
 - 반드시 대체할 항목:
-    - **10.0.0.5** 를 공용 IP 주소가 연결되어 있는 개인 IP 주소로 대체해야 합니다.
-    - **10.0.0.1** 을 기본 게이트웨이로 대체해야 합니다.
-    - **eth2** 를 보조 NIC의 이름으로 대체해야 합니다. 
+  - **10.0.0.5** 를 공용 IP 주소가 연결되어 있는 개인 IP 주소로 대체해야 합니다.
+  - **10.0.0.1** 을 기본 게이트웨이로 대체해야 합니다.
+  - **eth2** 를 보조 NIC의 이름으로 대체해야 합니다. 
 
 
 </details>
@@ -357,18 +357,18 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 1. 네트워크 인터페이스(‘eth0’이라고 가정)의 구성 파일을 업데이트합니다.
 
    * 다음 명령을 사용하여 네트워크 인터페이스 파일을 엽니다.
-     
+
      ```bash
      vi /etc/network/interfaces
      ```
-    
+
    * 파일 끝에 다음 줄이 있어야 합니다.
-    
+
       ```bash
       auth eth0
       iface eth0 inet dhcp
       ```
-    
+
    * dhcp에 대한 기존 줄 항목을 그대로 유지합니다. 기본 IP 주소가 이전에 구성된 대로 유지됩니다.
    * 이 파일에 있는 줄 뒤에 다음 줄을 추가합니다.
 
@@ -390,7 +390,7 @@ ip route add default via 10.0.0.1 dev eth2 table custom
    systemctl restart networking
    ```
    이전 버전의 Debian에서는 다음 명령을 사용할 수 있습니다.
-    
+
    ```bash
    service networking restart
    ```

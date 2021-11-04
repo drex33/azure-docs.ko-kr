@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: a5126abd6643eba7f63b2bf4ca984bb9892b2d7a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fa0cc8c0ca548dbf5021d7531198802729afaf2f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96619813"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131427820"
 ---
 # <a name="delete-an-azure-active-directory-domain-services-managed-domain-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Active Directory Domain Services 관리되는 도메인을 사용하지 않도록 설정 또는 삭제하는 방법 알아보기
 
@@ -50,5 +50,5 @@ Azure AD DS에 표시하려는 기능에 대한 [피드백을 공유][feedback]�
 Azure AD DS를 다시 시작하려는 경우 [Azure Active Directory Domain Services 관리되는 도메인 만들기 및 구성][create-instance]을 참조하세요.
 
 <!-- INTERNAL LINKS -->
-[feedback]: https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160593%3fcategory_id%3d160593
+[feedback]: https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789?c=5d63b5b7-ae25-ec11-b6e6-000d3a4f0789
 [create-instance]: tutorial-create-instance.md

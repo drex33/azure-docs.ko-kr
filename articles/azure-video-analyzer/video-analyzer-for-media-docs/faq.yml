@@ -10,11 +10,11 @@ metadata:
   ms.subservice: azure-video-analyzer-media
   ms.date: 05/25/2021
   ms.author: juliako
-  ms.openlocfilehash: 8776f899a21639162448e681fdf8b32247b16fc4
-  ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+  ms.openlocfilehash: b6b28c84c8a46df55394a026c0998be8bbc2c7bb
+  ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/15/2021
+  ms.lasthandoff: 11/04/2021
   ms.locfileid: "130044197"
 title: Video Analyzer for Media 질문과 대답
 summary: 이 문서에서는 Azure Video Analyzer for Media(이전의 Video Indexer)에 대한 질문과 대답을 제공합니다.

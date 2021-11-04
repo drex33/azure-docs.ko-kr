@@ -6,12 +6,12 @@ ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
-ms.openlocfilehash: d55c178456336c5a1c81845ae3eee611e8d9ee33
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 432e65d3d2f3dc3d4bc71157f165311e7fad87e9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131103044"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131476664"
 ---
 # <a name="precise-answering"></a>정확한 대답
 
@@ -38,7 +38,3 @@ Language [Studio 포털](https://aka.ms/languageStudio)에서 테스트 창을 �
 ## <a name="deploying-a-bot"></a>봇 배포
 
 봇을 게시하면 애플리케이션에서 기본적으로 정확한 답변 사용 환경을 가져올 수 있으며, 여기에서 대답 통로와 함께 짧은 답변이 표시됩니다. 응답에서 정확한 답변(AnswerSpan이라고 함)을 사용하는 방법을 보려면 REST API API 참조를 참조하세요. 사용자는 Bot 앱 서비스를 통해 템플릿을 업데이트하여 다른 환경을 유연하게 선택할 수 있습니다.
-
-## <a name="language-support"></a>언어 지원
-
-현재 정확한 답변 기능은 영어로먄 지원됩니다.

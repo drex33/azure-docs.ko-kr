@@ -2,18 +2,18 @@
 title: 장애 조치(failover) VM에 대한 네트워킹 구성 사용자 지정 | Microsoft Docs
 description: Azure Site Recovery를 사용한 Azure VM 복제 시 장애 조치(failover) VM에 대한 네트워킹 구성을 사용자 지정하는 방법의 개요를 제공합니다.
 services: site-recovery
-author: sideeksh
-manager: rochakm
+author: rishjai-msft
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/21/2019
-ms.author: sideeksh
-ms.openlocfilehash: 29896c026b65859448f923bc542ea7198e8f848b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 10/01/2021
+ms.author: rishjai
+ms.openlocfilehash: 79a33226da71071d8985daf723dde7314116ce37
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131083463"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131475156"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>대상 Azure VM의 네트워킹 구성 사용자 지정
 
@@ -28,7 +28,8 @@ Site Recovery가 [이 시나리오](azure-to-azure-architecture.md)에 재해 �
 Azure VM을 복제하는 동안 장애 조치(failover) VM에 대해 다음과 같은 주요 리소스 구성을 제공할 수 있습니다.
 
 - [내부 부하 분산 장치](../load-balancer/load-balancer-overview.md)
-- [공용 IP](../virtual-network/ip-services/public-ip-addresses.md)
+- [공용 IP](../virtual-network/public-ip-addresses.md)
+- [보조 IP](../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.md)
 - [네트워크 보안 그룹](../virtual-network/manage-network-security-group.md)(서브넷과 NIC 모두에 사용 가능)
 
 ## <a name="prerequisites"></a>필수 구성 요소
@@ -40,14 +41,14 @@ Azure VM을 복제하는 동안 장애 조치(failover) VM에 대해 다음과 �
 
 1. **복제된 항목** 으로 이동합니다. 
 2. 원하는 Azure VM을 선택합니다.
-3. **컴퓨팅 및 네트워크** 를 선택하고 **편집** 을 선택합니다. NIC 구성 설정에는 해당되는 원본 리소스가 포함됩니다. 
+3. **네트워크** 를 선택 하 고 **편집** 을 선택 합니다. NIC 구성 설정에는 해당되는 원본 리소스가 포함됩니다. 
 
-     ![장애 조치(failover) 네트워킹 구성 사용자 지정](media/azure-to-azure-customize-networking/edit-networking-properties.png)
+    :::image type="content" source="./media/azure-to-azure-customize-networking/edit-networking-properties.png" alt-text="장애 조치(failover) 네트워킹 구성 사용자 지정" lightbox="./media/azure-to-azure-customize-networking/edit-networking-properties-expanded.png":::
 
 4. 테스트 장애 조치(failover) 가상 네트워크를 선택합니다.
-5. 장애 조치(failover) 네트워크에서 구성하려는 NIC 근처에 있는 **편집** 을 선택합니다. 열리는 다음 블레이드에서 테스트 장애 조치(failover) 및 장애 조치(failover) 위치에서 미리 만든 해당 리소스를 선택합니다.
+5. 구성 하려는 NIC 탭을 선택 합니다. 이제 테스트 장애 조치 (failover) 및 장애 조치 (failover) 위치에서 미리 생성 된 해당 리소스를 선택 합니다.
 
-    ![NIC 구성 편집](media/azure-to-azure-customize-networking/nic-drilldown.png) 
+    :::image type="content" source="./media/azure-to-azure-customize-networking/nic-drilldown.png" alt-text="NIC 구성 편집" lightbox="./media/azure-to-azure-customize-networking/nic-drilldown-expanded.png":::
 
 6. **확인** 을 선택합니다.
 

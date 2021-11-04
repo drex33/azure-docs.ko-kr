@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: 차등 프라이버시가 무엇인지 알아보고, 데이터 프라이버시를 보호하는 차등 프라이버시 시스템을 구현하는 방법을 알아봅니다.
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 01/21/2020
+ms.date: 10/21/2021
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.custom: responsible-ml
-ms.openlocfilehash: 3d28a2f9d18b143013ee89d7d1911b50905bc625
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 3df3f361d6f3591fe9b209ac64a5f8a51c09d2dd
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424638"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131562716"
 ---
 # <a name="what-is-differential-privacy-in-machine-learning-preview"></a>Azure Machine Learning에서 차등 프라이버시 정의(미리 보기)
 

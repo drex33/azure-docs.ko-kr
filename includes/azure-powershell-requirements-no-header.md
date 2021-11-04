@@ -8,12 +8,12 @@ ms.technology: azure-powershell
 ms.service: azure-powershell
 ms.devlang: azurepowershell
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2646ad40caf37d6c9dc192b3a4b198a40e73c8d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c7726cfa308a24d988c6d4defc72c965cf284239
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96509233"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131571121"
 ---
 * Azure PowerShell을 로컬로 사용하도록 선택하는 경우:
   * [Az PowerShell 모듈을 설치합니다](/powershell/azure/install-az-ps).

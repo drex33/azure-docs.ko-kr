@@ -8,17 +8,16 @@ ms.topic: include
 ms.date: 12/12/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 38a2f3cd5f1b391b651c89801e4ab3abe92ed448
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
-ms.translationtype: HT
+ms.openlocfilehash: 3cb87b130b0dd7888664f0bcc1522c99c1c56a4b
+ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112255514"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131571340"
 ---
 ## <a name="what-is-a-replication-task"></a>복제 작업이란 무엇인가요?
 
-복제 작업은 원본에서 이벤트를 수신하고 대상으로 전달합니다.
-대부분의 복제 작업은 변경되지 않은 이벤트를 전달하고 원본 및 대상 프로토콜이 다른 경우 메타데이터 구조 간 매핑을 최대한으로 수행합니다. 
+복제 작업은 원본에서 이벤트를 수신하고 대상으로 전달합니다. 대부분의 복제 작업은 변경되지 않은 이벤트를 전달하고 원본 및 대상 프로토콜이 다른 경우 메타데이터 구조 간 매핑을 최대한으로 수행합니다. 
 
 복제 작업은 일반적으로 상태 비저장입니다. 즉, 작업의 순차적 또는 병렬 실행에 대한 상태 또는 기타 부작용을 공유하지 않습니다. 일괄 처리 및 연결의 경우에도 마찬가지입니다. 두 경우 모두 스트림의 기존 상태를 기반으로 구현될 수 있습니다. 
 

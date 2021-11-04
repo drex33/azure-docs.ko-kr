@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0151f4de30c3bf96fa8c0dca77c90282115c70d7
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: b15ccb564fe2c3551103e71b8c1ca2a901ec03e0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864374"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131440760"
 ---
 # <a name="how-to-investigate-risk"></a>방법: 위험 조사
 
@@ -93,7 +93,6 @@ Identity Protection은 조직의 사용자 환경에서 ID 위험을 조사하�
 
 > [!NOTE] 
 > 시스템에서는 위험 사용자 위험 점수에 영향을 준 위험 이벤트가 가양성이었는지 또는 MFA 프롬프트 또는 보안 암호 변경 완료와 같은 정책 적용으로 사용자 위험이 수정되었는지 검색할 수 있습니다. 따라서 시스템에서는 위험 상태를 해제하며, “AI 확인된 로그인 안전”의 위험 세부 정보가 표시되고 더 이상 사용자 위험에 영향을 주지 않습니다. 
-
 
 ## <a name="next-steps"></a>다음 단계
 

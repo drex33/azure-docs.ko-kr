@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/20/2021
 ms.author: danlep
-ms.openlocfilehash: ae043f6765c44ddee8fb6816017937af10413a76
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: fd45ad3a77ddfe9bea46c9c816b67be0c2cf1fac
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131474044"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131579163"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Azure API Management에서 Azure Active Directory를 사용하여 개발자 계정에 권한 부여
 
@@ -76,7 +76,7 @@ ms.locfileid: "131474044"
     * **설명** 을 입력합니다.
     * **만료** 에 대 한 옵션을 선택 합니다.
     * **추가** 를 선택합니다. 
-1. 페이지를 벗어나기 전에 클라이언트 **암호 ID** 를 복사 합니다. 이 시간은 나중에 필요합니다. 
+1. 페이지를 벗어나기 전에 클라이언트 **암호 값** 을 복사 합니다. 이 시간은 나중에 필요합니다. 
 1. 측면 메뉴의 **관리** 에서 **인증** 을 선택 합니다.
 1. **암시적 허용 및 하이브리드 흐름** 섹션에서 **ID 토큰** 확인란을 선택 합니다.
 1. API Management 인스턴스를 사용 하 여 브라우저 탭으로 전환 합니다. 
@@ -165,13 +165,13 @@ ms.locfileid: "131474044"
 
    ![로그인 페이지][api-management-dev-portal-signin]
 
-1. Azure AD에서 사용자 중 하나의 자격 증명을 입력 합니다.
+1. Azure AD에서 사용자 중 하나의 자격 증명을 입력합니다.
 2. **로그인** 을 선택합니다.
 
    ![사용자 이름 및 암호로 로그인][api-management-aad-signin]
 
-1. 등록 양식이 표시 되 면 필요한 추가 정보를 모두 입력 합니다. 
-2. **등록** 을 선택 합니다.
+1. 등록 양식을 입력하라는 메시지가 표시되면 필요한 추가 정보를 입력합니다. 
+2. **등록을** 선택합니다.
 
    ![등록 양식의 "등록" 단추][api-management-complete-registration]
 
@@ -181,7 +181,7 @@ ms.locfileid: "131474044"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [AZURE AD에서 OAuth 2.0 권한 부여를 사용 하 여 API Management에서 WEB API 백 엔드를 보호](./api-management-howto-protect-backend-with-aad.md) 하는 방법을 알아봅니다.
+- [Azure AD에서 OAuth 2.0 권한 부여를 사용하여 API Management 웹 API 백 엔드를 보호하는](./api-management-howto-protect-backend-with-aad.md) 방법을 알아봅니다.
 - [Azure Active Directory 및 OAuth2.0](../active-directory/develop/authentication-vs-authorization.md)에 대해 자세히 알아봅니다.
 - API Management에 대한 추가 [비디오](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 를 확인합니다.
 - 백 엔드 서비스를 보호하는 다른 방법은 [상호 인증서 인증](./api-management-howto-mutual-certificates.md)을 참조하세요.

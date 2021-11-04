@@ -4,12 +4,12 @@ description: Azure Active Directory ID, 서비스 주체, 선택적 관리자 �
 ms.topic: article
 ms.date: 06/16/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e21d1a12c0fc9e4cc818ee96f211f541c3ed511a
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 7c6510247ff6900145241834841964271db6530b
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129545947"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131578966"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Azure Container Registry로 인증
 
@@ -31,7 +31,7 @@ AKS(Azure Kubernetes Service) 또는 다른 Kubernetes 클러스터와 함께 �
 | [개별 AD ID](#individual-login-with-azure-ad)                | `az acr login` (Azure CLI)<br/><br/> Azure PowerShell의 `Connect-AzContainerRegistry`                             | 개발자, 테스터의 대화형 푸시/풀                                    | 예                              | AD 토큰을 3시간마다 갱신해야 합니다.     |
 | [AD 서비스 주체](#service-principal)                  | `docker login`<br/><br/>`az acr login`(Azure CLI)<br/><br/> Azure PowerShell의 `Connect-AzContainerRegistry`<br/><br/> API 또는 도구의 레지스트리 로그인 설정<br/><br/> [Kubernetes 풀 비밀](container-registry-auth-kubernetes.md)                                           | CI/CD 파이프라인에서 무인 푸시<br/><br/> Azure 또는 외부 서비스에 무인 풀  | 예                              | SP 암호 기본 만료는 1년입니다.       |
 | [Azure 리소스용 관리 서비스 ID](container-registry-authentication-managed-identity.md)  | `docker login`<br/><br/> `az acr login` (Azure CLI)<br/><br/> Azure PowerShell의 `Connect-AzContainerRegistry`                                       | Azure CI/CD 파이프라인에서 무인 푸시<br/><br/> Azure 서비스로 무인 풀<br/><br/>   | 예                              | [Azure 리소스의 관리 ID를 지원하는](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources) 일부 Azure 서비스에서만 사용              |
-| [AKS 클러스터 관리 ID](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)                    | AKS 클러스터를 만들거나 업데이트할 때 레지스트리 연결  | 동일하거나 다른 구독에서 AKS 클러스터로 무인 끌어오기                                                 | 아니요, 풀 액세스만             | AKS 클러스터에서만 사용 가능<br/><br/>테넌트 간 인증에 사용할 수 없습니다.            |
+| [AKS 클러스터 관리 ID](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)                    | AKS 클러스터를 만들거나 업데이트할 때 레지스트리 연결  | 동일하거나 다른 구독에서 AKS 클러스터로 무인 끌어오기                                                 | 아니요, 풀 액세스만             | AKS 클러스터에서만 사용 가능<br/><br/>교차 테 넌 트 인증에 사용할 수 없습니다.            |
 | [AKS 클러스터 서비스 주체](authenticate-aks-cross-tenant.md)                    | AKS 클러스터를 만들거나 업데이트 시 활성화  | 다른 AD 테넌트의 레지스트리에서 AKS 클러스터로 무인 끌어오기                                                  | 아니요, 풀 액세스만             | AKS 클러스터에서만 사용 가능            |
 | [관리 사용자](#admin-account)                            | `docker login`                                          | 개인 개발자 또는 테스터의 대화형 푸시/풀<br/><br/>레지스트리에서 Azure App Service 또는 Azure Container Instances로 이미지 포털 배포                      | 아니요, 항상 풀 및 푸시 액세스  | 레지스트리당 단일 계정, 여러 사용자에는 권장되지 않음         |
 | [리포지토리 범위 액세스 토큰](container-registry-repository-scoped-permissions.md)               | `docker login`<br/><br/>`az acr login`(Azure CLI)<br/><br/> Azure PowerShell의 `Connect-AzContainerRegistry`<br/><br/> [Kubernetes 풀 비밀](container-registry-auth-kubernetes.md)    | 개인 개발자 또는 테스터의 리포지토리로 대화형 푸시/풀<br/><br/> 개별 시스템 또는 외부 디바이스별 리포지토리에서 무인 끌어오기                  | 예                              | 현재 AD ID와 통합되어 있지 않음  |
@@ -84,6 +84,13 @@ TOKEN=$(az acr login --name <acrName> --expose-token --output tsv --query access
 
 ```console
 docker login myregistry.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password $TOKEN
+```
+마찬가지로에서 반환 된 토큰을 명령과 함께 사용 하 여 레지스트리를 인증할 수 있습니다 `az acr login` `helm registry login` .
+
+```console
+echo $TOKEN | helm registry login myregistry.azurecr.io \
+            --username 00000000-0000-0000-0000-000000000000 \
+            --password-stdin
 ```
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: 89890c243fa3fba659c8da3aaf5627ded7d27fb1
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 96fdec13ce028f3cac5f42c7092ca9b189923b9f
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130065581"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131577786"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 배포
 
@@ -835,7 +835,9 @@ Windows에서 프록시를 구성하기 위해 거치는 단계는 Linux에서 �
    sudo service waagent restart
    ```
 
-\\etc\\waagent.conf의 프록시 설정은 필요한 VM 확장에도 적용됩니다. Azure 리포지토리를 사용하려는 경우 이러한 리포지토리에 대한 트래픽이 온-프레미스 인트라넷을 통해 전달되지 않는지 확인합니다. 강제 터널링을 사용하도록 사용자 정의 경로를 만든 경우 사이트 간 VPN 연결을 통해서가 아니라 인터넷에 직접 리포지토리로 트래픽을 라우트하는 경로를 추가해야 합니다.
+Azure 리포지토리를 사용하려는 경우 이러한 리포지토리에 대한 트래픽이 온-프레미스 인트라넷을 통해 전달되지 않는지 확인합니다. 강제 터널링을 사용하도록 사용자 정의 경로를 만든 경우 사이트 간 VPN 연결을 통해서가 아니라 인터넷에 직접 리포지토리로 트래픽을 라우트하는 경로를 추가해야 합니다.
+
+또한 SAP 용 VM 확장은 인터넷에 액세스할 수 있어야 합니다. Sap 용 새 VM 확장을 설치 했는지 확인 하 고 SAP 용 VM 확장 설치 가이드의 [Azure CLI를 사용 하 여 sap 솔루션에 대 한 AZURE VM 확장 구성](vm-extension-for-sap-new.md#fa4428b9-bed6-459a-9dfb-74cc27454481) 의 단계를 수행 하 여 프록시를 구성 합니다.
 
 * **SLES**
 

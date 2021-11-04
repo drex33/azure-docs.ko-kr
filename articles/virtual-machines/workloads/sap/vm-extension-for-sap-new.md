@@ -1,6 +1,6 @@
 ---
 title: SAP 솔루션용 Azure VM 확장의 새 버전 | Microsoft Docs
-description: SAP 용 새 VM 확장을 배포 하는 방법을 알아봅니다.
+description: SAP용 새 VM 확장을 배포하는 방법을 알아봅니다.
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: OliverDoll
@@ -15,43 +15,43 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/22/2021
 ms.author: oldoll
-ms.openlocfilehash: 8e70919b229ff1c29590a370a201f8b8a0ebc62b
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: ce34b313661106e903a92aaf1a3b2f65213a1634
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130067913"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131577272"
 ---
-# <a name="new-version-of-azure-vm-extension-for-sap-solutions"></a>SAP 솔루션에 대 한 새 버전의 Azure VM 확장 
+# <a name="new-version-of-azure-vm-extension-for-sap-solutions"></a>SAP 솔루션용 Azure VM 확장의 새 버전 
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
 [std-extension]:vm-extension-for-sap-standard.md (SAP 솔루션용 Azure VM 확장의 표준 버전)
-[configure-windows]:vm-extension-for-sap-new.md#a876ee7b-43b4-4782-aa5f-73753b6af0ea (PowerShell을 사용 하 여 SAP 솔루션에 대 한 새 Azure VM 확장 구성)
-[troubleshoot-windows]:vm-extension-for-sap-new.md#dee9099b-7b8a-4cdd-86a2-3f6ee964266f (Windows에 대 한 문제 해결)
-[troubleshoot-linux]:vm-extension-for-sap-new.md#02783aa4-5443-43f5-bc11-7af19ebf0c36 (Linux에 대 한 문제 해결)
+[configure-windows]:vm-extension-for-sap-new.md#a876ee7b-43b4-4782-aa5f-73753b6af0ea (PowerShell을 통해 SAP 솔루션에 대한 새 Azure VM 확장 구성)
+[troubleshoot-windows]:vm-extension-for-sap-new.md#dee9099b-7b8a-4cdd-86a2-3f6ee964266f (Windows 문제 해결)
+[troubleshoot-linux]:vm-extension-for-sap-new.md#02783aa4-5443-43f5-bc11-7af19ebf0c36 (Linux 문제 해결)
 [deployment-guide-4.1]:vm-extension-for-sap-new.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 (Azure PowerShell cmdlet 배포)
 [azure-cli-2]:/cli/azure/install-azure-cli
-[configure-linux]:vm-extension-for-sap-new.md#fa4428b9-bed6-459a-9dfb-74cc27454481 (Azure CLI를 사용 하 여 SAP 솔루션에 대 한 Azure VM 확장 구성)
-[configure-windows]:vm-extension-for-sap-new.md#a876ee7b-43b4-4782-aa5f-73753b6af0ea (PowerShell을 사용 하 여 SAP 솔루션에 대 한 Azure VM 확장 구성)
+[configure-linux]:vm-extension-for-sap-new.md#fa4428b9-bed6-459a-9dfb-74cc27454481 (Azure CLI 통해 SAP 솔루션용 Azure VM 확장 구성)
+[configure-windows]:vm-extension-for-sap-new.md#a876ee7b-43b4-4782-aa5f-73753b6af0ea (PowerShell을 통해 SAP 솔루션용 Azure VM 확장 구성)
 [health-check]:vm-extension-for-sap-new.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (상태 검사)
 [1031096]:https://launchpad.support.sap.com/#/notes/1031096
 [readiness-check]:vm-extension-for-sap-new.md#5774c1db-1d3c-4b34-8448-3afd0b0f18ab (준비 검사)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 > [!NOTE]
-> 일반 지원 문: SAP 용 Azure 확장에 대 한 지원은 SAP 지원 채널을 통해 제공 됩니다.
-> SAP 솔루션용 Azure VM 확장에 대 한 지원이 필요한 경우 SAP 지원에 대 한 지원 사례를 여세요.
+> 일반 지원 문: SAP용 Azure 확장에 대한 지원은 SAP 지원 채널을 통해 제공됩니다.
+> SAP 솔루션용 Azure VM 확장에 대한 지원이 필요한 경우 SAP 지원을 통해 지원 사례를 여세요.
   
 > [!NOTE]
-> SAP 용 Azure 확장의 표준과 새 버전 간을 전환 하기 전에 VM 확장을 제거 해야 합니다.
+> SAP용 Azure 확장의 표준 버전과 새 버전 간에 전환하기 전에 VM 확장을 제거해야 합니다.
 
 > [!NOTE]
-> 두 가지 버전의 VM 확장이 있습니다. 이 문서에서는 SAP 용 Azure VM 확장의 **새** 버전을 다룹니다. 표준 버전을 설치 하는 방법에 대 한 지침은 [SAP 솔루션에 대 한 AZURE VM 확장의 표준 버전][std-extension]을 참조 하세요.
+> 두 가지 버전의 VM 확장이 있습니다. 이 문서에서는 SAP용 Azure VM 확장의 **새** 버전을 다룹니다. 표준 버전을 설치하는 방법에 대한 지침은 [SAP 솔루션용 Azure VM 확장의 표준 버전을 참조하세요.][std-extension]
 
 * SAP Host Agent 7.21 PL 47 이상을 사용해야 합니다.
-* 확장을 사용 하도록 설정 된 가상 컴퓨터에 management.azure.com에 대 한 액세스 권한이 있는지 확인 합니다.
+* 확장을 사용하도록 설정된 가상 머신에 management.azure.com 대한 액세스 권한이 있는지 확인합니다.
 
 ### <a name="deploy-azure-powershell-cmdlets"></a><a name="604bcec2-8b6e-48d2-a944-61b0f5dee2f7"></a>Azure PowerShell cmdlet 배포
 
@@ -77,18 +77,20 @@ ms.locfileid: "130067913"
 az --version
 ```
  
-## <a name="configure-the-azure-vm-extension-for-sap-solutions-with-powershell"></a><a name="a876ee7b-43b4-4782-aa5f-73753b6af0ea"></a>PowerShell을 사용 하 여 SAP 솔루션에 대 한 Azure VM 확장 구성
+## <a name="configure-the-azure-vm-extension-for-sap-solutions-with-powershell"></a><a name="a876ee7b-43b4-4782-aa5f-73753b6af0ea"></a>PowerShell을 통해 SAP 솔루션용 Azure VM 확장 구성
  
 새 SAP용 VM 확장은 VM에 할당된 관리 ID를 사용하여 VM의 모니터링 및 구성 데이터에 액세스합니다. PowerShell을 사용하여 새 SAP용 Azure 확장을 설치하려면 먼저 이 ID를 VM에 할당하고 VM에서 사용 중인 모든 리소스(예: 디스크 및 네트워크 인터페이스)에 해당 ID 액세스 권한을 부여해야 합니다.
 
 > [!NOTE]
-> 다음 단계를 수행 하려면 리소스 그룹 또는 개별 리소스 (가상 머신, 데이터 디스크 및 네트워크 인터페이스)에 대 한 소유자 권한이 있어야 합니다.
+> 다음 단계에서는 리소스 그룹 또는 개별 리소스(가상 머신, 데이터 디스크 및 네트워크 인터페이스)에 대한 소유자 권한이 필요합니다.
 
 1. SAP Host Agent 7.21 PL 47 이상을 사용해야 합니다.
-1. SAP 용 VM 확장의 표준 버전을 제거 해야 합니다. 동일한 가상 머신에 SAP용 VM 확장의 두 버전을 모두 설치할 수는 없습니다.
+1. SAP용 VM 확장의 표준 버전을 제거해야 합니다. 동일한 가상 머신에 SAP용 VM 확장의 두 버전을 모두 설치할 수는 없습니다.
 1. 최신 버전의 Azure PowerShell cmdlet(4.3.0 이상)을 설치했는지 확인합니다. 자세한 내용은 [Azure PowerShell cmdlet 배포][deployment-guide-4.1]를 참조하세요.
 1. 다음 PowerShell cmdlet을 실행합니다.
     사용 가능한 환경 목록을 보려면 cmdlet `Get-AzEnvironment`를 실행합니다. 전역 Azure를 사용하려는 경우 환경은 **AzureCloud** 입니다. Azure 중국 21Vianet의 경우 **AzureChinaCloud** 를 선택합니다.
+
+    SAP용 VM 확장은 확장이 외부 리소스(예: Azure Resource Manager API)에 연결하는 데 사용해야 하는 프록시 구성을 지원합니다. -ProxyURI 매개 변수를 사용하여 프록시를 설정하세요.
 
     ```powershell
     $env = Get-AzEnvironment -Name <name of the environment>
@@ -98,16 +100,16 @@ az --version
     Set-AzVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name> -InstallNewExtension
     ```
  
-## <a name="configure-the-azure-vm-extension-for-sap-solutions-with-azure-cli"></a><a name="fa4428b9-bed6-459a-9dfb-74cc27454481"></a>Azure CLI를 사용 하 여 SAP 솔루션에 대 한 Azure VM 확장 구성
+## <a name="configure-the-azure-vm-extension-for-sap-solutions-with-azure-cli"></a><a name="fa4428b9-bed6-459a-9dfb-74cc27454481"></a>Azure CLI SAP 솔루션용 Azure VM 확장 구성
  
-SAP 용 새 VM 확장은 vm에 할당 된 관리 id를 사용 하 여 VM의 모니터링 및 구성 데이터에 액세스 합니다.
+SAP용 새 VM 확장은 VM에 할당된 관리 ID를 사용하여 VM의 모니터링 및 구성 데이터에 액세스합니다.
 
 > [!NOTE]
 > 다음 단계를 수행하려면 리소스 그룹 또는 개별 리소스(가상 머신, 데이터 디스크 등)에 대한 소유자 권한이 있어야 합니다.
 
 1. SAP Host Agent 7.21 PL 47 이상을 사용해야 합니다.
 1. 현재 버전의 SAP용 VM 확장을 제거해야 합니다. 동일한 VM에 SAP용 VM 확장의 두 버전을 모두 설치할 수는 없습니다. 
-1. [Azure CLI 2.0][azure-cli-2] (버전 2.19.1 이상)의 최신 버전을 설치 합니다.
+1. 최신 버전의 [Azure CLI 2.0(버전][azure-cli-2] 2.19.1 이상)을 설치합니다.
 1. Azure 계정으로 로그인합니다.
 
    ```azurecli
@@ -122,6 +124,8 @@ SAP 용 새 VM 확장은 vm에 할당 된 관리 id를 사용 하 여 VM의 모�
   
 1. 새 확장을 사용하도록 설정합니다.
   
+   SAP용 VM 확장은 확장이 외부 리소스(예: Azure Resource Manager API)에 연결하는 데 사용해야 하는 프록시 구성을 지원합니다. --proxy-uri 매개 변수를 사용하여 프록시를 설정하세요.
+
    ```azurecli
    az vm aem set -g <resource-group-name> -n <vm name> --install-new-extension
    ```
@@ -136,8 +140,8 @@ SAP 용 새 VM 확장은 vm에 할당 된 관리 id를 사용 하 여 VM의 모�
 1. Azure Virtual Machine에 로그인합니다(관리자 계정 사용은 필요하지 않음).
 1. 웹 브라우저를 열고 http://127.0.0.1:11812/azure4sap/metrics 로 이동
 1. 브라우저에서 가상 머신의 모니터링 데이터를 포함하는 XML 파일을 표시하거나 다운로드해야 합니다. 그렇지 않은 경우 SAP용 Azure 확장이 설치되어 있는지 확인합니다.
-1. XML 파일의 내용을 확인 합니다. http://127.0.0.1:11812/azure4sap/metrics 에서 액세스할 수 있는 XML 파일에는 모든 SAP용 Azure 성능 카운터가 채워져 있습니다. SAP용 Azure 확장의 상태에 대한 요약 및 상태 표시기도 포함되어 있습니다.
-1. **공급자 상태 설명** 요소의 값을 확인합니다. 값이 **양호** 하지 않으면 [상태 검사][health-check]챕터의 지침을 따르세요.
+1. XML 파일의 내용을 확인합니다. http://127.0.0.1:11812/azure4sap/metrics 에서 액세스할 수 있는 XML 파일에는 모든 SAP용 Azure 성능 카운터가 채워져 있습니다. SAP용 Azure 확장의 상태에 대한 요약 및 상태 표시기도 포함되어 있습니다.
+1. **공급자 상태 설명** 요소의 값을 확인합니다. 값이 **정상이** 아닌 경우 [상태 검사][health-check]챕터의 지침을 따릅니다.
  
 ### <a name="run-the-readiness-check-on-a-linux-vm"></a>Linux VM에서 준비 검사 실행
 
@@ -189,7 +193,7 @@ SAP 용 새 VM 확장은 vm에 할당 된 관리 id를 사용 하 여 VM의 모�
 
 SAP NetWeaver ABAP 애플리케이션 서버가 이미 설치된 경우 트랜잭션 ST06을 열고 모니터링이 사용하도록 설정되어 있는지 여부를 확인합니다.
 
-이러한 검사가 실패하고 확장을 다시 배포하는 방법에 대한 자세한 내용은 [Windows 문제 해결][troubleshoot-windows] 또는 [Linux 문제 해결을][troubleshoot-linux] 참조하세요.
+이러한 검사 중 어느 것이라도 실패하고 확장을 다시 배포하는 방법에 대한 자세한 내용은 [Windows 문제 해결][troubleshoot-windows] 또는 [Linux 문제 해결을][troubleshoot-linux] 참조하세요.
  
 ## <a name="health-checks"></a><a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>상태 확인
 
@@ -208,7 +212,7 @@ SAP NetWeaver ABAP 애플리케이션 서버가 이미 설치된 경우 트랜�
    ```
 1. 스크립트는 선택한 가상 머신의 구성을 테스트합니다.
 
-모든 상태 검사 결과가 **OK** 인지 확인합니다. 일부 검사에서 **확인을** 표시하지 않는 경우 Azure CLI SAP [솔루션용 Azure VM 확장 구성][configure-linux] 또는 PowerShell을 통해 SAP 솔루션용 [Azure VM 확장 구성에][configure-windows]설명된 대로 업데이트 cmdlet을 실행합니다. 준비 검사 및 이 챕터에 설명된 [검사를][readiness-check] 반복합니다. 검사에서 여전히 일부 또는 모든 카운터에 문제가 있는 경우 [Linux 문제 해결][troubleshoot-linux] 또는 [Windows 문제 해결을][troubleshoot-windows]참조하세요.
+모든 상태 검사 결과가 **OK** 인지 확인합니다. 일부 검사에서 **확인을** 표시하지 않는 경우 Azure CLI SAP [솔루션용 Azure VM 확장 구성][configure-linux] 또는 PowerShell을 통해 SAP 솔루션용 [Azure VM 확장 구성에][configure-windows]설명된 대로 업데이트 cmdlet을 실행합니다. 준비 검사 및 이 챕터에 설명된 [검사를][readiness-check] 반복합니다. 검사에서 여전히 일부 또는 모든 카운터에 문제가 있음을 나타내는 경우 [Linux 문제 해결][troubleshoot-linux] 또는 [Windows 문제 해결을][troubleshoot-windows]참조하세요.
 
 ### <a name="health-checks-using-azure-cli"></a>Azure CLI 사용하여 상태 검사
 
@@ -231,7 +235,7 @@ Azure CLI 사용하여 SAP용 Azure VM 확장에 대한 상태 검사를 실행�
    ```
 선택한 가상 컴퓨터의 구성을 테스트하는 스크립트입니다.
 
-모든 상태 검사 결과가 **OK** 인지 확인합니다. 일부 검사에서 **확인을** 표시하지 않는 경우 Azure CLI SAP [솔루션용 Azure VM 확장 구성][configure-linux] 또는 PowerShell을 통해 SAP 솔루션용 [Azure VM 확장 구성에][configure-windows]설명된 대로 업데이트 cmdlet을 실행합니다. 준비 검사 및 이 챕터에 설명된 [검사를][readiness-check] 반복합니다. 검사에서 여전히 일부 또는 모든 카운터에 문제가 있는 경우 [Linux 문제 해결][troubleshoot-linux] 또는 [Windows 문제 해결을][troubleshoot-windows]참조하세요.
+모든 상태 검사 결과가 **OK** 인지 확인합니다. 일부 검사에서 **확인을** 표시하지 않는 경우 Azure CLI SAP [솔루션용 Azure VM 확장 구성][configure-linux] 또는 PowerShell을 통해 SAP 솔루션용 [Azure VM 확장 구성에][configure-windows]설명된 대로 업데이트 cmdlet을 실행합니다. 준비 검사 및 이 챕터에 설명된 [검사를][readiness-check] 반복합니다. 검사에서 여전히 일부 또는 모든 카운터에 문제가 있음을 나타내는 경우 [Linux 문제 해결][troubleshoot-linux] 또는 [Windows 문제 해결을][troubleshoot-windows]참조하세요.
 
 
 ## <a name="troubleshooting-for-windows"></a><a name="dee9099b-7b8a-4cdd-86a2-3f6ee964266f"></a>Windows 문제 해결

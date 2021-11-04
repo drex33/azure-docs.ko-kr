@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/27/2021
+ms.date: 11/04/2021
 ms.author: b-juche
-ms.openlocfilehash: 0fb94a505b30c538e50ec11eff746d41b64be6ab
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 8b37458635f73b463bf4e01630e406753e26f353
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131087536"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131576323"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Azure NetApp Files를 사용하는 솔루션 아키텍처
 이 문서에서는 Azure NetApp Files 사용을 위한 솔루션 아키텍처를 이해하는 데 도움이 되는 모범 사례 참조를 제공합니다.  
@@ -164,6 +164,9 @@ ms.locfileid: "131087536"
 * [SAS®에서의 Microsoft Azure 사용에 대한 모범 사례](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680)
 * [Azure의 SAS 아키텍처 가이드 - Azure 아키텍처 센터 | Azure NetApp Files](/azure/architecture/guide/sas/sas-overview#azure-netapp-files-nfs)
 
+### <a name="healthcare"></a>의료
+
+* [Azure NetApp Files를 사용 하는 Microsoft Azure의 대규모 EHR](https://www.netapp.com/pdf.html?item=/media/62375-tr-4909.pdf)
 
 ## <a name="azure-platform-services-solutions"></a>Azure 플랫폼 서비스 솔루션
 

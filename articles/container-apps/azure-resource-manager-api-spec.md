@@ -1,87 +1,87 @@
 ---
-title: 컨테이너 앱 미리 보기 ARM 템플릿 API 사양
-description: 컨테이너 앱 ARM 템플릿에서 사용할 수 있는 속성을 탐색 합니다.
+title: Container Apps 미리 보기 ARM 템플릿 API 사양
+description: Container Apps ARM 템플릿에서 사용 가능한 속성을 탐색합니다.
 services: app-service
 author: craigshoemaker
 ms.service: app-service
 ms.topic: reference
-ms.date: 10/21/2021
+ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: f59046a431e872c11f7b03ffff30240beb330f37
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a0bc640e046074af94462c9e429102dc43ad442f
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053115"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131578238"
 ---
-# <a name="container-apps-preview-arm-template-api-specification"></a>컨테이너 앱 미리 보기 ARM 템플릿 API 사양
+# <a name="container-apps-preview-arm-template-api-specification"></a>Container Apps 미리 보기 ARM 템플릿 API 사양
 
-Azure Container Apps 배포는 ARM (Azure Resource Manager) 템플릿으로 구동 됩니다. 다음 표에서는 컨테이너 앱 ARM 템플릿에서 사용할 수 있는 속성을 설명 합니다.
+Azure Container Apps 배포는 ARM(Azure Resource Manager) 템플릿을 통해 구동됩니다. 다음 표에서는 컨테이너 앱 ARM 템플릿에서 사용할 수 있는 속성에 대해 설명합니다.
 
-[사용 예제에 대 한 샘플 ARM 템플릿](#example)
+사용 [예제에 대한 샘플 ARM 템플릿입니다.](#example)
 
 ## <a name="resources"></a>리소스
 
-`resources`ARM 템플릿 배열의 항목에는 다음과 같은 속성이 있습니다.
+`resources`ARM 템플릿의 배열에 있는 항목에는 다음과 같은 속성이 있습니다.
 
-| 속성 | 설명 | 데이터 형식 |
+| 속성 | Description | 데이터 형식 |
 |---|---|--|
-| `name` | 컨테이너 앱 응용 프로그램 이름입니다. | 문자열 |
-| `location` | 컨테이너 앱 인스턴스가 배포 되는 Azure 지역입니다. | 문자열 |
-| `tags` | 컨테이너 앱과 연결 된 Azure 태그의 컬렉션입니다. | array |
-| `type` | 항상 `Microsoft.Web/containerApps` ARM 끝점은 전달할 API를 결정 합니다.  | 문자열 |
+| `name` | Container Apps 애플리케이션 이름입니다. | 문자열 |
+| `location` | Container Apps 인스턴스가 배포되는 Azure 지역입니다. | 문자열 |
+| `tags` | 컨테이너 앱과 연결된 Azure 태그의 컬렉션입니다. | array |
+| `type` | 항상 `Microsoft.Web/containerApps` ARM 엔드포인트는 전달할 API를 결정합니다.  | 문자열 |
 
-이 예제에서는 대괄호로 묶은 자리 표시자 토큰 대신 값을 입력 합니다 `<>` .
+이 예제에서는 대괄호로 묶인 자리 표시자 토큰 대신 값을 `<>` 배치합니다.
 
 ## <a name="properties"></a>properties
 
-리소스의 개체에는 `properties` 다음과 같은 속성이 있습니다.
+리소스의 `properties` 개체에는 다음과 같은 속성이 있습니다.
 
-| 속성 | 설명 | 데이터 형식 | 읽기 전용 |
+| 속성 | Description | 데이터 형식 | 읽기 전용 |
 |---|---|---|---|
-| `provisioningState` | 장기 실행 작업의 상태입니다 (예: 새 컨테이너 수정이 생성 된 경우). 가능한 값에는 프로 비전, 프로 비전 됨, 실패 됨이 있습니다. 앱이 실행 중인지 확인 합니다. | 문자열 | Yes |
-| `environmentId` | 컨테이너 앱에 대 한 환경 ID입니다. **필수 속성입니다.** | 문자열 | No |
-| `latestRevisionName` | 최신 수정 버전의 이름입니다. | 문자열 | Yes |
-| `latestRevisionFqdn` | 최신 수정 버전의 URL입니다. | 문자열 | Yes |
+| `provisioningState` | 장기 실행 작업의 상태(예: 새 컨테이너 수정 버전이 만들어지는 경우)입니다. 가능한 값은 프로비전, 프로비전, 실패입니다. 앱이 실행 중인지 확인합니다. | 문자열 | Yes |
+| `environmentId` | 컨테이너 앱의 환경 ID입니다. **필수 속성입니다.** | 문자열 | No |
+| `latestRevisionName` | 최신 수정 버전 이름입니다. | 문자열 | Yes |
+| `latestRevisionFqdn` | 최신 수정 버전 URL입니다. | 문자열 | Yes |
 
-`environmentId`값은 다음 형식을 사용 합니다.
+`environmentId`값은 다음 형식을 취합니다.
 
 ```console
 /subscriptions/<SUBSCRIPTION_ID>/resourcegroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/environmentId/<ENVIRONMENT_NAME>
 ```
 
-이 예제에서는 대괄호로 묶은 자리 표시자 토큰 대신 값을 입력 합니다 `<>` .
+이 예제에서는 대괄호로 묶인 자리 표시자 토큰 대신 값을 `<>` 배치합니다.
 
-## <a name="propertiesconfiguration"></a>속성. 구성
+## <a name="propertiesconfiguration"></a>properties.configuration
 
-리소스의 개체에는 `properties.configuration` 다음과 같은 속성이 있습니다.
+리소스의 `properties.configuration` 개체에는 다음과 같은 속성이 있습니다.
 
-| 속성 | 설명 | 데이터 형식 |
+| 속성 | Description | 데이터 형식 |
 |---|---|---|
-| `activeRevisionsMode` | 로 설정 `multiple` 하면 여러 개의 수정 버전을 유지할 수 있습니다. 를로 설정 하면 `single` 오래 된 수정 버전을 자동으로 비활성화 하 고, 최신 수정 버전만 활성 상태로 유지 합니다. | 문자열 |
-| `secrets` | 컨테이너 앱에서 비밀 값을 정의 합니다. | 개체 |
-| `ingress` | 컨테이너 앱에 대 한 공용 액세스 가능성 구성을 정의 하는 개체입니다. | 개체 |
-| `registries` | 개인 컨테이너 레지스트리에 대 한 자격 증명을 참조 하는 구성 개체입니다. 로 정의 된 항목 `secretref` 은 암호 구성 개체를 참조 합니다. | 개체 |
+| `activeRevisionsMode` | 를 로 `multiple` 설정하면 여러 수정 버전을 유지할 수 있습니다. 를 로 설정하면 `single` 이전 수정 버전이 자동으로 비활성화되고 최신 수정 버전만 활성 상태로 유지됩니다. | 문자열 |
+| `secrets` | 컨테이너 앱에서 비밀 값을 정의합니다. | 개체 |
+| `ingress` | 컨테이너 앱의 공용 접근성 구성을 정의하는 개체입니다. | 개체 |
+| `registries` | 프라이빗 컨테이너 레지스트리에 대한 자격 증명을 참조하는 구성 개체입니다. 로 정의된 `secretref` 항목은 비밀 구성 개체를 참조합니다. | 개체 |
 
-섹션에 대 한 변경 내용은 `configuration` [응용 프로그램 범위 변경](revisions.md#application-scope-changes)내용으로, 새 수정 버전을 트리거하지 않습니다.
+섹션의 변경 `configuration` 내용은 새 수정 버전을 트리거하지 않는 애플리케이션 범위 변경 [내용입니다.](revisions.md#application-scope-changes)
 
-## <a name="propertiestemplate"></a>properties. 템플릿
+## <a name="propertiestemplate"></a>properties.template
 
-리소스의 개체에는 `properties.template` 다음과 같은 속성이 있습니다.
+리소스의 `properties.template` 개체에는 다음과 같은 속성이 있습니다.
 
-| 속성 | 설명 | 데이터 형식 |
+| 속성 | Description | 데이터 형식 |
 |---|---|---|
-| `revisionSuffix` | 수정 버전에 대 한 친숙 한 이름입니다. 런타임이 기존 수정 이름 접미사 값과의 충돌을 모두 거부 하므로이 값은 고유 해야 합니다. | 문자열 |
-| `containers` | 컨테이너 앱에 포함 되는 컨테이너 이미지를 정의 하는 구성 개체입니다. | 개체 |
-| `scale` | 컨테이너 앱에 대 한 크기 조정 규칙을 정의 하는 구성 개체입니다. | 개체 |
-| `dapr` | 컨테이너 앱에 대 한 4Apr 설정을 정의 하는 구성 개체입니다. | 개체  |
+| `revisionSuffix` | 수정 버전에 대한 이름입니다. 이 값은 런타임이 기존 수정 버전 이름 접미사 값과의 충돌을 거부하기 때문에 고유해야 합니다. | 문자열 |
+| `containers` | 컨테이너 앱에 포함되는 컨테이너 이미지를 정의하는 구성 개체입니다. | 개체 |
+| `scale` | 컨테이너 앱에 대한 크기 조정 규칙을 정의하는 구성 개체입니다. | 개체 |
+| `dapr` | 컨테이너 앱에 대한 Dapr 설정을 정의하는 구성 개체입니다. | 개체  |
 
-섹션에 대 한 변경 내용은 `template` 새 수정 버전을 트리거하는 [수정 버전 범위 변경](revisions.md#revision-scope-changes)내용입니다.
+섹션에 대한 변경 `template` 내용은 새 수정 버전을 트리거하는 수정 범위 변경 [내용입니다.](revisions.md#revision-scope-changes)
 
 ## <a name="example"></a>예제
 
-다음은 컨테이너 앱을 배포 하는 데 사용 되는 ARM 템플릿 예제입니다.
+다음은 컨테이너 앱을 배포하는 데 사용되는 ARM 템플릿 예제입니다.
 
 ```json
 {

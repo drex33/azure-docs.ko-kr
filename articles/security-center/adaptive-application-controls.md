@@ -1,43 +1,42 @@
 ---
-title: Microsoft Defender for Cloud의 적응 응용 프로그램 컨트롤
-description: 이 문서는 Microsoft Defender for Cloud에서 적응 응용 프로그램 제어를 사용 하 여 Azure 컴퓨터용으로 실행 되는 응용 프로그램의 허용 목록을 만드는 데 도움이 됩니다.
+title: Microsoft Defender for Cloud의 적응형 애플리케이션 제어
+description: 이 문서는 Microsoft Defender for Cloud에서 적응형 애플리케이션 제어를 사용하여 Azure 머신에 대해 실행되는 애플리케이션의 허용 목록을 만드는 데 도움이 됩니다.
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/18/2021
+ms.date: 11/02/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: db79a066b5bfa350d8af47e8d817345276eac4e3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ae757f9facc7365dafb8412ec164d549e73f1df7
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131103675"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131576171"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>적응형 애플리케이션 제어를 통해 컴퓨터의 공격 표면 축소
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-클라우드의 적응 응용 프로그램 컨트롤용 Microsoft Defender의 이점 및이 데이터 기반 지능형 기능으로 보안을 향상 시키는 방법에 대해 알아보세요.
+Microsoft Defender for Cloud의 적응형 애플리케이션 제어의 이점과 이 데이터 기반 인텔리전트 기능을 사용하여 보안을 강화하는 방법을 알아봅니다.
 
-## <a name="what-are-adaptive-application-controls"></a>적응 응용 프로그램 컨트롤 이란?
+## <a name="what-are-adaptive-application-controls"></a>적응형 애플리케이션 제어란?
 
 적응형 애플리케이션 제어는 컴퓨터에 대해 안전한 것으로 알려진 애플리케이션의 허용 목록을 정의할 수 있는 자동화된 지능형 솔루션입니다. 
 
-조직에서 동일한 프로세스를 일상적으로 실행하는 컴퓨터 모음이 있는 경우가 종종 있습니다. Microsoft Defender for Cloud는 기계 학습을 사용 하 여 컴퓨터에서 실행 되는 응용 프로그램을 분석 하 고 알려진 안전한 소프트웨어의 목록을 만듭니다. 허용 목록은 특정 Azure 워크로드를 기반으로 하며 아래 지침에 따라 권장 사항을 추가로 사용자 지정할 수 있습니다.
+조직에서 동일한 프로세스를 일상적으로 실행하는 컴퓨터 모음이 있는 경우가 종종 있습니다. Microsoft Defender for Cloud는 기계 학습을 사용하여 머신에서 실행되는 애플리케이션을 분석하고 알려진 안전한 소프트웨어 목록을 만듭니다. 허용 목록은 특정 Azure 워크로드를 기반으로 하며 아래 지침에 따라 권장 사항을 추가로 사용자 지정할 수 있습니다.
 
 적응형 애플리케이션 제어를 사용하도록 설정하고 구성하면 안전한 것으로 정의한 애플리케이션이 아닌 다른 애플리케이션이 실행될 경우 보안 경고가 표시됩니다.
 
 
 ## <a name="what-are-the-benefits-of-adaptive-application-controls"></a>적응형 애플리케이션 제어의 이점은 무엇인가요?
 
-알려진 안전한 응용 프로그램의 목록을 정의 하 고 다른 항목이 실행 될 때 경고를 생성 하 여 여러 감독 및 규정 준수 목표를 달성할 수 있습니다.
+알려진 안전한 애플리케이션 목록을 정의하고 다른 항목이 실행될 때 경고를 생성하여 여러 감독 및 규정 준수 목표를 달성할 수 있습니다.
 
 - 맬웨어 방지 솔루션에서 놓칠 수 있는 모든 잠재적 맬웨어 식별
 - 라이선스가 부여된 소프트웨어만 사용하도록 규정하는 로컬 보안 정책으로 규정 준수 개선
-- 오래 되었거나 지원 되지 않는 버전의 응용 프로그램 확인 
-- 조직에서 금지 했지만 컴퓨터에서 실행 되는 소프트웨어를 식별 합니다.
+- 오래된 버전 또는 지원되지 않는 애플리케이션 버전 식별 
+- 조직에서 금지되었지만 머신에서 실행되는 소프트웨어를 식별합니다.
 - 민감한 데이터에 액세스하는 앱에 대한 감독 강화
 
 현재 사용할 수 있는 적용 옵션은 없습니다. 적응형 애플리케이션 제어는 안전한 것으로 정의된 애플리케이션 이외의 애플리케이션이 실행될 때 보안 경고를 제공하기 위한 것입니다.
@@ -47,7 +46,7 @@ ms.locfileid: "131103675"
 |양상|세부 정보|
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
-|가격 책정:|[서버용 Microsoft Defender](defender-for-servers-introduction.md) 가 필요 합니다.|
+|가격 책정:|[서버용 Microsoft Defender 필요](defender-for-servers-introduction.md)|
 |지원되는 컴퓨터:|:::image type="icon" source="./media/icons/yes-icon.png"::: Windows와 Linux를 실행하는 Azure 및 비 Azure 머신<br>:::image type="icon" source="./media/icons/yes-icon.png"::: [Azure Arc](../azure-arc/index.yml) 머신|
 |필요한 역할 및 권한:|**보안 리더** 및 **리더** 역할은 그룹과 안전한 것으로 알려진 애플리케이션 목록을 모두 볼 수 있습니다.<br>**기여자** 및 **보안 관리자** 역할은 그룹과 안전한 것으로 알려진 애플리케이션 목록을 모두 편집할 수 있습니다.|
 |클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/yes-icon.png"::: 국가/소버린(Azure Government, Azure 중국 21Vianet)|
@@ -57,11 +56,11 @@ ms.locfileid: "131103675"
 
 ## <a name="enable-application-controls-on-a-group-of-machines"></a>특정 컴퓨터 그룹에 애플리케이션 제어를 사용하도록 설정
 
-Microsoft Defender for Cloud가 구독에서 유사한 응용 프로그램 집합을 일관 되 게 실행 하는 컴퓨터 그룹을 식별 하는 경우 다음과 같은 권장 사항이 표시 됩니다. **안전 응용 프로그램을 정의 하기 위한 적응 응용 프로그램 컨트롤을 컴퓨터에서 사용 하도록 설정 해야** 합니다.
+Microsoft Defender for Cloud가 구독에서 비슷한 애플리케이션 집합을 일관되게 실행하는 컴퓨터 그룹을 식별한 경우 다음 권장 사항이 표시됩니다. **머신에서 안전한 애플리케이션을 정의하기 위한 적응형 애플리케이션 제어를 사용하도록 설정해야 합니다.**
 
 권장 사항을 선택하거나 적응형 애플리케이션 제어 페이지를 열어 안전한 것으로 알려진 애플리케이션 및 컴퓨터 그룹의 제안된 목록을 봅니다.
 
-1. 작업 보호 대시보드를 열고 고급 보호 영역에서 **적응 응용 프로그램 제어** 를 선택 합니다.
+1. 워크로드 보호 대시보드를 열고 고급 보호 영역에서 **적응형 애플리케이션 제어를 선택합니다.**
 
     :::image type="content" source="./media/adaptive-application/opening-adaptive-application-control.png" alt-text="Azure 대시보드에서 적응형 애플리케이션 제어 열기" lightbox="./media/adaptive-application/opening-adaptive-application-control.png":::
 
@@ -74,7 +73,7 @@ Microsoft Defender for Cloud가 구독에서 유사한 응용 프로그램 집�
     - **권장됨** - 동일한 애플리케이션을 일관되게 실행하고 허용 목록이 구성되지 않은 컴퓨터 그룹입니다. 이 그룹에는 적응형 애플리케이션 제어를 사용하도록 설정하는 것이 좋습니다.
     
       > [!TIP]
-      > 접두사가 "REVIEWGROUP"인 그룹 이름이 표시되는 경우 부분적으로 일관된 애플리케이션 목록이 있는 컴퓨터가 포함되어 있는 것입니다. Microsoft Defender for Cloud는 패턴을 볼 수 없지만,이 그룹을 검토 하 여 [그룹의 적응 응용 프로그램 제어 규칙 편집](#edit-a-groups-adaptive-application-controls-rule)에 설명 된 대로 일부 적응 응용 프로그램 제어 규칙을 수동으로 _정의할 수 있는지 여부를 확인_ 하는 것이 좋습니다.
+      > 접두사 "REVIEWGROUP"이 있는 그룹 이름이 표시되면 부분적으로 일관된 애플리케이션 목록이 있는 컴퓨터가 포함됩니다. Microsoft Defender for Cloud는 패턴을 볼 수 없지만 이 그룹을 검토하여 그룹의 적응형 애플리케이션 제어 규칙 편집에 설명된 대로 일부 적응형 [애플리케이션 제어 규칙을](#edit-a-groups-adaptive-application-controls-rule)수동으로 정의할 _수_ 있는지 확인하는 것이 좋습니다.
       >
       > [한 그룹에서 다른 그룹으로 컴퓨터 이동](#move-a-machine-from-one-group-to-another)에 설명된 대로 이 그룹에서 다른 그룹으로 컴퓨터를 이동할 수도 있습니다.
 
@@ -84,7 +83,7 @@ Microsoft Defender for Cloud가 구독에서 유사한 응용 프로그램 집�
       - GPO 또는 로컬 보안 정책에서 사용하도록 설정된 기존 [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) 정책이 있는 Windows 컴퓨터입니다.
 
       > [!TIP]
-      > 클라우드 용 Defender에는 최소 2 주 이상의 데이터가 필요 하며,이는 컴퓨터 그룹당 고유한 권장 사항을 정의 하는 데 필요 합니다. 최근 생성 되었거나 서버에 대해 Microsoft Defender에서 최근에 보호 된 구독에 속하는 컴퓨터는 **권장 사항 없음** 탭 아래에 나타납니다.
+      > Defender for Cloud는 머신 그룹당 고유한 권장 사항을 정의하려면 2주 이상의 데이터가 필요합니다. 최근에 생성되었거나 최근에 서버용 Microsoft Defender에 의해 보호된 구독에 속한 컴퓨터는 권장 **사항 없음** 탭 아래에 표시됩니다.
 
 1. **권장됨** 탭을 엽니다. 권장 허용 목록이 있는 컴퓨터 그룹이 나타납니다.
 
@@ -118,7 +117,7 @@ Microsoft Defender for Cloud가 구독에서 유사한 응용 프로그램 집�
 
 컴퓨터 그룹에 대한 규칙을 편집하려면:
 
-1. **작업 보호 대시보드** 를 열고 고급 보호 영역에서 **적응 응용 프로그램 제어** 를 선택 합니다.
+1. **워크로드 보호 대시보드를** 열고 고급 보호 영역에서 **적응형 애플리케이션 제어를 선택합니다.**
 
 1. **구성됨** 탭에서 편집할 규칙이 있는 그룹을 선택합니다.
 
@@ -161,7 +160,7 @@ Microsoft Defender for Cloud가 구독에서 유사한 응용 프로그램 집�
 
 ## <a name="respond-to-the-allowlist-rules-in-your-adaptive-application-control-policy-should-be-updated-recommendation"></a>"적응형 애플리케이션 제어 정책의 허용 목록 규칙을 업데이트해야 합니다" 권장 사항에 대응
 
-클라우드의 기계 학습을 위해 Defender가 이전에 허용 되지 않은 합법적인 동작을 식별 하는 경우이 권장 사항을 확인할 수 있습니다. 이 권장 사항은 가양성 경고의 수를 줄이기 위해 기존 정의에 대한 새 규칙을 제안합니다.
+Cloud용 Defender의 기계 학습에서 이전에 허용되지 않은 합법적인 동작을 식별하면 이 권장 사항이 표시됩니다. 이 권장 사항은 가양성 경고의 수를 줄이기 위해 기존 정의에 대한 새 규칙을 제안합니다.
 
 이 문제를 수정하려면:
 
@@ -178,7 +177,7 @@ Microsoft Defender for Cloud가 구독에서 유사한 응용 프로그램 집�
 
 ## <a name="audit-alerts-and-violations"></a>감사 경고 및 위반
 
-1. **작업 보호 대시보드** 를 열고 고급 보호 영역에서 **적응 응용 프로그램 제어** 를 선택 합니다.
+1. **워크로드 보호 대시보드를** 열고 고급 보호 영역에서 **적응형 애플리케이션 제어를 선택합니다.**
 
 1. 최근 경고가 있는 컴퓨터의 그룹을 확인하려면 **구성됨** 탭에 나열된 그룹을 살펴봅니다.
 
@@ -190,7 +189,7 @@ Microsoft Defender for Cloud가 구독에서 유사한 응용 프로그램 집�
 
     경고 페이지에는 경고에 대한 자세한 내용이 표시되고 위협을 완화하는 방법에 대한 권장 사항이 있는 **작업 수행** 링크가 제공됩니다.
 
-    :::image type="content" source="media/adaptive-application/adaptive-application-alerts-start-time.png" alt-text="적응 응용 프로그램 제어 경고의 시작 시간은 적응 응용 프로그램 제어에서 경고를 만든 시간입니다.":::
+    :::image type="content" source="media/adaptive-application/adaptive-application-alerts-start-time.png" alt-text="적응형 애플리케이션 제어 경고의 시작 시간은 적응형 애플리케이션 제어에서 경고를 만든 시간입니다.":::
 
     > [!NOTE]
     > 적응형 애플리케이션 제어는 12시간마다 한 번씩 이벤트 수를 계산합니다. 경고 페이지에 표시된 "활동 시작 시간"은 의심스러운 프로세스가 활성화된 시간이 **아니라** 적응형 애플리케이션 제어에서 경고를 만든 시간입니다.
@@ -200,7 +199,7 @@ Microsoft Defender for Cloud가 구독에서 유사한 응용 프로그램 집�
 
 한 그룹에서 다른 그룹으로 컴퓨터를 이동하면 해당 그룹에 적용된 애플리케이션 제어 정책이 이동한 대상 그룹의 설정으로 변경됩니다. 구성된 그룹에서 구성되지 않은 그룹으로 컴퓨터를 이동할 수도 있습니다. 이렇게 하면 해당 컴퓨터에 적용된 모든 애플리케이션 제어 규칙이 제거됩니다.
 
-1. **작업 보호 대시보드** 를 열고 고급 보호 영역에서 **적응 응용 프로그램 제어** 를 선택 합니다.
+1. **워크로드 보호 대시보드를** 열고 고급 보호 영역에서 **적응형 애플리케이션 제어를 선택합니다.**
 
 1. **적응형 애플리케이션 제어** 페이지의 **구성됨** 탭에서 이동할 컴퓨터가 포함된 그룹을 선택합니다.
 
@@ -220,7 +219,7 @@ Microsoft Defender for Cloud가 구독에서 유사한 응용 프로그램 집�
 
 적응형 애플리케이션 제어를 프로그래밍 방식으로 관리하려면 REST API를 사용합니다. 
 
-관련 API 설명서는 [클라우드의 api 문서에 대 한 Defender의 적응 응용 프로그램 제어 섹션](/rest/api/securitycenter/adaptiveapplicationcontrols)에서 사용할 수 있습니다.
+관련 API 설명서는 [Defender for Cloud API 문서의 적응형 애플리케이션 제어 섹션에서](/rest/api/securitycenter/adaptiveapplicationcontrols)사용할 수 있습니다.
 
 REST API에서 사용 가능한 몇 가지 함수는 다음과 같습니다.
 
@@ -245,13 +244,13 @@ REST API에서 사용 가능한 몇 가지 함수는 다음과 같습니다.
 현재 사용할 수 있는 적용 옵션은 없습니다. 적응형 애플리케이션 제어는 안전한 것으로 정의된 애플리케이션 이외의 애플리케이션이 실행될 때 **보안 경고** 를 제공하기 위한 것입니다. 이 페이지에 나와 있는 것처럼 다양한 이점이 있습니다([적응형 애플리케이션 제어의 이점은 무엇인가요?](#what-are-the-benefits-of-adaptive-application-controls)).
 
 ### <a name="why-do-i-see-a-qualys-app-in-my-recommended-applications"></a>내 권장 애플리케이션에 Qualys 앱이 표시되는 이유는 무엇인가요?
-[서버에 대 한 Microsoft Defender](defender-for-servers-introduction.md) 는 추가 비용 없이 컴퓨터에 대 한 취약성 검색을 포함 합니다. Qualys 라이선스 또는 Qualys 계정이 필요 하지 않습니다. 모든 항목은 클라우드 용 Defender 내에서 원활 하 게 처리 됩니다. 이 스캐너 및 배포 방법에 대 한 지침은 [Defender For Cloud 's Integrated Qualys 취약성 평가 솔루션](deploy-vulnerability-assessment-vm.md)(영문)을 참조 하세요.
+[서버용 Microsoft Defender에는](defender-for-servers-introduction.md) 추가 비용 없이 머신에 대한 취약성 검사가 포함됩니다. Qualys 라이선스 또는 Qualys 계정이 필요하지 않습니다. 모든 것이 Defender for Cloud 내에서 원활하게 처리됩니다. 이 스캐너의 세부 정보 및 배포 방법에 대한 지침은 [Defender for Cloud의 통합 Qualys 취약성 평가 솔루션을 참조하세요.](deploy-vulnerability-assessment-vm.md)
 
-클라우드 용 Defender가 스캐너를 배포할 때 경고가 생성 되지 않도록 하려면 적응 응용 프로그램 제어 권장 허용 목록에 모든 컴퓨터에 대 한 스캐너가 포함 되어 있습니다. 
+Defender for Cloud가 스캐너를 배포할 때 경고가 생성되지 않도록 하기 위해 적응형 애플리케이션 제어 권장 허용 목록에는 모든 컴퓨터에 대한 스캐너가 포함됩니다. 
 
 
 ## <a name="next-steps"></a>다음 단계
-이 페이지에서는 Microsoft Defender for Cloud에서 적응 응용 프로그램 제어를 사용 하 여 Azure 및 비 Azure 컴퓨터에서 실행 되는 응용 프로그램의 허용 목록을 정의 하는 방법을 배웠습니다. 다른 클라우드 워크 로드 보호 기능에 대 한 자세한 내용은 다음을 참조 하세요.
+이 페이지에서는 Microsoft Defender for Cloud에서 적응형 애플리케이션 제어를 사용하여 Azure 및 비 Azure 머신에서 실행되는 애플리케이션의 허용 목록을 정의하는 방법을 배웠습니다. 다른 클라우드 워크로드 보호 기능에 대한 자세한 내용은 다음을 참조하세요.
 
 * [JIT(Just-In-Time) VM 액세스 이해](just-in-time-access-overview.md)
 * [Azure Kubernetes 클러스터 보안 설정](defender-for-kubernetes-introduction.md)

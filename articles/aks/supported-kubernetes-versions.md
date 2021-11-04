@@ -7,12 +7,12 @@ ms.date: 08/09/2021
 author: palma21
 ms.author: jpalma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ea1112f614e9c08bde1ff0427af706aae4c14896
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 3c094a40cd0150fe4134bf1352dfbe418346d63b
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131063127"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131577710"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 지원되는 Kubernetes 버전
 
@@ -173,14 +173,14 @@ Get-AzAksVersion -Location eastus
 | 1.19  | 2020년 8월 4일  | 2020년 9월   | 2020년 11월  | 1.22 GA |
 | 1.20  | 2020년 12월 8일  | 2021년 1월   | 2021년 3월  | 1.23 GA |
 | 1.21  | 2021년 4월 8일 | 2021년 5월   | 2021년 7월  | 1.24 GA |
-| 1.22  | 2021년 8월 4일 | 2021년 9월   | 2021년 11월  | 1.25 GA |
+| 1.22  | 2021년 8월 4일 | 2021년 9월   | 11 월 2021  | 1.25 GA |
 | 1.23  | 2021년 12월 | 2022년 1월   | 2022년 2월  | 1.26 GA |
 
 ## <a name="faq"></a>FAQ
 
 **Microsoft에서 새 Kubernetes 버전을 알리는 방법은 무엇인가요?**
 
-AKS 팀에서 지원이 중단되는 클러스터를 소유한 구독 관리자에게 보내는 이메일뿐만 아니라 설명서, [GitHub](https://github.com/Azure/AKS/releases)에도 새 Kubernetes 버전의 계획된 날짜가 포함된 사전 공지를 게시합니다.  또한 AKS는 알림 외에도 [Azure Advisor](../advisor/advisor-overview.md) 사용하여 Azure Portal 내 고객에게 지원되지 않는 경우 사용자에게 알리고 애플리케이션 또는 개발 프로세스에 영향을 줄 수 있는 사용되지 않는 API에 대해 경고합니다.
+AKS 팀에서 지원이 중단되는 클러스터를 소유한 구독 관리자에게 보내는 이메일뿐만 아니라 설명서, [GitHub](https://github.com/Azure/AKS/releases)에도 새 Kubernetes 버전의 계획된 날짜가 포함된 사전 공지를 게시합니다.  알림 외에도 AKS를 [Azure Advisor](../advisor/advisor-overview.md) 사용 하 여 사용자가 지원 되지 않는 경우 사용자에 게 알리거나 응용 프로그램 또는 개발 프로세스에 영향을 줄 수 있는 사용 되지 않는 api에 대 한 경고를 사용자에 Azure Portal 게 알릴 수 있습니다.
 
 **계속 지원받으려면 Kubernetes 버전을 얼마나 자주 업그레이드해야 하나요?**
 
@@ -217,7 +217,8 @@ AKS에서 지원하지 않는 부 버전의 경우 규모 축소 또는 규모 �
 
 **클러스터를 업그레이드하는 동안 여러 AKS 버전을 건너뛸 수 있나요?**
 
-지원되는 AKS 클러스터를 업그레이드하는 경우 Kubernetes 부 버전은 건너뛸 수 없습니다. 예를 들어 다음과 같이 업그레이드합니다.
+지원되는 AKS 클러스터를 업그레이드하는 경우 Kubernetes 부 버전은 건너뛸 수 없습니다. Kubernetes 제어 평면 [버전 기울이기 정책은](https://kubernetes.io/releases/version-skew-policy/) 부 버전 건너뛰기를 지원 하지 않습니다. 예를 들어 다음과 같이 업그레이드합니다.
+
   * *1.12.x* -> *1.13.x*: 허용
   * *1.13.x* -> *1.14.x*: 허용
   * *1.12.x* -> *1.14.x*: 허용되지 않음
@@ -226,7 +227,7 @@ AKS에서 지원하지 않는 부 버전의 경우 규모 축소 또는 규모 �
 1. 먼저 *1.12.x* -> *1.13.x* 업그레이드
 1. 다음으로 *1.13.x* -> *1.14.x* 업그레이드
 
-지원되지 않는 버전에서 지원되는 버전으로 업그레이드하는 경우에만 여러 버전을 건너뛸 수 있습니다. 예를 들어 지원되지 않는 *1.10.x* 에서 지원되는 *1.15.x* 로 업그레이드할 수 있습니다.
+지원 되지 않는 버전에서 지원 되는 최소 버전으로 다시 업그레이드 하는 경우에만 여러 버전을 건너뛸 수 있습니다. 예를 들어 *1.15* 이 지원 되는 최소 부 버전인 경우 지원 되지 않는 *1.10. x* 에서 지원 되는 *1.15* 로 업그레이드할 수 있습니다.
 
 **30일 지원 기간 동안 새 1.xx.x 클러스터를 만들 수 있나요?**
 

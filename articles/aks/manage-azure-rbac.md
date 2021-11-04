@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 02/09/2021
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 57aae03e18f938ca89da5081a2076698ea3341f8
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: b6cd1bce4528d35cf0f7f897e6032079cae6cdea
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110091579"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131579239"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization"></a>Kubernetes 권한 부여에 Azure RBAC 사용
 
@@ -79,6 +79,11 @@ Kubernetes 인증에 대한 Azure RBAC를 기존 AKS 클러스터에 추가하�
 
 ```azurecli-interactive
 az aks update -g myResourceGroup -n myAKSCluster --enable-azure-rbac
+```
+기존 AKS 클러스터에서 Kubernetes 권한 부여에 대 한 Azure RBAC를 제거 하려면 플래그가 지정 된 [az AKS update][az-aks-update] 명령을 사용 합니다 `disable-azure-rbac` .
+
+```azurecli-interactive
+az aks update -g myResourceGroup -n myAKSCluster --disable-azure-rbac
 ```
 
 ## <a name="create-role-assignments-for-users-to-access-cluster"></a>사용자가 클러스터에 액세스할 수 있도록 역할 할당 만들기

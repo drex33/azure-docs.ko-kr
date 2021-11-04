@@ -4,23 +4,23 @@ description: 고객의 리소스를 관리하기 위해 사용하는 사용자 �
 author: dhirajgandhi
 ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 09/08/2021
+ms.date: 11/04/2021
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f554c8e29cbff3b78a3390cb3f6ef155a7a61b6f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b5951b46448d7bfa1ac5010bd17a0a5e7d98b89f
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124744186"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131577805"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure 계정에 파트너 ID 연결
 
 Microsoft 파트너는 고객이 Microsoft 제품을 사용하여 비즈니스 및 업무 목표를 달성할 수 있도록 하는 서비스를 제공합니다. 고객을 대신하여 Azure 서비스를 관리, 구성 및 지원하는 경우 파트너 사용자는 고객 환경에 액세스할 수 있어야 합니다. 파트너는 PAL(파트너 관리 링크)을 사용하여 파트너 네트워크 ID를 서비스 전달에 사용되는 자격 증명과 연결할 수 있습니다.
 
-PAL을 통해 Microsoft는 Azure 고객의 성공을 유도하는 파트너를 식별하고 인식할 수 있습니다. Microsoft는 계정의 권한(Azure 역할) 및 범위(구독, 리소스 그룹, 리소스)를 기반으로 영향과 Azure 사용 수익을 조직에 귀속시킬 수 있습니다.
+PAL을 통해 Microsoft는 Azure 고객의 성공을 유도하는 파트너를 식별하고 인식할 수 있습니다. Microsoft는 계정의 권한(Azure 역할) 및 범위(구독, 리소스 그룹, 리소스)를 기반으로 영향과 Azure 사용 수익을 조직에 귀속시킬 수 있습니다. 그룹에 Azure RBAC 액세스 권한이 있는 경우 PAL은 그룹의 모든 사용자에 대해 인식 됩니다.
 
 ## <a name="get-access-from-your-customer"></a>고객의 액세스 권한 가져오기
 

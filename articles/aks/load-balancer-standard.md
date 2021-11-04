@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 764f6585aab43ba1f6db29a234cc2bc554b78c58
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: d290549baf39f11c495c1f028a6eea2aba75d701
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130236678"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131576666"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 공용 표준 Load Balancer 사용
 
@@ -296,6 +296,8 @@ spec:
   - MY_EXTERNAL_IP_RANGE
 ```
 
+이 예에서는 범위에서 인바운드 외부 트래픽만 허용 하도록 규칙을 업데이트 합니다 `MY_EXTERNAL_IP_RANGE` . 를 `MY_EXTERNAL_IP_RANGE` 내부 서브넷 IP 주소로 바꾸면 트래픽이 클러스터 내부 ip로만 제한 됩니다. 트래픽이 클러스터 내부 Ip로 제한 되는 경우 Kubernetes 클러스터 외부의 클라이언트에서 부하 분산 장치에 액세스할 수 없습니다.
+
 > [!NOTE]
 > 인바운드, 외부 트래픽은 부하 분산 장치에서 AKS 클러스터의 가상 네트워크로 흐릅니다. 가상 네트워크에는 부하 분산 장치의 모든 인바운드 트래픽을 허용하는 NSG(네트워크 보안 그룹)가 있습니다. 이 NSG는 *LoadBalancer* 형식의 [서비스 태그][service-tags]를 사용하여 부하 분산 장치의 트래픽을 허용합니다.
 
@@ -330,7 +332,7 @@ spec:
 | `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | 리소스 그룹의 이름            | 클러스터 인프라와 동일한 리소스 그룹에 있지 않은 부하 분산 장치 공용 IP의 리소스 그룹(노드 리소스 그룹)을 지정합니다.
 | `service.beta.kubernetes.io/azure-allowed-service-tags`           | 허용되는 서비스 태그 목록          | 허용되는 [서비스 태그][service-tags]를 쉼표로 구분한 목록을 지정합니다.
 | `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | TCP 유휴 시간 제한(분)          | 부하 분산 장치에서 TCP 연결 유휴 시간 제한이 발생하는 시간을 분 단위로 지정합니다. 기본값 및 최솟값은 4입니다. 최댓값은 30입니다. 정수여야 합니다.
-|`service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` | `true`                                | SLB에 대해 `enableTcpReset` 사용 안 함
+|`service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` | `true`                                | SLB에 대해 사용 하지 않도록 설정 `enableTcpReset` 합니다. Kubernetes 1.18에서 사용 되지 않으며 1.20에서 제거 되었습니다. 
 
 
 ## <a name="troubleshooting-snat"></a>SNAT 문제 해결
@@ -355,9 +357,6 @@ SNAT 소모의 근본 원인은 아웃바운드 연결의 설정, 관리 또는 
 연결 풀을 사용하여 연결 볼륨을 셰이핑하세요.
 - 절대로 TCP 흐름을 자동으로 중단하고 TCP 타이머를 사용하여 흐름을 정리하지 마세요. TCP에서 연결을 명시적으로 닫지 않는 경우 상태는 중간 시스템 및 엔드포인트에서 할당된 상태를 유지하고 다른 연결에서 SNAT 포트를 사용할 수 없게 만듭니다. 이 패턴은 애플리케이션 오류 및 SNAT 고갈이 트리거할 수 있습니다.
 - 영향에 대한 전문 지식이 없으면 OS 수준 TCP 닫기 관련 타이머 값을 변경하지 마세요. TCP 스택이 복구되는 동안 연결의 엔드포인트에 예상과 다른 부분이 있으면 애플리케이션 성능에 부정적인 영향을 미칠 수 있습니다. 타이머를 변경하고 싶다는 생각이 들면 일반적으로 디자인에 근본적인 문제가 있다는 신호입니다. 다음 권장 사항을 검토하세요.
-
-
-위의 예에서는 *MY_EXTERNAL_IP_RANGE* 범위에서 인바운드 외부 트래픽만 허용하도록 규칙을 업데이트합니다. *MY_EXTERNAL_IP_RANGE* 를 내부 서브넷 IP 주소로 바꾸면 트래픽이 클러스터 내부 IP로만 제한됩니다. 이렇게 하면 Kubernetes 클러스터 외부의 클라이언트가 부하 분산 장치에 액세스할 수 없습니다.
 
 ## <a name="moving-from-a-basic-sku-load-balancer-to-standard-sku"></a>기본 SKU 부하 분산 장치에서 표준 SKU로 이동
 

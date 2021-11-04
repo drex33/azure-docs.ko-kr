@@ -3,13 +3,13 @@ title: AKS(Azure Kubernetes Service)에서 인증서 회전
 description: AKS(Azure Kubernetes Service) 클러스터에서 인증서를 회전하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 7/13/2021
-ms.openlocfilehash: ea488e281e52949eeb53fdeffb1dc26afb5a9b5e
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
-ms.translationtype: HT
+ms.date: 11/03/2021
+ms.openlocfilehash: 7651af1bc1b3229fa206dbb507a918d611b2eafc
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537507"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131575772"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 인증서 회전
 
@@ -54,6 +54,28 @@ az vm run-command invoke -g MC_rg_myAKSCluster_region -n vm-name --command-id Ru
 ```console
 az vmss run-command invoke -g MC_rg_myAKSCluster_region -n vmss-name --instance-id 0 --command-id RunShellScript --query 'value[0].message' -otsv --scripts "openssl x509 -in /etc/kubernetes/certs/apiserver.crt -noout -enddate"
 ```
+
+## <a name="certificate-auto-rotation"></a>인증서 자동 회전
+
+Azure Kubernetes Service 클러스터에 대한 가동 중지 시간 없이 만료되기 전에 제어 평면 및 에이전트 노드 모두에서 ca가 아닌 인증서를 자동으로 회전합니다.
+
+AKS가 CA가 아닌 인증서를 자동으로 회전하려면 클러스터에 [TLS 부트스트래핑](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-tls-bootstrapping/)이 있어야 합니다. TLS 부트스트랩은 현재 다음 지역에서 사용할 수 있습니다.
+
+* eastus2euap
+* centraluseuap
+* westcentralus
+* uksouth
+* eastus
+* australiacentral
+* australiaest
+
+> [!IMPORTANT]
+>지역이 구성되면 새 클러스터를 만들거나 'az aks upgrade -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME'을 기존 클러스터로 업그레이드하여 자동 인증서 회전을 위해 해당 클러스터를 설정합니다. 
+
+### <a name="limititation"></a>제한
+
+rbac가 아닌 클러스터에서 자동 인증서 회전을 사용할 수 없습니다.
+
 
 ## <a name="rotate-your-cluster-certificates"></a>클러스터 인증서 회전
 

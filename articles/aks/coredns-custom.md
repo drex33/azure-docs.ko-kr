@@ -6,12 +6,12 @@ author: palma21
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jpalma
-ms.openlocfilehash: 6ca95378145664b2fafe342d4887d3d8dcf7122a
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: c62e269ae20b8da974b4ba7ef72ac7171ee0e88d
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123112407"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131577976"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Azure Kubernetes Service를 사용하여 CoreDNS 사용자 지정
 
@@ -79,7 +79,7 @@ kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
 ```
 
 > [!Note]
-> 위의 명령은 틀린 부분이 없습니다. `coredns`를 변경하는 동안 배포는 **kube-dns** 이름으로 진행됩니다.
+> 위의 명령은 틀린 부분이 없습니다. 를 변경하는 동안 `coredns` 배포는 **kube-dns** 레이블 아래에 있습니다.
 
 ## <a name="custom-forward-server"></a>사용자 지정 전달 서버
 

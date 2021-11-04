@@ -5,24 +5,25 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d182a485e124cb711497468449b22906b385798f
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 3fae7fc37b010a754b7fe1dd9b6e7b092ae534e8
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131506041"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131576856"
 ---
 ### <a name="iot-edge-for-linux-on-windows-installation"></a>Windows 설치에서 Linux에 대 한 IoT Edge
 
-다음과 같은 최소 시스템 요구 사항을 충족하는 Windows 디바이스:
+다음 최소 요구 사항을 충족 하는 Windows 장치:
 
-* Windows 10 버전 1809 이상, 빌드 17763 이상 또는 Windows 11 버전 21h2 이상, 22000 이상 빌드
+* 시스템 요구 사항
+   * Windows 10 ¹/11 (Pro, Enterprise, IoT Enterprise)
+   * Windows 서버 2019 ¹/2022  
+   <sub>¹ Windows 10 및 Windows 현재 누적 업데이트가 모두 설치 된 Server 2019 최소 빌드 17763</sub>
 
-* Professional, Enterprise 또는 서버 (2019 또는 2022) 버전
-
-* 사용 가능한 최소 메모리: 1GB
-
-* 사용 가능한 최소 디스크 공간: 10GB
+* 하드웨어 요구 사항
+  * 사용 가능한 최소 메모리: 1GB
+  * 사용 가능한 최소 디스크 공간: 10GB
 
 * 가상화 지원
   * Windows 10에서 Hyper-V를 사용하도록 설정합니다. 자세한 내용은 [Hyper-V를 Windows 10에 설치](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v)를 참조하세요.

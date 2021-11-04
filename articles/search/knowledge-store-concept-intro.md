@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/02/2021
-ms.openlocfilehash: 36108482161fd92e70bb47079f526756c75e0c2d
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 659e625aa98a92c2730e76bd847dfdddc3c955bf
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2021
-ms.locfileid: "131553130"
+ms.locfileid: "131577330"
 ---
 # <a name="knowledge-store-in-azure-cognitive-search"></a>Azure Cognitive Search의 지식 저장소
 
@@ -67,7 +67,7 @@ Cognitive Search 쿼리를 통해서만 액세스할 수 있는 검색 인덱스
 
 + `tables`는 보강된 콘텐츠를 Table Storage에 프로젝션합니다. 분석 도구에 입력하기 위해 테이블 형식 보고 구조가 필요하거나 다른 데이터 저장소로 데이터 프레임을 내보낼 경우 테이블 프로젝션을 정의합니다. 동일한 프로젝션 그룹 내에서 여러 `tables`를 지정하여 보강 문서의 하위 집합이나 단면을 가져올 수 있습니다. 동일한 프로젝션 그룹 내에서 테이블 관계를 사용할 수 있게 보존됩니다.
 
-  프로젝션 된 콘텐츠는 집계 되거나 정규화 되지 않습니다. 다음 스크린샷은 인접 열에 표시 되는 부모 문서와 함께 키 구를 기준으로 정렬 된 테이블을 보여 줍니다. 인덱싱을 수행 하는 동안 데이터를 수집 하는 것과 달리 복수 형태와 대/소문자 구분의 차이는 고유 인스턴스로 간주 됩니다.
+  프로젝션 된 콘텐츠는 집계 되거나 정규화 되지 않습니다. 다음 스크린샷은 인접 열에 표시 되는 부모 문서와 함께 키 구를 기준으로 정렬 된 테이블을 보여 줍니다. 인덱싱 중 데이터 수집과 달리 언어 분석 또는 콘텐츠 집계가 없습니다. 대/소문자 구분의 복수 형태 및 차이는 고유 인스턴스로 간주 됩니다.
 
   :::image type="content" source="media/kstore-keyphrases-per-document.png" alt-text="테이블의 키 구 및 문서 스크린샷" border="true":::
 

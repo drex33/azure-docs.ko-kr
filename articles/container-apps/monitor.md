@@ -5,25 +5,25 @@ services: app-service
 author: craigshoemaker
 ms.service: app-service
 ms.topic: conceptual
-ms.date: 10/21/2021
+ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 852506b024939fdbdde6fa4d3ffebbe1c08b38fa
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 075e52647137841539e8db72a4c9fdae90bd8447
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131103586"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131577026"
 ---
 # <a name="monitor-an-app-in-azure-container-apps-preview"></a>Azure Container Apps 미리 보기에서 앱 모니터링
 
-Azure Container Apps는 컨테이너 앱에 대한 광범위한 데이터 집합을 수집하고 [Log Analytics를 사용하여 저장합니다.](../azure-monitor/logs/log-analytics-tutorial.md) 이 문서에서는 사용 가능한 로그 및 로그를 작성하고 보는 방법을 설명합니다.
+Azure Container Apps는 컨테이너 앱에 대한 광범위한 데이터 집합을 수집하고 Log Analytics 를 사용하여 [저장합니다.](../azure-monitor/logs/log-analytics-tutorial.md) 이 문서에서는 사용 가능한 로그 및 로그를 작성하고 보는 방법을 설명합니다.
 
 ## <a name="writing-to-a-log"></a>로그에 쓰기
 
 [표준 출력(stdout) 또는 표준 오류(stderr) 스트림에](https://wikipedia.org/wiki/Standard_streams)쓸 때 Container Apps 로깅 에이전트는 각 메시지에 대한 로그를 작성합니다.
 
-메시지가 기록되면 로그 테이블에 다음 정보가 수집됩니다.
+메시지가 기록되면 다음 정보가 로그 테이블에 수집됩니다.
 
 | 속성 | 설명 |
 |---|---|

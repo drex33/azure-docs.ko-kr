@@ -11,22 +11,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/21/2021
 ms.author: allensu
-ms.openlocfilehash: 490d8181565e7bf4a0f763f1bd6b0bead82adb65
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 204de2d0b3ed6e75d8b599e094a58e0b2e1826b0
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131457547"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131576114"
 ---
 # <a name="azure-load-balancer-skus"></a>Azure Load Balancer SKU
 
 Azure Load Balancer에는 두 가지 SKU가 있습니다.
 
 ## <a name="sku-comparison"></a><a name="skus"></a> SKU 비교
+Azure Load Balancer에는 기본, 표준 및 게이트웨이의 3 개 sku가 있습니다. 각 SKU는 특정 시나리오를 중심으로 하며 규모, 기능 및 가격 책정에 차이가 있습니다. 
 
-부하 분산 장치는 표준 및 기본 SKU를 모두 지원합니다. 이러한 SKU는 시나리오 규모, 기능 및 가격 책정에서 차이가 있습니다. 기본 부하 분산 장치는 고가용성 또는 중복성이 필요 하지 않은 작은 규모의 응용 프로그램에 사용 됩니다. 표준 부하 분산 장치는 고성능 및 매우 짧은 대기 시간이 필요한 경우 부하 분산 네트워크 계층 트래픽을 준비 합니다. 표준 부하 분산 장치는 또한 전 세계 및 지역 간에 트래픽을 라우팅하고 높은 복원 력을 위해 가용성 영역에 라우팅합니다. 기본 부하 분산 장치로 가능한 시나리오를 표준 부하 분산 장치로 만들 수 있습니다.
-
-차이점을 비교하고 파악하려면 아래 표를 참조하요. 자세한 내용은 [Azure 표준 Load Balancer 개요](./load-balancer-overview.md)를 참조하세요.
+기본 SKU와 표준 SKU 간의 차이점을 비교 하 고 이해 하려면 다음 표를 참조 하세요. 자세한 내용은 [Azure 표준 Load Balancer 개요](./load-balancer-overview.md)를 참조하세요. 현재 미리 보기로 제공 되는 타사 Nva (네트워크 가상 어플라이언스)의 게이트웨이 SKU에 대 한 자세한 내용은 [게이트웨이 Load Balancer 개요](gateway-overview.md) 를 참조 하세요.
 
 >[!NOTE]
 > Microsoft는 표준 부하 분산 장치를 권장합니다.
@@ -34,6 +33,7 @@ Azure Load Balancer에는 두 가지 SKU가 있습니다.
 
 | | 표준 Load Balancer | 기본 Load Balancer |
 | --- | --- | --- |
+| **시나리오** |  고성능 및 매우 짧은 대기 시간이 필요한 경우 부하 분산 네트워크 계층 트래픽을 준비 합니다. 는 전 세계 및 여러 지역에서 트래픽을 라우팅하고, 높은 복원 력을 위해 가용성 영역으로 라우팅합니다. | 고가용성 또는 중복성이 필요 하지 않은 소규모 응용 프로그램을 위한 것입니다. 가용성 영역과 호환 되지 않습니다. |
 | **백 엔드 형식** | IP 기반, NIC 기반 | NIC 기반 |
 | **[백 엔드 풀 크기](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)** | 최대 1000개 인스턴스를 지원합니다. | 최대 300개 인스턴스를 지원합니다. |
 | **백 엔드 풀 엔드포인트** | 단일 가상 네트워크에 있는 가상 머신 또는 가상 머신 확장 집합 | 단일 가용성 집합 또는 가상 머신 확장 집합의 가상 머신. |

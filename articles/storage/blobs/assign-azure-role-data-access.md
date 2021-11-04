@@ -6,21 +6,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/13/2021
+ms.date: 11/03/2021
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b30bb21369e75b76c5aba299d38b2ccfc3259803
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6d2d2f530d64e3c459e0363079bebc9f99d44cf3
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128651601"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131578822"
 ---
 # <a name="assign-an-azure-role-for-access-to-blob-data"></a>Blob 데이터에 액세스하기 위한 Azure 역할 할당
 
-Azure AD(Azure Active Directory)는 [Azure RBAC](../../role-based-access-control/overview.md)(Azure 역할 기반 액세스 제어)를 통해 보안 리소스에 대한 액세스 권한을 부여합니다. Azure Storage는 Blob 데이터에 액세스하는 데 사용되는 공통 권한 집합을 포함하는 Azure 기본 제공 역할 집합을 정의합니다.
+Azure Active Directory (AAD)는 [azure 역할 기반 access control (azure RBAC)](../../role-based-access-control/overview.md)을 통해 보안 리소스에 대 한 액세스 권한을 부여 합니다. Azure Storage는 Blob 데이터에 액세스하는 데 사용되는 공통 권한 집합을 포함하는 Azure 기본 제공 역할 집합을 정의합니다.
 
 Azure AD 보안 주체에 Azure 역할을 할당하는 경우 Azure는 해당 보안 주체의 해당 리소스에 대한 액세스 권한을 부여합니다. Azure AD 보안 주체는 사용자, 그룹, 애플리케이션 서비스 사용자 또는 [Azure 리소스의 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)일 수 있습니다.
 
@@ -57,13 +57,49 @@ Azure AD 자격 증명으로 Azure Portal을 사용하려면 사용자에게 **�
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-PowerShell을 사용하여 Azure 역할을 보안 주체에 할당하려면 [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) 명령을 호출합니다. 명령의 형식은 할당 범위에 따라 다를 수 있습니다. 이 명령을 실행하려면 해당 범위 이상에서 사용자에게 할당된 **Microsoft.Authorization/roleAssignments/write** 권한을 포함하는 역할이 있어야 합니다.
+PowerShell을 사용하여 Azure 역할을 보안 주체에 할당하려면 [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) 명령을 호출합니다. 이 명령을 실행하려면 해당 범위 이상에서 사용자에게 할당된 **Microsoft.Authorization/roleAssignments/write** 권한을 포함하는 역할이 있어야 합니다. 
 
-컨테이너에 범위가 지정된 역할을 할당하려면 `--scope` 매개 변수의 컨테이너 범위를 포함하는 문자열을 지정합니다. 컨테이너의 범위는 다음과 같은 형식입니다.
+명령의 형식은 할당 범위에 따라 다를 수 있지만 `-ObjectId` 및는 `-RoleDefinitionName` 필수 매개 변수입니다. 매개 변수의 값을 전달 하는 것 `-Scope` 은 필요 하지 않지만 최소 권한의 원칙을 유지 하는 것이 좋습니다. 역할 및 범위를 제한 하 여 보안 주체의 보안이 손상 되는 경우 위험에 노출 되는 리소스를 제한 합니다.
+
+`-ObjectId`매개 변수는 역할이 할당 되는 사용자, 그룹 또는 서비스 사용자의 Azure Active Directory (AAD) 개체 ID입니다. 식별자를 검색 하려면 다음 예제와 같이 [AzADUser](/powershell/module/az.resources/get-azaduser) 를 사용 하 여 Azure Active Directory 사용자를 필터링 할 수 있습니다.
+
+```azurepowershell
+Get-AzADUser -DisplayName '<Display Name>'
+(Get-AzADUser -StartsWith '<substring>').Id
+```
+
+첫 번째 응답은 보안 주체를 반환 하 고, 두 번째 응답은 보안 주체의 개체 ID를 반환 합니다.
+
+```Response
+UserPrincipalName : markpdaniels@contoso.com
+ObjectType        : User
+DisplayName       : Mark P. Daniels
+Id                : ab12cd34-ef56-ab12-cd34-ef56ab12cd34
+Type              : 
+
+ab12cd34-ef56-ab12-cd34-ef56ab12cd34
+```
+
+`-RoleDefinitionName`매개 변수 값은 주 서버에 할당 해야 하는 RBAC 역할의 이름입니다. Azure AD 자격 증명을 사용하여 Azure Portal의 Blob 데이터에 액세스하려면 사용자에게 다음 역할 할당이 있어야 합니다.
+
+- **Storage blob 데이터 참가자** 또는 **Storage blob 데이터 판독기** 와 같은 데이터 액세스 역할
+- Azure Resource Manager **읽기 권한자** 역할
+
+Blob 컨테이너 또는 저장소 계정에 범위가 지정 된 역할을 할당 하려면 매개 변수에 대 한 리소스 범위를 포함 하는 문자열을 지정 해야 합니다 `-Scope` . 이 동작은 사용자에 게 작업 기능을 수행 하는 데 필요한 최소 수준의 액세스 권한을 부여 하는 정보 보안 개념인 최소 권한의 원칙을 따릅니다. 이 방법을 통해 불필요 한 권한에 의해 발생 하는 우발적 이거나 의도적인 손상의 잠재적 위험을 줄일 수 있습니다.
+
+컨테이너의 범위는 다음과 같은 형식입니다.
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
 ```
+
+스토리지 계정의 범위는 다음과 같은 형식입니다.
+
+```
+/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
+```
+
+저장소 계정에 범위가 지정 된 역할을 할당 하려면 매개 변수의 컨테이너 범위를 포함 하는 문자열을 지정 `--scope` 합니다.
 
 다음 예시에서는 *sample-container* 라는 컨테이너에 범위가 지정된 사용자에게 **Storage Blob 데이터 참가자** 역할을 할당합니다. 샘플 값과 대괄호 안의 자리 표시자 값을 고유한 값으로 바꿔야 합니다.
 
@@ -73,7 +109,29 @@ New-AzRoleAssignment -SignInName <email> `
     -Scope  "/subscriptions/<subscription>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/sample-container"
 ```
 
-구독, 리소스 그룹 또는 스토리지 계정 범위에서 PowerShell을 사용하여 역할을 할당하는 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-powershell.md)을 참조하세요.
+다음 예에서는 개체 ID를 지정 하 여 **Storage Blob 데이터 판독기** 역할을 사용자에 게 할당 합니다. 역할 할당의 범위는 **저장소 계정** 이라는 저장소 계정입니다. 샘플 값과 대괄호 안의 자리 표시자 값을 고유한 값으로 바꿔야 합니다. 
+
+```powershell
+New-AzRoleAssignment -ObjectID "ab12cd34-ef56-ab12-cd34-ef56ab12cd34" `
+    -RoleDefinitionName "Storage Blob Data Reader" `
+    -Scope  "/subscriptions/<subscription>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/storage-account"
+```
+
+다음과 유사하게 출력될 것입니다.
+
+```Response
+RoleAssignmentId   : /subscriptions/<subscription ID>/resourceGroups/<Resource Group>/providers/Microsoft.Storage/storageAccounts/<Storage Account>/providers/Microsoft.Authorization/roleAssignments/<Role Assignment ID>
+Scope              : /subscriptions/<subscription ID>/resourceGroups/<Resource Group>/providers/Microsoft.Storage/storageAccounts/<Storage Account>
+DisplayName        : Mark Patrick
+SignInName         : markpdaniels@contoso.com
+RoleDefinitionName : Storage Blob Data Reader
+RoleDefinitionId   : <Role Definition ID>
+ObjectId           : <Object ID>
+ObjectType         : User
+CanDelegate        : False
+```
+
+구독 또는 리소스 그룹 범위에서 PowerShell에 역할을 할당 하는 방법에 대 한 자세한 내용은 [Azure PowerShell를 사용 하 여 Azure 역할 할당](../../role-based-access-control/role-assignments-powershell.md)을 참조 하세요.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

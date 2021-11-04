@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/05/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 117fe7d8c624c0776c6ec6f61296101a2f844f1b
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
-ms.translationtype: HT
+ms.openlocfilehash: a60ab8498076eb6380657b9cd57a3f8d0db31da2
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113432809"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131576418"
 ---
 # <a name="availability-zone-support-for-app-service-environments"></a>Azure App Service Environment에 대한 가용성 영역 지원
 
@@ -58,29 +58,29 @@ ILB ASE는 특정 영역에 고정되므로 AZ에 명시적으로 배포된 ILB 
 아래 예제 ARM 템플릿 코드 조각에서는 ILB ASE를 영역 2에 고정하도록 지정하는 새로운 ***zones*** 속성을 보여 줍니다.
 
 ```
-   "resources": [
-      {
-         "type": "Microsoft.Web/hostingEnvironments",
-         "kind": "ASEV2",
-         "name": "yourASENameHere",
-         "apiVersion": "2015-08-01",
-         "location": "your location here",
-         "zones": [
+"resources": [
+    {
+        "type": "Microsoft.Web/hostingEnvironments",
+        "kind": "ASEV2",
+        "name": "yourASENameHere",
+        "apiVersion": "2015-08-01",
+        "location": "your location here",
+        "zones": [
             "2"
-         ],
-         "properties": {
-         "name": "yourASENameHere",
-         "location": "your location here",
-         "ipSslAddressCount": 0,
-         "internalLoadBalancingMode": "3",
-         "dnsSuffix": "contoso-internal.com",
-         "virtualNetwork": {
-             "Id": "/subscriptions/your-subscription-id-here/resourceGroups/your-resource-group-here/providers/Microsoft.Network/virtualNetworks/your-vnet-name-here",
-             "Subnet": "yourSubnetNameHere"
-          }
-         }
-      }
-    ]
+        ],
+        "properties": {
+            "name": "yourASENameHere",
+            "location": "your location here",
+            "ipSslAddressCount": 0,
+            "internalLoadBalancingMode": "3",
+            "dnsSuffix": "contoso-internal.com",
+            "virtualNetwork": {
+                "Id": "/subscriptions/your-subscription-id-here/resourceGroups/your-resource-group-here/providers/Microsoft.Network/virtualNetworks/your-vnet-name-here",
+                "Subnet": "yourSubnetNameHere"
+            }
+        }
+    }
+]
 ```
 
 앱 영역을 중복으로 만들려면 두 개의 영역 ILB ASE를 배포해야 합니다. 두 영역 ILB ASE는 개별 가용성 영역에 있어야 합니다. 그런 다음, 각 ILB ASE에 앱을 배포해야 합니다. 앱이 생성된 후 부하 분산 솔루션을 구성해야 합니다. 권장 솔루션은 영역 ILB ASE의 [영역 중복 Application Gateway](../../application-gateway/application-gateway-autoscaling-zone-redundant.md) 업스트림을 배포하는 것입니다. 

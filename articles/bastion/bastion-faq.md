@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 09/07/2021
 ms.author: cherylmc
-ms.openlocfilehash: a4b784173df17ec626419104868fe778770a9a02
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 251d1a034bafa3a9d77291be63fdc59145b2cc09
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131426737"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131575810"
 ---
 # <a name="azure-bastion-faq"></a>Azure Bastion FAQ
 
@@ -24,7 +24,7 @@ ms.locfileid: "131426737"
 
 ### <a name="is-ipv6-supported"></a>IPv6이 지원되나요?
 
-현재 IPv6은 지원되지 않습니다. Azure Bastion은 IPv4만 지원합니다. 즉, 사용자는 자신의 요새 리소스에 IPv4 공용 IP 주소만 할당할 수 있으며,이를 사용 하 여 IPv4 대상 Vm에 연결할 수 있습니다. 또한 사용자의 방호를 사용 하 여 이중 스택 대상 Vm에 연결할 수 있지만 Azure 방호를 통해 IPv4 트래픽만 보내고 받을 수 있습니다. 
+현재 IPv6은 지원되지 않습니다. Azure Bastion은 IPv4만 지원합니다. 즉, Bastion 리소스에 IPv4 공용 IP 주소만 할당할 수 있으며 Bastion을 사용하여 IPv4 대상 VM에 연결할 수 있습니다. Bastion을 사용하여 이중 스택 대상 VM에 연결할 수도 있지만 Azure Bastion 통해서만 IPv4 트래픽을 보내고 받을 수 있습니다. 
 
 ### <a name="can-i-use-azure-bastion-with-azure-private-dns-zones"></a>Azure Private DNS 영역에서 Azure Bastion을 사용할 수 있나요?
 
@@ -79,24 +79,24 @@ Azure Bastion은 배포된 지역 외부로 고객 데이터를 이동하거나 
 
 ### <a name="which-keyboard-layouts-are-supported-during-the-bastion-remote-session"></a><a name="keyboard"></a>Bastion 원격 세션 중에 지원되는 키보드 레이아웃은?
 
-Azure 방호는 현재 VM 내에서 다음과 같은 키보드 레이아웃을 지원 합니다.
+Azure Bastion 현재 VM 내에서 다음과 같은 키보드 레이아웃을 지원합니다.
 * en-us-qwerty
-* en-us-qwerty
+* en-gb-qwerty
+* de-ch-qwertz
 * de-de-qwertz
-* qwertz
+* fr-be-azerty
 * fr-fr-azerty
-* fr-fr-azerty
-* fr-fr-qwertz
-* hu-hu-hu-hu-qwertz
-* it-qwerty
+* fr-ch-qwertz
+* hu-hu-qwertz
+* it-it-qwerty
 * ja-jp-qwerty
 * pt-br-qwerty
-* es-qwerty
-* latam-qwerty
-* sv-qwerty
-* tr-qwerty
+* es-es-qwerty
+* es-latam-qwerty
+* sv-se-qwerty
+* tr-tr-qwerty
 
-대상 VM의 기본 키보드 레이아웃은 로컬 컴퓨터 설정에서 변경할 수 있는 로컬 언어와 일치 합니다.
+대상 언어에 대한 올바른 키 매핑을 위해 컴퓨터의 로컬 언어 또는 VM 내의 원격 언어를 en-us-qwerty로 설정해야 합니다. 즉, 원격 VM 언어가 대상 언어로 설정된 동안 로컬 컴퓨터 언어를 영어(미국)로 설정하거나 그 반대로 설정해야 합니다. 컴퓨터 설정에서 컴퓨터에 영어(미국) 언어를 추가할 수 있습니다.
 
 ### <a name="does-azure-bastion-support-timezone-configuration-or-timezone-redirection-for-target-vms"></a><a name="timezone"></a>Azure Bastion은 대상 VM에 대한 표준 시간대 구성 또는 표준 시간대 리디렉션을 지원하나요?
 
@@ -144,8 +144,8 @@ Azure Bastion은 VNet 또는 피어링된 VNet 내부에 배포되고 Azure 지�
 
 :::image type="content" source="./media/bastion-faq/global-subscriptions.png" alt-text="전역 구독 필터" lightbox="./media/bastion-faq/global-subscriptions.png":::
 
-### <a name="does-bastion-support-connectivity-to-azure-virtual-desktop"></a>Azure 가상 데스크톱에 대 한 연결을 지원 하나요?
-아니요, Azure 가상 데스크톱에 대 한 방호 연결은 지원 되지 않습니다.
+### <a name="does-bastion-support-connectivity-to-azure-virtual-desktop"></a>Bastion은 Azure Virtual Desktop에 대한 연결을 지원하나요?
+아니요, Azure Virtual Desktop에 대한 Bastion 연결은 지원되지 않습니다.
 
 ### <a name="i-have-access-to-the-peered-vnet-but-i-cant-see-the-vm-deployed-there"></a>피어링된 VNet에 액세스할 수 있지만 여기에 배포된 VM은 볼 수 없습니다.
 

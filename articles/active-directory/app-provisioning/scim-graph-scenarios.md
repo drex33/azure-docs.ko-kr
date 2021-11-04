@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: ac78950f4268155c4c7c0f37e20229044d62ab81
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: f97ff11a1a7e3829ef16aa4e903f88e2ad66949a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129990713"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432760"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>SCIM과 Microsoft Graph를 함께 사용하여 사용자를 프로비전하고 필요한 데이터를 사용하여 애플리케이션을 보강합니다.
 
@@ -113,7 +113,7 @@ Teams와 Outlook 메시지에 대한 변경 내용을 추적하고 실시간으�
 **권장 사항** Microsoft Graph는 사용자를 Azure AD에 프로비전하기 위해 현재와 통합할 수 있는/사용자 및/그룹 엔드포인트를 노출합니다. Azure Active Directory는 해당 사용자를 Active Directory에 다시 작성하는 것을 지원하지 않습니다. 
 
 > [!NOTE]
-> Microsoft에는 Workday 및 SuccessFactors와 같은 HR 애플리케이션에서 데이터를 가져오는 프로비저닝 서비스가 있습니다. 이러한 통합은 Microsoft에서 빌드하고 관리합니다. 새 HR 애플리케이션을 서비스에 온보딩하기 위해 [UserVoice](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests)에서 요청할 수 있습니다. 
+> Microsoft에는 Workday 및 SuccessFactors와 같은 HR 애플리케이션에서 데이터를 가져오는 프로비저닝 서비스가 있습니다. 이러한 통합은 Microsoft에서 빌드하고 관리합니다. 새 HR 애플리케이션을 서비스에 온보딩하기 위해 [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)에서 요청할 수 있습니다. 
 
 ## <a name="related-articles"></a>관련된 문서
 

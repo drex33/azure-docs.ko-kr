@@ -5,19 +5,19 @@ services: app-service
 author: jorgearteiro
 ms.service: app-service
 ms.topic: conceptual
-ms.date: 10/21/2021
+ms.date: 11/02/2021
 ms.author: joarteir
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 57d5c01290f59a876a187538c9578b84fab26773
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 5c5cda6e2793ca70c1d53b8a4b4ce4235fa07efd
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131102734"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131577672"
 ---
 # <a name="tutorial-deploy-a-background-processing-application-with-azure-container-apps-preview"></a>자습서: Azure Container Apps 미리 보기를 통해 백그라운드 처리 애플리케이션 배포
 
-Azure Container Apps를 사용하면 퍼블릭 엔드포인트를 노출하지 않고도 애플리케이션을 배포할 수 있습니다. 이 자습서에서는 Azure Storage 큐에서 메시지를 읽고 Azure log Analytics 작업 영역에 메시지를 기록하는 샘플 애플리케이션을 배포합니다. Container Apps 크기 조정 규칙을 사용하여 애플리케이션은 Azure Storage 큐 길이에 따라 확장 및 축소할 수 있습니다. 큐에 메시지가 없으면 컨테이너 앱이 0으로 축소됩니다.
+Azure Container Apps를 사용하면 퍼블릭 엔드포인트를 노출하지 않고도 애플리케이션을 배포할 수 있습니다. 이 자습서에서는 Azure Storage 큐에서 메시지를 읽고 Azure log Analytics 작업 영역에서 메시지를 기록하는 샘플 애플리케이션을 배포합니다. Container Apps 크기 조정 규칙을 사용하여 애플리케이션은 Azure Storage 큐 길이에 따라 확장 및 축소할 수 있습니다. 큐에 메시지가 없으면 컨테이너 앱이 0으로 축소됩니다.
 
 다음 방법을 알아봅니다.
 
@@ -27,7 +27,7 @@ Azure Container Apps를 사용하면 퍼블릭 엔드포인트를 노출하지 �
 > * 백그라운드 처리 애플리케이션을 컨테이너 앱으로 배포
 > * 큐 메시지가 컨테이너 앱에서 처리되는지 확인합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
@@ -124,6 +124,22 @@ az extension add \
 ```powershell
 az extension add `
   --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl
+```
+
+---
+
+이제 확장이 설치되어 `Microsoft.Web` 네임스페이스를 등록합니다.
+
+# <a name="bash"></a>[Bash](#tab/bash)
+
+```azurecli
+az provider register --namespace Microsoft.Web
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+```powershell
+az provider register --namespace Microsoft.Web
 ```
 
 ---
@@ -429,7 +445,7 @@ az deployment group create --resource-group "$RESOURCE_GROUP" `
 
 ## <a name="verify-the-result"></a>결과 확인
 
-백그라운드 프로세스로 실행되는 컨테이너 앱은 메시지가 Azure Storage 큐에서 도착할 때 Log Analytics에 로그 항목을 만듭니다.
+백그라운드 프로세스로 실행되는 컨테이너 앱은 메시지가 Azure Storage 큐에서 도착할 때 Log Analytics에 로그 항목을 만듭니다. 기록된 데이터를 쿼리하기 전에 분석이 처음으로 도착할 때까지 몇 분 정도 기다려야 할 수 있습니다.
 
 다음 명령을 실행하여 기록된 메시지를 확인합니다. 이 명령에는 Log Analytics 확장이 필요하므로 요청 시 확장을 설치하라는 메시지를 수락합니다.
 

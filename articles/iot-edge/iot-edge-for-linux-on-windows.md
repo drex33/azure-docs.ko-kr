@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/18/2021
 ms.author: kgremban
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 89c0ba6491a2c4e95e86a48d5755d9dabd2b821b
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 881d0fe19339976342db866072dcf86009b1bbd5
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131475790"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131578864"
 ---
 # <a name="what-is-azure-iot-edge-for-linux-on-windows"></a>Windows에서 Linux용 Azure IoT Edge란?
 
@@ -40,6 +40,21 @@ Windows에서 Linux용 IoT Edge는 다음과 같은 구성 요소를 사용하�
 
 Windows 프로세스와 Linux 가상 머신 간의 양방향 통신은 Windows 프로세스가 Linux 컨테이너에서 실행되는 워크로드에 대한 사용자 인터페이스 또는 하드웨어 프록시를 제공할 수 있음을 의미합니다.
 
+
+## <a name="prerequisites"></a>필수 조건
+
+다음 최소 요구 사항을 충족 하는 Windows 장치:
+
+* 시스템 요구 사항
+   * Windows 10 ¹/11 (Pro, Enterprise, IoT Enterprise)
+   * Windows 서버 2019 ¹/2022  
+   <sub>¹ Windows 10 및 Windows 현재 누적 업데이트가 모두 설치 된 Server 2019 최소 빌드 17763</sub>
+
+* 하드웨어 요구 사항
+  * 사용 가능한 최소 메모리: 1GB
+  * 사용 가능한 최소 디스크 공간: 10GB
+
+
 ## <a name="samples"></a>샘플
 
 Windows에서 Linux용 IoT Edge는 Linux와 Windows 구성 요소가 상호 운용될 수 있음을 강조합니다.
@@ -60,4 +75,4 @@ IoT Edge 지원 및 피드백 채널을 사용하여 Windows에서 Linux용 IoT 
 
 자세한 내용 및 작동 샘플은 [Windows 10 IoT Enterprise에서 Linux용 IoT Edge](https://aka.ms/azeflow-show)를 확인하세요.
 
-[Windows 디바이스에서 Linux용 단일 Azure IoT Edge 수동 프로비전의](how-to-provision-single-device-linux-on-windows-symmetric.md) 단계에 따라 Windows Linux용 IoT Edge 사용하여 디바이스를 설정합니다.
+[Windows 장치에서 linux 용 단일 Azure IoT Edge 수동 프로 비전](how-to-provision-single-device-linux-on-windows-symmetric.md) 의 단계에 따라 Windows에서 linux 용 IoT Edge를 사용 하 여 장치를 설정 합니다.

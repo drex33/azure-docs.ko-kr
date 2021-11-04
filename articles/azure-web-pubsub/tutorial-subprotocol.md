@@ -5,13 +5,13 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial
-ms.date: 08/16/2021
-ms.openlocfilehash: 232489ea06020d5f2f06cfc7d841c888b2b5a5d0
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.date: 11/01/2021
+ms.openlocfilehash: ababc116ea9d53fa790b20336cb54e71d6bc2f26
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122773253"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131579049"
 ---
 # <a name="tutorial-publish-and-subscribe-messages-between-websocket-clients-using-subprotocol"></a>자습서: 하위 프로토콜을 사용하여 WebSocket 클라이언트 간에 메시지 게시 및 구독
 
@@ -79,7 +79,7 @@ ms.locfileid: "122773253"
     cd logstream
     dotnet new web
     dotnet add package Microsoft.Extensions.Azure
-    dotnet add package Azure.Messaging.WebPubSub --prerelease
+    dotnet add package Azure.Messaging.WebPubSub --version 1.0.0-beta.3
     ```
     
     # <a name="javascript"></a>[JavaScript](#tab/javascript)
@@ -91,7 +91,7 @@ ms.locfileid: "122773253"
     npm install --save express
     npm install --save ws
     npm install --save node-fetch
-    npm install --save @azure/web-pubsub
+    npm install --save @azure/web-pubsub@1.0.0-alpha.20211102.4
     ```
 
     # <a name="python"></a>[Python](#tab/python)
@@ -108,7 +108,7 @@ ms.locfileid: "122773253"
 
     # Or call .\env\Scripts\activate when you are using CMD under Windows
 
-    pip install azure-messaging-webpubsubservice
+    pip install azure-messaging-webpubsubservice==1.0.0b1
     ```
     
     ---
@@ -189,11 +189,11 @@ ms.locfileid: "122773253"
     const express = require('express');
     const { WebPubSubServiceClient } = require('@azure/web-pubsub');
 
-    let endpoint = new WebPubSubServiceClient(process.argv[2], 'stream');
+    let endpoint = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, 'stream');
     const app = express();
 
     app.get('/negotiate', async (req, res) => {
-      let token = await endpoint.getAuthenticationToken({
+      let token = await endpoint.getClientAccessToken({
         roles: ['webpubsub.sendToGroup.stream', 'webpubsub.joinLeaveGroup.stream']
       });
       res.send({
@@ -303,8 +303,8 @@ ms.locfileid: "122773253"
     이제 아래 명령을 실행하고, `<connection-string>`을 [이전 단계](#get-the-connectionstring-for-future-use)에서 가져온 **ConnectionString** 으로 바꾸고, 브라우저에서 http://localhost:8080 을 엽니다.
 
     ```bash
-    
-    node server "<connection-string>"
+    export WebPubSubConnectionString="<connection-string>"
+    node server
     ```
     
     # <a name="python"></a>[Python](#tab/python)
@@ -408,17 +408,19 @@ ms.locfileid: "122773253"
       let res = await fetch(`http://localhost:8080/negotiate`);
       let data = await res.json();
       let ws = new WebSocket(data.url, 'json.webpubsub.azure.v1');
+      let ackId = 0;
       ws.on('open', () => {
         process.stdin.on('data', data => {
           ws.send(JSON.stringify({
             type: 'sendToGroup',
             group: 'stream',
+            ackId: ++ackId,
             dataType: 'text',
             data: data.toString()
           }));
-          process.stdout.write(data);
         });
       });
+      ws.on('message', data => console.log("Received: %s", data));
       process.stdin.on('close', () => ws.close());
     }
 
@@ -492,11 +494,13 @@ ms.locfileid: "122773253"
 2.  여기서는 그룹을 사용하기 때문에 `index.html` 콜백 내에서 WebSocket 연결이 설정되면 그룹에 조인하도록 `ws.onopen` 웹 페이지를 업데이트해야 합니다.
     
     ```javascript
+    let ackId = 0;
     ws.onopen = () => {
       console.log('connected');
       ws.send(JSON.stringify({
         type: 'joinGroup',
-        group: 'stream'
+        group: 'stream',
+        ackId: ++ackId
       }));
     };
     ```
@@ -527,11 +531,11 @@ ms.locfileid: "122773253"
 
     # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-    `server.js`의 `getAuthenticationToken`이 아래와 같으면 `roles`를 추가합니다.
+    `server.js`의 `getClientAccessToken`이 아래와 같으면 `roles`를 추가합니다.
 
     ```javascript
     app.get('/negotiate', async (req, res) => {
-      let token = await endpoint.getAuthenticationToken({
+      let token = await endpoint.getClientAccessToken({
         roles: ['webpubsub.sendToGroup.stream', 'webpubsub.joinLeaveGroup.stream']
       });
       ...

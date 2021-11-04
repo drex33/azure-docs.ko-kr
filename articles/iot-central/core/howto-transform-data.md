@@ -7,14 +7,14 @@ ms.date: 04/09/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 0c087838029a5e7863359564682a6843238421c5
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
-ms.translationtype: HT
+ms.openlocfilehash: e05cbd17dbfe4f61562856f9244f5b4d0fa65dc9
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112964593"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131577387"
 ---
-# <a name="transform-data-for-iot-central"></a>IoT Central에 대한 데이터 변환
+# <a name="transform-data-externally-for-iot-central"></a>IoT Central 위해 외부적으로 데이터 변환
 
 IoT 디바이스는 다양한 형식으로 데이터를 전송합니다. IoT Central 애플리케이션에서 디바이스 데이터를 사용하려면 변환을 통해 다음을 수행해야 할 수 있습니다.
 
@@ -31,7 +31,7 @@ IoT 디바이스는 다양한 형식으로 데이터를 전송합니다. IoT Cen
 
 다음 표에서는 세 가지 예제 변환 형식을 보여 줍니다.
 
-| 변환 | 설명 | 예  | 참고 |
+| 변환 | 설명 | 예제  | 참고 |
 |------------------------|-------------|----------|-------|
 | 메시지 형식         | JSON 메시지로 변환하거나 JSON 메시지를 조작합니다. | CSV에서 JSON으로  | 수신 시. IoT Central은 JSON 메시지 값만 허용합니다. 자세히 알아보려면 [원격 분석, 속성 및 명령 페이로드](concepts-telemetry-properties-commands.md)를 참조하세요. |
 | 계산이           | [Azure Functions](../../azure-functions/index.yml)가 실행할 수 있는 수학 함수입니다. | 화씨에서 섭씨로 단위 변환.  | 송신 패턴으로 변환하여 IoT Central에 대한 직접 연결을 통해 스케일링 가능한 디바이스 수신을 활용합니다. 데이터를 변환하면 시각화 및 작업과 같은 IoT Central 기능을 사용할 수 있습니다. |

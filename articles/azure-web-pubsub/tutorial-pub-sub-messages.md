@@ -5,13 +5,13 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial
-ms.date: 08/16/2021
-ms.openlocfilehash: b0027bfd1f214ecba347652ce37009103b76ff00
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.date: 11/01/2021
+ms.openlocfilehash: 00ff941ccf008b84ac72191035cc9322d4d08c8c
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123255439"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131579087"
 ---
 # <a name="tutorial-publish-and-subscribe-messages-using-websocket-api-and-azure-web-pubsub-service-sdk"></a>자습서: WebSocket API 및 Azure Web PubSub 서비스 SDK를 사용하여 메시지 게시 및 구독
 
@@ -82,7 +82,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
     cd subscriber
     dotnet new console
     dotnet add package Websocket.Client --version 4.3.30
-    dotnet add package Azure.Messaging.WebPubSub --prerelease
+    dotnet add package Azure.Messaging.WebPubSub --version 1.0.0-beta.3
     ```
 
 2. 서비스에 연결하도록 `Program.cs` 파일을 다음과 같이 업데이트합니다.
@@ -146,7 +146,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
     cd subscriber
     npm init -y
     npm install --save ws
-    npm install --save @azure/web-pubsub
+    npm install --save @azure/web-pubsub@1.0.0-alpha.20211102.4
 
     ```
 2. 그런 다음, WebSocket API를 사용하여 서비스에 연결합니다. 아래 코드를 사용하여 `subscribe.js` 파일을 만듭니다.
@@ -156,13 +156,9 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
     const { WebPubSubServiceClient } = require('@azure/web-pubsub');
 
     async function main() {
-      if (process.argv.length !== 4) {
-        console.log('Usage: node subscribe <connection-string> <hub-name>');
-        return 1;
-      }
-
-      let serviceClient = new WebPubSubServiceClient(process.argv[2], process.argv[3]);
-      let token = await serviceClient.getAuthenticationToken();
+      const hub = "pubsub";
+      let serviceClient = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hub);
+      let token = await serviceClient.getClientAccessToken();
       let ws = new WebSocket(token.url);
       ws.on('open', () => console.log('connected'));
       ws.on('message', data => console.log('Message received: %s', data));
@@ -173,14 +169,15 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
     
     위의 코드는 Azure Web PubSub의 허브에 연결하기 위한 WebSocket 연결을 만듭니다. 허브는 클라이언트 그룹에 메시지를 게시할 수 있는 Azure Web PubSub의 논리적 단위입니다. [주요 개념](./key-concepts.md)에는 Azure Web PubSub에서 사용되는 용어에 대한 자세한 설명이 포함되어 있습니다.
     
-    Azure Web PubSub 서비스는 [JWT(JSON Web Token)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) 인증을 사용하므로, 코드 샘플에서는 Web PubSub SDK에서 `WebPubSubServiceClient.getAuthenticationToken()`를 사용하여 유효한 액세스 토큰이 있는 전체 URL을 포함하는 서비스에 대한 URL을 생성합니다.
+    Azure Web PubSub 서비스는 [JWT(JSON Web Token)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) 인증을 사용하므로, 코드 샘플에서는 Web PubSub SDK에서 `WebPubSubServiceClient.getClientAccessToken()`를 사용하여 유효한 액세스 토큰이 있는 전체 URL을 포함하는 서비스에 대한 URL을 생성합니다.
     
     연결이 설정되면 WebSocket 연결을 통해 메시지를 받게 됩니다. 따라서 `WebSocket.on('message', ...)`를 사용하여 들어오는 메시지를 수신 대기합니다.
     
 3. 아래 명령을 실행하고, `<connection_string>`을 [이전 단계](#get-the-connectionstring-for-future-use)에서 가져온 **ConnectionString** 으로 바꿉니다.
 
     ```bash
-    node subscribe "<connection_string>" "myHub1"
+    export WebPubSubConnectionString="<connection-string>"
+    node subscribe
     ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -198,7 +195,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
 
     # Or call .\env\Scripts\activate when you are using CMD under Windows
 
-    pip install azure-messaging-webpubsubservice
+    pip install azure-messaging-webpubsubservice==1.0.0b1
     pip install websockets
 
     ```
@@ -373,7 +370,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
     mkdir publisher
     cd publisher
     dotnet new console
-    dotnet add package Azure.Messaging.WebPubSub --prerelease
+    dotnet add package Azure.Messaging.WebPubSub --version 1.0.0-beta.3
     ```
 
 2. `WebPubSubServiceClient` 클래스를 사용하여 클라이언트에 메시지를 보내도록 `Program.cs` 파일을 업데이트하겠습니다.
@@ -429,7 +426,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
     mkdir publisher
     cd publisher
     npm init -y
-    npm install --save @azure/web-pubsub
+    npm install --save @azure/web-pubsub@1.0.0-alpha.20211102.4
 
     ```
 2. 이번에는 Azure Web PubSub SDK를 사용하여 서비스에 메시지를 게시해 보겠습니다. 아래 코드를 사용하여 `publish.js` 파일을 만듭니다.
@@ -437,15 +434,11 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
     ```javascript
     const { WebPubSubServiceClient } = require('@azure/web-pubsub');
 
-    if (process.argv.length !== 5) {
-    console.log('Usage: node publish <connection-string> <hub-name> <message>');
-    return 1;
-    }
-
-    let serviceClient = new WebPubSubServiceClient(process.argv[2], process.argv[3]);
+    const hub = "pubsub";
+    let serviceClient = new WebPubSubServiceClient(process.env.WebPubSubConnectionString, hub);
 
     // by default it uses `application/json`, specify contentType as `text/plain` if you want plain-text
-    serviceClient.sendToAll(process.argv[4], { contentType: "text/plain" });
+    serviceClient.sendToAll(process.argv[2], { contentType: "text/plain" });
     ```
 
     `sendToAll()`를 호출하면 허브에 있는 모든 연결된 클라이언트에 메시지가 전송됩니다.
@@ -453,7 +446,8 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
 3. 아래 명령을 실행하고, `<connection_string>`을 [이전 단계](#get-the-connectionstring-for-future-use)에서 가져온 **ConnectionString** 으로 바꿉니다.
 
     ```bash
-    node publish "<connection_string>" "myHub1" "Hello World"
+    export WebPubSubConnectionString="<connection-string>"
+    node publish "Hello World"
     ```
 
 4. 이전 구독자가 아래 메시지를 수신한 것을 볼 수 있습니다.
@@ -477,7 +471,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
 
         # Or call .\env\Scripts\activate when you are using CMD under windows
 
-        pip install azure-messaging-webpubsubservice
+        pip install azure-messaging-webpubsubservice==1.0.0b1
 
         ```
 2. 이번에는 Azure Web PubSub SDK를 사용하여 서비스에 메시지를 게시해 보겠습니다. 아래 코드를 사용하여 `publish.py` 파일을 만듭니다.

@@ -5,15 +5,15 @@ author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 10/18/2021
+ms.date: 11/02/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: ff1fd969f202b71e3e6706d9721b7e91cb723e9b
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 795d54406230dbc7ea6e9666cfef51c8f96219fe
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131453234"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131576190"
 ---
 # <a name="use-asset-inventory-to-manage-your-resources-security-posture"></a>자산 인벤토리를 사용 하 여 리소스의 보안 상태 관리
 
@@ -118,7 +118,7 @@ KQL ( [Kusto Query Language)](/azure/data-explorer/kusto/query/)를 사용 하 �
 
     - **외부** -Microsoft Defender 계획으로 보호 되지 않는 리소스입니다. 해당 항목 중 하나를 마우스 오른쪽 단추로 클릭하고 업그레이드할 수 있습니다.
 
-        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="마우스 오른쪽 단추를 클릭 하 여 리소스를 Microsoft Defender로 업그레이드 합니다." lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
+        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="적절 한 Microsoft Defender 계획으로 보호할 리소스를 마우스 오른쪽 단추로 클릭 하 여 업그레이드 합니다." lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
 
     - Microsoft Defender 계획으로 보호 되는 **온** -리소스
     - **부분** -일부 Microsoft Defender 계획을 사용 하지 않도록 설정 하는 **구독** 에 적용 됩니다. 예를 들어 다음 구독에는 7 개의 Microsoft Defender 요금제가 비활성화 되어 있습니다.
@@ -182,7 +182,7 @@ Azure 리소스 Graph 탐색기를 사용 하 여 소프트웨어 인벤토리 �
         | where count_ > 1
         ```
 
-    - 다른 ASC 권장 사항을 사용 하는 소프트웨어 제품의 조합:
+    - 다른 보안 권장 사항과 소프트웨어 제품의 조합:
 
         (이 예제에서는 MySQL을 설치 하 고 관리 포트를 노출 하는 컴퓨터)
 
@@ -207,21 +207,21 @@ Azure 리소스 Graph 탐색기를 사용 하 여 소프트웨어 인벤토리 �
 
 인벤토리 보기는 CSPM (클라우드 보안 상태 관리) 관점에서 클라우드 연결 리소스에 대 한 Defender를 나열 합니다. 필터는 사용자 환경의 모든 리소스를 반환하는 것이 아니라 해결되지 않은(즉 '활성') 권장 사항이 있는 항목만 반환합니다. 
 
-예를 들어 다음 스크린샷은 8개의 구독에 액세스할 수 있지만 현재 7개만 권장 사항이 있는 사용자를 보여줍니다. 따라서 **리소스 종류 = 구독으로** 필터링하는 경우 활성 권장 사항이 있는 7개의 구독만 인벤토리에 표시됩니다.
+예를 들어 다음 스크린샷은 8 개 구독에 대 한 액세스 권한이 있는 사용자를 보여 주지만 현재 7 개만 권장 됩니다. 따라서 **리소스 유형 = 구독** 을 기준으로 필터링 하는 경우 활성 권장 사항이 있는 해당 7 개의 구독만 인벤토리에 표시 됩니다.
 
 :::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="활성 권장 구성이 없는 경우 일부 항목이 반환되지 않음" lightbox="./media/asset-inventory/filtered-subscriptions-some.png":::
 
-### <a name="why-do-some-of-my-resources-show-blank-values-in-the-defender-for-cloud-or-monitoring-agent-columns"></a>일부 리소스가 Defender for Cloud 또는 모니터링 에이전트 열에 빈 값을 표시하는 이유는 무엇인가요?
+### <a name="why-do-some-of-my-resources-show-blank-values-in-the-defender-for-cloud-or-monitoring-agent-columns"></a>클라우드 또는 모니터링 에이전트 열에 대해 Defender에서 일부 리소스가 빈 값을 표시 하는 이유는 무엇 인가요?
 
-모든 Defender for Cloud 모니터링 리소스에 에이전트가 있는 것은 아닙니다. 예를 들어 Azure Storage 계정 또는 디스크, Logic Apps, Data Lake Analysis 및 Event Hub와 같은 PaaS 리소스는 Defender for Cloud에서 모니터링할 에이전트가 필요하지 않습니다.
+클라우드 모니터링 리소스의 모든 Defender에 에이전트가 있습니다. 예를 들어 디스크, Logic Apps, Data Lake 분석 및 이벤트 허브와 같은 Azure Storage 계정 또는 PaaS 리소스는 Defender for Cloud에서 모니터링할 에이전트가 필요 하지 않습니다.
 
 가격 책정 또는 에이전트 모니터링이 리소스와 관련이 없는 경우 해당 인벤토리의 열에는 아무것도 표시되지 않습니다.
 
-:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="일부 리소스는 모니터링 에이전트 또는 Defender for Cloud 열에 빈 정보를 표시합니다." lightbox="./media/asset-inventory/agent-pricing-blanks.png":::
+:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="일부 리소스는 모니터링 에이전트에서 빈 정보를 표시 하거나 클라우드 열에 대해 Defender를 표시 합니다." lightbox="./media/asset-inventory/agent-pricing-blanks.png":::
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Microsoft Defender for Cloud의 자산 인벤토리 페이지에 대해 설명했습니다.
+이 문서에서는 Microsoft Defender for Cloud의 asset inventory 페이지에 대해 설명 했습니다.
 
 관련 도구에 대한 자세한 내용은 다음 페이지를 참조하세요.
 

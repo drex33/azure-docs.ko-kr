@@ -5,15 +5,15 @@ services: app-service
 author: craigshoemaker
 ms.service: app-service
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 7ff5f10097fcac78596d8b32ed7a5a72d331486a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: e4b465b593fadcacce59a14c9fbced0780c252a9
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131102882"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131578295"
 ---
 # <a name="set-up-https-ingress-in-azure-container-apps-preview"></a>Azure 컨테이너 앱 미리 보기에서 HTTPS 수신 설정
 
@@ -48,12 +48,12 @@ Azure Container Apps를 사용 하면 수신을 활성화 하 여 컨테이너 �
 
 수신 구성 시 다음 설정을 사용할 수 있습니다.
 
-| 속성 | 설명 | 값 | 필수 |
+| 속성 | Description | 값 | 필수 |
 |---|---|---|---|
 | `external` | 수신 IP와 정규화 된 도메인 이름은 인터넷 외부에서 표시 하거나 VNET 내에서 내부적으로 볼 수 있습니다. |`true` 외부 표시 유형, `false` 내부 표시 유형 (기본값) | Yes |
 | `targetPort` | 컨테이너가 들어오는 요청을 수신 대기 하는 포트입니다. | 컨테이너에서 사용 하는 포트 번호로이 값을 설정 합니다. 응용 프로그램 수신 끝점은 항상 포트에서 노출 됩니다 `443` . | Yes |
-| `transport` | HTTP/1.1 또는 HTTP/2를 사용 하거나 전송 유형을 자동으로 검색 하도록 설정할 수 있습니다. | `http` http/2에 대 한 http/1의 경우 `http2` `auto` 전송 유형을 자동으로 검색 하려면 (기본값) | 아니요 |
-| `allowInsecure` | 컨테이너 앱에 대 한 안전 하지 않은 트래픽을 허용 합니다. | `false` (기본값), `true`<br><br>로 설정 `true` 된 경우 포트 80에 대 한 HTTP 요청은 HTTPS를 사용 하 여 포트 443으로 자동 리디렉션되지 않으므로 안전 하지 않은 연결을 허용 합니다. | 아니요 |
+| `transport` | HTTP/1.1 또는 HTTP/2를 사용 하거나 전송 유형을 자동으로 검색 하도록 설정할 수 있습니다. | `http` http/2에 대 한 http/1의 경우 `http2` `auto` 전송 유형을 자동으로 검색 하려면 (기본값) | No |
+| `allowInsecure` | 컨테이너 앱에 대 한 안전 하지 않은 트래픽을 허용 합니다. | `false` (기본값), `true`<br><br>로 설정 `true` 된 경우 포트 80에 대 한 HTTP 요청은 HTTPS를 사용 하 여 포트 443으로 자동 리디렉션되지 않으므로 안전 하지 않은 연결을 허용 합니다. | No |
 
 > [!NOTE]
 > 응용 프로그램에 대 한 수신 기능을 사용 하지 않도록 설정 하려면 `ingress` 구성 속성을 완전히 생략 하면 됩니다.

@@ -5,25 +5,25 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 08/15/2021
+ms.date: 11/02/2021
 ms.author: memildin
-ms.openlocfilehash: b2ee3378df9d7ad35dcdcd319b4f3390d260cc8a
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 4b6ac3c286302428544977cb725fc1ef1b9a53d4
+ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131457110"
+ms.lasthandoff: 11/04/2021
+ms.locfileid: "131577767"
 ---
 # <a name="microsoft-defender-for-cloud-troubleshooting-guide"></a>클라우드용 Microsoft Defender 문제 해결 가이드
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-이 가이드는 조직에서 Microsoft Defender for Cloud를 사용하고 있으며 Defender for Cloud 관련 문제를 해결해야 하는 IT(정보 기술) 전문가, 정보 보안 분석가 및 클라우드 관리자를 위한 것입니다.
+이 가이드는 조직에서 Defender for Cloud 관련 문제를 해결해야 하는 IT(정보 기술) 전문가, 정보 보안 분석가 및 클라우드 관리자를 위한 것입니다.
 
 Defender for Cloud는 Log Analytics 에이전트를 사용하여 데이터를 수집하고 저장합니다. 자세한 내용은 [Microsoft Defender for Cloud Platform Migration을](./enable-data-collection.md) 참조하세요. 이 문서의 정보는 Log Analytics 에이전트로 전환한 후의 Defender for Cloud 기능을 나타냅니다.
 
 > [!TIP]
-> Azure Portal Defender for Cloud 페이지의 전용 영역은 Defender for Cloud 및 Azure Defender 일반적인 문제를 해결하기 위해 계속 증가하는 데이터 정렬된 자가 지원 자료 집합을 제공합니다.
+> Azure Portal Defender for Cloud 페이지의 전용 영역은 Defender for Cloud의 일반적인 문제를 해결하기 위해 계속 증가하는 데이터 정렬된 자가 지원 자료 집합을 제공합니다.
 > 
 > 문제가 발생하거나 지원 팀의 조언을 구하는 경우 **문제 진단 및 해결** 을 통해 솔루션을 찾는 것이 좋습니다.
 > 
@@ -105,7 +105,7 @@ Defender for Cloud는 Log Analytics 에이전트(Azure Monitor 서비스에서 �
 
 ## <a name="troubleshooting-monitoring-agent-network-requirements"></a>모니터링 에이전트 네트워크 요구 사항 문제 해결 <a name="mon-network-req"></a>
 
-에이전트를 클라우드에 연결 하 고 등록 하려면 포트 번호 및 도메인 Url을 비롯 한 네트워크 리소스에 대 한 액세스 권한이 있어야 합니다.
+에이전트가 Defender for Cloud에 연결하고 등록하려면 포트 번호 및 도메인 URL을 포함한 네트워크 리소스에 대한 액세스 권한이 있어야 합니다.
 
 * 프록시 서버의 경우 적절한 프록시 서버 리소스가 에이전트 설정에 구성되어 있는지 확인해야 합니다. [프록시 설정을 변경하는 방법](../azure-monitor/agents/agent-windows.md)에 대한 자세한 내용은 이 문서를 참조하세요.
 * 인터넷에 대한 액세스를 제한하는 방화벽을 사용하여 경우 Log Analytics에 대한 액세스를 허용하도록 방화벽을 구성해야 합니다. 에이전트 설정에서 아무 작업도 필요하지 않습니다.
@@ -137,18 +137,18 @@ Microsoft 맬웨어 방지 프로그램 사용자 인터페이스는 기본적�
 
 ## <a name="troubleshooting-problems-loading-the-dashboard"></a>대시보드 로딩 문제 해결
 
-클라우드 대시보드 용 Defender를 로드 하는 데 문제가 발생 하는 경우 구독을 클라우드에 등록 하는 사용자 (즉, 구독을 사용 하 여 클라우드 용 Defender를 연 첫 번째 사용자)와 데이터 수집을 켜는 사용자가 구독의 *소유자* 또는 *참가자* 여야 합니다. 또한 사용자는 이때부터 구독에서 *리더* 를 사용하여 dashboard/alerts/recommendation/policy를 볼 수 있습니다.
+Defender for Cloud 대시보드를 로드하는 데 문제가 발생하는 경우 Defender for Cloud에 구독을 등록하는 사용자(즉, 구독을 사용하여 Defender for Cloud를 연 첫 번째 사용자)와 데이터 수집을 설정하려는 사용자가 구독의 *소유자* 또는 *기여자여야* 합니다. 또한 사용자는 이때부터 구독에서 *리더* 를 사용하여 dashboard/alerts/recommendation/policy를 볼 수 있습니다.
 
 ## <a name="contacting-microsoft-support"></a>Microsoft 지원에 문의
 
-일부 문제는이 문서에서 제공 하는 지침을 사용 하 여 확인할 수 있습니다. 다른 사용자는 Defender for Cloud public [Microsoft Q&페이지를](/answers/topics/azure-security-center.html)참조 하세요. 그러나 추가로 문제 해결이 필요한 경우 아래와 같이 **Azure Portal** 을 사용하여 새로운 지원 요청을 열 수 있습니다.
+일부 문제는 이 문서에 제공된 지침을 사용하여 식별할 수 있으며, 다른 문제는 Defender for Cloud 공용 [Microsoft Q&A 페이지에](/answers/topics/azure-security-center.html)설명되어 있습니다. 그러나 추가로 문제 해결이 필요한 경우 아래와 같이 **Azure Portal** 을 사용하여 새로운 지원 요청을 열 수 있습니다.
 
 ![Microsoft 지원](./media/troubleshooting-guide/troubleshooting-guide-fig2.png)
 
 ## <a name="see-also"></a>참고 항목
 
-이 페이지에서는 Microsoft Defender for Cloud에서 보안 정책을 구성 하는 방법에 대해 알아보았습니다. 클라우드 용 Microsoft Defender에 대 한 자세한 내용은 다음을 참조 하세요.
+이 페이지에서는 Microsoft Defender for Cloud에서 보안 정책을 구성하는 방법을 배웠습니다. 클라우드용 Microsoft Defender에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Microsoft Defender For Cloud의 보안 경고 관리 및 대응](managing-and-responding-alerts.md) -보안 경고를 관리 하 고 대응 하는 방법을 알아봅니다.
-* [Microsoft Defender for Cloud에서 경고 유효성 검사](alert-validation.md)
-* [Microsoft Defender For CLOUD FAQ](faq-general.yml) -서비스 사용에 대 한 질문과 대답을 찾습니다.
+- [Microsoft Defender for Cloud에서 보안 경고 관리 및 대응](managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
+- [클라우드용 Microsoft Defender의 경고 유효성 검사](alert-validation.md)
+- [클라우드용 Microsoft Defender FAQ](faq-general.yml) - 서비스 사용에 대한 질문과 대답 찾기

@@ -18,6 +18,208 @@
     - name: 버전 지원 정책
       href: concepts-version-policy.md
       displayName: version policy
+- name: 유연한 서버
+  items:
+    - name: 유연한 서버 설명서
+      href: flexible-server/index.yml
+    - name: 개요
+      items:
+        - name: 유연한 서버란?
+          href: flexible-server/overview.md
+        - name: 컴퓨팅 및 스토리지
+          href: flexible-server/concepts-compute-storage.md
+    - name: 빠른 시작
+      expanded: true
+      items:
+        - name: MySQL 유연한 서버 만들기
+          items:
+            - name: Azure portal
+              href: flexible-server/quickstart-create-server-portal.md
+            - name: Azure CLI
+              href: flexible-server/quickstart-create-server-cli.md
+            - name: ARM 템플릿
+              displayName: Resource Manager
+              href: flexible-server/quickstart-create-arm-template.md
+        - name: 연결 및 쿼리
+          items:
+            - name: Azure CLI
+              href: flexible-server/connect-azure-cli.md
+            - name: PHP
+              href: flexible-server/connect-php.md
+            - name: MySQL Workbench
+              href: flexible-server/connect-workbench.md
+            - name: Python
+              href: flexible-server/connect-python.md
+            - name: Java
+              href: flexible-server/connect-java.md
+            - name: .NET
+              href: flexible-server/connect-csharp.md
+            - name: VNET의 서버에 연결
+              href: flexible-server/quickstart-create-connect-server-vnet.md
+        - name: TLS/SSL을 사용하여 연결
+          href: flexible-server/how-to-connect-tls-ssl.md
+        - name: 서버 매개 변수 구성
+          items:
+            - name: Azure Portal
+              href: flexible-server/how-to-configure-server-parameters-portal.md
+              displayName: server parameters
+            - name: Azure CLI
+              href: flexible-server/how-to-configure-server-parameters-cli.md
+              displayName: 'server parameters, cli'
+        - name: 데이터베이스와 사용자 만들기
+          href: howto-create-users.md
+          displayName: users
+    - name: 개념
+      items:
+        - name: 서버 관리
+          items:
+            - name: 서버
+              href: flexible-server/concept-servers.md
+            - name: 서버 매개 변수
+              href: flexible-server/concepts-server-parameters.md
+            - name: 제한 사항
+              href: flexible-server/concepts-limitations.md
+        - name: 네트워킹
+          items:
+            - name: 네트워킹 개념
+              href: flexible-server/concepts-networking.md
+              displayName: 'virtual network, IP address, public access'
+            - name: 프라이빗 액세스
+              href: flexible-server/concepts-networking-vnet.md
+              displayName: virtual network
+            - name: 공용 액세스
+              href: flexible-server/concepts-networking-public.md
+              displayName: 'Public access,'
+        - name: 서비스 유지 관리
+          items:
+            - name: 예약된 유지 관리
+              href: flexible-server/concepts-maintenance.md
+        - name: 고가용성
+          items:
+            - name: 비즈니스 연속성 개요
+              href: flexible-server/concepts-business-continuity.md
+            - name: 고가용성
+              href: flexible-server/concepts-high-availability.md
+        - name: 모니터링
+          items:
+            - name: 모니터링 개요
+              href: flexible-server/concepts-monitoring.md
+            - name: 느린 쿼리 로그
+              href: flexible-server/concepts-slow-query-logs.md
+            - name: 감사 로그
+              href: flexible-server/concepts-audit-logs.md
+            - name: 통합 문서
+              href: flexible-server/concepts-workbooks.md
+        - name: 복제
+          items:
+            - name: 데이터 내부 복제
+              href: flexible-server/concepts-data-in-replication.md
+              displayName: 'replication, read replica'
+            - name: 읽기 복제본
+              href: flexible-server/concepts-read-replicas.md
+        - name: 백업 및 복원
+          items:
+            - name: 백업 및 복원 개념
+              href: flexible-server/concepts-backup-restore.md
+    - name: 자습서
+      items:
+        - name: 애플리케이션 개발
+          items:
+            - name: Azure Kubernetes의 WordPress
+              href: flexible-server/tutorial-deploy-wordpress-on-aks.md
+            - name: 데이터베이스를 사용하는 PHP(Laravel) 앱 빌드
+              href: flexible-server/tutorial-php-database-app.md
+            - name: 프라이빗 웹앱을 사용하여 연결
+              href: flexible-server/tutorial-webapp-server-vnet.md
+            - name: 데이터베이스 배포
+              items:
+                - name: GitHub 작업
+                  href: quickstart-mysql-github-actions.md
+                - name: Azure Pipelines
+                  href: flexible-server/azure-pipelines-deploy-database-task.md
+        - name: 서버 관리
+          items:
+            - name: 서버 관리
+              items:
+                - name: Azure portal
+                  href: flexible-server/how-to-manage-server-portal.md
+                - name: Azure CLI
+                  href: flexible-server/how-to-manage-server-cli.md
+            - name: 서버 중지/시작
+              items:
+                - name: Azure portal
+                  href: flexible-server/how-to-stop-start-server-portal.md
+                - name: Azure CLI
+                  href: flexible-server/how-to-restart-stop-start-server-cli.md
+            - name: 서버 다시 시작
+              items:
+                - name: Azure Portal
+                  href: flexible-server/how-to-restart-server-portal.md
+                - name: Azure CLI
+                  href: flexible-server/how-to-restart-stop-start-server-cli.md
+        - name: 네트워킹
+          items:
+            - name: 프라이빗 액세스(VNet 통합) 구성
+              items:
+                - name: Azure Portal
+                  href: flexible-server/how-to-manage-virtual-network-portal.md
+                - name: Azure CLI
+                  href: flexible-server/how-to-manage-virtual-network-cli.md
+            - name: 퍼블릭 액세스(허용된 IP 주소) 구성
+              items:
+                - name: Azure Portal
+                  href: flexible-server/how-to-manage-firewall-portal.md
+                - name: Azure CLI
+                  href: flexible-server/how-to-manage-firewall-cli.md
+        - name: 서비스 유지 관리
+          items:
+            - name: Azure Portal을 사용하여 예약된 유지 관리 구성
+              href: flexible-server/how-to-maintenance-portal.md
+        - name: 고가용성
+          items:
+            - name: 영역 중복 고가용성 구성
+              items:
+                - name: Azure Portal
+                  href: flexible-server/how-to-configure-high-availability.md
+                - name: Azure CLI
+                  href: flexible-server/how-to-configure-high-availability-cli.md
+        - name: 모니터링
+          items:
+            - name: 쿼리 성능 Insight
+              href: flexible-server/tutorial-query-performance-insights.md
+            - name: 감사
+              href: flexible-server/tutorial-configure-audit.md
+            - name: 경고
+              href: flexible-server/how-to-alert-on-metric.md
+        - name: 복제
+          items:
+            - name: 데이터 내부 복제 구성
+              href: flexible-server/how-to-data-in-replication.md
+              displayName: 'data-in replication, replica, failover'
+            - name: 읽기 복제본 만들기
+              items:
+                - name: Azure Portal
+                  href: flexible-server/how-to-read-replicas-portal.md
+                - name: Azure CLI
+                  href: flexible-server/how-to-read-replicas-cli.md
+        - name: 백업 및 복원
+          items:
+            - name: 서버 복원
+              items:
+                - name: Azure Portal
+                  href: flexible-server/how-to-restore-server-portal.md
+                - name: Azure CLI
+                  href: flexible-server/how-to-restore-server-cli.md
+        - name: 문제 해결
+          items:
+            - name: 연결 오류 문제 해결
+              href: flexible-server/how-to-troubleshoot-common-connection-issues.md
+            - name: CLI 오류 문제 해결
+              href: flexible-server/how-to-troubleshoot-cli-errors.md
+    - name: 샘플
+      items:
+        - name: Azure CLI 샘플
+          href: flexible-server/sample-scripts-azure-cli.md
 - name: 단일 서버
   items:
     - name: 단일 서버 설명서
@@ -388,208 +590,6 @@
           href: sample-scripts-azure-cli.md
         - name: Java 연결 풀링 구성
           href: sample-scripts-java-connection-pooling.md
-- name: 유연한 서버
-  items:
-    - name: 유연한 서버 설명서
-      href: flexible-server/index.yml
-    - name: 개요
-      items:
-        - name: 유연한 서버란?
-          href: flexible-server/overview.md
-        - name: 컴퓨팅 및 스토리지
-          href: flexible-server/concepts-compute-storage.md
-    - name: 빠른 시작
-      expanded: true
-      items:
-        - name: MySQL 유연한 서버 만들기
-          items:
-            - name: Azure portal
-              href: flexible-server/quickstart-create-server-portal.md
-            - name: Azure CLI
-              href: flexible-server/quickstart-create-server-cli.md
-            - name: ARM 템플릿
-              displayName: Resource Manager
-              href: flexible-server/quickstart-create-arm-template.md
-        - name: 연결 및 쿼리
-          items:
-            - name: Azure CLI
-              href: flexible-server/connect-azure-cli.md
-            - name: PHP
-              href: flexible-server/connect-php.md
-            - name: MySQL Workbench
-              href: flexible-server/connect-workbench.md
-            - name: Python
-              href: flexible-server/connect-python.md
-            - name: Java
-              href: flexible-server/connect-java.md
-            - name: .NET
-              href: flexible-server/connect-csharp.md
-            - name: VNET의 서버에 연결
-              href: flexible-server/quickstart-create-connect-server-vnet.md
-        - name: TLS/SSL을 사용하여 연결
-          href: flexible-server/how-to-connect-tls-ssl.md
-        - name: 서버 매개 변수 구성
-          items:
-            - name: Azure Portal
-              href: flexible-server/how-to-configure-server-parameters-portal.md
-              displayName: server parameters
-            - name: Azure CLI
-              href: flexible-server/how-to-configure-server-parameters-cli.md
-              displayName: 'server parameters, cli'
-        - name: 데이터베이스와 사용자 만들기
-          href: howto-create-users.md
-          displayName: users
-    - name: 개념
-      items:
-        - name: 서버 관리
-          items:
-            - name: 서버
-              href: flexible-server/concept-servers.md
-            - name: 서버 매개 변수
-              href: flexible-server/concepts-server-parameters.md
-            - name: 제한 사항
-              href: flexible-server/concepts-limitations.md
-        - name: 네트워킹
-          items:
-            - name: 네트워킹 개념
-              href: flexible-server/concepts-networking.md
-              displayName: 'virtual network, IP address, public access'
-            - name: 프라이빗 액세스
-              href: flexible-server/concepts-networking-vnet.md
-              displayName: virtual network
-            - name: 공용 액세스
-              href: flexible-server/concepts-networking-public.md
-              displayName: 'Public access,'
-        - name: 서비스 유지 관리
-          items:
-            - name: 예약된 유지 관리
-              href: flexible-server/concepts-maintenance.md
-        - name: 고가용성
-          items:
-            - name: 비즈니스 연속성 개요
-              href: flexible-server/concepts-business-continuity.md
-            - name: 고가용성
-              href: flexible-server/concepts-high-availability.md
-        - name: 모니터링
-          items:
-            - name: 모니터링 개요
-              href: flexible-server/concepts-monitoring.md
-            - name: 느린 쿼리 로그
-              href: flexible-server/concepts-slow-query-logs.md
-            - name: 감사 로그
-              href: flexible-server/concepts-audit-logs.md
-            - name: 통합 문서
-              href: flexible-server/concepts-workbooks.md
-        - name: 복제
-          items:
-            - name: 데이터 내부 복제
-              href: flexible-server/concepts-data-in-replication.md
-              displayName: 'replication, read replica'
-            - name: 읽기 복제본
-              href: flexible-server/concepts-read-replicas.md
-        - name: 백업 및 복원
-          items:
-            - name: 백업 및 복원 개념
-              href: flexible-server/concepts-backup-restore.md
-    - name: 자습서
-      items:
-        - name: 애플리케이션 개발
-          items:
-            - name: Azure Kubernetes의 WordPress
-              href: flexible-server/tutorial-deploy-wordpress-on-aks.md
-            - name: 데이터베이스를 사용하는 PHP(Laravel) 앱 빌드
-              href: flexible-server/tutorial-php-database-app.md
-            - name: 프라이빗 웹앱을 사용하여 연결
-              href: flexible-server/tutorial-webapp-server-vnet.md
-            - name: 데이터베이스 배포
-              items:
-                - name: GitHub 작업
-                  href: quickstart-mysql-github-actions.md
-                - name: Azure Pipelines
-                  href: flexible-server/azure-pipelines-deploy-database-task.md
-        - name: 서버 관리
-          items:
-            - name: 서버 관리
-              items:
-                - name: Azure portal
-                  href: flexible-server/how-to-manage-server-portal.md
-                - name: Azure CLI
-                  href: flexible-server/how-to-manage-server-cli.md
-            - name: 서버 중지/시작
-              items:
-                - name: Azure portal
-                  href: flexible-server/how-to-stop-start-server-portal.md
-                - name: Azure CLI
-                  href: flexible-server/how-to-restart-stop-start-server-cli.md
-            - name: 서버 다시 시작
-              items:
-                - name: Azure Portal
-                  href: flexible-server/how-to-restart-server-portal.md
-                - name: Azure CLI
-                  href: flexible-server/how-to-restart-stop-start-server-cli.md
-        - name: 네트워킹
-          items:
-            - name: 프라이빗 액세스(VNet 통합) 구성
-              items:
-                - name: Azure Portal
-                  href: flexible-server/how-to-manage-virtual-network-portal.md
-                - name: Azure CLI
-                  href: flexible-server/how-to-manage-virtual-network-cli.md
-            - name: 퍼블릭 액세스(허용된 IP 주소) 구성
-              items:
-                - name: Azure Portal
-                  href: flexible-server/how-to-manage-firewall-portal.md
-                - name: Azure CLI
-                  href: flexible-server/how-to-manage-firewall-cli.md
-        - name: 서비스 유지 관리
-          items:
-            - name: Azure Portal을 사용하여 예약된 유지 관리 구성
-              href: flexible-server/how-to-maintenance-portal.md
-        - name: 고가용성
-          items:
-            - name: 영역 중복 고가용성 구성
-              items:
-                - name: Azure Portal
-                  href: flexible-server/how-to-configure-high-availability.md
-                - name: Azure CLI
-                  href: flexible-server/how-to-configure-high-availability-cli.md
-        - name: 모니터링
-          items:
-            - name: 쿼리 성능 Insight
-              href: flexible-server/tutorial-query-performance-insights.md
-            - name: 감사
-              href: flexible-server/tutorial-configure-audit.md
-            - name: 경고
-              href: flexible-server/how-to-alert-on-metric.md
-        - name: 복제
-          items:
-            - name: 데이터 내부 복제 구성
-              href: flexible-server/how-to-data-in-replication.md
-              displayName: 'data-in replication, replica, failover'
-            - name: 읽기 복제본 만들기
-              items:
-                - name: Azure Portal
-                  href: flexible-server/how-to-read-replicas-portal.md
-                - name: Azure CLI
-                  href: flexible-server/how-to-read-replicas-cli.md
-        - name: 백업 및 복원
-          items:
-            - name: 서버 복원
-              items:
-                - name: Azure Portal
-                  href: flexible-server/how-to-restore-server-portal.md
-                - name: Azure CLI
-                  href: flexible-server/how-to-restore-server-cli.md
-        - name: 문제 해결
-          items:
-            - name: 연결 오류 문제 해결
-              href: flexible-server/how-to-troubleshoot-common-connection-issues.md
-            - name: CLI 오류 문제 해결
-              href: flexible-server/how-to-troubleshoot-cli-errors.md
-    - name: 샘플
-      items:
-        - name: Azure CLI 샘플
-          href: flexible-server/sample-scripts-azure-cli.md
 - name: 마이그레이션
   items:
     - name: Azure Database for MySQL로 마이그레이션하기 위한 적합한 도구 선택

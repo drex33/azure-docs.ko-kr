@@ -7,13 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 03/17/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 0070bf9a071de8108fff21e0a1816c9d73f9a226
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b5acd38ec3885fab3d1de9d70a80fa76cd9c60b0
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131103663"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131453291"
 ---
 # <a name="alert-validation-in-microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud에서 경고 유효성 검사
 
@@ -72,7 +71,7 @@ ms.locfileid: "131103663"
 
 컴퓨터에 Log Analytics 에이전트가 설치 된 후에는 경고의 공격을 받을 컴퓨터에서 다음 단계를 수행 합니다.
 
-1. 실행 파일을 편리한 위치에 복사 하 고 이름을로 바꿉니다 `./asc_alerttest_662jfi039n` . 예:
+1. 실행 파일을 편리한 위치에 복사 하 고 이름을로 바꿉니다 `./asc_alerttest_662jfi039n` . 예를 들어:
 
     `cp /bin/echo ./asc_alerttest_662jfi039n`
 

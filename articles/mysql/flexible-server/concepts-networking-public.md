@@ -6,21 +6,18 @@ ms.author: dimadhus
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 8/6/2021
-ms.openlocfilehash: 414b2f8d6e64112c737fe220003ca2c58b3e9d7b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: a8d2e1e6ef3f1aa2dcb736336232b1b149eb7b89
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529261"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131438206"
 ---
-# <a name="public-network-access-for-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL - 유연한 서버(미리 보기)에 대한 퍼블릭 네트워크 액세스
+# <a name="public-network-access-for-azure-database-for-mysql---flexible-server"></a>Azure Database for MySQL 공용 네트워크 액세스 - 유연한 서버
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 이 문서에서는 서버에 대한 퍼블릭 연결 옵션에 대해 설명합니다. 인터넷을 통해 안전하게 액세스할 수 있는 Azure Database for MySQL 유연한 서버를 만드는 방법에 대해 자세히 설명합니다.
-
-> [!IMPORTANT]
-> Azure Database for MySQL - 유연한 서버는 미리 보기로 제공됩니다.
 
 ## <a name="public-access-allowed-ip-addresses"></a>퍼블릭 액세스(허용된 IP 주소)
 
@@ -58,7 +55,7 @@ Microsoft Azure Database for MySQL 서버 서비스로의 연결이 예상대로
 
   * ISP(인터넷 서비스 공급자)는 Azure Database for MySQL 서버에 연결될 클라이언트에 할당된 IP 주소 범위를 요청하고, 방화벽 규칙에 따라 IP 주소 범위를 추가합니다.
   * 클라이언트 컴퓨터 대신 고정 IP 지정을 가져온 다음 고정 IP 주소를 방화벽 규칙으로 추가합니다.
-  
+
 * **IPv6 형식에 방화벽 규칙을 사용할 수 없음:** 방화벽 규칙은 IPv4 형식이어야 합니다. IPv6 형식으로 방화벽 규칙을 지정하는 경우 유효성 검사 오류가 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계

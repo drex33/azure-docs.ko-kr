@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: 3126eb9a2c3289f6fbc97a14fadf94300d1c2e84
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: facad7dbe4adf674438564b26c61a0f9aa9bceed
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129728782"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131429131"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Azure에서 적절한 MySQL 서버 옵션 선택
 
@@ -24,12 +24,12 @@ Azure를 사용하면 MySQL 서버 워크로드를 호스트된 가상 머신 Ia
 - **Azure Database for MySQL** 이 옵션은 안정적인 버전의 MySQL 커뮤니티 버전을 기반으로 하는 완전 관리형 MySQL 데이터베이스 엔진입니다. PaaS 산업 범주로 분류되며, Azure 클라우드 플랫폼에서 호스트되는 관계형 DBaaS(Database as a Service)입니다.
 
   Azure에서 관리되는 MySQL 인스턴스를 사용하면 기본 제공 기능(예: 자동화된 패치 적용, 고가용성, 자동 백업, 탄력적 크기 조정, 엔터프라이즈급 보안, 규정 준수 및 거버넌스, MySQL 서버가 온-프레미스 또는 Azure VM에서 추가적인 구성이 요구되는 모니터링 및 알림)을 사용할 수 있습니다. MySQL을 서비스로 사용하는 경우 중단 없이 제어를 강화하기 위해 스케일 업 또는 스케일 아웃하는 옵션이 종량제 방식으로 지원됩니다.
-  
+
   [Azure Database for MySQL](overview.md), MySQL 커뮤니티 버전에서 제공하는 Azure Database for MySQL은 두 가지 배포 모드로 사용할 수 있습니다.
 
   - [단일 서버](single-server-overview.md)는 데이터베이스 사용자 지정을 최소화한 완전 관리형 데이터베이스 서비스입니다. 단일 서버 플랫폼은 최소한의 사용자 구성과 제어를 통해 패치, 백업, 고가용성, 보안 등 대부분의 데이터베이스 관리 기능을 처리하도록 설계되었습니다. 아키텍처는 단일 가용성 영역에서 99.99%의 가용성을 제공하도록 최적화되었습니다. 단일 서버는 패치 일정 및 사용자 지정 MySQL 구성 설정에 대한 세부적인 제어 없이 자동화된 패치를 처리하도록 설계된 클라우드 네이티브 애플리케이션에 가장 적합합니다.
 
-  - [유연한 서버(미리 보기)](flexible-server/overview.md)는 데이터베이스 관리 기능 및 구성 설정에 대해 더 세부적인 제어와 유연성을 제공하도록 설계된 완전 관리형 데이터베이스 서비스입니다. 일반적으로 이 서비스는 사용자 요구 사항을 기반으로 하는 단일 서버 배포에 비해 더 많은 유연성과 서버 구성 사용자 지정을 제공합니다. 유연한 서버 아키텍처는 사용자가 단일 가용성 영역 및 여러 가용성 영역에서 고가용성을 선택할 수 있습니다. 또한 유연한 서버는 서버를 시작/중지하는 기능과 버스트 가능 SKU를 제공하므로 전체 컴퓨팅 용량이 지속적으로 필요하지 않는 워크로드에 적합합니다.
+  - [유연한 서버](flexible-server/overview.md) 는 데이터베이스 관리 기능 및 구성 설정에 대 한 보다 세부적인 제어 및 유연성을 제공 하도록 설계 된 완전히 관리 되는 데이터베이스 서비스입니다. 일반적으로 이 서비스는 사용자 요구 사항을 기반으로 하는 단일 서버 배포에 비해 더 많은 유연성과 서버 구성 사용자 지정을 제공합니다. 유연한 서버 아키텍처는 사용자가 단일 가용성 영역 및 여러 가용성 영역에서 고가용성을 선택할 수 있습니다. 또한 유연한 서버는 서버를 시작/중지하는 기능과 버스트 가능 SKU를 제공하므로 전체 컴퓨팅 용량이 지속적으로 필요하지 않는 워크로드에 적합합니다.
 
 유연한 서버는 다음에 가장 적합합니다.
 
@@ -116,7 +116,7 @@ Azure를 사용하면 MySQL 서버 워크로드를 호스트된 가상 머신 Ia
 | 감사 로그 | 지원됨 | 지원됨 | 지원됨 | 
 | 오류 로그 | 지원되지 않음 | 지원됨 | 지원됨 |
 | Azure Advisor 지원 | 지원됨 | 지원되지 않음 | 지원되지 않음 |
-| **플러그인** | | | |
+| **플러그 인** | | | |
 | validate_password | 지원되지 않음 | 미리 보기 | 지원됨 |
 | caching_sha2_password | 지원되지 않음 | 미리 보기 | 지원됨 |
 | [**개발자 생산성**](flexible-server/quickstart-create-server-cli.md) | | | |
@@ -154,7 +154,7 @@ IaaS를 선택하면 Microsoft에서 다음 작업을 처리합니다.
 
 - 기본 인프라를 관리합니다.
 - 기본 하드웨어 및 OS의 자동화된 패치를 제공합니다.
-  
+
 PaaS를 선택하면 Microsoft에서 다음 작업을 처리합니다.
 
 - 기본 인프라를 관리합니다.

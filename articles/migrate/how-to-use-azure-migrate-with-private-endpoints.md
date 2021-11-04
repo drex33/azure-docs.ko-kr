@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 05/10/2020
-ms.openlocfilehash: a7398de8f9c853ca3c17f5052fdc126a33030594
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: c581e89a8252ea8e084a48dc827d75aba90bc670
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131084694"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500491"
 ---
 # <a name="use-azure-migrate-with-private-endpoints"></a>프라이빗 엔드포인트에서 Azure Migrate 사용
 
@@ -121,7 +121,7 @@ Azure Migrate: 검색 및 평가는 간단한 Azure Migrate 어플라이언스�
 
     **다운로드** | **해시 값**
     --- | ---
-    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2160648) | BA84B58E88DDFE23E5D4CE73530227EBBC187B3634B66A3E0F0B3E5DF5F0A94F
+    [최신 버전](https://go.microsoft.com/fwlink/?linkid=2160648) | 3C00F9EB54CC6C55E127EDE47DFA28CCCF752697377EB1C9F3435E75DA5AA029
 
 > [!NOTE]
 > 동일한 스크립트를 사용하여 VMware, Hyper-V, 물리적 또는 기타와 같은 선택한 시나리오에 대해 프라이빗 엔드포인트 연결이 있는 어플라이언스를 설정하여 원하는 구성으로 어플라이언스를 배포할 수 있습니다.

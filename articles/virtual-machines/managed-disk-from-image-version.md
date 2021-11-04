@@ -1,6 +1,6 @@
 ---
 title: 관리 디스크로 이미지 버전 내보내기
-description: 공유 이미지 갤러리에서 관리 디스크로 이미지 버전을 내보냅니다.
+description: Azure Compute 갤러리에서 관리 디스크로 이미지 버전을 내보냅니다.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -10,23 +10,23 @@ ms.date: 10/27/2020
 ms.author: cynthn
 ms.reviewer: olayemio
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fd6a1cf2cae56bf2d10fe4075caed019e2e72b7e
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 7984cd086864d069363fa65ab7dbaecf4b62165f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123452252"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131448864"
 ---
 # <a name="export-an-image-version-to-a-managed-disk"></a>관리 디스크로 이미지 버전 내보내기
 
 **적용 대상:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
-공유 이미지 갤러리에 저장된 이미지 버전에서 이미지 버전의 OS 또는 단일 데이터 디스크를 관리 디스크로서 내보낼 수 있습니다.
+이미지 버전의 OS 또는 단일 데이터 디스크를 Azure Compute 갤러리(이전의 Shared Image Gallery)에 저장된 이미지 버전에서 관리 디스크로 내보낼 수 있습니다.
 
 
 ## <a name="cli"></a>CLI
 
-[az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list)를 사용하여 갤러리의 이미지 버전을 나열합니다. 이 예제에서는 *myGallery* 이미지 갤러리에서 *myImageDefinition* 이미지 정의에 속하는 모든 이미지 버전을 찾습니다.
+[az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list)를 사용하여 갤러리의 이미지 버전을 나열합니다. 이 예제에서는 *myGallery* 갤러리에서 *myImageDefinition* 이미지 정의의 일부인 모든 이미지 버전을 찾습니다.
 
 ```azurecli-interactive
 az sig image-version list \
@@ -120,6 +120,6 @@ New-AzDisk -Disk $diskConfig `
 
 ## <a name="next-steps"></a>다음 단계
 
-관리 디스크에서 [이미지 버전](image-version.md) 을 만들 수도 있습니다.
+관리 디스크에서 [이미지 버전을](image-version.md) 만들 수도 있습니다.
 
 

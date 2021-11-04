@@ -2,22 +2,22 @@
 title: 임시 테이블
 description: 전용 SQL 풀에서 임시 테이블을 사용하기 위한 필수 지침을 제공하고 세션 수준 임시 테이블의 원리를 강조해서 설명합니다.
 services: synapse-analytics
-author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 04/01/2019
-ms.author: xiaoyul
-ms.reviewer: igorstan
-ms.openlocfilehash: 9898bc94aa79b374174f80592dc250e660f7f8c3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 11/02/2021
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: ''
+ms.openlocfilehash: b63b6f017771325dd752905502bd8feb6479f5c4
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566689"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500719"
 ---
-# <a name="temporary-tables-in-dedicated-sql-pool"></a>전용 SQL 풀의 임시 테이블
+# <a name="temporary-tables-in-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 있는 임시 테이블
 
 이 문서에서는 임시 테이블을 사용하기 위한 필수 지침을 제공하고 세션 수준 임시 테이블의 원리를 강조해서 설명합니다. 
 
@@ -27,7 +27,7 @@ ms.locfileid: "122566689"
 
 특히 중간 결과가 일시적인 변환 중 데이터를 처리할 때 임시 테이블은 유용합니다. 전용 SQL 풀에서 임시 테이블은 세션 수준에 있습니다.  
 
-임시 테이블은 생성된 세션에서만 보이고, 해당 세션이 로그오프되면 자동으로 삭제됩니다.  
+임시 테이블은 자신이 생성 된 세션에만 표시 되며 세션이 닫히면 자동으로 삭제 됩니다.  
 
 임시 테이블은 결과가 원격 스토리지 대신 로컬로 기록되기 때문에 성능상의 이점을 제공합니다.
 
@@ -99,10 +99,8 @@ GROUP BY
 
 > [!NOTE]
 > `CTAS`는(은) 강력한 명령이며 트랜잭션 로그 공간을 사용한다는 점에서 효율적이라는 추가적인 이점이 있습니다. 
-> 
-> 
 
-## <a name="dropping-temporary-tables"></a>임시 테이블 삭제
+## <a name="drop-temporary-tables"></a>임시 테이블 삭제
 새 세션이 만들어지면 임시 테이블이 존재하지 않습니다.  
 
 동일한 이름의 임시 테이블을 만드는 동일한 저장 프로시저를 호출하는 경우 `CREATE TABLE` 문이 정상적으로 수행되도록 하려면 다음 예제와 같이 `DROP`을 사용해서 단순한 사전 존재 여부 확인을 수행할 수 있습니다.
@@ -122,7 +120,7 @@ END
 DROP TABLE #stats_ddl
 ```
 
-## <a name="modularizing-code"></a>코드 모듈화
+## <a name="modularize-code"></a>코드 모듈화
 임시 테이블을 사용자 세션의 어디에서나 볼 수 있으므로 이 기능은 애플리케이션 코드를 모듈화하는 데 활용될 수 있습니다.  
 
 예를 들어 다음 저장 프로시저는 다음 통계 이름으로 데이터베이스의 모든 통계를 업데이트하는 DDL을 생성합니다.
@@ -199,9 +197,9 @@ FROM    #stats_ddl
 GO
 ```
 
-이 단계에서 발생하는 유일한 작업은 DDL 문으로 임시 테이블인 #stats_ddl을 생성하는 저장 프로시저를 만드는 것입니다.  
+이 단계에서 발생 하는 유일한 작업은 DDL 문을 사용 하 여 임시 테이블을 생성 하는 저장 프로시저를 만드는 것입니다 `#stats_ddl` .  
 
-이 저장 프로시저는 세션 내에서 기존 #stats_ddl을 두 번 이상 실행하는 경우 실패하지 않도록 삭제합니다.  
+이 저장 프로시저는 `#stats_ddl` 세션 내에서 두 번 이상 실행 하는 경우 실패 하지 않도록 기존를 삭제 합니다.  
 
 그러나 저장 프로시저 끝에는 `DROP TABLE` 이 없으므로 저장 프로시저가 완료되면 저장 프로시저 외부에서 읽을 수 있도록 만든 테이블이 그대로 남아 있습니다.  
 

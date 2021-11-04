@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: de395bed885804445146b01745edf5e93426cb13
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 1dfdab5c90c8a3acd574ec042f2cc8ad033cc592
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606320"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131433501"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버의 PostgreSQL 확장
 PostgreSQL은 확장을 사용하여 데이터베이스의 기능을 확장하는 방법을 제공합니다. 확장은 단일 명령을 사용하여 데이터베이스에서 로드하거나 제거할 수 있는 단일 패키지에서 여러 관련 SQL 개체를 함께 번들로 묶습니다. 데이터베이스에 로드한 확장은 기본 제공 기능처럼 작동합니다.
@@ -62,7 +62,7 @@ Azure Database for PostgreSQL은 다음에 나열된 대로 주요 확장의 하
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | PostGIS 토폴로지 공간 형식 및 함수|
 > |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | 원격 PostgreSQL 서버에 대한 외부 데이터 래퍼(wrapper)|
 > |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | 크로스탭을 포함한 전체 테이블을 조작하는 함수|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.3.2, 1.7.4             | 시계열 데이터에 대한 확장성 있는 삽입 및 복잡한 쿼리를 사용합니다|
+> |[timescaledb](https://docs.timescale.com/latest)                    |1.7.4             | 시계열 데이터에 대한 확장성 있는 삽입 및 복잡한 쿼리를 사용합니다|
 > |[unaccent](https://www.postgresql.org/docs/11/unaccent.html)                     | 1.1             | 악센트를 제거하는 텍스트 검색 사전|
 > |[uuid-ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1.1             | UUID(범용 고유 식별자)를 생성합니다|
 
@@ -108,7 +108,7 @@ Azure Database for PostgreSQL은 다음에 나열된 대로 주요 확장의 하
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.4.3           | PostGIS 토폴로지 공간 형식 및 함수|
 > |[postgres_fdw](https://www.postgresql.org/docs/10/postgres-fdw.html)                 | 1.0             | 원격 PostgreSQL 서버에 대한 외부 데이터 래퍼(wrapper)|
 > |[tablefunc](https://www.postgresql.org/docs/10/tablefunc.html)                    | 1.0             | 크로스탭을 포함한 전체 테이블을 조작하는 함수|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1, 1.7.4             | 시계열 데이터에 대한 확장성 있는 삽입 및 복잡한 쿼리를 사용합니다|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.7.4             | 시계열 데이터에 대한 확장성 있는 삽입 및 복잡한 쿼리를 사용합니다|
 > |[unaccent](https://www.postgresql.org/docs/10/unaccent.html)                     | 1.1             | 악센트를 제거하는 텍스트 검색 사전|
 > |[uuid-ossp](https://www.postgresql.org/docs/10/uuid-ossp.html)                    | 1.1             | UUID(범용 고유 식별자)를 생성합니다|
 
@@ -154,7 +154,7 @@ Azure Database for PostgreSQL은 다음에 나열된 대로 주요 확장의 하
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.3.2           | PostGIS 토폴로지 공간 형식 및 함수|
 > |[postgres_fdw](https://www.postgresql.org/docs/9.6/postgres-fdw.html)                 | 1.0             | 원격 PostgreSQL 서버에 대한 외부 데이터 래퍼(wrapper)|
 > |[tablefunc](https://www.postgresql.org/docs/9.6/tablefunc.html)                    | 1.0             | 크로스탭을 포함한 전체 테이블을 조작하는 함수|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1, 1.7.4             | 시계열 데이터에 대한 확장성 있는 삽입 및 복잡한 쿼리를 사용합니다|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.7.4             | 시계열 데이터에 대한 확장성 있는 삽입 및 복잡한 쿼리를 사용합니다|
 > |[unaccent](https://www.postgresql.org/docs/9.6/unaccent.html)                     | 1.1             | 악센트를 제거하는 텍스트 검색 사전|
 > |[uuid-ossp](https://www.postgresql.org/docs/9.6/uuid-ossp.html)                    | 1.1             | UUID(범용 고유 식별자)를 생성합니다|
 
@@ -282,4 +282,4 @@ SELECT timescaledb_post_restore();
 
 
 ## <a name="next-steps"></a>다음 단계
-사용하려는 확장이 표시되지 않으면 알려주세요. [피드백 포럼](https://feedback.azure.com/forums/597976-azure-database-for-postgresql)에서 기존 요청에 투표하거나 새 피드백 요청을 작성하세요.
+사용하려는 확장이 표시되지 않으면 알려주세요. [피드백 포럼](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0)에서 기존 요청에 투표하거나 새 피드백 요청을 작성하세요.

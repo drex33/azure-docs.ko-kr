@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/22/2021
-ms.openlocfilehash: 5a6ee4c0e1a73642323dab67efbfc4b0efe1f1aa
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 1675cd187942c582fbe85c1642a6d4e0176f37a4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129426966"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131475714"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Azure Machine Learning의 Enterprise 보안 및 거버넌스
 
@@ -115,7 +115,7 @@ Azure Machine Learning은 Azure 플랫폼에서 다양한 컴퓨팅 리소스 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [엔터프라이즈 보안에 대한 Azure Machine Learning 모범 사례](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security)
+* [엔터프라이즈 보안에 대한 모범 사례 Azure Machine Learning](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-enterprise-security)
 * [TLS를 사용하여 Azure Machine Learning 웹 서비스 보호](how-to-secure-web-service.md)
 * [웹 서비스로 배포된 Machine Learning 모델 사용](how-to-consume-web-service.md)
 * [Azure Firewall과 함께 Azure Machine Learning 사용](how-to-access-azureml-behind-firewall.md)

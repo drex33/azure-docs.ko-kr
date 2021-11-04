@@ -4,19 +4,19 @@ description: ASP.NET 사용하여 Azure App Services에 대한 애플리케이�
 ms.topic: conceptual
 ms.date: 08/05/2021
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 5e85a12d017f5fc812ac4f910ce9517d73cc41c7
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: 97c0d2710d14e523338ac7cd670383caa75c7cef
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129154600"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443607"
 ---
 # <a name="application-monitoring-for-azure-app-service-and-aspnet"></a>Azure App Service 및 ASP.NET 대한 애플리케이션 모니터링 
 
 Azure 앱 [Services에서](../../app-service/index.yml) 실행되는 ASP.NET 기반 웹 애플리케이션에서 모니터링을 사용하도록 설정하는 것이 그 어느 때보다 쉬워졌습니다. 이전에는 수동으로 앱을 계측해야 했지만 이제 최신 확장/에이전트가 기본적으로 App Service 이미지에 기본 제공됩니다. 이 문서에서는 Azure Monitor Application Insights 모니터링을 사용하도록 설정하는 과정을 안내하고 대규모 배포 프로세스를 자동화하기 위한 예비 지침을 제공합니다.
 
 > [!NOTE]
-> **개발 도구** 확장을 통해 Application Insights 사이트 확장을 수동으로 추가하는 것은 더 이상  >   사용되지 않습니다. 이 확장 설치 방법은 각 새 버전의 수동 업데이트에 따라 달랐습니다. 확장의 안정적인 최신 릴리스는 이제 App Service 이미지의 일부로  [미리 설치](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions)됩니다. 파일은 `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent`에 있으며 각 안정적인 릴리스로 자동 업데이트됩니다. 에이전트 기반 지침에 따라 아래 모니터링을 사용하는 경우 사용되지 않는 확장이 자동으로 제거됩니다.
+> **개발 도구** 확장을 통해 애플리케이션 Insights 사이트 확장을 수동으로 추가하는 것은 더 이상  >   사용되지 않습니다. 이 확장 설치 방법은 각 새 버전의 수동 업데이트에 따라 달랐습니다. 확장의 안정적인 최신 릴리스는 이제 App Service 이미지의 일부로  [미리 설치](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions)됩니다. 파일은 `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent`에 있으며 각 안정적인 릴리스로 자동 업데이트됩니다. 에이전트 기반 지침에 따라 아래 모니터링을 사용하는 경우 사용되지 않는 확장이 자동으로 제거됩니다.
 
 > [!NOTE]
 > 에이전트 기반 모니터링과 수동 SDK 기반 계측이 둘 다 검색된 경우에는 수동 계측 설정만 적용됩니다. 이를 통해 중복 데이터가 전송되는 것을 방지합니다. 이 기능에 관한 자세한 내용은 아래 [문제 해결 섹션](#troubleshooting)을 확인하세요.
@@ -26,9 +26,9 @@ Azure 앱 [Services에서](../../app-service/index.yml) 실행되는 ASP.NET 기
 > [!NOTE]
 > APPINSIGHTS_JAVASCRIPT_ENABLED 및 urlCompression의 조합은 지원되지 않습니다. 자세한 내용은 [문제 해결 섹션](#appinsights_javascript_enabled-and-urlcompression-is-not-supported)의 설명을 참조하세요.
 
-1. App Service에 대한 Azure 제어판에서 **Application Insights** 선택한 다음, **사용을** 선택합니다.
+1. 앱 서비스에 대한 Azure 제어판에서 **애플리케이션 Insights** 선택한 다음, **사용을** 선택합니다.
 
-    :::image type="content"source="./media/azure-web-apps/enable.png" alt-text="사용이 선택된 Application Insights 탭의 스크린샷."::: 
+    :::image type="content"source="./media/azure-web-apps/enable.png" alt-text="사용이 선택된 애플리케이션 Insights 탭의 스크린샷."::: 
 
 2. 새 리소스를 만들도록 선택하거나 이 애플리케이션에 대한 기존 Application Insights 리소스를 선택합니다. 
 
@@ -83,7 +83,7 @@ Azure 앱 [Services에서](../../app-service/index.yml) 실행되는 ASP.NET 기
 
 Application Insights를 통해 원격 분석 컬렉션을 사용하도록 설정하려면 애플리케이션 설정만 설정해야 합니다.
 
-:::image type="content"source="./media/azure-web-apps-net/application-settings-net.png" alt-text="Application Insights 설정을 App Service 애플리케이션 설정의 스크린샷."::: 
+:::image type="content"source="./media/azure-web-apps-net/application-settings-net.png" alt-text="애플리케이션 Insights 설정을 App Service 애플리케이션 설정 스크린샷."::: 
 
 ### <a name="application-settings-definitions"></a>애플리케이션 설정 정의
 
@@ -122,12 +122,15 @@ Application Insights를 통해 원격 분석 컬렉션을 사용하도록 설정
 
 ## <a name="troubleshooting"></a>문제 해결
 
-다음은 Azure 앱 Services에서 실행되는 ASP.NET 기반 애플리케이션에 대한 확장/에이전트 기반 모니터링에 대한 단계별 문제 해결 가이드입니다.
+> [!NOTE]
+> Azure 앱 Services에서 런타임을 사용하여 웹앱을 만들 때 `ASP.NET` 단일 정적 HTML 페이지를 시작 웹 사이트로 배포합니다. 기본 템플릿 문제를 해결하는 것은 **권장되지 않습니다.** 문제를 해결하기 전에 애플리케이션을 배포합니다.
+
+다음은 Azure 앱 서비스에서 실행 되는 ASP.NET 기반 응용 프로그램에 대 한 확장/에이전트 기반 모니터링에 대 한 단계별 문제 해결 가이드입니다.
 
 1. `ApplicationInsightsAgent_EXTENSION_VERSION` 앱 설정이 “~2” 값으로 설정되어 있는지 확인합니다.
 2. [https://www.microsoft.com]\(`https://yoursitename.scm.azurewebsites.net/ApplicationInsights`) 로 이동합니다.  
 
-    :::image type="content"source="./media/azure-web-apps/app-insights-sdk-status.png" alt-text="위의 결과 페이지 링크 스크린샷."border ="false"::: 
+    :::image type="content"source="./media/azure-web-apps/app-insights-sdk-status.png" alt-text="위 결과 페이지 링크의 스크린샷"border ="false"::: 
     
     - `Application Insights Extension Status`가 `Pre-Installed Site Extension, version 2.8.x.xxxx, is running.`인지 확인합니다. 
     
@@ -145,9 +148,9 @@ Application Insights를 통해 원격 분석 컬렉션을 사용하도록 설정
 
 #### <a name="default-website-deployed-with-web-apps-does-not-support-automatic-client-side-monitoring"></a>웹앱으로 배포된 기본 웹 사이트에서 자동 클라이언트 쪽 모니터링을 지원하지 않음
 
-Azure 앱 Services에서 런타임을 사용하여 웹앱을 만들 때 `ASP.NET` 단일 정적 HTML 페이지를 시작 웹 사이트로 배포합니다. 또한 정적 웹 페이지는 IIS에서 ASP.NET 관리형 웹 파트를 로드합니다. 이를 통해 코드리스 서버 쪽 모니터링을 테스트할 수 있지만 자동 클라이언트 쪽 모니터링은 지원하지 않습니다.
+Azure 앱 Services에서 런타임을 사용 하 여 웹 앱을 만들 때 `ASP.NET` 단일 정적 HTML 페이지가 스타터 웹 사이트로 배포 됩니다. 또한 정적 웹 페이지는 IIS에서 ASP.NET 관리형 웹 파트를 로드합니다. 이를 통해 코드리스 서버 쪽 모니터링을 테스트할 수 있지만 자동 클라이언트 쪽 모니터링은 지원하지 않습니다.
 
-Azure 앱 Services 웹앱에서 ASP.NET 대한 코드 없는 서버 및 클라이언트 쪽 모니터링을 테스트하려는 경우 [ASP.NET Framework 웹앱을 만들기](../../app-service/quickstart-dotnetcore.md?tabs=netframework48) 위한 공식 가이드를 따르고 현재 문서의 지침을 사용하여 모니터링을 사용하도록 설정하는 것이 좋습니다.
+코드 없는 서버 및 Azure 앱 Services 웹 앱의 ASP.NET에 대 한 클라이언트 쪽 모니터링을 테스트 하려는 경우 [ASP.NET Framework 웹 앱을 만들기](../../app-service/quickstart-dotnetcore.md?tabs=netframework48) 위한 공식 가이드를 따르는 다음 현재 문서의 지침을 사용 하 여 모니터링을 사용 하도록 설정 하는 것이 좋습니다.
 
 
 ### <a name="appinsights_javascript_enabled-and-urlcompression-is-not-supported"></a>APPINSIGHTS_JAVASCRIPT_ENABLED 및 urlCompression이 지원되지 않음
@@ -185,7 +188,7 @@ PHP 및 WordPress 사이트가 지원되지 않습니다. 현재 이 워크로�
 ## <a name="next-steps"></a>다음 단계
 
 * [라이브 앱에서 프로파일러를 실행합니다](./profiler.md).
-* [Application Insights 를 Azure Functions 모니터링합니다.](monitor-functions.md)
+* [Application Insights를 사용 하 여 Azure Functions를 모니터링](monitor-functions.md)합니다.
 * [Azure 진단을 사용](../agents/diagnostics-extension-to-application-insights.md) 하여 Application Insights에 보냅니다.
 * [서비스 상태 메트릭을 모니터링](../data-platform.md)하여 서비스를 사용 가능하며 응답할 수 있는 상태로 유지합니다.
 * 작업 이벤트가 발생하거나 메트릭이 임계값을 초과할 때마다 [경고 알림을 수신](../alerts/alerts-overview.md)합니다.

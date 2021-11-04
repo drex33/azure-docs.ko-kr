@@ -1,7 +1,7 @@
 ---
 title: 관리 ID
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 및 Azure Synapse 관리 ID 사용에 대해 알아봅니다.
+description: Azure Data Factory 및 Azure Synapse에서 관리 id를 사용 하는 방법에 대해 알아봅니다.
 author: nabhishek
 ms.service: data-factory
 ms.subservice: security
@@ -9,50 +9,50 @@ ms.topic: conceptual
 ms.date: 07/19/2021
 ms.author: abnarain
 ms.custom: devx-track-azurepowershell, synapse
-ms.openlocfilehash: ed7cd2836f601e412aca7f73c52f2a0e13173a8a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b775c3873e28fbd6f59b8686800ccf733fb34ae6
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131011487"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131457908"
 ---
-# <a name="managed-identity-for-azure-data-factory-and-azure-synapse"></a>Azure Data Factory 및 Azure Synapse 관리 ID 
+# <a name="managed-identity-for-azure-data-factory-and-azure-synapse"></a>Azure Data Factory 및 Azure Synapse에 대 한 관리 id 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서는 관리 ID(이전의 관리 서비스 ID/MSI)와 Azure Data Factory 및 Azure Synapse 작동 방식을 이해하는 데 도움이 됩니다.
+이 문서는 관리 되는 id (이전의 관리 서비스 ID/MSI) 및 Azure Data Factory 및 Azure Synapse에서 작동 하는 방법을 이해 하는 데 도움이 됩니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>개요
 
-관리 ID를 사용하면 자격 증명을 관리할 필요가 없습니다. 관리 ID는 Azure AD(Azure Active Directory) 인증을 지원하는 리소스에 연결할 때 서비스 인스턴스에 대한 ID를 제공합니다. 예를 들어 서비스는 관리 ID를 사용하여 데이터 관리자가 자격 증명을 안전하게 저장하거나 스토리지 계정에 액세스할 수 있는 [Azure Key Vault](../key-vault/general/overview.md)같은 리소스에 액세스할 수 있습니다. 이 서비스는 관리 ID를 사용하여 Azure AD 토큰을 얻습니다.
+관리 되는 id를 통해 자격 증명을 관리할 필요가 없습니다. 관리 id는 Azure Active Directory (Azure AD) 인증을 지 원하는 리소스에 연결할 때 서비스 인스턴스에 대 한 id를 제공 합니다. 예를 들어 서비스에서 관리 id를 사용 하 여 [Azure Key Vault](../key-vault/general/overview.md)같은 리소스에 액세스할 수 있습니다 .이 경우 데이터 관리자는 자격 증명을 안전 하 게 저장 하거나 저장소 계정에 액세스할 수 있습니다. 서비스는 관리 되는 id를 사용 하 여 Azure AD 토큰을 가져옵니다.
 
-지원되는 관리 ID에는 다음 두 가지 유형이 있습니다. 
+지원 되는 관리 되는 id에는 다음 두 가지 유형이 있습니다. 
 
-- **시스템 할당:** 서비스 인스턴스에서 직접 관리 ID를 사용하도록 설정할 수 있습니다. 서비스를 만드는 동안 시스템 할당 관리 ID를 허용하면 해당 서비스 인스턴스의 수명 주기와 연결된 Azure AD에서 ID가 만들어집니다. 의도적으로 해당 Azure 리소스만 이 ID를 사용하여 Azure AD에서 토큰을 요청할 수 있습니다. 따라서 리소스가 삭제되면 Azure에서 자동으로 ID를 삭제합니다. Azure Synapse Analytics Synapse 작업 영역과 함께 시스템 할당 관리 ID를 만들어야 합니다.
-- **사용자 할당:** 관리 ID를 독립 실행형 Azure 리소스로 만들 수도 있습니다. 사용자 [할당 관리 ID를 만들어](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) 데이터 팩터리 또는 Synapse 작업 영역의 하나 이상의 인스턴스에 할당할 수 있습니다. 사용자가 할당한 관리 ID는 이를 사용하는 리소스와 별도로 관리됩니다.
+- **시스템 할당:** 서비스 인스턴스에서 직접 관리 id를 사용 하도록 설정할 수 있습니다. 서비스를 만드는 동안 시스템 할당 관리 id를 허용 하면 Azure AD에서 해당 서비스 인스턴스의 수명 주기에 연결 된 id가 만들어집니다. 의도적으로 해당 Azure 리소스만 이 ID를 사용하여 Azure AD에서 토큰을 요청할 수 있습니다. 따라서 리소스가 삭제되면 Azure에서 자동으로 ID를 삭제합니다. Azure Synapse Analytics를 사용 하려면 시스템 할당 관리 id가 Synapse 작업 영역과 함께 만들어져야 합니다.
+- **사용자 할당:** 관리 ID를 독립 실행형 Azure 리소스로 만들 수도 있습니다. [사용자 할당 관리 id를 만들어](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) 하나 이상의 data Factory 또는 Synapse 작업 영역 인스턴스에 할당할 수 있습니다. 사용자가 할당한 관리 ID는 이를 사용하는 리소스와 별도로 관리됩니다.
 
-관리 ID는 다음과 같은 이점을 제공합니다.
+관리 id는 다음과 같은 이점을 제공 합니다.
 
-- Azure Key Vault 에 [자격 증명을 저장합니다.](store-credentials-in-key-vault.md)이 경우 관리 ID는 Azure Key Vault 인증에 사용됩니다.
+- [Azure Key Vault에 자격 증명을 저장](store-credentials-in-key-vault.md)합니다 .이 경우 관리 id는 Azure Key Vault 인증에 사용 됩니다.
 - Azure Blob Storage, Azure Data Explorer, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, REST, Databricks 활동, 웹 활동 등을 비롯한 관리 ID 인증을 사용하여 데이터 저장소 또는 컴퓨터에 액세스합니다. 자세한 내용은 커넥터 및 작업 문서를 확인하세요.
-- 사용자 할당 관리 ID는 Azure Key Vault 저장된 고객 관리형 키를 사용하여 메타데이터를 암호화/암호 해독하는 데도 사용되며 이중 암호화를 제공합니다. 
+- 또한 관리 id는 Azure Key Vault에 저장 된 고객 관리 키를 사용 하 여 데이터 및 메타 데이터를 암호화/암호 해독 하는 데 사용 되며 이중 암호화를 제공 합니다. 
 
 ## <a name="system-assigned-managed-identity"></a>시스템 할당 관리 ID 
 
 >[!NOTE]
-> 시스템 할당 관리 ID는 이전 버전과의 호환성을 위해 설명서 및 Data Factory Studio 및 Synapse Studio UI의 다른 곳에서 '관리 ID'라고도 합니다. 이를 참조할 때 '사용자가 할당한 관리 ID'가 명시적으로 설명됩니다. 
+> 시스템 할당 관리 id는 설명서 및 Data Factory Studio의 다른 위치에서 ' 관리 되는 id ' 라고도 하며 이전 버전과의 호환성을 위해 Synapse Studio UI 라고도 합니다. 이를 참조할 때 '사용자가 할당한 관리 ID'가 명시적으로 설명됩니다. 
 
 ### <a name="generate-system-assigned-managed-identity"></a><a name="generate-managed-identity"></a> 시스템 할당 관리 ID 생성
 
-시스템 할당 관리 ID는 다음과 같이 생성됩니다.
+시스템 할당 관리 id는 다음과 같이 생성 됩니다.
 
-- **Azure Portal 또는 PowerShell을** 통해 데이터 팩터리 또는 Synapse 작업 영역을 만들 때 관리 ID는 항상 자동으로 생성됩니다.
-- **SDK를** 통해 데이터 팩터리 또는 작업 영역을 만들 때 관리 ID는 생성을 위해 Synapse 작업 영역 개체의 팩터리 개체에 "Identity = new FactoryIdentity()"를 지정하거나 Identity = new ManagedIdentity"를 지정하는 경우에만 생성됩니다.  [.NET 빠른 시작 - 데이터 팩터리 만들기의 예제를](quickstart-create-data-factory-dot-net.md#create-a-data-factory)참조하세요.
-- **REST API** 통해 데이터 팩터리 또는 Synapse 작업 영역을 만들 때 요청 본문에 "ID" 섹션을 지정하는 경우에만 관리 ID가 생성됩니다. [REST 빠른 시작 - 데이터 팩터리 만들기](quickstart-create-data-factory-rest-api.md#create-a-data-factory)에서 예제를 참조하세요.
+- **Azure Portal 또는 PowerShell** 을 통해 데이터 팩터리 또는 Synapse 작업 영역을 만들 때 관리 id는 항상 자동으로 생성 됩니다.
+- **SDK** 를 통해 데이터 팩터리 또는 작업 영역을 만들 때 관리 id는 생성을 위해 Synapse 작업 영역 개체의 factory 개체 또는 identity = new microsoft.managedidentity "에서" identity = new FactoryIdentity () "를 지정 하는 경우에만 생성 됩니다.  [.Net 빠른 시작-데이터 팩터리 만들기](quickstart-create-data-factory-dot-net.md#create-a-data-factory)의 예제를 참조 하세요.
+- **REST API** 를 통해 데이터 팩터리 또는 Synapse 작업 영역을 만들 때 요청 본문에 "identity" 섹션을 지정 하는 경우에만 관리 id가 생성 됩니다. [REST 빠른 시작 - 데이터 팩터리 만들기](quickstart-create-data-factory-rest-api.md#create-a-data-factory)에서 예제를 참조하세요.
 
-관리 ID 검색 지침에 따라 서비스 인스턴스에 연결된 [관리 ID가](#retrieve-managed-identity) 없는 경우 ID 초기자를 프로그래밍 방식으로 업데이트하여 명시적으로 생성할 수 있습니다.
+[관리 id를 검색](#retrieve-managed-identity) 하는 것과 관련 된 관리 id가 서비스 인스턴스에 없는 경우 프로그래밍 방식으로 id 초기자를 사용 하 여 해당 인스턴스를 업데이트할 수 있습니다.
 
 - [PowerShell을 사용하여 관리 ID 생성](#generate-system-assigned-managed-identity-using-powershell)
 - [REST API를 사용하여 관리 ID 생성](#generate-system-assigned-managed-identity-using-rest-api)
@@ -61,9 +61,9 @@ ms.locfileid: "131011487"
 
 >[!NOTE]
 >
->- 관리 ID는 수정할 수 없습니다. 관리 ID가 이미 있는 서비스 인스턴스를 업데이트해도 아무 영향이 없으며 관리 ID는 변경되지 않고 유지됩니다.
->- 팩터리 또는 작업 영역 개체에 "identity" 매개 변수를 지정하지 않거나 REST 요청 본문에 "identity" 섹션을 지정하지 않고 이미 관리 ID가 있는 서비스 인스턴스를 업데이트하면 오류가 발생합니다.
->- 서비스 인스턴스를 삭제하면 연결된 관리 ID가 함께 삭제됩니다.
+>- 관리 ID는 수정할 수 없습니다. 관리 id가 이미 있는 서비스 인스턴스 업데이트는 영향을 주지 않으며 관리 되는 id는 변경 되지 않은 상태로 유지 됩니다.
+>- 팩터리 또는 작업 영역 개체에 "identity" 매개 변수를 지정 하지 않거나 REST 요청 본문에 "identity" 섹션을 지정 하지 않고 관리 id가 이미 있는 서비스 인스턴스를 업데이트 하는 경우 오류가 발생 합니다.
+>- 서비스 인스턴스를 삭제 하면 연결 된 관리 id가 함께 삭제 됩니다.
 
 #### <a name="generate-system-assigned-managed-identity-using-powershell"></a>PowerShell을 사용하여 시스템 할당 관리 ID 생성
 
@@ -84,7 +84,7 @@ ProvisioningState : Succeeded
 ```
 # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
-**New-AzSynapseWorkspace** 명령을 호출하면 새로 생성되는 "ID" 필드가 표시됩니다.
+**AzSynapseWorkspace** 명령을 호출 하면 새로 생성 되는 "id" 필드가 표시 됩니다.
 
 ```powershell
 PS C:\> $creds = New-Object System.Management.Automation.PSCredential ("ContosoUser", $password)
@@ -117,9 +117,9 @@ Type                             : Microsoft.Synapse/workspaces
 # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
 
 > [!NOTE]
-> 팩터리 개체에 ID 매개 변수를 지정하거나 REST 요청 본문에 **ID** 섹션을 제공하지 않고 이미 관리 **ID가** 있는 서비스 인스턴스를 업데이트하려고 하면 오류가 발생합니다.
+> 팩터리 개체에서 **identity** 매개 변수를 지정 하지 않거나 REST 요청 본문에 **id** 섹션을 제공 하지 않고 관리 id가 이미 있는 서비스 인스턴스를 업데이트 하려고 하면 오류가 발생 합니다.
 
-요청 본문의 "ID" 섹션을 통해 아래 API를 호출합니다.
+요청 본문에서 "identity" 섹션을 사용 하 여 아래 API를 호출 합니다.
 
 ```
 PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2018-06-01
@@ -163,9 +163,9 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
 > [!NOTE]
-> 작업 영역 개체에 ID 매개 변수를 지정하거나 REST 요청 본문에 **ID** 섹션을 제공하지 않고 이미 관리 **ID가** 있는 서비스 인스턴스를 업데이트하려고 하면 오류가 발생합니다.
+> 작업 영역 개체에서 **identity** 매개 변수를 지정 하지 않거나 REST 요청 본문에 **id** 섹션을 제공 하지 않고 이미 관리 id가 있는 서비스 인스턴스를 업데이트 하려고 하면 오류가 발생 합니다.
 
-요청 본문의 "ID" 섹션을 통해 아래 API를 호출합니다.
+요청 본문에서 "identity" 섹션을 사용 하 여 아래 API를 호출 합니다.
 
 ```
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}?api-version=2018-06-01
@@ -251,7 +251,7 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 #### <a name="generate-system-assigned-managed-identity-using-sdk"></a>SDK를 사용하여 시스템 할당 관리 ID 생성
 
 # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
-Identity=new FactoryIdentity()를 통해 create_or_update 함수를 호출합니다. .NET을 사용하는 샘플 코드:
+Identity = new FactoryIdentity ()를 사용 하 여 create_or_update 함수를 호출 합니다. .NET을 사용하는 샘플 코드:
 
 ```csharp
 Factory dataFactory = new Factory
@@ -287,14 +287,14 @@ client.Workspaces.CreateOrUpdate(resourceGroupName, workspaceName, workspace);
 Azure Portal에서 또는 프로그래밍 방식으로 관리 ID를 검색할 수 있습니다. 다음 섹션에서는 몇 가지 샘플을 보여 줍니다.
 
 >[!TIP]
-> 관리 ID가 표시되지 않으면 서비스 인스턴스를 업데이트하여 [관리 ID를 생성합니다.](#generate-managed-identity)
+> 관리 id가 표시 되지 않으면 서비스 인스턴스를 업데이트 하 여 [관리 되는 id를 생성](#generate-managed-identity) 합니다.
 
 #### <a name="retrieve-system-assigned-managed-identity-using-azure-portal"></a>Azure Portal에서 시스템 할당 관리 ID 검색
 
-데이터 팩터리 또는 Synapse 작업 영역 -> 속성 > Azure Portal 관리 ID 정보를 찾을 수 있습니다.
+Azure Portal에서 관리 되는 id 정보는 데이터 팩터리 또는 Synapse 작업 영역 > 속성 >에서 찾을 수 있습니다.
 
 - 관리 ID 개체 ID
-- 관리 ID 테넌트(Azure Data Factory만 해당)
+- 관리 되는 Id 테 넌 트 (Azure Data Factory에만 해당)
 
 관리 ID 정보는 Azure Blob, Azure Data Lake Storage, Azure Key Vault 등의 관리 ID 인증을 지원하는 연결된 서비스를 만들 때도 표시됩니다.
 
@@ -303,7 +303,7 @@ Azure Portal에서 또는 프로그래밍 방식으로 관리 ID를 검색할 �
 #### <a name="retrieve-system-assigned-managed-identity-using-powershell"></a>PowerShell을 사용하여 시스템 할당 관리 ID 검색
 
 # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
-관리 ID 보안 주체 ID 및 테넌트 ID는 다음과 같이 특정 서비스 인스턴스를 얻을 때 반환됩니다. **Principalid** 를 사용하여 액세스 권한을 부여합니다.
+다음과 같이 특정 서비스 인스턴스를 가져오면 관리 id 보안 주체 ID 및 테 넌 트 ID가 반환 됩니다. **Principalid** 를 사용하여 액세스 권한을 부여합니다.
 
 ```powershell
 PS C:\> (Get-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName>).Identity
@@ -325,7 +325,7 @@ Id                    : 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
 Type                  : ServicePrincipal
 ```
 # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
-관리 ID 보안 주체 ID 및 테넌트 ID는 다음과 같이 특정 서비스 인스턴스를 얻을 때 반환됩니다. **Principalid** 를 사용하여 액세스 권한을 부여합니다.
+다음과 같이 특정 서비스 인스턴스를 가져오면 관리 id 보안 주체 ID 및 테 넌 트 ID가 반환 됩니다. **Principalid** 를 사용하여 액세스 권한을 부여합니다.
 
 ```powershell
 PS C:\> (Get-AzSynapseWorkspace -ResourceGroupName <resourceGroupName> -Name <workspaceName>).Identity
@@ -351,7 +351,7 @@ Type                  : ServicePrincipal
 #### <a name="retrieve-managed-identity-using-rest-api"></a>REST API를 사용하여 관리 ID 검색
 
 # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
-관리 ID 보안 주체 ID 및 테넌트 ID는 다음과 같이 특정 서비스 인스턴스를 얻을 때 반환됩니다.
+다음과 같이 특정 서비스 인스턴스를 가져오면 관리 id 보안 주체 ID 및 테 넌 트 ID가 반환 됩니다.
 
 요청에서 아래 API를 호출합니다.
 
@@ -404,7 +404,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 }
 ```
 # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
-관리 ID 보안 주체 ID 및 테넌트 ID는 다음과 같이 특정 서비스 인스턴스를 얻을 때 반환됩니다.
+다음과 같이 특정 서비스 인스턴스를 가져오면 관리 id 보안 주체 ID 및 테 넌 트 ID가 반환 됩니다.
 
 요청에서 아래 API를 호출합니다.
 
@@ -475,17 +475,17 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="user-assigned-managed-identity"></a>사용자 할당 관리 ID
 
-Azure Active Directory 사용자 할당 관리 ID를 만들고, 삭제하고, 관리할 수 있습니다. 자세한 내용은 [Azure Portal를 사용 하 여 사용자 할당 관리 id에 역할 만들기, 나열, 삭제 또는 할당](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)을 참조 하세요. 
+Azure Active Directory 사용자 할당 관리 ID를 만들고, 삭제하고, 관리할 수 있습니다. 자세한 내용은 [Azure Portal 사용하여 사용자 할당 관리 ID에 역할 만들기, 나열, 삭제 또는 할당을 참조하세요.](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) 
 
-사용자 할당 관리 id를 사용 하려면 먼저 UAMI에 대 한 서비스 인스턴스에서 [자격 증명을 만들어야](credentials.md) 합니다.
+사용자 할당 관리 ID를 사용하려면 먼저 UAMI에 대한 서비스 인스턴스에서 [자격 증명을 만들어야](credentials.md) 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [자격 증명을 만듭니다](credentials.md).
+- [자격 증명을 만듭니다.](credentials.md)
 
-관리 id를 사용 하는 경우 및 방법을 소개 하는 다음 항목을 참조 하세요.
+관리 ID를 사용하는 시기와 방법을 소개하는 다음 항목을 참조하세요.
 
-- [Azure Key Vault에 자격 증명을 저장](store-credentials-in-key-vault.md)합니다.
-- [Azure 리소스 인증을 위해 관리 되는 id를 사용 하 여 Azure Data Lake Store 간에 데이터를 복사](connector-azure-data-lake-store.md)합니다.
+- [Azure Key Vault 에 자격 증명을 저장합니다.](store-credentials-in-key-vault.md)
+- [Azure 리소스 인증에 대한 관리 ID를 사용하여 Azure Data Lake Store 데이터를 복사합니다.](connector-azure-data-lake-store.md)
 
-Azure Data Factory에서 관리 되는 id 및 Azure Synapse의 기반이 되는 Azure 리소스에 대 한 관리 되는 id에 대 한 자세한 배경 정보는 [Azure 리소스에 대 한 관리 Id 개요](../active-directory/managed-identities-azure-resources/overview.md) 를 참조 하세요.
+Azure Data Factory 및 Azure Synapse 관리 ID의 기반이 되는 Azure 리소스에 대한 관리 ID에 대한 자세한 배경은 Azure 리소스에 대한 관리 ID [개요를](../active-directory/managed-identities-azure-resources/overview.md) 참조하세요.

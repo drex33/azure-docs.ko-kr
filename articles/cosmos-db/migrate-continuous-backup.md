@@ -4,16 +4,16 @@ description: Azure Cosmos DB는 현재 정기적 백업 모드에서 지속적�
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 10/04/2021
+ms.date: 10/28/2021
 ms.author: sngun
 ms.topic: how-to
 ms.reviewer: sngun
-ms.openlocfilehash: b6821435f2f6ce04f1b8ba4b3af8b8f47097c2fa
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 3ac1ae98dfa920a4b4060905e99b7378fcdb3414
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129546018"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131476303"
 ---
 # <a name="migrate-an-azure-cosmos-db-account-from-periodic-to-continuous-backup-mode"></a>정기적 백업 모드에서 지속적인 백업 모드로 Azure Cosmos DB 계정 마이그레이션
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "129546018"
 > [!NOTE]
 > 마이그레이션 기능은 단방향이며 되돌릴 수 없는 동작입니다. 즉, 정기적 모드에서 지속적인 모드로 마이그레이션한 후에는 정기적 모드로 다시 전환할 수 없습니다.
 >
-> 다음 조건에 해당되는 경우에만 계정을 지속적인 백업 모드로 마이그레이션할 수 있습니다.
+> 다음 조건이 true 인 경우에만 계정을 연속 백업 모드로 마이그레이션할 수 있습니다. 또한 계정을 마이그레이션하기 전에 특정 [시점 복원 제한 사항을](continuous-backup-restore-introduction.md#current-limitations) 체크 아웃 합니다.
 >
 > * 계정이 SQL API 또는 MongoDB용 API 유형인 경우
 > * 계정에 단일 쓰기 지역이 있는 경우
@@ -221,4 +221,4 @@ t1 이전 시간으로 복원하려면 일반적으로 정기적 백업 계정�
 
 Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요?
    * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
-   * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.
+   * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 계획 도구를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어보세요.

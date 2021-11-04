@@ -9,12 +9,12 @@ ms.subservice: automatic-os-upgrade
 ms.date: 07/29/2021
 ms.reviewer: jushiman
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e9e814ad43d157d69fee2b70eaaccbadf23f4fa2
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: f4b5c58eb8811db9042d92416c4c37fa30234149
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122690518"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432950"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Azure Virtual Machine Scale Sets 자동 OS 업그레이드
 
@@ -27,7 +27,7 @@ ms.locfileid: "122690518"
 - 구성이 완료되면 이미지 게시자가 게시한 최신 OS 이미지가 사용자 개입 없이 확장 집합에 자동으로 적용됩니다.
 - 게시자가 새 이미지를 게시할 때마다 인스턴스의 일괄 처리를 롤링 방식으로 업그레이드합니다.
 - 애플리케이션 상태 프로브 및 [애플리케이션 상태 확장](virtual-machine-scale-sets-health-extension.md)과 통합됩니다.
-- [Shared Image Gallery](../virtual-machines/shared-image-galleries.md)를 통해 사용자 지정 이미지를 포함한 모든 VM 크기 및 Windows와 Linux 이미지 모두에 작동합니다.
+- 모든 VM 크기 및 Azure Compute [갤러리를](../virtual-machines/shared-image-galleries.md)통한 사용자 지정 이미지를 포함하여 Windows 및 Linux 이미지 모두에 대해 작동합니다.
 - 언제든지 자동 업그레이드를 옵트아웃할 수 있습니다(OS 업그레이드를 수동으로 시작 가능).
 - VM의 OS 디스크는 최신 이미지 버전을 사용하여 만든 새 OS 디스크로 교체됩니다. 구성된 확장 및 사용자 지정 데이터 스크립트가 실행되고 지속형 데이터 디스크는 유지됩니다.
 - [확장 시퀀스](virtual-machine-scale-sets-extension-sequencing.md)가 지원됩니다.
@@ -55,7 +55,7 @@ Azure Load Balancer 애플리케이션 상태 프로브 또는 [애플리케이�
 - 공통 확장 집합에 있는 모든 VM은 동시에 업데이트되지 않습니다.  
 - 아래에 설명된 것처럼 공통 가상 머신 확장 집합에 있는 VM은 일괄적으로 그룹화되고 업데이트 도메인 경계 내에서 업데이트됩니다.
 
-플랫폼 오케스트레이션 업데이트 프로세스는 매월 지원되는 OS 플랫폼 이미지 업그레이드를 롤아웃하기 위해 수행됩니다. Shared Image Gallery를 통한 사용자 지정 이미지의 경우 새 이미지가 게시되고 해당 확장 집합의 지역에 [복제](../virtual-machines/shared-image-galleries.md#replication)될 때만 특정 Azure 지역에 대해 이미지 업그레이드가 시작됩니다.
+플랫폼 오케스트레이션 업데이트 프로세스는 매월 지원되는 OS 플랫폼 이미지 업그레이드를 롤아웃하기 위해 수행됩니다. Azure Compute 갤러리를 통한 사용자 지정 이미지의 경우 새 이미지가 게시되고 해당 확장 집합의 지역에 [복제될](../virtual-machines/shared-image-galleries.md#replication) 때 특정 Azure 지역에 대해서만 이미지 업그레이드가 시작됩니다.
 
 ### <a name="upgrading-vms-in-a-scale-set"></a>확장 집합의 VM 업그레이드
 
@@ -73,7 +73,7 @@ Azure Load Balancer 애플리케이션 상태 프로브 또는 [애플리케이�
 >자동 OS 업그레이드는 확장 집합의 참조 이미지 Sku를 업그레이드하지 않습니다. Sku를 변경하려면(예를 들어 Ubuntu 16.04-LTS에서 18.04-LTS로 변경) 원하는 이미지 Sku를 사용하여 [확장 집합 모델](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model)을 직접 업데이트해야 합니다. 기존 확장 집합에 대해 이미지 게시자 및 제품을 변경할 수 없습니다.  
 
 ## <a name="supported-os-images"></a>지원되는 OS 이미지
-현재는 특정 OS 플랫폼 이미지만 지원됩니다. 확장 집합에서 [Shared Image Gallery](../virtual-machines/shared-image-galleries.md)를 통해 사용자 지정 이미지를 사용하는 경우 사용자 지정 이미지가 [지원됩니다](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images).
+현재는 특정 OS 플랫폼 이미지만 지원됩니다. 확장 집합이 [Azure Compute 갤러리를](../virtual-machines/shared-image-galleries.md)통해 사용자 지정 이미지를 사용하는 경우 사용자 지정 이미지가 [지원됩니다.](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images)
 
 현재 지원되는 플랫폼 SKU는 다음과 같습니다(주기적으로 더 추가될 예정).
 
@@ -116,11 +116,11 @@ Service Fabric 클러스터와 Service Fabric 확장의 내구성 설정이 일�
 
 ## <a name="automatic-os-image-upgrade-for-custom-images"></a>사용자 지정 이미지에 대한 자동 OS 이미지 업그레이드
 
-자동 OS 이미지 업그레이드는 [Shared Image Gallery](../virtual-machines/shared-image-galleries.md)를 통해 배포되는 사용자 지정 이미지에 지원됩니다. 다른 사용자 지정 이미지에는 자동 OS 이미지 업그레이드가 지원되지 않습니다.
+자동 OS 이미지 업그레이드는 [Azure Compute 갤러리](../virtual-machines/shared-image-galleries.md)를 통해 배포 되는 사용자 지정 이미지에 대해 지원 됩니다. 다른 사용자 지정 이미지에는 자동 OS 이미지 업그레이드가 지원되지 않습니다.
 
 ### <a name="additional-requirements-for-custom-images"></a>사용자 지정 이미지에 대한 추가 요구 사항
 - 자동 OS 이미지 업그레이드에 대한 설치 및 구성 프로세스는 이 페이지의 [구성 섹션](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade)에 자세히 설명되어 있는 모든 확장 집합에 동일합니다.
-- 자동 OS 이미지 업그레이드에 구성된 확장 집합 인스턴스는 새 버전의 이미지가 게시되고 해당 확장 집합의 영역에 [복제](../virtual-machines/shared-image-galleries.md#replication)될 때 Shared Image Gallery 이미지의 최신 버전으로 업그레이드됩니다. 새 이미지가 확장 집합이 배포된 영역에 복제되지 않으면 확장 집합 인스턴스는 최신 버전으로 업그레이드되지 않습니다. 영역별 이미지 복제를 통해 확장 집합에 대하여 새 이미지의 롤아웃을 제어할 수 있습니다.
+- 자동 OS 이미지 업그레이드에 대해 구성 된 확장 집합 인스턴스는 새 버전의 이미지를 게시 하 고 해당 확장 집합의 지역에 [복제할](../virtual-machines/shared-image-galleries.md#replication) 때 최신 버전의 Azure 계산 갤러리 이미지로 업그레이드 됩니다. 새 이미지가 확장 집합이 배포된 영역에 복제되지 않으면 확장 집합 인스턴스는 최신 버전으로 업그레이드되지 않습니다. 영역별 이미지 복제를 통해 확장 집합에 대하여 새 이미지의 롤아웃을 제어할 수 있습니다.
 - 새 이미지 버전은 해당 갤러리 이미지의 최신 버전에서 제외되어서는 안 됩니다. 갤러리 이미지의 최신 버전에서 제외된 이미지 버전은 자동 OS 이미지 업그레이드를 통해 확장 집합으로 롤아웃되지 않습니다.
 
 > [!NOTE]

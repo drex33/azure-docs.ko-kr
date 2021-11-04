@@ -3,12 +3,12 @@ title: Azure Site Recovery를 사용하여 Azure로 Azure Stack VM 복제 | Micr
 description: Azure Site Recovery 서비스를 사용하여 Azure에 Azure Stack VM에 대한 재해 복구를 설정하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 386eae05ea06b59aac290d5f1f51d643d7952b6a
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
-ms.translationtype: HT
+ms.openlocfilehash: d423f4511e830c4a62537330f3bff7d2c7bc6ec9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112580425"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131452721"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure에 Azure Stack VM 복제
 
@@ -260,7 +260,7 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 
 1. **보호된 항목** 에서 **복제된 항목** > VM을 클릭합니다.
 2. **복제된 항목** 창에 VM 정보, 상태 및 최신 사용 가능한 복구 지점의 요약이 제공됩니다. 자세한 내용을 보려면 **속성** 을 클릭합니다.
-3. **컴퓨팅 및 네트워크** 에서 필요에 따라 설정을 수정합니다.
+3. **컴퓨팅** 및 **네트워크** 설정에서 필요에 따라 설정을 수정합니다.
 
     - Azure VM 이름, 리소스 그룹, 대상 크기, [가용성 집합](../virtual-machines/windows/tutorial-availability-sets.md) 및 관리 디스크 설정을 수정할 수 있습니다.
     - 네트워크 설정을 보고 수정할 수도 있습니다. 여기에는 장애 조치(Failover) 후에 Azure VM이 가입되는 네트워크/서브넷과 VM에 할당될 IP 주소가 포함됩니다.

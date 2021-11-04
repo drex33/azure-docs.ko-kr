@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/10/2021
+ms.date: 10/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: e2edd8b00be0ce7ef0cff2b3aa01a111b1c4c5e5
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
-ms.translationtype: HT
+ms.openlocfilehash: c43cff8648ac428385ba787c09cf2399c30dab46
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108229579"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466393"
 ---
 # <a name="modify-local-network-gateway-settings-using-powershell"></a>PowerShell을 사용하여 로컬 네트워크 게이트웨이 설정 수정
 
@@ -24,6 +24,10 @@ ms.locfileid: "108229579"
 > * [PowerShell](vpn-gateway-modify-local-network-gateway.md)
 > * [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 >
+>
+
+>[!NOTE]
+> 연결 된 로컬 네트워크 게이트웨이를 변경 하면 터널의 연결이 끊어지고 가동 중지 시간이 발생할 수 있습니다.
 >
 
 ## <a name="before-you-begin"></a><a name="before"></a>시작하기 전에

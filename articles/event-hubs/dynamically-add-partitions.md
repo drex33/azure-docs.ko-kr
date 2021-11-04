@@ -2,13 +2,14 @@
 title: Azure Event Hubs에서 이벤트 허브에 동적으로 파티션 추가
 description: 이 문서에서는 Azure Event Hubs에서 이벤트 허브에 파티션을 동적으로 추가하는 방법을 보여줍니다.
 ms.topic: how-to
-ms.date: 05/04/2021
-ms.openlocfilehash: 00163a74564e4cac5ac0b62cf6de98b7ae3ef23e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
-ms.translationtype: HT
+ms.date: 10/20/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: fdd87e281bb4df98d118f7964eaa98925cef0947
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376104"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131070682"
 ---
 # <a name="dynamically-add-partitions-to-an-event-hub-apache-kafka-topic-in-azure-event-hubs"></a>Azure Event Hubs에서 이벤트 허브(Apache Kafka 토픽)에 동적으로 파티션 추가
 Event Hubs는 각 소비자만이 특정 하위 집합, 파티션 또는 메시지 스트림을 읽는 파티션된 소비자 패턴을 통해 메시지 스트리밍을 제공합니다. 이 패턴은 이벤트 처리를 위한 가로 눈금을 사용하며 큐 및 항목에 사용할 수 없는 기타 스트림 중심 기능을 제공합니다. 파티션은 Event Hub에서 보유하는 순서가 지정된 이벤트 시퀀스입니다. 최신 이벤트가 도착하면 이 시퀀스의 끝에 추가됩니다. 파티션에 대한 자세한 내용은 [파티션](event-hubs-scalability.md#partitions)을 참조하세요.

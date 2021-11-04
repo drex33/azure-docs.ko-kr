@@ -3,7 +3,7 @@ title: Azure CDN POP 위치 약어 | Microsoft Docs
 description: 이 문서에서는 Verizon의 Azure CDN에 대한 Azure CDN POP 위치를 POP 약어로 정렬해서 보여 줍니다.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2021
-ms.author: allensu
+ms.author: duau
 ms.custom: references_regions
-ms.openlocfilehash: 088d9b5b5067876d7ff284e6f27f696692847432
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
-ms.translationtype: HT
+ms.openlocfilehash: f45214242968055ab045f2030919cb5d8fcc369b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110538190"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450524"
 ---
 # <a name="azure-cdn-pop-locations-by-abbreviation"></a>Azure CDN POP 위치 약어
 > [!div class="op_single_selector"]

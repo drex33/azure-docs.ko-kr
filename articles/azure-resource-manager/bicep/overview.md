@@ -3,12 +3,12 @@ title: Azure 리소스 배포를 위한 Bicep 언어
 description: Azure에 인프라를 배포하기 위한 Bicep 언어를 설명합니다. JSON을 사용하여 템플릿을 개발하는 것보다 향상된 제작 환경을 제공합니다.
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: ace417bb8a71a277bbcb4ef178c6aaf24b97533b
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 565f849edafaa6c083a1e7d21bb67f8b3ab8453e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124831943"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443493"
 ---
 # <a name="what-is-bicep"></a>Bicep이란?
 
@@ -109,6 +109,10 @@ ARM 템플릿을 선택한 고객의 경우 Bicep이 제작 환경을 개선할 
 기존 ARM 템플릿은 계속해서 지금까지와 똑같이 작동합니다. ARM 템플릿을 변경할 필요가 없습니다. 기본 ARM 템플릿 JSON 언어를 계속 지원할 것입니다. Bicep 파일은 JSON으로 컴파일되고 해당 JSON은 배포를 위해 Azure에 전송됩니다.
 
 준비가 되면 [JSON 파일을 Bicep으로 디컴파일](./decompile.md)할 수 있습니다.
+
+**Bicep를 사용 하 여 Azure Stack 허브에 배포할 수 있나요?**
+
+예, Azure Stack 허브 배포에 대해 Bicep를 사용할 수 있지만, Bicep에는 Azure Stack 허브에서 아직 사용할 수 없는 형식이 표시 될 수 있습니다. [Azure Stack Hub 빠른 시작 템플릿 GitHub 리포지토리](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/Bicep)에서 예제 집합을 볼 수 있습니다. 
 
 ## <a name="known-limitations"></a>알려진 제한 사항
 

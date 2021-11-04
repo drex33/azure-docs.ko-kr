@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 03/17/2021
 ms.author: cynthn
 ms.custom: contperf-fy21q3, devx-track-azurepowershell
-ms.openlocfilehash: f13c13ec30972c6129f794f831d3f937ca98c9dc
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: b445b52e1e4a3131f7830d6ea167046109d0e2af
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698341"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466754"
 ---
 # <a name="find-and-use-azure-marketplace-vm-images-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Marketplace VM 이미지 찾기 및 사용
 
@@ -239,4 +239,4 @@ $vmConfig = Set-AzVMPlan `
 
 기본 이미지 정보를 사용하여 `New-AzVM` cmdlet으로 가상 머신을 빠르게 만들려면 [PowerShell을 사용하여 Windows 가상 머신 만들기](quick-create-powershell.md)를 참조하세요.
 
-Azure Marketplace 이미지를 사용하여 공유 이미지 갤러리에서 사용자 지정 이미지를 만드는 방법에 대한 자세한 내용은 [이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공](../marketplace-images.md)을 참조하세요.
+Azure Marketplace 이미지를 사용 하 여 Azure Compute 갤러리 (이전의 공유 이미지 갤러리)에서 사용자 지정 이미지를 만드는 방법에 대 한 자세한 내용은 [이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공](../marketplace-images.md)을 참조 하세요.

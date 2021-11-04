@@ -3,19 +3,19 @@ title: 음성 컨테이너용 일괄 처리 키트
 titleSuffix: Azure Cognitive Services
 description: 일괄 처리 키트를 사용하여 음성 컨테이너 요청의 크기를 조장합니다.
 services: cognitive-services
-author: aahill
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.author: aahi
-ms.openlocfilehash: 0ecdb23eddcb47f8a50c2d10cab601787354a81b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.author: eur
+ms.openlocfilehash: b7d72497cd19bddb038ac5a51f2290fae9b99103
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536622"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131509420"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>음성 컨테이너용 일괄 처리 키트
 

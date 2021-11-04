@@ -8,16 +8,16 @@ ms.subservice: database-editor
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.custom: template-concept, ignite-fall-2021
-ms.openlocfilehash: 5b030bc1551bc8d21101b127c123507f08abf62c
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: cc22bc666d6835ee4bbc32cc57824cf0e768c63d
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/03/2021
-ms.locfileid: "131510431"
+ms.locfileid: "131467172"
 ---
 # <a name="lake-database"></a>Lake 데이터베이스
 
-Azure Synapse Analytics 레이크 데이터베이스를 사용하면 고객이 데이터베이스 디자인, 저장된 데이터에 대한 메타 정보 및 데이터를 저장해야 하는 방법 및 위치를 설명할 수 있습니다. Lake 데이터베이스는 데이터가 구조화되는 방식을 이해하기 어려운 오늘날의 데이터 레이크 문제를 해결합니다.  
+Azure Synapse Analytics Lake 데이터베이스를 사용하면 고객이 데이터베이스 디자인, 저장된 데이터에 대한 메타데이터 정보 및 데이터를 저장해야 하는 방법 및 위치를 설명할 수 있습니다. Lake 데이터베이스는 데이터가 구조화되는 방식을 이해하기 어려운 오늘날의 데이터 레이크 문제를 해결합니다.  
 
 ![Lake 데이터베이스 개요](./media/concepts-lake-database/lake-database-overview.png)
 
@@ -28,12 +28,12 @@ Azure Synapse Analytics 레이크 데이터베이스를 사용하면 고객이 �
 
 ## <a name="data-storage"></a>데이터 스토리지 
 
-Lake 데이터베이스는 Azure Storage 계정의 데이터 레이크를 사용하여 데이터베이스의 데이터를 저장합니다. 데이터는 Parquet 또는 CSV 형식으로 저장할 수 있으며 스토리지를 최적화하는 데 다른 설정을 사용할 수 있습니다. 모든 레이크 데이터베이스는 연결된 서비스를 사용하여 루트 데이터 폴더의 위치를 정의합니다. 모든 엔터티에 대해 기본적으로 데이터 레이크의 이 데이터베이스 폴더 내에 별도의 폴더가 만들어집니다. 기본적으로 Lake 데이터베이스 내의 모든 테이블은 동일한 형식을 사용하지만 요청된 경우 엔터티별로 데이터의 형식과 위치를 변경할 수 있습니다. 
+Lake 데이터베이스는 Azure Storage 계정의 데이터 레이크를 사용하여 데이터베이스의 데이터를 저장합니다. 데이터는 CSV 형식의 Parquet에 저장될 수 있으며 스토리지를 최적화하는 데 다른 설정을 사용할 수 있습니다. 모든 레이크 데이터베이스는 연결된 서비스를 사용하여 루트 데이터 폴더의 위치를 정의합니다. 모든 엔터티에 대해 기본적으로 데이터 레이크의 이 데이터베이스 폴더 내에 별도의 폴더가 만들어집니다. 기본적으로 Lake 데이터베이스 내의 모든 테이블은 동일한 형식을 사용하지만 요청된 경우 엔터티별로 데이터의 형식과 위치를 변경할 수 있습니다. 
 
 
 ## <a name="database-compute"></a>데이터베이스 컴퓨팅
 
-레이크 데이터베이스는 Synapse SQL 서버리스 SQL 풀에 노출되며 사용자에게 컴퓨팅에서 스토리지를 분리하는 기능을 제공하는 Apache Spark. Lake 데이터베이스와 연결된 메타데이터를 사용하면 여러 컴퓨팅 엔진이 통합 환경을 제공할 뿐만 아니라 원래 데이터 레이크에서 지원되지 않은 추가 정보(예: 관계)를 쉽게 사용할 수 있습니다. 
+레이크 데이터베이스는 Synapse SQL 서버리스 SQL 풀에 노출되며 Apache Spark 컴퓨팅에서 스토리지를 분리하는 기능을 사용자에게 제공합니다. Lake 데이터베이스와 연결된 메타데이터를 사용하면 여러 컴퓨팅 엔진이 통합 환경을 제공할 뿐만 아니라 원래 데이터 레이크에서 지원되지 않은 추가 정보(예: 관계)를 쉽게 사용할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

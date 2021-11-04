@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: conceptual
 ms.date: 04/29/2021
 ms.author: allensu
-ms.openlocfilehash: 5f24b2478acc0b305595b70b579d744320f0da3a
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: a57c4ea8d058f0f565b6dbec7fdb74b07ea7564e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130261199"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131471405"
 ---
 # <a name="public-ip-addresses"></a>공용 IP 주소
 
@@ -86,10 +86,10 @@ IPv4 또는 IPv6 주소를 사용하여 공용 IP 주소를 만들 수 있습니
 - [라우팅 기본 설정](routing-preference-overview.md) 또는 [지역 간 부하 분산 장치](../../load-balancer/cross-region-overview.md) 기능을 지원하지 않습니다.
 
 > [!NOTE]
-> 기본 SKU IPv4 주소는 만든 후 표준 SKU로 업그레이드할 수 있습니다.  SKU 업그레이드에 관한 자세한 내용은 [공용 IP 업그레이드](public-ip-upgrade-portal.md)를 참조하세요.
+> 표준 SKU에 만든 후 기본 SKU IPv4 주소를 업그레이드할 수 있습니다.  SKU 업그레이드에 관한 자세한 내용은 [공용 IP 업그레이드](public-ip-upgrade-portal.md)를 참조하세요.
 
 >[!IMPORTANT]
-> 부하 분산 장치 및 공용 IP 리소스에 일치하는 SKU가 필요합니다. 기본 SKU 리소스와 표준 SKU 리소스를 혼합할 수 없습니다. 독립 실행형 가상 머신, 가용성 집합 리소스의 가상 머신 또는 가상 머신 확장 집합 리소스를 두 SKU에 동시에 연결할 수 없습니다.  새 디자인에서는 표준 SKU 리소스를 사용하도록 고려해야 합니다.  자세한 내용은 [표준 Load Balancer](../../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 검토하세요.
+> 부하 분산 장치 및 공용 IP 리소스에 일치하는 SKU가 필요합니다. 기본 SKU 리소스와 표준 SKU 리소스를 혼합 하 여 사용할 수 없습니다. 독립 실행형 가상 머신, 가용성 집합 리소스의 가상 머신 또는 가상 머신 확장 집합 리소스를 두 SKU에 동시에 연결할 수 없습니다.  새 디자인에서는 표준 SKU 리소스를 사용하도록 고려해야 합니다.  자세한 내용은 [표준 Load Balancer](../../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 검토하세요.
 
 ## <a name="ip-address-assignment"></a>IP 주소 할당
 
@@ -106,7 +106,7 @@ IPv4 또는 IPv6 주소를 사용하여 공용 IP 주소를 만들 수 있습니
 * Azure 리소스가 IP 기반 보안 모델을 사용하는 다른 앱 또는 서비스와 통신하는 경우
 * IP 주소에 연결된 TLS/SSL 인증서를 사용하는 경우.
 
-기본 공용 IPv4 및 IPv6 주소는 **동적** 할당을 지원합니다.  동적을 선택하는 경우 IP 주소는 생성 시 리소스에 제공되지 **않습니다**.  공용 IP 주소를 리소스에 연결할 때 IP가 할당됩니다. 리소스를 중지하거나 삭제하면 IP 주소가 해제됩니다.   예를 들어 **리소스 A** 라는 리소스에서 공용 IP 리소스를 해제합니다. **리소스 A** 는 공용 IP 리소스를 다시 할당하는 경우, 시작할 때 다른 IP를 수신합니다. 할당 방법을 **고정** 에서 **동적** 으로 변경하면 연결된 IP 주소가 모두 해제됩니다. IP 주소를 동일하게 유지하려면 할당 방법을 **고정** 으로 설정합니다.
+기본 공용 IPv4 및 IPv6 주소는 **동적** 할당을 지원합니다.  동적을 선택하는 경우 IP 주소는 생성 시 리소스에 제공되지 **않습니다**.  공용 IP 주소를 리소스에 연결할 때 IP가 할당됩니다. 리소스를 중지하거나 삭제하면 IP 주소가 해제됩니다.   예를 들어 **리소스 A** 라는 리소스에서 공용 IP 리소스를 해제합니다. **리소스 A** 는 공용 IP 리소스를 다시 할당하는 경우, 시작할 때 다른 IP를 수신합니다. 할당 방법을 **고정** 에서 **동적** 으로 변경하면 연결된 IP 주소가 모두 해제됩니다. 할당 방법이 **동적** 에서 **정적** 으로 변경 되는 경우 연결 된 모든 IP 주소는 변경 되지 않습니다. IP 주소를 동일하게 유지하려면 할당 방법을 **고정** 으로 설정합니다.
 
 > [!NOTE]
 > Azure는 각 Azure 클라우드 지역의 고유한 범위에서 공용 IP 주소를 할당합니다. Azure [공용](https://www.microsoft.com/download/details.aspx?id=56519), [US 정부](https://www.microsoft.com/download/details.aspx?id=57063), [중국](https://www.microsoft.com/download/details.aspx?id=57062) 및 [독일](https://www.microsoft.com/download/details.aspx?id=57064) 클라우드의 범위(접두사) 목록을 다운로드할 수 있습니다.
@@ -126,7 +126,7 @@ FQDN(정규화된 도메인 이름)인 **contoso.westus.cloudapp.azure.com** 은
 > [!IMPORTANT]
 > 생성된 각 도메인 이름은 Azure 위치 내에서 고유해야 합니다.  
 
-공용 IP를 사용하는 서비스에 대해 사용자 지정 도메인을 원하는 경우 [DNS 레코드에 Azure DNS](../../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) 또는 외부 DNS 공급자를 사용할 수 있습니다.
+공용 IP를 사용 하는 서비스에 사용자 지정 도메인을 사용 하는 경우 DNS 레코드에 대 한 [Azure DNS](../../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) 또는 외부 dns 공급자를 사용할 수 있습니다.
 
 ## <a name="other-public-ip-address-features"></a>기타 공용 IP 주소 기능
 

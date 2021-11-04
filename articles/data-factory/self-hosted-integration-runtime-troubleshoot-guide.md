@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 09/09/2021
+ms.date: 10/26/2021
 ms.author: lle
-ms.openlocfilehash: d1b3770d236c7f88090840720e8f88fd453e70cf
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 35d0b094e80796eb43f59d0c104bb3ced9f5b0ed
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124755941"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131430878"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 문제 해결
 
@@ -32,11 +32,11 @@ ms.locfileid: "124755941"
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory)
     
-    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png" alt-text="&quot; &quot; &quot; 모든 파이프라인 실행 창에서 작업 실행 섹션의 스크린샷 &quot;":::
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png" alt-text="&quot;모든 파이프라인 실행 &quot; 창의 활동 실행 섹션 &quot; &quot; 스크린샷.":::
     
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
     
-    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page-synapse.png" alt-text="&quot; &quot; &quot; 모든 파이프라인 실행 창에서 작업 실행 섹션의 스크린샷 &quot;":::
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page-synapse.png" alt-text="&quot;모든 파이프라인 실행 &quot; 창의 활동 실행 섹션 &quot; &quot; 스크린샷.":::
     
     ---
     
@@ -48,7 +48,7 @@ ms.locfileid: "124755941"
  
    **Microsoft로 자체 호스팅 IR(통합 런타임) 로그 공유** 창이 열립니다.
 
-    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png" alt-text="&quot;Microsoft window를 사용 하 여 자체 호스팅 IR (통합 런타임) 로그를 공유 하는 스크린샷 &quot;":::
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png" alt-text="&quot;Microsoft와 자체 호스팅 IR(통합 런타임) 로그 공유 &quot; 창의 스크린샷.":::
 
 1. 보내려는 로그를 선택합니다. 
     * '자체 호스팅 IR'의 경우 실패한 작업과 관련된 로그 또는 자체 호스팅 IR 노드의 모든 로그를 업로드할 수 있습니다. 
@@ -86,7 +86,7 @@ UI에서 동시 작업 제한을 늘리려고 하면 프로세스가 ‘업데�
 
 예제 시나리오: 최대 동시 작업 값이 현재 24로 설정되어 있으며 작업을 더 빠르게 실행할 수 있도록 개수를 늘리려고 합니다. 입력할 수 있는 최솟값은 3이고 최댓값은 32입니다. 값을 24에서 32으로 높인 다음 **업데이트** 단추를 선택합니다. 다음 스크린샷에 표시된 것처럼 프로세스가 '업데이트 중' 상태에서 중단됩니다. 페이지를 새로 고치면 값이 계속 24로 표시됩니다. 예상과 달리 32로 업데이트되지 않았습니다.
 
-:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/updating-status.png" alt-text="상태 업데이트 중 중단 된 프로세스를 표시 하는 통합 런타임의 노드 창 스크린샷 &quot; &quot;":::
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/updating-status.png" alt-text="업데이트 중 상태에서 프로세스가 중단된 것을 표시하는 통합 런타임의 노드 창 &quot; &quot; 스크린샷.":::
 
 #### <a name="cause"></a>원인
 
@@ -119,7 +119,7 @@ SSL/TLS 핸드셰이크와 관련된 사례를 처리할 때 인증서 체인 �
        
        b. 파일 탐색기의 왼쪽 창에서 확인할 인증서를 검색하고 마우스 오른쪽 단추를 클릭한 다음 **모든 작업** > **내보내기** 를 선택합니다.
     
-        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png" alt-text="&quot; &quot;  >  &quot; &quot; &quot; 컴퓨터 인증서 관리 창에서 인증서에 대 한 모든 작업 내보내기 컨트롤 &quot; 의 스크린샷":::
+        :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png" alt-text="&quot;컴퓨터 인증서 관리 창의 인증서에 대한 모든 작업 &quot;  >  &quot; 내보내기 &quot; 컨트롤의 &quot; 스크린샷. &quot;":::
 
     2. 내보낸 인증서를 클라이언트 컴퓨터에 복사합니다. 
     3. 클라이언트 쪽 명령 프롬프트 창에서 다음 명령을 실행합니다. *\<certificate path>* 및 *\<output txt file path>* 을 실제 경로로 바꾸어야 합니다.
@@ -206,7 +206,7 @@ SSL/TLS 핸드셰이크와 관련된 사례를 처리할 때 인증서 체인 �
 
 다음 오류에서 *System.ValueTuple* 어셈블리가 누락된 것을 분명히 알 수 있습니다. 이 문제는 애플리케이션이 *System.ValueTuple.dll* 어셈블리를 확인하려고 할 때 발생합니다.
  
-"\<LogProperties>\<ErrorInfo>[{"Code":0,"Message":"'Npgsql.PoolManager'의 형식 이니셜라이저에서 예외를 throw했습니다.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"파일 또는 어셈블리 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' 또는 해당 종속성 중 하나를 로드할 수 없습니다. 시스템이 지정된 파일을 찾을 수 없습니다.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]\</ErrorInfo>\</LogProperties>"
+> "\<LogProperties>\<ErrorInfo>[{"Code":0,"Message":"'Npgsql.PoolManager'의 형식 이니셜라이저에서 예외를 throw했습니다.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"파일 또는 어셈블리 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' 또는 해당 종속성 중 하나를 로드할 수 없습니다. 시스템이 지정된 파일을 찾을 수 없습니다.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]\</ErrorInfo>\</LogProperties>"
  
 GAC에 대한 자세한 내용은 [전역 어셈블리 캐시](/dotnet/framework/app-domains/gac)를 참조하세요.
 
@@ -355,6 +355,66 @@ GAC에 대한 자세한 내용은 [전역 어셈블리 캐시](/dotnet/framework
     1. **NT SERVICE\DIAHostService** 를 선택하여 이 인증서에 대한 모든 제어 액세스 권한을 부여하고 적용하여 안전하게 합니다. 
     1. **이름 확인** 을 선택한 다음, **확인** 을 선택합니다.
     1. "권한" 창에서 **적용** 을 선택한 다음 **확인** 을 선택합니다.
+
+### <a name="usererrorjrenotfound-error-message-when-you-run-a-copy-activity-to-azure"></a>Azure에 복사 활동을 실행할 때 UserErrorJreNotFound 오류 메시지
+
+#### <a name="symptoms"></a>증상 
+
+Java 기반 도구 또는 프로그램(예: ORC 또는 Parquet 서식 파일 복사)을 사용하여 콘텐츠를 Microsoft Azure 복사하려고 하면 다음과 유사한 오류 메시지가 표시됩니다.
+
+> ErrorCode=UserErrorJreNotFound,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Java Runtime Environment 찾을 수 없습니다. `http://go.microsoft.com/fwlink/?LinkId=808605`으로 이동하여 Integration Runtime(자체 호스팅) 노드 머신을 다운로드하고 설치합니다. 참고 64비트 Integration Runtime 64비트 JRE가 필요하고 32비트 Integration Runtime 32비트 JRE가 필요합니다.,Source=Microsoft.DataTransfer.Common,'Type=System.DllNotFoundException,Message=DLL 'jvm.dll'을 로드할 수 없습니다. 지정된 모듈을 찾을 수 없습니다. (HRESULT: 0x8007007E 예외), Source=Microsoft.DataTransfer.Richfile.HiveOrcBridge
+
+#### <a name="cause"></a>원인
+
+이 문제는 다음과 같은 이유로 발생합니다.
+
+- JRE(Java Runtime Environment)가 Integration Runtime 서버에 올바르게 설치되지 않았습니다.
+
+- Integration Runtime 서버에 JRE에 필요한 종속성이 없습니다.
+
+기본적으로 Integration Runtime 레지스트리 항목을 사용하여 JRE 경로를 확인합니다. 이러한 항목은 JRE 설치 중에 자동으로 설정되어야 합니다.
+
+#### <a name="resolution"></a>해결 방법
+
+이 섹션의 단계를 신중하게 따릅니다. 레지스트리를 잘못 수정할 경우 심각한 문제가 발생할 수 있습니다. 수정하기 전에, 문제가 발생할 경우를 대비하여 [복원을 위해 레지스트리를 백업](https://support.microsoft.com/topic/how-to-back-up-and-restore-the-registry-in-windows-855140ad-e318-2a13-2829-d428a2ab0692)해 두세요. 
+
+이 문제를 해결하려면 다음 단계에 따라 JRE 설치 상태를 확인합니다.
+
+1. Integration Runtime(Diahost.exe) 및 JRE가 동일한 플랫폼에 설치되어 있는지 확인합니다. 다음과 같은 사항을 확인하십시오.
+    - 64비트 ADF Integration Runtime 64비트 JRE는 폴더에 설치해야 합니다. `C:\Program Files\Java\`
+    
+        > [!NOTE]
+        > 폴더가 이 아닌 경우 `C:\Program Files (x86)\Java\`
+    
+    - JRE 7 및 JRE 8은 모두 이 복사 작업과 호환됩니다. JRE 6 및 JRE 6 이전 버전은 이 사용에 대해 유효성이 검사되지 않았습니다.
+
+2. 레지스트리에서 적절한 설정을 확인합니다. 이렇게 하려면 다음 단계를 따르십시오.
+
+    1. **실행** 메뉴에서 **Regedit** 를 입력한 다음 Enter 키를 누릅니다.
+    
+    1. 탐색 창에서 다음 하위 키를 찾습니다.<br/> `HKEY_LOCAL_MACHINE\SOFTWARE\JavaSoft\Java Runtime Environment`. <br/> 
+
+        세부 **정보** 창에는 JRE 버전(예: 1.8)을 표시하는 현재 버전 항목이 있어야 합니다.
+    
+        :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/java-runtime-environment-image.png" alt-text="Java Runtime Environment 보여주는 스크린샷.":::
+
+    1. 탐색 창의 JRE 폴더 아래에서 버전(예: 1.8)과 정확히 일치하는 하위 키를 찾습니다. 세부 정보 창에 **JavaHome** 항목이 있어야 합니다. 이 항목의 값은 JRE 설치 경로입니다.
+    
+        :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/java-home-entry-image.png" alt-text="JavaHome 항목을 보여주는 스크린샷.":::
+
+3. 다음 경로에서 bin\server 폴더를 찾습니다. <br/> 
+
+    `C:\Program Files\Java\jre1.8.0_74`
+    
+    :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/folder-of-jre.png" alt-text="JRE 폴더를 보여주는 스크린샷.":::
+
+1. 이 폴더에 jvm.dll 파일이 포함되어 있는지 확인합니다. 그렇지 않으면 폴더에서 파일을 `bin\client` 확인합니다.
+
+    :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/file-location-image.png" alt-text="jvm.dll 파일 위치를 보여주는 스크린샷.":::
+
+> [!NOTE]
+> - 이러한 구성 중 이러한 단계에 설명되지 않은 구성이 있는 경우 [JRE 창 설치](https://java.com/en/download/manual.jsp) 관리자를 사용하여 문제를 해결합니다.
+> - 이러한 단계의 모든 구성이 설명된 대로 올바른 경우 시스템에 VC++ 런타임 라이브러리가 누락될 수 있습니다. VC++ 2010 재배포 가능 패키지를 설치하여 이 문제를 해결할 수 있습니다.
 
 ## <a name="self-hosted-ir-setup"></a>자체 호스팅 IR 설정
 
@@ -604,7 +664,7 @@ Azure Data Factory v1 고객의 경우:
 
 예상되는 응답은 다음과 같습니다.
             
-:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png" alt-text="필요한 Powershell 명령 응답의 스크린샷":::
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png" alt-text="필요한 PowerShell 명령 응답의 스크린샷":::
 
 > [!NOTE] 
 > 프록시 고려 사항:

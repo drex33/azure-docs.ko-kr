@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6507e2367005c1f400c68f46f2ea15705205e819
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 81b40887710645f4ee9164ab6c6c2da3bf60e0da
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130262986"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131466583"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Azure에서 SAP HANA 인프라 구성 및 작업
 이 문서에서는 Azure VM(Virtual Machines)에 배포된 SAP HANA 시스템 운영 및 Azure 인프라 구성을 위한 지침을 제공합니다. 또한 M128s VM SKU용 SAP HANA 스케일 아웃을 위한 구성 정보가 포함됩니다. 이 문서는 다음 내용을 포함하는 표준 SAP 설명서를 대체하기 위한 것이 아닙니다.
@@ -67,7 +67,7 @@ VPN 또는 ExpressRoute를 통한 사이트 간 연결은 프로덕션 시나리
 [SAP 클라우드 플랫폼](https://cal.sap.com/)을 통해 Azure VM 서비스에 전체 설치된 SAP HANA 플랫폼을 배포할 수도 있습니다. 설치 프로세스는 [Azure에서 SAP S/4HANA 또는 BW/4HANA 배포](./cal-s4h.md)에 설명되어 있거나 [GitHub](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)에서 릴리스된 자동화로 설명됩니다.
 
 >[!IMPORTANT]
-> M208xx_v2 VM을 사용하려면 Azure VM 이미지 갤러리에서 Linux 이미지를 신중하게 선택해야 합니다. 세부 정보를 확인하려면 [메모리 최적화 가상 머신 크기](../../mv2-series.md)문서를 참조하세요.
+> M208xx_v2 Vm을 사용 하려면 Linux 이미지를 신중 하 게 선택 해야 합니다. 자세한 내용은 메모리 액세스에 [최적화 된 가상 머신 크기](../../mv2-series.md)를 참조 하세요.
 > 
 
 
@@ -143,7 +143,7 @@ SAP HANA 스케일 아웃에 대한 VM 노드의 기본 구성은 다음과 같�
 - 모든 다른 디스크 볼륨은 서로 다른 노드 간에 공유되지 않으며 NFS를 기반으로 하지 않습니다. 공유되지 않는 **hana/data** 및 **/hana/log** 를 사용한 스케일 아웃 HANA 설치에 관한 설치 구성 및 단계는 이 문서의 뒷부분에서 제공됩니다. 사용할 수 있는 HANA 인증 스토리지는 [SAP HANA Azure 가상 머신 스토리지 구성](./hana-vm-operations-storage.md) 문서를 확인하세요.
 
 
-볼륨이나 디스크 크기를 조정하는 경우 [SAP HANA TDI 스토리지 요구 사항](https://blogs.saphana.com/wp-content/uploads/2015/02/Storage-Whitepaper-2-54.pdf)문서에서 작업자 노드 수에 따라 필요한 크기를 확인해야 합니다. 이 문서에는 필요한 볼륨 용량을 구하기 위해 적용해야 하는 수식이 나와 있습니다.
+볼륨이나 디스크 크기를 조정하는 경우 [SAP HANA TDI 스토리지 요구 사항](https://archive.sap.com/kmuuid2/70c8e423-c8aa-3210-3fae-e043f5c1ca92/SAP%20HANA%20TDI%20-%20Storage%20Requirements.pdf)문서에서 작업자 노드 수에 따라 필요한 크기를 확인해야 합니다. 이 문서에는 필요한 볼륨 용량을 구하기 위해 적용해야 하는 수식이 나와 있습니다.
 
 스케일 아웃 SAP HANA VM에 대한 단일 노드 구성의 그래픽에 표시되는 다른 설계 기준은 VNet 또는 그 이상의 서브넷 구성입니다. SAP는 HANA 노드 간 통신으로부터 트래픽 발생 클라이언트/애플리케이션을 분리할 것을 권장합니다. 그래픽에서와 같이 이는 두 개의 다른 vNIC를 VM에 연결하여 달성됩니다. 두 vNIC는 서로 다른 서브넷에 있고, 서로 다른 두 IP 주소를 가집니다. 그런 다음, NSG 또는 사용자 정의 경로를 사용하여 라우팅 규칙을 통해 트래픽 흐름을 제어합니다.
 

@@ -3,19 +3,19 @@ title: '빠른 시작: Node.js 콘솔 앱에서 Microsoft Graph 호출 | Azure'
 titleSuffix: Microsoft identity platform
 description: 이 빠른 시작에서는 Node.js 콘솔 애플리케이션이 앱의 자체 ID를 사용하여 액세스 토큰을 가져오고 Microsoft ID 플랫폼 엔드포인트로 보호되는 API를 호출하는 방법을 보여주는 샘플을 다운로드하고 실행합니다.
 services: active-directory
-author: KarenH444
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.date: 02/17/2021
-ms.author: karenhoran
-ms.openlocfilehash: 84dcc9861bd7b7288e0feefbc32ce1bf820eef7f
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.author: marsma
+ms.openlocfilehash: 9a75435ca75e5d6638315f3c96716c091048694f
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130163809"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131502071"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-nodejs-console-app-using-apps-identity"></a>빠른 시작: 앱의 ID를 사용하여 Node.js 콘솔 앱에서 토큰 가져오기 및 Microsoft Graph API 호출
 

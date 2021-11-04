@@ -10,12 +10,12 @@ ms.date: 06/22/2020
 ms.author: procha
 ms.reviewer: charlesf
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f80362f8c9b5e096ab50ddb2ca2ff3948ee49974
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 03317ce387693108dc5762917ba67ef32cc7453c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123482033"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131460086"
 ---
 # <a name="azure-synapse-analytics-machine-learning-and-ai-partners"></a>Azure Synapse Analytics 기계 학습 및 AI 파트너
 
@@ -27,6 +27,7 @@ ms.locfileid: "123482033"
 | ![Dataiku](./media/machine-learning-and-ai/dataiku-logo.png) |**Dataiku**<br>Dataiku는 데이터 과정을 따라 대규모 분석에서 엔터프라이즈 AI로 비즈니스를 이동하여 셀프 서비스 분석을 작동시키는 동시에 프로덕션에서 기계 학습 모델의 운영화를 보장하는 중앙화된 데이터 플랫폼입니다. |[제품 페이지](https://www.dataiku.com/partners/microsoft/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/dataiku.dataiku-data-science-studio)<br> |
 | ![MATLAB](./media/machine-learning-and-ai/mathworks-logo.png) |**Matlab**<br>MATLAB®는 엔지니어와 과학자를 위해 디자인된 프로그래밍 플랫폼입니다. 반복 분석 및 디자인 프로세스에 맞게 조정된 데스크톱 환경을 행렬 및 배열 수학을 직접 표현하는 프로그래밍 언어와 결합합니다. 전 세계 수백만 명이 기계 학습, 딥 러닝, 신호 및 이미지 처리, 제어 시스템, 계산 재정을 포함한 다양한 애플리케이션에 MATLAB를 사용합니다. |[제품 페이지](https://www.mathworks.com/products/database.html)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/mathworks-inc.matlab-byol?tab=Overview)<br> |
 | ![Qubole](./media/data-integration/qubole_logo.png) |**Qubole**<br>Qubole는 사용자가 ETL, 분석 및 AI/ML 워크로드를 수행할 수 있도록 하는 클라우드 네이티브 플랫폼을 제공합니다. Apache Spark, TensorFlow, Presto, Airflow, Hadoop, Hive 등의 다양한 종류의 오픈 소스 엔진을 지원합니다. 또한 SQL 쿼리 도구부터 강력한 오픈 소스 엔진을 사용하는 Notebook, 대시보드까지, 데이터 처리를 위한 사용하기 쉬운 최종 사용자 도구를 제공합니다.|[제품 페이지](https://www.qubole.com/company/partners/partners-microsoft-azure/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qubole-inc.qubole-data-service?tab=Overview) 
+| ![SAS](./media/business-intelligence/sas-logo.jpg) |**SAS®®**<br>SAS®®은 확장 가능한 클라우드 기본 아키텍처에서 실행 되는 AI, 분석 및 데이터 관리 솔루션입니다. 이를 통해 데이터 과학자에서 비즈니스 사용자에 이르는 모든 사용자가 공동 작업을 하 고 혁신적인 결과를 운영 수 있습니다. 오픈 소스 또는 SAS 모델을 사용 하 여 SAS®® Api 또는 대화형 인터페이스를 통해 액세스 하 여 원시 데이터를 작업으로 변환할 수 있습니다. |[제품 페이지](https://www.sas.com/microsoft)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/sas-institute-560503.sas-viya-saas?tab=Overview)<br> |
 
 ## <a name="next-steps"></a>다음 단계
 다른 파트너에 관해 자세히 알아보려면 [비즈니스 인텔리전스 파트너](business-intelligence.md), [데이터 통합 파트너](data-integration.md) 및 [데이터 관리 파트너](data-management.md)를 참조하세요.

@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Automation 계정 인증의 개요를 제
 keywords: 자동화 보안, 안전한 자동화, 자동화 인증
 services: automation
 ms.subservice: process-automation
-ms.date: 08/02/2021
+ms.date: 10/26/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5a86a5c8c0922e0861411e93376047344ba6c5af
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 08f265d4e2af8fe985db3ceab78b535db2f73924
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124789107"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131470873"
 ---
 # <a name="azure-automation-account-authentication-overview"></a>Azure Automation 계정 인증 개요
 
@@ -22,7 +22,7 @@ Azure Automation을 사용하여 Azure, 온-프레미스 및 AWS(Amazon 웹 서�
 
 ## <a name="automation-account"></a>Automation 계정
 
-Azure Automation을 처음 시작하려면 Automation 계정을 하나 이상 만들어야 합니다. Automation 계정을 사용하면 다른 Automation 계정의 리소스에서 사용자의 Automation 리소스, Runbook, 자산, 구성을 격리할 수 있습니다. Automation 계정을 사용하여 리소스를 별도의 논리적 환경 또는 위임된 책임으로 구분할 수 있습니다. 예를 들어 개발, 프로덕션, 온-프레미스 환경에 서로 다른 계정을 사용할 수 있습니다. 또는 [업데이트 관리](update-management/overview.md)로 모든 컴퓨터의 운영 체제 업데이트를 관리하는 Automation 계정을 전용으로 사용할 수 있습니다. 
+Azure Automation을 처음 시작하려면 Automation 계정을 하나 이상 만들어야 합니다. Automation 계정을 사용하면 다른 Automation 계정의 리소스에서 사용자의 Automation 리소스, Runbook, 자산, 구성을 격리할 수 있습니다. Automation 계정을 사용하여 리소스를 별도의 논리적 환경 또는 위임된 책임으로 구분할 수 있습니다. 예를 들어 개발, 프로덕션, 온-프레미스 환경에 서로 다른 계정을 사용할 수 있습니다. 또는 [업데이트 관리](update-management/overview.md)로 모든 컴퓨터의 운영 체제 업데이트를 관리하는 Automation 계정을 전용으로 사용할 수 있습니다.
 
 Azure Automation 계정은 Microsoft 계정 또는 Azure 구독에서 만든 계정과 다릅니다. Automation 계정 만들기에 대한 소개는 [Automation 계정 만들기](./quickstarts/create-account-portal.md)를 참조하세요.
 
@@ -32,30 +32,30 @@ Azure Automation 계정은 Microsoft 계정 또는 Azure 구독에서 만든 계
 
 Azure Automation에서 Azure Resource Manager 및 PowerShell cmdlet을 사용하여 리소스에 대해 만드는 모든 작업은 Azure AD(Azure Active Directory) 조직 ID 자격 증명 기반 인증을 사용하여 Azure에 인증해야 합니다.
 
-## <a name="managed-identities-preview"></a>관리 ID(미리 보기)
+## <a name="managed-identities"></a>관리 ID
 
 Azure AD(Azure Active Directory)의 관리 ID를 사용하면 Runbook에서 다른 Azure AD 보호 리소스에 쉽게 액세스할 수 있습니다. ID는 Azure 플랫폼에서 관리되며, 비밀을 프로비저닝하거나 회전하지 않아도 됩니다. Azure AD의 관리 ID에 대한 자세한 내용은 [Azure 리소스의 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
 
+관리 ID는 Runbook에서 인증하는 데 권장되는 방법이며 Automation 계정의 기본 인증 방법입니다.
+
 관리 ID를 사용하는 경우 얻을 수 있는 몇 가지 혜택은 다음과 같습니다.
 
-- Automation 실행 계정 대신 관리 ID를 사용하면 관리가 더 간단해집니다. 실행 계정에서 사용되는 인증서를 갱신할 필요가 없습니다.
+- Automation 실행 계정 대신 관리 ID를 사용하면 관리가 간소화됩니다. 실행 계정에서 사용되는 인증서를 갱신할 필요가 없습니다.
 
 - 관리 ID는 추가 비용 없이 사용할 수 있습니다.
 
-- Automation 실행 계정에서 사용하는 인증서를 갱신할 필요가 없습니다.
-
 - Runbook 코드에서 실행 연결 개체를 지정할 필요가 없습니다. 인증서, 연결, 실행 계정 등을 만들지 않고 Runbook에서 Automation 계정의 관리 ID를 사용하여 리소스에 액세스할 수 있습니다.
 
-Automation 계정에는 다음 두 가지 유형의 ID를 부여할 수 있습니다.
+Automation 계정은 다음 두 가지 유형의 관리 ID를 사용하여 인증할 수 있습니다.
 
 - 시스템 할당 ID는 애플리케이션에 연결되어 있어 해당 앱을 삭제하면 이 ID도 삭제됩니다. 앱에는 하나의 시스템 할당 ID만 있을 수 있습니다.
 
 - 사용자 할당 ID는 앱에 할당할 수 있는 독립 실행형 Azure 리소스입니다. 앱에는 여러 사용자 할당 ID가 있을 수 있습니다.
 
 > [!NOTE]
-> 사용자가 할당한 ID는 클라우드 작업에서만 지원됩니다. 다양한 관리 ID에 대한 자세한 내용은 [ID 유형 관리](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)를 참조하세요.
+> 사용자 할당 ID는 클라우드 작업에 대해서만 지원됩니다. 다양한 관리 ID에 대한 자세한 내용은 [ID 유형 관리](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)를 참조하세요.
 
-관리 ID 사용에 대한 자세한 내용은 [Azure Automation에 관리 ID 사용(미리 보기)](enable-managed-identity-for-automation.md)을 참조하세요.
+관리 ID 사용에 대한 자세한 내용은 [Azure Automation 관리 ID 사용을](enable-managed-identity-for-automation.md)참조하세요.
 
 ## <a name="run-as-accounts"></a>실행 계정
 
@@ -66,6 +66,9 @@ Azure Automation의 실행 계정은 클래식 배포 모델로 배포된 리소
 - 구독,
 - Azure AD(Azure Active Directory),
 - Automation 계정
+
+> [!NOTE]
+> Azure Automation 실행 계정을 자동으로 만들지 않습니다. 관리 ID를 사용하여 대체되었습니다.
 
 ### <a name="subscription-permissions"></a>구독 권한
 
@@ -100,8 +103,10 @@ Azure Resource Manager 및 클래식 배포 모델에 대한 자세한 내용은
 
 Automation 계정을 만들면 실행 계정은 기본적으로 자체 서명된 인증서와 함께 동시에 만들어집니다. Automation 계정과 함께 만들지 않기로 선택하면 나중에 개별적으로 만들 수 있습니다. Azure 클래식 실행 계정은 선택 사항이며 클래식 리소스를 관리해야 하는 경우 별도로 생성됩니다.
 
-자체 서명된 기본 인증서 대신 엔터프라이즈 또는 타사 CA(인증 기관)에서 발급한 인증서를 사용하려면 실행 및 클래식 실행 계정에 대한 [실행 계정을 만드는 PowerShell 스크립트](create-run-as-account.md#powershell-script-to-create-a-run-as-account) 옵션을 사용할 수 있습니다.
+> [!NOTE]
+> Azure Automation 실행 계정을 자동으로 만들지 않습니다. 관리 ID를 사용하여 대체되었습니다.
 
+자체 서명된 기본 인증서 대신 엔터프라이즈 또는 타사 CA(인증 기관)에서 발급한 인증서를 사용하려면 실행 및 클래식 실행 계정에 대한 [실행 계정을 만드는 PowerShell 스크립트](create-run-as-account.md#powershell-script-to-create-a-run-as-account) 옵션을 사용할 수 있습니다.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWwtF3]
 

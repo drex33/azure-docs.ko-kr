@@ -1,5 +1,5 @@
 ---
-title: 클라우드용 Microsoft Defender의 SQL 정보 보호 정책
+title: Microsoft Defender for Cloud의 SQL 정보 보호 정책
 description: Microsoft Defender for Cloud에서 정보 보호 정책을 사용자 지정하는 방법을 알아봅니다.
 services: security-center
 documentationcenter: na
@@ -13,15 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 83db40485e425618637b8dea75a7e3cae254637c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 82a16ff353261218859e01c6ea227dbca918d0f2
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131102797"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131472127"
 ---
-# <a name="sql-information-protection-policy-in-microsoft-defender-for-cloud"></a>클라우드용 Microsoft Defender의 SQL 정보 보호 정책
+# <a name="sql-information-protection-policy-in-microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud의 SQL 정보 보호 정책
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -156,4 +155,4 @@ Azure 테넌트에 대한 정보 보호 정책을 사용자 지정하려면, 테
 Defender for Cloud의 보안 정책 및 데이터 보안에 대한 자세한 내용은 다음 문서를 참조하세요.
  
 - [Microsoft Defender for Cloud에서 보안 정책 설정:](tutorial-security-policy.md)Azure 구독 및 리소스 그룹에 대한 보안 정책을 구성하는 방법을 알아봅니다.
-- [Microsoft Defender for Cloud 데이터 보안:](data-security.md)Defender for Cloud에서 데이터를 관리하고 보호하는 방법을 알아봅니다.
+- [클라우드용 Microsoft Defender 데이터 보안:](data-security.md)Defender for Cloud에서 데이터를 관리하고 보호하는 방법을 알아봅니다.

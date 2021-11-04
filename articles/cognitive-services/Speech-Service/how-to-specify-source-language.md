@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: qiohu
 zone_pivot_groups: programming-languages-set-two
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1b134fd3d09eeda340e7323638a36b68336242c2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 8ef79c841fcbaecb2b70ad0a95ce04c9628e4709
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91362030"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131508291"
 ---
 # <a name="specify-source-language-for-speech-to-text"></a>음성 텍스트 변환에 대한 소스 언어 지정
 
@@ -33,14 +33,14 @@ ms.locfileid: "91362030"
 var recognizer = new SpeechRecognizer(speechConfig, "de-DE", audioConfig);
 ```
 
-다음 예에서는 소스 언어가 `SourceLanguageConfig`를 사용하여 제공됩니다. 그런 다음 `sourceLanguageConfig`가 `SpeechRecognizer` 구성에 매개 변수로 전달됩니다.
+다음 예에서는 소스 언어가 `SourceLanguageConfig`을 사용하여 제공됩니다. 그런 다음 `sourceLanguageConfig`이 `SpeechRecognizer` 구성에 매개 변수로 전달됩니다.
 
 ```csharp
 var sourceLanguageConfig = SourceLanguageConfig.FromLanguage("de-DE");
 var recognizer = new SpeechRecognizer(speechConfig, sourceLanguageConfig, audioConfig);
 ```
 
-다음 예에서 소스 언어 및 사용자 지정 엔드포인트는 `SourceLanguageConfig`를 사용하여 제공됩니다. 그런 다음 `sourceLanguageConfig`가 `SpeechRecognizer` 구성에 매개 변수로 전달됩니다.
+다음 예에서 소스 언어 및 사용자 지정 엔드포인트는 `SourceLanguageConfig`을 사용하여 제공됩니다. 그런 다음 `sourceLanguageConfig`가 `SpeechRecognizer` 구성에 매개 변수로 전달됩니다.
 
 ```csharp
 var sourceLanguageConfig = SourceLanguageConfig.FromLanguage("de-DE", "The Endpoint ID for your custom model.");
@@ -122,7 +122,7 @@ speech_recognizer = speechsdk.SpeechRecognizer(
         speech_config=speech_config, language="de-DE", audio_config=audio_config)
 ```
 
-다음 예에서는 소스 언어가 `SourceLanguageConfig`를 사용하여 제공됩니다. 그런 다음 `SourceLanguageConfig`가 `SpeechRecognizer` 구성에 매개 변수로 전달됩니다.
+다음 예에서는 소스 언어가 `SourceLanguageConfig`을 사용하여 제공됩니다. 그런 다음 `SourceLanguageConfig`이 `SpeechRecognizer` 구성에 매개 변수로 전달됩니다.
 
 ```Python
 source_language_config = speechsdk.languageconfig.SourceLanguageConfig("de-DE")
@@ -130,7 +130,7 @@ speech_recognizer = speechsdk.SpeechRecognizer(
         speech_config=speech_config, source_language_config=source_language_config, audio_config=audio_config)
 ```
 
-다음 예에서 소스 언어 및 사용자 지정 엔드포인트는 `SourceLanguageConfig`를 사용하여 제공됩니다. 그런 다음 `SourceLanguageConfig`가 `SpeechRecognizer` 구성에 매개 변수로 전달됩니다.
+다음 예에서 소스 언어 및 사용자 지정 엔드포인트는 `SourceLanguageConfig`을 사용하여 제공됩니다. 그런 다음 `SourceLanguageConfig`가 `SpeechRecognizer` 구성에 매개 변수로 전달됩니다.
 
 ```Python
 source_language_config = speechsdk.languageconfig.SourceLanguageConfig("de-DE", "The Endpoint ID for your custom model.")

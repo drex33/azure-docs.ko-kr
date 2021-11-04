@@ -1,20 +1,20 @@
 ---
 title: '자습서: 웹 서비스를 Bing Maps에서 Microsoft Azure Maps로 마이그레이션'
 description: Bing Maps에서 Microsoft Azure Maps로 웹 서비스를 마이그레이션하는 방법에 대한 자습서.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 04/26/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 361eca16094f48c957437eeb5ebdbf9b701d1049
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 244305dcc454287f2c68ec9b9c71145fb9a28641
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130265234"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473987"
 ---
 # <a name="tutorial-migrate-web-service-from-bing-maps"></a>자습서: Bing Maps에서 웹 서비스 마이그레이션
 
@@ -48,23 +48,23 @@ Azure 및 Bing Maps 둘 다 REST 웹 서비스를 통해 공간 API에 액세스
 
 다음 서비스 API는 현재 Azure Maps에서 사용할 수 없습니다.
 
--   최적화된 일정표 경로 - 계획됨. Azure Maps 경로 API는 단일 차량에 대한 외판원 최적화를 지원합니다.
--   이미지 메타데이터 – 주로 Bing Maps에서 타일 URL을 가져오는 데 사용됩니다. Azure Maps에는 지도 타일에 직접 액세스하기 위한 독립 실행형 서비스가 있습니다.
+* 최적화된 일정표 경로 - 계획됨. Azure Maps 경로 API는 단일 차량에 대한 외판원 최적화를 지원합니다.
+* 이미지 메타데이터 – 주로 Bing Maps에서 타일 URL을 가져오는 데 사용됩니다. Azure Maps에는 지도 타일에 직접 액세스하기 위한 독립 실행형 서비스가 있습니다.
 
 Azure Maps에는 다음과 같은 몇 가지 흥미로운 추가 REST 웹 서비스가 있습니다.
 
--   [Azure Maps Creator](./creator-indoor-maps.md) – 건물과 공간의 사용자 지정 프라이빗 디지털 트윈을 만듭니다.
--   [공간 작업](/rest/api/maps/spatial) - 복잡한 공간 계산과 작업(예: 지오펜싱)을 서비스로 오프로드합니다.
--   [지도 타일](/rest/api/maps/render/getmaptile) – 래스터 및 벡터 타일로 Azure Maps의 도로 및 이미지 타일에 액세스합니다.
--   [일괄 처리 라우팅](/rest/api/maps/route/postroutedirectionsbatchpreview) – 일정 기간 동안 단일 일괄 처리에서 최대 1,000개의 경로 요청을 만들 수 있습니다. 처리 속도를 높이기 위해 서버에서 경로가 병렬로 계산됩니다.
--   [트래픽](/rest/api/maps/traffic) 흐름 – 래스터 및 벡터 타일로 실시간 트래픽 흐름 데이터에 액세스합니다.
--   [지리적 위치 API(미리 보기)](/rest/api/maps/geolocation/get-ip-to-location) - IP 주소의 위치를 가져옵니다.
--   [날씨 서비스](/rest/api/maps/weather) – 실시간 및 예측 날씨 데이터에 대한 액세스 권한을 얻습니다.
+* [Azure Maps Creator](./creator-indoor-maps.md) – 건물과 공간의 사용자 지정 프라이빗 디지털 쌍을 만듭니다.
+* [공간 작업](/rest/api/maps/spatial) - 복잡한 공간 계산과 작업(예: 지오펜싱)을 서비스로 오프로드합니다.
+* [지도 타일](/rest/api/maps/render/getmaptile) – 래스터 및 벡터 타일로 Azure Maps의 도로 및 이미지 타일에 액세스합니다.
+* [일괄 처리 라우팅](/rest/api/maps/route/postroutedirectionsbatchpreview) – 일정 기간 동안 단일 일괄 처리에서 최대 1,000개의 경로 요청을 만들 수 있습니다. 처리 속도를 높이기 위해 서버에서 경로가 병렬로 계산됩니다.
+* [트래픽](/rest/api/maps/traffic) 흐름 – 래스터 및 벡터 타일로 실시간 트래픽 흐름 데이터에 액세스합니다.
+* [지리적 위치 API(미리 보기)](/rest/api/maps/geolocation/get-ip-to-location) - IP 주소의 위치를 가져옵니다.
+* [날씨 서비스](/rest/api/maps/weather) – 실시간 및 예측 날씨 데이터에 대한 액세스 권한을 얻습니다.
 
 다음 모범 사례 가이드도 꼭 검토하세요.
 
--   [검색 관련 모범 사례](./how-to-use-best-practices-for-search.md)
--   [라우팅 모범 사례](./how-to-use-best-practices-for-routing.md)
+* [검색 관련 모범 사례](./how-to-use-best-practices-for-search.md)
+* [라우팅 모범 사례](./how-to-use-best-practices-for-routing.md)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -78,11 +78,11 @@ Azure Maps에는 다음과 같은 몇 가지 흥미로운 추가 REST 웹 서비
 
 Azure Maps는 다음과 같은 주소를 지오코딩하는 여러 가지 방법을 제공합니다.
 
--   [자유 형식 주소 지오코딩](/rest/api/maps/search/getsearchaddress): 단일 주소 문자열(예: `"1 Microsoft way, Redmond, WA"`)을 지정하고 요청을 즉시 처리합니다. 이 서비스는 개별 주소를 신속하게 지오코딩해야 하는 경우에 추천합니다.
--   [정형 주소 지오코딩](/rest/api/maps/search/getsearchaddressstructured): 도로명, 구/군/시, 국가, 우편 번호 등의 단일 주소 부분을 지정하고 요청을 즉시 처리합니다. 이 서비스는 개별 주소를 신속하게 지오코딩하고 데이터를 개별 주소 부분으로 구문 분석해야 하는 경우에 추천합니다.
--   [일괄 처리 주소 지오코딩](/rest/api/maps/search/postsearchaddressbatchpreview): 최대 10,000개의 주소를 포함하는 요청을 만들고 일정 기간 동안 처리합니다. 모든 주소가 서버에서 병렬로 지오코딩되며, 코딩이 완료되면 전체 결과 세트를 다운로드할 수 있습니다. 이 서비스는 대형 데이터 세트를 지오코딩할 때 추천합니다.
--   [유사 항목 검색](/rest/api/maps/search/getsearchfuzzy): 이 API는 주소 지오코딩을 관심 지점 검색과 결합합니다. 이 API는 주소, 장소, 랜드마크, 관심 지점 또는 관심 지점 범주일 수 있는 자유 형식 문자열을 사용하여 요청을 즉시 처리합니다. 이 API는 사용자가 같은 텍스트 상자에서 주소 또는 관심 지점을 검색할 수 있는 애플리케이션에 추천하는 방법입니다.
--   [유사 항목 일괄 검색](/rest/api/maps/search/postsearchfuzzybatchpreview): 최대 10,000개의 주소, 장소, 랜드마크 또는 관심 지점을 포함하는 요청을 만들고 일정 기간 동안 처리합니다. 모든 데이터가 서버에서 병렬로 처리되며, 처리가 완료되면 전체 결과 세트를 다운로드할 수 있습니다.
+* [자유 형식 주소 지오코딩](/rest/api/maps/search/getsearchaddress): 단일 주소 문자열(예: `"1 Microsoft way, Redmond, WA"`)을 지정하고 요청을 즉시 처리합니다. 이 서비스는 개별 주소를 신속하게 지오코딩해야 하는 경우에 추천합니다.
+* [정형 주소 지오코딩](/rest/api/maps/search/getsearchaddressstructured): 도로명, 구/군/시, 국가, 우편 번호 등의 단일 주소 부분을 지정하고 요청을 즉시 처리합니다. 이 서비스는 개별 주소를 신속하게 지오코딩하고 데이터를 개별 주소 부분으로 구문 분석해야 하는 경우에 추천합니다.
+* [일괄 처리 주소 지오코딩](/rest/api/maps/search/postsearchaddressbatchpreview): 최대 10,000개의 주소를 포함하는 요청을 만들고 일정 기간 동안 처리합니다. 모든 주소가 서버에서 병렬로 지오코딩되며, 코딩이 완료되면 전체 결과 세트를 다운로드할 수 있습니다. 이 서비스는 대형 데이터 세트를 지오코딩할 때 추천합니다.
+* [유사 항목 검색](/rest/api/maps/search/getsearchfuzzy): 이 API는 주소 지오코딩을 관심 지점 검색과 결합합니다. 이 API는 주소, 장소, 랜드마크, 관심 지점 또는 관심 지점 범주일 수 있는 자유 형식 문자열을 사용하여 요청을 즉시 처리합니다. 이 API는 사용자가 같은 텍스트 상자에서 주소 또는 관심 지점을 검색할 수 있는 애플리케이션에 추천하는 방법입니다.
+* [유사 항목 일괄 검색](/rest/api/maps/search/postsearchfuzzybatchpreview): 최대 10,000개의 주소, 장소, 랜드마크 또는 관심 지점을 포함하는 요청을 만들고 일정 기간 동안 처리합니다. 모든 데이터가 서버에서 병렬로 처리되며, 처리가 완료되면 전체 결과 세트를 다운로드할 수 있습니다.
 
 다음 표에서는 Bing Maps API 매개 변수를 정형 자유 형식 주소 지오코딩에 사용되는 Azure Maps의 비슷한 API 매개 변수와 상호 참조합니다.
 
@@ -135,9 +135,9 @@ Azure Maps는 다음 기능도 지원합니다.
 
 Azure Maps는 다음과 같은 여러 가지 역방향 지오코딩 방법을 제공합니다.
 
--   [주소 역방향 지오코딩](/rest/api/maps/search/getsearchaddressreverse): 단일 지리적 좌표를 지정하여 대략적인 주소를 가져오고 요청을 즉시 처리합니다.
--   [교차로 역방향 지오코딩](/rest/api/maps/search/getsearchaddressreversecrossstreet): 지리적 좌표 하나를 지정하여 인근의 교차로 정보(예: 1번가 및 메인 스트리트)를 가져오고 요청을 즉시 처리합니다.
--   [일괄 주소 역방향 지오코딩](/rest/api/maps/search/postsearchaddressreversebatchpreview): 최대 10,000개의 좌표를 포함하는 요청을 만들고 일정 기간 동안 처리합니다. 모든 데이터가 서버에서 병렬로 처리되며, 처리가 완료되면 전체 결과 세트를 다운로드할 수 있습니다.
+* [주소 역방향 지오코딩](/rest/api/maps/search/getsearchaddressreverse): 단일 지리적 좌표를 지정하여 대략적인 주소를 가져오고 요청을 즉시 처리합니다.
+* [교차로 역방향 지오코딩](/rest/api/maps/search/getsearchaddressreversecrossstreet): 지리적 좌표 하나를 지정하여 인근의 교차로 정보(예: 1번가 및 메인 스트리트)를 가져오고 요청을 즉시 처리합니다.
+* [일괄 주소 역방향 지오코딩](/rest/api/maps/search/postsearchaddressreversebatchpreview): 최대 10,000개의 좌표를 포함하는 요청을 만들고 일정 기간 동안 처리합니다. 모든 데이터가 서버에서 병렬로 처리되며, 처리가 완료되면 전체 결과 세트를 다운로드할 수 있습니다.
 
 다음 표에서는 Bing Maps API 매개 변수와 Azure Maps의 비슷한 API 매개 변수를 상호 참조합니다.
 
@@ -178,10 +178,10 @@ Azure Maps 역방향 지오코딩 API에는 Bing Maps에 없는 다음과 같은
 
 여러 Azure Maps 검색 API는 자동 제안 시나리오에 사용할 수 있는 예측 모드를 지원합니다. Azure Maps [유사 항목 검색](/rest/api/maps/search/getsearchfuzzy) API는 Bing Maps Autosuggest API와 가장 비슷합니다. 다음 API도 예측 모드를 지원하며, 쿼리에 `&typeahead=true`를 추가합니다.
 
--   [자유 형식 주소 지오코딩](/rest/api/maps/search/getsearchaddress): 단일 주소 문자열(예: `"1 Microsoft way, Redmond, WA"`)을 지정하고 요청을 즉시 처리합니다. 이 서비스는 개별 주소를 신속하게 지오코딩해야 하는 경우에 추천합니다.
--   [유사 항목 검색](/rest/api/maps/search/getsearchfuzzy): 이 API는 주소 지오코딩을 관심 지점 검색과 결합합니다. 이 API는 주소, 장소, 랜드마크, 관심 지점 또는 관심 지점 범주일 수 있는 자유 형식 문자열을 사용하여 요청을 즉시 처리합니다. 이 API는 사용자가 같은 텍스트 상자에서 주소 또는 관심 지점을 검색할 수 있는 애플리케이션에 추천하는 방법입니다.
--   [POI 검색](/rest/api/maps/search/getsearchpoi): 이름으로 관심 지점을 검색합니다. 예: `"starbucks"`.
--   [POI 범주 검색](/rest/api/maps/search/getsearchpoicategory): 범주로 관심 지점을 검색합니다. 예: "식당".
+* [자유 형식 주소 지오코딩](/rest/api/maps/search/getsearchaddress): 단일 주소 문자열(예: `"1 Microsoft way, Redmond, WA"`)을 지정하고 요청을 즉시 처리합니다. 이 서비스는 개별 주소를 신속하게 지오코딩해야 하는 경우에 추천합니다.
+* [유사 항목 검색](/rest/api/maps/search/getsearchfuzzy): 이 API는 주소 지오코딩을 관심 지점 검색과 결합합니다. 이 API는 주소, 장소, 랜드마크, 관심 지점 또는 관심 지점 범주일 수 있는 자유 형식 문자열을 사용하여 요청을 즉시 처리합니다. 이 API는 사용자가 같은 텍스트 상자에서 주소 또는 관심 지점을 검색할 수 있는 애플리케이션에 추천하는 방법입니다.
+* [POI 검색](/rest/api/maps/search/getsearchpoi): 이름으로 관심 지점을 검색합니다. 예: `"starbucks"`.
+* [POI 범주 검색](/rest/api/maps/search/getsearchpoicategory): 범주로 관심 지점을 검색합니다. 예: "식당".
 
 ## <a name="calculate-routes-and-directions"></a>경로 및 방향 계산
 
@@ -197,8 +197,8 @@ Azure Maps를 사용하여 경로 및 방향을 계산할 수 있습니다. Azur
 
 Azure Maps 라우팅 서비스는 경로 계산을 위한 다음 API를 제공합니다.
 
--   [경로 계산](/rest/api/maps/route/getroutedirections): 경로를 계산하고 요청을 즉시 처리합니다. 이 API는 GET 및 POST 요청을 모두 지원합니다. POST 요청은 많은 수의 중간 지점을 지정할 때 또는 URL 요청이 너무 길어서 문제가 발생하지 않도록 많은 경로 옵션을 사용할 때 추천하는 방법입니다.
--   [일괄 처리 경로](/rest/api/maps/route/postroutedirectionsbatchpreview): 최대 1,000개의 경로 요청을 포함하는 요청을 만들고 일정 기간 동안 처리합니다. 모든 데이터가 서버에서 병렬로 처리되며, 처리가 완료되면 전체 결과 세트를 다운로드할 수 있습니다.
+* [경로 계산](/rest/api/maps/route/getroutedirections): 경로를 계산하고 요청을 즉시 처리합니다. 이 API는 GET 및 POST 요청을 모두 지원합니다. POST 요청은 많은 수의 중간 지점을 지정할 때 또는 URL 요청이 너무 길어서 문제가 발생하지 않도록 많은 경로 옵션을 사용할 때 추천하는 방법입니다.
+* [일괄 처리 경로](/rest/api/maps/route/postroutedirectionsbatchpreview): 최대 1,000개의 경로 요청을 포함하는 요청을 만들고 일정 기간 동안 처리합니다. 모든 데이터가 서버에서 병렬로 처리되며, 처리가 완료되면 전체 결과 세트를 다운로드할 수 있습니다.
 
 다음 표에서는 Bing Maps API 매개 변수와 Azure Maps의 비슷한 API 매개 변수를 상호 참조합니다.
 
@@ -280,8 +280,8 @@ Azure Maps는 [경로 방향](/rest/api/maps/route/postroutedirections) API를 �
 |----------------------------|---------------------------------------------------------------------|
 | `points`                   | `supportingPoints` – 이 지점을 POST 요청의 본문에 전달합니다.  |
 | `interpolate`              | 해당 없음                                                                 |
-| `includeSpeedLimit`        | 해당 없음                                                                 |
-| `includeTruckSpeedLimit`   | 해당 없음                                                                 |
+| `includeSpeedLimit`        | N/A                                                                 |
+| `includeTruckSpeedLimit`   | N/A                                                                 |
 | `speedUnit`                | 해당 없음                                                                 |
 | `travelMode`               | `travelMode`                                                        |
 | `key`                      | `subscription-key` – [Azure Maps로 인증](./azure-maps-authentication.md) 설명서도 참조하세요. |
@@ -342,7 +342,7 @@ Azure Maps는 데이터가 오버레이된 정적 맵 이미지를 렌더링하�
 | `mapLayer` (`ml`)        | 해당 없음                                            |
 | `mapSize` (`ms`)         | `width` 및 `height` – 최대 크기는 8192x8192입니다. |
 | `declutterPins` (`dcl`)  | 해당 없음                                            |
-| `dpi`                    | 해당 없음                                            |
+| `dpi`                    | N/A                                            |
 | `drawCurve`              | `path`                                         |
 | `mapMetadata`            | 해당 없음                                            |
 | `pitch`                  | N/A – Streetside가 지원되지 않습니다.                |
@@ -363,8 +363,8 @@ Azure Maps는 데이터가 오버레이된 정적 맵 이미지를 렌더링하�
 
 정적 맵 이미지를 생성할 수 있다는 점 외에도, Azure Maps 렌더링 서비스는 래스터(PNG) 및 벡터 형식의 지도 타일에 직접 액세스할 수 있는 다음 기능을 제공합니다.
 
--   [지도 타일](/rest/api/maps/render/getmaptile) - 기본 맵(도로, 경계, 배경)의 래스터(PNG) 및 벡터 타일을 검색합니다.
--   [맵 이미지 타일](/rest/api/maps/render/getmapimagerytile) - 항공 및 위성 이미지 타일을 검색합니다.
+* [지도 타일](/rest/api/maps/render/getmaptile) - 기본 맵(도로, 경계, 배경)의 래스터(PNG) 및 벡터 타일을 검색합니다.
+* [맵 이미지 타일](/rest/api/maps/render/getmapimagerytile) - 항공 및 위성 이미지 타일을 검색합니다.
 
 ### <a name="pushpin-url-parameter-format-comparison"></a>압정 URL 매개 변수 형식 비교
 
@@ -471,7 +471,7 @@ Azure Maps의 경로 스타일은 `optionNameValue` 형식으로 추가되며, `
 
 Azure Maps는 위치 세트 간의 이동 시간 및 거리를 거리 행렬로 계산할 수 있는 API를 제공합니다. Azure Maps 거리 행렬 API는 Bing Maps의 거리 행렬 API와 유사합니다.
 
--   [경로 행렬](/rest/api/maps/route/postroutematrixpreview): 출발지 및 목적지 세트 간의 이동 시간 및 거리를 비동기적으로 계산합니다. 요청당 최대 700개 셀을 지원합니다(출발지 수 * 목적지 수). 이 제약 조건을 고려할 때 구현 가능한 행렬 크기는 `700x1`, `50x10`, `10x10`, `28x25`, `10x70`입니다.
+* [경로 행렬](/rest/api/maps/route/postroutematrixpreview): 출발지 및 목적지 세트 간의 이동 시간 및 거리를 비동기적으로 계산합니다. 요청당 최대 700개 셀을 지원합니다(출발지 수 * 목적지 수). 이 제약 조건을 고려할 때 구현 가능한 행렬 크기는 `700x1`, `50x10`, `10x10`, `28x25`, `10x70`입니다.
 
 > [!NOTE]
 > 거리 행렬 API에 대한 요청은 요청 본문에 출발지 및 목적지 정보가 포함된 POST 요청을 통해서만 만들 수 있습니다.</p>
@@ -500,7 +500,7 @@ Azure Maps는 위치 세트 간의 이동 시간 및 거리를 거리 행렬로 
 
 Azure Maps는 지정된 시간 또는 연료/요금 내에 원점에서 모든 방향으로 이동할 수 있는 영역을 포괄하는 다각형인 등시선을 계산할 수 있는 API를 제공합니다. Azure Maps 경로 범위 API는 Bing Maps의 등시선 API와 비슷합니다.
 
--   [경로](/rest/api/maps/route/getrouterange) 범위**: 지정된 시간, 거리 또는 사용 가능한 연료/요금 내에 원점에서 모든 방향으로 이동할 수 있는 영역을 포괄하는 다각형을 계산합니다.
+* [경로](/rest/api/maps/route/getrouterange) 범위**: 지정된 시간, 거리 또는 사용 가능한 연료/요금 내에 원점에서 모든 방향으로 이동할 수 있는 영역을 포괄하는 다각형을 계산합니다.
 
 > [!NOTE]
 > Azure Maps에서는 쿼리 원점이 좌표여야 합니다. 가장 먼저 주소를 지오코딩해야 합니다.</p>
@@ -529,19 +529,19 @@ Azure Maps는 지정된 시간 또는 연료/요금 내에 원점에서 모든 �
 
 Bing Maps에서는 다음 API를 사용하여 관심 지점 데이터를 검색할 수 있습니다.
 
--   **로컬 검색:** 이름 또는 엔터티 형식(범주)을 기준으로 근처(방사형 검색)의 관심 지점을 검색합니다. 이 API와 가장 비슷한 것은 Azure Maps [POI 검색](/rest/api/maps/search/getsearchpoi) 및 [POI 범주 검색](/rest/api/maps/search/getsearchpoicategory) API입니다.
--   **위치 인식**: 한 위치에서 특정 거리 내에 있는 관심 지점을 검색합니다. 이 API와 가장 비슷한 것은 Azure Maps [근처 검색](/rest/api/maps/search/getsearchnearby) API입니다.
--   **로컬 인사이트:** 특정 좌표로부터 지정된 최대 주행 시간 또는 거리 안에 있는 관심 지점을 검색합니다. 이렇게 하려면 등시선을 계산하여 [기하 도형 내에서 검색](/rest/api/maps/search/postsearchinsidegeometry) API로 전달해야 합니다.
+* **로컬 검색:** 이름 또는 엔터티 형식(범주)을 기준으로 근처(방사형 검색)의 관심 지점을 검색합니다. 이 API와 가장 비슷한 것은 Azure Maps [POI 검색](/rest/api/maps/search/getsearchpoi) 및 [POI 범주 검색](/rest/api/maps/search/getsearchpoicategory) API입니다.
+* **위치 인식**: 한 위치에서 특정 거리 내에 있는 관심 지점을 검색합니다. 이 API와 가장 비슷한 것은 Azure Maps [근처 검색](/rest/api/maps/search/getsearchnearby) API입니다.
+* **로컬 인사이트:** 특정 좌표로부터 지정된 최대 주행 시간 또는 거리 안에 있는 관심 지점을 검색합니다. 이렇게 하려면 등시선을 계산하여 [기하 도형 내에서 검색](/rest/api/maps/search/postsearchinsidegeometry) API로 전달해야 합니다.
 
 Azure Maps는 관심 지점에 대한 여러 검색 API를 제공합니다.
 
--   [POI 검색](/rest/api/maps/search/getsearchpoi): 이름으로 관심 지점을 검색합니다. 예: `"starbucks"`.
--   [POI 범주 검색](/rest/api/maps/search/getsearchpoicategory): 범주로 관심 지점을 검색합니다. 예: "식당".
--   [주변 검색](/rest/api/maps/search/getsearchnearby): 한 위치에서 특정 거리 내에 있는 관심 지점을 검색합니다.
--   [유사 항목 검색](/rest/api/maps/search/getsearchfuzzy): 이 API는 주소 지오코딩을 관심 지점 검색과 결합합니다. 이 API는 주소, 장소, 랜드마크, 관심 지점 또는 관심 지점 범주일 수 있는 자유 형식 문자열을 사용하여 요청을 즉시 처리합니다. 이 API는 사용자가 같은 텍스트 상자에서 주소 또는 관심 지점을 검색할 수 있는 애플리케이션에 추천하는 방법입니다.
--   [기하 도형 내에서 검색](/rest/api/maps/search/postsearchinsidegeometry): 지정된 기하 도형(다각형) 내에 있는 관심 지점을 검색합니다.
--   [경로를 따라 검색](/rest/api/maps/search/postsearchalongroute): 지정된 경로를 따라 있는 관심 지점을 검색합니다.
--   [유사 항목 일괄 검색](/rest/api/maps/search/postsearchfuzzybatchpreview): 최대 10,000개의 주소, 장소, 랜드마크 또는 관심 지점을 포함하는 요청을 만들고 일정 기간 동안 처리합니다. 모든 데이터가 서버에서 병렬로 처리되며, 처리가 완료되면 전체 결과 세트를 다운로드할 수 있습니다.
+* [POI 검색](/rest/api/maps/search/getsearchpoi): 이름으로 관심 지점을 검색합니다. 예: `"starbucks"`.
+* [POI 범주 검색](/rest/api/maps/search/getsearchpoicategory): 범주로 관심 지점을 검색합니다. 예: "식당".
+* [주변 검색](/rest/api/maps/search/getsearchnearby): 한 위치에서 특정 거리 내에 있는 관심 지점을 검색합니다.
+* [유사 항목 검색](/rest/api/maps/search/getsearchfuzzy): 이 API는 주소 지오코딩을 관심 지점 검색과 결합합니다. 이 API는 주소, 장소, 랜드마크, 관심 지점 또는 관심 지점 범주일 수 있는 자유 형식 문자열을 사용하여 요청을 즉시 처리합니다. 이 API는 사용자가 같은 텍스트 상자에서 주소 또는 관심 지점을 검색할 수 있는 애플리케이션에 추천하는 방법입니다.
+* [기하 도형 내에서 검색](/rest/api/maps/search/postsearchinsidegeometry): 지정된 기하 도형(다각형) 내에 있는 관심 지점을 검색합니다.
+* [경로를 따라 검색](/rest/api/maps/search/postsearchalongroute): 지정된 경로를 따라 있는 관심 지점을 검색합니다.
+* [유사 항목 일괄 검색](/rest/api/maps/search/postsearchfuzzybatchpreview): 최대 10,000개의 주소, 장소, 랜드마크 또는 관심 지점을 포함하는 요청을 만들고 일정 기간 동안 처리합니다. 모든 데이터가 서버에서 병렬로 처리되며, 처리가 완료되면 전체 결과 세트를 다운로드할 수 있습니다.
 
 [검색 모범 사례](./how-to-use-best-practices-for-search.md) 설명서를 검토하세요.
 
@@ -556,11 +556,11 @@ Bing Maps는 대화형 지도 컨트롤을 통해 트래픽 흐름 및 인시던
 
 트래픽 데이터는 Azure Maps 대화형 지도 컨트롤에도 통합되어 있습니다. Azure Maps는 다음과 같은 트래픽 서비스 API도 제공합니다.
 
--   [트래픽 흐름 세그먼트](/rest/api/maps/traffic/gettrafficflowsegment): 지정된 좌표와 가장 가까운 도로 조각의 속도와 이동 시간에 대한 정보를 제공합니다.
--   [트래픽 흐름 타일](/rest/api/maps/traffic/gettrafficflowtile): 트래픽 흐름 데이터를 포함하는 래스터 및 벡터 타일을 제공합니다. Azure Maps 컨트롤 또는 Leaflet 같은 타사 지도 컨트롤에서 사용할 수 있습니다. 벡터 타일은 고급 데이터 분석에도 사용할 수 있습니다.
--   [트래픽 인시던트 세부 정보](/rest/api/maps/traffic/gettrafficincidentdetail): 경계 상자, 확대/축소 수준 및 트래픽 모델 내에 있는 트래픽 인시던트 세부 정보를 제공합니다.
--   [트래픽 인시던트 타일](/rest/api/maps/traffic/gettrafficincidenttile): 트래픽 인시던트 데이터를 포함하는 래스터 및 벡터 타일을 제공합니다.
--   [트래픽 인시던트 뷰포트](/rest/api/maps/traffic/gettrafficincidentviewport): 트래픽 모델 ID처럼 요청에 설명된 뷰포트의 법률 및 기술 정보를 검색합니다.
+* [트래픽 흐름 세그먼트](/rest/api/maps/traffic/gettrafficflowsegment): 지정된 좌표와 가장 가까운 도로 조각의 속도와 이동 시간에 대한 정보를 제공합니다.
+* [트래픽 흐름 타일](/rest/api/maps/traffic/gettrafficflowtile): 트래픽 흐름 데이터를 포함하는 래스터 및 벡터 타일을 제공합니다. Azure Maps 컨트롤 또는 Leaflet 같은 타사 지도 컨트롤에서 사용할 수 있습니다. 벡터 타일은 고급 데이터 분석에도 사용할 수 있습니다.
+* [트래픽 인시던트 세부 정보](/rest/api/maps/traffic/gettrafficincidentdetail): 경계 상자, 확대/축소 수준 및 트래픽 모델 내에 있는 트래픽 인시던트 세부 정보를 제공합니다.
+* [트래픽 인시던트 타일](/rest/api/maps/traffic/gettrafficincidenttile): 트래픽 인시던트 데이터를 포함하는 래스터 및 벡터 타일을 제공합니다.
+* [트래픽 인시던트 뷰포트](/rest/api/maps/traffic/gettrafficincidentviewport): 트래픽 모델 ID처럼 요청에 설명된 뷰포트의 법률 및 기술 정보를 검색합니다.
 
 다음 표에서는 Bing Maps 트래픽 API 매개 변수와 Azure Maps의 비슷한 트래픽 인시던트 세부 정보 API 매개 변수를 상호 참조합니다.
 
@@ -578,7 +578,7 @@ Bing Maps는 대화형 지도 컨트롤을 통해 트래픽 흐름 및 인시던
 
 Azure Maps는 좌표가 속한 표준 시간대를 검색할 수 있는 API를 제공합니다. Azure Maps 표준 시간대 API는 Bing Maps의 표준 시간대 API와 비슷합니다.
 
--   [좌표 기준 표준 시간대](/rest/api/maps/timezone/gettimezonebycoordinates): 좌표를 지정하고 좌표가 속한 표준 시간대의 세부 정보를 가져옵니다.
+* [좌표 기준 표준 시간대](/rest/api/maps/timezone/gettimezonebycoordinates): 좌표를 지정하고 좌표가 속한 표준 시간대의 세부 정보를 가져옵니다.
 
 다음 표에서는 Bing Maps API 매개 변수와 Azure Maps의 비슷한 API 매개 변수를 상호 참조합니다.
 
@@ -594,11 +594,11 @@ Azure Maps는 좌표가 속한 표준 시간대를 검색할 수 있는 API를 �
 
 그 외에도 Azure Maps 플랫폼은 표준 시간대 이름 및 ID로 변환할 수 있는 다음과 같은 여러 표준 시간대 API를 추가로 제공합니다.
 
--   [ID 기준 표준 시간대](/rest/api/maps/timezone/gettimezonebyid): 지정된 IANA 표준 시간대 ID의 현재, 과거 및 미래 표준 시간대 정보를 반환합니다.
--   [표준 시간대 Enum IANA](/rest/api/maps/timezone/gettimezoneenumiana): IANA 표준 시간대 ID 전체 목록을 반환합니다. IANA 서비스 업데이트는 하루 이내에 시스템에 반영됩니다. 
--   [표준 시간대 Enum Windows](/rest/api/maps/timezone/gettimezoneenumwindows): Windows 표준 시간대 ID 전체 목록을 반환합니다.
--   [표준 시간대 IANA 버전](/rest/api/maps/timezone/gettimezoneianaversion): Azure Maps에서 사용하는 현재 IANA 버전 번호를 반환합니다. 
--   [표준 시간대 Windows-IANA](/rest/api/maps/timezone/gettimezonewindowstoiana): 유효한 Windows 표준 시간대 ID를 고려하여 해당하는 IANA ID를 반환합니다. Windows ID 하나에 여러 IANA ID가 반환될 수 있습니다.
+* [ID 기준 표준 시간대](/rest/api/maps/timezone/gettimezonebyid): 지정된 IANA 표준 시간대 ID의 현재, 과거 및 미래 표준 시간대 정보를 반환합니다.
+* [표준 시간대 Enum IANA](/rest/api/maps/timezone/gettimezoneenumiana): IANA 표준 시간대 ID 전체 목록을 반환합니다. IANA 서비스 업데이트는 하루 이내에 시스템에 반영됩니다. 
+* [표준 시간대 Enum Windows](/rest/api/maps/timezone/gettimezoneenumwindows): Windows 표준 시간대 ID 전체 목록을 반환합니다.
+* [표준 시간대 IANA 버전](/rest/api/maps/timezone/gettimezoneianaversion): Azure Maps에서 사용하는 현재 IANA 버전 번호를 반환합니다. 
+* [표준 시간대 Windows-IANA](/rest/api/maps/timezone/gettimezonewindowstoiana): 유효한 Windows 표준 시간대 ID를 고려하여 해당하는 IANA ID를 반환합니다. Windows ID 하나에 여러 IANA ID가 반환될 수 있습니다.
 
 ## <a name="spatial-data-services-sds"></a>SDS(Spatial Data Services)
 
@@ -618,11 +618,11 @@ Azure Maps에는 일괄 처리 지오코딩 서비스가 있지만, 단일 요�
 
 Azure Maps를 사용하여 대량의 주소를 지오코딩하는 또 다른 옵션은 표준 검색 API에 대한 병렬 요청을 만드는 것입니다. 이러한 서비스는 요청당 하나의 주소만 허용하지만, 무료 사용량 제한을 제공하는 S0 계층에도 사용할 수 있습니다. S0 계층은 단일 계정에서 Azure Maps 플랫폼으로 초당 최대 50개 요청을 보낼 수 있습니다. 따라서 이러한 제한 내에서만 처리할 경우 시간당 최대 180,000개 주소를 지오코딩할 수 있습니다. Gen 2 또는 S1 가격 책정 계층은 계정에서 수행할 수 있는 초당 쿼리 수에 대한 문서화된 제한이 없으므로 이 가격 책정 계층을 사용하면 훨씬 많은 데이터를 더 빠르게 처리할 수 있습니다. 그러나 일괄 처리 지오코딩 서비스를 사용하면 전송되는 총 데이터 양을 줄이고 네트워크 트래픽을 크게 줄일 수 있습니다.
 
--   [자유 형식 주소 지오코딩](/rest/api/maps/search/getsearchaddress): 단일 주소 문자열(예: `"1 Microsoft way, Redmond, WA"`)을 지정하고 요청을 즉시 처리합니다. 이 서비스는 개별 주소를 신속하게 지오코딩해야 하는 경우에 추천합니다.
--   [정형 주소 지오코딩](/rest/api/maps/search/getsearchaddressstructured): 도로명, 구/군/시, 국가, 우편 번호 등의 단일 주소 부분을 지정하고 요청을 즉시 처리합니다. 이 서비스는 개별 주소를 신속하게 지오코딩하고 데이터를 개별 주소 부분으로 구문 분석해야 하는 경우에 추천합니다.
--   [일괄 처리 주소 지오코딩](/rest/api/maps/search/postsearchaddressbatchpreview): 최대 10,000개의 주소를 포함하는 요청을 만들고 일정 기간 동안 처리합니다. 모든 주소가 서버에서 병렬로 지오코딩되며, 코딩이 완료되면 전체 결과 세트를 다운로드할 수 있습니다. 이 서비스는 대형 데이터 세트를 지오코딩할 때 추천합니다.
--   [유사 항목 검색](/rest/api/maps/search/getsearchfuzzy): 이 API는 주소 지오코딩을 관심 지점 검색과 결합합니다. 이 API는 주소, 장소, 랜드마크, 관심 지점 또는 관심 지점 범주일 수 있는 자유 형식 문자열을 사용하여 요청을 즉시 처리합니다. 이 API는 사용자가 같은 텍스트 상자에서 주소 또는 관심 지점을 검색할 수 있는 애플리케이션에 추천하는 방법입니다.
--   [유사 항목 일괄 검색](/rest/api/maps/search/postsearchfuzzybatchpreview): 최대 10,000개의 주소, 장소, 랜드마크 또는 관심 지점을 포함하는 요청을 만들고 일정 기간 동안 처리합니다. 모든 데이터가 서버에서 병렬로 처리되며, 처리가 완료되면 전체 결과 세트를 다운로드할 수 있습니다.
+* [자유 형식 주소 지오코딩](/rest/api/maps/search/getsearchaddress): 단일 주소 문자열(예: `"1 Microsoft way, Redmond, WA"`)을 지정하고 요청을 즉시 처리합니다. 이 서비스는 개별 주소를 신속하게 지오코딩해야 하는 경우에 추천합니다.
+* [정형 주소 지오코딩](/rest/api/maps/search/getsearchaddressstructured): 도로명, 구/군/시, 국가, 우편 번호 등의 단일 주소 부분을 지정하고 요청을 즉시 처리합니다. 이 서비스는 개별 주소를 신속하게 지오코딩하고 데이터를 개별 주소 부분으로 구문 분석해야 하는 경우에 추천합니다.
+* [일괄 처리 주소 지오코딩](/rest/api/maps/search/postsearchaddressbatchpreview): 최대 10,000개의 주소를 포함하는 요청을 만들고 일정 기간 동안 처리합니다. 모든 주소가 서버에서 병렬로 지오코딩되며, 코딩이 완료되면 전체 결과 세트를 다운로드할 수 있습니다. 이 서비스는 대형 데이터 세트를 지오코딩할 때 추천합니다.
+* [유사 항목 검색](/rest/api/maps/search/getsearchfuzzy): 이 API는 주소 지오코딩을 관심 지점 검색과 결합합니다. 이 API는 주소, 장소, 랜드마크, 관심 지점 또는 관심 지점 범주일 수 있는 자유 형식 문자열을 사용하여 요청을 즉시 처리합니다. 이 API는 사용자가 같은 텍스트 상자에서 주소 또는 관심 지점을 검색할 수 있는 애플리케이션에 추천하는 방법입니다.
+* [유사 항목 일괄 검색](/rest/api/maps/search/postsearchfuzzybatchpreview): 최대 10,000개의 주소, 장소, 랜드마크 또는 관심 지점을 포함하는 요청을 만들고 일정 기간 동안 처리합니다. 모든 데이터가 서버에서 병렬로 처리되며, 처리가 완료되면 전체 결과 세트를 다운로드할 수 있습니다.
 
 ### <a name="get-administrative-boundary-data"></a>관리 경계 데이터 가져오기
 
@@ -632,13 +632,15 @@ Azure Maps는 관리 경계(국가, 도/시, 시/군, 시 및 우편 번호)에 
 
 요약하면 다음과 같습니다.
 
-1.  받고 싶은 경계에 대한 쿼리를 다음 검색 API 중 하나에 전달합니다.
-    -   [자유 형식 주소 지오코딩](/rest/api/maps/search/getsearchaddress)
-    -   [정형 주소 지오코딩](/rest/api/maps/search/getsearchaddressstructured)
-    -   [일괄 처리 주소 지오코딩](/rest/api/maps/search/postsearchaddressbatchpreview)
-    -   [유사 항목 검색](/rest/api/maps/search/getsearchfuzzy)
-    -   [유사 항목 일괄 검색](/rest/api/maps/search/postsearchfuzzybatchpreview)
-2.  원하는 결과의 기하 도형 ID가 있는 경우 [검색 다각형 API](/rest/api/maps/search/getsearchpolygon)에 전달합니다.
+1. 받고 싶은 경계에 대한 쿼리를 다음 검색 API 중 하나에 전달합니다.
+
+   * [자유 형식 주소 지오코딩](/rest/api/maps/search/getsearchaddress)
+   * [정형 주소 지오코딩](/rest/api/maps/search/getsearchaddressstructured)
+   * [일괄 처리 주소 지오코딩](/rest/api/maps/search/postsearchaddressbatchpreview)
+   * [유사 항목 검색](/rest/api/maps/search/getsearchfuzzy)
+   * [유사 항목 일괄 검색](/rest/api/maps/search/postsearchfuzzybatchpreview)
+
+1. 원하는 결과의 기하 도형 ID가 있는 경우 [검색 다각형 API](/rest/api/maps/search/getsearchpolygon)에 전달합니다.
 
 ### <a name="host-and-query-spatial-business-data"></a>공간 비즈니스 데이터 호스트 및 쿼리
 
@@ -650,15 +652,15 @@ Bing Maps의 공간 데이터 서비스는 비즈니스 데이터를 호스트�
 
 다음은 Azure에서 공간 데이터를 호스트하고 쿼리하는 방법에 대한 유용한 리소스입니다.
 
--   [Azure SQL 공간 데이터 형식 개요](/sql/relational-databases/spatial/spatial-data-types-overview)
--   [Azure SQL 공간 – 가장 인접한 항목 쿼리](/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor)
--   [Azure Cosmos DB 지리 공간적 기능 개요](../cosmos-db/sql-query-geospatial-intro.md)
+* [Azure SQL 공간 데이터 형식 개요](/sql/relational-databases/spatial/spatial-data-types-overview)
+* [Azure SQL 공간 – 가장 인접한 항목 쿼리](/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor)
+* [Azure Cosmos DB 지리 공간적 기능 개요](../cosmos-db/sql-query-geospatial-intro.md)
 
 ## <a name="client-libraries"></a>클라이언트 라이브러리
 
 Azure Maps는 다음 프로그래밍 언어를 위한 클라이언트 라이브러리를 제공합니다.
 
--   JavaScript, TypeScript, Node.js – [설명서](./how-to-use-services-module.md) \| [NPM 패키지](https://www.npmjs.com/package/azure-maps-rest)
+* JavaScript, TypeScript, Node.js – [설명서](./how-to-use-services-module.md) \| [NPM 패키지](https://www.npmjs.com/package/azure-maps-rest)
 
 다른 프로그래밍 언어를 위한 오픈 소스 클라이언트 라이브러리:
 

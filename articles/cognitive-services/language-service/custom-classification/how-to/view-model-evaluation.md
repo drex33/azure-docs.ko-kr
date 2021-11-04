@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
-ms.openlocfilehash: 89cb476141544c136ac38abf996cf16d3ac4d002
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d0b708f3b06eaeb458df4e4c9da73e86b451e137
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131103061"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469664"
 ---
 # <a name="view-the-model-evaluation"></a>모델 평가 보기
 
@@ -60,13 +60,16 @@ ms.locfileid: "131103061"
 
 **테스트 집합 혼동 행렬** 에서 모델에 대 한 혼동 행렬을 찾을 수 있습니다.
 
+> [!NOTE]
+> 현재 혼동 행렬은 여러 레이블 분류 프로젝트에 대해 지원 되지 않습니다.
+
 **단일 레이블 분류**
 
 :::image type="content" source="../media/conf-matrix-single.png" alt-text="단일 클래스 분류를 위한 혼동 행렬" lightbox="../media/conf-matrix-single.png":::
 
-**여러 레이블 분류**
+<!-- **Multiple Label Classification**
 
-:::image type="content" source="../media/conf-matrix-multi.png" alt-text="여러 클래스 분류에 대 한 혼동 행렬" lightbox="../media/conf-matrix-multi.png":::
+:::image type="content" source="../media/conf-matrix-multi.png" alt-text="Confusion matrix for multiple class classification" lightbox="../media/conf-matrix-multi.png"::: -->
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,19 +3,19 @@ title: 콜 센터 전사 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: 음성 텍스트 변환의 일반적인 시나리오는 IVR(대화형 음성 응답)과 같은 다양한 시스템에서 발생한 대량의 전화 통신 데이터를 전사하는 것입니다. Speech Service 및 통합 음성 모델을 사용하여 기업은 오디오 캡처 시스템에서 높은 품질의 전사를 얻을 수 있습니다.
 services: cognitive-services
-author: eric-urban
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: eur
-ms.openlocfilehash: ba4e6fc3d128daf54f55456163acb6a563745b55
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.author: pafarley
+ms.openlocfilehash: f889e2a28f41f3936a2a59ac69a6237f8838b90f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/03/2021
-ms.locfileid: "131507950"
+ms.locfileid: "131434544"
 ---
 # <a name="speech-service-for-telephony-data"></a>전화 통신 데이터용 Speech Service
 

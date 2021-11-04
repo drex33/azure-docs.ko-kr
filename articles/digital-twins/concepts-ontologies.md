@@ -1,24 +1,26 @@
 ---
 title: 온톨로지란?
 titleSuffix: Azure Digital Twins
-description: 특정 도메인에서 모델링하기 위한 DTDL 업계 온톨로지 알아보기
+description: 디지털 트윈 토폴로지, Azure Digital Twins 어떻게 사용되는지, 이러한 DTDL 토폴로지를 특정 산업의 컨텍스트에서 모델링에 사용할 수 있는 방법에 대해 알아봅니다.
 author: baanders
 ms.author: baanders
-ms.date: 6/1/2021
+ms.date: 10/21/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: f4beb002a1bfd8a885157099228747213e754253
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: 56ce0815bdcb59e64f6a61cce4d4fb6172abea20
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772360"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501631"
 ---
 # <a name="what-is-an-ontology"></a>온톨로지란? 
 
+이 문서에서는 업계 토폴로지의 개념과 Azure Digital Twins 컨텍스트 내에서 해당 토폴로지를 사용하는 방법을 설명합니다.
+
 Azure Digital Twins 솔루션의 어휘는 사용자 환경에 존재하는 엔터티 유형을 설명하는 [모델](concepts-models.md)을 사용하여 정의됩니다.
 
-경우에 따라 솔루션이 특정 업계에 연결된 경우 사용자 고유의 모델 집합을 처음부터 작성하는 것보다 이미 존재하는 해당 업계에 대한 모델 집합으로 시작하는 것이 더 쉽고 효과적일 수 있습니다. 이러한 기존 모델 집합을 **온톨로지** 라고 합니다. 
+경우에 따라 솔루션이 특정 업계에 연결된 경우 사용자 고유의 모델 집합을 처음부터 작성하는 것보다 이미 존재하는 해당 업계에 대한 모델 집합으로 시작하는 것이 더 쉽고 효과적일 수 있습니다. 이러한 기존 모델 집합을 **온톨로지** 라고 합니다.
 
 일반적으로 온톨로지는 건물 구조, IoT 시스템, 스마트 시티, 에너지 그리드, 웹 콘텐츠 등과 같은 지정된 도메인에 대한 모델 세트입니다. 온톨로지는 다음을 지원할 수 있으므로 트윈 그래프의 스키마로 사용되기도 합니다.
 * 소프트웨어 구성 요소, 설명서, 쿼리 라이브러리 등의 조화.
@@ -56,7 +58,7 @@ Azure Digital Twins의 모델은 [DTDL(디지털 트윈 정의 언어)](https://
 1. 모델의 [유효성을 검사](how-to-parse-models.md)하여 DTDL 문서가 작동하는지 확인합니다.
 1. [API](how-to-manage-model.md#upload-models) 또는 [Azure Digital Twins 모델 업로더](https://github.com/Azure/opendigitaltwins-tools/tree/master/ADTTools#uploadmodels)와 같은 샘플을 사용하여 완성된 모델을 Azure Digital Twins에 업로드합니다.
 
-몇 가지 문서를 읽은 후에는 Azure Digital Twins 인스턴스에서 모델을 사용할 수 있습니다. 
+이 문서 시리즈를 읽으면 Azure Digital Twins 인스턴스에서 모델을 사용하는 방법을 안내합니다. 
 
 >[!TIP]
 > [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) 또는 [Azure Digital Twins 모델 시각화 도우미](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer)를 사용하여 온톨로지의 모델을 시각화할 수 있습니다.

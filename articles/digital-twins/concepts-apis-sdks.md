@@ -1,26 +1,27 @@
 ---
 title: Azure Digital Twins API 및 SDK
 titleSuffix: Azure Digital Twins
-description: Azure Digital Twins API 및 SDK 옵션을 이해합니다.
+description: SDK 도우미 클래스 및 일반 사용 정보에 대한 정보를 포함하여 Azure Digital Twins API 및 SDK 옵션에 대해 알아봅니다.
 author: baanders
 ms.author: baanders
-ms.date: 04/30/2021
+ms.date: 10/25/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 6a69e1eeeb1861f7d2a14e1a96c959c18a090682
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 1fcbeeb532e813535cc8f3adcf02b2c2e990287e
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114438748"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500206"
 ---
 # <a name="azure-digital-twins-apis-and-sdks"></a>Azure Digital Twins API 및 SDK
 
-Azure Digital Twins는 인스턴스 및 해당 요소를 관리하기 위한 **컨트롤 플레인 API** 와 **데이터 평면 API** 를 모두 제공합니다. 
+이 문서에서는 사용 가능한 Azure Digital Twins API 및 상호 작용하는 방법에 대한 개요를 제공합니다. [Postman](how-to-use-postman.md)과 같은 도구를 통해 또는 SDK를 통해 REST API를 관련 Swagger에 함께 직접 사용할 수 있습니다.
+
+Azure Digital Twins **컨트롤 플레인 API,** **데이터 평면 API** 및 인스턴스 및 해당 요소를 관리하기 위한 **SDK가** 함께 제공됩니다. 
 * 컨트롤 플레인 API는 [ARM(Azure Resource Manager)](../azure-resource-manager/management/overview.md) API이며, 인스턴스를 만들고 삭제하는 것과 같은 리소스 관리 작업을 다룹니다. 
 * 데이터 평면 API는 Azure Digital Twins API이며 모델, 트윈 및 그래프 관리와 같은 데이터 관리 작업에 사용됩니다.
-
-이 문서에서는 사용할 수 있는 API의 개요와 이 API와 상호 작용하는 방법을 제공합니다. [Postman](how-to-use-postman.md)과 같은 도구를 통해 또는 SDK를 통해 REST API를 관련 Swagger에 함께 직접 사용할 수 있습니다.
+* SDK는 기존 API를 활용하여 사용자 지정 애플리케이션을 쉽게 개발하여 Azure Digital Twins 활용합니다. 제어 평면 SDK는 [.NET(C#)](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true) 및 [Java에서](/java/api/overview/azure/digitaltwins/resourcemanagement?view=azure-java-stable&preserve-view=true)사용할 수 있으며 데이터 평면 SDK는 [.NET(C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), [Java,](/java/api/overview/azure/digitaltwins/client?view=azure-java-stable&preserve-view=true) [JavaScript](/javascript/api/@azure/digital-twins-core/?view=azure-node-latest&preserve-view=true)및 [Python](/python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python&preserve-view=true)에서 사용할 수 있습니다.
 
 ## <a name="overview-control-plane-apis"></a>개요: 컨트롤 플레인 API
 
@@ -51,25 +52,25 @@ Azure Digital Twins는 인스턴스 및 해당 요소를 관리하기 위한 **�
 
 데이터 평면 API를 사용하려면:
 * 다음 방법을 통해 API를 직접 호출할 수 있습니다.
-   - [데이터 평면 swagger 리포지토리](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins)의 최신 Swagger 폴더를 참조합니다. 이 폴더에는 사용법을 보여 주는 예제 폴더도 포함되어 있습니다. 
-   - [API 참조 설명서](/rest/api/azure-digitaltwins/)를 확인합니다.
+   - 데이터 평면 Swagger [리포지터에서 최신 Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins)폴더를 참조합니다. 이 폴더에는 사용법을 보여 주는 예제 폴더도 포함되어 있습니다. 
+   - [API 참조 설명서 를 참조하세요.](/rest/api/azure-digitaltwins/)
 * **.NET(C#) SDK** 를 사용할 수 있습니다. .NET SDK를 사용하려면...
-   - NuGet: [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core)에서 패키지를 보고 추가할 수 있습니다. 
+   - [azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core)NuGet 패키지를 보고 추가할 수 있습니다. 
    - [SDK 참조 설명서](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)를 볼 수 있습니다.
-   - GitHub: [.NET용 Azure IoT Digital Twins 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)에서 샘플 폴더를 포함하여 SDK 원본을 찾을 수 있습니다. 
-   - 이 문서의  [.NET(C#) SDK(데이터 평면)](#net-c-sdk-data-plane)  섹션을 계속 진행하면 자세한 정보 및 사용 예를 볼 수 있습니다.
+   - 샘플 폴더를 포함한 SDK 원본은 GitHub: [.NET용 Azure IoT Digital Twins 클라이언트 라이브러리에서](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)찾을 수 있습니다. 
+   - 이 문서의 [.NET(C#) SDK(데이터 평면)](#net-c-sdk-data-plane) 섹션을 계속 진행하여 자세한 정보 및 사용 예제를 볼 수 있습니다.
 * **JAVA SDK** 를 사용할 수 있습니다. Java SDK를 사용하려면...
-   - Maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar)에서 패키지를 보고 설치할 수 있습니다.
-   - [SDK 참조 설명서](/java/api/overview/azure/digitaltwins/client?view=azure-java-stable&preserve-view=true)를 볼 수 있습니다.
-   - GitHub: [Java용 Azure IoT Digital Twins 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core)에서 SDK 원본을 찾을 수 있습니다.
+   - Maven에서 패키지를 보고 설치할 수 있습니다. [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar)
+   - [SDK 참조 설명서를](/java/api/overview/azure/digitaltwins/client?view=azure-java-stable&preserve-view=true) 볼 수 있습니다.
+   - GitHub: Java용 Azure IoT Digital Twins [클라이언트 라이브러리에서](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core) SDK 원본을 찾을 수 있습니다.
 * **JavaScript SDK** 를 사용할 수 있습니다. JavaScript SDK를 사용하려면...
-   - npm: [JavaScript용 Azure Azure Digital Twins Core 클라이언트 라이브러리](https://www.npmjs.com/package/@azure/digital-twins-core)에서 패키지를 보고 설치할 수 있습니다.
+   - [npm: JavaScript용 Azure Azure Digital Twins Core 클라이언트 라이브러리에서](https://www.npmjs.com/package/@azure/digital-twins-core)패키지를 보고 설치할 수 있습니다.
    - [SDK 참조 설명서](/javascript/api/@azure/digital-twins-core/?view=azure-node-latest&preserve-view=true)를 볼 수 있습니다.
-   - GitHub: [JavaScript용 Azure Azure Digital Twins Core 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core)에서 SDK 원본을 찾을 수 있습니다.
+   - JavaScript용 Azure Azure Digital Twins Core 클라이언트 라이브러리 GitHub SDK [원본을](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core) 찾을 수 있습니다.
 * **Python SDK** 를 사용할 수 있습니다. Python SDK를 사용하려면...
-   - PyPi: [Python용 Azure Azure Digital Twins Core 클라이언트 라이브러리](https://pypi.org/project/azure-digitaltwins-core/)에서 패키지를 보고 설치할 수 있습니다.
+   - PyPi: [Python용 Azure Azure Digital Twins Core 클라이언트 라이브러리에서](https://pypi.org/project/azure-digitaltwins-core/)패키지를 보고 설치할 수 있습니다.
    - [SDK 참조 설명서](/python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python&preserve-view=true)를 볼 수 있습니다.
-   - GitHub: [Python용 Azure Azure Digital Twins Core 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core)에서 SDK 원본을 찾을 수 있습니다.
+   - GitHub: [Python용 Azure Azure Digital Twins Core 클라이언트 라이브러리에서](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core) SDK 원본을 찾을 수 있습니다.
 
 [CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)를 통해 Azure Digital Twins와 상호 작용하여 데이터 평면 API를 연습할 수도 있습니다.
 
@@ -80,7 +81,7 @@ Azure Digital Twins .NET(C#) SDK는 .Net용 Azure SDK의 일부입니다. 오픈
 > [!NOTE]
 > SDK 설계에 대한 자세한 내용은 일반적인 [Azure SDK 디자인 원칙](https://azure.github.io/azure-sdk/general_introduction.html) 및 특정 [.NET 설계 지침](https://azure.github.io/azure-sdk/dotnet_introduction.html)을 참조하세요.
 
-SDK를 사용하려면 NuGet 패키지 **Azure.DigitalTwins.Core** 를 프로젝트에 포함합니다. 최신 버전의 **Azure.Identity** 패키지도 필요합니다. Visual Studio에서 NuGet 패키지 관리자를 사용하여 이러한 패키지를 추가할 수 있습니다(*도구 > Nuget 패키지 관리자 > 솔루션에 대한 Nuget 패키지 관리* 를 통해 액세스). 또한 아래 NuGet 패키지 링크에 있는 명령과 함께 .NET 명령줄 도구를 사용하여 프로젝트에 추가할 수 있습니다.
+SDK를 사용하려면 NuGet 패키지 **Azure.DigitalTwins.Core** 를 프로젝트에 포함합니다. 최신 버전의 **Azure.Identity** 패키지도 필요합니다. Visual Studio에서 NuGet 패키지 관리자를 사용하여 이러한 패키지를 추가할 수 있습니다(*도구 > Nuget 패키지 관리자 > 솔루션에 대한 Nuget 패키지 관리* 를 통해 액세스). 아래의 NuGet 패키지 링크에 있는 명령과 함께 .NET 명령줄 도구를 사용하여 이러한 패키지를 프로젝트에 추가할 수도 있습니다.
 * [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core): [.NET용 Azure Digital Twins SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)용 패키지입니다. 
 * [Azure.Identity](https://www.nuget.org/packages/Azure.Identity): Azure에 대한 인증에 도움이 되는 도구를 제공하는 라이브러리입니다.
 

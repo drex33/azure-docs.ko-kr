@@ -3,20 +3,20 @@ title: 대화 기록(미리 보기) Speech Service
 titleSuffix: Azure Cognitive Services
 description: 대화 기록은 인식, 화자 ID 및 분할을 결합하여 모든 대화의 기록을 제공하는 회의용 솔루션입니다.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/26/2021
-ms.author: pafarley
+ms.author: eur
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 993cc1105c476f3581fd996be5c1aa6aa7c0c590
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f72af708beff4e44b4fca6347eb17aca0ac54c0b
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131056704"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131502733"
 ---
 # <a name="what-is-conversation-transcription-preview"></a>대화 기록(미리 보기)는 무엇입니까?
 
@@ -56,10 +56,10 @@ ms.locfileid: "131056704"
 ## <a name="expected-inputs"></a>필요한 입력
 
 - **다중 채널 오디오 스트림** – 사양 및 설계 세부 정보는 [Microsoft 음성 디바이스 SDK 마이크](./speech-sdk-microphone.md)를 참조하세요. 개발 키트에 대해 자세히 알아보거나 구매하려면 [Microsoft 음성 디바이스 SDK 가져오기](./get-speech-devices-sdk.md)를 참조하세요.
-- **사용자 음성 샘플** – 대화 전사에는 화자 식별을 위한 대화 전에 사용자 프로필이 필요합니다. 각 사용자로부터 오디오 녹음을 수집한 다음, [서명 생성 서비스](https://aka.ms/cts/signaturegenservice)로 녹음을 전송하여 오디오의 유효성을 검사하고 사용자 프로필을 생성해야 합니다.
+- **사용자 음성 샘플** – 대화에 대 한 대화에는 발표자 id에 대 한 대화가 앞서 사용자 프로필이 필요 합니다. 각 사용자로부터 오디오 녹음을 수집한 다음, [서명 생성 서비스](https://aka.ms/cts/signaturegenservice)로 녹음을 전송하여 오디오의 유효성을 검사하고 사용자 프로필을 생성해야 합니다.
 
 > [!NOTE]
-> 음성 서명에 대한 사용자 음성 샘플은 화자 식별에 필요합니다. 음성 샘플이 없는 화자는 "식별되지 않음"으로 인식됩니다. 식별되지 않은 화자는 속성이 활성화된 경우에도 여전히 구별할 수 `DifferentiateGuestSpeakers` 있습니다(아래 예제 참조). 그러면 전사 출력은 미리 등록된 특정 화자 이름으로 인식하는 대신 화자를 "Guest_0", "Guest_1" 등으로 표시합니다.
+> 음성 서명에 대 한 사용자 음성 샘플은 스피커 식별에 필요 합니다. 음성 샘플이 없는 스피커가 "미확인"으로 인식 됩니다. 속성을 사용 하는 경우 알 수 없는 스피커가 계속 차별화 될 수 있습니다 `DifferentiateGuestSpeakers` (아래 예제 참조). 그러면 기록 출력에는 미리 등록 된 특정 스피커 이름을 인식 하는 대신 스피커가 "Guest_0", "Guest_1" 등으로 표시 됩니다.
 > ```csharp
 > config.SetProperty("DifferentiateGuestSpeakers", "true");
 > ```

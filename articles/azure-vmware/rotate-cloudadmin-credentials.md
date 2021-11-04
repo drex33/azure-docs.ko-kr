@@ -2,13 +2,13 @@
 title: Azure VMware Solution용 cloudadmin 자격 증명 회전
 description: Azure VMware Solution 프라이빗 클라우드용 vCenter Server 자격 증명을 회전하는 방법을 알아봅니다.
 ms.topic: how-to
-ms.date: 08/31/2021
-ms.openlocfilehash: 22a88feb7e7b8656666d82cdac4b4d02d546441e
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
-ms.translationtype: HT
+ms.date: 09/10/2021
+ms.openlocfilehash: f8ab35888d2d298d1dcb6acd2abd6d659b782fd7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123258060"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131461775"
 ---
 # <a name="rotate-the-cloudadmin-credentials-for-azure-vmware-solution"></a>Azure VMware Solution용 cloudadmin 자격 증명 회전
 
@@ -18,7 +18,7 @@ ms.locfileid: "123258060"
 이 문서에서는 Azure VMware Solution 프라이빗 클라우드용 cloudadmin 자격 증명(vCenter Server *CloudAdmin* 자격 증명)을 회전합니다.  이 계정의 암호는 만료되지 않지만 언제든지 새 암호를 생성할 수 있습니다.
 
 >[!CAUTION]
->cloudadmin 사용자 자격 증명을 사용하여 프라이빗 클라우드의 vCenter에 서비스를 연결하는 경우 암호를 회전하면 해당 연결의 작동이 중지됩니다. 암호를 회전하기 전에 관련 서비스를 중지하지 않는 한 해당 연결로 인해 cloudadmin 계정도 잠깁니다.
+>Cloudadmin 자격 증명을 사용 하 여 사설 클라우드의 vCenter에 서비스를 연결 하는 경우 암호를 회전 하면 해당 연결은 작동을 중지 합니다. 암호를 회전하기 전에 관련 서비스를 중지하지 않는 한 해당 연결로 인해 cloudadmin 계정도 잠깁니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -30,13 +30,36 @@ cloudadmin 사용자를 사용하여 vCenter에 인증하는 서비스를 결정
 
 ## <a name="reset-your-vcenter-credentials"></a>vCenter 자격 증명 다시 설정
 
-1. Azure Portal에서 Azure Cloud Shell 세션을 엽니다.
+### <a name="portal"></a>[포털](#tab/azure-portal)
+ 
+1. Azure VMware 솔루션 사설 클라우드에서 **id** 를 선택 합니다.
+
+1. **새 암호 생성** 을 선택 합니다.
+
+   :::image type="content" source="media/rotate-cloudadmin-credentials/reset-vcenter-credentials-1.png" alt-text="VCenter 자격 증명과이를 복사 하거나 새 암호를 생성 하는 방법을 보여 주는 스크린샷" lightbox="media/rotate-cloudadmin-credentials/reset-vcenter-credentials-1.png":::
+
+1. 확인 확인란을 선택한 다음 **암호 생성** 을 선택 합니다.
+
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Azure CLI 사용을 시작하려면 다음을 수행합니다.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+1. Azure VMware 솔루션 사설 클라우드에서 Azure Cloud Shell 세션을 엽니다.
 
 2. vCenter *CloudAdmin* 자격 증명을 업데이트합니다.  **{SubscriptionID}** , **{ResourceGroup}** , **{PrivateCloudName}** 을 프라이빗 클라우드 정보로 바꾸어야 합니다. 
 
    ```azurecli-interactive
    az resource invoke-action --action rotateVcenterPassword --ids "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.AVS/privateClouds/{PrivateCloudName}" --api-version "2020-07-17-preview"
    ```
+
+---
+
+
+
+
  
 ## <a name="update-hcx-connector"></a>HCX 커넥터 업데이트 
 

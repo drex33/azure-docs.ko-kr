@@ -12,15 +12,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/15/2021
+ms.date: 11/02/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aabb53a573ee8a3ccc5d98ab8316fee560dbf625
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7f31a210894f6c4581c9deea54e18c5dac4d44b5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128603907"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131462932"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드에 대한 SAP ASE Azure Virtual Machines DBMS 배포
 
@@ -71,7 +71,7 @@ SAP ASE는 별도로 구성하지 않는 한 데이터를 디스크 스토리지
 [SAP Adaptive Server Enterprise에서 자동 데이터베이스 공간 확장 구성](https://blogs.sap.com/2014/07/09/configuring-automatic-database-space-expansion-in-sap-adaptive-server-enterprise/) 및 [SAP support note #1815695](https://launchpad.support.sap.com/#/notes/1815695) 문서에서 설명한 대로 자동 데이터베이스 확장을 구성하는 것이 좋습니다. 
 
 ### <a name="sample-sap-ase-on-azure-virtual-machine-disk-and-file-system-configurations"></a>SAP ASE on Azure 가상 머신, 디스크 및 파일 시스템 구성 샘플 
-아래 템플릿에는 Linux 및 Windows 모두에 대한 샘플 구성이 나와 있습니다. 가상 컴퓨터 및 디스크 구성을 확인 하기 전에 개별 VM의 네트워크 및 저장소 대역폭 할당량이 비즈니스 요구 사항을 충족 하기에 충분 한지 확인 합니다. 또한 Azure VM 유형에 따라 VM에 연결할 수 있는 최대 디스크 수가 다릅니다. 예를 들어 E4s_v3 VM의 스토리지 IO 처리량은 48MB/초로 제한됩니다. 데이터베이스 백업 작업에 필요한 스토리지 처리량이 48MB/초를 초과하는 경우 더 많은 스토리지 대역폭 처리량을 갖춘 더 큰 VM 유형을 사용해야 합니다. Azure 스토리지를 구성하는 경우, 특히 [Azure 프리미엄 스토리지](../../premium-storage-performance.md)를 사용하는 경우 처리량 및 용량 GB당 IOPS가 변경된다는 점도 고려해야 합니다. 이 항목에 대한 자세한 내용은 [Azure에서 사용할 수 있는 디스크 유형](../../disks-types.md) 문서를 참조하세요. 특정 Azure VM 유형에 대한 할당량은 [메모리 최적화 가상 머신 크기](../../sizes-memory.md) 및 이에 연결된 문서에 설명되어 있습니다. 
+아래 템플릿에는 Linux 및 Windows 모두에 대한 샘플 구성이 나와 있습니다. 가상 머신 및 디스크 구성을 확인하기 전에 개별 VM의 네트워크 및 스토리지 대역폭 할당량이 비즈니스 요구 사항을 충족하는 데 충분한지 확인합니다. 또한 Azure VM 유형에 따라 VM에 연결할 수 있는 최대 디스크 수가 다릅니다. 예를 들어 E4s_v3 VM의 스토리지 IO 처리량은 48MB/초로 제한됩니다. 데이터베이스 백업 작업에 필요한 스토리지 처리량이 48MB/초를 초과하는 경우 더 많은 스토리지 대역폭 처리량을 갖춘 더 큰 VM 유형을 사용해야 합니다. Azure 스토리지를 구성하는 경우, 특히 [Azure 프리미엄 스토리지](../../premium-storage-performance.md)를 사용하는 경우 처리량 및 용량 GB당 IOPS가 변경된다는 점도 고려해야 합니다. 이 항목에 대한 자세한 내용은 [Azure에서 사용할 수 있는 디스크 유형](../../disks-types.md) 문서를 참조하세요. 특정 Azure VM 유형에 대한 할당량은 [메모리 최적화 가상 머신 크기](../../sizes-memory.md) 및 이에 연결된 문서에 설명되어 있습니다. 
 
 > [!NOTE]
 >  DBMS 시스템을 온-프레미스에서 Azure로 이동하는 경우 VM에 대한 모니터링을 수행하고 CPU, 메모리, IOPS 및 스토리지 처리량을 평가하는 것이 좋습니다. 위에서 언급한 문서에 설명된 VM 할당량 제한과 관찰된 최고 값을 비교합니다.
@@ -87,7 +87,7 @@ SAP 솔루션 관리자와 같이 데이터베이스 크기가 50~250GB인 소�
 | SAP ASE 버전 | 16.0.03.07 이상 | 16.0.03.07 이상 | --- |
 | 데이터 디바이스 수 | 4 | 4 | ---|
 | 로그 디바이스 수 | 1 | 1 | --- |
-| 임시 디바이스 수 | 1 | 1 | SAP BW 워크로드에 대한 추가 정보 |
+| 임시 디바이스 수 | 1 | 1 | SAP BW 워크로드에 대한 추가 |
 | 운영 체제 | Windows Server 2019 | SUSE 12 SP4/ 15 SP1 또는 RHEL 7.6 | --- |
 | 디스크 집계 | 스토리지 공간 | LVM2 | --- |
 | 파일 시스템 | NTFS | XFS |
@@ -108,7 +108,7 @@ SAP 솔루션 관리자와 같이 데이터베이스 크기가 50~250GB인 소�
 | SAP ASE 버전 | 16.0.03.07 이상 | 16.0.03.07 이상 | --- |
 | 데이터 디바이스 수 | 8 | 8 | ---|
 | 로그 디바이스 수 | 1 | 1 | --- |
-| 임시 디바이스 수 | 1 | 1 | SAP BW 워크로드에 대한 추가 정보 |
+| 임시 디바이스 수 | 1 | 1 | SAP BW 워크로드에 대한 추가 |
 | 운영 체제 | Windows Server 2019 | SUSE 12 SP4/ 15 SP1 또는 RHEL 7.6 | --- |
 | 디스크 집계 | 스토리지 공간 | LVM2 | --- |
 | 파일 시스템 | NTFS | XFS |
@@ -128,11 +128,11 @@ SAP 솔루션 관리자와 같이 데이터베이스 크기가 50~250GB인 소�
 | SAP ASE 버전 | 16.0.03.07 이상 | 16.0.03.07 이상 | --- |
 | 데이터 디바이스 수 | 16 | 16 | ---|
 | 로그 디바이스 수 | 1 | 1 | --- |
-| 임시 디바이스 수 | 1 | 1 | SAP BW 워크로드에 대한 추가 정보 |
+| 임시 디바이스 수 | 1 | 1 | SAP BW 작업에 대 한 추가 정보 |
 | 운영 체제 | Windows Server 2019 | SUSE 12 SP4/ 15 SP1 또는 RHEL 7.6 | --- |
 | 디스크 집계 | 스토리지 공간 | LVM2 | --- |
 | 파일 시스템 | NTFS | XFS |
-| 포맷 블록 크기 | 워크로드 테스트 필요 | 워크로드 테스트 필요 | --- |
+| 포맷 블록 크기 | 워크 로드 테스트 필요 | 워크 로드 테스트 필요 | --- |
 | 데이터 디스크 수 및 유형 | 프리미엄 스토리지: 4 x P30(RAID0) | 프리미엄 스토리지: 4 x P30(RAID0)| 캐시 = 읽기 전용 |
 | 로그 디스크 수 및 유형 | 프리미엄 스토리지: 1 x P20  | 프리미엄 스토리지: 1 x P20 | 캐시 = 없음 |
 | ASE MaxMemory 매개 변수 | 실제 RAM의 90% | 실제 RAM의 90% | 단일 인스턴스 가정 |
@@ -149,16 +149,23 @@ SAP 솔루션 관리자와 같이 데이터베이스 크기가 50~250GB인 소�
 | SAP ASE 버전 | 16.0.03.07 이상 | 16.0.03.07 이상 | --- |
 | 데이터 디바이스 수 | 32 | 32 | ---|
 | 로그 디바이스 수 | 1 | 1 | --- |
-| 임시 디바이스 수 | 1 | 1 | SAP BW 워크로드에 대한 추가 정보 |
+| 임시 디바이스 수 | 1 | 1 | SAP BW 작업에 대 한 추가 정보 |
 | 운영 체제 | Windows Server 2019 | SUSE 12 SP4/ 15 SP1 또는 RHEL 7.6 | --- |
 | 디스크 집계 | 스토리지 공간 | LVM2 | --- |
 | 파일 시스템 | NTFS | XFS |
-| 포맷 블록 크기 | 워크로드 테스트 필요 | 워크로드 테스트 필요 | --- |
+| 포맷 블록 크기 | 워크 로드 테스트 필요 | 워크 로드 테스트 필요 | --- |
 | 데이터 디스크 수 및 유형 | 프리미엄 스토리지: 4개 이상 x P30(RAID0) | 프리미엄 스토리지: 4개 이상 x P30(RAID0)| 캐시 = 읽기 전용, Azure Ultra Disk 고려 |
 | 로그 디스크 수 및 유형 | 프리미엄 스토리지: 1 x P20  | 프리미엄 스토리지: 1 x P20 | 캐시 = 없음, Azure Ultra Disk 고려 |
 | ASE MaxMemory 매개 변수 | 실제 RAM의 90% | 실제 RAM의 90% | 단일 인스턴스 가정 |
 | 백업 디바이스 수 | 16 | 16 | --- |
 | 백업 디스크 수 및 유형 | 4 | 4 | LVM2/스토리지 공간 사용 |
+
+
+NFS v 4.1 볼륨 호스트 Azure NetApp Files는 SAP ASE 데이터베이스 저장소에 사용 하는 또 다른 대안입니다. 이러한 구성의 원리 구조는 다음과 같습니다.
+
+![anf를 사용 하 여 SAP ASE에 대 한 Storage 구성](./media/dbms-guide-sap-ase/anf-layout.png)
+
+위의 예에서는 데이터베이스의 SID가 A11 되었습니다. Azure NetApp Files 기반 볼륨의 크기와 성능 계층은 필요한 데이터베이스 볼륨과 IOPS 및 처리량에 따라 달라 집니다. Sapdata 및 saplog의 경우 충분 한 대역폭을 제공할 수 있도록 Ultra performance 계층으로 시작 하는 것이 좋습니다. 대부분의 비 프로덕션 배포의 경우 Premium 성능 계층이 충분할 수 있습니다. 데이터베이스 사용에 대한 Azure NetApp Files 특정 크기 조정 및 제한 사항에 대한 자세한 내용은 SAP HANA [Azure NetApp Files NFS v4.1 볼륨의 Azure NetApp Files HANA 데이터베이스 크기 조정 장을](./hana-vm-operations-netapp.md)읽어보십시오.
 
 
 ### <a name="backup--restore-considerations-for-sap-ase-on-azure"></a>SAP ASE on Azure에 대한 백업 및 복원 고려 사항
@@ -182,14 +189,14 @@ Azure에 업로드하기 전에 압축을 적용하는 것이 좋은 이유는 �
 데이터 및 LOB 압축은 Azure Virtual Machines에서 호스트되는 VM에서도 온-프레미스에서와 마찬가지로 작동합니다. 기존 SAP ASE 데이터베이스에서 압축이 이미 사용되고 있는지 확인하는 방법에 대한 자세한 내용은 [SAP support note 1750510](https://launchpad.support.sap.com/#/notes/1750510)을 참조하세요. SAP ASE 데이터베이스를 압축하는 방법에 대한 자세한 내용은 [SAP support note #2121797](https://launchpad.support.sap.com/#/notes/2121797)을 참조하세요.
 
 ## <a name="high-availability-of-sap-ase-on-azure"></a>SAP ASE on Azure의 고가용성 
-HADR 사용자 가이드는 2 노드 SAP ASE "Always on" 솔루션의 설정 및 구성에 대해 자세히 설명 합니다.  또한 세 번째 재해 복구 노드도 지원됩니다. SAP ASE는 공유 디스크 및 기본 OS 클러스터링 (예: Pacemaker 및 Windows Server 장애 조치 (Failover) 클러스터)을 비롯 한 다양 한 고가용성 [구성을](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.4.1/en-US/9b40a3c038a34cbda1064312aa8d25a4.html) 지원 합니다. Azure에는 SAP ASE에 대해 지원 되는 두 가지 고가용성 구성이 있습니다.
+HADR 사용자 가이드는 2노드 SAP ASE "Always-on" 솔루션의 설정 및 구성에 대해 자세히 설명합니다.  또한 세 번째 재해 복구 노드도 지원됩니다. SAP ASE는 공유 디스크 및 네이티브 OS 클러스터링(예: Pacemaker 및 Windows Server 장애 조치(failover) 클러스터)을 비롯한 많은 고가용성 [구성을](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.4.1/en-US/9b40a3c038a34cbda1064312aa8d25a4.html) 지원합니다. Azure에서 SAP ASE에 대해 지원되는 두 가지 고가용성 구성은 다음과 같습니다.
 
-- 오류 관리자를 사용한 HA 인식-SAP 커널은 "HA 인식" 응용 프로그램으로 기본 및 보조 SAP ASE 서버를 알고 있습니다. SAP ASE "HA 인식" 솔루션과 Azure 간에는 밀접 하 게 통합 되지 않으므로 Azure 내부 부하 분산 장치는 사용 되지 않습니다.  이 솔루션은 [SAP ASE HADR 사용자 가이드](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.3.7/en-US/a6645e28bc2b1014b54b8815a64b87ba.html) 에 설명 되어 있습니다.
-- 오류 관리자를 사용 하는 부동 IP-이 솔루션은 SAP Business Suite 및 비 SAP 비즈니스 제품군 응용 프로그램에 사용할 수 있습니다.  이 솔루션은 Azure ILB를 활용 하 고 SAP ASE 데이터베이스 엔진은 프로브 포트를 제공 합니다.  오류 관리자는 SAPHostAgent를 호출 하 여 ASE 호스트에서 보조 부동 IP를 시작 하거나 중지 합니다.  이 솔루션은 [SAP note #3086679-SYB: 오류 관리자: Microsoft Azure의 부동 IP 주소](https://launchpad.support.sap.com/#/notes/3086679) 에 설명 되어 있습니다.
+- 오류 관리자를 통해 HA 인식 - SAP 커널은 "HA 인식" 애플리케이션이며 기본 및 보조 SAP ASE 서버에 대해 알고 있습니다. SAP ASE "HA 인식" 솔루션과 Azure 간에 긴밀한 통합이 없으며, Azure 내부 부하 분산기는 사용되지 않습니다.  솔루션은 [SAP ASE HADR 사용자 가이드에](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.3.7/en-US/a6645e28bc2b1014b54b8815a64b87ba.html) 설명되어 있습니다.
+- Fault Manager를 사용하는 부동 IP – 이 솔루션은 SAP Business Suite 및 비 SAP Business Suite 애플리케이션에 사용할 수 있습니다.  이 솔루션은 Azure ILB를 활용하고 SAP ASE 데이터베이스 엔진은 프로브 포트를 제공합니다.  오류 관리자는 SAPHostAgent를 호출하여 ASE 호스트에서 보조 부동 IP를 시작하거나 중지합니다.  이 솔루션은 [SAP note #3086679 - SYB: Fault Manager: on Microsoft Azure 부동 IP 주소에](https://launchpad.support.sap.com/#/notes/3086679) 설명되어 있습니다.
 
 
 > [!NOTE]
-> 장애 조치 (failover) 시간 및 HA 인식 또는 부동 IP 솔루션의 기타 특성은 비슷합니다.  이러한 두 솔루션을 결정할 때 고객은 계획 되거나 계획 되지 않은 장애 조치 (failover) 시간 및 기타 운영 절차와 같은 요소를 포함 하 여 자체 테스트 및 평가를 수행 해야 합니다.  
+> HA 인식 또는 부동 IP 솔루션의 장애 조치(failover) 시간 및 기타 특성은 비슷합니다.  이러한 두 솔루션 중에서 결정할 때 고객은 계획 및 계획되지 않은 장애 조치(failover) 시간 및 기타 운영 절차와 같은 요소를 포함하여 자체 테스트 및 평가를 수행해야 합니다.  
 
 ### <a name="third-node-for-disaster-recovery"></a>재해 복구를 위한 세 번째 노드
 SAP ASE Always-On을 로컬 고가용성에 사용하는 것 외에도 구성을 다른 Azure 지역에 있는 비동기적으로 복제된 노드로 확장할 수 있습니다. 자세한 내용은 [Sybase 16. 3 패치 레벨 3 Always-on + Suse 12.3의 DR 설치 절차](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199)를 참조하세요.

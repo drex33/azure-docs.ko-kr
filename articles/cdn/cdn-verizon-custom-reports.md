@@ -3,7 +3,7 @@ title: Verizon의 사용자 지정 보고서 | Microsoft Docs
 description: 대역폭, 전송되는 데이터, 적중 횟수, 캐시 상태, 캐시 적중률, 전송되는 IPV4/IPV6 데이터와 같은 보고서를 사용하여 CDN 사용 패턴을 볼 수 있습니다.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 10/11/2017
-ms.author: allensu
-ms.openlocfilehash: cff355aeb74efc9dec2780840ae57fea4c5764cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: duau
+ms.openlocfilehash: f461e310b44063035e2e21e4dbeb8dd340ea053b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84888716"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131434791"
 ---
 # <a name="custom-reports-from-verizon"></a>Verizon의 사용자 지정 보고서
 
@@ -68,7 +68,7 @@ Verizon 프로필에 대한 관리 포털을 통해 Verizon 사용자 지정 보
 
 ## <a name="edge-cnames-custom-report-fields"></a>에지 CNAME 사용자 지정 보고서 필드
 
-| 필드                     | 설명   |
+| 필드                     | Description   |
 |---------------------------|---------------|
 | 2xx                       | 상태 코드가 2xx HTTP(예: 200 OK)인 에지 CNAME의 총 요청 수 또는 전송된 데이터(MB)를 나타냅니다. |
 | 3xx                       | 상태 코드가 3xx HTTP(예: 302 있음 또는 304 수정되지 않음)인 에지 CNAME의 총 요청 수 또는 전송된 데이터(MB)를 나타냅니다. |
@@ -77,7 +77,7 @@ Verizon 프로필에 대한 관리 포털을 통해 Verizon 사용자 지정 보
 | 캐시 적중률               | 캐시에서 요청자에게 직접 제공된 캐시 가능한 요청의 비율을 나타냅니다. |
 | 캐시 적중                | 캐시 적중(예: TCP_EXPIRED_HIT, TCP_HIT 또는 TCP_PARTIAL_HIT)을 초래하는 에지 CNAME의 총 요청 수 또는 전송된 데이터(MB)를 나타냅니다. 요청된 콘텐츠의 캐시된 버전이 발견되면 캐시 적중이 발생합니다. |
 | 전송되는 데이터(MB)     | 에지 CNAME에 대해 에지 서버에서 HTTP 클라이언트(웹 브라우저)로 전송된 총 데이터(MB)를 나타냅니다. 전송된 데이터의 양은 응답 본문에 HTTP 응답 헤더를 추가하여 계산됩니다. 결과적으로 각 자산에 대해 전송된 데이터의 양은 실제 파일 크기보다 큽니다. |
-| 설명               | CNAME을 호스트 이름으로 식별합니다. |
+| Description               | CNAME을 호스트 이름으로 식별합니다. |
 | 적중 횟수                      | 에지 CNAME에 대한 총 요청 수를 나타냅니다. |
 | 누락                    | 캐시 누락(예: TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS 또는 TCP_MISS)을 초래하는 에지 CNAME의 총 요청 수 또는 전송된 데이터(MB)를 나타냅니다. 캐시 누락은 요청된 콘텐츠가 요청을 받은 에지 서버에 캐시되지 않은 경우 발생합니다. | 
 | 캐시 없음                  | 캐시 상태 코드가 CONFIG_NOCACHE인 에지 CNAME의 총 요청 수 또는 전송된 데이터(MB)를 나타냅니다.  |

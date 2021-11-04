@@ -1,6 +1,6 @@
 ---
-title: Edv5 및 Edsv5 시리즈 - Azure Virtual Machines
-description: Edv5 및 Edsv5 시리즈 VM에 대한 사양입니다.
+title: Edv5 및 Edsv5 시리즈-Azure Virtual Machines
+description: Edv5 및 Edsv5 시리즈 Vm에 대 한 사양입니다.
 author: styli365
 ms.author: sttsinar
 ms.reviewer: joelpell
@@ -9,37 +9,37 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 10/20/2021
-ms.openlocfilehash: a8e5317418862fe44c6a37aff01b2790842c95a7
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 634ca32dfede00fc24fa28d68ef88d74b0c58971
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/03/2021
-ms.locfileid: "131482967"
+ms.locfileid: "131506774"
 ---
 # <a name="edv5-and-edsv5-series"></a>Edv5 및 Edsv5 시리즈
 
 **적용 대상:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
-Edv5 및 Edsv5 시리즈는 하이퍼 스레드 구성의 3세대 Intel &reg; Xeon &reg; 8370C(Ice Lake) 프로세서에서 [실행되어](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) 대부분의 범용 워크로드에 더 나은 가치 제안을 제공할 Virtual Machines 있습니다. 이 새로운 프로세서는 [Intel Turbo Boost &reg; Technology, Intel](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html)Advanced-Vector [ &reg; Extensions 512(Intel AVX-512) 및 Intel Deep Learning Boost가 있는 &reg; 3.5GHz의](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html) 모든 코어 Turbo 클록 속도를 제공합니다. [ &reg; ](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html) 최대 672 GiB RAM을 갖춘 이러한 가상 머신은 메모리 집약적 엔터프라이즈 애플리케이션, 관계형 데이터베이스 서버 및 메모리 내 분석 워크로드에 적합합니다. 또한 이러한 VM은 빠르고 큰 로컬 SSD 스토리지(최대 3,900 GiB)를 제공합니다.
+Edv5 및 Edsv5 Virtual Machines 시리즈는 &reg; &reg; [하이퍼 스레드](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) 구성에서 3 세대 Intel Xeon Platinum 8370c (Ice Lake) 프로세서에서 실행 되므로 대부분의 일반 용도의 작업에 대해 더 나은 가치를 제공 합니다. 이 새로운 프로세서는 [intel &reg; 터보 부스트 기술로](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html)3.5 GHz의 모든 코어 터보 클록 속도, [intel &reg; Advanced-Vector 확장 512 (intel &reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html) 및 [intel &reg; Deep Learning 부스트](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html)를 제공 합니다. 최대 672 GiB의 RAM을 사용 하는 이러한 가상 머신은 메모리를 많이 사용 하는 엔터프라이즈 응용 프로그램, 관계형 데이터베이스 서버 및 메모리 내 분석 워크 로드에 이상적입니다. 이러한 Vm은 신속 하 고 규모가 많은 로컬 SSD 저장소 (최대 3900 GiB)를 기능도 합니다.
 
 ## <a name="edv5-series"></a>Edv5 시리즈
 
-Edv5 시리즈 가상 머신은 3세대 Intel® Xeon® 8370C(Ice Lake) 프로세서에서 실행되어 최대 3.5GHz의 모든 코어 turbo 클록 속도에 도달합니다.  이러한 가상 머신은 최대 104개의 vCPU와 672 GiB RAM뿐만 아니라 최대 3800 GiB의 빠른 로컬 SSD 스토리지를 제공합니다. Edv5 시리즈 가상 머신은 짧은 대기 시간, 고속 로컬 스토리지를 활용하는 메모리 집약적 엔터프라이즈 애플리케이션 및 애플리케이션에 적합합니다.
+Edv5 시리즈 가상 머신은 3 세대 Intel® Xeon® 플래티넘 8370C (Ice) 프로세서에서 실행 되며, 모든 코어 터보 클록 속도는 최대 3.5 g h z에 도달 합니다.  이러한 가상 머신은 최대 104 vCPU 및 672 GiB의 RAM과 최대 3800 GiB의 로컬 SSD 저장소를 제공 합니다. Edv5 시리즈 가상 머신은 낮은 대기 시간, 고속 로컬 저장소를 활용 하는 메모리 집약적 엔터프라이즈 응용 프로그램 및 응용 프로그램에 적합 합니다.
 
-Edv5 시리즈 가상 머신은 표준 SSD 및 표준 HDD 디스크 유형을 지원합니다. Premium SSD 또는 Ultra Disk 스토리지를 사용하려면 Edsv5 시리즈 가상 머신을 선택합니다. 디스크 스토리지는 가상 머신과 별도로 청구됩니다. [디스크에 대한 가격 책정을 참조하세요.](https://azure.microsoft.com/pricing/details/managed-disks/)
+Edv5 시리즈 가상 머신은 표준 SSD 및 표준 HDD 디스크 유형을 지원 합니다. 프리미엄 SSD 또는 Ultra Disk storage를 사용 하려면 Edsv5 시리즈 virtual machines를 선택 합니다. 디스크 저장소는 가상 컴퓨터와 별도로 청구 됩니다. [디스크 가격을 참조 하세요](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 [Premium Storage](premium-storage-performance.md): 지원되지 않음<br>
 [Premium Storage 캐싱](premium-storage-performance.md): 지원되지 않음<br>
 [실시간 마이그레이션](maintenance-and-updates.md): 지원됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원됨<br>
 [VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
-[가속화된 네트워킹:](../virtual-network/create-vm-accelerated-networking-cli.md)필수 <br>
+[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 필수 <br>
 [임시 OS 디스크](ephemeral-os-disks.md): 지원되지 않음 <br>
 <br>
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 캐시된 최대 및 임시 스토리지 처리량: IOPS/MBps<sup>*</sup>  | 최대 NIC 수|최대 네트워크 대역폭(Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps<sup>*</sup>  | 최대 NIC 수|최대 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|
-| Standard_E2d_v5<sup>1,2</sup>  | 2   | 16  | 75   | 4  | 9000/125    | 2 | 12500 |
+| Standard_E2d_v5<sup>1, 2</sup>  | 2   | 16  | 75   | 4  | 9000/125    | 2 | 12500 |
 | Standard_E4d_v5                | 4   | 32  | 150  | 8  | 19000/250   | 2 | 12500 |
 | Standard_E8d_v5                | 8   | 64  | 300  | 16 | 38000/500   | 4 | 12500 |
 | Standard_E16d_v5               | 16  | 128 | 600  | 32 | 75000/1000  | 8 | 12500 |
@@ -82,7 +82,7 @@ Edsv5 시리즈 가상 머신은 표준 SSD 및 표준 HDD 디스크 유형을 �
 | Standard_E48ds_v5               | 48  | 384 | 1800 | 32 | 225000/3000 | 76800/1315   | 80000/3000 | 8 | 24000  |
 | Standard_E64ds_v5               | 64  | 512 | 2400 | 32 | 375000/4000 | 80000/1735   | 80000/3000 | 8 | 30000  |
 | Standard_E96ds_v5<sup>3</sup>   | 96  | 672 | 3600 | 32 | 450000/4000 | 80000/2600   | 80000/4000 | 8 | 35000  |
-| Standard_E104ids_v5<sup>4</sup> | 104 | 672 | 3800 | 64 | 450000/4000 | 120000/4000  | 80000/4000 | 8 | 100000 |
+| Standard_E104ids_v5<sup>4</sup> | 104 | 672 | 3800 | 64 | 450000/4000 | 120000/4000  | 120000/4000 | 8 | 100000 |
 
 <sup>*</sup> [Gen2 VM](generation-2.md)을 사용하여 이러한 IOP 값을 보장할 수 있습니다.<br>
 <sup>1</sup> 가속화된 네트워킹이 필요하며 모든 Edsv5 가상 머신에서 기본적으로 켜져 있습니다.<br>

@@ -3,30 +3,30 @@ title: Speech Service API용 Docker 컨테이너 설치 및 실행
 titleSuffix: Azure Cognitive Services
 description: Speech Service용 Docker 컨테이너를 사용하여 온-프레미스에서 음성 인식, 대화 내용 기록, 생성 등을 수행할 수 있습니다.
 services: cognitive-services
-author: eric-urban
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/11/2021
-ms.author: eur
+ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: 온-프레미스, Docker, 컨테이너
-ms.openlocfilehash: 3a1bee0399a00a758339a636d55e46321794a93b
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 946b2ff65f42fc243177827a502e17f219c62ec3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/03/2021
-ms.locfileid: "131501087"
+ms.locfileid: "131434639"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Speech Service API용 Docker 컨테이너 설치 및 실행 
 
-컨테이너를 사용 하면 사용자 환경에서 음성 서비스 Api의 _일부_ 를 실행할 수 있습니다. 컨테이너는 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다. 이 문서에서는 음성 컨테이너를 다운로드, 설치 및 실행하는 방법에 대해 알아봅니다.
+컨테이너를 사용하면 사용자 환경에서 _일부_ Speech Service API를 실행할 수 있습니다. 컨테이너는 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다. 이 문서에서는 음성 컨테이너를 다운로드, 설치 및 실행하는 방법에 대해 알아봅니다.
 
 음성 컨테이너는 고객이 강력한 클라우드 기능 및 에지 지역성 모두에 최적화된 음성 애플리케이션 아키텍처를 구축할 수 있도록 합니다. 클라우드 기반 Azure Speech Service와 동일한 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)을 사용하는 여러 컨테이너를 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> 2021 년 8 월 31 일에 표준 음성 합성 음성 및 텍스트 음성 변환 컨테이너를 사용 중지 했습니다. 대신 신경망 및 음성 변환 컨테이너를 사용 하도록 응용 프로그램을 마이그레이션하는 것이 좋습니다. 응용 프로그램을 업데이트 하는 방법에 대 한 자세한 내용은 [다음 단계를 따르세요](./text-to-speech.md#migrate-to-neural-voice) .
+> 표준 음성 합성 음성 및 텍스트 음성 대 음성 컨테이너는 2021년 8월 31일에 사용 중지되었습니다. 대신 신경망 텍스트 음성 대 음성 컨테이너를 사용하도록 애플리케이션을 마이그레이션하는 것이 좋습니다. 애플리케이션 업데이트에 대한 자세한 내용은 [다음 단계를 따르세요.](./text-to-speech.md#migrate-to-neural-voice)
 
 | 컨테이너 | 기능 | 최신 | 릴리스 상태 |
 |--|--|--|--|
@@ -311,18 +311,18 @@ diarize_speech_config.set_service_property(
 
 
 #### <a name="analyze-sentiment-on-the-speech-to-text-output"></a>음성 텍스트 변환 출력의 감정 분석 
-음성 텍스트 컨테이너의 v 2.6.0에서 시작 하 여 미리 보기 하나 대신 Language service 3.0 API 끝점을 사용 해야 합니다. 예를 들면 다음과 같습니다.
+음성 텍스트 번역 컨테이너의 v2.6.0부터는 미리 보기 엔드포인트 대신 언어 서비스 3.0 API 엔드포인트를 사용해야 합니다. 예를 들면 다음과 같습니다.
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0/sentiment`
 * `https://localhost:5000/text/analytics/v3.0/sentiment`
 
 > [!NOTE]
-> 언어 서비스 `v3.0` API는 이전 버전과 호환 되지 않습니다  `v3.0-preview.1` . 최신 감정 기능 지원을 받으려면 `v2.6.0` 음성-텍스트 컨테이너 이미지 및 언어 서비스를 사용 합니다 `v3.0` .
+> 언어 서비스 `v3.0` API는 이전 버전과 호환되지  `v3.0-preview.1` 않습니다. 최신 감정 기능을 지원하려면 음성 텍스트 컨테이너 이미지 및 언어 서비스 를 `v2.6.0` `v3.0` 사용합니다.
 
-음성 텍스트 변환 컨테이너 v2.2.0부터 출력에서 [감정 분석 v3 API를](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) 호출할 수 있습니다. 감정 분석을 호출 하려면 언어 서비스 API 리소스 끝점이 필요 합니다. 예를 들어: 
+음성 텍스트 변환 컨테이너 v2.2.0부터 출력에서 [감정 분석 v3 API를](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) 호출할 수 있습니다. 감정 분석을 호출하려면 언어 서비스 API 리소스 엔드포인트가 필요합니다. 예를 들어: 
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
 * `https://localhost:5000/text/analytics/v3.0-preview.1/sentiment`
 
-클라우드에서 언어 서비스 끝점에 액세스 하는 경우 키가 필요 합니다. 언어 서비스 기능을 로컬로 실행 하는 경우에는이 기능을 제공 하지 않아도 됩니다.
+클라우드에서 언어 서비스 엔드포인트에 액세스하는 경우 키가 필요합니다. 언어 서비스 기능을 로컬로 실행하는 경우 이를 제공하지 않아도 될 수 있습니다.
 
 키와 엔드포인트는 다음 예제와 같이 음성 컨테이너에 인수로 전달됩니다.
 
@@ -339,7 +339,7 @@ CloudAI:SentimentAnalysisSettings:SentimentAnalysisApiKey={SENTIMENT_APIKEY}
 이 명령은 다음을 수행합니다.
 
 * 위의 명령과 동일한 단계를 수행합니다.
-* 감정 분석 요청을 보내기 위한 언어 서비스 API 끝점 및 키를 저장 합니다. 
+* 감정 분석 요청을 보내기 위한 언어 서비스 API 엔드포인트 및 키를 저장합니다. 
 
 #### <a name="phraselist-v2-on-the-speech-to-text-output"></a>음성 텍스트 변환 출력의 Phraselist v2 
 

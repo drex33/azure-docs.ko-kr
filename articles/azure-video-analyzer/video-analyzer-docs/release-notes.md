@@ -4,12 +4,12 @@ description: 이 항목에서는 Azure Video Analyzer 릴리스, 개선 사항, 
 ms.topic: conceptual
 ms.date: 11/01/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 8b17c19d96699a6442bd6d606ffbc88b25088afe
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 4fd70eed852a3008f97ee67d3b04dfc8b63bf735
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131087042"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131476930"
 ---
 # <a name="azure-video-analyzer-release-notes"></a>Azure Video Analyzer 릴리스 정보
 
@@ -51,6 +51,10 @@ mcr.microsoft.com/media/video-analyzer:1.1.0
 * 기록 된 [비디오의 원하는 부분](cloud/export-portion-of-video-as-mp4.md) 을 MP4 파일로 내보낼 수 있습니다.
 * 기록 된 비디오에 대 한 보존 정책을 지정할 수 있습니다. 그러면 서비스가 지정 된 기간 (일) 보다 오래 된 콘텐츠를 정기적으로 잘라냅니다.
 * Video Analyzer edge 모듈을 사용 하 여 기록 된 비디오는 [미리 보기 이미지](edge/enable-video-preview-images.md) 또는 미리 보기를 정기적으로 포함 하 여 더 나은 검색 환경을 제공 합니다.
+
+### <a name="known-issues"></a>알려진 문제
+* 짧은 대기 시간 스트리밍을 사용 하는 경우 한 번에 하나의 클라이언트만 서비스에 연결할 수 있습니다.
+* 공유 메모리가 있는 추론에 대 한 gRPC 확장 모듈을 사용 하는 경우 Video Analyzer edge 모듈 및 확장 모듈이 동일한 [사용자 및 그룹](https://docs.docker.com/engine/reference/builder/#user) 에서 실행 되어야 합니다.
 
 ## <a name="october-1-2021"></a>2021년 10월 1일
 이제 오스트레일리아 동부에서 Video Analyzer 서비스를 미리 보기에서 사용할 수 있습니다. 최신 가용성 정보는 [여기](https://azure.microsoft.com/global-infrastructure/services/?products=video-analyzer&regions=all) 를 참조 하세요.

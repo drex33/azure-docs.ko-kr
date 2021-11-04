@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: c3c029826ccd4430f935b63b74bc958ad8de4c1e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: 96b6b32a694e39a7e227a5b98949f8eb1d4891e4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110460636"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131475961"
 ---
 # <a name="replace-your-azure-stack-edge-device"></a>Azure Stack Edge 디바이스 바꾸기
 
@@ -62,7 +62,7 @@ ms.locfileid: "110460636"
 1. [디바이스에서 데이터를 지웁니다](azure-stack-edge-return-device.md#erase-data-from-the-device).
 2. 원래 디바이스에 대해 [디바이스 반환을 시작](azure-stack-edge-return-device.md#initiate-device-return)합니다.
 3. [픽업을 예약합니다](azure-stack-edge-return-device.md#schedule-a-pickup).
-4. Microsoft에서 디바이스를 받으면 반환된 디바이스와 관련된 [리소스를 삭제](azure-stack-edge-return-device.md#delete-the-resource)할 수 있습니다.
+4. Microsoft에서 디바이스를 받으면 반환된 디바이스와 관련된 [리소스를 삭제](azure-stack-edge-return-device.md#complete-return)할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

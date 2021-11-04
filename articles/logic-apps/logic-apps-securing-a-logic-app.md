@@ -7,12 +7,12 @@ ms.reviewer: rarayudu, azla
 ms.topic: how-to
 ms.date: 09/13/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: d3814c0888499a1b31d707560f6acd26c572b95e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 475d1d580d1330cd3f65d21338a8dea050d37da7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131040664"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131464208"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -144,10 +144,10 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 요청 기반 트리거에서 만든 엔드포인트에 대한 인바운드 호출의 경우 논리 앱에 대한 권한 부여 정책을 정의하거나 추가하여 [Azure AD OAuth](../active-directory/develop/index.yml)를 사용하도록 설정할 수 있습니다. 이러한 방식으로 인바운드 호출은 권한 부여에 OAuth [액세스 토큰](../active-directory/develop/access-tokens.md)을 사용합니다.
 
-논리 앱이 OAuth 액세스 토큰을 포함하는 인바운드 요청을 받으면 Azure Logic Apps 토큰의 클레임을 각 권한 부여 정책에 지정된 클레임과 비교합니다. 토큰의 클레임과 하나 이상의 정책에 있는 모든 클레임 사이에 일치하는 항목이 있으면 인바운드 요청에 대한 권한 부여가 성공합니다. 토큰은 권한 부여 정책에 지정된 수보다 많은 클레임을 가질 수 있습니다.
+논리 앱이 OAuth 액세스 토큰을 포함 하는 인바운드 요청을 수신 하는 경우 Azure Logic Apps는 각 권한 부여 정책에 지정 된 클레임에 대 한 토큰의 클레임을 비교 합니다. 토큰의 클레임과 하나 이상의 정책에 있는 모든 클레임 사이에 일치하는 항목이 있으면 인바운드 요청에 대한 권한 부여가 성공합니다. 토큰은 권한 부여 정책에 지정된 수보다 많은 클레임을 가질 수 있습니다.
 
 > [!NOTE]
-> 단일 테넌트 Azure Logic Apps **논리 앱(표준)** 리소스 형식의 경우 요청 트리거 및 HTTP 웹후크 트리거와 같은 요청 기반 트리거에 대한 인바운드 호출에는 현재 Azure AD OAuth를 사용할 수 없습니다.
+> 단일 테 넌 트 Azure Logic Apps의 **논리 앱 (표준)** 리소스 종류의 경우 Azure AD OAuth는 현재 요청 기반 트리거 (예: 요청 트리거 및 HTTP Webhook 트리거)에 대 한 인바운드 호출에 사용할 수 없습니다.
 
 #### <a name="considerations-before-you-enable-azure-ad-oauth"></a>Azure AD OAuth를 사용하도록 설정하기 전 고려 사항
 
@@ -977,7 +977,7 @@ HTTP 및 HTTPS 엔드포인트는 다양한 종류의 인증을 지원합니다.
 | [클라이언트 인증서](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
 | [원시](#raw-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
-| [관리 ID](#managed-identity-authentication) | **논리 앱(사용량)**: <p><p>- **기본 제공:** Azure API Management, Azure 앱 Services, Azure Functions, HTTP, HTTP 웹후크 <p><p>- **관리 커넥터(미리** 보기): <p><p>--- **단일 인증:** Azure AD ID 보호, Azure Automation, Azure Container Instance, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure IoT Central V3, Azure Key Vault, Azure Resource Manager, Azure Sentinel, Azure AD를 사용하는 HTTP <p><p>--- **다중 인증:** Azure Blob Storage, SQL Server <p><p>___________________________________________________________________________________________<p><p>**논리 앱(표준)**: <p><p>- **기본 제공:** HTTP, HTTP 웹후크 <p><p>- **관리 커넥터(미리** 보기): <p>--- **단일 인증:** Azure AD ID 보호, Azure Automation, Azure Container Instance, Azure Data Explorer, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure IoT Central V3, Azure Key Vault, Azure Resource Manager, Azure Sentinel, Azure AD를 사용하는 HTTP <p><p>--- **다중 인증:** Azure Blob Storage, SQL Server |
+| [관리 ID](#managed-identity-authentication) | **논리 앱 (소비)**: <p><p>- **기본 제공**: Azure API Management, Azure 앱 Services, AZURE FUNCTIONS, HTTP, http Webhook <p><p>- **관리 되는 커넥터** (미리 보기): <p><p>--- **단일 인증**: Azure AD ID 보호, Azure Automation, Azure Container Instance, azure 데이터 탐색기, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure Key Vault, Azure Resource Manager, azure 센티널, azure AD와의 HTTP <p><p>--- **다중 인증**: Azure Blob Storage, SQL Server <p><p>___________________________________________________________________________________________<p><p>**논리 앱 (표준)**: <p><p>- **기본 제공**: HTTP, http Webhook <p><p>- **관리 되는 커넥터** (미리 보기): <p>--- **단일 인증**: Azure AD ID 보호, Azure Automation, Azure Container Instance, azure 데이터 탐색기, Azure Data Factory, Azure Data Lake, Azure Event Grid, Azure Key Vault, Azure Resource Manager, azure 센티널, azure AD와의 HTTP <p><p>--- **다중 인증**: Azure Blob Storage, SQL Server |
 |||
 
 <a name="basic-authentication"></a>

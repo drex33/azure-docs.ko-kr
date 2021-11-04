@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/13/2021
-ms.openlocfilehash: 082b943aef3f82898b80d23d33a90d3f5ec3ebc6
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
-ms.translationtype: HT
+ms.date: 11/02/2021
+ms.openlocfilehash: 76036b42693b17480f4e5ede8d93d981bf40d739
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122539606"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131429663"
 ---
 # <a name="plan-an-azure-managed-application-for-an-azure-application-offer"></a>Azure 응용 프로그램 제품에 대한 Azure 관리되는 응용 프로그램 플랜
 
@@ -90,9 +90,9 @@ Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용�
 
 ## <a name="choose-who-can-see-your-plan"></a>플랜을 볼 수 있는 사용자 선택
 
-제한 없음(공개) 또는 선택한 특정 대상 그룹(프라이빗)에만 표시되도록 각 플랜을 구성할 수 있습니다. 최대 100개의 플랜을 만들 수 있으며 여기서 최대 45개의 플랜을 프라이빗으로 지정할 수 있습니다. 특정 고객에게 다양한 가격 책정 옵션이나 기술 구성을 제공하기 위해 프라이빗 플랜을 만들 수 있습니다.
+모든 사용자(퍼블릭) 또는 선택한 특정 대상 그룹(프라이빗)에만 표시되도록 각 플랜을 구성할 수 있습니다. 최대 100개의 플랜을 만들 수 있으며 여기서 최대 45개의 플랜을 프라이빗으로 지정할 수 있습니다. 특정 고객에게 다양한 가격 책정 옵션이나 기술 구성을 제공하기 위해 프라이빗 플랜을 만들 수 있습니다.
 
-사용자가 할당한 각 구독 ID에 대한 설명을 포함하는 옵션과 함께 Azure 구독 ID를 사용하여 프라이빗 플랜에 대한 액세스 권한을 부여합니다. 최대 10개의 구독 ID를 수동으로 추가하거나 또는 .CSV 파일을 사용하여 최대 1만 개의 구독 ID를 추가할 수 있습니다. Azure 구독 ID는 GUID로 표시되며 문자는 소문자여야 합니다.
+사용자가 할당한 각 구독 ID에 대한 설명을 포함하는 옵션과 함께 Azure 구독 ID를 사용하여 프라이빗 플랜에 대한 액세스 권한을 부여합니다. 최대 10개의 구독 ID를 수동으로 추가하거나 또는 .CSV 파일을 사용하여 최대 1만개의 구독 ID를 추가할 수 있습니다. Azure 구독 ID는 GUID로 표시되며 문자는 소문자여야 합니다.
 
 CSP(클라우드 솔루션 공급자 프로그램)의 재판매인을 통해 설정된 Azure 구독은 프라이빗 플랜을 지원하지 않습니다. 자세한 내용은 [Microsoft 상업용 마켓플레이스의 프라이빗 제품](private-offers.md)을 참조하세요.
 
@@ -121,6 +121,10 @@ JIT 액세스를 사용하면 문제 해결 또는 유지 관리를 위해 관�
 ## <a name="notification-endpoint-url"></a>알림 엔드포인트 URL
 
 선택 사항으로, 이 플랜의 관리되는 응용 프로그램 인스턴스에서 모든 CRUD 작업에 관한 알림을 수신하려면 HTTPS 웹후크 엔드포인트를 지정할 수 있습니다.
+
+Azure는 `/resource` 호출하기 전에 webhook URI의 끝에 를 추가합니다. 따라서 웹후크 URL은 로 끝나야 `/resource` 하지만 파트너 센터 **알림 엔드포인트 URL** 상자에 입력한 URI에는 포함되지 않아야 합니다. 예를 들어 `https://contoso.com` 알림 엔드포인트 URI로 를 입력하면 에 대한 호출이 `https://contoso.com/resource` 발생합니다.
+
+관리되는 앱 알림에서 이벤트를 수신 대기하는 경우 `https://<url>/resource` 설정된 URL만 수신하고 수신 대기하지 않는지 확인합니다. 샘플 알림은 [알림 스키마](/azure/azure-resource-manager/managed-applications/publish-notifications#notification-schema)를 참조하세요.
 
 ## <a name="customize-allowed-customer-actions-optional"></a>허용되는 고객 작업 사용자 지정(선택 사항)
 

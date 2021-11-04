@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 09/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: 4b27e60776c459ed74bcf33c79a819f90722a0d0
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 777ee0bcbf139c9edc9e4715133faec3318f692b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130239004"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131434506"
 ---
 # <a name="translator-v30"></a>Translator v3.0
 
@@ -31,22 +31,16 @@ Translator 버전 3은 최신 JSON 기반 Web API를 제공합니다. 기존 기
 
 ## <a name="base-urls"></a>기준 URL
 
-Microsoft Translator는 여러 데이터 센터 위치에서 제공됩니다. 현재 10개 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions)에 있습니다.
+번역기에 대 한 요청은 대부분의 경우 요청이 시작 된 위치와 가장 가까운 데이터 센터에 의해 처리 됩니다. 전역 끝점을 사용 하는 경우 데이터 센터 오류가 발생 하는 경우 요청은 지리 외부에서 라우팅될 수 있습니다.
 
-* **아메리카:** 미국 동부, 미국 중남부, 미국 서부 및 미국 서부 2
-* **아시아 태평양:** 한국 남부, 일본 동부, 동남아시아 및 오스트레일리아 동부
-* **유럽:** 서유럽, 북유럽
+특정 지리 내에서 요청을 강제로 처리 하려면 원하는 지리적 끝점을 사용 합니다. 모든 요청은 지리 내의 데이터 센터 간에 처리 됩니다. 
 
-Microsoft Translator에 대한 요청은 대부분 요청이 시작된 위치와 가장 가까운 데이터 센터에서 처리됩니다. 데이터 센터 오류가 발생한 경우 요청은 지역 외부로 라우팅될 수 있습니다.
-
-요청을 특정 지역에서 처리되도록 하려면 API 요청의 글로벌 엔드포인트를 원하는 지역 엔드포인트로 변경합니다.
-
-|Geography|기준 URL(지리적 엔드포인트)|
-|:--|:--|
-|글로벌(비지역)|    api.cognitive.microsofttranslator.com|
-|미국|    api-nam.cognitive.microsofttranslator.com|
-|유럽|    api-eur.cognitive.microsofttranslator.com|
-|아시아 태평양|    api-apc.cognitive.microsofttranslator.com|
+|Geography|기준 URL(지리적 엔드포인트)|데이터 센터|
+|:--|:--|:--|
+|글로벌(비지역)|    api.cognitive.microsofttranslator.com|사용 가능한 가장 가까운 데이터 센터|
+|아시아 태평양|    api-apc.cognitive.microsofttranslator.com|한국 남부, 일본 동부, 동남 아시아 및 오스트레일리아 동부|
+|유럽|    api-eur.cognitive.microsofttranslator.com|북유럽, 서유럽|
+|미국|    api-nam.cognitive.microsofttranslator.com|미국 동부, 미국 서 부, 미국 중부, 미국 서 부 2|
 
 <sup>1</sup> 스위스 북부 또는 스위스 서부에 리소스가 있는 고객은 텍스트 API 요청이 스위스 내에서 처리되도록 할 수 있습니다. 요청이 스위스에서 처리되도록 하려면 '리소스 지역' '스위스 북부' 또는 '스위스 서부'에 Translator 리소스를 만든 다음, API 요청에서 리소스의 사용자 지정 엔드포인트를 사용합니다. 예를 들어, Azure Portal ‘리소스 지역’을 ‘스위스 북부’로 하여 Translator 리소스를 만들고 리소스 이름이 ‘my-ch-n’인 경우 사용자 지정 엔드포인트는 “https://my-ch-n.cognitiveservices.azure.com”입니다. 그리고 번역할 샘플 요청은 다음과 같습니다.
 ```curl

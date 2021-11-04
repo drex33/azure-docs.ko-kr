@@ -7,27 +7,23 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 08/16/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 2472a3495b872a17b073a86a6d99c6ddbf218343
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 619c65cb2f86c946d0e85573a967a23d718b38c9
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124755348"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501441"
 ---
 # <a name="use-an-azure-free-account-to-try-azure-database-for-mysql---flexible-server-for-free"></a>Azure 체험 계정으로 Azure Database for MySQL - 유연한 서버를 사용해 보세요.
 
-Azure Database for MySQL - 유연한 서버(미리 보기)는 클라우드에서 고가용성 MySQL 데이터베이스를 실행, 관리 및 확장하는 데 사용하는 관리형 서비스입니다.  Azure 체험 계정을 사용하면 유연한 서버를 **12개월**  동안 사용할 수 있으며 최대 **월간 한도** 는 다음과 같습니다.
+Azure Database for MySQL 유연한 서버는 클라우드에서 항상 사용 가능한 MySQL 데이터베이스를 실행, 관리 및 확장 하는 데 사용 하는 관리 서비스입니다.  Azure 체험 계정을 사용하면 유연한 서버를 **12개월**  동안 사용할 수 있으며 최대 **월간 한도** 는 다음과 같습니다.
 - **750시간** 의 **버스트 가능한 B1MS** 인스턴스(매달 데이터베이스 인스턴스를 지속적으로 실행하는 데 충분한 시간입니다).
 - **32GB의 스토리지 및 32GB의 백업 스토리지**. 
 
 이 문서에서는 [Azure 체험 계정](https://azure.microsoft.com/free/)을 사용하여 유연한 서버를 만들고 사용하는 방법을 보여 줍니다. 
 
 
-> [!IMPORTANT]
-> Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
-
-
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -54,7 +50,7 @@ Azure Database for MySQL - 유연한 서버(미리 보기)는 클라우드에서
 
 1. **만들기** 를 선택합니다.
 
-1. **Azure Database for MySQL 배포 옵션 선택** 페이지에서 배포 옵션으로 **유연한 서버(미리 보기)** 를 선택합니다. 
+1. **Azure Database for MySQL 배포 옵션 선택** 페이지에서 **유연한 서버** 를 선택 합니다. 
 
     :::image type="content" source="media/how-to-deploy-on-azure-free-account/select-deployment-option.png" alt-text="선택할 수 있는 유연한 서버 배포 옵션을 보여 주는 스크린샷":::
 
@@ -64,7 +60,7 @@ Azure Database for MySQL - 유연한 서버(미리 보기)는 클라우드에서
     :::image type="content" source="media/how-to-deploy-on-azure-free-account/basic-settings-all.PNG" alt-text="유연한 서버를 만들기 위한 기본 설정 보여 주는 스크린샷":::
 
 
-    |설정    |제안 값    |설명  |
+    |설정    |제안 값    |Description  |
     |---------|---------|---------|
     |Subscription    |사용자의 구독    |평가판 Azure 구독을 선택합니다.|
     |Resource group    |리소스 그룹    |새 리소스 그룹 또는 구독의 기존 리소스 그룹을 입력합니다.|

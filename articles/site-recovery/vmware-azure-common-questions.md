@@ -3,12 +3,12 @@ title: Azure Site Recovery를 사용한 VMware 재해 복구에 대한 일반적
 description: Azure Site Recovery를 사용하여 Azure로 온-프레미스 VMware VM 재해 복구 시 발생하는 일반적인 질문에 관한 답변을 확인하세요.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8480598cc872a051b6b81f928e92740e39353598
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 02e903c876a2e4cdec29006090ed8ddfbe9e4b45
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128621245"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131452607"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>VMware에서 Azure로 복제에 대한 일반적인 질문
 
@@ -165,7 +165,7 @@ VMware VM을 Azure에 복제하는 경우에는 복제가 계속됩니다.
 
 ### <a name="can-i-extend-replication"></a>복제를 확장할 수 있나요?
 
-확장 복제 또는 체인으로 연결된 복제는 지원되지 않습니다. [사용자 의견 포럼](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959)을 통해 이 기능에 대한 의견을 보내 주세요.
+확장 복제 또는 체인으로 연결된 복제는 지원되지 않습니다. [사용자 의견 포럼](https://feedback.azure.com/d365community/forum/3ccca344-2d25-ec11-b6e6-000d3a4f0f84)을 통해 이 기능에 대한 의견을 보내 주세요.
 
 ### <a name="how-can-i-track-progress-of-initial-replicationsynchronization"></a>초기 복제/동기화 진행률을 어떻게 추적하나요?
 
@@ -173,7 +173,7 @@ VMware VM을 Azure에 복제하는 경우에는 복제가 계속됩니다.
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>오프라인 초기 복제를 수행할 수 있나요?
 
-오프라인 복제는 지원되지 않습니다. [사용자 의견 포럼](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)을 통해 이 기능에 대한 의견을 보내 주세요.
+오프라인 복제는 지원되지 않습니다. [사용자 의견 포럼](https://feedback.azure.com/d365community/idea/7c09c396-2e25-ec11-b6e6-000d3a4f0f84)을 통해 이 기능에 대한 의견을 보내 주세요.
 
 ### <a name="what-is-asrseeddisk"></a>asrseeddisk란 무엇인가요?
 

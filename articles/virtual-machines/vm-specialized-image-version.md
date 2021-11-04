@@ -1,6 +1,6 @@
 ---
 title: 특수 이미지 버전에서 VM 만들기
-description: Shared Image Gallery 특수 이미지 버전을 사용하여 VM을 만듭니다.
+description: Azure Compute 갤러리에서 특수 이미지 버전을 사용하여 VM을 만듭니다.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -9,18 +9,22 @@ ms.topic: how-to
 ms.date: 08/05/2021
 ms.author: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 009678278d7900908572e81b7aab4222dc3c4a07
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: b500a7e02167f5373eb2dbdeb4bdb708c5b69966
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123452684"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131474499"
 ---
 # <a name="create-a-vm-using-a-specialized-image-version"></a>특수 이미지 버전을 사용하여 VM 만들기 
 
 **적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM 
 
-Shared Image Gallery에 저장된 [특수화된 이미지 버전](./shared-image-galleries.md#generalized-and-specialized-images)에서 VM을 만듭니다. 일반화된 이미지 버전에서 VM을 만들려는 경우 [일반화된 이미지 버전에서 VM 만들기](vm-generalized-image-version.md)를 참조하세요.
+Azure Compute 갤러리에 저장된 [특수 이미지 버전(이전의](./shared-image-galleries.md#generalized-and-specialized-images) Shared Image Gallery)에서 VM을 만듭니다. 일반화된 이미지 버전에서 VM을 만들려는 경우 [일반화된 이미지 버전에서 VM 만들기](vm-generalized-image-version.md)를 참조하세요.
+
+> [!IMPORTANT]
+> 
+> 특수 이미지에서 새 VM을 만들 때 새 VM은 원래 VM의 컴퓨터 이름을 유지합니다. 다른 컴퓨터 관련 정보(예: CMID)도 유지되며, 경우에 따라 이 중복된 정보로 인해 문제가 발생할 수 있습니다. VM을 복사할 때 애플리케이션이 어떤 유형의 컴퓨터 관련 정보에 의존하는지 알아야 합니다.  
 
 이 예제에서는 필요에 따라 리소스 이름을 바꿉니다. 
 
@@ -159,8 +163,8 @@ New-AzVM `
 
 **다음 단계**
 
-또한 템플릿을 사용하여 공유 이미지 갤러리 리소스를 만들 수도 있습니다. 다음의 몇 가지 Azure 빠른 시작 템플릿을 사용할 수 있습니다. 
+템플릿을 사용하여 Azure Compute 갤러리 리소스를 만들 수도 있습니다. 다음의 몇 가지 Azure 빠른 시작 템플릿을 사용할 수 있습니다. 
 
-- [공유 이미지 갤러리 만들기](https://azure.microsoft.com/resources/templates/sig-create/)
-- [공유 이미지 갤러리에서 이미지 정의 만들기](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
-- [공유 이미지 갤러리에서 이미지 버전 만들기](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
+- [Azure Compute 갤러리 만들기](https://azure.microsoft.com/resources/templates/sig-create/)
+- [Azure Compute 갤러리에서 이미지 정의 만들기](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
+- [Azure Compute 갤러리에서 이미지 버전 만들기](https://azure.microsoft.com/resources/templates/sig-image-version-create/)

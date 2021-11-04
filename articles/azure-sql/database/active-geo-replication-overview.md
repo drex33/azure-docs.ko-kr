@@ -9,12 +9,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: mathoma
 ms.date: 10/25/2021
-ms.openlocfilehash: 7738c6748c2f5a90d0e4aacbccf47f32484b5cf0
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ca958a3e7a43864caa673cd31736b1e661e7f608
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131072221"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131465367"
 ---
 # <a name="active-geo-replication"></a>활성 지리적 복제
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -204,6 +204,8 @@ ms.locfileid: "131072221"
 > [!NOTE]
 > 설정 및 지역 장애 조치 (failover)를 포함 한 구독 간 지역에서 복제 작업은 T SQL 명령만 사용할 때 지원 됩니다.
 > 
+> 주 서버와/또는 보조 서버에 [개인 끝점이](private-endpoint-overview.md) 구성 되어 있고 [공용 네트워크 액세스가 거부](connectivity-settings.md#deny-public-network-access)된 경우 T-SQL를 사용 하 여 지역 보조를 추가 하는 것은 지원 되지 않습니다. 개인 끝점이 구성 되었지만 공용 네트워크 액세스가 허용 되는 경우 공용 IP 주소에서 주 서버에 연결 될 때 지역 보조 데이터베이스를 추가 하는 것이 지원 됩니다. 지리적 보조 데이터베이스가 추가 되 면 공용 액세스를 거부할 수 있습니다.
+> 
 > 기본 또는 보조 논리 서버에서 azure SQL에 대 한 인증만 활성 (활성화) 상태인 [Azure Active Directory](https://techcommunity.microsoft.com/t5/azure-sql/azure-active-directory-only-authentication-for-azure-sql/ba-p/2417673) 경우에는 다른 azure 테 넌 트에서 논리 서버에서 지역 보조 데이터베이스를 만드는 것은 지원 되지 않습니다.
 
 ## <a name="keep-credentials-and-firewall-rules-in-sync"></a><a name="keeping-credentials-and-firewall-rules-in-sync"></a> 자격 증명 및 방화벽 규칙을 동기화 상태로 유지
@@ -243,43 +245,43 @@ RPO 측면에서 지연 시간을 모니터링하려면 주 데이터베이스�
 
 ## <a name="programmatically-manage-active-geo-replication"></a><a name="programmatically-managing-active-geo-replication"></a> 활성 지역 복제를 프로그래밍 방식으로 관리
 
-앞에서 설명한 것 처럼 T-SQL, Azure PowerShell 및 REST API를 사용 하 여 프로그래밍 방식으로 활성 지역 복제를 관리할 수도 있습니다. 다음 표는 사용 가능한 명령의 집합을 보여 줍니다. 활성 지역 복제는 관리를 위해 [Azure SQL Database REST API](/rest/api/sql/) 및 [Azure PowerShell cmdlet](/powershell/azure/)을 비롯한 Azure Resource Manager API 세트를 포함합니다. 이러한 Api는 azure RBAC (역할 기반 액세스 제어)를 지원 합니다. 액세스 역할을 구현하는 방법에 관한 자세한 내용은 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 참조하세요.
+앞에서 설명한 것 처럼 T-SQL, Azure PowerShell 및 REST API를 사용 하 여 프로그래밍 방식으로 활성 지역 복제를 관리할 수도 있습니다. 다음 표는 사용 가능한 명령의 집합을 보여 줍니다. 활성 지역 복제는 관리를 위해 [Azure SQL Database REST API](/rest/api/sql/) 및 [Azure PowerShell cmdlet](/powershell/azure/)을 비롯한 Azure Resource Manager API 세트를 포함합니다. 이러한 API는 Azure RBAC(Azure 역할 기반 액세스 제어)를 지원합니다. 액세스 역할을 구현하는 방법에 관한 자세한 내용은 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 참조하세요.
 
-### <a name="t-sql-manage-geo-failover-of-single-and-pooled-databases"></a><a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL: 단일 및 풀링된 데이터베이스의 지역 장애 조치 (failover) 관리
+### <a name="t-sql-manage-geo-failover-of-single-and-pooled-databases"></a><a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL: 단일 및 풀된 데이터베이스의 지역 장애 조치(failover) 관리
 
 > [!IMPORTANT]
-> 이러한 T SQL 명령은 활성 지역 복제에만 적용 되며 장애 조치 (failover) 그룹에는 적용 되지 않습니다. 따라서 장애 조치 (failover) 그룹만 지 원하는 SQL Managed Instance에는 적용 되지 않습니다.
+> 이러한 T SQL 명령은 활성 지역 복제에만 적용되며 장애 조치(failover) 그룹에는 적용되지 않습니다. 따라서 장애 조치(failover) 그룹만 지원하는 SQL Managed Instance 적용되지 않습니다.
 
 | 명령 | 설명 |
 | --- | --- |
-| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |**ADD SECONDARY ON SERVER** 인수를 사용 하 여 기존 데이터베이스에 대 한 보조 데이터베이스를 만들고 데이터 복제를 시작 합니다. |
-| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |장애 조치 (failover)를 시작 하기 위해 보조 데이터베이스를 주 데이터베이스로 전환 하려면 **장애 조치** 또는 **FORCE_FAILOVER_ALLOW_DATA_LOSS** 사용 |
-| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |**서버에서 보조 데이터베이스 제거** 를 사용 하 여 SQL Database와 지정 된 보조 데이터베이스 간의 데이터 복제를 종료 합니다. |
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |**ADD SECONDARY ON SERVER** 인수를 사용하여 기존 데이터베이스에 대한 보조 데이터베이스를 만들고 데이터 복제를 시작합니다. |
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |**장애 조치(failover)** 또는 **FORCE_FAILOVER_ALLOW_DATA_LOSS** 사용하여 보조 데이터베이스를 주 데이터베이스로 전환하여 장애 조치(failover) 시작 |
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&view=azuresqldb-current) |**REMOVE SECONDARY ON SERVER를** 사용하여 SQL Database 지정된 보조 데이터베이스 간의 데이터 복제를 종료합니다. |
 | [sys.geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |서버의 각 데이터베이스에 대한 모든 기존 복제 링크에 대한 정보를 반환합니다. |
 | [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |지정된 데이터베이스의 복제 링크에 대한 마지막 복제 시간, 마지막 복제 지연 및 기타 정보를 가져옵니다. |
-| [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |복제 링크에 대 한 변경 내용을 포함 하 여 모든 데이터베이스 작업의 상태를 표시 합니다. |
-| [sys.sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |모든 커밋된 트랜잭션이 지역 보조 데이터베이스의 트랜잭션 로그에 확정 될 때까지 응용 프로그램을 대기 시킵니다. |
+| [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |복제 링크에 대한 변경 내용을 포함하여 모든 데이터베이스 작업의 상태를 표시합니다. |
+| [sys.sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |커밋된 모든 트랜잭션이 지역 보조의 트랜잭션 로그로 강화될 때까지 애플리케이션이 대기하도록 합니다. |
 |  | |
 
-### <a name="powershell-manage-geo-failover-of-single-and-pooled-databases"></a><a name="powershell-manage-failover-of-single-and-pooled-databases"></a> PowerShell: 단일 및 풀링된 데이터베이스의 지역 장애 조치 (failover) 관리
+### <a name="powershell-manage-geo-failover-of-single-and-pooled-databases"></a><a name="powershell-manage-failover-of-single-and-pooled-databases"></a> PowerShell: 단일 및 풀된 데이터베이스의 지역 장애 조치(failover) 관리
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager 모듈은 여전히 Azure SQL Database에서 지원되지만 향후의 모든 개발은 Az.Sql 모듈을 위한 것입니다. 이러한 cmdlet은 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)을 참조하세요. Az 모듈 및 AzureRm 모듈의 명령에 대한 인수는 실질적으로 동일합니다.
 
-| Cmdlet | 설명 |
+| Cmdlet | Description |
 | --- | --- |
 | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) |하나 이상의 데이터베이스를 가져옵니다. |
 | [New-AzSqlDatabaseSecondary](/powershell/module/az.sql/new-azsqldatabasesecondary) |기존 데이터베이스에 대한 보조 데이터베이스를 만들고 데이터 복제를 시작합니다. |
 | [Set-AzSqlDatabaseSecondary](/powershell/module/az.sql/set-azsqldatabasesecondary) |장애 조치를 시작하기 위해 보조 데이터베이스로 전환합니다. |
 | [Remove-AzSqlDatabaseSecondary](/powershell/module/az.sql/remove-azsqldatabasesecondary) |SQL Database와 지정된 보조 데이터베이스 간의 데이터 복제를 종료합니다. |
-| [Get-AzSqlDatabaseReplicationLink](/powershell/module/az.sql/get-azsqldatabasereplicationlink) |데이터베이스에 대 한 지역에서 복제 링크를 가져옵니다. |
+| [Get-AzSqlDatabaseReplicationLink](/powershell/module/az.sql/get-azsqldatabasereplicationlink) |데이터베이스의 지역 복제 링크를 가져옵니다. |
 |  | |
 
 > [!TIP]
 > 샘플 스크립트는 [활성 지역 복제를 사용하여 단일 데이터베이스 구성 및 장애 조치(failover)](scripts/setup-geodr-and-failover-database-powershell.md) 및 [활성 지역 복제를 사용하여 풀링된 데이터베이스 구성 및 장애 조치(failover)](scripts/setup-geodr-and-failover-elastic-pool-powershell.md)를 참조하세요.
 
-### <a name="rest-api-manage-geo-failover-of-single-and-pooled-databases"></a><a name="rest-api-manage-failover-of-single-and-pooled-databases"></a> REST API: 단일 및 풀링된 데이터베이스의 지역 장애 조치 (failover) 관리
+### <a name="rest-api-manage-geo-failover-of-single-and-pooled-databases"></a><a name="rest-api-manage-failover-of-single-and-pooled-databases"></a> REST API: 단일 및 풀된 데이터베이스의 지역 장애 조치(failover) 관리
 
 | API | 설명 |
 | --- | --- |
@@ -295,8 +297,8 @@ RPO 측면에서 지연 시간을 모니터링하려면 주 데이터베이스�
 ## <a name="next-steps"></a>다음 단계
 
 - 샘플 스크립트에 대해서는 다음을 참조하세요.
-  - [활성 지역 복제를 사용 하 여 단일 데이터베이스 구성 및 장애 조치 (failover)](scripts/setup-geodr-and-failover-database-powershell.md)
-  - [활성 지역 복제를 사용 하 여 풀링된 데이터베이스를 구성 하 고 장애 조치 (failover)](scripts/setup-geodr-and-failover-elastic-pool-powershell.md)합니다.
+  - [활성 지역 복제 를 사용하여 단일 데이터베이스를 구성하고 장애 조치(failover)합니다.](scripts/setup-geodr-and-failover-database-powershell.md)
+  - [활성 지역 복제 를 사용하여 풀된 데이터베이스를 구성하고 장애 조치(failover)합니다.](scripts/setup-geodr-and-failover-elastic-pool-powershell.md)
 - SQL Database는 자동 장애 조치(failover) 그룹도 지원합니다. 자세한 내용은 [자동 장애 조치(failover) 그룹](auto-failover-group-overview.md) 사용을 참조하세요.
 - 비즈니스 연속성의 개요 및 시나리오를 보려면 [비즈니스 연속성 개요](business-continuity-high-availability-disaster-recover-hadr-overview.md)를 참조하세요.
 - Azure SQL Database 자동화 백업에 대한 자세한 내용은 [SQL Database 자동화 백업](automated-backups-overview.md)을 참조하세요.

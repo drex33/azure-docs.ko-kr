@@ -1,5 +1,5 @@
 ---
-title: Microsoft AppSource 대한 파트너 센터 Power BI 시각적 개체 제안 속성 구성
+title: Microsoft AppSource 파트너 센터 Power BI 시각적 개체 제안 속성 구성
 description: Microsoft AppSource 파트너 센터 Power BI 시각적 개체 제안 속성을 구성하는 방법을 알아봅니다.
 author: KesemSharabi
 ms.author: kesharab
@@ -8,30 +8,30 @@ ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: how-to
 ms.date: 09/21/2021
-ms.openlocfilehash: a1426d8ed0a97c2ec1715f4b0c368b9b9b9770f7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c0a683cbca2f29c7c4f8250b07ebcb5937400723
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128705705"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079327"
 ---
 # <a name="configure-power-bi-visual-offer-properties"></a>Power BI 시각적 개체 제안 속성 구성
 
-이 페이지에서는 Microsoft AppSource 제품 그룹화에 사용되는 [범주,](/azure/marketplace/categories) 제안을 지원하는 법적 계약 및 지원 설명서를 정의할 수 있습니다.
+이 페이지에서는 Microsoft AppSource 제품 그룹화에 사용되는 [범주,](./categories.md) 제안을 지원하는 법적 계약 및 지원 설명서를 정의할 수 있습니다.
 
 ## <a name="general-info"></a>일반 정보
 
-- 제안을 적절한 마켓플레이스 검색 영역으로 그룹화하려면 최대 3개의 **[범주를](/azure/marketplace/categories)** 선택합니다.
+- 제안을 적절한 마켓플레이스 검색 영역으로 그룹화하려면 최대 3개의 **[범주를](./categories.md)** 선택합니다.
 - 고객이 온라인 스토어의 산업에 대한 검색을 필터링할 때 제안을 표시하는 데 사용할 최대 2개의 **산업** 업종을 선택합니다.
 
 ## <a name="legal-and-support-info"></a>법적 정보 및 지원 정보
 
-제안에 대한 약관을 제공합니다. 다음과 같은 두 가지 옵션이 있습니다.
+제안에 대한 약관을 제공합니다. 다음 두 가지 옵션을 사용할 수 있습니다.
 
 - 표준 [계약](#use-the-standard-contract) 사용
 - [사용자 고유의 사용](#use-your-own-terms-and-conditions) 약관(EULA) 사용
 
-표준 계약에 대한 자세한 내용은 [Microsoft 상업용 Marketplace용 표준 계약](standard-contract.md) 참조하거나 [표준 계약](https://go.microsoft.com/fwlink/?linkid=2041178) PDF를 다운로드하세요(팝업 차단이 꺼져 있는지 확인).
+표준 계약에 대한 자세한 내용은 [Microsoft 상업용 Marketplace용 표준 계약](standard-contract.md) 참조하거나 [표준 계약](https://go.microsoft.com/fwlink/?linkid=2041178) PDF를 다운로드합니다(팝업 차단이 꺼져 있는지 확인).
 
 ### <a name="use-the-standard-contract"></a>표준 계약 사용
 

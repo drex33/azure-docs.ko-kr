@@ -2,20 +2,20 @@
 title: Azure 청구서 다운로드
 description: Azure 청구서를 다운로드하거나 보는 방법을 설명합니다.
 keywords: 청구서, 청구서 다운로드, azure 청구서
-author: genlin
-ms.reviewer: dcscontentpm
+author: bandersmsft
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/28/2021
+ms.date: 10/28/2021
 ms.author: banders
-ms.openlocfilehash: 14183a46085ca0da60f1abb5f6ba390b9d4c334a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: bc159ccab9d2a059d98de59e123d3e708ade9b2b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567120"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450080"
 ---
 # <a name="download-or-view-your-azure-billing-invoice"></a>Azure 청구서 다운로드 또는 보기
 

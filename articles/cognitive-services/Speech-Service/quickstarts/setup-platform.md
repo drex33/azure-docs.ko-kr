@@ -3,21 +3,21 @@ title: '빠른 시작: 개발 환경 설정'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 기본 플랫폼 및 프로그래밍 언어 조합을 위한 Speech SDK를 설치하는 방법을 알아봅니다.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/15/2020
-ms.author: pafarley
+ms.author: eur
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 zone_pivot_groups: programming-languages-speech-services-one-nomore
-ms.openlocfilehash: bfc8145bae4a0b6125e29d35de424faca0701055
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 6d9e8b19334e4f95c1bbbf52cb54767c1c419df2
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123544201"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131502481"
 ---
 # <a name="quickstart-setup-development-environment"></a>빠른 시작: 개발 환경 설정
 

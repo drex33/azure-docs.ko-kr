@@ -9,12 +9,12 @@ ms.reviewer: dineshm
 ms.date: 09/04/2020
 ms.subservice: blobs
 ms.custom: devx-track-js
-ms.openlocfilehash: ab3fe82252ee416aa47ff32a244fb9bf6de23f2b
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: ffab1f466de9352d1ea6784cbacb7cb9672ecaa7
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129668431"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131467382"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스팅
 
@@ -145,7 +145,7 @@ Azure Storage에서 기본적으로 지원하므로 사용자 지정 도메인�
 
 ##### <a name="how-do-i-add-custom-headers-and-rules-with-a-static-website"></a>정적 웹 사이트에서 사용자 지정 헤더 및 규칙을 추가하는 방법
 
-[Azure CDN - Verizon Premium](../../cdn/cdn-verizon-premium-rules-engine.md)을 사용하여 정적 웹 사이트의 호스트 헤더를 구성할 수 있습니다. [여기](https://feedback.azure.com/forums/217298-storage/suggestions/34959124-allow-adding-headers-to-static-website-hosting-in)에서 의견을 보내 주시기 바랍니다.
+[Azure CDN - Verizon Premium](../../cdn/cdn-verizon-premium-rules-engine.md)을 사용하여 정적 웹 사이트의 호스트 헤더를 구성할 수 있습니다. [여기](https://feedback.azure.com/d365community/idea/694b08ef-3525-ec11-b6e6-000d3a4f0f84)에서 의견을 보내 주시기 바랍니다.
 
 ##### <a name="why-am-i-getting-an-http-404-error-from-a-static-website"></a>정적 웹 사이트에서 HTTP 404 오류가 발생하는 이유는 무엇인가요?
 

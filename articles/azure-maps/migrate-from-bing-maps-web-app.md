@@ -1,26 +1,27 @@
 ---
 title: '자습서: Bing Maps에서 웹앱 마이그레이션 | Microsoft Azure Maps'
 description: Bing Maps에서 Microsoft Azure Maps로 웹앱을 마이그레이션하는 방법에 대한 자습서.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 9/10/2020
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: adec0b04e82d0a00b2f95b6b4f7980f628b93a7a
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 519eb22a7b8108d87970367db489d891fc47e593
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123439635"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131435342"
 ---
 # <a name="tutorial-migrate-a-web-app-from-bing-maps"></a>자습서: Bing Maps에서 웹앱 마이그레이션
 
 Bing Maps를 사용하는 웹앱은 Bing Maps V8 JavaScript SDK를 사용하는 경우가 많습니다. Azure Maps 웹 SDK는 마이그레이션에 적합한 Azure 기반 SDK입니다. Azure Maps 웹 SDK를 사용하면 웹 또는 모바일 애플리케이션에 표시할 자체 콘텐츠와 이미지를 통해 대화형 지도를 사용자 지정할 수 있습니다. 이 컨트롤을 통해 WebGL을 사용하여 성능이 높은 대형 데이터 집합을 렌더링할 수 있습니다. JavaScript 또는 TypeScript를 사용하여 이 SDK로 개발하세요. 이 자습서에서는 다음 작업 방법을 배웁니다.
 
 > [!div class="checklist"]
+>
 > * 맵 로드
 > * 맵 지역화
 > * 압정, 폴리라인 및 다각형을 추가합니다.
@@ -260,7 +261,7 @@ Azure Maps와 관련된 자세한 용어 목록은 [Azure Maps 용어집](./glos
 Bing Maps를 지역화하기 위해 `setLang` 매개 변수를 사용하여 언어 및 지역이 지정되고 `UR` 매개 변수가 API에 대한 `<script>` 태그 참조에 추가됩니다. `setMkt` 매개 변수를 사용하여 사용자 시장을 지정하므로, Bing Maps의 특정 기능은 특정 시장에서만 사용할 수 있습니다.
 
 ```html
-<script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?callback=initMap&setLang=[language_code]&setMkt=[market]&UR=[region_code]" async defer></script>
+<script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?callback=initMap&setLang={language-code}&setMkt={market}&UR={region-code}" async defer></script>
 ```
 
 다음은 언어가 "fr-FR"로 설정된 Bing Maps의 예입니다.
@@ -337,8 +338,8 @@ map.setStyle({
 
 **추가 리소스**
 
--   [지도 스타일 선택](./choose-map-style.md)
--   [지원되는 맵 스타일](./supported-map-styles.md)
+* [지도 스타일 선택](./choose-map-style.md)
+* [지원되는 맵 스타일](./supported-map-styles.md)
 
 ### <a name="adding-a-pushpin"></a>압정 추가
 
@@ -460,16 +461,16 @@ map.markers.add(new atlas.HtmlMarker({
 
 **추가 리소스**
 
--   [데이터 원본 만들기](./create-data-source-web-sdk.md)
--   [기호 레이어 추가](./map-add-pin.md)
--   [거품형 레이어 추가](./map-add-bubble-layer.md)
--   [클러스터 지점 데이터](./clustering-point-data-web-sdk.md)
--   [HTML 표식 추가](./map-add-custom-html.md)
--   [데이터 기반 스타일 식 사용](./data-driven-style-expressions-web-sdk.md)
--   [기호 레이어 아이콘 옵션](/javascript/api/azure-maps-control/atlas.iconoptions)
--   [기호 레이어 텍스트 옵션](/javascript/api/azure-maps-control/atlas.textoptions)
--   [HTML 표식 클래스](/javascript/api/azure-maps-control/atlas.htmlmarker)
--   [HTML 표식 옵션](/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
+* [데이터 원본 만들기](./create-data-source-web-sdk.md)
+* [기호 레이어 추가](./map-add-pin.md)
+* [거품형 레이어 추가](./map-add-bubble-layer.md)
+* [클러스터 지점 데이터](./clustering-point-data-web-sdk.md)
+* [HTML 표식 추가](./map-add-custom-html.md)
+* [데이터 기반 스타일 식 사용](./data-driven-style-expressions-web-sdk.md)
+* [기호 레이어 아이콘 옵션](/javascript/api/azure-maps-control/atlas.iconoptions)
+* [기호 레이어 텍스트 옵션](/javascript/api/azure-maps-control/atlas.textoptions)
+* [HTML 표식 클래스](/javascript/api/azure-maps-control/atlas.htmlmarker)
+* [HTML 표식 옵션](/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
 
 ### <a name="adding-a-custom-pushpin"></a>사용자 지정 압정 추가
 
@@ -584,14 +585,14 @@ Azure Maps의 기호 레이어는 사용자 지정 이미지도 지원하지만,
 
 **추가 리소스**
 
--   [데이터 원본 만들기](./create-data-source-web-sdk.md)
--   [기호 레이어 추가](./map-add-pin.md)
--   [HTML 표식 추가](./map-add-custom-html.md)
--   [데이터 기반 스타일 식 사용](./data-driven-style-expressions-web-sdk.md)
--   [기호 레이어 아이콘 옵션](/javascript/api/azure-maps-control/atlas.iconoptions)
--   [기호 레이어 텍스트 옵션](/javascript/api/azure-maps-control/atlas.textoptions)
--   [HTML 표식 클래스](/javascript/api/azure-maps-control/atlas.htmlmarker)
--   [HTML 표식 옵션](/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
+* [데이터 원본 만들기](./create-data-source-web-sdk.md)
+* [기호 레이어 추가](./map-add-pin.md)
+* [HTML 표식 추가](./map-add-custom-html.md)
+* [데이터 기반 스타일 식 사용](./data-driven-style-expressions-web-sdk.md)
+* [기호 레이어 아이콘 옵션](/javascript/api/azure-maps-control/atlas.iconoptions)
+* [기호 레이어 텍스트 옵션](/javascript/api/azure-maps-control/atlas.textoptions)
+* [HTML 표식 클래스](/javascript/api/azure-maps-control/atlas.htmlmarker)
+* [HTML 표식 옵션](/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
 
 ### <a name="adding-a-polyline"></a>폴리라인 추가
 
@@ -655,9 +656,9 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 
 **추가 리소스**
 
--   [맵에 선 추가](./map-add-line-layer.md)
--   [선 계층 옵션](/javascript/api/azure-maps-control/atlas.linelayeroptions)
--   [데이터 기반 스타일 식 사용](./data-driven-style-expressions-web-sdk.md)
+* [맵에 선 추가](./map-add-line-layer.md)
+* [선 계층 옵션](/javascript/api/azure-maps-control/atlas.linelayeroptions)
+* [데이터 기반 스타일 식 사용](./data-driven-style-expressions-web-sdk.md)
 
 ### <a name="adding-a-polygon"></a>다각형 추가
 
@@ -727,11 +728,11 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 
 **추가 리소스**
 
--   [맵에 다각형 추가](./map-add-shape.md#use-a-polygon-layer)
--   [맵에 원 추가](./map-add-shape.md#add-a-circle-to-the-map)
--   [다각형 계층 옵션](/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
--   [선 계층 옵션](/javascript/api/azure-maps-control/atlas.linelayeroptions)
--   [데이터 기반 스타일 식 사용](./data-driven-style-expressions-web-sdk.md)
+* [맵에 다각형 추가](./map-add-shape.md#use-a-polygon-layer)
+* [맵에 원 추가](./map-add-shape.md#add-a-circle-to-the-map)
+* [다각형 계층 옵션](/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
+* [선 계층 옵션](/javascript/api/azure-maps-control/atlas.linelayeroptions)
+* [데이터 기반 스타일 식 사용](./data-driven-style-expressions-web-sdk.md)
 
 ### <a name="display-an-infobox"></a>정보 상자 표시
 
@@ -799,12 +800,12 @@ map.events.add('click', marker, function () {
 
 **추가 리소스**
 
--   [팝업 추가](./map-add-popup.md)
--   [미디어 콘텐츠가 포함된 팝업](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Popup%20with%20Media%20Content)
--   [도형의 팝업](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Popups%20on%20Shapes)
--   [여러 핀을 사용하여 팝업을 다시 사용](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Reusing%20Popup%20with%20Multiple%20Pins)
--   [Popup 클래스](/javascript/api/azure-maps-control/atlas.popup)
--   [팝업 옵션](/javascript/api/azure-maps-control/atlas.popupoptions)
+* [팝업 추가](./map-add-popup.md)
+* [미디어 콘텐츠가 포함된 팝업](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Popup%20with%20Media%20Content)
+* [도형의 팝업](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Popups%20on%20Shapes)
+* [여러 핀을 사용하여 팝업을 다시 사용](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Reusing%20Popup%20with%20Multiple%20Pins)
+* [Popup 클래스](/javascript/api/azure-maps-control/atlas.popup)
+* [팝업 옵션](/javascript/api/azure-maps-control/atlas.popupoptions)
 
 ### <a name="pushpin-clustering"></a>압정 클러스터링
 
@@ -909,7 +910,7 @@ Azure Maps에서 데이터는 데이터 원본을 통해 추가 및 관리됩니
 
 클러스터링을 사용하도록 설정하면 데이터 원본이 클러스터형 및 비클러스터형 데이터 요소를 렌더링하기 위해 레이어로 보냅니다. 데이터 원본은 수십만 개의 데이터 요소를 클러스터링할 수 있습니다. 클러스터링된 데이터 요소에는 다음과 같은 속성이 포함되어 있습니다.
 
-| 속성 이름               | Type    | 설명                                    |
+| 속성 이름               | Type    | Description                                    |
 |-----------------------------|---------|------------------------------------------------|
 | `cluster`                   | boolean | 기능이 클러스터를 표시하는지 여부를 나타냅니다.     |
 | `cluster_id`                | 문자열  | `DataSource` 클래스 `getClusterExpansionZoom`, `getClusterChildren` 및 `getClusterLeaves` 함수에 사용할 수 있는 클러스터의 고유 ID입니다. |
@@ -1026,10 +1027,10 @@ GeoJSON 데이터는 Azure Maps에서 `DataSource` 클래스의 `importDataFromU
 
 **추가 리소스**
 
--   [기호 레이어 추가](./map-add-pin.md)
--   [거품형 레이어 추가](./map-add-bubble-layer.md)
--   [클러스터 지점 데이터](./clustering-point-data-web-sdk.md)
--   [데이터 기반 스타일 식 사용](./data-driven-style-expressions-web-sdk.md)
+* [기호 레이어 추가](./map-add-pin.md)
+* [거품형 레이어 추가](./map-add-bubble-layer.md)
+* [클러스터 지점 데이터](./clustering-point-data-web-sdk.md)
+* [데이터 기반 스타일 식 사용](./data-driven-style-expressions-web-sdk.md)
 
 ### <a name="add-a-heat-map"></a>열 지도 추가
 
@@ -1154,10 +1155,10 @@ Azure Maps에서 GeoJSON 데이터를 데이터 원본에 로드하고 데이터
 
 **추가 리소스**
 
--   [열 지도 계층 추가](./map-add-heat-map-layer.md)
--   [열 지도 계층 클래스](/javascript/api/azure-maps-control/atlas.layer.heatmaplayer)
--   [열 지도 계층 옵션](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
--   [데이터 기반 스타일 식 사용](./data-driven-style-expressions-web-sdk.md)
+* [열 지도 계층 추가](./map-add-heat-map-layer.md)
+* [열 지도 계층 클래스](/javascript/api/azure-maps-control/atlas.layer.heatmaplayer)
+* [열 지도 계층 옵션](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
+* [데이터 기반 스타일 식 사용](./data-driven-style-expressions-web-sdk.md)
 
 ### <a name="overlay-a-tile-layer"></a>타일 레이어 오버레이
 
@@ -1205,9 +1206,9 @@ map.layers.add(new atlas.layer.TileLayer({
 
 **추가 리소스**
 
--   [타일 레이어 추가](./map-add-tile-layer.md)
--   [타일 레이어 클래스](/javascript/api/azure-maps-control/atlas.layer.tilelayer)
--   [타일 레이어 옵션](/javascript/api/azure-maps-control/atlas.tilelayeroptions)
+* [타일 레이어 추가](./map-add-tile-layer.md)
+* [타일 레이어 클래스](/javascript/api/azure-maps-control/atlas.layer.tilelayer)
+* [타일 레이어 옵션](/javascript/api/azure-maps-control/atlas.tilelayeroptions)
 
 ### <a name="show-traffic-data"></a>트래픽 데이터 표시
 
@@ -1245,9 +1246,9 @@ Azure Maps에서 트래픽 아이콘 중 하나를 클릭하면 팝업에 추가
 
 **추가 리소스**
 
--   [맵에 트래픽 표시](./map-show-traffic.md)
--   [트래픽 오버레이 옵션](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Traffic%20Overlay%20Options)
--   [트래픽 제어](https://azuremapscodesamples.azurewebsites.net/?sample=Traffic%20controls)
+* [맵에 트래픽 표시](./map-show-traffic.md)
+* [트래픽 오버레이 옵션](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Traffic%20Overlay%20Options)
+* [트래픽 제어](https://azuremapscodesamples.azurewebsites.net/?sample=Traffic%20controls)
 
 ### <a name="add-a-ground-overlay"></a>그라운드 오버레이 추가
 
@@ -1361,8 +1362,8 @@ Azure Maps에서는 `atlas.layer.ImageLayer` 클래스를 사용하여 지리 �
 
 **추가 리소스**
 
--   [이미지 오버레이](./map-add-image-layer.md)
--   [이미지 레이어 클래스](/javascript/api/azure-maps-control/atlas.layer.imagelayer)
+* [이미지 오버레이](./map-add-image-layer.md)
+* [이미지 레이어 클래스](/javascript/api/azure-maps-control/atlas.layer.imagelayer)
 
 ### <a name="add-kml-data-to-the-map"></a>맵에 KML 데이터 추가
 
@@ -1517,9 +1518,9 @@ Azure Maps에서는 GeoJSON이 웹 SDK에 사용되는 기본 데이터 형식�
 
 **추가 리소스**
 
--   [atlas.io.read function](/javascript/api/azure-maps-spatial-io/atlas.io#read-string---arraybuffer---blob--spatialdatareadoptions-)
--   [SimpleDataLayer](/javascript/api/azure-maps-spatial-io/atlas.layer.simpledatalayer)
--   [SimpleDataLayerOptions](/javascript/api/azure-maps-spatial-io/atlas.simpledatalayeroptions)
+* [atlas.io.read function](/javascript/api/azure-maps-spatial-io/atlas.io#read-string---arraybuffer---blob--spatialdatareadoptions-)
+* [SimpleDataLayer](/javascript/api/azure-maps-spatial-io/atlas.layer.simpledatalayer)
+* [SimpleDataLayerOptions](/javascript/api/azure-maps-spatial-io/atlas.simpledatalayeroptions)
 
 ### <a name="add-drawing-tools"></a>그리기 도구 추가
 
@@ -1632,8 +1633,8 @@ Azure Maps에서 앱에 렌더링할 JavaScript 및 CSS 파일을 로드하여 �
 
 **추가 리소스**
 
--   [설명서](./set-drawing-options.md)
--   [코드 샘플](https://azuremapscodesamples.azurewebsites.net/#Drawing-Tools-Module)
+* [설명서](./set-drawing-options.md)
+* [코드 샘플](https://azuremapscodesamples.azurewebsites.net/#Drawing-Tools-Module)
 
 ## <a name="additional-resources"></a>추가 자료
 

@@ -5,13 +5,13 @@ author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/26/2021
-ms.openlocfilehash: 98458a624a9c0d713e518e3fda442b8e45209d25
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
-ms.translationtype: HT
+ms.date: 11/03/2021
+ms.openlocfilehash: d441d12a0c61bfcf6c8e89b51dad0e95e9906e4d
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123036509"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131501726"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>온-프레미스 또는 클라우드 데이터를 Azure Cosmos DB로 마이그레이션하는 옵션
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -75,7 +75,7 @@ ms.locfileid: "123036509"
 |온라인|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)| MongoDB|Azure Cosmos DB API for MongoDB |&bull; Azure Cosmos DB 대량 실행기 라이브러리를 사용합니다. <br/>&bull; 대량 데이터 세트에 적합하고 라이브 변경 내용 복제를 처리합니다. <br/>&bull; 다른 MongoDB 원본에서만 작동합니다.|
 |오프라인|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)| MongoDB| Azure Cosmos DB API for MongoDB| &bull; Azure Cosmos DB 대량 실행기 라이브러리를 사용합니다. <br/>&bull; 대량 데이터 세트에 적합하고 라이브 변경 내용 복제를 처리합니다. <br/>&bull; 다른 MongoDB 원본에서만 작동합니다.|
 |오프라인|[Azure Data Factory](../data-factory/connector-azure-cosmos-db-mongodb-api.md)| &bull;JSON/CSV 파일<br/>&bull;Azure Cosmos DB SQL API<br/>&bull;Azure Cosmos DB API for MongoDB <br/>&bull;MongoDB<br/>&bull;SQL Server<br/>&bull;Table Storage<br/>&bull;Azure Blob Storage <br/><br/> 지원되는 다른 원본에 관해서는 [Azure Data Factory](../data-factory/connector-overview.md) 문서를 참조하세요. | &bull;Azure Cosmos DB SQL API<br/>&bull;Azure Cosmos DB API for MongoDB <br/>&bull; JSON 파일 <br/><br/> 지원되는 다른 대상에 관해서는 [Azure Data Factory](../data-factory/connector-overview.md) 문서를 참조하세요.| &bull; 손쉽게 설정하고 여러 원본을 지원합니다. <br/>&bull; Azure Cosmos DB 대량 실행기 라이브러리를 사용합니다. <br/>&bull; 대량 데이터 세트에 적합합니다. <br/>&bull; 검사점이 없으면 마이그레이션 과정에서 발생하는 모든 문제에 대해 전체 마이그레이션 프로세스를 다시 시작해야 함을 의미합니다.<br/>&bull; 배달 못한 편지 큐가 없으면 일부 잘못된 파일이 전체 마이그레이션 프로세스를 중지할 수 있음을 의미합니다. <br/>&bull; 특정 데이터 원본에 대한 읽기 처리량을 늘리려면 사용자 지정 코드가 필요합니다.|
-|오프라인|[기존 Mongo 도구(mongodump, mongorestore, Studio3T)](https://azure.microsoft.com/resources/videos/using-mongodb-tools-with-azure-cosmos-db/)|MongoDB | Azure Cosmos DB API for MongoDB| &bull; 손쉽게 설정하고 통합합니다. <br/>&bull; 제한에 대한 사용자 지정 처리가 필요합니다.|
+|오프라인|기존 Mongo 도구([mongodump](mongodb/tutorial-mongotools-cosmos-db.md#mongodumpmongorestore), [mongorestore](mongodb/tutorial-mongotools-cosmos-db.md#mongodumpmongorestore), [Studio3T](mongodb/connect-using-mongochef.md))]|MongoDB | Azure Cosmos DB API for MongoDB| &bull; 손쉽게 설정하고 통합합니다. <br/>&bull; 제한에 대한 사용자 지정 처리가 필요합니다.|
 
 ## <a name="azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API
 
@@ -104,8 +104,8 @@ SQL API, Mongo API 및 Cassandra API 이외의 API에는 각 API의 기존 에�
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하시나요?
-    * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](convert-vcore-to-request-unit.md)에 대해 읽어 보세요. 
+* Azure Cosmos DB로 마이그레이션하기 위한 용량 계획을 수행하려고 하나요?
+    * 기존 데이터베이스 클러스터의 vCore 및 서버 수만 알고 있는 경우 [vCore 또는 vCPU를 사용하여 요청 단위 예측](convert-vcore-to-request-unit.md)에 대해 읽어보세요. 
     * 현재 데이터베이스 워크로드에 대한 일반적인 요청 비율을 알고 있는 경우 [Azure Cosmos DB 용량 플래너를 사용하여 요청 단위 예측](estimate-ru-with-capacity-planner.md)에 대해 읽어 보세요.
 * [.NET](bulk-executor-dot-net.md) 및 [Java](bulk-executor-java.md)에서 대량 실행기 라이브러리를 사용하는 샘플 애플리케이션을 사용해 보며 자세히 알아봅니다. 
 * 대량 실행기 라이브러리는 Cosmos DB Spark 커넥터에 통합됩니다. 자세한 내용은 [Azure Cosmos DB Spark 커넥터](./create-sql-api-spark.md) 문서를 참조하세요.  

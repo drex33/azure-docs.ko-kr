@@ -7,14 +7,14 @@ ms.assetid: ''
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 10/26/2021
 ms.author: mbaldwin
-ms.openlocfilehash: d7d438b369c863660a032f101e466b6fadf639fa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: acfa59c13f0f9429135ea7f2218ca8fec121c8a3
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879717"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131428314"
 ---
 # <a name="azure-encryption-overview"></a>Azure 암호화 개요
 
@@ -22,7 +22,7 @@ ms.locfileid: "98879717"
 
 ## <a name="encryption-of-data-at-rest"></a>미사용 데이터 암호화
 
-미사용 데이터에는 모든 디지털 형식으로 된, 실제 미디어의 영구 스토리지에 상주하는 정보가 포함됩니다. 미디어로는 자기 또는 광학 미디어의 파일, 보관된 데이터 및 데이터 백업이 포함될 수 있습니다. Microsoft Azure는 파일, 디스크, Blob 및 Table Storage 등 서로 다른 요구 사항을 충족하는 다양한 데이터 스토리지 솔루션을 제공합니다. Microsoft는 또한 [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md), [Azure Cosmos DB](../../data-factory/introduction.md) 및 Azure Data Lake를 보호하기 위한 암호화도 제공합니다.
+미사용 데이터에는 모든 디지털 형식으로 된, 실제 미디어의 영구 스토리지에 상주하는 정보가 포함됩니다. 미디어로는 자기 또는 광학 미디어의 파일, 보관된 데이터 및 데이터 백업이 포함될 수 있습니다. Microsoft Azure는 파일, 디스크, Blob 및 Table Storage 등 서로 다른 요구 사항을 충족하는 다양한 데이터 스토리지 솔루션을 제공합니다. Microsoft는 또한 [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md), [Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) 및 Azure Data Lake를 보호하기 위한 암호화도 제공합니다.
 
 저장 데이터 암호화는 SaaS(Software-as-a-Service), PaaS(Platform-as-a-Service) 및 IaaS(Infrastructure-as-a-Service) 클라우드 모델 간의 서비스에 사용 가능합니다. 이 문서에서는 Azure의 암호화 옵션을 사용하는 데 도움이 되는 리소스를 요약하여 제공합니다.
 
@@ -99,7 +99,7 @@ CLE에는 대칭 또는 비대칭 키를 사용하고 인증서의 공개 키 �
 
 ### <a name="cosmos-db-database-encryption"></a>Cosmos DB 데이터베이스 암호화
 
-[Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md)는 전 세계에 배포된 Microsoft의 멀티모델 데이터베이스입니다. 비휘발성 스토리지(반도체 드라이브)의 Cosmos DB에 저장된 사용자 데이터는 기본적으로 암호화됩니다. 이를 설정하거나 해제하는 컨트롤은 없습니다. 저장 데이터 암호화는 보안 키 스토리지 시스템, 암호화된 네트워크 및 암호화 API를 비롯한 수많은 보안 기술을 사용하여 구현되었습니다. 암호화 키는 Microsoft에서 관리하며 Microsoft 내부 지침에 따라 순환됩니다.
+[Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md)는 전 세계에 배포된 Microsoft의 멀티모델 데이터베이스입니다. 비휘발성 스토리지(반도체 드라이브)의 Cosmos DB에 저장된 사용자 데이터는 기본적으로 암호화됩니다. 이를 설정하거나 해제하는 컨트롤은 없습니다. 저장 데이터 암호화는 보안 키 스토리지 시스템, 암호화된 네트워크 및 암호화 API를 비롯한 수많은 보안 기술을 사용하여 구현되었습니다. 암호화 키는 Microsoft에서 관리하며 Microsoft 내부 지침에 따라 순환됩니다. 필요에 따라 [고객이 관리 하는 키 또는 CMK](../../cosmos-db/how-to-setup-cmk.md) 기능을 사용 하 여 관리 하는 키를 사용 하 여 두 번째 암호화 계층을 추가 하도록 선택할 수 있습니다.
 
 ### <a name="at-rest-encryption-in-data-lake"></a>Data Lake의 미사용 암호화
 

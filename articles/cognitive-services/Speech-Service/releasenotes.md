@@ -9,24 +9,86 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/15/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: e0be3ef40e60f43d3b76c58b8141a0e29ce2742f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b4b291006795728348aa694e56c3e84a88d8e65c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131067682"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131469961"
 ---
 # <a name="speech-service-release-notes"></a>Speech Service 릴리스 정보
 
+## <a name="speech-sdk-1190-2021-nov-release"></a>Speech SDK 1.19.0: 2021-Nov 릴리스  
+
+ 
+
+**참고**. Speech SDK [여기](speech-sdk.md#get-the-speech-sdk)에서 시작을 해보십시오. Windows Speech SDK는 Visual Studio 공유 Microsoft Visual C++ 재배포 가능 Visual Studio 따라 달라집니다. [여기](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)에서 다운로드하세요.  
+  
+
+#### <a name="highlights"></a>주요 항목 
+
+- Speaker Recognition 서비스는 현재 GA(일반 제공)입니다. Speech SDK API는 C++, C#, Java 및 Javascript에서 사용할 수 있습니다. 화자 인식을 사용하면 고유한 음성 특성으로 화자를 정확하게 확인하고 식별할 수 있습니다. 자세한 내용은 [설명서](speaker-recognition-overview.md)를 참조하세요. 
+
+- Azure DevOps 및 Github와 함께 Ubuntu 16.04에 대한 지원을 중단했습니다. Ubuntu 16.04는 2021년 4월에 수명이 종료되었습니다. Ubuntu 16.04 워크플로를 Ubuntu 18.04 이상으로 마이그레이션하세요.   
+
+- Linux 이진에서 OpenSSL 연결이 동적으로 변경되었습니다. Linux 이진 크기가 약 50% 감소했습니다. 
+
+- Mac M1 ARM 기반 실리콘 지원이 추가되었습니다. 
+
+ 
+
+#### <a name="new-features"></a>새로운 기능 
+
+- **C++/C#/Java:** Microsoft Audio Stack을 사용하여 음성 입력에 대한 오디오 처리 지원을 사용할 수 있도록 새로운 API가 추가되었습니다. [여기](audio-processing-overview.md)서 설명함
+
+- **C++**: 고급 패턴 일치를 용이하게 하는 의도 인식을 위한 새로운 API입니다. 여기에는 목록 및 미리 작성된 정수 엔터티뿐만 아니라 의도 및 엔터티를 모델로 그룹화하기 위한 지원이 포함됩니다(설명서, 업데이트 및 샘플은 개발 중이며 조만간 게시될 예정임). 
+
+- **Mac:** GitHub 문제 1244와 관련된 Cocoapod, Python, Java 및 NuGet 패키지에 대한 [ARM64(M1)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1244)기반 실리콘 지원
+
+- **iOS/Mac:** 이제 iOS 및 MacOS 이진이 GitHub 문제 [919와](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/919)관련된 xcframework로 패키지됩니다.
+
+- **iOS/Mac:** [GitHub 문제 1171과](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1171)관련된 Mac용 지원 
+
+- **Linux:** CentOS7 Speech [SDK에](speech-sdk.md)대한 새 tar 패키지가 추가되었습니다.
+
+- **Javascript:** VoiceProfile & SpeakerRecognizer API를 async/awaitable로 만들었습니다. 
+
+- **Javascript:** 미국 정부 Azure 지역에 대한 지원이 추가되었습니다. 
+
+- **Windows:** UWP(유니버설 Windows 플랫폼)에서 재생에 대한 지원이 추가되었습니다. 
+
+  
+
+#### <a name="bug-fixes"></a>버그 수정 
+
+- **Android: Android** 패키지용 OpenSSL 보안 업데이트(버전 1.1.1l로 업데이트됨) 
+
+- **Python: Python에서** 화자 디바이스를 선택하는 데 실패하는 버그가 해결되었습니다. 
+
+- **코어:** 연결 시도가 실패하면 자동으로 다시 연결합니다. 
+
+- **iOS:** Gstreamer를 사용할 때 불안정성 및 비트코드 빌드 문제로 인해 iOS 패키지에서 오디오 압축이 사용되지 않습니다. 자세한 내용은 [GitHub 문제 1209를](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1209)통해 사용할 수 있습니다.
+
+ 
+
+#### <a name="samples-github"></a>샘플 [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+
+- **Mac/iOS:** xcframework 패키지를 사용하도록 샘플 및 빠른 시작이 업데이트되었습니다. 
+
+- **.NET: .NET** Core 3.1 버전을 사용하도록 샘플이 업데이트되었습니다. 
+
+- **Javascript:** 음성 도우미에 대한 샘플이 추가되었습니다. 
+
+ 
 ## <a name="text-to-speech-2021-october-release"></a>Text-to-Speech 2021-10월 릴리스
 **신경망 TTS에 대한 새로운 언어 및 음성 추가**
-- **49개의 새로운 언어 및 변형이 도입되었습니다.** 49개의 새 로케일로 98개의 새로운 음성이 신경망 TTS 언어 목록에 추가됩니다. Adri in `af-ZA` Afrikaans(남아프리카 공화국), `af-ZA` Afrikaans의 Willem (남아프리카 공화국), `am-ET` 앰하릭의 Mekdes(아랍어), `am-ET` Amharic의 아메하(폴란드), `ar-AE` 아랍어의 Fatima(미국령 까지), `ar-AE` 아랍어의 함메야어(영국령, `ar-BH` 아랍어로 나타남), 아랍어의 Laila(아랍어), 아랍어의 `ar-BH` Ali(아랍어),  `ar-DZ` 아랍어의 Amina(아랍어), `ar-DZ` 아랍어의 Ismael(아랍어), 아랍어로 된 `ar-IQ` 란다(아랍어), 아랍어로 된 `ar-IQ` 카셀(아랍어), 아랍어로 된 `ar-JO` 사나(아랍어), 아랍어로 된 `ar-JO` 자말(아랍어), 아랍어로 된 `ar-KW` 누라(네덜란드), 아랍어로 페이싱된(아랍어), 아랍어로 된 `ar-KW` `ar-LY` 이만(아랍어), 아랍어로 된 `ar-LY` 모나(아랍어), 자말(아랍어), 아랍어로 된 `ar-MA` `ar-MA` 자말(아랍어), `ar-QA` 아랍어로 된 `ar-QA` 모아(아랍어), 모아(아랍어)  Amany in `ar-SY` Arabic (Arabic), Laith in `ar-SY` Arabic (Arabic),Reem in `ar-TN` Arabic (Arabic),Hedi in `ar-TN` Arabic (Arabic(Arabic), `ar-YE` Saleh in Arabic (In Arabic( 2016), `ar-YE` Saleh in Arabic (Arabic), #A0 (2016), Asilia in English (Asilia in English ),2016; English (20), Ezinne in English `bn-BD` `bn-BD` `en-KE` `en-KE` `en-NG` `en-NG` (In English), Imani in `en-TZ` English (Ezimu in English), Elimu in `en-TZ` English (2)  스페인어로 된 `es-BO` 에스페인어(스웨덴), 스페인어로 된 `es-BO` Marcelo(스웨덴), 스페인어로 된 `es-CL` Catalina(스웨덴), 스페인어로 된 Lorenzo(스페인어), `es-CL` 스페인어로 된 `es-CR` Maria(에피카), 스페인어로 된 `es-CR` 힌키스(에피카), 스페인어로 된 힌키스(스페인어), 스페인어로 된 람마어(스페인), 스페인어로 된 `es-CU` `es-CU` `es-DO` 에밀도(스웨덴), 스페인어로 된 `es-DO` `es-EC` 에필로어(에파리아), 스페인어로 된 `es-EC` Luis(에갈루어), 스페인어로 된 `es-GQ` Luis(에갈루어),  `es-GQ` 스페인어의 Javier(적도)의 Javier, 스페인어로 된 `es-GT` Marta(에필), 스페인어의 Andres(스페인어), 스페인어로 된 `es-GT` `es-HN` Andres(에리스), 스페인어로 된 `es-HN` 카나(에리스), `es-NI` 스페인어의 Yolanda(Nicaragua), 스페인어로 페더레이션된 페더리코(Nicaragua), `es-NI` 스페인어로 마가리타(스페인어), 스페인어로 된 `es-PA` `es-PA` 마술라(에필라), 스페인어로 된 `es-PE` `es-PE` Alex(에메라인), 스페인어로 된 `es-PR` 카니나(2차), 스페인어로 된 카리아나(2차), `es-PR` 와다나  `es-PY` 스페인어(Paraguay), 스페인어로 된 `es-PY` Lorena(Paraguay), 스페인어로 된 `es-SV` 로레나(El명령), 스페인어로 된 `es-SV` 에루나(El `es-UY` Spanish), 스페인어로 발렌티나(덴마크), `es-UY` 스페인어로 된 `es-VE` Paola(스페인어), 스페인어로 된 Paola(필), 덴마크의 `es-VE` Dilara(필로), `fa-IR` 에리스의 파리스카(에메인), 에브리어의 `fa-IR` 에브리어(에필로), `fil-PH` `fil-PH` `gl-ES` 갈리키안의 에필라(스페인), Roi `gl-ES`  갈리시아어(스페인), `jv-ID` Javanese의 Siti(포르투갈), `jv-ID` Javanese의 Dimas(포르투갈), `km-KH` Khmer의 Subamom(표시), `km-KH` 크메르어의 Piseth(표시), Nilar in `my-MM` Burmese(표시), `my-MM` Burmese의 히하(필어), Uba `so-SO` 2016년 3월 `so-SO` `su-ID` `su-ID` `sw-TZ` `sw-TZ` `ta-LK` 12일, 2016년 12월 31일, 3월 12일 30009년 12월 31일 3000만 30000018년 12월 21일  `ta-LK` 타밀어(스리루), Venba in `ta-SG` 타밀어(싱가포르), `ta-SG` 타밀어의 Anbu(싱가포르),Urdu의 `ur-IN` Gul(인도), `ur-IN` Urdu(인도), `uz-UZ` Uzbek의 무디나(유니버키), `uz-UZ` Uzbek의 Sardor(남아프리카 공화국), `zu-ZA` Zulu의 Thando(남아프리카), `zu-ZA` Zulu(남아프리카)의 세노어.
+- **49개의 새로운 언어 및 변형이 도입되었습니다.** 49개의 새 로케일로 98개의 새로운 음성이 신경망 TTS 언어 목록에 추가됩니다. Adri in `af-ZA` Afrikaans(남아프리카 공화국), `af-ZA` Afrikaans의 Willem (남아프리카 공화국), `am-ET` 앰하릭의 Mekdes(아랍어), `am-ET` Amharic의 아메하(폴란드), `ar-AE` 아랍어의 Fatima(미국령 까지), `ar-AE` 아랍어의 함메야어(영국령, `ar-BH` 아랍어로 나타남), 아랍어의 Laila(아랍어), 아랍어의 `ar-BH` Ali(아랍어),  `ar-DZ` 아랍어의 Amina(아랍어), 아랍어로 된 `ar-DZ` Ismael(아랍어), 아랍어로 된 란다(아랍어), 아랍어로 된 `ar-IQ` `ar-IQ` 카셀(아랍어), 아랍어로 된 `ar-JO` 사나(아랍어), 아랍어로 된 `ar-JO` 자말(아랍어), 아랍어로 된 `ar-KW` 누라(아랍어), 아랍어로 페이싱된(아랍어), 아랍어로 된 `ar-KW` 이만(아랍어), 아랍어로 된 모나(아랍어), 아랍어로 자말(아랍어), 아랍어로 된 `ar-LY` `ar-LY` `ar-MA` `ar-MA` 자말(아랍어), `ar-QA` 아랍어의 `ar-QA` 모아(아랍어)  Amany in `ar-SY` Arabic (Arabic), Laith in `ar-SY` Arabic (Arabic),Reem in `ar-TN` Arabic (Arabic),Hedi in `ar-TN` Arabic (Arabic(Arabic), `ar-YE` Saleh in Arabic (In Arabic( 2016), `ar-YE` Saleh in Arabic (Arabic), #A0 (2016), Asilia in English (Asilia in English ),2016; English (20), Ezinne in English `bn-BD` `bn-BD` `en-KE` `en-KE` `en-NG` `en-NG` (In English), Imani in `en-TZ` English (Ezimu in English), Elimu in `en-TZ` English (2)  스페인어로 된 `es-BO` 에스페인어(스웨덴), 스페인어로 된 `es-BO` Marcelo(스웨덴), 스페인어로 된 `es-CL` Catalina(스웨덴), 스페인어로 된 Lorenzo(스페인어), `es-CL` 스페인어로 된 `es-CR` Maria(에카), 스페인어로 된 `es-CR` 에키즈(에피카), 스페인어로 된 힌키스(스페인어), 스페인어로 된 람마어(스페인), 스페인어로 된 `es-CU` `es-CU` `es-DO` 에밀도(스페인), 스페인어로 된 `es-DO` `es-EC` 에필리초(에파리아), 스페인어로 된 `es-EC` Luis(에갈루어), 스페인어로 된 `es-GQ` Luis(적도)  `es-GQ` 스페인어의 Javier(적도)의 Javier, 스페인어로 된 `es-GT` Marta(에필), 스페인어의 Andres(스페인어), 스페인어로 된 `es-GT` `es-HN` Andres(에리스), 스페인어로 된 `es-HN` 카나(에리스), `es-NI` 스페인어의 Yolanda(Nicaragua), 스페인어로 페더레이션된 페더리코(Nicaragua), `es-NI` 스페인어로 마가리타(스페인어), 스페인어로 된 `es-PA` `es-PA` 마술라(에필라), 스페인어로 된 `es-PE` `es-PE` Alex(에메라인), 스페인어로 된 `es-PR` 카니나(2차), 스페인어로 된 카리아나(2차), `es-PR` 와다나  `es-PY` 스페인어(Paraguay), `es-PY` 스페인어(Paraguay), 스페인어로 된 `es-SV` Lorena(El Spanish), 스페인어로 된 로레나(El `es-SV` Spanish), 스페인어의 Valentina(필론), 스페인어로 된 `es-UY` `es-UY` 가폴라(스페인어), 스페인어로 된 Paola(필), 덴마크의 `es-VE` `es-VE` Dilara(필러), `fa-IR` `fa-IR` 에리스의 파리스카(에메인), 에브리어의 에리스카(에메인), `fil-PH` `fil-PH` 율리치어의 `gl-ES` 에필라(스페인), Roi `gl-ES`  갈리시아어(스페인), `jv-ID` Javanese의 Siti(포르투갈), `jv-ID` Javanese의 Dimas(포르투갈), `km-KH` Khmer의 Subamom(표시), `km-KH` 크메르어의 Piseth(표시), Nilar in `my-MM` Burmese(표시), `my-MM` Burmese의 히하(필어), Uba `so-SO` 2016년 3월 `so-SO` `su-ID` `su-ID` `sw-TZ` `sw-TZ` `ta-LK` 12일, 2016년 12월 31일, 3월 12일 30009년 12월 31일 3000만 30000018년 12월 21일  `ta-LK` 타밀어(스리루), Venba in `ta-SG` 타밀어(싱가포르), `ta-SG` 타밀어의 Anbu(싱가포르),Urdu의 `ur-IN` Gul(인도), `ur-IN` Urdu(인도), `uz-UZ` Uzbek의 무디나(유니버키), `uz-UZ` Uzbek의 Sardor(남아프리카 공화국), `zu-ZA` Zulu의 Thando(남아프리카), `zu-ZA` Zulu(남아프리카)의 세노어.
 
 ## <a name="text-to-speech-2021-september-release"></a>Text-to-Speech 2021-9월 릴리스
-- **의 새 챗봇 `en-US` 음성 영어(미국)**: 챗봇 시나리오에 가장 적합하고 더 간소하게 말하는 여성 성인을 나타내는 챗봇입니다. 
+- **의 새 챗봇 `en-US` 음성 영어(미국)**: 챗봇 시나리오에 가장 적합하고 더 간소하게 말하는 여성 성인을 나타내는 영문입니다. 
 - **에 대해 추가된 `ja-JP` 새 스타일 일본어 음성 Nanami: 이제 Nanami에서** 채팅, 고객 서비스 및 싱어의 세 가지 새로운 스타일을 사용할 수 있습니다.
 - **과도 발음 개선** 사항: 의 유지, 의 `id-ID` Premwadee, `th-TH` 의 경우, 의 경우 `da-DK` HoaiMy 및 NamMinh의 경우 `vi-VN`
-- **의 두 가지 `zh-CN` 새로운 음성 중국어(중국어, 중국) 미리 보기:** 힌보어 음성 및 고객 서비스 시나리오에 최적화된 & 중국어입니다.
+- **의 두 가지 `zh-CN` 새로운 음성 중국어(중국어, 중국) 미리 보기:** 힌조 음성 및 고객 서비스 시나리오에 최적화된 & 중국어입니다.
 
 ## <a name="text-to-speech-2021-july-release"></a>텍스트 음성 변환 2021년 7월 릴리스
 
@@ -256,7 +318,7 @@ ms.locfileid: "131067682"
 **사용자 지정 신경망 음성 GA**
 
 사용자 지정 신경망 음성은 2월부터 중국어(북경어, 간체), 영어(오스트레일리아), 영어(인도), 영어(영국), 영어(미국), 프랑스어(캐나다), 프랑스어(프랑스), 독일어(독일), 이탈리아어(이탈리아), 일본어(일본), 한국어(대한민국), 포르투갈어(브라질), 스페인어(멕시코), 스페인어(스페인) 총 13개 언어로 일반 공급됩니다. [사용자 지정 신경망 음성](custom-neural-voice.md)이란 무엇이며 [책임감 있게 사용하는 방법](concepts-guidelines-responsible-deployment-synthetic.md)은 무엇인지 자세히 알아보세요.
-사용자 지정 신경망 기능에는 등록이 필요 하며 microsoft는 자격 조건에 따라 액세스를 제한할 수 있습니다. [제한된 액세스](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context)에 대해 자세히 알아보세요.
+사용자 지정 신경망 음성 기능을 사용하려면 등록이 필요하며 Microsoft는 Microsoft의 자격 기준에 따라 액세스를 제한할 수 있습니다. [제한된 액세스](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context)에 대해 자세히 알아보세요.
 
 ## <a name="speech-sdk-1150-2021-january-release"></a>Speech SDK 1.15.0: 2021년 1월 릴리스
 

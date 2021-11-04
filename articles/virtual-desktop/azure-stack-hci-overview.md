@@ -7,12 +7,12 @@ ms.date: 11/02/2021
 ms.author: helohr
 manager: femila
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 8b456b534dd176fd8dc6bcd3b31b2a713fd8d7a2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 5faea9929fb62af8736e62ca6e629cb2bde01f3a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131052879"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131452170"
 ---
 # <a name="azure-virtual-desktop-for-azure-stack-hci-preview"></a>azure Virtual Desktop for Azure Stack HCI(미리 보기)
 
@@ -66,7 +66,7 @@ Azure Stack HCI Azure Virtual Desktop의 공개 미리 보기 버전에 영향�
 
 - Azure Portal Azure Virtual Desktop 탭은 Azure Stack HCI 인프라에서 직접 새 가상 머신을 만들 수 없습니다. 대신 관리자는 온-프레미스 가상 머신을 별도로 만든 다음, Azure Virtual Desktop 호스트 풀에 등록해야 합니다.
 
-- Windows 10 또는 11 Enterprise 다중 세션 가상 데스크톱에 연결할 때 적격 라이선스가 있더라도 사용자에게 "활성화 필요"라는 메시지가 표시될 수 있습니다.
+- Windows 10 또는 11 Enterprise 다중 세션 가상 데스크톱에 연결할 때 사용자는 적격 라이선스가 있더라도 "Windows 활성화"라는 바탕 화면 워터마크와 같은 활성화 문제를 볼 수 있습니다.
 
 - Azure Stack HCI용 Azure Virtual Desktop은 현재 클라우드 및 온-프레미스 세션 호스트를 모두 포함하는 호스트 풀을 지원하지 않습니다. 배포의 각 호스트 풀에는 호스트 풀 유형이 하나만 있어야 합니다.
 

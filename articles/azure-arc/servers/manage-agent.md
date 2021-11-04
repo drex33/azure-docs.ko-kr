@@ -1,14 +1,14 @@
 ---
 title: Azure Arc 지원 서버 에이전트 관리
 description: 이 문서에서는 Azure Arc 지원 서버 Connected Machine 에이전트의 수명 주기 동안 일반적으로 수행하는 다양한 관리 작업을 설명합니다.
-ms.date: 10/14/2021
+ms.date: 10/28/2021
 ms.topic: conceptual
-ms.openlocfilehash: d0b4d32100a8063346d9a6f7bd2b4bd70156d868
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 707e264b2abac0d9f3ba8418cc2eebd25b53b4a9
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130041180"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423834"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Connected Machine 에이전트 관리 및 유지 관리
 
@@ -16,11 +16,11 @@ Windows 또는 Linux용 Azure Arc 지원 서버 Connected Machine 에이전트�
 
 ## <a name="before-uninstalling-agent"></a>에이전트를 제거하기 전에
 
-Azure Arc 사용 서버에서 연결 된 컴퓨터 에이전트를 제거 하기 전에 다음 사항을 고려 하 여 예기치 않은 문제나 Azure 청구서에 추가 된 비용을 방지 합니다.
+Azure Arc 지원 서버에서 Connected Machine 에이전트를 제거하기 전에 Azure 청구서에 추가된 예기치 않은 문제 또는 비용을 방지하려면 다음 사항을 고려하세요.
 
-* Azure VM 확장을 사용 가능한 서버에 배포 하 고 연결 된 컴퓨터 에이전트를 제거 하거나 리소스 그룹에서 Azure Arc 사용 서버를 나타내는 리소스를 삭제 하는 경우 해당 확장은 계속 실행 되 고 정상적인 작업을 수행 합니다.
+* Azure VM 확장을 사용하도록 설정된 서버에 배포하고 Connected Machine 에이전트를 제거하거나 리소스 그룹에서 Azure Arc 사용 서버를 나타내는 리소스를 삭제한 경우 해당 확장은 계속 실행되고 정상적인 작업을 수행합니다.
 
-* 리소스 그룹에서 Azure Arc 사용 서버를 나타내는 리소스를 삭제 하지만 VM 확장을 제거 하지 않은 경우 컴퓨터를 다시 등록할 때 설치 된 VM 확장을 관리할 수 없습니다.
+* 리소스 그룹에서 Azure Arc 지원 서버를 나타내는 리소스를 삭제하지만 VM 확장을 제거하지 않는 경우 컴퓨터를 다시 등록할 때 설치된 VM 확장을 관리할 수 없습니다.
 
 더 이상 Azure Arc 지원 서버로 관리하지 않으려는 서버 또는 머신의 경우, 다음 단계를 수행하여 관리를 중지해야 합니다.
 
@@ -30,7 +30,7 @@ Azure Arc 사용 서버에서 연결 된 컴퓨터 에이전트를 제거 하기
 
     * 머신 또는 서버에서 `azcmagent disconnect` 명령을 실행합니다.
 
-    * Azure Portal에서 선택한 등록 된 Azure Arc 사용 서버에서 위쪽 표시줄에서 **삭제** 를 선택 하 여 선택 합니다.
+    * 맨 위 표시줄에서 **삭제를** 선택하여 Azure Portal 선택한 등록된 Azure Arc 사용 가능한 서버에서
 
     * [Azure CLI](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-cli#delete-resource) 또는 [Azure PowerShell](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell#delete-resource)을 사용합니다. `ResourceType` 매개 변수에 대해 `Microsoft.HybridCompute/machines`를 사용합니다.
 
@@ -40,7 +40,7 @@ Azure Arc 사용 서버에서 연결 된 컴퓨터 에이전트를 제거 하기
 
 Azure Arc 지원 서버에 연결된 Linux 또는 Windows 머신의 이름을 변경해도 Azure의 리소스 이름은 변경되지 않으므로 새 이름이 자동으로 인식되지 않습니다. 다른 Azure 리소스와 마찬가지로 새 이름을 사용하기 위해서는 리소스를 삭제하고 다시 만들어야 합니다.
 
-Azure Arc 사용 서버의 경우 컴퓨터 이름을 바꾸기 전에 먼저 VM 확장을 제거한 후 계속 진행 해야 합니다.
+Azure Arc 사용하도록 설정된 서버의 경우 컴퓨터 이름을 바꾸기 전에 계속하기 전에 VM 확장을 제거해야 합니다.
 
 > [!NOTE]
 > 해당 프로시저가 완료된 이후 설치된 확장이 계속해서 실행되고 정상적으로 작업을 수행하는 동안에는 확장을 관리할 수 없습니다. 머신에 확장을 다시 배포하려고 하면 예기치 않은 동작이 발생할 수 있습니다.
@@ -50,19 +50,19 @@ Azure Arc 사용 서버의 경우 컴퓨터 이름을 바꾸기 전에 먼저 VM
 
 1. [Azure CLI](manage-vm-extensions-cli.md#list-extensions-installed) 또는 [Azure PowerShell](manage-vm-extensions-powershell.md#list-extensions-installed)을 사용하여 머신에 설치된 VM 확장을 감사하고 구성을 확인합니다.
 
-2. [Azure CLI](manage-vm-extensions-cli.md#remove-an-installed-extension) 또는 [Azure PowerShell](manage-vm-extensions-powershell.md#remove-an-installed-extension)을 사용하여 [Azure Portal](manage-vm-extensions-portal.md#uninstall-extensions)에서 설치된 VM 확장을 제거합니다.
+2. [Azure CLI](manage-vm-extensions-cli.md#remove-extensions) 또는 [Azure PowerShell](manage-vm-extensions-powershell.md#remove-extensions)을 사용하여 [Azure Portal](manage-vm-extensions-portal.md#remove-extensions)에서 설치된 VM 확장을 제거합니다.
 
-3. **azcmagent** 도구를 [연결 끊기](manage-agent.md#disconnect) 매개 변수와 함께 사용하여 Azure Arc에서 머신의 연결을 끊고 Azure에서 머신 리소스를 삭제합니다. Azure Arc 사용 서버에서 컴퓨터 연결을 끊으면 연결 된 컴퓨터 에이전트가 제거 되지 않으므로이 프로세스의 일부로 에이전트를 제거할 필요가 없습니다. 대화형으로 로그온하는 동안 수동으로 azcmagent를 실행하거나, 여러 에이전트를 온보딩할 때 사용한 동일한 서비스 주체 또는 Microsoft ID 플랫폼 [액세스 토큰](../../active-directory/develop/access-tokens.md)을 사용하여 자동화합니다. 서비스 주체를 사용하여 Azure Arc 지원 서버에 머신을 등록하지 않은 경우 서비스 주체를 만들려면 다음 [문서](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)를 참조하세요.
+3. **azcmagent** 도구를 [연결 끊기](manage-agent.md#disconnect) 매개 변수와 함께 사용하여 Azure Arc에서 머신의 연결을 끊고 Azure에서 머신 리소스를 삭제합니다. Azure Arc 지원 서버에서 컴퓨터 연결을 끊으면 Connected Machine 에이전트가 제거되지 않으며 이 프로세스의 일부로 에이전트를 제거할 필요가 없습니다. 대화형으로 로그온하는 동안 수동으로 azcmagent를 실행하거나, 여러 에이전트를 온보딩할 때 사용한 동일한 서비스 주체 또는 Microsoft ID 플랫폼 [액세스 토큰](../../active-directory/develop/access-tokens.md)을 사용하여 자동화합니다. 서비스 주체를 사용하여 Azure Arc 지원 서버에 머신을 등록하지 않은 경우 서비스 주체를 만들려면 다음 [문서](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)를 참조하세요.
 
 4. 머신의 이름을 바꿉니다.
 
-5. Azure Arc 사용 서버에 연결 된 컴퓨터 에이전트를 다시 등록 합니다. [Connect](manage-agent.md#connect) 매개 변수와 함께 `azcmagent` 도구를 실행하여 해당 단계를 완료합니다.
+5. Azure Arc 지원 서버에 Connected Machine 에이전트를 다시 등록합니다. [Connect](manage-agent.md#connect) 매개 변수와 함께 `azcmagent` 도구를 실행하여 해당 단계를 완료합니다.
 
-6. 원래 컴퓨터에 배포 된 VM 확장을 Azure Arc 사용 서버에서 다시 배포 합니다. Azure Policy 정의를 사용하여 VM용 Azure Monitor(인사이트) 에이전트 또는 Log Analytics 에이전트를 배포한 경우, 다음 [평가 주기](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers) 후에 에이전트가 다시 배포됩니다.
+6. Azure Arc 지원 서버에서 컴퓨터에 원래 배포된 VM 확장을 다시 배포합니다. Azure Policy 정의를 사용하여 VM용 Azure Monitor(인사이트) 에이전트 또는 Log Analytics 에이전트를 배포한 경우, 다음 [평가 주기](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers) 후에 에이전트가 다시 배포됩니다.
 
 ## <a name="upgrading-agent"></a>에이전트 업그레이드
 
-Azure Connected Machine 에이전트는 버그 수정, 안정성 향상 및 새로운 기능을 처리하기 위해 정기적으로 업데이트됩니다. [Azure Advisor](../../advisor/advisor-overview.md)는 최신 버전의 머신 에이전트를 사용하지 않는 리소스를 식별하여 최신 버전으로 업그레이드하도록 권장합니다. **개요** 페이지에 배너를 제공 하거나 Azure Portal 통해 Advisor에 액세스 하는 경우 Azure Arc 사용 서버를 선택 하면 사용자에 게 알립니다.
+Azure Connected Machine 에이전트는 버그 수정, 안정성 향상 및 새로운 기능을 처리하기 위해 정기적으로 업데이트됩니다. [Azure Advisor](../../advisor/advisor-overview.md)는 최신 버전의 머신 에이전트를 사용하지 않는 리소스를 식별하여 최신 버전으로 업그레이드하도록 권장합니다. **개요** 페이지에 배너를 표시하여 Azure Arc 지원 서버를 선택하거나 Azure Portal 통해 Advisor에 액세스할 때 알림이 표시됩니다.
 
 Windows 및 Linux용 Azure Connected Machine 에이전트는 요구 사항에 따라 수동 또는 자동으로 최신 릴리스로 업그레이드할 수 있습니다.
 
@@ -236,7 +236,7 @@ Azcmagent 도구(Azcmagent.exe)는 설치 도중에 Azure Arc 지원 서버 Conn
 
 다음 방법 중 하나를 수행하여 머신에서 Windows 또는 Linux Connected Machine 에이전트를 제거합니다. 에이전트를 제거 해도 Azure Arc 사용 서버를 사용 하 여 컴퓨터의 등록을 취소 하거나 설치 된 Azure VM 확장을 제거 하지 않습니다. 더 이상 Azure Arc 지원 서버로 관리하지 않으려는 서버 또는 머신의 경우, 다음 단계를 수행하여 관리를 중지해야 합니다. 
 
-1. [Azure Portal](manage-vm-extensions-portal.md#uninstall-extensions)에서 설치된 VM 확장을 제거하거나 [Azure CLI](manage-vm-extensions-cli.md#remove-an-installed-extension)를 사용하거나 머신에 유지하지 않으려는 [Azure PowerShell](manage-vm-extensions-powershell.md#remove-an-installed-extension)을 사용합니다.
+1. [Azure Portal](manage-vm-extensions-portal.md#remove-extensions)에서 설치된 VM 확장을 제거하거나 [Azure CLI](manage-vm-extensions-cli.md#remove-extensions)를 사용하거나 머신에 유지하지 않으려는 [Azure PowerShell](manage-vm-extensions-powershell.md#remove-extensions)을 사용합니다.
 1. 을 실행 하 여 컴퓨터의 등록을 취소 `azcmagent disconnect` 하 여 azure에서 Azure Arc 사용 서버 리소스를 삭제 합니다. 이 작업이 실패하면 Azure에서 리소스를 수동으로 삭제할 수 있습니다. 그렇지 않고 리소스가 Azure에서 삭제된 경우 서버에서 `azcmagent disconnect --force-local-only`를 실행하여 로컬 구성을 제거해야 합니다.
 
 ### <a name="windows-agent"></a>Windows 에이전트

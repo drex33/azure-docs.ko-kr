@@ -24,7 +24,7 @@ items:
     items:
       - name: Azure IoT Hub를 통해 디바이스 데이터 수신
         href: device-data-through-iot-hub.md
-      - name: 장치 매핑 사용
+      - name: 디바이스 매핑 사용
         href: how-to-use-device-mapping-iot.md
       - name: FHIR 대상 매핑 사용
         href: how-to-use-fhir-mapping-iot.md

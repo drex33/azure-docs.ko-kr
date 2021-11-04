@@ -1,30 +1,31 @@
 ---
 title: 사용자 고유 키로 암호화된 이미지 버전 만들기
-description: 고객 관리형 암호화 키를 사용하여 Shared Image Gallery에서 이미지 버전을 만듭니다.
+description: 고객 관리형 암호화 키를 사용하여 Azure Compute 갤러리에서 이미지 버전을 만듭니다.
+author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 7/1/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d80b2fb62f0c11a06daaf9198add9c7cbe19a42a
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: bcd214413eb4880219e18c4bb03e4430f31690fd
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129458740"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131452056"
 ---
-# <a name="use-customer-managed-keys-for-encrypting-images"></a>고객 관리 키를 사용 하 여 이미지 암호화
+# <a name="use-customer-managed-keys-for-encrypting-images"></a>고객 관리형 키를 사용하여 이미지 암호화
 
-**적용 대상:** :heavy_check_mark: Linux VM :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
+**적용 대상:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: 유연한 확장 집합 :heavy_check_mark: 균일한 확장 집합
 
-공유 이미지 갤러리의 이미지는 스냅샷으로 저장되므로 서버 쪽 암호화를 통해 자동으로 암호화됩니다. 서버 쪽 암호화는 사용 가능한 가장 강력한 블록 암호 중 하나인 256비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용합니다. 서버 쪽 암호화는 FIPS 140-2 규격이기도 합니다. 암호화 모듈의 기본 Azure Managed Disks에 대한 자세한 정보는 [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal)을 참조하세요.
+Azure Compute 갤러리의 이미지(이전의 Shared Image Gallery)는 스냅샷으로 저장되므로 서버 쪽 암호화를 통해 자동으로 암호화됩니다. 서버 쪽 암호화는 사용 가능한 가장 강력한 블록 암호 중 하나인 256비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용합니다. 서버 쪽 암호화는 FIPS 140-2 규격이기도 합니다. 암호화 모듈의 기본 Azure Managed Disks에 대한 자세한 정보는 [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal)을 참조하세요.
 
 플랫폼 관리형 키를 사용하여 이미지를 암호화할 수도 있고 사용자 고유의 키를 사용할 수도 있습니다. 이중 암호화를 위해 함께 사용할 수도 있습니다. 사용자 고유의 키를 사용하여 암호화를 관리하는 경우 이미지의 모든 데이터를 암호화 및 암호 해독하는 데 사용할 고객 관리형 키를 지정할 수 있습니다. 
 
 고객 관리형 키를 통한 서버 쪽 암호화는 Azure Key Vault를 사용합니다. [사용자의 RSA 키](../key-vault/keys/hsm-protected-keys.md)를 키 자격 증명 모음으로 가져오거나 Azure Key Vault에서 새 RSA 키를 생성할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 이미지를 복제하려는 각 영역에 디스크 암호화가 이미 설정되어 있어야 합니다.
 
@@ -37,7 +38,7 @@ ms.locfileid: "129458740"
 
 ## <a name="limitations"></a>제한 사항
 
-고객 관리형 키를 사용하여 공유 이미지 갤러리에서 이미지를 암호화하는 경우 다음과 같은 제한 사항이 적용됩니다.   
+Azure Compute 갤러리에서 이미지를 암호화하기 위해 고객 관리형 키를 사용하는 경우 다음과 같은 제한 사항을 적용합니다. 
 
 - 암호화 키 집합은 이미지와 동일한 구독에 있어야 합니다.
 
@@ -98,7 +99,7 @@ New-AzGalleryImageVersion `
 
 ### <a name="create-a-vm"></a>VM 만들기
 
-Shared Image Gallery에서 VM(가상 머신)을 만들고, 고객 관리형 키를 사용하여 디스크를 암호화할 수 있습니다. 구문은 이미지로부터 [일반화된](vm-generalized-image-version.md) VM 또는 [특수화된](vm-specialized-image-version.md) VM을 만드는 것과 같습니다. 확장 매개 변수 집합을 사용하여 `Set-AzVMOSDisk -Name $($vmName +"_OSDisk") -DiskEncryptionSetId $diskEncryptionSet.Id -CreateOption FromImage`을(를) VM 구성에 추가합니다.
+Azure Compute 갤러리에서 VM(가상 머신)을 만들고 고객 관리형 키를 사용하여 디스크를 암호화할 수 있습니다. 구문은 이미지로부터 [일반화된](vm-generalized-image-version.md) VM 또는 [특수화된](vm-specialized-image-version.md) VM을 만드는 것과 같습니다. 확장 매개 변수 집합을 사용하여 `Set-AzVMOSDisk -Name $($vmName +"_OSDisk") -DiskEncryptionSetId $diskEncryptionSet.Id -CreateOption FromImage`을(를) VM 구성에 추가합니다.
 
 데이터 디스크의 경우 [Add-AzVMDataDisk](/powershell/module/az.compute/add-azvmdatadisk)를 사용할 때 `-DiskEncryptionSetId $setID` 매개 변수를 추가합니다.
 
@@ -142,7 +143,7 @@ az sig image-version create \
 
 ### <a name="create-the-vm"></a>VM 만들기
 
-Shared Image Gallery에서 VM을 만들고, 고객 관리형 키를 사용하여 디스크를 암호화할 수 있습니다. 구문은 이미지로부터 [일반화된](vm-generalized-image-version.md) VM 또는 [특수화된](vm-specialized-image-version.md) VM을 만드는 것과 같습니다. 암호화 집합의 ID를 `--os-disk-encryption-set` 매개 변수에 추가하기만 하면 됩니다. 데이터 디스크의 경우 데이터 디스크에 대한 디스크 암호화 집합의 공백으로 구분된 목록을 사용하여 `--data-disk-encryption-sets`을(를) 추가합니다.
+Azure Compute 갤러리에서 VM을 만들고 고객 관리형 키를 사용하여 디스크를 암호화할 수 있습니다. 구문은 이미지로부터 [일반화된](vm-generalized-image-version.md) VM 또는 [특수화된](vm-specialized-image-version.md) VM을 만드는 것과 같습니다. 암호화 집합의 ID를 `--os-disk-encryption-set` 매개 변수에 추가하기만 하면 됩니다. 데이터 디스크의 경우 데이터 디스크에 대한 디스크 암호화 집합의 공백으로 구분된 목록을 사용하여 `--data-disk-encryption-sets`을(를) 추가합니다.
 
 
 ## <a name="portal"></a>포털

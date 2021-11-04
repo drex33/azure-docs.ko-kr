@@ -1,6 +1,6 @@
 ---
-title: Microsoft Defender for Cloud에서 보안 인시던트 관리 | Microsoft Docs
-description: 이 문서에서는 클라우드 용 Microsoft Defender를 사용 하 여 보안 인시던트를 관리 하는 방법을 안내 합니다.
+title: Microsoft Defender for Cloud | 보안 인시던트 관리 Microsoft Docs
+description: 이 문서는 Microsoft Defender for Cloud를 사용하여 보안 인시던트 관리를 도와줍니다.
 services: security-center
 author: memildin
 manager: rkarlin
@@ -8,13 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 3977d95358c20b98551170394bcd846d0b4e8358
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 739c7264a3a7199ad5dfd36a20267d86fd582a23
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131052817"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131452968"
 ---
 # <a name="manage-security-incidents-in-microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud에서 보안 인시던트 관리
 
@@ -22,23 +21,23 @@ ms.locfileid: "131052817"
 
 보안 경고를 심사 및 조사하는 작업은 가장 숙련된 보안 분석가라도 많은 시간이 걸릴 수 있습니다. 어디서부터 시작해야 할지 알지 못하는 경우도 많습니다. 
 
-Defender for Cloud는 [분석](./alerts-overview.md) 을 사용 하 여 고유한 [보안 경고](managing-and-responding-alerts.md)간에 정보를 연결 합니다. Defender for Cloud는 이러한 연결을 사용 하 여 공격자의 작업 및 영향을 받는 리소스를 이해 하는 데 도움을 주는 공격 캠페인 및 관련 경고에 대 한 단일 보기를 제공할 수 있습니다.
+Defender for [Cloud는 분석을](./alerts-overview.md) 사용하여 고유한 보안 경고 간에 정보를 [연결합니다.](managing-and-responding-alerts.md) 이러한 연결을 사용하여 Defender for Cloud는 공격자의 작업 및 영향을 받는 리소스를 이해하는 데 도움이 되는 공격 캠페인 및 관련 경고에 대한 단일 보기를 제공할 수 있습니다.
 
-이 페이지에서는 클라우드의 Defender에 대 한 문제에 대 한 개요를 제공 합니다.
+이 페이지에서는 Defender for Cloud의 인시던트 개요를 제공합니다.
 
 ## <a name="what-is-a-security-incident"></a>보안 인시던트란?
 
-클라우드의 Defender에서 보안 인시던트는 [kill 체인](alerts-reference.md#intentions) 패턴과 일치 하는 리소스에 대 한 모든 경고의 집계입니다. 인시던트는 [보안 경고](managing-and-responding-alerts.md) 페이지에 표시됩니다. 인시던트를 선택하여 관련 경고를 확인하고 자세한 정보를 확인하세요.
+Defender for Cloud에서 보안 인시던트 는 [킬 체인](alerts-reference.md#intentions) 패턴에 부합하는 리소스에 대한 모든 경고의 집계입니다. 인시던트는 [보안 경고](managing-and-responding-alerts.md) 페이지에 표시됩니다. 인시던트를 선택하여 관련 경고를 확인하고 자세한 정보를 확인하세요.
 
 ## <a name="managing-security-incidents"></a>보안 인시던트 관리
 
-1. 클라우드의 경고에 대 한 Defender 페이지에서 **필터 추가** 단추를 사용 하 여 **여러 리소스에서 검색** 된 경고 이름에 대 한 경고 이름별로 필터링 합니다. 
+1. Defender for Cloud의 경고 페이지에서 **필터 추가** 단추를 사용하여 경고 이름을 **기준으로 여러 리소스에서 검색된 보안 인시던트** 경고 이름으로 필터링합니다. 
 
-    :::image type="content" source="media/incidents/locating-incidents.png" alt-text="Microsoft Defender for Cloud의 경고 페이지에서 인시던트를 찾습니다.":::
+    :::image type="content" source="media/incidents/locating-incidents.png" alt-text="Microsoft Defender for Cloud의 경고 페이지에서 인시던트 찾기":::
 
     이제 인시던트만 표시되도록 목록이 필터링됩니다. 보안 인시던트에는 보안 경고와 다른 아이콘이 있습니다.
 
-    :::image type="content" source="media/incidents/incidents-list.png" alt-text="Microsoft Defender for Cloud의 경고 페이지에 표시 되는 인시던트 목록입니다.":::
+    :::image type="content" source="media/incidents/incidents-list.png" alt-text="Microsoft Defender for Cloud의 경고 페이지에 있는 인시던트 목록입니다.":::
 
 1. 인시던트의 세부 정보를 보려면 목록에서 인시던트를 선택합니다. 인시던트의 자세한 세부 정보가 있는 측면 창이 표시됩니다.
 
@@ -46,7 +45,7 @@ Defender for Cloud는 [분석](./alerts-overview.md) 을 사용 하 여 고유�
 
 1. 자세한 내용을 보려면 **전체 세부 정보 보기** 를 선택합니다.
 
-    [![클라우드의 Microsoft Defender에서 보안 인시던트에 대응 합니다.](media/incidents/incident-details.png)](media/incidents/incident-details.png#lightbox)
+    [![Microsoft Defender for Cloud의 보안 인시던트 대응](media/incidents/incident-details.png)](media/incidents/incident-details.png#lightbox)
 
     보안 인시던트 페이지의 왼쪽 창에는 보안 인시던트에 대한 높은 수준의 정보(제목, 심각도, 상태, 작업 시간, 설명, 영향을 받는 리소스)가 표시됩니다. 영향을 받는 리소스 옆에서 관련 Azure 태그를 볼 수 있습니다. 해당 태그를 사용하여 경고를 조사할 때 리소스의 조직 컨텍스트를 유추합니다.
 
@@ -71,7 +70,7 @@ Defender for Cloud는 [분석](./alerts-overview.md) 을 사용 하 여 고유�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 페이지에서는 Defender for Cloud의 보안 인시던트 기능에 대해 설명 했습니다. 관련 정보는 다음 페이지를 참조하세요.
+이 페이지에서는 Defender for Cloud의 보안 인시던트 기능을 설명했습니다. 관련 정보는 다음 페이지를 참조하세요.
 
-- [클라우드에 대 한 Defender의 보안 경고](alerts-overview.md)
+- [Defender for Cloud의 보안 경고](alerts-overview.md)
 - [보안 경고 관리 및 응답](managing-and-responding-alerts.md)

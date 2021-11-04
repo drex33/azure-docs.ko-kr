@@ -103,7 +103,7 @@
   items:
     - name: PowerShell
       href: analysis-services-powershell.md
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/analysisservices
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.analysisservices/servers
@@ -128,7 +128,7 @@
     - name: Azure 상태
       href: 'https://azure.microsoft.com/status/'
     - name: 사용자 의견
-      href: 'https://feedback.azure.com/forums/556165-azure-analysis-services'
+      href: 'https://feedback.azure.com/d365community/forum/d92323a0-0525-ec11-b6e6-000d3a4f0858'
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/analysis-services/'
     - name: 요금 계산기

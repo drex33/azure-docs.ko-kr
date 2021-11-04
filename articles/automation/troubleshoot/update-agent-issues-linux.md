@@ -2,15 +2,15 @@
 title: Azure Automation에서 Linux 업데이트 에이전트 문제 해결
 description: 이 문서에서는 업데이트 관리에서 Linux Windows 업데이트 에이전트 문제를 해결하는 방법을 설명합니다.
 services: automation
-ms.date: 01/25/2021
+ms.date: 11/01/2021
 ms.topic: troubleshooting
 ms.subservice: update-management
-ms.openlocfilehash: 9fdfa1541e928491aecc039d51338f7ef1f1ef3d
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 99758393b3d6545d534563a67f1346f7622b56db
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122567673"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131477101"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Linux 업데이트 에이전트 문제 해결
 
@@ -49,14 +49,7 @@ Azure 컴퓨터의 경우 포털의 **업데이트 에이전트 준비** 열에�
 
 ### <a name="operating-system"></a>운영 체제
 
-운영 체제 검사는 Hybrid Runbook Worker에서 다음 운영 체제 중 하나가 실행 중인지 확인합니다.
-
-|운영 체제  |메모  |
-|---------|---------|
-|CentOS 6(x86/x64) 및 7(x64)      | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다. 분류 기반 패치에는 CentOS에 기본 제공되지 않은 보안 데이터를 반환하기 위해 'yum'이 필요합니다.         |
-|Red Hat Enterprise 6(x86/x64) 및 7(x64)     | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
-|SUSE Linux Enterprise Server 11(x86/x64) 및 12(x64)     | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
-|Ubuntu 14.04 LTS, 16.04 LTS 및 18.04 LTS(x86/x64)      |Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.         |
+운영 체제 검사에서 Hybrid Runbook Worker 지원되는 운영 체제 중 하나를 실행하고 있는지 [확인합니다.](../update-management/operating-system-requirements.md#supported-operating-systems)
 
 ## <a name="monitoring-agent-service-health-checks"></a>에이전트 서비스 상태 검사 모니터링
 
@@ -124,7 +117,13 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 ## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>오프라인으로 문제 해결
 
-이 스크립트를 로컬로 실행하여 Hybrid Runbook Worker에서 오프라인으로 문제 해결사를 사용할 수 있습니다. Python 스크립트인 [UM_Linux_Troubleshooter_Offline.py](https://github.com/Azure/updatemanagement/blob/main/UM_Linux_Troubleshooter_Offline.py)는 GitHub에서 찾을 수 있습니다. 이 스크립트의 출력 예제는 다음 예제에 표시됩니다.
+이 스크립트를 로컬로 실행하여 Hybrid Runbook Worker에서 오프라인으로 문제 해결사를 사용할 수 있습니다. Python 스크립트인 [UM_Linux_Troubleshooter_Offline.py](https://github.com/Azure/updatemanagement/blob/main/UM_Linux_Troubleshooter_Offline.py)는 GitHub에서 찾을 수 있습니다.
+
+> [!NOTE]
+> 현재 버전의 문제 해결사 스크립트는 Ubuntu 20.04를 지원하지 않습니다.
+>
+
+이 스크립트의 출력 예제는 다음 예제에 표시됩니다.
 
 ```output
 Debug: Machine Information:   Static hostname: LinuxVM2

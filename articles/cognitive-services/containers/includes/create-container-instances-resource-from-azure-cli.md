@@ -9,18 +9,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 87007d3df3fe44ab04a330b09b8e495ec4b47e54
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 11a79d45d6966f9fc4f41ab6149cd6a32d4f75b8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97866069"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131253469"
 ---
 ## <a name="create-an-azure-container-instance-resource-from-the-azure-cli"></a>Azure CLI에서 Azure Container Instance 리소스 만들기
 
 아래 YAML은 Azure Container Instance 리소스를 정의합니다. 콘텐츠를 복사하여 `my-aci.yaml`이라는 새 파일에 붙여넣고 주석 처리된 값을 사용자 고유의 값으로 바꿉니다. 유효한 YAML은 [템플릿 형식][template-format]을 참조하세요. 사용 가능한 이미지 이름 및 해당 리포지토리는 [컨테이너 리포지토리 및 이미지][repositories-and-images]를 참조하세요. 컨테이너 인스턴스의 YAML 참조에 대한 자세한 내용은 [Yaml 참조: Azure Container Instances][aci-yaml-ref]를 참조하세요.
 
-```YAML
+```yaml
 apiVersion: 2018-10-01
 location: # < Valid location >
 name: # < Container Group name >
@@ -77,7 +77,7 @@ az container create -g <resource-group> -f my-aci.yaml
 > [!TIP]
 > YAML은 위치와 일치하도록 적절히 조정해야 하므로 공개 미리 보기 Azure Cognitive Service 제품의 위치에 주의하세요.
 
-[azure-container-create]: /cli/azure/container#az-container-create
+[azure-container-create]: /cli/azure/container#az_container_create
 [template-format]: /azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups#template-format
 [aci-yaml-ref]: ../../../container-instances/container-instances-reference-yaml.md
 [repositories-and-images]: ../container-image-tags.md

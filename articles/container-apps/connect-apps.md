@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/18/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 10fe890ecd4bb2bc89cea71d1a70f7df9eb38e1e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 28367cb19708023e8c49955ee85c7c2837a01977
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131052979"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131443265"
 ---
 # <a name="connect-applications-in-azure-container-apps-preview"></a>Azure 컨테이너 앱 미리 보기의 커넥트 응용 프로그램
 
@@ -21,9 +21,14 @@ ms.locfileid: "131052979"
 
 컨테이너 앱의 도메인 이름을 알고 있으면 응용 프로그램 코드 내에서 위치를 호출 하 여 여러 컨테이너 앱을 함께 연결할 수 있습니다.
 
+> [!NOTE]
+> FQDN을 사용 하 여 동일한 환경에서 다른 컨테이너를 호출 하면 네트워크 트래픽이 환경을 벗어날 수 없습니다.
+
+FQDN 위치 또는 d 4를 모두 사용 하 여 컨테이너 간에 호출할 수 있는 방법을 보여 주는 샘플 솔루션은 [Azure 샘플](https://github.com/Azure-Samples/container-apps-connect-multiple-apps) 에서 찾을 수 있습니다.
+
 ## <a name="location"></a>위치
 
-컨테이너 앱의 위치는 해당 환경, 이름 및 지역과 연결 된 값으로 구성 됩니다. 최상위 도메인을 통해 사용할 수 있는 정규화 `azurecontainerapps.io` 된 도메인 이름은 다음을 사용 합니다.
+컨테이너 앱의 위치는 해당 환경, 이름 및 지역과 연결 된 값으로 구성 됩니다. `azurecontainerapps.io`FQDN (정규화 된 도메인 이름)을 사용 하 여 최상위 도메인을 통해 사용할 수 있습니다.
 
 - 컨테이너 앱 이름
 - 환경 고유 식별자

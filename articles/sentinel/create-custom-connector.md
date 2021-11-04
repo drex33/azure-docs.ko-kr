@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2021
 ms.author: bagol
-ms.openlocfilehash: 7d69235d1d7131df8b5abcb1c9073defab8f2354
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: df33492b544a9d8875d6996b89acf225f3ace4f4
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131023351"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131449282"
 ---
 # <a name="resources-for-creating-azure-sentinel-custom-connectors"></a>Azure Sentinel 사용자 지정 커넥터를 만들기 위한 리소스
 
@@ -177,7 +177,7 @@ RESTful 엔드포인트를 직접 호출하는 경우 더 많은 프로그래밍
 자세한 내용은 [Log Analytics 데이터 수집기 API](../azure-monitor/logs/data-collector-api.md)를 참조하세요. 특히 다음 예제를 참조하세요.
 
 - [C#](../azure-monitor/logs/data-collector-api.md#c-sample)
-- [Python 2](../azure-monitor/logs/data-collector-api.md#python-2-sample)
+- [Python](../azure-monitor/logs/data-collector-api.md#python-sample)
 
 ## <a name="connect-with-azure-functions"></a>Azure Functions로 연결
 
@@ -210,7 +210,7 @@ Azure Sentinel은 쿼리 시 구문 분석을 지원합니다. 쿼리 시 구문
 
 > [!NOTE]
 > 구문 분석 업데이트는 이미 Azure Sentinel에 수집한 데이터에도 적용됩니다.
-> 
+
 ## <a name="next-steps"></a>다음 단계
 
 다음 프로세스 중 하나를 사용하여 Azure Sentinel에 수집된 데이터를 사용하여 환경을 보호합니다.

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: c49fc5748e2234aa870dad79fd0d5842d120e117
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 98efbcde79b7ccfc5cd2f0fc86d91ec36698823c
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188481"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131502561"
 ---
 - [빠른 시작: 마이크에서 음성 인식](../../get-started-speech-to-text.md)
 - [빠른 시작: 파일에서 음성 인식](../../get-started-speech-to-text.md)

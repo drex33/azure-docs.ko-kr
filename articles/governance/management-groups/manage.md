@@ -3,12 +3,12 @@ title: 관리 그룹을 사용하는 방법 - Azure 거버넌스
 description: 관리 그룹 계층 구조를 살펴보고, 유지 관리하고, 업데이트하고, 삭제하는 방법을 알아봅니다.
 ms.date: 08/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 57c4af2d7c3d5d4978d500beaa6e6c8be5d12d4f
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: d9d783ffad2d99f1030994c292ea6c4c276bc1e5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/03/2021
-ms.locfileid: "131509413"
+ms.locfileid: "131469087"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>관리 그룹으로 리소스 관리
 
@@ -207,9 +207,7 @@ az account management-group show --name 'Contoso' -e -r
 - 자식 구독/관리 그룹
   - `Microsoft.management/managementgroups/write`
   - `Microsoft.management/managementgroups/subscription/write`(구독에만 해당)
-  - `Microsoft.Authorization/roleAssignments/write`
-  - `Microsoft.Authorization/roleAssignments/delete`
-  - `Microsoft.Management/register/action`
+  - `Microsoft.Authorization/roleassignment/write`
 - 대상 부모 관리 그룹
   - `Microsoft.management/managementgroups/write`
 - 현재 부모 관리 그룹

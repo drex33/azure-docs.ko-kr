@@ -2,13 +2,16 @@
 title: Azure Backup을 사용하여 Azure에 SAP HANA 데이터베이스 백업
 description: 이 문서에서는 Azure Backup 서비스를 사용하여 Azure 가상 머신에 SAP HANA 데이터베이스를 백업하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 09/27/2021
-ms.openlocfilehash: 472a83ddac9b88179f583868ba4e19136b147154
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 11/02/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: 5c92daa02a98e87f440bc76c114f5b6839eadd08
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130236045"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131439629"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Azure VM에서 SAP HANA 데이터베이스 백업
 
@@ -25,7 +28,7 @@ SAP HANA 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보존
 > * 주문형 백업 작업 실행
 
 >[!NOTE]
-지원 되는 구성 및 시나리오에 대해 자세히 알아보려면 [SAP HANA backup 지원 매트릭스](sap-hana-backup-support-matrix.md) 를 참조 하세요.
+지원되는 구성 및 시나리오에 대한 자세한 내용은 [SAP HANA 백업 지원 매트릭스를](sap-hana-backup-support-matrix.md) 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -102,19 +105,28 @@ Recovery Services 자격 증명 모음에서 지역 간 복원을 사용하도�
 
 ## <a name="discover-the-databases"></a>데이터베이스 검색
 
-1. 자격 증명 모음의 **시작** 에서 **백업** 을 선택합니다. **작업이 실행되는 위치** 에서 **Azure VM의 SAP HANA** 를 선택합니다.
-2. **검색 시작** 을 선택합니다. 그러면 자격 증명 모음 지역에서 보호되지 않는 Linux VM의 검색이 시작됩니다.
+1. Azure Portal 백업 센터로 이동하여 **+백업을** 클릭합니다.
+
+   :::image type="content" source="./media/backup-azure-sap-hana-database/backup-center-configure-inline.png" alt-text="SAP HANA 데이터베이스에 대한 검사를 시작하는 방법을 보여 SAP HANA 스크린샷" lightbox="./media/backup-azure-sap-hana-database/backup-center-configure-expanded.png":::
+
+1. 데이터 원본 유형으로 **Azure VM에서 SAP HANA** 선택하고 백업에 사용할 Recovery Services 자격 증명 모음을 선택한 다음 **계속을** 클릭합니다.
+
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-vault.png" alt-text="Azure VM에서 SAP HANA 데이터베이스를 선택하는 방법을 보여주는 스크린샷":::
+
+1. **검색 시작** 을 선택합니다. 그러면 자격 증명 모음 지역에서 보호되지 않는 Linux VM의 검색이 시작됩니다.
 
    * 검색 후에는 보호되지 않은 VM이 포털에 표시되며 이름 및 리소스 그룹별로 나열됩니다.
    * VM이 예상대로 나열되지 않으면 자격 증명 모음에 이미 백업되어 있는지 확인합니다.
    * 여러 VM은 동일한 이름을 사용할 수 있지만 서로 다른 리소스 그룹에 속합니다.
 
-3. **Virtual Machines 선택** 에서 링크를 선택하여 데이터베이스 검색을 위해 SAP HANA VM에 액세스할 수 있는 권한을 Azure Backup 서비스에 제공하는 스크립트를 다운로드합니다.
-4. 백업하려는 SAP HANA 데이터베이스를 호스팅하는 각 VM에서 스크립트를 실행합니다.
-5. VM에서 스크립트가 실행되면 **Virtual Machines 선택** 에서 해당 VM을 선택합니다. 그런 다음, **DB 검색** 을 선택합니다.
-6. Azure Backup에서 VM의 모든 SAP HANA 데이터베이스를 검색합니다. 검색하는 동안 Azure Backup은 VM을 자격 증명 모음에 등록하고 확장을 해당 VM에 설치합니다. 에이전트는 데이터베이스에 설치되지 않습니다.
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-discover-databases.png" alt-text="검색 시작을 선택하는 방법을 보여주는 스크린샷.":::
 
-    ![SAP HANA 데이터베이스 검색](./media/backup-azure-sap-hana-database/hana-discover.png)
+1. **Virtual Machines 선택** 에서 링크를 선택하여 데이터베이스 검색을 위해 SAP HANA VM에 액세스할 수 있는 권한을 Azure Backup 서비스에 제공하는 스크립트를 다운로드합니다.
+1. 백업하려는 SAP HANA 데이터베이스를 호스팅하는 각 VM에서 스크립트를 실행합니다.
+1. VM에서 스크립트가 실행되면 **Virtual Machines 선택** 에서 해당 VM을 선택합니다. 그런 다음, **DB 검색** 을 선택합니다.
+1. Azure Backup에서 VM의 모든 SAP HANA 데이터베이스를 검색합니다. 검색하는 동안 Azure Backup은 VM을 자격 증명 모음에 등록하고 확장을 해당 VM에 설치합니다. 에이전트는 데이터베이스에 설치되지 않습니다.
+
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-virtual-machines-inline.png" alt-text="검색된 SAP HANA 데이터베이스를 보여주는 스크린샷." lightbox="./media/backup-azure-sap-hana-database/hana-select-virtual-machines-expanded.png":::
 
 ## <a name="configure-backup"></a>백업 구성  
 
@@ -122,13 +134,16 @@ Recovery Services 자격 증명 모음에서 지역 간 복원을 사용하도�
 
 1. 2단계에서 **백업 구성** 을 선택합니다.
 
-    ![백업 구성](./media/backup-azure-sap-hana-database/configure-backup.png)
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-configure-backups.png" alt-text="백업을 구성하는 방법을 보여주는 스크린샷.":::
+
 2. **백업할 항목 선택** 에서 보호하려는 모든 데이터베이스 > **확인** 을 차례로 선택합니다.
 
-    ![백업할 항목 선택](./media/backup-azure-sap-hana-database/select-items.png)
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-databases-inline.png" alt-text="백업할 데이터베이스를 선택하는 방법을 보여주는 스크린샷." lightbox="./media/backup-azure-sap-hana-database/hana-select-databases-expanded.png":::
+
 3. **백업 정책** > **백업 정책 선택** 에서 아래의 지침에 따라 데이터베이스에 대한 새 백업 정책을 만듭니다.
 
-    ![백업 정책 선택](./media/backup-azure-sap-hana-database/backup-policy.png)
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-policy-summary.png" alt-text="백업 정책을 선택하는 방법을 보여주는 스크린샷.":::
+
 4. 정책이 만들어지면 **백업** 메뉴에서 **백업 사용** 을 선택합니다.
 
     ![백업 사용](./media/backup-azure-sap-hana-database/enable-backup.png)
@@ -142,7 +157,7 @@ Recovery Services 자격 증명 모음에서 지역 간 복원을 사용하도�
 * 다수의 자격 증명 모음은 자격 증명 모음은 동일한 백업 정책을 사용할 수 있지만 자격 증명 모음마다 백업 정책을 적용해야 합니다.
 
 >[!NOTE]
->Azure Backup은 Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업할 때 일광 절약 시간제 변경을 자동으로 조정하지 않습니다.
+>Azure Backup Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업할 때 일광 절약 시간 변경에 맞게 자동으로 조정되지 않습니다.
 >
 >필요에 따라 정책을 수동으로 수정합니다.
 

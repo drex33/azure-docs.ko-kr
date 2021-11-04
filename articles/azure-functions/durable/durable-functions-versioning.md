@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 05/12/2021
 ms.author: azfuncdf
-ms.openlocfilehash: c5d3ac097efd81b369db16d6f7b6a4bf59b7540a
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
-ms.translationtype: HT
+ms.openlocfilehash: 16de5f5950cf305115de4c2849b3ebbbc4cf2536
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110377402"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131507724"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>지속성 함수의 버전 관리(Azure Functions)
 
@@ -35,7 +35,7 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 }
 ```
 
-이 간단한 함수는 **Foo** 의 결과를 받아 **Bar** 로 전달합니다. 더 다양한 결과 값을 지원하기 위해 **Foo** 의 반환 값을 `bool`에서 `int`로 변경할 필요가 있다고 가정해 보겠습니다. 결과는 다음과 같습니다.
+이 간단한 함수는 **Foo** 의 결과를 받아 **Bar** 로 전달합니다. 더 다양한 결과 값을 지원하기 위해 **Foo** 의 반환 값을 `bool`에서 `string`로 변경할 필요가 있다고 가정해 보겠습니다. 결과는 다음과 같습니다.
 
 ```csharp
 [FunctionName("FooBar")]

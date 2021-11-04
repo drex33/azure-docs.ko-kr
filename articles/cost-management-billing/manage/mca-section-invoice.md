@@ -1,19 +1,20 @@
 ---
 title: 필요에 따른 청구서 구성 - Azure
 description: 청구서의 비용을 구성하는 방법을 알아봅니다. 청구 프로필 및 청구서 섹션을 만들어 청구 계정을 사용자 지정할 수 있습니다.
-author: amberbhargava
+author: bandersmsft
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 87a55b588282a0a971f31ea496865a5db4dcb8c5
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3243f877eb8f573cb06a6f600842763e6c67518b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128649647"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131454203"
 ---
 # <a name="organize-costs-by-customizing-your-billing-account"></a>청구 계정을 사용자 지정하여 비용 구성
 

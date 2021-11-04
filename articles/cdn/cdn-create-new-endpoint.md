@@ -1,19 +1,19 @@
 ---
 title: 빠른 시작 - Azure CDN 프로필 및 엔드포인트 만들기
 description: 이 빠른 시작에서는 새로운 CDN 프로필 및 엔드포인트를 만들어서 Azure CDN을 활성화하는 방법을 설명합니다.
-author: asudbring
+author: duongau
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: azure-cdn
 ms.topic: quickstart
 ms.date: 04/30/2020
-ms.author: allensu
+ms.author: duau
 ms.custom: mvc
-ms.openlocfilehash: e045a7df3389dc58fe8ac2298f2f51b0337a5f94
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: de24b2e9676082da6980c59e696781fc6939f29f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124775515"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423511"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>빠른 시작: Azure CDN 프로필 및 엔드포인트 만들기
 

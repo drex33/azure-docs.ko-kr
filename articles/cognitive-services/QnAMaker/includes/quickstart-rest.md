@@ -3,18 +3,17 @@ title: '빠른 시작: cURL 및 REST를 사용하여 기술 자료 관리 - QnA 
 description: 이 빠른 시작에서는 REST API를 사용하여 기술 자료를 만들고, 게시하고, 쿼리하는 방법을 보여 줍니다.
 ms.date: 1/22/2021
 ms.topic: quickstart
-ms.openlocfilehash: 0467004b8188f0187fa4e565e3637f5e765a510d
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: ef86f747a4c729e5617eafb6acd20e7cebfe1f0e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111993436"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131071297"
 ---
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 * 현재 버전의 [cURL](https://curl.haxx.se/). 빠른 시작에는 몇 가지 명령줄 스위치가 사용되며, 이러한 스위치는 [cURL 설명서](https://curl.haxx.se/docs/manpage.html)에 나와 있습니다.
 * 키와 리소스 이름을 사용하려면 [QnA Maker 리소스](../how-to/set-up-qnamaker-service-azure.md?tabs=v1#create-a-new-qna-maker-service)가 있어야 합니다. 리소스를 만드는 동안 리소스 **이름** 을 입력한 다음, 키가 생성되었습니다. 리소스 이름은 엔드포인트의 하위 도메인으로 사용됩니다. 키와 리소스 이름을 검색하려면 Azure Portal에서 이 리소스에 대한 **빠른 시작** 을 선택합니다. 리소스 이름은 엔드포인트 URL의 첫 번째 하위 도메인입니다.
@@ -24,21 +23,7 @@ ms.locfileid: "111993436"
 > [!CAUTION]
 > 다음 BASH 예제에서는 `\` 줄 연속 문자를 사용합니다. 콘솔 또는 터미널에서 다른 줄 연속 문자를 사용하는 경우 이 문자를 사용하세요.
 
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-* 현재 버전의 [cURL](https://curl.haxx.se/). 빠른 시작에는 몇 가지 명령줄 스위치가 사용되며, 이러한 스위치는 [cURL 설명서](https://curl.haxx.se/docs/manpage.html)에 나와 있습니다.
-* 사용자 지정 질문 및 답변에는 API 키 및 엔드포인트를 생성할 수 있는 사용자 지정 질문 답변 기능이 활성화된 [Text Analytics 리소스](../how-to/set-up-qnamaker-service-azure.md?tabs=v2#create-a-new-qna-maker-service)가 필요합니다. 리소스를 만들 때 선택한 **이름** 은 엔드포인트의 하위 도메인으로 사용됩니다. 키와 리소스 이름을 검색하려면 Azure Portal에서 리소스에 대한 **빠른 시작** 을 선택합니다. 리소스 이름은 엔드포인트 URL의 첫 번째 하위 도메인입니다.
-
-    `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2`
-
-> [!CAUTION]
-> 다음 BASH 예제에서는 `\` 줄 연속 문자를 사용합니다. 콘솔 또는 터미널에서 다른 줄 연속 문자를 사용하는 경우 이 문자를 사용하세요.
-
----
-
 ## <a name="create-a-knowledge-base"></a>기술 자료 만들기
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 REST API 및 cURL을 사용하여 기술 자료를 만드는 데 필요한 정보는 다음과 같습니다.
 
@@ -72,45 +57,7 @@ QnA Maker의 cURL 응답에는 [작업 상태를 가져오는](#get-status-of-op
 }
 ```
 
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-
-REST API 및 cURL을 사용하여 기술 자료를 만드는 데 필요한 정보는 다음과 같습니다.
-
-|정보|cURL 구성|목적|
-|--|--|--|
-|Text Analytics 리소스 이름(사용자 지정 질문 답변 기능 사용)|URL|URL을 생성하는 데 사용됨|
-|Text Analytics 리소스 키|`Ocp-Apim-Subscription-Key` 헤더의 `-h` 매개 변수|Text Analytics 서비스에 인증|
-|기술 자료를 설명하는 JSON|`-d` 매개 변수|JSON [예제](/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples)|
-|JSON 크기(바이트 단위)|`Content-Size` 헤더의 `-h` 매개 변수||
-
-cURL 명령은 BASH 셸에서 실행됩니다. 사용자 고유의 리소스 이름, 리소스 키 및 JSON 값과 JSON 크기를 사용하여 이 명령을 편집합니다.
-
-```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/create \
--X POST \
--H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
--H "Content-Type:application/json" \
--H "Content-Size:107" \
--d '{ name: "QnA Maker FAQ",urls: [ "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs"]}'
-```
-
-QnA Maker의 cURL 응답에는 [작업 상태를 가져오는](#get-status-of-operation) 데 필요한 `operationId`가 포함됩니다.
-
-```json
-{
-  "operationState": "NotStarted",
-  "createdTimestamp": "2020-02-27T04:11:22Z",
-  "lastActionTimestamp": "2020-02-27T04:11:22Z",
-  "userId": "9596077b3e0441eb93d5080d6a15c64b",
-  "operationId": "95a4f700-9899-4c98-bda8-5449af9faef8"
-}
-```
----
-
 ## <a name="get-status-of-operation"></a>작업 상태 가져오기
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 기술 자료를 만드는 경우 비동기 작업이므로 응답에는 상태를 확인하는 정보가 포함됩니다.
 
@@ -140,43 +87,7 @@ cURL 응답에는 상태가 포함됩니다. 작업 상태가 성공인 경우 `
    "operationId": "f293f218-d080-48f0-a766-47993e9b26a8"
 }
 ```
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-
-기술 자료를 만드는 경우 비동기 작업이므로 응답에는 상태를 확인하는 정보가 포함됩니다.
-
-|정보|cURL 구성|목적|
-|--|--|--|
-|Text Analytics 리소스 이름(사용자 지정 질문 답변 기능 사용)|URL|URL을 생성하는 데 사용됨|
-|작업 ID|URL 경로|`/operations/REPLACE-WITH-YOUR-OPERATION-ID`|
-|Text Analytics 리소스 키|`Ocp-Apim-Subscription-Key` 헤더의 `-h` 매개 변수|Text Analytics 서비스에 인증|
-
-cURL 명령은 BASH 셸에서 실행됩니다. 사용자 고유의 리소스 이름, 리소스 키 및 작업 ID를 사용하여 이 명령을 편집합니다.
-
-```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/operations/REPLACE-WITH-YOUR-OPERATION-ID \
--X GET \
--H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY"
-```
-
-cURL 응답에는 상태가 포함됩니다. 작업 상태가 성공인 경우 `resourceLocation`에 기술 자료 ID가 포함됩니다.
-
-```json
-{
-   "operationState": "Succeeded",
-   "createdTimestamp": "2020-02-27T04:54:07Z",
-   "lastActionTimestamp": "2020-02-27T04:54:19Z",
-   "resourceLocation": "/knowledgebases/fe3971b7-cfaa-41fa-8d9f-6ceb673eb865",
-   "userId": "f596077b3e0441eb93d5080d6a15c64b",
-   "operationId": "f293f218-d080-48f0-a766-47993e9b26a8"
-}
-```
-
----
-
 ## <a name="publish-knowledge-base"></a>기술 자료 게시
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 기술 자료를 쿼리하기 전에 다음을 수행해야 합니다.
 * 기술 자료 게시
@@ -202,33 +113,7 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 
 응답 상태는 204이며 결과가 없습니다. cURL 명령에 대한 자세한 정보 출력을 확인하려면 `-v` 명령줄 매개 변수를 사용합니다. 여기에는 HTTP 상태가 포함됩니다.
 
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-기술 자료를 쿼리하기 전에 기술 자료를 게시해야 합니다.
-
-|정보|cURL 구성|목적|
-|--|--|--|
-|Text Analytics 리소스 이름(사용자 지정 질문 답변 기능 사용)|URL|URL을 생성하는 데 사용됨|
-|Text Analytics 리소스 키|`Ocp-Apim-Subscription-Key` 헤더의 `-h` 매개 변수|Text Analytics 서비스에 인증|
-|기술 자료 ID|URL 경로|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
-
-cURL 명령은 BASH 셸에서 실행됩니다. 리소스 이름, 리소스 키 및 기술 자료 ID를 사용하여 이 명령을 편집합니다.
-
-```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID \
--v \
--X POST \
--H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
---data-raw ''
-```
-
-응답 상태는 204이며 결과가 없습니다. cURL 명령에 대한 자세한 정보 출력을 확인하려면 `-v` 명령줄 매개 변수를 사용합니다. 여기에는 HTTP 상태가 포함됩니다.
-
----
-
 ## <a name="get-published-knowledge-bases-runtime-endpoint-key"></a>게시된 기술 자료의 런타임 엔드포인트 키 가져오기
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 기술 자료를 쿼리하기 전에 다음을 수행해야 합니다.
 * 기술 자료 게시
@@ -251,7 +136,6 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY"
 ```
 
-
 cURL 응답에는 런타임 엔드포인트 키가 포함됩니다. 기술 자료에서 답변을 얻으려면 쿼리할 때 키 중 하나만 사용합니다.
 
 ```json
@@ -262,15 +146,8 @@ cURL 응답에는 런타임 엔드포인트 키가 포함됩니다. 기술 자�
   "lastStableVersion": "4.0.6"
 }
 ```
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-고객 질문 답변에는 적용되지 않습니다.
-
----
 
 ## <a name="query-for-answer-from-published-knowledge-base"></a>게시된 기술 자료의 답변에 대한 쿼리
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 기술 자료의 답변을 얻는 것은 기술 자료를 관리하는 것과 다른 별도의 런타임에서 수행됩니다. 별도의 런타임이므로 런타임 키를 사용하여 인증해야 합니다.
 
@@ -295,35 +172,7 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.azurewebsites.net/qnamaker/knowledg
 
 성공적인 응답에는 클라이언트 애플리케이션(예: 채팅 봇)에서 사용자에게 답변을 표시하는 데 필요한 다른 정보와 함께 상위 답변이 포함됩니다.
 
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-|정보|cURL 구성|목적|
-|--|--|--|
-|Text Analytics 리소스 이름(사용자 지정 질문 답변 기능 사용)|URL|URL을 생성하는 데 사용됨|
-|Text Analytics 리소스 키|`Ocp-Apim-Subscription-Key` 헤더의 `-h` 매개 변수|Text Analytics 서비스에 인증|
-|기술 자료 ID|URL 경로|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
-|쿼리를 설명하는 JSON|`-d` 매개 변수|JSON의 [요청 본문 매개 변수](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) 및 [예제](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples)|
-|JSON 크기(바이트 단위)|`Content-Size` 헤더의 `-h` 매개 변수||
-
-cURL 명령은 BASH 셸에서 실행됩니다. 리소스 이름, 리소스 키 및 기술 자료 ID를 사용하여 이 명령을 편집합니다.
-
-```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID/generateAnswer \
--X POST \
--H "Content-Type:application/json" \
--H "Content-Size:159" \
--H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY"
--d '{"question": "How are QnA Maker and LUIS used together?","top": 6,"isTest": true,  "scoreThreshold": 20, "strictFilters": [], "userId": "sd53lsY="}'
-```
-
-성공적인 응답에는 클라이언트 애플리케이션(예: 채팅 봇)에서 사용자에게 답변을 표시하는 데 필요한 다른 정보와 함께 상위 답변이 포함됩니다.
-
-
----
-
 ## <a name="delete-knowledge-base"></a>기술 자료 삭제
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 기술 자료를 사용하는 작업이 완료되면 해당 기술 자료를 삭제합니다.
 
@@ -343,29 +192,6 @@ curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamake
 ```
 
 응답 상태는 204이며 결과가 없습니다. cURL 명령에 대한 자세한 정보 출력을 확인하려면 `-v` 명령줄 매개 변수를 사용합니다. 여기에는 HTTP 상태가 포함됩니다.
-
-# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
-
-기술 자료를 사용하는 작업이 완료되면 해당 기술 자료를 삭제합니다.
-
-|정보|cURL 구성|목적|
-|--|--|--|
-|Text Analytics 리소스 이름(사용자 지정 질문 답변 기능 사용)|URL|URL을 생성하는 데 사용됨|
-|Text Analytics 리소스 키|`Ocp-Apim-Subscription-Key` 헤더의 `-h` 매개 변수|Text Analytics 서비스에 인증|
-|기술 자료 ID|URL 경로|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
-
-cURL 명령은 BASH 셸에서 실행됩니다. 리소스 이름, 리소스 키 및 기술 자료 ID를 사용하여 이 명령을 편집합니다.
-
-```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID \
--X DELETE \
--v \
--H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY"
-```
-
-응답 상태는 204이며 결과가 없습니다. cURL 명령에 대한 자세한 정보 출력을 확인하려면 `-v` 명령줄 매개 변수를 사용합니다. 여기에는 HTTP 상태가 포함됩니다.
-
----
 
 ## <a name="additional-resources"></a>추가 리소스
 

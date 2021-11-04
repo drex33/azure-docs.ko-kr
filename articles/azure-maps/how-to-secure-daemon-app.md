@@ -2,20 +2,20 @@
 title: Microsoft Azure Maps에서 디먼 애플리케이션을 보호하는 방법
 titleSuffix: Azure Maps
 description: 이 문서에서는 백그라운드 프로세스, 타이머 및 작업과 같은 디먼 애플리케이션을 Microsoft Azure Maps의 신뢰할 수 있는 보안 환경에 호스트하는 방법을 설명합니다.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 06/21/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philema
+manager: eriklind
 custom.ms: subject-rbac-steps
-ms.openlocfilehash: b888dccbd7ce5cbf948b2da5494dd554b2d80649
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
-ms.translationtype: HT
+ms.openlocfilehash: e64645f7bdcbfb40cbee0fd29d1df2464a5d4f3e
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112541773"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450859"
 ---
 # <a name="secure-a-daemon-application"></a>디먼 애플리케이션 보호
 
@@ -202,7 +202,7 @@ Azure 리소스에서 실행하는 경우 적은 비용으로 최소한의 자�
 
 4. 애플리케이션을 선택합니다.
 
-5. [개요] 페이지가 표시됩니다. 애플리케이션(클라이언트 ID) 및 디렉터리(테넌트) ID를 복사합니다.
+5. [개요] 페이지가 표시됩니다. 애플리케이션(클라이언트) ID 및 디렉터리(테넌트) ID를 복사합니다.
 
       :::image type="content" border="true" source="./media/how-to-manage-authentication/get-token-params.png" alt-text="토큰 매개 변수를 복사합니다.":::
 
@@ -216,10 +216,10 @@ Azure 리소스에서 실행하는 경우 적은 비용으로 최소한의 자�
 
 4. **POST** HTTP 메서드를 선택합니다.
 
-5. 주소 표시줄에 다음 URL을 입력하고 `<Tenant ID>`를 디렉터리(테넌트) ID로, `<Client ID>`를 애플리케이션(클라이언트) ID로, `<Client Secret>`을 해당하는 클라이언트 암호로 바꿉니다.
+5. 주소 표시줄에 다음 URL을 입력합니다(를 `{Tenant-ID}` 디렉터리(테넌트) ID로 바꾸고, 를 `{Client-ID}` 애플리케이션(클라이언트) `{Client-Secret}` ID로, 를 클라이언트 암호로 바꿉다.
 
     ```http
-    https://login.microsoftonline.com/<Tenant ID>/oauth2/v2.0/token?response_type=token&grant_type=client_credentials&client_id=<Client ID>&client_secret=<Client Secret>%3D&scope=api%3A%2F%2Fazmaps.fundamentals%2F.default
+    https://login.microsoftonline.com/{Tenant-ID}/oauth2/v2.0/token?response_type=token&grant_type=client_credentials&client_id={Client-ID}&client_secret={Client-Secret}%3D&scope=api%3A%2F%2Fazmaps.fundamentals%2F.default
     ```
 
 6. **보내기** 를 선택합니다.

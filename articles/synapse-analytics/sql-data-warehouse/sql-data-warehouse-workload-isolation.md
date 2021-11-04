@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 506aed16f1b8a6c631a759bb1367aef8242859ac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: dec042c66ebed15a51d5c6c1f3ef6a3e3e2fb456
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98734783"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131428029"
 ---
 # <a name="azure-synapse-analytics-workload-group-isolation"></a>Azure Synapse Analytics 작업 그룹 격리
 
@@ -61,7 +61,7 @@ ms.locfileid: "98734783"
 
 ## <a name="resources-per-request-definition"></a>요청 정의당 리소스 수
 
-작업 그룹은 [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 구문에서 REQUEST_MIN_RESOURCE_GRANT_PERCENT 및 REQUEST_MAX_RESOURCE_GRANT_PERCENT 매개 변수를 사용하여 요청당 할당되는 최소 및 최대 리소스 양을 정의하는 메커니즘을 제공합니다.  이 경우 리소스는 CPU와 메모리입니다.  이러한 값을 구성하면 시스템에서 달성할 수 있는 리소스의 양과 동시성 수준이 결정됩니다.
+작업 그룹은 [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 구문에서 REQUEST_MIN_RESOURCE_GRANT_PERCENT 및 REQUEST_MAX_RESOURCE_GRANT_PERCENT 매개 변수를 사용하여 요청당 할당되는 최소 및 최대 리소스 양을 정의하는 메커니즘을 제공합니다.  이 경우 리소스는 메모리입니다. CPU 리소스는 워크로드 그룹의 CAP_PERCENTAGE_RESOURCE 값으로 제한되며 개별 요청 수준에서 제어되지 않습니다. 이러한 값을 구성하면 시스템에서 달성할 수 있는 리소스의 양과 동시성 수준이 결정됩니다.
 
 > [!NOTE]
 > REQUEST_MAX_RESOURCE_GRANT_PERCENT는 기본적으로 REQUEST_MIN_RESOURCE_GRANT_PERCENT에 지정된 것과 동일한 값으로 설정되는 선택적 매개 변수입니다.

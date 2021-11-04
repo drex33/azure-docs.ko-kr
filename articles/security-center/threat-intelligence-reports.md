@@ -1,30 +1,31 @@
 ---
-title: 클라우드 위협 인텔리전스 보고서에 대 한 Microsoft Defender | Microsoft Docs
-description: 이 페이지에서는 보안 경고에 대 한 자세한 정보를 찾기 위해 조사 중에 Microsoft Defender를 사용 하 여 클라우드 위협 인텔리전스 보고서를 사용할 수 있습니다.
+title: 클라우드용 Microsoft Defender 위협 인텔리전스 보고서 | Microsoft Docs
+description: 이 페이지에서는 조사 중에 Microsoft Defender for Cloud 위협 인텔리전스 보고서를 사용하여 보안 경고에 대한 자세한 정보를 찾을 수 있습니다.
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
 ms.date: 06/15/2021
 ms.author: memildin
-ms.openlocfilehash: 190cc14274b8e96434ab82fe7ff1df486d1b608b
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 31a3a123356e3417aa80672c305d516651c9e23c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131472089"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131103645"
 ---
-# <a name="microsoft-defender-for-cloud-threat-intelligence-report"></a>클라우드 위협 인텔리전스 보고서에 대 한 Microsoft Defender
+# <a name="microsoft-defender-for-cloud-threat-intelligence-report"></a>클라우드용 Microsoft Defender 위협 인텔리전스 보고서
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-이 페이지에서는 클라우드의 위협 인텔리전스 보고서에 대 한 Microsoft Defender가 보안 경고를 트리거한 위협에 대해 자세히 알아보는 데 도움이 되는 방법을 설명 합니다.
+이 페이지에서는 Microsoft Defender for Cloud의 위협 인텔리전스 보고서를 통해 보안 경고를 트리거한 위협에 대해 자세히 알아볼 수 있는 방법을 설명합니다.
 
 ## <a name="what-is-a-threat-intelligence-report"></a>위협 인텔리전스 보고서란?
 
-클라우드의 위협 방지를 위한 Defender는 Azure 리소스, 네트워크 및 연결 된 파트너 솔루션의 보안 정보를 모니터링 하는 방식으로 작동 합니다. 위협을 식별하도록 종종 여러 소스의 정보를 상호 연결하는 이 정보를 분석합니다. 자세한 내용은 [Cloud For Cloud에서 위협 검색 및 위협에 대응 하는 방법](alerts-overview.md#detect-threats)을 참조 하세요.
+Defender for Cloud의 위협 방지는 Azure 리소스, 네트워크 및 연결된 파트너 솔루션에서 보안 정보를 모니터링하여 작동합니다. 위협을 식별하도록 종종 여러 소스의 정보를 상호 연결하는 이 정보를 분석합니다. 자세한 내용은 [Microsoft Defender for Cloud가 위협을 감지하고 대응하는 방법을 참조하세요.](alerts-overview.md#detect-threats)
 
-Defender for Cloud는 위협을 식별 하는 경우 업데이트 제안을 포함 하 여 이벤트에 대 한 자세한 정보를 포함 하는 [보안 경고](managing-and-responding-alerts.md)를 트리거합니다. 인시던트 대응 팀이 위협을 조사 하 고 해결 하는 데 도움이 되도록 Defender for Cloud는 검색 된 위협에 대 한 정보가 포함 된 위협 인텔리전스 보고서를 제공 합니다. 보고서에는 다음과 같은 정보가 포함됩니다.
+Defender for Cloud는 위협을 식별할 때 수정 제안을 포함하여 이벤트에 대한 자세한 정보를 포함하는 [보안 경고를](managing-and-responding-alerts.md)트리거합니다. 인시던트 대응 팀이 위협을 조사하고 수정할 수 있도록 Defender for Cloud는 검색된 위협에 대한 정보가 포함된 위협 인텔리전스 보고서를 제공합니다. 보고서에는 다음과 같은 정보가 포함됩니다.
 
 * 공격자의 ID 또는 연결(이 정보가 제공되는 경우)
 * 공격자의 목표
@@ -47,7 +48,7 @@ Defender for Cloud에는 공격에 따라 달라질 수 있는 세 가지 유형
 
 ## <a name="how-to-access-the-threat-intelligence-report"></a>어떻게 위협 인텔리전스 보고서에 액세스하는가?
 
-1. 클라우드 용 Defender의 메뉴에서 **보안 경고** 페이지를 엽니다.
+1. Defender for Cloud 메뉴에서 보안 **경고** 페이지를 엽니다.
 1. 경고를 선택합니다. 
 
     경고에 대한 자세한 내용이 포함된 경고 정보 페이지가 열립니다. 다음은 **랜섬웨어 지표에 감지된** 경고의 세부 정보 페이지입니다.
@@ -67,5 +68,5 @@ Defender for Cloud에는 공격에 따라 달라질 수 있는 세 가지 유형
 
 이 페이지에서는 보안 경고를 조사할 때 위협 인텔리전스 보고서를 여는 방법을 설명했습니다. 관련 정보는 다음 페이지를 참조하세요.
 
-* [Microsoft Defender For Cloud의 보안 경고를 관리 하 고 대응](managing-and-responding-alerts.md)합니다. 보안 경고를 관리하고 응답하는 방법을 알아봅니다.
+* [Microsoft Defender for Cloud에서 보안 경고 관리 및 대응](managing-and-responding-alerts.md) 보안 경고를 관리하고 응답하는 방법을 알아봅니다.
 * [Microsoft Defender for Cloud에서 보안 인시던트 처리](incidents.md)

@@ -1,19 +1,19 @@
 ---
 title: Azure 구독 정책 관리
 description: Azure 구독 정책 관리를 통해 서로 다른 디렉터리 간 Azure 구독 이동을 제어하는 방법을 알아봅니다.
-author: anuragdalmia
+author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/10/2021
-ms.reviewer: banders
-ms.author: andalmia
-ms.openlocfilehash: 4d0ebd73065c538a78c950ab48254cb06d113897
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
-ms.translationtype: HT
+ms.date: 10/28/2021
+ms.reviewer: andalmia
+ms.author: banders
+ms.openlocfilehash: 2530cdd36a2844c5b311e97d9747c8734d808206
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108804523"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131464930"
 ---
 # <a name="manage-azure-subscription-policies"></a>Azure 구독 정책 관리
 

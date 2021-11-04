@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/25/2021
 ms.author: abhishgu
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 3ceebe9f537dcf2f496594d6a6c63972fcb7af92
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 74f55120eb7a6ceeb1891be44e50344fe71b4de5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131434107"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131103223"
 ---
 # <a name="azure-cosmos-db-partial-document-update-getting-started"></a>Azure Cosmos DB 부분 문서 업데이트: 시작 하기
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,10 +27,10 @@ ms.locfileid: "131434107"
 
 ## <a name="net"></a>.NET
 
-[NuGet 갤러리](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.22.1-preview) 에서 Azure Cosmos DB .net SDK v3의 *3.22.1 preview* 버전을 다운로드할 수 있습니다.
+[NuGet 갤러리](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) 에서 [Azure Cosmos DB .net SDK v3](sql-api-sdk-dotnet-standard.md) 를 다운로드할 수 있습니다.
 
 > [!NOTE]
-> 전체 부분 문서 업데이트 샘플은 GitHub의 [.net v3 샘플 리포지토리에서](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/3fa885fdd84e2f8852d2a1d5c75c56b642b5bba3/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs) 찾을 수 있습니다.
+> 전체 샘플은 GitHub의 [.net v3 샘플 리포지토리에서](https://github.com/Azure/azure-cosmos-dotnet-v3) 찾을 수 있습니다.
 
 **단일 패치 작업 실행**
 
@@ -99,7 +99,7 @@ transactionalBatchInternalFalse.ExecuteAsync());
 
 ## <a name="java"></a>Java
 
-Patch API는 현재 4.20.0 버전의 Java SDK에서 미리 보기로 제공 됩니다. GA'ed를 사용 하는 경우 4.21.0 버전에서 사용할 수 있습니다. 패치 작업을 사용 하려면 [Azure Cosmos DB Java v4 SDK](sql-api-sdk-java-v4.md) 의 *4.20.0* 버전을의 종속성 목록에 추가 `pom.xml` 하거나 [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos)에서 직접 다운로드 합니다.
+[Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) (버전 `4.20.0` 이상)를의 종속성 목록에 추가 `pom.xml` 하거나 [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos) 에서 직접 다운로드할 수 있습니다.
 
 ```xml
 <dependency>

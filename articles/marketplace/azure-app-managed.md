@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 06/01/2021
-ms.openlocfilehash: cba8ba5c8c5ff300fe585d75aab98fd4003a475d
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
-ms.translationtype: HT
+ms.date: 11/02/2021
+ms.openlocfilehash: cbdde26b030b5e3b89d96304ece6e6d698884c19
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122608234"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131468521"
 ---
 # <a name="configure-a-managed-application-plan"></a>관리형 애플리케이션 플랜 구성
 
@@ -155,6 +155,8 @@ USD(미국 달러)로 설정된 가격은 저장할 때 현재 환율을 사용�
 ### <a name="provide-a-notification-endpoint-url"></a>알림 엔드포인트 URL 제공
 
 **알림 엔드포인트 URL** 상자에서 이 플랜 버전의 관리형 애플리케이션 인스턴스에 대한 모든 CRUD 작업 알림을 수신하는 HTTPS 웹후크 엔드포인트를 제공합니다.
+
+Azure는 `/resource` 호출하기 전에 webhook URI의 끝에 를 추가합니다. 따라서 웹후크 URL은 로 끝나야 `/resource` 하지만 `/resource` **알림 엔드포인트 URL** 상자에 입력한 URL에는 포함하지 않습니다. 웹후크 URL에 대한 자세한 내용은 [관리되는 애플리케이션 계획을 참조하세요.](plan-azure-app-managed-app.md#notification-endpoint-url)
 
 ### <a name="customize-allowed-customer-actions-optional"></a>허용되는 고객 작업 사용자 지정(선택 사항)
 

@@ -2,23 +2,23 @@
 title: 루트 또는 루트 도메인을 기존 Azure CDN 엔드포인트에 등록 - Azure Portal
 description: Azure Portal을 사용하여 루트 또는 루트 도메인을 기존 Azure CDN 엔드포인트에 등록하는 방법을 알아봅니다.
 services: cdn
-author: asudbring
+author: duongau
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 11/07/2020
-ms.author: allensu
-ms.openlocfilehash: 025950ffcc264a3cfad1185ac1629c6a8fd44814
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.author: duau
+ms.openlocfilehash: 9962ee3d86147520206aee84ec272069577c2eb5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129992575"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131426320"
 ---
 # <a name="onboard-a-root-or-apex-domain-to-an-existing-azure-cdn-endpoint"></a>루트 또는 루트 도메인을 기존 Azure CDN 엔드포인트에 등록
 
 Azure CDN는 CNAME 레코드를 사용하여 사용자 지정 도메인 등록을 위한 도메인 소유권의 유효성을 검사합니다. CDN은 CDN 프로필과 연결된 프런트 엔드 IP 주소를 노출하지 않습니다. 루트 도메인을 Azure CDN에 등록하려는 경우 IP 주소에 매핑할 수 없습니다.
 
-DNS 프로토콜은 영역 루트에서 CNAME 레코드가 할당되는 것을 방지합니다. 예를 들어 도메인이 `contoso.com` 이면 에 대한 CNAME 레코드를 만들 `somelabel.contoso.com` 수 있지만 자체에 대한 CNAME은 만들 수 `contoso.com` 없습니다. 이 제한은 Azure CDN 뒤에 부하가 분산된 애플리케이션이 있는 애플리케이션 소유자에게 문제가 됩니다. CDN 프로필을 사용하려면 CNAME 레코드를 만들어야 하므로 영역 루트에서 CDN 프로필을 가리킬 수 없습니다.
+DNS 프로토콜은 영역 루트에서 CNAME 레코드가 할당되는 것을 방지합니다. 예를 들어 도메인이 인 경우 `contoso.com` 에 대 한 cname 레코드를 만들 수 `somelabel.contoso.com` 있지만 자체에 대해서는 cname을 만들 수 없습니다 `contoso.com` . 이 제한은 Azure CDN 뒤에 부하가 분산된 애플리케이션이 있는 애플리케이션 소유자에게 문제가 됩니다. CDN 프로필을 사용하려면 CNAME 레코드를 만들어야 하므로 영역 루트에서 CDN 프로필을 가리킬 수 없습니다.
 
 이 문제는 Azure DNS 별칭 레코드를 사용하여 해결할 수 있습니다. CNAME 레코드와 달리 별칭 레코드는 영역 루트에 생성됩니다. 이제 애플리케이션 소유자는 영역 루트 레코드에서 공용 엔드포인트가 있는 CDN 프로필을 가리키도록 할 수 있습니다. 애플리케이션 소유자는 DNS 영역 내 다른 모든 도메인에 사용되는 CDN 프로필을 가리킵니다. 예를 들어 `contoso.com` 및 `www.contoso.com`은 동일한 CDN 프로필을 가리킬 수 있습니다. 
 

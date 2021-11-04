@@ -3,19 +3,19 @@ title: Speech 컨테이너 설치
 titleSuffix: Azure Cognitive Services
 description: speech-to-text helm 차트 구성 옵션을 자세히 설명합니다.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 05/05/2020
-ms.author: pafarley
-ms.openlocfilehash: 0726b01ea082df91d426a66d36f7ad5f83babba4
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.author: eur
+ms.openlocfilehash: b5d2eed959f216d7ec3f1b504e086b1b83efdb58
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123646613"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500777"
 ---
 ### <a name="speech-to-text-sub-chart-chartsspeechtotext"></a>음성 텍스트 변환(하위 차트: charts/speechToText)
 
@@ -43,7 +43,7 @@ ms.locfileid: "123646613"
 
 #### <a name="sentiment-analysis-sub-chart-chartsspeechtotext"></a>감정 분석(하위 차트: chars/speechToText)
 
-speech-to-text 컨테이너의 v2.2.0 및 Helm 차트의 v0.2.0부터 다음 매개 변수가 Text Analytics API를 통해 감정 분석에 사용됩니다.
+음성 텍스트로 번역 컨테이너의 v2.2.0 및 Helm 차트의 v0.2.0부터 다음 매개 변수는 언어 서비스 API를 사용하여 감정 분석에 사용됩니다.
 
 |매개 변수|Description|값|기본값|
 | --- | --- | --- | --- |

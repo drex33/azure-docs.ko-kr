@@ -3,20 +3,20 @@ title: 언어 식별을 사용하는 방법
 titleSuffix: Azure Cognitive Services
 description: 언어 식별은 음성 인식과 함께 사용하여 인식되는 음성 오디오에서 말하는 언어를 결정할 수 있습니다.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/21/2021
-ms.author: pafarley
+ms.author: eur
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: 917dd55035ecca40c0a8a25a8f70d79d6a7e6e37
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 6d5d88ba1629dce89acb0345d727896c49680cbe
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124806644"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131505009"
 ---
 # <a name="how-to-use-language-identification"></a>언어 식별을 사용하는 방법
 

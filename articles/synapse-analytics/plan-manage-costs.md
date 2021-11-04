@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: how-to
 ms.date: 06/08/2021
-ms.openlocfilehash: 1527888458a494e0b2d7177246c991228440d255
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: 053ff6ec2a2b690ef612d9d6d2d188dfe5f6198a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529477"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131460055"
 ---
 # <a name="plan-and-manage-costs-for-azure-synapse-analytics"></a>Azure Synapse Analytics 계획 및 비용 관리
 
@@ -42,7 +42,7 @@ Azure Synapse Analytics 리소스를 만들거나 사용하는 경우 다음 측
 - 데이터 탐색 및 데이터 웨어하우징 
     - 전용 SQL 풀 - DWU 블록 수와 실행 시간에 따라 요금이 청구됩니다.
     - 저장소 - 저장된 TB 수에 따라 요금이 청구됩니다.
-    - 서버리스 SQL 풀 - 처리된 데이터의 TB에 따라 요금이 청구됩니다.
+    - 서버리스 SQL 풀 - 처리된 데이터의 TB로 요금이 청구됩니다.
 - Apache Spark 풀 - 인스턴스 수 및 실행 시간에 대한 요금이 청구됩니다.
 - 데이터 통합 
     - 오케스트레이션 활동 실행 - 작업이 실행 수에 따라 요금이 청구됩니다.
@@ -110,7 +110,7 @@ Azure Synapse에 대한 비용을 보여 주는 예제는 다음과 같습니다
 
 ## <a name="create-budgets"></a>예산 만들기
 
-[예산](../cost-management/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 만들면 비용을 관리하고 관련자에게 비정상 지출 및 과다 지출 위험을 자동으로 알리는 [경고](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)를 만들 수 있습니다. 경고는 예산 및 비용 임계값에 따른 지출을 기준으로 합니다. 예산 및 경고는 Azure 구독 및 리소스 그룹에 대해 만들어지므로 전체 비용 모니터링 전략의 일부로 유용합니다. 
+[예산](../cost-management/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 만들면 비용을 관리하고 관련자에게 비정상 지출 및 과다 지출 위험을 자동으로 알리는 [경고](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)를 만들 수 있습니다. 경고는 예산 및 비용 임계값에 따른 지출을 기준으로 합니다. Azure 구독 및 리소스 그룹에 대한 예산 및 경고가 만들어지므로 전체 비용 모니터링 전략의 일부로 유용합니다. 
 
 모니터링에 더 많은 세분성을 제공하려는 경우 Azure의 특정 리소스 또는 서비스에 대한 필터를 사용하여 예산을 만들 수 있습니다. 필터를 통해 추가 비용을 발생시키는 새 리소스를 실수로 만들지 않도록 할 수 있습니다. 예산을 만들 때 사용할 수 있는 필터 옵션에 대한 자세한 내용은 [그룹 및 필터 옵션](../cost-management-billing/costs/group-filter.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)을 참조하세요.
 

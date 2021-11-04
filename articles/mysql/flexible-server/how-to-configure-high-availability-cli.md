@@ -7,26 +7,24 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 04/1/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: b6a430c70d59ff980063139e71daf76d1ede220a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3ed931d0f972caa2e4a49012ad09afe9df9d3233
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128634299"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131422770"
 ---
 # <a name="manage-zone-redundant-high-availability-in-azure-database-for-mysql-flexible-server-with-azure-cli"></a>Azure CLI를 사용한 Azure Database for MySQL 유연한 서버의 영역 중복 고가용성 관리
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!NOTE]
-> Azure Database for MySQL - 유연한 서버는 공개 미리 보기로 제공됩니다.
 
 이 문서에서는 유연한 서버에서 서버를 만들 당시 영역 중복 고가용성 구성을 사용하거나 사용하지 않도록 설정하는 방법을 설명합니다. 서버를 만든 후에도 영역 중복 고가용성을 사용하지 않도록 설정할 수 있습니다. 서버를 만든 후에는 영역 중복 고가용성을 사용할 수 없습니다.
 
 고가용성 기능은 서로 다른 영역에서 물리적으로 분리되는 주 복제본과 대기 복제본을 프로비전합니다. 자세한 정보는 [고가용성 개념 설명서](./concepts/../concepts-high-availability.md)를 참조하세요. 고가용성을 사용하거나 사용하지 않도록 설정해도 VNET 구성, 방화벽 설정 및 백업 보존을 비롯한 다른 설정은 변경되지 않습니다. 고가용성을 사용하지 않도록 설정해도 애플리케이션 연결 및 작업에는 영향을 주지 않습니다.
 
 > [!IMPORTANT]
-> 영역 중복 고가용성은 제한된 지역 집합에서 사용할 수 있습니다. 지원되는 지역을 [여기](./overview.md#azure-regions)에서 검토하세요. 
+> 영역 중복 고가용성은 제한된 지역 집합에서 사용할 수 있습니다. 지원되는 지역을 [여기](./overview.md#azure-regions)에서 검토하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -69,7 +67,7 @@ ms.locfileid: "128634299"
 
 ## <a name="disable-high-availability"></a>고가용성 사용 안 함
 
-[az mysql flexible-server update](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_update) 명령을 사용하여 고가용성을 사용하지 않도록 설정할 수 있습니다. 고가용성을 사용하여 서버를 만든 경우에만 고가용성을 사용하지 않도록 설정할 수 있습니다. 
+[az mysql flexible-server update](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_update) 명령을 사용하여 고가용성을 사용하지 않도록 설정할 수 있습니다. 고가용성을 사용하여 서버를 만든 경우에만 고가용성을 사용하지 않도록 설정할 수 있습니다.
 
 ```azurecli
 az mysql flexible-server update [--high-availability {Disabled, SameZone, ZoneRedundant}]

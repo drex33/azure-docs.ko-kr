@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 8e4b2a24d881822e24101872394e225dc9cb0947
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 5d93ebd083ccd887b8267c1bc9b82c6ba7b34c05
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130265289"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131432380"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Azure Functions의 Azure Blob Storage 바인딩 개요
 
@@ -36,23 +36,22 @@ Azure Functions는 [트리거 및 바인딩](./functions-triggers-bindings.md)�
 
 #### <a name="storage-extension-5x-and-higher"></a>스토리지 확장 5.x 이상
 
-새 버전의 Storage 바인딩 확장은 미리 보기에서 사용할 수 있습니다. [비밀 대신 ID를 사용하여 연결하는](./functions-reference.md#configure-an-identity-based-connection)기능을 소개합니다. 관리 ID를 통해 함수 앱을 구성하는 방법에 대한 자습서는 ID 기반 연결을 통해 함수 앱 만들기 자습서를 [참조하세요.](./functions-identity-based-connections-tutorial.md) .NET 애플리케이션의 경우 새 확장 버전도 바인딩할 수 있는 형식을 변경하여 및 의 형식을 `WindowsAzure.Storage` `Microsoft.Azure.Storage` Azure.Storage 최신 형식으로 [바꿉니다. Blob .](/dotnet/api/azure.storage.blobs) [Azure.Storage.Blobs 마이그레이션 가이드](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/AzureStorageNetMigrationV12.md)에서 이러한 새로운 유형의 차이점과 마이그레이션 방법에 대해 자세히 알아봅니다.
+이제 새 버전의 Storage 바인딩 확장을 사용할 수 있습니다. [비밀 대신 ID를 사용하여 연결하는](./functions-reference.md#configure-an-identity-based-connection)기능을 소개합니다. 관리 ID를 통해 함수 앱을 구성하는 방법에 대한 자습서는 ID 기반 연결을 통해 함수 앱 만들기 자습서를 [참조하세요.](./functions-identity-based-connections-tutorial.md) .NET 애플리케이션의 경우 새 확장 버전도 바인딩할 수 있는 형식을 변경하여 및 의 형식을 `WindowsAzure.Storage` `Microsoft.Azure.Storage` Azure.Storage 최신 형식으로 [바꿉니다. Blob .](/dotnet/api/azure.storage.blobs) [Azure.Storage.Blobs 마이그레이션 가이드](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/AzureStorageNetMigrationV12.md)에서 이러한 새로운 유형의 차이점과 마이그레이션 방법에 대해 자세히 알아봅니다.
 
-이 확장 버전은 [미리 보기 NuGet 패키지로] 제공되거나 파일에 다음을 추가하여 미리 보기 확장 번들 v3에서 추가할 수 있습니다. `host.json`
+이 확장 버전은 [NuGet 패키지], 버전 5.x를 설치하여 사용할 수 있으며, 파일에 다음을 추가하여 확장 번들 v3에서 추가할 수 있습니다. `host.json`
 
 ```json
 {
   "version": "2.0",
   "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[3.*, 4.0.0)"
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[3.3.0, 4.0.0)"
   }
 }
 ```
 
 자세한 내용은 [확장 업데이트를 참조하세요.]
 
-[미리 보기 NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/5.0.0-beta.5
 [core tools]: ./functions-run-local.md
 [확장 번들]: ./functions-bindings-register.md#extension-bundles
 [NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage

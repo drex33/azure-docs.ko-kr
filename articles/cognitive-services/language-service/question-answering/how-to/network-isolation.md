@@ -6,12 +6,12 @@ ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
-ms.openlocfilehash: e16734ac0ff53f778fad368913d89bcea3869ee3
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 9ab30b82a9bac9d06e2d5228b2004c36d465d392
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131103024"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131458212"
 ---
 #  <a name="network-isolation-and-private-endpoints"></a>네트워크 격리 및 프라이빗 엔드포인트
 
@@ -52,13 +52,13 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
 ![관리형 네트워킹 서비스](../../../QnAMaker/media/qnamaker-reference-private-endpoints/private-endpoint-networking-3.png)
 
 ## <a name="support-details"></a>지원 세부 정보
- * Text Analytics 서비스에 대한 프라이빗 액세스를 사용하도록 설정한 후에는 Azure Cognitive Search 서비스 변경이 지원되지 않습니다. 프라이빗 액세스를 사용하도록 설정한 후 '기능' 탭을 통해 Azure Cognitive Search 서비스를 변경하면 Text Analytics 서비스를 사용할 수 없게 됩니다.
+ * 언어 리소스에 대한 프라이빗 액세스를 사용하도록 설정한 후에는 Azure Cognitive Search 서비스 변경이 지원되지 않습니다. 프라이빗 액세스를 사용하도록 설정한 후 '기능' 탭을 통해 Azure Cognitive Search 서비스를 변경하면 언어 리소스를 사용할 수 없게 됩니다.
 
- * 프라이빗 엔드포인트 연결을 설정한 후 Azure Cognitive Search Service 네트워킹을 'Public'으로 전환하면 Text Analytics 서비스를 사용할 수 없습니다. 프라이빗 엔드포인트 연결이 작동하려면 Azure Search 서비스 네트워킹이 '프라이빗'이어야 합니다.
+ * 프라이빗 엔드포인트 연결을 설정하고 나면 Azure Cognitive Search 서비스 네트워킹을 '공용'으로 전환하면 언어 리소스를 사용할 수 없습니다. 프라이빗 엔드포인트 연결이 작동하려면 Azure Search 서비스 네트워킹이 '프라이빗'이어야 합니다.
 
 ## <a name="restrict-access-to-cognitive-search-resource"></a>Cognitive Search 리소스에 대한 액세스 제한
 
-질문 응답 언어 리소스에 대한 공용 액세스를 제한하려면 아래 단계를 수행합니다. [가상 네트워크를 구성](../../../cognitive-services-virtual-networks.md?tabs=portal)하여 퍼블릭 액세스에서 Cognitive Services 리소스를 보호합니다.
+질문 응답 언어 리소스에 대한 공용 액세스를 제한하려면 다음 단계를 수행합니다. [가상 네트워크를 구성](../../../cognitive-services-virtual-networks.md?tabs=portal)하여 퍼블릭 액세스에서 Cognitive Services 리소스를 보호합니다.
 
 VNet에 따라 Cognitive Service 리소스에 대한 액세스를 제한한 후 온-프레미스 네트워크 또는 로컬 브라우저에서 Language Studio 포털의 기술 자료를 찾아보려면.
 - [온-프레미스 네트워크](../../../cognitive-services-virtual-networks.md?tabs=portal#configuring-access-from-on-premises-networks)에 대한 액세스 권한을 부여합니다.

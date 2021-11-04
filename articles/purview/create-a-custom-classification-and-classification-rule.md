@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 12af9165b8393291b67fd0cbe4cb2ced6ae77a17
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 8e1e43b1c1f11ae6eb37ab599f9636bc47423f8b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129212191"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131442144"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Azure Purview의 사용자 지정 분류
 
@@ -29,13 +29,16 @@ Azure Purview Data Catalog는 데이터 자산에 있을 수 있는 일반적인
 > [!Note]
 > 당사 [데이터 샘플링 규칙](sources-and-scans.md#sampling-within-a-file)은 시스템 분류와 사용자 지정 분류 모두에 적용됩니다.  
 
+> [!NOTE]
+> Purview 사용자 지정 분류는 SQL 및 CosmosDB와 같은 구조적 데이터 원본과 CSV, JSON 및 Parquet과 같은 구조적 파일 형식에만 적용됩니다. 사용자 지정 분류는 DOC, PDF 및 XLSX와 같은 구조화되지 않은 데이터 파일 형식에 적용되지 않습니다.
+
 ## <a name="steps-to-create-a-custom-classification"></a>사용자 지정 분류를 만드는 단계
 
 사용자 지정 분류를 만들려면 다음 단계를 수행합니다.
 
-1. 카탈로그의 왼쪽 메뉴에서 **데이터 맵** 을 선택 합니다.
+1. 카탈로그의 왼쪽 메뉴에서 **데이터 맵** 선택합니다.
 
-2. **주석 관리** 에서 **분류** 를 선택 합니다.
+2. 주석 관리 에서 **분류를** 선택합니다. 
 
 3. **+ 새로 만들기** 를 선택합니다.
 
@@ -85,7 +88,7 @@ Contoso는 사용자 지정 분류 규칙을 만들어 이러한 ID의 인스턴
 
 1. 이전 섹션의 지침에 따라 사용자 지정 분류를 만듭니다. 이 사용자 지정 분류를 분류 규칙 구성에 추가하여 시스템이 열에서 일치하는 항목을 찾을 때 적용하도록 합니다.
 
-2. **데이터 맵** 아이콘을 선택 합니다.
+2. **데이터 맵** 아이콘을 선택합니다.
 
 3. **분류 규칙** 섹션을 선택합니다.
 

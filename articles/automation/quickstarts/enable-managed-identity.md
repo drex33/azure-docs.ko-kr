@@ -5,16 +5,16 @@ services: automation
 ms.date: 09/07/2021
 ms.topic: quickstart
 ms.subservice: process-automation
-ms.openlocfilehash: 14fc0af0b75639ae79c417645912a868a0df34f6
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 13b314e5f73a0c970e28dfdd87551d713d60175b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123544762"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131462124"
 ---
 # <a name="quickstart-enable-managed-identities-for-your-automation-account-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Automation 계정에 대한 관리 ID를 사용하도록 설정
 
-이 빠른 시작에서는 Azure Automation 계정에 대해 관리 ID를 사용하도록 설정하는 방법을 보여줍니다. 관리 ID가 Azure Automation에서 작동하는 방법에 대한 자세한 내용은 [관리 ID](../automation-security-overview.md#managed-identities-preview)를 참조하세요.
+이 빠른 시작에서는 Azure Automation 계정에 대해 관리 ID를 사용하도록 설정하는 방법을 보여줍니다. 관리 ID가 Azure Automation에서 작동하는 방법에 대한 자세한 내용은 [관리 ID](../automation-security-overview.md#managed-identities)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -53,7 +53,6 @@ ms.locfileid: "123544762"
 1. **사용자 할당 관리 ID** 에서 기존 사용자 할당 관리 ID를 선택한 다음, **추가** 를 선택합니다. 그러면 **사용자 할당** 탭으로 돌아갑니다.
 
    :::image type="content" source="media/enable-managed-identity/added-user-identity-portal.png" alt-text="포털에서 사용자 할당을 추가했습니다.":::
-
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

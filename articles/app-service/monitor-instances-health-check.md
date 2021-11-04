@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/19/2021
 ms.author: msangapu
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: 7d69eb2e7a5adc669d5299f2309cfa2244b6678e
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 59e3d0f8e71de6333b3978dd9d40b51206a8a2a1
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130257255"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131462351"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>상태 검사를 사용하여 App Service 인스턴스 모니터링
 
@@ -24,7 +24,7 @@ ms.locfileid: "130257255"
 
 - 앱에서 경로를 지정하는 경우 상태 검사는 1분 간격으로 App Service 앱의 모든 인스턴스에서 이 경로를 ping합니다.
 - 인스턴스가 두 개 이상의 요청 후에 200-299(포함) 사이의 상태 코드를 사용하여 응답하지 않거나 ping에 응답하지 못하는 경우 시스템은 인스턴스가 비정상 상태임을 확인하고 제거합니다.
-- 제거 후 상태 검사는 비정상 인스턴스를 계속 ping합니다. 계속해서 응답하지 않는 경우 App Service는 기본 VM을 다시 시작하여 인스턴스를 정상 상태로 되돌립니다.
+- 제거 후 상태 검사는 비정상 인스턴스를 계속 ping합니다. 인스턴스가 정상 상태 코드(200-299)로 응답하기 시작하면 인스턴스가 부하 분산기로 반환됩니다.
 - 인스턴스가 1시간 동안 비정상 상태로 유지되면 새 인스턴스로 바뀝니다.
 - 또한 스케일 업하거나 스케일 아웃할 때 App Service는 새 인스턴스가 준비되도록 Health check 경로를 ping합니다.
 
@@ -81,7 +81,7 @@ ms.locfileid: "130257255"
 
 ### <a name="are-the-health-check-requests-sent-over-http-or-https"></a>상태 검사 요청이 HTTP와 HTTPS 중에서 어떤 프로토콜을 통해 전송되나요?
 
-Windows App Service 사이트에서 HTTPS만 사용하도록 설정된 경우 [HTTPS를](configure-ssl-bindings.md#enforce-https) 통해 상태 검사 요청이 전송됩니다. 그렇지 않으면 HTTP를 통해 전송됩니다. Linux App Service 상태 검사 요청은 HTTP를 통해서만 전송되며 현재 HTTP **S를** 통해 전송될 수 없습니다.
+Windows App Service 사이트에서 HTTPS만 사용하도록 설정되면 [HTTPS를](configure-ssl-bindings.md#enforce-https) 통해 상태 검사 요청이 전송됩니다. 그렇지 않으면 HTTP를 통해 전송됩니다. Linux App Service 상태 검사 요청은 HTTP를 통해서만 전송되며 현재 HTTP **S를** 통해 전송할 수 없습니다.
 
 ### <a name="what-if-i-have-multiple-apps-on-the-same-app-service-plan"></a>동일한 App Service 플랜에 여러 앱이 있는 경우 어떻게 되나요?
 

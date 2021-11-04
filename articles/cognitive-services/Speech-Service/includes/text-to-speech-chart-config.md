@@ -3,19 +3,19 @@ title: Speech 컨테이너 설치
 titleSuffix: Azure Cognitive Services
 description: text-to-speech helm 차트 구성 옵션을 자세히 설명합니다.
 services: cognitive-services
-author: aahill
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/01/2020
-ms.author: aahi
-ms.openlocfilehash: 22168974ab8b285413b4fa6e947c05f65a73ae12
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: eur
+ms.openlocfilehash: b29fc97b9b354ce76728fdf3f2ed4f2cb4f3b6ad
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96002290"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131500776"
 ---
 ### <a name="text-to-speech-sub-chart-chartstexttospeech"></a>텍스트 음성 변환(하위 차트: charts/textToSpeech)
 

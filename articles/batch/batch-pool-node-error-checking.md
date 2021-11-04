@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/15/2021
 ms.topic: how-to
-ms.openlocfilehash: 86ea4ce4d596875e455d7b86250882713a14337f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 295877bd894d9a91ba310d133c670a40db5f10ec
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104720154"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131454944"
 ---
 # <a name="check-for-pool-and-node-errors"></a>풀 및 노드 오류 확인
 
@@ -40,7 +40,7 @@ Azure Batch 풀을 만들고 관리할 때 일부 작업은 즉시 수행됩니�
 - [풀이 가상 네트워크에 있을 때](./batch-virtual-network.md) 리소스가 부족함
   - Batch 계정과 동일한 구독에 부하 분산 장치, 공용 IP 및 네트워크 보안 그룹과 같은 리소스를 만들 수 있습니다. 구독 할당량이 이러한 리소스에 대해 충분한지 확인합니다.
 - 사용자 지정 VM 이미지를 사용하는 큰 풀
-  - 사용자 지정 VM 이미지를 사용하는 큰 풀은 할당 시간이 더 오래 걸릴 수 있으며 크기 조정 오류가 발생할 수 있습니다.  제한 및 구성에 대한 권장 사항은 [공유 이미지 갤러리를 사용하여 풀 만들기](batch-sig-images.md)를 참조하세요.
+  - 사용자 지정 VM 이미지를 사용하는 큰 풀은 할당 시간이 더 오래 걸릴 수 있으며 크기 조정 오류가 발생할 수 있습니다.  제한 및 구성에 대 한 권장 사항은 [Azure Compute 갤러리를 사용 하 여 풀 만들기](batch-sig-images.md) 를 참조 하세요.
 
 ### <a name="automatic-scaling-failures"></a>자동 크기 조정 실패
 

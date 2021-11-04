@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/09/2021
+ms.date: 11/02/2021
 ms.author: b-juche
-ms.openlocfilehash: ba34d9d1d85ae5845247133289001ffe58174213
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.openlocfilehash: e05850686fca42a8d21bc477e39171ff792db307
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407649"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473835"
 ---
 # <a name="create-and-manage-active-directory-connections-for-azure-netapp-files"></a>Azure NetApp Files에 대한 Active Directory 연결 만들기 및 관리
 
@@ -93,6 +93,17 @@ Azure NetApp Files의 여러 기능을 수행하려면 Active Directory에 연�
 
 * 비 AD 통합 DNS의 경우 "친숙한 이름"을 사용하여 Azure NetApp Files가 작동할 수 있도록 DNS A/PTR 레코드를 추가해야 합니다. 
 
+* 다음 표에서는 LDAP 캐시의 TTL(Time to Live) 설정에 대해 설명합니다. 클라이언트를 통해 파일이나 디렉터리에 액세스하기 전에 캐시가 새로 고쳐질 때까지 기다려야 합니다. 그렇지 않으면 액세스 또는 사용 권한 거부 메시지가 클라이언트에 표시 됩니다. 
+
+    |     오류 조건    |     해결 방법    |
+    |-|-|
+    | 캐시 |  기본 시간 제한 |
+    | 그룹 구성원 목록  | 24시간 TTL  |
+    | Unix 그룹  | 24시간 TTL, 1분 부정 TTL  |
+    | Unix 사용자  | 24시간 TTL, 1분 부정 TTL  |
+
+    캐시에 *TTL(Time to Live)* 이라는 특정 제한 시간이 있습니다. 시간 초과 기간이 지나면 항목이 만료되므로 오래된 항목이 유지되지 않습니다. *부정 TTL* 값에는 존재하지 않을 수 있는 개체에 대한 LDAP 쿼리로 인한 성능 문제를 방지할 수 있도록 실패한 조회가 상주합니다.”   
+
 ## <a name="decide-which-domain-services-to-use"></a>사용할 도메인 서비스 결정 
 
 Azure NetApp Files는 AD 연결을 위해 [Active Directory Domain Services](/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology)(ADDS)와 Azure Active Directory Domain Services(AADDS)를 모두 지원합니다.  AD 연결을 만들기 전에 ADDS를 사용할지 아니면 AADDS를 사용할지 결정해야 합니다.  
@@ -120,7 +131,7 @@ Azure NetApp Files에는 다음과 같은 추가 AADDS 고려 사항이 적용�
 * Azure NetApp Files는 `user` 및 `resource forest` 형식을 지원합니다.
 * 동기화 유형에 대해 `All` 또는 `Scoped`를 선택할 수 있습니다.   
     `Scoped`를 선택하는 경우 SMB 공유에 액세스하기 위해 올바른 Microsoft Azure Active Directory 그룹을 선택했는지 확인합니다.  확실하지 않은 경우 `All` 동기화 유형을 사용할 수 있습니다.
-* 이중 프로토콜 볼륨에 AADDS를 사용 하는 경우 POSIX 특성을 적용 하기 위해 사용자 지정 OU에 있어야 합니다. 자세한 내용은 [LDAP POSIX 특성 관리](create-volumes-dual-protocol.md#manage-ldap-posix-attributes) 를 참조 하세요.
+* 이중 프로토콜 볼륨에서 AADDS를 사용하는 경우 POSIX 특성을 적용하려면 사용자 지정 OU에 있어야 합니다. 자세한 내용은 [LDAP POSIX 특성 관리를](create-volumes-dual-protocol.md#manage-ldap-posix-attributes) 참조하세요.
 
 Active Directory 연결을 만들 때 AADDS에 대한 다음 사항에 유의해야 합니다.
 
@@ -255,11 +266,11 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
 
     * **관리자** 
 
-        볼륨에 대한 관리자 권한을 부여할 사용자 또는 그룹을 지정할 수 있습니다. 
+        볼륨에 대한 관리자 권한이 부여되는 사용자 또는 그룹을 지정할 수 있습니다. 
 
-        ![Active Directory 연결 창의 관리자 상자를 보여 주는 스크린샷.](../media/azure-netapp-files/active-directory-administrators.png) 
+        ![연결 Active Directory 창의 관리자 상자를 보여 주는 스크린샷](../media/azure-netapp-files/active-directory-administrators.png) 
         
-        **관리자** 기능은 현재 미리 보기로 제공됩니다. 이 기능을 처음 사용하는 경우 사용하기 전에 등록합니다. 
+        **관리자** 기능은 현재 미리 보기로 제공 됩니다. 이 기능을 처음 사용하는 경우 사용하기 전에 등록합니다. 
 
         ```azurepowershell-interactive
         Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAdAdministrators

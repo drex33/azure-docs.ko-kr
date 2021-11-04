@@ -1,20 +1,20 @@
 ---
 title: Azure CLI를 사용하여 Azure CDN(Content Delivery Network) 프로필 및 엔드포인트 만들기
 description: Azure CDN 프로필, 엔드포인트, 원본 그룹, 원본 및 사용자 지정 도메인을 만드는 Azure CLI 샘플 스크립트.
-author: asudbring
-ms.author: allensu
+author: duongau
+ms.author: duau
 manager: danielgi
 ms.date: 03/09/2021
 ms.topic: sample
 ms.service: azure-cdn
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ce01c1f851a5dbaedc85d848b12bf0b0831a16ef
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 46966ed6e4e0db1be50919d368bf1ff2fd0fa85a
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104723495"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131476855"
 ---
 # <a name="create-an-azure-cdn-profile-and-endpoint-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure CDN 프로필 및 엔드포인트 만들기
 
